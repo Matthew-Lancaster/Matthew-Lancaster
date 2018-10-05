@@ -21,32 +21,39 @@ TITLE %~f0
 @REM ----------------------------------------------------------------
 
 
+@REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE IF CAN'T GET IT TO GO ADMIN
+
 IF '%1%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
 	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-	@IF '%errorlevel%' GTR '2' (
+	@IF '%errorlevel%' GTR '2' SET NOT_GOT_ADMIN=TRUE
+)
+
+@IF "%NOT_GOT_ADMIN%"=="TRUE" (
 	ECHO AN ATTEMPT WAS MADE TO SET ADMIN BUT NOT SUCCESSFUL
 	ECHO YOUR USER MUST BE A STANDARD USER OR SOMETHING LIKE HER
 	ECHO SAVES GET STUCK IN A LOOP ASKING OR ALSO DELAY REQUIRING
 	ECHO END
 	PAUSE
+	GOTO ENDE
 	EXIT /B 1
-	)
-@ECHO Got ADMIN Privileges __ Requested and Obtained
+)
+	
 )
 @REM :: Check for ADMIN Privileges
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 @IF '%errorlevel%' GTR '2' (
-	@REM Get ADM IN Privileges
-	TIMEOUT /T 4
+	@REM Get ADMIN Privileges
 	@ECHO Set UAC = CreateObject^("Shell.Application"^) >> "%temp%\getadmin.vbs"
 	@ECHO UAC.ShellExecute "%~s0", "/ADMIN", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
 	"%temp%\getadmin.vbs"
 	@DEL "%temp%\getadmin.vbs"
+	GOTO ENDE
 	@EXIT /B
 )
 @ECHO Got ADMIN Privileges
+
 
 
 @SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
@@ -138,6 +145,8 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.t
 
 :VERY_ENDER_BLOCK
 
+
 IF "%1"=="" PAUSE
 IF "%1"=="/ADMIN" PAUSE
 
+:ENDE

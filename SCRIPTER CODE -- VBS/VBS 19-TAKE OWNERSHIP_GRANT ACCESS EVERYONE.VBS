@@ -117,15 +117,17 @@ Sub BEGIN
 	T1 = T1 + "IF '%1%'=='/ADMIN' (" + vbCrLf
 	T1 = T1 + "	    @REM :: Check for ADMIN Privileges Again" + vbCrLf
 	T1 = T1 + "     >nul 2>&1 ""%SYSTEMROOT%\system32\cacls.exe"" ""%SYSTEMROOT%\system32\config\system""" + vbCrLf
-	T1 = T1 + "	    @IF '%errorlevel%' GTR '2' (" + vbCrLf
-	T1 = T1 + "     ECHO AN ATTEMPT WAS MADE TO SET ADMIN BUT NOT SUCCESSFUL" + vbCrLf
-	T1 = T1 + " 	ECHO YOUR USER MUST BE A STANDARD USER OR SOMETHING LIKE HER" + vbCrLf
-	T1 = T1 + " 	ECHO SAVES GET STUCK IN A LOOP ASKING OR ALSO DELAY REQUIRING" + vbCrLf
-	T1 = T1 + " 	ECHO END" + vbCrLf
-	T1 = T1 + "     PAUSE" + vbCrLf
-	T1 = T1 + "	    EXIT /B 1" + vbCrLf
-	T1 = T1 + "	    )" + vbCrLf
-	T1 = T1 + "@ECHO Got ADMIN Privileges __ Requested and Obtained" + vbCrLf
+	T1 = T1 + "	    @IF '%errorlevel%' GTR '2'  SET NOT_GOT_ADMIN=TRUE" + vbCrLf
+	T1 = T1 + ")" + vbCrLf
+	
+	T1 = T1 + "@IF ""%NOT_GOT_ADMIN%""==""TRUE"" (" + vbCrLf
+	T1 = T1 + "    ECHO AN ATTEMPT WAS MADE TO SET ADMIN BUT NOT SUCCESSFUL" + vbCrLf
+	T1 = T1 + "    ECHO YOUR USER MUST BE A STANDARD USER OR SOMETHING LIKE HER" + vbCrLf
+	T1 = T1 + "    ECHO SAVES GET STUCK IN A LOOP ASKING OR ALSO DELAY REQUIRING" + vbCrLf
+	T1 = T1 + "    ECHO END" + vbCrLf
+	T1 = T1 + "    PAUSE" + vbCrLf
+	T1 = T1 + "    GOTO ENDE" + vbCrLf
+	T1 = T1 + "	   EXIT /B 1" + vbCrLf
 	T1 = T1 + ")" + vbCrLf
 
 	T1 = T1 + "@Rem :: Check for ADMIN Privileges" + vbCrLf
@@ -136,9 +138,12 @@ Sub BEGIN
 	T1 = T1 + "    echo UAC.ShellExecute ""%~s0"", ""/ADMIN"", """", ""runas"", 1 >> ""%temp%\getadmin.vbs""" + vbCrLf
 	T1 = T1 + "    ""%temp%\getadmin.vbs""" + vbCrLf
 	T1 = T1 + "    del ""%temp%\getadmin.vbs""" + vbCrLf
+	T1 = T1 + "    GOTO ENDE" + vbCrLf
 	T1 = T1 + "    EXIT /B" + vbCrLf
 	T1 = T1 + ")" + vbCrLf
 	T1 = T1 + "ECHO Got ADMIN Privileges" + vbCrLf
+	T1 = T1 + ":ENDE" + vbCrLf
+	
 	T1 = T1 + "@CD\" + vbCrLf
 	T1 = T1 + "@ECHO ON" + vbCrLf
 	T1 = T1 + "SET PATH_TO_DO=" + vbCrLf
