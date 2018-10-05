@@ -81,12 +81,12 @@ Over and Out
 ~
 Matthew
 [ Friday 01:30:00 Am_05 October 2018 ] Begin GitHub
-[ Friday 04:40:00 Am_05 October 2018 ] Play Around a Lot This Text Editing
+[ Friday 04:40:00 Am_05 October 2018 ] Play Around a Lot & This Text Editing
 [ Friday 10:40:00 Am_05 October 2018 ]
 [ Friday 12:50:50 Pm_05 October 2018 ]
 [ Friday 13:04:00 Pm_05 October 2018 ]
 [ Friday 14:00:00 Pm_05 October 2018 ]
-[ Friday 17:14:00 Pm_05 October 2018 ] All Day and Long Time
+[ Friday 19:20:00 Pm_05 October 2018 ] All Day & Long Time
 
 
 Home Here
