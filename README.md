@@ -80,19 +80,20 @@ A Well Worth While Allnighter it was to I been a dreamer of this one for a long 
 Over and Out
 ~
 Matthew
-[ Friday 01:30:00 Am_05 October 2018 ] Begin GitHub
-[ Friday 04:40:00 Am_05 October 2018 ] Play Around a Lot & This Text Editing
+
+[ Friday 01:30:00 Am_05 October 2018 ]Begin GitHub
+[ Friday 04:40:00 Am_05 October 2018 ]
 [ Friday 10:40:00 Am_05 October 2018 ]
 [ Friday 12:50:50 Pm_05 October 2018 ]
 [ Friday 13:04:00 Pm_05 October 2018 ]
 [ Friday 14:00:00 Pm_05 October 2018 ]
-[ Friday 19:20:00 Pm_05 October 2018 ] All Day & Long Time
+[ Friday 19:20:00 Pm_05 October 2018 ]All Day & Long Time
 
 
 Home Here
 ----
 Matthew-Lancaster | A Collection of Scripts For AutohotKeys, Dos Batch Command, 
-VBSript, VB6, Grub4Dos, Reg Keys, Win Powershell, SMTP Send Email Script.
+VBSript, VB6, Grub4Dos, Reg Keys, Win Powershell, SMTP.
 ---------------------------------------------------------------------
 https://matthew-lancaster.github.io/matthew-lancaster/
 ----
