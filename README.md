@@ -13,7 +13,8 @@ Reg Keys,
 Win Powershell, 
 SMTP Send Email Script,
 And Some Boot BCD Editor
-Just In Case You Wondering About to Create an EFI Partition After Deleted it All for the Easier Option with Grub4Dos
+Just In Case You Wondering About to Create an EFI Partition After Deleted it All for 
+the Easier Option with Grub4Dos
 	
 Site Offering on Education and Share-er
 
@@ -56,7 +57,8 @@ Include my camera reel roll up-loader
 Which is quite nice a used a lot
 None sync programs get you camera reel off-loader as nicely with date marking
 
-And pin items to the taskbar for windows 10 another good one mine and another person main part code working
+And pin items to the taskbar for windows 10 another good one mine and another person 
+main part code working
 
 My code style is a bit of a sod with rem line do some explain
 Many projects I use all the time and work perfectly
@@ -78,15 +80,19 @@ A Well Worth While Allnighter it was to I been a dreamer of this one for a long 
 Over and Out
 ~
 Matthew
-[ Friday 04:40:00 Am_05 October 2018 ]
+[ Friday 01:30:00 Am_05 October 2018 ] Begin GitHub
+[ Friday 04:40:00 Am_05 October 2018 ] Play Around a Lot This Text Editing
 [ Friday 10:40:00 Am_05 October 2018 ]
 [ Friday 12:50:50 Pm_05 October 2018 ]
 [ Friday 13:04:00 Pm_05 October 2018 ]
 [ Friday 14:00:00 Pm_05 October 2018 ]
+[ Friday 17:14:00 Pm_05 October 2018 ] All Day and Long Time
+
 
 Home Here
 ----
-matthew-lancaster | A Collection of Scripts For AutohotKeys, Dos Batch Command, VBSript, VB6, Grub4Dos, Reg Keys, Win Powershell, SMTP Send Email Script.
+Matthew-Lancaster | A Collection of Scripts For AutohotKeys, Dos Batch Command, 
+VBSript, VB6, Grub4Dos, Reg Keys, Win Powershell, SMTP Send Email Script.
 ---------------------------------------------------------------------
 https://matthew-lancaster.github.io/matthew-lancaster/
 ----
