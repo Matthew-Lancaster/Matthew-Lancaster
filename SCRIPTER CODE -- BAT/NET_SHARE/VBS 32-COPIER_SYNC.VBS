@@ -1,120 +1,31 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES 01.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS
 '# __ 
-'# __ VBS 29-COPY CAMERA PHOTO IMAGES 01.VBS
+'# __ VBS 32-COPIER_SYNC.VBS
 '# __ 
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
-'# START     TIME [ Thu 14-Jun-2018 14:22:00 ]
-'# END FINAL TIME [ Thu 14-Jun-2018 17:00:00 ] 2 hours, 38 minutes and 0 seconds
+'# START     TIME [ Fri 05-Oct-2018 21:30:00 ]
+'# END FINAL TIME [ Fri 05-Oct-2018 22:38:00 ]
 '# __ 
 '====================================================================
 
 '# ------------------------------------------------------------------
 ' DESCRIPTION 
 ' -------------------------------------------------------------------
-' OFF LOAD MY CAMERA REEL
-' FROM TWO CAMERA DETECTED BY VOLUME NAME OF MEDIA CARD
-' WORKS FOR FEW MEDIA CARD AT MOMENT AND EXPANDING
-' RUN AND DISPLAY RESULT FOR EACH AT A TIME IN A FOR NEXT LOOP
-'
-' THIS THE MEDIA CARD DETECTOR & LAUNCHER OF THIS PROGRAM
-' \SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
-'
-' SYNCHRONIZER PROGRAMS NEVER HAVE WHAT I WANT
-' GOODSYNC HAD A STEP IN RIGHT DIRECTION
-' BUT ONLY WITH MOVE MODE
-' WANTED MOVE LIKE COPY
-' MOVE FILES OFF CAMERA REEL IS NOT WHAT I WANT
-' I RATHER WAIT UNTIL MEDIA CARD IS FULL BEFORE DELETE AND START AGAIN
-' IT TAKES KEEPING A RECORD TIME & DATE OF EACH FILE UPLOADED
-' WITH SYNC PROGRAM I GOT TO SET THE TIME AND DATE OFTEN 
-' AND ONLY WITHIN ONE WHOLE DAY OR TERRIBLE DIFFICULT
-' -------------------------------------------------------------------
-' IT IS BASED ON A COUPLE OF FOLDER FROM WHOLE MEDIA CARD
-' IT WOULD BE HARDER TO DO MY MOBILE ONE AS MANY ROOT FOLDER
-' SO EXTRA WORK I GOT TO DO SETTING THE BASE FOLDER NOT WHOLE CARD 
-' SHOULD BE EASIER WITH ANOTHER ARRAY FOR MOBILE USE SOON
-' -------------------------------------------------------------------
-' CAREFUL ON FIRST TIME RUNS IF NEW TO THIS AND BEEN USE SYNCHRONIZER BEFORE
-' AS WILL UPLOAD WHOLE CARD AGAIN
-' WHY I LEFT A TEST DATE TO DEBUG PUT IN
-' -------------------------------------------------------------------
-' THE DATE MARKER FOR CAMERA FILE IS STORED IN A FILE PER MEDIA-CARD VOLUME-NAME 
-' AND IS THE 
-' ELDEST DATE FROM THE BATCH
-' IT MIGHT BE BETTER TO DO IT FOR EACH FILE IN-CASE OF ERROR BUT IF GOT VIDEO FOLDER
-' AND PHOTO IT THEN MAKES THE DATE OUT OF SYNC
-' UNLESS YOU HAD A SORTING CODE AND IN VBS QUITE DIFFICULT
-' NEEDS SOME THOUGHT ON THAT DISGUSTING ONE
+' WHAT DOS'S XCOPY CAN'T DO
+' OR ROBOCOPY IS ONLY DESIGN UP TO 32 BIT AND WIN XP
+' XCOPY COPY ONE LATEST FILE OVER ANOTHER
+' IF THINK GOING TO BE RECYCLING COPY OF PATH HIGHER THAN OTHER
+
 ' -------------------------------------------------------------------
 
 '#-------------------------------------------------------------------
-' 002 __ MORE WORK ADD __ FUJI CAMERA ON
+' 001 __ 
 ' -------------------------------------------------------------------
-' Sat 16-Jun-2018 10:35:23
-' Sat 16-Jun-2018 11:31:44 __ 1 HOUR
+' WELL I MANAGED THE __  REDIM PRESERVE'S GOING IN VBS
+' ONLY THING OF TWO JOB
 '#-------------------------------------------------------------------
-
-'#-------------------------------------------------------------------
-' 003 __ MORE WORK ADD __  PROCESS ONLY FILES SO EMPTY FOLDER DO GET ON
-'                          DON'T UPLOAD THUMBS FOR VIDEO
-'                          DETECT OF ANY JPG'S COPIED SO DON'T AUTO RUN RENAMER
-' -------------------------------------------------------------------
-' Mon 02-Jul-2018 09:18:00
-' Mon 02-Jul-2018 10:23:00 __ 1 HOUR+ WITH BREAK TIME
-'#-------------------------------------------------------------------
-
-'#-------------------------------------------------------------------
-' 004 __ THE AUTOHOTKEYS PROGRAM SCRIPTOR THAT WORKS WITH THIS CODE
-'        HAS NOW BEEN EXTRACTED FROM THE OTHER AND NOW RUNS AS AN INDIVIDUAL PROGRAM '        TO PARTNER WITH HERE CODE
-' IS HERE
-' C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
-' THIS PROGRAM SCRIPTOR VBS ALSO RUNS SOME OTHER VBA VB6 APP
-'#-------------------------------------------------------------------
-
-'#-------------------------------------------------------------------
-' 005 __ ADD NEW 
-' -------------------------------------------------------------------
-' 1.. CAMERA _ GO PRO _ & FOUND OUT MY GOPRO WAS ONLY A REPLICA CLONE & 
-' NOT REAL GOPRO AND APP ON SMARTPHONE OUT-DATER NOT ANY LONGER DOES WIFI OVER
-' 2.. NEW YELLOW CAMERA DOUBLE SCREEN ONE
-'
-' 3.. ADD MORE FEATURE LIKE GO WITH THE YEAR NUMBER AND CREATE FOLDER
-' IF OUT OF TIMING A LITTLE BIT OVER NEW YEAR EASY MOVE FILE OVER
-'
-' 4.. ADD COPY EVERYTHING FROM A CERTAIN DRIVE LIKE GOPRO DRIVE 
-' ONLY UNLESS CERTAIN OTHER EXCLUDED LIKE _GSDATA_
-'
-' 5.. ADDED MOVE MODE FOR DODGY PICTURE _ RISK IS FILE ERROR COPY AND DELETE AFTERWARD HOPE NOT SO
-'
-' 6.. ADD OTHER OPTION DEPEND ON COMPUTER NAME
-'     DON'T SHOW EXPLORER ON DODGY COMPUTER AROUND BUILDING AND IF DODGY PATH IMAGE-ER
-'     OR DODGY LESS QUICKER SPEC LOW END PC
-' -------------------------------------------------------------------
-' Mon 01-Oct-2018 22:07:00
-' Mon 01-Oct-2018 23:51:09 __ TOOK A BREAK FOR A WHILE TEST OTHER THING NOT CODER HERE
-' Mon 02-Oct-2018 00:40:00 __ 4..
-' Mon 02-Oct-2018 01:38:00 __ 5..
-' Mon 02-Oct-2018 01:50:00 __ 6..
-'#-------------------------------------------------------------------
-
-'#-------------------------------------------------------------------
-' 006 __ ADD NEW 
-' -------------------------------------------------------------------
-' 1.. CAMERA _ SAMSUNG MINI S5
-' WHICH IS JUST A FOLDER ALREADY BEEN SYNC OVER AND PUT IN PHOTO AREA
-' 
-' 2.. ADD FOLDER TO SCAN IS ABLE TO NOW BE AT DEPTH _ QUITE A BIT OF WORKING
-' HOPE NONE ERROR WITH OTHER FOLDER DRIVE WORKER KNOCK ON EFFECT
-'
-' 3.. ADD DIALOG AT END NOT DISPLAY IF COUNTER NOT UP ON NAUGHT AND D DRIVE AS SHOWING ALWAYS
-' NORMAL THE TIMING OF FOLDER LOAD IS SOON AS BEGIN FOR A PRESENT EXIST DRIVE OR SAVE FOR LATER 
-' WHEN COUNTER SHOW SOME DONE
-' -------------------------------------------------------------------
-' Tue 02-Oct-2018 06:04:58 __ 
-' Mon 02-Oct-2018 07:35:00 __ WORK TOOK 80 CLIPBOARD EVENTS
-' -------------------------------------------------------------------
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -126,6 +37,112 @@ DIM ComputerName
 CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+
+DIM objSuperFolder
+
+Dim FSO
+Set FSO = CreateObject("Scripting.FileSystemObject")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
+
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+
+DIM VAR_PATH_FILE_1()
+DIM VAR_PATH_FILE_2()
+
+I_COUNTER = 30
+
+REDIM VAR_PATH_FILE_1(I_COUNTER)
+REDIM VAR_PATH_FILE_2(I_COUNTER)
+
+I_COUNT=0
+I_COUNT=I_COUNT+1
+VAR_PATH_FILE_1(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
+VAR_PATH_FILE_2(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 29-NET_SHARE_ALL.BAT"
+
+I_COUNT=I_COUNT+1
+VAR_PATH_FILE_1(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\VBS 32-COPIER_SYNC.VBS"
+VAR_PATH_FILE_2(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
+
+REDIM PRESERVE VAR_PATH_FILE_1(I_COUNT)
+REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
+
+FOR R_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
+
+	FileModDate_1=0
+	FileModDate_2=0
+
+	IF VAR_PATH_FILE_1(R_COUNT)<>"" THEN 
+		IF FSO.FileExists(VAR_PATH_FILE_1(R_COUNT)) AND _
+			FSO.FileExists(VAR_PATH_FILE_2(R_COUNT)) THEN 
+		
+			Set f1 = fso.GetFile(VAR_PATH_FILE_1(R_COUNT))
+			Set f2 = fso.GetFile(VAR_PATH_FILE_2(R_COUNT))
+			FileModDate_1 = f1.DateLastModified
+			FileModDate_2 = f2.DateLastModified
+			SET f1=NOTHING
+			SET f2=NOTHING
+
+			IF FileModDate_1>0 AND FileModDate_2>0 THEN 
+			
+				IF FileModDate_1>FileModDate_2 THEN
+					Fso.CopyFile VAR_PATH_FILE_1(R_COUNT), VAR_PATH_FILE_2(R_COUNT)
+				END IF
+
+				IF FileModDate_1<FileModDate_2 THEN
+					Fso.CopyFile VAR_PATH_FILE_2(R_COUNT), VAR_PATH_FILE_1(R_COUNT)
+				END IF
+			
+			END IF
+		END IF
+	END IF
+NEXT
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+' THIS PROCESS NOT TOO GOOD AS THESE SCRIPT IN BAT WAKE ALL THE DRIVE WHEN SCAN THEM FOR FOLDER
+' AS PART OF SYNC DO
+' INCORP IN TO CAMERA LOADER
+' -------------------------------------------------------------------
+
+DIM RUN_COPY(2)
+
+'RUN_COPY(1)="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
+'RUN_COPY(2)="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
+
+FOR R_COUNT=1 TO UBOUND(RUN_COPY)
+	IF RUN_COPY(R_COUNT)<>"" THEN 
+		IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
+			WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
+		END IF
+	END IF
+NEXT
+
+Wscript.QUIT
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+' ----
+' VBScript Arrays: Using DIM, REDIM Statements and Ubound Array Functions
+' https://www.softwaretestinghelp.com/vbscript-arrays-tutorial-7/
+' ----
+
+' ----
+' VbsEdit - VBScript Editor with Debugger - VBS Editor
+' https://www.vbsedit.com/
+' ----
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
 
 DIM JPG_BEEN_DONE
 
@@ -140,16 +157,6 @@ DIM I_COUNT_1
 DIM I_COUNT_2
 DIM VAR_PATH_SCANNER
 DIM IMAGE_POINTER_NAME
-
-DIM objSuperFolder
-
-Dim FSO
-Set FSO = CreateObject("Scripting.FileSystemObject")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
-Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
-
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
 
 
 Dim arr1
@@ -235,7 +242,6 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	FOLDER_PATH_DEST_VAR=FOLDER_PATH_DEST(R_COUNT)
 	
 	FOLDER_PATH_VAR_3=FOLDER_PATH_VAR(R_COUNT)
-
 	
 	IF FOLDER_PATH_VAR_2<>"" THEN 
 		
@@ -323,27 +329,6 @@ IF WORK_GO_ER=FALSE THEN
 	MSGBOX I
 
 END IF
-
-
-' -------------------------------------------------------------------
-' THIS PROCESS NOT TOO GOOD AS THESE SCRIPT IN BAT WAKE ALL THE DRIVE WHEN SCAN THEM FOR FOLDER
-' AS PART OF SYNC DO
-' INCORP IN TO CAMERA LOADER
-' -------------------------------------------------------------------
-
-DIM RUN_COPY(2)
-
-RUN_COPY(1)="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
-RUN_COPY(2)="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
-
-FOR R_COUNT=1 TO UBOUND(RUN_COPY)
-
-	IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
-		WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
-	END IF
-	
-NEXT
-
 
 
 SET objFSO = NOTHING
