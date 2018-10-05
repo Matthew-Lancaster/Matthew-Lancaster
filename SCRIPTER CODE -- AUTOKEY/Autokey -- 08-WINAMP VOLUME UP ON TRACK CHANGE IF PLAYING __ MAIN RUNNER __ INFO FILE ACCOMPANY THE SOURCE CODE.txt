@@ -1,0 +1,62 @@
+------------------------------------------------
+Tue 31-Jan-2017 04:12:22 P
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 08-WINAMP VOLUME UP ON TRACK CHANGE IF PLAYING.AHK
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 08-WINAMP VOLUME UP ON TRACK CHANGE IF PLAYING.txt
+------------------------------------------------
+
+
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 08-WINAMP VOLUME UP ON TRACK CHANGE IF PLAYING.AHK
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+SET OF URL TO FIND HOW
+CONTINUE WINAMP PLAYING
+BUT AND MOST HELP FORUM IS BACK IN YEAR 2000
+NOT BEFORE INTERNET
+AND NOT EVER AND PLAY BUTTON FOR URL TO KEEP CONTINUOUS PLAY WHEN STREAM OFTEN STOP OR PAUSE
+A BIT COMICAL ACTUALLY
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+----
+WINAMP STAY STREAM PLAYING ALL THE TIME PLUGIN - Google Search
+https://www.google.co.uk/search?num=50&rlz=1C1CHBD_en-GBGB721GB721&q=WINAMP+STAY+STREAM+PLAYING+ALL+THE+TIME+PLUGIN&oq=WINAMP+STAY+STREAM+PLAYING+ALL+THE+TIME+PLUGIN&gs_l=serp.3...56079.70247.0.70725.30.30.0.0.0.0.125.1984.29j1.30.0....0...1c.1.64.serp..0.13.941...30i10k1j0i7i30k1j0i7i5i30k1j0i8i30k1j0i8i7i30k1.vd5cgYN2W5Y
+--------
+WINAMP CONTINUOUS PLAY STREAM ALL THE TIME PLUGIN - Google Search
+https://www.google.co.uk/search?num=50&rlz=1C1CHBD_en-GBGB721GB721&q=WINAMP+CONTINUOUS+PLAY+STREAM+ALL+THE+TIME++PLUGIN&oq=WINAMP+CONTINUOUS+PLAY+STREAM+ALL+THE+TIME++PLUGIN&gs_l=serp.3...5518.23616.0.24336.60.55.0.0.0.0.138.3672.52j2.54.0....0...1c.1.64.serp..9.23.1740...30i10k1j0i30k1.2tdUdTQIQOo
+--------
+Winamp Technical Support [Archive] - Page 33 - Winamp & SHOUTcast Forums
+http://forums.winamp.com/archive/index.php/f-11-p-33.html
+--------
+Plays for a minute than stops, 20 seconds later plays [Archive] - Winamp & SHOUTcast Forums
+http://forums.winamp.com/archive/index.php/t-46451.html
+--------
+Trouble playing m3u/stream on winamp [Archive] - Winamp & SHOUTcast Forums
+http://forums.winamp.com/archive/index.php/t-45932.html
+--------
+Winamp only plays 2 seconds! Please Help [Archive] - Winamp & SHOUTcast Forums
+http://forums.winamp.com/archive/index.php/t-46049.html
+--------
+Playing URL-s automatically [Archive] - Winamp & SHOUTcast Forums
+http://forums.winamp.com/archive/index.php/t-46135.html
+--------
+Can't play streamed MP3 [Archive] - Winamp & SHOUTcast Forums
+http://forums.winamp.com/archive/index.php/t-46168.html
+--------
+Continuous Playing - Winamp & SHOUTcast Forums
+http://forums.shoutcast.com/showthread.php?t=220672
+--------
+Winamp & SHOUTcast Forums - Search Results
+http://forums.shoutcast.com/search.php?searchid=16504985
+--------
+Winamp freezing issue - Winamp & SHOUTcast Forums
+http://forums.shoutcast.com/showthread.php?t=390522&highlight=CONTINOUS
+--------
+Send/SendRaw/SendInput/SendPlay/SendEvent: Send keys & clicks
+https://autohotkey.com/docs/commands/Send.htm
+--------
+Radionomy Group (Nullsoft) | Portal
+http://help.winamp.com/
+----

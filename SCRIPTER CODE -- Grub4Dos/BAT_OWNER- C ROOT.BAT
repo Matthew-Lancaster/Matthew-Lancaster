@@ -1,0 +1,13 @@
+@ECHO BEGIN 01 OF 02 -- SET OWNER EVERYONE
+@ECHO Q FOR QUITE ABOUT SUCCESS MESSAGING
+CD \
+Icacls C:\* /setowner "Everyone" /C /L
+
+@ECHO NEXT 02 OF 02 -- GRANT EVERYONE
+
+REM PAUSE
+
+Icacls C:\* /C /L /grant Everyone:F
+@ECHO.
+@ECHO DONE
+PAUSE

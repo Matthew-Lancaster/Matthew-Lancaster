@@ -1,0 +1,11 @@
+BLUETOOTH EVENT
+
+--------------------------------------------------------
+Outgoing Mail SMTP Port 25
+SASL Method
+SendSMTP_v2.19.0.1
+----
+SendSMTP - Tool to send SMTP email via command-line parameters or interactively
+https://www.virtualobjectives.com.au/utilitiesprogs/sendsmtp.htm
+----
+-0-

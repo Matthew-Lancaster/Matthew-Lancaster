@@ -1,0 +1,3 @@
+
+powershell -noexit -executionpolicy bypass -File "C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\PS 02 - GET-ITEMPROPERTY_INSTALLED_PROGRAMS_LOCATION.PS1"
+

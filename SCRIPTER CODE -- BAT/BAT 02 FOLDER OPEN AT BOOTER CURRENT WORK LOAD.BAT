@@ -1,0 +1,1 @@
+START "" /MIN "EXPLORER" "C:\PStart\Progs\SendSMTP_v2.19.0.1"
