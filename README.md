@@ -71,6 +71,9 @@ Matthew
 [ Friday 12:50:50 Pm_05 October 2018 ]
 [ Friday 13:04:00 Pm_05 October 2018 ]
 
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+
 Home Here
 ----
 matthew-lancaster | A Collection of Scripts For AutohotKeys, Dos Batch Command, VBSript, VB6, Grub4Dos, Reg Keys, Win Powershell, SMTP Send Email Script.
@@ -78,7 +81,8 @@ matthew-lancaster | A Collection of Scripts For AutohotKeys, Dos Batch Command, 
 https://matthew-lancaster.github.io/matthew-lancaster/
 ----
 
-----
+---------------------------------------------------------------------
+---------------------------------------------------------------------
 
 GitHub WSP Browser Home 
 ----
