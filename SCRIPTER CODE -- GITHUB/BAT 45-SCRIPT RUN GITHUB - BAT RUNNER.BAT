@@ -1,0 +1,9 @@
+REM ------------------------------------------------
+REM Fri 05-Oct-2018 12:34:53 P
+REM C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT
+REM C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.txt
+REM ------------------------------------------------
+
+START "" "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+
+EXIT
