@@ -1,0 +1,22 @@
+
+
+REM CD /D D:\
+REM CD /D D:\KAT MP3 RECORDER\KAT MP3 5-ASUS-P2520LA
+
+
+REM REM C:\SCRIPTER\SCRIPTER -- VBS\KILL_KAT MP3 ----.VBS
+REM 'NOT DOING MUCH
+REM 'RATHER A SUBFOLDER SCAN ALSO
+
+REM @for /f "usebackq delims=;" %%A in (`dir /s /b *.MP3`) do @If %~zA LSS 327053 echo "%%A"
+
+
+REM ECHO.
+
+
+REM @SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+REM @FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
+REM @FOR /L %%# IN (20,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
+	REM PING -n 2 127.0.0.1 >NUL:)
+	
+EXIT

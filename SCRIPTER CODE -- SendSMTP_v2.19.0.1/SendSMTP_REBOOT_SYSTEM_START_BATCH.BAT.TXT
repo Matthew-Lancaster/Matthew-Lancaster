@@ -1,0 +1,415 @@
+@SETLOCAL EnableDelayedExpansion
+@ECHO OFF
+SET DRIVER=%SystemDrive%
+@CD\
+TITLE %~f0 __ LOGON EVENTER EMAIL __
+REM TITLE %~f0 __ LOGON EVENTER EMAIL __ %VAR_DATE% -- %COMPUTERNAME% -- %IP%
+@REM ----------------------------------------------------------------
+
+
+REM -- ------------------------------------------------------------------
+REM -- BATCH FILE WILL HAVE PROBLEM IF RUN IN VB WORKER
+REM -- WHEN PATH IS NOT AT THIS PLACE 
+REM -- SO ADD THAT ON BEFORE
+REM -- ------------------------------------------------------------------
+REM -- MAJOR UPGRADE 2017 APRIL 04 12:08 AM -----------------------------
+REM -- BEEN ON IT MOST THE DAY CONTINUE FORM ANOTHER DAY BEFORE REVAMP_ER
+REM -- ------------------------------------------------------------------
+REM -- WE ARE HERE LOCATION
+REM -- "C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_SYSTEM_START_BATCH.BAT"
+REM -- "C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_LOGON_BATCH.BAT"
+REM -- ------------------------------------------------------------------
+REM -- START "" "C:\Program Files (x86)\Notepad++\notepad++.exe" "C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_LOGON_Body.txt"
+REM -- ------------------------------------------------------------------
+REM -- START "" "C:\Program Files (x86)\Notepad++\notepad++.exe" "C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_SYSTEM_Body.txt"
+REM -- ------------------------------------------------------------------
+
+@ECHO ----------------------------------------------------------------
+@ECHO LOGON EVENTER __ EMAIL
+@ECHO ----------------------------------------------------------------
+@ECHO OFF
+
+@SET VAR_DATE=%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%--%TIME:~0,8%
+REM __ ----------------------------------------------------------------
+SET WORD_REPLACE_1=" "
+SET WORD_REPLACE_2=0
+SET WORD_REPLACE_1=%WORD_REPLACE_1:"=%
+REM __ Command Quote Mark Stripper " "
+CALL SET VAR_DATE=%%VAR_DATE:%WORD_REPLACE_1%=%WORD_REPLACE_2%%%
+
+SET wmicmd="wmic NICCONFIG WHERE IPEnabled=true GET IPAddress"
+SET varcounter=0
+FOR /f "tokens=1 delims={, skip=1" %%a in ('%wmicmd%') do call :SETVAR %%a
+SET IP=%IP:"=% & REM __ TRIM THE QUOTE MARK _ DOG EAR MARK RIPER
+FOR /f "tokens=1 delims= " %%a in ('ECHO %IP%') DO SET IP=%%a
+
+ECHO %VAR_DATE%__%COMPUTERNAME%__%IP%
+@ECHO ----------------------------------------------------------------
+
+SET MAIL_MERGE1=LOGON
+SET MAIL_MERGE2=SYSTEM
+
+SET PATH_FILE_1="%DRIVER%\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_MAIN_Body.txt"
+
+
+
+REM -- SET SEND OUR OWN FILE SOURCE CODE __ SHOW OFF
+REM -- IN CASE YOU WERE WONDERING
+SET FILE_ATTACH1="%~f0"
+SET FILE_ATTACH2="%FILE_ATTACH1:"=%.TXT"
+SET FILE_ATTACH3="%DRIVER%\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_SYSTEM_START_INFO_UP-TO-DATE_Body.txt""
+
+REM ----
+REM BATCH COMMAND GET NAME OF BATCH FILE RUNNING - Google Search
+REM https://www.google.co.uk/webhp?sourceid=chrome-instant&rlz=1C1CHBD_en-GBGB721GB721&ion=1&espv=2&ie=UTF-8#q=BATCH+COMMAND+GET+NAME+OF+BATCH+FILE+RUNNING&*
+REM ----
+REM ----
+REM windows - Finding out the file name of the running batch file - Stack Overflow
+REM http://stackoverflow.com/questions/343518/finding-out-the-file-name-of-the-running-batch-file
+REM ----
+REM BOTH SAME
+ECHO %~f0
+@ECHO ----------------------------------------------------------------
+REM --------------
+REM ECHO "%~dpnx0"
+REM --------------
+REM pnx
+REM --------------
+REM PATH
+REM NAME
+REM EXTENSION
+REM --------------
+
+REM PAUSE
+
+
+CALL :SET_OUTPUT_FILE_NAME_MAIL_MERGE %MAIL_MERGE1% %PATH_FILE_1% %IP% %FILE_ATTACH2%
+CALL :SET_OUTPUT_FILE_NAME_MAIL_MERGE %MAIL_MERGE2% %PATH_FILE_1% %IP% %FILE_ATTACH2%
+
+COPY %FILE_ATTACH1% %FILE_ATTACH2% >NUL 2>NUL
+
+REM ECHO %IP%//7-asus-gl522vw/__room
+REM ECHO %IP%//7-ASUS-GL522VW/__ROOM
+
+REM HTTP:192.168.1.107://7-ASUS-GL522VW/__ROOM
+REM HTTPS:192.168.1.107://7-ASUS-GL522VW/__ROOM
+REM FTP:192.168.1.107://7-ASUS-GL522VW/__ROOM
+
+REM 192.168.1.107://7-ASUS-GL522VW/__ROOM
+
+REM __ROOM (file://7-asus-gl522vw/__room)
+
+REM 192.168.1.107://7-ASUS-GL522VW/__ROOM
+REM FTP:192.168.1.107://7-ASUS-GL522VW/__ROOM
+REM ftp://192.168.1.107/7-ASUS-GL522VW/__ROOM/
+REM EXAMPLE
+REM ----
+REM NAS-QNAP-ML
+REM http://192.168.1.180:8080/cgi-bin/
+REM ----
+
+REM file://7-ASUS-GL522VW/__ROOM
+REM file://7-asus-gl522vw/__room
+
+REM ------------------------------------------------------
+REM THE COMPUTER NAME NOT MUCH GOOD CONNECT FROM MICROSOFT SHARE OUTSIDE WORLD TRYING TODAY
+REM INSTEAD SWITCH TO CHANGE WORK WITH THE QNAP
+REM ------------------------------------------------------
+ECHO %VAR_DATE%__%COMPUTERNAME%__%IP% >> IP_LOGGER.TXT
+
+REM SMART URL -----------------------------------------------
+REM https://qlink.to/Matthew
+REM ANOTHER -------------------------------------------------
+REM http://192.168.1.180:8080/cgi-bin/
+REM ANOTHER -------------------------------------------------
+REM http://matthew.myqnapcloud.com:8080/cgi-bin/
+REM WWW.matthew.myqnapcloud.com:8080/cgi-bin/
+REM WWW. WORK OKAY WITH DOMAIN BUTTER NOT IP
+REM AND ANOTHER --------------------------------------------
+REM https://www.myqnapcloud.com/smarturl/Matthew
+REM MOBILE APP PAGE ----------------------------------------
+REM https://www.qnap.com/en/cell_app/
+REM ------------------------------------------------------------
+REM MY QNAP CLOUD -- WEB
+REM https://account.myqnapcloud.com/signin?lang=en&state=%2Foauth%2Fauth%3Flang%3Den%26response_type%3Dtoken%26client_id%3D54d3144dd6b82f04b0dfea44%26redirect_uri%3Dhttps%253A%252F%252Fwww.myqnapcloud.com%252Freceive_auth%26state%3D%252Fu
+REM rub.rim@gmail.com
+REM 22442244
+REM ------------------------------------------------------------
+REM MY QNAP CLOUD -- WEB -- TURBO SYSTEM LOGIN %%
+REM QNAP IP  -- 192.168.1.180
+REM PUBIC IP -- 86.171.3.83
+REM http://86.171.3.83:8080/cgi-bin/
+REM NOT USE WWW WITH IP
+REM ------------------------------------------------------------
+REM WEB SERVER
+REM http://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:8080/cgi-bin/
+REM http://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:80
+REM httpS://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:8081
+REM AT THE MOMENT ARRIVE AT SAME PAGE AS NORMAL LOGON
+
+
+@ECHO ----------------------------------------------------------------
+TITLE %~f0 __ LOGON EVENTER EMAIL __ %VAR_DATE% -- %COMPUTERNAME% -- %IP%
+
+
+SET SUBJECT_LINE_PASS_THROUGH=%VAR_DATE%__%IP%
+REM ---------------------------------------------------------------------
+REM LOGON
+SET SUBJECT_LINE1="SYSTEM_BOOTER_%MAIL_MERGE1%_%COMPUTERNAME%_%USERNAME%_%SUBJECT_LINE_PASS_THROUGH%"
+REM ---------------------------------------------------------------------
+REM SYSTEM BOOT
+SET SUBJECT_LINE2="SYSTEM_BOOTER_%MAIL_MERGE2%_%COMPUTERNAME%_%USERNAME%_%SUBJECT_LINE_PASS_THROUGH%"
+REM ---------------------------------------------------------------------
+REM BOTH HAPPEN AT LOGON FOR EMAIL SENDER
+REM AND THEN __ I'LL GET THE TIME OF EVENT WRITE FILE __ SYSTEM AND LOGON
+REM ---------------------------------------------------------------------
+
+ECHO SYSTEM_BOOTER_%MAIL_MERGE1%
+ECHO %SUBJECT_LINE1:"=%
+REM @ECHO ----------------------------------------------------------------
+ECHO SYSTEM_BOOTER_%MAIL_MERGE2%
+ECHO %SUBJECT_LINE2:"=%
+
+
+
+SET HOST=MAIL.BTINTERNET.COM
+SET PORT=25
+SET USER_ID=MATT.LAN
+SET AUTHENTICATION_METHOD=2
+
+SET EMAIL_RECEIPENT="Matthew Lancaster <matt.lan@btinternet.com> ; Marianne Vousden <marianne.vousden@gmail.com> ; Eddie Lancaster <lancaster.e@sky.com>"
+
+REM SET EMAIL_BY_ME_FROM="matt.lan@btinternet.com" REM __ /FROM
+REM SET EMAIL_BY_ME_FROM="Matthew Lancaster (%MAIL_MERGE1% Computer) <Matt.Lan@btinternet.com>
+REM SET EMAIL_BY_ME="Matthew Lancaster (By Me) (ML) (Matt Lan) (RoidsRim) (RR) (Mind Police) <Matt.Lan@btinternet.com>"
+
+SET DRIVER_ME="%DRIVER%\PStart\Progs\SendSMTP_v2.19.0.1\SENDSMTP.EXE"
+SET INI_NAME="%DRIVER%\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_SYSTEM_LOGON.ini"
+
+REM @ECHO ----------------------------------------------------------------
+@IF NOT EXIST "C:\SYSTEM START.TXT" ECHO EMAIL NOT SENDER 01 OF 02 %MAIL_MERGE1%
+
+@IF EXIST "C:\SYSTEM START.TXT" (
+ECHO EMAIL OKAY SENDER 01 OF 02 %MAIL_MERGE1%
+@DEL "C:\SYSTEM START.TXT" >NUL 2>NUL
+SET EMAIL_BY_ME_FROM="Matthew Lancaster (SYSTEM__ Computer) <Matt.Lan@btinternet.com>"
+START "" /WAIT /HIGH %DRIVER_ME% /I /HOST %HOST% /PORT %PORT% /USERID %USER_ID% /AUTH %AUTHENTICATION_METHOD% /S %INI_NAME% /TO %EMAIL_RECEIPENT% /BODYFILE %PATH_FILE_1% /SUBJECT %SUBJECT_LINE1% /TYPE PLAIN /FILES %FILE_ATTACH3%,%FILE_ATTACH2%
+)
+
+@IF NOT EXIST "C:\SYSTEM LOGON.TXT" ECHO EMAIL NOT SENDER 02 OF 02 %MAIL_MERGE2%
+@IF EXIST "C:\SYSTEM LOGON.TXT" (
+ECHO EMAIL OKAY SENDER 02 OF 02 %MAIL_MERGE2%
+@DEL "C:\SYSTEM LOGON.TXT" >NUL 2>NUL
+SET EMAIL_BY_ME_FROM="Matthew Lancaster (LOGON__ Computer) <Matt.Lan@btinternet.com>"
+START "" /HIGH %DRIVER_ME% /I /HOST %HOST% /PORT %PORT% /USERID %USER_ID% /AUTH %AUTHENTICATION_METHOD% /S %INI_NAME% /TO %EMAIL_RECEIPENT% /BODYFILE %PATH_FILE_1% /SUBJECT %SUBJECT_LINE2% /TYPE PLAIN /FILES %FILE_ATTACH3%,%FILE_ATTACH2%
+)
+
+REM /I /LOGSMTP 
+
+REM ------------------------------------------------------------
+REM /LOGSMTP /I --- OTHER OPTION SET -- DO LOGGER -- INTERACTIVE
+REM ------------------------------------------------------------
+REM PAUSE
+GOTO ENDER
+
+:SETVAR
+SET /a varcounter=%varcounter% + 1
+IF NOT {%1}=={} (
+	REM ECHO NIC %varcounter% address is {%1}
+	SET NIC%varcounter%=%1
+	SET IP=%1 	
+)
+GOTO :eof
+
+REM __ Mon 03 April 2017 16:12:22----------
+REM __ ANOTHER ON TOP HERE IS HOW USE DELIM WITH STRING RATHER THAN FILE WOULD OF BEEN EASIER TO SAY_ER
+REM __ USE ECHO AS COMMAND TO OUTPUT TEXT RATHER THAN A COMMAND THAT HAD THE LEARN
+REM __ DELIM ONLY USE COMMAND
+
+REM __ ALSO UNDER HERE --------------------
+REM __ THE USUAL SIMPLE REMOVE TRAILING SPACE WON'T WORK IF SPECIAL CHAR FOR THE TAB WANT REMOVER
+REM __ BUT DELIM WILL REMOVE SPACE WHERE WORK TRIM THE END WHERE _SPACE_ IS
+REM __ FOR /f "tokens=1 delims=," %%a IN ('ECHO %IP%') DO SET IP=%%a & REM REMOVE TAB AT END
+REM __ ------------------------------------
+
+REM __ ALSO UNDER HERE --------------------
+REM __ ----------------------------------------------------------------
+REM __ Delims IS ONLY 1 CHARACTER SEARCH HERE EXAMPLE EXTRACT TEXT BETWEEN 2 Delims FINDER
+
+REM __ USUAL SHIT SEARCHING THE WEB AGAIN __ TAKE ALL DAY __ Mon 03 April 2017 16:12:22----------
+REM ----
+REM __ How to remove trailing and leading whitespace for user-provided input in a batch file? - Stack Overflow
+REM __  http://stackoverflow.com/questions/3001999/how-to-remove-trailing-and-leading-whitespace-for-user-provided-input-in-a-batch
+REM __ ----
+
+REM ------------------------------------------------------------------
+REM ::trim left whitespace
+REM ------------------------------------------------------------------
+REM for /f "tokens=* delims= " %%a in ("%IP%") do set input=%%a
+REM ------------------------------------------------------------------
+REM ::trim right whitespace (up to 100 spaces at the end)
+REM ------------------------------------------------------------------
+REM for /l %%a in (1,1,100) do if "!IP:~-1!"==" " set input=!IP:~0,-1! 
+REM -- OR MY MODIFY --------------------------------------------------
+REM ::trim right whitespace
+REM ------------------------------------------------------------------
+REM FOR /f "tokens=1 delims=," %%a IN ('ECHO %IP%') DO SET IP=%%a
+REM ------------------------------------------------------------------
+REM -- OR FIND __ OR __ TRIM LEFT & RIGHT SPACE 
+REM ------------------------------------------------------------------
+REM set IP=%IP: =%
+REM SET IP=%IP:"=% & REM __ TRIM THE QUOTE DOG EAR MARK
+REM ------------------------------------------------------------------
+
+
+:SET_OUTPUT_FILE_NAME_MAIL_MERGE
+REM -------------------------------------------------
+REM -- ^%1 IS LOGON OR SYSTEM __ BOOTER WORD AND PATH
+REM -------------------------------------------------
+REM -- PASS PARAMETER ^%1 AND ^%2 
+REM -- USE THE SYMBOL CARET ^ TO MAKE A VARIABLE THAT WOULD BE USE TO NOT USER
+REM -- USE ONE REDIRECTION TYPE PIPE ^> TO OPEN FILE EMPTY AND TWO ^>> TO APPEND_ER
+REM -------------------------------------------------
+REM -- ALSO THE PIPE IS ABLE WORK AS REDIRECT OUTPUT TO A NULL NOTHING VOID NAUGHT EMPTY 
+REM -- WHEN AS THE FIRST INSTANCE LIKE HERE ^> AND WHEN USE TWICE IN ONE LINE THE 2ND ^2> 
+REM -- WILL REDIRECT WITH THE 2 NUMERIC IN FRONT_ER
+REM -- OUTPUT OF ERROR INFO THAT WOULD CLEAR UP MESS IF NOT WANT TO SHOW WHERE SPECIAL ^>NUL
+REM -- IGNORE THE CARET SYMBOL
+REM -------------------------------------------------
+
+ECHO --------------------------------------------------------------------------- >%2
+ECHO --------------------------- >>%2
+ECHO SYSTEM BOOT __ LOGON OR SYSTEM START __ %1 __ OF MY COMPUTER >>%2
+ECHO --------------------------- >>%2
+ECHO. >>%2
+ECHO --------------------------- >>%2
+ECHO IP ADDRESS @ MY COMPUTER SHARED FOLDER SETTING >>%2
+REM ECHO ftp://%3/7-ASUS-GL522VW/__ROOM/ >>%2
+ECHO FTP://%3/%COMPUTERNAME%/__ROOM/ >>%2
+ECHO --------------------------- >>%2
+ECHO. >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO IP LOGGER @ MY __ QNAP __ MANY VARIATION ACCESS ENTRY HARDCore>>%2
+ECHO THE FILE HERE IS THE SAME FOR LOGON OR SYSTEM STARTER__ BATCH FILE GENERATOR _ SPELL ERROR DONE _ UNDO SPELLER ONLY CHECK COMMENT NOT CODE>>%2
+ECHO 3 ATTACHMENT ARRIVE 1 IS CALLED "1" THAT IS SAME AS EMAIL CONTENT UNAVOIDABLE __ NUMBER 2 HERE IS THE BATCH COMMAND SCRIPTOR SAME FOR LOGON AND SYSTEM BOOTER __ AND NUMBER 3 INFO MY EDIT >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO THE FRONT MENU LOGON HAS BEGINNER OF DETAIL ABOUT UPLOAD_ER AND METHOD >>%2
+ECHO THAT IS ABOUT __ UPLOAD HAPPEN WHILE READ AND WRITE ACCESS >>%2
+ECHO SYNCHRONISE COME ALONG AND PICK IT UP ALMOST INSTANTLY >>%2
+ECHO USER THAT PERFORM UPLOAD_ER IS AND THEN ABLE TO SEE THAT TAKE PLACE >>%2
+ECHO USER HAS THEN THE OPTION TO BE OKAY TO DELETER THE UPLOADING TO PASS ONTO ME >>%2
+ECHO USER THEN WILL OBSERVE THEN SYNC_ER OVER TO OTHER FOLDER WILL REMAIN THERE >>%2 
+ECHO IN MINE READ ONLY SO THAT ANOTHER USER IS NOT ABLE TO DELETER >>%2 
+ECHO AND THEN REMAIN WILL BE THERE FOR AN O'CLOCK OF MIDNIGHT >>%2 
+ECHO AND THEN FOR 48 HOUR 2 DAY ONLY >>%2 
+ECHO ALSO A VERSION AVAILABLE FOR GOOGLE DRIVE A MATCHER >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO LOADS OF WORK TO DO ABOUT SYNCHRONISER >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO PITY ABOUT THE MAKER GOODSYNC FELL OUT WITH IT ALL SO BADLY >>%2
+ECHO Tue 04 April 2017 01:27:00---------- >>%2
+ECHO UNIVERSITY PLAGIARISM UNDERACHIEVER COPY STOLEN ADVANCED WORD 3 TIME USER ONE LETTER >>%2
+ECHO WANTED TO TAKE AND CASH IN THE WHOLE LOT SO MUCH THAT THREW IT AWAY CRASHING RIPER >>%2  
+ECHO TRIED TO STEAL IT USE AS A PERSONAL REMARK STOLEN AFTER 2 YEAR COMMUNICATOR ABOUT >>%2  
+ECHO NOTHING ACHIEVER _ I FIND IT OUT MYSELF IN THE END >>%2  
+ECHO WORD CHOICE VOCABULARY PERSONAL REMARK STOLEN USED BACK STOLEN PLAGIARISED OF A SINGLE >>%2  
+ECHO WORD POPPER __ AND THROWN BACK A 100 TIMES HARD HE DID GET A TELLING OFF BY MINE >>%2 
+ECHO ORIGINALLY IT WAS NOTHING TO DO WITH STOLEN FROM MY PART MERELY MY OWN WORD CHOICE >>%2  
+ECHO TO DO WITH BEING HELPFUL >>%2  
+ECHO AT THE HELP DESK SUPPORT AGREEMENT >>%2 
+ECHO WHEN A WORD POPPING UNIVERSITY TYPE HANG THEMSELVES BY GREED TO THROW IT ON A >>%2 
+ECHO PERSONAL REMARK STAIN PUT DOWN ON CHARACTER WHICH THEN BACKFIRE TRAGICALLY >>%2 
+ECHO LOOK LIKE LIKE LIKE LOST THEY LOST THEIR TONGUE NOW ALWAYS NOT A REPLY AND >>%2 
+ECHO GET THE LAST WORD >>%2
+ECHO. >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO IP LOGGER @ MY __ QNAP __ MANY VARIATION ACCESS ENTRY HARDCore>>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO https://www.myqnapcloud.com/smarturl/Matthew >>%2
+ECHO https://qlink.to/Matthew >>%2
+ECHO http://192.168.1.180:8080/cgi-bin/ >>%2
+ECHO http://matthew.myqnapcloud.com:8080/cgi-bin/ >>%2
+ECHO www.matthew.myqnapcloud.com:8080/cgi-bin/ >>%2
+ECHO WWW. WORK OKAY WITH WHEN_ER DOMAIN NAME BUTTER AND THEN NOT IP CODE ADDRESS >>%2
+ECHO -------------------------------- >>%2
+ECHO QNAP IP FOR PUBLIC REMOTE -- 86.171.3.83 >>%2
+ECHO http://86.171.3.83:8080/cgi-bin/ >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO ---------- >>%2
+ECHO WEB SERVER >>%2
+ECHO ---------- >>%2
+ECHO http://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:8080/cgi-bin/ >>%2
+ECHO http://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:80 >>%2
+ECHO httpS://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:8081 >>%2
+ECHO AT THE MOMENT NOT A WEB-PAGE SO ARRIVE AT SAME PAGE AS LOGON NORMAL HER >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO LOADS MORE TO LEARN >>%2
+ECHO --------------------------------------------------------------------------- >>%2
+ECHO. >>%2
+
+SET HOST=MAIL.BTINTERNET.COM
+SET PORT=25
+SET USER_ID=MATT.LAN
+SET AUTHENTICATION_METHOD=2
+SET EMAIL_RECEIPENT="Matthew Lancaster <matt.lan@btinternet.com> ; Marianne Vousden <marianne.vousden@gmail.com> ; Eddie Lancaster <lancaster.e@sky.com>"
+SET DRIVER_ME="%DRIVER%\PStart\Progs\SendSMTP_v2.19.0.1\SENDSMTP.EXE"
+SET INI_NAME="%DRIVER%\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_SYSTEM_LOGON.ini"
+
+ECHO ------------------------------------------------------------------------------- >>%2
+ECHO Outgoing Mail SMTP Port 25 >>%2
+ECHO SASL Method >>%2
+ECHO SendSMTP_v2.19.0.1 >>%2
+ECHO HOST_________________=%HOST%
+ECHO PORT_________________=%PORT%
+ECHO USER_ID______________=%USER_ID%
+ECHO AUTHENTICATION_METHOD=%AUTHENTICATION_METHOD%
+ECHO EMAIL_RECEIPENT__=%EMAIL_RECEIPENT%
+ECHO EXE______________=%DRIVER_ME%
+ECHO INI_NAME_________=%INI_NAME%
+ECHO ------------------------------------------------------------------------------- >>%2
+ECHO SendSMTP - Tool to send SMTP email via command-line parameters or interactively >>%2
+ECHO https://www.virtualobjectives.com.au/utilitiesprogs/sendsmtp.htm >>%2
+ECHO ------------------------------------------------------------------------------- >>%2
+ECHO. >>%2
+ECHO ATTACHMENT FILE_NAME ------ >>%2
+ECHO %4 >>%2
+ECHO. >>%2
+ECHO ------------------------------------------------------------------------------- >>%2
+ECHO ~0~ >>%2
+ECHO OVER >>%2
+ECHO ~ >>%2
+ECHO ------------------------------------------------------------------------------- >>%2
+
+GOTO :eof
+
+EXIT
+:ENDER
+
+@ECHO OFF
+
+REM -- CARET SYMBOL ARE USED IN FRONT THE ^& SIGN OR NOT DISPLAY THE AMPERSAND IN ECHO
+REM ----
+REM BATCH COMMAND FILE COUNT TO EXIT - Google Search
+REM https://www.google.co.uk/webhp?sourceid=chrome-instant^&rlz=1C1CHBD_en-GBGB721GB721^&ion=1^&espv=2^&ie=UTF-8#q=BATCH+COMMAND+FILE+COUNT+TO+EXIT^&*
+REM ----
+REM Count down in a batch file - Programming (C^++, Delphi, VB/VBS, CMD/batch, etc.) - MSFN
+REM http://www.msfn.org/board/topic/33520-count-down-in-a-batch-file/
+REM ----
+@ECHO ----------------------------
+@ECHO INFORMATION AT LOCATION HERE ----------------------------
+@ECHO %~f0
+@ECHO %~dp0IP_LOGGER.TXT
+@ECHO %PATH_FILE_1:"=%
+@ECHO %FILE_ATTACH2:"=%
+@ECHO %FILE_ATTACH3:"=%
+@ECHO C:\PStart\Progs\0_Nirsoft_Package\NirSoft\TurnedOnTimesView.exe
+@ECHO C:\24_SYSTEM_START.BAT ^& C:\22_LOGON.BAT _ MAKER RUN FLAG EMAIL PICKER MAKE COPY OF THEMSELVES @\ EXTENSION CHANGED .BAT TO .TXT
+@ECHO -------------
+
+@ECHO OFF
+@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+@FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
+@FOR /L %%# IN (40,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
+	PING -n 2 127.0.0.1 >NUL:)
+
+EXIT
