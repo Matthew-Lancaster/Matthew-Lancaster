@@ -1197,6 +1197,34 @@ IfWinExist DuplicateCleaner
 	}
 }
 
+
+; --------------------------------------------------------------------
+; Stopping With Warning About Open a Batchfile in Scripter GitHub Folder
+; --------------------------------------------------------------------
+; C:\Windows\SystemApps\Microsoft.Windows.AppRep.ChxApp_cw5n1h2txyewy\CHXSmartScreen.exe
+; HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System
+; DWord
+; EnableSmartScreen=0
+; --------------------------------------------------------------------
+; This one worked Instant Change to change the Form From a Windows 10 APP to a Normal Form Window
+; HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
+; String
+; SmartScreenEnabled
+; Off
+; --------------------------------------------------------------------
+; The publisher could not be verified. Are you sure that you want to run this software?
+; Open File - Security Warning
+IfWinExist Open File - Security Warning
+{
+	ControlGetText, OutputVar, The publisher could not be verified , Open File - Security Warning
+	IF OutputVar 
+	{	
+		SoundBeep , 2500 , 100
+		ControlClick, &Run, Open File - Security Warning
+	}
+}
+
+
 ;DuplicateCleaner
 IfWinExist Scan cancelled
 {
