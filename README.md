@@ -1,69 +1,65 @@
 # matthew-lancaster
-
-C:\SCRIPTOR GITHUB\README _ Public Domain Ownership & Education Share-er.md
-
+----
 Hi There Everyone Coder GitHub and Elsewhere
+----
 
-Just a Few Word on Public Domain
+Just for education and share-er
 
-At GitHub If I Set Any Ownership Rights License
-and Publish in Public the Free of Cost Mode for Github
+One word on public domain
+At github if i set any type of ownership rights license
+And publish in public the free of cost mode for github
 
-That Would Mean all Ownership Rights Are Set That Commercial Usage is Allowed
-While That is Not a Benefit for My Worker 
-I Would Like to Be Contacted For My Hitt Counter Result
+That would mean all ownership rights are set that commercial usage is allowed
+While that is not a benefit for my worker 
+I would like to be contacted somewhere with the hitt counter result
 
-While on the Other Hand
-It Hard to Talker that any Configuration of Code
-Can Be a Mirror Print of Someone Has Done Before
+While on the other hand rights
+It hard to talker that any configuration of code
+Be a mirror print of someone has done before
 
-While I Take the Stance that My Code Might Include Somebody Else Work
-That is another Reason for Use the Public & License Name Unlicensed
+While i take the stance that my code might include somebody else work
+And always credit due
+That is another reason for use the public domain & license name unlicensed
 
-If it Were Set to Nothing and then It would Be a Copy Right Over Again
+If any work i included by another i will have their agenda about copy rights to readme.txt
 
-I Did Read all this Before I Began it Here in Github
+If it were set to nothing and then it would be copyright all over again
+By way of not giving consent i reckon
 
-This was the Best Option after Reading Somebody
-Recommending Github
+I did read all this about rights while starting here in github
 
-While I was Look for Option to Show Off My Code
-And It Very Difficult to Hold a Website and Then Allow to View Code 
-Without It Talking this Document Unable to Be Display as Text
-And Download Option is there Instead
+This was the best option after long reading somebody recommending github
+And wish somewhere to host code proper
 
-Is Only for Education at the End of the Day
-I Get Enjoyment from It And Hope You Will
+Is only for education not making money
+I get enjoyment from it and hope you will as a hobbyist
+Or benefit as long as you give me credit learn
 
-I Shall Look to Include Some Visual Basic 6 Projects Also
-When I Get Time Look in the Area of Folder
-This is My Script Folder While Editor Mode Sort them Out
-I Class VB6 Different from them in another Folder
-As Originally Were Working on them before My Scripter Folder Came along
-And My Scriptor Folder Include Quite a Bit on VBS VBScript
+I shall look to include some large amount visual basic 6 projects also
+When i get time another folder
+This is my edited script folder 
 
-Include My Camera Reel Roll Up-Loader
-Which is Quite Nice a Used a Lot
-None Sync Programs Get You Camera Reel Off-Loader as Nicely
+Codes include
+Include my camera reel roll up-loader
+Which is quite nice a used a lot
+None sync programs get you camera reel off-loader as nicely with date marking
 
-And Pin Items to Task Bar For Windows 10 Another Good One
+And pin items to task bar for windows 10 another good one mine and another person main part code working
 
-Lots There What I Find Constructive to User of a Dozy Computer
+My code style is a bit of a sod with rem line do some explain
+Many project i use all the time and work perfectly
 
-My Code Style is a Bit Shaky and Rem Line Do Some Explain
-But Many Project I Use All the Time and Work Perfectly
+Nice to have github to show off at last with updater 
+The site of my page is to show off my code to my contacts base mainly
+I'm not really looking for code improvements by other people without asking
 
-Not Sure What Update GitHub Will Look This is My 1st
-Nice to Have Somewhere Updater Good
-The Site Of My Page Is to Show Off Code to My Friend Base Mainly
-I Don't Really Want Any Improvement Done to the code Without Asking
-
-I'm a Bit Weak at 50 Nearly Knocking on that Door 1968
-And Had a Broken Clavicle Bone From Damage Bike Riding Most of My Learn 
-I Know It Is Bleeding Heart on the Internet 
-And Then What Else Do I Talk
+I'm a bit weak for coding at 50 nearly knocking on that door 1968
+And had a broken clavicle bone from damage bike riding most of my learn 
+I know it is bleeding heart on the internet 
+And then what else do i talk
 
 Yours Kindly
 ~
 Matthew
 [ Friday 04:40:00 Am_05 October 2018 ]
+[ Friday 10:40:00 Am_05 October 2018 ]
