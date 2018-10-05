@@ -54,13 +54,20 @@ REM ECHO !PATH_TO_DO!
 REM ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
 REM ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
 
+SET PATH_TO_DO="C:\SCRIPTOR GITHUB\*"
+ECHO !PATH_TO_DO!
+ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
+ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
 
+
+@REM ----------------------------------------------------------------
 IF NOT %COMPUTERNAME%==4-ASUS-GL522VW   GOTO JUMP_OVER_HERE
 	SET PATH_TO_DO="F:\Users_BAK\*"
 	ECHO !PATH_TO_DO!
 	ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
 	ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
 :JUMP_OVER_HERE
+@REM ----------------------------------------------------------------
 
 SET PATH_TO_DO="D:\VI_ DSC ME\*"
 ECHO !PATH_TO_DO!
