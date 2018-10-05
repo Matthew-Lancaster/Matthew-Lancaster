@@ -18,18 +18,24 @@
 @REM ----------------------------------------------------------------
 
 
+@REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE IF CAN'T GET IT TO GO ADMIN
+
 IF '%1%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
 	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-	@IF '%errorlevel%' GTR '2' (
+	@IF '%errorlevel%' GTR '2' SET NOT_GOT_ADMIN=TRUE
+)
+
+@IF "%NOT_GOT_ADMIN%"=="TRUE" (
 	ECHO AN ATTEMPT WAS MADE TO SET ADMIN BUT NOT SUCCESSFUL
 	ECHO YOUR USER MUST BE A STANDARD USER OR SOMETHING LIKE HER
 	ECHO SAVES GET STUCK IN A LOOP ASKING OR ALSO DELAY REQUIRING
 	ECHO END
 	PAUSE
+	GOTO ENDE
 	EXIT /B 1
-	)
-@ECHO Got ADMIN Privileges __ Requested and Obtained
+)
+	
 )
 @REM :: Check for ADMIN Privileges
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -40,9 +46,11 @@ IF '%1%'=='/ADMIN' (
 
 	"%temp%\getadmin.vbs"
 	@DEL "%temp%\getadmin.vbs"
+	GOTO ENDE
 	@EXIT /B
 )
 @ECHO Got ADMIN Privileges
+
 
 pushd "%cd%"
 
@@ -124,6 +132,8 @@ TIMEOUT /T 120
 :WINDOWS_XP
 
 :VERY_ENDER_BLOCK
+
+:ENDE
 
 EXIT /B
 
