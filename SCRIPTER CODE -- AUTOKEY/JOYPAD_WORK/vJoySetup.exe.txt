@@ -1,0 +1,52 @@
+------------------------------------------------
+Sat 06-Oct-2018 02:19:56 P
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\JOYPAD_WORK\vJoySetup.exe
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\JOYPAD_WORK\vJoySetup.txt
+------------------------------------------------
+This EXE File Come From This ZIP
+
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\JOYPAD_WORK\vJoyConfig.zip
+
+These Zip Come From On-Line
+
+Find in a Minute
+
+Was Quite a Search Down
+Missing Link URL
+At the Moment
+
+In order to use the the SHK script for JOy Control
+The Driver Has to Be Installed
+
+Problems I Had
+
+The Driver is a Simulator
+
+And It Got One Driver Name
+Microsoft Something or Other
+
+Also I Still Never Found How to Use AHK to Detect Which JoyPad was Plugged in By Device Name
+They All Report as Microsoft Driver
+
+Which Rather Annoying to Program Code
+and Use Maximum of Joy Pad Button for Digital Imputing
+
+Only Way For Me Is Do that thing On Visual Basic 
+With a Logitech Controller and Software
+Of Which You Can Use Any JoyPad Not Just Logitech
+Which the Software Which Partly Found On line and Via Logitech
+
+The JoyPad Controller Here
+Is Good if You Want to Swap Buttons I Guess
+That Has Working OKAY
+But If You Press a Button on One Control and Want to to Translate to Press Another Button 
+I'm Not Sure If You Get Two Press Actually
+Far as I Got
+
+It a Problem to Get The Source Also Of Having to Go Back to a Workable Version and things Like That Vicious One
+
+
+
+Over
+~
+[ Saturday 15:00:50 Pm_Sixer October 2018 ]
