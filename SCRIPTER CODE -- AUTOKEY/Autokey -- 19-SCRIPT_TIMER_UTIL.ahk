@@ -1214,6 +1214,19 @@ IfWinExist DuplicateCleaner
 ; --------------------------------------------------------------------
 ; The publisher could not be verified. Are you sure that you want to run this software?
 ; Open File - Security Warning
+; --------------------------------------------------------------------
+
+; --------------------------------------------------------------------
+; I TRY AND SET THE REGKEY AUTO ON START UP \Autokey -- 21-AutoRun.ahk
+; BUT NOT ALLOW PERMISSION ONLY ALLOWED IN REGEDIT MANUALLY
+; --------------------------------------------------------------------
+; BUT I CAN'T WRITE THIS REGISTRY KEY WITHOUT GOING INTO REGEDIT 
+; SOMEHOW NOT PERMISSION
+; --------------------------------------------------------------------
+; RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
+; --------------------------------------------------------------------
+
+
 IfWinExist Open File - Security Warning
 {
 	ControlGetText, OutputVar, The publisher could not be verified , Open File - Security Warning

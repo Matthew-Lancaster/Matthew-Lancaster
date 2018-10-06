@@ -101,6 +101,42 @@ NEXT
 ' -------------------------------------------------------------------
 
 
+
+I_COUNTER = 30
+
+REDIM VAR_PATH_FILE_1(I_COUNTER)
+REDIM VAR_PATH_FILE_2(I_COUNTER)
+
+I_COUNT=0
+I_COUNT=I_COUNT+1
+VAR_PATH_FILE_1(I_COUNT)="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\HANDBRAKE DVD COPIER\VLC\LIBDVDCSS\1.2.12\WIN64\libdvdcss-2.dll"
+VAR_PATH_FILE_2(I_COUNT)="C:\Program Files\HandBrake\libdvdcss-2.dll"
+
+REDIM PRESERVE VAR_PATH_FILE_1(I_COUNT)
+REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
+
+FOR R_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
+
+	FOLDER_1=MID(VAR_PATH_FILE_2(I_COUNT),1,INSTRREV(VAR_PATH_FILE_2(I_COUNT),"\"))
+	
+	IF VAR_PATH_FILE_1(R_COUNT)<>"" THEN 
+		IF FSO.FileExists(VAR_PATH_FILE_1(R_COUNT)) AND _
+			FSO.FileExists(VAR_PATH_FILE_2(R_COUNT)) = FALSE THEN 
+				If FSO.FolderExists(FOLDER_1) Then
+					Fso.CopyFile VAR_PATH_FILE_1(R_COUNT), VAR_PATH_FILE_2(R_COUNT)
+				END IF
+		END IF
+	END IF
+NEXT
+' -------------------------------------------------------------------
+
+
+
+
+
+
+
+
 ' -------------------------------------------------------------------
 ' THIS PROCESS NOT TOO GOOD AS THESE SCRIPT IN BAT WAKE ALL THE DRIVE WHEN SCAN THEM FOR FOLDER
 ' AS PART OF SYNC DO

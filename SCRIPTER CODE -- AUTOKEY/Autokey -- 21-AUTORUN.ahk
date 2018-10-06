@@ -611,6 +611,39 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 
 RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, STARTUP_COMMON_04_ALL, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 ELEVATED PRIV ADMIN _ START_UP.BAT"
 
+; THIS ONE IS TO DO WITH THIS 
+; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; --------------------------------------------------------------------
+; Stopping With Warning About Open a Batchfile in Scripter GitHub Folder
+; --------------------------------------------------------------------
+; C:\Windows\SystemApps\Microsoft.Windows.AppRep.ChxApp_cw5n1h2txyewy\CHXSmartScreen.exe
+; HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System
+; DWord
+; EnableSmartScreen=0
+; --------------------------------------------------------------------
+; This one worked Instant Change to change the Form From a Windows 10 APP to a Normal Form Window
+; HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
+; String
+; SmartScreenEnabled
+; Off
+; --------------------------------------------------------------------
+; The publisher could not be verified. Are you sure that you want to run this software?
+; Open File - Security Warning
+; --------------------------------------------------------------------
+
+; --------------------------------------------------------------------
+; I TRY AND SET THE REGKEY AUTO ON START UP \Autokey -- 21-AutoRun.ahk
+; BUT NOT ALLOW PERMISSION ONLY ALLOWED IN REGEDIT MANUALLY
+; --------------------------------------------------------------------
+; BUT I CAN'T WRITE THIS REGISTRY KEY WITHOUT GOING INTO REGEDIT 
+; SOMEHOW NOT PERMISSION
+; --------------------------------------------------------------------
+
+RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
+
+; MSGBOX CLUE
+
+; exitapp
 
 SET_GO_1=1
 
