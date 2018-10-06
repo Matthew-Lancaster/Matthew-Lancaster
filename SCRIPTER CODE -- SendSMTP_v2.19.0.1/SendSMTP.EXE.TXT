@@ -1,0 +1,209 @@
+------------------------------------------------
+Sat 06-Oct-2018 03:19:37 P
+C:\SCRIPTER\SCRIPTER CODE -- SendSMTP_v2.19.0.1\SendSMTP.exe
+C:\SCRIPTER\SCRIPTER CODE -- SendSMTP_v2.19.0.1\SendSMTP.txt
+------------------------------------------------
+The EXE Program is Obtained Here
+
+Well I Not Available at Original Source Any More
+
+Here is a Copy and Paste of Help File
+
+For The GITHUB Info Binary Are Not Allow
+
+Over
+~
+[ Saturday 15:25:10 Pm_Sixer October 2018 ]
+
+---------------------------------------------------------------------
+
+SendSMTP SendSMTP
+Copyright © 2002-2016 John Buoro, VirtualObjectives 
+All Rights Reserved.
+http://www.VirtualObjectives.com.au
+ 
+
+SendSMTP can send SMTP email via command-line instructions or interactively. This useful utility can be used to send email alerts, programmatically send files, whatever you like.
+
+Installation:
+Extract the files SendSMTP.exe, libeay32.dll, libssl32.dll and ssleay32.dll into the same directory anywhere on your PC or server.
+
+Command-line Usage:
+You can run SendSMTP interactively or you can use a combination of command-line switches.
+Command-line options are:
+
+SendSMTP [/? | /H] [/V] [/I] [/D] [/S filename] [/NOS] 
+         [/LOG] [/LOGSMTP]
+         [/HOST <hostname>] [/PORT <portnumber>]
+         [/AUTH <authentication method>]
+         [[/USERID <userid>] 
+         [/PASS <password>] | /PASS3 <encrypted password>]]
+         [[/MailAgent <name>] 
+         [[/HeloName <name>] 
+         [/FROM <address>] [/TO <address>] [/SUBJECT "<string>"]
+         [/REPLYTO <address>] [/CC <address>] [/BCC <address>]
+         [/BODY "<string>"]
+         [/BODYFILE "<filename>"]
+         [/FILES <filename, "file name", filename, file|20name, ...>]
+         [/TYPE <ContentType>]SWITCH FUNCTION 
+/? or /H The help you are seeing now. 
+/V Displays the version in an About dialog box. 
+/I [Optional] Runs SendSMTP interactively. By default no messages will appear on the screen. (Default) 
+/D [Optional] Execute with debugging on.
+Implies that SendSMTP is run interactively. 
+/S <filename> [Optional] Send mail using a specified settings file. If the switch is not used then the default SendSMTP.ini settings file is used if present. This option will supersede all other switches except /NOS. You can use a combination of settings file with added command-line switches where command-line switches always takes precedence.
+Environment Variables are supported.  
+/NOS [Optional] No settings. Do not use any settings file including the default settings file SendSMTP.ini. Supersedes the /S switch. 
+/LOG Enable the saving of activity to the log file SendSMTP.log 
+The log file is written to the same path where SendSMTP.exe is located.
+Length of log file is limited to 5,000 lines and is automatically truncated.  
+/LOGSMTP Enable the saving of SMTP conversation to the log file SendSMTP_SMTP.log 
+The log file is written to the same path where SendSMTP.exe is located.
+The log file is appended to and not automatically maintained.
+ 
+/HOST <hostname> Name or IP address of the SMTP host. 
+/PORT <portnumber> [Optional] Port number the SMTP host uses for SMTP communication. (Default is port 25) 
+/AUTH <authentication method > [Optional] The authentication method to use when connecting to an SMTP server:
+0 = No Authentication.
+1 = Username and Password Authentication
+2 = SASL Authentication (includes SSL) 
+/USERID <userid> [Optional] The user account used to authenticate with the SMTP host. 
+/PASS <password> [Optional] The password for the user account above.
+/PASS takes precedence over /PASS3  
+/PASS3 <encrypted password> [Optional] The encrypted password for the user account above.
+The encrypted password can be obtained from the Password3 entry in the SendSMTP.ini file if used in the current settings.
+/PASS takes precedence over /PASS3  
+/PASSX <encrypted password> [Deprecated] The encrypted password for the user account above.
+The encrypted password can be obtained from the Password_AES entry in the SendSMTP.ini file.
+This switch is now deprecated. Use /PASS3 instead.
+/PASS takes precedence over /PASSX  
+/MailAgent <name> [Optional] Connect to the SMTP server using a specified mail agent name.
+The default is SendSMTP vvvvvv (Where vvvvvv is the version) 
+/HeloName <name> [Optional] Connect to the SMTP server using a specified HELO / EHLO name.
+The default is SendSMTP vvvvvv (Where vvvvvv is the version) 
+/FROM <address> Email address of who it is sent from. This is also used to populate the From Name. 
+/TO <address>
+/TO "<address1>, <address2>,..." Email address to send to. For multiple email addresses separate with commas and enclose with quotes. e.g. /TO "name1@abc.com, name2@xyz.com" 
+/REPLYTO <address> Email address to send replies back to. 
+/CC <address>
+/CC "<address1>, <address2>,..." Email address to send a carbon copy (cc) to. For multiple email addresses separate with commas and enclose with quotes. e.g. /CC "name1@abc.com, name2@xyz.com" 
+/BCC <address>
+/BCC "<address1>, <address2>,..." Email address to send a blind carbon copy (bcc) to. For multiple email addresses separate with commas and enclose with quotes. e.g. /BCC "name1@abc.com, name2@xyz.com" 
+/SUBJECT "<string>" [Optional] Subject title of your email enclosed in quotes. 
+/BODY "<string>" [Optional] Body text enclosed in quotes.
+ 
+/BODYFILE "<filename>" [Optional] File containing the body text.
+If path or file name contains spaces then it must be enclosed in quotes.
+/BODYFILE supersedes and overwrites text supplied by /BODY switch and saved settings.
+Environment Variables are supported. 
+/FILES <filename, "file name", filename, file|20name, ...> [Optional] File(s) to be attached to the email.
+If path or file name contains spaces then it must be enclosed in quotes.
+Use can use hexadecimal "escape" characters to substitute characters. Just use a pipe character | followed by two digit hex code for the character.
+Example "sample|2c with|20comma.txt" for "sample, with comma.txt" 
+Environment Variables are supported. 
+/TYPE <ContentType> [Optional] Content Type of the mail message. Case insensitive. (Default is PLAIN)
+PLAIN = Plain text.
+HTML = HTML format. 
+
+NOTES:
+The switches can be slashes "/" or minus signs "-"
+Switches are case insensitive.
+Filenames can also include paths. If there are spaces in the filename or path then enclose it with "double quotes".
+
+Examples:
+1) The run the program interactively in debug mode...
+
+SendSMTP /D
+
+2) The run the program using a customised settings file...
+
+SendSMTP /s c:\temp\mysettings.ini
+
+3) Same as above but interactively...
+
+SendSMTP /s c:\temp\mysettings.ini /i
+
+4) Alert an administrator when a backup batch process has failed...
+
+SendSMTP /nos /host mailserver /from NTServer04@abc.com /to ntadmins@abc.com /subject "Error in backup process" /files d:\ntbackup\error.log
+
+5) The run the program using a customised settings file AND you wish to call the program in a batch process where the To field is programmatically supplied as the first parameter...
+
+SendSMTP /s othersettings.ini /to %1
+
+Return Codes:
+0 = Success.
+1 = Failure.
+2 = Settings file not found.
+
+Limitations:
+1) There is no facility for address lookups.
+2) The body is limited to plain text only. 
+3) Diagnostics and error messages are limited. If you are experiencing errors then please consult the log of the host SMTP server. Include the switches /I and /D to see more information.
+4) SendSMTP utilises Transport Layer Security (TLS) version 1.2 and SSL v2/v3.
+5) SASL authentication (Simple Authentication and Security Layer) is limited to the following methods; Anonymous, PLAIN, S/KEY, CRAM-MD5, CRAM-SHA1, and OTP (One-Time-Password). You must have the files libeay32.dll, libssl32.dll and ssleay32.dll in the same directory as SendSMTP.exe for SASL authentication to work. 
+6) As the name suggests, SendSMTP only sends email, it does not receive email.
+
+Other Information:
+1) The SendSMTP program does not require the settings file SendSMTP.ini. This file is created when the "Save Settings as Default" button is clicked on.
+2) The "Save Settings as Default" button will write the settings to the file SendSMTP.ini in the same path as the SendSMTP.exe file. Any text in the Body field will be saved to the SendSMTPBody.rtf file in the same path.
+3) You can create multiple INI files and accompanying Body files if you wish. Use the switch /S to specify the INI file (and hence the Body) you want to use.
+4) You can double click on the version number in the About dialog box to activate and disable debugging.
+5) When using the /PASS3 switch, the encrypted password can be copied from the SendSMTP.ini file if the password is used in the current settings.
+6) Password is encrypted using Rijndael\Serpent\Twofish combination.
+7) Updated versions of libeay32.dll, libssl32.dll and ssleay32.dll can be obtained from Windows binary distributions listed here https://wiki.openssl.org/index.php/Binaries Please download the and install "Win32 OpenSSL" and copy the files libeay32.dll, libssl32.dll and ssleay32.dll from the OpenSSL-Win32 folder and overwrite the files where SendSMTP.exe resides.
+
+
+Freeware Licence Agreement:
+This licence agreement only applies to the free version of this software.
+
+Terms and Conditions
+BY DOWNLOADING, INSTALLING, USING, TRANSMITTING, DISTRIBUTING OR COPYING THIS SOFTWARE ("THE SOFTWARE"), YOU AGREE TO THE TERMS OF THIS AGREEMENT (INCLUDING THE SOFTWARE LICENCE AND DISCLAIMER OF WARRANTY) WITH VIRTUALOBJECTIVES THE OWNER OF ALL RIGHTS IN RESPECT OF THE SOFTWARE. 
+
+PLEASE READ THIS DOCUMENT CAREFULLY BEFORE USING THE SOFTWARE. 
+
+IF YOU DO NOT AGREE TO ANY OF THE TERMS OF THIS LICENCE THEN DO NOT DOWNLOAD, INSTALL, USE, TRANSMIT, DISTRIBUTE OR COPY THE SOFTWARE. 
+
+THIS DOCUMENT CONSTITUTES A LICENCE TO USE THE SOFTWARE ON THE TERMS AND CONDITIONS APPEARING BELOW. 
+
+The Software is licensed to you without charge for use only upon the terms of this licence, and VirtualObjectives reserves all rights not expressly granted to you. VirtualObjectives retains ownership of all copies of the Software. 
+
+1. Licence
+You may use the Software without charge. 
+
+You may distribute exact copies of the Software to anyone. 
+
+2. Restrictions
+VirtualObjectives reserves the right to revoke the above distribution right at any time, for any or no reason. 
+
+YOU MAY NOT MODIFY, ADAPT, TRANSLATE, RENT, LEASE, LOAN, SELL, REQUEST DONATIONS OR CREATE DERIVATE WORKS BASED UPON THE SOFTWARE OR ANY PART THEREOF. 
+
+The Software contains trade secrets and to protect them you may not decompile, reverse engineer, disassemble or otherwise reduce the Software to a humanly perceivable form. You agree not to divulge, directly or indirectly, until such trade secrets cease to be confidential, for any reason not your own fault. 
+
+3. Termination
+This licence is effective until terminated. The Licence will terminate automatically without notice from VirtualObjectives if you fail to comply with any provision of this Licence. Upon termination you must destroy the Software and all copies thereof. You may terminate this Licence at any time by destroying the Software and all copies thereof. Upon termination of this licence for any reason you shall continue to be bound by the provisions of Section 2 above. Termination will be without prejudice to any rights VirtualObjectives may have as a result of this agreement. 
+
+4. Disclaimer of Warranty, Limitation of Remedies
+TO THE FULL EXTENT PERMITTED BY LAW, VIRTUALOBJECTIVES HEREBY EXCLUDES ALL CONDITIONS AND WARRANTIES, WHETHER IMPOSED BY STATUTE OR BY OPERATION OF LAW OR OTHERWISE, NOT EXPRESSLY SET OUT HEREIN. THE SOFTWARE, AND ALL ACCOMPANYING FILES, DATA AND MATERIALS ARE DISTRIBUTED "AS IS" AND WITH NO WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. VIRTUALOBJECTIVES DOES NOT WARRANT, GUARANTEE OR MAKE ANY REPRESENTATIONS REGARDING THE USE, OR THE RESULTS OF THE USE, OF THE SOFTWARE WITH RESPECT TO ITS CORRECTNESS, ACCURACY, RELIABILITY, CURRENTNESS OR OTHERWISE. THE ENTIRE RISK OF USING THE SOFTWARE IS ASSUMED BY YOU. VIRTUALOBJECTIVES MAKES NO EXPRESS OR IMPLIED WARRANTIES OR CONDITIONS INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE WITH RESPECT TO THE SOFTWARE. NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY VIRTUALOBJECTIVES, IT'S DISTRIBUTORS, AGENTS OR EMPLOYEES SHALL CREATE A WARRANTY, AND YOU MAY NOT RELY ON ANY SUCH INFORMATION OR ADVICE. 
+
+IMPORTANT NOTE: Nothing in this Agreement is intended or shall be construed as excluding or modifying any statutory rights, warranties or conditions which by virtue of any national or state Fair Trading, Trade Practices or other such consumer legislation may not be modified or excluded. If permitted by such legislation, however, VirtualObjectives' liability for any breach of any such warranty or condition shall be and is hereby limited to the supply of the Software licensed hereunder again as VirtualObjectives at its sole discretion may determine to be necessary to correct the said breach. 
+
+IN NO EVENT SHALL VIRTUALOBJECTIVES BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, AND THE LOSS OF BUSINESS INFORMATION OR COMPUTER PROGRAMS), EVEN IF VIRTUALOBJECTIVES OR ANY VIRTUALOBJECTIVES REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN ADDITION, IN NO EVENT DOES VIRTUALOBJECTIVES AUTHORISE YOU TO USE THE SOFTWARE IN SITUATIONS WHERE FAILURE OF THE SOFTWARE TO PERFORM CAN REASONABLY BE EXPECTED TO RESULT IN A PHYSICAL INJURY, OR IN LOSS OF LIFE. ANY SUCH USE BY YOU IS ENTIRELY AT YOUR OWN RISK, AND YOU AGREE TO HOLD VIRTUALOBJECTIVES HARMLESS FROM ANY CLAIMS OR LOSSES RELATING TO SUCH UNAUTHORISED USE. 
+
+5. General
+All rights of any kind in the Software which are not expressly granted in this Agreement are entirely and exclusively reserved to and by VirtualObjectives. 
+
+This Agreement shall be governed by the laws of the State of New South Wales, Australia. Exclusive jurisdiction and venue for all matters relating to this Agreement shall be in courts and fora located in the State of New South Wales, Australia, and you consent to such jurisdiction and venue. This agreement contains the entire Agreement between the parties hereto with respect to the subject matter hereof, and supersedes all prior agreements and/or understandings (oral or written). Failure or delay by VirtualObjectives in enforcing any right or provision hereof shall not be deemed a waiver of such provision or right with respect to the instant or any subsequent breach. If any provision of this Agreement shall be held by a court of competent jurisdiction to be contrary to law, that provision will be enforced to the maximum extent permissible, and the remaining provisions of this Agreement will remain in force and effect.
+
+
+--------------------------------------------------------------------------------
+
+SendSMTP
+Copyright © 2002-2016 John Buoro 
+All Rights Reserved.
+This software is Freeware. It cannot be sold or distributed for profit.
+Please support this free software by making a small Donation.
+http://www.VirtualObjectives.com.au
+
+
+
