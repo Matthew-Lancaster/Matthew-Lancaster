@@ -17,6 +17,9 @@
 ' [ Thu 15:10:00 Pm_10 May 2018 ] Make Counter of How Many Added Before and After
 '-----------------------------------------------------------------
 
+
+'-----------------------------------------------------------------
+' 002 Session __
 '-----------------------------------------------------------------
 ' Fri 18-May-2018 03:34:28
 ' Fri 18-May-2018 05:39:52 __ 2 HOURING IN EARLY HOUR DAWN
@@ -29,13 +32,35 @@
 '-----------------------------------------------------------------
 
 '-----------------------------------------------------------------
+' 003 Session __
+'-----------------------------------------------------------------
 ' Fri 18-May-2018 11:34:46
 ' Fri 18-May-2018 12:19:12 __ 1 HOUR- MORE SPEEDER UP WORKS IN AN INSTANT NOW
 '                             IF NOTHING TO DO
 '-----------------------------------------------------------------
+
+'-----------------------------------------------------------------
+' 004 Session __
+'-----------------------------------------------------------------
 ' Fri 18-May-2018 22:44:00
 ' Fri 18-May-2018 22:44:00
 '-----------------------------------------------------------------
+
+'-----------------------------------------------------------------
+' 005 Session __
+'-----------------------------------------------------------------
+' Sun 07-Oct-2018 02:57:00
+' Sun 07-Oct-2018 03:15:00 __ Additional & Modify 
+'-----------------------------------------------------------------
+
+'-----------------------------------------------------------------
+' 006 Session __
+'-----------------------------------------------------------------
+' Sun 07-Oct-2018 05:40:00
+' Sun 07-Oct-2018 05:44:00 __ Back to Write the Time Header-ing 
+'                          __ And Programs to Be Installed ASUS-5P
+'-----------------------------------------------------------------
+
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
@@ -82,6 +107,7 @@ AppDataLocation=objShell.ExpandEnvironmentStrings("%APPDATA%")
 COUNT_I=0
 
 CALL GET_WINDOWS_VERSION
+'WINDOWS 7 = 6.1.7601
 
 obj_SOURCE_Folder = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
 Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
@@ -258,16 +284,35 @@ IF Version_OS=6 THEN
 END IF 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\UWT4 ___ WIN 10\Ultimate Windows Tweaker 4.1.1.exe"
-END IF 
-IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\UWT4.3 ___ WIN 10\Ultimate Windows Tweaker 4.3\Ultimate Windows Tweaker 4.3.exe"
-END IF 
-IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\UWT4.4.1 ___ WIN 10\Ultimate Windows Tweaker 4.4.1\Ultimate Windows Tweaker 4.4.1.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nokia\Nokia Suite\NokiaSuite.exe"
+	I=I+1:ARRAY_1(I)="C:\Windows\system32\mspaint.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\specialfoldersview.exe"
 END IF 
 
-if COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" then 
+' 1-ASUS-X5DIJ
+' 2-ASUS-EEE
+' 3-LINDA-PC
+' 4-ASUS-GL522VW
+' 5-ASUS-P2520LA
+' 7-ASUS-GL522VW
+' 8-MSI-GP62M-7RD
+
+
+IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" then 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NetSetMan\netsetman.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
+END IF 
+
+IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then 
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
+END IF 
+
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then 
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
 END IF 
 
 
@@ -284,27 +329,45 @@ I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\bluetoothlogview.exe
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\bluetoothview.exe"
 
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB KEEP RUNNER\VB KEEP RUNNER.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
+END IF 
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
+END IF 
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
+
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\shell keyboard loader.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
+END IF 
+
+
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"
+END IF 
+
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\hashmyfiles.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Speech SDK 5.1\Bin\TTSApp.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Speech SDK 5.1\Bin\TTSApp.exe"
+END IF 
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WinMerge\WinMergeU.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
@@ -316,27 +379,51 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 I=I+1:ARRAY_1(I)="C:\Windows\explorer.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
+END IF
+
 I=I+1:ARRAY_1(I)="C:\Windows\System32\cmd.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files\CCleaner\CCleaner64.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files\Common Files\LogiShrd\Unifying\DJCUHost.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nokia\Nokia Suite\NokiaSuite.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files\CCleaner\CCleaner64.exe"
+END IF
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files\Common Files\LogiShrd\Unifying\DJCUHost.exe"
+END IF
+
+
 I=I+1:ARRAY_1(I)="C:\Program Files\VS Revo Group\Revo Uninstaller\RevoUnin.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\Greatis\WinDowse\WinDowse.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Cool2000\cool2000.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Audacity\audacity.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Cool2000\cool2000.exe"
+END IF
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Audacity\audacity.exe"
+END IF
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
 
 'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wweb32.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wwnotray.exe"
 
-I=I+1:ARRAY_1(I)="C:\Program Files\MPC-HC\mpc-hc64.exe"
+IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files\MPC-HC\mpc-hc64.exe"
+END IF
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
+END IF
+
 I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
@@ -357,23 +444,36 @@ I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\Easy USB Creator Lite.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\RUFUS\rufus-3.1.exe"
 
-I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
+END IF
 
 'I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\regfromapp.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\Reg Converter\RegConvert.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero TuneItUp\TuneItUp.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
+END IF
+
+IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
+END IF
+
+'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero TuneItUp\TuneItUp.exe"
 
 
-I=I+1:ARRAY_1(I)="C:\Program Files\FileZilla FTP Client\filezilla.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
+
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files\FileZilla FTP Client\filezilla.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
+END IF
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
+
 I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
 
 ' MOST UP TO DATE VERSION
@@ -394,8 +494,13 @@ I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 02 XP\Calc XP.exe"
 ' https://winaero.com/download.php?view.1795
 ' ----
 
-I=I+1:ARRAY_1(I)="C:\Windows\System32\Calc1.exe"
+
 IF Version_OS=10 THEN
+	' WIN 07 CALC FOR WIN 10 OR WIN XP
+	' WILL ONLY WORK ON WIN 10 
+	' NOT A VALID WINDOWS APPLICATION FOR WINDOWS 7
+	' GUESS BE THE SAME ONE AS WIN 07 ANYWAY
+	I=I+1:ARRAY_1(I)="C:\Windows\System32\Calc1.exe" 
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
 END IF
 
@@ -408,18 +513,76 @@ END IF
 '----------------------------------------------------------------------------
 ' ORIGINAL LOCATION COMES WITH WINDOWS
 '----------------------------------------------------------------------------
-I=I+1:ARRAY_1(I)="C:\Windows\system32\mspaint.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\specialfoldersview.exe"
+
 I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
 
-' DVD RIPER COPIER
-I=I+1:ARRAY_1(I)="C:\Program Files\HandBrake\HandBrake.exe"
+IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	' DVD RIPER COPIER
+	I=I+1:ARRAY_1(I)="C:\Program Files\HandBrake\HandBrake.exe"
+END IF
+
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
+
+
+
+
+' -------------------------------------------------------------------
+' ASUS 5-P NOT REQUIRED ON TASKBAR
+' -------------------------------------------------------------------
+' C:\Program Files\# NO INSTALL REQUIRED\Advanced_Renamer\ARen.exe
+' C:\Program Files (x86)\Nokia\Nokia Suite\NokiaSuite.exe
+' C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\specialfoldersview.exe
+' D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe
+' D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe
+' C:\Program Files\CCleaner\CCleaner64.exe
+' C:\Program Files\Common Files\Logishrd\Unifying\DJCUHost.exe
+' C:\Program Files\OVH\hubiC\hubiC.exe" run --showsync
+' -------------------------------------------------------------------
+
+' ASUS 5-P NOT INSTALLED YET AND SORT IF WANT PLACED WITH TASKBAR
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' ASUS 5-P NOT RELEVANT
+' -------------------------------------------------------------------
+' C:\Program Files (x86)\DFX\dfx.exe
+' C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe
+' C:\Windows\System32\Calc1.exe
+' -------------------------------------------------------------------
+' ASUS 5-P YES SHOW ON TASKBAR
+' -------------------------------------------------------------------
+' C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe
+' C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe
+' C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe
+' C:\Program Files\MPC-HC\mpc-hc64.exe
+' C:\Program Files (x86)\No-IP\DUC40.exe
+' C:\Program Files\HandBrake\HandBrake.exe
+' -------------------------------------------------------------------
+' ASUS 5-P OFF TASKBAR
+' -------------------------------------------------------------------
+' C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe
+' C:\Program Files (x86)\Cool2000\cool2000.exe
+' C:\Program Files (x86)\Audacity\audacity.exe
+' C:\Program Files\WinHTTrack\WinHTTrack.exe
+' C:\Program Files\FileZilla FTP Client\filezilla.exe
+' C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
 END SUB
 
 

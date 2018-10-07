@@ -8,12 +8,12 @@
 @REM __ TO   ---- Wed 16-May-2018 05:05:00 __ 3 HOUR _ LAST BIT 
 @REM ----------------------------------------------------------------
 
-REM ---------------------
-REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers
-REM ---------------------
+@REM ---------------------
+@REM HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers
+@REM ---------------------
 
-REM THOUGHT I FOUND A REGISTRY KEY SET THE HAD PROGRAM RUNAS ADMIN SETTING
-REM BUT A REBOOT THEY GONE
+@REM -- THOUGHT I FOUND A REGISTRY KEY SET THE HAD PROGRAM RUNAS ADMIN SETTING
+@REM -- BUT A REBOOT THEY GONE
 
 
 ver | find "5.1." > nul

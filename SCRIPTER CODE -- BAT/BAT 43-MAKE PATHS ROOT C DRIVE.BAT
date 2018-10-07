@@ -1,3 +1,15 @@
+@REM ----------------------------------------------------------------
+@REM __ MATTHEW LANCASTER 
+@REM __ MATT.LAN@BTINTERNET.COM
+@REM ----------------------------------------------------------------
+@REM __ FROM ---- --- 12-Jun-2018 11:29:00 Created Time
+@REM __ TO   ---- Sun 07-Oct-2018 04:45:37 Last Editor _ Update Time+Header Info
+@REM ----------------------------------------------------------------
+
+@REM ----------------------------------------------------------------
+@REM -- RATHER USELESS CODE TO WANT TO HAVE REQUIRE AGAIN
+@REM ----------------------------------------------------------------
+
 MKDIR "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_04_2_samsung_4tb_c\C DRIVE ROOT"
 MKDIR "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_04_2_samsung_4tb_c\C DRIVE ROOT NOT WANT"
 MKDIR "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_04_2_samsung_4tb_c\CAPTURE"

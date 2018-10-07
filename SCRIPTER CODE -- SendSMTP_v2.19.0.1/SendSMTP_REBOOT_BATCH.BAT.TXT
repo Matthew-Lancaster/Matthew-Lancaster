@@ -139,7 +139,7 @@ REM ------------------------------------------------------
 
 if not exist "C:\C DRIVE ROOT LOGGER"  MKDIR "C:\C DRIVE ROOT LOGGER"
 
-ECHO %VAR_DATE%__%COMPUTERNAME%__%IP%__BOOT_TIME >> C:\C DRIVE ROOT LOGGER\IP_LOGGER_BOOT_TIME_%COMPUTERNAME%.TXT
+ECHO %VAR_DATE%__%COMPUTERNAME%__%IP%__BOOT_TIME >> "C:\C DRIVE ROOT LOGGER\IP_LOGGER_BOOT_TIME_%COMPUTERNAME%.TXT"
 
 REM SMART URL -----------------------------------------------
 REM https://qlink.to/Matthew

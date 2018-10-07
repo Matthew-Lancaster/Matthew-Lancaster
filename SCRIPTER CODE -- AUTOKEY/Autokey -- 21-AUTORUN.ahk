@@ -630,6 +630,13 @@ RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Ru
 ; The publisher could not be verified. Are you sure that you want to run this software?
 ; Open File - Security Warning
 ; --------------------------------------------------------------------
+; ----
+; Change Windows SmartScreen Settings in Windows 10 | Windows 10 Tutorials
+; https://www.tenforums.com/tutorials/5593-change-windows-smartscreen-settings-windows-10-a.html
+; --------
+; Turn On or Off SmartScreen for Windows Store Apps in Windows 10 | Windows 10 Tutorials
+; https://www.tenforums.com/tutorials/81139-turn-off-smartscreen-windows-store-apps-windows-10-a.html
+; ----
 
 ; --------------------------------------------------------------------
 ; I TRY AND SET THE REGKEY AUTO ON START UP \Autokey -- 21-AutoRun.ahk
