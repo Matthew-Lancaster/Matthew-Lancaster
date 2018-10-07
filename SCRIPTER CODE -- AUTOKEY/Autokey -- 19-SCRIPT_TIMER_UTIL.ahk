@@ -150,8 +150,10 @@ GLOBAL VAR_STORE_CAMERA_LABEL
 GLOBAL Secs_CAMERA
 GLOBAL Label_CAMERA
 GLOBAL OLDPID_ESIF_ASSIST_64_SUSPEND
+GLOBAL SET_GO_ESIF_ASSIST_64_SUSPEND
 
 OLDPID_ESIF_ASSIST_64_SUSPEND=0
+SET_GO_ESIF_ASSIST_64_SUSPEND=0
 
 VAR_STORE_CAMERA_LABEL=
 
@@ -1355,6 +1357,7 @@ Return
 ; -------------------------------------------------------------------
 ; STOP THE PROCESS WITH SUSPEND FOR AN HOUR AND LET BREATHE AGAIN 
 ; FOR A FEW MINUTE AND LOOPER
+; ON MY OTHER COMPUTER esif_assist_64.exe EXISTS BUT DOESN'T KEEP GOING OFF ON
 ; [ Sunday 19:28:30 Pm_07 October 2018 ]
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -1367,16 +1370,16 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
 	; IT NOT MOVING AN IN PROCESS SUSPEND SO WON'T REQUIRE ANY ACTION
 	; SEEING AS THAT THE STATE IS ABLE TO BE FOUND TO BE IN
 	;----------------------------------------------------------------
-	SET_GO_ESIF_ASSIST_64_SUSPEND=0
 	If NewPID > 0 
 		If OLDPID_ESIF_ASSIST_64_SUSPEND <> %NewPID%
-			SET_GO_ESIF_ASSIST_64_SUSPEND=1
+			SET_GO_ESIF_ASSIST_64_SUSPEND+=1
 	
 	OLDPID_ESIF_ASSIST_64_SUSPEND = %NewPID%
 	
-	If SET_GO_ESIF_ASSIST_64_SUSPEND > 0
+	If SET_GO_ESIF_ASSIST_64_SUSPEND > 3
 		If NewPID >0 
 		{
+			SET_GO_ESIF_ASSIST_64_SUSPEND=0
 			;SoundBeep , 3000 , 100
 			;SoundBeep , 3200 , 100
 			Process_Suspend("esif_assist_64.exe")
@@ -1396,7 +1399,7 @@ Return
 
 
 
-; CREDIT DUE FIND 
+; CREDIT DUE FIND GREETZ
 ;--------------------------------------------------------------------
 ; Process, Suspend/Resume, example.exe - Suggestions - AutoHotkey Community
 ; https://autohotkey.com/board/topic/30341-process-suspendresume-exampleexe/
