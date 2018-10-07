@@ -21,11 +21,22 @@
 ' -------------------------------------------------------------------
 
 '#-------------------------------------------------------------------
-' 001 __ 
+' -- 001 SESSION __
 ' -------------------------------------------------------------------
 ' WELL I MANAGED THE __  REDIM PRESERVE'S GOING IN VBS
 ' ONLY THING OF TWO JOB
 '#-------------------------------------------------------------------
+
+'#-------------------------------------------------------------------
+' -- 002 SESSION __
+' -------------------------------------------------------------------
+' ANOTHER ROUND OF ADDITION AND BETTER THE CODE ARRAY WORKING NICELY 
+' WITH VARIABLE FLAG WITH COPY
+' -------------------------------------------------------------------
+' __ FROM  Sun 07-Oct-2018 04:26:00
+' __ TO    Sun 07-Oct-2018 05:58:00 _ MIXED WITH OTHER CODE WRITER TIDY UP-PER
+'#-------------------------------------------------------------------
+
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -50,48 +61,335 @@ Set WSHShell = CreateObject("WScript.Shell")
 
 DIM VAR_PATH_FILE_1()
 DIM VAR_PATH_FILE_2()
+DIM VAR_DO_HAVE_TO_EXIST()
+DIM VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST()
+DIM VAR_DO_SECONDARY_FULL_PATH_TO_EXIST()
 
 I_COUNTER = 30
 
 REDIM VAR_PATH_FILE_1(I_COUNTER)
 REDIM VAR_PATH_FILE_2(I_COUNTER)
 
-I_COUNT=0
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
-VAR_PATH_FILE_2(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 29-NET_SHARE_ALL.BAT"
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
+' -------------------------------------------------------------------
+' -- SET HERE FOR 1ST TIME USE AND FLAG IT TOGGLE OFF MODE AFTER
+' -------------------------------------------------------------------
+REDIM VAR_DO_HAVE_TO_EXIST(I_COUNTER)
+' -------------------------------------------------------------------
+' -- TRIM PATH TO END BACKSLASH FOLDER NAME 
+' -------------------------------------------------------------------
+REDIM VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNTER)
+' -------------------------------------------------------------------
+' -- FULL PATH INCLUDE FILENAME
+' -------------------------------------------------------------------
+REDIM VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNTER)
+
+I_COUNT=0
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\VBS 32-COPIER_SYNC.VBS"
-VAR_PATH_FILE_2(I_COUNT)="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 29-NET_SHARE_ALL.BAT"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\VBS 32-COPIER_SYNC.VBS"
+I2="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' 64 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+I2="C:\Program Files\Notepad++\userDefineLang_AHK.xml"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+
+' -------------------------------------------------------------------
+' 32 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+I2="C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\NOTEPAD++ WORK\notepad++ replace notepad\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
+' -------------------------------------------------------------------
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' AFTER SETTING PERMISSION TO EVERYONE IN PROPERTY GUI DIALOGUE
+' IT TOOK A FEW SECOND TO UPDATE 
+' FIRST ATTEMPT TO SET PERMISSION HERE NOT WORK FAIL
+' AND THEN RUN THIS CODE AND OKAY
+' AND THEN RUN SET THESE PERMISSION AND OKAY WITHOUT FAILING
+' RUN IF YOU WANT TO ONCE SET NOT REQUIRE CODE
+' GET AN MSGBOX ERROR ACCESS WHEN COPY IF FAIL 
+' -------------------------------------------------------------------
+IF MAYBE_REQUIRE_HERE=MAYBE_REQUIRE_HERE+2 THEN 
+	' SET PATH_TO_DO="C:\Windows\System32\gatherNetworkInfo.vbs"
+	' ECHO %PATH_TO_DO%
+	' ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+	' ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+	' ICACLS %PATH_TO_DO% /setintegritylevel (CI)H
+END IF
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' FOUND IN THE WINDOWS FOLDER AS A SCHEDULER TASK RUNNER BY MICROSOFT
+' WELL WRITTEN CODE FOR FINDER INFO ABOUT ALLSORT OF THING
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 33-GatherNetworkInfo.vbs"
+I2="C:\Windows\System32\gatherNetworkInfo.vbs"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="TRUE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\OWNER-C-DRIVE - ONLY & NOT-SUB-FOLDER.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+' CAMERA 01 OF 02 
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 52-XCOPY SYNC.BAT"
+I2="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' CAMERA 02 OF 02 
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 52-XCOPY SYNC.BAT"
+I2="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
+I2="E:\REG KEY SETTINGS\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 54-REGJUMP_CLIP_BOARD.BAT"
+I2="C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\REGJUMP_CLIP_BOARD.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.txt"
+I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+I1="C:\Program Files\HandBrake\libdvdcss-2.dll"
+I2="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\HANDBRAKE DVD COPIER\VLC\LIBDVDCSS\1.2.12\WIN64\libdvdcss-2.dll"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 REDIM PRESERVE VAR_PATH_FILE_1(I_COUNT)
 REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
+REDIM PRESERVE VAR_DO_HAVE_TO_EXIST(I_COUNTER)
+REDIM PRESERVE VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNTER)
+REDIM PRESERVE VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNTER)
 
-FOR R_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
+FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 
 	FileModDate_1=0
 	FileModDate_2=0
 
-	IF VAR_PATH_FILE_1(R_COUNT)<>"" THEN 
-		IF FSO.FileExists(VAR_PATH_FILE_1(R_COUNT)) AND _
-			FSO.FileExists(VAR_PATH_FILE_2(R_COUNT)) THEN 
+	IF VAR_PATH_FILE_1(I_COUNT)<>"" THEN 
 		
-			Set f1 = fso.GetFile(VAR_PATH_FILE_1(R_COUNT))
-			Set f2 = fso.GetFile(VAR_PATH_FILE_2(R_COUNT))
-			FileModDate_1 = f1.DateLastModified
-			FileModDate_2 = f2.DateLastModified
-			SET f1=NOTHING
-			SET f2=NOTHING
+		SET_GO=TRUE
+		IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT))=FALSE THEN SET_GO=FALSE
+		IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE THEN SET_GO=FALSE
+		IF VAR_DO_HAVE_TO_EXIST(I_COUNT)<>"" THEN              SET_GO=TRUE
+		
+		IF VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE" THEN
+			STRIP_FOLDER=MID(VAR_PATH_FILE_2(I_COUNT),1,INSTRREV(VAR_PATH_FILE_2(I_COUNT),"\"))
+			If FSO.FolderExists(STRIP_FOLDER)=FALSE Then
+				SET_GO=FALSE
+			END IF
+		END IF
+		IF VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="TRUE" THEN
+			If FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE Then
+				SET_GO=FALSE
+			END IF
+		END IF
+		
+		IF SET_GO=TRUE THEN 
+		
+			FileModDate_1=0
+			FileModDate_2=0
+			IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT)) THEN 
+				Set F1 = fso.GetFile(VAR_PATH_FILE_1(I_COUNT))
+				FileModDate_1 = F1.DateLastModified
+			END IF
+			IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT)) THEN 
+				Set F2 = fso.GetFile(VAR_PATH_FILE_2(I_COUNT))
+				FileModDate_2 = F2.DateLastModified
+			END IF
+			SET F1=NOTHING
+			SET F2=NOTHING
 
-			IF FileModDate_1>0 AND FileModDate_2>0 THEN 
-			
+			SET_GO=TRUE
+			IF FileModDate_1=0 THEN SET_GO=FALSE
+			IF FileModDate_2=0 THEN SET_GO=FALSE
+			' IF SET ANSWER IS GIVE FALSE
+			IF VAR_DO_HAVE_TO_EXIST(I_COUNT)<>"" THEN SET_GO=TRUE
+			' -----------------------------------------------------------
+			' NORMALLY ENTERED AS "FALSE" OR TRUE IS NOTHING EMPTY VOID
+			' HOPEFULLY IT WILL PICK-UP THE ONE THE EXISTING BY DATE VALUE
+			' -----------------------------------------------------------
+
+			IF SET_GO=TRUE THEN
+
 				IF FileModDate_1>FileModDate_2 THEN
-					Fso.CopyFile VAR_PATH_FILE_1(R_COUNT), VAR_PATH_FILE_2(R_COUNT)
+
+				IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT))=FALSE THEN 
+						MSGBOX "NOT EXIST "+VBCRLF+VAR_PATH_FILE_1(I_COUNT)
+					END IF
+					
+					IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT)) THEN 
+						Fso.CopyFile VAR_PATH_FILE_1(I_COUNT), VAR_PATH_FILE_2(I_COUNT)	
+		
+					END IF
 				END IF
 
 				IF FileModDate_1<FileModDate_2 THEN
-					Fso.CopyFile VAR_PATH_FILE_2(R_COUNT), VAR_PATH_FILE_1(R_COUNT)
+					IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE THEN 
+						MSGBOX "NOT EXIST "+VBCRLF+VAR_PATH_FILE_2(I_COUNT)
+					END IF
+					IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT)) THEN 
+						Fso.CopyFile VAR_PATH_FILE_2(I_COUNT), VAR_PATH_FILE_1(I_COUNT)
+					END IF
 				END IF
 			
 			END IF
@@ -102,56 +400,28 @@ NEXT
 
 
 
-I_COUNTER = 30
-
-REDIM VAR_PATH_FILE_1(I_COUNTER)
-REDIM VAR_PATH_FILE_2(I_COUNTER)
-
-I_COUNT=0
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\HANDBRAKE DVD COPIER\VLC\LIBDVDCSS\1.2.12\WIN64\libdvdcss-2.dll"
-VAR_PATH_FILE_2(I_COUNT)="C:\Program Files\HandBrake\libdvdcss-2.dll"
-
-REDIM PRESERVE VAR_PATH_FILE_1(I_COUNT)
-REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
-
-FOR R_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
-
-	FOLDER_1=MID(VAR_PATH_FILE_2(I_COUNT),1,INSTRREV(VAR_PATH_FILE_2(I_COUNT),"\"))
-	
-	IF VAR_PATH_FILE_1(R_COUNT)<>"" THEN 
-		IF FSO.FileExists(VAR_PATH_FILE_1(R_COUNT)) AND _
-			FSO.FileExists(VAR_PATH_FILE_2(R_COUNT)) = FALSE THEN 
-				If FSO.FolderExists(FOLDER_1) Then
-					Fso.CopyFile VAR_PATH_FILE_1(R_COUNT), VAR_PATH_FILE_2(R_COUNT)
-				END IF
-		END IF
-	END IF
-NEXT
-' -------------------------------------------------------------------
-
-
-
-
-
-
-
-
 ' -------------------------------------------------------------------
 ' THIS PROCESS NOT TOO GOOD AS THESE SCRIPT IN BAT WAKE ALL THE DRIVE WHEN SCAN THEM FOR FOLDER
 ' AS PART OF SYNC DO
 ' INCORP IN TO CAMERA LOADER
 ' -------------------------------------------------------------------
 
-DIM RUN_COPY(2)
+REDIM VAR_PATH_FILE_1(I_COUNTER)
+REDIM VAR_PATH_FILE_2(I_COUNTER)
 
-'RUN_COPY(1)="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
-'RUN_COPY(2)="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
+I_COUNT=0
+'I_COUNT=I_COUNT+1
+'VAR_PATH_FILE_1(I_COUNT)="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
+'VAR_PATH_FILE_2(I_COUNT)="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
 
-FOR R_COUNT=1 TO UBOUND(RUN_COPY)
-	IF RUN_COPY(R_COUNT)<>"" THEN 
-		IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
-			WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
+
+REDIM PRESERVE VAR_PATH_FILE_1(I_COUNT)
+REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
+
+FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
+	IF VAR_PATH_FILE_1(I_COUNT)<>"" THEN 
+		IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT)) THEN 
+			WSHShell.Run """"+VAR_PATH_FILE_1(I_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
 		END IF
 	END IF
 NEXT
