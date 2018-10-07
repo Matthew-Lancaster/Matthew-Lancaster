@@ -288,7 +288,7 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 
 
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.txt"
+I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS"
 I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
