@@ -26,6 +26,8 @@ Sub Main()
     ' IT WILL DISPLAY THE DOS BOX PROMPT IN A SHOW WINDOW
     '-------------------------------------------------------------------
     
+    If Command$ <> "" Then Exit Sub
+    
     Dim RUN_EXE
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
