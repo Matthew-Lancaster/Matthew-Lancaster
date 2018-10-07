@@ -86,6 +86,26 @@
 ; TO ---- Wed 20-Jun-2018 15:02:00
 ; --------------------------------------------------------------
 
+; 007 PROBLEM THIS PROCESS REQUIRED SUSPENDER HOGGER
+; CPU IN SHORT QUICK BURSTS
+; -------------------------------------------------------------------
+; Intel(R) Dynamic Platform and Thermal Framework Utility Application
+; PROBLEM KEEP REPEAT RUNNING FOR SHORT SPACE FREQUENTLY AND REDUCE CPU COST
+; Intel Corporation
+; C:\Windows\Temp\DPTF\esif_assist_64.exe
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; STOP THE PROCESS WITH SUSPEND FOR AN HOUR AND LET BREATHE AGAIN 
+; FOR A FEW MINUTE AND LOOPER
+; [ Sunday 19:28:30 Pm_07 October 2018 ]
+; -------------------------------------------------------------------
+; DFX REQUIRED WORKING PROPERLY AND EXTRA FOR IT
+; -------------------------------------------------------------------
+; FROM -- Sun 07-Oct-2018 18:00:41
+; TO ---- Sun 07-Oct-2018 19:24:00 _ 1 & HALF HOUR ALMOST _ INTO AN ALLNIGHTER AGAIN
+; -------------------------------------------------------------------
+
+
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ;--------------------------------------------------------------------
@@ -129,6 +149,9 @@ SCRIPT_NAME_VAR=
 GLOBAL VAR_STORE_CAMERA_LABEL
 GLOBAL Secs_CAMERA
 GLOBAL Label_CAMERA
+GLOBAL OLDPID_ESIF_ASSIST_64_SUSPEND
+
+OLDPID_ESIF_ASSIST_64_SUSPEND=0
 
 VAR_STORE_CAMERA_LABEL=
 
@@ -210,8 +233,10 @@ setTimer TIMER_PREVIOUS_INSTANCE, 1
 ; -------------------------------------------------------------------
 
 
-
 SETTIMER TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX,4000
+
+SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
+SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 
 RETURN
 
@@ -1319,6 +1344,93 @@ If (A_Now>START_CMD_KILL)
 	}
 }
 Return
+
+
+; -------------------------------------------------------------------
+; Intel(R) Dynamic Platform and Thermal Framework Utility Application
+; PROBLEM KEEP REPEAT RUNNING FOR SHORT SPACE FREQUENTLY AND REDUCE CPU COST
+; Intel Corporation
+; C:\Windows\Temp\DPTF\esif_assist_64.exe
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; STOP THE PROCESS WITH SUSPEND FOR AN HOUR AND LET BREATHE AGAIN 
+; FOR A FEW MINUTE AND LOOPER
+; [ Sunday 19:28:30 Pm_07 October 2018 ]
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
+	Process, Exist, esif_assist_64.exe
+	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
+
+	;----------------------------------------------------------------
+	; CHECK THE PID NUMBER & COMPARE IF IT NOT CHANGING THEN WE HAPPY 
+	; IT NOT MOVING AN IN PROCESS SUSPEND SO WON'T REQUIRE ANY ACTION
+	; SEEING AS THAT THE STATE IS ABLE TO BE FOUND TO BE IN
+	;----------------------------------------------------------------
+	SET_GO_ESIF_ASSIST_64_SUSPEND=0
+	If NewPID > 0 
+		If OLDPID_ESIF_ASSIST_64_SUSPEND <> %NewPID%
+			SET_GO_ESIF_ASSIST_64_SUSPEND=1
+	
+	OLDPID_ESIF_ASSIST_64_SUSPEND = %NewPID%
+	
+	If SET_GO_ESIF_ASSIST_64_SUSPEND > 0
+		If NewPID >0 
+		{
+			;SoundBeep , 3000 , 100
+			;SoundBeep , 3200 , 100
+			Process_Suspend("esif_assist_64.exe")
+			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,OFF
+			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
+		}
+Return
+;--------------------------------------------------------------------
+
+;--------------------------------------------------------------------
+TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR:
+	;SoundBeep , 4000 , 100
+	;SoundBeep , 4200 , 100
+	Process_Resume("esif_assist_64.exe")
+Return
+;--------------------------------------------------------------------
+
+
+
+; CREDIT DUE FIND 
+;--------------------------------------------------------------------
+; Process, Suspend/Resume, example.exe - Suggestions - AutoHotkey Community
+; https://autohotkey.com/board/topic/30341-process-suspendresume-exampleexe/
+; --------
+; Calculate Duration Between Two Dates – Results
+; https://www.timeanddate.com/date/durationresult.html?d1=7&m1=10&y1=2018&d2=7&m2=10&y2=2018&h1=0&i1=0&s1=0&h2=&i2=1&s2=0
+; --------
+; 60*1000 - Google Search
+; https://www.google.co.uk/search?ei=u0m6W-vGNMvSgAam84bYBg&q=60*1000&oq=60*1000&gs_l=psy-ab.3..0i7i30k1l4j0i7i10i30k1l2j0i7i30k1l3j0i30k1.122777.123404.0.124083.2.2.0.0.0.0.82.161.2.2.0....0...1c.1.64.psy-ab..0.2.159...0i8i30k1.0.xKF-kqsmqQw
+;--------------------------------------------------------------------
+
+;============================== Working on WinXP+
+Process_Suspend(PID_or_Name){
+    PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
+    h:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    If !h   
+        Return -1
+    DllCall("ntdll.dll\NtSuspendProcess", "Int", h)
+    DllCall("CloseHandle", "Int", h)
+}
+
+Process_Resume(PID_or_Name){
+    PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
+    h:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    If !h   
+        Return -1
+    DllCall("ntdll.dll\NtResumeProcess", "Int", h)
+    DllCall("CloseHandle", "Int", h)
+}
+
+ProcExist(PID_or_Name=""){
+    Process, Exist, % (PID_or_Name="") ? DllCall("GetCurrentProcessID") : PID_or_Name
+    Return Errorlevel
+}
 
 
 
