@@ -9,7 +9,7 @@
 ' Wed 18-Apr-2018 01:40:00 _ 6 Hour Publishing Time on Google Blogger
 ' -------------------------------------------------------------------
 ' Tue 09-Oct-2018 15:20:35
-' Tue 09-Oct-2018 17:40:00 _ 2 Hour Another Wave Session 002 Completer
+' Tue 09-Oct-2018 18:20:00 _ 3 Hour Another Wave Session 002 Completer
 '#-------------------------------------------------------------------
 '
 '#-------------------------------------------------------------------
@@ -52,10 +52,14 @@
 '
 ' QUICKLY ADD BATCH FILE CREATED TO QUESTION ASK IF WANT TO OPEN 
 ' CREATED OUTPUT PROCESS RESULT IN NOTEPAD++
+'
+' ALSO ADD NOT REQUIRED TO OPEN FILE LOOK AT RESULT IF EMPTY 
+' & DELETE EMPTY RESULT FILE
+'
 ' -------------------------------------------------------------------
 ' Tue 09-Oct-2018 15:20:35
-' Tue 09-Oct-2018 17:40:00 2 Hour _ Update Make Sharable Proper
-'                          & Make Work With Latest Version
+' Tue 09-Oct-2018 18:20:00 3 Hour _ Update Make Sharable Proper
+'                                   & Make Work With Latest Version
 '#-------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
@@ -148,6 +152,7 @@ Sub BEGIN
 	' USE A HARDCODE-ED PATH IF WANT TO
 	' ---------------------------------------------------------------
 	XF0="D:\DSC\2015-2018\2018 CyberShot HX60V\MP_ROOT\2018_08_30 Aug_Thu 20_25_49__MAQ00504.MP4"
+	' ---------------------------------------------------------------
 	
     IF XF0="" AND WScript.Arguments.Count = 0 THEN 
         Wscript.Echo "Not Any Command-line Arguments Were Given _ Exit without Do"
@@ -196,7 +201,7 @@ Sub BEGIN
     MyFile.WriteLine DH
     MyFile.WriteLine "@ECHO."
 	MyFile.WriteLine "@ECHO __ "
-    MyFile.WriteLine "@ECHO __ SYSTEM AUDIO SOUND TO SIGNAL THE FINISH"
+    MyFile.WriteLine "@ECHO __ SYSTEM AUDIO SOUND TO SIGNAL THE FINISH - FOR BIG VIDEO FILE"
     MyFile.WriteLine "@rundll32 user32.dll,MessageBeep"
 	MyFile.WriteLine "@ECHO __ "
 '    MyFile.WriteLine "@ECHO __ BATCH FILE DELETES ITSELF AFTER __ CLEANER"
@@ -212,6 +217,31 @@ Sub BEGIN
 	MyFile.WriteLine "@ECHO __ "
 	MyFile.WriteLine "@ECHO __ COMPLETER ___"
 	MyFile.WriteLine "@ECHO __ "
+	
+	MyFile.WriteLine "@SET FILE_CONTAIN_DATA="
+	
+	'----------------------------------------------------------------
+	' Test Debug
+	'----------------------------------------------------------------
+	' MyFile.WriteLine "@ECHO TEST >>""" + XF2 +""""
+	
+	MyFile.WriteLine "@ECHO OFF"
+	MyFile.WriteLine "(for /f usebackq^ eol^= %%a in ("""+XF2+""") do break) && echo __ OutPut File For Video Has Process Result Error Data || SET FILE_CONTAIN_DATA=FALSE"
+	MyFile.WriteLine "@ECHO ON"
+
+	MyFile.WriteLine "@IF ""%FILE_CONTAIN_DATA%"" == ""FALSE"" GOTO FILE_NOT_REQUIRED_AS_EMPTY"
+	MyFile.WriteLine "@IF ""%FILE_CONTAIN_DATA%"" == """" GOTO FILE_HAS_DATA_NEXT_STEPPER"
+	MyFile.WriteLine ":FILE_NOT_REQUIRED_AS_EMPTY"
+	MyFile.WriteLine "@ECHO __ GOOD RESULT SHOWN BY PROCESS RESULT FILE BEING EMPTY"
+	MyFile.WriteLine "@ECHO __ EMPTY RESULT OUTPUT FILE TEXT NOT ANY LONGER NEEDED AND WILL BE DELETER"
+	MyFile.WriteLine "@ECHO __"
+	MyFile.WriteLine "@ECHO __ GOOD RESULT PROCESS OF VIDEO FILE HAS NONE ERROR"
+	MyFile.WriteLine "@ECHO __"
+    MyFile.WriteLine "@DEL """ + XF2 + """"
+	MyFile.WriteLine "@GOTO ENDE"
+	MyFile.WriteLine ":FILE_HAS_DATA_NEXT_STEPPER"
+
+	MyFile.WriteLine "@ECHO __ "
 	MyFile.WriteLine "@ECHO __ DO YOU WANT OPEN IN NOTEPAD++ __  ?(Y/N)"
 	MyFile.WriteLine "@SET INPUT="
 	MyFile.WriteLine "@SET /P INPUT=Type input: %=%"
@@ -221,10 +251,28 @@ Sub BEGIN
 	MyFile.WriteLine ":YES"
 	MyFile.WriteLine "@START """" /MAX /HIGH ""C:\Program Files (x86)\Notepad++\notepad++.exe""" + " """+XF2+""""
 	MyFile.WriteLine ":NOT"
+	MyFile.WriteLine ":ENDE"
 	
     MyFile.WriteLine "@DEL """ + TEMP + """"
     MyFile.Close
-        
+    
+	' ---------------------------------------------------------------
+	' Credit Due for Source Empty File in Batch Command
+	' ---------------------------------------------------------------
+	' ----
+	' BATCH FILE CHECK FILE SIZE IS EMPTY - Google Search
+	' https://www.google.co.uk/search?q=BATCH+FILE+CHECK+FILE+SIZE+IS+EMPTY&spell=1&sa=X&ved=0ahUKEwi2rYHE5vndAhWJKMAKHTt3Cw8QBQgrKAA&biw=1536&bih=551&dpr=1.25
+	' --------
+	' windows batch: how to check if a text file is blank (the file has an empty line so size is non zero) - Stack Overflow
+	' https://stackoverflow.com/questions/33575962/windows-batch-how-to-check-if-a-text-file-is-blank-the-file-has-an-empty-line
+	' ----
+	' ---------------------------------------------------------------
+
+	' -----------------------------------------------------------------------------------
+	' In Order to Test the Code Working Now Will Have to Tested on a Corrupted Video File
+    ' Sure Working on Only Slight Modify Will Be Worker 100%"
+	' -----------------------------------------------------------------------------------
+	
     Dim WSHShell
     Set WSHShell = CreateObject("WScript.Shell")
     WSHShell.Run "CMD /K """ + TEMP + """ 2>NUL"
