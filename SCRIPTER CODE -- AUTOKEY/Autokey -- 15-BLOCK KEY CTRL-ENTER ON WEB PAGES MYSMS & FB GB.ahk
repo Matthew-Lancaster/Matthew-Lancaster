@@ -1,14 +1,16 @@
-﻿;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk
+﻿;# ------------------------------------------------------------------
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk
 ;# __ 
 ;# __ Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk
 ;# __ 
-;# BY Matthew __ Matt.Lan@Btinternet.com __ 
+;# __ BY Matthew Lancaster __ Matt.Lan@Btinternet.com __ 
+;# 
 ;# Wed 18 October 2017 02:05:00 Work Time Beginner
 ;# Sat 21 April   2018 04:00:00 2nd Wave of Work Better Coder Emerged
 ;# Tue 09 October 2018 05:25:00 3nd Wave of Code FaceBook Grin Book Name Scriptor & Array 
 ;#                              Work File Rather Than Hardcode Info for Sharing On-line Privacy
 ;# __ 
-
+;# ------------------------------------------------------------------
 
 ; Published on Blogger
 ; -------------------------------------------------------------------
