@@ -335,27 +335,27 @@ enter::
 	
 	IF SET_GO_ENTER_FACEBOOK = TRUE
 	{
-        SendInput {space} 
-        ; Add a Space when Enter Pressed in FB page So It It Doesn't 
-        ; Ask to Highlight any Fan Pages
-        ;------------------------------------------------------------
-        Sleep 100 
-        ;------------------------------------------------------------
-        ; MINIMAL SLEEP I COULD FIND TO NOT CLASH THE KEYS OVERLAPPING
-        ; DEPEND ON YOUR PROCESSOR OR SOMETHING 100 MILLISECOND
-        ;------------------------------------------------------------
-        ; SetCapsLockState , Off
-        ; FOUND NEW SYSTEM WITH    SetStoreCapslockMode, off
-        ; THIS WILL PREVENT ERROR OF CAPS LOCK STATUS 
-        ; SHOWER FROM LOGITECH
-        ;------------------------------------------------------------
-        ; THE LOGITECH REMOTE KEYBOARD HAS A FLASHER BOX ON ABOUT CAPS LOCK STATE LEAVE IT WITH CAPS LOCK OFF 
-        ; AND THESE SendInput KEY DON'T GET IN THE WAY
-        ;------------------------------------------------------------
-        SendInput {shift down}{enter}{shift up}
-        SoundBeep , 2500 , 100
-        Set_Key=True
-        Set_Key_FB_Control=True
+		SendInput {space} 
+		; Add a Space when Enter Pressed in FB page So It It Doesn't 
+		; Ask to Highlight any Fan Pages
+		;------------------------------------------------------------
+		Sleep 100 
+		;------------------------------------------------------------
+		; MINIMAL SLEEP I COULD FIND TO NOT CLASH THE KEYS OVERLAPPING
+		; DEPEND ON YOUR PROCESSOR OR SOMETHING 100 MILLISECOND
+		;------------------------------------------------------------
+		; SetCapsLockState , Off
+		; FOUND NEW SYSTEM WITH    SetStoreCapslockMode, off
+		; THIS WILL PREVENT ERROR OF CAPS LOCK STATUS 
+		; SHOWER FROM LOGITECH
+		;------------------------------------------------------------
+		; THE LOGITECH REMOTE KEYBOARD HAS A FLASHER BOX ON ABOUT CAPS LOCK STATE LEAVE IT WITH CAPS LOCK OFF 
+		; AND THESE SendInput KEY DON'T GET IN THE WAY
+		;------------------------------------------------------------
+		SendInput {shift down}{enter}{shift up}
+		SoundBeep , 2500 , 100
+		Set_Key=True
+		Set_Key_FB_Control=True
     }
     if Set_Key=False 
     {
