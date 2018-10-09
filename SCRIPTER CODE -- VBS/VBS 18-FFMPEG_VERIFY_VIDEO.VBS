@@ -129,9 +129,9 @@ Set objFSO = CreateObject("Scripting.FileSystemObject")
 CALL BEGIN
 'Wscript.Echo "end."
 WScript.Quit 0
-'-------------------------------------
+' -------------------------------------------------------------------
 Sub BEGIN
-'-------------------------------------
+	' ---------------------------------------------------------------
 	Set args = Wscript.Arguments
 	For Each arg In args
 		XF0 = XF0 + arg
