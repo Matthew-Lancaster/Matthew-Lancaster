@@ -8,7 +8,8 @@
 ' Wed 18-Apr-2018 00:53:40 _ 4 Hour-
 ' Wed 18-Apr-2018 01:40:00 _ 6 Hour Publishing Time on Google Blogger
 ' -------------------------------------------------------------------
-' Tue 09-Oct-2018 17:20:00 _ 2 Hour Another Wave Session 002 Completer
+' Tue 09-Oct-2018 15:20:35
+' Tue 09-Oct-2018 17:40:00 _ 2 Hour Another Wave Session 002 Completer
 '#-------------------------------------------------------------------
 '
 '#-------------------------------------------------------------------
@@ -48,9 +49,12 @@
 ' TIDY SEPARATE LONG LINE CODE SMALLER TO ENTER LATEST VERSION OF FFMPEG.EXE MORE EASILY-ER
 '
 ' MAKE OUTPUT RESULT OF RUN MORE CLEARER
+'
+' QUICKLY ADD BATCH FILE CREATED TO QUESTION ASK IF WANT TO OPEN 
+' CREATED OUTPUT PROCESS RESULT IN NOTEPAD++
 ' -------------------------------------------------------------------
 ' Tue 09-Oct-2018 15:20:35
-' Tue 09-Oct-2018 17:20:00 2 Hour _ Update Make Sharable Proper
+' Tue 09-Oct-2018 17:40:00 2 Hour _ Update Make Sharable Proper
 '                          & Make Work With Latest Version
 '#-------------------------------------------------------------------
 
@@ -143,7 +147,7 @@ Sub BEGIN
 	' ---------------------------------------------------------------
 	' USE A HARDCODE-ED PATH IF WANT TO
 	' ---------------------------------------------------------------
-	' XF0="D:\DSC\2015-2018\2018 CyberShot HX60V\MP_ROOT\2018_08_30 Aug_Thu 20_25_49__MAQ00504.MP4"
+	XF0="D:\DSC\2015-2018\2018 CyberShot HX60V\MP_ROOT\2018_08_30 Aug_Thu 20_25_49__MAQ00504.MP4"
 	
     IF XF0="" AND WScript.Arguments.Count = 0 THEN 
         Wscript.Echo "Not Any Command-line Arguments Were Given _ Exit without Do"
@@ -208,6 +212,16 @@ Sub BEGIN
 	MyFile.WriteLine "@ECHO __ "
 	MyFile.WriteLine "@ECHO __ COMPLETER ___"
 	MyFile.WriteLine "@ECHO __ "
+	MyFile.WriteLine "@ECHO __ DO YOU WANT OPEN IN NOTEPAD++ __  ?(Y/N)"
+	MyFile.WriteLine "@SET INPUT="
+	MyFile.WriteLine "@SET /P INPUT=Type input: %=%"
+	MyFile.WriteLine "@IF ""%INPUT%"" == ""y"" GOTO YES"
+	MyFile.WriteLine "@IF ""%INPUT%"" == ""Y"" GOTO YES"
+	MyFile.WriteLine "@GOTO NOT"
+	MyFile.WriteLine ":YES"
+	MyFile.WriteLine "@START """" /MAX /HIGH ""C:\Program Files (x86)\Notepad++\notepad++.exe""" + " """+XF2+""""
+	MyFile.WriteLine ":NOT"
+	
     MyFile.WriteLine "@DEL """ + TEMP + """"
     MyFile.Close
         
