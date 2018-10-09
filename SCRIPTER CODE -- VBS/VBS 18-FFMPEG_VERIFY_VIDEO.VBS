@@ -1,27 +1,35 @@
-' -------------------------------------------------------------------
-' __ CODE BY MATTHEW LANCASTER
-' __ Matt.Lan@btinternet.com
+'#-------------------------------------------------------------------
 ' __ 
-' __ DATE BEGINNER AND ENDER ----------------------------------------
-' -------------------------------------------------------------------
+' __ CODE BY MATTHEW LANCASTER
+' __ Matt.Lan@btinternet.com 
+' __ 
+'#-------------------------------------------------------------------
 ' Tue 17-Apr-2018 21:00:21 
 ' Wed 18-Apr-2018 00:53:40 _ 4 Hour-
 ' Wed 18-Apr-2018 01:40:00 _ 6 Hour Publishing Time on Google Blogger
 ' -------------------------------------------------------------------
-' Tue 09-Oct-2018 16:57:15 _ End Time Another Wave Session 002 Completer
-' -------------------------------------------------------------------
+' Tue 09-Oct-2018 17:20:00 _ 2 Hour Another Wave Session 002 Completer
+'#-------------------------------------------------------------------
 '
-' -------------------------------------------------------------------
+'#-------------------------------------------------------------------
 ' Code Description
 ' VBScript
 ' -------------------------------------------------------------------
+' A Wrapper Code For a Program Called FFMPEG.EXE _ By _ Kyle Schwarz
+'
+' Has Complex Single Command Line & Useful When Required Worker Out 
+' & Make Into Tool Code Wrapper
+'
+' Usage Put a Shortcut To This File in SendTo Folder & Right Click on 
+' Any Video File 
+'
 ' Got Video File and Want to Check It Integrity for Any Error in Frame or 
 ' Whatever to See if Perfect or Not 
 ' And If Damaged How Much Is Damage
 ' 
 ' Got Two Video File The Same But Checksum But Don't Match Use 
 ' This Code Wrapper For FFMPEG Tool To Find The Better Version
-' -------------------------------------------------------------------
+'#-------------------------------------------------------------------
 
 '#-------------------------------------------------------------------
 ' SESSION 002
@@ -42,7 +50,7 @@
 ' MAKE OUTPUT RESULT OF RUN MORE CLEARER
 ' -------------------------------------------------------------------
 ' Tue 09-Oct-2018 15:20:35
-' Tue 09-Oct-2018 17:02:00 Near 2 Hour _ Update Make Sharable Proper
+' Tue 09-Oct-2018 17:20:00 2 Hour _ Update Make Sharable Proper
 '                          & Make Work With Latest Version
 '#-------------------------------------------------------------------
 
@@ -85,8 +93,9 @@
 ' Like Split and Save Video to JPG Frames Maybe
 ' -------------------------------------------------------------------
 ' Zeranoe's FFmpeg Builds Home Page: 
-' <http://ffmpeg.zeranoe.com/builds/>
+' http://ffmpeg.zeranoe.com/builds/
 ' Version of My Use 2015-07-01 __ git-9c010ba
+' Now Updated to Current 2018 Version
 ' -------------------------------------------------------------------
 ' Location Mine __ Folder and File GITHUB
 ' ----
@@ -96,7 +105,9 @@
 ' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
-' Originally Coded In VBasic and then for VBScript
+' Originally Coded In VBasic6 and then for VBScript
+' Attempted Batch Command Line Version From VB6 But Gave Up Getting 
+' Command Line Right was Awkward
 ' -------------------------------------------------------------------
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -120,11 +131,12 @@ Sub BEGIN
     
 	' ---------------------------------------------------------------
 	' TO USE PUT A SHORTCUT TO THIS PROGRAM .VBS IN _ SENDTO _ FOLDER 
-	' AND RIGHT CLICK A FILE TO HER
+	' AND RIGHT CLICK A VIDEO FILE TO HER
 	' ---------------------------------------------------------------
 	
 	' ---------------------------------------------------------------
-    'If Sent-to is Used Sometime Additional Quote Surround are User
+    ' If Sent-to is Used Sometime Additional Quote Surround are User
+	' ESPECIALLY IF CONTEXT MENU HAS BEEN ADDED IN REGISTRY 
 	' ---------------------------------------------------------------
     XF0 = Replace(XF0,"""","")
     
