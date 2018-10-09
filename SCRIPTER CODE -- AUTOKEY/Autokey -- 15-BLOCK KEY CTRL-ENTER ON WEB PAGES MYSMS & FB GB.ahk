@@ -152,7 +152,9 @@ Dont_Send_2_Enter=False
 Sound_Speed=20
 TEXT_STRING_VAR=	
 	
-;User Setting as Required
+; User Setting as Required
+; If Set False You Get beep for Return Enter Key for Everything
+; -------------------------------------------------------------------
 Mute_Beep_In_Other_Program_Beside_GrinBook_an_Mysms=true
 Mute_Beep_In_Other_Program_Beside_GrinBook_an_Mysms=false
 
@@ -359,7 +361,7 @@ enter::
     }
     if Set_Key=False 
     {
-        Dont_Send_2_Enter=True
+		Dont_Send_2_Enter=True
         SendInput {enter}
         Set_Go=True
         if SET_GO_ENTER_FACEBOOK=TRUE
