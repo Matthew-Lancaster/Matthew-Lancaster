@@ -20,25 +20,26 @@
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set Google Drive
-; Possible Censorship of Code Detected By Google as Malicious Happen Here
-; unlike DropBox that has All Available
-; https://drive.google.com/open?id=0BwoB_cPOibCPTnRZZVFuRFpHOTg
+; Link to Folder of all My Scriptor Project Set
 ;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set DropBox
-; https://www.dropbox.com/sh/ntghoncyb8py1tf/AACWYrfkVn9PlqpYzNNSMcpMa?dl=0
-;--------------------------------------------------------------------
-; Link to This File On DropBox With Most Up to Date
-; https://www.dropbox.com/s/xdjfywh4u5vos0y/Autokey%20--%2015-BLOCK%20KEY%20CTRL-ENTER%20ON%20WEB%20PAGES%20MYSMS%20%26%20FB%20GB.ahk?dl=0
+; ----
+; Matthew-Lancaster/Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2015-BLOCK%20KEY%20CTRL-ENTER%20ON%20WEB%20PAGES%20MYSMS%20%26%20FB%20GB.ahk
+; ----
 ;# ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; Here is the Code in Autohotkeys to Change Shift-Enter Control Enter and Enter for Use when Sending Messenger and Not Wanting to Send on entering or By Accident Control Enter
+; 002 SESSION _ Get Lift Off for Hotkeyer Coder __ On AutoHotKeys 
+;               Multiple Use of One or Two Hot Key Intercept Hooker
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; Here is the Code in Autohotkeys to Change Shift-Enter Control Enter 
+; and Enter for Use when Sending Messenger and Not Wanting to Send on 
+; entering or By Accident Control Enter
 ; For Use with MYSMS and GrinBook FB And Any Other May Find Later
 ; My New Improved Style of Coding Read a Bit More in Rem Line
 ; Took 4 Hours Work Additional on Code Before the Last Attempt Early Hour Until Dawn
 ; -------------------------------------------------------------------
-
 ; -------------------------------------------------------------------
 ; New Code Improver New Style Of Coder Improved Working
 ; Multi-Keys Set Multi Operations On One Key
