@@ -15,7 +15,6 @@
 ; Code to Change Shift-Enter Control Enter and Enter for Use when Sending Messenger and Not Wanting to Send on The Enter Key or By Accident Control Enter For Use with MYSMS and GrinBook FB And Any Other May Find Later
 ; -------------------------------------------------------------------
 
-
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ;--------------------------------------------------------------------
@@ -30,8 +29,6 @@
 ; Link to This File On DropBox With Most Up to Date
 ; https://www.dropbox.com/s/xdjfywh4u5vos0y/Autokey%20--%2015-BLOCK%20KEY%20CTRL-ENTER%20ON%20WEB%20PAGES%20MYSMS%20%26%20FB%20GB.ahk?dl=0
 ;# ------------------------------------------------------------------
-
-
 
 ; -------------------------------------------------------------------
 ; Here is the Code in Autohotkeys to Change Shift-Enter Control Enter and Enter for Use when Sending Messenger and Not Wanting to Send on entering or By Accident Control Enter
@@ -89,6 +86,41 @@
 ; Sat 21-Apr-2018 05:38:00 TOTAL 4 HOUR 05 MINUTE + PUBLISH TIME QUICKER
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; 003 SESSION
+; -------------------------------------------------------------------
+; WRITE CODE TO INCLUDE MORE NAME FOR FACEBOOK WORKAROUND ABOUT USE 
+; CONTROL ENTER TO STOP SEND ON ENTER KEY PREMATURELY
+;
+; AND ADDITIONAL WORK OF MAKE IT PRIVACY WHEN SHARE CODE ON-LINE 
+; IN SEPARATE TEXT FILE FOR DATA STORE-ER
+;
+; WORK READ FROM FILE INTO AN ARRAY FILTER OUT REM LINE FOR EXTRA INFO 
+; WANTED AND NONE BLANK INFO 
+; EXTRA INVISIBLE BLANK LINES BY ACCIDENT
+;
+; PRETTY EASY WHEN LOOKER FEW EXTRA LINE OF CODE - MAKE BETTER WORKING
+; COULDN'T FIND HOW TO READ ONE ITEM OF NUMERIC FROM ARRAY ONLY TO READ ALL IN LOOP
+; ADDITION THE NUMERIC IS THE FRIEND COUNT 
+; WHEN YOU JUST PASTE ALL YOU FRIEND CONTACT INFO IN HERE
+; TRIM OFF FEW TO MAKE TIDIER
+; KEEP ADDITIONAL CONTACT INFO MIGHT WANTER
+; ADDITIONALLY NUMERIC COUNT ON ONE LINE ONLY ARE EXCLUDED LIKE THE SAME REM ; LINE ARE
+; ALSO ONE  FRIEND WILL ONLY SHOW MUTUAL CONTACT COUNTER 
+; SO KEEP THAT INFO AN FILTER EXCLUDE LINES WITH mutual friends
+;
+; SOME NUMERIC BY FACEBOOK HAVE THOUSAND SEPARATOR
+; ------------------------------------------------------------------------
+; Add On __ 
+; Count The Total Network of Friend Just For Additional Extra Programmer Fun
+; Only an Extra Hour to Add of Code in Early Hour
+; ------------------------------------------------------------------------
+;
+; -------------------------------------------------------------------
+; TO     Tue 09-Oct-2018 01:25:00 __ DEFINITELY HARD WORK AS USUALLY MAKING AN ARRAY 
+; FROM   Tue 09-Oct-2018 04:40:00 __ 3 HOUR 20 MINUTE
+; -------------------------------------------------------------------
+
 ; GLOBAL SETTINGS ===================================================
 #Warn
 #NoEnv
@@ -107,10 +139,98 @@ SetStoreCapslockMode, off
 Set_Key_FB_Control=False 
 Dont_Send_2_Enter=False
 Sound_Speed=20
-
+	
 ;User Setting as Required
 Mute_Beep_In_Other_Program_Beside_GrinBook_an_Mysms=true
 Mute_Beep_In_Other_Program_Beside_GrinBook_an_Mysms=false
+
+current := Object()
+
+
+; SOURCE CREDIT
+; -------------------------------------------------------------------
+; mixing pseudo arrays (array%n%) with real arrays (array[n], array.n)
+; This is a real array example:
+; -------------------------------------------------------------------
+; Reading file and storing value in array problem - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/92137-reading-file-and-storing-value-in-array-problem/
+; -------------------------------------------------------------------
+; BLANK LINES        NOT READ IN
+; LINES THAT BEGIN ; NOT READ IN
+; -------------------------------------------------------------------
+SourceFile := % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
+IfExist, %SourceFile%
+{
+	Loop, read, % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
+	{
+		; ---------------------------------------------------------------
+		; SOME NUMERIC BY FACEBOOK HAVE THOUSAND SEPARATOR
+		; ---------------------------------------------------------------
+		TEST_STRING := A_LoopReadLine
+		TEST_STRING := StrReplace(TEST_STRING, ",", "")
+		SET_GO=TRUE
+		IF SubStr(A_LoopReadLine, 1, 1)=";"
+			SET_GO=FALSE
+		IF INSTR(A_LoopReadLine,"mutual friends")>0
+			SET_GO=FALSE
+		IF A_LoopReadLine is number
+			SET_GO=FALSE
+		IF TEST_STRING is number
+			SET_GO=FALSE
+		IF !A_LoopReadLine
+			SET_GO=FALSE
+		IF SET_GO=TRUE
+			current[A_Index] := A_LoopReadLine ; This adds the value read from file line into real array
+	}
+}
+
+; ------------------------------------------------------------------------
+; Count The Total Network of Friend Just For Additional Extra Programmer Fun
+; ------------------------------------------------------------------------
+COUNTER_VALUE=0
+SourceFile := % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
+IfExist, %SourceFile%
+{
+	DestFile = % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NUMERIC COUNT TOTAL.txt"
+	IfExist, %DestFile%
+	{
+		FileDelete, %DestFile%
+	}
+
+	Loop, read, %SourceFile%, %DestFile%
+	{
+		TEST_STRING := A_LoopReadLine
+		TEST_STRING := StrReplace(TEST_STRING, ",", "")
+		TEST_STRING := StrReplace(TEST_STRING, "mutual friends", "")
+		TEST_STRING := Trim(TEST_STRING)
+		SET_GO=FALSE
+		IF TEST_STRING is number
+			SET_GO=TRUE
+
+		If SET_GO=TRUE
+			{
+			FileAppend, %TEST_STRING%`n
+			COUNTER_VALUE+=%TEST_STRING%
+			}
+	}
+	TEXT_STRING_VAR:="="
+	; StringReplace, TEXT_STRING_VAR, TEXT_STRING_VAR,",,All
+	
+	FileAppend, =`n, %DestFile%
+	; FileAppend, %TEXT_STRING_VAR%`n, %DestFile%
+	FileAppend, %COUNTER_VALUE%`n, %DestFile%
+}
+
+
+;--------------------------------------------------------------------
+; CAREFUL ABOUT YOUR EDITOR OF FACEBOOK GRINBOOK FB FRIEND MEMBER SET 
+; YOU MIGHT WANT TO RUN IT THROUGH DOUBLE CHECKER BEFORE GO
+; WHILE EDITING
+;--------------------------------------------------------------------
+; For i in current
+;	MSGBOX % current[i]
+
+
 
 SoundBeep , 2000 , 200
 SoundBeep , 2500 , 100
@@ -139,8 +259,63 @@ enter::
     Set_Key_FB_Control=False
     Dont_Send_2_Enter=False
     SetTitleMatchMode 2  ; Avoid specify full path
-    if (WinActive("Matthew Lancaster -") and WinActive("ahk_class Chrome_WidgetWin_1"))
-    {
+    
+	; ---------------------------------------------------------------
+	; Some of the Person I Write to Including Myself on Facebook FB Grin Book 
+	; Which Stopper the Entering Of Message on Return Enter Key
+	; And Let Continue Without Message Being Sent Premature
+	; Previously You Have to Do By Hand Control and Enter to Enter the HTML Alternative Method Editor 
+	; That Would Stop That Thing
+	; This Does it Auto 
+	; And It Has Extra When Press Enter the Word Replacement to Fan Page Or People 
+	; Is Prevented By Adding and Extra Space at Enter Key
+	;
+	; I Call It Simpleton with One Little Message
+	; Already got a Restriction if It Too Long
+	; People are Hampered by there Little Mobile Keyboard
+	; Pity I Have to Type The Person Name in Because of This One
+	;
+	; Maybe I Keep them on File and Software them In
+	; Should Be Easy Enough Reading in File and Acting on Them
+	; Kept Separately
+	; A Typical One Liner Form of a Name Would Be Myself 
+	; Matthew Lancaster -
+	; With a Dash at End is Allowed
+	; It is a Search in String So Doesn't Matter About the Proceed-er Numeric In Brackets 
+	; For Notifications Missed But After Can Be Anything Else
+	;
+	; All Done New Improved Code Heps Privacy When Sharer 
+	; of Scripts On-line
+	;
+	; CHUCK IN ALL FACEBOOK MEMBERS NOW
+	; 
+	; ---------------------------------------------------------------
+	
+	SET_GO_ENTER_FACEBOOK=FALSE
+	; ---------------------------------------------------------------
+	; REMMED OUT OLD STYLE OF CODE MAYBE USEFUL IN OTHER WORKER _ HARDCODE-ED
+	; if WinActive("Matthew Lancaster -") 
+		; SET_GO_ENTER_FACEBOOK=TRUE
+	; if WinActive("Will Dee -") 
+		; SET_GO_ENTER_FACEBOOK=TRUE
+	; if WinActive("Steve Owen -") 
+		; SET_GO_ENTER_FACEBOOK=TRUE
+	; if WinActive("Jayla Holmes -") 
+		; SET_GO_ENTER_FACEBOOK=TRUE
+	; ---------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	For i in current
+		IF WinActive(current[i])
+			SET_GO_ENTER_FACEBOOK=TRUE
+	; ---------------------------------------------------------------
+		
+	IF SET_GO_ENTER_FACEBOOK=TRUE
+		IF !WinActive("ahk_class Chrome_WidgetWin_1")
+			SET_GO_ENTER_FACEBOOK=FALSE
+	
+	IF SET_GO_ENTER_FACEBOOK = TRUE
+	{
         SendInput {space} 
         ; Add a Space when Enter Pressed in FB page So It It Doesn't 
         ; Ask to Highlight any Fan Pages
@@ -168,7 +343,7 @@ enter::
         Dont_Send_2_Enter=True
         SendInput {enter}
         Set_Go=True
-        if (WinActive("Matthew Lancaster -") and WinActive("ahk_class Chrome_WidgetWin_1"))
+        if SET_GO_ENTER_FACEBOOK=TRUE
             Set_Go=False
         if Mute_Beep_In_Other_Program_Beside_GrinBook_an_Mysms=False
             Set_Go=True
