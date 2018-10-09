@@ -5,7 +5,7 @@
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# Wed 18 October 2017 02:05:00 Work Time Beginner
 ;# Sat 21 April   2018 04:00:00 2nd Wave of Work Better Coder Emerged
-;# Tue 09 October 2018 05:00:00 3nd Wave of Code FaceBook Grin Book Name Scriptor & Array 
+;# Tue 09 October 2018 05:25:00 3nd Wave of Code FaceBook Grin Book Name Scriptor & Array 
 ;#                              Work File Rather Than Hardcode Info for Sharing On-line Privacy
 ;# __ 
 
@@ -104,24 +104,25 @@
 ;
 ; PRETTY EASY WHEN LOOKER FEW EXTRA LINE OF CODE - MAKE BETTER WORKING
 ; COULDN'T FIND HOW TO READ ONE ITEM OF NUMERIC FROM ARRAY ONLY TO READ ALL IN LOOP
+;
 ; ADDITION THE NUMERIC IS THE FRIEND COUNT 
 ; WHEN YOU JUST PASTE ALL YOU FRIEND CONTACT INFO IN HERE
 ; TRIM OFF FEW TO MAKE TIDIER
 ; KEEP ADDITIONAL CONTACT INFO MIGHT WANTER
-; ADDITIONALLY NUMERIC COUNT ON ONE LINE ONLY ARE EXCLUDED LIKE THE SAME REM ; LINE ARE
-; ALSO ONE  FRIEND WILL ONLY SHOW MUTUAL CONTACT COUNTER 
-; SO KEEP THAT INFO AN FILTER EXCLUDE LINES WITH mutual friends
+; ADDITIONALLY NUMERIC COUNT ON ONE LINE ONLY ARE EXCLUDED LIKE THE 
+; SAME REM ; LINE ARE ALSO FEW FRIEND CONTACT WILL ONLY SHOW MUTUAL 
+; CONTACT COUNTER AND THE FEW SHOW NOTHING
+; SO KEEP THAT INFO AN FILTER EXCLUDE LINES WITH FILTER __ mutual friends
 ;
-; SOME NUMERIC BY FACEBOOK HAVE THOUSAND SEPARATOR
-; ------------------------------------------------------------------------
+; SOME NUMERIC BY FACEBOOK HAVE THOUSAND SEPARATOR ,
+; -------------------------------------------------------------------
 ; Add On __ 
 ; Count The Total Network of Friend Just For Additional Extra Programmer Fun
 ; Only an Extra Hour to Add of Code in Early Hour
-; ------------------------------------------------------------------------
-;
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; TO     Tue 09-Oct-2018 01:25:00 __ DEFINITELY HARD WORK AS USUALLY MAKING AN ARRAY 
-; FROM   Tue 09-Oct-2018 04:40:00 __ 3 HOUR 20 MINUTE
+; FROM   Tue 09-Oct-2018 05:25:00 __ 4 HOUR
 ; -------------------------------------------------------------------
 
 ; GLOBAL SETTINGS ===================================================
@@ -296,7 +297,7 @@ enter::
 	
 	SET_GO_ENTER_FACEBOOK=FALSE
 	; ---------------------------------------------------------------
-	; REMMED OUT OLD STYLE OF CODE MAYBE USEFUL IN OTHER WORKER _ HARDCODE-ED
+	; REMM-ED OUT OLD STYLE OF CODE MAYBE USEFUL IN OTHER WORKER _ HARDCODE-ED
 	; if WinActive("Matthew Lancaster -") 
 		; SET_GO_ENTER_FACEBOOK=TRUE
 	; if WinActive("Will Dee -") 
