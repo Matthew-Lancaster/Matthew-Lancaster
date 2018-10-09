@@ -132,44 +132,44 @@ WScript.Quit 0
 '-------------------------------------
 Sub BEGIN
 '-------------------------------------
-    Set args = Wscript.Arguments
-    For Each arg In args
-        XF0 = XF0 + arg
-    Next
-    
+	Set args = Wscript.Arguments
+	For Each arg In args
+		XF0 = XF0 + arg
+	Next
+
 	' ---------------------------------------------------------------
 	' TO USE PUT A SHORTCUT TO THIS PROGRAM .VBS IN _ SENDTO _ FOLDER 
 	' AND RIGHT CLICK A VIDEO FILE TO HER
 	' ---------------------------------------------------------------
-	
+
 	' ---------------------------------------------------------------
-    ' If Sent-to is Used Sometime Additional Quote Surround are User
+	' If Sent-to is Used Sometime Additional Quote Surround are User
 	' ESPECIALLY IF CONTEXT MENU HAS BEEN ADDED IN REGISTRY 
 	' ---------------------------------------------------------------
-    XF0 = Replace(XF0,"""","")
-    
+	XF0 = Replace(XF0,"""","")
+
 	' ---------------------------------------------------------------
 	' USE A HARDCODE-ED PATH IF WANT TO
 	' ---------------------------------------------------------------
 	XF0="D:\DSC\2015-2018\2018 CyberShot HX60V\MP_ROOT\2018_08_30 Aug_Thu 20_25_49__MAQ00504.MP4"
 	' ---------------------------------------------------------------
-	
-    IF XF0="" AND WScript.Arguments.Count = 0 THEN 
-        Wscript.Echo "Not Any Command-line Arguments Were Given _ Exit without Do"
-        exit sub
-    End if
-    
-    IF objFSO.FileExists(XF0)=False THEN 
-        Wscript.Echo XF0 & vbcrlf & "File Name Given in Command line Arguments Is Not Exist _ Exit without Do"
-        exit sub
-    End if
-    
-    XF1 = XF0 + ".txt"
-    XF2 = Replace(XF1, ".txt", ".FFmpeg-Verify.txt")
-    XF3 = Mid(XF0, 1, InStrRev(XF0, ".") - 1)
-    XF3 = Mid(XF3, InStrRev(XF3, "\") + 1)
-    XF4 = Mid(XF0, 1, InStrRev(XF0, "\")) + XF3 + "__FFMPEG_RUN_BATCH_" + timeStamp + ".BAT"
-    
+
+	IF XF0="" AND WScript.Arguments.Count = 0 THEN 
+		Wscript.Echo "Not Any Command-line Arguments Were Given _ Exit without Do"
+		exit sub
+	End if
+
+	IF objFSO.FileExists(XF0)=False THEN 
+		Wscript.Echo XF0 & vbcrlf & "File Name Given in Command line Arguments Is Not Exist _ Exit without Do"
+		exit sub
+	End if
+
+	XF1 = XF0 + ".txt"
+	XF2 = Replace(XF1, ".txt", ".FFmpeg-Verify.txt")
+	XF3 = Mid(XF0, 1, InStrRev(XF0, ".") - 1)
+	XF3 = Mid(XF3, InStrRev(XF3, "\") + 1)
+	XF4 = Mid(XF0, 1, InStrRev(XF0, "\")) + XF3 + "__FFMPEG_RUN_BATCH_" + timeStamp + ".BAT"
+
 	' ---------------------------------------------------------------
 	' POINT TO PATH WHERE YOUR GONNA USE __ FFMPEG.EXE 
 	' COMMAND LINE VERSION
@@ -180,36 +180,36 @@ Sub BEGIN
 	' https://ffmpeg.zeranoe.com/builds/
 	' ----
 	' ---------------------------------------------------------------
-    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
-    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
-	DH = """C:\PStart\# NOT INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
-    
+	' DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+	' DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+	' DH = """C:\PStart\# NOT INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+
 	' ---------------------------------------------------------------
 	' UP-TO-DATE VERSION 
 	' ---------------------------------------------------------------
 	PATH_FFMPEG="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
 	DH = """" + PATH_FFMPEG + """ -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
-	
-    '-----------------------------
-    'TRY TO RUN SCRIPTING FROM COMMAND LINE -- WRONG DEBUG IT WORK TO DO
-    'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
-    '-----------------------------
+
+	'-----------------------------
+	'TRY TO RUN SCRIPTING FROM COMMAND LINE -- WRONG DEBUG IT WORK TO DO
+	'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
+	'-----------------------------
 		
-    TEMP = XF4
-    Set MyFile = objFSO.OpenTextFile(TEMP, ForWriting, True, TristateFalse)
-    MyFile.WriteLine "@CD\"
-    MyFile.WriteLine DH
-    MyFile.WriteLine "@ECHO."
+	TEMP = XF4
+	Set MyFile = objFSO.OpenTextFile(TEMP, ForWriting, True, TristateFalse)
+	MyFile.WriteLine "@CD\"
+	MyFile.WriteLine DH
+	MyFile.WriteLine "@ECHO."
 	MyFile.WriteLine "@ECHO __ "
-    MyFile.WriteLine "@ECHO __ SYSTEM AUDIO SOUND TO SIGNAL THE FINISH - FOR BIG VIDEO FILE"
-    MyFile.WriteLine "@rundll32 user32.dll,MessageBeep"
+	MyFile.WriteLine "@ECHO __ SYSTEM AUDIO SOUND TO SIGNAL THE FINISH - FOR BIG VIDEO FILE"
+	MyFile.WriteLine "@rundll32 user32.dll,MessageBeep"
 	MyFile.WriteLine "@ECHO __ "
-'    MyFile.WriteLine "@ECHO __ BATCH FILE DELETES ITSELF AFTER __ CLEANER"
-'    MyFile.WriteLine "@ECHO __ ERROR ABOUT BATCH FILE NOT FOUND ENDING IS NORMAL DELETER HAPPEN"
+	' MyFile.WriteLine "@ECHO __ BATCH FILE DELETES ITSELF AFTER __ CLEANER"
+	' MyFile.WriteLine "@ECHO __ ERROR ABOUT BATCH FILE NOT FOUND ENDING IS NORMAL DELETER HAPPEN"
 	MyFile.WriteLine "@ECHO __ "
 	MyFile.WriteLine "@ECHO __ EMPTY OUTPUT RESULT FILE INDICATE NONE ERROR IN VIDEO FILE"
 	MyFile.WriteLine "@ECHO __ ERROR'S WOULD NORMALLY BE SHOWN IN GREAT DETAIL"
-    MyFile.WriteLine "@ECHO __ "
+	MyFile.WriteLine "@ECHO __ "
 	MyFile.WriteLine "@ECHO __ OUTPUT RESULT FILE WRITTEN IN SAME CURRENT DIRECTORY AS"
 	MyFile.WriteLine "@ECHO __ PROCESSED VIDEO FILE UNDER EXTENSION .TXT _ HERE LOCATION"
 	MyFile.WriteLine "@ECHO __ "
@@ -217,14 +217,14 @@ Sub BEGIN
 	MyFile.WriteLine "@ECHO __ "
 	MyFile.WriteLine "@ECHO __ COMPLETER ___"
 	MyFile.WriteLine "@ECHO __ "
-	
+
 	MyFile.WriteLine "@SET FILE_CONTAIN_DATA="
-	
-	'----------------------------------------------------------------
+
+	' ---------------------------------------------------------------
 	' Test Debug
-	'----------------------------------------------------------------
+	' ---------------------------------------------------------------
 	' MyFile.WriteLine "@ECHO TEST >>""" + XF2 +""""
-	
+
 	MyFile.WriteLine "@ECHO OFF"
 	MyFile.WriteLine "(for /f usebackq^ eol^= %%a in ("""+XF2+""") do break) && echo __ OutPut File For Video Has Process Result Error Data || SET FILE_CONTAIN_DATA=FALSE"
 	MyFile.WriteLine "@ECHO ON"
@@ -237,7 +237,7 @@ Sub BEGIN
 	MyFile.WriteLine "@ECHO __"
 	MyFile.WriteLine "@ECHO __ GOOD RESULT PROCESS OF VIDEO FILE HAS NONE ERROR"
 	MyFile.WriteLine "@ECHO __"
-    MyFile.WriteLine "@DEL """ + XF2 + """"
+	MyFile.WriteLine "@DEL """ + XF2 + """"
 	MyFile.WriteLine "@GOTO ENDE"
 	MyFile.WriteLine ":FILE_HAS_DATA_NEXT_STEPPER"
 
@@ -252,10 +252,10 @@ Sub BEGIN
 	MyFile.WriteLine "@START """" /MAX /HIGH ""C:\Program Files (x86)\Notepad++\notepad++.exe""" + " """+XF2+""""
 	MyFile.WriteLine ":NOT"
 	MyFile.WriteLine ":ENDE"
-	
-    MyFile.WriteLine "@DEL """ + TEMP + """"
-    MyFile.Close
-    
+
+	MyFile.WriteLine "@DEL """ + TEMP + """"
+	MyFile.Close
+
 	' ---------------------------------------------------------------
 	' Credit Due for Source Empty File in Batch Command
 	' ---------------------------------------------------------------
@@ -270,14 +270,15 @@ Sub BEGIN
 
 	' -----------------------------------------------------------------------------------
 	' In Order to Test the Code Working Now Will Have to Tested on a Corrupted Video File
-    ' Sure Working on Only Slight Modify Will Be Worker 100%"
+	' Sure Working on Only Slight Modify Will Be Worker 100%"
 	' -----------------------------------------------------------------------------------
-	
-    Dim WSHShell
-    Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run "CMD /K """ + TEMP + """ 2>NUL"
-    Set WSHShell = Nothing
-'-------------------------------------
+
+	Dim WSHShell
+	Set WSHShell = CreateObject("WScript.Shell")
+	WSHShell.Run "CMD /K """ + TEMP + """ 2>NUL"
+	Set WSHShell = Nothing
+
+	' -----------------------------------------------------------------------------------
 END SUB
 
 Function timeStamp()
