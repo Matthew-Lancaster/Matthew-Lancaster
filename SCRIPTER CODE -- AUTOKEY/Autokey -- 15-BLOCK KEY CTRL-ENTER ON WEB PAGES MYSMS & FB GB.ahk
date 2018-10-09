@@ -7,16 +7,20 @@
 ;# 
 ;# Wed 18 October 2017 02:05:00 Work Time Beginner
 ;# Sat 21 April   2018 04:00:00 2nd Wave of Work Better Coder Emerged
-;# Tue 09 October 2018 05:25:00 3nd Wave of Code FaceBook Grin Book Name Scriptor & Array 
-;#                              Work File Rather Than Hardcode Info for Sharing On-line Privacy
+;# Tue 09 October 2018 05:25:00 3nd Wave of Code Facebook Grin Book Name Scriptor & Array 
+;#                              Work File Rather Than Hardcode-ed Info for Sharing On-line Privacy
 ;# __ 
 ;# ------------------------------------------------------------------
 
-; Published on Blogger
+; -------------------------------------------------------------------
+; Published on Google Blogger
 ; -------------------------------------------------------------------
 ; Search Description
 ; -------------------------------------------------------------------
-; Code to Change Shift-Enter Control Enter and Enter for Use when Sending Messenger and Not Wanting to Send on The Enter Key or By Accident Control Enter For Use with MYSMS and GrinBook FB And Any Other May Find Later
+; Code to Change Shift-Enter Control Enter and Enter for Use when 
+; Sending Messenger and Not Wanting to Send on The Enter Key or By 
+; Accident Control Enter For Use with MYSMS and GrinBook FB And Any 
+; Other May Find Later
 ; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
@@ -31,7 +35,7 @@
 ;# ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 002 SESSION _ Get Lift Off for Hotkeyer Coder __ On AutoHotKeys 
+; 002 SESSION _ Get Lift Off for Hotkey-er Coder __ On AutoHotKeys 
 ;               Multiple Use of One or Two Hot Key Intercept Hooker
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -40,7 +44,8 @@
 ; entering or By Accident Control Enter
 ; For Use with MYSMS and GrinBook FB And Any Other May Find Later
 ; My New Improved Style of Coding Read a Bit More in Rem Line
-; Took 4 Hours Work Additional on Code Before the Last Attempt Early Hour Until Dawn
+; Took 4 Hours Work Additional on Code Before the Last Attempt Early 
+; Hour Until Dawn
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; New Code Improver New Style Of Coder Improved Working
@@ -56,7 +61,7 @@
 ; And That Plays A Knock-On Effect Later On In The Code 
 ; That Has To Be Taken Care Of
 ; The Idea Is I Want A Series Of Swapping Control And Shift-Return
-; To Enter Key And Vice Versa Depending On If In The Mysms Program That I Use 
+; To Enter Key And Vice Versa Depending On If In The MYSMS Program That I Use 
 ; A Lot And Also Facebook 
 ; Facebook Is Only Detected Because Of My Name As The Title Of The Window 
 ; And Also The Class Name Not Much More Can Do On That One
@@ -73,11 +78,11 @@
 ; Yes Able To Get Around That With Work Of Shift-Enter Rather Than
 ;  Control Enter
 ; You Will Hear A Beep For The Enter Key In All Your Programs As Key Intercepted
-; Not Just Isolated To GrinBook FB And Mysms With Little Extra Code 
-; You Could Disable Beeper Unless In FB And Mysms
+; Not Just Isolated To GrinBook FB And MYSMS With Little Extra Code 
+; You Could Disable Beeper Unless In FB And MYSMS
 ; Might Be Helpful To Remove The Beeper There As It Less Quicker 
 ; A Lot The Repeat Return Key Compared To Other Keys In Editing 
-; Besides Mysms And Grin Book
+; Besides MYSMS And Grin Book
 ; Yes That Was The Answer But You Can Also Change The Sound 
 ; Speeded Up
 ; Well I Finished That Off With User-Friendly Variable Setting Choice 
