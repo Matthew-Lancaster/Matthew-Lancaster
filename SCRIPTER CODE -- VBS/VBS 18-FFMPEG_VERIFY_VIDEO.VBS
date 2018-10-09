@@ -221,7 +221,8 @@ Sub BEGIN
 	MyFile.WriteLine "@SET FILE_CONTAIN_DATA="
 
 	' ---------------------------------------------------------------
-	' Test Debug
+	' Test Debug - Simulate Was an Error in Report to Test Ender Code
+	' And Checker Code for Empty File Return
 	' ---------------------------------------------------------------
 	' MyFile.WriteLine "@ECHO TEST >>""" + XF2 +""""
 
@@ -267,11 +268,6 @@ Sub BEGIN
 	' https://stackoverflow.com/questions/33575962/windows-batch-how-to-check-if-a-text-file-is-blank-the-file-has-an-empty-line
 	' ----
 	' ---------------------------------------------------------------
-
-	' -----------------------------------------------------------------------------------
-	' In Order to Test the Code Working Now Will Have to Tested on a Corrupted Video File
-	' Sure Working on Only Slight Modify Will Be Worker 100%"
-	' -----------------------------------------------------------------------------------
 
 	Dim WSHShell
 	Set WSHShell = CreateObject("WScript.Shell")
