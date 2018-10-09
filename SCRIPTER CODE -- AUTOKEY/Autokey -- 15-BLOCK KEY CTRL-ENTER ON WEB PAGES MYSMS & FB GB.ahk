@@ -150,6 +150,7 @@ SetStoreCapslockMode, off
 Set_Key_FB_Control=False 
 Dont_Send_2_Enter=False
 Sound_Speed=20
+TEXT_STRING_VAR=	
 	
 ;User Setting as Required
 Mute_Beep_In_Other_Program_Beside_GrinBook_an_Mysms=true
@@ -191,7 +192,14 @@ IfExist, %SourceFile%
 		IF !A_LoopReadLine
 			SET_GO=FALSE
 		IF SET_GO=TRUE
-			current[A_Index] := A_LoopReadLine ; This adds the value read from file line into real array
+		{
+			TEXT_STRING_VAR = %A_LoopReadLine%%A_Space%-
+			current[A_Index] := TEXT_STRING_VAR
+			
+			; MSGBOX % current[A_Index]
+			; EXITAPP
+			
+		}
 	}
 }
 
