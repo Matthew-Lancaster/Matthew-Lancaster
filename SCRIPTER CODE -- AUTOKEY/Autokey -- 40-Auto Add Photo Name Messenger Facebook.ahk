@@ -204,7 +204,7 @@ IfWinExist, %SET_String%
 
 IF SET_GO=FALSE
 {
-	MSGBOX THE APP DOES NOT FIND THE REQUIREMENTS TO RUN `nAS MET BY `n`n%FACEBOOK_URL_TITLE_1% `nWindow Does Not Result to WinExist `n`nAnd Also `n`n%FACEBOOK_URL_TITLE_2% `nDoes Not Result to WinExist `n`nGOING TO EXIT
+	MSGBOX THE APP DOES NOT FIND THE REQUIREMENT TO RUN `nAS MET BY `n`n%FACEBOOK_URL_TITLE_1% `nWindow Does Not Result to WinExist `n`nAnd Also `n`n%FACEBOOK_URL_TITLE_2% `nDoes Not Result to WinExist `n`nGOING TO EXIT
 	EXITAPP
 	RETURN
 }
@@ -336,6 +336,9 @@ if VAR_COUNTER>%FILE_SCRIPT_COUNT%
 	SoundBeep , 2000 , 200
 	SoundBeep , 1000 , 150
 	ExitApp
+	; ---------------------------------------------------------------
+	; ALL COMPLETE AND THEN EXIT AND MAKE SOUND TO NOTIFY
+	; ---------------------------------------------------------------
 }
 }
 RETURN
