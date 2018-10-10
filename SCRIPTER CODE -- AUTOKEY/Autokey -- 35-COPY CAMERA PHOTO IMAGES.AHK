@@ -3,7 +3,8 @@
 ;# __ 
 ;# __ Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
 ;# __ 
-;# BY Matthew __ Matt.Lan@Btinternet.com __ 
+;# __ BY Matthew Lancaster 
+;# __ Matt.Lan@Btinternet.com
 ;# __ 
 ;  =============================================================
 

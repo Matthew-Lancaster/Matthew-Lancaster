@@ -51,7 +51,8 @@ SetTitleMatchMode 3  ; Specify Full path
 ; -------------------------------------------------------------------
 ; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
 ; AT THE NUMBER NEXT NEEDER TO BE ENTER
-VAR_COUNTER=241
+VAR_COUNTER=351
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
 ; GLOBAL FILE_SCRIPT
@@ -75,20 +76,33 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 ; -----------------------------------------------------------------------
 SET_String:=SubStr(FILE_PATH_WILDPATH_JPG,1,InStr(FILE_PATH_WILDPATH_JPG,"\",,0)-1)
 
+; WHEN CREATE ALBUM FIRST TIME PAGE
+FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
+; WHEN IN THE ALBUMS EDIT PAGE
+FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
+
 IfWinExist, %SET_String%
-	IfWinExist, Matthew Lancaster - Google Chrome
+	SET_GO=FALSE
+	IfWinExist, %FACEBOOK_URL_TITLE_1%
+	{
+		SET_GO=TRUE
+		SETTIMER F4,3000
+	}
+	IfWinExist, %FACEBOOK_URL_TITLE_2%
+	{
+		SET_GO=TRUE
+		; WHEN IN THE ALBUMS EDIT PAGE _ TIMER FOR UPDATE HAS 
+		; TO BE LESS QUICK OR ERROR TAB TO NEXT ONE
+		; GIVING ENOUGH SPEED IS CRITICAL TAB WILL JUMP IF NOT READY FOR NEXT ONE IN
+		FACEBOOK_TIMER_DELAY=14000
+		SETTIMER F4,%FACEBOOK_TIMER_DELAY%
+	}
+	IF SET_GO=TRUE
 	{
 		WinActivate ; use the window found above
-		SETTIMER F4,3000
 
 	}
-
-
-	
 Return
-
-
-
 
 
 ; -------------------------------------------------------------------
@@ -161,11 +175,8 @@ ELSE
 {
 	StringUpper, FILE_NAME, FILE_NAME
 }
-
 	
 POS_VAR:=InStr(FILE_NAME,"_")
-
-; MSGBOX % FILE_NAME
 
 if POS_VAR>0 
 {
@@ -184,31 +195,63 @@ StringReplace, OutputVar_2, OutputVar_2,.JPG,,
 SoundBeep , 1000 , 150
 
 IfWinExist, %SET_String%
-	IfWinExist, Matthew Lancaster - Google Chrome
+{
+	IfWinExist, %FACEBOOK_URL_TITLE_1%
 	{
 		WinActivate ; use the window found above
 	}
+	IfWinExist, %FACEBOOK_URL_TITLE_2%
+	{
+		WinActivate ; use the window found above
+	}
+}
 
-Sendinput ^a
-Sendinput {delete}
+
+Sendinput ^a{delete}
 Sendinput %VAR_COUNTER% of %FILE_SCRIPT_COUNT%`n
 Sendinput %OutputVar_1%`n
 
 if POS_VAR>0 
-	Send %OutputVar_2%`n
+	Sendinput %OutputVar_2%`n
 
 ; -------------------------------------------------------------------
 ; IF ALREADY PUBLISHED PHOTO AND WANT TO ADD INFO DESCRIPTION 
 ; USE ONE TAB INSTEAD 
 ; -------------------------------------------------------------------
-	; Send {tab}
 
-Sendinput ^{home}
-Sendinput {tab}{tab}{tab}{tab}{tab}
+IfWinExist, %FACEBOOK_URL_TITLE_2%
+{
+	Sendinput ^{home}
+	Sendinput {tab}
+	; IMPORTANT TO HAVE BIGGER SLEEP AFTER TAB NEXT ITEM OR IT LAND 
+	; ON WRONG LOCATION
+	; ---------------------------------------------------------------
+	SLEEP 1500
+	Sendinput ^{home}
+}
+	
+IfWinExist, %FACEBOOK_URL_TITLE_1%
+{
+	Sendinput ^{home}
+	Sendinput {tab}{tab}{tab}{tab}{tab}
+	SLEEP 1000
+}
+
+
+SETTIMER F4,off
+SLEEP 200
+SETTIMER F4,%FACEBOOK_TIMER_DELAY%
+
 
 VAR_COUNTER+=1
 if VAR_COUNTER>%FILE_SCRIPT_COUNT%
-SETTIMER F4,off
+{
+	SETTIMER F4,off
+	SoundBeep , 1000 , 150
+	SoundBeep , 2000 , 200
+	SoundBeep , 1000 , 150
+
+}
 }
 RETURN
 
