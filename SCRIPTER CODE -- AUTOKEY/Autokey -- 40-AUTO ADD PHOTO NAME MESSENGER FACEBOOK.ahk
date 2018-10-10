@@ -284,7 +284,7 @@ IfWinExist, %FACEBOOK_URL_TITLE_2%
 	; IMPORTANT TO HAVE BIGGER SLEEP AFTER TAB NEXT ITEM OR IT LAND 
 	; ON WRONG LOCATION _ BY TIME NEXT INPUT SENDINPUT HAPPEN
 	; ---------------------------------------------------------------
-	SLEEP 1500
+	SLEEP 1500 ; ____ 1 & HALF SECOND DELAY
 	Sendinput ^{home}
 }
 	
