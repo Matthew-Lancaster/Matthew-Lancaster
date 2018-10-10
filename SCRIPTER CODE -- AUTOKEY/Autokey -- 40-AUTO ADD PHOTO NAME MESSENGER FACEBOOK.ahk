@@ -129,7 +129,7 @@ FILE_SCRIPT := Object()
 ; FILE_SCRIPT := []
 
 ; -------------------------------------------------------------------
-; SET THE PATH OF PHOTO FOLDER _ WITHOUT SUB-FOLDER IS GOOD IDEA
+; SET THE PATH OF PHOTO FOLDER _ WITHOUT RECURSING SUB-FOLDER IS GOOD IDEA
 ; TO QUICKLY COUNT THEM AND SEE AS ORDER TO GO ONTO FACEBOOK
 ; AND NOT STRETCH MY CODE TOO MUCH
 ; -------------------------------------------------------------------
