@@ -1,6 +1,12 @@
 ﻿;  =============================================================
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
+;# __ 
+;# __ Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
+;# __ 
+;# __ BY Matthew Lancaster 
+;# __ Matt.Lan@Btinternet.com
+;# __ 
 ;  =============================================================
-
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
@@ -8,27 +14,21 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
-;---------------------------------------------------------
+; -------------------------------------------------------------------
 ;WANT SELECT ALL LINE AND PASTE ONTO IT
 ;WANT COPY ON IT OWN
 ;WANT HOLD CTRL UNTIL ASK IT STOP FOR LINK URL IN WEB PAGE
-;---------------------------------------------------------
+; -------------------------------------------------------------------
 ;WANT COPY TEXT AND REPEAT PASTE IT DOWN A LINE HOME DOWN PASTE PUT REMARK IN
-;---------------------------------------------------------
+; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set Google Drive
-; Possible Censorship of Code Detected By Google as Malicious Happen Here
-; unlike DropBox that has All Available
-; https://drive.google.com/open?id=0BwoB_cPOibCPTnRZZVFuRFpHOTg
-;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set DropBox
-; https://www.dropbox.com/sh/ntghoncyb8py1tf/AACWYrfkVn9PlqpYzNNSMcpMa?dl=0
-;--------------------------------------------------------------------
-; Link to This File On DropBox With Most Up to Date
-; https://www.dropbox.com/s/3t0ei0xl5k8r0la/Autokey%20--%2001-F10%20__%20HOTKEY%20__%20PRINT%20SCREEN.ahk?dl=0
+; ----
+; Matthew-Lancaster/Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2001-F10%20__%20HOTKEY%20__%20PRINT%20SCREEN.ahk
+; ----
 ;# ------------------------------------------------------------------
 
 
@@ -38,9 +38,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;--------------------
 ;--------------------
 
-;---------------------------------------------------------
+; -------------------------------------------------------------------
 ; CODE INITIALIZE
-;---------------------------------------------------------
+; -------------------------------------------------------------------
 SoundBeep , 1500 , 400
 SetStoreCapslockMode, off
 
@@ -49,7 +49,9 @@ SETTIMER TIMER_ENTER,OFF
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 ; -------------------------------------------------------------------
-VAR_COUNTER=1
+; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
+; AT THE NUMBER NEXT NEEDER TO BE ENTER
+VAR_COUNTER=241
 ; -------------------------------------------------------------------
 
 ; GLOBAL FILE_SCRIPT
@@ -59,17 +61,37 @@ FILE_SCRIPT_COUNT=0
 FILE_SCRIPT := Object()
 ; FILE_SCRIPT := []
 
-Loop, Files, D:\DSC\2015-2018\2018 CyberShot HX60V\DCIM\2018 09 13 _ WALK BOTH TESCO HOVE ALSO _ ALL WAY ALONG SEAFRONT & BACK TURNING UP A BIT TO TOWN\*.JPG
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015-2018\2018 CyberShot HX60V\WORK\*.JPG
+
+Loop, Files, %FILE_PATH_WILDPATH_JPG%
 {
 	FILE_SCRIPT[A_Index] := A_LoopFileName
 	FILE_SCRIPT_COUNT := A_Index
 }	
+
+SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+
+; USE 0 FOR START SEARCH LOCATION DOES LIKE VB INSTRREV IN REVERSE SEARCH  
+; -----------------------------------------------------------------------
+SET_String:=SubStr(FILE_PATH_WILDPATH_JPG,1,InStr(FILE_PATH_WILDPATH_JPG,"\",,0)-1)
+
+IfWinExist, %SET_String%
+	IfWinExist, Matthew Lancaster - Google Chrome
+	{
+		WinActivate ; use the window found above
+		SETTIMER F4,3000
+
+	}
+
+
 	
 Return
 
 
 
-;-------------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
 ; REPLACE F10 TO DO CONTROL PRINT SCREEN
 ; FOR CLIPBOARD SCREEN SHOT -- 
 ; CODE PICPICK WON'T HOT KEY F10 ON WIN 7 AND UP
@@ -84,7 +106,7 @@ Return
 ; set pikpick to ctrl f10 area and ctrl prt scrn for normAl same as before
 ; Sendinput +{PrintScreen} -- NOT USER
 ; ^ CTRL F10 PRT SCRN
-;-------------------------------------------------------------------------
+; -------------------------------------------------------------------
 ;F10::^F10
 
 F10::
@@ -96,54 +118,99 @@ F10::
 	Sendinput ^{F10}
 	; LOGITECH MOUSE INFO POP UP WONT LIKE CAPS CHANGE OR HOT KEY F10 THINK INFO REQUIRE ABOUT CAPITAL CHANGE OR TURN LOGITECH NOTIFY OFF
 Return
-;-------------------------------------------------------------------------
-;-------------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
- 
-; F4::
-; {
 
-; FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
+; -------------------------------------------------------------------
+; HERE FOR FACEBOOK 
+; GOT SOME PHOTO IN FOLDER
+; THIS WILL GET FILENAME WITH ANY DESCRIPTION
+; AND PUT IT IN FACEBOOK 
+; SO YOU DON'T HAVE TO TYPE ANY IN ADD YOUR DESCRIPTION ON COMPUTER 
+; FIRST AND DON'T HAVE TO MAKE EXTRA COPY
+; WISH SPACE BOOK GRIN BOOK _ AI _ WOULD DO SOMETHING LIKE THAT
+; THOUGH GUESS THEY ARE SECRETLY KEEPING ALL YOUR FILENAME INFO WITH EACH PHOTO SO IT DON'T GET LOST OR SOMETHING
+; -------------------------------------------------------------------
+; REM IN AND OUT WHEN WANT TO USE IT 
+; SUPPLY PATH NAME _ UP A BIT
+; MIGHT MAKE IT OWN AHK FILE THIS ONE AS USED A LOT AND ONLY WANT 
+; CALL UP WHEN USER
+; MY FAV HOTKEY IS F4 F5 AND OTHER BUT HARDLY USE MANY OR I GET IT TOO COMPLICATED
+; GUESSING WHERE MY FAVOURITE HOTKEY ARE
+; USE THEM WHEN YOU WANT
+; WRITTEN WELL BEFORE THIS DATE
+; JUST USE AGAIN TODAY
+; -------------------------------------------------------------------
+; [ Tuesday 21:31:30 Pm_09 October 2018 ]
+; -------------------------------------------------------------------
 
-; IF GetKeyState("Capslock", "T")
-; {
-	; StringLower, FILE_NAME, FILE_NAME
-; }
-; ELSE
-; {
-	; StringUpper, FILE_NAME, FILE_NAME
-; }
+
+
+F4::
+{
+
+FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
+
+IF GetKeyState("Capslock", "T")
+{
+	StringLower, FILE_NAME, FILE_NAME
+}
+ELSE
+{
+	StringUpper, FILE_NAME, FILE_NAME
+}
 
 	
-; POS_VAR:=InStr(FILE_NAME,"_")
+POS_VAR:=InStr(FILE_NAME,"_")
 
-; ; MSGBOX % FILE_NAME
+; MSGBOX % FILE_NAME
 
-; if POS_VAR>0 
-; {
-	; POS_VAR-=1
-	; OutputVar_1:=SubStr(FILE_NAME, 1, POS_VAR)
-	; POS_VAR+=2
-	; OutputVar_2:=SubStr(FILE_NAME, POS_VAR)
-; }
-; else
-; {
-	; OutputVar_1=%FILE_NAME%
-; }
+if POS_VAR>0 
+{
+	POS_VAR-=1
+	OutputVar_1:=SubStr(FILE_NAME, 1, POS_VAR)
+	POS_VAR+=2
+	OutputVar_2:=SubStr(FILE_NAME, POS_VAR)
+}
+else
+{
+	OutputVar_1=%FILE_NAME%
+}
 
-; StringReplace, OutputVar_2, OutputVar_2,.JPG,,
+StringReplace, OutputVar_2, OutputVar_2,.JPG,,
 
-; Send %VAR_COUNTER% of %FILE_SCRIPT_COUNT%`n
-; Send %OutputVar_1%`n
-; if POS_VAR>0 
-	; Send %OutputVar_2%`n
+SoundBeep , 1000 , 150
 
-; ; Send {tab}
-; Send {tab}{tab}{tab}{tab}{tab}
+IfWinExist, %SET_String%
+	IfWinExist, Matthew Lancaster - Google Chrome
+	{
+		WinActivate ; use the window found above
+	}
 
-; VAR_COUNTER+=1
-; }
+Sendinput ^a
+Sendinput {delete}
+Sendinput %VAR_COUNTER% of %FILE_SCRIPT_COUNT%`n
+Sendinput %OutputVar_1%`n
+
+if POS_VAR>0 
+	Send %OutputVar_2%`n
+
+; -------------------------------------------------------------------
+; IF ALREADY PUBLISHED PHOTO AND WANT TO ADD INFO DESCRIPTION 
+; USE ONE TAB INSTEAD 
+; -------------------------------------------------------------------
+	; Send {tab}
+
+Sendinput ^{home}
+Sendinput {tab}{tab}{tab}{tab}{tab}
+
+VAR_COUNTER+=1
+if VAR_COUNTER>%FILE_SCRIPT_COUNT%
+SETTIMER F4,off
+}
+RETURN
 
 
 
