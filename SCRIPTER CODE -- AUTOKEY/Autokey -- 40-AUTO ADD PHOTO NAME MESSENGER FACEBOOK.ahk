@@ -130,7 +130,7 @@ FILE_SCRIPT := Object()
 
 ; -------------------------------------------------------------------
 ; SET THE PATH OF PHOTO FOLDER _ WITHOUT RECURSING SUB-FOLDER IS GOOD IDEA
-; TO QUICKLY COUNT THEM AND SEE AS ORDER TO GO ONTO FACEBOOK
+; TO BE ABLE QUICKLY COUNT THEM AND SEE AS ORDER TO GO ONTO FACEBOOK
 ; AND NOT STRETCH MY CODE TOO MUCH
 ; -------------------------------------------------------------------
 FILE_PATH_WILDPATH_JPG=D:\DSC\2015-2018\2018 CyberShot HX60V\WORK\*.JPG
