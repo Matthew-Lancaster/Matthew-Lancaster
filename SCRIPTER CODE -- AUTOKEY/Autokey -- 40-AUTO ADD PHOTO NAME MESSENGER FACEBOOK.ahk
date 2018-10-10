@@ -102,7 +102,7 @@ SoundBeep , 1500 , 400
 SetStoreCapslockMode, off
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
-SETTIMER TIMER_ENTER,OFF
+
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 
@@ -158,6 +158,7 @@ FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
 FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
 
 IfWinExist, %SET_String%
+{
 	SET_GO=FALSE
 	IfWinExist, %FACEBOOK_URL_TITLE_1%
 	{
@@ -178,6 +179,7 @@ IfWinExist, %SET_String%
 		WinActivate ; use the window found above
 
 	}
+}
 Return
 
 
