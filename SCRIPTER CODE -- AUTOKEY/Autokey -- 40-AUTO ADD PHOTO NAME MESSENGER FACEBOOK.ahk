@@ -15,15 +15,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
 ;# ------------------------------------------------------------------
-; SESSION 001
-; -------------------------------------------------------------------
-; Spend Time Coding Previous Dated Earlier to Find Not Documented Anywhere Yet
-; -------------------------------------------------------------------
-; FROM   Tue 09-Oct-2018 21:30:00 __ 
-; TO     Wed 10-Oct-2018 07:40:00 __ 10 hours, 10 minutes and 0 seconds
-;# ------------------------------------------------------------------
-
-;# ------------------------------------------------------------------
 ; DESCRIPTION
 ; THE CODE WILL ENTER FROM FILENAME ON YOUR COMPUTER FOLDER
 ; THE PHOTO YOU HAVING EXTRACT THE FILENAME FROM PATH 
@@ -63,13 +54,30 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;# ------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
+; SESSION 001
+; -------------------------------------------------------------------
+; Spend Time Coding Previous Dated Earlier to Find Not Documented Anywhere Yet
+; -------------------------------------------------------------------
+; FROM   Tue 09-Oct-2018 21:30:00 __ 
+; TO     Wed 10-Oct-2018 07:40:00 __ 10 hours, 10 minutes and 0 seconds
+;# ------------------------------------------------------------------
+
+;# ------------------------------------------------------------------
+; SESSION 002
+; -------------------------------------------------------------------
+; Add ExitApp When Conditions Are Not Met To Run with Explain MSGBOX on
+; -------------------------------------------------------------------
+; FROM   Wed 10-Oct-2018 16:13:43 __ 
+; TO     Wed 10-Oct-2018 16:32:00 __ 
+;# ------------------------------------------------------------------
+
 
 ;# ------------------------------------------------------------------
 ; OnLine Location 
 ;--------------------------------------------------------------------
 ; ----
-; Matthew-Lancaster/Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2001-F10%20__%20HOTKEY%20__%20PRINT%20SCREEN.ahk
+; Matthew-Lancaster/Autokey -- 40-Auto Add Photo Name Messenger Facebook.ahk
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2040-Auto%20Add%20Photo%20Name%20Messenger%20Facebook.ahk
 ; ----
 ;# ------------------------------------------------------------------
 
@@ -142,6 +150,13 @@ Loop, Files, %FILE_PATH_WILDPATH_JPG%
 	FILE_SCRIPT_COUNT := A_Index
 }	
 
+IF FILE_SCRIPT_COUNT=0
+{
+	MSGBOX THERE IS NONE FILE COUNT *.JPG `n@ `n%FILE_PATH_WILDPATH_JPG% `n`nGOING TO EXIT
+	EXITAPP
+	RETURN
+}
+
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 ; -----------------------------------------------------------------------
@@ -160,9 +175,9 @@ FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
 ; -----------------------------------------------------------------------
 FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
 
+SET_GO=FALSE
 IfWinExist, %SET_String%
 {
-	SET_GO=FALSE
 	IfWinExist, %FACEBOOK_URL_TITLE_1%
 	{
 		SET_GO=TRUE
@@ -186,6 +201,14 @@ IfWinExist, %SET_String%
 
 	}
 }
+
+IF SET_GO=FALSE
+{
+	MSGBOX THE APP DOES NOT FIND THE REQUIEMENTS TO RUN `nAS MET BY `n`n%FACEBOOK_URL_TITLE_1% `nWindow Does Not Result to WinExist `n`nAnd Also `n`n%FACEBOOK_URL_TITLE_2% `nDoes Not Result to WinExist `n`nGOING TO EXIT
+	EXITAPP
+	RETURN
+}
+
 Return
 
 
