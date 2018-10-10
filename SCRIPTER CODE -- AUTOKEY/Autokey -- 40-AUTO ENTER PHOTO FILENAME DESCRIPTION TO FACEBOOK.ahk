@@ -1,7 +1,7 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 40-F4 & AUTOHOTKEY _ PHOTO FILENAME DESCRIPTION ON FACEBOOK GRINBOOK.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 40-AUTO ENTER PHOTO FILENAME DESCRIPTION TO FACEBOOK.ahk
 ;# __ 
-;# __ Autokey -- 40-F4 & AUTOHOTKEY _ PHOTO FILENAME DESCRIPTION ON FACEBOOK GRINBOOK.ahk
+;# __ Autokey -- 40-AUTO ENTER PHOTO FILENAME DESCRIPTION TO FACEBOOK.ahk
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com
