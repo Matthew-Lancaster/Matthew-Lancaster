@@ -156,7 +156,7 @@ SET_String:=SubStr(FILE_PATH_WILDPATH_JPG,1,InStr(FILE_PATH_WILDPATH_JPG,"\",,0)
 ; -----------------------------------------------------------------------
 FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
 ; -----------------------------------------------------------------------
-; WHEN IN THE ALBUMS EDIT PAGE
+; WHEN IN THE ALBUM EDIT PAGE
 ; -----------------------------------------------------------------------
 FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
 
@@ -171,9 +171,12 @@ IfWinExist, %SET_String%
 	IfWinExist, %FACEBOOK_URL_TITLE_2%
 	{
 		SET_GO=TRUE
+		; -----------------------------------------------------------
 		; WHEN IN THE ALBUMS EDIT PAGE _ TIMER FOR UPDATE HAS 
 		; TO BE LESS QUICK OR ERROR TAB TO NEXT ONE
-		; GIVING ENOUGH SPEED IS CRITICAL TAB WILL JUMP IF NOT READY FOR NEXT ONE IN
+		; GIVING ENOUGH SPEED IS CRITICAL TAB WILL JUMP IF NOT READY 
+		; FOR NEXT ONE IN
+		; -----------------------------------------------------------
 		FACEBOOK_TIMER_DELAY=14000
 		SETTIMER F4,%FACEBOOK_TIMER_DELAY%
 	}
