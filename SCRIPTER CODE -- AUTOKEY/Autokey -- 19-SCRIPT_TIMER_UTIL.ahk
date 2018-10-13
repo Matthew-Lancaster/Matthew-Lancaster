@@ -161,6 +161,10 @@ GLOBAL ID_OLD_TeamViewer_Panel_TV_ControlWin
 
 GLOBAL dhw
 
+OLD_UniqueID_CHROME=0
+OLD_UniqueID_RfEditor=0
+OLD_UniqueID_NOTEPAD_PLUS_PLUS=0
+
 ID_TeamViewer_Panel_TV_ControlWin_TIMER=0
 ID_OLD_TeamViewer_Panel_TV_ControlWin=0
 
@@ -256,514 +260,6 @@ SETTIMER TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX,4000
 
 SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
 SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
-
-RETURN
-
-TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX:
-IfWinExist Camera Upload
-{
-	WinActivate
-	sendinput, !{F4}		; CLOSE
-	SoundBeep , 1000 , 50
-}
-RETURN
-
-
-TIMER_SUB_WINDOWS_DESKTOP_ICON:
-
-setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,59000
-
-;C:\Windows10Upgrade\Windows10UpgraderApp.exe /ClientID "Win10Upgrade:VNL:NHV13SIH:{}"
-
-FN_VAR:="E:\01 Desktop\#_%A_ComputerName%\Windows 10 Update Assistant.lnk"
-IfExist, %FN_VAR%
-	{
-		;SoundBeep , 2000 , 200
-		;FileDelete, %FN_VAR%
-	}
-	
-
-FN_VAR:="E:\01 Desktop\#_%A_ComputerName%\GoodSync Explorer.lnk"
-IfExist, %FN_VAR%
-	{
-		SoundBeep , 2000 , 200
-		FileDelete, %FN_VAR%
-	}
-RETURN
-
-
-Multiple_Thread_Port_Scanner_ROUTINE:
-; ---------------------------------------------------
-; NOT USED IN CODE YET BUT PRACTICED FOR CODE BUILDER
-; ---------------------------------------------------
-; FROM    Thu 03-May-2018 16:16:39
-; TO      Thu 03-May-2018 17:58:00 __ 1 HOUR 40 MINUTE
-; ---------------------------------------------------
-; I WROTE THIS CODE FROM IDEA WORKING ON CODE BEFORE
-; AND SIDE TRACKED INTO THIS ONE
-; AND NEAR THE END DECIDED NOT GOING TO USE IT
-; BUT PRACTICE WAS HELPFUL
-; ---------------------------------------------------
-
-IfNotExist, %A_TEMP%\IPTEST.TXT
-{
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\Multiple_Port_Scanner.exe"
-IfExist, %FN_VAR%
-	{
-		Run %comspec% /c ""%FN_VAR%" "/ALL" "" >"%A_TEMP%\IPTEST.TXT , , MIN
-	}
-}
-
-ArrayCount = 0
-; Write to the array:
-Loop, Read, %A_TEMP%\IPTEST.TXT
-{
-	SET_GO=FALSE
-	IF SubStr(A_LoopReadLine, 1 , 2)="\\"
-		SET_GO=TRUE
-	
-	IP_LINE_1=%A_LoopReadLine%
-	IP_LINE_2:=SubStr(A_LoopReadLine, 3)
-	IP_LINE_2:=StrReplace(IP_LINE_2, "-" , "_")
-	;StringLower, IP_LINE_2, IP_LINE_2
-	;StringLower, IP_LINE_1, IP_LINE_1
-	
-	IP_LINE_3:="_03_fat32_4gb"
-	
-	IF SET_GO=TRUE
-		{
-		SET_GO=FALSE
-		ifExist, %IP_LINE_1%\%IP_LINE_2%%IP_LINE_3%\*.*
-			{
-			SET_GO=TRUE
-			IP_LINE_4=%IP_LINE_1%\%IP_LINE_2%%IP_LINE_3%
-			;MSGBOX % IP_LINE_4
-			}
-		}
-			
-	IF SET_GO=TRUE
-	{
-		ArrayCount += 1  
-		COMPUTER_NAME_ARRAY%ArrayCount% = %IP_LINE_4%
-	}
-}
-
-; Read from the array:
-Loop %ArrayCount%
-{
-    MsgBox % "Element number " . A_Index . " is " . COMPUTER_NAME_ARRAY%A_Index%
-}
-
-RETURN
-
-
-;----------------------------------------
-TIMER_SUB_NOTEPAD_PLUS_PLUS:
-;----------------------------------------
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, ON
-SetTitleMatchMode 2  ; Avoids Specify Full path.
-DetectHiddenWindows, % dhw
-
-; Notepad++ v7.5.8 Setup
-IfWinExist Notepad++ v
-{
-	ControlGetText, OutputVar, Allow plugins to be loaded from, Notepad++
-	IF OutputVar 
-	{	
-		ControlGet, Status, Checked,, Button5
-		If Status = 0
-		{
-			Control, Check,, Button5
-			SoundBeep , 4000 , 100
-		}
-	}
-}
-Return
-
-TIMER_SUB_EliteSpy:
-;----------------------------------------
-
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, ON
-SetTitleMatchMode 2  ; Avoids Specify Full path.
-
-IfWinNotExist EliteSpy+ by Andrea
-{
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
-	IfExist, %FN_VAR%
-		{
-			Run, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
-		}
-}
-DetectHiddenWindows, % dhw
-Return
-
-;----------------------------------------
-TIMER_SUB_GOODSYNC_OPTIONS:
-;----------------------------------------
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, ON
-SetTitleMatchMode 2  ; Avoids Specify Full path.
-
-WinGet, HWND_1, ID, ] Options ahk_class #32770
-	IF (HWND_1>0)
-	{
-		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
-		; Tooltip, % OutputVar ; List All Controls of Active Window
-		;---------------------------------------------------------
-		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_1%
-
-		ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
-		
-		WinGetTitle OutputVar_3,ahk_id %HWND_1%
-		
-		If (OutputVar_1 = 2
-			and OutputVar_2="Periodically (On Timer), every")
-			{
-				ControlSetText, Edit9,, ahk_id %HWND_1%
-				Control, EditPaste, 4, Edit9, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-
-		}
-		if O_HWND_1<>%HWND_1%
-		{
-			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-			If Status=0
-			{
-				Control, Check,, Button16, ahk_id %HWND_1%
-				IF OutputVar_4=1
-					SoundBeep , 4000 , 100
-			}
-		}
-			
-		ControlGettext, OutputVar_2, Button20, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-		
-		If (!OutputVar_1 
-			and OutputVar_2="Wait for Locks to clear, minutes")
-			{
-				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-
-		}
-		ControlGet, Status, Checked,, Button20, ahk_id %HWND_1%
-		If Status=1
-		{
-			Control, UnCheck,, Button22, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-
-		;------------------------------------------------------------
-		; Button5 ---- Save deleted/replaced files to History f (...)
-		; Button6 ---- Cleanup _history_ folder after this many (...)
-		; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
-		;------------------------------------------------------------
-		ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
-		If Status = 1
-		{
-			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-			If Status = 0
-			{
-			Control, Check,, Button6, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-			}
-		}
-
-		;------------------------------------------------------------
-		; ---- HISTORY SET DAYS TO 30
-		;------------------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 1
-		{
-			ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-			ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
-			
-			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
-				{
-					ControlSetText, Edit2,, ahk_id %HWND_1%
-					Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
-			}
-		}
-		}
-		
-		;-----------------------------------------------------
-		; Button3
-		; Text:	Save deleted/replaced files to Recycle B (...)
-		; Button4
-		; Text:	Cleanup _saved_ folder after this many d (...)
-		;-----------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 1
-		{
-			sleep, 500
-			ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
-			ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
-			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
-				{
-					ControlSetText, Edit1,, ahk_id %HWND_1%
-					Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
-			}
-		}
-		}
-		
-		;-----------------------------------------------------
-		; CAN'T DO THIS ONE 
-		; IT'S EITHER HISTORY OR SAVED NOT BOTH
-		; WELL YOU CAN DO BUTTON4 SAVE DO-ER INFINITE
-		; Button3
-		; Text:	Save deleted/replaced files to Recycle B (...)
-		; Button4
-		; Text:	Cleanup _saved_ folder after this many d (...)
-		; Button6
-		; Cleanup _history_ folder after this many (...)
-		; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
-		;-----------------------------------------------------
-		;ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
-		;If Status = 0
-		;{
-		;	Control, Check,, Button3, ahk_id %HWND_1%
-		;	SoundBeep , 4000 , 100
-		;}
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button4, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button6, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		
-		
-		IF O_HWND_1<>%HWND_1%
-		{
-			O_Status_GSDATA=0
-		}
-		;------------------------------------------------------------
-		; ---- No _gsdata_ folder here
-		;------------------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-			If Status = 1
-			IF O_Status_GSDATA<>%Status%
-			{
-				Control, unCheck,, Button41, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-				ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-				If Status=0
-					O_Status_GSDATA=1
-			}
-		}
-		
-		;------------------------------------------------------------
-		;Button10 ---	Text:	Exclude empty folders
-		;Button11 --- Text:	Exclude Hidden files and folders
-		;Button12 -- Text:	Exclude System files and folders
-		;------------------------------------------------------------
-		Var_check=[VB EXE SYNC
-		if (SubStr(OutputVar_3, 1, 12)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button10, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button10, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button11, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button12, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-		}
-		
-		
-		
-		O_HWND_1=%HWND_1%
-		
-}
-
-;Are you sure you want to move _GSDATA_ folder back to the sync folder?
-;This option is for Advanced users and you should read the manual first.
-;Yes
-;No
-
-;WinGet, HWND_1, ID, GoodSync Warning ahk_class #32770
-WinGet, HWND_1, ID, GoodSync ahk_class #32770
-WinGetText OutputVar_3,ahk_id %HWND_1%
-;tooltip % HWND_1
-
-IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
-{
-	#WinActivateForce, ahk_id %HWND_1%
-	ControlClick, Button2,ahk_id %HWND_1%
-	SoundBeep , 4000 , 100
-}
-
-IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
-{
-	#WinActivateForce, ahk_id %HWND_1%
-	ControlClick, Button2,ahk_id %HWND_1%
-	SoundBeep , 4000 , 100
-}
-DetectHiddenWindows, % dhw
-Return
-
-TIMER_SUB_GOODSYNC:
-;----------------------------------------
-;setTimer TIMER_SUB_GOODSYNC, OFF
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, OFF
-SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-
-IF (TRUE=FALSE)
-{
-	Process, Exist, GoodSync-v10.exe
-	If Not ErrorLevel
-		{
-		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-		IfExist, %FN_VAR%
-			{
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			Run, "%FN_VAR%" , , MIN
-			}
-		}
-}
-
-IfWinExist GoodSync - Preparing Crash Report
-{
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
-}
-
-IfWinExist Reporting a Crash
-{
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
-}
-
-;OK
-;GoodSync has crashed just now and we are sorry for that.
-;Click OK to assemble Crash Report.
-;You will be given option to submit it to Siber Systems.
-;Submitting Crash Reports helps us in fixing these crashes.
-
-IF (TRUE=FALSE)
-{
-	DetectHiddenWindows, OFF
-	IfWinExist GoodSync
-	{
-		ControlGetText, OutputVar, GoodSync has crashed just now , GoodSync
-		IF OutputVar 
-		{
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			ControlClick, OK, GoodSync
-			;WINHIDE
-			
-			;Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
-		}
-	}
-}
-
-DetectHiddenWindows, % dhw
-
-Return
-
-;----------------------------------------
-TIMER_SUB_WSCRIPT:
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, ON
-
-IfWinExist Windows Script Host
-{
-	ControlClick, OK, Windows Script Host
-	SoundBeep , 2500 , 100
-}
-
-DetectHiddenWindows, % dhw
-
-Return
-
-
-TIMER_SUB__MY_IP:
-
-setTimer TIMER_SUB__MY_IP, % -1 * 1000 * 60 * 10 ; After10Minute
-
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
-IfExist, %FN_VAR%
-	{
-		Run, %FN_VAR%
-	}
-
-RETURN
-
-TIMER_SUB__SendSMTP__0__LOG_BAT:
-
-setTimer TIMER_SUB__SendSMTP__0__LOG_BAT, % -1 * 1000 * 60 * 60 ; 1 HOUR
-
-FN_VAR:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP__0__LOG.BAT"
-IfExist, %FN_VAR%
-	{
-		Run, %FN_VAR%, , MIN
-	}
-
-RETURN
-
-; -------------------------------------------------------------------
-TIMER_SUB_I_VIEW32_CONVERT_CCSE:
-
-setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE, % -1 * 1000 * 60 * 30 ; HALF HOUR
-
-if OSVER_N_VAR<10
-{
-	setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,off
-	RETURN
-}
-
-
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
-IfExist, %FN_VAR%
-	{
-		Run, %FN_VAR%
-	}
 
 RETURN
 
@@ -1429,6 +925,8 @@ IfWinExist MSDN Library Visual
 ; MAYBE WANT IT
 ; DetectHiddenWindows, OFF
 
+SetTitleMatchMode 3  ; Exactly
+
 IfWinExist Configure Permanent Access
 {
 	HWND_ID_1 := WinExist("Configure Permanent Access")
@@ -1453,16 +951,683 @@ IfWinExist Permanent Access Activated
 	ControlClick, OK, Permanent Access Activated
 }
 
+SetTitleMatchMode 3  ; Exactly
+
+; CHROME
+DetectHiddenText, ON
+UniqueID := WinActive("ahk_class Chrome_WidgetWin_1")
+IF UniqueID>0 
+IF OLD_UniqueID_CHROME<>%UniqueID%
+{
+	WinGetText, OutputVar, ahk_id %UniqueID%
+	; ---------------------------------------------------------------
+	; SOME EXTENSION THAT LOOK LIKE TOOL-TIPS DON;T HAVE THE ' b ' IN THE INFO
+	; FILTER THEM OUT OR BE MAXIMIZE IT ALL
+	; ---------------------------------------------------------------
+	; b
+	; Chrome Legacy Window
+	; ---------------------------------------------------------------
+	SET_GO=TRUE
+	IfNotInString, OutputVar, b`r`n
+		SET_GO=FALSE
+	IfNotInString, OutputVar, Chrome Legacy Window`r`n
+		SET_GO=FALSE
+	IF SET_GO=TRUE
+	{	
+		WinMaximize, ahk_id %UniqueID%
+		SoundBeep , 2500 , 100
+	}
+	OLD_UniqueID_CHROME=%UniqueID%
+}
+
+DetectHiddenText, OFF
+
+SetTitleMatchMode 3  ; Exactly
 	
+; ROBOFORM EDITOR
+UniqueID := WinActive("ahk_class RfEditor")
+IF UniqueID>0 
+IF OLD_UniqueID_RfEditor<>%UniqueID%
+{
+	OLD_UniqueID_RfEditor=%UniqueID%
+    WinMaximize  ; Maximizes the Notepad window found by IfWinActive above.
+	SoundBeep , 2500 , 100
+}
 	
+SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+; Notepad++
+UniqueID := WinActive(" - Notepad++")
+IF UniqueID>0 
+IF OLD_UniqueID_NOTEPAD_PLUS_PLUS<>%UniqueID%
+{
+	OLD_UniqueID_NOTEPAD_PLUS_PLUS=%UniqueID%
+    WinMaximize  ; Maximizes the Notepad window found by IfWinActive above.
+	SoundBeep , 2500 , 100
+}
 	
+
+SetTitleMatchMode 3  ; Exactly
+
+UniqueID := WinActive("AutoFill - RoboForm")
+IF UniqueID>0 
+	IfWinExist Email Login Page - Google Chrome
+	{
+		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
+		If (OutputVar_2="&Fill Forms")
+		{
+			#WinActivateForce, AutoFill - RoboForm
+			ControlClick, Button1, AutoFill - RoboForm
+			SoundBeep , 2500 , 100
+			#WinActivateForce, Email Login Page - Google Chrome
+			
+			Loop, 30
+			{
+				IfWinExist Email Login Page - Google Chrome
+				{
+					SLEEP 500
+					SENDINPUT {ENTER}
+					SoundBeep , 2500 , 100
+				}
+			}
+			
+		}
+	}
+	
+
+SetTitleMatchMode 3  ; Exactly
+DetectHiddenText, Off
+IfWinExist TeamViewer ahk_class #32770
+{
+	WinGetText, OutputVar, TeamViewer ahk_class #32770
+	IfInString, OutputVar, Show running TeamViewer
+	{	
+		ControlClick, Button3, TeamViewer ahk_class #32770
+		SoundBeep , 2500 , 100
+
+	}
+}
+
+SetTitleMatchMode 3  ; Exactly
+DetectHiddenText, ON
+; UniqueID := WinActive("TeamViewer ahk_class #32770")
+; UniqueID := WinGET("TeamViewer ahk_class #32770")
+WinGet, UniqueID, ID, TeamViewer ahk_class #32770
+
+IF UniqueID>0 
+{
+	; MSGBOX % UniqueID
+	WinGetText, OutputVar, ahk_id %UniqueID%
+	; MSGBOX %  OutputVar
+	SET_GO=FALSE
+	IfInString, OutputVar, Loading...
+		SET_GO=TRUE
+	IfInString, OutputVar, Please wait
+		SET_GO=TRUE
+	IF SET_GO=TRUE
+	{	
+		#WinActivateForce, ahk_id %UniqueID%
+		Loop, 30
+		{
+			IfWinExist ahk_id %UniqueID%
+			{
+				SLEEP 500
+				WINCLOSE ahk_id %UniqueID%
+				SoundBeep , 2500 , 100
+			}
+		}
+		
+	}
+; Loading...
+; Please wait
+; 2
+; 3
+; 4
+; 5
+}
+
+
+SetTitleMatchMode 3  ; Exactly
+DetectHiddenText, Off
+HWND_ID_1 := WinExist(".NET-BroadcastEventWindow.4.0.0.0.1a8c1fa.0: chrome.exe - Application Error")
+IF HWND_ID_1>0
+{
+	ControlClick, OK, ahk_id %HWND_ID_1%
+	SoundBeep , 2500 , 100
+}
+
 	
 Return
-;--------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; END OF TIMER_1
-;--------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
-;----------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX:
+; -------------------------------------------------------------------
+IfWinExist Camera Upload
+{
+	WinActivate
+	sendinput, !{F4}		; CLOSE
+	SoundBeep , 1000 , 50
+}
+RETURN
+
+; -------------------------------------------------------------------
+TIMER_SUB_WINDOWS_DESKTOP_ICON:
+; -------------------------------------------------------------------
+
+setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,59000
+
+;C:\Windows10Upgrade\Windows10UpgraderApp.exe /ClientID "Win10Upgrade:VNL:NHV13SIH:{}"
+
+FN_VAR:="E:\01 Desktop\#_%A_ComputerName%\Windows 10 Update Assistant.lnk"
+IfExist, %FN_VAR%
+	{
+		;SoundBeep , 2000 , 200
+		;FileDelete, %FN_VAR%
+	}
+	
+
+FN_VAR:="E:\01 Desktop\#_%A_ComputerName%\GoodSync Explorer.lnk"
+IfExist, %FN_VAR%
+	{
+		SoundBeep , 2000 , 200
+		FileDelete, %FN_VAR%
+	}
+RETURN
+
+
+; -------------------------------------------------------------------
+Multiple_Thread_Port_Scanner_ROUTINE:
+; -------------------------------------------------------------------
+; ---------------------------------------------------
+; NOT USED IN CODE YET BUT PRACTICED FOR CODE BUILDER
+; ---------------------------------------------------
+; FROM    Thu 03-May-2018 16:16:39
+; TO      Thu 03-May-2018 17:58:00 __ 1 HOUR 40 MINUTE
+; ---------------------------------------------------
+; I WROTE THIS CODE FROM IDEA WORKING ON CODE BEFORE
+; AND SIDE TRACKED INTO THIS ONE
+; AND NEAR THE END DECIDED NOT GOING TO USE IT
+; BUT PRACTICE WAS HELPFUL
+; ---------------------------------------------------
+
+IfNotExist, %A_TEMP%\IPTEST.TXT
+{
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\Multiple_Port_Scanner.exe"
+IfExist, %FN_VAR%
+	{
+		Run %comspec% /c ""%FN_VAR%" "/ALL" "" >"%A_TEMP%\IPTEST.TXT , , MIN
+	}
+}
+
+ArrayCount = 0
+; Write to the array:
+Loop, Read, %A_TEMP%\IPTEST.TXT
+{
+	SET_GO=FALSE
+	IF SubStr(A_LoopReadLine, 1 , 2)="\\"
+		SET_GO=TRUE
+	
+	IP_LINE_1=%A_LoopReadLine%
+	IP_LINE_2:=SubStr(A_LoopReadLine, 3)
+	IP_LINE_2:=StrReplace(IP_LINE_2, "-" , "_")
+	;StringLower, IP_LINE_2, IP_LINE_2
+	;StringLower, IP_LINE_1, IP_LINE_1
+	
+	IP_LINE_3:="_03_fat32_4gb"
+	
+	IF SET_GO=TRUE
+		{
+		SET_GO=FALSE
+		ifExist, %IP_LINE_1%\%IP_LINE_2%%IP_LINE_3%\*.*
+			{
+			SET_GO=TRUE
+			IP_LINE_4=%IP_LINE_1%\%IP_LINE_2%%IP_LINE_3%
+			;MSGBOX % IP_LINE_4
+			}
+		}
+			
+	IF SET_GO=TRUE
+	{
+		ArrayCount += 1  
+		COMPUTER_NAME_ARRAY%ArrayCount% = %IP_LINE_4%
+	}
+}
+
+; Read from the array:
+Loop %ArrayCount%
+{
+    MsgBox % "Element number " . A_Index . " is " . COMPUTER_NAME_ARRAY%A_Index%
+}
+
+RETURN
+
+
+; -------------------------------------------------------------------
+TIMER_SUB_NOTEPAD_PLUS_PLUS:
+; -------------------------------------------------------------------
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
+SetTitleMatchMode 2  ; Avoids Specify Full path.
+DetectHiddenWindows, % dhw
+
+; Notepad++ v7.5.8 Setup
+IfWinExist Notepad++ v
+{
+	ControlGetText, OutputVar, Allow plugins to be loaded from, Notepad++
+	IF OutputVar 
+	{	
+		ControlGet, Status, Checked,, Button5
+		If Status = 0
+		{
+			Control, Check,, Button5
+			SoundBeep , 4000 , 100
+		}
+	}
+}
+Return
+
+; -------------------------------------------------------------------
+TIMER_SUB_EliteSpy:
+; -------------------------------------------------------------------
+
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
+SetTitleMatchMode 2  ; Avoids Specify Full path.
+
+IfWinNotExist EliteSpy+ by Andrea
+{
+	SoundBeep , 4000 , 100
+	SoundBeep , 3000 , 100
+	SoundBeep , 4000 , 100
+	SoundBeep , 3000 , 100
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+	IfExist, %FN_VAR%
+		{
+			Run, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+		}
+}
+DetectHiddenWindows, % dhw
+Return
+
+; -------------------------------------------------------------------
+TIMER_SUB_GOODSYNC_OPTIONS:
+; -------------------------------------------------------------------
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
+SetTitleMatchMode 2  ; Avoids Specify Full path.
+
+WinGet, HWND_1, ID, ] Options ahk_class #32770
+	IF (HWND_1>0)
+	{
+		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
+		; Tooltip, % OutputVar ; List All Controls of Active Window
+		;---------------------------------------------------------
+		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_1%
+
+		ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
+		
+		WinGetTitle OutputVar_3,ahk_id %HWND_1%
+		
+		If (OutputVar_1 = 2
+			and OutputVar_2="Periodically (On Timer), every")
+			{
+				ControlSetText, Edit9,, ahk_id %HWND_1%
+				Control, EditPaste, 4, Edit9, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+
+		}
+		if O_HWND_1<>%HWND_1%
+		{
+			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
+			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+			If Status=0
+			{
+				Control, Check,, Button16, ahk_id %HWND_1%
+				IF OutputVar_4=1
+					SoundBeep , 4000 , 100
+			}
+		}
+			
+		ControlGettext, OutputVar_2, Button20, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
+		
+		If (!OutputVar_1 
+			and OutputVar_2="Wait for Locks to clear, minutes")
+			{
+				ControlSetText, Edit12,, ahk_id %HWND_1%
+				Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+
+		}
+		ControlGet, Status, Checked,, Button20, ahk_id %HWND_1%
+		If Status=1
+		{
+			Control, UnCheck,, Button22, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
+
+		;------------------------------------------------------------
+		; Button5 ---- Save deleted/replaced files to History f (...)
+		; Button6 ---- Cleanup _history_ folder after this many (...)
+		; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
+		;------------------------------------------------------------
+		ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
+		If Status = 1
+		{
+			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+			If Status = 0
+			{
+			Control, Check,, Button6, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+			}
+		}
+
+		;------------------------------------------------------------
+		; ---- HISTORY SET DAYS TO 30
+		;------------------------------------------------------------
+		Var_check=[VB
+		if (SubStr(OutputVar_3, 1, 3)=Var_check)
+		{
+		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+		If Status = 1
+		{
+			ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
+			ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
+			
+			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+				{
+					ControlSetText, Edit2,, ahk_id %HWND_1%
+					Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+			}
+		}
+		}
+		
+		;-----------------------------------------------------
+		; Button3
+		; Text:	Save deleted/replaced files to Recycle B (...)
+		; Button4
+		; Text:	Cleanup _saved_ folder after this many d (...)
+		;-----------------------------------------------------
+		Var_check=[VB
+		if (SubStr(OutputVar_3, 1, 3)=Var_check)
+		{
+		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+		If Status = 1
+		{
+			sleep, 500
+			ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
+			ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
+			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+				{
+					ControlSetText, Edit1,, ahk_id %HWND_1%
+					Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+			}
+		}
+		}
+		
+		;-----------------------------------------------------
+		; CAN'T DO THIS ONE 
+		; IT'S EITHER HISTORY OR SAVED NOT BOTH
+		; WELL YOU CAN DO BUTTON4 SAVE DO-ER INFINITE
+		; Button3
+		; Text:	Save deleted/replaced files to Recycle B (...)
+		; Button4
+		; Text:	Cleanup _saved_ folder after this many d (...)
+		; Button6
+		; Cleanup _history_ folder after this many (...)
+		; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
+		;-----------------------------------------------------
+		;ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
+		;If Status = 0
+		;{
+		;	Control, Check,, Button3, ahk_id %HWND_1%
+		;	SoundBeep , 4000 , 100
+		;}
+		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+		If Status = 0
+		{
+			Control, Check,, Button4, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
+		ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+		If Status = 0
+		{
+			Control, Check,, Button6, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
+		
+		
+		IF O_HWND_1<>%HWND_1%
+		{
+			O_Status_GSDATA=0
+		}
+		;------------------------------------------------------------
+		; ---- No _gsdata_ folder here
+		;------------------------------------------------------------
+		Var_check=[VB
+		if (SubStr(OutputVar_3, 1, 3)=Var_check)
+		{
+			ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+			If Status = 1
+			IF O_Status_GSDATA<>%Status%
+			{
+				Control, unCheck,, Button41, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+				ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+				If Status=0
+					O_Status_GSDATA=1
+			}
+		}
+		
+		;------------------------------------------------------------
+		;Button10 ---	Text:	Exclude empty folders
+		;Button11 --- Text:	Exclude Hidden files and folders
+		;Button12 -- Text:	Exclude System files and folders
+		;------------------------------------------------------------
+		Var_check=[VB EXE SYNC
+		if (SubStr(OutputVar_3, 1, 12)=Var_check)
+		{
+			ControlGet, Status, Checked,, Button10, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button10, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+			ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button11, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+			ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button12, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+		}
+		
+		
+		
+		O_HWND_1=%HWND_1%
+		
+}
+
+;Are you sure you want to move _GSDATA_ folder back to the sync folder?
+;This option is for Advanced users and you should read the manual first.
+;Yes
+;No
+
+;WinGet, HWND_1, ID, GoodSync Warning ahk_class #32770
+WinGet, HWND_1, ID, GoodSync ahk_class #32770
+WinGetText OutputVar_3,ahk_id %HWND_1%
+;tooltip % HWND_1
+
+IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
+{
+	#WinActivateForce, ahk_id %HWND_1%
+	ControlClick, Button2,ahk_id %HWND_1%
+	SoundBeep , 4000 , 100
+}
+
+IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
+{
+	#WinActivateForce, ahk_id %HWND_1%
+	ControlClick, Button2,ahk_id %HWND_1%
+	SoundBeep , 4000 , 100
+}
+DetectHiddenWindows, % dhw
+Return
+
+;--------------------------------------------------------------------
+TIMER_SUB_GOODSYNC:
+;--------------------------------------------------------------------
+;setTimer TIMER_SUB_GOODSYNC, OFF
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, OFF
+SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+
+IF (TRUE=FALSE)
+{
+	Process, Exist, GoodSync-v10.exe
+	If Not ErrorLevel
+		{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+		IfExist, %FN_VAR%
+			{
+			SoundBeep , 4000 , 100
+			SoundBeep , 3000 , 100
+			SoundBeep , 4000 , 100
+			SoundBeep , 3000 , 100
+			Run, "%FN_VAR%" , , MIN
+			}
+		}
+}
+
+IfWinExist GoodSync - Preparing Crash Report
+{
+	SoundBeep , 4000 , 100
+	SoundBeep , 3000 , 100
+	SoundBeep , 4000 , 100
+	SoundBeep , 3000 , 100
+	Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
+}
+
+IfWinExist Reporting a Crash
+{
+	SoundBeep , 4000 , 100
+	SoundBeep , 3000 , 100
+	SoundBeep , 4000 , 100
+	SoundBeep , 3000 , 100
+	Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
+}
+
+;OK
+;GoodSync has crashed just now and we are sorry for that.
+;Click OK to assemble Crash Report.
+;You will be given option to submit it to Siber Systems.
+;Submitting Crash Reports helps us in fixing these crashes.
+
+IF (TRUE=FALSE)
+{
+	DetectHiddenWindows, OFF
+	IfWinExist GoodSync
+	{
+		ControlGetText, OutputVar, GoodSync has crashed just now , GoodSync
+		IF OutputVar 
+		{
+			SoundBeep , 4000 , 100
+			SoundBeep , 3000 , 100
+			SoundBeep , 4000 , 100
+			SoundBeep , 3000 , 100
+			ControlClick, OK, GoodSync
+			;WINHIDE
+			
+			;Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
+		}
+	}
+}
+
+DetectHiddenWindows, % dhw
+
+Return
+
+;--------------------------------------------------------------------
+TIMER_SUB_WSCRIPT:
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
+
+IfWinExist Windows Script Host
+{
+	ControlClick, OK, Windows Script Host
+	SoundBeep , 2500 , 100
+}
+
+DetectHiddenWindows, % dhw
+
+Return
+
+
+;--------------------------------------------------------------------
+TIMER_SUB__MY_IP:
+
+setTimer TIMER_SUB__MY_IP, % -1 * 1000 * 60 * 10 ; After10Minute
+
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
+IfExist, %FN_VAR%
+	{
+		Run, %FN_VAR%
+	}
+
+RETURN
+
+;--------------------------------------------------------------------
+TIMER_SUB__SendSMTP__0__LOG_BAT:
+
+setTimer TIMER_SUB__SendSMTP__0__LOG_BAT, % -1 * 1000 * 60 * 60 ; 1 HOUR
+
+FN_VAR:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP__0__LOG.BAT"
+IfExist, %FN_VAR%
+	{
+		Run, %FN_VAR%, , MIN
+	}
+
+RETURN
+
+;--------------------------------------------------------------------
+TIMER_SUB_I_VIEW32_CONVERT_CCSE:
+
+setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE, % -1 * 1000 * 60 * 30 ; HALF HOUR
+
+if OSVER_N_VAR<10
+{
+	setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,off
+	RETURN
+}
+
+
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
+IfExist, %FN_VAR%
+	{
+		Run, %FN_VAR%
+	}
+
+RETURN
+
+;--------------------------------------------------------------------
 TIMER_SUB_VICE_VERSA:
 
 setTimer TIMER_SUB_VICE_VERSA, % -1 * 1000 * 60 * 60 ; After1Hours

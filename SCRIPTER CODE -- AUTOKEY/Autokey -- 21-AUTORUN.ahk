@@ -174,6 +174,7 @@ IF OSVER_N_VAR=WIN_XP
 	OSVER_N_VAR=5
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
+	
 
 GOSUB TEST_STARTER_RUN_IN
 
@@ -883,7 +884,7 @@ IF SKIP_CODE=FALSE
 	IF (A_ComputerName="3-LINDA-PC")
 		SET_GO_1=1
 	IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
-		SET_GO_1=0
+		SET_GO_1=1
 	IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 		SET_GO_1=1
 	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
@@ -1744,6 +1745,27 @@ GOSUB MINIMIZE_ALL_CMD_AT_BOOT
 GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 GOSUB MINIMIZE_ALL_BLUETOOTH
 
+IF (A_ComputerName = "5-ASUS-P2520LA") 
+{
+	IfWinExist Rain Alarm - Google Chrome
+	{
+		#WinActivateForce, Rain Alarm - Google Chrome
+		WinMaximize  Rain Alarm - Google Chrome
+		SoundBeep , 2500 , 100
+		}
+
+	IfWinNotExist Rain Alarm - Google Chrome
+	{
+		; IF EXTENSION INSTALLED
+		RunWait, chrome.exe "https://www.rain-alarm.com/?from=chrome2" , , MAX
+		#WinActivateForce, Rain Alarm - Google Chrome
+		WinMaximize  Rain Alarm - Google Chrome
+		SoundBeep , 2500 , 100
+		
+		; IF NOT EXTENSION INSTALLED
+		; Run, chrome.exe "https://www.rain-alarm.com"
+	}
+}
 	
 ;----------------------------------------------------------------
 ; NORTON WANTS TO RUN AT END IT'S ENGINE HASN'T STARTED UP PROPER	
@@ -1795,7 +1817,6 @@ RETURN
 
 ;--------------------------------------------------------------------
 TEST_STARTER_RUN_IN:
-
 
 ; ExitApp
 
