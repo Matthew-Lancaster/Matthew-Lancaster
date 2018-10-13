@@ -241,6 +241,16 @@ VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' -------------------------------------------------------------------
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 49-OWNER-ALL-DRIVES.BAT"
+I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-ALL-DRIVES.BAT"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
 
 ' -------------------------------------------------------------------
 ' CAMERA 01 OF 02 

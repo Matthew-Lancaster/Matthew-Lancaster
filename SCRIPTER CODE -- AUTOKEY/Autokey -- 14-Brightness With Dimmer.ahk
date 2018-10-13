@@ -513,11 +513,21 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		IF (A_ComputerName="8-MSI-GP62M-7RD")
 			POWER_SCREEN_SAVE_OFF := "True"
 		
+		DIMMER_ONLY_NOT_BLANK := "False"
+		IF (A_ComputerName="8-MSI-GP62M-7RD")
+			DIMMER_ONLY_NOT_BLANK := "True"
 	
 		IF (IN_DAY="FALSE" or SET_GO="TRUE")
 			IF (ALLOW_DIMMER="True")
 			{
-				Gui, Show, x0 y0 w%A_ScreenWidth% h%A_ScreenHeight%	
+				IF DIMMER_ONLY_NOT_BLANK="False"
+				{
+					Gui, Show, x0 y0 w%A_ScreenWidth% h%A_ScreenHeight%	
+				}
+				ELSE
+				{
+					Monitor.SetBrightness(1, 1, 1)
+				}
 				
 				;---------------------------------------
 				;DEBUGGER LITTLE SQUARE FOR BLANK SCREEN

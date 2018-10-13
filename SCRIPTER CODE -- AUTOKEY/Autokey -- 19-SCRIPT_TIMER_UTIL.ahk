@@ -134,7 +134,7 @@
 
 ; SCRIPT ============================================================
 
-DetectHiddenWindows, on
+; DetectHiddenWindows, on
 SetStoreCapslockMode, off
 
 SoundBeep , 2000 , 100
@@ -151,6 +151,23 @@ GLOBAL Secs_CAMERA
 GLOBAL Label_CAMERA
 GLOBAL OLDPID_ESIF_ASSIST_64_SUSPEND
 GLOBAL SET_GO_ESIF_ASSIST_64_SUSPEND
+GLOBAL HWND_ID_1_OLD
+
+GLOBAL ID_OLD_ConsoleWindowClass
+GLOBAL ID_ConsoleWindowClass_TIMER
+
+GLOBAL ID_TeamViewer_Panel_TV_ControlWin_TIMER
+GLOBAL ID_OLD_TeamViewer_Panel_TV_ControlWin
+
+GLOBAL dhw
+
+ID_TeamViewer_Panel_TV_ControlWin_TIMER=0
+ID_OLD_TeamViewer_Panel_TV_ControlWin=0
+
+ID_OLD_ConsoleWindowClass=0
+ID_ConsoleWindowClass_TIMER=0
+
+HWND_ID_1_OLD=0
 
 OLDPID_ESIF_ASSIST_64_SUSPEND=0
 SET_GO_ESIF_ASSIST_64_SUSPEND=0
@@ -343,10 +360,13 @@ RETURN
 ;----------------------------------------
 TIMER_SUB_NOTEPAD_PLUS_PLUS:
 ;----------------------------------------
-DetectHiddenWindows, on
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
+DetectHiddenWindows, % dhw
 
-IfWinExist Notepad++
+; Notepad++ v7.5.8 Setup
+IfWinExist Notepad++ v
 {
 	ControlGetText, OutputVar, Allow plugins to be loaded from, Notepad++
 	IF OutputVar 
@@ -364,8 +384,9 @@ Return
 TIMER_SUB_EliteSpy:
 ;----------------------------------------
 
-DetectHiddenWindows, on
-SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
+SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 IfWinNotExist EliteSpy+ by Andrea
 {
@@ -379,12 +400,14 @@ IfWinNotExist EliteSpy+ by Andrea
 			Run, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 		}
 }
+DetectHiddenWindows, % dhw
 Return
 
 ;----------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
 ;----------------------------------------
-DetectHiddenWindows, on
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 WinGet, HWND_1, ID, ] Options ahk_class #32770
@@ -609,11 +632,16 @@ IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
 	ControlClick, Button2,ahk_id %HWND_1%
 	SoundBeep , 4000 , 100
 }
+DetectHiddenWindows, % dhw
 Return
 
 TIMER_SUB_GOODSYNC:
 ;----------------------------------------
 ;setTimer TIMER_SUB_GOODSYNC, OFF
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, OFF
+SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+
 IF (TRUE=FALSE)
 {
 	Process, Exist, GoodSync-v10.exe
@@ -630,9 +658,6 @@ IF (TRUE=FALSE)
 			}
 		}
 }
-
-DetectHiddenWindows, oFF
-SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 IfWinExist GoodSync - Preparing Crash Report
 {
@@ -658,10 +683,9 @@ IfWinExist Reporting a Crash
 ;You will be given option to submit it to Siber Systems.
 ;Submitting Crash Reports helps us in fixing these crashes.
 
-DetectHiddenWindows, OFF
-
 IF (TRUE=FALSE)
 {
+	DetectHiddenWindows, OFF
 	IfWinExist GoodSync
 	{
 		ControlGetText, OutputVar, GoodSync has crashed just now , GoodSync
@@ -678,10 +702,14 @@ IF (TRUE=FALSE)
 		}
 	}
 }
+
+DetectHiddenWindows, % dhw
+
 Return
 
 ;----------------------------------------
 TIMER_SUB_WSCRIPT:
+dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 
 IfWinExist Windows Script Host
@@ -689,10 +717,14 @@ IfWinExist Windows Script Host
 	ControlClick, OK, Windows Script Host
 	SoundBeep , 2500 , 100
 }
+
+DetectHiddenWindows, % dhw
+
 Return
 
 
 TIMER_SUB__MY_IP:
+
 setTimer TIMER_SUB__MY_IP, % -1 * 1000 * 60 * 10 ; After10Minute
 
 FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
@@ -700,9 +732,11 @@ IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR%
 	}
+
 RETURN
 
 TIMER_SUB__SendSMTP__0__LOG_BAT:
+
 setTimer TIMER_SUB__SendSMTP__0__LOG_BAT, % -1 * 1000 * 60 * 60 ; 1 HOUR
 
 FN_VAR:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP__0__LOG.BAT"
@@ -710,6 +744,7 @@ IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR%, , MIN
 	}
+
 RETURN
 
 ; -------------------------------------------------------------------
@@ -729,6 +764,7 @@ IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR%
 	}
+
 RETURN
 
 
@@ -739,13 +775,26 @@ RETURN
 ;----------------------------------------
 TIMER_SUB_1:
 	
-DetectHiddenWindows, on
+DetectHiddenWindows, ON
 SetTitleMatchMode 2
 
-
-
 WinGet, ID, list,ahk_class ConsoleWindowClass
-IF (ID)
+
+; Administrator:  C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 BOOT KILLER.BAT
+
+IF ID_OLD_ConsoleWindowClass<>%ID%
+{
+	ID_ConsoleWindowClass_TIMER=%A_Now%
+	;ID_ConsoleWindowClass_TIMER+=10*60 ; 10 MINUTES
+	ID_ConsoleWindowClass_TIMER+=40 ; 40 SECOND
+}
+
+ID_OLD_ConsoleWindowClass=%ID%
+
+; ------
+; IF (ID)
+; ------
+If (A_Now<ID_ConsoleWindowClass_TIMER)
 {
 	Process, Exist, TASKLIST.EXE
 	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
@@ -753,7 +802,9 @@ IF (ID)
 	{
 		SoundBeep , 3000 , 100
 		Process, priority, %NewPID%, Realtime
-	}
+		ID_ConsoleWindowClass_TIMER=%A_Now%
+		ID_ConsoleWindowClass_TIMER+=40 ; 40 SECOND
+		}
 
 	Process, Exist, TASKKILL.EXE
 	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
@@ -761,9 +812,14 @@ IF (ID)
 	{
 		SoundBeep , 2000 , 100
 		Process, priority, %NewPID%, Realtime
+		ID_ConsoleWindowClass_TIMER=%A_Now%
+		ID_ConsoleWindowClass_TIMER+=40 ; 40 SECOND
 	}
 }
 
+
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 
 if (WinExist("Output ahk_class #32770"))
@@ -797,6 +853,9 @@ IF PATH=ViceVersa.exe
 ; https://www.dropbox.com/sh/h2ebk12dksaq7j3/AAD9Ow_SbBP33JKmuALRkO1_a?dl=0
 ; https://www.dropbox.com/s/yuspt7npqj0jpuo/Autokey%20--%2019-SCRIPT_TIMER_UTIL.ahk?dl=0
 ; -------------------------------------------------------------------
+
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 if (WinExist("Warning ahk_class #32770"))
 {
@@ -839,7 +898,7 @@ if (WinExist("Warning ahk_class #32770"))
 	}
 }
 
-DetectHiddenWindows, off
+DetectHiddenWindows, OFF
 
 ;Would you like to switch to the following audio playback device?
 IfWinExist FxSound Message
@@ -857,8 +916,6 @@ IfWinExist FxSound Message
 	    ControlClick, Button2, FxSound Message ahk_class #32770
 	}
 }
-
-
 
 IfWinExist File Access Denied ahk_class #32770
 {
@@ -888,9 +945,7 @@ IfWinExist File Access Denied ahk_class OperationStatusWindow
 	SoundBeep , 2000 , 100
 }
 
-
-DetectHiddenWindows, on
-
+DetectHiddenWindows, ON
 
 ifWinNotExist, ahk_class wndclass_desked_gsk
 {
@@ -927,7 +982,7 @@ if (!WinExist("Page Unresponsive") and Set_Var_Responding_2="TRUE")
 	SoundBeep , 2000 , 100
 }
 
-DetectHiddenWindows, off
+DetectHiddenWindows, OFF
 
 IfWinExist RoboForm Upgrade
 {
@@ -936,7 +991,6 @@ IfWinExist RoboForm Upgrade
 	;sendinput, !{F4}		I
 	;SoundBeep , 2500 , 100
 }
-
 
 IfWinExist ahk_class #32770
 {
@@ -994,6 +1048,42 @@ IfWinExist ahk_class #32770
 	}
 }
 
+
+; -------------------------------------------------------------------
+; Question at End of Sync is Able to Be Made Close Auto
+; -------------------------------------------------------------------
+Sting_Var=Sync RoboForm Data Folder
+IfWinExist %Sting_Var%
+{
+	HWND_ID_5 := WinExist("%Sting_Var%")
+	SET_GO=FALSE
+	; ---------------------------------------------------------------
+	; ON SYSTEM START UP OF 1ST RUN _ Button60
+	; ---------------------------------------------------------------
+	ControlGetText, OutputVar, Button60, %Sting_Var%
+	IfInString, OutputVar, &Close
+		SET_GO=TRUE
+	; ---------------------------------------------------------------
+	; ON REQUEST MANUAL SYNC        _ Button40
+	; ---------------------------------------------------------------
+	ControlGetText, OutputVar, Button40, %Sting_Var%
+	IfInString, OutputVar, &Close
+		SET_GO=TRUE
+
+	IF SET_GO=TRUE 
+	{
+		DetectHiddenText, Off
+		WinGetText, OutputVar_1, %Sting_Var%
+		if OutputVar_1=&Close`r`n
+			ControlClick, &Close, %Sting_Var%
+	}
+}
+
+; -----------------------
+; Default Setting By Here
+; -----------------------
+DetectHiddenText, On
+
 IfWinExist RoboForm Update ahk_class #32770
 {
 	SoundBeep , 2500 , 100
@@ -1021,21 +1111,20 @@ IfWinExist DuplicateCleaner ahk_class #32770
 }
 
 
-DetectHiddenWindows, on
-
-
+; DetectHiddenWindows, on
 
 ;6 days 22 hours left in trial
 ;ahk_class #32770
 ;ahk_exe dfx.exe
+
 DetectHiddenWindows, off
+
 IfWinExist left in trial
 {
 	WinActivate
 	sendinput, !{F4}		I
 	SoundBeep , 1000 , 50
 }
-
 
 SetTitleMatchMode 3  ; Exactly
 
@@ -1068,7 +1157,9 @@ SetTitleMatchMode 2
 ;---------------------------------------
 ;---------------------------------------
 ;____ TEAM_VIEWER
+
 DetectHiddenWindows, on
+
 IfWinExist Sponsored session
 {
 	;WinActivate
@@ -1088,6 +1179,7 @@ IfWinExist Sponsored session
 ;--------------------------------------------------------------------
 
 DetectHiddenWindows, OFF
+
 IfWinExist ahk_class ATL:03A50E50
 {
 	ControlClick, OK, ahk_class ATL:03A50E50
@@ -1107,7 +1199,7 @@ IfWinExist Session timeout! ahk_class #32770
 
 
 
-DetectHiddenWindows, off
+DetectHiddenWindows, OFF
 SetTitleMatchMode 3  ; Exactly
 ;Visual BASIC
 IfWinExist Visual Component Manager
@@ -1116,10 +1208,8 @@ IfWinExist Visual Component Manager
 	SoundBeep , 2500 , 100
 }
 
-DetectHiddenWindows, on
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-
-DetectHiddenWindows, off
+DetectHiddenWindows, OFF
 ;Visual BASIC
 IfWinExist Data View
 {
@@ -1127,7 +1217,7 @@ IfWinExist Data View
 	ControlClick, OK, Data View
 }
 
-DetectHiddenWindows, on
+DetectHiddenWindows, ON
 
 IfWinExist hubiC
 {
@@ -1150,6 +1240,10 @@ IfWinExist hubiC
 	}
 }
 
+
+; MAYBE WANT IT
+DetectHiddenWindows, OFF
+
 IfWinExist RoboForm Question
 {
 	ControlGetText, OutputVar, Do you want to delete
@@ -1160,6 +1254,8 @@ IfWinExist RoboForm Question
 	}
 }
 
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 IfWinExist Microsoft OneDrive
 {
@@ -1170,6 +1266,9 @@ IfWinExist Microsoft OneDrive
 		ControlClick, Close OneDrive, Microsoft OneDrive
 	}
 }
+
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -1205,6 +1304,9 @@ IfWinExist, Replace
 }
 
 
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
+
 ;DuplicateCleaner
 IfWinExist Finished deleting files.
 {
@@ -1212,6 +1314,8 @@ IfWinExist Finished deleting files.
 	ControlClick, OK, Finished deleting files.
 }
 
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 ;Are you sure you want to cancel the scan?
 IfWinExist DuplicateCleaner
@@ -1260,6 +1364,8 @@ IfWinExist DuplicateCleaner
 ; RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
 ; --------------------------------------------------------------------
 
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 IfWinExist Open File - Security Warning
 {
@@ -1271,6 +1377,8 @@ IfWinExist Open File - Security Warning
 	}
 }
 
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 ;DuplicateCleaner
 IfWinExist Scan cancelled
@@ -1280,6 +1388,9 @@ IfWinExist Scan cancelled
 }
 
 
+
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -1309,6 +1420,42 @@ IfWinExist MSDN Library Visual
 ;----
 	
 
+; -------------------------------------------------------------------
+; C:\Program Files (x86)\TeamViewer\TeamViewer.exe
+; AUTOFILL PASSWORD DIFFICULT
+; AND FREQUENT REMINDER
+; -------------------------------------------------------------------
+
+; MAYBE WANT IT
+; DetectHiddenWindows, OFF
+
+IfWinExist Configure Permanent Access
+{
+	HWND_ID_1 := WinExist("Configure Permanent Access")
+
+	IF HWND_ID_1<>%HWND_ID_1_OLD%
+	{
+		HWND_ID_1_OLD=%HWND_ID_1%
+		
+		SoundBeep , 2500 , 100
+		; ControlClick, &Run, Open File - Security Warning
+		
+		FN_VAR:="C:\RF\7-ASUS-GL522VW\LOGIN APPS 01\TeamViewer - EXE APP.rfp"
+		IfExist, %FN_VAR%
+		{
+			Run, %FN_VAR%
+		}
+	}
+}
+IfWinExist Permanent Access Activated
+{
+	SoundBeep , 2500 , 100
+	ControlClick, OK, Permanent Access Activated
+}
+
+	
+	
+	
 	
 Return
 ;--------------------------------------------------------------------
@@ -1504,30 +1651,35 @@ Return
 
 ;----------------------------------------
 TIMER_SUB_OWNER:
-DetectHiddenWindows, on
 
-;Process, Exist, ICACLS.EXE
-;If ErrorLevel > 0
-;	{
-;	;MSGBOX IT DOES EXIST
-;	}
+; IfWinExist TeamViewer Panel ahk_class TV_ControlWin
+; -------------------------------------------------------------------
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, ON
+WinGet, ID, list,TeamViewer Panel ahk_class TV_ControlWin
+DetectHiddenWindows, % dhw
+IF ID_OLD_TeamViewer_Panel_TV_ControlWin<>%ID%
+{
+		ID_TeamViewer_Panel_TV_ControlWin_TIMER=%A_Now%
+		; ID_TeamViewer_Panel_TV_ControlWin_TIMER+=10*60 ; 10 MINUTES
+		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20 ; 20 SECOND MINUTES
 
-
-IfWinExist TeamViewer Panel ahk_class TV_ControlWin
+		ID_OLD_TeamViewer_Panel_TV_ControlWin=%ID%
+}
+		
+If (A_Now<ID_TeamViewer_Panel_TV_ControlWin_TIMER)
 {
 	Process, Exist, ICACLS.EXE
 	If ErrorLevel > 0
 	{
 		Process, Close, ICACLS.EXE
 		SoundBeep , 2000 , 100
-		;MSGBOX HH
+		ID_TeamViewer_Panel_TV_ControlWin_TIMER=%A_Now%
+		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20 ; 20 SECOND MINUTES
 	}
 }
 
 IF (OSVER_N_VAR < 6 ) ; THAN XP
-	RETURN
-Process, Exist, ICACLS.EXE
-If ErrorLevel > 0
 	RETURN
 		
 IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
@@ -1545,7 +1697,6 @@ ELSE
 {
 	RETURN
 }
-
 	
 SET_GO_RESULT=0
 
@@ -1554,14 +1705,14 @@ IF (OSVER_N_VAR > 5 ) ; BIGGER THAN XP
 
 Process, Exist, ICACLS.EXE
 If ErrorLevel > 0
-	{
 	SET_GO_RESULT=0
-	}
 
 If (SET_GO_RESULT=1)
 {
 	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT" /QUITE , , HIDE
 }
+
+RETURN
 
 
 
