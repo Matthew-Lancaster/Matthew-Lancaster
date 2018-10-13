@@ -535,7 +535,10 @@ IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
 
 END IF
 
-I=I+1:ARRAY_1(I)=""
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Windows\System32\Taskmgr.exe"
+END IF
+
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
