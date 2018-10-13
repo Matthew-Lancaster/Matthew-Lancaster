@@ -169,7 +169,12 @@ ALLOW_SOUND=1
 ; TEST RUN IN CODE STARTUP
 ; FILE NAME TOO LONG HERE AND WON'T LIKE IT NEVER PLAY
 ; -------------------------------------------------------------------
-Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
+; DON'T WANT STARTUP SOUND ON MY MAIN COMPUTER
+; USEFUL IF YOUR EVER GOING TO LEARN WHAT TO GET
+; -------------------------------------------------------------------
+
+IF !(A_ComputerName = "7-ASUS-GL522VW") 
+	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
 
 
 
@@ -231,6 +236,22 @@ FN_NAME:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
 IF WinExist(FN_NAME) 
 	ALLOW_SOUND=0
 
+; -------------------------------------------------------------------
+; THIS IS WHAT I ORIGINALLY MADE THIS THING FOR
+; TO INDICATE CURSOR CHANGE AFTER LONG HOUR GLASS SO I NOT FALL ASLEEP WAIT 
+; AT SCREEN FO LONG SYBC-ING WITH GOODSYNC
+; NOW THE NOISE ANNOY ME A BIT ON MY MAIN COMPUTER UPSTAIRS IN BED
+; SO RESTRICTING IT A BIT HERE ONLY FOR GOODSYNC ON THIS COMPUTER
+; IT WAS ALSO TO FIND LAND ON THE CURTAIN MIDDLE FRAME BA LEFT AND RIGHT MOVE
+; WHICH IS SO HARD TO LAND ON A THIN LINE
+; THIS DOES IT WITH ECHO SOUNDING
+; MUCH MORE HELPFUL AND GOOD IN OTHER PROGRAM WHEN WANT IT ON
+; -------------------------------------------------------------------
+IF (A_ComputerName = "7-ASUS-GL522VW") 
+	IfWinNotActive, GoodSync -
+		ALLOW_SOUND=0
+; -------------------------------------------------------------------
+	
 IF ALLOW_SOUND=0
 	SET_GO=0
 	
