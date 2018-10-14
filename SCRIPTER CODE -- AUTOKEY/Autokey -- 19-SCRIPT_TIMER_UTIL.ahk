@@ -959,7 +959,7 @@ UniqueID := WinActive("ahk_class Chrome_WidgetWin_1")
 IF UniqueID>0 
 IF OLD_UniqueID_CHROME<>%UniqueID%
 {
-	WinGetText, OutputVar, ahk_id %UniqueID%
+	SET_GO=TRUE
 	; ---------------------------------------------------------------
 	; SOME EXTENSION THAT LOOK LIKE TOOL-TIPS DON;T HAVE THE ' b ' IN THE INFO
 	; FILTER THEM OUT OR BE MAXIMIZE IT ALL
@@ -967,11 +967,22 @@ IF OLD_UniqueID_CHROME<>%UniqueID%
 	; b
 	; Chrome Legacy Window
 	; ---------------------------------------------------------------
-	SET_GO=TRUE
-	IfNotInString, OutputVar, b`r`n
-		SET_GO=FALSE
+	WinGetText, OutputVar, ahk_id %UniqueID%
 	IfNotInString, OutputVar, Chrome Legacy Window`r`n
 		SET_GO=FALSE
+
+	LOOP, 4
+	{
+		IF SET_GO=TRUE
+			SLEEP 100
+		WinGetText, OutputVar, ahk_id %UniqueID%
+		IfNotInString, OutputVar, b`r`n
+				SET_GO=FALSE
+		IF SET_GO=FALSE
+				BREAK
+	}
+		
+		
 	IF SET_GO=TRUE
 	{	
 		WinMaximize, ahk_id %UniqueID%
@@ -1006,6 +1017,13 @@ IF OLD_UniqueID_NOTEPAD_PLUS_PLUS<>%UniqueID%
 }
 	
 
+; -------------------------------------------------------------------
+; IF NOT WANT TO CLICK ON __ AutoFill - RoboForm __ TO GAIN 
+; FOCUS AND OPERATE
+; INSTEAD GOT TO GO TO ROBOFORM SETTING AND CLICK 
+; AUTOFILL STEALS KEYBOARD FOCUS
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 SetTitleMatchMode 3  ; Exactly
 
 UniqueID := WinActive("AutoFill - RoboForm")
@@ -1030,6 +1048,24 @@ IF UniqueID>0
 				}
 			}
 			
+		}
+	}
+	
+	
+
+SetTitleMatchMode 3  ; Exactly
+
+UniqueID := WinActive("Log in with PayPal - Google Chrome")
+IF UniqueID>0 
+	
+	Loop, 30
+	{
+		IfWinExist ahk_id %UniqueID%
+		{
+			#WinActivateForce, ahk_id %UniqueID%
+			SLEEP 500
+			SENDINPUT {ENTER}
+			SoundBeep , 2500 , 100
 		}
 	}
 	

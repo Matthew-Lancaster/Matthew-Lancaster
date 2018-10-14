@@ -8,12 +8,13 @@
 @REM __ AT THE SACRIFICE OF COMMAND LINE ARGUMENTS BUT EASY TO 
 @REM __ ADD CODE IF REQUIRE
 @REM ----------------------------------------------------------------
-@REM __ FROM ---- Thu 03-May-2018 01:31:51
+@REM __ FROM ---- Thu 03-May-2018 01:31:51 __ INITAL START
 @REM __ TO   ---- Thu 03-May-2018 03:35:00 __ 2 HOUR
 @REM ----------------------------------------------------------------
 
 @REM ----------------------------------------------------------------
 @REM -- 001 SESSION -- UPDATES HAPPEN ALL THE TIME
+@REM -- 
 @REM ----------------------------------------------------------------
 @REM -- SETTING PERMISSION THIS SCRIPT IS AUTORUN BY AN AUTOHOTKEYS PROGRAM
 @REM -- EVERY FEW DAY AND A TIMER MARKER IS WRITTEN TO FILE
@@ -28,6 +29,49 @@
 @REM ----------------------------------------------------------------
 @REM -- IS IS SYNCED BY HERE
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS
+@REM ----------------------------------------------------------------
+
+@REM ----------------------------------------------------------------
+@REM -- 002 SESSION -- 
+@REM -- 
+@REM ----------------------------------------------------------------
+@REM -- CHANGED EnableDelayedExpansion TO USE LATER IN THE PROGRAM WHERE 
+@REM -- THE FOR LOOP ARE
+@REM -- 
+@REM -- PLAYED AROUND LOOKING FOR CODE TO COMPARE TWO VARIABLE IN 
+@REM -- EnableDelayedExpansion IN A LOOP AND IN A FUNCTION FIND IMPOSIALE AS FUNCTION WON'T USE GOTO LABEL
+@REM -- AND FOR LOOP CAN COUNT TO CERTAIN AMOUNT OR CARRY ON FOREVER
+@REM -- AND VARIBALE HAVE TO BE SOMEHOW PUT INTO A FOR LOOP TO USE THERE
+@REM -- ANOTHER THING IMPOSIABLE 
+@REM -- AT LEAST FOUND OUT ABOUT INFINATE FOR LOOP WITH COUNTER STEPPER SET ON NAUGHT INSTEAD OF 1
+@REM -- 
+@REM -- ALSO FINDING OUT THAT TAKEOWNERSHIP IS MORE POWERFUL IF NOT GOT ACCESS TO COPIER OF FILE
+@REM -- 
+@REM -- EVEN IF IT CANT GIVE ACCESS TO ICACLS CHANGE
+@REM -- 
+@REM -- ALSO "C:\Windows\System32\*.VBS" THIS ONE WHEN TAKEOWNERSHIP HAPPEN
+@REM -- AS THERE ARE FEW VBS SCRIPT IN THERE
+@REM -- TAKE OWNERSHIP HAPPEN UPTO THIS 4TH FILE C:\Windows\System32\winrm.vbs
+@REM -- AND THEN STOP ON EROR NOT GOT ACCESS OF SOME KIND
+@REM -- AND WHEN ICACLS RUN IT WITH IT PASS OVER ERROR OPTION SET
+@REM -- IT GETS TO A FILE
+@REM -- C:\Windows\System32\LogFiles\WMI\RtBackup\*.VBS: Access is denied.
+@REM -- THAT INCLUDE A WILDCARD AND THAT WAS WHERE STOPPED AT FOR TAKEOWNERSHIP
+@REM -- THE ICACLS SETOWNER HAS PROBLEM WITH FILE NOT BEEN ABLE TO BE SET EVEN WITH TAKEOWNER COMMAND
+@REM -- AND THE ICACLS GRANT HAS PROBLEM WITH FILE AFTER THE WILDCARD ONE AS THEY NOT BEEN SET BY TAKEOWNER COMMAND
+@REM -- 
+@REM -- I FIND SETTER OWNER AND GRANT WITH ICACLS IS BETTER SET TO ADMISTRATIOR FOR SOME THING 
+@REM -- RATHER THAN EVERYONE - EVERYONE DOESN'T GET ACCEPTED
+@REM -- FOR 1ST FEW THIS SETTING "C:\Windows\System32\*.VBS"
+@REM -- AND HERE IS STILL NOT ABLE TO SET DUE TO I THINK THE FOLDER IS DISALLOW
+@REM -- C:\Windows\System32\Printing_Admin_Scripts\en-US\
+@REM -- 
+@REM -- TAKEOWNER COMMAND IS ONLY USED TO SET A PERSON YOUR CURRENT USER OR ADMIN
+@REM -- 
+@REM -- ONCE BEEN SET TO ADMIN YOU ARE THEN ABLE TO SET EVERYONE
+@REM ----------------------------------------------------------------
+@REM -- FROM Sun 14-Oct-2018 20:34:24
+@REM -- FROM Sun 14-Oct-2018 22:45:00
 @REM ----------------------------------------------------------------
 
 @ECHO OFF
@@ -70,45 +114,37 @@ IF '%1%'=='/ADMIN' (
 @ECHO Got ADMIN Privileges
 
 
-
-
-setlocal EnableDelayedExpansion
 SET PATH_TO_DO=
 
-REM SET PATH_TO_DO="L:\*"
-REM ECHO !PATH_TO_DO!
-REM ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-REM ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+SET PATH_TO_DO_OLD=%PATH_TO_DO%
+SET PATH_TO_DO="C:\Windows\System32\*.VBS"
+ECHO %PATH_TO_DO%
+@REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
+TAKEOWN /F %PATH_TO_DO% /A /R /D Y
+
+@REM ---- 2 OF 3 -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
+ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q  /grant administrators:F"
+
+@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+
+SET PATH_TO_DO_OLD=%PATH_TO_DO%
+SET PATH_TO_DO="C:\Windows\System32\Printing_Admin_Scripts\en-US\*.VBS"
+ECHO %PATH_TO_DO%
+TAKEOWN /F %PATH_TO_DO% /A /R /D Y
+ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+
+
 
 SET PATH_TO_DO="C:\SCRIPTOR GITHUB\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
-ICACLS !PATH_TO_DO! /setintegritylevel (CI)H
-
-REM ICACLS "C:\SCRIPTOR GITHUB\*" /setowner Everyone /T /C /L /Q 
-REM ICACLS "C:\SCRIPTOR GITHUB\*" /T /L /C /Q /Grant Everyone:F
-REM ICACLS "C:\SCRIPTOR GITHUB\*" /setintegritylevel (CI)H
-
-SET PATH_TO_DO="C:\Windows\System32\gatherNetworkInfo.vbs"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
-ICACLS !PATH_TO_DO! /setintegritylevel (CI)H
-
-@REM ----------------------------------------------------------------
-GOTO JUMPOVER
-@REM ----------------------------------------------------------------
-SET PATH_TO_DO="C:\Windows\System32\gatherNetworkInfo.vbs"
 ECHO %PATH_TO_DO%
 ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
 ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 ICACLS %PATH_TO_DO% /setintegritylevel (CI)H
-@REM ----------------------------------------------------------------
-:JUMPOVER
-@REM ----------------------------------------------------------------
-
-
+REM __ 
 REM __ [ Friday 18:08:30 Pm_05 October 2018 ]
 REM __ SET /setintegritylevel HIGH _ IF LOW IT DISPLAY THE IN PROPERTIES AND SECURITY LOW MEAN LESS ACCESS
 REM __ POP UP DIALOG APPEAR FOR ACCESS A .BAT FOR IN FOLDER LIKE IT IS
@@ -121,112 +157,112 @@ REM ----
 @REM ----------------------------------------------------------------
 IF NOT %COMPUTERNAME%==4-ASUS-GL522VW   GOTO JUMP_OVER_HERE
 	SET PATH_TO_DO="F:\Users_BAK\*"
-	ECHO !PATH_TO_DO!
-	ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-	ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+	ECHO %PATH_TO_DO%
+	ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+	ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 :JUMP_OVER_HERE
 @REM ----------------------------------------------------------------
 
 SET PATH_TO_DO="D:\VI_ DSC ME\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="D:\DSC\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="D:\SNAPSHOT CCSE HIKVISION\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\Users\MATT 01\AppData\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\Users\MATT 02\AppData\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\Users\MATT 03\AppData\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\Users\MATT 04\AppData\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\SCRIPTER\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="D:\VB6\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="D:\VB6-EXE\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\DOWNLOADS\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\PStart\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="D:\# MY DOCS\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="D:\#0 1 INSTALLATIONS\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\BAT\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\Users\Public\Desktop\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\Program Files\WinRAR\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="D:\0 CLOUD\*"
-ECHO !PATH_TO_DO!
-ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 
 SET PATH_TO_DO="D:\0 00 MUSIC ---\*"
-ECHO !PATH_TO_DO!
-REM ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-REM ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+REM ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+REM ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\RF\*"
-ECHO !PATH_TO_DO!
-REM ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-REM ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+ECHO %PATH_TO_DO%
+REM ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+REM ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 
 setlocal EnableDelayedExpansion
@@ -278,6 +314,7 @@ setlocal EnableDelayedExpansion
 )
 
 
+
 @REM START "" /D!PATH_TO_DO! /B /MIN /HIGH /WAIT ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q >NUL
 @REM START "" /D!PATH_TO_DO! /B /MIN /HIGH /WAIT ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F >NUL
 
@@ -289,9 +326,8 @@ IF "%1"=="" PAUSE
 GOTO ENDE
 
 
-
-
 GOTO VERY_ENDE
+
 
 ::
 :IsDeviceReady
@@ -301,6 +337,7 @@ set ready_=true
 dir "%~1" > nul 2>&1
 if %errorlevel% NEQ 0 set ready_=false
 endlocal & set "%2=%ready_%" & goto :EOF
+
 ::
 :GetLabel
 setlocal
