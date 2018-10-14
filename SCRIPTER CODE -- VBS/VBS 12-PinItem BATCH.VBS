@@ -174,6 +174,51 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 NEXT
 '-------------------------------------
 
+'-------------------------------------------------------
+' CHECK FOR FILEEXISTS THAT COULD BE 64 BIT & VICE VERSA
+'-------------------------------------------------------
+' DIM R_SET_1
+FOR R_SET_1=1 TO UBOUND(ARRAY_1)
+	HOLDER_VAR=ARRAY_1(R_SET_1)
+	SET_VAR_FLAG_1=FALSE
+	SET_VAR_FLAG_2=FALSE
+	If objFSO.FileExists(ARRAY_1(R_SET_1)) = FALSE Then
+		IF INSTR(UCASE(ARRAY_1(R_SET_1)),"\PROGRAM FILES (X86)\")>0 THEN 
+			ARRAY_1(R_SET_1)=REPLACE(UCASE(ARRAY_1(R_SET_1)), "\PROGRAM FILES (X86)\","\PROGRAM FILES\")
+			SET_VAR_FLAG_1=TRUE
+		END IF
+	END IF
+	
+	' TRY BOTH
+	' HERE WILL PUT BACK AS WAS IF NOT FOUND BETWEEN (86X) AND 64 BIT
+	' OR AND WILL INVERT FOR VICE VERSA
+	If objFSO.FileExists(ARRAY_1(R_SET_1)) = FALSE Then
+		IF INSTR(UCASE(ARRAY_1(R_SET_1)),"\PROGRAM FILES\")>0 THEN 
+			ARRAY_1(R_SET_1)=REPLACE(UCASE(ARRAY_1(R_SET_1)), "\PROGRAM FILES\","\PROGRAM FILES (X86)\")
+			SET_VAR_FLAG_2=TRUE
+		END IF
+	END IF
+	
+	'PUT THE CASE CONVERSTION BACK RESTORE
+	IF UCASE(HOLDER_VAR) = UCASE(ARRAY_1(R_SET_1)) THEN
+		ARRAY_1(R_SET_1)=HOLDER_VAR
+	END IF
+	
+	' IF BOTH CONVERSION HAPPEN AND NOTHING CHANGED ON FILEEXISTS THEN RESTORE CASE CONVERSION
+	If objFSO.FileExists(ARRAY_1(R_SET_1)) = FALSE Then
+		IF SET_VAR_FLAG_1=TRUE OR SET_VAR_FLAG_2=TRUE THEN 
+			ARRAY_1(R_SET_1)=HOLDER_VAR
+		END IF
+	END IF
+	
+NEXT
+'-------------------------------------
+
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)="C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
+END IF
+
+
 
 '--------------------------------------------------------------------
 IF Version_OS=>6 THEN 
@@ -373,6 +418,7 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WinMerge\WinMergeU.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Notepad++\notepad++.exe"
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"

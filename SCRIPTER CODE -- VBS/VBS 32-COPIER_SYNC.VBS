@@ -37,7 +37,20 @@
 ' __ TO    Sun 07-Oct-2018 05:58:00 _ MIXED WITH OTHER CODE WRITER TIDY UP-PER
 '#-------------------------------------------------------------------
 
+'#-------------------------------------------------------------------
+' -- 003 SESSION __
+' -------------------------------------------------------------------
+' MORE WORK ERROR DETECTION AND USEFUL OTHER PARAMETER
+' WHILE NEST LOT OTHER CODER AROSE FROM IT
+' TO DO WITH SYNCING NOTEPAD++ AFTER 64 BIT CHANGE
+' AND LOT OWNERSHIP SCRIPT CHANGER FIND OUT THING
+' AND PRACTICE A DUMB THING OF NOT POISABLE WITH VARIABLES BACTH SCRIPT
+' -------------------------------------------------------------------
+' __ FROM  Sun 14-Oct-2018 20:07:11
+' __ TO    Sun 14-Oct-2018 23:02:00
+'#-------------------------------------------------------------------
 
+' RequireAdmin
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 const DontWaitUntilFinished = false, ShowWindow = 1, DontShowWindow = 0, WaitUntilFinished = true
@@ -56,6 +69,13 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 
+DIM F
+
+Set args = Wscript.Arguments
+For Each arg In args
+	Wscript_Arguments = Wscript_Arguments + arg
+Next
+
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
 
@@ -64,6 +84,8 @@ DIM VAR_PATH_FILE_2()
 DIM VAR_DO_HAVE_TO_EXIST()
 DIM VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST()
 DIM VAR_DO_SECONDARY_FULL_PATH_TO_EXIST()
+DIM VAR_DO_ONLY_SOURCE_TO_DESTINATION()
+DIM VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING()
 
 I_COUNTER = 30
 
@@ -87,6 +109,19 @@ REDIM VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNTER)
 ' -- FULL PATH INCLUDE FILENAME
 ' -------------------------------------------------------------------
 REDIM VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNTER)
+
+' -------------------------------------------------------------------
+' -- THIS HELPS IN CONTROL AREA WHEN SOURCE CANNOT BE MODIDFED LIKE IN 
+' -- SYSTEM32 FOLDER AND NOT GOT ACCESS TO WRITER
+' -------------------------------------------------------------------
+REDIM VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNTER)
+
+' -------------------------------------------------------------------
+' -- IN OTHER SET ON ERRORLEVEL GOTO RESUME AND START MESSAGE BOX 
+' -- ERROR TRAPPING _ PERMISSION WHEN OWNERSHIP PROBLEM
+' -------------------------------------------------------------------
+REDIM VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNTER)
+
 
 I_COUNT=0
 
@@ -216,6 +251,9 @@ I2="C:\Windows\System32\gatherNetworkInfo.vbs"
 I_COUNT=I_COUNT+1
 VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="TRUE"
+
+'VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="TRUE"
+
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
@@ -318,6 +356,41 @@ VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' ' -------------------------------------------------------------------
+' I1="C:\Windows\System32\battery-report.html"
+	' IF FSO.FILEEXISTS("C:\Windows\System32\battery-report.html")=TRUE THEN
+		' MSGBOX "HH"
+	' END IF
+	' Set F = FSO.GetFile(I1)
+	' FileModDate = F.DateLastModified
+	' SET F=NOTHING
+' I2="C:\Windows\System32\battery-report_"+ComputerName+"--"+SET_FORMATTED_DATE_TIME(FileModDate)+".html"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_DO_HAVE_TO_EXIST(I_COUNT)="TRUE"
+' VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="FALSE"
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
+' ' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+I1="C:\Windows\System32\battery-report.html"
+	Set f = fso.GetFile(I1)
+	FileModDate = f.DateLastModified
+	SET f=NOTHING
+I2="C:\SCRIPTER\LAPTOP BATTERY HEALTH INFO\battery-report_"+ComputerName+"--"+SET_FORMATTED_DATE_TIME(FileModDate)+".html"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="FALSE"
+
+VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNT)="TRUE"
+
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -329,6 +402,21 @@ REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
 REDIM PRESERVE VAR_DO_HAVE_TO_EXIST(I_COUNTER)
 REDIM PRESERVE VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNTER)
 REDIM PRESERVE VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNTER)
+REDIM PRESERVE VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNTER)
+REDIM PRESERVE VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNTER)
+
+
+FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
+	IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="" THEN 
+		VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE"
+	END IF
+NEXT
+
+FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
+	IF Wscript_Arguments<>"" THEN 
+		VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="TRUE"
+	END IF
+NEXT
 
 FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 
@@ -348,6 +436,7 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 				SET_GO=FALSE
 			END IF
 		END IF
+		
 		IF VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="TRUE" THEN
 			If FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE Then
 				SET_GO=FALSE
@@ -379,30 +468,91 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 			' HOPEFULLY IT WILL PICK-UP THE ONE THE EXISTING BY DATE VALUE
 			' -----------------------------------------------------------
 
+			ON ERROR RESUME NEXT
+			
+			ERR.CLEAR
+			
 			IF SET_GO=TRUE THEN
-
 				IF FileModDate_1>FileModDate_2 THEN
-
-				IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT))=FALSE THEN 
-						MSGBOX "NOT EXIST "+VBCRLF+VAR_PATH_FILE_1(I_COUNT)
+					IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT))=FALSE THEN 
+						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
+							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_1(I_COUNT)
+						END IF
 					END IF
+
+					STRIP_FOLDER=MID(VAR_PATH_FILE_2(I_COUNT),1,INSTRREV(VAR_PATH_FILE_2(I_COUNT),"\"))
+					If Not FSO.FolderExists(STRIP_FOLDER) Then
+						BuildFullPath STRIP_FOLDER
+					End If
 					
 					IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT)) THEN 
 						Fso.CopyFile VAR_PATH_FILE_1(I_COUNT), VAR_PATH_FILE_2(I_COUNT)	
-		
+						
+						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
+							IF ERR.NUMBER > 0 THEN 
+								I_TXT=""
+								I_TXT=I_TXT+"ERROR COPY"+VBCRLF
+								I_TXT=I_TXT+VBCRLF
+								I_TXT=I_TXT+"FILE COUNTER "+CSTR(I_COUNT)+VBCRLF
+								I_TXT=I_TXT+VBCRLF
+								I_TXT=I_TXT+VAR_PATH_FILE_1(I_COUNT) +VBCRLF
+								I_TXT=I_TXT+"TO"+VBCRLF
+								I_TXT=I_TXT+VBCRLF
+								I_TXT=I_TXT+VAR_PATH_FILE_2(I_COUNT) +VBCRLF
+								I_TXT=I_TXT+VBCRLF
+								I_TXT=I_TXT+"ERROR DESCRIPTION"+VBCRLF+VBCRLF
+								I_TXT=I_TXT+ERR.DESCRIPTION +VBCRLF
+								
+								MSGBOX I_TXT
+							END IF
+						END IF
 					END IF
 				END IF
 
-				IF FileModDate_1<FileModDate_2 THEN
+				' ---------------------------------------------------
+				' THIS HELPS IN CONTROL AREA WHEN SOURCE CANNOT BE MODIDFED LIKE IN 
+				' SYSTEM32 FOLDER AND NOT GOT ACCESS TO WRITER
+				' ONE WAY MODE
+				' ---------------------------------------------------
+				IF FileModDate_1<FileModDate_2 AND VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNT)=FALSE THEN
 					IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE THEN 
-						MSGBOX "NOT EXIST "+VBCRLF+VAR_PATH_FILE_2(I_COUNT)
+						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
+							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_2(I_COUNT)
+						END IF
 					END IF
+					
+					STRIP_FOLDER=MID(VAR_PATH_FILE_1(I_COUNT),1,INSTRREV(VAR_PATH_FILE_1(I_COUNT),"\"))
+					If Not FSO.FolderExists(STRIP_FOLDER) Then
+						BuildFullPath STRIP_FOLDER
+					End If
+
 					IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT)) THEN 
 						Fso.CopyFile VAR_PATH_FILE_2(I_COUNT), VAR_PATH_FILE_1(I_COUNT)
+					END IF
+
+					IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
+						IF ERR.NUMBER > 0 THEN 
+							I_TXT=""
+							I_TXT=I_TXT+"ERROR COPY"+VBCRLF
+							I_TXT=I_TXT+VBCRLF
+							I_TXT=I_TXT+"FILE COUNTER "+CSTR(I_COUNT)+VBCRLF
+							I_TXT=I_TXT+VBCRLF
+							I_TXT=I_TXT+VAR_PATH_FILE_2(I_COUNT) +VBCRLF
+							I_TXT=I_TXT+"TO"+VBCRLF
+							I_TXT=I_TXT+VBCRLF
+							I_TXT=I_TXT+VAR_PATH_FILE_1(I_COUNT) +VBCRLF
+							I_TXT=I_TXT+VBCRLF
+							I_TXT=I_TXT+"ERROR DESCRIPTION"+VBCRLF+VBCRLF
+							I_TXT=I_TXT+ERR.DESCRIPTION +VBCRLF
+							
+							MSGBOX I_TXT
+						END IF
 					END IF
 				END IF
 			
 			END IF
+			ON ERROR GOTO 0
+
 		END IF
 	END IF
 NEXT
@@ -437,6 +587,56 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 NEXT
 
 Wscript.QUIT
+
+
+Function LPad (str, pad, length)
+    LPad = String(length - Len(str), pad) & str
+End Function
+
+Function SET_FORMATTED_DATE_TIME (TIME_INFO)
+
+i_TIME=""
+i_TIME=i_TIME+LPad(Year(TIME_INFO), "0", 4)+"-"
+i_TIME=i_TIME+LPad(Month(TIME_INFO), "0", 2)+"-"
+i_TIME=i_TIME+LPad(Day(TIME_INFO), "0", 2)+"-"
+i_TIME=i_TIME+"--"
+i_TIME=i_TIME+LPad(Hour(TIME_INFO), "0", 2)+"-"
+i_TIME=i_TIME+LPad(Minute(TIME_INFO), "0", 2)+"-"
+i_TIME=i_TIME+LPad(Second(TIME_INFO), "0", 2)
+
+SET_FORMATTED_DATE_TIME=i_TIME
+
+END FUNCTION
+
+
+Function RequireAdmin()
+	Dim reg_valuename, WShell, Cmd, CmdLine, I
+
+	GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")_
+	.EnumValues &H80000003, "S-1-5-19\Environment",  reg_valuename
+	If IsArray(reg_valuename) <> 0 Then
+		RequireAdmin = 1
+		Exit Function
+	End If
+
+	Set Cmd = WScript.Arguments
+	For I = 0 to Cmd.Count - 1
+		If Cmd(I) = "/admin" Then
+			Wscript.Echo "To script you must have administrator rights!"
+			'RequireAdmin = 0
+			'Exit Function
+			WScript.Quit
+		End If
+		CmdLine = CmdLine & Chr(32) & Chr(34) & Cmd(I) & Chr(34)
+	Next
+	CmdLine = CmdLine & Chr(32) & Chr(34) & "/admin" & Chr(34)
+
+	Set WShell= WScript.CreateObject( "WScript.Shell")
+	CreateObject("Shell.Application").ShellExecute WShell.ExpandEnvironmentStrings(_
+	"%SystemRoot%\System32\WScript.exe"),Chr(34) & WScript.ScriptFullName & Chr(34) & CmdLine, "", "runas"
+	WScript.Quit
+End Function
+
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
