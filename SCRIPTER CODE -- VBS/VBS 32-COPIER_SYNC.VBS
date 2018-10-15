@@ -62,6 +62,8 @@ CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
+ComputerName_Short=MID(ComputerName,1,1)+MID(ComputerName,3,1)
+
 DIM objSuperFolder
 
 Dim FSO
@@ -84,7 +86,7 @@ DIM VAR_PATH_FILE_2()
 DIM VAR_DO_HAVE_TO_EXIST()
 DIM VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST()
 DIM VAR_DO_SECONDARY_FULL_PATH_TO_EXIST()
-DIM VAR_DO_ONLY_SOURCE_TO_DESTINATION()
+DIM VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY()
 DIM VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING()
 
 I_COUNTER = 30
@@ -114,7 +116,7 @@ REDIM VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNTER)
 ' -- THIS HELPS IN CONTROL AREA WHEN SOURCE CANNOT BE MODIDFED LIKE IN 
 ' -- SYSTEM32 FOLDER AND NOT GOT ACCESS TO WRITER
 ' -------------------------------------------------------------------
-REDIM VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNTER)
+REDIM VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNTER)
 
 ' -------------------------------------------------------------------
 ' -- IN OTHER SET ON ERRORLEVEL GOTO RESUME AND START MESSAGE BOX 
@@ -356,35 +358,50 @@ VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
-' ' -------------------------------------------------------------------
-' I1="C:\Windows\System32\battery-report.html"
-	' IF FSO.FILEEXISTS("C:\Windows\System32\battery-report.html")=TRUE THEN
-		' MSGBOX "HH"
-	' END IF
-	' Set F = FSO.GetFile(I1)
-	' FileModDate = F.DateLastModified
-	' SET F=NOTHING
-' I2="C:\Windows\System32\battery-report_"+ComputerName+"--"+SET_FORMATTED_DATE_TIME(FileModDate)+".html"
-' ' -------------------------------------------------------------------
-' I_COUNT=I_COUNT+1
-' VAR_DO_HAVE_TO_EXIST(I_COUNT)="TRUE"
-' VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="FALSE"
-' VAR_PATH_FILE_1(I_COUNT)=I1
-' VAR_PATH_FILE_2(I_COUNT)=I2
-' ' -------------------------------------------------------------------
-
 ' -------------------------------------------------------------------
-I1="C:\Windows\System32\battery-report.html"
-	Set f = fso.GetFile(I1)
-	FileModDate = f.DateLastModified
-	SET f=NOTHING
-I2="C:\SCRIPTER\LAPTOP BATTERY HEALTH INFO\battery-report_"+ComputerName+"--"+SET_FORMATTED_DATE_TIME(FileModDate)+".html"
+' powercfg /energy
+' -------------------------------------------------------------------
+I1="C:\Windows\System32\energy-report.html"
+I2="C:\SCRIPTER\LAPTOP BATTERY HEALTH INFO\Energy-Report_"+ComputerName+"--"+SET_FORMATTED_DATE_TIME_FILE(I1)+".html"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
-VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="FALSE"
+VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+I1="C:\Windows\System32\energy-report.html"
+I2="C:\SCRIPTER\LAPTOP BATTERY HEALTH INFO\"+ComputerName_Short+"_Energy-Report_"+ComputerName+".html"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
 
-VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNT)="TRUE"
+
+' ----
+' POWERCFG: How To Check Battery Health Report And Energy Report In Windows Using CMD
+' https://fossbytes.com/powercfg-check-battery-capacity-battery-health-report-windows-using-cmd/
+' ----
+' -------------------------------------------------------------------
+' powercfg /batteryreport
+' -------------------------------------------------------------------
+I1="C:\Windows\System32\battery-report.html"
+I2="C:\SCRIPTER\LAPTOP BATTERY HEALTH INFO\Battery-Report_"+ComputerName+"--"+SET_FORMATTED_DATE_TIME_FILE(I1)+".html"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
+
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+I1="C:\Windows\System32\battery-report.html"
+I2="C:\SCRIPTER\LAPTOP BATTERY HEALTH INFO\"+ComputerName_Short+"_Battery-Report_"+ComputerName+".html"
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
 
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
@@ -402,9 +419,15 @@ REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
 REDIM PRESERVE VAR_DO_HAVE_TO_EXIST(I_COUNTER)
 REDIM PRESERVE VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNTER)
 REDIM PRESERVE VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNTER)
-REDIM PRESERVE VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNTER)
+REDIM PRESERVE VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNTER)
 REDIM PRESERVE VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNTER)
 
+
+FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
+	IF VAR_DO_HAVE_TO_EXIST(I_COUNT)="" THEN 
+		VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+	END IF
+NEXT
 
 FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 	IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="" THEN 
@@ -435,16 +458,12 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 			If FSO.FolderExists(STRIP_FOLDER)=FALSE Then
 				SET_GO=FALSE
 			END IF
-		END IF
-		
-		IF VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="TRUE" THEN
 			If FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE Then
 				SET_GO=FALSE
 			END IF
 		END IF
 		
 		IF SET_GO=TRUE THEN 
-		
 			FileModDate_1=0
 			FileModDate_2=0
 			IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT)) THEN 
@@ -473,7 +492,9 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 			ERR.CLEAR
 			
 			IF SET_GO=TRUE THEN
+
 				IF FileModDate_1>FileModDate_2 THEN
+				
 					IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT))=FALSE THEN 
 						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
 							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_1(I_COUNT)
@@ -514,7 +535,8 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 				' SYSTEM32 FOLDER AND NOT GOT ACCESS TO WRITER
 				' ONE WAY MODE
 				' ---------------------------------------------------
-				IF FileModDate_1<FileModDate_2 AND VAR_DO_ONLY_SOURCE_TO_DESTINATION(I_COUNT)=FALSE THEN
+				IF FileModDate_1<FileModDate_2 AND VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)=FALSE THEN
+					
 					IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE THEN 
 						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
 							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_2(I_COUNT)
@@ -593,18 +615,26 @@ Function LPad (str, pad, length)
     LPad = String(length - Len(str), pad) & str
 End Function
 
-Function SET_FORMATTED_DATE_TIME (TIME_INFO)
+Function SET_FORMATTED_DATE_TIME_FILE (TIME_FILE_INFO)
+	
+	IF FSO.FileExists(TIME_FILE_INFO)=FALSE THEN 
+		EXIT FUNCTION
+	END IF
+	
+	Set f = fso.GetFile(TIME_FILE_INFO)
+	FileModDate = f.DateLastModified
+	SET f=NOTHING
 
-i_TIME=""
-i_TIME=i_TIME+LPad(Year(TIME_INFO), "0", 4)+"-"
-i_TIME=i_TIME+LPad(Month(TIME_INFO), "0", 2)+"-"
-i_TIME=i_TIME+LPad(Day(TIME_INFO), "0", 2)+"-"
-i_TIME=i_TIME+"--"
-i_TIME=i_TIME+LPad(Hour(TIME_INFO), "0", 2)+"-"
-i_TIME=i_TIME+LPad(Minute(TIME_INFO), "0", 2)+"-"
-i_TIME=i_TIME+LPad(Second(TIME_INFO), "0", 2)
+	i_TIME=""
+	i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"-"
+	i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"-"
+	i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)
+	i_TIME=i_TIME+"--"
+	i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+"-"
+	i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+"-"
+	i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)
 
-SET_FORMATTED_DATE_TIME=i_TIME
+	SET_FORMATTED_DATE_TIME_FILE=i_TIME
 
 END FUNCTION
 
