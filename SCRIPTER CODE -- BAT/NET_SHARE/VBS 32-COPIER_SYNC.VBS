@@ -381,6 +381,12 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 
 
 ' ----
+' Detect if battery mode windows - Google Search
+' https://www.google.co.uk/search?num=50&safe=active&ei=a1jDW_KMC-K0ggfc4p3ABQ&q=detect+if+battery+mode++windows&oq=detect+if+battery+mode++windows&gs_l=psy-ab.3...224344.229826.0.233893.30.22.2.0.0.0.261.2317.7j9j2.18.0....0...1c.1.64.psy-ab..11.9.1137...0i7i30k1j0i7i5i30k1j0i8i13i30k1j0i30k1j0i5i30k1j0i8i7i30k1j33i10k1.0.J2sPVulucJo
+' --------
+' Batch File To Detect And Set Windows 7 Power Mode - Super User
+' https://superuser.com/questions/456115/batch-file-to-detect-and-set-windows-7-power-mode
+' --------
 ' POWERCFG: How To Check Battery Health Report And Energy Report In Windows Using CMD
 ' https://fossbytes.com/powercfg-check-battery-capacity-battery-health-report-windows-using-cmd/
 ' ----
