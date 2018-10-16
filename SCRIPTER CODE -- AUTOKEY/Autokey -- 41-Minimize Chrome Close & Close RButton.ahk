@@ -31,6 +31,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; WILL STOP THE CLOSE BUTTON AND INSTEAD MINIMIZE
 ; AND ALSO CLOSE WHEN RIGHT CLICKER
 ; ESPECIALLY FOR CHROME NOT LOSE ALL YOUR TAB TO POSSIBLE FAILURE
+; THAT SEEM LIKE A RISK SOMETIMES
 ;# ------------------------------------------------------------------
 ; SOURCE
 ; ----
@@ -56,6 +57,15 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; ----
 ;# ------------------------------------------------------------------
 
+
+;# ------------------------------------------------------------------
+; ---- LOCATE ONLINE
+; -------------------------------------------------------------------
+; ----
+; Matthew-Lancaster/Autokey -- 41-Minimize Chrome Close & Close RButton.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2041-Minimize%20Chrome%20Close%20%26%20Close%20RButton.ahk
+; ----
+;# ------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
 ; SESSION 001
@@ -85,9 +95,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; CODE ADD _ TO USE WITH MULTIPLE PROGRAM 
 ; CODE ADD _ SOUNDBEEP WHENEVER ACTIVITY AT CLOSE BUTTON AND CLICK MADE
 ; CODE ADD _ THE TOP FEW LINE OF PIXEL IN CHROME GET TREAT AS CLOSE BUTTON 
+; CODE ADD _ TOOLTIP INFO WORKER
+; CODE ADD _ SPEED IT UP WITH CARE TO CPU USAGE FINALIZE
 ; -------------------------------------------------------------------
 ; FROM   Tue 16-Oct-2018 03:30:00
-; TO     Tue 16-Oct-2018 08:32:00 __ 5 HOUR 2 MINUTE 
+; TO     Tue 16-Oct-2018 08:54:00 __ 5 HOUR 24 MINUTE 
 ;# ------------------------------------------------------------------
 
 
