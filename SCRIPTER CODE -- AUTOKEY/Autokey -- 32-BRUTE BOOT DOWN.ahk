@@ -93,13 +93,13 @@ I_COUNT+=1
 IF I_COUNT<480
 	SET_GO=FALSE
 
-IF SET_GO=TRUE
-{
-	EXIT_APP_VAR=TRUE
-	SoundBeep , 2000 , 100
-	SoundBeep , 2500 , 100
-	EXITAPP
-}
+; IF SET_GO=TRUE
+; {
+	; EXIT_APP_VAR=TRUE
+	; SoundBeep , 2000 , 100
+	; SoundBeep , 2500 , 100
+	; EXITAPP
+; }
 
 
 ;---------------------------------------------------

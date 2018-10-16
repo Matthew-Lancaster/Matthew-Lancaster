@@ -32,6 +32,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; AND ALSO CLOSE WHEN RIGHT CLICKER
 ; ESPECIALLY FOR CHROME NOT LOSE ALL YOUR TAB TO POSSIBLE FAILURE
 ; THAT SEEM LIKE A RISK SOMETIMES
+; -------------------------------------------------------------------
+; BASED ON THE WM_NCHITTEST := 0x0084 DETECT CLOSE WINDOW RED CROSS TICKER
 ;# ------------------------------------------------------------------
 ; SOURCE
 ; ----
@@ -42,7 +44,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; AFTER A RECENT FRIGHT CLOSE OF CHROME UNINTENTIONAL BUT OKAY NONE LOSS OF WORKER
 ; A LITTLE HELP ON SUBJECT
 ; MOST WINDOW IS ABLE TO SET CLOSE BUTTON DISABLED BUT NOT CHROME
-; MAYBE CODED TO SWITCH BACK ON _ INTENSION WAS THERE
+; MAYBE CODED TO SWITCH BACK ON _ INTENTION WAS THERE
 ; ----
 ; Close window when mouse hover red X square box? - Ask for Help - AutoHotkey Community
 ; https://autohotkey.com/board/topic/81233-close-window-when-mouse-hover-red-x-square-box/
@@ -102,6 +104,33 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO     Tue 16-Oct-2018 08:54:00 __ 5 HOUR 24 MINUTE 
 ;# ------------------------------------------------------------------
 
+;# ------------------------------------------------------------------
+; SESSION 003
+; -------------------------------------------------------------------
+; ----
+; AFTER THE ALL NIGHT SESSION FOR SIX HOUR AND ASLEEP IN 
+; DAY UNTIL 3 PM DAY BEFORE AGAIN WE CODER
+; FIXED IT SO WORKS ON WIN XP TASKBAR PROBLEM SOME RIGHT CLICK ITEM 
+; LIKE VOLUME AND ONE OTHER NOT DISPLAY 
+; LIKE SHOULD DO
+; HAD GOOD LOOK AT CODE WHY THIS HAPPEN _ SORTED IT
+; NOT SURE WHAT FIXER IN THE END BUT TIDIED UP _ PUT ENOUGH CODE IN
+; ----
+; CODE ADD _ THE WM_NCHITTEST := 0x0084 DOES NOT DETECT A CLOSE BUTTON UNDER CURSOR WHEN THE WINDOW IS 
+; NOT IN FOCUS
+; AND IS ABLE TO LEAD TO THE WRONG ACTION OF CLOSE WINDOW RATHER THAN SAFTEY MINIMIZE
+; SO WE ON RIGHT OR LEFT CLICK BUTTON FORCE WINDOW INTO FOCUS 
+; ----
+; CODE ADD _ SORT THE PROBLEM WHERE HAD TO GET PARENT WINDOW WHEN DETECTING IF CHROME OR OTHER PROGRAM WANT INCLUDED
+; ----
+; CODE ADD _ MAKE THE TOOLTIP DISAPPEAR AFTER 2 SECOND HOOVERING ON CLOSE BUTTON
+; CODE ADD _ MAKE WORK FOR WIN XP WITHOUT AERO OFFSET SET AS MUCH
+; -------------------------------------------------------------------
+; FROM   Tue 16-Oct-2018 18:48:52
+; TO     Tue 16-Oct-2018 20:22:00 __ 3 HOUR 34 MINUTE 
+;# ------------------------------------------------------------------
+
+
 ;--------------------
 #SingleInstance force
 ;--------------------
@@ -117,12 +146,32 @@ SETTIMER TIMER_PREVIOUS_INSTANCE,1
 GLOBAL O_x
 GLOBAL O_y
 
+GLOBAL hWnd_APP
+
+GLOBAL OSVER_N_VAR
+
+TOOLTIP_BEEN_SET_1=0
+TOOLTIP_BEEN_SET_2=FALSE
+TIMER_TOOLTIP := 0
 
 HTCLOSE := 20
 WM_NCHITTEST := 0x0084
 
+OSVER_N_VAR:=a_osversion
+IF INSTR(a_osversion,".")>0
+	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
+IF OSVER_N_VAR=WIN_XP
+	OSVER_N_VAR=5
+IF OSVER_N_VAR=WIN_7
+	OSVER_N_VAR=6
+IF OSVER_N_VAR=10
+	OSVER_N_VAR=10
+	
 CLOSE_BUTTON_HOOVER_ACTIVITY=0
 SET_GO_2=0
+
+O_X=0
+O_Y=0
 
 ; -------------------------------------------------------------------
 ; TOOLTIP INFO ABOUT CLOSE BUTTON HOOVER
@@ -134,24 +183,60 @@ SetTimer Watch_3, 100
 Return
 
 ; -------------------------------------------------------------------
+; END INIT
+; -------------------------------------------------------------------
+; BEGIN CODE
+; -------------------------------------------------------------------
+
+
+PROGRAM_SET_TO_USE:
+	
+	Hwnd_Parent := DllCall("GetParent", UInt,WinExist("ahk_id" hWnd)), Hwnd_Parent := !Hwnd_Parent ? WinExist("ahk_id" hWnd) : Hwnd_Parent
+
+	WinGetClass, Class_Title, ahk_id %Hwnd_Parent%
+
+	SET_GO_2=FALSE
+	; VISUAL BASIC
+	IfInString, Class_Title, ThunderRT6FormDC
+		SET_GO_2=TRUE
+		; SET_GO_2=FALSE
+
+	; GOOGLE CHROME
+	IfInString, Class_Title, Chrome_WidgetWin_1
+		SET_GO_2=TRUE
+
+RETURN
+
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 LButton:: ; Minimize Google Chrome instead of close when close button is clicked
-CoordMode, Mouse, Screen
-MouseGetPos, x, y, hwnd
-; BIT OF COMPENSATION ON MY COMPUTER OFFSET AS 
-; CLOSE BUTTON DETECT IS LITTLE OVER ON MAX RESTORE BUTTON
-x-=20 
 
 SET_GO_1=FALSE
-if IsOverCloseButton(X, Y, hWnd)
+IF IsOverCloseButton(X, Y, hWnd)
 	SET_GO_1=TRUE
 
 GOSUB PROGRAM_SET_TO_USE
+
+; NICE TRY TO SET FOCUS TO WINDOW UNDER MOUSE CURSOR 
+; TOO MANY PROBLEM LIKE LEFT CLICK ON TASKBAR
+; FOUND THE PROBLEM USE THE NEW ROUTINE Hwnd_Parent IN PROGRAM_SET_TO_USE
+; --------------------------------------------------
+; CoordMode Mouse, Screen
+; MouseGetPos, x, y, hWnd
+; Hwnd_Parent := DllCall("GetParent", UInt,WinExist("ahk_id" hWnd)), Hwnd_Parent := !Hwnd_Parent ? WinExist("ahk_id" hWnd) : Hwnd_Parent
+; WinGetClass, ClassNN_1, ahk_id %hwnd_parent%
+; WinGetClass, ClassNN_2, A
+; WinGet, Hwnd_2, ID, A
+; TOOLTIP % ClassNN_1 " -- " ClassNN_2
+; TOOLTIP % SET_GO_2 " -- " ClassNN_1 " -- " ClassNN_2
 
 IF SET_GO_2=TRUE
 {
 	If SET_GO_1=TRUE
 	{
-		WinMinimize ahk_id %hWnd%
+		WinMinimize ahk_id %hWnd_APP%
 		SOUNDBEEP 2000,100
 	}
 	else
@@ -169,10 +254,10 @@ RETURN
 ; -------------------------------------------------------------------
 
 RIGHT_CLICK_CLOSE_IT:
-CoordMode, Mouse, Screen
-MouseGetPos, x, y, hwnd
-; BIT OF COMPENSATION ON MY COMPUTER OFFSET AS 
-; CLOSE BUTTON DETECT IS LITTLE OVER ON MAX RESTORE BUTTON
+
+; CoordMode Mouse, Screen
+; MouseGetPos, x, y, hWnd
+; #WinActivateForce, ahk_id %hWnd%
 
 SET_GO_1=FALSE
 if IsOverCloseButton(X, Y, hWnd)
@@ -197,7 +282,7 @@ IF SET_GO_2=TRUE
 		; -----------------------------------------------------------
 		SOUNDBEEP 2000,100
 		KeyWait, RButton
-		WinClose ahk_id %hWnd%
+		WinClose ahk_id %hWnd_APP%
 	}
 	else
 	{
@@ -214,24 +299,6 @@ IF SET_GO_1=TRUE
 		SOUNDBEEP 1000,100
 RETURN
 
-PROGRAM_SET_TO_USE:
-
-WinGetClass, Class_Title, ahk_id %hWnd%
-
-SET_GO_2=FALSE
-IfInString, Class_Title, ThunderRT6FormDC
-	SET_GO_2=TRUE
-	SET_GO_2=FALSE
-
-IfInString, Class_Title, Chrome_WidgetWin_1
-	SET_GO_2=TRUE
-
-
-RETURN
-
-; -------------------------------------------------------------------
-LButton Up::Click Up
-; -------------------------------------------------------------------
 
 ; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY AS SHOW BUT REQUIRE KEYBOARD AROUND
 ; -------------------------------------------------------------------
@@ -240,24 +307,36 @@ GOSUB RIGHT_CLICK_CLOSE_IT
 return
 ; -------------------------------------------------------------------
 
-; DON;T REQUIRE THIS RButton ON IT OWN WILL DO WORKER
-; -------------------------------------------------------------------
-; ~Shift & RButton Up::Click, up, right
-; -------------------------------------------------------------------
-
 ; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY ALSO BUT REQUIRE KEYBOARD AROUND
 ; -------------------------------------------------------------------
 ~RButton:: ; Minimize Google Chrome instead of close when close button is clicked
-IF GetKeyState("shift", "p")
-	RETURN
+IF GetKeyState("Shift")=TRUE
+	Return
 GOSUB RIGHT_CLICK_CLOSE_IT
 RETURN
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
+LButton Up::
+{
+	IF GetKeyState("LButton")=TRUE
+	{
+		Click Up
+		RETURN
+	}
+}
+RETURN
+
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
 RButton Up::
 {
-	Click, up, right
+	IF GetKeyState("RButton")=TRUE
+	{
+		Click, up, right
+		RETURN
+	}
 }
 RETURN
 ; -------------------------------------------------------------------
@@ -269,14 +348,25 @@ MouseGetPos, x, y, hWnd
 ;--------------------------------------------------------------------
 ; REFINE THE CPU USAGE AS FINAL PART DONE
 ;--------------------------------------------------------------------
+IF TIMER_TOOLTIP>0
+	IF TIMER_TOOLTIP < %A_NOW%
+	{
+		TOOLTIP
+		TIMER_TOOLTIP:=0
+	}
+
 IF (O_X=%X% and O_Y=%Y%)
 	Return
+; TOOLTIP % X " -- " Y
 O_X=X
 O_Y=Y
 
 CLOSE_BUTTON_HOOVER_ACTIVITY_2=FALSE
 if IsOverCloseButton(X, Y, hWnd)
 	CLOSE_BUTTON_HOOVER_ACTIVITY_2=TRUE
+
+	IF CLOSE_BUTTON_HOOVER_ACTIVITY=%CLOSE_BUTTON_HOOVER_ACTIVITY_2%
+		RETURN
 
 	IF CLOSE_BUTTON_HOOVER_ACTIVITY<>%CLOSE_BUTTON_HOOVER_ACTIVITY_2%
 		SOUNDBEEP 1000,40
@@ -286,17 +376,37 @@ if IsOverCloseButton(X, Y, hWnd)
 	IF CLOSE_BUTTON_HOOVER_ACTIVITY=TRUE
 	{
 		GOSUB PROGRAM_SET_TO_USE
-		IF SET_GO_2=TRUE
-		{
-			ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
-		}
-		ELSE
-		{
-			ToolTip % "MOUSE`r`nON`r`nCLOSE`r`nBUTTON"
-		}
+			IF SET_GO_2=TRUE
+			{
+				IF TOOLTIP_BEEN_SET_1<>1
+				{
+					ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
+					TOOLTIP_BEEN_SET_1=1
+					TOOLTIP_BEEN_SET_2=TRUE
+					TIMER_TOOLTIP := a_now + 2
+				}
+			}
+			ELSE
+			{
+				IF TOOLTIP_BEEN_SET_1<>2
+				{
+					ToolTip % "MOUSE`r`nON`r`nCLOSE`r`nBUTTON"
+					TOOLTIP_BEEN_SET_1=2
+					TOOLTIP_BEEN_SET_2=TRUE
+					TIMER_TOOLTIP := a_now + 2
+				}
+			}
 	}
 	ELSE
-		ToolTip 
+	{
+		IF TOOLTIP_BEEN_SET_2=TRUE
+		{
+			TOOLTIP
+			TOOLTIP_BEEN_SET_1=0
+			TOOLTIP_BEEN_SET_2=FALSE
+		}
+		
+	}
 Return
 
 
@@ -310,11 +420,30 @@ Return
 ; Reference: http://www.autohotkey.com/board/topic/20431-wm-nchittest-wrapping-whats-under-a-screen-point/
 IsOverCloseButton(x, y, hWnd)
 {
+	CoordMode Mouse, Screen
+	MouseGetPos, x, y, hWnd
+	
+	hWnd_APP=%hWnd%
+	
+	MouseGetPos,,,WIN_ID_UNDER_MOUSE_CURSOR
+	; TOOLTIP % WIN_ID_UNDER_MOUSE_CURSOR
+	WinGetClass, Class_Title, ahk_id %WIN_ID_UNDER_MOUSE_CURSOR%
+	IfInString, Class_Title, Shell_TrayWnd
+	{
+		Return
+	}
+	
 	; ---------------------------------------------------------------
 	; THE HIGHER THE X OFFSET NUMBER THE MORE CLOSER IT IS TO THE 
 	; CLOSE BUTTON AND NOT SPREAD ALSO ONTO MAXIMIZE
 	; ---------------------------------------------------------------
-	x-=30
+	; DON'T USE THE SAME OFFSET WHEN IN WINDOWS XP
+	; ---------------------------------------------------------------
+	IF OSVER_N_VAR > 5 ; ---- ABOVE WIN XP 
+		x-=30
+
+	IF OSVER_N_VAR = 5 ; ---- WIN XP 
+		x-=19
 	
 	; ---------------------------------------------------------------
 	; CHROME HAS GOT MORE OVERLAP ONTO MAXIMIZE BUTTON
@@ -323,18 +452,18 @@ IsOverCloseButton(x, y, hWnd)
 	; ---------------------------------------------------------------
 	WinGetClass, Class_Title, ahk_id %hWnd%
 	IfInString, Class_Title, Chrome_WidgetWin_1
-	x-=25
+	IF OSVER_N_VAR > 5 
+		x-=25
 		
 	SET_EXIT_VAR=FALSE
+	; WM_NCHITTEST := 0x0084
 	SendMessage, 0x84,, (x & 0xFFFF) | (y & 0xFFFF) << 16,, ahk_id %hWnd%
 	If ErrorLevel in 9,12,14,20 ; 20 is for Close box but Vista/Aero bug in WM_NCHITTEST	
 		SET_EXIT_VAR=TRUE
 	
 	CoordMode Mouse, Window
-	WinGetPos, WinPosX, WinPosY, WindowWidth, WindowHeight, ahk_id %hWnd%
 	MouseGetPos, x, y, hWnd
-	
-	; TOOLTIP % WindowWidth " -- " WindowHeight  " -- " x " -- " y  " -- " WindowWidth-x
+	WinGetPos, WinPosX, WinPosY, WindowWidth, WindowHeight, ahk_id %hWnd%
 	
 	; ---------------------------------------------------------------
 	; SOME EXTRA
@@ -345,6 +474,8 @@ IsOverCloseButton(x, y, hWnd)
 	IF (y>45 or WindowWidth-x>80)
 	SET_EXIT_VAR=FALSE
 	
+	; TOOLTIP % WindowWidth " -- " WindowHeight  " -- " x " -- " y " -- " WindowWidth-x " -- " SET_EXIT_VAR
+
 	IF SET_EXIT_VAR=TRUE
 		RETURN TRUE
 }
