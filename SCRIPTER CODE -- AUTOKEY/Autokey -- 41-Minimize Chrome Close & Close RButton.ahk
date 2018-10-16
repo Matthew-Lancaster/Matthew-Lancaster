@@ -102,8 +102,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO     Tue 16-Oct-2018 08:54:00 __ 5 HOUR 24 MINUTE 
 ;# ------------------------------------------------------------------
 
-
-
 ;--------------------
 #SingleInstance force
 ;--------------------
