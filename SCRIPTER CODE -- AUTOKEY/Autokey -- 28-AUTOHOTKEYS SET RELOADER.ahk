@@ -97,6 +97,9 @@ ArrayCount += 1
 FN_Array[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk"
 ArrayCount += 1
 FN_Array[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
+ArrayCount += 1
+
+
 
 OSVER_N_VAR:=a_osversion
 IF INSTR(a_osversion,".")>0
@@ -115,6 +118,7 @@ IF OSVER_N_VAR>=10
 ArrayCount += 1
 FN_Array[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
 
+FN_Array[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
 
 ; ArrayCount += 1
 ; FN_Array[ArrayCount] := 
