@@ -130,6 +130,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO     Tue 16-Oct-2018 20:22:00 __ 3 HOUR 34 MINUTE 
 ;# ------------------------------------------------------------------
 
+;# ------------------------------------------------------------------
+; SESSION 004
+; -------------------------------------------------------------------
+; ----
+; DUE TO COMPILATION OF HEAVY CODE WHILE CLICKING MISTAKE WHILE 
+; MACHINE UNDER HARD LOAD
+; DECIDE NONE TOOLTIP ON OR SOUND EFFECT FOR WINDOWS THAT DON'T INVOLVE
+; OKAY ALLOW SOUND EFFECT FOR ALL FROM HOOVER WATCH_3 ROUTINE
+;
+; TIDY UP CODE JOB REFINE AND THING
+; -------------------------------------------------------------------
+; FROM   Wed 17-Oct-2018 09:44:06
+; TO     Wed 17-Oct-2018 10:50:00 __ 1 HOUR 
+;# ------------------------------------------------------------------
 
 ;--------------------
 #SingleInstance force
@@ -143,16 +157,28 @@ SoundBeep , 1500 , 400
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
-GLOBAL O_x
-GLOBAL O_y
+GLOBAL X
+GLOBAL Y
+GLOBAL HWND
+
+GLOBAL O_X
+GLOBAL O_Y
 
 GLOBAL hWnd_APP
 
 GLOBAL OSVER_N_VAR
 
+GLOBAL TOOLTIP_DISPLAY_COUNT_LIMITER_1
+GLOBAL TOOLTIP_DISPLAY_COUNT_LIMITER_2
+
+GLOBAL CLOSE_BUTTON_HOOVER_ACTIVITY_OLD
+
+
 TOOLTIP_BEEN_SET_1=0
 TOOLTIP_BEEN_SET_2=FALSE
 TIMER_TOOLTIP := 0
+TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
+TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
 
 HTCLOSE := 20
 WM_NCHITTEST := 0x0084
@@ -167,7 +193,6 @@ IF OSVER_N_VAR=WIN_7
 IF OSVER_N_VAR=10
 	OSVER_N_VAR=10
 	
-CLOSE_BUTTON_HOOVER_ACTIVITY=0
 SET_GO_2=0
 
 O_X=0
@@ -189,12 +214,18 @@ Return
 ; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
 PROGRAM_SET_TO_USE:
+; -------------------------------------------------------------------
+	
+	CoordMode Mouse, Screen
+	MouseGetPos, x, y, hWnd
 	
 	Hwnd_Parent := DllCall("GetParent", UInt,WinExist("ahk_id" hWnd)), Hwnd_Parent := !Hwnd_Parent ? WinExist("ahk_id" hWnd) : Hwnd_Parent
 
 	WinGetClass, Class_Title, ahk_id %Hwnd_Parent%
-
+	WinGetTitle, Win_Title, ahk_id %Hwnd_Parent%
+	
 	SET_GO_2=FALSE
 	; VISUAL BASIC
 	IfInString, Class_Title, ThunderRT6FormDC
@@ -205,19 +236,28 @@ PROGRAM_SET_TO_USE:
 	IfInString, Class_Title, Chrome_WidgetWin_1
 		SET_GO_2=TRUE
 
+	IfInString, Win_Title, Print - Google Chrome
+		SET_GO_2=FALSE
+
 RETURN
+; -------------------------------------------------------------------
 
 
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 LButton:: ; Minimize Google Chrome instead of close when close button is clicked
+; -------------------------------------------------------------------
+GOSUB PROGRAM_SET_TO_USE
+IF SET_GO_2=FALSE 
+{
+	Click down
+	RETURN
+}
 
 SET_GO_1=FALSE
 IF IsOverCloseButton(X, Y, hWnd)
 	SET_GO_1=TRUE
-
-GOSUB PROGRAM_SET_TO_USE
 
 ; NICE TRY TO SET FOCUS TO WINDOW UNDER MOUSE CURSOR 
 ; TOO MANY PROBLEM LIKE LEFT CLICK ON TASKBAR
@@ -232,41 +272,40 @@ GOSUB PROGRAM_SET_TO_USE
 ; TOOLTIP % ClassNN_1 " -- " ClassNN_2
 ; TOOLTIP % SET_GO_2 " -- " ClassNN_1 " -- " ClassNN_2
 
+TRIGGER_HAPPEN=FALSE
 IF SET_GO_2=TRUE
-{
 	If SET_GO_1=TRUE
 	{
 		WinMinimize ahk_id %hWnd_APP%
 		SOUNDBEEP 2000,100
+		TRIGGER_HAPPEN=TRUE
 	}
-	else
-	{
-		Click down
-	}
-}
-else
-	Click down
 
+; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
+; -------------------------------------------------------------------
 IF SET_GO_1=TRUE
 	IF SET_GO_2=FALSE
 		SOUNDBEEP 1000,100
+
+Click down
 RETURN
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 RIGHT_CLICK_CLOSE_IT:
-
-; CoordMode Mouse, Screen
-; MouseGetPos, x, y, hWnd
-; #WinActivateForce, ahk_id %hWnd%
+; -------------------------------------------------------------------
+GOSUB PROGRAM_SET_TO_USE
+IF SET_GO_2=FALSE 
+{
+	Click, down, right
+	RETURN
+}
 
 SET_GO_1=FALSE
 if IsOverCloseButton(X, Y, hWnd)
 	SET_GO_1=TRUE
 
-GOSUB PROGRAM_SET_TO_USE
-
 IF SET_GO_2=TRUE
-{
 	If SET_GO_1=TRUE
 	{
 		; SLEEP 400 
@@ -284,32 +323,33 @@ IF SET_GO_2=TRUE
 		KeyWait, RButton
 		WinClose ahk_id %hWnd_APP%
 	}
-	else
-	{
-		Click, down, right
-	}
-}
-else
-{
-	Click, down, right
-}
 
+; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
+; -------------------------------------------------------------------
 IF SET_GO_1=TRUE
 	IF SET_GO_2=FALSE
 		SOUNDBEEP 1000,100
+
+Click, down, right
+
 RETURN
+; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
 ; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY AS SHOW BUT REQUIRE KEYBOARD AROUND
 ; -------------------------------------------------------------------
 ~Shift & RButton:: ; Minimize Google Chrome instead of close when close button is clicked
+; -------------------------------------------------------------------
 GOSUB RIGHT_CLICK_CLOSE_IT
 return
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY ALSO BUT REQUIRE KEYBOARD AROUND
 ; -------------------------------------------------------------------
 ~RButton:: ; Minimize Google Chrome instead of close when close button is clicked
+; -------------------------------------------------------------------
 IF GetKeyState("Shift")=TRUE
 	Return
 GOSUB RIGHT_CLICK_CLOSE_IT
@@ -318,12 +358,17 @@ RETURN
 
 ; -------------------------------------------------------------------
 LButton Up::
+; -------------------------------------------------------------------
+Click Up
+RETURN
+; -------------------------------------------------------------------
+
+; CODE WAS IN PROCEDURE ABOVE BUT REDUNDANT NOW
+; -------------------------------------------------------------------
+IF GetKeyState("LButton")=TRUE
 {
-	IF GetKeyState("LButton")=TRUE
-	{
-		Click Up
-		RETURN
-	}
+	Click Up
+	RETURN
 }
 RETURN
 
@@ -331,23 +376,27 @@ RETURN
 
 ; -------------------------------------------------------------------
 RButton Up::
+; -------------------------------------------------------------------
+Click, up, right
+RETURN
+; -------------------------------------------------------------------
+
+; CODE WAS IN PROCEDURE ABOVE BUT REDUNDANT NOW
+; -------------------------------------------------------------------
+IF GetKeyState("RButton")=TRUE
 {
-	IF GetKeyState("RButton")=TRUE
-	{
-		Click, up, right
-		RETURN
-	}
+	Click, up, right
+	RETURN
 }
 RETURN
 ; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
 Watch_3:
-CoordMode Mouse, Screen
-MouseGetPos, x, y, hWnd
-;--------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; REFINE THE CPU USAGE AS FINAL PART DONE
-;--------------------------------------------------------------------
+; -------------------------------------------------------------------
 IF TIMER_TOOLTIP>0
 	IF TIMER_TOOLTIP < %A_NOW%
 	{
@@ -355,47 +404,63 @@ IF TIMER_TOOLTIP>0
 		TIMER_TOOLTIP:=0
 	}
 
+GOSUB PROGRAM_SET_TO_USE
+IF SET_GO_2=FALSE 
+{
+	; CLOSE_BUTTON_HOOVER_ACTIVITY_OLD=FALSE
+	; RETURN
+}
+
 IF (O_X=%X% and O_Y=%Y%)
 	Return
-; TOOLTIP % X " -- " Y
 O_X=X
 O_Y=Y
 
-CLOSE_BUTTON_HOOVER_ACTIVITY_2=FALSE
+CLOSE_BUTTON_HOOVER_ACTIVITY=FALSE
 if IsOverCloseButton(X, Y, hWnd)
-	CLOSE_BUTTON_HOOVER_ACTIVITY_2=TRUE
+	CLOSE_BUTTON_HOOVER_ACTIVITY=TRUE
 
-	IF CLOSE_BUTTON_HOOVER_ACTIVITY=%CLOSE_BUTTON_HOOVER_ACTIVITY_2%
+	IF CLOSE_BUTTON_HOOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOOVER_ACTIVITY%
 		RETURN
 
-	IF CLOSE_BUTTON_HOOVER_ACTIVITY<>%CLOSE_BUTTON_HOOVER_ACTIVITY_2%
+	IF CLOSE_BUTTON_HOOVER_ACTIVITY_OLD<>%CLOSE_BUTTON_HOOVER_ACTIVITY%
+	{
 		SOUNDBEEP 1000,40
-			
-	CLOSE_BUTTON_HOOVER_ACTIVITY=%CLOSE_BUTTON_HOOVER_ACTIVITY_2%
+	}
+		
+	CLOSE_BUTTON_HOOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOOVER_ACTIVITY%
+
+	IF SET_GO_2=FALSE 
+		RETURN
 
 	IF CLOSE_BUTTON_HOOVER_ACTIVITY=TRUE
 	{
-		GOSUB PROGRAM_SET_TO_USE
-			IF SET_GO_2=TRUE
+		IF SET_GO_2=TRUE
+		{
+			IF TOOLTIP_BEEN_SET_1<>1
 			{
-				IF TOOLTIP_BEEN_SET_1<>1
-				{
-					ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
-					TOOLTIP_BEEN_SET_1=1
-					TOOLTIP_BEEN_SET_2=TRUE
-					TIMER_TOOLTIP := a_now + 2
-				}
+				TOOLTIP_DISPLAY_COUNT_LIMITER_1+=1
+				IF TOOLTIP_DISPLAY_COUNT_LIMITER_1>4
+					RETURN
+				ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
+				TOOLTIP_BEEN_SET_1=1
+				TOOLTIP_BEEN_SET_2=TRUE
+				TIMER_TOOLTIP := a_now + 3
 			}
-			ELSE
+		}
+		ELSE
+		{
+			IF TOOLTIP_BEEN_SET_1<>2
 			{
-				IF TOOLTIP_BEEN_SET_1<>2
-				{
-					ToolTip % "MOUSE`r`nON`r`nCLOSE`r`nBUTTON"
-					TOOLTIP_BEEN_SET_1=2
-					TOOLTIP_BEEN_SET_2=TRUE
-					TIMER_TOOLTIP := a_now + 2
-				}
+				TOOLTIP_DISPLAY_COUNT_LIMITER_2+=1
+				IF TOOLTIP_DISPLAY_COUNT_LIMITER_2>10
+					RETURN
+				ToolTip % "MOUSE`r`nON`r`nCLOSE`r`nBUTTON"
+				TOOLTIP_BEEN_SET_1=2
+				TOOLTIP_BEEN_SET_2=TRUE
+				TIMER_TOOLTIP := a_now + 2
 			}
+		}
 	}
 	ELSE
 	{
@@ -408,6 +473,7 @@ if IsOverCloseButton(X, Y, hWnd)
 		
 	}
 Return
+; -------------------------------------------------------------------
 
 
 ; -------------------------------------------------------------------
@@ -418,15 +484,13 @@ Return
 ; ----
 
 ; Reference: http://www.autohotkey.com/board/topic/20431-wm-nchittest-wrapping-whats-under-a-screen-point/
+; -------------------------------------------------------------------
 IsOverCloseButton(x, y, hWnd)
+; -------------------------------------------------------------------
 {
-	CoordMode Mouse, Screen
-	MouseGetPos, x, y, hWnd
-	
 	hWnd_APP=%hWnd%
 	
 	MouseGetPos,,,WIN_ID_UNDER_MOUSE_CURSOR
-	; TOOLTIP % WIN_ID_UNDER_MOUSE_CURSOR
 	WinGetClass, Class_Title, ahk_id %WIN_ID_UNDER_MOUSE_CURSOR%
 	IfInString, Class_Title, Shell_TrayWnd
 	{
@@ -516,7 +580,7 @@ RETURN
 	; }
 	; WindowState:=!WindowState
 ; return
-; ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
   
   
  
@@ -535,7 +599,9 @@ if ScriptInstanceExist()
 	Exitapp
 }
 return
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
 	dhw := A_DetectHiddenWindows
@@ -545,11 +611,12 @@ ScriptInstanceExist() {
 	return (match > 1)
 	}
 Return
+; -------------------------------------------------------------------
 
-;# ------------------------------------------------------------------
+; -------------------------------------------------------------------
 EOF:                           ; on exit
 ExitApp     
-;# ------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 ; Register a function to be called on exit:
 OnExit("ExitFunc")
@@ -557,7 +624,7 @@ OnExit("ExitFunc")
 ; Register an object to be called on exit:
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 
-;# ------------------------------------------------------------------
+; -------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)
 {
     if ExitReason not in Logoff,Shutdown
@@ -581,7 +648,7 @@ class MyObject
         */
     }
 }
-;# ------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; exit the app
 
 
@@ -681,4 +748,38 @@ class MyObject
 ; https://autohotkey.com/docs/commands/WinGetPos.htm
 ; ----
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 003
+; REFERENCE PAGES OPEN 09
+; -------------------------------------------------------------------
+; ----
+; how to find the window title of the window under mouse? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/9380-how-to-find-the-window-title-of-the-window-under-mouse/
+; --------
+; GetKeyState() / GetKeyState - Syntax & Usage | AutoHotkey
+; https://autohotkey.com/docs/commands/GetKeyState.htm
+; --------
+; FileSetTime - Syntax & Usage | AutoHotkey
+; https://autohotkey.com/docs/commands/FileSetTime.htm#YYYYMMDD
+; --------
+; add time to %a_now% - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/79835-add-time-to-a-now/
+; --------
+; WinGetClass - Syntax & Usage | AutoHotkey
+; https://autohotkey.com/docs/commands/WinGetClass.htm
+; --------
+; Get parent window posssible? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/65666-get-parent-window-posssible/
+; --------
+; Get the Parent HwnD when selecting a i.e. a ComboBox - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/57256-get-the-parent-hwnd-when-selecting-a-ie-a-combobox/
+; --------
+; What is ahk_id? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/50667-what-is-ahk-id/
+; --------
+; WinGet - Syntax & Usage | AutoHotkey
+; https://autohotkey.com/docs/commands/WinGet.htm#SubCommands
+; ----
 ; -------------------------------------------------------------------
