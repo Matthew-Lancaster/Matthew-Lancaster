@@ -103,10 +103,12 @@ REDIM VAR_PATH_FILE_2(I_COUNTER)
 ' -- SET HERE FOR 1ST TIME USE AND FLAG IT TOGGLE OFF MODE AFTER
 ' -------------------------------------------------------------------
 REDIM VAR_DO_HAVE_TO_EXIST(I_COUNTER)
+
 ' -------------------------------------------------------------------
 ' -- TRIM PATH TO END BACKSLASH FOLDER NAME 
 ' -------------------------------------------------------------------
 REDIM VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNTER)
+
 ' -------------------------------------------------------------------
 ' -- FULL PATH INCLUDE FILENAME
 ' -------------------------------------------------------------------
@@ -124,7 +126,6 @@ REDIM VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNTER)
 ' -------------------------------------------------------------------
 REDIM VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNTER)
 
-
 I_COUNT=0
 
 ' -------------------------------------------------------------------
@@ -134,7 +135,6 @@ I_COUNT=0
 
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 29-NET_SHARE_ALL.BAT"
 VAR_PATH_FILE_1(I_COUNT)=I1
@@ -167,7 +167,6 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\
 I2="C:\Program Files\Notepad++\userDefineLang_AHK.xml"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
@@ -179,7 +178,6 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\
 I2="C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
@@ -191,7 +189,6 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
@@ -201,7 +198,6 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
@@ -211,16 +207,16 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAM
 I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\NOTEPAD++ WORK\notepad++ replace notepad\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
 ' -------------------------------------------------------------------
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
+I_COUNT=I_COUNT+1
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
@@ -243,6 +239,8 @@ IF MAYBE_REQUIRE_HERE=MAYBE_REQUIRE_HERE+2 THEN
 END IF
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
+' PLUS OTHER _.VBS TO DO IN WINDOWS FOLDER
 ' -------------------------------------------------------------------
 ' FOUND IN THE WINDOWS FOLDER AS A SCHEDULER TASK RUNNER BY MICROSOFT
 ' WELL WRITTEN CODE FOR FINDER INFO ABOUT ALLSORT OF THING
@@ -251,7 +249,6 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 33-GatherNetworkInfo.vbs"
 I2="C:\Windows\System32\gatherNetworkInfo.vbs"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="TRUE"
 
 'VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="TRUE"
@@ -261,37 +258,38 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\OWNER-C-DRIVE - ONLY & NOT-SUB-FOLDER.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 49-OWNER-ALL-DRIVES.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-ALL-DRIVES.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 ' CAMERA 01 OF 02 
 ' -------------------------------------------------------------------
@@ -299,11 +297,11 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 52-XCOPY SYNC.BAT"
 I2="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 ' CAMERA 02 OF 02 
 ' -------------------------------------------------------------------
@@ -311,49 +309,46 @@ I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 52-XCOPY SYNC.BAT"
 I2="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
 I2="E:\REG KEY SETTINGS\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 54-REGJUMP_CLIP_BOARD.BAT"
 I2="C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\REGJUMP_CLIP_BOARD.BAT"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
-
+' GOODSYNC PRIORITY
+' PRIORITY TO WORK IN GOODSYNC INSTEAD MAYBE UNTIL GET SYNC CONFLICT ANSWER
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS"
 I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
-
 
 ' -------------------------------------------------------------------
 I1="C:\Program Files\HandBrake\libdvdcss-2.dll"
 I2="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\HANDBRAKE DVD COPIER\VLC\LIBDVDCSS\1.2.12\WIN64\libdvdcss-2.dll"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
-VAR_DO_HAVE_TO_EXIST(I_COUNT)="FALSE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
@@ -381,6 +376,12 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 
 
 ' ----
+' Detect if battery mode windows - Google Search
+' https://www.google.co.uk/search?num=50&safe=active&ei=a1jDW_KMC-K0ggfc4p3ABQ&q=detect+if+battery+mode++windows&oq=detect+if+battery+mode++windows&gs_l=psy-ab.3...224344.229826.0.233893.30.22.2.0.0.0.261.2317.7j9j2.18.0....0...1c.1.64.psy-ab..11.9.1137...0i7i30k1j0i7i5i30k1j0i8i13i30k1j0i30k1j0i5i30k1j0i8i7i30k1j33i10k1.0.J2sPVulucJo
+' --------
+' Batch File To Detect And Set Windows 7 Power Mode - Super User
+' https://superuser.com/questions/456115/batch-file-to-detect-and-set-windows-7-power-mode
+' --------
 ' POWERCFG: How To Check Battery Health Report And Energy Report In Windows Using CMD
 ' https://fossbytes.com/powercfg-check-battery-capacity-battery-health-report-windows-using-cmd/
 ' ----
@@ -406,6 +407,19 @@ VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+' I1="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS"
+' I2="D:\DSC\2017-Now FUJI XP90\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+
 
 
 

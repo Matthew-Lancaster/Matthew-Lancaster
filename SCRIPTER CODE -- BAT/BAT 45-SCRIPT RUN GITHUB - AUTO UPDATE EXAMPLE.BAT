@@ -102,7 +102,7 @@ CD /D "C:\SCRIPTOR GITHUB"
 %PATH_GIT%\git pull https://<USERNAME:PASSWORD@github.com//matthew-lancaster/matthew-lancaster master
 %PATH_GIT%\git push -u origin master
 
-TIMEOUT /T 20
+TIMEOUT /T 50
 
 :ENDE
 :ENDER

@@ -17,17 +17,16 @@
 ' [ Thu 15:10:00 Pm_10 May 2018 ] Make Counter of How Many Added Before and After
 '-----------------------------------------------------------------
 
-
 '-----------------------------------------------------------------
 ' 002 Session __
 '-----------------------------------------------------------------
 ' Fri 18-May-2018 03:34:28
 ' Fri 18-May-2018 05:39:52 __ 2 HOURING IN EARLY HOUR DAWN
-' ___________________________ I ADD CHECK IF EXIST BEFORE MAKE ICON SPEEDER
-' ___________________________ FOR EVERY BOOTER _ STILL HAVE TO MANUALLY REMOVE 
-' ___________________________ ABANDONED LINKS
-' ___________________________ IT WAS CAUSE PROBLEMS BY HAVING LINKS DOUBLE THEY 
-' ___________________________ HIDE AS WHITE LABEL SOME FEW TOGETHER
+'                             I ADD CHECK IF EXIST BEFORE MAKE ICON SPEEDER
+'                             FOR EVERY BOOTER _ STILL HAVE TO MANUALLY REMOVE 
+'                             ABANDONED LINKS
+'                             IT WAS CAUSE PROBLEMS BY HAVING LINKS DOUBLE THEY 
+'                             HIDE AS WHITE LABEL SOME FEW TOGETHER
 ' Fri 18-May-2018 06:24:52 __ 3 HOUR _ DO SOME EXTRA WORK
 '-----------------------------------------------------------------
 
