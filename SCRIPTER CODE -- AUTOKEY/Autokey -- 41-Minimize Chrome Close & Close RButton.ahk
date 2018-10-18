@@ -145,6 +145,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO     Wed 17-Oct-2018 10:50:00 __ 1 HOUR 
 ;# ------------------------------------------------------------------
 
+
+;# ------------------------------------------------------------------
+; SESSION 005
+; -------------------------------------------------------------------
+; ----
+; APROVEMENT WITH THE __ TRIGGER_HAPPEN=
+; THE MOUSE WAS GETTING STICKY CLICK DOWN WHEN CLOSE WINDOW
+;
+; TIDY UP CODE JOB REFINE AND THING
+; -------------------------------------------------------------------
+; FROM   Wed 17-Oct-2018 23:26:46
+; TO     Wed 17-Oct-2018 23:45:00
+;# ------------------------------------------------------------------
+
 ;--------------------
 #SingleInstance force
 ;--------------------
@@ -226,18 +240,31 @@ PROGRAM_SET_TO_USE:
 	WinGetClass, Class_Title, ahk_id %Hwnd_Parent%
 	WinGetTitle, Win_Title, ahk_id %Hwnd_Parent%
 	
+	; BE MORE PRECISE
 	SET_GO_2=FALSE
 	; VISUAL BASIC
-	IfInString, Class_Title, ThunderRT6FormDC
+	If Class_Title=ThunderRT6FormDC
 		SET_GO_2=TRUE
-		; SET_GO_2=FALSE
-
+	
 	; GOOGLE CHROME
-	IfInString, Class_Title, Chrome_WidgetWin_1
+	If Class_Title=Chrome_WidgetWin_1
 		SET_GO_2=TRUE
-
-	IfInString, Win_Title, Print - Google Chrome
+	
+	If Win_Title=Print - Google Chrome
 		SET_GO_2=FALSE
+	
+	; SET_GO_2=FALSE
+	; ; VISUAL BASIC
+	; IfInString, Class_Title, ThunderRT6FormDC
+		; SET_GO_2=TRUE
+		; ; SET_GO_2=FALSE
+
+	; ; GOOGLE CHROME
+	; IfInString, Class_Title, Chrome_WidgetWin_1
+		; SET_GO_2=TRUE
+
+	; IfInString, Win_Title, Print - Google Chrome
+		; SET_GO_2=FALSE
 
 RETURN
 ; -------------------------------------------------------------------
@@ -287,7 +314,8 @@ IF SET_GO_1=TRUE
 	IF SET_GO_2=FALSE
 		SOUNDBEEP 1000,100
 
-Click down
+IF TRIGGER_HAPPEN=FALSE		
+	Click down
 RETURN
 ; -------------------------------------------------------------------
 
@@ -305,6 +333,7 @@ SET_GO_1=FALSE
 if IsOverCloseButton(X, Y, hWnd)
 	SET_GO_1=TRUE
 
+TRIGGER_HAPPEN=FALSE
 IF SET_GO_2=TRUE
 	If SET_GO_1=TRUE
 	{
@@ -319,17 +348,19 @@ IF SET_GO_2=TRUE
 		; AS EVENT IS AFTER RBUTTON UP
 		; BUT SOUNDBEEP OUGHT TO GIVE A CLUE
 		; -----------------------------------------------------------
-		SOUNDBEEP 2000,100
+		; SOUNDBEEP 2000,100
 		KeyWait, RButton
 		WinClose ahk_id %hWnd_APP%
+		TRIGGER_HAPPEN=TRUE
 	}
 
 ; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
 ; -------------------------------------------------------------------
 IF SET_GO_1=TRUE
 	IF SET_GO_2=FALSE
-		SOUNDBEEP 1000,100
+		; SOUNDBEEP 1000,100
 
+IF TRIGGER_HAPPEN=FALSE		
 Click, down, right
 
 RETURN
@@ -337,12 +368,14 @@ RETURN
 
 
 ; -------------------------------------------------------------------
+; TAKEN OUT NOT GOOD IDEA TO USE TWO OPTION OF RIGHT CLICK
+; -------------------------------------------------------------------
 ; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY AS SHOW BUT REQUIRE KEYBOARD AROUND
 ; -------------------------------------------------------------------
-~Shift & RButton:: ; Minimize Google Chrome instead of close when close button is clicked
-; -------------------------------------------------------------------
-GOSUB RIGHT_CLICK_CLOSE_IT
-return
+; ~Shift & RButton:: ; Minimize Google Chrome instead of close when close button is clicked
+; ; -------------------------------------------------------------------
+; GOSUB RIGHT_CLICK_CLOSE_IT
+; return
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
@@ -350,8 +383,8 @@ return
 ; -------------------------------------------------------------------
 ~RButton:: ; Minimize Google Chrome instead of close when close button is clicked
 ; -------------------------------------------------------------------
-IF GetKeyState("Shift")=TRUE
-	Return
+; IF GetKeyState("Shift")=TRUE
+	; Return
 GOSUB RIGHT_CLICK_CLOSE_IT
 RETURN
 ; -------------------------------------------------------------------

@@ -1026,30 +1026,44 @@ IF OLD_UniqueID_NOTEPAD_PLUS_PLUS<>%UniqueID%
 ; -------------------------------------------------------------------
 SetTitleMatchMode 3  ; Exactly
 
-UniqueID := WinActive("AutoFill - RoboForm")
-IF UniqueID>0 
-	IfWinExist Email Login Page - Google Chrome
-	{
-		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
-		If (OutputVar_2="&Fill Forms")
+WINDOW_Array := []
+
+ArrayCount := 0
+ArrayCount += 1
+WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
+ArrayCount += 1
+WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
+
+Loop % ArrayCount
+{
+  Element := WINDOW_Array[A_Index]
+	UniqueID := WinActive("AutoFill - RoboForm")
+	IF UniqueID>0 
+		IfWinExist %Element%
 		{
-			#WinActivateForce, AutoFill - RoboForm
-			ControlClick, Button1, AutoFill - RoboForm
-			SoundBeep , 2500 , 100
-			#WinActivateForce, Email Login Page - Google Chrome
-			
-			Loop, 30
+			ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
+			If (OutputVar_2="&Fill Forms")
 			{
-				IfWinExist Email Login Page - Google Chrome
+				#WinActivateForce, AutoFill - RoboForm
+				ControlClick, Button1, AutoFill - RoboForm
+				SoundBeep , 2500 , 100
+				#WinActivateForce, %Element%
+				
+				Loop, 30
 				{
-					SLEEP 500
-					SENDINPUT {ENTER}
-					SoundBeep , 2500 , 100
+					IfWinExist %Element%
+					{
+						SLEEP 500
+						SENDINPUT {ENTER}
+						SoundBeep , 2500 , 100
+					}
+					ELSE
+						BREAK
 				}
+				
 			}
-			
 		}
-	}
+}
 	
 	
 
@@ -1131,6 +1145,18 @@ IF HWND_ID_1>0
 	SoundBeep , 2500 , 100
 }
 
+
+SetTitleMatchMode 3  ; Exactly
+DetectHiddenText, Off
+HWND_ID_1 := WinExist("FUJIFILM PC AutoSave")
+IF HWND_ID_1>0
+{
+	ControlClick, OK, ahk_id %HWND_ID_1%
+	SoundBeep , 2500 , 100
+}
+
+
+
 	
 Return
 ; -------------------------------------------------------------------
@@ -1165,17 +1191,27 @@ setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,59000
 
 ;C:\Windows10Upgrade\Windows10UpgraderApp.exe /ClientID "Win10Upgrade:VNL:NHV13SIH:{}"
 
-FN_VAR:="E:\01 Desktop\#_%A_ComputerName%\Windows 10 Update Assistant.lnk"
-IfExist, %FN_VAR%
-	{
-		;SoundBeep , 2000 , 200
-		;FileDelete, %FN_VAR%
-	}
-	
+SET_GO=FALSE
+IF (A_ComputerName="4-ASUS-GL522VW") 
+	SET_GO=TRUE
+IF (A_ComputerName="7-ASUS-GL522VW") 
+	SET_GO=TRUE
 
-FN_VAR:="E:\01 Desktop\#_%A_ComputerName%\GoodSync Explorer.lnk"
+IF SET_GO=TRUE
+{
+	FN_VAR="E:\01 Desktop\#_%A_ComputerName%\Windows 10 Update Assistant.lnk"
+	IfExist, %FN_VAR%
+		{
+			SoundBeep , 2000 , 200
+			FileDelete, %FN_VAR%
+		}
+}	
+
+FN_VAR="E:\01 Desktop\#_%A_ComputerName%\GoodSync Explorer.lnk"
+MSGBOX %FN_VAR%
 IfExist, %FN_VAR%
 	{
+		; MSGBOX "HERE"
 		SoundBeep , 2000 , 200
 		FileDelete, %FN_VAR%
 	}

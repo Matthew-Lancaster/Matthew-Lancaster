@@ -1,30 +1,33 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS
-'# __ D:\DSC\2017-Now FUJI XP90\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS
 '# __ 
-'# __ 2 LOCATION ABOVE HER
-'# __ 
-'# __ VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS
+'# __ VBS 34-HUBIC DELETE-ER.VBS
 '# __ 
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
-'# START      TIME [ Fri 15-Jun-2018 13:44:00 ] COPIER FROM ANOTHER CODE WORKER
-'# END LAST EDITOR [ Wed 17-Oct-2018 21:46:14 ] 
+'# START      TIME [ Thu 18-Oct-2018 03:20:00 ] COPY FROM ANOTHER CODE
+'# END LAST EDITOR [ Thu 18-Oct-2018 05:00:00 ] 
 '# __ 
 '====================================================================
 
 '# ------------------------------------------------------------------
 ' DESCRIPTION 
 '# ------------------------------------------------------------------
+' WORKS WITH HUBIC CLOUD AND GOODSYNC AND QNAP 
+' A LARGE BACKUP OF CLOUD FILING SYSTEM WAS HAD TO DELETE 
+' THIS DOES THE JOB BY SYNCING WITH THE WNAP PROGRAMING INTERNALLY TO QNAP 
+' CALLED __ CLOUD DRIVE SYNC
+' IT DELETE FILE THAT ARE OLDER THAN CERTAIN DATE TIME
+' AND DELETE EMPTY FOLDER WITH EVEN LONGER TIME
+' QNAP SYNC CLOUD DRIVE SYNC PROGRAM WILL FAIL IF DELETE FILE IN 
+' MIDDLE OF COPY
+' WAS A SYSTM TO DO ENTIRELY WITH GOODSYNC
+' BUT LESS QUICK AS WENT ON AS SO MANY FILE SYNCER
+' NOW INDEPENDENT FOLDER FROM ROOT
+' THIS CODE IS CALLED FROM GOODSYNC PRIOR TO EACH ANALYZE
+'
+' IT RUN IN QUITE MODE IF COMMAND LINE HAS SOMETHING
 ' -------------------------------------------------------------------
-' CODE WILL CREATE A FOLDER WITH DATE BASED ON DATE OF FILE NAME
-' AND THEN MOVE THE FILE INTO THOSE FOLDER POCKETS
-' IT WILL HAVING CHECKING IF ALREADY DONE ANYTHING LEARN
-' AND NOT BRANCH UP THE HIERARCHY CREATING INFINITE FOLDER
-' IT CHECKS BY IF A FOLDER NAME OF DATE AS IN MADE BEFORE AND IS 
-' ALREADY IN THE FULL PATH
-' THE __ FUJI FinePix XP90 __ SHOCK PROOF WATER PROOF CAMERA
-' RUN OUT OF GUARANTEE TAKE UP WITHIN TIME A YEAR 
 ' -------------------------------------------------------------------
 
 '# ------------------------------------------------------------------
@@ -37,41 +40,15 @@
 ' ----
 ' -------------------------------------------------------------------
 
-'# ------------------------------------------------------------------
-' DON'T FORGET TO SYNC THIS PROGRAM WITH 
-' IS DONE BY GOODSYNC NOW SAFER
-'# ------------------------------------------------------------------
-' -------------------------------------------------------------------
-' C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\VBS 32-COPIER_SYNC.VBS
-' -------------------------------------------------------------------
-
 '#-------------------------------------------------------------------
-' 002 __ LOTS OF SESSION BEFORE BUT STARTER DOCUMENT NOW
+' 001 __ 
 '#-------------------------------------------------------------------
-' ADDER ON THE FUJI CAMERA HAS A MTP MEDIA TRANSFER PROTOCOL
-' IS DOESN'T COME UP AS A DRIVE
-' BUT LOOKS LIKE A NETWORK ONE
-' BUT CANNOT BE MAPPED LIKE A NETWORK ONE
-' YOU ARE ABLE TO RIGHT CLICKER AND IMPORT
-' BUT SETTING FOR MANY CAMERA LIKE THAT METHOD ARE NOT GOOD EACH TIME
-' GOODSYNC IS ABLE DO THE JOB BUT WITH CAMERA UNABLE TO SYNC THAT WELL WITH DATE
-' AND WHAT ALREADY DONE BEFORE
-' UNLESS USE IN MOVE MODE
-' I LIKE TO KEEP PICTURE ON THE CAMERA IF I CAN AND DELETE WHEN FULL
-' BUT NOW FORCED THIS METHOD
-' HAS COME ALONG THIS WAY OTHER OTHER CAMERA I GOT
-' SO HERE THE CODE ONCE SYNCED OVER IT DOES ALL THE PUT IN DATE FOLDER AND THEN INTRODUCE 
-' THEM TO MY MAIN FOLDER BY MOVE METHOD
-' AND AFTER DELETE EMPTY TOOK A FIGURING OUT TO DO WITH RECURSE SUB-FOLDER ALWAYS 
-' FOUND DIFFICULT IN PAST BUT HAD MY HEAD SC REWED ON
-' EXAMPLES ONLINE DON'T HELPING A LOT WHEN WANT FILE AND FOLDER RECURSE
-' AND CHECK O BE DONE IF FOLDER EMPTY AND AS MOST FOLDER HAVE HIDEN THUMBS.DB 
-' WHICH DELETE THAT AND THEN CHECK IF IT EMPTY
-' ADD CODE ---- LOAD EXPLORER AND VBASIC EXTRA WORK GOES INTO FILE-NAMING THE IMAGES
+' ADDER
+' ADD CODE
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-' Wed 17-Oct-2018 17:10:21
-' Wed 17-Oct-2018 21:44:00 __ 4 HOUR 30 MINUTE
+' Thu 18-Oct-2018 03:20:00
+' Thu 18-Oct-2018 05:00:00 __ 
 '#-------------------------------------------------------------------
 
 
@@ -123,6 +100,12 @@ DIM FOLDER_PATH_VAR_3
 DIM FindFirstFile_VAR
 DIM FindMostRecentFile_VAR
 
+Set args = Wscript.Arguments
+For Each arg In args
+	Wscript_Arguments = Wscript_Arguments + arg
+Next
+
+
 ' -------------------------------------------------------------------
 ' IF SPECIFY FOLDER PATH LOWER THAN THIS ONE THE DELETE EMPTY 
 ' WOULD FIND AND DELETE ALL EMPTY FOLDER UP TO HERE
@@ -130,81 +113,46 @@ DIM FindMostRecentFile_VAR
 ' THIS END PATH FOLDER MAY BE CHANGE FROM CAMERA SELECTOR 
 ' AT SOME POINT TIME
 ' -------------------------------------------------------------------
-FOLDER_PATH_VAR_1="D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM"
-FOLDER_PATH_VAR_2="D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM\126_FUJI"
-FOLDER_PATH_VAR_3="D:\DSC\2017-Now FUJI XP90\2018 FinePix XP90\DCIM"
+FOLDER_PATH_VAR_1="D:\DEL HUBIC QNAP"
 
-FOLDER_PATH_VAR=FOLDER_PATH_VAR_1
+DIM FOLDER_PATH_FILTER()
+REDIM FOLDER_PATH_FILTER(7)
+FOLDER_PATH_FILTER(4)="D:\DEL HUBIC QNAP\3L"
+FOLDER_PATH_FILTER(5)="D:\DEL HUBIC QNAP\5P"
+FOLDER_PATH_FILTER(6)="D:\DEL HUBIC QNAP\7G"
+FOLDER_PATH_FILTER(7)="D:\DEL HUBIC QNAP\QNAP1"
+FOLDER_PATH_FILTER(1)="D:\DEL HUBIC QNAP\WHOLE_ARCHIVE"
+FOLDER_PATH_FILTER(2)="D:\DEL HUBIC QNAP\zz--FOLDER"
+FOLDER_PATH_FILTER(3)="D:\DEL HUBIC QNAP\zz--NETWORK_FOLDER"
 
-IF FSO.FolderExists(FOLDER_PATH_VAR)=FALSE THEN 
+IF FSO.FolderExists(FOLDER_PATH_VAR_1)=FALSE THEN 
 	MSGBOX "FOLDER NOT EXIST"
 	Wscript.QUIT
 END IF
 
+
 ' -------------------------------------------------------------------
 ' 01 OF 03
 ' -------------------------------------------------------------------
-' RENAME FOLDER TO DATE AND MOVE FILE INTO
+' 
 ' -------------------------------------------------------------------
 SET_VAR_MODE_ORDER=1
 FOLDER_PATH_VAR=FOLDER_PATH_VAR_1
 CALL MAIN
 
-' -------------------------------------------------------------------
-' 02 OF 03
-' -------------------------------------------------------------------
-' MOVE FROM IMPORT FOLDER TO MAIN
-' -------------------------------------------------------------------
-SET_VAR_MODE_ORDER=2
-FOLDER_PATH_VAR=FOLDER_PATH_VAR_2
-CALL MAIN
-
-' -------------------------------------------------------------------
-' 03 OF 03
-' -------------------------------------------------------------------
-' DELETE EMPTIER FOLDER AND THUMBS.DB
-' -------------------------------------------------------------------
-SET_VAR_MODE_ORDER=3
-FOLDER_PATH_VAR=FOLDER_PATH_VAR_2
-CALL MAIN
 
 I=""
-I=I+"1.. MOVE THE IMAGES INTO DATE FOLDER"+ VBCRLF 
+I=I+"1.. DEL FROM HUBIC LEARN"+ VBCRLF 
 I=I+"----------------------------------------------------------------"+ VBCRLF 
 I=I+""+ VBCRLF 
-I=I+"FUJI DATE FOLDER CREATE COUNT" + VBCRLF + CSTR(I_COUNT_1) + VBCRLF 
-I=I+"MOVE FILE IMAGES TO NEW DATE FOLDER" + VBCRLF + CSTR(I_COUNT_2) + VBCRLF
-I=I+""+ VBCRLF 
-I=I+"2.. MOVE OVER FROM IMPORT TO MAIN FOLDER"+ VBCRLF 
-I=I+"----------------------------------------------------------------"+ VBCRLF 
-I=I+""+ VBCRLF 
-I=I+"FUJI FOLDER CREATE COUNT" + VBCRLF + CSTR(I_COUNT_3) + VBCRLF 
-I=I+"MOVE FILE TO NEW FOLDER" + VBCRLF + CSTR(I_COUNT_4) + VBCRLF
-I=I+""+ VBCRLF 
-I=I+"3.. DELETE EMPTY FOLDER IN IMPORT FOLDER AND THUMBS.DB"+ VBCRLF 
-I=I+"----------------------------------------------------------------"+ VBCRLF 
-I=I+""+ VBCRLF 
-I=I+"FUJI DELETE FILE COUNT" + VBCRLF + CSTR(I_COUNT_5) + VBCRLF 
-I=I+"FUJI DELETE FOLDER COUNT" + VBCRLF + CSTR(I_COUNT_7) + VBCRLF
+I=I+"DEL FROM HUBIC FILE   COUNT" + VBCRLF + CSTR(I_COUNT_1) + VBCRLF 
+I=I+"DEL FROM HUBIC FOLDER COUNT" + VBCRLF + CSTR(I_COUNT_2) + VBCRLF
 I=I+""+ VBCRLF 
 I=I+"DONE...."
 
-MSGBOX I
 
-IF I_COUNT_1+I_COUNT_2+I_COUNT_3+I_COUNT_4+I_COUNT_5+I_COUNT_7>0 OR 1 = 1 THEN
-	
-	SHOW_EXPLORER_FLAG=TRUE 
-	IF SHOW_EXPLORER_FLAG=TRUE THEN
-		
-		CALL FindMostRecentFile(FOLDER_PATH_VAR_3)
-		MSGBOX FindFirstFile_VAR
-		WSHShell.Run "EXPLORER /select, """+FindMostRecentFile_VAR+"""" , ShowWindow, DontWaitUntilFinished
-	END IF
-	
-	IF I_COUNT_1+I_COUNT_2+I_COUNT_3+I_COUNT_4>0 THEN 
-		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
-	END IF
-
+IF Wscript_Arguments="" THEN 
+	MSGBOX I
 END IF
 
 SET fso = NOTHING
@@ -221,19 +169,9 @@ Sub Main
 	Set oDict_2 = CreateObject("Scripting.Dictionary")
 	IF SET_VAR_MODE_ORDER=1 THEN 
 		' Call Recursive Sub
-		FindWantedFiles(objFSO.GetFolder(FOLDER_PATH_VAR))
+		FindWantedFiles_2(objFSO.GetFolder(FOLDER_PATH_VAR))
 		' Display All Findings from Dictionary object
-		DisplayFindings_1
-	END IF
-	
-	IF SET_VAR_MODE_ORDER=2 THEN 
-		FindWantedFiles(objFSO.GetFolder(FOLDER_PATH_VAR))
-		DisplayFindings_2
-	END IF
-
-	IF SET_VAR_MODE_ORDER=3 THEN 
-		FindWantedFiles_FILE_COUNT(objFSO.GetFolder(FOLDER_PATH_VAR))
-		DisplayFindings_3
+		DisplayFindings_4
 	END IF
 
     Set oDict_1 = Nothing
@@ -247,19 +185,16 @@ Sub FindWantedFiles(sFolder)
     ' Check if wanted files are in this folder
     For Each file In sFolder.Files
 		oDict_1.Add FILE.path, file
-	IF SET_VAR_MODE_ORDER=3 THEN 
-
-		MSGBOX file
-	END IF 
     Next
     ' Recurse into it's sub folders
     For Each oFDR In sFolder.SubFolders
+		oDict.Add objFSO.GetFolder(oFDR.Path), ""
         FindWantedFiles objFSO.GetFolder(oFDR.Path)
     Next
 End Sub
 
 ' -------------------------------------------------------------------
-Sub FindWantedFiles_FILE_COUNT(sFolder)
+Sub FindWantedFiles_2(sFolder)
     On Error Resume Next
     DIM FILE_FOLDER_COUNTER
 	Dim oFDR, oItem, file
@@ -274,8 +209,9 @@ Sub FindWantedFiles_FILE_COUNT(sFolder)
 		' AND THEN USE FOLDER PATH FOR RECURSIVE
 		' AND THEN GET ALL FILE AND FOLDER _ KINDA TRICKY
 		' -----------------------------------------------------------
+		' MSGBOX objFSO.GetFolder(oFDR.Path)
 		oDict_2.Add objFSO.GetFolder(oFDR.Path), ""
-        FindWantedFiles_FILE_COUNT objFSO.GetFolder(oFDR.Path)
+        FindWantedFiles_2 objFSO.GetFolder(oFDR.Path)
     Next
 End Sub
 
@@ -344,7 +280,7 @@ Sub FindMostRecentFile_2(sFolder)
 		' AND THEN USE FOLDER PATH FOR RECURSIVE
 		' AND THEN GET ALL FILE AND FOLDER _ KINDA TRICKY
 		' -----------------------------------------------------------
-		' oDict_2.Add objFSO.GetFolder(oFDR.Path), ""
+		oDict_2.Add objFSO.GetFolder(oFDR.Path), ""
         FindMostRecentFile_2 objFSO.GetFolder(oFDR.Path)
     Next
 End Sub
@@ -378,16 +314,14 @@ Sub DisplayFindings_3()
 		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 		
 		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
-			IF INSTR(VAR_PATH_SCANNER,"Thumbs.db") then 
-				ON ERROR RESUME NEXT
-				ERR.CLEAR
-				FSO.DeleteFile VAR_PATH_SCANNER
-				I_COUNT_5=I_COUNT_5+1
-				IF ERR.NUMBER>0 THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
-				END IF
-				ON ERROR GOTO 0
+			ON ERROR RESUME NEXT
+			ERR.CLEAR
+			FSO.DeleteFile VAR_PATH_SCANNER
+			I_COUNT_1=I_COUNT_1+1
+			IF ERR.NUMBER>0 THEN 
+				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
 			END IF
+			ON ERROR GOTO 0
 		END IF
 		
 		IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
@@ -395,7 +329,7 @@ Sub DisplayFindings_3()
 				ON ERROR RESUME NEXT
 				ERR.CLEAR
 				FSO.DeleteFolder VAR_PATH_SCANNER
-				I_COUNT_7=I_COUNT_7+1
+				I_COUNT_2=I_COUNT_2+1
 				IF ERR.NUMBER>0 THEN 
 					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
 				END IF
@@ -405,6 +339,67 @@ Sub DisplayFindings_3()
 
 	Next
 End Sub
+
+
+' -------------------------------------------------------------------
+Sub DisplayFindings_4()
+    Dim oKeys, oKey
+    oKeys = oDict_2.Keys
+    For Each oKey In oKeys
+		VAR_PATH_SCANNER=oKey
+		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+		
+		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
+			Set f = fso.GetFile(VAR_PATH_SCANNER)
+			FileModDate = f.DateLastModified
+			FileCreateDate = f.DateCreated 
+			SET f=NOTHING
+			IF FileCreateDate+TIMESERIAL(1,20,0)<NOW THEN 
+				' MSGBOX VAR_PATH_SCANNER
+				ON ERROR RESUME NEXT
+				ERR.CLEAR
+				FSO.DeleteFile VAR_PATH_SCANNER
+				I_COUNT_1=I_COUNT_1+1
+				IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
+					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+				END IF
+				ON ERROR GOTO 0
+			END IF
+		END IF
+		
+		IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
+		SET_GO=TRUE
+		FOR R_COUNT= 1 TO UBOUND(FOLDER_PATH_FILTER)
+			IF VAR_PATH_SCANNER=FOLDER_PATH_FILTER(R_COUNT) THEN
+				SET_GO=FALSE
+			END IF
+		NEXT
+			END IF
+		
+		IF SET_GO=TRUE THEN 
+			IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
+				IF FolderEmpty(VAR_PATH_SCANNER) THEN
+					Set f = fso.GetFolder(VAR_PATH_SCANNER)
+					FolderModDate = f.DateLastModified
+					FolderCreateDate = f.DateCreated 
+					SET f=NOTHING
+					IF FolderCreateDate+TIMESERIAL(24,0,0)<NOW THEN 
+						' MSGBOX VAR_PATH_SCANNER
+						ON ERROR RESUME NEXT
+						ERR.CLEAR
+						FSO.DeleteFolder VAR_PATH_SCANNER
+						I_COUNT_2=I_COUNT_2+1
+						IF ERR.NUMBER>0  AND Wscript_Arguments="" THEN 
+							MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+						END IF
+						ON ERROR GOTO 0
+					END IF
+				END IF
+			END IF
+		END IF
+	Next
+End Sub
+
 
 ' -------------------------------------------------------------------
 Function FolderEmpty(strFolder)
