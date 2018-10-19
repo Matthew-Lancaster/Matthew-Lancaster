@@ -154,7 +154,7 @@ if "%Analysis_Complete%"=="FALSE" (
 		ECHO ----------------------------------------------------------------
 		ECHO ANALYSIS ^& SYNC NOT RUN
 		ECHO .
-		ECHO ANOTHER JOB IS RUNNER -- ********** 
+		ECHO ANOTHER JOB IS RUNNING -- ********** 
 		ECHO ----------------------------------------------------------------
 	)
 	
@@ -171,7 +171,7 @@ if "%Analysis_Complete%"=="TRUE" (
 		ECHO ----------------------------------------------------------------
 		ECHO ANALYSIS RUN BUT NOT SYNC
 		ECHO.
-		ECHO MOST LIKEY NONE CHANGES
+		ECHO MOST LIKEY REASON -- NONE CHANGE HAPPEN
 		ECHO ----------------------------------------------------------------
 		TIMEOUT /T 4
 		"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
@@ -184,7 +184,7 @@ if "%Sync_Runner%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO SYNC COMPLETE
 	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 20
+	TIMEOUT /T 24
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
