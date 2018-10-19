@@ -26,12 +26,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
 ;--------------------
 
-
-;# ------------------------------------------------------------------
-; DESCRIPTION
-;# ------------------------------------------------------------------
-
-
 ;# ------------------------------------------------------------------
 ; ---- LOCATION ONLINE
 ; -------------------------------------------------------------------
@@ -42,10 +36,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;# ------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
+; DESCRIPTION
+;# ------------------------------------------------------------------
+;# ------------------------------------------------------------------
 ; SESSION 001
 ; -------------------------------------------------------------------
 ; ----
-; CODER __ KNOCK THIS UP CHECK SUSPENDED PROCESS FAULTY
+; CODER __ KNOCK THIS UP TO CHECK SUSPENDED PROCESS FAULTY
 ; HARD TO BECAUSE TRY AND FIND A DLL VERSION OF WMI
 ; CAN GET LIST SCRIPT OF PROCESS INSTANTLY BUT WMI TO CHECK IS SUSPENDED 
 ; NOT THAT GOOD FOR SPEED __ BIG SEARCH ON LINE LOTS OF READER
@@ -80,7 +77,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; READ SEARCH FURTHER DOWN FOR USAGE EXAMPLE
 ; -------------------------------------------------------------------
 ; FROM   Fri 19-Oct-2018 11:24:02
-; TO     Fri 19-Oct-2018 12:12:00
+; TO     Fri 19-Oct-2018 13:05:00
 ;# ------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
@@ -115,19 +112,17 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 ; GLOBAL REASON_PROCESS_WAIT
 ; REASON_PROCESS_WAIT=
-
+; -------------------------------------------------------------------
 
 ; GUI ===============================================================
 
 Gui, Margin, 5, 5
-gui, font, s14 ; , Calibri  
+gui, font, s14 ; , Arial ; , Calibri  
 ; Gui, Add, Edit, xm ym w200 hWndhSearch vprcsearch
 ; DllCall("user32.dll\SendMessage", "Ptr", hSearch, "UInt", 0x1501, "Ptr", 1, "Str", "Prozess Name here", "Ptr")
-; DllCall("user32.dll\SendMessage", , , , , , , , , "Ptr")
-Gui, Add, Button, x+5 yp-1 w480 gSTART_RERUN, Script of Watched Processes Suspended Warning
-Gui, add, Button, w480 gStatus, Status
-Gui, Add, ListView, xm y+5 w480 h300, PID|Name|HardCore
-
+Gui, Add, Button, y+5 w480 gSTART_RERUN, Script of Watched Processes Suspended Warning
+Gui, add, Button, y+5 W480 gStatus, Status
+Gui, Add, ListView, xm y+5 w480 h240, PID|Name|HardCore
 ; Gui, Add, Edit, xm y+5 w60 0x800 vprccount
 LV_ModifyCol(1, 100)
 LV_ModifyCol(2, 180)
