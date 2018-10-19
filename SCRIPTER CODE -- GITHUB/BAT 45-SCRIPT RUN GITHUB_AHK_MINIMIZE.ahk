@@ -17,7 +17,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
-; #Persistent
+#Persistent
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
 ; Exitapp CALLS ONTO ExitFunc
@@ -68,8 +68,28 @@ Loop, %id%
 		WinMinimize  ahk_id %Table%
 } 
 
+; -------------------------------------------------------------------
+; CODE INITIALIZE
+; -------------------------------------------------------------------
+SoundBeep , 1000 , 200
+; -------------------------------------------------------------------
+
+; GLOBAL SETTINGS ===================================================
+
+; GUI ===============================================================
+
+Gui, Margin, 5, 5
+gui, font, s14 ; , Arial ; , Calibri  
+Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
+
+TIMER_EXIT, 4000
+
 RETURN
 
+
+TIMER_EXIT:
+	EXITAPP
+RETURN
 
 
  

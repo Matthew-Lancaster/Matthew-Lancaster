@@ -1,10 +1,15 @@
 @REM ----------------------------------------------------------------
+@REM __ C:\SCRIPTOR\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT
+@REM __ 
+@REM __ BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT
+@REM __ 
 @REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 @REM __ FROM ---- Fri 05-Oct-2018 12:52:00 Created Time
-@REM __ TO   ---- Sun 07-Oct-2018 04:48:00 Last Editor
+@REM __ TO   ---- Sun 07-Oct-2018 04:48:00 Last Editor #1
+@REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #2
 @REM ----------------------------------------------------------------
 @REM MY FIRST SET UP OF GITHUB 
 @REM HAS TAKEN ALL-NIGHT NICE TO WAKE WITH A BRIGHT SUNNY DAY
@@ -31,6 +36,14 @@
 @REM __ FROM  Sun 07-Oct-2018 04:40:00
 @REM __ TO    Sun 07-Oct-2018 04:52:20
 @REM ----------------------------------------------------------------
+
+@REM ----------------------------------------------------------------
+@REM -- 003 SESSION
+@REM ----------------------------------------------------------------
+@REM __ FROM  Fri 19-Oct-2018 15:05:42
+@REM __ TO    Fri 19-Oct-2018 17:30:00
+@REM ----------------------------------------------------------------
+
 
 @REM ----------------------------------------------------------------
 @REM -- Located in Sync Location 1.. 2..
@@ -82,12 +95,11 @@ IF '%1%'=='/ADMIN' (
 	GOTO ENDE
 	@EXIT /B
 )
-
 @ECHO Got ADMIN Privileges
 
 @ECHO ON
 
-
+TITLE GIT_RUNNNER__GIT_SYNC
 
 @SET PATH_GIT="C:\Program Files\Git\bin"
 
