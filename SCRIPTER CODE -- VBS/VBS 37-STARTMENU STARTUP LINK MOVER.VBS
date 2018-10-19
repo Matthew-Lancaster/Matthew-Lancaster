@@ -1,32 +1,22 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS
 '# __ 
-'# __ VBS 34-HUBIC DELETE-ER.VBS
+'# __ VBS 35-RENAMER VB6 _VBP LCASE.VBS
 '# __ 
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
-'# START      TIME [ Thu 18-Oct-2018 03:20:00 ] COPY FROM ANOTHER CODE
-'# END LAST EDITOR [ Thu 18-Oct-2018 15:40:00 ] 
+'# START      TIME [ Thu 18-Oct-2018 13:28:00 ] COPY FROM ANOTHER CODE
+'# END LAST EDITOR [ Thu 18-Oct-2018 14:32:04 ] 
 '# __ 
 '====================================================================
 
 '# ------------------------------------------------------------------
 ' DESCRIPTION 
 '# ------------------------------------------------------------------
-' WORKS WITH HUBIC CLOUD AND GOODSYNC AND QNAP 
-' A LARGE BACKUP OF CLOUD FILING SYSTEM WAS HAD TO DELETE 
-' THIS DOES THE JOB BY SYNCING WITH THE QNAP PROGRAMING INTERNALLY TO QNAP 
-' CALLED __ CLOUD DRIVE SYNC
-' IT DELETE FILE THAT ARE OLDER THAN CERTAIN DATE TIME
-' AND DELETE EMPTY FOLDER WITH EVEN LONGER TIME
-' QNAP SYNC CLOUD DRIVE SYNC PROGRAM WILL FAIL IF DELETE FILE IN 
-' MIDDLE OF COPY
-' WAS A SYSTEM TO DO ENTIRELY WITH GOODSYNC
-' BUT LESS QUICK AS WENT ON AS SO MANY FILE SYNCER
-' NOW INDEPENDENT FOLDER FROM ROOT
-' THIS CODE IS CALLED FROM GOODSYNC PRIOR TO EACH ANALYZE
-'
-' IT RUN IN QUITE MODE IF COMMAND LINE HAS SOMETHING
+' ON GOING PROBLEM 
+' NOT FOUND ANSWER YET
+' BUT SOMETHING KEEP PUT THE EXTENSION FOR _.VBP INTO UPPER CASE
+' MAKE THE SYNC TO GOOGLE DRIVE GO WONKY
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
@@ -47,19 +37,8 @@
 ' ADD CODE
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-' Thu 18-Oct-2018 03:20:00
-' Thu 18-Oct-2018 05:08:57 
-'#-------------------------------------------------------------------
-
-'#-------------------------------------------------------------------
-' 002 __ 
-'#-------------------------------------------------------------------
-' ADDER 
-' ADD CODE __ PATH TOO LONG PROBLEM CAME IN ERROR TRAPPER
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' Thu 18-Oct-2018 15:13:45
-' Thu 18-Oct-2018 15:40:30 
+' Thu 18-Oct-2018 13:28:00
+' Thu 18-Oct-2018 14:32:04 __ 
 '#-------------------------------------------------------------------
 
 
@@ -111,60 +90,69 @@ DIM FOLDER_PATH_VAR_3
 DIM FindFirstFile_VAR
 DIM FindMostRecentFile_VAR
 
-DIM ONCE_MESSENGER
-DIM ERROR_READ_FOLDER
+DIM I_SET_DONE
 
 Set args = Wscript.Arguments
 For Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
 Next
 
-
-' -------------------------------------------------------------------
-' IF SPECIFY FOLDER PATH LOWER THAN THIS ONE THE DELETE EMPTY 
-' WOULD FIND AND DELETE ALL EMPTY FOLDER UP TO HERE
-' "\126_FUJI"
-' THIS END PATH FOLDER MAY BE CHANGE FROM CAMERA SELECTOR 
-' AT SOME POINT TIME
-' -------------------------------------------------------------------
-FOLDER_PATH_VAR_1="D:\DEL HUBIC QNAP"
+FOLDER_PATH_VAR_1="D:\VB6\VB-NT\00_Best_VB_01"
 
 DIM FOLDER_PATH_FILTER()
-REDIM FOLDER_PATH_FILTER(7)
-FOLDER_PATH_FILTER(4)="D:\DEL HUBIC QNAP\3L"
-FOLDER_PATH_FILTER(5)="D:\DEL HUBIC QNAP\5P"
-FOLDER_PATH_FILTER(6)="D:\DEL HUBIC QNAP\7G"
-FOLDER_PATH_FILTER(7)="D:\DEL HUBIC QNAP\QNAP1"
-FOLDER_PATH_FILTER(1)="D:\DEL HUBIC QNAP\WHOLE_ARCHIVE"
-FOLDER_PATH_FILTER(2)="D:\DEL HUBIC QNAP\zz--FOLDER"
-FOLDER_PATH_FILTER(3)="D:\DEL HUBIC QNAP\zz--NETWORK_FOLDER"
+REDIM FOLDER_PATH_FILTER(1)
+FOLDER_PATH_FILTER(1)="\#0 AllApi\"
 
 IF FSO.FolderExists(FOLDER_PATH_VAR_1)=FALSE THEN 
-	MSGBOX "FOLDER NOT EXIST"
+	MSGBOX "FOLDER NOT EXIST"+VBCRLF+VBCRLF+FOLDER_PATH_VAR_1
 	Wscript.QUIT
 END IF
 
 
 ' -------------------------------------------------------------------
-' 01 OF 03
 ' -------------------------------------------------------------------
-' 
-' -------------------------------------------------------------------
+
 SET_VAR_MODE_ORDER=1
 FOLDER_PATH_VAR=FOLDER_PATH_VAR_1
 CALL MAIN
 
+' CHANGES MADE ON 1ST RUN
+
+' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calender\Calender Ace.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\Drives Gig\Drives_Gig.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\Drives Gig_MINIMIZE VERSION\Drives_Gig.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\Winamp - Volume MINI\VolumeBar MINI.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\WinAmp MP3%\WinAmp MP3%-VideoBar.VBP
+
+' D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\vbedit\VBEDIT.VBP
+
+' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Alarm\ALARM.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\CALC.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc - ORIGINAL\CALC.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc - TEXT_&_HEX\CALC - TEXT_&_HEX.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\METRONOME\METRONOME.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\MP3 PLAYED\MP3 PLAYED.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\MPH AND DISTANCE\MP3 PLAYED\MP3 PLAYED.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\REBOOT CLOSE PROGRAMS\REBOOT CLOSE PROGRAMS.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\VB KEEP RUNNER\VB KEEP RUNNER.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER\VU METER LOGGER.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\Wmi_CPU\WMICPU1 BIG.VBP
 
 I=""
-I=I+"DEL FROM HUBIC LEARN"+ VBCRLF 
+I=I+"RENAME VBASIC __FROM__" + VBCRLF 
+I=I+"UCASE _.VBP" + VBCRLF 
+I=I+"__TO__" + VBCRLF 
+I=I+"LCASE _.vbp" + VBCRLF 
+I=I+""+ VBCRLF 
+I=I+ FOLDER_PATH_VAR_1 +"\*.VBS"+ VBCRLF 
 I=I+"----------------------------------------------------------------"+ VBCRLF 
+I=I+"RENAME _.vbs FILE COUNT" + VBCRLF + CSTR(I_COUNT_1) + VBCRLF 
+I=I+"TOTAL _.vbs EXTENSION COUNT" + VBCRLF + CSTR(I_COUNT_2) + VBCRLF 
+I=I+"ERROR RENAME COUNT" + VBCRLF + CSTR(I_COUNT_3) + VBCRLF 
 I=I+""+ VBCRLF 
-I=I+"HUBIC DEL FROM FILE   COUNT" + VBCRLF + CSTR(I_COUNT_1) + VBCRLF 
-I=I+"HUBIC DEL FROM FOLDER COUNT" + VBCRLF + CSTR(I_COUNT_2) + VBCRLF
-I=I+"HUBIC ERROR READ FOLDER COUNT" + VBCRLF + CSTR(ERROR_READ_FOLDER) + VBCRLF
-I=I+""+ VBCRLF 
-I=I+"DONE...."
-
+I=I+I_SET_DONE
 
 IF Wscript_Arguments="" THEN 
 	MSGBOX I
@@ -184,9 +172,9 @@ Sub Main
 	Set oDict_2 = CreateObject("Scripting.Dictionary")
 	IF SET_VAR_MODE_ORDER=1 THEN 
 		' Call Recursive Sub
-		FindWantedFiles_2(objFSO.GetFolder(FOLDER_PATH_VAR))
+		FindWantedFiles_5(objFSO.GetFolder(FOLDER_PATH_VAR))
 		' Display All Findings from Dictionary object
-		DisplayFindings_4
+		DisplayFindings_5
 	END IF
 
     Set oDict_1 = Nothing
@@ -229,6 +217,51 @@ Sub FindWantedFiles_2(sFolder)
         FindWantedFiles_2 objFSO.GetFolder(oFDR.Path)
     Next
 End Sub
+
+' -------------------------------------------------------------------
+Sub FindWantedFiles_5(sFolder)
+    On Error Resume Next
+    DIM FILE_FOLDER_COUNTER
+	Dim oFDR, oItem, file
+    ' Check if wanted files are in this folder
+    For Each file In sFolder.Files
+		
+		FILE_STRIP_PATH=MID(FILE,INSTRREV(FILE,"\")+1)
+		IF UCASE(MID(file,LEN(file)-3))=".VBP" THEN 
+			I_COUNT_2=I_COUNT_2+1
+		END IF
+
+		SET_FILTER_GO=FALSE
+		FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_FILTER)
+			IF INSTR(FILE,FOLDER_PATH_FILTER(R_COUNT)) THEN SET_FILTER_GO=TRUE
+		NEXT
+		
+		' IN REM IF FILENAME IS ALL UCASE THEN IGNORE
+		'IF UCASE(FILE_STRIP_PATH)<>FILE_STRIP_PATH THEN 
+		
+		IF SET_FILTER_GO=FALSE THEN 
+			IF LCASE(MID(file,LEN(file)-3))= ".vbp" THEN 
+				IF MID(file,LEN(file)-3)<>".vbp" THEN 
+					I_COUNT_1=I_COUNT_1+1
+					oDict_1.Add FILE.path, file
+				END IF
+			END IF
+		END IF
+		'END IF
+    Next
+    ' Recurse into it's sub folders
+    For Each oFDR In sFolder.SubFolders
+		' -----------------------------------------------------------
+		' REMEMBER HERE USE THIS RESULT TWICE ONCE TO STORE FOLDER PATH 
+		' AND THEN USE FOLDER PATH FOR RECURSIVE
+		' AND THEN GET ALL FILE AND FOLDER _ KINDA TRICKY
+		' -----------------------------------------------------------
+		' MSGBOX objFSO.GetFolder(oFDR.Path)
+		' oDict_1.Add objFSO.GetFolder(oFDR.Path), ""
+        FindWantedFiles_5 objFSO.GetFolder(oFDR.Path)
+    Next
+End Sub
+
 
 ' -------------------------------------------------------------------
 ' FindFirstFile(sFolder) NOT USED ANYMORE SEEM BETTER TO USE FindMostRecentFile(sFolder)
@@ -355,7 +388,6 @@ Sub DisplayFindings_3()
 	Next
 End Sub
 
-
 ' -------------------------------------------------------------------
 Sub DisplayFindings_4()
     Dim oKeys, oKey
@@ -417,54 +449,46 @@ End Sub
 
 
 ' -------------------------------------------------------------------
+Sub DisplayFindings_5()
+    Dim oKeys, oKey
+    oKeys = oDict_1.Keys
+    For Each oKey In oKeys
+		VAR_PATH_SCANNER=oKey
+		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+		
+		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
+			ON ERROR RESUME NEXT
+			ERR.CLEAR
+			
+			VAR_PATH_SCANNER_RENAME= VAR_PATH_SCANNER
+			VAR_PATH_SCANNER_RENAME= MID(VAR_PATH_SCANNER_RENAME,1,LEN(VAR_PATH_SCANNER_RENAME)-4)+".vbp"
+			
+			Fso.MoveFile VAR_PATH_SCANNER, VAR_PATH_SCANNER_RENAME
+
+			' MSGBOX VAR_PATH_SCANNER + VBCRLF + VAR_PATH_SCANNER_RENAME
+
+			I_SET_DONE=I_SET_DONE+VAR_PATH_SCANNER+VBCRLF
+			IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
+				I_COUNT_3=I_COUNT_3+1
+				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO RENAME" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+			END IF
+			ON ERROR GOTO 0
+		END IF
+	Next
+End Sub
+
+
+' -------------------------------------------------------------------
 Function FolderEmpty(strFolder)
 	Dim objFolder
-	ON ERROR RESUME NEXT
-	' BECAUSE HERE BOTH AT SAME TIME
-	' CAN'T GET PATH IF TOO LONG SUPPOSE
-	' objFolder.Files.Count
-	' objFolder.SubFolders.Count
-	' ---------------------------
-	' ---------------------------
-	' Files.Count D:\DEL HUBIC QNAP\zz--NETWORK_FOLDER\HubiC-DeskBackup_7G--zz--NETWORK--5P--5-ASUS-P2520LA_02_D_DRIVE--FOLDER--0 00 HTTrack\www.lyricsmania.com\http___www.lyricsmania.com_\www.lyricsmania.com\lyrics\adam_lambert_lyrics_52608\for_your_entertainment_lyrics_99113
-	' ---------------------------
-	' OK   
-	' ---------------------------
-
-	' ---------------------------
-	' Windows Script Host
-	' ---------------------------
-	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS
-	' Line:	410
-	' Char:	3
-	' Error:	Path not found
-	' Code:	800A004C
-	' Source: 	Microsoft VBScript runtime error
-	' ---------------------------
-	' OK   
-	' ---------------------------
-	
 	If FSO.FolderExists(strFolder) Then
 		Set objFolder = FSO.GetFolder(strFolder)
-		If objFolder.Files.Count = 0 THEN 
-			IF objFolder.SubFolders.Count = 0 Then
-				FolderEmpty=True
-			Else
-				FolderEmpty=False
-			End If
+		If objFolder.Files.Count = 0 And objFolder.SubFolders.Count = 0 Then
+			FolderEmpty=True
+		Else
+			FolderEmpty=False
 		End If
 	End If
-
-	IF ERR.NUMBER >0 THEN 
-		FolderEmpty=False
-		ERROR_READ_FOLDER=ERROR_READ_FOLDER+1
-		IF Wscript_Arguments="" THEN 
-			IF ONCE_MESSENGER = FALSE THEN 
-				ONCE_MESSENGER = TRUE
-				MSGBOX "Error Description ----------" & VBCRLF & ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO READ FILE AND/OR FOLDER -- MAYBE THE PATH ARE TOO LONG" & VBCRLF & VBCRLF & strFolder
-			END IF
-		END IF
-	END IF
 End Function
 
 ' -------------------------------------------------------------------

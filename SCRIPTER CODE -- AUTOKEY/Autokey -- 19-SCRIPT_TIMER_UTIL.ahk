@@ -216,8 +216,8 @@ setTimer TIMER_SUB_NOTEPAD_PLUS_PLUS,1000
 setTimer TIMER_SUB_WINDOWS_UPDATE,OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,1000
-; STARTS AS 1 SECOND AND THEN GOES TO 10 SECOND
+setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,10000
+; STARTS AS 10 SECOND AND THEN GOES TO 10 MINUTE
 
 setTimer TIMER_SUB_VICE_VERSA,OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
@@ -241,11 +241,11 @@ setTimer TIMER_SUB_LOGGER, 1000
 setTimer TIMER_SUB__SendSMTP__0__LOG_BAT,1000
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,1000
-; STARTS AS 1 SECOND AND THEN GOES TO EVERY HALF HOUR
+setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,10000
+; STARTS AS 10 SECOND AND THEN GOES TO EVERY HALF HOUR
 
-setTimer TIMER_SUB__MY_IP, 1000
-; STARTS AS 1 SECOND AND THEN GOES TO EVERY 10 MINUTE
+setTimer TIMER_SUB__MY_IP, 10000
+; STARTS AS 10 SECOND AND THEN GOES TO EVERY 10 MINUTE
 
 setTimer TIMER_PREVIOUS_INSTANCE, 1
 ; -------------------------------------------------------------------
@@ -261,8 +261,10 @@ SETTIMER TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX,4000
 SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
 SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 
-RETURN
 
+SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
+
+RETURN
 
 
 ;----------------------------------------
@@ -1186,8 +1188,11 @@ RETURN
 ; -------------------------------------------------------------------
 TIMER_SUB_WINDOWS_DESKTOP_ICON:
 ; -------------------------------------------------------------------
+; THIS ROUTINE WONT DELETE ANYTHING IF CALLED WITHIN A SECOND OF THE PROGRAM STARTING 
+; ONLY AFTER TIME WHEN LOPP COME AROUND AGAIN
+; -------------------------------------------------------------------
 
-setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,59000
+setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
 
 ;C:\Windows10Upgrade\Windows10UpgraderApp.exe /ClientID "Win10Upgrade:VNL:NHV13SIH:{}"
 
@@ -1200,6 +1205,8 @@ IF (A_ComputerName="7-ASUS-GL522VW")
 IF SET_GO=TRUE
 {
 	FN_VAR="E:\01 Desktop\#_%A_ComputerName%\Windows 10 Update Assistant.lnk"
+	FN_VAR:=StrReplace(FN_VAR, """" , "")
+	FN_VAR_1=%FN_VAR%
 	IfExist, %FN_VAR%
 		{
 			SoundBeep , 2000 , 200
@@ -1207,14 +1214,28 @@ IF SET_GO=TRUE
 		}
 }	
 
-FN_VAR="E:\01 Desktop\#_%A_ComputerName%\GoodSync Explorer.lnk"
-MSGBOX %FN_VAR%
-IfExist, %FN_VAR%
+; -------------------------------------------------------------------
+; STRIP QUOTE WHY AS ABLE LEAVE THEM OUT IN FIRST PLACE
+; IfExist DON'T WORK WITH QUOTES AROUND FILENAME
+; -------------------------------------------------------------------
+FN_VAR_1=E:\01 Desktop\#_%A_ComputerName%\GoodSync Explorer.lnk
+FN_VAR_1:=StrReplace(FN_VAR_1, """" , "")
+FN_VAR_2=%FN_VAR_1%
+IfExist, %FN_VAR_1%
 	{
-		; MSGBOX "HERE"
 		SoundBeep , 2000 , 200
-		FileDelete, %FN_VAR%
+		FileDelete, %FN_VAR_1%
 	}
+
+; LESS_TIMER=TRUE
+; IfExist, %FN_VAR_1%
+	; LESS_TIMER=FALSE
+; IfExist, %FN_VAR_2%
+	; LESS_TIMER=FALSE
+
+; IF LESS_TIMER=TRUE
+	; setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
+	
 RETURN
 
 
@@ -1766,7 +1787,7 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
 			SET_GO_ESIF_ASSIST_64_SUSPEND=0
 			;SoundBeep , 3000 , 100
 			;SoundBeep , 3200 , 100
-			Process_Suspend("esif_assist_64.exe")
+			Process_Suspend_PID(NewPID)
 			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,OFF
 			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 		}
@@ -1783,7 +1804,7 @@ Return
 
 
 
-; CREDIT DUE FIND GREETZ
+; CREDIT DUE FIND
 ;--------------------------------------------------------------------
 ; Process, Suspend/Resume, example.exe - Suggestions - AutoHotkey Community
 ; https://autohotkey.com/board/topic/30341-process-suspendresume-exampleexe/
@@ -1804,9 +1825,23 @@ Process_Suspend(PID_or_Name){
     DllCall("ntdll.dll\NtSuspendProcess", "Int", h)
     DllCall("CloseHandle", "Int", h)
 }
-
 Process_Resume(PID_or_Name){
     PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
+    h:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    If !h   
+        Return -1
+    DllCall("ntdll.dll\NtResumeProcess", "Int", h)
+    DllCall("CloseHandle", "Int", h)
+}
+
+Process_Suspend_PID(PID){
+    h:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    If !h   
+        Return -1
+    DllCall("ntdll.dll\NtSuspendProcess", "Int", h)
+    DllCall("CloseHandle", "Int", h)
+}
+Process_Resume_PID(PID){
     h:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
     If !h   
         Return -1
@@ -1953,7 +1988,34 @@ RETURN
 
 
 
-;----------------------------------------
+TIMER_Check_Any_PID_Suspended_Warning:
+	SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 3600000 ; ---- 10 SECONDS ---- And Then 1 Hour
+
+	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
+
+	SET_GO=FALSE
+	IfExist, %Element_1%
+		IF !WinExist(Element_1) 
+			SET_GO=TRUE
+
+	IF SET_GO=TRUE	
+		{
+			Run, "%Element_1%"
+		}
+RETURN
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; END OF CODE ONLY THE END BLOCK ROUTINE FOR EXIT APP HERE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
 SETTIMER TIMER_PREVIOUS_INSTANCE,10000
 
@@ -2013,8 +2075,15 @@ class MyObject
 }
 ;# ------------------------------------------------------------------
 ; exit the app
+;# ------------------------------------------------------------------
+;# ------------------------------------------------------------------
+;# ------------------------------------------------------------------
+;# ------------------------------------------------------------------
 
 
+; REFERENCE SET
+; -------------------------------------------------------------------
+; --------------------------------------------------------------
 ;GOOD SCRIPT EXAMPLE PAGE HELPER
 ;----
 ;1 Hour Software by Skrommel - DonationCoder.com
@@ -2022,9 +2091,6 @@ class MyObject
 ;----
 
 ;StringMid,now,A_Now,9,4
-
-
-; REFERENCES 
 ; -------------------------------------------------------------------
 ; --------------------------------------------------------------
 ; [ Sunday 19:26:10 Pm_15 April 2018 ]
