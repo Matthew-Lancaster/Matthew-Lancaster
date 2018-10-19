@@ -127,7 +127,7 @@ CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">"%~dp0GOODSYNC
 ECHO.
 ECHO ----------------------------------------------------------------------
 ECHO Analysis_Complete %Analysis_Complete%
-ECHO Sync_Runner      %Sync_Running%
+ECHO Sync_Runner       %Sync_Runner%
 ECHO Another_Job       %Another_Job%
 ECHO ----------------------------------------------------------------------
 ECHO.
