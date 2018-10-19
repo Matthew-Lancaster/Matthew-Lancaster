@@ -26,11 +26,17 @@ Sub Main()
     ' IT WILL DISPLAY THE DOS BOX PROMPT IN A SHOW WINDOW
     '-------------------------------------------------------------------
     
+       
+    ' Shell "CMD /K START """" /REALTIME /MAX """ + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " sync ""C SCRIPTOR __ y _ 7G __ GITHUB""", vbMaximizedFocus
+    I = Shell("CMD /K " + """""" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " " + "sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """""", vbMaximizedFocus)
     
+    MsgBox I
     
-    Shell "C:\Program Files\Siber Systems\GoodSync\gsync.exe sync ""C SCRIPTOR __ y _ 7G __ GITHUB"""
-    
-    
+    'MsgBox "CMD /K " + """" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """"
+
+    ' EXPERIMENTATION FOUND THIS RESULT
+    'CMD /K ""C:\Program Files\Siber Systems\GoodSync\gsync.exe" sync "C SCRIPTOR __ y _ 7G __ GITHUB""
+
     End
     
     If Command$ <> "" Then Exit Sub
