@@ -31,6 +31,8 @@
 
 @REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE IF CAN'T GET IT TO GO ADMIN
 
+@ECHO OFF
+
 IF '%1%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
 	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -46,8 +48,7 @@ IF '%1%'=='/ADMIN' (
 	GOTO ENDE
 	EXIT /B 1
 )
-	
-)
+
 @REM :: Check for ADMIN Privileges
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 @IF '%errorlevel%' GTR '2' (
@@ -60,8 +61,10 @@ IF '%1%'=='/ADMIN' (
 	GOTO ENDE
 	@EXIT /B
 )
+
 @ECHO Got ADMIN Privileges
 
+@ECHO ON
 
 START "" /WAIT "C:\Program Files\ViceVersa Pro\ViceVersa.exe" "C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VV C DRIVE ROOT\VV C DRIVE ROOT __ C DRIVE ROOT SOURCE __ C DRIVE.fsf" /hiddenautoexec /autoclose
 

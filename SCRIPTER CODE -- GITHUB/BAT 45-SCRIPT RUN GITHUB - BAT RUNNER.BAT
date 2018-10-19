@@ -30,6 +30,13 @@ REM ------------------------------------------------
 @REM ----------------------------------------------------------------
 
 
-START "" "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+START "" "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_BAT.BAT"
+
+REM -----------------------------------------------------------------
+REM -- USE THIS ONE TO RUN GOODSYNC WHICH ALSO RUN GITHUB THROUGH THE
+REM -- BAT VERSION
+REM -----------------------------------------------------------------
+REM START "" "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_EXE.BAT"
+
 
 EXIT

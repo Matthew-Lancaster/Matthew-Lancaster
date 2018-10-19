@@ -1,67 +1,64 @@
 Attribute VB_Name = "Module1"
 '--------------------------------------------------------------------------------
-'    Component  : Module1
-'    Project    : BAT 45-SCRIPT RUN GITHUB
+'    Component    : Module1
+'    Project      : BAT 45-SCRIPT RUN GITHUB
 '
-'    Description: Sub Main
+'    Description  : Sub Main
 '
-'    Author     : Matthew Lanacster _ Matt.Lan@Btinternet.com
-'    Modified   : Sunday 04:05:20 Pm_07 October 2018
+'    Author       : Matthew Lanacster _ Matt.Lan@Btinternet.com
+'    Modified #1  : Sun 04:05:20 Pm_07 Oct 2018
+'    Modified #2  : Fri 17:41:30 Pm_19 Oct 2018
 '--------------------------------------------------------------------------------
 
 
 Sub Main()
 
-    
-'    On Error Resume Next
-'    FILE1 = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.vbw"
-'    If Dir(FILE1) <> "" Then
-'        Kill FILE1
-'    End If
-'    On Error GoTo 0
-
-    '-------------------------------------------------------------------
+    ' -------------------------------------------------------------------
     ' FOR THIS CODE ENABLE _ MICROSOFT SCRIPTING RUNTIME _ IN REFERENCES
-    '-------------------------------------------------------------------
+    ' -------------------------------------------------------------------
     ' IT WILL DISPLAY THE DOS BOX PROMPT IN A SHOW WINDOW
-    '-------------------------------------------------------------------
+    ' -------------------------------------------------------------------
     
        
     ' Shell "CMD /K START """" /REALTIME /MAX """ + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " sync ""C SCRIPTOR __ y _ 7G __ GITHUB""", vbMaximizedFocus
-    'MsgBox App.Path
-    'End
+    ' MsgBox App.Path
+    ' End
     
     
-    'HERE
-    'Shell "CMD /K " + """""" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " " + "sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """" + ">" + """" + App.Path + "\GOODSYNC_ER_OUTPUT.TXT" + """""", vbMaximizedFocus
+    ' HERE
+    ' Shell "CMD /K " + """""" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " " + "sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """" + ">" + """" + App.Path + "\GOODSYNC_ER_OUTPUT.TXT" + """""", vbMaximizedFocus
        
     
     ' Shell "CMD /K " + "TYPE %~dp0GOODSYNC_ER_OUTPUT.TXT"
-'    @echo off
-'>output.txt (for /F "tokens=1* delims=:" %%G in ('findstr "^" "file*.txt"') do echo %%G = "%%H")
     
-    ' MsgBox I
-    
-    'MsgBox "CMD /K " + """" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """"
+    ' MsgBox "CMD /K " + """" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """"
 
     ' EXPERIMENTATION FOUND THIS RESULT
     'CMD /K ""C:\Program Files\Siber Systems\GoodSync\gsync.exe" sync "C SCRIPTOR __ y _ 7G __ GITHUB""
 
     ' End
     
-    ' RUN IF BEEN USED BY GOODSYNC
-    ' If Command$ <> "" Then Exit Sub
+    
+    ' IF RUN BY COMMAND LINE #1 OR #2
+    If Command$ <> "" Then
+        FILE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_GOODSYNC.BAT"
+    Else
+        FILE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    End If
+    
+    If Dir(FILE_RUNNER) = "" Then
+        MsgBox "File to Run Was Not Found" + vbCrLf + vbCrLf + FILE_RUNNER, vbMsgBoxSetForeground
+        End
+    End If
     
     Dim RUN_EXE
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
-    RUN_EXE = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_BAT.BAT"
+    RUN_EXE = "FILE_RUNNER"
     objShell.Run """" + RUN_EXE + """", 1, False
     Set objShell = Nothing
 
 End Sub
-
-
 
 
 '------------------------------------
