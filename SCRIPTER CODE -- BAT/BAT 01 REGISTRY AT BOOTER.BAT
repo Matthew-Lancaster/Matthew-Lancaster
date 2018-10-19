@@ -39,7 +39,12 @@ TITLE %~f0
 @CD\
 @REM ----------------------------------------------------------------
 
-@REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE IF CAN'T GET IT TO GO ADMIN
+@REM ----------------------------------------------------------------
+@REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE
+@REM __ IF CAN'T GET IT TO GO ADMIN DOESN'T RSI INJURY ITSELF AND YOU
+@REM ----------------------------------------------------------------
+
+@ECHO OFF
 
 IF '%1%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
@@ -56,8 +61,7 @@ IF '%1%'=='/ADMIN' (
 	GOTO ENDE
 	EXIT /B 1
 )
-	
-)
+
 @REM :: Check for ADMIN Privileges
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 @IF '%errorlevel%' GTR '2' (
@@ -70,6 +74,7 @@ IF '%1%'=='/ADMIN' (
 	GOTO ENDE
 	@EXIT /B
 )
+
 @ECHO Got ADMIN Privileges
 
 
