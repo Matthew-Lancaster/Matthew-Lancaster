@@ -108,41 +108,13 @@ CD /D "C:\SCRIPTOR GITHUB"
 %PATH_GIT%\git init
 %PATH_GIT%\git add .
 
-@SET Month_Word=%DATE:~3,2%
-@SET map_1=01-Jan;02-Feb;03-Mar;04-Apr;05-May;06-Jun;07-Jul;08-Aug;09-Sep;10-Oct;11-Nov;12-Dec
-@CALL SET Month_Word=%%map_1:*%Month_Word%-=%%
-@SET Month_Word=%Month_Word:;=&rem.%
+@SET v=%DATE:~3,2%
+@SET map=01-Jan;02-Feb;03-Mar;04-Apr;05-May;06-Jun;07-Jul;08-Aug;09-Sep;10-Oct;11-Nov;12-Dec
+@CALL SET v=%%map:*%v%-=%%
+@SET v=%v:;=&rem.%
+@ECHO %DATE:~6,4%-%v%-%DATE:~0,2% -- %TIME:~0,8%
 
-REM -----------------------------------------------------------------
-REM ---- HERE FOUND BUGGY CODE WITH MY FIX __ ADD AN __ IF __ GTR
-REM ---- DON'T INCLUDE DASH IN VARIABLE FOR WEEKD LIKE NOT WEEK_DAY
-REM ---- DON'T INCLUDE DASH IN MAP VAIABLE EITHER
-REM ----
-REM scripting - Setting a windows batch file variable to the day of the week - Stack Overflow
-REM https://stackoverflow.com/questions/11364147/setting-a-windows-batch-file-variable-to-the-day-of-the-week
-REM -----------------------------------------------------------------
-FOR /F "skip=1" %%A IN ('WMIC Path Win32_LocalTime Get DayOfWeek' ) DO ( IF %%A GTR 0 set DOW=0%%A) 
-@SET Week_Day=%DOW%
-@SET map_2=01-Mon;02-Tue;03-Wed;04-Thu;05-Fri;06-Sat;07-Sun
-@CALL SET Week_Day=%%map_2:*%Week_Day%-=%%
-@SET Week_Day=%Week_Day:;=&rem.%
-
-REM EQU - equal
-REM NEQ - not equal
-REM LSS - less than
-REM LEQ - less than or equal
-REM GTR - greater than
-REM GEQ - greater than or equal
-
-@REM ----
-@REM windows - Need leading zero for batch script using %time% variable - Server Fault
-@REM https://serverfault.com/questions/147515/need-leading-zero-for-batch-script-using-time-variable
-@REM ----
-@SET Time_Pad_Single_Digit_Hourer=%TIME: =0%
-
-@ECHO %DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% %Week_Day%
-
-%PATH_GIT%\git commit -m "%DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% %Week_Day%"
+%PATH_GIT%\git commit -m "%DATE:~6,4%-%v%-%DATE:~0,2% -- %TIME:~0,8%"
 %PATH_GIT%\git config user.email "matt.lan@btinternet.coml"
 %PATH_GIT%\git config user.name "Matthew-Lancaster"
 %PATH_GIT%\git pull https://<USERNAME:PASSWORD@github.com//matthew-lancaster/matthew-lancaster master
