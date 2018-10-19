@@ -26,12 +26,36 @@ Sub Main()
     ' IT WILL DISPLAY THE DOS BOX PROMPT IN A SHOW WINDOW
     '-------------------------------------------------------------------
     
-    If Command$ <> "" Then Exit Sub
+       
+    ' Shell "CMD /K START """" /REALTIME /MAX """ + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " sync ""C SCRIPTOR __ y _ 7G __ GITHUB""", vbMaximizedFocus
+    'MsgBox App.Path
+    'End
+    
+    
+    'HERE
+    'Shell "CMD /K " + """""" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " " + "sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """" + ">" + """" + App.Path + "\GOODSYNC_ER_OUTPUT.TXT" + """""", vbMaximizedFocus
+       
+    
+    ' Shell "CMD /K " + "TYPE %~dp0GOODSYNC_ER_OUTPUT.TXT"
+'    @echo off
+'>output.txt (for /F "tokens=1* delims=:" %%G in ('findstr "^" "file*.txt"') do echo %%G = "%%H")
+    
+    ' MsgBox I
+    
+    'MsgBox "CMD /K " + """" + "C:\Program Files\Siber Systems\GoodSync\gsync.exe" + """" + " sync " + """" + "C SCRIPTOR __ y _ 7G __ GITHUB" + """"
+
+    ' EXPERIMENTATION FOUND THIS RESULT
+    'CMD /K ""C:\Program Files\Siber Systems\GoodSync\gsync.exe" sync "C SCRIPTOR __ y _ 7G __ GITHUB""
+
+    ' End
+    
+    ' RUN IF BEEN USED BY GOODSYNC
+    ' If Command$ <> "" Then Exit Sub
     
     Dim RUN_EXE
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
-    RUN_EXE = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    RUN_EXE = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_BAT.BAT"
     objShell.Run """" + RUN_EXE + """", 1, False
     Set objShell = Nothing
 
