@@ -166,7 +166,8 @@ if "%Analysis_Complete%"=="TRUE" (
 		ECHO ----------------------------------------------------------------
 		TIMEOUT /T 4
 		"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
-		TIMEOUT /T 120
+		TIMEOUT /T 300
+		REM 300 = 5 MINUTE
 	)
 )
 
@@ -174,9 +175,10 @@ if "%Sync_Runner%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO SYNC COMPLETE
 	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 8
+	TIMEOUT /T 20
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
-	TIMEOUT /T 120
+	TIMEOUT /T 300
+	REM 300 = 5 MINUTE
 )
 
 @REM ----------------------------------------------------------------
