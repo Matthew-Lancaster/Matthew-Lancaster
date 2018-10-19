@@ -73,19 +73,32 @@ IF !Command_Params
 	Command_Params=GIT_RUNNNER
 
 	
+EXIT_NOW=TRUE
+SOUND_EVENT_DONE=FALSE
+
 WinGet, id, list,ahk_class ConsoleWindowClass
 Loop, %id%
 {
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
-	EXIT_NOW=TRUE
 	IF INSTR(Title,%Command_Params%)>0
 	{
-		WinMinimize  ahk_id %Table%
+		WinGet MMX, MinMax, ahk_id %Table%
+		IfEqual MMX,-1, WinMinimize, ahk_id %Table%
+
+		; -----------------------------------------------------------
+		; IfEqual MMX,0, WinMaximize, ahk_id %Table%
+		; IfEqual MMX,1, WinRestore, A
+		; -----------------------------------------------------------
+		
+		IF SOUND_EVENT_DONE=FALSE 
+		{
 		Gui, Show, AutoSize
 		SETTIMER TIMER_EXIT, 5000
 		SoundBeep , 1000 , 200
 		EXIT_NOW=FALSE
+		SOUND_EVENT_DONE=TRUE
+		}
 	}
 } 
 
