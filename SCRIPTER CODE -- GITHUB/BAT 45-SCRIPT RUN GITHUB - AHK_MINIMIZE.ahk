@@ -70,7 +70,8 @@ Loop %0% ; number of parameters
 	Command_Params = %A_Index%
 
 IF !Command_Params
-	Command_Params="GIT_RUNNNER"
+	Command_Params=GIT_RUNNNER
+
 	
 WinGet, id, list,ahk_class ConsoleWindowClass
 Loop, %id%
@@ -78,7 +79,7 @@ Loop, %id%
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
 	EXIT_NOW=TRUE
-	IF INSTR(Title,Command_Params)>0
+	IF INSTR(Title,%Command_Params%)>0
 	{
 		WinMinimize  ahk_id %Table%
 		Gui, Show, AutoSize
