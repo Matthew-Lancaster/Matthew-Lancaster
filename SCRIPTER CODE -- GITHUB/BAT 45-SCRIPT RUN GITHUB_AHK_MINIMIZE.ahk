@@ -53,12 +53,18 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
 
+Loop %0% ; number of parameters
+	Command_Params = %A_Index%
+
+IF !Command_Params
+	Command_Params="GIT_RUNNNER"
+	
 WinGet, id, list,ahk_class ConsoleWindowClass
 Loop, %id%
 {
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
-	IF INSTR(Title,"GIT_RUNNNER")>0
+	IF INSTR(Title,%Command_Params%)>0
 		WinMinimize  ahk_id %Table%
 } 
 

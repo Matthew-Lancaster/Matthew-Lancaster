@@ -77,7 +77,11 @@ IF '%1%'=='/ADMIN' (
 
 @ECHO ON
 
-TITLE GIT_RUNNNER__GOODSYNC
+@CD /D "C:\SCRIPTOR GITHUB"
+
+@SET TITLE_VAR=GIT_RUNNNER__GOODSYNC
+
+@TITLE %TITLE_VAR%
 
 @SET PATH_GIT="C:\Program Files\Git\bin"
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
@@ -96,53 +100,87 @@ TITLE GIT_RUNNNER__GOODSYNC
 @REM https://stackoverflow.com/questions/14246956/notepad-can-recognize-encoding/14247070#14247070
 @REM ----
 
-@CD /D "C:\SCRIPTOR GITHUB"
-
 @ECHO.
-
+@ECHO ----------------------------------------------------------------------
+@ECHO.
 CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">"%~dp0GOODSYNC_OUTPUT.TXT""
-
 @ECHO.
+@ECHO ----------------------------------------------------------------------
 
 @REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
 @REM ---------------------------------------------------
 %ConvertCP% 1200 0 /i "%~dp0GOODSYNC_OUTPUT.TXT"
 
-@SET Analysis_Complete="FALSE"
-@SET Sync_Running="FALSE"
+@SET Analysis_Complete=FALSE
+@SET Sync_Runner=FALSE
+@SET Another_Job=FALSE
 
 @find "-- Analysis Complete" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
-@if %errorlevel%==0 SET Analysis_Complete="TRUE"
+@if %errorlevel%==0 SET Analysis_Complete=TRUE
 @find "Sync: Running:" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
-@if %errorlevel%==0 SET Sync_Running="TRUE"
+@if %errorlevel%==0 SET Sync_Runner=TRUE
+@find "Another job is Syncing in folder" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
+@if %errorlevel%==0 SET Another_Job=TRUE
 
-@if %Analysis_Complete%=="FALSE" (
-	@ECHO.
+@ECHO OFF
 
-	@ECHO ---------------------------------------------------------------------
-	@ECHO ANALYSIS & SYNC NOT RUN -- MOST LIKELY ANOTHER JOB IS RUNNER
-	@ECHO ---------------------------------------------------------------------
-	@ECHO.
-	@PAUSE
+ECHO.
+ECHO ----------------------------------------------------------------------
+ECHO Analysis_Complete %Analysis_Complete%
+ECHO Sync_Runner      %Sync_Running%
+ECHO Another_Job       %Another_Job%
+ECHO ----------------------------------------------------------------------
+ECHO.
+
+if "%Analysis_Complete%"=="FALSE" (
+	if "%Another_Job%"=="FALSE" (
+		ECHO ----------------------------------------------------------------------
+		ECHO ANALYSIS ^& SYNC NOT RUN
+		ECHO .
+		ECHO NOT SURE WHY -- xxxxxxxxxx
+		ECHO ----------------------------------------------------------------------
+	)
+	if "%Another_Job%"=="TRUE" (
+		ECHO ----------------------------------------------------------------------
+		ECHO ANALYSIS ^& SYNC NOT RUN
+		ECHO .
+		ECHO ANOTHER JOB IS RUNNER -- ********** 
+		ECHO ----------------------------------------------------------------------
+	)
+	
+	TIMEOUT /T 8
+	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
+	TIMEOUT /T 7200
+	REM ---- 2 HOURING
 )
 
-@if %Analysis_Complete%=="TRUE" (
-	@if %Sync_Running%=="FALSE" (
-		@ECHO.
-		@ECHO ---------------------------------------------------------------------
-		@ECHO ANALYSIS RUN BUT NOT SYNC -- MOST LIKEY NONE CHANGES
-		@ECHO ---------------------------------------------------------------------
-		TIMEOUT /T 50
+if "%Analysis_Complete%"=="TRUE" (
+	if "%Sync_Runner%"=="FALSE" (
+		ECHO ----------------------------------------------------------------------
+		ECHO ANALYSIS RUN BUT NOT SYNC
+		ECHO.
+		ECHO MOST LIKEY NONE CHANGES
+		ECHO ----------------------------------------------------------------------
+		TIMEOUT /T 4
+		"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
+		TIMEOUT /T 120
 	)
 )
 
-@if %Sync_Running%=="TRUE" (
-	@ECHO.
-	@ECHO ---------------------------------------------------------------------
-	@ECHO SYNC COMPLETE
-	@ECHO ---------------------------------------------------------------------
-	TIMEOUT /T 50
+if "%Sync_Runner%"=="TRUE" (
+	ECHO ----------------------------------------------------------------------
+	ECHO SYNC COMPLETE
+	ECHO ----------------------------------------------------------------------
+	TIMEOUT /T 8
+	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
+	TIMEOUT /T 120
 )
+
+@REM ----------------------------------------------------------------
+@REM FALSE FALL FOOLE - STUNT MAN
+@REM ----------------------------------------------------------------
+
+@ECHO.
 
 :ENDE
 EXIT
@@ -151,10 +189,10 @@ EXIT
 @REM ----------------------------------------------------------------
 
 
-@REM ----------------------------------------------------------------------------
+@REM ----------------------------------------------------------------
 @REM -- NOT WORKING ODD SOD'S -- UNABLE TO CONVERT THE CODEPAGE 
 @REM -- USING DOS COMMANDING
-@REM ----------------------------------------------------------------------------
+@REM ----------------------------------------------------------------
 @REM chcp 1200 >nul & cmd /a /c type "%~dp0GOODSYNC_ER_OUTPUT.TXT" >"%~dp0GOODSYNC_ER_OUTPUT_2.TXT"
 @REM cmd /a /c type "%~dp0GOODSYNC_ER_OUTPUT.TXT" >"%~dp0GOODSYNC_ER_OUTPUT_2.TXT"
 @REM cmd /a /c TYPE "%~dp0GOODSYNC_ER_OUTPUT_2.TXT"
