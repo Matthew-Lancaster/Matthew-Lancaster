@@ -70,7 +70,7 @@ Loop %0% ; number of parameters
 	Command_Params=%A_Index%
 
 IF !Command_Params
-	Command_Params=GIT_RUNNNER
+	Command_Params=GITHUB_RUNNNER
 
 	
 EXIT_NOW=TRUE
@@ -84,12 +84,13 @@ Loop, %id%
 	IF INSTR(Title,%Command_Params%)>0
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
-		If MMX>-1, WinMinimize, ahk_id %Table%
-		; -----------------------------------------------------------
-		; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
-		; -----------------------------------------------------------
-		IF MMX>-1
+		; MSGBOX % MMX
+		If MMX>-1
 		{
+			WinMinimize, ahk_id %Table%
+			; -----------------------------------------------------------
+			; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
+			; -----------------------------------------------------------
 			IF SOUND_EVENT_DONE=FALSE 
 			{
 				Gui, Show, AutoSize
