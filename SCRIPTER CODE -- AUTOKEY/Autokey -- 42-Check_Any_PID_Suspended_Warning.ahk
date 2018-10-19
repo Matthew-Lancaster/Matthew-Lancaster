@@ -266,6 +266,7 @@ ExitApp
 
 RETURN
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 IsProcessSuspended(pid) {
     For thread in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Thread WHERE ProcessHandle = " pid)
