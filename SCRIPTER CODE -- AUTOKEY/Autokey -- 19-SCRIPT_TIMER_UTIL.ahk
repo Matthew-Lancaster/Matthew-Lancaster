@@ -2000,7 +2000,7 @@ TIMER_Check_Any_PID_Suspended_Warning:
 
 	IF SET_GO=TRUE	
 		{
-			Run, "%Element_1%"
+			Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
 		}
 RETURN
 

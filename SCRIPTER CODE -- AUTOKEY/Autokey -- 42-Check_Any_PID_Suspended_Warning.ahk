@@ -33,11 +33,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ;# ------------------------------------------------------------------
-; ---- LOCATE ONLINE
+; ---- LOCATION ONLINE
 ; -------------------------------------------------------------------
 ; ----
-; Matthew-Lancaster/Autokey -- 41-Minimize Chrome Close & Close RButton.ahk at master · Matthew-Lancaster/Matthew-Lancaster
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2041-Minimize%20Chrome%20Close%20%26%20Close%20RButton.ahk
+; Matthew-Lancaster/Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2042-Check_Any_PID_Suspended_Warning.ahk
 ; ----
 ;# ------------------------------------------------------------------
 
@@ -62,6 +62,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; MORE SEARCHING FOR CODE THAN GET ON WITH JOB AND LEAVE IT LIKE IT IS
 ; 9 PM TO 12 MIDNIGHT
 ; -------------------------------------------------------------------
+; IF I WANTER TO CHECK ALL PROCESS FOR A COUNT OVER CERTAIN AMOUNT THAT 
+; SUSPENDER DLL QUICKER VS WMI LESS QUICKER WOULD BE A PROBLEM
+; -------------------------------------------------------------------
 ; FROM   Thu 18-Oct-2018 21:07:43
 ; TO     Thu 18-Oct-2018 23:58:00
 ;# ------------------------------------------------------------------
@@ -77,7 +80,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; READ SEARCH FURTHER DOWN FOR USAGE EXAMPLE
 ; -------------------------------------------------------------------
 ; FROM   Fri 19-Oct-2018 11:24:02
-; TO     Fri 19-Oct-2018 11:30:00
+; TO     Fri 19-Oct-2018 12:12:00
 ;# ------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
@@ -93,15 +96,23 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
 ; SoundBeep , 1500 , 400
+; -------------------------------------------------------------------
 
 ; GLOBAL SETTINGS ===================================================
 
-; DUPLICATE ENTRY TURNED OFF
+; DUPLICATE ENTRY REM-ED OUT - TURNED OFF
 ; -------------------------------------------------------------------
 ; #Warn
 ; #NoEnv
 ; #SingleInstance Force
 
+; ADDITIONAL CODE PART CANNOT SEEM TO USE A GLOBAL VARIABLE THROUGH A FUNCTION PROBLEM AT THE MOMENT
+; MAYBE HERE 
+; ----
+; command line - Autohotkey / AHK - Param %1% not accessible within a function - Stack Overflow
+; https://stackoverflow.com/questions/49905729/autohotkey-ahk-param-1-not-accessible-within-a-function
+; ----
+;
 ; GLOBAL REASON_PROCESS_WAIT
 ; REASON_PROCESS_WAIT=
 
@@ -113,8 +124,10 @@ gui, font, s14 ; , Calibri
 ; Gui, Add, Edit, xm ym w200 hWndhSearch vprcsearch
 ; DllCall("user32.dll\SendMessage", "Ptr", hSearch, "UInt", 0x1501, "Ptr", 1, "Str", "Prozess Name here", "Ptr")
 ; DllCall("user32.dll\SendMessage", , , , , , , , , "Ptr")
-Gui, Add, Button, x+5 yp-1 w480 gSTART_2, Script of Watched Processes Suspended Warning
+Gui, Add, Button, x+5 yp-1 w480 gSTART_RERUN, Script of Watched Processes Suspended Warning
+Gui, add, Button, w480 gStatus, Status
 Gui, Add, ListView, xm y+5 w480 h300, PID|Name|HardCore
+
 ; Gui, Add, Edit, xm y+5 w60 0x800 vprccount
 LV_ModifyCol(1, 100)
 LV_ModifyCol(2, 180)
@@ -125,12 +138,29 @@ GOSUB START
 RETURN
 
 ; SCRIPT ============================================================
-START_2:
+START_RERUN:
 	Soundbeep 1000,100
 	GOSUB START
 RETURN
 
+Status:
+RETURN
+
+
 START:
+
+
+	; ----
+	; Command-line arguments - Rosetta Code
+	; https://rosettacode.org/wiki/Command-line_arguments#AutoHotkey
+	; ----
+	; AutoHotkey
+	; From the AutoHotkey documentation: "The script sees incoming parameters as the variables %1%, %2%, 
+	; and so on. In addition, %0% contains the number of parameters passed (0 if none). "
+
+	Loop %0% ; number of parameters
+		Command_Params .= %A_Index% . A_Space
+
 
 	; Each array must be initialized before use:
 	FN_Array := []
@@ -171,19 +201,14 @@ START:
 				}
 				ELSE
 				{
-					LV_Add("", arrLIST[i, "PID"], arrLIST[i, "Process"], "Not Suspended" ), count++
+					LV_Add("", arrLIST[i, "PID"], arrLIST[i, "Process"], "Not Suspended" )
 					STATUS_Array[A_Index]:="INFO_RESULT_GIVEN_DONE"
-					IF (count=1 and !SHOW_GUI)
+					IF (count=1 and !SHOW_GUI and !Command_Params)
 					{
-						if !A_Args
-						{
-							SHOW_GUI:=TRUE
-							Gui, Show, AutoSize
-							SoundBeep , 1500 , 400
-						}
-						
+						SHOW_GUI:=TRUE
+						Gui, Show, AutoSize
+						SoundBeep , 1500 , 400
 					}
-				
 				}
 			}
 		}
@@ -191,10 +216,21 @@ START:
     GuiControl,, prccount, % count
 
 IF count=0 
-	if A_Args
+	GuiControl ,, Status, Not Any Problem to Worry About Your Loser
+else
+{
+	IF count=1
+		GuiControl ,, Status, Problem Founder
+	IF count>1
+		GuiControl ,, Status, Problems Found
+}	
+	
+IF count=0
+	if params
 		ExitApp
 
-Gui, Show, AutoSize
+if !Command_Params
+	Gui, Show, AutoSize
 
 Loop % ArrayCount
 {
@@ -232,7 +268,6 @@ WTSEnumProcesses()
 GuiEscape:
 GuiClose:
 ExitApp
-
 
 RETURN
 
@@ -297,7 +332,7 @@ isProcessSuspended_2(processID_N)
 ;# ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; INITIALIZING PART SET TIMER GOING
+; INITIALIZING PART SET TIMER GOING - TO DELCARE AT BEGINNING OF CODE
 ; -------------------------------------------------------------------
 SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
 
@@ -317,16 +352,16 @@ TIMER_Check_Any_PID_Suspended_Warning:
 
 	IF SET_GO=TRUE	
 		{
-			Run, "%Element_1%"
+			Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
 		}
 RETURN
+ 
 
-
+ 
  
 ;# ------------------------------------------------------------------
 ; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
 ;# ------------------------------------------------------------------
-
 
 ;# ------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
@@ -388,8 +423,93 @@ class MyObject
 }
 ; -------------------------------------------------------------------
 ; exit the app
+; -------------------------------------------------------------------
 
 
 ; -------------------------------------------------------------------
-; REFERENCE PAGES OPEN
+; REFERENCE WEB PAGES OPEN 18
+; [ Thusday 11:59:00 Pm_18 October 2018 ]
 ; -------------------------------------------------------------------
+
+; ----
+; ahk suspend PID - Google Search
+; https://www.google.co.uk/search?ei=YebIW8HHHoKxsQGHrZ3wCw&q=ahk+suspend+PID&oq=ahk+suspend+PID&gs_l=psy-ab.3...9003.10645.0.10881.9.7.0.0.0.0.291.860.0j3j1.4.0....0...1c.1.64.psy-ab..5.3.661...0j0i22i30k1j0i67k1j33i160k1.0.G0BBFX3DJD0
+; --------
+; Suspend a process OutSide AHK? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/119126-suspend-a-process-outside-ahk/
+; --------
+; Process suspend and unsuspend - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/78978-process-suspend-and-unsuspend/
+; --------
+; autohotkey - What is AU3_Spy.exe? Where can I find it? - Stack Overflow
+; https://stackoverflow.com/questions/45552452/what-is-au3-spy-exe-where-can-i-find-it
+; --------
+; [Solved] Check if process is suspended - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/113862-solved-check-if-process-is-suspended/
+; --------
+; WinGetAll() - Get all windows Title/Class/PID/Process Name - Scripts and Functions - AutoHotkey Community
+; https://autohotkey.com/board/topic/30323-wingetall-get-all-windows-titleclasspidprocess-name/
+; --------
+; Search Form - AutoHotkey Community
+; https://autohotkey.com/board/index.php?app=core&module=search&section=search&do=search&fromsearch=1
+; --------
+; list of all processes - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/118907-list-of-all-processes/
+; --------
+; Change GUI font - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/64605-change-gui-font/
+; --------
+; AHK IS PROCESS SUSPEND DLL - Google Search
+; https://www.google.co.uk/search?q=AHK+IS+PROCESS+SUSPEND+DLL&oq=AHK+IS+PROCESS+SUSPEND+DLL&aqs=chrome..69i57j69i64.10836j0j7&sourceid=chrome&ie=UTF-8
+; --------
+; scripting - Check if Script is suspended in AutoHotkey - Stack Overflow
+; https://stackoverflow.com/questions/14492650/check-if-script-is-suspended-in-autohotkey
+; --------
+; AutoHotkey script to immediately kill an application when exceeded a set memory usage limit
+; https://gist.github.com/cheeaun/130164
+; --------
+; Suspend a process OutSide AHK? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/119126-suspend-a-process-outside-ahk/
+; --------
+; Controller, Action or Item Not Found - CodeProject
+; https://www.codeproject.com/threads/pausep.aspx
+; --------
+; NtSuspendProcess/NtSuspendProcess.au3 at master · jschicht/NtSuspendProcess
+; https://github.com/jschicht/NtSuspendProcess/blob/master/NtSuspendProcess.au3
+; --------
+; Script written for basic: converting it to AHK_L - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/66559-script-written-for-basic-converting-it-to-ahk-l/
+; --------
+; How to make this Suspend/Resume process work with active window. - AutoHotkey Community
+; https://autohotkey.com/boards/viewtopic.php?f=5&t=51663&p=227525
+; --------
+; https://raw.githubusercontent.com/Drugoy/Autohotkey-scripts-.ahk/master/ScriptManager.ahk/MasterScript.ahk
+; https://raw.githubusercontent.com/Drugoy/Autohotkey-scripts-.ahk/master/ScriptManager.ahk/MasterScript.ahk
+; ----
+
+; -------------------------------------------------------------------
+; REFERENCE WEB PAGES OPEN 7
+; [ Friday 13:01:40 Pm_19 October 2018 ]
+; -------------------------------------------------------------------
+; ----
+; command line - Autohotkey / AHK - Param %1% not accessible within a function - Stack Overflow
+; https://stackoverflow.com/questions/49905729/autohotkey-ahk-param-1-not-accessible-within-a-function
+; --------
+; IsProcessSuspended(arrLIST - Google Search
+; https://www.google.co.uk/search?num=50&safe=active&ei=aLHJW_2ZD8SQ5gKk9YzoCA&q=IsProcessSuspended%28arrLIST&oq=IsProcessSuspended%28arrLIST&gs_l=psy-ab.3...4053.4606.0.4993.4.4.0.0.0.0.148.465.1j3.4.0....0...1c.1.64.psy-ab..0.0.0....0.miN3IoeW0NM
+; --------
+; Matthew-Lancaster/Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2042-Check_Any_PID_Suspended_Warning.ahk
+; --------
+; Using IF to evaluate command line arguments - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/67927-using-if-to-evaluate-command-line-arguments/
+; --------
+; Scripts - Definition & Usage | AutoHotkey
+; https://autohotkey.com/docs/Scripts.htm
+; --------
+; Command-line arguments - Rosetta Code
+; https://rosettacode.org/wiki/Command-line_arguments#AutoHotkey
+; --------
+; multiple gui buttons?? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/3697-multiple-gui-buttons/
+; ----
