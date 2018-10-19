@@ -280,7 +280,7 @@ IsProcessSuspended(pid) {
 ; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
-; USAGE EXAMPLE PUT THE TIMER ROUTINE IN ANOTHER CODE AS LAUNCHER
+; USAGE EXAMPLE PUT THE TIMER ROUTINE TO PUT IN ANOTHER CODE AS LAUNCHER
 ;# ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
