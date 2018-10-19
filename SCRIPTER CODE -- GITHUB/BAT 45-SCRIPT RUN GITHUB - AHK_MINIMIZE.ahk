@@ -84,20 +84,20 @@ Loop, %id%
 	IF INSTR(Title,%Command_Params%)>0
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
-		IfEqual MMX,-1, WinMinimize, ahk_id %Table%
-
+		If MMX>-1, WinMinimize, ahk_id %Table%
 		; -----------------------------------------------------------
-		; IfEqual MMX,0, WinMaximize, ahk_id %Table%
-		; IfEqual MMX,1, WinRestore, A
+		; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
 		; -----------------------------------------------------------
-		
-		IF SOUND_EVENT_DONE=FALSE 
+		IF MMX>-1
 		{
-		Gui, Show, AutoSize
-		SETTIMER TIMER_EXIT, 5000
-		SoundBeep , 1000 , 200
-		EXIT_NOW=FALSE
-		SOUND_EVENT_DONE=TRUE
+			IF SOUND_EVENT_DONE=FALSE 
+			{
+				Gui, Show, AutoSize
+				SETTIMER TIMER_EXIT, 5000
+				SoundBeep , 1000 , 200
+				EXIT_NOW=FALSE
+				SOUND_EVENT_DONE=TRUE
+			}
 		}
 	}
 } 
