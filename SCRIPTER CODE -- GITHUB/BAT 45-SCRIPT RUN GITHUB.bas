@@ -51,6 +51,14 @@ Sub Main()
         End
     End If
     
+    Shell FILE_EXE_RUNNER, vbNormalFocus
+    
+    ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
+    
+    'Shell FILE_EXE_RUNNER, vbMinimizedNoFocus
+    
+    End
+    
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
     objShell.Run """" + FILE_EXE_RUNNER + """", 1, False
