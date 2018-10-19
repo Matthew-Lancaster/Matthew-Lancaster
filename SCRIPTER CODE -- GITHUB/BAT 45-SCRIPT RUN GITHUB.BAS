@@ -26,6 +26,13 @@ Sub Main()
     ' IT WILL DISPLAY THE DOS BOX PROMPT IN A SHOW WINDOW
     '-------------------------------------------------------------------
     
+    
+    
+    Shell "C:\Program Files\Siber Systems\GoodSync\gsync.exe sync ""C SCRIPTOR __ y _ 7G __ GITHUB"""
+    
+    
+    End
+    
     If Command$ <> "" Then Exit Sub
     
     Dim RUN_EXE

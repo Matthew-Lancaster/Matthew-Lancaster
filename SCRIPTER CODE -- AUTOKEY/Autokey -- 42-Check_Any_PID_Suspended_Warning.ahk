@@ -7,7 +7,7 @@
 ;# __ Matt.Lan@Btinternet.com
 ;# __ 
 ;# __ DATE BEGIN
-;# __ Thu 18-Oct-2018 21:07:43
+;# __ Thu 18-Oct-2018 21:10:00
 ;# __ 
 ;  =============================================================
 
@@ -265,23 +265,7 @@ GuiClose:
 ExitApp
 
 RETURN
-
-
-; NOT USED MY ATTEMPT BETTER WAS FOUND
-; ------------------------------------
-TIMER_Check_Any_PID_Suspended_Fault:
-Loop % ArrayCount
-{
-	VAR_PID_NAME := FN_Array[A_Index]
-
-	Process, Exist, %VAR_PID_NAME%
-	NewPID = %ErrorLevel%  
-	If NewPID > 0 
-	IF IsProcessSuspended(NewPID)
-		MSGBOX % "IS SUSPENDED ---- " VAR_PID_NAME
-
-}
-RETURN
+; -------------------------------------------------------------------
 
 IsProcessSuspended(pid) {
     For thread in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Thread WHERE ProcessHandle = " pid)
@@ -293,34 +277,6 @@ IsProcessSuspended(pid) {
 }
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-
-
-; ----
-; https://raw.githubusercontent.com/Drugoy/Autohotkey-scripts-.ahk/master/ScriptManager.ahk/MasterScript.ahk
-; https://raw.githubusercontent.com/Drugoy/Autohotkey-scripts-.ahk/master/ScriptManager.ahk/MasterScript.ahk
-; ----
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-; Input: processID_N - ProcessID of any process.
-; Output: boolean, where 'true' means the processe is suspended.
-; Called by:
-; Functions: memoryScan(), fillProcessesLV(), toggleSuspendProcess(), ProcessCreate_OnObjectReady().
-
-isProcessSuspended_2(processID_N)
-{	
-	; 0 = Unknown, 1 = Other, 2 = Ready, 3 = Running, 4 = Blocked, 5 = Suspended Blocked, 6 = Suspended Ready.
-	; http://msdn.microsoft.com/en-us/library/aa394372%28v=vs.85%29.aspx
-	
-	Global WMIQueries_O
-	For thread In WMIQueries_O.ExecQuery("SELECT ThreadWaitReason FROM Win32_Thread WHERE ProcessHandle = " processID_N)
-		If (thread.ThreadWaitReason == 5)
-			Return 1	; Suspended.
-	Return 0	; Not suspended.
-}
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-
-
 
 ;# ------------------------------------------------------------------
 ; USAGE EXAMPLE PUT THE TIMER ROUTINE IN ANOTHER CODE AS LAUNCHER
@@ -350,9 +306,6 @@ TIMER_Check_Any_PID_Suspended_Warning:
 			Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
 		}
 RETURN
- 
-
- 
  
 ;# ------------------------------------------------------------------
 ; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
@@ -419,6 +372,62 @@ class MyObject
 ; -------------------------------------------------------------------
 ; exit the app
 ; -------------------------------------------------------------------
+
+
+
+
+; -------------------------------------------------------------------
+; REFERENCE __ CODE SCARP BOOK
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; NOT USED MY ATTEMPT BETTER WAS FOUND
+; ------------------------------------
+TIMER_Check_Any_PID_Suspended_Fault:
+Loop % ArrayCount
+{
+	VAR_PID_NAME := FN_Array[A_Index]
+
+	Process, Exist, %VAR_PID_NAME%
+	NewPID = %ErrorLevel%  
+	If NewPID > 0 
+	IF IsProcessSuspended(NewPID)
+		MSGBOX % "IS SUSPENDED ---- " VAR_PID_NAME
+
+}
+RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; INTERESTING isProcessSuspended RESULT ALTERNATIVE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; ----
+; https://raw.githubusercontent.com/Drugoy/Autohotkey-scripts-.ahk/master/ScriptManager.ahk/MasterScript.ahk
+; https://raw.githubusercontent.com/Drugoy/Autohotkey-scripts-.ahk/master/ScriptManager.ahk/MasterScript.ahk
+; ----
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; Input: processID_N - ProcessID of any process.
+; Output: boolean, where 'true' means the processe is suspended.
+; Called by:
+; Functions: memoryScan(), fillProcessesLV(), toggleSuspendProcess(), ProcessCreate_OnObjectReady().
+
+isProcessSuspended_2(processID_N)
+{	
+	; 0 = Unknown, 1 = Other, 2 = Ready, 3 = Running, 4 = Blocked, 5 = Suspended Blocked, 6 = Suspended Ready.
+	; http://msdn.microsoft.com/en-us/library/aa394372%28v=vs.85%29.aspx
+	
+	Global WMIQueries_O
+	For thread In WMIQueries_O.ExecQuery("SELECT ThreadWaitReason FROM Win32_Thread WHERE ProcessHandle = " processID_N)
+		If (thread.ThreadWaitReason == 5)
+			Return 1	; Suspended.
+	Return 0	; Not suspended.
+}
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
 
 
 ; -------------------------------------------------------------------
