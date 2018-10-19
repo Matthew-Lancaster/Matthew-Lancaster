@@ -1,4 +1,8 @@
 @REM ----------------------------------------------------------------
+@REM __ C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT
+@REM __ 
+@REM __ BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT
+@REM __ 
 @REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
 @REM ----------------------------------------------------------------

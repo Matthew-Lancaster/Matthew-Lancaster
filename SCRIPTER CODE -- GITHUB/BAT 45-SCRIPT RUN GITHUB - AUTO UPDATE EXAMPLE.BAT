@@ -1,4 +1,8 @@
 @REM ----------------------------------------------------------------
+@REM __ C:\SCRIPTOR\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT
+@REM __ 
+@REM __ BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT
+@REM __ 
 @REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
 @REM ----------------------------------------------------------------
@@ -34,7 +38,7 @@
 @REM ----------------------------------------------------------------
 
 @REM ----------------------------------------------------------------
-@REM -- 002 SESSION
+@REM -- 003 SESSION
 @REM ----------------------------------------------------------------
 @REM __ FROM  Fri 19-Oct-2018 15:05:42
 @REM __ TO    Fri 19-Oct-2018 17:30:00
