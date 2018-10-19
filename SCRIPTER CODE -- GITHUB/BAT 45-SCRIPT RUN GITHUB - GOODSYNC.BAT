@@ -184,7 +184,7 @@ if "%Sync_Runner%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO SYNC COMPLETE
 	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 24
+	TIMEOUT /T 30
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE

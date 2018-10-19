@@ -51,7 +51,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
 
+SoundBeep , 1000 , 200
+; -------------------------------------------------------------------
+
+; GLOBAL SETTINGS ===================================================
+
+; GUI ===============================================================
+
+Gui, Margin, 5, 5
+gui, font, s14 ; , Arial ; , Calibri  
+Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
+
 ; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
+
+Command_Params=
 
 Loop %0% ; number of parameters
 	Command_Params = %A_Index%
@@ -64,28 +77,24 @@ Loop, %id%
 {
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
-	IF INSTR(Title,%Command_Params%)>0
+	EXIT_NOW=TRUE
+	IF INSTR(Title,Command_Params)>0
+	{
 		WinMinimize  ahk_id %Table%
+		Gui, Show, AutoSize
+		SETTIMER TIMER_EXIT, 4000
+		EXIT_NOW=FALSE
+	}
 } 
 
-; -------------------------------------------------------------------
-; CODE INITIALIZE
-; -------------------------------------------------------------------
-SoundBeep , 1000 , 200
-; -------------------------------------------------------------------
 
-; GLOBAL SETTINGS ===================================================
-
-; GUI ===============================================================
-
-Gui, Margin, 5, 5
-gui, font, s14 ; , Arial ; , Calibri  
-Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
-
-TIMER_EXIT, 4000
+IF 	EXIT_NOW=TRUE
+	EXITAPP
 
 RETURN
 
+STATUS:
+RETURN
 
 TIMER_EXIT:
 	EXITAPP
