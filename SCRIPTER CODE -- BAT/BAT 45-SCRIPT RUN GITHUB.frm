@@ -5,6 +5,7 @@ Begin VB.Form Form1
    ClientLeft      =   108
    ClientTop       =   456
    ClientWidth     =   3624
+   Icon            =   "BAT 45-SCRIPT RUN GITHUB.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   2316
    ScaleWidth      =   3624

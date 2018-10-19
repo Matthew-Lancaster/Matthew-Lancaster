@@ -38,7 +38,6 @@ Sub Main()
 
     ' End
     
-    
     ' IF RUN BY COMMAND LINE #1 OR #2
     If Command$ <> "" Then
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
@@ -51,7 +50,15 @@ Sub Main()
         End
     End If
     
-    Shell FILE_EXE_RUNNER, vbNormalFocus
+    AHK = "C:\Program Files\AutoHotkey\AutoHotkey.exe"
+    If Dir(AHK) = "" Then
+        MsgBox "Error Not Find AutoHotKeys Program" + vbCrLf + vbCrLf + AHK, vbMsgBoxSetForeground
+        End
+    End If
+    
+    CMD = "C:\Windows\System32\cmd.exe"
+    
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", vbNormalFocus
     
     ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
     
