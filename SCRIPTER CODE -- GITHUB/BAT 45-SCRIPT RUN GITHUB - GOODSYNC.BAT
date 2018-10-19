@@ -80,7 +80,7 @@ ECHO ----------------------------------------------------------------
 
 @CD /D "C:\SCRIPTOR GITHUB"
 
-@SET TITLE_VAR=GIT_RUNNNER__GOODSYNC
+@SET TITLE_VAR=GITHUB_RUNNNER__AND_GOODSYNC
 
 @TITLE %TITLE_VAR%
 
@@ -159,8 +159,11 @@ if "%Analysis_Complete%"=="FALSE" (
 	)
 	
 	TIMEOUT /T 8
+	ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
-	ECHO "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
+	ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
+	ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
+	ECHO ----------------------------------------------------------------
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
 	TIMEOUT /T 7200
 	REM ---- 2 HOURING
@@ -174,6 +177,11 @@ if "%Analysis_Complete%"=="TRUE" (
 		ECHO MOST LIKEY REASON -- NONE CHANGE HAPPEN
 		ECHO ----------------------------------------------------------------
 		TIMEOUT /T 4
+		ECHO ----------------------------------------------------------------
+		ECHO RUN COMMAND 
+		ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
+		ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
+		ECHO ----------------------------------------------------------------
 		"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
 		TIMEOUT /T 300
 		REM 300 = 5 MINUTE
@@ -185,13 +193,20 @@ if "%Sync_Runner%"=="TRUE" (
 	ECHO SYNC COMPLETE
 	ECHO ----------------------------------------------------------------
 	TIMEOUT /T 30
+	ECHO ----------------------------------------------------------------
+	ECHO RUN COMMAND 
+	ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
+	ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
+	ECHO ----------------------------------------------------------------
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
 
 @REM ----------------------------------------------------------------
-@REM FALSE FALL FOOLE - STUNT MAN
+@REM FALSE FALL FOOLE - STUNT MAN - FALL GUY - SCRIPTING GUY - HEY GUYS
+@REM WEEK-DAY - WEAK-DAY
+@REM MONTH-DAY
 @REM ----------------------------------------------------------------
 
 @ECHO.

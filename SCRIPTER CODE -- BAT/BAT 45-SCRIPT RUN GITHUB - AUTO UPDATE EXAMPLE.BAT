@@ -142,7 +142,7 @@ REM GEQ - greater than or equal
 
 @ECHO %DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% %Week_Day%
 
-%PATH_GIT%\git commit -m "%DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% %Week_Day%"
+%PATH_GIT%\git commit -m "%DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% -- %Week_Day%"
 %PATH_GIT%\git config user.email "matt.lan@btinternet.coml"
 %PATH_GIT%\git config user.name "Matthew-Lancaster"
 %PATH_GIT%\git pull https://<USERNAME:PASSWORD@github.com//matthew-lancaster/matthew-lancaster master
