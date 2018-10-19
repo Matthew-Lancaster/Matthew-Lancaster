@@ -1,0 +1,142 @@
+;  =============================================================
+;# __ C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk
+;# __ 
+;# __ BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk
+;# __ 
+;# __ BY Matthew Lancaster 
+;# __ Matt.Lan@Btinternet.com
+;# __ 
+;# __ DATE BEGIN
+;# __ Fri 19-Oct-2018 17:52:00
+;# __ 
+;  =============================================================
+
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+;
+
+; #Persistent
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; --------------------
+#SingleInstance force
+
+
+;# ------------------------------------------------------------------
+; DESCRIPTION
+;# ------------------------------------------------------------------
+; QUITE SIMPLE -- MINIMIZE TWO COMMAND PROMPT WINDOW THAT BEN RUN 
+; BY GITHUB CODING INCLUDE THE TWIN GOODSYNC ONE
+;# ------------------------------------------------------------------
+
+;# ------------------------------------------------------------------
+; ---- LOCATE ONLINE
+; -------------------------------------------------------------------
+;
+;# ------------------------------------------------------------------
+
+;# ------------------------------------------------------------------
+; SESSION 001
+; -------------------------------------------------------------------
+; ----
+; -------------------------------------------------------------------
+; FROM   Fri 19-Oct-2018 17:51:00
+; TO     Fri 19-Oct-2018 18:10:00
+;# ------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; CODE INITIALIZE
+; -------------------------------------------------------------------
+
+; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
+
+WinGet, id, list,ahk_class ConsoleWindowClass
+Loop, %id%
+{
+	Table := id%A_Index%
+	WinGetTitle, Title, ahk_id %Table%
+	IF INSTR(Title,"GIT_RUNNNER")>0
+		WinMinimize  ahk_id %Table%
+} 
+
+RETURN
+
+
+
+ 
+;# ------------------------------------------------------------------
+; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
+;# ------------------------------------------------------------------
+
+
+;# ------------------------------------------------------------------
+TIMER_PREVIOUS_INSTANCE:
+SETTIMER TIMER_PREVIOUS_INSTANCE,10000
+
+if ScriptInstanceExist()
+{
+	Exitapp
+}
+return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+ScriptInstanceExist() {
+	static title := " - AutoHotkey v" A_AhkVersion
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, On
+	WinGet, match, List, % A_ScriptFullPath . title
+	DetectHiddenWindows, % dhw
+	return (match > 1)
+	}
+Return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+EOF:                           ; on exit
+ExitApp     
+; -------------------------------------------------------------------
+
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+
+; -------------------------------------------------------------------
+ExitFunc(ExitReason, ExitCode)
+{
+    if ExitReason not in Logoff,Shutdown
+    {
+        ;MsgBox, 4, , Are you sure you want to exit?
+        ;IfMsgBox, No
+        ;    return 1  ; OnExit functions must return non-zero to prevent exit.
+    }
+    ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
+}
+
+class MyObject
+{
+    Exiting()
+    {
+        ;
+        ;MsgBox, MyObject is cleaning up prior to exiting...
+        /*
+        this.SayGoodbye()
+        this.CloseNetworkConnections()
+        */
+    }
+}
+; -------------------------------------------------------------------
+; exit the app
+; -------------------------------------------------------------------
+
+
+
+; -------------------------------------------------------------------
+; REFERENCE PAGES OPEN 30
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------

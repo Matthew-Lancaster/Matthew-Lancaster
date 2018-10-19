@@ -108,15 +108,15 @@ CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">"%~dp0GOODSYNC
 @REM ---------------------------------------------------
 %ConvertCP% 1200 0 /i "%~dp0GOODSYNC_OUTPUT.TXT"
 
-@SET Analysis_Complete=""
-@SET Sync_Running=""
+@SET Analysis_Complete="FALSE"
+@SET Sync_Running="FALSE"
 
 @find "-- Analysis Complete" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
 @if %errorlevel%==0 SET Analysis_Complete="TRUE"
 @find "Sync: Running:" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
 @if %errorlevel%==0 SET Sync_Running="TRUE"
 
-@if %Analysis_Complete%=="" (
+@if %Analysis_Complete%=="FALSE" (
 	@ECHO.
 
 	@ECHO ---------------------------------------------------------------------
@@ -127,7 +127,7 @@ CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">"%~dp0GOODSYNC
 )
 
 @if %Analysis_Complete%=="TRUE" (
-	@if %Sync_Running%=="" (
+	@if %Sync_Running%=="FALSE" (
 		@ECHO.
 		@ECHO ---------------------------------------------------------------------
 		@ECHO ANALYSIS RUN BUT NOT SYNC -- MOST LIKEY NONE CHANGES
