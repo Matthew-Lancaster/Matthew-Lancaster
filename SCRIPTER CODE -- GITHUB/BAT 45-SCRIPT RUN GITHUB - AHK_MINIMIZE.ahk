@@ -51,7 +51,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
 
-SoundBeep , 1000 , 200
+; SoundBeep , 1000 , 200
 ; -------------------------------------------------------------------
 
 ; GLOBAL SETTINGS ===================================================
@@ -67,7 +67,7 @@ Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
 Command_Params=
 
 Loop %0% ; number of parameters
-	Command_Params = %A_Index%
+	Command_Params=%A_Index%
 
 IF !Command_Params
 	Command_Params=GIT_RUNNNER
@@ -83,7 +83,8 @@ Loop, %id%
 	{
 		WinMinimize  ahk_id %Table%
 		Gui, Show, AutoSize
-		SETTIMER TIMER_EXIT, 4000
+		SETTIMER TIMER_EXIT, 5000
+		SoundBeep , 1000 , 200
 		EXIT_NOW=FALSE
 	}
 } 
@@ -95,6 +96,8 @@ IF 	EXIT_NOW=TRUE
 RETURN
 
 STATUS:
+
+EXITAPP
 RETURN
 
 TIMER_EXIT:
