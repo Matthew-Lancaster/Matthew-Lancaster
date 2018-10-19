@@ -77,6 +77,8 @@ IF '%1%'=='/ADMIN' (
 
 @ECHO ON
 
+TITLE GIT_RUNNNER
+
 @SET PATH_GIT="C:\Program Files\Git\bin"
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 

@@ -41,21 +41,19 @@ Sub Main()
     
     ' IF RUN BY COMMAND LINE #1 OR #2
     If Command$ <> "" Then
-        FILE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_GOODSYNC.BAT"
+        FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_GOODSYNC.BAT"
     Else
-        FILE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+        FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
     End If
     
-    If Dir(FILE_RUNNER) = "" Then
-        MsgBox "File to Run Was Not Found" + vbCrLf + vbCrLf + FILE_RUNNER, vbMsgBoxSetForeground
+    If Dir(FILE_EXE_RUNNER) = "" Then
+        MsgBox "File to Run Was Not Found" + vbCrLf + vbCrLf + FILE_EXE_RUNNER, vbMsgBoxSetForeground
         End
     End If
     
-    Dim RUN_EXE
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
-    RUN_EXE = "FILE_RUNNER"
-    objShell.Run """" + RUN_EXE + """", 1, False
+    objShell.Run """" + FILE_EXE_RUNNER + """", 1, False
     Set objShell = Nothing
 
 End Sub
