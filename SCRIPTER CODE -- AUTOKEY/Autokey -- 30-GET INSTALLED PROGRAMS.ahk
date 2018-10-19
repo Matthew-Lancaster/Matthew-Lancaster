@@ -95,6 +95,7 @@ Loop, Reg, HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\, KVR
 	}
 
 	
+	; STRIP QUOTES
 	value:=StrReplace(value, """" , "")
 
 	

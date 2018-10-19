@@ -244,7 +244,7 @@ PROGRAM_SET_TO_USE:
 	SET_GO_2=FALSE
 	; VISUAL BASIC
 	If Class_Title=ThunderRT6FormDC
-		SET_GO_2=TRUE
+		SET_GO_2=false
 	
 	; GOOGLE CHROME
 	If Class_Title=Chrome_WidgetWin_1
@@ -253,18 +253,9 @@ PROGRAM_SET_TO_USE:
 	If Win_Title=Print - Google Chrome
 		SET_GO_2=FALSE
 	
-	; SET_GO_2=FALSE
 	; ; VISUAL BASIC
 	; IfInString, Class_Title, ThunderRT6FormDC
-		; SET_GO_2=TRUE
-		; ; SET_GO_2=FALSE
 
-	; ; GOOGLE CHROME
-	; IfInString, Class_Title, Chrome_WidgetWin_1
-		; SET_GO_2=TRUE
-
-	; IfInString, Win_Title, Print - Google Chrome
-		; SET_GO_2=FALSE
 
 RETURN
 ; -------------------------------------------------------------------
@@ -457,6 +448,7 @@ if IsOverCloseButton(X, Y, hWnd)
 		RETURN
 
 	IF CLOSE_BUTTON_HOOVER_ACTIVITY_OLD<>%CLOSE_BUTTON_HOOVER_ACTIVITY%
+	IF CLOSE_BUTTON_HOOVER_ACTIVITY=TRUE
 	{
 		SOUNDBEEP 1000,40
 	}
@@ -478,7 +470,7 @@ if IsOverCloseButton(X, Y, hWnd)
 				ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
 				TOOLTIP_BEEN_SET_1=1
 				TOOLTIP_BEEN_SET_2=TRUE
-				TIMER_TOOLTIP := a_now + 3
+				TIMER_TOOLTIP := a_now + 2
 			}
 		}
 		ELSE

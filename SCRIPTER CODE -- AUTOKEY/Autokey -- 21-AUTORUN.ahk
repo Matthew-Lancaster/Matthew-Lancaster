@@ -428,6 +428,16 @@ Loop, %id%
 RETURN
 
 
+MINIMIZE_GOODSYNC_AT_BOOT:
+WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+Loop, %id%
+{
+
+	table := id%A_Index%
+	WinMinimize  ahk_id %table%
+} 
+RETURN
+
 
 
 
@@ -518,6 +528,8 @@ IF SKIP_CODE=FALSE
 	IF (A_ComputerName = "3-LINDA-PC") 
 		SET_GO=FALSE
 	IF (A_ComputerName = "5-ASUS-P2520LA") 
+		SET_GO=FALSE
+	IF (A_ComputerName = "7-ASUS-GL522VW") 
 		SET_GO=FALSE
 
 	IF SET_GO=TRUE
@@ -653,20 +665,26 @@ RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\E
 
 ; exitapp
 
-SET_GO_1=1
-
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
-If (OSVER_N_VAR>5 
-	and SET_GO_1=1)
+If (OSVER_N_VAR=10)
 	{
-	Process, Exist, AmazonDrive.exe
+	; ---------------------------------------------------------------
+	; CHANGED NAME
+	; Process, Exist, AmazonDrive.exe
+	; FN_VAR=C:\Users\%A_UserName%\AppData\Local\Amazon Drive\AmazonDrive.exe
+	; ---------------------------------------------------------------
+
+	Process, Exist, AmazonPhotos.exe
 	If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
 		{
-		FN_VAR=C:\Users\%A_UserName%\AppData\Local\Amazon Drive\AmazonDrive.exe
-		;IfExist, %FN_VAR%
-			;Run, "%FN_VAR%" , , HIDE
+		FN_VAR_1="C:\Users\%A_UserName%\AppData\Local\Amazon Drive\AmazonPhotos.exe"
+		FN_VAR_2="C:\Users\%A_UserName%\AppData\Local\Amazon Drive\AmazonPhotos.exe" --source-autostart
+		; STRIP QUOTES
+		FN_VAR_1:=StrReplace(FN_VAR_1, """" , "")
+		IfExist, %FN_VAR_1%
+			Run, %FN_VAR_2% , , HIDE
 		}
 	}
 	
@@ -683,7 +701,11 @@ If (OSVER_N_VAR>5
 				value = *error*
 		}
 		
-		IfInString, A_LoopRegName, Amazon Drive
+		; -----------------------------------------------------------
+		; CHANGED NAME
+		; IfInString, A_LoopRegName, Amazon Drive
+		; -----------------------------------------------------------
+		IfInString, A_LoopRegName, Amazon Photos
 		{
 			SoundBeep , 2500 , 100
 			RegDelete, %A_LoopRegKey%\%A_LoopRegSubKey%, %A_LoopRegName%
@@ -693,6 +715,8 @@ If (OSVER_N_VAR>5
 			;IfMsgBox, NO, break
 		}
 	}
+
+	
 
 SET_GO_1=0
 IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
@@ -1744,6 +1768,7 @@ GOSUB MINIMIZE_ALL__EXPLORER_AT_BOOT
 GOSUB MINIMIZE_ALL_CMD_AT_BOOT
 GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 GOSUB MINIMIZE_ALL_BLUETOOTH
+GOSUB MINIMIZE_GOODSYNC_AT_BOOT
 
 IF (A_ComputerName = "5-ASUS-P2520LA") 
 {
@@ -1807,6 +1832,12 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, OOD
 ;REG_EXPAND_SZ
 ;%ProgramFiles%\Windows Defender\MSASCuiL.exe
 
+RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, VideoDownloaderUltimate
+
+; VideoDownloaderUltimate
+; C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe /repair
+; HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
 GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 
 GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
@@ -1814,6 +1845,18 @@ GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
 GOSUB GRAMMARLY_CREATE_SHORTCUT
 
 RETURN
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; END OF MAIN LOAD ROUTINE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
 
 ;--------------------------------------------------------------------
 TEST_STARTER_RUN_IN:
@@ -1886,7 +1929,6 @@ IF SET_GO=TRUE
 		}
 }
 RETURN
-
 
 
 

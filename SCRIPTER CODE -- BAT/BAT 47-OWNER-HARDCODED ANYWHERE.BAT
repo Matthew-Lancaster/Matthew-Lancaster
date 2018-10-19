@@ -116,7 +116,18 @@ IF '%1%'=='/ADMIN' (
 
 SET PATH_TO_DO=
 
-SET PATH_TO_DO_OLD=%PATH_TO_DO%
+SET PATH_TO_DO="E:\01 Desktop\*"
+ECHO %PATH_TO_DO%
+@REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
+TAKEOWN /F %PATH_TO_DO% /A /R /D Y
+@REM ---- 2 OF 3 -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
+ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q  /grant administrators:F"
+@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE BEFORE
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+
+
 SET PATH_TO_DO="C:\Windows\System32\*.VBS"
 ECHO %PATH_TO_DO%
 @REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
@@ -126,11 +137,10 @@ TAKEOWN /F %PATH_TO_DO% /A /R /D Y
 ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
 ICACLS %PATH_TO_DO% /T /L /C /Q  /grant administrators:F"
 
-@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE
+@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE BEFORE
 ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
 ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
-SET PATH_TO_DO_OLD=%PATH_TO_DO%
 SET PATH_TO_DO="C:\Windows\System32\Printing_Admin_Scripts\en-US\*.VBS"
 ECHO %PATH_TO_DO%
 TAKEOWN /F %PATH_TO_DO% /A /R /D Y

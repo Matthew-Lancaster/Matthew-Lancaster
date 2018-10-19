@@ -149,10 +149,10 @@ Loop % ArrayCount
   Element_1 := FN_Array[A_Index]
   Element_2 := DATE_MOD_Array[A_Index]
 
-	IfExist, %Element_1%
 	SET_GO=FALSE
-	IF !WinExist(Element_1) 
-		SET_GO=TRUE
+	IfExist, %Element_1%
+		IF !WinExist(Element_1) 
+			SET_GO=TRUE
 	
 	FileGetTime, OutputVar, %Element_1%, M
 	IF OutputVar<>%Element_2%
