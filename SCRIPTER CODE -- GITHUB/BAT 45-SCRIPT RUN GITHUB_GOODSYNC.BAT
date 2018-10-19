@@ -101,18 +101,25 @@ ECHO ----------------------------------------------------------------
 @REM https://stackoverflow.com/questions/14246956/notepad-can-recognize-encoding/14247070#14247070
 @REM ----
 
-@ECHO.
-ECHO ----------------------------------------------------------------
-@ECHO.
-@ECHO ON
+ECHO.
+ECHO ON
+@ECHO ----------------------------------------------------------------
+@ECHO RUN COMMAND 
+@ECHO ----------------------------------------------------------------
+ECHO.
 CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">"%~dp0GOODSYNC_OUTPUT.TXT""
 @ECHO OFF
-@ECHO.
+ECHO.
 ECHO ----------------------------------------------------------------
 
 @REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
-@REM ---------------------------------------------------
+@REM ----------------------------------------------------------------
+@REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
+@REM ----------------------------------------------------------------
+ECHO ----------------------------------------------------------------
 %ConvertCP% 1200 0 /i "%~dp0GOODSYNC_OUTPUT.TXT"
+ECHO ----------------------------------------------------------------
+@REM ----------------------------------------------------------------
 
 @SET Analysis_Complete=FALSE
 @SET Sync_Runner=FALSE
@@ -152,6 +159,8 @@ if "%Analysis_Complete%"=="FALSE" (
 	)
 	
 	TIMEOUT /T 8
+	ECHO RUN COMMAND 
+	ECHO "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk" %TITLE_VAR%
 	TIMEOUT /T 7200
 	REM ---- 2 HOURING
