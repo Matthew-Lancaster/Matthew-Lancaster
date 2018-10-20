@@ -412,8 +412,8 @@ IF SET_GO_2=TRUE
 
 ; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
 ; -------------------------------------------------------------------
-IF SET_GO_1=TRUE
-	IF SET_GO_2=FALSE
+; IF SET_GO_1=TRUE
+	; IF SET_GO_2=FALSE
 		; SOUNDBEEP 1000,100
 
 IF TRIGGER_HAPPEN=FALSE		
