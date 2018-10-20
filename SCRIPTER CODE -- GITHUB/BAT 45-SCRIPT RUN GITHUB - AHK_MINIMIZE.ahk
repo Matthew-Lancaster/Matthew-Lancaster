@@ -94,6 +94,10 @@ Command_Params:=StrReplace(Command_Params, """" , "")
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
 
+WinMinimize, ahk_class Notepad++
+
+
+
 WinGet, id, list,ahk_class ConsoleWindowClass
 Loop, %id%
 {
