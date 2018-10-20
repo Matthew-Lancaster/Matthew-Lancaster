@@ -11,25 +11,27 @@
 ;  =============================================================
 
 
+; -------------------------------------------------------------------
 ; 002
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; FROM TO Sun 15-Apr-2018 19:26:10
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; THIS IS OUR PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
 ; THE MIDDLE CHECKBOX IS SELECTED
 ; Reference's at End
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ; 003
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; New work the GoodSync Routine to Set Number of Hour in Options
 ; From Default 2 to 4
 ; Straight Form The Help File Nothing Checked Online
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; FROM -- Fri 27-Apr-2018 13:44:49
 ; TO ---- Fri 27-Apr-2018 14:28:00 -- 50 MINUTE
-; --------------------------------------------------------------
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; Well That Hard Work To Set the Content of an Edit Control 
 ; You Must Delete Whats in There First to Do with Caret Positioning
 ; And I Had to Look Up on the Internet
@@ -43,50 +45,54 @@
 ; Delete contents of edit control? - Ask for Help - AutoHotkey Community
 ; https://autohotkey.com/board/topic/80399-delete-contents-of-edit-control/
 ; ----
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; FROM -- Fri 27-Apr-2018 14:28:00
 ; TO ---- Fri 27-Apr-2018 15:51:00 -- 1 HOUR 20 MINUTE
 ; SESSION PAIR 2 HOURS 10 MINUTE-ER
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ; 004
 ; MORE WORK WANTED A SOUND EFFECT IF A WINDOW CAME OUT OF NOT RESPONDING 
 ; TO LET LEARN THE WAIT IS OVER FOR GOODSYNC NETWORK PATHS TIME CONSUMING
 ; TOOK A WHILE BECAUSE SOUND SYSTEM EVENTS WERE SWITCHED OFF
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; FROM -- Fri 27-Apr-2018 18:53:27
 ; TO ---- Fri 27-Apr-2018 19:33:58 -- 40 MINUTE
 ; SESSION PAIR 2 HOURS 10 MINUTE-ER
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ; 005
 ; NEXT WANTER THE CHECKBOX SET WHEN GOODSYNC HAS THE TEXT BOX FILLED
 ; AND IT CHECK HWND OF WINDOW AND DOES ONCE 
 ; IT HARD TO TEST BECAUSE WHEN CHECKBOX NOT CHECKED THE TEXTBOX FIGUAR 
 ; ENTRY IS ENABLED=FALSE
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; FROM -- Fri 27-Apr-2018 19:33:58
 ; TO ---- Fri 27-Apr-2018 19:53:05 -- 20 MINUTE
 ; SESSION PAIR 2 HOURS 10 MINUTE-ER
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ; 00*
 ; SESSION CODER _ ADD LOADER OF CAMERA REEL OFFLOAD
 ; TIMER_DRIVE_GET_CAMERA
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; FROM -- Thu 14-Jun-2018 17:15:27
 ; TO ---- Thu 14-Jun-2018 18:44:00 -- 1 HOUR 30 MINUTE
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 
-
+; -------------------------------------------------------------------
 ; 007
 ; DFX REQUIRED WORKING PROPERLY AND EXTRA FOR IT
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 ; FROM -- Wed 20-Jun-2018 14:50:48
 ; TO ---- Wed 20-Jun-2018 15:02:00
-; --------------------------------------------------------------
+; -------------------------------------------------------------------
 
-; 007 PROBLEM THIS PROCESS REQUIRED SUSPENDER HOGGER
+; -------------------------------------------------------------------
+; 008 PROBLEM THIS PROCESS REQUIRED SUSPENDER HOGGER
 ; CPU IN SHORT QUICK BURSTS
 ; -------------------------------------------------------------------
 ; Intel(R) Dynamic Platform and Thermal Framework Utility Application
@@ -105,19 +111,34 @@
 ; TO ---- Sun 07-Oct-2018 19:24:00 _ 1 & HALF HOUR ALMOST _ INTO AN ALLNIGHTER AGAIN
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; 008 
+; ADD CODE THIS ROUTINE _ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
+; A NEW LEVEL OF TIMER PERIODIC ON THE HOUR OR MINUTE OR DAY
+; ACTUALLY ON THE HOUR OR DAY MIDNIGHT SORT OF THING
+; EASY DONE PROGRAMMED
+; THAT ALL MY WORK WANTED TODAY
+; COMPLETELY KNACKER-ED _ EASY AN ALLNIGHTER
+; STILL NEXT PROJECT BEEN WAITING FOR 
+; MY APK'S PACKS ON MOBILE WANT BACKING UP NICELY
+; FILENAME RECURSIVE AND MOVE _.VBS
+; GETTING A DAB HAND AT THEM REMEMBER WHEN SO HARD TO GET FILES 
+; AND FOLDER TOGETHER
+; AN THEN LOADS OF PHOTO'S TO SORT _ GETTING ON WITH IT QUICKER NOW
+; I BEGAN PROGRAM IT PROPER
+; -------------------------------------------------------------------
+; FROM -- Sat 20-Oct-2018 06:29:02
+; TO ---- Sat 20-Oct-2018 08:00:02 _ 1 AND HALF HOUR
+; -------------------------------------------------------------------
+
 
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set Google Drive
-; Possible Censorship of Code Detected By Google as Malicious Happen Here
-; unlike DropBox that has All Available
-; https://drive.google.com/open?id=0BwoB_cPOibCPTnRZZVFuRFpHOTg
-;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set DropBox
-; https://www.dropbox.com/sh/ntghoncyb8py1tf/AACWYrfkVn9PlqpYzNNSMcpMa?dl=0
-;--------------------------------------------------------------------
-; Link to This File On DropBox With Most Up to Date
+; ----
+; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL.ahk
+----
 ;# ------------------------------------------------------------------
 
 
@@ -278,7 +299,7 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	; 2 = HOUR TIMER
 	; 3 = MINUTE TIMER
 	; ---------------------------------------------------------------
-	VALUE_TIMER_DY_HR_MI=3
+	VALUE_TIMER_DY_HR_MI=2
 	
 	IF VALUE_TIMER_DY_HR_MI=1
 	{
@@ -301,14 +322,11 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	EnvMult, Midnight, 1000
 
 	SET_GO=FALSE
-	IF A_Hour=18
-		SET_GO=TRUE
 	IF A_Hour=12
 		SET_GO=TRUE
 	IF A_Hour=0
 		SET_GO=TRUE
 	
-	SET_GO=TRUE
 	IF SET_GO=FALSE 
 		RETURN
 	
@@ -319,7 +337,6 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 		{
 			Run, %FN_VAR% /GOODSYNC_MODE
 		}
-		
 	}
 	
 	GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE=TRUE
