@@ -133,6 +133,7 @@ I_COUNT=0
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
@@ -141,15 +142,17 @@ VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\VBS 32-COPIER_SYNC.VBS"
-I2="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
-' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\VBS 32-COPIER_SYNC.VBS"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
 I1="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
@@ -159,66 +162,72 @@ VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' 64 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
-I2="C:\Program Files\Notepad++\userDefineLang_AHK.xml"
-' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I2="C:\Program Files\Notepad++\userDefineLang_AHK.xml"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 
+' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
 ' 32 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
-I2="C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I2="C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_DO_SECONDARY_PATH_HAVE_TO_EXIST(I_COUNT)="TRUE"
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-
-' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
-I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
-' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
+' GOODSYNC PRIORITY _ DONE
+' NOTICE IT THE GITHUB FOLDER IN \SCRIPTOR\ NOT \SCRIPTOR GITHUB\
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
-I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
-' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
-' -------------------------------------------------------------------
-
-' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT"
-I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT"
-' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
-' GOODSYNC PRIORITY
+' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
-I2="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\NOTEPAD++ WORK\notepad++ replace notepad\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - BAT RUNNER.BAT"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+
+' GOODSYNC PRIORITY _ DONE
+' -------------------------------------------------------------------
+' I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AUTO UPDATE EXAMPLE.BAT"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
+' GOODSYNC PRIORITY _ DONE
+' -------------------------------------------------------------------
+' I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\NOTEPAD++ WORK\notepad++ replace notepad\BAT 17-NPP TO REPLACE NOTEPAD.BAT"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
@@ -409,6 +418,7 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 
+' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
 ' I1="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS"
 ' I2="D:\DSC\2017-Now FUJI XP90\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS"
