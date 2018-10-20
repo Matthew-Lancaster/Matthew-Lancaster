@@ -123,7 +123,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; ----
 ; CODE ADD _ SORT THE PROBLEM WHERE HAD TO GET PARENT WINDOW WHEN DETECTING IF CHROME OR OTHER PROGRAM WANT INCLUDED
 ; ----
-; CODE ADD _ MAKE THE TOOLTIP DISAPPEAR AFTER 2 SECOND HOOVERING ON CLOSE BUTTON
+; CODE ADD _ MAKE THE TOOLTIP DISAPPEAR AFTER 2 SECOND HOVERING ON CLOSE BUTTON
 ; CODE ADD _ MAKE WORK FOR WIN XP WITHOUT AERO OFFSET SET AS MUCH
 ; -------------------------------------------------------------------
 ; FROM   Tue 16-Oct-2018 18:48:52
@@ -137,7 +137,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; DUE TO COMPILATION OF HEAVY CODE WHILE CLICKING MISTAKE WHILE 
 ; MACHINE UNDER HARD LOAD
 ; DECIDE NONE TOOLTIP ON OR SOUND EFFECT FOR WINDOWS THAT DON'T INVOLVE
-; OKAY ALLOW SOUND EFFECT FOR ALL FROM HOOVER WATCH_3 ROUTINE
+; OKAY ALLOW SOUND EFFECT FOR ALL FROM HOVER WATCH_3 ROUTINE
 ;
 ; TIDY UP CODE JOB REFINE AND THING
 ; -------------------------------------------------------------------
@@ -185,7 +185,7 @@ GLOBAL OSVER_N_VAR
 GLOBAL TOOLTIP_DISPLAY_COUNT_LIMITER_1
 GLOBAL TOOLTIP_DISPLAY_COUNT_LIMITER_2
 
-GLOBAL CLOSE_BUTTON_HOOVER_ACTIVITY_OLD
+GLOBAL CLOSE_BUTTON_HOVER_ACTIVITY_OLD
 
 
 TOOLTIP_BEEN_SET_1=0
@@ -212,8 +212,31 @@ SET_GO_2=0
 O_X=0
 O_Y=0
 
+
+FN_Array := []
+STAT_Array := []
+WIN_CLASS_OR_TITLE_Array := []
+ArrayCount := 0
+
+ArrayCount += 1
+FN_Array[ArrayCount]:="ThunderRT6FormDC"       ; ---- VISUAL BASIC
+STAT_Array[ArrayCount]:=FALSE
+WIN_CLASS_OR_TITLE_Array[ArrayCount]:="CLASS" 
+
+ArrayCount += 1
+FN_Array[ArrayCount]:="Chrome_WidgetWin_1"     ; ---- GOOGLE CHROME
+STAT_Array[ArrayCount]:=TRUE
+WIN_CLASS_OR_TITLE_Array[ArrayCount]:="CLASS"
+
+ArrayCount += 1
+FN_Array[ArrayCount]:="Print - Google Chrome"  ; ---- Print - Google Chrome
+STAT_Array[ArrayCount]:=FALSE
+WIN_CLASS_OR_TITLE_Array[ArrayCount]:="TITLE"
+
+
+
 ; -------------------------------------------------------------------
-; TOOLTIP INFO ABOUT CLOSE BUTTON HOOVER
+; TOOLTIP INFO ABOUT CLOSE BUTTON HOVER
 ; AND EXTRA SOUNDBEEP-ER AT CLOSE ACTIVITY GETTING NEARER
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -237,31 +260,50 @@ Return
 ; -------------------------------------------------------------------
 PROGRAM_SET_TO_USE:
 ; -------------------------------------------------------------------
-	
-	CoordMode Mouse, Screen
-	MouseGetPos, x, y, hWnd
-	
-	Hwnd_Parent := DllCall("GetParent", UInt,WinExist("ahk_id" hWnd)), Hwnd_Parent := !Hwnd_Parent ? WinExist("ahk_id" hWnd) : Hwnd_Parent
 
-	WinGetClass, Class_Title, ahk_id %Hwnd_Parent%
-	WinGetTitle, Win_Title, ahk_id %Hwnd_Parent%
-	
-	; BE MORE PRECISE
-	SET_GO_2=FALSE
-	; VISUAL BASIC
-	If Class_Title=ThunderRT6FormDC
-		SET_GO_2=false
-	
-	; GOOGLE CHROME
-	If Class_Title=Chrome_WidgetWin_1
-		SET_GO_2=TRUE
-	
-	If Win_Title=Print - Google Chrome
-		SET_GO_2=FALSE
-	
-	; ; VISUAL BASIC
-	; IfInString, Class_Title, ThunderRT6FormDC
+SET_GO_2=FALSE
 
+LOOP, 2
+{	
+	IF A_Index=1
+	{
+		WinGet, Hwnd_ID, ID, A
+	}
+	IF A_Index=2
+	{
+		CoordMode Mouse, Screen
+		MouseGetPos, x, y, hWnd
+		
+		Hwnd_Parent := DllCall("GetParent", UInt,WinExist("ahk_id" hWnd)), Hwnd_Parent := !Hwnd_Parent ? WinExist("ahk_id" hWnd) : Hwnd_Parent
+		Hwnd_ID:=Hwnd_Parent
+	}
+	
+	WinGetClass, Class_Title, ahk_id %Hwnd_ID%
+	WinGetTitle, Win_Title, ahk_id %Hwnd_ID%
+
+	Loop % ArrayCount
+	{
+		IF WIN_CLASS_OR_TITLE_Array[A_Index]="CLASS"
+			IF FN_Array[A_Index]=Class_Title
+			{
+				SET_GO_2:=STAT_Array[A_Index]
+				IF SET_GO_2=0
+					SET_GO_2=FALSE
+				IF SET_GO_2=1
+					SET_GO_2=TRUE
+			}
+				
+		IF WIN_CLASS_OR_TITLE_Array[A_Index]="TITLE"
+			IF FN_Array[A_Index]=Win_Title
+			{
+				IF SET_GO_2=0
+					SET_GO_2=FALSE
+				IF SET_GO_2=1
+					SET_GO_2=TRUE
+
+			}
+	}
+}
 
 RETURN
 ; -------------------------------------------------------------------
@@ -273,6 +315,7 @@ RETURN
 LButton:: ; Minimize Google Chrome instead of close when close button is clicked
 ; -------------------------------------------------------------------
 GOSUB PROGRAM_SET_TO_USE
+	
 IF SET_GO_2=FALSE 
 {
 	Click down
@@ -303,6 +346,12 @@ IF SET_GO_2=TRUE
 		WinMinimize ahk_id %hWnd_APP%
 		SOUNDBEEP 2000,100
 		TRIGGER_HAPPEN=TRUE
+		; -----------------------------------------------------------
+		; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
+		; -----------------------------------------------------------
+		TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
+		TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
+
 	}
 
 ; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
@@ -349,6 +398,12 @@ IF SET_GO_2=TRUE
 		KeyWait, RButton
 		WinClose ahk_id %hWnd_APP%
 		TRIGGER_HAPPEN=TRUE
+		; -----------------------------------------------------------
+		; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
+		; -----------------------------------------------------------
+		TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
+		TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
+
 	}
 
 ; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
@@ -435,43 +490,56 @@ IF TIMER_TOOLTIP>0
 	}
 
 GOSUB PROGRAM_SET_TO_USE
-IF SET_GO_2=FALSE 
-{
-	; CLOSE_BUTTON_HOOVER_ACTIVITY_OLD=FALSE
-	; RETURN
-}
 
 IF (O_X=%X% and O_Y=%Y%)
 	Return
 O_X=X
 O_Y=Y
 
-CLOSE_BUTTON_HOOVER_ACTIVITY=FALSE
+CLOSE_BUTTON_HOVER_ACTIVITY=FALSE
+
 if IsOverCloseButton(X, Y, hWnd)
-	CLOSE_BUTTON_HOOVER_ACTIVITY=TRUE
-
-	IF CLOSE_BUTTON_HOOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOOVER_ACTIVITY%
+	; ---------------------------------------------------------------
+	; THIS GETS IN ONE STATE OR BOTH OFF AND ON ___ OVER AND OFF HOVER
+	; ONLY SOUND WHEN HOVER ON
+	; ---------------------------------------------------------------
+	CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
+	IF CLOSE_BUTTON_HOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOVER_ACTIVITY%
 		RETURN
+	
+	; ----------------------------------------------------------------
+	; IF WANT SINGLE ACTION HOVER ON ONLY DON'T REQUIRE THIS LINE CODE
+	; AND ALSO DO WANT TO INCLUDE NEXT IF LINE
+	; AND VICE VERSA __ AKE ONE OUT AND PUT ONE BACK
+	; IF WANT DOUBLE ACTION BEEP ON HOVER OFF AND ON DO THE SWAP
+	; DON'T LEAVE A LINE BREAK BETWEEN THE TWO IF LINE - JOINER
+	; AND DO YOUR INDENTING CODER - IT SAVES CODE
+	; ----------------------------------------------------------------
+	;IF CLOSE_BUTTON_HOVER_ACTIVITY_OLD<>%CLOSE_BUTTON_HOVER_ACTIVITY%
 
-	IF CLOSE_BUTTON_HOOVER_ACTIVITY_OLD<>%CLOSE_BUTTON_HOOVER_ACTIVITY%
-	IF CLOSE_BUTTON_HOOVER_ACTIVITY=TRUE
+	IF CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
 	{
 		SOUNDBEEP 1000,40
 	}
-		
-	CLOSE_BUTTON_HOOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOOVER_ACTIVITY%
+	CLOSE_BUTTON_HOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOVER_ACTIVITY%
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
 
+	; ---------------------------------------------------------------
+	; ONLY TOOLTIP FOR WINDOWS THAT PASS THE 
+	; WATCH CHECKER LIST SCRIPTER
+	; ---------------------------------------------------------------
 	IF SET_GO_2=FALSE 
 		RETURN
 
-	IF CLOSE_BUTTON_HOOVER_ACTIVITY=TRUE
+	IF CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
 	{
 		IF SET_GO_2=TRUE
 		{
 			IF TOOLTIP_BEEN_SET_1<>1
 			{
 				TOOLTIP_DISPLAY_COUNT_LIMITER_1+=1
-				IF TOOLTIP_DISPLAY_COUNT_LIMITER_1>4
+				IF TOOLTIP_DISPLAY_COUNT_LIMITER_1>5
 					RETURN
 				ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
 				TOOLTIP_BEEN_SET_1=1
@@ -481,10 +549,15 @@ if IsOverCloseButton(X, Y, hWnd)
 		}
 		ELSE
 		{
+			; -------------------------------------------------------------------
+			; THIS SECOND TOOLTIP FOR ANY WINDOW JUST TO SHOW HOVER 
+			; NOT GETTING USE ANYMORE ONLY BEEP WAS REQUIRING
+			; PULL OUT FROM JUST ABOVE -- IF SET_GO_2=FALSE 
+			; -------------------------------------------------------------------
 			IF TOOLTIP_BEEN_SET_1<>2
 			{
 				TOOLTIP_DISPLAY_COUNT_LIMITER_2+=1
-				IF TOOLTIP_DISPLAY_COUNT_LIMITER_2>10
+				IF TOOLTIP_DISPLAY_COUNT_LIMITER_2>5
 					RETURN
 				ToolTip % "MOUSE`r`nON`r`nCLOSE`r`nBUTTON"
 				TOOLTIP_BEEN_SET_1=2

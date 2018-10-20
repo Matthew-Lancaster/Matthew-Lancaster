@@ -135,7 +135,47 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-F12::Process,Close,WScript.exe
+
+; *C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk - Notepad++ [Administrator]
+
+; WINGET Autokey -- 41-Minimize Chrome Close & Close RButton.ahk
+
+; -------------------------------------------------------------------
+; ADD THE TERMINATOR VERSION NUMBER AND THEN WE ARE ABLE TO USE EXACT 
+; STRING MATCHING IN CASE NOTEPAD HAD IT
+; YOU HEARD IT HEAR FIRST
+; -------------------------------------------------------------------
+
+; F12::
+{
+	SetTitleMatchMode 3  ; EXACTLY
+	DetectHiddenWindows, ON
+	AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+	AHK_TERMINATOR_VERSION:=StrReplace(AHK_TERMINATOR_VERSION, """" , "")
+	FILE:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+	WinGet, UniquePID, PID, %FILE%%AHK_TERMINATOR_VERSION%
+	
+	IF UniquePID>0
+	{
+		SOUNDBEEP 1000,100
+		; WinKill, Ahk_PID %UniquePID% 
+		Process, Close, %UniquePID% 
+	}
+	FILE:="Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+	WinGet, UniquePID, PID, %FILE%
+	
+	IF UniquePID>0
+	{
+		SOUNDBEEP 1000,100
+		; WinKill, Ahk_PID %UniquePID% 
+		Process, Close, %UniquePID% 
+	}
+	
+	
+}
+RETURN
+
+; F12::Process,Close,WScript.exe
 ; C:\Windows\SysWOW64\WScript.exe
 
 
