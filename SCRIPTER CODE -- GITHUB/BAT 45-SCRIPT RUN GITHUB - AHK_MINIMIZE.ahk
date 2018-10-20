@@ -88,17 +88,12 @@ IF (!Command_Params or %0%=0)
 IF GITHUB_RUNNNER_RERUN
 	Command_Params=GITHUB_RUNNNER
 
-
-Command_Params:=StrReplace(Command_Params, """" , "")
+; Command_Params:=StrReplace(Command_Params, """" , "")
 	
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
 
 WinMinimize, ahk_class Notepad++
-
-
-
-
 
 WinGet, id, list,ahk_class ConsoleWindowClass
 Loop, %id%
@@ -106,16 +101,10 @@ Loop, %id%
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
 	; Command_Params:="%Command_Params%"
-	
-	Command_Params_2=%Command_Params%
-	
-	;IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
-	;	Command_Params_2=GITHUB_RUNNNER
 
 	IF INSTR(Title,Command_Params)
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
-		; MSGBOX % MMX
 		If MMX>-1
 		{
 			WinMinimize, ahk_id %Table%
@@ -134,36 +123,34 @@ Loop, %id%
 	}
 } 
 
-
 IF BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=FALSE
 	IF INSTR(Command_Params, "QUICK_INTRO_DUMMY_RUN")
 	{
-		soundbeep 1000,400
-		soundbeep 2000,400
 		BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=TRUE
 		Gui, Show, AutoSize
 		EXIT_NOW=FALSE
 		SETTIMER TIMER_EXIT, 4000
 	}		
 
-
 IF 	EXIT_NOW=TRUE
 	EXITAPP
 
 RETURN
+; -------------------------------------------------------------------
 
-
-
+; -------------------------------------------------------------------
 STATUS:
 	GITHUB_RUNNNER_RERUN=GITHUB_RUNNNER
 	GOSUB MAIN_ROUTINE
 	EXITAPP
 RETURN
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 TIMER_EXIT:
 	EXITAPP
 RETURN
-
+; -------------------------------------------------------------------
 
  
 ;# ------------------------------------------------------------------
