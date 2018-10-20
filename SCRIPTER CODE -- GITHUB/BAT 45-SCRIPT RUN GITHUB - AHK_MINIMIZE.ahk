@@ -99,7 +99,7 @@ Loop, %id%
 {
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
-	IF INSTR(Title,%Command_Params%)
+	IF INSTR(Title,"%Command_Params%")
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
 		; MSGBOX % MMX
