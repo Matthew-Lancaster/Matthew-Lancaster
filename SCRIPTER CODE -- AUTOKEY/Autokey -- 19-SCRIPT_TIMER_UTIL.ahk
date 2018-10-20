@@ -247,7 +247,8 @@ setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,10000
 setTimer TIMER_SUB__MY_IP, 10000
 ; STARTS AS 10 SECOND AND THEN GOES TO EVERY 10 MINUTE
 
-setTimer TIMER_PREVIOUS_INSTANCE, 1
+setTimer TIMER_PREVIOUS_INSTANCE, 10
+; STARTS AS 10 MILLI-SECOND AND THEN GOES TO EVERY 1 MINUTE
 ; -------------------------------------------------------------------
 ; I used PREVIOUS_INSTANCE Detection For My Scripts Now 
 ; Otherwise they Maybe Two or More Loaded When You Run a Whole Bunch Together Quickly at Bootup or Just to run Again after Killed the Lot or Something
@@ -264,9 +265,80 @@ SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 
 SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
 
+GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE=
+GOSUB GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
+
 RETURN
 
 
+GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
+
+	; ---------------------------------------------------------------
+	; 1 = DAY TIMER 
+	; 2 = HOUR TIMER
+	; 3 = MINUTE TIMER
+	; ---------------------------------------------------------------
+	VALUE_TIMER_DY_HR_MI=3
+	
+	IF VALUE_TIMER_DY_HR_MI=1
+	{
+		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
+		Midnight += 1, days
+	}
+	IF VALUE_TIMER_DY_HR_MI=2
+	{
+		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
+		Midnight += 1, hours
+	}
+	IF VALUE_TIMER_DY_HR_MI=3
+	{
+		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
+		Midnight += 1, MINUTES
+	}
+
+	Midnight -= A_Now, seconds
+
+	EnvMult, Midnight, 1000
+
+	SET_GO=FALSE
+	IF A_Hour=18
+		SET_GO=TRUE
+	IF A_Hour=12
+		SET_GO=TRUE
+	IF A_Hour=0
+		SET_GO=TRUE
+	
+	SET_GO=TRUE
+	IF SET_GO=FALSE 
+		RETURN
+	
+	IF GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE
+	{
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
+		IfExist, %FN_VAR%
+		{
+			Run, %FN_VAR% /GOODSYNC_MODE
+		}
+		
+	}
+	
+	GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE=TRUE
+	
+	SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
+	SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, %Midnight%
+	SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, ON
+	; ----
+	; Test Timer Status - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/55321-test-timer-status/
+	; ----
+RETURN
+
+
+;----------------------------------------
+;----------------------------------------
+; BEGIN THE MAIN CODE
+; CHOW MEIN
+; MAIN CODE
 ;----------------------------------------
 ;----------------------------------------
 ;----------------------------------------
@@ -2017,7 +2089,7 @@ RETURN
 
 ; -------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
-SETTIMER TIMER_PREVIOUS_INSTANCE,10000
+SETTIMER TIMER_PREVIOUS_INSTANCE,59000
 
 if ScriptInstanceExist()
 {
