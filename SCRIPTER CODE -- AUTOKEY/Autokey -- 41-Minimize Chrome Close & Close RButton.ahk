@@ -8,6 +8,8 @@
 ;# __ 
 ;# __ DATE BEGIN
 ;# __ Tue 16-Oct-2018 03:00:00
+;# __ LAST EDITOR
+;# __ Sat 20-Oct-2018 06:04:00
 ;# __ 
 ;  =============================================================
 
@@ -150,7 +152,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; SESSION 005
 ; -------------------------------------------------------------------
 ; ----
-; APROVEMENT WITH THE __ TRIGGER_HAPPEN=
+; IMPROVEMENT WITH THE __ TRIGGER_HAPPEN=
 ; THE MOUSE WAS GETTING STICKY CLICK DOWN WHEN CLOSE WINDOW
 ;
 ; TIDY UP CODE JOB REFINE AND THING
@@ -158,6 +160,34 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; FROM   Wed 17-Oct-2018 23:26:46
 ; TO     Wed 17-Oct-2018 23:45:00
 ;# ------------------------------------------------------------------
+
+;# ------------------------------------------------------------------
+; SESSION 006
+; -------------------------------------------------------------------
+; ----
+; DONE ALL THE FINE TUNE UP ALL IMPROVEMENT TO THE MAXIMUM FOR NOW
+; TOOLTIPS COME BACK WHEN EVERY USE OF MINIMIZE AND CLOSE WINDOW IS DONE
+; JUST TO LET KNOW STILL IN USE AND STILL THERE
+; FINE TUNE CODE REMOVE REPRESENTATIVE CODE FINE TUNE REMOVED
+; REDUNDANT USE OF SPAGHETTI CODE THAT WAS NEAR GENERATOR TIPPING POINT
+; MUSH SMARTER
+; IMPROVE THE SPEED I USE PROGRAMMER OF AUTOHOTKEYS
+; BY HAVING A GOOD F12 KILL SWITCH FOR CODE THAT MESSING UP BEHAVING BADLY
+; ONLY WHEN KEY HOOKING AND GENERALLY QUICKER WHEN RSI REPEAT ARRIVE
+; PROCESS KILL BY PID NUMBER
+; IMPROVE THE RESPONSE OF CODE
+; BY TAKE PRIORITY THAT ACTIVE WINDOW RATHER THAN 
+; HOVER OVER MOUSE COORDINATE
+;
+; WORKED LOT OF TIME BUT DONE 3 OR 4 PROJECT BETWEEN
+; FOUND ONE LAST THING AS I WRITE TO CHECK OVER FOR MAXIMUM
+; IN THE WATCH_ ROUTINE
+;
+; -------------------------------------------------------------------
+; FROM   Sat 20-Oct-2018 00:45:42
+; TO     Sat 20-Oct-2018 06:04:00
+;# ------------------------------------------------------------------
+
 
 ;--------------------
 #SingleInstance force
@@ -326,6 +356,7 @@ SET_GO_1=FALSE
 IF IsOverCloseButton(X, Y, hWnd)
 	SET_GO_1=TRUE
 
+; --------------------------------------------------
 ; NICE TRY TO SET FOCUS TO WINDOW UNDER MOUSE CURSOR 
 ; TOO MANY PROBLEM LIKE LEFT CLICK ON TASKBAR
 ; FOUND THE PROBLEM USE THE NEW ROUTINE Hwnd_Parent IN PROGRAM_SET_TO_USE
@@ -343,15 +374,22 @@ TRIGGER_HAPPEN=FALSE
 IF SET_GO_2=TRUE
 	If SET_GO_1=TRUE
 	{
-		WinMinimize ahk_id %hWnd_APP%
-		SOUNDBEEP 2000,100
-		TRIGGER_HAPPEN=TRUE
+	
 		; -----------------------------------------------------------
-		; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
+		; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
 		; -----------------------------------------------------------
-		TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
-		TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
-
+		WinGet MMX, MinMax, ahk_id %hWnd_APP%
+		If MMX>-1
+		{
+			WinMinimize ahk_id %hWnd_APP%
+			SOUNDBEEP 2000,100
+			TRIGGER_HAPPEN=TRUE
+			; -----------------------------------------------------------
+			; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
+			; -----------------------------------------------------------
+			TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
+			TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
+		}
 	}
 
 ; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
