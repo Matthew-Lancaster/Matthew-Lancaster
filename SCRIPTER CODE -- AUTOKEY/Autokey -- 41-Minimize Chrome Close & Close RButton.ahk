@@ -9,7 +9,7 @@
 ;# __ DATE BEGIN
 ;# __ Tue 16-Oct-2018 03:00:00
 ;# __ LAST EDITOR
-;# __ Sat 20-Oct-2018 06:04:00
+;# __ Sat 20-Oct-2018 06:24:00
 ;# __ 
 ;  =============================================================
 
@@ -181,11 +181,29 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 ; WORKED LOT OF TIME BUT DONE 3 OR 4 PROJECT BETWEEN
 ; FOUND ONE LAST THING AS I WRITE TO CHECK OVER FOR MAXIMUM
-; IN THE WATCH_ ROUTINE
+; IN THE _ PROGRAM_SET_TO_USE _ ROUTINE - HARD TO DO THAT BIT OF EXIT EARLY
+; WHEN FOUND RESULT COULD BE SUPERCEEDEDD CHANGED BY ANOTHER
+; I COULD SAY PRIORTY IS TO THE ACTIVE WINDOW BUT DISABLE MOVE AROUND 
+; A BIT HOOVER - REALLY I INTRO NEW CODE THAT COULD MAKE LESS QUICK AGAIN
+; NOT DONE IS QUICKER OVER ACTIVE WINDOW
+; DETECTION FOR FLOAT WINDOW AND ON CLOSE BUTTON IS THERE
 ;
+; IMPROVED TOOLTIP THAT DISAPPEAR INSTANTLY WHEN WINDOW GONE WHILE 
+; BEEN REST ON TIMER
+; THATS THE MAXIMUM
+;
+; HAVE I GOT EVERYTHING I WANTED DONE FOR COMPUTER-ING TODAY
+
+; SPEED THE DURATION OF SOUNDBEEP TO DOUBLE SPEEDIER NOT WHEN A MINIMIZE HAPPEN
+; AS THAT LESS OFTEN
+; MINIMIZE WAS SAFE FOR SOUND EVENT 
+; BUT CLOSE NEEDED TAKE A CLOSER LOOK AT 
+; AND PUT SOUND EVENT BACK ON AND SHORTED THEM BOTH 
 ; -------------------------------------------------------------------
 ; FROM   Sat 20-Oct-2018 00:45:42
-; TO     Sat 20-Oct-2018 06:04:00
+; TO     Sat 20-Oct-2018 06:14:00 -----------------------------------
+; FROM   Sat 20-Oct-2018 04:33:55 - MAIN THRASH OF CODE REALLY WAS
+; TO     Sat 20-Oct-2018 06:24:00 - NEAR 2 HOUR
 ;# ------------------------------------------------------------------
 
 
@@ -396,7 +414,7 @@ IF SET_GO_2=TRUE
 ; -------------------------------------------------------------------
 IF SET_GO_1=TRUE
 	IF SET_GO_2=FALSE
-		SOUNDBEEP 1000,100
+		; SOUNDBEEP 1000,100
 
 IF TRIGGER_HAPPEN=FALSE		
 	Click down
@@ -432,10 +450,10 @@ IF SET_GO_2=TRUE
 		; AS EVENT IS AFTER RBUTTON UP
 		; BUT SOUNDBEEP OUGHT TO GIVE A CLUE
 		; -----------------------------------------------------------
-		; SOUNDBEEP 2000,100
 		KeyWait, RButton
 		WinClose ahk_id %hWnd_APP%
 		TRIGGER_HAPPEN=TRUE
+		SOUNDBEEP 2000,40
 		; -----------------------------------------------------------
 		; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
 		; -----------------------------------------------------------
@@ -529,6 +547,14 @@ IF TIMER_TOOLTIP>0
 
 GOSUB PROGRAM_SET_TO_USE
 
+IF SET_GO_2=FALSE 
+	IF TIMER_TOOLTIP>0
+	{
+		TOOLTIP
+		TIMER_TOOLTIP:=0
+	}
+
+
 IF (O_X=%X% and O_Y=%Y%)
 	Return
 O_X=X
@@ -557,7 +583,7 @@ if IsOverCloseButton(X, Y, hWnd)
 
 	IF CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
 	{
-		SOUNDBEEP 1000,40
+		SOUNDBEEP 1000,20
 	}
 	CLOSE_BUTTON_HOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOVER_ACTIVITY%
 	; ---------------------------------------------------------------
