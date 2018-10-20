@@ -101,9 +101,9 @@ Loop, %id%
 	WinGetTitle, Title, ahk_id %Table%
 	; Command_Params:="%Command_Params%"
 	
-	Command_Params_2:=%Command_Params%
+	Command_Params_2=%Command_Params%
 	IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
-		Command_Params_2:=GITHUB_RUNNNER
+		Command_Params_2=GITHUB_RUNNNER
 
 	IF INSTR(Title,Command_Params_2)
 	{
