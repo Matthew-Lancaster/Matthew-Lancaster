@@ -110,7 +110,7 @@ Loop, %id%
 	;IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
 	;	Command_Params_2=GITHUB_RUNNNER
 
-	IF INSTR(Title,Command_Params_2)
+	IF INSTR(Title,Command_Params)
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
 		; MSGBOX % MMX
