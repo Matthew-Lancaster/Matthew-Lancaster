@@ -102,8 +102,9 @@ Loop, %id%
 	; Command_Params:="%Command_Params%"
 	
 	Command_Params_2=%Command_Params%
-	IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
-		Command_Params_2=GITHUB_RUNNNER
+	
+	;IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
+	;	Command_Params_2=GITHUB_RUNNNER
 
 	IF INSTR(Title,Command_Params_2)
 	{
@@ -128,8 +129,7 @@ Loop, %id%
 } 
 
 
-;IF BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=FALSE
-
+IF BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=FALSE
 	IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
 	{
 		BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=TRUE
