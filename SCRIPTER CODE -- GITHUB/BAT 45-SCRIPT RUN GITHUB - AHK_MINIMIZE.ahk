@@ -81,15 +81,19 @@ Command_Params=
 Loop, %0% ; number of parameters
 	Command_Params.=%A_Index%
 	
-; Loop, %0%  ; For each parameter:
-  ; info .= %A_Index% "`r`n"
-; msgbox %info%
-	
-IF !Command_Params
+IF (!Command_Params or %0%=0)
 	Command_Params=GITHUB_RUNNNER
+
 
 IF GITHUB_RUNNNER_RERUN
 	Command_Params=%GITHUB_RUNNNER_RERUN%
+
+
+Command_Params:=StrReplace(Command_Params, """" , "")
+Command_Params="%Command_Params%"
+Command_Params:=StrReplace(Command_Params, """" , "")
+
+msgbox %Command_Params%
 	
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
