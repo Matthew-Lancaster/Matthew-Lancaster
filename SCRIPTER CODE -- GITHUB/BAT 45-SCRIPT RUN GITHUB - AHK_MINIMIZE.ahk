@@ -48,6 +48,16 @@ GITHUB_RUNNNER_RERUN=
 ; TO     Fri 19-Oct-2018 18:10:00
 ;# ------------------------------------------------------------------
 
+;# ------------------------------------------------------------------
+; SESSION 002
+; -------------------------------------------------------------------
+; CODE ADD _ TIMING AND ORDER AND VARIABLES PASSING 
+; BETWEEN OTHER PROGRAM
+; -------------------------------------------------------------------
+; FROM   Sat 20-Oct-2018 08:28:38
+; TO     Sat 20-Oct-2018 09:52:00 -- 1 HOUR AND A HALF
+;# ------------------------------------------------------------------
+
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
@@ -93,9 +103,7 @@ IF GITHUB_RUNNNER_RERUN
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
 
-WinMinimize, ahk_class Notepad++
-
-
+; WinMinimize, ahk_class Notepad++
 
 WinGet, id, list,ahk_class ConsoleWindowClass
 Loop, %id%
