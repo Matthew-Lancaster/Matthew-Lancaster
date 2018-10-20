@@ -80,6 +80,10 @@ Command_Params=
 
 Loop %0% ; number of parameters
 	Command_Params=%A_Index%
+	
+Loop, %0%  ; For each parameter:
+  info .= %A_Index% "`r`n"
+msgbox %info%
 
 	MSGBOX % Command_Params
 	
