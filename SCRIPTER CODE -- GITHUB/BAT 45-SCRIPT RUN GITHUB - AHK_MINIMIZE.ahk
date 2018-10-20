@@ -99,6 +99,7 @@ WinMinimize, ahk_class Notepad++
 
 
 
+
 WinGet, id, list,ahk_class ConsoleWindowClass
 Loop, %id%
 {
