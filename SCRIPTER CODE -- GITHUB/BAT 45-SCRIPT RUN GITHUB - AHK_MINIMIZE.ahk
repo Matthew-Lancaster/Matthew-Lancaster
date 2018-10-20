@@ -24,6 +24,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; --------------------
 #SingleInstance force
 
+GITHUB_RUNNNER_RERUN=
 
 ;# ------------------------------------------------------------------
 ; DESCRIPTION
@@ -52,11 +53,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 
 ; SoundBeep , 1000 , 200
+
+GITHUB_RUNNNER_RERUN=
+
+GOSUB MAIN_ROUTINE
+
+RETURN
+
 ; -------------------------------------------------------------------
 
 ; GLOBAL SETTINGS ===================================================
 
 ; GUI ===============================================================
+
+
+MAIN_ROUTINE:
 
 Gui, Margin, 5, 5
 gui, font, s14 ; , Arial ; , Calibri  
@@ -71,6 +82,9 @@ Loop %0% ; number of parameters
 
 IF !Command_Params
 	Command_Params=GITHUB_RUNNNER
+
+IF GITHUB_RUNNNER_RERUN
+	Command_Params=GITHUB_RUNNNER_RERUN
 
 	
 EXIT_NOW=TRUE
@@ -110,8 +124,9 @@ IF 	EXIT_NOW=TRUE
 RETURN
 
 STATUS:
-
-EXITAPP
+	GITHUB_RUNNNER_RERUN=GITHUB_RUNNNER
+	GOSUB MAIN_ROUTINE
+	EXITAPP
 RETURN
 
 TIMER_EXIT:
