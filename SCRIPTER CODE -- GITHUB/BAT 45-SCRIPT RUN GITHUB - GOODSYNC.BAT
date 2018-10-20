@@ -142,6 +142,11 @@ ECHO Another_Job       %Another_Job%
 ECHO ----------------------------------------------------------------
 ECHO.
 
+
+
+"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
+
+
 if "%Analysis_Complete%"=="FALSE" (
 	if "%Another_Job%"=="FALSE" (
 		ECHO ----------------------------------------------------------------
