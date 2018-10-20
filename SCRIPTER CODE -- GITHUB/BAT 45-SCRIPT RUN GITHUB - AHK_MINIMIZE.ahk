@@ -90,10 +90,6 @@ IF GITHUB_RUNNNER_RERUN
 
 
 Command_Params:=StrReplace(Command_Params, """" , "")
-Command_Params="%Command_Params%"
-;msgbox %Command_Params%
-Command_Params:=StrReplace(Command_Params, """" , "")
-;msgbox %Command_Params%
 	
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
@@ -104,7 +100,12 @@ Loop, %id%
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
 	; Command_Params:="%Command_Params%"
-	IF INSTR(Title,Command_Params)
+	
+	Command_Params_2:=%Command_Params%
+	IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
+		Command_Params_2=GITHUB_RUNNNER
+
+	IF INSTR(Title,Command_Params_2)
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
 		; MSGBOX % MMX
