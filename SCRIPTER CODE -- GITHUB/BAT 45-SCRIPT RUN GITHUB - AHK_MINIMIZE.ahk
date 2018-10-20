@@ -103,7 +103,7 @@ Loop, %id%
 	
 	Command_Params_2:=%Command_Params%
 	IF INSTR(Command_Params, QUICK_INTRO_DUMMY_RUN)
-		Command_Params_2=GITHUB_RUNNNER
+		Command_Params_2:=GITHUB_RUNNNER
 
 	IF INSTR(Title,Command_Params_2)
 	{
