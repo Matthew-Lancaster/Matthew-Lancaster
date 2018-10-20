@@ -91,9 +91,9 @@ IF GITHUB_RUNNNER_RERUN
 
 Command_Params:=StrReplace(Command_Params, """" , "")
 Command_Params="%Command_Params%"
-msgbox %Command_Params%
+;msgbox %Command_Params%
 Command_Params:=StrReplace(Command_Params, """" , "")
-msgbox %Command_Params%
+;msgbox %Command_Params%
 	
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
