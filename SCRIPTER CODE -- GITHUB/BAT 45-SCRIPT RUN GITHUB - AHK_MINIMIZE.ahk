@@ -84,8 +84,6 @@ Loop, %0% ; number of parameters
 ; Loop, %0%  ; For each parameter:
   ; info .= %A_Index% "`r`n"
 ; msgbox %info%
-
-	MSGBOX % Command_Params
 	
 IF !Command_Params
 	Command_Params=GITHUB_RUNNNER
@@ -101,7 +99,7 @@ Loop, %id%
 {
 	Table := id%A_Index%
 	WinGetTitle, Title, ahk_id %Table%
-	IF INSTR(Title,%Command_Params%)>0
+	IF INSTR(Title,%Command_Params%)
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
 		; MSGBOX % MMX
