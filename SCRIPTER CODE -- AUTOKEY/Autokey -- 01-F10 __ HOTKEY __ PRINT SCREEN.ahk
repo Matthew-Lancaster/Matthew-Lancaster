@@ -146,7 +146,7 @@ Return
 ; YOU HEARD IT HEAR FIRST
 ; -------------------------------------------------------------------
 
-; F12::
+F12::
 {
 	SetTitleMatchMode 3  ; EXACTLY
 	DetectHiddenWindows, ON
