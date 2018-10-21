@@ -144,7 +144,6 @@ RETURN
 
 START:
 
-
 	; ----
 	; Command-line arguments - Rosetta Code
 	; https://rosettacode.org/wiki/Command-line_arguments#AutoHotkey
@@ -155,7 +154,16 @@ START:
 
 	Loop %0% ; number of parameters
 		Command_Params .= %A_Index% . A_Space
+	IF %0%=0
+		Command_Params=
 
+	; ---------------------------------------------------------------
+	; TEST DEBUGGE
+	; RUN BY
+	; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+	; ---------------------------------------------------------------
+	; Command_Params=/QUITE_COMMANDLINE_ARGS
+	; ---------------------------------------------------------------
 
 	; Each array must be initialized before use:
 	FN_Array := []
@@ -219,9 +227,9 @@ else
 	IF count>1
 		GuiControl ,, Status, Problems Found
 }	
-	
+	 
 IF count=0
-	if params
+	if Command_Params
 		ExitApp
 
 if !Command_Params
