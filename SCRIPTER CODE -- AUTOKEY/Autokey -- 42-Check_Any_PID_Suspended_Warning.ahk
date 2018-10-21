@@ -120,13 +120,13 @@ Gui, Margin, 5, 5
 gui, font, s14 ; , Arial ; , Calibri  
 ; Gui, Add, Edit, xm ym w200 hWndhSearch vprcsearch
 ; DllCall("user32.dll\SendMessage", "Ptr", hSearch, "UInt", 0x1501, "Ptr", 1, "Str", "Prozess Name here", "Ptr")
-Gui, Add, Button, y+5 w480 gSTART_RERUN, Script of Watched Processes Suspended Warning
-Gui, add, Button, y+5 W480 gStatus, Status
-Gui, Add, ListView, xm y+5 w480 h240, PID|Name|HardCore
+Gui, Add, Button, y+5 w540 gSTART_RERUN, Script of Watched Processes Suspended Warning
+Gui, add, Button, y+5 W540 gStatus, Status
+Gui, Add, ListView, xm y+5 w540 h240, PID|Name|HardCore
 ; Gui, Add, Edit, xm y+5 w60 0x800 vprccount
 LV_ModifyCol(1, 100)
-LV_ModifyCol(2, 180)
-LV_ModifyCol(3, 150)
+LV_ModifyCol(2, 240)
+LV_ModifyCol(3, 200)
 
 GOSUB START
 
@@ -170,11 +170,25 @@ START:
 	STATUS_Array := []
 	ArrayCount := 0
 	ArrayCount += 1
-	FN_Array[ArrayCount]:="AU3_Spy.exe"    ; ---- AUTOHOTKEYS SPY PROGRAM
+	FN_Array[ArrayCount]:="AU3_Spy.exe"            ; ---- AUTOHOTKEYS SPY PROGRAM
 	ArrayCount += 1
 	FN_Array[ArrayCount]:="Explorer.exe"
 	ArrayCount += 1
-	FN_Array[ArrayCount]:="Winamp.exe"     ; ---- MUSICAL MP3 AUDIO PROGRAM
+	FN_Array[ArrayCount]:="Winamp.exe"             ; ---- MUSICAL MP3 AUDIO PROGRAM
+	ArrayCount += 1
+	FN_Array[ArrayCount]:="SystemSettings.exe"     
+	; C:\Windows\ImmersiveControlPanel\SystemSettings.exe
+	; FOUND TO BE IN SUSPENDED BUT TRIGGER RESUME COMES BACK TO SUSPENDED AGAIN BUT NOT ANY PROBLEM TO KILL PROCESS
+	ArrayCount += 1
+	FN_Array[ArrayCount]:="ShellExperienceHost.exe"     
+	; C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
+	; FOUND TO BE IN SUSPENDED BUT TRIGGER RESUME COMES BACK TO SUSPENDED AGAIN BUT NOT ANY PROBLEM TO KILL PROCESS
+	; AFE KIL PROCESS COMES BACK AGAIN BUT WITHOUT SUSPENDED ON
+	; ----
+	; ShellExperienceHost.exe Windows process - What is it?
+	; https://www.file.net/process/shellexperiencehost.exe.html
+	; ----
+
 
     Gui, Submit, NoHide
     WTSEnumProcesses(), LV_Delete(), count := 0

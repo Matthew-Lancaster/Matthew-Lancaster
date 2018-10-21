@@ -7,6 +7,7 @@
 ;# __ 
 ;# START       TIME [ Fri 17:20:00 Pm_04 May 2018 ]
 ;# END         TIME [ Fri 17:40:00 Pm_04 May 2018 ]
+;# LAST EDITOR TIME [ Sun 14:05:00 Pm_21 Oct 2018 ]
 ;# __ 
 ;  =============================================================
 
@@ -59,11 +60,26 @@
 ; YOU COULD TRIM VERSION NUMBER DOWN A BIT AND NOT USE EXACTING AGAIN
 ;
 ; WELL IT ONLY TOOK 10 MINUTE TO LOCATE VERSION NUMBER AND USE IT ON
-
+;
 ; -------------------------------------------------------------------
 ; FROM TIME __ Sat 20-Oct-2018 01:58:30
 ; TO   TIME __ Sat 20-Oct-2018 04:30:00 _ 2 HOUR 30 MINUTE
 ; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; 005 ---------------------------------------------------------------
+; -------------------------------------------------------------------
+; ADD CODE _ MADE A CHANGE _ IF YOU KILL A PROCESS IT WON'T RELOAD 
+; BECAUSE THE APP FILE PROGRAM WILL ALREADY BEEN SCANNED IN
+; IT ONLY LOOKING FOR DATE CHANGER NOT IF IT DISAPPEARED
+; THEN IF WORKING ON SOMETHING APP AHK AND KILL IT WON'T RELOAD AGAIN 
+; QUICKLY _ SUSSED THAT LOOP GONE
+; -------------------------------------------------------------------
+; FROM TIME __ Sun 21-Oct-2018 13:58:58
+; TO   TIME __ Sun 21-Oct-2018 14:05:00
+; -------------------------------------------------------------------
+
+
 
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
@@ -230,7 +246,7 @@ Loop % ArrayCount
 	
 	SET_GO=FALSE
 	IfExist, %Element_1%
-		IF !WinExist(Element_3) 
+		IF (!WinExist(Element_3) and !Element_2)
 			SET_GO=TRUE
 	
 	FileGetTime, OutputVar, %Element_1%, M
