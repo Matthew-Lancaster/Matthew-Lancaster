@@ -87,7 +87,6 @@ Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
 ; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
 
 Command_Params=
-
 Loop, %0% ; number of parameters
 	Command_Params.=%A_Index%
 	
