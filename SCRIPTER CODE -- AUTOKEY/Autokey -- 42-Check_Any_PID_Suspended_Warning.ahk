@@ -175,12 +175,14 @@ START:
 	FN_Array[ArrayCount]:="Explorer.exe"
 	ArrayCount += 1
 	FN_Array[ArrayCount]:="Winamp.exe"             ; ---- MUSICAL MP3 AUDIO PROGRAM
-	ArrayCount += 1
-	FN_Array[ArrayCount]:="SystemSettings.exe"     
+	
+	; ArrayCount += 1
+	; FN_Array[ArrayCount]:="SystemSettings.exe"     
 	; C:\Windows\ImmersiveControlPanel\SystemSettings.exe
 	; FOUND TO BE IN SUSPENDED BUT TRIGGER RESUME COMES BACK TO SUSPENDED AGAIN BUT NOT ANY PROBLEM TO KILL PROCESS
-	ArrayCount += 1
-	FN_Array[ArrayCount]:="ShellExperienceHost.exe"     
+	
+	; ArrayCount += 1
+	; FN_Array[ArrayCount]:="ShellExperienceHost.exe"     
 	; C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
 	; FOUND TO BE IN SUSPENDED BUT TRIGGER RESUME COMES BACK TO SUSPENDED AGAIN BUT NOT ANY PROBLEM TO KILL PROCESS
 	; AFE KIL PROCESS COMES BACK AGAIN BUT WITHOUT SUSPENDED ON
