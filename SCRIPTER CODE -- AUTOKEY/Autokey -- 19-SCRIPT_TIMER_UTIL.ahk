@@ -131,6 +131,16 @@
 ; TO ---- Sat 20-Oct-2018 08:00:02 _ 1 AND HALF HOUR
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; 009
+; ADD CODE PIXEL FIND ROUTINE TO CHROME AND YAHOO PRINTER OUTPUT NEW THING
+; ON PRESS P IN YAHOO - BIT BUGGY THEY HAVING PRINT ONLY COME UP ONCE SOMETIMES
+; -------------------------------------------------------------------
+; FROM -- Mon 22-Oct-2018 19:18:41
+; TO ---- Mon 22-Oct-2018 20:12:14 - 1 HOUR 
+; -------------------------------------------------------------------
+
+
 
 ;# ------------------------------------------------------------------
 ; Location OnLine
@@ -588,6 +598,7 @@ IfWinExist ahk_class #32770
 	HWND_ID_4 := WinExist("Install RoboForm ahk_class #32770")
 	HWND_ID_5 := WinExist("Sync RoboForm Data Folder")
 	HWND_ID_6 := WinExist("AutoFill - RoboForm")
+	HWND_ID_7 := WinExist("AutoSave New Account - RoboForm")
 	
 	ControlGetText, OutputVar_1, _RoboForm_Dialog_1100973_, ahk_class #32770
 	
@@ -626,6 +637,8 @@ IfWinExist ahk_class #32770
 		SET_GO=FALSE
 	IF HWND_ID_1=%HWND_ID_6%
 		SET_GO=FALSE
+	IF HWND_ID_1=%HWND_ID_7%
+		SET_GO=FALSE
 		
 	IF SET_GO=TRUE
 	{	
@@ -636,10 +649,13 @@ IfWinExist ahk_class #32770
 }
 
 
+DetectHiddenWindows, On
+
 ; -------------------------------------------------------------------
 ; Question at End of Sync is Able to Be Made Close Auto
 ; -------------------------------------------------------------------
 Sting_Var=Sync RoboForm Data Folder
+
 IfWinExist %Sting_Var%
 {
 	HWND_ID_5 := WinExist("%Sting_Var%")
@@ -1245,6 +1261,78 @@ IF HWND_ID_1>0
 	ControlClick, OK, ahk_id %HWND_ID_1%
 	SoundBeep , 2500 , 100
 }
+
+
+; -------------------------------------------------------------------
+; THE NEW YAHOO MAIL INTERFACE HAS PROBLEM
+; WHEN I WANT HEADER INFO OF AN EMAIL LIKE IT WAS TO PRINT ONE
+; TO COPY PASTE THE TEXT HEADER
+; NOW THE NEW PRINT OF YAHOO INCLUDE DOBLE CALL WINDOW TO PRINT ALSO
+; WHEN THAT WAS OPTION ON NICER FIRST SCREEN WINDOW BEFORE
+; SO I MAKE A PIXEL FIND COLOR AND CLOSE PRINT SCREEN 
+; SAVE ME HAVE TO
+; [ Monday 20:08:30 Pm_22 October 2018 ]
+; ANOTHER LITTLE PROBLEM SOLVED
+; READY FOR SOME OTHER THING IN CHROME WORKER I LIKING
+; [ Monday 20:08:30 Pm_22 October 2018 ]
+; -------------------------------------------------------------------
+
+FN_Array_1 := []
+FN_Array_2 := []
+
+WinGet, id, list,ahk_class Chrome_WidgetWin_1
+Loop, %id%
+{
+	table := id%A_Index%
+	WinGetTitle, title, ahk_id %table%
+	FN_Array_1[A_Index] := "%table%"
+	FN_Array_2[A_Index] := id%A_Index%
+}
+
+CoordMode Pixel, Window 
+
+Loop % FN_Array_1.MaxIndex()
+	ArrayCount_VAR_1=%A_Index%
+	Loop % FN_Array_1.MaxIndex()
+	{
+		ArrayCount_VAR_2=%A_Index%
+		IF ArrayCount_VAR_1<>ArrayCount_VAR_2    ; NOT THE SELF
+		{
+			IF FN_Array_1[ArrayCount_VAR_1]=FN_Array_1[ArrayCount_VAR_2]
+				;MSGBOX "HOO"
+				; MSGBOX % FN_Array_2[ArrayCount_VAR_2]
+				HWND_4 = % FN_Array_2[ArrayCount_VAR_2]
+				WinGet, HWND_2, ID, ahk_id %HWND_4%
+				IF HWND_4>0
+				{
+					X=500
+					Y=100
+					PixelGetColor Color_1, %X%, %Y%, RGB
+					X=242
+					Y=180
+					PixelGetColor Color_2, %X%, %Y%, RGB
+					X=295
+					Y=180
+					PixelGetColor Color_3, %X%, %Y%, RGB
+					
+					COLOR_COMPARE_1=0x5256590x4B8EF90x4B8EF9
+					COLOR_COMPARE_2=%COLOR_1%%COLOR_2%%COLOR_3%
+					IF COLOR_COMPARE_1=%COLOR_COMPARE_2%
+					{
+						SOUNDBEEP 1000,50
+						; TOOLTIP % COLOR_COMPARE_1 " -- " COLOR_COMPARE_2
+						; WinCLOSE  ahk_id %HWND_4%
+						SENDINPUT {ESCAPE}
+						RETURN
+					}
+						; WinMinimize  ahk_id %HWND_4%
+			}
+		}
+	}
+; ----
+; PixelGetColor from an innactive window - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/103880-pixelgetcolor-from-an-innactive-window/
+; ----
 
 
 

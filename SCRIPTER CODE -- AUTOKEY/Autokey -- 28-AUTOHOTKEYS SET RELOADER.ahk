@@ -7,7 +7,7 @@
 ;# __ 
 ;# START       TIME [ Fri 17:20:00 Pm_04 May 2018 ]
 ;# END         TIME [ Fri 17:40:00 Pm_04 May 2018 ]
-;# LAST EDITOR TIME [ Sun 14:05:00 Pm_21 Oct 2018 ]
+;# LAST EDITOR TIME [ Mon 12:15:00 Pm_22 Oct 2018 ]
 ;# __ 
 ;  =============================================================
 
@@ -79,22 +79,27 @@
 ; TO   TIME __ Sun 21-Oct-2018 14:05:00
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; 007 ---------------------------------------------------------------
+; -------------------------------------------------------------------
+; ADD CODE _ DON'T RUN UPDATED CODE ALREADY RUNNER WHEN IDLE NOT AT 
+; CERTAIN LEVEL
+; TIDY SPAGHETTI CODE THAT AREA - UNNECESSARY OVER USE OF VARIABLES
+; -------------------------------------------------------------------
+; FROM TIME __ Mon 22-Oct-2018 11:07:12
+; TO   TIME __ Mon 22-Oct-2018 12:15:00
+; -------------------------------------------------------------------
 
+; CERTAINLY CONCERNED - PRO-CON PRO-CERNED PROCEED
 
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set Google Drive
-; Possible Censorship of Code Detected By Google as Malicious Happen Here
-; unlike DropBox that has All Available
-; https://drive.google.com/open?id=0BwoB_cPOibCPTnRZZVFuRFpHOTg
-;--------------------------------------------------------------------
-; Link to Folder of all My Scriptor Project Set DropBox
-; https://www.dropbox.com/sh/ntghoncyb8py1tf/AACWYrfkVn9PlqpYzNNSMcpMa?dl=0
-;--------------------------------------------------------------------
-; Link to This File On DropBox With Most Up to Date
-; 
+; ----
+; Matthew-Lancaster/Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk· GitHub
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2028-AUTOHOTKEYS%20SET%20RELOADER.ahk
+; ----
 ;# ------------------------------------------------------------------
 
 
@@ -107,7 +112,6 @@
 ;--------------------
 
 SetStoreCapslockMode, off
-
 DetectHiddenWindows, ON
 SetTitleMatchMode 3  ; EXACTLY
 
@@ -116,6 +120,11 @@ SoundBeep , 2000 , 100
 ;--------------------------------------------------------------------
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
+
+
+GLOBAL VAR_A__TimeIdle
+
+VAR_A__TimeIdle=0
 
 ; Each array must be initialized before use:
 FN_Array_1 := []
@@ -243,24 +252,36 @@ Loop % ArrayCount
 	Element_1 := FN_Array_1[A_Index]
 	Element_2 := DATE_MOD_Array[A_Index]
 	Element_3 := FN_Array_2[A_Index]
-	
-	SET_GO=FALSE
+
 	IfExist, %Element_1%
-		IF (!WinExist(Element_3) and !Element_2)
-			SET_GO=TRUE
+		FileGetTime, OutputVar, %Element_1%, M
 	
-	FileGetTime, OutputVar, %Element_1%, M
-	IF OutputVar<>%Element_2%
-	{
-		SET_GO=TRUE
-		DATE_MOD_Array[A_Index] := OutputVar
-	}
-		
-	IF SET_GO=TRUE	
+	IfExist, %Element_1%
+		IF (!WinExist(Element_3))
 		{
+			DATE_MOD_Array[A_Index] := OutputVar
 			SoundBeep , 2000 , 100
 			Run, %Element_1%
+			RETURN
 		}
+	
+	IF OutputVar<>%Element_2%
+	{
+		; -----------------------------------------------------------
+		; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
+		; IMMEDIATELY AGAIN
+		; -----------------------------------------------------------
+		IF (A_TimeIdle > 120000)
+		{
+			DATE_MOD_Array[A_Index] := OutputVar
+			;DATE_MOD_Array.RemoveAt(A_Index)
+			;DATE_MOD_Array.InsertAt(A_Index,OutputVar)
+			SoundBeep , 2000 , 100
+			Run, %Element_1%
+			; msgbox % DATE_MOD_Array[A_Index]
+		}
+	}
 }
 
 RETURN
+

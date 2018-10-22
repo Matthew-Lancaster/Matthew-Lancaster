@@ -207,6 +207,26 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;# ------------------------------------------------------------------
 
 
+;# ------------------------------------------------------------------
+; SESSION 007
+; -------------------------------------------------------------------
+; ----
+; LONGEST SLOG LEARN
+; HAD TO GIVE UP CHASING PIXEL COLOUR LEARN AS HAVOC ON THE MOUSE CLICK EVENT
+; REDONE ALL THE CODE MUCH MORE DIFFERENT AND BETTER
+; THOUGHT OF EVERYTHING
+; AND SPOTTED TON OF BUGGY FORM BEFORE
+; AS ALTERNATIVELY I MANAGED TO SEE A WAY OF DOING WHAT WANTED BY LOOK AT TITLE
+; YAHOO IN JUST DAYS GONE BY 
+; CHANGED THE PRINT OUTPUT I USED TO GET HEADER INFO OF EMAIL
+; TO INCLUDE TWO SCREEN WITH PRINT TO GO ALSO YOU ONLY HAVE TO PRESS ESCAPE ON THAT
+; WITH SENDINPUT
+; -------------------------------------------------------------------
+; FROM   Mon 22-Oct-2018 20:32:40
+; TO     Tue 23-Oct-2018 00:08:00
+;# ------------------------------------------------------------------
+
+
 ;--------------------
 #SingleInstance force
 ;--------------------
@@ -235,6 +255,11 @@ GLOBAL TOOLTIP_DISPLAY_COUNT_LIMITER_2
 
 GLOBAL CLOSE_BUTTON_HOVER_ACTIVITY_OLD
 
+GLOBAL TRIGGER_FOR_WAIT_RIGHT_UP_HAPPEN
+GLOBAL TRIGGER_FOR_WAIT_LEFT_UP_HAPPEN
+
+TRIGGER_FOR_WAIT_RIGHT_UP_HAPPEN=FALSE
+TRIGGER_FOR_WAIT_LEFT_UP_HAPPEN=FALSE
 
 TOOLTIP_BEEN_SET_1=0
 TOOLTIP_BEEN_SET_2=FALSE
@@ -261,25 +286,45 @@ O_X=0
 O_Y=0
 
 
+; SetTitleMatchMode 2  ; ANY
+SetTitleMatchMode 3  ; EXACTLY
+
+
 FN_Array := []
 STAT_Array := []
 WIN_CLASS_OR_TITLE_Array := []
 ArrayCount := 0
+  
 
-ArrayCount += 1
-FN_Array[ArrayCount]:="ThunderRT6FormDC"       ; ---- VISUAL BASIC
-STAT_Array[ArrayCount]:=FALSE
-WIN_CLASS_OR_TITLE_Array[ArrayCount]:="CLASS" 
+; THIS ONE CAN TAKE OUT WHEN TESTER
+; -------------------------------------------------------------------
+; ArrayCount += 1
+; FN_Array[ArrayCount]:="ThunderRT6FormDC"       ; ---- VISUAL BASIC
+; STAT_Array[ArrayCount]:=FALSE
+; WIN_CLASS_OR_TITLE_Array[ArrayCount]:="CLASS" 
 
 ArrayCount += 1
 FN_Array[ArrayCount]:="Chrome_WidgetWin_1"     ; ---- GOOGLE CHROME
 STAT_Array[ArrayCount]:=TRUE
 WIN_CLASS_OR_TITLE_Array[ArrayCount]:="CLASS"
 
+; NOT WORKER ANYMORE YAHOO CHANGED PRINT MECHANISM
+; MEAN ARE ABLE TO EXIT THE LOOP QUICKER WHEN CHECKER - MAYBE
+; -------------------------------------------------------------------
+; ArrayCount += 1
+; FN_Array[ArrayCount]:="Print - Google Chrome"  ; ---- Print - Google Chrome
+; STAT_Array[ArrayCount]:=FALSE
+; WIN_CLASS_OR_TITLE_Array[ArrayCount]:="TITLE"
+
+; GETTING PIXELS IS HARD WORK
+; SO WORK AROUND DO THIS WAY ALLOW CLOSE WINDOW OF CHROME WHEN ON PRINTER OF BT YAHOO MAIL
+; MUST FIND EXTRA SAFE GUARD
+; -------------------------------------------------------------------
 ArrayCount += 1
-FN_Array[ArrayCount]:="Print - Google Chrome"  ; ---- Print - Google Chrome
+FN_Array[ArrayCount]:="BT Yahoo Mail -"          ; ---- Print - Google Chrome
 STAT_Array[ArrayCount]:=FALSE
 WIN_CLASS_OR_TITLE_Array[ArrayCount]:="TITLE"
+
 
 
 
@@ -308,15 +353,14 @@ Return
 ; -------------------------------------------------------------------
 PROGRAM_SET_TO_USE:
 ; -------------------------------------------------------------------
-
 SET_GO_2=FALSE
-
 LOOP, 2
 {	
 	IF A_Index=1
 	{
 		WinGet, Hwnd_ID, ID, A
 	}
+
 	IF A_Index=2
 	{
 		CoordMode Mouse, Screen
@@ -329,30 +373,70 @@ LOOP, 2
 	WinGetClass, Class_Title, ahk_id %Hwnd_ID%
 	WinGetTitle, Win_Title, ahk_id %Hwnd_ID%
 
+	
 	Loop % ArrayCount
 	{
+		; BIT OF CROSS CHECKER HERE SPEDIER WITH AN ELSE LINE
+		; -----------------------------------------------------------
 		IF WIN_CLASS_OR_TITLE_Array[A_Index]="CLASS"
 			IF FN_Array[A_Index]=Class_Title
-			{
-				SET_GO_2:=STAT_Array[A_Index]
-				IF SET_GO_2=0
-					SET_GO_2=FALSE
-				IF SET_GO_2=1
-					SET_GO_2=TRUE
-			}
+				SET_GO_2:=% STAT_Array[A_Index]
 				
 		IF WIN_CLASS_OR_TITLE_Array[A_Index]="TITLE"
-			IF FN_Array[A_Index]=Win_Title
-			{
-				IF SET_GO_2=0
-					SET_GO_2=FALSE
-				IF SET_GO_2=1
-					SET_GO_2=TRUE
-
-			}
+			IF (InStr("*"Win_Title,"*"FN_Array[A_Index]))
+				SET_GO_2:=% STAT_Array[A_Index]
 	}
+
+	IF SET_GO_2=1
+		SET_GO_2=TRUE
+	
+	IF SET_GO_2=0
+		SET_GO_2=FALSE
+
+	; ---------------------------------------------------------------
+	; TEMPORARY ABORTED USE THIS METHOD
+	; TOO DIFFICULT FOR CLICK AND DRAGGING
+	; ---------------------------------------------------------------
+	IF A_Index=4
+		IF Class_Title=Chrome_WidgetWin_1
+		{
+			X=180
+			Y=55
+			PixelGetColor Color_1, %X%, %Y%, RGB
+			; X=200
+			; PixelGetColor Color_2, %X%, %Y%, RGB
+			; X=220
+			; PixelGetColor Color_3, %X%, %Y%, RGB
+			X=24
+			Y=18
+			PixelGetColor Color_4, %X%, %Y%, RGB
+			
+			; ---------------------------------------------------------------
+			; THIS THE SELECTED COLOR IN THE TITLE URL BAR
+			; BUT NEVER HAPPEN
+			; MUST BE WHEN UNSELECTED BIT MORE GREY THAN WHITE
+			; ALSO CHANGES COLOR GREY-ER A BIT WHEN HOVER OVER
+			; ---------------------------------------------------------------
+			; FIND CHECKING TOO MANY POINT MAKE PROBLEM HAZARD TO COPY SELECT PICKER
+			; REDUCE BY TWO AND OKAY
+			; ALSO INCLUDE ONLY CHECK ON ACTIVE WINDOW SPEEDIER
+			; ---------------------------------------------------------------
+			COLOR_COMPARE_1=0xF1F3F40xDE736A
+			COLOR_COMPARE_2=%COLOR_1%%COLOR_4%
+			IF COLOR_COMPARE_1=%COLOR_COMPARE_2%
+			{
+				SET_GO_2=FALSE
+				RETURN
+			}
+
+			
+		}
+		; TOOLTIP % SET_GO_2 " -- " COLOR_COMPARE_1 " -- " COLOR_COMPARE_2
+		; TOOLTIP % SET_GO_2
 }
 
+
+	
 RETURN
 ; -------------------------------------------------------------------
 
@@ -362,164 +446,144 @@ RETURN
 ; -------------------------------------------------------------------
 LButton:: ; Minimize Google Chrome instead of close when close button is clicked
 ; -------------------------------------------------------------------
-GOSUB PROGRAM_SET_TO_USE
+
+	GOSUB PROGRAM_SET_TO_USE
+		
+	IF SET_GO_2=FALSE 
+	{
+		Click down
+		RETURN
+	}
 	
-IF SET_GO_2=FALSE 
+	; --------------------------------------------------
+	; NICE TRY TO SET FOCUS TO WINDOW UNDER MOUSE CURSOR 
+	; TOO MANY PROBLEM LIKE LEFT CLICK ON TASKBAR
+	; FOUND THE PROBLEM USE THE NEW ROUTINE Hwnd_Parent IN PROGRAM_SET_TO_USE
+	; --------------------------------------------------
+	; CoordMode Mouse, Screen
+	; MouseGetPos, x, y, hWnd
+	; Hwnd_Parent := DllCall("GetParent", UInt,WinExist("ahk_id" hWnd)), Hwnd_Parent := !Hwnd_Parent ? WinExist("ahk_id" hWnd) : Hwnd_Parent
+	; WinGetClass, ClassNN_1, ahk_id %hwnd_parent%
+	; WinGetClass, ClassNN_2, A
+	; WinGet, Hwnd_2, ID, A
+	; TOOLTIP % ClassNN_1 " -- " ClassNN_2
+	; TOOLTIP % SET_GO_2 " -- " ClassNN_1 " -- " ClassNN_2
+
+
+	GOSUB IsOverCloseButton
+
+	; -----------------------------------------------------------
+	; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
+	; -----------------------------------------------------------
+	IF SET_GO_1=TRUE
+	{
+		TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
+		TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
+	}
+		
+	TRIGGER_HAPPEN=FALSE
+	IF SET_GO_2=TRUE
+		If SET_GO_1=TRUE
+		{
+			; SOUNDBEEP 5000,100
+			; -----------------------------------------------------------
+			; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
+			; -----------------------------------------------------------
+			WinGet MMX, MinMax, ahk_id %hWnd_APP%
+			If MMX>-1
+			{
+				WinMinimize ahk_id %hWnd_APP%
+				SOUNDBEEP 2000,100
+				TRIGGER_HAPPEN=TRUE
+				TRIGGER_FOR_WAIT_LEFT_UP_HAPPEN=TRUE
+			}
+		}
+
+	IF TRIGGER_HAPPEN=FALSE		
+		Click down
+
+RETURN
+; -------------------------------------------------------------------
+
+LButton Up::
+; -------------------------------------------------------------------
+IF TRIGGER_FOR_WAIT_LEFT_UP_HAPPEN=TRUE
 {
-	Click down
+	TRIGGER_FOR_WAIT_LEFT_UP_HAPPEN=FALSE
 	RETURN
 }
-
-SET_GO_1=FALSE
-IF IsOverCloseButton(X, Y, hWnd)
-	SET_GO_1=TRUE
-
-; --------------------------------------------------
-; NICE TRY TO SET FOCUS TO WINDOW UNDER MOUSE CURSOR 
-; TOO MANY PROBLEM LIKE LEFT CLICK ON TASKBAR
-; FOUND THE PROBLEM USE THE NEW ROUTINE Hwnd_Parent IN PROGRAM_SET_TO_USE
-; --------------------------------------------------
-; CoordMode Mouse, Screen
-; MouseGetPos, x, y, hWnd
-; Hwnd_Parent := DllCall("GetParent", UInt,WinExist("ahk_id" hWnd)), Hwnd_Parent := !Hwnd_Parent ? WinExist("ahk_id" hWnd) : Hwnd_Parent
-; WinGetClass, ClassNN_1, ahk_id %hwnd_parent%
-; WinGetClass, ClassNN_2, A
-; WinGet, Hwnd_2, ID, A
-; TOOLTIP % ClassNN_1 " -- " ClassNN_2
-; TOOLTIP % SET_GO_2 " -- " ClassNN_1 " -- " ClassNN_2
-
-TRIGGER_HAPPEN=FALSE
-IF SET_GO_2=TRUE
-	If SET_GO_1=TRUE
-	{
-	
-		; -----------------------------------------------------------
-		; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
-		; -----------------------------------------------------------
-		WinGet MMX, MinMax, ahk_id %hWnd_APP%
-		If MMX>-1
-		{
-			WinMinimize ahk_id %hWnd_APP%
-			SOUNDBEEP 2000,100
-			TRIGGER_HAPPEN=TRUE
-			; -----------------------------------------------------------
-			; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
-			; -----------------------------------------------------------
-			TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
-			TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
-		}
-	}
-
-; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
-; -------------------------------------------------------------------
-; IF SET_GO_1=TRUE
-	; IF SET_GO_2=FALSE
-		; SOUNDBEEP 1000,100
-
-IF TRIGGER_HAPPEN=FALSE		
-	Click down
+Click Up
 RETURN
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
 RIGHT_CLICK_CLOSE_IT:
-; -------------------------------------------------------------------
-GOSUB PROGRAM_SET_TO_USE
-IF SET_GO_2=FALSE 
-{
-	Click, down, right
-	RETURN
-}
-
-SET_GO_1=FALSE
-if IsOverCloseButton(X, Y, hWnd)
-	SET_GO_1=TRUE
-
-TRIGGER_HAPPEN=FALSE
-IF SET_GO_2=TRUE
-	If SET_GO_1=TRUE
+	; -------------------------------------------------------------------
+	GOSUB PROGRAM_SET_TO_USE
+	IF SET_GO_2=FALSE 
 	{
-		; SLEEP 400 
-		; -----------------------------------------------------------
-		; IF NOT A DELAY HERE THEN RIGHT CLICK WILL HAPPEN ON 
-		; THE WINDOW UNDERNEATH THE ONE THAT CLOSED
-		; -----------------------------------------------------------
-		; BETTER TO USE KeyWait, RButton 
-		; BUT HAVE TO DO BEFORE WINCLOSE
-		; AND SLIGHT MISLEADING EXCPT FOR BEEP THAT NOTHING GOING TO HAPPEN 
-		; AS EVENT IS AFTER RBUTTON UP
-		; BUT SOUNDBEEP OUGHT TO GIVE A CLUE
-		; -----------------------------------------------------------
-		KeyWait, RButton
-		WinClose ahk_id %hWnd_APP%
-		TRIGGER_HAPPEN=TRUE
-		SOUNDBEEP 2000,40
-		; -----------------------------------------------------------
-		; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
-		; -----------------------------------------------------------
-		TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
-		TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
-
+		Click, down, right
+		RETURN
 	}
 
-; THIS PART NEVER HAPPEN ANYMORE AS ABOVE
-; -------------------------------------------------------------------
-IF SET_GO_1=TRUE
-	IF SET_GO_2=FALSE
-		; SOUNDBEEP 1000,100
+	GOSUB IsOverCloseButton
 
-IF TRIGGER_HAPPEN=FALSE		
-Click, down, right
+	; -----------------------------------------------------------
+	; PUT TOOLTIP BACK ON IF USED THE FUNCTION REMINDER STILL THERE
+	; -----------------------------------------------------------
+	IF SET_GO_1=TRUE
+	{
+		TOOLTIP_DISPLAY_COUNT_LIMITER_1=0
+		TOOLTIP_DISPLAY_COUNT_LIMITER_2=0
+	}
+		
+	TRIGGER_HAPPEN=FALSE
+	IF SET_GO_2=TRUE
+		If SET_GO_1=TRUE
+		{
+			; SLEEP 400 
+			; -----------------------------------------------------------
+			; IF NOT A DELAY HERE THEN RIGHT CLICK WILL HAPPEN ON 
+			; THE WINDOW UNDERNEATH THE ONE THAT CLOSED
+			; -----------------------------------------------------------
+			; BETTER TO USE KeyWait, RButton 
+			; BUT HAVE TO DO BEFORE WINCLOSE
+			; AND SLIGHT MISLEADING EXCPT FOR BEEP THAT NOTHING GOING TO HAPPEN 
+			; AS EVENT IS AFTER RBUTTON UP
+			; BUT SOUNDBEEP OUGHT TO GIVE A CLUE
+			; -----------------------------------------------------------
+			; KeyWait, RButton
+			WinClose ahk_id %hWnd_APP%
+			TRIGGER_HAPPEN=TRUE
+			TRIGGER_FOR_WAIT_RIGHT_UP_HAPPEN=TRUE
+			SOUNDBEEP 2000,40
+
+		}
+
+	IF TRIGGER_HAPPEN=FALSE		
+		Click, down, right
 
 RETURN
-; -------------------------------------------------------------------
-
-
-; -------------------------------------------------------------------
-; TAKEN OUT NOT GOOD IDEA TO USE TWO OPTION OF RIGHT CLICK
-; -------------------------------------------------------------------
-; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY AS SHOW BUT REQUIRE KEYBOARD AROUND
-; -------------------------------------------------------------------
-; ~Shift & RButton:: ; Minimize Google Chrome instead of close when close button is clicked
-; ; -------------------------------------------------------------------
-; GOSUB RIGHT_CLICK_CLOSE_IT
-; return
-; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY ALSO BUT REQUIRE KEYBOARD AROUND
-; -------------------------------------------------------------------
-~RButton:: ; Minimize Google Chrome instead of close when close button is clicked
-; -------------------------------------------------------------------
-; IF GetKeyState("Shift")=TRUE
-	; Return
-GOSUB RIGHT_CLICK_CLOSE_IT
-RETURN
-; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-LButton Up::
-; -------------------------------------------------------------------
-Click Up
-RETURN
-; -------------------------------------------------------------------
-
-; CODE WAS IN PROCEDURE ABOVE BUT REDUNDANT NOW
-; -------------------------------------------------------------------
-IF GetKeyState("LButton")=TRUE
-{
-	Click Up
-	RETURN
-}
-RETURN
-
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
 RButton Up::
 ; -------------------------------------------------------------------
+IF TRIGGER_FOR_WAIT_RIGHT_UP_HAPPEN=TRUE
+{
+	; ---------------------------------------------------------------
+	; STOP PRESS BUTTON ON WINDOW UNDERNETH WHEN CLOSE HAS BEEN MADE TO HAPPEN
+	; BEFORE I WAS USE KEYWAIT UP BUT THINK THAT MADE TOO MANY PROBLEM
+	; HOLDING UP
+	; ---------------------------------------------------------------
+	TRIGGER_FOR_WAIT_RIGHT_UP_HAPPEN=FALSE
+	RETURN
+}
 Click, up, right
 RETURN
+
+
+
 ; -------------------------------------------------------------------
 
 ; CODE WAS IN PROCEDURE ABOVE BUT REDUNDANT NOW
@@ -543,103 +607,79 @@ IF TIMER_TOOLTIP>0
 	{
 		TOOLTIP
 		TIMER_TOOLTIP:=0
+		TOOLTIP_BEEN_SET_1=0
 	}
 
 GOSUB PROGRAM_SET_TO_USE
-
-IF SET_GO_2=FALSE 
-	IF TIMER_TOOLTIP>0
-	{
-		TOOLTIP
-		TIMER_TOOLTIP:=0
-	}
-
 
 IF (O_X=%X% and O_Y=%Y%)
 	Return
 O_X=X
 O_Y=Y
 
-CLOSE_BUTTON_HOVER_ACTIVITY=FALSE
+; ----------------------------------------------------------------
+; IF WANT SINGLE ACTION HOVER ON ONLY DON'T REQUIRE THIS LINE CODE
+; AND ALSO DO WANT TO INCLUDE NEXT IF LINE
+; AND VICE VERSA __ AKE ONE OUT AND PUT ONE BACK
+; IF WANT DOUBLE ACTION BEEP ON HOVER OFF AND ON DO THE SWAP
+; DON'T LEAVE A LINE BREAK BETWEEN THE TWO IF LINE - JOINER
+; AND DO YOUR INDENTING CODER - IT SAVES CODE
+; ----------------------------------------------------------------
 
-if IsOverCloseButton(X, Y, hWnd)
-	; ---------------------------------------------------------------
-	; THIS GETS IN ONE STATE OR BOTH OFF AND ON ___ OVER AND OFF HOVER
-	; ONLY SOUND WHEN HOVER ON
-	; ---------------------------------------------------------------
-	CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
-	IF CLOSE_BUTTON_HOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOVER_ACTIVITY%
-		RETURN
+GOSUB IsOverCloseButton
+CLOSE_BUTTON_HOVER_ACTIVITY=%SET_GO_1%
+
+IF CLOSE_BUTTON_HOVER_ACTIVITY=FALSE
+	TIMER_TOOLTIP = 1
 	
-	; ----------------------------------------------------------------
-	; IF WANT SINGLE ACTION HOVER ON ONLY DON'T REQUIRE THIS LINE CODE
-	; AND ALSO DO WANT TO INCLUDE NEXT IF LINE
-	; AND VICE VERSA __ AKE ONE OUT AND PUT ONE BACK
-	; IF WANT DOUBLE ACTION BEEP ON HOVER OFF AND ON DO THE SWAP
-	; DON'T LEAVE A LINE BREAK BETWEEN THE TWO IF LINE - JOINER
-	; AND DO YOUR INDENTING CODER - IT SAVES CODE
-	; ----------------------------------------------------------------
-	;IF CLOSE_BUTTON_HOVER_ACTIVITY_OLD<>%CLOSE_BUTTON_HOVER_ACTIVITY%
+; MSGBOX % CLOSE_BUTTON_HOVER_ACTIVITY
 
-	IF CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
+IF CLOSE_BUTTON_HOVER_ACTIVITY_OLD<>%CLOSE_BUTTON_HOVER_ACTIVITY%
+IF CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
+{
+	SOUNDBEEP 1000,20
+}
+CLOSE_BUTTON_HOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOVER_ACTIVITY%
+; ---------------------------------------------------------------
+; ---------------------------------------------------------------
+	
+IF CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
+{
+	IF SET_GO_2=TRUE
 	{
-		SOUNDBEEP 1000,20
-	}
-	CLOSE_BUTTON_HOVER_ACTIVITY_OLD=%CLOSE_BUTTON_HOVER_ACTIVITY%
-	; ---------------------------------------------------------------
-	; ---------------------------------------------------------------
-
-	; ---------------------------------------------------------------
-	; ONLY TOOLTIP FOR WINDOWS THAT PASS THE 
-	; WATCH CHECKER LIST SCRIPTER
-	; ---------------------------------------------------------------
-	IF SET_GO_2=FALSE 
-		RETURN
-
-	IF CLOSE_BUTTON_HOVER_ACTIVITY=TRUE
-	{
-		IF SET_GO_2=TRUE
+		IF TOOLTIP_BEEN_SET_1=0
 		{
-			IF TOOLTIP_BEEN_SET_1<>1
-			{
-				TOOLTIP_DISPLAY_COUNT_LIMITER_1+=1
-				IF TOOLTIP_DISPLAY_COUNT_LIMITER_1>5
-					RETURN
-				ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
-				TOOLTIP_BEEN_SET_1=1
-				TOOLTIP_BEEN_SET_2=TRUE
-				TIMER_TOOLTIP := a_now + 2
-			}
-		}
-		ELSE
-		{
-			; -------------------------------------------------------------------
-			; THIS SECOND TOOLTIP FOR ANY WINDOW JUST TO SHOW HOVER 
-			; NOT GETTING USE ANYMORE ONLY BEEP WAS REQUIRING
-			; PULL OUT FROM JUST ABOVE -- IF SET_GO_2=FALSE 
-			; -------------------------------------------------------------------
-			IF TOOLTIP_BEEN_SET_1<>2
-			{
-				TOOLTIP_DISPLAY_COUNT_LIMITER_2+=1
-				IF TOOLTIP_DISPLAY_COUNT_LIMITER_2>5
-					RETURN
-				ToolTip % "MOUSE`r`nON`r`nCLOSE`r`nBUTTON"
-				TOOLTIP_BEEN_SET_1=2
-				TOOLTIP_BEEN_SET_2=TRUE
-				TIMER_TOOLTIP := a_now + 2
-			}
+			TOOLTIP_DISPLAY_COUNT_LIMITER_1+=1
+			IF TOOLTIP_DISPLAY_COUNT_LIMITER_1>5
+				RETURN
+			ToolTip % "LEFT MOUSE BUTTON = MINIMIZE`r`nRIGHT MOUSE BUTTON = CLOSE"
+			TOOLTIP_BEEN_SET_1=1
+			TOOLTIP_BEEN_SET_2=TRUE
+			TIMER_TOOLTIP = % A_Now
+			TIMER_TOOLTIP += 4, seconds
 		}
 	}
-	ELSE
+
+	IF SET_GO_2=FALSE
 	{
-		IF TOOLTIP_BEEN_SET_2=TRUE
+		; -------------------------------------------------------------------
+		; THIS SECOND TOOLTIP FOR ANY WINDOW JUST TO SHOW HOVER 
+		; NOT GETTING USE ANYMORE ONLY BEEP WAS REQUIRING
+		; PULL OUT FROM JUST ABOVE -- IF SET_GO_2=FALSE 
+		; -------------------------------------------------------------------
+		IF TOOLTIP_BEEN_SET_1=0
 		{
-			TOOLTIP
-			TOOLTIP_BEEN_SET_1=0
-			TOOLTIP_BEEN_SET_2=FALSE
+			TOOLTIP_DISPLAY_COUNT_LIMITER_2+=1
+			IF TOOLTIP_DISPLAY_COUNT_LIMITER_2>5
+				RETURN
+			ToolTip % "MOUSE`r`nON`r`nCLOSE`r`nBUTTON"
+			TOOLTIP_BEEN_SET_1=2
+			TOOLTIP_BEEN_SET_2=TRUE
+			TIMER_TOOLTIP = % A_Now
+			TIMER_TOOLTIP += 4, seconds
 		}
-		
 	}
+}
 Return
 ; -------------------------------------------------------------------
 
@@ -653,15 +693,16 @@ Return
 
 ; Reference: http://www.autohotkey.com/board/topic/20431-wm-nchittest-wrapping-whats-under-a-screen-point/
 ; -------------------------------------------------------------------
-IsOverCloseButton(x, y, hWnd)
+IsOverCloseButton:
 ; -------------------------------------------------------------------
 {
-	hWnd_APP=%hWnd%
 	
 	MouseGetPos,,,WIN_ID_UNDER_MOUSE_CURSOR
+	hWnd_APP=%WIN_ID_UNDER_MOUSE_CURSOR%
 	WinGetClass, Class_Title, ahk_id %WIN_ID_UNDER_MOUSE_CURSOR%
 	IfInString, Class_Title, Shell_TrayWnd
 	{
+		SET_GO_1=FALSE
 		Return
 	}
 	
@@ -684,14 +725,16 @@ IsOverCloseButton(x, y, hWnd)
 	; ---------------------------------------------------------------
 	WinGetClass, Class_Title, ahk_id %hWnd%
 	IfInString, Class_Title, Chrome_WidgetWin_1
-	IF OSVER_N_VAR > 5 
-		x-=25
+		IF OSVER_N_VAR > 5 
+			x-=25
 		
 	SET_EXIT_VAR=FALSE
 	; WM_NCHITTEST := 0x0084
 	SendMessage, 0x84,, (x & 0xFFFF) | (y & 0xFFFF) << 16,, ahk_id %hWnd%
 	If ErrorLevel in 9,12,14,20 ; 20 is for Close box but Vista/Aero bug in WM_NCHITTEST	
+	{
 		SET_EXIT_VAR=TRUE
+	}
 	
 	CoordMode Mouse, Window
 	MouseGetPos, x, y, hWnd
@@ -704,15 +747,107 @@ IsOverCloseButton(x, y, hWnd)
 	; SO WE HAVE NAILED IT AGAIN
 	; ---------------------------------------------------------------
 	IF (y>45 or WindowWidth-x>80)
-	SET_EXIT_VAR=FALSE
-	
-	; TOOLTIP % WindowWidth " -- " WindowHeight  " -- " x " -- " y " -- " WindowWidth-x " -- " SET_EXIT_VAR
+		SET_EXIT_VAR=FALSE
 
+	; FALSE NOT A WINDOW WANT TO TAKE ACTION ON
+	; ---------------------------------------------------------------
+	IF SET_EXIT_VAR=FALSE
+		SET_GO_1=FALSE
+
+		
+	; TOOLTIP % WindowWidth " -- " WindowHeight  " -- " x " -- " y " -- " WindowWidth-x " -- " SET_EXIT_VAR
+		
 	IF SET_EXIT_VAR=TRUE
-		RETURN TRUE
+		SET_GO_1=TRUE
+	ELSE
+		SET_GO_1=FALSE
+	
 }
 RETURN
 ; -------------------------------------------------------------------
+
+
+
+
+; ---------------------------------------------------------------------
+; THIS ROUTINE COULD BE INCLUDED IN HERE BUT IS NOT CALLED FROM ANYWHERE
+; RUN FORM ANOTHER CODE ON TIMER
+; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; ---------------------------------------------------------------------
+SUB_TO_CLOSE_PRINT_WINDOW:
+; -------------------------------------------------------------------
+; THE NEW YAHOO MAIL INTERFACE HAS PROBLEM
+; WHEN I WANT HEADER INFO OF AN EMAIL LIKE IT WAS TO PRINT ONE
+; TO COPY PASTE THE TEXT HEADER
+; NOW THE NEW PRINT OF YAHOO INCLUDE DOBLE CALL WINDOW TO PRINT ALSO
+; WHEN THAT WAS OPTION ON NICER FIRST SCREEN WINDOW BEFORE
+; SO I MAKE A PIXEL FIND COLOR AND CLOSE PRINT SCREEN 
+; SAVE ME HAVE TO
+; [ Monday 20:08:30 Pm_22 October 2018 ]
+; ANOTHER LITTLE PROBLEM SOLVED
+; READY FOR SOME OTHER THING IN CHROME WORKER I LIKING
+; [ Monday 20:08:30 Pm_22 October 2018 ]
+; -------------------------------------------------------------------
+
+FN_Array_1 := []
+FN_Array_2 := []
+
+WinGet, id, list,ahk_class Chrome_WidgetWin_1
+Loop, %id%
+{
+	table := id%A_Index%
+	WinGetTitle, title, ahk_id %table%
+	FN_Array_1[A_Index] := "%table%"
+	FN_Array_2[A_Index] := id%A_Index%
+}
+
+CoordMode Pixel, Window 
+
+Loop % FN_Array_1.MaxIndex()
+	ArrayCount_VAR_1=%A_Index%
+	Loop % FN_Array_1.MaxIndex()
+	{
+		ArrayCount_VAR_2=%A_Index%
+		IF ArrayCount_VAR_1<>ArrayCount_VAR_2    ; NOT THE SELF
+		{
+			IF FN_Array_1[ArrayCount_VAR_1]=FN_Array_1[ArrayCount_VAR_2]
+				;MSGBOX "HOO"
+				; MSGBOX % FN_Array_2[ArrayCount_VAR_2]
+				HWND_4 = % FN_Array_2[ArrayCount_VAR_2]
+				WinGet, HWND_2, ID, ahk_id %HWND_4%
+				IF HWND_4>0
+				{
+					X=500
+					Y=100
+					PixelGetColor Color_1, %X%, %Y%, RGB
+					X=242
+					Y=180
+					PixelGetColor Color_2, %X%, %Y%, RGB
+					X=295
+					Y=180
+					PixelGetColor Color_3, %X%, %Y%, RGB
+					
+					COLOR_COMPARE_1=0x5256590x4B8EF90x4B8EF9
+					COLOR_COMPARE_2=%COLOR_1%%COLOR_2%%COLOR_3%
+					IF COLOR_COMPARE_1=%COLOR_COMPARE_2%
+					{
+						SOUNDBEEP 1000,50
+						; TOOLTIP % COLOR_COMPARE_1 " -- " COLOR_COMPARE_2
+						; WinCLOSE  ahk_id %HWND_4%
+						SENDINPUT {ESCAPE}
+						RETURN
+					}
+						; WinMinimize  ahk_id %HWND_4%
+			}
+		}
+	}
+; ----
+; PixelGetColor from an innactive window - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/103880-pixelgetcolor-from-an-innactive-window/
+; ----
+
+RETURN
+
 
 
 ; -------------------------------------------------------------------
@@ -750,6 +885,35 @@ RETURN
 ; return
 ; -------------------------------------------------------------------
   
+; -------------------------------------------------------------------
+; TAKEN OUT NOT GOOD IDEA TO USE TWO OPTION OF RIGHT CLICK
+; -------------------------------------------------------------------
+; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY AS SHOW BUT REQUIRE KEYBOARD AROUND
+; -------------------------------------------------------------------
+; ~Shift & RButton:: ; Minimize Google Chrome instead of close when close button is clicked
+; ; -------------------------------------------------------------------
+; GOSUB RIGHT_CLICK_CLOSE_IT
+; return
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; EITHER USE RBUTTON ON ITS OWN OR AS ABOVE SHIFT KEY ALSO BUT REQUIRE KEYBOARD AROUND
+; -------------------------------------------------------------------
+~RButton:: ; Minimize Google Chrome instead of close when close button is clicked
+; -------------------------------------------------------------------
+	GOSUB RIGHT_CLICK_CLOSE_IT
+
+	RETURN
+; -------------------------------------------------------------------
+
+; CODE WAS IN PROCEDURE RButton Up:: ABOVE BUT REDUNDANT NOW
+; -------------------------------------------------------------------
+; IF GetKeyState("LButton")=TRUE
+; {
+	; Click Up
+	; RETURN
+; }
+; RETURN
+
   
  
  
