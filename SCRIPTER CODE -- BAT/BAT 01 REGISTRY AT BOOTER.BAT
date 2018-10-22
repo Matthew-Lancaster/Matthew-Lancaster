@@ -314,19 +314,71 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	@REM reg.exe DELETE "HKLM\Software\Classes\Drive\shell\Multi ---- Drive" /f
 
 	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\Multi --------" /f
-	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\Multi -------- Foldering" /f
 	reg.exe DELETE "HKLM\Software\Classes\Directory\shell\Multi -------- Directory" /f
 	reg.exe DELETE "HKLM\Software\Classes\Drive\shell\Multi -------- Drive" /f
+	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\Multi -------- Foldering" /f
+	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\Multi -------- Folder" /f
+	rem reg.exe DELETE "HKEY_CLASSES_ROOT\Directory\Background\shell\Multi -------- BackGround Directory" /f
+	REM reg.exe DELETE "HKLM\Directory\Background\shell\Multi -------- BackGround Directory" /f
 	
 	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\Multi ----" /ve /t REG_SZ /d "Multi ----" /f
+	
 	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\Multi ----" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
+	
 	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\Multi ----\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
 	
 	@REM __ OPEN IN
 
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Foldering" /ve /t REG_SZ /d "Multi ---- Foldering" /f
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Foldering" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Foldering\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Folder" /ve /t REG_SZ /d "Multi ---- Folder" /f
+	
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Folder" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
+
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Folder\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
+	
+	Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi -------- BackGround Directory" /f
+	Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi --------" /f
+	rem Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /f
+	rem Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /f
+	
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /ve /t REG_SZ /d "Multi ----" /f
+	
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
+
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\Multi ----\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
+	
+	REM ONE MORE FOR GOOD MEASURE
+	REM NOT SURE WHAT ONE IS PUTTING IN ENTRY FOR CMD.COM BUT FORGETTING ICON
+	REM WHEN ICON IS PUT IN FROM SYSTEM32 IT CHANGES IT TO THIS ONE C:\Windows\SysWow64\cmd.exe
+	REM -- HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shell\cmd\command
+	Reg.exe add "HKLM\SOFTWARE\Classes\Directory\background\shell\cmd" /v "icon" /t REG_SZ /d "C:\Windows\SysWow64\cmd.exe" /f
+	
+	REM ANOTHER FEW BUT SOME BLOCKED LIKE CMD.EXE
+	REM -------------------------------------------------------------
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Browse with &IrfanView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\IrfanView\i_view32.exe" /f
+	
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Browse with XnView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\XnView\xnview.exe" /f
+	
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Powershell" /v "icon" /t REG_SZ /d "C:\Windows\SysWow64\WindowsPowerShell\v1.0\powershell.exe" /f
+	
+	REM AND MORE IN FOLDER
+	REM -------------------------------------------------------------
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\filealyzer2" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\Safer Networking\FileAlyzer 2\FileAlyzer2.exe" /f
+	
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\HashMyFiles" /v "icon" /t REG_SZ /d "C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\HashMyFiles.exe" /f
+	
+	rem can't write to powershell in drive
+	
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\Browse with &IrfanView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\IrfanView\i_view32.exe" /f
+	
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\Browse with XnView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\XnView\xnview.exe" /f
+	
+	REM ADD ICON TO THIS ONE DIDN'T DO ANYTHING _ SEEN YET _ TAKEN OUT
+	REM HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\explore
+	REM -------------------------------------------------------------
+	REM THAT MUCKED UP MY DESKTOP ICONS NOW GONE BLACK _ TRY REBOOT
+	EM DESKTOP CAME BACK AFTER WORKING ON SOMETHING OTHER
+	REM -------------------------------------------------------------
+	
 	
 	@REM ______________________________________________________________________
 	@REM __ OPEN IN ____ Directory and FOLDER APPEAR TO BE SLIGHTLY THE SAME AT FIRST LOOK
