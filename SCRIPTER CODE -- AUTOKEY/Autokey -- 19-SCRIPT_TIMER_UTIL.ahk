@@ -1204,6 +1204,16 @@ IfWinExist TeamViewer ahk_class #32770
 	}
 }
 
+; TEAMVIEWER ADVERT AT END OF SESSION
+; -----------------------------------
+; ahk_class ATL:03259F10
+; ahk_exe TeamViewer.exe
+IfWinExist ahk_class ATL:03259F10
+{
+	#WinActivateForce, ahk_class ATL:03259F10
+	WINCLOSE ahk_class ATL:03259F10
+}
+
 SetTitleMatchMode 3  ; Exactly
 DetectHiddenText, ON
 ; UniqueID := WinActive("TeamViewer ahk_class #32770")
@@ -1334,7 +1344,14 @@ Loop % FN_Array_1.MaxIndex()
 ; https://autohotkey.com/board/topic/103880-pixelgetcolor-from-an-innactive-window/
 ; ----
 
-
+SetTitleMatchMode 3  ; Exactly
+DetectHiddenText, Off
+HWND_ID_1 := WinExist("InfoRapid Search & Replace ahk_class #32770")
+IF HWND_ID_1>0
+{
+	ControlClick, &No, ahk_id %HWND_ID_1%
+	SoundBeep , 2500 , 100
+}
 
 	
 Return
