@@ -409,7 +409,7 @@ Loop, %id%
 	WinMinimize  ahk_id %table%
 	IF (A_ComputerName="2-ASUS-EEE")
 	IF title=D:\#
-		WinClose,  ahk_id %table% ; Got an Annoyer Explorer Window Every Boot
+		WinClose,  ahk_id %table% ; Got an Annoyer Explorer Window Every Boot On "2-ASUS-EEE"
 	IF title=D:\0 CLOUD\ASUS WEBSTORAGE _5GB
 		WinClose,  ahk_id %table% ; Got an Annoyer Explorer Window Every Run Twice Booter
 	
@@ -716,6 +716,12 @@ If (OSVER_N_VAR=10)
 		}
 	}
 
+	
+
+
+; WHY THIS CANON THING IN STARTUP RUN ONCE _ DON'T NEED THEM
+; C:\Program Files (x86)\Canon\IJ_MSetup4\MCDCHK2.EXE
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Runonce, RunCanonMsetUp	
 	
 
 SET_GO_1=0
