@@ -164,7 +164,7 @@ IF (HWND_ID_1>0 and HWND_ID_1<>O_HWND_ID_1)
 		Run, "%FN_VAR%"
 	}
 }
-O_HWND_ID_1=HWND_ID_1
+O_HWND_ID_1=%HWND_ID_1%
 
 
 
