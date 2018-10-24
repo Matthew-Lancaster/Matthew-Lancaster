@@ -329,17 +329,22 @@ END IF
 ' INCORP IN TO CAMERA LOADER
 ' -------------------------------------------------------------------
 
-DIM RUN_COPY(1)
+' -------------------------------------------------------------------
+' THIS SYNC NOT GOOD AS NOT CHECKER FOR CONFLICTS
+' UNTIL DONE
+' -------------------------------------------------------------------
 
-RUN_COPY(1)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-XCOPY SYNC.BAT"
+' DIM RUN_COPY(1)
 
-FOR R_COUNT=1 TO UBOUND(RUN_COPY)
+' RUN_COPY(1)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-XCOPY SYNC.BAT"
 
-	IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
-		WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
-	END IF
+' FOR R_COUNT=1 TO UBOUND(RUN_COPY)
+
+	' IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
+		' WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
+	' END IF
 	
-NEXT
+' NEXT
 
 
 
