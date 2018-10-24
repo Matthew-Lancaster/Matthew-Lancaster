@@ -1,20 +1,40 @@
 @REM ----------------------------------------------------------------
+@REM __ SEMI DUPLICATE WITH BOTH
+@REM __ 
+@REM __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT
 @REM __ C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_EXE.BAT
 @REM __ 
-@REM __ BAT 45-SCRIPT RUN GITHUB_EXE.BAT
+@REM __ Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT
 @REM __ 
 @REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
 @REM ----------------------------------------------------------------
 @REM __ FROM ---- Fri 19-Oct-2018 15:05:42 Created Time
 @REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #1 1ST CREATE
-@REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #2 CURRENTLY
+@REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #2 PREVIOUS VERSION BEFORE COPIER
+@REM __ TO   ---- Wed 24-Oct-2018 02:18:00 Last Editor #3 CURRENTLY
 @REM ----------------------------------------------------------------
 
-@REM -- COPY FROM BOTHER BATCH FILE NOW A TWIN
+@REM -- COPY FROM BOTHER BATCH FILE NOW A TWIN -- NOW A TRIPLET
+
+@REM ----------------------------------------------------------------
+@REM -- DESCRIPTION
+@REM ----------------------------------------------------------------
+@REM -- MAKE FUJI CAMERA MULTI MEDIA MEMORY CARD COPY OVER WHEN 
+@REM -- PLUG USB LEAD IN
+@REM -- WHAT HAPPEN EXPLORER SEE THE SMB DEVICE 
+@REM -- HAS AUTO START TO LOAD THE FOLDER FOR EXPLORER
+@REM -- THATS IT
+@REM -- THEN AUTOHOTKEYS CODE DETECT THAT WINDOW OPEN
+@REM -- AND THE REST COMES HERE
+@REM -- IT AUTO LOAD GOODSYNC TO RUN JOB AND THEN AFTE
+@REM -- RUN MY FINALIZE-ER FOR RENAME THE PHOTO IMAGES THAT WERE PUT ON 
+@REM -- IN TO NICE DATE FORMAT AND EXIF INFO IN FOR MAKE OF CAMERA
+@REM ----------------------------------------------------------------
 
 @REM ----------------------------------------------------------------
 @REM -- 001 SESSION
+@REM ----------------------------------------------------------------
 @REM -- CODER ADD -- MAKE GOODSYNC RUN THE JOB BY COMMAND-LINE 
 @REM -- MY FIRST COMMAND-LINE FOR GOODSYNC WORKING WELL
 @REM -- GOODSYNC OUTPUT BY COMMANDLINE WAS IN A UNICODE CODEPAGE HAD
@@ -36,6 +56,19 @@
 @REM -- 2..
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_EXE.BAT
 @REM ----------------------------------------------------------------
+
+@REM ----------------------------------------------------------------
+@REM -- 002 SESSION
+@REM ----------------------------------------------------------------
+@REM -- NEW CODE COPY FROM ALMOST SAME BUT WANTED IT OWN
+@REM -- BUT MAYBE LATER AFTER GET SYNC-ER GOING
+@REM -- DIFFICULT WITH PASSING COMMADN LINE AND ADMINISTRATOR GETTING IN THE WAY
+@REM -- CONSTIPATED ADMINISTRATOR
+@REM ----------------------------------------------------------------
+@REM __ FROM  Wed 24-Oct-2018 00:56:01
+@REM __ TO    Wed 24-Oct-2018 02:18:00
+@REM ----------------------------------------------------------------
+
 
 
 @REM ----------------------------------------------------------------
@@ -78,13 +111,12 @@ IF '%1%'=='/ADMIN' (
 @ECHO OFF
 ECHO ----------------------------------------------------------------
 
-@CD /D "C:\SCRIPTOR GITHUB"
+@CD /D "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY"
 
-@SET TITLE_VAR=GITHUB_RUNNNER__AND_GOODSYNC
+@SET TITLE_VAR=FUJI_XP90_CAMERA_RUNNNER__AND_GOODSYNC
 
 @TITLE %TITLE_VAR%
 
-@SET PATH_GIT="C:\Program Files\Git\bin"
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 
 @REM ----
@@ -101,13 +133,15 @@ ECHO ----------------------------------------------------------------
 @REM https://stackoverflow.com/questions/14246956/notepad-can-recognize-encoding/14247070#14247070
 @REM ----
 
+SET FILENAME_ER="%~dp0GOODSYNC_OUTPUT_FUJI_XP90_CAMERA.TXT"
+
 ECHO.
 ECHO ON
 @ECHO ----------------------------------------------------------------
 @ECHO RUN COMMAND 
 @ECHO ----------------------------------------------------------------
 ECHO.
-CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">"%~dp0GOODSYNC_OUTPUT.TXT""
+CMD /A /C "%GoodSync_GSync% sync "D DSC MC _ EVER _ #2 SMB FUJI XP90">%FILENAME_ER%"
 @ECHO OFF
 ECHO.
 ECHO ----------------------------------------------------------------
@@ -117,7 +151,7 @@ ECHO ----------------------------------------------------------------
 @REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
 @REM ----------------------------------------------------------------
 ECHO ----------------------------------------------------------------
-%ConvertCP% 1200 0 /i "%~dp0GOODSYNC_OUTPUT.TXT"
+%ConvertCP% 1200 0 /i %FILENAME_ER%
 ECHO ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 
@@ -125,12 +159,14 @@ ECHO ----------------------------------------------------------------
 @SET Sync_Runner=FALSE
 @SET Another_Job=FALSE
 
-@find "-- Analysis Complete" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
+@find "-- Analysis Complete" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Analysis_Complete=TRUE
-@find "Sync: Running:" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
+@find "Sync: Running:" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Sync_Runner=TRUE
-@find "Another job is Syncing in folder" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
+@find "Another job is Syncing in folder" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Another_Job=TRUE
+
+@REM DEL %FILENAME_ER%
 
 @ECHO OFF
 
@@ -142,9 +178,26 @@ ECHO Another_Job       %Another_Job%
 ECHO ----------------------------------------------------------------
 ECHO.
 
-
-
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
+
+if "%Sync_Runner%"=="TRUE" (
+	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO SYNC COMPLETE
+	ECHO ----------------------------------------------------------------
+	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO RUN COMMAND 
+	ECHO C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\
+	ECHO Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk
+	ECHO ----------------------------------------------------------------
+	ECHO.
+	
+	START "" "C:\WINDOWS\EXPLORER.EXE " D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM\126_FUJI
+
+	START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk"
+)
+
 
 
 if "%Analysis_Complete%"=="FALSE" (
@@ -171,7 +224,7 @@ if "%Analysis_Complete%"=="FALSE" (
 	ECHO ----------------------------------------------------------------
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
 	TIMEOUT /T 7200
-	REM ---- 2 HOURING
+	REM ---- TIMEOUT /T 7200 -- 2 HOURING
 )
 
 if "%Analysis_Complete%"=="TRUE" (

@@ -101,13 +101,16 @@ ECHO ----------------------------------------------------------------
 @REM https://stackoverflow.com/questions/14246956/notepad-can-recognize-encoding/14247070#14247070
 @REM ----
 
+SET FILENAME_ER="%~dp0GOODSYNC_OUTPUT.TXT"
+
+
 ECHO.
 ECHO ON
 @ECHO ----------------------------------------------------------------
 @ECHO RUN COMMAND 
 @ECHO ----------------------------------------------------------------
 ECHO.
-CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">"%~dp0GOODSYNC_OUTPUT.TXT""
+CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">%FILENAME_ER%"
 @ECHO OFF
 ECHO.
 ECHO ----------------------------------------------------------------
@@ -117,7 +120,7 @@ ECHO ----------------------------------------------------------------
 @REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
 @REM ----------------------------------------------------------------
 ECHO ----------------------------------------------------------------
-%ConvertCP% 1200 0 /i "%~dp0GOODSYNC_OUTPUT.TXT"
+%ConvertCP% 1200 0 /i %FILENAME_ER%
 ECHO ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 
@@ -125,11 +128,11 @@ ECHO ----------------------------------------------------------------
 @SET Sync_Runner=FALSE
 @SET Another_Job=FALSE
 
-@find "-- Analysis Complete" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
+@find "-- Analysis Complete" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Analysis_Complete=TRUE
-@find "Sync: Running:" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
+@find "Sync: Running:" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Sync_Runner=TRUE
-@find "Another job is Syncing in folder" "%~dp0GOODSYNC_OUTPUT.TXT">NUL
+@find "Another job is Syncing in folder" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Another_Job=TRUE
 
 @ECHO OFF
@@ -141,7 +144,6 @@ ECHO Sync_Runner       %Sync_Runner%
 ECHO Another_Job       %Another_Job%
 ECHO ----------------------------------------------------------------
 ECHO.
-
 
 
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
