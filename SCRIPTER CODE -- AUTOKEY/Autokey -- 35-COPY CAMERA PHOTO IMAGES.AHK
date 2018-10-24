@@ -107,7 +107,6 @@ LOOP
 	IF Label_CAMERA=DUAL SCRN
 		SET_GO=TRUE
 		
-		
 	IF SET_GO=TRUE
 		BREAK
 
@@ -115,6 +114,9 @@ LOOP
 		BREAK
 }
 
+; -------------------------------------------------------------------
+; LOCK IT WORKER REMOVE CAMERA BEFORE DO ANOTHER
+; -------------------------------------------------------------------
 IF SET_GO=FALSE
 	VAR_STORE_CAMERA_LABEL=
 
@@ -145,6 +147,27 @@ IF (!VAR_STORE_CAMERA_LABEL and SET_GO="TRUE")
 		}
 	}
 }
+
+
+SetTitleMatchMode 3  ; Exactly
+DetectHiddenText, Off
+
+HWND_ID_1 := WinExist("This PC\FinePix XP90 XP91 XP95 ahk_class CabinetWClass")
+IF (HWND_ID_1>0 and HWND_ID_1<>O_HWND_ID_1)
+{
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%"
+	}
+}
+O_HWND_ID_1=HWND_ID_1
+
+
+
+
+
 
 RETURN
 
