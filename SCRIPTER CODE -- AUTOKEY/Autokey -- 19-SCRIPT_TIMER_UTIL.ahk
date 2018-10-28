@@ -972,8 +972,22 @@ IfWinExist DuplicateCleaner
 
 IfWinExist Open File - Security Warning
 {
-	ControlGetText, OutputVar, The publisher could not be verified , Open File - Security Warning
-	IF OutputVar 
+	; ---------------------------------------------------------------
+	; IF COMMA WITHOUT QUOTE IT ONLY TAKES UP TO THE COMMA
+	; ControlGetText, OutputVar, The publisher could not be verified , Open File - Security Warning
+	; The publisher could not be verified , Open File - Security Warning
+	; ---------------------------------------------------------------
+	ControlGetText, OutputVar, The publisher could not be verified
+	; MSGBOX % OutputVar
+	IfInString, OutputVar, Open File - Security Warning
+	{	
+		SoundBeep , 2500 , 100
+		ControlClick, &Run, Open File - Security Warning
+	}
+
+	; The publisher could not be verified. Are you sure that you want to run this software?
+
+	IfInString, OutputVar, Are you sure that you want to run this software?
 	{	
 		SoundBeep , 2500 , 100
 		ControlClick, &Run, Open File - Security Warning
@@ -1776,6 +1790,21 @@ IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
 	ControlClick, Button2,ahk_id %HWND_1%
 	SoundBeep , 4000 , 100
 }
+
+; We recommend not to sync to disk root folder, because:
+; - there are limitations on how many files and folders you can have in disk root folder,
+; - sync folder name would help you identify copy of what folder you keep in there.
+; So we will sync to folder K:\=D_DRIVE-2TB - Backup instead. Is this Ok?
+; Yes
+; No
+IfInString, OutputVar_3, We recommend not to sync to disk root folder
+{
+	#WinActivateForce, ahk_id %HWND_1%
+	ControlClick, Button3,ahk_id %HWND_1%
+	SoundBeep , 4000 , 100
+}
+
+
 DetectHiddenWindows, % dhw
 Return
 
@@ -1979,9 +2008,11 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
 		If NewPID >0 
 		{
 			SET_GO_ESIF_ASSIST_64_SUSPEND=0
-			;SoundBeep , 3000 , 100
-			;SoundBeep , 3200 , 100
-			Process_Suspend_PID(NewPID)
+			; SoundBeep , 3000 , 100
+			; SoundBeep , 3200 , 100
+			
+			; Process_Suspend_PID(NewPID)
+			Process_Suspend("esif_assist_64.exe")
 			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,OFF
 			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 		}

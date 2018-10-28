@@ -170,8 +170,6 @@ F12::
 		; WinKill, Ahk_PID %UniquePID% 
 		Process, Close, %UniquePID% 
 	}
-	
-	
 }
 RETURN
 

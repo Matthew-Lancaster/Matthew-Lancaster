@@ -411,7 +411,6 @@ IF (A_TimeIdle < VAR_A__TimeIdle)
 	BLANK_DIMMER:= A_Now
 	BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
-
 }
 VAR_A__TimeIdle = %A_TimeIdle%
 

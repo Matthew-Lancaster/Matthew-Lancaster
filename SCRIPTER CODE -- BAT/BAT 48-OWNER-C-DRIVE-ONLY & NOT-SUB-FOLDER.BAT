@@ -41,69 +41,21 @@ TIMEOUT /T 2
 ECHO.
 
 
+REM -------------------------------------------------------------------------------------------------
+REM -------------------------------------------------------------------------------------------------
+
 :JUMP_PART0
-
-REM -------------------------------------------------------------------------------------------------
-REM -------------------------------------------------------------------------------------------------
-
-REM GOTO JUMP_PART1
-
-REM __ /ad MISSING __ TO INCLUDE ALL __ FILE AND DIRECTORY
-for /f "delims=" %%F in ('Dir C:\ /b') do (
-	@ECHO OFF
-	Set "VAR_FLAG="
-	SET VAR_FLAG=YES
-	IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
-	IF "%%F"=="$Recycle.Bin" SET VAR_FLAG=NOT
-	IF "%%F"=="$RECYCLE.BIN" SET VAR_FLAG=NOT
-	IF "%%F"=="Windows" SET VAR_FLAG=NOT
-	IF "%%F"=="ProgramData" SET VAR_FLAG=NOT
-	IF "%%F"=="Boot" SET VAR_FLAG=NOT
-	REM __ Documents and Settings __ A JUNCTION FOR C:\USERS
-	REM IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
-	IF "!VAR_FLAG!"=="YES" (
-			ECHO.
-			
-			REM __ TAKEOWNER IS THE SAME AS GET GRANT ACCESS EVERYONE
-			REM TITLE #01 OF #03 __ TAKEOWN ___________ "C:\%%F"
-			REM ECHO "C:\%%F"
-			REM ECHO #01 OF 03 __ TAKEOWN /F "C:\%%F" /A /D N
-			REM REM /R RECURSIVE MISSING
-			REM ECHO ---------------------------------------------------------------------------
-		    REM TAKEOWN /F "C:\%%F" /A >NUL
-			REM ECHO.
-			
-			TITLE #02 OF #03 __ ICACLS /SETOWNER __ "C:\%%F"
-			ECHO "C:\%%F"
-			ECHO #02 OF 03 __ ICACLS "C:\%%F" /setowner "Everyone"
-			REM /T RECURSIVE MISSING
-			ECHO ---------------------------------------------------------------------------
-			ECHO.
-			ICACLS "C:\%%F" /C /L /Q /setowner "Everyone" >NUL
-			ECHO.
-			
-			TITLE #03 OF #03 __ ICACLS /GRANT _____ "C:\%%F"
-			ECHO "C:\%%F"
-			ECHO #03 OF 03 __ ICACLS "C:\%%F" /grant Everyone:F
-			ECHO ---------------------------------------------------------------------------
-			ECHO.
-			REM ICACLS "C:\%%F" /T /C /L /Q /grant Everyone:F >NUL
-			ECHO.
-	)
-)
-
-TIMEOUT /T 4
-
-:JUMP_PART1
 REM GOTO JUMP_PART2
 REM -------------------------------------------------------------------------------------------------
 
-@FOR %%G IN (D,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
+REM @FOR %%G IN (C) DO (
+@FOR %%G IN (C,D,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
 	IF EXIST %%G:\. (
 		SET "target_="
 		SET target_=%%G:
 		CALL :IsDeviceReady !target_! isready_
 		IF !isready_!==true (
+			REM __ /ad MISSING __ TO INCLUDE ALL __ FILE AND DIRECTORY
 			FOR /f "delims=" %%F in ('Dir !target_!\ /b') do (
 				SET "VAR_FLAG="
 				SET VAR_FLAG=YES
@@ -111,12 +63,19 @@ REM ----------------------------------------------------------------------------
 				IF "%%F"=="$Recycle.Bin" SET VAR_FLAG=NOT
 				IF "%%F"=="$RECYCLE.BIN" SET VAR_FLAG=NOT
 				IF "%%F"=="Recovery" SET VAR_FLAG=NOT
+				IF "%%F"=="Windows" SET VAR_FLAG=NOT
+				IF "%%F"=="ProgramData" SET VAR_FLAG=NOT
+				IF "%%F"=="Boot" SET VAR_FLAG=NOT
+				REM __ Documents and Settings __ A JUNCTION FOR C:\USERS
+				REM IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
 				IF "!VAR_FLAG!"=="YES" (
 						ECHO.
 						
+						REM __ TAKEOWNER IS THE SAME AS GET GRANT ACCESS EVERYONE
 						REM TITLE #01 OF #03 __ TAKEOWN ___________ "%%G:\%%F"
 						REM ECHO "%%G:\%%F"
 						REM ECHO #01 OF 03 __ TAKEOWN /F "%%G:\%%F" /A /D N 
+						REM REM /R RECURSIVE MISSING
 						REM ECHO ---------------------------------------------------------------------------
 						REM TAKEOWN /F "%%G:\%%F" /A >NUL
 						REM REM TIMEOUT /T 2
@@ -124,16 +83,24 @@ REM ----------------------------------------------------------------------------
 						
 						TITLE #02 OF #03 __ ICACLS /SETOWNER __ "%%G:\%%F"
 						ECHO "%%G:\%%F"
+						ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
 						ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "Everyone"
 						ECHO ---------------------------------------------------------------------------
+						REM GOT TO DO ADMIN 1ST BEFORE EVERYONE
+						
+						ICACLS "%%G:\%%F" /C /L /Q /setowner "administrators" >NUL
 						ICACLS "%%G:\%%F" /C /L /Q /setowner "Everyone" >NUL
 						REM TIMEOUT /T 2
+						REM /T RECURSIVE MISSING
 						ECHO.
 						
 						TITLE #03 OF #03 __ ICACLS /GRANT _____ "%%G:\%%F"
 						ECHO "%%G:\%%F"
 						ECHO #02 OF 02 __ ICACLS "%%G:\%%F" /grant Everyone:F
 						ECHO ---------------------------------------------------------------------------
+						REM GRANT STILL DOES SUB FOLDER SO HAVE TO LEAVE OUT
+						REM ----------------------------------------------------------------------------
+						REM ICACLS "%%G:\%%F" /C /L /Q /grant administrators:F >NUL
 						REM ICACLS "%%G:\%%F" /C /L /Q /grant Everyone:F >NUL
 						REM TIMEOUT /T 2
 						ECHO.
