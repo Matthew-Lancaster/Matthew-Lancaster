@@ -521,9 +521,9 @@ IF SKIP_CODE=FALSE
 		}
 
 	SET_GO=TRUE
-	IF (A_ComputerName = "2-ASUS-EEE") 
-		SET_GO=FALSE
 	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		SET_GO=FALSE
+	IF (A_ComputerName = "2-ASUS-EEE") 
 		SET_GO=FALSE
 	IF (A_ComputerName = "3-LINDA-PC") 
 		SET_GO=FALSE
@@ -1035,12 +1035,12 @@ IF SKIP_CODE=FALSE
 		}
 	}
 		
-	IF SET_GO_1=1
+	IF SET_GO_1=1001
 	{
 	Process, Exist, googledrivesync.exe
 	If Not ErrorLevel
 		{
-			FN_VAR:="C:\Program Files (x86)\Google\Drive\googledrivesync.exe"
+			FN_VAR:="C:\Program Files\Google\Drive\googledrivesync.exe"
 			IfExist, %FN_VAR%
 			{
 				SoundBeep , 2500 , 100
@@ -1441,32 +1441,32 @@ IF (A_ComputerName = "7-ASUS-GL522VW")
 IF SET_GO=TRUE
 {
 	If ProcessExist("dfx.exe", A_UserName)=0
-		{
+	{
 		FN_VAR:="C:\Program Files (x86)\DFX\dfx.exe"
 		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			Run, "%FN_VAR%" -startup , , HIDE
+			WinWait, AHK_CLASS #32770, , 120
+			LOOP, 1000
 			{
-				SoundBeep , 2500 , 100
-				Run, "%FN_VAR%" -startup , , HIDE
-				WinWait, AHK_CLASS #32770, , 120
-				LOOP, 1000
+				SLEEP 10
+				WinGet, HWND, ID, AHK_EXE dfx.exe AHK_CLASS #32770
+				WinGetClass, This_Class, ahk_id %HWND%
+				WinGet, path, ProcessName, ahk_id %HWND%
+				IF (This_Class="#32770" 
+				and PATH="dfx.exe")
 				{
-					SLEEP 10
-					WinGet, HWND, ID, AHK_EXE dfx.exe AHK_CLASS #32770
-					WinGetClass, This_Class, ahk_id %HWND%
-					WinGet, path, ProcessName, ahk_id %HWND%
-					IF (This_Class="#32770" 
-					and PATH="dfx.exe")
-					{
-						IS_WINDOW_HIDDEN_AND_HIDE(HWND, 10)
-						aParent:=DllCall( "GetParent", UInt, HWND) + 0
-						HWND=%aParent%
-						IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
-						
-					}
-					IF HWND>0 
-						BREAK
+					IS_WINDOW_HIDDEN_AND_HIDE(HWND, 10)
+					aParent:=DllCall( "GetParent", UInt, HWND) + 0
+					HWND=%aParent%
+					IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
+					
 				}
-				
+				IF HWND>0 
+					BREAK
+		}
+			
 				
 		}
 	}
@@ -1593,7 +1593,8 @@ Process, Exist, FileZilla Server.exe
 If Not ErrorLevel
 {
 	SoundBeep , 2500 , 100
-	RunWait,sc start "FileZilla Server" 
+	RunWait,sc start "FileZilla Server" ; CHECK THE SERVICE IS RUNNING AND RUN IT
+
 	CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
 	GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 
@@ -1606,6 +1607,7 @@ If Not ErrorLevel
 	{
 		SoundBeep , 2500 , 100
 		Run, "%FN_VAR%" , , HIDE
+
 		CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
 		GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 	}

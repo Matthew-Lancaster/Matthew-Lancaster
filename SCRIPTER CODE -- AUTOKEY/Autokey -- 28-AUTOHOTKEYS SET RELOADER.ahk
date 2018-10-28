@@ -129,6 +129,7 @@ VAR_A__TimeIdle=0
 ; Each array must be initialized before use:
 FN_Array_1 := []
 FN_Array_2 := []
+FN_Array_3 := []
 DATE_MOD_Array := []
 
 ArrayCount := 0
@@ -166,12 +167,19 @@ IF OSVER_N_VAR>=10
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
 
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
 
 ; ArrayCount += 1
 ; FN_Array_1[ArrayCount] := 
 ; ArrayCount += 1
 ; FN_Array_1[ArrayCount] := 
+
+
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
+; FN_Array_3[ArrayCount] := "FileZilla Server Main Window"
+
 
 
 ; -------------------------------------------------------------------
@@ -241,8 +249,36 @@ Loop % ArrayCount
 	}
 }
 
-setTimer TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
+SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
 
+SETTIMER TIMER_SUB_FileZilla_Server,10000
+
+RETURN
+
+TIMER_SUB_FileZilla_Server:
+
+
+
+IfWinNotExist, AHK_CLASS FileZilla Server Main Window
+{
+	Process, Exist, FileZilla Server.exe
+	If Not ErrorLevel
+	{
+		SoundBeep , 2500 , 100
+		RunWait,sc start "FileZilla Server" ; CHECK THE SERVICE IS RUNNING AND RUN IT
+
+	}
+	Process, Exist, FileZilla Server Interface.exe
+	If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			Run, "%FN_VAR%" , , HIDE
+		}
+	}
+}
 RETURN
 
 TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
@@ -282,6 +318,7 @@ Loop % ArrayCount
 		}
 	}
 }
+
 
 RETURN
 

@@ -81,6 +81,9 @@ Sub BEGIN
 		' -----------
 		VAR_2_FOLDER = Mid(VAR_2_FOLDER, 1, InStrRev(VAR_2_FOLDER, "\")-1)
 	End if
+
+	If Mid(VAR_2_FOLDER, Len(VAR_2_FOLDER)) = "\" Then VAR_2_FOLDER = Mid(VAR_2_FOLDER, 1, Len(VAR_2_FOLDER) - 1)
+
 	
 	IF WScript.Arguments.Count = 0 THEN 
         Wscript.Echo "Not Any Command-line Arguments Were Given _ Exit without Do"
@@ -92,7 +95,7 @@ Sub BEGIN
         exit sub
     End if
 
-	result=Msgbox(VAR_2_FOLDER & VBCRLF & "Ownership Change Ready __ Are you sure?",vbYesNo+vbInformation, "")
+	result=Msgbox(VAR_2_FOLDER&"\" & VBCRLF & "Ownership Change Ready __ Are you sure?",vbYesNo+vbInformation, "")
 	if result = vbno then WScript.Quit 0
 	if result = vbcancle then WScript.Quit 0
 	
@@ -148,9 +151,17 @@ Sub BEGIN
 	T1 = T1 + "@ECHO ON" + vbCrLf
 	T1 = T1 + "SET PATH_TO_DO=" + vbCrLf
 	T1 = T1 + "Set PATH_TO_DO=""" + VAR_2_FOLDER + "\*""" + vbCrLf
+	T1 = T1 + "Set PATH_TO_DO_2=""" + VAR_2_FOLDER + """" + vbCrLf
 	T1 = T1 + "@ECHO %PATH_TO_DO%" + vbCrLf
-	T1 = T1 + "ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q" + vbCrLf
-	T1 = T1 + "ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F" + vbCrLf
+	T1 = T1 + "@ECHO Set administrators 1st and then 2nd Everyone Opens Up Access to Everyone That Way" + vbCrLf
+	
+	T1 = T1 + "ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q " + vbCrLf
+	T1 = T1 + "ICACLS %PATH_TO_DO% /T /L /C /Q  /grant administrators:F" + vbCrLf
+	T1 = T1 + "ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q " + vbCrLf
+	T1 = T1 + "ICACLS %PATH_TO_DO% /T /L /C /Q  /grant Everyone:F" + vbCrLf
+	T1 = T1 + "ICACLS %PATH_TO_DO_2% /setowner administrators /C /L /Q " + vbCrLf
+	T1 = T1 + "ICACLS %PATH_TO_DO_2% /setowner Everyone /C /L /Q " + vbCrLf
+
 	T1 = T1 + "@ECHO." + vbCrLf
 	T1 = T1 + "@ECHO OFF" + vbCrLf
 	T1 = T1 + "PAUSE" + vbCrLf
