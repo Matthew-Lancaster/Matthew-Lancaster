@@ -204,6 +204,66 @@ RETURN
 
 F4::
 {
+	TITLE_ADD=
+	SEXY=0
+	; ----
+	; Activate a chrome tab by its name - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/110607-activate-a-chrome-tab-by-its-name/
+	; ----
+	
+	WinActivate, ahk_class Chrome_WidgetWin_1
+	WinWaitActive, ahk_class Chrome_WidgetWin_1
+	WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
+
+	If CurrentWindowTitle not contains 404 Page Not Found
+		Return
+	
+	Loop
+	{
+		Send, ^{Tab}
+		Sleep, 50
+		WinActivate, ahk_class Chrome_WidgetWin_1
+		IfWinNotExist, ahk_class Chrome_WidgetWin_1
+			Return
+		WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
+		SET_GO=FALSE
+		If CurrentWindowTitle contains 404 Page Not Found
+			SET_GO=TRUE
+		If CurrentWindowTitle contains CPC - Google Chrome
+			SET_GO=TRUE
+		If CurrentWindowTitle contains New Tab - Google Chrome
+			SET_GO=TRUE
+			
+		IF SET_GO=TRUE
+		{
+			Sleep, 50
+			SendInput ^w
+			SEXY=0
+		}
+		
+		If TITLE_ADD not contains %CurrentWindowTitle%
+			SEXY=0
+
+		SEXY+=1
+
+		IF SEXY>15
+			BREAK
+
+		TITLE_ADD=%TITLE_ADD%%CurrentWindowTitle%
+	}
+}
+Return
+
+
+^/::
+{
+	SOUNDBEEP 1000,50
+	SENDINPUT, {F5}
+}
+RETURN
+
+; XXXF4::
+{
 
 FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
 
