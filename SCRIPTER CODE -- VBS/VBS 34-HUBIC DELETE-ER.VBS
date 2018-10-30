@@ -7,6 +7,7 @@
 '# __ 
 '# START      TIME [ Thu 18-Oct-2018 03:20:00 ] COPY FROM ANOTHER CODE
 '# END LAST EDITOR [ Thu 18-Oct-2018 15:40:00 ] 
+'# --- LAST EDITOR [ Mon 29-Oct-2018 03:28:00 ]
 '# __ 
 '====================================================================
 
@@ -61,6 +62,19 @@
 ' Thu 18-Oct-2018 15:13:45
 ' Thu 18-Oct-2018 15:40:30 
 '#-------------------------------------------------------------------
+
+'#-------------------------------------------------------------------
+' 003 __ 
+'#-------------------------------------------------------------------
+' ADDER 
+' ADD CODE __ MODIFY TO EASIER CHANGE ROOT PATH AND USE 
+' ARRAY BETTER FOR SCANNING FOLDER
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' Mon 29-Oct-2018 02:39:19
+' Mon 29-Oct-2018 03:28:00
+'#-------------------------------------------------------------------
+
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -126,40 +140,45 @@ Next
 ' -------------------------------------------------------------------
 ' IF SPECIFY FOLDER PATH LOWER THAN THIS ONE THE DELETE EMPTY 
 ' WOULD FIND AND DELETE ALL EMPTY FOLDER UP TO HERE
-' "\126_FUJI"
-' THIS END PATH FOLDER MAY BE CHANGE FROM CAMERA SELECTOR 
-' AT SOME POINT TIME
 ' -------------------------------------------------------------------
-FOLDER_PATH_VAR_1="D:\DEL HUBIC QNAP"
 
 DIM FOLDER_PATH_FILTER()
 REDIM FOLDER_PATH_FILTER(7)
-FOLDER_PATH_FILTER(4)="D:\DEL HUBIC QNAP\3L"
-FOLDER_PATH_FILTER(5)="D:\DEL HUBIC QNAP\5P"
-FOLDER_PATH_FILTER(6)="D:\DEL HUBIC QNAP\7G"
-FOLDER_PATH_FILTER(7)="D:\DEL HUBIC QNAP\QNAP1"
-FOLDER_PATH_FILTER(1)="D:\DEL HUBIC QNAP\WHOLE_ARCHIVE"
-FOLDER_PATH_FILTER(2)="D:\DEL HUBIC QNAP\zz--FOLDER"
-FOLDER_PATH_FILTER(3)="D:\DEL HUBIC QNAP\zz--NETWORK_FOLDER"
+DRIVE_VAR="I:"
+FOLDER_PATH_VAR_1=DRIVE_VAR+"\"
+FOLDER_PATH_FILTER(1)=DRIVE_VAR+"\3L"
+FOLDER_PATH_FILTER(2)=DRIVE_VAR+"\5P"
+FOLDER_PATH_FILTER(3)=DRIVE_VAR+"\7G"
+FOLDER_PATH_FILTER(4)=DRIVE_VAR+"\QNAP1"
+FOLDER_PATH_FILTER(5)=DRIVE_VAR+"\WHOLE_ARCHIVE"
+FOLDER_PATH_FILTER(6)=DRIVE_VAR+"\zz--FOLDER"
+FOLDER_PATH_FILTER(7)=DRIVE_VAR+"\zz--NETWORK_FOLDER"
 
 DELETE_FILE_TIME_SPAN=TIMESERIAL(2,0,0)
 DELETE_FOLDER_TIME_SPAN=TIMESERIAL(48,0,0)
 
+DIM CUR_USER
+DIM ComputerName
+
+CUR_USER = CreateObject("WScript.Network").UserName
+Set objShell = Wscript.CreateObject("WScript.Shell")
+ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+
+IF ComputerName<>"4-ASUS-GL522VW" THEN 
+	Wscript.QUIT
+END IF 
+
 IF FSO.FolderExists(FOLDER_PATH_VAR_1)=FALSE THEN 
-	MSGBOX "FOLDER NOT EXIST"
+	MSGBOX "VBS 34 - HUBIC DELETER - DRIVE - FOLDER - NOT EXIST - EXIT"+VBCRLF+VBCRLF+FOLDER_PATH_VAR_1
 	Wscript.QUIT
 END IF
-
 
 ' -------------------------------------------------------------------
 ' 01 OF 03
 ' -------------------------------------------------------------------
-' 
-' -------------------------------------------------------------------
 SET_VAR_MODE_ORDER=1
 FOLDER_PATH_VAR=FOLDER_PATH_VAR_1
 CALL MAIN
-
 
 I=""
 I=I+"DEL FROM HUBIC LEARN"+ VBCRLF 
@@ -189,8 +208,16 @@ Sub Main
     Set oDict_1 = CreateObject("Scripting.Dictionary")
 	Set oDict_2 = CreateObject("Scripting.Dictionary")
 	IF SET_VAR_MODE_ORDER=1 THEN 
-		' Call Recursive Sub
-		FindWantedFiles_2(objFSO.GetFolder(FOLDER_PATH_VAR))
+		FOR R_COUNT= 1 TO UBOUND(FOLDER_PATH_FILTER)
+			FOLDER_PATH_VAR_VAR=FOLDER_PATH_FILTER(R_COUNT)
+			' Call Recursive Sub
+			' MSGBOX FOLDER_PATH_VAR_VAR
+			IF FSO.FolderExists(FOLDER_PATH_VAR_VAR)=TRUE THEN 
+				FindWantedFiles_2(objFSO.GetFolder(FOLDER_PATH_VAR_VAR))
+			END IF
+		NEXT
+
+
 		' Display All Findings from Dictionary object
 		DisplayFindings_4
 	END IF
@@ -370,6 +397,8 @@ Sub DisplayFindings_4()
 		VAR_PATH_SCANNER=oKey
 		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 		
+		' MSGBOX VAR_PATH_SCANNER
+		
 		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
 			Set f = fso.GetFile(VAR_PATH_SCANNER)
 			FileModDate = f.DateLastModified
@@ -389,13 +418,13 @@ Sub DisplayFindings_4()
 		END IF
 		
 		IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
-		SET_GO=TRUE
-		FOR R_COUNT= 1 TO UBOUND(FOLDER_PATH_FILTER)
-			IF VAR_PATH_SCANNER=FOLDER_PATH_FILTER(R_COUNT) THEN
-				SET_GO=FALSE
-			END IF
-		NEXT
-			END IF
+			SET_GO=TRUE
+			FOR R_COUNT= 1 TO UBOUND(FOLDER_PATH_FILTER)
+				IF VAR_PATH_SCANNER=FOLDER_PATH_FILTER(R_COUNT) THEN
+					SET_GO=FALSE
+				END IF
+			NEXT
+		END IF
 		
 		IF SET_GO=TRUE THEN 
 			IF FSO.FolderExists(VAR_PATH_SCANNER) Then 

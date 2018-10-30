@@ -659,7 +659,24 @@ RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Ru
 ; SOMEHOW NOT PERMISSION
 ; --------------------------------------------------------------------
 
-RegWrite, REG_SZ, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
+; -------------------------------------------------------------------
+; ALLOW OPEN MORE THAN 15 WINDOW ON RIGHT CLICK EXPLORER FOR NOTEPAD++ TYPE THING
+; 22 IS HEX 16
+; REBOOT REQUIRE TO WORK EFFECTIVELY MENU OPTION BECOME AVAILABLE
+; ONLY OPEN ONE OF SELECTION ITEM UNTIL THEN
+; -------------------------------------------------------------------
+; ----
+; How can I open more than 15 files at once on Windows 7? - Super User
+; https://superuser.com/questions/300911/how-can-i-open-more-than-15-files-at-once-on-windows-7/300916
+; ----
+; -------------------------------------------------------------------
+; TAKES EFFECT IMMEDIATE 16 IS NOT THE LIMIT FOR UNLIMITED HIGHER WILL DO
+; READ FURTHER
+; [ Monday 05:59:20 Am_29 October 2018 ]
+; -------------------------------------------------------------------
+RegWrite, REG_DWORD, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, MultipleInvokePromptMinimum, 55
+
+
 
 ; MSGBOX CLUE
 
@@ -1851,6 +1868,10 @@ GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
 
 GOSUB GRAMMARLY_CREATE_SHORTCUT
+
+
+RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
+
 
 RETURN
 

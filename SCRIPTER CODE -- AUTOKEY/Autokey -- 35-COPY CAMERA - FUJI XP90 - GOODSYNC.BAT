@@ -1,20 +1,40 @@
 @REM ----------------------------------------------------------------
+@REM __ SEMI DUPLICATE WITH BOTH
+@REM __ 
+@REM __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT
 @REM __ C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_EXE.BAT
 @REM __ 
-@REM __ BAT 45-SCRIPT RUN GITHUB_EXE.BAT
+@REM __ Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT
 @REM __ 
 @REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
 @REM ----------------------------------------------------------------
 @REM __ FROM ---- Fri 19-Oct-2018 15:05:42 Created Time
 @REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #1 1ST CREATE
-@REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #2 CURRENTLY
+@REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #2 PREVIOUS VERSION BEFORE COPIER
+@REM __ TO   ---- Wed 24-Oct-2018 02:18:00 Last Editor #3 CURRENTLY
 @REM ----------------------------------------------------------------
 
-@REM -- COPY FROM BOTHER BATCH FILE NOW A TWIN
+@REM -- COPY FROM BOTHER BATCH FILE NOW A TWIN -- NOW A TRIPLET
+
+@REM ----------------------------------------------------------------
+@REM -- DESCRIPTION
+@REM ----------------------------------------------------------------
+@REM -- MAKE FUJI CAMERA MULTI MEDIA MEMORY CARD COPY OVER WHEN 
+@REM -- PLUG USB LEAD IN
+@REM -- WHAT HAPPEN EXPLORER SEE THE SMB DEVICE 
+@REM -- HAS AUTO START TO LOAD THE FOLDER FOR EXPLORER
+@REM -- THATS IT
+@REM -- THEN AUTOHOTKEYS CODE DETECT THAT WINDOW OPEN
+@REM -- AND THE REST COMES HERE
+@REM -- IT AUTO LOAD GOODSYNC TO RUN JOB AND THEN AFTE
+@REM -- RUN MY FINALIZE-ER FOR RENAME THE PHOTO IMAGES THAT WERE PUT ON 
+@REM -- IN TO NICE DATE FORMAT AND EXIF INFO IN FOR MAKE OF CAMERA
+@REM ----------------------------------------------------------------
 
 @REM ----------------------------------------------------------------
 @REM -- 001 SESSION
+@REM ----------------------------------------------------------------
 @REM -- CODER ADD -- MAKE GOODSYNC RUN THE JOB BY COMMAND-LINE 
 @REM -- MY FIRST COMMAND-LINE FOR GOODSYNC WORKING WELL
 @REM -- GOODSYNC OUTPUT BY COMMANDLINE WAS IN A UNICODE CODEPAGE HAD
@@ -36,6 +56,19 @@
 @REM -- 2..
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_EXE.BAT
 @REM ----------------------------------------------------------------
+
+@REM ----------------------------------------------------------------
+@REM -- 002 SESSION
+@REM ----------------------------------------------------------------
+@REM -- NEW CODE COPY FROM ALMOST SAME BUT WANTED IT OWN
+@REM -- BUT MAYBE LATER AFTER GET SYNC-ER GOING
+@REM -- DIFFICULT WITH PASSING COMMADN LINE AND ADMINISTRATOR GETTING IN THE WAY
+@REM -- CONSTIPATED ADMINISTRATOR
+@REM ----------------------------------------------------------------
+@REM __ FROM  Wed 24-Oct-2018 00:56:01
+@REM __ TO    Wed 24-Oct-2018 02:18:00
+@REM ----------------------------------------------------------------
+
 
 
 @REM ----------------------------------------------------------------
@@ -159,6 +192,8 @@ if "%Sync_Runner%"=="TRUE" (
 	ECHO Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk
 	ECHO ----------------------------------------------------------------
 	ECHO.
+	
+	START "" "C:\WINDOWS\EXPLORER.EXE " D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM\126_FUJI
 
 	START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk"
 )
