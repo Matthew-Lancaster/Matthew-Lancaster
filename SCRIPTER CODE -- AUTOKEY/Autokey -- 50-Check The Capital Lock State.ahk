@@ -69,13 +69,13 @@
 
 ; # ------------------------------------------------------------------
 ; SESSION 002
-; Fixed Finally Not to USE * in *Shift HotKey Make Repeat Sound with Hold Shift Another Key if Faulty
+; Fixed Finally Not to USE * in *Shift HotKey Make Repeat Soundbeep with Hold Shift Another Key if Faulty
 ; Removed Mouse Idle Trigger for Event Don't Want Reminded Caps Lock when Move Mouse
 ; After First Draft Copy  I Noticed Fault if Wasn't Corrector Made the control shift N Key Bring New Folder 
 ; in Explorer Go Wrong and Open New Explorer Up - Fixed Now
 ; -------------------------------------------------------------------
 ; FROM Wed 31-Oct-2018 12:45:22
-; TO   Wed 31-Oct-2018 13:40:00
+; TO   Wed 31-Oct-2018 14:10:00
 ; # ------------------------------------------------------------------
 
 
@@ -101,32 +101,41 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
 
-GOSUB ~*CapsLock
 GLOBAL CapsLock_VAR_IDLE_1
 GLOBAL CapsLock_VAR_IDLE_2
 GLOBAL Timer_Delayer
 CapsLock_VAR_IDLE_1=FALSE
 CapsLock_VAR_IDLE_2=0
-SETTIMER CapsLock_SUB_TIMER,100
-
 ; -------------------------------------------------------------------
 ; Set the Time Delay Reminder
 ; -------------------------------------------------------------------
 Timer_Delayer=10000
 ; -------------------------------------------------------------------
 
+width := A_ScreenWidth - 150
+height := A_ScreenHeight - 50
+
+GOSUB ~*CapsLock
+
+SETTIMER CapsLock_SUB_TIMER,100
+
 RETURN
+
+; -------------------------------------------------------------------
+; END OF INIT
+; CODE ROUTINES BEGIN
+; -------------------------------------------------------------------
 
 CapsLock_SUB_TIMER:
 
-	IF (A_TimeIdlePhysical > %Timer_Delayer%)
+	IF A_TimeIdlePhysical > %Timer_Delayer%
 	{
 		IF CapsLock_VAR_IDLE_1=FALSE
+		{
 			Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-		
+		}
 		CapsLock_VAR_IDLE_1=TRUE
 	}
-		
 		
 	IF CapsLock_VAR_IDLE_2>%A_TimeIdlePhysical%
 	{
@@ -138,17 +147,17 @@ CapsLock_SUB_TIMER:
 			; W108 Width of Box and H24 Height
 			; -----------------------------------------------------------
 			Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-			SOUNDBEEP 3000,400
+			SOUNDBEEP 3000,200
 		}
 		ELSE
 		{
-			SOUNDBEEP 1000,400
+			SOUNDBEEP 1000,200
 		}
 		CapsLock_VAR_IDLE_1=FALSE
+		
 	}
 		
 	CapsLock_VAR_IDLE_2=%A_TimeIdlePhysical%
-
 
 RETURN
 	
@@ -171,9 +180,6 @@ RETURN
 ; -------------------------------------------------------------------
 
 ~*CapsLock::
- 
-	width := A_ScreenWidth - 150
-	height := A_ScreenHeight - 50
 	
 	; Sleep, 100
 	if GetKeyState("CapsLock", "T")
