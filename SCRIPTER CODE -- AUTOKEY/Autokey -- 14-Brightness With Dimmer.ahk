@@ -208,11 +208,11 @@ SoundBeep , 1000 , 100
 SoundBeep , 3000 , 100
 
 
-; IF (A_ComputerName="1-ASUS-X5DIJ")
+; IF (A_ComputerName=1-ASUS-X5DIJ)
 	; PAUSE
-; IF (A_ComputerName="2-ASUS-EEE")
+; IF (A_ComputerName=2-ASUS-EEE)
 	; PAUSE
-; IF (A_ComputerName="4-ASUS-GL522VW")
+; IF (A_ComputerName=4-ASUS-GL522VW)
 	; PAUSE
 	
 Gui, Color, black
@@ -260,19 +260,19 @@ If WinActive("tube - Google Chrome")
 If WinActive("YouTube - Google Chrome")
 	ALLOW_DIMMER := "False"
 
-IF (A_ComputerName="1-ASUS-X5DIJ")
+IF (A_ComputerName=1-ASUS-X5DIJ)
 	ALLOW_DIMMER := "False"
-IF (A_ComputerName="2-ASUS-EEE")
+IF (A_ComputerName=2-ASUS-EEE)
 	ALLOW_DIMMER := "False"
-IF (A_ComputerName="3-LINDA-PC")
+IF (A_ComputerName=3-LINDA-PC)
 	ALLOW_DIMMER := "False"
-IF (A_ComputerName="5-ASUS-P2520LA") 
+IF (A_ComputerName=5-ASUS-P2520LA) 
 	ALLOW_DIMMER := "False"
-;IF (A_ComputerName="4-ASUS-GL522VW")
+;IF (A_ComputerName=4-ASUS-GL522VW)
 	;ALLOW_DIMMER := "False"
-IF (A_ComputerName="8-MSI-GP62M-7RD")
+IF (A_ComputerName=8-MSI-GP62M-7RD)
 	ALLOW_DIMMER := "False"
-;IF (A_ComputerName="7-ASUS-GL522VW")
+;IF (A_ComputerName=7-ASUS-GL522VW)
 ;	ALLOW_DIMMER := "False"
 
 GOSUB IS_IN_DAY
@@ -305,7 +305,7 @@ IF TRUE = FALSE
 		SET_GO=1
 	IF Path_2=mpc-hc64.exe
 		SET_GO=1
-	IF (A_ComputerName<>"7-ASUS-GL522VW")
+	IF (A_ComputerName<>7-ASUS-GL522VW)
 		SET_GO=1
 
 	if SET_GO=0
@@ -334,7 +334,7 @@ DetectHiddenWindows, off
 WinActive_2 = 0
 
 SET_GO=FALSE
-IF (A_ComputerName="7-ASUS-GL522VW")
+IF (A_ComputerName=7-ASUS-GL522VW)
 	SET_GO=TRUE
 
 IF SET_GO=TRUE
@@ -456,19 +456,19 @@ RETURN
 MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	
 	SET_GO=FALSE
-	IF (A_ComputerName="1-ASUS-X5DIJ")
+	IF (A_ComputerName=1-ASUS-X5DIJ)
 		SET_GO=TRUE
-	IF (A_ComputerName="2-ASUS-EEE")
+	IF (A_ComputerName=2-ASUS-EEE)
 		SET_GO=TRUE
-	IF (A_ComputerName="3-LINDA-PC")
+	IF (A_ComputerName=3-LINDA-PC)
 		SET_GO=TRUE
-	IF (A_ComputerName="4-ASUS-GL522VW")
+	IF (A_ComputerName=4-ASUS-GL522VW)
 		SET_GO=TRUE
-	IF (A_ComputerName="5-ASUS-P2520LA") 
+	IF (A_ComputerName=5-ASUS-P2520LA) 
 		SET_GO=TRUE
-	IF (A_ComputerName="7-ASUS-GL522VW")
+	IF (A_ComputerName=7-ASUS-GL522VW)
 		SET_GO=TRUE
-	IF (A_ComputerName="8-MSI-GP62M-7RD")
+	IF (A_ComputerName=8-MSI-GP62M-7RD)
 		SET_GO=TRUE
 
 	IF SET_GO=FALSE
@@ -507,13 +507,13 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	{
 	
 		POWER_SCREEN_SAVE_OFF := "False"
-		IF (A_ComputerName="7-ASUS-GL522VW")
+		IF (A_ComputerName=7-ASUS-GL522VW)
 			POWER_SCREEN_SAVE_OFF := "True"
-		IF (A_ComputerName="8-MSI-GP62M-7RD")
+		IF (A_ComputerName=8-MSI-GP62M-7RD)
 			POWER_SCREEN_SAVE_OFF := "True"
 		
 		DIMMER_ONLY_NOT_BLANK := "False"
-		IF (A_ComputerName="8-MSI-GP62M-7RD")
+		IF (A_ComputerName=8-MSI-GP62M-7RD)
 			DIMMER_ONLY_NOT_BLANK := "True"
 	
 		IF (IN_DAY="FALSE" or SET_GO="TRUE")

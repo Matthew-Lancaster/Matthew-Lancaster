@@ -1418,6 +1418,11 @@ IF CapsLock_VAR_IDLE_2>%A_TimeIdle%
 	IF CapsLock_VAR_IDLE_1=TRUE
 	if GetKeyState("CapsLock", "T")
 	{
+		; -----------------------------------------------------------
+		; FS8 __ is the Font Size 
+		; W108 Width of Box and H24 Height
+		; -----------------------------------------------------------
+		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		SOUNDBEEP 3000,400
 	}
 	ELSE
@@ -1429,16 +1434,56 @@ IF CapsLock_VAR_IDLE_2>%A_TimeIdle%
 	
 CapsLock_VAR_IDLE_2=%A_TimeIdle%
 
-RETURN
+; JUST SOME PLAY ABOUT FOR MY OWN CODE TO MAINTAIN IN TWO PLACES
+; AND TEST RIVE HERE
+; -------------------------------------------------------------------
+IF (A_TimeIdle > 2000 and 1=2)
+{
+	SET_EXIT=FALSE
+	IF A_ComputerName=1-ASUS-X5DIJ
+		SET_EXIT=TRUE
+	IF A_ComputerName=2-ASUS-EEE
+		SET_EXIT=TRUE
+	IF A_ComputerName=3-LINDA-PC
+		SET_EXIT=TRUE
+	IF A_ComputerName=4-ASUS-GL522VW
+		SET_EXIT=TRUE
+	IF A_ComputerName=5-ASUS-P2520LA
+		SET_EXIT=TRUE
+		
+	; 1 OF 4 EXAMPLE THIS WORKS
+	IF A_ComputerName=7-ASUS-GL522VW
+		SET_EXIT=TRUE
+	; 2 OF 4 EXAMPLE THIS WORKS
+	IF (A_ComputerName=7-ASUS-GL522VW)
+		SET_EXIT=TRUE
+	; 3 OF 4 EXAMPLE AND THIS WORKS
+	IF (A_ComputerName="7-ASUS-GL522VW")
+		SET_EXIT=TRUE
+	; 4 OF 4 EXAMPLE AND THIS NOT WORK
+	IF A_ComputerName="7-ASUS-GL522VW"
+		SET_EXIT=TRUE
 
+	IF A_ComputerName=8-MSI-GP62M-7RD
+		SET_EXIT=TRUE
+
+	IF SET_EXIT=TRUE 
+	{
+		SOUNDBEEP 1000,100
+		EXITAPP
+	}
+}
+RETURN
+	
 *Shift::
 	if GetKeyState("CapsLock", "T")
 	{
+		; -----------------------------------------------------------
+		; FS8 __ is the Font Size 
+		; W108 Width of Box and H24 Height
+		; -----------------------------------------------------------
+		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		SOUNDBEEP 3000,50
-	}
-	else
-	{
-		; SOUNDBEEP 1000,50
 	}
 RETURN
 
@@ -1506,9 +1551,9 @@ setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
 ;C:\Windows10Upgrade\Windows10UpgraderApp.exe /ClientID "Win10Upgrade:VNL:NHV13SIH:{}"
 
 SET_GO=FALSE
-IF (A_ComputerName="4-ASUS-GL522VW") 
+IF (A_ComputerName=4-ASUS-GL522VW) 
 	SET_GO=TRUE
-IF (A_ComputerName="7-ASUS-GL522VW") 
+IF (A_ComputerName=7-ASUS-GL522VW) 
 	SET_GO=TRUE
 
 IF SET_GO=TRUE
@@ -2219,7 +2264,7 @@ TIMER_SUB_WINDOWS_UPDATE:
 
 RETURN
 
-IF (A_ComputerName="7-ASUS-GL522VW") 
+IF (A_ComputerName=7-ASUS-GL522VW) 
 	RETURN
 
 setTimer TIMER_SUB_WINDOWS_UPDATE, % -1 * 1000 * 60 * 60 ; After24Hours
@@ -2233,7 +2278,7 @@ IF (OSVER_N_VAR < 10) ; WIN 10
 	OSVER_N_RESULT=1  ; SET NOT RUN IF THIS LESS THAN WINDOWS 10 OS SYS
 	
 COMP_N=0
-;IF (A_ComputerName="7-ASUS-GL522VW") 
+;IF (A_ComputerName=7-ASUS-GL522VW) 
 ;	COMP_N=1        ; SET NOT RUN IF THIS COMPUTER
 
 ALLOW_UPDATE_KILLER=1
@@ -2284,7 +2329,7 @@ IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 {	
 	TIMER_SUB_OWNER_SAVE_TIMER=%A_NOW%
 	TIMER_SUB_OWNER_SAVE_TIMER+= 2, Days
-	IF (A_ComputerName="3-LINDA-PC") 
+	IF (A_ComputerName=3-LINDA-PC) 
 		TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
 
 	FileDELETE, %SCRIPT_NAME_VAR%
