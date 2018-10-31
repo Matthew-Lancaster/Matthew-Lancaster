@@ -35,13 +35,13 @@ TIMER_SUB_1:
 setTimer TIMER_SUB_1,OFF
 	
 COMP_N=FALSE
-IF (A_ComputerName="4-ASUS-GL522VW") 
+IF (A_ComputerName=4-ASUS-GL522VW) 
 	COMP_N=TRUE
-IF (A_ComputerName="5-ASUS-P2520LA") 
+IF (A_ComputerName=5-ASUS-P2520LA) 
 	COMP_N=TRUE
-IF (A_ComputerName="7-ASUS-GL522VW") 
+IF (A_ComputerName=7-ASUS-GL522VW) 
 	COMP_N=TRUE
-IF (A_ComputerName="8-MSI-GP62M-7RD") 
+IF (A_ComputerName=8-MSI-GP62M-7RD) 
 	COMP_N=TRUE
 	
 IF COMP_N=FALSE

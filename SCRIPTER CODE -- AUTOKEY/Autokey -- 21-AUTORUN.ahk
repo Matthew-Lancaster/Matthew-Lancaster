@@ -357,11 +357,11 @@ Num_Comma(num)
 ProcessExist(processName,Test_A_UserName) 
 {
 	SET_GO=FALSE
-	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	IF (A_ComputerName = 1-ASUS-X5DIJ) 
 		SET_GO=TRUE
-	IF (A_ComputerName = "2-ASUS-EEE") 
+	IF (A_ComputerName = 2-ASUS-EEE) 
 		SET_GO=TRUE
-	IF (A_ComputerName = "3-LINDA-PC") 
+	IF (A_ComputerName = 3-LINDA-PC) 
 		SET_GO=TRUE
 	
 	;If OSVER_N_VAR<10
@@ -407,7 +407,7 @@ Loop, %id%
 	table := id%A_Index%
 	WinGetTitle, title, ahk_id %table%
 	WinMinimize  ahk_id %table%
-	IF (A_ComputerName="2-ASUS-EEE")
+	IF (A_ComputerName=2-ASUS-EEE)
 	IF title=D:\#
 		WinClose,  ahk_id %table% ; Got an Annoyer Explorer Window Every Boot On "2-ASUS-EEE"
 	IF title=D:\0 CLOUD\ASUS WEBSTORAGE _5GB
@@ -454,13 +454,13 @@ GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 
 SET_GO_1=TRUE
 SET_GO_2=20
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
+IF (A_ComputerName = 1-ASUS-X5DIJ) 
 	SET_GO_2=60
-IF (A_ComputerName = "2-ASUS-EEE") 
+IF (A_ComputerName = 2-ASUS-EEE) 
 	SET_GO_2=80
-IF (A_ComputerName = "3-LINDA-PC") 
+IF (A_ComputerName = 3-LINDA-PC) 
 	SET_GO_2=60
-IF (A_ComputerName = "5-ASUS-P2520LA") 
+IF (A_ComputerName = 5-ASUS-P2520LA) 
 	SET_GO_2=60
 
 COUNT_TICK_TIME=% 1000*60*8
@@ -483,7 +483,7 @@ IF SET_GO_1=TRUE
 }
 
 SKIP_CODE=FALSE
-IF (A_ComputerName = "3-LINDA-PC") 
+IF (A_ComputerName = 3-LINDA-PC) 
 	SKIP_CODE=TRUE
 
 IF SKIP_CODE=FALSE
@@ -500,11 +500,11 @@ If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
 }
 
 SKIP_CODE=FALSE
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
+IF (A_ComputerName = 1-ASUS-X5DIJ) 
 	SKIP_CODE=TRUE
-IF (A_ComputerName = "2-ASUS-EEE") 
+IF (A_ComputerName = 2-ASUS-EEE) 
 	SKIP_CODE=TRUE
-IF (A_ComputerName = "3-LINDA-PC") 
+IF (A_ComputerName = 3-LINDA-PC) 
 	SKIP_CODE=TRUE
 
 IF SKIP_CODE=FALSE
@@ -521,15 +521,15 @@ IF SKIP_CODE=FALSE
 		}
 
 	SET_GO=TRUE
-	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	IF (A_ComputerName = 1-ASUS-X5DIJ) 
 		SET_GO=FALSE
-	IF (A_ComputerName = "2-ASUS-EEE") 
+	IF (A_ComputerName = 2-ASUS-EEE) 
 		SET_GO=FALSE
-	IF (A_ComputerName = "3-LINDA-PC") 
+	IF (A_ComputerName = 3-LINDA-PC) 
 		SET_GO=FALSE
-	IF (A_ComputerName = "5-ASUS-P2520LA") 
+	IF (A_ComputerName = 5-ASUS-P2520LA) 
 		SET_GO=FALSE
-	IF (A_ComputerName = "7-ASUS-GL522VW") 
+	IF (A_ComputerName = 7-ASUS-GL522VW) 
 		SET_GO=FALSE
 
 	IF SET_GO=TRUE
@@ -548,11 +548,11 @@ IF SKIP_CODE=FALSE
 }
 
 SET_GO=TRUE
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
+IF (A_ComputerName = 1-ASUS-X5DIJ) 
 	SET_GO=FALSE
-IF (A_ComputerName = "2-ASUS-EEE") 
+IF (A_ComputerName = 2-ASUS-EEE) 
 	SET_GO=FALSE
-IF (A_ComputerName = "3-LINDA-PC") 
+IF (A_ComputerName = 3-LINDA-PC) 
 	SET_GO=FALSE
 If (OSVER_N_VAR<10)
 	SET_GO=FALSE
@@ -742,13 +742,13 @@ RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Runonce, 
 	
 
 SET_GO_1=0
-IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
+IF (A_ComputerName=5-ASUS-P2520LA and A_UserName=MATT 01)
 	SET_GO_1=0
-IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+IF (A_ComputerName=4-ASUS-GL522VW and A_UserName=MATT 01)
 	SET_GO_1=0
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+IF (A_ComputerName=7-ASUS-GL522VW and A_UserName=MATT 04)
 	SET_GO_1=1
-IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
+IF (A_ComputerName=8-MSI-GP62M-7RD and A_UserName=MATT 01)
 	SET_GO_1=0
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -895,11 +895,11 @@ If ProcessExist("wweb32.exe", A_UserName)=0
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WordWeb
 	
 SKIP_CODE=FALSE
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
+IF (A_ComputerName = 1-ASUS-X5DIJ) 
 	SKIP_CODE=TRUE
-IF (A_ComputerName = "2-ASUS-EEE") 
+IF (A_ComputerName = 2-ASUS-EEE) 
 	SKIP_CODE=TRUE
-IF (A_ComputerName = "3-LINDA-PC") 
+IF (A_ComputerName = 3-LINDA-PC) 
 	SKIP_CODE=TRUE
 
 IF SKIP_CODE=FALSE
@@ -924,19 +924,19 @@ IF SKIP_CODE=FALSE
 		
 
 	SET_GO_1=0
-	IF (A_ComputerName="1-ASUS-X5DIJ")
+	IF (A_ComputerName=1-ASUS-X5DIJ)
 		SET_GO_1=1
-	IF (A_ComputerName="2-ASUS-EEE")
+	IF (A_ComputerName=2-ASUS-EEE)
 		SET_GO_1=1
-	IF (A_ComputerName="3-LINDA-PC")
+	IF (A_ComputerName=3-LINDA-PC)
 		SET_GO_1=1
-	IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
+	IF (A_ComputerName=5-ASUS-P2520LA and A_UserName=MATT 01)
 		SET_GO_1=1
-	IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+	IF (A_ComputerName=4-ASUS-GL522VW and A_UserName=MATT 01)
 		SET_GO_1=1
-	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	IF (A_ComputerName=7-ASUS-GL522VW and A_UserName=MATT 04)
 		SET_GO_1=1
-	IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
+	IF (A_ComputerName=8-MSI-GP62M-7RD and A_UserName=MATT 01)
 		SET_GO_1=1
 
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -1108,13 +1108,13 @@ IF SKIP_CODE=FALSE
 ; GETS SOME CLASH RUN FROM REGISTRY ALSO RUN
 ;-------------------------------------------
 SET_GO_1=0
-IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
+IF (A_ComputerName=5-ASUS-P2520LA and A_UserName=MATT 01)
 	SET_GO_1=1
-IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+IF (A_ComputerName=4-ASUS-GL522VW and A_UserName=MATT 01)
 	SET_GO_1=1
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+IF (A_ComputerName=7-ASUS-GL522VW and A_UserName=MATT 04)
 	SET_GO_1=1
-IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
+IF (A_ComputerName=8-MSI-GP62M-7RD and A_UserName=MATT 01)
 	SET_GO_1=1
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -1295,15 +1295,15 @@ IfWinNotExist SendSMTP_REBOOT_BATCH
 
 	
 SET_GO=FALSE
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
+IF (A_ComputerName = 1-ASUS-X5DIJ) 
 	SET_GO=TRUE
-IF (A_ComputerName = "2-ASUS-EEE") 
+IF (A_ComputerName = 2-ASUS-EEE) 
 	SET_GO=TRUE
-IF (A_ComputerName = "4-ASUS-GL522VW") 
+IF (A_ComputerName = 4-ASUS-GL522VW) 
 	SET_GO=TRUE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
+IF (A_ComputerName = 7-ASUS-GL522VW) 
 	SET_GO=TRUE
-IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+IF (A_ComputerName = 8-MSI-GP62M-7RD) 
 	SET_GO=TRUE
 
 DetectHiddenWindows, off	
@@ -1358,7 +1358,7 @@ IF SET_GO=TRUE
 DetectHiddenWindows, ON
 
 SET_GO=FALSE
-IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+IF (A_ComputerName = 8-MSI-GP62M-7RD) 
 	SET_GO=TRUE
 
 SET_GO=TRUE
@@ -1391,13 +1391,13 @@ IF SET_GO=TRUE
 
 
 SET_GO=FALSE
-IF (A_ComputerName = "5-ASUS-P2520LA") 
+IF (A_ComputerName = 5-ASUS-P2520LA) 
 	SET_GO=TRUE
-IF (A_ComputerName = "4-ASUS-GL522VW") 
+IF (A_ComputerName = 4-ASUS-GL522VW) 
 	SET_GO=TRUE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
+IF (A_ComputerName = 7-ASUS-GL522VW) 
 	SET_GO=TRUE
-IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+IF (A_ComputerName = 8-MSI-GP62M-7RD) 
 	SET_GO=TRUE
 
 DetectHiddenWindows, off
@@ -1425,11 +1425,11 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVers
 
 	
 SET_GO=FALSE
-IF (A_ComputerName = "4-ASUS-GL522VW") 
+IF (A_ComputerName = 4-ASUS-GL522VW) 
 	SET_GO=TRUE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
+IF (A_ComputerName = 7-ASUS-GL522VW) 
 	SET_GO=TRUE
-IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+IF (A_ComputerName = 8-MSI-GP62M-7RD) 
 	SET_GO=TRUE
 
 IF SET_GO=TRUE
@@ -1450,9 +1450,9 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVers
 
 	
 SET_GO=FALSE
-IF (A_ComputerName = "4-ASUS-GL522VW") 
+IF (A_ComputerName = 4-ASUS-GL522VW) 
 	SET_GO=FALSE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
+IF (A_ComputerName = 7-ASUS-GL522VW) 
 	SET_GO=TRUE
 
 IF SET_GO=TRUE
@@ -1655,7 +1655,7 @@ SET_GO=FALSE
 If OSVER_N_VAR=10
 	SET_GO=TRUE
 
-;IF (A_ComputerName = "4-ASUS-GL522VW") 
+;IF (A_ComputerName = 4-ASUS-GL522VW) 
 ;	SET_GO=FALSE
 	
 IF SET_GO=TRUE 
@@ -1770,7 +1770,7 @@ COUNT_TICK_TIME=% 1000*60*5
 ;IF A_TICKCOUNT< %COUNT_TICK_TIME%
 {
 	SET_GO=TRUE
-	IF (A_ComputerName = "3-LINDA-PC") 
+	IF (A_ComputerName = 3-LINDA-PC) 
 		SET_GO=FALSE
 
 	If OSVER_N_VAR<6
@@ -1795,7 +1795,7 @@ GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 GOSUB MINIMIZE_ALL_BLUETOOTH
 GOSUB MINIMIZE_GOODSYNC_AT_BOOT
 
-IF (A_ComputerName = "5-ASUS-P2520LA") 
+IF (A_ComputerName = 5-ASUS-P2520LA) 
 {
 	IfWinExist Rain Alarm - Google Chrome
 	{
@@ -2064,9 +2064,9 @@ RETURN
 
 POWERSHELL:
 
-	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	IF (A_ComputerName = 1-ASUS-X5DIJ) 
 		RETURN
-	IF (A_ComputerName = "2-ASUS-EEE") 
+	IF (A_ComputerName = 2-ASUS-EEE) 
 		RETURN
 
 	;-----------------------------------------------
