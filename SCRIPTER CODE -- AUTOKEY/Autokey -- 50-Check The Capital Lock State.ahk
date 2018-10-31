@@ -96,7 +96,12 @@ RETURN
 CapsLock_SUB_TIMER:
 
 IF (A_TimeIdle > 20000)
+{
+	IF CapsLock_VAR_IDLE_1=FALSE
+		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
+	
 	CapsLock_VAR_IDLE_1=TRUE
+}
 	
 IF CapsLock_VAR_IDLE_2>%A_TimeIdle%
 {
@@ -122,7 +127,7 @@ CapsLock_VAR_IDLE_2=%A_TimeIdle%
 ; JUST SOME PLAY ABOUT FOR MY OWN CODE TO MAINTAIN IN TWO PLACES
 ; AND TEST RIVE HERE
 ; -------------------------------------------------------------------
-IF (A_TimeIdle > 20000)
+IF (A_TimeIdle > 20000 and A_ScriptName="Autokey -- 50-Check The Capital Lock State.ahk")
 {
 	SET_EXIT=FALSE
 	IF (A_ComputerName="1-ASUS-X5DIJ")
@@ -176,7 +181,9 @@ RETURN
 	}
 RETURN
 
+; -------------------------------------------------------------------
 ; ENTRY 001 WEB PAGE SOURCE _ CREDIT GIVEN
+; -------------------------------------------------------------------
 
 ~*CapsLock::
  
@@ -202,7 +209,9 @@ RETURN
 RETURN
 
 
+; -------------------------------------------------------------------
 ; ENTRY 002 WEB PAGE SOURCE
+; -------------------------------------------------------------------
 
 ;=============================================================================================
 ; Show a ToolTip that shows the current state of the lock keys (e.g. CapsLock) when one is pressed
