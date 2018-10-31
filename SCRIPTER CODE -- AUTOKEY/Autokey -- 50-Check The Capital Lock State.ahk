@@ -13,9 +13,13 @@
 ;  =============================================================
 
 ;# ------------------------------------------------------------------
-; ---- LOCATION ONLINE
+; ---- LOCATION ON-LINE
 ; -------------------------------------------------------------------
 ; ---- GITHUB.COM
+; ----
+; Matthew-Lancaster/Autokey -- 50-Check The Capital Lock State.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2050-Check%20The%20Capital%20Lock%20State.ahk
+; ----
 ;# ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
