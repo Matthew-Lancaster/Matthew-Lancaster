@@ -30,9 +30,9 @@
 ; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
 ; -------------------------------------------------------------------
 
-;# ------------------------------------------------------------------
+; # ------------------------------------------------------------------
 ; DESCRIPTION
-;# ------------------------------------------------------------------
+; # ------------------------------------------------------------------
 ; AN INDICATOR FOR CAPS LOCK IS ON
 ; MY METHOD INTRO LEACHED CREDIT GIVEN SOURCE FROM
 ; HAS MY EXTRA SKILLFUL THOUGHT PUT IN
@@ -46,19 +46,19 @@
 ; BUT THE SOFTWARE WORKED AT FIRST INSTALL AND NEVER AGAIN 
 ; THE HI LOW SOUND BUT MADE A ANNOYING BEEP INSTEAD
 ; IT ANNOYING ALSO WITH LOGITECH THE MOUSE DISPLAY OF AN ON-SCREEN BOX AT CAPS CHANGE
-; CAN;T TURN IT OFF ANYMORE
+; CAN'T TURN IT OFF ANYMORE
 ; AND DOUBLE ANNOYING THE LOGITECH OPTIONS NEW VERSION OF SOFTWARE HAS ONE AS WELL
 ; MAKING TWO ALMOST AS IN CONFLICT
 ; WHEN YOU HAVE BOTH TYPE OF MOUSE AND THEIR SOFTWARE RUNNER
 ; -------------------------------------------------------------------
 ; Could Be Added to Press Shift on Own to Turn Caps Lock Off
 ; Test it Out Later
-;# ------------------------------------------------------------------
+; # ------------------------------------------------------------------
 ; SESSION 001
 ; -------------------------------------------------------------------
 ; FROM Tue 30-Oct-2018 22:07:50 __ CODE KNOCK UP TIME
 ; TO   Wed 31-Oct-2018 00:48:00
-;# ------------------------------------------------------------------
+; # ------------------------------------------------------------------
 
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
