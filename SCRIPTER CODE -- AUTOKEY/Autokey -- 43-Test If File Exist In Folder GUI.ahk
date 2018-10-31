@@ -218,11 +218,11 @@ TEST_FILE_IN_FOLDER:
 			RUN_COUNT+=1
 
 		SET_GO=TRUE
-		IF (A_ComputerName = 1-ASUS-X5DIJ) 
-		IF (A_ComputerName = 2-ASUS-EEE) 
-		IF (A_ComputerName = 3-LINDA-PC) 
-		IF (A_ComputerName = 5-ASUS-P2520LA) 
-		IF (A_ComputerName = 7-ASUS-GL522VW) 
+		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		IF (A_ComputerName = "2-ASUS-EEE") 
+		IF (A_ComputerName = "3-LINDA-PC") 
+		IF (A_ComputerName = "5-ASUS-P2520LA") 
+		IF (A_ComputerName = "7-ASUS-GL522VW") 
 		SET_GO=FALSE
 
 		

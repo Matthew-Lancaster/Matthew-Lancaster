@@ -173,7 +173,7 @@ ALLOW_SOUND=1
 ; USEFUL IF YOUR EVER GOING TO LEARN WHAT TO GET
 ; -------------------------------------------------------------------
 
-IF !(A_ComputerName = 7-ASUS-GL522VW) 
+IF !(A_ComputerName = "7-ASUS-GL522VW") 
 	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
 
 
@@ -247,7 +247,7 @@ IF WinExist(FN_NAME)
 ; THIS DOES IT WITH ECHO SOUNDING
 ; MUCH MORE HELPFUL AND GOOD IN OTHER PROGRAM WHEN WANT IT ON
 ; -------------------------------------------------------------------
-IF (A_ComputerName = 7-ASUS-GL522VW) 
+IF (A_ComputerName = "7-ASUS-GL522VW") 
 	IfWinNotActive, GoodSync -
 		ALLOW_SOUND=0
 ; -------------------------------------------------------------------
