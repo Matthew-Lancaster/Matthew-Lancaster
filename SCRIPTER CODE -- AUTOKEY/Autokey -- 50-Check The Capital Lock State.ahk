@@ -18,6 +18,14 @@
 ; ---- GITHUB.COM
 ;# ------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; This Code Is Duplicated Coder Located at 
+; Because I Already Have Enough AutoHotKeys Running at Moment
+; Nice to Keep it Separate
+; -------------------------------------------------------------------
+; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; -------------------------------------------------------------------
+
 ;# ------------------------------------------------------------------
 ; DESCRIPTION
 ;# ------------------------------------------------------------------
@@ -38,9 +46,11 @@
 ; AND DOUBLE ANNOYING THE LOGITECH OPTIONS NEW VERSION OF SOFTWARE HAS ONE AS WELL
 ; MAKING TWO ALMOST AS IN CONFLICT
 ; WHEN YOU HAVE BOTH TYPE OF MOUSE AND THEIR SOFTWARE RUNNER
+; -------------------------------------------------------------------
+; Could Be Added to Press Shift on Own to Turn Caps Lock Off
+; Test it Out Later
 ;# ------------------------------------------------------------------
 ; SESSION 001
-; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; FROM Tue 30-Oct-2018 22:07:50 __ CODE KNOCK UP TIME
 ; TO   Wed 31-Oct-2018 00:48:00
