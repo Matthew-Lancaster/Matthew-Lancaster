@@ -299,15 +299,12 @@ SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE=
 GOSUB GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
 
-GOSUB ~*CapsLock
-GLOBAL CapsLock_VAR_IDLE_1
-GLOBAL CapsLock_VAR_IDLE_2
-CapsLock_VAR_IDLE_1=FALSE
-CapsLock_VAR_IDLE_2=0
-SETTIMER CapsLock_SUB_TIMER,100
-
-
 RETURN
+
+; -------------------------------------------------------------------
+; END OF INIT PROCEDURE
+; NEXT IS THE CODE SUBROUTINE SET
+; -------------------------------------------------------------------
 
 
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
@@ -1393,157 +1390,8 @@ Return
 ; -------------------------------------------------------------------
 
 
-; ----
-; Another On-Screen Caps Lock Indicator - Scripts and Functions - AutoHotkey Community
-; https://autohotkey.com/board/topic/100990-another-on-screen-caps-lock-indicator/
-; ----
 
 
-GOSUB ~*CapsLock
-GLOBAL CapsLock_VAR_IDLE_1
-GLOBAL CapsLock_VAR_IDLE_2
-CapsLock_VAR_IDLE_1=FALSE
-CapsLock_VAR_IDLE_2=0
-SETTIMER CapsLock_SUB_TIMER,100
-
-; RETURN
-
-CapsLock_SUB_TIMER:
-
-IF (A_TimeIdle > 20000)
-{
-	IF CapsLock_VAR_IDLE_1=FALSE
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-	
-	CapsLock_VAR_IDLE_1=TRUE
-}
-	
-IF CapsLock_VAR_IDLE_2>%A_TimeIdle%
-{
-	IF CapsLock_VAR_IDLE_1=TRUE
-	if GetKeyState("CapsLock", "T")
-	{
-		; -----------------------------------------------------------
-		; FS8 __ is the Font Size 
-		; W108 Width of Box and H24 Height
-		; -----------------------------------------------------------
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-		SOUNDBEEP 3000,400
-	}
-	ELSE
-	{
-		SOUNDBEEP 1000,400
-	}
-	CapsLock_VAR_IDLE_1=FALSE
-}
-	
-CapsLock_VAR_IDLE_2=%A_TimeIdle%
-
-; JUST SOME PLAY ABOUT FOR MY OWN CODE TO MAINTAIN IN TWO PLACES
-; AND TEST RIVE HERE
-; -------------------------------------------------------------------
-IF (A_TimeIdle > 20000 and A_ScriptName="Autokey -- 50-Check The Capital Lock State.ahk")
-{
-	SET_EXIT=FALSE
-	IF (A_ComputerName="1-ASUS-X5DIJ")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="2-ASUS-EEE")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="3-LINDA-PC")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="4-ASUS-GL522VW")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="5-ASUS-P2520LA")
-		SET_EXIT=TRUE
-		
-	; 1 OF 5 EXAMPLE THIS WORKS
-	IF A_ComputerName=7-ASUS-GL522VW
-		SET_EXIT=TRUE
-	; 2 OF 5 EXAMPLE THIS WORKS
-	IF (A_ComputerName=7-ASUS-GL522VW)
-		SET_EXIT=TRUE
-	; 3 OF 5 EXAMPLE AND THIS WORKS
-	IF (A_ComputerName="7-ASUS-GL522VW")
-		SET_EXIT=TRUE
-	; 4 OF 5 EXAMPLE AND THIS NOT WORK
-	IF A_ComputerName="7-ASUS-GL522VW"
-		SET_EXIT=TRUE
-	; 5 OF 5 EXAMPLE SOMETIMES THIS NOT WORK AND INSTEAD (A_ComputerName="7-ASUS-GL522VW")
-	IF A_ComputerName=7-ASUS-GL522VW
-		SET_EXIT=TRUE
-
-	IF (A_ComputerName="8-MSI-GP62M-7RD")
-		SET_EXIT=TRUE
-
-	IF SET_EXIT=TRUE 
-	{
-		SOUNDBEEP 1000,100
-		EXITAPP
-	}
-}
-
-RETURN
-	
-*Shift::
-	if GetKeyState("CapsLock", "T")
-	{
-		; -----------------------------------------------------------
-		; FS8 __ is the Font Size 
-		; W108 Width of Box and H24 Height
-		; -----------------------------------------------------------
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-		SOUNDBEEP 3000,50
-	}
-RETURN
-
-; -------------------------------------------------------------------
-; ENTRY 001 WEB PAGE SOURCE _ CREDIT GIVEN
-; -------------------------------------------------------------------
-
-~*CapsLock::
- 
-	width := A_ScreenWidth - 150
-	height := A_ScreenHeight - 50
-	 
-	; Sleep, 100
-	if GetKeyState("CapsLock", "T")
-	{
-		; -----------------------------------------------------------
-		; FS8 __ is the Font Size 
-		; W108 Width of Box and H24 Height
-		; -----------------------------------------------------------
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-		SOUNDBEEP 3000,50
-	}
-	else
-	{
-		SOUNDBEEP 1000,50
-		Progress, off
-	}
-	 
-RETURN
-
-
-; -------------------------------------------------------------------
-; ENTRY 002 WEB PAGE SOURCE
-; -------------------------------------------------------------------
-
-;=============================================================================================
-; Show a ToolTip that shows the current state of the lock keys (e.g. CapsLock) when one is pressed
-;=============================================================================================
-; ~*NumLock::
-; ~*CapsLock::
-; ~*ScrollLock::
-; Sleep, 10	; drastically improves reliability on slower systems (took a loooong time to figure this out)
-
-; msg := "Caps Lock: " (GetKeyState("CapsLock", "T") ? "ON" : "OFF") "`n"
-; msg := msg "Num Lock: " (GetKeyState("NumLock", "T") ? "ON" : "OFF") "`n"
-; msg := msg "Scroll Lock: " (GetKeyState("ScrollLock", "T") ? "ON" : "OFF")
-
-; ToolTip, %msg%
-; Sleep, 250	; SPECIFY DISPLAY TIME (ms)
-; ToolTip		; remove
-; return
 
 
 ; -------------------------------------------------------------------

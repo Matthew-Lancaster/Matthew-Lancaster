@@ -27,6 +27,8 @@
 ; This Code Is Duplicated Coder Located at 
 ; Because I Already Have Enough AutoHotKeys Running at Moment
 ; Nice to Keep it Separate
+; Well I Decide is Good Enough to Use as Own Desperate Code Program
+; And use ignore mouse on keyboard hook
 ; -------------------------------------------------------------------
 ; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
 ; -------------------------------------------------------------------
@@ -65,6 +67,18 @@
 ; # ------------------------------------------------------------------
 
 
+; # ------------------------------------------------------------------
+; SESSION 002
+; Fixed Finally Not to USE * in *Shift HotKey Make Repeat Sound with Hold Shift Another Key if Faulty
+; Removed Mouse Idle Trigger for Event Don't Want Reminded Caps Lock when Move Mouse
+; After First Draft Copy  I Noticed Fault if Wasn't Corrector Made the control shift N Key Bring New Folder 
+; in Explorer Go Wrong and Open New Explorer Up - Fixed Now
+; -------------------------------------------------------------------
+; FROM Wed 31-Oct-2018 12:45:22
+; TO   Wed 31-Oct-2018 13:40:00
+; # ------------------------------------------------------------------
+
+
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
@@ -85,93 +99,61 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; https://autohotkey.com/board/topic/100990-another-on-screen-caps-lock-indicator/
 ; ----
 
+#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
 
 GOSUB ~*CapsLock
 GLOBAL CapsLock_VAR_IDLE_1
 GLOBAL CapsLock_VAR_IDLE_2
+GLOBAL Timer_Delayer
 CapsLock_VAR_IDLE_1=FALSE
 CapsLock_VAR_IDLE_2=0
 SETTIMER CapsLock_SUB_TIMER,100
+
+; -------------------------------------------------------------------
+; Set the Time Delay Reminder
+; -------------------------------------------------------------------
+Timer_Delayer=10000
+; -------------------------------------------------------------------
 
 RETURN
 
 CapsLock_SUB_TIMER:
 
-IF (A_TimeIdle > 20000)
-{
-	IF CapsLock_VAR_IDLE_1=FALSE
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-	
-	CapsLock_VAR_IDLE_1=TRUE
-}
-	
-IF CapsLock_VAR_IDLE_2>%A_TimeIdle%
-{
-	IF CapsLock_VAR_IDLE_1=TRUE
-	if GetKeyState("CapsLock", "T")
+	IF (A_TimeIdlePhysical > %Timer_Delayer%)
 	{
-		; -----------------------------------------------------------
-		; FS8 __ is the Font Size 
-		; W108 Width of Box and H24 Height
-		; -----------------------------------------------------------
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-		SOUNDBEEP 3000,400
-	}
-	ELSE
-	{
-		SOUNDBEEP 1000,400
-	}
-	CapsLock_VAR_IDLE_1=FALSE
-}
-	
-CapsLock_VAR_IDLE_2=%A_TimeIdle%
-
-; JUST SOME PLAY ABOUT FOR MY OWN CODE TO MAINTAIN IN TWO PLACES
-; AND TEST RIVE HERE
-; -------------------------------------------------------------------
-IF (A_TimeIdle > 20000 and A_ScriptName="Autokey -- 50-Check The Capital Lock State.ahk")
-{
-	SET_EXIT=FALSE
-	IF (A_ComputerName="1-ASUS-X5DIJ")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="2-ASUS-EEE")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="3-LINDA-PC")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="4-ASUS-GL522VW")
-		SET_EXIT=TRUE
-	IF (A_ComputerName="5-ASUS-P2520LA")
-		SET_EXIT=TRUE
+		IF CapsLock_VAR_IDLE_1=FALSE
+			Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		
-	; 1 OF 5 EXAMPLE THIS WORKS
-	IF A_ComputerName=7-ASUS-GL522VW
-		SET_EXIT=TRUE
-	; 2 OF 5 EXAMPLE THIS WORKS
-	IF (A_ComputerName=7-ASUS-GL522VW)
-		SET_EXIT=TRUE
-	; 3 OF 5 EXAMPLE AND THIS WORKS
-	IF (A_ComputerName="7-ASUS-GL522VW")
-		SET_EXIT=TRUE
-	; 4 OF 5 EXAMPLE AND THIS NOT WORK
-	IF A_ComputerName="7-ASUS-GL522VW"
-		SET_EXIT=TRUE
-	; 5 OF 5 EXAMPLE SOMETIMES THIS NOT WORK AND INSTEAD (A_ComputerName="7-ASUS-GL522VW")
-	IF A_ComputerName=7-ASUS-GL522VW
-		SET_EXIT=TRUE
-
-	IF (A_ComputerName="8-MSI-GP62M-7RD")
-		SET_EXIT=TRUE
-
-	IF SET_EXIT=TRUE 
-	{
-		SOUNDBEEP 1000,100
-		EXITAPP
+		CapsLock_VAR_IDLE_1=TRUE
 	}
-}
+		
+		
+	IF CapsLock_VAR_IDLE_2>%A_TimeIdlePhysical%
+	{
+		IF CapsLock_VAR_IDLE_1=TRUE
+		if GetKeyState("CapsLock", "T")
+		{
+			; -----------------------------------------------------------
+			; FS8 __ is the Font Size 
+			; W108 Width of Box and H24 Height
+			; -----------------------------------------------------------
+			Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
+			SOUNDBEEP 3000,400
+		}
+		ELSE
+		{
+			SOUNDBEEP 1000,400
+		}
+		CapsLock_VAR_IDLE_1=FALSE
+	}
+		
+	CapsLock_VAR_IDLE_2=%A_TimeIdlePhysical%
+
 
 RETURN
 	
-*Shift::
+Shift::
+
 	if GetKeyState("CapsLock", "T")
 	{
 		; -----------------------------------------------------------
@@ -181,6 +163,7 @@ RETURN
 		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		SOUNDBEEP 3000,50
 	}
+
 RETURN
 
 ; -------------------------------------------------------------------
@@ -191,7 +174,7 @@ RETURN
  
 	width := A_ScreenWidth - 150
 	height := A_ScreenHeight - 50
-	 
+	
 	; Sleep, 100
 	if GetKeyState("CapsLock", "T")
 	{
@@ -299,4 +282,28 @@ class MyObject
 }
 ; -------------------------------------------------------------------
 ; exit the app
+; -------------------------------------------------------------------
+
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; 1 OF 5 EXAMPLE THIS WORKS
+IF A_ComputerName=7-ASUS-GL522VW
+	SET_EXIT=TRUE
+; 2 OF 5 EXAMPLE THIS WORKS
+IF (A_ComputerName=7-ASUS-GL522VW)
+	SET_EXIT=TRUE
+; 3 OF 5 EXAMPLE AND THIS WORKS
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_EXIT=TRUE
+; 4 OF 5 EXAMPLE AND THIS NOT WORK
+IF A_ComputerName="7-ASUS-GL522VW"
+	SET_EXIT=TRUE
+; 5 OF 5 EXAMPLE SOMETIMES THIS NOT WORK AND INSTEAD (A_ComputerName="7-ASUS-GL522VW")
+IF A_ComputerName=7-ASUS-GL522VW
+	SET_EXIT=TRUE
+
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
