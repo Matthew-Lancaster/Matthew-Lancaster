@@ -1431,6 +1431,17 @@ CapsLock_VAR_IDLE_2=%A_TimeIdle%
 
 RETURN
 
+*Shift::
+	if GetKeyState("CapsLock", "T")
+	{
+		SOUNDBEEP 3000,50
+	}
+	else
+	{
+		; SOUNDBEEP 1000,50
+	}
+RETURN
+
 ; ENTRY 001 WEB PAGE SOURCE
 
 ~*CapsLock::

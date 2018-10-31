@@ -8,7 +8,7 @@
 ;# __ 
 ;# __ DATE BEGIN
 ;# __ FROM Tue 30-Oct-2018 22:07:50 __ CODE KNOCK UP TIME
-;# __ TO   Wed 31-Oct-2018 00:48:00
+;# __ TO   Wed 31-Oct-2018 01:25:00
 ;# __ 
 ;  =============================================================
 
@@ -52,11 +52,14 @@
 ; -------------------------------------------------------------------
 ; Could Be Added to Press Shift on Own to Turn Caps Lock Off
 ; Test it Out Later
+; -------------------------------------------------------------------
+; Add Extra Shift Key Soundbeeper Only Sound if Caps Lock is On
+; -------------------------------------------------------------------
 ; # ------------------------------------------------------------------
 ; SESSION 001
 ; -------------------------------------------------------------------
 ; FROM Tue 30-Oct-2018 22:07:50 __ CODE KNOCK UP TIME
-; TO   Wed 31-Oct-2018 00:48:00
+; TO   Wed 31-Oct-2018 01:25:00
 ; # ------------------------------------------------------------------
 
 
@@ -100,6 +103,11 @@ IF CapsLock_VAR_IDLE_2>%A_TimeIdle%
 	IF CapsLock_VAR_IDLE_1=TRUE
 	if GetKeyState("CapsLock", "T")
 	{
+		; -----------------------------------------------------------
+		; FS8 __ is the Font Size 
+		; W108 Width of Box and H24 Height
+		; -----------------------------------------------------------
+		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		SOUNDBEEP 3000,400
 	}
 	ELSE
@@ -111,23 +119,61 @@ IF CapsLock_VAR_IDLE_2>%A_TimeIdle%
 	
 CapsLock_VAR_IDLE_2=%A_TimeIdle%
 
+; JUST SOME PLAY ABOUT FOR MY OWN CODE TO MAINTAIN IN TWO PLACES
+; AND TEST RIVE HERE
+; -------------------------------------------------------------------
+IF (A_TimeIdle > 20000)
+{
+	SET_EXIT=FALSE
+	IF A_ComputerName=1-ASUS-X5DIJ
+		SET_EXIT=TRUE
+	IF A_ComputerName=2-ASUS-EEE
+		SET_EXIT=TRUE
+	IF A_ComputerName=3-LINDA-PC
+		SET_EXIT=TRUE
+	IF A_ComputerName=4-ASUS-GL522VW
+		SET_EXIT=TRUE
+	IF A_ComputerName=5-ASUS-P2520LA
+		SET_EXIT=TRUE
+		
+	; 1 OF 4 EXAMPLE THIS WORKS
+	IF A_ComputerName=7-ASUS-GL522VW
+		SET_EXIT=TRUE
+	; 2 OF 4 EXAMPLE THIS WORKS
+	IF (A_ComputerName=7-ASUS-GL522VW)
+		SET_EXIT=TRUE
+	; 3 OF 4 EXAMPLE AND THIS WORKS
+	IF (A_ComputerName="7-ASUS-GL522VW")
+		SET_EXIT=TRUE
+	; 4 OF 4 EXAMPLE AND THIS NOT WORK
+	IF A_ComputerName="7-ASUS-GL522VW"
+		SET_EXIT=TRUE
+
+	IF A_ComputerName=8-MSI-GP62M-7RD
+		SET_EXIT=TRUE
+
+	IF SET_EXIT=TRUE 
+	{
+		SOUNDBEEP 1000,100
+		EXITAPP
+	}
+}
+
 RETURN
 	
-
-; ENTRY 001 WEB PAGE SOURCE
-
 *Shift::
 	if GetKeyState("CapsLock", "T")
 	{
+		; -----------------------------------------------------------
+		; FS8 __ is the Font Size 
+		; W108 Width of Box and H24 Height
+		; -----------------------------------------------------------
+		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		SOUNDBEEP 3000,50
-	}
-	else
-	{
-		SOUNDBEEP 1000,50
-		Progress, off
 	}
 RETURN
 
+; ENTRY 001 WEB PAGE SOURCE _ CREDIT GIVEN
 
 ~*CapsLock::
  
@@ -171,3 +217,72 @@ RETURN
 ; Sleep, 250	; SPECIFY DISPLAY TIME (ms)
 ; ToolTip		; remove
 ; return
+
+
+
+ 
+;# ------------------------------------------------------------------
+; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
+;# ------------------------------------------------------------------
+
+;# ------------------------------------------------------------------
+TIMER_PREVIOUS_INSTANCE:
+SETTIMER TIMER_PREVIOUS_INSTANCE,10000
+
+if ScriptInstanceExist()
+{
+	Exitapp
+}
+return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+ScriptInstanceExist() {
+	static title := " - AutoHotkey v" A_AhkVersion
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, On
+	WinGet, match, List, % A_ScriptFullPath . title
+	DetectHiddenWindows, % dhw
+	return (match > 1)
+	}
+Return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+EOF:                           ; on exit
+ExitApp     
+; -------------------------------------------------------------------
+
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+
+; -------------------------------------------------------------------
+ExitFunc(ExitReason, ExitCode)
+{
+    if ExitReason not in Logoff,Shutdown
+    {
+        ;MsgBox, 4, , Are you sure you want to exit?
+        ;IfMsgBox, No
+        ;    return 1  ; OnExit functions must return non-zero to prevent exit.
+    }
+    ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
+}
+
+class MyObject
+{
+    Exiting()
+    {
+        ;
+        ;MsgBox, MyObject is cleaning up prior to exiting...
+        /*
+        this.SayGoodbye()
+        this.CloseNetworkConnections()
+        */
+    }
+}
+; -------------------------------------------------------------------
+; exit the app
+; -------------------------------------------------------------------
