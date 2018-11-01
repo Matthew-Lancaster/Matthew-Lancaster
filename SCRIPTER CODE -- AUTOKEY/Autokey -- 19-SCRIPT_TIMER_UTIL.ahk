@@ -299,6 +299,10 @@ SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE=
 GOSUB GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
 
+
+SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
+SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
+
 RETURN
 
 ; -------------------------------------------------------------------
@@ -1390,6 +1394,33 @@ Return
 ; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
+TIMER_SUB_HUBIC_1:
+; -------------------------------------------------------------------
+
+	SETTIMER TIMER_SUB_HUBIC_1, OFF
+	
+	RETURN
+	
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS"
+	IfExist, %FN_VAR%
+	{
+		Run, %FN_VAR%
+	}
+
+Return
+
+; -------------------------------------------------------------------
+TIMER_SUB_HUBIC_2:
+; -------------------------------------------------------------------
+	
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS"
+	IfExist, %FN_VAR%
+	{
+		Run, %FN_VAR% /QUITE_MODE
+	}
+
+Return
 
 
 
