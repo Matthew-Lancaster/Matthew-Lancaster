@@ -488,7 +488,7 @@ IF (A_ComputerName = "3-LINDA-PC")
 
 IF SKIP_CODE=FALSE
 {
-If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
+	If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
 	{
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
 		IfExist, %FN_VAR%
@@ -498,6 +498,20 @@ If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
 		}
 	}
 }
+
+IF SKIP_CODE=FALSE
+{
+	If ProcessExist("URL Logger.exe", A_UserName)=0
+	{
+		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
+		IfExist, %FN_VAR%
+		{
+				SoundBeep , 2000 , 100
+				Run, "%FN_VAR%"
+		}
+	}
+}
+
 
 SKIP_CODE=FALSE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
@@ -510,15 +524,16 @@ IF (A_ComputerName = "3-LINDA-PC")
 IF SKIP_CODE=FALSE
 {
 
-	If ProcessExist("EliteSpy.exe", A_UserName)=0
+	Process, Exist, EliteSpy.exe
+	If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
+	{
+		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+		IfExist, %FN_VAR%
 		{
-			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
-			IfExist, %FN_VAR%
-			{
-				SoundBeep , 2000 , 100
-				Run, "%FN_VAR%"
-			}
+			SoundBeep , 2000 , 100
+			Run, "%FN_VAR%"
 		}
+	}
 
 	SET_GO=TRUE
 	IF (A_ComputerName = "1-ASUS-X5DIJ") 

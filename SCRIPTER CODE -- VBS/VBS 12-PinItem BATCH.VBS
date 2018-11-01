@@ -376,7 +376,9 @@ I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB KEEP RUNNER\VB KEEP RUNNER.exe"
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
 END IF 
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
 IF Version_OS=10 THEN
@@ -421,7 +423,7 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Notepad++\notepad++.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
+
 I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 I=I+1:ARRAY_1(I)="C:\Windows\explorer.exe"
 
@@ -442,7 +444,7 @@ END IF
 I=I+1:ARRAY_1(I)="C:\Program Files\VS Revo Group\Revo Uninstaller\RevoUnin.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\Greatis\WinDowse\WinDowse.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
 
 IF Version_OS=10 THEN
@@ -501,6 +503,7 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.ex
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
 END IF
+
 
 IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
@@ -583,6 +586,11 @@ END IF
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Windows\System32\Taskmgr.exe"
 END IF
+
+' IF Version_OS>=10 THEN
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
+' END IF
+
 
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""

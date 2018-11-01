@@ -26,6 +26,9 @@
 ' BUT LESS QUICK AS WENT ON AS SO MANY FILE SYNCER
 ' NOW INDEPENDENT FOLDER FROM ROOT
 ' THIS CODE IS CALLED FROM GOODSYNC PRIOR TO EACH ANALYZE
+' NOT ANYMORE
+' NOW RUN BY Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+' ONCE AN HOUR
 '
 ' IT RUN IN QUITE MODE IF COMMAND LINE HAS SOMETHING
 ' -------------------------------------------------------------------
@@ -73,6 +76,18 @@
 ' -------------------------------------------------------------------
 ' Mon 29-Oct-2018 02:39:19
 ' Mon 29-Oct-2018 03:28:00
+'#-------------------------------------------------------------------
+
+'#-------------------------------------------------------------------
+' 004 __ 
+'#-------------------------------------------------------------------
+' ADDER 
+' ADD CODE __ COMPUTER DRIVER SOFTWARE CHANGED
+' -------------------------------------------------------------------
+' Thu 01-Nov-2018 00:52:13
+' Thu 01-Nov-2018 01:30:00 -- IDEA GTTING CLOSE REAL TIME EITOR HERE FOLLOWS
+' Thu 01-Nov-2018 01:09:53
+' Thu 01-Nov-2018 01:30:00 
 '#-------------------------------------------------------------------
 
 
@@ -164,7 +179,7 @@ CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
-IF ComputerName<>"4-ASUS-GL522VW" THEN 
+IF ComputerName<>"8-MSI-GP62M-7RD" THEN 
 	Wscript.QUIT
 END IF 
 
