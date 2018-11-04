@@ -161,87 +161,11 @@ Mute_Beep_In_Other_Program_Beside_GrinBook_an_Mysms=false
 current := Object()
 
 
-; SOURCE CREDIT
 ; -------------------------------------------------------------------
-; mixing pseudo arrays (array%n%) with real arrays (array[n], array.n)
-; This is a real array example:
+; GOSUB ROUTINE_FINDER_ADD_TOTAL_COUNT_PEOPLE_IN_FACEBOOK_FRIEND_OF_FRIEND_NETOWRK_COUNT:
+; OUTPUT FILE
+; SourceFile := % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt
 ; -------------------------------------------------------------------
-; Reading file and storing value in array problem - Ask for Help - AutoHotkey Community
-; https://autohotkey.com/board/topic/92137-reading-file-and-storing-value-in-array-problem/
-; -------------------------------------------------------------------
-; BLANK LINES        NOT READ IN
-; LINES THAT BEGIN ; NOT READ IN
-; -------------------------------------------------------------------
-SourceFile := % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
-IfExist, %SourceFile%
-{
-	Loop, read, % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
-	{
-		; ---------------------------------------------------------------
-		; SOME NUMERIC BY FACEBOOK HAVE THOUSAND SEPARATOR
-		; ---------------------------------------------------------------
-		TEST_STRING := A_LoopReadLine
-		TEST_STRING := StrReplace(TEST_STRING, ",", "")
-		SET_GO=TRUE
-		IF SubStr(A_LoopReadLine, 1, 1)=";"
-			SET_GO=FALSE
-		IF INSTR(A_LoopReadLine,"mutual friends")>0
-			SET_GO=FALSE
-		IF A_LoopReadLine is number
-			SET_GO=FALSE
-		IF TEST_STRING is number
-			SET_GO=FALSE
-		IF !A_LoopReadLine
-			SET_GO=FALSE
-		IF SET_GO=TRUE
-		{
-			TEXT_STRING_VAR = %A_LoopReadLine%%A_Space%-
-			current[A_Index] := TEXT_STRING_VAR
-			
-			; MSGBOX % current[A_Index]
-			; EXITAPP
-			
-		}
-	}
-}
-
-; ------------------------------------------------------------------------
-; Count The Total Network of Friend Just For Additional Extra Programmer Fun
-; ------------------------------------------------------------------------
-COUNTER_VALUE=0
-SourceFile := % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
-IfExist, %SourceFile%
-{
-	DestFile = % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NUMERIC COUNT TOTAL.txt"
-	IfExist, %DestFile%
-	{
-		FileDelete, %DestFile%
-	}
-
-	Loop, read, %SourceFile%, %DestFile%
-	{
-		TEST_STRING := A_LoopReadLine
-		TEST_STRING := StrReplace(TEST_STRING, ",", "")
-		TEST_STRING := StrReplace(TEST_STRING, "mutual friends", "")
-		TEST_STRING := Trim(TEST_STRING)
-		SET_GO=FALSE
-		IF TEST_STRING is number
-			SET_GO=TRUE
-
-		If SET_GO=TRUE
-			{
-			FileAppend, %TEST_STRING%`n
-			COUNTER_VALUE+=%TEST_STRING%
-			}
-	}
-	TEXT_STRING_VAR:="="
-	; StringReplace, TEXT_STRING_VAR, TEXT_STRING_VAR,",,All
-	
-	FileAppend, =`n, %DestFile%
-	; FileAppend, %TEXT_STRING_VAR%`n, %DestFile%
-	FileAppend, %COUNTER_VALUE%`n, %DestFile%
-}
-
 
 ;--------------------------------------------------------------------
 ; CAREFUL ABOUT YOUR EDITOR OF FACEBOOK GRINBOOK FB FRIEND MEMBER SET 
@@ -443,6 +367,93 @@ Return
     }
 }
 Return
+
+
+
+ROUTINE_FINDER_ADD_TOTAL_COUNT_PEOPLE_IN_FACEBOOK_FRIEND_OF_FRIEND_NETOWRK_COUNT:
+
+; SOURCE CREDIT
+; -------------------------------------------------------------------
+; mixing pseudo arrays (array%n%) with real arrays (array[n], array.n)
+; This is a real array example:
+; -------------------------------------------------------------------
+; Reading file and storing value in array problem - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/92137-reading-file-and-storing-value-in-array-problem/
+; -------------------------------------------------------------------
+; BLANK LINES        NOT READ IN
+; LINES THAT BEGIN ; NOT READ IN
+; -------------------------------------------------------------------
+SourceFile := % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
+IfExist, %SourceFile%
+{
+	Loop, read, % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
+	{
+		; ---------------------------------------------------------------
+		; SOME NUMERIC BY FACEBOOK HAVE THOUSAND SEPARATOR
+		; ---------------------------------------------------------------
+		TEST_STRING := A_LoopReadLine
+		TEST_STRING := StrReplace(TEST_STRING, ",", "")
+		SET_GO=TRUE
+		IF SubStr(A_LoopReadLine, 1, 1)=";"
+			SET_GO=FALSE
+		IF INSTR(A_LoopReadLine,"mutual friends")>0
+			SET_GO=FALSE
+		IF A_LoopReadLine is number
+			SET_GO=FALSE
+		IF TEST_STRING is number
+			SET_GO=FALSE
+		IF !A_LoopReadLine
+			SET_GO=FALSE
+		IF SET_GO=TRUE
+		{
+			TEXT_STRING_VAR = %A_LoopReadLine%%A_Space%-
+			current[A_Index] := TEXT_STRING_VAR
+			
+			; MSGBOX % current[A_Index]
+			; EXITAPP
+			
+		}
+	}
+}
+
+; ------------------------------------------------------------------------
+; Count The Total Network of Friend Just For Additional Extra Programmer Fun
+; ------------------------------------------------------------------------
+COUNTER_VALUE=0
+SourceFile := % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt"
+IfExist, %SourceFile%
+{
+	DestFile = % A_ScriptDir "\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NUMERIC COUNT TOTAL.txt"
+	IfExist, %DestFile%
+	{
+		FileDelete, %DestFile%
+	}
+
+	Loop, read, %SourceFile%, %DestFile%
+	{
+		TEST_STRING := A_LoopReadLine
+		TEST_STRING := StrReplace(TEST_STRING, ",", "")
+		TEST_STRING := StrReplace(TEST_STRING, "mutual friends", "")
+		TEST_STRING := Trim(TEST_STRING)
+		SET_GO=FALSE
+		IF TEST_STRING is number
+			SET_GO=TRUE
+
+		If SET_GO=TRUE
+			{
+			FileAppend, %TEST_STRING%`n
+			COUNTER_VALUE+=%TEST_STRING%
+			}
+	}
+	TEXT_STRING_VAR:="="
+	; StringReplace, TEXT_STRING_VAR, TEXT_STRING_VAR,",,All
+	
+	FileAppend, =`n, %DestFile%
+	; FileAppend, %TEXT_STRING_VAR%`n, %DestFile%
+	FileAppend, %COUNTER_VALUE%`n, %DestFile%
+}
+
+RETURN
 
 
 
