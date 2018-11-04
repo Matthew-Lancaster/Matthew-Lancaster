@@ -183,9 +183,11 @@ IF ComputerName<>"8-MSI-GP62M-7RD" THEN
 	Wscript.QUIT
 END IF 
 
-IF FSO.FolderExists(FOLDER_PATH_VAR_1)=FALSE THEN 
-	MSGBOX "VBS 34 - HUBIC DELETER - DRIVE - FOLDER - NOT EXIST - EXIT"+VBCRLF+VBCRLF+FOLDER_PATH_VAR_1
-	Wscript.QUIT
+IF FSO.FolderExists(FOLDER_PATH_VAR_1)=FALSE THEN
+	IF Wscript_Arguments="" THEN
+		MSGBOX "VBS 34 - HUBIC DELETER - DRIVE - FOLDER - NOT EXIST - EXIT"+VBCRLF+VBCRLF+FOLDER_PATH_VAR_1
+		Wscript.QUIT
+	END IF
 END IF
 
 ' -------------------------------------------------------------------
