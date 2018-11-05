@@ -1,3 +1,8 @@
+All the Code Here that Use HardCoder Path all Expect to be Here
+Many are not that relocatable 
+Unless you want to program that bit yourself
+C:\SCRIPTER\
+
 Some Of The Paths Are Hard Coded - Not Many
 Example
 

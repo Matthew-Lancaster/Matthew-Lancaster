@@ -246,7 +246,7 @@ F4::
 
 		SEXY+=1
 
-		IF SEXY>15
+		IF SEXY>30
 			BREAK
 
 		TITLE_ADD=%TITLE_ADD%%CurrentWindowTitle%

@@ -45,16 +45,16 @@ This was the best option after long reading somebody recommending Github
 And wish somewhere to host code proper
 
 Is only for education not making money
-I get enjoyment from it and hope you will as a hobbyist
-Or benefit as long as you give me credit learn
+I get enjoyment from it and hope you as a hobbyist do
+Or maybe benefit as long as you give me name sake credit learn
 
-I shall look to include some large amount of visual basic 6 projects also
+I shall look to include some large amount of visual basic 6 projects already got
 When I get time another folder
-This is my edited script folder 
+This is my mainly text edited script folder 
 
 Codes include
 Include my camera reel roll up-loader
-Which is quite nice a used a lot
+Which is quite nice and used a lot
 None sync programs get you camera reel off-loader as nicely with date marking
 
 And pin items to the taskbar for windows 10 another good one mine and another person 
@@ -65,19 +65,19 @@ Many projects I use all the time and work perfectly
 
 Nice to have Github to show off at last with an updater 
 The site of my page is to show off my code to my contacts base mainly
-I'm not really looking for code improvements by other people without asking
+I'm not really looker for code improvement by other people without asking
 
-I'm a bit weak for coding at 50 nearly knocking on that door 1968
+I'm a bit weak for coder at 50 nearly knocking on that door 1968
 And had a broken clavicle bone from damage bike riding most of my learning 
 I know it is a bleeding heart on the Internet 
 And then what else do I talk
 
 Took a While to Get Familiarize With GitHub Done Not Been Asleep and Allnighter
 
-A Well Worth While Allnighter it was to I been a dreamer of this one for a long time.
+A Well Worth While Allnighter it was.
 12 Hours Through the Night 1:30 Am to 1 pm 
 
-Over and Out
+Over
 ~
 Matthew
 
@@ -88,6 +88,7 @@ Matthew
 [ Friday 13:04:00 Pm_05 October 2018 ]
 [ Friday 14:00:00 Pm_05 October 2018 ]
 [ Friday 19:20:00 Pm_05 October 2018 ]All Day & Long Time
+[ Monday 20:08:00 Pm_05 November 2018 ] Editor
 
 
 Home Here

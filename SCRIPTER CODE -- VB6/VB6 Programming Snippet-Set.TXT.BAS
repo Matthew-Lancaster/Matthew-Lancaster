@@ -91,7 +91,7 @@ TELEPHONE BRIGHTON 01273419914
 -02:15 12/08/2015
 
 Option Explicit
- Declare Function GetShortPathName Lib "kernel32" _
+Declare Function GetShortPathName Lib "kernel32" _
       Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
       ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
 
