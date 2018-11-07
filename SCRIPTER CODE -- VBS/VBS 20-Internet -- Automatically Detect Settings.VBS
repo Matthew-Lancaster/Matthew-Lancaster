@@ -8,7 +8,7 @@
 'Even with a reboot
 'the Original Code was to Use HKCU 
 'But My Search Found was in a Different Place HKLM
-'The 1s Vaule if Working Maybe True for what you Want
+'The 1st Value if Working Maybe True for what you Want
 'But My Look at It Changes in Two Places
 '--------------------------------------------
 
@@ -49,6 +49,8 @@ Const REG_MULTI_SZ  = 7
 
 hDefKey = HKEY_LOCAL_MACHINE
 
+'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections
+
 'HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections
 'sKey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
 
@@ -71,7 +73,9 @@ select case (status)
 case "proxy" binaryVal_1(8) = 03          'Force Autodetect on 
 case "pac" binaryVal_1(8) = 05            'Force Autodetect off 
 case "OnlyAutoDetect" binaryVal_1(8) = 09 'Only 'Automatically detect settings' is enabled 
+case "OnlyAutoDetect" binaryVal_1(8) = 09 'Only 'Automatically detect settings' is enabled 
 end select
+
 
 binaryVal_2(8)=binaryVal_1(8)
 
