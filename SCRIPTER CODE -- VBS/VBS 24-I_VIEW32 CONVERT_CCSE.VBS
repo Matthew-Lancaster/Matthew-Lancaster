@@ -32,7 +32,16 @@ COUNT_2=0
 
 i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
 
-FOR R_T=0 TO 30
+
+' -------------------------------------------------------------------
+' FOR R_T=0 TO 30
+' R_T --  0 = NOW TODAY
+' R_T -- 30 = DAYS BEFORE
+' R_T -- 10 = DAYS BEFORE
+' R_T -- 20 = DAYS BEFORE
+' -------------------------------------------------------------------
+
+FOR R_T=0 TO 20
 
 	i_TIME=""
 	i_TIME=i_TIME+LPad(Year(Now-R_T), "0", 4)
