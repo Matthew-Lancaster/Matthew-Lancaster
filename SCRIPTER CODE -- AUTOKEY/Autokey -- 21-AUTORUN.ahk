@@ -917,6 +917,23 @@ IF (A_ComputerName = "2-ASUS-EEE")
 IF (A_ComputerName = "3-LINDA-PC") 
 	SKIP_CODE=TRUE
 
+
+SET_GO_1=0
+IF (A_ComputerName="1-ASUS-X5DIJ")
+	SET_GO_1=1
+IF (A_ComputerName="2-ASUS-EEE")
+	SET_GO_1=1
+IF (A_ComputerName="3-LINDA-PC")
+	SET_GO_1=1
+IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
+	SET_GO_1=1
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+	SET_GO_1=1
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	SET_GO_1=1
+IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
+	SET_GO_1=1	
+
 IF SKIP_CODE=FALSE
 {
 	PID=1
@@ -938,21 +955,7 @@ IF SKIP_CODE=FALSE
 
 		
 
-	SET_GO_1=0
-	IF (A_ComputerName="1-ASUS-X5DIJ")
-		SET_GO_1=1
-	IF (A_ComputerName="2-ASUS-EEE")
-		SET_GO_1=1
-	IF (A_ComputerName="3-LINDA-PC")
-		SET_GO_1=1
-	IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
-		SET_GO_1=1
-	IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
-		SET_GO_1=1
-	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-		SET_GO_1=1
-	IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
-		SET_GO_1=1
+
 
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
 	; --------------------------
@@ -1038,34 +1041,7 @@ IF SKIP_CODE=FALSE
 	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WebStorage
 	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, WebStorage
 		
-		
-	IF SET_GO_1=1
-	{
-	Process, Exist, GoodSync-v10.exe
-	If Not ErrorLevel
-		{
-			FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-			IfExist, %FN_VAR%
-			{
-				SoundBeep , 2500 , 100
-				; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-				; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-				Run, "%FN_VAR%" 
-			}
-		}
-	}
-	
-	Process, Exist, gs-server.exe
-	If Not ErrorLevel
-	{
-		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			; Run, "%FN_VAR%"  /service, , MIN
-			Run, "%FN_VAR%"  /service
-		}
-	}
+
 		
 	IF SET_GO_1=1001
 	{
@@ -1116,6 +1092,34 @@ IF SKIP_CODE=FALSE
 	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, Dropbox
 
 	
+}
+
+IF SET_GO_1=1
+{
+Process, Exist, GoodSync-v10.exe
+If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			Run, "%FN_VAR%" 
+		}
+	}
+}
+
+Process, Exist, gs-server.exe
+If Not ErrorLevel
+{
+	FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		; Run, "%FN_VAR%"  /service, , MIN
+		Run, "%FN_VAR%"  /service
+	}
 }
 
 ;-------------------------------------------

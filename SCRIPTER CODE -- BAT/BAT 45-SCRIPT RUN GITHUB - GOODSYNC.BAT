@@ -135,6 +135,8 @@ ECHO ----------------------------------------------------------------
 @find "Another job is Syncing in folder" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Another_Job=TRUE
 
+DEL %FILENAME_ER% >NUL 2>NUL
+
 @ECHO OFF
 
 ECHO.
