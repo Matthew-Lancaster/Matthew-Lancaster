@@ -162,16 +162,6 @@ chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title MiniTool Boot Recovery    v8 Paid\nUN-Erase Deleted File\nHas Got Some My Network Drivers in the MINIPE Build\nCost $89 USD Currency Convesion 1.2 GBP USD High UK Price
-#
-find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_RECOVERY_V8.iso
-map --mem /ISO/MINI_TOOL_BOOT_RECOVERY_V8.iso (0xff)
-map --hook
-root (0xff)
-chainloader (0xff)
-#------------------------------------------------------------
-
-#------------------------------------------------------------
 title MiniTool Partition Wizard v9\nLOADER EXECUTE INTO MEMORY GRUB4DOS
 map --mem /ISO/MINI_TOOL_P_WIZARD-Free9.iso (0xff)
 map --hook
@@ -191,6 +181,27 @@ map --hook
 root (0xff)
 chainloader (0xff)
 #------------------------------------------------------------
+
+#------------------------------------------------------------
+title MiniTool ShadowMaker Pro 3.0 __ Paid\nCost $29.00 £29.40
+#
+find --set-root --ignore-floppies /ISO/MINI_TOOL_SHADOWMAKER_PRO_3.iso
+map --mem /ISO/MINI_TOOL_SHADOWMAKER_PRO_3.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+#------------------------------------------------------------
+
+#------------------------------------------------------------
+title MiniTool Boot Recovery    v8 Paid\nUN-Erase Deleted File\nHas Got Some My Network Drivers in the MINIPE Build\nCost $89 USD Currency Convesion 1.2 GBP USD High UK Price
+#
+find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_RECOVERY_V8.iso
+map --mem /ISO/MINI_TOOL_BOOT_RECOVERY_V8.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+#------------------------------------------------------------
+
 
 #------------------------------------------------------------
 title Disk Imager Laplink\nA PAID\nCDROM ANSWER YES QUICKER TO BOOT FROM HER WITH HER
