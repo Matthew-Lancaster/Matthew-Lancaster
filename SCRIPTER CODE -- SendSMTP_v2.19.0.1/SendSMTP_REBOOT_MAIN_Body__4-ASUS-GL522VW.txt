@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------- 
+--------------------------- 
+SYSTEM BOOT __ LOGON OR SYSTEM START __ SYSTEM __ OF MY COMPUTER 
+--------------------------- 
+ 
+--------------------------- 
+IP ADDRESS @ MY COMPUTER SHARED FOLDER SETTING 
+FTP://86.171.3.40/4-ASUS-GL522VW/__ROOM/ 
+--------------------------- 
+ 
+--------------------------------------------------------------------------- 
+IP LOGGER @ MY __ QNAP __ MANY VARIATION ACCESS ENTRY HARDCore
+THE FILE HERE IS THE SAME FOR LOGON OR SYSTEM STARTER__ BATCH FILE GENERATOR _ SPELL ERROR DONE _ UNDO SPELLER ONLY CHECK COMMENT NOT CODE
+3 ATTACHMENT ARRIVE 1 IS CALLED "1" THAT IS SAME AS EMAIL CONTENT UNAVOIDABLE __ NUMBER 2 HERE IS THE BATCH COMMAND SCRIPTOR SAME FOR LOGON AND SYSTEM BOOTER __ AND NUMBER 3 INFO MY EDIT 
+--------------------------------------------------------------------------- 
+THE FRONT MENU LOGON HAS BEGINNER OF DETAIL ABOUT UPLOAD_ER AND METHOD 
+THAT IS ABOUT __ UPLOAD HAPPEN WHILE READ AND WRITE ACCESS 
+SYNCHRONISE COME ALONG AND PICK IT UP ALMOST INSTANTLY 
+USER THAT PERFORM UPLOAD_ER IS AND THEN ABLE TO SEE THAT TAKE PLACE 
+USER HAS THEN THE OPTION TO BE OKAY TO DELETER THE UPLOADING TO PASS ONTO ME 
+USER THEN WILL OBSERVE THEN SYNC_ER OVER TO OTHER FOLDER WILL REMAIN THERE  
+IN MINE READ ONLY SO THAT ANOTHER USER IS NOT ABLE TO DELETER  
+AND THEN REMAIN WILL BE THERE FOR AN O'CLOCK OF MIDNIGHT  
+AND THEN FOR 48 HOUR 2 DAY ONLY  
+ALSO A VERSION AVAILABLE FOR GOOGLE DRIVE A MATCHER 
+--------------------------------------------------------------------------- 
+ 
+--------------------------------------------------------------------------- 
+IP LOGGER @ MY __ QNAP __ MANY VARIATION ACCESS ENTRY HARDCore
+--------------------------------------------------------------------------- 
+https://www.myqnapcloud.com/smarturl/Matthew 
+https://qlink.to/Matthew 
+http://192.168.1.180:8080/cgi-bin/ 
+http://matthew.myqnapcloud.com:8080/cgi-bin/ 
+www.matthew.myqnapcloud.com:8080/cgi-bin/ 
+-------------------------------- 
+QNAP IP FOR PUBLIC REMOTE -- 86.171.3.40 
+http://86.171.3.40:8080/cgi-bin/ 
+NO-IP.COM DDNS -- 
+http://matthew.ddns.net:8080/ 
+--------------------------------------------------------------------------- 
+---------- 
+WEB SERVER 
+---------- 
+http://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:8080/cgi-bin/ 
+http://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:80 
+https://[2a00:23c5:56e5:4700:208:9bff:fef9:39d9]:8081 
+AT THE MOMENT NOT A WEB-PAGE SO ARRIVE AT SAME PAGE AS LOGON NORMAL HER 
+--------------------------------------------------------------------------- 
+LOADS MORE TO LEARN 
+--------------------------------------------------------------------------- 
+ 
+------------------------------------------------------------------------------- 
+Outgoing Mail SMTP Port 25 
+SASL Method 
+SendSMTP_v2.19.0.1 
+------------------------------------------------------------------------------- 
+SendSMTP - Tool to send SMTP email via command-line parameters or interactively 
+https://www.virtualobjectives.com.au/utilitiesprogs/sendsmtp.htm 
+------------------------------------------------------------------------------- 
+ 
+ATTACHMENT FILE_NAME ------ 
+"C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_BATCH.BAT.TXT" 
+ 
+------------------------------------------------------------------------------- 
+~0~ 
+OVER 
+~ 
+------------------------------------------------------------------------------- 
