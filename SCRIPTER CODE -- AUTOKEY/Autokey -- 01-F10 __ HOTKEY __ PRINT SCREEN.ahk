@@ -51,7 +51,7 @@ SetTitleMatchMode 3  ; Specify Full path
 ; -------------------------------------------------------------------
 ; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
 ; AT THE NUMBER NEXT NEEDER TO BE ENTER
-VAR_COUNTER=351
+VAR_COUNTER=5  ; --- SET THE FIRST PICTURE IMAGE COUNT NUMBER IF NOT START FROM BEGINNING 0
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ FILE_SCRIPT_COUNT=0
 FILE_SCRIPT := Object()
 ; FILE_SCRIPT := []
 
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015-2018\2018 CyberShot HX60V\WORK\*.JPG
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2018 CyberShot HX60V\DCIM\2018 11 10\*.JPG
 
 Loop, Files, %FILE_PATH_WILDPATH_JPG%
 {
@@ -202,6 +202,7 @@ RETURN
 
 
 
+; XXXF4::
 F4::
 {
 	TITLE_ADD=
@@ -246,7 +247,7 @@ F4::
 
 		SEXY+=1
 
-		IF SEXY>30
+		IF SEXY>50
 			BREAK
 
 		TITLE_ADD=%TITLE_ADD%%CurrentWindowTitle%
@@ -263,6 +264,7 @@ Return
 RETURN
 
 ; XXXF4::
+; F4::
 {
 
 FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
