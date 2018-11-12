@@ -165,6 +165,11 @@
 
 ; SCRIPT ============================================================
 
+; ROBOFORM MYSMS FILL AND SUBMIT
+; #InstallKeybdHook ;<- add this
+; #InstallMouseHook ;<- this
+; #UseHook, On ;<- and this
+
 ; DetectHiddenWindows, on
 SetStoreCapslockMode, off
 
@@ -191,6 +196,10 @@ GLOBAL ID_TeamViewer_Panel_TV_ControlWin_TIMER
 GLOBAL ID_OLD_TeamViewer_Panel_TV_ControlWin
 
 GLOBAL dhw
+
+GLOBAL OLD_UniqueID_MYSMS
+
+OLD_UniqueID_MYSMS=0
 
 OLD_UniqueID_CHROME=0
 OLD_UniqueID_RfEditor=0
@@ -306,13 +315,15 @@ SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, 1000
 SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
 SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
 
+SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
+
+
 RETURN
 
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
-
 
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 
@@ -1142,6 +1153,7 @@ DetectHiddenText, OFF
 SetTitleMatchMode 3  ; Exactly
 	
 ; ROBOFORM EDITOR
+; -----------------------------------------
 UniqueID := WinActive("ahk_class RfEditor")
 IF UniqueID>0 
 IF OLD_UniqueID_RfEditor<>%UniqueID%
@@ -1230,6 +1242,10 @@ IF UniqueID>0
 	}
 	
 
+	
+
+
+	
 SetTitleMatchMode 3  ; Exactly
 DetectHiddenText, Off
 IfWinExist TeamViewer ahk_class #32770
@@ -1406,6 +1422,133 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+
+; -------------------------------------------------------------------
+TIMER_ROBOFORM_MYSMS_LOGIN:
+; -------------------------------------------------------------------
+; ROBOFORM MYSMS ENTRY
+; ------------------------
+; ----
+; mysms
+; https://app.mysms.com/#login
+; ----	
+
+; NICE SCRIPT ROUTINE TOOK
+; FROM ---- Sun 11-Nov-2018 03:12:27
+; TO ------ Sun 11-Nov-2018 06:49:00
+; ORIGINAL WANTED THE HOT KEY BUT ROBOFORM DOES SOMETHING TO INTERCEPT ONLY PHYSICAL PRESS
+; BED TIME DAY LIGHT IS HERE
+
+
+CoordMode Mouse, Window
+
+COLOUR_SET=FALSE
+UniqueID := WinActive("mysms - Google Chrome")
+IF UniqueID=0
+	OLD_UniqueID_MYSMS=0
+; tooltip % OLD_UniqueID_MYSMS
+IF UniqueID>0 
+	IfWinExist ahk_id %UniqueID%
+	{
+		; MSGBOX % OLD_UniqueID_MYSMS
+
+		IF UniqueID<>%OLD_UniqueID_MYSMS%
+		{
+			LOOP, 50
+			{
+
+				OLD_UniqueID_MYSMS=%UniqueID%
+				; #WinActivateForce, ahk_id %UniqueID%
+				; CoordMode Mouse, Screen
+				; SetKeyDelay,30,50
+				; MouseGetPos, x, y, ahk_id
+				
+				; Screen:	891, 131 (less often used)
+				; Window:	900, 140 (default)
+				; Client:	891, 140 (recommended)
+				; Color:	12BCE0 (Red=12 Green=BC Blue=E0)
+				
+				; Screen:	940, 160 (less often used)
+				; Window:	950, 170 (default)
+				; Client:	941, 170 (recommended)
+				; Color:	12BCE0 (Red=12 Green=BC Blue=E0)
+				
+				
+				; Screen:	40, 160 (less often used)
+				; Window:	50, 170 (default)
+				; Client:	41, 170 (recommended)
+				; Color:	03ADD1 (Red=03 Green=AD Blue=D1)
+				
+				; TOP LEFT LOG IN PAGE
+				; IN ROBOFORM MAKE SURE HOT KEY ALT z IS ENABLED
+				
+				
+				; Screen:	1715, 140 (less often used)
+				; Window:	1720, 150 (default)
+				; Client:	1715, 149 (recommended)
+				; Color:	FFFFE1 (Red=FF Green=FF Blue=E1)
+
+				X=1720
+				Y=150
+				PixelGetColor Color_2, %X%, %Y%, RGB
+				COLOR_COMPARE_1=0xFFFFE10xFFFFE1
+				COLOR_COMPARE_2=%COLOR_2%
+				IF InStr(COLOR_COMPARE_1,COLOR_COMPARE_2)>0
+					return
+				
+				X=50
+				Y=170
+				PixelGetColor Color_1, %X%, %Y%, RGB
+				
+				
+				; ---------------------------------------------------------------
+				; THIS THE SELECTED COLOR IN THE TITLE URL BAR
+				; BUT NEVER HAPPEN
+				; MUST BE WHEN UNSELECTED BIT MORE GREY THAN WHITE
+				; ALSO CHANGES COLOR GREY-ER A BIT WHEN HOVER OVER
+				; ---------------------------------------------------------------
+				; FIND CHECKING TOO MANY POINT MAKE PROBLEM HAZARD TO COPY SELECT PICKER
+				; REDUCE BY TWO AND OKAY
+				; ALSO INCLUDE ONLY CHECK ON ACTIVE WINDOW SPEEDIER
+				; ---------------------------------------------------------------
+				COLOR_COMPARE_1=0x03ADD10x03ADD1
+				COLOR_COMPARE_2=%COLOR_1%
+
+				IF (COLOUR_SET=TRUE and InStr(COLOR_COMPARE_1,COLOR_COMPARE_2)=0)
+					return
+				
+				if InStr(COLOR_COMPARE_1,COLOR_COMPARE_2)>0 
+				{
+					COLOUR_SET=TRUE
+
+					;Sendinput {Lalt down}z
+					;Sleep 50
+					;Sendinput {Lalt up}
+					; tooltip % Color_1
+					; Sleep 1000
+					; SENDINPUT {raw}!z
+					; SENDINPUT {text}{LAlt}z
+					; SEND {Alt}{z}
+					; SEND {lalt}z
+					; SENDinput ^+z
+					; SoundBeep , 2500 , 100
+
+
+					FN_VAR:="C:\Program Files (x86)\Siber Systems\AI RoboForm\identities.exe"
+					IfExist, %FN_VAR%
+					{
+						Run, "%FN_VAR%" -l C:\RF\%A_ComputerName%\LOGINS\Mysms.rfp
+						SOUNDBEEP 2000,100
+						Sleep 4000
+
+					}
+				}
+			}
+		}
+	}
+
 
 
 ; -------------------------------------------------------------------
