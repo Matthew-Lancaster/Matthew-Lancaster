@@ -420,7 +420,7 @@ else
 	IF count=1
 		GuiControl ,, Status, Problem Founder
 	IF count>1
-		GuiControl ,, Status, Problems Found
+		GuiControl ,, Status, Problem Set Found
 }	
 	 
 IF count=0
