@@ -103,7 +103,6 @@ ECHO ----------------------------------------------------------------
 
 SET FILENAME_ER="%~dp0GOODSYNC_OUTPUT.TXT"
 
-
 ECHO.
 ECHO ON
 @ECHO ----------------------------------------------------------------
@@ -135,7 +134,14 @@ ECHO ----------------------------------------------------------------
 @find "Another job is Syncing in folder" %FILENAME_ER%>NUL
 @if %errorlevel%==0 SET Another_Job=TRUE
 
-DEL %FILENAME_ER% >NUL 2>NUL
+REM DEL %FILENAME_ER% >NUL 2>NUL
+
+@ECHO ON
+
+
+DEL %FILENAME_ER%
+
+PAUSE
 
 @ECHO OFF
 

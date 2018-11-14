@@ -78,12 +78,21 @@
 ; TO   Wed 31-Oct-2018 14:10:00
 ; # ------------------------------------------------------------------
 
+; # ------------------------------------------------------------------
+; SESSION 003
+; WORK SOME COSMETIC IMPROVER NEW IDEA FOR
+; AFTER CAPS LOCK PRESS WHICH MAKE SOUND AND THEN ANOTHER KEY PRESS WHICH ALSO MAKE SOUND ONCE
+; TOOK LONG TIME UNTIL FIND GETLASTKEY 
+; -------------------------------------------------------------------
+; FROM Tue 13-Nov-2018 22:27:07
+; TO   WED 14-Nov-2018 01:28:00
+; # ------------------------------------------------------------------
+
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-;
 
 #Persistent
 ;IT USER ExitFunc TO EXIT FROM #Persistent
@@ -105,12 +114,16 @@ GLOBAL CapsLock_VAR_IDLE_1
 GLOBAL CapsLock_VAR_IDLE_2
 GLOBAL Timer_Delayer
 GLOBAL FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING
-GLOBAL COUNTER
 GLOBAL OLD_CAPS_TOGGLE_STATE
+GLOBAL CAPS_DOWN_TRIGGER
+GLOBAL SHIFT_CAPS_DOWN_TELL_TRIGGER
+
 CapsLock_VAR_IDLE_1=FALSE
 CapsLock_VAR_IDLE_2=0
 FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
-COUNTER=0
+OLD_CAPS_TOGGLE_STATE=-2
+CAPS_DOWN_TRIGGER=
+SHIFT_CAPS_DOWN_TELL_TRIGGER=FALSE
 
 ; -------------------------------------------------------------------
 ; Set the Time Delay Reminder
@@ -134,43 +147,26 @@ RETURN
 
 CapsLock_SUB_TIMER:
 
-	; TOOLTIP % FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING
-
-	tooltip % A_TimeIdlePhysical
-	
-	; IF A_TimeIdlePhysical>1000
-		; TOOLTIP 
-
-	IF A_TimeIdlePhysical=0
+	if A_PriorKey=CapsLock
 		RETURN
-
-
-	GetKeyState, state, CapsLock
-	if state = D 	
-	{
-		; FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=false
-		; CapsLock_VAR_IDLE_2=0
+	if A_PriorKey=RShift
 		RETURN
-	}
+	if A_PriorKey=LShift
+		RETURN
 	
 	IF FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=TRUE
 	{
-			
+		
 		IF A_TimeIdlePhysical<%CapsLock_VAR_IDLE_2%
 		{
-			; TOOLTIP "HERE 02"
 			FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
 			IF GetKeyState("CapsLock", "T")
 			{
 				SOUNDBEEP 3000,200
-		TOOLTIP % COUNTER
-		COUNTER+=1
 			}
 			ELSE
 			{
 				SOUNDBEEP 1000,200
-		TOOLTIP % COUNTER
-		COUNTER+=1
 			}
 		}
 	}
@@ -182,6 +178,7 @@ CapsLock_SUB_TIMER:
 			Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		}
 		CapsLock_VAR_IDLE_1=TRUE
+		SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
 	}
 		
 	IF CapsLock_VAR_IDLE_2>%A_TimeIdlePhysical%
@@ -203,7 +200,6 @@ CapsLock_SUB_TIMER:
 			}
 		}
 		CapsLock_VAR_IDLE_1=FALSE
-		
 	}
 		
 	CapsLock_VAR_IDLE_2=%A_TimeIdlePhysical%
@@ -218,11 +214,19 @@ Shift::
 		; W108 Width of Box and H24 Height
 		; -----------------------------------------------------------
 		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-		SOUNDBEEP 3000,50
+		IF SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
+		{
+			SHIFT_CAPS_DOWN_TELL_TRIGGER=FALSE
+			SOUNDBEEP 3000,200
+		}
 	}
 	ELSE
 	{
-		; 	SOUNDBEEP 1000,50
+		IF SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
+		{
+			SHIFT_CAPS_DOWN_TELL_TRIGGER=FALSE
+		 	SOUNDBEEP 1000,200
+		}
 	}
 
 RETURN
@@ -235,21 +239,14 @@ RETURN
 ~*CapsLock::
 	
 	CAPS_TOGGLE_STATE:=GetKeyState("CapsLock", "T")
-
-	GetKeyState, state, CapsLock
-	if state = U
-		msgbox "22"
-
-	if state = U
-		RETURN
 	
 	IF CAPS_TOGGLE_STATE=%OLD_CAPS_TOGGLE_STATE%
 	{
-		; FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
-		; CapsLock_VAR_IDLE_2=0
-
 		RETURN 
 	}
+	OLD_CAPS_TOGGLE_STATE:=%CAPS_TOGGLE_STATE%
+
+
 	if CAPS_TOGGLE_STATE=1
 	{
 		; -----------------------------------------------------------
@@ -258,38 +255,25 @@ RETURN
 		; -----------------------------------------------------------
 		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		SOUNDBEEP 3000,200
-		; TOOLTIP % COUNTER
-		; COUNTER+=1
 
 	}
 	else
 	{
 		SOUNDBEEP 1000,200
 		Progress, off
-		; TOOLTIP % COUNTER
-		; COUNTER+=1
 	}
-
 	
-	OLD_CAPS_TOGGLE_STATE:=CAPS_TOGGLE_STATE
 
-	FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
-	CapsLock_VAR_IDLE_2=0
-	 
-RETURN
-
-CapsLock up::
 	; WHEN CAPS LOCK IS PRESS IT MAKE A SOUND TO INDICATE HIGH OR LOW
 	; AND ALSO WHEN BEEN AWAY FROM KEYBOARD LIKE 20 SECOND THAT HAPPEN SOUND ALSO
 	; AND WE WANT AFTER CAPS LOCK PRESS AND INDICATE ALSO THE NEXT KEY PRESS AFTER ALSO HAS SOUND INDICATE
 	; SET A FLAG TURN SPEED OF TIMER UP A GEAR
-	GetKeyState, state, CapsLock
-	if state = D
-		RETURN
-		
-	TOOLTIP "HERE 20"
-	FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=TRUE
-	CapsLock_VAR_IDLE_2=0
+	FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=true
+
+	CAPS_DOWN_TRIGGER=TRUE
+	SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
+	
+	 
 RETURN
 
 
@@ -405,5 +389,15 @@ IF A_ComputerName="7-ASUS-GL522VW"
 IF A_ComputerName=7-ASUS-GL522VW
 	SET_EXIT=TRUE
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; REFERENCE CREDIT
+; GET LAST KEY
+; -------------------------------------------------------------------
+; Getting the last key that was pressed - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/93659-getting-the-last-key-that-was-pressed/
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
