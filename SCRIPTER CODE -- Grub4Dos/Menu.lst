@@ -170,10 +170,14 @@ chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title MiniTool Partition Wizard v10 Paid_Win_10\nA WELL GOOD VERSION SINGLE PAID ONE COMPUTER_HAVE TO ASK COMPANY FOR A CHANGE\nMOUSE IS OKAY WORKER DRIVER HIGH END COMPUTER_GETTING THERE\nCDROM ANSWER YEAH QUICKER TO BOOT FROM HER WITH HER ASUS-X5DIJ\nMINI TOOL IS AN 64 BIT BOOT SYSTEM ONLY I FOUND
-
-#MONEY PAID IS ONE COMPUTER FOR LIFE SETTING ARE REMEMBER AT INTERNET FOR NEXT INSTALL MUST BE SAME COMPUTER OR ASK COMPANY LEARN HAS NICE GPT MBR SWAPPER 
-#GET THE ONE ALLOW ISO BOOTABLE AND BE HERE
+title MiniTool Partition Wizard v10 Paid_Win_10\n$39.00 USD Paid -- 1 Computer and Life Time Upgrade From Mon 15 Aug 2017 For 8-MSI-GP62M-7RD\nMini Tool Is An 64 Bit Boot System Only I Found
+#
+# \nA WELL GOOD VERSION SINGLE PAID ONE COMPUTER_HAVE TO ASK COMPANY FOR A CHANGE\nMOUSE IS OKAY WORKER DRIVER HIGH END COMPUTER_GETTING THERE\nCDROM ANSWER YEAH QUICKER TO BOOT FROM HER WITH HER ASUS-X5DIJ\nMINI TOOL IS AN 64 BIT BOOT SYSTEM ONLY I FOUND
+#
+# $39.00 USD
+# MONEY PAID IS ONE COMPUTER FOR LIFE REINSTALL SETTING ARE REMEMBER AT INTERNET FOR NEXT INSTALL MUST BE SAME COMPUTER OR ASK COMPANY LEARN HAS NICE GPT MBR SWAPPER UP TO 4TB PAST LIMIT IN PRODUCT BEFORE
+# GET THE ONE THAST ALLOW ISO BOOTABLE AND BE HERE
+#
 #
 find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_10.iso
 map --mem /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_10.iso (0xff)
@@ -183,17 +187,16 @@ chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title MiniTool ShadowMaker Pro 3.0 __ Paid\nCost $29.00 £29.40
+title MiniTool Power Data Recovery V8.0     __ Paid __ UN-Erase Deleted File\nCost $89-USD Currency 1.2-GBP vs USD High UK Price\nBuy for Keep Only Opt __ 1 Computer and Lifetime Upgrade __ Installed at 06 June 2018 for 4-ASUS-GL522VW
 #
-find --set-root --ignore-floppies /ISO/MINI_TOOL_SHADOWMAKER_PRO_3.iso
-map --mem /ISO/MINI_TOOL_SHADOWMAKER_PRO_3.iso (0xff)
-map --hook
-root (0xff)
-chainloader (0xff)
-#------------------------------------------------------------
-
-#------------------------------------------------------------
-title MiniTool Boot Recovery    v8 Paid\nUN-Erase Deleted File\nHas Got Some My Network Drivers in the MINIPE Build\nCost $89 USD Currency Convesion 1.2 GBP USD High UK Price
+# MiniTool Power Data Recovery V8.0
+# Personal Deluxe License 1 X $89.00 USD
+#
+# \nISO Portable Snap-in WinPE Bootable Builder
+# 1 Computer From Mon 06 June 2018 on 4-ASUS-GL522VW
+# Snap-in WinPE Bootable Builder
+# Single License for 1 PC
+# Free lifetime Upgrade Service
 #
 find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_RECOVERY_V8.iso
 map --mem /ISO/MINI_TOOL_BOOT_RECOVERY_V8.iso (0xff)
@@ -202,6 +205,16 @@ root (0xff)
 chainloader (0xff)
 #------------------------------------------------------------
 
+#------------------------------------------------------------
+title MiniTool ShadowMaker Pro 3.0 __ Paid\nCost $29.00 £29.40 1 Year 1 Computer From Mon 05 November 2018 \nNone Option to Buy for Keeper Yet But Talker Going __ Installed For 4-ASUS-GL522VW
+#
+# \nISO Portable Snap-in WinPE Bootable Builder
+find --set-root --ignore-floppies /ISO/MINI_TOOL_SHADOWMAKER_PRO_3.iso
+map --mem /ISO/MINI_TOOL_SHADOWMAKER_PRO_3.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+#------------------------------------------------------------
 
 #------------------------------------------------------------
 title Disk Imager Laplink\nA PAID\nCDROM ANSWER YES QUICKER TO BOOT FROM HER WITH HER
