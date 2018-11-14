@@ -101,7 +101,10 @@ ECHO ----------------------------------------------------------------
 @REM https://stackoverflow.com/questions/14246956/notepad-can-recognize-encoding/14247070#14247070
 @REM ----
 
-SET FILENAME_ER="%~dp0GOODSYNC_OUTPUT.TXT"
+
+SET FILENAME_ER_0=BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_%COMPUTERNAME%.TXT
+SET FILENAME_ER_1="%~dp0%FILENAME_ER_0%"
+SET FILENAME_ER_2="%~dp0\..\..\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\%FILENAME_ER_0%"
 
 ECHO.
 ECHO ON
@@ -109,7 +112,7 @@ ECHO ON
 @ECHO RUN COMMAND 
 @ECHO ----------------------------------------------------------------
 ECHO.
-CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">%FILENAME_ER%"
+CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">%FILENAME_ER_1%"
 @ECHO OFF
 ECHO.
 ECHO ----------------------------------------------------------------
@@ -119,7 +122,7 @@ ECHO ----------------------------------------------------------------
 @REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
 @REM ----------------------------------------------------------------
 ECHO ----------------------------------------------------------------
-%ConvertCP% 1200 0 /i %FILENAME_ER%
+%ConvertCP% 1200 0 /i %FILENAME_ER_1%
 ECHO ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 
@@ -127,23 +130,24 @@ ECHO ----------------------------------------------------------------
 @SET Sync_Runner=FALSE
 @SET Another_Job=FALSE
 
-@find "-- Analysis Complete" %FILENAME_ER%>NUL
+@find "-- Analysis Complete" %FILENAME_ER_1%>NUL
 @if %errorlevel%==0 SET Analysis_Complete=TRUE
-@find "Sync: Running:" %FILENAME_ER%>NUL
+@find "Sync: Running:" %FILENAME_ER_1%>NUL
 @if %errorlevel%==0 SET Sync_Runner=TRUE
-@find "Another job is Syncing in folder" %FILENAME_ER%>NUL
+@find "Another job is Syncing in folder" %FILENAME_ER_1%>NUL
 @if %errorlevel%==0 SET Another_Job=TRUE
 
-REM DEL %FILENAME_ER% >NUL 2>NUL
+@REM -- DELETE THE FILE IS NOT MUCH POINT
+@REM -- AS IT GET COPIED OVER TO GITHUB FOLDER WHEN SYNC HAPPEN
+@REM -- IT THEN MAKE A PROBLEM FOR SYNC AS CONFLICTS HAPPEN
+@REM -- EVEN IF DELETED STILL BE CONFLICT SUPPOSE
+@REM -- SO USE COMPUTER NAME AND NEWER FILE WIN
+@REM -- 
+@REM -- DOUBLE CHECKING DELETE DESTINATION CONFLICT
+@REM -- JUST WON'T BE LEFT WITH LOG BEHIND TO VIEWER
 
-@ECHO ON
-
-
-DEL %FILENAME_ER%
-
-DIR %FILENAME_ER%
-
-PAUSE
+DEL %FILENAME_ER_1% >NUL 2>NUL
+DEL %FILENAME_ER_2% >NUL 2>NUL
 
 @ECHO OFF
 
