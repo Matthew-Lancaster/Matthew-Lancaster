@@ -104,8 +104,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 GLOBAL CapsLock_VAR_IDLE_1
 GLOBAL CapsLock_VAR_IDLE_2
 GLOBAL Timer_Delayer
+GLOBAL FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING
+GLOBAL COUNTER
+GLOBAL OLD_CAPS_TOGGLE_STATE
 CapsLock_VAR_IDLE_1=FALSE
 CapsLock_VAR_IDLE_2=0
+FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
+COUNTER=0
+
 ; -------------------------------------------------------------------
 ; Set the Time Delay Reminder
 ; -------------------------------------------------------------------
@@ -117,7 +123,7 @@ height := A_ScreenHeight - 50
 
 GOSUB ~*CapsLock
 
-SETTIMER CapsLock_SUB_TIMER,100
+SETTIMER CapsLock_SUB_TIMER,50
 
 RETURN
 
@@ -127,6 +133,47 @@ RETURN
 ; -------------------------------------------------------------------
 
 CapsLock_SUB_TIMER:
+
+	; TOOLTIP % FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING
+
+	tooltip % A_TimeIdlePhysical
+	
+	; IF A_TimeIdlePhysical>1000
+		; TOOLTIP 
+
+	IF A_TimeIdlePhysical=0
+		RETURN
+
+
+	GetKeyState, state, CapsLock
+	if state = D 	
+	{
+		; FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=false
+		; CapsLock_VAR_IDLE_2=0
+		RETURN
+	}
+	
+	IF FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=TRUE
+	{
+			
+		IF A_TimeIdlePhysical<%CapsLock_VAR_IDLE_2%
+		{
+			; TOOLTIP "HERE 02"
+			FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
+			IF GetKeyState("CapsLock", "T")
+			{
+				SOUNDBEEP 3000,200
+		TOOLTIP % COUNTER
+		COUNTER+=1
+			}
+			ELSE
+			{
+				SOUNDBEEP 1000,200
+		TOOLTIP % COUNTER
+		COUNTER+=1
+			}
+		}
+	}
 
 	IF A_TimeIdlePhysical > %Timer_Delayer%
 	{
@@ -140,18 +187,20 @@ CapsLock_SUB_TIMER:
 	IF CapsLock_VAR_IDLE_2>%A_TimeIdlePhysical%
 	{
 		IF CapsLock_VAR_IDLE_1=TRUE
-		if GetKeyState("CapsLock", "T")
 		{
-			; -----------------------------------------------------------
-			; FS8 __ is the Font Size 
-			; W108 Width of Box and H24 Height
-			; -----------------------------------------------------------
-			Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-			SOUNDBEEP 3000,200
-		}
-		ELSE
-		{
-			SOUNDBEEP 1000,200
+			if GetKeyState("CapsLock", "T")
+			{
+				; -----------------------------------------------------------
+				; FS8 __ is the Font Size 
+				; W108 Width of Box and H24 Height
+				; -----------------------------------------------------------
+				Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
+				SOUNDBEEP 3000,200
+			}
+			ELSE
+			{
+				SOUNDBEEP 1000,200
+			}
 		}
 		CapsLock_VAR_IDLE_1=FALSE
 		
@@ -162,7 +211,6 @@ CapsLock_SUB_TIMER:
 RETURN
 	
 Shift::
-
 	if GetKeyState("CapsLock", "T")
 	{
 		; -----------------------------------------------------------
@@ -171,6 +219,10 @@ Shift::
 		; -----------------------------------------------------------
 		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
 		SOUNDBEEP 3000,50
+	}
+	ELSE
+	{
+		; 	SOUNDBEEP 1000,50
 	}
 
 RETURN
@@ -179,25 +231,67 @@ RETURN
 ; ENTRY 001 WEB PAGE SOURCE _ CREDIT GIVEN
 ; -------------------------------------------------------------------
 
+
 ~*CapsLock::
 	
-	; Sleep, 100
-	if GetKeyState("CapsLock", "T")
+	CAPS_TOGGLE_STATE:=GetKeyState("CapsLock", "T")
+
+	GetKeyState, state, CapsLock
+	if state = U
+		msgbox "22"
+
+	if state = U
+		RETURN
+	
+	IF CAPS_TOGGLE_STATE=%OLD_CAPS_TOGGLE_STATE%
+	{
+		; FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
+		; CapsLock_VAR_IDLE_2=0
+
+		RETURN 
+	}
+	if CAPS_TOGGLE_STATE=1
 	{
 		; -----------------------------------------------------------
 		; FS8 __ is the Font Size 
 		; W108 Width of Box and H24 Height
 		; -----------------------------------------------------------
 		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
-		SOUNDBEEP 3000,50
+		SOUNDBEEP 3000,200
+		; TOOLTIP % COUNTER
+		; COUNTER+=1
+
 	}
 	else
 	{
-		SOUNDBEEP 1000,50
+		SOUNDBEEP 1000,200
 		Progress, off
+		; TOOLTIP % COUNTER
+		; COUNTER+=1
 	}
+
+	
+	OLD_CAPS_TOGGLE_STATE:=CAPS_TOGGLE_STATE
+
+	FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
+	CapsLock_VAR_IDLE_2=0
 	 
 RETURN
+
+CapsLock up::
+	; WHEN CAPS LOCK IS PRESS IT MAKE A SOUND TO INDICATE HIGH OR LOW
+	; AND ALSO WHEN BEEN AWAY FROM KEYBOARD LIKE 20 SECOND THAT HAPPEN SOUND ALSO
+	; AND WE WANT AFTER CAPS LOCK PRESS AND INDICATE ALSO THE NEXT KEY PRESS AFTER ALSO HAS SOUND INDICATE
+	; SET A FLAG TURN SPEED OF TIMER UP A GEAR
+	GetKeyState, state, CapsLock
+	if state = D
+		RETURN
+		
+	TOOLTIP "HERE 20"
+	FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=TRUE
+	CapsLock_VAR_IDLE_2=0
+RETURN
+
 
 
 ; -------------------------------------------------------------------
