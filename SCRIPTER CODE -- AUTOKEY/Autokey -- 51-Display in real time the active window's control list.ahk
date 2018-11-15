@@ -52,8 +52,16 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
 ;--------------------
 
-SetTimer, WatchActiveWindow_2, 200
+SetTitleMatchMode, 3
+; SetTitleMatchMode, slow
+
+setTimer, WatchActiveWindow_2, 200
+
+; SetTimer, WatchCursor, 50
+
 return
+
+ESC::EXITAPP
 
 WatchActiveWindow_1:
 WinGet, ControlList, ControlList, A
@@ -61,9 +69,46 @@ ToolTip, %ControlList%
 return
 
 WatchActiveWindow_2:
+setTimer, WatchActiveWindow_2, off
+
 WinGet, ControlList, ControlList, ahk_class CabinetWClass
-ToolTip, %ControlList%
+; WinGet, ControlList, ControlList, ahk_class ThunderRT6FormDC
+; WinGet, ControlList, ControlList, "EliteSpy+ by Andrea B 2001 __ www.PlanetSourceCode.com_ & Big Timer Worker By Matthew Lancaster __ 07722224555 __ Version 1.0.421"
+
+Loop, Parse, ControlList, `n
+
+{
+
+	ClassNN := A_LoopField
+
+	; ControlGetPos, X, Y, W, H, %ClassNN%, ahk_class CabinetWClass
+	ControlGetText, OutputVar, %ClassNN%, ahk_class CabinetWClass
+
+	; Controls .= ClassNN "`t" X "," Y " - " W "," H "`n"
+	Controls .= ClassNN "`t" OutputVar "`n"
+	; Controls .= ClassNN "`n"
+
+}
+
+ToolTip, %ControlS%
+; ToolTip, %ControlList%
+
+clipboard = %ControlS%
 
 ; NEXT WANTED TITLE FROM EACH CONTROL ALONGSIDE EXTENDED CLASS NAME
 
+return
+
+
+
+
+WatchCursor:
+MouseGetPos, X, Y, WindowId, ControlId, 
+
+ControlGetText, Text, %ControlId%
+
+X += 10
+Y += 10
+
+ToolTip, Window Title: %WindowId% `n Text under mouse: ^%Text%^%ControlId%, %X%, %Y%
 return
