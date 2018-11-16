@@ -61,7 +61,12 @@ setTimer, WatchActiveWindow_2, 200
 
 return
 
-ESC::EXITAPP
+; ESC::EXITAPP
+ESC::
+{
+tooltip
+pause
+}
 
 WatchActiveWindow_1:
 WinGet, ControlList, ControlList, A
@@ -69,9 +74,11 @@ ToolTip, %ControlList%
 return
 
 WatchActiveWindow_2:
-setTimer, WatchActiveWindow_2, off
 
-WinGet, ControlList, ControlList, ahk_class CabinetWClass
+; WinGet, ControlList, ControlList, ahk_class CabinetWClass
+; WinGet, ControlList, ControlList, A
+WinGet, ControlList, ControlList, ahk_class Chrome_WidgetWin_1
+
 ; WinGet, ControlList, ControlList, ahk_class ThunderRT6FormDC
 ; WinGet, ControlList, ControlList, "EliteSpy+ by Andrea B 2001 __ www.PlanetSourceCode.com_ & Big Timer Worker By Matthew Lancaster __ 07722224555 __ Version 1.0.421"
 
@@ -82,7 +89,9 @@ Loop, Parse, ControlList, `n
 	ClassNN := A_LoopField
 
 	; ControlGetPos, X, Y, W, H, %ClassNN%, ahk_class CabinetWClass
-	ControlGetText, OutputVar, %ClassNN%, ahk_class CabinetWClass
+	; ControlGetText, OutputVar, %ClassNN%, ahk_class CabinetWClass
+	
+	ControlGetText, OutputVar, %ClassNN%, ahk_class Chrome_WidgetWin_1
 
 	; Controls .= ClassNN "`t" X "," Y " - " W "," H "`n"
 	Controls .= ClassNN "`t" OutputVar "`n"
@@ -94,6 +103,7 @@ ToolTip, %ControlS%
 ; ToolTip, %ControlList%
 
 clipboard = %ControlS%
+setTimer, WatchActiveWindow_2, off
 
 ; NEXT WANTED TITLE FROM EACH CONTROL ALONGSIDE EXTENDED CLASS NAME
 
