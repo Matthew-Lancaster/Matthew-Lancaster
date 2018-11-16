@@ -1442,7 +1442,9 @@ TIMER_ROBOFORM_MYSMS_LOGIN:
 ; BED TIME DAY LIGHT IS HERE
 
 
-CoordMode Mouse, Window
+; CoordMode Mouse, Window
+CoordMode Pixel, Window
+
 
 COLOUR_SET=FALSE
 UniqueID := WinActive("mysms - Google Chrome")
@@ -1498,8 +1500,12 @@ IF UniqueID>0
 				IF InStr(COLOR_COMPARE_1,COLOR_COMPARE_2)>0
 					return
 				
+				; 7G
 				X=50
 				Y=170
+				; MSI
+				; X=200
+				; Y=200
 				PixelGetColor Color_1, %X%, %Y%, RGB
 				
 				
@@ -1513,9 +1519,15 @@ IF UniqueID>0
 				; REDUCE BY TWO AND OKAY
 				; ALSO INCLUDE ONLY CHECK ON ACTIVE WINDOW SPEEDIER
 				; ---------------------------------------------------------------
+				; 7G
 				COLOR_COMPARE_1=0x03ADD10x03ADD1
+				; MSI
+				; COLOR_COMPARE_1=0x04AED2
+				
 				COLOR_COMPARE_2=%COLOR_1%
 
+				; TOOLTIP % COLOR_COMPARE_1 " -- " COLOR_COMPARE_2
+				
 				IF (COLOUR_SET=TRUE and InStr(COLOR_COMPARE_1,COLOR_COMPARE_2)=0)
 					return
 				
