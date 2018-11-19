@@ -175,8 +175,8 @@ title MiniTool Partition Wizard v10.3 Paid_Win_10\n£30.22 -- 1 Computer Lifetim
 # GET THE ONE THAST ALLOW ISO BOOTABLE AND BE HERE
 #
 #
-find --set-root --ignore-floppies /ISO/C:\ISO\MINI_TOOL_BOOT_PARTITON_WIZARD_V10.3.iso
-map --mem /ISO/C:\ISO\MINI_TOOL_BOOT_PARTITON_WIZARD_V10.3.iso (0xff)
+find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_V10.3.iso
+map --mem /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_V10.3.iso (0xff)
 map --hook
 root (0xff)
 chainloader (0xff)

@@ -358,8 +358,8 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 
 	IF A_Hour<>%GITHUB_HOUR_NOW%
 	{
-		IF A_Hour=12
-			SET_GO=TRUE
+		; IF A_Hour=12
+		; 	SET_GO=TRUE
 		IF A_Hour=0
 			SET_GO=TRUE
 	}	
@@ -2202,7 +2202,7 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
-	RETURN
+	; RETURN
 	Process, Exist, esif_assist_64.exe
 	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
 
@@ -2236,7 +2236,7 @@ Return
 
 ;--------------------------------------------------------------------
 TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR:
-	RETURN
+	; RETURN
 	;SoundBeep , 4000 , 100
 	;SoundBeep , 4200 , 100
 	Process_Resume("esif_assist_64.exe")

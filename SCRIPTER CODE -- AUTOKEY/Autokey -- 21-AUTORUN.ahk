@@ -569,6 +569,8 @@ IF (A_ComputerName = "2-ASUS-EEE")
 	SET_GO=FALSE
 IF (A_ComputerName = "3-LINDA-PC") 
 	SET_GO=FALSE
+IF (A_ComputerName = "5-ASUS-P2520LA") 
+	SET_GO=FALSE
 If (OSVER_N_VAR<10)
 	SET_GO=FALSE
 	
@@ -579,8 +581,8 @@ IF SET_GO=TRUE
 			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
 			IfExist, %FN_VAR%
 			{
-				;SoundBeep , 2500 , 100
-				;Run, "%FN_VAR%" , , MIN
+				SoundBeep , 2500 , 100
+				Run, "%FN_VAR%" , , MIN
 			}
 		}
 	}
@@ -1805,6 +1807,24 @@ COUNT_TICK_TIME=% 1000*60*5
 		}
 	}	
 }	
+
+SET_GO=TRUE
+; IF (A_ComputerName = "3-LINDA-PC") 
+	; SET_GO=FALSE
+
+If OSVER_N_VAR<10
+	SET_GO=FALSE
+
+IF SET_GO=TRUE 
+{	
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\REGKEY 01-STOP WINDOWS UPDATE WIN V10.BAT"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%" , , MIN
+	}
+}	
+
 
 GOSUB POWERSHELL
 
