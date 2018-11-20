@@ -186,7 +186,10 @@ for /L %%a in (1,1,1) do (
 
 	DEL !FILENAME_ER_4! >NUL 2>NUL
 
+	PASUE
+	
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
+	PASUE
 	TYPE !FILENAME_ER!
 
 	ECHO ----------------------------------------------------------------
