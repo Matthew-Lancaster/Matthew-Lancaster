@@ -218,6 +218,8 @@ for /L %%a in (1,1,1) do (
 	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Computer_Is_Offline=TRUE
 	
+	@REM PROBLEM OF CONFLICT OF THIS FILE
+	@REM ONLY WAY NOW IS TO EXCLUDE IN GOODSYNC	
 	DEL !FILENAME_ER! >NUL 2>NUL
 
 	@ECHO OFF
