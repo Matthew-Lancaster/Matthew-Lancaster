@@ -80,12 +80,16 @@ ECHO ----------------------------------------------------------------
 
 @CD /D "C:\SCRIPTOR GITHUB"
 
+SETLOCAL EnableDelayedExpansion
+
 @SET TITLE_VAR=GITHUB_RUNNNER__AND_GOODSYNC
 
-@TITLE %TITLE_VAR%
+@TITLE !TITLE_VAR!
 
 @SET PATH_GIT="C:\Program Files\Git\bin"
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
+
+
 
 @REM ----
 @REM CONVERTCP download | SourceForge.net
@@ -102,88 +106,306 @@ ECHO ----------------------------------------------------------------
 @REM ----
 
 
+
+
+REM SET FILENAME_ER="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
+REM SET FILENAME_ER_2="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT.TMP"
+REM SET FILENAME_ER_4="GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
+
 SET FILENAME_ER_0=BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_%COMPUTERNAME%.TXT
-SET FILENAME_ER_1="%~dp0%FILENAME_ER_0%"
-SET FILENAME_ER_2="%~dp0\..\..\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\%FILENAME_ER_0%"
-@REM -- 
-@REM -- SEMI RELOCATABLE __ USER PARENT PATH
-@REM -- 
+SET FILENAME_ER_1="%~dp0!FILENAME_ER_0!"
+SET FILENAME_ER_2="%~dp0\..\..\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\!FILENAME_ER_0!"
+SET FILENAME_ER=!FILENAME_ER_1!
+SET FILENAME_ER_4="BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
 
-ECHO.
-ECHO ON
-@ECHO ----------------------------------------------------------------
-@ECHO RUN COMMAND 
-@ECHO ----------------------------------------------------------------
-ECHO.
-CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB">%FILENAME_ER_1%"
-@ECHO OFF
-ECHO.
+
+@echo off
+
+
+set sources[1]="C SCRIPTOR __ y _ 7G __ GITHUB"
+
+REM set sources[1]="C SCRIPTOR __ x _ 7G TO 1X"
+REM set sources[2]="C SCRIPTOR __ x _ 7G TO 2E"
+REM set sources[3]="C SCRIPTOR __ x _ 7G TO 3L"
+REM set sources[4]="C SCRIPTOR __ x _ 7G TO 4G_ GSD"
+REM set sources[5]="C SCRIPTOR __ x _ 7G TO 5P"
+REM set sources[6]="C SCRIPTOR __ x _ 7G TO 3L"
+REM set sources[7]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
+
+set "x=0"
+
+SETLOCAL EnableDelayedExpansion
+
+REM  for /L %%a in (1,1,7) do (
+for /L %%a in (1,1,1) do (
+
+	ECHO !sources[%%a]!
+	
+	ECHO.
+	ECHO ON
+	@ECHO ----------------------------------------------------------------
+	@ECHO RUN COMMAND 
+	@ECHO ----------------------------------------------------------------
+	ECHO.
+	@REM DEL !FILENAME_ER! >NUL 2>NUL
+	@REM CMD /A /C "%GoodSync_GSync% sync !sources[%%a]!>!FILENAME_ER!"
+	@ECHO %GoodSync_GSync% sync !sources[%%a]!^>!FILENAME_ER!
+	ECHO.
+	%GoodSync_GSync% sync !sources[%%a]!>!FILENAME_ER!
+	
+	@REM ------------------------------------------------------------
+	@REM EXAMPLE WITHOUT VARIABLE
+	@REM ------------------------------------------------------------
+	@REM CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB"      >!FILENAME_ER!"
+
+	@ECHO OFF
+	ECHO.
+	ECHO ----------------------------------------------------------------
+
+	@REM -- 
+	@REM -- SEMI RELOCATABLE __ USER PARENT PATH
+	@REM -- 
+
+
+	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
+	@REM ----------------------------------------------------------------
+	@REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
+	@REM ----------------------------------------------------------------
+	ECHO ----------------------------------------------------------------
+	!ConvertCP! 1200 0 /i !FILENAME_ER!
+	ECHO ----------------------------------------------------------------
+	@REM ----------------------------------------------------------------
+
+
+	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
+	@REM ----------------------------------------------------------------
+	@REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
+	@REM ----------------------------------------------------------------
+	ECHO ----------------------------------------------------------------
+	ECHO ON
+	!ConvertCP! 1200 0 /i !FILENAME_ER! /o !FILENAME_ER_2!
+	DEL !FILENAME_ER! >NUL 2>NUL
+	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
+	TYPE !FILENAME_ER!
+
+	ECHO ----------------------------------------------------------------
+	@REM ----------------------------------------------------------------
+
+
+	@SET Analysis_Complete=FALSE
+	@SET Sync_Runner=FALSE
+	@SET Another_Job=FALSE
+	@SET Unresolved_Conflicts=FALSE
+	@SET Computer_Is_Offline=FALSE
+
+	@find "-- Analysis Complete" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Analysis_Complete=TRUE
+	@find "Sync: Running:" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Another_Job=TRUE
+	@find "unresolved conflits" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Unresolved_Conflicts=TRUE
+	@find "Analyze has finished with Conflicts" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Unresolved_Conflicts=TRUE
+	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Computer_Is_Offline=TRUE
+	
+	DEL !FILENAME_ER! >NUL 2>NUL
+
+	@ECHO OFF
+
+	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO Analysis_Complete   !Analysis_Complete!
+	ECHO Sync_Runner         !Sync_Runner!
+	ECHO Another_Job         !Another_Job!
+	ECHO Conflicts           !Unresolved_Conflicts!
+	ECHO Computer_Is_Offline !Computer_Is_Offline!
+	ECHO ----------------------------------------------------------------
+	ECHO.
+
+	REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
+
+	IF "!Computer_Is_Offline!"=="FALSE" (
+		if "!Analysis_Complete!"=="FALSE" (
+			if "!Another_Job!"=="FALSE" (
+				ECHO ----------------------------------------------------------------
+				ECHO ANALYSIS ^& SYNC NOT RUN
+				ECHO.
+				ECHO NOT SURE WHY -- xxxxxxxxxx
+				ECHO -------
+				---------------------------------------------------------
+				set /a "x+=1"
+				set STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
+				set STATUS_2[!X!]=!sources[%%a]!
+
+			)
+			if "!Another_Job!"=="TRUE" (
+				ECHO ----------------------------------------------------------------
+				ECHO ANALYSIS ^& SYNC NOT RUN
+				ECHO.
+				ECHO ANOTHER JOB IS RUNNING -- ********** 
+				ECHO ----------------------------------------------------------------
+				set /a "x+=1"
+				set STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
+				set STATUS_2[!X!]=!sources[%%a]!
+			)
+		)
+	)
+	
+	IF "!Computer_Is_Offline!"=="TRUE" (
+		ECHO ----------------------------------------------------------------
+		ECHO ANALYSIS ^& SYNC NOT RUN
+		ECHO.
+		ECHO Computer_Is_Offline -- xxxxxxxxxx
+		ECHO.
+		ECHO !sources[%%a]!
+		ECHO ----------------------------------------------------------------
+		set /a "x+=1"
+		set STATUS_1[!X!]="Computer_Is_Offline"
+		set STATUS_2[!X!]=!sources[%%a]!
+		REM TIMEOUT /T 10
+	)
+
+	if "!Analysis_Complete!"=="TRUE" (
+		if "!Sync_Runner!"=="FALSE" (
+			ECHO ----------------------------------------------------------------
+			ECHO ANALYSIS RUN BUT NOT SYNC
+			if "!Unresolved_Conflicts!"=="FALSE" (
+				ECHO POSSIBLE REASON __ NONE CHANGE HAPPEN
+			)
+			if "!Unresolved_Conflicts!"=="TRUE" (
+				ECHO POSSIBLE REASON __ NONE CHANGE HAPPEN -- BUT -- CONFLICTS ARE FOUND
+			)
+			ECHO.
+			ECHO ----------------------------------------------------------------
+			if "!Unresolved_Conflicts!"=="FALSE" (
+				REM TIMEOUT /T 4
+			)
+		)
+	)
+
+	if "!Sync_Runner!"=="TRUE" (
+		if "!Unresolved_Conflicts!"=="FALSE" (
+			ECHO ----------------------------------------------------------------
+			ECHO SYNC COMPLETE
+			ECHO ----------------------------------------------------------------
+			REM TIMEOUT /T 4
+			REM ECHO RUN COMMAND 
+			REM ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
+			REM ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
+			REM ECHO ----------------------------------------------------------------
+			REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
+			REM TIMEOUT /T 300
+			REM 300 = 5 MINUTE
+		)
+	)
+	
+	if "!Unresolved_Conflicts!"=="TRUE" (
+		ECHO ----------------------------------------------------------------
+		ECHO Unresolved Conflicts At
+		ECHO !sources[%%a]!
+		ECHO ----------------------------------------------------------------
+		set /a "x+=1"
+		set STATUS_1[!X!]="Unresolved Conflicts At"
+		set STATUS_2[!X!]=!sources[%%a]!
+		TIMEOUT /T 40
+	)
+	
+ECHO.	
 ECHO ----------------------------------------------------------------
+ECHO ----------------------------------------------------------------
+ECHO.	
 
-@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
+)
+
 @REM ----------------------------------------------------------------
-@REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
-@REM ----------------------------------------------------------------
-ECHO ----------------------------------------------------------------
-%ConvertCP% 1200 0 /i %FILENAME_ER_1%
-ECHO ----------------------------------------------------------------
+@REM FALSE FALL FOOLE - STUNT MAN - FALL GUY - SCRIPTING GUY - HEY GUYS
+@REM WEEK-DAY - WEAK-DAY
+@REM MONTH-DAY
 @REM ----------------------------------------------------------------
 
-@SET Analysis_Complete=FALSE
-@SET Sync_Runner=FALSE
-@SET Another_Job=FALSE
+if !X! gtr 0 @(
+	ECHO ----------------------------------------------------------------
+	ECHO ATTENTION REQUIRED 
+	ECHO ----------------------------------------------------------------
+	ECHO.
+	for /L %%a in (1,1,!X!) do (
+		ECHO !STATUS_1[%%a]!
+		ECHO !STATUS_2[%%a]!
+		ECHO.
+	)
+	ECHO ----------------------------------------------------------------
+	TIMEOUT /T 80
+)
 
-@find "-- Analysis Complete" %FILENAME_ER_1%>NUL
-@if %errorlevel%==0 SET Analysis_Complete=TRUE
-@find "Sync: Running:" %FILENAME_ER_1%>NUL
-@if %errorlevel%==0 SET Sync_Runner=TRUE
-@find "Another job is Syncing in folder" %FILENAME_ER_1%>NUL
-@if %errorlevel%==0 SET Another_Job=TRUE
 
-@REM -- DELETE THE FILE IS NOT MUCH POINT
-@REM -- AS IT GET COPIED OVER TO GITHUB FOLDER WHEN SYNC HAPPEN
-@REM -- IT THEN MAKE A PROBLEM FOR SYNC AS CONFLICTS HAPPEN
-@REM -- EVEN IF DELETED STILL BE CONFLICT SUPPOSE
-@REM -- SO USE COMPUTER NAME AND NEWER FILE WIN
-@REM -- 
-@REM -- DOUBLE CHECKING DELETE DESTINATION CONFLICT
-@REM -- JUST WON'T BE LEFT WITH LOG BEHIND TO VIEWER
 
-DEL %FILENAME_ER_1% >NUL 2>NUL
-REM DEL %FILENAME_ER_2% >NUL 2>NUL
+HELP
 
-ECHO ON
-DEL %FILENAME_ER_2%
-PAUSE
-@ECHO OFF
 
-ECHO.
-ECHO ----------------------------------------------------------------
-ECHO Analysis_Complete %Analysis_Complete%
-ECHO Sync_Runner       %Sync_Runner%
-ECHO Another_Job       %Another_Job%
-ECHO ----------------------------------------------------------------
-ECHO.
+
+
+
+
+
+
+REM @SET Analysis_Complete=FALSE
+REM @SET Sync_Runner=FALSE
+REM @SET Another_Job=FALSE
+
+REM @find "-- Analysis Complete" %FILENAME_ER_1%>NUL
+REM @if %errorlevel%==0 SET Analysis_Complete=TRUE
+REM @find "Sync: Running:" %FILENAME_ER_1%>NUL
+REM @if %errorlevel%==0 SET Sync_Runner=TRUE
+REM @find "Another job is Syncing in folder" %FILENAME_ER_1%>NUL
+REM @if %errorlevel%==0 SET Another_Job=TRUE
+
+REM @REM -- DELETE THE FILE IS NOT MUCH POINT
+REM @REM -- AS IT GET COPIED OVER TO GITHUB FOLDER WHEN SYNC HAPPEN
+REM @REM -- IT THEN MAKE A PROBLEM FOR SYNC AS CONFLICTS HAPPEN
+REM @REM -- EVEN IF DELETED STILL BE CONFLICT SUPPOSE
+REM @REM -- SO USE COMPUTER NAME AND NEWER FILE WIN
+REM @REM -- 
+REM @REM -- DOUBLE CHECKING DELETE DESTINATION CONFLICT
+REM @REM -- JUST WON'T BE LEFT WITH LOG BEHIND TO VIEWER
+
+REM DEL %FILENAME_ER_1% >NUL 2>NUL
+REM REM DEL %FILENAME_ER_2% >NUL 2>NUL
+
+REM ECHO ON
+REM DEL %FILENAME_ER_2%
+REM PAUSE
+REM @ECHO OFF
+
+REM ECHO.
+REM ECHO ----------------------------------------------------------------
+REM ECHO Analysis_Complete %Analysis_Complete%
+REM ECHO Sync_Runner       %Sync_Runner%
+REM ECHO Another_Job       %Another_Job%
+REM ECHO ----------------------------------------------------------------
+REM ECHO.
 
 
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
 
-if "%Analysis_Complete%"=="FALSE" (
-	if "%Another_Job%"=="FALSE" (
-		ECHO ----------------------------------------------------------------
-		ECHO ANALYSIS ^& SYNC NOT RUN
-		ECHO .
-		ECHO NOT SURE WHY -- xxxxxxxxxx
-		ECHO ----------------------------------------------------------------
-	)
-	if "%Another_Job%"=="TRUE" (
-		ECHO ----------------------------------------------------------------
-		ECHO ANALYSIS ^& SYNC NOT RUN
-		ECHO .
-		ECHO ANOTHER JOB IS RUNNING -- ********** 
-		ECHO ----------------------------------------------------------------
-	)
+REM if "%Analysis_Complete%"=="FALSE" (
+	REM if "%Another_Job%"=="FALSE" (
+		REM ECHO ----------------------------------------------------------------
+		REM ECHO ANALYSIS ^& SYNC NOT RUN
+		REM ECHO .
+		REM ECHO NOT SURE WHY -- xxxxxxxxxx
+		REM ECHO ----------------------------------------------------------------
+	REM )
+	REM if "%Another_Job%"=="TRUE" (
+		REM ECHO ----------------------------------------------------------------
+		REM ECHO ANALYSIS ^& SYNC NOT RUN
+		REM ECHO .
+		REM ECHO ANOTHER JOB IS RUNNING -- ********** 
+		REM ECHO ----------------------------------------------------------------
+	REM )
 	
 	TIMEOUT /T 8
 	ECHO ----------------------------------------------------------------
@@ -196,24 +418,24 @@ if "%Analysis_Complete%"=="FALSE" (
 	REM ---- 2 HOURING
 )
 
-if "%Analysis_Complete%"=="TRUE" (
-	if "%Sync_Runner%"=="FALSE" (
-		ECHO ----------------------------------------------------------------
-		ECHO ANALYSIS RUN BUT NOT SYNC
-		ECHO.
-		ECHO MOST LIKEY REASON -- NONE CHANGE HAPPEN
-		ECHO ----------------------------------------------------------------
-		TIMEOUT /T 4
-		ECHO ----------------------------------------------------------------
-		ECHO RUN COMMAND 
-		ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
-		ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
-		ECHO ----------------------------------------------------------------
-		"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
-		TIMEOUT /T 300
-		REM 300 = 5 MINUTE
-	)
-)
+REM if "%Analysis_Complete%"=="TRUE" (
+	REM if "%Sync_Runner%"=="FALSE" (
+		REM ECHO ----------------------------------------------------------------
+		REM ECHO ANALYSIS RUN BUT NOT SYNC
+		REM ECHO.
+		REM ECHO MOST LIKEY REASON -- NONE CHANGE HAPPEN
+		REM ECHO ----------------------------------------------------------------
+		REM TIMEOUT /T 4
+		REM ECHO ----------------------------------------------------------------
+		REM ECHO RUN COMMAND 
+		REM ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
+		REM ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
+		REM ECHO ----------------------------------------------------------------
+		REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
+		REM TIMEOUT /T 300
+		REM REM 300 = 5 MINUTE
+	REM )
+REM )
 
 if "%Sync_Runner%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
