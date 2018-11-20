@@ -107,20 +107,7 @@ SETLOCAL EnableDelayedExpansion
 
 
 
-
-REM SET FILENAME_ER="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
-REM SET FILENAME_ER_2="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT.TMP"
-REM SET FILENAME_ER_4="GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
-
-SET FILENAME_ER_0=BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_%COMPUTERNAME%.TXT
-SET FILENAME_ER_1="%~dp0!FILENAME_ER_0!"
-SET FILENAME_ER_2="%~dp0\..\..\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\!FILENAME_ER_0!"
-SET FILENAME_ER=!FILENAME_ER_1!
-SET FILENAME_ER_4="BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
-
-
 @echo off
-
 
 set sources[1]="C SCRIPTOR __ y _ 7G __ GITHUB"
 
@@ -137,9 +124,20 @@ set "x=0"
 SETLOCAL EnableDelayedExpansion
 
 REM  for /L %%a in (1,1,7) do (
+
 for /L %%a in (1,1,1) do (
 
 	ECHO !sources[%%a]!
+
+	REM SET FILENAME_ER="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
+	REM SET FILENAME_ER_2="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT.TMP"
+	REM SET FILENAME_ER_4="GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
+	SET FILENAME_ER_0=BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_%COMPUTERNAME%.TXT
+	SET FILENAME_ER_1="%~dp0!FILENAME_ER_0!"
+	SET FILENAME_ER_2="%~dp0\..\..\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\!FILENAME_ER_0!"
+	SET FILENAME_ER_4="BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
+	SET FILENAME_ER=!FILENAME_ER_1!
+
 	
 	ECHO.
 	ECHO ON
@@ -167,13 +165,14 @@ for /L %%a in (1,1,1) do (
 	@REM -- 
 
 
+
 	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
 	@REM ----------------------------------------------------------------
 	@REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
 	@REM ----------------------------------------------------------------
-	ECHO ----------------------------------------------------------------
-	!ConvertCP! 1200 0 /i !FILENAME_ER!
-	ECHO ----------------------------------------------------------------
+	REM ECHO ----------------------------------------------------------------
+	REM !ConvertCP! 1200 0 /i !FILENAME_ER!
+	REM ECHO ----------------------------------------------------------------
 	@REM ----------------------------------------------------------------
 
 
@@ -342,7 +341,7 @@ if !X! gtr 0 @(
 
 
 
-HELP
+REM HELP
 
 
 
