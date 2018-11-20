@@ -90,7 +90,6 @@ SETLOCAL EnableDelayedExpansion
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 
 
-
 @REM ----
 @REM CONVERTCP download | SourceForge.net
 @REM https://sourceforge.net/projects/convertcp/
@@ -105,12 +104,11 @@ SETLOCAL EnableDelayedExpansion
 @REM https://stackoverflow.com/questions/14246956/notepad-can-recognize-encoding/14247070#14247070
 @REM ----
 
-
-
 @echo off
 
 set sources[1]="C SCRIPTOR __ y _ 7G __ GITHUB"
 
+@REM -- EXAMPLE ARRAY REM
 REM set sources[1]="C SCRIPTOR __ x _ 7G TO 1X"
 REM set sources[2]="C SCRIPTOR __ x _ 7G TO 2E"
 REM set sources[3]="C SCRIPTOR __ x _ 7G TO 3L"
@@ -128,23 +126,10 @@ REM  for /L %%a in (1,1,7) do (
 for /L %%a in (1,1,1) do (
 
 	ECHO !sources[%%a]!
-
-	REM REM SET FILENAME_ER="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
-	REM REM SET FILENAME_ER_2="%~dp0GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT.TMP"
-	REM REM SET FILENAME_ER_4="GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT"
-	
-	REM SET FILENAME_ER_0=BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_%COMPUTERNAME%.TXT
-	REM SET FILENAME_ER_1="%~dp0!FILENAME_ER_0!"
-	REM SET FILENAME_ER=!FILENAME_ER_1!
-	REM SET FILENAME_ER_2="%~dp0\..\..\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\!FILENAME_ER_0!"
-	REM SET FILENAME_ER_4=BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT
-	REM SET FILENAME_ER_5="%~dp0!FILENAME_ER_4!"
-	REM SET FILENAME_ER_4="BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
 	
 	SET FILENAME_ER="%~dp0BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
 	SET FILENAME_ER_2="%~dp0BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT.TMP"
 	SET FILENAME_ER_4="BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
-
 	
 	ECHO.
 	ECHO ON
@@ -170,17 +155,6 @@ for /L %%a in (1,1,1) do (
 	@REM -- 
 	@REM -- SEMI RELOCATABLE __ USER PARENT PATH
 	@REM -- 
-
-
-
-	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
-	@REM ----------------------------------------------------------------
-	@REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
-	@REM ----------------------------------------------------------------
-	REM ECHO ----------------------------------------------------------------
-	REM !ConvertCP! 1200 0 /i !FILENAME_ER!
-	REM ECHO ----------------------------------------------------------------
-	@REM ----------------------------------------------------------------
 
 	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
 	@REM ----------------------------------------------------------------
@@ -322,10 +296,10 @@ for /L %%a in (1,1,1) do (
 		TIMEOUT /T 40
 	)
 	
-ECHO.	
-ECHO ----------------------------------------------------------------
-ECHO ----------------------------------------------------------------
-ECHO.	
+	ECHO.	
+	ECHO ----------------------------------------------------------------
+	ECHO ----------------------------------------------------------------
+	ECHO.	
 
 )
 
@@ -350,101 +324,19 @@ if !X! gtr 0 @(
 )
 
 
+REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
-REM HELP
-
-
-
-
-
-
-
-
-REM @SET Analysis_Complete=FALSE
-REM @SET Sync_Runner=FALSE
-REM @SET Another_Job=FALSE
-
-REM @find "-- Analysis Complete" %FILENAME_ER_1%>NUL
-REM @if %errorlevel%==0 SET Analysis_Complete=TRUE
-REM @find "Sync: Running:" %FILENAME_ER_1%>NUL
-REM @if %errorlevel%==0 SET Sync_Runner=TRUE
-REM @find "Another job is Syncing in folder" %FILENAME_ER_1%>NUL
-REM @if %errorlevel%==0 SET Another_Job=TRUE
-
-REM @REM -- DELETE THE FILE IS NOT MUCH POINT
-REM @REM -- AS IT GET COPIED OVER TO GITHUB FOLDER WHEN SYNC HAPPEN
-REM @REM -- IT THEN MAKE A PROBLEM FOR SYNC AS CONFLICTS HAPPEN
-REM @REM -- EVEN IF DELETED STILL BE CONFLICT SUPPOSE
-REM @REM -- SO USE COMPUTER NAME AND NEWER FILE WIN
-REM @REM -- 
-REM @REM -- DOUBLE CHECKING DELETE DESTINATION CONFLICT
-REM @REM -- JUST WON'T BE LEFT WITH LOG BEHIND TO VIEWER
-
-REM DEL %FILENAME_ER_1% >NUL 2>NUL
-REM REM DEL %FILENAME_ER_2% >NUL 2>NUL
-
-REM ECHO ON
-REM DEL %FILENAME_ER_2%
-REM PAUSE
-REM @ECHO OFF
-
-REM ECHO.
+REM TIMEOUT /T 8
 REM ECHO ----------------------------------------------------------------
-REM ECHO Analysis_Complete %Analysis_Complete%
-REM ECHO Sync_Runner       %Sync_Runner%
-REM ECHO Another_Job       %Another_Job%
+REM ECHO RUN COMMAND 
+REM ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
+REM ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
 REM ECHO ----------------------------------------------------------------
-REM ECHO.
+REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
+REM TIMEOUT /T 7200
+REM REM ---- 2 HOURING
 
 
-"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
-
-
-REM if "%Analysis_Complete%"=="FALSE" (
-	REM if "%Another_Job%"=="FALSE" (
-		REM ECHO ----------------------------------------------------------------
-		REM ECHO ANALYSIS ^& SYNC NOT RUN
-		REM ECHO .
-		REM ECHO NOT SURE WHY -- xxxxxxxxxx
-		REM ECHO ----------------------------------------------------------------
-	REM )
-	REM if "%Another_Job%"=="TRUE" (
-		REM ECHO ----------------------------------------------------------------
-		REM ECHO ANALYSIS ^& SYNC NOT RUN
-		REM ECHO .
-		REM ECHO ANOTHER JOB IS RUNNING -- ********** 
-		REM ECHO ----------------------------------------------------------------
-	REM )
-	
-	TIMEOUT /T 8
-	ECHO ----------------------------------------------------------------
-	ECHO RUN COMMAND 
-	ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
-	ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
-	ECHO ----------------------------------------------------------------
-	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
-	TIMEOUT /T 7200
-	REM ---- 2 HOURING
-)
-
-REM if "%Analysis_Complete%"=="TRUE" (
-	REM if "%Sync_Runner%"=="FALSE" (
-		REM ECHO ----------------------------------------------------------------
-		REM ECHO ANALYSIS RUN BUT NOT SYNC
-		REM ECHO.
-		REM ECHO MOST LIKEY REASON -- NONE CHANGE HAPPEN
-		REM ECHO ----------------------------------------------------------------
-		REM TIMEOUT /T 4
-		REM ECHO ----------------------------------------------------------------
-		REM ECHO RUN COMMAND 
-		REM ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
-		REM ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
-		REM ECHO ----------------------------------------------------------------
-		REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
-		REM TIMEOUT /T 300
-		REM REM 300 = 5 MINUTE
-	REM )
-REM )
 
 if "%Sync_Runner%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
@@ -461,6 +353,14 @@ if "%Sync_Runner%"=="TRUE" (
 	REM 300 = 5 MINUTE
 )
 
+
+@REM --- ECHO DE-STUPID-POO
+@REM --- ECHO 
+@REM --- ECHO DE-STUPID-POO
+@REM --- DE-STUPID-POO
+
+@REM --- DE-STUPID-POO OR POO
+
 @REM ----------------------------------------------------------------
 @REM FALSE FALL FOOLE - STUNT MAN - FALL GUY - SCRIPTING GUY - HEY GUYS
 @REM WEEK-DAY - WEAK-DAY
@@ -476,7 +376,6 @@ EXIT
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 
-
 @REM ----------------------------------------------------------------
 @REM -- NOT WORKING ODD SOD'S -- UNABLE TO CONVERT THE CODEPAGE 
 @REM -- USING DOS COMMANDING
@@ -487,5 +386,4 @@ EXIT
 
 @REM @echo off
 @REM >%~dp0GOODSYNC_ER_OUTPUT.TXT (for /F "tokens=1* delims=:" %%G in ('findstr "^" "Sync: Running:"') do echo %%G = "%%H")
-
 
