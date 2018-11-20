@@ -150,7 +150,10 @@ ECHO ----------------------------------------------------------------
 @REM -- JUST WON'T BE LEFT WITH LOG BEHIND TO VIEWER
 
 DEL %FILENAME_ER_1% >NUL 2>NUL
-DEL %FILENAME_ER_2% >NUL 2>NUL
+REM DEL %FILENAME_ER_2% >NUL 2>NUL
+
+ECHO ON
+DEL %FILENAME_ER_2%
 
 @ECHO OFF
 
