@@ -181,14 +181,21 @@ for /L %%a in (1,1,1) do (
 	@REM ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	ECHO ON
+	ECHO 1
+	PAUSE
 	!ConvertCP! 1200 0 /i !FILENAME_ER! /o !FILENAME_ER_2!
+
+
 	DEL !FILENAME_ER! >NUL 2>NUL
 
 	DEL !FILENAME_ER_4! >NUL 2>NUL
-
+	ECHO 2
+	
 	PAUSE
 	
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
+	ECHO 3
+
 	PAUSE
 	TYPE !FILENAME_ER!
 
