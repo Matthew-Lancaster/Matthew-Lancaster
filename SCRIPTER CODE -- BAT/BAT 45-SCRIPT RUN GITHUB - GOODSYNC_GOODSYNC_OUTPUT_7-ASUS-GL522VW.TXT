@@ -4,105 +4,100 @@ Loaded 1193 jobs from C:/Users/MATT 04/AppData/Roaming/GoodSync/jobs-groups-opti
 JobCmd=sync JobName=
 
 === Job === C SCRIPTOR __ y _ 7G __ GITHUB: 'file:///C:/SCRIPTER' <-> 'file:///C:/SCRIPTOR GITHUB'
-012239 Connected to C:\SCRIPTER: C: NTFS: type=NTFS vol=OS SYSTEM flags=3E700FF
-012239 Connected to C:\SCRIPTOR GITHUB: C: NTFS: type=NTFS vol=OS SYSTEM flags=3E700FF
-012239 -- Analysis Started by Unknown
-012239 C SCRIPTOR __ y _ 7G __ GITHUB: ANALYSIS started by Unknown on '7-ASUS-GL522VW' (GoodSync 10.9.17.7)
-012239 C:\SCRIPTER (C:/SCRIPTER) [TmpDest] <-> C:\SCRIPTOR GITHUB (C:/SCRIPTOR GITHUB) [TmpDest] [NoGsData], SaveDays_RecycleBin=30d, SaveDays_History=30d, ReconnectSecs=120, SyncWorkerThreads=10, OnSchedule=Min=0 Hour=0 , ChangeLimit=50, NoWaitForLocks, AutoClear, PostSyncAction=nowait: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe", CopyCreateTime, LinksIgnore
-012239 Exclude Empty Folders, Exclude /SCRIPTER -- FILE LOCATOR PRO/|/SCRIPTER -- FILELOCATOR _ GOODSYNC/|/SCRIPTER -- GOODSYNC/|/SCRIPTER -- TREESIZE/|/SCRIPTER -- ViceVersa PRO 02/|/SCRIPTER -- ViceVersa PRO 03/|/SCRIPTER -- ViceVersa PRO/|/SCRIPTER CODE -- AUTOKEY2/|/SCRIPTER CODE -- BAT2/|/SCRIPTER CODE -- TASKKILL BAT2/|/SCRIPTER CODE -- ViceVersa PRO2/|/SCRIPTOR -- INFO RAPID SEARCH AND REPLACE/|/USB_PEN_DRIVE_DISKMOD/|/UTILS/ZIP/|/Z_ROOT_COMPARE/|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS -- 01 DUPE WORK ON DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS -- DUPE HARD WORK DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS -- DUPE WORK ON DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS 02 DUPE WORK ON DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS.BAT.bak|name # Windows 10 REG SCRIPT INFO|name # Windows XP REG SCRIPT|name #_ASUS EEE NEW USERS SETTING|name *.INI|name *.exe|name *.inf|name *.lnk|name *.log|name *.vbw|name .git|name .gitattributes|name 04 Shell Folders.reg|name 04 Shell Folders10.reg|name 04 Shell Folders11.reg|name 04 Shell Folders2.reg|name 07|name 2fuckoff.exe|name AAPLAY.EXE|name AHK - 7 PLUS|name AHK SPARE PART CODE|name APP_Netsetup.exe|name ARJ.EXE|name Atzdial1.exe|name Autokey -- 14-Brightness With Dimmer|name Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt|name Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NUMERIC COUNT TOTAL.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_3-LINDA-PC.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_4-ASUS-GL522VW.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_5-ASUS-P2520LA.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_7-ASUS-GL522VW.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_8-MSI-GP62M-7RD.txt|name BACKUP.EXE|name BAT 15-VICE VERSA _ C DRIVE ROOT SYNCER.BAT.TIME_EVENT.TXT|name BAT 33-INSTALLED PROGRAMS AND LOCATION|name BAT 45-SCRIPT RUN GITHUB.BAT|name BAT 45-SCRIPT RUN GITHUB.BAT.lnk|name BAT 45-SCRIPT RUN GITHUB.LOG|name BAT 45-SCRIPT RUN GITHUB.frx|name BAT 45-SCRIPT RUN GITHUB_BAT.BAT|name BAT 45-SCRIPT RUN GITHUB_EXE.BAT|name BAT_DELAYED_LOADER.BAT|name BAT_DOS|name BTOW payasgo.exe|name Battgammon.reg|name CJEPG.TXT|name CJPEG.EXE|name CLOSE.EXE|name CONSOLE.EXE|name Copy Move This Zone Internet Tweak.reg|name Copy Move This Zone Internet Tweak.txt|name DATA LOGGER - TEMPERATURE SENSOR|name DELETE EMPTY FOLDER|name DELETE_EMPTY_FOLDER_1.exe|name DELETE_EMPTY_FOLDER_2.exe|name DJPEG.EXE|name DUPLICAT|name Desktop.ini|name Download Service Pack 6 for Visual Basic 6.0 Run-Time Redistribution Pack (vbrun60sp6.exe) from Official Microsoft Download .URL|name EBAY SCRIPT BUYER WATCH ITEM.txt|name EBAY SCRIPT BUYER.txt|name EDIT.COM|name EXPLORER DON'T WANT SHOW DEVICES WITH DRIVES - Google Search.url|name EZK.EXE|name EZK.TXT|name File Association Fixes for Windows 7|name Fixing Windows 10 Automatic Updates Install Problem - AskVG.url|name GOODSYNC JOB WORKER GS-DESKTOP *_*_20*.TXT|name GOODSYNC_OUTPUT.TXT|name HKCUControl PanelMouse f v MouseTrails t REG_SZ d 0 - Google Search.url|name How To Make Windows Photo Viewer Default In Windows 10.url|name How to Separate “Devices and Drives” Section in Windows 8.1 Explorer “This PC”- - AskVG.url|name How to temporarily prevent a driver update from reinstalling in Windows 10.url|name IO.SYS|name IP_LOGGER.TXT|name Icon Reg Should Look Like This.reg|name InstallHelper.reg|name KAT MOUSE.reg|name KILL|name LIST|name LIST.COM|name LIST.PIF|name LL.EXE|name List Enhanced 4518 Paid For|name MAP.COM|name MSDOS.SYS|name Multiple_Port_Scanner.exe|name NORTON SCAN|name NOT USER|name NOTEPAD TALK|name NOTEPAD++ WORK|name New folder|name Notepad.exe|name OLDER|name Office.reg|name OutLook Express Rules.reg|name OutLook Express Rules2.reg|name OutLook Express Rules3 Pure.reg|name OutLook Express Sigs.reg|name OutLook Express Sigs2.reg|name OutLook Express Sigs3 Pure.reg|name PAK.EXE|name PKHELP.DOC|name PKHELP32.EXE|name PKUNZIP.EXE|name PKUNZJR.COM|name PKZIP.EXE|name PKZIPFIX.EXE|name PKZIPOLD.ER|name PLAYFLC.EXE|name PinTo10.exe|name PortableRoboForm.exe|name PowerShell Context Menu Hacks|name PowerShell-Context-Menu-Hacks.zip|name Quick Launch.reg|name README JPEG.TXT|name RESET.EXE|name RESET.LST|name RESET.SDF|name Read NTFS|name Reg FavSort.reg|name Reg OutLook 5.reg|name Reg OutLook 7.reg|name Reg_Command.reg|name RoboForm-2Go-Setup.exe|name SC|name SCHEDULER DELAYED LOADER|name SCRIPTER -- FILE LOCATOR _ GOODSYNC|name SCRIPTER -- HIKVISION|name SCRIPTER -- INFO RAPID SEARCH AND REPLACE|name SCRIPTER CODE -- AHK_ NIFTY_WINDOWS|name SDK.zip|name SENDSMTP|name SNMP_EVENTS-EventLog-Parameters.reg|name SNOOPER.EXE|name SOURCER.EXE|name SendSMTP_EDDIE_BATCH.bat|name SendSMTP_EDDIE_BATCH.bat.TXT|name SendSMTP_MARIANNE & EDDIE_BATCH.bat|name SendSMTP_MARIANNE.bat|name SendSMTP_MARIANNE.bat.TXT|name SendSMTP_MARIANNE_2017-05-15_22-18.txt|name SendSMTP_REBOOT_MAIN_Body__3-LINDA-PC.txt|name SendSMTP_REBOOT_MAIN_Body__5-ASUS-P2520LA.txt|name SendSMTP_REBOOT_MAIN_Body__7-ASUS-GL522VW.txt|name SendSMTP_REBOOT_MAIN_Body__8-MSI-GP62M-7RD.txt|name SendSMTP_SMTP_ELASTICEMAIL_2018-05-25_18_52a.txt|name SendSMTP_SMTP_SENDINBLUE_2018-05-25_18_52a.txt|name Setup Notepad++ for AutoHotkey - AutoHotkey Community.url|name Solution to audiodg.exe holds high CPU usage in Windows 7 - idea laptops - Lenovo Support.url|name T.COM|name T.PIF|name TEST.BAT|name TEST.reg|name TEST2.reg|name TEST3.reg|name TESTBAT.BAT|name TESTBAT2.BAT|name TESTBAT3.BAT|name TEXT.BAT|name TEXT.TEXT.TXT|name THUMBS.DB|name Tabbed Browsing.reg|name Tidal Info Readme.txt|name To-del.exe|name U.COM|name User Shell Folders.reg|name Utils.rar|name VB6.0-KB290887-X86.exe|name VBS 18-ffmpeg-20150701-git-9c010ba-win32-static|name VBS 18-ffmpeg-20150701-git-9c010ba-win32-static.zip|name VBS 18-ffmpeg-20181007-0a41a8b-win64-static|name VBS 18-ffmpeg-20181007-0a41a8b-win64-static.zip|name VBS 29-COPY CAMERA|name VGACBUST.EXE|name Where are the shortcuts for the Windows 7 Taskbar stored on disk- - Super User.url|name Whole Registry 2009-07-19.rar|name WinVBlock.IMG.gz|name Winbackup.exe|name Windows Shortcuts.url|name Windows XP File Assocation Fixes|name ZIP2EXE.EXE|name atzdial3.exe|name audiodg.exe - Google Search.url|name backup winrar.exe|name bat_fix_w10|name comport4.exe|name convertcp_v5.1_x86.zip|name coolcid chainer.exe|name coolcidshut2.exe|name date1991.exe|name edit.exe|name folder_reg|name folder_reg.reg|name folder_reg.zip|name linux - How do I play a particular playlist with mpc- - Super User.url|name ntdetect.com|name ntldr|name ntldr.BAK|name restart1.exe|name sndrec32.exe|name tempfile.txt|name tidal.txt|name vJoyConfig|name vJoyConfig.zip|name vbrun60sp6.exe|name xp_drive_association_fix|name xp_drive_association_fix.zip|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/c#|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/inc|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/lib|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/src|path /SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 01|path /SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02|path /SCRIPTER CODE -- GITHUB/SUN.ICO|path /SCRIPTER CODE -- GITHUB/SUN.txt|path /SCRIPTER CODE -- VBS/Reg|path /SCRIPTER CODE -- VBS/config|name SYSTEM LOGON.TXT|name GOODSYNC_OUTPUT_FUJI_XP90_CAMERA.TXT|.DS_Store|/System Volume Information|DESKTOP.INI|Thumbs.db|_file_state_v4._gs|meta.fm|name $RECYCLE.BIN|name *._gstmp|name *.vbw|name .@__thumb|name .dropbox.device|name _app*.rfo|name _gsdata_|name _settings.rfo|name _user-data*.rfo|name cache.rfo|name desktop.ini|name mppsS*.rfo|name mru.rfo|name options.rfo|path /.streams|path /NirSoft/x64/SpecialFoldersView.cfg|path /Progs/#_PortableApps/PortableApps/SystemExplorerPortable/App/SystemExplorer/config.ini|path /Progs/#_PortableApps/PortableApps/SystemExplorerPortable/App/SystemExplorer/data.sdb|path /Progs/0_Nirsoft_Package/NirSoft/BluetoothLogView.cfg|path /Progs/0_Nirsoft_Package/NirSoft/BluetoothView_Desc.txt|path /Progs/0_Nirsoft_Package/NirSoft/SpecialFoldersView.cfg|path /Progs/0_Nirsoft_Package/NirSoft/bluetoothview_Desc.ini|path /RECYCLER|path /Recycled|path /TEMP 
-012239 Locking folder C:/SCRIPTER for write
-012239 L: Reading State File C:/SCRIPTER/_gsdata_/_file_state_v4._gs
-012239 L: C:/SCRIPTER/_gsdata_/_file_state_v4._gs: Removed 3 old generations, removed 0 file stumps
-012239 Locking folder C:/SCRIPTER/BOOKS READ for write
-012239 L: Reading State File C:/SCRIPTER/BOOKS READ and merge it with the root state
-012239 Locking folder C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3 for write
-012239 L: Reading State File C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3 and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY and merge it with the root state
-012239 L: C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/_gsdata_/_file_state_v4._gs: Removed 3 old generations, removed 0 file stumps
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- BAT for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- BAT and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- GITHUB for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- GITHUB and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1 for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1 and merge it with the root state
-012239 Locking folder C:/SCRIPTER/SCRIPTER CODE -- VBS for write
-012239 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- VBS and merge it with the root state
-012239 Locking folder C:/SCRIPTER/UTILS ROOT for write
-012239 L: Reading State File C:/SCRIPTER/UTILS ROOT and merge it with the root state
-012239 L: Files: 344 (excluded 249). Folders: 49 (excluded 64). Times (s): Folder Scan: 0.181 (3900 f/s), Compare: 0.002 C: NTFS Free: 67.7 GB, Total: 234 GB
-012239 Locking folder C:/SCRIPTOR GITHUB for write
-012239 R: Read state from mirror C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_file_state_v4._gs
-012239 R: C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_file_state_v4._gs: Removed 2 old generations, removed 0 file stumps
-012239 R: Read state from mirror C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB-SCRIPTER CODE - GITHUB/_file_state_v4._gs
-012239 R: Files: 344 (excluded 0). Folders: 41 (excluded 1). Times (s): Folder Scan: 0.103 (3747 f/s), Compare: 0.002 C: NTFS Free: 67.7 GB, Total: 234 GB
-012239 Two-side filters excluded 306 items
-012239 /SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_7-ASUS-GL522VW.TXT: R:TimeSize<>; Conflict: File Modified on Both Sides
-012239 On disk file:///C: space required for sync is 17.0 KB, you have 67.7 GB
-012239 On disk file:///C: space required for sync is 17.0 KB, you have 67.7 GB
-012239 Analyze has finished with Conflicts. Resolve Conflicts by selecting the correct sync direction, then click Sync
-012239 Changes: 2, Conflicts: 1, CopyTime: 0, FixState: 2, Errors: 0, All: 4809
-012239 Left to Right: Copy File: 1 
-012239 -- Analysis Complete. Time 00:00:00, Speed: Many files/s
-012239 Fraction of files changed (excluding renames) is low enough to perform Auto Sync: 0% (2 / 707) < 50%
-012239 == Sync Started by Unknown
-012239 C SCRIPTOR __ y _ 7G __ GITHUB: SYNC started by Unknown on '7-ASUS-GL522VW'
-012239 C:\SCRIPTER (C:/SCRIPTER) [TmpDest] <-> C:\SCRIPTOR GITHUB (C:/SCRIPTOR GITHUB) [TmpDest] [NoGsData], SaveDays_RecycleBin=30d, SaveDays_History=30d, ReconnectSecs=120, SyncWorkerThreads=10, OnSchedule=Min=0 Hour=0 , ChangeLimit=50, NoWaitForLocks, AutoClear, PostSyncAction=nowait: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe", CopyCreateTime, LinksIgnore
-012239 Sync State Merge: /SCRIPTER CODE -- AUTOKEY/Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
-012239 Sync State Merge: /SCRIPTER CODE -- AUTOKEY/Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
-012239 Start only 2 threads, limited by tasks to run
-012239 /SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_7-ASUS-GL522VW.TXT: unresolved conflict results in No Copy
-012239 /SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_7-ASUS-GL522VW.TXT: unresolved conflict results in No Copy
-012239 Copy Over 'C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT' -> 'C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT' (17,383)
-012239 Save State File C:/SCRIPTER/BOOKS READ/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- BAT/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- GITHUB/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/SCRIPTER CODE -- VBS/_gsdata_/_file_state_v4._gs
-012239 Save State File C:/SCRIPTER/UTILS ROOT/_gsdata_/_file_state_v4._gs
-012240 Save State File C:/SCRIPTER/_gsdata_/_file_state_v4._gs
-012240 Save State File C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_file_state_v4._gs
-012240 Sync finished with 1 unresolved conflicts. Click Conflicts button to see unresolved conflicts
-012240 Cleanup recycled files in C:/SCRIPTER/_gsdata_/_saved_
-012240 Load Recycled DB: C:/SCRIPTER/_gsdata_/_recycled_db._gs
-012240 Cleaning up History files in C:/SCRIPTER/_gsdata_/_history_
-012240 Cleanup old logs in C:/SCRIPTER/_gsdata_
-012240 Cleanup recycled files in C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_saved_
-012240 Cleaning up History files in C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_history_
-012240 Cleanup old logs in C:/SCRIPTOR GITHUB/_gsdata_
-012240 == Sync Complete. Time: 00:00:01, Speed: 0 bytes/s, OK: 3, Errors: 0, Conflicts: 1
-012240 Deleted lock file C:/SCRIPTER/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/BOOKS READ/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- BAT/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- GITHUB/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- VBS/_gsdata_/lock.gsl
-012240 Deleted lock file C:/SCRIPTER/UTILS ROOT/_gsdata_/lock.gsl
-012240 Deleted lock file C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/lock.gsl
+012409 Connected to C:\SCRIPTER: C: NTFS: type=NTFS vol=OS SYSTEM flags=3E700FF
+012409 Connected to C:\SCRIPTOR GITHUB: C: NTFS: type=NTFS vol=OS SYSTEM flags=3E700FF
+012409 -- Analysis Started by Unknown
+012409 C SCRIPTOR __ y _ 7G __ GITHUB: ANALYSIS started by Unknown on '7-ASUS-GL522VW' (GoodSync 10.9.17.7)
+012409 C:\SCRIPTER (C:/SCRIPTER) [TmpDest] <-> C:\SCRIPTOR GITHUB (C:/SCRIPTOR GITHUB) [TmpDest] [NoGsData], SaveDays_RecycleBin=30d, SaveDays_History=30d, ReconnectSecs=120, SyncWorkerThreads=10, OnSchedule=Min=0 Hour=0 , ChangeLimit=50, NoWaitForLocks, AutoClear, PostSyncAction=nowait: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe", CopyCreateTime, LinksIgnore
+012409 Exclude Empty Folders, Exclude /SCRIPTER -- FILE LOCATOR PRO/|/SCRIPTER -- FILELOCATOR _ GOODSYNC/|/SCRIPTER -- GOODSYNC/|/SCRIPTER -- TREESIZE/|/SCRIPTER -- ViceVersa PRO 02/|/SCRIPTER -- ViceVersa PRO 03/|/SCRIPTER -- ViceVersa PRO/|/SCRIPTER CODE -- AUTOKEY2/|/SCRIPTER CODE -- BAT2/|/SCRIPTER CODE -- TASKKILL BAT2/|/SCRIPTER CODE -- ViceVersa PRO2/|/SCRIPTOR -- INFO RAPID SEARCH AND REPLACE/|/USB_PEN_DRIVE_DISKMOD/|/UTILS/ZIP/|/Z_ROOT_COMPARE/|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS -- 01 DUPE WORK ON DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS -- DUPE HARD WORK DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS -- DUPE WORK ON DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS 02 DUPE WORK ON DOUBLE SLASH.BAT|name # TWEAK REG WIN XP - NEW USER SETUP - SPECIAL FOLDERS.BAT.bak|name # Windows 10 REG SCRIPT INFO|name # Windows XP REG SCRIPT|name #_ASUS EEE NEW USERS SETTING|name *.INI|name *.exe|name *.inf|name *.lnk|name *.log|name *.vbw|name .git|name .gitattributes|name 04 Shell Folders.reg|name 04 Shell Folders10.reg|name 04 Shell Folders11.reg|name 04 Shell Folders2.reg|name 07|name 2fuckoff.exe|name AAPLAY.EXE|name AHK - 7 PLUS|name AHK SPARE PART CODE|name APP_Netsetup.exe|name ARJ.EXE|name Atzdial1.exe|name Autokey -- 14-Brightness With Dimmer|name Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NAME SCRIPT.txt|name Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES NUMERIC COUNT TOTAL.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_3-LINDA-PC.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_4-ASUS-GL522VW.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_5-ASUS-P2520LA.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_7-ASUS-GL522VW.txt|name Autokey -- 19-SCRIPT_TIMER_UTIL_TIMER_8-MSI-GP62M-7RD.txt|name BACKUP.EXE|name BAT 15-VICE VERSA _ C DRIVE ROOT SYNCER.BAT.TIME_EVENT.TXT|name BAT 33-INSTALLED PROGRAMS AND LOCATION|name BAT 45-SCRIPT RUN GITHUB.BAT|name BAT 45-SCRIPT RUN GITHUB.BAT.lnk|name BAT 45-SCRIPT RUN GITHUB.LOG|name BAT 45-SCRIPT RUN GITHUB.frx|name BAT 45-SCRIPT RUN GITHUB_BAT.BAT|name BAT 45-SCRIPT RUN GITHUB_EXE.BAT|name BAT_DELAYED_LOADER.BAT|name BAT_DOS|name BTOW payasgo.exe|name Battgammon.reg|name CJEPG.TXT|name CJPEG.EXE|name CLOSE.EXE|name CONSOLE.EXE|name Copy Move This Zone Internet Tweak.reg|name Copy Move This Zone Internet Tweak.txt|name DATA LOGGER - TEMPERATURE SENSOR|name DELETE EMPTY FOLDER|name DELETE_EMPTY_FOLDER_1.exe|name DELETE_EMPTY_FOLDER_2.exe|name DJPEG.EXE|name DUPLICAT|name Desktop.ini|name Download Service Pack 6 for Visual Basic 6.0 Run-Time Redistribution Pack (vbrun60sp6.exe) from Official Microsoft Download .URL|name EBAY SCRIPT BUYER WATCH ITEM.txt|name EBAY SCRIPT BUYER.txt|name EDIT.COM|name EXPLORER DON'T WANT SHOW DEVICES WITH DRIVES - Google Search.url|name EZK.EXE|name EZK.TXT|name File Association Fixes for Windows 7|name Fixing Windows 10 Automatic Updates Install Problem - AskVG.url|name GOODSYNC JOB WORKER GS-DESKTOP *_*_20*.TXT|name GOODSYNC_OUTPUT.TXT|name HKCUControl PanelMouse f v MouseTrails t REG_SZ d 0 - Google Search.url|name How To Make Windows Photo Viewer Default In Windows 10.url|name How to Separate “Devices and Drives” Section in Windows 8.1 Explorer “This PC”- - AskVG.url|name How to temporarily prevent a driver update from reinstalling in Windows 10.url|name IO.SYS|name IP_LOGGER.TXT|name Icon Reg Should Look Like This.reg|name InstallHelper.reg|name KAT MOUSE.reg|name KILL|name LIST|name LIST.COM|name LIST.PIF|name LL.EXE|name List Enhanced 4518 Paid For|name MAP.COM|name MSDOS.SYS|name Multiple_Port_Scanner.exe|name NORTON SCAN|name NOT USER|name NOTEPAD TALK|name NOTEPAD++ WORK|name New folder|name Notepad.exe|name OLDER|name Office.reg|name OutLook Express Rules.reg|name OutLook Express Rules2.reg|name OutLook Express Rules3 Pure.reg|name OutLook Express Sigs.reg|name OutLook Express Sigs2.reg|name OutLook Express Sigs3 Pure.reg|name PAK.EXE|name PKHELP.DOC|name PKHELP32.EXE|name PKUNZIP.EXE|name PKUNZJR.COM|name PKZIP.EXE|name PKZIPFIX.EXE|name PKZIPOLD.ER|name PLAYFLC.EXE|name PinTo10.exe|name PortableRoboForm.exe|name PowerShell Context Menu Hacks|name PowerShell-Context-Menu-Hacks.zip|name Quick Launch.reg|name README JPEG.TXT|name RESET.EXE|name RESET.LST|name RESET.SDF|name Read NTFS|name Reg FavSort.reg|name Reg OutLook 5.reg|name Reg OutLook 7.reg|name Reg_Command.reg|name RoboForm-2Go-Setup.exe|name SC|name SCHEDULER DELAYED LOADER|name SCRIPTER -- FILE LOCATOR _ GOODSYNC|name SCRIPTER -- HIKVISION|name SCRIPTER -- INFO RAPID SEARCH AND REPLACE|name SCRIPTER CODE -- AHK_ NIFTY_WINDOWS|name SDK.zip|name SENDSMTP|name SNMP_EVENTS-EventLog-Parameters.reg|name SNOOPER.EXE|name SOURCER.EXE|name SendSMTP_EDDIE_BATCH.bat|name SendSMTP_EDDIE_BATCH.bat.TXT|name SendSMTP_MARIANNE & EDDIE_BATCH.bat|name SendSMTP_MARIANNE.bat|name SendSMTP_MARIANNE.bat.TXT|name SendSMTP_MARIANNE_2017-05-15_22-18.txt|name SendSMTP_REBOOT_MAIN_Body__3-LINDA-PC.txt|name SendSMTP_REBOOT_MAIN_Body__5-ASUS-P2520LA.txt|name SendSMTP_REBOOT_MAIN_Body__7-ASUS-GL522VW.txt|name SendSMTP_REBOOT_MAIN_Body__8-MSI-GP62M-7RD.txt|name SendSMTP_SMTP_ELASTICEMAIL_2018-05-25_18_52a.txt|name SendSMTP_SMTP_SENDINBLUE_2018-05-25_18_52a.txt|name Setup Notepad++ for AutoHotkey - AutoHotkey Community.url|name Solution to audiodg.exe holds high CPU usage in Windows 7 - idea laptops - Lenovo Support.url|name T.COM|name T.PIF|name TEST.BAT|name TEST.reg|name TEST2.reg|name TEST3.reg|name TESTBAT.BAT|name TESTBAT2.BAT|name TESTBAT3.BAT|name TEXT.BAT|name TEXT.TEXT.TXT|name THUMBS.DB|name Tabbed Browsing.reg|name Tidal Info Readme.txt|name To-del.exe|name U.COM|name User Shell Folders.reg|name Utils.rar|name VB6.0-KB290887-X86.exe|name VBS 18-ffmpeg-20150701-git-9c010ba-win32-static|name VBS 18-ffmpeg-20150701-git-9c010ba-win32-static.zip|name VBS 18-ffmpeg-20181007-0a41a8b-win64-static|name VBS 18-ffmpeg-20181007-0a41a8b-win64-static.zip|name VBS 29-COPY CAMERA|name VGACBUST.EXE|name Where are the shortcuts for the Windows 7 Taskbar stored on disk- - Super User.url|name Whole Registry 2009-07-19.rar|name WinVBlock.IMG.gz|name Winbackup.exe|name Windows Shortcuts.url|name Windows XP File Assocation Fixes|name ZIP2EXE.EXE|name atzdial3.exe|name audiodg.exe - Google Search.url|name backup winrar.exe|name bat_fix_w10|name comport4.exe|name convertcp_v5.1_x86.zip|name coolcid chainer.exe|name coolcidshut2.exe|name date1991.exe|name edit.exe|name folder_reg|name folder_reg.reg|name folder_reg.zip|name linux - How do I play a particular playlist with mpc- - Super User.url|name ntdetect.com|name ntldr|name ntldr.BAK|name restart1.exe|name sndrec32.exe|name tempfile.txt|name tidal.txt|name vJoyConfig|name vJoyConfig.zip|name vbrun60sp6.exe|name xp_drive_association_fix|name xp_drive_association_fix.zip|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/c#|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/inc|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/lib|path /SCRIPTER CODE -- AUTOKEY/JOYPAD_WORK/SDK/src|path /SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 01|path /SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02|path /SCRIPTER CODE -- GITHUB/SUN.ICO|path /SCRIPTER CODE -- GITHUB/SUN.txt|path /SCRIPTER CODE -- VBS/Reg|path /SCRIPTER CODE -- VBS/config|name SYSTEM LOGON.TXT|name GOODSYNC_OUTPUT_FUJI_XP90_CAMERA.TXT|.DS_Store|/System Volume Information|DESKTOP.INI|Thumbs.db|_file_state_v4._gs|meta.fm|name $RECYCLE.BIN|name *._gstmp|name *.vbw|name .@__thumb|name .dropbox.device|name _app*.rfo|name _gsdata_|name _settings.rfo|name _user-data*.rfo|name cache.rfo|name desktop.ini|name mppsS*.rfo|name mru.rfo|name options.rfo|path /.streams|path /NirSoft/x64/SpecialFoldersView.cfg|path /Progs/#_PortableApps/PortableApps/SystemExplorerPortable/App/SystemExplorer/config.ini|path /Progs/#_PortableApps/PortableApps/SystemExplorerPortable/App/SystemExplorer/data.sdb|path /Progs/0_Nirsoft_Package/NirSoft/BluetoothLogView.cfg|path /Progs/0_Nirsoft_Package/NirSoft/BluetoothView_Desc.txt|path /Progs/0_Nirsoft_Package/NirSoft/SpecialFoldersView.cfg|path /Progs/0_Nirsoft_Package/NirSoft/bluetoothview_Desc.ini|path /RECYCLER|path /Recycled|path /TEMP 
+012409 Locking folder C:/SCRIPTER for write
+012409 L: Reading State File C:/SCRIPTER/_gsdata_/_file_state_v4._gs
+012409 Locking folder C:/SCRIPTER/BOOKS READ for write
+012409 L: Reading State File C:/SCRIPTER/BOOKS READ and merge it with the root state
+012409 Locking folder C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3 for write
+012409 L: Reading State File C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3 and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- BAT for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- BAT and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- GITHUB for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- GITHUB and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos and merge it with the root state
+012409 Locking folder C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER for write
+012409 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER and merge it with the root state
+012410 Locking folder C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1 for write
+012410 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1 and merge it with the root state
+012410 Locking folder C:/SCRIPTER/SCRIPTER CODE -- VBS for write
+012410 L: Reading State File C:/SCRIPTER/SCRIPTER CODE -- VBS and merge it with the root state
+012410 Locking folder C:/SCRIPTER/UTILS ROOT for write
+012410 L: Reading State File C:/SCRIPTER/UTILS ROOT and merge it with the root state
+012410 L: Files: 344 (excluded 249). Folders: 49 (excluded 64). Times (s): Folder Scan: 0.190 (3715 f/s), Compare: 0.002 C: NTFS Free: 67.7 GB, Total: 234 GB
+012410 Locking folder C:/SCRIPTOR GITHUB for write
+012410 R: Read state from mirror C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_file_state_v4._gs
+012410 R: Read state from mirror C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB-SCRIPTER CODE - GITHUB/_file_state_v4._gs
+012410 R: Files: 344 (excluded 0). Folders: 41 (excluded 1). Times (s): Folder Scan: 0.127 (3039 f/s), Compare: 0.002 C: NTFS Free: 67.7 GB, Total: 234 GB
+012410 Two-side filters excluded 306 items
+012410 /SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_7-ASUS-GL522VW.TXT: R:TimeSize<>; Conflict: File Modified on Both Sides
+012410 On disk file:///C: space required for sync is 17.0 KB, you have 67.7 GB
+012410 On disk file:///C: space required for sync is 17.0 KB, you have 67.7 GB
+012410 Analyze has finished with Conflicts. Resolve Conflicts by selecting the correct sync direction, then click Sync
+012410 Changes: 2, Conflicts: 1, CopyTime: 0, FixState: 0, Errors: 0, All: 4809
+012410 Left to Right: Copy File: 1 
+012410 -- Analysis Complete. Time 00:00:01, Speed: 707 files/s
+012410 Fraction of files changed (excluding renames) is low enough to perform Auto Sync: 0% (2 / 707) < 50%
+012410 == Sync Started by Unknown
+012410 C SCRIPTOR __ y _ 7G __ GITHUB: SYNC started by Unknown on '7-ASUS-GL522VW'
+012410 C:\SCRIPTER (C:/SCRIPTER) [TmpDest] <-> C:\SCRIPTOR GITHUB (C:/SCRIPTOR GITHUB) [TmpDest] [NoGsData], SaveDays_RecycleBin=30d, SaveDays_History=30d, ReconnectSecs=120, SyncWorkerThreads=10, OnSchedule=Min=0 Hour=0 , ChangeLimit=50, NoWaitForLocks, AutoClear, PostSyncAction=nowait: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe", CopyCreateTime, LinksIgnore
+012410 Start only 2 threads, limited by tasks to run
+012410 /SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_7-ASUS-GL522VW.TXT: unresolved conflict results in No Copy
+012410 /SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT_7-ASUS-GL522VW.TXT: unresolved conflict results in No Copy
+012410 Copy Over 'C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT' -> 'C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT' (17,383)
+012410 Save State File C:/SCRIPTER/BOOKS READ/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- BAT/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- GITHUB/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/SCRIPTER CODE -- VBS/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/UTILS ROOT/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/SCRIPTER/_gsdata_/_file_state_v4._gs
+012410 Save State File C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_file_state_v4._gs
+012410 Sync finished with 1 unresolved conflicts. Click Conflicts button to see unresolved conflicts
+012410 Cleanup recycled files in C:/SCRIPTER/_gsdata_/_saved_
+012410 Load Recycled DB: C:/SCRIPTER/_gsdata_/_recycled_db._gs
+012410 Cleaning up History files in C:/SCRIPTER/_gsdata_/_history_
+012410 Cleanup old logs in C:/SCRIPTER/_gsdata_
+012410 Cleanup recycled files in C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_saved_
+012410 Cleaning up History files in C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/_history_
+012410 Cleanup old logs in C:/SCRIPTOR GITHUB/_gsdata_
+012410 == Sync Complete. Time: 00:00:00, Speed: 0 bytes/s, OK: 1, Errors: 0, Conflicts: 1
+012410 Deleted lock file C:/SCRIPTER/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/BOOKS READ/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/MP3/WINDOWS 98SE-ISO - WINDOWS 95 SUCKS.MP3/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- AUTOKEY/NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- BAT/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- BAT/NET_SHARE/Multiple_Thread Port Scanner 02 CON/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- GITHUB/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- Grub4Dos/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- REG KEY SETTER/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- SendSMTP_v2.19.0.1/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/SCRIPTER CODE -- VBS/_gsdata_/lock.gsl
+012410 Deleted lock file C:/SCRIPTER/UTILS ROOT/_gsdata_/lock.gsl
+012410 Deleted lock file C:/Users/MATT 04/AppData/Roaming/GoodSync/_mirrors_/file-C-SCRIPTOR GITHUB/lock.gsl
 
-012240 Sync: Running: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe" 
-012240 Program returned control: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
+012410 Sync: Running: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe" 
+012410 Program returned control: "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
