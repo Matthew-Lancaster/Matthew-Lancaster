@@ -141,9 +141,6 @@ for /L %%a in (1,1,1) do (
 	SET FILENAME_ER_5="%~dp0!FILENAME_ER_4!"
 	SET FILENAME_ER_4="BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
 	
-	ECHO !FILENAME_ER_4!
-	ECHO !FILENAME_ER_5!
-	
 	ECHO.
 	ECHO ON
 	@ECHO ----------------------------------------------------------------
@@ -180,30 +177,22 @@ for /L %%a in (1,1,1) do (
 	REM ECHO ----------------------------------------------------------------
 	@REM ----------------------------------------------------------------
 
-
 	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
 	@REM ----------------------------------------------------------------
 	@REM SEND OUTPUT FILE FROM GOODSYNC RUN TO COMMAND CONSOLE WINDOW
 	@REM ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	ECHO ON
-	ECHO 1
-	PAUSE
 	!ConvertCP! 1200 0 /i !FILENAME_ER! /o !FILENAME_ER_2!
-
 
 	DEL !FILENAME_ER! >NUL 2>NUL
 	DEL !FILENAME_ER_5! >NUL 2>NUL
-	ECHO 2
-	
-	PAUSE
 	
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
-	ECHO 3
 
-	PAUSE
-	TYPE !FILENAME_ER!
+	TYPE !FILENAME_ER_2!
 
+	
 	ECHO ----------------------------------------------------------------
 	@REM ----------------------------------------------------------------
 
