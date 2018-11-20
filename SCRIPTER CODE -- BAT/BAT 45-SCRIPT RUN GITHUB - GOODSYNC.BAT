@@ -339,10 +339,11 @@ REM REM ---- 2 HOURING
 
 
 if "%Sync_Runner%"=="TRUE" (
-	REM ECHO ----------------------------------------------------------------
-	REM ECHO SYNC COMPLETE
-	REM ECHO ----------------------------------------------------------------
-	REM TIMEOUT /T 30
+	ECHO ----------------------------------------------------------------
+	ECHO END RUN IT
+	ECHO SYNC COMPLETE
+	ECHO ----------------------------------------------------------------
+	TIMEOUT /T 30
 	ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
 	ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
