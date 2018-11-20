@@ -184,8 +184,6 @@ for /L %%a in (1,1,1) do (
 	!ConvertCP! 1200 0 /i !FILENAME_ER! /o !FILENAME_ER_2!
 	DEL !FILENAME_ER! >NUL 2>NUL
 
-	PAUSE
-
 
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
 	TYPE !FILENAME_ER!
@@ -200,6 +198,10 @@ for /L %%a in (1,1,1) do (
 	@SET Unresolved_Conflicts=FALSE
 	@SET Computer_Is_Offline=FALSE
 
+	PAUSE
+
+
+	
 	@find "-- Analysis Complete" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Analysis_Complete=TRUE
 	@find "Sync: Running:" !FILENAME_ER!>NUL
