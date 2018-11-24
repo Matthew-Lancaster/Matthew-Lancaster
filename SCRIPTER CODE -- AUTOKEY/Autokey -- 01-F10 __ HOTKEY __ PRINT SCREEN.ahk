@@ -216,13 +216,19 @@ F4::
 	WinWaitActive, ahk_class Chrome_WidgetWin_1
 	WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
 
-	If CurrentWindowTitle not contains 404 Page Not Found
-		Return
-	
+	SET_GO=FALSE
+	If CurrentWindowTitle contains 404 Page Not Found
+		SET_GO=TRUE
+	If CurrentWindowTitle contains Raspberry Pi - Google Chrome
+		SET_GO=TRUE
+		
+	IF SET_GO=FALSE
+		RETURN
+				
 	Loop
 	{
 		Send, ^{Tab}
-		Sleep, 50
+		Sleep, 200
 		WinActivate, ahk_class Chrome_WidgetWin_1
 		IfWinNotExist, ahk_class Chrome_WidgetWin_1
 			Return
@@ -235,9 +241,13 @@ F4::
 		If CurrentWindowTitle contains New Tab - Google Chrome
 			SET_GO=TRUE
 			
+		; CPC UK | Electronic Parts & Components, Raspberry Pi - Google Chrome
+		If CurrentWindowTitle contains Raspberry Pi - Google Chrome
+			SET_GO=TRUE
+			
 		IF SET_GO=TRUE
 		{
-			Sleep, 50
+			Sleep, 200
 			SendInput ^w
 			SEXY=0
 		}
@@ -247,9 +257,13 @@ F4::
 
 		SEXY+=1
 
-		IF SEXY>50
+		IF SEXY>30
+		{
+			SOUNDBEEP 3000,100
+			SOUNDBEEP 2000,100
 			BREAK
-
+		}
+			
 		TITLE_ADD=%TITLE_ADD%%CurrentWindowTitle%
 	}
 }
