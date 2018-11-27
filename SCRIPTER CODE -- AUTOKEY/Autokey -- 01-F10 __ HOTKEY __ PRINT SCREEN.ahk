@@ -48,61 +48,20 @@ SETTIMER TIMER_PREVIOUS_INSTANCE,1
 SETTIMER TIMER_ENTER,OFF
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
-; -------------------------------------------------------------------
-; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
-; AT THE NUMBER NEXT NEEDER TO BE ENTER
-VAR_COUNTER=5  ; --- SET THE FIRST PICTURE IMAGE COUNT NUMBER IF NOT START FROM BEGINNING 0
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
 
-; GLOBAL FILE_SCRIPT
-; GLOBAL FILE_SCRIPT_COUNT
+GLOBAL VAR_COUNTER
 
-FILE_SCRIPT_COUNT=0
-FILE_SCRIPT := Object()
-; FILE_SCRIPT := []
+GLOBAL FILE_SCRIPT_COUNT
+GLOBAL FILE_SCRIPT
 
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2018 CyberShot HX60V\DCIM\2018 11 10\*.JPG
+GLOBAL O_ID
 
-Loop, Files, %FILE_PATH_WILDPATH_JPG%
-{
-	FILE_SCRIPT[A_Index] := A_LoopFileName
-	FILE_SCRIPT_COUNT := A_Index
-}	
+O_ID=0
+
+GOSUB F5_ROUTINE
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-; USE 0 FOR START SEARCH LOCATION DOES LIKE VB INSTRREV IN REVERSE SEARCH  
-; -----------------------------------------------------------------------
-SET_String:=SubStr(FILE_PATH_WILDPATH_JPG,1,InStr(FILE_PATH_WILDPATH_JPG,"\",,0)-1)
-
-; WHEN CREATE ALBUM FIRST TIME PAGE
-FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
-; WHEN IN THE ALBUMS EDIT PAGE
-FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
-
-IfWinExist, %SET_String%
-	SET_GO=FALSE
-	IfWinExist, %FACEBOOK_URL_TITLE_1%
-	{
-		SET_GO=TRUE
-		SETTIMER F4,3000
-	}
-	IfWinExist, %FACEBOOK_URL_TITLE_2%
-	{
-		SET_GO=TRUE
-		; WHEN IN THE ALBUMS EDIT PAGE _ TIMER FOR UPDATE HAS 
-		; TO BE LESS QUICK OR ERROR TAB TO NEXT ONE
-		; GIVING ENOUGH SPEED IS CRITICAL TAB WILL JUMP IF NOT READY FOR NEXT ONE IN
-		FACEBOOK_TIMER_DELAY=14000
-		SETTIMER F4,%FACEBOOK_TIMER_DELAY%
-	}
-	IF SET_GO=TRUE
-	{
-		WinActivate ; use the window found above
-
-	}
-Return
 
 
 ; -------------------------------------------------------------------
@@ -134,6 +93,18 @@ F10::
 Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+
+TIMER_ENTER:
+	DetectHiddenWindows, oFF
+	SetTitleMatchMode 3  ; Specify Full path.
+	IfWinExist, Clone Job ahk_class #32770
+	{
+		ControlClick, OK, Clone Job ahk_class #32770
+		SoundBeep , 2500 , 100
+	}
+RETURN
 
 
 ; *C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk - Notepad++ [Administrator]
@@ -178,6 +149,11 @@ RETURN
 
 
 ; -------------------------------------------------------------------
+; THE FACEBOOK ONE IS HERE NOW
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 40-Auto Add Photo Name Messenger Facebook.ahk
+; FACE LIKE A BOOK
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; HERE FOR FACEBOOK 
 ; GOT SOME PHOTO IN FOLDER
 ; THIS WILL GET FILENAME WITH ANY DESCRIPTION
@@ -201,9 +177,9 @@ RETURN
 ; -------------------------------------------------------------------
 
 
-
+; CPC
 ; XXXF4::
-F4::
+; F4::
 {
 	TITLE_ADD=
 	SEXY=0
@@ -277,99 +253,234 @@ Return
 }
 RETURN
 
-; XXXF4::
-; F4::
+
+
+; C:\SCRIPTER\NOTEPAD TALK\TEXT 2018-11-25 __ D DRIVE FOLDER NAME.txt
+
+F5_ROUTINE:
+
+	VAR_COUNTER=109
+	; -------------------------------------------------------------------
+	; -------------------------------------------------------------------
+
+	; GLOBAL FILE_SCRIPT
+	; GLOBAL FILE_SCRIPT_COUNT
+
+	FILE_SCRIPT_COUNT=0
+	FILE_SCRIPT := Object()
+	FOLDER_EXCLUDE := Object()
+
+	; FILE_SCRIPT := []
+
+	; -------------------------------------------------------------------
+	; SET THE PATH OF PHOTO FOLDER _ WITHOUT RECURSING SUB-FOLDER IS GOOD IDEA
+	; TO BE ABLE QUICKLY COUNT THEM VERIFY AND SEE AS ORDER TO GO ONTO FACEBOOK
+	; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER 
+	; SINGLE FOLDER ONLY AT THE MOMENT
+	; -------------------------------------------------------------------
+	
+	; Example #3: Retrieve file names sorted by name (see next example to sort by date):
+	FileList =  ; Initialize to be blank.
+	Loop, Files, L:\*.*, D
+		FileList = %FileList%%A_LoopFileName%`n
+	Sort, FileList ;  R  ; The R option sorts in reverse order. See Sort for other options.
+
+	Loop, parse, FileList, `n
+	{
+		if A_LoopField =  ; Ignore the blank item at the end of the list.
+			continue
+		FILE_SCRIPT[A_Index] := A_LoopField
+		FILE_SCRIPT_COUNT := A_Index
+		; MSGBOX % FILE_SCRIPT[A_Index]
+		
+	}	
+
+	Loop % FILE_SCRIPT.MaxIndex()
+	{
+		FILE_NAME:=FILE_SCRIPT[A_Index]
+		StringUpper, FILE_NAME,FILE_NAME
+		FILE_SCRIPT[A_Index]:=FILE_NAME
+	}
+
+	
+	ACUM=0
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "$RECYCLE.BIN"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "_gsdata_"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "System Volume Information"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "$GetCurrent"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "AWS"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "Documents and Settings"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "Program Files (x86)"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "ProgramData"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "RECOVERY"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "SADPLOG"
+	ACUM+=1
+	FOLDER_EXCLUDE[ACUM] := "windows"
+	
+	
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "# MY DOCS"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "#0 1 INSTALLATIONS"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "0 00 ART"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "0 00 ART LOGGERS"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "0 00 ART LOGGERS - WEBCAM"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "0 00 HTTrack"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "0 00 MUSIC ---"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "0 00 MOBILE-1"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "0 00 MOBILE-2"
+	; ; ACUM+=1
+	; ; FOLDER_EXCLUDE[ACUM] := "0 00 VIDEO SNAPSHOT CCSE HIKVISION"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "03_MICROSOFT"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "BT Cloud Sync OLD"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "DL"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "DSC"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "KAT MP3 RECORDER"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "VB6"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "VB6-ARC"
+	; ; ACUM+=1
+	; ; FOLDER_EXCLUDE[ACUM] := "VB6 _ IN SYNC"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "VB6-EXE"
+	
+	
+	Loop % FOLDER_EXCLUDE.MaxIndex()
+	{
+		FILE_NAME:=FOLDER_EXCLUDE[A_Index]
+		StringUpper, FILE_NAME,FILE_NAME
+		FOLDER_EXCLUDE[A_Index]:=FILE_NAME
+	}
+	
+	
+	X_Index:=FILE_SCRIPT.MaxIndex()
+	Loop % FILE_SCRIPT.MaxIndex()
+	{
+		X_Index-=1
+		Loop % FOLDER_EXCLUDE.MaxIndex()
+		{
+			IF (InStr(FILE_SCRIPT[X_Index]"*", FOLDER_EXCLUDE[A_Index]"*"))
+			{
+				; msgbox % FILE_SCRIPT[X_Index]
+				FILE_SCRIPT.RemoveAt(X_Index)
+			}
+		}	
+	}	
+
+	GOSUB DISPLAY_TOOLTIP
+	
+	; SETTIMER F6,200
+	
+RETURN
+
+
+DISPLAY_TOOLTIP:
+	VAR_COUNTER2:=VAR_COUNTER
+	VAR_COUNTER2+=1
+	; TOOLTIP % VAR_COUNTER2 " -- HDD HUBIC D_4TB " FILE_SCRIPT[VAR_COUNTER2]"`n"FILE_SCRIPT[VAR_COUNTER2]
+	
+RETURN
+
+
+;; F6::
 {
 
-FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
+	WinGet, HWND_1, ID, Rename ahk_class #32770
 
-IF GetKeyState("Capslock", "T")
-{
-	StringLower, FILE_NAME, FILE_NAME
-}
-ELSE
-{
+	; TOOLTIP % HWND_1 " -- " O_ID
+	
+	IF !HWND_1
+	{
+		O_ID=0
+		RETURN
+	}
+	
+	
+	IF HWND_1=%O_ID%
+	{
+		RETURN
+	}
+	
+	O_ID:=HWND_1
+	
+
+	; SLEEP 500
+	VAR_COUNTER+=1
+	FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
+	F_1:="HDD HUBIC D_4TB "
+	F_2:=""
+	FILE_NAME:=% F_1 FILE_NAME F_2
+
+	
+	; "D " "D " D D  IRFAN SHOW SCRIPT FILE SET 7G 8M
+	; D D D  IRFAN SHOW SCRIPT FILE SET 7G 8M
+	; D  7G 8Md 
+	; D d #0 irfan show script file set 7g 8md #2 7g 8m
+	;D #0 IRFAN SHOW SCRIPT FILE SET 7G 8MD #2 7G 8MD 0 00 ART 7G 8M
+	
+	; IF GetKeyState("Capslock", "T")
+	; {
+		; StringLower, FILE_NAME, FILE_NAME
+	; }
+	; ELSE
+	; {
+		; StringUpper, FILE_NAME, FILE_NAME
+	; }
+
 	StringUpper, FILE_NAME, FILE_NAME
-}
 	
-POS_VAR:=InStr(FILE_NAME,"_")
+	; #WinActivateForce, Rename ahk_class #32770
+	; SLEEP 100
+	; WinWAIT, Rename ahk_class #32770
+	; SLEEP 100
 
-if POS_VAR>0 
-{
-	POS_VAR-=1
-	OutputVar_1:=SubStr(FILE_NAME, 1, POS_VAR)
-	POS_VAR+=2
-	OutputVar_2:=SubStr(FILE_NAME, POS_VAR)
-}
-else
-{
-	OutputVar_1=%FILE_NAME%
-}
-
-StringReplace, OutputVar_2, OutputVar_2,.JPG,,
-
-SoundBeep , 1000 , 150
-
-IfWinExist, %SET_String%
-{
-	IfWinExist, %FACEBOOK_URL_TITLE_1%
-	{
-		WinActivate ; use the window found above
-	}
-	IfWinExist, %FACEBOOK_URL_TITLE_2%
-	{
-		WinActivate ; use the window found above
-	}
-}
-
-
-Sendinput ^a{delete}
-Sendinput %VAR_COUNTER% of %FILE_SCRIPT_COUNT%`n
-Sendinput %OutputVar_1%`n
-
-if POS_VAR>0 
-	Sendinput %OutputVar_2%`n
-
-; -------------------------------------------------------------------
-; IF ALREADY PUBLISHED PHOTO AND WANT TO ADD INFO DESCRIPTION 
-; USE ONE TAB INSTEAD 
-; -------------------------------------------------------------------
-
-IfWinExist, %FACEBOOK_URL_TITLE_2%
-{
-	Sendinput ^{home}
-	Sendinput {tab}
-	; IMPORTANT TO HAVE BIGGER SLEEP AFTER TAB NEXT ITEM OR IT LAND 
-	; ON WRONG LOCATION
-	; ---------------------------------------------------------------
-	SLEEP 1500
-	Sendinput ^{home}
-}
 	
-IfWinExist, %FACEBOOK_URL_TITLE_1%
-{
-	Sendinput ^{home}
-	Sendinput {tab}{tab}{tab}{tab}{tab}
-	SLEEP 1000
-}
+	ControlSetText, Edit1,, Rename ahk_class #32770
+	Control, EditPaste, %FILE_NAME%, Edit1, Rename ahk_class #32770
+	
+	; Sendinput ^a{delete}
+	; Sendinput {TEXT}%FILE_NAME%
 
+	SLEEP 100
+	LOOP
+	{
+		SetTitleMatchMode 2  ; Avoids specify the full path of the file below.
+		SLEEP 100
+		ControlClick, OK, Rename ahk_class #32770
+		IfWinNotExist, Rename ahk_class #32770
+			BREAK
+	}
 
-SETTIMER F4,off
-SLEEP 200
-SETTIMER F4,%FACEBOOK_TIMER_DELAY%
-
-
-VAR_COUNTER+=1
-if VAR_COUNTER>%FILE_SCRIPT_COUNT%
-{
-	SETTIMER F4,off
-	SoundBeep , 1000 , 150
-	SoundBeep , 2000 , 200
-	SoundBeep , 1000 , 150
-
-}
+	GOSUB DISPLAY_TOOLTIP
+	;SLEEP 400
+	SOUNDBEEP 3000,80
+	
 }
 RETURN
+
 
 
 ; F5::
@@ -631,16 +742,6 @@ RETURN
 	; }
 ; RETURN
 
-
-TIMER_ENTER:
-	DetectHiddenWindows, oFF
-	SetTitleMatchMode 3  ; Specify Full path.
-	IfWinExist, Clone Job ahk_class #32770
-	{
-		ControlClick, OK, Clone Job ahk_class #32770
-		SoundBeep , 2500 , 100
-	}
-RETURN
 
 ; F4::
 ; {

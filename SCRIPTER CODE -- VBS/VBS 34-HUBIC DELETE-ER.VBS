@@ -159,7 +159,7 @@ Next
 
 DIM FOLDER_PATH_FILTER()
 REDIM FOLDER_PATH_FILTER(7)
-DRIVE_VAR="F:"
+DRIVE_VAR="O:"
 FOLDER_PATH_VAR_1=DRIVE_VAR+"\"
 FOLDER_PATH_FILTER(1)=DRIVE_VAR+"\3L"
 FOLDER_PATH_FILTER(2)=DRIVE_VAR+"\5P"
@@ -179,7 +179,10 @@ CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
-IF ComputerName<>"8-MSI-GP62M-7RD" THEN 
+' IF ComputerName<>"8-MSI-GP62M-7RD" THEN 
+	' Wscript.QUIT
+' END IF 
+IF ComputerName<>"7-ASUS-GL522VW" THEN 
 	Wscript.QUIT
 END IF 
 
