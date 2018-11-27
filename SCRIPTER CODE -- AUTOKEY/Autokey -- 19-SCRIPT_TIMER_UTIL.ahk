@@ -586,16 +586,16 @@ ifWinNotExist, ahk_class wndclass_desked_gsk
 	{
 		Set_Var_Responding_1=TRUE
 		SoundBeep , 1000 , 100
-		SoundBeep , 2000 , 100
+		; SoundBeep , 2000 , 100
 	}
 
 	if (!WinExist("(Not Responding)") and Set_Var_Responding_1="TRUE")
 	{
 		Set_Var_Responding_1=FALSE
 		SoundBeep , 3000 , 100
-		SoundBeep , 2000 , 100
-		SoundBeep , 2500 , 100
-		SoundBeep , 2000 , 100
+		; SoundBeep , 2000 , 100
+		; SoundBeep , 2500 , 100
+		; SoundBeep , 2000 , 100
 	}
 }
 
@@ -603,16 +603,16 @@ if (WinExist("Page Unresponsive") and Set_Var_Responding_2="FALSE")
 {
 	Set_Var_Responding_2=TRUE
 	SoundBeep , 1000 , 100
-	SoundBeep , 2000 , 100
+	; SoundBeep , 2000 , 100
 }
 
 if (!WinExist("Page Unresponsive") and Set_Var_Responding_2="TRUE")
 {
 	Set_Var_Responding_2=FALSE
 	SoundBeep , 3000 , 100
-	SoundBeep , 2000 , 100
-	SoundBeep , 2500 , 100
-	SoundBeep , 2000 , 100
+	; SoundBeep , 2000 , 100
+	; SoundBeep , 2500 , 100
+	; SoundBeep , 2000 , 100
 }
 
 DetectHiddenWindows, OFF
@@ -1775,13 +1775,16 @@ Return
 
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
+
 ; -------------------------------------------------------------------
 dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 WinGet, HWND_1, ID, ] Options ahk_class #32770
-	IF (HWND_1>0)
+WinGet, HWND_2, ID, A
+	; IF (HWND_1>0)
+	IF HWND_2=%HWND_1%
 	{
 		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
 		; Tooltip, % OutputVar ; List All Controls of Active Window
@@ -1811,8 +1814,48 @@ WinGet, HWND_1, ID, ] Options ahk_class #32770
 					SoundBeep , 4000 , 100
 			}
 		}
-			
-		ControlGettext, OutputVar_2, Button20, ahk_id %HWND_1%
+
+		{
+			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
+			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+			If Status=0
+			{
+				Control, Check,, Button16, ahk_id %HWND_1%
+				IF OutputVar_4=1
+					SoundBeep , 4000 , 100
+			}
+		}
+		
+		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+		
+		If (OutputVar_1 <> 90
+			and OutputVar_2="Do not Sync if changed files more than")
+			{
+				ControlSetText, Edit11,, ahk_id %HWND_1%
+				Control, EditPaste, 90,	Edit11, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+		}
+		ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
+		If Status=0
+		{
+			Control, Check,, Button21, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+		}
+		
+		; PRESS SAVE WHEN SETTING OPTIONS DONE
+		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+		ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
+		If (OutputVar_1 = 90 and Status=1)
+		{
+			ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
+			MouseMove, X+10, Y+10		
+			ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
+			SoundBeep , 4000 , 100
+		}
+		
+		
+		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
 		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
 		
 		If (!OutputVar_1 
@@ -1823,7 +1866,7 @@ WinGet, HWND_1, ID, ] Options ahk_class #32770
 				SoundBeep , 4000 , 100
 
 		}
-		ControlGet, Status, Checked,, Button20, ahk_id %HWND_1%
+		ControlGet, Status, Checked,, Button22, ahk_id %HWND_1%
 		If Status=1
 		{
 			Control, UnCheck,, Button22, ahk_id %HWND_1%
@@ -1841,30 +1884,31 @@ WinGet, HWND_1, ID, ] Options ahk_class #32770
 			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
 			If Status = 0
 			{
-			Control, Check,, Button6, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
+				Control, Check,, Button6, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
 			}
 		}
 
+		
 		;------------------------------------------------------------
 		; ---- HISTORY SET DAYS TO 30
 		;------------------------------------------------------------
 		Var_check=[VB
 		if (SubStr(OutputVar_3, 1, 3)=Var_check)
 		{
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 1
-		{
-			ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-			ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
-			
-			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+			If Status = 1
+			{
+				ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
+				ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
+				
+				If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
 				{
-					ControlSetText, Edit2,, ahk_id %HWND_1%
-					Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+						ControlSetText, Edit2,, ahk_id %HWND_1%
+						Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
+						SoundBeep , 4000 , 100
+				}
 			}
-		}
 		}
 		
 		;-----------------------------------------------------
@@ -1972,11 +2016,7 @@ WinGet, HWND_1, ID, ] Options ahk_class #32770
 				SoundBeep , 4000 , 100
 			}
 		}
-		
-		
-		
 		O_HWND_1=%HWND_1%
-		
 }
 
 ;Are you sure you want to move _GSDATA_ folder back to the sync folder?
@@ -1986,49 +2026,47 @@ WinGet, HWND_1, ID, ] Options ahk_class #32770
 
 ;WinGet, HWND_1, ID, GoodSync Warning ahk_class #32770
 WinGet, HWND_1, ID, GoodSync ahk_class #32770
-WinGetText OutputVar_3,ahk_id %HWND_1%
-;tooltip % HWND_1
-
-IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
+WinGet, HWND_2, ID, A
+IF HWND_2=%HWND_1%
 {
-	#WinActivateForce, ahk_id %HWND_1%
-	ControlClick, Button2,ahk_id %HWND_1%
-	SoundBeep , 4000 , 100
+	WinGetText OutputVar_3,ahk_id %HWND_1%
+
+	IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
+	{
+		ControlClick, Button2,ahk_id %HWND_1%
+		SoundBeep , 4000 , 100
+	}
+
+	IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
+	{
+		ControlClick, Button2,ahk_id %HWND_1%
+		SoundBeep , 4000 , 100
+	}
+
+	WinGet, HWND_1, ID, GoodSync ahk_class #32770
+	WinGetText OutputVar_3,ahk_id %HWND_1%
+
+	IfInString, OutputVar_3, Removable drive with volume name
+	{
+		ControlClick, Yes,ahk_id %HWND_1%
+		SoundBeep , 4000 , 100
+	}
+
+
+	; We recommend not to sync to disk root folder, because:
+	; - there are limitations on how many files and folders you can have in disk root folder,
+	; - sync folder name would help you identify copy of what folder you keep in there.
+	; So we will sync to folder K:\=D_DRIVE-2TB - Backup instead. Is this Ok?
+	; Yes
+	; No
+	IfInString, OutputVar_3, We recommend not to sync to disk root folder
+	{
+		ControlClick, Button3,ahk_id %HWND_1%
+		SoundBeep , 4000 , 100
+	}
+
+
 }
-
-IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
-{
-	#WinActivateForce, ahk_id %HWND_1%
-	ControlClick, Button2,ahk_id %HWND_1%
-	SoundBeep , 4000 , 100
-}
-
-WinGet, HWND_1, ID, GoodSync ahk_class #32770
-WinGetText OutputVar_3,ahk_id %HWND_1%
-;tooltip % HWND_1
-
-IfInString, OutputVar_3, Removable drive with volume name
-{
-	#WinActivateForce, ahk_id %HWND_1%
-	ControlClick, Yes,ahk_id %HWND_1%
-	SoundBeep , 4000 , 100
-}
-
-
-
-; We recommend not to sync to disk root folder, because:
-; - there are limitations on how many files and folders you can have in disk root folder,
-; - sync folder name would help you identify copy of what folder you keep in there.
-; So we will sync to folder K:\=D_DRIVE-2TB - Backup instead. Is this Ok?
-; Yes
-; No
-IfInString, OutputVar_3, We recommend not to sync to disk root folder
-{
-	#WinActivateForce, ahk_id %HWND_1%
-	ControlClick, Button3,ahk_id %HWND_1%
-	SoundBeep , 4000 , 100
-}
-
 
 DetectHiddenWindows, % dhw
 Return

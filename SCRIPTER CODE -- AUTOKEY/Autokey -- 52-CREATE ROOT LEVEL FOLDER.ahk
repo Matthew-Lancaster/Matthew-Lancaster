@@ -14,6 +14,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 	SOUNDBEEP 4000,80
 
+	EXITAPP
+
 	GOSUB GO_FOLDER
 
 	EXITAPP
@@ -43,7 +45,7 @@ GO_FOLDER:
 	
 	; Example #3: Retrieve file names sorted by name (see next example to sort by date):
 	FileList =  ; Initialize to be blank.
-	Loop, Files, C:\*.*, D
+	Loop, Files, D:\*.*, D
 		FileList = %FileList%%A_LoopFileName%`n
 	Sort, FileList ;  R  ; The R option sorts in reverse order. See Sort for other options.
 
