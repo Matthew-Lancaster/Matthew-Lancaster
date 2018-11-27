@@ -956,9 +956,6 @@ IF SKIP_CODE=FALSE
 	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Pushbullet
 
 		
-
-
-
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
 	; --------------------------
 	If (OSVER_N_VAR>5 
@@ -977,6 +974,40 @@ IF SKIP_CODE=FALSE
 		}
 	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, NokiaSuite.exe
 
+	IF SET_GO_1=1
+	{
+		Process, Exist, GoodSync-v10.exe
+		If Not ErrorLevel
+		{
+			FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+			IfExist, %FN_VAR%
+			{
+				SoundBeep , 2500 , 100
+				; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+				; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+				Run, "%FN_VAR%" 
+			}
+		}
+	}
+
+	Process, Exist, gs-server.exe
+	If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%"  /service, , MIN
+			Run, "%FN_VAR%"  /service
+		}
+	}
+	
+	; ---------------------------------------------------------------	
+	IF (A_ComputerName="8-MSI-GP62M-7RD")
+		SET_GO_1=0
+	; ---------------------------------------------------------------
+		
+	
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
 	; --------------------------
 	If (OSVER_N_VAR>5 
@@ -1096,33 +1127,7 @@ IF SKIP_CODE=FALSE
 	
 }
 
-IF SET_GO_1=1
-{
-Process, Exist, GoodSync-v10.exe
-If Not ErrorLevel
-	{
-		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-			Run, "%FN_VAR%" 
-		}
-	}
-}
 
-Process, Exist, gs-server.exe
-If Not ErrorLevel
-{
-	FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
-	IfExist, %FN_VAR%
-	{
-		SoundBeep , 2500 , 100
-		; Run, "%FN_VAR%"  /service, , MIN
-		Run, "%FN_VAR%"  /service
-	}
-}
 
 ;-------------------------------------------
 ; REQUIRE LITTLE DELAY ON RUN HUBIC

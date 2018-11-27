@@ -58,6 +58,13 @@ GLOBAL O_ID
 
 O_ID=0
 
+GLOBAL OutputVar_4
+
+GLOBAL O_OutputVar_store
+O_OutputVar_store=
+
+GLOBAL PART_RENAME_VAR
+
 GOSUB F5_ROUTINE
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
@@ -259,7 +266,9 @@ RETURN
 
 F5_ROUTINE:
 
-	VAR_COUNTER=109
+	; SET TO 0 FOR 1ST BEGINNER
+	; HELP KEEP IN SYNC ADJUST AS GO
+	VAR_COUNTER=46
 	; -------------------------------------------------------------------
 	; -------------------------------------------------------------------
 
@@ -312,20 +321,20 @@ F5_ROUTINE:
 	FOLDER_EXCLUDE[ACUM] := "System Volume Information"
 	ACUM+=1
 	FOLDER_EXCLUDE[ACUM] := "$GetCurrent"
-	ACUM+=1
-	FOLDER_EXCLUDE[ACUM] := "AWS"
-	ACUM+=1
-	FOLDER_EXCLUDE[ACUM] := "Documents and Settings"
-	ACUM+=1
-	FOLDER_EXCLUDE[ACUM] := "Program Files (x86)"
-	ACUM+=1
-	FOLDER_EXCLUDE[ACUM] := "ProgramData"
-	ACUM+=1
-	FOLDER_EXCLUDE[ACUM] := "RECOVERY"
-	ACUM+=1
-	FOLDER_EXCLUDE[ACUM] := "SADPLOG"
-	ACUM+=1
-	FOLDER_EXCLUDE[ACUM] := "windows"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "AWS"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "Documents and Settings"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "Program Files (x86)"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "ProgramData"
+    ; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "RECOVERY"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "SADPLOG"
+	; ACUM+=1
+	; FOLDER_EXCLUDE[ACUM] := "windows"
 	
 	
 	; ACUM+=1
@@ -390,28 +399,203 @@ F5_ROUTINE:
 		}	
 	}	
 
-	GOSUB DISPLAY_TOOLTIP
 	
-	; SETTIMER F6,200
+	; 1ST
+	; SETTIMER AUTO_CLONE_JOB, 1000
+
+	; 2ND & 3RD
+	; SETTIMER SET_OK_BOX,100
 	
+	; 3RD
+	; GOSUB DISPLAY_TOOLTIP
+	; SETTIMER F6,1000
+	
+RETURN
+
+
+; SET OKAY BOX AFTER MADE SELECTION
+SET_OK_BOX:
+{
+
+	WinGet, HWND_1, ID, GoodSync ahk_class #32770
+	IF HWND_1
+	{
+		WinGetText OutputVar_3,ahk_id %HWND_1%
+
+		WinGet, HWND_2, ID, A
+		IF HWND_2<>%HWND_1%
+		{
+			#WinActivateForce, ahk_id %HWND_1%
+		}
+		
+		IfInString, OutputVar_3, Removable drive with volume name
+		{
+			LOOP
+			{
+				SLEEP 50
+				ControlGetPos, x, y, w, h, Yes, ahk_id %HWND_1%
+				MouseMove, X+10, Y+10
+				
+				ControlClick, Yes,ahk_id %HWND_1%
+				IfWinNotExist, ahk_id %HWND_1%
+					BREAK
+				SoundBeep , 4000 , 50
+			}
+		}
+	}
+
+	WinGet, HWND_1, ID, Left Folder ahk_class #32770
+	IF !HWND_1 
+		WinGet, HWND_1, ID, Right Folder ahk_class #32770
+	IF !HWND_1 
+		O_OutputVar_store=
+	
+	IF HWND_1 
+	{
+	WinGetPos, X, Y, Width, Height, ahk_id %HWND_1%
+	; tooltip % x " -- " y
+	IF X<>770 and Y<>180
+		WinMove, ahk_id %HWND_1%,,990,180
+
+	ControlGetText, OutputVar_store, Edit1, ahk_id %HWND_1%
+	
+	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
+	
+	if O_OutputVar_store
+		if OutputVar_store<>%O_OutputVar_store%
+		{
+			O_OutputVar_store=
+			LOOP
+			{
+				SLEEP 50
+				ControlGetPos, x, y, w, h, OK, ahk_id %HWND_1%
+				MouseMove, X+10, Y+10
+				
+				ControlClick, OK, ahk_id %HWND_1%
+				IfWinNotExist, ahk_id %HWND_1%
+					BREAK
+				SoundBeep , 4000 , 50
+			}
+		}
+	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
+	
+	O_OutputVar_store=%OutputVar_store%
+
+	}
+	
+}
 RETURN
 
 
 DISPLAY_TOOLTIP:
 	VAR_COUNTER2:=VAR_COUNTER
 	VAR_COUNTER2+=1
-	; TOOLTIP % VAR_COUNTER2 " -- HDD HUBIC D_4TB " FILE_SCRIPT[VAR_COUNTER2]"`n"FILE_SCRIPT[VAR_COUNTER2]
-	
+	PART_RENAME_VAR:="HDD 4TB C S01 "
+	TOOLTIP % VAR_COUNTER2 " -- " PART_RENAME_VAR FILE_SCRIPT[VAR_COUNTER2]"`n"FILE_SCRIPT[VAR_COUNTER2],1300,50
 RETURN
 
-
-;; F6::
+; RENAME JOBS FROM DIRECTORY SCANNER
+F6::
 {
 
 	WinGet, HWND_1, ID, Rename ahk_class #32770
 
-	; TOOLTIP % HWND_1 " -- " O_ID
+	IF !HWND_1
+	{
+		O_ID=0
+		RETURN
+	}
 	
+	IF HWND_1=%O_ID%
+		RETURN
+	
+	O_ID:=HWND_1
+
+	VAR_COUNTER+=1
+	FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
+	; PART_RENAME_VAR:="HDD 4TB C S01 "
+	F_2:=""
+	FILE_NAME:=% PART_RENAME_VAR FILE_NAME F_2
+	
+	
+	StringUpper, FILE_NAME, FILE_NAME
+	
+	ControlSetText, Edit1,, ahk_id %HWND_1%
+	Control, EditPaste, %FILE_NAME%, Edit1, ahk_id %HWND_1%
+
+	WinGet, HWND_2, ID, A
+	IF HWND_2<>%HWND_1%
+	{
+		#WinActivateForce, ahk_id %HWND_1%
+	}
+	
+	LOOP
+	{
+		SLEEP 100
+		ControlGetPos, x, y, w, h, OK, ahk_id %HWND_1%
+		MouseMove, X+10, Y+10
+
+		ControlClick, OK, ahk_id %HWND_1%
+		IfWinNotExist, ahk_id %HWND_1%
+			BREAK
+	}
+
+	GOSUB DISPLAY_TOOLTIP
+	SOUNDBEEP 3000,80
+	
+}
+RETURN
+
+
+
+AUTO_CLONE_JOB:
+{
+
+	WinGetTitle, Title, A
+	
+	POS_VAR:=INSTR(Title,"HDD 4TB C S01 ##")
+	IF POS_VAR>0 
+	{
+		SOUNDBEEP 5000,100
+		SLEEP 500
+		SENDINPUT !C
+	}
+
+	WinGet, HWND_1, ID, Clone Job ahk_class #32770
+
+	IF !HWND_1
+	{
+		O_ID=0
+		RETURN
+	}
+	
+	IF HWND_1=%O_ID%
+		RETURN
+	
+	O_ID:=HWND_1
+
+	SOUNDBEEP 3000,100
+		
+	LOOP
+	{
+		SLEEP 100
+		ControlGetPos, x, y, w, h, OK, ahk_id %HWND_1%
+		MouseMove, X+10, Y+10
+		ControlClick, OK, ahk_id %HWND_1%
+		IfWinNotExist,  ahk_id %HWND_1%
+			BREAK
+	}
+
+	SOUNDBEEP 4500,100
+}
+RETURN
+
+
+; STRIP SOMETHING FROM RENAME JOB
+;; F6::
+{
+	WinGet, HWND_1, ID, Rename Job ahk_class #32770
+
 	IF !HWND_1
 	{
 		O_ID=0
@@ -425,61 +609,150 @@ RETURN
 	}
 	
 	O_ID:=HWND_1
-	
-
-	; SLEEP 500
-	VAR_COUNTER+=1
-	FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
-	F_1:="HDD HUBIC D_4TB "
-	F_2:=""
-	FILE_NAME:=% F_1 FILE_NAME F_2
 
 	
-	; "D " "D " D D  IRFAN SHOW SCRIPT FILE SET 7G 8M
-	; D D D  IRFAN SHOW SCRIPT FILE SET 7G 8M
-	; D  7G 8Md 
-	; D d #0 irfan show script file set 7g 8md #2 7g 8m
-	;D #0 IRFAN SHOW SCRIPT FILE SET 7G 8MD #2 7G 8MD 0 00 ART 7G 8M
+	ControlGettext, OutputVar_1, Button5, ahk_id %HWND_1%
 	
-	; IF GetKeyState("Capslock", "T")
-	; {
-		; StringLower, FILE_NAME, FILE_NAME
-	; }
-	; ELSE
-	; {
-		; StringUpper, FILE_NAME, FILE_NAME
-	; }
+	ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_1%
+	
+	POS_VAR:=INSTR(OutputVar_2," _ 7G")
 
-	StringUpper, FILE_NAME, FILE_NAME
-	
-	; #WinActivateForce, Rename ahk_class #32770
-	; SLEEP 100
-	; WinWAIT, Rename ahk_class #32770
-	; SLEEP 100
+	OutputVar_4:=SubStr(OutputVar_2,1, POS_VAR)
 
+	SOUNDBEEP 3000,100
 	
-	ControlSetText, Edit1,, Rename ahk_class #32770
-	Control, EditPaste, %FILE_NAME%, Edit1, Rename ahk_class #32770
-	
-	; Sendinput ^a{delete}
-	; Sendinput {TEXT}%FILE_NAME%
-
-	SLEEP 100
-	LOOP
+	IF OutputVar_4
 	{
-		SetTitleMatchMode 2  ; Avoids specify the full path of the file below.
-		SLEEP 100
-		ControlClick, OK, Rename ahk_class #32770
-		IfWinNotExist, Rename ahk_class #32770
-			BREAK
-	}
-
-	GOSUB DISPLAY_TOOLTIP
-	;SLEEP 400
-	SOUNDBEEP 3000,80
 	
+		ControlSetText, Edit1,,  ahk_id %HWND_1%
+		Control, EditPaste, %OutputVar_4%, Edit1, ahk_id %HWND_1%
+		OutputVar_4=
+		SOUNDBEEP 4000,100
+		
+		SLEEP 100
+		LOOP
+		{
+			SLEEP 100
+			ControlClick, OK, ahk_id %HWND_1%
+			IfWinNotExist,  ahk_id %HWND_1%
+				BREAK
+		}
+
+		SOUNDBEEP 4500,100
+	}
 }
 RETURN
+
+
+; \\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_04_4_SAMSUNG_4TB_HUBIC\D4\#
+; =4_SAMSUNG_4TB_HUBIC:\D4\#
+;;F6::
+{
+	WinGet, HWND_1, ID, Right Folder ahk_class #32770
+
+	ControlGettext, OutputVar_1, Button5, ahk_id %HWND_1%
+	
+	ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_1%
+
+	POS_VAR:=INSTR(OutputVar_2,"4TB_HUBIC\")
+	
+	OutputVar_4:=SubStr(OutputVar_2, POS_VAR+10)
+
+	
+	OutputVar_4="=4_SAMSUNG_4TB_HUBIC:\"%OutputVar_4%
+	StringReplace, OutputVar_4, OutputVar_4,/,\, All
+	NV := chr(34)
+	StringReplace, OutputVar_4, OutputVar_4,%NV%,, All
+	
+	; TOOLTIP % OutputVar_4
+	; MSGBOX % OutputVar_4
+	; RETURN
+	SOUNDBEEP 3000,100
+	
+	
+	IF OutputVar_4
+	{
+	
+		ControlSetText, Edit1,,  ahk_id %HWND_1%
+		Control, EditPaste, %OutputVar_4%, Edit1, ahk_id %HWND_1%
+		OutputVar_4=
+		SOUNDBEEP 4000,100
+		
+		#WinActivateForce, ahk_id %HWND_1%
+		SLEEP 100
+		WinWAIT, ahk_id %HWND_1%
+		SLEEP 100
+		SENDINPUT {ENTER}
+		SLEEP 100
+		LOOP
+		{
+			SLEEP 100
+			ControlClick, OK, ahk_id %HWND_1%
+			IfWinNotExist,  ahk_id %HWND_1%
+				BREAK
+		}
+
+		SOUNDBEEP 4500,100
+	}
+}
+RETURN
+
+
+;; F6::
+{
+
+	WinGet, HWND_1, ID, Right Folder ahk_class #32770
+
+	ControlGettext, OutputVar_1, Button5, ahk_id %HWND_1%
+	
+	IF INSTR(OutputVar_1,"Secure Mode (Encrypted by TLS)")
+	{
+		ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_1%
+
+		POS_VAR:=INSTR(OutputVar_2,"goodsync/")
+		
+		OutputVar_4:=SubStr(OutputVar_2, POS_VAR+10)
+
+		; O:\C\0 00 LINK SET QUICKER MOVER
+		
+		OutputVar_4="=4_SAMSUNG_4TB_HUBIC"%OutputVar_4%
+		StringReplace, OutputVar_4, OutputVar_4,/,\, All
+		NV := chr(34)
+		StringReplace, OutputVar_4, OutputVar_4,%NV%,, All
+		
+		;TOOLTIP % OutputVar_4
+		SOUNDBEEP 3000,100
+	}
+	
+	
+	IF OutputVar_4
+	{
+	
+		ControlSetText, Edit1,,  ahk_id %HWND_1%
+		Control, EditPaste, %OutputVar_4%, Edit1, ahk_id %HWND_1%
+		OutputVar_4=
+		SOUNDBEEP 4000,100
+		
+		#WinActivateForce, ahk_id %HWND_1%
+		SLEEP 100
+		WinWAIT, ahk_id %HWND_1%
+		SLEEP 100
+		SENDINPUT {ENTER}
+		SLEEP 100
+		LOOP
+		{
+			SLEEP 100
+			ControlClick, OK, ahk_id %HWND_1%
+			IfWinNotExist,  ahk_id %HWND_1%
+				BREAK
+		}
+
+		SOUNDBEEP 4500,100
+	}
+}
+RETURN
+
+
 
 
 
