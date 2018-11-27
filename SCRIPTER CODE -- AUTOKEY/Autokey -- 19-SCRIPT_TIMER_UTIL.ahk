@@ -2003,6 +2003,19 @@ IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
 	SoundBeep , 4000 , 100
 }
 
+WinGet, HWND_1, ID, GoodSync ahk_class #32770
+WinGetText OutputVar_3,ahk_id %HWND_1%
+;tooltip % HWND_1
+
+IfInString, OutputVar_3, Removable drive with volume name
+{
+	#WinActivateForce, ahk_id %HWND_1%
+	ControlClick, Yes,ahk_id %HWND_1%
+	SoundBeep , 4000 , 100
+}
+
+
+
 ; We recommend not to sync to disk root folder, because:
 ; - there are limitations on how many files and folders you can have in disk root folder,
 ; - sync folder name would help you identify copy of what folder you keep in there.
