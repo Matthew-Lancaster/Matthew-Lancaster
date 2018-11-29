@@ -547,18 +547,94 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /f
 
 
 
+
+@IF NOT EXIST "C:\Program Files\Notepad++\Notepad++.exe" (
+	@IF NOT EXIST "C:\Program Files (x86)\Notepad++\Notepad++.exe" (
+		GOTO DONT_WANT_NOTEPAD_CHANGER
+	)
+)
+
+
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
-@REM NOTEPAD++ CONTEXT MENU ---------------------------------------------------
+@REM NOTEPAD++ CONTEXT MENU -----------------------------------------
 @REM ----------------------------------------------------------------
 @REM __ #01_ CREATE AND DELETE THE REG_KEY WITH NOTEPAD++ _ SET ADMINISTRATOR SAVE.BAT
+
+@ECHO.
+@ECHO ---------------------------------------------------------------
+@ECHO ---------------------------------------------------------------
+@ECHO.
+@IF EXIST "C:\Program Files\Notepad++\Notepad++.exe" (
+	@ECHO NOTEPAD++ SETTING __ FOR 64 BIT NOTEPAD++ NAMELY FOR COMPUTER NAME __ 8-MSI-GP62M-7RD
+	@ECHO.
+)
+@IF NOT EXIST "C:\Program Files\Notepad++\Notepad++.exe" (
+	@ECHO NOTEPAD++ SETTING __ FOR 32 BIT NOTEPAD++  __ USUAL SETTING 
+	@ECHO.
+)
+
+@ECHO 64 BIT NOTEPAD++ ABLE HOLD LARGER FILE BUT PROBLEM ACCESS EXAMPLE TXT DOCUMENT IN CERTAIN 64 BIT FOLDER DUPE OF ANOTHER 32 BIT ESPCIALLY IN WINDOWS FOLDER _ SOLUTION WAS FOUND
+@ECHO.
+@ECHO ALSO 32 BIT OS SYSTEM IS SAME FOLDER \PROGRAM FILES\
+@ECHO.
+@ECHO ALSO 64 BIT NOTEPAD++ LESS PLUGINS
+@ECHO.
+@ECHO ---------------------------------------------------------------
+@ECHO ---------------------------------------------------------------
+@ECHO.
+
+
+@ECHO OFF
+@REM CMD/C IS USED BECAUSE ONLY INTERNAL COMMANDS CAN BE CARRIED OUT BY USE IF STATEMENT AND INCLUDE Parenthesis ()
+@REM IGNOR THAT
+@REM THE PROBLEM OF CHO SOME Parenthesis () WITHIN THE Parenthesis () ALREADY BY IF INCLUDE ^ EXAMPLE Program Files ^(x86^)
+@REM AND THEN STAGER TO ANOTHER PROBLEM 
+@REM EASIER WITH A JUMP GOTO
+
+REM SET PROGRAM_FILES_32_BIT=C:\Program Files (x86)
+REM SET PROGRAM_FILES_64_BIT=C:\Program Files
+
+REM @IF NOT EXIST "C:\Program Files\Notepad++\Notepad++.exe" (
+	REM @ECHO NOTEPAD++ 32 BIT __ C:\Program Files ^(x86^)\
+	REM @ECHO.
+	REM Reg.exe add "HKCR\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\Notepad++\Notepad++.exe" /f
+	REM Reg.exe add "HKCR\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files (x86)\Notepad++\Notepad++.exe\" \"%%1\"" /f
+REM )
+
+REM PAUSE
+	
+REM @IF EXIST "C:\Program Files\Notepad++\Notepad++.exe" (
+	REM @ECHO NOTEPAD++ 64 OR 32 BIT __ C:\Program Files\
+	REM @ECHO.
+	REM CMD /C "Reg.exe add "HKCR\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files\Notepad++\Notepad++.exe" /f"
+	REM CMD /C "Reg.exe add "HKCR\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files\Notepad++\Notepad++.exe\" \"%%1\"" /f"
+REM )
+@ECHO ON
+
+@IF EXIST "C:\Program Files\Notepad++\Notepad++.exe"       GOTO PROGRAM_FILES_64_OR_32_BIT
+@IF EXIST "C:\Program Files (x86)\Notepad++\Notepad++.exe" GOTO PROGRAM_FILES_32_BIT
+
+GOTO DONT_WANT_NOTEPAD_CHANGER
+
+:PROGRAM_FILES_64_OR_32_BIT
+@ECHO NOTEPAD++ 64 OR 32 BIT __ C:\Program Files\
+@ECHO.
+Reg.exe add "HKCR\*\shell\OpenWithNotepad" /ve /t REG_SZ /d "Edit with &Notepad++" /f
+Reg.exe add "HKCR\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files\Notepad++\Notepad++.exe" /f
+Reg.exe add "HKCR\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files\Notepad++\Notepad++.exe\" \"%%1\"" /f
+
+GOTO END_OF_NOTEPAD_ROUTINE
+
+:PROGRAM_FILES_32_BIT
+@ECHO NOTEPAD++ 32 BIT __ C:\Program Files (x86)\
+@ECHO.
 Reg.exe add "HKCR\*\shell\OpenWithNotepad" /ve /t REG_SZ /d "Edit with &Notepad++" /f
 Reg.exe add "HKCR\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\Notepad++\Notepad++.exe" /f
 Reg.exe add "HKCR\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files (x86)\Notepad++\Notepad++.exe\" \"%%1\"" /f
-@for /f "delims=" %%a in ('reg query "HKCR\CLSID" /s /f "ANotepad++64" /t REG_SZ') do @echo %%a|findstr /v "REG_SZ" | findstr /v /c:"End of search:" >nul && reg.exe delete "%%a" /f
 
+@ECHO OFF
 @REM Reg.exe DELETE "HKCR\*\shell\OpenWithNotepad" /f
-
 
 @REM ---------------------------------------------------------------------
 @REM NOTEPAD++ CONTEXT MENU ITEM WORKS BETTER AT HKLM\ RATHER THAN HKCR\
@@ -573,11 +649,42 @@ Reg.exe add "HKCR\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Progra
 @REM NICE IDEA TO USE HKLM INSTEAD HKCR BUT DISAPPEARED AFTER A BIT
 @REM KEEP BOTH GOING FOR A WHILE
 @REM ---------------------------------------------------------------------
+@ECHO ON
 
-Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /ve /t REG_SZ /d "Edit with &Notepad++" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\Notepad++\Notepad++.exe" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files (x86)\Notepad++\Notepad++.exe\" \"%%1\"" /f
+
+@IF EXIST "C:\Program Files\Notepad++\Notepad++.exe"       GOTO PROGRAM_FILES_64_OR_32_BIT
+@IF EXIST "C:\Program Files (x86)\Notepad++\Notepad++.exe" GOTO PROGRAM_FILES_32_BIT
+
+GOTO DONT_WANT_NOTEPAD_CHANGER
+
+:PROGRAM_FILES_64_OR_32_BIT
+	@ECHO NOTEPAD++ 64 OR 32 BIT __ C:\Program Files\
+	@ECHO.
+	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /ve /t REG_SZ /d "Edit with &Notepad++" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files\Notepad++\Notepad++.exe" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files\Notepad++\Notepad++.exe\" \"%%1\"" /f
+GOTO END_OF_NOTEPAD_ROUTINE
+
+:PROGRAM_FILES_32_BIT
+	@ECHO NOTEPAD++ 32 BIT __ C:\Program Files (x86)\
+	@ECHO.
+	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /ve /t REG_SZ /d "Edit with &Notepad++" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\Notepad++\Notepad++.exe" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files (x86)\Notepad++\Notepad++.exe\" \"%%1\"" /f
+
+:END_OF_NOTEPAD_ROUTINE
+
 @for /f "delims=" %%a in ('reg query "HKLM\SOFTWARE\Classes\CLSID" /s /f "ANotepad++64" /t REG_SZ') do @echo %%a|findstr /v "REG_SZ" | findstr /v /c:"End of search:" >nul && reg.exe delete "%%a" /f
+
+@for /f "delims=" %%a in ('reg query "HKCR\CLSID" /s /f "ANotepad++64" /t REG_SZ') do @echo %%a|findstr /v "REG_SZ" | findstr /v /c:"End of search:" >nul && reg.exe delete "%%a" /f
+
+:DONT_WANT_NOTEPAD_CHANGER
+
+@ECHO.
+@ECHO ---------------------------------------------------------------
+@ECHO ---------------------------------------------------------------
+@ECHO.
+
 
 @REM PAUSE
 @REM ----------------------------------------------------------------

@@ -79,6 +79,18 @@ SLEEP 4000
 
 settimer MAIN_RUNNER, 1000
 
+settimer WINDOWS_10_STATRT_MENU_DOWN, 100
+settimer WINDOWS_10_STATRT_MENU_DOWN, off
+
+RETURN
+
+
+WINDOWS_10_STATRT_MENU_DOWN:
+
+window=ahk_class Windows.UI.Core.CoreWindow
+
+isWindowShow(window)
+
 RETURN
 
 MAIN_RUNNER:
@@ -132,6 +144,43 @@ IfWinExist End Program - CAsyncSocketEx Helper Window
 }	
 
 RETURN
+
+
+
+; ------------------------------------------------------------------
+isWindowShow( winTitle ) {
+; checks if the specified window is full screen
+
+DetectHiddenWindows, ON
+
+winID := WinExist( winTitle )
+
+If ( !winID )
+	Return false
+
+winW=
+winH=
+	
+WinGet style, Style, ahk_id %WinID%
+WinGetPos ,,x,y,winW,winH, ahk_id %WinID%
+
+; 0x800000 is WS_BORDER.
+; 0x20000000 is WS_MINIMIZE.
+; no border and not minimized
+
+tooltip % x " -- " y " -- "winW " -- " winH " -- " style
+
+
+Return ((style & 0x20800000) 
+or winH < A_ScreenHeight 
+or winW < A_ScreenWidth) ? false : true
+
+; ----
+; Detect Fullscreen application? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/38882-detect-fullscreen-application/
+; ----
+}
+
 
 
 

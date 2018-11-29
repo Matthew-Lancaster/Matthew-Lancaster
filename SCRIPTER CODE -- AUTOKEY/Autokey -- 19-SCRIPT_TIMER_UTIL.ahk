@@ -303,13 +303,15 @@ SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
 ; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 
 
-SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
+; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
 
 
-GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE=
 GITHUB_HOUR_NOW=
 GOSUB GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
 SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, 1000
+
+DAY_AND_HOUR_NOW=
+SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
 
 
 SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
@@ -364,30 +366,31 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 			SET_GO=TRUE
 	}	
 
+	IF !GITHUB_HOUR_NOW
+	{
+		GITHUB_HOUR_NOW=%A_Hour%
+		RETURN
+	}
+
 	GITHUB_HOUR_NOW=%A_Hour%
 	
 	IF SET_GO=FALSE 
 		RETURN
 	
-	IF GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
+	IfExist, %FN_VAR%
 	{
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
-		IfExist, %FN_VAR%
-		{
-			Run, %FN_VAR% /GOODSYNC_MODE
-		}
+		Run, %FN_VAR% /GOODSYNC_MODE
 	}
-	
-	GITHUB_MIDNIGHT_AND_MIDDAY_TIMER_DONE=TRUE
 	
 	; ---------------------------------------------------------------
 	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
 	; LATE BY TIME GET THERE
 	; BETTER FOR SHORT TIMING
 	; ---------------------------------------------------------------
-	SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
-	SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, %Midnight%
-	SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, ON
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, %Midnight%
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, ON
 	; ----
 	; Test Timer Status - Ask for Help - AutoHotkey Community
 	; https://autohotkey.com/board/topic/55321-test-timer-status/
@@ -396,6 +399,97 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	
 RETURN
 
+
+MIDNIGHT_AND_HOUR_TIMER:
+
+	; ---------------------------------------------------------------
+	; 1 = DAY TIMER 
+	; 2 = HOUR TIMER
+	; 3 = MINUTE TIMER
+	; ---------------------------------------------------------------
+	VALUE_TIMER_DY_HR_MI=2
+	
+	IF VALUE_TIMER_DY_HR_MI=1
+	{
+		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
+		Midnight += 1, days
+	}
+	IF VALUE_TIMER_DY_HR_MI=2
+	{
+		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
+		Midnight += 1, hours
+	}
+	IF VALUE_TIMER_DY_HR_MI=3
+	{
+		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
+		Midnight += 1, MINUTES
+	}
+
+	Midnight -= A_Now, seconds
+
+	EnvMult, Midnight, 1000
+
+	SET_GO=FALSE
+
+	IF A_Hour<>%DAY_AND_HOUR_NOW%
+	{
+		; IF A_Hour=12
+		; 	SET_GO=TRUE
+		;IF A_Hour=0
+		;	SET_GO=TRUE
+
+		IF Mod(A_Hour, 4)=0
+		{
+			SET_GO=TRUE
+		}
+	}	
+
+	IF !DAY_AND_HOUR_NOW
+	{
+		DAY_AND_HOUR_NOW=%A_Hour%
+		RETURN
+	}
+	
+	DAY_AND_HOUR_NOW=%A_Hour%
+
+	IF SET_GO=FALSE 
+		RETURN
+	
+
+	GOSUB TIMER_Check_Any_PID_Suspended_Warning
+	
+	
+	; ---------------------------------------------------------------
+	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
+	; LATE BY TIME GET THERE
+	; BETTER FOR SHORT TIMING
+	; ---------------------------------------------------------------
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER, OFF
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER, %Midnight%
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER, ON
+	; ----
+	; Test Timer Status - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/55321-test-timer-status/
+	; ----
+
+	
+RETURN
+
+TIMER_Check_Any_PID_Suspended_Warning:
+	; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 7200000 ; ---- 10 SECONDS ---- And Then 2 Hour
+
+	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
+
+	SET_GO=FALSE
+	IfExist, %Element_1%
+		IF !WinExist(Element_1) 
+			SET_GO=TRUE
+
+	IF SET_GO=TRUE	
+		{
+			Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
+		}
+RETURN
 
 ;----------------------------------------
 ;----------------------------------------
@@ -1799,7 +1893,7 @@ WinGet, HWND_2, ID, A
 			and OutputVar_2="Periodically (On Timer), every")
 			{
 				ControlSetText, Edit9,, ahk_id %HWND_1%
-				Control, EditPaste, 4, Edit9, ahk_id %HWND_1%
+				Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 
 		}
@@ -1815,44 +1909,44 @@ WinGet, HWND_2, ID, A
 			}
 		}
 
-		{
-			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-			If Status=0
-			{
-				Control, Check,, Button16, ahk_id %HWND_1%
-				IF OutputVar_4=1
-					SoundBeep , 4000 , 100
-			}
-		}
+		; {
+			; ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
+			; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+			; If Status=0
+			; {
+				; Control, Check,, Button16, ahk_id %HWND_1%
+				; IF OutputVar_4=1
+					; SoundBeep , 4000 , 100
+			; }
+		; }
 		
 		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
 		
-		If (OutputVar_1 <> 90
+		If (OutputVar_1 <> 80
 			and OutputVar_2="Do not Sync if changed files more than")
 			{
-				ControlSetText, Edit11,, ahk_id %HWND_1%
-				Control, EditPaste, 90,	Edit11, ahk_id %HWND_1%
+				ControlSetText, Edit12,, ahk_id %HWND_1%
+				Control, EditPaste, 80,	Edit12, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 		}
-		ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
-		If Status=0
-		{
-			Control, Check,, Button21, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-		}
+		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
+		; If Status=0
+		; {
+			; Control, Check,, Button21, ahk_id %HWND_1%
+				; SoundBeep , 4000 , 100
+		; }
 		
-		; PRESS SAVE WHEN SETTING OPTIONS DONE
-		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
-		ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
-		If (OutputVar_1 = 90 and Status=1)
-		{
-			ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
-			MouseMove, X+10, Y+10		
-			ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
-			SoundBeep , 4000 , 100
-		}
+		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
+		; ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
+		; If (OutputVar_1 = 90 and Status=1)
+		; {
+			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
+			; MouseMove, X+10, Y+10		
+			; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
+			; SoundBeep , 4000 , 100
+		; }
 		
 		
 		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
@@ -2484,21 +2578,7 @@ RETURN
 
 
 
-TIMER_Check_Any_PID_Suspended_Warning:
-	SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 7200000 ; ---- 10 SECONDS ---- And Then 2 Hour
 
-	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
-
-	SET_GO=FALSE
-	IfExist, %Element_1%
-		IF !WinExist(Element_1) 
-			SET_GO=TRUE
-
-	IF SET_GO=TRUE	
-		{
-			Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
-		}
-RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
