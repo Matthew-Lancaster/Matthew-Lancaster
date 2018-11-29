@@ -46,8 +46,9 @@ TT_EDITOR = File_1.ReadAll
 
 
 ' CALL USUAL_MAIN
+CALL USUAL_MAIN_2
 
-CALL ROUTINE_WITH_ACTION_ON_SPECIFIC_JOB
+' CALL ROUTINE_WITH_ACTION_ON_SPECIFIC_JOB
 
 
 
@@ -158,6 +159,24 @@ Loop Until T1 = 0
 
 END SUB
 
+
+SUB USUAL_MAIN_2
+
+	' CHANGE SCHEDULE HOUR FROM 2 TO 4
+	' --------------------------------
+	X = 1
+	Do
+		T1 = InStr(X, TT_EDITOR, "]d=4")
+		If T1 > 0 Then
+			TT_EDITOR = Replace(TT_EDITOR, "]d=4", "]d=5",1,1)
+			Counter_VAR = Counter_VAR + 1
+		End If
+		X = T1 + 2
+	Loop Until T1 = 0
+
+	Counter_Change_VAR=Counter_VAR
+	
+END SUB
 
 
 

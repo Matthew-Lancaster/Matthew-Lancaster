@@ -139,14 +139,38 @@ set sources[2]="C SCRIPTOR __ x _ 7G TO 2E"
 set sources[3]="C SCRIPTOR __ x _ 7G TO 3L"
 set sources[4]="C SCRIPTOR __ x _ 7G TO 4G_ GSD"
 set sources[5]="C SCRIPTOR __ x _ 7G TO 5P"
-set sources[6]="C SCRIPTOR __ x _ 7G TO 3L"
-set sources[7]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
+set sources[6]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
+
+set sources[7]="C C DRIVE ROOT CROSS 00 C SCRIPTER FOLDER"
+set sources[8]="C C DRIVE ROOT CROSS 00 SCRIPT RUN"
+set sources[9]="C C DRIVE ROOT CROSS 1X"
+set sources[10]="C C DRIVE ROOT CROSS 2E"
+set sources[11]="C C DRIVE ROOT CROSS 3L"
+set sources[12]="C C DRIVE ROOT CROSS 4G"
+set sources[13]="C C DRIVE ROOT CROSS 5P"
+set sources[14]="C C DRIVE ROOT CROSS 8M _ GSD"
+
+set sources[15]="C ISO __ 7G TO 1X"
+set sources[16]="C ISO __ 7G TO 2E"
+set sources[17]="C ISO __ 7G TO 3L"
+set sources[18]="C ISO __ 7G TO 4G"
+set sources[19]="C ISO __ 7G TO 5P"
+set sources[20]="C ISO __ 7G TO 8M"
+
+set sources[00]=""
+set sources[00]=""
+set sources[00]=""
+set sources[00]=""
+set sources[00]=""
+set sources[00]=""
+set sources[00]=""
+
 
 set "x=0"
 
 SETLOCAL EnableDelayedExpansion
 
-for /L %%a in (1,1,7) do (
+for /L %%a in (1,1,20) do (
 
 	ECHO !sources[%%a]!
 	
@@ -190,10 +214,15 @@ for /L %%a in (1,1,7) do (
 	@SET Another_Job=FALSE
 	@SET Unresolved_Conflicts=FALSE
 	@SET Computer_Is_Offline=FALSE
+	@SET Change_Happen=TRUE
 
 	@find "-- Analysis Complete" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Analysis_Complete=TRUE
+	@REM Sync: Running: ____ DOESN'T APPEAR TO SHOW ALWAYS OR ANYMORE _ CHANGE TO NEXT ONE __ Sync Complete.
 	@find "Sync: Running:" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@REM == Sync Complete.
+	@find "== Sync Complete." !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Sync_Runner=TRUE
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Another_Job=TRUE
@@ -203,6 +232,8 @@ for /L %%a in (1,1,7) do (
 	@if !errorlevel!==0 SET Unresolved_Conflicts=TRUE
 	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Computer_Is_Offline=TRUE
+	@find "Changes: 0," !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET Change_Happen=FALSE
 	
 	DEL !FILENAME_ER! >NUL 2>NUL
 
@@ -210,8 +241,11 @@ for /L %%a in (1,1,7) do (
 
 	ECHO.
 	ECHO ----------------------------------------------------------------
+	ECHO !sources[%%a]!
+	ECHO.
 	ECHO Analysis_Complete   !Analysis_Complete!
-	ECHO Sync_Runner         !Sync_Runner!
+	ECHO Change_Happen       !Change_Happen!
+	ECHO Sync_Complete       !Sync_Runner!
 	ECHO Another_Job         !Another_Job!
 	ECHO Conflicts           !Unresolved_Conflicts!
 	ECHO Computer_Is_Offline !Computer_Is_Offline!
@@ -332,6 +366,9 @@ if !X! gtr 0 @(
 	ECHO ----------------------------------------------------------------
 	TIMEOUT /T 80
 )
+
+
+TIMEOUT /T 20
 
 
 ECHO.

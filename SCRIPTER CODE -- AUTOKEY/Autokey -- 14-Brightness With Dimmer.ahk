@@ -658,7 +658,7 @@ If ( !winID )
 	Return false
 
 WinGet style, Style, ahk_id %WinID%
-WinGetPos ,,,winW,winH, %winTitle%
+WinGetPos ,,,winW,winH, ahk_id %WinID%
 
 ; 0x800000 is WS_BORDER.
 ; 0x20000000 is WS_MINIMIZE.
