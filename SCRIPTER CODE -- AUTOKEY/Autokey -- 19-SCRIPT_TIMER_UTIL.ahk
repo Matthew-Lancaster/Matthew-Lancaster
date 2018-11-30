@@ -327,7 +327,14 @@ RETURN
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 
+
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
+
+IF (A_ComputerName<>"7-ASUS-GL522VW")
+{
+	SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
+	RETURN
+}
 
 	; ---------------------------------------------------------------
 	; 1 = DAY TIMER 

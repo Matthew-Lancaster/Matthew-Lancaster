@@ -53,6 +53,8 @@ GLOBAL VAR_COUNTER
 
 GLOBAL FILE_SCRIPT_COUNT
 GLOBAL FILE_SCRIPT
+GLOBAL XPOS
+GLOBAL YPOS
 
 GLOBAL O_ID
 
@@ -268,7 +270,7 @@ F5_ROUTINE:
 
 	; SET TO 0 FOR 1ST BEGINNER
 	; HELP KEEP IN SYNC ADJUST AS GO
-	VAR_COUNTER=46
+	VAR_COUNTER=16
 	; -------------------------------------------------------------------
 	; -------------------------------------------------------------------
 
@@ -290,7 +292,7 @@ F5_ROUTINE:
 	
 	; Example #3: Retrieve file names sorted by name (see next example to sort by date):
 	FileList =  ; Initialize to be blank.
-	Loop, Files, L:\*.*, D
+	Loop, Files, D:\*.*, D
 		FileList = %FileList%%A_LoopFileName%`n
 	Sort, FileList ;  R  ; The R option sorts in reverse order. See Sort for other options.
 
@@ -403,12 +405,12 @@ F5_ROUTINE:
 	; 1ST
 	; SETTIMER AUTO_CLONE_JOB, 1000
 
-	; 2ND & 3RD
+	; 2ND
 	; SETTIMER SET_OK_BOX,100
 	
 	; 3RD
 	; GOSUB DISPLAY_TOOLTIP
-	; SETTIMER F6,1000
+	; SETTIMER RENAME_JOBS_FROM_DIRECTORY_SCANNER,1000
 	
 RETURN
 
@@ -490,12 +492,18 @@ RETURN
 DISPLAY_TOOLTIP:
 	VAR_COUNTER2:=VAR_COUNTER
 	VAR_COUNTER2+=1
-	PART_RENAME_VAR:="HDD 4TB C S01 "
+	PART_RENAME_VAR:="HDD 4TB D S01 "
 	TOOLTIP % VAR_COUNTER2 " -- " PART_RENAME_VAR FILE_SCRIPT[VAR_COUNTER2]"`n"FILE_SCRIPT[VAR_COUNTER2],1300,50
 RETURN
 
-; RENAME JOBS FROM DIRECTORY SCANNER
-F6::
+
+;; *F2::
+	IF !xpos
+	MouseGetPos, xpos, ypos 
+	SEND {F2}
+RETURN
+
+RENAME_JOBS_FROM_DIRECTORY_SCANNER:
 {
 
 	WinGet, HWND_1, ID, Rename ahk_class #32770
@@ -510,7 +518,7 @@ F6::
 		RETURN
 	
 	O_ID:=HWND_1
-
+	
 	VAR_COUNTER+=1
 	FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
 	; PART_RENAME_VAR:="HDD 4TB C S01 "
@@ -539,10 +547,12 @@ F6::
 		IfWinNotExist, ahk_id %HWND_1%
 			BREAK
 	}
+	
 
+	MouseMove, XPOS, YPOS
 	GOSUB DISPLAY_TOOLTIP
 	SOUNDBEEP 3000,80
-	
+	XPOS=
 }
 RETURN
 
@@ -553,7 +563,7 @@ AUTO_CLONE_JOB:
 
 	WinGetTitle, Title, A
 	
-	POS_VAR:=INSTR(Title,"HDD 4TB C S01 ##")
+	POS_VAR:=INSTR(Title,"HDD 4TB D S01")
 	IF POS_VAR>0 
 	{
 		SOUNDBEEP 5000,100

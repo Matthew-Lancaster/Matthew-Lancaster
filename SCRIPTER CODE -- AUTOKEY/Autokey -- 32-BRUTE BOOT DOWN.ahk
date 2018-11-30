@@ -7,6 +7,7 @@
 ;# __ 
 ;# START TIME [ Fri 22:19:40 Pm_08 Jun 2018 ]
 ;# END   TIME [ Sat 00:10:00 Pm_09 Jun 2018 ] 1 HOUR 40 MINUTE
+;# EXTRA TIME [ Thu 16:04:00 Pm_29 Nov 2018 ] MAKE ROBUST DOES NOT ALLOW TO BE CLOSED UNLESS FORCE
 ;# __ 
 ;====================================================================
 
@@ -40,6 +41,24 @@
 ; FINALLY THE PROCESS IS MORE SPEEDY 
 ;# ------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; SESSION 002
+; -------------------------------------------------------------------
+; MAKE ROBUST DOES NOT ALLOW TO BE CLOSED UNLESS FORCE
+; ALL CHECKED OVER
+;
+; MOVE ONEXIT ROUTINE UP MORE SO THEY ALL TO BE LIKE GO 
+; THROUGH THE DECLARE STAGE
+;
+; PUT EXTRA THAT ESCAPE KEY IS PRESS AT SHUTDOWN RESTART
+; AS WHEN USE STARTMENU TO SHUTDOWN RESTART THAT SEEM TO STAY THERE 
+; WHILE QUESTION ARE GIVEN ABOUT PROCESS CLOSING
+; I FIND IT VERY ANNOYER
+;# ------------------------------------------------------------------
+; Thu 29-Nov-2018 14:59:43
+; Thu 29-Nov-2018 16:04:00
+;# ------------------------------------------------------------------
+
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ;--------------------------------------------------------------------
@@ -64,10 +83,20 @@
 ;IT USER ExitFunc TO EXIT FROM #Persistent
 ; --------------------
 ; -------------------------------------------------------------------
+SetStoreCapslockMode, off
 
-GLOBAL EXIT_APP_VAR
+; Register a function to be called on exit:
+OnExit("ExitFunc")
 
-EXIT_APP_VAR=FALSE
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+
+GLOBAL SIGNAL_TO_RESTART_HAPPEN
+GLOBAL ESCAPE_KEY_A_FEW
+
+SIGNAL_TO_RESTART_HAPPEN=FALSE
+ESCAPE_KEY_A_FEW=0
+
 I_COUNT=0
 
 SoundBeep , 2000 , 100
@@ -75,73 +104,85 @@ SoundBeep , 2500 , 100
 
 DetectHiddenWindows, ON
 
-SLEEP 4000
-
 settimer MAIN_RUNNER, 1000
 
-settimer WINDOWS_10_STATRT_MENU_DOWN, 100
-settimer WINDOWS_10_STATRT_MENU_DOWN, off
+; settimer WINDOWS_10_STATRT_MENU_DOWN, 100
+; settimer WINDOWS_10_STATRT_MENU_DOWN, off
 
-RETURN
-
+RETURN  
 
 WINDOWS_10_STATRT_MENU_DOWN:
+	window=ahk_class Windows.UI.Core.CoreWindow
+	isWindowShow(window)
+RETURN    
 
-window=ahk_class Windows.UI.Core.CoreWindow
+;; F1::EXITAPP
 
-isWindowShow(window)
-
-RETURN
+;; F1::Process,Close,% DllCall("GetCurrentProcessId")
 
 MAIN_RUNNER:
 
-SET_GO=TRUE
-If WinExist("SystemExplorer")
-	SET_GO=FALSE
-If WinExist("CAsyncSocketEx Helper Window")
-	SET_GO=FALSE
-	
-I_COUNT+=1
-IF I_COUNT<480
-	SET_GO=FALSE
-
-; IF SET_GO=TRUE
-; {
-	; EXIT_APP_VAR=TRUE
-	; SoundBeep , 2000 , 100
-	; SoundBeep , 2500 , 100
-	; EXITAPP
-; }
+	SET_GO=TRUE
+	If WinExist("SystemExplorer")
+		SET_GO=FALSE
+	If WinExist("CAsyncSocketEx Helper Window")
+		SET_GO=FALSE
 
 
-;---------------------------------------------------
-; THESE PAIR WON'T REALLY GET RUN BUT LEFT IN ANYWAY
-; AS WORK TO FIND OUT FIRST OFF
-; PRIORITY IS IN THE EXITAPP
-;---------------------------------------------------
+	IF SIGNAL_TO_RESTART_HAPPEN=TRUE
+	{
+		SoundBeep , 2000 , 100
+		ESCAPE_KEY_A_FEW+=1
+		IF ESCAPE_KEY_A_FEW<10 
+		SENDINPUT {ESC}
+		
+		Process, Close, SystemExplorer.exe
+		Process, Close, FileZilla Server Interface.exe
+		
+	}
 
-;--------------------------------------
-;C:\PStart\Progs\#_PortableApps\PortableApps\SystemExplorerPortable\App\SystemExplorer\SystemExplorer.exe	
-;--------------------------------------
-IfWinExist End Program - SystemExplorer	
-{
-	; Run, "TASKKILL.exe" /F /IM SystemExplorer.exe /T , , HIDE
-	Sleep 8000
-	SoundBeep , 2500 , 100
-	ControlClick, &End Now, End Program - SystemExplorer
-}
+ 
+		
+	I_COUNT+=1
+	IF I_COUNT<480
+		SET_GO=FALSE
 
-;------------------------------
-;FileZilla Server Interface.exe
-;CAsyncSocketEx Helper Window
-;------------------------------
-IfWinExist End Program - CAsyncSocketEx Helper Window
-{
-	;WinGet, path, ProcessName, CAsyncSocketEx Helper Window
-	Sleep 18000
-	SoundBeep , 2500 , 100
-	ControlClick, &End Now, End Program - CAsyncSocketEx Helper Window
-}	
+	IF SET_GO=TRUE
+	{
+		SoundBeep , 2000 , 100
+		SoundBeep , 2500 , 100
+		; KILL ITSELF
+		Process,Close,% DllCall("GetCurrentProcessId")
+	}
+
+	;---------------------------------------------------
+	; THESE PAIR WON'T REALLY GET RUN BUT LEFT IN ANYWAY
+	; AS WORK TO FIND OUT FIRST OFF
+	; PRIORITY IS IN THE EXITAPP
+	;---------------------------------------------------
+
+	;--------------------------------------
+	;C:\PStart\Progs\#_PortableApps\PortableApps\SystemExplorerPortable\App\SystemExplorer\SystemExplorer.exe	
+	;--------------------------------------
+	IfWinExist End Program - SystemExplorer	
+	{
+		; Run, "TASKKILL.exe" /F /IM SystemExplorer.exe /T , , HIDE
+		Sleep 8000
+		SoundBeep , 2500 , 100
+		ControlClick, &End Now, End Program - SystemExplorer
+	}
+
+	;------------------------------
+	;FileZilla Server Interface.exe
+	;CAsyncSocketEx Helper Window
+	;------------------------------
+	IfWinExist End Program - CAsyncSocketEx Helper Window
+	{
+		;WinGet, path, ProcessName, CAsyncSocketEx Helper Window
+		Sleep 18000
+		SoundBeep , 2500 , 100
+		ControlClick, &End Now, End Program - CAsyncSocketEx Helper Window
+	}	
 
 RETURN
 
@@ -182,8 +223,6 @@ or winW < A_ScreenWidth) ? false : true
 }
 
 
-
-
 ;# ------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
 SETTIMER TIMER_PREVIOUS_INSTANCE,10000
@@ -209,23 +248,22 @@ EOF:                           ; on exit
 ExitApp     
 ;# ------------------------------------------------------------------
 
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
-
 ;# ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)
 {
+
     if ExitReason not in Logoff,Shutdown
     {
         ;MsgBox, 4, , Are you sure you want to exit?
         ;IfMsgBox, No
         ;    return 1  ; OnExit functions must return non-zero to prevent exit.
     }
+
     if ExitReason in Logoff,Shutdown
     {
+		
+		SIGNAL_TO_RESTART_HAPPEN=TRUE
+	
         ;MsgBox, 4, , Are you sure you want to exit?
         ;IfMsgBox, No
         ;    return 1  ; OnExit functions must return non-zero to prevent exit.
@@ -251,21 +289,31 @@ ExitFunc(ExitReason, ExitCode)
 		; SO HAVE TO BE KILLED AS SOON AS SHUTDOWN REQUEST COMES ALONG
 		;---------------------------------------------------------------------
 		
+		SoundBeep , 2000 , 100
+		SENDINPUT {ESC}
+
+		
 		Process, Close, SystemExplorer.exe
 		Process, Close, FileZilla Server Interface.exe
-		
+	
+		SoundBeep , 2000 , 100
+		SENDINPUT {ESC}
+	
 		;---------------------------------------------------------------------
 		; THE RETURN 1 IS STILL USED BUT THE APP CLOSES ITSELF 
 		; PROBABLY BECAUSE THE COUPLE OF PROGRAM ARE FOUND NOT TO EXIST
 		; BUT EVEN WITH A MSGBOX IN THE WAY IT STILL GET CLOSE
 		;---------------------------------------------------------------------
 		
-		IF EXIT_APP_VAR=FALSE 
-			{
-			; MSGBOX % EXIT_APP_VAR
-			return 1
-			}
+		; IF EXIT_APP_VAR=FALSE 
+			; {
+			; ; MSGBOX % EXIT_APP_VAR
+			; return 1
+			; }
 	}
+	
+	; PROCESS SCRIPT HERE WILL ONLY CLOSE BY FORCE KILL _ DONE WITHIN
+	RETURN 1
 	
 	; Do not call ExitApp -- that would prevent other OnExit functions from being called.
 }
@@ -274,7 +322,13 @@ class MyObject
 {
     Exiting()
     {
-        ;MsgBox, MyObject is cleaning up prior to exiting...
+		; THIS ROUTINE WON'T GET CALLED UNLESS ExitFunc HAS RETURN CLEAR TO CLOSE PREVENT WITH RETURN 1
+		SoundBeep , 2500 , 100
+		SoundBeep , 3000 , 100
+		
+		; MsgBox, MyObject is cleaning up prior to exiting...
+
+		;MsgBox, MyObject is cleaning up prior to exiting...
         /*
         this.SayGoodbye()
         this.CloseNetworkConnections()

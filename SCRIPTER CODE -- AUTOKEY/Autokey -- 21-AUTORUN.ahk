@@ -2036,16 +2036,16 @@ MINIMIZE_ALL_BLUETOOTH:
 RETURN
 
 BRUTE_BOOT_DOWN_AHK_SUB:
-	IF CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
-	{
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
-		IfExist, %FN_VAR%
-			IF !WinExist(FN_VAR) 
-			{
-				SoundBeep , 2000 , 100
-				Run, "%FN_VAR%"
-			}
-	}
+	; IF CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
+	; {
+		; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
+		; IfExist, %FN_VAR%
+			; IF !WinExist(FN_VAR) 
+			; {
+				; SoundBeep , 2000 , 100
+				; Run, "%FN_VAR%"
+			; }
+	; }
 RETURN
 
 CLOSE_SOME_LEFT_OVER_WINDOWS:
