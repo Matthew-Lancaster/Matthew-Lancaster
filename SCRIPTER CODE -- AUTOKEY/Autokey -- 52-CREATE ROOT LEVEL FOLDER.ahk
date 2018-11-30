@@ -14,7 +14,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 	SOUNDBEEP 4000,80
 
-	EXITAPP
+	; EXITAPP
 
 	GOSUB GO_FOLDER
 
@@ -117,11 +117,16 @@ GO_FOLDER:
 	Loop % FILE_SCRIPT.MaxIndex()
 	{
 		VALUE:=FILE_SCRIPT[A_Index]
-		FileCreateDir, \\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_4tb_c\%VALUE%
+		; FileCreateDir, \\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_4tb_c\%VALUE%
+		FileCreateDir, Q:\%VALUE%
+		SOUNDBEEP 2000,20
+		
 	}
 
 	SOUNDBEEP 2000,200
 
+	; 31 FOLDER ADDED TO 4TB FROM D
+	
 }
 RETURN
 	

@@ -111,6 +111,8 @@
 ;IT USER ExitFunc TO EXIT FROM #Persistent
 ;--------------------
 
+#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
+
 SetStoreCapslockMode, off
 DetectHiddenWindows, ON
 SetTitleMatchMode 3  ; EXACTLY
@@ -123,6 +125,7 @@ SoundBeep , 2000 , 100
 
 
 GLOBAL VAR_A__TimeIdle
+GLOBAL OutputVar
 
 VAR_A__TimeIdle=0
 
@@ -334,9 +337,7 @@ Loop % ArrayCount
 	IfExist, %Element_1%
 		IF (!WinExist(Element_3))
 		{
-			DATE_MOD_Array[A_Index] := OutputVar
-			SoundBeep , 2000 , 100
-			Run, %Element_1%
+			GOSUB RUN_THE_APP
 			RETURN
 		}
 	
@@ -346,14 +347,11 @@ Loop % ArrayCount
 		; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
 		; IMMEDIATELY AGAIN
 		; -----------------------------------------------------------
-		IF (A_TimeIdle > 120000)
+		; IF (A_TimeIdle > 1000)
+		IF (A_TimeIdlePhysical > 2000)
 		{
-			DATE_MOD_Array[A_Index] := OutputVar
-			;DATE_MOD_Array.RemoveAt(A_Index)
-			;DATE_MOD_Array.InsertAt(A_Index,OutputVar)
-			SoundBeep , 2000 , 100
-			Run, %Element_1%
-			; msgbox % DATE_MOD_Array[A_Index]
+			GOSUB RUN_THE_APP
+			RETURN
 		}
 	}
 }
@@ -361,3 +359,21 @@ Loop % ArrayCount
 
 RETURN
 
+RUN_THE_APP:
+	DATE_MOD_Array[A_Index] := OutputVar
+	
+	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	{
+		WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
+		Process,Close,% PID
+	}
+	SoundBeep , 2000 , 100
+	Run, %Element_1%
+RETURN
+
+; WinGetTitle, Titel, ahk_id %ID%
+
+; SkriptPath := RegExReplace(Titel, " - AutoHotkey v" A_AhkVersion )
+; SplitPath,SkriptPath,KurzName
+
+; WinGet, PID, PID, %SkriptPath% ahk_class AutoHotkey

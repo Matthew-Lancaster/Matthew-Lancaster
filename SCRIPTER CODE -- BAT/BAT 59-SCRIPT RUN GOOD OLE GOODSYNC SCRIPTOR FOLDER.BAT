@@ -170,8 +170,11 @@ set "x=0"
 
 SETLOCAL EnableDelayedExpansion
 
-for /L %%a in (1,1,20) do (
+SET COUNTER_MAXIMUM=20
 
+for /L %%a in (1,1,!COUNTER_MAXIMUM!) do (
+
+	ECHO %%a of !COUNTER_MAXIMUM!
 	ECHO !sources[%%a]!
 	
 	ECHO.
@@ -241,6 +244,7 @@ for /L %%a in (1,1,20) do (
 
 	ECHO.
 	ECHO ----------------------------------------------------------------
+	ECHO %%a of !COUNTER_MAXIMUM!
 	ECHO !sources[%%a]!
 	ECHO.
 	ECHO Analysis_Complete   !Analysis_Complete!
