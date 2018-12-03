@@ -1759,6 +1759,33 @@ IfExist, %FN_VAR_1%
 	
 RETURN
 
+Multiple_Thread_Port_Scanner_ROUTINE_MAIN:
+
+
+; THIS NOT FINISHED WORK
+; THE MAIN OUTPUT FILE IS POST EDITED
+; C:\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt
+; AND 
+; C:\NETWORK_COMPUTER_NAME.txt
+
+; SOMETIMES THE SCAN RETURN RESULT AND SOME ITEM NETOWORK COMPUTR ARE NOT THERE
+; IF FAIL RESPOND IN TIME
+; SO FILE IS LOOKED AT TO DECIDE IF CAN BE OVER WRITE WITH NEWER INFO
+
+
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\Multiple_Port_Scanner.exe"
+IfExist, %FN_VAR%
+{
+	Run %comspec% /c ""%FN_VAR%" "/ALL" "" >"%A_TEMP%\IPTEST.TXT , , MIN
+}
+
+
+
+
+; "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\Multiple_Port_Scanner.exe" /ALL >NETWORK_COMPUTER_NAME.txt
+
+RETURN
+
 
 ; -------------------------------------------------------------------
 Multiple_Thread_Port_Scanner_ROUTINE:
