@@ -69,6 +69,8 @@ GLOBAL PART_RENAME_VAR
 
 GOSUB F5_ROUTINE
 
+SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,50
+
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
@@ -414,6 +416,45 @@ F5_ROUTINE:
 	
 RETURN
 
+ESC::
+	WinGet, HWND_1, ID, ahk_class MediaPlayerClassicW
+	IF HWND_1>0
+	{
+		WinGet, HWND_2, ID, A
+		IF HWND_1=%HWND_2%
+		{
+			Process, Close, mpc-hc64.exe
+			Soundbeep 2000,200
+		}
+	}
+RETURN
+				
+; TOP LEFT MOUSE CLOSE MPC
+TOP_LEFT_MOUSE_CLOSE_MPC:
+{
+	CoordMode, Mouse, Screen
+	MouseGetPos, xpos, ypos 
+	
+	IF (xpos=0 and ypos=0)
+	{
+		WinGet, HWND_1, ID, ahk_class MediaPlayerClassicW
+		IF HWND_1>0
+		{
+			WinGet, HWND_2, ID, A
+			TOOLTIP %  xpos "," ypos "," HWND_1 "," HWND_2
+			IF HWND_1=%HWND_2%
+			{
+				Process, Close, mpc-hc64.exe
+				Soundbeep 2000,200
+				
+				; WinGet, PID_1, PID, ahk_class MediaPlayerClassicW
+				; IF PID_1
+				; Process, Close, mpc-hc64.exe
+			}
+		}	
+	}	
+}
+RETURN
 
 ; SET OKAY BOX AFTER MADE SELECTION
 SET_OK_BOX:
