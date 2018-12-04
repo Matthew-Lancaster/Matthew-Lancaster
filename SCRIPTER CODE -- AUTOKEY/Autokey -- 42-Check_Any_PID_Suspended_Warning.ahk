@@ -122,7 +122,7 @@ gui, font, s14 ; , Arial ; , Calibri
 ; DllCall("user32.dll\SendMessage", "Ptr", hSearch, "UInt", 0x1501, "Ptr", 1, "Str", "Prozess Name here", "Ptr")
 Gui, Add, Button, y+5 w540 gSTART_RERUN, Script of Watched Processes Suspended Warning
 Gui, add, Button, y+5 W540 gStatus, Status
-Gui, Add, ListView, xm y+5 w540 h240, PID|Name|HardCore
+Gui, Add, ListView, xm y+5 w540 h340, PID|Name|HardCore
 ; Gui, Add, Edit, xm y+5 w60 0x800 vprccount
 LV_ModifyCol(1, 100)
 LV_ModifyCol(2, 240)
@@ -175,6 +175,9 @@ START:
 	FN_Array[ArrayCount]:="Explorer.exe"
 	ArrayCount += 1
 	FN_Array[ArrayCount]:="Winamp.exe"             ; ---- MUSICAL MP3 AUDIO PROGRAM
+	ArrayCount += 1
+	FN_Array[ArrayCount]:="GoodSync-v10.exe"       ; ---- NOW GOODSYNC GOING ANNOYING CAN'T SEE MON 03 DEC 2018
+	
 	
 	; ArrayCount += 1
 	; FN_Array[ArrayCount]:="SystemSettings.exe"     

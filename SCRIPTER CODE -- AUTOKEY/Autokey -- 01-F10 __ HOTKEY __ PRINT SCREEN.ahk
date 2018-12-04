@@ -415,19 +415,6 @@ F5_ROUTINE:
 	; SETTIMER RENAME_JOBS_FROM_DIRECTORY_SCANNER,1000
 	
 RETURN
-
-ESC::
-	WinGet, HWND_1, ID, ahk_class MediaPlayerClassicW
-	IF HWND_1>0
-	{
-		WinGet, HWND_2, ID, A
-		IF HWND_1=%HWND_2%
-		{
-			Process, Close, mpc-hc64.exe
-			Soundbeep 2000,200
-		}
-	}
-RETURN
 				
 ; TOP LEFT MOUSE CLOSE MPC
 TOP_LEFT_MOUSE_CLOSE_MPC:
@@ -435,21 +422,54 @@ TOP_LEFT_MOUSE_CLOSE_MPC:
 	CoordMode, Mouse, Screen
 	MouseGetPos, xpos, ypos 
 	
-	IF (xpos=0 and ypos=0)
+	IF (xpos=0 and ypos=0 or A_PriorKey=27)
 	{
+		SET_GO=FALSE
 		WinGet, HWND_1, ID, ahk_class MediaPlayerClassicW
-		IF HWND_1>0
+		SET_GO=TRUE
+		
+		WinGet, HWND_2, ID, ahk_class Afx:00007FF6A22C0000:b:0000000000010003:0000000000000006:0000000000000000
+		SET_GO=TRUE
+		
+		WinGet, HWND_3, ID, ahk_class AfxControlBar140su
+		SET_GO=TRUE
+
+		; INFRANVIEW
+		WinGet, HWND_4, ID, ahk_class FullScreenClass
+		SET_GO=TRUE
+		
+		WinGet, HWND_5, ID, ahk_class IrfanView
+		SET_GO=TRUE
+
+		IF SET_GO=TRUE
 		{
-			WinGet, HWND_2, ID, A
-			TOOLTIP %  xpos "," ypos "," HWND_1 "," HWND_2
-			IF HWND_1=%HWND_2%
+			WinGet, HWND_ACTIVE, ID, A
+			; TOOLTIP %  xpos "," ypos "," HWND_1 "," HWND_2
+			SET_GO=FALSE
+			IF HWND_1=%HWND_ACTIVE%
+				SET_GO=TRUE
+			IF HWND_2=%HWND_ACTIVE%
+				SET_GO=TRUE
+			IF HWND_3=%HWND_ACTIVE%
+				SET_GO=TRUE
+			IF HWND_4=%HWND_ACTIVE%
+				SET_GO=TRUE
+			IF HWND_5=%HWND_ACTIVE%
+				SET_GO=TRUE
+
+			IF SET_GO=TRUE
 			{
-				Process, Close, mpc-hc64.exe
-				Soundbeep 2000,200
+				IF (HWND_1>0 or HWND_2>0 or HWND_3>0)
+				{
+					Process, Close, mpc-hc64.exe
+					Soundbeep 2000,200
+				}
 				
-				; WinGet, PID_1, PID, ahk_class MediaPlayerClassicW
-				; IF PID_1
-				; Process, Close, mpc-hc64.exe
+				IF (HWND_4>0 or HWND_5>0)
+				{
+					Process, Close, i_view32.exe
+					Soundbeep 2000,200
+				}
 			}
 		}	
 	}	
