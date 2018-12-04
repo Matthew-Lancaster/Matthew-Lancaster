@@ -364,8 +364,20 @@ RUN_THE_APP:
 	
 	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
-		WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
-		Process,Close,% PID
+		SET_GO=TRUE
+		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "2-ASUS-EEE") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "3-LINDA-PC") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "5-ASUS-P2520LA") 
+			SET_GO=FALSE
+		IF SET_GO=TRUE
+		{	
+			WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
+			Process,Close,% PID
+		}
 	}
 	SoundBeep , 2000 , 100
 	Run, %Element_1%
