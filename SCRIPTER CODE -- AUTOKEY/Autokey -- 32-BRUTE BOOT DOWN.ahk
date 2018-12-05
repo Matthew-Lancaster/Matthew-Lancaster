@@ -104,6 +104,8 @@ SoundBeep , 2500 , 100
 
 DetectHiddenWindows, ON
 
+; PAUSE
+
 settimer MAIN_RUNNER, 1000
 
 ; settimer WINDOWS_10_STATRT_MENU_DOWN, 100
@@ -141,8 +143,6 @@ MAIN_RUNNER:
 		
 	}
 
- 
-		
 	I_COUNT+=1
 	IF I_COUNT<480
 		SET_GO=FALSE
