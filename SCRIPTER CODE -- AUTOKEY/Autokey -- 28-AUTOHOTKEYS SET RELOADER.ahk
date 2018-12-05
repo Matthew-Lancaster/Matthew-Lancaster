@@ -111,6 +111,7 @@
 ;IT USER ExitFunc TO EXIT FROM #Persistent
 ;--------------------
 
+
 #InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
 
 SetStoreCapslockMode, off
@@ -354,7 +355,12 @@ Loop % ArrayCount
 			RETURN
 		}
 	}
+
+	; PAUSE
+
 }
+
+
 
 
 RETURN
