@@ -499,7 +499,11 @@ IF SKIP_CODE=FALSE
 	}
 }
 
-IF SKIP_CODE=FALSE
+SKIP_CODE_2=FALSE
+IF (A_ComputerName = "7-ASUS-GL522VW") 
+	SKIP_CODE_2=TRUE
+
+IF (SKIP_CODE=FALSE and SKIP_CODE_2=FALSE)
 {
 	If ProcessExist("URL Logger.exe", A_UserName)=0
 	{
@@ -570,6 +574,8 @@ IF (A_ComputerName = "2-ASUS-EEE")
 IF (A_ComputerName = "3-LINDA-PC") 
 	SET_GO=FALSE
 IF (A_ComputerName = "5-ASUS-P2520LA") 
+	SET_GO=FALSE
+IF (A_ComputerName = "7-ASUS-GL522VW") 
 	SET_GO=FALSE
 If (OSVER_N_VAR<10)
 	SET_GO=FALSE
@@ -699,10 +705,18 @@ RegWrite, REG_DWORD, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersio
 
 ; exitapp
 
+; C:\Program Files (x86)\Microsoft\Skype for Desktop\Skype.exe
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Skype for Desktop
 
-; WIN_XP 5 WIN_7 6 WIN_10 10  
+
+SET_GO_1=0
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_GO_1=1
+
+
+; WIN_XP 5 WIN_7 6 WIN_10 10
 ; --------------------------
-If (OSVER_N_VAR=10)
+If (OSVER_N_VAR=10 and SET_GO_1=0)
 	{
 	; ---------------------------------------------------------------
 	; CHANGED NAME
@@ -768,6 +782,9 @@ IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
 	SET_GO_1=0
 
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_GO_1=0
+	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
 If (OSVER_N_VAR>5 
@@ -805,9 +822,14 @@ If (OSVER_N_VAR>5
 	}
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, VideoDownloaderUltimate
 
+
+SET_GO_1=1
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_GO_1=0
+
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
-If (OSVER_N_VAR>5)
+If (OSVER_N_VAR>5 and SET_GO_1=1)
 {
 Process, Exist, lastapp_x64.exe
 If Not ErrorLevel
@@ -890,18 +912,25 @@ If ProcessExist("RoboTaskBarIcon.exe", A_UserName)=0
 
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, RoboForm
 
-;ExitApp
+; ExitApp
 
 
 DetectHiddenWindows, On
 
 If ProcessExist("wweb32.exe", A_UserName)=0
 	{
+		FN_VAR_2=
 		FN_VAR:="C:\Program Files\WordWeb\wweb32.exe"
 		IfExist, %FN_VAR%
+		FN_VAR_2:=FN_VAR
+		FN_VAR:="C:\Program Files (X86)\WordWeb\wweb32.exe"
+		IfExist, %FN_VAR%
+		FN_VAR_2:=FN_VAR
+		
+		IfExist, %FN_VAR_2%
 		{
 			SoundBeep , 2500 , 100
-			Run, "%FN_VAR%" -startup , , HIDE
+			Run, "%FN_VAR_2%" -startup , , HIDE
 			WinGet, HWND, ID, WordWeb ahk_class TTheDi
 			IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
 			WinGet, HWND, ID, ahk_class Wordweb Tray Icon
@@ -1167,6 +1196,9 @@ If (OSVER_N_VAR>5
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubiC
 
 
+ ; ExitApp
+ 
+
 Process, Exist, ViceVersa.exe
 ;If Not ErrorLevel
 If TRUE=FALSE
@@ -1214,7 +1246,11 @@ IfExist, %FN_VAR%
 		Run, "%FN_VAR%" , , HIDE
 	}
 	
+SET_GO_1=1
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_GO_1=1
 
+IF SET_GO_1=1
 If ProcessExist("PStart.exe", A_UserName)=0
 	{
 		FN_VAR:="C:\PStart\PStart.exe"
@@ -1423,7 +1459,7 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=TRUE
 IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO=TRUE
+	SET_GO=FALSE
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 	SET_GO=TRUE
 
@@ -1639,8 +1675,8 @@ If Not ErrorLevel
 	SoundBeep , 2500 , 100
 	RunWait,sc start "FileZilla Server" ; CHECK THE SERVICE IS RUNNING AND RUN IT
 
-	CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
-	GOSUB BRUTE_BOOT_DOWN_AHK_SUB
+	; CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
+	; GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 
 }
 Process, Exist, FileZilla Server Interface.exe
@@ -1652,8 +1688,8 @@ If Not ErrorLevel
 		SoundBeep , 2500 , 100
 		Run, "%FN_VAR%" , , HIDE
 
-		CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
-		GOSUB BRUTE_BOOT_DOWN_AHK_SUB
+		; CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
+		; GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 	}
 }
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, FileZilla Server Interface
@@ -1733,6 +1769,8 @@ IF SET_GO=TRUE
 		}
 	}
 }
+
+ ; ExitApp
 
 ; WIN XP 2-ASUS-EEE
 ; "C:\Program Files\Common Files\Adobe\ARM\1.0\AdobeARM.exe"

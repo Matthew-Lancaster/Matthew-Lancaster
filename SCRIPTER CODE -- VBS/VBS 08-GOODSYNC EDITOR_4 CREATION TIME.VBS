@@ -162,7 +162,7 @@ END SUB
 
 SUB USUAL_MAIN_2
 
-	' CHANGE SCHEDULE HOUR FROM 2 TO 4
+	' CHANGE SCHEDULE HOUR FROM 4 TO 5
 	' --------------------------------
 	X = 1
 	Do

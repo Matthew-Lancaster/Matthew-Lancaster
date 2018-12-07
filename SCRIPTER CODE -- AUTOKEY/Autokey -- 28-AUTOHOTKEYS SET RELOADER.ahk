@@ -150,8 +150,22 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 15-BL
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk"
 ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
-ArrayCount += 1
+
+SET_GO=TRUE
+IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	SET_GO=FALSE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO=FALSE
+IF (A_ComputerName = "3-LINDA-PC") 
+	SET_GO=FALSE
+IF (A_ComputerName = "5-ASUS-P2520LA") 
+	SET_GO=FALSE
+
+IF SET_GO=TRUE
+{
+	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
+	ArrayCount += 1
+}
 
 
 OSVER_N_VAR:=a_osversion
@@ -179,8 +193,9 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 50-Ch
 
 ; ArrayCount += 1
 ; FN_Array_1[ArrayCount] := 
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := 
+
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 02-SAVE AS KEY ENTER.ahk"
 
 
 ; ArrayCount += 1
@@ -257,17 +272,7 @@ Loop % ArrayCount
 }
 
 
-SET_GO=TRUE
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO=FALSE
-IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO=FALSE
-IF (A_ComputerName = "3-LINDA-PC") 
-	SET_GO=FALSE
-IF (A_ComputerName = "5-ASUS-P2520LA") 
-	SET_GO=FALSE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO=FALSE
+
 
 
 SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
