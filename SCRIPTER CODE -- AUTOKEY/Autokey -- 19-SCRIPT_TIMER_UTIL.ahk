@@ -1937,6 +1937,17 @@ IF HWND_2=%HWND_1%
 			SoundBeep , 4000 , 100
 
 		}
+		
+	; ; PRESS SAVE WHEN SETTING OPTIONS DONE
+	; ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
+	; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+	; If (OutputVar_1 = 5 and Status=1)
+	; {
+		; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
+		; MouseMove, X+10, Y+10		
+		; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
+		; SoundBeep , 4000 , 100
+	; }	
 	
 	; WinGet, HWND_1, ID, ] Options ahk_class #32770
 	; TOOLTIP % OutputVar_3

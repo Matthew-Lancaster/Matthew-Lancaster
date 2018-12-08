@@ -372,10 +372,11 @@ RETURN
 
 RUN_THE_APP:
 	DATE_MOD_Array[A_Index] := OutputVar
+
+	SET_GO=TRUE
 	
 	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
-		SET_GO=TRUE
 		IF (A_ComputerName = "1-ASUS-X5DIJ") 
 			SET_GO=FALSE
 		IF (A_ComputerName = "2-ASUS-EEE") 
@@ -384,14 +385,15 @@ RUN_THE_APP:
 			SET_GO=FALSE
 		IF (A_ComputerName = "5-ASUS-P2520LA") 
 			SET_GO=FALSE
-		IF SET_GO=TRUE
-		{	
-			WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
-			Process,Close,% PID
-		}
 	}
-	SoundBeep , 2000 , 100
-	Run, %Element_1%
+
+	IF SET_GO=TRUE
+	{
+		WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
+		Process,Close,% PID
+		SoundBeep , 2000 , 100
+		Run, %Element_1%
+	}
 RETURN
 
 ; WinGetTitle, Titel, ahk_id %ID%
