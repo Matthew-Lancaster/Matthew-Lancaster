@@ -76,7 +76,8 @@ OLD_STATE_XYPOSCOUNTER=0
 GOSUB F5_ROUTINE
 
 
-SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,50
+SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,100
+SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,OFF
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -421,6 +422,9 @@ F5_ROUTINE:
 	; GOSUB DISPLAY_TOOLTIP
 	; SETTIMER RENAME_JOBS_FROM_DIRECTORY_SCANNER,1000
 	
+	; 4TH
+	SETTIMER RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT,100
+	
 RETURN
 
 STATE_XYPOS_Limit:
@@ -667,6 +671,108 @@ RETURN
 
 
 
+RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT:
+{
+
+	WinGet, HWND_1, ID, Left Folder ahk_class #32770
+	IF !HWND_1 
+		WinGet, HWND_1, ID, Right Folder ahk_class #32770
+
+	
+	IF !HWND_1
+	{
+		O_ID=0
+		RETURN
+	}
+	
+	; TOOLTIP % HWND_1
+	
+	; IF HWND_1=%O_ID%
+		; RETURN
+	; O_ID:=HWND_1
+
+
+	SLEEP 400
+
+	ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_1%
+	IF !OutputVar_2
+		RETURN
+	IF INSTR(OutputVar_2,"=4_CLOUD_2TB_01:")>0
+		RETURN
+	IF INSTR(OutputVar_2,"=4_CLOUD_2TB")=0
+		RETURN
+
+		
+	SET_HO=FALSE
+	IF INSTR(OutputVar_2,"=4_CLOUD_2TB:")
+	SET_HO=TRUE
+	IF INSTR(OutputVar_2,"=4_CLOUD_2TB_1:")
+	SET_HO=TRUE
+	
+	SET_NEXT_EVENT=FALSE
+	IF SET_HO=TRUE
+	{
+		StringReplace, OutputVar_2, OutputVar_2,CLOUD_2TB,CLOUD_2TB_01, All
+		StringReplace, OutputVar_2, OutputVar_2,CLOUD_2TB_1,CLOUD_2TB_01, All
+		ControlSetText, Edit1,, ahk_id %HWND_1%
+		SOUNDBEEP 3000,80
+		
+		LOOP
+		{
+			SLEEP 400
+			Control, EditPaste, %OutputVar_2%, Edit1, ahk_id %HWND_1%
+			;TOOLTIP %OutputVar_3%		
+			SOUNDBEEP 3000,50
+
+			ControlGettext, OutputVar_3, Edit1, ahk_id %HWND_1%
+			
+			; TOOLTIP % "01" OutputVar_2 "`n" "02" OutputVar_3
+			IF !OutputVar_2
+				BREAK
+		
+			IF OutputVar_3=%OutputVar_2%
+				{
+				; MSGBOX % "01" OutputVar_3 "`n" "02" OutputVar_2
+				
+				BREAK
+				}
+		SET_NEXT_EVENT=TRUE
+		SLEEP 4000
+		SOUNDBEEP 3000,40
+		}
+	}
+
+	
+	IF SET_NEXT_EVENT=FALSE
+		RETURN 
+		
+	MSGBOX "HH"
+
+		
+	WinGet, HWND_2, ID, A
+	IF HWND_2<>%HWND_1%
+	{
+		#WinActivateForce, ahk_id %HWND_1%
+	}
+	
+	LOOP
+	{
+		MSGBOX "HH"
+		ControlGetPos, X_3, Y_3, , , Button3, ahk_id %HWND_1%
+		MouseMove, X_3+10, Y_3+10
+		
+		ControlClick, Button3, ahk_id %HWND_1%
+		IfWinNotExist, ahk_id %HWND_1%
+			BREAK
+		SOUNDBEEP 3000,80
+	}
+	
+
+}
+RETURN
+
+
+
 AUTO_CLONE_JOB:
 {
 
@@ -743,7 +849,7 @@ RETURN
 	IF OutputVar_4
 	{
 	
-		ControlSetText, Edit1,,  ahk_id %HWND_1%
+		ControlSetText, Edit1,, ahk_id %HWND_1%
 		Control, EditPaste, %OutputVar_4%, Edit1, ahk_id %HWND_1%
 		OutputVar_4=
 		SOUNDBEEP 4000,100
