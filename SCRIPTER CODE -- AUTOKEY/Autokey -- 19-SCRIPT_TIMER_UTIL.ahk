@@ -2519,7 +2519,7 @@ Process_Suspend(PID_or_Name){
 Process_Resume(PID_or_Name){
     PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
     h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
-    If !h   1
+    If !h_1
         Return -1
     DllCall("ntdll.dll\NtResumeProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)

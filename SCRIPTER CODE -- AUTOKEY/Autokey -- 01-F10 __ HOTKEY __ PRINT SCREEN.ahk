@@ -77,7 +77,7 @@ GOSUB F5_ROUTINE
 
 
 SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,100
-SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,OFF
+; SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,OFF
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -452,34 +452,27 @@ TOP_LEFT_MOUSE_CLOSE_MPC:
 	; TOOLTIP % STATE_XYPOSCOUNTER "," OLD_STATE_XYPOSCOUNTER
 	
 	SET_GO=FALSE
-	WinGet, HWND_1, ID, ahk_class MediaPlayerClassicW
-	IF HWND_1>0 
-		SET_GO=TRUE
 	
-	WinGet, HWND_2, ID, ahk_class Afx:00007FF6A22C0000:b:0000000000010003:0000000000000006:0000000000000000
-	IF HWND_2>0 
-		SET_GO=TRUE
-	
-	WinGet, HWND_3, ID, ahk_class AfxControlBar140su
-	IF HWND_3>0 
-		SET_GO=TRUE
+	WinGetCLASS, CLASS, A
 
-	; INFRANVIEW
-	WinGet, HWND_4, ID, ahk_class FullScreenClass
-	IF HWND_4>0 
-		SET_GO=TRUE
-	
-	WinGet, HWND_5, ID, ahk_class IrfanView
-	IF HWND_5>0 
-		SET_GO=TRUE
+	XR=0
+	IF INSTR(CLASS,"MediaPlayerClassicW")
+		XR=1
+	IF INSTR(CLASS,"Afx:00007FF6A22C0000:b:0000000000010003:0000000000000006:0000000000000000")
+		XR=2
+	IF INSTR(CLASS,"AfxControlBar140su")
+		XR=3
+	IF INSTR(CLASS,"FullScreenClass")
+		XR=4
+	IF INSTR(CLASS,"IrfanView")
+		XR=5
 
 	; TOOLTIP % STATE_XYPOSCOUNTER ", " OLD_STATE_XYPOSCOUNTER
 
-	IF SET_GO=TRUE
+	IF XR>0
 	IF STATE_XYPOS=0
 	IF STATE_XYPOSCOUNTER<>%OLD_STATE_XYPOSCOUNTER%
 		SOUNDBEEP 2000,100
-	
 	
 	IF STATE_XYPOSCOUNTER>0
 	IF STATE_XYPOSCOUNTER<>%OLD_STATE_XYPOSCOUNTER%
@@ -488,40 +481,22 @@ TOP_LEFT_MOUSE_CLOSE_MPC:
 		SetTimer, STATE_XYPOS_Limit, 2000 ;<-- set a oneshot 1 second timer to stop the loop
 	}
 	OLD_STATE_XYPOSCOUNTER=%STATE_XYPOSCOUNTER%
-
 	
 	IF (STATE_XYPOSCOUNTER>1 or A_PriorKey=27)
 	{
-		IF SET_GO=TRUE
+		IF XR>0 
 		{
-			STATE_XYPOSCOUNTER=0
-			WinGet, HWND_ACTIVE, ID, A
-			; TOOLTIP %  xpos "," ypos "," HWND_1 "," HWND_2
-			SET_GO=FALSE
-			IF HWND_1=%HWND_ACTIVE%
-				SET_GO=TRUE
-			IF HWND_2=%HWND_ACTIVE%
-				SET_GO=TRUE
-			IF HWND_3=%HWND_ACTIVE%
-				SET_GO=TRUE
-			IF HWND_4=%HWND_ACTIVE%
-				SET_GO=TRUE
-			IF HWND_5=%HWND_ACTIVE%
-				SET_GO=TRUE
-
-			IF SET_GO=TRUE
+			; TOOLTIP % HWND_X "," HWND_ACTIVE "," SET_GO
+			IF XR<4
 			{
-				IF (HWND_1>0 or HWND_2>0 or HWND_3>0)
-				{
-					Process, Close, mpc-hc64.exe
-					Soundbeep 2000,200
-				}
-				
-				IF (HWND_4>0 or HWND_5>0)
-				{
-					Process, Close, i_view32.exe
-					Soundbeep 2000,200
-				}
+				Process, Close, mpc-hc64.exe
+				Soundbeep 2000,200
+				XR=0
+			}
+			IF XR>0 
+			{
+				Process, Close, i_view32.exe
+				Soundbeep 2000,200
 			}
 		}	
 	}	
