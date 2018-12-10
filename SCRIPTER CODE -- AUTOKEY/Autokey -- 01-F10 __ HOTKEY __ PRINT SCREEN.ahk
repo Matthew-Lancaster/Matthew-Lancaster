@@ -76,12 +76,16 @@ OLD_STATE_XYPOSCOUNTER=0
 GOSUB F5_ROUTINE
 
 
+
 SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,100
 ; SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,OFF
+
+SETTIMER AUTO_RELOAD_FACEBOOK,59000
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
+RETURN
 
 ; -------------------------------------------------------------------
 ; REPLACE F10 TO DO CONTROL PRINT SCREEN
@@ -113,6 +117,30 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+AUTO_RELOAD_FACEBOOK:
+
+
+	WinGetCLASS, CLASS, A
+	WinGetTITLE, TITLE_VAR, A
+
+	XR_1=0
+	IF INSTR(CLASS,"Chrome_WidgetWin_1")
+		XR_1=1
+
+	XR_2=0
+	IF INSTR(TITLE_VAR,"Your Notifications - Google Chrome")
+		XR_2=1
+
+	IF XR_1>0
+	IF XR_2>0
+	{
+	SENDINPUT {F5}
+	; SOUNDBEEP 1000,50
+	}
+	
+		
+RETURN
 
 
 TIMER_ENTER:
