@@ -128,6 +128,9 @@ LV_ModifyCol(1, 100)
 LV_ModifyCol(2, 240)
 LV_ModifyCol(3, 200)
 
+SETTIMER MINIMIZE_GUI,4000
+
+
 GOSUB START
 
 RETURN
@@ -139,6 +142,15 @@ START_RERUN:
 RETURN
 
 Status:
+RETURN
+
+MINIMIZE_GUI:
+
+DetectHiddenWindows, on
+ThisScriptsHWND := WinExist("Ahk_PID " DllCall("GetCurrentProcessId"))
+
+WinMinimize ahk_id %ThisScriptsHWND%
+
 RETURN
 
 
