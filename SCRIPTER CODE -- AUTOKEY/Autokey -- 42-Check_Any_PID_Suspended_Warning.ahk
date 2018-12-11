@@ -150,7 +150,7 @@ DetectHiddenWindows, on
 ThisScriptsHWND := WinExist("Ahk_PID " DllCall("GetCurrentProcessId"))
 
 WinMinimize ahk_id %ThisScriptsHWND%
-
+SETTIMER MINIMIZE_GUI,OFF
 RETURN
 
 
