@@ -329,7 +329,7 @@ F5_ROUTINE:
 	
 	; Example #3: Retrieve file names sorted by name (see next example to sort by date):
 	FileList =  ; Initialize to be blank.
-	Loop, Files, D:\*.*, D
+	Loop, Files, K:\GD1TB\*.*, D
 		FileList = %FileList%%A_LoopFileName%`n
 	Sort, FileList ;  R  ; The R option sorts in reverse order. See Sort for other options.
 
@@ -442,7 +442,7 @@ F5_ROUTINE:
 	; 1ST
 	; SETTIMER AUTO_CLONE_JOB, 1000
 
-	; 2ND
+	; 2ND _ GOT TO SET THE PATH FOR EACH JOB
 	; SETTIMER SET_OK_BOX,100
 	
 	; 3RD
@@ -607,7 +607,7 @@ RETURN
 DISPLAY_TOOLTIP:
 	VAR_COUNTER2:=VAR_COUNTER
 	VAR_COUNTER2+=1
-	PART_RENAME_VAR:="HDD 4TB D S01 "
+	PART_RENAME_VAR:="HDD CLOUD GD2TB "
 	TOOLTIP % VAR_COUNTER2 " -- " PART_RENAME_VAR FILE_SCRIPT[VAR_COUNTER2]"`n"FILE_SCRIPT[VAR_COUNTER2],1300,50
 RETURN
 
@@ -636,7 +636,6 @@ RENAME_JOBS_FROM_DIRECTORY_SCANNER:
 	
 	VAR_COUNTER+=1
 	FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
-	; PART_RENAME_VAR:="HDD 4TB C S01 "
 	F_2:=""
 	FILE_NAME:=% PART_RENAME_VAR FILE_NAME F_2
 	
@@ -780,7 +779,7 @@ AUTO_CLONE_JOB:
 
 	WinGetTitle, Title, A
 	
-	POS_VAR:=INSTR(Title,"HDD 4TB D S01")
+	POS_VAR:=INSTR(Title,"HDD CLOUD GD1TB")
 	IF POS_VAR>0 
 	{
 		SOUNDBEEP 5000,100
