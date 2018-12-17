@@ -247,7 +247,6 @@ GOSUB, MONITOR_BRIGHTNESS_DIMMER_PER_DAY
 DetectHiddenWindows, on
 ALLOW_DIMMER := "True"
 
-
 if WinActive("ahk_class MediaPlayerClassicW")
 ALLOW_DIMMER := "False"
 
