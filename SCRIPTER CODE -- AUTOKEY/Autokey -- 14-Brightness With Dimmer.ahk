@@ -372,12 +372,12 @@ IF SET_GO=TRUE
 	}
 }
 
-	
 IF (OLDWinActive=0 and WinActive_2=1)
 	{ 
 		;SoundBeep , 2000 , 100
 		GOSUB, MONITOR_BRIGHTNESS_DIM
-		} 
+	} 
+		
 OLDWinActive=%WinActive_2%
  
 GetKeyState, state, LButton
@@ -422,6 +422,10 @@ return
 
 ; ------------------------------------------------------------------
 MONITOR_BRIGHTNESS_DIM:
+
+IF ALLOW_DIMMER=FALSE
+	RETURN
+	
 If (Mouse_Idle_Flip_Flop_Toggle = "False")
 {
 	; BRIGHTNESS LOW 1 IS MINIMAL DIMMER
