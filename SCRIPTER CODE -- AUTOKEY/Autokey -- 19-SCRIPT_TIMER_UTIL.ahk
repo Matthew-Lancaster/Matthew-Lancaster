@@ -1329,16 +1329,27 @@ Loop % ArrayCount
 		}
 }
 	
-	
+
+
+; -------------------------------------------------------------------
+; GOT SOME PROBLEM HERE SOMEWHERE MYSSM IS CHECKED 
+; AND NEXT LINE COME HERE AND THESE SENDINPUT ENTER ARE PUT ON MYSMS 
+; RANDOMLY INTERMITTENT 
+; NOT AS SOON AS ARRIVE
+; ADD MORE SAFETY CHECKER SEE HOW GOES
+; -------------------------------------------------------------------
 
 SetTitleMatchMode 3  ; Exactly
 
 UniqueID := WinActive("Log in with PayPal - Google Chrome")
-IF UniqueID>0 
-	
+
+WinGetTitle, Title, ahk_id %UniqueID%
+IF Instr(Title,"Log in with PayPal - Google Chrome")
+{
 	Loop, 30
 	{
-		IfWinExist ahk_id %UniqueID%
+		WinGetTitle, Title, ahk_id %UniqueID%
+		IF Instr(Title,"Log in with PayPal - Google Chrome")
 		{
 			#WinActivateForce, ahk_id %UniqueID%
 			SLEEP 500
@@ -1346,7 +1357,7 @@ IF UniqueID>0
 			SoundBeep , 2500 , 100
 		}
 	}
-	
+}
 
 	
 
