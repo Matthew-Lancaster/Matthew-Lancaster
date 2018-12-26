@@ -1,0 +1,120 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+/* Fix the missing cursor in comments */
+/* Source
+----
+Fix The Missing Cursor In Facebook Comment Boxes | Userstyles.org
+https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-boxes
+----
+*/
+
+.uiUfiAddComment, .UIImageBlock_Content.commentArea {
+   display:block !important;
+   width:auto !important;
+   margin-left:40px;
+}
+
+/* 
+------------------------------------------------------------------------------------------------------
+Additional Edit by my matt.lan@btinternet.com remove then top comment box
+This Fix has the effect of cure the mouse drag over comment box now it does not snap gone as per above
+The Line Below is for the top comment box remove
+unable to find cure that one where mouse drag snap over
+So instead hide the box 
+and answer when want to add comment 
+flick the switch to disable this syslus 
+The Change Came About Recently when Google Chrome Went through and Update
+After That Hard to Copy Clipboard on Facebook When Drag over a Comment Box
+All the Ususal Copy Paste Allow Extensions Did Not Work Anymore
+Just By Chance I Found This One Worker
+
+Wish I Knew Where URL For Enter a Comment on Facebook Without Computr Dragging Less Speed 
+From So Many Other Items Remain
+
+[ Wednesday 04:59:20 Am_26 December 2018 ]
+------------------------------------------------------------------------------------------------------
+*/
+
+.fbTimelineComposerCapsule
+{
+   display: none !important;
+   margin-left:0px;
+}
+
+
+/*
+------------------------------------------------------------------------------------------------------
+Some Test Play _ I'm Not That Good on Here
+Try make good comment box of TOP one With Simualr Code at Above 
+------------------------------------------------------------------------------------------------------
+
+.timeline_composer_container, .pagelet_timeline_composer
+{
+    display: none !important;
+}
+
+.UFIImageBlockContent
+{
+    display: none !important;
+}
+
+._42wr.UFICommentContent.UFICommentContent
+{
+    display: none !important;
+}
+
+.UFIComment.UFIComment
+{
+    display: none !important;
+}
+
+.UFICommentContent
+{
+    display: none !important;
+}
+.UFIAddCommentInput {
+    display: none !important;
+}
+
+.UFICommentActions, .UFICommentAttachmentButtons {
+display: none !important;
+}
+
+.UFILikeSentence, .UFILikeLink, .UFICommentActions, .UFICommentAttachmentButtons, ._sa_, ._10lo, li[data-gt*="feedback_reaction_generic"], ._2tm9, ._6jru, ._6op5
+{
+display: none !important;
+}
+*/
+
+/*
+.uiUfiAddComment .UFICommentContent {
+   display:block !important;
+   width:auto !important;
+   margin-left:40px;
+}
+*/
+
+
+/* ._1mwp navigationFocus _395  _4c_p _5bu_ _34nd _21mu _5yk1 */
+
+/*
+
+.UFIAddCommentInput .UIImageBlock_Content.commentArea {
+   display:block !important;
+   width:auto !important;
+   margin-left:40px;
+}
+
+.UIRoundedImage_CornersSprite, .comments_add_box_image {
+display: none !important;
+}
+
+.commentable_item .comment_box .comments_add_box textarea {
+width: 340px !important;
+}
+
+.commentable_item .comment_box .comments_add_box .inline_comment_buttons {
+padding-left: 0px !important;
+text-align:right;
+}
+
+*/
