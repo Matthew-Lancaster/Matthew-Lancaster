@@ -1,4 +1,4 @@
-@namespace url(http://www.w3.org/1999/xhtml);
+@namespace URL(http://www.w3.org/1999/xhtml);
 /* Fix The Missing Cursor In Facebook Comment Boxes */
 /* 
 Source Matthew GitHub
@@ -24,19 +24,19 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 Additional Edit by me matt.lan@btinternet.com remove then top comment box
 This Fix has the effect of cure the mouse drag over comment box now it does not snap gone as per above
 The Line Below is for the top comment box remove
-Unable to find cure that one where mouse drag snap over
+Unable to find a cure that one where mouse drag snap over
 So instead hide the box 
-And answer when want to add comment 
+And the answer are when have want to add an Originate Messenger Comment 
 Flick the switch to disable this WWW.USERSTYLES.ORG STYLISH
 The Change Came About Recently when Google Chrome Went through and Update
 After That Hard to Copy Clipboard on Facebook When Drag over a Comment Box
 All the Usual Copy Paste Allow Extensions Did Not Work Anymore
-Just By Chance I Found This One Worker
+Just By Chance, I Found This One Worker
 
-Wish I Knew Where URL For Enter a Comment on Facebook Without Computer Dragging Less Speed 
+Wish I Knew Where URL For Entering a Comment on Facebook Without Computer Dragging Less Speed 
 From So Many Other Items Remain
 
-FaceBook Purtiy Found the Answer for Her
+Facebook Purity Found the Answer for Her
 Must Ask them Or Somebody If Can Do the Fix For Me Like FBP
 Most Them Are Very Aged Old
 
