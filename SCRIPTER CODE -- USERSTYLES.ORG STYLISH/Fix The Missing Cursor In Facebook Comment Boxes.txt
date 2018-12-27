@@ -1,23 +1,53 @@
-@namespace URL(http://www.w3.org/1999/xhtml);
-/* Fix The Missing Cursor In Facebook Comment Boxes */
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document domain("facebook.com")
+{
+/* Fix Mouse Drag Comment Box Give Clipboard Facebook */
+/* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
 /* 
 Source Matthew GitHub
 ----
 Matthew-Lancaster/Fix The Missing Cursor In Facebook Comment Boxes.txt at master · Matthew-Lancaster/Matthew-Lancaster · GitHub
 https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
 ----
-Source Orginal
+Copied From Source Original Credit
 ----
 Fix The Missing Cursor In Facebook Comment Boxes | Userstyles.org
 https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-boxes
 ----
 */
 
+/* Here the Repeated Comment box on Your Our TimeLine */
+/* -------------------------------------------------- */
 .uiUfiAddComment, .UIImageBlock_Content.commentArea {
    display:block !important;
    width:auto !important;
    margin-left:40px;
 }
+
+/* Here the TOP Comment box on Fan Pages */
+/* ------------------------------------- */
+._5n2b._36bx._4-u2._4-u8 {
+   display: none !important;
+}
+
+/* Here the Repeated Comment box on Fan Pages */
+/* ------------------------------------------ */
+.UFIAddComment {
+   display: none !important;
+}
+
+
+/* Here the Repeated Comment box on Fan Pages                          */
+/* Can't Work this One Out to Fix Mouse Hoover _ Resort to 2nd Method */
+/* ------------------------------------------------------------------ */
+/* 
+.UFIAddComment, .UFICommentContainer, .UFIAddCommentInput, .ufi_comment_composer, .UFIInputContainer {
+   display:block !important;
+   width:auto !important;
+   margin-left:0px;
+}
+*/
+
 
 /* 
 ------------------------------------------------------------------------------------------------------
@@ -41,20 +71,26 @@ Must Ask them Or Somebody If Can Do the Fix For Me Like FBP
 Most Them Are Very Aged Old
 
 
+SESSION 001
 WORKER __ FROM __ TO
 Wed 26-Dec-2018 00:21:42
 Wed 26-Dec-2018 05:20:00
+SESSION 002
+WORKER __ FROM __ TO
+Wed 26-Dec-2018 13:20:50
+Wed 26-Dec-2018 15:08:00
 
 [ Wednesday 05:20:00 Am_26 December 2018 ]
 ------------------------------------------------------------------------------------------------------
 */
 
+/* Here the TOP Comment box on Your Our TimeLine */
+/* --------------------------------------------- */
 .fbTimelineComposerCapsule
 {
    display: none !important;
    margin-left:0px;
 }
-
 
 /*
 ------------------------------------------------------------------------------------------------------
@@ -133,3 +169,4 @@ text-align:right;
 }
 
 */
+}
