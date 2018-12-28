@@ -37,6 +37,14 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 }
 
 
+/* Here the Repeated Reply to Comment box on  Our TimeLine */
+/* ------------------------------------------------------- */
+/* UFI2Composer */
+._4efl.clearfix {
+   display: none !important;
+}
+
+
 /* Here the Repeated Comment box on Fan Pages                          */
 /* Can't Work this One Out to Fix Mouse Hoover _ Resort to 2nd Method */
 /* ------------------------------------------------------------------ */
@@ -75,16 +83,23 @@ SESSION 001
 WORKER __ FROM __ TO
 Wed 26-Dec-2018 00:21:42
 Wed 26-Dec-2018 05:20:00
+
 SESSION 002
 WORKER __ FROM __ TO
 Wed 26-Dec-2018 13:20:50
 Wed 26-Dec-2018 15:08:00
 
+SESSION 003 __ Do the Reply Box Gone
+WORKER __ FROM __ TO
+Thu 27-Dec-2018 09:02:54
+Thu 27-Dec-2018 09:12:00
+
+Creation
 [ Wednesday 05:20:00 Am_26 December 2018 ]
 ------------------------------------------------------------------------------------------------------
 */
 
-/* Here the TOP Comment box on Your Our TimeLine */
+/* Here the TOP Comment box on Our TimeLine */
 /* --------------------------------------------- */
 .fbTimelineComposerCapsule
 {
