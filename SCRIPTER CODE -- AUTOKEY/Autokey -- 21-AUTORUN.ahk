@@ -748,7 +748,7 @@ RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Ru
 ; READ FURTHER
 ; [ Monday 05:59:20 Am_29 October 2018 ]
 ; -------------------------------------------------------------------
-RegWrite, REG_DWORD, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, MultipleInvokePromptMinimum, 55
+RegWrite, REG_DWORD, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, MultipleInvokePromptMinimum, 255
 
 
 
