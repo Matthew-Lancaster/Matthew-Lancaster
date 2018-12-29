@@ -107,6 +107,15 @@ Creation
    margin-left:0px;
 }
 
+/* Hide the Top Nav Bar Jump to Timeline Thing Facebook  */
+/* Stop it From Float Down and Keep Banger Back Up Again */
+/* [ Friday 21:41:40 Pm_28 December 2018 ]               */
+/* ----------------------------------------------------  */
+._3qn7._61-3._2fyi._3qng._4tau.stickyHeaderWrap
+{
+   display: none !important;
+}
+
 /*
 ------------------------------------------------------------------------------------------------------
 Some Test Play _ I'm Not That Good on Here
