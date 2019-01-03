@@ -16,7 +16,7 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 ----
 */
 
-/* Here the Repeated Comment box on Your Our TimeLine */
+/* Here the Repeated Comment box on Our TimeLine */
 /* -------------------------------------------------- */
 .uiUfiAddComment, .UIImageBlock_Content.commentArea {
    display:block !important;
@@ -37,12 +37,40 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 }
 
 
-/* Here the Repeated Reply to Comment box on  Our TimeLine */
-/* ------------------------------------------------------- */
+/* Here the Repeated Reply to Comment box on Our TimeLine */
+/* ------------------------------------------------------ */
 /* UFI2Composer */
 ._4efl.clearfix {
    display: none !important;
 }
+
+/* Here the Repeated Grammarly Button on Our TimeLine */
+/* "Protected by Grammarly" */
+/* -------------------------------------------------- */
+/* THE GRAMARLY ONE SURE IS THE PROBLEM BUT HARD TO LOCATE AS IS A HOOVER OVER
+*/
+/* 
+.clearfix._4eez._43u6.clearfix ,._1obb , ._1HjH7, ._3qe6h, ._955cdf35-2197-0559-23c6-bc2e7a776aef {
+   display: none !important;
+}
+*/
+
+/* The Repeated Comment Box On Our and Friends Timeline */
+/* Now has to go _ As It Was Okay On Own Time Line But Friends was a Problem of Snap the Drag  */
+/* Now Top Line has Been Made Redundant * /
+/*  ,._1obb , ._1HjH7, ._3qe6h, ._955cdf35-2197-0559-23c6-bc2e7a776aef NOT REQUIREY */
+/* ------------------------------------------------------------------------------------------- */
+.clearfix._4eez._43u6.clearfix{
+   display: none !important;
+}
+
+/*
+THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
+--
+.UFI2Composer {
+   display: none !important;
+}
+*/
 
 
 /* Here the Repeated Comment box on Fan Pages                          */
@@ -93,6 +121,12 @@ SESSION 003 __ Do the Reply Box Gone
 WORKER __ FROM __ TO
 Thu 27-Dec-2018 09:02:54
 Thu 27-Dec-2018 09:12:00
+
+SESSION 004 __ The Comment Box Has to Go on Our Timeline and Is Same on Friends So Gone -- So all Comment Boxes Gone
+            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over anbd then Appear
+WORKER __ FROM __ TO
+Wed 02-Jan-2019 19:40:00
+Wed 02-Jan-2019 19:48:00
 
 Creation
 [ Wednesday 05:20:00 Am_26 December 2018 ]
