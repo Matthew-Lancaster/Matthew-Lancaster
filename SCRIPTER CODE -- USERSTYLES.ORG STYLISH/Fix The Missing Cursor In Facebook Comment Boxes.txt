@@ -16,12 +16,20 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 ----
 */
 
-/* Here the Repeated Comment box on Our TimeLine */
-/* -------------------------------------------------- */
+/* Here the Repeated Comment box on Our TimeLine                   */
+/* --------------------------------------------------              */
+/* Decide Now to Remove all Comment Box as Unable to Solve Problem */
+/* Some of the Icon Like Grammarly Make the Mouse Drag Get Stuck   */
+/* --------------------------------------------------              */
 .uiUfiAddComment, .UIImageBlock_Content.commentArea {
-   display:block !important;
-   width:auto !important;
-   margin-left:40px;
+    display: none !important;
+/* HERE WOULD BE WORKING CODE TO STOP SOME SORT OF DRAG OVER COMMENT BOX WAS WORKING FOR 
+   A BIT BUT ERROR FOUND LATER SOMETHING TO DO GRAMMARLY BOX
+   -------------------------------------------------------------------------------------
+    display:block !important;
+    width:auto !important;
+    margin-left:40px;
+*/    
 }
 
 /* Here the TOP Comment box on Fan Pages */
@@ -36,11 +44,14 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
    display: none !important;
 }
 
-
-/* Here the Repeated Reply to Comment box on Our TimeLine */
-/* ------------------------------------------------------ */
-/* UFI2Composer */
+/* Here the Repeated Reply to Comment box on Our TimeLine and Contacts  */
+/* -------------------------------------------------------------------- */
 ._4efl.clearfix {
+   display: none !important;
+}
+/* Here the Repeated Comment box on Our TimeLine and Contacts */
+/* ---------------------------------------------------------  */
+.clearfix._4eez._43u6.clearfix {
    display: none !important;
 }
 
@@ -60,9 +71,13 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 /* Now Top Line has Been Made Redundant * /
 /*  ,._1obb , ._1HjH7, ._3qe6h, ._955cdf35-2197-0559-23c6-bc2e7a776aef NOT REQUIREY */
 /* ------------------------------------------------------------------------------------------- */
+/* NOT WORKING HIDES MORE THAN SHOULD
+
 .clearfix._4eez._43u6.clearfix{
    display: none !important;
 }
+*/
+
 
 /*
 THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
@@ -128,6 +143,12 @@ WORKER __ FROM __ TO
 Wed 02-Jan-2019 19:40:00
 Wed 02-Jan-2019 19:48:00
 
+SESSION 005 __ The Comment Box Has to Go on Our Timeline and Is Same on Friends So Gone -- So all Comment Boxes Gone
+            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over anbd then Appear
+WORKER __ FROM __ TO
+Fri 04-Jan-2019 00:28:00
+Fri 04-Jan-2019 00:28:00
+
 Creation
 [ Wednesday 05:20:00 Am_26 December 2018 ]
 ------------------------------------------------------------------------------------------------------
@@ -149,6 +170,26 @@ Creation
 {
    display: none !important;
 }
+
+/* Hide the Announcement Messenger Post From Fan Page         */
+/* [ Wednesday 20:02:50 Pm_02 January 2019 ]                  */
+/* ----------------------------------------------------       */
+/* "pagelet_announcement_posts"><div class="_4-u2 _1brn _4-u8 */
+._4-u2._1brn._4-u8
+{
+   display: none !important;
+}
+
+/* Same as Hide the Announcement Messenger Post From Fan Page also Pinned Top Post From Fanner Page  */
+/* [ Wednesday 22:32:00 Pm_02 January 2019 ]                                                         */
+/* ----------------------------------------------------                                              */
+
+/*
+._5pcr.userContentWrapper.has-downloader
+{
+   display: none !important;
+}
+*/
 
 /*
 ------------------------------------------------------------------------------------------------------
