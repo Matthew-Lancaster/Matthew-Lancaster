@@ -134,6 +134,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;---------------------------------------------------------
 ; CODE INITIALIZE SOUND EFFECT LEARN
 ;---------------------------------------------------------
+PAUSE
 SoundBeep , 1500 , 400
 ;SoundSetWaveVolume, 100 
 ;SoundSet, 5
