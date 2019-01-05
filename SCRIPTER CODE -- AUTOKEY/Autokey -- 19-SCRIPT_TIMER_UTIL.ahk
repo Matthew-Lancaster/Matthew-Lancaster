@@ -680,7 +680,9 @@ IfWinExist File Access Denied ahk_class OperationStatusWindow
 }
 
 DetectHiddenWindows, ON
+DetectHiddenWindows, OFF
 
+IF TRUE=FALSE
 ifWinNotExist, ahk_class wndclass_desked_gsk
 {
 	if (WinExist("(Not Responding)") and Set_Var_Responding_1="FALSE")
@@ -786,7 +788,7 @@ IfWinExist ahk_class #32770
 }
 
 
-DetectHiddenWindows, On
+DetectHiddenWindows, OFF
 
 ; -------------------------------------------------------------------
 ; Question at End of Sync is Able to Be Made Close Auto
@@ -797,6 +799,7 @@ IfWinExist %Sting_Var%
 {
 	HWND_ID_5 := WinExist("%Sting_Var%")
 	SET_GO=FALSE
+	DetectHiddenWindows, ON
 	; ---------------------------------------------------------------
 	; ON SYSTEM START UP OF 1ST RUN _ Button60
 	; ---------------------------------------------------------------
@@ -1298,35 +1301,35 @@ WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"
 ArrayCount += 1
 WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
 
+UniqueID := WinActive("AutoFill - RoboForm")
+IF UniqueID>0 
 Loop % ArrayCount
 {
   Element := WINDOW_Array[A_Index]
-	UniqueID := WinActive("AutoFill - RoboForm")
-	IF UniqueID>0 
-		IfWinExist %Element%
+	IfWinExist %Element%
+	{
+		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
+		If (OutputVar_2="&Fill Forms")
 		{
-			ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
-			If (OutputVar_2="&Fill Forms")
+			#WinActivateForce, AutoFill - RoboForm
+			ControlClick, Button1, AutoFill - RoboForm
+			SoundBeep , 2500 , 100
+			#WinActivateForce, %Element%
+			
+			Loop, 30
 			{
-				#WinActivateForce, AutoFill - RoboForm
-				ControlClick, Button1, AutoFill - RoboForm
-				SoundBeep , 2500 , 100
-				#WinActivateForce, %Element%
-				
-				Loop, 30
+				IfWinExist %Element%
 				{
-					IfWinExist %Element%
-					{
-						SLEEP 500
-						SENDINPUT {ENTER}
-						SoundBeep , 2500 , 100
-					}
-					ELSE
-						BREAK
+					SLEEP 500
+					SENDINPUT {ENTER}
+					SoundBeep , 2500 , 100
 				}
-				
+				ELSE
+					BREAK
 			}
+			
 		}
+	}
 }
 	
 
@@ -1449,7 +1452,7 @@ IF HWND_ID_1>0
 ; THE NEW YAHOO MAIL INTERFACE HAS PROBLEM
 ; WHEN I WANT HEADER INFO OF AN EMAIL LIKE IT WAS TO PRINT ONE
 ; TO COPY PASTE THE TEXT HEADER
-; NOW THE NEW PRINT OF YAHOO INCLUDE DOBLE CALL WINDOW TO PRINT ALSO
+; NOW THE NEW PRINT OF YAHOO INCLUDE DOUBLE CALL WINDOW TO PRINT ALSO
 ; WHEN THAT WAS OPTION ON NICER FIRST SCREEN WINDOW BEFORE
 ; SO I MAKE A PIXEL FIND COLOR AND CLOSE PRINT SCREEN 
 ; SAVE ME HAVE TO
@@ -1459,63 +1462,66 @@ IF HWND_ID_1>0
 ; [ Monday 20:08:30 Pm_22 October 2018 ]
 ; -------------------------------------------------------------------
 
-FN_Array_1 := []
-FN_Array_2 := []
-
-WinGet, id, list,ahk_class Chrome_WidgetWin_1
-Loop, %id%
+IF TRUE=FALSE
 {
-	table := id%A_Index%
-	WinGetTitle, title, ahk_id %table%
-	FN_Array_1[A_Index] := "%table%"
-	FN_Array_2[A_Index] := id%A_Index%
-}
+	FN_Array_1 := []
+	FN_Array_2 := []
 
-CoordMode Pixel, Window 
-
-Loop % FN_Array_1.MaxIndex()
-	ArrayCount_VAR_1=%A_Index%
-	Loop % FN_Array_1.MaxIndex()
+	WinGet, id, list,ahk_class Chrome_WidgetWin_1
+	Loop, %id%
 	{
-		ArrayCount_VAR_2=%A_Index%
-		IF ArrayCount_VAR_1<>ArrayCount_VAR_2    ; NOT THE SELF
+		table := id%A_Index%
+		WinGetTitle, title, ahk_id %table%
+		FN_Array_1[A_Index] := "%table%"
+		FN_Array_2[A_Index] := id%A_Index%
+	}
+
+	CoordMode Pixel, Window 
+
+	Loop % FN_Array_1.MaxIndex()
+		ArrayCount_VAR_1=%A_Index%
+		Loop % FN_Array_1.MaxIndex()
 		{
-			IF FN_Array_1[ArrayCount_VAR_1]=FN_Array_1[ArrayCount_VAR_2]
-				;MSGBOX "HOO"
-				; MSGBOX % FN_Array_2[ArrayCount_VAR_2]
-				HWND_4 = % FN_Array_2[ArrayCount_VAR_2]
-				WinGet, HWND_2, ID, ahk_id %HWND_4%
-				IF HWND_4>0
-				{
-					X=500
-					Y=100
-					PixelGetColor Color_1, %X%, %Y%, RGB
-					X=242
-					Y=180
-					PixelGetColor Color_2, %X%, %Y%, RGB
-					X=295
-					Y=180
-					PixelGetColor Color_3, %X%, %Y%, RGB
-					
-					COLOR_COMPARE_1=0x5256590x4B8EF90x4B8EF9
-					COLOR_COMPARE_2=%COLOR_1%%COLOR_2%%COLOR_3%
-					IF COLOR_COMPARE_1=%COLOR_COMPARE_2%
+			ArrayCount_VAR_2=%A_Index%
+			IF ArrayCount_VAR_1<>ArrayCount_VAR_2    ; NOT THE SELF
+			{
+				IF FN_Array_1[ArrayCount_VAR_1]=FN_Array_1[ArrayCount_VAR_2]
+					;MSGBOX "HOO"
+					; MSGBOX % FN_Array_2[ArrayCount_VAR_2]
+					HWND_4 = % FN_Array_2[ArrayCount_VAR_2]
+					WinGet, HWND_2, ID, ahk_id %HWND_4%
+					IF HWND_2>0
 					{
-						SOUNDBEEP 1000,50
-						; TOOLTIP % COLOR_COMPARE_1 " -- " COLOR_COMPARE_2
-						; WinCLOSE  ahk_id %HWND_4%
-						SENDINPUT {ESCAPE}
-						RETURN
-					}
-						; WinMinimize  ahk_id %HWND_4%
+						X=500
+						Y=100
+						PixelGetColor Color_1, %X%, %Y%, RGB
+						X=242
+						Y=180
+						PixelGetColor Color_2, %X%, %Y%, RGB
+						X=295
+						Y=180
+						PixelGetColor Color_3, %X%, %Y%, RGB
+						
+						COLOR_COMPARE_1=0x5256590x4B8EF90x4B8EF9
+						COLOR_COMPARE_2=%COLOR_1%%COLOR_2%%COLOR_3%
+						IF COLOR_COMPARE_1=%COLOR_COMPARE_2%
+						{
+							SOUNDBEEP 1000,50
+							; TOOLTIP % COLOR_COMPARE_1 " -- " COLOR_COMPARE_2
+							; WinCLOSE  ahk_id %HWND_4%
+							SENDINPUT {ESCAPE}
+							RETURN
+						}
+							; WinMinimize  ahk_id %HWND_4%
+				}
 			}
 		}
-	}
-; ----
-; PixelGetColor from an innactive window - Ask for Help - AutoHotkey Community
-; https://autohotkey.com/board/topic/103880-pixelgetcolor-from-an-innactive-window/
-; ----
-
+	; ----
+	; PixelGetColor from an innactive window - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/103880-pixelgetcolor-from-an-innactive-window/
+	; ----
+}
+	
 SetTitleMatchMode 3  ; Exactly
 DetectHiddenText, Off
 HWND_ID_1 := WinExist("InfoRapid Search & Replace ahk_class #32770")
@@ -1559,9 +1565,6 @@ TIMER_ROBOFORM_MYSMS_LOGIN:
 ; BED TIME DAY LIGHT IS HERE
 
 
-; CoordMode Mouse, Window
-CoordMode Pixel, Window
-
 
 COLOUR_SET=FALSE
 UniqueID := WinActive("mysms - Google Chrome")
@@ -1572,6 +1575,9 @@ IF UniqueID>0
 	IfWinExist ahk_id %UniqueID%
 	{
 		; MSGBOX % OLD_UniqueID_MYSMS
+
+		; CoordMode Mouse, Window
+		CoordMode Pixel, Window
 
 		IF UniqueID<>%OLD_UniqueID_MYSMS%
 		{
@@ -1928,280 +1934,283 @@ DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 WinGet, HWND_1, ID, ] Options ahk_class #32770
-WinGet, HWND_2, ID, A
-IF HWND_2=%HWND_1%
+IF HWND_1>0
 {
-	; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
-	; Tooltip, % OutputVar ; List All Controls of Active Window
-	;---------------------------------------------------------
-	ControlGettext, OutputVar_2, Button16, ahk_id %HWND_1%
-
-	ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
-	
-	WinGetTitle OutputVar_3,ahk_id %HWND_1%
-	
-	If (OutputVar_1 = 2
-		and OutputVar_2="Periodically (On Timer), every")
-		{
-			ControlSetText, Edit9,, ahk_id %HWND_1%
-			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-
-		}
-		
-	; ; PRESS SAVE WHEN SETTING OPTIONS DONE
-	; ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
-	; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-	; If (OutputVar_1 = 5 and Status=1)
-	; {
-		; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
-		; MouseMove, X+10, Y+10		
-		; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
-		; SoundBeep , 4000 , 100
-	; }	
-	
-	; WinGet, HWND_1, ID, ] Options ahk_class #32770
-	; TOOLTIP % OutputVar_3
-	If INSTR(OutputVar_3,"HDD HUBIC")>0 
+	WinGet, HWND_2, ID, A
+	IF HWND_2=%HWND_1%
 	{
-		ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
-		If Status=1
+		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
+		; Tooltip, % OutputVar ; List All Controls of Active Window
+		;---------------------------------------------------------
+		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_1%
+
+		ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
+		
+		WinGetTitle OutputVar_3,ahk_id %HWND_1%
+		
+		If (OutputVar_1 = 2
+			and OutputVar_2="Periodically (On Timer), every")
+			{
+				ControlSetText, Edit9,, ahk_id %HWND_1%
+				Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+
+			}
+			
+		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
+		; ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
+		; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+		; If (OutputVar_1 = 5 and Status=1)
+		; {
+			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
+			; MouseMove, X+10, Y+10		
+			; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
+			; SoundBeep , 4000 , 100
+		; }	
+		
+		; WinGet, HWND_1, ID, ] Options ahk_class #32770
+		; TOOLTIP % OutputVar_3
+		If INSTR(OutputVar_3,"HDD HUBIC")>0 
 		{
-			Control, UNCheck,, Button58, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
+			ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
+			If Status=1
+			{
+				Control, UNCheck,, Button58, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+
+			; ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
+			; If Status=0
+			; {
+				; LOOP
+				; {
+					; SLEEP 50
+					; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
+					; MouseMove, X+10, Y+10
+					
+					; ControlClick, Button65,ahk_id %HWND_1%
+					; IfWinNotExist, ahk_id %HWND_1%
+						; BREAK
+					; SoundBeep , 4000 , 50
+				; }
+			; }
+		}
+			
+		if O_HWND_1<>%HWND_1%
+		{
+			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
+			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+			If Status=0
+			{
+				Control, Check,, Button16, ahk_id %HWND_1%
+				IF OutputVar_4=1
+					SoundBeep , 4000 , 100
+			}
 		}
 
-		; ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
-		; If Status=0
 		; {
-			; LOOP
+			; ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
+			; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+			; If Status=0
 			; {
-				; SLEEP 50
-				; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
-				; MouseMove, X+10, Y+10
-				
-				; ControlClick, Button65,ahk_id %HWND_1%
-				; IfWinNotExist, ahk_id %HWND_1%
-					; BREAK
-				; SoundBeep , 4000 , 50
+				; Control, Check,, Button16, ahk_id %HWND_1%
+				; IF OutputVar_4=1
+					; SoundBeep , 4000 , 100
 			; }
 		; }
-	}
 		
-	if O_HWND_1<>%HWND_1%
-	{
-		ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-		ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-		If Status=0
-		{
-			Control, Check,, Button16, ahk_id %HWND_1%
-			IF OutputVar_4=1
+		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
+		
+		If (OutputVar_1 <> 80
+			and OutputVar_2="Do not Sync if changed files more than")
+			{
+				ControlSetText, Edit12,, ahk_id %HWND_1%
+				Control, EditPaste, 80,	Edit12, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 		}
-	}
-
-	; {
-		; ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-		; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
 		; If Status=0
 		; {
-			; Control, Check,, Button16, ahk_id %HWND_1%
-			; IF OutputVar_4=1
+			; Control, Check,, Button21, ahk_id %HWND_1%
 				; SoundBeep , 4000 , 100
 		; }
-	; }
-	
-	ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
-	ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
-	
-	If (OutputVar_1 <> 80
-		and OutputVar_2="Do not Sync if changed files more than")
-		{
-			ControlSetText, Edit12,, ahk_id %HWND_1%
-			Control, EditPaste, 80,	Edit12, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-	}
-	; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
-	; If Status=0
-	; {
-		; Control, Check,, Button21, ahk_id %HWND_1%
+		
+		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
+		; ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
+		; If (OutputVar_1 = 90 and Status=1)
+		; {
+			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
+			; MouseMove, X+10, Y+10		
+			; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
 			; SoundBeep , 4000 , 100
-	; }
-	
-	; ; PRESS SAVE WHEN SETTING OPTIONS DONE
-	; ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
-	; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
-	; If (OutputVar_1 = 90 and Status=1)
-	; {
-		; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
-		; MouseMove, X+10, Y+10		
-		; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
-		; SoundBeep , 4000 , 100
-	; }
-	
-	
-	ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
-	ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-	
-	If (!OutputVar_1 
-		and OutputVar_2="Wait for Locks to clear, minutes")
+		; }
+		
+		
+		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
+		
+		If (!OutputVar_1 
+			and OutputVar_2="Wait for Locks to clear, minutes")
+			{
+				ControlSetText, Edit12,, ahk_id %HWND_1%
+				Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+
+		}
+		ControlGet, Status, Checked,, Button22, ahk_id %HWND_1%
+		If Status=1
 		{
-			ControlSetText, Edit12,, ahk_id %HWND_1%
-			Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
+			Control, UnCheck,, Button22, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
+		}
 
-	}
-	ControlGet, Status, Checked,, Button22, ahk_id %HWND_1%
-	If Status=1
-	{
-		Control, UnCheck,, Button22, ahk_id %HWND_1%
-		SoundBeep , 4000 , 100
-	}
+		;------------------------------------------------------------
+		; Button5 ---- Save deleted/replaced files to History f (...)
+		; Button6 ---- Cleanup _history_ folder after this many (...)
+		; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
+		;------------------------------------------------------------
+		ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
+		If Status = 1
+		{
+			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button6, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+		}
 
-	;------------------------------------------------------------
-	; Button5 ---- Save deleted/replaced files to History f (...)
-	; Button6 ---- Cleanup _history_ folder after this many (...)
-	; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
-	;------------------------------------------------------------
-	ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
-	If Status = 1
-	{
+		
+		;------------------------------------------------------------
+		; ---- HISTORY SET DAYS TO 30
+		;------------------------------------------------------------
+		Var_check=[VB
+		if (SubStr(OutputVar_3, 1, 3)=Var_check)
+		{
+			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+			If Status = 1
+			{
+				ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
+				ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
+				
+				If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+				{
+						ControlSetText, Edit2,, ahk_id %HWND_1%
+						Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
+						SoundBeep , 4000 , 100
+				}
+			}
+		}
+		
+		;-----------------------------------------------------
+		; Button3
+		; Text:	Save deleted/replaced files to Recycle B (...)
+		; Button4
+		; Text:	Cleanup _saved_ folder after this many d (...)
+		;-----------------------------------------------------
+		Var_check=[VB
+		if (SubStr(OutputVar_3, 1, 3)=Var_check)
+		{
+		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+		If Status = 1
+		{
+			sleep, 500
+			ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
+			ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
+			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+				{
+					ControlSetText, Edit1,, ahk_id %HWND_1%
+					Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+			}
+		}
+		}
+		
+		;-----------------------------------------------------
+		; CAN'T DO THIS ONE 
+		; IT'S EITHER HISTORY OR SAVED NOT BOTH
+		; WELL YOU CAN DO BUTTON4 SAVE DO-ER INFINITE
+		; Button3
+		; Text:	Save deleted/replaced files to Recycle B (...)
+		; Button4
+		; Text:	Cleanup _saved_ folder after this many d (...)
+		; Button6
+		; Cleanup _history_ folder after this many (...)
+		; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
+		;-----------------------------------------------------
+		;ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
+		;If Status = 0
+		;{
+		;	Control, Check,, Button3, ahk_id %HWND_1%
+		;	SoundBeep , 4000 , 100
+		;}
+		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+		If Status = 0
+		{
+			Control, Check,, Button4, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
 		ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
 		If Status = 0
 		{
 			Control, Check,, Button6, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
 		}
-	}
-
-	
-	;------------------------------------------------------------
-	; ---- HISTORY SET DAYS TO 30
-	;------------------------------------------------------------
-	Var_check=[VB
-	if (SubStr(OutputVar_3, 1, 3)=Var_check)
-	{
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 1
+		
+		
+		IF O_HWND_1<>%HWND_1%
 		{
-			ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-			ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
-			
-			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+			O_Status_GSDATA=0
+		}
+		;------------------------------------------------------------
+		; ---- No _gsdata_ folder here
+		;------------------------------------------------------------
+		Var_check=[VB
+		if (SubStr(OutputVar_3, 1, 3)=Var_check)
+		{
+			ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+			If Status = 1
+			IF O_Status_GSDATA<>%Status%
 			{
-					ControlSetText, Edit2,, ahk_id %HWND_1%
-					Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+				Control, unCheck,, Button41, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+				ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+				If Status=0
+					O_Status_GSDATA=1
 			}
 		}
-	}
-	
-	;-----------------------------------------------------
-	; Button3
-	; Text:	Save deleted/replaced files to Recycle B (...)
-	; Button4
-	; Text:	Cleanup _saved_ folder after this many d (...)
-	;-----------------------------------------------------
-	Var_check=[VB
-	if (SubStr(OutputVar_3, 1, 3)=Var_check)
-	{
-	ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-	If Status = 1
-	{
-		sleep, 500
-		ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
-		ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
-		If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+		
+		;------------------------------------------------------------
+		;Button10 ---	Text:	Exclude empty folders
+		;Button11 --- Text:	Exclude Hidden files and folders
+		;Button12 -- Text:	Exclude System files and folders
+		;------------------------------------------------------------
+		Var_check=[VB EXE SYNC
+		if (SubStr(OutputVar_3, 1, 12)=Var_check)
+		{
+			ControlGet, Status, Checked,, Button10, ahk_id %HWND_1%
+			If Status = 0
 			{
-				ControlSetText, Edit1,, ahk_id %HWND_1%
-				Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
+				Control, Check,, Button10, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
+			}
+			ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button11, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+			ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button12, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
 		}
+		O_HWND_1=%HWND_1%
 	}
-	}
-	
-	;-----------------------------------------------------
-	; CAN'T DO THIS ONE 
-	; IT'S EITHER HISTORY OR SAVED NOT BOTH
-	; WELL YOU CAN DO BUTTON4 SAVE DO-ER INFINITE
-	; Button3
-	; Text:	Save deleted/replaced files to Recycle B (...)
-	; Button4
-	; Text:	Cleanup _saved_ folder after this many d (...)
-	; Button6
-	; Cleanup _history_ folder after this many (...)
-	; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
-	;-----------------------------------------------------
-	;ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
-	;If Status = 0
-	;{
-	;	Control, Check,, Button3, ahk_id %HWND_1%
-	;	SoundBeep , 4000 , 100
-	;}
-	ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-	If Status = 0
-	{
-		Control, Check,, Button4, ahk_id %HWND_1%
-		SoundBeep , 4000 , 100
-	}
-	ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-	If Status = 0
-	{
-		Control, Check,, Button6, ahk_id %HWND_1%
-		SoundBeep , 4000 , 100
-	}
-	
-	
-	IF O_HWND_1<>%HWND_1%
-	{
-		O_Status_GSDATA=0
-	}
-	;------------------------------------------------------------
-	; ---- No _gsdata_ folder here
-	;------------------------------------------------------------
-	Var_check=[VB
-	if (SubStr(OutputVar_3, 1, 3)=Var_check)
-	{
-		ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-		If Status = 1
-		IF O_Status_GSDATA<>%Status%
-		{
-			Control, unCheck,, Button41, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-			ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-			If Status=0
-				O_Status_GSDATA=1
-		}
-	}
-	
-	;------------------------------------------------------------
-	;Button10 ---	Text:	Exclude empty folders
-	;Button11 --- Text:	Exclude Hidden files and folders
-	;Button12 -- Text:	Exclude System files and folders
-	;------------------------------------------------------------
-	Var_check=[VB EXE SYNC
-	if (SubStr(OutputVar_3, 1, 12)=Var_check)
-	{
-		ControlGet, Status, Checked,, Button10, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button10, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button11, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button12, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-	}
-	O_HWND_1=%HWND_1%
 }
 
 ;Are you sure you want to move _GSDATA_ folder back to the sync folder?
@@ -2211,48 +2220,48 @@ IF HWND_2=%HWND_1%
 
 ;WinGet, HWND_1, ID, GoodSync Warning ahk_class #32770
 WinGet, HWND_1, ID, GoodSync ahk_class #32770
-WinGet, HWND_2, ID, A
-IF HWND_2=%HWND_1%
+IF HWND_1>0 
 {
-	WinGetText OutputVar_3,ahk_id %HWND_1%
-
-	IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
+	WinGet, HWND_2, ID, A
+	IF HWND_2=%HWND_1%
 	{
-		ControlClick, Button2,ahk_id %HWND_1%
-		SoundBeep , 4000 , 100
+		WinGetText OutputVar_3,ahk_id %HWND_1%
+
+		IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
+		{
+			ControlClick, Button2,ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
+
+		IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
+		{
+			ControlClick, Button2,ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
+
+		WinGet, HWND_1, ID, GoodSync ahk_class #32770
+		WinGetText OutputVar_3,ahk_id %HWND_1%
+
+		IfInString, OutputVar_3, Removable drive with volume name
+		{
+			ControlClick, Yes,ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
+
+
+		; We recommend not to sync to disk root folder, because:
+		; - there are limitations on how many files and folders you can have in disk root folder,
+		; - sync folder name would help you identify copy of what folder you keep in there.
+		; So we will sync to folder K:\=D_DRIVE-2TB - Backup instead. Is this Ok?
+		; Yes
+		; No
+		IfInString, OutputVar_3, We recommend not to sync to disk root folder
+		{
+			ControlClick, Button3,ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
 	}
-
-	IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
-	{
-		ControlClick, Button2,ahk_id %HWND_1%
-		SoundBeep , 4000 , 100
-	}
-
-	WinGet, HWND_1, ID, GoodSync ahk_class #32770
-	WinGetText OutputVar_3,ahk_id %HWND_1%
-
-	IfInString, OutputVar_3, Removable drive with volume name
-	{
-		ControlClick, Yes,ahk_id %HWND_1%
-		SoundBeep , 4000 , 100
-	}
-
-
-	; We recommend not to sync to disk root folder, because:
-	; - there are limitations on how many files and folders you can have in disk root folder,
-	; - sync folder name would help you identify copy of what folder you keep in there.
-	; So we will sync to folder K:\=D_DRIVE-2TB - Backup instead. Is this Ok?
-	; Yes
-	; No
-	IfInString, OutputVar_3, We recommend not to sync to disk root folder
-	{
-		ControlClick, Button3,ahk_id %HWND_1%
-		SoundBeep , 4000 , 100
-	}
-
-
 }
-
 DetectHiddenWindows, % dhw
 Return
 
