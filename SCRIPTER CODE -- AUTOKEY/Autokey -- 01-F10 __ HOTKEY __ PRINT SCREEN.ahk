@@ -120,6 +120,11 @@ Return
 
 AUTO_RELOAD_FACEBOOK:
 
+	If (A_TimeIdle < 8000)
+	{
+		RETURN
+	}
+	
 	WinGetCLASS, CLASS, A
 	WinGetTITLE, TITLE_VAR, A
 
