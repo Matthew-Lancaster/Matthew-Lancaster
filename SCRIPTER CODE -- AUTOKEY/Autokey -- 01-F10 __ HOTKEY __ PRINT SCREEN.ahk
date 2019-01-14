@@ -486,6 +486,7 @@ TOP_LEFT_MOUSE_CLOSE_MPC:
 	SET_GO=FALSE
 	
 	WinGetCLASS, CLASS, A
+	WinGetTITLE, TITLE_NAME, A
 
 	XR=0
 	IF INSTR(CLASS,"MediaPlayerClassicW")
@@ -525,9 +526,25 @@ TOP_LEFT_MOUSE_CLOSE_MPC:
 				Soundbeep 2000,200
 				XR=0
 			}
-			IF XR>0 
+			IF XR>0
 			{
-				Process, Close, i_view32.exe
+				; Process, Close, i_view32.exe
+				; ---------------------------------------------------
+				; ABOVE METHOD FAIL DESTROYS WINDOWS EXPLORER TASKBAR 
+				; HAVE TO RESET EXPLORER AGAIN
+				; ---------------------------------------------------
+
+				; PostMessage, 0x112, 0xF060,,, TITLE_NAME, WinText  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+				; PostMessage, 0x112, 0xF060,,, TITLE_NAME , CLASS  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+				; PostMessage, 0x112, 0xF060,,, TITLE_NAME ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+				
+				; ---------------------------------------------------
+				; BOTH METHOD WORK BUT HARD TO USE WITH PASS VARIABLE 
+				; UNLESS DEBUG A BIT
+				; ---------------------------------------------------
+				PostMessage, 0x112, 0xF060,,, IrfanView ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+				WinClose, IrfanView
+				
 				Soundbeep 2000,200
 			}
 		}	

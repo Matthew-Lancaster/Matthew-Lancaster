@@ -124,7 +124,7 @@ SetTitleMatchMode 3  ; Specify Full path
 ; SYSTEM OR SOMETHING _ FACEBOOK YOUR PROCESSOR INTERNET _ 
 ; PROCESS PRIORITY CHROME
 ; -------------------------------------------------------------------
-VAR_COUNTER=362
+VAR_COUNTER=4
 
 ; -------------------------------------------------------------------
 ; VAR_COUNTER_STOP_AT= NUMBER = STOP __ NOTHING 0 NAUGHT = ALL THE WAY
@@ -132,7 +132,8 @@ VAR_COUNTER=362
 VAR_COUNTER_STOP_AT=359
 VAR_COUNTER_STOP_AT+=1
 VAR_COUNTER_STOP_AT=
-
+VAR_COUNTER_STOP_AFTER=1
+VAR_COUNTER_STOP_AFTER_COUNT=1
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -150,7 +151,7 @@ FILE_SCRIPT := Object()
 ; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER 
 ; SINGLE FOLDER ONLY AT THE MOMENT
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=K:\GD_PHOTO\2018 November 01\*.JPG
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\2019 01 11\*.JPG
 
 Loop, Files, %FILE_PATH_WILDPATH_JPG%
 {
@@ -181,8 +182,8 @@ FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
 ; -----------------------------------------------------------------------
 ; WHEN IN THE ALBUM EDIT PAGE
 ; -----------------------------------------------------------------------
-FACEBOOK_URL_TITLE_2=XXXFacebook - Google Chrome
-FACEBOOK_URL_TITLE_1=Facebook - Google Chrome
+FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
+; FACEBOOK_URL_TITLE_1=Facebook - Google Chrome
 
 SET_GO=FALSE
 IfWinExist, %SET_String%
@@ -217,7 +218,6 @@ IF SET_GO=FALSE
 	EXITAPP
 	RETURN
 }
-
 Return
 
 
@@ -329,7 +329,6 @@ IfWinExist, %FACEBOOK_URL_TITLE_1%
 	SLEEP 1000
 }
 
-
 ; -----------------------------------------------------------------------
 ; RESET TIMER DUE TO ANY DELAY
 ; LIKE ACTIVATE WINDOW & MORE SLEEP TIMER
@@ -340,6 +339,7 @@ SETTIMER F4,%FACEBOOK_TIMER_DELAY%
 
 
 VAR_COUNTER+=1
+VAR_COUNTER_STOP_AFTER_COUNT+=1
 
 STOP_HERE=FALSE
 IF VAR_COUNTER>%FILE_SCRIPT_COUNT%
@@ -349,6 +349,9 @@ IF VAR_COUNTER_STOP_AT
 	IF VAR_COUNTER>%VAR_COUNTER_STOP_AT%
 		STOP_HERE=TRUE
 
+IF VAR_COUNTER_STOP_AFTER_COUNT>%VAR_COUNTER_STOP_AFTER%
+	STOP_HERE=TRUE
+		
 IF STOP_HERE=TRUE
 {
 	SETTIMER F4,off
