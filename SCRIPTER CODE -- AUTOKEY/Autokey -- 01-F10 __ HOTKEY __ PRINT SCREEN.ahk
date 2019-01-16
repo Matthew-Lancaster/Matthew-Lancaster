@@ -81,6 +81,9 @@ SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,100
 ; SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,OFF
 
 SETTIMER AUTO_RELOAD_FACEBOOK,59000
+SETTIMER AUTO_RELOAD_RAIN_ALARM,600000
+
+
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -118,6 +121,34 @@ Return
 ; -------------------------------------------------------------------
 
 
+AUTO_RELOAD_RAIN_ALARM:
+
+	; If (A_TimeIdle < 8000)
+	; {
+		; RETURN
+	; }
+	
+	WinGetCLASS, CLASS, A
+	WinGetTITLE, TITLE_VAR, A
+
+	XR_1=0
+	IF INSTR(CLASS,"Chrome_WidgetWin_1")
+		XR_1=1
+
+	XR_2=0
+	IF INSTR(TITLE_VAR,"Rain Alarm - Google Chrome")
+		XR_2=1
+
+	IF XR_1>0
+		IF XR_2>0
+		{
+			SENDINPUT {F5}
+			; SOUNDBEEP 1000,50
+		}
+		
+RETURN
+
+
 AUTO_RELOAD_FACEBOOK:
 
 	If (A_TimeIdle < 8000)
@@ -137,12 +168,11 @@ AUTO_RELOAD_FACEBOOK:
 		XR_2=1
 
 	IF XR_1>0
-	IF XR_2>0
-	{
-		SENDINPUT {F5}
-		; SOUNDBEEP 1000,50
-	}
-	
+		IF XR_2>0
+		{
+			SENDINPUT {F5}
+			; SOUNDBEEP 1000,50
+		}
 		
 RETURN
 
