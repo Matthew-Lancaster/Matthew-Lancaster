@@ -2273,21 +2273,21 @@ dhw := A_DetectHiddenWindows
 DetectHiddenWindows, OFF
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-IF (TRUE=FALSE)
+IF (TRUE=TRUE)
 {
 	Process, Exist, GoodSync-v10.exe
 	If Not ErrorLevel
-		{
+	{
 		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 		IfExist, %FN_VAR%
-			{
+		{
 			SoundBeep , 4000 , 100
 			SoundBeep , 3000 , 100
 			SoundBeep , 4000 , 100
 			SoundBeep , 3000 , 100
 			Run, "%FN_VAR%" , , MIN
-			}
 		}
+	}
 }
 
 IfWinExist GoodSync - Preparing Crash Report
