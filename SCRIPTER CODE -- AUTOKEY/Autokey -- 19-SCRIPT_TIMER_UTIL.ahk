@@ -248,7 +248,7 @@ setTimer TIMER_SUB_1,200
 
 setTimer TIMER_SUB_EliteSpy, OFF
 
-setTimer TIMER_SUB_GOODSYNC,1000
+setTimer TIMER_SUB_GOODSYNC,5000
 setTimer TIMER_SUB_GOODSYNC_OPTIONS,1000
 
 setTimer TIMER_SUB_NOTEPAD_PLUS_PLUS,1000
@@ -2273,10 +2273,25 @@ dhw := A_DetectHiddenWindows
 DetectHiddenWindows, OFF
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
+
+
 IF (TRUE=TRUE)
 {
+	; ---------------------------------------------------------------
+	; PROBLEM ONE COMPUTER MY MSI INTEL 7 WIN 10 
+	; HAS THAT PROCESS IS CALLED GoodSync.exe
+	; WHILE OTHER COMPUTER USE   GoodSync-v10.exe
+	; SO WE __ 19 JAN 2019 13:50
+	; ---------------------------------------------------------------
+	SET_GO=TRUE
 	Process, Exist, GoodSync-v10.exe
-	If Not ErrorLevel
+	If ErrorLevel
+		SET_GO=FALSE
+	Process, Exist, GoodSync.exe
+	If ErrorLevel
+		SET_GO=FALSE
+	
+	IF SET_GO = TRUE
 	{
 		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 		IfExist, %FN_VAR%
