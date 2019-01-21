@@ -126,7 +126,7 @@ SetTitleMatchMode 3  ; Specify Full path
 ; -------------------------------------------------------------------
 ; START AT VALUE
 ; NORM WOULD BE 1 FOR 1ST
-VAR_COUNTER=2
+VAR_COUNTER=1
 
 ; -------------------------------------------------------------------
 ; VAR_COUNTER_STOP_AT= NUMBER = STOP __ NOTHING 0 NAUGHT = ALL THE WAY
@@ -158,7 +158,7 @@ FILE_SCRIPT := Object()
 ; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER 
 ; SINGLE FOLDER ONLY AT THE MOMENT
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\2019 01 18\*.JPG
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\WORK\*.JPG
 
 Loop, Files, %FILE_PATH_WILDPATH_JPG%
 {

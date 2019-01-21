@@ -2273,8 +2273,6 @@ dhw := A_DetectHiddenWindows
 DetectHiddenWindows, OFF
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-
-
 IF (TRUE=TRUE)
 {
 	; ---------------------------------------------------------------
@@ -2290,6 +2288,9 @@ IF (TRUE=TRUE)
 	Process, Exist, GoodSync.exe
 	If ErrorLevel
 		SET_GO=FALSE
+
+	IFWINEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		SET_GO=FALSE
 	
 	IF SET_GO = TRUE
 	{
@@ -2300,10 +2301,46 @@ IF (TRUE=TRUE)
 			SoundBeep , 3000 , 100
 			SoundBeep , 4000 , 100
 			SoundBeep , 3000 , 100
+			; MSGBOX HERE
 			Run, "%FN_VAR%" , , MIN
 		}
 	}
 }
+
+; -------------------------------------------------------------------
+; GoodSync Script Command to Stop in Wait using a Messenger Box
+; TO MAX AND THEN RESTORE WINDOW OF GOODSYNC WHEN GET TO END &
+; PRESS BUTTON ON MESSAGE BOX THAT INDICATED END TO ALLOW CONTINUE AGAIN
+; TRY AND GET OVER PROBLEM AND WINDOW WON'T REFRESH AFTER RUN BIG 
+; LONG JOB AFTER ABOUT ONE DAY
+; IF ANYTHING ELSE FAIL THEN RESTART GOODSYNC WHEN END OF WORK
+; RESTART WILL JUST 
+; REQUIRE CLOSE AND LINE SET ABOVE WILL DO 
+; THAT RESTART THING
+; -------------------------------------------------------------------
+; GoodSync Script Command to Stop in Wait using a Messenger Box
+
+OutputVar=
+
+IFWINEXIST ahk_class #32770
+	ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
+	IF Instr(OutputVar,"GoodSync Script Command to Stop")
+	{
+		;MSGBOX % OutputVar
+		WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		SLEEP 4000
+		WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		SLEEP 4000
+		;MSGBOX HERE 8888
+		IFWINEXIST ahk_class #32770
+		{
+			OutputVar=
+			ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
+				IF Instr(OutputVar,"GoodSync Script Command to Stop")
+				ControlClick, OK
+		}
+	}
+	
 
 IfWinExist GoodSync - Preparing Crash Report
 {
