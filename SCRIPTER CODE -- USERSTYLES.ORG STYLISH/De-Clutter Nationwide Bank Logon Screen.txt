@@ -1,0 +1,120 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+/* DE-CLUTTER NATIONWIDE BANK LOGON SCREEN */
+
+/* THE LOGON SCREEN HERE IS ABEL DO WITH A CASE OF DE-CLUTTERING                    */
+/* I USED ORIGIN UBLOCK TO PICK THE ELEMENTS AND WENT SEE WHAT CREATED FOR FILTER   */
+/* AND WAS EASY AS PASTE IN MOST OF THEM                                            */
+/* DON'T LEARN WHAT I WOULD OF DO WITHOUT ARH                                       */ 
+
+/*
+----
+Log in - Nationwide Internet Bank
+https://onlinebanking.nationwide.co.uk/AccessManagement/Login
+----
+*/
+
+/*
+WRITE CODE TIME
+------------------------
+Wed 23-Jan-2019 21:37:37
+Wed 23-Jan-2019 23:40:00
+NEAR EXACTLY TWO HOUR
+------------------------
+/*
+
+/* 
+Source Matthew GitHub
+----
+Matthew-Lancaster/Fix The Missing Cursor In Facebook Comment Boxes.txt at master · Matthew-Lancaster/Matthew-Lancaster · GitHub
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
+----
+*/
+
+/* TOP LINE HELP LOGING IN */
+.link-bar {
+    display: none;
+}
+
+/* TOP LINE PLEASE LOGIN */
+.stage__header {
+    display: none;
+}
+
+/* CUSTOMER NUMBER WHOLE FRAME AREA */
+.service-availability-login-section-expansion.service-availability-login-container > .section--no-title.section > .section__inner {
+    display: none;
+}
+
+/* TEXT HOW WOULD YOU LKIKE TO LOGIN */
+.choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__title {
+    display: none;
+}
+
+/* IVE FORGOTEN MY MEMORABLE DATA */
+.control-group > .text-input-control.control--simple.control > .control__help {
+    display: none;
+}
+
+/* MEMORABLE DATA BLOCK 01 TO 03 */
+.control-group > .text-input-control.control--simple.control > .control__label > .control__label__title {
+    display: none;
+}
+
+/* TEXT AREA INFO __ Enter one of your three items of memorable data. */
+.control-group > .text-input-control.control--simple.control > .control__label > .control__label__description {
+    display: none;
+}
+
+/* PASS OF MEMORABLE DATA ENTRY BOX STARED OUT USUAL */
+.control-group > .text-input-control.control--simple.control > .control__input {
+    display: none;
+}
+
+/* TEXT INFO __ We recommend using a card reader, if you have one. 
+If you don’t, you can borrow someone else’s or log in using your memorable data and passnumber. */
+.choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__description {
+    display: none;
+}
+
+/* ENTER THESE DIGITS FROM YOUR 6 DIGIT PASS NUMBER */
+.control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__label > .control__label__description {
+    display: none;
+}
+
+/* PASS NUMBER _ TEXT TITLE */
+.passnumber-partial-entry.control--complex.control > .control__label > .control__label__title {
+    display: none;
+}
+
+/* IVE FORGOTEN MY PASS NUMBER #1 BEFORE YOU CLICK THE SCREEN*/
+.control__help__trigger{
+    display: none;
+}
+
+/* IVE FORGOTEN MY PASS NUMBER #2 AFTER CLICK SCREEN*/
+.control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__help {
+    display: none;
+}
+
+/* MESSENGER BOX __ Protect yourself from fraud */
+.section:nth-of-type(6) {
+    display: none;
+}
+
+.page-footer {
+    display: none;
+}
+/*
+Register
+Order a new card reader
+Security centre 
+Accessibility 
+ 
+Service status 
+Mobile Banking app 
+Internet Bank Terms and Conditions 
+Contact us 
+Follow us: Twitter (This link will open in a new window) Facebook (This link will open in a new window) Youtube (This link will open in a new window) LinkedIn (This link will open in a new window)
+© 2019 Nationwide Building Society
+Nationwide Building Society is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority under registration number 106078. You can confirm our registration on the FCA’s website www.fca.gov.uk Opens in a new window. Nationwide is not responsible for the content of external websites.
+*/
