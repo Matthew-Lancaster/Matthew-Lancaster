@@ -1,15 +1,23 @@
 @namespace url(http://www.w3.org/1999/xhtml);
 /* DE-CLUTTER NATIONWIDE BANK LOGON SCREEN */
 
-/* THE LOGON SCREEN HERE IS ABEL DO WITH A CASE OF DE-CLUTTERING                    */
-/* I USED ORIGIN UBLOCK TO PICK THE ELEMENTS AND WENT SEE WHAT CREATED FOR FILTER   */
-/* AND WAS EASY AS PASTE IN MOST OF THEM                                            */
-/* DON'T LEARN WHAT I WOULD OF DO WITHOUT ARH                                       */ 
+/* THE LOGON SCREEN HERE IS ABEL DO WITH A CASE OF DE-CLUTTERING */
+/* I USED ORIGIN UBLOCK TO PICK THE ELEMENTS AND WENT SEE WHAT   */
+/* CREATED FOR FILTER AND WAS EASY AS PASTE IN MOST OF THEM      */
+/* DON'T LEARN WHAT I WOULD OF DO WITHOUT ARH                    */ 
+
+/* SAVES USING TH MOUSE WHEEL ON THE WEB PAGE SCREEN GETTING     */
+/* FROM TOP TO BOTTOM                                            */
+/* NOW IS ALL COMPACT WITHOUT ANY SCROLL-ER _) IF YOU WANT TO    */
+/* LOGON CHECK YOUR                                              */
+/* MONEY EASIER                                                  */
+/* GUESS THE BANK WILL HAVE A MOAN IF YOU DON'T SEE THE          */
+/* BANK WEBSITE YOU RECOGNIZE NORMALLY                           */
 
 /*
 ----
-Log in - Nationwide Internet Bank
-https://onlinebanking.nationwide.co.uk/AccessManagement/Login
+De-Clutter Nationwide Bank Logon Screen.txt at master
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/De-Clutter%20Nationwide%20Bank%20Logon%20Screen.txt
 ----
 */
 
@@ -71,7 +79,8 @@ https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CO
 }
 
 /* TEXT INFO __ We recommend using a card reader, if you have one. 
-If you don’t, you can borrow someone else’s or log in using your memorable data and passnumber. */
+   If you don’t, you can borrow someone else’s or log in using your 
+   memorable data and passnumber. */
 .choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__description {
     display: none;
 }
