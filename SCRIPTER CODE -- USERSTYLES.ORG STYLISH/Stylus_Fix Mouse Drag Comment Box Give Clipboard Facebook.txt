@@ -13,7 +13,7 @@ https://userstyles.org/styles/167266/fix-mouse-drag-comment-box-give-clipboard-f
 
 Source Me GitHub
 ----
-Stylus_Fix The Missing Cursor In Facebook Comment Boxes
+Stylus_Fix Mouse Drag Comment Box Give Clipboard Facebook
 https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
 ----
 
