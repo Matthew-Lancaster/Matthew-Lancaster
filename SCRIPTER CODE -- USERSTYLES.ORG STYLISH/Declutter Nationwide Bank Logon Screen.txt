@@ -1,5 +1,6 @@
 @namespace url(http://www.w3.org/1999/xhtml);
-/* DE-CLUTTER NATIONWIDE BANK LOGON SCREEN */
+/* Declutter Nationwide Bank Logon Screen */
+/* DECLUTTER NATIONWIDE BANK LOGON SCREEN */
 
 /* THE LOGON SCREEN HERE IS ABEL DO WITH A CASE OF DE-CLUTTERING */
 /* I USED ORIGIN UBLOCK TO PICK THE ELEMENTS AND WENT SEE WHAT   */
@@ -15,8 +16,9 @@
 /* BANK WEBSITE YOU RECOGNIZE NORMALLY                           */
 
 /*
+Source MY GitHub
 ----
-De-Clutter Nationwide Bank Logon Screen.txt at master
+De-Clutter Nationwide Bank Logon Screen
 https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/De-Clutter%20Nationwide%20Bank%20Logon%20Screen.txt
 ----
 */
@@ -30,13 +32,17 @@ NEAR EXACTLY TWO HOUR
 ------------------------
 /*
 
-/* 
-Source Matthew GitHub
-----
-Matthew-Lancaster/Fix The Missing Cursor In Facebook Comment Boxes.txt at master · Matthew-Lancaster/Matthew-Lancaster · GitHub
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
-----
+/*
+CODE WRITTEN FOR WEBSITE STARTING WITH 
+https://onlinebanking.nationwide.co.uk
 */
+
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* LETS GO __ CODER                                                */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+
 
 /* TOP LINE HELP LOGING IN */
 .link-bar {
@@ -53,12 +59,12 @@ https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CO
     display: none;
 }
 
-/* TEXT HOW WOULD YOU LKIKE TO LOGIN */
+/* TEXT HOW WOULD YOU LIKE TO LOGIN */
 .choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__title {
     display: none;
 }
 
-/* IVE FORGOTEN MY MEMORABLE DATA */
+/* I'VE FORGOTTEN MY MEMORABLE DATA */
 .control-group > .text-input-control.control--simple.control > .control__help {
     display: none;
 }
@@ -95,12 +101,12 @@ https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CO
     display: none;
 }
 
-/* IVE FORGOTEN MY PASS NUMBER #1 BEFORE YOU CLICK THE SCREEN*/
+/* I'VE FORGOTTEN MY PASS NUMBER #1 BEFORE YOU CLICK THE SCREEN*/
 .control__help__trigger{
     display: none;
 }
 
-/* IVE FORGOTEN MY PASS NUMBER #2 AFTER CLICK SCREEN*/
+/* I'VE FORGOTTEN MY PASS NUMBER #2 AFTER CLICK SCREEN*/
 .control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__help {
     display: none;
 }
@@ -113,7 +119,10 @@ https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CO
 .page-footer {
     display: none;
 }
+
 /*
+__ Page-footer INFO
+
 Register
 Order a new card reader
 Security centre 
