@@ -3,12 +3,20 @@
 {
 /* Fix Mouse Drag Comment Box Give Clipboard Facebook */
 /* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
-/* 
-Source Matthew GitHub
+
+/*
+Source Me Userstyles.org
 ----
-Matthew-Lancaster/Fix The Missing Cursor In Facebook Comment Boxes.txt at master · Matthew-Lancaster/Matthew-Lancaster · GitHub
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
+Fix Mouse Drag Comment Box Give Clipboard Facebook | Userstyles.org
+https://userstyles.org/styles/167266/fix-mouse-drag-comment-box-give-clipboard-facebook
 ----
+
+Source Me GitHub
+----
+Stylus_Fix The Missing Cursor In Facebook Comment Boxes
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
+----
+
 Copied From Source Original Credit
 ----
 Fix The Missing Cursor In Facebook Comment Boxes | Userstyles.org
@@ -191,10 +199,12 @@ Creation
 }
 */
 
+
+
 /*
 ------------------------------------------------------------------------------------------------------
 Some Test Play _ I'm Not That Good on Here
-Try make good comment box of TOP one With Simualr Code at Above 
+Try make good comment box of TOP one With Similar Code at Above 
 ------------------------------------------------------------------------------------------------------
 
 .timeline_composer_container, .pagelet_timeline_composer

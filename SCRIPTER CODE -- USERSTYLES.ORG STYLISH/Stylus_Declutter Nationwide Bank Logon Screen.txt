@@ -18,17 +18,16 @@
 /* BANK WEBSITE YOU RECOGNIZE NORMALLY                           */
 
 /*
-Source MY GitHub
-----
-Declutter Nationwide Bank Logon Screen
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Declutter%20Nationwide%20Bank%20Logon%20Screen.txt
-----
-*/
-
-/*
+Source Me Userstyles.org
 ----
 Declutter Nationwide Bank Logon Screen | Userstyles.org
 https://userstyles.org/styles/168144/declutter-nationwide-bank-logon-screen
+----
+
+Source MY GitHub
+----
+Stylus_Declutter Nationwide Bank Logon Screen
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Declutter%20Nationwide%20Bank%20Logon%20Screen.txt
 ----
 */
 
