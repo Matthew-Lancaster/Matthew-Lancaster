@@ -1,4 +1,6 @@
 @namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document domain("onlinebanking.nationwide.co.uk")
+{
 /* Declutter Nationwide Bank Logon Screen */
 /* DECLUTTER NATIONWIDE BANK LOGON SCREEN */
 
@@ -136,3 +138,4 @@ Follow us: Twitter (This link will open in a new window) Facebook (This link wil
 © 2019 Nationwide Building Society
 Nationwide Building Society is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority under registration number 106078. You can confirm our registration on the FCA’s website www.fca.gov.uk Opens in a new window. Nationwide is not responsible for the content of external websites.
 */
+}
