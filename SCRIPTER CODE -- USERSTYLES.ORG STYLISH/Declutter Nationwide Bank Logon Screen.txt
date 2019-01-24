@@ -20,8 +20,8 @@
 /*
 Source MY GitHub
 ----
-De-Clutter Nationwide Bank Logon Screen
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/De-Clutter%20Nationwide%20Bank%20Logon%20Screen.txt
+Declutter Nationwide Bank Logon Screen
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Declutter%20Nationwide%20Bank%20Logon%20Screen.txt
 ----
 */
 
