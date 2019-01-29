@@ -319,6 +319,7 @@ SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
 
 SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
 
+SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
 
 RETURN
 
@@ -1546,6 +1547,23 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER:
+
+SET_GO=FALSE
+Process, Exist, GoogleUpdate.exe
+If ErrorLevel
+	SET_GO=TRUE
+
+; MSGBOX % SET_GO
+	
+IF SET_GO=TRUE
+{
+	Process, Close, GoogleUpdate.exe
+	SoundBeep , 2000 , 100
+}
+	
+RETURN
 
 
 ; -------------------------------------------------------------------
