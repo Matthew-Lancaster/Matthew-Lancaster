@@ -135,7 +135,7 @@ AUTO_RELOAD_RAIN_ALARM:
 	; [ Wednesday 13:55:40 Pm_16 January 2019 ]
 	; ---------------------------------------------------------------
 
-	SETTIMER AUTO_RELOAD_RAIN_ALARM,3600000 ; 1 HOUR
+	SETTIMER AUTO_RELOAD_RAIN_ALARM,3600000 ; 1 HOUR MAYBE TOO MUCH
 	
 	; If (A_TimeIdle < 8000)
 	; {
