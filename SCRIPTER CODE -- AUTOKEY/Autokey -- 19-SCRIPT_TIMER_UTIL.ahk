@@ -1559,7 +1559,8 @@ If ErrorLevel
 	
 IF SET_GO=TRUE
 {
-	Process, Close, GoogleUpdate.exe
+	; Process, Close, GoogleUpdate.exe
+	Run, "TASKKILL.exe" /F /IM GoogleUpdate.exe /T , , HIDE
 	SoundBeep , 2000 , 100
 }
 	
