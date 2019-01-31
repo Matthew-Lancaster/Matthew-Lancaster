@@ -2340,25 +2340,25 @@ IF (TRUE=TRUE)
 ; GoodSync Script Command to Stop in Wait using a Messenger Box
 
 OutputVar=
-
-IFWINEXIST ahk_class #32770
-	ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
-	IF Instr(OutputVar,"GoodSync Script Command to Stop")
-	{
-		;MSGBOX % OutputVar
-		WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		SLEEP 4000
-		WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		SLEEP 4000
-		;MSGBOX HERE 8888
-		IFWINEXIST ahk_class #32770
+IF (A_ComputerName="7-ASUS-GL522VW") 
+	IFWINEXIST ahk_class #32770
+		ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
+		IF Instr(OutputVar,"GoodSync Script Command to Stop")
 		{
-			OutputVar=
-			ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
-				IF Instr(OutputVar,"GoodSync Script Command to Stop")
-				ControlClick, OK
+			;MSGBOX % OutputVar
+			WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+			SLEEP 4000
+			WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+			SLEEP 4000
+			;MSGBOX HERE 8888
+			IFWINEXIST ahk_class #32770
+			{
+				OutputVar=
+				ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
+					IF Instr(OutputVar,"GoodSync Script Command to Stop")
+					ControlClick, OK
+			}
 		}
-	}
 	
 
 IfWinExist GoodSync - Preparing Crash Report
