@@ -183,6 +183,7 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 
 	IF INSTR(TITLE_VAR,"Your Notifications - Google Chrome")
 		AUTO_RELOAD_FACEBOOK_VAR=1
+	;Facebook | Error - Google Chrome
 	IF INSTR(TITLE_VAR,"Facebook | Error - Google Chrome")
 		AUTO_RELOAD_FACEBOOK_VAR=1
 
