@@ -141,6 +141,8 @@ VAR_COUNTER_STOP_AFTER=1
 VAR_COUNTER_STOP_AFTER=
 
 VAR_COUNTER_STOP_AFTER_COUNT=1
+; USER WHEN __ IF VAR_COUNTER_STOP_AFTER
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -158,9 +160,9 @@ FILE_SCRIPT := Object()
 ; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER 
 ; SINGLE FOLDER ONLY AT THE MOMENT
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\WORK\*.JPG
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2018 CyberShot HX60V\DCIM\WORK\*.JPG
 
-Loop, Files, %FILE_PATH_WILDPATH_JPG%
+Loop, Files, %FILE_PATH_WILDPATH_JPG%, R
 {
 	FILE_SCRIPT[A_Index] := A_LoopFileName
 	FILE_SCRIPT_COUNT := A_Index
