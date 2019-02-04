@@ -2355,12 +2355,38 @@ IF (A_ComputerName="7-ASUS-GL522VW")
 			{
 				OutputVar=
 				ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
-					IF Instr(OutputVar,"GoodSync Script Command to Stop")
+				IF Instr(OutputVar,"GoodSync Script Command to Stop")
+				{
 					ControlClick, OK
+					
+					WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+					
+					; Process, Exist, GoodSync-v10.exe
+					; If ErrorLevel
+						; Process, WaitClose, GoodSync-v10.exe
+					
+					; Process, Exist, GoodSync.exe
+					; If ErrorLevel
+						; Process, WaitClose, GoodSync.exe
+				}
+					
 			}
 		}
 	
-
+ 	
+OutputVar=
+IF (A_ComputerName="7-ASUS-GL522VW") 
+	IFWINEXIST ahk_class #32770
+		ControlGetText, OutputVar, One or more jobs are running now, ahk_class #32770
+		IF Instr(OutputVar,"One or more jobs are running now")
+		{
+			SoundBeep , 2000 , 100
+			SoundBeep , 1500 , 100
+			ControlClick, Button2 , ahk_class #32770 ; OK
+				
+		}
+	
+	
 IfWinExist GoodSync - Preparing Crash Report
 {
 	SoundBeep , 4000 , 100
