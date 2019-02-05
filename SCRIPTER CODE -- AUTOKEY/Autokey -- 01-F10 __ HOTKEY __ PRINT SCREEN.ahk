@@ -75,6 +75,10 @@ OLD_STATE_XYPOSCOUNTER=0
 
 OLD_AUTO_RELOAD_FACEBOOK_VAR=0
 
+
+
+; HERE THE FUNCTION ROUTINE FOR GOODSYNC
+; --------------------------------------
 GOSUB F5_ROUTINE
 
 
@@ -263,32 +267,32 @@ RETURN
 ; YOU HEARD IT HEAR FIRST
 ; -------------------------------------------------------------------
 
-F12::
-{
-	SetTitleMatchMode 3  ; EXACTLY
-	DetectHiddenWindows, ON
-	AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
-	AHK_TERMINATOR_VERSION:=StrReplace(AHK_TERMINATOR_VERSION, """" , "")
-	FILE:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
-	WinGet, UniquePID, PID, %FILE%%AHK_TERMINATOR_VERSION%
+; F12::
+; {
+	; SetTitleMatchMode 3  ; EXACTLY
+	; DetectHiddenWindows, ON
+	; AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+	; AHK_TERMINATOR_VERSION:=StrReplace(AHK_TERMINATOR_VERSION, """" , "")
+	; FILE:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+	; WinGet, UniquePID, PID, %FILE%%AHK_TERMINATOR_VERSION%
 	
-	IF UniquePID>0
-	{
-		SOUNDBEEP 1000,100
-		; WinKill, Ahk_PID %UniquePID% 
-		Process, Close, %UniquePID% 
-	}
-	FILE:="Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
-	WinGet, UniquePID, PID, %FILE%
+	; IF UniquePID>0
+	; {
+		; SOUNDBEEP 1000,100
+		; ; WinKill, Ahk_PID %UniquePID% 
+		; Process, Close, %UniquePID% 
+	; }
+	; FILE:="Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+	; WinGet, UniquePID, PID, %FILE%
 	
-	IF UniquePID>0
-	{
-		SOUNDBEEP 1000,100
-		; WinKill, Ahk_PID %UniquePID% 
-		Process, Close, %UniquePID% 
-	}
-}
-RETURN
+	; IF UniquePID>0
+	; {
+		; SOUNDBEEP 1000,100
+		; ; WinKill, Ahk_PID %UniquePID% 
+		; Process, Close, %UniquePID% 
+	; }
+; }
+; RETURN
 
 ; F12::Process,Close,WScript.exe
 ; C:\Windows\SysWOW64\WScript.exe
@@ -400,7 +404,6 @@ Return
 RETURN
 
 
-
 ; C:\SCRIPTER\NOTEPAD TALK\TEXT 2018-11-25 __ D DRIVE FOLDER NAME.txt
 
 F5_ROUTINE:
@@ -429,7 +432,7 @@ F5_ROUTINE:
 	
 	; Example #3: Retrieve file names sorted by name (see next example to sort by date):
 	FileList =  ; Initialize to be blank.
-	Loop, Files, K:\GD1TB\*.*, D
+	Loop, Files, M:\*.*, D
 		FileList = %FileList%%A_LoopFileName%`n
 	Sort, FileList ;  R  ; The R option sorts in reverse order. See Sort for other options.
 
@@ -437,6 +440,7 @@ F5_ROUTINE:
 	{
 		if A_LoopField =  ; Ignore the blank item at the end of the list.
 			continue
+		
 		FILE_SCRIPT[A_Index] := A_LoopField
 		FILE_SCRIPT_COUNT := A_Index
 		; MSGBOX % FILE_SCRIPT[A_Index]
@@ -538,6 +542,17 @@ F5_ROUTINE:
 		}	
 	}	
 
+	; --------------------------------------------------
+	; REQUIRE OPTION TO IGNORE IF FOLDER OLDER THAN DATE
+	; LIKE ABOVE 1 ROUTINE
+	; --------------------------------------------------
+
+	
+	
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
 	
 	; 1ST
 	; SETTIMER AUTO_CLONE_JOB, 1000
@@ -552,6 +567,11 @@ F5_ROUTINE:
 	; 4TH
 	; SETTIMER RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT,100
 	
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+
 RETURN
 
 STATE_XYPOS_Limit:
