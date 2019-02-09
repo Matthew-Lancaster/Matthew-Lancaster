@@ -127,7 +127,7 @@ SetTitleMatchMode 2  ; ANY PARTIAL
 ; -------------------------------------------------------------------
 ; START AT VALUE
 ; NORM WOULD BE 1 FOR 1ST
-VAR_COUNTER=204
+VAR_COUNTER=1
 
 ; -------------------------------------------------------------------
 ; VAR_COUNTER_STOP_AT= NUMBER = STOP __ NOTHING 0 NAUGHT = ALL THE WAY
@@ -149,7 +149,7 @@ VAR_COUNTER_STOP_AFTER_COUNT=
 ; READ REM LINE SHORTLY BELOW FOR THIS VARIABLE FOR INFO
 ; USUAL WHEN START A BATCH SET THIS FALSE
 ; WHEN LOADING BATCHES OF 200 AT A TIME WHEN BIGGER
-HAS_FIRST_BATCH_BEEN_DONE_AND_NEXT_SUBSEQUENT_BATCH_DOARH=TRUE
+HAS_FIRST_BATCH_BEEN_DONE_AND_NEXT_SUBSEQUENT_BATCH_DOARH=FALSE
 
 
 ; -------------------------------------------------------------------
@@ -169,9 +169,15 @@ FILE_SCRIPT := Object()
 ; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER 
 ; SINGLE FOLDER ONLY AT THE MOMENT
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\WORK\*.JPG
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\2019 02 06 _ FOGGY QUICK ONE\*.JPG
 
-Loop, Files, %FILE_PATH_WILDPATH_JPG%, R
+; -------------------------------------------------------------------
+; REMEMBER TO TURN RECURSE SUBFOLDER OFF WHEN ANY 
+; HIDEN IMAGE OR TOTAL COUNT NOT CORRECT
+; Loop, Files, %FILE_PATH_WILDPATH_JPG%, R
+; -------------------------------------------------------------------
+
+Loop, Files, %FILE_PATH_WILDPATH_JPG%
 {
 	FILE_SCRIPT[A_Index] := A_LoopFileName
 	FILE_SCRIPT_COUNT := A_Index
@@ -242,6 +248,16 @@ IF HAS_FIRST_BATCH_BEEN_DONE_AND_NEXT_SUBSEQUENT_BATCH_DOARH=TRUE
 ; USE SET_GO HERE IF BOTH WINDOW OPEN PRIORITY TO FIRST ONE
 ; ---------------------------------------------------------
 SET_GO=FALSE
+
+; D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\2019 02 07 _ DAY AT SEAFRONT WHEN SUNNY AND ROUG
+
+
+; -------------------------------------------------------------------
+; TRIM THIS LINE A BIT BECAUSE EXPLORER TITLE DOES THAT ALSO
+; SO SEARCH PARTIAL JUST FOR WHAT THE HECK
+; -------------------------------------------------------------------
+
+SET_String = % SubStr(SET_String, 1, 95)
 
 ; SEARCH FOR EXPLORER WINDOW WITH FILES IN
 IfWinExist, %SET_String%
