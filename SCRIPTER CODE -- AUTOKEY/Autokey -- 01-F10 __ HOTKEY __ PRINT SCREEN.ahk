@@ -190,7 +190,11 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	;Facebook | Error - Google Chrome
 	IF INSTR(TITLE_VAR,"Facebook | Error - Google Chrome")
 		AUTO_RELOAD_FACEBOOK_VAR=1
+	IF INSTR(TITLE_VAR,"Privacy error - Google Chrome")
+		AUTO_RELOAD_FACEBOOK_VAR=1
 
+		
+		
 	IF OLD_AUTO_RELOAD_FACEBOOK_VAR<>%AUTO_RELOAD_FACEBOOK_VAR%
 	IF AUTO_RELOAD_FACEBOOK_VAR=0
 	{
@@ -234,6 +238,9 @@ AUTO_RELOAD_FACEBOOK:
 		XR_2=1
 	IF INSTR(TITLE_VAR,"Facebook | Error - Google Chrome")
 		XR_2=1
+	IF INSTR(TITLE_VAR,"Privacy error - Google Chrome")
+		XR_2=1
+		
 
 
 	IF XR_1>0
