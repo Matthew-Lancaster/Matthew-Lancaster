@@ -1,0 +1,434 @@
+01 --- Wed-06-06-1906->>-Last '6 or 66' 666 On a Full Moon at: 21:11:35
+02 --- Mon-01-02-1999---- Last -- Black Moon ---- @ Mon-01-Feb-1999 12:00:00a --- No Full Moon in Feb
+03 --- Wed-06-06-2001->>-Last 666 On a Full Moon at: 01:40:32
+04 --- Fri-28-12-2012---- Last -- Real Blue Moon ---- @ Fri-28-Dec-2012 10:22:20a --- 13 Full Moons in Year
+05 --- Sun-13-04-2014---- Last -- Good Friday, On Friday the 13th ---- @ Sun-13-Apr-2014
+06 --- Wed-05-11-2014---- Last -- Event:- Birthday Damo YEAR %%% ---- @ Wed-05-Nov-2014
+07 --- Wed-05-11-2014---- Last -- Event:- Bonfire Night ---- @ Wed-05-Nov-2014
+08 --- Wed-05-11-2014---- Last -- Event:- Guy Falwks Night ---- @ Wed-05-Nov-2014
+09 --- Wed-05-11-2014---- Last -- Event:- Remember Remember 5th November Guy Fawkes FireWorks Night ---- @ Wed-05-Nov-2014
+10 --- Thu-06-11-2014---- Last -- Winter -- Cross-Quarter Season Begin ---- @ Thu-06-Nov-2014
+11 --- Fri-07-11-2014---- Last -- Event:- Marie Curie's birth 1867 ---- @ Fri-07-Nov-2014
+12 --- Sun-09-11-2014---- Last -- Rememberance Sunday Veterans Day ---- @ Sun-09-Nov-2014
+13 --- Tue-11-11-2014---- Last -- Event:- Remembrance Day ---- @ Tue-11-Nov-2014
+14 --- Tue-11-11-2014---- Last -- Rememberance Veterans Day 11th Day 11th Hour ---- @ Tue-11-Nov-2014
+15 --- Thu-13-11-2014---- Last -- Event:- Birthday Debbie Macindeor Was French ---- @ Thu-13-Nov-2014
+16 --- Sun-16-11-2014---- Last -- Event:- International Day for Tolerance ---- @ Sun-16-Nov-2014
+17 --- Mon-17-11-2014---- Last -- Event:- World Peace Day ---- @ Mon-17-Nov-2014
+18 --- Thu-20-11-2014---- Last -- Event:- Universal Childrens Day - UN ---- @ Thu-20-Nov-2014
+19 --- Sat-22-11-2014---- Last -- Event:- 9th Sign Sagittarius Nov22 Dec21 Fire Sign Ruled by Jupiter: The Archer ---- @ Sat-22-Nov-2014
+20 --- Sat-22-11-2014---- Last -- Event:- JF Kennedy assassinated 1963 ---- @ Sat-22-Nov-2014
+21 --- Thu-27-11-2014---- Last -- US Thanksgiving Day - Fourth Thurs in Month Nov ---- @ Thu-27-Nov-2014
+22 --- Fri-28-11-2014---- Last -- Buy Nothing Day in US - Day after Thanksgiving. ---- @ Fri-28-Nov-2014
+23 --- Sun-30-11-2014---- Last -- Event:- First Sunday In Advent ---- @ Sun-30-Nov-2014
+24 --- Sun-30-11-2014---- Last -- Event:- St Andrew's Day, Scotland ---- @ Sun-30-Nov-2014
+25 --- Mon-01-12-2014---- Last -- Event:- Start of Season Winter Dec to Feb -- Amature Stuff ---- @ Mon-01-Dec-2014
+26 --- Mon-01-12-2014---- Last -- Event:- Tolerance Week - 1st week of Dec. ---- @ Mon-01-Dec-2014
+27 --- Mon-01-12-2014---- Last -- Event:- World Aids Day ---- @ Mon-01-Dec-2014
+28 --- Sat-06-12-2014---- Last -- Event:- Birthday Michele CORBET Openshaw ---- @ Sat-06-Dec-2014
+29 --- Sun-07-12-2014---- Last -- Event:- PAUL NICKLEN BIRTHDAY FAMILY ---- @ Sun-07-Dec-2014
+30 --- Sun-07-12-2014---- Last -- Event:- Pearl Harbour Day ---- @ Sun-07-Dec-2014
+31 --- Wed-10-12-2014---- Last -- Event:- Human Rights Day, a United Nations observance. ---- @ Wed-10-Dec-2014
+32 --- Fri-12-12-2014---- Last Earliest Sunset Winter  03:53:30p
+33 --- Sun-21-12-2014---- Last -- Event:- Winter Solstice (& June 21st) ---- @ Sun-21-Dec-2014
+34 --- Mon-22-12-2014---- Last -- Event:- 10th Sign Capricorn Dec22 Jan19 Earth Sign Ruled by Satun: The Goat ---- @ Mon-22-Dec-2014
+35 --- Mon-22-12-2014---- Last -- Shortest Day ---- @ Mon-22-Dec-2014
+36 --- Mon-22-12-2014---- Last -- Winter Solstice ---- @ Mon-22-Dec-2014
+37 --- Wed-24-12-2014---- Last -- Event:- Birthday Slick Willy Dee@gmail ---- @ Wed-24-Dec-2014
+38 --- Wed-24-12-2014---- Last -- Event:- Christmas Eve ---- @ Wed-24-Dec-2014
+39 --- Thu-25-12-2014---- Last -- Event:- Christmas day ---- @ Thu-25-Dec-2014
+40 --- Fri-26-12-2014---- Last -- Event:- Kwanzaa ---- @ Fri-26-Dec-2014
+41 --- Fri-26-12-2014---- Last -- Event:- St. Stephen's Day ---- @ Fri-26-Dec-2014
+42 --- Wed-31-12-2014---- Last -- Event:- New Year's Eve ---- @ Wed-31-Dec-2014
+43 --- Wed-31-12-2014---- Last Latest Sunrise Winter  08:01:39a
+44 --- Thu-01-01-2015---- Last -- -- 1st Quarter Of Year -- ---- @ Thu-01-Jan-2015
+45 --- Thu-01-01-2015---- Last -- Event:- Circumcision ---- @ Thu-01-Jan-2015
+46 --- Thu-01-01-2015---- Last -- Event:- New Years Day ---- @ Thu-01-Jan-2015
+47 --- Thu-01-01-2015---- Last -- Event:- New Year's Day ---- @ Thu-01-Jan-2015
+48 --- Tue-06-01-2015---- Last -- Event:- Epiphany ---- @ Tue-06-Jan-2015
+49 --- Tue-06-01-2015---- Last -- Event:- Three King's Day ---- @ Tue-06-Jan-2015
+50 --- Wed-07-01-2015---- Last -- Event:- Coptic Christian Christmas ---- @ Wed-07-Jan-2015
+51 --- Thu-08-01-2015---- Last -- Event:- Elvis Presley's official Birthday ---- @ Thu-08-Jan-2015
+52 --- Tue-20-01-2015---- Last -- Event:- 11th Sign Aquarius Jan20 Feb18 Air Sign Ruled by Uranus: The Water Bearer ---- @ Tue-20-Jan-2015
+53 --- Tue-20-01-2015---- Last -- Event:- Reindeer Day ---- @ Tue-20-Jan-2015
+54 --- Sun-25-01-2015---- Last -- Event:- Converstion of St Paul ---- @ Sun-25-Jan-2015
+55 --- Sun-25-01-2015---- Last -- Event:- Robert Burns' Day - Scotland's national poet ---- @ Sun-25-Jan-2015
+56 --- Sun-25-01-2015---- Last -- Event:- The Start of the Chinese New Year. ---- @ Sun-25-Jan-2015
+57 --- Mon-26-01-2015---- Last -- Event:- Australia Day ---- @ Mon-26-Jan-2015
+58 --- Mon-26-01-2015---- Last -- Event:- Indian Republic Day ---- @ Mon-26-Jan-2015
+59 --- Mon-02-02-2015---- Last -- Event:- Groundhog Day ---- @ Mon-02-Feb-2015
+60 --- Tue-03-02-2015---- Last -- The Maine Farmer's Almanac Blue Moon ---- @ 03-02-2015 - 23:10:12 --- - 4 Full Moons in Season
+61 --- Wed-04-02-2015---- Last -- Spring -- Cross-Quarter Season Begin ---- @ Wed-04-Feb-2015
+62 --- Fri-06-02-2015---- Last -- Event:- Waitangi Day - New Zealand ---- @ Fri-06-Feb-2015
+63 --- Sat-14-02-2015---- Last -- Event:- St Valentine ---- @ Sat-14-Feb-2015
+64 --- Sat-14-02-2015---- Last -- Event:- St Valentine's Day ---- @ Sat-14-Feb-2015
+65 --- Mon-16-02-2015---- Last -- *Shrove Tuesday* is the day before Lent begins, when confession leads one to be shriven of sins for which the penitent is given absolution. ---- @ Mon-16-Feb-2015
+66 --- Mon-16-02-2015---- Last -- Shrove Tue - 1st Biblical Day Year -47 Days From Easter Sunday +60 for Corpus Christi -- Tott 107 Days - Tott 17+ Biblical Days ---- @ Mon-16-Feb-2015
+67 --- Tue-17-02-2015---- Last -- Ash Wednesday - First day of the penitential season of Lent "Remember that you are dust, and unto dust you shall return." ---- @ Tue-17-Feb-2015
+68 --- Thu-19-02-2015---- Last -- Event:- 12th Sign Pisces Feb19 Mar20 Water Sign Ruled by Neptune: The fish ---- @ Thu-19-Feb-2015
+69 --- Sat-21-02-2015---- Last -- Event:- International Mother Language Day ---- @ Sat-21-Feb-2015
+70 --- Sat-21-02-2015---- Last -- First sunday in lent ---- @ Sat-21-Feb-2015
+71 --- Tue-24-02-2015---- Last -- Event:- St Matthias ---- @ Tue-24-Feb-2015
+72 --- Sun-01-03-2015---- Last -- Event:- St. David's Day - Wales ---- @ Sun-01-Mar-2015
+73 --- Sun-01-03-2015---- Last -- Event:- Start of Season Spring Mar to May  -- Amature Stuff ---- @ Sun-01-Mar-2015
+74 --- Mon-02-03-2015---- Last -- Event:- World Book Day ---- @ Mon-02-Mar-2015
+75 --- Sun-08-03-2015---- Last -- Event:- International Women's Day ---- @ Sun-08-Mar-2015
+76 --- Mon-09-03-2015---- Last -- Event:- International Womens Day ---- @ Mon-09-Mar-2015
+77 --- Tue-10-03-2015---- Last -- Event:- United Kingdom Commonwealth Day ---- @ Tue-10-Mar-2015
+78 --- Fri-13-03-2015---- Last -- Friday The 13th ---- @ Fri-13-Mar-2015
+79 --- Sat-14-03-2015---- Last -- Mothering Sunday 4th Sunday in Lent ---- @ Sat-14-Mar-2015
+80 --- Wed-18-03-2015---- Last -- Event:- St. Edward the martyr Feast day ---- @ Wed-18-Mar-2015
+81 --- Thu-19-03-2015---- Last -- Event:- St Joseph ---- @ Thu-19-Mar-2015
+82 --- Fri-20-03-2015---- Last -- Event:- Spring Begins Diary Book ---- @ Fri-20-Mar-2015
+83 --- Fri-20-03-2015---- Last -- Vernal Equinox ---- @ Fri-20-Mar-2015
+84 --- Sat-21-03-2015---- Last -- Event:- 1st Sign Aries Mar21 Apr19 Fire Sign Ruled by Mars: The Ram ---- @ Sat-21-Mar-2015
+85 --- Sun-22-03-2015---- Last -- Event:- World Water Day ---- @ Sun-22-Mar-2015
+86 --- Wed-25-03-2015---- Last -- Event:- Annuciation ---- @ Wed-25-Mar-2015
+87 --- Thu-26-03-2015---- Last -- Event:- Independence Day of Bangladesh ---- @ Thu-26-Mar-2015
+88 --- Fri-27-03-2015---- Last -- Event:- World Theatre Day ---- @ Fri-27-Mar-2015
+89 --- Sat-28-03-2015---- Last -- Holy Week - The week immediately preceding Easter, beginning with Palm Sunday. ---- @ Sat-28-Mar-2015
+90 --- Sat-28-03-2015---- Last -- Palm Sunday -- Custom of blessing palms -- In commemoration of the triumphal entry of Jesus into Jerusalem ---- @ Sat-28-Mar-2015
+91 --- Sun-29-03-2015---- Last -- British Summer Time Begins - BST ---- @ Sun-29-Mar-2015
+92 --- Mon-30-03-2015---- Last -- Event:- Clocks Go Forward 1 Hours BST - We Get a Hour Rest ---- @ Mon-30-Mar-2015
+93 --- Wed-01-04-2015---- Last -- -- 2nd Quarter Of Year -- ---- @ Wed-01-Apr-2015
+94 --- Wed-01-04-2015---- Last -- Event:- April Fool's Day ---- @ Wed-01-Apr-2015
+95 --- Wed-01-04-2015---- Last -- Maundy Thursday or Holy Thursday, the Thursday before Easter Sunday, observed by Christians in commemoration of Christ's Last Supper ---- @ Wed-01-Apr-2015
+96 --- Thu-02-04-2015---- Last -- Event:- International Children's Book Day ---- @ Thu-02-Apr-2015
+97 --- Thu-02-04-2015---- Last -- Good Friday, Friday immediately preceding Easter, celebrated by Christians as the anniversary of Christ's crucifixion. ---- @ Thu-02-Apr-2015
+98 --- Fri-03-04-2015---- Last -- Holy Saturday commemorates the burial of Christ ---- @ Fri-03-Apr-2015
+99 --- Sat-04-04-2015---- Last -- Easter Sunday -- Easter Full Moon is the next Full Moon after Mar 22 ---- @ Sat-04-Apr-2015
+100 --- Sat-04-04-2015---- Last -- Full Moon Before Easter -- Easter Sunday is Next Sunday After Easter Full Moon ---- @ Sat-04-Apr-2015
+101 --- Sun-05-04-2015---- Last -- Easter Monday Holiday ---- @ Sun-05-Apr-2015
+102 --- Tue-07-04-2015---- Last -- Event:- World Health Day ---- @ Tue-07-Apr-2015
+103 --- Tue-14-04-2015---- Last -- Event:- Anniversary of Titanic sinking ---- @ Tue-14-Apr-2015
+104 --- Sat-18-04-2015---- Last -- Event:- Record Store Day - UK ---- @ Sat-18-Apr-2015
+105 --- Sun-19-04-2015---- Last -- Event:- Patriot's Day ---- @ Sun-19-Apr-2015
+106 --- Mon-20-04-2015---- Last -- Event:- 2nd Sign Taurus Apr20 May20 Earth Sign Ruled by Venus: The bull ---- @ Mon-20-Apr-2015
+107 --- Mon-20-04-2015---- Last -- Event:- Jewish Passover ---- @ Mon-20-Apr-2015
+108 --- Wed-22-04-2015---- Last -- Event:- Earth Day ---- @ Wed-22-Apr-2015
+109 --- Thu-23-04-2015---- Last -- Event:- St George Day - Grandad Birthday ---- @ Thu-23-Apr-2015
+110 --- Sat-25-04-2015---- Last -- Event:- International Noise Awareness Day ---- @ Sat-25-Apr-2015
+111 --- Sat-25-04-2015---- Last -- Event:- The Feast of St. Mark ---- @ Sat-25-Apr-2015
+112 --- Sun-26-04-2015---- Last -- Event:- John Vousden Sister's Husband ---- @ Sun-26-Apr-2015
+113 --- Sun-26-04-2015---- Last -- Event:- London Marathon Last Sunday In April ---- @ Sun-26-Apr-2015
+114 --- Fri-01-05-2015---- Last -- Event:- May Day - Labour Day ---- @ Fri-01-May-2015
+115 --- Fri-01-05-2015---- Last -- Event:- St Philip and St James ---- @ Fri-01-May-2015
+116 --- Tue-05-05-2015---- Last -- Event:- Cinco de Mayo - Mexico ---- @ Tue-05-May-2015
+117 --- Tue-05-05-2015---- Last -- Summer -- Cross-Quarter Season Begin ---- @ Tue-05-May-2015
+118 --- Fri-08-05-2015---- Last -- Event:- World Red Cross Day ---- @ Fri-08-May-2015
+119 --- Tue-12-05-2015---- Last -- Event:- Limerick Day - Birthday of Edward Lear ---- @ Tue-12-May-2015
+120 --- Wed-13-05-2015---- Last -- Ascension Day ---- @ Wed-13-May-2015
+121 --- Sat-16-05-2015---- Last -- Sunday after Ascension Day ---- @ Sat-16-May-2015
+122 --- Mon-18-05-2015---- Last -- Event:- International Museum Day ---- @ Mon-18-May-2015
+123 --- Thu-21-05-2015---- Last -- Event:- 3rd Sign Gemini May21 Jun21 Air Sign Ruled by Mercury: The twins ---- @ Thu-21-May-2015
+124 --- Sat-23-05-2015---- Last -- Pentecost ---- @ Sat-23-May-2015
+125 --- Sat-23-05-2015---- Last -- WhitSuntide, Week beginning with WhitSunday or Pentecost -- Whitsuntide (Anglo-Saxon hweta sunnandaeg, white Sunday) ---- @ Sat-23-May-2015
+126 --- Sun-24-05-2015---- Last -- Event:- Victoria Day - Canada ---- @ Sun-24-May-2015
+127 --- Sun-24-05-2015---- Last -- WhitMonday -- White Sunday, derives from the white garments worn by those baptized on Whitsunday. ---- @ Sun-24-May-2015
+128 --- Mon-25-05-2015---- Last -- WhitTuesday ---- @ Mon-25-May-2015
+129 --- Sat-30-05-2015---- Last -- Trinity Day ---- @ Sat-30-May-2015
+130 --- Sun-31-05-2015---- Last -- Event:- Birthday Paul Brown ---- @ Sun-31-May-2015
+131 --- Mon-01-06-2015---- Last -- Event:- Start of Season Summer Jun to Sep -- Amature Stuff ---- @ Mon-01-Jun-2015
+132 --- Mon-01-06-2015---- Last -- Event:- Wimbledon begins ---- @ Mon-01-Jun-2015
+133 --- Wed-03-06-2015---- Last -- Corpus Christi -- The Last Biblical Day of Year Besides Christmas - Makes 17 Christian Days In Year as My Count ---- @ Wed-03-Jun-2015
+134 --- Fri-05-06-2015---- Last -- Event:- World Environment Day ---- @ Fri-05-Jun-2015
+135 --- Sat-06-06-2015---- Last -- Event:- D-Day WWII ---- @ Sat-06-Jun-2015
+136 --- Wed-10-06-2015---- Last -- Event:- Birthday Sahara Ware ---- @ Wed-10-Jun-2015
+137 --- Thu-11-06-2015---- Last -- Event:- St Barnabas ---- @ Thu-11-Jun-2015
+138 --- Wed-17-06-2015---- Last Earliest Sunrise Summer  03:45:11a
+139 --- Sat-20-06-2015---- Last -- Event:- United Nations World Refugee Day ---- @ Sat-20-Jun-2015
+140 --- Sun-21-06-2015---- Last -- Event:- Father's Day ---- @ Sun-21-Jun-2015
+141 --- Sun-21-06-2015---- Last -- Longest Day ---- @ Sun-21-Jun-2015
+142 --- Sun-21-06-2015---- Last -- Mid Summers Day (made famous by William Shakespeare) ---- @ Sun-21-Jun-2015
+143 --- Sun-21-06-2015---- Last -- Summer Solstice ---- @ Sun-21-Jun-2015
+144 --- Mon-22-06-2015---- Last -- Event:- 4th Sign Cancer Jun22 Jul22 Water Sign Ruled by Moon: The Crab ---- @ Mon-22-Jun-2015
+145 --- Wed-24-06-2015---- Last -- Event:- Midsummer Day, celebrated in Europe. ---- @ Wed-24-Jun-2015
+146 --- Wed-24-06-2015---- Last -- Event:- St John the Baptist ---- @ Wed-24-Jun-2015
+147 --- Thu-25-06-2015---- Last Latest Sunset Summer  08:16:53p
+148 --- Mon-29-06-2015---- Last -- Event:- St Peter St Paul ---- @ Mon-29-Jun-2015
+149 --- Wed-01-07-2015---- Last -- -- 3rd Quarter Of Year -- ---- @ Wed-01-Jul-2015
+150 --- Wed-01-07-2015---- Last -- Event:- Canada Day ---- @ Wed-01-Jul-2015
+151 --- Wed-01-07-2015---- Last -- Event:- Tour de France bicycle race ---- @ Wed-01-Jul-2015
+152 --- Fri-03-07-2015---- Last -- Event:- St. Thomas' Day ---- @ Fri-03-Jul-2015
+153 --- Sat-04-07-2015---- Last -- Event:- US Independence Day ---- @ Sat-04-Jul-2015
+154 --- Sat-11-07-2015---- Last -- Event:- World Population Day ---- @ Sat-11-Jul-2015
+155 --- Tue-14-07-2015---- Last -- Event:- French Bastille Day ---- @ Tue-14-Jul-2015
+156 --- Wed-15-07-2015---- Last -- Event:- St Swithin ---- @ Wed-15-Jul-2015
+157 --- Wed-22-07-2015---- Last -- Event:- St Mary Magdalene ---- @ Wed-22-Jul-2015
+158 --- Thu-23-07-2015---- Last -- Event:- 5th Sign Leo Jul23 Aug22 Fire Sign Ruled by Sun: The Lion ---- @ Thu-23-Jul-2015
+159 --- Sat-25-07-2015---- Last -- Event:- St James ---- @ Sat-25-Jul-2015
+160 --- Fri-31-07-2015---- Last -- Calendar Blue Moon ---- @ Fri-31-Jul-2015 10:44:02a --- 2nd Full Moon in Month
+161 --- Sat-01-08-2015---- Last -- Event:- World Wide Web Anniversary ---- @ Sat-01-Aug-2015
+162 --- Thu-06-08-2015---- Last -- Autumn -- Cross-Quarter Season Begin ---- @ Thu-06-Aug-2015
+163 --- Thu-06-08-2015---- Last -- Event:- Transfiguration ---- @ Thu-06-Aug-2015
+164 --- Wed-12-08-2015---- Last -- Event:- International Youth Day ---- @ Wed-12-Aug-2015
+165 --- Thu-13-08-2015---- Last -- Event:- International Left-handers Day ---- @ Thu-13-Aug-2015
+166 --- Fri-14-08-2015---- Last -- Event:- Pakistan Independence Day ---- @ Fri-14-Aug-2015
+167 --- Sat-15-08-2015---- Last -- Event:- Assumption of Mary ---- @ Sat-15-Aug-2015
+168 --- Sat-15-08-2015---- Last -- Event:- Indian Independence Day ---- @ Sat-15-Aug-2015
+169 --- Wed-19-08-2015---- Last -- Event:- Aviation Day ---- @ Wed-19-Aug-2015
+170 --- Sun-23-08-2015---- Last -- Event:- 6th Sign Virgo Aug23 Sep22 Earth Sign Ruled by Mercury: The Virgin ---- @ Sun-23-Aug-2015
+171 --- Sat-29-08-2015---- Last -- Harvest Moon - Full Moon Closest to the Autumnal Equinox ---- @ 29-08-2015 - 18:36:16
+172 --- Mon-31-08-2015---- Last -- Event:- BlogDay ---- @ Mon-31-Aug-2015
+173 --- Mon-31-08-2015---- Last -- Event:- Late Summer Holiday ---- @ Mon-31-Aug-2015
+174 --- Mon-31-08-2015---- Last -- Event:- Malaysia Independence Day ---- @ Mon-31-Aug-2015
+175 --- Mon-07-09-2015---- Last -- Event:- Birthday Tracy Johnson ---- @ Mon-07-Sep-2015
+176 --- Mon-07-09-2015---- Last -- Event:- Brazilian Independence Day ---- @ Mon-07-Sep-2015
+177 --- Tue-08-09-2015---- Last -- Event:- Blessed Virgin Mary ---- @ Tue-08-Sep-2015
+178 --- Tue-08-09-2015---- Last -- Event:- International Literacy Day ---- @ Tue-08-Sep-2015
+179 --- Thu-10-09-2015---- Last -- Event:- Birthday Colleen Davies ---- @ Thu-10-Sep-2015
+180 --- Sun-13-09-2015---- Last # Solar Eclipse -Partial 13-09-2015 06:41:00a GMT
+181 --- Tue-15-09-2015---- Last -- Event:- International Day of Democracy ---- @ Tue-15-Sep-2015
+182 --- Sat-19-09-2015---- Last -- Event:- International Talk Like A Pirate Day ---- @ Sat-19-Sep-2015
+183 --- Mon-21-09-2015---- Last -- Event:- International Day of Peace 1981 ---- @ Mon-21-Sep-2015
+184 --- Mon-21-09-2015---- Last -- Event:- St Matthew ---- @ Mon-21-Sep-2015
+185 --- Tue-22-09-2015---- Last -- Autumnal Equinox ---- @ Tue-22-Sep-2015
+186 --- Tue-22-09-2015---- Last -- Event:- Autumn Begins Diary Book ---- @ Tue-22-Sep-2015
+187 --- Wed-23-09-2015---- Last -- Event:- 7th Sign Libra Sep23 Oct22 Air Sign Ruled by Venus: The Balance ---- @ Wed-23-Sep-2015
+188 --- Sat-26-09-2015---- Last -- Event:- European Day of Languages ---- @ Sat-26-Sep-2015
+189 --- Sat-26-09-2015---- Last -- Event:- Grand Parents Day ---- @ Sat-26-Sep-2015
+190 --- Sun-27-09-2015---- Last -- Event:- International Tourism Day ---- @ Sun-27-Sep-2015
+191 --- Mon-28-09-2015---- Last # Lunar Eclipse -Total(Umbral) 28-09-2015 02:51:00a GMT
+192 --- Tue-29-09-2015---- Last -- Event:- Scotland Yard Anniversary ---- @ Tue-29-Sep-2015
+193 --- Tue-29-09-2015---- Last -- Event:- St Micheal ---- @ Tue-29-Sep-2015
+194 --- Wed-30-09-2015---- Last -- Event:- International Spelling Day ---- @ Wed-30-Sep-2015
+195 --- Wed-30-09-2015---- Last -- Event:- Jewish New Year ---- @ Wed-30-Sep-2015
+196 --- Thu-01-10-2015---- Last -- -- 4th Quarter Of Year -- ---- @ Thu-01-Oct-2015
+197 --- Thu-01-10-2015---- Last -- Event:- Start of Season Autumn Oct to Nov -- Amature Stuff ---- @ Thu-01-Oct-2015
+198 --- Sat-03-10-2015---- Last -- Event:- Reunification Day in Germany ---- @ Sat-03-Oct-2015
+199 --- Mon-05-10-2015---- Last -- Event:- World Teachers' Day ---- @ Mon-05-Oct-2015
+200 --- Fri-09-10-2015---- Last -- Event:- Jewish day of Atonement ---- @ Fri-09-Oct-2015
+201 --- Fri-09-10-2015---- Last -- Event:- John Lennon's birthday ---- @ Fri-09-Oct-2015
+202 --- Sat-10-10-2015---- Last -- Event:- World mental Health Day ---- @ Sat-10-Oct-2015
+203 --- Mon-12-10-2015---- Last -- Event:- Columbus day ---- @ Mon-12-Oct-2015
+204 --- Tue-13-10-2015---- Last -- Event:- St. Edward the confessor's day ---- @ Tue-13-Oct-2015
+205 --- Fri-16-10-2015---- Last -- Event:- World Food Day ---- @ Fri-16-Oct-2015
+206 --- Sun-18-10-2015---- Last -- Event:- St Luke ---- @ Sun-18-Oct-2015
+207 --- Fri-23-10-2015---- Last -- Event:- 8th Sign Scorpio Oct23 Nov21 Water Sign Ruled by Pluto: The Scorpion ---- @ Fri-23-Oct-2015
+208 --- Sat-24-10-2015---- Last -- Event:- United Nations Day ---- @ Sat-24-Oct-2015
+209 --- Mon-26-10-2015---- Last -- Armistice Day Forerunner for Veterans Day ---- @ Mon-26-Oct-2015
+210 --- Wed-28-10-2015---- Last -- Event:- St Simon and St Jude ---- @ Wed-28-Oct-2015
+211 --- Thu-29-10-2015---- Last -- Event:- Internet First Created - 1969 ---- @ Thu-29-Oct-2015
+212 --- Sat-31-10-2015---- Last -- Event:- Clocks Rewind 1 Hours GMT - A Chunk Of Time DisAppears -- OverLapp ---- @ Sat-31-Oct-2015
+213 --- Sat-31-10-2015---- Last -- Event:- Halloween ---- @ Sat-31-Oct-2015
+214 --- Sat-31-10-2015---- Last -- Event:- Hallowwe'en ---- @ Sat-31-Oct-2015
+215 --- Sun-01-11-2015---- Last -- Event:- All Saints' Day ---- @ Sun-01-Nov-2015
+
+#---- Last to Next ----Sun 01-Nov-15
+
+01 --- Thu-05-11-2015---- Next -- Event:- Birthday Damo YEAR %%% ---- @ Thu-05-Nov-2015
+02 --- Thu-05-11-2015---- Next -- Event:- Bonfire Night ---- @ Thu-05-Nov-2015
+03 --- Thu-05-11-2015---- Next -- Event:- Guy Falwks Night ---- @ Thu-05-Nov-2015
+04 --- Thu-05-11-2015---- Next -- Event:- Remember Remember 5th November Guy Fawkes FireWorks Night ---- @ Thu-05-Nov-2015
+05 --- Fri-06-11-2015---- Next -- Winter -- Cross-Quarter Season Begin ---- @ Fri-06-Nov-2015
+06 --- Sat-07-11-2015---- Next -- Event:- Marie Curie's birth 1867 ---- @ Sat-07-Nov-2015
+07 --- Wed-11-11-2015---- Next -- Event:- Remembrance Day ---- @ Wed-11-Nov-2015
+08 --- Wed-11-11-2015---- Next -- Rememberance Veterans Day 11th Day 11th Hour ---- @ Wed-11-Nov-2015
+09 --- Fri-13-11-2015---- Next -- Event:- Birthday Debbie Macindeor Was French ---- @ Fri-13-Nov-2015
+10 --- Fri-13-11-2015---- Next -- Friday The 13th ---- @ Fri-13-Nov-2015
+11 --- Sun-15-11-2015---- Next -- Rememberance Sunday Veterans Day ---- @ Sun-15-Nov-2015
+12 --- Mon-16-11-2015---- Next -- Event:- International Day for Tolerance ---- @ Mon-16-Nov-2015
+13 --- Tue-17-11-2015---- Next -- Event:- World Peace Day ---- @ Tue-17-Nov-2015
+14 --- Fri-20-11-2015---- Next -- Event:- Universal Childrens Day - UN ---- @ Fri-20-Nov-2015
+15 --- Sun-22-11-2015---- Next -- Event:- 9th Sign Sagittarius Nov22 Dec21 Fire Sign Ruled by Jupiter: The Archer ---- @ Sun-22-Nov-2015
+16 --- Sun-22-11-2015---- Next -- Event:- JF Kennedy assassinated 1963 ---- @ Sun-22-Nov-2015
+17 --- Thu-26-11-2015---- Next -- US Thanksgiving Day - Fourth Thurs in Month Nov ---- @ Thu-26-Nov-2015
+18 --- Fri-27-11-2015---- Next -- Buy Nothing Day in US - Day after Thanksgiving. ---- @ Fri-27-Nov-2015
+19 --- Sun-29-11-2015---- Next -- Event:- First Sunday In Advent ---- @ Sun-29-Nov-2015
+20 --- Mon-30-11-2015---- Next -- Event:- St Andrew's Day, Scotland ---- @ Mon-30-Nov-2015
+21 --- Tue-01-12-2015---- Next -- Event:- Start of Season Winter Dec to Feb -- Amature Stuff ---- @ Tue-01-Dec-2015
+22 --- Tue-01-12-2015---- Next -- Event:- Tolerance Week - 1st week of Dec. ---- @ Tue-01-Dec-2015
+23 --- Tue-01-12-2015---- Next -- Event:- World Aids Day ---- @ Tue-01-Dec-2015
+24 --- Sun-06-12-2015---- Next -- Event:- Birthday Michele CORBET Openshaw ---- @ Sun-06-Dec-2015
+25 --- Mon-07-12-2015---- Next -- Event:- PAUL NICKLEN BIRTHDAY FAMILY ---- @ Mon-07-Dec-2015
+26 --- Mon-07-12-2015---- Next -- Event:- Pearl Harbour Day ---- @ Mon-07-Dec-2015
+27 --- Thu-10-12-2015---- Next -- Event:- Human Rights Day, a United Nations observance. ---- @ Thu-10-Dec-2015
+28 --- Sat-12-12-2015---- Next Earliest Sunset Winter  03:53:30p
+29 --- Mon-21-12-2015---- Next -- Event:- Winter Solstice (& June 21st) ---- @ Mon-21-Dec-2015
+30 --- Tue-22-12-2015---- Next -- Event:- 10th Sign Capricorn Dec22 Jan19 Earth Sign Ruled by Satun: The Goat ---- @ Tue-22-Dec-2015
+31 --- Tue-22-12-2015---- Next -- Shortest Day ---- @ Tue-22-Dec-2015
+32 --- Tue-22-12-2015---- Next -- Winter Solstice ---- @ Tue-22-Dec-2015
+33 --- Thu-24-12-2015---- Next -- Event:- Birthday Slick Willy Dee@gmail ---- @ Thu-24-Dec-2015
+34 --- Thu-24-12-2015---- Next -- Event:- Christmas Eve ---- @ Thu-24-Dec-2015
+35 --- Fri-25-12-2015---- Next -- Event:- Christmas day ---- @ Fri-25-Dec-2015
+36 --- Fri-25-12-2015---- Next -- Real Blue Moon ---- @ Fri-25-Dec-2015 11:12:30a --- 13 Full Moons in Year
+37 --- Sat-26-12-2015---- Next -- Event:- Kwanzaa ---- @ Sat-26-Dec-2015
+38 --- Sat-26-12-2015---- Next -- Event:- St. Stephen's Day ---- @ Sat-26-Dec-2015
+39 --- Thu-31-12-2015---- Next -- Event:- New Year's Eve ---- @ Thu-31-Dec-2015
+40 --- Thu-31-12-2015---- Next Latest Sunrise Winter  08:01:39a
+41 --- Fri-01-01-2016---- Next -- -- 1st Quarter Of Year -- ---- @ Fri-01-Jan-2016
+42 --- Fri-01-01-2016---- Next -- Event:- Circumcision ---- @ Fri-01-Jan-2016
+43 --- Fri-01-01-2016---- Next -- Event:- New Years Day ---- @ Fri-01-Jan-2016
+44 --- Fri-01-01-2016---- Next -- Event:- New Year's Day ---- @ Fri-01-Jan-2016
+45 --- Wed-06-01-2016---- Next -- Event:- Epiphany ---- @ Wed-06-Jan-2016
+46 --- Wed-06-01-2016---- Next -- Event:- Three King's Day ---- @ Wed-06-Jan-2016
+47 --- Thu-07-01-2016---- Next -- Event:- Coptic Christian Christmas ---- @ Thu-07-Jan-2016
+48 --- Fri-08-01-2016---- Next -- Event:- Elvis Presley's official Birthday ---- @ Fri-08-Jan-2016
+49 --- Wed-20-01-2016---- Next -- Event:- 11th Sign Aquarius Jan20 Feb18 Air Sign Ruled by Uranus: The Water Bearer ---- @ Wed-20-Jan-2016
+50 --- Wed-20-01-2016---- Next -- Event:- Reindeer Day ---- @ Wed-20-Jan-2016
+51 --- Mon-25-01-2016---- Next -- Event:- Converstion of St Paul ---- @ Mon-25-Jan-2016
+52 --- Mon-25-01-2016---- Next -- Event:- Robert Burns' Day - Scotland's national poet ---- @ Mon-25-Jan-2016
+53 --- Mon-25-01-2016---- Next -- Event:- The Start of the Chinese New Year. ---- @ Mon-25-Jan-2016
+54 --- Tue-26-01-2016---- Next -- Event:- Australia Day ---- @ Tue-26-Jan-2016
+55 --- Tue-26-01-2016---- Next -- Event:- Indian Republic Day ---- @ Tue-26-Jan-2016
+56 --- Tue-02-02-2016---- Next -- Event:- Groundhog Day ---- @ Tue-02-Feb-2016
+57 --- Thu-04-02-2016---- Next -- Spring -- Cross-Quarter Season Begin ---- @ Thu-04-Feb-2016
+58 --- Fri-05-02-2016---- Next -- *Shrove Tuesday* is the day before Lent begins, when confession leads one to be shriven of sins for which the penitent is given absolution. ---- @ Fri-05-Feb-2016
+59 --- Fri-05-02-2016---- Next -- Shrove Tue - 1st Biblical Day Year -47 Days From Easter Sunday +60 for Corpus Christi -- Tott 107 Days - Tott 17+ Biblical Days ---- @ Fri-05-Feb-2016
+60 --- Sat-06-02-2016---- Next -- Ash Wednesday - First day of the penitential season of Lent "Remember that you are dust, and unto dust you shall return." ---- @ Sat-06-Feb-2016
+61 --- Sat-06-02-2016---- Next -- Event:- Waitangi Day - New Zealand ---- @ Sat-06-Feb-2016
+62 --- Wed-10-02-2016---- Next -- First sunday in lent ---- @ Wed-10-Feb-2016
+63 --- Sun-14-02-2016---- Next -- Event:- St Valentine ---- @ Sun-14-Feb-2016
+64 --- Sun-14-02-2016---- Next -- Event:- St Valentine's Day ---- @ Sun-14-Feb-2016
+65 --- Fri-19-02-2016---- Next -- Event:- 12th Sign Pisces Feb19 Mar20 Water Sign Ruled by Neptune: The fish ---- @ Fri-19-Feb-2016
+66 --- Sun-21-02-2016---- Next -- Event:- International Mother Language Day ---- @ Sun-21-Feb-2016
+67 --- Wed-24-02-2016---- Next -- Event:- St Matthias ---- @ Wed-24-Feb-2016
+68 --- Tue-01-03-2016---- Next -- Event:- St. David's Day - Wales ---- @ Tue-01-Mar-2016
+69 --- Tue-01-03-2016---- Next -- Event:- Start of Season Spring Mar to May  -- Amature Stuff ---- @ Tue-01-Mar-2016
+70 --- Wed-02-03-2016---- Next -- Event:- World Book Day ---- @ Wed-02-Mar-2016
+71 --- Wed-02-03-2016---- Next -- Mothering Sunday 4th Sunday in Lent ---- @ Wed-02-Mar-2016
+72 --- Tue-08-03-2016---- Next -- Event:- International Women's Day ---- @ Tue-08-Mar-2016
+73 --- Wed-09-03-2016---- Next -- Event:- International Womens Day ---- @ Wed-09-Mar-2016
+74 --- Wed-09-03-2016---- Next # Solar Eclipse -Total 09-03-2016 01:55:00a GMT
+75 --- Thu-10-03-2016---- Next -- Event:- United Kingdom Commonwealth Day ---- @ Thu-10-Mar-2016
+76 --- Wed-16-03-2016---- Next -- Holy Week - The week immediately preceding Easter, beginning with Palm Sunday. ---- @ Wed-16-Mar-2016
+77 --- Wed-16-03-2016---- Next -- Palm Sunday -- Custom of blessing palms -- In commemoration of the triumphal entry of Jesus into Jerusalem ---- @ Wed-16-Mar-2016
+78 --- Fri-18-03-2016---- Next -- Event:- St. Edward the martyr Feast day ---- @ Fri-18-Mar-2016
+79 --- Sat-19-03-2016---- Next -- Event:- St Joseph ---- @ Sat-19-Mar-2016
+80 --- Sun-20-03-2016---- Next -- Event:- Spring Begins Diary Book ---- @ Sun-20-Mar-2016
+81 --- Sun-20-03-2016---- Next -- Maundy Thursday or Holy Thursday, the Thursday before Easter Sunday, observed by Christians in commemoration of Christ's Last Supper ---- @ Sun-20-Mar-2016
+82 --- Sun-20-03-2016---- Next -- Vernal Equinox ---- @ Sun-20-Mar-2016
+83 --- Mon-21-03-2016---- Next -- Event:- 1st Sign Aries Mar21 Apr19 Fire Sign Ruled by Mars: The Ram ---- @ Mon-21-Mar-2016
+84 --- Mon-21-03-2016---- Next -- Good Friday, Friday immediately preceding Easter, celebrated by Christians as the anniversary of Christ's crucifixion. ---- @ Mon-21-Mar-2016
+85 --- Tue-22-03-2016---- Next -- Event:- World Water Day ---- @ Tue-22-Mar-2016
+86 --- Tue-22-03-2016---- Next -- Holy Saturday commemorates the burial of Christ ---- @ Tue-22-Mar-2016
+87 --- Wed-23-03-2016---- Next -- Easter Sunday -- Easter Full Moon is the next Full Moon after Mar 22 ---- @ Wed-23-Mar-2016
+88 --- Wed-23-03-2016---- Next -- Full Moon Before Easter -- Easter Sunday is Next Sunday After Easter Full Moon ---- @ Wed-23-Mar-2016
+89 --- Wed-23-03-2016---- Next # Lunar Eclipse -Penumbral 23-03-2016 12:00:00p GMT
+90 --- Thu-24-03-2016---- Next -- Easter Monday Holiday ---- @ Thu-24-Mar-2016
+91 --- Fri-25-03-2016---- Next -- Event:- Annuciation ---- @ Fri-25-Mar-2016
+92 --- Sat-26-03-2016---- Next -- Event:- Independence Day of Bangladesh ---- @ Sat-26-Mar-2016
+93 --- Sun-27-03-2016---- Next -- British Summer Time Begins - BST ---- @ Sun-27-Mar-2016
+94 --- Sun-27-03-2016---- Next -- Event:- World Theatre Day ---- @ Sun-27-Mar-2016
+95 --- Wed-30-03-2016---- Next -- Event:- Clocks Go Forward 1 Hours BST - We Get a Hour Rest ---- @ Wed-30-Mar-2016
+96 --- Fri-01-04-2016---- Next -- -- 2nd Quarter Of Year -- ---- @ Fri-01-Apr-2016
+97 --- Fri-01-04-2016---- Next -- Event:- April Fool's Day ---- @ Fri-01-Apr-2016
+98 --- Sat-02-04-2016---- Next -- Event:- International Children's Book Day ---- @ Sat-02-Apr-2016
+99 --- Thu-07-04-2016---- Next -- Event:- World Health Day ---- @ Thu-07-Apr-2016
+100 --- Thu-14-04-2016---- Next -- Event:- Anniversary of Titanic sinking ---- @ Thu-14-Apr-2016
+101 --- Mon-18-04-2016---- Next -- Event:- Record Store Day - UK ---- @ Mon-18-Apr-2016
+102 --- Tue-19-04-2016---- Next -- Event:- Patriot's Day ---- @ Tue-19-Apr-2016
+103 --- Wed-20-04-2016---- Next -- Event:- 2nd Sign Taurus Apr20 May20 Earth Sign Ruled by Venus: The bull ---- @ Wed-20-Apr-2016
+104 --- Wed-20-04-2016---- Next -- Event:- Jewish Passover ---- @ Wed-20-Apr-2016
+105 --- Fri-22-04-2016---- Next -- Event:- Earth Day ---- @ Fri-22-Apr-2016
+106 --- Sat-23-04-2016---- Next -- Event:- St George Day - Grandad Birthday ---- @ Sat-23-Apr-2016
+107 --- Sun-24-04-2016---- Next -- Event:- London Marathon Last Sunday In April ---- @ Sun-24-Apr-2016
+108 --- Mon-25-04-2016---- Next -- Event:- International Noise Awareness Day ---- @ Mon-25-Apr-2016
+109 --- Mon-25-04-2016---- Next -- Event:- The Feast of St. Mark ---- @ Mon-25-Apr-2016
+110 --- Tue-26-04-2016---- Next -- Event:- John Vousden Sister's Husband ---- @ Tue-26-Apr-2016
+111 --- Sun-01-05-2016---- Next -- Ascension Day ---- @ Sun-01-May-2016
+112 --- Sun-01-05-2016---- Next -- Event:- May Day - Labour Day ---- @ Sun-01-May-2016
+113 --- Sun-01-05-2016---- Next -- Event:- St Philip and St James ---- @ Sun-01-May-2016
+114 --- Wed-04-05-2016---- Next -- Sunday after Ascension Day ---- @ Wed-04-May-2016
+115 --- Thu-05-05-2016---- Next -- Event:- Cinco de Mayo - Mexico ---- @ Thu-05-May-2016
+116 --- Thu-05-05-2016---- Next -- Summer -- Cross-Quarter Season Begin ---- @ Thu-05-May-2016
+117 --- Sun-08-05-2016---- Next -- Event:- World Red Cross Day ---- @ Sun-08-May-2016
+118 --- Wed-11-05-2016---- Next -- Pentecost ---- @ Wed-11-May-2016
+119 --- Wed-11-05-2016---- Next -- WhitSuntide, Week beginning with WhitSunday or Pentecost -- Whitsuntide (Anglo-Saxon hweta sunnandaeg, white Sunday) ---- @ Wed-11-May-2016
+120 --- Thu-12-05-2016---- Next -- Event:- Limerick Day - Birthday of Edward Lear ---- @ Thu-12-May-2016
+121 --- Thu-12-05-2016---- Next -- WhitMonday -- White Sunday, derives from the white garments worn by those baptized on Whitsunday. ---- @ Thu-12-May-2016
+122 --- Fri-13-05-2016---- Next -- WhitTuesday ---- @ Fri-13-May-2016
+123 --- Wed-18-05-2016---- Next -- Event:- International Museum Day ---- @ Wed-18-May-2016
+124 --- Wed-18-05-2016---- Next -- Trinity Day ---- @ Wed-18-May-2016
+125 --- Sat-21-05-2016---- Next -- Event:- 3rd Sign Gemini May21 Jun21 Air Sign Ruled by Mercury: The twins ---- @ Sat-21-May-2016
+126 --- Sun-22-05-2016---- Next -- Corpus Christi -- The Last Biblical Day of Year Besides Christmas - Makes 17 Christian Days In Year as My Count ---- @ Sun-22-May-2016
+127 --- Tue-24-05-2016---- Next -- Event:- Victoria Day - Canada ---- @ Tue-24-May-2016
+128 --- Tue-31-05-2016---- Next -- Event:- Birthday Paul Brown ---- @ Tue-31-May-2016
+129 --- Wed-01-06-2016---- Next -- Event:- Start of Season Summer Jun to Sep -- Amature Stuff ---- @ Wed-01-Jun-2016
+130 --- Wed-01-06-2016---- Next -- Event:- Wimbledon begins ---- @ Wed-01-Jun-2016
+131 --- Sun-05-06-2016---- Next -- Event:- World Environment Day ---- @ Sun-05-Jun-2016
+132 --- Mon-06-06-2016---- Next -- Event:- D-Day WWII ---- @ Mon-06-Jun-2016
+133 --- Fri-10-06-2016---- Next -- Event:- Birthday Sahara Ware ---- @ Fri-10-Jun-2016
+134 --- Sat-11-06-2016---- Next -- Event:- St Barnabas ---- @ Sat-11-Jun-2016
+135 --- Thu-16-06-2016---- Next Earliest Sunrise Summer  03:45:11a
+136 --- Sun-19-06-2016---- Next -- Event:- Father's Day ---- @ Sun-19-Jun-2016
+137 --- Mon-20-06-2016---- Next -- Event:- United Nations World Refugee Day ---- @ Mon-20-Jun-2016
+138 --- Tue-21-06-2016---- Next -- Longest Day ---- @ Tue-21-Jun-2016
+139 --- Tue-21-06-2016---- Next -- Mid Summers Day (made famous by William Shakespeare) ---- @ Tue-21-Jun-2016
+140 --- Tue-21-06-2016---- Next -- Summer Solstice ---- @ Tue-21-Jun-2016
+141 --- Wed-22-06-2016---- Next -- Event:- 4th Sign Cancer Jun22 Jul22 Water Sign Ruled by Moon: The Crab ---- @ Wed-22-Jun-2016
+142 --- Fri-24-06-2016---- Next -- Event:- Midsummer Day, celebrated in Europe. ---- @ Fri-24-Jun-2016
+143 --- Fri-24-06-2016---- Next -- Event:- St John the Baptist ---- @ Fri-24-Jun-2016
+144 --- Fri-24-06-2016---- Next Latest Sunset Summer  08:16:53p
+145 --- Wed-29-06-2016---- Next -- Event:- St Peter St Paul ---- @ Wed-29-Jun-2016
+146 --- Fri-01-07-2016---- Next -- -- 3rd Quarter Of Year -- ---- @ Fri-01-Jul-2016
+147 --- Fri-01-07-2016---- Next -- Event:- Canada Day ---- @ Fri-01-Jul-2016
+148 --- Fri-01-07-2016---- Next -- Event:- Tour de France bicycle race ---- @ Fri-01-Jul-2016
+149 --- Sun-03-07-2016---- Next -- Event:- St. Thomas' Day ---- @ Sun-03-Jul-2016
+150 --- Mon-04-07-2016---- Next -- Event:- US Independence Day ---- @ Mon-04-Jul-2016
+151 --- Mon-11-07-2016---- Next -- Event:- World Population Day ---- @ Mon-11-Jul-2016
+152 --- Thu-14-07-2016---- Next -- Event:- French Bastille Day ---- @ Thu-14-Jul-2016
+153 --- Fri-15-07-2016---- Next -- Event:- St Swithin ---- @ Fri-15-Jul-2016
+154 --- Fri-22-07-2016---- Next -- Event:- St Mary Magdalene ---- @ Fri-22-Jul-2016
+155 --- Sat-23-07-2016---- Next -- Event:- 5th Sign Leo Jul23 Aug22 Fire Sign Ruled by Sun: The Lion ---- @ Sat-23-Jul-2016
+156 --- Mon-25-07-2016---- Next -- Event:- St James ---- @ Mon-25-Jul-2016
+157 --- Mon-01-08-2016---- Next -- Event:- World Wide Web Anniversary ---- @ Mon-01-Aug-2016
+158 --- Sat-06-08-2016---- Next -- Autumn -- Cross-Quarter Season Begin ---- @ Sat-06-Aug-2016
+159 --- Sat-06-08-2016---- Next -- Event:- Transfiguration ---- @ Sat-06-Aug-2016
+160 --- Fri-12-08-2016---- Next -- Event:- International Youth Day ---- @ Fri-12-Aug-2016
+161 --- Sat-13-08-2016---- Next -- Event:- International Left-handers Day ---- @ Sat-13-Aug-2016
+162 --- Sun-14-08-2016---- Next -- Event:- Pakistan Independence Day ---- @ Sun-14-Aug-2016
+163 --- Mon-15-08-2016---- Next -- Event:- Assumption of Mary ---- @ Mon-15-Aug-2016
+164 --- Mon-15-08-2016---- Next -- Event:- Indian Independence Day ---- @ Mon-15-Aug-2016
+165 --- Fri-19-08-2016---- Next -- Event:- Aviation Day ---- @ Fri-19-Aug-2016
+166 --- Tue-23-08-2016---- Next -- Event:- 6th Sign Virgo Aug23 Sep22 Earth Sign Ruled by Mercury: The Virgin ---- @ Tue-23-Aug-2016
+167 --- Mon-29-08-2016---- Next -- Event:- Late Summer Holiday ---- @ Mon-29-Aug-2016
+168 --- Wed-31-08-2016---- Next -- Event:- BlogDay ---- @ Wed-31-Aug-2016
+169 --- Wed-31-08-2016---- Next -- Event:- Malaysia Independence Day ---- @ Wed-31-Aug-2016
+170 --- Wed-07-09-2016---- Next -- Event:- Birthday Tracy Johnson ---- @ Wed-07-Sep-2016
+171 --- Wed-07-09-2016---- Next -- Event:- Brazilian Independence Day ---- @ Wed-07-Sep-2016
+172 --- Thu-08-09-2016---- Next -- Event:- Blessed Virgin Mary ---- @ Thu-08-Sep-2016
+173 --- Thu-08-09-2016---- Next -- Event:- International Literacy Day ---- @ Thu-08-Sep-2016
+174 --- Sat-10-09-2016---- Next -- Event:- Birthday Colleen Davies ---- @ Sat-10-Sep-2016
+175 --- Thu-15-09-2016---- Next -- Event:- International Day of Democracy ---- @ Thu-15-Sep-2016
+176 --- Fri-16-09-2016---- Next -- Harvest Moon - Full Moon Closest to the Autumnal Equinox ---- @ 16-09-2016 - 19:06:16
+177 --- Mon-19-09-2016---- Next -- Event:- International Talk Like A Pirate Day ---- @ Mon-19-Sep-2016
+178 --- Wed-21-09-2016---- Next -- Event:- International Day of Peace 1981 ---- @ Wed-21-Sep-2016
+179 --- Wed-21-09-2016---- Next -- Event:- St Matthew ---- @ Wed-21-Sep-2016
+180 --- Thu-22-09-2016---- Next -- Autumnal Equinox ---- @ Thu-22-Sep-2016
+181 --- Thu-22-09-2016---- Next -- Event:- Autumn Begins Diary Book ---- @ Thu-22-Sep-2016
+182 --- Fri-23-09-2016---- Next -- Event:- 7th Sign Libra Sep23 Oct22 Air Sign Ruled by Venus: The Balance ---- @ Fri-23-Sep-2016
+183 --- Mon-26-09-2016---- Next -- Event:- European Day of Languages ---- @ Mon-26-Sep-2016
+184 --- Tue-27-09-2016---- Next -- Event:- International Tourism Day ---- @ Tue-27-Sep-2016
+185 --- Thu-29-09-2016---- Next -- Event:- Scotland Yard Anniversary ---- @ Thu-29-Sep-2016
+186 --- Thu-29-09-2016---- Next -- Event:- St Micheal ---- @ Thu-29-Sep-2016
+187 --- Fri-30-09-2016---- Next -- Event:- International Spelling Day ---- @ Fri-30-Sep-2016
+188 --- Fri-30-09-2016---- Next -- Event:- Jewish New Year ---- @ Fri-30-Sep-2016
+189 --- Sat-01-10-2016---- Next -- -- 4th Quarter Of Year -- ---- @ Sat-01-Oct-2016
+190 --- Sat-01-10-2016---- Next -- Event:- Grand Parents Day ---- @ Sat-01-Oct-2016
+191 --- Sat-01-10-2016---- Next -- Event:- Start of Season Autumn Oct to Nov -- Amature Stuff ---- @ Sat-01-Oct-2016
+192 --- Mon-03-10-2016---- Next -- Event:- Reunification Day in Germany ---- @ Mon-03-Oct-2016
+193 --- Wed-05-10-2016---- Next -- Event:- World Teachers' Day ---- @ Wed-05-Oct-2016
+194 --- Sun-09-10-2016---- Next -- Event:- Jewish day of Atonement ---- @ Sun-09-Oct-2016
+195 --- Sun-09-10-2016---- Next -- Event:- John Lennon's birthday ---- @ Sun-09-Oct-2016
+196 --- Mon-10-10-2016---- Next -- Event:- World mental Health Day ---- @ Mon-10-Oct-2016
+197 --- Wed-12-10-2016---- Next -- Event:- Columbus day ---- @ Wed-12-Oct-2016
+198 --- Thu-13-10-2016---- Next -- Event:- St. Edward the confessor's day ---- @ Thu-13-Oct-2016
+199 --- Sun-16-10-2016---- Next -- Event:- World Food Day ---- @ Sun-16-Oct-2016
+200 --- Tue-18-10-2016---- Next -- Event:- St Luke ---- @ Tue-18-Oct-2016
+201 --- Sun-23-10-2016---- Next -- Event:- 8th Sign Scorpio Oct23 Nov21 Water Sign Ruled by Pluto: The Scorpion ---- @ Sun-23-Oct-2016
+202 --- Mon-24-10-2016---- Next -- Armistice Day Forerunner for Veterans Day ---- @ Mon-24-Oct-2016
+203 --- Mon-24-10-2016---- Next -- Event:- United Nations Day ---- @ Mon-24-Oct-2016
+204 --- Fri-28-10-2016---- Next -- Event:- St Simon and St Jude ---- @ Fri-28-Oct-2016
+205 --- Sat-29-10-2016---- Next -- Event:- Internet First Created - 1969 ---- @ Sat-29-Oct-2016
+206 --- Mon-31-10-2016---- Next -- Event:- Clocks Rewind 1 Hours GMT - A Chunk Of Time DisAppears -- OverLapp ---- @ Mon-31-Oct-2016
+207 --- Mon-31-10-2016---- Next -- Event:- Halloween ---- @ Mon-31-Oct-2016
+208 --- Mon-31-10-2016---- Next -- Event:- Hallowwe'en ---- @ Mon-31-Oct-2016
+209 --- Tue-01-11-2016---- Next -- Event:- All Saints' Day ---- @ Tue-01-Nov-2016
+210 --- Sat-04-11-2017---- Next -- The Maine Farmer's Almanac Blue Moon ---- @ 04-11-2017 - 05:24:01 --- - 4 Full Moons in Season
+211 --- Wed-31-01-2018---- Next -- Calendar Blue Moon ---- @ Wed-31-Jan-2018 01:27:48p --- 2nd Full Moon in Month
+212 --- Thu-01-02-2018---- Next -- Black Moon ---- @ Thu-01-Feb-2018 12:00:00a --- No Full Moon in Feb
+213 --- Mon-06-06-2039->>-Next 666 On a Full Moon at: 18:48:58
+214 --- Tue-13-04-2060---- Next -- Good Friday, On Friday the 13th ---- @ Tue-13-Apr-2060
+215 --- Mon-06-06-3166->>-Next '6 or 66' 666 On a Full Moon at: 02:58:34
+216 --- Wed-06-06-6666->>--Next 6666 On a Full Moon at: 11:02:51

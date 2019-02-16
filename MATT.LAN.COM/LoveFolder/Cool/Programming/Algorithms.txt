@@ -1,0 +1,63 @@
+Title: A Picture Stealth Paper
+Description: This describes briefly how and more importantly why to hide data instead of just encrypting it.
+This file came from Planet-Source-Code.com...the home millions of lines of source code
+You can view comments on this code/and or vote on it at: http://www.Planet-Source-Code.com/vb/scripts/ShowCode.asp?txtCodeId=9002&lngWId=1
+
+The author may have retained certain copyrights to this code...please observe their request and the law by reviewing all copyright conditions at the above URL.
+
+
+
+Stealth Cipher System
+
+Introduction
+
+This is a paper about how to hide encrypted messages in picture files, conspiracy theories and how to avoid getting caught! Skip to the last section if you just want to hide files.
+
+Who’s Watching You?
+
+Do you believe you lead a private life? If so think again. Cast your mind back over the events of today, do you have a credit card? a mobile phone perhaps? do you ever drive a car into town? If you did any one of the above things, then your name and possibly numbers have already come to the attention of hundreds possibly even thousands of computers across the world! This is the side of the information age they don’t want you to know about. After all information is power, and power is money and those that hold the information are holding a valuable commodity; the ability to trade pure information. You may very well think that I am just another one of those conspiracy theory freaks, well this may be true but with good reason. For example, ISDN are rapidly replacing the older and more basic handsets of old. This [relatively] new technology provides the user with a whole host of new services, but what is less widely know is that the ISDN system allows a remote operator to activate the microphone so that it is effective ‘off-hook’ in order to bug the room that the telephone is located in. No doubt that the next generation ADSL and DSL lines also have this feature. Let me assure you that this is just the tip of the iceberg!
+
+Technology has existed since the 1970s that can transcribe the spoken work, ‘read’ fax messages, and so on. This raw data is now in a state that can be automatically analyzed by ‘intelligent’ computer programs. The increasing of e-mails, which by its very nature is already in computer form frees up resources to allow the monitoring of an increasing proportion of the world’s communications. These programs are provided with a dictionary of potentially suspicious names, words, and phrases. They then compile list of all communications, which may be suspect. Human operators who decide whether the investigation of the individual is warranted then investigate these further or not. One of these spy stations is the 13th UKUSA Field Station based at Menwith Hill in the North of England; an RAF base site, which the USA government leases from Britain (under control of the NSA). This site is part of Project P415. During WW2, The US, Britain, New Zealand, Australia and Canada pooled their information resources. After the war they signed the UKUSA treaty, which is still in operation today. Not only does it allow them to continue sharing their intelligence resources but, more sinisterly, it allows them to circumvent their own nation laws in intelligence operations targeted towards their own citizens. There are bases such as Menwith Hill situated all around the globe
+.
+The Menwith Hill site is conveniently located next to a strategic Post Office communications tower. Coincidentally the tower is the pivotal point for over 1 million lines of microwave and cable connections installed in Britain. It is almost certain that if you ever make a call within, or to Britain to will go via that tower. It is one of the major five ‘listening posts’ around the world. Located to provide maximum coverage on national and international communications. It has been confirmed that the Post Office Tower (near Menwith Hill) is a key component of the telecommunications network in the UK moreover the tower is linked directly by wire to the Menwith Hill facility. The fact that domestic intrusion exists at Menwith Hill station is surely shown by the fact the British Telecom has a 32,000 telephone capacity directly to the communications tower along the B6451 to Otley. There cannot be 32,000 telephones in continuous use at Menwith Hill, that defies, especially since only 3,200 are employed there. A figure which itself has trebled since the end of the cold war. Then of course there is the matter of a Mr. Bob Cryer an MP (Member of Parliament) detailed the Parliament about the Menwith Hill project back in 1994. Shortly after delivering this speech Mr. Cryer, a committed and life-long campaigner, killed in a car accident.
+
+In conclusion, it is obvious to me and most likely you that there is at least something a little mysterious going on a Menwith Hill, something that requires 28,000 phone lines more than the amount of staff employed and a direct wire connection to the backbone of British communications! It could be that the NSA decided that they required a very fast internet connection to play multiplayer Quake III but I think not.
+
+Any way the point I am trying to get across is that encryption is essential if your information is to be kept under wraps from spying governments and the like.
+
+The problem with Encryption
+
+‘If you know it is there you will try and find it, if you do not know it is there you cannot find it.’
+
+This is the problem with encryption. For instance, you encrypt something and send it in an email to someone. Menwith Hill (or whatever your country’s equivalent may be) intercepts it and opens it, they find a garbed text file, what will they think? I’ll tell you, they will assume it is an encrypted if and attempt to decrypt it. This is the first problem, they know you’re hiding something. The computing power of the NSA is immense, there are football fields filled with rows of supercomputers specially designed for decrypting messages. Firstly they don’t use the top of the range Pentium III computers or whatever, they have specially designed computers, designed to do nothing more than decrypt files, and they are very good at it. Because of the different types of encryption algorithms there are, such as CAST, IDEA, DES, RC6, etc. they have different computers for each algorithm (industrial strength algorithms of course). For example, every year there is a competition to decrypt a DES message for the least possible amount of money, this year someone for the first time won it, with a chip specially designed for DES algorithms and for under $2,500. If this is the cost and effectiveness of a chip designed by a few University Students think what the NSA has!!! Although the extent of the NSA decrypting power is unknown and highly classified it is reasonable is assume that they have something at least as good if not better than the afore chip. So I would think that almost any algorithm that you throw at them they could decrypt within a week if they wanted to. It should also be noted that public key encryption algorithms could also be decrypted with relative ease.
+
+It is with this in mind that people have come up with a way of countering this fact… stealth!
+
+Binary
+
+Every character has a ASC number ranging from 0 to 255, e.g. A = 65. Every character is know as a byte. This ASC number in turn is created by 8 bits which are either 1 or 0. The way it translates is this:
+
+Offset
+1
+2
+3
+4
+5
+6
+7
+8
+1 Equivalent
+128
+64
+32
+16
+8
+4
+2
+1
+ 
+So the ASC number 65 is in fact representing the binary number 01000001 or 64 + 1. 255 would be 11111111, 47 would be 00101111, etc.
+The Principle
+For ever character there is a number, ranging from 0 to 255. As you view the picture you see nothing different, normally in a picture file there is at least 16 million colours. Would you really notice if one of these colours were changed from 16,000,000 to 16,000,001? No probably not since the eye cannot recognise this many colours. So using this to our advantage, lets take a picture file and change the first pixel to an odd number by either leaving it the same (if it is already odd) or adding or subtracting 1. Lets say that odd numbers designate a binary 1 and that even numbers designate a 0, now working through the file in a linear way changing the numbers by one or zero places a secret message is now being hidden within it. Every digit recorded constitutes a bit and every 8 recorded constitutes a byte. This does mean that the host file has to be 8 times bigger than the message, but the message is unlikely to be very long and can also be compressed and encrypted before it is hidden for extra security and a smaller resulting host file.
+
+The problem with this method is that it is linear, and so the NSA can decipher the hidden message and decrypt it. Obviously there is very little point in utilizing this method if it can be deciphered nomore difficultly than if it was sent normally. So for this reason it should be sent in a different way using a polynominal algorithm so that only one particular password will beable to retrive the hiden message. This algorithm will take in a password and change the order of which the bits are hidden. For example bit one (of the hidden file) could be hidden in the byte 4 of the host file, bit two in bit 9, bit three in bit 5 and so on. Of course the algorithm would have to be one which it would never repeat the same byte twice so that the message would not be over written. This would occur in such a fashion that there could be no consievable way of deciphering the hidden file without the password. Even with the original picture file it would be nearly impossible.
