@@ -1,0 +1,1438 @@
+*plausible-----------------a| apparently reasonable and valid  
+*play----------------------v| act or have an effect in a specified way or with a specific effect or outcome; "This factor played only a minor part in his decision"; "This development played into her hands"; "I played no role in your dismissal"  
+*play----------------------v| be at play; be engaged in playful activity; amuse oneself in a way characteristic of children; "The kids were playing outside all day"; "I used to play with trucks as a little girl"  
+*play----------------------v| be performed; "What's playing in the local movie theater?"; "`Cats' has been playing on Broadway for many years"  
+*play----------------------v| be received or accepted or interpreted in a specific way; "This speech didn't play well with the American public"; "His remarks played to the suspicions of the committee"  
+*play----------------------v| behave in a certain way; "play safe"; "play it safe"; "play fair"  
+*play----------------------v| bet or wager (money); "He played $20 on the new horse"; "She plays the races"  
+*play----------------------v| cause to emit recorded sounds; "They ran the tapes over and over again"; "Can you play my favorite record?"  
+*play----------------------v| cause to move or operate freely within a bounded space; "The engine has a wheel that is playing in a rack"  
+*play----------------------v| discharge or direct or be discharged or directed as if in a continuous stream; "play water from a hose"; "The fountains played all day"  
+*play----------------------v| emit recorded sound; "The tape was playing for hours"; "the stereo was playing Beethoven when I entered"  
+*play----------------------v| employ in a game or in a specific position; "They played him on first base"  
+*play----------------------v| engage in an activity as if it were a game rather than take it seriously; "They played games on their opponents"; "play the stockmarket"; "play with her feelings"; "toy with an idea"  
+*play----------------------v| engage in recreational activities rather than work; occupy oneself in a diversion; "On weekends I play"; "The students all recreate alike"  
+*play----------------------v| exhaust by allowing to pull on the line; "play a hooked fish"  
+*play----------------------v| make bets; "Play the reaces"; "play the casinos in Trouville"  
+*play----------------------v| move or seem to move quickly, lightly, or irregularly; "The spotlights played on the politicians"  
+*play----------------------v| participate in games or sport; "We played hockey all afternoon"; "play cards"; "Pele played for the Brazilian teams in many important matches"  
+*play----------------------v| perform music on (a musical instrument); "He plays the flute"; "Can you play on this old recorder?"  
+*play----------------------v| perform on a certain location; "The prodigy played Carnegie Hall at the age of 16"; "She has been playing on Broadway for years"  
+*play----------------------v| play on an instrument; "The band played all night long"  
+*play----------------------v| pretend to be somebody in the framework of a game or playful activity; "Let's play like I am mommy"; "Play cowboy and Indians"  
+*play----------------------v| put (a card or piece) into play during a game, or act strategically as if in a card game; "He is playing his cards close to his chest"; "The Democrats still have some cards to play before they will concede the electoral victory"  
+*play----------------------v| replay (as a melody); "Play it again, Sam"; "She played the third movement very beautifully"  
+*play----------------------v| shoot or hit in a particular manner; "She played a good backhand last night"  
+*play----------------------v| use or move; "I had to play my queen"  
+*play----------------------v| use to one's advantage; "She plays on her clients' emotions"  
+*play_along----------------v| cooperate or pretend to cooperate; "He decided to play long with with the burglars for the moment"  
+*play_along----------------v| perform an accompaniment to; "The orchestra could barely follow the frequent pitch changes of the soprano"  
+*play_around---------------v| commit adultery; "he plays around a lot"  
+*play_back-----------------v| reproduce (a recording) on a recorder; "The lawyers played back the conversation to show that their client was innocent"  
+*play_it_by_ear------------v| decide on one's actions as one goes along, depending on the situation; "She didn't know what to expect from her new job, so she played it by ear"  
+*play_out------------------v| become spent or exhausted; "The champion's strength played out fast"  
+*play_out------------------v| perform or be performed to the end; "How will the election drama be played out?"  
+*play_out------------------v| play to a finish; "We have got to play this game out, even thought it is clear that we have last"  
+*play_possum---------------v| to pretend to be dead  
+*playable------------------a| capable of or suitable for being played or played on; "a playable lie in golf"; "the baseball fan reached out and caught a foul that was judged playable"; "the ball field was playable"; "harpsichord music is readily playable"- P.H.Lang  
+*played--------------------a| (of games) engaged in; "the loosely played game"  
+*played_out----------------s| worn out; "a played out deck of cards"  
+*playful-------------------a| full of fun and high spirits; "playful children sjust let loose from school"  
+*playfully-----------------r| in a playful manner; "she loosened the half-hoop of diamonds on her left hand third finger and held it out to him playfully"  
+*plea-bargain--------------v| agree to plead guilty in return for a lesser charge; "If he plea-bargains, he will be sent to a medium-security prison for 8 years"  
+*pleach--------------------v| interlace the shoots of; "pleach a hedge"  
+*plead---------------------v| appeal or request earnestly; "I pleaded with him to stop"  
+*plead---------------------v| enter a plea, as in courts of law; "She pleaded not guilty"  
+*plead---------------------v| make an allegation in an action or other legal proceeding, especially answer the previous pleading of the other party by denying facts therein stated or by alleging new facts  
+*plead---------------------v| offer as an excuse or plea; "She was pleading insanity"  
+*pleasant------------------a| affording pleasure; being in harmony with your taste or likings; "a pleasant person to be around"; "we had a pleasant evening together"; "a pleasant scene"; "pleasant sensations"  
+*pleasant------------------s| pleasant in manner or behavior; "I didn`t enjoy it and probably wasn't a pleasant person to be around"  
+*pleasantly----------------r| in a cheerful manner; "`I'll do the dishes,' he said pleasantly"  
+*pleasantly----------------r| in an enjoyable manner; "we spent a pleasantly lazy afternoon"  
+*please--------------------r| used in polite request; "please pay attention"  
+*please--------------------v| be the will of or have the will (to); "he could do many things if he pleased"  
+*please--------------------v| give pleasure to or be pleasing to; "These colors please the senses"; "a pleasing sensation"  
+*please--------------------v| give satisfaction; "The waiters around her aim to please"  
+*pleased-------------------a| experiencing or manifesting pleasure  
+*pleased-------------------s| feeling pleasurable satisfaction over something by which you measures your self-worth; "proud of their child"  
+*pleasing------------------a| giving pleasure and satisfaction; "a pleasing piece of news"; "pleasing in manner and appearance"  
+*pleasing------------------s| able to please or win approval  
+*pleasingly----------------r| in a pleasing manner; "the room was pleasingly large"  
+*pleat---------------------v| fold into pleats, "Pleat the cloth"  
+*pleated-------------------s| folded into pleats  
+*plebeian------------------a| of the common people of ancient Rome; "a plebeian magistrate"  
+*pledge--------------------v| bind or secure by a pledge; "I was pledged to silence"  
+*pledge--------------------v| give as a guarantee; "I pledge my honor"  
+*pledge--------------------v| pay (an amount of money) as a contribution to a charity or service, especially at regular intervals; "I pledged $10 a month to my favorite radio station"  
+*pledge--------------------v| promise solemnly and formally; "I pledge that will honor my wife"  
+*pledged-------------------s| bound by or as if by an oath; "according to an early tradition became his sworn brother"; "sworn enemies"  
+*plenarily-----------------r| in a plenary manner; "an empire destined to enter the Commonwealth plenarily"  
+*plenary-------------------s| full in all respects; "a plenary session of the legislature"; "a diplomat with plenary powers"  
+*plentiful-----------------s| existing in great number or quantity; "rhinoceroses were once plentiful here"  
+*pleochroic----------------a| of or relating to or having pleochroism  
+*pleomorphic---------------a| relating to or characterized by pleomorphism  
+*pleonastic----------------s| repetition of same sense in different words; "`a true fact' and `a free gift' are pleonastic expressions"; "the phrase `a beginner who has just started' is tautological"; "at the risk of being redundant I return to my original proposition"- J.B.Conant  
+*pleural-------------------a| of or relating to the pleura or the walls of the thorax; "pleural muscles"  
+*pleurocarpous-------------a| (of mosses) having the archegonia on short lateral branches  
+*pliantly------------------r| in a pliant manner  
+*ploddingly----------------r| in a plodding manner; "this writer ploddingly accumulates detail after detail"  
+*plonk_down----------------v| drop heavily  
+*plop----------------------r| with a short hollow thud; "plop came the ball down to the corner of the green"  
+*plop----------------------v| drop something with a plopping sound  
+*plop----------------------v| drop with the sound of something falling into water  
+*plosive-------------------s| produced by complete closure of the oral passage and subsequent release with a burst of air (as `p' and `d' in `pit' or `dog')  
+*plot----------------------v| plan secretly, usually something illegal; "They plotted the overthrow fo the government"  
+*plow----------------------v| move in a way resembling that of a plow cutting into or going through the soil; "The ship plowed through the water"  
+*plow----------------------v| to break and turn over earth especially with a plow; "Farmer Jones plowed his east field last week"; "turn the earth in the Spring"  
+*plowed--------------------a| (of farmland) broken and turned over with a plow; "plowed fields"  
+*pluck---------------------v| pull lightly but sharply with a plucking motion; "he plucked the strings of his mandolin"  
+*pluck---------------------v| pull or pull out sharply; "pluck the flowers off the bush"  
+*pluck---------------------v| strip of feathers; "pull a chicken"; "pluck the capon"  
+*plucked-------------------a| of a stringed instrument; sounded with the fingers or a plectrum  
+*plucked-------------------s| having the feathers removed, as from a pelt or a fowl; "a plucked chicken"; "an unfeathered goose"  
+*pluckily------------------r| in a plucky manner; "he was Brentford's defensive star in pluckily holding out the determined Reading raids for long periods"  
+*plucky--------------------s| showing courage in the face of danger; "a plucky lampooner of the administration"  
+*plug----------------------v| fill or close tightly with or as if with a plug; "plug the hole"; "stop up the leak"  
+*plug----------------------v| make a plug for; praise the qualities or in order to sell or promote  
+*plug----------------------v| persist in working hard; "Students must plug away at this problem"  
+*plug_away-----------------v| work doggedly or persistently; "She keeps plugging away at her dissertation"  
+*plug_in-------------------v| plug into an outlet; "Please plug in the toaster!"; "Connect the TV so we can watch the football game tonight"  
+*plugged-------------------a| (of a coin) altered by the insertion of a plug of base metal  
+*plumaged------------------s| often used as combining forms; "fully plumaged young bird"; "brightly feathered birds"; "brilliantly plumaged parrots"  
+*plumate-------------------s| having an ornamental plume or feathery tuft  
+*plumb---------------------r| conforming to the direction of a plumb line  
+*plumb---------------------r| exactly; "fell plumb in the middle of the puddle"  
+*plumb---------------------s| exactly vertical; "the tower of Pisa is far out of plumb"  
+*plumb---------------------v| adjust with a plumb line so as to make vertical  
+*plumb---------------------v| examine thoroughly and in great depth  
+*plumb---------------------v| measure the depth of something  
+*plumb---------------------v| weight with lead  
+*plumbable-----------------s| possible to determine the depth of  
+*plumbaginaceous-----------a| of or pertaining to or characteristic of plants of the family Plumbaginaceae  
+*plumbed-------------------s| (of water depth) measured by a line and plumb  
+*plumbic-------------------a| relating to or consisting of lead  
+*plume---------------------v| deck with a plume; "a plumed helmet"  
+*plume---------------------v| form a plume; "The chimneys were pluming the sky"; "The engine was pluming black smoke"  
+*plumed--------------------s| having or covered with or abounding in plumes; "the plumed serpent"; "white-plumed egrets"  
+*plumelike-----------------s| resembling a plume; "the dog's plumy tail"  
+*plumlike------------------s| resembling a plum fruit  
+*plummet-------------------v| drop sharply; "The stock market plummeted"  
+*plummy--------------------s| of a voice; affectedly mellow and rich; "the radio announcer's plummy voice"  
+*plummy--------------------s| very desirable; "a plummy leading role"  
+*plump---------------------r| straight down especially heavily or abruptly; "the anchor fell plump into the sea"; "we dropped the rock plump into the water"  
+*plump---------------------v| give support (to) or make a choice (of) one out of a group or number; "I plumped for the losing candidates"  
+*plump_in------------------v| arrive suddenly and unannounced; "He plumped in on a Sunday morning"  
+*plump_out-----------------v| depart suddenly; "He plumped out of the house"  
+*plumping------------------s| very large; of exceptional size for its kind; "won by a plumping majority"  
+*plunder-------------------v| steal goods; take as spoils; "During the earthquake people looted the stores that were deserted by their owners"  
+*plundering----------------s| given to taking by force what is desired  
+*plunge--------------------v| begin with vigor; "He launched into a long diatribe"; "She plunged into a dangerous adventure"  
+*plunge--------------------v| cause to be immersed; "The professor plunged his students into the study of the Italian text"  
+*plunge--------------------v| dash violently or with great speed or impetuosity; "She plunged at it eagerly"  
+*plunge--------------------v| fall abruptly; "It plunged to the bottom of the well"  
+*pluperfect----------------s| more than perfect; "he spoke with pluperfect precision"  
+*plural--------------------a| grammatical number category referring to two or more items or units  
+*pluralistic---------------a| of or relating to the philosophical doctrine of pluralism; "a pluralistic culture"  
+*plus----------------------a| on the positive side or higher end of a scale; "a plus value"; "temperature of plus 5 degrees"; "a grade of C plus"  
+*plus----------------------s| involving advantage or good; "a plus (or positive) factor"  
+*plutocratic---------------a| of or relating to or characteristic of a plutocrat  
+*ply-----------------------v| apply oneself diligently; "Ply one's trade"  
+*ply-----------------------v| travel a route regularly; "Ships ply the waters near the coast"  
+*ply-----------------------v| use diligently; "ply your wits!"  
+*ply-----------------------v| wield vigorously; "ply an axe"  
+*pneumatic-----------------a| of or relating to or using air (or a similar gas); "pneumatic drill"; "pneumatic tire"  
+*pneumatically-------------r| in a pneumatic manner; "at the present time the transmission is very often done hydraulically or pneumatically"  
+*pneumococcal--------------a| of or derived from or caused by bacteria of the genus pneumococcus  
+*pneumogastric-------------a| of or relating to or involving the lungs and stomach  
+*pneumonic-----------------a| pertaining to or characterized by or affected by pneumonia; "pneumonic plague"  
+*pneumonic-----------------a| relating to or affecting the lungs; "pulmonary disease"  
+*po-faced------------------s| humorless and disapproving  
+*poach---------------------v| cook in a simmering liquid; "poached apricots"  
+*poach---------------------v| hunt illegally; "people are poaching elephants for their ivory"  
+*pocked--------------------s| marked by or as if by smallpox or acne or other eruptive skin disease  
+*pocked--------------------s| used of paved surfaces having holes or pits  
+*pocket--------------------v| put in one's pocket; "He pocketed the change"  
+*pocket--------------------v| take unlawfully  
+*pocket-size---------------s| small enough to be carried in a garment pocket; "pocket-size paperbacks"  
+*pockmark------------------v| mark wit pockmarks; "Her face was pockmarked by the disease"  
+*pod-----------------------v| produce pods, of plants  
+*pod-----------------------v| take something out of its shell or pod; "pod peas or beans"  
+*podlike-------------------s| resembling a pod  
+*poetic--------------------a| of or relating to poetry; "poetic works"; "a poetic romance"  
+*poetic--------------------a| of or relating to poets; "poetic insight"  
+*poetic--------------------s| characteristic of or befitting poetry; "poetic diction"  
+*poetic--------------------s| characterized by romantic imagery; "Turner's vision of the rainbow...was poetic"  
+*poetically----------------r| in a poetic manner; "poetically expressed"  
+*poignant------------------s| keenly distressing to the mind or feelings; "poignant anxiety"  
+*poikilothermic------------s| of animals except birds and mammals; having body temperature that varies with the environment  
+*point---------------------v| be positionable in a specified manner; "The gun points with ease"  
+*point---------------------v| mark (a psalm text) to indicate the points at which the music changes  
+*point---------------------v| mark (Hebrew words) with diacritics  
+*point---------------------v| mark with diacritics; "point the letter"  
+*point---------------------v| repair the joints of bricks; "point a chimney"  
+*point-blank---------------r| in a direct and unequivocal manner; "I asked him point-blank whether he wanted the job"  
+*point-blank---------------s| close enough to go straight to the target; "point-blank range"; "a point-blank shot"  
+*point-of-sale-------------a| of or relating to or being the location where something is purchased  
+*point_jam-----------------v| jam a narrow band of frequencies; "We can counter point-jamming effectively"  
+*point_the_way-------------v| indicate the right path or direction; "The sign pointed the way to London"  
+*point_up------------------v| emphasize, especially by identification; "This novel points up the racial problems in England"  
+*pointed-------------------a| having a point  
+*pointed-------------------s| direct and obvious in meaning or reference; often unpleasant; "a pointed critique"; "a pointed allusion to what was going on"; "another pointed look in their direction"  
+*pointedly-----------------r| in such a manner as to make something clearly evident; "he pointedly ignored the question"  
+*pointilist----------------s| of or relating to pointilism  
+*pointing------------------a| that points  
+*pointless-----------------a| not having a point especially a sharp point; "my pencils are all pointless"  
+*pointless-----------------s| lacking import; "a pointless remark"; "a life essentially purposeless"; "senseless violence"  
+*pointlessly---------------r| in a pointless manner; "he spent his life in pointlessly tiresome drudgery"  
+*pointy-toed---------------s| having a pointed toe; "pointy-toed shoes"  
+*poise---------------------v| be motionless, in suspension; "The bird poised for a few moments before it attacked"  
+*poise---------------------v| cause to be balanced or suspended  
+*poise---------------------v| hold or carry in equilibrium  
+*poised--------------------s| marked by balance or equilibrium and readiness for action; "a gull in poised flight"; "George's poised hammer"  
+*poison--------------------v| add poison to; "Her husband poisoned her drink in order to kill her"  
+*poison--------------------v| administer poison to; "She poisoned her husband but he did not die"  
+*poison--------------------v| kill by its poison; "This mushrooms can kill"  
+*poison--------------------v| kill with poison; "She poisoned her husband"  
+*poison--------------------v| spoil as if by poison; "poison someone's mind"; "poison the atmosphere in the office"  
+*poisonous-----------------s| having the qualities or effects of a poison  
+*poisonous-----------------s| marked by deep ill will; deliberately harmful; "a malevolent lie"; "poisonous hate...in his eyes"- Ernest Hemingway; "venomous criticism"; "vicious gossip"  
+*poisonous-----------------s| not safe to eat  
+*poisonously---------------r| in a very malevolent manner  
+*poke----------------------v| make a hole by poking  
+*poke----------------------v| stir by poking; "poke the embers in the fireplace"  
+*poke_into-----------------v| enter briefly; "We poked into the bar"  
+*poke_into-----------------v| poke one's nose into  
+*polar---------------------a| located at or near or coming from the earth's poles; "polar diameter"; "polar zone"; "a polar air mass"; "Antarctica is the only polar continent"  
+*polar---------------------a| of or existing at or near a geographical pole or within the Arctic or Antarctic Circles; "polar regions"  
+*polar---------------------s| having a pair of equal and opposite charges  
+*polarize------------------v| become polarized in a conflict or contrasting situation  
+*polarize------------------v| cause to concentrate about two conflicting or contrasting positions  
+*polarize------------------v| cause to vibrate in a definite pattern; "polarize light waves"  
+*polarographic-------------a| of or involving polarography  
+*pole----------------------v| deoxidize molten metals by stirring them with a wooden pole  
+*pole----------------------v| support on poles; "pole climbing plants like beans"  
+*poleax--------------------v| fell with or as if with a poleax  
+*polemic-------------------s| of or involving dispute or controversy  
+*polemize------------------v| engage in a controversy; "The two historians polemicized for years"  
+*polemoniaceous------------a| of or pertaining to or characteristic of plants of the family Polemoniaceae  
+*policy-making-------------s| concerned with policy, not administration  
+*Polish--------------------a| of or relating to Poland or its people or culture; "Polish sausage"  
+*polish--------------------v| (of surfaces) make shine; "shine the silver, please"; "polish my shoes"  
+*polish--------------------v| bring to a highly developed, finished, or refined state; "polish your social manners"  
+*polish--------------------v| improve or perfect by pruning or polishing; "refine one's style of writing"  
+*polished------------------a| perfected or made shiny and smooth; "his polished prose"; "in a freshly ironed dress and polished shoes"; "freshly polished silver"  
+*polished------------------s| showing a high degree of refinement and the assurance that comes from wide social experience; "his polished manner"; "maintained an urbane tone in his letters"  
+*polite--------------------a| showing regard for others in manners, speech, behavior, etc.  
+*politely------------------r| in a polite manner; "the policeman answered politely, `Now look here, lady...'"  
+*politic-------------------a| marked by artful prudence, expedience, and shrewdness; "it is neither polite nor politic to get into other people's quarrels"; "a politic decision"; "a politic manager"; "a politic old scoundrel"; "a shrewd and politic reply"  
+*politic-------------------s| smoothly agreeable and courteous with a degree of sophistication; "he was too politic to quarrel with so important a personage"; "the hostess averted a confrontation between two guests with a diplomatic change of subject"; "the manager pacified the customer with a smooth apology for the error"; "affable, suave, moderate men...smugly convinced of their respectability" - Ezra Pound  
+*political-----------------a| involving or characteristic of politics or parties or politicians; "calling a meeting is a political act in itself"- Daniel Goleman; "political pressure"; "a political machine"; "political office"; "political policy"  
+*political-----------------a| of or relating to the profession of governing; "political career"  
+*political-----------------a| of or relating to your views about social relationships involving authority or power; "political opinions"  
+*politically---------------r| with regard to government; "politically organized units"  
+*politically---------------r| with regard to social relationships involving authority; "politically correct clothing"  
+*politically_correct-------a| exhibiting political correctness  
+*politically_incorrect-----a| exhibiting political incorrectness  
+*politicize----------------v| give a political character to; "politicize the discussion"  
+*politick------------------v| engage in political activities; "This colleague is always politicking"  
+*poll----------------------v| convert into a pollard; "pollard trees"  
+*poll----------------------v| get the opinions (of people) by asking specific questions  
+*poll----------------------v| get the votes of  
+*poll----------------------v| vote in an election at a polling station  
+*pollinate-----------------v| fertilize by transfering pollen  
+*pollute-------------------v| make impure; "The industrial wastes polluted the lake"  
+*polo-neck-----------------s| having a close-fitting neckband or collar  
+*poltroon------------------s| characterized by complete cowardliness  
+*polyandrous---------------s| having more than one husband at a time  
+*polyatomic----------------a| of or relating to a molecule made up of more than two atoms  
+*polychromatic-------------a| (of light or other electromagnetic radiation) composed of more than one wavelength; "polychromatic light"  
+*polychromatic-------------s| having or exhibiting many colors  
+*polychrome----------------v| color with many colors; make polychrome  
+*polycrystalline-----------s| composed of aggregates of crystals; "polycrystalline metals"  
+*polydactyl----------------a| of or relating to a person (or other vertebrate) having more than the normal number of digits  
+*polyestrous---------------s| having more than one period of estrus per year  
+*polygamous----------------a| having more than one mate at a time; used of relationships and individuals  
+*polygenic-----------------s| of or relating to an inheritable character that is controlled by several genes at once; of or related to or determined by polygenes  
+*polyglot------------------s| having a command of or composed in many languages; "a polyglot traveler"; "a polyglot Bible contains versions in different languages"  
+*polygonal-----------------a| having many sides or relating to a surface marked by polygons; "polygonal structure"  
+*polygynous----------------s| having more than one wife at a time  
+*polyhedral----------------a| of or relating to or resembling a polyhedron  
+*polymeric-----------------a| of or relating to or consisting of a polymer; "a polymeric compound"  
+*polymerize----------------v| cause (a compound) to polymerize  
+*polymerize----------------v| undergo polymerization  
+*polymorphemic-------------a| consisting of two or more morphemes  
+*polymorphic---------------a| relating to the occurrence of more than one kind of individual (independent of sexual differences) in an interbreeding population; "a polymorphic species"  
+*polymorphic---------------s| having or occurring in several distinct forms; "man is both polymorpphic and polytypic"; "a polymorphous god"  
+*polymorphous--------------a| relating to the crystallization of a compound in two or more different forms; "polymorphous crystallization"  
+*polynomial----------------a| having the character of a polynomial; "a polynomial expression"  
+*polypetalous--------------s| having a corolla composed of many separated or distinct petals  
+*polyphonic----------------a| having two or more independent but harmonically related melodic parts sounding together  
+*polyphonic----------------a| having two or more phonetic values; "polyphonic letters such as `a'"  
+*polyphonic----------------a| of or relating to or characterized by polyphony; "polyphonic traditions of the baroque"  
+*polyphonically------------r| in a polyphonic manner; "polyphonically composed"  
+*polyploid-----------------a| of a cell or organism having more than twice the haploid number of chromosomes; "a polyploid cell"; "a polyploid species"  
+*polysemous----------------s| of words; having many meanings  
+*polysyllabic--------------s| (of words) long and ponderous; having many syllables; "sesquipedalian technical terms"  
+*polysyllabic--------------s| having or characterized by words of more than three syllables  
+*polysyllabically----------r| in a polysyllabic manner  
+*polytheistic--------------a| worshipping or believing in more than one god  
+*polytonal-----------------s| using more than one key or tonality simultaneously; "exciting rhythms and polytonal harmonies"  
+*polyunsaturated-----------s| (of long-chain carbon compounds especially fats) having many unsaturated bonds  
+*polyvalent----------------a| containing several antibodies each capable of counteracting a specific antigen; "a polyvalent vaccine"  
+*polyvalent----------------a| having more than one valence, or having a valence of 3 or higher  
+*pomade--------------------v| apply pomade to (hair)  
+*pomaded-------------------s| (of hair) groomed with pomade; "pomaded hair"  
+*pompadour-----------------v| style women's hair in a pompadour  
+*pompously-----------------r| in a pompous manner; "he pompously described his achievements"  
+*ponderable----------------a| capable of being weighed or considered; "something ponderable from the outer world--something of which we can say that its weight is so and so"- James Jeans  
+*ponderous-----------------s| having great mass and weight and unwieldiness; "a ponderous stone"; "a ponderous burden"; "ponderous weapons"  
+*ponderous-----------------s| labored and dull; "a ponderous speech"  
+*ponderously---------------r| in a heavy ponderous manner; "he moves ponderously"  
+*ponderously---------------r| in an uninterestingly ponderous manner; "the play was staged with ponderously realistic sets"  
+*poniard-------------------v| stab with a poniard  
+*pontificate---------------v| administer a pontifical office  
+*pontificate---------------v| talk in a dogmatic and pompous manner; "The new professor always pontificates"  
+*pooch---------------------v| round one's lips as if intending to kiss  
+*pooh-pooh-----------------v| express contempt about  
+*pool----------------------v| combine into a common fund; "We pooled resources"  
+*pool----------------------v| join or form a pool of people  
+*poop_out------------------v| use up all one's strength and energy and stop working; "At the end of the march, I pooped out"  
+*poor----------------------a| badly supplied with desirable qualities or substances; "a poor land"; "the area was poor in timber and coal"; "food poor in nutritive value"  
+*poor----------------------a| characterized by or indicating lack of money; "the country had a poor economy"  
+*poor----------------------a| having little money or few possessions; "deplored the gap between rich and poor countries"; "the proverbial poor artist living in a garret"  
+*poor----------------------s| low in degree; "expectations were poor"  
+*poor----------------------s| unsatisfactory; "a poor light for reading"; "poor morale"  
+*pop-----------------------r| like a pop or with a pop; "everything went pop"  
+*pop-----------------------v| burst open with a sharp, explosive sound; "The balloon popped"; "This popcorn pops quickly in the microwave oven"  
+*pop-----------------------v| cause to burst with a lound, explosive sound; "The child popped the balloon"  
+*pop-----------------------v| cause to make a sharp explosive sound; "He popped the champagne bottle"  
+*pop-----------------------v| fire a weapon with a loud explosive noise; "The soldiers were popping"  
+*pop-----------------------v| hit a pop-fly; "He popped out to shortstop"  
+*pop-----------------------v| hit or strike; "He popped me on the head"  
+*pop-----------------------v| make a sharp explosive noise; "The cork of the champagne bottle popped"  
+*pop-----------------------v| put or thrust suddenly and forcefully; "pop the pizza into the microwave oven"; "He popped the petit-four into his mouth"  
+*pop-----------------------v| release suddenly; "pop the clutch"  
+*pop-----------------------v| take drugs, especially orally; "The man charged with murder popped a valium to calm his nerves"  
+*pop_in--------------------v| enter briefly; "He popped in for two minutes"  
+*pop_off-------------------v| leave quickly  
+*pop_out-------------------v| appear suddenly; "Spring popped up everywhere in the valley"  
+*pop_out-------------------v| exit briefly; "He popped out for a quick coffee break"  
+*popeyed-------------------s| having bulging eyes  
+*popishly------------------r| like the Pope; in a popish manner  
+*popliteal-----------------a| of or relating to the area behind the knee joint  
+*popular-------------------a| regarded with great favor, approval, or affection especially by the general public; "a popular tourist attraction"; "a popular girl"; "cabbage patch dolls are no longer popular"  
+*popular-------------------s| (of music or art) new and of general appeal (especially among young people)  
+*popular-------------------s| carried on by or for the people (or citizens) at large; "the popular vote"; "popular representation"; "institutions of popular government"  
+*popularize----------------v| cater to popular taste to make popular and present to the general public; bring into general or common use; "They popularized coffee in Washington State"; "Relativity Theory was vulgarized by these authors"  
+*popularize----------------v| make understandable to the general public; "Carl Sagan popularized cosmology in his books"  
+*popularly-----------------r| among the people; "this topic was popularly discussed"  
+*populated-----------------s| furnished with inhabitants; "the area is well populated"; "forests populated with all kinds of wild life"  
+*populous------------------s| densely populated  
+*porcine-------------------a| relating to or suggesting swine; "comparison between human and porcine pleasures"  
+*pornographic--------------s| designed to arouse lust; "pornographic films and magazines"  
+*pornographically----------r| in a pornographic manner  
+*porose--------------------s| forming a continuous series of pores; "a porose hymenium"  
+*porous--------------------a| full of pores or vessels or holes  
+*porous--------------------s| able to absorb fluids; "the partly porous walls of our digestive system"; "compacting the soil to make it less porous"  
+*porphyritic---------------a| (of rocks) consisting of porphyry or containing large crystals in a fine groundmass of minerals  
+*port----------------------s| located on the left side of a ship or aircraft  
+*port----------------------v| bring to port; "the captain ported the ship at night"  
+*port----------------------v| carry or hold with both hands diagonally across the body, especially of weapons; "port a rifle"  
+*port----------------------v| carry, bear, convey, or bring; "The small canoe could be ported easily"  
+*port----------------------v| drink port; "We were porting all in the club after dinner"  
+*port----------------------v| land at or reach a port; "The ship finally ported"  
+*port----------------------v| put or turn on the left side, of a ship; "port the helm"  
+*port----------------------v| transfer data from one computer to another via a cable that links connecting ports  
+*port----------------------v| turn or go to the port or left side, of a ship; "The big ship was slowly porting"  
+*portable------------------a| easily or conveniently transported; "a portable television set"  
+*portable------------------s| of a motor designed to be attached to the outside of a boat's hull; "a portable outboard motor"  
+*portentous----------------s| of momentous or ominous significance; "such a portentous...monster raised all my curiosity"- Herman Melville; "a prodigious vision"  
+*portentously--------------r| in a portentous manner; "portentously, the engines began to roll"  
+*porter--------------------v| carry luggage or supplies; "They portered the food up Mount Kilimanjaro for the tourists"  
+*portly--------------------s| euphemisms for `fat'; "men are portly and women are stout"  
+*portray-------------------v| make a portrait of; "Goya wanted to portray his mistress, the Duchess of Alba"  
+*portray-------------------v| portray in words; "The book portrays the actor as a selfish person"  
+*portray-------------------v| represent in a painting, drawing, sculpture, or verbally; "The father is portrayed as a good-looking man in this painting"  
+*Portuguese----------------a| of or relating to or characteristic of Portugal or the people of Portugal; "Portuguese wines"  
+*pose----------------------v| behave affectedly or unnaturally in order to impress others; "Don't pay any attention to him--he is always posing to impress his peers!"; "She postured and made a total fool of herself"  
+*pose----------------------v| pretend to be someone you are not; sometimes with fraudulent intentions; "She posed as the Czar's daughter"  
+*posed---------------------a| arranged for pictorial purposes  
+*position------------------v| cause to be in an appropriate place, state, or relation  
+*positionable--------------a| capable of being positioned  
+*positional----------------a| of or relating to or determined by position  
+*positive------------------a| characterized by or displaying affirmation or acceptance or certainty etc.; "a positive attitude"; "the reviews were all positive"; "a positive benefit"; "a positive demand"  
+*positive------------------a| having a positive electric charge; "protons are positive"  
+*positive------------------a| indicating existence or presence of a suspected condition or pathogen; "a positive pregnancy test"  
+*positive------------------s| formally laid down or imposed; "positive laws"  
+*positive------------------s| greater than zero; "positive numbers"  
+*positively----------------r| extremely; "it was positively monumental"  
+*positively_charged--------s| having a positive charge  
+*positivist----------------a| of or relating to positivism; "positivist thinkers"; "positivist doctrine"; "positive philosophy"  
+*possess-------------------v| enter into and control, as of emotions or ideas; "What possessed you to buy this house?"; "A terrible rage possessed her"  
+*possess-------------------v| have as an attribute, knowledge, or skill; "he possesses great knowledge about the Middle East"  
+*possessive----------------a| serving to express or indicate possession; "possessive pronouns"; "the genitive endings"  
+*possessive----------------s| desirous of owning; "small children are so possessive they will not let others play with their toys"  
+*possessive----------------s| having or showing a desire to control or dominate; "a possessive parent"  
+*possessively--------------r| in a possessive manner; "he was sleeping, one arm flung possessively across his wife"  
+*possible------------------a| capable of happening or existing; "a breakthrough may be possible next year"; "anything is possible"; "warned of possible consequences"  
+*possibly------------------r| by chance; "perhaps she will call tomorrow"; "we may possibly run into them at the concert"; "it may peradventure be thought that there never was such a time"  
+*possibly------------------r| in a manner or to a degree possible of conceiving; "is it possibly true?"  
+*possibly------------------r| to a degree possible of achievement or by possible means; "they can't possibly get here in time for the funeral?"  
+*possibly------------------r| with a possibility of becoming actual; "introducing possibly dangerous innovations"; "he is potentially dangerous"; "potentially useful"  
+*post----------------------v| affix in a public place or for public notice; "post a warning"  
+*post----------------------v| assign to a post; put into a post; "The newspaper posted him in Timbuktu"  
+*post----------------------v| display, as of records in sports games  
+*post----------------------v| enter on a public list  
+*post----------------------v| mark or expose as infamous; "She was branded a loose woman"  
+*post----------------------v| publicize with, or as if with, a poster; "I'll post the news on the bulletin board"  
+*post----------------------v| put up; "post a sign"; "post a warning at the dump"  
+*post----------------------v| ride Western style and bob up and down in the saddle in in rhythm with a horse's trotting gait  
+*post----------------------v| transfer (entries) from one account book to another  
+*post-free-----------------r| having the postage paid by the sender; "I will send it post-paid"  
+*post-free-----------------s| postpaid  
+*post-haste----------------r| as fast as possible; with all possible haste; "send it to me post-haste"  
+*post_meridiem-------------r| between noon and midnight; "let's meet at 8 P.M."  
+*post_meridiem-------------s| after noon  
+*postal--------------------a| of or relating to the system for delivering mail; "postal delivery"  
+*postdate------------------v| be later in time; "Tuesday always follows Monday"  
+*postdate------------------v| establish something as being later relative to something else  
+*posted--------------------a| publicly announced; "the posted speed limit"  
+*posterior-----------------a| at or near the hind end in quadrupeds or toward the spine in primates  
+*postexilic----------------a| of or relating to the period in Jewish history after 539 BC (after the Babylonian Captivity)  
+*postganglionic------------a| beyond or distal to a ganglion (referring especially to the unmyelinated fibers that originate from cells in autonomic ganglia)  
+*posthumous----------------s| occurring or coming into existence after a person's death; "a posthumous award"; "a posthumous book"; "a posthumous daughter"  
+*posthumously--------------r| after death; "these piano pieces were published posthumously"; "he was honored posthumously"  
+*postictal-----------------a| pertaining to the period following a seizure or convulsion; "postictal drowsiness"  
+*postindustrial------------s| of or relating to a society  or economy marked by a lessened importance of manufacturing and an increase of services, information, and research; "postindustrial countries"  
+*postmark------------------v| stamp with a postmark to indicate date and time of mailing  
+*postmenopausal------------a| subsequent to menopause  
+*postmeridian--------------a| after noon  
+*postmillennial------------a| relating to or coming after the millennium  
+*postmodernist-------------a| of or relating to postmodernism; "postmodernist architecture"  
+*postmortem----------------a| occurring or done after death; "postmortem changes"; "a postmortem examination to determine cause of death"; "postmortal wounds"  
+*postmortem----------------s| after death or after an event; "a postmortem examination to determine the cause of death"; "the postmortem discussion of the President's TV address"  
+*postnatal-----------------a| occurring immediately after birth; "postnatal development"  
+*postnuptial---------------a| relating to events after a marriage  
+*postoperative-------------s| happening or done after a surgical operation; "postoperative complications"; "postoperative care"  
+*postoperatively-----------r| after the operation; "remove postoperatively"  
+*postpaid------------------s| used especially of mail; paid in advance  
+*postpone------------------v| hold back to a later time; "let's postpone the exam"  
+*postpose------------------v| place after another constituent in the sentence; "Japanese postposes the adpositions, whereas English preposes them"  
+*postpositive--------------a| (of a modifier) placed after another word  
+*postprandial--------------a| following a meal (especially dinner); "his postprandial cigar"; "took a postprandial walk"  
+*postulate-----------------v| take as a given; assume as a postulate or axiom; "He posited three basic laws of nature"  
+*postural------------------a| of or relating to or involving posture; "postural exercises"  
+*postwar-------------------a| belonging to the period after a war; "postwar resettlement"; "postwar inflation"  
+*pot-----------------------v| plant in a pot; "He potted the palm"  
+*potable-------------------s| of alcoholic beverages that are suitable for drinking; "it's an impudent young wine but I think you will find it quite potable"  
+*potbound------------------s| of a potted plant; grown too large for its container resulting in matting or tangling of the roots  
+*potent--------------------a| (of a male) able to copulate  
+*potent--------------------a| having a strong physiological or chemical effect; "a potent toxin"; "potent liquor"; "a potent cup of tea"  
+*potent--------------------s| having or wielding force or authority; "providing the ground soldier with increasingly potent weapons"  
+*potential-----------------a| existing in possibility; "a potential problem"; "possible uses of nuclear power"  
+*potentiate----------------v| increase the effect of or act synergistically with (a drug or a physiological or biochemical phenomenon); "potentiate the drug"  
+*potently------------------r| in a manner having a powerful influence; "Clytemnestra's ghost crying in the night for vengeance remained most potently in the audience's mind"  
+*pother--------------------v| make upset or troubled  
+*potted--------------------a| of plants; planted or grown in a pot; "potted geraniums"  
+*potted--------------------s| (British informal) summarized or abridged; "a potted version of a novel"  
+*potted--------------------s| preserved in a pot or can or jar; "potted meat"; "potted shrimp"  
+*potter--------------------v| work lightly; "The old lady is pottering around in the garden"  
+*potty---------------------s| (British informal) trivial; "potty little details"  
+*potty-trained-------------s| (of children) trained to use the toilet  
+*pouch---------------------v| put into a small bag  
+*pouch---------------------v| send by special mail that goes through diplomatic channels  
+*pouched-------------------a| having a pouch  
+*poultice------------------v| dress by covering with a therapeutic substance  
+*pounce--------------------v| move down on as if in an attack; "The raptor swooped down on its prey"; "The teacher swooped down upon the new students"  
+*pound---------------------v| break down and crush by beating, as with a pestle; "pound the roots with a heavy flat stone"  
+*pound---------------------v| partition off into compartments; "The locks pound the water of the canal"  
+*pound---------------------v| shut up or confine in any enclosure or within any bounds or limits; "The prisoners are safely pounded"  
+*pound-foolish-------------s| unwise in dealing with large sums  
+*pour----------------------v| cause to run; "pour water over the floor"  
+*pour----------------------v| flow in a spurt; "Water poured all over the floor"  
+*pour----------------------v| move in large numbers; "people were pouring out of the theater"; "beggars pullulated in the plaza"  
+*pour----------------------v| rain heavily; "Put on your rain coat-- it's pouring outside!"  
+*pour----------------------v| supply in large amounts or quantities; "We poured money into the education of our children"  
+*pour_out------------------v| express without restraint; "The woman poured out her frustrations as the judge listened"  
+*pout----------------------v| make a sad face and thrust out one's lower lip; "mop and mow"; "The girl pouted"  
+*poutingly-----------------r| with a pout or in a pouting manner  
+*powder--------------------v| apply powder to; "She powdered her nose"; "The King wears a powdered wig"  
+*powder-puff---------------s| used of competitive activities in which only women take part; "powder-puff baseball"; "a powder-puff football game"  
+*powder_blue---------------s| moderate to pale blue or purplish blue  
+*powdered------------------s| consisting of fine particles; "powdered cellulose"; "powdery snow"; "pulverized sugar is prepared from granulated sugar by grinding"  
+*powderize-----------------v| become powder or dust; "When it was blown up, the building powderized"  
+*powderize-----------------v| make into a powder by breaking up or cause to become dust; "pulverize the grains"  
+*powdery-------------------s| as if dulled in color with a sprinkling of powder; "a powdery blue"  
+*power---------------------v| supply the force or power for the functioning of; "The gasoline powers the engines"  
+*power-assisted------------s| supplementing or replacing manual effort; "power-assisted steering"  
+*power-dive----------------v| make a power dive; "The airplane power-dived"  
+*power-driven--------------s| powered by a motor; "a power-driven hand tool"  
+*powered-------------------a| (often used in combination) having or using or propelled by means of power or power of a specified kind; "powered flight"; "kerosine-powered jet engines"  
+*powerful------------------a| having great power or force or potency or effect; "the most powerful government in western Europe"; "his powerful arms"; "a powerful bomb"; "the horse's powerful kick"; "powerful drugs"; "a powerful argument"  
+*powerfully----------------r| in a powerful manner; "the federal government replaced the powerfully pro-settler Sir Godfrey Huggins with the even tougher and more determined ex-trade unionist"  
+*powerless-----------------a| lacking power  
+*powerlessly---------------r| in a powerless manner  
+*powwow--------------------v| hold a powwow, talk, conference or meeting  
+*practicably---------------r| in a practicable manner; so as to be feasible  
+*practical-----------------a| concerned with actual use or practice; "he is a very practical person"; "the idea had no practical application"; "a practical knowledge of Japanese"; "woodworking is a practical art"  
+*practical-----------------s| having or put to a practical purpose or use; "practical mathematics"; "practical applications of calculus"  
+*practically---------------r| almost; "he was practically the only guest at the party"  
+*practice------------------v| avail oneself to; "apply a principle"; "practice a religion"; "use care when going down the stairs"; "use your common sense"; "practice non-violent resistance"  
+*practice------------------v| carry out or practice; as of jobs and professions; "practice law"  
+*practiced-----------------s| skillful after much practice  
+*practicing----------------s| actively engaged in a career or way of life; "a practicing physician"; "a practicing Catholic"  
+*praetorian----------------a| of or relating to a Roman praetor; "praetorial powers"  
+*praetorian----------------s| characteristic of Praetorian soldiers in respect to corruption or political venality; "a large praetorian bureaucracy filled with ambitious...and often sycophantic people makes work and makes trouble"- Arthur M.Schlesinger Jr.  
+*pragmatic-----------------a| of or concerning the theory of pragmatism  
+*pragmatically-------------r| in a realistic manner; "we want to build a democratic society, but we must act pragmatically"  
+*praise--------------------v| express approval of; "The parents praised their children for their academic performance"  
+*Prakritic-----------------a| of or relating to Prakrit  
+*prance--------------------v| cause (a horse) to bound spring forward  
+*prance--------------------v| ride a horse such that it springs and bounds forward  
+*prance--------------------v| spring foward on the hind legs; "The young horse was prancing in the meadow"  
+*prandial------------------a| of or relating to a meal  
+*prang---------------------v| crash  
+*prank---------------------v| dress or decorate showily or gaudily; "Roses were pranking the lawn"  
+*prank---------------------v| dress up showily; "He pranked himself out in his best clothes"  
+*prawn---------------------v| fish for prawns  
+*pray----------------------v| address God; say a prayer  
+*prayerful-----------------s| disposed to pray or appearing to pray  
+*pre-Columbian-------------a| of or relating to or originating in the Americas before the arrival of Columbus  
+*pre-eminently-------------r| to a preeminent degree; with superiority or distinction above others; in a preeminent manner; "a wide variety of pre-eminently contemporary scenes"  
+*Pre-Raphaelite------------a| of or relating to or characteristic of the pre-Raphaelites; "the Pre-Raphaelite painters"  
+*preach--------------------v| deliver a sermon; "The minister is not preaching this Sunday"  
+*preach--------------------v| speak, plead, or argue in favour of; "The doctor advocated a smoking ban in the entire house"  
+*preachy-------------------s| inclined to or marked by tedious moralization  
+*preamble------------------v| make a preliminary introduction, usually to a formal document  
+*preanal-------------------a| situated in front of the anus  
+*prearrange----------------v| arrange beforehand  
+*prearranged---------------s| planned beforehand; "a prearranged signal"  
+*precancerous--------------a| of or relating to a growth that is not malignant but is likely to become so if not treated  
+*precarious----------------s| affording no ease or reassurance; "a precarious truce"  
+*precarious----------------s| dangerously insecure; "a precarious footing on the ladder"  
+*precarious----------------s| not secure; beset with difficulties; "a shaky marriage"  
+*precariously--------------r| in a precarious manner; "being a precariously dominant minority is a difficult position for human nature to cope with"  
+*precast-------------------s| of structural members especially of concrete; cast into form before being transported to the site of installation  
+*precatory-----------------s| expressing entreaty or supplication; "precatory overtures"  
+*precautionary-------------s| taken in advance to protect against possible danger or failure; "gave precautionary advice"; "I would take precautionary steps to keep him away"  
+*precede-------------------v| be the predecessor of; "Bill preceded John in the long line of Susan's husbands"  
+*precede-------------------v| come before; "Most English adjectives precede the noun they modify"  
+*precede-------------------v| furnish with a preface or introduction; "She always precedes her lectures with a joke"; "He prefaced his lecture with a critical remark about the institution"  
+*precede-------------------v| move ahead (of others) in time or space  
+*precedent-----------------s| preceding in time, order, or significance  
+*precedented---------------a| having or supported or justified by a precedent  
+*precedential--------------s| having precedence (especially because of longer service); "precedential treatment for senior members of the firm"  
+*preceding(a)--------------a| existing or coming before  
+*precess-------------------v| move in a gyrating fashion; "the poles of the Earth precess at a right angle to the force that is applied"  
+*precious------------------r| extremely; "there is precious little time left"  
+*precious------------------s| of high worth or cost; "diamonds, sapphires, rubies, and emeralds are precious stones"  
+*preciously----------------r| in a precious manner; "his preciously valuable collection"  
+*precipitate---------------v| bring about abruptly; "The crisis precipitated by Russia's revolution"  
+*precipitate---------------v| fall from clouds; "rain, snow and sleet were falling"; "Vesuvius precipitated its fiery, destructive rage on Herculaneum"  
+*precipitate---------------v| fall vertically, sharply, or headlong; "Our economy precipitated into complete ruin"  
+*precipitate---------------v| hurl or throw violently; "The bridge broke and precipitated the train into the river below"  
+*precipitate---------------v| separate as a fine suspension of solid particles  
+*precipitating(a)----------s| bringing on suddenly or abruptly; "the completion of the railroad was the precipitating cause in the extinction of water-borne commerce"  
+*precipitous---------------s| characterized by precipices; "a precipitous bluff"  
+*precipitously-------------r| abruptly; in a precipitous manner; "the mountains rose precipitously from the shore"  
+*precipitously-------------r| very suddenly and to a great degree; "conditions that precipitously increase the birthrate"; "prices rose sharply"  
+*precis--------------------v| make a summary (of)  
+*precise-------------------a| sharply exact or accurate or delimited; "a precise mind"; "specified a precise amount"; "arrived at the precise moment"  
+*precisely-----------------r| in a precise manner; "she always expressed herself precisely"  
+*precisely-----------------r| indicating exactness or preciseness; "he was doing precisely (or exactly) what she had told him to do"; "it was just as he said--the jewel was gone"; "it has just enough salt"  
+*precisely-----------------r| just as it should be; "`Precisely, my lord,' he said"  
+*preclinical---------------a| of or relating to the early phases of a disease when accurate diagnosis is not possible because symptoms of the disease have not yet appeared  
+*preclude------------------v| make impossible, especially beforehand  
+*preclusive----------------s| made impossible  
+*precocial-----------------a| (of hatchlings) covered with down and having eyes open; capable of leaving the nest within a few days  
+*precocious----------------a| characterized by or characteristic of exceptionally early development or maturity (especially in mental aptitude); "a precocious child"; "a precocious achievement"  
+*precocious----------------s| appearing or developing early; "precocious flowers appear before the leaves as in some species of magnolias"  
+*precociously--------------r| in a precocious manner; "her child behaves precociously"  
+*preconceive---------------v| conceive beforehand; "a preconceived notion"  
+*preconceived--------------a| (of an idea or opinion) formed beforehand; especially without evidence or through prejudice; "certain preconceived notions"  
+*preconcerted--------------s| previously arranged or agreed on; "following preconcerted plans"  
+*precondition--------------v| put into the required condition beforehand  
+*preconditioned------------s| having already been put into a suitable condition; "a surface preconditioned to receive paint"; "customers preconditioned to buy a product"  
+*precook-------------------v| cook beforehand so that the actual preparation won't take long; "precook the rice"  
+*precooked-----------------s| cooked partially or completely beforehand; "frozen precooked meals from the supermarket"  
+*precooled-----------------s| cooled in advance  
+*precordial----------------a| in front of the heart; involving the precordium  
+*precursory----------------s| warning of future misfortune  
+*predaceous----------------s| living by or given to victimizing others for personal gain; "predatory capitalists"; "a predatory, insensate society in which innocence and decency can prove fatal"- Peter S. Prescott; "a predacious kind of animal--the early geological gangster"- W.E.Swinton  
+*predacious----------------s| hunting and killing other animals for food  
+*predate-------------------v| be earlier in time; go back further; "Stone tools precede bronze tools"  
+*predate-------------------v| establish something as being earlier relative to something else  
+*predatory-----------------s| living by preying on other animals especially by catching living prey; "a predatory bird"; "the rapacious wolf"; "raptorial birds"; "ravening wolves"; "a vulturine taste for offal"  
+*predecease----------------v| die before; die earlier than; "She predeceased her husband"  
+*predestinarian------------a| of or relating to predestination; holding the doctrine of predestination  
+*predestine----------------v| decree or determine beforehand  
+*predestine----------------v| foreordain by divine will or decree  
+*predestine----------------v| foreordain or determine beforehand  
+*predetermine--------------v| determine beforehand  
+*predicate-----------------v| affirm or declare as an attribute or quality of; "The speech predicated the fitness of the candidate to be President"  
+*predicate-----------------v| make the (grammatical) predicate in a proposition; "The predicate `dog' is predicated of the subject `Fido' in the sentence `Fido is a dog'"  
+*predicative---------------a| of adjectives; relating to or occurring within the predicate of a sentence; "`red' is a predicative adjective in `the apple is red'"  
+*predicatively-------------r| occuring within the predicate phrase; "predicatively used adjectives"  
+*predict-------------------v| make a prediction about; tell in advance; "Call the outcome of an election"  
+*predictable---------------a| possible to foretell  
+*predictably---------------r| in a predictable manner or to a predictable degree; "predictably, he did not like the news"  
+*predictive----------------s| of or relating to prediction; having value for making predictions  
+*predigest-----------------v| digest (food) beforehand  
+*predigested---------------s| artificially partially digested as by enzymatic action; "predigested foods are a boon for those who are ill or have impaired digestion"  
+*predispose----------------v| make susceptible; "This illness predisposes you to gain weight"  
+*predisposed---------------s| made susceptible; "because of conditions in the mine, miners are predisposed to lung disease"  
+*predominantly-------------r| much greater in number or influence; "the patients are predominantly indigenous"  
+*predominate---------------v| be larger in number, quantity, power, status or importance; "Money reigns supreme here"; "Hispanics predominate in this neighborhood"  
+*preempt-------------------v| acquire by preemption  
+*preempt-------------------v| make a preemptive bid  
+*preemptive----------------s| designed or having the power to deter or prevent an anticipated situation or occurrence; "a preemptive business offer"  
+*preen---------------------v| clean with one's bill; "The birds preened"  
+*preen---------------------v| dress or groom with elaborate care; "She likes to dress when going to the opera"  
+*preen---------------------v| pride or congratulate (oneself) for an achievement  
+*preexist------------------v| exist beforehand or prior to a certain point in time; "Did this condition pre-exist?"  
+*preexistent---------------s| existing previously or before something; "variations on pre-existent musical themes"  
+*prefab--------------------s| manufactured in standard sizes to be shipped and assembled elsewhere; "a prefabricated structure"  
+*prefabricate--------------v| produce synthetically, artificially, or stereotypically and unoriginally  
+*prefabricate--------------v| to manufacture sections of (a building), especially in a factory, so that they can be easily transported to and rapidly assembled on a building site of buildings  
+*prefaded------------------s| (of fabric or clothing) having been given a faded (weathered) appearance by artificial means  
+*prefectural---------------a| of or relating to a prefecture; "a prefectural museum"  
+*prefer--------------------v| give preference to one creditor over another  
+*prefer--------------------v| like better; value more highly; "Some people prefer camping to staying in hotels"; "We prefer sleeping outside"  
+*prefer--------------------v| promote over another; "he favors his second daughter"  
+*preferable----------------s| more desirable than another; "coffee is preferable to tea"; "Danny's preferred name is `Dan'"  
+*preferably----------------r| more readily or willingly; "clean it well, preferably with warm water"; "I'd rather be in Philadelphia"; "I'd sooner die than give up"  
+*preferentially------------r| in a preferential manner; "he was treated preferentially"  
+*prefigure-----------------v| imagine or consider beforehand; "It wasn't as bad as I had prefigured"  
+*prefix--------------------v| attach a prefix to; "prefixed words"  
+*preform-------------------v| form into a shape resembling the final, desired one  
+*preform-------------------v| form or shape beforehand or determine the shape of beforehand  
+*prefrontal----------------s| anterior to a frontal structure; "a prefrontal bone"; "prefrontal lobes"  
+*pregnant------------------a| carrying developing offspring within the body or being about to produce new life  
+*preheat-------------------v| heat beforehand; "Preheat the oven!"  
+*prehensile----------------a| adapted for grasping especially by wrapping around an object; "a monkey's prehensile tail"  
+*prehensile----------------s| having a keen intellect; "poets--those gifted strangely prehensile men"- A.T.Quiller-Couch  
+*prehistoric---------------a| of or relating to times before written history; "prehistoric archeology"  
+*prehistoric---------------s| belonging to or existing in times before recorded history; "prehistoric settlements"; "prehistoric peoples"  
+*prehistoric---------------s| no longer fashionable; "my mother has these prehistoric ideas about proper clothes"  
+*preisolate----------------v| isolate beforehand  
+*prejudge------------------v| judge beforehand, especially without sufficient evidence  
+*prejudice-----------------v| disadvantage by prejudice  
+*prejudice-----------------v| influence (somebody's) opinion in advance  
+*prejudiced----------------a| being biased or having a belief or attitude formed beforehand; "a prejudiced judge"  
+*prejudiced----------------s| emanating from a person's emotions and prejudices  
+*prelapsarian--------------a| of or relating to the time before the Fall of Adam and Eve  
+*preliminary---------------s| designed to orient or acquaint with a situation before proceeding; "a preliminary investigation"  
+*preliterate---------------s| not yet having acquired the ability to read and write  
+*preliterate---------------s| used of a society that has not developed writing  
+*prelude-------------------v| play as a prelude  
+*prelude-------------------v| serve as a prelude or opening to  
+*premature-----------------a| born after a gestation period of less than the normal time; "a premature infant"  
+*premature-----------------s| uncommonly early or before the expected time; "illness led to his premature death"; "alcohol brought him to an untimely end"  
+*prematurely---------------r| (of childbirth) before the end of the normal period of gestation; "the child was born prematurely"  
+*prematurely---------------r| too soon; in a premature manner; "I spoke prematurely"  
+*premedical----------------a| preparing for the study of medicine; "premedical students"  
+*premedical----------------s| preceding and preparing for the study of medicine; "premedical courses"  
+*premeditate---------------v| consider, ponder, or plan (an action) beforehand; "premeditated murder"  
+*premeditate---------------v| think or reflect beforehand or in advance; "I rarely premeditate, which is a mistake"  
+*premeditated--------------a| characterized by deliberate purpose and some degree of planning; "a premeditated crime"  
+*premenopausal-------------a| prior to menopause  
+*premenstrual--------------a| of or relating to or occurring during the period just before menstruation  
+*premier-------------------s| preceding all others in time; "the premiere showing"  
+*premier-------------------v| be performed for the first time; "We premiered the opera of the young composer and it was a critical success"  
+*premier-------------------v| perform a work for the first time  
+*premier(a)----------------s| first in rank or degree; "an architect of premier rank"; "the prime minister"  
+*premise-------------------v| set forth beforehand, often as an explanation; "He premised these remarks so that his readers might understand"  
+*premise-------------------v| take something as preexisting and given  
+*premium-------------------s| having or reflecting superior quality or value; "premium gasoline at a premium price"  
+*prenatal------------------a| occurring or existing before birth; "the prenatal period"; "antenatal care"  
+*prenuptial----------------a| relating to events before a marriage; "prenuptial agreement"  
+*preoccupy-----------------v| engage or engross the interest or attention of beforehand or occupy urgently or obsessively; "His work preoccupies him"; "The matter preoccupies her completley--she cannot think of anything else"  
+*preoccupy-----------------v| occupy or take possession of beforehand or before another or appropriate for use in advance; "the army preoccupied the hills"  
+*preoperative--------------s| happening or done before and in preparation for a surgical operation  
+*prepackaged---------------s| prepared and wraped beforehand and ready for sale; "prepackaged foods"  
+*preparatory---------------s| preceding and preparing for something; "preparatory steps"  
+*prepare-------------------v| lead up to and soften by sounding the dissonant note in it as a consonant note in the preceding chord; "prepare the discord in bar 139"  
+*prepare-------------------v| prepare (someone) for a future role or function; "He is grooming his son to become his successor"; "The prince was prepared to become King one day"; "They trained him to be a warrior"  
+*prepare-------------------v| to prepare verbally, either for written or spoken delivery; "prepare a report"; "prepare a speech"  
+*prepared------------------a| made ready or fit or suitable beforehand; "a prepared statement"; "be prepared for emergencies"  
+*prepared------------------s| equipped or prepared with necessary intellectual resources; "graduates well equipped to handle such problems"; "equipped to be a scholar"  
+*prepay--------------------v| pay for something before receiving it  
+*preponderate--------------v| weigh more heavily  
+*prepose-------------------v| place before another constituent in the sentence; "English proposes the adpositions; Japanese postposes them"  
+*prepositional-------------a| of or relating to or formed with a preposition; "prepositional phrase"  
+*prepossess----------------v| cause to be preoccupied; "The idea of his failure prepossesses him"  
+*prepossess----------------v| make a positive impression (on someone) beforehand; "A prepossessing appearance"  
+*prepossess----------------v| possess beforehand  
+*prepossessing-------------s| creating a favorable impression; "strong and vigorous and of prepossessing appearance"  
+*preprandial---------------a| preceding a meal (especially dinner); "a preprandial drink"  
+*prepubescent--------------s| (especially of human beings) at the age immediately before puberty; often marked by accelerated growth  
+*prepupal------------------s| of an inactive stage in the development of some insects, between the larval and the pupal stages; "the prepupal stage"  
+*prerecord-----------------v| record before presentation, as of a broadcast  
+*prerecorded---------------s| recorded at one time for transmission later  
+*prerequisite--------------s| required as a prior condition or course of study  
+*prescient-----------------s| perceiving the significance of events before they occur; "extroardinarily prescient memoranda on the probable course of postwar relations"-R.H.Rovere  
+*presciently---------------r| with foresight; "more presciently than they superiors, these workers grasped the economic situation"  
+*prescribed----------------s| set down as a rule or guide  
+*prescription(a)-----------a| available only with a doctor's written prescription; "a prescription drug"  
+*prescriptive--------------a| giving directives or rules; "prescriptive grammar is concerned with norms of or rules for correct usage"  
+*present-------------------a| spatial sense; being or existing in a specified place; "the murderer is present in this room"; "present at the wedding"; "present at the creation"  
+*present-------------------v| bring forward and present to the mind; "We presented the arguments to him"; "We cannot represent this knowledge to our formal reason"  
+*present-------------------v| formally present a debutante, a representative of a country, etc.  
+*present-------------------v| hand over formally  
+*present-------------------v| introduce; "This poses an interesting question"  
+*present(a)----------------a| temporal sense; intermediate between past and future; now existing or happening or in consideration; "the present leader"; "articles for present use"; "the present topic"; "the present system"; "present observations"  
+*presentable---------------s| fit to be seen; "presentable clothes"  
+*presentably---------------r| in a presentable manner; "years ago in her white-painted infancy it must have hung presentably on the deck of some luxury liner"  
+*presentational------------a| of or relating to a presentation (especially in psychology or philosophy); "what Whitehead calls `perception in the presentational immediacy'"  
+*presently-----------------r| at this time or period; now; "he is presently our ambassador to the United Nations"; "currently they live in Connecticut"  
+*preservable---------------s| capable of being preserved  
+*preservative--------------s| tending or having the power to preserve; "the timbers should be treated with a preservative"  
+*preserve------------------v| keep undisturbed for personal or private use for hunting, shooting, or fishing; "preserve the forest and the lakes"  
+*preserve------------------v| prevent (food) from rotting; "preserved meats"; "keep potatoes fresh"  
+*preserved-----------------a| kept intact or in a particular condition  
+*preserved-----------------a| prevented from decaying or spoiling and prepared for future use  
+*preset--------------------s| set in advance; "a preset plan of action"; "at a predetermined time"  
+*preside-------------------v| act as president; "preside over companies and corporations"  
+*presidential--------------a| befitting a president; "criticized the candidate for not looking presidential"  
+*presidential--------------a| relating to a president or presidency; "presidential aides"; "presidential veto"  
+*presocratic---------------a| before the time of Socrates  
+*press---------------------v| be urgent; "This is a pressing problem"  
+*press---------------------v| create by pressing; "Press little holes into the soft clay"  
+*press---------------------v| crowd closely; "The crowds pressed along the street"  
+*press---------------------v| exert pressure or force to or upon; "He pressed down on the boards"; "press your thumb on this spot"  
+*press---------------------v| make strenuous pushing movements during birth to expel the baby; "`Now push hard,' said the doctor to the woman"  
+*press---------------------v| place between two surfaces and apply weight or pressure; "pressed flowers"  
+*press---------------------v| press from a plastic; "press a record"  
+*press_down----------------v| press down; "Depress the space key"  
+*press_on------------------v| continue moving forward  
+*press_out-----------------v| obtain from a substance, as by mechanical action; "Italians express coffee rather than filter it"  
+*pressed-------------------s| compacted by ironing  
+*pressing------------------s| compelling immediate action; "too pressing to permit of longer delay"; "the urgent words `Hurry! Hurry!'"; "bridges in urgent need of repair"  
+*pressingly----------------r| in a pressing manner  
+*pressor-------------------a| increasing (or tending to increase) blood pressure; "pressor reflexes"  
+*pressure-cook-------------v| cook in a pressure cooker  
+*pressure-cooker(a)--------s| very intense and demanding; stressful; "subjecting children to a pressure-cooker situation in the school"  
+*pressure-wash-------------v| wash before painting to remove old paint and mildew; "pressure-wash the house"  
+*pressurize----------------v| increase the pressure in or of; "The captain will pressurize the cabin for the passengers' comfort"  
+*pressurize----------------v| maintain a certain pressure; "the airplane cabin is pressurized"; "pressurize a space suit"  
+*pressurized---------------s| maintained at a certain atmospheric pressure; "in a pressurized cabin the air pressure is comfortable for breathing"; "cooking with pressurized steam"  
+*prestigious---------------s| exerting influence by reason of high status or prestige; "a prestigious professor at a prestigious university"  
+*prestissimo---------------r| extremely fast; as fast as possible; "this passage should be played prestissimo"  
+*prestissimo---------------s| (of tempo) as fast as possible  
+*presto--------------------r| at a very fast tempo (faster than allegro)  
+*presto--------------------r| suddenly; "Presto! begone! 'tis here again"- Swift  
+*presto--------------------s| (of tempo) very fast  
+*presumable----------------s| able to be inferred on slight grounds  
+*presumably----------------r| by reasonable assumption; "presumably, he missed the train"  
+*presume-------------------v| constitute reasonable evidence for; "A restaurant bill presumes the consumption of food"  
+*presume-------------------v| take liberties or act with too much confidence  
+*presumed(a)---------------s| presumed to be true in the absence of proof to the contrary; "the presumed reason for his anger"  
+*presumptive---------------s| affording reasonable grounds for belief or acceptance; "presumptive evidence"; "a strong presumptive case is made out"  
+*presumptive---------------s| having a reasonable basis for belief or acceptance; "the presumptive heir (or heir apparent)"  
+*presumptuously------------r| in a presumptuous manner; "he presumptuously overstepped the doctor's orders"  
+*presuppose----------------v| require as a necessary antecedent or precondition; "This step presupposes two prior ones"  
+*presuppose----------------v| take for granted or as a given; suppose beforehand; "I presuppose that you have done your work"  
+*preteen-------------------s| of or relating to or designed for children between the ages of 9 and 12; "a preteen party"; "preteen clothing"  
+*pretend-------------------v| put forward a claim and assert right or possession of; "pretend the title of King"  
+*pretentious---------------a| making claim to or creating an appearance of (often undeserved) importance or distinction; "a pretentious country house"; "a pretentious fraud"; "a pretentious scholarly edition"  
+*pretentiously-------------r| in a pretentious manner; "this author writes pretentiously"  
+*pretermit-----------------v| disregard intentionally or let pass  
+*preternatural-------------s| surpassing the ordinary or normal; "Beyond his preternatural affability there is some acid and some steel"- George Will  
+*preternaturally-----------r| in a supernatural manner; "she was preternaturally beautiful"  
+*pretrial------------------s| preceding an official trial; "pretrial publicity"; "pretrial hearings are usually for the purpose of clarifying facts and points of la"  
+*prettily------------------r| in a pretty manner; "all this is most prettily done"  
+*pretty--------------------r| used as an intensifier (`jolly' is used informally in Britain); "pretty big"; "pretty bad"; "jolly decent of him"  
+*pretty--------------------s| (used ironically) unexpectedly bad; "a pretty mess"; "a pretty kettle of fish"  
+*pretty--------------------s| pleasing by delicacy or grace; not imposing; "pretty girl"; "pretty song"; "pretty room"  
+*pretty-pretty-------------s| ostentatiously or inappropriately pretty  
+*pretty_much---------------r| to some degree; "we were pretty much lost when we met the forest ranger"  
+*prevail-------------------v| be valid, applicable, or true; "This theory still holds"  
+*prevail-------------------v| continue to exist; "These stories die hard"; "The legend of Elvis endures"  
+*prevail-------------------v| prove superior; "The champion prevailed, though it was a hard fight"  
+*prevail-------------------v| use persuasion successfully; "He prevailed upon her to visit his parents"  
+*prevailing----------------s| encountered generally especially at the present time; "the prevailing opinion was that a trade war could be averted"; "the most prevalent religion in our area"; "speculation concerning the books author was rife"  
+*prevailing----------------s| most frequent or common; "prevailing winds"  
+*prevent-------------------v| keep from happening or arising; have the effect of preventing; "My sense of tact forbids an honest answer"  
+*prevent-------------------v| prevent from doing something or being in a certain state; "We must prevent the cancer from spreading"; "His snoring kept me from falling asleep"; "Keep the child from eating the marbles"  
+*preventable---------------a| capable of being prevented; "conscious of preventable human suffering"- A.L.Guerard  
+*preventive----------------a| tending to prevent or hinder  
+*preventive----------------s| preventing or contributing to the prevention of disease; "preventive medicine"; "vaccines are prophylactic"; "a prophylactic drug"  
+*preview-------------------v| watch (a movie or play) before it is released to the general public  
+*previous(a)---------------s| just preceding something else in time or order; "the previous owner"; "my old house was larger"  
+*previous(p)---------------s| too soon or too hasty; "our condemnation of him was a bit previous"; "a premature judgment"  
+*previously----------------r| at an earlier time or formerly; "she had previously lived in Chicago"; "he was previously president of a bank"; "better than anything previously proposed"; "a previously unquestioned attitude"; "antecedently arranged"  
+*prewar--------------------a| existing or belonging to a time before a war; "prewar levels of industrial production"  
+*prey----------------------v| profit from in an exploitatory manner; "He feeds on her insecurity"  
+*priapic-------------------s| overly concerned with masculinity and male sexuality; "priapic episodes"; "priapic victories"  
+*price---------------------v| ascertain or learn the price of; "Have you priced personal computers lately?"  
+*price---------------------v| determine the price of; "The grocer priced his wares high"  
+*price-controlled----------s| having the price regulated or controlled by government  
+*prick---------------------v| cause a stinging pain; "The needle pricked his skin"  
+*prick---------------------v| to cause a sharp emotional pain; "The thought of her unhappiness pricked his conscience"  
+*prick_up------------------v| raise; "The dog pricked up his ears"  
+*prickle-------------------v| cause a prickling sensation  
+*prickle-------------------v| make a small hole into, as with a needle or a thorn; "The nurse pricked my finger to get a small blood sample"  
+*prickling-----------------s| causing or experiencing a painful shivering feeling as from many tiny pricks; "a prickling blush of embarrassment"; "the tingling feeling in a foot that has gone to sleep"; "a stinging nettle"; "the stinging windblown sleet"  
+*pride---------------------v| be proud of; "He prides himself on making it into law school"  
+*priest-ridden-------------s| ruled by or oppressed by a priest  
+*priestly------------------a| associated with the priesthood or priests; "priestly (or sacerdotal) vestments"; "hieratic gestures"  
+*priestly------------------a| befitting or characteristic of a priest or the priesthood; "priestly dedication to the people of his parish"  
+*priggish------------------s| exaggeratedly proper; "my straitlaced Aunt Anna doesn't approve of my miniskirts"  
+*priggishly----------------r| in a priggish manner; "this professor acts so priggishly--like a moderator with a gavel!"  
+*prim----------------------v| assume a prim appearance; "They mince and prim"  
+*prim----------------------v| contract one's lips; "She primmed her lips after every bite of food"  
+*prim----------------------v| dress primly  
+*prima_facie---------------r| at first sight  
+*prima_facie---------------s| as it seems at first sight; "a prima facie case of murder"  
+*primarily-----------------r| of primary import; "this is primarily a question of economics"; "it was in the first place a local matter"  
+*primary-------------------a| of first rank or importance or value; direct and immediate rather than secondhand; "primary goals"; "a primary effect"; "primary sources"; "a primary interest"  
+*primary-------------------s| not derived from or reducible to something else; basic; "a primary instinct"  
+*prime---------------------a| of or relating to or being an integer that cannot be factored into other integers; "prime number"  
+*prime---------------------s| at the best stage; "our manhood's prime vigor"- Robert Browning  
+*prime---------------------v| cover with a primer; apply a primer to  
+*prime---------------------v| fill with priming liquid; "prime a car engine"  
+*prime---------------------v| insert a primer into (a gun, mine, charge, etc.) preparatory to detonation or firing; "prime a cannon"; "prime a mine"  
+*prime(a)------------------s| used of the first or originating agent; "prime mover"  
+*primiparous---------------a| of or relating to a woman who has given birth only once  
+*primitive-----------------s| of or created by one without formal training; simple or naive in style; "primitive art such as that by Grandma Moses is often colorful and striking"  
+*primitive-----------------s| used of preliterate or tribal or nonindustrial societies; "primitive societies"  
+*primitively---------------r| in a primitive style or manner; "rather primitively operated foundries"  
+*primitively---------------r| with reference to the origin or beginning  
+*primly--------------------r| in a prissy manner; "the new teacher alienates the children by behaving prissily"  
+*primo---------------------s| the best of its kind  
+*princely------------------s| having the rank of or befitting a prince; "a princely bearing"; "princely manner"  
+*principled----------------a| based on or manifesting objectively defined standards of rightness or morality; "principled pragmatism and unprincipled expediency"; "a principled person"  
+*prink---------------------v| dress very carefully and in a finicky manner  
+*print---------------------v| make into a print;  "print the negative"  
+*print---------------------v| put into print; "The newspaper published the news of the royal couple's divorce"; "These news should not be printed"  
+*print---------------------v| reproduce by printing  
+*print---------------------v| write as if with print; not cursive  
+*printable-----------------a| fit for publication because free of material that is morally or legally objectionable; "printable language"  
+*printed-------------------s| written in print characters or produced by means of e.g. a printing press  
+*prioritize----------------v| assign a priority to; "we have too many things to do and must prioritize"  
+*prismatic-----------------a| of or relating to or resembling or constituting a prism; "prismatic form"  
+*prismatic-----------------s| exhibiting spectral colors formed by refraction of light through a prism; "prismatic light"  
+*prisonlike----------------s| resembling a prison  
+*pristine------------------s| completely free from dirt or contamination; "pristine mountain snow"  
+*pristine------------------s| immaculately clean and unused; "handed her his pristine white handkerchief"  
+*private-------------------a| confined to particular persons or groups or providing privacy; "a private place"; "private discussions"; "private lessons"; "a private club"; "a private secretary"; "private property"; "the former President is now a private citizen"; "public figures struggle to maintain a private life"  
+*private-------------------s| concerning things deeply private and personal; "private correspondence"; "private family matters"  
+*privately-----------------r| by a private person or interest; "a privately financed campaign"  
+*privately-----------------r| kept private or confined to those intimately concerned; "it was discussed privately between the two men"; "privately, she thought differently"; "some member of his own party hoped privately for his defeat"; "he was questioned in private"  
+*privatize-----------------v| change from governmental to private control or ownership; "The oil industry was privatized"  
+*privilege-----------------v| bestow a privilege upon  
+*privileged----------------a| blessed with privileges; "the privileged few"  
+*privileged----------------s| not subject to usual rules or penalties; "a privileged statement"  
+*privily-------------------r| confidentially or in secret; "told her friend privily that she was planning to be married"  
+*privy---------------------s| hidden from general view or use; "a privy place to rest and think"; "a secluded romantic spot"; "a secret garden"  
+*privy(p)------------------s| (followed by `to') informed about something secret or not generally known; "privy to the details of the conspiracy"  
+*prize---------------------v| hold dear; "I prize these old photographs"  
+*prizefight----------------v| box for a prize or money  
+*pro-----------------------a| in favor of (an action or proposal etc.); "a pro vote"  
+*pro-----------------------r| on the affirmative side  
+*pro-American--------------a| supporting the United States and its policies  
+*pro-choice----------------a| advocating a woman's right to control her own body (especially her right to an induced abortion)  
+*pro-life------------------a| advocating full legal protection of embryos and fetuses (especially opposing the legalization of induced abortions)  
+*pro_bono------------------s| done for the public good without compensation  
+*pro_forma-----------------s| as a formality only; "a one-candidate pro forma election"  
+*pro_tem-------------------r| for the time being; temporarily; "accepting pro tem that hypothesis consistent with the facts"- J.W.Krutch  
+*pro_tem-------------------s| for the time being; "he is the president pro tem"; "designated him to act as consul protempore"- H.H.Fiske  
+*proactive-----------------a| descriptive of any event or stimulus or process that has an effect on events or stimuli or processes that occur subsequently; "proactive inhibition"; "proactive interference"  
+*proactive-----------------s| (of a policy or person or action) controlling a situation by causing something to happen rather than waiting to respond to it after it happens  
+*probabilistic-------------a| of or relating to or based on probability; "probabilistic quantum theory"  
+*probabilistic-------------a| of or relating to the Roman Catholic philosophy of probabilism  
+*probabilistically---------r| by the use of probability theory; "we can calculate the position of the particles probabilistically"  
+*probable------------------a| likely but not certain to be or become true or real; "a likely result"; "he foresaw a probable loss"  
+*probable------------------s| apparently destined; "the probable consequences of going ahead with the scheme"  
+*probably------------------r| with considerable certainty; without much doubt; "He is probably out of the country"; "in all likelihood we are headed for war"  
+*probate-------------------v| establish the legal validity of (wills and other documents)  
+*probate-------------------v| put a convicted person on probation by suspending his sentence  
+*probationary--------------s| under terms not final or fully worked out or agreed upon; "probationary employees"; "a provisional government"; "just a tentative schedule"  
+*probative-----------------s| tending to prove a particular proposition or to persuade you of the truth of an allegation  
+*probe---------------------v| examine physically with or as if with a probe; "probe an anthill"  
+*probe---------------------v| question or examine thoroughly and closely  
+*problematically-----------r| in such a way as to pose a problem  
+*procedural----------------a| of or relating to procedure; "a procedural violation"  
+*proceed-------------------v| follow a certain course; "The inauguration went well"; "how did your interview go?"  
+*proceed-------------------v| move ahead; travel onward in time or space; "We proceeded towards Washington"; "She continued in the direction of the hills"; "We are moving ahead in time now"  
+*process-------------------v| deal with in a routine way; "I'll handle that one"; "process a loan"; "process the applicants"  
+*process-------------------v| perform mathematical and logical operations on (data) according to programmed instructions in order to obtain the required information; "The results of the elections were still being processed when he gave his acceptance speech"  
+*process-------------------v| subject to a process or treatment, with the aim of readying for some purpose, improving, or remedying a condition; "process cheese"; "process hair"; "treat the water so it can be drunk"; "treat the lawn with chemicals" ; "treat an oil spill"  
+*processed-----------------a| prepared or converted from a natural state by subjecting to a special process; "processed ores"  
+*processed-----------------s| subjected to a special process or treatment; "prepared ergot"; "processed cheeses are easy to spread"  
+*processional--------------a| intended for use in a procession; "processional music"; "processional cross"  
+*processional--------------a| of or relating to or characteristic of a procession; "in good processional order"  
+*proclaim------------------v| declare formally; declare someone to be something; of titles; "He was proclaimed King"  
+*proclaim------------------v| state or announce; "`I am not a Communist,' " he exclaimed; "The King will proclaim an amnesty"  
+*proconsular---------------a| of or relating to or typical of a proconsul; "proconsular offices"  
+*procrastinate-------------v| postpone doing what one should be doing; "He did not want to write the letter and procrastinated for days"  
+*procrastinate-------------v| postpone or delay needlessly; "He procrastinated the matter until it was almost too late"  
+*procumbent----------------s| having stems that trail along the ground without putting down roots  
+*procure-------------------v| get by special effort; "He procured extra cigarettes even though they were rationed"  
+*prod----------------------v| urge on; cause to act; "They other children egged the boy on, but he did not want to throw the stone through the window"  
+*prodigal------------------s| marked by rash extravagance; "led a prodigal life"  
+*prodigiously--------------r| to a prodigious degree; "the prices of farms rose prodigiously"  
+*prodromal-----------------a| symptomatic of the onset of an attack or a disease  
+*produce-------------------v| bring forth or yield; "The tree would not produce fruit"  
+*produce-------------------v| bring onto the market or release; "produce a movie"; "bring out a book"; "produce a new play"  
+*produce-------------------v| bring out for display; "The proud father produced many pictures of his baby"; "The accused brought forth a letter in court that he claims exonerates him"  
+*produce-------------------v| cause to occur or exist; "This procedure produces a curious effect"; "The new law gave rise to many complaints"; "These chemicals produce a noxious vapor"  
+*produce-------------------v| create or manufacture a man-made product; "We produce more cars than we can sell"; "The company has been making toys for two centuries"  
+*produced------------------a| that is caused by; "if...such a change is produced by...insulin comas or electroshocks"; "the emotional states produced by this drug"  
+*productive----------------a| producing or capable of producing (especially abundantly); "productive farmland"; "his productive years"; "a productive collaboration"  
+*productive----------------s| yielding positive results  
+*productively--------------r| in a productive way; "they worked together productively for two years"  
+*profanatory---------------s| profaning or tending to desecrate  
+*profane-------------------a| not sacred or concerned with religion; "sacred and profane music"; "children being brought up in an entirely profane environment"  
+*profane-------------------s| not holy because unconsecrated or impure or defiled  
+*profaned------------------s| treated irreverently or sacrilegiously  
+*profanely-----------------r| in an irreverent or profane manner; "he kept wondering profanely why everything bad happened to him"  
+*profanely-----------------r| with curses; "muttering profanely"  
+*profess-------------------v| confess one's faith in, or allegiance to; "The terrorists professed allegiance to the Muslim faith"; "he professes to be a Communist"  
+*profess-------------------v| practice as a profession, teach, or claim to be knowledgeable about; "She professes organic chemistry"  
+*profess-------------------v| receive into a religious order or congregation  
+*profess-------------------v| state freely; "The teacher professed that he was not generous when it came to giving good grades"  
+*profess-------------------v| state insincerely; "He professed innocence but later admitted his guilt"; "She pretended not to have known the suicide bomber"; "She pretends to be an expert on wine"  
+*profess-------------------v| take vows, as in religious order; "she professed herself as a nun"  
+*professed(a)--------------s| claimed with intent to deceive; "his professed intentions"  
+*professed(a)--------------s| professing to be qualified; "a professed philosopher"  
+*professedly---------------r| with pretense or intention to deceive; "is only professedly poor"  
+*professional--------------a| characteristic of or befitting a profession or one engaged in a profession; "professional conduct"; "professional ethics"; "a thoroughly professional performance"  
+*professional--------------a| engaged in a profession or engaging in as a profession or means of livelihood; "the professional man or woman possesses distinctive qualifications"; "began her professional career after the Olympics"; "professional theater"; "professional football"; "a professional cook"; "professional actors and athletes"  
+*professional--------------a| of or relating to a profession; "we need professional advice"; "professional training"; "professional equipment for his new office"  
+*professional--------------a| of or relating to or suitable as a profession; "professional organizations"; "a professional field such as law"  
+*professional--------------s| engaged in by members of a profession; "professional occupations include medicine and the law and teaching"  
+*professionalize-----------v| become professional or proceed in a professional manner or in an activity for pay or as a means of livelihood  
+*professionalize-----------v| make professional or give a professional character to; "Philosophy has not always been professionalized and used to be a subject pursued only by amateurs"  
+*professionally------------r| in a professional manner; "professionally trained staff"  
+*professorial--------------a| relating to or characteristic of professors; "professorial demeanor"  
+*professorially------------r| in a professorial manner; "she behaved very professorially"  
+*proficiently--------------r| in a proficient manner; "he dealt proficiently with the problem"  
+*profile-------------------v| represent in profile, by drawing or painting  
+*profile-------------------v| write about; "The author of this article profiles a famous painter"  
+*profit--------------------v| derive a benefit from; "She profited from his vast experience"  
+*profit--------------------v| make a profit; gain money or materially; "The company has not profited from the merger"  
+*profit-maximizing---------s| making the profit as great as possible; "the profit-maximizing price"  
+*profitable----------------a| yielding material gain or profit; "profitable speculation on the stock market"  
+*profitable----------------s| promoting benefit or gain; "a profitable meeting to resolve difficulties"  
+*profitable----------------s| providing profit; "a profitable conversation"  
+*profiteer-----------------v| make an unreasonable profit, as on the sale of difficult to obtain goods  
+*profitless----------------s| without profit or reward; "let us have no part in profitless quarrels"- D.D.Eisenhower; "How weary, flat, stale, and unprofitable / Seem to me all the uses of this world"- Shakespeare  
+*profitlessly--------------r| without gain or profit  
+*profound------------------a| showing intellectual penetration or emotional depths; from the depths of your being; "the differences are profound"; "a profound insight"; "a profound book"; "a profound mind"; "profound contempt"; "profound regret"  
+*profound------------------s| coming from deep within one; "a profound sigh"  
+*profound------------------s| of the greatest intensity; complete; "a profound silence"; "a state of profound shock"  
+*profound------------------s| situated at or extending to great depth; too deep to have been sounded or plumbed; "the profound depths of the sea"; "the dark unfathomed caves of ocean"-Thomas Gray; "unplumbed depths of the sea"; "remote and unsounded caverns"  
+*profoundly----------------r| to a great depth psychologically; "They felt the loss deeply"  
+*profoundly_deaf-----------s| totally deaf; unable to hear anything  
+*progestational------------a| of or relating to progesterone (or to a drug with progesterone-like effects)  
+*progestational------------a| preceding and favoring gestation; of or relating to physiological changes associated with ovulation and formation of the corpus luteum  
+*prognathous---------------a| having a projecting lower jaw  
+*program-------------------v| arrange a program of or for; "program the 80th birthday party"  
+*program-------------------v| write a computer program  
+*progress------------------v| develop in a positive way; "He progressed well in school"; "My plants are coming along"; "Plans are shaping up"  
+*progressive---------------a| (of taxes) adjusted so that the rate increases as the amount increases  
+*progressive---------------a| favoring or promoting progress; "progressive schools"  
+*progressive---------------s| advancing in severity; "progressive paralysis"  
+*progressive---------------s| favoring or promoting reform (often by government action)  
+*progressive---------------s| gradually advancing in extent  
+*prohibitive---------------s| tending to discourage (especially of prices); "the price was prohibitive"  
+*prohibitively-------------r| to a prohibitive degree; "it is prohibitively expensive"  
+*proinflammatory-----------s| tending to cause inflammation  
+*project-------------------v| cause to be heard; "His voice projects well"  
+*project-------------------v| communicate vividly; "He projected his feelings"  
+*project-------------------v| draw a projection of  
+*project-------------------v| present for consideration  
+*project-------------------v| project on a screen; "The images are projected onto the screen"  
+*project-------------------v| put or send forth; "She threw the flashlight beam into the corner"; "The setting sun threw long shadows"; "cast a spell"; "cast a warm light"  
+*project-------------------v| regard as objective  
+*project-------------------v| throw, send, or cast forward; "project a missile"  
+*project-------------------v| transfer (ideas or principles) from one domain into another  
+*projected-----------------s| planned for the future; "the first volume of a proposed series"  
+*projectile----------------s| impelling or impelled forward; "a projectile force"; "a projectile missile"  
+*prokaryotic---------------a| having cells that lack membrane-bound nuclei  
+*prolapse------------------v| slip or fall out of place, as of body parts; "prolapsed rectum"  
+*prolate-------------------a| having the polar diameter greater than the equatorial diameter; "a prolate spheroid is generated by revolving an ellipse about its major axis"  
+*proletarian---------------a| the lowest class of citizens of ancient Rome who had no property  
+*proletarian---------------s| belonging to or characteristic of the proletariat  
+*proliferate---------------v| cause to grow or increase rapidly; "We must not proliferate nuclear arms"  
+*proliferate---------------v| grow rapidly; "Pizza parlors proliferate in this area"  
+*prolific------------------s| bearing in abundance especially offspring; "flying foxes are extremely prolific"; "a prolific pear tree"  
+*prolix--------------------a| tediously prolonged or tending to speak or write at great length; "editing a prolix manuscript"; "a prolix lecturer telling you more than you want to know"  
+*prologize-----------------v| write or speak a prologue  
+*prolong-------------------v| lengthen in time; cause to be or last longer; "We prolonged our stay"; "She extended her visit by another day"; "The meeting was drawn out until midnight"  
+*prolong-------------------v| lengthen or extend in duration or space; "We sustained the diplomatic negociations as long as possible"; "prolong the treatment of the patient"; "keep up the good work"  
+*prolonged-----------------s| (of illness) developing slowly or of long duration  
+*prolusory-----------------a| of or relating to or having the character of a prolusion  
+*promenade-----------------v| take a leisurely walk; "The ladies promenaded along the beach"  
+*prominently---------------r| in a prominent way; "the new car was prominently displayed in the driveway"  
+*promiscuous---------------s| not selective of a single class or person; "Clinton was criticized for his promiscuous solicitation of campaign money"  
+*promiscuously-------------r| in an indiscriminate manner; "she reads promiscuously"  
+*promise-------------------v| give grounds for expectations; "The new results were promising"; "The results promised fame and glory"  
+*promise-------------------v| make a promise or commitment  
+*promise-------------------v| promise to undertake or give; "I promise you my best effort"  
+*promised------------------s| assured by (usually) spoken agreement; "the promised toy"; "the promised land"  
+*promising-----------------s| showing possibility of achievement or excellence; "a promising young man"  
+*promisingly---------------r| in an auspicious manner; "the afternoon had begun so promisingly"  
+*promissory----------------a| relating to or having the character of a promise; "promissory note"  
+*promote-------------------v| be changed for a superior chess or checker piece  
+*promote-------------------v| change a pawn for a king by advancing it to the eighth row, or change a checker piece for a more valuable piece by moving it the row closest to your opponent  
+*promote-------------------v| contribute to the progress or growth of; "I am promoting the use of computers in the classroom"  
+*promote-------------------v| give a promotion to or assign to a higher position; "John was kicked upstairs when a replacement was hired"; "Women tend not to advance in the major law firms"; "I got promoted after many years of hard work"  
+*promotional---------------a| of or relating to advancement; "promotional exams"  
+*promotional---------------a| of or relating to serving as publicity; "promotional fares"  
+*promotive-----------------s| tending to further or encourage  
+*prompt--------------------s| quick in apprehending or reacting; "a prompt (or ready) response"; "a prompt smile"  
+*prompt--------------------v| assist (somebody acting or reciting) by suggesting the next words of something forgotten or imperfectly learned  
+*prompt--------------------v| serve as the inciting cause of; "She prompted me to call my relatives"  
+*promptly------------------r| at once (usually modifies an undesirable occurrence); "he promptly forgot the address"  
+*promptly------------------r| in a punctual manner; "he did his homework promptly"  
+*promptly------------------r| with little or no delay; "the rescue squad arrived promptly"; "come here, quick!"  
+*promulgate----------------v| put a law into effect by formal declaration  
+*promulgated---------------s| formally made public; "published accounts"  
+*pronate-------------------v| turn the forearm or the hand so that the palm is directed downwards  
+*prone---------------------s| having a tendency (to); often used in combination; "a child prone to mischief"; "failure-prone"  
+*prone---------------------s| lying face downward  
+*pronged-------------------s| having prongs or tines; usually used in combination; "a three-tined fork"  
+*pronk---------------------v| jump straight up; "kangaroos pronk"  
+*pronominal----------------a| relating to pronouns; "pronominal reference"  
+*pronounce-----------------v| pronounce judgment on; "They labeled him unfit to work here"  
+*pronounce-----------------v| speak, pronounce, or utter in a certain way; "She pronounces French words in a funny way"; "I cannot say `zip wire'"; "Can the child sound out this complicated word?"  
+*pronounceable-------------a| capable of being uttered or pronounced; "a pronounceable group of letters"  
+*pronounced----------------s| produced by the organs of speech  
+*proof---------------------v| activate by mixing with water and sometimes sugar or milk; "proof yeast"  
+*proof---------------------v| knead to reach proper lightness; "proof dough"  
+*proof---------------------v| make or take a proof of, such as a photographic negative, an etching, or typeset  
+*proof---------------------v| make resistant to water, sound, errors, etc.; "proof the materials against shrinking in the dryer"  
+*proof(p)------------------s| (used in combination or as a suffix) able to withstand; "temptation-proof"; "childproof locks"  
+*proofed-------------------s| treated so as to become resistant; "rust-proofed automobiles"; "shrink-proofed fabrics"  
+*proofread-----------------v| read for errors; "I should proofread my manuscripts"  
+*prop_up-------------------v| support by placing against something solid or rigid; "shore and buttress an old building"  
+*propagandist--------------a| of or relating to or characterized by propaganda  
+*propagandize--------------v| spread by propaganda  
+*propagandize--------------v| subject to propaganda  
+*propagate-----------------v| cause to propagate, as by grafting or layering  
+*propagate-----------------v| multiply sexually or asexually  
+*propagate-----------------v| transmit from one generation to the next; "propagate these characteristics"  
+*propagate-----------------v| transmit or cause to broaden or spread; "This great civilization was propagated throughout the land"  
+*propagate-----------------v| transmit; "propagate sound or light through air"  
+*propagate-----------------v| travel through the air; "sound and light propagate in this medium"  
+*propagative---------------a| characterized by propagation or relating to propagation  
+*propel--------------------v| cause to move forward with force; "Steam propels this ship"  
+*propellant----------------s| tending to or capable of propelling; "propellant fuel for submarines"; "the faster a jet plane goes the greater its propulsive efficiency"; "universities...the seats of propulsive thought"  
+*proper--------------------a| marked by suitability or rightness or appropriateness; "proper medical treatment"; "proper manners"  
+*proper--------------------s| appropriate for a condition or occasion; "everything in its proper place"; "the right man for the job"; "she is not suitable for the position"  
+*proper(a)-----------------s| having all the qualities typical of the thing specified; "wanted a proper dinner; not just a snack"; "he finally has a proper job"  
+*proper(ip)----------------s| limited to the thing specified; "the city proper"; "his claim is connected with the deed proper"  
+*properly------------------r| in the right manner; "please do your job properly!"; "can't you carry me decent?"  
+*properly_speaking---------r| in actual fact; "properly speaking, they are not husband and wife"  
+*propertied----------------s| owning land or securities as a principal source of revenue  
+*propertyless--------------s| of those who work for wages especially manual or industrial laborers; "party of the propertyless proletariat"- G.B.Shaw  
+*prophesy------------------v| predict or reveal through, or as if through, divine inspiration  
+*prophetic-----------------a| foretelling events as if by supernatural intervention; "prophetic writings"; "prophetic powers"; "words that proved prophetic"  
+*prophetically-------------r| in a prophetic manner; "he prophetically anticipated the disaster"  
+*propitiate----------------v| make peace with  
+*propitiative--------------s| intended to reconcile or appease; "sent flowers as a propitiatory gesture"  
+*propitious----------------a| presenting favorable circumstances; "propitious omens"  
+*proportion----------------v| adjust in size relative to other things  
+*proportion----------------v| give pleasant proportions to; "harmonize a building with those surrounding it"  
+*proportionable------------s| proportionate  
+*proportional--------------s| properly related in size or degree or other measurable characteristics; usually followed by `to'; "punishment oughtt to be proportional to the crime"; "earnings relative to production"  
+*proportionate-------------a| being in due proportion  
+*proportionately-----------r| in proportion  
+*proportionately-----------r| to a proportionate degree; "the height of this wall must be reduced proportionately to give the room pleasant dimensions"  
+*proportionately-----------r| to a proportionate degree; "your salary will rise proportionately to your workload"  
+*propose-------------------v| ask (someone) to marry you; "he popped the question on Sunday night"; "she proposed marriage to the man she had known for only two months"; "The old bachelor finally declared himself to the young woman"  
+*propose-------------------v| make a proposal, declare a plan for something  
+*proposition---------------v| suggest sex to; "She was propositioned by a stranger at the party"  
+*propound------------------v| put forward, as of an idea  
+*proprietary---------------a| protected by trademark or patent or copyright; made or produced or distributed by one having exclusive rights; "`Tylenol' is a proprietary drug of which `acetaminophen' is the generic form"  
+*proprioceptive------------a| of or relating to proprioception  
+*propulsive----------------a| having the power to propel; "propulsive coefficient"  
+*prorate-------------------v| divide or assess proportionally; "The rent was prorated for the rest of the month"  
+*prorate-------------------v| make a proportional settlement or distribution  
+*prorogue------------------v| adjourn by royal prerogative; without dissolving the legislative body  
+*prosaically---------------r| in a matter-of-fact manner; "I applied my attention prosaically to my routine"  
+*prosecute-----------------v| bring a criminal action against (in a trial); "The State of California prosecuted O.J. Simpson"  
+*prosecute-----------------v| carry out or participate in an activity; be involved in; "She pursued many activities"; "They engaged in a discussion"  
+*prosecute-----------------v| conduct a prosecution in a court of law  
+*proselytize---------------v| convert to another faith or religion  
+*prosily-------------------r| in a prosy manner; "somewhat prosily and repetitively expounded"  
+*prosodic------------------a| of or relating to the rhythmic aspect of language or to the suprasegmental phonemes of pitch and stress and juncture and nasalization and voicing  
+*prospect------------------v| explore for useful or valuable things or substances, such as minerals  
+*prospect------------------v| search for something desirable; "prospect a job"  
+*prospective---------------a| concerned with or related to the future; "prospective earnings"; "a prospective mother"; "the statute is solely prospective in operation"  
+*prospective(a)------------s| anticipated for the near future; "the prospective students"; "his prospective bride"  
+*prosperously--------------r| in the manner of prosperous people  
+*prostate------------------a| relating to the prostate gland  
+*prosthetic----------------a| of or relating to prosthetics  
+*prosthetic----------------a| relating to or serving as a prosthesis  
+*prosthodontic-------------a| of or relating to prosthodontics  
+*prostitute----------------v| sell one's body; exchange sex for money  
+*prostrate-----------------v| get into a prostrate position, as in submission  
+*prostrate-----------------v| render helpless or defenseless; "They prostrated the enemy"  
+*prostrate-----------------v| throw down flat, as on the ground; "She prostrated herself with frustration"  
+*prostyle------------------s| marked by columniation having free columns in a portico only across the opening to the structure  
+*protanopic----------------s| inability to see the color red or to distinguish red and bluish-green  
+*protean-------------------s| taking on different forms; "eyes...of that baffling protean gray which is never twice the same"  
+*protect-------------------v| shield from danger, injury, destruction, or damage; "Weatherbeater protects your roof from the rain"  
+*protect-------------------v| use tariffs to favor domestic industry  
+*protected-----------------a| kept safe or defended from danger or injury or loss; "the most protected spot I could find"  
+*protected-----------------s| guarded from injury or destruction  
+*protecting(a)-------------s| shielding (or designed to shield) against harm or discomfort; "the protecting blanket of snow"; "a protecting alibi"  
+*protective----------------a| intended or adapted to afford protection of some kind; "a protective covering"; "the use of protective masks and equipment"; "protective coatings"; "kept the drunken sailor in protective custody"; "animals with protective coloring"; "protective tariffs"  
+*protective(p)-------------s| (usually followed by `of') solicitously caring or mindful; "protective of his reputation"  
+*protectively--------------r| in a protective manner; "he bent protectively over the woman"  
+*proteinaceous-------------a| relating to or of the nature of protein  
+*proteolytic---------------a| of or relating to proteolysis  
+*proterozoic---------------s| formed in the later of two divisions of the Precambrian era; "proterozoic life forms"  
+*protest-------------------v| affirm or avow formally or solemnly; "The suspect protested his innocence"  
+*protest-------------------v| express opposition through action or words; "dissent to the laws of the country"  
+*protest-------------------v| utter words of protest  
+*Protestant----------------a| of or relating to Protestants or Protestantism; "Protestant churches"; "a Protestant denomination"  
+*protesting(a)-------------s| making a protest  
+*protestingly--------------r| in a protesting manner; "the bed creaked protestingly when the fat man sat down"  
+*proto(a)------------------s| indicating the first or earliest or original; "`proto' is a combining form in a word like `protolanguage' that refers to the hypothetical ancestor of another language or group of languages"  
+*protogeometric------------s| characteristic of the earliest phase of geometric art especially in Greece  
+*protozoal-----------------a| of or relating to the Protozoa  
+*protozoological-----------a| concerning the branch of zoology that studies protozoans  
+*protractile---------------s| able to be extended; "protractile muscle"  
+*protrude------------------v| bulge outward; "His eyes popped"  
+*protrusile----------------s| capable of being thrust forward, as the tongue  
+*protrusive----------------a| thrusting outward  
+*protuberate---------------v| cause to bulge out or project  
+*protuberate---------------v| form a rounded prominence; "The starved child's belly protuberated"  
+*proud---------------------a| feeling self-respect or pleasure in something by which you measure your self-worth; or being a reason for pride; "proud parents"; "proud of his accomplishments"; "a proud moment"; "proud to serve his country"; "a proud name"; "proud princes"  
+*proudly-------------------r| in a proud manner; "he walked proudly into town"  
+*Proustian-----------------a| of or relating to or in the manner of Marcel Proust  
+*prove---------------------v| be shown or be found to be; "She proved to be right"; "The medicine turned out to save her life"; "She turned up HIV positive"  
+*prove---------------------v| establish the validity of something, as by an example, explanation or experiment; "The experiment demonstrated the instability of the compound"; "The mathematician showed the validity of the conjecture"  
+*prove---------------------v| obtain probate of; "prove a will"  
+*prove---------------------v| prove formally; demonstrate by a mathematical, formal proof  
+*prove---------------------v| take a trial impression of  
+*prove_oneself-------------v| show one's ability or courage  
+*proved--------------------a| established beyond doubt; "a proven liar"; "a Soviet leader of proven shrewdness"  
+*proverbial----------------a| of or relating to or resembling or expressed in a proverb; "he kicked the proverbial bucket"; "the proverbial grasshopper"  
+*proverbial----------------s| widely known and spoken of; "her proverbial lateness"; "the proverbial absentiminded professor"; "your proverbial dizzy blonde"  
+*proverbially--------------r| in the manner of something that has become a byword; "this proverbially bitter plant, wormwood"  
+*provide-------------------v| determine (what is to happen in certain contingencies), especially by including a proviso condition or stipulation; "The will provides that each child should receive half of the money"; "The Constitution provides for the right to free speech"  
+*provide-------------------v| provide what is desired or needed, especially support, food or sustenance; "The hostess provided lunch for all the guests"  
+*provide-------------------v| supply means of subsistence; earn a living; "He provides for his large family by working three jobs"; "Women nowadays not only take care of the household but also bring home the bacon"  
+*provide-------------------v| take measures in preparation for; "provide for the proper care of the passengers on the cruise ship"  
+*provident-----------------a| providing carefully for the future; "wild squirrels are provident"; "a provident father plans for his children's education"  
+*provident-----------------s| careful in regard to your own interests; "the prudent use and development of resources"; "wild squirrels are provident"  
+*providential--------------a| relating to or characteristic of providence; "assumption that nature operates only according to a providential plan"- M.R.Cohen  
+*providential--------------s| resulting from divine providence; "providential care"; "a providential visitation"  
+*providentially------------r| in a fortunately providential manner; "providentially the weather remained good"  
+*providentially------------r| in a providential manner; as determined by providence; "his providentially destined role"  
+*providently---------------r| in a provident manner; "providently, he had saved up some money for emergencies"  
+*provincial----------------a| characteristic of the provinces or their people; "deeply provincial and conformist"; "in that well-educated company I felt uncomfortably provincial"; "narrow provincial attitudes"  
+*provincial----------------a| of or associated with a province; "provincial government"  
+*provincially--------------r| by the province; through the province; "provincially controlled"  
+*provision-----------------v| supply with provisions  
+*provisionally-------------r| temporarily and conditionally; "they have agreed provisionally"; "was appointed provisionally"  
+*provisory-----------------s| subject to a proviso; "a provisory clause"  
+*provocative---------------a| serving or tending to provoke, excite, or stimulate; stimulating discussion or exciting controversy; "a provocative remark"; "a provocative smile"; "provocative Irish tunes which...compel the hearers to dance"- Anthony Trollope  
+*provocative---------------s| exciting sexual desire; "her gestures and postures became more wanton and provocative"  
+*provocatively-------------r| in a provocative manner; "`Try it,' he said provocatively"  
+*provoke-------------------v| call forth; "Her behavior provoked a quarrel between the couple"  
+*provoke-------------------v| provide the needed stimulus for  
+*prowl---------------------v| loiter about, with no apparent aim  
+*prowl---------------------v| move about in or as if in a predatory manner; "The suspicious stranger prowls the streets of the town"  
+*proximal------------------a| situated nearest to point of attachment or origin; "the proximal end of a bone"  
+*proximate-----------------a| closest in degree or order (space or time) especially in a chain of causes and effects; "news of his proximate arrival"; "interest in proximate rather than ultimate goals"  
+*proximate-----------------s| very close in space or time; "proximate words"; "proximate houses"  
+*proximo-------------------s| in or of the next month after the present; "scheduled for the 6th prox"  
+*prudent-------------------a| careful and sensible; marked by sound judgment; "a prudent manager"; "prudent rulers"; "prudent hesitation"; "more prudent to hide than to fight"  
+*prudent-------------------s| showing wise self-restraint in speech and behavior especially in preserving prudent silence; "maintained a prudent silence"  
+*prudential----------------s| arising from or characterized by prudence especially in business matters; "he abstained partly for prudential reasons"  
+*prudently-----------------r| in a prudent manner; "I had allotted my own bedroom for necking, prudently removing both the bed and the key, and taken both myself and my typewriter into my son's bedroom."  
+*prudishly-----------------r| in a prudish manner; "she acts prudishly, but I wonder whether she is really all that chaste"  
+*pruned--------------------s| (of plants or trees) shaped by having superfluous branches or shoots trimmed back or cut off; "abundant fruit from properly pruned vines and fruit trees"  
+*pruriently----------------r| in a prurient manner  
+*Prussian------------------a| of or relating to or characteristic of Prussia or its inhabitants; "Prussian officers"; "Prussian aristocracy"  
+*pry-----------------------v| be nosey; "Don't pry into my personal matters!"  
+*pry-----------------------v| make an uninvited or presumptuous inquiry; "They pried the information out of him"  
+*pry-----------------------v| search or inquire in a meddlesome way; "This guy is always nosing around the office"  
+*pry-----------------------v| to move or force, especially in an effort to get something open; "The burglar jimmied the lock", "Raccoons managed to pry the lid off the garbage pail"  
+*pryingly------------------r| in a curious and prying manner; "`Do you have a boyfriend,' she asked her prospective tenant pryingly"  
+*psalm---------------------v| sing or celebrate in psalms; "He psalms the works of God"  
+*pseudo--------------------s| (often used in combination) not genuine but having the appearance of; "a pseudo esthete"; "pseudoclassic"  
+*pseudohermaphroditic------s| having internal reproductive organs of one sex and external sexual characteristics of the other sex  
+*pseudonymous--------------s| bearing or identified by an assumed (often pen) name; "the writings of Mark Twain are pseudonymous"  
+*pseudoscientific----------s| based on theories and methods erroneously regarded as scientific  
+*psychedelic---------------s| having the vivid colors and bizarre patterns associated with psychedelic states; "a psychedelic painting"  
+*psychedelic---------------s| of a mental state characterized by intense and distorted perceptions and hallucinations and feelings of euphoria or sometimes despair; "a psychedelic experience"  
+*psychedelic---------------s| producing distorted sensory perceptions and feelings or altered states of awareness or sometimes states resembling psychosis; "psychedelic drugs like psilocybin and mescaline"  
+*psychiatric---------------a| relating to or used in or engaged in the practice of psychiatry; "psychiatric disorder"; "psychiatric hospital"  
+*psychic-------------------a| pertaining to forces or mental processes outside the possibilities defined by natural or scientific laws; "psychic reader"; "psychical research"  
+*psychic-------------------s| affecting or influenced by the human mind; "psychic energy"; "psychic trauma"  
+*psychic-------------------s| outside the sphere of physical science; "psychic phenomena"  
+*psychically---------------r| from a psychic point of view; "he was psychically blind"  
+*psychoactive--------------a| affecting the mind or mood or other mental processes; "psychoactive drugs"  
+*psychoanalytical----------a| of or relating to or incorporating the methods and theory of psychiatric treatment originated by Sigmund Freud; "Freud's psychoanalytical theories"; "psychoanalytic treatment"  
+*psychogenic---------------s| mental or emotional rather than physiological in origin; "a psychogenic disorder"  
+*psychokinetic-------------s| moving an object without apparent use of physical means  
+*psycholinguistic----------a| of or relating to the psychology of language  
+*psychological-------------a| of or relating to or determined by psychology; "psychological theories"  
+*psychological-------------s| mental or emotional as opposed to physical in nature; "give psychological support"; "psychological warfare"  
+*psychologically-----------r| in terms of psychology; "classify poetry psychologically"  
+*psychologically-----------r| with regard to psychology; "war that caught them in its toils either psychologically or physically"; "the event was very damaging to the child psychologically1"  
+*psychometric--------------a| of or relating to psychometrics; "psychometric journals"  
+*psychomotor---------------a| of or relating to or characterizing mental events that have motor consequences or vice versa  
+*psychopathic--------------s| suffering from an undiagnosed mental disorder  
+*psychopharmacological-----a| of or relating to psychopharmacology  
+*psychosexual--------------a| of or relating to the mental or emotional attitudes about sexuality  
+*psychosomatic-------------s| used of illness or symptoms resulting from neurosis  
+*psychotherapeutic---------a| of or relating to or practicing psychotherapy; "psychotherapeutic sessions"  
+*psychotic-----------------s| suffering from psychosis  
+*pteridological------------a| of or relating to the study of ferns  
+*Ptolemaic-----------------a| of or relating to the astronomer Ptolemy  
+*Ptolemaic-----------------s| of or relating to the geocentric Ptolemaic system; "in the Ptolemaic system of planetary motion the earth is fixed as the center of the universe with the sun and moon and planets revolving around it"  
+*pub-crawl-----------------v| go from one pub to the next and get progressively more drunk; "he pub-crawled around Birmingham"  
+*pubertal------------------a| of or related to puberty  
+*pubescent-----------------s| (of animals especially human beings) having arrived at the onset of puberty (the age at which sex glands become functional) but not yet fully mature; "the budding breasts of a pubescent girl and the downy chin of pubescent boy"  
+*pubic---------------------a| relating or near the pubis; "pubic bones"; "pubic hair"  
+*public--------------------a| not private; open to or concerning the people as a whole; "the public good"; "public libraries"; "public funds"; "public parks"; "a public scandal"; "public gardens"; "performers and members of royal families are public figures"  
+*public--------------------s| affecting the people or community as a whole; "community leaders"; "community interests"; "the public welfare"  
+*public-spirited-----------s| showing unselfish interest in the public welfare; "a public-spirited citizen"  
+*publicize-----------------v| make public; "She aired her opinions on welfare"  
+*publicized----------------a| made known; especially made widely known  
+*publicly------------------r| by the public or the people generally; "publicly provided medical care"; "publicly financed schools"  
+*publicly------------------r| in a manner accessible to or observable by the public; openly; "she admitted publicly to being a communist"  
+*publish-------------------v| have (one's written work) issued for publication; "How many books did Georges Simenon write?"; "She published 25 books during her long career"  
+*publish-------------------v| prepare and issue for public distribution or sale; "publish a magazine or newspaper"  
+*publishable---------------a| suitable for publication  
+*published-----------------a| prepared and printed for distribution and sale; "the complete published works Dickens"  
+*pucker--------------------v| become wrinkled or drawn together; "her lips puckered"  
+*pucker--------------------v| to gather something into small wrinkles or folds; "She puckered her lips"  
+*puckered------------------s| (used of the skin of the face) contracted into wrinkles; "a puckered-up mouth waiting to be kissed"; "her mischievous puckered nose"  
+*puddle--------------------v| dip into mud before planting; "puddle young plants"  
+*puddle--------------------v| make a puddle by splashing water  
+*puddle--------------------v| mess around, as in a liquid or paste; "The children are having fun puddling in paint"  
+*puddle--------------------v| subject to puddling or form by puddling; "puddle iron"  
+*puddle--------------------v| wade or dabble in a puddle; "The ducks and geese puddled in the backyard"  
+*puddle--------------------v| work a wet mixture, such as concrete or mud  
+*pudendal------------------a| of or relating to or near the pudendum; "pudendal nerve"  
+*puerile-------------------a| of or characteristic of a child; "puerile breathing"  
+*puerperal-----------------a| relating to or connected with or occurring at the time of childbirth or shortly following, or to the woman who has just given birth  
+*puff----------------------s| gathered for protruding fullness; "puff sleeves"  
+*puff----------------------v| blow hard and loudly; "he huffed and puffed as he made his way up the mountain"  
+*puff----------------------v| make proud or conceited; "The sudden fame puffed her ego"  
+*puff----------------------v| praise extravagantly; "The critics puffed up this Broadway production"  
+*puff----------------------v| smoke and exhale strongly; "puff a cigar"; "whiff a pipe"  
+*puff----------------------v| speak in a blustering or scornful manner; "A puffing kind of man"  
+*puff----------------------v| suck in or take (air); "draw a deep breath"; "draw on a cigarette"  
+*puff----------------------v| to swell or cause to enlarge, "Her faced puffed up from the drugs"  
+*puff_up-------------------v| make larger or distend; "The estimates were puffed up"  
+*pug-nosed-----------------s| having a blunt nose; "a pug-nosed boy with freckles"; "a snub-nosed automatic"  
+*pugilistic----------------a| of or relating to pugilism or pugilists; "a pugilistic career"  
+*pugnacious----------------s| ready and able to resort to force or violence; "pugnacious spirits...lamented that there was so little prospect of an exhilarating disturbance"- Herman Melville; "they were rough and determined fighting men"  
+*pugnaciously--------------r| in a pugnacious manner  
+*puissant------------------s| powerful  
+*pukka---------------------s| absolutely first class and genuine; "pukka sahib"; "pukka quarters with a swarm of servants"  
+*pulchritudinous-----------s| used of persons only; having great physical beauty; "pulchritudinous movie stars"  
+*pull----------------------v| apply force so as to cause motion towards the source of the motion; "Pull the rope"; "Pull the handle towards you"; "pull the string gently"; "pull the trigger of the gun"; "pull your kneees towards your chin"  
+*pull----------------------v| cause to move along the ground by pulling; "draw a wagon"; "pull a sled"  
+*pull----------------------v| cause to move in a certain direction by exerting a force upon, either physically or in an abstract sense; "A declining dollar pulled down the export figures for the last quarter"  
+*pull----------------------v| hit in the direction that the player is facing when carrying through the swing; "pull the ball"  
+*pull----------------------v| move into a certain direction; "the car pulls to the right"  
+*pull----------------------v| operate when rowing a boat; "pull the oars"  
+*pull----------------------v| rein in to keep from winning a race; "pull a horse"  
+*pull----------------------v| steer into a certain direction; "pull one's horse to a stand"; "Pull the car over"  
+*pull----------------------v| strain abnormally; "I pulled a muscle in my leg when I jumped up"; "The athlete pulled a tendon in the competition"  
+*pull----------------------v| take away; "pull the old soup cans from the supermarket shelf"  
+*pull_back-----------------v| move to a rearward position; pull towards the back; "Pull back your arms!"  
+*pull_back-----------------v| pull back the sling of (a bow); "The archers were drawing their bows"  
+*pull_in-------------------v| move into (a station) of trains; "The bullet train drew into Tokyo Station"  
+*pull_off------------------v| be successful; achieve a goal; "She succeeded in persuading us all"; "I managed to carry the box upstairs"; "She pulled it off, even though we never thought her capable of it"; "The pianist negociated the difficult runs"  
+*pull_off------------------v| cause to withdraw; "We pulled this firm off the project because they overcharged"  
+*pull_one's_weight---------v| do one's share in a common task; "Bob has never pulled his weight, and we all have to work harder to make up for his laziness"  
+*pull_out------------------v| move out or away; "The troops pulled out after the cease-fire"  
+*pull_out_all_the_stops----v| use all resources available; "The organizers pulled out all the stops for the centennial meeting"  
+*pull_over-----------------v| steer a vehicle to the side of the road; "The car pulled over when the ambulance approached at high speed"  
+*pull_the_leg_of-----------v| tell false information to for fun; "Are you pulling my leg?"  
+*pull_the_plug-------------v| prevent from happening or continuing; "The government pulled the plug on spending"  
+*pull_up_short-------------v| stop abruptly; "The police car pulled up short and then turned around fast"  
+*pulled--------------------a| drawn toward the source of the force; "this exercise must be done with the arms pulled back"  
+*pullulate-----------------v| become abundant; increase rapidly  
+*pullulate-----------------v| breed freely and abundantly  
+*pulp----------------------v| reduce to pulp; "pulp fruit"; "pulp wood"  
+*pulp----------------------v| remove the pulp from, as from a fruit  
+*pulpy---------------------s| like a pulp; not having stiffness  
+*pulsate-------------------v| expand and contract rhythmically; beat rhythmically; "The baby's heart was pulsating again after the surgeon massaged it"  
+*pulsate-------------------v| move with or as if with a regular alternating motion; "the city pulsated with music and excitement"  
+*pulse---------------------v| drive by or as if by pulsation; "A soft breeze pulsed the air"  
+*pulse---------------------v| produce or modulate (as electromagnetic waves) in the form of short bursts or pulses or cause an apparatus to produce pulses; "pulse waves"; "a transmitter pulsed by an electronic tube"  
+*pulsed--------------------s| produced or transmitted or modulated in short bursts or pulses; "pulsed electromagnetic waves"; "pulsed light"; "pulsed ultrasonic energy"  
+*pummel--------------------v| strike, usually with the fist; "The pedestrians pummeled the demonstrators"  
+*pump----------------------v| deliver forth; "pump bullets into the dummy"  
+*pump----------------------v| draw or pour with a pump  
+*pump----------------------v| flow intermittently  
+*pump----------------------v| move up and down; "The athlete pumps weights in the gym"  
+*pump----------------------v| operate like a pump; move up and down, like a handle or a pedal  
+*pump----------------------v| question persistently; "She pumped the witnesses for information"  
+*pump----------------------v| raise (gases oor fluids) with a pump  
+*pump----------------------v| supply in great quantities; "Pump money into a project"  
+*pumped-up(a)--------------s| tense with excitement and enthusiasm as from a rush of adrenaline; "we were really pumped up for the race"; "he was so pumped he couldn't sleep"  
+*pun-----------------------v| make a play on words; "Japanese like to pun--their language is well suited to punning"  
+*punch---------------------v| deliver a quick blow to; "he punched me in the stomach"  
+*punch---------------------v| drive forcibly as if by a punch; "the nail punched through the wall"  
+*punch---------------------v| make a hole into or between, as for ease of separation; "perforate the sheets of paper"  
+*punch-drunk---------------s| dazed from or as if from repeated blows; "knocked silly by the impact"; "slaphappy with exhaustion"  
+*punctiliously-------------r| in a punctilious manner; "he launched into a long history of the birth of communism, giving credit punctiliously to the work of Marx and Engels"  
+*punctual------------------a| acting or arriving or performed exactly at the time appointed; "she expected guests to be punctual at meals"; "he is not a particularly punctual person"; "punctual payment"  
+*punctually----------------r| at the proper time; "she was duly apprised of the raise"  
+*punctuate-----------------v| insert punctuation marks into  
+*punctuate-----------------v| interrupt periodically; "Her sharp questions punctuated the speaker's drone"  
+*puncturable---------------a| capable of being punctured  
+*puncture------------------v| be pierced or punctured; "The tire punctured"  
+*puncture------------------v| cause to lose air pressure or collapse by piercing; "puncture an air balloon"  
+*puncture------------------v| make by piercing; "puncture a hole"  
+*puncture------------------v| pierce with a pointed object; make a hole into; "puncture a tire"  
+*punctureless--------------a| being without punctures or incapable of being punctured  
+*pungent-------------------a| sharp biting or acrid especially in taste or smell; "tasting the pungent wood sorrel"; "pungent curry"; "a pungent smell of burning sulfur"  
+*pungently-----------------r| with a pungent taste or smell; "the soup was pungently flavored"  
+*pungently-----------------r| with pungency; in a pungent manner; "he wrote pungently about his contemporaries"  
+*punic---------------------s| tending to betray; especially having a treacherous character as attributed to the Carthaginians by the Romans; "Punic faith"; "the perfidious Judas"; "the fiercest and most treacherous of foes"; "treacherous intrigues"  
+*punily--------------------r| in a puny manner  
+*punish--------------------v| impose a penalty on; inflict punishment on; "The students were penalized for showing up late for class"; "we had to punish the dog for soiling the floor again"  
+*punishable----------------s| liable to or deserving punishment; "punishable offenses"  
+*punished------------------a| subjected to a penalty (as pain or shame or restraint or loss) for an offense or fault or in order to coerce some behavior (as a confession or obedience)  
+*punishing-----------------a| resulting in punishment; "the king imposed a punishing tax"  
+*punishingly---------------r| in a punishing manner  
+*punitive------------------a| inflicting punishment; "punitive justice"; "punitive damages"  
+*punitively----------------r| in a punishing manner  
+*punt----------------------v| kick the ball  
+*punt----------------------v| propel with a pole; "pole barges on the river"; "We went punting in Cambridge"  
+*puny----------------------s| (used especially of persons) of inferior size  
+*puny----------------------s| inferior in strength or significance; "a puny physique"; "puny excuses"  
+*pupal---------------------s| of the insects in the chrysalis (cocoon) or post larval stage; "the pupal stage"  
+*pupate--------------------v| develop into a pupa; "the insect larva pupate"  
+*pupillary-----------------a| of or relating to the pupil of the eye  
+*puppyish------------------s| characteristic of a puppy  
+*Puranic-------------------a| of or relating to the Purana  
+*purchasable---------------s| available for purchase; "purchasable goods"; "many houses in the area are for sale"  
+*pure----------------------a| free of extraneous elements of any kind; "pure air and water"; "pure gold"; "pure primary colors"; "the violin's pure and lovely song"; "pure tones"  
+*pure----------------------a| used of persons or behaviors; having no faults; sinless; "I felt pure and sweet as a new baby"- Sylvia Plath; "pure as the driven snow"  
+*pure----------------------s| concerned with theory and data rather than practice; opposed to applied; "pure science"  
+*pure----------------------s| free from discordant qualities  
+*pure----------------------s| in a state of sexual virginity; "pure and vestal modesty"; "a spinster or virgin lady"; "men have decreed that their women must be pure and virginal"  
+*pure----------------------s| not mixed; "pure oxygen"  
+*purebred------------------a| bred for many generation from member of a recognized breed or strain  
+*puree---------------------v| rub through a strainer or process in an electric blender; "puree the vegetables for the baby"  
+*purgatorial---------------a| of or resembling purgatory; "purgatorial fires"  
+*purgatorial---------------a| serving to purge or rid of sin; "purgatorial rites"  
+*purge---------------------v| clear of a charge  
+*purge---------------------v| excrete or evacuate (someone's bowels or body); "The doctor decided that the patient must be purged"  
+*purge---------------------v| oust politically; "Deng Xiao Ping was purged several times throughout his lifetime"  
+*purge---------------------v| rid of impurities; "purge the water"; "purge your mind"  
+*purified------------------s| made pure  
+*purify--------------------v| become clean or pure or free of guilt and sin; "The hippies came to the ashram in order to purify"  
+*purify--------------------v| make pure or free from sin or guilt; "he left the monastery purified"  
+*purify--------------------v| remove impurities from, increase the concentration of, and separate through the process of distillation; "purify the water"  
+*purifying-----------------a| freeing from noxious matter; "filtration is a purifying agent"  
+*puritanical---------------a| of or relating to Puritans or Puritanism  
+*purl----------------------v| edge or border with gold or silver embroidery  
+*purl----------------------v| embroider with gold or silver thread  
+*purl----------------------v| knit with a purl stitch  
+*purl----------------------v| make a murmuring sound; "the water was purling"  
+*purl_stitch---------------v| make with purl stitches  
+*purloined-----------------s| taken dishonestly; "the purloined letter"  
+*purple--------------------s| of a color midway between red and blue  
+*purple--------------------v| become purple  
+*purple--------------------v| color purple  
+*purport-------------------v| have the often specious appearance of being, intending, or claiming; "The letter purports to express people's opinion"  
+*purportedly---------------r| believed or reputed to be the case  
+*purpose-------------------v| reach a decision; "he resolved never to drink again"  
+*purpose-built-------------s| designed and constructed to serve a particular purpose  
+*purposeful----------------a| serving as or indicating the existence of a purpose or goal  
+*purposeful----------------s| having meaning through having an aim; "led a happy purposeful life"  
+*purposefully--------------r| in a purposeful manner; "he caught the motorcycles in the full glare of his headlights, braked and slipped purposefully out of the car"  
+*purposeless---------------a| not evidencing any purpose of goal  
+*purposelessly-------------r| without a clear purpose; "let's not purposelessly dispense the aid"  
+*purposive-----------------s| having or showing or acting with a purpose or design; "purposive behavior"  
+*purr----------------------v| indicate pleasure by purring; characteristic of cats  
+*purse---------------------v| contract one's lips into a rounded shape  
+*purse---------------------v| gather or contract into wrinkles or folds; pucker; "purse ones's lips"  
+*purse-proud---------------s| proud or arrogant because of your wealth (especially in the absence of other distinction)  
+*pursuant(p)---------------s| (followed by `to') in conformance to or agreement with; "pursuant to our agreement"; "pursuant to the dictates of one's conscience"  
+*pursue--------------------v| carry further or advance; "Can you act on this matter soon?"  
+*pursue--------------------v| follow in or as if in pursuit; "The police car pursued the suspected attacker"; "Her bad deed followed her and haunted her dreams all her life"  
+*pursued-------------------a| followed with enmity as if to harm; "running and leaping like a herd of pursued antelopes"  
+*pursuing------------------s| following in order to overtake or capture or as accompaniment to such pursuit; "the fox fled from the pursuing hounds"; "listened for the hounds' pursuing bark"  
+*push----------------------v| approach a certain age or speed; "She is pushing fifty"  
+*push----------------------v| move strenuously and with effort; "The crowd pushed forward"  
+*push----------------------v| move with force, "He pushed the table into a corner"  
+*push----------------------v| press against forcefully without being able to move; "she pushed against the wall with all her strength"  
+*push----------------------v| press, drive, or impel (someone) to action or completion of an action; "He pushed her to finish her doctorate"  
+*push----------------------v| sell or promote the sale of (illegal goods such as drugs); "The guy hanging around the school is pushing drugs"  
+*push_aside----------------v| push out of the way  
+*push_out------------------v| push to thrust outward  
+*push_up-------------------v| push upward  
+*pusillanimous-------------s| lacking in courage and manly strength and resolution; contemptibly fearful  
+*pusillanimously-----------r| with a lack of courage and determination; "simperingly, the accused begged for mercy"  
+*put-----------------------v| adapt; "put these words to music"  
+*put-----------------------v| attribute or give; "She put too much emphasis on her the last statement"; "He put all his efforts into this job"; "The teacher put an interesting twist to the interpretation of the story"  
+*put-----------------------v| cause (someone) to undergo something; "He put her to the torture"  
+*put-----------------------v| cause to be in a certain state; cause to be in a certain relation; "That song put me in awful good humor"  
+*put-----------------------v| put into a certain place or abstract location; "Put your things here"; "Set the 
+*put-up--------------------s| planned secretly; "it was a put-up job"  
+*put_away------------------v| kill gently, as with an injection; "the cat was very ill and we had to put it to sleep"  
+*put_away------------------v| turn away from and put aside, perhaps temporarily; "She turned away from her painting"  
+*put_in--------------------v| devote (time, effort, etc.) to a task; "He put in three hours every day at the hospital"  
+*put_in--------------------v| make an application as for a job or funding; "We put in a grant to the NSF"  
+*put_on--------------------v| add to something existing; "She put on a sun room"  
+*put_on--------------------v| add to the odometer; "He put on 1,000 miles on this trip"  
+*put_on--------------------v| apply to a surface; "She applied paint to the back of the house"; "Put on make-up!"  
+*put_on--------------------v| carry out (performances); "They turned in a splendid effort"; "They turned in top jobs for the second straight game"  
+*put_on--------------------v| put on the stove or ready for cooking; "put on the tea, please!"  
+*put_out-------------------v| be sexually active; "She is supposed to put out"  
+*put_out-------------------v| cause to be out on a fielding play  
+*put_out-------------------v| put out considerable effort; "He put out the same for seven managers"  
+*put_out-------------------v| retire; "he was put out at third base on a long throw from left field"  
+*put_out_feelers-----------v| make some preliminary investigations or test the waters  
+*put_through---------------v| connect by telephone; "the operator put a call through to Rio"   
+*put_to_sleep--------------v| help someone go to bed; "Mother put the baby to sleep"  
+*put_up--------------------v| mount or put up; "put up a good fight"; "offer resistance"  
+*put_up--------------------v| provide; "The city has to put up half the required amount"  
+*putative(a)---------------s| commonly put forth or accepted as true on inconclusive grounds; "the foundling's putative father"; "the reputed (or purported) author of the book"; "the supposed date of birth"  
+*putdownable---------------s| (of a book) so poorly written and unentertaining as to be easily put down  
+*putrefactive--------------s| causing or promoting bacterial putrefaction  
+*putrefied-----------------s| in an advanced state of decomposition and having a foul odor; "horrible like raw and putrid flesh"- Somerset Maugham  
+*putrefy-------------------v| become putrid; decay with an offensive smell; "organic matter putrefies"  
+*putrescent----------------s| becoming putrid; "a trail lined by putrescent carcasses"  
+*putrid--------------------a| of or relating to or attended by putrefaction; "putrid decomposition"  
+*putrid--------------------s| morally corrupt or evil; "the putrid atmosphere of the court"  
+*putt----------------------v| : hit a putt; "he lost because he putted so poorly"  
+*putt----------------------v| strike (a golf ball) lightly, with a putter; "he putted the ball several feet past the hole"  
+*putter--------------------v| do random, unplanned work or activities or spend time idly; "The old lady is usually mucking about in her little house"  
+*putter--------------------v| move around aimlessly  
+*putty---------------------v| apply putty in order to fix or fill; "putty the window sash"  
+*puzzle--------------------v| be uncertain about; think about without fully understanding or being able to decide; "We puzzled over her sudden departure"  
+*puzzle_over---------------v| try to solve  
+*pyemic--------------------a| of or relating to pyemia  
+*pyknotic------------------a| of or relating to or exhibiting pyknosis  
+*pyloric-------------------a| relating to or near the pylorus  
+*pyogenic------------------a| producing pus  
+*pyramid-------------------v| arrange or build up as if on the base of a pyramid  
+*pyramid-------------------v| enlarge one's holdings on an exchange on a continued rise by using paper profits as margin to buy additional amounts  
+*pyramid-------------------v| increase rapidly and progressively step by step on a broad base  
+*pyramid-------------------v| use or deal in (as of stock or commercial transaction) in a pyramid deal  
+*pyramidal-----------------s| resembling a pyramid  
+*pyramidically-------------r| in a pyramidal manner or shape; "the bush was trimmed pyramidically"  
+*pyrectic------------------a| having or causing fever  
+*pyretic-------------------a| causing fever  
+*pyrochemical--------------a| of or relating to or produced by chemical reactions at high temperatures  
+*pyroelectric--------------a| relating to or exhibiting pyroelectricity  
+*pyrogallic----------------a| of or relating to pyrogallol  
+*pyrogenic-----------------a| produced by or producing fever  
+*pyrographic---------------a| of or relating to or produced by pyrography  
+*pyroligneous--------------a| of a substance produced by the effect of heat on wood, especially by destructive distillation  
+*pyrolytic-----------------a| resulting from pyrolysis  
+*pyrotechnic---------------a| of or relating to the craft of making fireworks; "pyrotechnic smokes"  
+*pyrotechnic---------------s| suggestive of fireworks; "pyrotechnic keyboard virtuosity"; "a pyrotechnic wit"  
+*pyrrhic-------------------a| of or relating to a war dance of ancient Greece; "pyrrhic dance movements"  
+*pyrrhic-------------------a| of or relating to or containing a metrical foot of two unstressed syllables; "pyrrhic verses"  
+*pyrrhic-------------------a| of or relating to or resembling Pyrrhus or his exploits (especially his sustaining staggering losses in order to defeat the Romans); "a Pyrrhic victory"  
+*Pythagorean---------------a| of or relating to Pythagoras or his geometry; "Pythagorean philosophy"; "Pythagorean theorem"  

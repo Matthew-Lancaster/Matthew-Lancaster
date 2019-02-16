@@ -1,0 +1,74 @@
+-- Fri 12-Sep-08 01:00:41 --
+
+
+-----
+-- Sat 30-Aug-08 03:08:54 --
+---------------------
+Count = 1503 -- Sat 30-Aug-2008 03:06:06
+---------------------
+Statistics for matthewlan.com (2007) - Windows Internet Explorer
+---------------------
+Filter 'nhs': 4 Hosts Pages Hits Bandwidth Last visit 
+-- nhsmayne.gotadsl.co.uk 219 469 11.88 MB 27 Nov 2007 - 07:11 
+-- inetgw-63-pri.nhs.uk 55 208 7.16 MB 29 Oct 2007 - 00:34 
+-- inetgw-63-sec.nhs.uk 40 62 7.10 MB 29 Oct 2007 - 02:43 
+-- inetgw-64-pri.nhs.uk 2 2 19.18 KB 08 Mar 2007 - 08:24 
+
+---------------------
+---------------------
+Count = 1504 -- Sat 30-Aug-2008 03:06:50
+---------------------
+Statistics for matthewlan.com (2006) - Windows Internet Explorer
+---------------------
+Filter 'nhs': 4 Hosts Pages Hits Bandwidth Last visit 
+-- hide-233.nhs.uk 4 12 121.31 KB 28 Dec 2006 - 02:45 
+-- hide-234.nhs.uk 4 7 71.62 KB 16 Jan 2006 - 02:39 
+-- gtw-13.nhs.uk 1 1 224.29 KB 04 Sep 2006 - 10:19 
+-- hide-138.nhs.uk 1 1 15.88 KB 21 Jan 2006 - 00:39 
+
+---------------------
+---------------------
+Count = 1505 -- Sat 30-Aug-2008 03:07:26
+---------------------
+Statistics for matthewlan.com (2008) - Windows Internet Explorer
+---------------------
+-- inetgw-63-sec.nhs.uk 60 275 5.34 MB 10 Aug 2008 - 12:27 
+-- inetgw-63-pri.nhs.uk 19 80 1.27 MB 14 Aug 2008 - 12:13 
+
+---------------------
+
+
+-----
+-- Thu 21-Aug-08 23:50:31 --
+NHS
+Hosts
+
+gtw-13.nhs.uk
+Incoming mail for gtw-13.nhs.uk is handled by one mailserver at nhs.uk. 62.6.139.13 reverses to this hostname. nhs.uk, npc.nhs.uk, chi.nhs.uk, sbs.nhs.uk, cdd.nhs.uk and at least 100 other hosts share mailservers with this domain. 
+
+hide-138.nhs.uk
+hide-138.nhs.uk has one IP record. 195.10.45.138 reverses to this hostname. 
+
+hide-234.nhs.uk
+hide-234.nhs.uk has one IP record. 195.10.45.234 reverses to this hostname. 
+
+hide-233.nhs.uk
+hide-233.nhs.uk has one IP record. 195.10.45.233 reverses to this hostname. 
+
+IP 194.176.105.41
+inetgw-63-pri.nhs.uk has one IP record. 194.176.105.41 reverses to this hostname. 
+
+bht.org.uk is a domain controlled by two nameservers at easynet.co.uk. They are on the same IP network. Incoming mail for bht.org.uk is handled by three mailservers having a total of four IP numbers. There are three duplicate ipnumbers. Some of them are on the same IP network. bht.org.uk has one IP record. 217.207.104.226 reverses to this hostname. elyo.fr, ciec.fr, gmj.net, oxera.com, gaaps.com and at least 100 other hosts share nameservers with this domain. nmr.com, ifpi.org, tc.co.uk, vwl.co.uk, dv8.co.uk and at least 100 other hosts share mailservers with this domain. 
+
+
+-- nhsmayne.gotadsl.co.uk 219 469 11.88 MB 27 Nov 2007 - 07:11 
+Incoming mail for nhsmayne.gotadsl.co.uk is handled by two mailservers having a total of three IP numbers. There are three duplicate ipnumbers. Some of them are on the same IP network. nhsmayne.gotadsl.co.uk has one IP record. 84.12.245.236 reverses to this hostname. sc0t.co.uk, gotadsl.co.uk, mx.nildram.net, fcs.gotadsl.co.uk, cel.gotadsl.co.uk and at least 100 other hosts share mailservers with this domain. 
+
+-- inetgw-63-sec.nhs.uk 40 62 7.10 MB 29 Oct 2007 - 02:43 
+inetgw-63-sec.nhs.uk has one IP record. 194.176.105.42 reverses to this hostname. 
+
+-- inetgw-64-pri.nhs.uk 2 2 19.18 KB 08 Mar 2007 - 08:24 
+inetgw-64-pri.nhs.uk has one IP record. 194.176.105.43 reverses to this hostname. 
+
+
+
