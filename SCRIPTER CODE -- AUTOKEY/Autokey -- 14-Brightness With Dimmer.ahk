@@ -204,8 +204,8 @@ BLANK_DIMMER:= A_Now
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
 
-IF (A_ComputerName="7-ASUS-GL522VW")
-	PAUSE
+; IF (A_ComputerName="7-ASUS-GL522VW")
+	; PAUSE
 
 
 SoundBeep , 1000 , 100
