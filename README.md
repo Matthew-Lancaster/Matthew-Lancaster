@@ -96,7 +96,7 @@ Home Here
 Matthew-Lancaster | A Collection of Scripts For AutohotKeys, Dos Batch Command, 
 VBSript, VB6, Grub4Dos, Reg Keys, Win Powershell, SMTP.
 ---------------------------------------------------------------------
-https://matthew-lancaster.github.io/matthew-lancaster/
+https://Matthew-Lancaster.github.io/Matthew-Lancaster/
 ----
 
 ---------------------------------------------------------------------
@@ -106,5 +106,5 @@ GitHub WSP Browser Home
 Matthew-Lancaster/matthew-lancaster:
 ---------------------------------------------------------------------
 ----
-<a href="https://github.com/Matthew-Lancaster/matthew-lancaster">https://github.com/Matthew-Lancaster/matthew-lancaster</a>
+<a href="https://github.com/Matthew-Lancaster/Matthew-Lancaster">https://github.com/Matthew-Lancaster/Matthew-Lancaster</a>
 ----
