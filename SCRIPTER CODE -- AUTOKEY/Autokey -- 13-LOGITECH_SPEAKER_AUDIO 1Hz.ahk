@@ -14,9 +14,19 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;--------------------
 #SingleInstance force
 #Persistent
-;IT USER ExitFunc TO EXIT FROM #Persistent
-;--------------------
-;--------------------
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
 
 
 

@@ -99,10 +99,18 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;# ------------------------------------------------------------------
 
 ;
-;--------------------
+; -------------------------------------------------------------------
 #SingleInstance force
-;--------------------
-;--------------------
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
+
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
@@ -484,12 +492,6 @@ Return
 EOF:                           ; on exit
 ExitApp     
 ;# ------------------------------------------------------------------
-
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ;# ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)

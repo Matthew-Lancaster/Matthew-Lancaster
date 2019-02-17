@@ -122,14 +122,25 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; THERE IS AN AWFUL LOT OF IRRELEVANT REM STATEMENT INCLUDE IN THIS CODE AS I HAD A BIG PLAY ABOUT AND NEVER TOOK MOST THEM OUT
 ; ---------------------------------------------------------------
 
-;--------------------
+; -------------------------------------------------------------------
 #SingleInstance force
-; ---------------------------------------------------------------
+; -------------------------------------------------------------------
 ; USE HERE #Persistent OR WILL LEAVE THE CODE UPON ONE CYCLE OF A RUNNER
-; ---------------------------------------------------------------
+; -------------------------------------------------------------------
 #Persistent
-;IT USER ExitFunc TO EXIT FROM #Persistent
-; ---------------------------------------------------------------
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
 
 ;---------------------------------------------------------
 ; CODE INITIALIZE SOUND EFFECT LEARN
@@ -547,12 +558,6 @@ Return
 EOF:                           ; on exit
 ExitApp     
 ;# ------------------------------------------------------------------
-
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
 		
 ; ---------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)
