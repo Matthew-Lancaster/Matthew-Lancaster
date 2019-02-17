@@ -108,8 +108,19 @@
 #NoEnv
 #SingleInstance Force
 #Persistent
-;IT USER ExitFunc TO EXIT FROM #Persistent
-;--------------------
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
 
 
 #InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
@@ -202,6 +213,10 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 02-SA
 ; ArrayCount += 1
 ; FN_Array_1[ArrayCount] := "C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
 ; FN_Array_3[ArrayCount] := "FileZilla Server Main Window"
+
+
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
 
 
 

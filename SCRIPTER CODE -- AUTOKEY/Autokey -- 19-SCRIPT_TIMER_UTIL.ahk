@@ -155,10 +155,22 @@
 #Warn
 #NoEnv
 #SingleInstance Force
-;--------------------
+; -------------------------------------------------------------------
 #Persistent
-;IT USER ExitFunc TO EXIT FROM #Persistent
-;--------------------
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
+
 
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
@@ -1550,19 +1562,21 @@ Return
 
 TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER:
 
-SET_GO=FALSE
-Process, Exist, GoogleUpdate.exe
-If ErrorLevel
-	SET_GO=TRUE
+SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER, OFF
 
-; MSGBOX % SET_GO
+; SET_GO=FALSE
+; Process, Exist, GoogleUpdate.exe
+; If ErrorLevel
+	; SET_GO=TRUE
+
+; ; MSGBOX % SET_GO
 	
-IF SET_GO=TRUE
-{
-	; Process, Close, GoogleUpdate.exe
-	Run, "TASKKILL.exe" /F /IM GoogleUpdate.exe /T , , HIDE
-	; SoundBeep , 2000 , 100
-}
+; IF SET_GO=TRUE
+; {
+	; ; Process, Close, GoogleUpdate.exe
+	; Run, "TASKKILL.exe" /F /IM GoogleUpdate.exe /T , , HIDE
+	; ; SoundBeep , 2000 , 100
+; }
 	
 RETURN
 
@@ -2836,12 +2850,6 @@ Return
 EOF:                           ; on exit
 ExitApp     
 ;# ------------------------------------------------------------------
-
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ;# ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)

@@ -21,15 +21,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;Here --- SingleInstance force -- Reduce Question Ask When Reload From Edit and More
 ;--------------------
 
-;----------------------------------------------------------------------
-;Here --- a code block to use around --- Persistent
+; -------------------------------------------------------------------
 #Persistent
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ; Register a function to be called on exit:
 OnExit("ExitFunc")
 
 ; Register an object to be called on exit:
 OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
 
 ExitFunc(ExitReason, ExitCode)
 {

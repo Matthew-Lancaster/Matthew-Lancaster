@@ -50,10 +50,19 @@
 #SingleInstance Force
 ;--------------------
 #Persistent
-;IT USER ExitFunc TO EXIT FROM #Persistent
-;OR      Exitapp  TO EXIT FROM #Persistent
-;Exitapp CALLS ONTO ExitFunc
-;--------------------
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
@@ -208,12 +217,6 @@ EOF:                           ; on exit
 Display.OnExit()               ; release and free the library
 ExitApp     
 ; ------------------------------------------------------------------
-
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ; ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)

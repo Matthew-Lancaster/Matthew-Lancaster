@@ -15,8 +15,19 @@
 #NoEnv
 #SingleInstance Force
 #Persistent
-;IT USER ExitFunc TO EXIT FROM #Persistent
-;--------------------
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 14-Brightness With Dimmer\Class_Monitor_Master\SRC\Class_Monitor.ahk     ; include the class here
 
@@ -707,12 +718,6 @@ EOF:                           ; on exit
 Display.OnExit()               ; release and free the library
 ExitApp     
 ; ------------------------------------------------------------------
-
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ; ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)

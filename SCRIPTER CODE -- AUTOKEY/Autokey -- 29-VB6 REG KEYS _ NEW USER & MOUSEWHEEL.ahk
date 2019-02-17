@@ -29,6 +29,16 @@
 #Warn
 #NoEnv
 #SingleInstance Force
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
+
 
 DetectHiddenWindows, on
 
@@ -236,13 +246,6 @@ Return
 EOF:                           ; on exit
 ExitApp     
 ;# ------------------------------------------------------------------
-
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
-
 
 ;# ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)

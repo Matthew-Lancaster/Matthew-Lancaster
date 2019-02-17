@@ -40,10 +40,20 @@
 #SingleInstance Force
 ;--------------------
 #Persistent
-;IT USER ExitFunc TO EXIT FROM #Persistent
-;OR      Exitapp  TO EXIT FROM #Persistent
-;Exitapp CALLS ONTO ExitFunc
-;--------------------
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
+
 
 ; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\JOYPAD_WORK\CvJoyInterface.ahk
 ; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\JOYPAD_WORK\VJoy_lib.ahk

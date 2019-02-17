@@ -80,22 +80,32 @@
 ;# ------------------------------------------------------------------
 
 ; BEGIN CODE
-;--------------------
+; -------------------------------------------------------------------
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #SingleInstance force
-;--------------------
+; -------------------------------------------------------------------
 ; SingleInstance Force Reduce Question at Reload
-;--------------------
+; -------------------------------------------------------------------
 
 ;--------------------------------------------------------------------
 #Persistent
-; A code block to use around --- Persistent
+; -------------------------------------------------------------------
+; IT USER ExitFunc TO EXIT FROM #Persistent
+; OR      Exitapp  TO EXIT FROM #Persistent
+; Exitapp CALLS ONTO ExitFunc
+; -------------------------------------------------------------------
 
-;--------------------------------------------------------------------
+; -------------------------------------------------------------------
+; Register a function to be called on exit:
+OnExit("ExitFunc")
+
+; Register an object to be called on exit:
+OnExit(ObjBindMethod(MyObject, "Exiting"))
+; -------------------------------------------------------------------
 
 SoundBeep , 2000 , 200
 SoundBeep , 2500 , 100
@@ -179,11 +189,6 @@ EOF:                           ; on exit
 ExitApp     
 ;# ------------------------------------------------------------------
 
-; Register a function to be called on exit:
-OnExit("ExitFunc")
-
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ;# ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)
