@@ -28,16 +28,12 @@
 ; -------------------------------------------------------------------
 
 
-
-
-
-
 ;# ------------------------------------------------------------------
 ; Location OnLine
 ; -------------------------------------------------------------------
 ; ----
-; Matthew-Lancaster/Autokey -- 51-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL.ahk
+; Matthew-Lancaster/Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2054-Google%20Chrome%20Update%20Process%20Killer%20Stop%20the%20Tunisia%20of%20Advert.ahk
 ; ----
 ;# ------------------------------------------------------------------
 
