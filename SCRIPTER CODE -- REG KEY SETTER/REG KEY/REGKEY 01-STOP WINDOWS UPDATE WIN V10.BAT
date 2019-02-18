@@ -20,6 +20,12 @@ REM ----
 
 REM C:\PStart\# NOT INSTALL REQUIRED\Reg Converter\RegConvert.exe
 
+REM -- --------------------------------------------------------------
+REM -- WHAT HAPPEN HERE IS TRUE WINDOWS UPDATE ASK YOU BEFORE INSTALL
+REM -- BUT BIG MAIN UPDATE STILL HAPPEN WITHOUT ASKING
+REM -- --------------------------------------------------------------
+REM -- [ Monday 07:09:20 Am_18 February 2019 ]
+REM -- --------------------------------------------------------------
 
 ver | find "5.1." > nul
 IF %errorlevel% EQU 0 SET VARLATCH2=WINXP
