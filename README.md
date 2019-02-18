@@ -81,14 +81,14 @@ Over
 ~
 Matthew
 
-[ Friday 01:30:00 Am_05 October 2018 ]Begin GitHub
-[ Friday 04:40:00 Am_05 October 2018 ]
-[ Friday 10:40:00 Am_05 October 2018 ]
-[ Friday 12:50:50 Pm_05 October 2018 ]
-[ Friday 13:04:00 Pm_05 October 2018 ]
-[ Friday 14:00:00 Pm_05 October 2018 ]
-[ Friday 19:20:00 Pm_05 October 2018 ]All Day & Long Time
-[ Monday 20:08:00 Pm_05 November 2018 ] Editor
+Friday 01:30:00 Am_05 October 2018   Begin GitHub
+Friday 04:40:00 Am_05 October 2018 
+Friday 10:40:00 Am_05 October 2018 
+Friday 12:50:50 Pm_05 October 2018 
+Friday 13:04:00 Pm_05 October 2018 
+Friday 14:00:00 Pm_05 October 2018 
+Friday 19:20:00 Pm_05 October 2018   All Day & Long Time
+Monday 20:08:00 Pm_05 November 2018  Editor
 
 
 Home Here
