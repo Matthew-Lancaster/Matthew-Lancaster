@@ -114,6 +114,10 @@
 ; Exitapp CALLS ONTO ExitFunc
 ; -------------------------------------------------------------------
 
+
+#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
+
+
 ; -------------------------------------------------------------------
 ; Register a function to be called on exit:
 OnExit("ExitFunc")
@@ -122,8 +126,6 @@ OnExit("ExitFunc")
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
-
-#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
 
 SetStoreCapslockMode, off
 DetectHiddenWindows, ON
@@ -418,3 +420,66 @@ RETURN
 ; SplitPath,SkriptPath,KurzName
 
 ; WinGet, PID, PID, %SkriptPath% ahk_class AutoHotkey
+
+
+
+;# ------------------------------------------------------------------
+; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
+;# ------------------------------------------------------------------
+
+;# ------------------------------------------------------------------
+TIMER_PREVIOUS_INSTANCE:
+SETTIMER TIMER_PREVIOUS_INSTANCE,10000
+
+if ScriptInstanceExist()
+{
+	Exitapp
+}
+return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+ScriptInstanceExist() {
+	static title := " - AutoHotkey v" A_AhkVersion
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, On
+	WinGet, match, List, % A_ScriptFullPath . title
+	DetectHiddenWindows, % dhw
+	return (match > 1)
+	}
+Return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+EOF:                           ; on exit
+ExitApp     
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+ExitFunc(ExitReason, ExitCode)
+{
+    if ExitReason not in Logoff,Shutdown
+    {
+        ;MsgBox, 4, , Are you sure you want to exit?
+        ;IfMsgBox, No
+        ;    return 1  ; OnExit functions must return non-zero to prevent exit.
+    }
+    ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
+}
+
+class MyObject
+{
+    Exiting()
+    {
+        ;
+        ;MsgBox, MyObject is cleaning up prior to exiting...
+        /*
+        this.SayGoodbye()
+        this.CloseNetworkConnections()
+        */
+    }
+}
+; -------------------------------------------------------------------
+; exit the app
+; -------------------------------------------------------------------
+
