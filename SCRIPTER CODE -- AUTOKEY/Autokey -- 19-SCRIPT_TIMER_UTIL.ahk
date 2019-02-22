@@ -856,6 +856,17 @@ IfWinExist ahk_class #32770
 	}
 }
 
+IfWinExist An update for Process Lasso is available! ahk_class #32770
+{
+	SoundBeep , 2500 , 100
+	WinActivate 
+	SENDINPUT {ENTER}
+	; THIS LINE NOT WORK MOST LIKELY THE UPDATE PROGRAM IS NOT RUNNING PRIVILEGED ADMINISTRATOR
+	; ControlClick, Button1, RoboForm Update An update for Process Lasso is available!
+	SLEEP 1000
+}
+
+
 ;This operation will affect the entire list, not just the current filter. Continue?
 IfWinExist DuplicateCleaner ahk_class #32770
 {
