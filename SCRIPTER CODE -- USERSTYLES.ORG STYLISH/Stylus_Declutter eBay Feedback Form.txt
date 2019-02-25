@@ -1,0 +1,164 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document url-prefix("https://my.ebay.co.uk/ws/eBayISAPI.dll?MyeBay&CurrentPage=MyeBayFeedback")
+{
+/* Stylus_Declutter eBay Feedback Form */
+/* STYLUS_DECLUTTER EBAY FEEDBACK FORM */
+
+/* 
+--------------------------------------------------------------------- 
+Description 
+--------------------------------------------------------------------- 
+To Keep-Whole Thing on One Page Rather Than Scroll Up and Down
+--------------------------------------------------------------------- 
+*/
+
+/*
+--------------------------------------------------------------------- 
+--------------------------------------------------------------------- 
+
+--------------------------------------------------------------------- 
+SAVES USING THE MOUSE WHEEL ON THE WEB PAGE SCREEN
+GETTING FROM TOP TO BOTTOM                                           
+NOW IS ALL COMPACT WITHOUT ANY SCROLL-ER
+--------------------------------------------------------------------- 
+*/
+
+/*
+---------------------------------------------------------------
+CREATED ON 25 FEB 2019                                          
+---------------------------------------------------------------
+@-moz-document domain("onlinebanking.nationwide.co.uk")
+@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login")
+HELP GIVEN FROM THIS PAGE
+----
+Applying styles to specific sites · stylish-userstyles/stylish Wiki
+https://github.com/stylish-userstyles/stylish/wiki/Applying-styles-to-specific-sites
+----
+--------------------------------------------------------------------- 
+*/
+
+/*
+---------------------------------------------------------------------
+Source Me Userstyles.org
+----
+Declutter Nationwide Bank Logon Screen | Userstyles.org
+https://userstyles.org/styles/168144/declutter-nationwide-bank-logon-screen
+----
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+Source MY GitHub
+----
+Stylus_Declutter eBay Feedback Form
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Declutter%20Nationwide%20Bank%20Logon%20Screen.txt
+----
+---------------------------------------------------------------------
+*/
+
+/*
+WRITE CODE TIME
+---------------------------------------------------------------------
+All Been Rem-med Remark On
+2 Hour to Write Code and Publisher
+---------------------------------------------------------------------
+Mon 25-Feb-2019 11:55:20
+Mon 25-Feb-2019 11:55:20
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+/*
+
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* LETS HARDCORE __ CODER                                          */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+/*
+
+/* TOP LINE HELP LOGING IN */
+.link-bar {
+    display: none;
+}
+
+/* TOP LINE PLEASE LOGIN */
+.stage__header {
+    display: none;
+}
+
+/* CUSTOMER NUMBER WHOLE FRAME AREA */
+.service-availability-login-section-expansion.service-availability-login-container > .section--no-title.section > .section__inner {
+    display: none;
+}
+
+/* TEXT HOW WOULD YOU LIKE TO LOGIN */
+.choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__title {
+    display: none;
+}
+
+/* I'VE FORGOTTEN MY MEMORABLE DATA */
+.control-group > .text-input-control.control--simple.control > .control__help {
+    display: none;
+}
+
+/* MEMORABLE DATA BLOCK 01 TO 03 */
+.control-group > .text-input-control.control--simple.control > .control__label > .control__label__title {
+    display: none;
+}
+
+/* TEXT AREA INFO __ Enter one of your three items of memorable data. */
+.control-group > .text-input-control.control--simple.control > .control__label > .control__label__description {
+    display: none;
+}
+
+/* PASS OF MEMORABLE DATA ENTRY BOX STARED OUT USUAL */
+.control-group > .text-input-control.control--simple.control > .control__input {
+    display: none;
+}
+
+/* TEXT INFO __ We recommend using a card reader, if you have one. 
+   If you don’t, you can borrow someone else’s or log in using your 
+   memorable data and passnumber. */
+.choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__description {
+    display: none;
+}
+
+/* ENTER THESE DIGITS FROM YOUR 6 DIGIT PASS NUMBER */
+.control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__label > .control__label__description {
+    display: none;
+}
+
+/* PASS NUMBER _ TEXT TITLE */
+.passnumber-partial-entry.control--complex.control > .control__label > .control__label__title {
+    display: none;
+}
+
+/* I'VE FORGOTTEN MY PASS NUMBER #1 BEFORE YOU CLICK THE SCREEN*/
+.control__help__trigger{
+    display: none;
+}
+
+/* I'VE FORGOTTEN MY PASS NUMBER #2 AFTER CLICK SCREEN*/
+.control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__help {
+    display: none;
+}
+
+/* MESSENGER BOX __ Protect yourself from fraud */
+.section:nth-of-type(6) {
+    display: none;
+}
+
+.page-footer {
+    display: none;
+}
+
+*/
+
+}
