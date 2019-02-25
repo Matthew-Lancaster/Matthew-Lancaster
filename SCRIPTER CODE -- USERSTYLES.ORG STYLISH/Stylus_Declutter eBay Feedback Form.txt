@@ -1,5 +1,5 @@
 @namespace url(http://www.w3.org/1999/xhtml);
-@-moz-document url-prefix("https://my.ebay.co.uk/ws/eBayISAPI.dll?MyeBay&CurrentPage=MyeBayFeedback")
+@-moz-document url-prefix("https://www.ebay.co.uk/fdbk/leave_single_feedback")
 {
 /* Stylus_Declutter eBay Feedback Form */
 /* STYLUS_DECLUTTER EBAY FEEDBACK FORM */
@@ -10,25 +10,27 @@ Description
 --------------------------------------------------------------------- 
 To Keep-Whole Thing on One Page Rather Than Scroll Up and Down
 --------------------------------------------------------------------- 
-*/
-
-/*
---------------------------------------------------------------------- 
---------------------------------------------------------------------- 
 
 --------------------------------------------------------------------- 
 SAVES USING THE MOUSE WHEEL ON THE WEB PAGE SCREEN
 GETTING FROM TOP TO BOTTOM                                           
 NOW IS ALL COMPACT WITHOUT ANY SCROLL-ER
+TRY BEST BUT AS SEE IN REMARK
+TWO ELEMENT ARE STILL LEFT NOT ABLE TO REMOVE BY MY WORKER
+I USED ADBLOCKER UBLOCK TO DO THEM OTHER TWO
+UNTIL LEARN A BIT MORE 
+HOW REMOVE HEADER 
+AND LINK
+
 --------------------------------------------------------------------- 
 */
 
 /*
----------------------------------------------------------------
+--------------------------------------------------------------------- 
 CREATED ON 25 FEB 2019                                          
----------------------------------------------------------------
-@-moz-document domain("onlinebanking.nationwide.co.uk")
-@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login")
+--------------------------------------------------------------------- 
+@-moz-document domain("ebay.co.uk")
+@-moz-document url-prefix("https://www.ebay.co.uk/fdbk/leave_single_feedback")
 HELP GIVEN FROM THIS PAGE
 ----
 Applying styles to specific sites · stylish-userstyles/stylish Wiki
@@ -50,7 +52,7 @@ https://userstyles.org/styles/168144/declutter-nationwide-bank-logon-screen
 Source MY GitHub
 ----
 Stylus_Declutter eBay Feedback Form
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Declutter%20Nationwide%20Bank%20Logon%20Screen.txt
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Declutter%20eBay%20Feedback%20Form.txt
 ----
 ---------------------------------------------------------------------
 */
@@ -62,7 +64,7 @@ All Been Rem-med Remark On
 2 Hour to Write Code and Publisher
 ---------------------------------------------------------------------
 Mon 25-Feb-2019 11:55:20
-Mon 25-Feb-2019 11:55:20
+Mon 25-Feb-2019 13:32:20 -- 1 HOUR 40 MINUTE -- 1ST TRY 
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------
 /*
@@ -74,83 +76,177 @@ Mon 25-Feb-2019 11:55:20
 /* --------------------------------------------------------------- */
 
 
+/* TOP BLOCK GONE */
+.gh-w {
+    display: none;
+}
+
+/* 
+
+.div#gh-gb:nth-of-type(2) {
+    display: none;
+}
 
 
 
+.h1.pageTitleDiv {
+    display: none;
+}
 
 
+.allFeedbackLink {
+    display: none;
+}
+
+.span > All.Feedback {
+    display: none;
+}
+
+.allFeedbackLink > span:nth-of-type(1) {
+    display: none;
+}
+
+.span:nth-of-type(1) {
+    display: none;
+}
+
+
+.icon.icon-chevron-left {
+    display: none;
+}
+
+.div#gh-gb:nth-of-type(1) {
+    display: none;
+}
+
+
+*/
+
+/* RATE THE FEEDBACK */
+.grid__cell--all.grid__cell--16of16.grid__cell {
+    display: none;
+}
+
+/* You can only rate the details that apply to this transaction. The seller received automatic 5-star ratings for other aspects of this transaction. Learn more in our detailed seller ratings policy */
+.underlineLink.grid__cell--all.grid__cell--13of16.grid__cell {
+    display: none;
+}
+
+/* Once you submit Feedback, you can't change it. */
+.ctaHint {
+    display: none;
+}
 
 
 /*
+.hintDiv-361651411078-1000749917023 {
+    display: none;
+}
 
-/* TOP LINE HELP LOGING IN */
+.glbfooter {
+    display: none;
+}
+*/
+
+
+/*
+USING 
+----
+Releases · gorhill/uBlock
+https://github.com/gorhill/uBlock/releases
+----
+FOR ELEMENT PICKER AND CHROME F12 CONSOLE 
+THE FORMAT OF ELMENT PICKER I HAD LAST TIME SEE REMARK BELOW WHEN NATIONWIDE BANK LAST CODER OF THIS TRIP
+BUT GOOGLE LAST NIGHT REMOVED THAT AD BLOCKING SO RESTORE UBLOCK AGAIN 
+AS REMOVED SHOW VIRUS PROBLEM WITH NORTON HOPE OKAY THIS TIME
+TOP TOW ELEMENT CAN'T DO MYSLEF HERE AS ONE IS HEADER 
+www.ebay.co.uk###pageTitleDiv
+AND CAN'T REMOVE WITH display: none;
+AND OTHER IS A LINK allFeedbackLink
+AND CAN'T REMOVE WITH display: none;
+www.ebay.co.uk###allFeedbackLink > span:nth-of-type(1)
+
+
+----------------------------------------------------------------------------
+www.ebay.co.uk##div#gh-gb:nth-of-type(2)
+www.ebay.co.uk###gh
+www.ebay.co.uk###pageTitleDiv
+www.ebay.co.uk###allFeedbackLink
+www.ebay.co.uk##div#gh-gb:nth-of-type(1)
+www.ebay.co.uk##.grid__cell--all.grid__cell--16of16.grid__cell
+www.ebay.co.uk##.underlineLink.grid__cell--all.grid__cell--13of16.grid__cell
+www.ebay.co.uk###hintDiv-361651411078-1000749917023
+www.ebay.co.uk###glbfooter
+----------------------------------------------------------------------------
+
+/* TOP LINE HELP LOGING IN
 .link-bar {
     display: none;
 }
 
-/* TOP LINE PLEASE LOGIN */
+/* TOP LINE PLEASE LOGIN
 .stage__header {
     display: none;
 }
 
-/* CUSTOMER NUMBER WHOLE FRAME AREA */
+/* CUSTOMER NUMBER WHOLE FRAME AREA
 .service-availability-login-section-expansion.service-availability-login-container > .section--no-title.section > .section__inner {
     display: none;
 }
 
-/* TEXT HOW WOULD YOU LIKE TO LOGIN */
+/* TEXT HOW WOULD YOU LIKE TO LOGIN
 .choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__title {
     display: none;
 }
 
-/* I'VE FORGOTTEN MY MEMORABLE DATA */
+/* I'VE FORGOTTEN MY MEMORABLE DATA
 .control-group > .text-input-control.control--simple.control > .control__help {
     display: none;
 }
 
-/* MEMORABLE DATA BLOCK 01 TO 03 */
+/* MEMORABLE DATA BLOCK 01 TO 03
 .control-group > .text-input-control.control--simple.control > .control__label > .control__label__title {
     display: none;
 }
 
-/* TEXT AREA INFO __ Enter one of your three items of memorable data. */
+/* TEXT AREA INFO __ Enter one of your three items of memorable data.
 .control-group > .text-input-control.control--simple.control > .control__label > .control__label__description {
     display: none;
 }
 
-/* PASS OF MEMORABLE DATA ENTRY BOX STARED OUT USUAL */
+/* PASS OF MEMORABLE DATA ENTRY BOX STARED OUT USUAL
 .control-group > .text-input-control.control--simple.control > .control__input {
     display: none;
 }
 
 /* TEXT INFO __ We recommend using a card reader, if you have one. 
    If you don’t, you can borrow someone else’s or log in using your 
-   memorable data and passnumber. */
+   memorable data and passnumber.
 .choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__description {
     display: none;
 }
 
-/* ENTER THESE DIGITS FROM YOUR 6 DIGIT PASS NUMBER */
+/* ENTER THESE DIGITS FROM YOUR 6 DIGIT PASS NUMBER
 .control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__label > .control__label__description {
     display: none;
 }
 
-/* PASS NUMBER _ TEXT TITLE */
+/* PASS NUMBER _ TEXT TITLE
 .passnumber-partial-entry.control--complex.control > .control__label > .control__label__title {
     display: none;
 }
 
-/* I'VE FORGOTTEN MY PASS NUMBER #1 BEFORE YOU CLICK THE SCREEN*/
+/* I'VE FORGOTTEN MY PASS NUMBER #1 BEFORE YOU CLICK THE SCREEN
 .control__help__trigger{
     display: none;
 }
 
-/* I'VE FORGOTTEN MY PASS NUMBER #2 AFTER CLICK SCREEN*/
+/* I'VE FORGOTTEN MY PASS NUMBER #2 AFTER CLICK SCREEN
 .control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__help {
     display: none;
 }
 
-/* MESSENGER BOX __ Protect yourself from fraud */
+/* MESSENGER BOX __ Protect yourself from fraud
 .section:nth-of-type(6) {
     display: none;
 }
