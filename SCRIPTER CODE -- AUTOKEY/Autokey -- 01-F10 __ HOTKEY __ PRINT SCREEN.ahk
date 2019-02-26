@@ -1,4 +1,4 @@
-﻿;  =============================================================
+﻿ ;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
 ;# __ 
 ;# __ Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
@@ -183,9 +183,18 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		IF XR_2=0
 			XR_3=
 	}
-		
+
+
 	WinGetCLASS, CLASS, A
 	WinGetTITLE, TITLE_VAR, A
+	IF CLASS<>%XR_3%
+		IF XR_3
+		{	
+			WinActivate, ahk_class %XR_3%
+			WinWaitActive, ahk_class %XR_3%
+			SLEEP 2000
+			XR_2=1
+		}
 
 	XR_1=0
 	IF INSTR(CLASS,"Chrome_WidgetWin_1")
@@ -208,22 +217,37 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	IF INSTR(TITLE_VAR,"Deborah Hall - So my very lovely")
 		XR_2=1
 
-	IF XR_3
-	{	
-		WinActivate, ahk_class %XR_3%
-		WinWaitActive, ahk_class %XR_3%
-		SLEEP 3000
-		XR_2=1
-	}
+	WinGetCLASS, CLASS, A
+	WinGetTITLE, TITLE_VAR, A
+	IF CLASS<>%XR_3%
+		IF XR_3
+		{	
+			WinActivate, ahk_class %XR_3%
+			WinWaitActive, ahk_class %XR_3%
+			SLEEP 2000
+			XR_2=1
+		}
+		
 	
 	IF XR_1>0
 		IF XR_2>0
 		{
-			MouseClick, LEFT, 80, 280
-			; SLEEP 200
+			; CoordMode, Mouse, Client 
+			SENDINPUT ^{HOME}
+			SLEEP 200
+			SENDINPUT {TAB}
+			SLEEP 100
+			; MouseClick, LEFT, 80, 200
+			
+			SENDINPUT {SPACE}
+			SLEEP 200
+			
+			MouseMove, 80, 200
+			SLEEP 100
 
-			; SENDINPUT {SPACE}
 			SOUNDBEEP 1000,50
+			SOUNDBEEP 1500,50
+			SOUNDBEEP 2000,50
 		}
 		
 RETURN
