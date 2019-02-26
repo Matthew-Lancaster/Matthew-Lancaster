@@ -237,6 +237,10 @@ COMPUTER_NAME_ARRAY := []
 
 UniqueID_Old=0
 
+GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE=0
+
+
+
 OSVER_N_VAR:=a_osversion
 IF INSTR(a_osversion,".")>0
 	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
@@ -1555,6 +1559,8 @@ IF HWND_ID_1>0
 	SoundBeep , 2500 , 100
 }
 
+
+
 	
 Return
 ; -------------------------------------------------------------------
@@ -2316,6 +2322,32 @@ TIMER_SUB_GOODSYNC:
 dhw := A_DetectHiddenWindows
 DetectHiddenWindows, OFF
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+
+
+; GET GOODSYNC HANDLE AND THEN CHECK IF CHANGE DUE TO UPDATE HAPPEN
+; IF HAS AND THEN MINIMIZE ON CERTAIN COMPUTER
+; -------------------------------------------------------------------
+DetectHiddenWindows, ON
+SET_GO=TRUE
+IF (A_ComputerName="3-LINDA-PC") 
+	SET_GO=FALSE
+
+IF SET_GO=TRUE
+{
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	IF HWND_1>0 
+	{
+		IF !GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE
+			GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE=0
+
+		If GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE <> %HWND_1%
+			WinMinimize  ahk_id %HWND_1%
+		
+		GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE = %HWND_1%
+	}
+}
+
+DetectHiddenWindows, OFF
 
 IF (TRUE=TRUE)
 {

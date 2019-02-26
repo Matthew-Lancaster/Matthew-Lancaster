@@ -215,12 +215,12 @@ SoundBeep , 2500 , 100
 
 CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=FALSE
 
-global CLOSE_SOME_LEFT_OVER_WINDOWS_VAR
-global FLAG_GET_PROCESS_MATCH=0
-global ProcessSearch:=""
-global HWND=0
-global SET_GO
-global OSVER_N_VAR
+GLOBAL CLOSE_SOME_LEFT_OVER_WINDOWS_VAR
+GLOBAL FLAG_GET_PROCESS_MATCH=0
+GLOBAL ProcessSearch:=""
+GLOBAL HWND=0
+GLOBAL SET_GO
+GLOBAL OSVER_N_VAR
 
 CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=FALSE
 
@@ -277,7 +277,7 @@ RETURN
 GUI_GO:
 ; GUI ===============================================================
 
-global WTS_EX := "SID|PID|Process Name|User SID|Name|Domain|Number of Threads|Handle Count|Pagefile Usage|Peak Pagefile Usage|Working Set Size|Peak Working Set Size|User Time|Kernel Time"
+GLOBAL WTS_EX := "SID|PID|Process Name|User SID|Name|Domain|Number of Threads|Handle Count|Pagefile Usage|Peak Pagefile Usage|Working Set Size|Peak Working Set Size|User Time|Kernel Time"
 
 Gui, Margin, 5, 5
 Gui, Add, Edit, xm ym w200 hWndhSearch vprcsearch
@@ -1071,33 +1071,7 @@ IF SKIP_CODE=FALSE
 		}
 	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, NokiaSuite.exe
 
-	IF SET_GO_1=1
-	{
-		Process, Exist, GoodSync-v10.exe
-		If Not ErrorLevel
-		{
-			FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-			IfExist, %FN_VAR%
-			{
-				SoundBeep , 2500 , 100
-				; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-				; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-				Run, "%FN_VAR%" 
-			}
-		}
-	}
 
-	Process, Exist, gs-server.exe
-	If Not ErrorLevel
-	{
-		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			; Run, "%FN_VAR%"  /service, , MIN
-			Run, "%FN_VAR%"  /service
-		}
-	}
 	
 	; ---------------------------------------------------------------	
 	IF (A_ComputerName="8-MSI-GP62M-7RD")
@@ -1221,11 +1195,35 @@ IF SKIP_CODE=FALSE
 		}
 	}
 	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, Dropbox
-
-	
 }
 
+IF SET_GO_1=1
+{
+	Process, Exist, GoodSync-v10.exe
+	If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			Run, "%FN_VAR%" 
+		}
+	}
+}
 
+Process, Exist, gs-server.exe
+If Not ErrorLevel
+{
+	FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		; Run, "%FN_VAR%"  /service, , MIN
+		Run, "%FN_VAR%"  /service
+	}
+}
 
 ;-------------------------------------------
 ; REQUIRE LITTLE DELAY ON RUN HUBIC

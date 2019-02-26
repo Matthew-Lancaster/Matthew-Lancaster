@@ -93,6 +93,19 @@
 ; TO   WED 14-Nov-2018 01:28:00
 ; # ------------------------------------------------------------------
 
+; # ------------------------------------------------------------------
+; SESSION 004
+; USE FULL SCREEN DETECTION BETTER _ DON'T DISPLAYER IN FULL SCREEN
+; AND USE OS VERSION NUMBER _ TUINED UP FOR __ WIN XP WIN 07 WIN 10
+; AND IN PROCESS CLEARED UP FAULT WITH WINDOWS XP DETECT DESKTOP 
+; AS NAME PROGRAM MANAGER _ HELPER WITH FAULT IN THAT WHERE LEACHED FROM
+; Autokey -- 14-Brightness With Dimmer.ahk
+; -------------------------------------------------------------------
+; FROM Tue 26-Feb-2019 12:13:29
+; TO   Tue 26-Feb-2019 12:13:29
+; # ------------------------------------------------------------------
+
+
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
@@ -141,6 +154,10 @@ GLOBAL OLD_CAPS_TOGGLE_STATE
 GLOBAL CAPS_DOWN_TRIGGER
 GLOBAL SHIFT_CAPS_DOWN_TELL_TRIGGER
 
+GLOBAL OLD_isFullScreen
+GLOBAL OSVER_N_VAR
+
+OLD_isFullScreen=0
 CapsLock_VAR_IDLE_1=FALSE
 CapsLock_VAR_IDLE_2=0
 FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
@@ -154,19 +171,107 @@ SHIFT_CAPS_DOWN_TELL_TRIGGER=FALSE
 Timer_Delayer=10000
 ; -------------------------------------------------------------------
 
+
+; WIN_XP 5 WIN_7 6 WIN_10 10  
+; --------------------------
+OSVER_N_VAR:=a_osversion
+IF INSTR(a_osversion,".")>0
+	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
+IF OSVER_N_VAR=WIN_XP
+	OSVER_N_VAR=5
+IF OSVER_N_VAR=WIN_7
+	OSVER_N_VAR=6
+	
+
+; LOWER NUMBER MAKES TIGHTER TO EDGE OF SCREEN
+; -------------------------------------------------------------------
 width := A_ScreenWidth - 150
+
+; LOWER NUMBER MAKES LOWER TO BOTTOM OF SCREEN
+; -------------------------------------------------------------------
 height := A_ScreenHeight - 50
+
+; W_P_B = WIDTH_PROGRESS_BAR
+; -------------------------------------------------------------------
+W_P_B=W69
+
+; F_S_P_B = is the Font Size FS8
+; -------------------------------------------------------------------
+F_S_P_B=FS8
+
+; H_P_B = HEIGHT_PROGRESS_BAR
+; -------------------------------------------------------------------
+H_P_B=H20
+
+If OSVER_N_VAR=5
+{
+	W_P_B=W62
+	F_S_P_B=FS6
+	H_P_B=H18
+	width := A_ScreenWidth - 64
+	height := A_ScreenHeight - 84
+}
+
+
+If OSVER_N_VAR=6
+{
+	W_P_B=W59
+	F_S_P_B=FS6
+	H_P_B=H18
+	width := A_ScreenWidth - 85
+	height := A_ScreenHeight - 28
+}
+
+
+If OSVER_N_VAR=10
+{
+	W_P_B=W69
+	F_S_P_B=FS8
+	H_P_B=H20
+	width := A_ScreenWidth - 100
+	height := A_ScreenHeight - 50
+}
+	
 
 GOSUB ~*CapsLock
 
 SETTIMER CapsLock_SUB_TIMER,50
+SETTIMER CapsLock_SUB_TIMER_1_SECOND,1000
 
 RETURN
+
 
 ; -------------------------------------------------------------------
 ; END OF INIT
 ; CODE ROUTINES BEGIN
 ; -------------------------------------------------------------------
+
+CapsLock_SUB_TIMER_1_SECOND:
+
+	isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
+	isFullScreen_VAR:=isFullScreen
+	if isFullScreen_VAR<1
+		isFullScreen_VAR=0
+
+	if isFullScreen_VAR<>%OLD_isFullScreen%
+		if isFullScreen_VAR<1
+			IF GetKeyState("CapsLock", "T")
+			{
+				; -----------------------------------------------------------
+				; %F_S_P_B% __ is the Font Size FS8
+				; %W_P_B% Width of Box 
+				; H24 Height
+				; -----------------------------------------------------------
+				Progress, B1 %W_P_B% %H_P_B% ZH0 %F_S_P_B% WS900 x%width% y%height% CTFF0000, CAPS ON
+				Title_Script := " - AutoHotkey v" A_AhkVersion
+				WinSet, Top,, % A_ScriptFullPath . Title_Script
+				SOUNDBEEP 3500,100
+				SOUNDBEEP 2500,100
+			}
+	OLD_isFullScreen:=isFullScreen_VAR
+
+RETURN
+
 
 CapsLock_SUB_TIMER:
 
@@ -176,7 +281,7 @@ CapsLock_SUB_TIMER:
 		RETURN
 	if A_PriorKey=LShift
 		RETURN
-	
+
 	IF FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=TRUE
 	{
 		
@@ -194,11 +299,22 @@ CapsLock_SUB_TIMER:
 		}
 	}
 
+	
 	IF A_TimeIdlePhysical > %Timer_Delayer%
 	{
 		IF CapsLock_VAR_IDLE_1=FALSE
 		{
-			Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
+		isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
+		if isFullScreen
+			{
+				Progress, off
+			}
+			ELSE
+			{
+				Progress, B1 %W_P_B% %H_P_B% ZH0 %F_S_P_B% WS900 x%width% y%height% CTFF0000, CAPS ON
+				Title_Script := " - AutoHotkey v" A_AhkVersion
+				WinSet, Top,, % A_ScriptFullPath . Title_Script
+			}
 		}
 		CapsLock_VAR_IDLE_1=TRUE
 		SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
@@ -212,9 +328,19 @@ CapsLock_SUB_TIMER:
 			{
 				; -----------------------------------------------------------
 				; FS8 __ is the Font Size 
-				; W108 Width of Box and H24 Height
+				; %W_P_B% Width of Box and H24 Height
 				; -----------------------------------------------------------
-				Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
+				isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
+				if isFullScreen
+					{
+						Progress, off
+					}
+					ELSE
+					{
+						Progress, B1 %W_P_B% %H_P_B% ZH0 %F_S_P_B% WS900 x%width% y%height% CTFF0000, CAPS ON
+						Title_Script := " - AutoHotkey v" A_AhkVersion
+						WinSet, Top,, % A_ScriptFullPath . Title_Script
+					}
 				SOUNDBEEP 3000,200
 			}
 			ELSE
@@ -234,9 +360,19 @@ Shift::
 	{
 		; -----------------------------------------------------------
 		; FS8 __ is the Font Size 
-		; W108 Width of Box and H24 Height
+		; %W_P_B% Width of Box and H24 Height
 		; -----------------------------------------------------------
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
+		isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
+		if isFullScreen
+		{
+			Progress, off
+		}
+		ELSE
+		{
+			Progress, B1 %W_P_B% %H_P_B% ZH0 %F_S_P_B% WS900 x%width% y%height% CTFF0000, CAPS ON
+			Title_Script := " - AutoHotkey v" A_AhkVersion
+			WinSet, Top,, % A_ScriptFullPath . Title_Script
+		}
 		IF SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
 		{
 			SHIFT_CAPS_DOWN_TELL_TRIGGER=FALSE
@@ -274,9 +410,17 @@ RETURN
 	{
 		; -----------------------------------------------------------
 		; FS8 __ is the Font Size 
-		; W108 Width of Box and H24 Height
+		; %W_P_B% Width of Box and H24 Height
 		; -----------------------------------------------------------
-		Progress, B1 W108 H24 ZH0 FS8 WS900 x%width% y%height% CTFF0000, CAPS LOCK ON
+		isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
+		if isFullScreen
+		{
+			Progress, off
+		}
+		ELSE
+		{
+			Progress, B1 %W_P_B% %H_P_B% ZH0 %F_S_P_B% WS900 x%width% y%height% CTFF0000, CAPS ON
+		}
 		SOUNDBEEP 3000,200
 
 	}
@@ -323,6 +467,44 @@ RETURN
 ; return
 
 
+
+; ------------------------------------------------------------------
+isWindowFullScreen( winTitle ) {
+; checks if the specified window is full screen
+
+winID := WinExist( winTitle )
+If ( !winID )
+	Return false
+
+; ONLY CHECK VALID TITLE WITH TEXT OR ELSE AFRAID CAPTURE DESKTOP 
+WinGetTitle, Title_VAR, ahk_id %winID%
+If ( !Title_VAR )
+	Return false
+	
+; MSGBOX % Title_VAR
+; WINDOWS XP REPORT Program Manager FOR DESKTOP
+; ---------------------------------------------
+IF Title_VAR=Program Manager	
+	Return false
+	
+WinGet style, Style, ahk_id %WinID%
+WinGetPos ,,,winW,winH, ahk_id %WinID%
+
+; 0x800000 is WS_BORDER.
+; 0x20000000 is WS_MINIMIZE.
+; no border and not minimized
+
+; Return (style & 0x20800000) ? false : true
+
+Return ((style & 0x20800000) 
+or winH < A_ScreenHeight 
+or winW < A_ScreenWidth) ? false : true
+
+; ----
+; Detect Fullscreen application? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/38882-detect-fullscreen-application/
+; ----
+}
 
  
 ;# ------------------------------------------------------------------
