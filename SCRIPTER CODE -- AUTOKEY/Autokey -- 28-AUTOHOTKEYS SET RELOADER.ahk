@@ -221,12 +221,13 @@ ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
 
 
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk"
 
 ; -------------------------------------------------------------------
 ; ADD THE TERMINATOR VERSION NUMBER AND THEN WE ARE ABLE TO USE EXACT 
 ; STRING MATCHING IN CASE NOTEPAD HAD IT
 ; -------------------------------------------------------------------
-
 
 ; WHEN GOT AN ARRAY VALUE 
 ; YOU CAN SET IT TO NOTHING 
@@ -234,7 +235,6 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 54-Go
 ; MUST USE REMOVE AND INSERT SAME POSITION AGAIN
 ;
 ; MAYBE BABY
-
 
 Loop % ArrayCount
 {
