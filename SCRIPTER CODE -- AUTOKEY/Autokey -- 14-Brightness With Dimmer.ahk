@@ -674,6 +674,17 @@ winID := WinExist( winTitle )
 
 If ( !winID )
 	Return false
+	
+; ONLY CHECK VALID TITLE WITH TEXT OR ELSE AFRAID CAPTURE DESKTOP 
+WinGetTitle, Title_VAR, ahk_id %winID%
+If ( !Title_VAR )
+	Return false
+	
+; MSGBOX % Title_VAR
+; WINDOWS XP REPORT Program Manager FOR DESKTOP
+; ---------------------------------------------
+IF Title_VAR=Program Manager	
+	Return false
 
 WinGet style, Style, ahk_id %WinID%
 WinGetPos ,,,winW,winH, ahk_id %WinID%

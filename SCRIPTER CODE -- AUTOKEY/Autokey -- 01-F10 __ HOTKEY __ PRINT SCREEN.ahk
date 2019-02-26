@@ -82,7 +82,7 @@ OLD_STATE_XYPOSCOUNTER=0
 
 OLD_AUTO_RELOAD_FACEBOOK_VAR=0
 
-
+AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 
 ; HERE THE FUNCTION ROUTINE FOR GOODSYNC
 ; --------------------------------------
@@ -98,6 +98,8 @@ SETTIMER TOP_LEFT_MOUSE_CLOSE_MPC,100
 SETTIMER AUTO_RELOAD_FACEBOOK,59000
 SETTIMER AUTO_RELOAD_RAIN_ALARM,10000
 SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,1000
+SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO,1000
+
 
 AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
 
@@ -135,6 +137,98 @@ F10::
 Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
+	SetTitleMatchMode 2  ; NOT Specify Full path.
+
+	; FORNICATE
+	; https://www.facebook.com/100025231092355/videos/278770969640604/
+	
+	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
+
+	; IF !A_ComputerName="8-MSI-GP62M-7RD"
+	; 	RETURN
+
+	SET_GO=FALSE
+	IF A_ComputerName="3-LINDA-PC"
+		SET_GO=TRUE
+	IF A_ComputerName="7-ASUS-GL522VW"
+		SET_GO=TRUE
+		
+	IF SET_GO=FALSE THEN
+		RETURN
+		
+	IF A_ComputerName="3-LINDA-PC"
+		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+		
+	IF AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+	{	
+		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=FALSE
+		
+		XR_3=
+		IfWinExist, ahk_class Chrome_WidgetWin_1
+			XR_3=Chrome_WidgetWin_1
+		IfWinExist, ahk_class MozillaWindowClass
+			XR_3=MozillaWindowClass
+		
+		XR_2=0
+		IfWinExist, Facebook - Google Chrome
+			XR_2=1
+		IfWinExist, Facebook - Mozilla Firefox
+			XR_2=1
+		IfWinExist, Deborah Hall - So my very lovely
+			XR_2=1
+		
+		IF XR_2=0
+			XR_3=
+	}
+		
+	WinGetCLASS, CLASS, A
+	WinGetTITLE, TITLE_VAR, A
+
+	XR_1=0
+	IF INSTR(CLASS,"Chrome_WidgetWin_1")
+	{
+		XR_1=1
+		XR_3=Chrome_WidgetWin_1
+	}
+
+	IF INSTR(CLASS,"MozillaWindowClass")
+	{
+		XR_1=1
+		XR_3=MozillaWindowClass
+	}
+
+	XR_2=0
+	IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
+		XR_2=1
+	IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
+		XR_2=1
+	IF INSTR(TITLE_VAR,"Deborah Hall - So my very lovely")
+		XR_2=1
+
+	IF XR_3
+	{	
+		WinActivate, ahk_class %XR_3%
+		WinWaitActive, ahk_class %XR_3%
+		SLEEP 3000
+		XR_2=1
+	}
+	
+	IF XR_1>0
+		IF XR_2>0
+		{
+			MouseClick, LEFT, 80, 280
+			; SLEEP 200
+
+			; SENDINPUT {SPACE}
+			SOUNDBEEP 1000,50
+		}
+		
+RETURN
+
+
 
 
 AUTO_RELOAD_RAIN_ALARM:
