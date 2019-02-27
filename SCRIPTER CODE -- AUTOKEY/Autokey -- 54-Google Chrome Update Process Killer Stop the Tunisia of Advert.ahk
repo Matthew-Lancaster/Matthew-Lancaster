@@ -37,7 +37,14 @@
 ; ----
 ;# ------------------------------------------------------------------
 
+#SingleInstance Force
 
+IF A_ComputerName=1-ASUS-X5DIJ
+	ExitApp     
+IF A_ComputerName=2-ASUS-EEE
+	ExitApp     
+
+	
 #Warn
 #NoEnv
 #SingleInstance Force
