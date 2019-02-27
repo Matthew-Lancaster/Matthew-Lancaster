@@ -40,6 +40,32 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO   __ Tue 26-Feb-2019 21:14:00 __ FIVE & HALF HOUR _ TIMING'S HARD AND GO FIGURE IT ALL
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 02 03 
+; -------------------------------------------------------------------
+; WAKE NEXT DAY AND MORE WORK
+; FINE TUNER THE TIMING OF FACEBOOK VIDEO REPEATER
+; WHILE DO OTHER THING CATCH UP SAME TIME
+; GOT JOB DONE
+; NOW LOOK TIME _ DO THE FACEBOOK VIDEO ENDER
+; BEEN RUN GOOD NOW 
+; BUT ONE THING LEARN SOMETIME THE PAGE IN BROWSER OF VIDEO FACEBOOK COULD DO WITH A REFRESH
+; NOT SURE HOW IMPLEMENT THE EXTRA YET SO IF SEE VIDEO NOT START WHEN PRESS SPACE-BAR GOES ON
+; AND TEST YOURSELF MANUALLY AND NONE RESPONSE THERE REFRESH THE PAGE
+; WHY MY LOW END COMPUTER RUN BETTER AT THIS ONE
+; HARD TO IMPLEMENT METHOD AS CODE HAS NONE WAY OF TELL A VIDEO PLAYER GO OR NOT
+; DON'T WANT REFRESH WHILE PLAY EVER _ OR STEAL FOCUS WHEN OPERATE ANOTHER THING
+; -------------------------------------------------------------------
+; TO   __  Wed 27-Feb-2019 14:54:59
+; -------------------------------------------------------------------
+; THAT WAS DO EXTRA MOD FOR FACEBOOK GENERAL RE-LOADER TO SHOW PRESENCE AND NOTIFICATION
+; -------------------------------------------------------------------
+; TO   __  Wed 27-Feb-2019 18:16:38
+; -------------------------------------------------------------------
+
+
+
 
 ;# ------------------------------------------------------------------
 ; Location On-Line
@@ -175,6 +201,14 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; TRYING TO FIND ANOTHER ONE WHICH IS STOP PLAY
 	; PROCESS OF ELIMINATION TO FIND
 	; ---------------------------------------------------------------
+	; [ Wednesday 10:42:50 Am_27 February 2019 ]
+	; FOUND THE FAULT EXTENSION 
+	; YOU NOT HAVE THIS ONE RUNNER _ IT MAKE THE SPACE BAR NOT WORK PROPER TO PLAY VIDEO
+	; ----
+    ; Social Video Downloader - Chrome Web Store
+    ; https://chrome.google.com/webstore/detail/social-video-downloader/kmminjooemmhhbpkbfmjhknffplmjkfi
+    ; ----
+	; ---------------------------------------------------------------
 	
 		
 	SetTitleMatchMode 2  ; NOT Specify Full path.
@@ -186,16 +220,17 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
     ; ----
 	; https://www.facebook.com/100025231092355/videos/278770969640604/
 	
-	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
-	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 300000   ; 5  MINUTE
+	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
+	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 300000   ; 5  MINUTE
 
 	; IF !A_ComputerName="8-MSI-GP62M-7RD"
 	; 	RETURN
 
 	
-	IF A_ComputerName="3-LINDA-PC"
+	IF A_ComputerName=3-LINDA-PC
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
-	IF A_ComputerName="4-ASUS-GL522VW"
+	
+	IF A_ComputerName=4-ASUS-GL522VW
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 		
 	XR_2=0
@@ -210,12 +245,22 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			XR_3=MozillaWindowClass
 		
 		XR_2=0
+		XR_4=
 		IfWinExist, Facebook - Google Chrome
+		{
 			XR_2=1
+			XR_4=Facebook - Google Chrome
+		}
+		IfWinExist, Deborah Hall -
+		{
+			XR_2=1
+			XR_4=Deborah Hall -
+		}
 		IfWinExist, Facebook - Mozilla Firefox
+		{
 			XR_2=1
-		IfWinExist, Deborah Hall - So my very lovely
-			XR_2=1
+			XR_4=Facebook - Mozilla Firefox
+		}
 		
 		IF XR_2=0
 			XR_3=
@@ -224,6 +269,12 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		{	
 			WinActivate, ahk_class %XR_3%
 			WinWaitActive, ahk_class %XR_3%
+			SLEEP 1000
+		}
+		IF XR_4
+		{	
+			WinActivate, %XR_4%
+			WinWaitActive, %XR_4%
 			SLEEP 1000
 		}
 	}
@@ -256,7 +307,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		XR_2=1
 	IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
 		XR_2=1
-	IF INSTR(TITLE_VAR,"Deborah Hall - So my very lovely")
+	IF INSTR(TITLE_VAR,"Deborah Hall -")
 		XR_2=1
 
 	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
@@ -272,13 +323,22 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				; TAB NEXT
 				; --------
 				Send, ^{Tab}
-				Sleep, 1000
-				WinActivate, ahk_class Chrome_WidgetWin_1
-				IfWinNotExist, ahk_class Chrome_WidgetWin_1
-					Return
+				Sleep, 2000
+				; WinActivate, ahk_class Chrome_WidgetWin_1
+				; IfWinNotExist, ahk_class Chrome_WidgetWin_1
+				; 	Return
+				
+				
 				WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
 				SET_GO=FALSE
 				IF INSTR(CurrentWindowTitle,"Facebook - Google Chrome")
+					SET_GO=TRUE
+				IF INSTR(CurrentWindowTitle,"Deborah Hall -")
+					SET_GO=TRUE
+				WinGetTITLE, CurrentWindowTitle, A
+				IF INSTR(CurrentWindowTitle,"Facebook - Google Chrome")
+					SET_GO=TRUE
+				IF INSTR(CurrentWindowTitle,"Deborah Hall -")
 					SET_GO=TRUE
 				
 				IF SET_GO=TRUE 
@@ -301,13 +361,13 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			SLEEP 1000
 			; CoordMode, Mouse, Client 
 			SENDINPUT ^{HOME}
-			SLEEP 100
+			SLEEP 400
 			SENDINPUT {TAB}
-			SLEEP 100
+			SLEEP 400
 			SENDINPUT {SPACE}
-			SLEEP 100
+			SLEEP 400
 			MouseMove, 80, 200
-			SLEEP 100
+			SLEEP 400
 
 			SOUNDBEEP 1000,50
 			SOUNDBEEP 1500,50
@@ -378,6 +438,8 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	; ---------------------------------------------------
 	; IF IT WASN'T ON FACEBOOK AND THEN IT IS ON THAT 
 	; SITE AND THEN HERE IS THE CODE TO REFRESH
+	; QUICKER TALKER
+	; IF WASN'T ON FACEBOOK AND THEN IT IS AGAIN
 	; ---------------------------------------------------
 	; TIMER REQUIRED FOR NOT TOO QUICK
 	
@@ -391,6 +453,15 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	IF INSTR(TITLE_VAR,"Facebook | Error - Google Chrome")
 		AUTO_RELOAD_FACEBOOK_VAR=1
 	IF INSTR(TITLE_VAR,"Privacy error - Google Chrome")
+		AUTO_RELOAD_FACEBOOK_VAR=1
+	
+	; ---------------------------------------------------------------
+	; WHEN LOAD THE COLOUR PALETTE IT LIKE A WINDOW OUTSIDE OF CHROME 
+	; AND WE ARE CHOOSE IGNORE THIS ONE
+	; MAKE THINK IS ONE OF NORMAL ONE
+	; YES WORKER FIRST TIME
+	; ---------------------------------------------------------------
+	IF INSTR(TITLE_VAR,"Colour")
 		AUTO_RELOAD_FACEBOOK_VAR=1
 
 		
@@ -441,7 +512,6 @@ AUTO_RELOAD_FACEBOOK:
 		XR_2=1
 	IF INSTR(TITLE_VAR,"Privacy error - Google Chrome")
 		XR_2=1
-		
 
 
 	IF XR_1>0

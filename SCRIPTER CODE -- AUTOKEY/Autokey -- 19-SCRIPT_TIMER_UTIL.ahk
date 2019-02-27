@@ -237,8 +237,8 @@ COMPUTER_NAME_ARRAY := []
 
 UniqueID_Old=0
 
-GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE=0
-
+GLOBAL GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE
+GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=0
 
 
 OSVER_N_VAR:=a_osversion
@@ -2329,7 +2329,9 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 ; -------------------------------------------------------------------
 DetectHiddenWindows, ON
 SET_GO=TRUE
-IF (A_ComputerName="3-LINDA-PC") 
+IF A_ComputerName=2-ASUS-EEE
+	SET_GO=TRUE
+IF A_ComputerName=1-ASUS-X5DIJ
 	SET_GO=FALSE
 
 IF SET_GO=TRUE
@@ -2337,13 +2339,16 @@ IF SET_GO=TRUE
 	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 	IF HWND_1>0 
 	{
-		IF !GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE
-			GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE=0
-
-		If GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE <> %HWND_1%
+		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
+		{
 			WinMinimize  ahk_id %HWND_1%
-		
-		GOODSYNC_HANDLE_CHECK_IF_CHANGE_OLD_ONE = %HWND_1%
+		}
+
+		; ------------------------------------------------------------------------
+		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
+		; ------------------------------------------------------------------------
+		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE = %HWND_1%
+
 	}
 }
 
