@@ -1,4 +1,4 @@
- ;  =============================================================
+	 ;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk
 ;# __ 
 ;# __ Autokey -- 58-Auto Repeat Browser Function Set.ahk
@@ -19,8 +19,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; SESSION 01
 ; -------------------------------------------------------------------
 ; WORK DO-ER
+; -------------------------------------------------------------------
 ; SPLIT THE CODE AWAY FROM 
 ; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
+; -------------------------------------------------------------------
 ; AND MOVED INTO THIS ONE
 ; Autokey -- 58-Auto Repeat Play Video Facebook.ahk
 ; -------------------------------------------------------------------
@@ -35,7 +37,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 
 ; -------------------------------------------------------------------
 ; FROM __ Tue 26-Feb-2019 15:56:21
-; TO   __ Tue 26-Feb-2019 20:38:00 __ FIVE HOUR-ING _ TIMING'S HARD AND GO FIGURE IT ALL
+; TO   __ Tue 26-Feb-2019 21:14:00 __ FIVE & HALF HOUR _ TIMING'S HARD AND GO FIGURE IT ALL
 ; -------------------------------------------------------------------
 
 
@@ -43,8 +45,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Location On-Line
 ;--------------------------------------------------------------------
 ; ----
-; Matthew-Lancaster/Autokey -- 58-Auto Repeat Browser Function Set.ahk
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2001-F10%20__%20HOTKEY%20__%20PRINT%20SCREEN.ahk
+; Autokey -- 58-Auto Repeat Browser Function Set.ahk
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2058-Auto%20Repeat%20Browser%20Function%20Set.ahk
 ; ----
 ;# ------------------------------------------------------------------
 
@@ -71,6 +73,9 @@ SetStoreCapslockMode, off
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
+IF A_ComputerName="2-ASUS-EEE"
+	Exitapp
+
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 
@@ -93,18 +98,62 @@ STATE_XYPOSCOUNTER=0
 GLOBAL OLD_STATE_XYPOSCOUNTER
 OLD_STATE_XYPOSCOUNTER=0
 
+GLOBAL OSVER_N_VAR
+
+; WIN_XP 5 WIN_7 6 WIN_10 10  
+; --------------------------
+OSVER_N_VAR:=a_osversion
+IF INSTR(a_osversion,".")>0
+	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
+IF OSVER_N_VAR=WIN_XP
+	OSVER_N_VAR=5
+IF OSVER_N_VAR=WIN_7
+	OSVER_N_VAR=6
+
+SET_GO=FALSE
+IF A_ComputerName=1-ASUS-X5DIJ
+	SET_GO=TRUE
+IF A_ComputerName=2-ASUS-EEE
+	SET_GO=TRUE
+
+; 01 OF 04
+IF SET_GO=TRUE 
+{
+	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 1000
+	RETURN
+}
 
 AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
 OLD_AUTO_RELOAD_FACEBOOK_VAR=0
-SETTIMER AUTO_RELOAD_FACEBOOK,59000
-SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,1000
 
-SETTIMER AUTO_RELOAD_RAIN_ALARM,10000
+; 02 OF 04
+IF OSVER_N_VAR>5 
+{
+	SETTIMER AUTO_RELOAD_FACEBOOK,59000
+	SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,1000
+}
 
+SET_GO=TRUE
+IF A_ComputerName=2-ASUS-EEE
+	SET_GO=FALSE
+IF A_ComputerName=3-LINDA-PC
+	SET_GO=FALSE
+
+; 03 OF 04
+IF SET_GO=TRUE 
+{
+	SETTIMER AUTO_RELOAD_RAIN_ALARM,10000
+}
+	
+AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0	
 AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
-SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO,1000
+; 04 OF 04
+IF OSVER_N_VAR>5 
+	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO,1000
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+
+
 
 RETURN
 
@@ -113,12 +162,28 @@ RETURN
 
 
 AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
+	; ---------------------------------------------------------------
+	; IN ORDER TO USE THIS ROUTINE 
+	; FBPURITY MUST BE INSTALLED BECAUSE AT THE END OF A VIDEO IT TRY 
+	; TO SHOW NEXT UP VIDEO AND FBP PUTS THAT OFF
+	; THAT IS ABOUT ALL
+	; ---------------------------------------------------------------
+	; OH AND THAT REASON OF FBP IS NOT WORK THE SAME FOR FIREFOX
+	; LOADS UP NEXT VIDEO TO PLAY FIREFOX CRAP
+	; ---------------------------------------------------------------
+
+		
 	SetTitleMatchMode 2  ; NOT Specify Full path.
 
 	; FORNICATE
+	; ----
+    ; Deborah Hall
+    ; https://www.facebook.com/profile.php?id=100025231092355&eid=ARDGlkY57WIQPW7bfEoyGk0tJwd97KEwCKjLXSlytbeMiWIGJH-oHAMDxaevFqhHrBu5pI1oIxxHqR2h
+    ; ----
 	; https://www.facebook.com/100025231092355/videos/278770969640604/
 	
-	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
+	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
+	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 300000   ; 5  MINUTE
 
 	; IF !A_ComputerName="8-MSI-GP62M-7RD"
 	; 	RETURN
@@ -195,10 +260,48 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		XR_2=1
 	IF INSTR(TITLE_VAR,"Deborah Hall - So my very lovely")
 		XR_2=1
-	
+
+	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
+	LOOP_COUNTER=0
+
+	IF XR_1>0
+		IF AUTO_HITTER_COUNTER_FACEBOOK_COUNTER>0
+		{
+			AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0
+			Loop
+			{
+				LOOP_COUNTER+=1
+				; TAB NEXT
+				; --------
+				Send, ^{Tab}
+				Sleep, 1000
+				WinActivate, ahk_class Chrome_WidgetWin_1
+				IfWinNotExist, ahk_class Chrome_WidgetWin_1
+					Return
+				WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
+				TOOLTIP % CurrentWindowTitle
+				SET_GO=FALSE
+				IF INSTR(CurrentWindowTitle,"Facebook - Google Chrome")
+					SET_GO=TRUE
+				
+				IF SET_GO=TRUE 
+				{
+					SLEEP 1000
+					BREAK
+				}
+				IF LOOP_COUNTER>20
+				{
+					XR_1=0
+					BREAK
+				}
+			}
+		}
+
+		
 	IF XR_1>0
 		IF XR_2>0
 		{
+			SLEEP 1000
 			; CoordMode, Mouse, Client 
 			SENDINPUT ^{HOME}
 			SLEEP 100
@@ -215,11 +318,22 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 
 			; MouseClick, LEFT, 80, 200
 		}
+
 		
 RETURN
 
 
 AUTO_RELOAD_RAIN_ALARM:
+
+	SET_GO=FALSE
+	IF A_ComputerName=2-ASUS-EEE
+		SET_GO=TRUE
+
+	IF SET_GO=TRUE 
+	{
+		SETTIMER AUTO_RELOAD_RAIN_ALARM, OFF
+		RETURN
+	}
 
 	; ---------------------------------------------------------------
 	; RAIN ALARM HAS INTRO A NEW THING LIKE A NAG SCREEN
@@ -309,6 +423,7 @@ RETURN
 		
 
 AUTO_RELOAD_FACEBOOK:
+
 
 	If (A_TimeIdle < 8000)
 	{
