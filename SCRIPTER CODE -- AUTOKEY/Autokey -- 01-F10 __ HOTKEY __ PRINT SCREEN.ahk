@@ -485,6 +485,8 @@ RETURN
 				
 	Loop
 	{
+		; TAB NEXT
+		; --------
 		Send, ^{Tab}
 		Sleep, 200
 		WinActivate, ahk_class Chrome_WidgetWin_1
@@ -506,6 +508,8 @@ RETURN
 		IF SET_GO=TRUE
 		{
 			Sleep, 200
+			; KILL PAGE
+			; ---------
 			SendInput ^w
 			SEXY=0
 		}
