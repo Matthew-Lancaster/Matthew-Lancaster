@@ -171,7 +171,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; OH AND THAT REASON OF FBP IS NOT WORK THE SAME FOR FIREFOX
 	; LOADS UP NEXT VIDEO TO PLAY FIREFOX CRAP
 	; ---------------------------------------------------------------
-
+	; THERE IS ANOTHER PROBLEM _ TOO MANY CHROME EXTENSION AND AM 
+	; TRYING TO FIND ANOTHER ONE WHICH IS STOP PLAY
+	; PROCESS OF ELIMINATION TO FIND
+	; ---------------------------------------------------------------
+	
 		
 	SetTitleMatchMode 2  ; NOT Specify Full path.
 
@@ -188,16 +192,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; IF !A_ComputerName="8-MSI-GP62M-7RD"
 	; 	RETURN
 
-	SET_GO=FALSE
+	
 	IF A_ComputerName="3-LINDA-PC"
-		SET_GO=TRUE
-	IF A_ComputerName="7-ASUS-GL522VW"
-		SET_GO=TRUE
-		
-	IF SET_GO=FALSE THEN
-		RETURN
-		
-	IF A_ComputerName="3-LINDA-PC"
+		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+	IF A_ComputerName="4-ASUS-GL522VW"
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 		
 	XR_2=0
@@ -279,7 +277,6 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				IfWinNotExist, ahk_class Chrome_WidgetWin_1
 					Return
 				WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
-				TOOLTIP % CurrentWindowTitle
 				SET_GO=FALSE
 				IF INSTR(CurrentWindowTitle,"Facebook - Google Chrome")
 					SET_GO=TRUE
