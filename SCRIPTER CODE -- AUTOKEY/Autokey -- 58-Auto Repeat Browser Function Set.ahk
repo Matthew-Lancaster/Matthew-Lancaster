@@ -64,6 +64,25 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO   __  Wed 27-Feb-2019 18:16:38
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; MONITOR OF VIDEO FACEBOOK REPEAT HITT PUMPER COUNTER 
+; -------------------------------------------------------------------
+; Deborah Hall
+; -------------------------------------------------------------------
+; Wed 27-Feb-2019
+; 179 Views _ 12 OCT 2018 
+; 198 Views _ 17 OCT 2018
+; 154 Views _ 09 NOV 2018
+; 128 Views _ 18 NOV 2018
+; 171 Views _ 29 NOV 2018
+; -------------------------------------------------------------------
+; Wed 27-Feb-2019
+; 181 Views _ 12 OCT 2018 + 2 TWO
+; 200 Views _ 17 OCT 2018 + 2 TWO
+; 157 Views _ 09 NOV 2018 + 3 THREE
+; 130 Views _ 18 NOV 2018 + 2 TWO
+; 174 Views _ 29 NOV 2018 + 3 THREE
+; -------------------------------------------------------------------
 
 
 
@@ -213,7 +232,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		
 	SetTitleMatchMode 2  ; NOT Specify Full path.
 
-	; FORNICATE
+	; FORNICATE PLEASURE
 	; ----
     ; Deborah Hall
     ; https://www.facebook.com/profile.php?id=100025231092355&eid=ARDGlkY57WIQPW7bfEoyGk0tJwd97KEwCKjLXSlytbeMiWIGJH-oHAMDxaevFqhHrBu5pI1oIxxHqR2h
