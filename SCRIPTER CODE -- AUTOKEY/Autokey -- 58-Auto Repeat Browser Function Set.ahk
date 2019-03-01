@@ -83,6 +83,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 130 Views _ 18 NOV 2018 + 2 TWO
 ; 174 Views _ 29 NOV 2018 + 3 THREE
 ; -------------------------------------------------------------------
+; Thu 28-Feb-2019 NEAR MIDNIGHT OF THU-FRI _ PLAY HUNDRED OF TODAY
+; 181 Views _ 12 OCT 2018 + 0 NAUGHT
+; 203 Views _ 17 OCT 2018 + 3 THREE
+; 159 Views _ 09 NOV 2018 + 2 TWO
+; 132 Views _ 18 NOV 2018 + 2 TWO
+; 176 Views _ 29 NOV 2018 + 2 TWO
+; -------------------------------------------------------------------
 
 
 
@@ -228,6 +235,12 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
     ; https://chrome.google.com/webstore/detail/social-video-downloader/kmminjooemmhhbpkbfmjhknffplmjkfi
     ; ----
 	; ---------------------------------------------------------------
+	; ALSO WANT THIS ONE IT STOP VIDEO AUTO PLAY WHEN PAGE JUST LOADER
+	; ----
+	; Disable HTML5 Autoplay - Chrome Web Store
+	; https://chrome.google.com/webstore/detail/disable-html5-autoplay/efdhoaajjjgckpbkoglidkeendpkolai
+	; -----
+
 	
 		
 	SetTitleMatchMode 2  ; NOT Specify Full path.
@@ -249,8 +262,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	IF A_ComputerName=3-LINDA-PC
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 	
-	IF A_ComputerName=4-ASUS-GL522VW
-		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+	; IF A_ComputerName=4-ASUS-GL522VW
+	;	AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 		
 	XR_2=0
 	IF AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
@@ -354,6 +367,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 					SET_GO=TRUE
 				IF INSTR(CurrentWindowTitle,"Deborah Hall -")
 					SET_GO=TRUE
+					
 				WinGetTITLE, CurrentWindowTitle, A
 				IF INSTR(CurrentWindowTitle,"Facebook - Google Chrome")
 					SET_GO=TRUE
@@ -362,10 +376,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				
 				IF SET_GO=TRUE 
 				{
+					XR_2=1
 					SLEEP 1000
 					BREAK
 				}
-				IF LOOP_COUNTER>20
+				IF LOOP_COUNTER>10
 				{
 					XR_1=0
 					BREAK
@@ -377,14 +392,14 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	IF XR_1>0
 		IF XR_2>0
 		{
-			SLEEP 1000
+			SLEEP 1500
 			; CoordMode, Mouse, Client 
 			SENDINPUT ^{HOME}
-			SLEEP 400
+			SLEEP 500
 			SENDINPUT {TAB}
-			SLEEP 400
+			SLEEP 500
 			SENDINPUT {SPACE}
-			SLEEP 400
+			SLEEP 500
 			MouseMove, 80, 200
 			SLEEP 400
 
