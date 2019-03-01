@@ -162,19 +162,40 @@ END SUB
 
 SUB USUAL_MAIN_2
 
-	' CHANGE SCHEDULE HOUR FROM 4 TO 5
+	' ' CHANGE SCHEDULE HOUR FROM 4 TO 5
+	' ' --------------------------------
+	' X = 1
+	' Do
+		' T1 = InStr(X, TT_EDITOR, "]d=4")
+		' If T1 > 0 Then
+			' TT_EDITOR = Replace(TT_EDITOR, "]d=4", "]d=5",1,1)
+			' Counter_VAR = Counter_VAR + 1
+		' End If
+		' X = T1 + 2
+	' Loop Until T1 = 0
+
+
+	' CHANGE TO DON'T USE VOLUME SHADOW COPY
+	' TRY HELP EXPLORER IS CRASH SOME OF THE TIME
 	' --------------------------------
 	X = 1
 	Do
-		T1 = InStr(X, TT_EDITOR, "]d=4")
+		T1 = InStr(X, TT_EDITOR, "|L=1")
 		If T1 > 0 Then
-			TT_EDITOR = Replace(TT_EDITOR, "]d=4", "]d=5",1,1)
+			TT_EDITOR = Replace(TT_EDITOR, "|L=1", "|L=0",1,1)
 			Counter_VAR = Counter_VAR + 1
 		End If
 		X = T1 + 2
 	Loop Until T1 = 0
 
+	
+	
+	
 	Counter_Change_VAR=Counter_VAR
+	
+	
+	
+	
 	
 END SUB
 
