@@ -166,8 +166,15 @@ set sources[26]="C GOODSYNC __ 7G TO 8M"
 
 set sources[27]="D # MY DOC __ 7G TO 4G_1"
 set sources[28]="D BT Cloud Sync _ 00 _ Caller ID"
+
+set sources[29]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
+set sources[30]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
+
 set sources[00]=""
 set sources[00]=""
+set sources[00]=""
+set sources[00]=""
+
 set sources[00]=""
 set sources[00]=""
 set sources[00]=""
