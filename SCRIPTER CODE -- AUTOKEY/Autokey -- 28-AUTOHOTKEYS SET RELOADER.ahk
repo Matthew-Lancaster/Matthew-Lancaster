@@ -126,6 +126,10 @@ OnExit("ExitFunc")
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
+; Create the popup menu by adding some items to it.
+Menu, Tray, Add  ; Creates a separator line.
+Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
+Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
 
 SetStoreCapslockMode, off
 DetectHiddenWindows, ON
@@ -224,8 +228,16 @@ IF OSVER_N_VAR>5
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
 }
 
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk"
+SET_GO=TRUE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO=FALSE
+IF (A_ComputerName = "8-MSI-GP62M-7RD")
+	SET_GO=FALSE
+IF SET_GO=TRUE
+{
+	ArrayCount += 1
+	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk"
+}
 
 ; -------------------------------------------------------------------
 ; ADD THE TERMINATOR VERSION NUMBER AND THEN WE ARE ABLE TO USE EXACT 
@@ -424,6 +436,55 @@ RETURN
 
 ; WinGet, PID, PID, %SkriptPath% ahk_class AutoHotkey
 
+
+
+MenuHandler:
+	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
+	if A_ThisMenuItem=Terminate Script
+		Process,Close,% DllCall("GetCurrentProcessId")
+	
+	if A_ThisMenuItem=Terminate All AutoHotKey.exe
+	{
+		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
+		
+		;  ----------------------------------------------------------
+		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
+		; AND WE GET OVER THAT BY GO EXTRA VIA VBSCRIPT ANOTHER FILE
+		; COULD OF RUN A  LOOP AND KILL BUT TRY NOT LOSE OWN ONE FIRST
+		; [ Saturday 14:55:00 Pm_02 March 2019 ]
+		;  ----------------------------------------------------------
+
+		;  ----------------------------------------------------------
+		; OTHER OPTION SET PROCESS KILLER
+		;  ----------------------------------------------------------
+		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
+		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
+		; Process,Close, AutoHotKey.exe
+		;  ----------------------------------------------------------
+	
+		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
+		; -------------------------------------------------------------------
+		; AND USED BY HERE
+		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
+		; -------------------------------------------------------------------
+		; [ Saturday 14:52:10 Pm_02 March 2019 ]
+		; -------------------------------------------------------------------
+		; EDITOR COPY PASTE FROM VBS 39-KILL PROCESS.VBS
+		; THIS FILE BECAME USE BY
+		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
+		; AND THEY USE IT HERE THIS ONE
+		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
+		; ORIGINAL AT HERE LOCATION 
+		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
+		; AND MOVED HERE MAYBE 
+		; -------------------------------------------------------------------
+		; MOST LIKELY TRY AND KEEP IN SYNC LATER
+		; EXCEPT THE AUTO GENERATOR
+		; -------------------------------------------------------------------
+}
+return
 
 
 ;# ------------------------------------------------------------------

@@ -206,6 +206,11 @@ OnExit("ExitFunc")
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
+; Create the popup menu by adding some items to it.
+Menu, Tray, Add  ; Creates a separator line.
+Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
+Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
+
 
 DetectHiddenWindows, on
 SetStoreCapslockMode, off
@@ -529,7 +534,7 @@ IF (A_ComputerName = "3-LINDA-PC")
 IF (A_ComputerName = "5-ASUS-P2520LA") 
 	SET_GO_2=60
 
-COUNT_TICK_TIME=% 1000*60*8
+COUNT_TICK_TIME=% 1000*60*12
 ; IF OUR SET TIME IS LESS THEN TICK TIME LET IT GO
 ; ONLY IF BOOT IN EARLY
 ;-------------------------------------------------
@@ -663,7 +668,7 @@ IF SET_GO=TRUE
 		
 If ProcessExist("VB KEEP RUNNER.exe", A_UserName)=0
 {
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB KEEP RUNNER\VB KEEP RUNNER.exe"
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
 	IfExist, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
@@ -1147,8 +1152,8 @@ IF SKIP_CODE=FALSE
 	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, WebStorage
 		
 
-		
-	IF SET_GO_1=1001
+	;IF SET_GO_1=1001
+	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	{
 	Process, Exist, googledrivesync.exe
 	If Not ErrorLevel
@@ -2042,6 +2047,54 @@ TEST_STARTER_RUN_IN:
 ; ExitApp
 
 RETURN
+
+MenuHandler:
+	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
+	if A_ThisMenuItem=Terminate Script
+		Process,Close,% DllCall("GetCurrentProcessId")
+	
+	if A_ThisMenuItem=Terminate All AutoHotKey.exe
+	{
+		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
+		
+		;  ----------------------------------------------------------
+		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
+		; AND WE GET OVER THAT BY GO EXTRA VIA VBSCRIPT ANOTHER FILE
+		; COULD OF RUN A  LOOP AND KILL BUT TRY NOT LOSE OWN ONE FIRST
+		; [ Saturday 14:55:00 Pm_02 March 2019 ]
+		;  ----------------------------------------------------------
+
+		;  ----------------------------------------------------------
+		; OTHER OPTION SET PROCESS KILLER
+		;  ----------------------------------------------------------
+		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
+		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
+		; Process,Close, AutoHotKey.exe
+		;  ----------------------------------------------------------
+	
+		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
+		; -------------------------------------------------------------------
+		; AND USED BY HERE
+		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
+		; -------------------------------------------------------------------
+		; [ Saturday 14:52:10 Pm_02 March 2019 ]
+		; -------------------------------------------------------------------
+		; EDITOR COPY PASTE FROM VBS 39-KILL PROCESS.VBS
+		; THIS FILE BECAME USE BY
+		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
+		; AND THEY USE IT HERE THIS ONE
+		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
+		; ORIGINAL AT HERE LOCATION 
+		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
+		; AND MOVED HERE MAYBE 
+		; -------------------------------------------------------------------
+		; MOST LIKELY TRY AND KEEP IN SYNC LATER
+		; EXCEPT THE AUTO GENERATOR
+		; -------------------------------------------------------------------
+}
+return
 
 
 GRAMMARLY_CREATE_SHORTCUT:

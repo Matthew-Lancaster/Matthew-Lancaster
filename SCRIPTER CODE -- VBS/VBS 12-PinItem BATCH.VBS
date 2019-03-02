@@ -80,6 +80,7 @@ Next
 'If Sent-to is Used Sometime Additional Quote Surround are User
 '--------------------------------------------------------------
 XF0 = UCASE(Replace(XF0,"""",""))
+
 IF INSTR(XF0,"-Q") THEN QUITE_MODE_ENDING=TRUE
 IF INSTR(XF0,"/Q") THEN QUITE_MODE_ENDING=TRUE
 
@@ -372,7 +373,7 @@ END IF
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\bluetoothlogview.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\bluetoothview.exe"
 
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB KEEP RUNNER\VB KEEP RUNNER.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
 END IF 

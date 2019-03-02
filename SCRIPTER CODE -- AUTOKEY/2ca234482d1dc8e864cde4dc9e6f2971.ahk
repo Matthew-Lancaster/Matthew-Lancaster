@@ -44,7 +44,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 ; SESSION 02 03 
 ; -------------------------------------------------------------------
-; WAKE NEXT DAY AND MORE WORK _ QUITE A LOT OF TUNER ALL WEEK
+; WAKE NEXT DAY AND MORE WORK
 ; FINE TUNER THE TIMING OF FACEBOOK VIDEO REPEATER
 ; WHILE DO OTHER THING CATCH UP SAME TIME
 ; GOT JOB DONE
@@ -90,13 +90,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 132 Views _ 18 NOV 2018 + 2 TWO
 ; 176 Views _ 29 NOV 2018 + 2 TWO
 ; -------------------------------------------------------------------
-; Sat 02-Mar-2019 MIDDAY
-; 185 Views _ 12 OCT 2018 + 4 FOUR
-; 208 Views _ 17 OCT 2018 + 5 FIVE
-; 164 Views _ 09 NOV 2018 + 5 FIVE
-; 136 Views _ 18 NOV 2018 + 4 FOUR
-; 178 Views _ 29 NOV 2018 + 2 TWO
-; -------------------------------------------------------------------
+
 
 
 ;# ------------------------------------------------------------------
@@ -122,11 +116,6 @@ OnExit("ExitFunc")
 ; Register an object to be called on exit:
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
-
-; Create the popup menu by adding some items to it.
-Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
-Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
@@ -205,7 +194,7 @@ IF A_ComputerName=3-LINDA-PC
 ; 03 OF 04
 IF SET_GO=TRUE 
 {
-	SETTIMER AUTO_RELOAD_RAIN_ALARM,2000
+	SETTIMER AUTO_RELOAD_RAIN_ALARM,10000
 }
 	
 AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0	
@@ -251,17 +240,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; Disable HTML5 Autoplay - Chrome Web Store
 	; https://chrome.google.com/webstore/detail/disable-html5-autoplay/efdhoaajjjgckpbkoglidkeendpkolai
 	; -----
-	; [ Saturday 12:54:00 Pm_02 March 2019 ]
-	; SEEM FUNNY DIDN'T HITTER ME AT FIRST
-	; WHEN TALKER MY FACEBOOK PAGE
-	; ABOUT HOW FACEBOOK DESTROY THE REAL HITT COUNTER ONLY ALLOW IT UNIQUE HITTER
-	; THE A BIT ANTI-GET YOUR HITTER 
-	; AS EXAMPLE YOUTUBE DON'T WOK THAT WAY
-	; I WAS TALKER IT PRETTY AMAZING IF GOT MILLIONS HITTER WHEN ALL UNIQUE-ER
-	; GOES TO SHOW PEOPLE WATCH ANYTHING WHEN FIRST COME ON SCREEN
-	; AND FACEBOOK ALWAYS HAD A HITT POLICY OF THEIR UP FOR THING ZACK AND NO ANYBODY ELSE
-	; ---------------------------------------------------------------
-	
+
 	
 		
 	SetTitleMatchMode 2  ; NOT Specify Full path.
@@ -278,15 +257,14 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; https://www.facebook.com/matthew.lancaster.4/posts/10211817982758757
 	; ----
 	
-	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 1200000 ; 20 MINUTE
 	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
 	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 300000   ; 5  MINUTE
 
 	SET_GO=TRUE
 	IF A_ComputerName=5-ASUS-P2520LA
 		RETURN
-	; IF A_ComputerName=7-ASUS-GL522VW
-		; SET_GO=FALSE
+	IF A_ComputerName=7-ASUS-GL522VW
+		SET_GO=FALSE
 	IF A_ComputerName=8-MSI-GP62M-7RD
 		SET_GO=FALSE
 
@@ -323,8 +301,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	IF A_ComputerName=3-LINDA-PC
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 	
-	IF A_ComputerName=4-ASUS-GL522VW
-		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+	; IF A_ComputerName=4-ASUS-GL522VW
+	;	AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 		
 	XR_2=0
 	IF AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
@@ -358,13 +336,18 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		IF XR_2=0
 			XR_3=
 
-		IF XR_3
-			IF XR_4
-			{	
-				WinActivate, %XR_4%
-				WinWaitActive, %XR_4%
-				SLEEP 1000
-			}
+		; IF XR_3
+		; {	
+			; WinActivate, ahk_class %XR_3%
+			; WinWaitActive, ahk_class %XR_3%
+			; SLEEP 1000
+		; }
+		IF XR_4
+		{	
+			WinActivate, %XR_4%
+			WinWaitActive, %XR_4%
+			SLEEP 1000
+		}
 	}
 	
 	XR_3=
@@ -477,7 +460,7 @@ AUTO_RELOAD_RAIN_ALARM:
 		SETTIMER AUTO_RELOAD_RAIN_ALARM, OFF
 		RETURN
 	}
-		
+
 	; ---------------------------------------------------------------
 	; RAIN ALARM HAS INTRO A NEW THING LIKE A NAG SCREEN
 	; THAT IS LEFT RUNNER A LONG TIME IT ASK YOU TO REFRESH THE SCREEN
@@ -488,26 +471,25 @@ AUTO_RELOAD_RAIN_ALARM:
 	SETTIMER AUTO_RELOAD_RAIN_ALARM,3600000 ; 1 HOUR MAYBE TOO MUCH
 	
 	; If (A_TimeIdle < 8000)
+	; {
 		; RETURN
+	; }
 
-	
-	SET_GO=FALSE
+	SET_GO=FALSE	
 	IF A_ComputerName=1-ASUS-X5DIJ
 		SET_GO=TRUE
 	IF A_ComputerName=5-ASUS-P2520LA
 		SET_GO=TRUE
-	IF A_ComputerName=4-ASUS-GL522VW
-		SET_GO=TRUE
-	
 	IF SET_GO=TRUE
 	{
+	
 		XR_3=
 		IfWinExist, Rain Alarm - Google Chrome
 			XR_3=Rain Alarm - Google Chrome
 		IfWinExist, Rain Alarm - Mozilla Firefox
-			XR_3=Rain Alarm - Mozilla Firefox
+			XR_3=Rain Alarm - Google Chrome
 
-		IF XR_3
+		IF XR_3 
 		{
 			WinActivate, %XR_3%
 			WinWaitActive, %XR_3%
@@ -637,53 +619,6 @@ RETURN
 
 
 
-MenuHandler:
-	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
-	if A_ThisMenuItem=Terminate Script
-		Process,Close,% DllCall("GetCurrentProcessId")
-	
-	if A_ThisMenuItem=Terminate All AutoHotKey.exe
-	{
-		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
-		
-		;  ----------------------------------------------------------
-		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
-		; AND WE GET OVER THAT BY GO EXTRA VIA VBSCRIPT ANOTHER FILE
-		; COULD OF RUN A  LOOP AND KILL BUT TRY NOT LOSE OWN ONE FIRST
-		; [ Saturday 14:55:00 Pm_02 March 2019 ]
-		;  ----------------------------------------------------------
-
-		;  ----------------------------------------------------------
-		; OTHER OPTION SET PROCESS KILLER
-		;  ----------------------------------------------------------
-		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
-		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process,Close, AutoHotKey.exe
-		;  ----------------------------------------------------------
-	
-		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
-		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
-		; -------------------------------------------------------------------
-		; AND USED BY HERE
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; -------------------------------------------------------------------
-		; [ Saturday 14:52:10 Pm_02 March 2019 ]
-		; -------------------------------------------------------------------
-		; EDITOR COPY PASTE FROM VBS 39-KILL PROCESS.VBS
-		; THIS FILE BECAME USE BY
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
-		; ORIGINAL AT HERE LOCATION 
-		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
-		; AND MOVED HERE MAYBE 
-		; -------------------------------------------------------------------
-		; MOST LIKELY TRY AND KEEP IN SYNC LATER
-		; EXCEPT THE AUTO GENERATOR
-		; -------------------------------------------------------------------
-}
-return
 
 
 ;# ------------------------------------------------------------------
