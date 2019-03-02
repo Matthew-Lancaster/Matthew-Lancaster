@@ -41,7 +41,7 @@ i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
 ' R_T -- 20 = DAYS BEFORE
 ' -------------------------------------------------------------------
 
-FOR R_T=0 TO 20
+FOR R_T=0 TO 10
 
 	i_TIME=""
 	i_TIME=i_TIME+LPad(Year(Now-R_T), "0", 4)
@@ -49,8 +49,7 @@ FOR R_T=0 TO 20
 	i_TIME=i_TIME+LPad(Day(Now-R_T), "0", 2)
 
 	FOR R_I=1 TO 2
-
-		FOLDER_1="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\"+i_TIME+"\"+ARRAY(R_I)
+		FOLDER_1="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"+i_TIME+"\"+ARRAY(R_I)
 		If fso.FolderExists(FOLDER_1) Then
 
 			Set objFolder = objFSO.GetFolder(FOLDER_1)
@@ -71,7 +70,13 @@ FOR R_T=0 TO 20
 							
 					IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
 						
-						WSHShell.Run i_view32 + " """+FILE_1+""" /jpgq=88 /convert=$D$F" , DontShowWindow, WaitUntilFinished
+						' -------------------------------------------
+						' jpgq=88 __ UP UNTIL 02 MAR 2019
+						' jpgq=92 __       ON 02 MAR 2019
+						' QUALITY JPEG CONVERSION LEVEL 0 TO 100%
+						' -------------------------------------------
+						
+						WSHShell.Run i_view32 + " """+FILE_1+""" /jpgq=92 /convert=$D$F" , DontShowWindow, WaitUntilFinished
 						
 						COUNT_1=COUNT_1+1
 						
