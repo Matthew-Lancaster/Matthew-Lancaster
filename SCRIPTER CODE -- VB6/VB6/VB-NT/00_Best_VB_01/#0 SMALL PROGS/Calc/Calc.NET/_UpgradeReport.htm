@@ -1,0 +1,682 @@
+﻿<html>
+	<head>
+		<META HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="_UpgradeReport_Files\UpgradeReport.css">
+		<title>CALC.vbp Upgrade Report</title>
+		
+		<script language="javascript">
+			function outliner () {
+				oMe = window.event.srcElement
+				//get child element
+				var child = document.all[event.srcElement.getAttribute("child",false)];
+				//if child element exists, expand or collapse it.
+				if (null != child)
+					child.className = child.className == "collapsed" ? "expanded" : "collapsed";
+			}
+		
+			function changepic() {
+				uMe = window.event.srcElement;
+				var check = uMe.src.toLowerCase();
+				if (check.lastIndexOf("upgradereport_plus.gif") != -1)
+				{
+					uMe.src = "_UpgradeReport_Files/UpgradeReport_Minus.gif"
+				}
+				else
+				{
+					uMe.src = "_UpgradeReport_Files/UpgradeReport_Plus.gif"
+				}
+			}
+		</script>
+		
+	</head>
+	<body topmargin="0" leftmargin="0" rightmargin="0" onclick="outliner();">
+		<h1>Upgrade Report for CALC.vbp</h1>
+		
+		<p><span class="note">
+		<b>Time of Upgrade:  </b>08/01/2018 13:36<br>
+		</span></p>
+		
+		<h2>Upgrade Summary</h2>
+		<table cellpadding="2" cellspacing="0" width="98%" border="1" bordercolor="white" class="infotable">
+		    <tr>
+		        <td nowrap class="header" width="45%">Types of Issues Found</td>
+		        <td nowrap class="header" width="45%">Learn More</td>
+		        <td nowrap class="header" align="right">Count</td>
+		    </tr>
+		    <tr class="row">
+		    <td class="SummaryIssueTypeContent">
+		        <IMG alt="expand/collapse section" class="expanded" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Minus.gif" width="9" child="SummaryIssueType0">
+		        &nbsp;Design Errors
+		    </td>
+		    <td class="SummaryIssueTypeHelp">
+		        Some properties that were set at design time have no direct equivalent and could not be upgraded. You should test your application thoroughly to verify that it functions as desired.
+		    </td>
+		    <td class="SummaryIssueTypeCount">
+		        6
+		    </td>
+		    </tr>
+		    <tr class="expanded" bgcolor="white" id="SummaryIssueType0">
+		        <td colspan="3">
+		            <table cellpadding="2" cellspacing="0" width="100%" border="1" bordercolor="white" class="content">
+		    <tr class="row">
+		        <td class="SummaryIssueContent">
+		            <IMG alt="expand/collapse section" class="expandable" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="SummaryIssueType0GUID0">
+		            &nbsp;The only font types supported are OpenType and TrueType
+		        </td>
+		        <td class="SummaryIssueHelp">
+		            <a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="971F4DF4-254E-44F4-861D-3AA0031FE361"'>Only OpenType and TrueType fonts are supported</a>
+		        </td>
+		        <td class="SummaryCount">2</td>
+		    </tr>
+		    <tr class="collapsed" bgcolor="white" id="SummaryIssueType0GUID0">
+		        <td colspan="3">
+		            <table cellpadding="2" cellspacing="0" width="100%" border="1" bordercolor="white" class="content">
+		                <tr class="row">
+		                    <td colspan="3" width="97%" class="SummaryFileContent">
+		                        <IMG alt="expand/collapse section" class="expandable" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="SummaryIssueType0GUID0File0">
+		                        &nbsp;CALC.FRM
+		                    </td>
+		                    <td class="SummaryFileCount">2</td>
+		                </tr>
+		                <tr class="collapsed" id="SummaryIssueType0GUID0File0" bgcolor="#ffffff">
+		                    <td colspan="4">
+		                    <table cellpadding="2" cellspacing="0" width="97%" border="1" bordercolor="#dcdcdc" class="content">
+		                        <tr bgcolor="#ffffff">
+		                            <td width="10" class="issuehdr">#</td>
+		                            <td nowrap class="issuehdr">Location</td>
+		                            <td nowrap class="issuehdr">Object Type</td>
+		                            <td nowrap class="issuehdr">Object Name</td>
+		                            <td nowrap class="issuehdr">Property</td>
+		                            <td nowrap class="issuehdr">Description</td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">1</td>
+		                            <td class="issuecontent">(Layout)</td>
+		                            <td class="issuecontent">Form</td>
+		                            <td class="issuecontent">Calculator</td>
+		                            <td class="issuecontent">Font</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="971F4DF4-254E-44F4-861D-3AA0031FE361"'>Only TrueType and OpenType fonts are supported in Windows Forms.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">2</td>
+		                            <td class="issuecontent">(Layout)</td>
+		                            <td class="issuecontent">Label</td>
+		                            <td class="issuecontent">Readout</td>
+		                            <td class="issuecontent">Font</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="971F4DF4-254E-44F4-861D-3AA0031FE361"'>Only TrueType and OpenType fonts are supported in Windows Forms.</a></td>
+		                        </tr>
+		                    </table>
+		                    </td>
+		                </tr>
+		            </table>
+		        </td>
+		    </tr>
+		    <tr class="row">
+		        <td class="SummaryIssueContent">
+		            <IMG alt="expand/collapse section" class="expandable" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="SummaryIssueType0GUID1">
+		            &nbsp;Some properties and methods could not be upgraded
+		        </td>
+		        <td class="SummaryIssueHelp">
+		            <a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Property or method was not upgraded</a>
+		        </td>
+		        <td class="SummaryCount">4</td>
+		    </tr>
+		    <tr class="collapsed" bgcolor="white" id="SummaryIssueType0GUID1">
+		        <td colspan="3">
+		            <table cellpadding="2" cellspacing="0" width="100%" border="1" bordercolor="white" class="content">
+		                <tr class="row">
+		                    <td colspan="3" width="97%" class="SummaryFileContent">
+		                        <IMG alt="expand/collapse section" class="expandable" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="SummaryIssueType0GUID1File0">
+		                        &nbsp;CALC.FRM
+		                    </td>
+		                    <td class="SummaryFileCount">4</td>
+		                </tr>
+		                <tr class="collapsed" id="SummaryIssueType0GUID1File0" bgcolor="#ffffff">
+		                    <td colspan="4">
+		                    <table cellpadding="2" cellspacing="0" width="97%" border="1" bordercolor="#dcdcdc" class="content">
+		                        <tr bgcolor="#ffffff">
+		                            <td width="10" class="issuehdr">#</td>
+		                            <td nowrap class="issuehdr">Location</td>
+		                            <td nowrap class="issuehdr">Object Type</td>
+		                            <td nowrap class="issuehdr">Object Name</td>
+		                            <td nowrap class="issuehdr">Property</td>
+		                            <td nowrap class="issuehdr">Description</td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">1</td>
+		                            <td class="issuecontent">(Layout)</td>
+		                            <td class="issuecontent">Form</td>
+		                            <td class="issuecontent">Calculator</td>
+		                            <td class="issuecontent">ClipControls</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.ClipControls was not upgraded.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">2</td>
+		                            <td class="issuecontent">(Layout)</td>
+		                            <td class="issuecontent">Form</td>
+		                            <td class="issuecontent">Calculator</td>
+		                            <td class="issuecontent">LinkMode</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.LinkMode was not upgraded.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">3</td>
+		                            <td class="issuecontent">(Layout)</td>
+		                            <td class="issuecontent">Form</td>
+		                            <td class="issuecontent">Calculator</td>
+		                            <td class="issuecontent">PaletteMode</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.PaletteMode was not upgraded.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">4</td>
+		                            <td class="issuecontent">(Layout)</td>
+		                            <td class="issuecontent">Form</td>
+		                            <td class="issuecontent">Calculator</td>
+		                            <td class="issuecontent">WhatsThisHelp</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.WhatsThisHelp was not upgraded.</a></td>
+		                        </tr>
+		                    </table>
+		                    </td>
+		                </tr>
+		            </table>
+		        </td>
+		    </tr>
+		            </table>
+		        </td>
+		    </tr>
+		    <tr class="row">
+		    <td class="SummaryIssueTypeContent">
+		        <IMG alt="expand/collapse section" class="expanded" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Minus.gif" width="9" child="SummaryIssueType1">
+		        &nbsp;Warnings
+		    </td>
+		    <td class="SummaryIssueTypeHelp">
+		        There were some differences found that may causes unexpected results when your application is run. You should test your application thoroughly to verify that it functions as desired.
+		    </td>
+		    <td class="SummaryIssueTypeCount">
+		        40
+		    </td>
+		    </tr>
+		    <tr class="expanded" bgcolor="white" id="SummaryIssueType1">
+		        <td colspan="3">
+		            <table cellpadding="2" cellspacing="0" width="100%" border="1" bordercolor="white" class="content">
+		    <tr class="row">
+		        <td class="SummaryIssueContent">
+		            <IMG alt="expand/collapse section" class="expandable" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="SummaryIssueType1GUID0">
+		            &nbsp;Some late-bound default property references could not be resolved
+		        </td>
+		        <td class="SummaryIssueHelp">
+		            <a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Late-bound default property reference could not be resolved</a>
+		        </td>
+		        <td class="SummaryCount">40</td>
+		    </tr>
+		    <tr class="collapsed" bgcolor="white" id="SummaryIssueType1GUID0">
+		        <td colspan="3">
+		            <table cellpadding="2" cellspacing="0" width="100%" border="1" bordercolor="white" class="content">
+		                <tr class="row">
+		                    <td colspan="3" width="97%" class="SummaryFileContent">
+		                        <IMG alt="expand/collapse section" class="expandable" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="SummaryIssueType1GUID0File0">
+		                        &nbsp;CALC.FRM
+		                    </td>
+		                    <td class="SummaryFileCount">40</td>
+		                </tr>
+		                <tr class="collapsed" id="SummaryIssueType1GUID0File0" bgcolor="#ffffff">
+		                    <td colspan="4">
+		                    <table cellpadding="2" cellspacing="0" width="97%" border="1" bordercolor="#dcdcdc" class="content">
+		                        <tr bgcolor="#ffffff">
+		                            <td width="10" class="issuehdr">#</td>
+		                            <td nowrap class="issuehdr">Location</td>
+		                            <td nowrap class="issuehdr">Object Type</td>
+		                            <td nowrap class="issuehdr">Object Name</td>
+		                            <td nowrap class="issuehdr">Property</td>
+		                            <td nowrap class="issuehdr">Description</td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">1</td>
+		                            <td class="issuecontent">Cancel_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">2</td>
+		                            <td class="issuecontent">Cancel_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">3</td>
+		                            <td class="issuecontent">CancelEntry_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">4</td>
+		                            <td class="issuecontent">Decimal_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">5</td>
+		                            <td class="issuecontent">Decimal_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">6</td>
+		                            <td class="issuecontent">Decimal_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">7</td>
+		                            <td class="issuecontent">Form_Load</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">8</td>
+		                            <td class="issuecontent">Form_Load</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">9</td>
+		                            <td class="issuecontent">Number_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">10</td>
+		                            <td class="issuecontent">Number_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">11</td>
+		                            <td class="issuecontent">Number_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">12</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object TempReadout.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">13</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">14</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">15</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">16</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">17</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">18</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">19</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">20</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">21</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object TempReadout.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">22</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">23</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">24</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">25</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">26</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">27</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">28</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">29</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">30</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">31</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">32</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">33</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent">CDbl</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">34</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent">CDbl</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">35</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent">CDbl</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">36</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent">CDbl</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">37</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent">CDbl</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">38</td>
+		                            <td class="issuecontent">Operator_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent">CDbl</td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">39</td>
+		                            <td class="issuecontent">Percent_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td>
+		                        </tr>
+		                        <tr bgcolor="#ffffff">
+		                            <td class="issuecontent">40</td>
+		                            <td class="issuecontent">Percent_Click</td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"></td>
+		                            <td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td>
+		                        </tr>
+		                    </table>
+		                    </td>
+		                </tr>
+		            </table>
+		        </td>
+		    </tr>
+		            </table>
+		        </td>
+		    </tr>
+		    <tr class="row">
+		        <td colspan=2 class="content">Total</td>
+		        <td class="SummaryCount">46</td>
+		    </tr>
+		</table>
+		
+		<h2><IMG alt="expand/collapse section" class="expandable" height="11" onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="DetailList"> Details For Each File in Project</h2>
+		<span id="DetailList" class="collapsed">
+		<table cellpadding="2" cellspacing="0" width="98%" border="1"bordercolor="white" class="infotable">
+			<tr>
+				<td nowrap class="header">New Filename</td>
+				<td nowrap class="header">Original Filename</td>
+				<td nowrap class="header">File Type</td>
+				<td nowrap class="header">Status</td>
+				<td nowrap class="header">Errors</td>
+				<td nowrap class="header">Warnings</td>
+				<td nowrap class="header">Total Issues</td>
+			</tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue0">&nbsp;(Global Issues)</td>
+			<td class="content"></td>
+			<td class="content"></td>
+			<td class="content">
+		</td>	<td class="content">0</td>
+			<td class="content">0</td>
+			<td class="content">0</td>
+		</tr>
+			<tr class="collapsed" id="issue0" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Global update issues:</td></tr><tr><td class="issuenone">None</td></tr>
+				</table>
+			</td></tr>
+		<tr class="row">
+			<td class="content"><IMG alt="expand/collapse section" class="expandable" height="11"onclick=changepic() src="_UpgradeReport_Files/UpgradeReport_Plus.gif" width="9" child="issue1">&nbsp;CALC.vb</td>
+			<td class="content">CALC.FRM</td>
+			<td class="content">Form</td>
+			<td class="content">
+		Upgraded with issues</td>	<td class="content">6</td>
+			<td class="content">40</td>
+			<td class="content">46</td>
+		</tr>
+			<tr class="collapsed" id="issue1" bgcolor="#ffffff"><td colspan="7">
+				<table width="97%" border="1" bordercolor="#dcdcdc" rules="cols" class="issuetable">
+				<tr><td colspan="7" class="issuetitle">Upgrade Issues for CALC.FRM:</td></tr><tr><td width="10" class="issuehdr">#</td><td class="issuehdr" nowrap>Severity</td><td class="issuehdr">Location</td><td class="issuehdr">Object Type</td><td class="issuehdr">Object Name</td><td class="issuehdr">Property</td><td class="issuehdr">Description</td></tr>
+					<tr><td width="10" class="issuecontent">1</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">Calculator</td><td class="issuecontent">ClipControls</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.ClipControls was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">2</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">Calculator</td><td class="issuecontent">Font</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="971F4DF4-254E-44F4-861D-3AA0031FE361"'>Only TrueType and OpenType fonts are supported in Windows Forms.</a></td></tr>
+					<tr><td width="10" class="issuecontent">3</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">Calculator</td><td class="issuecontent">LinkMode</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.LinkMode was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">4</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">Calculator</td><td class="issuecontent">PaletteMode</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.PaletteMode was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">5</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Form</td><td class="issuecontent">Calculator</td><td class="issuecontent">WhatsThisHelp</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="CC4C7EC0-C903-48FC-ACCC-81861D12DA4A"'>Form property Calculator.WhatsThisHelp was not upgraded.</a></td></tr>
+					<tr><td width="10" class="issuecontent">6</td><td class="issuecontent" nowrap>Design Error</td><td class="issuecontent">(Layout)</td><td class="issuecontent">Label</td><td class="issuecontent">Readout</td><td class="issuecontent">Font</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="971F4DF4-254E-44F4-861D-3AA0031FE361"'>Only TrueType and OpenType fonts are supported in Windows Forms.</a></td></tr>
+					<tr><td width="10" class="issuecontent">7</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Cancel_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">8</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Cancel_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">9</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">CancelEntry_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">10</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Decimal_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">11</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Decimal_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">12</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Decimal_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">13</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Load</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">14</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Form_Load</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td></tr>
+					<tr><td width="10" class="issuecontent">15</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Number_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">16</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Number_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">17</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Number_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">18</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object TempReadout.</a></td></tr>
+					<tr><td width="10" class="issuecontent">19</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">20</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">21</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">22</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">23</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">24</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">25</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td></tr>
+					<tr><td width="10" class="issuecontent">26</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">27</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object TempReadout.</a></td></tr>
+					<tr><td width="10" class="issuecontent">28</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">29</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">30</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">31</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">32</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">33</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">34</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">35</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op1.</a></td></tr>
+					<tr><td width="10" class="issuecontent">36</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">37</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td></tr>
+					<tr><td width="10" class="issuecontent">38</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">39</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">CDbl</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">40</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">CDbl</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">41</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">CDbl</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">42</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">CDbl</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">43</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">CDbl</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">44</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Operator_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent">CDbl</td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object Op2.</a></td></tr>
+					<tr><td width="10" class="issuecontent">45</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Percent_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object LastInput.</a></td></tr>
+					<tr><td width="10" class="issuecontent">46</td><td class="issuecontent" nowrap>Runtime Warning</td><td class="issuecontent">Percent_Click</td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"></td><td class="issuecontent"><a href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'>Couldn't resolve default property of object OpFlag.</a></td></tr>
+				</table>
+			</td></tr>
+		<tr valign="top">
+			<td class="foot">1 File(s)</td>
+			<td class="foot">&nbsp;</td>
+			<td class="foot">Forms: 1</td>
+			<td class="foot">
+		Upgraded: 1<BR>
+		Not upgraded: 0
+		</td>
+			<td class="foot">6</td>
+			<td class="foot">40</td>
+			<td class="foot">46</td>
+		</tr>
+		</table>
+		</span>
+		<p class="help">
+			<A href='ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="a16bd8ca-916d-4cd3-821c-417999d3cb97"'>Click here for help with troubleshooting upgraded projects</A>
+		</p>
+				<p>
+					<table class = "note">
+						<tr><td nowrap><b>Upgrade Settings</b></td></tr>
+						<tr><td nowrap><b>Log File:</b> CALC.log</td></tr>
+						<tr><td nowrap><b>Migrate Project To:</b> WinExe</td></tr>
+						<tr><td nowrap><b>Output Directory:</b> D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET</td></tr>
+						<tr><td nowrap><b>Output Name:</b> CALC.vbproj</td></tr>
+						<tr><td nowrap><b>Project Name:</b> CALC</td></tr>
+						<tr><td nowrap><b>Project Path:</b> D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\CALC.VBP</td></tr>
+					</table>
+				</p>
+	</body>
+</html>
