@@ -548,7 +548,7 @@ if !X! GTR 0 (
 		ECHO.
 	)
 	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 80
+	TIMEOUT /T 8
 )
 
 for /L %%a in (1,1,!LDA!) do (
@@ -564,7 +564,7 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO END RUNNER                               ---- **********
 	ECHO SYNC COMPLETE SUCCESSFUL                 ---- **********
 	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 30
+	TIMEOUT /T 8
 	ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
 	ECHO %~dp0
@@ -574,6 +574,17 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
+
+IF "!Sync_Runner_TOTAL!"=="FALSE" (
+	ECHO ----------------------------------------------------------------
+	ECHO END RUNNER                               ---- **********
+	ECHO NOT __ SYNCER SUCCESSFUL                 ---- **********
+	ECHO ----------------------------------------------------------------
+	ECHO ----------------------------------------------------------------
+	TIMEOUT /T 300
+	REM 300 = 5 MINUTE
+)
+
 
 @REM ----------------------------------------------------------------
 @REM --- ECHO DE-STUPID-POO
