@@ -367,9 +367,8 @@ for /L %%a in (1,1,!LDA!) do (
 	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
 	
-	SET FAULT_FLAG="FALSE"
 	IF "!Sync_Runner_TOTAL!"=="FALSE"  SET FAULT_FLAG="TRUE"
-	IF "!FAULT_FLAG!"=="TRUE"          SET /A "FAULT_COUNTER+=1"
+	IF "!Sync_Runner_ONE!"=="FALSE"    SET /A "FAULT_COUNTER+=1"
 	
 	@REM PROBLEM OF CONFLICT OF THIS FILE
 	@REM ONLY WAY NOW IS TO EXCLUDE IN GOODSYNC	
@@ -513,7 +512,7 @@ for /L %%a in (1,1,!LDA!) do (
 			ECHO !STATUS_2[%%a]:"=!
 			REM ECHO.
 		)
-		TIMEOUT /T 2
+		TIMEOUT /T 4
 	)
 	
 	ECHO ----------------------------------------------------------------
