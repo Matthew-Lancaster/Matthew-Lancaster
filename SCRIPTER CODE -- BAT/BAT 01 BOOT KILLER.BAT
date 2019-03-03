@@ -313,6 +313,31 @@ ver | find "5.1." > nul
 @IF %COMPUTERNAME%==8-MSI-GP62M-7RD  SET MATTHEW_S_COMPUTER__=YES
 @REM ----------------------------------------------------------------
 
+@REM [ Sunday 05:50:50 Am_03 March 2019 ]
+@REM DON'T KNOW WHAT USE FOR BUT ALWAYS NOT RESPOND ON CHECK
+@REM ----------------------------------------------------------------
+@IF NOT %COMPUTERNAME%==4-ASUS-GL522VW GOTO JUMP_OVER
+TASKKILL /F /IM jusched.exe /T
+:JUMP_OVER
+
+@IF NOT %COMPUTERNAME%==7-ASUS-GL522VW GOTO JUMP_OVER
+TASKKILL /F /IM jusched.exe /T
+:JUMP_OVER
+
+@REM [ Sunday 05:50:50 Am_03 March 2019 ]
+@REM DON'T KNOW WHAT USE FOR BUT ALWAYS NOT RESPOND ON CHECK
+@REM -- NOT A GOOD KILLER IT COMES BACK AND REMOVE TASKBAR TRAY 
+@REM ----------------------------------------------------------------
+@IF NOT %COMPUTERNAME%==4-ASUS-GL522VW GOTO JUMP_OVER
+REM TASKKILL /F /IM sihost.exe /T
+:JUMP_OVER
+
+@IF NOT %COMPUTERNAME%==7-ASUS-GL522VW GOTO JUMP_OVER
+REM TASKKILL /F /IM sihost.exe /T
+:JUMP_OVER
+
+
+
 @ECHO.
 
 @REM   @SETlocal EnableDelayedExpansion

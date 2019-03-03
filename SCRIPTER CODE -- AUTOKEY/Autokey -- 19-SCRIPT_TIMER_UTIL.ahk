@@ -1978,7 +1978,16 @@ IfWinNotExist EliteSpy+ by Andrea
 DetectHiddenWindows, % dhw
 Return
 
-f1::pause
+^F1::
+{
+dhw := A_DetectHiddenWindows
+SetTitleMatchMode 2  ; Avoids Specify Full path.
+WinRestore, VB KEEP RUNNER ahk_class ThunderRT6FormDC
+WinRestore, EliteSpy+ ahk_class ThunderRT6FormDC
+DetectHiddenWindows, % dhw
+; PAUSE
+}
+RETURN
 
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
@@ -2653,7 +2662,10 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
 			; SoundBeep , 3200 , 100
 			
 			; Process_Suspend_PID(NewPID)
-			Process_Suspend("esif_assist_64.exe")
+			
+			; Process_Suspend("esif_assist_64.exe")
+			Process_Suspend_esif_assist_64(1)
+			
 			; Process_Suspend("esif_uf.exe")
 			
 			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,OFF
@@ -2692,6 +2704,19 @@ Return
 ;--------------------------------------------------------------------
 
 ;============================== Working on WinXP+
+Process_Suspend_esif_assist_64(PID){
+	PID=
+	Process, Exist, esif_assist_64.exe
+	PID = %ErrorLevel%
+	IF PID
+	{
+		h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+		If !h_1
+			Return -1
+		DllCall("ntdll.dll\NtSuspendProcess", "Int", h_1)
+		DllCall("CloseHandle", "Int", h_1)
+	}
+}
 Process_Suspend(PID_or_Name){
     PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
     h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
