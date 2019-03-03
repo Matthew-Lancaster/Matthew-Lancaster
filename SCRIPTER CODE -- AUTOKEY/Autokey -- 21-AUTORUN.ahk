@@ -503,6 +503,19 @@ Loop, %id%
 RETURN
 
 
+Process_Suspend_esif_assist_64(PID){
+	PID=
+	Process, Exist, esif_assist_64.exe
+	PID = %ErrorLevel%
+	IF PID
+	{
+		h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+		If !h_1
+			Return -1
+		DllCall("ntdll.dll\NtSuspendProcess", "Int", h_1)
+		DllCall("CloseHandle", "Int", h_1)
+	}
+}
 
 
 ; -------------------------------------------------------------------
@@ -524,15 +537,21 @@ GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 ;--------------------------------------------------------------------
 
 SET_GO_1=TRUE
-SET_GO_2=20
+SET_GO_2=100
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO_2=60
+	SET_GO_2=100
 IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO_2=80
+	SET_GO_2=100
 IF (A_ComputerName = "3-LINDA-PC") 
-	SET_GO_2=60
+	SET_GO_2=200
+IF (A_ComputerName = "4-ASUS-GL522VW") 
+	SET_GO_2=100
 IF (A_ComputerName = "5-ASUS-P2520LA") 
-	SET_GO_2=60
+	SET_GO_2=100
+IF (A_ComputerName = "7-ASUS-GL522VW") 
+	SET_GO_2=100
+IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+	SET_GO_2=100
 
 COUNT_TICK_TIME=% 1000*60*12
 ; IF OUR SET TIME IS LESS THEN TICK TIME LET IT GO
@@ -546,12 +565,19 @@ IF SET_GO_1=TRUE
 	I_COUNT=0
 	LOOP 
 	{
+		IF (A_ComputerName = "7-ASUS-GL522VW") 
+			Process_Suspend_esif_assist_64(1)
+		IF (A_ComputerName = "4-ASUS-GL522VW") 
+			Process_Suspend_esif_assist_64(1)
+		
 		I_COUNT+=1
 		SLEEP 1000
 		IF I_COUNT>%SET_GO_2%
 			BREAK
 	}
 }
+
+; PAUSE
 
 SKIP_CODE=FALSE
 IF (A_ComputerName = "3-LINDA-PC") 
@@ -685,13 +711,22 @@ If ProcessExist("VB KEEP RUNNER.exe", A_UserName)=0
 ;--------------------------------------------------------------------
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
-	
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"	
-IfExist, %FN_VAR%
+
+FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+TEMP_VAR_1=%FN_VAR_1%
+TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
+TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+FN_VAR_1=%TEMP_VAR_3%
+DetectHiddenWindows, ON
+SetTitleMatchMode 3  ; EXACTLY
+IFWINNOTEXIST %FN_VAR_1%
 {
-	SoundBeep , 2500 , 100
-	Run, "%FN_VAR%"
+	SoundBeep , 2000 , 100
+	Run, %FN_VAR_1%
 }
+
 
 FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 04-SET CAP NUM & SCROLL TO LIKING - ONCE.ahk"	
 IfExist, %FN_VAR%
@@ -1230,45 +1265,7 @@ If Not ErrorLevel
 	}
 }
 
-;-------------------------------------------
-; REQUIRE LITTLE DELAY ON RUN HUBIC
-; GETS SOME CLASH RUN FROM REGISTRY ALSO RUN
-;-------------------------------------------
-SET_GO_1=0
-IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
-	SET_GO_1=1
-IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
-	SET_GO_1=1
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=1
-IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
-	SET_GO_1=1
 
-; WIN_XP 5 WIN_7 6 WIN_10 10  
-; --------------------------
-If (OSVER_N_VAR>5 
-	and SET_GO_1=1)
-	{
-		Process, Exist, hubiC.exe
-		If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
-		{
-			IfWinNotExist , hubiC
-			{
-				FN_VAR:="C:\Program Files\OVH\hubiC\hubiC.exe"
-				IfExist, %FN_VAR%
-				{
-					SoundBeep , 2500 , 100
-					Run, "%FN_VAR%"
-				}
-			}
-		}
-	}
-
-RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubiC
-
-
- ; ExitApp
- 
 
 Process, Exist, ViceVersa.exe
 ;If Not ErrorLevel
@@ -2026,6 +2023,7 @@ GOSUB GRAMMARLY_CREATE_SHORTCUT
 
 RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
 
+GOSUB RUN_HUBIC
 
 RETURN
 
@@ -2038,6 +2036,80 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+
+;--------------------------------------------------------------------
+RUN_HUBIC:
+;-------------------------------------------
+; REQUIRE LITTLE DELAY ON RUN HUBIC
+; GETS SOME CLASH RUN FROM REGISTRY ALSO RUN
+;-------------------------------------------
+
+Process, Exist, hubiC.exe
+If ErrorLevel ; errorlevel will = 0 if process doesn't exist
+	RETURN
+
+
+SET_GO_1=FALSE
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+	SET_GO_1=TRUE
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	SET_GO_1=TRUE
+IF SET_GO_1=TRUE
+{
+	SET_GO_2=80
+	I_COUNT=0
+	LOOP 
+	{
+		; IF (A_ComputerName = "7-ASUS-GL522VW") 
+			; Process_Suspend_esif_assist_64(1)
+		; IF (A_ComputerName = "4-ASUS-GL522VW") 
+			; Process_Suspend_esif_assist_64(1)
+		
+		I_COUNT+=1
+		SLEEP 1000
+		IF I_COUNT>%SET_GO_2%
+			BREAK
+	}
+}
+	
+SET_GO_1=0
+IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
+	SET_GO_1=1
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+	SET_GO_1=1
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	SET_GO_1=1
+IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
+	SET_GO_1=1
+	
+	
+; WIN_XP 5 WIN_7 6 WIN_10 10  
+; --------------------------
+If (OSVER_N_VAR>5 
+	and SET_GO_1=1)
+	{
+		Process, Exist, hubiC.exe
+		If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
+		{
+			IfWinNotExist , hubiC
+			{
+				FN_VAR:="C:\Program Files\OVH\hubiC\hubiC.exe"
+				IfExist, %FN_VAR%
+				{
+					;Run, "%FN_VAR%"
+					
+					Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE.VBS" "%FN_VAR%"
+					SoundBeep , 2500 , 100
+				}
+			}
+		}
+	}
+
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubiC
+
+RETURN
 
 
 
