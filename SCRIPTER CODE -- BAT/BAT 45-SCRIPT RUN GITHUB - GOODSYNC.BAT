@@ -126,7 +126,7 @@ SETLOCAL EnableDelayedExpansion
 
 REM  for /L %%a in (1,1,7) do (
 
-for /L %%a in (1,1,1) do (
+for /L %%a in (1,1,4) do (
 
 	ECHO !sources[%%a]!
 	
