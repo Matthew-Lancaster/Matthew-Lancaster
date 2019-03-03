@@ -232,7 +232,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO !X! of !LDA!
 				ECHO ----------------------------------------------------------------
 					
-					set STATUS_3[!X!]=%%a of !LDA!
+					set STATUS_3[!X!]=%%a "of" !LDA!
 
 					PAUSE
 
