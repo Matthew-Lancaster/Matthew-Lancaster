@@ -389,6 +389,12 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO Computer_Is_Offline !Computer_Is_Offline!
 	ECHO ----------------------------------------------------------------
 	ECHO.
+	
+	SET STATUS_4[%%a]="Analysis_Complete   !Analysis_Complete!"
+	SET STATUS_5[%%a]="Sync_Runner         !Sync_Runner!"
+	SET STATUS_6[%%a]="Another_Job         !Another_Job!"
+	SET STATUS_7[%%a]="Conflicts           !Unresolved_Conflicts!"
+	SET STATUS_8[%%a]="Computer_Is_Offline !Computer_Is_Offline!"
 
 	REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
@@ -555,6 +561,11 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO !sources[%%a]:"=!
+	ECHO !STATUS_4[%%a]:"=!
+	ECHO !STATUS_5[%%a]:"=!
+	ECHO !STATUS_6[%%a]:"=!
+	ECHO !STATUS_7[%%a]:"=!
+	ECHO !STATUS_8[%%a]:"=!
 )
 
 ECHO ----------------------------------------------------------------
