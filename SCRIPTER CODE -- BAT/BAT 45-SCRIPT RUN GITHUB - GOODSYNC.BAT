@@ -358,7 +358,7 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
 		ECHO ----------------------------------------------------------------
-ECHO Unresolved Conflicts At                  ---- X-X-X-X-X-X
+		ECHO Unresolved Conflicts At                  ---- X-X-X-X-X-X
 		ECHO !sources[%%a]:"=!
 		ECHO ----------------------------------------------------------------
 		SET STATUS_1[!X!]="Unresolved Conflicts At"
@@ -372,18 +372,30 @@ ECHO Unresolved Conflicts At                  ---- X-X-X-X-X-X
 		SET COMP_2="!LDA! of !LDA!"
 		REM ---- FOR THE DURING ONE
 		IF NOT "!COMP_1!"=="!COMP_2!" (
-ECHO NOT ERROR OVERALL YET                    ---- ********** 
+			ECHO NOT ERROR OVERALL YET                    ---- ********** 
 		)
 		REM ---- FOR THE LAST ONE
 		IF "!COMP_1!"=="!COMP_2!" (
-ECHO NOT ERROR OVERALL TOTALLY SUCCESSFUL     ---- ********** 
+			ECHO NOT ERROR OVERALL TOTALLY SUCCESSFUL     ---- ********** 
 		)
 	)
+
 	IF "!Sync_Runner_TOTAL!"=="FALSE" (
-ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER! ---- X X X X X X
-REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
+		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER! ---- X X X X X X
+		REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
+		ECHO ----------------------------------------------------------------
+		for /L %%a in (1,1,!X!) do (
+			ECHO !STATUS_1[%%a]:"=!
+			ECHO !STATUS_2[%%a]:"=!
+			REM ECHO.
+		)
 		TIMEOUT /T 2
 	)
+		for /L %%a in (1,1,!X!) do (
+			ECHO !STATUS_1[%%a]:"=!
+			ECHO !STATUS_2[%%a]:"=!
+			REM ECHO.
+		)
 	
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
@@ -400,7 +412,7 @@ REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
 
 if !X! EQU 0 (
 	ECHO ----------------------------------------------------------------
-ECHO NOT ATTENTION REQUIRED SUCCESSFUL        ---- ********** 
+	ECHO NOT ATTENTION REQUIRED SUCCESSFUL        ---- ********** 
 	ECHO ----------------------------------------------------------------
 	ECHO.
 )
@@ -408,7 +420,7 @@ ECHO NOT ATTENTION REQUIRED SUCCESSFUL        ---- **********
 
 if !X! GTR 0 (
 	ECHO ----------------------------------------------------------------
-ECHO ATTENTION REQUIRING NOT SUCCESSFUL       ---- X-X-X-X-X-X
+	ECHO ATTENTION REQUIRING NOT SUCCESSFUL       ---- X-X-X-X-X-X
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
@@ -448,8 +460,8 @@ ECHO ----------------------------------------------------------------
 
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
-ECHO END RUNNER                               ---- **********
-ECHO SYNC COMPLETE SUCCESSFUL                 ---- **********
+	ECHO END RUNNER                               ---- **********
+	ECHO SYNC COMPLETE SUCCESSFUL                 ---- **********
 	ECHO ----------------------------------------------------------------
 	TIMEOUT /T 30
 	ECHO ----------------------------------------------------------------
