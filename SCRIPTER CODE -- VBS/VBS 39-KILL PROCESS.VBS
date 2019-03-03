@@ -25,8 +25,6 @@ Next
 '--------------------------------------------------------------
 XF0 = UCASE(Replace(XF0,"""",""))
 
-MSGBOX XF0
-
 ' WSHShell.Run "CMD /K """ + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT" + """ , ShowWindow, DontWaitUntilFinished
 
 ' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT""" , ShowWindow, DontWaitUntilFinished

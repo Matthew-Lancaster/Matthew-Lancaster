@@ -90,6 +90,24 @@
 ; TO   TIME __ Mon 22-Oct-2018 12:15:00
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; 008 ---------------------------------------------------------------
+; -------------------------------------------------------------------
+; THE CODE _ HAS WORK IN BRUTE SHUT-DOWN MODE NOW
+; READ THE REAM STATEMENT LINE IN CODE
+; THERE WAS ERROR WHEN LAUNCHED CODE IS RUN AND SOMETHING TERMINATE THAT 
+; THEN ALSO THIS CODE HAS HANDLE ON IT AND TERMINATE ALSO
+; MAYBE THE SOLUTION
+; MAYBE NOT
+; THE IDEA BECAME CLEARER WHEN LOOK AT CODE
+; WAS SIMPLE TERMINATE ITSELF BEFORE RUN AGAIN AND THEN NOT ABLE 
+; SO A SECONDARY LAUNCHER MAKER _ COMPLETE
+; -------------------------------------------------------------------
+; FROM TIME __ Sat 02-Mar-2019 21:31:50   
+; TO   TIME __ Sat 02-Mar-2019 22:08:00
+; TO   TIME __ Sat 02-Mar-2019 23:38:00
+; -------------------------------------------------------------------
+
 ; CERTAINLY CONCERNED - PRO-CON PRO-CERNED PROCEED
 
 ;# ------------------------------------------------------------------
@@ -140,6 +158,13 @@ SoundBeep , 2000 , 100
 ;--------------------------------------------------------------------
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
+
+
+GLOBAL SIGNAL_TO_RESTART_HAPPEN
+GLOBAL I_COUNT
+
+SIGNAL_TO_RESTART_HAPPEN=FALSE
+I_COUNT=0
 
 
 GLOBAL VAR_A__TimeIdle
@@ -420,6 +445,16 @@ RUN_THE_APP:
 			SET_GO=FALSE
 	}
 
+	; ----------------------------------------------------------
+	; FOUND ANSWER LOOK AT CODE HERE
+	; REQUIRE SOME SORT OF HOT SWAP LAUNCHER FOR ITSELF OWN CODE
+	; ----------------------------------------------------------
+	if INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
+	{
+		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+		Process,Close,% DllCall("GetCurrentProcessId")
+	}
+	 
 	IF SET_GO=TRUE
 	{
 		WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
@@ -441,8 +476,9 @@ RETURN
 MenuHandler:
 	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
 	if A_ThisMenuItem=Terminate Script
+	{
 		Process,Close,% DllCall("GetCurrentProcessId")
-	
+	}
 	if A_ThisMenuItem=Terminate All AutoHotKey.exe
 	{
 		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
@@ -487,11 +523,12 @@ MenuHandler:
 return
 
 
+
+
 ;# ------------------------------------------------------------------
 ; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
 ;# ------------------------------------------------------------------
 
-;# ------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
 SETTIMER TIMER_PREVIOUS_INSTANCE,10000
 
@@ -500,9 +537,7 @@ if ScriptInstanceExist()
 	Exitapp
 }
 return
-; -------------------------------------------------------------------
 
-; -------------------------------------------------------------------
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
 	dhw := A_DetectHiddenWindows
@@ -512,38 +547,99 @@ ScriptInstanceExist() {
 	return (match > 1)
 	}
 Return
-; -------------------------------------------------------------------
 
-; -------------------------------------------------------------------
+;# ------------------------------------------------------------------
 EOF:                           ; on exit
 ExitApp     
-; -------------------------------------------------------------------
+;# ------------------------------------------------------------------
 
-; -------------------------------------------------------------------
+;# ------------------------------------------------------------------
 ExitFunc(ExitReason, ExitCode)
 {
+
     if ExitReason not in Logoff,Shutdown
     {
         ;MsgBox, 4, , Are you sure you want to exit?
         ;IfMsgBox, No
         ;    return 1  ; OnExit functions must return non-zero to prevent exit.
     }
-    ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
+
+    if ExitReason in Logoff,Shutdown
+    {
+		
+		SIGNAL_TO_RESTART_HAPPEN=TRUE
+	
+        ;MsgBox, 4, , Are you sure you want to exit?
+        ;IfMsgBox, No
+        ;    return 1  ; OnExit functions must return non-zero to prevent exit.
+		
+		
+		SoundBeep , 2000 , 100
+		SENDINPUT {ESC}
+		
+		SoundBeep , 2500 , 100
+		; KILL ITSELF
+		Process,Close,% DllCall("GetCurrentProcessId")
+
+		
+		;---------------------------------------------------------------------
+		; THE RETURN 1 IS STILL USED BUT THE APP CLOSES ITSELF 
+		; PROBABLY BECAUSE THE COUPLE OF PROGRAM ARE FOUND NOT TO EXIST
+		; BUT EVEN WITH A MSGBOX IN THE WAY IT STILL GET CLOSE
+		;---------------------------------------------------------------------
+		
+		; IF EXIT_APP_VAR=FALSE 
+			; {
+			; ; MSGBOX % EXIT_APP_VAR
+			; return 1
+			; }
+	}
+	
+	
+	; ---------------------------------------------------------------
+	; PROCESS SCRIPT HERE WILL ONLY CLOSE BY FORCE KILL _ DONE WITHIN
+	; ---------------------------------------------------------------
+	; WE USE THIS CODE HERE
+	; Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
+	; BECAUSE OF THE HIGH RATE OF THIS CODE CLOSING DOWN 
+	; ESPECIALLY ON WINDOWS-XP COMPUTER 
+	; AND MOST LIKELY REASON BECAUSE 
+	; THE RE-LAUNCHER MAYBE TERMINATING A SCRIPT PREVIOUSLY LOADED BY IT OWN
+	; SOME PROGRAM THE LAUNCH A SCRIPT DON'T LIKE IT WITH ANTHER SCRIPT IS PROCESS KILLED OFF
+	; AND THEN IT END ITSELF
+	; SO OUR CONQUERED THAT BUT ALLOW IT ONLY BRUTE SHUT-DOWN OF PROCESS
+	; NONE WAY TO EXIT ANY-MORE
+	; IT HELP WHEN WRITE CODE AND NETWORK IT OVER TO ANOTHER COMPUTER
+	; LIKE THE THEME IS TODAY
+	; WITH THE CODE STOP TOO MANY REPEAT LOT OF CODE WHILE AT FAULT NOT START UP PROPER
+	; OR FAULT WHILE GO
+	; THE TRAY MENU ITEM ARE THERE NOW TO EXIT
+	; ---------------------------------------------------------------
+
+	RETURN 1
+
+
+	
+	; Do not call ExitApp -- that would prevent other OnExit functions from being called.
 }
 
 class MyObject
 {
     Exiting()
     {
-        ;
-        ;MsgBox, MyObject is cleaning up prior to exiting...
+		; THIS ROUTINE WON'T GET CALLED UNLESS ExitFunc HAS RETURN CLEAR TO CLOSE PREVENT WITH RETURN 1
+		SoundBeep , 2500 , 100
+		SoundBeep , 3000 , 100
+		
+		; MsgBox, MyObject is cleaning up prior to exiting...
+
+		;MsgBox, MyObject is cleaning up prior to exiting...
         /*
         this.SayGoodbye()
         this.CloseNetworkConnections()
         */
     }
 }
-; -------------------------------------------------------------------
-; exit the app
-; -------------------------------------------------------------------
 
+; -----------------------------------------------------------------
+; exit the app

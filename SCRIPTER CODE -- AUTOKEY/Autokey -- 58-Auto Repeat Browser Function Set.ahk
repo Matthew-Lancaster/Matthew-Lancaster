@@ -173,17 +173,16 @@ IF OSVER_N_VAR=WIN_XP
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
-SET_GO=FALSE
+SET_GO=TRUE
 IF A_ComputerName=1-ASUS-X5DIJ
-	SET_GO=TRUE
+	SET_GO=FALSE
 IF A_ComputerName=2-ASUS-EEE
-	SET_GO=TRUE
+	SET_GO=FALSE
 
 ; 01 OF 04
 IF SET_GO=TRUE 
 {
 	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 1000
-	RETURN
 }
 
 AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
@@ -196,12 +195,14 @@ IF OSVER_N_VAR>5
 	SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,1000
 }
 
+RAIN_ALARM_DO_ONCE=FALSE
+
 SET_GO=TRUE
 IF A_ComputerName=2-ASUS-EEE
 	SET_GO=FALSE
 IF A_ComputerName=3-LINDA-PC
 	SET_GO=FALSE
-
+	
 ; 03 OF 04
 IF SET_GO=TRUE 
 {
@@ -472,6 +473,7 @@ RETURN
 
 AUTO_RELOAD_RAIN_ALARM:
 
+
 	IF A_ComputerName=2-ASUS-EEE
 	{
 		SETTIMER AUTO_RELOAD_RAIN_ALARM, OFF
@@ -499,8 +501,95 @@ AUTO_RELOAD_RAIN_ALARM:
 	IF A_ComputerName=4-ASUS-GL522VW
 		SET_GO=TRUE
 	
+	IF RAIN_ALARM_DO_ONCE=FALSE
+	{
+		RAIN_ALARM_DO_ONCE=TRUE
+		
+		; -----------------------------------------------------------
+		; BOTH SAME
+		; WINDOWS VB6 REPORT SPY AS 1ST ONE
+		; AHK SPY REPORT AS 2ND
+		; -----------------------------------------------------------
+		; TODAY DONE THE CORODINATE FOR HERE
+		; WinMove
+		; THAT TAKE INTO ACCOUNT THE WIN XP MY COMPUTER DOCKED TO LEFT SCREEN
+		; AND TASK BAR TRAY BAR AT BOTTOM OF SCREEN
+		; CENTER IT IN THERE
+		; [ Saturday 21:14:00 Pm_02 March 2019 ]
+		; SPEND 
+		; FROM ____ Sat 02-Mar-2019 19:42:43
+		; TO   ____ Sat 02-Mar-2019 21:14:02 _ 1 HALF HOUR
+		; WAS SOME OTHER MINOR BUG FIND NOT LOOKED OVER
+		; AND PLAY AROUND HERE WHILE CODE OPEN
+		; -----------------------------------------------------------
+		
+		WinGet, active_id, ID, ahk_class ReBarWindow321
+		if !active_id
+			WinGet, active_id, ID, ahk_class BaseBar
+		
+		if active_id
+		{
+			WinGetPos, X, Y, Width, Height, ahk_id %active_id%
+		}
+		
+		if Width>0 
+		{
+			; msgbox % x "x " y "y " width_2 "w " height
+			x=%Width%
+			x+=2
+			Width_2=%A_ScreenWidth%
+			Width_2-=%X%
+			Width_2-=5
+		}
+
+		if !Width
+		{
+			x=1
+			Width_2=%A_ScreenWidth%
+			Width_2-=%X%
+			Width_2-=5
+		}
+
+		WinGet, active_id, ID, ahk_class Shell_TrayWnd
+		if active_id
+		{
+			WinGetPos, , Y_4,, Height_4, ahk_id %active_id%
+		}
+
+		if Y_4>0 
+		{
+			Y_4-=4
+		}
+
+		if !Y_4
+		{
+			Y_4=%A_ScreenHeight%
+		}
+		Height_4=%Y_4%
+		Height_4-=12
+		
+		; (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+		
+		IfWinExist, Rain Alarm - Mozilla Firefox
+		{
+
+			XR_3=Rain Alarm - Mozilla Firefox
+			IF XR_3
+			{
+				WinActivate, %XR_3%
+				WinWaitActive, %XR_3%
+				SLEEP 400
+			}
+			
+			WinMove, %XR_3%, ,x, 4, Width_2, Height_4
+		}
+	}
+	
+	
+	
 	IF SET_GO=TRUE
 	{
+	
 		XR_3=
 		IfWinExist, Rain Alarm - Google Chrome
 			XR_3=Rain Alarm - Google Chrome

@@ -1,4 +1,4 @@
-;====================================================================
+	;====================================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk
 ;# __ 
 ;# __ Autokey -- 32-BRUTE BOOT DOWN.ahk
@@ -102,12 +102,13 @@ Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
 
 GLOBAL SIGNAL_TO_RESTART_HAPPEN
-GLOBAL ESCAPE_KEY_A_FEW
+GLOBAL I_COUNT
 
 SIGNAL_TO_RESTART_HAPPEN=FALSE
-ESCAPE_KEY_A_FEW=0
-
 I_COUNT=0
+
+GLOBAL ESCAPE_KEY_A_FEW
+ESCAPE_KEY_A_FEW=0
 
 SoundBeep , 2000 , 100
 SoundBeep , 2500 , 100
@@ -152,10 +153,17 @@ MAIN_RUNNER:
 		Process, Close, FileZilla Server Interface.exe
 		
 	}
-
+	
+	; ----------------------------------------------------
+	; IF SystemExplorer.exe              DOESN'T EXIST OR
+	; IF FileZilla Server Interface.exe  DOESN'T EXIST 
+	; THEN NOT ANY POINT BEING HERE AFTER A WHILE
+	; EXAMPLE LIKE BOOT UP
+	; ----------------------------------------------------
 	I_COUNT+=1
 	IF I_COUNT<480
 		SET_GO=FALSE
+
 
 	IF SET_GO=TRUE
 	{
