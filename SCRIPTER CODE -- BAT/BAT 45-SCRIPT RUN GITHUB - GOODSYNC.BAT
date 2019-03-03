@@ -385,17 +385,13 @@ for /L %%a in (1,1,!LDA!) do (
 		REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
 		ECHO ----------------------------------------------------------------
 		for /L %%a in (1,1,!X!) do (
+			ECHO !STATUS_3[%%a]:"=!
 			ECHO !STATUS_1[%%a]:"=!
 			ECHO !STATUS_2[%%a]:"=!
 			REM ECHO.
 		)
 		TIMEOUT /T 2
 	)
-		for /L %%a in (1,1,!X!) do (
-			ECHO !STATUS_1[%%a]:"=!
-			ECHO !STATUS_2[%%a]:"=!
-			REM ECHO.
-		)
 	
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
@@ -425,6 +421,7 @@ if !X! GTR 0 (
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
 		ECHO ----------------------------------------------------------------
+		ECHO !STATUS_3[%%a]:"=!
 		ECHO !STATUS_1[%%a]:"=!
 		ECHO !STATUS_2[%%a]:"=!
 		ECHO.
