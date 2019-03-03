@@ -1187,7 +1187,7 @@ IF SKIP_CODE=FALSE
 	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, WebStorage
 		
 
-	;IF SET_GO_1=1001
+	IF SET_GO_1=1001
 	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	{
 	Process, Exist, googledrivesync.exe
