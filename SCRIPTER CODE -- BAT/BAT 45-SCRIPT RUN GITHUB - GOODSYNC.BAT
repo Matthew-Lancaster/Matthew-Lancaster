@@ -349,6 +349,10 @@ for /L %%a in (1,1,!LDA!) do (
 
 	if "!Sync_Runner_TOTAL!"=="TRUE" (
 		ECHO NONE ERROR OVERALL YET
+		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !X!
+	)
+	if "!Sync_Runner_TOTAL!"=="FALSE" (
+		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !X!
 	)
 	
 	ECHO.	
@@ -364,7 +368,6 @@ for /L %%a in (1,1,!LDA!) do (
 @REM WEEK-DAY - WEAK-DAY
 @REM MONTH-DAY
 @REM ----------------------------------------------------------------
-ECHO !X!
 
 if !X! equ 0 (
 	ECHO ----------------------------------------------------------------
@@ -376,7 +379,7 @@ if !X! equ 0 (
 
 if !X! gtr 0 (
 	ECHO ----------------------------------------------------------------
-	ECHO ATTENTION REQUIRED 
+	ECHO ATTENTION REQUIRING
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
@@ -409,10 +412,10 @@ REM REM ---- 2 HOURING
 for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
-	ECHO ----------------------------------------------------------------
 	ECHO !sources[%%a]:"=!
-	ECHO ----------------------------------------------------------------
 )
+
+ECHO ----------------------------------------------------------------
 
 if "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
