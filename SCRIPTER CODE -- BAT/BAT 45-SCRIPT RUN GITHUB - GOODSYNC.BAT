@@ -395,18 +395,20 @@ if "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO END RUN IT
 	ECHO SYNC COMPLETE
 	ECHO ----------------------------------------------------------------
+	PAUSE
 	TIMEOUT /T 30
 	ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
 	ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
 	ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk !TITLE_VAR!
 	ECHO ----------------------------------------------------------------
-	PAUSE
 	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" !TITLE_VAR!
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
 
+ECHO END
+PAUSE
 
 @REM --- ECHO DE-STUPID-POO
 @REM --- ECHO 
