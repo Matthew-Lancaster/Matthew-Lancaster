@@ -145,13 +145,11 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
+
+	REM STRIP QUOTES THIS BIT BEFORE END :"=
+	REM NORMAL VAR BE LIKE !sources[%%a]!
 	
-	REM set J=!sources[%%a]:"=!
-	
-	REM ECHO !J!
-	ECHO !sources[%%a]!
-	
-	PAUSE
+	ECHO !sources[%%a]:"=!
 	
 	SET FILENAME_ER="%~dp0BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
 	SET FILENAME_ER_2="%~dp0BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT.TMP"
@@ -238,7 +236,7 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
-	ECHO !sources[%%a]!
+	ECHO !sources[%%a]:"=!
 	ECHO ----------------------------------------------------------------
 	ECHO Analysis_Complete   !Analysis_Complete!
 	ECHO Sync_Runner         !Sync_Runner!
@@ -291,7 +289,7 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO.
 		ECHO Computer_Is_Offline -- xxxxxxxxxx
 		ECHO.
-		ECHO !sources[%%a]!
+		ECHO !sources[%%a]:"=!
 		ECHO ----------------------------------------------------------------
 		ECHO ----------------------------------------------------------------
 		ECHO !X! of !LDA!
@@ -341,7 +339,7 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO !X! of !LDA!
 		ECHO ----------------------------------------------------------------
 		ECHO Unresolved Conflicts At
-		ECHO !sources[%%a]!
+		ECHO !sources[%%a]:"=!
 		ECHO ----------------------------------------------------------------
 		set STATUS_1[!X!]="Unresolved Conflicts At"
 		set STATUS_2[!X!]=!sources[%%a]!
@@ -375,8 +373,8 @@ if !X! gtr 0 @(
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
 		ECHO ----------------------------------------------------------------
-		ECHO !STATUS_1[%%a]!
-		ECHO !STATUS_2[%%a]!
+		ECHO !STATUS_1[%%a]:"=!
+		ECHO !STATUS_2[%%a]:"=!
 		ECHO.
 	)
 	ECHO ----------------------------------------------------------------
@@ -404,7 +402,7 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
-	ECHO !sources[%%a]!
+	ECHO !sources[%%a]:"=!
 	ECHO ----------------------------------------------------------------
 )
 
