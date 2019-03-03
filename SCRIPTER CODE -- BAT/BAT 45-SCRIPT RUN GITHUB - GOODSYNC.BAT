@@ -107,6 +107,9 @@ SETLOCAL EnableDelayedExpansion
 @echo off
 
 set sources[1]="C SCRIPTOR __ y _ 7G __ GITHUB"
+set sources[2]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
+set sources[3]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
+set sources[4]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
 
 @REM -- EXAMPLE ARRAY REM
 REM set sources[1]="C SCRIPTOR __ x _ 7G TO 1X"
