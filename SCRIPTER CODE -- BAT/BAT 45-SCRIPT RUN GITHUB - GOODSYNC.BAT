@@ -106,10 +106,22 @@ SETLOCAL EnableDelayedExpansion
 
 @echo off
 
-set sources[1]="C SCRIPTOR __ y _ 7G __ GITHUB"
-set sources[2]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
-set sources[3]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
-set sources[4]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
+@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+
+@SET LDA =0
+
+@SET /A LDA=LDA+1
+set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
+@SET /A LDA=LDA+1
+set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
+@SET /A LDA=LDA+1
+set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
+@SET /A LDA=LDA+1
+set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
+@SET /A LDA=LDA+1
+set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
+@SET /A LDA=LDA+1
+set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
 
 @REM -- EXAMPLE ARRAY REM
 REM set sources[1]="C SCRIPTOR __ x _ 7G TO 1X"
@@ -126,7 +138,7 @@ SETLOCAL EnableDelayedExpansion
 
 REM  for /L %%a in (1,1,7) do (
 
-for /L %%a in (1,1,4) do (
+for /L %%a in (1,1,!LDA!) do (
 
 	ECHO !sources[%%a]!
 	
@@ -202,6 +214,8 @@ for /L %%a in (1,1,4) do (
 	@ECHO OFF
 
 	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
 	ECHO Analysis_Complete   !Analysis_Complete!
 	ECHO Sync_Runner         !Sync_Runner!
@@ -318,6 +332,8 @@ if !X! gtr 0 @(
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
+		ECHO %%a of !LDA!
+		ECHO ----------------------------------------------------------------
 		ECHO !STATUS_1[%%a]!
 		ECHO !STATUS_2[%%a]!
 		ECHO.
