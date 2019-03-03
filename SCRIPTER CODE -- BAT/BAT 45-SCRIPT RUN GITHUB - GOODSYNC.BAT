@@ -387,7 +387,7 @@ REM TIMEOUT /T 7200
 REM REM ---- 2 HOURING
 
 
-if "!Sync_Runner_TOTAL!%"=="TRUE" (
+if "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO END RUN IT
 	ECHO SYNC COMPLETE
