@@ -484,7 +484,7 @@ for /L %%a in (1,1,!LDA!) do (
 		SET STATUS_2[!X!]=!sources[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
 		for /L %%a in (1,1,!X!) do (
-			ECHO !STATUS_3[%%a]:"=! && 	ECHO !STATUS_1[%%a]:"=! && 	ECHO !STATUS_2[%%a]:"=!
+			ECHO !STATUS_3[%%a]:"=! & ECHO !STATUS_1[%%a]:"=! &	ECHO !STATUS_2[%%a]:"=!
 			REM ECHO.
 		)
 		ECHO ----------------------------------------------------------------
