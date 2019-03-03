@@ -28,6 +28,15 @@
 @REM ----------------------------------------------------------------
 
 @REM ----------------------------------------------------------------
+@REM -- 002 SESSION
+@REM -- TIDY UP IMPROVER PRESENTATION AND IRON OUT BUG WHATEVER
+@REM ----------------------------------------------------------------
+@REM __ FROM  Sun 03-Mar-2019 07:30:18
+@REM __ TO    Sun 03-Mar-2019 09:38:00 ---- 2 HOUR
+@REM ----------------------------------------------------------------
+
+
+@REM ----------------------------------------------------------------
 @REM -- Located in Sync Location 1.. 2..
 @REM ----------------------------------------------------------------
 @REM -- 1..
@@ -148,6 +157,7 @@ for /L %%a in (1,1,!LDA!) do (
 
 	REM STRIP QUOTES THIS BIT BEFORE END :"=
 	REM NORMAL VAR BE LIKE !sources[%%a]!
+	REM CREDIT FINDER AT END OF CODE 
 	
 	ECHO !sources[%%a]:"=!
 	
@@ -350,7 +360,7 @@ for /L %%a in (1,1,!LDA!) do (
 	if "!Sync_Runner_TOTAL!"=="TRUE" (
 		SET COMP_1="%%a of !LDA!"
 		SET COMP_2="!LDA! of !LDA!"
-		IF "!COMP_1!"=="!COMP_2!"     ECHO NONE ERROR OVERALL TOTALLY SUCCESS
+		IF "!COMP_1!"=="!COMP_2!"     ECHO NONE ERROR OVERALL TOTALLY SUCCESSFUL
 		IF NOT "!COMP_1!"=="!COMP_2!" ECHO NONE ERROR OVERALL YET
 	)
 	if "!Sync_Runner_TOTAL!"=="FALSE" (
@@ -434,7 +444,7 @@ if "!Sync_Runner_TOTAL!"=="TRUE" (
 	REM 300 = 5 MINUTE
 )
 
-PAUSE
+REM PAUSE
 
 @REM --- ECHO DE-STUPID-POO
 @REM --- ECHO 
@@ -469,3 +479,15 @@ EXIT
 @REM @echo off
 @REM >%~dp0GOODSYNC_ER_OUTPUT.TXT (for /F "tokens=1* delims=:" %%G in ('findstr "^" "Sync: Running:"') do echo %%G = "%%H")
 
+
+REM -----------------------------------------------------------------
+REM CREDIT FIND BUT ONLY HELP TO LOCATE IN OWN CODE
+REM ----
+REM BATCH STRIP %~0 - Google Search
+REM https://www.google.com/search?safe=active&ei=YZt7XJTWAdme1fAPo52CmA0&q=BATCH+STRIP+%25%7E0&oq=BATCH+STRIP+%25%7E0&gs_l=psy-ab.3...7068.8831..9110...0.0..0.65.340.6......0....1..gws-wiz.......0i71j0i8i7i30.X6lNLPYEc7I
+REM ----
+REM ----
+REM How do you strip quotes out of an ECHO'ed string in a Windows batch file? - Stack Overflow
+REM https://stackoverflow.com/questions/804646/how-do-you-strip-quotes-out-of-an-echoed-string-in-a-windows-batch-file
+REM ----
+REM -----------------------------------------------------------------
