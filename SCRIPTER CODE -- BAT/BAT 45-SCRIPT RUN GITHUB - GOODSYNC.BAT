@@ -237,7 +237,7 @@ for /L %%a in (1,1,!LDA!) do (
 
 					PAUSE
 					ECHO !X!
-					ECHO !STATUS_3[!X!]!
+					ECHO !STATUS_3[%X]!
 					
 					PAUSE
 					
