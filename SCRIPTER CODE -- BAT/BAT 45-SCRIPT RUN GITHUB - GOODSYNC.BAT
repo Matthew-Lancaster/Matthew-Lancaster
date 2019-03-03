@@ -248,13 +248,12 @@ for /L %%a in (1,1,!LDA!) do (
 	IF "!Computer_Is_Offline!"=="FALSE" (
 		if "!Analysis_Complete!"=="FALSE" (
 			if "!Another_Job!"=="FALSE" (
+				set /a "x+=1"
 				ECHO ----------------------------------------------------------------
 				ECHO ANALYSIS ^& SYNC NOT RUN
 				ECHO.
 				ECHO NOT SURE WHY -- xxxxxxxxxx
-				ECHO -------
-				---------------------------------------------------------
-				set /a "x+=1"
+				ECHO ----------------------------------------------------------------
 				ECHO ----------------------------------------------------------------
 				ECHO !X! of !LDA!
 				ECHO ----------------------------------------------------------------
@@ -264,12 +263,12 @@ for /L %%a in (1,1,!LDA!) do (
 
 			)
 			if "!Another_Job!"=="TRUE" (
+				set /a "x+=1"
 				ECHO ----------------------------------------------------------------
 				ECHO ANALYSIS ^& SYNC NOT RUN
 				ECHO.
 				ECHO ANOTHER JOB IS RUNNING -- ********** 
 				ECHO ----------------------------------------------------------------
-				set /a "x+=1"
 				ECHO ----------------------------------------------------------------
 				ECHO !X! of !LDA!
 				set STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
@@ -280,6 +279,7 @@ for /L %%a in (1,1,!LDA!) do (
 	)
 	
 	IF "!Computer_Is_Offline!"=="TRUE" (
+		set /a "x+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO ANALYSIS ^& SYNC NOT RUN
 		ECHO.
@@ -287,7 +287,6 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO.
 		ECHO !sources[%%a]!
 		ECHO ----------------------------------------------------------------
-		set /a "x+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO !X! of !LDA!
 		set STATUS_1[!X!]="Computer_Is_Offline"
@@ -331,13 +330,13 @@ for /L %%a in (1,1,!LDA!) do (
 	)
 	
 	if "!Unresolved_Conflicts!"=="TRUE" (
+		set /a "x+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO !X! of !LDA!
 		ECHO ----------------------------------------------------------------
 		ECHO Unresolved Conflicts At
 		ECHO !sources[%%a]!
 		ECHO ----------------------------------------------------------------
-		set /a "x+=1"
 		set STATUS_1[!X!]="Unresolved Conflicts At"
 		set STATUS_2[!X!]=!sources[%%a]!
 		set STATUS_3[!X!]=%%a of !LDA!
@@ -351,7 +350,6 @@ for /L %%a in (1,1,!LDA!) do (
 
 )
 
-PAUSE
 
 @REM ----------------------------------------------------------------
 @REM FALSE FALL FOOLE - STUNT MAN - FALL GUY - SCRIPTING GUY - HEY GUYS
