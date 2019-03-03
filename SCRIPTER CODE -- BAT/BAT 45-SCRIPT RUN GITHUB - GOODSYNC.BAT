@@ -480,10 +480,7 @@ for /L %%a in (1,1,!LDA!) do (
 	IF "!Unresolved_Conflicts!"=="TRUE" (
 		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
-		ECHO %%a of !LDA!
-		ECHO ----------------------------------------------------------------
-		ECHO Unresolved Conflicts At                  ---- X-X-X-X-X-X
-		SET STATUS_1[!X!]="Unresolved Conflicts At"
+		SET STATUS_1[!X!]="Unresolved Conflicts At                  ---- X-X-X-X-X-X"
 		SET STATUS_2[!X!]=!sources[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
 		for /L %%a in (1,1,!X!) do (
@@ -493,7 +490,7 @@ for /L %%a in (1,1,!LDA!) do (
 			REM ECHO.
 		)
 		ECHO ----------------------------------------------------------------
-		TIMEOUT /T 5
+		REM TIMEOUT /T 5
 	)
 
 	IF "!Sync_Runner_TOTAL!"=="TRUE" (
