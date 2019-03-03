@@ -346,7 +346,7 @@ if !X! gtr 0 @(
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
 		PAUSE
-		REM ECHO !STATUS_3[%%a]!
+		ECHO !STATUS_2[%%a]!
 		ECHO ----------------------------------------------------------------
 		ECHO !STATUS_1[%%a]!
 		ECHO !STATUS_2[%%a]!
