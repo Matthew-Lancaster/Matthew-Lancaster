@@ -350,14 +350,13 @@ for /L %%a in (1,1,!LDA!) do (
 	if "!Sync_Runner_TOTAL!"=="TRUE" (
 		SET COMP_1="%%a of !LDA!"
 		SET COMP_2="!LDA! of !LDA!"
-		IF "!COMP_1!"=="!COMP_2!"     ECHO NONE ERROR OVERALL TOTAL-ER
+		IF "!COMP_1!"=="!COMP_2!"     ECHO NONE ERROR OVERALL TOTALLY SUCCESS
 		IF NOT "!COMP_1!"=="!COMP_2!" ECHO NONE ERROR OVERALL YET
 	)
 	if "!Sync_Runner_TOTAL!"=="FALSE" (
 		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !X!
 	)
 	
-	ECHO.	
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	ECHO.	
