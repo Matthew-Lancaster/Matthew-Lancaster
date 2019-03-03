@@ -242,6 +242,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				set STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
 				set STATUS_2[!X!]=!sources[%%a]!
+				set STATUS_3[!X!]=%%a of !LDA!
 
 			)
 			if "!Another_Job!"=="TRUE" (
@@ -255,6 +256,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO !X! of !LDA!
 				set STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
 				set STATUS_2[!X!]=!sources[%%a]!
+				set STATUS_3[!X!]=%%a of !LDA!
 			)
 		)
 	)
@@ -272,6 +274,7 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO !X! of !LDA!
 		set STATUS_1[!X!]="Computer_Is_Offline"
 		set STATUS_2[!X!]=!sources[%%a]!
+		set STATUS_3[!X!]=%%a of !LDA!
 		REM TIMEOUT /T 10
 	)
 
@@ -319,6 +322,7 @@ for /L %%a in (1,1,!LDA!) do (
 		set /a "x+=1"
 		set STATUS_1[!X!]="Unresolved Conflicts At"
 		set STATUS_2[!X!]=!sources[%%a]!
+		set STATUS_3[!X!]=%%a of !LDA!
 		TIMEOUT /T 40
 	)
 	
@@ -341,7 +345,7 @@ if !X! gtr 0 @(
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
-		ECHO %%a of !LDA!
+		ECHO !STATUS_3[%%a]!
 		ECHO ----------------------------------------------------------------
 		ECHO !STATUS_1[%%a]!
 		ECHO !STATUS_2[%%a]!
