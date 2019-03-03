@@ -356,6 +356,7 @@ for /L %%a in (1,1,!LDA!) do (
 @REM WEEK-DAY - WEAK-DAY
 @REM MONTH-DAY
 @REM ----------------------------------------------------------------
+ECHO !X!
 
 if !X! gtr 0 @(
 	ECHO ----------------------------------------------------------------
@@ -373,8 +374,7 @@ if !X! gtr 0 @(
 )
 
 
-PAUSE
-		REM -------------- ECHO !STATUS_3[%%a]!
+REM -------------- ECHO !STATUS_3[%%a]!
 
 
 REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
@@ -395,7 +395,6 @@ if "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO END RUN IT
 	ECHO SYNC COMPLETE
 	ECHO ----------------------------------------------------------------
-	PAUSE
 	TIMEOUT /T 30
 	ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
@@ -407,7 +406,6 @@ if "!Sync_Runner_TOTAL!"=="TRUE" (
 	REM 300 = 5 MINUTE
 )
 
-ECHO END
 PAUSE
 
 @REM --- ECHO DE-STUPID-POO
