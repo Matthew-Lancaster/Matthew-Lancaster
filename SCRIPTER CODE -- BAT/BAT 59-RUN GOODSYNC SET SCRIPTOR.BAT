@@ -121,13 +121,11 @@ SETLOCAL EnableDelayedExpansion
 
 ECHO !TITLE_VAR! | FIND "BAT 59-RUN GOODSYNC SET SCRIPTOR" 
 @if !errorlevel!==0 (
-	SET TITLE_VAR=GOOD_OLE_GOODSYNC_RUNNER_SCRIPT_FOLDER
 	SET MODE_RUN=GOODSYNC
 	@CD /D "C:\SCRIPTER"
 )
 ECHO !TITLE_VAR! | FIND "BAT 45-SCRIPT RUN GITHUB - GOODSYNC" 
 @if !errorlevel!==0 (
-	SET TITLE_VAR=GITHUB_RUNNNER__AND_GOODSYNC
 	SET MODE_RUN=GITHUB
 	@CD /D "C:\SCRIPTOR GITHUB"
 )
@@ -163,7 +161,7 @@ SET FILENAME_ER_4="%~n0_GOODSYNC_OUTPUT.TXT"
 SET LDA=0
 
 IF !MODE_RUN!==GOODSYNC GOTO GOODSYNC_SET_ARRRAY
-IF !MODE_RUN!==GITHUB   GOTO GITHUB_SET_ARRRAY
+IF !MODE_RUN!==GITHUB   GOTO GITHUB___SET_ARRRAY
 
 ECHO MUST BE AN ERROR ESCAPE FROM RUN PRESS CLOSE WINDOW -- CONTROL C
 PAUSE
@@ -247,7 +245,7 @@ REM SET Sources[!LDA!]=""
 
 GOTO NEXT_CONTINUE
 
-:GITHUB_SET_ARRRAY
+:GITHUB___SET_ARRRAY
 @SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
 @SET /A LDA=LDA+1
@@ -365,9 +363,9 @@ for /L %%a in (1,1,!LDA!) do (
 	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
 	
-	SET FAULT_FLAG="FALSE"
-	IF "!Sync_Runner_TOTAL!"=="FALSE"  SET FAULT_FLAG="TRUE"
-	IF "!FAULT_FLAG!"=="TRUE"          SET /A "FAULT_COUNTER+=1"
+	SET FAULT_FLAG=FALSE
+	IF !Sync_Runner_ONE!==FALSE"  SET FAULT_FLAG=TRUE
+	IF !FAULT_FLAG!==TRUE        SET /A "FAULT_COUNTER+=1"
 	
 	@REM PROBLEM OF CONFLICT OF THIS FILE
 	@REM ONLY WAY NOW IS TO EXCLUDE IN GOODSYNC	
@@ -481,11 +479,15 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO %%a of !LDA!
 		ECHO ----------------------------------------------------------------
 		ECHO Unresolved Conflicts At                  ---- X-X-X-X-X-X
-		ECHO !sources[%%a]:"=!
-		ECHO ----------------------------------------------------------------
 		SET STATUS_1[!X!]="Unresolved Conflicts At"
 		SET STATUS_2[!X!]=!sources[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
+		for /L %%a in (1,1,!X!) do (
+			ECHO !STATUS_3[%%a]:"=!
+			ECHO !STATUS_1[%%a]:"=!
+			ECHO !STATUS_2[%%a]:"=!
+		)
+		ECHO ----------------------------------------------------------------
 		TIMEOUT /T 5
 	)
 

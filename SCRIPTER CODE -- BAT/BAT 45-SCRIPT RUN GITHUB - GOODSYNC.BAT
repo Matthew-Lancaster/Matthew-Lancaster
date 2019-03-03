@@ -123,8 +123,6 @@ REM ---- FILENAME WITH   EXTENSION
 
 @TITLE !TITLE_VAR!
 
-PAUSE
-
 ECHO !TITLE_VAR! | FIND "BAT 59-RUN GOODSYNC SET SCRIPTOR" 
 @if !errorlevel!==0 (
 	SET MODE_RUN=GOODSYNC
@@ -485,11 +483,16 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO %%a of !LDA!
 		ECHO ----------------------------------------------------------------
 		ECHO Unresolved Conflicts At                  ---- X-X-X-X-X-X
-		ECHO !sources[%%a]:"=!
-		ECHO ----------------------------------------------------------------
 		SET STATUS_1[!X!]="Unresolved Conflicts At"
 		SET STATUS_2[!X!]=!sources[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
+		for /L %%a in (1,1,!X!) do (
+			ECHO !STATUS_3[%%a]:"=!
+			ECHO !STATUS_1[%%a]:"=!
+			ECHO !STATUS_2[%%a]:"=!
+			REM ECHO.
+		)
+		ECHO ----------------------------------------------------------------
 		TIMEOUT /T 5
 	)
 
