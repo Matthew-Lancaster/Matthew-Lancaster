@@ -135,6 +135,7 @@ REM set sources[7]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
 set "x=0"
 
 SETLOCAL EnableDelayedExpansion
+SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 
 REM  for /L %%a in (1,1,7) do (
 
@@ -221,6 +222,7 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
 	ECHO !sources[%%a]!
+	ECHO ----------------------------------------------------------------
 	ECHO Analysis_Complete   !Analysis_Complete!
 	ECHO Sync_Runner         !Sync_Runner!
 	ECHO Another_Job         !Another_Job!
