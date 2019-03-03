@@ -120,31 +120,31 @@ SETLOCAL EnableDelayedExpansion
 @SET LDA =0
 
 @SET /A LDA=LDA+1
-set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
 @SET /A LDA=LDA+1
-set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT"
 @SET /A LDA=LDA+1
-set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
 @SET /A LDA=LDA+1
-set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
 @SET /A LDA=LDA+1
-set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
 @SET /A LDA=LDA+1
-set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
 @SET /A LDA=LDA+1
-set sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
 
 @REM -- EXAMPLE ARRAY REM
-REM set sources[1]="C SCRIPTOR __ x _ 7G TO 1X"
-REM set sources[2]="C SCRIPTOR __ x _ 7G TO 2E"
-REM set sources[3]="C SCRIPTOR __ x _ 7G TO 3L"
-REM set sources[4]="C SCRIPTOR __ x _ 7G TO 4G_ GSD"
-REM set sources[5]="C SCRIPTOR __ x _ 7G TO 5P"
-REM set sources[6]="C SCRIPTOR __ x _ 7G TO 3L"
-REM set sources[7]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
+REM SET Sources[1]="C SCRIPTOR __ x _ 7G TO 1X"
+REM SET Sources[2]="C SCRIPTOR __ x _ 7G TO 2E"
+REM SET Sources[3]="C SCRIPTOR __ x _ 7G TO 3L"
+REM SET Sources[4]="C SCRIPTOR __ x _ 7G TO 4G_ GSD"
+REM SET Sources[5]="C SCRIPTOR __ x _ 7G TO 5P"
+REM SET Sources[6]="C SCRIPTOR __ x _ 7G TO 3L"
+REM SET Sources[7]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
 
-set "x=0"
-
+set "X=0"
+SET "FAULT_COUNTER=0"
 SETLOCAL EnableDelayedExpansion
 SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 
@@ -261,10 +261,18 @@ for /L %%a in (1,1,!LDA!) do (
 	
 	REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
+	SET FAULT_FLAG="FALSE"
+	IF "!Another_Job!"=="TRUE"           SET FAULT_FLAG="TRUE"
+	IF "!Unresolved_Conflicts!"=="TRUE"  SET FAULT_FLAG="TRUE"
+	IF "!Computer_Is_Offline!"=="TRUE"   SET FAULT_FLAG="TRUE"
+
+	IF "!FAULT_FLAG!"=="TRUE"            SET /A "FAULT_COUNTER+=1"
+	
+	
 	IF "!Computer_Is_Offline!"=="FALSE" (
-		if "!Analysis_Complete!"=="FALSE" (
-			if "!Another_Job!"=="FALSE" (
-				set /a "x+=1"
+		IF "!Analysis_Complete!"=="FALSE" (
+			IF "!Another_Job!"=="FALSE" (
+				SET /A "X+=1"
 				ECHO ----------------------------------------------------------------
 				ECHO ANALYSIS ^& SYNC NOT RUN
 				ECHO.
@@ -273,13 +281,13 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
 				ECHO ----------------------------------------------------------------
-				set STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
-				set STATUS_2[!X!]=!sources[%%a]!
-				set STATUS_3[!X!]=%%a of !LDA!
+				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
+				SET STATUS_2[!X!]=!sources[%%a]!
+				SET STATUS_3[!X!]=%%a of !LDA!
 
 			)
-			if "!Another_Job!"=="TRUE" (
-				set /a "x+=1"
+			IF "!Another_Job!"=="TRUE" (
+				SET /A "X+=1"
 				ECHO ----------------------------------------------------------------
 				ECHO ANALYSIS ^& SYNC NOT RUN
 				ECHO.
@@ -287,15 +295,15 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
-				set STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
-				set STATUS_2[!X!]=!sources[%%a]!
-				set STATUS_3[!X!]=%%a of !LDA!
+				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
+				SET STATUS_2[!X!]=!sources[%%a]!
+				SET STATUS_3[!X!]=%%a of !LDA!
 			)
 		)
 	)
 	
 	IF "!Computer_Is_Offline!"=="TRUE" (
-		set /a "x+=1"
+		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO ANALYSIS ^& SYNC NOT RUN
 		ECHO.
@@ -305,32 +313,32 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO ----------------------------------------------------------------
 		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
-		set STATUS_1[!X!]="Computer_Is_Offline"
-		set STATUS_2[!X!]=!sources[%%a]!
-		set STATUS_3[!X!]=%%a of !LDA!
+		SET STATUS_1[!X!]="Computer_Is_Offline"
+		SET STATUS_2[!X!]=!sources[%%a]!
+		SET STATUS_3[!X!]=%%a of !LDA!
 		REM TIMEOUT /T 10
 	)
 
-	if "!Analysis_Complete!"=="TRUE" (
-		if "!Sync_Runner!"=="FALSE" (
+	IF "!Analysis_Complete!"=="TRUE" (
+		IF "!Sync_Runner!"=="FALSE" (
 			ECHO ----------------------------------------------------------------
 			ECHO ANALYSIS RUN BUT NOT SYNC
-			if "!Unresolved_Conflicts!"=="FALSE" (
-				ECHO POSSIBLE REASON __ NONE CHANGE HAPPEN
+			IF "!Unresolved_Conflicts!"=="FALSE" (
+				ECHO POSSIBLE BECAUSE __ NONE CHANGE HAPPEN
 			)
-			if "!Unresolved_Conflicts!"=="TRUE" (
-				ECHO POSSIBLE REASON __ NONE CHANGE HAPPEN -- BUT -- CONFLICTS ARE FOUND
+			IF "!Unresolved_Conflicts!"=="TRUE" (
+				ECHO POSSIBLE BECAUSE __ NONE CHANGE HAPPEN -- BUT -- CONFLICTS ARE FOUND
 			)
 			ECHO.
 			ECHO ----------------------------------------------------------------
-			if "!Unresolved_Conflicts!"=="FALSE" (
+			IF "!Unresolved_Conflicts!"=="FALSE" (
 				REM TIMEOUT /T 4
 			)
 		)
 	)
 
-	if "!Sync_Runner!"=="TRUE" (
-		if "!Unresolved_Conflicts!"=="FALSE" (
+	IF "!Sync_Runner!"=="TRUE" (
+		IF "!Unresolved_Conflicts!"=="FALSE" (
 			ECHO ----------------------------------------------------------------
 			ECHO SYNC COMPLETE
 			ECHO ----------------------------------------------------------------
@@ -345,28 +353,29 @@ for /L %%a in (1,1,!LDA!) do (
 		)
 	)
 	
-	if "!Unresolved_Conflicts!"=="TRUE" (
-		set /a "x+=1"
+	IF "!Unresolved_Conflicts!"=="TRUE" (
+		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
 		ECHO ----------------------------------------------------------------
-		ECHO Unresolved Conflicts At
+		ECHO Unresolved Conflicts At ---- XXXXXXXXXX
 		ECHO !sources[%%a]:"=!
 		ECHO ----------------------------------------------------------------
-		set STATUS_1[!X!]="Unresolved Conflicts At"
-		set STATUS_2[!X!]=!sources[%%a]!
-		set STATUS_3[!X!]=%%a of !LDA!
-		TIMEOUT /T 40
+		SET STATUS_1[!X!]="Unresolved Conflicts At"
+		SET STATUS_2[!X!]=!sources[%%a]!
+		SET STATUS_3[!X!]=%%a of !LDA!
+		TIMEOUT /T 5
 	)
 
-	if "!Sync_Runner_TOTAL!"=="TRUE" (
+	IF "!Sync_Runner_TOTAL!"=="TRUE" (
 		SET COMP_1="%%a of !LDA!"
 		SET COMP_2="!LDA! of !LDA!"
-		IF "!COMP_1!"=="!COMP_2!"     ECHO NONE ERROR OVERALL TOTALLY SUCCESSFUL
-		IF NOT "!COMP_1!"=="!COMP_2!" ECHO NONE ERROR OVERALL YET
+		IF "!COMP_1!"=="!COMP_2!"     ECHO NOT ERROR OVERALL TOTALLY SUCCESSFUL ********** 
+		IF NOT "!COMP_1!"=="!COMP_2!" ECHO NOT ERROR OVERALL YET                XXXXXXXXXX
 	)
-	if "!Sync_Runner_TOTAL!"=="FALSE" (
-		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !X!
+	IF "!Sync_Runner_TOTAL!"=="FALSE" (
+		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER!
+		TIMEOUT /T 2
 	)
 	
 	ECHO ----------------------------------------------------------------
@@ -382,7 +391,7 @@ for /L %%a in (1,1,!LDA!) do (
 @REM MONTH-DAY
 @REM ----------------------------------------------------------------
 
-if !X! equ 0 (
+if !X! EQU 0 (
 	ECHO ----------------------------------------------------------------
 	ECHO NONE ATTENTION REQUIRED SUCCESSFUL
 	ECHO ----------------------------------------------------------------
@@ -390,7 +399,7 @@ if !X! equ 0 (
 )
 
 
-if !X! gtr 0 (
+if !X! GTR 0 (
 	ECHO ----------------------------------------------------------------
 	ECHO ATTENTION REQUIRING
 	ECHO ----------------------------------------------------------------
@@ -430,7 +439,7 @@ for /L %%a in (1,1,!LDA!) do (
 
 ECHO ----------------------------------------------------------------
 
-if "!Sync_Runner_TOTAL!"=="TRUE" (
+IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO END RUNNER
 	ECHO SYNC COMPLETE SUCCESSFUL
