@@ -363,7 +363,6 @@ if !X! gtr 0 @(
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
-		ECHO !STATUS_3[%%a]!
 		ECHO ----------------------------------------------------------------
 		ECHO !STATUS_1[%%a]!
 		ECHO !STATUS_2[%%a]!
@@ -372,6 +371,10 @@ if !X! gtr 0 @(
 	ECHO ----------------------------------------------------------------
 	TIMEOUT /T 80
 )
+
+
+PAUSE
+		ECHO !STATUS_3[%%a]!
 
 
 REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
@@ -387,7 +390,7 @@ REM TIMEOUT /T 7200
 REM REM ---- 2 HOURING
 
 
-if "!Sync_Runner_TOTAL!"=="TRUE" (
+if "%Sync_Runner_TOTAL%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO END RUN IT
 	ECHO SYNC COMPLETE
