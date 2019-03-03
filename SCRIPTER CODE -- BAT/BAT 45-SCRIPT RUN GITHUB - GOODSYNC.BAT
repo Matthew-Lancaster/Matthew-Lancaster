@@ -480,8 +480,10 @@ for /L %%a in (1,1,!LDA!) do (
 	IF "!Unresolved_Conflicts!"=="TRUE" (
 		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
-		ECHO Unresolved Conflicts At                  ---- X-X-X-X-X-X
-		SET STATUS_1[!X!]="Unresolved Conflicts At                  ---- X-X-X-X-X-X"
+		ECHO Unresolved Conflicts At
+		ECHO %%a of !LDA!
+		ECHO !sources[%%a]!
+		SET STATUS_1[!X!]="Unresolved Conflicts"
 		SET STATUS_2[!X!]=!sources[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
 		ECHO ----------------------------------------------------------------
