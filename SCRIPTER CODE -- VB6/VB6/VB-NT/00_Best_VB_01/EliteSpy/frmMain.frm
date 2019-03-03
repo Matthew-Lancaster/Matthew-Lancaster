@@ -26,7 +26,7 @@ Begin VB.Form frmMain
       Height          =   456
       Left            =   11124
       Sorted          =   -1  'True
-      TabIndex        =   128
+      TabIndex        =   126
       Top             =   1200
       Visible         =   0   'False
       Width           =   288
@@ -37,7 +37,7 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   1296
       Locked          =   -1  'True
-      TabIndex        =   125
+      TabIndex        =   123
       Top             =   504
       Width           =   1044
    End
@@ -54,7 +54,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   924
       Left            =   1128
-      TabIndex        =   124
+      TabIndex        =   122
       Top             =   5844
       Width           =   948
    End
@@ -64,7 +64,7 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   2364
       Locked          =   -1  'True
-      TabIndex        =   122
+      TabIndex        =   120
       Top             =   2088
       Width           =   924
    End
@@ -74,7 +74,7 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   2364
       Locked          =   -1  'True
-      TabIndex        =   121
+      TabIndex        =   119
       Top             =   768
       Width           =   924
    End
@@ -96,7 +96,7 @@ Begin VB.Form frmMain
       Picture         =   "frmMain.frx":0442
       ScaleHeight     =   384
       ScaleWidth      =   384
-      TabIndex        =   119
+      TabIndex        =   117
       Top             =   372
       Width           =   384
    End
@@ -108,7 +108,7 @@ Begin VB.Form frmMain
    Begin ComctlLib.ListView lstProcess_3_SORTER_ListView 
       Height          =   1332
       Left            =   13956
-      TabIndex        =   118
+      TabIndex        =   116
       Top             =   924
       Width           =   2004
       _ExtentX        =   3535
@@ -126,8 +126,8 @@ Begin VB.Form frmMain
    Begin ComctlLib.ListView lstProcess_2_ListView 
       Height          =   1332
       Left            =   11844
-      TabIndex        =   117
-      Top             =   936
+      TabIndex        =   115
+      Top             =   924
       Width           =   2004
       _ExtentX        =   3535
       _ExtentY        =   2350
@@ -154,7 +154,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   372
       Left            =   2676
-      TabIndex        =   115
+      TabIndex        =   113
       Top             =   5460
       Width           =   1320
    End
@@ -171,7 +171,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   48
-      TabIndex        =   114
+      TabIndex        =   112
       Top             =   5844
       Width           =   1068
    End
@@ -188,7 +188,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   48
-      TabIndex        =   113
+      TabIndex        =   111
       Top             =   6156
       Width           =   1068
    End
@@ -205,7 +205,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   48
-      TabIndex        =   112
+      TabIndex        =   110
       Top             =   6456
       Width           =   1068
    End
@@ -222,7 +222,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   2088
-      TabIndex        =   111
+      TabIndex        =   109
       Top             =   5844
       Width           =   1068
    End
@@ -239,7 +239,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   2088
-      TabIndex        =   110
+      TabIndex        =   108
       Top             =   6156
       Width           =   1068
    End
@@ -256,7 +256,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   2088
-      TabIndex        =   109
+      TabIndex        =   107
       Top             =   6456
       Width           =   1068
    End
@@ -273,7 +273,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   3168
-      TabIndex        =   108
+      TabIndex        =   106
       Top             =   5844
       Width           =   1068
    End
@@ -290,7 +290,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   3168
-      TabIndex        =   107
+      TabIndex        =   105
       Top             =   6156
       Width           =   1068
    End
@@ -307,7 +307,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   3168
-      TabIndex        =   106
+      TabIndex        =   104
       Top             =   6456
       Width           =   1068
    End
@@ -324,7 +324,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   4248
-      TabIndex        =   105
+      TabIndex        =   103
       Top             =   5844
       Width           =   1104
    End
@@ -341,7 +341,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   4248
-      TabIndex        =   104
+      TabIndex        =   102
       Top             =   6156
       Width           =   1104
    End
@@ -358,7 +358,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   315
       Left            =   4248
-      TabIndex        =   103
+      TabIndex        =   101
       Top             =   6456
       Width           =   1104
    End
@@ -377,7 +377,7 @@ Begin VB.Form frmMain
       Height          =   216
       Left            =   8148
       Locked          =   -1  'True
-      TabIndex        =   100
+      TabIndex        =   98
       Top             =   6864
       Width           =   2688
    End
@@ -396,7 +396,7 @@ Begin VB.Form frmMain
       Height          =   228
       Left            =   8148
       Locked          =   -1  'True
-      TabIndex        =   99
+      TabIndex        =   97
       Top             =   6612
       Width           =   2688
    End
@@ -415,7 +415,7 @@ Begin VB.Form frmMain
       Height          =   228
       Left            =   8148
       Locked          =   -1  'True
-      TabIndex        =   96
+      TabIndex        =   94
       Top             =   6108
       Width           =   2688
    End
@@ -434,7 +434,7 @@ Begin VB.Form frmMain
       Height          =   228
       Left            =   8148
       Locked          =   -1  'True
-      TabIndex        =   95
+      TabIndex        =   93
       Top             =   6360
       Width           =   2688
    End
@@ -453,7 +453,7 @@ Begin VB.Form frmMain
       Height          =   228
       Left            =   8148
       Locked          =   -1  'True
-      TabIndex        =   91
+      TabIndex        =   89
       Top             =   5604
       Width           =   2688
    End
@@ -472,14 +472,14 @@ Begin VB.Form frmMain
       Height          =   228
       Left            =   8148
       Locked          =   -1  'True
-      TabIndex        =   90
+      TabIndex        =   88
       Top             =   5856
       Width           =   2688
    End
    Begin VB.DirListBox Dir2 
       Height          =   756
       Left            =   13284
-      TabIndex        =   89
+      TabIndex        =   87
       Top             =   2280
       Visible         =   0   'False
       Width           =   1332
@@ -517,7 +517,7 @@ Begin VB.Form frmMain
    Begin VB.DirListBox Dir1 
       Height          =   528
       Left            =   14640
-      TabIndex        =   74
+      TabIndex        =   72
       Top             =   2784
       Visible         =   0   'False
       Width           =   1272
@@ -557,7 +557,7 @@ Begin VB.Form frmMain
    Begin VB.FileListBox File1 
       Height          =   480
       Left            =   13944
-      TabIndex        =   52
+      TabIndex        =   50
       Top             =   4164
       Visible         =   0   'False
       Width           =   996
@@ -566,7 +566,7 @@ Begin VB.Form frmMain
       Height          =   324
       IntegralHeight  =   0   'False
       Left            =   11088
-      TabIndex        =   50
+      TabIndex        =   48
       Top             =   4188
       Visible         =   0   'False
       Width           =   1128
@@ -581,7 +581,7 @@ Begin VB.Form frmMain
       IntegralHeight  =   0   'False
       Left            =   11076
       Sorted          =   -1  'True
-      TabIndex        =   37
+      TabIndex        =   35
       Top             =   4536
       Visible         =   0   'False
       Width           =   1728
@@ -633,7 +633,7 @@ Begin VB.Form frmMain
       Height          =   228
       Left            =   3348
       Locked          =   -1  'True
-      TabIndex        =   32
+      TabIndex        =   30
       Top             =   34
       Width           =   7488
    End
@@ -643,7 +643,7 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   1300
       Locked          =   -1  'True
-      TabIndex        =   28
+      TabIndex        =   26
       Top             =   2880
       Width           =   2004
    End
@@ -653,7 +653,7 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   1300
       Locked          =   -1  'True
-      TabIndex        =   27
+      TabIndex        =   25
       Top             =   3144
       Width           =   2004
    End
@@ -663,18 +663,9 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   1300
       Locked          =   -1  'True
-      TabIndex        =   26
+      TabIndex        =   24
       Top             =   3408
       Width           =   2004
-   End
-   Begin VB.CommandButton cmdCodeGeneration 
-      Caption         =   "Show Code Generation Wizard"
-      Height          =   315
-      Left            =   11124
-      TabIndex        =   25
-      Top             =   5136
-      Visible         =   0   'False
-      Width           =   2352
    End
    Begin VB.TextBox txtRect 
       Appearance      =   0  'Flat
@@ -682,7 +673,7 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   1300
       Locked          =   -1  'True
-      TabIndex        =   23
+      TabIndex        =   22
       Top             =   1824
       Width           =   2004
    End
@@ -692,18 +683,18 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   1300
       Locked          =   -1  'True
-      TabIndex        =   21
+      TabIndex        =   20
       Top             =   2616
       Width           =   2004
    End
    Begin VB.CommandButton cmdMemInfo 
       Caption         =   "Memory Info"
       Height          =   315
-      Left            =   15936
-      TabIndex        =   20
+      Left            =   15948
+      TabIndex        =   19
       Top             =   5520
       Visible         =   0   'False
-      Width           =   1764
+      Width           =   1368
    End
    Begin VB.CheckBox chkOnTop 
       Appearance      =   0  'Flat
@@ -720,7 +711,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H80000008&
       Height          =   276
       Left            =   48
-      TabIndex        =   19
+      TabIndex        =   18
       ToolTipText     =   "STORE IN REISTRY FOR START UP OVERRIDE TIMER IF DO"
       Top             =   4824
       Width           =   5304
@@ -731,7 +722,7 @@ Begin VB.Form frmMain
       Height          =   240
       Left            =   1300
       Locked          =   -1  'True
-      TabIndex        =   17
+      TabIndex        =   16
       Top             =   2352
       Width           =   2004
    End
@@ -739,7 +730,7 @@ Begin VB.Form frmMain
       Caption         =   "Process ->"
       Height          =   324
       Left            =   15408
-      TabIndex        =   16
+      TabIndex        =   15
       Top             =   5136
       Visible         =   0   'False
       Width           =   984
@@ -748,7 +739,7 @@ Begin VB.Form frmMain
       Caption         =   "Refresh"
       Height          =   288
       Left            =   14976
-      TabIndex        =   15
+      TabIndex        =   14
       Top             =   4188
       Visible         =   0   'False
       Width           =   756
@@ -757,7 +748,7 @@ Begin VB.Form frmMain
       Caption         =   "Terminate"
       Height          =   288
       Left            =   14976
-      TabIndex        =   14
+      TabIndex        =   13
       Top             =   4488
       Visible         =   0   'False
       Width           =   840
@@ -766,7 +757,7 @@ Begin VB.Form frmMain
       Height          =   444
       IntegralHeight  =   0   'False
       Left            =   14640
-      TabIndex        =   13
+      TabIndex        =   12
       Top             =   2268
       Visible         =   0   'False
       Width           =   1260
@@ -780,20 +771,10 @@ Begin VB.Form frmMain
       Caption         =   "About"
       Height          =   315
       Left            =   13476
-      TabIndex        =   12
-      Top             =   5136
-      Visible         =   0   'False
-      Width           =   564
-   End
-   Begin VB.CommandButton cmdClose 
-      Cancel          =   -1  'True
-      Caption         =   "Close UnLoad Me"
-      Height          =   315
-      Left            =   14040
       TabIndex        =   11
       Top             =   5136
       Visible         =   0   'False
-      Width           =   1368
+      Width           =   564
    End
    Begin VB.TextBox txtStyle 
       Appearance      =   0  'Flat
@@ -845,12 +826,32 @@ Begin VB.Form frmMain
       Top             =   768
       Width           =   1044
    End
+   Begin VB.Label Lab_KILL_AHK 
+      Alignment       =   2  'Center
+      BackColor       =   &H00C0FFFF&
+      Caption         =   "KILL AHK"
+      Height          =   216
+      Left            =   1776
+      TabIndex        =   128
+      Top             =   3672
+      Width           =   1524
+   End
+   Begin VB.Label LAB_MAXIMIZE_GOODSYNC 
+      Alignment       =   2  'Center
+      BackColor       =   &H00C0FFFF&
+      Caption         =   "MAXIMIZE GOODSYNC"
+      Height          =   216
+      Left            =   48
+      TabIndex        =   127
+      Top             =   3672
+      Width           =   1692
+   End
    Begin VB.Label Label66 
       BackColor       =   &H00C0FFC0&
       Caption         =   "Kill PID"
       Height          =   240
       Left            =   2376
-      TabIndex        =   127
+      TabIndex        =   125
       Top             =   504
       Width           =   912
    End
@@ -858,7 +859,7 @@ Begin VB.Form frmMain
       Caption         =   "Process ID:"
       Height          =   240
       Left            =   48
-      TabIndex        =   126
+      TabIndex        =   124
       Top             =   504
       Width           =   1224
    End
@@ -875,7 +876,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   336
       Left            =   4392
-      TabIndex        =   123
+      TabIndex        =   121
       Top             =   2208
       Width           =   960
    End
@@ -884,7 +885,7 @@ Begin VB.Form frmMain
       Caption         =   "KILL WSCRIPT.EXE"
       Height          =   240
       Left            =   9108
-      TabIndex        =   120
+      TabIndex        =   118
       Top             =   1992
       Width           =   1740
    End
@@ -915,7 +916,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   348
       Left            =   48
-      TabIndex        =   116
+      TabIndex        =   114
       Top             =   5472
       Width           =   2616
    End
@@ -932,7 +933,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   216
       Left            =   5436
-      TabIndex        =   102
+      TabIndex        =   100
       Top             =   6864
       Width           =   2700
    End
@@ -949,7 +950,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   228
       Left            =   5436
-      TabIndex        =   101
+      TabIndex        =   99
       Top             =   6612
       Width           =   2700
    End
@@ -966,7 +967,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   228
       Left            =   5436
-      TabIndex        =   98
+      TabIndex        =   96
       Top             =   6108
       Width           =   2700
    End
@@ -983,7 +984,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   228
       Left            =   5436
-      TabIndex        =   97
+      TabIndex        =   95
       Top             =   6360
       Width           =   2700
    End
@@ -1000,7 +1001,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   228
       Left            =   5436
-      TabIndex        =   94
+      TabIndex        =   92
       Top             =   5604
       Width           =   2700
    End
@@ -1017,7 +1018,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   228
       Left            =   5436
-      TabIndex        =   93
+      TabIndex        =   91
       Top             =   5856
       Width           =   2700
    End
@@ -1034,7 +1035,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   228
       Left            =   5436
-      TabIndex        =   92
+      TabIndex        =   90
       Top             =   5352
       Width           =   5400
    End
@@ -1042,7 +1043,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /F /IM *"
       Height          =   240
       Left            =   5436
-      TabIndex        =   88
+      TabIndex        =   86
       Top             =   1740
       Width           =   1764
    End
@@ -1059,7 +1060,7 @@ Begin VB.Form frmMain
       Caption         =   "C8"
       Height          =   240
       Left            =   12576
-      TabIndex        =   87
+      TabIndex        =   85
       Top             =   2400
       Visible         =   0   'False
       Width           =   216
@@ -1077,7 +1078,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   288
       Left            =   48
-      TabIndex        =   86
+      TabIndex        =   84
       Top             =   4512
       Width           =   5304
    End
@@ -1094,7 +1095,7 @@ Begin VB.Form frmMain
       Caption         =   "C7"
       Height          =   240
       Left            =   12336
-      TabIndex        =   85
+      TabIndex        =   83
       Top             =   2400
       Visible         =   0   'False
       Width           =   216
@@ -1103,7 +1104,7 @@ Begin VB.Form frmMain
       Caption         =   "C5"
       Height          =   240
       Left            =   12084
-      TabIndex        =   84
+      TabIndex        =   82
       Top             =   2400
       Visible         =   0   'False
       Width           =   228
@@ -1113,7 +1114,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER PID NAME"
       Height          =   240
       Left            =   5436
-      TabIndex        =   83
+      TabIndex        =   81
       Top             =   2328
       Width           =   1776
    End
@@ -1122,7 +1123,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER COMMAND LINE EXECUTE STATUS LINE"
       Height          =   240
       Left            =   5436
-      TabIndex        =   82
+      TabIndex        =   80
       Top             =   3996
       Width           =   5400
    End
@@ -1139,7 +1140,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER PID_NUMERIC OPTION_INSTEAD"
       Height          =   240
       Left            =   7236
-      TabIndex        =   81
+      TabIndex        =   79
       Top             =   2328
       Width           =   3600
    End
@@ -1147,7 +1148,7 @@ Begin VB.Form frmMain
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
       Height          =   408
       Left            =   48
-      TabIndex        =   80
+      TabIndex        =   78
       Top             =   4092
       Width           =   5304
    End
@@ -1156,7 +1157,7 @@ Begin VB.Form frmMain
       Caption         =   "Copy All Content to Clipboard"
       Height          =   468
       Left            =   3360
-      TabIndex        =   79
+      TabIndex        =   77
       Top             =   3576
       Width           =   1992
    End
@@ -1185,7 +1186,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H80000008&
       Height          =   228
       Left            =   8760
-      TabIndex        =   78
+      TabIndex        =   76
       Top             =   5100
       Width           =   2076
    End
@@ -1206,7 +1207,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H80000008&
       Height          =   300
       Left            =   48
-      TabIndex        =   77
+      TabIndex        =   75
       Top             =   6768
       Width           =   5292
    End
@@ -1223,7 +1224,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   312
       Left            =   11064
-      TabIndex        =   76
+      TabIndex        =   74
       ToolTipText     =   "Pause Update for 20 Second"
       Top             =   456
       Width           =   6072
@@ -1241,7 +1242,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   348
       Left            =   14160
-      TabIndex        =   73
+      TabIndex        =   71
       Top             =   60
       Width           =   336
    End
@@ -1258,7 +1259,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   372
       Left            =   15132
-      TabIndex        =   72
+      TabIndex        =   70
       Top             =   34
       Width           =   2028
    End
@@ -1275,7 +1276,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   336
       Left            =   3360
-      TabIndex        =   71
+      TabIndex        =   69
       Top             =   2208
       Width           =   960
    End
@@ -1292,7 +1293,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   372
       Left            =   11064
-      TabIndex        =   70
+      TabIndex        =   68
       Top             =   34
       Width           =   2436
    End
@@ -1301,7 +1302,7 @@ Begin VB.Form frmMain
       Caption         =   "C4"
       Height          =   240
       Left            =   11820
-      TabIndex        =   69
+      TabIndex        =   67
       Top             =   2400
       Visible         =   0   'False
       Width           =   240
@@ -1311,7 +1312,7 @@ Begin VB.Form frmMain
       Caption         =   "C3"
       Height          =   240
       Left            =   11592
-      TabIndex        =   68
+      TabIndex        =   66
       Top             =   2400
       Visible         =   0   'False
       Width           =   216
@@ -1321,7 +1322,7 @@ Begin VB.Form frmMain
       Caption         =   "C2"
       Height          =   240
       Left            =   11340
-      TabIndex        =   67
+      TabIndex        =   65
       Top             =   2400
       Visible         =   0   'False
       Width           =   216
@@ -1331,7 +1332,7 @@ Begin VB.Form frmMain
       Caption         =   "C1"
       Height          =   240
       Left            =   11100
-      TabIndex        =   66
+      TabIndex        =   64
       Top             =   2400
       Visible         =   0   'False
       Width           =   216
@@ -1346,9 +1347,9 @@ Begin VB.Form frmMain
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   1212
+      Height          =   768
       Left            =   11124
-      TabIndex        =   65
+      TabIndex        =   63
       Top             =   5520
       Visible         =   0   'False
       Width           =   4776
@@ -1357,7 +1358,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER BY HWND HANDLE _ PROCESS KILL FORCE"
       Height          =   240
       Left            =   5436
-      TabIndex        =   64
+      TabIndex        =   62
       Top             =   3096
       Width           =   5400
    End
@@ -1376,7 +1377,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H80000008&
       Height          =   6804
       Left            =   17892
-      TabIndex        =   63
+      TabIndex        =   61
       Top             =   180
       Width           =   2952
    End
@@ -1396,7 +1397,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H80000008&
       Height          =   228
       Left            =   5436
-      TabIndex        =   62
+      TabIndex        =   60
       Top             =   5100
       Width           =   3312
    End
@@ -1404,7 +1405,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER BY HWND HANDLE _ POST MESSENGER"
       Height          =   240
       Left            =   5436
-      TabIndex        =   61
+      TabIndex        =   59
       Top             =   2844
       Width           =   5400
    End
@@ -1414,7 +1415,7 @@ Begin VB.Form frmMain
       Caption         =   "WILD CARD ****"
       Height          =   240
       Left            =   5436
-      TabIndex        =   60
+      TabIndex        =   58
       Top             =   864
       Width           =   1764
    End
@@ -1424,7 +1425,7 @@ Begin VB.Form frmMain
       Caption         =   "Without WildCard Butter"
       Height          =   240
       Left            =   7224
-      TabIndex        =   59
+      TabIndex        =   57
       Top             =   864
       Width           =   1848
    End
@@ -1434,7 +1435,7 @@ Begin VB.Form frmMain
       Caption         =   "KILLER With /F FORCE"
       Height          =   240
       Left            =   9096
-      TabIndex        =   58
+      TabIndex        =   56
       Top             =   864
       Width           =   1740
    End
@@ -1442,7 +1443,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER BY PROCESS NUMBER"
       Height          =   240
       Left            =   5436
-      TabIndex        =   57
+      TabIndex        =   55
       ToolTipText     =   "PRESS HERE TO KILL BY PROCESS NUMBER"
       Top             =   3420
       Width           =   5400
@@ -1452,7 +1453,7 @@ Begin VB.Form frmMain
       Caption         =   "Label_FORM BACK_Form Ground COLOUR"
       Height          =   396
       Left            =   11100
-      TabIndex        =   56
+      TabIndex        =   54
       Top             =   2856
       Visible         =   0   'False
       Width           =   1896
@@ -1463,7 +1464,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /F /IM * /T"
       Height          =   240
       Left            =   9096
-      TabIndex        =   55
+      TabIndex        =   53
       Top             =   1188
       Width           =   1740
    End
@@ -1472,7 +1473,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /F /IM /T"
       Height          =   240
       Left            =   9108
-      TabIndex        =   54
+      TabIndex        =   52
       Top             =   1464
       Width           =   1740
    End
@@ -1481,7 +1482,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /F /IM"
       Height          =   240
       Left            =   9108
-      TabIndex        =   53
+      TabIndex        =   51
       Top             =   1740
       Width           =   1740
    End
@@ -1489,16 +1490,16 @@ Begin VB.Form frmMain
       BackColor       =   &H00C0FFC0&
       Caption         =   "TASKKILLER /F /IM"
       Height          =   240
-      Left            =   7224
-      TabIndex        =   51
-      Top             =   2004
+      Left            =   7236
+      TabIndex        =   49
+      Top             =   1992
       Width           =   1860
    End
    Begin VB.Label Label25 
       Caption         =   "TASKLIST GO"
       Height          =   240
       Left            =   5436
-      TabIndex        =   49
+      TabIndex        =   47
       Top             =   2592
       Width           =   5400
    End
@@ -1515,7 +1516,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   336
       Left            =   48
-      TabIndex        =   48
+      TabIndex        =   46
       Top             =   5112
       Width           =   5304
    End
@@ -1523,7 +1524,7 @@ Begin VB.Form frmMain
       Caption         =   "2.. Use 20 or 40 Second Timer and Hover Land On/nover the window you want to spy"
       Height          =   888
       Left            =   3360
-      TabIndex        =   47
+      TabIndex        =   45
       Top             =   2592
       Width           =   1992
    End
@@ -1540,7 +1541,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   828
       Left            =   5436
-      TabIndex        =   46
+      TabIndex        =   44
       Top             =   4248
       Width           =   5400
    End
@@ -1548,7 +1549,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER COMMAND LINE GENERATED __ OF SELECTOR"
       Height          =   240
       Left            =   5436
-      TabIndex        =   45
+      TabIndex        =   43
       ToolTipText     =   "PRESS HERE TO KILL BY PROCESS NAME"
       Top             =   3672
       Width           =   5400
@@ -1557,7 +1558,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /IM"
       Height          =   240
       Left            =   7224
-      TabIndex        =   44
+      TabIndex        =   42
       Top             =   1740
       Width           =   1860
    End
@@ -1565,7 +1566,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /IM /T"
       Height          =   240
       Left            =   7224
-      TabIndex        =   43
+      TabIndex        =   41
       Top             =   1464
       Width           =   1860
    End
@@ -1574,7 +1575,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /F /IM /T"
       Height          =   240
       Left            =   7224
-      TabIndex        =   42
+      TabIndex        =   40
       Top             =   1188
       Width           =   1848
    End
@@ -1582,7 +1583,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /IM *"
       Height          =   240
       Left            =   5436
-      TabIndex        =   41
+      TabIndex        =   39
       Top             =   2004
       Width           =   1764
    End
@@ -1590,7 +1591,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /IM * /T"
       Height          =   240
       Left            =   5436
-      TabIndex        =   40
+      TabIndex        =   38
       Top             =   1464
       Width           =   1764
    End
@@ -1599,7 +1600,7 @@ Begin VB.Form frmMain
       Caption         =   "TASKKILLER /F /IM * /T"
       Height          =   240
       Left            =   5436
-      TabIndex        =   39
+      TabIndex        =   37
       Top             =   1188
       Width           =   1764
    End
@@ -1607,7 +1608,7 @@ Begin VB.Form frmMain
       Caption         =   "Select Process And Then Button And Then Confirm_er To Killer"
       Height          =   240
       Left            =   5436
-      TabIndex        =   38
+      TabIndex        =   36
       Top             =   600
       Width           =   5400
    End
@@ -1615,7 +1616,7 @@ Begin VB.Form frmMain
       Caption         =   "Scan Processor For A Moment Timer Second _ "
       Height          =   240
       Left            =   5436
-      TabIndex        =   36
+      TabIndex        =   34
       Top             =   348
       Width           =   5400
    End
@@ -1623,7 +1624,7 @@ Begin VB.Form frmMain
       Caption         =   "SORT ORDER TOGGLE = SORTED"
       Height          =   612
       Left            =   12876
-      TabIndex        =   35
+      TabIndex        =   33
       Top             =   4188
       Visible         =   0   'False
       Width           =   1044
@@ -1633,7 +1634,7 @@ Begin VB.Form frmMain
       Caption         =   " Put Whole File on Clipboard"
       Height          =   228
       Left            =   48
-      TabIndex        =   34
+      TabIndex        =   32
       Top             =   36
       Width           =   2088
    End
@@ -1642,7 +1643,7 @@ Begin VB.Form frmMain
       Caption         =   " Goto File Name"
       Height          =   228
       Left            =   2160
-      TabIndex        =   33
+      TabIndex        =   31
       Top             =   36
       Width           =   1164
    End
@@ -1650,7 +1651,7 @@ Begin VB.Form frmMain
       Caption         =   "Parent X:"
       Height          =   240
       Left            =   48
-      TabIndex        =   31
+      TabIndex        =   29
       Top             =   2880
       Width           =   1224
    End
@@ -1658,7 +1659,7 @@ Begin VB.Form frmMain
       Caption         =   "Parent X Text:"
       Height          =   240
       Left            =   48
-      TabIndex        =   30
+      TabIndex        =   28
       Top             =   3144
       Width           =   1224
    End
@@ -1666,7 +1667,7 @@ Begin VB.Form frmMain
       Caption         =   "Parent X Class:"
       Height          =   240
       Left            =   48
-      TabIndex        =   29
+      TabIndex        =   27
       Top             =   3408
       Width           =   1224
    End
@@ -1674,7 +1675,7 @@ Begin VB.Form frmMain
       Caption         =   "Rectangle:"
       Height          =   240
       Left            =   48
-      TabIndex        =   24
+      TabIndex        =   23
       Top             =   1824
       Width           =   1224
    End
@@ -1682,7 +1683,7 @@ Begin VB.Form frmMain
       Caption         =   "Parent Class:"
       Height          =   240
       Left            =   48
-      TabIndex        =   22
+      TabIndex        =   21
       Top             =   2616
       Width           =   1224
    End
@@ -1690,7 +1691,7 @@ Begin VB.Form frmMain
       Caption         =   "Parent Text:"
       Height          =   240
       Left            =   48
-      TabIndex        =   18
+      TabIndex        =   17
       Top             =   2352
       Width           =   1224
    End
@@ -1746,7 +1747,7 @@ Begin VB.Form frmMain
       Caption         =   "Label52"
       Height          =   348
       Left            =   13836
-      TabIndex        =   75
+      TabIndex        =   73
       Top             =   34
       Width           =   1188
    End
@@ -3337,6 +3338,7 @@ Label53.height = 240
 'Label52.Height = Label51.Height
 Label52 = ""
 
+' LAB_MAXIMIZE_GOODSYNC.Left = Label53.Left - 20
 
 lstProcess_2_ListView.Left = Label53.Left - 20 '+ 1 ' + 1
 'lstProcess_2_ListView_HERE
@@ -3505,25 +3507,20 @@ If IsIDE = True Then
 End If
 End Sub
 
-Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
-
 'IF AUTOREDRAW MAIN FORM _NOT ON_ WILL BE FAULT NOT HAPPENING HERE
 '-----------------------------------------------------------------
 'NOT QUITE
 '-----------------------------------------------------------------
-
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 If IsIDE = True Then
-    If KeyCode = 27 Then End
+    If KeyCode = (27) Then End
 End If
-
 End Sub
 
 Private Sub Form_KeyPress(KeyAscii As Integer)
-
 If IsIDE = True Then
-    If KeyAscii = 27 Then End
+    If KeyAscii = (27) Then End
 End If
-
 End Sub
 
 Private Sub Form_LostFocus()
@@ -4194,6 +4191,11 @@ Private Sub cmdClose_Click()
 End Sub
 
 Private Sub cmdCodeGeneration_Click()
+    
+    ' CMD LABEL = Show Code Generation Wizard
+    ' NOW GONE LIMIT OF CONTROL COUNTER REACHED
+    ' -----------------------------------------
+    
     ' Remove window from top
     SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     chkOnTop.Value = 0
@@ -4543,6 +4545,22 @@ Call Label23_Click
 
 
 End Sub
+
+Private Sub LAB_MAXIMIZE_GOODSYNC_Click()
+' ---------------------
+' ALIGN BY
+' lstProcess_2_ListView.LEFT
+' LAB_MAXIMIZE_GOODSYNC.LEFT
+' ---------------------
+Dim GOODSYNC_WINDOW_HWND
+GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+
+ShowWindow GOODSYNC_WINDOW_HWND, SW_MAXIMIZE
+Beep
+Me.WindowState = vbMinimized
+
+End Sub
+
 
 Private Sub lstProcess_2_ListView_DblClick()
 
@@ -8871,13 +8889,26 @@ End Sub
 
 Private Sub Timer_GET_KEY_ASYNC_STATE_Timer()
 
-If IsIDE = True And IsIDE_TEST = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 10000
+If IsIDE = True And IsIDE_TEST = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 1000
+
+Dim tPA As POINTAPI, lHwnd As Long, O_lhWndParent, lhWndParent, lhWndParentX
+GetCursorPos tPA
+lHwnd = WindowFromPoint(tPA.X, tPA.Y)
+O_lhWndParent = lHwnd
+lhWndParent = GetParent(lHwnd)
+If lhWndParent = 0 Then lhWndParent = O_lhWndParent
+lhWndParentX = GetParentHwnd(lHwnd)
+
 
 If GetAsyncKeyState(27) < 0 Then
     If IsIDE = True Then
+        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Unload Me
+        End If
     Else
-        Me.WindowState = vbMinimized
+        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
+            Me.WindowState = vbMinimized
+        End If
     End If
 End If
 
@@ -9202,7 +9233,6 @@ Private Sub Timer1_Timer()
     
     If IsIDE = True And IsIDE_TEST = True Then Timer1.Interval = 10000
     'IsIDE_TEST = True
-    
     
     Dim tPA As POINTAPI
     Dim mWnd
@@ -9768,8 +9798,17 @@ Private Sub MNU_TASK_KILLER_AUTOHOTKEYS_2_Click()
     
 Call MNU_TASK_KILLER_AUTOHOTKEYS_Click
     
+Me.WindowState = vbMinimized
+    
 End Sub
 
+Private Sub Lab_KILL_AHK_Click()
+
+Call MNU_TASK_KILLER_AUTOHOTKEYS_Click
+
+Me.WindowState = vbMinimized
+
+End Sub
 
 Function GetParentHwnd(ByVal ReturnParent As Long) As String
    Dim i As Long
@@ -10131,6 +10170,17 @@ Beep
 End Sub
 
 
+Private Sub MNU_MAXIMIZE_GOODSYNC_Click()
+
+Dim GOODSYNC_WINDOW_HWND
+GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+
+ShowWindow GOODSYNC_WINDOW_HWND, SW_MAXIMIZE
+Beep
+Me.WindowState = vbMinimized
+
+End Sub
+
 Private Sub Timer_1_MINUTE_Timer()
 
 'Timer_1_MINUTE.Interval = 1000
@@ -10374,10 +10424,10 @@ End Sub
 Private Sub Timer3_Timer()
 
 If FindWindow(vbNullString, "VirtuaCop 2") = 0 Then
-Exit Sub
-
+    Exit Sub
 End If
-If GetAsyncKeyState(27) Then Unload Me
+
+'If GetAsyncKeyState(27) Then Unload Me
 
 End Sub
 

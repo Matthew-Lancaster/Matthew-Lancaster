@@ -3,14 +3,19 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "Form1"
-   ClientHeight    =   6930
-   ClientLeft      =   195
+   ClientHeight    =   6936
+   ClientLeft      =   192
    ClientTop       =   1140
-   ClientWidth     =   12735
+   ClientWidth     =   12744
    Icon            =   "VB KEEP RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6930
-   ScaleWidth      =   12735
+   ScaleHeight     =   6936
+   ScaleWidth      =   12744
+   Begin VB.Timer Timer_GET_KEY_ASYNC_STATE 
+      Interval        =   5
+      Left            =   9180
+      Top             =   3996
+   End
    Begin VB.Timer Timer_FOREGROUND_WINDOW_CHANGE_02 
       Interval        =   10
       Left            =   8832
@@ -45,7 +50,7 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -63,8 +68,8 @@ Begin VB.Form Form1
       Height          =   384
       Left            =   5004
       Picture         =   "VB KEEP RUNNER.frx":0E42
-      ScaleHeight     =   390
-      ScaleWidth      =   390
+      ScaleHeight     =   384
+      ScaleWidth      =   384
       TabIndex        =   59
       Top             =   1668
       Width           =   384
@@ -228,7 +233,7 @@ Begin VB.Form Form1
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -248,7 +253,7 @@ Begin VB.Form Form1
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -268,7 +273,7 @@ Begin VB.Form Form1
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -288,7 +293,7 @@ Begin VB.Form Form1
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -308,7 +313,7 @@ Begin VB.Form Form1
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -328,7 +333,7 @@ Begin VB.Form Form1
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -369,7 +374,7 @@ Begin VB.Form Form1
       Top             =   4008
    End
    Begin VB.FileListBox File3 
-      Height          =   285
+      Height          =   264
       Left            =   6336
       TabIndex        =   6
       Top             =   6696
@@ -377,7 +382,7 @@ Begin VB.Form Form1
       Width           =   1665
    End
    Begin VB.FileListBox File2 
-      Height          =   285
+      Height          =   264
       Left            =   6336
       TabIndex        =   5
       Top             =   6420
@@ -395,7 +400,7 @@ Begin VB.Form Form1
       Top             =   4008
    End
    Begin VB.FileListBox File1 
-      Height          =   285
+      Height          =   264
       Left            =   6348
       TabIndex        =   4
       Top             =   6144
@@ -421,7 +426,7 @@ Begin VB.Form Form1
       Top             =   4008
    End
    Begin VB.ListBox lstProcess 
-      Height          =   255
+      Height          =   240
       Left            =   5508
       TabIndex        =   2
       Top             =   1740
@@ -435,7 +440,7 @@ Begin VB.Form Form1
       Top             =   1116
       Width           =   2460
       _ExtentX        =   4339
-      _ExtentY        =   1005
+      _ExtentY        =   995
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
       _Version        =   393217
@@ -461,8 +466,8 @@ Begin VB.Form Form1
       TabIndex        =   1
       Top             =   1116
       Width           =   2544
-      _ExtentX        =   4498
-      _ExtentY        =   1005
+      _ExtentX        =   4509
+      _ExtentY        =   995
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
       _Version        =   393217
@@ -485,7 +490,7 @@ Begin VB.Form Form1
       Caption         =   "40 Sec"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -561,7 +566,7 @@ Begin VB.Form Form1
       Caption         =   "HITT TO CONFIRM SELECTION KILL"
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -762,7 +767,7 @@ Begin VB.Form Form1
       Caption         =   "X: 1043  Y: 0032"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -779,7 +784,7 @@ Begin VB.Form Form1
       Caption         =   "Manage Window _ hWnd:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -796,7 +801,7 @@ Begin VB.Form Form1
       Caption         =   "Me on Top Entry Timer 20 Second Yes"
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -910,7 +915,7 @@ Begin VB.Form Form1
       Caption         =   "100"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   16.5
+         Size            =   16.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -927,7 +932,7 @@ Begin VB.Form Form1
       Caption         =   "J"
       BeginProperty Font 
          Name            =   "Wingdings"
-         Size            =   16.5
+         Size            =   16.8
          Charset         =   2
          Weight          =   700
          Underline       =   0   'False
@@ -960,11 +965,11 @@ Begin VB.Form Form1
       Width           =   6072
    End
    Begin VB.Image Image1 
-      Height          =   480
-      Left            =   4545
+      Height          =   384
+      Left            =   4548
       Picture         =   "VB KEEP RUNNER.frx":170C
-      Top             =   1650
-      Width           =   480
+      Top             =   1656
+      Width           =   384
    End
    Begin VB.Label lblHwnd 
       Caption         =   "hWnd:"
@@ -1092,7 +1097,7 @@ Begin VB.Form Form1
       Caption         =   "20 Sec"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1155,7 +1160,7 @@ Begin VB.Form Form1
       Caption         =   "Memory Usage 1 Second Ticker"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1177,7 +1182,7 @@ Begin VB.Form Form1
       Caption         =   "txtMemoryUser"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1196,7 +1201,7 @@ Begin VB.Form Form1
       Caption         =   "Total Physical Memory My Computer MAXIMUM 32G"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1214,7 +1219,7 @@ Begin VB.Form Form1
       Caption         =   "Avaible Physical Memory:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1232,7 +1237,7 @@ Begin VB.Form Form1
       Caption         =   "Total Physical Memory _ K:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1250,7 +1255,7 @@ Begin VB.Form Form1
       Caption         =   "Avaible Virtual Memory:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1268,7 +1273,7 @@ Begin VB.Form Form1
       Caption         =   "Total Virtual Memory _ K:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1286,7 +1291,7 @@ Begin VB.Form Form1
       Caption         =   "Total Page File _ K:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1304,7 +1309,7 @@ Begin VB.Form Form1
       Caption         =   "Avaible Page File:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.5
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1737,13 +1742,13 @@ Private Enum Priorities
   p_Idle = &H40
 End Enum
 
-Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+Private Declare Function Process32First Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function Process32Next Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
 Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadId As Long) As Long
 Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
-Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+Private Declare Function TerminateProcess Lib "kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
@@ -1753,9 +1758,9 @@ Private Declare Function GetExitCodeThread Lib "kernel32.dll" (ByVal hThread As 
 Private Declare Function TerminateThread Lib "kernel32.dll" (ByVal hThread As Long, ByVal dwExitCode As Long) As Long
 Private Declare Function SetPriorityClass Lib "kernel32.dll" (ByVal hProcess As Long, ByVal dwPriorityClass As Long) As Boolean
 
-Private Declare Function CloseHandle Lib "Kernel32" _
+Private Declare Function CloseHandle Lib "kernel32" _
         (ByVal hObject As Long) As Long
-Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
 Private Const TH32CS_SNAPPROCESS = &H2&
 
 Private Type MENUBARINFO
@@ -1787,7 +1792,7 @@ Private Const SW_SHOW = 5
 'Private Const HWND_NOTOPMOST = -2
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Private Type SHITEMID
     cb As Long
@@ -1805,7 +1810,7 @@ Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 
 Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
-Private Declare Function GetShortPathName Lib "Kernel32" _
+Private Declare Function GetShortPathName Lib "kernel32" _
       Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
       ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
 
@@ -1817,8 +1822,8 @@ Private Const GW_HWNDNEXT = 2
 Private Const WM_CLOSE = &H10
 
 
-Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -1847,7 +1852,7 @@ Private Declare Function MoveWindow _
          ByVal nHeight As Long, _
          ByVal bRepaint As Long) As Long
 
-Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
+Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 Private Declare Function Putfocus _
         Lib "user32" _
@@ -1875,7 +1880,7 @@ Private Const FILE_SHARE_READ = &H1
 Private Const FILE_SHARE_WRITE = &H2
 Private Const GENERIC_WRITE = &H40000000
  
-Private Declare Function CreateFile Lib "Kernel32" Alias _
+Private Declare Function CreateFile Lib "kernel32" Alias _
   "CreateFileA" (ByVal lpFileName As String, _
   ByVal dwDesiredAccess As Long, _
   ByVal dwShareMode As Long, _
@@ -1886,16 +1891,16 @@ Private Declare Function CreateFile Lib "Kernel32" Alias _
   As Long
 
 Private Declare Function LocalFileTimeToFileTime Lib _
-    "Kernel32" (lpLocalFileTime As FILETIME, _
+    "kernel32" (lpLocalFileTime As FILETIME, _
      lpFileTime As FILETIME) As Long
 
-Private Declare Function SetFileTime Lib "Kernel32" _
+Private Declare Function SetFileTime Lib "kernel32" _
   (ByVal hFile As Long, ByVal MullP As Long, _
    ByVal NullP2 As Long, lpLastWriteTime _
    As FILETIME) As Long
 
 Private Declare Function SystemTimeToFileTime Lib _
-   "Kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
+   "kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
    As FILETIME) As Long
 
 
@@ -1925,11 +1930,11 @@ wSecond As Integer
 wMilliseconds As Integer
 End Type
 
-Private Declare Function CreateDirectory Lib "Kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
-Private Declare Function GetFileTime Lib "Kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
-Private Declare Function FileTimeToSystemTime Lib "Kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
-Private Declare Function FileTimeToLocalFileTime Lib "Kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
-Private Declare Function GetFileAttributes Lib "Kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
+Private Declare Function CreateDirectory Lib "kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
+Private Declare Function GetFileTime Lib "kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
+Private Declare Function FileTimeToSystemTime Lib "kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
+Private Declare Function FileTimeToLocalFileTime Lib "kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
+Private Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
 'Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
 
@@ -2197,8 +2202,17 @@ Private Sub Form_Activate()
 End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
-If IsIDE = True And KeyCode = 27 Then End
+If IsIDE = True Then
+    If KeyCode = (27) Then End
+End If
 End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+If IsIDE = True Then
+    If KeyAscii = (27) Then End
+End If
+End Sub
+
 
 Private Sub Form_Load()
 
@@ -3002,12 +3016,12 @@ End Sub
 
 
 Private Sub lstProcess_2_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
-If IsIDE = True And KeyCode = 27 Then End
+If IsIDE = True And KeyCode = (27) Then End
 End Sub
 
 Private Sub lstProcess_3_SORTER_ListView_BeforeLabelEdit(Cancel As Integer)
 If IsIDE = True Then End
-'If IsIDE = True And KeyCode = 27 Then End
+'If IsIDE = True And KeyCode = (27) Then End
 End Sub
 
 Private Function Menu_Height()
@@ -6902,7 +6916,29 @@ End Sub
 
 
 
-Private Sub Timer1_Timer()
+Private Sub Timer_GET_KEY_ASYNC_STATE_Timer()
+
+If IsIDE = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 1000
+
+Dim tPA As POINTAPI, lHwnd As Long, O_lhWndParent, lhWndParent, lhWndParentX
+GetCursorPos tPA
+lHwnd = WindowFromPoint(tPA.X, tPA.Y)
+O_lhWndParent = lHwnd
+lhWndParent = GetParent(lHwnd)
+If lhWndParent = 0 Then lhWndParent = O_lhWndParent
+lhWndParentX = GetParentHwnd(lHwnd)
+
+If GetAsyncKeyState(27) < 0 Then
+    If IsIDE = True Then
+        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
+        Unload Me
+        End If
+    Else
+        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
+            Me.WindowState = vbMinimized
+        End If
+    End If
+End If
 
 End Sub
 
