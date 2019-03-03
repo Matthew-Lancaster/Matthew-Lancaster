@@ -349,7 +349,6 @@ for /L %%a in (1,1,!LDA!) do (
 
 	if "!Sync_Runner_TOTAL!"=="TRUE" (
 		ECHO NONE ERROR OVERALL YET
-		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !X!
 	)
 	if "!Sync_Runner_TOTAL!"=="FALSE" (
 		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !X!
@@ -371,7 +370,7 @@ for /L %%a in (1,1,!LDA!) do (
 
 if !X! equ 0 (
 	ECHO ----------------------------------------------------------------
-	ECHO NONE ATTENTION REQUIRED 
+	ECHO NONE ATTENTION REQUIRED SUCCESSFUL
 	ECHO ----------------------------------------------------------------
 	ECHO.
 )
@@ -419,8 +418,8 @@ ECHO ----------------------------------------------------------------
 
 if "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
-	ECHO END RUN IT
-	ECHO SYNC COMPLETE
+	ECHO END RUNNER
+	ECHO SYNC COMPLETE SUCCESSFUL
 	ECHO ----------------------------------------------------------------
 	TIMEOUT /T 30
 	ECHO ----------------------------------------------------------------
