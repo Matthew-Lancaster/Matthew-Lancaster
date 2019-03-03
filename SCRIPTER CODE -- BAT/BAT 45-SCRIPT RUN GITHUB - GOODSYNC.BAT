@@ -106,7 +106,7 @@ SETLOCAL EnableDelayedExpansion
 
 @echo off
 
-@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+@REM @SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 
 @SET LDA =0
 
@@ -390,7 +390,7 @@ REM TIMEOUT /T 7200
 REM REM ---- 2 HOURING
 
 
-if "%Sync_Runner_TOTAL%"=="TRUE" (
+if "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO END RUN IT
 	ECHO SYNC COMPLETE
@@ -399,9 +399,9 @@ if "%Sync_Runner_TOTAL%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
 	ECHO C:\SCRIPTER\SCRIPTER CODE -- GITHUB\
-	ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk %TITLE_VAR%
+	ECHO BAT 45-SCRIPT RUN GITHUB_AHK_MINIMIZE.ahk !TITLE_VAR!
 	ECHO ----------------------------------------------------------------
-	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
+	"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" !TITLE_VAR!
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
