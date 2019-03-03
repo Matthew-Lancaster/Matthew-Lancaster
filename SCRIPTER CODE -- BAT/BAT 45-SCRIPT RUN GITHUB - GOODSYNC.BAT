@@ -281,7 +281,12 @@ SET "X=0"
 SET "FAULT_COUNTER=0"
 SET Sync_Runner_TOTAL=TRUE
 
-"%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!  /QUICK_INTRO_DUMMY_RUN
+REM -----------------------------------------------------------------
+REM -- DON'T REQUIRE HERE AS LONG AS RUN GITHUB SYNC JOB 
+REM -- IT HAS SCRIPT THAT DOES IT ALSO
+REM -----------------------------------------------------------------
+REM "%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!  /QUICK_INTRO_DUMMY_RUN
+REM -----------------------------------------------------------------
 
 for /L %%a in (1,1,!LDA!) do (
 
@@ -395,8 +400,6 @@ for /L %%a in (1,1,!LDA!) do (
 	SET STATUS_6[%%a]="Another_Job         !Another_Job!"
 	SET STATUS_7[%%a]="Conflicts           !Unresolved_Conflicts!"
 	SET STATUS_8[%%a]="Computer_Is_Offline !Computer_Is_Offline!"
-
-	REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
 	IF "!Computer_Is_Offline!"=="FALSE" (
 		IF "!Analysis_Complete!"=="FALSE" (
