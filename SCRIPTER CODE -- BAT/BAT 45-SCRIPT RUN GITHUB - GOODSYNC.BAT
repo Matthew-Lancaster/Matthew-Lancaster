@@ -351,6 +351,8 @@ for /L %%a in (1,1,!LDA!) do (
 
 )
 
+PAUSE
+
 @REM ----------------------------------------------------------------
 @REM FALSE FALL FOOLE - STUNT MAN - FALL GUY - SCRIPTING GUY - HEY GUYS
 @REM WEEK-DAY - WEAK-DAY
