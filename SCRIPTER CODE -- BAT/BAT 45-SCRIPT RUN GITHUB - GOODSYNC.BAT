@@ -213,13 +213,13 @@ for /L %%a in (1,1,!LDA!) do (
 	@if !errorlevel!==0 SET Computer_Is_Offline=TRUE
 
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
-	@SET Sync_Runner_TOTAL=FALSE
+	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 	@find "unresolved conflits" !FILENAME_ER!>NUL
-	@SET Sync_Runner_TOTAL=FALSE
+	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 	@find "Analyze has finished with Conflicts" !FILENAME_ER!>NUL
-	@SET Sync_Runner_TOTAL=FALSE
+	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
-	@SET Sync_Runner_TOTAL=FALSE
+	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 
 	
 	@REM PROBLEM OF CONFLICT OF THIS FILE
