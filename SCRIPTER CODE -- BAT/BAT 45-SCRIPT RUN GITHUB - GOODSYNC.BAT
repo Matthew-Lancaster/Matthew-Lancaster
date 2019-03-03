@@ -140,6 +140,9 @@ REM  for /L %%a in (1,1,7) do (
 
 for /L %%a in (1,1,!LDA!) do (
 
+	ECHO ----------------------------------------------------------------
+	ECHO %%a of !LDA!
+	ECHO ----------------------------------------------------------------
 	ECHO !sources[%%a]!
 	
 	SET FILENAME_ER="%~dp0BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
