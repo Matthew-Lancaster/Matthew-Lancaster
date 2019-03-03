@@ -1,0 +1,9 @@
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\bin\Calc.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\bin\Calc.pdb
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\bin\Calc.xml
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\obj\Debug\ResolveAssemblyReference.cache
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\obj\Debug\Calc.Calculator.resources
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\obj\Debug\CALC.vbproj.GenerateResource.Cache
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\obj\Debug\Calc.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\obj\Debug\Calc.xml
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.NET\obj\Debug\Calc.pdb
