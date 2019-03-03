@@ -507,12 +507,12 @@ for /L %%a in (1,1,!LDA!) do (
 		REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
 		ECHO ----------------------------------------------------------------
 		for /L %%a in (1,1,!X!) do (
-			ECHO !STATUS_3[%%a]:"=!
 			ECHO !STATUS_1[%%a]:"=!
+			ECHO !STATUS_3[%%a]:"=!
 			ECHO !STATUS_2[%%a]:"=!
 			REM ECHO.
 		)
-		TIMEOUT /T 4
+		REM TIMEOUT /T 4
 	)
 	
 	ECHO ----------------------------------------------------------------
@@ -548,7 +548,7 @@ if !X! GTR 0 (
 		ECHO.
 	)
 	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 8
+	REM TIMEOUT /T 8
 )
 
 for /L %%a in (1,1,!LDA!) do (
@@ -564,13 +564,14 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO END RUNNER                               ---- **********
 	ECHO SYNC COMPLETE SUCCESSFUL                 ---- **********
 	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 8
-	ECHO ----------------------------------------------------------------
+	REM TIMEOUT /T 8
+	REM ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
 	ECHO %~dp0
 	ECHO BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk !TITLE_VAR!
 	ECHO ----------------------------------------------------------------
 	"%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
+	ECHO ----------------------------------------------------------------
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
