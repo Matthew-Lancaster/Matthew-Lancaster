@@ -225,6 +225,20 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO.
 
+	
+				set /a "x+=1"
+				ECHO ----------------------------------------------------------------
+				ECHO !X! of !LDA!
+				ECHO ----------------------------------------------------------------
+					set STATUS_3[!X!]=%%a of !LDA!
+
+					PAUSE
+
+					ECHO !STATUS_3[!X!]!
+					
+					PAUSE
+					
+	
 	REM "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
 	IF "!Computer_Is_Offline!"=="FALSE" (
@@ -346,7 +360,7 @@ if !X! gtr 0 @(
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
 		PAUSE
-		ECHO !STATUS_2[%%a]!
+		ECHO !STATUS_3[%%a]!
 		ECHO ----------------------------------------------------------------
 		ECHO !STATUS_1[%%a]!
 		ECHO !STATUS_2[%%a]!
