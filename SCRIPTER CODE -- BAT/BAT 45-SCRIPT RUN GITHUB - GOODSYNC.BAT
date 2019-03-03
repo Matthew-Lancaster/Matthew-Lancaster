@@ -145,7 +145,13 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
+	
+	REM set J=!sources[%%a]:"=!
+	
+	REM ECHO !J!
 	ECHO !sources[%%a]!
+	
+	PAUSE
 	
 	SET FILENAME_ER="%~dp0BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT"
 	SET FILENAME_ER_2="%~dp0BAT 45-SCRIPT RUN GITHUB - GOODSYNC_GOODSYNC_OUTPUT.TXT.TMP"
@@ -341,6 +347,10 @@ for /L %%a in (1,1,!LDA!) do (
 		set STATUS_2[!X!]=!sources[%%a]!
 		set STATUS_3[!X!]=%%a of !LDA!
 		TIMEOUT /T 40
+	)
+
+	if "!Sync_Runner_TOTAL!"=="TRUE" (
+		ECHO NONE ERROR OVERALL YET
 	)
 	
 	ECHO.	
