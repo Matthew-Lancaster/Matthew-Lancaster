@@ -342,6 +342,9 @@ SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
 
 SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
 
+SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 100000 ; 10 SECOND AND THEN 10 MINUTE
+
+
 RETURN
 
 ; -------------------------------------------------------------------
@@ -1580,6 +1583,23 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
+
+	SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 600000 ; 10 MINUTE
+
+	Process, Exist, WSCRIPT.EXE
+	If NOT ErrorLevel
+	{
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
+		IfExist, %FN_VAR%
+		{
+			Run, %FN_VAR% NOTHING_DISPLAY
+		}
+	}
+	
+RETURN
 
 
 TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER:
