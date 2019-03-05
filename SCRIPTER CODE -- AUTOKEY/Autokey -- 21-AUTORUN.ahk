@@ -2046,6 +2046,17 @@ RUN_HUBIC:
 ; GETS SOME CLASH RUN FROM REGISTRY ALSO RUN
 ;-------------------------------------------
 
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 72-RUN HUBIC WITH DELAY.ahk"
+IfExist, %FN_VAR%
+{
+	Run, "%FN_VAR%"
+	
+	SoundBeep , 2500 , 100
+}
+
+RETURN
+
+
 Process, Exist, hubiC.exe
 If ErrorLevel ; errorlevel will = 0 if process doesn't exist
 	RETURN
