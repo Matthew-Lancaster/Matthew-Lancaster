@@ -1,4 +1,4 @@
-;  =============================================================
+﻿;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 50-Check The Capital Lock State.ahk
 ;# __ 
 ;# __ Autokey -- 50-Check The Capital Lock State.ahk
@@ -212,7 +212,7 @@ If OSVER_N_VAR=5
 
 If OSVER_N_VAR=6
 {
-	W_P_B=W59
+	W_P_B=W62
 	F_S_P_B=FS6
 	H_P_B=H18
 	width := A_ScreenWidth - 85
