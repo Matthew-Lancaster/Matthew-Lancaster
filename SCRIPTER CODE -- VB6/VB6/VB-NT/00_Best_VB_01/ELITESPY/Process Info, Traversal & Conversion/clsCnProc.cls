@@ -928,6 +928,7 @@ Public Function GetEXEID(ByRef lRunningID As Long, ByRef sRunningEXE As String) 
                 lRunningID = lProcessID
                 sRunningEXE = TrimNull(sEXEName)
                 GetEXEID = True
+                ' Exit Do
                 GoTo GetEXEID_Close
             End If
         Loop While (NextProcess())
