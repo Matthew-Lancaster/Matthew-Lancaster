@@ -55,8 +55,8 @@ Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  
 Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, KILL   ALL NET - VB CODE.exe, MenuHandler 
-Menu, Tray, Add, RELOAD ALL NET - VB CODE.exe, MenuHandler 
+Menu, Tray, Add, KILL   ALL NETWORK - VB CODE.exe, MenuHandler 
+Menu, Tray, Add, RELOAD ALL NETWORK - VB CODE.exe, MenuHandler 
 Menu, Tray, Add  ; Creates a separator line.
 
 ; -------------------------------------------------------------------
@@ -100,28 +100,45 @@ ArrayCount += 1
 
 X=0
 
-; SETTIMER TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE,2000
+; SETTIMER TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE,2000
 
-
+; -------------------------------------------------------------------
+; SCRIPT LINE USE IN GOODSYNC 3 OF 1 OF 3 -- LAST OF SCRIPT POST-SYNC
+; -------------------------------------------------------------------
 ; "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME %JOBNAME% RESULT %RESLUT% ERRORS %ERRORS%
-
+; -------------------------------------------------------------------
 
 COMMAND_LINE:= % DllCall( "GetCommandLine", "str" )
 
+; -------------------------------------------------------------------
+; EXAMPLE #1 OF GIVEN COMMAND LINE
+; -------------------------------------------------------------------
 ; COMMAND_LINE="C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME "VB G7 VB-NT 1X _1_ QUICKER _NEW_GO GSD (1)" RESULT "" ERRORS 1
+; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; EXAMPLE #2 OF GIVEN COMMAND LINE
+; -------------------------------------------------------------------
 ; "C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME "VB G7 VB-NT 1X _1_ QUICKER _NEW_GO GSD (1)" RESULT "Please click Analyze again because another job has Synced and it invalidated analysis results of this job.
 ; State file: //7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT/00_Best_VB_01/Clipboard Logger/_gsdata_/_file_state_v4._gs
 ; New: [size=197,794 time=2019-03-04 05:55:35] != 
 ; Old: [size=197,794 time=2019-03-04 05:55:05]
 ; " ERRORS 0
 
+; -------------------------------------------------------------------
+; EXAMPLE #* LOOK OUT FOR MORE EXAMPLE OF GIVEN COMMAND LINE 
+; TYPE OF RESULT FIND
+; -------------------------------------------------------------------
 
-COMMAND_LINE_JOBNAME:=SubStr(COMMAND_LINE, INSTR(COMMAND_LINE," JOBNAME "))
-COMMAND_LINE_JOBNAME_VALUE:=SubStr(COMMAND_LINE_JOBNAME,11)
-COMMAND_LINE_JOBNAME_VALUE:=SubStr(COMMAND_LINE_JOBNAME_VALUE,1,INSTR(COMMAND_LINE_JOBNAME_VALUE," RESULT")-2)
+; -------------------------------------------------------------------
+; GET INTO THE CODE ABOUT TO BEGIN
+; -------------------------------------------------------------------
 
-; MSGBOX % COMMAND_LINE_JOBNAME_VALUE
+COMMAND_LINE_JOB_NAME:=SubStr(COMMAND_LINE, INSTR(COMMAND_LINE," JOBNAME "))
+COMMAND_LINE_JOB_NAME_VALUE:=SubStr(COMMAND_LINE_JOB_NAME,11)
+COMMAND_LINE_JOB_NAME_VALUE:=SubStr(COMMAND_LINE_JOB_NAME_VALUE,1,INSTR(COMMAND_LINE_JOB_NAME_VALUE," RESULT")-2)
+
+; MSGBOX % COMMAND_LINE_JOB_NAME_VALUE
 
 GoodSync_GSync:="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 
@@ -133,15 +150,14 @@ COMMAND_LINE_ERROR_VALUE:=SubStr(COMMAND_LINE_ERROR,8)
 
 IF COMMAND_LINE_ERROR_VALUE>0 
 {
-	SETTIMER TIMER_KILL__ALL_NET_VB_CODE_EXE, 4000
+	SETTIMER TIMER_KILL_ALL_NETWORK_VB_CODE_EXE_02, 4000
 }
 ELSE
 {
-	EXIT APP
+	EXITAPP
 }
 
 SETTIMER TIMER_TO_QUIT_KILL_OWN, 2400000    ; 40 min = 2400000 ms
-
 	
 RETURN
 
@@ -150,17 +166,19 @@ RETURN
 
 TIMER_TO_QUIT_KILL_OWN:
 
+	; SET THE VB CODE FLAG TO RELOAD ALL THE VB APP BEFORE QUIT HER
+	; -------------------------------------------------------------
 	GOSUB TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD
 
-	EXIT APP
+	EXITAPP
 
 RETURN
 
-TIMER_KILL__ALL_NET_VB_CODE_EXE:
+TIMER_KILL_ALL_NETWORK_VB_CODE_EXE_02:
 
-	GOSUB KILL___ALL_NET___VB_CODE_EXE
+	GOSUB KILL_ALL_NET_VB_CODE_EXE_01
 
-	SETTIMER TIMER_KILL__ALL_NET_VB_CODE_EXE,OFF
+	SETTIMER TIMER_KILL_ALL_NETWORK_VB_CODE_EXE_02,OFF
 
 	SETTIMER TIMER_CHECK_DATE_VB_PROJECT_FOR_UPDATED,2000
 
@@ -168,6 +186,19 @@ RETURN
 
 TIMER_CHECK_DATE_VB_PROJECT_FOR_UPDATED:
 
+	; ---------------------------------------------------------------
+	; IF AN UPDATE OF VB CODE EXE HAPPEN -- MODIFIED DATE
+	; IT MEAN RESULT GOOD AND CODE HERE IS PACK UP QUICK 
+	; RATHER THAN TIMER WAIT BUT NOTHING RESULT HAPPEN
+	; THE RETRY OF RUN GOODSYNC AT THE JOB NAME WOULD HAPPEN
+	; SHORTLY AFTER PROGRAM LOAD TO KICK START ALONG QUICKER
+	; THAT BE WHEN ALL APP BEEN SHUT DOWN TO UN-BLOCKER 
+	; THAT HOW FINDING RESULT
+	; HA HA
+	; ---------------------------------------------------------------
+
+	; FILL UP THE ARRAY HOW EVER MANY YOU WANT TO
+	; ---------------------------------------------------------------
 	ArrayCount=0
 	
 	ArrayCount+=1
@@ -180,13 +211,32 @@ TIMER_CHECK_DATE_VB_PROJECT_FOR_UPDATED:
 	FN_Array_1[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
 	FN_Array_2[ArrayCount]:="INDIVIDUAL PROCESS"
 
-
+	ArrayCount+=1
+	FN_Array_1[ArrayCount]:=""
+	FN_Array_2[ArrayCount]:=""
+	
+	; ---------------------------------------------------------------
+	; GOT SOME EMPTY LINE ABOVE FOR QUICK GIVE OVER
+	; SO REDUCE COUNTER FOR TOP OF ARRAY BY EMPTY LINE DETECTION
+	; SAVER PUT REM LINE
+	; ---------------------------------------------------------------
+	Loop % ArrayCount
+	{
+		Element := FN_Array_1[A_Index]
+		IF !Element
+		{
+			ArrayCount-=1
+		}
+	}
+	
 	Loop % ArrayCount
 	{
 		Element := FN_Array_1[A_Index]
 		IfExist, %Element%
+		{
 			FileGetTime, OutputVar, %Element%, M
 			DATE_MOD_Array[A_Index] := OutputVar
+		}
 	}
 
 	SETTIMER TIMER_CHECK_DATE_VB_PROJECT_FOR_UPDATED,OFF
@@ -217,8 +267,8 @@ Loop % ArrayCount
 	
 	IF OutputVar<>%Element_2%
 	{
-		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD, OFF
-		SETTIMER TIMER_SUB_RELOAD_PROCESS_ARRAY,4000
+		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD, OFF ; HERE ROUTINE
+		SETTIMER TIMER_SUB_RELOAD_PROCESS_ARRAY,4000     ;
 	}
 }
 RETURN
@@ -226,7 +276,7 @@ RETURN
 
 TIMER_SUB_RELOAD_PROCESS_ARRAY:
 	
-	SETTIMER TIMER_SUB_RELOAD_PROCESS_ARRAY,OFF
+	SETTIMER TIMER_SUB_RELOAD_PROCESS_ARRAY,OFF  ; -- HERE ROUTINE
 
 	GOSUB RELOAD_ALL_NET___VB_CODE_EXE_SUB
 
@@ -237,9 +287,13 @@ TIMER_SUB_RELOAD_PROCESS_ARRAY:
 	; -------------------------------------------------------------------
 	; GOOD WORKER DON'T STAY AT FINISHER
 	; -------------------------------------------------------------------
-	; RUN, "%GoodSync_GSync%" sync "%COMMAND_LINE_JOBNAME_VALUE%"
+	; RUN, "%GoodSync_GSync%" sync "%COMMAND_LINE_JOB_NAME_VALUE%"
+	
+	; -------------------------------------------------------------------
+	; GOOD WORKER DOES STAY AT FINISHER
+	; -------------------------------------------------------------------
 	SOUNDBEEP 1500,100
-	RUN, "%GoodSync_GSync_BATCH%" sync "%COMMAND_LINE_JOBNAME_VALUE%"
+	RUN, "%GoodSync_GSync_BATCH%" sync "%COMMAND_LINE_JOB_NAME_VALUE%"
 	
 	EXITAPP
 	
@@ -310,9 +364,9 @@ MenuHandler:
 	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
 	MNU_CODE:=A_ThisMenuItem
 	
-	; MNU_CODE=RELOAD ALL NET - VB CODE.exe
-	; MNU_CODE=KILL   ALL NET - VB CODE.exe
-	; TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE
+	; MNU_CODE=RELOAD ALL NETWORK - VB CODE.exe
+	; MNU_CODE=KILL   ALL NETWORK - VB CODE.exe
+	; TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
 
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
@@ -365,16 +419,16 @@ MenuHandler:
 
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	if MNU_CODE=RELOAD ALL NET - VB CODE.exe
+	if MNU_CODE=RELOAD ALL NETWORK - VB CODE.exe
 	{
 		GOSUB RELOAD_ALL_NET___VB_CODE_EXE_SUB
 	}
 	
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	if MNU_CODE=KILL   ALL NET - VB CODE.exe
+	if MNU_CODE=KILL   ALL NETWORK - VB CODE.exe
 	{
-		GOSUB KILL___ALL_NET___VB_CODE_EXE
+		GOSUB KILL_ALL_NET_VB_CODE_EXE_01
 
 	}
 	
@@ -382,7 +436,7 @@ return
 
 RELOAD_ALL_NET___VB_CODE_EXE_SUB:
 
-		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE
+		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
 		
 		ArrayCount = 0
 		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
@@ -422,9 +476,9 @@ RETURN
  
 
 
-KILL___ALL_NET___VB_CODE_EXE:
+KILL_ALL_NET_VB_CODE_EXE_01:
 		
-		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE
+		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
 		
 		ArrayCount = 0
 		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
@@ -471,13 +525,13 @@ KILL___ALL_NET___VB_CODE_EXE:
 RETURN
 
 
-TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE:
+TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE:
 
 	dhw := A_DetectHiddenWindows
 	DetectHiddenWindows, OFF
 	SetTitleMatchMode 2  ; Avoids the need to specify the full path
 
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_%A_ComputerName%.TXT
+	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE_%A_ComputerName%.TXT
 	
 	NET_PATH = %A_ComputerName%
 

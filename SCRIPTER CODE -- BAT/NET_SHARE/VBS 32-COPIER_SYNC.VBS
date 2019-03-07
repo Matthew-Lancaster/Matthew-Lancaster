@@ -89,6 +89,8 @@ DIM VAR_DO_SECONDARY_FULL_PATH_TO_EXIST()
 DIM VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY()
 DIM VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING()
 
+
+
 I_COUNTER = 30
 
 REDIM VAR_PATH_FILE_1(I_COUNTER)
@@ -135,11 +137,11 @@ I_COUNT=0
 
 ' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
-I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 29-NET_SHARE_ALL.BAT"
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\BAT 29-NET_SHARE_ALL.BAT"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 29-NET_SHARE_ALL.BAT"
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY _ DONE
@@ -153,14 +155,14 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY
-' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
-I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
-' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
-' -------------------------------------------------------------------
+' ' -------------------------------------------------------------------
+' I1="C:\SCRIPTER\SCRIPTER CODE -- REG KEY SETTER\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
+' ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
@@ -272,9 +274,9 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT"
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY
@@ -282,9 +284,9 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\OWNER-C-DRIVE - ONLY & NOT-SUB-FOLDER.BAT"
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY
@@ -292,9 +294,9 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 49-OWNER-ALL-DRIVES.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-ALL-DRIVES.BAT"
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 
@@ -305,9 +307,9 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 52-XCOPY SYNC.BAT"
 I2="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY
@@ -317,9 +319,9 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 52-XCOPY SYNC.BAT"
 I2="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY
@@ -327,9 +329,9 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 # TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
 I2="E:\REG KEY SETTINGS\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY
@@ -337,20 +339,20 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 54-REGJUMP_CLIP_BOARD.BAT"
 I2="C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\REGJUMP_CLIP_BOARD.BAT"
 ' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' GOODSYNC PRIORITY
 ' PRIORITY TO WORK IN GOODSYNC INSTEAD MAYBE UNTIL GET SYNC CONFLICT ANSWER
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS"
-I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt"
-' -------------------------------------------------------------------
-I_COUNT=I_COUNT+1
-VAR_PATH_FILE_1(I_COUNT)=I1
-VAR_PATH_FILE_2(I_COUNT)=I2
+' I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS"
+' I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt"
+' ' -------------------------------------------------------------------
+' I_COUNT=I_COUNT+1
+' VAR_PATH_FILE_1(I_COUNT)=I1
+' VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
@@ -406,6 +408,7 @@ VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
+
 ' -------------------------------------------------------------------
 I1="C:\Windows\System32\battery-report.html"
 I2="C:\SCRIPTER\LAPTOP BATTERY HEALTH INFO\"+ComputerName_Short+"_Battery-Report_"+ComputerName+".html"
@@ -416,7 +419,6 @@ VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
-
 
 ' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
@@ -430,7 +432,52 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 
+Dim folder, file
+Dim folderName
 
+FOR RD=1 TO 12
+	i_LINE="##_"+LPad(RD, "0", 4)
+
+	FolderName = "C:\SCRIPTER\SYNC_FOLDER_1\"+i_LINE+"\"
+	PATH_FILE_001=""
+	ERR.CLEAR
+	IF fso.FolderEXISTS(FolderName) THEN 
+		Set folder = fso.GetFolder(FolderName)  
+		For each file In folder.Files    
+			PATH_FILE_001=file.name
+			PATH_FILE_001=file.PATH
+			Exit For
+		Next
+	END IF
+
+	FolderName = "C:\SCRIPTER\SYNC_FOLDER_2\"+i_LINE+"\"
+	PATH_FILE_002=""
+	ERR.CLEAR
+	IF fso.FolderEXISTS(FolderName) THEN 
+		Set folder = fso.GetFolder(FolderName)  
+		For each file In folder.Files    
+			PATH_FILE_002=file.name
+			PATH_FILE_002=file.PATH
+			Exit For
+		Next
+	END IF
+
+	IF PATH_FILE_001<>"" AND PATH_FILE_002<>"" THEN
+		'MSGBOX PATH_FILE_001
+		I_COUNT=I_COUNT+1
+		VAR_PATH_FILE_1(I_COUNT)=PATH_FILE_001
+		VAR_PATH_FILE_2(I_COUNT)=PATH_FILE_002
+	END IF
+	
+	
+NEXT
+
+
+' -------------------------------------------------------------------
+' HOLD HORSE'S HERE IF CAREFUL NEXT IS COPIER
+' -------------------------------------------------------------------
+' WScript.Quit
+' -------------------------------------------------------------------
 
 
 ' -------------------------------------------------------------------
@@ -532,9 +579,11 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 					
 					IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT)) THEN 
 						Fso.CopyFile VAR_PATH_FILE_1(I_COUNT), VAR_PATH_FILE_2(I_COUNT)	
+						COPY_COUNTER=COPY_COUNTER+1
 						
 						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
 							IF ERR.NUMBER > 0 THEN 
+								COPY_ERROR_COUNTER=COPY_ERROR_COUNTER+1
 								I_TXT=""
 								I_TXT=I_TXT+"ERROR COPY"+VBCRLF
 								I_TXT=I_TXT+VBCRLF
@@ -555,7 +604,7 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 				END IF
 
 				' ---------------------------------------------------
-				' THIS HELPS IN CONTROL AREA WHEN SOURCE CANNOT BE MODIDFED LIKE IN 
+				' THIS HELPS IN CONTROL AREA WHEN SOURCE CANNOT BE MODIFIED LIKE IN 
 				' SYSTEM32 FOLDER AND NOT GOT ACCESS TO WRITER
 				' ONE WAY MODE
 				' ---------------------------------------------------
@@ -574,10 +623,12 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 
 					IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT)) THEN 
 						Fso.CopyFile VAR_PATH_FILE_2(I_COUNT), VAR_PATH_FILE_1(I_COUNT)
+						COPY_COUNTER=COPY_COUNTER+1
 					END IF
 
 					IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
 						IF ERR.NUMBER > 0 THEN 
+							COPY_ERROR_COUNTER=COPY_ERROR_COUNTER+1
 							I_TXT=""
 							I_TXT=I_TXT+"ERROR COPY"+VBCRLF
 							I_TXT=I_TXT+VBCRLF
@@ -620,9 +671,11 @@ I_COUNT=0
 'VAR_PATH_FILE_1(I_COUNT)="D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\Sports HD DV Cam Ver 20170418 V1.0A.BAT"
 'VAR_PATH_FILE_2(I_COUNT)="D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\DOUBLE SCREEN CAMERA YELLOW WITHOUT HARDLY AUDIO.BAT"
 
-
 REDIM PRESERVE VAR_PATH_FILE_1(I_COUNT)
 REDIM PRESERVE VAR_PATH_FILE_2(I_COUNT)
+
+' IT RUNNING A BATCH FILE TO DO EXTRA SYNC THESE FOLDER
+' BEEN REMMER
 
 FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 	IF VAR_PATH_FILE_1(I_COUNT)<>"" THEN 
@@ -632,7 +685,28 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 	END IF
 NEXT
 
+
+IF Wscript_Arguments="" THEN 
+	IF COPY_COUNTER>0 THEN 
+		MSGBOX "COPY DONE = "+CSTR(COPY_COUNTER) +VBCRLF+"COPY ERROR = "+CSTR(COPY_ERROR_COUNTER)
+	ELSE
+		MSGBOX "NONE WERE COPY"
+	END IF
+END IF 
+
+
 Wscript.QUIT
+
+' THE END OF CODE
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 
 Function LPad (str, pad, length)
@@ -1089,6 +1163,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 	If Not FSO.FileExists(PATH_FILE_VAR) OR DO_ALL_FILE=TRUE Then
 		IF MOVE_MODE_FILE=FALSE THEN 
 			Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR
+			COPY_COUNTER=COPY_COUNTER+1
 		END IF
 		IF MOVE_MODE_FILE=TRUE THEN 
 			IF MOVE_MODE_FLAG=TRUE THEN
@@ -1096,6 +1171,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 			END IF
 			IF MOVE_MODE_FLAG=FALSE THEN
 				Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR
+				COPY_COUNTER=COPY_COUNTER+1
 			END IF
 		END IF
 			
