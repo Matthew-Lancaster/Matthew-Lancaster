@@ -12,7 +12,7 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-;
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -36,6 +36,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; AUTO_RELOAD_FACEBOOK:
 ; 
 ; -------------------------------------------------------------------
+; FOR CODE WRITE NEW IN
+; AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
+;
 ; FROM __ Tue 26-Feb-2019 15:56:21
 ; TO   __ Tue 26-Feb-2019 21:14:00 __ FIVE & HALF HOUR _ TIMING'S HARD AND GO FIGURE IT ALL
 ; -------------------------------------------------------------------
@@ -51,9 +54,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; NOW LOOK TIME _ DO THE FACEBOOK VIDEO ENDER
 ; BEEN RUN GOOD NOW 
 ; BUT ONE THING LEARN SOMETIME THE PAGE IN BROWSER OF VIDEO FACEBOOK COULD DO WITH A REFRESH
-; NOT SURE HOW IMPLEMENT THE EXTRA YET SO IF SEE VIDEO NOT START WHEN PRESS SPACE-BAR GOES ON
+; NOT SURE HOW IMPLEMENT THAT EXTRA YET SO IF SEE VIDEO NOT START WHEN PRESS SPACE-BAR GOES ON
 ; AND TEST YOURSELF MANUALLY AND NONE RESPONSE THERE REFRESH THE PAGE
-; WHY MY LOW END COMPUTER RUN BETTER AT THIS ONE
+; WHY MY LOW END COMPUTER RUN BETTER AT THIS ONE _ SORT OF
 ; HARD TO IMPLEMENT METHOD AS CODE HAS NONE WAY OF TELL A VIDEO PLAYER GO OR NOT
 ; DON'T WANT REFRESH WHILE PLAY EVER _ OR STEAL FOCUS WHEN OPERATE ANOTHER THING
 ; -------------------------------------------------------------------
@@ -65,7 +68,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; MONITOR OF VIDEO FACEBOOK REPEAT HITT PUMPER COUNTER 
+; MONITOR OF VIDEO FACEBOOK REPEAT HITT PUMP HER COUNTER 
 ; -------------------------------------------------------------------
 ; Deborah Hall
 ; -------------------------------------------------------------------
@@ -90,12 +93,19 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 132 Views _ 18 NOV 2018 + 2 TWO
 ; 176 Views _ 29 NOV 2018 + 2 TWO
 ; -------------------------------------------------------------------
-; Sat 02-Mar-2019 MIDDAY
+; Sat 02-Mar-2019 MIDDAY _ 2 DAY LATER
 ; 185 Views _ 12 OCT 2018 + 4 FOUR
 ; 208 Views _ 17 OCT 2018 + 5 FIVE
 ; 164 Views _ 09 NOV 2018 + 5 FIVE
 ; 136 Views _ 18 NOV 2018 + 4 FOUR
 ; 178 Views _ 29 NOV 2018 + 2 TWO
+; -------------------------------------------------------------------
+; Wed 06-Mar-2019 MIDNIGHT of TUE WED _ 4 DAY LATER
+; 216 Views _ 12 OCT 2018 + 31 UP
+; 233 Views _ 17 OCT 2018 + 25
+; 169 Views _ 09 NOV 2018 + 5 FIVE
+; 162 Views _ 18 NOV 2018 + TWENTY SIX 20+SIX
+; 188 Views _ 29 NOV 2018 + 10
 ; -------------------------------------------------------------------
 
 
@@ -278,10 +288,20 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; Hi Room I Got 11 Code Project Been Updated This... - Matthew Lancaster
 	; https://www.facebook.com/matthew.lancaster.4/posts/10211817982758757
 	; ----
-	
-	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 1200000 ; 20 MINUTE
-	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
-	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 300000   ; 5  MINUTE
+	 
+	IF A_ComputerName=3-LINDA-PC
+	{
+		; SETTER SO PLAY AGAIN BY ACTIVATE SCREEN TO FORCE IN FOCUS AND PLAY
+		; IS OPTION THIS ONLY HAPPEN ON FIRST RUN
+		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+		SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 2400000 ; 40 MINUTE
+	}
+	ELSE
+	{
+		SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 1200000 ; 20 MINUTE
+		; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 600000 ; 10 MINUTE
+		; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 300000   ; 5  MINUTE
+	}
 
 	SET_GO=TRUE
 	IF A_ComputerName=5-ASUS-P2520LA
@@ -328,7 +348,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		
 	
 	IF A_ComputerName=3-LINDA-PC
+	{
+		; SETTER SO PLAY AGAIN BY ACTIVATE SCREEN TO FORCE IN FOCUS AND PLAY
+		; IS OPTION THIS ONLY HAPPEN ON FIRST RUN
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+	}
 	
 	IF A_ComputerName=4-ASUS-GL522VW
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
@@ -419,10 +443,6 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				; --------
 				Send, ^{Tab}
 				Sleep, 2000
-				; WinActivate, ahk_class Chrome_WidgetWin_1
-				; IfWinNotExist, ahk_class Chrome_WidgetWin_1
-				; 	Return
-				
 				
 				WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
 				SET_GO=FALSE

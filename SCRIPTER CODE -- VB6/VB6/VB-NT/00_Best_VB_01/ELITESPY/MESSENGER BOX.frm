@@ -2,13 +2,13 @@ VERSION 5.00
 Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.4#0"; "comctl32.Ocx"
 Begin VB.Form Messenger_Box 
    Caption         =   "MESSENGER BOX OF ELEITE SPY"
-   ClientHeight    =   4344
-   ClientLeft      =   192
-   ClientTop       =   840
-   ClientWidth     =   7476
+   ClientHeight    =   4350
+   ClientLeft      =   225
+   ClientTop       =   870
+   ClientWidth     =   7470
    LinkTopic       =   "Form1"
-   ScaleHeight     =   4344
-   ScaleWidth      =   7476
+   ScaleHeight     =   4350
+   ScaleWidth      =   7470
    StartUpPosition =   3  'Windows Default
    Begin VB.Timer Timer_EXIT 
       Interval        =   40000
@@ -22,7 +22,7 @@ Begin VB.Form Messenger_Box
       Top             =   2424
       Width           =   7500
       _ExtentX        =   13229
-      _ExtentY        =   2794
+      _ExtentY        =   2778
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
       _Version        =   327682
@@ -51,7 +51,7 @@ Begin VB.Form Messenger_Box
       Caption         =   "Label1"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -168,7 +168,8 @@ For Each Control In Controls
     If InStr(UCase(Control.Name), "MNU_") > 0 Then
 '        i_Menu_Count = i_Menu_Count + 1
         LABEL_44 = Trim(Control.Caption)
-        LABEL_48 = Replace(LABEL_44, " ", "_")
+        'LABEL_48 = Replace(LABEL_44, " ", "_")
+        LABEL_48 = LABEL_44
         LABEL_48 = Replace(LABEL_48, "___", "__")
         LABEL_48 = "[__ " + LABEL_48 + " __]"
         LABEL_48 = Replace(LABEL_48, "[__ [__ ", "[__ ")

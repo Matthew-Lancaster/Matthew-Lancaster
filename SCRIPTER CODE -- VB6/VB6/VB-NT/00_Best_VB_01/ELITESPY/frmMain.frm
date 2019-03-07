@@ -5,13 +5,13 @@ Begin VB.Form frmMain
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000015&
    Caption         =   "EliteSpy+ by Andrea Batina 2001 & Also Matthew Lancaster __ Contact ME __ BT __ 07722224555"
-   ClientHeight    =   7872
+   ClientHeight    =   6825
    ClientLeft      =   60
-   ClientTop       =   2136
-   ClientWidth     =   12744
+   ClientTop       =   1230
+   ClientWidth     =   12345
    BeginProperty Font 
       Name            =   "Tahoma"
-      Size            =   8.4
+      Size            =   8.25
       Charset         =   0
       Weight          =   400
       Underline       =   0   'False
@@ -20,16 +20,18 @@ Begin VB.Form frmMain
    EndProperty
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   7872
-   ScaleWidth      =   12744
+   ScaleHeight     =   6825
+   ScaleWidth      =   12345
    Begin VB.ListBox List_SORT_FOR_AHK_LIMITER 
       Height          =   456
-      Left            =   11124
+      ItemData        =   "frmMain.frx":0442
+      Left            =   11085
+      List            =   "frmMain.frx":0444
       Sorted          =   -1  'True
       TabIndex        =   126
-      Top             =   1200
+      Top             =   4875
       Visible         =   0   'False
-      Width           =   288
+      Width           =   1845
    End
    Begin VB.TextBox TxtPID 
       Appearance      =   0  'Flat
@@ -93,9 +95,9 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       Height          =   384
       Left            =   4956
-      Picture         =   "frmMain.frx":0442
-      ScaleHeight     =   384
-      ScaleWidth      =   384
+      Picture         =   "frmMain.frx":0446
+      ScaleHeight     =   390
+      ScaleWidth      =   390
       TabIndex        =   117
       Top             =   372
       Width           =   384
@@ -111,8 +113,8 @@ Begin VB.Form frmMain
       TabIndex        =   116
       Top             =   924
       Width           =   2004
-      _ExtentX        =   3535
-      _ExtentY        =   2350
+      _ExtentX        =   3545
+      _ExtentY        =   2328
       View            =   3
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
@@ -129,8 +131,8 @@ Begin VB.Form frmMain
       TabIndex        =   115
       Top             =   924
       Width           =   2004
-      _ExtentX        =   3535
-      _ExtentY        =   2350
+      _ExtentX        =   3519
+      _ExtentY        =   2328
       View            =   3
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
@@ -145,7 +147,7 @@ Begin VB.Form frmMain
       Appearance      =   0  'Flat
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -367,7 +369,7 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -386,7 +388,7 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -405,7 +407,7 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -424,7 +426,7 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -443,7 +445,7 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -462,7 +464,7 @@ Begin VB.Form frmMain
       BorderStyle     =   0  'None
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -867,7 +869,7 @@ Begin VB.Form frmMain
       Caption         =   "40 Sec"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -892,22 +894,22 @@ Begin VB.Form frmMain
    Begin VB.Image imgCursor 
       Height          =   264
       Left            =   5280
-      MouseIcon       =   "frmMain.frx":0D0C
+      MouseIcon       =   "frmMain.frx":0D10
       Top             =   420
       Width           =   276
    End
    Begin VB.Image Image1 
-      Height          =   384
+      Height          =   480
       Left            =   4500
-      Picture         =   "frmMain.frx":15D6
-      Top             =   348
-      Width           =   384
+      Picture         =   "frmMain.frx":15DA
+      Top             =   345
+      Width           =   480
    End
    Begin VB.Label Label3 
       Caption         =   "Manage Window _ hWnd:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -924,7 +926,7 @@ Begin VB.Form frmMain
       Caption         =   "Avaible Page File:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -932,7 +934,7 @@ Begin VB.Form frmMain
          Strikethrough   =   0   'False
       EndProperty
       Height          =   216
-      Left            =   5436
+      Left            =   5448
       TabIndex        =   100
       Top             =   6864
       Width           =   2700
@@ -941,7 +943,7 @@ Begin VB.Form frmMain
       Caption         =   "Total Page File _ K:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -958,7 +960,7 @@ Begin VB.Form frmMain
       Caption         =   "Total Virtual Memory _ K:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -975,7 +977,7 @@ Begin VB.Form frmMain
       Caption         =   "Avaible Virtual Memory:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -992,7 +994,7 @@ Begin VB.Form frmMain
       Caption         =   "Total Physical Memory _ K:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1009,7 +1011,7 @@ Begin VB.Form frmMain
       Caption         =   "Avaible Physical Memory:"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1026,7 +1028,7 @@ Begin VB.Form frmMain
       Caption         =   "Total Physical Memory My Computer MAXIMUM 32G"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1069,7 +1071,7 @@ Begin VB.Form frmMain
       Caption         =   "Me on Top Entry Timer 20 Second Yes"
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1176,7 +1178,7 @@ Begin VB.Form frmMain
       Caption         =   "txtMemoryUser"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1197,7 +1199,7 @@ Begin VB.Form frmMain
       Caption         =   "CONNECT TO THE INTERNET"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1206,13 +1208,13 @@ Begin VB.Form frmMain
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   300
-      Left            =   48
+      Left            =   24
       TabIndex        =   75
       Top             =   6768
       Width           =   5292
    End
    Begin VB.Label Label53 
-      Caption         =   "Process Set Enumerate Event"
+      Caption         =   "Enumerate Event"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   12
@@ -1233,7 +1235,7 @@ Begin VB.Form frmMain
       Caption         =   "J"
       BeginProperty Font 
          Name            =   "Wingdings"
-         Size            =   16.8
+         Size            =   16.5
          Charset         =   2
          Weight          =   700
          Underline       =   0   'False
@@ -1250,7 +1252,7 @@ Begin VB.Form frmMain
       Caption         =   "100"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   16.8
+         Size            =   16.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1267,7 +1269,7 @@ Begin VB.Form frmMain
       Caption         =   "20 Sec"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1281,7 +1283,7 @@ Begin VB.Form frmMain
       Width           =   960
    End
    Begin VB.Label Label46 
-      Caption         =   "Process Counter Is:"
+      Caption         =   "Process Counter:"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   15
@@ -1340,7 +1342,7 @@ Begin VB.Form frmMain
    Begin VB.Label Label44 
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1367,7 +1369,7 @@ Begin VB.Form frmMain
       Caption         =   "Label42"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   7.8
+         Size            =   7.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1387,7 +1389,7 @@ Begin VB.Form frmMain
       Caption         =   "Memory Usage 1 Second Ticker"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1507,7 +1509,7 @@ Begin VB.Form frmMain
       Caption         =   "X: 1043  Y: 0032"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1532,7 +1534,7 @@ Begin VB.Form frmMain
       Caption         =   "HITT BUTTON TO CONFIRM SELECTION SUBMIT COMPLY _AUTHORITY _ABUSE _AFFIRMATIVE APPLY REQUIRED"
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2564,6 +2566,7 @@ Private Const pi = 3.14159265359
 '-----------------------
 'THE UNIVERSAL TIME UP
 '-----------------------
+
 Private Declare Function CreateCaret Lib "user32" (ByVal hWnd As Long, _
     ByVal hBitmap As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
 Private Declare Function ShowCaret Lib "user32" (ByVal hWnd As Long) As Long
@@ -2933,19 +2936,21 @@ End Sub
 
 
 
-'Private Sub Form_Activate()
-'Call WIDTH_AND_HEIGHT(WX, HY)
-'Me.Height = Me.Height + 1
-'Me.Height = Me.Height - 1
-'End Sub
-
-
+Private Sub Form_Activate_2222()
+    Call WIDTH_AND_HEIGHT(WX, HY)
+    Me.height = Me.height + 1
+    Me.height = Me.height - 1
+End Sub
 
 '////////////////////////////////////////////////////////////////////
 '//// FORM EVENTS
 '////////////////////////////////////////////////////////////////////
 Private Sub Form_Load()
 
+Dim Label50_Width_VAR
+Dim SETTING_WIDTH_LISTVIEW
+
+TOP_HEIGHT = 20
 
 MNU_NEXT_WORK_TALK_KILLER_NETWORK.Visible = False
 
@@ -2963,6 +2968,22 @@ If App.PrevInstance = True Then
 End
 End If
 
+'KILL ITSELF IN __.EXE KILL SOFTLY
+'WHILE ISIDE LEARN
+'---------------------------------
+If IsIDE = True Then
+    PID = -1
+    VAR = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
+    If PID <> -1 Then
+        'Call Process_HIGH_PRIORITY_CLASS(PID)
+        VAR = cProcesses.Process_Kill(PID)
+        Beep
+        End
+    End If
+End If
+
+
+
 Call Form2_Check_Project_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
 
 
@@ -2979,6 +3000,7 @@ Call Form2_Check_Project_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
 
 FIRST_RUN_FOR_TOP_AND_LEFT = 6
 counter_ALWAYS_ON_TOP_TIMER = 20
+
 Label51_Height = 380
 
 '-----------------------------------------------------------------------
@@ -3084,23 +3106,8 @@ Dim VAR
 
 
 
-'KILL ITSELF IN __.EXE KILL SOFTLY
-'WHILE ISIDE LEARN
-'---------------------------------
-If IsIDE = True Then
-    PID = -1
-    VAR = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
-    If PID <> -1 Then
-        'Call Process_HIGH_PRIORITY_CLASS(PID)
-        VAR = cProcesses.Process_Kill(PID)
-        Beep
-        End
-    End If
-End If
 
 Call Timer_SHOW_THE_TIME_Timer
-
-
 
 Set FS = CreateObject("Scripting.FileSystemObject")
 O_lstProcess_ListCount = -1
@@ -3256,6 +3263,12 @@ Label51.width = 340
 'DOWN
 'EQUAL
 
+' PROCESS COUNTER NUMERIC VALUE
+' SET LOWER AFTER LISTVIEW WIDTH SET
+'Label53_Here
+' Label53.width = lstProcess_2_AND_lstProcess_3_WIDTH_POSTION_WITH_ER_OFFSET_LEFT
+
+
 '----------------------------
 'SET HIGHER UP A BIT
 'Label51_Height = 380
@@ -3275,9 +3288,57 @@ Label52.width = Label51_Height
 'INNER SMALLER
 Dim ADJUST_LEFT_OFFSET
 
+
+SETTING_WIDTH_LISTVIEW = False
+If SETTING_WIDTH_LISTVIEW = False Then
+    If GetComputerName = "1-ASUS-X5DIJ" Then
+' ----------------------------------
+        ' GetComputerName = "1-ASUS-X5DIJ"
+        ' 1024 X 768
+        ' SCREENSIZE
+' ----------------------------------
+        SETTING_WIDTH_LISTVIEW = True
+        ' LABEL46.CAPTION = Process Counter Is:
+        Label46.width = 1700
+
+        Label53.FontSize = 8
+        Label46.FontSize = Label53.FontSize
+        Label50.FontSize = Label53.FontSize
+        'INNER WINGDING
+        'Label51.FontSize = Label50.FontSize
+        Label46.FontSize = Label50.FontSize
+        '------------------------------------
+    
+    End If
+End If
+
+' ----------------------------------
+' SCREENSIZE
+' GetComputerName = "1-ASUS-X5DIJ"
+' 1024 X 768
+' GetComputerName = "4-ASUS-GL522VW"
+' 1920 X 1080
+' GetComputerName = "7-ASUS-GL522VW"
+' 1920 X 1080
+' ----------------------------------
+If SETTING_WIDTH_LISTVIEW = False Then
+    SETTING_WIDTH_LISTVIEW = True
+    ' LABEL46.CAPTION = Process Counter Is:
+    Label46.width = 2000
+    Label53.FontSize = 11
+    Label46.FontSize = Label53.FontSize
+    Label50.FontSize = Label53.FontSize
+    'INNER WINGDING
+    'Label51.FontSize = Label50.FontSize
+    Label46.FontSize = Label50.FontSize
+    '------------------------------------
+End If
+
 ADJUST_LEFT_OFFSET = 50
+' LABEL51.CAPTION = IS THE WINGDING FRAME
 'Label51_Here
 Label51.Left = (Label46.Left + Label46.width) + ADJUST_LEFT_OFFSET
+
 'OUTER BIGGER
 Label52.Left = (Label46.Left + Label46.width) + 20
 Label52.width = Label51.width + ADJUST_LEFT_OFFSET + 20
@@ -3287,7 +3348,6 @@ Label52.width = Label51.width + ADJUST_LEFT_OFFSET + 20
 'COUNTER
 Label50.Left = (Label51.Left + Label51.width) + 50
 
-TOP_HEIGHT = 20
 
 TxtEXE.Top = TOP_HEIGHT
 Label10.Top = TOP_HEIGHT
@@ -3300,8 +3360,8 @@ Label51.ToolTipText = "Hitt Me To Process Enumerate"
 
 'PROCESS COUNTING
 'Label46_HERE
-'Label46.Width = 2500 _ DO IT IN FORM DESIGNER
-'Label46.FontSize = 15 __ BELOW
+'Label46.Width _ DO IT UP HIGHER AT Label51.Left
+
 Label46.height = Label52.height
 'Label50_here
 Label50.height = Label46.height
@@ -3316,13 +3376,7 @@ Label46.Top = TOP_HEIGHT
 Label50.Top = TOP_HEIGHT
 Label50.height = Label46.height
 '------------------------------------
-Label53.FontSize = 10
-Label46.FontSize = 15
-Label50.FontSize = 15
-'INNER WINGDING
-'Label51.FontSize = Label50.FontSize
-Label46.FontSize = Label50.FontSize
-'------------------------------------
+
 
 'Label46.Height = Label50.Height
 Label46.Top = TOP_HEIGHT
@@ -3332,7 +3386,7 @@ Label52.Top = TOP_HEIGHT
 Label53.Top = Label50.Top + Label50.height + 40 ' + 20
 
 'Label53_Here
-Label53.height = 240
+Label53.height = 280
 
 'Label51.Height = Label50.Height
 'Label52.Height = Label51.Height
@@ -3341,8 +3395,29 @@ Label52 = ""
 ' LAB_MAXIMIZE_GOODSYNC.Left = Label53.Left - 20
 
 lstProcess_2_ListView.Left = Label53.Left - 20 '+ 1 ' + 1
-'lstProcess_2_ListView_HERE
-lstProcess_2_ListView.width = 4000
+
+SETTING_WIDTH_LISTVIEW = False
+
+If SETTING_WIDTH_LISTVIEW = False Then
+    If GetComputerName = "1-ASUS-X5DIJ" Then
+        SETTING_WIDTH_LISTVIEW = True
+        ' lstProcess_2_ListView.Font.Size = Default = 8.4
+        lstProcess_2_ListView.Font.Size = 7.2
+        lstProcess_3_SORTER_ListView.Font.Size = lstProcess_2_ListView.Font.Size
+        'lstProcess_2_ListView_HERE
+        lstProcess_2_ListView.width = 2100 + 50 + 10
+    
+    End If
+End If
+
+If SETTING_WIDTH_LISTVIEW = False Then
+    SETTING_WIDTH_LISTVIEW = True
+    ' lstProcess_2_ListView.Font.Size = Default = 8.4
+    lstProcess_2_ListView.Font.Size = 8.4
+    lstProcess_3_SORTER_ListView.Font.Size = lstProcess_2_ListView.Font.Size
+    'lstProcess_2_ListView_HERE
+    lstProcess_2_ListView.width = 3500
+End If
 
 lstProcess_3_SORTER_ListView.width = lstProcess_2_ListView.width
 lstProcess_3_SORTER_ListView.Left = lstProcess_2_ListView.Left + lstProcess_2_ListView.width + 10
@@ -3360,7 +3435,6 @@ lstProcess_3_SORTER_ListView.height = lstProcess_2_ListView.height
 lstProcess_2_ListView.Top = Label53.Top + Label53.height + 30
 'TOP
 lstProcess_3_SORTER_ListView.Top = lstProcess_2_ListView.Top
-
 
 'COMPUTER SPEC
 '-------------
@@ -3384,17 +3458,20 @@ Label44.FontSize = 7
 'Label44_HERE
 Label44.height = 580 '+ 10 '+ 10
 Label44.Caption = "LISTVIEW && CLICK_ER DONT LKE RUNNER IN THE IDE CRASH &WITH_ER  FOR NOW _ CODE PERFECT PROOF READ_ER __ Feeling to Do With ListView.OCX Version Fault Investigate _ How Annoying _ Code Inside IDE _ Check Error Outside IDE Compiled EXE"
-'Label44_HERE
-
 
 'Label53_Here
-Label53.width = lstProcess_2_AND_lstProcess_3_WIDTH_POSTION_WITH_ER_OFFSET_LEFT
+Label53.width = lstProcess_2_AND_lstProcess_3_WIDTH_POSTION_WITH_ER_OFFSET_LEFT - 10
 'Label53.Caption = "Process Set Enumerate Event"
 
 'PROCESS COUNTING
 'Label50_here
-Label50.width = Label53.width - (Label46.width + Label52.width) - 30
+'Label50_Width_VAR = Label53.width - (Label46.width + Label52.width) - 30
+'If Label50_Width_VAR < 100 Then Label50_Width_VAR = 500
 
+'Label50.width = Label50_Width_VAR
+' SET THIS HIGHER WHEN LISTVIEW BOX SETUP AS NOT YET
+
+'Label50.width = 3000
 '----------------------
 '----------------------
 '----------------------
@@ -3423,6 +3500,12 @@ Call WIDTH_AND_HEIGHT(WX, HY)
 lstProcess_2_ListView.height = HY - 730 - Label44.height
 lstProcess_3_SORTER_ListView.height = lstProcess_2_ListView.height
 Label44.Top = lstProcess_2_ListView.Top + lstProcess_2_ListView.height + 10
+
+Dim lstProcess_3_WIDTH_POSTION_LEFT_AND_WIDTH
+lstProcess_3_WIDTH_POSTION_LEFT_AND_WIDTH = lstProcess_3_SORTER_ListView.Left + lstProcess_3_SORTER_ListView.width
+Label50_Width_VAR = lstProcess_3_WIDTH_POSTION_LEFT_AND_WIDTH - (Label52.Left + Label52.width) - 30
+Label50.width = Label50_Width_VAR
+
 
 
 'FORM_LOAD
@@ -3566,7 +3649,7 @@ End If
 Call WIDTH_AND_HEIGHT(WX, HY)
 
 If RUN_ONCE_DEBUG_PRINT_HY_RESIZE = False Then
-    RUN_ONCE_DEBUG_PRINT_HY = True
+    RUN_ONCE_DEBUG_PRINT_HY_RESIZE = True
     Debug.Print vbCrLf & Time & "-------"
     Debug.Print "Control.Name __ " + TT
     Debug.Print "Control.Top + Control.Height __ " + TTHY1
@@ -3578,13 +3661,18 @@ End If
 'HEIGHT ADJUSTING _______________________________
 OFFSET_HY = 500 + 340
 'OFFSET_HY = 1000  '-2000
-OFFSET_WX = 140
+OFFSET_WX = 200
+If GetComputerName = "1-ASUS-X5DIJ" Then
+    OFFSET_WX = 40          ' HIGHER NUMBER = LARGER SIZE
+    OFFSET_HY = 500 + 250   ' HIGHER NUMBER = LARGER SIZE
+End If
+
 '------------------------------------------------
 
 'WIN 10
 If IsIDE = False Then
-    OFFSET_HY = OFFSET_HY + 140
-    OFFSET_WX = OFFSET_WX + 130
+'    OFFSET_HY = OFFSET_HY + 140
+'    OFFSET_WX = OFFSET_WX + 130
 End If
 
 'RESIZE HAS USE OF Menu_Height FUNCTION
@@ -3593,22 +3681,20 @@ HY2 = HY + ((Menu_Height * Screen.TwipsPerPixelY) - Menu_Height) + OFFSET_HY
 WX2 = WX + (Screen.TwipsPerPixelX) + OFFSET_WX
 
 If Me.height + Me.width = HY2 + WX2 Then Exit Sub
-
 If Me.WindowState = vbMinimized Then Exit Sub
 
 If O_Me_WindowState <> vbMaximized And Me.WindowState = vbMaximized Then Exit Sub
 O_Me_WindowState = Me.WindowState
-'VBNORMAL    = 0 __ 'VBMAXIMIZED = 2
+'VBNORMAL    = 0
+'VBMAXIMIZED = 2
 
 On Error Resume Next
 'CHANGE HEIGHT DONT RELOOP RESIZE
 '--------------------------------
 RESIZE_LOOP_STOP = True
-'FORM_RESIZE
 Dim ME_HEIGHT_EXTRA
 ME_HEIGHT_EXTRA = 20 '50 + 10
 Me.height = HY2 + ME_HEIGHT_EXTRA
-
 RESIZE_LOOP_STOP = True
 Me.width = WX2
 
@@ -3805,7 +3891,8 @@ For i = 0 To Forms.Count - 1
                 'i_Menu_Count = i_Menu_Count + 1
                 If InStr(Trim(Control.Caption), "[__ ") = 0 Then
                     LABEL_44 = Trim(Control.Caption)
-                    LABEL_48 = Replace(LABEL_44, " ", "_")
+                    'LABEL_48 = Replace(LABEL_44, " ", "_")
+                    LABEL_48 = LABEL_44
                     LABEL_48 = Replace(LABEL_48, "___", "__")
                     LABEL_48 = "[__ " + LABEL_48 + " __]"
                     LABEL_48 = Replace(LABEL_48, "[__ [__ ", "[__ ")
@@ -4220,88 +4307,6 @@ Next
 Me.Refresh
 End Sub
 
-
-
-Sub SET_MENU_PADD_WORK_OLD()
-
-Dim i_Menu_Count, i_Form_Counter
-Dim i_Menu_Not_Visa_Count
-
-Dim Control As Control, LABEL_44, LABEL_48
-
-Dim R_NEXT
-
-
-For i = 0 To Forms.Count - 1
-    For Each Control In Forms(i).Controls
-        If InStr(UCase(Control.Name), "MNU_") > 0 Then
-            If Control.Visible = True Then
-                i_Menu_Count = i_Menu_Count + 1
-            End If
-            i_Menu_Not_Visa_Count = i_Menu_Not_Visa_Count + 1
-
-        End If
-    Next
-Next
-
-i_Menu_Not_Visa_Count = i_Menu_Not_Visa_Count - i_Menu_Count
-
-Mnu_Menu_Item_Count.Caption = "Menu Item Count = " + Str(i_Menu_Count) + " &&" + Str(i_Menu_Not_Visa_Count) + " Not Visible"
-Mnu_Form_Count.Caption = "Form Counter = " + Str(Forms.Count - 1) + " Really 7"
-Mnu_Form_Count.Visible = False
-
-i_Menu_Count = 0
-
-For i = 0 To Forms.Count - 1
-    For Each Control In Forms(i).Controls
-        If InStr(UCase(Control.Name), "MNU_") > 0 Then
-            'i_Menu_Count = i_Menu_Count + 1
-            If InStr(Trim(Control.Caption), "[__ ") = 0 Then
-                LABEL_44 = Trim(Control.Caption)
-                LABEL_48 = Replace(LABEL_44, " ", "_")
-                LABEL_48 = Replace(LABEL_48, "___", "__")
-                LABEL_48 = "[__ " + LABEL_48 + " __]"
-                LABEL_48 = Replace(LABEL_48, "[__ [__ ", "[__ ")
-                LABEL_48 = Replace(LABEL_48, " __] __]", " __]")
-                If LABEL_48 <> LABEL_44 Then
-                    Control.Caption = LABEL_48
-                End If
-            End If
-        End If
-    Next
-Next
-
-''MNU_BRing_Front
-''---------------
-'i_Form_Counter = Forms.Count
-'i_Form_Counter = 0
-''for each f
-''For i = 0 To Forms.Count - 1
-''    Load Forms(i)
-''    Show Forms(i)
-''Next
-'
-'Dim Form As Form
-'i_Form_Counter = 0
-'For Each Form In Forms
-'    i_Form_Counter = i_Form_Counter + 1
-'    Load Form
-'    Form.Show
-'    Show Form
-'    'Set Form = Nothing
-'Next Form
-'
-'i_Form_Counter = 0
-'For Each Form In Forms
-'    i_Form_Counter = i_Form_Counter + 1
-'    Load Form
-'    Form.Show
-'    'Set Form = Nothing
-'Next Form
-
-i_Form_Counter = Forms.Count - 1
-Me.Refresh
-End Sub
 
 Sub WIDTH_AND_HEIGHT(WX, HY)
 
@@ -6678,6 +6683,7 @@ End Sub
 Private Sub lstProcess_2_ListView_Click()
 'lstProcess_2_ListView_HERE
 
+'lstProcess_2_ListView.width
 'lstProcess_2_ListView.Height
 '-----------------------------------------
 'if debugger in here it will crash the ide
@@ -8412,7 +8418,7 @@ End Sub
 
 Private Sub Timer_Pause_Update_Timer()
 Timer_Pause_Update.Enabled = False
-
+'Label53.width
 Label53.BackColor = Label58.BackColor
 
 End Sub
@@ -9276,7 +9282,7 @@ Private Sub EnumProcess(Optional ByVal sEXEName As String = "")
     Mid(TIME_LAB, 24, 1) = "0"
     TIME_LAB = Mid(TIME_LAB, 1, 24) + "_._" + Mid(Format(Timer - Int(Timer), ".000"), 2) + "" + Mid(TIME_LAB, 25)
     'Label53_Here
-    Label53.Caption = "Process Set Enumerate Event: " + TIME_LAB + " _ Ticker"
+    Label53.Caption = "Enumerate Event " + TIME_LAB + " _ Ticker"
     
     ' Create snapshot
     lSnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0&)
@@ -9495,16 +9501,17 @@ Set LV3 = Nothing
 Dim TAG_VAR
 Dim TAG_VAR_2
 
-Label46.Caption = "Process Counter Is:" ' + Str(lstProcess.ListCount - 2)
+Label46.Caption = "Process Counter:" ' + Str(lstProcess.ListCount - 2)
 
 If O_lstProcess_ListCount = -1 Then
     O_lstProcess_ListCount = lstProcess.ListCount
 End If
 
-If O_lstProcess_ListCount > lstProcess.ListCount Then TAG_VAR = " With_er Less"
-If O_lstProcess_ListCount < lstProcess.ListCount Then TAG_VAR = " With_er Higher"
-If O_lstProcess_ListCount = lstProcess.ListCount Then TAG_VAR = " Equal"
+If O_lstProcess_ListCount > lstProcess.ListCount Then TAG_VAR = " && Less"
+If O_lstProcess_ListCount < lstProcess.ListCount Then TAG_VAR = " && Higher"
+If O_lstProcess_ListCount = lstProcess.ListCount Then TAG_VAR = " && Equal"
 
+Label51.width = 400
 If O_lstProcess_ListCount > lstProcess.ListCount Then
     'UP
     TAG_VAR_2 = Chr(75)
@@ -9528,9 +9535,10 @@ If O_lstProcess_ListCount > lstProcess.ListCount Then
         MsgBox "ERROR BUT CONTINUE ANYWAY _ YOU GOT TO INSTALL FONT WINGDINGS 3" + TYPEMESSENGER, vbMsgBoxSetForeground
     End If
 
+    Label51.Left = Label52.Left + 100
     Label51.Caption = TAG_VAR_2
-    Label51.Top = TOP_HEIGHT
-    Label51.height = Label51_Height
+    Label51.Top = Label52.Top - 20
+    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label51_Height
     'There is ANOTHER LABEL HIDE IN BACKGROUND TO BLEND IN THE SIZE IS SMALLER
     'ON THE FORM IN GREY
 End If
@@ -9555,9 +9563,11 @@ If O_lstProcess_ListCount < lstProcess.ListCount Then
         TYPEMESSENGER = TYPEMESSENGER + "http://www.fontpalace.com/font-download/Wingdings+3/" + vbCrLf
         MsgBox "ERROR BUT CONTINUE ANYWAY _ YOU GOT TO INSTALL FONT WINGDINGS 3" + TYPEMESSENGER, vbMsgBoxSetForeground
     End If
+    
+    Label51.Left = Label52.Left + 100
     Label51.Caption = TAG_VAR_2
-    Label51.Top = TOP_HEIGHT
-    Label51.height = Label51_Height
+    Label51.Top = Label52.Top - 20
+    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label51_Height
 End If
 If O_lstProcess_ListCount = lstProcess.ListCount Then
     'EQUAL
@@ -9582,16 +9592,19 @@ If O_lstProcess_ListCount = lstProcess.ListCount Then
         TYPEMESSENGER = TYPEMESSENGER + "http://www.fontpalace.com/font-download/Wingdings+3/" + vbCrLf
         MsgBox "ERROR BUT CONTINUE ANYWAY _ YOU GOT TO INSTALL FONT WINGDINGS 2" + TYPEMESSENGER, vbMsgBoxSetForeground
     End If
+    
+    Label51.Left = Label52.Left + 75
     Label51.Caption = TAG_VAR_2
-    Label51.Top = TOP_HEIGHT + 40
-    Label51.height = Label51_Height - 20
+    Label51.Top = Label52.Top
+    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label51_Height
+
 End If
 '----
 'Wingdings 3 character set and equivalent Unicode characters
 'http://www.alanwood.net/demos/wingdings-3.html
 '----
 
-Label50.Caption = Str(lstProcess.ListCount - 2) + TAG_VAR + " _ Timer One Minute"
+Label50.Caption = Str(lstProcess.ListCount - 2) + TAG_VAR + "_Timer 1 Min"
 
 O_lstProcess_ListCount = lstProcess.ListCount
 

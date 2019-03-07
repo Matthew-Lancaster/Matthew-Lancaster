@@ -7,3 +7,8 @@ Public Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 
 Public Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
+Public VAR_ARRAY
+Public BLOCK_RUN_1()
+Public BLOCK_RUN_2()
+Public BLOCK_RUN_3()
+
