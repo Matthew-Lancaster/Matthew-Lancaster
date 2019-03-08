@@ -3182,6 +3182,11 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_04_OF_04:
 	WINCLOSE % A_ScriptName
 	SoundBeep , 2500 , 100
 
+	; CREDIT SOURCE KICK START
+	; ----
+	; a simple script to kill all autohotkey.exe ? - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/75424-a-simple-script-to-kill-all-autohotkeyexe/
+	; ----
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 			
