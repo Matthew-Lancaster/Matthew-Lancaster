@@ -23,6 +23,44 @@ Begin VB.Form frmAbout
    ScaleWidth      =   8340
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox chkOnTop 
+      Appearance      =   0  'Flat
+      Caption         =   "ME Always On Top _ Registry Setting Form Load Remember"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   276
+      Left            =   2832
+      TabIndex        =   9
+      ToolTipText     =   "STORE IN REISTRY FOR START UP OVERRIDE TIMER IF DO"
+      Top             =   1416
+      Width           =   5304
+   End
+   Begin VB.CommandButton cmdMemInfo 
+      Caption         =   "Memory Info"
+      Height          =   315
+      Left            =   6384
+      TabIndex        =   8
+      Top             =   600
+      Visible         =   0   'False
+      Width           =   1368
+   End
+   Begin VB.CommandButton cmdAbout 
+      Caption         =   "About"
+      Height          =   315
+      Left            =   6468
+      TabIndex        =   7
+      Top             =   72
+      Visible         =   0   'False
+      Width           =   564
+   End
    Begin VB.ListBox List1 
       Height          =   3720
       Left            =   72
@@ -131,6 +169,22 @@ Attribute VB_Exposed = False
 '--------------------------------------------------------------------------------
 Option Explicit
 
+Private Sub cmdAbout_Click()
+    ' Remove window from top
+    SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    chkOnTop.Value = 0
+    ' Show about box
+    frmAbout.Show vbModal
+End Sub
+
+Private Sub cmdMemInfo_Click()
+    ' Remove window from top
+    'SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    'chkOnTop.Value = 0
+    
+    'frmMemInfo.Show , Me
+    Load frmMemInfo
+End Sub
 Private Sub cmdOK_Click()
     Unload Me
 End Sub

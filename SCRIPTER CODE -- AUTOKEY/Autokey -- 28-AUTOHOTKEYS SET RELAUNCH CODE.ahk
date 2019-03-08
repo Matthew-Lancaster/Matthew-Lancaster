@@ -77,6 +77,21 @@ TIMER_SUB_AUTOHOTKEY_RELOAD:
 DetectHiddenWindows, ON
 SetTitleMatchMode 3  ; EXACTLY
 
+IFWINEXIST %FN_VAR_1%
+{
+	FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+	AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+	TEMP_VAR_1=%FN_VAR_1%
+	TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
+	TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+	TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+	FN_VAR_2=%TEMP_VAR_3%
+
+	WinGet, PID, PID, %FN_VAR_2% ahk_class AutoHotkey
+	Process,Close,% PID
+	RETURN
+}
+
 IFWINNOTEXIST %FN_VAR_1%
 {
 	SoundBeep , 2000 , 100

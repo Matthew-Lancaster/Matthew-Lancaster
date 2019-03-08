@@ -39,11 +39,18 @@ Sub Main()
     ' End
     
     ' IF RUN BY COMMAND LINE #1 OR #2
-    If Command$ <> "" Then
+    
+    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    
+    If InStr(Command$, "GOODSYNC_MODE") > 0 Then
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
-    Else
-        FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
     End If
+    
+    
+    MsgBox Command$
+    
+    End
+    
     
     If Dir(FILE_EXE_RUNNER) = "" Then
         MsgBox "File to Run Was Not Found" + vbCrLf + vbCrLf + FILE_EXE_RUNNER, vbMsgBoxSetForeground
@@ -57,7 +64,6 @@ Sub Main()
     End If
     
     CMD = "C:\Windows\System32\cmd.exe"
-    
     Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", vbNormalFocus
     
     ' Shell FILE_EXE_RUNNER, vbNormalNoFocus

@@ -724,7 +724,9 @@ SetTitleMatchMode 3  ; EXACTLY
 IFWINNOTEXIST %FN_VAR_1%
 {
 	SoundBeep , 2000 , 100
-	Run, %FN_VAR_1%
+	
+	Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+	
 }
 
 
