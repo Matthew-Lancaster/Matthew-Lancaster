@@ -229,7 +229,7 @@ Begin VB.Form Form1
       Locked          =   -1  'True
       TabIndex        =   28
       Top             =   15
-      Width           =   6525
+      Width           =   6672
    End
    Begin VB.Timer Timer_ALWAYS_ON_TOP_TO_START_WITH_ER 
       Interval        =   1000
@@ -515,6 +515,16 @@ Begin VB.Form Form1
       Appearance      =   1
       NumItems        =   0
    End
+   Begin VB.Label Label68 
+      Alignment       =   2  'Center
+      BackColor       =   &H00C0FFFF&
+      Caption         =   "RUN GOODSYNC SCRIPT SET"
+      Height          =   240
+      Left            =   5508
+      TabIndex        =   113
+      Top             =   2220
+      Width           =   2412
+   End
    Begin VB.Label Label67 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
@@ -523,7 +533,7 @@ Begin VB.Form Form1
       Left            =   5508
       TabIndex        =   112
       Top             =   1956
-      Width           =   2292
+      Width           =   2412
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
@@ -567,20 +577,20 @@ Begin VB.Form Form1
       BackColor       =   &H00C0FFFF&
       Caption         =   "MINIMIZE GOODSYNC"
       Height          =   240
-      Left            =   5505
+      Left            =   5508
       TabIndex        =   108
-      Top             =   1695
-      Width           =   2295
+      Top             =   1692
+      Width           =   2412
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "MAXIMIZE GOODSYNC"
       Height          =   240
-      Left            =   5505
+      Left            =   5508
       TabIndex        =   107
-      Top             =   1410
-      Width           =   2295
+      Top             =   1416
+      Width           =   2412
    End
    Begin VB.Label Label44 
       Alignment       =   2  'Center
@@ -590,17 +600,17 @@ Begin VB.Form Form1
       Left            =   5508
       TabIndex        =   106
       Top             =   1128
-      Width           =   2292
+      Width           =   2412
    End
    Begin VB.Label Label42 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL AUTOHOTKEY.EXE"
       Height          =   240
-      Left            =   5505
+      Left            =   5508
       TabIndex        =   105
-      Top             =   855
-      Width           =   2295
+      Top             =   852
+      Width           =   2412
    End
    Begin VB.Label Label64 
       Caption         =   "40 Sec"
@@ -888,19 +898,20 @@ Begin VB.Form Form1
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL WSCRIPT.EXE"
       Height          =   240
-      Left            =   5505
+      Left            =   5508
       TabIndex        =   80
-      Top             =   585
-      Width           =   2295
+      Top             =   588
+      Width           =   2412
    End
    Begin VB.Label Label29 
+      Alignment       =   2  'Center
       BackColor       =   &H00FFC0C0&
       Caption         =   "TASKKILLER /F /IM * /T"
       Height          =   240
-      Left            =   5505
+      Left            =   5508
       TabIndex        =   79
-      Top             =   315
-      Width           =   2295
+      Top             =   312
+      Width           =   2412
    End
    Begin VB.Label lblCordi 
       Caption         =   "X: 1043  Y: 0032"
@@ -916,8 +927,8 @@ Begin VB.Form Form1
       Height          =   336
       Left            =   5508
       TabIndex        =   76
-      Top             =   2328
-      Width           =   2292
+      Top             =   2940
+      Width           =   2412
    End
    Begin VB.Label Label3 
       Caption         =   "Manage Window _ hWnd:"
@@ -3087,7 +3098,20 @@ Call Timer_EnumProcess_Timer
 End Sub
 
 Private Sub Label67_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_MINIMIZE_GOODSYNC.BackColor = RGB(255, 255, 255)
+
 Call MNU_CLOSE_GOODSYNC_Click
+End Sub
+
+Private Sub Label68_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label68.BackColor = RGB(255, 255, 255)
+
+Call MNU_GOODSYNC_COLLECTION_SCRIPT_RUN_Click
+
 End Sub
 
 Private Sub MNU_KILL_MAX_AHK_Click()
@@ -3635,6 +3659,9 @@ End Sub
 
 Private Sub Label42_Click()
 
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label42.BackColor = RGB(255, 255, 255)
+
 'PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
 PROCESS_TO_KILLER = "AUTOHOTKEY.EXE"
 'PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
@@ -3902,14 +3929,54 @@ End Sub
 
 Private Sub Label44_Click()
 
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label44.BackColor = RGB(255, 255, 255)
+
 Call MNU_AUTOHOTKEYS_SET_Click
 
 End Sub
+
+Sub COLOUR_BOX_SELECTOR_RESTORE_DEFAULT()
+
+Dim ARRAY_CB(7), LDAC, R_COUNTER
+LDAC = 0
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label63"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label42"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label44"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MINIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label67"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label68"
+
+
+Dim Control As Control
+For Each Control In Me.Controls
+    For R_COUNTER = 1 To UBound(ARRAY_CB)
+        If Control.Name = ARRAY_CB(R_COUNTER) Then
+            Control.BackColor = Label59.BackColor
+            Control.ForeColor = RGB(0, 0, 0)
+        End If
+    Next
+Next
+
+End Sub
+
+
 
 Private Sub Label_MAXIMIZE_GOODSYNC_Click()
 
 Dim GOODSYNC_WINDOW_HWND
 GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_MAXIMIZE_GOODSYNC.BackColor = RGB(255, 255, 255)
 
 ShowWindow GOODSYNC_WINDOW_HWND, SW_MAXIMIZE
 Beep
@@ -3918,6 +3985,9 @@ Me.WindowState = vbMinimized
 End Sub
 
 Private Sub Label_MINIMIZE_GOODSYNC_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_MINIMIZE_GOODSYNC.BackColor = RGB(255, 255, 255)
 
 Dim GOODSYNC_WINDOW_HWND
 GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
@@ -4160,6 +4230,9 @@ End Sub
 
 Private Sub Label63_Click()
 
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label63.BackColor = RGB(255, 255, 255)
+
 PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
 PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
 
@@ -4292,9 +4365,10 @@ Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_GOODSYNC_COLLECTION_SCRIPT_RUN_Click()
+
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-SCRIPT RUN GOOD OLE GOODSYNC SCRIPTOR FOLDER.BAT" + """"
+    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT" + """"
 Set WSHShell = Nothing
 
 Beep
