@@ -69,7 +69,6 @@ Sub Main()
     End If
     
     If SET_GO_QUITE_MODE = "QUITE_MODE" Then
-        MsgBox "DONTSHOW"
         SHOWWINDOW_X = vbHide
     Else
         SHOWWINDOW_X = vbNormalFocus
