@@ -222,10 +222,10 @@ GLOBAL dhw
 
 GLOBAL OLD_UniqueID_MYSMS
 
-GLOBAL Array_FileName
+; GLOBAL Array_FileName
 GLOBAL FileName_2
 
-Array_FileName := []
+Array_FileName_2 := []
 
 OLD_UniqueID_MYSMS=0
 
@@ -2977,7 +2977,7 @@ MenuHandler:
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	if MNU_CODE=TERMINATE SCRIPT
-		Process,Close,% DllCall("GetCurrentProcessId")
+		Process, Close,% DllCall("GetCurrentProcessId")
 	
 	
 	
@@ -2999,7 +2999,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
 		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process,Close, AutoHotKey.exe
+		; Process, Close, AutoHotKey.exe
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
@@ -3036,7 +3036,7 @@ MenuHandler:
 
 		Loop %ArrayCount%
 		{
-			FileDelete, % Array_FileName%A_Index%
+			FileDelete, % Array_FileName_2[A_Index]
 			SOUNDBEEP 1000,100
 		}
 		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
@@ -3055,15 +3055,15 @@ MenuHandler:
 
 		Loop %ArrayCount%
 		{
-			file := FileOpen(Array_FileName%A_Index%, "w")
-			if !IsObject(file)
+			FileName := FileOpen(Array_FileName_2[A_Index], "w")
+			if !IsObject(FileName)
 			{
 				MsgBox Can't open "%FileName%" for writing.
 				return
 			}
 			TestString := "This is a test string.`r`n"  
-			file.Write(TestString)
-			file.Close()
+			FileName.Write(TestString)
+			FileName.Close()
 			SOUNDBEEP 1000,100
 		}
 		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
@@ -3082,7 +3082,7 @@ MenuHandler:
 		
 		Loop %ArrayCount%
 		{
-			FileDelete, % Array_FileName%A_Index%
+			FileDelete, % Array_FileName_2[A_Index]
 			SOUNDBEEP 1000,100
 		}
 		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
@@ -3099,20 +3099,17 @@ MenuHandler:
 		
 		GOSUB CREATE_PATH_ARRAY_SET_ON_NETWORK_ALL_CODE
 
-		MSGBOX % FileName_2
-		
 		Loop %ArrayCount%
 		{
-			file := FileOpen(Array_FileName%A_Index%, "w")
-			MSGBOX % file
-			if !IsObject(file)
+			FileName := FileOpen(Array_FileName_2[A_Index], "w")
+			if !IsObject(FileName)
 			{
 				MsgBox Can't open "%FileName%" for writing.
 				return
 			}
 			TestString := "This is a test string.`r`n"  
-			file.Write(TestString)
-			file.Close()
+			FileName.Write(TestString)
+			FileName.Close()
 			SOUNDBEEP 1000,100
 		}
 		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
@@ -3146,8 +3143,8 @@ CREATE_PATH_ARRAY_SET_ON_NETWORK_ALL_CODE:
 				ELEMENT7=_%NET_PATH%.TXT
 
 				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-				
-				MSGBOX % Array_FileName%ArrayCount%
+				Array_FileName_2[ArrayCount] := Array_FileName%ArrayCount%
+				; MSGBOX % Array_FileName_2[ArrayCount]
 				
 			}
 		}
@@ -3172,8 +3169,8 @@ TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE:
 	DetectHiddenWindows, OFF
 	SetTitleMatchMode 2  ; Avoids the need to specify the full path
 
-	FileName_VB =_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE%A_ComputerName%.TXT
-	FileName_AHK=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE%A_ComputerName%.TXT
+	FileName_VB =_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_%A_ComputerName%.TXT
+	FileName_AHK=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE_%A_ComputerName%.TXT
 
 	NET_PATH = %A_ComputerName%
 	ELEMENT1=\\
@@ -3201,11 +3198,11 @@ TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE:
 		WINCLOSE VB KEEP RUNNER
 		WINCLOSE INDIVIDUAL PROCESS _ Ver
 		
-		; Process,Close, VB KEEP RUNNER.exe
+		; Process, Close, VB KEEP RUNNER.exe
 		
 		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
-		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
-		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
+		; TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+		; GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
 	}		
 
 	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
@@ -3218,48 +3215,67 @@ TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE:
 		; GOSUB TIMER_SUB_CPU_INDIVIDUAL_PROCESS
 		
 		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
-		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
-		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
+		; TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+		; GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
 	}		
 	
-	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
 	; 03 OF 04
 	IF FileExist(FileName_AHK)
 	{
-		; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
-	
 		DetectHiddenWindows, On 
+
+		; -----------------------------------------------------------
+		; THIS ROUTINE WILL KILL ALL AUTOHOTKEYS IN ONE LINE BUT 
+		; EXTERNAL CODE OF VBSCRIPT
+		; DOESN'T MATTER ABOUT KILL ITSELF LAST THEN
+		; FOLLOWER ON IS OTHER EXAMPLE TO DO IN AUTOHOTKEYS
+		; -----------------------------------------------------------
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			Run, "%FN_VAR%"  /F /IM AutoHotKey.exe /T , , Max
+		}
+		
+		; -----------------------------------------------------------
+		; THIS ROUTINE CODE WILL KILL ALL AHK 
+		; BUT NOT INCLUDING MESSAGE BOX ITEM
+		; -----------------------------------------------------------
 		WinGet, List, List, ahk_class AutoHotkey 
 		Loop %List% 
 		  { 
 			WinGet, PID_02, PID, % "ahk_id " List%A_Index% 
-			If ( PID_02 <> DllCall("GetCurrentProcessId") ) 
-				 MSGBOX % List%A_Index%
-				 ;PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
+			If ( PID_02 <> DllCall("GetCurrentProcessId") )
+				Process, Close, % PID_02
+				; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
 		  }
-
-		  
-		  
-		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
-		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
-		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
+		
+		; -----------------------------------------------------------
+		; THIS ROUTINE CODE WILL KILL ALL AHK 
+		; INCLUDING MSGBOX MESSAGE BOX ITEM
+		; -----------------------------------------------------------
+		PID_02:=DllCall("GetCurrentProcessId") 
+		for process in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process where name = 'Autohotkey.exe' and processID  <> " PID_02 )
+		Process, Close, % process.ProcessId
+		; -----------------------------------------------------------
+		; KILL OUR OWN SCRIPTOR - LASTLY
+		; -----------------------------------------------------------
+		Process, Close,% DllCall("GetCurrentProcessId")
+		WINCLOSE % A_ScriptName
 	}		
 
-	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
 	; 04 OF 04
 	IF !FileExist(FileName_AHK)
 	{
 		GOSUB TIMER_SUB_AUTOHOTKEY_RELOAD		
-		
-		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
-		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
-		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
 	}		
 		
 	; OLD_FileExist_FLAG=%FileExist_FLAG%
 
 DetectHiddenWindows, % dhw
-	
+
+
+
 RETURN
 
 TIMER_SUB_AUTOHOTKEY_RELOAD:
@@ -3287,7 +3303,7 @@ IFWINEXIST %FN_VAR_1%
 	FN_VAR_2=%TEMP_VAR_3%
 
 	WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
-	Process,Close,% PID_01
+	Process, Close,% PID_01
 	RETURN
 }
 
