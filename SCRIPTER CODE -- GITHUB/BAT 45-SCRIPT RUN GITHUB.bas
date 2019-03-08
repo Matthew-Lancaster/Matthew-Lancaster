@@ -53,6 +53,7 @@ Sub Main()
     If InStr(Command$, "TASKBAR_TRAY_ICON") > 0 Then
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
+        SET_GO_QUITE_MODE = "QUITE_MODE"
     
     
     
@@ -76,13 +77,14 @@ Sub Main()
     End If
     
     If SET_GO_QUITE_MODE = "QUITE_MODE" Then
-        SHOWWINDOW_X = vbHide
+        SHOWWINDOW_X = vbMinimizedNoFocus 'vbHide
+        SHOWWINDOW_X =
     Else
         SHOWWINDOW_X = vbNormalFocus
     End If
     
     CMD = "C:\Windows\System32\cmd.exe"
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" , 'SHOWWINDOW_X
     
     ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
     
