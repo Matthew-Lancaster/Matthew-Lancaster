@@ -55,6 +55,7 @@ Sub Main()
         ' MsgBox "-" + Value + "-"
         If Val(Value) = 0 Then End
         SET_GO_QUITE_MODE = "QUITE_MODE"
+        MsgBox SET_GO_QUITE_MODE
     End If
     
     If Dir(FILE_EXE_RUNNER) = "" Then
