@@ -440,7 +440,6 @@ IF (A_ComputerName<>"7-ASUS-GL522VW")
 	; Test Timer Status - Ask for Help - AutoHotkey Community
 	; https://autohotkey.com/board/topic/55321-test-timer-status/
 	; ----
-
 	
 RETURN
 
