@@ -176,11 +176,11 @@ Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, TERMINATE SCRIPT, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add, TERMINATE All AutoHotKey.exe, MenuHandler  
 Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, RELOAD    All AutoHotKey Network.exe, MenuHandler  
-Menu, Tray, Add, TERMINATE All AutoHotKey Network.exe, MenuHandler  
-Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, RELOAD    ALL NET - VB CODE.exe, MenuHandler 
 Menu, Tray, Add, TERMINATE ALL NET - VB CODE.exe, MenuHandler 
+Menu, Tray, Add  ; Creates a separator line.
+Menu, Tray, Add, RELOAD    All AutoHotKey Network.exe, MenuHandler  
+Menu, Tray, Add, TERMINATE All AutoHotKey Network.exe, MenuHandler  
 Menu, Tray, Add  ; Creates a separator line.
 
 ;# ------------------------------------------------------------------
@@ -222,11 +222,6 @@ GLOBAL dhw
 
 GLOBAL OLD_UniqueID_MYSMS
 
-; GLOBAL Array_FileName
-GLOBAL FileName_2
-
-Array_FileName_2 := []
-
 OLD_UniqueID_MYSMS=0
 
 OLD_UniqueID_CHROME=0
@@ -265,8 +260,15 @@ GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=0
 OLD_FileExist_FLAG_01=
 OLD_FileExist_FLAG_02=
 FileExist_FLAG_RUN_IN_ONCE_FLAG=FALSE
+
 GLOBAL FileName_VB
 GLOBAL FileName_AHK
+GLOBAL FileName_RESTORE_VB_AHK
+GLOBAL FileName_2
+GLOBAL FileName_4
+GLOBAL OPERATION_CREATE_PATH_SET_NETWORK
+Array_FileName_2 := []
+
 
 OSVER_N_VAR:=a_osversion
 IF INSTR(a_osversion,".")>0
@@ -3064,8 +3066,7 @@ return
 ; 01 OF 04 ---- RESTORE CREATE FILE DELETE AND RELOAD
 RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_01_OF_04:
 
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE
-	
+	OPERATION_CREATE_PATH_SET_NETWORK=VB
 	GOSUB RESTORE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
 
 	; ---------------------------------------------------------------
@@ -3075,16 +3076,14 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_01_OF_04:
 	GOSUB TIMER_SUB_VB_KEEP_RUNNER
 	; GOSUB TIMER_SUB_CPU_INDIVIDUAL_PROCESS
 		
-	GOSUB RETURN_FILENAME_FORMAT_LOCAL_LEVEL_VB_AND_AHK
-	FileDelete, % FileName_AHK
+	FileDelete, % FileName_4
 	
 RETURN
 
 ; 02 OF 04 ---- DELETE AND KILL PROCESS
 RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_02_OF_04:
 	
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE
-	
+	OPERATION_CREATE_PATH_SET_NETWORK=VB
 	GOSUB DELETE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
 
 	; ---------------------------------------------------------------
@@ -3096,8 +3095,7 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_02_OF_04:
 		
 	; Process, Close, VB KEEP RUNNER.exe
 
-	GOSUB RETURN_FILENAME_FORMAT_LOCAL_LEVEL_VB_AND_AHK
-	FileName_RESTORE_VB_AHK=%FileName_VB%
+	FileName_RESTORE_VB_AHK=%FileName_4%
 	GOSUB CREATE_FILENAME_FORMAT_LOCAL_LEVEL_FROM_PARAM
 
 RETURN
@@ -3105,8 +3103,7 @@ RETURN
 ; 03 OF 04 ---- RESTORE CREATE FILE DELETE AND RELOAD
 RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_03_OF_04:
 
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE
-	
+	OPERATION_CREATE_PATH_SET_NETWORK=AHK
 	GOSUB RESTORE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
 
 	; ---------------------------------------------------------------
@@ -3122,9 +3119,8 @@ RETURN
 
 ; 04 OF 04 ---- DELETE AND KILL PROCESS
 RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_04_OF_04:
-
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE
 	
+	OPERATION_CREATE_PATH_SET_NETWORK=AHK
 	GOSUB DELETE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
 
 	; ---------------------------------------------------------------
@@ -3189,14 +3185,40 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_04_OF_04:
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 			
-	GOSUB RETURN_FILENAME_FORMAT_LOCAL_LEVEL_VB_AND_AHK
-	FileName_RESTORE_VB_AHK=%FileName_AHK%
+	FileName_RESTORE_VB_AHK=%FileName_4%
 	GOSUB CREATE_FILENAME_FORMAT_LOCAL_LEVEL_FROM_PARAM
 RETURN
 
+RESTORE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE:
+	GOSUB CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
+	GOSUB CREATE_FILENAME_FORMAT_ALL_NETWORK_LEVEL_FROM_ARRAY
+RETURN
+
+DELETE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE:
+	GOSUB CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
+	Loop %ArrayCount%
+	{
+		FileDelete, % Array_FileName_2[A_Index]
+		SOUNDBEEP 1000,100
+	}
+RETURN
 
 CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE:
 
+	FileName_O_VB=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE
+	FileName_O_AHK=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE
+
+	IF OPERATION_CREATE_PATH_SET_NETWORK=VB
+	{
+		FILENAME_2=%FileName_O_VB%
+		FILENAME_4:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_%A_ComputerName%.TXT"
+	}
+	IF OPERATION_CREATE_PATH_SET_NETWORK=AHK
+	{
+		FILENAME_2=%FileName_O_AHK%	
+		FILENAME_4:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE_%A_ComputerName%.TXT"
+	}
+	
 	ArrayCount = 0
 	Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
 	{
@@ -3223,22 +3245,16 @@ CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE:
 			Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
 			Array_FileName_2[ArrayCount] := Array_FileName%ArrayCount%
 			; MSGBOX % Array_FileName_2[ArrayCount]
-			
 		}
 	}
 RETURN
 
-RESTORE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE:
-	GOSUB CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
-	GOSUB CREATE_FILENAME_FORMAT_ALL_NETWORK_LEVEL_FROM_ARRAY
-RETURN
-
 CREATE_FILENAME_FORMAT_LOCAL_LEVEL_FROM_PARAM:
 
-	FileName := FileOpen(Array_FileName_2[A_Index], "w")
+	FileName := FileOpen(FileName_4, "w")
 	if !IsObject(FileName)
 	{
-		MsgBox Can't open "%FileName%" for writing.
+		MsgBox Can't open "%FileName_4%" for writing.
 		return
 	}
 	TestString := "This is a test string.`r`n"  
@@ -3260,18 +3276,6 @@ CREATE_FILENAME_FORMAT_ALL_NETWORK_LEVEL_FROM_ARRAY:
 		TestString := "This is a test string.`r`n"  
 		FileName.Write(TestString)
 		FileName.Close()
-		SOUNDBEEP 1000,100
-	}
-
-RETURN
-
-DELETE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE:
-
-	GOSUB CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE
-		
-	Loop %ArrayCount%
-	{
-		FileDelete, % Array_FileName_2[A_Index]
 		SOUNDBEEP 1000,100
 	}
 

@@ -61,6 +61,20 @@
 '-----------------------------------------------------------------
 
 
+' -------------------------------------------------------------------
+' [ Friday 20:48:00 Pm_08 March 2019 ]
+' -------------------------------------------------------------------
+' SKYPE IS APP FROM WINDOWS STORE AND NOT ABLE PUT AS LINK 
+' ONLY PUT FROM WINDOWS OWN STYLE
+' -------------------------------------------------------------------
+' FINDER AND NOT WANTER
+' -------------------------------------------------------------------
+' "C:\Program Files\HandBrake\HandBrake.exe"
+' "C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
+' "C:\Program Files (x86)\DVDVideoSoft\Free MP4 Video Converter\FreeMP4VideoConverter.exe"
+' "C:\Users\MATT 01\AppData\Local\FlickrUploadrWindows\app-1.0.1.292\Flickr.exe"
+' -------------------------------------------------------------------
+
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 DIM Q
@@ -469,7 +483,7 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
 
 IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
+	' I=I+1:ARRAY_1(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
 END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
@@ -613,7 +627,6 @@ I=I+1:ARRAY_1(I)=""
 ' C:\Program Files\Common Files\Logishrd\Unifying\DJCUHost.exe
 ' C:\Program Files\OVH\hubiC\hubiC.exe" run --showsync
 ' -------------------------------------------------------------------
-
 ' ASUS 5-P NOT INSTALLED YET AND SORT IF WANT PLACED WITH TASKBAR
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
