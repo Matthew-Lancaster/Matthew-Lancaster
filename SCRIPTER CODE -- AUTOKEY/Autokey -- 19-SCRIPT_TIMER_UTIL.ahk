@@ -402,8 +402,13 @@ IF (A_ComputerName<>"7-ASUS-GL522VW")
 	{
 		; IF A_Hour=12
 		; 	SET_GO=TRUE
+		
+		; EVERY MIDNIGHT
 		IF A_Hour=0
 			SET_GO=TRUE
+
+		; EVERY HOUR
+		SET_GO=TRUE
 	}	
 
 	IF !GITHUB_HOUR_NOW
