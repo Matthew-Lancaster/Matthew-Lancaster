@@ -979,11 +979,11 @@ Function FindWinPart_SEARCHER(SEARCH_STRING) As Long
     Dim cText As String
     Dim CLASS_NAME As String
     Dim XGO
+    Dim CLASS_NAME_______________
     
     'Find the first window
     test_hwnd = FindWindow2(ByVal 0&, ByVal 0&)
     Do While test_hwnd <> 0
-        
         CLASS_NAME_______________ = GetWindowClass(test_hwnd)
         If InStr(UCase(CLASS_NAME_______________), UCase(SEARCH_STRING)) > 0 Then XGO = True
         If InStr(UCase(GetWindowTitle(test_hwnd)), UCase(SEARCH_STRING)) > 0 Then XGO = True
