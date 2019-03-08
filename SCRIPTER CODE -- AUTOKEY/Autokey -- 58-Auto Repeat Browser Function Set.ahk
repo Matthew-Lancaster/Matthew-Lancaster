@@ -107,6 +107,13 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 162 Views _ 18 NOV 2018 + TWENTY SIX 20+SIX
 ; 188 Views _ 29 NOV 2018 + 10
 ; -------------------------------------------------------------------
+; Thu 07-Mar-2019 NEAR MIDNIGHT _ 1 DAY LATER
+; 225 Views _ 12 OCT 2018 + 9 UP
+; 234 Views _ 17 OCT 2018 + 1
+; 170 Views _ 09 NOV 2018 + 1
+; 165 Views _ 18 NOV 2018 + 3
+; 194 Views _ 29 NOV 2018 + SIX 
+; -------------------------------------------------------------------
 
 
 ;# ------------------------------------------------------------------
@@ -294,7 +301,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		; SETTER SO PLAY AGAIN BY ACTIVATE SCREEN TO FORCE IN FOCUS AND PLAY
 		; IS OPTION THIS ONLY HAPPEN ON FIRST RUN
 		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
-		SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 2400000 ; 40 MINUTE
+		; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 2400000 ; 40 MINUTE
+		SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, 6000000 ; 1 HOUR  
 	}
 	ELSE
 	{
