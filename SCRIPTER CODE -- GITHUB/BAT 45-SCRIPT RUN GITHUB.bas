@@ -86,7 +86,7 @@ Sub Main()
         SHOWWINDOW_X = ShowWindow
     End If
     
-    objShell.Run """" + FILE_EXE_RUNNER + """", ShowWindow, DontWaitUntilFinished
+    objShell.Run """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X, DontWaitUntilFinished
     Set objShell = Nothing
 
 End Sub
