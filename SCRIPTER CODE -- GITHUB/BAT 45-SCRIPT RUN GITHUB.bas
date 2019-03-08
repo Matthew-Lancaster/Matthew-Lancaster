@@ -55,7 +55,6 @@ Sub Main()
         ' MsgBox "-" + Value + "-"
         If Val(Value) = 0 Then End
         SET_GO_QUITE_MODE = "QUITE_MODE"
-        MsgBox SET_GO_QUITE_MODE
     End If
     
     If Dir(FILE_EXE_RUNNER) = "" Then
@@ -69,14 +68,26 @@ Sub Main()
         End
     End If
     
+    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
+        MsgBox "DONTSHOW"
+        SHOWWINDOW_X = vbHide
+    Else
+        SHOWWINDOW_X = vbNormalFocus
+    End If
+    
     CMD = "C:\Windows\System32\cmd.exe"
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", vbNormalFocus
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
     
     ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
     
     'Shell FILE_EXE_RUNNER, vbMinimizedNoFocus
     
     End
+    
+    ' ----------------------------------------------------------------------
+    ' ----------------------------------------------------------------------
+    ' ----------------------------------------------------------------------
+    ' ----------------------------------------------------------------------
     
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
