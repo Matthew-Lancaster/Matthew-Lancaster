@@ -256,8 +256,8 @@ IF OSVER_N_VAR>5
 SET_GO=TRUE
 IF (A_ComputerName = "2-ASUS-EEE") 
 	SET_GO=FALSE
-IF (A_ComputerName = "8-MSI-GP62M-7RD")
-	SET_GO=FALSE
+; IF (A_ComputerName = "8-MSI-GP62M-7RD")
+	; SET_GO=FALSE
 IF SET_GO=TRUE
 {
 	ArrayCount += 1
@@ -453,6 +453,7 @@ RUN_THE_APP:
 	{
 		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
 		Process,Close,% DllCall("GetCurrentProcessId")
+		RETURN
 	}
 	 
 	IF SET_GO=TRUE
@@ -470,7 +471,6 @@ RETURN
 ; SplitPath,SkriptPath,KurzName
 
 ; WinGet, PID, PID, %SkriptPath% ahk_class AutoHotkey
-
 
 
 MenuHandler:
