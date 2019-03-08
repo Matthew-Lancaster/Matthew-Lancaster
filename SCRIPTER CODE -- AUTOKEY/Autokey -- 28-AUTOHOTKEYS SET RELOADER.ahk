@@ -452,14 +452,14 @@ RUN_THE_APP:
 	if INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
 	{
 		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
-		Process,Close,% DllCall("GetCurrentProcessId")
+		Process, Close,% DllCall("GetCurrentProcessId")
 		RETURN
 	}
 	 
 	IF SET_GO=TRUE
 	{
 		WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
-		Process,Close,% PID
+		Process, Close,% PID
 		SoundBeep , 2000 , 100
 		Run, %Element_1%
 	}
@@ -477,7 +477,7 @@ MenuHandler:
 	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
 	if A_ThisMenuItem=Terminate Script
 	{
-		Process,Close,% DllCall("GetCurrentProcessId")
+		Process, Close,% DllCall("GetCurrentProcessId")
 	}
 	if A_ThisMenuItem=Terminate All AutoHotKey.exe
 	{
@@ -495,7 +495,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
 		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process,Close, AutoHotKey.exe
+		; Process, Close, AutoHotKey.exe
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
@@ -579,7 +579,7 @@ ExitFunc(ExitReason, ExitCode)
 		
 		SoundBeep , 2500 , 100
 		; KILL ITSELF
-		Process,Close,% DllCall("GetCurrentProcessId")
+		Process, Close,% DllCall("GetCurrentProcessId")
 
 		
 		;---------------------------------------------------------------------
