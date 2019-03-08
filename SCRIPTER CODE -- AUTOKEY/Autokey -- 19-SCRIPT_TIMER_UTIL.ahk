@@ -173,11 +173,14 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ; Create the popup menu by adding some items to it.
 Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
-Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  
+Menu, Tray, Add, TERMINATE SCRIPT, MenuHandler  ; Creates a new menu item.
+Menu, Tray, Add, TERMINATE All AutoHotKey.exe, MenuHandler  
 Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, KILL   ALL NET - VB CODE.exe, MenuHandler 
-Menu, Tray, Add, RELOAD ALL NET - VB CODE.exe, MenuHandler 
+Menu, Tray, Add, TERMINATE All AutoHotKey Network.exe, MenuHandler  
+Menu, Tray, Add, RELOAD    All AutoHotKey Network.exe, MenuHandler  
+Menu, Tray, Add  ; Creates a separator line.
+Menu, Tray, Add, TERMINATE ALL NET - VB CODE.exe, MenuHandler 
+Menu, Tray, Add, RELOAD    ALL NET - VB CODE.exe, MenuHandler 
 Menu, Tray, Add  ; Creates a separator line.
 
 ;# ------------------------------------------------------------------
@@ -219,6 +222,11 @@ GLOBAL dhw
 
 GLOBAL OLD_UniqueID_MYSMS
 
+GLOBAL Array_FileName
+GLOBAL FileName_2
+
+Array_FileName := []
+
 OLD_UniqueID_MYSMS=0
 
 OLD_UniqueID_CHROME=0
@@ -240,7 +248,9 @@ VAR_STORE_CAMERA_LABEL=
 
 TIMER_SUB_OWNER_SAVE_TIMER=0
 
-TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY_VAR=FALSE 
+TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+
+TIMER_KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE_STOP_DELAY_VAR=FALSE 
 
 ; Each array must be initialized before use:
 COMPUTER_NAME_ARRAY := []
@@ -2962,18 +2972,18 @@ MenuHandler:
 	
 	; MNU_CODE=RELOAD ALL NET - VB CODE.exe
 	; MNU_CODE=KILL   ALL NET - VB CODE.exe
-	; TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE
+	; TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE
 
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	if MNU_CODE=Terminate Script
+	if MNU_CODE=TERMINATE SCRIPT
 		Process,Close,% DllCall("GetCurrentProcessId")
 	
 	
 	
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	if MNU_CODE=Terminate All AutoHotKey.exe
+	if MNU_CODE=TERMINATE All AutoHotKey.exe
 	{
 		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
 		
@@ -3014,85 +3024,34 @@ MenuHandler:
 		; EXCEPT THE AUTO GENERATOR
 		; -------------------------------------------------------------------
 	}
-
+	
+	; 01 OF 04
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	if MNU_CODE=RELOAD ALL NET - VB CODE.exe
+	if MNU_CODE=RELOAD    ALL NET - VB CODE.exe
 	{
 		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE
 		
-		ArrayCount = 0
-		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
-		{
-			NET_PATH:=A_LoopReadLine
-			
-			SET_GO=TRUE
-			IF INSTR(NET_PATH,"BTHUB")
-				SET_GO=FALSE
-			IF INSTR(NET_PATH,"NAS-QNAP-ML")
-				SET_GO=FALSE
-			IF SET_GO=TRUE
-			{
-				ArrayCount += 1
-				Array_NETPATH_01%ArrayCount% = %NET_PATH%
-				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
-				ELEMENT1=\\
-				ELEMENT2:=Array_NETPATH_01%ArrayCount%
-				ELEMENT3=\
-				ELEMENT4:=Array_NETPATH_02%ArrayCount%
-				ELEMENT5=%FileName_2%
-				NET_PATH:=A_LoopReadLine
-				ELEMENT7=_%NET_PATH%.TXT
-
-				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-			}
-		}
-
-
+		GOSUB CREATE_PATH_ARRAY_SET_ON_NETWORK_ALL_CODE
 
 		Loop %ArrayCount%
 		{
 			FileDelete, % Array_FileName%A_Index%
 			SOUNDBEEP 1000,100
 		}
-		SETTIMER TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE,1000
-
+		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
 		SOUNDBEEP 2000,100
 	}
 	
+	; 02 OF 04
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	if MNU_CODE=KILL   ALL NET - VB CODE.exe
+	if MNU_CODE=TERMINATE ALL NET - VB CODE.exe
 	{
 		
 		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE
 		
-		ArrayCount = 0
-		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
-		{
-			NET_PATH:=A_LoopReadLine
-			
-			SET_GO=TRUE
-			IF INSTR(NET_PATH,"BTHUB")
-				SET_GO=FALSE
-			IF INSTR(NET_PATH,"NAS-QNAP-ML")
-				SET_GO=FALSE
-			IF SET_GO=TRUE
-			{
-				ArrayCount += 1
-				Array_NETPATH_01%ArrayCount% = %NET_PATH%
-				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
-				ELEMENT1=\\
-				ELEMENT2:=Array_NETPATH_01%ArrayCount%
-				ELEMENT3=\
-				ELEMENT4:=Array_NETPATH_02%ArrayCount%
-				ELEMENT5=%FileName_2%
-				NET_PATH:=A_LoopReadLine
-				ELEMENT7=_%NET_PATH%.TXT
-
-				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-			}
-		}
+		GOSUB CREATE_PATH_ARRAY_SET_ON_NETWORK_ALL_CODE
 
 		Loop %ArrayCount%
 		{
@@ -3107,80 +3066,241 @@ MenuHandler:
 			file.Close()
 			SOUNDBEEP 1000,100
 		}
-		SETTIMER TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE,1000
+		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
+		SOUNDBEEP 2000,100
+	}
+
+	
+	; 03 OF 04
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	if MNU_CODE=RELOAD    All AutoHotKey Network.exe
+	{
+		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE
+		
+		GOSUB CREATE_PATH_ARRAY_SET_ON_NETWORK_ALL_CODE
+		
+		Loop %ArrayCount%
+		{
+			FileDelete, % Array_FileName%A_Index%
+			SOUNDBEEP 1000,100
+		}
+		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
 		SOUNDBEEP 2000,100
 	}
 	
+	; 04 OF 04
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	if MNU_CODE=TERMINATE All AutoHotKey Network.exe
+	{
+		
+		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE
+		
+		GOSUB CREATE_PATH_ARRAY_SET_ON_NETWORK_ALL_CODE
+
+		MSGBOX % FileName_2
+		
+		Loop %ArrayCount%
+		{
+			file := FileOpen(Array_FileName%A_Index%, "w")
+			MSGBOX % file
+			if !IsObject(file)
+			{
+				MsgBox Can't open "%FileName%" for writing.
+				return
+			}
+			TestString := "This is a test string.`r`n"  
+			file.Write(TestString)
+			file.Close()
+			SOUNDBEEP 1000,100
+		}
+		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
+		SOUNDBEEP 2000,100
+	}
 return
 
-TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY:
-	SETTIMER TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE,OFF
-	SETTIMER TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY, OFF
-	TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY_VAR=FALSE 
+CREATE_PATH_ARRAY_SET_ON_NETWORK_ALL_CODE:
+
+		ArrayCount = 0
+		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
+		{
+			NET_PATH:=A_LoopReadLine
+			
+			SET_GO=TRUE
+			IF INSTR(NET_PATH,"BTHUB")
+				SET_GO=FALSE
+			IF INSTR(NET_PATH,"NAS-QNAP-ML")
+				SET_GO=FALSE
+			IF SET_GO=TRUE
+			{
+				ArrayCount += 1
+				Array_NETPATH_01%ArrayCount% = %NET_PATH%
+				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
+				ELEMENT1=\\
+				ELEMENT2:=Array_NETPATH_01%ArrayCount%
+				ELEMENT3=\
+				ELEMENT4:=Array_NETPATH_02%ArrayCount%
+				ELEMENT5=%FileName_2%
+				NET_PATH:=A_LoopReadLine
+				ELEMENT7=_%NET_PATH%.TXT
+
+				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
+				
+				MSGBOX % Array_FileName%ArrayCount%
+				
+			}
+		}
+
 RETURN
 
-TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE:
+TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY:
+	SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,OFF
+	SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY, OFF
+	TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+RETURN
+
+TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE:
 	
-	IF TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY_VAR=FALSE 
+	IF TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
 	{
-		SETTIMER TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY, 10000
-		TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY_VAR=TRUE
+		SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY, 10000
+		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=TRUE
 	}
 	
 	dhw := A_DetectHiddenWindows
 	DetectHiddenWindows, OFF
 	SetTitleMatchMode 2  ; Avoids the need to specify the full path
 
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_%A_ComputerName%.TXT
-	
-	NET_PATH = %A_ComputerName%
+	FileName_VB =_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE%A_ComputerName%.TXT
+	FileName_AHK=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE%A_ComputerName%.TXT
 
+	NET_PATH = %A_ComputerName%
 	ELEMENT1=\\
 	ELEMENT2=%NET_PATH%
 	NET_PATH := StrReplace(NET_PATH, "-", "_")
 	ELEMENT3=\
 	ELEMENT4=%NET_PATH%
-	ELEMENT5=%FileName_2%
-
-	FileName_2 =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%
+	ELEMENT5=%FileName_VB%
+	FileName_VB  =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%
+	ELEMENT5=%FileName_AHK%
+	FileName_AHK =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%
 	
-	FileExist_FLAG=FALSE
-	if FileExist(FileName_2)
-		FileExist_FLAG=TRUE
+	; FileExist_FLAG=FALSE
+	; if FileExist(FileName_VB)
+		; FileExist_FLAG=TRUE
+	; if FileExist(FileName_AHK)
+		; FileExist_FLAG=TRUE
 		
 	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
-		IF FileExist(FileName_2)
-		{
+	; 01 OF 04
+	IF FileExist(FileName_VB)
+	{
+	
+		WINCLOSE EliteSpy+ by Andrea B 2001 __
+		WINCLOSE VB KEEP RUNNER
+		WINCLOSE INDIVIDUAL PROCESS _ Ver
 		
-			WINCLOSE EliteSpy+ by Andrea B 2001 __
-			WINCLOSE VB KEEP RUNNER
-			WINCLOSE INDIVIDUAL PROCESS _ Ver
-			
-			; Process,Close, VB KEEP RUNNER.exe
-			
-			; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
-			TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY_VAR=FALSE 
-			GOSUB TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY
-		}		
+		; Process,Close, VB KEEP RUNNER.exe
+		
+		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
+		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
+	}		
 
 	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
-		IF !FileExist(FileName_2)
-		{
+	; 02 OF 04
+	IF !FileExist(FileName_VB)
+	{
+	
+		GOSUB TIMER_SUB_EliteSpy
+		GOSUB TIMER_SUB_VB_KEEP_RUNNER
+		; GOSUB TIMER_SUB_CPU_INDIVIDUAL_PROCESS
 		
-			GOSUB TIMER_SUB_EliteSpy
-			GOSUB TIMER_SUB_VB_KEEP_RUNNER
-			; GOSUB TIMER_SUB_CPU_INDIVIDUAL_PROCESS
-			
-			; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
-			TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY_VAR=FALSE 
-			GOSUB TIMER_KILL_RELOAD_ALL_NET_VB_CODE_EXE_STOP_DELAY
-		}		
+		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
+		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
+	}		
+	
+	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
+	; 03 OF 04
+	IF FileExist(FileName_AHK)
+	{
+		; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
+	
+		DetectHiddenWindows, On 
+		WinGet, List, List, ahk_class AutoHotkey 
+		Loop %List% 
+		  { 
+			WinGet, PID_02, PID, % "ahk_id " List%A_Index% 
+			If ( PID_02 <> DllCall("GetCurrentProcessId") ) 
+				 MSGBOX % List%A_Index%
+				 ;PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
+		  }
+
+		  
+		  
+		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
+		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
+	}		
+
+	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
+	; 04 OF 04
+	IF !FileExist(FileName_AHK)
+	{
+		GOSUB TIMER_SUB_AUTOHOTKEY_RELOAD		
 		
-	OLD_FileExist_FLAG=%FileExist_FLAG%
+		; RUN ONCE NOW NOT SURE WHY WANTED A STAMP OUR ROUTINE SEMI REOCCURRING
+		TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
+		GOSUB TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY
+	}		
+		
+	; OLD_FileExist_FLAG=%FileExist_FLAG%
 
 DetectHiddenWindows, % dhw
 	
 RETURN
+
+TIMER_SUB_AUTOHOTKEY_RELOAD:
+
+DetectHiddenWindows, ON
+SetTitleMatchMode 3  ; EXACTLY
+
+FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+TEMP_VAR_1=%FN_VAR_1%
+TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
+TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+
+FN_VAR_1=%TEMP_VAR_3%
+
+IFWINEXIST %FN_VAR_1%
+{
+	FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+	AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+	TEMP_VAR_1=%FN_VAR_1%
+	TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
+	TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+	TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+	FN_VAR_2=%TEMP_VAR_3%
+
+	WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
+	Process,Close,% PID_01
+	RETURN
+}
+
+IFWINNOTEXIST %FN_VAR_1%
+{
+	SoundBeep , 2000 , 100
+	Run, %FN_VAR_1%
+	EXITAPP
+}
+
+RETURN
+
+
 
 
 ; -------------------------------------------------------------------
