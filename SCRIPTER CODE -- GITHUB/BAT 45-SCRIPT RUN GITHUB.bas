@@ -93,7 +93,6 @@ Sub Main()
     Set objShell = CreateObject("Wscript.Shell")
     
     If SET_GO_QUITE_MODE = "QUITE_MODE" Then
-        MsgBox "DONTSHOW"
         SHOWWINDOW_X = DontShowWindow
     Else
         SHOWWINDOW_X = ShowWindow
