@@ -371,7 +371,7 @@ MenuHandler:
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	if MNU_CODE=Terminate Script
-		Process,Close,% DllCall("GetCurrentProcessId")
+		Process, Close,% DllCall("GetCurrentProcessId")
 	
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
@@ -391,7 +391,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
 		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process,Close, AutoHotKey.exe
+		; Process, Close, AutoHotKey.exe
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
@@ -556,7 +556,7 @@ TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE:
 			WINCLOSE VB KEEP RUNNER
 			WINCLOSE INDIVIDUAL PROCESS _ Ver
 			
-			; Process,Close, VB KEEP RUNNER.exe
+			; Process, Close, VB KEEP RUNNER.exe
 		}		
 
 	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
