@@ -81,7 +81,7 @@ RETURN
 MAIN_ROUTINE:
 
 Gui, Margin, 5, 5
-gui, font, s14 ; , Arial ; , Calibri  
+Gui, font, s14 ; , Arial ; , Calibri  
 Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
 
 ; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
@@ -114,6 +114,7 @@ Loop, %id%
 	IF INSTR(Title,Command_Params)
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
+		MSGBOX % MMX
 		If MMX>-1
 		{
 			WinMinimize, ahk_id %Table%

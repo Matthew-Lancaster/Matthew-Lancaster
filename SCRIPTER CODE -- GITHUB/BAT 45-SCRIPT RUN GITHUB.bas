@@ -10,6 +10,8 @@ Attribute VB_Name = "Module1"
 '    Modified #2  : Fri 17:41:30 Pm_19 Oct 2018
 '--------------------------------------------------------------------------------
 
+Const DontWaitUntilFinished = False, WaitUntilFinished = True, ShowWindow = 1, DontShowWindow = 0
+
 
 Sub Main()
 
@@ -47,10 +49,13 @@ Sub Main()
     End If
     
     
-    MsgBox Command$
-    
-    End
-    
+    ' --CHANGED
+    If InStr(Command$, "--CHANGED") > 0 Then
+        Value = Mid(Command$, InStr(Command$, "--CHANGED") + Len("--CHANGED") + 1)
+        MsgBox "-" + Value + "-"
+        If Val(Value) = 0 Then End
+        SET_GO_QUITE_MODE = "QUITE_MODE"
+    End If
     
     If Dir(FILE_EXE_RUNNER) = "" Then
         MsgBox "File to Run Was Not Found" + vbCrLf + vbCrLf + FILE_EXE_RUNNER, vbMsgBoxSetForeground
@@ -74,7 +79,14 @@ Sub Main()
     
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
-    objShell.Run """" + FILE_EXE_RUNNER + """", 1, False
+    
+    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
+        SHOWWINDOW_X = DontShowWindow
+    Else
+        SHOWWINDOW_X = ShowWindow
+    End If
+    
+    objShell.Run """" + FILE_EXE_RUNNER + """", ShowWindow, DontWaitUntilFinished
     Set objShell = Nothing
 
 End Sub
