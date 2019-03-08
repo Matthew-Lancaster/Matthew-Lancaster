@@ -330,11 +330,6 @@ Loop % ArrayCount
 }
 
 
-
-
-
-SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
-
 IF (A_ComputerName = "7-ASUS-GL522VW") 
 	SETTIMER TIMER_SUB_FileZilla_Server,10000
 
@@ -342,7 +337,14 @@ IF (A_ComputerName = "4-ASUS-GL522VW")
 	SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,1000 ; 1 SECOND
 	;SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,600000 ; 10 MINUTER
 
+
+SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,10
+	
 RETURN
+
+; -------------------------------------------------------------------
+; END OF INIT CODE
+; -------------------------------------------------------------------
 
 
 
@@ -418,13 +420,10 @@ Loop % ArrayCount
 			RETURN
 		}
 	}
-
 	; PAUSE
-
 }
 
-
-
+SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
 
 RETURN
 
