@@ -399,16 +399,18 @@ I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
 END IF 
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
+IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
 
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe"
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\shell keyboard loader.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\shell keyboard loader.exe"
+ENDIF
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
@@ -487,7 +489,9 @@ IF Version_OS=10 THEN
 END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
+IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
+END IF
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
 
