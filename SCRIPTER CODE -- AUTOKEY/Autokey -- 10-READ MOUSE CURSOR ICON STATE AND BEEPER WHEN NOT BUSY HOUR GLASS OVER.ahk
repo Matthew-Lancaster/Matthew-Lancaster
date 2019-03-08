@@ -532,7 +532,7 @@ isWindowFullScreen( winTitle ) {
 MenuHandler:
 	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
 	if A_ThisMenuItem=Terminate Script
-		Process,Close,% DllCall("GetCurrentProcessId")
+		Process, Close,% DllCall("GetCurrentProcessId")
 	
 	if A_ThisMenuItem=Terminate All AutoHotKey.exe
 	{
@@ -550,7 +550,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
 		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process,Close, AutoHotKey.exe
+		; Process, Close, AutoHotKey.exe
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
