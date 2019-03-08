@@ -48,13 +48,9 @@ Sub Main()
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
     End If
     
-    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
-    
-    If InStr(Command$, "TASKBAR_TRAY_ICON") > 0 Then
+    If InStr(Command$, "TASKBAR_TRAY_ICON") = 0 Then
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
-        SET_GO_QUITE_MODE = "QUITE_MODE"
-    
     
     
     ' --CHANGED
@@ -78,13 +74,12 @@ Sub Main()
     
     If SET_GO_QUITE_MODE = "QUITE_MODE" Then
         SHOWWINDOW_X = vbMinimizedNoFocus 'vbHide
-        SHOWWINDOW_X =
     Else
         SHOWWINDOW_X = vbNormalFocus
     End If
     
     CMD = "C:\Windows\System32\cmd.exe"
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" , 'SHOWWINDOW_X
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
     
     ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
     
