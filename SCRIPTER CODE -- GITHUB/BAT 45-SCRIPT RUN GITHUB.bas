@@ -52,7 +52,7 @@ Sub Main()
     ' --CHANGED
     If InStr(Command$, "--CHANGED") > 0 Then
         Value = Mid(Command$, InStr(Command$, "--CHANGED") + Len("--CHANGED") + 1)
-        MsgBox "-" + Value + "-"
+        ' MsgBox "-" + Value + "-"
         If Val(Value) = 0 Then End
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
