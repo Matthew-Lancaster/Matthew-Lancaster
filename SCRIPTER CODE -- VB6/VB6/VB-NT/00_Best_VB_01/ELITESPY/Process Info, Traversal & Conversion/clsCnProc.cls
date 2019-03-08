@@ -614,6 +614,7 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
     ElseIf (eConversionType And cnToEXE) Then
             '#### If sEXE is not already set, determine its value now then set the OutputData
         If (Len(sEXE) = 0) Then
+        
             If (Not GetEXEID(lProcessID, sEXE)) Then GoTo Convert_Error
         End If
         OutputData = sEXE
