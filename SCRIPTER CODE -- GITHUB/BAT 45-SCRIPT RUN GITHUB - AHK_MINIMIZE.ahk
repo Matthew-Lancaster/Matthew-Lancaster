@@ -102,6 +102,8 @@ IF GITHUB_RUNNNER_RERUN
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
 
+COMMAND_WINDOW_FOUND_SHOW_ER=FALSE
+
 ; WinMinimize, ahk_class Notepad++
 
 WinGet, id, list,ahk_class ConsoleWindowClass
@@ -114,9 +116,9 @@ Loop, %id%
 	IF INSTR(Title,Command_Params)
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
-		MSGBOX % MMX
 		If MMX>-1
 		{
+			COMMAND_WINDOW_FOUND_SHOW_ER=TRUE
 			WinMinimize, ahk_id %Table%
 			; -----------------------------------------------------------
 			; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
@@ -137,7 +139,8 @@ IF BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=FALSE
 	IF INSTR(Command_Params, "QUICK_INTRO_DUMMY_RUN")
 	{
 		BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=TRUE
-		Gui, Show, AutoSize
+		IF COMMAND_WINDOW_FOUND_SHOW_ER=TRUE 
+			Gui, Show, AutoSize
 		EXIT_NOW=FALSE
 		SETTIMER TIMER_EXIT, 4000
 	}		
