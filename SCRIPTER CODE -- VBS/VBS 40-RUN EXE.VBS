@@ -10,8 +10,7 @@
 ' AND MOVED HERE MAYBE 
 ' -------------------------------------------------------------------
 
-
-const DontWaitUntilFinished = false, ShowWindow = 1, DontShowWindow = 0, WaitUntilFinished = true
+Const DontWaitUntilFinished = false, WaitUntilFinished = true, ShowWindow = 1, DontShowWindow = 0
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
