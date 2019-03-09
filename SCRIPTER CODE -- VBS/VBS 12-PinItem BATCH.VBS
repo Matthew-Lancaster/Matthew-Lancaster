@@ -296,6 +296,14 @@ COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
 '--------------------------------------------------------------------
 
 
+
+I=I+1:ARRAY_1(I)="C:\Windows\System32\cmd.exe"
+I=I+1:ARRAY_1(I)="C:\Windows\explorer.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files\Internet Explorer\iexplore.exe"
+END IF
+
 obj_SOURCE_Folder = "C:\Users\" & CUR_USER & "\AppData\Local\FlickrUploadrWindows"
 SET_GO=TRUE
 If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
@@ -358,6 +366,13 @@ END IF
 ' 7-ASUS-GL522VW
 ' 8-MSI-GP62M-7RD
 
+' IF COMPUTER_NAME_VAR="1-ASUS-X5DIJ" then 
+' IF COMPUTER_NAME_VAR="2-ASUS-EEE" then 
+' IF COMPUTER_NAME_VAR="3-LINDA-PC" then 
+' IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then 
+' IF COMPUTER_NAME_VAR="5-ASUS-P2520LA" then 
+' IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then 
+
 
 IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" then 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NetSetMan\netsetman.exe"
@@ -399,89 +414,97 @@ I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
 END IF 
-IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then 
+	I=I+1:ARRAY_1(I)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe"
+END IF 
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then 
+	I=I+1:ARRAY_1(I)="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe" 
+	' SUPPOSED TO ADD HERE TO END --  GOODSYNC_MODE  TASKBAR_TRAY_ICON
+END IF 
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
+	I=I+1:ARRAY_1(I)="C:\Users\" & CUR_USER & "\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
+END IF
+
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
-
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\shell keyboard loader.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
 END IF
-
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
 END IF 
-
-
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
-
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
-
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"
 END IF 
-
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\hashmyfiles.exe"
-
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Speech SDK 5.1\Bin\TTSApp.exe"
 END IF 
-I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\hashmyfiles.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\Reg Converter\RegConvert.exe"
+	'I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\regfromapp.exe"
+END IF 
+I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
+I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+END IF
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
+
+END IF
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WinMerge\WinMergeU.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
-
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Notepad++\notepad++.exe"
-
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-
-I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-I=I+1:ARRAY_1(I)="C:\Windows\explorer.exe"
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
-END IF
-
-I=I+1:ARRAY_1(I)="C:\Windows\System32\cmd.exe"
-
-IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\CCleaner\CCleaner64.exe"
-END IF
-IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\Common Files\LogiShrd\Unifying\DJCUHost.exe"
 END IF
 
-
-I=I+1:ARRAY_1(I)="C:\Program Files\VS Revo Group\Revo Uninstaller\RevoUnin.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files\VS Revo Group\Revo Uninstaller\RevoUnin.exe"
+' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Cool2000\cool2000.exe"
-END IF
-
-IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Audacity\audacity.exe"
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
 
 'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wweb32.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wwnotray.exe"
 
-IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\MPC-HC\mpc-hc64.exe"
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
+END IF
+
 I=I+1:ARRAY_1(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
 
 IF Version_OS=10 THEN
@@ -489,13 +512,9 @@ IF Version_OS=10 THEN
 END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
-IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
-	I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
-END IF
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
 
 I=I+1:ARRAY_1(I)="C:\Program Files\Process Lasso\ProcessLasso.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
 
 ' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\ProcessExplorerPortable\ProcessExplorerPortable.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\procexp.exe"
@@ -515,16 +534,13 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
 END IF
 
-'I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\regfromapp.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\Reg Converter\RegConvert.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
 END IF
 
 
-IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
 END IF
@@ -583,23 +599,13 @@ END IF
 
 I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
 
-IF Version_OS>5 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	' DVD RIPER COPIER
 	I=I+1:ARRAY_1(I)="C:\Program Files\HandBrake\HandBrake.exe"
 END IF
 
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
-	I=I+1:ARRAY_1(I)="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
-END IF
-
-IF Version_OS=10 AND COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
-END IF
-
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
-	
-	I=I+1:ARRAY_1(I)="C:\Users\" & CUR_USER & "\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
-
 END IF
 
 IF Version_OS=10 THEN
