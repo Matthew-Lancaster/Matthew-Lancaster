@@ -238,6 +238,17 @@ SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
 
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB EXE SYNC 01 7G 1X VB6_VB-NT-VB-NT-EXE"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB EXE SYNC 01 7G 2E VB6_VB-NT-VB-NT-EXE"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB EXE SYNC 01 7G 3L VB6_VB-NT-VB-NT-EXE"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB EXE SYNC 01 7G 5P VB6_VB-NT-VB-NT-EXE"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB EXE SYNC 01 7G 8M VB6_VB-NT-VB-NT-EXE"
+
 REM SET /A LDA=LDA+1
 REM SET Sources[!LDA!]=""
 REM SET /A LDA=LDA+1
@@ -539,15 +550,27 @@ for /L %%a in (1,1,!LDA!) do (
 @REM MONTH-DAY
 @REM ----------------------------------------------------------------
 
-if !X! EQU 0 (
+
+for /L %%a in (1,1,!LDA!) do (
+	ECHO ----------------------------------------------------------------
+	ECHO %%a of !LDA!
+	ECHO !sources[%%a]:"=!
+	ECHO !STATUS_4[%%a]:"=!
+	ECHO !STATUS_5[%%a]:"=!
+	ECHO !STATUS_6[%%a]:"=!
+	ECHO !STATUS_7[%%a]:"=!
+	ECHO !STATUS_8[%%a]:"=!
+)
+ECHO ----------------------------------------------------------------
+
+IF !X! EQU 0 (
 	ECHO ----------------------------------------------------------------
 	ECHO NOT ATTENTION REQUIRED SUCCESSFUL        ---- ********** 
 	ECHO ----------------------------------------------------------------
 	ECHO.
 )
 
-
-if !X! GTR 0 (
+IF !X! GTR 0 (
 	ECHO ----------------------------------------------------------------
 	ECHO ATTENTION REQUIRING NOT SUCCESSFUL       ---- X-X-X-X-X-X
 	ECHO ----------------------------------------------------------------
@@ -562,19 +585,6 @@ if !X! GTR 0 (
 	ECHO ----------------------------------------------------------------
 	REM TIMEOUT /T 8
 )
-
-for /L %%a in (1,1,!LDA!) do (
-	ECHO ----------------------------------------------------------------
-	ECHO %%a of !LDA!
-	ECHO !sources[%%a]:"=!
-	ECHO !STATUS_4[%%a]:"=!
-	ECHO !STATUS_5[%%a]:"=!
-	ECHO !STATUS_6[%%a]:"=!
-	ECHO !STATUS_7[%%a]:"=!
-	ECHO !STATUS_8[%%a]:"=!
-)
-
-ECHO ----------------------------------------------------------------
 
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------

@@ -66,8 +66,25 @@ SETTIMER TIMER_PREVIOUS_INSTANCE,1
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 
+; WIN_XP 5 WIN_7 6 WIN_10 10  
+; --------------------------
+OSVER_N_VAR:=a_osversion
+IF INSTR(a_osversion,".")>0
+	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
+IF OSVER_N_VAR=WIN_XP
+	OSVER_N_VAR=5
+IF OSVER_N_VAR=WIN_7
+	OSVER_N_VAR=6
 
+	
+If (OSVER_N_VAR=5)
+{	
+	SOUNDBEEP 1000,100
+	EXITAPP
+	RETURN
+}
 
+	
 Process, Exist, hubiC.exe
 If ErrorLevel ; errorlevel will = 0 if process doesn't exist
 {	
@@ -79,11 +96,28 @@ If ErrorLevel ; errorlevel will = 0 if process doesn't exist
 ; Minutes to Milliseconds Conversion (min to ms)
 ; https://www.timecalculator.net/minutes-to-milliseconds
 ; ----
+	
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+{
+	; SETTIMER, RUN_HUBIC, 3600000 ; 60 min = 3600000 ms
+	; SETTIMER, RUN_HUBIC, 2400000 ; 40 min = 2400000 ms
+	SETTIMER, RUN_HUBIC, 40000
+	RETURN
+}
 
-; SETTIMER,RUN_HUBIC, 2400000 ; 40 min = 2400000 ms
+IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName<>"MATT 01")
+	EXITAPP
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName<>"MATT 01")
+	EXITAPP
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName<>"MATT 04")
+	EXITAPP
+IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName<>"MATT 01")
+	EXITAPP
+	
+SETTIMER, RUN_HUBIC, 40000 ; 40 Second
 
-SETTIMER, RUN_HUBIC, 3600000 ; 60 min = 3600000 ms
 
+	
 RETURN
 
 
@@ -96,48 +130,14 @@ RUN_HUBIC:
 
 Process, Exist, hubiC.exe
 If ErrorLevel ; errorlevel will = 0 if process doesn't exist
-	RETURN
-
-	
-
-SET_GO_1=FALSE
-IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
-	SET_GO_1=TRUE
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=TRUE
-IF SET_GO_1=TRUE
 {
-	SET_GO_2=80
-	I_COUNT=0
-	LOOP 
-	{
-		; IF (A_ComputerName = "7-ASUS-GL522VW") 
-			; Process_Suspend_esif_assist_64(1)
-		; IF (A_ComputerName = "4-ASUS-GL522VW") 
-			; Process_Suspend_esif_assist_64(1)
-		
-		I_COUNT+=1
-		SLEEP 1000
-		IF I_COUNT>%SET_GO_2%
-			BREAK
-	}
+	EXITAPP
+	RETURN
 }
-	
-SET_GO_1=0
-IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
-	SET_GO_1=1
-IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
-	SET_GO_1=1
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=1
-IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
-	SET_GO_1=1
-	
 	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
-If (OSVER_N_VAR>5 
-	and SET_GO_1=1)
+If (OSVER_N_VAR>5)
 	{
 		Process, Exist, hubiC.exe
 		If Not ErrorLevel ; errorlevel will = 0 if process doesn't exist
@@ -147,21 +147,18 @@ If (OSVER_N_VAR>5
 				FN_VAR:="C:\Program Files\OVH\hubiC\hubiC.exe"
 				IfExist, %FN_VAR%
 				{
-					;Run, "%FN_VAR%"
+					Run, "%FN_VAR%"
 					
-					Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE.VBS" "%FN_VAR%"
+					RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubiC
+					
+					; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE.VBS" "%FN_VAR%"
 					SoundBeep , 2500 , 100
+					EXITAPP
 				}
 			}
 		}
 	}
-
-RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubiC
-
 RETURN
-
-
-
 
 
 
