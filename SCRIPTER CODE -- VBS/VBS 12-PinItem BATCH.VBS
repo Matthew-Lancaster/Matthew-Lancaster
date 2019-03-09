@@ -461,20 +461,20 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\Reg Converter\RegConvert.exe"
 	'I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\regfromapp.exe"
 END IF 
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
+
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
-END IF
+
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WinMerge\WinMergeU.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
 
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WinMerge\WinMergeU.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Notepad++\notepad++.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
@@ -482,11 +482,8 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\Common Files\LogiShrd\Unifying\DJCUHost.exe"
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files\VS Revo Group\Revo Uninstaller\RevoUnin.exe"
-' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Cool2000\cool2000.exe"
@@ -494,70 +491,62 @@ IF Version_OS=10 THEN
 END IF
 
 
-'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wweb32.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wwnotray.exe"
-
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
+	'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wweb32.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wwnotray.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\MPC-HC\mpc-hc64.exe"
-END IF
-
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\Process Lasso\ProcessLasso.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
 
 IF Version_OS=10 THEN
 	' I=I+1:ARRAY_1(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
 
-I=I+1:ARRAY_1(I)="C:\Program Files\Process Lasso\ProcessLasso.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
 
 ' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\ProcessExplorerPortable\ProcessExplorerPortable.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\procexp.exe"
 
-' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\AutorunsPortable\App\Autoruns\Autoruns64.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\Autoruns.exe"
+IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\procexp.exe"
+	' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\AutorunsPortable\App\Autoruns\Autoruns64.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\Autoruns.exe"
 
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\Easy USB Creator Lite.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\RUFUS\rufus-3.1.exe"
+
+END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\MiniTool Partition Wizard 10\partitionwizard.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\Easy USB Creator Lite.exe"
-I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\RUFUS\rufus-3.1.exe"
-
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
-END IF
-
-
-IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
 END IF
-
 
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
 END IF
-
-'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero TuneItUp\TuneItUp.exe"
-
-
 
 
 IF Version_OS=10 THEN
+	'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero TuneItUp\TuneItUp.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\FileZilla FTP Client\filezilla.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
-
-I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
 
 ' MOST UP TO DATE VERSION
 ' -----------------------
@@ -597,18 +586,15 @@ END IF
 ' ORIGINAL LOCATION COMES WITH WINDOWS
 '----------------------------------------------------------------------------
 
-I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
 
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
 	' DVD RIPER COPIER
 	I=I+1:ARRAY_1(I)="C:\Program Files\HandBrake\HandBrake.exe"
 END IF
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
-END IF
-
-IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Windows\System32\Taskmgr.exe"
 END IF
 
