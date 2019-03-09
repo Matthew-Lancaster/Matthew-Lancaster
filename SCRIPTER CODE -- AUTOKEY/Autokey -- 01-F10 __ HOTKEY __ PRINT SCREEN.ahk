@@ -114,6 +114,43 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 
 RETURN
 
+
+ESC::
+	IfWinActive ahk_class ConsoleWindowClass
+	{
+		WinClose, ahk_class ConsoleWindowClass
+		SoundBeep , 1500 , 400
+	}
+	
+	IfWinActive ahk_class IrfanView
+	{
+		WinClose, IrfanView
+		SoundBeep , 1500 , 400
+	}
+	
+	IfWinActive ahk_class MediaPlayerClassicW
+	{
+		Process, Close, mpc-hc64.exe
+		SoundBeep , 1500 , 400
+	}
+	IfWinActive ahk_class Afx:00007FF6A22C0000:b:0000000000010003:0000000000000006:0000000000000000
+	{
+		Process, Close, mpc-hc64.exe
+		SoundBeep , 1500 , 400
+	}
+	IfWinActive ahk_class AfxControlBar140su
+	{
+		Process, Close, mpc-hc64.exe
+		SoundBeep , 1500 , 400
+	}
+	IfWinActive ahk_class FullScreenClass
+	{
+		Process, Close, mpc-hc64.exe
+		SoundBeep , 1500 , 400
+	}
+	
+Return
+
 ; -------------------------------------------------------------------
 ; REPLACE F10 TO DO CONTROL PRINT SCREEN
 ; FOR CLIPBOARD SCREEN SHOT -- 
