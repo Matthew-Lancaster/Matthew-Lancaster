@@ -368,6 +368,12 @@ SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
 
 SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 100000 ; 10 SECOND AND THEN 10 MINUTE
 
+Secs_MSGBOX_01=18
+Secs_MSGBOX_02=5
+MSGBOX_COUNTDOWN_VB_KEEPER_OS_RESTART=
+SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,1000
+
+
 RETURN
 
 ; -------------------------------------------------------------------
@@ -1610,6 +1616,66 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+
+
+
+
+MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART:
+
+IFWINNOTEXIST VB KEEP RUNNER ahk_class #32770
+{
+	Secs_MSGBOX_01=18
+	Secs_MSGBOX_02=5
+	RETURN
+}
+
+if Secs_MSGBOX_01 > -1
+{
+	ControlGettext, MSGBOX_COUNTDOWN_VB_KEEPER_OS_RESTART, Static1,  VB KEEP RUNNER ahk_class #32770
+	IF INSTR(MSGBOX_COUNTDOWN_VB_KEEPER_OS_RESTART,"READY FOR OS RESTART")
+	{
+		ControlSetText,Static1,%MSGBOX_COUNTDOWN_VB_KEEPER_OS_RESTART%,VB KEEP RUNNER ahk_class #32770
+		ControlSetText,Button1,&Yes %Secs_MSGBOX_01%,VB KEEP RUNNER ahk_class #32770
+		ControlSetText,Button2,Not,VB KEEP RUNNER ahk_class #32770
+		#WinActivateForce, VB KEEP RUNNER ahk_class #32770
+		Secs_MSGBOX_01-=1
+		RETURN
+	}
+	ELSE
+		RETURN
+}
+
+Secs_MSGBOX_02-=1
+	
+IF Secs_MSGBOX_01=-1
+{
+	X_COUNT_EXIT=0
+	LOOP
+	{
+		X_COUNT_EXIT+=1
+		WinActivate, VB KEEP RUNNER ahk_class #32770
+
+		; CoordMode, Mouse, SCREEN
+		; #WinActivateForce, VB KEEP RUNNER ahk_class #32770
+		; WinActivate, VB KEEP RUNNER ahk_class #32770
+		; WinGetPos, X_2, Y_2, , , VB KEEP RUNNER ahk_class #32770
+		; ControlGetPos, x, y, w, h, Button1, VB KEEP RUNNER ahk_class #32770
+		; if Secs_MSGBOX_02>0
+			; MouseMove, X+20+X_2, Y+20+Y_2
+		
+		ControlClick, Button1, VB KEEP RUNNER ahk_class #32770
+		SOUNDBEEP 2000,400
+
+		IfWinNotExist, VB KEEP RUNNER ahk_class #32770
+			BREAK
+		IF X_COUNT_EXIT>20
+			BREAK
+		SLEEP 50
+	}
+}
+Return
 
 
 TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
