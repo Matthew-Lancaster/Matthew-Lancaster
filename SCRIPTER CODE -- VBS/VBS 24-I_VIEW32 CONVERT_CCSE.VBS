@@ -11,7 +11,7 @@
 ' CONVERT WITH IrfanView TO MAKE GOOGLE ABLE TO DISPLAY
 '-----------------------------------------------------------------
 
-const DontWaitUntilFinished = false, ShowWindow = 1, DontShowWindow = 0, WaitUntilFinished = true
+Const DontWaitUntilFinished = false, WaitUntilFinished = true, ShowWindow = 1, DontShowWindow = 0
 
 Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
