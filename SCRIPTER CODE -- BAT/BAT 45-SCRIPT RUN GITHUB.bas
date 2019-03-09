@@ -10,6 +10,8 @@ Attribute VB_Name = "Module1"
 '    Modified #2  : Fri 17:41:30 Pm_19 Oct 2018
 '--------------------------------------------------------------------------------
 
+Const DontWaitUntilFinished = False, WaitUntilFinished = True, ShowWindow = 1, DontShowWindow = 0
+
 
 Sub Main()
 
@@ -39,10 +41,24 @@ Sub Main()
     ' End
     
     ' IF RUN BY COMMAND LINE #1 OR #2
-    If Command$ <> "" Then
+    
+    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    
+    If InStr(Command$, "GOODSYNC_MODE") > 0 Then
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
-    Else
-        FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    End If
+    
+    If InStr(Command$, "TASKBAR_TRAY_ICON") = 0 Then
+        SET_GO_QUITE_MODE = "QUITE_MODE"
+    End If
+    
+    
+    ' --CHANGED
+    If InStr(Command$, "--CHANGED") > 0 Then
+        Value = Mid(Command$, InStr(Command$, "--CHANGED") + Len("--CHANGED") + 1)
+        ' MsgBox "-" + Value + "-"
+        If Val(Value) = 0 Then End
+        SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
     
     If Dir(FILE_EXE_RUNNER) = "" Then
@@ -56,9 +72,14 @@ Sub Main()
         End
     End If
     
-    CMD = "C:\Windows\System32\cmd.exe"
+    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
+        SHOWWINDOW_X = vbMinimizedNoFocus 'vbHide
+    Else
+        SHOWWINDOW_X = vbNormalFocus
+    End If
     
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", vbNormalFocus
+    CMD = "C:\Windows\System32\cmd.exe"
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
     
     ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
     
@@ -66,9 +87,21 @@ Sub Main()
     
     End
     
+    ' ----------------------------------------------------------------------
+    ' ----------------------------------------------------------------------
+    ' ----------------------------------------------------------------------
+    ' ----------------------------------------------------------------------
+    
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
-    objShell.Run """" + FILE_EXE_RUNNER + """", 1, False
+    
+    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
+        SHOWWINDOW_X = DontShowWindow
+    Else
+        SHOWWINDOW_X = ShowWindow
+    End If
+    
+    objShell.Run """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X, DontWaitUntilFinished
     Set objShell = Nothing
 
 End Sub
