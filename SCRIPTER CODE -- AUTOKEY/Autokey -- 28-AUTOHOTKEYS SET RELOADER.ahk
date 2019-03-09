@@ -179,37 +179,22 @@ FN_Array_3 := []
 DATE_MOD_Array := []
 
 ArrayCount := 0
-ArrayCount += 1
 
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk"
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk"	
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 14-Brightness With Dimmer.ahk"
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 02-SAVE AS KEY ENTER.ahk"
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk"
 ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 14-Brightness With Dimmer.ahk"
-ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk"
 ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk"
-ArrayCount += 1
-
-SET_GO=TRUE
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO=FALSE
-IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO=FALSE
-IF (A_ComputerName = "3-LINDA-PC") 
-	SET_GO=FALSE
-IF (A_ComputerName = "5-ASUS-P2520LA") 
-	SET_GO=FALSE
-
-IF SET_GO=TRUE
-{
-	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
-	ArrayCount += 1
-}
-
 
 OSVER_N_VAR:=a_osversion
 IF INSTR(a_osversion,".")>0
@@ -224,9 +209,6 @@ IF OSVER_N_VAR>=10
 	ArrayCount += 1
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK"
 }
-
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
 
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 50-Check The Capital Lock State.ahk"
@@ -263,6 +245,23 @@ IF SET_GO=TRUE
 	ArrayCount += 1
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk"
 }
+
+SET_GO=TRUE
+IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	SET_GO=FALSE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO=FALSE
+IF (A_ComputerName = "3-LINDA-PC") 
+	SET_GO=FALSE
+IF (A_ComputerName = "5-ASUS-P2520LA") 
+	SET_GO=FALSE
+
+IF SET_GO=TRUE
+{
+	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
+	ArrayCount += 1
+}
+
 
 ; -------------------------------------------------------------------
 ; ADD THE TERMINATOR VERSION NUMBER AND THEN WE ARE ABLE TO USE EXACT 

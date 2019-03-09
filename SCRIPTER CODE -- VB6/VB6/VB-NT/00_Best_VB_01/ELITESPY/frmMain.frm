@@ -5,10 +5,10 @@ Begin VB.Form frmMain
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000015&
    Caption         =   "EliteSpy+ by Andrea Batina 2001 & Also Matthew Lancaster __ Contact ME __ BT __ 07722224555"
-   ClientHeight    =   6816
+   ClientHeight    =   7116
    ClientLeft      =   60
-   ClientTop       =   1236
-   ClientWidth     =   12348
+   ClientTop       =   936
+   ClientWidth     =   15972
    BeginProperty Font 
       Name            =   "Tahoma"
       Size            =   8.4
@@ -20,8 +20,8 @@ Begin VB.Form frmMain
    EndProperty
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6816
-   ScaleWidth      =   12348
+   ScaleHeight     =   7116
+   ScaleWidth      =   15972
    Begin VB.Timer TIMER_TO_RESIZE 
       Enabled         =   0   'False
       Interval        =   100
@@ -99,13 +99,13 @@ Begin VB.Form frmMain
    End
    Begin VB.PictureBox picCrossHair 
       BorderStyle     =   0  'None
-      Height          =   384
+      Height          =   396
       Left            =   4956
       Picture         =   "frmMain.frx":0446
-      ScaleHeight     =   384
+      ScaleHeight     =   396
       ScaleWidth      =   384
       TabIndex        =   112
-      Top             =   372
+      Top             =   324
       Width           =   384
    End
    Begin VB.Timer TIMER_ColorCycle 
@@ -798,7 +798,7 @@ Begin VB.Form frmMain
       Top             =   696
       Width           =   1044
    End
-   Begin VB.Label Label14 
+   Begin VB.Label Lab_KILL_EXPLORER 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL EXPLORER"
@@ -808,7 +808,7 @@ Begin VB.Form frmMain
       Top             =   3600
       Width           =   2016
    End
-   Begin VB.Label Label69 
+   Begin VB.Label Label_CLOSE_GOODSYNC 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "CLOSE GOODSYNC"
@@ -818,7 +818,7 @@ Begin VB.Form frmMain
       Top             =   3840
       Width           =   2016
    End
-   Begin VB.Label Label68 
+   Begin VB.Label Label_KILL_HUBIC 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL HUBIC"
@@ -828,7 +828,7 @@ Begin VB.Form frmMain
       Top             =   3840
       Width           =   1524
    End
-   Begin VB.Label Label67 
+   Begin VB.Label Label_CLOSE_HWND 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "CLOSE HWND"
@@ -889,10 +889,10 @@ Begin VB.Form frmMain
       Height          =   336
       Left            =   4392
       TabIndex        =   116
-      Top             =   2004
+      Top             =   1992
       Width           =   960
    End
-   Begin VB.Label Label63 
+   Begin VB.Label Label_KILL_WSCRIPT 
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL WSCRIPT.EXE"
       Height          =   228
@@ -902,17 +902,17 @@ Begin VB.Form frmMain
       Width           =   1680
    End
    Begin VB.Image imgCursor 
-      Height          =   264
+      Height          =   276
       Left            =   5280
       MouseIcon       =   "frmMain.frx":0D10
-      Top             =   420
+      Top             =   372
       Width           =   276
    End
    Begin VB.Image Image1 
       Height          =   384
       Left            =   4500
       Picture         =   "frmMain.frx":15DA
-      Top             =   324
+      Top             =   276
       Width           =   384
    End
    Begin VB.Label Label3 
@@ -1170,7 +1170,7 @@ Begin VB.Form frmMain
       Height          =   252
       Left            =   3360
       TabIndex        =   72
-      Top             =   3288
+      Top             =   3276
       Width           =   1992
    End
    Begin VB.Line Line1 
@@ -1289,7 +1289,7 @@ Begin VB.Form frmMain
       Height          =   336
       Left            =   3360
       TabIndex        =   64
-      Top             =   2004
+      Top             =   1992
       Width           =   960
    End
    Begin VB.Label Label46 
@@ -1537,7 +1537,7 @@ Begin VB.Form frmMain
       Height          =   888
       Left            =   3360
       TabIndex        =   40
-      Top             =   2364
+      Top             =   2352
       Width           =   1992
    End
    Begin VB.Label Label23 
@@ -1727,7 +1727,7 @@ Begin VB.Form frmMain
       Height          =   1224
       Left            =   3360
       TabIndex        =   4
-      Top             =   756
+      Top             =   744
       Width           =   1992
    End
    Begin VB.Label lblTitle 
@@ -2205,7 +2205,7 @@ Dim IHWND, O_IHWND
 
 Dim TO_SETTER
 
-Dim Label51_Height
+Dim Label_ProcessSetBar_Height
 
 Dim O_GetForegroundWindow
 Dim O_GetForegroundWindow_02
@@ -3007,7 +3007,7 @@ Call Form2_Check_Project_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
 FIRST_RUN_FOR_TOP_AND_LEFT = 6
 counter_ALWAYS_ON_TOP_TIMER = 20
 
-Label51_Height = 380
+Label_ProcessSetBar_Height = 400
 
 '-----------------------------------------------------------------------
 'MY CAREER AS THE SKILL TO KEEP IT GOING
@@ -3276,20 +3276,20 @@ Label51.width = 340
 
 '----------------------------
 'SET HIGHER UP A BIT
-'Label51_Height = 380
+'Label_ProcessSetBar_Height = 380
 '----------------------------
 'MAXIMUM VALUE SET FIRST
 'OKAY USE VARIABLE INSTEAD WHEN WANT FURTHER
 '----------------------------
-'Label51.Height = Label51_Height
+'Label51.Height = Label_ProcessSetBar_Height
 '----------------------------
 
 'MATCH WING DING OUTER BIGGER
 'OUTER BIGGER
 '----------------------------
 Label52.Top = TOP_HEIGHT
-Label52.height = Label51_Height '+ 10 '350 + 10 'Label51.Height + 50
-Label52.width = Label51_Height
+Label52.height = Label_ProcessSetBar_Height '+ 10 '350 + 10 'Label51.Height + 50
+Label52.width = Label_ProcessSetBar_Height
 'INNER SMALLER
 Dim ADJUST_LEFT_OFFSET
 
@@ -3407,10 +3407,10 @@ Label46.Top = TOP_HEIGHT
 Label52.Top = TOP_HEIGHT
 
 'Process Enumerate Time Happen
-Label53.Top = Label50.Top + Label50.height + 40 ' + 20
+Label53.Top = Label50.Top + Label50.height + 20 ' + 20
 
 'Label53_Here
-Label53.height = 280
+Label53.height = 300
 
 'Label51.Height = Label50.Height
 'Label52.Height = Label51.Height
@@ -3463,7 +3463,7 @@ lstProcess_3_SORTER_ListView.height = lstProcess_2_ListView.height
 
 'TOP
 'lstProcess_2_ListView_HERE
-lstProcess_2_ListView.Top = Label53.Top + Label53.height + 30
+lstProcess_2_ListView.Top = Label53.Top + Label53.height + 10
 'TOP
 lstProcess_3_SORTER_ListView.Top = lstProcess_2_ListView.Top
 
@@ -3491,7 +3491,7 @@ Label44.height = 580 '+ 10 '+ 10
 Label44.Caption = "LISTVIEW && CLICK_ER DONT LKE RUNNER IN THE IDE CRASH &WITH_ER  FOR NOW _ CODE PERFECT PROOF READ_ER __ Feeling to Do With ListView.OCX Version Fault Investigate _ How Annoying _ Code Inside IDE _ Check Error Outside IDE Compiled EXE"
 
 'Label53_Here
-Label53.width = lstProcess_2_AND_lstProcess_3_WIDTH_POSTION_WITH_ER_OFFSET_LEFT - 10
+Label53.width = lstProcess_2_AND_lstProcess_3_WIDTH_POSTION_WITH_ER_OFFSET_LEFT '- 10
 'Label53.Caption = "Process Set Enumerate Event"
 
 'PROCESS COUNTING
@@ -3888,7 +3888,41 @@ Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click
 
 End Sub
 
-Private Sub Label67_Click()
+Private Sub Lab_KILL_EXPLORER_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Lab_KILL_EXPLORER.BackColor = RGB(255, 255, 255)
+
+Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click
+End Sub
+
+Private Sub Label_CLOSE_GOODSYNC_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_CLOSE_GOODSYNC.BackColor = RGB(255, 255, 255)
+
+Call MNU_CLOSE_GOODSYNC_Click
+
+End Sub
+
+Private Sub MNU_CLOSE_GOODSYNC_Click()
+
+Dim HWND_RESULT
+HWND_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+If HWND_RESULT > 0 Then
+    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
+End If
+
+Me.WindowState = vbMinimized
+Beep
+
+End Sub
+
+
+Private Sub Label_CLOSE_HWND_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_CLOSE_HWND.BackColor = RGB(255, 255, 255)
 
 Dim HWND_RESULT
 HWND_RESULT = txthWnd
@@ -3909,7 +3943,11 @@ Beep
 
 End Sub
 
-Private Sub Label68_Click()
+Private Sub Label_KILL_HUBIC_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_KILL_HUBIC.BackColor = RGB(255, 255, 255)
+
 '----
 'How to select an external program's tray menu item? - Ask for Help - AutoHotkey Community
 'https://autohotkey.com/board/topic/80327-how-to-select-an-external-programs-tray-menu-item/
@@ -3967,7 +4005,69 @@ Beep
 
 End Sub
 
-Private Sub Label69_Click()
+Sub COLOUR_BOX_SELECTOR_RESTORE_DEFAULT()
+' CALL COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+
+Dim ARRAY_CB()
+ReDim ARRAY_CB(100)
+Dim LDAC, R_COUNTER
+
+' --------------------------------------------------
+' SOME AFTER HERE MIXED FROM ANOTHER APP
+' VB_KEEP_RUNNER AND ELITESPY
+' PASTED IN
+' FLOUR -- COLOUR -- POWDER --
+' --------------------------------------------------
+LDAC = 0
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_GOODSYNC_COLLECTION_SCRIPT_RUN"  ' -- VB_KEEP_RUNNER ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_AUTOHOTKEY"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_RUN_AUTOHOTKEY_SET"              ' -- VB_KEEP_RUNNER ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MINIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_WSCRIPT"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_HUBIC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Lab_KILL_AHK"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Lab_KILL_EXPLORER"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_HWND"                      ' -- ELITESPY ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+
+For R_COUNTER = 1 To LDAC
+    If ARRAY_CB(R_COUNTER) = "" Then Exit For
+Next
+
+ReDim Preserve ARRAY_CB(R_COUNTER - 1)
+
+Dim Control As Control
+For Each Control In Me.Controls
+    For R_COUNTER = 1 To UBound(ARRAY_CB)
+        If Control.Name = ARRAY_CB(R_COUNTER) Then
+            Control.BackColor = Label59.BackColor
+            Control.ForeColor = RGB(0, 0, 0)
+        End If
+    Next
+Next
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Lab_KILL_EXPLORER.BackColor = RGB(255, 255, 255)
 
 Dim HWND_RESULT
 HWND_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
@@ -3975,10 +4075,8 @@ If HWND_RESULT > 0 Then
     Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
 End If
 
-Me.WindowState = vbMinimized
-Beep
-
 End Sub
+
 
 Private Sub TIMER_TO_RESIZE_Timer()
     TIMER_TO_RESIZE.Enabled = False
@@ -4614,7 +4712,10 @@ Beep
 MsgBox "NOT IN YET"
 End Sub
 
-Private Sub Label63_Click()
+Private Sub Label_KILL_WSCRIPT_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_KILL_WSCRIPT.BackColor = RGB(255, 255, 255)
 
 PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
 PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
@@ -4663,6 +4764,10 @@ Private Sub LAB_MAXIMIZE_GOODSYNC_Click()
 ' lstProcess_2_ListView.LEFT
 ' LAB_MAXIMIZE_GOODSYNC.LEFT
 ' ---------------------
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+LAB_MAXIMIZE_GOODSYNC.BackColor = RGB(255, 255, 255)
+
 Dim GOODSYNC_WINDOW_HWND
 GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
 
@@ -9611,9 +9716,9 @@ If O_lstProcess_ListCount > lstProcess.ListCount Then TAG_VAR = " && Less"
 If O_lstProcess_ListCount < lstProcess.ListCount Then TAG_VAR = " && Higher"
 If O_lstProcess_ListCount = lstProcess.ListCount Then TAG_VAR = " && Equal"
 
-Label51.width = 400
+
 If O_lstProcess_ListCount > lstProcess.ListCount Then
-    'UP
+    'DOWN
     TAG_VAR_2 = Chr(75)
     'Label51_Here
     On Error Resume Next
@@ -9635,15 +9740,18 @@ If O_lstProcess_ListCount > lstProcess.ListCount Then
         MsgBox "ERROR BUT CONTINUE ANYWAY _ YOU GOT TO INSTALL FONT WINGDINGS 3" + TYPEMESSENGER, vbMsgBoxSetForeground
     End If
 
-    Label51.Left = Label52.Left + 100
+    Label51.Left = Label52.Left + 50
+    'THE WINDDING LABLE MUST BE SMALLER THAN Label52 AS IS OFFSET IN
+    Label51.width = ((Label52.Left + Label52.width) - Label51.Left) - 20
     Label51.Caption = TAG_VAR_2
-    Label51.Top = Label52.Top - 20
-    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label51_Height
+    Label50.Left = (Label52.Left + Label52.width) + 20
+    Label51.Top = Label52.Top
+    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label_ProcessSetBar_Height
     'There is ANOTHER LABEL HIDE IN BACKGROUND TO BLEND IN THE SIZE IS SMALLER
     'ON THE FORM IN GREY
 End If
 If O_lstProcess_ListCount < lstProcess.ListCount Then
-    'DOWN
+    'UP
     TAG_VAR_2 = Chr(74)
     On Error Resume Next
     Err.Clear
@@ -9664,10 +9772,13 @@ If O_lstProcess_ListCount < lstProcess.ListCount Then
         MsgBox "ERROR BUT CONTINUE ANYWAY _ YOU GOT TO INSTALL FONT WINGDINGS 3" + TYPEMESSENGER, vbMsgBoxSetForeground
     End If
     
-    Label51.Left = Label52.Left + 100
+    Label51.Left = Label52.Left + 50
+    'THE WINDDING LABLE MUST BE SMALLER THAN Label52 AS IS OFFSET IN
+    Label51.width = ((Label52.Left + Label52.width) - Label51.Left) - 20
+    Label50.Left = (Label52.Left + Label52.width) + 20
     Label51.Caption = TAG_VAR_2
-    Label51.Top = Label52.Top - 20
-    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label51_Height
+    Label51.Top = Label52.Top
+    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label_ProcessSetBar_Height
 End If
 If O_lstProcess_ListCount = lstProcess.ListCount Then
     'EQUAL
@@ -9693,12 +9804,18 @@ If O_lstProcess_ListCount = lstProcess.ListCount Then
         MsgBox "ERROR BUT CONTINUE ANYWAY _ YOU GOT TO INSTALL FONT WINGDINGS 2" + TYPEMESSENGER, vbMsgBoxSetForeground
     End If
     
-    Label51.Left = Label52.Left + 75
+    Label51.Left = Label52.Left + 50
+    'THE WINDDING LABLE MUST BE SMALLER THAN Label52 AS IS OFFSET IN
+    Label51.width = ((Label52.Left + Label52.width) - Label51.Left) - 20
+    Label50.Left = (Label52.Left + Label52.width) + 20
     Label51.Caption = TAG_VAR_2
     Label51.Top = Label52.Top
-    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label51_Height
+    Label51.height = Label52.height - (Label52.height - Label51.height) ' Label_ProcessSetBar_Height
 
 End If
+
+
+
 '----
 'Wingdings 3 character set and equivalent Unicode characters
 'http://www.alanwood.net/demos/wingdings-3.html
@@ -9916,6 +10033,9 @@ Me.WindowState = vbMinimized
 End Sub
 
 Private Sub Lab_KILL_AHK_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Lab_KILL_AHK.BackColor = RGB(255, 255, 255)
 
 Call MNU_TASK_KILLER_AUTOHOTKEYS_Click
 
@@ -10207,6 +10327,7 @@ End Sub
         Alias "FindWindowA" _
         (ByVal lpClassName As Long, _
         ByVal lpWindowName As Long) As Long
+
 Function FindWindow_Get_All_Explorer(QUITE_MSGBOX) As String
 
 FindWindow_Get_All_Explorer = ""
