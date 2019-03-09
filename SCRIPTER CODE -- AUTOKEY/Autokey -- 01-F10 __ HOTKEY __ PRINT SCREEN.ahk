@@ -116,6 +116,8 @@ RETURN
 
 
 ESC::
+	SetTitleMatchMode 3  ; Specify Full path
+	
 	IfWinActive ahk_class ConsoleWindowClass
 	{
 		WinClose, ahk_class ConsoleWindowClass
@@ -149,6 +151,64 @@ ESC::
 		SoundBeep , 1500 , 400
 	}
 	
+	; Find ahk_class #32770 ahk_exe notepad++.exe
+	IfWinActive Find ahk_exe notepad++.exe
+	{	WinClose
+		SoundBeep , 1500 , 400
+	}
+	
+	; Replace ahk_class #32770 ahk_exe notepad++.exe
+	IfWinActive Replace ahk_exe notepad++.exe
+	{	WinClose
+		SoundBeep , 1500 , 400
+	}
+	
+	
+	
+	; Microsoft Visual Basic ahk_class #32770 ahk_exe vb6.exe
+	IfWinActive Microsoft Visual Basic ahk_exe vb6.exe
+	{	WinClose
+		SoundBeep , 1500 , 400
+	}
+	
+	; Find ahk_class #32770 ahk_exe vb6.exe
+	IfWinActive Find ahk_exe vb6.exe
+	{	WinClose
+		SoundBeep , 1500 , 400
+	}
+	; Find ahk_class #32770 ahk_exe vb6.exe
+	IfWinActive Replace ahk_exe vb6.exe
+	{	WinClose
+		SoundBeep , 1500 , 400
+	}
+	IfWinActive Quick Watch ahk_exe vb6.exe
+	{	WinClose
+		SoundBeep , 1500 , 400
+	}
+	
+	
+	SetTitleMatchMode 2  ; Specify Full path
+	
+	; ---------------------------------------------------------------
+	; VBKeepRunner - Microsoft Visual Basic [design] - [Object Browser]
+	; ahk_class wndclass_desked_gsk
+	; ---------------------------------------------------------------
+	IfWinActive Microsoft Visual Basic [design] ahk_exe VB6.EXE
+	IfWinActive [design] - [Object Browser] ahk_exe VB6.EXE
+	{	
+		Control, Hide ,, Object Browser
+		SoundBeep , 1500 , 400
+	}
+	; ---------------------------------------------------------------
+	
+	; ---------------------------------------------------------------
+	; # Win (Windows logo key) 
+	; ! Alt 
+	; ^ Control 
+	; + Shift 
+	; & An ampersand 
+	; ---------------------------------------------------------------
+
 Return
 
 ; -------------------------------------------------------------------
