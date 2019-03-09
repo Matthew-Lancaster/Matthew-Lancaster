@@ -137,7 +137,7 @@ IF SET_GO=FALSE
 IF (!VAR_STORE_CAMERA_LABEL and SET_GO="TRUE")
 {
 	VAR_STORE_CAMERA_LABEL:=Label_CAMERA
-	Secs_CAMERA := 80
+	Secs_CAMERA := 800
 	SetTimer, MSGBOX_CAMERA_CountDown, 1000
 	MsgBox, 4, Copy_Camera_Media_Card, Would you like to Copy Camera Media Card`n%Label_CAMERA%`nAnswer in`n%Secs_CAMERA% Seconds, %Secs_CAMERA%
 	SetTimer, MSGBOX_CAMERA_CountDown, Off
