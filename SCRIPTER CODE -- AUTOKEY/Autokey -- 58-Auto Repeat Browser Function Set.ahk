@@ -114,7 +114,18 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 165 Views _ 18 NOV 2018 + 3
 ; 194 Views _ 29 NOV 2018 + SIX 
 ; -------------------------------------------------------------------
-
+; -------------------------------------------------------------------
+; Sat 09-Mar-2019 __ 8 PM _ 2 DAY
+; 225 Views _ 12 OCT 2018 + 0   __ So my very lovely and generous brother bought me a guitar to keep
+; 234 Views _ 17 OCT 2018 + 0   __ So...I wrote and composed my first ever song! Its called Penguin Lullaby
+; 170 Views _ 09 NOV 2018 + 0   __ Time for a happier song - Riptide
+; 165 Views _ 18 NOV 2018 + 0   __ Hurt
+; 194 Views _ 29 NOV 2018 + 0   __ New song - Standing in the Rain
+;  73 Views _ 28 FEB 2019 ___   __ Blue - In honor of Beth __ About a week ago 
+; -------------------------------------------------------------------
+; WELL MORE CODE HAS TO GO INNER NOW REQUIRE A REFRESH PAGE AFTER EVERY PLAY
+; GET IT GOING RESULT BETTER
+; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
 ; Location On-Line
@@ -241,6 +252,100 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
+	; -------------------------------------------------------------------
+	; AFTER EVERY SONG WAIT AND PRESS F5 REFRESH 
+	; MIGHT IMPROVE RESULT AS GOT NONE HITTER LAST LOT
+	; -------------------------------------------------------------------
+	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5,OFF
+
+	XR_3=
+	IfWinExist, ahk_class Chrome_WidgetWin_1
+		XR_3=Chrome_WidgetWin_1
+	IfWinExist, ahk_class MozillaWindowClass
+		XR_3=MozillaWindowClass
+
+	XR_2=0
+	XR_4=
+	IfWinExist, Facebook - Google Chrome
+	{
+		XR_2=1
+		XR_4=Facebook - Google Chrome
+	}
+	IfWinExist, Deborah Hall -
+	{
+		XR_2=1
+		XR_4=Deborah Hall -
+	}
+	IfWinExist, Facebook - Mozilla Firefox
+	{
+		XR_2=1
+		XR_4=Facebook - Mozilla Firefox
+	}
+
+	IF XR_2=0
+		XR_3=
+
+	IF XR_3
+		IF XR_4
+		{	
+			WinActivate, %XR_4%
+			WinWaitActive, %XR_4%
+			SLEEP 100
+		}
+
+
+	XR_3=
+	IfWinExist, ahk_class Chrome_WidgetWin_1
+	XR_3=Chrome_WidgetWin_1
+	IfWinExist, ahk_class MozillaWindowClass
+	XR_3=MozillaWindowClass
+
+	IF !XR_3
+	RETURN
+
+	WinGetCLASS, CLASS_VAR, A
+	WinGetTITLE, TITLE_VAR, A
+
+	XR_1=0
+	IF INSTR(CLASS_VAR,"Chrome_WidgetWin_1")
+	{
+		XR_1=1
+		XR_3=Chrome_WidgetWin_1
+	}
+	IF INSTR(CLASS_VAR,"MozillaWindowClass")
+	{
+		XR_1=1
+		XR_3=MozillaWindowClass
+	}
+
+	IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
+	XR_2=1
+	IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
+	XR_2=1
+	IF INSTR(TITLE_VAR,"Deborah Hall -")
+	XR_2=1
+
+	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
+	LOOP_COUNTER=0
+
+	IF XR_1>0
+		IF XR_2>0
+		{
+			SLEEP 1000
+			SENDINPUT {F5}
+
+			SOUNDBEEP 1500,50
+			SOUNDBEEP 2000,50
+		}
+
+	; # Win (Windows logo key) 
+	; ! Alt 
+	; ^ Control 
+	; + Shift 
+	; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey. 
+		
+RETURN
 
 AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; ---------------------------------------------------------------
@@ -265,6 +370,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
     ; ----
 	; ---------------------------------------------------------------
 	; ALSO WANT THIS ONE IT STOP VIDEO AUTO PLAY WHEN PAGE JUST LOADER
+	; DOUBLE CHECK AND NOT ALWAYS REQUIRE THIS AS NOT REQUIRE NOW -- 09 MAR 2019
 	; ----
 	; Disable HTML5 Autoplay - Chrome Web Store
 	; https://chrome.google.com/webstore/detail/disable-html5-autoplay/efdhoaajjjgckpbkoglidkeendpkolai
@@ -280,8 +386,6 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; AND FACEBOOK ALWAYS HAD A HITT POLICY OF THEIR UP FOR THING ZACK AND NO ANYBODY ELSE
 	; ---------------------------------------------------------------
 	
-	
-		
 	SetTitleMatchMode 2  ; NOT Specify Full path.
 
 	; FORNICATE PLEASURE
@@ -497,6 +601,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			SOUNDBEEP 1000,50
 			SOUNDBEEP 1500,50
 			SOUNDBEEP 2000,50
+			
+			SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 240000 ; 4 MINUTE
 
 			; MouseClick, LEFT, 80, 200
 		}

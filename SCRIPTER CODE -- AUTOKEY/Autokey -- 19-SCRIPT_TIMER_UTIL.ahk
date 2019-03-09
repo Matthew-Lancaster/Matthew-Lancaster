@@ -560,6 +560,8 @@ MIDNIGHT_AND_HOUR_TIMER:
 
 	GOSUB TIMER_Check_Any_PID_Suspended_Warning
 	
+	GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
+
 	
 	; ---------------------------------------------------------------
 	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
@@ -577,6 +579,7 @@ MIDNIGHT_AND_HOUR_TIMER:
 	
 RETURN
 
+
 TIMER_Check_Any_PID_Suspended_Warning:
 	; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 7200000 ; ---- 10 SECONDS ---- And Then 2 Hour
 
@@ -592,6 +595,38 @@ TIMER_Check_Any_PID_Suspended_Warning:
 			Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
 		}
 RETURN
+
+
+KILL_TEAMVIEWER_ON_LOW_END_COMPUTER:
+
+	; C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe
+	; C:\Program Files (x86)\TeamViewer\TeamViewer.exe
+
+	SET_GO=FALSE
+	IF A_ComputerName=1-ASUS-X5DIJ
+		SET_GO=TRUE
+	IF A_ComputerName=2-ASUS-EEE
+		SET_GO=TRUE
+	IF A_ComputerName=3-LINDA-PC
+		SET_GO=TRUE
+
+IF SET_GO=TRUE
+{
+	Process, Exist, TeamViewer_Service.exe
+	If ErrorLevel > 0
+	{
+		Process, Close, TeamViewer_Service.exe
+		SoundBeep , 2000 , 100
+	}
+	Process, Exist, TeamViewer.exe
+	If ErrorLevel > 0
+	{
+		Process, Close, TeamViewer.exe
+		SoundBeep , 2000 , 100
+	}
+}
+RETURN
+
 
 ;----------------------------------------
 ;----------------------------------------
