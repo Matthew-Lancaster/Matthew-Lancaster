@@ -1735,12 +1735,14 @@ IF OLD_VAR_WORKER_MSGBOX_DELAY_COUNT<>%VAR_WORKER_MSGBOX_DELAY_COUNT%
 {
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_01%
 	{
+		; VB KEEP RUNNER _ REBOOT
 		Secs_MSGBOX_01=40
 		Secs_MSGBOX_02=5
 	}
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 	{
-		Secs_MSGBOX_01=10
+		; GOODSYNC
+		Secs_MSGBOX_01=150
 		Secs_MSGBOX_02=5
 	}
 }
@@ -2686,41 +2688,34 @@ IF (TRUE=TRUE)
 DetectHiddenWindows, OFF
 SetTitleMatchMode 2  
 
+VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
+
 OutputVar=
 IF (A_ComputerName="7-ASUS-GL522VW") 
 {
-	IFWINEXIST GoodSync Script Command to Stop ahk_class #32770
-		ControlGetText, OutputVar, GoodSync Script Command to Stop ahk_class #32770
-	TOOLTIP %OutputVar%
-	IF Instr(OutputVar,"GoodSync Script Command to Stop")
+	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 	{
-		MSGBOX % OutputVar
+		ControlGetText, OutputVar, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+		ControlGettext, OutputVar_2, Button1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+	}
+	IF Instr(OutputVar,"GoodSync Script Command to Stop")
+	IF INSTR(OutputVar_2,"&Yes  0")
+	{
 		WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 		SLEEP 4000
 		WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 		SLEEP 4000
-		; MSGBOX HERE 8888
-		IFWINEXIST GoodSync Script Command to Stop ahk_class #32770
+	
+		; CLICK THE MESSENGER BOX
+		ControlClick, &Yes  0, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+		SOUNDBEEP 1500,50
+		
+		; CLOSE GOODSYNC
+		ControlGetText, OutputVar, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+		IF Instr(OutputVar,"GoodSync Script Command to Stop")=0
 		{
-			OutputVar=
-			ControlGetText, OutputVar, GoodSync Script Command to Stop ahk_class #32770
-			ControlGettext, OutputVar_2, Button1, GoodSync Script Command to Stop ahk_class #32770
-				MSGBOX %  OutputVar_2
-			IF Instr(OutputVar,"GoodSync Script Command to Stop")
-			IF INSTR(OutputVar_2,"&Yes  0")
-			{
-				; MSGBOX SS
-			
-				; CLICK THE MESSENGER BOX
-				ControlClick, &Yes  0, GoodSync Script Command to Stop ahk_class #32770
-				
-				; CLOSE GOODSYNC
-				ControlGetText, OutputVar, GoodSync Script Command to Stop ahk_class #32770
-				;IF Instr(OutputVar,"GoodSync Script Command to Stop")=0
-					; SOUNDBEEP 1000,50
-					; WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			}
-				
+			SOUNDBEEP 1500,50
+			WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 		}
 	}
 }
