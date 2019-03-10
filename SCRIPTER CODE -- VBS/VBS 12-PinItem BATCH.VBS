@@ -298,8 +298,6 @@ COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
 
 '--------------------------------------------------------------------
 
-
-
 I=I+1:ARRAY_1(I)="C:\Windows\System32\cmd.exe"
 I=I+1:ARRAY_1(I)="C:\Windows\explorer.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
