@@ -44,6 +44,17 @@
 @REM __ TO    Fri 19-Oct-2018 19:58:00
 @REM ----------------------------------------------------------------
 
+@REM ----------------------------------------------------------------
+@REM -- 005 SESSION 
+@REM -- ADD CODE NEW ON
+@REM -- THIS ARE THE BATCH I USER TO RUN GITHUB COMMIT UPLOAD CHANGES
+@REM -- IT TIME TO HANDLE IT A DIFFERENT WAY
+@REM -- NOW ABLE TO PUBLISHER ON-LINE
+@REM ----------------------------------------------------------------
+@REM __ FROM  Sun 10-Mar-2019 19:26:15
+@REM __ TO    Sun 10-Mar-2019 20:10:00
+@REM ----------------------------------------------------------------
+
 
 @REM ----------------------------------------------------------------
 @REM -- Located in Sync Location 1.. 2..
@@ -143,10 +154,21 @@ REM GEQ - greater than or equal
 
 @ECHO %DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% %Week_Day%
 
+REM -----------------------------------------------------------------
+REM -- THE FILENAME HAS SPACE IN CHARACTER SO HERE 
+REM -- CONVERT THE TEXT FILENAME 
+REM -- TO DOS ALTERNATIVE -- WORKING
+REM -----------------------------------------------------------------
+for %%I in ("C:\RF\7-ASUS-GL522VW\SAFE NOTE\GITHUB_NUMBER.txt") do set GITHUB_NUMBER_PATH=%%~sI
+REM -----------------------------------------------------------------
+REM -- GET CONTENT OF FILE AND PUT IN VARIABLE
+for /f "delims=" %%x in (%GITHUB_NUMBER_PATH%) do set GITHUB_NUMBER=%%x
+REM -----------------------------------------------------------------
+
 %PATH_GIT%\git commit -m "%DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% -- %Week_Day%"
-%PATH_GIT%\git config user.email "matt.lan@btinternet.coml"
+%PATH_GIT%\git config user.email "matt.lan@btinternet.com"
 %PATH_GIT%\git config user.name "Matthew-Lancaster"
-%PATH_GIT%\git pull https://Matthew-Lancaster:KAFMDUZf84@github.com//matthew-lancaster/matthew-lancaster master
+%PATH_GIT%\git pull https://Matthew-Lancaster:%GITHUB_NUMBER%@github.com//matthew-lancaster/matthew-lancaster master
 %PATH_GIT%\git push -u origin master
 @ECHO.
 @ECHO ---------------------------------------------------------------
