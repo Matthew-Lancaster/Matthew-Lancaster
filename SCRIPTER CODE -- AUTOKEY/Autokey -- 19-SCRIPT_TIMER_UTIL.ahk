@@ -374,6 +374,7 @@ SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 100000 ; 10 SECOND AND THEN 10 M
 
 Secs_MSGBOX_01=18
 Secs_MSGBOX_02=5
+X_COUNT_EXIT=0
 MSGBOX_COUNTDOWN_RESTART=""
 VAR_WORKER_MSGBOX_DELAY_COUNT=""
 OLD_VAR_WORKER_MSGBOX_DELAY_COUNT=-2
@@ -1713,15 +1714,13 @@ IF !VAR_WORKER_MSGBOX_DELAY_COUNT
 		VAR_WORKER_MSGBOX_DELAY_COUNT=
 }
 
-	 MSGBOX % VAR_WORKER_MSGBOX_DELAY_COUNT
-
 IF !VAR_WORKER_MSGBOX_DELAY_COUNT
 {
 	VAR_WORKER_MSGBOX_DELAY_COUNT=%VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT%
 	{
 		ControlGettext, MSGBOX_COUNTDOWN_RESTART, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-		STRING_SEARCH_COUNTDOWN_DELAY=Goodsync Will Reset as is at The End
+		STRING_SEARCH_COUNTDOWN_DELAY=GoodSync Script Command to Stop
 		IF INSTR(MSGBOX_COUNTDOWN_RESTART,STRING_SEARCH_COUNTDOWN_DELAY)=0
 			VAR_WORKER_MSGBOX_DELAY_COUNT=
 	}
@@ -1729,63 +1728,64 @@ IF !VAR_WORKER_MSGBOX_DELAY_COUNT
 		VAR_WORKER_MSGBOX_DELAY_COUNT=
 }
 
-
-	 ; MSGBOX % VAR_WORKER_MSGBOX_DELAY_COUNT
-
-
 IF !VAR_WORKER_MSGBOX_DELAY_COUNT
 	RETURN
-
 
 IF OLD_VAR_WORKER_MSGBOX_DELAY_COUNT<>%VAR_WORKER_MSGBOX_DELAY_COUNT%
 {
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_01%
 	{
-		Secs_MSGBOX_01=18
+		Secs_MSGBOX_01=40
 		Secs_MSGBOX_02=5
 	}
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 	{
-		Secs_MSGBOX_01=200
+		Secs_MSGBOX_01=10
 		Secs_MSGBOX_02=5
 	}
 }
 OLD_VAR_WORKER_MSGBOX_DELAY_COUNT=%VAR_WORKER_MSGBOX_DELAY_COUNT%
 
-; MSGBOX %VAR_WORKER_MSGBOX_DELAY_COUNT%
-
-RETURN
-
 IF %VAR_WORKER_MSGBOX_DELAY_COUNT%
-IF Secs_MSGBOX_01 > -1
-{
-	; MSGBOX %VAR_WORKER_MSGBOX_DELAY_COUNT%
-	ControlGettext, MSGBOX_COUNTDOWN_RESTART, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-	; MSGBOX % MSGBOX_COUNTDOWN_RESTART
-	IF INSTR(MSGBOX_COUNTDOWN_RESTART,STRING_SEARCH_COUNTDOWN_DELAY)
+	IF Secs_MSGBOX_01 > -1
 	{
-		ControlSetText,Static1,%MSGBOX_COUNTDOWN_RESTART%, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-		ControlSetText,Button1,&Yes %Secs_MSGBOX_01%, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-		ControlSetText,Button2,Not, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-		#WinActivateForce, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-		Secs_MSGBOX_01-=1
-		RETURN
+		IF Mod(Secs_MSGBOX_01, 10)=0 
+			WinActivate, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+
+		ControlGettext, MSGBOX_COUNTDOWN_RESTART, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+		IF INSTR(MSGBOX_COUNTDOWN_RESTART,STRING_SEARCH_COUNTDOWN_DELAY)
+		{
+			ControlSetText,Static1,%MSGBOX_COUNTDOWN_RESTART%, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+			ControlSetText,Button1,&Yes  %Secs_MSGBOX_01%, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+			ControlSetText,Button2,Not, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+			#WinActivateForce, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+			Secs_MSGBOX_01-=1
+			RETURN
+		}
+		ELSE
+		{
+			X_COUNT_EXIT=0
+			RETURN
+		}
 	}
-	ELSE
-		RETURN
-}
 
 Secs_MSGBOX_02-=1
 	
 IF Secs_MSGBOX_01=-1
 {
-	X_COUNT_EXIT=0
-	LOOP
-	{
 		X_COUNT_EXIT+=1
-		WinActivate, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+		IF Mod(X_COUNT_EXIT, 20)=0 
+			WinActivate, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+		IF INSTR(STRING_SEARCH_COUNTDOWN_DELAY,"GoodSync Script Command to Stop")=0
+			ControlClick, &Yes  0, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+		
+		SOUNDBEEP 500,50
+}
+Return
 
-		; CoordMode, Mouse, SCREEN
+
+SUB_MESS_SPARE_CODE:
+; CoordMode, Mouse, SCREEN
 		; #WinActivateForce, VB KEEP RUNNER ahk_class #32770
 		; WinActivate, VB KEEP RUNNER ahk_class #32770
 		; WinGetPos, X_2, Y_2, , , VB KEEP RUNNER ahk_class #32770
@@ -1793,16 +1793,6 @@ IF Secs_MSGBOX_01=-1
 		; if Secs_MSGBOX_02>0
 			; MouseMove, X+20+X_2, Y+20+Y_2
 		
-		; ControlClick, Button1, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-		SOUNDBEEP 2000,400
-
-		IfWinNotExist, %VAR_WORKER_MSGBOX_DELAY_COUNT%
-			BREAK
-		IF X_COUNT_EXIT>20
-			BREAK
-		SLEEP 50
-	}
-}
 Return
 
 
@@ -2694,33 +2684,36 @@ IF (TRUE=TRUE)
 
 OutputVar=
 IF (A_ComputerName="7-ASUS-GL522VW") 
-	IFWINEXIST ahk_class #32770
-		ControlGetText, OutputVar, GoodSync Script Command to Stop Ready, ahk_class #32770
-		IF Instr(OutputVar,"GoodSync Script Command to Stop Ready")
+			MSGBOX HERE 8888
+	IFWINEXIST GoodSync Script Command to Stop, ahk_class #32770
+		ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
+		IF Instr(OutputVar,"GoodSync Script Command to Stop")
 		{
 			;MSGBOX % OutputVar
 			WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			SLEEP 4000
 			WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			SLEEP 4000
-			;MSGBOX HERE 8888
-			IFWINEXIST ahk_class #32770
+			MSGBOX HERE 8888
+			IFWINEXIST GoodSync Script Command to Stop, ahk_class #32770
 			{
 				OutputVar=
-				ControlGetText, OutputVar, GoodSync Script Command to Stop Ready, ahk_class #32770
-				IF Instr(OutputVar,"GoodSync Script Command to Stop Ready")
+				ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
+				ControlGettext, OutputVar_2, Button1, GoodSync Script Command to Stop, ahk_class #32770
+					MSGBOX %  OutputVar_2
+				IF Instr(OutputVar,"GoodSync Script Command to Stop")
+				IF INSTR(OutputVar_2,"&Yes  0")
 				{
-					ControlClick, OK
+					MSGBOX SS
+				
+					; CLICK THE MESSENGER BOX
+					ControlClick, &Yes  0, GoodSync Script Command to Stop, ahk_class #32770
 					
-					WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-					
-					; Process, Exist, GoodSync-v10.exe
-					; If ErrorLevel
-						; Process, WaitClose, GoodSync-v10.exe
-					
-					; Process, Exist, GoodSync.exe
-					; If ErrorLevel
-						; Process, WaitClose, GoodSync.exe
+					; CLOSE GOODSYNC
+					ControlGetText, OutputVar, GoodSync Script Command to Stop, ahk_class #32770
+					;IF Instr(OutputVar,"GoodSync Script Command to Stop")=0
+						; SOUNDBEEP 1000,50
+						; WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 				}
 					
 			}
