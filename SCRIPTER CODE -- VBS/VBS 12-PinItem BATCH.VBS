@@ -318,19 +318,52 @@ IF SET_GO=TRUE THEN
 	END IF
 END IF
 
+SET_GO=FALSE
 obj_SOURCE_Folder = "C:\Program Files (x86)\Norton Security with Backup\Engine"
-SET_GO=TRUE
-If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
+If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then
+	obj_SOURCE_Folder = "C:\Program Files (x86)\Norton Security\Engine"
+	SET_GO=TRUE
+END IF
+If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then
+	obj_SOURCE_Folder = "C:\Program Files\Norton Security with Backup\Engine"
+	SET_GO=TRUE
+END IF
+If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then
+	obj_SOURCE_Folder = "C:\Program Files\Norton Security\Engine"
+	SET_GO=TRUE
+END IF
+
 IF SET_GO=TRUE THEN 
 	FILE_SCAN_FIND_2=""
 	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
 	Call ShowSubfolders (objSuperFolder, "uistub.exe")
 	IF FILE_SCAN_FIND_2<>"" THEN 
 		I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
+		MSGBOX ARRAY_1(I)
 	ELSE
+		I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\uistub.exe"
+		MSGBOX ARRAY_1(I)
+	END IF
+END IF
+
+obj_SOURCE_Folder = "C:\Program Files\Norton Security with Backup\Engine"
+SET_GO=TRUE
+NORTON=FALSE
+If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
+IF SET_GO=TRUE THEN 
+	FILE_SCAN_FIND_2=""
+	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
+	Call ShowSubfolders (objSuperFolder, "uistub.exe")
+	IF FILE_SCAN_FIND_2<>"" THEN
+		I=I-1
+		I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
+		NORTON=TRUE
+	ELSE
+		I=I-1
 		I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\uistub.exe"
 	END IF
 END IF
+
 
 obj_SOURCE_Folder = "C:\Users\" & CUR_USER & "\AppData\Local\GrammarlyForWindows"
 SET_GO=TRUE
@@ -462,7 +495,6 @@ IF Version_OS=10 THEN
 	'I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\regfromapp.exe"
 END IF 
 
-I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
 
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
@@ -477,6 +509,7 @@ END IF
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Notepad++\notepad++.exe"
 
 IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\CCleaner\CCleaner64.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Common Files\LogiShrd\Unifying\DJCUHost.exe"
@@ -495,19 +528,19 @@ IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
-	'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wweb32.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wwnotray.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\MPC-HC\mpc-hc64.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Process Lasso\ProcessLasso.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
 END IF
 
 
 IF Version_OS=10 THEN
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wweb32.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wwnotray.exe"
 	' I=I+1:ARRAY_1(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\WinRAR\WinRAR.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
 END IF
 
 
@@ -518,26 +551,24 @@ IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\procexp.exe"
 	' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\AutorunsPortable\App\Autoruns\Autoruns64.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\Autoruns.exe"
-
-	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\Easy USB Creator Lite.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\RUFUS\rufus-3.1.exe"
-
 END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\MiniTool Partition Wizard 10\partitionwizard.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe"
 
 IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
 	I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
 END IF
 
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
 END IF
 
 
@@ -589,11 +620,11 @@ END IF
 
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
-	' DVD RIPER COPIER
-	I=I+1:ARRAY_1(I)="C:\Program Files\HandBrake\HandBrake.exe"
 END IF
 
 IF Version_OS=10 THEN
+	' DVD RIPER COPIER
+	I=I+1:ARRAY_1(I)="C:\Program Files\HandBrake\HandBrake.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
 	I=I+1:ARRAY_1(I)="C:\Windows\System32\Taskmgr.exe"
 END IF
