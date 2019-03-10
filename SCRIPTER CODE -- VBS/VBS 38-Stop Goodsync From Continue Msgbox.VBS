@@ -74,6 +74,10 @@
 '#-------------------------------------------------------------------
 
 
-MSGBOX "GoodSync Script Command to Stop in Wait using a Messenger Box"
+' MSGBOX "GoodSync Script Command to Stop in Wait using a Messenger Box",
+
+Dim lRet
+lRet = MsgBox("GoodSync Script Command to Stop in Wait using a Messenger Box"+VBCRLF+VBCRLF+"Goodsync Will Reset as is at The End Of a Cycle If CountDown Left", vbYesNo + vbMsgBoxSetForeground)
+
 
 Wscript.QUIT
