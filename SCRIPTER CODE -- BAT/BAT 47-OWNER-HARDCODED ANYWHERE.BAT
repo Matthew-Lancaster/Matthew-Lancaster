@@ -118,6 +118,7 @@ IF '%1%'=='/ADMIN' (
 
 SET PATH_TO_DO=
 
+
 SET PATH_TO_DO="E:\01 Desktop\*"
 ECHO %PATH_TO_DO%
 @REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
@@ -275,6 +276,29 @@ SET PATH_TO_DO="C:\RF\*"
 ECHO %PATH_TO_DO%
 REM ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
 REM ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+
+
+REM -----------------------------------------------------------------
+REM GOOD CODE BUT NOT WANTER IN END
+REM NORTON DOESN'T RESTRICT FROM LOOK FILE NAME IN 
+REM C:\PROGRAM FILES FOLDER
+REM -----------------------------------------------------------------
+REM setlocal EnableDelayedExpansion
+REM SET "TARGET_="
+REM SET TARGET_=C:\Program Files
+REM ECHO !TARGET_!
+REM FOR /f "delims=" %%F in ('Dir "!TARGET_!\" /b /ad') do (
+		REM SET "VAR_FLAG="
+		REM SET VAR_FLAG=NOT
+		REM ECHO \%%F | FIND "\Norton"
+		REM IF !errorlevel!==0 SET VAR_FLAG=YES
+		REM IF "!VAR_FLAG!"=="YES" (
+			REM TAKEOWN /F "!TARGET_!\%%F" /A /R /D Y
+			REM ICACLS "!TARGET_!\%%F" /T /C /L /Q /setowner "Everyone" >NUL
+			REM ICACLS "!TARGET_!\%%F" /T /C /L /Q /grant Everyone:F >NUL
+		REM )
+	REM )
+REM )
 
 
 setlocal EnableDelayedExpansion
