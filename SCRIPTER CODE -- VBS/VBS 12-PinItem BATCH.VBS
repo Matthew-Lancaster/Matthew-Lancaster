@@ -79,7 +79,6 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 DIM Q
 DIM PinTo10_EXE_PATH
-DIM FILE_SCAN_FIND_2
 Q=CHR(34)
 PinTo10_EXE_PATH=Q & "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10.exe" & Q
 
@@ -142,6 +141,10 @@ APPDATA_FOLDER_FILE_COUNT_VAR_1=0
 Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_1)
 
 ' WScript.Quit(0)
+
+DIM FILE_SCAN_FIND_2
+DIM FILE_SCAN_FIND_4
+
 
 CALL CREATE_PIN_ITEM_ARRAY
 
@@ -310,7 +313,7 @@ If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
 IF SET_GO=TRUE THEN 
 	FILE_SCAN_FIND_2=""
 	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-	Call ShowSubfolders (objSuperFolder, "Flickr.exe")
+	Call ShowSubfolders(objSuperFolder, "Flickr.exe")
 	IF FILE_SCAN_FIND_2<>"" THEN 
 		'I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
 	ELSE
@@ -318,50 +321,39 @@ IF SET_GO=TRUE THEN
 	END IF
 END IF
 
-SET_GO=FALSE
-obj_SOURCE_Folder = "C:\Program Files (x86)\Norton Security with Backup\Engine"
-If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then
-	obj_SOURCE_Folder = "C:\Program Files (x86)\Norton Security\Engine"
-	SET_GO=TRUE
-END IF
-If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then
-	obj_SOURCE_Folder = "C:\Program Files\Norton Security with Backup\Engine"
-	SET_GO=TRUE
-END IF
-If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then
-	obj_SOURCE_Folder = "C:\Program Files\Norton Security\Engine"
-	SET_GO=TRUE
-END IF
 
-IF SET_GO=TRUE THEN 
-	FILE_SCAN_FIND_2=""
-	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-	Call ShowSubfolders (objSuperFolder, "uistub.exe")
-	IF FILE_SCAN_FIND_2<>"" THEN 
-		I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
-		MSGBOX ARRAY_1(I)
-	ELSE
-		I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\uistub.exe"
-		MSGBOX ARRAY_1(I)
-	END IF
-END IF
+' ---------------------------------------------------------------------
+' NEW SUPER COOL ROUTINE TO INSTANT FIND NORTON UISTUB.EXE
+' THE MAIN ENGINE AND ALLOW SHORTCUT
+' THEY NORTON FREQUENTLY CHANGE THE NAME OF FOLDER IN PROGRAM FILES
+' AND MAY BE LOCATED IN PROGRAM FILES OR PROGRAM FILES (X86)
+' AFTER THEY DISCARD AND OLD VERSION THEY NEVER LEAVE UISTUB.EXE BEHIND
+' MY CODE SEARCH PROGRAM FILES AND (X86) LIKE NORMAL ONE DO
+' BUT IT ONLY SEARCH FOR FIRST PART OF NAME AFTER LIKE EXAMPLE 
+' "C:\PROGRAM FILES\NORTON" AND THAT IS ALL AS NORTON ALWAYS START 
+' WITH NORTON UP UNTIL NOW
+' IS A NEW HIGH SPEED WAY TO SEARCH FOR BETTER CODER
+' ---------------------------------------------------------------------
+' WRITE CODE TIME
+' Sat 09-Mar-2019 23:39:39
+' Sat 09-Mar-2019 01:22:00
+' ---------------------------------------------------------------------
 
-obj_SOURCE_Folder = "C:\Program Files\Norton Security with Backup\Engine"
-SET_GO=TRUE
-NORTON=FALSE
-If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
-IF SET_GO=TRUE THEN 
-	FILE_SCAN_FIND_2=""
-	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-	Call ShowSubfolders (objSuperFolder, "uistub.exe")
-	IF FILE_SCAN_FIND_2<>"" THEN
-		I=I-1
-		I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
-		NORTON=TRUE
-	ELSE
-		I=I-1
-		I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\uistub.exe"
-	END IF
+' ---------------------------------------------------------------------
+' DECLARE THESE TWO
+' ---------------------------------------------------------------------
+' DIM FILE_SCAN_FIND_2
+' DIM FILE_SCAN_FIND_4
+' ---------------------------------------------------------------------
+FILE_SCAN_FIND_4=""
+Call ShowSubfolders_FIND_NORTON_UISTUB_EXE
+
+IF FILE_SCAN_FIND_4<>"" THEN 
+	' FOUND NORTON \uiStub.exe
+	I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_4
+ELSE
+	' WHEN CANNOT FIND ALLOW FOR ALERT ANYWAY
+	I=I+1:ARRAY_1(I)="C:\Program Files\Norton Security\Engine\...\uiStub.exe"
 END IF
 
 
@@ -802,6 +794,91 @@ SUB APPDATA_FOLDER_FILE_COUNT(fFolder,FILE_SCAN_FIND_1)
     Next
 End SUB
 
+
+' ---------------------------------------------------------------------
+' NEW SUPER COOL ROUTINE TO INSTANT FIND NORTON UISTUB.EXE
+' THE MAIN ENGINE AND ALLOW SHORTCUT
+' THEY NORTON FREQUENTLY CHANGE THE NAME OF FOLDER IN PROGRAM FILES
+' AND MAY BE LOCATED IN PROGRAM FILES OR PROGRAM FILES (X86)
+' AFTER THEY DISCARD AND OLD VERSION THEY NEVER LEAVE UISTUB.EXE BEHIND
+' MY CODE SEARCH PROGRAM FILES AND (X86) LIKE NORMAL ONE DO
+' BUT IT ONLY SEARCH FOR FIRST PART OF NAME AFTER LIKE EXAMPLE 
+' "C:\PROGRAM FILES\NORTON" AND THAT IS ALL AS NORTON ALWAYS START 
+' WITH NORTON UP UNTIL NOW
+' IS A NEW HIGH SPEED WAY TO SEARCH FOR BETTER CODER
+' ---------------------------------------------------------------------
+' WRITE CODE TIME
+' Sat 09-Mar-2019 23:39:39
+' Sat 09-Mar-2019 01:22:00
+' ---------------------------------------------------------------------
+' 01 OF 02
+'-------------------------------------
+Sub ShowSubfolders_FIND_NORTON_UISTUB_EXE
+'-------------------------------------
+	FILE_SCAN_FIND_4=""
+	FOR R_COUNT=1 TO 2
+		IF R_COUNT=1 THEN obj_SOURCE_Folder = "C:\Program Files"
+		IF R_COUNT=2 THEN obj_SOURCE_Folder = "C:\Program Files (X86)"
+		Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
+		For Each Subfolder in objSuperFolder.SubFolders
+			If INSTR(UCASE(Subfolder.PATH), UCASE(FILE_SCAN_FIND_1))>0 Then
+				If objFSO.FOLDERExists(Subfolder.PATH+"\ENGINE") = TRUE Then
+					FILE_SCAN_FIND_2=""
+					Set objSuperFolder_2 = objFSO.GetFolder(Subfolder.PATH+"\ENGINE")
+					Call ShowSubfolders_FIND_NORTON_UISTUB_EXE_02(objSuperFolder_2, "uistub.exe")
+					IF FILE_SCAN_FIND_2<>"" THEN
+						FILE_SCAN_FIND_4=FILE_SCAN_FIND_2
+						EXIT FOR
+					END IF
+				End If
+			End If
+		Next
+	Next
+End Sub
+'-------------------------------------
+' 02 OF 02
+'-------------------------------------
+Sub ShowSubfolders_FIND_NORTON_UISTUB_EXE_02(fFolder,FILE_SCAN_FIND_1)
+'-------------------------------------
+    Set objFolder = objFSO.GetFolder(fFolder.Path)
+    Set colFiles = objFolder.Files
+    For Each objFile in colFiles
+		If INSTR(UCASE(objFile.name)+"*", UCASE(FILE_SCAN_FIND_1)+"*")>0 Then
+			FILE_SCAN_FIND_2=objFile.PATH
+		End If
+    Next
+	
+    For Each Subfolder in fFolder.SubFolders
+		' WITH TWO PARAMETERS YOU HAVE TO USE CALL WORD HERE 
+		' OR REMOVE THE BRACKETS
+        CALL ShowSubfolders_FIND_NORTON_UISTUB_EXE_02(Subfolder,FILE_SCAN_FIND_1)
+    Next
+End Sub
+
+
+
+'-------------------------------------
+Sub ShowSubfolders_FIND_FOLDER(fFolder,FILE_SCAN_FIND_1)
+'-------------------------------------
+	Set objFolder = objFSO.GetFolder(fFolder.Path)
+	Set colFiles = objFolder.Files
+
+	For Each Subfolder in fFolder.SubFolders
+		SET_GO=FALSE
+		If INSTR(UCASE(Subfolder.PATH), UCASE(FILE_SCAN_FIND_1))>0 Then SET_GO=TRUE
+		IF SET_GO=TRUE THEN 
+			FILE_SCAN_FIND_2=Subfolder.PATH
+			MSGBOX FILE_SCAN_FIND_2
+			EXIT FOR
+		End If
+
+		IF FILE_SCAN_FIND_2="" THEN 
+			' CALL ShowSubfolders_FIND_FOLDER(Subfolder,FILE_SCAN_FIND_1)
+		END IF
+	Next
+	
+End Sub
+
 '-------------------------------------
 Sub ShowSubFolders(fFolder,FILE_SCAN_FIND_1)
 '-------------------------------------
@@ -809,8 +886,7 @@ Sub ShowSubFolders(fFolder,FILE_SCAN_FIND_1)
     Set colFiles = objFolder.Files
     For Each objFile in colFiles
 		SET_GO=FALSE
-		' If INSTR(objFolder.name, "")>0 Then SET_GO=TRUE
-		If INSTR(objFile.name+"*", FILE_SCAN_FIND_1+"*")>0 Then SET_GO=TRUE
+		If INSTR(UCASE(objFile.name)+"*", UCASE(FILE_SCAN_FIND_1)+"*")>0 Then SET_GO=TRUE
 		IF SET_GO=TRUE THEN 
 			FILE_SCAN_FIND_2=objFile.PATH
 		End If
