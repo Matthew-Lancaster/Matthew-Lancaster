@@ -4066,7 +4066,6 @@ For Each Control In Me.Controls
     Next
 Next
 
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Lab_KILL_EXPLORER.BackColor = RGB(255, 255, 255)
 
 Dim HWND_RESULT
@@ -4237,6 +4236,17 @@ Private Sub cmdMoveMax_Click()
     
     i_Result = GetWindowRect(GetDesktopWindow(), ScreenSize)
     
+    If Val(txthWnd.Text) = 0 Then
+        Dim GOODSYNC_WINDOW_HWND
+        GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+        txthWnd.Text = GOODSYNC_WINDOW_HWND
+        If GOODSYNC_WINDOW_HWND = 0 Then
+            MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+        Else
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+        End If
+    End If
+    
     i_Result = GetWindowRect(txthWnd.Text, Rect_Get)
     
     HX = (Rect_Get.Right - Rect_Get.Left)
@@ -4261,7 +4271,16 @@ End Sub
 Private Sub cmdMaximize_Click()
     ' Maximize window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
+    If Val(txthWnd.Text) = 0 Then
+        Dim GOODSYNC_WINDOW_HWND
+        GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+        txthWnd.Text = GOODSYNC_WINDOW_HWND
+        If GOODSYNC_WINDOW_HWND = 0 Then
+            MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+        Else
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+        End If
+    End If
     
     ShowWindow txtMhWnd.Text, SW_MAXIMIZE
 
@@ -4273,7 +4292,16 @@ Private Sub cmdMinimize_Click()
     
     ' Minimize window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
+    If Val(txthWnd.Text) = 0 Then
+        Dim GOODSYNC_WINDOW_HWND
+        GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+        txthWnd.Text = GOODSYNC_WINDOW_HWND
+        If GOODSYNC_WINDOW_HWND = 0 Then
+            MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+        Else
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+        End If
+    End If
     
     ShowWindow txtMhWnd.Text, SW_MINIMIZE
     'ShowWindow txtMhWnd.Text, SW_NORMAL
@@ -4297,7 +4325,13 @@ Private Sub cmdNormal_Click()
     
     Dim lhWndParentX
     
-    If Val(txtMhWnd.Text) = 0 Then txtMhWnd.Text = Me.hWnd
+    If Val(txtMhWnd.Text) = 0 Then
+        MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+    Else
+        MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+        txtMhWnd.Text = Me.hWnd
+    End If
+   
    
     ' txtMhWnd.Text = GetParent(Val(txtMhWnd.Text))
     ' txtMhWnd.Text = GetParentHwnd(Val(txtMhWnd.Text))
