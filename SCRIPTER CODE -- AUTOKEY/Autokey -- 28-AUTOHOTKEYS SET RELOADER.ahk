@@ -146,6 +146,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ; Create the popup menu by adding some items to it.
 Menu, Tray, Add  ; Creates a separator line.
+Menu, Tray, Add, RELAUNCH CODE, MenuHandler  ; Creates a new menu item.
+Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
 
@@ -246,6 +248,8 @@ IF SET_GO=TRUE
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk"
 }
 
+
+
 SET_GO=TRUE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
 	SET_GO=FALSE
@@ -258,8 +262,8 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 
 IF SET_GO=TRUE
 {
-	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
 	ArrayCount += 1
+	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
 }
 
 
@@ -473,6 +477,14 @@ RETURN
 
 MenuHandler:
 	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
+
+	
+	if A_ThisMenuItem=RELAUNCH CODE
+	{
+		Run, "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk"
+		Process, Close,% DllCall("GetCurrentProcessId")
+	}
+	
 	if A_ThisMenuItem=Terminate Script
 	{
 		Process, Close,% DllCall("GetCurrentProcessId")
