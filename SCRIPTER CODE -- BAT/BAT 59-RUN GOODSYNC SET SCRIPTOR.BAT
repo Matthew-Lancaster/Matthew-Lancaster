@@ -642,9 +642,9 @@ ECHO ----------------------------------------------------------------
 REM SET STRING_COMMAND_LINE=%1%2
 
 REM ALL THE COMMAND LINE PARAMET
-ECHO %* 
-ECHO %1%
-ECHO %2% 
+ECHO !* 
+ECHO !1!
+ECHO !2! 
 
 PAUSE
 
