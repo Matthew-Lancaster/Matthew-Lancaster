@@ -74,7 +74,7 @@
 
 @ECHO OFF
 
-IF '%1%'=='/ADMIN' (
+IF '%ADMIN_REQUEST%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
 	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 	@IF '%errorlevel%' GTR '2' SET NOT_GOT_ADMIN=TRUE
@@ -95,14 +95,17 @@ IF '%1%'=='/ADMIN' (
 @IF '%errorlevel%' GTR '2' (
 	@REM Get ADMIN Privileges
 	@ECHO Set UAC = CreateObject^("Shell.Application"^) >> "%temp%\getadmin.vbs"
-	@ECHO UAC.ShellExecute "%~s0", "/ADMIN", "", "runas", 1 >> "%temp%\getadmin.vbs"
+	@ECHO UAC.ShellExecute "%~s0", "/ADMIN %*", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
 	"%temp%\getadmin.vbs"
 	@DEL "%temp%\getadmin.vbs"
 	GOTO ENDE
 	@EXIT /B
 )
-@ECHO Got ADMIN Privileges
+
+IF '%ADMIN_REQUEST%'=='/ADMIN'     @ECHO Got ADMIN Privileges -- By Push For Them
+IF NOT '%ADMIN_REQUEST%'=='/ADMIN' @ECHO Got ADMIN Privileges -- By Natual
+
 @ECHO ---------------------------------------------------------------
 
 @ECHO OFF
