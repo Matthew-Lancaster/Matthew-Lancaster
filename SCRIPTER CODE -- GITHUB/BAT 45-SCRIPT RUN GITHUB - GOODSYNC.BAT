@@ -129,11 +129,11 @@ ECHO ----------------------------------------------------------------
 @SET Another_Job=FALSE
 
 @find "-- Analysis Complete" %FILENAME_ER%>NUL
-@if %errorlevel%==0 SET Analysis_Complete=TRUE
+IF %errorlevel% EQU 0 SET Analysis_Complete=TRUE
 @find "Sync: Running:" %FILENAME_ER%>NUL
-@if %errorlevel%==0 SET Sync_Runner=TRUE
+IF %errorlevel% EQU 0 SET Sync_Runner=TRUE
 @find "Another job is Syncing in folder" %FILENAME_ER%>NUL
-@if %errorlevel%==0 SET Another_Job=TRUE
+IF %errorlevel% EQU 0 SET Another_Job=TRUE
 
 @ECHO OFF
 
