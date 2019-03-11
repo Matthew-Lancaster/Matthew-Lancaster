@@ -491,7 +491,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO ANALYSIS ^& SYNC NOT RUN
 				ECHO.
-				ECHO NOT SURE WHY -- xxxxxxxxxx
+				ECHO NOT SURE WHY                              ---- X-X-X-X-X-X-X-X-X
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
 				ECHO ----------------------------------------------------------------
@@ -505,7 +505,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO ANALYSIS ^& SYNC NOT RUN
 				ECHO.
-				ECHO ANOTHER JOB IS RUNNING -- xxxxxxxxxx
+				ECHO ANOTHER JOB IS RUNNING                    ---- X-X-X-X-X-X-X-X-X
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
 				ECHO ----------------------------------------------------------------
@@ -521,7 +521,7 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO ----------------------------------------------------------------
 		ECHO ANALYSIS ^& SYNC NOT RUN
 		ECHO.
-		ECHO Computer_Is_Offline -- xxxxxxxxxx
+		ECHO Computer_Is_Offline                       ---- X-X-X-X-X-X-X-X-X
 		ECHO.
 		ECHO !Sources_02[%%a]:"=!
 		ECHO ----------------------------------------------------------------
@@ -585,18 +585,22 @@ for /L %%a in (1,1,!LDA!) do (
 	IF "!Sync_Runner_TOTAL!"=="TRUE" (
 		REM ---- FOR THE DURING ONE
 		IF NOT "!COMP_1!"=="!COMP_2!" (
-			ECHO NOT ERROR OVERALL YET                    ---- ********** 
+			ECHO ----------------------------------------------------------------
+			ECHO NOT ERROR OVERALL YET                     ---- *****************
+			ECHO ----------------------------------------------------------------
 		)
 		REM ---- FOR THE LAST ONE
 		IF "!COMP_1!"=="!COMP_2!" (
-			ECHO NOT ERROR OVERALL TOTALLY SUCCESSFUL     ---- ********** 
+			ECHO ----------------------------------------------------------------
+			ECHO NOT ERROR OVERALL TOTALLY SUCCESSFUL      ---- ***************** 
+			ECHO ----------------------------------------------------------------
 		)
 	)
 	
 	IF NOT "!COMP_1!"=="!COMP_2!" (
 		IF "!Sync_Runner_TOTAL!"=="FALSE" (
-			ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER! ---- X X X X X X
-			REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
+			ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER!  ---- X-X-X-X-X-X-X-X-X
+			REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1  ---- X-X-X-X-X-X-X-X-X
 			ECHO ----------------------------------------------------------------
 			for /L %%a in (1,1,!X!) do (
 				ECHO !STATUS_1[%%a]:"=!
@@ -609,10 +613,6 @@ for /L %%a in (1,1,!LDA!) do (
 	)
 	
 	ECHO.
-	ECHO ----------------------------------------------------------------
-	ECHO ----------------------------------------------------------------
-	ECHO ----------------------------------------------------------------
-	ECHO ----------------------------------------------------------------
 )
 
 @REM ----------------------------------------------------------------
@@ -637,7 +637,7 @@ for /L %%a in (1,1,!LDA!) do (
 if !X! EQU 0 (
 	ECHO.
 	ECHO ----------------------------------------------------------------
-	ECHO SYNC SUCCESSFUL                          ---- ********** 
+	ECHO SYNC SUCCESSFUL                           ---- ***************** 
 	ECHO ----------------------------------------------------------------
 	ECHO.
 )
@@ -645,7 +645,7 @@ if !X! EQU 0 (
 if !X! GTR 0 (
 	ECHO.
 	ECHO ----------------------------------------------------------------
-	ECHO NOT SUCCESSFUL ATTENTION REQUIRING       ---- X-X-X-X-X-X
+	ECHO NOT SUCCESSFUL ATTENTION REQUIRING        ---- X-X-X-X-X-X-X-X-X
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
@@ -693,8 +693,8 @@ IF "!RUN_GITHUB_COMMIT_IF_WANT!"=="TRUE" (
 
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
-	ECHO END RUNNER                               ---- **********
-	ECHO SYNC COMPLETE SUCCESSFUL                 ---- **********
+	ECHO END RUNNER                                ---- *****************
+	ECHO SYNC COMPLETE SUCCESSFUL                  ---- *****************
 	ECHO ----------------------------------------------------------------
 	REM TIMEOUT /T 8
 	REM ECHO ----------------------------------------------------------------
@@ -711,8 +711,8 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 
 IF "!Sync_Runner_TOTAL!"=="FALSE" (
 	ECHO ----------------------------------------------------------------
-	ECHO END RUNNER                               ---- **********
-	ECHO NOT __ SUCCESSFUL ATTENTION REQUIRING    ---- **********
+	ECHO END RUNNER                                ---- *****************
+	ECHO NOT __ SUCCESSFUL ATTENTION REQUIRING     ---- *****************
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	TIMEOUT /T 300
