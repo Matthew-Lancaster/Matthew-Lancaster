@@ -340,7 +340,11 @@ for /L %%a in (1,1,!LDA!) do (
 )
 
 SET LDA=%LDB%
-SET LDA=1
+
+REM -----------------------------------------------------------------
+REM TEST ONLY RUN 1 JOB QUICKER DEBUGGING
+REM SET LDA=1
+REM -----------------------------------------------------------------
 
 for /L %%a in (1,1,!LDA!) do (
 	ECHO %%a -- !sources_02[%%a]!
