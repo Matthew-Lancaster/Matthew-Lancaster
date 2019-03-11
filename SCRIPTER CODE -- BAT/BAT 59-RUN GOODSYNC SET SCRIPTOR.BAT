@@ -578,8 +578,15 @@ for /L %%a in (1,1,!LDA!) do (
 		REM TIMEOUT /T 5
 	)
 
+	REM -------------------------------------------------------------
+	REM -- SOME REASON CAN;T FIND WHAT BETTER BUT LINE IS PREFER BELOW RATHER THAN EXPAPLEME
+	REM -- SET COMP_1="!!a of !LDA!"
+	REM -- SET COMP_1="%%a of !LDA!"
+	REM -- THE NUMBER COUNT OF %%a IS STOP AT 2 -- ALL THE REST IS OKAY
+	REM -------------------------------------------------------------
+	
 	IF "!Sync_Runner_TOTAL!"=="TRUE" (
-		SET COMP_1="%%a of !LDA!"
+		SET COMP_1="!!a of !LDA!"
 		SET COMP_2="!LDA! of !LDA!"
 		REM ---- FOR THE DURING ONE
 		IF NOT "!COMP_1!"=="!COMP_2!" (
@@ -591,8 +598,8 @@ for /L %%a in (1,1,!LDA!) do (
 		)
 	)
 
-	ECHO %%a
 	ECHO !!a
+	ECHO %%a
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
