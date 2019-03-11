@@ -108,8 +108,11 @@ IF '%1%'=='/ADMIN' (
 @ECHO OFF
 
 SET TITLE_VAR=GITHUB_RUNNNER__GITHUB_SYNC
-
 TITLE %TITLE_VAR%
+
+REM SETLOCAL EnableDelayedExpansion
+REM SETLOCAL DisableDelayedExpansion
+
 
 SET PATH_GIT="C:\Program Files\Git\bin"
  
@@ -117,27 +120,56 @@ CD /D "C:\SCRIPTOR GITHUB"
 
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
-%PATH_GIT%\git init
-%PATH_GIT%\git add .
+SETLOCAL EnableDelayedExpansion
 
-@SET Month_Word=%DATE:~3,2%
+FOR /F "skip=1" %%A IN ('WMIC OS GET LOCALDATETIME') DO (SET "t=%%A" & GOTO NEXT)
+:NEXT
+SET "s=%t:~12,2%"
+SET "m=%t:~10,2%"
+SET "h=%t:~8,2%"
+SET "h_24=%t:~8,2%"
+SET "d=%t:~6,2%"
+SET "z=%t:~4,2%"
+SET "y=%t:~0,4%"
+IF !h! GTR 11 (SET /A "h-=12" & SET "ap=P" & IF "!h!"=="0" (SET "h=00") ELSE (IF !h! LEQ 9 (SET "h=0!h!"))) ELSE (SET "ap=A")
+REM ----
+REM batch file - Windows CMD - How to create time variable with AM PM - Stack Overflow
+REM https://stackoverflow.com/questions/48750465/windows-cmd-how-to-create-time-variable-with-am-pm
+REM ----
+SETLOCAL DisableDelayedExpansion
+
+FOR /F "skip=1" %%A IN ('WMIC Path Win32_LocalTime Get DayOfWeek' ) DO (
+	IF %%A GTR 0 SET DOW=0%%A
+	IF %%A GTR 0 GOTO NEXT
+) 
+:NEXT
+
+REM @SET MAP_2=01-Mon;02-Tue;03-Wed;04-Thu;05-Fri;06-Sat;07-Sun
+@SET MAP_2=01-MON;02-TUE;03-WED;04-THU;05-FRI;06-SAT;07-SUN
+@SET Week_Day=%DOW%
+@CALL SET Week_Day=%%MAP_2:*%Week_Day%-=%%
+@SET Week_Day=%Week_Day:;=&rem.%
+
+@SET Month_Word=%m%
 @SET map_1=01-Jan;02-Feb;03-Mar;04-Apr;05-May;06-Jun;07-Jul;08-Aug;09-Sep;10-Oct;11-Nov;12-Dec
 @CALL SET Month_Word=%%map_1:*%Month_Word%-=%%
 @SET Month_Word=%Month_Word:;=&rem.%
 
 REM -----------------------------------------------------------------
-REM ---- HERE FOUND BUGGY CODE WITH MY FIX __ ADD AN __ IF __ GTR
-REM ---- DON'T INCLUDE DASH IN VARIABLE FOR WEEK LIKE NOT WEEK_DAY
-REM ---- DON'T INCLUDE DASH IN MAP VARIABLE EITHER
+REM -- ABOVE CODE
+REM -- HERE FOUND BUGGY CODE WITH MY FIX __ ADD AN __ IF __ GTR
+REM -- DON'T INCLUDE DASH IN VARIABLE FOR WEEK LIKE NOT WEEK_DAY
+REM -- DON'T INCLUDE DASH IN MAP VARIABLE EITHER
 REM ----
 REM scripting - Setting a windows batch file variable to the day of the week - Stack Overflow
 REM https://stackoverflow.com/questions/11364147/setting-a-windows-batch-file-variable-to-the-day-of-the-week
+REM ----
+REM -- THE DATE DAY OF WEEK WAS SOMETIME REPORT OF ERROR AN EXTRA DAY LIKE SUN ERROR AS MON
+REM -- AFTER LOOK WEB REQUIRE -- IF %%A GTR 0 GOTO NEXT
+REM -- OTHER PEOPLE WANT -- SETLOCAL enabledelayedexpansion
+REM -- SO THEY DO PROCESS THE NUMBER INTO DAY OF WEEK TEXT ALL WITHIN THE FOR LOOP 
+REM -- AND USER BLOCK OF IF STATEMENT RATHER THAN ONE LINER
 REM -----------------------------------------------------------------
-FOR /F "skip=1" %%A IN ('WMIC Path Win32_LocalTime Get DayOfWeek' ) DO ( IF %%A GTR 0 set DOW=0%%A) 
-@SET Week_Day=%DOW%
-@SET map_2=01-Mon;02-Tue;03-Wed;04-Thu;05-Fri;06-Sat;07-Sun
-@CALL SET Week_Day=%%map_2:*%Week_Day%-=%%
-@SET Week_Day=%Week_Day:;=&rem.%
 
 REM EQU - equal
 REM NEQ - not equal
@@ -150,22 +182,37 @@ REM GEQ - greater than or equal
 @REM windows - Need leading zero for batch script using %time% variable - Server Fault
 @REM https://serverfault.com/questions/147515/need-leading-zero-for-batch-script-using-time-variable
 @REM ----
-@SET Time_Pad_Single_Digit_Hourer=%TIME: =0%
 
-@ECHO %DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% %Week_Day%
+SET DATE_TIME_FORMATER=%y%-%z%-%d% -- %h_24%:%m%:%s% - %h%:%m%:%s%-%ap%M - %Week_Day%
+ECHO %DATE_TIME_FORMATER%
+
+REM SET Time_Pad_Single_Digit_Hourer=%TIME: =0%
+REM SET FIRST_TIME_VAR_01=%DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %TIME_PAD_02%
+REM SET FIRST_TIME_VAR_02=%FIRST_TIME_VAR_01% %Week_Day%
+REM ECHO %FIRST_TIME_VAR_01%
+REM ECHO %FIRST_TIME_VAR_02%
+
+REM PAUSE
 
 REM -----------------------------------------------------------------
 REM -- THE FILENAME HAS SPACE IN CHARACTER SO HERE 
 REM -- CONVERT THE TEXT FILENAME 
-REM -- TO DOS ALTERNATIVE -- WORKING
+REM -- TO DOS ALTERNATIVE SHORT-NAME 8x3
+REM -- EXAMPLE OUTPUT
+REM -----------------------------------------------------------------
+REM -- C:\RF\7-ASUS-GL522VW\SAFE NOTE\GITHUB_NUMBER.txt
+REM -- C:\RF\7-ASUS~1\SAFENO~1\GITHUB~1.TXT
 REM -----------------------------------------------------------------
 for %%I in ("C:\RF\7-ASUS-GL522VW\SAFE NOTE\GITHUB_NUMBER.txt") do set GITHUB_NUMBER_PATH=%%~sI
+
 REM -----------------------------------------------------------------
 REM -- GET CONTENT OF FILE AND PUT IN VARIABLE
 for /f "delims=" %%x in (%GITHUB_NUMBER_PATH%) do set GITHUB_NUMBER=%%x
 REM -----------------------------------------------------------------
 
-%PATH_GIT%\git commit -m "%DATE:~6,4%-%Month_Word%-%DATE:~0,2% -- %Time_Pad_Single_Digit_Hourer:~0,8% -- %Week_Day%"
+%PATH_GIT%\git init
+%PATH_GIT%\git add .
+%PATH_GIT%\git commit -m "%DATE_TIME_FORMATER%"
 %PATH_GIT%\git config user.email "matt.lan@btinternet.com"
 %PATH_GIT%\git config user.name "Matthew-Lancaster"
 %PATH_GIT%\git pull https://Matthew-Lancaster:%GITHUB_NUMBER%@github.com//matthew-lancaster/matthew-lancaster master
@@ -183,8 +230,6 @@ ECHO BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk /%TITLE_VAR%
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
 
 TIMEOUT /T 120
-
-EXIT
 
 :ENDE
 EXIT
