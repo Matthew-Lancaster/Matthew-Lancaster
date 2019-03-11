@@ -493,7 +493,6 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO.
 				ECHO NOT SURE WHY -- xxxxxxxxxx
 				ECHO ----------------------------------------------------------------
-				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
 				ECHO ----------------------------------------------------------------
 				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
@@ -508,8 +507,8 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO.
 				ECHO ANOTHER JOB IS RUNNING -- xxxxxxxxxx
 				ECHO ----------------------------------------------------------------
-				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
+				ECHO ----------------------------------------------------------------
 				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
 				SET STATUS_2[!X!]=!Sources_02[%%a]!
 				SET STATUS_3[!X!]=%%a of !LDA!
@@ -526,8 +525,8 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO.
 		ECHO !Sources_02[%%a]:"=!
 		ECHO ----------------------------------------------------------------
-		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
+		ECHO ----------------------------------------------------------------
 		SET STATUS_1[!X!]="Computer_Is_Offline"
 		SET STATUS_2[!X!]=!Sources_02[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
@@ -544,7 +543,6 @@ for /L %%a in (1,1,!LDA!) do (
 			IF "!Unresolved_Conflicts!"=="TRUE" (
 				ECHO POSSIBLE BECAUSE __ NONE CHANGE HAPPEN -- BUT -- CONFLICTS ARE FOUND
 			)
-			ECHO.
 			ECHO ----------------------------------------------------------------
 			IF "!Unresolved_Conflicts!"=="FALSE" (
 				REM TIMEOUT /T 4
@@ -610,6 +608,9 @@ for /L %%a in (1,1,!LDA!) do (
 		)
 	)
 	
+	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 )
