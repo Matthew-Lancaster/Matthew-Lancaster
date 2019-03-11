@@ -591,6 +591,8 @@ for /L %%a in (1,1,!LDA!) do (
 		)
 	)
 
+	ECHO !COMP_1! ---- !COMP_2!
+	
 	IF NOT "!COMP_1!"=="!COMP_2!" (
 		IF "!Sync_Runner_TOTAL!"=="FALSE" (
 			ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER! ---- X X X X X X
