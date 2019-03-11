@@ -585,6 +585,15 @@ for /L %%a in (1,1,!LDA!) do (
 
 ECHO ----------------------------------------------------------------
 
+IF !MODE_RUN!=GITHUB (
+	ECHO -- 
+	ECHO -- GITHUB MOD AND DO -- RUN -- GITHUB COMMIT -- PRORGAM
+	ECHO -- 
+	ECHO.
+	C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT
+)
+
+
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO END RUNNER                               ---- **********
