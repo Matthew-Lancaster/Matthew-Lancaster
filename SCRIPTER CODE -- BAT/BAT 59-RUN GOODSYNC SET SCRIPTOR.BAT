@@ -396,10 +396,8 @@ for /L %%a in (1,1,!LDA!) do (
 	@ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
 	@ECHO.
 	%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
-
 	@ECHO OFF
 	
-	ECHO.
 	ECHO ----------------------------------------------------------------
 
 	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
@@ -495,9 +493,9 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
 				ECHO ----------------------------------------------------------------
-				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
-				SET STATUS_2[!X!]=!Sources_02[%%a]!
-				SET STATUS_3[!X!]=%%a of !LDA!
+				SET STATUS_1[!X!]=%%a of !LDA!
+				SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
+				SET STATUS_3[!X!]=!Sources_02[%%a]!
 
 			)
 			IF "!Another_Job!"=="TRUE" (
@@ -509,9 +507,9 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
 				ECHO ----------------------------------------------------------------
-				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
-				SET STATUS_2[!X!]=!Sources_02[%%a]!
-				SET STATUS_3[!X!]=%%a of !LDA!
+				SET STATUS_1[!X!]=%%a of !LDA!
+				SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
+				SET STATUS_3[!X!]=!Sources_02[%%a]!
 			)
 		)
 	)
@@ -527,9 +525,9 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
 		ECHO ----------------------------------------------------------------
-		SET STATUS_1[!X!]="Computer_Is_Offline"
-		SET STATUS_2[!X!]=!Sources_02[%%a]!
-		SET STATUS_3[!X!]=%%a of !LDA!
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="Computer_Is_Offline"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
 		REM TIMEOUT /T 10
 	)
 
@@ -570,11 +568,12 @@ for /L %%a in (1,1,!LDA!) do (
 		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO Unresolved Conflicts At
+		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
-		ECHO !Sources_02[%%a]!
-		SET STATUS_1[!X!]="Unresolved Conflicts"
-		SET STATUS_2[!X!]=!Sources_02[%%a]!
-		SET STATUS_3[!X!]=%%a of !LDA!
+		ECHO !Sources_02[%%a]:"=!
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="Unresolved Conflicts"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
 		ECHO ----------------------------------------------------------------
 		REM TIMEOUT /T 5
 	)
@@ -606,7 +605,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO !STATUS_1[%%a]:"=!
 				ECHO !STATUS_3[%%a]:"=!
 				ECHO !STATUS_2[%%a]:"=!
-				REM ECHO.
+				ECHO ----------------------------------------------------------------
 			)
 			REM TIMEOUT /T 4
 		)
@@ -650,9 +649,9 @@ if !X! GTR 0 (
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
 		ECHO ----------------------------------------------------------------
-		ECHO !STATUS_3[%%a]:"=!
 		ECHO !STATUS_1[%%a]:"=!
 		ECHO !STATUS_2[%%a]:"=!
+		ECHO !STATUS_3[%%a]:"=!
 		ECHO.
 	)
 	ECHO ----------------------------------------------------------------
