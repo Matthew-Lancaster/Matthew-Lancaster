@@ -639,16 +639,27 @@ for /L %%a in (1,1,!LDA!) do (
 
 ECHO ----------------------------------------------------------------
 
+SET STRING_COMMAND_LINE=%1%2
+
+REM ALL THE COMMAND LINE PARAMET
+ECHO %* 
+
+PAUSE
+
+ECHO %* | FIND "FROM_EXE_GITHUB" >NUL
+
+ECHO !TITLE_VAR! | FIND "!TITLE_VAR!" >NUL
+@if !errorlevel!==0 (
+
 IF "!MODE_RUN!"=="GITHUB" (
 	ECHO.
-	ECHO -- 
-	ECHO -- GITHUB MOD AND DO -- RUN -- GITHUB COMMIT -- PRORGAM
-	ECHO -- 
+	ECHO 
+	ECHO GITHUB MODE AND DO RUN -- GITHUB COMMIT -- PRORGAM
+	ECHO 
 	ECHO.
 	SET RUN_FILE=START CMD /K "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
 	ECHO !RUN_FILE!
 	!RUN_FILE!
-	REM CMD /K ""C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT""
 	ECHO.
 )
 
@@ -735,3 +746,22 @@ REM How to loop through array in batch? - Stack Overflow
 REM https://stackoverflow.com/questions/18462169/how-to-loop-through-array-in-batch
 REM ----
 
+
+REM ----
+REM Batch Script Variables
+REM https://www.tutorialspoint.com/batch_script/batch_script_variables.htm
+REM ----
+REM Example
+REM @echo off 
+REM set globalvar = 5
+REM SETLOCAL
+REM set var = 13145
+REM set /A var = %var% + 5
+REM echo %var%
+REM echo %globalvar%
+REM ENDLOCAL
+REM Few key things to note about the above program.
+
+REM The ‘globalvar’ is defined with a global scope and is available throughout the entire script.
+
+REM The ‘var‘ variable is defined in a local scope because it is enclosed between a ‘SETLOCAL’ and ‘ENDLOCAL’ block. Hence, this variable will be destroyed as soon the ‘ENDLOCAL’ statement is executed.
