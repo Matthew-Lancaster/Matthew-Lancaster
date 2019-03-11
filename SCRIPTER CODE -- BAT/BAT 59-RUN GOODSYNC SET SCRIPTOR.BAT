@@ -636,18 +636,15 @@ for /L %%a in (1,1,!LDA!) do (
 )
 
 ECHO ----------------------------------------------------------------
-PAUSE
+
 IF "!MODE_RUN!"=="GITHUB" (
 	ECHO -- 
 	ECHO -- GITHUB MOD AND DO -- RUN -- GITHUB COMMIT -- PRORGAM
 	ECHO -- 
 	ECHO.
-	PAUSE
 	START CMD /K "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
 	ECHO.
 )
-
-PAUSE
 
 ECHO ----------------------------------------------------------------
 
