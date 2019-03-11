@@ -608,8 +608,6 @@ for /L %%a in (1,1,!LDA!) do (
 	
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
-	ECHO.	
-
 )
 
 @REM ----------------------------------------------------------------
@@ -618,17 +616,9 @@ for /L %%a in (1,1,!LDA!) do (
 @REM MONTH-DAY
 @REM ----------------------------------------------------------------
 
-if !X! EQU 0 (
-	ECHO ----------------------------------------------------------------
-	ECHO SYNC SUCCESSFUL                          ---- ********** 
-	ECHO ----------------------------------------------------------------
-	ECHO.
-)
-
+ECHO.
 ECHO ----------------------------------------------------------------
-
 for /L %%a in (1,1,!LDA!) do (
-	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO !Sources_02[%%a]:"=!
 	ECHO !STATUS_4[%%a]:"=!
@@ -636,11 +626,19 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO !STATUS_6[%%a]:"=!
 	ECHO !STATUS_7[%%a]:"=!
 	ECHO !STATUS_8[%%a]:"=!
+	ECHO ----------------------------------------------------------------
 )
 
-ECHO ----------------------------------------------------------------
+if !X! EQU 0 (
+	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO SYNC SUCCESSFUL                          ---- ********** 
+	ECHO ----------------------------------------------------------------
+	ECHO.
+)
 
 if !X! GTR 0 (
+	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO NOT SUCCESSFUL ATTENTION REQUIRING       ---- X-X-X-X-X-X
 	ECHO ----------------------------------------------------------------
@@ -653,6 +651,7 @@ if !X! GTR 0 (
 		ECHO.
 	)
 	ECHO ----------------------------------------------------------------
+	ECHO.
 )
 
 REM -- IF FROM_EXE_GITHUB THEN NOT REQUIRE TO RUN GITHUB COMMIT HERE AS DOES ON OWN
@@ -664,27 +663,28 @@ IF NOT "!GITHUB_COMMIT_UPDATE_WILL_RUN!"=="TRUE"  SET RUN_GITHUB_COMMIT_IF_WANT=
 IF NOT "!FROM_EXE_GITHUB!"=="TRUE"                SET RUN_GITHUB_COMMIT_IF_WANT=FALSE
 IF NOT "!MODE_RUN!"=="GITHUB"                    SET RUN_GITHUB_COMMIT_IF_WANT=FALSE
 IF "!RUN_GITHUB_COMMIT_IF_WANT!"=="TRUE" (
+	ECHO ----------------------------------------------------------------
 	ECHO.
-	ECHO 
 	ECHO GITHUB MODE AND DO RUN -- GITHUB COMMIT -- PRORGAM
-	ECHO 
+	ECHO.
+	ECHO ----------------------------------------------------------------
 	ECHO.
 	SET RUN_FILE=START CMD /K "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
 	ECHO !RUN_FILE!
 	!RUN_FILE!
 	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO.
 )
 
 IF "!RUN_GITHUB_COMMIT_IF_WANT!"=="TRUE" (
 	ECHO.
-	ECHO 
+	ECHO ----------------------------------------------------------------
 	ECHO GITHUB MODE RUN -- GITHUB COMMIT -- PRORGAM
-	ECHO WAS CHOOSE NOT TO RUN PROBERBLY RUN ELSEWHERE
-	ECHO 
+	ECHO WAS CHOOSE NOT TO RUN PROBERBLY RUN ELSEWHERE EXE
+	ECHO ----------------------------------------------------------------
 	ECHO.
 )
-
-ECHO ----------------------------------------------------------------
 
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
@@ -699,6 +699,7 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	"%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
 	ECHO ----------------------------------------------------------------
+	ECHO.
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
@@ -708,7 +709,7 @@ IF "!Sync_Runner_TOTAL!"=="FALSE" (
 	ECHO END RUNNER                               ---- **********
 	ECHO NOT __ SUCCESSFUL ATTENTION REQUIRING    ---- **********
 	ECHO ----------------------------------------------------------------
-	ECHO ----------------------------------------------------------------
+	ECHO.
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
