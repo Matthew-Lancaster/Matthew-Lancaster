@@ -44,6 +44,7 @@ Sub Main()
     
     FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
     
+    ' NOT USE REALLY MAYBE BUTTON IN VB CODE
     If InStr(Command$, "GOODSYNC_MODE") > 0 Then
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
     End If
@@ -57,10 +58,10 @@ Sub Main()
     
     
     ' --CHANGED
+    CHANGE_VALUE = 0
     If InStr(Command$, "--CHANGED") > 0 Then
         Value = Mid(Command$, InStr(Command$, "--CHANGED") + Len("--CHANGED") + 1)
-        ' MsgBox "-" + Value + "-"
-        If Val(Value) = 0 Then End
+        If Val(Value) > 0 Then CHANGE_VALUE = Val(Value)
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
     
@@ -81,12 +82,15 @@ Sub Main()
         SHOWWINDOW_X = vbNormalFocus
     End If
     
+    If InStr(Command$, "--CHANGED") > 0 And CHANGE_VALUE = 0 Then End
+    
     CMD = "C:\Windows\System32\cmd.exe"
     Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
     
-    ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
     
-    'Shell FILE_EXE_RUNNER, vbMinimizedNoFocus
+    
+    ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
+    ' Shell FILE_EXE_RUNNER, vbMinimizedNoFocus
     
     End
     
