@@ -83,28 +83,30 @@ Sub Main()
     End If
     
     If InStr(Command$, "--CHANGED") > 0 And CHANGE_VALUE = 0 Then End
-    
     CMD = "C:\Windows\System32\cmd.exe"
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
     
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + "FROM_EXE_GITHUB", SHOWWINDOW_X
+    ' Shell CMD + " /C " + """" + FILE_EXE_RUNNER + " """ + "FROM_EXE_GITHUB" + """", SHOWWINDOW_X
     
+    '+ """ """ + "FROM_EXE_GITHUB" + """"
+    'Shell "'C:\WINDOWS\system32\CMD.EXE ""D:\#\#D\ONE MONTH OF SEPT\i_view32.exe -- IRFAN SLIDESHOW.BAT""  /C", vbMaximizedFocus
     
-    ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
-    ' Shell FILE_EXE_RUNNER, vbMinimizedNoFocus
+    ' ------------------------------------------------------------------------------------------------
+    ' 01 OF 02 -- FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    ' 02 OF 02 -- FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
+    ' 02 OF 02 -- DOES NOT HAPPEN NEVER PROGRAMER IN TO US 2 CHOICE COMMAND LINE
+    ' NOW USER A SEPERATE EXE
+    ' ------------------------------------------------------------------------------------------------
+   
     
     End
     
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    
-    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
-        SHOWWINDOW_X = DontShowWindow
-    Else
-        SHOWWINDOW_X = ShowWindow
-    End If
-    
+
+End Sub
+
+
+Sub CODE_NOT_USER()
+
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
     objShell.Run """" + FILE_EXE_RUNNER + " " + """FROM_EXE_GITHUB""", SHOWWINDOW_X, DontWaitUntilFinished
