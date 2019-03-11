@@ -74,6 +74,9 @@
 
 @ECHO OFF
 
+ECHO %* | FIND "/ADMIN" >NUL
+IF %errorlevel% EQU 0 SET ADMIN_REQUEST=/ADMIN
+
 IF '%ADMIN_REQUEST%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
 	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
@@ -110,11 +113,32 @@ IF NOT '%ADMIN_REQUEST%'=='/ADMIN' @ECHO Got ADMIN Privileges -- By Natual
 
 @ECHO OFF
 
-SET TITLE_VAR=GITHUB_RUNNNER__GITHUB_SYNC
+REM SET TITLE_VAR=GITHUB_RUNNNER__GITHUB_SYNC
 TITLE %TITLE_VAR%
 
 REM SETLOCAL EnableDelayedExpansion
 REM SETLOCAL DisableDelayedExpansion
+
+SETLOCAL EnableDelayedExpansion
+
+REM ---- FILENAME WITHOUT EXTENSION
+@SET TITLE_VAR=%~n0
+REM ---- FILENAME WITH   EXTENSION
+@SET TITLE_VAR=%~n0%~x0
+REM ---- FULL SCRIPT PATH
+@SET TITLE_VAR=%~f0
+
+REM ----
+REM How can I echo a newline in a batch file? - Stack Overflow
+REM https://stackoverflow.com/questions/132799/how-can-i-echo-a-newline-in-a-batch-file
+REM ----
+(set \n=^
+%=Do not remove this line=%
+)
+
+@TITLE !TITLE_VAR!
+
+SETLOCAL DisableDelayedExpansion
 
 
 SET PATH_GIT="C:\Program Files\Git\bin"
@@ -147,8 +171,8 @@ FOR /F "skip=1" %%A IN ('WMIC Path Win32_LocalTime Get DayOfWeek' ) DO (
 ) 
 :NEXT
 
-REM @SET MAP_2=01-Mon;02-Tue;03-Wed;04-Thu;05-Fri;06-Sat;07-Sun
-@SET MAP_2=01-MON;02-TUE;03-WED;04-THU;05-FRI;06-SAT;07-SUN
+REM @SET MAP_2=01-MON;02-TUE;03-WED;04-THU;05-FRI;06-SAT;07-SUN
+@SET MAP_2=01-Mon;02-Tue;03-Wed;04-Thu;05-Fri;06-Sat;07-Sun
 @SET Week_Day=%DOW%
 @CALL SET Week_Day=%%MAP_2:*%Week_Day%-=%%
 @SET Week_Day=%Week_Day:;=&rem.%
