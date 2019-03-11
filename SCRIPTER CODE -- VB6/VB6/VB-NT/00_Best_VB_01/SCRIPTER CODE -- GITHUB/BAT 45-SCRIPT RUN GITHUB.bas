@@ -48,7 +48,10 @@ Sub Main()
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
     End If
     
-    If InStr(Command$, "TASKBAR_TRAY_ICON") = 0 Then
+    If InStr(Command$, "TASKBAR_TRAY_ICON") > 0 Then
+        SET_GO_QUITE_MODE = "QUITE_MODE"
+    End If
+    If InStr(Command$, "QUITE_MODE") > 0 Then
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
     
