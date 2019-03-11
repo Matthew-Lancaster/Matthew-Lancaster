@@ -234,10 +234,6 @@ SET Sources[!LDA!]="D # MY DOC __ 7G TO 4G_1"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D BT Cloud Sync _ 00 _ Caller ID"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
-SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
@@ -297,11 +293,15 @@ SET Sources[!LDA!]=""
 REM -----------------------------------------------------------------
 REM -- SORT THE EMPTY ARRAY FOR VOID VALUE
 REM -----------------------------------------------------------------
-SET LDA=0
+SET LDB=0
 for /L %%a in (1,1,!LDA!) do (
-	SET /A LDA=LDA+1
-	IF NOT !sources[%%a]!=="" SET Sources_02[!LDA!]=!sources[%%a]!
+	IF NOT !sources[%%a]!=="" (
+		SET /A LDB=LDB+1
+		SET Sources_02[!LDB!]=!sources[%%a]!
+	)
 )
+
+SET LDA=%LDB%
 
 for /L %%a in (1,1,!LDA!) do (
 	ECHO !sources_02[%%a]!
