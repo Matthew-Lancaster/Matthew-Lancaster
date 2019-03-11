@@ -637,7 +637,7 @@ for /L %%a in (1,1,!LDA!) do (
 
 ECHO ----------------------------------------------------------------
 PAUSE
-IF !MODE_RUN!=GITHUB (
+IF "!MODE_RUN!"=="GITHUB" (
 	ECHO -- 
 	ECHO -- GITHUB MOD AND DO -- RUN -- GITHUB COMMIT -- PRORGAM
 	ECHO -- 
