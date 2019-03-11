@@ -411,8 +411,6 @@ for /L %%a in (1,1,!LDA!) do (
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
 	TYPE !FILENAME_ER!
 	
-	ECHO ----------------------------------------------------------------
-
 	@SET Analysis_Complete=FALSE
 	@SET Sync_Runner=FALSE
 	@SET Another_Job=FALSE
@@ -462,7 +460,6 @@ for /L %%a in (1,1,!LDA!) do (
 
 	@ECHO OFF
 
-	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
