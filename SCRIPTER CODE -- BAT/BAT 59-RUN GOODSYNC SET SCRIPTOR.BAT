@@ -104,7 +104,7 @@ IF '%ADMIN_REQUEST%'=='/ADMIN' (
 @IF '%errorlevel%' GTR '2' (
 	@REM Get ADMIN Privileges
 	@ECHO Set UAC = CreateObject^("Shell.Application"^) >> "%temp%\getadmin.vbs"
-	@ECHO UAC.ShellExecute "%~s0", "/ADMIN%*", "", "runas", 1 >> "%temp%\getadmin.vbs"
+	@ECHO UAC.ShellExecute "%~s0", "/ADMIN %*", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
 	"%temp%\getadmin.vbs"
 	@DEL "%temp%\getadmin.vbs"
@@ -282,6 +282,7 @@ REM -----------------------------------------------------------------
 IF NOT !MODE_RUN!==GOODSYNC (
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
+	SET GITHUB_COMMIT_UPDATE_WILL_RUN=TRUE
 )
 
 SET /A LDA=LDA+1
@@ -646,27 +647,28 @@ for /L %%a in (1,1,!LDA!) do (
 
 ECHO ----------------------------------------------------------------
 
-REM ALL THE COMMAND LINE PARAMETER
-
-
+REM -- ALL THE COMMAND LINE PARAMETER
 
 REM -- IF FROM_EXE_GITHUB THEN NOT REQUIRE TO RUN GITHUB COMMIT HERE AS DOES ON OWN
 
 ECHO %* | FIND "FROM_EXE_GITHUB" >NUL
 IF %errorlevel% EQU 0 SET FROM_EXE_GITHUB=TRUE
 
-IF NOT "!FROM_EXE_GITHUB!"=="TRUE" (
-	IF "!MODE_RUN!"=="GITHUB" (
-		ECHO.
-		ECHO 
-		ECHO GITHUB MODE AND DO RUN -- GITHUB COMMIT -- PRORGAM
-		ECHO 
-		ECHO.
-		SET RUN_FILE=START CMD /K "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
-		ECHO !RUN_FILE!
-		!RUN_FILE!
-		ECHO.
-	)
+SET RUN_GITHUB_COMMIT_IF_WANT=TRUE
+IF NOT "!GITHUB_COMMIT_UPDATE_WILL_RUN!"=="TRUE"  SET RUN_GITHUB_COMMIT_IF_WANT=FALSE
+IF NOT "!FROM_EXE_GITHUB!"=="TRUE"                SET RUN_GITHUB_COMMIT_IF_WANT=FALSE
+IF NOT "!MODE_RUN!"=="GITHUB"                    SET RUN_GITHUB_COMMIT_IF_WANT=FALSE
+
+IF "!RUN_GITHUB_COMMIT_IF_WANT!"=="TRUE" (
+	ECHO.
+	ECHO 
+	ECHO GITHUB MODE AND DO RUN -- GITHUB COMMIT -- PRORGAM
+	ECHO 
+	ECHO.
+	SET RUN_FILE=START CMD /K "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+	ECHO !RUN_FILE!
+	!RUN_FILE!
+	ECHO.
 )
 
 ECHO ----------------------------------------------------------------
