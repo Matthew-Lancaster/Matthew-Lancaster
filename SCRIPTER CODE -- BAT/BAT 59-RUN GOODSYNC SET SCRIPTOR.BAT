@@ -337,7 +337,6 @@ for /L %%a in (1,1,!LDA!) do (
 
 
 
-PAUSE
 
 
 SET "X=0"
