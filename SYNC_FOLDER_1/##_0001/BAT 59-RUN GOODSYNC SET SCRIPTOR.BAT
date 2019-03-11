@@ -264,17 +264,26 @@ SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
 @SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
-
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 02 SCRIPTER CODE -- GITHUB"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
 
 :NEXT_CONTINUE
+
+for /L %%a in (1,1,!LDA!) do (
+
+	ECHO !sources[%%a]!
+
+	IF !sources[%%a]!=="" SET /A LDA=LDA-1
+	
+)
+
+
 
 
 SET "X=0"
