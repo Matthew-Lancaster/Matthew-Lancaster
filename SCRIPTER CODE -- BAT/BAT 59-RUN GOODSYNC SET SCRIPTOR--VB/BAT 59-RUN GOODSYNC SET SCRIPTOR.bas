@@ -63,73 +63,9 @@ Sub Main()
     
     
     
-    
-    
-    
     End
     
     
-    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
-    
-    If InStr(Command$, "GOODSYNC_MODE") > 0 Then
-        FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
-    End If
-    
-    If InStr(Command$, "TASKBAR_TRAY_ICON") = 0 Then
-        SET_GO_QUITE_MODE = "QUITE_MODE"
-    End If
-    
-    
-    ' --CHANGED
-    If InStr(Command$, "--CHANGED") > 0 Then
-        Value = Mid(Command$, InStr(Command$, "--CHANGED") + Len("--CHANGED") + 1)
-        ' MsgBox "-" + Value + "-"
-        If Val(Value) = 0 Then End
-        SET_GO_QUITE_MODE = "QUITE_MODE"
-    End If
-    
-    If Dir(FILE_EXE_RUNNER) = "" Then
-        MsgBox "File to Run Was Not Found" + vbCrLf + vbCrLf + FILE_EXE_RUNNER, vbMsgBoxSetForeground
-        End
-    End If
-    
-    AHK = "C:\Program Files\AutoHotkey\AutoHotkey.exe"
-    If Dir(AHK) = "" Then
-        MsgBox "Error Not Find AutoHotKeys Program" + vbCrLf + vbCrLf + AHK, vbMsgBoxSetForeground
-        End
-    End If
-    
-    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
-        SHOWWINDOW_X = vbMinimizedNoFocus 'vbHide
-    Else
-        SHOWWINDOW_X = vbNormalFocus
-    End If
-    
-    CMD = "C:\Windows\System32\cmd.exe"
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
-    
-    ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
-    
-    'Shell FILE_EXE_RUNNER, vbMinimizedNoFocus
-    
-    End
-    
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    
-    Dim objShell
-    Set objShell = CreateObject("Wscript.Shell")
-    
-    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
-        SHOWWINDOW_X = DontShowWindow
-    Else
-        SHOWWINDOW_X = ShowWindow
-    End If
-    
-    objShell.Run """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X, DontWaitUntilFinished
-    Set objShell = Nothing
 
 End Sub
 
