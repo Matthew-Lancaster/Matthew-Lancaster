@@ -123,6 +123,11 @@ REM ---- FILENAME WITH   EXTENSION
 
 @TITLE !TITLE_VAR!
 
+ECHO !TITLE_VAR! | FIND "!TITLE_VAR!" 
+@if !errorlevel!==0 (
+	SET MODE_RUN=GOODSYNC
+	@CD /D "C:\SCRIPTER"
+)
 ECHO !TITLE_VAR! | FIND "BAT 59-RUN GOODSYNC SET SCRIPTOR" 
 @if !errorlevel!==0 (
 	SET MODE_RUN=GOODSYNC
@@ -184,7 +189,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C C DRIVE ROOT CROSS 00 C SCRIPTER FOLDER"
 SET /A LDA=LDA+1
@@ -201,7 +205,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C C DRIVE ROOT CROSS 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C C DRIVE ROOT CROSS 8M _ GSD"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C ISO __ 7G TO 1X"
 SET /A LDA=LDA+1
@@ -214,7 +217,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C ISO __ 7G TO 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C ISO __ 7G TO 8M"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C GOODSYNC __ 7G TO 1X"
 SET /A LDA=LDA+1
@@ -227,45 +229,62 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C GOODSYNC __ 7G TO 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C GOODSYNC __ 7G TO 8M"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D # MY DOC __ 7G TO 4G_1"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D BT Cloud Sync _ 00 _ Caller ID"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
 
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-
-GOTO NEXT_CONTINUE
+REM GOTO NEXT_CONTINUE
 
 :GITHUB___SET_ARRRAY
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
-@SET /A LDA=LDA+1
+REM -- _BUT_NOT__C_SCRIPTOR_y_7G_GITHUB __ BECAUSE IT HAS PROGRAM SCRIPT TO RUN AND BE LAUNCH ITSELF REOCCURRING
+REM -- MIGHT AS WELL ADD ALL GITHUB JOB TO THE RUN OF GOODSYNCER
+IF !MODE_RUN!==GOODSYNC GOTO INCLUDE_GITHUB_WITHER_GOODSYNC_SET_ARRRAY_BUT_NOT__C_SCRIPTOR_y_7G_GITHUB
+	SET /A LDA=LDA+1
+	SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
+:INCLUDE_GITHUB_WITHER_GOODSYNC_SET_ARRRAY_BUT_NOT__C_SCRIPTOR_y_7G_GITHUB
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT"
-@SET /A LDA=LDA+1
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 02 SCRIPTER CODE -- GITHUB"
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
-@SET /A LDA=LDA+1
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
-@SET /A LDA=LDA+1
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
-@SET /A LDA=LDA+1
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 02 BAT 59-RUN GOODSYNC SET SCRIPTOR -- VB WANT QUICK CHANGER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 02 BAT 59-RUN GOODSYNC SET SCRIPTOR--VB -- 00_Best_VB_01"
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
-@SET /A LDA=LDA+1
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 02 SCRIPTER CODE -- GITHUB"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_#_1_2"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_001_PAIR_01_BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_001_PAIR_02_BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_Multiple_Thread Port Scanner 02 CON"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
@@ -275,15 +294,22 @@ SET Sources[!LDA!]=""
 
 :NEXT_CONTINUE
 
+REM -----------------------------------------------------------------
+REM -- SORT THE EMPTY ARRAY FOR VOID VALUE
+REM -----------------------------------------------------------------
+SET LDA=0
 for /L %%a in (1,1,!LDA!) do (
+	SET /A LDA=LDA+1
+	IF NOT !sources[%%a]!=="" SET Sources_02[!LDA!]=!sources[%%a]!
+)
 
-	ECHO !sources[%%a]!
-
-	IF !sources[%%a]!=="" SET /A LDA=LDA-1
-	
+for /L %%a in (1,1,!LDA!) do (
+	ECHO !sources_02[%%a]!
 )
 
 
+
+PAUSE
 
 
 SET "X=0"
@@ -309,10 +335,10 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 
 	REM STRIP QUOTES THIS BIT BEFORE END :"=
-	REM NORMAL VAR BE LIKE !sources[%%a]!
+	REM NORMAL VAR BE LIKE !Sources_02[%%a]!
 	REM CREDIT FINDER AT END OF CODE 
 	
-	ECHO !sources[%%a]:"=!
+	ECHO !Sources_02[%%a]:"=!
 	
 	@ECHO ON
 	@ECHO.
@@ -321,10 +347,10 @@ for /L %%a in (1,1,!LDA!) do (
 	@ECHO ----------------------------------------------------------------
 	@ECHO.
 	@REM DEL !FILENAME_ER! >NUL 2>NUL
-	@REM CMD /A /C "%GoodSync_GSync% sync !sources[%%a]!>!FILENAME_ER!"
-	@ECHO %GoodSync_GSync% sync !sources[%%a]!^>!FILENAME_ER!
+	@REM CMD /A /C "%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!"
+	@ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
 	@ECHO.
-	%GoodSync_GSync% sync !sources[%%a]!>!FILENAME_ER!
+	%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
 
 	@ECHO OFF
 	
@@ -397,7 +423,7 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
-	ECHO !sources[%%a]:"=!
+	ECHO !Sources_02[%%a]:"=!
 	ECHO ----------------------------------------------------------------
 	ECHO Analysis_Complete   !Analysis_Complete!
 	ECHO Sync_Runner         !Sync_Runner!
@@ -426,7 +452,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO %%a of !LDA!
 				ECHO ----------------------------------------------------------------
 				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
-				SET STATUS_2[!X!]=!sources[%%a]!
+				SET STATUS_2[!X!]=!Sources_02[%%a]!
 				SET STATUS_3[!X!]=%%a of !LDA!
 
 			)
@@ -440,7 +466,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
 				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
-				SET STATUS_2[!X!]=!sources[%%a]!
+				SET STATUS_2[!X!]=!Sources_02[%%a]!
 				SET STATUS_3[!X!]=%%a of !LDA!
 			)
 		)
@@ -453,12 +479,12 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO.
 		ECHO Computer_Is_Offline -- xxxxxxxxxx
 		ECHO.
-		ECHO !sources[%%a]:"=!
+		ECHO !Sources_02[%%a]:"=!
 		ECHO ----------------------------------------------------------------
 		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
 		SET STATUS_1[!X!]="Computer_Is_Offline"
-		SET STATUS_2[!X!]=!sources[%%a]!
+		SET STATUS_2[!X!]=!Sources_02[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
 		REM TIMEOUT /T 10
 	)
@@ -502,9 +528,9 @@ for /L %%a in (1,1,!LDA!) do (
 		ECHO ----------------------------------------------------------------
 		ECHO Unresolved Conflicts At
 		ECHO %%a of !LDA!
-		ECHO !sources[%%a]!
+		ECHO !Sources_02[%%a]!
 		SET STATUS_1[!X!]="Unresolved Conflicts"
-		SET STATUS_2[!X!]=!sources[%%a]!
+		SET STATUS_2[!X!]=!Sources_02[%%a]!
 		SET STATUS_3[!X!]=%%a of !LDA!
 		ECHO ----------------------------------------------------------------
 		REM TIMEOUT /T 5
@@ -575,7 +601,7 @@ if !X! GTR 0 (
 for /L %%a in (1,1,!LDA!) do (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
-	ECHO !sources[%%a]:"=!
+	ECHO !Sources_02[%%a]:"=!
 	ECHO !STATUS_4[%%a]:"=!
 	ECHO !STATUS_5[%%a]:"=!
 	ECHO !STATUS_6[%%a]:"=!
