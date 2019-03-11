@@ -503,7 +503,7 @@ for /L %%a in (1,1,!LDA!) do (
 				ECHO ----------------------------------------------------------------
 				ECHO ANALYSIS ^& SYNC NOT RUN
 				ECHO.
-				ECHO ANOTHER JOB IS RUNNING -- ********** 
+				ECHO ANOTHER JOB IS RUNNING -- xxxxxxxxxx
 				ECHO ----------------------------------------------------------------
 				ECHO ----------------------------------------------------------------
 				ECHO %%a of !LDA!
@@ -620,11 +620,25 @@ for /L %%a in (1,1,!LDA!) do (
 
 if !X! EQU 0 (
 	ECHO ----------------------------------------------------------------
-	ECHO NOT SUCCESSFUL ATTENTION REQUIRED        ---- ********** 
+	ECHO SYNC SUCCESSFUL                          ---- ********** 
 	ECHO ----------------------------------------------------------------
 	ECHO.
 )
 
+ECHO ----------------------------------------------------------------
+
+for /L %%a in (1,1,!LDA!) do (
+	ECHO ----------------------------------------------------------------
+	ECHO %%a of !LDA!
+	ECHO !Sources_02[%%a]:"=!
+	ECHO !STATUS_4[%%a]:"=!
+	ECHO !STATUS_5[%%a]:"=!
+	ECHO !STATUS_6[%%a]:"=!
+	ECHO !STATUS_7[%%a]:"=!
+	ECHO !STATUS_8[%%a]:"=!
+)
+
+ECHO ----------------------------------------------------------------
 
 if !X! GTR 0 (
 	ECHO ----------------------------------------------------------------
@@ -639,21 +653,7 @@ if !X! GTR 0 (
 		ECHO.
 	)
 	ECHO ----------------------------------------------------------------
-	REM TIMEOUT /T 8
 )
-
-for /L %%a in (1,1,!LDA!) do (
-	ECHO ----------------------------------------------------------------
-	ECHO %%a of !LDA!
-	ECHO !Sources_02[%%a]:"=!
-	ECHO !STATUS_4[%%a]:"=!
-	ECHO !STATUS_5[%%a]:"=!
-	ECHO !STATUS_6[%%a]:"=!
-	ECHO !STATUS_7[%%a]:"=!
-	ECHO !STATUS_8[%%a]:"=!
-)
-
-ECHO ----------------------------------------------------------------
 
 REM -- IF FROM_EXE_GITHUB THEN NOT REQUIRE TO RUN GITHUB COMMIT HERE AS DOES ON OWN
 
