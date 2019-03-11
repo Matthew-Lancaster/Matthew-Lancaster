@@ -591,17 +591,19 @@ for /L %%a in (1,1,!LDA!) do (
 		)
 	)
 
-	IF "!Sync_Runner_TOTAL!"=="FALSE" (
-		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER! ---- X X X X X X
-		REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
-		ECHO ----------------------------------------------------------------
-		for /L %%a in (1,1,!X!) do (
-			ECHO !STATUS_1[%%a]:"=!
-			ECHO !STATUS_3[%%a]:"=!
-			ECHO !STATUS_2[%%a]:"=!
-			REM ECHO.
+	IF NOT "!COMP_1!"=="!COMP_2!" (
+		IF "!Sync_Runner_TOTAL!"=="FALSE" (
+			ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER! ---- X X X X X X
+			REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
+			ECHO ----------------------------------------------------------------
+			for /L %%a in (1,1,!X!) do (
+				ECHO !STATUS_1[%%a]:"=!
+				ECHO !STATUS_3[%%a]:"=!
+				ECHO !STATUS_2[%%a]:"=!
+				REM ECHO.
+			)
+			REM TIMEOUT /T 4
 		)
-		REM TIMEOUT /T 4
 	)
 	
 	ECHO ----------------------------------------------------------------
@@ -618,7 +620,7 @@ for /L %%a in (1,1,!LDA!) do (
 
 if !X! EQU 0 (
 	ECHO ----------------------------------------------------------------
-	ECHO NOT ATTENTION REQUIRED SUCCESSFUL        ---- ********** 
+	ECHO NOT SUCCESSFUL ATTENTION REQUIRED        ---- ********** 
 	ECHO ----------------------------------------------------------------
 	ECHO.
 )
@@ -626,7 +628,7 @@ if !X! EQU 0 (
 
 if !X! GTR 0 (
 	ECHO ----------------------------------------------------------------
-	ECHO ATTENTION REQUIRING NOT SUCCESSFUL       ---- X-X-X-X-X-X
+	ECHO NOT SUCCESSFUL ATTENTION REQUIRING       ---- X-X-X-X-X-X
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	for /L %%a in (1,1,!X!) do (
@@ -704,7 +706,7 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 IF "!Sync_Runner_TOTAL!"=="FALSE" (
 	ECHO ----------------------------------------------------------------
 	ECHO END RUNNER                               ---- **********
-	ECHO NOT __ SYNCER SUCCESSFUL                 ---- **********
+	ECHO NOT __ SUCCESSFUL ATTENTION REQUIRING    ---- **********
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	TIMEOUT /T 300
