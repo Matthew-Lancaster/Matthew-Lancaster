@@ -121,23 +121,45 @@ REM ---- FILENAME WITHOUT EXTENSION
 REM ---- FILENAME WITH   EXTENSION
 @SET TITLE_VAR=%~n0%~x0
 
+REM ----
+REM How can I echo a newline in a batch file? - Stack Overflow
+REM https://stackoverflow.com/questions/132799/how-can-i-echo-a-newline-in-a-batch-file
+REM ----
+(set \n=^
+%=Do not remove this line=%
+)
+
 @TITLE !TITLE_VAR!
 
-ECHO !TITLE_VAR! | FIND "!TITLE_VAR!" 
+ECHO !TITLE_VAR! | FIND "!TITLE_VAR!" >NUL
 @if !errorlevel!==0 (
+	SET TITLE_RUN_MODE=SAME AS SCRIPT NAME DIRECT ON!\n!!TITLE_VAR!!\n!WHEN PARAM OPTION EMPTY
 	SET MODE_RUN=GOODSYNC
 	@CD /D "C:\SCRIPTER"
+	GOTO START
 )
-ECHO !TITLE_VAR! | FIND "BAT 59-RUN GOODSYNC SET SCRIPTOR" 
+ECHO !TITLE_VAR! | FIND "BAT 59-RUN GOODSYNC SET SCRIPTOR" >NUL
 @if !errorlevel!==0 (
+	SET TITLE_RUN_MODE=BAT 59-RUN GOODSYNC SET SCRIPTOR
 	SET MODE_RUN=GOODSYNC
 	@CD /D "C:\SCRIPTER"
+	GOTO START
 )
-ECHO !TITLE_VAR! | FIND "BAT 45-SCRIPT RUN GITHUB - GOODSYNC" 
+ECHO !TITLE_VAR! | FIND "BAT 45-SCRIPT RUN GITHUB - GOODSYNC" >NUL
 @if !errorlevel!==0 (
+	SET TITLE_RUN_MODE=BAT 45-SCRIPT RUN GITHUB - GOODSYNC
 	SET MODE_RUN=GITHUB
 	@CD /D "C:\SCRIPTOR GITHUB"
+	GOTO START
 )
+
+:START
+
+SET TITLE_RUN_MODE=BAT 45-SCRIPT RUN GITHUB - GOODSYNC
+SET MODE_RUN=GITHUB
+
+ECHO RUN MODE ARE
+ECHO !TITLE_RUN_MODE!
 
 @SET PATH_GIT="C:\Program Files\Git\bin"
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
@@ -245,12 +267,15 @@ SET Sources[!LDA!]=""
 REM GOTO NEXT_CONTINUE
 
 :GITHUB___SET_ARRRAY
+REM -----------------------------------------------------------------
 REM -- _BUT_NOT__C_SCRIPTOR_y_7G_GITHUB __ BECAUSE IT HAS PROGRAM SCRIPT TO RUN AND BE LAUNCH ITSELF REOCCURRING
-REM -- MIGHT AS WELL ADD ALL GITHUB JOB TO THE RUN OF GOODSYNCER
-IF !MODE_RUN!==GOODSYNC GOTO INCLUDE_GITHUB_WITHER_GOODSYNC_SET_ARRRAY_BUT_NOT__C_SCRIPTOR_y_7G_GITHUB
+REM -- MIGHT AS WELL ADD ALL GITHUB JOB TO THE RUN OF GOODSYNC-ER
+REM -----------------------------------------------------------------
+IF NOT !MODE_RUN!==GOODSYNC (
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
-:INCLUDE_GITHUB_WITHER_GOODSYNC_SET_ARRRAY_BUT_NOT__C_SCRIPTOR_y_7G_GITHUB
+)
+
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT"
 SET /A LDA=LDA+1
@@ -304,7 +329,7 @@ for /L %%a in (1,1,!LDA!) do (
 SET LDA=%LDB%
 
 for /L %%a in (1,1,!LDA!) do (
-	ECHO !sources_02[%%a]!
+	ECHO %%a -- !sources_02[%%a]!
 )
 
 
@@ -610,6 +635,18 @@ for /L %%a in (1,1,!LDA!) do (
 )
 
 ECHO ----------------------------------------------------------------
+
+IF !MODE_RUN!=GITHUB (
+	ECHO -- 
+	ECHO -- GITHUB MOD AND DO -- RUN -- GITHUB COMMIT -- PRORGAM
+	ECHO -- 
+	ECHO.
+	CMD /K "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+	ECHO.
+)
+
+ECHO ----------------------------------------------------------------
+
 
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
