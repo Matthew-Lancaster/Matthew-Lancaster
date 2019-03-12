@@ -81,12 +81,21 @@ Sub Main()
     If InStr(Command$, "FROM_EXE_GITHUB_01") > 0 Then
         FROM_EXE_GITHUB = "FROM_EXE_GITHUB_01"
     End If
+    FROM_EXE_GITHUB = "FROM_EXE_GITHUB_01"
     If InStr(Command$, "FROM_EXE_GITHUB_02") > 0 Then
         FROM_EXE_GITHUB = "FROM_EXE_GITHUB_02"
     End If
     
+    If InStr(Command$, "GITHUB_MODE_FULL") > 0 Then
+        GITHUB_MODE_VAR = "GITHUB_MODE_FULL"
+    End If
+    GITHUB_MODE_VAR = "GITHUB_MODE_FULL"
+    If InStr(Command$, "GITHUB_MODE_ONLY") > 0 Then
+        GITHUB_MODE_VAR = "GITHUB_MODE_ONLY"
+    End If
+    ' GITHUB_MODE_ONLY ---- OVERRIDE
     
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + "/" + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + GITHUB_MODE_VAR + " " + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
     ' Shell CMD + " /C " + """" + FILE_EXE_RUNNER + " """ + "FROM_EXE_GITHUB" + """", SHOWWINDOW_X
     
 ' FROM_EXE_GITHUB_01

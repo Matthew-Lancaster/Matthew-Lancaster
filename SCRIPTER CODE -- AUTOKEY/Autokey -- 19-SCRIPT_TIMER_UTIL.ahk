@@ -2613,11 +2613,17 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 ; -------------------------------------------------------------------
 DetectHiddenWindows, ON
 SET_GO=TRUE
+IF A_ComputerName=1-ASUS-X5DIJ
+	SET_GO=TRUE
 IF A_ComputerName=2-ASUS-EEE
 	SET_GO=TRUE
-IF A_ComputerName=1-ASUS-X5DIJ
-	SET_GO=FALSE
-
+IF A_ComputerName=3-LINDA-PC
+	SET_GO=TRUE
+IF A_ComputerName=4-ASUS-GL522VW
+	SET_GO=TRUE
+IF A_ComputerName=5-ASUS-P2520LA
+	SET_GO=TRUE
+	
 IF SET_GO=TRUE
 {
 	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
@@ -2625,7 +2631,12 @@ IF SET_GO=TRUE
 	{
 		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
 		{
-			WinMinimize  ahk_id %HWND_1%
+			WinGet MMX, MinMax, ahk_id %HWND_1%
+			If MMX<>-1
+			{
+				WinMinimize  ahk_id %HWND_1%
+				SOUNDBEEP 2000,100
+			}
 		}
 
 		; ------------------------------------------------------------------------
