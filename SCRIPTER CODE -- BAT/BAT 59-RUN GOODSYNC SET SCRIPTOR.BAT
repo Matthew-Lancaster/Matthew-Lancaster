@@ -142,13 +142,8 @@ REM ----
 
 @TITLE !TITLE_VAR!
 
-REM ECHO !TITLE_VAR! | FIND "!TITLE_VAR!" >NUL
-REM @if !errorlevel!==0 (
-	REM SET TITLE_RUN_MODE=SAME AS SCRIPT NAME DIRECT ON!\n!!TITLE_VAR!!\n!WHEN PARAM OPTION EMPTY
-	REM SET MODE_RUN=GOODSYNC
-	REM @CD /D "C:\SCRIPTER"
-	REM GOTO START
-REM )
+ECHO READY STEADY GO
+ECHO READY!\n!STEADY!\n!GO
 
 ECHO %* | FIND "GOODSYNC_MODE" >NUL
 IF %errorlevel% EQU 0 (
@@ -173,7 +168,6 @@ IF %errorlevel% EQU 0 (
 	@CD /D "C:\SCRIPTOR GITHUB"
 	GOTO START_GITHUB_COMMIT_CODE
 )
-
 
 IF "MODE_RUN"=="" (
 	SET TITLE_RUN_MODE=BAT 59-RUN GOODSYNC SET SCRIPTOR
@@ -701,6 +695,8 @@ IF "!RUN_GITHUB_COMMIT_IF_WANT!"=="TRUE" (
 	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO.
+	GOTO ENDER
+	
 )
 
 IF "!RUN_GITHUB_COMMIT_IF_WANT!"=="TRUE" (
@@ -741,6 +737,9 @@ IF "!Sync_Runner_TOTAL!"=="FALSE" (
 )
 
 
+:ENDER
+IF NOT "!MODE_RUN!"=="GITHUB_ONLY"    TIMEOUT /T 90
+
 @REM ----------------------------------------------------------------
 @REM --- ECHO DE-STUPID-POO
 @REM --- ECHO 
@@ -755,6 +754,7 @@ IF "!Sync_Runner_TOTAL!"=="FALSE" (
 
 @ECHO.
 ECHO ----------------------------------------------------------------
+
 
 :ENDE
 EXIT
