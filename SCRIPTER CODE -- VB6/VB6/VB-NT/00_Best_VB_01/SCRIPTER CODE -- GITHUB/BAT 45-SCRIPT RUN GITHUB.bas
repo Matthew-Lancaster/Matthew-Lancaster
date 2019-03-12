@@ -42,12 +42,7 @@ Sub Main()
     
     ' IF RUN BY COMMAND LINE #1 OR #2
     
-    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
-    
-    ' NOT USE REALLY MAYBE BUTTON IN VB CODE
-    If InStr(Command$, "GOODSYNC_MODE") > 0 Then
-        FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
-    End If
+    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
     
     If InStr(Command$, "TASKBAR_TRAY_ICON") > 0 Then
         SET_GO_QUITE_MODE = "QUITE_MODE"
@@ -56,8 +51,6 @@ Sub Main()
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
     
-    
-    ' --CHANGED
     CHANGE_VALUE = 0
     If InStr(Command$, "--CHANGED") > 0 Then
         Value = Mid(Command$, InStr(Command$, "--CHANGED") + Len("--CHANGED") + 1)
@@ -85,9 +78,13 @@ Sub Main()
     If InStr(Command$, "--CHANGED") > 0 And CHANGE_VALUE = 0 Then End
     CMD = "C:\Windows\System32\cmd.exe"
     
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + "FROM_EXE_GITHUB", SHOWWINDOW_X
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + "/GITHUB_MODE FROM_EXE_GITHUB_01 " + Command$, SHOWWINDOW_X
     ' Shell CMD + " /C " + """" + FILE_EXE_RUNNER + " """ + "FROM_EXE_GITHUB" + """", SHOWWINDOW_X
     
+' FROM_EXE_GITHUB_01
+' FROM_EXE_GITHUB_02
+
+
     '+ """ """ + "FROM_EXE_GITHUB" + """"
     'Shell "'C:\WINDOWS\system32\CMD.EXE ""D:\#\#D\ONE MONTH OF SEPT\i_view32.exe -- IRFAN SLIDESHOW.BAT""  /C", vbMaximizedFocus
     
