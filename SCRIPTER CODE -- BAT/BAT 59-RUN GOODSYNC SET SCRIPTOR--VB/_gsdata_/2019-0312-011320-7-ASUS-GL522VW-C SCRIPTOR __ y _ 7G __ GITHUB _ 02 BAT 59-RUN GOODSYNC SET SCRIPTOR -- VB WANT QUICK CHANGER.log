@@ -1,0 +1,36 @@
+2019-03-12 01:13:20: Connected to C:\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB: C: NTFS: type=NTFS vol=OS SYSTEM flags=3E700FF
+2019-03-12 01:13:20: Connected to C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB: C: NTFS: type=NTFS vol=OS SYSTEM flags=3E700FF
+2019-03-12 01:13:20: -- Analysis Started by Unknown
+2019-03-12 01:13:20: C SCRIPTOR __ y _ 7G __ GITHUB _ 02 BAT 59-RUN GOODSYNC SET SCRIPTOR -- VB WANT QUICK CHANGER: ANALYSIS started by Unknown on '7-ASUS-GL522VW' (GoodSync 10.9.26.3)
+2019-03-12 01:13:20: C:\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB (C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB) [TmpDest] <-> C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB (C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB) [TmpDest], RecycleTo_RecycleBin, SaveDays_RecycleBin=30d, SaveDays_History=30d, ReconnectSecs=120, OnFileChange Delay=30, OnTimer=5:0, ChangeLimit=80, NoWaitForLocks, AutoClear, CopyCreateTime, NoCopyLocked, LinksIgnore
+2019-03-12 01:13:21: Exclude name BAT 59-RUN GOODSYNC SET SCRIPTOR.exe|name BAT 59-RUN GOODSYNC SET SCRIPTOR.log|.DS_Store|/System Volume Information|DESKTOP.INI|GOODSYNC_OUTPUT.TXT|GOODSYNC_SCRIPT_FOLDER_OUTPUT.TXT|SYSTEM LOGON.TXT|Thumbs.db|_file_state_v4._gs|meta.fm|name $RECYCLE.BIN|name *._gstmp|name *.vbw|name *_GOODSYNC_OUTPUT.TXT|name .@__thumb|name .dropbox.device|name _app*.rfo|name _gsdata_|name _settings.rfo|name _user-data*.rfo|name cache.rfo|name desktop.ini|name mppsS*.rfo|name mru.rfo|name options.rfo|path /.streams|path /NirSoft/x64/SpecialFoldersView.cfg|path /Progs/#_PortableApps/PortableApps/SystemExplorerPortable/App/SystemExplorer/config.ini|path /Progs/#_PortableApps/PortableApps/SystemExplorerPortable/App/SystemExplorer/data.sdb|path /Progs/0_Nirsoft_Package/NirSoft/BluetoothLogView.cfg|path /Progs/0_Nirsoft_Package/NirSoft/BluetoothView_Desc.txt|path /Progs/0_Nirsoft_Package/NirSoft/SpecialFoldersView.cfg|path /Progs/0_Nirsoft_Package/NirSoft/bluetoothview_Desc.ini|path /RECYCLER|path /Recycled|path /TEMP 
+2019-03-12 01:13:21: Locking folder C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB for write
+2019-03-12 01:13:21: L: Reading State File C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_file_state_v4._gs
+2019-03-12 01:13:21: L: C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_file_state_v4._gs: created By: C SCRIPTOR __ y _ 7G __ GITHUB _ 02 BAT 59-RUN GOODSYNC SET SCRIPTOR -- VB WANT QUICK CHANGER.MATT 04@7-ASUS-GL522VW at: 2019.03.12 01:12:06 GMT Standard Time
+2019-03-12 01:13:21: L: Files: 18 (excluded 2). Folders: 0 (excluded 1). Times (s): Folder Scan: 0.003 (7000 f/s), Compare: 0.000 C: NTFS Free: 9.00 GB, Total: 234 GB
+2019-03-12 01:13:21: Locking folder C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB for write
+2019-03-12 01:13:21: R: Reading State File C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_file_state_v4._gs
+2019-03-12 01:13:21: R: Files: 18 (excluded 2). Folders: 0 (excluded 1). Times (s): Folder Scan: 0.004 (5250 f/s), Compare: 0.000 C: NTFS Free: 9.00 GB, Total: 234 GB
+2019-03-12 01:13:21: On disk file:///C: space required for sync is 0 bytes, you have 8.99 GB
+2019-03-12 01:13:21: On disk file:///C: space required for sync is 0 bytes, you have 8.99 GB
+2019-03-12 01:13:21: Changes: 0, Conflicts: 0, CopyTime: 0, FixState: 2, Errors: 0, All: 22
+2019-03-12 01:13:21: -- Analysis Complete. Time 00:00:01, Speed: 22 files/s
+2019-03-12 01:13:21: Fraction of files changed (excluding renames) is low enough to perform Auto Sync: 0% (0 / 22) < 80%
+2019-03-12 01:13:21: == Sync Started by Unknown
+2019-03-12 01:13:21: C SCRIPTOR __ y _ 7G __ GITHUB _ 02 BAT 59-RUN GOODSYNC SET SCRIPTOR -- VB WANT QUICK CHANGER: SYNC started by Unknown on '7-ASUS-GL522VW'
+2019-03-12 01:13:21: C:\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB (C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB) [TmpDest] <-> C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB (C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB) [TmpDest], RecycleTo_RecycleBin, SaveDays_RecycleBin=30d, SaveDays_History=30d, ReconnectSecs=120, OnFileChange Delay=30, OnTimer=5:0, ChangeLimit=80, NoWaitForLocks, AutoClear, CopyCreateTime, NoCopyLocked, LinksIgnore
+2019-03-12 01:13:21: Sync State Merge: /BAT 59-RUN GOODSYNC SET SCRIPTOR.bas
+2019-03-12 01:13:21: Sync State Merge: /BAT 59-RUN GOODSYNC SET SCRIPTOR.vbp
+2019-03-12 01:13:21: Save State File C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_file_state_v4._gs
+2019-03-12 01:13:21: Save State File C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_file_state_v4._gs
+2019-03-12 01:13:21: Cleanup recycled files in C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_saved_
+2019-03-12 01:13:21: Cleaning up History files in C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_history_
+2019-03-12 01:13:21: Cleanup old logs in C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_
+2019-03-12 01:13:21: Cleanup recycled files in C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_saved_
+2019-03-12 01:13:21: Load Recycled DB: C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_recycled_db._gs
+2019-03-12 01:13:21: Cleaning up History files in C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/_history_
+2019-03-12 01:13:21: Cleanup old logs in C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_
+2019-03-12 01:13:21: == Sync Complete. Time: 00:00:00, Speed: 0 bytes/s, OK: 2, Errors: 0
+2019-03-12 01:13:21: Unlocking folder C:/SCRIPTOR GITHUB/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/lock.gsl
+2019-03-12 01:13:21: Unlocking folder C:/SCRIPTER/SCRIPTER CODE -- BAT/BAT 59-RUN GOODSYNC SET SCRIPTOR--VB/_gsdata_/lock.gsl
+2019-03-12 01:13:21: 
