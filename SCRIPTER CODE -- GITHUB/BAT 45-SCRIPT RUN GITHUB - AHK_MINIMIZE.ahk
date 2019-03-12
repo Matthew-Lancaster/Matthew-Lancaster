@@ -144,7 +144,7 @@ Loop, %id%
 			IF SOUND_EVENT_DONE=FALSE 
 			{
 				Gui, Show, AutoSize
-				SETTIMER TIMER_EXIT, 5000
+				SETTIMER TIMER_EXIT, 2000
 				SoundBeep , 1000 , 200
 				EXIT_NOW=FALSE
 				SOUND_EVENT_DONE=TRUE

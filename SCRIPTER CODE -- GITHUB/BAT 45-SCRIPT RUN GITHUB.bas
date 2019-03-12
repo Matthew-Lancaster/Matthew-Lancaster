@@ -78,7 +78,15 @@ Sub Main()
     If InStr(Command$, "--CHANGED") > 0 And CHANGE_VALUE = 0 Then End
     CMD = "C:\Windows\System32\cmd.exe"
     
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + "/GITHUB_MODE FROM_EXE_GITHUB_01 " + Command$, SHOWWINDOW_X
+    If InStr(Command$, "FROM_EXE_GITHUB_01") > 0 Then
+        FROM_EXE_GITHUB = "FROM_EXE_GITHUB_01"
+    End If
+    If InStr(Command$, "FROM_EXE_GITHUB_02") > 0 Then
+        FROM_EXE_GITHUB = "FROM_EXE_GITHUB_02"
+    End If
+    
+    
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + "/" + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
     ' Shell CMD + " /C " + """" + FILE_EXE_RUNNER + " """ + "FROM_EXE_GITHUB" + """", SHOWWINDOW_X
     
 ' FROM_EXE_GITHUB_01
