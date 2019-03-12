@@ -180,10 +180,12 @@ REM @SET MAP_2=01-MON;02-TUE;03-WED;04-THU;05-FRI;06-SAT;07-SUN
 @CALL SET Week_Day=%%MAP_2:*%Week_Day%-=%%
 @SET Week_Day=%Week_Day:;=&rem.%
 
-@SET Month_Word=%m%
+@SET Month_Word=%z%
 @SET map_1=01-Jan;02-Feb;03-Mar;04-Apr;05-May;06-Jun;07-Jul;08-Aug;09-Sep;10-Oct;11-Nov;12-Dec
 @CALL SET Month_Word=%%map_1:*%Month_Word%-=%%
 @SET Month_Word=%Month_Word:;=&rem.%
+
+
 
 REM -----------------------------------------------------------------
 REM -- ABOVE CODE
@@ -213,7 +215,7 @@ REM GEQ - greater than or equal
 @REM https://serverfault.com/questions/147515/need-leading-zero-for-batch-script-using-time-variable
 @REM ----
 
-SET DATE_TIME_FORMATER=%y%-%z%-%d% -- %h_24%:%m%:%s% - %h%:%m%:%s%-%ap%M - %Week_Day%
+SET DATE_TIME_FORMATER=%y%-%Month_Word%-%d% -- %h_24%:%m%:%s% - %h%:%m%:%s%-%ap%M - %Week_Day%
 ECHO %DATE_TIME_FORMATER%
 
 REM SET Time_Pad_Single_Digit_Hourer=%TIME: =0%
