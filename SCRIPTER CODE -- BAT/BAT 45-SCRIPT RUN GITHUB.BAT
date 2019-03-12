@@ -213,7 +213,7 @@ REM GEQ - greater than or equal
 @REM https://serverfault.com/questions/147515/need-leading-zero-for-batch-script-using-time-variable
 @REM ----
 
-SET DATE_TIME_FORMATER=%y%-%z%-%d% -- %h_24%:%m%:%s% - %h%:%m%:%s%-%ap%M - %Week_Day%
+SET DATE_TIME_FORMATER=%y%-%Month_Word%-%d% -- %h_24%:%m%:%s% - %h%:%m%:%s%-%ap%M - %Week_Day%
 ECHO %DATE_TIME_FORMATER%
 
 REM SET Time_Pad_Single_Digit_Hourer=%TIME: =0%
