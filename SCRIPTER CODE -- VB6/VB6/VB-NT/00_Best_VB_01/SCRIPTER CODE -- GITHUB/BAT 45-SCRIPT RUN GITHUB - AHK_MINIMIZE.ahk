@@ -87,12 +87,18 @@ Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
 ; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
 
 
-Space := " "
-; MSGBOX -%Space%-
-; ; %Space%
-Command_Params=
-Loop, %0% ; number of parameters
-	Command_Params=%Command_Params%%A_Index%%Space%
+Loop, %0%  ; For each parameter:
+  info .= %A_Index% " "
+  
+Command_Params=%info%
+  
+
+; Space := " "
+; ; MSGBOX -%Space%-
+; ; ; %Space%
+; Command_Params=
+; Loop, %0% ; number of parameters
+	; Command_Params=%Command_Params%%A_Index%%Space%
 
 ; WAS USER BEFORE
 ; Command_Params.=%A_Index%
@@ -103,7 +109,7 @@ Loop, %0% ; number of parameters
 
 	; Command_Params:=StrReplace(Command_Params, """" , "")
 
-MSGBOX % Command_Params
+; MSGBOX % Command_Params
 	
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
@@ -138,7 +144,7 @@ Loop, %id%
 			IF SOUND_EVENT_DONE=FALSE 
 			{
 				Gui, Show, AutoSize
-				SETTIMER TIMER_EXIT, 5000
+				SETTIMER TIMER_EXIT, 2000
 				SoundBeep , 1000 , 200
 				EXIT_NOW=FALSE
 				SOUND_EVENT_DONE=TRUE
