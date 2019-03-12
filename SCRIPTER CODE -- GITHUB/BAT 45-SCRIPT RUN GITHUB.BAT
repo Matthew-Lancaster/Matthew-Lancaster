@@ -114,19 +114,26 @@ IF NOT '%ADMIN_REQUEST%'=='/ADMIN' @ECHO Got ADMIN Privileges -- By Natual
 @ECHO OFF
 
 REM SET TITLE_VAR=GITHUB_RUNNNER__GITHUB_SYNC
-TITLE %TITLE_VAR%
 
 REM SETLOCAL EnableDelayedExpansion
 REM SETLOCAL DisableDelayedExpansion
 
-SETLOCAL EnableDelayedExpansion
 
+SETLOCAL EnableDelayedExpansion
 REM ---- FILENAME WITHOUT EXTENSION
 @SET TITLE_VAR=%~n0
 REM ---- FILENAME WITH   EXTENSION
 @SET TITLE_VAR=%~n0%~x0
 REM ---- FULL SCRIPT PATH
 @SET TITLE_VAR=%~f0
+SETLOCAL DisableDelayedExpansion
+
+@TITLE %TITLE_VAR%
+
+"C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %~n0
+REM %TITLE_VAR%
+
+SETLOCAL EnableDelayedExpansion
 
 REM ----
 REM How can I echo a newline in a batch file? - Stack Overflow
@@ -136,10 +143,7 @@ REM ----
 %=Do not remove this line=%
 )
 
-@TITLE !TITLE_VAR!
-
 SETLOCAL DisableDelayedExpansion
-
 
 SET PATH_GIT="C:\Program Files\Git\bin"
  
@@ -148,7 +152,6 @@ CD /D "C:\SCRIPTOR GITHUB"
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
 SETLOCAL EnableDelayedExpansion
-
 FOR /F "skip=1" %%A IN ('WMIC OS GET LOCALDATETIME') DO (SET "t=%%A" & GOTO NEXT)
 :NEXT
 SET "s=%t:~12,2%"
@@ -249,10 +252,11 @@ REM -----------------------------------------------------------------
 
 TIMEOUT /T 8
 
-@ECHO ---------------------------------------------------------------
-ECHO RUN COMMAND 
-ECHO BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk /%TITLE_VAR%
-@ECHO ---------------------------------------------------------------
+
+REM @ECHO ---------------------------------------------------------------
+REM ECHO RUN COMMAND 
+REM ECHO BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk /%TITLE_VAR%
+REM @ECHO ---------------------------------------------------------------
 
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %TITLE_VAR%
 

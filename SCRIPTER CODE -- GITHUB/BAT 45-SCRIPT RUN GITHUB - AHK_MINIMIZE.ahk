@@ -86,18 +86,30 @@ Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
 
 ; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
 
-Command_Params=
-Loop, %0% ; number of parameters
-	Command_Params.=%A_Index%
+
+Loop, %0%  ; For each parameter:
+  info .= %A_Index% " "
+  
+Command_Params=%info%
+  
+
+; Space := " "
+; ; MSGBOX -%Space%-
+; ; ; %Space%
+; Command_Params=
+; Loop, %0% ; number of parameters
+	; Command_Params=%Command_Params%%A_Index%%Space%
+
+; WAS USER BEFORE
+; Command_Params.=%A_Index%
 	
-IF (!Command_Params or %0%=0)
-	Command_Params=GITHUB_RUNNNER
+; IF (!Command_Params or %0%=0)
+	; Command_Params=GITHUB_RUNNNER
 
 
-IF GITHUB_RUNNNER_RERUN
-	Command_Params=GITHUB_RUNNNER
+	; Command_Params:=StrReplace(Command_Params, """" , "")
 
-; Command_Params:=StrReplace(Command_Params, """" , "")
+; MSGBOX % Command_Params
 	
 EXIT_NOW=TRUE
 SOUND_EVENT_DONE=FALSE
@@ -113,7 +125,13 @@ Loop, %id%
 	WinGetTitle, Title, ahk_id %Table%
 	; Command_Params:="%Command_Params%"
 
+	SET_GO=FALSE
 	IF INSTR(Title,Command_Params)
+		SET_GO=TRUE
+	IF !Command_Params
+		SET_GO=TRUE
+
+	IF SET_GO=TRUE
 	{
 		WinGet MMX, MinMax, ahk_id %Table%
 		If MMX>-1
