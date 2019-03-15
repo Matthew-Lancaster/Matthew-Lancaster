@@ -1,4 +1,4 @@
-﻿;  =============================================================
+﻿	 ;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
 ;# __ 
 ;# __ Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
@@ -1362,39 +1362,38 @@ SetTitleMatchMode 3  ; Exactly
 DetectHiddenText, ON
 UniqueID := WinActive("ahk_class Chrome_WidgetWin_1")
 IF UniqueID>0 
-IF OLD_UniqueID_CHROME<>%UniqueID%
-{
-	SET_GO=TRUE
-	; ---------------------------------------------------------------
-	; SOME EXTENSION THAT LOOK LIKE TOOL-TIPS DON;T HAVE THE ' b ' IN THE INFO
-	; FILTER THEM OUT OR BE MAXIMIZE IT ALL
-	; ---------------------------------------------------------------
-	; b
-	; Chrome Legacy Window
-	; ---------------------------------------------------------------
-	WinGetText, OutputVar, ahk_id %UniqueID%
-	IfNotInString, OutputVar, Chrome Legacy Window`r`n
-		SET_GO=FALSE
-
-	LOOP, 4
+	IF OLD_UniqueID_CHROME<>%UniqueID%
 	{
-		IF SET_GO=TRUE
-			SLEEP 100
+		SET_GO=TRUE
+		; ---------------------------------------------------------------
+		; SOME EXTENSION THAT LOOK LIKE TOOL-TIPS DON;T HAVE THE ' b ' IN THE INFO
+		; FILTER THEM OUT OR BE MAXIMIZE IT ALL
+		; ---------------------------------------------------------------
+		; b
+		; Chrome Legacy Window
+		; ---------------------------------------------------------------
 		WinGetText, OutputVar, ahk_id %UniqueID%
-		IfNotInString, OutputVar, b`r`n
-				SET_GO=FALSE
-		IF SET_GO=FALSE
-				BREAK
+		IfNotInString, OutputVar, Chrome Legacy Window`r`n
+			SET_GO=FALSE
+
+		LOOP, 4
+		{
+			IF SET_GO=TRUE
+				SLEEP 100
+			WinGetText, OutputVar, ahk_id %UniqueID%
+			IfNotInString, OutputVar, b`r`n
+					SET_GO=FALSE
+			IF SET_GO=FALSE
+					BREAK
+		}
+			
+		IF SET_GO=TRUE
+		{	
+			WinMaximize, ahk_id %UniqueID%
+			SoundBeep , 2500 , 100
+		}
+		OLD_UniqueID_CHROME=%UniqueID%
 	}
-		
-		
-	IF SET_GO=TRUE
-	{	
-		WinMaximize, ahk_id %UniqueID%
-		SoundBeep , 2500 , 100
-	}
-	OLD_UniqueID_CHROME=%UniqueID%
-}
 
 DetectHiddenText, OFF
 
@@ -2627,6 +2626,7 @@ IF A_ComputerName=5-ASUS-P2520LA
 IF SET_GO=TRUE
 {
 	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+
 	IF HWND_1>0 
 	{
 		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
@@ -2634,8 +2634,24 @@ IF SET_GO=TRUE
 			WinGet MMX, MinMax, ahk_id %HWND_1%
 			If MMX<>-1
 			{
+				; -------------------------------------------------------------
+				; IF A_ComputerName=2-ASUS-EEE
+				; -------------------------------------------------------------
+				; OF HERE LOW THE END EEE ON WIN-XP IT DOESN'T TAKE THE REQUEST 
+				; TO MINIMIZE AS ONE COMMAND
+				; AND HAS TO REPEAT UNTIL DONE IT
+				; EXAMPLE LEFT WITH WINDOW UP IN MAXIMUM AND NOT ISSUE IT COMMAND TO DO MINIMIZED
+				; UNTIL REPEAT UNTIL FEW TIME AND THEN STOP
+				; [ Thursday 14:05:20 Pm_14 March 2019 ]
+				; -------------------------------------------------------------
 				WinMinimize  ahk_id %HWND_1%
 				SOUNDBEEP 2000,100
+				SLEEP 1000
+			}
+			WinGet MMX, MinMax, ahk_id %HWND_1%
+			If MMX<>-1
+			{
+				GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=0
 			}
 		}
 
@@ -2643,7 +2659,6 @@ IF SET_GO=TRUE
 		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
 		; ------------------------------------------------------------------------
 		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE = %HWND_1%
-
 	}
 }
 
