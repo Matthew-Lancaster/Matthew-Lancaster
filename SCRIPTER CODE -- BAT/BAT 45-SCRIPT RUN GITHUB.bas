@@ -42,22 +42,19 @@ Sub Main()
     
     ' IF RUN BY COMMAND LINE #1 OR #2
     
-    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
     
-    If InStr(Command$, "GOODSYNC_MODE") > 0 Then
-        FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
+    If InStr(Command$, "TASKBAR_TRAY_ICON") > 0 Then
+        SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
-    
-    If InStr(Command$, "TASKBAR_TRAY_ICON") = 0 Then
+    If InStr(Command$, "QUITE_MODE") > 0 Then
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
     
-    
-    ' --CHANGED
+    CHANGE_VALUE = 0
     If InStr(Command$, "--CHANGED") > 0 Then
         Value = Mid(Command$, InStr(Command$, "--CHANGED") + Len("--CHANGED") + 1)
-        ' MsgBox "-" + Value + "-"
-        If Val(Value) = 0 Then End
+        If Val(Value) > 0 Then CHANGE_VALUE = Val(Value)
         SET_GO_QUITE_MODE = "QUITE_MODE"
     End If
     
@@ -78,31 +75,59 @@ Sub Main()
         SHOWWINDOW_X = vbNormalFocus
     End If
     
+    If InStr(Command$, "--CHANGED") > 0 And CHANGE_VALUE = 0 Then End
     CMD = "C:\Windows\System32\cmd.exe"
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X
     
-    ' Shell FILE_EXE_RUNNER, vbNormalNoFocus
+    If InStr(Command$, "FROM_EXE_GITHUB_01") > 0 Then
+        FROM_EXE_GITHUB = "FROM_EXE_GITHUB_01"
+    End If
+    FROM_EXE_GITHUB = "FROM_EXE_GITHUB_01"
+    If InStr(Command$, "FROM_EXE_GITHUB_02") > 0 Then
+        FROM_EXE_GITHUB = "FROM_EXE_GITHUB_02"
+    End If
     
-    'Shell FILE_EXE_RUNNER, vbMinimizedNoFocus
+    If InStr(Command$, "GITHUB_MODE_FULL") > 0 Then
+        GITHUB_MODE_VAR = "GITHUB_MODE_FULL"
+    End If
+    GITHUB_MODE_VAR = "GITHUB_MODE_FULL"
+    If InStr(Command$, "GITHUB_MODE_ONLY") > 0 Then
+        GITHUB_MODE_VAR = "GITHUB_MODE_ONLY"
+    End If
+    ' GITHUB_MODE_ONLY ---- OVERRIDE
+    
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + GITHUB_MODE_VAR + " " + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
+    ' Shell CMD + " /C " + """" + FILE_EXE_RUNNER + " """ + "FROM_EXE_GITHUB" + """", SHOWWINDOW_X
+    
+' FROM_EXE_GITHUB_01
+' FROM_EXE_GITHUB_02
+
+
+    '+ """ """ + "FROM_EXE_GITHUB" + """"
+    'Shell "'C:\WINDOWS\system32\CMD.EXE ""D:\#\#D\ONE MONTH OF SEPT\i_view32.exe -- IRFAN SLIDESHOW.BAT""  /C", vbMaximizedFocus
+    
+    ' ------------------------------------------------------------------------------------------------
+    ' 01 OF 02 -- FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
+    ' 02 OF 02 -- FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
+    ' 02 OF 02 -- DOES NOT HAPPEN NEVER PROGRAMER IN TO US 2 CHOICE COMMAND LINE
+    ' NOW USER A SEPERATE EXE
+    ' ------------------------------------------------------------------------------------------------
+   
     
     End
     
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    ' ----------------------------------------------------------------------
-    
+
+End Sub
+
+
+Sub CODE_NOT_USER()
+
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
-    
-    If SET_GO_QUITE_MODE = "QUITE_MODE" Then
-        SHOWWINDOW_X = DontShowWindow
-    Else
-        SHOWWINDOW_X = ShowWindow
-    End If
-    
-    objShell.Run """" + FILE_EXE_RUNNER + """", SHOWWINDOW_X, DontWaitUntilFinished
+    objShell.Run """" + FILE_EXE_RUNNER + " " + """FROM_EXE_GITHUB""", SHOWWINDOW_X, DontWaitUntilFinished
     Set objShell = Nothing
+    
+    ' SAME AS ABOVE BUT CHANGE WHEN ENTER PRESS END OF LINE IN IDE ENVIROMENT
+    'objShell.Run """" + FILE_EXE_RUNNER + """ """ + "FROM_EXE_GITHUB" + """", SHOWWINDOW_X, DontWaitUntilFinished
 
 End Sub
 
