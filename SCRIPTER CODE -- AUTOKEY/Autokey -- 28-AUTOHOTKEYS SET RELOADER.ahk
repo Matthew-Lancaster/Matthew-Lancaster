@@ -178,7 +178,12 @@ VAR_A__TimeIdle=0
 FN_Array_1 := []
 FN_Array_2 := []
 FN_Array_3 := []
+FN_Array_4 := []
 DATE_MOD_Array := []
+
+Element_3 := 
+Element_4 := 
+
 
 ArrayCount := 0
 
@@ -196,7 +201,6 @@ ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk"
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 15-BLOCK KEY CTRL-ENTER ON WEB PAGES MYSMS & FB GB.ahk"
-ArrayCount += 1
 
 OSVER_N_VAR:=a_osversion
 IF INSTR(a_osversion,".")>0
@@ -267,6 +271,12 @@ IF SET_GO=TRUE
 }
 
 
+
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk"
+
+
+
 ; -------------------------------------------------------------------
 ; ADD THE TERMINATOR VERSION NUMBER AND THEN WE ARE ABLE TO USE EXACT 
 ; STRING MATCHING IN CASE NOTEPAD HAD IT
@@ -295,8 +305,11 @@ Loop % ArrayCount
 	TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
 	TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
 	TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
-	
+	TEMP_VAR_4:=SUBSTR(TEMP_VAR_1,INSTR(TEMP_VAR_1,"\",,0)+1)
+
 	FN_Array_2.InsertAt(A_Index,TEMP_VAR_3)
+
+	FN_Array_4.InsertAt(A_Index,TEMP_VAR_4)
 	
 	; ---------------------------------------------------------------
 	; FINALLY GOT THERE WITH MY ARRAY HANDLE-SHIP
@@ -320,7 +333,17 @@ Loop % ArrayCount
 	; ---------------------------------------------------------------
 }
   
+Loop % ArrayCount
+{
+	Element := FN_Array_1[A_Index]
+	IF !Element
+	{
+		MSGBOX EMPTY ARRAY VALUE AT HERE CODER`n`nAutokey -- 28-AUTOHOTKEYS SET RELOADER.ahk`n`nQUITER
+		Process, Close,% DllCall("GetCurrentProcessId")
+	}
 
+}
+  
 Loop % ArrayCount
 {
   Element := FN_Array_1[A_Index]
@@ -340,6 +363,8 @@ IF (A_ComputerName = "4-ASUS-GL522VW")
 	SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,1000 ; 1 SECOND
 	;SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,600000 ; 10 MINUTER
 
+	
+FIRST_RUN=TRUE
 
 SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,200
 	
@@ -394,44 +419,69 @@ RETURN
 
 TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 
+SET_TIMER=FALSE
+
 Loop % ArrayCount
 {
 	Element_1 := FN_Array_1[A_Index]
 	Element_2 := DATE_MOD_Array[A_Index]
 	Element_3 := FN_Array_2[A_Index]
+	Element_4 := FN_Array_4[A_Index]
+	Element_4 = %Element_4% ahk_class #32770
 
+	RUN_APP_GO=TRUE
+
+	IF WinExist(Element_4)
+	{
+		; MSGBOX % Element_4
+		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,40000
+		Element_8=%Element_2%
+		Element_8+= -1, Days
+		DATE_MOD_Array.InsertAt(A_Index,Element_8)
+		; MSGBOX % Element_2 " -- " DATE_MOD_Array[A_Index]
+		SET_TIMER=TRUE
+		RUN_APP_GO=FALSE
+	}
+	IF SET_TIMER=FALSE
+	{	
+		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
+	}
+	
 	IfExist, %Element_1%
 		FileGetTime, OutputVar, %Element_1%, M
 	
+	RUN_APP_HAPPEN_FLAG=FALSE
 	IfExist, %Element_1%
 		IF (!WinExist(Element_3))
-		{
-			GOSUB RUN_THE_APP
-			RETURN
-		}
+			IF RUN_APP_GO=TRUE
+			{
+				DATE_MOD_Array[A_Index] := OutputVar
+				GOSUB RUN_THE_APP
+				RUN_APP_HAPPEN_FLAG=TRUE
+			}
 	
-	IF OutputVar<>%Element_2%
-	{
-		; -----------------------------------------------------------
-		; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
-		; IMMEDIATELY AGAIN
-		; -----------------------------------------------------------
-		; IF (A_TimeIdle > 1000)
-		IF (A_TimeIdlePhysical > 2000)
-		{
-			GOSUB RUN_THE_APP
-			RETURN
-		}
-	}
-	; PAUSE
+	IF RUN_APP_HAPPEN_FLAG=FALSE
+		IF OutputVar<>%Element_2%
+			IF RUN_APP_GO=TRUE
+			{
+				; -----------------------------------------------------------
+				; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
+				; IMMEDIATELY AGAIN
+				; -----------------------------------------------------------
+				; IF (A_TimeIdle > 1000)
+				IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
+				{
+					DATE_MOD_Array[A_Index] := OutputVar
+					GOSUB RUN_THE_APP
+				}
+			}
 }
 
-SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
+FIRST_RUN=FALSE
 
 RETURN
 
 RUN_THE_APP:
-	DATE_MOD_Array[A_Index] := OutputVar
 
 	SET_GO=TRUE
 	
@@ -457,14 +507,43 @@ RUN_THE_APP:
 		Process, Close,% DllCall("GetCurrentProcessId")
 		RETURN
 	}
-	 
-	IF SET_GO=TRUE
+	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
-		WinGet, PID, PID, %Element_3% ahk_class AutoHotkey
-		Process, Close,% PID
-		SoundBeep , 2000 , 100
+		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
+		IF PID_1>0 
+		{
+			Process, Close,% PID_1
+		}
 		Run, %Element_1%
+		RETURN
 	}
+	 
+
+	; Loop % 500
+	; {
+		; PID_1=
+		; PID_2=
+		; WinGet, PID_1, PID, %Element_4% ahk_class #32770
+		; IF PID_1>0 
+		; {
+			; ; MSGBOX %PID_1% " -- " %Element_4%
+			; ; Process, Close,% PID_1
+			; PID_1=
+		; }
+		; WinGet, PID_2, PID, %Element_3% ahk_class AutoHotkey
+		; IF PID_1>0 
+		; {
+			; Process, Close,% PID_2
+			; ; MSGBOX % PID_1 " -- " PID_2
+		; }
+		; if (!PID_1 and !PID_2)
+			; BREAK
+	; }
+		
+	SoundBeep , 2000 , 100
+	Run, %Element_1%
+
+
 RETURN
 
 ; WinGetTitle, Titel, ahk_id %ID%
