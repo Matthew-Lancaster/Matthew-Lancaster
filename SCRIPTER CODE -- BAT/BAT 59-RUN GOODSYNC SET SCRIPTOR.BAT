@@ -355,6 +355,7 @@ for /L %%a in (1,1,!LDA!) do (
 )
 
 SET LDA=%LDB%
+SET LDA=1
 
 REM -----------------------------------------------------------------
 REM TEST ONLY RUN 1 JOB QUICKER DEBUGGING
@@ -687,7 +688,7 @@ IF "!RUN_GITHUB_COMMIT_IF_WANT!"=="TRUE" (
 	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO.
-	SET RUN_FILE=START CMD /K "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT" /MIN
+	SET RUN_FILE=START "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT" /MIN
 	ECHO !RUN_FILE!
 	!RUN_FILE!
 	ECHO.
