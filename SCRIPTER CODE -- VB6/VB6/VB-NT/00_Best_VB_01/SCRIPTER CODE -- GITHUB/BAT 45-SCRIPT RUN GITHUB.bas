@@ -86,33 +86,28 @@ Sub Main()
         FROM_EXE_GITHUB = "FROM_EXE_GITHUB_02"
     End If
     
-    If InStr(Command$, "GITHUB_MODE_FULL") > 0 Then
-        GITHUB_MODE_VAR = "GITHUB_MODE_FULL"
+    If InStr(Command$, "GITHUB_MODE") > 0 Then
+        GITHUB_MODE_VAR = "GITHUB_MODE"
     End If
-    GITHUB_MODE_VAR = "GITHUB_MODE_FULL"
+    
+    GITHUB_MODE_VAR = "GITHUB_MODE"
+    
     If InStr(Command$, "GITHUB_MODE_ONLY") > 0 Then
         GITHUB_MODE_VAR = "GITHUB_MODE_ONLY"
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
     End If
+    
     ' GITHUB_MODE_ONLY ---- OVERRIDE
     
+'    MsgBox FILE_EXE_RUNNER
+'    MsgBox GITHUB_MODE_VAR
+'    MsgBox FROM_EXE_GITHUB
+'    MsgBox Command$
+    
     Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + GITHUB_MODE_VAR + " " + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
-    ' Shell CMD + " /C " + """" + FILE_EXE_RUNNER + " """ + "FROM_EXE_GITHUB" + """", SHOWWINDOW_X
-    
-' FROM_EXE_GITHUB_01
-' FROM_EXE_GITHUB_02
 
-
-    '+ """ """ + "FROM_EXE_GITHUB" + """"
-    'Shell "'C:\WINDOWS\system32\CMD.EXE ""D:\#\#D\ONE MONTH OF SEPT\i_view32.exe -- IRFAN SLIDESHOW.BAT""  /C", vbMaximizedFocus
     
-    ' ------------------------------------------------------------------------------------------------
-    ' 01 OF 02 -- FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
-    ' 02 OF 02 -- FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
-    ' 02 OF 02 -- DOES NOT HAPPEN NEVER PROGRAMER IN TO US 2 CHOICE COMMAND LINE
-    ' NOW USER A SEPERATE EXE
-    ' ------------------------------------------------------------------------------------------------
-   
+
     
     End
     
