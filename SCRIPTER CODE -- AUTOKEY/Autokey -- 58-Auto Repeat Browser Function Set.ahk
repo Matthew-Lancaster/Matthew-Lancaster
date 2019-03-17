@@ -114,7 +114,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 165 Views _ 18 NOV 2018 + 3
 ; 194 Views _ 29 NOV 2018 + SIX 
 ; -------------------------------------------------------------------
-; -------------------------------------------------------------------
 ; Sat 09-Mar-2019 __ 8 PM _ 2 DAY
 ; 225 Views _ 12 OCT 2018 + 0   __ So my very lovely and generous brother bought me a guitar to keep
 ; 234 Views _ 17 OCT 2018 + 0   __ So...I wrote and composed my first ever song! Its called Penguin Lullaby
@@ -122,6 +121,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; 165 Views _ 18 NOV 2018 + 0   __ Hurt
 ; 194 Views _ 29 NOV 2018 + 0   __ New song - Standing in the Rain
 ;  73 Views _ 28 FEB 2019 ___   __ Blue - In honor of Beth __ About a week ago 
+; -------------------------------------------------------------------
+; Sat 16-Mar-2019 __ 7 DAY WEEK
+; 239 Views _ 12 OCT 2018 + 14  __ So my very lovely and generous brother bought me a guitar to keep
+; 254 Views _ 17 OCT 2018 + 20  __ So...I wrote and composed my first ever song! Its called Penguin Lullaby
+; 178 Views _ 09 NOV 2018 + 8   __ Time for a happier song - Riptide
+; 190 Views _ 18 NOV 2018 + 25  __ Hurt
+; 218 Views _ 29 NOV 2018 + 24  __ New song - Standing in the Rain
+;  96 Views _ 28 FEB 2019 + 23  __ Blue - In honor of Beth __ About a week ago 
 ; -------------------------------------------------------------------
 ; WELL MORE CODE HAS TO GO INNER NOW REQUIRE A REFRESH PAGE AFTER EVERY PLAY
 ; GET IT GOING RESULT BETTER
@@ -257,6 +264,12 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	; AFTER EVERY SONG WAIT AND PRESS F5 REFRESH 
 	; MIGHT IMPROVE RESULT AS GOT NONE HITTER LAST LOT
 	; -------------------------------------------------------------------
+	
+	If (A_TimeIdle < 10000)
+	{
+		RETURN
+	}
+	
 	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5,OFF
 
 	XR_3=
@@ -388,6 +401,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	
 	SetTitleMatchMode 2  ; NOT Specify Full path.
 
+	
+	
 	; FORNICATE PLEASURE
 	; ----
     ; Deborah Hall
@@ -399,6 +414,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; Hi Room I Got 11 Code Project Been Updated This... - Matthew Lancaster
 	; https://www.facebook.com/matthew.lancaster.4/posts/10211817982758757
 	; ----
+	 
+	If (A_TimeIdle < 10000)
+	{
+		RETURN
+	}
 	 
 	IF A_ComputerName=3-LINDA-PC
 	{
