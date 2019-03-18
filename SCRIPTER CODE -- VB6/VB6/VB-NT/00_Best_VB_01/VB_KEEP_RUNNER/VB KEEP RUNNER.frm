@@ -4511,6 +4511,8 @@ Dim XI
 'If Hour(Now) = 16 Then
 'A_DATE_TIME = "[__ " + Format(Now, "DDDD YYYY-MMM-DD-HH-MM-SS AM/PM") + " __]"
 'End If
+'MsgBox Format(Now, "YYYY-MMM-DD -- HH:MM:SS - HH:MM:SS-AM/PM DDD")
+
 
 A_DATE_TIME_PM = Mid(Format(Now, "HH-MM-SS Am/Pm"), 10)
 
