@@ -280,11 +280,11 @@ SET Sources[!LDA!]="D #0 1 INSTALL 7G 4G_1"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D #0 1 INSTALL 7G 8M_1"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]=""
+SET Sources[!LDA!]="VB G7 VB-NT 8M _3_ LONGER"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]=""
+SET Sources[!LDA!]="VB G7 VB-NT 5P _3_ LONGER GSD"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]=""
+SET Sources[!LDA!]="VB G7 VB-NT 4G _3_ LONGER"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 

@@ -1,0 +1,17 @@
+ProcServ
+--------
+
+This program displays information about Local or Remote computer.
+
+To run this program you must have:
+	1. Admin rights to the computer you wish to connect to (local or remote)
+	2. Enable DCOM on client and target computer
+	   - use DCOMCNFG to set up DCOM
+
+To CONNECT to local computer, please enter "." in the Connect Dialog Box or the name
+of your computer
+
+To CONNECT to remote computer, please enter NetBIOS name of computer, ie "PCS097"
+
+
+
