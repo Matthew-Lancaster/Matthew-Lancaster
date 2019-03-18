@@ -142,7 +142,7 @@ Private Sub Connect_Click()
     
 '    MDIProcServ.Caption = "ProcServ - building - this may take a minute or two ..."
     
-'    frmComputerSystem.ShowForm
+     frmComputerSystem.ShowForm
 '    frmEventLogFile.ShowForm
 '    frmLogicalDisk.ShowForm
      frmOperatingSystem.ShowForm
@@ -166,7 +166,7 @@ End Sub
 
 Private Sub ComputerSystem_Click()
 
-'    frmComputerSystem.ZOrder
+    frmComputerSystem.ZOrder
     
 End Sub
 
