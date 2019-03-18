@@ -29,7 +29,7 @@
 
 
 ;# ------------------------------------------------------------------
-; Location OnLine
+; Location Internet
 ; -------------------------------------------------------------------
 ; ----
 ; Matthew-Lancaster/Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk

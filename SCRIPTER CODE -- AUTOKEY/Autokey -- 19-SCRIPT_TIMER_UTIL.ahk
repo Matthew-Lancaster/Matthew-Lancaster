@@ -143,7 +143,7 @@
 
 
 ;# ------------------------------------------------------------------
-; Location OnLine
+; Location Internet
 ;--------------------------------------------------------------------
 ; ----
 ; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL.ahk at master · Matthew-Lancaster/Matthew-Lancaster
