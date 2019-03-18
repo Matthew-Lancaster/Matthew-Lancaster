@@ -1,6 +1,6 @@
 ' -------------------------------------------------------------------
 ' Mon 18-Mar-2019 02:19:46 P
-' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATER.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATTER.VBS
 ' -------------------------------------------------------------------
 ' END WRITE
 ' Mon 18-Mar-2019 15:10:00 P
@@ -60,10 +60,6 @@ i_TIME=i_TIME+" - "
 i_TIME=i_TIME+DDD
 
 
-' MsgBox i_TIME
-' MsgBox Format(Now, "YYYY-MMM-DD -- HH:MM:SS - HH:MM:SS-AM/PM DDD")
-' 2019-Mar-18 -- 14:00:40 - 02:00:40-PM - Sun
-
 Wscript.Echo i_TIME
 
 
@@ -76,3 +72,9 @@ WScript.Quit(0)
 Function LPad (str, pad, length)
     LPad = String(length - Len(str), pad) & str
 End Function
+
+
+
+' MsgBox i_TIME
+' MsgBox Format(Now, "YYYY-MMM-DD -- HH:MM:SS - HH:MM:SS-AM/PM DDD")
+' 2019-Mar-18 -- 14:00:40 - 02:00:40-PM - Sun
