@@ -387,12 +387,45 @@ CLEAN_UP_HDD_SPACE_ONE_A_DAY_VAR=
 DATE_CALC_DAY=
 SETTIMER CLEAN_UP_HDD_SPACE_ONE_A_DAY,1000
 
+HWNDID=
+
+SETTIMER ONE_SECOND,1000
+
+
+
 RETURN
 
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+
+
+ONE_MOMENT_CLOSE_CMD:
+
+	WINCLOSE ahk_id %HWNDID%
+	HWNDID=
+	SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
+	SOUNDBEEP 1000,200
+
+RETURN
+
+ONE_SECOND:
+
+	; STAY SHOWING MOSTLY ON 8-MSI COMPUTER
+	; -------------------------------------
+	IF !HWNDID
+	{
+		WinGet, HWNDID, ID ,C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe ahk_class ConsoleWindowClass
+		IF HWNDID
+		{
+			SETTIMER ONE_MOMENT_CLOSE_CMD,120000
+			SOUNDBEEP 1000,200
+		}
+	}
+
+RETURN
+
 
 
 CLEAN_UP_HDD_SPACE_ONE_A_DAY:
