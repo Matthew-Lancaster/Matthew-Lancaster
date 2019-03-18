@@ -177,7 +177,7 @@
 
 
 ;# ------------------------------------------------------------------
-; Location OnLine
+; Location Internet
 ;--------------------------------------------------------------------
 ; Link to Folder of all My Scriptor Project Set Google Drive
 ; Possible Censorship of Code Detected By Google as Malicious Happen Here

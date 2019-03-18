@@ -23,7 +23,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
-; Location OnLine
+; Location Internet
 ;--------------------------------------------------------------------
 ; ----
 ; Matthew-Lancaster/Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk

@@ -44,7 +44,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 
 
 ;# ------------------------------------------------------------------
-; ---- LOCATION ONLINE
+; ---- Location Internet
 ; -------------------------------------------------------------------
 ; ----
 ; Matthew-Lancaster/Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk at master · Matthew-Lancaster/Matthew-Lancaster
