@@ -321,7 +321,7 @@ Public Sub ShowForm()
 '            .SubItems(29) = Object.PowerManagementSuported
             .SubItems(30) = Object.ProcessorID
             .SubItems(31) = Object.ProcessorType
-            .SubItems(32) = Object.Revision
+'            .SubItems(32) = Object.Revision
             .SubItems(33) = Object.Role
             .SubItems(34) = Object.SocketDesignation
             .SubItems(35) = Object.Status
