@@ -111,6 +111,14 @@ I=I+1:FOLDER_PATH_SET_VAR(I)="C:\SCRIPTER"
 
 REDIM PRESERVE FOLDER_PATH_SET_VAR(I)
 
+' -------------------------------------------------------------------
+' TO MAKE QUICKER IF ANY GITHUB JOB ONLY C DRIVE THAT SMALLER
+' SPEED UP BY REMOVE THE VB SCAN
+' THAT'LL DO
+' AND THEN ABLE HAVE PRE AND POST SCAN FOR VB UPPER CASE PROJECT EXTENSION
+' -------------------------------------------------------------------
+' [ Monday 14:00:50 Pm_18 March 2019 ]
+' -------------------------------------------------------------------
 I=0
 IF INSTR(Wscript_Arguments,"C SCRIPTOR __")>0 THEN 
 	FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
@@ -125,9 +133,6 @@ IF INSTR(Wscript_Arguments,"C SCRIPTOR __")>0 THEN
 		FOLDER_PATH_SET_VAR(RR)=FOLDER_PATH_SET_VAR_02(RR)
 	NEXT 
 	REDIM PRESERVE FOLDER_PATH_SET_VAR(I)
-	FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
-		MSGBOX FOLDER_PATH_SET_VAR(RR)
-	NEXT 
 END IF
 
 
