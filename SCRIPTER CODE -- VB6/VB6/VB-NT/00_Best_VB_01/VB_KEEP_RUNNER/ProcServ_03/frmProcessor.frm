@@ -256,6 +256,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+
 Public Sub ShowForm()
 ' Processor
 
@@ -335,23 +336,36 @@ Public Sub ShowForm()
 '            .SubItems(43) = Object.VoltageCaps
         End With
     
-        For R = 1 To 43
-            Debug.Print Str(R) + " -- " + Item.SubItems(R)
-        Next
+'        For R = 1 To 43
+'            Debug.Print Str(R) + " -- " + Item.SubItems(R)
+'        Next
         
-        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Description")
-        Item_2.SubItems(1) = Object.Description
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Name")
         Item_2.SubItems(1) = Object.Name
-        
-        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "AddressWidth")
-        Item_2.SubItems(1) = Trim(Str(Object.AddressWidth)) + " Bit"
+        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Description")
+        Item_2.SubItems(1) = Object.Description
+        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Manufacturer & Model")
+        Item_2.SubItems(1) = frmComputerSystem.Manufacturer_and_Model
         
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Manufacturer")
         Item_2.SubItems(1) = Object.Manufacturer
         
-        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "L2CacheSize")
-        Item_2.SubItems(1) = Trim(Str(Object.L2CacheSize))
+        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "TotalPhysicalMemory")
+        A_MEM = Int(frmComputerSystem.TotalPhysicalMemory / 1024 ^ 3) + 1
+        Item_2.SubItems(1) = Trim(Str(A_MEM)) + " GB _ " + Format(frmComputerSystem.TotalPhysicalMemory / 1024 ^ 3, "0.0000") + " GB _ " + Format(frmComputerSystem.TotalPhysicalMemory) + " BYTE"
+
+        
+        
+        
+        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "AddressWidth & L2CacheSize")
+        Item_2.SubItems(1) = Trim(Str(Object.AddressWidth)) + " Bit ____ " + Trim(Str(Object.L2CacheSize)) + " Kbyte"
+        
+
+
+
+        
+'        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "L2CacheSize")
+'        Item_2.SubItems(1) = Trim(Str(Object.L2CacheSize))
         'Item_2.SubItems(1) = Trim(Str(Object.L2CacheSize)) + "    AddressWidth_" + Trim(Str(Object.AddressWidth)) + "   SocketDesignation_" + Object.SocketDesignation
 
         'Item_2.SubItems(1) = Trim(Str(Object.AddressWidth)) + "     L2CacheSize" + Trim(Str(Object.L2CacheSize)) + "         Level " + Trim(Str(Object.Level)) + "        SocketDesignation " + Object.SocketDesignation
