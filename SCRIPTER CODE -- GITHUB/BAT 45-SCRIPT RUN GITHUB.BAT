@@ -17,7 +17,7 @@ REM -- NUMBER BEGINNER GUESS CALLED 002
 REM -- EARLIER DATE FOUND QUICKER
 
 REM # ------------------------------------------------------------------
-REM  Location On-Line
+REM  Location Internet
 REM --------------------------------------------------------------------
 REM  ----
 REM  BAT 45-SCRIPT RUN GITHUB.BAT
