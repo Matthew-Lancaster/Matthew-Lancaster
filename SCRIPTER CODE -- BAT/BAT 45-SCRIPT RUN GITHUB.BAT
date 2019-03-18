@@ -166,24 +166,32 @@ REM ----
 REM batch file - Windows CMD - How to create time variable with AM PM - Stack Overflow
 REM https://stackoverflow.com/questions/48750465/windows-cmd-how-to-create-time-variable-with-am-pm
 REM ----
-SETLOCAL DisableDelayedExpansion
 
+REM ----
+REM batch - How to put DayOfWeek value into file name? - Server Fault
+REM https://serverfault.com/questions/199810/how-to-put-dayofweek-value-into-file-name
+REM ----
+SETLOCAL enabledelayedexpansion
+SET /a DOW=0
 FOR /F "skip=1" %%A IN ('WMIC Path Win32_LocalTime Get DayOfWeek' ) DO (
-	IF %%A GTR 0 SET DOW=0%%A
-	IF %%A GTR 0 GOTO NEXT
+	IF !DOW! GTR 0 GOTO NEXT
+    SET /a DOW+=1
 ) 
 :NEXT
 
-REM @SET MAP_2=01-MON;02-TUE;03-WED;04-THU;05-FRI;06-SAT;07-SUN
-@SET MAP_2=01-Mon;02-Tue;03-Wed;04-Thu;05-Fri;06-Sat;07-Sun
+SETLOCAL DisableDelayedExpansion
+
+REM @SET MAP_2=01-SUN;02-MON;03-TUE;04-WED;05-THU;06-FRI;07-SAT
+@SET MAP_2=01-Sun;02-Mon;03-Tue;04-Wed;05-Thu;06-Fri;07-Sat
 @SET Week_Day=%DOW%
 @CALL SET Week_Day=%%MAP_2:*%Week_Day%-=%%
 @SET Week_Day=%Week_Day:;=&rem.%
 
-@SET Month_Word=%m%
+@SET Month_Word=%z%
 @SET map_1=01-Jan;02-Feb;03-Mar;04-Apr;05-May;06-Jun;07-Jul;08-Aug;09-Sep;10-Oct;11-Nov;12-Dec
 @CALL SET Month_Word=%%map_1:*%Month_Word%-=%%
 @SET Month_Word=%Month_Word:;=&rem.%
+
 
 REM -----------------------------------------------------------------
 REM -- ABOVE CODE
