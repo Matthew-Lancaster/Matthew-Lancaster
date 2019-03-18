@@ -27,7 +27,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ;# ------------------------------------------------------------------
-; Location On-Line
+; Location Internet
 ;--------------------------------------------------------------------
 ; ----
 ; Autokey -- 58-Auto Repeat Browser Function Set.ahk

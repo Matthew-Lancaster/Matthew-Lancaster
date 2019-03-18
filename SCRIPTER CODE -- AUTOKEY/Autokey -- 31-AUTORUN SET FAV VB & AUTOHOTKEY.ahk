@@ -29,7 +29,7 @@
 ; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
-; Location OnLine
+; Location Internet
 ;# ------------------------------------------------------------------
 ; Link to Folder of My AutoHotKeys Project Set
 ; https://drive.google.com/open?id=0BwoB_cPOibCPVmVYT1pKWUk4LVE
