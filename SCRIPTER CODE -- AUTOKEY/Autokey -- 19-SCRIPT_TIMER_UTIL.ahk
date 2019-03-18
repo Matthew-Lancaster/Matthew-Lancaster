@@ -568,14 +568,14 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	IF (GITHUB_SET_GO=FALSE and GOODSYNC_SET_GO=FALSE)
 		RETURN
 		
-	; IF GITHUB_SET_GO=TRUE
-	; {
-		; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
-		; IfExist, %FN_VAR%
-		; {
-			; Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
-		; }
-	; }
+	IF GITHUB_SET_GO=TRUE
+	{
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
+		IfExist, %FN_VAR%
+		{
+			Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
+		}
+	}
 
 	; ---------------------------------------------------------------
 	; WASTE OF CODE TWO THE SAME ALREADY DOES WHAT WANTED TO DO
@@ -1261,29 +1261,61 @@ IfWinExist Microsoft OneDrive
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-IfWinNotExist, Replace
+IfWinNotExist, Replace ahk_exe VB6.EXE
 	UniqueID_Old=0
 
-IfWinExist, Replace
+IfWinExist, Replace ahk_exe VB6.EXE
 {
 	; Replace Search and Replace Move to Better Position In Visual Basic
 	; or any other editor
-	ControlGetText, OutputVar, Current &Procedure , Replace
+	ControlGetText, OutputVar, Current &Procedure , Replace ahk_exe VB6.EXE
 	IF OutputVar 
 	{	
-		UniqueID := WinExist("Replace")
+		UniqueID := WinExist("Replace ahk_exe VB6.EXE")
 		;tooltip %UniqueID%
-		WinGetPos,,YPos,,, Replace
+		WinGetPos,,YPos,,, Replace ahk_exe VB6.EXE
 		if (YPOS>(A_ScreenHeight/2))
 			UniqueID_Old=0
 		if UniqueID_Old<>%UniqueID%
 		{
 			;WinMove, Replace,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 			SoundBeep , 2500 , 50
-			WinGetPos,,YPos, Width, Height, Replace
-			WinMove, Replace,, (A_ScreenWidth)-(Width), 0
+			WinGetPos,,YPos, Width, Height, Replace ahk_exe VB6.EXE
+			WinMove, Replace ahk_exe VB6.EXE,, (A_ScreenWidth)-(Width), 0
 
-			WinGetPos,,YPos, Width, Height, Replace
+			WinGetPos,,YPos, Width, Height, Replace ahk_exe VB6.EXE
+			if (YPOS<>0)
+				UniqueID=0
+		}
+		
+		UniqueID_Old=%UniqueID%
+	}
+}
+
+
+IfWinNotExist, Find ahk_exe VB6.EXE
+	UniqueID_Old=0
+
+IfWinExist, Find ahk_exe VB6.EXE
+{
+	; Replace Search and Replace Move to Better Position In Visual Basic
+	; or any other editor
+	ControlGetText, OutputVar, Current &Procedure , Find ahk_exe VB6.EXE
+	IF OutputVar 
+	{	
+		UniqueID := WinExist("Find ahk_exe VB6.EXE")
+		;tooltip %UniqueID%
+		WinGetPos,,YPos,,, Find ahk_exe VB6.EXE
+		if (YPOS>(A_ScreenHeight/2))
+			UniqueID_Old=0
+		if UniqueID_Old<>%UniqueID%
+		{
+			;WinMove, Replace,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+			SoundBeep , 2500 , 50
+			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
+			WinMove, Find ahk_exe VB6.EXE,, (A_ScreenWidth)-(Width), 0
+
+			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
 			if (YPOS<>0)
 				UniqueID=0
 		}
