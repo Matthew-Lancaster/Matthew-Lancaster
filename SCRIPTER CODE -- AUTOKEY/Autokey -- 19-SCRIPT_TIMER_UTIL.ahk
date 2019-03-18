@@ -2776,7 +2776,7 @@ IF SET_GO=TRUE
 	{
 		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
 		{
-			WinGet MMX, MinMax, ahk_id %HWND_1%
+			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			If MMX<>-1
 			{
 				; -------------------------------------------------------------
@@ -2789,11 +2789,12 @@ IF SET_GO=TRUE
 				; UNTIL REPEAT UNTIL FEW TIME AND THEN STOP
 				; [ Thursday 14:05:20 Pm_14 March 2019 ]
 				; -------------------------------------------------------------
-				WinMinimize  ahk_id %HWND_1%
+				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 				SOUNDBEEP 2000,100
-				SLEEP 1000
+				SLEEP 2000
 			}
-			WinGet MMX, MinMax, ahk_id %HWND_1%
+			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+			; MSGBOX % MMX
 			If MMX<>-1
 			{
 				GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=0
@@ -2893,8 +2894,8 @@ IF (A_ComputerName="7-ASUS-GL522VW")
  	
 OutputVar=
 IF (A_ComputerName="7-ASUS-GL522VW") 
-	IFWINEXIST ahk_class #32770
-		ControlGetText, OutputVar, One or more jobs are running now ahk_class #32770
+	IFWINEXIST GoodSync ahk_class #32770
+		ControlGetText, OutputVar, Edit1, GoodSync ahk_class #32770
 		IF Instr(OutputVar,"One or more jobs are running now")
 		{
 			SoundBeep , 2000 , 100
@@ -3876,7 +3877,7 @@ class MyObject
 ; --------------------------------------------------------------
 ; [ Sunday 19:26:10 Pm_15 April 2018 ]
 ; THIS IS OUR PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
-; THE MIDDLE CHECKBOX IS SELECTED
+; THE MIDDLE CHECKBOX IS SELECTED 
 ; NONE OF OUR PLUGIN WILL WORK PROPER AS OUR SETUP USES THE
 ; Allow plugins to be loaded from %APPDATA%\notepad++ -- CHECKBOX CHECKED
 ; EVERY-TIME AN UPDATE COMES ALONG HAS TO BE REMEMBER
