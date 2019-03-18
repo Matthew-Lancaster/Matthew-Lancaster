@@ -288,7 +288,7 @@ If XVB_DATE > VB_DATE And XVB_DATE > 0 And VB_DATE > 0 Then
     FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
 End If
 
-VBS_LAUNCHER_NAME = App.Path + "\VBS - RELOAD AND COPY_" + GetComputerName + ".VBS"
+VBS_LAUNCHER_NAME = App.Path + "\# DATA\VBS - RELOAD AND COPY_" + GetComputerName + ".VBS"
 READY_TO_GO = False
 
 '----------------------------------
