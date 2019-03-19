@@ -215,9 +215,6 @@ GLOBAL HWND_ID_1_OLD
 GLOBAL ID_OLD_ConsoleWindowClass
 GLOBAL ID_ConsoleWindowClass_TIMER
 
-GLOBAL ID_TeamViewer_Panel_TV_ControlWin_TIMER
-GLOBAL ID_OLD_TeamViewer_Panel_TV_ControlWin
-
 GLOBAL dhw
 
 GLOBAL OLD_UniqueID_MYSMS
@@ -227,9 +224,6 @@ OLD_UniqueID_MYSMS=0
 OLD_UniqueID_CHROME=0
 OLD_UniqueID_RfEditor=0
 OLD_UniqueID_NOTEPAD_PLUS_PLUS=0
-
-ID_TeamViewer_Panel_TV_ControlWin_TIMER=0
-ID_OLD_TeamViewer_Panel_TV_ControlWin=0
 
 ID_OLD_ConsoleWindowClass=0
 ID_ConsoleWindowClass_TIMER=0
@@ -241,7 +235,7 @@ SET_GO_ESIF_ASSIST_64_SUSPEND=0
 
 VAR_STORE_CAMERA_LABEL=
 
-TIMER_SUB_OWNER_SAVE_TIMER=0
+TIMER_SUB_OWNER_SAVE_TIMER=
 
 SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
 
@@ -277,17 +271,6 @@ IF OSVER_N_VAR=WIN_XP
 	OSVER_N_VAR=5
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
-	
-
-SCRIPT_NAME_VAR:=SubStr(A_ScriptName, 1, -4)
-SCRIPT_NAME_VAR=%A_ScriptDir%\%SCRIPT_NAME_VAR%_TIMER_%A_ComputerName%.txt
-SCRIPT_NAME_VAR=%SCRIPT_NAME_VAR%
-
-If FileExist(SCRIPT_NAME_VAR)
-{
-	FileReadLine, TIMER_SUB_OWNER_SAVE_TIMER, %SCRIPT_NAME_VAR%, 1
-}
-
 
 setTimer TIMER_SUB_1,200
 
@@ -310,7 +293,6 @@ setTimer TIMER_SUB_VICE_VERSA,OFF
 setTimer TIMER_SUB_SCRIPT_SHELL_FOLDERING,1000
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-;setTimer TIMER_SUB_OWNER, % -1 * 1000 * 60 * 60 ; After1Hours
 setTimer TIMER_SUB_OWNER, 1000 ; After1Hours
 ; STARTS AS AFTER 1 HOUR AND THEN GOES TO EVERY 24 HOUR
 
@@ -3297,56 +3279,83 @@ Return
 ;----------------------------------------
 TIMER_SUB_OWNER:
 
-; IfWinExist TeamViewer Panel ahk_class TV_ControlWin
-; -------------------------------------------------------------------
+IF (OSVER_N_VAR < 6 ) ; THAN XP
+	RETURN
+	
 dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
-; TEST DEBUG EASIER ENTRY 1 2    DEFAULT IS -- TeamViewer Panel ahk_class TV_ControlWin
+SetTitleMatchMode 2  
+
+; -------------------------------------------------------------------
+; 01 OF 03 DO THE CHECK FOR TEAMVIEWER EXIST AND KILL RUNNING PROG
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; TEST DEBUG EASIER ENTRY -1- -2-   
+; DEFAULT IS -- WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
+; FLICK TeamViewer ON RATHER THAN HARDER TO FIND IN CONNECTION TO 
+; ANOTHER COMPUTER MODE
+; -------------------------------------------------------------------
+; WinGet, HID, ID,TeamViewer ahk_class #32770
+; -------------------------------------------------------------------
 WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
-WinGet, HID, ID,TeamViewer ahk_class #32770
-DetectHiddenWindows, % dhw
-IF ID_OLD_TeamViewer_Panel_TV_ControlWin<>%HID%
-{
-		ID_TeamViewer_Panel_TV_ControlWin_TIMER=%A_Now%
-		; EnvAdd, Var, Value [, TimeUnits]
-		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20, Seconds
-
-		ID_OLD_TeamViewer_Panel_TV_ControlWin=%HID%
-}
-
-
 		
-If (A_Now<ID_TeamViewer_Panel_TV_ControlWin_TIMER)
+If HID>0
 {
 	Process, Exist, ICACLS.EXE
 	If ErrorLevel > 0
 	{
-		MSGBOX HERE
 		Process, Close, ICACLS.EXE
 		SoundBeep , 2000 , 100
-		ID_TeamViewer_Panel_TV_ControlWin_TIMER=%A_Now%
-		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20, Seconds
-		
-		SetTitleMatchMode 2  
-		IFWINEXIST, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
-		{
-			WinGet, HID, ID, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
-			MSGBOX HERE_2
-			WINCLOSE
-		}
-			
+	}
+	Process, Exist, TAKEOWN
+	If ErrorLevel > 0
+	{
+		Process, Close, TAKEOWN
+		SoundBeep , 2000 , 100
+	}
 
-		
+	IFWINEXIST, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+	{
+		WinGet, HID, ID, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+		IF HID
+		{
+			WINCLOSE, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+		}
 	}
 }
 
-IF (OSVER_N_VAR < 6 ) ; THAN XP
-	RETURN
-		
+; ------------------------------------------------------------
+; ALWAYS A 10 SECONDS FROM RUN AND THEN BY TIMER STORE IN FILE
+; ONLY TEST DEBUG OF NEVER USE FILE PROPERLY
+; ------------------------------------------------------------
+; IF !TIMER_SUB_OWNER_SAVE_TIMER
+; {
+	; TIMER_SUB_OWNER_SAVE_TIMER=%A_NOW%
+	; TIMER_SUB_OWNER_SAVE_TIMER+= 10,SECONDS
+; }
+
+; -------------------------------------------------------------------
+; 02 OF 03 CHECK DATE FOR IF NEED RUN PROG TO SET ICACLS -- TAKEOWN OWNER
+; -------------------------------------------------------------------
+IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
+{	
+	SCRIPT_NAME_VAR:=SubStr(A_ScriptName, 1, -4)
+	SCRIPT_NAME_VAR=%A_ScriptDir%\%SCRIPT_NAME_VAR%_TIMER_%A_ComputerName%.txt
+	SCRIPT_NAME_VAR=%SCRIPT_NAME_VAR%
+
+	If FileExist(SCRIPT_NAME_VAR)
+	{
+		FileReadLine, TIMER_SUB_OWNER_SAVE_TIMER, %SCRIPT_NAME_VAR%, 1
+	}
+}
+	
 IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 {	
 	TIMER_SUB_OWNER_SAVE_TIMER=%A_NOW%
 	TIMER_SUB_OWNER_SAVE_TIMER+= 2, Days
+;	TIMER_SUB_OWNER_SAVE_TIMER+= 10,SECONDS
+
 	IF (A_ComputerName="3-LINDA-PC") 
 		TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
 
@@ -3356,22 +3365,32 @@ IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 }
 ELSE
 {
+	DetectHiddenWindows, % dhw
 	RETURN
 }
-	
-SET_GO_RESULT=0
 
-IF (OSVER_N_VAR > 5 ) ; BIGGER THAN XP
-	SET_GO_RESULT=1
+; -------------------------------------------------------------------
+; 03 OF 03 RUN PROG TO SET ICACLS -- TAKEOWN OWNER
+; -------------------------------------------------------------------
+SET_GO=TRUE
+IFWINNOTEXIST, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+	SET_GO=FALSE
+IF SET_GO=TRUE Process, Exist, ICACLS.EXE
+If ErrorLevel>0
+	SET_GO=FALSE
+IF SET_GO=TRUE Process, Exist, TAKEOWN.EXE
+If ErrorLevel>0
+	SET_GO=FALSE
 
-Process, Exist, ICACLS.EXE
-If ErrorLevel > 0
-	SET_GO_RESULT=0
-
-If (SET_GO_RESULT=1)
+IF SET_GO=TRUE
 {
+	; ---------------------------------------------------------------
+	; SET ICACLS -- TAKEOWN OWNER
+	; ---------------------------------------------------------------
 	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT" /QUITE , , MIN
 }
+
+DetectHiddenWindows, % dhw
 
 RETURN
 
