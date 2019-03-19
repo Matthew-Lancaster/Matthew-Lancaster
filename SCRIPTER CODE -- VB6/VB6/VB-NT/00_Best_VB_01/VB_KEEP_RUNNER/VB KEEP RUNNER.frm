@@ -971,7 +971,7 @@ Begin VB.Form Form1
       Width           =   1860
    End
    Begin VB.Label Label23 
-      Caption         =   "HITT TO CONFIRM SELECTION KILL"
+      Caption         =   "HITT TO KILL"
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   10.2
@@ -5002,6 +5002,9 @@ Next
 End Sub
 
 Private Sub Label23_Click()
+
+'Label23.Caption = "HITT TO CONFIRM SELECTION KILL"
+
 Dim PROGRAM_PATH_BAT
 
 If PROCESS_TO_KILLER_TO_GO = "" Then
@@ -6006,7 +6009,7 @@ LISTVIEW_2_OR_3_HITT = 2
 If IsIDE = True And KeyCode = (27) Then End
 End Sub
 
-Private Sub lstProcess_3_SORTER_ListView_BeforeLabelEdit(Cancel As Integer)
+Private Sub lstProcess_3_SORTER_ListView_BeforeLabelEdit_NULL(Cancel As Integer)
 If IsIDE = True Then End
 'If IsIDE = True And KeyCode = (27) Then End
 End Sub
@@ -10921,6 +10924,8 @@ End If
 If hWnd_Parent > 0 Then
     hWnd_From_ListView = hWnd_Parent
 End If
+
+Call Label29_Click
 
 From_ListView = True
 Call ChunkCodeOnMouse
