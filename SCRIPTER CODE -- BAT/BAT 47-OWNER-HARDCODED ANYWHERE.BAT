@@ -78,7 +78,8 @@
 @REM ENDLOCAL
 @CD\
 
-@ECHO off
+@SET TITLE_VAR=%~f0
+@TITLE %TITLE_VAR%
 
 @REM ----------------------------------------------------------------
 @REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE
@@ -122,11 +123,12 @@ SET PATH_TO_DO=
 SET PATH_TO_DO="E:\01 Desktop\*"
 ECHO %PATH_TO_DO%
 @REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
-TAKEOWN /F %PATH_TO_DO% /A /R /D Y
+TAKEOWN /F %PATH_TO_DO% /A /R /D Y >NUL
 @REM ---- 2 OF 3 -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
+ECHO ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
 ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
 ICACLS %PATH_TO_DO% /T /L /C /Q  /grant administrators:F"
-@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE BEFORE
+@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONCE ADMIN IS DONE BEFORE
 ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
 ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
