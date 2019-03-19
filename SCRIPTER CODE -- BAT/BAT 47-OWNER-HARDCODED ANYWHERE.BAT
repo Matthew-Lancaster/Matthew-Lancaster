@@ -231,43 +231,58 @@ SET LDA_EXTRA_01=!LDA!
 SET LDA_EXTRA_02=0
 SET LDA_EXTRA_03=0
 SET GET_SIZE_OF_WORK_COUNTER_VALUE=TRUE
-CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_BUT_NOT_E_DRIVE_BUT_AND_NOT_SOME_FOLDER
+CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_AND_NOT_SOME_FOLDER
 CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_OF_E_DRIVE_WITH_SUBFOLDER_BUT_NOT_SOME_FOLDER
 
+REM ----
+REM How can I echo a newline in a batch file? - Stack Overflow
+REM https://stackoverflow.com/questions/132799/how-can-i-echo-a-newline-in-a-batch-file
+REM ----
+REM ---- EXAMPLE ---- ECHO READY!\n!STEADY!\n!GO
+REM ----
+(SET \n=^
+%=Do not remove this line=%
+)
+
 SET LDA_ALL=0
-SET /A LDA_ALL=!LDA_ALL!+!LDA_EXTRA_01!
-SET /A LDA_ALL=!LDA_ALL!+!LDA_EXTRA_02!
-SET /A LDA_ALL=!LDA_ALL!+!LDA_EXTRA_03!
+SET /A LDA_ALL=LDA_ALL+!LDA_EXTRA_01!
+SET /A LDA_ALL=LDA_ALL+!LDA_EXTRA_02!
+SET /A LDA_ALL=LDA_ALL+!LDA_EXTRA_03!
 
-ECHO !LDA_ALL!
-ECHO !LDA_EXTRA_01!
-ECHO !LDA_EXTRA_02!
-ECHO !LDA_EXTRA_03!
-ECHO COMMANDING COUNT ALL WORKER                                    !LDA_ALL!
-ECHO COMMANDING COUNT 01 OF 03 MAIN ARRAY                           !LDA_EXTRA_01!
-ECHO COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                       !LDA_EXTRA_02!
-ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !LDA_EXTRA_03!
-
-PAUSE
+CALL :PAD_COUNTER
+CALL :SET_COUNTER_FOR_DISPLAY_02
 
 SET LDA_STR=00000!LDA_EXTRA_01!
 SET LDA_STR=%LDA_STR:~-4%
 
+
 SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATTER.VBS"
 for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
 SET DATE_TIME_FORMATER=%strVBScriptResults%
+SET FILENAME_FOR_LOGGER=%~dp0%~n0--LOGGER--%COMPUTERNAME%.TXT
+SET FILENAME_NOT_PATH_FOR_LOGGER=%~n0--LOGGER--%COMPUTERNAME%.TXT
 ECHO ----------------------------------------------------------------
-ECHO ---------------------------------------------------------------->%~dp0%~n0--LOGGER.TXT
+ECHO ---------------------------------------------------------------->>!FILENAME_FOR_LOGGER!
 ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%
-ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%>%~dp0%~n0--LOGGER.TXT
+ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%>>!FILENAME_FOR_LOGGER!
 ECHO ----------------------------------------------------------------
+ECHO ---------------------------------------------------------------->>!FILENAME_FOR_LOGGER!
+ECHO !I_STRING!
+ECHO !I_STRING!>>!FILENAME_FOR_LOGGER!
+ECHO ----------------------------------------------------------------
+ECHO ---------------------------------------------------------------->>!FILENAME_FOR_LOGGER!
 ECHO.
 
 ECHO ----------------------------------------------------------------
 ECHO TIME AND DATE -- LOGGER INFO SENT TO
 ECHO ----------------------------------------------------------------
-ECHO %~dp0%~n0--LOGGER.TXT
+ECHO !FILENAME_NOT_PATH_FOR_LOGGER!
+REM ECHO !FILENAME_FOR_LOGGER!
+ECHO ----------------------------------------------------------------
 ECHO.
+
+PAUSE
+
 
 
 REM -----------------------------------------------------------------
@@ -290,12 +305,9 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	IF NOT "!sources[%%a]!"=="" (
 		
 		SET /A WORK_IP_ALL=WORK_IP_ALL+1
-		SET /A WORK_IP=WORK_IP+1
+		SET /A WORK_IP_01=WORK_IP_01+1
 		ECHO --------------------------------------------------------
-		ECHO COMMAND INSTRUCTION POINTER ALL WORKER                         !WORK_IP_ALL! OF !LDA_ALL!
-		ECHO COMMAND INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !WORK_IP_01! OF !LDA_EXTRA_01!
-		ECHO COMMAND INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !WORK_IP_02! OF !LDA_EXTRA_02!
-		ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !WORK_IP_03! OF !LDA_EXTRA_03!
+		CALL :SET_COUNTER_FOR_DISPLAY_01
 		ECHO --------------------------------------------------------
 		SET PATH_TO_DO=!Sources[%%a]!
 		ECHO PATH_TO_DO = !PATH_TO_DO:"=!
@@ -402,9 +414,10 @@ REM The ‘var‘ variable is defined in a local scope because it is enclosed be
 
 GOTO JUMP_ENDER
 
-::
-:SET_ICACLS_ROOT_OF_ALL_DRIVE_BUT_NOT_E_DRIVE_BUT_AND_NOT_SOME_FOLDER
 
+::
+:SYSTEM_COUNT_OF_ROOT_FOLDER_ALL_DRIVE
+SET SYSTEM_ROOT_FOLDER_COUNT=0
 @FOR %%G IN (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
 	IF EXIST %%G:\. (
 		SET "TARGET_="
@@ -412,6 +425,37 @@ GOTO JUMP_ENDER
 		CALL :IsDeviceReady !TARGET_! isready_
 		IF !isready_!==true (
 			 FOR /f "delims=" %%F in ('Dir !TARGET_!\ /b /a-d') do (
+				SET "VAR_FLAG="
+				SET VAR_FLAG=YES
+				IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
+				IF "!VAR_FLAG!"=="YES" (
+					SET /A SYSTEM_ROOT_FOLDER_COUNT=SYSTEM_ROOT_FOLDER_COUNT+1
+				)
+			)
+		)
+	)
+)
+GOTO :EOF
+
+
+REM [ Tuesday 04:32:00 Pm_19 March 2019 ]
+REM ----
+REM DOS COMMAND NULL THE ERROR OUTPUT IN FOR LOOP - Google Search
+REM https://www.google.com/search?safe=active&ei=PBiRXOCWA8iM1fAPl_u2OA&q=DOS+COMMAND+NULL+THE+ERROR+OUTPUT+IN+FOR+LOOP&oq=DOS+COMMAND+NULL+THE+ERROR+OUTPUT+IN+FOR+LOOP&gs_l=psy-ab.3...99410.107185..107993...0.0..0.175.2516.37j1......0....1..gws-wiz.......0i71.5FCIxxhBjK0
+REM --------
+REM cmd - Redirect output of command in for loop of batch script - Stack Overflow
+REM https://stackoverflow.com/questions/17113343/redirect-output-of-command-in-for-loop-of-batch-script
+REM ----
+::
+:SET_ICACLS_ROOT_OF_ALL_DRIVE_AND_NOT_SOME_FOLDER
+
+@FOR %%G IN (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
+	IF EXIST %%G:\. (
+		SET "TARGET_="
+		SET TARGET_=%%G:
+		CALL :IsDeviceReady !TARGET_! isready_
+		IF !isready_!==true (
+			 FOR /f "delims=" %%F in ('Dir !TARGET_!\ /b /a-d 2 2^>NUL') do (
 				SET "VAR_FLAG="
 				SET VAR_FLAG=YES
 
@@ -424,13 +468,10 @@ GOTO JUMP_ENDER
 				)
 
 				IF "!VAR_FLAG!"=="YES" (
-					SET /A WORK_IP=WORK_IP+1
+					SET /A WORK_IP_ALL=WORK_IP_ALL+1
 					SET /A WORK_IP_02=WORK_IP_02+1
 					ECHO --------------------------------------------------------
-					ECHO COMMAND INSTRUCTION POINTER ALL WORKER                         !WORK_IP_ALL! OF !LDA_ALL!
-					ECHO COMMAND INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !WORK_IP_01! OF !LDA_EXTRA_01!
-					ECHO COMMAND INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !WORK_IP_02! OF !LDA_EXTRA_02!
-					ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !WORK_IP_03! OF !LDA_EXTRA_03!
+					CALL :SET_COUNTER_FOR_DISPLAY_01
 					ECHO --------------------------------------------------------
 					SET PATH_TO_DO="!TARGET_!\%%F"
 					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
@@ -448,6 +489,54 @@ GOTO JUMP_ENDER
 		)
 	)
 )
+GOTO :EOF
+
+::
+:PAD_COUNTER
+	SET LDD_01=00000!WORK_IP_ALL!
+	SET LDD_02=00000!WORK_IP_01!
+	SET LDD_03=00000!WORK_IP_02!
+	SET LDD_04=00000!WORK_IP_03!
+	SET LDD_01=!LDD_01:~-4!
+	SET LDD_02=!LDD_02:~-4!
+	SET LDD_03=!LDD_03:~-4!
+	SET LDD_04=!LDD_04:~-4!
+	SET LDA_01=00000!LDA_ALL!
+	SET LDA_02=00000!LDA_EXTRA_01!
+	SET LDA_03=00000!LDA_EXTRA_02!
+	SET LDA_04=00000!LDA_EXTRA_03!
+	SET LDA_01=!LDA_01:~-4!
+	SET LDA_02=!LDA_02:~-4!
+	SET LDA_03=!LDA_03:~-4!
+	SET LDA_04=!LDA_04:~-4!
+GOTO :EOF
+
+::
+:SET_COUNTER_FOR_DISPLAY_01
+	CALL :PAD_COUNTER
+
+	SET I_STR_1=COMMANDING INSTRUCTION POINTER ALL WORKER                         !LDD_01! OF !LDA_01!
+	SET I_STR_2=COMMANDING INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !LDD_02! OF !LDA_02!
+	SET I_STR_3=COMMANDING INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !LDD_03! OF !LDA_03!
+	SET I_STR_4=COMMANDING INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !LDD_04! OF !LDA_04!
+	SET I_STR_5=TOTAL COMPUTER ROOT FOLDER COUNT                                  !LDA_03!
+
+	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!\n!!I_STR_5!
+
+	ECHO !I_STRING!
+	
+GOTO :EOF
+
+:SET_COUNTER_FOR_DISPLAY_02
+	CALL :PAD_COUNTER
+	SET I_STR_1=COMMANDING COUNT ALL WORKER                         !LDA_01!
+	SET I_STR_2=COMMANDING COUNT 01 OF 03 MAIN ARRAY                !LDA_02!
+	SET I_STR_3=COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT            !LDA_03!
+	SET I_STR_4=COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB !LDA_04!
+	SET I_STR_5=TOTAL COMPUTER ROOT FOLDER COUNT                    !LDA_03!
+
+	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!\n!!I_STR_5!
+
 GOTO :EOF
 
 ::
@@ -478,14 +567,10 @@ GOTO :EOF
 				)
 
 				IF "!VAR_FLAG!"=="YES" (
-					SET /A WORK_IP=WORK_IP+1
 					SET /A WORK_IP_ALL=WORK_IP_ALL+1
 					SET /A WORK_IP_03=WORK_IP_03+1
 					ECHO --------------------------------------------------------
-					ECHO COMMAND INSTRUCTION POINTER ALL WORKER                         !WORK_IP_ALL! OF !LDA_ALL!
-					ECHO COMMAND INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !WORK_IP_01! OF !LDA_EXTRA_01!
-					ECHO COMMAND INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !WORK_IP_02! OF !LDA_EXTRA_02!
-					ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !WORK_IP_03! OF !LDA_EXTRA_03!
+					CALL :SET_COUNTER_FOR_DISPLAY_01
 					ECHO --------------------------------------------------------
 					SET PATH_TO_DO="!TARGET_!\%%F"
 					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
