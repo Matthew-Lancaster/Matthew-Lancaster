@@ -120,6 +120,17 @@ IF '%1%'=='/ADMIN' (
 SET PATH_TO_DO=
 
 
+SET PATH_TO_DO="D:\VB6\*"
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+
+SET PATH_TO_DO="D:\VB6-EXE\*"
+ECHO %PATH_TO_DO%
+ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+
+
 SET PATH_TO_DO="E:\01 Desktop\*"
 ECHO %PATH_TO_DO%
 @REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
@@ -152,8 +163,6 @@ TAKEOWN /F %PATH_TO_DO% /A /R /D Y
 ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
 ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
-
-
 SET PATH_TO_DO="C:\SCRIPTOR GITHUB\*"
 ECHO %PATH_TO_DO%
 ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
@@ -171,10 +180,10 @@ REM ----
 
 @REM ----------------------------------------------------------------
 IF NOT %COMPUTERNAME%==4-ASUS-GL522VW   GOTO JUMP_OVER_HERE
-	SET PATH_TO_DO="F:\Users_BAK\*"
-	ECHO %PATH_TO_DO%
-	ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-	ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+	REM SET PATH_TO_DO="F:\Users_BAK\*"
+	REM ECHO %PATH_TO_DO%
+	REM ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
+	REM ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 :JUMP_OVER_HERE
 @REM ----------------------------------------------------------------
 
@@ -214,16 +223,6 @@ ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q
 ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
 
 SET PATH_TO_DO="C:\SCRIPTER\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="D:\VB6\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="D:\VB6-EXE\*"
 ECHO %PATH_TO_DO%
 ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
 ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
