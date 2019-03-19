@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+2019-Mar-19 -- 16:57:29 - 04:57:29-PM - Tue -- WORK BEGIN 0024 JOB -- 7-ASUS-GL522VW
+----------------------------------------------------------------
+COMMANDING COUNT ALL WORKER                         0743
+COMMANDING COUNT 01 OF 03 MAIN ARRAY                0024
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT            0671
+COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB 0048
+
+TOTAL COMPUTER ROOT FOLDER COUNT                    0671
+----------------------------------------------------------------
