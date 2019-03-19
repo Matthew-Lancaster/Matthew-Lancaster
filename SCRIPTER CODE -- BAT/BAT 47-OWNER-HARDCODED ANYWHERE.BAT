@@ -280,7 +280,7 @@ ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%>>!FILENA
 ECHO !DASH_LINE__________!
 ECHO !DASH_LINE__________!>>!FILENAME_FOR_LOGGER!
 ECHO !I_STRING!
-ECHO !I_STRING!>>!FILENAME_FOR_LOGGER!
+ECHO !I_STRING_02!>>!FILENAME_FOR_LOGGER!
 ECHO !DASH_LINE__________!
 ECHO !DASH_LINE__________!>>!FILENAME_FOR_LOGGER!
 ECHO.
@@ -571,8 +571,9 @@ GOTO :EOF
 	SET I_STR_5=TOTAL COMPUTER ROOT FOLDER COUNT                                  !LDA_03!
 	SET I_STR_8=TOTAL COMPUTER DRIVE COUNT                                        !COMPUTER_DRIVE_COUNT!
 
-	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!\n!!I_STR_5!!\n!!I_STR_8!
+	SET I_STRING_01=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!\n!!I_STR_5!!\n!!I_STR_8!
 	REM -- IPHONE -- I-STRING -- I-SCREAM SHOCK ICE SCREAM ICE CREAM
+	SET I_STRING_02=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!I_STR_5!!\n!!I_STR_8!
 
 GOTO :EOF
 
@@ -599,10 +600,10 @@ GOTO :EOF
 	
 	SET I_STR_10= -----------------------------------------------------------------------------
 
-	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!I_STR_5!!\n!!I_STR_8!!\n!
-	SET I_STRING=!I_STRING!!\n!!I_STR_10!!\n!!I_STR_9!
+	SET I_STRING_01=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!I_STR_5!!\n!!I_STR_8!!\n!
+	SET I_STRING_01=!I_STRING_01!!\n!!I_STR_10!!\n!!I_STR_9!
 	
-	ECHO !I_STRING!
+	ECHO !I_STRING_01!
 	REM -- IPHONE -- I-STRING -- I-SCREAM SHOCK ICE SCREAM ICE CREAM
 
 GOTO :EOF
