@@ -128,7 +128,7 @@ set COMPUTERNAME_DASH_CONVERT_VAR=%COMPUTERNAME%
 set COMPUTERNAME_DASH_CONVERT_VAR=%COMPUTERNAME:-=_%
 SET NAME_VAR=%COMPUTERNAME:-=_%
 
-	REM ------------------------------------------------------------------------
+REM ------------------------------------------------------------------------
 call :COMPUTER_NAME_COMMON_NET_SHARE_DELETE
 REM ------------------------------------------------------------------------
 IF %COMPUTERNAME%==1-ASUS-X5DIJ     call :1-ASUS-X5DIJ_NET_SHARE_DELETE
@@ -604,12 +604,10 @@ REM NET SHARE "%NAME_VAR%_08_1_SAMSUNG_4TB_E" /DELETE
 
 REM NET SHARE "%NAME_VAR%_28_4_SAMSUNG_4TB_HUBIC" /DELETE
 
-
-
-
 @ECHO OFF
 goto :EOF
 
+::
 :8-MSI-GP62M-7RD
 REM ------------------------------------------------------------------------
 ECHO ON
