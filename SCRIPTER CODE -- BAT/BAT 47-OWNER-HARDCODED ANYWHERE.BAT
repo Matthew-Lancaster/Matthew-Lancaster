@@ -1,40 +1,40 @@
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM __ ALL BATCH FILE COMMAND SETS 
 @REM __ GOT AN IMPROVED ADMINISTRATOR LAUNCHER
 @REM __ THAT DOESN'T GET STUCK IN A LOOP IF NOT SUCCESSFUL
 @REM __ AT THE SACRIFICE OF COMMAND LINE ARGUMENTS BUT EASY TO 
 @REM __ ADD CODE IF REQUIRE
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM __ FROM ---- Thu 03-May-2018 01:31:51 __ INITAL START
 @REM __ TO   ---- Thu 03-May-2018 03:35:00 __ 2 HOUR
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM -- 001 SESSION -- UPDATES HAPPEN ALL THE TIME
 @REM -- 
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM -- SETTING PERMISSION THIS SCRIPT IS AUTORUN BY AN AUTOHOTKEYS PROGRAM
 @REM -- EVERY FEW DAY AND A TIMER MARKER IS WRITTEN TO FILE
 @REM -- YOU HAVE OT KEEP IT UP WRITE PERMISSION OR SILLY THING HOPELESS
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM -- HERE BAT IS NOW SYNC IN 2 LOCATION 
 @REM -- CENTRALIZING MY BEST CODE
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM -- IS IS SYNCED BY HERE
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM -- 002 SESSION -- 
 @REM -- 
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM -- CHANGED EnableDelayedExpansion TO USE LATER IN THE PROGRAM WHERE 
 @REM -- THE FOR LOOP ARE
 @REM -- 
@@ -69,19 +69,19 @@
 @REM -- TAKEOWNER COMMAND IS ONLY USED TO SET A PERSON YOUR CURRENT USER OR ADMIN
 @REM -- 
 @REM -- ONCE BEEN SET TO ADMIN YOU ARE THEN ABLE TO SET EVERYONE
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM -- FROM Sun 14-Oct-2018 20:34:24
 @REM -- FROM Sun 14-Oct-2018 22:45:00
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 
 @ECHO OFF
 @REM ENDLOCAL
 @CD\
 
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 @REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE
 @REM __ IF CAN'T GET IT TO GO ADMIN DOESN'T RSI INJURY ITSELF AND YOU
-@REM ----------------------------------------------------------------
+@REM ------------------------------------------------------------------------------
 
 IF '%1%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
@@ -151,9 +151,9 @@ SET TITLE_VAR=%~f0
 TITLE !TITLE_VAR!
 ECHO.
 
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 SET LDA=0
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6"
 SET /A LDA=LDA+1
@@ -204,11 +204,11 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C:\RF"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 REM -- SORT THE EMPTY ARRAY FOR VOID VALUE
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 SET LDB=0
 FOR /L %%a in (1,1,!LDA!) DO (
 	IF NOT !sources[%%a]!=="" (
@@ -216,20 +216,29 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		SET Sources_02[!LDB!]=!Sources[%%a]!
 	)
 )
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 REM -- PUT BACK IN
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 FOR /L %%a in (1,1,!LDB!) DO (
 	SET Sources[%%a]=!Sources_02[%%a]!
 )
+
+CALL :COMPUTER_COUNT_OF_ALL_DRIVE
+
 SET LDA=%LDB%
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
+
+SET WORK_IP_ALL=0
+SET WORK_IP_01=0
+SET WORK_IP_02=0
+SET WORK_IP_03=0
 
 SET LDA_EXTRA_01=!LDA!
 SET LDA_EXTRA_02=0
 SET LDA_EXTRA_03=0
+
 SET GET_SIZE_OF_WORK_COUNTER_VALUE=TRUE
 CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_AND_NOT_SOME_FOLDER
 CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_OF_E_DRIVE_WITH_SUBFOLDER_BUT_NOT_SOME_FOLDER
@@ -250,42 +259,44 @@ SET /A LDA_ALL=LDA_ALL+!LDA_EXTRA_02!
 SET /A LDA_ALL=LDA_ALL+!LDA_EXTRA_03!
 
 CALL :PAD_COUNTER
-CALL :SET_COUNTER_FOR_DISPLAY_02
+CALL :SET_COUNTER_FOR_DISPLAY_01
+
 
 SET LDA_STR=00000!LDA_EXTRA_01!
 SET LDA_STR=%LDA_STR:~-4%
-
-
 SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATTER.VBS"
 for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
 SET DATE_TIME_FORMATER=%strVBScriptResults%
 SET FILENAME_FOR_LOGGER=%~dp0%~n0--LOGGER--%COMPUTERNAME%.TXT
 SET FILENAME_NOT_PATH_FOR_LOGGER=%~n0--LOGGER--%COMPUTERNAME%.TXT
-ECHO ----------------------------------------------------------------
-ECHO ---------------------------------------------------------------->>!FILENAME_FOR_LOGGER!
+
+SET DASH_LINE__________=------------------------------------------------------------------------------
+
+ECHO !DASH_LINE__________!
+ECHO !DASH_LINE__________!
+ECHO !DASH_LINE__________!>>!FILENAME_FOR_LOGGER!
 ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%
 ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%>>!FILENAME_FOR_LOGGER!
-ECHO ----------------------------------------------------------------
-ECHO ---------------------------------------------------------------->>!FILENAME_FOR_LOGGER!
+ECHO !DASH_LINE__________!
+ECHO !DASH_LINE__________!>>!FILENAME_FOR_LOGGER!
 ECHO !I_STRING!
 ECHO !I_STRING!>>!FILENAME_FOR_LOGGER!
-ECHO ----------------------------------------------------------------
-ECHO ---------------------------------------------------------------->>!FILENAME_FOR_LOGGER!
+ECHO !DASH_LINE__________!
+ECHO !DASH_LINE__________!>>!FILENAME_FOR_LOGGER!
 ECHO.
+ECHO.>>!FILENAME_FOR_LOGGER!
 
-ECHO ----------------------------------------------------------------
+
+ECHO !DASH_LINE__________!
 ECHO TIME AND DATE -- LOGGER INFO SENT TO
-ECHO ----------------------------------------------------------------
+ECHO !DASH_LINE__________!
 ECHO !FILENAME_NOT_PATH_FOR_LOGGER!
 REM ECHO !FILENAME_FOR_LOGGER!
-ECHO ----------------------------------------------------------------
+ECHO !DASH_LINE__________!
 ECHO.
 
-PAUSE
 
-
-
-REM -----------------------------------------------------------------
+REM -------------------------------------------------------------------------------
 REM -- FORMAT FOLDER NAME WITH EXTRA \*
 REM -- CODING INCLUDE STRIPPER -- Double quotes ; Quotation mark ; speech marks
 REM -- AND THEN PUT BACK AGAIN WITH \* ADDER TO END
@@ -293,27 +304,27 @@ REM ----
 REM ASCII code Double quotes ; Quotation mark ; speech marks, American Standard Code for Information Interchange, The complete ASCII table, characters,letters, vowels with accents, consonants, signs, symbols, numbers double, quotes, quotation, mark, speech, marks,ascii,34, ascii art, ascii table, code ascii, ascii character, ascii text, ascii chart, ascii characters, ascii codes, characters, codes, tables, symbols, list, alt, keys, keyboard, spelling, control, printable, extended, letters, epistles, handwriting, scripts, lettering, majuscules, capitals, minuscules, lower, case, small, acute, accent, sharp, engrave, diaresis, circumflex, tilde, cedilla, anillo, circlet, eñe, enie, arroba, pound, sterling, cent, type, write, spell, spanish, english, notebooks, laptops, ascii, asci, asccii, asqui, askii, aski, aschi, aschii,20190319
 REM https://theasciicode.com.ar/ascii-printable-characters/double-quotes-quotation-mark-speech-marks-ascii-code-34.html
 REM ----
-REM -----------------------------------------------------------------
+REM ------------------------------------------------------------------------------------------
 FOR /L %%a in (1,1,!LDA!) DO (
 	SET Sources[%%a]="!Sources[%%a]:"=!\*"
 )
-REM -----------------------------------------------------------------
+REM ------------------------------------------------------------------------------------------
 
-WORK_IP=0
+SET WORK_JOB_01=TRUE
 
 FOR /L %%a in (1,1,!LDA!) DO (
 	IF NOT "!sources[%%a]!"=="" (
 		
 		SET /A WORK_IP_ALL=WORK_IP_ALL+1
 		SET /A WORK_IP_01=WORK_IP_01+1
-		ECHO --------------------------------------------------------
-		CALL :SET_COUNTER_FOR_DISPLAY_01
-		ECHO --------------------------------------------------------
+		
+		ECHO !DASH_LINE__________!
+		CALL :SET_COUNTER_FOR_DISPLAY_02
+		ECHO !DASH_LINE__________!
 		SET PATH_TO_DO=!Sources[%%a]!
 		ECHO PATH_TO_DO = !PATH_TO_DO:"=!
-		ECHO --------------------------------------------------------
+		ECHO !DASH_LINE__________!
 
-		ECHO !PATH_TO_DO!
 		SET VAR_FLAG=NOT
 		IF !PATH_TO_DO!=="E:\01 Desktop\*" SET VAR_FLAG=YES
 		SET VAR_FLAG=NOT
@@ -326,9 +337,11 @@ FOR /L %%a in (1,1,!LDA!) DO (
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
 			ECHO !COMMAND_VAR!
 			!COMMAND_VAR!
+			ECHO.
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
 			ECHO !COMMAND_VAR!
 			!COMMAND_VAR!
+			ECHO.
 		)
 		
 		IF !VAR_FLAG!==NOT (
@@ -338,6 +351,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
 			ECHO !COMMAND_VAR!
 			!COMMAND_VAR!
+			ECHO.
 
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Everyone /T /C /L /Q 
 			ECHO !COMMAND_VAR!
@@ -345,6 +359,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
 			ECHO !COMMAND_VAR!
 			!COMMAND_VAR!
+			ECHO.
 		)
 
 		SET VAR_FLAG=NOT
@@ -355,6 +370,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /setintegritylevel ^(CI^)H
 			ECHO !COMMAND_VAR!
 			!COMMAND_VAR!
+			ECHO.
 		)
 		REM __ 
 		REM __ [ Friday 18:08:30 Pm_05 October 2018 ]
@@ -369,74 +385,15 @@ FOR /L %%a in (1,1,!LDA!) DO (
 )
 
 
+SET GET_SIZE_OF_WORK_COUNTER_VALUE=FALSE
+SET WORK_JOB_01=
+SET WORK_JOB_02=TRUE
+CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_AND_NOT_SOME_FOLDER
+SET WORK_JOB_02=
+SET WORK_JOB_03=TRUE
+CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_OF_E_DRIVE_WITH_SUBFOLDER_BUT_NOT_SOME_FOLDER
 
-
-
-
-REM -----------------------------------------------------------------
-REM GOOD CODE BUT NOT WANTER IN END
-REM NORTON DOESN'T RESTRICT FROM LOOK FILE NAME IN 
-REM C:\PROGRAM FILES FOLDER
-REM -----------------------------------------------------------------
-REM SETLOCAL EnableDelayedExpansion
-REM SET "TARGET_="
-REM SET TARGET_=C:\Program Files
-REM ECHO !TARGET_!
-REM FOR /f "delims=" %%F in ('Dir "!TARGET_!\" /b /ad') do (
-		REM SET "VAR_FLAG="
-		REM SET VAR_FLAG=NOT
-		REM ECHO \%%F | FIND "\Norton"
-		REM IF !errorlevel!==0 SET VAR_FLAG=YES
-		REM IF "!VAR_FLAG!"=="YES" (
-			REM TAKEOWN /F "!TARGET_!\%%F" /A /R /D Y
-			REM ICACLS "!TARGET_!\%%F" /T /C /L /Q /setowner "Everyone" >NUL
-			REM ICACLS "!TARGET_!\%%F" /T /C /L /Q /grant Everyone:F >NUL
-		REM )
-	REM )
-REM )
-
-REM ----
-REM Batch Script Variables
-REM https://www.tutorialspoint.com/batch_script/batch_script_variables.htm
-REM ----
-REM Example
-REM @echo off 
-REM set globalvar = 5
-REM SETLOCAL
-REM set var = 13145
-REM set /A var = %var% + 5
-REM echo %var%
-REM echo %globalvar%
-REM ENDLOCAL
-REM Few key things to note about the above program.
-REM The ‘globalvar’ is defined with a global scope and is available throughout the entire script.
-REM The ‘var‘ variable is defined in a local scope because it is enclosed between a ‘SETLOCAL’ and ‘ENDLOCAL’ block. Hence, this variable will be destroyed as soon the ‘ENDLOCAL’ statement is executed.
-
-GOTO JUMP_ENDER
-
-
-::
-:SYSTEM_COUNT_OF_ROOT_FOLDER_ALL_DRIVE
-SET SYSTEM_ROOT_FOLDER_COUNT=0
-@FOR %%G IN (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
-	IF EXIST %%G:\. (
-		SET "TARGET_="
-		SET TARGET_=%%G:
-		CALL :IsDeviceReady !TARGET_! isready_
-		IF !isready_!==true (
-			 FOR /f "delims=" %%F in ('Dir !TARGET_!\ /b /a-d') do (
-				SET "VAR_FLAG="
-				SET VAR_FLAG=YES
-				IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
-				IF "!VAR_FLAG!"=="YES" (
-					SET /A SYSTEM_ROOT_FOLDER_COUNT=SYSTEM_ROOT_FOLDER_COUNT+1
-				)
-			)
-		)
-	)
-)
-GOTO :EOF
-
+GOTO VERY_ENDE
 
 REM [ Tuesday 04:32:00 Pm_19 March 2019 ]
 REM ----
@@ -470,73 +427,27 @@ REM ----
 				IF "!VAR_FLAG!"=="YES" (
 					SET /A WORK_IP_ALL=WORK_IP_ALL+1
 					SET /A WORK_IP_02=WORK_IP_02+1
-					ECHO --------------------------------------------------------
-					CALL :SET_COUNTER_FOR_DISPLAY_01
-					ECHO --------------------------------------------------------
+					ECHO !DASH_LINE__________!
+					CALL :SET_COUNTER_FOR_DISPLAY_02
+					ECHO !DASH_LINE__________!
 					SET PATH_TO_DO="!TARGET_!\%%F"
 					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
-					ECHO --------------------------------------------------------
+					ECHO !DASH_LINE__________!
 					ECHO !PATH_TO_DO!
 
 					SET COMMAND_VAR="!TARGET_!\%%F" /C /L /Q /setowner "Everyone"
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
+					ECHO.
 					SET COMMAND_VAR="!TARGET_!\%%F" /C /L /Q /grant Everyone:F
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
+					ECHO.
 				)
 			)
 		)
 	)
 )
-GOTO :EOF
-
-::
-:PAD_COUNTER
-	SET LDD_01=00000!WORK_IP_ALL!
-	SET LDD_02=00000!WORK_IP_01!
-	SET LDD_03=00000!WORK_IP_02!
-	SET LDD_04=00000!WORK_IP_03!
-	SET LDD_01=!LDD_01:~-4!
-	SET LDD_02=!LDD_02:~-4!
-	SET LDD_03=!LDD_03:~-4!
-	SET LDD_04=!LDD_04:~-4!
-	SET LDA_01=00000!LDA_ALL!
-	SET LDA_02=00000!LDA_EXTRA_01!
-	SET LDA_03=00000!LDA_EXTRA_02!
-	SET LDA_04=00000!LDA_EXTRA_03!
-	SET LDA_01=!LDA_01:~-4!
-	SET LDA_02=!LDA_02:~-4!
-	SET LDA_03=!LDA_03:~-4!
-	SET LDA_04=!LDA_04:~-4!
-GOTO :EOF
-
-::
-:SET_COUNTER_FOR_DISPLAY_01
-	CALL :PAD_COUNTER
-
-	SET I_STR_1=COMMANDING INSTRUCTION POINTER ALL WORKER                         !LDD_01! OF !LDA_01!
-	SET I_STR_2=COMMANDING INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !LDD_02! OF !LDA_02!
-	SET I_STR_3=COMMANDING INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !LDD_03! OF !LDA_03!
-	SET I_STR_4=COMMANDING INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !LDD_04! OF !LDA_04!
-	SET I_STR_5=TOTAL COMPUTER ROOT FOLDER COUNT                                  !LDA_03!
-
-	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!\n!!I_STR_5!
-
-	ECHO !I_STRING!
-	
-GOTO :EOF
-
-:SET_COUNTER_FOR_DISPLAY_02
-	CALL :PAD_COUNTER
-	SET I_STR_1=COMMANDING COUNT ALL WORKER                         !LDA_01!
-	SET I_STR_2=COMMANDING COUNT 01 OF 03 MAIN ARRAY                !LDA_02!
-	SET I_STR_3=COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT            !LDA_03!
-	SET I_STR_4=COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB !LDA_04!
-	SET I_STR_5=TOTAL COMPUTER ROOT FOLDER COUNT                    !LDA_03!
-
-	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!\n!!I_STR_5!
-
 GOTO :EOF
 
 ::
@@ -569,20 +480,23 @@ GOTO :EOF
 				IF "!VAR_FLAG!"=="YES" (
 					SET /A WORK_IP_ALL=WORK_IP_ALL+1
 					SET /A WORK_IP_03=WORK_IP_03+1
-					ECHO --------------------------------------------------------
-					CALL :SET_COUNTER_FOR_DISPLAY_01
-					ECHO --------------------------------------------------------
+
+					ECHO !DASH_LINE__________!
+					CALL :SET_COUNTER_FOR_DISPLAY_02
+					ECHO !DASH_LINE__________!
 					SET PATH_TO_DO="!TARGET_!\%%F"
 					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
-					ECHO --------------------------------------------------------
+					ECHO !DASH_LINE__________!
 					ECHO !PATH_TO_DO!
 
 					SET COMMAND_VAR=ICACLS "!TARGET_!\%%F" /T /C /L /Q /setowner "Everyone"
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
+					ECHO.
 					SET COMMAND_VAR=ICACLS "!TARGET_!\%%F" /T /C /L /Q /grant Everyone:F
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
+					ECHO.
 				)
 			)
 		)
@@ -590,34 +504,132 @@ GOTO :EOF
 )
 GOTO :EOF
 
+::
+:COMPUTER_COUNT_OF_ALL_DRIVE
+SET COMPUTER_DRIVE_COUNT=0
+@FOR %%G IN (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
+	IF EXIST %%G:\. (
+		SET "TARGET_="
+		SET TARGET_=%%G:
+		CALL :IsDeviceReady !TARGET_! isready_
+		IF !isready_!==true (
+			SET /A COMPUTER_DRIVE_COUNT=COMPUTER_DRIVE_COUNT+1
+		)
+	)
+)
+GOTO :EOF
 
+::
+:COMPUTER_COUNT_OF_ROOT_FOLDER_ALL_DRIVE
+SET COMPUTER_ROOT_FOLDER_COUNT=0
+@FOR %%G IN (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
+	IF EXIST %%G:\. (
+		SET "TARGET_="
+		SET TARGET_=%%G:
+		CALL :IsDeviceReady !TARGET_! isready_
+		IF !isready_!==true (
+			 FOR /f "delims=" %%F in ('Dir !TARGET_!\ /b /a-d') do (
+				SET "VAR_FLAG="
+				SET VAR_FLAG=YES
+				IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
+				IF "!VAR_FLAG!"=="YES" (
+					SET /A COMPUTER_ROOT_FOLDER_COUNT=COMPUTER_ROOT_FOLDER_COUNT+1
+				)
+			)
+		)
+	)
+)
+GOTO :EOF
 
-@REM START "" /D!PATH_TO_DO! /B /MIN /HIGH /WAIT ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q >NUL
-@REM START "" /D!PATH_TO_DO! /B /MIN /HIGH /WAIT ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F >NUL
+::
+:PAD_COUNTER
+	SET LDD_01=00000!WORK_IP_ALL!
+	SET LDD_02=00000!WORK_IP_01!
+	SET LDD_03=00000!WORK_IP_02!
+	SET LDD_04=00000!WORK_IP_03!
+	SET LDD_01=!LDD_01:~-4!
+	SET LDD_02=!LDD_02:~-4!
+	SET LDD_03=!LDD_03:~-4!
+	SET LDD_04=!LDD_04:~-4!
+	SET LDA_01=00000!LDA_ALL!
+	SET LDA_02=00000!LDA_EXTRA_01!
+	SET LDA_03=00000!LDA_EXTRA_02!
+	SET LDA_04=00000!LDA_EXTRA_03!
+	SET LDA_01=!LDA_01:~-4!
+	SET LDA_02=!LDA_02:~-4!
+	SET LDA_03=!LDA_03:~-4!
+	SET LDA_04=!LDA_04:~-4!
+GOTO :EOF
 
+::
+:SET_COUNTER_FOR_DISPLAY_01
+	CALL :PAD_COUNTER
+	SET I_STR_1=COMMANDING COUNT ALL WORKER                                       !LDA_01!
+	SET I_STR_2=COMMANDING COUNT 01 OF 03 MAIN ARRAY                              !LDA_02!
+	SET I_STR_3=COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          !LDA_03!
+	SET I_STR_4=COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               !LDA_04!
+	SET I_STR_5=TOTAL COMPUTER ROOT FOLDER COUNT                                  !LDA_03!
+	SET I_STR_8=TOTAL COMPUTER DRIVE COUNT                                        !COMPUTER_DRIVE_COUNT!
 
+	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!\n!!I_STR_5!!\n!!I_STR_8!
+	REM -- IPHONE -- I-STRING -- I-SCREAM SHOCK ICE SCREAM ICE CREAM
+
+GOTO :EOF
+
+::
+:SET_COUNTER_FOR_DISPLAY_02
+	CALL :PAD_COUNTER
+	
+	SET I_STR_1=COMMANDING INSTRUCTION POINTER ALL WORKER                         !LDD_01! OF !LDA_01!
+	SET I_STR_2=COMMANDING INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !LDD_02! OF !LDA_02!
+	SET I_STR_3=COMMANDING INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !LDD_03! OF !LDA_03!
+	SET I_STR_4=COMMANDING INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !LDD_04! OF !LDA_04!
+	SET I_STR_5=TOTAL COMPUTER ROOT FOLDER COUNT                                  !LDA_03!
+	SET I_STR_8=TOTAL COMPUTER DRIVE COUNT                                        !COMPUTER_DRIVE_COUNT!
+	
+	IF !WORK_JOB_01!==TRUE (
+		SET I_STR_9=COMMAND INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                   !LDD_02! OF !LDA_02!
+	)
+	IF !WORK_JOB_02!==TRUE (
+		SET I_STR_9=COMMAND INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT               !LDD_03! OF !LDA_03!
+	)
+	IF !WORK_JOB_03!==TRUE (
+		SET I_STR_9=COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB    !LDD_04! OF !LDA_04!
+	)
+	
+	SET I_STR_10= -----------------------------------------------------------------------------
+
+	SET I_STRING=!I_STR_1!!\n!!I_STR_2!!\n!!I_STR_3!!\n!!I_STR_4!!\n!!I_STR_5!!\n!!I_STR_8!!\n!
+	SET I_STRING=!I_STRING!!\n!!I_STR_10!!\n!!I_STR_9!
+	
+	ECHO !I_STRING!
+	REM -- IPHONE -- I-STRING -- I-SCREAM SHOCK ICE SCREAM ICE CREAM
+
+GOTO :EOF
 
 :JUMP_ENDER
 
 ECHO.
+ECHO !DASH_LINE__________!
 ECHO DONE
+ECHO !DASH_LINE__________!
+ECHO.
 
 SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATTER.VBS"
 for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
 SET DATE_TIME_FORMATER=%strVBScriptResults%
-ECHO ----------------------------------------------------------------
+ECHO !DASH_LINE__________!
+ECHO !DASH_LINE__________!>>!FILENAME_FOR_LOGGER!
 ECHO !DATE_TIME_FORMATER! -- WORK DONE !LDA_STR! JOB -- %COMPUTERNAME%
-ECHO !DATE_TIME_FORMATER! -- WORK DONE !LDA_STR! JOB -- %COMPUTERNAME%>%~dp0%~n0--LOGGER.TXT
-ECHO ----------------------------------------------------------------
-ECHO ---------------------------------------------------------------->%~dp0%~n0--LOGGER.TXT
+ECHO !DATE_TIME_FORMATER! -- WORK DONE !LDA_STR! JOB -- %COMPUTERNAME%>>!FILENAME_FOR_LOGGER!
+ECHO !DASH_LINE__________!
+ECHO !DASH_LINE__________!>>!FILENAME_FOR_LOGGER!
 ECHO.
+ECHO.>>!FILENAME_FOR_LOGGER!
 
 IF "%1"=="" PAUSE
-GOTO ENDE
-
 
 GOTO VERY_ENDE
-
 
 ::
 :IsDeviceReady
@@ -638,23 +650,71 @@ for /f "tokens=5*" %%a in (
 endlocal & set "%2=%label_%" & goto :EOF
 
 
-
-
-@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
-@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
-@REM ----------------------------------------------------------------------------
-@REM -- THE END AND REFERENCE SECTION -------------------------------------------
-@REM -- BYE BYE -----------------------------------------------------------------
-@REM ----------------------------------------------------------------------------
-@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
-@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
-
-
-
-:VERY_ENDER_BLOCK
-
 :VERY_ENDE
-
 :ENDE
+REM -- VERY_ENDE VERY ENDE VERY WINDY -- HA HA
+REM -- IPHONE -- I-STRING -- I-SCREAM SHOCK ICE SCREAM ICE CREAM
+
+@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
+@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
+@REM ------------------------------------------------------------------------------------------
+@REM -- THE END AND REFERENCE SECTION -------------------------------------------
+@REM -- BYE BYE -------------------------------------------------------------------------------
+@REM ------------------------------------------------------------------------------------------
+@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
+@ECHO /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
 
 EXIT
+
+
+
+@REM /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
+@REM /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
+@REM ----------------------------------------------------------------------------------------
+@REM -- AND REFERENCE SECTION -------------------------------------------------
+@REM -- REFERENCE SET CAME AROUND TO IN USE THE CODE HERE ---------------------
+@REM ----------------------------------------------------------------------------------------
+@REM /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
+@REM /\/\/\/\/\/\/\/\/\/\/\/\/\/--------------------\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+@REM START "" /D!PATH_TO_DO! /B /MIN /HIGH /WAIT ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q >NUL
+@REM START "" /D!PATH_TO_DO! /B /MIN /HIGH /WAIT ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F >NUL
+
+REM -------------------------------------------------------------------------------
+REM GOOD CODE BUT NOT WANTER IN END
+REM NORTON DOESN'T RESTRICT FROM LOOK FILE NAME IN 
+REM C:\PROGRAM FILES FOLDER
+REM -------------------------------------------------------------------------------
+REM SETLOCAL EnableDelayedExpansion
+REM SET "TARGET_="
+REM SET TARGET_=C:\Program Files
+REM ECHO !TARGET_!
+REM FOR /f "delims=" %%F in ('Dir "!TARGET_!\" /b /ad') do (
+		REM SET "VAR_FLAG="
+		REM SET VAR_FLAG=NOT
+		REM ECHO \%%F | FIND "\Norton"
+		REM IF !errorlevel!==0 SET VAR_FLAG=YES
+		REM IF "!VAR_FLAG!"=="YES" (
+			REM TAKEOWN /F "!TARGET_!\%%F" /A /R /D Y
+			REM ICACLS "!TARGET_!\%%F" /T /C /L /Q /setowner "Everyone" >NUL
+			REM ICACLS "!TARGET_!\%%F" /T /C /L /Q /grant Everyone:F >NUL
+		REM )
+	REM )
+REM )
+
+REM ----
+REM Batch Script Variables
+REM https://www.tutorialspoint.com/batch_script/batch_script_variables.htm
+REM ----
+REM Example
+REM @echo off 
+REM set globalvar = 5
+REM SETLOCAL
+REM set var = 13145
+REM set /A var = %var% + 5
+REM echo %var%
+REM echo %globalvar%
+REM ENDLOCAL
+REM Few key things to note about the above program.
+REM The ‘globalvar’ is defined with a global scope and is available throughout the entire script.
+REM The ‘var‘ variable is defined in a local scope because it is enclosed between a ‘SETLOCAL’ and ‘ENDLOCAL’ block. Hence, this variable will be destroyed as soon the ‘ENDLOCAL’ statement is executed.
