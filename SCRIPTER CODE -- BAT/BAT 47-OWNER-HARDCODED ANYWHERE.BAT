@@ -116,12 +116,40 @@ IF '%1%'=='/ADMIN' (
 
 @ECHO OFF
 
-SET TITLE_VAR=%~f0
-TITLE %TITLE_VAR%
-
-ECHO.
-
 SETLOCAL EnableDelayedExpansion
+
+REM ---- FILENAME WITHOUT EXTENSION
+@SET TITLE_VAR=%~n0
+REM ---- FILENAME WITH   EXTENSION
+@SET TITLE_VAR=%~n0%~x0
+REM ---- FULL SCRIPT PATH
+@SET TITLE_VAR=%~f0
+
+REM Usage on variable %1 (but this works for any parameter)
+REM %~f1 Expand %1 to a Fully qualified path name - C:\utils\MyFile.txt
+REM %~d1 Expand %1 to a Drive letter only - C:
+REM %~p1 Expand %1 to a Path only e.g. \utils\ this includes a trailing \ which will be interpreted as an escape character by some commands.
+REM %~n1 Expand %1 to a file Name without file extension or path - MyFile 
+REM or if only a path is present, with no trailing backslash, the last folder in that path.
+REM %~x1 Expand %1 to a file eXtension only - .txt
+REM %~s1 Change the meaning of f, n, s and x to reference the Short 8.3 name (if it exists.) 
+REM %~1   Expand %1 removing any surrounding quotes (")
+REM %~a1 Display the file attributes of %1
+REM %~t1 Display the date/time of %1
+REM %~z1 Display the file size of %1
+REM %~$PATH:1 Search the PATH environment variable and expand %1 to the fully qualified name of the first match found.
+REM The modifiers above can be combined:
+REM %~dp1 Expand %1 to a drive letter and path only
+REM %~sp1 Expand %1 to a path shortened to 8.3 characters
+REM %~nx2 Expand %2 to a file name and extension only
+REM ----
+REM Parameters / Arguments - Windows CMD - SS64.com
+REM https://ss64.com/nt/syntax-args.html
+REM ----
+
+SET TITLE_VAR=%~f0
+TITLE !TITLE_VAR!
+ECHO.
 
 REM -----------------------------------------------------------------
 SET LDA=0
@@ -199,11 +227,41 @@ FOR /L %%a in (1,1,!LDB!) DO (
 SET LDA=%LDB%
 REM -----------------------------------------------------------------
 
+SET LDA_STR=00000!LDA!
+SET LDA_STR=%LDA_STR:~-4%
+
+SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATTER.VBS"
+for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
+SET DATE_TIME_FORMATER=%strVBScriptResults%
+ECHO ----------------------------------------------------------------
+ECHO ---------------------------------------------------------------->%~dp0%~n0--LOGGER.TXT
+ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%
+ECHO !DATE_TIME_FORMATER! -- WORK BEGIN !LDA_STR! JOB -- %COMPUTERNAME%>%~dp0%~n0--LOGGER.TXT
+ECHO ----------------------------------------------------------------
+ECHO.
+
+ECHO ----------------------------------------------------------------
+ECHO TIME AND DATE -- LOGGER INFO SENT TO
+ECHO ----------------------------------------------------------------
+ECHO %~dp0%~n0--LOGGER.TXT
+ECHO.
+
+
+PAUSE
+
+
+
 REM -----------------------------------------------------------------
 REM -- FORMAT FOLDER NAME WITH EXTRA \*
+REM -- CODING INCLUDE STRIPPER -- Double quotes ; Quotation mark ; speech marks
+REM -- AND THEN PUT BACK AGAIN WITH \* ADDER TO END
+REM ----
+REM ASCII code Double quotes ; Quotation mark ; speech marks, American Standard Code for Information Interchange, The complete ASCII table, characters,letters, vowels with accents, consonants, signs, symbols, numbers double, quotes, quotation, mark, speech, marks,ascii,34, ascii art, ascii table, code ascii, ascii character, ascii text, ascii chart, ascii characters, ascii codes, characters, codes, tables, symbols, list, alt, keys, keyboard, spelling, control, printable, extended, letters, epistles, handwriting, scripts, lettering, majuscules, capitals, minuscules, lower, case, small, acute, accent, sharp, engrave, diaresis, circumflex, tilde, cedilla, anillo, circlet, eñe, enie, arroba, pound, sterling, cent, type, write, spell, spanish, english, notebooks, laptops, ascii, asci, asccii, asqui, askii, aski, aschi, aschii,20190319
+REM https://theasciicode.com.ar/ascii-printable-characters/double-quotes-quotation-mark-speech-marks-ascii-code-34.html
+REM ----
 REM -----------------------------------------------------------------
 FOR /L %%a in (1,1,!LDA!) DO (
-	SET Sources[%%a]=!Sources[%%a]!\*
+	SET Sources[%%a]="!Sources[%%a]:"=!\*"
 )
 REM -----------------------------------------------------------------
 
@@ -216,35 +274,49 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		ECHO PATH_TO_DO = !PATH_TO_DO:"=!
 		ECHO --------------------------------------------------------
 
-		SET VAR_FLAG=NOT
 		ECHO !PATH_TO_DO!
-		ECHO "E:\01 Desktop\*"
+		SET VAR_FLAG=NOT
 		IF !PATH_TO_DO!=="E:\01 Desktop\*" SET VAR_FLAG=YES
+		SET VAR_FLAG=NOT
 		IF !VAR_FLAG!==YES (
 			SET COMMAND_VAR=TAKEOWN /F !PATH_TO_DO! /A /R /D Y
-			ECHO !COMMAND_VAR!
-			!COMMAND_VAR! >NUL
+			REM ECHO !COMMAND_VAR!
+			REM !COMMAND_VAR! >NUL
 			REM -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
 			REM -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE BEFORE
+			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR!
+			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR!
 		)
 		
-		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
-		ECHO !COMMAND_VAR!
-		REM !COMMAND_VAR!
-		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
-		ECHO !COMMAND_VAR!
-		REM !COMMAND_VAR!
-		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /grant administrators:F
-		REM ECHO !COMMAND_VAR!
-		REM !COMMAND_VAR!
+		IF !VAR_FLAG!==NOT (
+			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR!
+			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR!
 
-		REM SET VAR_FLAG=NOT
-		REM IF "!PATH_TO_DO!"==C:\SCRIPTOR GITHUB\* SET VAR_FLAG=YES
-		REM IF !VAR_FLAG!==YES (
-			REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /setintegritylevel (CI)H
-			REM ECHO !COMMAND_VAR!
-			REM !COMMAND_VAR!
-		REM )
+			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Everyone /T /C /L /Q 
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR!
+			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR!
+		)
+
+		SET VAR_FLAG=NOT
+		IF !PATH_TO_DO!=="C:\SCRIPTOR GITHUB\*" SET VAR_FLAG=YES
+		IF !VAR_FLAG!==YES (
+			REM -- NOTICE HAD TO USE THE ^(CI^)H THESE Circumflex accent or Caret
+			REM -- TO TELL DOS WITH STRING THAT NORMAL CHARACTER -- ( ( ) )
+			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /setintegritylevel ^(CI^)H
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR!
+		)
 		REM __ 
 		REM __ [ Friday 18:08:30 Pm_05 October 2018 ]
 		REM __ SET /setintegritylevel HIGH _ IF LOW IT DISPLAY THE IN PROPERTIES AND SECURITY LOW MEAN LESS ACCESS
@@ -258,9 +330,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 )
 
 
-PAUSE
 
-EXIT
+
 
 
 REM -----------------------------------------------------------------
@@ -340,8 +411,21 @@ SETLOCAL EnableDelayedExpansion
 @REM START "" /D!PATH_TO_DO! /B /MIN /HIGH /WAIT ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F >NUL
 
 
+
+
+
 ECHO.
 ECHO DONE
+
+SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATTER.VBS"
+for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
+SET DATE_TIME_FORMATER=%strVBScriptResults%
+ECHO ----------------------------------------------------------------
+ECHO !DATE_TIME_FORMATER! -- WORK DONE !LDA_STR! JOB -- %COMPUTERNAME%
+ECHO !DATE_TIME_FORMATER! -- WORK DONE !LDA_STR! JOB -- %COMPUTERNAME%>%~dp0%~n0--LOGGER.TXT
+ECHO ----------------------------------------------------------------
+ECHO ---------------------------------------------------------------->%~dp0%~n0--LOGGER.TXT
+ECHO.
 
 IF "%1"=="" PAUSE
 GOTO ENDE
