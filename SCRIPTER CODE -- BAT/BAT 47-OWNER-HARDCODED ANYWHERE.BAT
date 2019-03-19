@@ -78,9 +78,6 @@
 @REM ENDLOCAL
 @CD\
 
-@SET TITLE_VAR=%~f0
-@TITLE %TITLE_VAR%
-
 @REM ----------------------------------------------------------------
 @REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE
 @REM __ IF CAN'T GET IT TO GO ADMIN DOESN'T RSI INJURY ITSELF AND YOU
@@ -114,169 +111,156 @@ IF '%1%'=='/ADMIN' (
 	GOTO ENDE
 	@EXIT /B
 )
+
 @ECHO Got ADMIN Privileges
 
+@ECHO OFF
 
-SET PATH_TO_DO=
+SET TITLE_VAR=%~f0
+TITLE %TITLE_VAR%
 
+ECHO.
 
-SET PATH_TO_DO="D:\VB6\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+SETLOCAL EnableDelayedExpansion
 
-SET PATH_TO_DO="D:\VB6-EXE\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+REM -----------------------------------------------------------------
+SET LDA=0
+REM -----------------------------------------------------------------
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\VB6"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\VB6-EXE"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="E:\01 Desktop"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Windows\System32.VBS"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Windows\System32\Printing_Admin_Scripts\en-US.VBS"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\VI_ DSC ME"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\SCRIPTOR GITHUB"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\DSC"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\SNAPSHOT CCSE HIKVISION"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Users\MATT 01\AppData"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Users\MATT 02\AppData"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Users\MATT 03\AppData"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Users\MATT 04\AppData"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\SCRIPTER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\DOWNLOADS"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\PStart"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\# MY DOCS"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\#0 1 INSTALLATIONS"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\BAT"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Users\Public\Desktop"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\Program Files\WinRAR"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\0 CLOUD"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\0 00 MUSIC ---"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\RF"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+REM -----------------------------------------------------------------
 
+REM -----------------------------------------------------------------
+REM -- SORT THE EMPTY ARRAY FOR VOID VALUE
+REM -----------------------------------------------------------------
+SET LDB=0
+FOR /L %%a in (1,1,!LDA!) DO (
+	IF NOT !sources[%%a]!=="" (
+		SET /A LDB=LDB+1
+		SET Sources_02[!LDB!]=!Sources[%%a]!
+	)
+)
+REM -----------------------------------------------------------------
 
-SET PATH_TO_DO="E:\01 Desktop\*"
-ECHO %PATH_TO_DO%
-@REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
-TAKEOWN /F %PATH_TO_DO% /A /R /D Y >NUL
-@REM ---- 2 OF 3 -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
-ECHO ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
-ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q  /grant administrators:F"
-@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONCE ADMIN IS DONE BEFORE
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+REM -----------------------------------------------------------------
+REM -- PUT BACK IN
+REM -----------------------------------------------------------------
+FOR /L %%a in (1,1,!LDB!) DO (
+	SET Sources[%%a]=!Sources_02[%%a]!
+)
+SET LDA=%LDB%
+REM -----------------------------------------------------------------
 
+REM -----------------------------------------------------------------
+REM -- FORMAT FOLDER NAME WITH EXTRA \*
+REM -----------------------------------------------------------------
+FOR /L %%a in (1,1,!LDA!) DO (
+	SET Sources[%%a]=!Sources[%%a]!\*
+)
+REM -----------------------------------------------------------------
 
-SET PATH_TO_DO="C:\Windows\System32\*.VBS"
-ECHO %PATH_TO_DO%
-@REM ---- 1 OF 3 -- TAKEOWN TO ADMIN /A
-TAKEOWN /F %PATH_TO_DO% /A /R /D Y
+FOR /L %%a in (1,1,!LDA!) DO (
+	IF NOT "!sources[%%a]!"=="" (
+		ECHO --------------------------------------------------------
+		ECHO COMMAND INSTRUCTION POINTER %%a OF !LDA!
+		ECHO --------------------------------------------------------
+		SET PATH_TO_DO=!Sources[%%a]!
+		ECHO PATH_TO_DO = !PATH_TO_DO:"=!
+		ECHO --------------------------------------------------------
 
-@REM ---- 2 OF 3 -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
-ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q  /grant administrators:F"
+		SET VAR_FLAG=NOT
+		ECHO !PATH_TO_DO!
+		ECHO "E:\01 Desktop\*"
+		IF !PATH_TO_DO!=="E:\01 Desktop\*" SET VAR_FLAG=YES
+		IF !VAR_FLAG!==YES (
+			SET COMMAND_VAR=TAKEOWN /F !PATH_TO_DO! /A /R /D Y
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR! >NUL
+			REM -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
+			REM -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE BEFORE
+		)
+		
+		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /setowner Everyone /T /C /L /Q 
+		ECHO !COMMAND_VAR!
+		REM !COMMAND_VAR!
+		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+		ECHO !COMMAND_VAR!
+		REM !COMMAND_VAR!
+		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /grant administrators:F
+		REM ECHO !COMMAND_VAR!
+		REM !COMMAND_VAR!
 
-@REM ---- 3 OF 3 -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE BEFORE
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\Windows\System32\Printing_Admin_Scripts\en-US\*.VBS"
-ECHO %PATH_TO_DO%
-TAKEOWN /F %PATH_TO_DO% /A /R /D Y
-ICACLS %PATH_TO_DO% /setowner administrators /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\SCRIPTOR GITHUB\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-ICACLS %PATH_TO_DO% /setintegritylevel (CI)H
-REM __ 
-REM __ [ Friday 18:08:30 Pm_05 October 2018 ]
-REM __ SET /setintegritylevel HIGH _ IF LOW IT DISPLAY THE IN PROPERTIES AND SECURITY LOW MEAN LESS ACCESS
-REM __ POP UP DIALOG APPEAR FOR ACCESS A .BAT FOR IN FOLDER LIKE IT IS
-REM __ CI MEAN ALL FOLDER ND SUB-FOLDER
-REM ----
-REM iCacls - Modify Access Control List - Windows CMD - SS64.com
-REM https://ss64.com/nt/icacls.html
-REM ----
-
-@REM ----------------------------------------------------------------
-IF NOT %COMPUTERNAME%==4-ASUS-GL522VW   GOTO JUMP_OVER_HERE
-	REM SET PATH_TO_DO="F:\Users_BAK\*"
-	REM ECHO %PATH_TO_DO%
-	REM ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-	REM ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-:JUMP_OVER_HERE
-@REM ----------------------------------------------------------------
-
-SET PATH_TO_DO="D:\VI_ DSC ME\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="D:\DSC\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="D:\SNAPSHOT CCSE HIKVISION\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\Users\MATT 01\AppData\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\Users\MATT 02\AppData\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\Users\MATT 03\AppData\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\Users\MATT 04\AppData\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\SCRIPTER\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\DOWNLOADS\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\PStart\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="D:\# MY DOCS\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="D:\#0 1 INSTALLATIONS\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\BAT\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\Users\Public\Desktop\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="C:\Program Files\WinRAR\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
-
-SET PATH_TO_DO="D:\0 CLOUD\*"
-ECHO %PATH_TO_DO%
-ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+		REM SET VAR_FLAG=NOT
+		REM IF "!PATH_TO_DO!"==C:\SCRIPTOR GITHUB\* SET VAR_FLAG=YES
+		REM IF !VAR_FLAG!==YES (
+			REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /setintegritylevel (CI)H
+			REM ECHO !COMMAND_VAR!
+			REM !COMMAND_VAR!
+		REM )
+		REM __ 
+		REM __ [ Friday 18:08:30 Pm_05 October 2018 ]
+		REM __ SET /setintegritylevel HIGH _ IF LOW IT DISPLAY THE IN PROPERTIES AND SECURITY LOW MEAN LESS ACCESS
+		REM __ POP UP DIALOG APPEAR FOR ACCESS A .BAT FOR IN FOLDER LIKE IT IS
+		REM __ CI MEAN ALL FOLDER ND SUB-FOLDER
+		REM ----
+		REM iCacls - Modify Access Control List - Windows CMD - SS64.com
+		REM https://ss64.com/nt/icacls.html
+		REM ----
+	)
+)
 
 
-SET PATH_TO_DO="D:\0 00 MUSIC ---\*"
-ECHO %PATH_TO_DO%
-REM ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-REM ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+PAUSE
 
-SET PATH_TO_DO="C:\RF\*"
-ECHO %PATH_TO_DO%
-REM ICACLS %PATH_TO_DO% /setowner Everyone /T /C /L /Q 
-REM ICACLS %PATH_TO_DO% /T /L /C /Q /Grant Everyone:F
+EXIT
 
 
 REM -----------------------------------------------------------------
@@ -284,7 +268,7 @@ REM GOOD CODE BUT NOT WANTER IN END
 REM NORTON DOESN'T RESTRICT FROM LOOK FILE NAME IN 
 REM C:\PROGRAM FILES FOLDER
 REM -----------------------------------------------------------------
-REM setlocal EnableDelayedExpansion
+REM SETLOCAL EnableDelayedExpansion
 REM SET "TARGET_="
 REM SET TARGET_=C:\Program Files
 REM ECHO !TARGET_!
@@ -302,7 +286,7 @@ REM FOR /f "delims=" %%F in ('Dir "!TARGET_!\" /b /ad') do (
 REM )
 
 
-setlocal EnableDelayedExpansion
+SETLOCAL EnableDelayedExpansion
 @FOR %%G IN (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
 	IF EXIST %%G:\. (
 		SET "TARGET_="
@@ -368,7 +352,7 @@ GOTO VERY_ENDE
 
 ::
 :IsDeviceReady
-setlocal
+SETLOCAL
 set "ready_="
 set ready_=true
 dir "%~1" > nul 2>&1
@@ -377,7 +361,7 @@ endlocal & set "%2=%ready_%" & goto :EOF
 
 ::
 :GetLabel
-setlocal
+SETLOCAL
 set "label_="
 for /f "tokens=5*" %%a in (
   'vol "%~1"^|find "Volume in drive "') do (
