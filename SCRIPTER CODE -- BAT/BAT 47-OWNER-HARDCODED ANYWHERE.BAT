@@ -227,7 +227,30 @@ FOR /L %%a in (1,1,!LDB!) DO (
 SET LDA=%LDB%
 REM -----------------------------------------------------------------
 
-SET LDA_STR=00000!LDA!
+SET LDA_EXTRA_01=!LDA!
+SET LDA_EXTRA_02=0
+SET LDA_EXTRA_03=0
+SET GET_SIZE_OF_WORK_COUNTER_VALUE=TRUE
+CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_BUT_NOT_E_DRIVE_BUT_AND_NOT_SOME_FOLDER
+CALL :SET_ICACLS_ROOT_OF_ALL_DRIVE_OF_E_DRIVE_WITH_SUBFOLDER_BUT_NOT_SOME_FOLDER
+
+SET LDA_ALL=0
+SET /A LDA_ALL=!LDA_ALL!+!LDA_EXTRA_01!
+SET /A LDA_ALL=!LDA_ALL!+!LDA_EXTRA_02!
+SET /A LDA_ALL=!LDA_ALL!+!LDA_EXTRA_03!
+
+ECHO !LDA_ALL!
+ECHO !LDA_EXTRA_01!
+ECHO !LDA_EXTRA_02!
+ECHO !LDA_EXTRA_03!
+ECHO COMMANDING COUNT ALL WORKER                                    !LDA_ALL!
+ECHO COMMANDING COUNT 01 OF 03 MAIN ARRAY                           !LDA_EXTRA_01!
+ECHO COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                       !LDA_EXTRA_02!
+ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !LDA_EXTRA_03!
+
+PAUSE
+
+SET LDA_STR=00000!LDA_EXTRA_01!
 SET LDA_STR=%LDA_STR:~-4%
 
 SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 41-GET DATE AND TIME FORMATTER.VBS"
@@ -247,10 +270,6 @@ ECHO %~dp0%~n0--LOGGER.TXT
 ECHO.
 
 
-PAUSE
-
-
-
 REM -----------------------------------------------------------------
 REM -- FORMAT FOLDER NAME WITH EXTRA \*
 REM -- CODING INCLUDE STRIPPER -- Double quotes ; Quotation mark ; speech marks
@@ -265,10 +284,18 @@ FOR /L %%a in (1,1,!LDA!) DO (
 )
 REM -----------------------------------------------------------------
 
+WORK_IP=0
+
 FOR /L %%a in (1,1,!LDA!) DO (
 	IF NOT "!sources[%%a]!"=="" (
+		
+		SET /A WORK_IP_ALL=WORK_IP_ALL+1
+		SET /A WORK_IP=WORK_IP+1
 		ECHO --------------------------------------------------------
-		ECHO COMMAND INSTRUCTION POINTER %%a OF !LDA!
+		ECHO COMMAND INSTRUCTION POINTER ALL WORKER                         !WORK_IP_ALL! OF !LDA_ALL!
+		ECHO COMMAND INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !WORK_IP_01! OF !LDA_EXTRA_01!
+		ECHO COMMAND INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !WORK_IP_02! OF !LDA_EXTRA_02!
+		ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !WORK_IP_03! OF !LDA_EXTRA_03!
 		ECHO --------------------------------------------------------
 		SET PATH_TO_DO=!Sources[%%a]!
 		ECHO PATH_TO_DO = !PATH_TO_DO:"=!
@@ -356,8 +383,28 @@ REM FOR /f "delims=" %%F in ('Dir "!TARGET_!\" /b /ad') do (
 	REM )
 REM )
 
+REM ----
+REM Batch Script Variables
+REM https://www.tutorialspoint.com/batch_script/batch_script_variables.htm
+REM ----
+REM Example
+REM @echo off 
+REM set globalvar = 5
+REM SETLOCAL
+REM set var = 13145
+REM set /A var = %var% + 5
+REM echo %var%
+REM echo %globalvar%
+REM ENDLOCAL
+REM Few key things to note about the above program.
+REM The ‘globalvar’ is defined with a global scope and is available throughout the entire script.
+REM The ‘var‘ variable is defined in a local scope because it is enclosed between a ‘SETLOCAL’ and ‘ENDLOCAL’ block. Hence, this variable will be destroyed as soon the ‘ENDLOCAL’ statement is executed.
 
-SETLOCAL EnableDelayedExpansion
+GOTO JUMP_ENDER
+
+::
+:SET_ICACLS_ROOT_OF_ALL_DRIVE_BUT_NOT_E_DRIVE_BUT_AND_NOT_SOME_FOLDER
+
 @FOR %%G IN (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
 	IF EXIST %%G:\. (
 		SET "TARGET_="
@@ -367,16 +414,44 @@ SETLOCAL EnableDelayedExpansion
 			 FOR /f "delims=" %%F in ('Dir !TARGET_!\ /b /a-d') do (
 				SET "VAR_FLAG="
 				SET VAR_FLAG=YES
+
 				IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
+
+				IF !GET_SIZE_OF_WORK_COUNTER_VALUE!==TRUE (
+					
+					SET VAR_FLAG=NOT
+					SET /A LDA_EXTRA_02=LDA_EXTRA_02+1
+				)
+
 				IF "!VAR_FLAG!"=="YES" (
-					ICACLS "!TARGET_!\%%F" /C /L /Q /setowner "Everyone" >NUL
-					ICACLS "!TARGET_!\%%F" /C /L /Q /grant Everyone:F >NUL
+					SET /A WORK_IP=WORK_IP+1
+					SET /A WORK_IP_02=WORK_IP_02+1
+					ECHO --------------------------------------------------------
+					ECHO COMMAND INSTRUCTION POINTER ALL WORKER                         !WORK_IP_ALL! OF !LDA_ALL!
+					ECHO COMMAND INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !WORK_IP_01! OF !LDA_EXTRA_01!
+					ECHO COMMAND INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !WORK_IP_02! OF !LDA_EXTRA_02!
+					ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !WORK_IP_03! OF !LDA_EXTRA_03!
+					ECHO --------------------------------------------------------
+					SET PATH_TO_DO="!TARGET_!\%%F"
+					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
+					ECHO --------------------------------------------------------
+					ECHO !PATH_TO_DO!
+
+					SET COMMAND_VAR="!TARGET_!\%%F" /C /L /Q /setowner "Everyone"
+					ECHO !COMMAND_VAR!
+					!COMMAND_VAR! >NUL
+					SET COMMAND_VAR="!TARGET_!\%%F" /C /L /Q /grant Everyone:F
+					ECHO !COMMAND_VAR!
+					!COMMAND_VAR! >NUL
 				)
 			)
 		)
 	)
 )
+GOTO :EOF
 
+::
+:SET_ICACLS_ROOT_OF_ALL_DRIVE_OF_E_DRIVE_WITH_SUBFOLDER_BUT_NOT_SOME_FOLDER
 @FOR %%G IN (E) DO (
 	IF EXIST %%G:\. (
 		SET "TARGET_="
@@ -396,14 +471,39 @@ SETLOCAL EnableDelayedExpansion
 				IF "%%F"=="ProgramData" SET VAR_FLAG=NOT
 				IF "%%F"=="Boot" SET VAR_FLAG=NOT
 				IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
+
+				IF !GET_SIZE_OF_WORK_COUNTER_VALUE!==TRUE (
+					SET VAR_FLAG=NOT
+					SET /A LDA_EXTRA_03=LDA_EXTRA_03+1
+				)
+
 				IF "!VAR_FLAG!"=="YES" (
-					ICACLS "!TARGET_!\%%F" /T /C /L /Q /setowner "Everyone" >NUL
-					ICACLS "!TARGET_!\%%F" /T /C /L /Q /grant Everyone:F >NUL
+					SET /A WORK_IP=WORK_IP+1
+					SET /A WORK_IP_ALL=WORK_IP_ALL+1
+					SET /A WORK_IP_03=WORK_IP_03+1
+					ECHO --------------------------------------------------------
+					ECHO COMMAND INSTRUCTION POINTER ALL WORKER                         !WORK_IP_ALL! OF !LDA_ALL!
+					ECHO COMMAND INSTRUCTION POINTER 01 OF 03 MAIN ARRAY                !WORK_IP_01! OF !LDA_EXTRA_01!
+					ECHO COMMAND INSTRUCTION POINTER 02 OF 03 ALL DRIVE ROOT            !WORK_IP_02! OF !LDA_EXTRA_02!
+					ECHO COMMAND INSTRUCTION POINTER 03 OF 03 ALL E DRIVE ROOT WITH SUB !WORK_IP_03! OF !LDA_EXTRA_03!
+					ECHO --------------------------------------------------------
+					SET PATH_TO_DO="!TARGET_!\%%F"
+					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
+					ECHO --------------------------------------------------------
+					ECHO !PATH_TO_DO!
+
+					SET COMMAND_VAR=ICACLS "!TARGET_!\%%F" /T /C /L /Q /setowner "Everyone"
+					ECHO !COMMAND_VAR!
+					!COMMAND_VAR! >NUL
+					SET COMMAND_VAR=ICACLS "!TARGET_!\%%F" /T /C /L /Q /grant Everyone:F
+					ECHO !COMMAND_VAR!
+					!COMMAND_VAR! >NUL
 				)
 			)
 		)
 	)
 )
+GOTO :EOF
 
 
 
@@ -412,7 +512,7 @@ SETLOCAL EnableDelayedExpansion
 
 
 
-
+:JUMP_ENDER
 
 ECHO.
 ECHO DONE
