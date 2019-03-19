@@ -747,18 +747,17 @@ TIMER_SUB_1:
 DetectHiddenWindows, ON
 SetTitleMatchMode 2
 
-WinGet, ID, list,ahk_class ConsoleWindowClass
+WinGet, HID, ID,ahk_class ConsoleWindowClass
 
 ; Administrator:  C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 BOOT KILLER.BAT
 
-IF ID_OLD_ConsoleWindowClass<>%ID%
+IF ID_OLD_ConsoleWindowClass<>%HID%
 {
 	ID_ConsoleWindowClass_TIMER=%A_Now%
-	;ID_ConsoleWindowClass_TIMER+=10*60 ; 10 MINUTES
-	ID_ConsoleWindowClass_TIMER+=40 ; 40 SECOND
+	ID_ConsoleWindowClass_TIMER+=40,Seconds ; 40 SECOND
 }
 
-ID_OLD_ConsoleWindowClass=%ID%
+ID_OLD_ConsoleWindowClass=%HID%
 
 ; ------
 ; IF (ID)
@@ -772,7 +771,7 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 		SoundBeep , 3000 , 100
 		Process, priority, %NewPID%, Realtime
 		ID_ConsoleWindowClass_TIMER=%A_Now%
-		ID_ConsoleWindowClass_TIMER+=40 ; 40 SECOND
+		ID_ConsoleWindowClass_TIMER+=40, Seconds ; 40 SECOND
 		}
 
 	Process, Exist, TASKKILL.EXE
@@ -782,7 +781,7 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 		SoundBeep , 2000 , 100
 		Process, priority, %NewPID%, Realtime
 		ID_ConsoleWindowClass_TIMER=%A_Now%
-		ID_ConsoleWindowClass_TIMER+=40 ; 40 SECOND
+		ID_ConsoleWindowClass_TIMER+=40, Seconds ; 40 SECOND
 	}
 }
 
@@ -3072,7 +3071,7 @@ If (A_Now>START_CMD_KILL)
 	IF (OSVER_N_VAR = 5)  ; WIN XP
 	{
 		START_CMD_KILL=%A_Now%
-		START_CMD_KILL+=10*60 ; 10 MINUTES
+		START_CMD_KILL+=10, Minutes ; 10 MINUTES
 
 		;Run, "TASKKILL.exe" /F /IM CMD.EXE /T , , HIDE
 	}
@@ -3302,26 +3301,42 @@ TIMER_SUB_OWNER:
 ; -------------------------------------------------------------------
 dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
-WinGet, ID, list,TeamViewer Panel ahk_class TV_ControlWin
+; TEST DEBUG EASIER ENTRY 1 2    DEFAULT IS -- TeamViewer Panel ahk_class TV_ControlWin
+WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
+WinGet, HID, ID,TeamViewer ahk_class #32770
 DetectHiddenWindows, % dhw
-IF ID_OLD_TeamViewer_Panel_TV_ControlWin<>%ID%
+IF ID_OLD_TeamViewer_Panel_TV_ControlWin<>%HID%
 {
 		ID_TeamViewer_Panel_TV_ControlWin_TIMER=%A_Now%
-		; ID_TeamViewer_Panel_TV_ControlWin_TIMER+=10*60 ; 10 MINUTES
-		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20 ; 20 SECOND MINUTES
+		; EnvAdd, Var, Value [, TimeUnits]
+		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20, Seconds
 
-		ID_OLD_TeamViewer_Panel_TV_ControlWin=%ID%
+		ID_OLD_TeamViewer_Panel_TV_ControlWin=%HID%
 }
+
+
 		
 If (A_Now<ID_TeamViewer_Panel_TV_ControlWin_TIMER)
 {
 	Process, Exist, ICACLS.EXE
 	If ErrorLevel > 0
 	{
+		MSGBOX HERE
 		Process, Close, ICACLS.EXE
 		SoundBeep , 2000 , 100
 		ID_TeamViewer_Panel_TV_ControlWin_TIMER=%A_Now%
-		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20 ; 20 SECOND MINUTES
+		ID_TeamViewer_Panel_TV_ControlWin_TIMER+=20, Seconds
+		
+		SetTitleMatchMode 2  
+		IFWINEXIST, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+		{
+			WinGet, HID, ID, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+			MSGBOX HERE_2
+			WINCLOSE
+		}
+			
+
+		
 	}
 }
 
@@ -3355,7 +3370,7 @@ If ErrorLevel > 0
 
 If (SET_GO_RESULT=1)
 {
-	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT" /QUITE , , HIDE
+	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT" /QUITE , , MIN
 }
 
 RETURN
