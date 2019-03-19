@@ -136,6 +136,8 @@ REM ----
 REM How can I echo a newline in a batch file? - Stack Overflow
 REM https://stackoverflow.com/questions/132799/how-can-i-echo-a-newline-in-a-batch-file
 REM ----
+REM ---- EXAMPLE ---- ECHO READY!\n!STEADY!\n!GO
+REM ----
 (set \n=^
 %=Do not remove this line=%
 )
