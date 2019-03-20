@@ -1896,6 +1896,33 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
+'  =============================================================
+'# __ D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.vbp
+'# __
+'# __ VB KEEP RUNNER.vbp
+'# __ VB KEEP RUNNER.exe
+'# __
+'# BY Matthew __ Matt.Lan@Btinternet.com __
+'# __
+'# START 01  TIME [ Tue 01-May-2018 14:02:31 ]
+'# START 02  TIME [ Tue 01-May-2018 14:32:54 ]
+'# LAST EDIT TIME [ Wed 20-Mar-2019 03:02:22 ]
+'# __
+'  =============================================================
+
+' ------------------------------------------------------------------
+' Location Internet ---- GTUHUB
+' ------------------------------------------------------------------
+' Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+' https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL.ahk
+' ------------------------------------------------------------------
+' ------------------------------------------------------------------
+' Location Internet ---- GOOGLE
+' ------------------------------------------------------------------
+' ------------------------------------------------------------------
+' VB_KEEP_RUNNER - Google Drive
+' https://drive.google.com/drive/folders/1rkhnn_9zSzgr6nvzpvmI8o1mNR0t6-QE
+' ------------------------------------------------------------------
 
 '-------------------------------------------------------------------
 ' WROTE SCRIPT FOR C DRIVE ROOT VICE VERSA WORKING VBSCRIPT GRUB4DOS
@@ -1926,7 +1953,39 @@ Option Explicit
 ' MIGHT DO WITHA SYNCER PROGRAM
 ' CAME FROM ELITESPY
 
+' -------------------------------------------------------------------------------
+' SESSION AT [__ Ver_2019_1.0.279 __] ---- Wed 20-Mar-2019
+' FOR ROUTINE ---- Private Sub Label_GOODSYNC_01_Click()
+' -------------------------------------------------------------------------------
+' YOU MUST SET YOUR GOODSYNC LOGG TO GO WITH THE CUSTOM DIRECTORY
+' THEY ARE STILL KEPT IN USUAL PLACE WITH THE SYNC FOLDER IF UNLESS SELECT NOT TO
+' WHEN THEY ARE COMMON HERE
+' ABLE TO TELL IF SYNC IS RUN AS GOOD SCHEDULE
+' YOU ABEL TO SET A CUSTOM SCRIPT AT END OF ALL JOB TO CHECK THING OVER
+' IF WHEN THAT RUN ABLE TO CHECK THING OVER
+' IF SOMETHING LIKE HASN'T GROUND TO A HALT
+' IF HAS GROUND TO HALT
+' WHICH HARD TO TELL
+' THE  MOST TIME LOGG ARE UPDATE AND RUN
+' BUT THE IS NOT SHOW ANYMORE
+' IF THAT WERE CASE
+' GET ON TO IT AND WHEN END OF WHOLE SET JOB FINISHER
+' AND CHECK THEN
+' IF FIND THING NOT GOOD THEN ISSUE A CLOSE TO GOODSYNC AND RELOAD
+' CURRENTLY I HAVE ONE AT END EVERY FINISH ALL JOB IN SCRIPT AT
+' AFTER THEM ALL RUN AT BOTTOM SCRIPT
+' --------------------------------------------------------------------------------
+' [ Wednesday 02:42:30 Am_20 March 2019 ] WRITING
+' --------------------------------------------------------------------------------
+' CLIPBOARD COUNTER ---- 98 * CLIPBOARD'S COUNT
+' Count = 1123 -- Wed 20-Mar-2019 01:54:15
+' Count = 1221 -- Wed 20-Mar-2019 03:08:18
+' -------------------------------------------------------------------------------
 
+' ------------------------------------------------------------------
+' ------------------------------------------------------------------
+' ------------------------------------------------------------------
+' ------------------------------------------------------------------
 
 ' ------------------------------------------------------------------
 ' VARIABL DECLARE BLOCK FROM ELITEPSY
@@ -3763,10 +3822,13 @@ End Sub
 
 Private Sub Label_GOODSYNC_01_Click()
 ' -------------------------------------------------------------------------------
+' SESSION AT [__ Ver_2019_1.0.279 __]
+' FOR ROUTINE ---- Private Sub Label_GOODSYNC_01_Click()
+' -------------------------------------------------------------------------------
 ' YOU MUST SET YOUR GOODSYNC LOGG TO GO WITH THE CUSTOM DIRECTORY
 ' THEY ARE STILL KEPT IN USUAL PLACE WITH THE SYNC FOLDER IF UNLESS SELECT NOT TO
 ' WHEN THEY ARE COMMON HERE
-' ABLE TO TELL IF SYNC IS RUN AS GOOOD SCHEUALE
+' ABLE TO TELL IF SYNC IS RUN AS GOOD SCHEDULE
 ' YOU ABEL TO SET A CUSTOM SCRIPT AT END OF ALL JOB TO CHECK THING OVER
 ' IF WHEN THAT RUN ABLE TO CHECK THING OVER
 ' IF SOMETHING LIKE HASN'T GROUND TO A HALT
@@ -3775,13 +3837,17 @@ Private Sub Label_GOODSYNC_01_Click()
 ' THE  MOST TIME LOGG ARE UPDATE AND RUN
 ' BUT THE IS NOT SHOW ANYMORE
 ' IF THAT WERE CASE
-' GET ON TO IT AND WHEN END OF WHOLE SET JOB FINSIHER
+' GET ON TO IT AND WHEN END OF WHOLE SET JOB FINISHER
 ' AND CHECK THEN
 ' IF FIND THING NOT GOOD THEN ISSUE A CLOSE TO GOODSYNC AND RELOAD
 ' CURRENTLY I HAVE ONE AT END EVERY FINISH ALL JOB IN SCRIPT AT
 ' AFTER THEM ALL RUN AT BOTTOM SCRIPT
 ' --------------------------------------------------------------------------------
-' [ Wednesday 02:42:30 Am_20 March 2019 ]
+' [ Wednesday 02:42:30 Am_20 March 2019 ] WRITING
+' --------------------------------------------------------------------------------
+' CLIPBOARD COUNTER ---- 98 * CLIPBOARD'S COUNT
+' Count = 1123 -- Wed 20-Mar-2019 01:54:15
+' Count = 1221 -- Wed 20-Mar-2019 03:08:18
 ' -------------------------------------------------------------------------------
 
 Dim GS_NAME_01
@@ -4649,6 +4715,11 @@ End Function
 
 Private Sub MNU_VERSION_Click()
 ' MNU_VERSION
+
+Clipboard.Clear
+Clipboard.SetText (MNU_VERSION.Caption)
+Me.WindowState = vbMinimized
+
 End Sub
 
 Private Sub Text_SYSTEM_START_TIME_02_Change()
