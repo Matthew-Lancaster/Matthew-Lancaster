@@ -11,6 +11,14 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    ScaleHeight     =   10932
    ScaleWidth      =   15396
+   Begin VB.FileListBox File_GOODSYNC 
+      Height          =   264
+      Left            =   10932
+      TabIndex        =   136
+      Top             =   3792
+      Visible         =   0   'False
+      Width           =   1236
+   End
    Begin VB.Timer ONE_MILLISECOND_2_Timer 
       Interval        =   1
       Left            =   9420
@@ -593,6 +601,69 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       NumItems        =   0
+   End
+   Begin VB.Label Label_GOODSYNC_04_HOUR 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "GS HR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   10.2
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   264
+      Left            =   4848
+      TabIndex        =   137
+      Top             =   6324
+      Width           =   804
+   End
+   Begin VB.Label Label_GOODSYNC_02_HOUR 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "GS HR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   10.2
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   264
+      Left            =   3984
+      TabIndex        =   135
+      Top             =   6324
+      Width           =   852
+   End
+   Begin VB.Label Label_GOODSYNC_01 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "GOODSYNC LOGG"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   10.2
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   264
+      Left            =   24
+      TabIndex        =   134
+      Top             =   6324
+      Width           =   3948
    End
    Begin VB.Label Label13 
       Alignment       =   2  'Center
@@ -1861,6 +1932,8 @@ Option Explicit
 ' VARIABL DECLARE BLOCK FROM ELITEPSY
 ' VARIABL DECLARE BLOCK FROM VB KEEP RUNNER
 ' ------------------------------------------------------------------
+
+Dim OLD_V_TIME_01, V_TIME_02, SET_GOODSYNC_DONE_ONCE
 
 Dim LISTVIEW_2_OR_3_HITT
 
@@ -3688,6 +3761,67 @@ SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 End Sub
 
+Private Sub Label_GOODSYNC_01_Click()
+' -------------------------------------------------------------------------------
+' YOU MUST SET YOUR GOODSYNC LOGG TO GO WITH THE CUSTOM DIRECTORY
+' THEY ARE STILL KEPT IN USUAL PLACE WITH THE SYNC FOLDER IF UNLESS SELECT NOT TO
+' WHEN THEY ARE COMMON HERE
+' ABLE TO TELL IF SYNC IS RUN AS GOOOD SCHEUALE
+' YOU ABEL TO SET A CUSTOM SCRIPT AT END OF ALL JOB TO CHECK THING OVER
+' IF WHEN THAT RUN ABLE TO CHECK THING OVER
+' IF SOMETHING LIKE HASN'T GROUND TO A HALT
+' IF HAS GROUND TO HALT
+' WHICH HARD TO TELL
+' THE  MOST TIME LOGG ARE UPDATE AND RUN
+' BUT THE IS NOT SHOW ANYMORE
+' IF THAT WERE CASE
+' GET ON TO IT AND WHEN END OF WHOLE SET JOB FINSIHER
+' AND CHECK THEN
+' IF FIND THING NOT GOOD THEN ISSUE A CLOSE TO GOODSYNC AND RELOAD
+' CURRENTLY I HAVE ONE AT END EVERY FINISH ALL JOB IN SCRIPT AT
+' AFTER THEM ALL RUN AT BOTTOM SCRIPT
+' --------------------------------------------------------------------------------
+' [ Wednesday 02:42:30 Am_20 March 2019 ]
+' -------------------------------------------------------------------------------
+
+Dim GS_NAME_01
+Dim GS_NAME_02
+Dim IRESULT
+Dim F
+Dim V_VAR
+Dim GOODSYNC
+Dim V_TIME_01
+GS_NAME_01 = "D:\0 00 LOGGERS TEXT GOODSYNC\" + GetComputerName + "\"
+GS_NAME_02 = "GoodSync-*.LOG"
+If FSO.FolderExists(GS_NAME_01) = False Then
+    IRESULT = CreateFolderTree(GS_NAME_01)
+End If
+File_GOODSYNC.Path = GS_NAME_01
+File_GOODSYNC.Pattern = GS_NAME_02
+If File_GOODSYNC.ListCount > 0 Then
+    GOODSYNC = File_GOODSYNC.List(File_GOODSYNC.ListCount - 1)
+    Label_GOODSYNC_01.Caption = GOODSYNC
+
+    If FSO.FileExists(File_GOODSYNC.Path + "\" + GOODSYNC) Then
+        Set F = FSO.GetFile(File_GOODSYNC.Path + "\" + GOODSYNC)
+        'V_VAR = FORMAT(F.DateLastModified, "YYYY-MM-DD HH-MM-SS")
+        V_VAR = F.DateLastModified
+        V_TIME_01 = Trim(Str(DateDiff("n", V_VAR, Now)))
+        If Val(V_TIME_02) = 0 Or SET_GOODSYNC_DONE_ONCE = False Then
+            V_TIME_02 = V_TIME_01
+        End If
+        If Val(V_TIME_01) < Val(OLD_V_TIME_01) Or Val(V_TIME_02) = 0 Then
+            V_TIME_02 = OLD_V_TIME_01
+            SET_GOODSYNC_DONE_ONCE = True
+        End If
+        OLD_V_TIME_01 = V_TIME_01
+        Label_GOODSYNC_02_HOUR.Caption = V_TIME_01 + " Min"
+        Label_GOODSYNC_04_HOUR.Caption = V_TIME_02 + " Min"
+    End If
+End If
+
+End Sub
+
 Private Sub Label_KILL_CMD_AND_AHK_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_CMD_AND_AHK.BackColor = RGB(255, 255, 255)
@@ -4106,6 +4240,10 @@ Label57.Caption = "COMMAND LINE STATUS__ " + Label22
 
 'Label56.BackColor = Label59.BackColor
 'Label55.BackColor = Label58.BackColor
+End Sub
+
+Private Sub Label24_Click()
+
 End Sub
 
 Private Sub Label30_Click()
@@ -6903,6 +7041,8 @@ If TIMER_GO_COMPUTER_START = 0 Then
     Load MDIProcServ
 End If
 If TIMER_GO_COMPUTER_START < -10 Then TIMER_GO_COMPUTER_START = -10
+
+Call Label_GOODSYNC_01_Click
 
 End Sub
 

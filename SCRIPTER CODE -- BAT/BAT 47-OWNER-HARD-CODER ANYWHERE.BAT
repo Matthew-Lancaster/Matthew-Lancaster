@@ -19,9 +19,9 @@ REM -- FROM ----------- Sun 14-Oct-2018 20:34:24
 REM -- TO   ----------- Sun 14-Oct-2018 22:45:00
 REM -------------------------------------------------------------------
 REM -- SESSION 003
-REM --  0972 * CLIPBOARD'S TAKEN
-REM --  Count = 099  -- Tue 19-Mar-2019 12:54:28
-REM --  Count = 1071 -- Wed 20-Mar-2019 00:52:37 -- 12 HOUR
+REM -- 0972 * CLIPBOARD'S TAKEN
+REM -- Count = 099  -- Tue 19-Mar-2019 12:54:28
+REM -- Count = 1071 -- Wed 20-Mar-2019 00:52:37 -- 12 HOUR
 REM -------------------------------------------------------------------
 
 REM -------------------------------------------------------------------
@@ -29,8 +29,8 @@ REM __ Location Internet
 REM -------------------------------------------------------------------
 REM __ BAT 47-OWNER-HARD-CODER ANYWHERE.BAT
 REM -------------------------------------------------------------------
-REM Matthew-Lancaster/BAT 45-SCRIPT RUN GITHUB.BAT at master · Matthew-Lancaster/Matthew-Lancaster
-REM https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20GITHUB/BAT%2045-SCRIPT%20RUN%20GITHUB.BAT
+REM Matthew-Lancaster/BAT 47-OWNER-HARD-CODER ANYWHERE.BAT at master · Matthew-Lancaster/Matthew-Lancaster
+REM https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20BAT/BAT%2047-OWNER-HARD-CODER%20ANYWHERE.BAT
 REM -------------------------------------------------------------------
 REM -------------------------------------------------------------------
 

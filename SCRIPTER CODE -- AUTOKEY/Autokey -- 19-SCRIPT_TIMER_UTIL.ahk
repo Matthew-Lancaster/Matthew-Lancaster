@@ -1,4 +1,4 @@
-﻿	 ;  =============================================================
+﻿;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
 ;# __ 
 ;# __ Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
@@ -10,9 +10,15 @@
 ;# __ 
 ;  =============================================================
 
+; ------------------------------------------------------------------
+; Location Internet
+;---------------------------------------------------------------------
+; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL.ahk
+; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 002
+; SESSION 002
 ; -------------------------------------------------------------------
 ; FROM TO Sun 15-Apr-2018 19:26:10
 ; -------------------------------------------------------------------
@@ -22,7 +28,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 003
+; SESSION 003
 ; -------------------------------------------------------------------
 ; New work the GoodSync Routine to Set Number of Hour in Options
 ; From Default 2 to 4
@@ -52,7 +58,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 004
+; SESSION 004
 ; MORE WORK WANTED A SOUND EFFECT IF A WINDOW CAME OUT OF NOT RESPONDING 
 ; TO LET LEARN THE WAIT IS OVER FOR GOODSYNC NETWORK PATHS TIME CONSUMING
 ; TOOK A WHILE BECAUSE SOUND SYSTEM EVENTS WERE SWITCHED OFF
@@ -63,7 +69,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 005
+; SESSION 005
 ; NEXT WANTER THE CHECK-BOX SET WHEN GOODSYNC HAS THE TEXT BOX FILLED
 ; AND IT CHECK HWND OF WINDOW AND DOES ONCE 
 ; IT HARD TO TEST BECAUSE WHEN CHECK-BOX NOT CHECKED THE TEXTBOX FIGURE 
@@ -75,7 +81,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 00*
+; SESSION 00*
 ; SESSION CODER _ ADD LOADER OF CAMERA REEL OFFLOAD
 ; TIMER_DRIVE_GET_CAMERA
 ; -------------------------------------------------------------------
@@ -84,7 +90,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 007
+; SESSION 007
 ; DFX REQUIRED WORKING PROPERLY AND EXTRA FOR IT
 ; -------------------------------------------------------------------
 ; FROM -- Wed 20-Jun-2018 14:50:48
@@ -92,7 +98,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 008 PROBLEM THIS PROCESS REQUIRED SUSPENDER HOGGER
+; SESSION 008 PROBLEM THIS PROCESS REQUIRED SUSPENDER HOGGER
 ; CPU IN SHORT QUICK BURSTS
 ; -------------------------------------------------------------------
 ; Intel(R) Dynamic Platform and Thermal Framework Utility Application
@@ -112,7 +118,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 008 
+; SESSION 009
 ; ADD CODE THIS ROUTINE _ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
 ; A NEW LEVEL OF TIMER PERIODIC ON THE HOUR OR MINUTE OR DAY
 ; ACTUALLY ON THE HOUR OR DAY MIDNIGHT SORT OF THING
@@ -132,7 +138,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 009
+; SESSION 010
 ; ADD CODE PIXEL FIND ROUTINE TO CHROME AND YAHOO PRINTER OUTPUT NEW THING
 ; ON PRESS P IN YAHOO - BIT BUGGY THEY HAVING PRINT ONLY COME UP ONCE SOMETIMES
 ; -------------------------------------------------------------------
@@ -141,7 +147,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; SESSION 010
+; SESSION 011
 ; -------------------------------------------------------------------
 ; TO DO WITH THE ICACLS ICACLS AND THAT WITH TEAM-VIEWER WHEN 
 ; THAT HALT THE OTHER IF GO
@@ -3309,12 +3315,22 @@ SetTitleMatchMode 2
 ; FLICK TeamViewer ON RATHER THAN HARDER TO FIND IN CONNECTION TO 
 ; ANOTHER COMPUTER MODE
 ; -------------------------------------------------------------------
+; FOR A LONG TIME NOT RUN AS TeamViewer Panel ahk_class TV_ControlWin
+; AND STOP THE
+; Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN
+; AS TeamViewer Panel ahk_class TV_ControlWin
+; HAS A KEEP COME ALIVE FUNCTION ONCE EVERY ABOUT MINUTE ROUGHLY
+; AND THEN USER -- WinGet MMX, MinMax, ahk_id %HID%
+; [ Wednesday 02:54:30 Am_20 March 2019 ]
+; -------------------------------------------------------------------
 ; WinGet, HID, ID,TeamViewer ahk_class #32770
 ; -------------------------------------------------------------------
 WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
-If HID>0
+WinGet MMX, MinMax, ahk_id %HID%
+If (HID>0 and MMX>0)
 {
-	msgbox hh
+	; msgbox % MMX
+	; msgbox hh
 	Process, Exist, ICACLS.EXE
 	If ErrorLevel > 0
 	{
@@ -3328,12 +3344,11 @@ If HID>0
 		SoundBeep , 2000 , 100
 	}
 
-	IFWINEXIST, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
+	WinGet, HID, ID, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
 	{
-		WinGet, HID, ID, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
 		IF HID
 		{
-			WINCLOSE, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
+			WINCLOSE, ahk_id %HID%
 		}
 	}
 }
