@@ -21,7 +21,7 @@
 ' -------------------------------------------------------------------
 
 '# ------------------------------------------------------------------
-' LOCATTION ON-LINE 
+' LOCATION ON-LINE 
 '# ------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' ----
@@ -75,22 +75,26 @@ Set WSHShell = CreateObject("WScript.Shell")
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 
-i = 0
+i1 = 0
+i2 = 0
 FOR EACH objProcess IN colProcesses
     IF NOT (IsNull(objProcess.CommandLine )) THEN
 		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
 		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
 		IF strScriptName = Wscript.ScriptName THEN
-			i=i+1
+			i2=i2+1
+		else
+			i1=i1+1
 		END IF
-		IF i > 1 THEN 'IF > 1 wscript instance
-				'Wscript.Echo "Duplicate :"&strScriptName&" ."
+		IF i1 > 0 THEN 
+				Wscript.Quit
+		END IF  
+		IF i2 > 1 THEN 
 				Wscript.Quit
 		END IF  
     END IF  
 NEXT
 
-'Wscript.Echo "Pause 2 have 2 scripts running ."
 
 
 Dim oDict_1 ' Key: Full filename, Item: Filename
