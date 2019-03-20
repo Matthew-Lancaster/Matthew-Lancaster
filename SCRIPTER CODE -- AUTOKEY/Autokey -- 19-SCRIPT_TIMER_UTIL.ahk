@@ -3327,24 +3327,15 @@ SetTitleMatchMode 2
 ; -------------------------------------------------------------------
 
 
-
-
-; WinGet, HID, ID, ahk_class Notepad++
-; IF HID>0 
-; {
-	; WinMinimize ahk_ID %HID%
-	; WinGet MMX, MinMax, ahk_id %HID%
-	; TOOLTIP % MMX
-; }
-
 ; Free license (non-commercial use only)
 ; www.teamviewer.com
 ; Session list
 
+DetectHiddenWindows, ON
+SetTitleMatchMode 2  
 OutputVar_2=
 MMX=
-
-WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
+WinGet, HID, ID ,TeamViewer Panel ahk_class TV_ControlWin
 If HID>0
 {
 	ControlGettext, OutputVar_2, Static1, ahk_id %HID%
@@ -3358,17 +3349,15 @@ If HID>0
 	}
 }
 
-WinGet, HID, ID, ahk_id %HID%
-If !mmx
-{
-	; soundbeep 1500,200
-}
+; DetectHiddenWindows, OFF
+; SetTitleMatchMode 3
+; WinGet, HID_2, ID,TeamViewer ahk_class #32770
 
-SET_GO=FALSE
-If HID>0
-	SET_GO=TRUE
-IF Instr(OutputVar_2,"Free license (non-commercial use only)")
-	SET_GO=TRUE
+SET_GO=TRUE
+If !HID
+	SET_GO=FALSE
+IF !Instr(OutputVar_2,"Free license (non-commercial use only)")
+	SET_GO=FALSE
 
 If SET_GO=TRUE
 {
@@ -3457,7 +3446,7 @@ IF SET_GO=TRUE
 	; ---------------------------------------------------------------
 	; SET ICACLS -- TAKEOWN OWNER
 	; ---------------------------------------------------------------
-	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , HIDE
+	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN ; HIDE
 }
 
 DetectHiddenWindows, % dhw
