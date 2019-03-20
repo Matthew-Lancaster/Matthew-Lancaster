@@ -204,17 +204,22 @@ ESC::
 	}
 
 	; ahk_exe VB6.EXE
+	; OK
+	; Help
+	; Compile error:
+	; Expected: Then or GoTo
 	IfWinActive Microsoft Visual Basic ahk_class #32770
-	{	WinClose
-		SoundBeep , 1500 , 400
-		VAR_DONE_ESCAPE_KEY=TRUE
+	{	
+		ControlGetText, Output_Var, Static2
+		if instr(Output_Var,"Compile error:")
+		{
+			WinClose
+			SoundBeep , 1500 , 400
+			VAR_DONE_ESCAPE_KEY=TRUE
+		}
 	}
-; OK
-; Help
-; Compile error:
 
-; Expected: Then or GoTo
-
+	
 	
 	
 	
