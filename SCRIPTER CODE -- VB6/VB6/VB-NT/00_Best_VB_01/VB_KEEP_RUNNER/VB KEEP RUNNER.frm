@@ -2987,7 +2987,7 @@ End Sub
 
 Private Sub Form_Load()
 
-    Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
+    ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
 
     FORM_LOAD_TRUE = False
     
@@ -4456,7 +4456,8 @@ End Sub
 
 Private Sub MNU_CLIPBOARDER_REPLACE_ER_AND_Click()
 
-Dim VAR_ST
+Dim VAR_ST_1
+Dim VAR_ST_2
 Dim CHANGE_VAR_1
 Dim CHANGE_VAR_2
 Dim CH_1
@@ -4466,9 +4467,10 @@ Dim CMOS_AND_TTL
 Dim R1
 Dim R2
 Dim X
-Debug.Print "----"
 
-VAR_ST = Clipboard.GetText
+'Debug.Print "----"
+VAR_ST_1 = Clipboard.GetText
+' VAR_ST_1 = "and ff and hh and yy and 123456789 kk"
 CHANGE_VAR_1 = LCase(" AND ")
 X = Len(CHANGE_VAR_1) + 1
 For R1 = 0 To Len(CHANGE_VAR_1) + 1
@@ -4484,17 +4486,37 @@ For R1 = 0 To Len(CHANGE_VAR_1) + 1
         If R1 = 0 Then CHANGE_VAR_2 = CHANGE_VAR_1
         If R1 = X Then CHANGE_VAR_2 = UCase(CHANGE_VAR_1)
         If InStr(CMOS_AND_TTL, CHANGE_VAR_2) = 0 Then
-            Debug.Print CHANGE_VAR_2
-            ' VAR_ST = Replace(VAR_ST, " " + CHANGE_VAR + " ", " & ")
+            ' Debug.Print CHANGE_VAR_2
+            VAR_ST_1 = Replace(VAR_ST_1, CHANGE_VAR_2, " & ")
+            VAR_ST_1 = Replace(VAR_ST_1, vbCr + Mid(CHANGE_VAR_2, 2), vbCr + "& ")
+            VAR_ST_1 = Replace(VAR_ST_1, vbLf + Mid(CHANGE_VAR_2, 2), vbLf + "& ")
+            VAR_ST_1 = Replace(VAR_ST_1, Mid(CHANGE_VAR_2, 1, Len(CHANGE_VAR_2) - 1) + vbCr, " &" + vbCr)
+            VAR_ST_1 = Replace(VAR_ST_1, Mid(CHANGE_VAR_2, 1, Len(CHANGE_VAR_2) - 1) + vbLf, " &" + vbLf)
         End If
         
         CMOS_AND_TTL = CMOS_AND_TTL + "--" + CHANGE_VAR_2 + "__"
-        
     Next
 Next
 
-Stop
+Do
+    On Error Resume Next
+    Clipboard.Clear
+    VAR_ST_2 = Clipboard.GetText
+    On Error GoTo 0
+    If VAR_ST_2 <> "" Then Sleep 500
+Loop Until VAR_ST_2 = ""
+Sleep 500
+Do
+    On Error Resume Next
+    Clipboard.SetText VAR_ST_1, vbCFText
+    Sleep 500
+    VAR_ST_2 = Clipboard.GetText
+    On Error GoTo 0
+    If VAR_ST_2 <> VAR_ST_1 Then Sleep 800
+Loop Until VAR_ST_2 = VAR_ST_1
 
+Me.WindowState = vbMinimized
+Beep
 
 End Sub
 
