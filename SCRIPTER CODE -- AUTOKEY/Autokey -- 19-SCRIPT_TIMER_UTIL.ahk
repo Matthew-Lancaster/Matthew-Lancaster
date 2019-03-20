@@ -17,7 +17,7 @@
 ; FROM TO Sun 15-Apr-2018 19:26:10
 ; -------------------------------------------------------------------
 ; THIS IS OUR PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
-; THE MIDDLE CHECKBOX IS SELECTED
+; THE MIDDLE CHECK-BOX IS SELECTED
 ; Reference's at End
 ; -------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
 ; -------------------------------------------------------------------
 ; New work the GoodSync Routine to Set Number of Hour in Options
 ; From Default 2 to 4
-; Straight Form The Help File Nothing Checked Online
+; Straight Form The Help File Nothing Checked On-line
 ; -------------------------------------------------------------------
 ; FROM -- Fri 27-Apr-2018 13:44:49
 ; TO ---- Fri 27-Apr-2018 14:28:00 -- 50 MINUTE
@@ -64,9 +64,9 @@
 
 ; -------------------------------------------------------------------
 ; 005
-; NEXT WANTER THE CHECKBOX SET WHEN GOODSYNC HAS THE TEXT BOX FILLED
+; NEXT WANTER THE CHECK-BOX SET WHEN GOODSYNC HAS THE TEXT BOX FILLED
 ; AND IT CHECK HWND OF WINDOW AND DOES ONCE 
-; IT HARD TO TEST BECAUSE WHEN CHECKBOX NOT CHECKED THE TEXTBOX FIGUAR 
+; IT HARD TO TEST BECAUSE WHEN CHECK-BOX NOT CHECKED THE TEXTBOX FIGURE 
 ; ENTRY IS ENABLED=FALSE
 ; -------------------------------------------------------------------
 ; FROM -- Fri 27-Apr-2018 19:33:58
@@ -108,7 +108,7 @@
 ; DFX REQUIRED WORKING PROPERLY AND EXTRA FOR IT
 ; -------------------------------------------------------------------
 ; FROM -- Sun 07-Oct-2018 18:00:41
-; TO ---- Sun 07-Oct-2018 19:24:00 _ 1 & HALF HOUR ALMOST _ INTO AN ALLNIGHTER AGAIN
+; TO ---- Sun 07-Oct-2018 19:24:00 _ 1 & HALF HOUR ALMOST _ INTO AN ALL-NIGHTER AGAIN
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
@@ -118,7 +118,7 @@
 ; ACTUALLY ON THE HOUR OR DAY MIDNIGHT SORT OF THING
 ; EASY DONE PROGRAMMED
 ; THAT ALL MY WORK WANTED TODAY
-; COMPLETELY KNACKER-ED _ EASY AN ALLNIGHTER
+; COMPLETELY KNACKER-ED _ EASY AN ALL-NIGHTER
 ; STILL NEXT PROJECT BEEN WAITING FOR 
 ; MY APK'S PACKS ON MOBILE WANT BACKING UP NICELY
 ; FILENAME RECURSIVE AND MOVE _.VBS
@@ -140,7 +140,20 @@
 ; TO ---- Mon 22-Oct-2018 20:12:14 - 1 HOUR 
 ; -------------------------------------------------------------------
 
-
+; -------------------------------------------------------------------
+; SESSION 010
+; -------------------------------------------------------------------
+; TO DO WITH THE ICACLS ICACLS AND THAT WITH TEAM-VIEWER WHEN 
+; THAT HALT THE OTHER IF GO
+; THE PRE PREPARER WORK BEFORE SPEND 12 HOUR ON TOTAL REVAMP THAT ONE
+; BAT 47-OWNER-HARD-CODER ANYWHERE.BAT
+; -------------------------------------------------------------------
+; WORK FROM 
+; -------------------------------------------------------------------
+; 0090 * CLIPBOARD'S TAKEN
+; Count = 008 -- Tue 19-Mar-2019 11:34:43
+; Count = 098 -- Tue 19-Mar-2019 12:51:50
+; -------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
 ; Location Internet
@@ -3299,9 +3312,9 @@ SetTitleMatchMode 2
 ; WinGet, HID, ID,TeamViewer ahk_class #32770
 ; -------------------------------------------------------------------
 WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
-		
 If HID>0
 {
+	msgbox hh
 	Process, Exist, ICACLS.EXE
 	If ErrorLevel > 0
 	{
@@ -3315,12 +3328,12 @@ If HID>0
 		SoundBeep , 2000 , 100
 	}
 
-	IFWINEXIST, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+	IFWINEXIST, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
 	{
-		WinGet, HID, ID, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+		WinGet, HID, ID, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
 		IF HID
 		{
-			WINCLOSE, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+			WINCLOSE, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
 		}
 	}
 }
@@ -3334,7 +3347,6 @@ If HID>0
 	; TIMER_SUB_OWNER_SAVE_TIMER=%A_NOW%
 	; TIMER_SUB_OWNER_SAVE_TIMER+= 10,SECONDS
 ; }
-
 ; -------------------------------------------------------------------
 ; 02 OF 03 CHECK DATE FOR IF NEED RUN PROG TO SET ICACLS -- TAKEOWN OWNER
 ; -------------------------------------------------------------------
@@ -3373,7 +3385,7 @@ ELSE
 ; 03 OF 03 RUN PROG TO SET ICACLS -- TAKEOWN OWNER
 ; -------------------------------------------------------------------
 SET_GO=TRUE
-IFWINNOTEXIST, BAT 47-OWNER-HARDCODED ANYWHERE.BAT ahk_class ConsoleWindowClass
+IFWINNOTEXIST, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
 	SET_GO=FALSE
 IF SET_GO=TRUE Process, Exist, ICACLS.EXE
 If ErrorLevel>0
@@ -3387,7 +3399,7 @@ IF SET_GO=TRUE
 	; ---------------------------------------------------------------
 	; SET ICACLS -- TAKEOWN OWNER
 	; ---------------------------------------------------------------
-	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT" /QUITE , , MIN
+	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN
 }
 
 DetectHiddenWindows, % dhw
