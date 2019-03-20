@@ -458,7 +458,7 @@ Begin VB.Form Form1
       Left            =   3324
       TabIndex        =   7
       ToolTipText     =   "STORE IN REISTRY FOR START UP OVERRIDE TIMER IF DO"
-      Top             =   6060
+      Top             =   5712
       Width           =   2340
    End
    Begin VB.Timer Timer_1_SECOND 
@@ -1219,10 +1219,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   264
-      Left            =   24
+      Left            =   3324
       TabIndex        =   71
-      Top             =   6324
-      Width           =   5640
+      Top             =   5964
+      Width           =   2328
    End
    Begin VB.Label Label_FORM_BACK_COLOUR 
       BackColor       =   &H00005959&
@@ -1391,7 +1391,7 @@ Begin VB.Form Form1
    End
    Begin VB.Label Label1 
       Caption         =   $"VB KEEP RUNNER.frx":2418
-      Height          =   2112
+      Height          =   1776
       Left            =   3324
       TabIndex        =   55
       Top             =   3924
@@ -2111,14 +2111,14 @@ Private Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" _
 
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
 
-Private Declare Function GetWindowTextLength Lib "user32.dll" Alias "GetWindowTextLengthA" (ByVal hwnd As Long) As Long  'MODULE 1141
+Private Declare Function GetWindowTextLength Lib "user32.dll" Alias "GetWindowTextLengthA" (ByVal hWnd As Long) As Long  'MODULE 1141
 
 Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" _
     (ByVal lpClassName As String, _
      ByVal lpWindowName As String) _
     As Long
 
-Private Declare Function EnableWindow Lib "user32" (ByVal hwnd As Long, ByVal fEnable As Long) As Long
+Private Declare Function EnableWindow Lib "user32" (ByVal hWnd As Long, ByVal fEnable As Long) As Long
 
 Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
 
@@ -2129,36 +2129,36 @@ Private Type RECT
    Bottom As Long
 End Type
 
-Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 
 Private Declare Function WindowFromPoint Lib "user32" (ByVal xPoint As Long, ByVal yPoint As Long) As Long
 
-Private Declare Function ShowWindow Lib "user32" (ByVal hwnd As Long, ByVal nCmdShow As Long) As Long
+Private Declare Function ShowWindow Lib "user32" (ByVal hWnd As Long, ByVal nCmdShow As Long) As Long
 
-Private Declare Function CreateCaret Lib "user32" (ByVal hwnd As Long, _
+Private Declare Function CreateCaret Lib "user32" (ByVal hWnd As Long, _
     ByVal hBitmap As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
-Private Declare Function ShowCaret Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function ShowCaret Lib "user32" (ByVal hWnd As Long) As Long
 Private Declare Function SetCaretBlinkTime Lib "user32" (ByVal wMSeconds As Long) As _
     Long
 Private Declare Function GetCaretBlinkTime Lib "user32" () As Long
 
-Private Declare Function PostMessage Lib "user32.dll" Alias "PostMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long  'MODULE 1135
-Private Declare Function GetParent Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function PostMessage Lib "user32.dll" Alias "PostMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long  'MODULE 1135
+Private Declare Function GetParent Lib "user32" (ByVal hWnd As Long) As Long
 
 Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
 Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" (ByVal uAction&, ByVal uParam&, ByRef lpvParam As Any, ByVal fuWinIni&) As Long
 'Private Declare Function GetSystemMetrics Lib "user32" (ByVal nIndex As Long) As Long
 
-Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
-Private Declare Function SendMessageAny Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Integer, ByVal lParam As Any) As Long
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+Private Declare Function SendMessageAny Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Integer, ByVal lParam As Any) As Long
 
-Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
-Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long  'MODULE 1142
+Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
+Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long  'MODULE 1142
 
-Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
-Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long) As Long
-Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
-Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long) As Long
+Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
+Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Const PROCESS_CREATE_PROCESS = &H80
 Private Const PROCESS_CREATE_THREAD = &H2
@@ -2226,7 +2226,7 @@ Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As
 Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
-Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
+Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
 Private Declare Function CreateProcess Lib "kernel32.dll" Alias "CreateProcessA" (ByVal lpApplicationName As String, ByVal lpCommandLine As String, ByVal lpProcessAttributes As Long, ByVal lpThreadAttributes As Long, ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, ByRef lpEnvironment As Any, ByVal lpCurrentDirectory As String, ByRef lpStartupInfo As STARTUPINFO, ByRef lpProcessInformation As PROCESS_INFORMATION) As Long
@@ -2252,9 +2252,9 @@ End Type
 Private MenuInfo As MENUBARINFO
 Private Const OBJID_MENU As Long = &HFFFFFFFD
 Private Const OBJID_SYSMENU As Long = &HFFFFFFFF
-Private Declare Function GetMenuBarInfo Lib "user32" (ByVal hwnd As Long, _
+Private Declare Function GetMenuBarInfo Lib "user32" (ByVal hWnd As Long, _
 ByVal idObject As Long, ByVal idItem As Long, ByRef pmbi As MENUBARINFO) As Boolean
-Private Declare Function GetMenu Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function GetMenu Lib "user32" (ByVal hWnd As Long) As Long
 
 ' PRIVATE constants for ShowWindow API declaration
 Private Const SW_HIDE = 0
@@ -2281,11 +2281,11 @@ End Type
 Private Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hWndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
 
-Private Declare Function IsIconic Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsZoomed Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function IsIconic Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 
-Private Declare Function IsWindowVisible Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
 Private Declare Function GetShortPathName Lib "Kernel32" _
       Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
@@ -2293,7 +2293,7 @@ Private Declare Function GetShortPathName Lib "Kernel32" _
 
 Private Declare Function FindWindowDLL Lib "user32" Alias "FindWindowA" (ByVal lpClassName As Long, ByVal lpWindowName As Long) As Long
 
-Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 
 Private Const GW_HWNDNEXT = 2
 Private Const WM_CLOSE = &H10
@@ -2322,7 +2322,7 @@ End Type
 
 Private Declare Function MoveWindow _
         Lib "user32" _
-        (ByVal hwnd As Long, _
+        (ByVal hWnd As Long, _
          ByVal x As Long, _
          ByVal y As Long, _
          ByVal nWidth As Long, _
@@ -2334,7 +2334,7 @@ Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 Private Declare Function Putfocus _
         Lib "user32" _
         Alias "SetFocus" _
-        (ByVal hwnd As Long) As Long
+        (ByVal hWnd As Long) As Long
 
 'Private Type FILETIME
 '    dwLowDate  As Long
@@ -2420,7 +2420,7 @@ Private Const WS_EX_TOOLWINDOW = &H80
 Private Const WS_EX_APPWINDOW = &H40000
 Private Const GA_ROOT = 2
 
-Private Declare Function GetAncestor Lib "user32.dll" (ByVal hwnd As Long, ByVal gaFlags As Long) As Long
+Private Declare Function GetAncestor Lib "user32.dll" (ByVal hWnd As Long, ByVal gaFlags As Long) As Long
 
 Private Const LVM_FIRST = &H1000
 Private Const LVM_SETEXTENDEDLISTVIEWSTYLE = LVM_FIRST + 54
@@ -2455,7 +2455,7 @@ Private Const FILE_ATTRIBUTE_SYSTEM = &H4
 Private Const FILE_ATTRIBUTE_TEMPORARY = &H100
 
 
-Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
 Private Const conSwNormal = 1
 
 
@@ -2541,7 +2541,7 @@ Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
      
 'HDC SET 2
 'Private Declare Function BeginPaint Lib "user32" (ByVal hwnd As Long, lpPaint As PAINTSTRUCT) As Long
-Private Declare Function GetClientRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function DPtoLP Lib "gdi32" (ByVal HDC As Long, lpPoint As POINTAPI, ByVal nCount As Long) As Long
 Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
 Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObject As Long) As Long
@@ -2624,7 +2624,7 @@ Private Const pi = 3.14159265359
 ' Dragging window
 Private m_bDragging As Boolean
 '-----------------------------
-Private Declare Function GetDC Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function GetDC Lib "user32" (ByVal hWnd As Long) As Long
 
 Private Type PALETTEENTRY
     peRed As Byte
@@ -2664,7 +2664,7 @@ Private Const SIZEPALETTE As Long = 104
 Private Const RASTERCAPS As Long = 38
 
 Private Declare Function MessageBoxTimeout Lib "user32.dll" Alias "MessageBoxTimeoutA" ( _
-ByVal hwnd As Long, _
+ByVal hWnd As Long, _
 ByVal lpText As String, _
 ByVal lpCaption As String, _
 ByVal uType As Long, _
@@ -2687,7 +2687,7 @@ Private Const GW_CHILD = 5
 'Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
 'Private Declare Function GetDesktopWindow Lib "user32" () As Long
 'Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
-Private Declare Function BringWindowToTop Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function BringWindowToTop Lib "user32" (ByVal hWnd As Long) As Long
 
 
 'Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -2738,13 +2738,13 @@ Public Function DirExist(sPath As String) As Boolean
     DirExist = (Dir(sPath, vbDirectory) <> "")
 End Function
 
-Function AlwaysOnTop(ByVal hwnd As Long)  'Makes a form always on top
-    SetWindowPos hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
+    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 
 End Function
-Function NotAlwaysOnTop(ByVal hwnd As Long)
+Function NotAlwaysOnTop(ByVal hWnd As Long)
     Dim Flags
-    SetWindowPos hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, Flags
+    SetWindowPos hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, Flags
 End Function
 
 
@@ -2875,7 +2875,8 @@ Private Sub Form_Load()
 '    Stop
 
     Form1.VAR_FORM1_EXIST = True
-    
+    Label60.Caption = "Me on Top 20 Sec"
+
     If App.PrevInstance = True Then End
     
     Dim i As String
@@ -3280,7 +3281,7 @@ If IsIDE = True Then Me.WindowState = vbNormal
 If IsIDE = False Then Me.WindowState = vbMinimized
     
 '__ Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
-SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 
 ' Command_Screen_Shot_Auto_ClipBoard_er.Caption = "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF" + vbCrLf + "Hitt Button Here to Change"
 
@@ -3348,7 +3349,7 @@ i_Menu_Count = 0
 
 For i = 0 To Forms.Count - 1
     Text_Checker_Form_Menu = ""
-    frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(i).hwnd), 0, "", Text_Checker_Form_Menu
+    frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(i).hWnd), 0, "", Text_Checker_Form_Menu
     Text_Checker_Form_Menu = UCase(Text_Checker_Form_Menu)
     For Each Control In Forms(i).Controls
         If InStr(UCase(Control.Name), "MNU_") > 0 Then
@@ -3445,12 +3446,12 @@ For Each Form In Forms
         XXER = Control.Visible
         If Err.Number > 0 Then XXER = False
         If XXER = True Then
-            If Form.hwnd = Me.hwnd Then
+            If Form.hWnd = Me.hWnd Then
             CONTROL_THIS_FORM_V_ = CONTROL_THIS_FORM_V_ + 1
             End If
             CONTROL_THIS_FORM_TOT_V_ = CONTROL_THIS_FORM_TOT_V_ + 1
         Else
-            If Form.hwnd = Me.hwnd Then
+            If Form.hWnd = Me.hWnd Then
                 CONTROL_THIS_FORM_VN = CONTROL_THIS_FORM_VN + 1
             End If
                 CONTROL_THIS_FORM_TOT_VN = CONTROL_THIS_FORM_TOT_VN + 1
@@ -4180,6 +4181,10 @@ Private Sub Label54_Click()
 
 End Sub
 
+Private Sub Label60_Click()
+'Label60.CAP
+End Sub
+
 Private Sub Label64_Click()
 
 TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 20)
@@ -4245,10 +4250,11 @@ Private Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
 '    If IsIDE = True And IsIDE_TEST = True Then Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Interval = 10000
 '
     'Label60_HERE
-    Label60.Caption = "Me on Top at Loader" + Str(Counter_ALWAYS_ON_TOP_TIMER) + "_20 Second YES"
+    ' Label60.Caption = "Me on Top at Loader" + Str(Counter_ALWAYS_ON_TOP_TIMER) + "_20 Second YES"
+    Label60.Caption = "Me on Top " + Str(Counter_ALWAYS_ON_TOP_TIMER) + "_20 Sec"
     
     Counter_ALWAYS_ON_TOP_TIMER = Counter_ALWAYS_ON_TOP_TIMER - 1
-    SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     If Counter_ALWAYS_ON_TOP_TIMER > -1 Then Exit Sub
     
@@ -4261,9 +4267,9 @@ Private Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
     'SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     ' Remove window from top
-    SetWindowPos Me.hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 '    Label60.Caption = "Me on Top @ Loader EXE Timer 20 Second NOT DONE"
-    Label60.Caption = "Me on Top at Loader 20 Second YES"
+    Label60.Caption = "Me on Top 20 Sec"
     Label60.BackColor = Label59.BackColor '49 58_59
     Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = False
     'Label60.Caption = "Me on Top @ Loader EXE Timer 20 Second Already ON"
@@ -5594,8 +5600,8 @@ End Sub
 Sub ShowCustomCaret(ByVal width As Integer, ByVal height As Integer)
     On Error Resume Next
     With Screen.ActiveForm.ActiveControl
-        CreateCaret .hwnd, 0, width, height
-        ShowCaret .hwnd
+        CreateCaret .hWnd, 0, width, height
+        ShowCaret .hWnd
     End With
 
 '    mWnd_VB_VbaWindow_MAXIMIZE
@@ -6031,7 +6037,7 @@ Private Function Menu_Height()
  
     MenuInfo.cbSize = Len(MenuInfo)
     
-    If GetMenuBarInfo(Me.hwnd, OBJID_MENU, 0, MenuInfo) Then
+    If GetMenuBarInfo(Me.hWnd, OBJID_MENU, 0, MenuInfo) Then
    
         With MenuInfo.rcBar
        
@@ -6106,11 +6112,11 @@ Private Sub MNU_ME_ON_TOP_Click()
     Beep
     ' Put window on top of all others
     'SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-    SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = False
     Label60.BackColor = Label49.BackColor '49 58_59
-    Label60.Caption = "Me on Top @ Loader 20 Second NOT _ DONE"
+    Label60.Caption = "Me on Top 20 Sec NOT"
     MNU_ME_ON_TOP.Caption = "[__ ME ON TOP = YES __]"
     Me.chkOnTop.Value = 1
 End Sub
@@ -6646,8 +6652,8 @@ Dim HWND_NUMBERING As Long
 '    rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
 '    rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
     
-    rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
-    rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
     
     SCREEN_CAP_PICTURE.Show
     
@@ -8240,10 +8246,10 @@ Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column _
  Dim c As ColumnHeader
  If Column Is Nothing Then
   For Each c In LV.ColumnHeaders
-   SendMessage LV.hwnd, LVM_FIRST + 30, c.Index - 1, -1
+   SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
   Next
  Else
-  SendMessage LV.hwnd, LVM_FIRST + 30, Column.Index - 1, -1
+  SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
  End If
  LV.Refresh
 End Sub
@@ -8344,18 +8350,18 @@ Function GetParentTitle(ByVal Handle As Long) As String
 
 End Function
 
-Function GetWindowTitle(ByVal hwnd As Long) As String
+Function GetWindowTitle(ByVal hWnd As Long) As String
    Dim l As Long
    Dim s As String
-   l = GetWindowTextLength(hwnd)
+   l = GetWindowTextLength(hWnd)
    s = Space(l + 1)
-   GetWindowText hwnd, s, l + 1
+   GetWindowText hWnd, s, l + 1
    GetWindowTitle = Left$(s, l)
 End Function
-Function GetWindowClass(ByVal hwnd As Long) As String
+Function GetWindowClass(ByVal hWnd As Long) As String
     Dim ret As Long, sText As String
     sText = Space(255)
-    ret = GetClassName(hwnd, sText, 255)
+    ret = GetClassName(hWnd, sText, 255)
     sText = Left$(sText, ret)
    GetWindowClass = sText
 End Function
@@ -10249,15 +10255,15 @@ VB_Error:
 End Sub
 
 
-Property Let WindowVisible(hwnd As Long, New_Value As Boolean)
+Property Let WindowVisible(hWnd As Long, New_Value As Boolean)
 
-    Call ShowWindow(hwnd, IIf(New_Value, SW_SHOW, SW_HIDE))
+    Call ShowWindow(hWnd, IIf(New_Value, SW_SHOW, SW_HIDE))
 
 End Property
 
-Property Get WindowVisible(hwnd As Long) As Boolean
+Property Get WindowVisible(hWnd As Long) As Boolean
 
-    WindowVisible = (IsWindowVisible(hwnd) > 0)
+    WindowVisible = (IsWindowVisible(hWnd) > 0)
   
 End Property
 
@@ -10286,7 +10292,7 @@ Private Sub chkOnTop_Click()
     If chkOnTop.Value = 1 Then
         ' Put window on top of all others
         
-        SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
         SaveSetting "EliteSpy+", "Settings", "AlwaysOnTop", "1"
         MNU_ME_ON_TOP.Caption = "[__ ME ON TOP = YES __]"
         Label60.BackColor = Label49.BackColor '49 58_59
@@ -10298,7 +10304,7 @@ Private Sub chkOnTop_Click()
 
     Else
         ' Remove window from top
-        SetWindowPos Me.hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
         SaveSetting "EliteSpy+", "Settings", "AlwaysOnTop", "0"
         MNU_ME_ON_TOP.Caption = "[__ ME ON tOP = NOT __]"
         'Label60.BackColor = Label59.BackColor '49 58_59
@@ -10308,7 +10314,7 @@ Private Sub chkOnTop_Click()
     End If
     
     Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = False
-    Label60.Caption = "Me on Top @ Loader 20 Second NOT DONE"
+    Label60.Caption = "Me on Top 20 Sec NOT"
     'Label60.BackColor = Label59.BackColor '49 58_59
 
 End Sub
@@ -10322,7 +10328,7 @@ Private Sub cmdMoveMax_Click()
     ' --------------------------------------------------------------------------------
 
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
 
     Dim Rect_Get As RECT
     Dim HX, HY, HW, HH, SSHW, SSHH
@@ -10355,7 +10361,7 @@ End Sub
 Private Sub cmdMaximize_Click()
     ' Maximize window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     ShowWindow txtMhWnd.Text, SW_MAXIMIZE
 
@@ -10367,7 +10373,7 @@ Private Sub cmdMinimize_Click()
     
     ' Minimize window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     ShowWindow txtMhWnd.Text, SW_MINIMIZE
     'ShowWindow txtMhWnd.Text, SW_NORMAL
@@ -10391,7 +10397,7 @@ Private Sub cmdNormal_Click()
     
     Dim lhWndParentX
     
-    If Val(txtMhWnd.Text) = 0 Then txtMhWnd.Text = Me.hwnd
+    If Val(txtMhWnd.Text) = 0 Then txtMhWnd.Text = Me.hWnd
    
     ' txtMhWnd.Text = GetParent(Val(txtMhWnd.Text))
     ' txtMhWnd.Text = GetParentHwnd(Val(txtMhWnd.Text))
@@ -10410,7 +10416,7 @@ End Sub
 Private Sub cmdFlash_Click()
     ' Flash window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     FlashWindow txtMhWnd.Text, 3
     
@@ -10421,9 +10427,9 @@ End Sub
 Private Sub cmdEnable_Click()
     ' Enable window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     EnableWindow txtMhWnd.Text, 1
 
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
@@ -10433,9 +10439,9 @@ End Sub
 Private Sub cmdDisable_Click()
     ' Disable window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd: Exit Sub
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd: Exit Sub
     EnableWindow txtMhWnd.Text, 0
 
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
@@ -10448,7 +10454,7 @@ Private Sub cmdSetTitle_Click()
     Dim i_Result
     
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     ' Ask user for new window title
     sTitle = InputBox("Enter new window title:", "EliteSpy +")
@@ -10472,7 +10478,7 @@ Private Sub cmdOnTop_Click()
     
     If txtMhWnd.Text = "" Then
         Call MNU_ME_ON_TOP_Click
-        If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+        If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
         Exit Sub
     End If
     
@@ -10485,7 +10491,7 @@ Private Sub cmdOnTop_Click()
 End Sub
 Private Sub cmdNotOnTop_Click()
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
 
     ' Remove window from top
     SetWindowPos txtMhWnd.Text, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
@@ -10500,7 +10506,7 @@ Private Sub cmdHide_Click()
     Beep
     
     If txtMhWnd.Text = "" Then
-        txtMhWnd.Text = Me.hwnd
+        txtMhWnd.Text = Me.hWnd
         Call ChunkCodeOnMouse
         MsgBox "DON'T HIDE OWN WINDOW", vbMsgBoxSetForeground
         Exit Sub
@@ -10515,7 +10521,7 @@ End Sub
 Private Sub cmdShow_Click()
     ' Show window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     ShowWindow txtMhWnd.Text, SW_SHOW
 
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
@@ -10525,7 +10531,7 @@ End Sub
 Private Sub cmdTerminate_Click()
     ' Close window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd: Exit Sub
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd: Exit Sub
     SendMessage txtMhWnd.Text, WM_CLOSE, 0, 0
 End Sub
 
@@ -11034,11 +11040,11 @@ lhWndParentX = GetParentHwnd(LHWND)
 
 If GetAsyncKeyState(27) < 0 Then
     If IsIDE = True Then
-        If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Unload Me
         End If
     Else
-        If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
             Me.WindowState = vbMinimized
         End If
     End If
@@ -11073,21 +11079,21 @@ End If
 
 'C
 If GetAsyncKeyState(67) < 0 Then
-    If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Call Label_KILL_CMD_Click
     End If
 End If
 
 'A
 If GetAsyncKeyState(65) < 0 Then
-    If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Call Label_KILL_AUTOHOTKEY_Click
     End If
 End If
 
 'K
 If GetAsyncKeyState(75) < 0 Then
-    If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Call Label_KILL_CMD_AND_AHK_Click
     End If
 End If
