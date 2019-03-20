@@ -146,6 +146,7 @@ Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 DIM JPG_BEEN_DONE
+DIM MP4_BEEN_DONE
 
 DIM STOP_PROGRESS
 DIM IX_ERROR_MESSENGER
@@ -484,7 +485,15 @@ Sub Main
 		MSGBOX I
 	END IF
 	
-	IF I_COUNT_1>=0 AND JPG_BEEN_DONE=TRUE THEN 
+	' ---------------------------------------------------------------
+	' MP4_BEEN_DONE=TRUE
+	' WOULD BE GOOD BUT NOT REQUIRE IF ONLY MP4
+	' IT DOESN'T REQUIRE CONVERSION CODING STRICTLY
+	' ---------------------------------------------------------------
+	' Wed 20-Mar-2019 04:43:54
+	' ---------------------------------------------------------------
+	
+	IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
 		
 		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 	
@@ -598,6 +607,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF 
 	
 	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".JPG" then JPG_BEEN_DONE=TRUE
+	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".MP4" then MP4_BEEN_DONE=TRUE
 	
 	' ".JPG"
 	' ".AVI"
