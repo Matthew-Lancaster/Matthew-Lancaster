@@ -1880,6 +1880,9 @@ Begin VB.Form Form1
       Caption         =   "GIVE ME UPTIME"
       Visible         =   0   'False
    End
+   Begin VB.Menu MNU_CLIPBOARDER_REPLACE_ER_AND 
+      Caption         =   "CLIPBOARD REPLACE ""AND"""
+   End
    Begin VB.Menu MNU_OS_RESTART 
       Caption         =   "OS RESTART"
    End
@@ -2229,7 +2232,7 @@ Public VAR_FORM1_EXIST
 
 
 Private Type POINTAPI
-        x As Long
+        X As Long
         y As Long
 End Type
 
@@ -2290,7 +2293,7 @@ Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (
 Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
 Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long) As Long
 Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
-Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Const PROCESS_CREATE_PROCESS = &H80
 Private Const PROCESS_CREATE_THREAD = &H2
@@ -2455,7 +2458,7 @@ End Type
 Private Declare Function MoveWindow _
         Lib "user32" _
         (ByVal hWnd As Long, _
-         ByVal x As Long, _
+         ByVal X As Long, _
          ByVal y As Long, _
          ByVal nWidth As Long, _
          ByVal nHeight As Long, _
@@ -2668,7 +2671,7 @@ Dim sConnType As String * 255
 Private Declare Function Escape Lib "gdi32" (ByVal HDC As Long, ByVal nEscape As Long, ByVal nCount As Long, ByVal lpInData As String, lpOutData As Any) As Long
 Private Declare Function CreateCompatibleDC Lib "gdi32" (ByVal HDC As Long) As Long
 Private Declare Function CreateCompatibleBitmap Lib "gdi32" (ByVal HDC As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
-Private Declare Function StretchBlt Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long
+Private Declare Function StretchBlt Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long
 Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
      
 'HDC SET 2
@@ -2680,11 +2683,11 @@ Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObj
 'Private Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal HDC As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As Size) As Long
 Private Declare Function SetBkMode Lib "gdi32" (ByVal HDC As Long, ByVal nBkMode As Long) As Long
 Private Declare Function BeginPath Lib "gdi32" (ByVal HDC As Long) As Long
-Private Declare Function TextOut Lib "gdi32" Alias "TextOutA" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, ByVal lpString As String, ByVal nCount As Long) As Long
+Private Declare Function TextOut Lib "gdi32" Alias "TextOutA" (ByVal HDC As Long, ByVal X As Long, ByVal y As Long, ByVal lpString As String, ByVal nCount As Long) As Long
 Private Declare Function EndPath Lib "gdi32" (ByVal HDC As Long) As Long
 Private Declare Function SelectClipPath Lib "gdi32" (ByVal HDC As Long, ByVal iMode As Long) As Long
-Private Declare Function MoveToEx Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, lpPoint As POINTAPI) As Long
-Private Declare Function LineTo Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long) As Long
+Private Declare Function MoveToEx Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal y As Long, lpPoint As POINTAPI) As Long
+Private Declare Function LineTo Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal y As Long) As Long
      
 'HDC SET 3
 'Private Declare Function CreateCompatibleBitmap Lib "gdi32" (ByVal HDC As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
@@ -2693,7 +2696,7 @@ Private Declare Function GetSystemPaletteEntries Lib "gdi32" (ByVal HDC As Long,
 Private Declare Function CreatePalette Lib "gdi32" (lpLogPalette As LOGPALETTE) As Long
 Private Declare Function SelectPalette Lib "gdi32" (ByVal HDC As Long, ByVal hPalette As Long, ByVal bForceBackground As Long) As Long
 Private Declare Function RealizePalette Lib "gdi32" (ByVal HDC As Long) As Long
-Private Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
+Private Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal X As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
  
 'HCD SET 4
 Private Declare Function OleCreatePictureIndirect Lib "olepro32.dll" (PicDesc As PicBmp, RefIID As GUID, ByVal fPictureOwnsHandle As Long, IPic As IPicture) As Long
@@ -2983,6 +2986,8 @@ End If
 End Sub
 
 Private Sub Form_Load()
+
+    Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
 
     FORM_LOAD_TRUE = False
     
@@ -4417,7 +4422,7 @@ Label23_Click
 
 End Sub
 
-Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer, X As Single, y As Single)
 LISTVIEW_2_OR_3_HITT = 2
 End Sub
 
@@ -4445,8 +4450,52 @@ Private Sub lstProcess_3_SORTER_ListView_KeyDown(KeyCode As Integer, Shift As In
 LISTVIEW_2_OR_3_HITT = 3
 End Sub
 
-Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, X As Single, y As Single)
 LISTVIEW_2_OR_3_HITT = 3
+End Sub
+
+Private Sub MNU_CLIPBOARDER_REPLACE_ER_AND_Click()
+
+Dim VAR_ST
+Dim CHANGE_VAR_1
+Dim CHANGE_VAR_2
+Dim CH_1
+Dim CH_2
+Dim CH_3
+Dim CMOS_AND_TTL
+Dim R1
+Dim R2
+Dim X
+Debug.Print "----"
+
+VAR_ST = Clipboard.GetText
+CHANGE_VAR_1 = LCase(" AND ")
+X = Len(CHANGE_VAR_1) + 1
+For R1 = 0 To Len(CHANGE_VAR_1) + 1
+    For R2 = 1 To Len(CHANGE_VAR_1)
+        
+        If R1 > 0 And R1 < X Then
+            CHANGE_VAR_2 = CHANGE_VAR_1
+            CH_2 = UCase(Mid(CHANGE_VAR_2, R2, 1))
+            CH_3 = UCase(Mid(CHANGE_VAR_2, R1, 1))
+            Mid(CHANGE_VAR_2, R2, 1) = CH_2
+            Mid(CHANGE_VAR_2, R1, 1) = CH_3
+        End If
+        If R1 = 0 Then CHANGE_VAR_2 = CHANGE_VAR_1
+        If R1 = X Then CHANGE_VAR_2 = UCase(CHANGE_VAR_1)
+        If InStr(CMOS_AND_TTL, CHANGE_VAR_2) = 0 Then
+            Debug.Print CHANGE_VAR_2
+            ' VAR_ST = Replace(VAR_ST, " " + CHANGE_VAR + " ", " & ")
+        End If
+        
+        CMOS_AND_TTL = CMOS_AND_TTL + "--" + CHANGE_VAR_2 + "__"
+        
+    Next
+Next
+
+Stop
+
+
 End Sub
 
 Private Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
@@ -4789,9 +4838,9 @@ Private Sub Timer_MOUSE_CORD_Timer()
     ' Get cursor cordinates
     GetCursorPos tPA
     ' Set label caption to cursor cordinates
-    lblCordi.Caption = "X: " & tPA.x & "  Y: " & tPA.y
+    lblCordi.Caption = "X: " & tPA.X & "  Y: " & tPA.y
     
-    LHWND = WindowFromPoint(tPA.x, tPA.y)
+    LHWND = WindowFromPoint(tPA.X, tPA.y)
     If Old_lHwnd = LHWND Then
         If FindHandle_HWND_COUNT_CHANGE = True Then
             Call EnumProcess
@@ -4808,7 +4857,7 @@ Private Sub Timer_MOUSE_CORD_Timer()
         
         i_string = "USE " + Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20), "00")) + " SECOND HOOVER"
         If i_string <> MNU_HOOVER_20_SECOND.Caption Then MNU_HOOVER_20_SECOND.Caption = i_string
-            mWnd = WindowFromPoint(tPA.x, tPA.y)
+            mWnd = WindowFromPoint(tPA.X, tPA.y)
             Call ChunkCodeOnMouse
         Else
             
@@ -6354,7 +6403,7 @@ End Sub
 '////////////////////////////////////////////////////////////////////
 '//// CROSSHAIR EVENTS
 '////////////////////////////////////////////////////////////////////
-Private Sub picCrossHair_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub picCrossHair_MouseDown(Button As Integer, Shift As Integer, X As Single, y As Single)
     ' If user pressed left mouse button and we are not dragging
     If Button = vbLeftButton And Not m_bDragging Then
         picCrossHair_MouseMove_Dragging_VAR = True
@@ -6411,7 +6460,7 @@ Private Sub picCrossHair_MouseMove_02()
 End Sub
 
 
-Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, X As Single, y As Single)
     
     picCrossHair_MouseMove_02
     
@@ -6423,7 +6472,7 @@ Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, x As Sin
 
 End Sub
 
-Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, X As Single, y As Single)
     ' If user pressed left mouse button and we are dragging
     If Button = vbLeftButton And m_bDragging Then
         ' Set dragging flag to true
@@ -6489,7 +6538,7 @@ Sub ChunkCodeOnMouse()
                 ' Get cursor position
                 GetCursorPos tPA
                 ' Get window handle from point
-                LHWND = WindowFromPoint(tPA.x, tPA.y)
+                LHWND = WindowFromPoint(tPA.X, tPA.y)
                 ' Get window caption
             End If
         End If
@@ -8579,13 +8628,13 @@ End Function
 
 
 
-Private Sub FindCursor(x, y)
+Private Sub FindCursor(X, y)
 
 Dim P As POINTAPI
 
 GetCursorPos P
 '   return x and y co-ordinate
-x = P.x ' / GetSystemMetrics(0) * Screen.Width
+X = P.X ' / GetSystemMetrics(0) * Screen.Width
 '   for current cursor position
 y = P.y '/ GetSystemMetrics(1) * Screen.Height
 
@@ -10290,12 +10339,12 @@ Public Function GetFileFromHwnd(lngHwnd) As String
 
 Dim lngProcess&, hProcess&, bla&, c&
 Dim strFile As String
-Dim x
+Dim X
 
 strFile = String$(256, 0)
-x = GetWindowThreadProcessId(lngHwnd, lngProcess)
+X = GetWindowThreadProcessId(lngHwnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
+X = EnumProcessModules(hProcess, bla, 4&, c)
 c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
 GetFileFromHwnd = Left(strFile, c)
 
@@ -10308,12 +10357,12 @@ Public Function GetFileFromProc(lngProcess) As String
 'Dim lngProcess&, hProcess&, bla&, C&
 Dim hProcess&, bla&, c&
 Dim strFile As String
-Dim x
+Dim X
 
 strFile = String$(256, 0)
 'x = GetWindowThreadProcessId(lngHwnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
+X = EnumProcessModules(hProcess, bla, 4&, c)
 c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
 GetFileFromProc = Left(strFile, c)
 
@@ -11243,7 +11292,7 @@ If IsIDE = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 1000
 
 Dim tPA As POINTAPI, LHWND As Long, O_lhWndParent, lhWndParent, lhWndParentX
 GetCursorPos tPA
-LHWND = WindowFromPoint(tPA.x, tPA.y)
+LHWND = WindowFromPoint(tPA.X, tPA.y)
 O_lhWndParent = LHWND
 lhWndParent = GetParent(LHWND)
 If lhWndParent = 0 Then lhWndParent = O_lhWndParent

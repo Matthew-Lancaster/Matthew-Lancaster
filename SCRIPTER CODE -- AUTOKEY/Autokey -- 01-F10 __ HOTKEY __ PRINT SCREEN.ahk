@@ -197,6 +197,25 @@ ESC::
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
+	IfWinActive Quick Watch ahk_exe vb6.exe
+	{	WinClose
+		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+
+	; ahk_exe VB6.EXE
+	IfWinActive Microsoft Visual Basic ahk_class #32770
+	{	WinClose
+		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+; OK
+; Help
+; Compile error:
+
+; Expected: Then or GoTo
+
+	
 	
 	
 	SetTitleMatchMode 2  ; Specify Full path
@@ -225,6 +244,7 @@ ESC::
 	IF VAR_DONE_ESCAPE_KEY=FALSE
 	{
 		SENDINPUT {ESC}
+		SOUNDBEEP 4000,50
 	}
 
 	
