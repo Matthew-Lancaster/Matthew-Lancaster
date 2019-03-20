@@ -3325,32 +3325,75 @@ SetTitleMatchMode 2
 ; -------------------------------------------------------------------
 ; WinGet, HID, ID,TeamViewer ahk_class #32770
 ; -------------------------------------------------------------------
-WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
-WinGet MMX, MinMax, ahk_id %HID%
-If (HID>0 and MMX>0)
-{
-	; msgbox % MMX
-	; msgbox hh
-	Process, Exist, ICACLS.EXE
-	If ErrorLevel > 0
-	{
-		Process, Close, ICACLS.EXE
-		SoundBeep , 2000 , 100
-	}
-	Process, Exist, TAKEOWN
-	If ErrorLevel > 0
-	{
-		Process, Close, TAKEOWN
-		SoundBeep , 2000 , 100
-	}
 
-	WinGet, HID, ID, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
+
+
+
+; WinGet, HID, ID, ahk_class Notepad++
+; IF HID>0 
+; {
+	; WinMinimize ahk_ID %HID%
+	; WinGet MMX, MinMax, ahk_id %HID%
+	; TOOLTIP % MMX
+; }
+
+; Free license (non-commercial use only)
+; www.teamviewer.com
+; Session list
+
+OutputVar_2=
+MMX=
+
+WinGet, HID, ID,TeamViewer Panel ahk_class TV_ControlWin
+If HID>0
+{
+	ControlGettext, OutputVar_2, Static1, ahk_id %HID%
+	; WinGet MMX, MinMax, ahk_id %HID%
+	; WinGetPos, WinLeft, WinTop, WinWidth, WinHeight, ahk_id %HID%
+	; ControlGetPos, x, y, w, h, Static1, ahk_id %HID%
+	; TOOLTIP %OutputVar_2%"`n"%HID% " -- " %MMX%"`n"%WinLeft% " -- " %WinTop% " -- " %WinWidth% " -- " %WinHeight%"`n"%x% " -- " %y% " -- " %w% " -- " %h%
+	IF Instr(OutputVar_2,"Free license (non-commercial use only)")
 	{
-		IF HID
-		{
-			WINCLOSE, ahk_id %HID%
-		}
+		soundbeep 1500,200
 	}
+}
+
+WinGet, HID, ID, ahk_id %HID%
+If !mmx
+{
+	; soundbeep 1500,200
+}
+
+SET_GO=FALSE
+If HID>0
+	SET_GO=TRUE
+IF Instr(OutputVar_2,"Free license (non-commercial use only)")
+	SET_GO=TRUE
+
+If SET_GO=TRUE
+{
+	MSGBOX HERE
+	; ; msgbox hh
+	; Process, Exist, ICACLS.EXE
+	; If ErrorLevel > 0
+	; {
+		; Process, Close, ICACLS.EXE
+		; SoundBeep , 2000 , 100
+	; }
+	; Process, Exist, TAKEOWN
+	; If ErrorLevel > 0
+	; {
+		; Process, Close, TAKEOWN
+		; SoundBeep , 2000 , 100
+	; }
+
+	; WinGet, HID, ID, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
+	; {
+		; IF HID
+		; {
+			; WINCLOSE, ahk_id %HID%
+		; }
+	; }
 }
 
 ; ------------------------------------------------------------
@@ -3414,7 +3457,7 @@ IF SET_GO=TRUE
 	; ---------------------------------------------------------------
 	; SET ICACLS -- TAKEOWN OWNER
 	; ---------------------------------------------------------------
-	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN
+	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , HIDE
 }
 
 DetectHiddenWindows, % dhw

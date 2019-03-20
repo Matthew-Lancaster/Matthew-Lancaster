@@ -117,73 +117,85 @@ RETURN
 
 ESC::
 	SetTitleMatchMode 3  ; Specify Full path
+
+	VAR_DONE_ESCAPE_KEY=FALSE
 	
 	IfWinActive ahk_class ConsoleWindowClass
 	{
 		WinClose, ahk_class ConsoleWindowClass
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
 	IfWinActive ahk_class IrfanView
 	{
 		WinClose, IrfanView
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
 	IfWinActive ahk_class MediaPlayerClassicW
 	{
 		Process, Close, mpc-hc64.exe
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	IfWinActive ahk_class Afx:00007FF6A22C0000:b:0000000000010003:0000000000000006:0000000000000000
 	{
 		Process, Close, mpc-hc64.exe
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	IfWinActive ahk_class AfxControlBar140su
 	{
 		Process, Close, mpc-hc64.exe
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	IfWinActive ahk_class FullScreenClass
 	{
 		Process, Close, mpc-hc64.exe
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
 	; Find ahk_class #32770 ahk_exe notepad++.exe
 	IfWinActive Find ahk_exe notepad++.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
 	; Replace ahk_class #32770 ahk_exe notepad++.exe
 	IfWinActive Replace ahk_exe notepad++.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
-	
 	
 	; Microsoft Visual Basic ahk_class #32770 ahk_exe vb6.exe
 	IfWinActive Microsoft Visual Basic ahk_exe vb6.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
 	; Find ahk_class #32770 ahk_exe vb6.exe
 	IfWinActive Find ahk_exe vb6.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	; Find ahk_class #32770 ahk_exe vb6.exe
 	IfWinActive Replace ahk_exe vb6.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	IfWinActive Quick Watch ahk_exe vb6.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
 	
@@ -198,6 +210,7 @@ ESC::
 	{	
 		Control, Hide ,, Object Browser
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	; ---------------------------------------------------------------
 	
@@ -209,6 +222,12 @@ ESC::
 	; & An ampersand 
 	; ---------------------------------------------------------------
 
+	IF VAR_DONE_ESCAPE_KEY=FALSE
+	{
+		SENDINPUT {ESC}
+	}
+
+	
 Return
 
 ; -------------------------------------------------------------------

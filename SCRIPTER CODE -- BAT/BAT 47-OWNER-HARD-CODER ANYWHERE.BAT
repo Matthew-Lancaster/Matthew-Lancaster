@@ -134,6 +134,13 @@ REM -- AND DONE IT IN ADMINISTRATOR
 REM -- THAT USE FILE NOT IN ADMINISTRATOR BEFORE WOULD BECOME ACCESSIBLE AGAIN
 REM -- AND JOB TAKE TWICE AS LONG TO GET THERE
 REM -- --
+REM -- GIVE COULD BE LESS BETTER OFF AS ADMINISTRATOR WORK WELL ON LOCAL COMPUTER
+REM -- BUT NETWORK ACCESS MIGHT SUFFER 
+REM -- SOON FIND OUT -- NOT CORRECT STILL NOT WORKER
+REM -- --
+REM -- THE RESULT FOUND BY TEST _ ADMINISTRATOR WON'T EASILY ALLOW ACCESS TO FOLDER
+REM -- WHEN EVERYONE SETTING WILL OVER NETWORK
+REM -- --
 REM -- AND GOODSYNC HAVE BEEN VERY ANNOYER
 REM -- BECAUSE THEY GOT A WARNING NOT TO USE GOODSYNC DIRECT P2P MODE
 REM -- ONLY BECAUSE EFFICIENCY IS LESS 2/2
@@ -272,6 +279,8 @@ REM ----------------------------------------------------------------
 SET LDA=0
 REM ---------------------------------------------------------------- 
 SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\VB6-ARC"
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6-EXE"
@@ -319,6 +328,20 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\0 00 MUSIC ---"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C:\RF"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 REM ---------------------------------------------------------------- 
@@ -445,13 +468,14 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		)
 		
 		IF !VAR_FLAG!==NOT (
-			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
-			ECHO !COMMAND_VAR!
-			!COMMAND_VAR!
-			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
-			ECHO !COMMAND_VAR!
-			!COMMAND_VAR!
-			ECHO.
+			
+			REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
+			REM ECHO !COMMAND_VAR!
+			REM !COMMAND_VAR!
+			REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
+			REM ECHO !COMMAND_VAR!
+			REM !COMMAND_VAR!
+			REM ECHO.
 
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Everyone /T /C /L /Q 
 			ECHO !COMMAND_VAR!
@@ -532,18 +556,29 @@ REM ----
 					CALL :SET_COUNTER_FOR_DISPLAY_03_WRITE_APPENDER_LOGGER_INFO
 					ECHO !DASH_LINE__________!
 					SET PATH_TO_DO="!TARGET_!\%%F"
-					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
+					SET PATH_TO_DO_02="!TARGET_!\%%F"
+					ECHO PATH_TO_DO = !PATH_TO_DO_02:"=!
 					ECHO !DASH_LINE__________!
 					ECHO !PATH_TO_DO!
 
-					SET COMMAND_VAR="!TARGET_!\%%F" /C /L /Q /setowner "Everyone"
+					SET COMMAND_VAR=ICACLS !PATH_TO_DO! /C /L /Q /setowner "Everyone"
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
 					ECHO.
-					SET COMMAND_VAR="!TARGET_!\%%F" /C /L /Q /grant Everyone:F
+					SET COMMAND_VAR=ICACLS !PATH_TO_DO! /C /L /Q /grant Everyone:F
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
 					ECHO.
+					
+					REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
+					REM ECHO !COMMAND_VAR!
+					REM !COMMAND_VAR!
+					REM ECHO.
+					REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
+					REM ECHO !COMMAND_VAR!
+					REM !COMMAND_VAR!
+					REM ECHO.
+					
 				)
 			)
 		)
@@ -586,19 +621,30 @@ GOTO :EOF
 					CALL :SET_COUNTER_FOR_DISPLAY_02
 					CALL :SET_COUNTER_FOR_DISPLAY_03_WRITE_APPENDER_LOGGER_INFO
 					ECHO !DASH_LINE__________!
+
 					SET PATH_TO_DO="!TARGET_!\%%F"
-					ECHO PATH_TO_DO = !PATH_TO_DO:"=!
+					SET PATH_TO_DO_02="!TARGET_!\%%F"
+					ECHO PATH_TO_DO = !PATH_TO_DO_02:"=!
 					ECHO !DASH_LINE__________!
 					ECHO !PATH_TO_DO!
 
-					SET COMMAND_VAR=ICACLS "!TARGET_!\%%F" /T /C /L /Q /setowner "Everyone"
+					SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /C /L /Q /setowner "Everyone"
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
 					ECHO.
-					SET COMMAND_VAR=ICACLS "!TARGET_!\%%F" /T /C /L /Q /grant Everyone:F
+					SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /C /L /Q /grant Everyone:F
 					ECHO !COMMAND_VAR!
 					!COMMAND_VAR! >NUL
 					ECHO.
+					
+					REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
+					REM ECHO !COMMAND_VAR!
+					REM !COMMAND_VAR!
+					REM ECHO.
+					REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
+					REM ECHO !COMMAND_VAR!
+					REM !COMMAND_VAR!
+					REM ECHO.
 				)
 			)
 		)
@@ -782,14 +828,14 @@ GOTO :EOF
 	)
 	IF !WORK_JOB_02!==TRUE (
 		SET I_STR_10=!LDD_03! OF !LDA_03! -- 02 OF 03 ALL DRIVE ROOT
-		SET I_STR_13=!I_STR_13!                ---- CURRENT WORKER 
+		SET I_STR_13=!I_STR_13!
 		CALL :PADD_EXTRA_ON RESULT I_STR_13
 		SET I_STR_13=!I_STR_13!!CURRENT_WORKER_VAR!
 		SET I_STR_XX=!I_STR_13!
 	)
 	IF !WORK_JOB_03!==TRUE (
 		SET I_STR_10=!LDD_04! OF !LDA_04! -- 03 OF 03 ALL E DRIVE ROOT WITH SUB
-		SET I_STR_14=!I_STR_14!                ---- CURRENT WORKER  
+		SET I_STR_14=!I_STR_14!
 		CALL :PADD_EXTRA_ON RESULT I_STR_14
 		SET I_STR_14=!I_STR_14!!CURRENT_WORKER_VAR!
 		SET I_STR_XX=!I_STR_14!
