@@ -45,7 +45,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; SESSION 02 03 
+; SESSION 002 AND 003 
 ; -------------------------------------------------------------------
 ; WAKE NEXT DAY AND MORE WORK _ QUITE A LOT OF TUNER ALL WEEK
 ; FINE TUNER THE TIMING OF FACEBOOK VIDEO REPEATER
