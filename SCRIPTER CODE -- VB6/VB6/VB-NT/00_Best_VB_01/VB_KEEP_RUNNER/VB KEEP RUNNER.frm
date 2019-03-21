@@ -3867,8 +3867,10 @@ GS_NAME_02 = "GoodSync-*.LOG"
 If FSO.FolderExists(GS_NAME_01) = False Then
     IRESULT = CreateFolderTree(GS_NAME_01)
 End If
+If FSO.FolderExists(GS_NAME_01) = False Then Exit Sub
 File_GOODSYNC.Path = GS_NAME_01
 File_GOODSYNC.Pattern = GS_NAME_02
+File_GOODSYNC.Refresh
 If File_GOODSYNC.ListCount > 0 Then
     GOODSYNC = File_GOODSYNC.List(File_GOODSYNC.ListCount - 1)
     Label_GOODSYNC_01.Caption = GOODSYNC
@@ -3891,6 +3893,10 @@ If File_GOODSYNC.ListCount > 0 Then
     End If
 End If
 
+End Sub
+
+Private Sub Label_GOODSYNC_02_HOUR_Click()
+'Label_GOODSYNC_02_HOUR
 End Sub
 
 Private Sub Label_KILL_CMD_AND_AHK_Click()
