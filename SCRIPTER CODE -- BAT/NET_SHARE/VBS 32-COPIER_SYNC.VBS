@@ -271,7 +271,7 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 
 ' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT"
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT"
 ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1

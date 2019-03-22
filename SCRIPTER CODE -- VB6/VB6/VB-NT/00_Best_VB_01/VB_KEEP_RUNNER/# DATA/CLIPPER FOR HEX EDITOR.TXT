@@ -1,4 +1,0 @@
-	<execution>
-		<count>4834</count>
-		<overalltime>16808:05:46.895</overalltime>
-	</execution>
