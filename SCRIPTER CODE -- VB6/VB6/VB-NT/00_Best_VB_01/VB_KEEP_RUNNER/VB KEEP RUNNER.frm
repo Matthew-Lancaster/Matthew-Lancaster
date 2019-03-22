@@ -1880,9 +1880,6 @@ Begin VB.Form Form1
       Caption         =   "GIVE ME UPTIME"
       Visible         =   0   'False
    End
-   Begin VB.Menu MNU_HEX_EDIT_CLIPBOARD 
-      Caption         =   "HEX EDIT CLIPBOARD"
-   End
    Begin VB.Menu MNU_CLIPBOARDER_REPLACE_ER_AND 
       Caption         =   "CLIPBOARD REPLACE ""AND"""
    End
@@ -4532,25 +4529,6 @@ Loop Until VAR_ST_2 = VAR_ST_1
 
 Me.WindowState = vbMinimized
 Beep
-
-End Sub
-
-Private Sub MNU_HEX_EDIT_CLIPBOARD_Click()
-
-Dim VAR_ST_1, FILE_1
-
-VAR_ST_1 = Clipboard.GetText
-
-FILE_1 = App.Path + "\# DATA\CLIPPER FOR HEX EDITOR.TXT"
-
-FR1 = FreeFile
-Open FILE_1 For Output As #FR1
-    Print #FR1, VAR_ST_1;
-Close FR1
-
-Me.WindowState = vbMinimized
-
-Shell "C:\Program Files\XVI32\XVI32.exe """ + FILE_1 + """", vbNormalFocus
 
 End Sub
 

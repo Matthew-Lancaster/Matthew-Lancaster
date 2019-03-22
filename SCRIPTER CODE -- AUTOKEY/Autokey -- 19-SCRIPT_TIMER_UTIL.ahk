@@ -254,14 +254,6 @@ SET_GO_ESIF_ASSIST_64_SUSPEND=0
 
 VAR_STORE_CAMERA_LABEL=
 
-
-GLOBAL PSTART_TIMER
-GLOBAL OLD_PSTART_ID
-
-PSTART_TIMER=0
-OLD_PSTART_ID=0
-PSTART_ID=0
-
 TIMER_SUB_OWNER_SAVE_TIMER=
 
 SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
@@ -1816,42 +1808,9 @@ IF HWND_ID_1>0
 	SoundBeep , 2500 , 100
 }
 
-SetTitleMatchMode 3  ; Exactly
-DetectHiddenText, Off
-HWND_ID_1 := WinExist("PStart ahk_class TMainForm.UnicodeClass")
-IF HWND_ID_1>0
-{
-	PSTART_TIMER=%A_Now%
-	PSTART_TIMER+= 20, Minutes
-}	
 
-IF PSTART_TIMER<%A_Now%
-{
-	; C:\PStart\PStart.exe
-	Process, Exist, PStart.exe
-	If ErrorLevel>0 
-	{
-		PSTART_ID=%ErrorLevel%
-	}
 
-	IF OLD_PSTART_ID<>%PSTART_ID%
-	{	
-		PSTART_TIMER=%A_Now%
-		PSTART_TIMER+= 20, Minutes
-		SoundBeep , 5000 , 100
-	}
-
-	OLD_PSTART_ID=%PSTART_ID%
-
-	IF PSTART_TIMER<%A_Now%
-		IF PSTART_TIMER>0
-		{
-			Process, CLOSE, PStart.exe
-			SoundBeep , 2500 , 100
-			PSTART_TIMER=0
-		}
-}
-		
+	
 Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -2917,53 +2876,53 @@ IF (TRUE=TRUE)
 	}
 }
 
-; ; -------------------------------------------------------------------
-; ; GoodSync Script Command to Stop in Wait using a Messenger Box
-; ; TO MAX AND THEN RESTORE WINDOW OF GOODSYNC WHEN GET TO END &
-; ; PRESS BUTTON ON MESSAGE BOX THAT INDICATED END TO ALLOW CONTINUE AGAIN
-; ; TRY AND GET OVER PROBLEM AND WINDOW WON'T REFRESH AFTER RUN BIG 
-; ; LONG JOB AFTER ABOUT ONE DAY
-; ; IF ANYTHING ELSE FAIL THEN RESTART GOODSYNC WHEN END OF WORK
-; ; RESTART WILL JUST 
-; ; REQUIRE CLOSE AND LINE SET ABOVE WILL DO 
-; ; THAT RESTART THING
-; ; -------------------------------------------------------------------
-; ; GoodSync Script Command to Stop in Wait using a Messenger Box
+; -------------------------------------------------------------------
+; GoodSync Script Command to Stop in Wait using a Messenger Box
+; TO MAX AND THEN RESTORE WINDOW OF GOODSYNC WHEN GET TO END &
+; PRESS BUTTON ON MESSAGE BOX THAT INDICATED END TO ALLOW CONTINUE AGAIN
+; TRY AND GET OVER PROBLEM AND WINDOW WON'T REFRESH AFTER RUN BIG 
+; LONG JOB AFTER ABOUT ONE DAY
+; IF ANYTHING ELSE FAIL THEN RESTART GOODSYNC WHEN END OF WORK
+; RESTART WILL JUST 
+; REQUIRE CLOSE AND LINE SET ABOVE WILL DO 
+; THAT RESTART THING
+; -------------------------------------------------------------------
+; GoodSync Script Command to Stop in Wait using a Messenger Box
 
-; DetectHiddenWindows, OFF
-; SetTitleMatchMode 2  
+DetectHiddenWindows, OFF
+SetTitleMatchMode 2  
 
-; VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
+VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
 
-; OutputVar=
-; IF (A_ComputerName="7-ASUS-GL522VW") 
-; {
-	; IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-	; {
-		; ControlGetText, OutputVar, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-		; ControlGettext, OutputVar_2, Button1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-	; }
-	; IF Instr(OutputVar,"GoodSync Script Command to Stop")
-	; IF INSTR(OutputVar_2,"&Yes  0" or )
-	; {
-		; WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		; SLEEP 4000
-		; WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		; SLEEP 4000
+OutputVar=
+IF (A_ComputerName="7-ASUS-GL522VW") 
+{
+	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+	{
+		ControlGetText, OutputVar, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+		ControlGettext, OutputVar_2, Button1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+	}
+	IF Instr(OutputVar,"GoodSync Script Command to Stop")
+	IF INSTR(OutputVar_2,"&Yes  0")
+	{
+		WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		SLEEP 4000
+		WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		SLEEP 4000
 	
-		; ; CLICK THE MESSENGER BOX
-		; ControlClick, &Yes  0, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-		; SOUNDBEEP 1500,50
+		; CLICK THE MESSENGER BOX
+		ControlClick, &Yes  0, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+		SOUNDBEEP 1500,50
 		
-		; ; CLOSE GOODSYNC
-		; ControlGetText, OutputVar, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-		; IF Instr(OutputVar,"GoodSync Script Command to Stop")=0
-		; {
-			; SOUNDBEEP 1500,50
-			; ; WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		; }
-	; }
-; }
+		; CLOSE GOODSYNC
+		ControlGetText, OutputVar, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+		IF Instr(OutputVar,"GoodSync Script Command to Stop")=0
+		{
+			SOUNDBEEP 1500,50
+			WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		}
+	}
+}
  	
 OutputVar=
 IF (A_ComputerName="7-ASUS-GL522VW") 
