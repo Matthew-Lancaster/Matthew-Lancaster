@@ -254,6 +254,14 @@ SET_GO_ESIF_ASSIST_64_SUSPEND=0
 
 VAR_STORE_CAMERA_LABEL=
 
+
+GLOBAL PSTART_TIMER
+GLOBAL OLD_PSTART_ID
+
+PSTART_TIMER=0
+OLD_PSTART_ID=0
+PSTART_ID=0
+
 TIMER_SUB_OWNER_SAVE_TIMER=
 
 SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
@@ -1808,9 +1816,42 @@ IF HWND_ID_1>0
 	SoundBeep , 2500 , 100
 }
 
+SetTitleMatchMode 3  ; Exactly
+DetectHiddenText, Off
+HWND_ID_1 := WinExist("PStart ahk_class TMainForm.UnicodeClass")
+IF HWND_ID_1>0
+{
+	PSTART_TIMER=%A_Now%
+	PSTART_TIMER+= 20, Minutes
+}	
 
+IF PSTART_TIMER<%A_Now%
+{
+	; C:\PStart\PStart.exe
+	Process, Exist, PStart.exe
+	If ErrorLevel>0 
+	{
+		PSTART_ID=%ErrorLevel%
+	}
 
-	
+	IF OLD_PSTART_ID<>%PSTART_ID%
+	{	
+		PSTART_TIMER=%A_Now%
+		PSTART_TIMER+= 20, Minutes
+		SoundBeep , 5000 , 100
+	}
+
+	OLD_PSTART_ID=%PSTART_ID%
+
+	IF PSTART_TIMER<%A_Now%
+		IF PSTART_TIMER>0
+		{
+			Process, CLOSE, PStart.exe
+			SoundBeep , 2500 , 100
+			PSTART_TIMER=0
+		}
+}
+		
 Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
