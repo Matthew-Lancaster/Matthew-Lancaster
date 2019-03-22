@@ -1323,6 +1323,7 @@ IfExist, %FN_VAR%
 SET_GO_1=0
 IF (A_ComputerName="7-ASUS-GL522VW")
 	SET_GO_1=1
+
 SET_GO_1=0
 
 IF SET_GO_1=1
