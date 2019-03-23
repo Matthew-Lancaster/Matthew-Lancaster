@@ -466,6 +466,9 @@ FOR RD=1 TO 12
 		Wscript.QUIT
 	END IF
 	
+	I_COUNT_01=0
+	I_COUNT_02=0
+	
 	IF fso.FolderEXISTS(FolderName) THEN 
 		Set folder = fso.GetFolder(FolderName)  
 		For each file In folder.Files    
@@ -474,15 +477,12 @@ FOR RD=1 TO 12
 			PATH_FILE_VAR=PATH_FILE_001
 			' FIRST FILE COME TO THAT ISN'T A LINK SHORTCUT OR INFO TEXT FILE
 			SET_GO=TRUE
-			MSGBOX PATH_FILE_VAR
 			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                THEN SET_GO=FALSE
 			IF INSTR(UCASE(PATH_FILE_VAR),"#_INFO_SYNC_FOLDER_")>0 THEN SET_GO=FALSE
 			IF SET_GO=TRUE THEN 
-				IF PATH_FILE_001<>"" AND PATH_FILE_002<>"" THEN
-					'MSGBOX PATH_FILE_001
-					I_COUNT=I_COUNT+1
-					VAR_PATH_FILE_1(I_COUNT)=PATH_FILE_001
-					VAR_PATH_FILE_2(I_COUNT)=PATH_FILE_002
+				IF PATH_FILE_VAR<>"" THEN
+					I_COUNT_01=I_COUNT_01+1
+					VAR_PATH_FILE_1(I_COUNT_01)=PATH_FILE_VAR
 				END IF
 			END IF
 		Next
@@ -502,11 +502,10 @@ FOR RD=1 TO 12
 			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                THEN SET_GO=FALSE
 			IF INSTR(UCASE(PATH_FILE_VAR),"#_INFO_SYNC_FOLDER_")>0 THEN SET_GO=FALSE
 			IF SET_GO=TRUE THEN 
-				IF PATH_FILE_001<>"" AND PATH_FILE_002<>"" THEN
-					'MSGBOX PATH_FILE_001
-					I_COUNT=I_COUNT+1
-					VAR_PATH_FILE_1(I_COUNT)=PATH_FILE_001
-					VAR_PATH_FILE_2(I_COUNT)=PATH_FILE_002
+				IF PATH_FILE_VAR<>"" THEN
+					I_COUNT_02=I_COUNT_02+1
+					VAR_PATH_FILE_2(I_COUNT_02)=PATH_FILE_VAR
+					' MSGBOX VAR_PATH_FILE_1(I_COUNT_02)+VBCRLF+VAR_PATH_FILE_2(I_COUNT_02)
 				END IF
 			END IF
 		Next
@@ -518,7 +517,7 @@ NEXT
 ' -------------------------------------------------------------------
 ' HOLD HORSE'S HERE IF CAREFUL NEXT IS COPIER
 ' -------------------------------------------------------------------
-WScript.Quit
+' WScript.Quit
 ' -------------------------------------------------------------------
 
 
