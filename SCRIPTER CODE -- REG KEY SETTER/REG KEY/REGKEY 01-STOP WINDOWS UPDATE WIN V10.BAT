@@ -1,6 +1,6 @@
 @ECHO OFF
 
-REM -- [ Sunday 06:10:30 Am_18 November 2018 ] 
+REM -- [ Sunday 06:10:30 Am_18 November 2018 ]  
 
 REM ----
 REM How to Disable Windows 10 Update in Every Way - EaseUS
