@@ -438,9 +438,34 @@ Dim folderName
 FOR RD=1 TO 12
 	i_LINE="##_"+LPad(RD, "0", 4)
 
-	FolderName = "C:\SCRIPTER\SYNC_FOLDER_1\"+i_LINE+"\"
+	FolderName_1 = "C:\SCRIPTER\SYNC_FOLDER_1\"+i_LINE+"\"
+	FolderName_2 = "C:\SCRIPTER\SYNC_FOLDER_2\"+i_LINE+"\"
 	PATH_FILE_001=""
 	ERR.CLEAR
+
+	FolderName=FolderName_1
+	IF fso.FolderEXISTS(FolderName) THEN 
+		Set folder = fso.GetFolder(FolderName)  
+		For each file In folder.Files    
+			I_COUNT_01=I_COUNT_01+1
+		Next
+	END IF
+	FolderName=FolderName_2
+	IF fso.FolderEXISTS(FolderName) THEN 
+		Set folder = fso.GetFolder(FolderName)  
+		For each file In folder.Files    
+			I_COUNT_02=I_COUNT_02+1
+		Next
+	END IF
+	
+	SET_GO=FALSE
+	IF I_COUNT_01=I_COUNT_02 THEN SET_GO=TRUE
+	
+	IF SET_GO=FALSE THEN 
+		MSGBOX "VBS 32-COPIER_SYNC.VBS" + VBCRLF+ "FILE COUNT IN PAIR SYNC FOLDER NOT MATCH"+VBCRLF+FolderName_1+VBCRLF+FolderName_2
+		Wscript.QUIT
+	END IF
+	
 	IF fso.FolderEXISTS(FolderName) THEN 
 		Set folder = fso.GetFolder(FolderName)  
 		For each file In folder.Files    
@@ -449,9 +474,17 @@ FOR RD=1 TO 12
 			PATH_FILE_VAR=PATH_FILE_001
 			' FIRST FILE COME TO THAT ISN'T A LINK SHORTCUT OR INFO TEXT FILE
 			SET_GO=TRUE
-			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                 THEN SET_GO=FALSE
+			MSGBOX PATH_FILE_VAR
+			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                THEN SET_GO=FALSE
 			IF INSTR(UCASE(PATH_FILE_VAR),"#_INFO_SYNC_FOLDER_")>0 THEN SET_GO=FALSE
-			IF SET_GO=TRUE THEN Exit For
+			IF SET_GO=TRUE THEN 
+				IF PATH_FILE_001<>"" AND PATH_FILE_002<>"" THEN
+					'MSGBOX PATH_FILE_001
+					I_COUNT=I_COUNT+1
+					VAR_PATH_FILE_1(I_COUNT)=PATH_FILE_001
+					VAR_PATH_FILE_2(I_COUNT)=PATH_FILE_002
+				END IF
+			END IF
 		Next
 	END IF
 
@@ -466,27 +499,26 @@ FOR RD=1 TO 12
 			PATH_FILE_VAR=PATH_FILE_002
 			' FIRST FILE COME TO THAT ISN'T A LINK SHORTCUT OR INFO TEXT FILE
 			SET_GO=TRUE
-			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                 THEN SET_GO=FALSE
+			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                THEN SET_GO=FALSE
 			IF INSTR(UCASE(PATH_FILE_VAR),"#_INFO_SYNC_FOLDER_")>0 THEN SET_GO=FALSE
-			IF SET_GO=TRUE THEN Exit For
+			IF SET_GO=TRUE THEN 
+				IF PATH_FILE_001<>"" AND PATH_FILE_002<>"" THEN
+					'MSGBOX PATH_FILE_001
+					I_COUNT=I_COUNT+1
+					VAR_PATH_FILE_1(I_COUNT)=PATH_FILE_001
+					VAR_PATH_FILE_2(I_COUNT)=PATH_FILE_002
+				END IF
+			END IF
 		Next
 	END IF
 
-	IF PATH_FILE_001<>"" AND PATH_FILE_002<>"" THEN
-		'MSGBOX PATH_FILE_001
-		I_COUNT=I_COUNT+1
-		VAR_PATH_FILE_1(I_COUNT)=PATH_FILE_001
-		VAR_PATH_FILE_2(I_COUNT)=PATH_FILE_002
-	END IF
-	
-	
 NEXT
 
 
 ' -------------------------------------------------------------------
 ' HOLD HORSE'S HERE IF CAREFUL NEXT IS COPIER
 ' -------------------------------------------------------------------
-' WScript.Quit
+WScript.Quit
 ' -------------------------------------------------------------------
 
 
