@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
-   BackColor       =   &H00808080&
+   BackColor       =   &H00400000&
    Caption         =   "KILL &CMD*"
    ClientHeight    =   10932
    ClientLeft      =   48
@@ -3010,6 +3010,9 @@ Private Sub Form_Load()
 '
 '    Debug.Print XX
 '    Stop
+
+
+    Me.BackColor = RGB(&HFE - 40, &HFF - 40, &HE1 - 40)
 
     Form1.VAR_FORM1_EXIST = True
     Label60.Caption = "Me on Top 20 Sec"
