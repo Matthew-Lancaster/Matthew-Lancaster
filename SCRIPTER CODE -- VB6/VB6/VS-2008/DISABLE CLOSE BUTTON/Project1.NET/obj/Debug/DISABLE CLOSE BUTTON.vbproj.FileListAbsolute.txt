@@ -1,0 +1,9 @@
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\bin\Project1.exe
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\bin\Project1.pdb
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\bin\Project1.xml
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\obj\Debug\ResolveAssemblyReference.cache
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\obj\Debug\Project1.Form4_DISABLE_CLOSE_BUTTON.resources
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\obj\Debug\DISABLE CLOSE BUTTON.vbproj.GenerateResource.Cache
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\obj\Debug\Project1.exe
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\obj\Debug\Project1.xml
+D:\VB6\VB-NET\DISABLE CLOSE BUTTON\Project1.NET\obj\Debug\Project1.pdb

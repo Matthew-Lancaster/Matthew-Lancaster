@@ -1,0 +1,2 @@
+DATE------ TIME- SYS mmHg DIA mmHg PULSE/min    activity
+21-01-2005-21:25-115     -56      -53          -grandmas reading
