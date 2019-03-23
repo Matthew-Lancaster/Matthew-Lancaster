@@ -348,7 +348,7 @@ I2="C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\SysIntern
 ' PRIORITY TO WORK IN GOODSYNC INSTEAD MAYBE UNTIL GET SYNC CONFLICT ANSWER
 ' -------------------------------------------------------------------
 ' I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS"
-' I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt"
+' I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt.bas"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
 ' VAR_PATH_FILE_1(I_COUNT)=I1
