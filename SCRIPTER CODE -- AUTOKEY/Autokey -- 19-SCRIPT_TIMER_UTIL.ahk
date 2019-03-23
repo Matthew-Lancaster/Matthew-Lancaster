@@ -282,6 +282,9 @@ GLOBAL FileName_4
 GLOBAL OPERATION_CREATE_PATH_SET_NETWORK
 Array_FileName_2 := []
 
+GLOBAL OLD_UniqueID_WINRAR_CONVERT
+OLD_UniqueID_WINRAR_CONVERT=0
+
 
 OSVER_N_VAR:=a_osversion
 IF INSTR(a_osversion,".")>0
@@ -1641,6 +1644,35 @@ IF Instr(Title,"Log in with PayPal - Google Chrome")
 
 	
 
+SetTitleMatchMode 3  ; Exactly
+; Convert archives ahk_class #32770 ahk_exe WinRAR.exe
+UniqueID := WinActive("Convert archives ahk_class #32770")
+IF OLD_UniqueID_WINRAR_CONVERT<>%UniqueID%
+{
+	SLEEP 200
+
+	ControlGettext, EDITBOX_VAR, Edit2 , ahk_id %UniqueID%
+	TOOLTIP  % EDITBOX_VAR
+	IF INSTR(EDITBOX_VAR,".")=0
+	{
+		ControlSetText,Edit2,.,  AHK_ID %UniqueID%
+		SoundBeep , 5000 , 100
+	}
+	ELSE
+	{
+		UniqueID=0
+	}
+	
+}
+OLD_UniqueID_WINRAR_CONVERT=%UniqueID%
+
+; # Win (Windows logo key) 
+; ! Alt 
+; ^ Control 
+; + Shift 
+; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey. 
+
+	
 
 	
 SetTitleMatchMode 3  ; Exactly

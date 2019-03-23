@@ -1,0 +1,6 @@
+[Text]
+Normal=#04BC8C
+Current=#04FEBC
+NormalBG=#000000
+SelectedBG=#044434
+Font=Ariel

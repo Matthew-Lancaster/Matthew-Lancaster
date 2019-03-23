@@ -1,0 +1,14 @@
+[Main]
+Areas=12
+Area1=dReCt,0,0,400,300
+Area2=cEliP,0,0,400,300
+Area3=dRndRect,175,135,225,185,20,20
+Area4=dElip,75,80,150,130
+Area5=dElip,250,80,325,130
+Area6=dElip,100,200,300,250
+Area7=cRect,128,216,153,241
+Area8=cRect,168,216,193,241
+Area9=cRect,208,216,233,241
+Area10=cRect,248,216,273,241
+Area11=cElip,25,0,75,100
+Area12=cElip,325,0,375,100
