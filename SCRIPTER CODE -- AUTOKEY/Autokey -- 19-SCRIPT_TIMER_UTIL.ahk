@@ -1666,7 +1666,7 @@ IF OLD_UniqueID_WINRAR_CONVERT<>%UniqueID_WINRAR%
 
 	ControlGettext, EDITBOX_VAR, Edit2 , ahk_id %UniqueID_WINRAR%
 	; TOOLTIP %EDITBOX_VAR% --
-	IF INSTR(EDITBOX_VAR,".")=0
+	IF (INSTR(EDITBOX_VAR,".")=0 or INSTR(EDITBOX_VAR,".")<>1)
 	{
 		ControlSetText,Edit2,., ahk_id %UniqueID_WINRAR%
 		SoundBeep , 5000 , 100

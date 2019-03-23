@@ -1,0 +1,15 @@
+-----------------------------------
+18/03/2019 05:50:52 
+-----------------------------------
+D:\VB6\VB-NT\_gsdata_\_saved_\00_Best_VB_01\EliteSpy\
+-----------------------------------
+D:\VB6\VB-NT\_gsdata_\_saved_\00_Best_VB_01\EliteSpy\EliteSpy.VBP
+-----------------------------------
+D:\VB6\VB-NT\_gsdata_\_saved_\00_Best_VB_01\EliteSpy\EliteSpy.exe
+-----------------------------------
+EliteSpy.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-EliteSpy.exe-0010.Txt
+-----------------------------------
+
+File not found: 'D:\VB6\VB-NT\_gsdata_\_saved_\00_Best_VB_01\EliteSpy\frmMemInfo.frm'
