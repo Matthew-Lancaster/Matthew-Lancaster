@@ -806,13 +806,24 @@ RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Ru
 ; READ FURTHER
 ; [ Monday 05:59:20 Am_29 October 2018 ]
 ; -------------------------------------------------------------------
-RegWrite, REG_DWORD, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, MultipleInvokePromptMinimum, 255
+; ----------------------------------------------------------------
+; SO I WAS ABLE TO ADD KEY AND SET VALUE CHANGE
+; FROM BATCH COMMAND
+; BUT NOT AHK
+; ----------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; RegWrite, REG_DWORD, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, MultipleInvokePromptMinimum, 255
+; -------------------------------------------------------------------
+
+; BATCH COMMAND
+; -------------------------------------------------------------------
+; Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "MultipleInvokePromptMinimum" /t REG_DWORD /d "254" /f
+; -------------------------------------------------------------------
 
 
 
-; MSGBOX CLUE
 
-; exitapp
 
 ; C:\Program Files (x86)\Microsoft\Skype for Desktop\Skype.exe
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Skype for Desktop

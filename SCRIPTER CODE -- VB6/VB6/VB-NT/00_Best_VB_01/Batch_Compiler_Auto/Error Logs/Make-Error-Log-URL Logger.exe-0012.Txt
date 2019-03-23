@@ -1,0 +1,15 @@
+-----------------------------------
+23/03/2019 15:01:31 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\URL Logger\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe
+-----------------------------------
+URL Logger.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-URL Logger.exe-0012.Txt
+-----------------------------------
+
+Build of 'URL Logger.exe' succeeded.
