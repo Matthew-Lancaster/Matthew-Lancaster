@@ -5,7 +5,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
 ;--------------------
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 09-FLICKR KEY RIGHT ARROW __ TIMER __  UNTIL MOUSE RIGHT BUTTON _TOGGLE.ahk
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 09-FLICKR KEY RIGHT ARROW __ TIMER __  UNTIL MOUSE RIGHT BUTTON _TOGGLE.ahk
 ;--------------------
 
 ;SHARE URL LINKER GOOGLE DRIVE

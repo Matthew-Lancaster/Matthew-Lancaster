@@ -169,7 +169,7 @@ I_COUNT=0
 ' -------------------------------------------------------------------
 ' 64 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
 ' I2="C:\Program Files\Notepad++\userDefineLang_AHK.xml"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
@@ -181,7 +181,7 @@ I_COUNT=0
 ' -------------------------------------------------------------------
 ' 32 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
 ' I2="C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
@@ -1011,7 +1011,7 @@ Sub Main
 	
 	IF I_COUNT_1>=0 AND JPG_BEEN_DONE=TRUE THEN 
 		
-		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 	
 	END IF
 	

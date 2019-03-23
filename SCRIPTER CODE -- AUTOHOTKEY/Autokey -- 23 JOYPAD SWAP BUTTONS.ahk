@@ -1,5 +1,5 @@
 ﻿;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 23 JOYPAD SWAP BUTTONS.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 23 JOYPAD SWAP BUTTONS.ahk
 ;# __ 
 ;# __ Autokey -- 23 JOYPAD SWAP BUTTONS.ahk
 ;# __ 

@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
 ;# __ 
 ;# __ Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
 ;# __ 
@@ -40,7 +40,7 @@
 ; TO    Thu 05-Jul-2018 08:45:29
 ; --------------------------------------------------------------
 ; BEGIN CODE EXTRACTED FROM 
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
 ; TO ENABLE SHARE EASIER
 ; 
 ; --------------------------------------------------------------
@@ -169,7 +169,7 @@ DetectHiddenText, Off
 HWND_ID_1 := WinExist("This PC\FinePix XP90 XP91 XP95 ahk_class CabinetWClass")
 IF (HWND_ID_1>0 and HWND_ID_1<>O_HWND_ID_1)
 {
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT"
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT"
 	IfExist, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
