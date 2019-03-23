@@ -1,0 +1,437 @@
+ 1509 ITEMS
+D:\VB6\VB-NT\Test.exe
+D:\VB6\VB-NT\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\Mp3 Recorder\Mp3 Recorder\Gogo.exe
+D:\VB6\VB-NT\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\Mp3 Recorder\Mp3 Recorder\GOGOLive\GOGOLIVE.exe
+D:\VB6\VB-NT\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\The Best Sound Card Recorder1\The Best Sound Card Recorder1\Lame.exe
+D:\VB6\VB-NT\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\The Best Sound Card Recorder1\The Best Sound Card Recorder1\SoundRecorder.exe
+D:\VB6\VB-NT\#Office Outlook Programs\Outlook Attachment Extractor Good\Attachment Extractor.exe
+D:\VB6\VB-NT\#Office Outlook Programs\Outlook Attachment Extractor Good\OutLook Email Domains.exe
+D:\VB6\VB-NT\#Office Outlook Programs\Outlook Attachment RIpper Outlook Bit Crap\Outlook Attach Remover.exe
+D:\VB6\VB-NT\#Office Outlook Programs\Outlook_Spam_Filter_Email_Domains\Attachment Extractor.exe
+D:\VB6\VB-NT\#Office Outlook Programs\Outlook_Spam_Filter_Email_Domains\OutLook Spam Filter Email Domains.exe
+D:\VB6\VB-NT\#Office Outlook Programs\Outlook_Spam_Monitor_FutureDates\OutLook Spam Copy An Del-It-ER Future Dates.exe
+D:\VB6\VB-NT\#Office Outlook Programs\Outlook_Spam_Monitor_FutureDates\Run eXe Project1.exe
+D:\VB6\VB-NT\#Test_Code\Test.exe
+D:\VB6\VB-NT\#Test_Code\JoyStick\JoyStick.exe
+D:\VB6\VB-NT\#Test_Code\JoyStick\JoyStick\JoyStick.exe
+D:\VB6\VB-NT\00 MP3 Sound\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\Mp3 Recorder\Mp3 Recorder\Gogo.exe
+D:\VB6\VB-NT\00 MP3 Sound\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\Mp3 Recorder\Mp3 Recorder\GOGOLive\GOGOLIVE.exe
+D:\VB6\VB-NT\00 MP3 Sound\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\The Best Sound Card Recorder1\The Best Sound Card Recorder1\Lame.exe
+D:\VB6\VB-NT\00 MP3 Sound\#0 Archive 2009\Old 2003-Now Archive Dump\01 UNWanted\The Best Sound Card Recorder1\The Best Sound Card Recorder1\SoundRecorder.exe
+D:\VB6\VB-NT\00 MP3 Sound\00 Not Used\MP3 Bangers Sync Changes Proper Main\MP3 Bangers Sync Changes Proper Main.exe
+D:\VB6\VB-NT\00 MP3 Sound\00 Not Used\MP3 Bangers Sync Changes Proper Main\MP3 Tags.exe
+D:\VB6\VB-NT\00 MP3 Sound\00 Not Used\MP3 Dummy Tags\Banging MP3 Dummy Tags.exe
+D:\VB6\VB-NT\00 MP3 Sound\00 Not Used\MP3 Tags\MP3 Tags.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Bangers Nice FileNames\MP3 Bangers Nice FileNames.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Bangers Nice FileNames\MP3 Tags.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Tags File Title ID3v2\MP3 Tags File Title ID3V2.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Tags File Title ID3v2\MP3 Tags File Title_Asus\MP3 Tags File Title ID3V2.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Tags File Title ID3v2\MP3 Tags File Title_Asus\MP3 Tags.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Winamp PlayList Generator ID3v2\MP3 Winamp PlayList Generator ID3V2.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Winamp PlayList Generator ID3v2\MP3 Tags File Title_Asus\MP3 Tags File Title ID3V2.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3 Winamp PlayList Generator ID3v2\MP3 Tags File Title_Asus\MP3 Tags.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3\Sort_Anything_Scan_Path&Files&Empty_Dir's\Sort Anything.exe
+D:\VB6\VB-NT\00 MP3 Sound\MP3\Sort_Anything_ScanPath_Reset_Attribs\Sort Anything.exe
+D:\VB6\VB-NT\00 MP3 Sound\Sort_Anything_Chop Start TBooks\Sort Anything MP3 Bangers CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00 MP3 Sound\Sort_Anything_Scan_Path&Files&Empty_Dir's\Sort Anything.exe
+D:\VB6\VB-NT\00 MP3 Sound\Sort_Anything_ScanPath_Mp3_Compare_Dupes\Sort Anything MP3 Bangers CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00 MP3 Sound\Sort_Anything_ScanPath_Mp3_CR-x-C\Sort Anything MP3 Bangers CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00 MP3 Sound\Sort_Anything_ScanPath_Mp3_Dummy_Id_Tag_For_Winamp_Playlist\Mp3_Dummy_Id_Tag_For_Winamp_Playlist.exe
+D:\VB6\VB-NT\00 MP3 Sound\Sort_Anything_ScanPath_Reset_Attribs\Sort Anything.exe
+D:\VB6\VB-NT\00 MP3 Sound\Sort_Anything_ScanPath_TalkBook Text Files Sync\Sort Anything TalkBook Text Files Sync.exe
+D:\VB6\VB-NT\00 MP3 Sound\Stealth Sound\Stealth Sound Recorder.exe
+D:\VB6\VB-NT\00 Sort Anything\#0 AutoPix\Nothing Much\Sort_Anything_ScanPath_Photos_Text\Sort Anything.exe
+D:\VB6\VB-NT\00 Sort Anything\#0 AutoPix\Sort_Anything_ScanPath_AutoPix 5000 Dirs\Sort Anything AutoPix Sort Into 5000's For Dupe.exe
+D:\VB6\VB-NT\00 Sort Anything\#0 AutoPix\Sort_Anything_ScanPath_AutoPix_CR-x-C\Sort Anything AutoPix CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00 Sort Anything\#0 AutoPix\Sort_Anything_ScanPath_AutoPix_Del_IT\Sort Anything AutoPix Del -It- 0123456789.exe
+D:\VB6\VB-NT\00 Sort Anything\#0 AutoPix\Sort_Anything_ScanPath_Matt's Dirs Combine to One\Sort Anything AutoPix Sort Into 5000's For Dupe.exe
+D:\VB6\VB-NT\00 Sort Anything\#0 AutoPix\Sort_Anything_ScanPath_Photos_Text\Sort Anything.exe
+D:\VB6\VB-NT\00 Sort Anything\#ReNamers\Sort_Anything_Bill Hicks Rename\Sort_Anything_Bill Hicks Rename.exe
+D:\VB6\VB-NT\00 Sort Anything\#ReNamers\Sort_Anything_Rename XXX Not sure\Sort Anything.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - CRC DUPE - GOOGLE IMAGE\Sort_AnyThing - CRC DUPE - GOOGLE IMAGE.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - CRC DUPE - GOOGLE IMAGE\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - CRC DUPE - GOOGLE IMAGE\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - CRC DUPE\Sort_AnyThing - CRC DUPE.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - CRC DUPE\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - CRC DUPE\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MOVE FILES OLDER - FEED DEMON\Sort_AnyThing_The_Best - MOVE FILES OLDER FEED DEMON.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MOVE FILES OLDER - FEED DEMON\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MOVE FILES OLDER - FEED DEMON\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MOVE FILES OLDER\Sort_AnyThing_The_Best - MOVE FILES OLDER.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MOVE FILES OLDER\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MOVE FILES OLDER\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MULTI USE MENU\Sort_AnyThing - MULTI USE MENU.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MULTI USE MENU\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25 - MULTI USE MENU\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25\Sort_AnyThing_The_Best 2009.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\#Sort_Anything Lastest Best Ver 2009-04-25\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\Alt.Unet\Sort_ScanPath_Combine_Dir_txt_Files\Sort_ScanPath_Combine_Dir_txt_Files.exe
+D:\VB6\VB-NT\00 Sort Anything\Alt.Unet\Sort_ScanPath_Combine_Dir_txt_Files_Al.Sz.Best\Sort_ScanPath_Combine_Dir_txt_Files_Al.Sz.Best.exe
+D:\VB6\VB-NT\00 Sort Anything\Alt.Unet\Sort_ScanPath_Combine_Dir_txt_Files_Alt.Pihlo-Borg\Sort_ScanPath_Combine_Dir_txt_Files_Alt.Pihlo-Borg.exe
+D:\VB6\VB-NT\00 Sort Anything\Alt.Unet\Sort_ScanPath_Combine_Dir_txt_Files_Borg_Roid_Judy\Sort_ScanPath_Combine_Dir_txt_Files_Borg_Roid_Judy.exe
+D:\VB6\VB-NT\00 Sort Anything\Copy of #Sort_Anything Lastest Best Ver 2009-04-25 - VB SWAP DRIVES\Sort_AnyThing_The_Best - MOVE FILES OLDER.exe
+D:\VB6\VB-NT\00 Sort Anything\Copy of #Sort_Anything Lastest Best Ver 2009-04-25 - VB SWAP DRIVES\Sort_AnyThing_The_Best - VB SWAP DRIVES.exe
+D:\VB6\VB-NT\00 Sort Anything\Copy of #Sort_Anything Lastest Best Ver 2009-04-25 - VB SWAP DRIVES\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\Copy of #Sort_Anything Lastest Best Ver 2009-04-25 - VB SWAP DRIVES\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\Create CD DVD Volume Name In Folder\Create CD DVD Volume Name In Folder.exe
+D:\VB6\VB-NT\00 Sort Anything\Dir_File_Count\MP3 Tags File Title ID3v2.exe
+D:\VB6\VB-NT\00 Sort Anything\Dir_File_Count\MP3 Tags.exe
+D:\VB6\VB-NT\00 Sort Anything\Dir_File_Count\MP3 Tags File Title_Asus\MP3 Tags File Title ID3V2.exe
+D:\VB6\VB-NT\00 Sort Anything\Dir_File_Count\MP3 Tags File Title_Asus\MP3 Tags.exe
+D:\VB6\VB-NT\00 Sort Anything\Scan Put Modi Date As Created Date\Scan Put Modi Date As Created Date JPEG.exe
+D:\VB6\VB-NT\00 Sort Anything\Scan Put Modi Date As Created Date\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\Scan Put Modi Date As Created Date\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything Best Ver Scan StartMenu for Bad Links\Sort_AnyThing_The_Best.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything Best Ver Scan StartMenu for Bad Links\SortAnythingBest_Bad_Links_In_StartMenu.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything CRC DUPE CHK\Sort Anything MP3 Bangers CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything Directory to Text List Mach 02\Sort Anything MP3 Bangers CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything Directory to Text List\Sort Anything MP3 Bangers CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything Link Path Change\Sort Anything Link Path Change.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything_Files_From_One_Dir_Back_TO_Orig\Sort_Anything_Files_From_One_Dir_Back_TO_Orig.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything_Scan_Path&Files\Sort Anything.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything_Scan_Path&Files-Del_Empty_Folders\Sort Anything.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything_Scan_Recycle_Bin\Sort Anything Recycle Bin.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything_ScanPath -- Nice FileNames Art\Sort_Anything Nice--FileNames--Art.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything_ScanPath -- Nice FileNames Art\Dont Do folders Look MP3 Rename\Sort_Anything Nice--FileNames--Art.exe
+D:\VB6\VB-NT\00 Sort Anything\Sort_Anything_Web Acronyms-DWords\Sort_Anything_Web Acronyms-DWord Headers.exe
+D:\VB6\VB-NT\00 Sort Anything\WebSite\Sort_Anything_Del Web Cti__ScanPath_219403110142005\Sort Anything.exe
+D:\VB6\VB-NT\00 Sort Anything\WebSite\Sort_Anything_Del Web Cti__ScanPath_219403110142005\Web Del CNF.exe
+D:\VB6\VB-NT\00 Sort Anything\WebSite\Sort_ScanPath_Txt_2_HTML\Sort Anything.exe
+D:\VB6\VB-NT\00_Best_VB_01\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_01\Setup_TB-WebCam_Net.EXE
+D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Smswizard28.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\append\test.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\dscbtshl\dscbtshl.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\dswatch\dswatch.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\dswatch\wave.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\filedownloader\FileDownloaderTestApp.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\joystick\JoyStick.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\screenshot\screenshot.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\showpic\ShowPic.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\vbedit\VBEDIT.EXE
+D:\VB6\VB-NT\00_Best_VB_01\#0 Archive 2009\StatCounter_Ace\Stat-Counter-Web-Grab.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 Archive 2009\StatCounter_Ace\StatCounter\StatCounter.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 Archive 2009\WinRar-Archive\WinRarArchive2.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 Archive 2009\WinRar-Archive-Notes\WinRarArchiveNotes.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Bezier 01\Bezier 01.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Bezier 01\# FIRST 0\bezier\bezier\bezier.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Flames\Flames.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Flower Pattern\Pattern.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Fractal Studio\FStudio.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Kaleidoscope\Kaleidoscope.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\PolyGons Roy Jenner\Sample.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\PolyGons Roy Jenner\Turbo Pascal Roy Jenner Dos Days\TPUMOVER.EXE
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\PolyGons Roy Jenner\Turbo Pascal Roy Jenner Dos Days\TURBO.EXE
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Pulse\CONVERT.EXE
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Pulse\Pulse.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\terrain\terrain.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Tessellation\Tessellation.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\VECTOR\VECTOR.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 GRAPHIC PATTERN ANIMATION\Yin Yang\Pattern Yin Yang.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\05 PIR\PIR Door Bell Plus.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\50LastEXE's\50LastEXE.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Alarm\Alarm.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\Calc.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calender\Calender Ace.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Create on another drive\Create Dir Another Drive.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\DownLoad Manager\My Multi Downloader.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\DRIVE CHK ONLINE\DRIVE ONLINE.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Event Logger\Event Logger.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Mp3Gain\mp3gain.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\NumToString\String To Num.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\RecorderGo\RecordGo.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\RichTxtHighLight\RichTxtHighLight.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\StripTags3\StripTag3.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\TASKBAR HIDEN PROGRAMS\TASKBAR HIDEN PROGRAMS.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\WebBrowser\WebBrowser.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\WelCome\WelCome.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\WelCome\DSKeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Windows Login\exe\E-Winlog.exe
+D:\VB6\VB-NT\00_Best_VB_01\#00_Schedule_Timer\#00_Schedule_Timer.exe
+D:\VB6\VB-NT\00_Best_VB_01\#00_Schedule_Timer\#00_Schedule_Timer-ACER.exe
+D:\VB6\VB-NT\00_Best_VB_01\#00_Schedule_Timer\#00_Schedule_Timer-ASUS.exe
+D:\VB6\VB-NT\00_Best_VB_01\#00_Schedule_Timer\BATRUNME.exe
+D:\VB6\VB-NT\00_Best_VB_01\#00_Schedule_Timer\NetRemoteControl\REMOTE_SERVER.exe
+D:\VB6\VB-NT\00_Best_VB_01\#JUNK SOURCE CODE\Setup_TB-WebCam_Net.EXE
+D:\VB6\VB-NT\00_Best_VB_01\#JUNK SOURCE CODE\Shell KeyBoard Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\#JUNK SOURCE CODE\Smswizard28.exe
+D:\VB6\VB-NT\00_Best_VB_01\#JUNK\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_01\[[Extreme_Lock]]\ExLock.exe
+D:\VB6\VB-NT\00_Best_VB_01\00 Games\Breakout\BreakOut.exe
+D:\VB6\VB-NT\00_Best_VB_01\03 Palm\Palm SMS Line Count Splitter.exe
+D:\VB6\VB-NT\00_Best_VB_01\03 Palm\Palm_Sync\Palm_Sync.exe
+D:\VB6\VB-NT\00_Best_VB_01\03 Palm\SMS Pro Palm\SMS Pro.exe
+D:\VB6\VB-NT\00_Best_VB_01\A1_Auto_Compile_Batch Rev 3\BatchCompiler.exe
+D:\VB6\VB-NT\00_Best_VB_01\A1_Auto_Compile_Batch Rev 3\BatchCompiler-2.exe
+D:\VB6\VB-NT\00_Best_VB_01\A1_Auto_Compile_Batch Rev 3\ExitRun\ExitRun.exe
+D:\VB6\VB-NT\00_Best_VB_01\Active Idle\Active Idle.exe
+D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe
+D:\VB6\VB-NT\00_Best_VB_01\Banging_Tunes\Banging_Tunes_Web_Grab.exe
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler-2.exe
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\ExitRun\ExitRun.exe
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\ScanPath\Sort Favorites.exe
+D:\VB6\VB-NT\00_Best_VB_01\BlueTooth Sync\Blue Tooth Sync.exe
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace - EEE\Cid-RunMe.exe
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace - EEE\DelReCycle\DelRecycle.exe
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace - EEE\Icons\Cid-Run-Me_Asus\exe\Cid-RunMe.exe
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\DelReCycle\DelRecycle.exe
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Icons\Cid-Run-Me_Asus\exe\Cid-RunMe.exe
+D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe
+D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Send To ScanPath_Merge_Text_Files\#0 Scan an Merge Text Files Clip Type.exe
+D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Send To ScanPath_Merge_Text_Files\#0 Scan an Merge Text Files.exe
+D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Send To ScanPath_Merge_Text_Files\ScanPath\Sort Favorites.exe
+D:\VB6\VB-NT\00_Best_VB_01\Copy of Mp3Rec_source\lame.exe
+D:\VB6\VB-NT\00_Best_VB_01\Copy of Mp3Rec_source\Mp3Rec.exe
+D:\VB6\VB-NT\00_Best_VB_01\Copy of Mp3Rec_source\lame3.99.a2\lame.exe
+D:\VB6\VB-NT\00_Best_VB_01\DARK\DARK.exe
+D:\VB6\VB-NT\00_Best_VB_01\Date1991\Date1991.exe
+D:\VB6\VB-NT\00_Best_VB_01\Double\Double_Words.exe
+D:\VB6\VB-NT\00_Best_VB_01\Drive_Detach\Drive_Detach.exe
+D:\VB6\VB-NT\00_Best_VB_01\Drives Gig\Drives_Gig.exe
+D:\VB6\VB-NT\00_Best_VB_01\Drives Gig_MINIMIZE VERSION\Drives_Gig.exe
+D:\VB6\VB-NT\00_Best_VB_01\Drives_File_Lister\All_Drives_File_Lister.exe
+D:\VB6\VB-NT\00_Best_VB_01\Drives_File_Lister\Drives_File_Lister.exe
+D:\VB6\VB-NT\00_Best_VB_01\DSS_Olympus\DSS_Olympus.exe
+D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
+D:\VB6\VB-NT\00_Best_VB_01\Encrypt Email Send\Encrypt Email Send.exe
+D:\VB6\VB-NT\00_Best_VB_01\Encrypt Email Send\Send Encrypt.exe
+D:\VB6\VB-NT\00_Best_VB_01\Fast Clipboard\Fast ClipBoard.exe
+D:\VB6\VB-NT\00_Best_VB_01\Fast Clipboard\Fast Clipboard\Fast ClipBoard.exe
+D:\VB6\VB-NT\00_Best_VB_01\FileDownloader Banger\FileDownloader Bangers.exe
+D:\VB6\VB-NT\00_Best_VB_01\FileDownloader Banger\#Sort_Anything Lastest Best Ver 2009-04-25\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_01\FileDownloader Banger\#Sort_Anything Lastest Best Ver 2009-04-25\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_01\FileDownloader\FileDownloader.exe
+D:\VB6\VB-NT\00_Best_VB_01\KAT USB PEN DRIVE RECORD\KAT_TIMER DUAL COPY.exe
+D:\VB6\VB-NT\00_Best_VB_01\Linker2\Linker2.exe
+D:\VB6\VB-NT\00_Best_VB_01\Matt_Player VuMeter VB6\FFT\mixer\MattPlayertest.exe
+D:\VB6\VB-NT\00_Best_VB_01\METRONOME\METRONOME.exe
+D:\VB6\VB-NT\00_Best_VB_01\MiniAllButFavs\MiniAllButFavs.exe
+D:\VB6\VB-NT\00_Best_VB_01\MP3 PLAYED\MP3 PLAYED.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP HEADERS\NNTP-USENET HEADERS.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP HEADERS\NNTP ORIGINAL\NNTP-USENET.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP HEADERS\UNET LAST BATCH\UNET LAST BATCH.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP JUST ROIDS\NNTP-USENET.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP JUST ROIDS\NNTP-USENET-JUST-ROIDS.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP JUST ROIDS\UNET LAST BATCH\UNET LAST BATCH.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP\NNTP-USENET.exe
+D:\VB6\VB-NT\00_Best_VB_01\NNTP\UNET LAST BATCH\UNET LAST BATCH.exe
+D:\VB6\VB-NT\00_Best_VB_01\NotePad Abbrev\NotePad instr top LF 2abbrev txt.exe
+D:\VB6\VB-NT\00_Best_VB_01\NotePad5\Notepad.exe
+D:\VB6\VB-NT\00_Best_VB_01\NotePad5\notepad\NotePad Files.exe
+D:\VB6\VB-NT\00_Best_VB_01\NotePad5\notepad\Notepad5.exe
+D:\VB6\VB-NT\00_Best_VB_01\NotePad5\notepad\Notepad2\Notepad2.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Alt.Philo\OutLook Alt.Philo.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Alt.Philo\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Alt.Philo\Outlook Attachment Extractor Good\OutLook Email Domains.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Alt.Philo\Outlook Attachment Extractor Good\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Fractals\OutLook-Fractals-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Fractals\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Fractals\Outlook Attachment Extractor Good\OutLook Email Domains.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Fractals\Outlook Attachment Extractor Good\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook UNET\OutLook-UNET.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook UNET\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook UNET\Outlook Attachment Extractor Good\OutLook Email Domains.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook UNET\Outlook Attachment Extractor Good\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Web Reports\OutLook-Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Web Reports\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Web Reports\Outlook Attachment Extractor Good\OutLook Email Domains.exe
+D:\VB6\VB-NT\00_Best_VB_01\OutLook Web Reports\Outlook Attachment Extractor Good\Web-Reports-Processor.exe
+D:\VB6\VB-NT\00_Best_VB_01\PicViewer\PicViewer.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB LOGG ALL MAIL\enPOP3.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB LOGG ALL MAIL\KWab Address Book Code Test\Kwab Code\Simple.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB LOGG ALL MAIL\KWab Address Book Code Test\Kwab Code\Full_Source\Full.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB LOGG ALL MAIL\KWab Address Book Code\Kwab Code\Full_Source\Full.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB LOGG ALL MAIL\KWab Address Book Code\kwab1.2\kWab1.2\Full.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB LOGG ALL MAIL\KWab Address Book Code\kwab1.2\kWab1.2\Simple.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB LOGG ALL MAIL\KWab Address Book Code\kwab1.2\kWab1.2\Simple_Source\Simple.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB\enPOP3.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB\KWab Address Book Code Test\Kwab Code\Simple.exe
+D:\VB6\VB-NT\00_Best_VB_01\POP3 Class using Pure API VB\KWab Address Book Code Test\Kwab Code\Full_Source\Full.exe
+D:\VB6\VB-NT\00_Best_VB_01\Process Cpu Usage\CPUProcess.exe
+D:\VB6\VB-NT\00_Best_VB_01\REBOOT CLOSE PROGRAMS\REBOOT CLOSE PROGRAMS.exe
+D:\VB6\VB-NT\00_Best_VB_01\REBOOT CLOSE PROGRAMS\WMICPU2 MINI.exe
+D:\VB6\VB-NT\00_Best_VB_01\Reboot Time Logger\Reboot_Time_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER\RS232 LOGGER.exe
+D:\VB6\VB-NT\00_Best_VB_01\Run Fav Progs\Run Fav Programs.exe
+D:\VB6\VB-NT\00_Best_VB_01\Run_AS EEE\Matt_RunAS.exe
+D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe
+D:\VB6\VB-NT\00_Best_VB_01\ScanPath_CR-x-C-File-Dupes\Sort Anything AutoPix CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00_Best_VB_01\Schedular\Schedular_Vicea_Versa.exe
+D:\VB6\VB-NT\00_Best_VB_01\Schedular\EliteSpy\EliteSpy.exe
+D:\VB6\VB-NT\00_Best_VB_01\Set NetWork Drives\Set-NetWork-Drives.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Excel Loader\Shell Excel Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Sort_Anything Best Ver Scan Shell Menu for Bad Links\Sort_AnyThing_The_Best.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Sort_Anything Best Ver Scan Shell Menu for Bad Links\SortAnythingBest_Bad_Links_In_ShellMenu.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Sort_Anything Best Ver Scan Shell Menu for Bad Links\SortAnythingBest_Bad_Links_In_StartMenu.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Games Loader\Shell Games Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell IceView Loader\Shell IceView Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\Shell KeyBoard Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\DSKeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Multi Loader\Shell Multi Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Multi Loader\DSKeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell My Web Loader\Shell My Web Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell PDF Loader\Shell PDF Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Winamp Loader\Winamp Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell Winamp Loader\Shell Winamp Loader\Winamp Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_Dupes Rename Collide\Sort Anything Dupe Rename Collide.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_Dupes Rename Collide\Sort Dupe Rename Collide.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_My Web Logg's NHS\Scan an Merge.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_My Web Logg's NHS\Scan Web Logg's IP NHS.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_My Web Logg's NHS\ScanPath\Sort Favorites.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_ScanPath_CR-x-C_Dupes Mach One\Sort Anything CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_ScanPath_CR-x-C_Dupes\Sort Anything CR-x-C Dupe Chk.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Anything_ScanPath_Matt's Dirs Combine to One\Sort Anything AutoPix Sort Into 5000's For Dupe.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sort_Favs_And_Others\Sort Favs And Others.exe
+D:\VB6\VB-NT\00_Best_VB_01\Stealth Sound\SoundRecorder.exe
+D:\VB6\VB-NT\00_Best_VB_01\Stealth Sound\Stealth Sound Recorder.exe
+D:\VB6\VB-NT\00_Best_VB_01\Stealth Sound\thebestsoundcardrecorder1\The Best Sound Card Recorder\lame.exe
+D:\VB6\VB-NT\00_Best_VB_01\Stealth Sound\thebestsoundcardrecorder1\The Best Sound Card Recorder\The_Best_SoundRecorder.exe
+D:\VB6\VB-NT\00_Best_VB_01\SUSPEND_PROGRAM\SUSPEND_PROGRAM.exe
+D:\VB6\VB-NT\00_Best_VB_01\SUSPEND_PROGRAM\JoyStick\JoyStick.exe
+D:\VB6\VB-NT\00_Best_VB_01\SUSPEND_PROGRAM\JoyStick\JoyStick\JoyStick.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sync Files\Sync Files.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sync Outlook\Sync Outlook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Sync Outlook2\Sync Outlook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Archive Odds\ExLock.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\DSKeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\Tidal.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\Archive Odds\ExLock.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\DSKeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\DSKeybrd\Dskeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\DSKeybrd\Dskeybrd\dskeybrd.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\Tidal_Info\Tidal.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\Tidal_Info\Archive Odds\ExLock.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\Tidal_Info\DSKeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\Tidal_Info\DSKeybrd\Dskeybrd\dskbhook.exe
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info-EEE\Tidal_Info\DSKeybrd\Dskeybrd\dskeybrd.exe
+D:\VB6\VB-NT\00_Best_VB_01\Time_Sync\Time Sync.exe
+D:\VB6\VB-NT\00_Best_VB_01\TIMER CODE\TIMER CODE.exe
+D:\VB6\VB-NT\00_Best_VB_01\TouchDate Any\TouchDate Any.exe
+D:\VB6\VB-NT\00_Best_VB_01\TouchDate Any\TouchDate TrueCrypt.exe
+D:\VB6\VB-NT\00_Best_VB_01\TouchDate\TouchDate TrueCrypt.exe
+D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe
+D:\VB6\VB-NT\00_Best_VB_01\VB INTERCEPT\VB INTERCEPT.exe
+D:\VB6\VB-NT\00_Best_VB_01\VB6 Folder Nice FileNames\VB6 Folder Nice FileNames.exe
+D:\VB6\VB-NT\00_Best_VB_01\vb-procserv\ProcServ.exe
+D:\VB6\VB-NT\00_Best_VB_01\VICE VERSA SCRIPT CODE\VICE VERSA SCRIPT CODE.exe
+D:\VB6\VB-NT\00_Best_VB_01\Video\Video Scrolling 2\Video Scroller Credits.exe
+D:\VB6\VB-NT\00_Best_VB_01\Voice\TTSAppVB\TTSAppVB Voice.exe
+D:\VB6\VB-NT\00_Best_VB_01\VPN_AutoDial IP\VPN_Auto_Grab_IP.exe
+D:\VB6\VB-NT\00_Best_VB_01\VPN_AutoDial IP\exe\VPN_Auto-Dialer2.exe
+D:\VB6\VB-NT\00_Best_VB_01\VPN_AutoDial IP\Send Email\SendEmail.exe
+D:\VB6\VB-NT\00_Best_VB_01\VPN_AutoDial IP\Winamp Loader\Winamp Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\VPN_AutoDial\VPN_Auto-Dialer.exe
+D:\VB6\VB-NT\00_Best_VB_01\VPN_AutoDial\exe\VPN_Auto-Dialer2.exe
+D:\VB6\VB-NT\00_Best_VB_01\VPN_AutoDial\Send Email\SendEmail.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER\lame.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER\Mp3Rec.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER\VU METER LOGGER.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER\lame3.99.a2\lame.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER-EEE\lame.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER-EEE\Mp3Rec.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER-EEE\VU METER LOGGER.exe
+D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER-EEE\lame3.99.a2\lame.exe
+D:\VB6\VB-NT\00_Best_VB_01\Weather\BBCWeather.exe
+D:\VB6\VB-NT\00_Best_VB_01\Web Page Grab Friends\Web Page Grab Friends.exe
+D:\VB6\VB-NT\00_Best_VB_01\Web Page Grab Friends\Web Grab Friends ReUnited\Web Page Grab Friends.exe
+D:\VB6\VB-NT\00_Best_VB_01\WebDates_Ace\WebDates.exe
+D:\VB6\VB-NT\00_Best_VB_01\WebDates_Ace\FTPClient\FTP Client.exe
+D:\VB6\VB-NT\00_Best_VB_01\WebDates_Ace\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_01\WebDates_Ace\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_01\Winamp - Volume BIG\VolumeBar BIG.exe
+D:\VB6\VB-NT\00_Best_VB_01\Winamp - Volume MINI\VolumeBar MINI.exe
+D:\VB6\VB-NT\00_Best_VB_01\WinAmp Logger\WinAmp Logger.exe
+D:\VB6\VB-NT\00_Best_VB_01\WinAmp MP3% MINI #\WinAmp MP3% MINI.exe
+D:\VB6\VB-NT\00_Best_VB_01\WinAmp MP3%\WinAmp MP3%-VideoBar.exe
+D:\VB6\VB-NT\00_Best_VB_01\WinRar Archive Drive Lists\WinRar Archive Drive Lists.exe
+D:\VB6\VB-NT\00_Best_VB_01\WinRar Archive Pen Drive\WinRar Archive Pen Drive.exe
+D:\VB6\VB-NT\00_Best_VB_01\WinRar Archive Temp Folder\WinRar Archive Temp Folder RAR.exe
+D:\VB6\VB-NT\00_Best_VB_01\WinRar_Arc_Notes_VB\WinRarArc_Notes_VB6.exe
+D:\VB6\VB-NT\00_Best_VB_01\Wmi_CPU\WMICPU1 BIG.exe
+D:\VB6\VB-NT\00_Best_VB_01\Wmi_CPU\WMICPU2 MINI.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\INet_Content_Jpgs\INet_Content_Jpgs.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\INet_Content_Jpgs\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\INet_Content_Jpgs\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\INet_Content_Jpgs_CRC\INet_Content_Jpgs_CRC.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\JPEG-Encoder-ART\Jpeg Slides PJpeg ART.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\JPEG-Encoder-ART\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\JPEG-Encoder-ART\Long_Filename\LongToShort.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\JPEG-Encoder-ART\ThumbsPlusCmdDDE\tpcmd.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\JPEG-Encoder-ART\vbJPEG-Encoder3\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\RS232 LOGGER\RS232 LOGGER.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Screen_App_Parent_Shot_Logger\Screen_App_Parent_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Screen_App_Parent_Shot_Logger\Screen_App_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Screen_App_Shot_Logger\Screen_App_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Screen_Shot_Logger\Screen_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Vcap_Src_WebCam Orig\vbVidCap.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Vcap_Src_WebCam\vbVidCapWebCam.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Vcap_Src_WebCam2\vbVidCapWebCam.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Webcam_Motion\WebCamMatts.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Webcam_Motion\#Archive\vcap_src\New Folder Test Bak\vbVidCap.exe
+D:\VB6\VB-NT\00_Best_VB_04\00_Best_VB_04\Webcam_Motion\#Archive\vcap_src\WebCam Motion\WebCamMatts.exe
+D:\VB6\VB-NT\00_Best_VB_04\CLOCK #M02 SCR\CLOCK #M02 SCR.exe
+D:\VB6\VB-NT\00_Best_VB_04\COS SIN PATTERN\Cos-sin.exe
+D:\VB6\VB-NT\00_Best_VB_04\DANCE LINE SCR\Dancing Line.exe
+D:\VB6\VB-NT\00_Best_VB_04\DESKTOP ICON\Desk.exe
+D:\VB6\VB-NT\00_Best_VB_04\INet_Content_Jpgs\INet_Content_Jpgs.exe
+D:\VB6\VB-NT\00_Best_VB_04\INet_Content_Jpgs\JPEG_Encoder\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\INet_Content_Jpgs\JPEG_Encoder\vbJPEG\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\INet_Content_Jpgs_CRC\INet_Content_Jpgs_CRC.exe
+D:\VB6\VB-NT\00_Best_VB_04\JPEG-Encoder-ART\Jpeg Slides PJpeg ART.exe
+D:\VB6\VB-NT\00_Best_VB_04\JPEG-Encoder-ART\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\JPEG-Encoder-ART\Long_Filename\LongToShort.exe
+D:\VB6\VB-NT\00_Best_VB_04\JPEG-Encoder-ART\ThumbsPlusCmdDDE\tpcmd.exe
+D:\VB6\VB-NT\00_Best_VB_04\JPEG-Encoder-ART\vbJPEG-Encoder3\pJpeg.exe
+D:\VB6\VB-NT\00_Best_VB_04\PS SCREEN SAVER\Circles.scr.exe
+D:\VB6\VB-NT\00_Best_VB_04\RS232 LOGGER\RS232 LOGGER.exe
+D:\VB6\VB-NT\00_Best_VB_04\Screen_App_Parent_Shot_Logger\Screen_App_Parent_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\Screen_App_Parent_Shot_Logger\Screen_App_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\Screen_App_Shot_Logger\Screen_App_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\Screen_Shot_Logger\Screen_Shot_Logger.exe
+D:\VB6\VB-NT\00_Best_VB_04\Vcap_Src_WebCam Orig\vbVidCap.exe
+D:\VB6\VB-NT\00_Best_VB_04\Vcap_Src_WebCam\vbVidCapWebCam.exe
+D:\VB6\VB-NT\00_Best_VB_04\Vcap_Src_WebCam2\vbVidCapWebCam.exe
+D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\WebCamMatts.exe
+D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\#Archive\vcap_src\New Folder Test Bak\vbVidCap.exe
+D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\#Archive\vcap_src\WebCam Motion\WebCamMatts.exe
+D:\VB6\VB-NT\00_Best_VB_05_COMMON\COMMONS_PROJECT.exe
+D:\VB6\VB-NT\00_Best_VB_05_COMMON\Mixer\MattPlayertest.exe
+D:\VB6\VB-NT\00_Send_To\ClipBoard Path & FileName\#0 Send To ClipBoard Path & FileName.exe
+D:\VB6\VB-NT\00_Send_To\ClipBoard-File-To-ClipBoard\ClipBoard To File Clipboard.exe
+D:\VB6\VB-NT\00_Send_To\Send Cmd\#0 Send Cmd.exe
+D:\VB6\VB-NT\00_Send_To\Send Cmd\Send_Cmd.exe
+D:\VB6\VB-NT\00_Send_To\Send Explorer\#0 00 Send_To_Explorer.exe
+D:\VB6\VB-NT\00_Send_To\Send To Date Of File In Front FileName\#0 Send To Date Of File In Front FileName.exe
+D:\VB6\VB-NT\00_Send_To\Send To Filename To Text File\#0 Send To Filename To Text File.exe
+D:\VB6\VB-NT\00_Send_To\Send To Filename To Text File\ActiveWinamp.exe
+D:\VB6\VB-NT\00_Send_To\Send To Filename To Text File\A_Media PlayList\mciPlayer 9-11-2000\MediaShow.exe
+D:\VB6\VB-NT\00_Send_To\Send To Fix I's\#0 Send To - Fix I's.exe
+D:\VB6\VB-NT\00_Send_To\Send To Removed Mp3 Zen Folder\#0 Send To Removed Mp3 Zen Folder.exe
+D:\VB6\VB-NT\00_Send_To\Send To ScanPath_Merge_Text_Files\#0 Scan an Merge Text Files.exe
+D:\VB6\VB-NT\00_Send_To\Send To ScanPath_Merge_Text_Files\ScanPath\Sort Favorites.exe
+D:\VB6\VB-NT\00_Send_To\Send To Text List of Dir\#0 Send To Text List of Dir.exe
+D:\VB6\VB-NT\00_Send_To\Send To Text List of Dir\ActiveWinamp.exe
+D:\VB6\VB-NT\00_Send_To\Send To Text List of Dir\A_Media PlayList\mciPlayer 9-11-2000\MediaShow.exe
+D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders\#0 Send To Text List of Files and Sub Folders.exe
+D:\VB6\VB-NT\00_Send_To\Send To Text List of Files\#0 Send To Text List of Files.exe
+D:\VB6\VB-NT\00_Send_To\Send To Text List of Files\ActiveWinamp.exe
+D:\VB6\VB-NT\00_Send_To\Send To TouchDate\#Send To TouchDate.exe
+D:\VB6\VB-NT\00_Send_To\Sort_Anything_Sort It Any Folder\Sort Anything Sort It Any Folder.exe
+D:\VB6\VB-NT\00_Send_To\Sort_Anything_Sort It Any Folder\Sort Favs And Others.exe
+D:\VB6\VB-NT\Caller ID\CID_Program_files\Caller_ID.exe
+D:\VB6\VB-NT\Caller ID\CID_Program_files\VBDos\CIPOP.EXE
+D:\VB6\VB-NT\Caller ID\Old Vb Bas Files\CHECKRS.EXE
+D:\VB6\VB-NT\Caller ID\Old Vb Bas Files\CIBAS.EXE
+D:\VB6\VB-NT\Caller ID\Old Vb Bas Files\Editpro4.EXE
+D:\VB6\VB-NT\Caller ID\Old Vb Bas Files\REST.EXE
+D:\VB6\VB-NT\Tessellation\Tessellation.exe
