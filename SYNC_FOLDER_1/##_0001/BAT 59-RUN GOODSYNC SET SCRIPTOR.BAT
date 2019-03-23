@@ -658,7 +658,7 @@ EXIT
 REM -----------------------------------------------------------------
 REM CREDIT FIND BUT ONLY HELP TO LOCATE IN OWN CODE
 REM ----
-REM BATCH STRIP %~0 - Google Search
+REM BATCH STRIP %~0 - Google Search 
 REM https://www.google.com/search?safe=active&ei=YZt7XJTWAdme1fAPo52CmA0&q=BATCH+STRIP+%25%7E0&oq=BATCH+STRIP+%25%7E0&gs_l=psy-ab.3...7068.8831..9110...0.0..0.65.340.6......0....1..gws-wiz.......0i71j0i8i7i30.X6lNLPYEc7I
 REM ----
 REM ----

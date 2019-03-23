@@ -10,7 +10,7 @@
 @REM __ TO   ---- Fri 19-Oct-2018 17:30:00 Last Editor #1   1ST CREATE 
 @REM __ 
 @REM __ FROM ---- Wed 07-Nov-2018 20:30:19 Last Editor #002 CHANGE USE HERE
-@REM __ TO   ---- Wed 07-Nov-2018 23:34:00 Last Editor #002
+@REM __ TO   ---- Wed 07-Nov-2018 23:34:00 Last Editor #002 
 @REM ----------------------------------------------------------------
 
 @REM -- COPY FROM BROTHER BATCH FILE NOW A TWIN
