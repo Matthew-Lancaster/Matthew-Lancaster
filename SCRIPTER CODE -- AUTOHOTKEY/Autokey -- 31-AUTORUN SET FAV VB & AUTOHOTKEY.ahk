@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 31-AUTORUN SET FAV VB & AUTOHOTKEY.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 31-AUTORUN SET FAV VB & AUTOHOTKEY.ahk
 ;# __ 
 ;# __ Autokey -- 31-AUTORUN SET FAV VB & AUTOHOTKEY.ahk
 ;# __ 
@@ -67,7 +67,7 @@ RETURN
 
 MAIN_ROUTINE:
 	
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AutoRun.ahk"	
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AutoRun.ahk"	
 IfExist, %FN_VAR%
 {
 	SoundBeep , 2500 , 100

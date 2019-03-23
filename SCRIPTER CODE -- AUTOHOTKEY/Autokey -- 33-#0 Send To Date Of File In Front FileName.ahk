@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk
 ;# __ 
 ;# __ Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk
 ;# __ 

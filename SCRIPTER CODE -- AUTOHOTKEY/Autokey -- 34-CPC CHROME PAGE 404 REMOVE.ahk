@@ -1,5 +1,5 @@
 ;====================================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 34-CPC CHROME PAGE 404 REMOVE.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 34-CPC CHROME PAGE 404 REMOVE.ahk
 ;# __ 
 ;# __ Autokey -- 34-CPC CHROME PAGE 404 REMOVE.ahk
 ;# __ 

@@ -4,7 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 07-WINAMP VOLUME HOTKEY CHANGER.AHK
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 07-WINAMP VOLUME HOTKEY CHANGER.AHK
 
 ; I HAVE A CONVERTOR WHEN I TYPE I DO ALL IN CAP LOCK 
 ; I MAYBE DO IT LATER

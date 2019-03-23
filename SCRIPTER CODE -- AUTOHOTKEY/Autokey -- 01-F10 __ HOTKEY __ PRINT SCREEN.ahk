@@ -1,5 +1,5 @@
 ﻿ ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
 ;# __ 
 ;# __ Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
 ;# __ 
@@ -297,7 +297,7 @@ TIMER_ENTER:
 RETURN
 
 
-; *C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk - Notepad++ [Administrator]
+; *C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk - Notepad++ [Administrator]
 
 ; WINGET Autokey -- 41-Minimize Chrome Close & Close RButton.ahk
 
@@ -316,7 +316,7 @@ RETURN
 	; DetectHiddenWindows, ON
 	; AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
 	; AHK_TERMINATOR_VERSION:=StrReplace(AHK_TERMINATOR_VERSION, """" , "")
-	; FILE:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+	; FILE:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
 	; WinGet, UniquePID, PID, %FILE%%AHK_TERMINATOR_VERSION%
 	
 	; IF UniquePID>0
@@ -343,7 +343,7 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; THE FACEBOOK ONE IS HERE NOW
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 40-Auto Add Photo Name Messenger Facebook.ahk
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 40-Auto Add Photo Name Messenger Facebook.ahk
 ; FACE LIKE A BOOK
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -1718,7 +1718,7 @@ MenuHandler:
 		; THIS FILE BECAME USE BY
 		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
 		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
+		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
 		; ORIGINAL AT HERE LOCATION 
 		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
 		; AND MOVED HERE MAYBE 

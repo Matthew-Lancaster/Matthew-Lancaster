@@ -1,7 +1,7 @@
 @REM ----------------------------------------------------------------
 @REM __ SEMI DUPLICATE WITH BOTH
 @REM __ 
-@REM __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT
+@REM __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT
 @REM __ C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB_EXE.BAT
 @REM __ 
 @REM __ Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT
@@ -111,7 +111,7 @@ IF '%1%'=='/ADMIN' (
 @ECHO OFF
 ECHO ----------------------------------------------------------------
 
-@CD /D "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY"
+@CD /D "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY"
 
 @SET TITLE_VAR=FUJI_XP90_CAMERA_RUNNNER__AND_GOODSYNC
 
@@ -188,14 +188,14 @@ if "%Sync_Runner%"=="TRUE" (
 	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO RUN COMMAND 
-	ECHO C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\
+	ECHO C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\
 	ECHO Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	
 	START "" "C:\WINDOWS\EXPLORER.EXE " D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM\126_FUJI
 
-	START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk"
+	START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk"
 )
 
 

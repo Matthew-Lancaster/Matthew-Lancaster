@@ -1,5 +1,5 @@
 ﻿;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 24-TEAMVIEWER COPY FILE OVER NETWORK.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 24-TEAMVIEWER COPY FILE OVER NETWORK.ahk
 ;# __ 
 ;# __ Autokey -- 24-TEAMVIEWER COPY FILE OVER NETWORK.ahk
 ;# __ 

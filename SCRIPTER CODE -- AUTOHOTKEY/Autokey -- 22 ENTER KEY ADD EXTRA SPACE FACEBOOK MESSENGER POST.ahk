@@ -1,5 +1,5 @@
 ﻿;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 17-SWAP ALL ENTER TO CTRL ENTER WEB PAGES.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 17-SWAP ALL ENTER TO CTRL ENTER WEB PAGES.ahk
 ;# __ 
 ;# __ Autokey -- 17-SWAP ALL ENTER TO CTRL ENTER WEB PAGES.ahk
 ;# __ 
