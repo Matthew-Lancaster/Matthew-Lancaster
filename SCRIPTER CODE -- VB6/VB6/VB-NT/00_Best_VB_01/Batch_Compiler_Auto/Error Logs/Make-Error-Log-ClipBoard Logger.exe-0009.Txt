@@ -1,0 +1,15 @@
+-----------------------------------
+23/03/2019 15:01:11 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe
+-----------------------------------
+ClipBoard Logger.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-ClipBoard Logger.exe-0009.Txt
+-----------------------------------
+
+Build of 'ClipBoard Logger.exe' succeeded.
