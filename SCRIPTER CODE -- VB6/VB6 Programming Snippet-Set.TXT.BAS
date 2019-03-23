@@ -4,7 +4,7 @@
 -----
 
 
-D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt.bas
+D:\VB6\VB-NT\#1 Document\Programming Snippets.txt.bas
 ---------------------
 Count = 011 -- Tue 10-May-2016 00:18:31
 ---------------------
