@@ -3345,7 +3345,7 @@ If HID>0
 	; TOOLTIP %OutputVar_2%"`n"%HID% " -- " %MMX%"`n"%WinLeft% " -- " %WinTop% " -- " %WinWidth% " -- " %WinHeight%"`n"%x% " -- " %y% " -- " %w% " -- " %h%
 	IF Instr(OutputVar_2,"Free license (non-commercial use only)")
 	{
-		soundbeep 1500,200
+		; soundbeep 1500,200
 	}
 }
 
@@ -3359,9 +3359,14 @@ If !HID
 IF !Instr(OutputVar_2,"Free license (non-commercial use only)")
 	SET_GO=FALSE
 
+; -------------------------------------------------------------------
+; THE CODE TAKEN OUT THAT KILL PROCESS WHEN TEAM VIEWER AND LONG RUN OF ICACLS
+; RATHER SEE A LONG SHOT OF IT DONE AT MOMENT HAS GOT THROUGH FOR AGES AND VERY LONG WORKER
+; -------------------------------------------------------------------
+	
 If SET_GO=TRUE
 {
-	MSGBOX HERE
+	; MSGBOX HERE
 	; ; msgbox hh
 	; Process, Exist, ICACLS.EXE
 	; If ErrorLevel > 0
