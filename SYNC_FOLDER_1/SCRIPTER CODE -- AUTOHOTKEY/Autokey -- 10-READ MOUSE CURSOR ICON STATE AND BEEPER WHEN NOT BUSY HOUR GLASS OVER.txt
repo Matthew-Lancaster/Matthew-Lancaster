@@ -1,0 +1,347 @@
+------------------------------------------------
+Sun 05-Feb-2017 02:07:20 A
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.txt
+------------------------------------------------
+
+
+
+
+;---------------------------		
+; END OF CODE INFO
+;---------------------------
+
+; LINK FOR HELPING SOURCE __ LEAD 02 OF 02
+;---------------------
+;Sun 05-Feb-2017 02:54:50
+;---------------------
+; Form FindWindow ---
+; Variables and Expressions - Google Chrome
+;---------------------
+;----
+; Variables and Expressions
+;https://www.autohotkey.com/docs/Variables.htm#Cursor
+;----
+;---------------------
+;---------------------
+; Form FindWindow ---
+; Variables and Expressions - Google Chrome
+;---------------------
+; Misc.
+
+;A_Cursor	
+; The type of mouse cursor currently being displayed. It will be one of the following words: AppStarting, Arrow, Cross, Help, IBeam, Icon, No, Size, SizeAll, SizeNESW, SizeNS, SizeNWSE, SizeWE, UpArrow, Wait, Unknown. The acronyms used with the size-type cursors are compass directions, e.g. NESW = NorthEast+SouthWest. The hand-shaped cursors (pointing and grabbing) are classified as Unknown.
+;---------------------
+
+;------------------------------------------------------------------------------------------------------------
+; LINK FOR HELPING SOURCE __ PROVIDE 01 OF 02
+;------------------------------------------------------------------------------------------------------------
+;---------------------
+;Sun 05-Feb-2017 02:56:50
+;---------------------
+; Form FindWindow ---
+; How to get the mouse cursor's shape? - Gaming Questions - AutoHotkey Community - Google Chrome
+;---------------------
+;----
+; How to get the mouse cursor's shape? - Gaming Questions - AutoHotkey Community
+;https://autohotkey.com/board/topic/101626-how-to-get-the-mouse-cursors-shape/
+;----
+
+;------------------------------------------------------------------------------------------------------------
+; MY FIRST AND ONLY SEARCH TERM
+;------------------------------------------------------------------------------------------------------------
+;---------------------
+;Sun 05-Feb-2017 02:57:15
+;---------------------
+; Form FindWindow ---
+; AUTOHOTKEYS READ THE MOUSE CURSOR SHAPE - Google Search - Google Chrome
+;---------------------
+;----
+; AUTOHOTKEYS READ THE MOUSE CURSOR SHAPE - Google Search
+;https://www.google.co.uk/search?q=AUTOHOTKEYS+READ+THE+MOUSE+CURSOR+SHAPE&rlz=1C1CHBD_en-GBGB721GB721&oq=AUTOHOTKEYS+READ+THE+MOUSE+CURSOR+SHAPE&aqs=chrome..69i57.13982j0j7&sourceid=chrome&ie=UTF-8
+;----
+;---------------------
+
+;------------------------------------------------------------------------------------------------------------
+; EXTRA INFO OF ANOTHER PROJECT ABOUT UNDER THE MOUSE CURSOR
+; FOR LINK FINDER IN BROWSER
+;------------------------------------------------------------------------------------------------------------
+;----
+; How to detect mouse cursor state over link? - Ask for Help - AutoHotkey Community
+;https://autohotkey.com/board/topic/81381-how-to-detect-mouse-cursor-state-over-link/
+;----
+
+; Now First Quarter @ 04 Feb 04:20:02
+; Next Waxing Gibbous @ 07 Feb 00:28:31
+; in 1 Day 20:11:31 H-M-S
+; Luminosity Now 58.36609% Day Before 47.76793%
+
+; Uni-Time (UT GMT Solar Atomic) 05-Feb-17 04:17:00
+; The UK TimeZone GMT UTC+0 WET
+
+; -------------------------------------------------------------------------------
+; I WILL BE WORKER ALL WEEKEND THIS KIND AGRO THING
+; -------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+'--------------------------------------------
+
+	
+
+	
+	
+;--------------------------------------------------
+;FOUND CONFLICT COMPARE DUPE NOT SURE IF RELEATER
+;--------------------------------------------------
+	
+
+
+	IfWinNotActive ahk_class Chrome_WidgetWin_1
+	{
+		; PAUSED IS X2 = 1
+		if x2 = 1
+		{
+			; IF FOCUS MOVE FROM CHROME AND PAUSED STATE 
+			; DON'T DO COMMAND TO REGAIN WINDOW ACTIVE ONTO CHROME
+			; NON OPERATION
+		}
+		else
+		{
+			winactivate, ahk_exe chrome.exe
+			winwaitactive, ahk_exe chrome.exe
+			SoundBeep , 1500 , 200
+			x = 1
+		}
+	}
+	
+	IfWinActive ahk_class Chrome_WidgetWin_1
+	{
+		;------------------------------------------------------------------------------------------------------------
+		; HERE WILL DETECT CHROME IS ACTIVE AND ALSO HELP IN SET IT FOCUS ON
+		; IF UNDER THE CURSOR 
+		; ABLE TO TELL BY MINIMISE THE WINDOW IN FRONT AND SEE-ER
+		
+		; SOMETIME REQUIRE A NUDGE
+		; AND SET CODE TO BRING FOCUS TO THE CHROME BEEN DONE
+		; AND SET TO REMOVE EXIT WHEN NOT IN FOCUS AFTER FOUND HAS BEEN DO
+		; WITH BEEP ON
+		;------------------------------------------------------------------------------------------------------------
+		; ADDITIONAL CODE TODAY 20 FEB
+		; AND NOTICE NUMBER BUT NUMBER 1 FIRST
+		; THE CODE NOW WILL ONLY FLICK ON TO THE NEXT PICTURE WHEN THE TITLE HAS CHANGED
+		; AVOID REPEAT KEY PRESS
+		; UPON WORKER NOTICE SECOND THING
+		; IF HOLD CURSOR OVER THE LEFT OR RIGHT OR MAINLY RIGHT SIDE OF PICTURE WHERE WOULD PUSH FLIP TO NEXT PICTURE
+		; IT SEEM TO PUSH OVER THE WORKING OPERATION ANYWHERE ELSE THE CODE OPERATE GOOD
+		; AND ALSO WITH IMAGE FLIPPER GOOD KE PRESS ONLY REQUIRED ADD A SOUND EFFECT FOR PAGE FLIPPER
+		;------------------------------------------------------------------------------------------------------------
+		; ALSO WHEN AT LAST PICTURE IT WILL STAY THERE
+		;------------------------------------------------------------------------------------------------------------
+		WinGetTitle Current_CHROME_Title,ahk_class Chrome_WidgetWin_1
+
+		if Current_CHROME_Title<>%Saved_CHROME_Title%
+		{
+			Saved_CHROME_Title:=Current_CHROME_Title
+			winwaitactive, ahk_exe chrome.exe
+			;Sleep, 10
+
+			if x2 = 0 
+			{
+			
+				;--------------------------------------------------------------------------------
+				; BETTER VERSION TO USE MORE SPEEDY AND ANOTHER
+				;--------------------------------------------------------------------------------
+				; LENGHT OF TONE ADJUSTMENT
+				SoundBeep , 1800 , 20
+				;SoundBeep , 1800 , 10
+				;SoundBeep , 1800 , 5
+				
+				Sendinput {Right}
+
+				;--------------------------------------------------------------------------------
+				; OR WHORE
+				;--------------------------------------------------------------------------------
+				;Send, {Right}
+				
+			}
+		}
+	}
+return
+;----------------------------------------------------------------------
+
+;----------------------------------------------------------------------
+Flickr_KEEP_FOCUS_ON_SUB:
+
+	;------------------------------------------------------------
+	; KEEP FOCUS ON TO MAKE SURE
+	; OR REQUIRE GIVE A NUDGE WITH YOUR OWN MANUAL MOUSE CLICKER TO MOVE FORWARD ON
+	; ESPECIALLY WHEN TESTER THE PAUSE STATE OFF AND ON
+	;------------------------------------------------------------
+	IfWinNotActive ahk_class Chrome_WidgetWin_1
+	{
+		; PAUSED IS X2 = 1
+		if x2 = 1
+		{
+			; REPEAT REMMER BLOCK FROM ABOVE
+			; IF FOCUS MOVE FROM CHROME AND PAUSED STATE 
+			; DON'T DO COMMAND TO REGAIN WINDOW ACTIVE ONTO CHROME
+			; NON OPERATION
+		}
+		else
+		{
+			winactivate, ahk_exe chrome.exe
+			winwaitactive, ahk_exe chrome.exe
+			x = 1
+		}
+	}
+return
+
+;----------------------------------------------------------------------
+
+;----------------------------------------------------------------------
+RIGHT_BUTTON_PAUSE_SUB:
+;----------------------
+; MOUSE RIGHT BUTTON __ P FOR PRESS 
+; TO DO WITHER PAUSE
+; ----------------------------------------------------------------------
+if GetKeyState("RButton", "P") 
+{
+
+	;loop, 50
+	{
+		;SendInput {Esc}   ;____ Kill the context menu
+		;sleep 1
+	}
+	KeyWait, Rbutton ;____ As soon as MOUSE RButton is released...
+	;------------------------------------------------------------------------------------------
+	; REM STATEMENT SAME NOTE ABOUT __ THING BELOW ___ NEAR
+	;------------------------------------------------------------------------------------------
+	loop, 20
+	{
+		SendInput {Esc}   ;____ Kill the context menu
+		sleep 1
+	}
+
+	IF x2 = 1
+	{
+		; UNPAUSED
+		x2 = 0 
+		Saved_CHROME_Title=
+		; DOUBLE BLEEPER TO SHOW UNPAUSED
+		SoundBeep , 1500 , 400
+		sleep 100
+		SoundBeep , 2000 , 400
+	return
+	}
+
+	IF x2 = 0
+	{
+		; PAUSED
+		x2 = 1
+		Saved_CHROME_Title=
+		; DOUBLE BLEEPER TO SHOW PAUSED
+		SoundBeep , 2000 , 400
+		sleep 100
+		SoundBeep , 1500 , 400
+	
+	return
+	}
+}
+; ----------------------------------------------------------------------
+	
+	
+;----------------------------------------------------------------------
+LEFT_AND_RIGHT_BUTTON_PRESS_TO_EXIT_SUB:	
+	;----------------------
+	; MOUSE LEFT_ BUTTON __ P FOR PRESS 
+	; MOUSE RIGHT BUTTON __ P FOR PRESS 
+	;----------------------
+
+	; -----------------------------------------------------------------------------------------------------------
+	; THE CONTEXT MENU UPON RIGHT CLICK MOUSE BUTTON
+	; DOES NOT ALWAYS DISAPPEAR TO THE ESCAPE KEY PRESSOR
+	; AND ANOTHER SOLUTION ADDITIONAL
+	; DON'T WAIT FOR THE MUSE RIGHT CLICKER BUTTON TO RELEASE BACK UP
+	; t is better not TO PUT AND ESC KEY BEFORE MOUSE RIGHT BUTTON CONTEXT MENU IS RELEASED
+	; AND SUCCESSFULLY LOOP A FEW TIME IS ABLE MAKE DISAPPEAR CONTEXT MENU
+	; BUT TOO MANY LOOP WITH SLEEP AND HOLD UP RESPONSIVENESS
+	;
+	; ONLY THE CONTEXT MENU IS LITTLE FAULTY TO HIDE
+	; DATE TIME END PROJECT AT NEW LEVEL
+	; Thu 02 February 2017 01:59:30----------
+	
+	; -----------------------------------------------------------------------------------------------------------
+	if GetKeyState("RButton", "P") and GetKeyState("LButton", "P") 
+	{
+	KeyWait, Rbutton ;____ As soon as MOUSE RButton is released...
+	loop, 20
+	{
+		SendInput {Esc}   ;____ Kill the context menu
+		sleep 1
+	}
+
+	SoundBeep , 2000 , 400
+	sleep 100
+	SoundBeep , 2200 , 400
+
+ 	Exitapp
+	}
+	
+	IfWinNotActive ahk_class Chrome_WidgetWin_1
+	{
+		; --------------------------------------------------------------------------------------------------------------------
+		; NON OPERATION REMMER ____
+		; IF PAUSED STATE HAPPEN AND NOT IN FOCUS GET A REPEAT BEEPER FROM HERE
+		; --------------------------------------------------------------------------------------------------------------------
+		; SoundBeep , 1800 , 400
+
+		If x=1
+		{
+		;SoundBeep , 1800 , 400
+		;Exitapp
+		}
+	}
+return
+;----------------------------------------------------------------------
+
+;----------------------------------------------------------------------
+ExitFunc(ExitReason, ExitCode)
+{
+    if ExitReason not in Logoff,Shutdown
+    {
+        ;MsgBox, 4, , Are you sure you want to exit?
+        ;IfMsgBox, No
+        ;    return 1  ; OnExit functions must return non-zero to prevent exit.
+    }
+    ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
+}
+
+class MyObject
+{
+    Exiting()
+    {
+        ;
+        ;MsgBox, MyObject is cleaning up prior to exiting...
+        /*
+        this.SayGoodbye()
+        this.CloseNetworkConnections()
+        */
+    }
+}
+;----------------------------------------------------------------------
