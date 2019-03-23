@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 37-Block_All_Keys.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 37-Block_All_Keys.ahk
 ;# __ 
 ;# __ Autokey -- 37-Block_All_Keys.ahk
 ;# __ 

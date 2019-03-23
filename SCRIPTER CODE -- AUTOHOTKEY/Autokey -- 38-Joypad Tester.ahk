@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 38-Joypad Tester.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 38-Joypad Tester.ahk
 ;# __ 
 ;# __ Autokey -- 38-Joypad Tester.ahk
 ;# __ 
@@ -55,8 +55,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
 
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\JOYPAD_WORK\CvJoyInterface.ahk
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\JOYPAD_WORK\VJoy_lib.ahk
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\JOYPAD_WORK\CvJoyInterface.ahk
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\JOYPAD_WORK\VJoy_lib.ahk
 ; #include %A_ScriptDir%\JOYPAD_WORK\VJoy_lib.ahk
 #include %A_ScriptDir%\JOYPAD_WORK\CvJoyInterface.ahk
 vJoyInterface := new CvJoyInterface()

@@ -1,5 +1,5 @@
 ﻿;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk
 ;# __ 
 ;# __ Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk
 ;# __ 
@@ -15,7 +15,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;--------------------
 ; Autokey -- 10-Read Mouse Cursor Icon State And Beeper When Not Busy Hour Glass Over
 ;--------------------
-;  :\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk
+;  :\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk
 ;--------------------
 
 ; -------------------------------------------------------------------
@@ -183,7 +183,7 @@ ALLOW_SOUND=1
 ; -------------------------------------------------------------------
 
 IF !(A_ComputerName = "7-ASUS-GL522VW") 
-	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
+	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
 
 
 
@@ -344,10 +344,10 @@ if SET_GO=1
 		;SoundBeep , 2000 , 400
 
 		;###
-		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID_EMPTY_FILE_STOP_SOUND_PLAY.wav
+		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID_EMPTY_FILE_STOP_SOUND_PLAY.wav
 		;-----------------------------------
 
-		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
 		;-----------------------------------
 		
 		SOUND_PLAY_TRUE=1
@@ -383,9 +383,9 @@ if SET_GO=1
 
 		;SoundBeep , 1800 , 400
 
-		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
+		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
 		;-----------------------------------
-		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ App Starting.wav
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ App Starting.wav
 
 		SOUND_PLAY_TRUE=1
 		SOUND_PLAYED=1
@@ -444,10 +444,10 @@ if SET_GO=1
 		;SoundBeep , 5000 , TIMER_DURATION_VAR
 		
 		;SoundBeep , 2000 , 400
-		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
+		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
 
 		;-----------------------------------
-		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer Normal.wav
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer Normal.wav
 		SOUND_PLAYED=1
 		
 		;SoundBeep , 3000 , 40
@@ -566,7 +566,7 @@ MenuHandler:
 		; THIS FILE BECAME USE BY
 		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
 		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
+		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
 		; ORIGINAL AT HERE LOCATION 
 		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
 		; AND MOVED HERE MAYBE 

@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
 ;# __ 
 ;# __ Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
 ;# __ 
@@ -351,7 +351,7 @@ SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And
 TIMER_Check_Any_PID_Suspended_Warning:
 	SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 3600000 ; ---- 10 SECONDS ---- And Then 1 Hour
 
-	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
+	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
 
 	SET_GO=FALSE
 	IfExist, %Element_1%
@@ -517,7 +517,7 @@ MenuHandler:
 		; THIS FILE BECAME USE BY
 		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
 		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
+		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
 		; ORIGINAL AT HERE LOCATION 
 		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
 		; AND MOVED HERE MAYBE 
