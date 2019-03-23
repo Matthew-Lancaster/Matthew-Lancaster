@@ -1643,28 +1643,41 @@ IF Instr(Title,"Log in with PayPal - Google Chrome")
 }
 
 	
-
-SetTitleMatchMode 3  ; Exactly
+DetectHiddenWindows, OFF
+SetTitleMatchMode 3
 ; Convert archives ahk_class #32770 ahk_exe WinRAR.exe
-UniqueID := WinActive("Convert archives ahk_class #32770")
-IF OLD_UniqueID_WINRAR_CONVERT<>%UniqueID%
+WinGet, UniqueID_WINRAR, ID, Convert archives ahk_class #32770
+; -----------------------------------------------------------
+; WHY OLD_UniqueID_WINRAR_CONVERT KEEP GOING BACK TO NAUGHT 0
+; BECAUSE UniqueID IS USE A LOT ELSEWHERE
+; -----------------------------------------------------------
+; I WANT THIS BECAUSE CONVERSION IS TO CURRENT FOLDER IS 
+; ENTER "." FOR PATH
+; AND MANUALLY AS RE-SETTER TO A FOREIGN LAST USER PATH FOR 
+; EACH WINDOW LOAD
+; AFTER A WHILE
+; Count = 132 -- Sat 23-Mar-2019 03:42:33
+; Count = 193 -- Sat 23-Mar-2019 04:24:20
+; 61 CLIPBOARD
+; -----------------------------------------------------------
+IF OLD_UniqueID_WINRAR_CONVERT<>%UniqueID_WINRAR%
 {
 	SLEEP 200
 
-	ControlGettext, EDITBOX_VAR, Edit2 , ahk_id %UniqueID%
-	TOOLTIP  % EDITBOX_VAR
+	ControlGettext, EDITBOX_VAR, Edit2 , ahk_id %UniqueID_WINRAR%
+	; TOOLTIP %EDITBOX_VAR% --
 	IF INSTR(EDITBOX_VAR,".")=0
 	{
-		ControlSetText,Edit2,.,  AHK_ID %UniqueID%
+		ControlSetText,Edit2,., ahk_id %UniqueID_WINRAR%
 		SoundBeep , 5000 , 100
 	}
 	ELSE
 	{
-		UniqueID=0
+		; UniqueID=0
 	}
 	
 }
-OLD_UniqueID_WINRAR_CONVERT=%UniqueID%
+OLD_UniqueID_WINRAR_CONVERT=%UniqueID_WINRAR%
 
 ; # Win (Windows logo key) 
 ; ! Alt 
