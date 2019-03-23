@@ -262,19 +262,14 @@ SET Sources[!LDA!]="C ISO __ 7G TO 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C ISO __ 7G TO 8M"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C GOODSYNC __ 7G TO 1X"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="C GOODSYNC __ 7G TO 2E"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="C GOODSYNC __ 7G TO 3L"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="C GOODSYNC __ 7G TO 4G"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="C GOODSYNC __ 7G TO 5P"
-SET /A LDA=LDA+1
+
 SET Sources[!LDA!]="C GOODSYNC __ 7G TO 8M"
+
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D # MY DOC __ 7G TO 4G_0_INCL"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D # MY DOC __ 7G TO 4G_1"
+
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D BT Cloud Sync _ 00 _ Caller ID"
 SET /A LDA=LDA+1
