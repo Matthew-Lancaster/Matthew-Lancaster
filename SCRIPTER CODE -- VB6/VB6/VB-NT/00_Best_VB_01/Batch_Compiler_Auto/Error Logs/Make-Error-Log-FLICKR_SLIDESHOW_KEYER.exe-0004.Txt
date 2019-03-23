@@ -1,0 +1,15 @@
+-----------------------------------
+23/03/2019 15:00:52 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\FLICKR_SLIDESHOW_LOGITECH_LAUNCHER\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\FLICKR_SLIDESHOW_LOGITECH_LAUNCHER\FLICKR_SLIDESHOW_KEYER.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\FLICKR_SLIDESHOW_LOGITECH_LAUNCHER\FLICKR_SLIDESHOW_KEYER.exe
+-----------------------------------
+FLICKR_SLIDESHOW_KEYER.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-FLICKR_SLIDESHOW_KEYER.exe-0004.Txt
+-----------------------------------
+
+Build of 'FLICKR_SLIDESHOW_KEYER.exe' succeeded.

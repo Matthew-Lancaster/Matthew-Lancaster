@@ -1,0 +1,15 @@
+-----------------------------------
+23/03/2019 15:00:53 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe - 32 BIT.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe
+-----------------------------------
+Cid-RunMe.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-Cid-RunMe.exe-0006.Txt
+-----------------------------------
+
+File not found: 'C:\Program Files (x86)\Microsoft Visual Studio\VB98\Form_UNLOAD_3_HOUR.frm'
