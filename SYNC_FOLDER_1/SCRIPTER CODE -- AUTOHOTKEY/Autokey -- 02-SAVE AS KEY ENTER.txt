@@ -1,0 +1,240 @@
+------------------------------------------------
+Tue 31-Jan-2017 04:24:16 P
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 02-SAVE AS KEY ENTER ON.ahk
+C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 02-SAVE AS KEY ENTER ON.txt
+------------------------------------------------
+
+
+;----------------------------------------------------------------------
+;----------------------------------------------------------------------
+;My Code Block Done
+;----------------------------------------------------------------------
+;----------------------------------------------------------------------
+
+;----------------------------------------------------------------------
+;----------------------------------------------------------------------
+;Info Note
+;----------------------------------------------------------------------
+;Project Creation, Intention and Purpose for Use On-Line
+;----------------------------------------------------------------------
+;Some Website Specially Filter Out Question that Been Ask Before to Avoid Repeat
+;While Other Coder Person Keep Them Code to Their Own
+;Line Above As Is the Philosophy of Work Employment Not give to Giving Your Trade Secret Away
+;Which I feel is Such a Conflict
+;Other Person Own Web Have It Written Newbie For Dummy's Which Seem to Be a Repeat Issue as a New Operating Sys and Product arrive Every year and Almost Every Year
+;Sometime Avoiding Make Clear And the Actual Complete Code -- Got to Read the Dribble
+;Other Person As in PWGen Code Author Generate the Code Free and source Code Free
+;----------------------------------------------------------------------
+;Project Creation, Intention and Purpose
+;----------------------------------------------------------------------
+;----
+;To Save Item Detailed Technical Info on Page Of thing Buy on eBay and Other Online
+;Especially With Intention of Sell on Again Later After Buy Less Expensive at First
+;And Or Sell on Again Later an Item Not Good Enough for a Job
+;----
+;Also to Strengthen My Library of Code for this AutoKey Purpose
+;As I Immediately Saw as Much Better Alternative to Knock up a Code in Visual Basic
+;----
+;Also the Recent Change By Google to Make Everything that is a Download a Risk Question Including Own Product Chrome
+;And to Switch Download to Back on When Before was Auto
+;And Talk is that is Easier than a Dot You Want Keep Button By Instead Use Enter Key On Save
+;But Now Download Ask Option is Not always the Download Folder
+;
+;Also Was Talk When Use Select Download Method Rather Than Keep Button
+;It Begin Download Soon As Before Give Request to Save
+;Humm Thinker AutoKey Answer
+;----
+
+;----
+;And Here Following Something I Mean to Accomplish a Long Time
+;----
+;Amazon.com the US -- Recently Removed all My Buy from There -- But Not The .co.uk
+;Which Keep Forever
+;----
+;Ebay Every End Of Year a Whole Year in Past Is Wiped Out
+
+;Use of these 4 Link in Turn to Save Page of the Chrome Extension
+;1.. Copy All Urls - Chrome Web Store
+;2.. Save as Shortcut - Chrome Web Store
+;3.. Capture Webpage Screenshot Entirely. FireShot - Chrome Web Store
+;4.. SingleFile - Chrome Web Store -- to Save an HTML Version
+;----------------------------------------------------------------------
+;----------------------------------------------------------------------
+
+;----------------------------------------------------------------------
+;Ref: Source
+;----------------------------------------------------------------------
+;----------------------------------------------------------------------
+;Info Techno --
+;Coder To the Next Level Part Two -- Detect Window Form -- To Learn and Coder With Efficiently
+;Coded Style --
+;----------------------------------------------------------------------
+;Efficiently and Worked All Redundant Code That Possible to Remove Compacting
+;That Make Logic Proof Reading Eye Sight Better
+;----------------------------------------------------------------------
+;Efficiently and Noted Numeric 0 Use of Processor CPU time Even With Poll the
+;Process Chrome.exe Every 500 Mill Sec
+;----------------------------------------------------------------------
+; Length Time 1 hr 45 Min %+- Min
+; Length Time 2 hr 30 Min %+- Min
+;----------------------------------------------------------------------
+;Thu 25-Aug-2016 00:04:42
+;Thu 25 Aug 2016 01:47:51 -- Finish Code
+;Thu 25 Aug 2016 02:35:00 -- Fine Tune Documentation --- Length Time 2 hr 30 Min %+-
+;Thu 25 Aug 2016 03:00:00 -- Fine Tune Documentation And Publish On-Line --- Length Time 3 hr
+
+; A Second Session Bash in the Morning
+; Thu 25-Aug-2016 06:16:41 --
+; Thu 25 Aug 2016 07:00:00 -- Length Time 0 hr 40 Min -- Tune Documentation And Publish Another ReFresh
+
+;----------------------------------------------------------------------
+;----------------------------------------------------------------------
+
+;----------------------------------------------------------------------------------------------------------------
+;Ref: - Credit to Source Helper Ref:
+
+;----------------------------------------------------------------------------------------------------------------
+;AutoKey Source to Learn
+;----------------------------------------------------------------------------------------------------------------
+;Begin Here Google Search
+;----------------------------------------------------------------------------------------------------------------
+;1..
+;How to save files using Enter key? - Ask for Help - AutoHotkey Community
+;https://autohotkey.com/board/topic/124006-how-to-save-files-using-enter-key/
+
+;----------------------------------------------------------------------------------------------------------------
+;AutoKey Info Help Web
+;----------------------------------------------------------------------------------------------------------------
+;1..
+;OnExit
+;https://autohotkey.com/docs/commands/OnExit.htm
+;--------
+;2..
+;While-loop
+;https://autohotkey.com/docs/commands/While.htm
+;--------
+;3..
+;Else
+;https://autohotkey.com/docs/commands/Else.htm
+;--------
+;4..
+;OnExit
+;https://autohotkey.com/docs/commands/OnExit.htm
+;--------
+;5..
+;Functions
+;https://autohotkey.com/docs/Functions.htm
+;----------------------------------------------------------------------------------------------------------------
+
+
+;----------------------------------------------------------------------------------------------------------------
+;Ref
+;Chrome Extension
+;----------------------------------------------------------------------------------------------------------------
+
+;1..
+;--------
+;This One not Much To do With Here But Still Used
+;--------
+;Copy All Urls - Chrome Web Store
+;https://chrome.google.com/webstore/detail/copy-all-urls/djdmadneanknadilpjiknlnanaolmbfk?utm_source=chrome-app-launcher-info-dialog
+;--------
+
+;2..
+;--------
+;Yes Save to URL to Download Folder
+;--------
+;Save as Shortcut - Chrome Web Store
+;https://chrome.google.com/webstore/detail/save-as-shortcut/flehofiklehmnnolpjcamplcnmhgcbkk?utm_source=chrome-app-launcher-info-dialog
+;--------
+
+;3..
+;--------
+;This One Save Auto to Download Folder Without Our Coding Requirement
+;--------
+;Capture Webpage Screenshot Entirely. FireShot - Chrome Web Store
+;https://chrome.google.com/webstore/detail/capture-webpage-screensho/mcbpblocgmgfnpjjppndjkmgjaogfceg?utm_source=chrome-app-launcher-info-dialog
+;--------
+
+;4..
+;--------
+;As Well as Save Screen Shot About Do a Web Page HTML Save also
+;Be Good If Done Without an Extra Ask to Download Save As
+;But Setup to Store a Page on a Web On-line Auto -- PageArchiver
+;--------
+;SingleFile - Chrome Web Store
+;https://chrome.google.com/webstore/detail/singlefile/mpiodijhokgodhhofbcjdecpffjipkle?utm_source=chrome-app-launcher-info-dialog
+;----------------------------------------------------------------------------------------------------------------
+
+
+
+
+;----------------------------------------------------------------------------------------------------------------
+;USELESS CODE SHOVED TO BOTTOM
+;----------------------------------------------------------------------------------------------------------------
+		
+		;WinGet, Process, ProcessName, A
+		;MsgBox %Process%
+        ;if %Process%= chrome.exe
+
+		;IfWinActive ahk_class Chrome_WidgetWin_1
+		;		{
+
+		
+		
+		;AHK unable to identify Google Chrome Window - Ask for Help - AutoHotkey Community - Google Chrome
+		;----
+		;AHK unable to identify Google Chrome Window - Ask for Help - AutoHotkey Community
+		;https://autohotkey.com/board/topic/87281-ahk-unable-to-identify-google-chrome-window/
+		;----
+		;if %Process%= chrome.exe autohotkey - Google Search
+		;https://www.google.co.uk/search?num=50&q=if+%25Process%25%3D+chrome.exe+autohotkey&oq=if+%25Process%25%3D+chrome.exe+autohotkey&gs_l=serp.3...2954.6293.0.6595.11.11.0.0.0.0.127.1255.0j11.11.0....0...1c.1.64.serp..0.5.595...30i10k1j33i21k1.d2WS12Y9w-M
+		;----
+		;----
+		;WinGet nChromeWindows, Count, ahk_class Chrome_WidgetWin_1
+		;If(nChromeWindows > 0)
+		
+        ;if WinActive(ahk_exe chrome.exe)
+        ;    {
+        ;    if WinActive("Save As" ahk_class #32770)
+
+		;If(nChromeWindows > 0)
+;			{
+				;Exitapp
+				;REM OUT ---------------------------
+;			}
+
+;   if var_count < 3
+;	msgbox, test
+
+;			TEST_VAR += 1 ; in help file under set timer learn to increment the variable
+;			IF TEST_VAR < 2
+;				{
+				;SLEEP 100
+				;MsgBox, First Run Working Okay Press Send {Enter} Done
+;				}
+
+
+
+		;IfWinNotExist, ahk_exe chrome.exe
+		;IfWinNotActive, ahk_exe chrome.exe
+		;WinGet nChromeWindows, Count, ahk_class Chrome_WidgetWin_1
+		
+		;----
+		;[Solved] How to get the hwnd of the current script - Ask for Help - AutoHotkey Community
+		;https://autohotkey.com/board/topic/35140-solved-how-to-get-the-hwnd-of-the-current-script/
+		;----
+		;ThisScriptsHWND := WinExist("Ahk_PID " DllCall("GetCurrentProcessId"))
+		;msgbox %ThisScriptsHWND% is this script's HWND
+		
+		;------------------------------------------------------------
+		;Don't stay RSI -Save Me- if Form Change
+		;------------------------------------------------------------
+;		WinGetTitle, active_title, A
+;		IF active_title <> O_active_title
+;		{
+;			;SoundBeep
+;			;break
+;		}
+;		O_active_title = %active_title%
+
