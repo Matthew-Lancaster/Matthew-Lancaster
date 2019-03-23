@@ -1,0 +1,237 @@
+PBarDUPE
+ 1 
+ 0 
+PBar3
+ 100 
+ 0 
+Slider1
+ 0 
+ 0 
+PBar1
+ 1 
+ 0 
+VScroll1
+ 0 
+ 0 
+HScroll1
+ 0 
+ 0 
+PBar2
+ 1 
+ 0 
+mnuFile
+ 0 
+ 0 
+MNU_ART_LOGG_FOLDER
+ 0 
+ 0 
+MNU_ART_LOGG_FILES
+ 0 
+ 0 
+mnuOpen
+ 0 
+ 0 
+Mnu_loggs
+ 0 
+ 0 
+mnuSave
+ 0 
+ 0 
+mnuExit
+ 0 
+ 0 
+mnuImage
+ 0 
+ 0 
+mnuRotateMaster
+ 0 
+ 0 
+mnuRotate
+ 0 
+ 0 
+mnuRotate
+ 0 
+ 0 
+mnuRotate
+ 0 
+ 0 
+Mnu_Mic_Rotate
+ 0 
+ 0 
+mnuMirrorMaster
+ 0 
+ 0 
+mnuMirror
+ 0 
+ 0 
+mnuMirror
+ 0 
+ 0 
+mnuAutosize
+ 0 
+-1 
+Mnu_Rotate90Save
+ 0 
+ 0 
+Mnu_Move
+ 0 
+ 0 
+Mnu_MoveGood
+ 0 
+ 0 
+Mnu_Move_XXXRay
+ 0 
+ 0 
+Mnu_TrobPix1
+ 0 
+ 0 
+Mnu_MoveBad
+ 0 
+ 0 
+Mnu_Del
+ 0 
+ 0 
+Mnu_TrobPix2
+ 0 
+ 0 
+Mnu_DontSave
+ 0 
+ 0 
+Mnu_Date
+ 0 
+ 0 
+Mnu_WebCam2
+ 0 
+ 0 
+Mnu_WebCam3
+ 0 
+ 0 
+Mnu_WebCam4
+ 0 
+ 0 
+Mnu_WebCam
+ 0 
+ 0 
+Mnu_ShowPic
+ 0 
+ 0 
+Mnu_IceView
+ 0 
+ 0 
+Mnu_Thumbs
+ 0 
+ 0 
+Mnu_Switches
+ 0 
+ 0 
+Mnu_StartSame
+ 0 
+-1 
+Mnu_DelKey
+ 0 
+ 0 
+Mnu_Kids
+ 0 
+ 0 
+Mnu_AutoStart
+ 0 
+-1 
+Mnu_FullScreen_Start
+ 0 
+ 0 
+Mnu_Pause_When_Not_In_Focus
+ 0 
+-1 
+MNU_RAND_A_MINUTE
+ 0 
+ 0 
+MNU_GET_INTERNET_PICS
+ 0 
+ 0 
+MNU_MINIIMIZE_STANDBY
+ 0 
+ 0 
+MNU_DONT_USE_CLICK_FOR_PAUSE
+ 0 
+ 0 
+Mnu_Feeds
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_1
+ 0 
+ 0 
+Mnu_RunVB
+ 0 
+ 0 
+MNU_FULL_SCREEN_YES
+ 0 
+ 0 
