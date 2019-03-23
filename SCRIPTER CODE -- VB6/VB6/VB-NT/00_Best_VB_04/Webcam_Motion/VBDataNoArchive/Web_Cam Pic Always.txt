@@ -1,0 +1,7 @@
+------------------------------------------------
+Sat 08-Aug-2009 01:54:03 p
+D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\vcap_src\VCap_Src\VBDataNoArchive\Web_Cam Pic Always.jpg
+D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\vcap_src\VCap_Src\VBDataNoArchive\Web_Cam Pic Always.txt
+------------------------------------------------
+I Think this is the most Recent Image that is always here
+the other arry is save only if a compare match trigger
