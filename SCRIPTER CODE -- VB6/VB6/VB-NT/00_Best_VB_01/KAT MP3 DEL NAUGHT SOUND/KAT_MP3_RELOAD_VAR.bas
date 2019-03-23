@@ -1,0 +1,4 @@
+Attribute VB_Name = "KAT_MP3_RELOAD_VAR"
+Public UNLOAD_FORM_FLAG
+
+Public VVCOMLINE
