@@ -1,0 +1,17 @@
+THESE EIGHT  DRIVERS ARE USED IN THE PROJECT AND MIGHT BE REQUIRED TO BE REGISTERED
+OR AT LEAST BE IN THE SAME FOLDER AS THE EXE RUN FROM
+
+EXAMPLE
+C:\WINDOWS\system32\regsvr32.exe ComCt232.ocx
+OR
+C:\WINDOWS\system32\regsvr32.exe /i
+
+
+stdole2.tlb
+scrrun.dll
+ComCt232.ocx
+comctl32.Ocx
+mscomctl.OCX
+mscomct2.ocx
+MSWINSCK.ocx
+ComCt332.ocx
