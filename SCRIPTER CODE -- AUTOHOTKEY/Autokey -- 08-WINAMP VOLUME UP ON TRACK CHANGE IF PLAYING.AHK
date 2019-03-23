@@ -4,7 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 08-WINAMP VOLUME UP ON TRACK CHANGE IF PLAYING.AHK
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 08-WINAMP VOLUME UP ON TRACK CHANGE IF PLAYING.AHK
 
 ; THIS WILL BE PROJECT 02 OF 02 IN the SAME THEME FOR WINAMP
 ; AND THIS NUMBER 02 IS THE FAR MORE ADVANCED

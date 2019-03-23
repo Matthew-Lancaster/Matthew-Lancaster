@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk
 ;# __ 
 ;# __ Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk
 ;# __ 
@@ -105,7 +105,7 @@ X=0
 ; -------------------------------------------------------------------
 ; SCRIPT LINE USE IN GOODSYNC 3 OF 1 OF 3 -- LAST OF SCRIPT POST-SYNC
 ; -------------------------------------------------------------------
-; "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME %JOBNAME% RESULT %RESLUT% ERRORS %ERRORS%
+; "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME %JOBNAME% RESULT %RESLUT% ERRORS %ERRORS%
 ; -------------------------------------------------------------------
 
 COMMAND_LINE:= % DllCall( "GetCommandLine", "str" )
@@ -113,13 +113,13 @@ COMMAND_LINE:= % DllCall( "GetCommandLine", "str" )
 ; -------------------------------------------------------------------
 ; EXAMPLE #1 OF GIVEN COMMAND LINE
 ; -------------------------------------------------------------------
-; COMMAND_LINE="C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME "VB G7 VB-NT 1X _1_ QUICKER _NEW_GO GSD (1)" RESULT "" ERRORS 1
+; COMMAND_LINE="C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME "VB G7 VB-NT 1X _1_ QUICKER _NEW_GO GSD (1)" RESULT "" ERRORS 1
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
 ; EXAMPLE #2 OF GIVEN COMMAND LINE
 ; -------------------------------------------------------------------
-; "C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME "VB G7 VB-NT 1X _1_ QUICKER _NEW_GO GSD (1)" RESULT "Please click Analyze again because another job has Synced and it invalidated analysis results of this job.
+; "C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME "VB G7 VB-NT 1X _1_ QUICKER _NEW_GO GSD (1)" RESULT "Please click Analyze again because another job has Synced and it invalidated analysis results of this job.
 ; State file: //7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT/00_Best_VB_01/Clipboard Logger/_gsdata_/_file_state_v4._gs
 ; New: [size=197,794 time=2019-03-04 05:55:35] != 
 ; Old: [size=197,794 time=2019-03-04 05:55:05]
@@ -142,7 +142,7 @@ COMMAND_LINE_JOB_NAME_VALUE:=SubStr(COMMAND_LINE_JOB_NAME_VALUE,1,INSTR(COMMAND_
 
 GoodSync_GSync:="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 
-GoodSync_GSync_BATCH:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 70-GOODSYNC REPORT ERROR RUN GOODSYNC WITH PARAM.BAT"
+GoodSync_GSync_BATCH:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 70-GOODSYNC REPORT ERROR RUN GOODSYNC WITH PARAM.BAT"
 
 
 COMMAND_LINE_ERROR:=SubStr(COMMAND_LINE, INSTR(COMMAND_LINE,"ERRORS"))
@@ -407,7 +407,7 @@ MenuHandler:
 		; THIS FILE BECAME USE BY
 		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
 		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
+		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
 		; ORIGINAL AT HERE LOCATION 
 		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
 		; AND MOVED HERE MAYBE 
@@ -436,7 +436,7 @@ return
 
 RELOAD_ALL_NET___VB_CODE_EXE_SUB:
 
-		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
+		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
 		
 		ArrayCount = 0
 		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
@@ -478,7 +478,7 @@ RETURN
 
 KILL_ALL_NET_VB_CODE_EXE_01:
 		
-		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
+		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
 		
 		ArrayCount = 0
 		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
@@ -531,7 +531,7 @@ TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE:
 	DetectHiddenWindows, OFF
 	SetTitleMatchMode 2  ; Avoids the need to specify the full path
 
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE_%A_ComputerName%.TXT
+	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE_%A_ComputerName%.TXT
 	
 	NET_PATH = %A_ComputerName%
 

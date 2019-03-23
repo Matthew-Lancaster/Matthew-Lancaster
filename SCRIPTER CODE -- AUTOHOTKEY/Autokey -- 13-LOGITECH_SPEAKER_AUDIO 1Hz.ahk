@@ -45,7 +45,7 @@ Return
 
 Player:
 	;SoundBeep , 2000 , 100
-	SoundPlay, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 13-LOGITECH_SPEAKER_AUDIO 1Hz.wav
+	SoundPlay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 13-LOGITECH_SPEAKER_AUDIO 1Hz.wav
     
 	;SoundPlay, %A_WinDir%\Media\ding.wav
 	;SoundPlay, C:\Windows\Media\ding.wav

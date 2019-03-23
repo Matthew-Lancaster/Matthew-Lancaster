@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AutoRun.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AutoRun.ahk
 ;# __ 
 ;# __ Autokey -- 21-AutoRun.ahk
 ;# __ 
@@ -521,7 +521,7 @@ Process_Suspend_esif_assist_64(PID){
 ; -------------------------------------------------------------------
 MAIN_ROUTINE_2:
 
-Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
+Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
 IfExist, %Element_1%
 {
 	SoundBeep , 2000 , 100
@@ -712,7 +712,7 @@ If ProcessExist("VB KEEP RUNNER.exe", A_UserName)=0
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
 
-FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
 AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
 TEMP_VAR_1=%FN_VAR_1%
 TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
@@ -725,11 +725,11 @@ SetTitleMatchMode 3  ; EXACTLY
 IFWINNOTEXIST %FN_VAR_1%
 {
 	SoundBeep , 2000 , 100
-	Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+	Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
 }
 
 
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 04-SET CAP NUM & SCROLL TO LIKING - ONCE.ahk"	
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 04-SET CAP NUM & SCROLL TO LIKING - ONCE.ahk"	
 IfExist, %FN_VAR%
 	IF !WinExist(FN_VAR) 
 	{
@@ -1978,7 +1978,7 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 ; NORTON WANTS TO RUN AT END IT'S ENGINE HASN'T STARTED UP PROPER	
 ; CALL TOO QUICK AND BE HASN'T RUN
 ;----------------------------------------------------------------
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 18-NORTON CONTROL BOOTER.ahk"
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 18-NORTON CONTROL BOOTER.ahk"
 IfExist, %FN_VAR%
 {
 	SoundBeep , 2500 , 100
@@ -2052,7 +2052,7 @@ RUN_HUBIC:
 ; GETS SOME CLASH RUN FROM REGISTRY ALSO RUN
 ;-------------------------------------------
 
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 72-RUN HUBIC WITH DELAY.ahk"
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 72-RUN HUBIC WITH DELAY.ahk"
 IfExist, %FN_VAR%
 {
 	Run, "%FN_VAR%"
@@ -2174,7 +2174,7 @@ MenuHandler:
 		; THIS FILE BECAME USE BY
 		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
 		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT
+		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
 		; ORIGINAL AT HERE LOCATION 
 		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
 		; AND MOVED HERE MAYBE 
@@ -2285,7 +2285,7 @@ RETURN
 BRUTE_BOOT_DOWN_AHK_SUB:
 	; IF CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
 	; {
-		; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
+		; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
 		; IfExist, %FN_VAR%
 			; IF !WinExist(FN_VAR) 
 			; {

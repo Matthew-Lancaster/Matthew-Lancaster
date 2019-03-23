@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 43-Test If File Change Iin Folder.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 43-Test If File Change Iin Folder.ahk
 ;# __ 
 ;# __ Autokey -- 43-Test If File Change Iin Folder.ahk
 ;# __ 
@@ -293,7 +293,7 @@ TEST_FILE_IN_FOLDER:
 	
 	; DetectHiddenWindows, ON
 		
-	MY_AHK=C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 43-Test If File Change Iin Folder.ahk
+	MY_AHK=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 43-Test If File Change Iin Folder.ahk
 	AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
 	MY_AHK = %MY_AHK%%AHK_TERMINATOR_VERSION%
 
@@ -509,7 +509,7 @@ SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And
 TIMER_Check_Any_PID_Suspended_Warning:
 	SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 3600000 ; ---- 10 SECONDS ---- And Then 1 Hour
 
-	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
+	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
 
 	SET_GO=FALSE
 	IfExist, %Element_1%
