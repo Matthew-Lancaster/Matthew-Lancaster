@@ -3361,7 +3361,7 @@ IF !Instr(OutputVar_2,"Free license (non-commercial use only)")
 
 ; -------------------------------------------------------------------
 ; THE CODE TAKEN OUT THAT KILL PROCESS WHEN TEAM VIEWER AND LONG RUN OF ICACLS
-; RATHER SEE A LONG SHOT OF IT DONE AT MOMENT HAS GOT THROUGH FOR AGES AND VERY LONG WORKER
+; RATHER SEE A LONG SHOT OF IT DONE AT MOMENT HASN'T GOT THROUGH FOR AGES AND VERY LONG WORKER
 ; -------------------------------------------------------------------
 	
 If SET_GO=TRUE
