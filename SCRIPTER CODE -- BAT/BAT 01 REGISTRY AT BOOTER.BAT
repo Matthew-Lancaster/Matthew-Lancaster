@@ -191,6 +191,64 @@ Reg.exe DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "FlickrUp
 @REM Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "FlickrUploadr" /t REG_SZ /d "\"C:\Users\MATT 04\AppData\Local\FlickrUploadrWindows\Update.exe\" --processStart Flickr.exe" /f
 @REM ----------------------------------------------------------------
 
+@REM ----------------------------------------------------------------
+@REM SO I WAS ABLE TO ADD KEY AND SET VALUE CHANGE
+@REM FROM BATCH COMMAND
+@REM BUT NOT AHK
+@REM ----------------------------------------------------------------
+
+
+
+@REM --------------------------------------------------------------------
+@REM I TRY AND SET THE REGKEY AUTO ON START UP \Autokey -- 21-AutoRun.ahk
+@REM BUT NOT ALLOW PERMISSION ONLY ALLOWED IN REGEDIT MANUALLY
+@REM --------------------------------------------------------------------
+@REM BUT I CAN'T WRITE THIS REGISTRY KEY WITHOUT GOING INTO REGEDIT 
+@REM SOMEHOW NOT PERMISSION
+@REM --------------------------------------------------------------------
+@REM -------------------------------------------------------------------
+@REM ALLOW OPEN MORE THAN 15 WINDOW ON RIGHT CLICK EXPLORER FOR NOTEPAD++ TYPE THING
+@REM 22 IS HEX 16
+@REM REBOOT REQUIRE TO WORK EFFECTIVELY MENU OPTION BECOME AVAILABLE
+@REM ONLY OPEN ONE OF SELECTION ITEM UNTIL THEN
+@REM -------------------------------------------------------------------
+@REM ----
+@REM How can I open more than 15 files at once on Windows 7? - Super User
+@REM https://superuser.com/questions/300911/how-can-i-open-more-than-15-files-at-once-on-windows-7/300916
+@REM ----
+@REM -------------------------------------------------------------------
+@REM TAKES EFFECT IMMEDIATE 16 IS NOT THE LIMIT FOR UNLIMITED HIGHER WILL DO
+@REM READ FURTHER
+@REM [ Monday 05:59:20 Am_29 October 2018 ]
+@REM -------------------------------------------------------------------
+@REM ----------------------------------------------------------------
+@REM SO I WAS ABLE TO ADD KEY AND SET VALUE CHANGE
+@REM FROM BATCH COMMAND
+@REM BUT NOT AHK
+@REM ----------------------------------------------------------------
+@REM THIS ALLOW OPEN MORE THAN THE MULTIPLE FILE LIMIT IN EXPLORER TO NOTEPAD++ EXAMPLE
+@REM ----------------------------------------------------------------
+@REM SET NUMBER 255 TO HOW MANY FILE WANT TO OPEN IN RIGHT CLICKER
+@REM ----------------------------------------------------------------
+
+@REM -------------------------------------------------------------------
+@REM AUTOHOTKEYS
+@REM -------------------------------------------------------------------
+@REM RegWrite, REG_DWORD, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, MultipleInvokePromptMinimum, 255
+@REM -------------------------------------------------------------------
+
+@REM -------------------------------------------------------------------
+@REM BATCH COMMAND
+@REM -------------------------------------------------------------------
+@REM Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "MultipleInvokePromptMinimum" /t REG_DWORD /d "255" /f
+@REM -------------------------------------------------------------------
+
+Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "MultipleInvokePromptMinimum" /t REG_DWORD /d "255" /f
+
+@REM -------------------------------------------------------------------
+@REM -------------------------------------------------------------------
+
+
 
 @REM ----------------------------------------------------------------
 @REM 64 BIT

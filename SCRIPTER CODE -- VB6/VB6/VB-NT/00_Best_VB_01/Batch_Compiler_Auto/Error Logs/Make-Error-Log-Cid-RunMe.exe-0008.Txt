@@ -1,0 +1,15 @@
+-----------------------------------
+23/03/2019 15:01:02 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe
+-----------------------------------
+Cid-RunMe.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-Cid-RunMe.exe-0008.Txt
+-----------------------------------
+
+Build of 'Cid-RunMe.exe' succeeded.

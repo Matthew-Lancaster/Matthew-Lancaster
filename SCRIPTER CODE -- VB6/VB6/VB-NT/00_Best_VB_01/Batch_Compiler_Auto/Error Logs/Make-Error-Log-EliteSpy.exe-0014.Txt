@@ -1,0 +1,17 @@
+-----------------------------------
+23/03/2019 15:01:39 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ELITESPY\ORIGINAL ELITE SPY\EliteSpy\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ELITESPY\ORIGINAL ELITE SPY\EliteSpy\EliteSpy.vbp
+-----------------------------------
+C:\Documents and Settings\Matt5\Release\EliteSpy.exe
+-----------------------------------
+EliteSpy.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-EliteSpy.exe-0014.Txt
+-----------------------------------
+
+Conflicting names were found in 'D:\VB6\VB-NT\00_Best_VB_01\ELITESPY\ORIGINAL ELITE SPY\EliteSpy\frmGeneratedCode.frm'.  The name 'frmGeneratedCode' will be used.
+Path not found
+Build of 'EliteSpy.exe' failed.

@@ -1,5 +1,5 @@
 -----------------------------------
-18/03/2019 05:50:43 
+23/03/2019 15:00:49 
 -----------------------------------
 D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\ProcServ_03\
 -----------------------------------
@@ -12,4 +12,5 @@ ProcServ.exe
 D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-ProcServ.exe-0002.Txt
 -----------------------------------
 
-Build of 'ProcServ.exe' succeeded.
+Compile Error in File 'D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\ProcServ_03\MDIProcServ.frm', Line 96 : Variable not defined
+Build of 'ProcServ.exe' failed.
