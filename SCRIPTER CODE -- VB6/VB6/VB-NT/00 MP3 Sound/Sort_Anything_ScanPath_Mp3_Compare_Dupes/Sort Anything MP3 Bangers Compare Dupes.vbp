@@ -1,0 +1,45 @@
+Type=Exe
+Form=ScanPathDemo.frm
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOZE\system32\stdole2.tlb#OLE Automation
+Class=cScanPath; ScanPath.cls
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCTL.OCX
+Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; mscomct2.ocx
+Module=mdlFileSys; FileSys.bas
+Class=clsCRC; ClsCRC.cls
+Module=mdlID3; ID3v2\mdlID3.bas
+IconForm="ScanPath"
+Startup="ScanPath"
+HelpFile=""
+Title="ScanPathDemo"
+ExeName32="Sort Anything MP3 Bangers CR-x-C Dupe Chk.exe"
+Command32=""
+Name="ScanPathDemo"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=3
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Thu 04-Mar-2010 09-09-44p"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1
