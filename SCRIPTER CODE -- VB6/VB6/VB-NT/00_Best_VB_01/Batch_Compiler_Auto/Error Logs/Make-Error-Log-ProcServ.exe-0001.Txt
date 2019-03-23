@@ -1,0 +1,16 @@
+-----------------------------------
+18/03/2019 05:50:42 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\VB-ProcServFreeMem\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\VB-ProcServFreeMem\ProcServ.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\VB-ProcServFreeMem\ProcServ.exe
+-----------------------------------
+ProcServ.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-ProcServ.exe-0001.Txt
+-----------------------------------
+
+Compile Error in File 'D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\VB-ProcServFreeMem\MDIProcServ.frm', Line 24 : Can't find project or library
+Build of 'ProcServ.exe' failed.

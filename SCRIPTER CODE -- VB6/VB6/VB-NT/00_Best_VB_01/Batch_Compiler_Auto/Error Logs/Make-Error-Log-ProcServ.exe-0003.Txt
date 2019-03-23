@@ -1,0 +1,15 @@
+-----------------------------------
+18/03/2019 05:50:44 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ProcServ_03\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ProcServ_03\ProcServ.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ProcServ_03\ProcServ.exe
+-----------------------------------
+ProcServ.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-ProcServ.exe-0003.Txt
+-----------------------------------
+
+Build of 'ProcServ.exe' succeeded.
