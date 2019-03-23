@@ -1,5 +1,0 @@
-------------------------------------------------
-Sat 18-Oct-2008 11:33:38 a
-U:\VB6\VB-NT\00_Send_To\Send To Filename To Text File\temp.zip
-U:\VB6\VB-NT\00_Send_To\Send To Filename To Text File\temp.txt
-------------------------------------------------
