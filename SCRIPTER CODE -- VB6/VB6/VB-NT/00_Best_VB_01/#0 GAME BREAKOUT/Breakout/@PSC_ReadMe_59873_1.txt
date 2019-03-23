@@ -1,4 +1,4 @@
-Title: [BreakoutDX]
+Title: [BreakoutDX] 
 Description: I think every would be indie game developer has to get a pong/breakout game out of their system.. this one is mine
 How to play:
 Click the left mouse button to fire the ball from
