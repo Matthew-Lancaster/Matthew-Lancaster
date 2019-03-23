@@ -13,25 +13,10 @@
 '# ------------------------------------------------------------------
 ' DESCRIPTION 
 ' -------------------------------------------------------------------
-' NEW CODE THE PStart.xml
-' HARD TO SYNC AS GOT A COUNTER FOR EVERY USE
-' CONFLICT TOO HARD OVER NETWORK
-' SO SYNC WITH OWN METHOD
-' MOST HIGHER COUNT VERSION IS SYNC-ER 
-' IN MY CODE
-'
-' ALL DONE AND DUSTED 
-'
-' NEXT PROBLEM WHILE THE CODE IS RUNNER PSTART.EXE
-' THE TIME COUNTER RUN TIME KEEP UPDATE 
-' SO NOT TO LEAVE RUNNER IN ICON TASK-BAR ICON TRAY BAR
-'
-' AND THE ADDITIONAL TASK OF ADD CODING FOR AUTOHOTKEYS
-' TO KILL PROCESS PSTART.EXE IF NOT BEEN USED FOR A WHILE LIKE 20 MIN
-' TOOK CODER FRIDAY MORNING UP TO Fri 22-Mar-2019 12:58:00
-'
-' ALSO DURING WAS A MENU OPTION IN ANOTHER CODE
-' TO LET ME LOOK AT CLIPBOARD IN HEX VIEWER FOR VBCRLF LINE ENDING
+' FOUND SNIPPET ON MICROSOFT WEBSITE WHILE LOOKUP ANSWER DURING CODER
+' LOOKED INTERESTING
+' FIREWALL PERMISSION ONLY ALLOW LOOK AT SELF MACHINE OUT OF 7 INCLUDE ME
+' WORTH A SORTER LATER
 '#-------------------------------------------------------------------
 ' SESSION 001 __ CREATED
 ' -------------------------------------------------------------------
@@ -40,7 +25,6 @@
 '#-------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
-' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
 ' SOURCE GIVEN
 ' -------------------------------------------------------------------
 ' vbscript - how to check vbs script in windows is running or not? - Stack Overflow
@@ -49,6 +33,8 @@
 ' [ Wednesday 13:08:00 Pm_20 March 2019 ]
 ' -------------------------------------------------------------------
 
+' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
+' -------------------------------------------------------------------
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 
@@ -159,11 +145,8 @@ WScript.Quit(0)
 Sub READ_PSTART_FOR_BIGGER()
     
     Dim SET_GO
-    
 	FOR RI=1 TO UBOUND(Array_FileName)
-
-	'\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\PStart\PStart.xml
-	
+		'\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\PStart\PStart.xml
 		FILEN_1=Array_FileName(RI)
 		Set File_1 = fso.OpenTextFile(FILEN_1, ForReading)
 		Do Until File_1.AtEndOfStream
@@ -216,9 +199,9 @@ Sub READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY()
 	Loop
 	File_1.Close
     
-    ReDim Preserve Array_FileName(ArrayCount)
-    ReDim Preserve Array_NETPATH_01(ArrayCount)
-    ReDim Preserve Array_NETPATH_02(ArrayCount)
+	ReDim Preserve Array_FileName(ArrayCount)
+	ReDim Preserve Array_NETPATH_01(ArrayCount)
+	ReDim Preserve Array_NETPATH_02(ArrayCount)
 	ReDim Preserve Array_PSTART_COUNTER(ArrayCount)
 
 End Sub
