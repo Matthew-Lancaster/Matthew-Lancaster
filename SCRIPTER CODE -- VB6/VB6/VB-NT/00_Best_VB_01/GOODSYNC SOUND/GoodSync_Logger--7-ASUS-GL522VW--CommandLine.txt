@@ -1,0 +1,2 @@
+2018-05-13 09-10-23 | "--__PRE ANALYZE__ --JOB NAME __ "QNAP 01-01 MUSIC""
+2018-05-13 09-10-49 | "--_POST ANALYZE_ --JOB NAME __ "QNAP 01-01 MUSIC" --RESULT __ "Error analyzing D:\0 00 MUSIC ---: stopped by Quitting GoodSync" --LOGFILE __ "C:\GoodSync\Profile\_mirrors_\file-D-0 00 MUSIC --\2018-0513-091022-7-ASUS-GL522VW-QNAP 01-01 MUSIC.log"  --LEFT __ "D:\0 00 MUSIC ---" --RIGHT __ "\\NAS-QNAP-ML\Multimedia\MEDIA\AUDIO" --LEFT FOLDER RESOLVED __ "D:/0 00 MUSIC ---" --RIGHT FOLDER RESOLVED __ "//NAS-QNAP-ML/Multimedia/MEDIA/AUDIO" --CHANGED __ 0"
