@@ -1,4 +1,6 @@
 Attribute VB_Name = "APublics"
+Public FSO
+
 Public TEXT_PATH
 
 Private Const FILE_ATTRIBUTE_DIRECTORY = &H10
@@ -46,6 +48,12 @@ Private Type WIN32_FIND_DATA
    cAlternate           As String * 14
 End Type
 
+
+Sub SET_UP_PULIC_FSO()
+
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+End Sub
 
 
 'Public Function CreateFolderTree(ByVal sPath As String) As Boolean

@@ -1,0 +1,16 @@
+Extract all files to mciPlayer or a other directory, except the
+MediaPlaylist files these must be extraxt to c:\windows\system
+
+Rename the MediaPlaylist.XCO file to MediaPlaylist.OCX
+
+The OCX is written and only tested in Visual Basic 6.0
+
+Agreement : -usage of MediaPlaylist may only for personal use
+	    -the author is not responsible for any damage result
+	    from usage
+	    -you may not compile and distribute the mciPlayer project
+	    or mediaplaylist.ocx it's only for education
+
+Manual registration :
+Start Button -> Run -> copy and paste next -> run
+c:\windows\system\regsvr32 c:\windows\system\mediaplaylist.ocx
