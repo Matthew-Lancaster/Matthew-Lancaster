@@ -389,8 +389,8 @@ Public Sub Date_File(Filespec2$, Idate As Date)
 
 pdate = 0
 FileSpec = Filespec2$
-Set F = FS.GetFile((FileSpec))
-Idate = F.datelastmodified
+Set F = FSO.GetFile((FileSpec))
+Idate = F.DateLastModified
 
 End Sub
 

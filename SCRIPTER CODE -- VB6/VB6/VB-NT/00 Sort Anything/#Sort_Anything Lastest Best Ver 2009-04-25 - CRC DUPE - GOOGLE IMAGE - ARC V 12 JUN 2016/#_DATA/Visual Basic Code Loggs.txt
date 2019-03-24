@@ -1,0 +1,218 @@
+-----------------------------------
+2016-01-29 19:15:12 Start Time ---
+2016-01-29 19:18:32 Finish Time ---
+-----------------------------------
+D:\M\
+*.*
+38121 Files This Individual Scan Folder
+38121 Files Total Scan
+-
+-
+-
+-
+-
+-
+Main Routine - Aborted
+-
+
+-----------------------------------
+-----------------------------------
+2016-01-29 19:18:41 Start Time ---
+2016-01-29 19:20:36 Finish Time ---
+-----------------------------------
+D:\M\
+*.*
+38121 Files This Individual Scan Folder
+38121 Files Total Scan
+38121 -- Total
+19730 - After Removing
+4574 + 15156 NonDupes Removed
+ 4574 of  4574
+1 / 0:0+: Del Dupes 0.02%
+152904210 File Size @
+Main Routine - Finished
+IsIDE = True
+--------------------------------------------------------------------------------
+2016-01-29 19-20-29
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\03 Bang Sets\0151 - 2008 - Pearsall\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+311
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-20-32
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-20-32
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC IS a Duplicate
+--------------------------------------------------------------------------------
+2016-01-29 19-20-32
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Source Folder Protect
+
+-----------------------------------
+-----------------------------------
+2016-01-29 19:21:22 Start Time ---
+2016-01-29 19:28:53 Finish Time ---
+-----------------------------------
+D:\M\
+*.*
+38121 Files This Individual Scan Folder
+38121 Files Total Scan
+38121 -- Total
+19730 - After Removing
+4574 + 15156 NonDupes Removed
+ 4574 of  4574
+1 / 0:0+: Del Dupes 0.02%
+152904210 File Size @
+Main Routine - Finished
+IsIDE = True
+--------------------------------------------------------------------------------
+2016-01-29 19-23-58
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\03 Bang Sets\0151 - 2008 - Pearsall\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+311
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-25-54
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-25-54
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC IS a Duplicate
+--------------------------------------------------------------------------------
+2016-01-29 19-25-54
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Source Folder Protect
+
+-----------------------------------
+-----------------------------------
+2016-01-29 19:39:13 Start Time ---
+2016-01-29 19:41:23 Finish Time ---
+-----------------------------------
+D:\M\
+*.*
+38121 Files This Individual Scan Folder
+38121 Files Total Scan
+38121 -- Total
+19730 - After Removing
+4574 + 15156 NonDupes Removed
+ 4574 of  4574
+1 / 0:0+: Del Dupes 0.02%
+152904210 File Size @
+Main Routine - Finished
+IsIDE = True
+--------------------------------------------------------------------------------
+2016-01-29 19-41-03
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\03 Bang Sets\0151 - 2008 - Pearsall\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+311
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-41-20
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-41-20
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC IS a Duplicate
+--------------------------------------------------------------------------------
+2016-01-29 19-41-20
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Source Folder Protect
+
+-----------------------------------
+-----------------------------------
+2016-01-29 19:44:59 Start Time ---
+2016-01-29 19:46:54 Finish Time ---
+-----------------------------------
+D:\M\
+*.*
+38121 Files This Individual Scan Folder
+38121 Files Total Scan
+38121 -- Total
+19730 - After Removing
+4574 + 15156 NonDupes Removed
+ 4574 of  4574
+1 / 0:0+: Del Dupes 0.02%
+152904210 File Size @
+Main Routine - Finished
+IsIDE = True
+--------------------------------------------------------------------------------
+2016-01-29 19-46-49
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\03 Bang Sets\0151 - 2008 - Pearsall\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+311
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-46-51
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+--------------------------------------------------------------------------------
+2016-01-29 19-46-51
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC IS a Duplicate
+--------------------------------------------------------------------------------
+2016-01-29 19-46-51
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Source Folder Protect
+
+-----------------------------------
+-----------------------------------
+2016-01-29 20:00:37 Start Time ---
+2016-01-29 20:03:08 Finish Time ---
+-----------------------------------
+D:\M\
+*.*
+38121 Files This Individual Scan Folder
+38121 Files Total Scan
+38121 -- Total
+19730 - After Removing
+4574 + 15156 NonDupes Removed
+ 4574 of  4574
+1 / 0:0+: Del Dupes 0.02%
+152904210 File Size @
+Main Routine - Finished
+IsIDE = True
+---------------
+2016-01-29 20-03-01
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\03 Bang Sets\0151 - 2008 - Pearsall\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+311
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+---------------
+2016-01-29 20-03-05
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC Performed
+Partial CRC Compare Is Truncated Because Bigger than 700 Meg
+---------------
+2016-01-29 20-03-05
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+Partial CRC IS a Duplicate
+---------------
+2016-01-29 20-03-05
+D:\M\0 00 MUSIC ---\04 My Music\01 Banging Tunes\New\New 2009 01 Auto DONE\2008-11-23 - Pearsall - Squat Rocking 3.mp3
+144755054
+CRC Dupe && Source Folder Protected
+
+-----------------------------------

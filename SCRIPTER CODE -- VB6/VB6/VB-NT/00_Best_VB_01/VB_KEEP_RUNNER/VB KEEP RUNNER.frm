@@ -1,7 +1,7 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
-   BackColor       =   &H00808080&
+   BackColor       =   &H00400000&
    Caption         =   "KILL &CMD*"
    ClientHeight    =   10932
    ClientLeft      =   48
@@ -2229,8 +2229,6 @@ Dim Old_lHwnd
 
 Public VAR_FORM1_EXIST
 
-
-
 Private Type POINTAPI
         x As Long
         y As Long
@@ -3010,6 +3008,9 @@ Private Sub Form_Load()
 '
 '    Debug.Print XX
 '    Stop
+
+
+    Me.BackColor = RGB(&HFE - 40, &HFF - 40, &HE1 - 40)
 
     Form1.VAR_FORM1_EXIST = True
     Label60.Caption = "Me on Top 20 Sec"
@@ -4009,8 +4010,8 @@ End Sub
 
 Sub RETURN_FILENAME_FORMAT_LOCAL_LEVEL_VB_AND_AHK()
 
-    FileName_VB = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_" + GetComputerName + ".TXT"
-    FileName_AHK = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE_" + GetComputerName + ".TXT"
+    FileName_VB = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_" + GetComputerName + ".TXT"
+    FileName_AHK = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE_" + GetComputerName + ".TXT"
 
     Dim ELEMENT1
 
@@ -4087,18 +4088,18 @@ Sub CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE()
     ' RUNNER FROM THIS TIMER
     ' Timer_1_SECOND_Timer
     
-    FileName_O_VB = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE"
-    FileName_O_AHK = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE"
+    FileName_O_VB = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE"
+    FileName_O_AHK = "_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE"
 
     OPERATION_CREATE_PATH_SET_NETWORK = "AHK"
     
     If OPERATION_CREATE_PATH_SET_NETWORK = "VB" Then
         FileName_2 = FileName_O_VB
-        FileName_4 = "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_" + GetComputerName + ".TXT"
+        FileName_4 = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_VB_CODE_EXE_" + GetComputerName + ".TXT"
     End If
     If OPERATION_CREATE_PATH_SET_NETWORK = "AHK" Then
         FileName_2 = FileName_O_AHK
-        FileName_4 = "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE_" + GetComputerName + ".TXT"
+        FileName_4 = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NET_AUTOHOTKEY_CODE_EXE_" + GetComputerName + ".TXT"
     End If
     
     Call READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY
@@ -4139,7 +4140,7 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
     Dim TEMP_VAR_3
     
     
-    FN_VAR_1 = "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+    FN_VAR_1 = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
     AHK_TERMINATOR_VERSION = " - AutoHotkey v1.1.30.00" ' --AutoHotkey v"A_AhkVersion"
     TEMP_VAR_1 = FN_VAR_1
     TEMP_VAR_2 = """" + AHK_TERMINATOR_VERSION + """"
@@ -4166,7 +4167,7 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
             WSHShell.Run """" + FN_VAR_1 + """", DontShowWindow, DontWaitUntilFinished
         Set WSHShell = Nothing
     End If
-    ' "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+    ' "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
 End Sub
 
 
@@ -5959,7 +5960,7 @@ Private Sub MNU_AUTOHOTKEY_STARTING_Click()
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
 
-objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
     
 Set objShell = Nothing
 End Sub
@@ -5968,7 +5969,7 @@ Private Sub MNU_AUTOHOTKEYS_SET_Click()
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk" + """"
+    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk" + """"
 Set WSHShell = Nothing
 Me.WindowState = vbMinimized
 Beep
@@ -6136,7 +6137,7 @@ End Sub
 Private Sub MNU_VB_LAUNCH_FAV_SET_Click()
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 31-AUTORUN SET FAV VB & AUTOHOTKEY.ahk" + """"
+    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 31-AUTORUN SET FAV VB & AUTOHOTKEY.ahk" + """"
 Set WSHShell = Nothing
 Beep
 Me.WindowState = vbMinimized
@@ -11333,12 +11334,10 @@ If lhWndParent = 0 Then lhWndParent = O_lhWndParent
 lhWndParentX = GetParentHwnd(LHWND)
 
 If GetAsyncKeyState(27) < 0 Then
-    If IsIDE = True Then
-        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
-        Unload Me
-        End If
-    Else
-        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
+        If IsIDE = True Then
+            Unload Me
+        Else
             Me.WindowState = vbMinimized
         End If
     End If

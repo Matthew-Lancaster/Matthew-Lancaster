@@ -1,0 +1,16 @@
+1112 -- Total
+793 - After Removing
+10 + 783 NonDupes Removed
+10 of 10
+10 / 0+  0-  0*Blok  Del Dupes 100.00%
+4,289,770,999 Biggest Scanning FSize
+7,337,202 File Size @
+7,337,202 Biggest Worker FSize
+-
+-
+-
+7,337,202 File Size @
+0 Byte Deleted Total
+Main Routine - Finished
+IsIDE = True
+-------------------------------------------------------
