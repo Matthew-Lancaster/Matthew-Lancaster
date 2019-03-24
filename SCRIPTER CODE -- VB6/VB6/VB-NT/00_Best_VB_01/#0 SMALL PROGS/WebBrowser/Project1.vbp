@@ -1,0 +1,44 @@
+Type=Exe
+Object={EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}#1.1#0; ieframe.dll
+Reference=*\G{00000200-0000-0010-8000-00AA006D2EA4}#2.0#0#C:\Program Files\Common Files\system\ado\msado20.tlb# VB Web Site's\FreeVBcode.com\PROGRAM FILES\COMMON FILES\SYSTEM\ADO\msado20.tlb#Microsoft ActiveX Data Objects 2.0 Library
+Reference=*\G{00062FFF-0000-0000-C000-000000000046}#8.5#0#C:\Program Files\Microsoft Office\OFFICE11\msoutl.olb# VB Web Site's\FreeVBcode.com\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\msoutl85.olb#Outlook 98 Type Library
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCTL.OCX
+Object={3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0; RICHTX32.OCX
+Object={48E59290-9880-11CF-9754-00AA00C00908}#1.0#0; msinet.ocx
+Object={F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0; COMDLG32.OCX
+Form=Frame.frm
+Form=WebBrowser.frm
+Startup="frmFrame"
+HelpFile=""
+ExeName32="WebBrowser.exe"
+Command32=""
+Name="Project1"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=1
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Fri 28-Aug-2009 06-44-14a"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

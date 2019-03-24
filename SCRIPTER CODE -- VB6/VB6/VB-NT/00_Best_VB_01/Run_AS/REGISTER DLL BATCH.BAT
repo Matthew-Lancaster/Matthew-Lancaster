@@ -1,0 +1,1 @@
+regsvr32 D:\VB6\VB-NT\00_Best_VB_01\Run_AS\RunAS.dll

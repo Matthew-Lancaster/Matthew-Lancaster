@@ -1,0 +1,840 @@
+
+'***********************************************
+'     Sample for using the "dskbhook.dll"
+'        (c) 2002 by Delphin Software
+'***********************************************
+Option Explicit
+'***********************************************
+Private Const HWND_TOPMOST& = -1
+Private Const SWP_NOMOVE& = &H2
+Private Const SWP_NOSIZE& = &H1
+Private Declare Function SetWindowPos& Lib "user32" _
+(ByVal hwnd&, ByVal hWndInsertAfter&, ByVal x&, _
+ByVal y&, ByVal cx&, ByVal cy&, ByVal wFlags&)
+'***********************************************
+Dim dl&, dc&, rp&, i%, o2%, IsHook As Boolean
+'***********************************************
+Private Sub Check1_Click()
+With Check2
+  If Check1 = 0 Then
+    .Value = 0
+    .Enabled = False
+  Else
+    .Value = 1
+    .Enabled = True
+  End If
+End With
+End Sub
+
+'***********************************************
+Private Sub Check2_Click()
+Call NoTL(Check2.Value)
+End Sub
+
+'***********************************************
+Private Sub Command1_Click()
+Call SetGlobalParams(rp, dc)                      '# Set Repeat and Discard value
+If Check1 = 0 Then Call NoLLHook(1)               '# No LowLevel Hook
+If Check2 = 1 Then Call NoTL(1)                   '# No Translation
+If IsIDE = True Then
+    dl = SetKeyboardHook(Me.hwnd, 1, AddressOf Callback)    '# Set the hook
+Else
+    dl = SetKeyboardHook(-1, 1, AddressOf Callback)   '# Set the hook
+End If
+'Debug.Print dl
+IsHook = True
+DSkeybd_F.Check1.Enabled = False
+DSkeybd_F.Command1.Enabled = False
+DSkeybd_F.Command2.Enabled = True
+'DSkeybd_F.List1.SetFocus
+End Sub
+
+'***********************************************
+Private Sub Command2_Click()
+dl = SetKeyboardHook(0, 0, 0)                     '# Release the hook
+IsHook = False
+Command1.Enabled = True
+Command2.Enabled = False
+Check1.Enabled = True
+End Sub
+
+'***********************************************
+Private Sub Command3_Click()
+Unload Me
+End Sub
+
+'***********************************************
+Private Sub Command4_Click()
+With List1
+  .Clear
+  .SetFocus
+End With
+End Sub
+
+Private Sub Form_Activate()
+
+
+'Check2.Value = 0
+'Call Check2_Click
+'Check1.Value = 0
+'Call Check1_Click
+Call Option2_Click(0)
+Call Command1_Click
+
+'Hide
+
+End Sub
+
+'***********************************************
+Private Sub Form_Load()
+
+'Call SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, _
+                  SWP_NOMOVE Or SWP_NOSIZE)
+ChDir App.Path
+
+
+'# Check the OS version
+If IsNT = 0 Then                                  '# Win9X or NT4 SP < 3
+  'MsgBox "tt"
+  Check1.Value = 0
+  Check1.Enabled = False
+  Check2.Value = 0
+  Check2.Enabled = False
+End If
+
+'# In the IDE, the forwarding of
+'# keystrokes will be suppressed
+  
+If IsIDE Then
+  ChDrive Left$(App.Path, 1)                      '# Let VB find the DLL, if the VB.exe is
+  ChDir App.Path                                  '# located on another drive than the project.
+  Option1(2) = True
+  'dc = 2                                          '# Discard the keystrokes, when IDE
+  dc = 1                                          '# Dont Discard the keystrokes, when IDE
+  For i = 0 To Option1.Count - 1
+    Option1(i).Enabled = False
+  Next
+  Call HookVB(1)                                  '# Explicitely get callback from VB
+  Call Command1_Click
+
+End If
+
+If Not IsIDE Then
+Command1_Click
+End If
+'Show
+
+End Sub
+
+'***********************************************
+Private Sub Form_Unload(Cancel As Integer)
+If IsHook Then Call SetKeyboardHook(0, 0, 0)      '# Release the hook when closing
+End Sub
+
+'***********************************************
+Private Sub Option1_Click(Index As Integer)
+For i = 0 To Option1.Count - 1
+  If Option1(i) Then Exit For
+Next
+dc = i                                            '# Get the Discard value to set
+dc = 0
+Call SetGlobalParams(rp, dc)                      '# Set the (new) Discard value
+End Sub
+
+'***********************************************
+Private Sub Option2_Click(Index As Integer)
+
+Option2(1) = True
+
+For i = 0 To Option2.Count - 1
+  If Option2(i) Then Exit For                     '# Get the Repeat value
+Next
+
+rp = i
+Call SetGlobalParams(rp, dc)                      '# Set the (new) Repeat value
+If Not IsHook Then Command1.Enabled = True        '# Enable hooking
+End Sub
+
+'***********************************************
+
+
+
+
+
+--------------
+
+
+
+
+
+
+
+
+
+
+
+dump this crap
+
+Public Sub lastpressmouse()
+
+'not used
+
+Dim nx!, ny!
+
+FindCursor nx, ny
+
+If (nx <> x Or ny <> y) And (nx <> 1 And ny <> 1) Then
+    
+    mousey = mousey + Sqr(Abs(X1 - zx1) ^ 2 + Abs(Y1 - zy1) ^ 2)
+        
+    Label21.Caption = Str$(mousey)
+    
+    startmouse = 1
+    x = nx: y = ny
+    zx1 = X1: zy1 = Y1
+    
+    easyride = Now - 1
+
+
+End If
+
+dks = 1
+tog = 0
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sub SetClearAttribbits()
+'    Dim fs, F, R
+'    Set fs = CreateObject("Scripting.FileSystemObject")
+    
+    'Set f = fs.GetFile((filespec))
+    'adate(Counter) = f.DateLastModified
+
+'fs.CopyFile App.Path + wet$, "C:\utils\" + wet$
+
+'Shell "C:\utils\" + wet$, vbNormalFocus
+
+'Aewq = 1
+'If 1 = 2 Then wytge = 1
+'End
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+wer = cProcesses.GetEXEID(, wed$)
+
+
+
+
+If InStr(globalhot$, "winamp play") Then
+    Call Winamp_Player_On
+End If
+If InStr(globalhot$, "winamp play-stop") Then
+    Call winamp_player_off
+End If
+
+If InStr(globalhot$, "CID monitor_on") Then
+    Call CID_run_monitor_on
+End If
+
+If InStr(globalhot$, "CID monitor_off") Then
+    monitor_timer = 0
+End If
+
+
+
+
+
+
+in sub timer1_timer()
+
+'If tog8 < Now Then
+'tog8 = Now + TimeSerial(0, 0, 3)
+'Call Label11_Click
+'End If
+'If tog2 < Now Then
+'If tog1 = 1 Then Label12.Caption = Format(x9, "ddmmm hh:mm:ss")
+
+'If tog1 = 0 Then Label12.Caption = Format$(Illum(x9), "000.00000") + "%"
+
+'tog1 = tog1 Xor 1
+'tog2 = Now + TimeSerial(0, 0, 5)
+'End If
+
+'xcv$ =
+'If xcv$ <> False Then
+'xcv$ = xcv$
+'End If
+
+
+end sub
+
+
+
+
+Private Sub Timer4_Timer()
+xdf = GetAsyncKeyState(123)
+kbbdf5 = False
+
+If xdf < 0 And xdf2 = 1 Then kbbdf5 = True
+
+xdf2 = 0
+If xdf < 0 Then
+xdf2 = 1
+dks = 1
+'sluty = 1
+Call keywindowcheck
+
+kbbdf = True
+
+lastpress
+
+End If
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+Private Sub Timer4_sub()
+
+xdf = GetAsyncKeyState(123)
+kbbdf5 = False
+
+If xdf < 0 And xdf3 = 1 Then kbbdf5 = True
+
+xdf3 = 0
+If xdf < 0 Then
+xdf3 = 1
+dks = 1
+'sluty = 1
+'Call keywindowcheck
+
+kbbdf = True
+
+
+End If
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''''routine not used---------------------------------------
+Public Function oldlastpress() As Boolean
+Dim i&, nx!, ny!
+Static x!, y!
+
+If thisdate - 90 > Timer Then thisdate = Timer + 0.05
+If thisdate2 - 90 > Timer Then thisdate2 = Timer + 0.8
+
+If thisdate2 < Timer And togw2 = 0 Then
+    thisdate2 = Timer + 0.8
+End If
+
+If easyride < Now Then
+
+
+
+
+    If Label23.BackColor = &HFFC0C0 Then
+
+        Label23.BackColor = &HFF0000
+
+
+
+
+        If drive2$ <> "" And hidecursor2 = False And rty3 = True Then
+
+            If compname$ <> "MEACHELLE12345" Then SetCursorPos nx3, ny3
+            rty3 = False
+            bdf3 = 0
+        End If
+
+    End If
+End If
+
+togw2 = togw
+If thisdate < Timer And thisdate2 < Timer Then togw = 0: thisdate = Timer + 0.05
+  
+rty = False
+For i = 0 To 255
+  
+    bdf = GetAsyncKeyState(i)
+  
+    If bdf Then
+        rty = True
+   
+        If (i = 1 Or i = 2 Or i = 4) Then
+            bdf3 = i
+        End If
+        
+        If (i = 1 Or i = 2 Or i = 4) And rty3 = False Then
+   
+            rty = False
+        End If
+   
+        If togw = 0 Then
+            keyy = keyy + 1
+            If i = 123 Then sluty = 1
+            If i = 122 Then sluty2 = 1
+            If (i = 1 Or i = 2 Or i = 4) And togw = 0 Then
+                keyy = keyy - 1
+                mousey = mousey + 1
+                Label21.Caption = Str$(mousey)
+            End If
+    End If
+   
+  togw = 1
+    
+If keyy > 0 Then Label23.Caption = Str$(keyy)
+
+If rty = True And rty2 = False Then rty3 = True
+
+
+If bdf Then easyride = Now + TimeSerial(0, 0, 2)
+
+If bdf And Label23.BackColor = &HFF0000 And rty = True Then
+
+If drive2$ <> "" And hidecursor2 = False And rty3 = True Then
+If bdf3 = 17 Or bdf3 = 0 Then
+bdf3 = bdf3
+Else
+bdf3 = bdf3
+End If
+
+FindCursor nx3, ny3
+If bdf3 = 0 Then
+If compname$ <> "MEACHELLE12345" Then SetCursorPos 1, 1
+End If
+
+End If
+Label23.BackColor = &HFFC0C0
+End If
+  
+  
+  
+
+  'pakw = 1
+  lastdate = Now: Exit For
+  End If
+
+Next
+rty2 = rty
+
+FindCursor nx, ny
+'   return cursor position
+If (nx <> Xmp5 Or ny <> Ymp5) And (nx <> 1 And ny <> 1) Then
+If easyride < Now Then
+If startmouse = 1 Then
+mousey = mousey + Sqr(Abs(mpx1 - zx1) ^ 2 + Abs(mpy1 - zy1) ^ 2)
+Label21.Caption = Str$(mousey) 'Str$(mousey)
+End If
+startmouse = 1
+Xmp5 = nx: Ymp5 = ny
+zx1 = mpx1: zy1 = mpy1
+End If
+easyride = Now - 1
+Exit Function
+
+End If
+'   cursor has moved
+'SystemParametersInfo 14, 0, i, 0
+'   i=screensaver time in seconds
+
+'If DateDiff("s", lastdate, Now) > i Then
+'If pakw = 1 Then Exit Function
+oldlastpress = True
+togw = 0
+'End If
+'   should be active
+
+End Function
+
+
+
+
+
+
+
+
+'If Abol$ = Trim$(Str$(App.Major)) + "." + Trim$(Str$(App.Minor)) + "." + Trim$(Str$(App.Revision)) Then
+'If adate = adate2 Then
+'Kill "C:\utils\tidalquit.txt"
+'End If
+
+
+
+'If 1 = 2 Then
+'quiter:
+'Resume
+'End If
+
+
+'If wtime < Now Then
+'wtime = Now + 365
+
+'    Set fs = CreateObject("Scripting.FileSystemObject")
+    
+'    filespec = "C:\utils\tidal.exe"
+    
+'    Set f = fs.GetFile((filespec))
+'    adate = f.DateLastModified
+'    filespec = App.Path + "\tidal.exe"
+    
+'    Set f = fs.GetFile((filespec))
+'    adate2 = f.DateLastModified
+
+
+
+
+
+'fret2 = FreeFile
+'Open "C:\utils\tidal.exe" For Input As #fret2
+'fret3 = FreeFile
+'Open App.Path + "\tidal.exe" For Input As #fret3
+'If adate <> adate2 Then
+'Call SetClearAttribbits
+'End If
+'End If
+
+
+
+
+
+
+
+
+
+
+
+
+If PreviousInstance = True Then
+
+
+
+qtu$ = "Tidal Info Ver 1.0."
+
+
+A_Tidalx.Caption = "Tidal Info..."
+A_Tidalx.Refresh
+
+Dim weh As Long
+Dim art As Long
+
+Do
+    puk = 0
+    wef = App.Revision
+    Do
+        weh = FindWindow(vbNullString, qtu$ + Trim(Str(wef)))
+        wef = wef - 1
+        If weh > 0 Then
+            art = SendMessage(weh, WM_CLOSE, 0&, 0&)
+            puk = 1
+            If carnage = 0 Then
+                If art > 0 Then MsgBox ("Probelms Removing Previous Instance's of this program")
+                carnage = 1
+            End If
+        End If
+    Loop Until wef < 1
+DoEvents
+Loop Until puk = 0
+
+A_Tidalx.Caption = "Tidal Info Ver " + Trim$(Str$(App.Major)) + "." + Trim$(Str$(App.Minor)) + "." + Trim$(Str$(App.Revision))
+
+
+End If
+
+
+
+    
+    'Dim Controlx As Control
+    'For Each Controlx In Control
+    
+    'Set Form = Nothing
+    'Next Form
+    
+
+'ATidalX.DirectSS1.speak talktime$
+'ATidalX.TextToSpeech1.Gender 30
+'ATidalX.TextToSpeech1.Speed = 260
+
+
+
+'ATidalX.TextToSpeech1.speak talktime$
+
+
+
+
+
+
+        'If 1 = 2 Then
+ 
+        ' If colapse < Now Then
+        ' If d > 99 Then
+        'ATidalX.DirectSS1.Pitch = 150
+        'ATidalX.DirectSS1.Speed = 200
+ 
+        'est2 = est3
+        ' 'ATidalX.DirectSS1.speak "High Tide"
+        ' qtr = 1
+        ' End If
+ 
+        ' If d < 1 Then
+        'ATidalX.DirectSS1.Pitch = 150
+        'ATidalX.DirectSS1.Speed = 200
+ 
+        'est2 = est3
+        ' 'ATidalX.DirectSS1.speak "Low Tide"
+        ' qtr = 1
+        ' End If
+ 
+        ' If qtr = 0 Then
+        'ATidalX.DirectSS1.Pitch = 150
+        'ATidalX.DirectSS1.Speed = 200
+    
+        'est2 = est3
+
+        '' ATidalX.DirectSS1.speak "Middle Tide"
+        ' End If
+ 
+ 
+        ' colapse = Now + TimeSerial(0, 0, 10)
+        ' End If
+      
+        '  End If '''if 1=2
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    '# Display the passed values
+With DSkeybd_F.List1
+  If .ListCount > 500 Then .Clear
+  '# Add the new entry at the first position and highlight it
+  .AddItem "   " & action & Chr$(9) & state & Chr$(9) & vcode & Chr$(9) & scode, 0
+  .Selected(.NewIndex) = True
+End With
+
+Actionz = action
+Statez = state
+Vcodez = vcode
+Scodez = scode
+
+Kbbdf5 = False
+'MsgBox Chr(vcode) '------------Easy Test
+
+'fr5 = FreeFile
+'Open "C:\callerid\01 KeyStroke_Logger.txt" For Append As #fr5
+On Local Error Resume Next
+
+YYk$ = Chr(vcode)
+
+
+
+
+ATidalX.Label15.Caption = action & "-" & state & "-" & vcode & "-" & scode
+State2 = state
+
+XX3 = 0: XX4 = 0
+If GetForegroundWindow = FindWindow("wndclass_desked_gsk", vbNullString) Then XX3 = 1
+If GetForegroundWindow = FindWindow("#32770", "Microsoft Visual Basic") Then XX3 = 1
+If GetForegroundWindow = FindWindow("ATH_Note", vbNullString) Then XX4 = 1
+
+'For Num Pad
+If XX3 = 0 And XX4 = 0 Then
+'If Actionz = 2 And Statez = 0 And Vcodez = 188 Then Sluty3 = 3 ' , = Next Track
+'If Actionz = 3 And Statez = 0 And Vcodez = 111 Then Sluty3 = 2 ' / = Pause
+If Actionz = 2 And Vcodez = 107 Then Sluty3 = 4 ' + = Vol Up
+If Actionz = 2 And Vcodez = 109 Then Sluty3 = 5 ' - =  Vol Down
+
+If Actionz = 3 And Vcodez = 45 Then ' 0 =  FForward
+'Winamp2 = FindWindow("Winamp v1.x", vbNullString)
+'MsgResult = SendMessage(Winamp2, WM_COMMAND, WINAMP_FFWD5S, ByVal XcNul)
+End If
+End If
+
+'on Mobile Remote
+If Actionz = 2 And Statez = 6 And Vcodez = 50 Then Sluty3 = 3 'F7 = Next Track
+If Actionz = 2 And Statez = 6 And Vcodez = 49 Then Sluty3 = 2 'F8 = Pause
+
+If XX3 = 0 Then
+
+If Actionz = 2 And Statez = 0 And Vcodez = 119 Then Sluty3 = 2 'F8 = Pause
+If Actionz = 2 And Statez = 0 And Vcodez = 118 Then Sluty3 = 3 'F7 = Next Track
+Xz = 0
+If FindWindow(vbNullString, "AhaView") = GetForegroundWindow Then Xz = 1
+If FindWindow("TfmPictureView", vbNullString) = GetForegroundWindow Then Xz = 1
+If FindWindow("wndclass_desked_gsk", vbNullString) = GetForegroundWindow Then Xz = 1
+
+If Actionz = 2 And Statez = 0 And Vcodez = 121 Then Sluty3 = 4    'F10 = 'Vol Up
+If Actionz = 2 And Statez = 0 And Vcodez = 120 And Xz = 0 Then Sluty3 = 5  'F9 = 'Vol Down
+'If Actionz = 2 And Statez = 0 And Vcodez = 27 And Xz = 0 Then Sluty3 = 5    'Esc = 'Vol Down
+
+End If
+
+'If Actionz = 3 And (Statez = 0 Or Statez = 2) And Vcodez = 38 Then 'Up Arrow Mobile
+
+'    Call KnockerLogg
+
+'End If
+
+If Actionz = 2 And Vcodez = 106 Then '* Num Pad
+
+    Call KnockerLogg
+
+End If
+
+'If kbi = 117
+If Actionz = 2 And Statez = 0 And Vcodez = 117 Then MinDelayPause = Now + TimeSerial(0, 30, 0)
+'F6 = 1 Min delay Pause
+
+
+
+'Control Key
+If Actionz = 2 And Statez = 2 And Vcodez = 119 Then Sluty3 = 2 'F8 = Pause
+If Actionz = 2 And Statez = 2 And Vcodez = 118 Then Sluty3 = 3 'F7 = Next Track
+If Actionz = 2 And Statez = 2 And Vcodez = 121 Then Sluty3 = 4    'F10 = 'Vol Up
+If Actionz = 2 And Statez = 2 And Vcodez = 120 Then Sluty3 = 5    'F9 = 'Vol Down
+
+If Actionz = 2 And Statez = 0 And Vcodez = 122 Then Sluty4 = 2      'F11 Select all an paste Text
+
+'If Actionz = 2 And Statez = 0 And Vcodez = 122 Then Sluty4 = 1      'F11 = Mark Messages By Conversation
+If Actionz = 2 And Statez = 0 And Vcodez = 109 Then Sluty4 = 1      '- Num Pad = Mark Messages By Conversation
+If Actionz = 2 And Statez = 2 And Vcodez = 109 Then Sluty4 = 1      '- Num Pad = Mark Messages By Conversation
+
+'If Actionz = 2 And Statez = 2 And Vcodez = 191 Then SendKeys "\", False
+
+If Actionz = 2 And Statez = 2 And Vcodez = 191 Then
+    Clipboard.Clear
+    Clipboard.SetText "\"
+End If
+'num pad slash
+If Actionz = 1 And Statez = 0 And Vcodez = 111 Then
+    'Clipboard.Clear
+    'Clipboard.SetText "\"
+    SendKeys "\"
+    Callback = 2 'suppress the hooked key
+    Adr& = 0
+    'MsgBox "Hello"
+End If
+
+
+
+If action = 4 Or action = 5 Then Exit Function 'key release
+
+
+
+'MsgBox (Str(kbi))\/////////////////////\
+If vcode = 123 Then
+    Sluty = 1 ' F12
+End If
+        
+If GetForegroundWindow = FindWindow("Notepad2", vbNullString) Then
+    If vcode = 115 Then Sluty = 1 'f4 Copy - Ie Paste
+End If
+        
+'If vcode = 122 Then sluty2 = 1 'F11
+  
+'If vcode = 44 Then Sluty3 = 8 '* Print Screen Pinnos
+
+If Sluty = 1 Or Sluty3 = 2 Or Sluty3 = 3 Then Call KeyWindowCheck
+If Sluty4 > 0 Then Call KeyWindowCheck
+
+'Work to Turn Lock on an Off
+If vcode = 44 And state = 2 Then Call ATidalX.Bollocks
+If vcode = 44 And state = 3 Then Call ATidalX.Bollocks
+
+'Print #Fr5, YYk$;\///////\//////jj///
+
+GoTo skip1
+Fr5 = FreeFile
+Open "C:\callerid\01 KeyStroke_Logger.txt" For Append As #Fr5
+
+    'ttyu$ = Format$(Now, "DDD DD-MMM-YYYY HH:MM:SS a/p")
+    Print #Fr5, YYk$;
+    'TtYy = Day(Now)
+Close #Fr5
+skip1:
+
+
+If action = 1 Or action = 0 Then Kbbdf5 = True
+
+KbbdF = True
+
+kbpress2 = vcode
+
+If IsIDE = True Then Call ATidalX.lastpress
+Keyy = Keyy + 1
+
+ATidalX.Label23.Caption = Str$(Keyy)
+
