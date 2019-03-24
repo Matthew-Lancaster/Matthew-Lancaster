@@ -1,6 +1,0 @@
-; gen_activewa.def : Declares the module parameters.
-
-LIBRARY      "gen_activewa.DLL"
-
-EXPORTS
-	DllRegisterServer

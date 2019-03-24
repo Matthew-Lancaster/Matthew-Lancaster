@@ -1,0 +1,5750 @@
+VERSION 5.00
+Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "MCI32.OCX"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
+Begin VB.Form Form1 
+   AutoRedraw      =   -1  'True
+   BackColor       =   &H00E0E0E0&
+   Caption         =   "Fast ClipBoard"
+   ClientHeight    =   6036
+   ClientLeft      =   3672
+   ClientTop       =   3972
+   ClientWidth     =   11544
+   BeginProperty Font 
+      Name            =   "Arial"
+      Size            =   9.68
+      Charset         =   0
+      Weight          =   700
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   Icon            =   "FastClipBoard.frx":0000
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   6036
+   ScaleWidth      =   11544
+   WindowState     =   1  'Minimized
+   Begin VB.Timer TIMER_KEYBOARD_AND_MOUSE_ACTIVE 
+      Enabled         =   0   'False
+      Interval        =   59000
+      Left            =   7908
+      Top             =   1728
+   End
+   Begin VB.FileListBox File3 
+      Height          =   756
+      Left            =   8880
+      TabIndex        =   14
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   1212
+   End
+   Begin VB.Timer TIMER_VB_PROJECT_DATE 
+      Interval        =   4000
+      Left            =   8520
+      Top             =   240
+   End
+   Begin VB.Timer TIMER_RETRY_WRITE_INFO_UNTIL_DONE1 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   8520
+      Top             =   600
+   End
+   Begin VB.Timer TIMER_RETRY_WRITE_INFO_UNTIL_DONE2 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   8520
+      Top             =   960
+   End
+   Begin VB.Timer Timer_MENU_HEIGHT_CHANGED 
+      Interval        =   100
+      Left            =   7320
+      Top             =   3288
+   End
+   Begin VB.Timer Timer_MOUSE_5_MINUTE 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   7908
+      Top             =   3540
+   End
+   Begin VB.Timer Timer_Idle_Few_Second 
+      Interval        =   1000
+      Left            =   7320
+      Top             =   2904
+   End
+   Begin VB.Timer Timer_MOUSE_4_MINUTE 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   7896
+      Top             =   3168
+   End
+   Begin VB.Timer Timer_MOUSE_3_MINUTE 
+      Interval        =   59990
+      Left            =   7896
+      Top             =   2808
+   End
+   Begin VB.Timer TIMER_OutClipChunck_Txt 
+      Enabled         =   0   'False
+      Interval        =   10
+      Left            =   6705
+      Top             =   1815
+   End
+   Begin VB.Timer Timer_INFORAPID_MSGBOX 
+      Enabled         =   0   'False
+      Interval        =   1
+      Left            =   6750
+      Top             =   1455
+   End
+   Begin VB.Timer Timer_MOUSE_2_MINUTE 
+      Enabled         =   0   'False
+      Interval        =   59990
+      Left            =   7896
+      Top             =   2448
+   End
+   Begin VB.Timer Timer_MOUSE_1_MINUTE 
+      Enabled         =   0   'False
+      Interval        =   59990
+      Left            =   7896
+      Top             =   2088
+   End
+   Begin VB.Timer Timer_EXE_DAY_AGE 
+      Interval        =   60000
+      Left            =   6720
+      Top             =   120
+   End
+   Begin VB.Timer Timer_API_OKAY_COLOUR 
+      Interval        =   1
+      Left            =   6270
+      Top             =   1815
+   End
+   Begin VB.Timer Timer_API_Test 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   6240
+      Top             =   1395
+   End
+   Begin VB.Timer Timer_WEATHER_URL 
+      Enabled         =   0   'False
+      Interval        =   60000
+      Left            =   7260
+      Top             =   945
+   End
+   Begin VB.DirListBox Dir1 
+      Height          =   1980
+      Left            =   3675
+      TabIndex        =   11
+      Top             =   105
+      Visible         =   0   'False
+      Width           =   1995
+   End
+   Begin VB.Timer Timer_EXPLORER_GONE 
+      Interval        =   1000
+      Left            =   6270
+      Top             =   525
+   End
+   Begin VB.Timer Timer_MOUSE_KEYBOARD 
+      Interval        =   50
+      Left            =   6285
+      Top             =   120
+   End
+   Begin VB.Timer Timer_SCREEN_SHOT 
+      Interval        =   100
+      Left            =   6270
+      Top             =   960
+   End
+   Begin VB.Timer Timer6 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   7260
+      Top             =   1380
+   End
+   Begin VB.Timer Timer_MOUSE 
+      Enabled         =   0   'False
+      Interval        =   2000
+      Left            =   7896
+      Top             =   1368
+   End
+   Begin VB.Timer Timer_FORM_RESIZE 
+      Enabled         =   0   'False
+      Interval        =   400
+      Left            =   6744
+      Top             =   1035
+   End
+   Begin VB.Timer TimerSCROLL 
+      Enabled         =   0   'False
+      Interval        =   800
+      Left            =   7275
+      Top             =   1785
+   End
+   Begin VB.Timer Timer3 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   5850
+      Top             =   570
+   End
+   Begin VB.Timer TIMER_JOYPAD 
+      Enabled         =   0   'False
+      Interval        =   20
+      Left            =   7260
+      Top             =   2205
+   End
+   Begin VB.PictureBox Picture4 
+      AutoRedraw      =   -1  'True
+      AutoSize        =   -1  'True
+      Height          =   420
+      Left            =   2640
+      ScaleHeight     =   372
+      ScaleWidth      =   420
+      TabIndex        =   9
+      Top             =   825
+      Visible         =   0   'False
+      Width           =   465
+   End
+   Begin VB.PictureBox Picture3 
+      AutoRedraw      =   -1  'True
+      AutoSize        =   -1  'True
+      Height          =   435
+      Left            =   2040
+      ScaleHeight     =   384
+      ScaleWidth      =   468
+      TabIndex        =   8
+      Top             =   825
+      Visible         =   0   'False
+      Width           =   510
+   End
+   Begin VB.PictureBox Picture2 
+      Height          =   420
+      Left            =   1455
+      ScaleHeight     =   372
+      ScaleWidth      =   444
+      TabIndex        =   7
+      Top             =   825
+      Visible         =   0   'False
+      Width           =   495
+   End
+   Begin VB.PictureBox Picture1 
+      Height          =   405
+      Left            =   855
+      ScaleHeight     =   360
+      ScaleWidth      =   492
+      TabIndex        =   6
+      Top             =   825
+      Visible         =   0   'False
+      Width           =   540
+   End
+   Begin MCI.MMControl MMControl1 
+      Height          =   330
+      Left            =   60
+      TabIndex        =   4
+      Top             =   2685
+      Visible         =   0   'False
+      Width           =   3540
+      _ExtentX        =   6297
+      _ExtentY        =   576
+      _Version        =   393216
+      DeviceType      =   ""
+      FileName        =   ""
+   End
+   Begin VB.CommandButton Command4 
+      Caption         =   "Test Clip"
+      Height          =   300
+      Left            =   120
+      TabIndex        =   3
+      Top             =   2295
+      Visible         =   0   'False
+      Width           =   945
+   End
+   Begin VB.CommandButton Command3 
+      Caption         =   "Clear Text"
+      Height          =   315
+      Left            =   105
+      TabIndex        =   2
+      Top             =   1935
+      Visible         =   0   'False
+      Width           =   1125
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "Clear ClipBoard"
+      Height          =   285
+      Left            =   90
+      TabIndex        =   1
+      Top             =   1635
+      Visible         =   0   'False
+      Width           =   1665
+   End
+   Begin VB.Timer Timer1 
+      Enabled         =   0   'False
+      Interval        =   50
+      Left            =   7896
+      Top             =   1020
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Clip all"
+      Height          =   300
+      Left            =   105
+      TabIndex        =   0
+      Top             =   1305
+      Visible         =   0   'False
+      Width           =   870
+   End
+   Begin MCI.MMControl MMControl2 
+      Height          =   330
+      Left            =   60
+      TabIndex        =   10
+      Top             =   3075
+      Visible         =   0   'False
+      Width           =   3540
+      _ExtentX        =   6297
+      _ExtentY        =   598
+      _Version        =   393216
+      DeviceType      =   ""
+      FileName        =   ""
+   End
+   Begin RichTextLib.RichTextBox Text1 
+      Height          =   405
+      Left            =   30
+      TabIndex        =   5
+      Top             =   390
+      Width           =   3240
+      _ExtentX        =   5720
+      _ExtentY        =   726
+      _Version        =   393217
+      Enabled         =   -1  'True
+      HideSelection   =   0   'False
+      ReadOnly        =   -1  'True
+      ScrollBars      =   2
+      AutoVerbMenu    =   -1  'True
+      TextRTF         =   $"FastClipBoard.frx":08CA
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Arial"
+         Size            =   12.1008
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Label Label2 
+      Alignment       =   2  'Center
+      Caption         =   "TIMERS NOT USED"
+      Height          =   765
+      Left            =   7260
+      TabIndex        =   13
+      Top             =   165
+      Visible         =   0   'False
+      Width           =   735
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Label1"
+      Height          =   255
+      Left            =   45
+      TabIndex        =   12
+      Top             =   60
+      Width           =   3225
+   End
+   Begin VB.Menu Mnu_Exit 
+      Caption         =   "Exit"
+   End
+   Begin VB.Menu Mnu_VB 
+      Caption         =   "VB ME"
+   End
+   Begin VB.Menu MNU_VB_FOLDER 
+      Caption         =   "VB FOLDER"
+   End
+   Begin VB.Menu MNU_TOOL 
+      Caption         =   "TOOL SHOP"
+      Begin VB.Menu MNU_EXPLORER_ME_VB 
+         Caption         =   "EXPLORER ME_VB"
+      End
+      Begin VB.Menu MNU_JUMP_ANY_SPECIAL_FOLDER 
+         Caption         =   "JUMP EXPLORER ANY SPECIAL FOLDER"
+      End
+      Begin VB.Menu MNU_MIRROR_SEND_TO_OPERATING_SYSTEM 
+         Caption         =   "MIRROR SEND TO FOLDER TO ANY OPERATING SYSTEM SPECIAL FOLDER"
+      End
+      Begin VB.Menu MNU_SEND_TO_SYSTEM_FOLDER 
+         Caption         =   "SEND TO SYSTEM FOLDER"
+      End
+      Begin VB.Menu MNU_SEND_TO_FAT32_FOLDER 
+         Caption         =   "SEND TO FAT 32 FOLDER"
+      End
+      Begin VB.Menu MNU_SPECIAL_FOLDER_PIN_TO_START_MENU 
+         Caption         =   "PIN TO START MENU - FOLDER"
+      End
+      Begin VB.Menu MNU_SPECIAL_FOLDER_DESKTOP_PUBLIC 
+         Caption         =   "DESKTOP FOLDER - PUBLIC"
+      End
+      Begin VB.Menu MNU_SPECIAL_FOLDER_DESKTOP_USER 
+         Caption         =   "DESKTOP FOLDER - USER"
+      End
+      Begin VB.Menu MNU_ABORT_SHUTDOWN 
+         Caption         =   "ABORT SHUTDOWN \system32\shutdown.exe /a"
+      End
+   End
+   Begin VB.Menu Mnu_Options 
+      Caption         =   "OPTIONS"
+      Begin VB.Menu Mnu_SoundOn 
+         Caption         =   "AUDIO ON"
+      End
+      Begin VB.Menu MNU_PLAY_SOUND_ON_LOAD 
+         Caption         =   $"FastClipBoard.frx":094C
+      End
+      Begin VB.Menu MNU_Audio_Only_With_Text_and_Picture_Clip_Sound_Bug_Acer 
+         Caption         =   "Audio Only With Text and Picture Clip -- PROBLEM -- Sound Bug Acer"
+         Enabled         =   0   'False
+         Visible         =   0   'False
+      End
+      Begin VB.Menu Mnu_Edit_Sound 
+         Caption         =   "EDIT AUDIO 1 -- WITH COOLEDIT 2000"
+      End
+      Begin VB.Menu Mnu_Find_New_Sounds 
+         Caption         =   "Refresh - Find New In Folder For AUDIO 1"
+      End
+      Begin VB.Menu Mnu_Reset_MMControl 
+         Caption         =   "Reset AUDIO All Media Control in Case All Drive Handles were Unlocked"
+      End
+      Begin VB.Menu Mnu_Reload_Audio 
+         Caption         =   "Reload Usual Selection From Audio"
+      End
+      Begin VB.Menu Mnu_Explorer_Sound_1 
+         Caption         =   "Explorer AUDIO Folder 1"
+      End
+      Begin VB.Menu Mnu_Explorer_Sound_2 
+         Caption         =   "Explorer AUDIO Folder 2"
+      End
+      Begin VB.Menu Mnu_Play_Sound_1 
+         Caption         =   "Play Current AUDIO 1"
+      End
+      Begin VB.Menu Mnu_Play_Sound_2 
+         Caption         =   "Play Current AUDIO 2"
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   1
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   2
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   3
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   4
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   5
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   6
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   7
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   8
+      End
+      Begin VB.Menu MNU_SOUND_OPTION 
+         Caption         =   "MNU_SOUND_OPTION"
+         Index           =   9
+      End
+      Begin VB.Menu MNU_SOUND_2 
+         Caption         =   "MNU_SOUND_2"
+      End
+   End
+   Begin VB.Menu MNU_INFO 
+      Caption         =   "INFO"
+      Begin VB.Menu Mnu_APP_BEGIN_TIME_TIMER 
+         Caption         =   "APP BEGIN TIME"
+      End
+      Begin VB.Menu MNU_BRing_Front 
+         Caption         =   "Bring All Windows Front"
+      End
+      Begin VB.Menu MNU_TIME_API_FUNCTION_ACCESS 
+         Caption         =   "TIME API SUB FUCTION LAST ACCESSED -- NOT A TIME YET"
+      End
+      Begin VB.Menu MNU_CLIPBOARD_API_PUBLIC_VAR_HOOK 
+         Caption         =   "FORM CLIPBOAD API - PUBLIC VAR = TRUE SHOWS LOADED IS = "
+         Visible         =   0   'False
+      End
+      Begin VB.Menu MNU_EXECUTE_TIMER_ENABLED 
+         Caption         =   "EXECUTE_TIMER_ENABLED - TRUE OR FALSE"
+      End
+      Begin VB.Menu Mnu_Missing_Link_API_Test 
+         Caption         =   "Missing Link Detector Check Clipboard API Unloaded = "
+      End
+      Begin VB.Menu MNU_MIRROR_EXE_DRY_RUN 
+         Caption         =   "FORCE DRY RUN DRILL DOWN -- OF RUN MIRROR EXE ROUTINE"
+      End
+      Begin VB.Menu Mnu_Project_Source_Code 
+         Caption         =   "Check For More Up-to-date Project Source Code"
+      End
+      Begin VB.Menu Mnu_Project_Source_Code_MIRROR 
+         Caption         =   "Check For More Up-to-date Project Source Code MIRROR"
+      End
+      Begin VB.Menu Mnu_API_Reload_Status 
+         Caption         =   "The API Form Clipper Logger Sub Call Loaded @ "
+      End
+      Begin VB.Menu Mnu_API_UNLoad_Status 
+         Caption         =   "The API Form Clipper Logger Sub Call UN-Loaded @ "
+      End
+      Begin VB.Menu Mnu_API_Unload_Reload 
+         Caption         =   "Test Unload && Reload Quick Test the API Clipboard Form"
+      End
+      Begin VB.Menu Mnu_API_Unload 
+         Caption         =   "Test Unload the API Clipboard Form"
+      End
+      Begin VB.Menu Mnu_API_Reload 
+         Caption         =   "Test Reload the API Clipboard Form"
+      End
+      Begin VB.Menu MNU_CLIPBOARD_TEST 
+         Caption         =   "Test Code to Test This Program Is Working ClipBoarding Through the API -- Trigger MsgBox Result Happen"
+      End
+      Begin VB.Menu MNU_MESSAGE_BOXES 
+         Caption         =   "STOP REPEAT NAGGING MESSAGE BOXES - TOGGLE"
+      End
+   End
+   Begin VB.Menu Mnu_Loggs 
+      Caption         =   "LOGG Menu"
+      Begin VB.Menu Mnu_LoggExplorer 
+         Caption         =   "Open Logg Explorer"
+      End
+      Begin VB.Menu MNU_INFRO_RAPID_ALL 
+         Caption         =   "INFO RAPID ALL FOLDERS"
+      End
+      Begin VB.Menu MNU_INFRO_RAPID_ALL_SMALL_FILES 
+         Caption         =   "INFO RAPID ALL FOLDERS AND SMALL FILES BEGIN ClipBoard-*.TXT"
+      End
+      Begin VB.Menu MNU_INFO_RAPID_MYUSER 
+         Caption         =   "INFO RAPID MY USER"
+      End
+      Begin VB.Menu MNU_INFO_RAPID 
+         Caption         =   "INFO RAPID TRIM LOGG"
+      End
+      Begin VB.Menu Mnu_Open_Recent_Hex 
+         Caption         =   "Hex Open Recent Trim Logg"
+      End
+      Begin VB.Menu Mnu_Open_Recent 
+         Caption         =   "Edit Recent Trim Logg"
+      End
+      Begin VB.Menu Mnu_Open_Logg 
+         Caption         =   "Edit This Logg"
+      End
+      Begin VB.Menu Mnu_Open_Total 
+         Caption         =   "Edit Total Logg"
+      End
+      Begin VB.Menu Mnu_StripLogg 
+         Caption         =   "Edit Strip Logg"
+      End
+      Begin VB.Menu Mnu_TEXT_Open_Recent 
+         Caption         =   "Text View Recent Trim Logg"
+      End
+      Begin VB.Menu Mnu_TEXT_Open_Logg 
+         Caption         =   "Text View This Logg"
+      End
+      Begin VB.Menu Mnu_TEXT_Open_Total 
+         Caption         =   "Text View Total Logg"
+      End
+      Begin VB.Menu Mnu_TEXT_StripLogg 
+         Caption         =   "Text View Strip Logg"
+      End
+      Begin VB.Menu Mnu_ShellT_Todays 
+         Caption         =   "Shell T -- This Logg"
+      End
+      Begin VB.Menu Mnu_Shell_T 
+         Caption         =   "Shell T -- Total Logg"
+      End
+      Begin VB.Menu Mnu_Clips 
+         Caption         =   "Clips"
+         Begin VB.Menu Mnu_ClipAll 
+            Caption         =   "Clip All"
+         End
+         Begin VB.Menu Mnu_ClearClipBoard 
+            Caption         =   "Clear ClipBoard"
+         End
+         Begin VB.Menu Mnu_Clear_Text 
+            Caption         =   "Clear Text"
+         End
+         Begin VB.Menu Mnu_Test_Clip 
+            Caption         =   "Test Clip"
+         End
+      End
+   End
+   Begin VB.Menu MNU_CLIP_TO_FILE 
+      Caption         =   "CLIP TO FILE"
+      Begin VB.Menu MNU_CLIP_TO_FILE_CODE 
+         Caption         =   "CLIP TO TEMPORAY FILE AND EDITOR -"
+      End
+      Begin VB.Menu MNU_CLIP_TO_FILE_LAST 
+         Caption         =   "LAST - CLIPPER TO TEMPORAY FILE -"
+      End
+   End
+   Begin VB.Menu MNU_LAST_ART_PIC2 
+      Caption         =   "IMAGE"
+      Begin VB.Menu MNU_SCREEN_SHOT 
+         Caption         =   "OPEN ART LOGG FOLDER"
+      End
+      Begin VB.Menu MNU_LAST_ART_PIC 
+         Caption         =   "EXPLORER LAST CLIP-BOARDED HOT KEY IMAGE"
+      End
+      Begin VB.Menu MNU_LAST_ART_PIC_IVIEW 
+         Caption         =   "IVIEW ---- LAST CLIP-BOARDED HOT KEY IMAGE"
+      End
+      Begin VB.Menu Mnu_Explorer_Screen_Capture 
+         Caption         =   "Explorer Auto Screen Capture"
+      End
+      Begin VB.Menu Mnu_Explorer_Form_Capture 
+         Caption         =   "Explorer Auto Current Form Capture"
+      End
+      Begin VB.Menu Mnu_IVIEW_Form_Capture 
+         Caption         =   "IVIEW - Auto Current Form Capture"
+      End
+      Begin VB.Menu MNU_LAST_WEBCAM_PIC 
+         Caption         =   "EXPLORER LAST WEB CAM"
+      End
+      Begin VB.Menu MNU_IVIEW_LAST_WEBCAM_PIC 
+         Caption         =   "IVIEW ---  LAST WEB CAM"
+      End
+      Begin VB.Menu MNU_URL_SCREEN_SCRAPER 
+         Caption         =   "EXPLORER LAST SCREEN SCRAPER FROM URL SHOT LOGGER"
+      End
+   End
+   Begin VB.Menu MNU_SCANPATH_COUNTER 
+      Caption         =   "Image Counter"
+   End
+   Begin VB.Menu MNU_SCROLL_DOWN 
+      Caption         =   "SCROLL DOWN"
+      Visible         =   0   'False
+      Begin VB.Menu MNU_800 
+         Caption         =   "800"
+      End
+      Begin VB.Menu MNU_500 
+         Caption         =   "500"
+      End
+      Begin VB.Menu MNU_400 
+         Caption         =   "400"
+      End
+      Begin VB.Menu MNU_300 
+         Caption         =   "300"
+      End
+      Begin VB.Menu MNU_200 
+         Caption         =   "200"
+      End
+      Begin VB.Menu MNU_100 
+         Caption         =   "100"
+      End
+      Begin VB.Menu MNU_SCROLL_OFF 
+         Caption         =   "OFF"
+      End
+   End
+   Begin VB.Menu MNU_EBAY 
+      Caption         =   "EBAY"
+      Begin VB.Menu MNU_EBAY_NOTEPAD 
+         Caption         =   "EBAY -- BUY FILTER RESULTS -- LOAD NOTEPAD++"
+      End
+      Begin VB.Menu MNU_EBAY_BEGIN_FILTER_SAVE_EDITOR 
+         Caption         =   "EBAY -- FILTER RESULT OF BASIC LINE TEXT SAVE AND LOAD EDITOR"
+      End
+      Begin VB.Menu MNU_EBAY_FILTER_WILDCARD 
+         Caption         =   "EBAY -- FILTER LINE INPUT - * - WILDCARD"
+      End
+      Begin VB.Menu MNU_EBAY_FILTER_NUMERIC_SIX 
+         Caption         =   "EBAY -- FILTER LINE INPUT - NUMERIC - SIX "
+      End
+      Begin VB.Menu MNU_EBAY2 
+         Caption         =   "EBAY_MORE"
+      End
+   End
+   Begin VB.Menu MNU_FORMAT_TEXT 
+      Caption         =   "FORMAT TEXT"
+      Begin VB.Menu MNU_LAST_GRAB_ALL_CAPS 
+         Caption         =   "LAST GRAB - ALL CAPS - ON ALL CLIPBOARD'S IF ENABLED"
+      End
+      Begin VB.Menu MNU_LAST_GRAB_CAPS 
+         Caption         =   "LAST GRAB - CAPS - ONCE"
+      End
+      Begin VB.Menu MNU_PROCAPS 
+         Caption         =   "LAST GRAB - PRO - CAPS"
+      End
+      Begin VB.Menu MNU_FORMAT_MINE 
+         Caption         =   "SORT MINE PRO CAPS + MORE PROPER"
+      End
+      Begin VB.Menu MNU_ENTER_LARGE 
+         Caption         =   "ENTER LARGE TEXT INTO LOGGER - Hardcoded - BluetoothLogView - To Allow"
+      End
+      Begin VB.Menu MNU_FORMAT_PLAIN_TEXT 
+         Caption         =   "REFORMAT TO PLAIN TEXT"
+      End
+      Begin VB.Menu MNU_FORMAT_PLAIN_TEXT_LARGE_CLIPBOARD 
+         Caption         =   "REFORMAT TO PLAIN TEXT - LARGE CLIPBOARD"
+      End
+      Begin VB.Menu MNU_SPACE 
+         Caption         =   "ClipBoard a SPACE"
+      End
+      Begin VB.Menu MNU_REFORMAT_ADD_A_DASH 
+         Caption         =   "ADD A DOUBLE DASH BEFORE EVERY CR-LINEFEED - TEXTBOXES THE REMOVE CR-LINEFEED  PROBLEM"
+      End
+      Begin VB.Menu MNU_REFORMAT_REMOVE_THE_DASH 
+         Caption         =   "REMOVE THE  DOUBLE DASH BEFORE EVERY CR-LINEFEED"
+      End
+   End
+   Begin VB.Menu MNU_FORMAT_PLAIN_TEXT2 
+      Caption         =   "PLAIN"
+   End
+   Begin VB.Menu MNU_CLIP_TIME 
+      Caption         =   "GIVE ME TIME"
+   End
+   Begin VB.Menu Mnu_URL 
+      Caption         =   "URL"
+      Begin VB.Menu Mnu_URL_Browser 
+         Caption         =   "URL Launch In Browser"
+      End
+      Begin VB.Menu Mnu_HTML_URL 
+         Caption         =   "URL ADD WRAPPER  HTML <a href=""""..."
+      End
+   End
+   Begin VB.Menu MNU_FILE_EXPLORER 
+      Caption         =   "FILE"
+      Begin VB.Menu MNU_CLIPBOARD_EXPLOERER_FILE_FOLDER 
+         Caption         =   "OPEN FILE FOLDER PATH CLIPBOARD IN EXPLORER /SELECT"
+      End
+   End
+   Begin VB.Menu Mnu_Minimize 
+      Caption         =   "Minimize"
+   End
+   Begin VB.Menu Mnu_Norm 
+      Caption         =   "Norm"
+   End
+   Begin VB.Menu Mnu_Center 
+      Caption         =   "Center"
+   End
+   Begin VB.Menu Mnu_Max 
+      Caption         =   "Maximized"
+   End
+   Begin VB.Menu MNU_CB_SIZE 
+      Caption         =   "CB SIZE 0.0 MEG"
+      Begin VB.Menu Mnu_CB 
+         Caption         =   "Hitt Menu Option to Copy and Paste"
+      End
+      Begin VB.Menu MNU_CB_SIZE_MEG 
+         Caption         =   "CB SIZE MEG"
+      End
+      Begin VB.Menu MNU_CB_SIZE_BYTE 
+         Caption         =   "CB SIZE BYTE"
+      End
+   End
+   Begin VB.Menu MNU_CB_SIZE_BYTE_OVERSIZE 
+      Caption         =   "CB SIZE OVERSIZE LIMIT"
+   End
+   Begin VB.Menu Mnu_LAST_CLIP_TIME 
+      Caption         =   "Last Clip Time"
+   End
+   Begin VB.Menu Mnu_Clip_Description 
+      Caption         =   "Clip Description"
+   End
+   Begin VB.Menu Mnu_Clip_Status 
+      Caption         =   "Clip Status"
+   End
+   Begin VB.Menu Mnu_Run_Status 
+      Caption         =   "Run Status"
+   End
+   Begin VB.Menu MNU_IDLE_ACTIVE 
+      Caption         =   "IDLE <> ACTIVE"
+   End
+   Begin VB.Menu Mnu_Height 
+      Caption         =   "x"
+      Visible         =   0   'False
+   End
+   Begin VB.Menu MNU_ERROR_INFO 
+      Caption         =   "ANY ERROR MSG OR INFO"
+   End
+   Begin VB.Menu MNU_FILE_STUCK_IN_USE 
+      Caption         =   "FILE STUCK IN USE"
+   End
+End
+Attribute VB_Name = "Form1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+'NEXT WORK STARTED ALREADY TO DO
+
+'LOT MORE OF THESE
+'    EXECUTE_TIMER_ENABLED = False
+'    Clipboard.Clear
+'    Clipboard.SetText AD$
+'    EXECUTE_TIMER_ENABLED = True
+
+'NEED FINSIH MESSAGE LIST BOX RATHER THAN MSGBOX-ING
+
+'---------------------------------
+'Tue 05 July 2016 04:46:34
+'NEW SPEEDER FOR FORM DESIGNER
+'Check Disable Desktop Composition
+'----
+'[RESOLVED] VB6 build slow on Win 7-VBForums
+'http://www.vbforums.com/showthread.php?712373-RESOLVED-VB6-build-slow-on-Win-7
+'----
+'---------------------------------
+
+
+
+
+'Private Sub Mnu_Clip_Status_Click()
+'Mnu_Clip_Status
+'Private Sub MNU_CLIP_TO_FILE_CODE_Click()
+
+'--------------------------------------------
+'JOB # 01
+'WORK TO FINISH ON THE SEND TO SPECIAL FOLDER
+'2016 MAY 02 MON BANK HOLIDAY
+'PROBLEM WITH MY LINKS WITH SENT TO IN WIN 10 - DON'T SEEM TO WANT TO WORK THEM LINKS
+'--------------------------------------------
+'JOB # 02
+'WORK TO FINISH ON THE RESCAN TWICE OF AUDIO EFFECT AND IT LOSE ABILTY METHOD
+'2016 MAY 02 MON BANK HOLIDAY
+'-------------------------------
+''SUB SETUP_SOUND_FILE(VARSOUND)
+'-------------------------------
+''WORK TO DO HERE
+''LAST BREAK POINT WHILE WORK WAS SET HERE
+'--------------------------------------------
+'--------------------------------------------
+'JOB # 03
+'ADD SUPPORT FOR NETWORK CLIPBOARD SHARE
+'2016 MAY 02 MON BANK HOLIDAY
+'--------------------------------------------
+'--------------------------------------------
+'JOB # 04
+'ADD IMPROVE WITH A SEARCH BOX
+'2015
+'--------------------------------------------
+'--------------------------------------------
+'JOB # 04
+'MORE TO DO SORT MIRROR VERSION BETTER -- NOT SEEN IT WORKING MUCH
+'2016 MAY 02 MON BANK HOLIDAY
+'--------------------------------------------
+'--------------------------------------------
+'JOB # 05
+'MORE INFO ON WHAT WAS STORED ABOUT CLIPBOARD HOLDING WHEN AT LOAD TIME
+'2016 MAY 02 MON BANK HOLIDAY
+'--------------------------------------------
+'--------------------------------------------
+'JOB # 07
+'ADD FORWARD AND BACK THROUGHT LAST CLIPBOARD
+'AT LEAST GET TO TOP OF LAST ONE WHEN BIG
+'2016 MAY 31 DAY AFTER BANK HOLIDAY
+'--------------------------------------------
+
+'---------------------------------------------------------------
+'WED 01 JUNE
+'---------------------------------------------------------------
+'JOB
+'IS SOMEWHERE THAT REQUIRE A FORM BOX QUESTION RATHER THAN
+'MSGBOX -- THINK IT IS PHOTO CAMERA
+'---------------------------------------------------------------
+'JOB
+'NEED A LOT MORE JOB OF START UP FOLDER AND COMMON ONES
+'ESPECIALLY NEW INSTALL GET GOING
+'---------------------------------------------------------------
+'JOB
+'CHOP END FROM DUPE CHECK STOP DOING BIG FILE JOB END
+'UNTIL ERROR SORTED
+'---------------------------------------------------------------
+
+
+
+'--------------------
+'JOBS
+'--------------------
+
+'--------------------
+'WORK
+'--------------------
+
+
+'--------------------------------------------
+'WORK DONE FRI 13 MAY 20SIXTEEN
+'--------------------------------------------
+'MENU ITEM TO SHOW WHEN OVERSIZE LIMITED IS HELF IN CLIPBOARD
+'AND THEN THE MENU ITEM TO ALLOW LARGE TEXT IS SET AND DISPLAY
+'ONE TOP MENU ITEM IS NOT SHOWN WHEN NOT NEED
+'
+'THE WIN 7 HAD PROBLEM UNLESS FINDPART LOAD VB IDE
+'HAD NOT A EXTRA RIGHT SQUARE BRACKET AT END SEARCH STRING
+'AND THEN MORE CODE TO LOAD ANYWAY OF MSGBOX QUESTION IF WANT IN
+'OTHER FAIL MIGHT HAPPEN
+'MIGHT REMOVE THE QEUSTION LATER
+'--------------------------------------------
+'TWO WORK JOB ' CAN'T REMEMBER ANY MORE
+'TO 2:15 PM ON LESS QUICK COMPUTER
+'WITHOUT CHAIR - STANDING
+'NOT A BIG SCREEN YET
+'--------------------------------------------
+'TWO ORGINAL IMPROVEMENT TO MAKE
+'--------------------------------------------
+'MORE NIGHT WORK
+'--------------------------------------------
+'ADD INFO OF EXE MIRROR DATE
+'--------------------------------------------------
+'CLEAN UP ALL ERROR OF FILE LOCK WHEN DRIVE LOCK
+'EXAMPLE
+'LOAD THE IDE - RUN PROGRAM -- BREAK IT ANYWHERE TO
+'STOP EXECUTION
+'RUN CHECK DISK CHKDSK AND LOCK THE DRIVE
+'WONT LOCK IF RUNNING AND ACCESS
+'AND THEN CONTINUE EXECUTION AGAIN
+'THAT WAY WILL FIND ALL LOCK DRIVE OPEN FILE BUG
+'ABOUT THREE BUG FOUND
+'----------------------------------------------------------
+'WARNING SEEM TO BE STILL A BUG OF OPEN FILE ACCESS PROBLEM
+'AT LOAD TIME -- CRASHING -- NEED SORT VITAL
+'AND IT WIPE THE HISTORY TEXT WHEN HAPPEN
+'CHECK AFTER SEE THIS RUN
+'HARD TO FIX UNLESS RUN CHKDSK QUICK WITHIN CODE FORM_LOAD
+'----------------------------------------------------------
+
+
+
+'--------------------------------------------
+'WORK DONE SAT 14 MAY
+'EARLY HOUR
+'WORK DO EXE COMPILED AGAIN AND EXE MIRROR FOLDER
+'THE CHANGE THAT HAPPEN REPLACE IS NOT MINIMIZED AFTER
+'OPTION TO FORCE THE EXE FROM MIRROR  BUT NOT WORK WELL AS OLDER VERSION CAN REPLACE
+'--------------------------------------------
+'DO WORK -- SPECIAL FOLDER FOR SEND TO -- TO WORK WIN XP WIN 07 AND WIN 10
+'WIN 7 AND WIN 10 SAME MAJOR BUILD NUMBER VER SIX
+'--------------------------------------------
+'USE THEM WIN XP 7 AND 10 TO DO SCREEN SIZE -- GOOD
+'AND SCREEN SIZE MIN NORM CENTER AND MAX -- GOOD
+'--------------------------------------------
+
+'--------------------------------------------
+'WORK DONE SUN 15 MAY
+'--------------------------------------------
+'END WITH LOT MENU WORK
+'-----------------------
+'GIVE ME TIME HAS MSGBOX
+'-----------------------
+'ADD NOT ONLY URL TO BROWSER AND NOW ALSO FILE OR FOLDER TO EXPLORER
+'-----------------------
+'FIX IDLE TIMER ALL GOOD
+'REMOVE KEYBOARD F5 FROM IDLE TIMER GOOD IDEA AS DEBUG RESUME HARDER
+'LOT WORK IN CATCH MISSING CLIPBOARD EVERY 5 SEC AFTER IDLE AND RESUME FROM IDLE AND 1 MIN
+'NOT DUPLICATE MESSAGE
+'-----------------------
+'NOT DIPLAY FINDWINOW FOR CLIPBOARD CURRENT NOT ALWAYS
+'ERROR IN CODER
+'-----------------------
+'WORK NINE O SEVEN AM OCLOCK TO 11:47 AM SUNDAY
+'LONGER THAN A HOUR ON THE TELEPHONE
+'-----------------------
+'BEOFRE WAS WORK DUPE-LICATE CRC CHECKER
+'AND MANY CODE FROM ABOUT 6PM SATURDAY TO 2AM
+'WITH
+'GOODSYNC SETTING UP
+'AND
+'NEW BLUETOOTH CODE SOUND AUDIO
+'
+
+
+
+
+'DO A LOAD WITH HEX VIEW FOR CODES
+'HERE
+'C:\Program Files\XVI32\XVI32.exe
+
+'IMPROVE SCREEN CENTERING WHEN BOTTOM TASKBAR UP TWO LEVEL
+'LIKE RUNAS AND CIDRUNME
+
+'MORE TO DO - WITH MSGBOX STAY UPS
+'FORM_STAY_UP_WITH_MSGBOX = True
+'itech = MsgBox(Format(Now, "DD-MM-YYYY -- HH:MM:SS ") + vbCrLf + "1 MINUTE IDLE CHECK -- Problem Clipboard Not Logging TEXT BY COMPARE VARIABLE" + vbCrLf + "Put the Test Flag *ON* TEST COPY PASTE - And THEN Test Options Menu Unload and Reload the API Form is THE Next Workaround OPtion", vbMsgBoxSetForeground)
+
+'MORE TO DO - WITH THESE MSGBOX
+'MSGBOX2 = "VB IDE ICON CHANGED PROPERTY PROPERTIE" ', vbMsgBoxSetForeground
+'FRM_MSGBOX.Timer1.Enabled = True
+
+'DO THIS -- MNU_INFRO_RAPID_ALL_Click()
+'UPGRADE ALL PATHS TO HAVE APP.PATH
+'APP.PATH
+'APATHY
+
+'FINISH 'AD_DATE = Now -- WHY
+
+'ADD A LITTLE EDITOR BOX
+
+
+'Public HOOK_CLIPBOARD_API_lOADED As Boolean
+
+'THIS CODE REPLACE MSGBOX
+'EXAMPLE
+'MSGBOX2 = "INFO - " + VB_ICON_TEXT_VAR
+'FRM_MSGBOX.Timer1.Enabled = True
+
+'Public DONE_COUNT_FORM_CAPTURE
+Dim FF_COUNT_FORM_CAPTURE1
+Dim FF_COUNT_FORM_CAPTURE2
+Dim FF_COUNT_FORM_CAPTURE3
+Dim FF_COUNT_FORM_CAPTURE4
+
+
+Public SCREEN_SHOT_VAR_MOUSE_KEY_ACTIVE
+Public FF_FORM1, FF_FORM2, FF_FORM3, FF_FORM4
+
+
+Dim X22
+
+Dim PATH_FILE_NAME1
+Dim PATH_FILE_NAME2
+
+Dim SIMU_TEST
+
+Dim KEYBOARD_OR_MOUSE_ACTIVE
+Dim KEYBOARD_OR_MOUSE_ACTIVE_LATCH
+
+Dim PICTURE_INFO_TEXT
+
+
+Dim OMenu_Height
+
+Public IRFANVIEW_PATH
+Public IRFANVIEW_PATH2
+Public IRFANVIEW_PATH3
+
+Dim O_RESIZE
+Dim VAR_FLAG_EXPLORER_LOAD_NOT
+
+Dim Mouse_Keyboard_Active_Time_Before
+Dim Mouse_Keyboard_Active_Time
+
+Dim FOLDER_PIN_TO_START_MENU
+Dim FOLDER_SENDTO_SYSTEM
+Dim FOLDER_SENDTO_FAT32_STORE
+
+
+Dim MNU_IDLE_ACTIVE_VAR
+Dim Mnu_Exit_VAR
+
+Dim FILENAME1 As String
+
+Dim HOOKSTATold
+
+
+Dim KASC_TRIGGER
+
+Dim DONT_RESIZE_WHILE_SETUP
+Dim DONT_RESIZE_RUN_ONCE_OR_NORM
+
+Dim vPathSOUND2 As String, vFileSOUND2
+Dim vPathSOUND1 As String, vFileSOUND1
+Dim ADTEST$
+Dim ADTEST_BEFORE$
+Dim TIMER1_LAST_DATE As Date
+
+Const SW_HIDE = 0
+Const SW_SHOWNORMAL = 1
+Const SW_NORMAL = 1
+Const SW_SHOWMINIMIZED = 2
+Const SW_SHOWMAXIMIZED = 3
+Const SW_MAXIMIZE = 3
+Const SW_SHOWNOACTIVATE = 4
+Const SW_SHOW = 5
+Const SW_MINIMIZE = 6
+Const SW_SHOWMINNOACTIVE = 7
+Const SW_SHOWNA = 8
+Const SW_RESTORE = 9
+Const SW_SHOWDEFAULT = 10
+Const SW_FORCEMINIMIZE = 11
+Const SW_MAX = 11
+
+
+
+'PID HAS TO BE -1 -- Process Id Return in PID
+'Var - False if Not Exist or PID Remain -1
+'----
+'USAGE = ----
+'PID = -1
+'Var = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
+'If PID <> -1 Then
+'    Call Process_HIGH_PRIORITY_CLASS(PID)
+'End If
+'USAGE = ----
+'----
+Public cProcesses As New clsCnProc
+Dim PID As Long
+
+
+'Public Kill_Usage_Hogs_DATE1
+'Dim Kill_Usage_Hogs2_CHECKGATE
+'Dim Kill_Usage_Hogs3_CHECKGATE
+
+
+Dim APPEXEDATE, ADATE_MIRROR_EXE_DATE
+Dim ADATE_APP_BEGIN_DATE, ADATE_APP_BEGIN_DATE2
+Dim WTrue1, WTrue2, WTrue3, TW1, TW2, TW3
+
+
+Dim Timer_API_Test_Logick_Var1_Missing_Count
+Dim Timer_API_Test_Logick_Var1_OLD
+Dim Timer_API_Test_Logick_Var2_OLD
+
+Dim FDS2
+Dim FORM_STAY_UP_WITH_MSGBOX
+Dim FirstRun
+
+Dim LimitClipSize
+'Dim TimerCheckIntegrityOfProgram
+'Dim DateTimerCheckIntegrityOfProgram
+Dim ClipFormatDescription
+Dim XArchiveXClipFormatDescription
+Dim FlagTestClipBoardRoutine
+
+Dim ExplorerGone
+
+Dim OverRideOnceExtra
+Dim FOLDERNAME1, FOLDERNAME2
+Dim OX22, OX24
+Dim DUPE_CLIPPER_AT_LOAD_FORM
+
+Dim PICXX$, ADLEN
+
+Dim Xmp5, Ymp5, MouseClicks, Mousey
+Dim ADATE3_BEFORE
+Dim ENTER_LARGE_IN_LOGGER
+
+Dim OCheckQ As String
+
+Dim iMessageResultRECompile, Pro2
+
+Dim OLTLWH, RESET_RRR
+Dim DUPE_IMAGE_AT_LOAD_FORM
+'Dim RESIZE_AT_LOAD, RESIZE_AT_LOAD2
+
+Public ART$, ART2$, GGSize
+
+Public QQ2$, QQ4$
+Public ARCHIVE_Path_Of_Sound_File
+
+Public Path_Of_Sound_File, MODIFY_SOUND_SELECTION, LATCH_RUN_ONCE
+Dim Path_Of_Sound()
+Dim KCODE
+Dim EXIT_TRUE
+Private FS, FS2
+
+' Public Sub SET_VAR_FS()
+' Set FS = CreateObject("Scripting.FileSystemObject")
+
+
+
+Private Declare Function GetShortPathName Lib "kernel32" Alias "GetShortPathNameA" (ByVal lpszLongPath As String, ByVal lpszShortPath As String, ByVal lBuffer As Long) As Long
+Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
+Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
+
+
+
+Private Type POINTAPI
+        x As Long
+        y As Long
+End Type
+
+
+Dim OFH, A1 As String, B1 As String, F1 As String
+
+Private Declare Function FlatSB_SetScrollPos Lib "comctl32" (ByVal hwnd As Long, ByVal code As Long, ByVal nPos As Long, ByVal fRedraw As Boolean) As Long
+Private Declare Function FlatSB_GetScrollInfo Lib "comctl32" (ByVal hwnd As Long, ByVal fnBar As Long, lpsi As SCROLLINFO) As Boolean
+Private Declare Function FlatSB_SetScrollInfo Lib "comctl32" (ByVal hwnd As Long, ByVal fnBar As Long, lpsi As SCROLLINFO, ByVal fRedraw As Boolean) As Long
+
+Const SB_HORZ = 0
+Const SB_VERT = 1
+Const SB_BOTH = 3
+Private Type SCROLLINFO
+    cbSize As Long
+    fMask As Long
+    nMin As Long
+    nMax As Long
+    nPage As Long
+    nPos As Long
+    nTrackPos As Long
+End Type
+Const SIF_RANGE = &H1
+Const SIF_PAGE = &H2
+Const SIF_POS = &H4
+Const SIF_ALL = (SIF_RANGE Or SIF_PAGE Or SIF_POS)
+
+
+Public RRR, XXMOUSEMOVE, OLDTTS 'Picture3W, Picture3H,
+Public Star, RR$, RrS$, Tx1$, CountR2$
+Public AD$, TRemGG$
+Public CountR
+Public start
+Public Pic1$, Pic2$
+Private Declare Function GetForegroundWindow Lib "user32" () As Long
+Private Declare Function GetParent _
+        Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function GetWindowTextLength Lib "user32.dll" Alias "GetWindowTextLengthA" (ByVal hwnd As Long) As Long  'MODULE 1141
+Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long  'MODULE 1142
+Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
+
+Const GW_HWNDFIRST = 0
+Const GW_HWNDNEXT = 2
+Const GW_CHILD = 5
+
+Private Declare Function lOpen Lib "kernel32" Alias "_lopen" (ByVal lpPathName As String, ByVal iReadWrite As Long) As Long
+Private Declare Function lClose Lib "kernel32" Alias "_lclose" (ByVal hFile As Long) As Long
+Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+
+
+
+Dim Filexxx$, CurProcHwnd, TTT
+Dim Rect1 As RECT
+
+Dim TS1 As String, TS2 As String, TS3 As String, QQ, Txw$, ii, FF$, XX, YY
+'Private Declare Function GetForegroundWindow Lib "user32" () As Long
+
+'Public cProcesses As New clsCnProc
+    '#### Functions/Consts used for GetHWnd() (part of Convert())
+Private Declare Function GetDesktopWindow Lib "user32" () As Long
+Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
+Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+'Private Const GW_HWNDNEXT = 2
+'Private Const GW_CHILD = 5
+Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
+Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
+Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+Private Const PROCESS_QUERY_INFORMATION = 1024
+Private Const PROCESS_VM_READ = 16
+Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+
+
+
+Private Type RECT
+   Left As Long
+   Top As Long
+   Right As Long
+   Bottom As Long
+End Type
+
+Private Type OFSTRUCT
+  cBytes     As Byte
+  fFixedDisk As Byte
+  nErrCode   As Integer
+  Reserved1  As Integer
+  Reserved2  As Integer
+  szPathName As String * 128
+End Type
+
+Const OF_SHARE_COMPAT = &H0
+Const OF_SHARE_EXCLUSIVE = &H10
+Const OF_SHARE_DENY_WRITE = &H20
+Const OF_SHARE_DENY_READ = &H30
+Const OF_SHARE_DENY_NONE = &H40
+
+Private Declare Function OpenFile Lib "kernel32" (ByVal lpFileName As String, ByRef lpReOpenBuff As OFSTRUCT, ByVal uStyle As Long) As Long
+Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
+
+'Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+
+
+Dim TJax, GJax, ET, TBak, TY, Tx, HH
+
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+'Private Declare Function capCreateCaptureWindow Lib "avicap32.dll" Alias "capCreateCaptureWindowA" (ByVal lpszWindowName As String, ByVal dwStyle As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hWndParent As Long, ByVal nID As Long) As Long
+
+Private mCapHwnd As Long
+
+Private Const CONNECT As Long = 1034
+Private Const DISCONNECT As Long = 1035
+Private Const GET_FRAME As Long = 1084
+Private Const COPY As Long = 1054
+
+'declarations
+Dim P() As Long
+Dim POn() As Boolean
+
+Dim inten As Integer
+
+Dim I As Integer, j As Integer
+
+Dim Ri As Long, Wo As Long
+Dim RealRi As Long
+
+Dim C As Long, c2 As Long
+
+Dim r As Integer, G As Integer, B As Integer
+Dim R2 As Integer, G2 As Integer, B2 As Integer
+
+Dim Tppx As Single, Tppy As Single
+Dim Tolerance As Integer
+
+Dim RealMov As Integer
+
+Dim Counter As Integer
+
+Private Declare Function GetTickCount Lib "kernel32" () As Long
+Dim LastTime As Long, TT
+
+
+
+
+Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+
+Private Declare Function GetSystemMetrics Lib "user32" (ByVal nIndex As Long) As Long
+Private Const SM_CYCAPTION = 4
+Private Declare Function GetClientRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+
+'http://www.vbforums.com/showthread.php?673134-RESOLVED-Minimum-height-for-menu-bar-to-be-visible
+'-------------- MENU SIZE DECLARE
+'Private Type rect
+'    Left As Long
+'    Top As Long
+'    Right As Long
+'    Bottom As Long
+'End Type
+Private Type MENUBARINFO
+  cbSize As Long
+  rcBar As RECT
+  hMenu As Long
+  hwndMenu As Long
+  fBarFocused As Boolean
+  fFocused As Boolean
+End Type
+Private MenuInfo As MENUBARINFO
+Private Const OBJID_MENU As Long = &HFFFFFFFD
+Private Const OBJID_SYSMENU As Long = &HFFFFFFFF
+Private Declare Function GetMenuBarInfo Lib "user32" (ByVal hwnd As Long, _
+ByVal idObject As Long, ByVal idItem As Long, ByRef pmbi As MENUBARINFO) As Boolean
+Private Declare Function GetMenu Lib "user32" (ByVal hwnd As Long) As Long
+
+Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
+'Private Declare Function GetForegroundWindow Lib "user32" () As Long
+Private Declare Function ShowWindow Lib "user32.dll" (ByVal hwnd As Long, ByVal nCmdShow As Long) As Long
+
+
+Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+
+
+
+Private Declare Function IsIconic Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function IsWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function IsZoomed Lib "user32.dll" (ByVal hwnd As Long) As Long
+
+Private Declare Function IsWindowVisible Lib "user32" (ByVal hwnd As Long) As Long
+
+Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+
+
+'----
+
+Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function PostMessage Lib "user32.dll" Alias "PostMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long  'MODULE 1135
+
+Const HWND_TOPMOST = -1
+Const HWND_NOTOPMOST = -2
+Const MF_BYPOSITION = &H400&
+Const SWP_NOSIZE = &H1
+Const SWP_NOMOVE = &H2
+Const SPI_SCREENSAVERRUNNING = 97
+Const SWP_NOACTIVATE = &H10
+Const SWP_SHOWWINDOW = &H40
+
+
+
+
+Private Function AlwaysOnTop(ByVal hwnd As Long)  'Makes a form always on top
+    SetWindowPos hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+End Function
+Private Function NotAlwaysOnTop(ByVal hwnd As Long)
+    SetWindowPos hwnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
+End Function
+
+
+'------------------------------------------------
+
+Property Get TitleBarHeight() As Long
+    TitleBarHeight = GetSystemMetrics(SM_CYCAPTION)
+End Property
+
+'Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
+'Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+
+Function GetUserName() As String
+   Dim UserName As String * 255
+   Call GetUserNameA(UserName, 255)
+   GetUserName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
+End Function
+
+Function GetComputerName() As String
+   Dim UserName As String * 255
+   Call GetComputerNameA(UserName, 255)
+   GetComputerName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
+End Function
+
+
+'On Error Resume Next
+'MkDir App.Path + "\# DATA\"+GetComputerName+ "\Data\"+GetComputerName
+'On Error GoTo 0
+
+
+
+'Private Sub Command1_Click()
+'
+'Clipboard.Clear
+'Clipboard.SetText Text1.Text
+'
+'End Sub
+'
+'Private Sub Command2_Click()
+'Clipboard.Clear
+'
+'End Sub
+
+'Private Sub Command3_Click()
+'
+'    Text1.Text = ""
+'    CountR = 0
+'
+'End Sub
+
+'Private Sub Command4_Click()
+'Clipboard.Clear
+'Clipboard.SetText Format$((Now), "DDD DD-MMM-YY HH:MM:SS")
+'End Sub
+
+
+Private Sub Form_Load()
+
+FirstRun = True
+HOOKSTATold = -10
+
+LimitClipSize = 200000
+ADATE_APP_BEGIN_DATE = Now
+
+'For r = 1 To 127
+
+'    Debug.Print Str(r) + " -- " + GetSpecialfolder(r)
+
+'Next
+
+'Exit Sub
+
+
+If App.PrevInstance = True Then End
+
+
+'Debug.Print "PROGRAM BEGIN__"
+
+
+
+'PID HAS TO BE -1 -- Process Id Return in PID
+'Var - False if Not Exist or PID Remain -1
+
+If IsIDE = False Then
+    PID = -1
+    Var = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
+    If PID <> -1 Then
+        Call Process_HIGH_PRIORITY_CLASS(PID)
+    End If
+End If
+
+
+
+Mnu_Minimize.Caption = "MIN"
+Mnu_Max.Caption = "MAX"
+Mnu_Norm.Caption = "NORM"
+Mnu_Height.Visible = False
+'FrmJoy.Show
+
+Xmp5 = -1: Ymp5 = -1
+
+Call ScanPath.SET_VAR_FS
+'Set FS = CreateObject("Scripting.FileSystemObject")
+
+'Picture2.Picture = LoadPicture(App.Path + "\# DATA\"+GetComputerName+ "\VBIcon4.bmp")
+    
+'Me.Show
+'DoEvents
+
+IRFANVIEW_PATH3 = "C:\Program Files (X86)\IrfanView\i_view32.exe"
+If Dir(IRFANVIEW_PATH3) <> "" Then IRFANVIEW_PATH = IRFANVIEW_PATH3
+IRFANVIEW_PATH2 = "C:\Program Files (X86)\IrfanView\i_view32.exe"
+If Dir(IRFANVIEW_PATH2) <> "" Then IRFANVIEW_PATH = IRFANVIEW_PATH2
+    
+    
+Set FS = CreateObject("Scripting.FileSystemObject")
+    
+Dim FileSpec, TT As Long
+
+On Error Resume Next
+If FS.FolderExists(App.Path + "\# DATA\" + GetComputerName + "\Data\Day-Data") = False Then
+    MkDir App.Path + "\# DATA"
+    MkDir App.Path + "\# DATA\" + GetComputerName
+    MkDir App.Path + "\# DATA\" + GetComputerName + "\Data"
+    MkDir App.Path + "\# DATA\" + GetComputerName + "\Data\Day-Data"
+End If
+
+If FS.FolderExists(App.Path + "\Sound_Wav's") = False Then
+    MkDir App.Path + "\Sound_Wav's"
+End If
+
+If FS.FolderExists(App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive") = False Then
+    MkDir App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive"
+End If
+'--------------------------------------------------------------------
+
+If FS.FolderExists("D:\# MY DOCS") = False Then
+    MkDir "D:\# MY DOCS"
+End If
+If FS.FolderExists("D:\# MY DOCS\# 01 My Documents") = False Then
+    MkDir "D:\# MY DOCS\# 01 My Documents"
+End If
+If FS.FolderExists("D:\# MY DOCS\# 01 My Documents\03 NotePad Files") = False Then
+    MkDir "D:\# MY DOCS\# 01 My Documents\03 NotePad Files"
+End If
+
+'--------------------------------------------------------------------
+
+ART1$ = "D:\0 00 Art Loggers\"
+ART2$ = ART1$ + "# APP AND SCREEN -- SHOT\"
+'ART2$ = ART1$ + "# APP AND SCREEN -- SHOT\"+GETCOMPUTERNAME+"\Hot-Key-"
+
+QQ2$ = "Hot-Key-App-Shots\"
+QQ4$ = "Hot-Key-Screen-Shots\"
+
+If FS.FolderExists(ART2$ + QQ2$) = False Then
+    MkDir ART1$
+    MkDir ART2$
+    MkDir ART2$ + QQ2$
+End If
+
+If FS.FolderExists(ART2$ + QQ4$) = False Then
+    MkDir ART1$
+    MkDir ART2$
+    MkDir ART2$ + QQ4$
+End If
+
+'--------------------------------------------------------------------
+
+
+On Error GoTo 0
+
+'Not Any Need to Write Code as Call zzSave_Checks -- Does the Job
+'Mnu_SoundOn.Checked = True
+
+FileSpec = App.Path + "\# DATA\" + GetComputerName + "\" + App.EXEName + ".vbp"
+If IsIDE = False And Dir$(FileSpec) <> "" Then
+    'TT = Shell("C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE /runexit """ + FileSpec + """", vbMinimizedNoFocus)
+    'End
+End If
+    
+    
+
+If Dir(App.Path + "\# DATA\" + GetComputerName + "\VBIcon4.bmp") <> "" Then
+    FR1 = FreeFile
+    Open App.Path + "\# DATA\" + GetComputerName + "\VBIcon4.bmp" For Binary As #1
+        'Open App.Path + "\VBIcon4.bmp" For Binary As #FR1
+        'Open App.Path + "\VBIcon.bmp" For Binary As #1
+        Pic1$ = Space$(LOF(FR1))
+        Get #FR1, 1, Pic1$
+    Close #FR1
+End If
+
+
+
+Open App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt" For Binary As #1
+If LOF(1) > 1 * 1024 ^ 2 Then
+    Pic12$ = Space$((1 * 1024 ^ 2) + 1)
+    Seek 1, LOF(1) - (1 * 1024 ^ 2)
+    Get #1, , Pic12$
+    Close #1
+    
+    '---------------------
+    'Count =
+    
+    'ii = InStr(Pic12$, "---------------------" + vbLf + "Count =")
+    ii = InStr(Pic12$, "---------------------" + vbCFLf + "Count =")
+    If ii = 0 Then
+        ii = InStr(Pic12$, "---------------------" + vbLf + "Count =")
+    End If
+    If ii = 0 Then
+        ii = 1
+    End If
+    
+    Pic12$ = Mid$(Pic12$, ii)
+    
+    Kill App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt"
+    Open App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt" For Binary As #1
+        Put #1, , Pic12$
+    Close #1
+    
+    'Simple Copy File
+
+    A1 = App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt"
+    B1 = "D:\# MY DOCS\# 01 My Documents\03 NotePad Files\00_ClipBoard_Total--TRIM-" + GetComputerName + "-" + GetUserName + ".txt"
+    'fs.CopyFile ,
+    ShellFileCopy A1, B1
+
+End If
+Close #1
+
+'------------
+Tx1$ = App.Path + "\# DATA\" + GetComputerName + "\Data\#OutClipChunck.Txt"
+DumVar = IsFileOpenDelay(Tx1$)
+FR1 = FreeFile
+Open Tx1$ For Binary As #FR1
+    AD$ = Input$(LOF(FR1), FR1)
+Close #FR1
+
+ADTEST$ = AD$
+ADTEST_BEFORE$ = AD$
+'------------
+
+DUPE_CLIPPER_AT_LOAD_FORM = False
+
+If Clipboard.GetFormat(vbCFText) = True Then
+    Mnu_Clip_Description.Caption = "Clip Format:- " + "Text (.txt file)"
+    
+    'MEMORY TEXT AT STARTER
+    '----------------------
+    If Trim(Clipboard.GetText) <> "" Then
+        If AD$ = Clipboard.GetText Then
+            DUPE_CLIPPER_AT_LOAD_FORM = True
+            Mnu_Clip_Status.Caption = "Dupe Text at Starter"
+        Else
+            Mnu_Clip_Status.Caption = "Text at Starter"
+        
+        End If
+    End If
+    GetFormat_And_Display
+    xyz2020 = True
+End If
+
+
+
+Text1 = ""
+On Error Resume Next
+If Dir(App.Path + "\# DATA\" + GetComputerName + "\Data\Start.txt") <> "" Then
+    Open App.Path + "\# DATA\" + GetComputerName + "\Data\Start.txt" For Input As #1
+    Line Input #1, Star
+    Close #1
+End If
+On Error GoTo 0
+
+'If Star = "" Then Star = Str(Now - DateSerial(0, 0, 40))
+
+start = Now
+If Star = "" Then Star = Now
+
+Mnu_Open_Logg.Caption = "Edit This Logg - " + App.Path + "\# DATA\" + GetComputerName + "\Data\Day-Data\ClipBoard-" + Format$(start, "YYYY-MM-DD") + ".Txt"
+
+
+'#IF ITS THE SAME DAY
+If DateValue(Star) = DateValue(start) Then
+    FR1 = FreeFile
+    Open App.Path + "\# DATA\" + GetComputerName + "\Data\#ClipBoard.Txt" For Binary As #FR1
+        RrS$ = Input$(LOF(FR1), FR1)
+    Close #FR1
+    Err.Clear
+    On Error Resume Next
+        Text1.Text = Text1.Text + RrS$
+        If Err.Number > 0 Then
+            Me.WindowState = vbNormal
+            DoEvents
+            MsgBox "Not Adding to CLip Board"
+        End If
+    On Error GoTo 0
+    
+    Tx1$ = App.Path + "\# DATA\" + GetComputerName + "\Data\#Count.Txt"
+    FR1 = FreeFile
+    If Dir(Tx1) <> "" Then
+        Open Tx1$ For Input As #FR1
+        Line Input #FR1, CountR2$
+        Close #FR1
+    End If
+    CountR = Val(CountR2$)
+
+Else
+    tq = App.Path + "\# DATA\" + GetComputerName + "\Data\#ClipBoard_Old.Txt"
+    If Dir(tq) <> "" Then
+        Kill tq
+        If Dir(App.Path + "\# DATA\" + GetComputerName + "\Data", vbDirectory) = "" Then
+            On Error Resume Next
+            MkDir (App.Path + "\# DATA")
+            MkDir (App.Path + "\# DATA\" + GetComputerName)
+            MkDir (App.Path + "\# DATA\" + GetComputerName + "\Data")
+            If Err.Number > 0 Then
+                MsgBox "ERROR MAKE THIS FOLDER - ABORT" + vbCrLf + App.Path + "\# DATA\" + GetComputerName + "\Data"
+                Unload Me
+                Exit Sub
+            End If
+            On Error GoTo 0
+            
+        End If
+        
+        If Dir(App.Path + "\# DATA\" + GetComputerName + "\Data\#ClipBoard.Txt") <> "" Then
+            Name App.Path + "\# DATA\" + GetComputerName + "\Data\#ClipBoard.Txt" As App.Path + "\# DATA\" + GetComputerName + "\Data\#ClipBoard_Old.Txt"
+        Else
+            Open App.Path + "\# DATA\" + GetComputerName + "\Data\#ClipBoard.Txt" For Output As #FR1
+            Close #FR1
+        End If
+    End If
+    CountR = 0
+End If
+FR1 = FreeFile
+Open App.Path + "\# DATA\" + GetComputerName + "\Data\Start.txt" For Output As #FR1
+Print #FR1, Format$(start, "DD-MM-YYYY")
+Close #FR1
+
+
+'After load most import recent load a backlogg for viewing
+FR1 = FreeFile
+Open App.Path + "\# DATA\" + GetComputerName + "\Data\#ClipBoard_Old.Txt" For Binary As #FR1
+RrS$ = Input$(LOF(FR1), FR1)
+Close #FR1
+Err.Clear
+On Error Resume Next
+    Text1.Text = RrS$ + Text1.Text
+    If Err.Number > 0 Then
+        Me.WindowState = vbNormal
+        DoEvents
+    
+        MsgBox "Not Adding to CLip Board"
+    End If
+On Error GoTo 0
+    
+
+Dim COMPARE1 As String, COMPARE2 As String
+'PICTURE COMPARE
+DUPE_IMAGE_AT_LOAD_FORM = False
+
+If Clipboard.GetFormat(vbCFBitmap) = True Then
+    Picture3.Picture = Clipboard.GetData(vbCFBitmap)
+    SavePicture Picture3.Picture, App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive\HotKey-Shot Pic-TEST.jpg"
+
+    If Dir(App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive\HotKey-Shot Pic-TEST.jpg") <> "" Then
+        FR1 = FreeFile
+        Open App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive\HotKey-Shot Pic-TEST.jpg" For Binary As #FR1
+            COMPARE1 = Space$(LOF(FR1))
+            Get #FR1, 1, COMPARE1
+        Close #FR1
+        Kill App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive\HotKey-Shot Pic-TEST.jpg"
+        'ANOTHER COMPARE IN MAIN ROUTINE
+        PICXX$ = COMPARE1
+    End If
+
+    FILENAME1 = App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive\COMPARE DUPE.txt"
+    
+    'If Dir(App.Path + "\# DATA\" + GetComputerName + "\VBDataNoTArchive\HotKey-Shot Pic.jpg") <> "" Then
+    If Dir(FILENAME1) <> "" Then
+        
+        FR1 = FreeFile
+        Open FILENAME1 For Binary As #FR1
+            COMPARE2 = Space$(LOF(FR1))
+            Get #FR1, 1, COMPARE2
+        Close #FR1
+        
+        If COMPARE1 = COMPARE2 Then
+            Call Menu_clipboard_size(Len(COMPARE1))
+                If FirstRun = True Then
+                    'FirstRun = False
+                    'Mnu_LAST_CLIP_TIME.Caption = Mnu_LAST_CLIP_TIME.Caption + " First Run"
+                    Mnu_Run_Status.Caption = "1st Run"
+
+                End If
+
+            COMPARE1 = "": COMPARE2 = ""
+            DUPE_IMAGE_AT_LOAD_FORM = True
+            DUPE_CLIPPER_AT_LOAD_FORM = True
+            
+            Mnu_Clip_Status.Caption = "Dupe Image at Starter"
+        Else
+            Mnu_Clip_Status.Caption = "Image at Starter"
+        
+        
+        End If
+        'Mnu_Clip_Description.Caption = "Clip Format:- " + "Bitmap (.bmp file)"
+        GetFormat_And_Display
+        xyz2020 = True
+    
+    End If
+End If
+
+
+If xyz2020 = False Then
+    GetFormat_And_Display
+    Mnu_Clip_Status.Caption = "At Starter"
+
+End If
+
+
+'Form1.Show
+
+Call zzLoad_Checks
+    
+'Text1.SelStart = 0
+'Text1.SelLength = Len(Text1)
+'Text1.Font.Size = 12
+'Text1.SelColor = &HFF00&
+    
+Call SETUP_SOUND_FILE("")
+
+    
+
+'Call MNU_Norm_Click
+
+
+'Me.WindowState = vbMaximized
+'vbMaximized
+'vbNORML
+'vbMinimized
+
+'Form1.WindowState = vbMinimized
+If GetComputerName = "5-ASUS-P2520LA" Then
+    Text1.Font.Size = 11
+Else
+    Text1.Font.Size = 14
+End If
+Text1.SelStart = Len(Text1.Text)
+
+Label1.Top = 0
+Label1.Left = 0
+Label1.Caption = ""
+Label1.Height = 80
+Label1.Left = 0
+
+'Call MNU_Norm_Click
+
+'Load FrmJoy
+
+Load frmClipTest
+
+'WE CAN SET THE EXECUTE TO TRUE AFTER NOTHING WILL CLIPBOARD AT FIRST RUN
+Call Timer1_Timer
+
+'ctlClipboard1_ClipboardChanged
+EXECUTE_TIMER_ENABLED = True
+
+
+
+'RESIZE_AT_LOAD = True
+
+'Call ctlClipboard.StartClipboardViewer
+'Call StartClipboardViewer
+'Debug.Print mStarted
+
+'Form2.Show
+
+Timer3.Enabled = True
+Timer_SCREEN_SHOT.Enabled = True
+
+'If IsIDE = True Then
+'    'RESIZEATLOAD = False
+'    'Call MNU_Norm_Click
+'    Me.WindowState = vbNormal
+'End If
+
+'--------------------------------------------------------
+'SET THE MENU CAPTION
+'--------------------------------------------------------
+'SEND TO
+Call MNU_MIRROR_SEND_TO_OPERATING_SYSTEM_SET_MENU_CAPTION
+'--------------------------------------------------------
+'SEND TO
+Call SPECIAL_FOLDER_SEND_TO
+'--------------------------------------------------------
+VAR_FLAG_EXPLORER_LOAD_NOT = True
+'START MENU
+Call MNU_SPECIAL_FOLDER_PIN_TO_START_MENU_Click
+'DESKTOP
+Call MNU_SPECIAL_FOLDER_DESKTOP_USER_Click
+Call MNU_SPECIAL_FOLDER_DESKTOP_PUBLIC_Click
+'--------------------------------------------------------
+'CHECK HERE - WINMERGE
+'Call SPECIAL_FOLDER_SENT_TO
+Call SPECIAL_FOLDER_PIN_TO_START_MENU
+'--------------------------------------------------------
+
+MNU_EXPLORER_ME_VB.Caption = "EXPLORER ME_VB -- " + App.Path
+
+'FOUND CPU TYPE AND GETCOMPUTERNAME FROM MNUE ABOVE
+'SAVE ON THAT
+'------------
+'If GetComputerName = "5-ASUS-P2520LA" Then
+'TEXT1.Font.Size =
+'NEED EARLIER AS SET BEFORE
+
+
+Timer_API_Test.Enabled = True
+
+DONT_RESIZE_RUN_ONCE_OR_NORM = True
+
+DONT_RESIZE_WHILE_SETUP = True
+'-----------------------------------------
+Call SETUP_DIMENSIONS_NORM
+Call SETUP_DIMENSIONS_INNER_FORM
+'-----------------------------------------
+'RESIZE_AT_LOAD = False
+DONT_RESIZE_WHILE_SETUP = False
+
+
+If Timer_API_Test_Logick_Var2 = 0 Then
+    VARTEXT = "THE TIME THE API CLIPBOARD FUNCTION LAST ACCESSED = NOT YET"
+    MNU_TIME_API_FUNCTION_ACCESS.Caption = VARTEXT
+End If
+
+If IsIDE = True Then Me.WindowState = vbNormal
+
+
+'STARUP TIME
+ADATE_APP_BEGIN_DATE2 = DateDiff("S", ADATE_APP_BEGIN_DATE, Now)
+
+MNU_IDLE_ACTIVE.Caption = "IDLE <> ACTIVE"
+
+If IsIDE = True Then Mnu_VB.Enabled = False
+
+
+End Sub
+
+
+Private Sub MNU_ABORT_SHUTDOWN_Click()
+    
+    'CSIDL_WINDOWS_SYSTEM32 = 37
+    Shell GetSpecialfolder(37) + "\shutdown.exe /a", vbNormalFocus
+
+End Sub
+
+Private Sub Mnu_API_Reload_Click()
+
+On Error Resume Next
+Load frmClipTest
+
+End Sub
+
+Private Sub Mnu_API_Unload_Click()
+
+Unload frmClipTest
+
+End Sub
+
+
+Private Sub Mnu_API_Unload_Reload_Click()
+Unload frmClipTest
+DoEvents
+Load frmClipTest
+
+End Sub
+
+Private Sub MNU_Audio_Only_With_Text_and_Picture_Clip_Sound_Bug_Acer_Click()
+
+MNU_Audio_Only_With_Text_and_Picture_Clip_Sound_Bug_Acer.Checked = Not MNU_Audio_Only_With_Text_and_Picture_Clip_Sound_Bug_Acer.Checked
+'THIS BIT OF CODE TEST BUG SOUNBD CRASH WHEN CLIP
+'REDUCE IT SOME
+
+End Sub
+
+Private Sub MNU_BRing_Front_Click()
+
+Call FindWinPartFront(False) 'False = Display Result Count
+MNU_BRing_Front.Caption = "Bring All Windows Front -- User Command @ " + Format(Now, "DD-MMM-YYYY HH:MM:SS")
+
+End Sub
+
+
+Private Sub Mnu_Clip_Status_Click()
+'Mnu_Clip_Status
+End Sub
+
+
+
+Private Sub MNU_CLIPBOARD_API_PUBLIC_VAR_HOOK_Click()
+
+'CAN'T SEEM TO GET A HOOK VAR PUBLIC IN THE FORM
+'THAT WOULD VOID ITSELF IF FOLRM UNLOADED
+
+Exit Sub
+
+Dim HOOKSTAT
+
+I = API_CLIPBOARD_HOOK
+
+'If HOOKSTATold = HOOK_CLIPBOARD_API_lOADED Then Exit Sub
+If HOOKSTATold = I Then Exit Sub
+
+HOOKSTATold = I
+
+
+If I = True Then
+    HOOKSTAT = "True"
+Else
+    HOOKSTAT = "False"
+End If
+
+
+
+
+MNU_CLIPBOARD_API_PUBLIC_VAR_HOOK.Caption = "FORM CLIPBOAD API - PUBLIC VAR - SHOWS LOADED IS = " + HOOKSTAT
+
+End Sub
+
+Private Sub MNU_CLIPBOARD_EXPLOERER_FILE_FOLDER_Click()
+
+    If GO3 = True Then MsgBox "GO3 VAR IS SET TRUE AT ENTER SUB ROUTINE", vbMsgBoxSetForeground
+
+    FileSpec = AD$
+    If FS.FileExists(AD$) Then
+        GO3 = True
+        Shell "Explorer.exe /select, " + FileSpec, vbNormalFocus
+    
+    End If
+    
+    If FS.FolderExists(AD$) Then
+        GO3 = True
+
+        Shell "Explorer.exe /e, " + FileSpec, vbNormalFocus
+
+    End If
+
+    If GO3 = False Then
+        MsgBox "PATH ON CLIPBOARD DOES NOT EXIST AS FILE OR FOLDER" + vbCrLf + String(50, "-") + vbCrLf + "SHOWING FIRST 300 OF STRING CLIPBOARD" + vbCrLf + String(50, "-") + vbCrLf + Mid(AD$, 1, 300), vbMsgBoxSetForeground
+    
+    End If
+    Me.WindowState = vbMinimized
+
+End Sub
+
+Private Sub MNU_CLIPBOARD_TEST_Click()
+
+FlagTestClipBoardRoutine = True
+MsgBox "A Flag Has Been Set So Next Clipboarded Object You Do Should Also See a Message Of Working", vbMsgBoxSetForeground
+
+End Sub
+
+Private Sub MNU_EBAY_BEGIN_FILTER_SAVE_EDITOR_Click()
+
+    FILENAME_VAR = "C:\TEMP\EBAY FILTER RESULT.TXT"
+    If Dir("C:\TEMP", vbDirectory) = "" Then
+        MkDir ("C:\TEMP")
+    End If
+    'DumVar = IsFileOpenDelay(Tx1$)
+    
+    EBAY_TEXT = Clipboard.GetText
+    
+    FR1 = FreeFile
+    On Error Resume Next
+'    Close FR1
+'    Err.Clear
+'    Reset
+    Open FILENAME_VAR For Output As #FR1
+        
+        If Err.Number > 0 Then
+            MsgBox FILENAME_VAR + vbCrLf + "WOULD NOT OPEN -- BE A PROBLEM" + vbCrLf + Err.Description, vbMsgBoxSetForeground
+            Exit Sub
+        End If
+        
+        Print #FR1, EBAY_TEXT;
+        
+        If Err.Number > 0 Then
+            MsgBox FILENAME_VAR + vbCrLf + "WAS NOT SAVED -- BE A PROBLEM" + vbCrLf + Err.Description, vbMsgBoxSetForeground
+            Exit Sub
+        End If
+    
+    Close FR1
+    
+    On Error GoTo 0
+
+
+    'SOME FILTER
+    FIRST_LINE = True
+    
+    FR1 = FreeFile
+    Open FILENAME_VAR + ".TMP" For Output As #FR1
+    FR2 = FreeFile
+    Open FILENAME_VAR For Input As #FR2
+            
+        If Not EOF(FR2) Then
+        
+            Do
+                NOT_TO_GO = False
+                
+                Line Input #FR2, LINE_TEXT
+            
+                '-----------------------------------------------
+                'REMOVE THE DUPE LINE THAT HAS DIFF DOUBLE SPACE
+                '-----------------------------------------------
+                If LINE_TEXT = OLINE_TEXT Then NOT_TO_GO = True
+                OLINE_TEXT = Replace(LINE_TEXT, "  ", " ")
+            
+                If InStr("-" + LINE_TEXT, "This seller accepts PayPal") > 0 Then
+                    NOT_TO_GO = True
+                End If
+                If InStr(LINE_TEXT, "Watch") = 1 Then
+                    NOT_TO_GO = True
+                End If
+                If InStr(LINE_TEXT, "Item:") = 1 Then
+                    NOT_TO_GO = True
+                End If
+                If InStr("-" + LINE_TEXT, "Free Postage") > 0 Then
+                    NOT_TO_GO = True
+                End If
+                If InStr("-" + LINE_TEXT, "Watch") > 0 Then
+                    NOT_TO_GO = True
+                End If
+                If InStr("-" + LINE_TEXT, "AdChoice") > 0 Then
+                    BEGIN_TO_GO = True
+                    NOT_TO_GO = True
+                End If
+                
+                'WHEN ALMOST DONE
+                If InStr("-" + LINE_TEXT, "Sponsored links") > 0 Then
+                    NOT_TO_GO = True
+                End If
+                
+                If InStr("-" + LINE_TEXT, "Tell us what you think") > 0 Then
+                    NOT_TO_GO = True
+                    NOT_TO_GO_UNTIL_END = True
+                End If
+                
+                
+                'BEGINING IS HERE -- 02 OF 02
+                If InStr("-" + LINE_TEXT, "Items in search results") > 0 Then
+                    
+                    EXTRA_HEAD_TEXT_LINE = String$(80, "-") + vbCrLf + String$(80, "-") + vbCrLf + "BEGINING IS HERE -- 02 OF 02 --" + Format(Now, "DDD DD MMM YYYY HH:MM:SS") + vbCrLf + String$(80, "-") + vbCrLf + String$(80, "-") + vbCrLf + String$(80, "-") + vbCrLf + "COUNT -- 001 -- BLOCK OF TEXT BELOW" + vbCrLf + String$(80, "-") + vbCrLf + String$(80, "-") + vbCrLf
+                
+                End If
+                
+                'END AND START EACH LINE
+                If InStr(LINE_TEXT, "Seller:") = 1 Then
+                    COUNT_SALE = COUNT_SALE + 1
+                    EXTRA_HEAD_TEXT_LINE = String$(80, "-") + vbCrLf + "COUNT -- " + Format(COUNT_SALE, "000") + " -- BLOCK OF TEXT ABOVE" + vbCrLf + String$(80, "-") + vbCrLf + String$(80, "-") + vbCrLf
+                End If
+                
+                
+                If NOT_TO_GO_UNTIL_END = True Then
+                    NOT_TO_GO = True
+                End If
+                
+                If BEGIN_TO_GO = False Then
+                    NOT_TO_GO = True
+                End If
+                
+                
+                'OKAY TO HERE BUT NOT ANY DOUBLE REPEAT LINE SPACE
+                If NOT_TO_GO = False Then
+                    If Trim(OLINE_TEXT_VAR2) = Trim(LINE_TEXT) Then
+                        NOT_TO_GO = True
+                    End If
+                    'NOT ANY DOUBLE REPEAT LINE SPACE
+                    OLINE_TEXT_VAR2 = LINE_TEXT
+                End If
+                
+                
+                If NOT_TO_GO = False Then
+                
+                    'BEGINING IS HERE -- 01 OF 02 --
+                    If FIRST_LINE = True Then
+                        FIRST_LINE = False
+                        EXTRA_HEAD_TEXT_LINE = String$(80, "-") + vbCrLf + String$(80, "-") + vbCrLf + "BEGINING IS HERE -- 01 OF 02 --" + Format(Now, "DDD DD MMM YYYY HH:MM:SS") + vbCrLf + String$(80, "-") + vbCrLf + String$(80, "-")
+
+                    End If
+                    
+                    LINE_TEXT = Replace(LINE_TEXT, Chr(9), "")
+                    LINE_TEXT = Replace(LINE_TEXT, "We're sorry,", "")
+                    LINE_TEXT = Replace(LINE_TEXT, "  Follow this search", "")
+                
+                    If Trim(LINE_TEXT) <> "" Then
+                    If EXTRA_HEAD_TEXT_LINE <> "" Then
+                        EXTRA_HEAD_TEXT_LINE = vbCrLf + EXTRA_HEAD_TEXT_LINE
+                    End If
+                    Print #FR1, Trim(LINE_TEXT) + EXTRA_HEAD_TEXT_LINE
+                    End If
+                
+                    EXTRA_HEAD_TEXT_LINE = ""
+                
+                End If
+                
+                
+                
+            Loop Until EOF(FR2)
+            
+        End If
+        
+    Close #FR1, FR2
+
+    If BEGIN_TO_GO = False Then
+        MsgBox FILENAME_VAR + vbCrLf + " FIRST HEAD LINE TEXT NOT FOUND -- RESULT WILL BE EMPTY, vbMsgBoxSetForeground"
+        Exit Sub
+    End If
+    
+
+
+    If Err.Number > 0 Then
+        MsgBox FILENAME_VAR + vbCrLf + "CHANGES WERE NOT SAVED -- BE A PROBLEM" + vbCrLf + Err.Description, vbMsgBoxSetForeground
+        Exit Sub
+    End If
+
+    Kill FILENAME_VAR
+    Name FILENAME_VAR + ".TMP" As FILENAME_VAR
+    
+    If Err.Number > 0 Then
+        MsgBox FILENAME_VAR + vbCrLf + "RENAME TEMP FILE -- BE A PROBLEM" + vbCrLf + Err.Description, vbMsgBoxSetForeground
+        Exit Sub
+    End If
+
+
+
+    
+    
+    'LOAD EDITOR NOTEPAD++
+    
+    vFile = FILENAME_VAR
+    ShellExecute Me.hwnd, "open", vFile, vbNullString, vbNullString, conSwNormal
+    
+
+
+
+End Sub
+
+Private Sub MNU_EBAY_FILTER_WILDCARD_Click()
+
+
+
+    FILENAME_VAR = "C:\TEMP\EBAY FILTER RESULT.TXT"
+    If Dir("C:\TEMP", vbDirectory) = "" Then
+        MkDir ("C:\TEMP")
+    End If
+    'DumVar = IsFileOpenDelay(Tx1$)
+    
+    'SOME FILTER
+    
+    Dim LINE_TEXT_ARRAY(200, 20)
+    
+    Reset
+    FR1 = FreeFile
+    Open FILENAME_VAR + ".TMP" For Output As #FR1
+    FR2 = FreeFile
+    Open FILENAME_VAR For Input As #FR2
+            
+        If Not EOF(FR2) Then
+        
+            Do
+                
+                Line Input #FR2, LINE_TEXT
+                Debug.Print LINE_TEXT
+                'SEARCH THE COUNT TEXT FOR A HITT
+                If InStr("-" + LINE_TEXT, "COUNT -- ") > 0 Then
+                    FOUND_BEGINING = True
+                    LINE_COUNT_HITT1 = LINE_COUNT_HITT1 + 1
+                    LINE_COUNT_HITT2 = 0
+                End If
+            
+                If FOUND_BEGINING = True Then
+                    LINE_COUNT_HITT2 = LINE_COUNT_HITT2 + 1
+                    LINE_TEXT_ARRAY(LINE_COUNT_HITT1, LINE_COUNT_HITT2) = LINE_TEXT
+                End If
+                
+                
+                If FOUND_BEGINING = False Then
+                    Print #FR1, LINE_TEXT
+                End If
+                
+            Loop Until EOF(FR2)
+            Close #FR1
+            Reset
+            
+            FR1 = FreeFile
+            Open FILENAME_VAR + ".TMP" For Append As #FR1
+            
+            For r = 1 To LINE_COUNT_HITT1
+                NOT_TO_GO = False
+                If InStr("-" + LINE_TEXT_ARRAY(r, 5), "*") > 0 Then NOT_TO_GO = True
+                
+                'TEST ALWAYS
+                'NOT_TO_GO = False
+                
+                If NOT_TO_GO = False Then
+                    For R1 = 1 To 20
+                        If LINE_TEXT_ARRAY(r, R1) <> "" Then
+                            If InStr("-" + LINE_TEXT_ARRAY(r, R1), "COUNT -- ") > 0 Then
+                                If InStr("-" + LINE_TEXT_ARRAY(r, R1), "ABOVE") > 0 Then
+                                    COUNT_SALE = COUNT_SALE + 1
+                                    'CS_STR_VAR = "COUNT -- " + Format(COUNT_SALE, "000") + " -- "
+'                                Else
+'                                Stop
+                                End If
+                                
+                                CS_STR_VAR = "COUNT -- " + Format(COUNT_SALE, "000") + " -- "
+                                
+                                LINE_TEXT_ARRAY(r, R1) = CS_STR_VAR + LINE_TEXT_ARRAY(r, R1)
+                                
+                                'Stop
+                            End If
+                            
+                            
+                            Print #FR1, LINE_TEXT_ARRAY(r, R1)
+                        End If
+                    Next
+                End If
+            Next
+        End If
+    Close #FR1, FR2
+
+
+    If Err.Number > 0 Then
+        MsgBox FILENAME_VAR + vbCrLf + "CHANGES WERE NOT SAVED -- BE A PROBLEM" + vbCrLf + Err.Description, vbMsgBoxSetForeground
+        Exit Sub
+    End If
+
+    Kill FILENAME_VAR
+    Name FILENAME_VAR + ".TMP" As FILENAME_VAR
+    
+    If Err.Number > 0 Then
+        MsgBox FILENAME_VAR + vbCrLf + "RENAME TEMP FILE -- BE A PROBLEM" + vbCrLf + Err.Description, vbMsgBoxSetForeground
+        Exit Sub
+    End If
+    
+    
+    'LOAD EDITOR NOTEPAD++
+    
+    vFile = FILENAME_VAR
+    ShellExecute Me.hwnd, "open", vFile, vbNullString, vbNullString, conSwNormal
+    
+
+
+
+
+End Sub
+
+Private Sub MNU_ENTER_LARGE_Click()
+    
+    ENTER_LARGE_IN_LOGGER = True
+    Call Timer1_Timer
+End Sub
+
+Private Sub Mnu_Explorer_Form_Capture_Click()
+
+Call LAST_IMAGE("EXPLORER", FOLDERNAME2)
+
+'Shell "Explorer.exe " + FOLDERNAME2, vbNormalFocus
+
+End Sub
+
+Private Sub MNU_EXPLORER_ME_VB_Click()
+
+Me.WindowState = vbMinimized
+
+'------------------------------------------------------------
+'THIS IS DONE -- AT FORM LOAD
+'------------------------------------------------------------
+'MNU_EXPLORER_ME_VB.Caption = "EXPLORER ME_VB -- " + App.Path
+'------------------------------------------------------------
+Shell "Explorer.exe " + App.Path, vbNormalFocus
+
+End Sub
+
+Private Sub Mnu_Explorer_Screen_Capture_Click()
+
+Call LAST_IMAGE("EXPLORER", FOLDERNAME1)
+
+'Shell "Explorer.exe " + FOLDERNAME1, vbNormalFocus
+
+End Sub
+
+Sub LAST_IMAGE(VAR1, VAR2)
+
+
+MNU_SCANPATH_COUNTER.Visible = True
+
+
+'ScanPath.SHOW
+'DONT KEEP SCREEN SHOT ANY MORE ONLY APP SHOT
+
+'LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT = ""
+LAST_FILE_DATE_PATH = ""
+'Me.WindowState = vbMinimized
+
+'XdATE2 = 0
+'ScanPath.chk_LIST_VIEW_SHORT_5 = vbChecked
+
+LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
+'SCAN_PARTMASK = "# APP AND SCREEN -- SHOT\"+GETCOMPUTERNAME+"\Hot-Key-"
+
+ScanPath.cboMask = "*.JPG"
+ScanPath.chkSubFolders = vbUnchecked
+ScanPath.TxtPath = VAR2
+
+'THIS LOOK GOOD BUT TAKE TOO LONG DON'T KNOW HOW MICROSOFT DO IT
+'QUICKER WITH FOLDER UNCHECKed BUT NOT AS QUiCK MICROSOFT
+'TEST WORKING BUT NOT GOOD ENOUGH FOR NOW
+'Call ScanPath.cmdScanDir_FAST_Click
+'ScanPath.TxtPath = LAST_FILE_DATE_PATH
+
+If Dir(ScanPath.TxtPath, vbDirectory) = "" Then MsgBox "NOT THAT FOLDER" + vbCrLf + ScanPath.TxtPath: Exit Sub
+
+Dir1.Path = ScanPath.TxtPath
+ScanPath.TxtPath = Dir1.List(Dir1.ListCount - 1)
+
+LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
+ScanPath.chkSubFolders = vbChecked
+Call ScanPath.CMDScan_NO_LIST_FAST_Click
+'SCAN_PARTMASK = ""
+
+FileSpec = LAST_FILE_DATE_PATH
+'FileSpec = LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT
+
+If FileSpec = "" Then MsgBox "NOT ANY OF THOSE FILES" + vbCrLf + ScanPath.TxtPath + "\" + ScanPath.cboMask: Exit Sub
+
+
+'Filespec1 = ScanPath.lblCount7
+'Set F = FS.getfile((Filespec1))
+'ADATE1 = F.datelastmodified
+'
+'ScanPath.lblCount7 = ""
+'ScanPath.ListView1.ListItems.Clear
+'
+'ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN -- SHOT\"
+'Call ScanPath.cmdScan_Click
+
+
+'Filespec2 = ScanPath.lblCount7
+'If Filespec2 <> "" Then
+'    Set F = FS.getfile((Filespec2))
+'    ADATE2 = F.datelastmodified
+'    If ADATE1 > ADATE2 Then
+'        FileSpec = Filespec1
+'    Else
+'        FileSpec = Filespec2
+'
+'    End If
+'Else
+'    FileSpec = Filespec1
+'End If
+
+
+'Me.WindowState = vbMinimized
+
+If MNU_MESSAGE_BOXES.Checked = False Then
+'    MsgBox "FOUND LATEST IMAGE Clipboarded - LOAD Explorer Minimized AS Well as IrFan Maximized To View" + vbCrLf + "FILES FOUND =" + str(tFileCount) + vbCrLf, vbMsgBoxSetForeground
+End If
+
+If VAR1 = "EXPLORER" Then
+    Shell "Explorer.exe /select, " + FileSpec, vbNormalFocus
+End If
+
+If IRFANVIEW_PATH <> "" Then
+    If VAR1 = "IVIEW" Then
+        Shell IRFANVIEW_PATH + " """ + FileSpec + """ /fs /silent", vbMaximizedFocus
+    End If
+Else
+    Me.WindowState = vbNormal
+    MsgBox "IRFANVIEW_PATH VAR -- PATH NOT FOUND FOR FILE" + vbCrLf + "NOT INSTALED AT EXPECTED LOCATION " + IRFANVIEW_PATH3 + vbCrLf + "OR" + vbCrLf + IRFANVIEW_PATH2, vbMsgBoxSetForeground
+End If
+
+End Sub
+
+
+
+
+
+Private Sub Mnu_Height_Click()
+'Mnu_Height.Caption = Menu_Height
+End Sub
+
+
+
+Private Sub Mnu_IVIEW_Form_Capture_Click()
+
+Call LAST_IMAGE("IVIEW", FOLDERNAME2)
+
+End Sub
+
+Private Sub MNU_IVIEW_LAST_WEBCAM_PIC_Click()
+
+Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS - WEBCAM\WEBCAM\") '=EXPLORER
+
+End Sub
+
+Private Sub MNU_JUMP_ANY_SPECIAL_FOLDER_Click()
+
+Load Form2_ANY_SPECIAL_FOLDER
+
+End Sub
+
+Private Sub MNU_LAST_ART_PIC_IVIEW_Click()
+
+Call LAST_IMAGE("IVIEW", "D:\0 00 ART LOGGERS\# APP AND SCREEN -- SHOT\" + GetComputerName + "\Hot-Key-App-Shots\") ' = I_VIEW
+
+Exit Sub
+
+
+'-------------------------
+
+'ScanPath.SHOW
+
+Me.WindowState = vbMinimized
+
+'XdATE2 = 0
+'ScanPath.chk_LIST_VIEW_SHORT_5 = vbChecked
+
+LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
+SCAN_PARTMASK = "# APP AND SCREEN -- SHOT\" + GetComputerName + "\CLIP_"
+ScanPath.cboMask = "*.JPG"
+ScanPath.chkSubFolders = vbChecked
+ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN -- SHOT\"
+
+Call ScanPath.CMDScan_NO_LIST_FAST_Click
+SCAN_PARTMASK = ""
+
+FileSpec = LAST_FILE_DATE_PATH
+'FileSpec = LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT
+
+If FileSpec = "" Then MsgBox "NOT ANY OF THOSE FILES" + vbCrLf + ScanPath.TxtPath + "\" + ScanPath.cboMask: Exit Sub
+
+
+'Filespec1 = ScanPath.lblCount7
+'Set F = FS.getfile((Filespec1))
+'ADATE1 = F.datelastmodified
+'
+'ScanPath.lblCount7 = ""
+'ScanPath.ListView1.ListItems.Clear
+'
+'ScanPath.TxtPath = "D:\0 00 Art Loggers\# APP AND SCREEN -- SHOT\"
+'Call ScanPath.cmdScan_Click
+
+
+'Filespec2 = ScanPath.lblCount7
+'If Filespec2 <> "" Then
+'    Set F = FS.getfile((Filespec2))
+'    ADATE2 = F.datelastmodified
+'    If ADATE1 > ADATE2 Then
+'        FileSpec = Filespec1
+'    Else
+'        FileSpec = Filespec2
+'
+'    End If
+'Else
+'    FileSpec = Filespec1
+'End If
+
+
+Me.WindowState = vbMinimized
+
+If MNU_MESSAGE_BOXES.Checked = False Then
+'    MsgBox "FOUND LATEST IMAGE Clipboarded - LOAD Explorer Minimized AS Well as IrFan Maximized To View" + vbCrLf + "FILES FOUND =" + str(tFileCount) + vbCrLf, vbMsgBoxSetForeground
+End If
+
+'Shell "Explorer.exe /select, " + FileSpec, vbMinimizedNoFocus
+
+If IRFANVIEW_PATH <> "" Then
+    If VAR1 = "IVIEW" Then
+        Shell IRFANVIEW_PATH + " """ + FileSpec + """ /fs /silent", vbMaximizedFocus
+    End If
+Else
+    Me.WindowState = vbNormal
+    MsgBox "IRFANVIEW_PATH VAR -- PATH NOT FOUND FOR FILE" + vbCrLf + "NOT INSTALED AT EXPECTED LOCATION " + IRFANVIEW_PATH3 + vbCrLf + "OR" + vbCrLf + IRFANVIEW_PATH2, vbMsgBoxSetForeground
+End If
+
+End Sub
+
+
+Function GET_DRIVES_FIND_FOLDER(FOLDER As String)
+
+GET_DRIVES_FIND_FOLDER = ""
+
+Dim DC
+Set DC = FS.Drives
+For Each d In DC
+  S = S & d.DriveLetter
+  If d.DriveType <> 2 Then 'FIXED DRIVE
+    'Stop
+    'n = d.ShareName
+  ElseIf d.ISREADY Then
+    'N = N + d.DriveLetter 'd.VolumeName
+    If FS.FolderExists(d.DriveLetter + ":" + FOLDER) = True Then
+        GET_DRIVES_FIND_FOLDER = d.DriveLetter + ":" + FOLDER
+        Exit Function
+    End If
+    
+    
+  End If
+  's = s & n & "<BR>"
+Next
+
+'GET_DRIVES = N
+'GET_DRIVES_RESULT = N
+
+End Function
+
+
+Private Sub MNU_MIRROR_SEND_TO_OPERATING_SYSTEM_SET_MENU_CAPTION()
+    MNU_MIRROR_SEND_TO_OPERATING_SYSTEM.Caption = "MIRROR COPY OUR FAT32 SPECIAL SEND-TO FOLDER TO ANY OPERATING SYSTEM - SPECIAL FOLDER SEND TO"
+End Sub
+
+Private Sub MNU_MIRROR_EXE_DRY_RUN_Click()
+    
+    
+    
+    SIMU_TEST = True
+        Call VB_PROJECT_CHECKDATE
+    Exit Sub
+    
+    
+    'Shell App.Path + "\Network_Sync_EXE_Clipboard.exe """ + App.Path + "\" + App.EXEName + ".EXE" + """", vbNormalFocus
+    Shell "D:\VB6\VB-NT\00_Best_VB_01\RELOAD_NETWORK_SYNC_EXE\RELOAD_Network_Sync_EXE_VB_MIRROR.exe """ + App.Path + "\" + App.EXEName + ".EXE" + """", vbNormalFocus
+    
+    
+    EXIT_TRUE = True
+    Unload Me
+    Exit Sub
+
+End Sub
+
+Private Sub MNU_MIRROR_SEND_TO_OPERATING_SYSTEM_Click()
+
+'--------------------------
+'JOB # 01
+'WORK TO FINISH ON THE SEND TO SPECIAL FOLDER
+'2016 MAY 02 MON BANK HOLIDAY
+'JOB FINISH 2016 MAY 09 MON
+'LEFT TO DO WIN 10 FOLDER
+'AND MAKE DO SUBFOLDER
+'------------------------
+'--------------------------
+'ALSO JOB BEFORE STOP FLICKER OF MENU WHEN HOVER OVER TEXT BOX
+'MENU ITEM WHERE UPDATE WITH MOUSE DETECT MOVE - STORE IN VAR VAULE
+'--------------------------
+
+FOLDER_SENDTO_SYSTEM = GetSpecialfolder(CSIDL_SENDTO) + "\"
+
+'----------------
+'FIND OUR FAT32 DRIVE BY SEARCH FOLDER SENDTO FOLDER
+'----------------
+'DEFAULT XP
+Dim FOLDER_FIND As String
+FOLDER_FIND = "\01 SendTo\"
+'----------------
+'SIX = WIN 7
+'----------------
+If GETWinNT_Ver = "WIN XP" Then FOLDER_FIND = "\01 SendTo 01- WIN XP"
+If GETWinNT_Ver = "WIN 7" Then FOLDER_FIND = "\01 SendTo 02- WIN 7"
+If GETWinNT_Ver = "WIN 7 - 64" Then FOLDER_FIND = "\01 SendTo 02- WIN 7"
+If GETWinNT_Ver = "WIN 10" Then FOLDER_FIND = "\01 SendTo 03- WIN 10"
+'----------------
+
+'HEAVY TASK - SWITCH TO PROBLEM CAN HAPPEN
+'If GETWinNT_Ver = "WIN 7" Then
+'    If GetOsBitness = 64 Then FOLDER_FIND = "\01 SendTo 02- WIN 7 - 64"
+'End If
+''GetCpuBitness
+
+'BETTER - BUT STILL USE FEW CPU CYCLES
+If GETWinNT_Ver = "WIN 7" Then
+    If GetOsArchitecture = 64 Then FOLDER_FIND = "\01 SendTo 02- WIN 7 - 64"
+End If
+
+FOLDER_SENDTO_FAT32_STORE = GET_DRIVES_FIND_FOLDER(FOLDER_FIND)
+
+If FOLDER_SENDTO_FAT32_STORE = "" Then
+    MsgBox "SEND TO SPECIAL SYSTEM FOLDER LOCATION STORE FAT32 FOLDER - NOT FOUND"
+    Exit Sub
+End If
+
+ScanPath.TxtPath = FOLDER_SENDTO_FAT32_STORE
+
+ScanPath.cboMask = "*.*"
+ScanPath.chkSubFolders = vbUnchecked
+ScanPath.ListView1.ListItems.Clear
+Call ScanPath.cmdScan_Click
+
+XCOUNT2 = ScanPath.ListView1.ListItems.Count
+For WE = 1 To ScanPath.ListView1.ListItems.Count
+    A1 = ScanPath.ListView1.ListItems.Item(WE).SubItems(1)
+    B1 = ScanPath.ListView1.ListItems.Item(WE)
+    
+    If (FS.FileExists(A1 + B1) And FS.FileExists(FOLDER_SENDTO_SYSTEM + B1)) = False Then
+        FS.CopyFILE A1 + B1, FOLDER_SENDTO_SYSTEM + B1
+        FILE_COPY_COUNT = FILE_COPY_COUNT + 1
+    End If
+Next
+
+If FILE_COPY_COUNT > 0 Then
+    MsgBox "FILE COPY COUNT TO SYSTEM SPECIAL FOLDER SEND_TO EQUAL =" + Str(FILE_COPY_COUNT)
+Else
+    MsgBox "NOT ANY FILE COPY COUNT" + vbCrLf + "ALL FILE MUST ALREADY EXIST AT DESTINATION OF SPECIAL SYSTEM FOLDER"
+End If
+
+'GetSpecialfolder(CSIDL_PERSONAL)
+'GetSpecialfolder(CSIDL_PROGRAMS)
+
+'Private Const CSIDL_PROGRAMS = &H2
+'Private Const CSIDL_CONTROLS = &H3
+'Private Const CSIDL_PRINTERS = &H4
+'Private Const CSIDL_PERSONAL = &H5
+'Private Const CSIDL_FAVORITES = &H6
+'Private Const CSIDL_STARTUP = &H7
+'Private Const CSIDL_RECENT = &H8
+'Private Const CSIDL_SENDTO = &H9
+
+End Sub
+
+
+Private Sub Mnu_Play_Sound_1_Click()
+            
+    MMControl1.Command = "prev"
+    MMControl1.Command = "Play"
+            
+    If Mnu_SoundOn.Checked = False Then
+        MsgBox "Play Sound in Program Running Set of Off", vbMsgBoxSetForeground
+    End If
+End Sub
+
+Private Sub Mnu_Play_Sound_2_Click()
+    MMControl2.Command = "prev"
+    MMControl2.Command = "Play"
+            
+    If Mnu_SoundOn.Checked = False Then
+        MsgBox "Play Sound in Program Running Set of Off", vbMsgBoxSetForeground
+    End If
+End Sub
+
+Private Sub Mnu_Project_Source_Code_Click()
+    
+    iMessageResultRECompile = False
+    
+    Call Timer3_Timer
+
+End Sub
+
+Private Sub MNU_REFORMAT_ADD_A_DASH_Click()
+
+Dim EE As String
+
+EE = AD$
+
+EE = Replace(EE, vbCrLf, " --" + vbCrLf)
+
+AD$ = EE
+
+
+    EXECUTE_TIMER_ENABLED = False
+    Clipboard.Clear
+    Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+
+
+
+End Sub
+
+
+Private Sub MNU_REFORMAT_REMOVE_THE_DASH_Click()
+
+Dim EE As String
+
+EE = AD$
+
+EE = Replace(EE, " --" + vbCrLf, vbCrLf)
+
+AD$ = EE
+
+
+    EXECUTE_TIMER_ENABLED = False
+    Clipboard.Clear
+    Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+
+
+
+End Sub
+
+
+
+
+Private Sub Mnu_Reload_Audio_Click()
+
+'DO THIS LATER
+'FIND BUG WONT LOAD PROPER AFTER FIRST
+
+Call SETUP_SOUND_FILE("")
+
+End Sub
+
+Private Sub Mnu_Reset_MMControl_Click()
+
+'    MMControl1.Command = "Stop"
+'    MMControl1.Command = "Close"
+'    DoEvents
+'    MMControl2.Command = "Stop"
+'    MMControl2.Command = "Close"
+'    DoEvents
+
+
+
+'THIS GET RUN HERE AT RESET
+'AND AT ONE CLICK SELECT
+
+
+'-----------------------------
+'MODIFY_SOUND_SELECTION = True
+'Call SETUP_SOUND_FILE("")
+'-----------------------------
+Call RESET_SETUP_SOUND_FILE("")
+
+
+
+Exit Sub
+
+
+If Path_Of_Sound_File <> "" Then
+    
+'    MMControl1.Notify = False
+'    MMControl1.Wait = True
+    MMControl1.Command = "Stop"
+'    MMControl1.fileName = ""
+
+    MMControl1.Command = "Close"
+    DoEvents
+    MMControl1.Notify = True
+    MMControl1.Wait = True
+    MMControl1.Shareable = False
+    MMControl1.DeviceType = "WaveAudio"
+    
+    MMControl1.fileName = Path_Of_Sound_File
+    
+    MMControl1.Command = "Open"
+
+'    Exit Sub
+End If
+
+If Path_Of_Sound_File = "" Then
+    MsgBox "Sound File Path Variable Not Set", vbMsgBoxSetForeground
+    'Exit Sub
+End If
+
+If Path_Of_Sound_File <> "" And Dir(Path_Of_Sound_File) = "" Then
+    MsgBox "Sound File - Path and File Not Found" + vbCrLf + Path_Of_Sound_File, vbMsgBoxSetForeground
+    'Exit Sub
+End If
+
+
+
+vPathSOUND2 = App.Path + "\Sound_Wav's--2\" + GetComputerName + "\"
+If Dir(vPathSOUND2, vbDirectory) = "" Then
+    MkDirNested vPathSOUND2
+End If
+
+vFileSOUND2 = Dir(vPathSOUND2 + "*.WAV")
+'vFileSOUND2
+
+If vFileSOUND2 = "" Then
+    MsgBox "Sound File *2* PATH AND OR FILENAME NOT SET " + vbCrLf + App.Path + "\Sound_Wav's--2\" + GetComputerName + "\*.WAV", vbMsgBoxSetForeground
+    'Exit Sub
+End If
+
+If vFileSOUND2 <> "" Then
+    MNU_SOUND_2.Caption = "SOUND OPTION - 2 ------ \" + vFileSOUND2
+    
+    MMControl2.Command = "Stop"
+    MMControl2.Command = "Close"
+    '---- Set properties needed by MCI to open.
+    MMControl2.Notify = True
+    MMControl2.Wait = True
+    MMControl2.Shareable = False
+    MMControl2.DeviceType = "WaveAudio"
+    MMControl2.fileName = vPathSOUND2 + vFileSOUND2
+    ' Open the MCI WaveAudio device.
+    MMControl2.Command = "Open"
+       
+    'MMControl2.Command = "prev"
+    
+    'MMControl2.Command = "Play"
+    
+'    MNU_SOUND_2.Caption = "SOUND OPTION - 2 - " + vFileSOUND2
+
+
+Else
+    MNU_SOUND_2.Caption = "SOUND OPTION - 2 - WAV File Not Found - 1st Found Here Used " + vPathSOUND2 + "*.WAV"
+
+End If
+
+
+
+End Sub
+
+Private Sub MNU_SCANPATH_COUNTER_Click()
+
+    MsgBox "This Shows a Count When Scanning Files When Find Last Date Image To Show", vbMsgBoxSetForeground
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+Private Sub MNU_SPECIAL_FOLDER_DESKTOP_PUBLIC_Click()
+    
+    'GetSpecialfolder_DEBUG
+    
+    STRING_VAR = "DESKTOP PUBLIC -- "
+    '------------
+    FOLDER_SYSTEM = GetSpecialfolder(25) + "\"
+    
+    MNU_SPECIAL_FOLDER_DESKTOP_PUBLIC.Caption = STRING_VAR + FOLDER_SYSTEM
+    
+    If VAR_FLAG_EXPLORER_LOAD_NOT = False Then
+        Shell "Explorer.exe " + FOLDER_SYSTEM, vbNormalFocus
+    End If
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'Private Sub MNU_SPECIAL_FOLDER_PIN_TO_START_MENU_Click()
+'
+'Call SPECIAL_FOLDER_PIN_TO_START_MENU
+'
+'Shell "Explorer.exe " + FOLDER_PIN_TO_START_MENU, vbNormalFocus
+'
+'End Sub
+
+Private Sub MNU_SPECIAL_FOLDER_DESKTOP_USER_Click()
+    
+    STRING_VAR = "DESKTOP USER -- "
+    '------------
+    FOLDER_SYSTEM = GetSpecialfolder(CSIDL_DESKTOP) + "\"
+    'REPLACE ----
+    'FOLDER_SYSTEM = Replace(FOLDER_SYSTEM, "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs", "\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu")
+    '------------
+    'FOLDER_PIN_TO_START_MENU = FOLDER_SYSTEM
+    'Debug.Print FOLDER_SYSTEM
+    MNU_SPECIAL_FOLDER_DESKTOP_USER.Caption = STRING_VAR + FOLDER_SYSTEM
+    
+    If VAR_FLAG_EXPLORER_LOAD_NOT = False Then
+        Shell "Explorer.exe " + FOLDER_SYSTEM, vbNormalFocus
+    End If
+End Sub
+
+Private Sub MNU_SPECIAL_FOLDER_PIN_TO_START_MENU_Click()
+    '------------
+    FOLDER_SYSTEM = GetSpecialfolder(CSIDL_PROGRAMS) + "\"
+    'REPLACE ----
+    FOLDER_SYSTEM = Replace(FOLDER_SYSTEM, "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs", "\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu")
+    '------------
+    
+    FOLDER_PIN_TO_START_MENU = FOLDER_SYSTEM
+    'Debug.Print FOLDER_SYSTEM
+    MNU_SPECIAL_FOLDER_PIN_TO_START_MENU.Caption = "START MENU -- PIN TO -- " + FOLDER_SYSTEM
+    
+    If VAR_FLAG_EXPLORER_LOAD_NOT = False Then
+        Shell "Explorer.exe " + FOLDER_SYSTEM, vbNormalFocus
+    End If
+End Sub
+
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Private Sub SPECIAL_FOLDER_PIN_TO_START_MENU()
+
+
+'Private Const CSIDL_PROGRAMS = &H2
+FOLDER_SYSTEM = GetSpecialfolder(CSIDL_PROGRAMS) + "\"
+'C:\Users\MATT 01\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+
+FOLDER_SYSTEM = Replace(FOLDER_SYSTEM, "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs", "\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu")
+FOLDER_PIN_TO_START_MENU = FOLDER_SYSTEM
+'Debug.Print FOLDER_SYSTEM
+'C:\Users\MATT 01\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu\
+
+MNU_SPECIAL_FOLDER_PIN_TO_START_MENU.Caption = "EXPLORER -- PIN TO START MENU -- " + FOLDER_SYSTEM
+
+'MNU_PIN_TO_START_MENU
+'C:\Users\MATT 01\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu
+End Sub
+
+
+
+
+        
+        
+
+Private Sub SPARE_BIT_OF_KITT()
+
+'----------------
+'FIND OUR FAT32 DRIVE BY SEARCH FOLDER SENDTO FOLDER
+'----------------
+'DEFAULT XP
+Dim FOLDER_FIND As String
+FOLDER_FIND = "\01 SendTo\"
+'----------------
+'SIX = WIN 7
+'----------------
+If GETWinNT_Ver = "WIN XP" Then FOLDER_FIND = "\01 SendTo 01- WIN XP"
+If GETWinNT_Ver = "WIN 7" Then FOLDER_FIND = "\01 SendTo 02- WIN 7"
+If GETWinNT_Ver = "WIN 7 - 64" Then FOLDER_FIND = "\01 SendTo 02- WIN 7"
+If GETWinNT_Ver = "WIN 10" Then FOLDER_FIND = "\01 SendTo 03- WIN 10"
+'----------------
+
+'HEAVY TASK - SWITCH TO PROBLEM CAN HAPPEN
+'If GETWinNT_Ver = "WIN 7" Then
+'    If GetOsBitness = 64 Then FOLDER_FIND = "\01 SendTo 02- WIN 7 - 64"
+'End If
+''GetCpuBitness
+
+'BETTER - BUT STILL USE FEW CPU CYCLES
+If GETWinNT_Ver = "WIN 7" Then
+    If GetOsArchitecture = 64 Then FOLDER_FIND = "\01 SendTo 02- WIN 7 - 64"
+End If
+'----------------
+FOLDER_SENDTO_FAT32_STORE = GET_DRIVES_FIND_FOLDER(FOLDER_FIND)
+MNU_SEND_TO_FAT32_FOLDER.Caption = "EXPLORER -- " + FOLDER_SENDTO_FAT32_STORE
+
+End Sub
+
+
+Sub SPECIAL_FOLDER_SEND_TO()
+
+FOLDER_SENDTO_SYSTEM = GetSpecialfolder(CSIDL_SENDTO) + "\"
+'--------
+'01 OF 02
+'--------
+MNU_SEND_TO_SYSTEM_FOLDER.Caption = "SEND TO -- " + FOLDER_SENDTO_SYSTEM
+
+'----------------
+'FIND OUR FAT32 DRIVE BY SEARCH FOLDER SENDTO FOLDER
+'----------------
+'DEFAULT XP
+Dim FOLDER_FIND As String
+FOLDER_FIND = "\01 SendTo\"
+'----------------
+'SIX = WIN 7
+'----------------
+If GETWinNT_Ver = "WIN XP" Then FOLDER_FIND = "\01 SendTo 01- WIN XP"
+If GETWinNT_Ver = "WIN 7" Then FOLDER_FIND = "\01 SendTo 02- WIN 7"
+If GETWinNT_Ver = "WIN 7 - 64" Then FOLDER_FIND = "\01 SendTo 02- WIN 7"
+If GETWinNT_Ver = "WIN 10" Then FOLDER_FIND = "\01 SendTo 03- WIN 10"
+'----------------
+
+'HEAVY TASK - SWITCH TO PROBLEM CAN HAPPEN
+'If GETWinNT_Ver = "WIN 7" Then
+'    If GetOsBitness = 64 Then FOLDER_FIND = "\01 SendTo 02- WIN 7 - 64"
+'End If
+''GetCpuBitness
+
+'BETTER - BUT STILL USE FEW CPU CYCLES
+If GETWinNT_Ver = "WIN 7" Then
+    If GetOsArchitecture = 64 Then FOLDER_FIND = "\01 SendTo 02- WIN 7 - 64"
+End If
+
+'----------------
+FOLDER_SENDTO_FAT32_STORE = GET_DRIVES_FIND_FOLDER(FOLDER_FIND)
+'--------
+'02 OF 02
+'--------
+MNU_SEND_TO_FAT32_FOLDER.Caption = "SEND TO -- " + FOLDER_SENDTO_FAT32_STORE
+
+End Sub
+
+
+Private Sub MNU_SEND_TO_SYSTEM_FOLDER_Click()
+
+Call SPECIAL_FOLDER_SEND_TO
+
+Shell "Explorer.exe " + FOLDER_SENDTO_SYSTEM, vbNormalFocus
+
+End Sub
+
+Private Sub MNU_SEND_TO_FAT32_FOLDER_Click()
+
+Call SPECIAL_FOLDER_SEND_TO
+
+Shell "Explorer.exe " + FOLDER_SENDTO_FAT32_STORE, vbNormalFocus
+
+End Sub
+
+
+Private Sub MNU_TIME_API_FUNCTION_ACCESS_Click()
+'VARTEXT = "TIME API SUB FUCTION LAST ACCESSED = " + Format(Timer_API_Test_Logick_Var2, "DD-MM-YYYY HH:MM:SS")
+'MNU_TIME_API_FUNCTION_ACCESS.Caption = VARTEXT
+End Sub
+
+Private Sub MNU_URL_SCREEN_SCRAPER_Click()
+
+
+Call LAST_IMAGE("EXPLORER", "D:\0 00 Art Loggers\URL SCREEN SHOT\") '=EXPLORER
+
+Exit Sub
+
+'THIS CAN USE SAME CODE AS LAST SCREEN SHOT MENU
+
+
+'Dim FDS
+'
+''FDS = "D:\0 00 Art Loggers\URL SCREEN SHOT\URL SCREENSHOT - 00 BBC WEATHER - FULL SIZE.JPG"
+'FDS = "D:\0 00 Art Loggers\URL SCREEN SHOT\"
+'TXRS = Dir(FDS + "*.JPG")
+'Do
+'    TXRS = Dir
+'    If TXRS = "" Then Exit Do
+'    FileSpec = FDS + TXRS
+'Loop Until True = False
+'
+'If FileSpec = "" Then MsgBox "NOT ANY OF THOSE FILES" + vbCrLf + FDS: Exit Sub
+'
+''Shell "Explorer.exe /select, " + FDS, vbMinimizedNoFocus
+'Shell "Explorer.exe " + FDS, vbNormalFocus
+
+'THIS DONT WORK YET - HAS TO FIND NEWEST FILE IN SUB FOLDER
+'If IRFANVIEW_PATH <> "" Then
+'    If VAR1 = "IVIEW" Then
+'        Shell IRFANVIEW_PATH + FileSpec + """ /fs /silent", vbMaximizedFocus
+'    End If
+'Else
+'    Me.WindowState = vbNormal
+'    MsgBox "IRFANVIEW_PATH VAR -- PATH NOT FOUND FOR FILE" + vbCrLf + "NOT INSTALED AT EXPECTED LOCATION " + IRFANVIEW_PATH3 + vbCrLf + "OR" + vbCrLf + IRFANVIEW_PATH2, vbMsgBoxSetForeground
+'End If
+
+Me.WindowState = vbMinimized
+'-----------------------
+LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT = ""
+'ScanPath.SHOW
+
+'XdATE2 = 0
+'ScanPath.chk_LIST_VIEW_SHORT_5 = vbChecked
+
+LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
+'SCAN_PARTMASK = "# APP AND SCREEN -- SHOT\"+GETCOMPUTERNAME+"\CLIP_"
+ScanPath.cboMask = "*.JPG"
+ScanPath.chkSubFolders = vbChecked
+ScanPath.TxtPath = "D:\0 00 Art Loggers\URL SCREEN SHOT\"
+
+Call ScanPath.CMDScan_NO_LIST_FAST_Click
+'SCAN_PARTMASK = ""
+
+'FileSpec = LAST_FILE_DATE_PATH
+FileSpec = LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT
+
+If FileSpec = "" Then MsgBox "NOT ANY OF THOSE FILES" + vbCrLf + ScanPath.TxtPath + "\" + ScanPath.cboMask: Exit Sub
+
+'Me.WindowState = vbMinimized
+
+'If MNU_MESSAGE_BOXES.Checked = False Then
+    'MsgBox "FOUND LATEST IMAGE Clipboarded - LOAD Explorer Minimized AS Well as IrFan Maximized To View" + vbCrLf + "FILES FOUND =" + str(tFileCount) + vbCrLf, vbMsgBoxSetForeground
+'End If
+
+
+Shell "Explorer.exe /select, " + FileSpec, vbMinimizedNoFocus
+
+'If IRFANVIEW_PATH <> "" Then
+'    If VAR1 = "IVIEW" Then
+'        Shell IRFANVIEW_PATH + FileSpec + """ /fs /silent", vbMaximizedFocus
+'    End If
+'Else
+'    Me.WindowState = vbNormal
+'    MsgBox "IRFANVIEW_PATH VAR -- PATH NOT FOUND FOR FILE" + vbCrLf + "NOT INSTALED AT EXPECTED LOCATION " + IRFANVIEW_PATH3 + vbCrLf + "OR" + vbCrLf + IRFANVIEW_PATH2, vbMsgBoxSetForeground
+'End If
+
+
+
+
+
+End Sub
+
+
+
+
+Private Sub MNU_VB_FOLDER_Click()
+
+Call MNU_EXPLORER_ME_VB_Click
+
+End Sub
+
+Private Sub Timer_API_OKAY_COLOUR_Timer()
+
+
+'Path_Of_Sound_File
+
+'Dim Xcol, Xcol2, MOdColTime As Double
+'Call ColorCycle
+'Xcol = Timer Mod 7
+'
+'If Xcol = 0 Then Xcol2 = vbRed
+'If Xcol = 1 Then Xcol2 = vbGreen
+'If Xcol = 2 Then Xcol2 = vbYellow
+'If Xcol = 3 Then Xcol2 = vbBlue
+'If Xcol = 4 Then Xcol2 = vbMagenta
+'If Xcol = 5 Then Xcol2 = vbCyan
+'If Xcol = 6 Then Xcol2 = vbWhite
+
+
+WTrue1 = WTrue1 + TW1 'TW1
+If WTrue1 > 255 Then TW1 = -6: WTrue1 = WTrue1 + TW1
+If WTrue1 < 1 Then TW1 = 6: WTrue1 = WTrue1 + TW1
+
+WTrue2 = HTrue2 + TW2
+If WTrue2 > 255 Then TW2 = -7: WTrue2 = WTrue2 + TW2
+If WTrue2 < 1 Then TW2 = 7: WTrue2 = WTrue2 + TW2
+
+WTrue3 = WTrue3 + TW3
+If WTrue3 > 255 Then TW3 = -8: WTrue3 = WTrue3 + TW3
+If WTrue3 < 1 Then TW3 = 8: WTrue3 = WTrue3 + TW3
+   
+'Foreground
+'Label4.BackColor = RGB(KWTrue, HWTrue, WTrue)   ' Set drawing color.
+'Inverse
+'Label4.ForeColor = RGB(255 - KWTrue, 255 - HWTrue, 255 - WTrue)
+
+'frmPassLock.Label4.BackColor = RGB(kwtrue, hwtrue, wtrue)   ' Set drawing color.
+'frmPassLock.Label4.ForeColor = RGB(255 - kwtrue, 255 - hwtrue, 255 - wtrue)
+
+'Line1.BorderColor = RGB(WTrue1, WTrue2, WTrue3)   ' Set drawing color.
+Label1.BackColor = RGB(WTrue1, WTrue2, WTrue3)
+'Label1.ForeColor = RGB(WTrue1, WTrue2, WTrue3)
+
+End Sub
+
+Private Sub Timer_API_Test_Timer()
+
+'NEW TEST IF TIMER WITH DATE VAR IS UPDATING
+'NOT GOOD - API STOP FUNCTION WHILE FORM STILL RUNNING
+'SO NOT A UNLOAD PROBLEM
+
+If Timer_API_Test_Logick_Var2 > 0 Then
+    If Timer_API_Test_Logick_Var2_OLD <> Timer_API_Test_Logick_Var2 Then
+        VARTEXT = "THE TIME THE API CLIPBOARD FUNCTION LAST ACCESSED = " + Format(Timer_API_Test_Logick_Var2, "DD-MM-YYYY HH:MM:SS")
+        MNU_TIME_API_FUNCTION_ACCESS.Caption = VARTEXT
+        Timer_API_Test_Logick_Var2_OLD = Timer_API_Test_Logick_Var2
+    End If
+End If
+
+
+If Timer_API_Test_Logick_Var1 = Timer_API_Test_Logick_Var1_OLD Then
+    Timer_API_Test_Logick_Var1_Missing_Count = Timer_API_Test_Logick_Var1_Missing_Count + 1
+    If Timer_API_Test_Logick_Var1_Missing_Count = 20 Then
+    
+    Me.WindowState = Normal
+    DoEvents
+    Me.Refresh
+    DoEvents
+
+    Timer_API_OKAY_COLOUR.Enabled = False
+    I = MsgBox("ClipBoard API Has Stopped and Gone Missing" + vbCrLf + "Use the Menu Option *INFO* to Diagnostic and Reload It" + vbCrLf + "This Can Happen If ChkDsk Unlocked All Handles to The Hard Drive and the ClipboardViewer.ocx Driver Couldn't Get Access", vbMsgBoxSetForeground)
+        
+    End If
+
+End If
+
+
+If Timer_API_Test_Logick_Var1 = Timer_API_Test_Logick_Var1_OLD Then Exit Sub
+Timer_API_Test_Logick_Var1_OLD = Timer_API_Test_Logick_Var1
+
+If Timer_API_OKAY_COLOUR.Enabled = False Then Timer_API_OKAY_COLOUR.Enabled = True
+
+Timer_API_Test_Logick_Var1_Missing_Count = 0
+
+Mnu_Missing_Link_API_Test.Caption = "Link Detector Check Clipboard API If Is Unloaded = " + Format(Timer_API_Test_Logick_Var1, "DD-MMM-YYYY HH:MM:SS")
+
+
+ITEXT = "EXECUTE_TIMER_ENABLED = "
+If EXECUTE_TIMER_ENABLED = True Then
+    ITEXT = ITEXT + "TRUE = OKAY ALLOW API TO WORK"
+Else: ITEXT = ITEXT + "FALSE = WRONG API NOT WORKING"
+End If
+MNU_EXECUTE_TIMER_ENABLED.Caption = ITEXT
+
+If Timer_API_Test_Logick_Var1 = 0 Then Exit Sub
+
+'MNU_INFO.Caption = "INFO " + Mid(Format(Timer_API_Test_Logick_Var1, "HH:MM:SS"), 8, 1)
+
+
+End Sub
+
+
+
+
+
+
+
+
+Private Sub Timer_INFORAPID_MSGBOX_Timer()
+
+Timer_INFORAPID_MSGBOX.Enabled = False
+
+MsgBox "IN THE FOLLOWNG INFORAPID APPLICATION TO LOAD" + vbCrLf + "ENTER THE WILDCARD * IN ClipBoard-*.TXT --- DIY" + vbCrLf + "AND SUBDIR SCAN CHECK BOX --- DIY -- OKAY BECUASE I DON'T KNOW", vbMsgBoxSetForeground
+
+End Sub
+
+Private Sub Timer_Idle_Few_Second_Timer()
+
+'THE RESUME FROM IDLE CHECK
+
+If Mouse_Keyboard_Active_Time = 0 Then Exit Sub
+
+'If DateDiff("s", Mouse_Keyboard_Active_Time, Now) < 10 Then Exit Sub
+'If Mouse_Keyboard_Active_Time_Before = 0 Then Exit Sub
+    
+If Mouse_Keyboard_Active_Time_Before > DateDiff("s", Mouse_Keyboard_Active_Time, Now) Then
+            
+    Timer_MOUSE_5_MINUTE.Enabled = True
+    'Debug.Print Str(Mouse_Keyboard_Active_Time_Before) + " -- > " + Str(DateDiff("s", Mouse_Keyboard_Active_Time, Now))
+
+End If
+
+Mouse_Keyboard_Active_Time_Before = DateDiff("s", Mouse_Keyboard_Active_Time, Now)
+
+End Sub
+
+
+
+
+
+Private Sub Timer_MENU_HEIGHT_CHANGED_Timer()
+If Menu_Height <> OMenu_Height Then
+Call SETUP_DIMENSIONS_INNER_FORM
+End If
+
+End Sub
+
+Private Sub Timer_MOUSE_1_MINUTE_Timer()
+
+'RE_ENABLED WITH IDLE ACTIVITY
+'AND END AFTER
+'WANT TIMER1 - 5 SEC MIN AFTER ACTIVITY END BEGIN
+'WANT TIMER2 - 2 MIN AFTER ACTIVITY END
+'WANT TIMER3 - 1 MIN INTERVAL WHEN IDLE
+
+Timer_MOUSE_1_MINUTE.Enabled = False
+
+'ONE STEP - TWO NEXT STEP - ONE GIANT LEAP FOR MANKIND
+'Timer_MOUSE_2_MINUTE.Enabled = True
+
+MNU_IDLE_ACTIVE.Caption = "IDLE"
+
+Call zzCheckTimer_Timer
+
+'Call Mnu_Reset_MMControl_Click
+Call RESET_SETUP_SOUND_FILE("NOTSOUND")
+Call Mnu_API_Unload_Click
+Call Mnu_API_Reload_Click
+
+
+'HOPE NOT TOO QUICK AS CALL API SUB LESS QUICK THAN TIMER
+'TRY
+'100 MSEC ACTIVE ONCE
+'HAS A MSGBOX SO WONT TIE UP REST OF CODE
+'TEST AD$ VAR HAS BEEN USED BY THE SUB CALL OF API CLIPPER
+'---------------------------------------------------------
+'FALSE AND THEN ENABLE WITH INTERVAL WORK AS A RESET TIMER
+'---------------------------------------------------------
+Timer_MOUSE_4_MINUTE.Enabled = False
+    Timer_MOUSE_4_MINUTE.Interval = 1000 ' 1 SECOND
+Timer_MOUSE_4_MINUTE.Enabled = True
+
+
+
+'CALLED FROM TIMER_MOUSE
+'--------------------------------
+'Major Check to Test API Call in Program
+
+'Clipboard.Clear
+
+'Exit Sub
+'
+'
+'
+'Dim ADTEST$
+'
+'If XArchiveXClipFormatDescription <> ClipFormatDescription Or TimerCheckIntegrityOfProgram = True Then
+'
+'    'Could Check if Format Has Swapped and Back to Text Again But Contents Don't Match Before Check
+'    'Too Much Code Workaround
+'
+'    If Clipboard.GetFormat(vbCFText) = True And TimerCheckIntegrityOfProgram = True Then
+'        TimerCheckIntegrityOfProgram = False
+'        If Len(Clipboard.GetText) <= LimitClipSize And Timer_MOUSE.Enabled = False Then
+'            ADTEST$ = Clipboard.GetText
+'            'If ADTest$ <> AD$ And Len(ADTest$) <= LimitClipSize Then
+'            If ADTEST$ <> AD$ Then
+'                Me.WindowState = vbNormal
+'                Do
+'                    DoEvents
+'                    Me.Refresh
+'                    DoEvents
+'                    Sleep 100
+'                Loop Until Me.WindowState <> vbMinimized
+'
+'                FORM_STAY_UP_WITH_MSGBOX = True
+'                itech = MsgBox(Format(Now, "DD-MM-YYYY -- HH:MM:SS ") + vbCrLf + "Problem Clipboard Not Logging Text Clipbard Format or Timer Spot Check Detect Clipboard Has Changed but Not Same as Archive Variable" + vbCrLf + "Put the Test Flag Run Option Menu On and Try - And Test Options Menu Unload and Reload the API Form is Next Workaround OPtion", vbMsgBoxSetForeground)
+'                FORM_STAY_UP_WITH_MSGBOX = False
+'
+'            End If
+'        End If
+'
+'
+'    End If
+'
+''    If Clipboard.GetFormat(vbCFText) = True Or Clipboard.GetFormat(vbCFBitmap) = True Then
+''        MsgBox "Something Wrong With The Program" + vbCrLf + "Clipboard API Routine Not Logging Clipbard" + vbclrf + "Format Chnaged But Hasn't Been a Logg Capture Entry From the TimeStamp" + vbCrLf + "Put the Test Flag Run Option Menu On and Try" + vbCrLf + "Unload and Reload the API Form is Next Workaround OPtion Report to Programmer", vbMsgBoxSetForeground
+'
+'
+'    End If
+'
+'
+'XArchiveXClipFormatDescription = ClipFormatDescription
+'
+'
+''    If ADTest$ = Clipboard.GetText Then
+''        If ADTest$ <> AD$ Then
+''            Me.WindowState = vbNormal
+''            DoEvents
+''            MsgBox "Problem Clipboard Not Logging Clipbard Format or Timer Check Detect Clipboard Has Chnaged but Not Same as Archive Would Be" + vbCrLf + "Put the Test Flag Run Option Menu On and Try - Unload and Reload the API Form is Next Workaround OPtion", vbMsgBoxSetForeground
+''
+''        End If
+''    End If
+'
+'
+''If Clipboard.GetFormat(vbCFText) = True Then
+''    If ADTest$ = Clipboard.GetText Then
+''        If ADTest$ <> AD$ Then
+''            Me.WindowState = vbNormal
+''            DoEvents
+''            MsgBox "Problem Clipboard Not Logging Clipbard Format or Timer Check Detect Clipboard Has Chnaged but Not Same as Archive Would Be" + vbCrLf + "Put the Test Flag Run Option Menu On and Try - Unload and Reload the API Form is Next Workaround OPtion", vbMsgBoxSetForeground
+''
+''        End If
+''    End If
+''
+''End If
+'
+'
+'
+'
+'
+''End If
+'
+
+
+
+
+End Sub
+
+Private Sub Timer_MOUSE_2_MINUTE_Timer()
+
+'------------------------
+'2 MIN TIMER AFTER ACTIVE END
+Timer_MOUSE_2_MINUTE.Enabled = False
+
+'------------------------
+'THE INTERVAL 1 MIN TIMER
+Timer_MOUSE_3_MINUTE.Enabled = False
+Timer_MOUSE_3_MINUTE.Interval = 59990
+Timer_MOUSE_3_MINUTE.Enabled = True
+
+'------------------------
+MNU_IDLE_ACTIVE.Caption = "ONE MINUTE TICK OVER FIRST BEGIN"
+
+'If Mnu_Run_Status.Caption = "1st Run" Then
+'    Mnu_Run_Status.Visible = False
+'    Mnu_Clip_Status.Visible = False
+'End If
+
+
+
+'------------------------------
+'HERE ANOTHER IF YOU WANT SOURCE FIND
+'Call Mnu_Reset_MMControl_Click
+'------------------------------
+Call RESET_SETUP_SOUND_FILE("NOTSOUND")
+
+Call Mnu_API_Unload_Click
+Call Mnu_API_Reload_Click
+
+End Sub
+
+Private Sub Timer_OutClipChunck_Timer()
+
+
+
+
+End Sub
+
+Private Sub Timer_MOUSE_3_MINUTE_Timer()
+
+    'ONCE A MINUTE WHEN IDLE
+    
+    MNU_IDLE_ACTIVE.Caption = "ONE MINUTE TICK OVER"
+    
+    'Call Mnu_Reset_MMControl_Click
+    'HERE OR DIY
+    Call RESET_SETUP_SOUND_FILE("NOTSOUND")
+    Call Mnu_API_Unload_Click
+    Call Mnu_API_Reload_Click
+
+End Sub
+
+Private Sub Timer_MOUSE_5_MINUTE_Timer()
+
+'1 Second -- ACTIVE ONCE
+
+
+
+'WORK AROUND THIS ROUTINE GETTING HITT TO QUICK AT KEY PRESS
+Time_Selector = DateDiff("s", Mouse_Keyboard_Active_Time, Now)
+If Time_Selector < 8 Then
+    Exit Sub
+End If
+
+'TEST SEE IF -- AD$ - VAR -- HAS BEEN USED BY THE SUB CALL OF API CLIPPER
+Timer_MOUSE_5_MINUTE.Enabled = False
+
+Dim XYZ2
+
+'PROBLEM CLIPBOARD NOT GIVE ACCESS WHILE BUSY
+On Error Resume Next
+    XYZ2 = Clipboard.GetFormat(vbCFText) = True
+    If Err.Number > 0 Then
+        Timer_MOUSE_5_MINUTE.Enabled = True
+        Exit Sub
+    End If
+On Error GoTo 0
+
+If XYZ2 Then
+    
+    On Error Resume Next
+        ADTEST$ = Clipboard.GetText
+        If Err.Number > 0 Then
+            Timer_MOUSE_5_MINUTE.Enabled = True
+            Exit Sub
+        End If
+    On Error GoTo 0
+    
+    If Len(ADTEST$) <= LimitClipSize Then
+        
+        If ADTEST$ <> AD$ And ADTEST$ <> "" And ADTEST_BEFORE$ <> ADTEST$ Then
+            
+            ADTEST_BEFORE$ = ADTEST$
+            
+            Me.WindowState = vbNormal
+            Do
+                DoEvents
+                Me.Refresh
+                DoEvents
+                If Me.WindowState = vbMinimized Then Sleep 100
+            Loop Until Me.WindowState <> vbMinimized
+            
+            FORM_STAY_UP_WITH_MSGBOX = True
+            
+            
+            'Mouse_Keyboard_Active_Time
+            'IS THE TIME OS THE MOMENT A KEY OR MOUSE PRESS
+            'SO IF 0 THEN THIS GETTING HIT SOON AS
+            'SHOURLD NOT BE 0 BUT A MOMENT AFTER
+            
+            Time_Selector = DateDiff("s", Mouse_Keyboard_Active_Time, Now)
+            itech = MsgBox(String(50, "-") + vbCrLf + Format(Now, "DD-MM-YYYY -- HH:MM:SS ") + vbCrLf + String(50, "-") + vbCrLf + Trim(Str(Time_Selector)) + " -- Second -- Resume From IDLE CHECK" + vbCrLf + String(50, "-") + vbCrLf + "Problem Clipboard Not Logging TEXT BY COMPARE VARIABLE" + vbCrLf + "Put the Test Flag *ON* -- TEST by Get Yourself a COPY PASTE" + vbCrLf + "And THEN Test with -- Options Menu -- Reset and Reload the API Form" + vbCrLf + "is THE Next Workaround OPtion" + vbCrLf + String(50, "-") + vbCrLf + "Or Better Solution Use Enter Large Text into Logger -- is -- Format Text -- Menu --" + vbCrLf + "This is First 400 Byte of Text -- The Rest AWOL Missing" + vbCrLf + String(50, "-") + vbCrLf + Mid(ADTEST$, 1, 400) + vbCrLf + String(50, "-"), vbMsgBoxSetForeground, "FAST CLIPBOARD -- Resume From IDLE CHECK -- MOUSE_5_MINUTE_Timer")
+            FORM_STAY_UP_WITH_MSGBOX = False
+                
+        End If
+    End If
+End If
+
+End Sub
+
+Private Sub Timer_MOUSE_4_MINUTE_Timer()
+
+'THIS ACTIVATE ON IDLE AFTER FEW SEC -- IS INDICATE IN MENU BAR
+'100 MS ACTIVE ONCE
+'TEST AD$ - VAR HAS BEEN USED BY THE SUB CALL OF API CLIPPER
+'-----------------------------------
+'---------------------------------------------------------
+'FALSE AND THEN ENABLE WITH INTERVAL WORK AS A RESET TIMER
+'---------------------------------------------------------
+If Not (Timer_MOUSE_4_MINUTE.Interval = 59999 And Timer_MOUSE_4_MINUTE.Enabled = True) Then
+    Timer_MOUSE_4_MINUTE.Enabled = False
+        Timer_MOUSE_4_MINUTE.Interval = 59999 ' 1 MIN IN MICRO SECOND
+    Timer_MOUSE_4_MINUTE.Enabled = True
+End If
+
+Dim XYZ2
+
+'PROBLEM CLIPBOARD NOT GIVE ACCESS WHILE BUSY
+On Error Resume Next
+    XYZ2 = Clipboard.GetFormat(vbCFText) = True
+    If Err.Number > 0 Then
+        
+        '---------------------------------------------------------
+        'FALSE AND THEN ENABLE WITH INTERVAL WORK AS A RESET TIMER
+        '---------------------------------------------------------
+        Timer_MOUSE_4_MINUTE.Enabled = False
+            Timer_MOUSE_4_MINUTE.Interval = 100 'QUICK
+        Timer_MOUSE_4_MINUTE.Enabled = True
+        Exit Sub
+    End If
+On Error GoTo 0
+
+
+'THIS IS ERROR AT GET CLIPBOARD ON TIMER
+'GETFORMAT MAYBE BETTER
+'SO WE WAIT 5 SEC AND NOT RUN AGAIN UNTIL KEY OR MOUSE
+If KEYBOARD_OR_MOUSE_ACTIVE > Now Then
+    KEYBOARD_OR_MOUSE_ACTIVE_LATCH = False
+    Exit Sub
+End If
+If KEYBOARD_OR_MOUSE_ACTIVE_LATCH = True Then Exit Sub
+KEYBOARD_OR_MOUSE_ACTIVE_LATCH = True
+
+
+If XYZ2 = True Then
+            
+    On Error Resume Next
+        ADTEST$ = Clipboard.GetText
+        If Err.Number > 0 Then
+            '---------------------------------------------------------
+            'FALSE AND THEN ENABLE WITH INTERVAL WORK AS A RESET TIMER
+            '---------------------------------------------------------
+            Timer_MOUSE_4_MINUTE.Enabled = False
+                Timer_MOUSE_4_MINUTE.Interval = 100 'QUICK
+            Timer_MOUSE_4_MINUTE.Enabled = True
+            Exit Sub
+        End If
+    On Error GoTo 0
+    
+    If Len(ADTEST$) <= LimitClipSize Then
+        
+        If ADTEST$ <> AD$ And ADTEST$ <> "" And ADTEST_BEFORE$ <> ADTEST$ Then
+            
+            ADTEST_BEFORE$ = ADTEST$
+            
+            Me.WindowState = vbNormal
+            Do
+                DoEvents
+                Me.Refresh
+                DoEvents
+                If Me.WindowState = vbMinimized Then Sleep 100
+            Loop Until Me.WindowState <> vbMinimized
+            
+            FORM_STAY_UP_WITH_MSGBOX = True
+            Time_Selector = DateDiff("s", Mouse_Keyboard_Active_Time, Now)
+            itech = MsgBox(String(50, "-") + vbCrLf + Format(Now, "DD-MM-YYYY -- HH:MM:SS ") + vbCrLf + String(50, "-") + vbCrLf + Trim(Str(Time_Selector)) + " -- Second IDLE CHECK" + vbCrLf + String(50, "-") + vbCrLf + "Problem Clipboard Not Logging TEXT BY COMPARE VARIABLE" + vbCrLf + "Put the Test Flag *ON* -- TEST by Get Yourself a COPY PASTE" + vbCrLf + "And THEN Test with -- Options Menu -- Reset and Reload the API Form" + vbCrLf + "is THE Next Workaround OPtion" + vbCrLf + String(50, "-") + vbCrLf + "Or Better Solution Use Enter Large Text into Logger -- is -- Format Text -- Menu --" + vbCrLf + "This is First 400 Byte of Text -- AWOL Missing" + vbCrLf + String(50, "-") + vbCrLf + Mid(ADTEST$, 1, 400) + vbCrLf + String(50, "-") + vbCrLf + "Maybe was Error at Enter Text in Text Box" + vbCrLf + "and You Might Find Have a" + vbCrLf + "Error Extra Line Feed show" + vbCrLf + String(50, "-"), vbMsgBoxSetForeground)
+            FORM_STAY_UP_WITH_MSGBOX = False
+                
+        End If
+    End If
+End If
+
+End Sub
+
+Private Sub TIMER_OutClipChunck_Txt_Timer()
+
+    '10MS TIMER
+
+    Tx1$ = App.Path + "\# DATA\" + GetComputerName + "\Data\#OutClipChunck.Txt"
+    DumVar = IsFileOpenDelay(Tx1$)
+    FR1 = FreeFile
+    On Error Resume Next
+    Open Tx1$ For Output As #FR1
+        
+        If Err.Number > 0 Then
+'            MESSENGER = Tx1$ + vbCrLf + "WAS NOT SAVED AT EXIT MAY BE A PROBLEM FOR RESTORE AND VIEW LAST ARCHIVE DATA INFO FROM TEXTBOX"
+'            Me.WindowState = vbNormal
+'            DoEvents
+'            MsgBox MESSENGER, vbMsgBoxSetForeground
+        Else
+            Print #FR1, AD$;
+            Close #FR1
+            If Err.Number = 0 Then
+                TIMER_OutClipChunck_Txt.Enabled = False
+            End If
+        End If
+    On Error GoTo 0
+
+End Sub
+
+Private Sub Timer_WEATHER_URL_Timer()
+    'ORGINAL TIMER NOT DEPENDANT ON ANY SINGLE THING
+    Timer_WEATHER_URL.Enabled = False
+    Exit Sub
+    
+    Dim FDS
+    FDS = "D:\0 00 Art Loggers\URL SCREEN SHOT\BBC WEATHER\URL SCREENSHOT - BBC WEATHER.JPG"
+    Call SUB_RENAME_JPG_URL(FDS)
+    FDS = "D:\0 00 Art Loggers\URL SCREEN SHOT\METOFFICE 01 - Satellite & Radar\URL SCREENSHOT - METOFFICE 01 - Satellite & Radar.JPG"
+    Call SUB_RENAME_JPG_URL(FDS)
+    FDS = "D:\0 00 Art Loggers\URL SCREEN SHOT\METOFFICE 02 - Satellite & Visible\URL SCREENSHOT - METOFFICE 02 - Satellite & Visible.JPG"
+    Call SUB_RENAME_JPG_URL(FDS)
+    
+    
+End Sub
+
+Sub TIMER_FORM_RESIZE_TIMER()
+    'CALLED BY FORM_RESIZE
+
+    Text1.Enabled = False
+    Text1.SelStart = 1
+    Text1.Enabled = True
+    Text1.SelStart = Len(Text1)
+    
+    Timer_FORM_RESIZE.Enabled = False
+
+End Sub
+
+
+Private Sub Form_Resize()
+
+If DONT_RESIZE_WHILE_SETUP = True Then Exit Sub
+
+
+'MAYBE SOMETIMES WINDOW IS MIN WHILE TAKE A CHANGE
+'AT CLIPBOARD
+'THINK NOT
+'If Me.WindowState = vbMinimized Then RRR = Now - TimeSerial(0, 0, 3)
+
+HHH = Now + TimeSerial(0, 2, 0) ' vbMinimized WINDOW
+
+'If RESIZE_AT_LOAD = True And Me.WindowState <> vbMinimized Then
+If Me.WindowState <> vbMinimized And DONT_RESIZE_RUN_ONCE_OR_NORM = True Then
+    DO_THIS_RUN_NOT_DO_TWICE = True
+'    Me.WindowState = vbNormal
+    DONT_RESIZE_WHILE_SETUP = True
+    '-----------------------------------------
+    Call SETUP_DIMENSIONS_NORM
+    Call SETUP_DIMENSIONS_INNER_FORM
+    '-----------------------------------------
+    'RESIZE_AT_LOAD = False
+    DONT_RESIZE_WHILE_SETUP = False
+    DONT_RESIZE_RUN_ONCE_OR_NORM = False
+
+End If
+
+If Me.WindowState = vbMinimized Then
+    MNU_SCANPATH_COUNTER.Visible = False
+    Timer_API_OKAY_COLOUR.Enabled = False
+Else
+    Timer_API_OKAY_COLOUR.Enabled = True
+End If
+
+
+If Me.WindowState <> vbMinimized Then
+    I = SetForegroundWindow(Me.hwnd)
+End If
+
+
+'----------------------------------
+'vbMinimized - VICTIMIZED
+'VITMIN PILL
+'VICTIMIZOR - ADVISOR
+'----------------------------------
+'----------------------------------
+'IF FROM vbMinimized TO vbNormal
+'IF FROM vbMinimized TO vbMaximized
+'IF FROM vbNormal TO vbMaximized
+'IF FROM vbMaximized TO vbNormal
+'----------------------------------
+'OUGHT TO THINK OF THIS A WHILE AGO
+'----------------------------------
+
+DO_THE_CODE = False
+If Me.WindowState = vbNormal And O_RESIZE = vbMinimized Then DO_THE_CODE = True
+If Me.WindowState = vbMaximized And O_RESIZE = vbMinimized Then DO_THE_CODE = True
+If Me.WindowState = vbNormal And O_RESIZE = vbMaximized Then DO_THE_CODE = True
+If Me.WindowState = vbMaximized And O_RESIZE = vbNormal Then DO_THE_CODE = True
+If DO_THIS_RUN_NOT_DO_TWICE = True Then DO_THE_CODE = False
+
+'ANNOYING THING ABOUT COPY PASTE PICK UP
+'WANT TO USE KEYBOARD TO CURSOR OVER AND PICK UP A WORD IF CAN
+'RATHER THAN MOUSE
+
+If DO_THE_CODE = True Then
+    '--------------------------------------
+    'NOTHING TO LEARN ABOUT SET CENTER MODE
+    'ALL DONE IN THE CENTER ROUTINE
+    '--------------------------------------
+
+'    Me.WindowState = vbNormal
+    DONT_RESIZE_WHILE_SETUP = True
+    '-----------------------------------------
+    'Call SETUP_DIMENSIONS_NORM
+    Call SETUP_DIMENSIONS_INNER_FORM
+    '-----------------------------------------
+    'RESIZE_AT_LOAD = False
+    DONT_RESIZE_WHILE_SETUP = False
+    DONT_RESIZE_RUN_ONCE_OR_NORM = False
+End If
+
+O_RESIZE = Me.WindowState
+
+
+
+'Call SETUP_DIMENSIONS_INNER_FORM
+
+Exit Sub
+
+
+''label222.Caption = Val(Mnu_CB_Size02)
+'Debug.Print "---"
+'For Each Control In Controls
+'
+''        TNAME = CURR_OBJ
+'        TNAME = Control.Name
+'        If InStr(LCase(TNAME), "mnu") > 0 Then
+'            TTop = Control.Top
+'            TWidth = Control.Width
+'            THeight = Control.Height
+''            Debug.Print Str(TTop) + Str(THeight); " " + TNAME
+'
+'
+'
+'        End If
+''                    Debug.Print Control.HNWD
+'        TIndex = Control.TabIndex
+'        TLeft = Control.Left
+'
+'
+''        THIS GET THE TITLE BAR HEIGHT NOT THE MENU
+''        Debug.Print TitleBarHeight
+'
+''Dim Position2 As rect
+''
+''GetClientRect Me.Mnu_CB_Size02.hwnd, Position2
+'''Position.x = Position2.Left
+''Debug.Print Position2.Top
+''Debug.Print Position2.Bottom
+'
+'
+''Private Declare Function GetSystemMetrics Lib "user32" (ByVal nIndex As Long) As Long
+''Private Const SM_CYCAPTION = 4
+'
+''Property Get TitleBarHeight() As Long
+''    TitleBarHeight = GetSystemMetrics(SM_CYCAPTION)
+''End Property
+'
+'Next Control
+
+
+'If GetComputerName = "MATT-555ROIDS" Then
+''    Text1.Height = 10000
+''    Text1.Width = 18000
+'End If
+'If GetComputerName = "55-88-HAPPY" Then
+''    Text1.Height = 7000
+''    Text1.Width = 14000
+'End If
+
+
+'If Text1.Font.Size > 14 Then
+'    Text1.SelStart = 0
+'    Text1.SelLength = Len(Text1)
+'    Text1.Font.Size = 12
+'    Text1.SelStart = Len(Text1)
+'End If
+
+'Me.SetFocus
+
+'XXMOUSEMOVE = 0
+'Text1.SelStart = Len(Text1)
+'
+
+
+End Sub
+
+Private Sub Mnu_Minimize_Click()
+
+    Me.WindowState = vbMinimized
+    'Call Form_Resize
+End Sub
+
+Public Sub Mnu_Max_Click()
+
+    'GIVE ACCESS TO RUN
+'    DONT_RESIZE_RUN_ONCE_OR_NORM = True
+   
+'    Me.WindowState = vbMaximized
+    Call SETUP_DIMENSIONS_MAX
+    
+    'Call Form_Resize
+End Sub
+
+
+Private Sub MNU_Norm_Click()
+   
+    'GIVE ACCESS TO RUN
+    'DONT_RESIZE_RUN_ONCE_OR_NORM = True
+   
+    Call SETUP_DIMENSIONS_NORM
+   
+End Sub
+
+Private Sub Mnu_Center_Click()
+    
+    'If Me.WindowState = vbMaximized Then MsgBox "Not in Windowstate = vbMaximized - Try Windowstate - Normal"
+    
+    If Me.WindowState <> vbMinimized Then
+        
+        DONT_RESIZE_WHILE_SETUP = True
+        Me.WindowState = vbNormal
+    
+    End If
+    
+    'Form1.Left = (Screen.Width - Me.Width) / 2
+    'Form1.Top = (Screen.Height - Me.Height) / 2
+
+    Call SETUP_DIMENSIONS_CENTER
+
+
+End Sub
+
+
+Sub SETUP_DIMENSIONS_INNER_FORM()
+
+'DoEvents   ' Yield for other processing.
+'Line Method Example
+
+'Line1.BorderWidth = 40
+'Border Line On the Edge
+
+Label1.Top = 0
+Label1.Width = Form1.Width - 70
+
+Text1.Left = -8
+
+Text1.Top = Label1.Height
+
+'On Error Resume Next
+'Mnu_Height.Caption = Menu_Height
+
+'VER SIX IS WIN 7
+'GOT THICKER BOARDERS OF FORMS WINDOW -- SCROLL BAR MISSING A BIT
+
+'ALL WIN SETUP SEEM TO HAVE OWN SIZE
+
+WIDTH_ADJUST = 70 ' FOR WIN XP
+If GETWinNT_Ver = "WIN XP" Then WIDTH_ADJUST = 70
+If GETWinNT_Ver = "WIN 7" Then WIDTH_ADJUST = 170
+If GETWinNT_Ver = "WIN 10" Then WIDTH_ADJUST = 250
+
+If GetComputerName = "1-ASUS-EEE" Then WIDTH_ADJUST = 70
+If GetComputerName = "2-ASUS-X5DIJ" Then WIDTH_ADJUST = 70
+If GetComputerName = "3-LINDA-PC" Then WIDTH_ADJUST = 170
+If GetComputerName = "4-ASUS-GW522VW" Then WIDTH_ADJUST = 250
+If GetComputerName = "5-ASUS-P2520LA" Then WIDTH_ADJUST = 170
+
+HEIGHT_ADJUST = 70 ' FOR WIN XP
+If GETWinNT_Ver = "WIN XP" Then HEIGHT_ADJUST = 70
+If GETWinNT_Ver = "WIN 7" Then HEIGHT_ADJUST = 70
+If GETWinNT_Ver = "WIN 10" Then HEIGHT_ADJUST = 100
+
+'bigger adjust number smaller inner form
+If GetComputerName = "1-ASUS-EEE" Then HEIGHT_ADJUST = 70
+If GetComputerName = "2-ASUS-X5DIJ" Then HEIGHT_ADJUST = 70
+If GetComputerName = "3-LINDA-PC" Then HEIGHT_ADJUST = 70
+If GetComputerName = "4-ASUS-GW522VW" Then HEIGHT_ADJUST = 100
+If GetComputerName = "5-ASUS-P2520LA" Then HEIGHT_ADJUST = 20
+
+'HIGHER NUMBER SMALLER INNER BOX
+
+Text1.Width = Form1.Width - WIDTH_ADJUST + 20
+
+'MAKE FORM TALLER OR TEXT BOX
+'FORM IS PRIOITY OVER TEXT BOX
+
+XXDD = Form1.Height - (Menu_Height * Screen.TwipsPerPixelY) - 500 - Label1.Height
+If XXDD > 0 Then Text1.Height = XXDD - HEIGHT_ADJUST
+
+If Me.Top + Me.Left + Me.Width + Me.Height = OLTLWH Then Exit Sub
+OLTLWH = Me.Top + Me.Left + Me.Width + Me.Height
+
+Timer_FORM_RESIZE.Enabled = False
+Timer_FORM_RESIZE.Interval = 40
+Timer_FORM_RESIZE.Enabled = True
+
+
+
+End Sub
+
+
+Sub SETUP_DIMENSIONS_NORM()
+
+   
+    Dim RECTT1 As RECT
+    Dim RECTT2 As RECT
+    Dim RECTT4 As RECT
+    
+    On Error Resume Next
+    
+    If Me.WindowState <> vbMinimized Then
+        
+        DONT_RESIZE_WHILE_SETUP = True
+        Me.WindowState = vbNormal
+                
+        Test1 = FindWindow("Shell_TrayWnd", vbNullString)
+        T1 = GetWindowRect(Test1, RECTT1) ' BOTTOM BAR
+        Test2 = FindWindow("MOM Class", vbNullString)
+        T1 = GetWindowRect(Test2, RECTT2) ' TOP BAR
+        'IRON BAR - DUMB BELLS
+        TEST4 = FindWindowPart_BASEBAR("BaseBar")
+        T1 = GetWindowRect(TEST4, RECTT4) ' LEFT BAR
+        A = RECTT4.Top
+        y1 = (RECTT1.Bottom - RECTT1.Top) * Screen.TwipsPerPixelY
+        
+        If RECTT2.Bottom - RECTT2.Top < 33 Then
+        
+            Y2 = (RECTT2.Bottom - RECTT2.Top) * Screen.TwipsPerPixelY
+        
+        Else
+        
+            Y2 = 0
+        
+        End If
+        
+        If TEST4 > 0 Then
+            If RECTT4.Right = RECTT4.Left Then
+                X4 = (RECTT4.Right) * Screen.TwipsPerPixelX
+            Else
+                X4 = (RECTT4.Right - RECTT4.Left) * Screen.TwipsPerPixelX
+            End If
+        End If
+        
+        SCREEN_WIDTH_SPACE = Screen.Width - X4
+        SCREEN_HEIGHT_SPACE = Screen.Height - y1 - Y2
+        
+        Form1.Width = SCREEN_WIDTH_SPACE - 1200
+        Form1.Height = SCREEN_HEIGHT_SPACE - 900
+        'THIS THE FORM HEIGHT
+        'THE BOX INSIDE IS ADJUST AFTER
+        
+        
+        
+        
+        'Form1.Left = (Screen.Width - Me.Width) / 2
+        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.Width) / 2
+        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.Height) / 2
+    
+'        DoEvents
+        
+        Call SETUP_DIMENSIONS_INNER_FORM
+    
+    End If
+
+End Sub
+
+
+Sub SETUP_DIMENSIONS_CENTER()
+
+   
+    Dim RECTT1 As RECT
+    Dim RECTT2 As RECT
+    Dim RECTT4 As RECT
+    
+    On Error Resume Next
+    
+    If Me.WindowState <> vbMinimized Then
+        
+        DONT_RESIZE_WHILE_SETUP = True
+        
+        Test1 = FindWindow("Shell_TrayWnd", vbNullString)
+        T1 = GetWindowRect(Test1, RECTT1) ' BOTTOM BAR
+        Test2 = FindWindow("MOM Class", vbNullString)
+        T1 = GetWindowRect(Test2, RECTT2) ' TOP BAR
+        'IRON BAR - DUMB BELLS
+        TEST4 = FindWindowPart_BASEBAR("BaseBar")
+        T1 = GetWindowRect(TEST4, RECTT4) ' LEFT BAR
+        A = RECTT4.Top
+        y1 = (RECTT1.Bottom - RECTT1.Top) * Screen.TwipsPerPixelY
+        Y2 = (RECTT2.Bottom - RECTT2.Top) * Screen.TwipsPerPixelY
+        
+        If TEST4 > 0 Then
+            If RECTT4.Right = RECTT4.Left Then
+                X4 = (RECTT4.Right) * Screen.TwipsPerPixelX
+            Else
+                X4 = (RECTT4.Right - RECTT4.Left) * Screen.TwipsPerPixelX
+            End If
+        End If
+        
+        SCREEN_WIDTH_SPACE = Screen.Width - X4
+        SCREEN_HEIGHT_SPACE = Screen.Height - y1 - Y2
+        
+        'Form1.Left = (Screen.Width - Me.Width) / 2
+        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.Width) / 2
+        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.Height) / 2
+        
+        DoEvents
+        
+        Call SETUP_DIMENSIONS_INNER_FORM
+    
+    End If
+
+
+
+End Sub
+
+Sub SETUP_DIMENSIONS_MAX()
+
+   
+    Dim RECTT1 As RECT
+    Dim RECTT2 As RECT
+    Dim RECTT4 As RECT
+    
+    On Error Resume Next
+    
+    If Me.WindowState <> vbMinimized Then
+        
+        DONT_RESIZE_WHILE_SETUP = True
+        Me.WindowState = vbMaximized
+                
+        Test1 = FindWindow("Shell_TrayWnd", vbNullString)
+        T1 = GetWindowRect(Test1, RECTT1) ' BOTTOM BAR
+        Test2 = FindWindow("MOM Class", vbNullString)
+        T1 = GetWindowRect(Test2, RECTT2) ' TOP BAR
+        'IRON BAR - DUMB BELLS
+        TEST4 = FindWindowPart_BASEBAR("BaseBar")
+        T1 = GetWindowRect(TEST4, RECTT4) ' LEFT BAR
+        A = RECTT4.Top
+        y1 = (RECTT1.Bottom - RECTT1.Top) * Screen.TwipsPerPixelY
+        
+        If RECTT2.Bottom - RECTT2.Top < 33 Then
+        
+            Y2 = (RECTT2.Bottom - RECTT2.Top) * Screen.TwipsPerPixelY
+        
+        Else
+        
+            Y2 = 0
+        
+        End If
+        
+        If TEST4 > 0 Then
+            If RECTT4.Right = RECTT4.Left Then
+                X4 = (RECTT4.Right) * Screen.TwipsPerPixelX
+            Else
+                X4 = (RECTT4.Right - RECTT4.Left) * Screen.TwipsPerPixelX
+            End If
+        End If
+        
+        SCREEN_WIDTH_SPACE = Screen.Width - X4
+        SCREEN_HEIGHT_SPACE = Screen.Height - y1 - Y2
+        
+        Form1.Width = SCREEN_WIDTH_SPACE - 1200
+        Form1.Height = SCREEN_HEIGHT_SPACE - 900
+        'THIS THE FORM HEIGHT
+        'THE BOX INSIDE IS ADJUST AFTER
+        
+        
+        
+        
+        'Form1.Left = (Screen.Width - Me.Width) / 2
+        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.Width) / 2
+        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.Height) / 2
+    
+'        DoEvents
+        
+        Call SETUP_DIMENSIONS_INNER_FORM
+    
+    End If
+
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+
+'Unload FrmJoy
+'Unload frmSender
+
+'----------------------------
+MMControl2.Command = "close"
+MMControl1.Command = "close"
+'----------------------------
+
+If TIMER_OutClipChunck_Txt.Enabled = True Then
+    Tx1$ = App.Path + "\# DATA\" + GetComputerName + "\Data\#OutClipChunck.Txt"
+    DumVar = IsFileOpenDelay(Tx1$)
+    FR1 = FreeFile
+    On Error Resume Next
+    Open Tx1$ For Output As #FR1
+        If Err.Number > 0 Then
+            MESSENGER = Tx1$ + vbCrLf + "WAS NOT SAVED AT EXIT OR AT ITS 10MS INTERVAL WHEN CHANGE" + vbCrLf + "MAY BE A PROBLEM FOR RESTORE AND VIEW LAST ARCHIVE DATA INFO FROM TEXTBOX -- LOOK FOR A DOUBLE COPY BACKUP SOLUTION LATER" + vbCrLf + "YOUR DRIVE MUST BE LOCKED OR SOMETHING"
+            Me.WindowState = vbNormal
+            DoEvents
+            MsgBox MESSENGER, vbMsgBoxSetForeground
+        Else
+            Print #FR1, AD$;
+            Close #FR1
+        End If
+    On Error GoTo 0
+End If
+
+
+'----------------------
+' ABORT USING THIS
+' Call zzSave_Checks
+'----------------------
+' ONLY SAVE IF CHANGES
+Call zzCheckTimer_Timer
+'----------------------
+
+
+If Me.WindowState <> 1 And EXIT_TRUE = False Then
+    Me.WindowState = 1
+    'test may have to put back form need reseting
+    'Unload FrmJoy
+    Cancel = True
+    Exit Sub
+End If
+
+Dim Control
+
+'SET ALL TIMERS IN ALL FORMS ENABLED=FALSE
+On Error Resume Next
+    For I = 0 To Forms.Count - 1
+        For Each Control In Forms(I).Controls
+            If InStr(UCase(Control.Name), "TIMER") > 0 Then
+                'Debug.Print Control.Name
+                Control.Enabled = False
+            End If
+        Next
+    Next I
+On Error GoTo 0
+   
+Dim Form As Form
+For Each Form In Forms
+    Unload Form
+    Set Form = Nothing
+Next Form
+
+
+
+
+End Sub
+
+Sub SETUP_SOUND_FILE(VARSOUND)
+
+'DO THIS LATER
+
+
+'Call SETUP_SOUND_FILE("NOTSOUND")
+'VARSOUND = "NOTSOUND"
+Dim XCOUNT1, XCOUNT2, XCHECKED
+
+For Each Control In MNU_SOUND_OPTION
+    If Control.Caption <> "MNU_SOUND_OPTION" Then
+        XCOUNT1 = XCOUNT1 + 1
+    End If
+Next
+
+'FIND THE CHECKED ONE AND STORE
+For Each Control In MNU_SOUND_OPTION
+    If Control.Checked = True Then XCHECKED = Mid(Control.Caption, 25): Exit For
+Next
+
+For Each Control In MNU_SOUND_OPTION
+    Control.Caption = "MNU_SOUND_OPTION"
+    Control.Enabled = False
+    Control.Checked = False
+Next
+
+ScanPath.TxtPath = App.Path + "\Sound_Wav's\"
+ScanPath.cboMask = "*.WAV"
+ScanPath.chkSubFolders = vbUnchecked
+
+ARCHIVE_Path_Of_Sound_File = Path_Of_Sound_File
+Path_Of_Sound_File = ""
+
+'WE WANT THEM SORTED ALPHABETICALY
+Call ScanPath.cmdScan_Click
+'LAST BREAK POINT WHILE WORK WAS SET HERE
+
+ReDim Path_Of_Sound(ScanPath.ListView1.ListItems.Count)
+XCOUNT2 = ScanPath.ListView1.ListItems.Count
+For WE = 1 To ScanPath.ListView1.ListItems.Count
+    A1 = ScanPath.ListView1.ListItems.Item(WE).SubItems(1)
+    B1 = ScanPath.ListView1.ListItems.Item(WE)
+    
+    If WE > 9 Then MsgBox "Maximum of 9 Sounds in Menu - Delete Some": Exit For
+    
+    Path_Of_Sound(WE) = A1 + B1
+    MNU_SOUND_OPTION(WE).Caption = "SOUND OPTION - 1 -" + Str(WE) + " OF" + Str(XCOUNT2) + " - \" + B1
+    MNU_SOUND_OPTION(WE).Visible = True
+    'MNU_SOUND_OPTION(i).Enabled = True
+    
+Next
+
+ScanPath.ListView1.ListItems.Clear
+ScanPath.Hide
+
+'For i = 1 To UBound(Path_Of_Sound)
+'    'MNU_SOUND_OPTION(i).Caption = "SOUND OPTION -" + Str(i) + " - " + Path_Of_Sound(i)
+'    MNU_SOUND_OPTION(i).Visible = True
+'    MNU_SOUND_OPTION(i).Enabled = True
+'Next
+
+'DISABLE WHAT WAS NOT USED BUT WAIT LATER FOR ENABLE
+'DISABLE WHAT WAS NOT USED -------------------------
+For Each Control In MNU_SOUND_OPTION
+    If Control.Caption = "MNU_SOUND_OPTION" Then
+        Control.Visible = False
+        Control.Enabled = False
+    End If
+Next
+
+'GOT TO RUN TWICE - THINK
+'SEARCHES FOR THE TEXT CAPTIONS BEEN PUT IN
+'--------
+'DONT RUN AGAIN WHEN PROGRAM IS GOING SETTINGS ONLY SAVED ON EXIT
+'AND YES DO RUN TWICE ON FIRST LOAD
+If LATCH_RUN_ONCE = False Then Call zzLoad_Checks
+'--------
+
+'MIGHT BE FROM Call zzLoad_Checks
+Dim Mnu_Sound_Is_There_One_Selected
+
+For Each Control In MNU_SOUND_OPTION
+    If Control.Checked = True Then Mnu_Sound_Is_There_One_Selected = True: Exit For
+    
+'    If Control.Caption = "MNU_SOUND_OPTION" Then
+'        Control.Visible = False
+'        Control.Enabled = False
+'        Else
+'        'Control.Visible = True
+'        'Control.Enabled = True
+'
+'
+'    End If
+
+Next
+
+
+Dim XXVAR
+'MAKE SURE ONLT ONE IS SELECTED
+'XXVAR = False
+For Each Control In MNU_SOUND_OPTION
+    
+    'TOPSY TURVY CODE 2 NEST
+    If Control.Checked = True And XXVAR = True Then
+        Control.Enabled = False ' ----------- SO IT DOESNT ACCIDENTLY CLICK IT
+        Control.Checked = False
+        Control.Enabled = True
+    End If
+    
+    If Control.Checked = True Then
+        Path_Of_Sound_File = App.Path + "\Sound_Wav's" + Mid(Control.Caption, InStrRev(Control.Caption, "\"))
+        XXVAR = True
+        
+    End If
+
+Next
+
+'THIS NEVER HAPPENS
+If XXVAR = True Then Mnu_Sound_Is_One_There_Selected = True
+
+
+If Mnu_Sound_Is_One_There_Selected = True Then
+    'TAKE THE CHECKED SELECTED ONE -- DUPLICATE ROUTINE OR
+    For Each Control In MNU_SOUND_OPTION
+        If Control.Checked = True Then
+            Path_Of_Sound_File = App.Path + "\Sound_Wav's" + Mid(Control.Caption, InStrRev(Control.Caption, "\"))
+            'PROBLEM
+            Exit For
+        End If
+    Next
+Else
+
+'OPTION 1 OF IF
+'--------------
+'HAS ONE BEEN SELECTED BEFORE WHILE PROGRAM RUNNING - IF SO SEARCH IT OUT
+    If XCHECKED <> "" Then
+        For Each Control In MNU_SOUND_OPTION
+            If InStr(Control.Caption, XCHECKED) > 0 Then
+                Path_Of_Sound_File = App.Path + "\Sound_Wav's" + Mid(XCHECKED, 5)
+                Control.Enabled = False ' ----------- SO IT DOESNT ACCIDENTLY CLICK IT
+                Control.Checked = True
+                Control.Enabled = True
+                Exit For
+            End If
+        Next
+    End If
+
+'OPTION 2 OF IF
+'--------------
+'PICK THE FIRST ONE - PICK ME UP - GIVE US A LIFT - DON'T MIND IF I DO - HELP MYSELF - INDULGE MYSELF
+'TAKE THE FIRST ONE
+'AND THEN MAKE SURE IT'S SELECTED
+    If Path_Of_Sound_File = "" Then
+        For Each Control In MNU_SOUND_OPTION
+    '        Path_Of_Sound_File = App.Path + "\Sound_Wav's" + Mid(MNU_SOUND_OPTION(1).Caption, 25)
+            Path_Of_Sound_File = App.Path + "\Sound_Wav's" + Mid(Control.Caption, InStrRev(Control.Caption, "\"))
+    
+            MNU_SOUND_OPTION(1).Enabled = False ' DON'T DO EXTRA CLICK'S TO THE ROUTINE
+            MNU_SOUND_OPTION(1).Checked = True
+            MNU_SOUND_OPTION(1).Visible = True
+            MNU_SOUND_OPTION(1).Enabled = True ' SAFE
+            Control.Enabled = False ' ----------- SO IT DOESNT ACCIDENTLY CLICK IT
+            Control.Checked = True
+            Control.Enabled = True
+            
+            Exit For
+        Next
+    End If
+End If
+
+
+If MNU_MESSAGE_BOXES.Checked = False Then
+    If Path_Of_Sound_File = "" And ARCHIVE_Path_Of_Sound_File = "" Then
+          Me.WindowState = vbNormal
+        DoEvents
+
+        MsgBox "YOU HAVEN'T ANY SOUND FILE'S - SELECT OPTION TO OPEN FOLDER AND PUT SOME WAV'S IN", vbMsgBoxSetForeground
+    Else
+        If Path_Of_Sound_File = "" Then
+            Me.WindowState = vbNormal
+            DoEvents
+                
+            MsgBox "ALL THE SOUND FILES HAVE DISAPPEARED SINCE LAST EXAMINE - YOU HAVEN'T ANY SOUND FILE'S - SELECT OPTION TO OPEN FOLDER AND PUT SOME WAV'S IN", vbMsgBoxSetForeground
+        End If
+    End If
+End If
+
+
+'LASTLY -- ENABLE THE VAILD
+For Each Control In MNU_SOUND_OPTION
+    If Control.Caption <> "MNU_SOUND_OPTION" Then
+        Control.Enabled = True
+        Control.Visible = True 'AND SAFE MESSURE
+    End If
+Next
+
+
+
+'EXTRA NEW - REALLY - OR
+If LATCH_RUN_ONCE = True Then
+    If XCOUNT2 > XCOUNT1 Then
+        Me.WindowState = vbNormal
+        DoEvents
+        MsgBox "YOU HAVE GOT EXTRA NEW SOUND FILES SINCE LAST EXAMINE - CHECK THE SOUND FOLDER MENU OPTION IF YOU LIKE."
+    Else
+        If XCOUNT2 < XCOUNT1 Then
+          Me.WindowState = vbNormal
+        DoEvents
+   
+           MsgBox "YOU HAVE LESS SOUND FILES SINCE LAST INSPECTION - CHECK THE SOUND FOLDER MENU OPTION IF YOU LIKE."
+        End If
+    End If
+End If
+
+'Debug.Print Path_Of_Sound_File
+
+If Path_Of_Sound_File <> "" Then
+    
+    MMControl1.Command = "Stop"
+    MMControl1.Command = "Close"
+'    DoEvents
+    MMControl1.Notify = True
+    MMControl1.Wait = True
+    MMControl1.Shareable = False
+    MMControl1.DeviceType = "WaveAudio"
+    MMControl1.fileName = Path_Of_Sound_File
+    'Debug.Print Path_Of_Sound_File
+    
+    
+    'Debug.Print Path_Of_Sound_File
+    
+    
+    
+    'Path_Of_Sound(1) = App.Path + "\Camera1a_2_8kHz.wav"
+    'MMControl1.fileName = App.Path + "\Camera1a_2_8kHz.wav"
+    'MMControl1.fileName = App.Path + "\Shot-12 Mix to Shot-18.wav"
+    'MMControl1.fileName = App.Path + "\01 Woarble Tone 5 Mins.wav"
+    
+    MMControl1.Command = "Open"
+
+'    DoEvents
+
+End If
+
+
+vPathSOUND2 = App.Path + "\Sound_Wav's--2\" + GetComputerName + "\"
+If Dir(vPathSOUND2, vbDirectory) = "" Then
+    I = MkDirNested(vPathSOUND2)
+    If I = False Then
+        MsgBox "UABLE TO MKDIR NESTED" + vbCrLf + vPathSOUND2, vbMsgBoxSetForeground
+    End If
+End If
+
+
+vFileSOUND2 = Dir(vPathSOUND2 + "*.WAV")
+If vFileSOUND2 <> "" Then
+    MNU_SOUND_2.Caption = "SOUND OPTION - 2 ------ \" + vFileSOUND2
+    
+    MMControl2.Command = "Stop"
+    MMControl2.Command = "Close"
+    '---- Set properties needed by MCI to open.
+    MMControl2.Notify = True
+    MMControl2.Wait = True
+    MMControl2.Shareable = False
+    MMControl2.DeviceType = "WaveAudio"
+    MMControl2.fileName = vPathSOUND2 + vFileSOUND2
+    ' Open the MCI WaveAudio device.
+    MMControl2.Command = "Open"
+       
+    'MMControl2.Command = "prev"
+    'MMControl2.Command = "Play"
+Else
+    MNU_SOUND_2.Caption = "SOUND OPTION - 2 - WAV File Not Found - 1st Found Here Used " + vPathSOUND2
+
+End If
+
+'    MNU_SOUND_2.Caption = "SOUND OPTION - 2 ------ WAV File Not Found - 1st Found Here Used -- " + vPathSOUND2
+
+
+'Path_Of_Sound_File
+    
+    'D:\Wave's\Camera1a_2_8kHz.wav
+    
+     
+    'If DUPE_CLIPPER_AT_LOAD_FORM = False Then
+        
+    If Mnu_SoundOn.Checked = True And VARSOUND <> "NOTSOUND" Then
+'        If Clipboard.GetFormat(vbCFText) = False And Clipboard.GetFormat(vbCFBitmap) = False Then
+            
+            
+            If DUPE_CLIPPER_AT_LOAD_FORM = False Then
+            
+            
+                If Path_Of_Sound_File <> "" Then
+                    If MNU_PLAY_SOUND_ON_LOAD.Checked = True Or MODIFY_SOUND_SELECTION = True Then
+                        MMControl1.Command = "prev"
+                        MMControl1.Command = "Play"
+                    End If
+                End If
+            Else
+            
+                If MNU_PLAY_SOUND_ON_LOAD.Checked = True Or MODIFY_SOUND_SELECTION = True Then
+                    
+                    If vFileSOUND2 <> "" Then
+                        MMControl2.Command = "prev"
+                        MMControl2.Command = "Play"
+                
+                    End If
+                End If
+    
+            End If
+        
+'        End If
+    End If
+
+
+
+
+
+
+'WORK TO DO HERE
+LATCH_RUN_ONCE = True
+MODIFY_SOUND_SELECTION = False
+DUPE_CLIPPER_AT_LOAD_FORM = False
+
+End Sub
+
+
+
+
+Sub RESET_SETUP_SOUND_FILE(VARSOUND)
+
+'Debug.Print Path_Of_Sound_File
+
+'If VARSOUND <> "" Then Stop
+
+On Error GoTo EXIT_END
+
+
+'compare sort
+'If Dir(Path_Of_Sound_File) = "" Then
+'    Me.WindowState = vbNormal
+'    MsgBox "SOUND FILE 01# IS MISSING", vbMsgBoxSetForeground
+'End If
+
+'If Dir(vPathSOUND2 + vFileSOUND2) = "" Then
+'    Me.WindowState = vbNormal
+'    MsgBox "SOUND FILE 02# IS MISSING", vbMsgBoxSetForeground
+'End If
+
+
+
+
+
+
+
+
+
+
+'Path_Of_Sound_File = App.Path + "\Sound_Wav's\"
+vPathSOUND1 = App.Path + "\Sound_Wav's\"
+vFileSOUND1 = Dir(vPathSOUND1 + "*.WAV")
+Path_Of_Sound_File = vPathSOUND1 + vFileSOUND1
+
+If Path_Of_Sound_File <> "" And Dir(Path_Of_Sound_File) <> "" Then
+    
+    MMControl1.Command = "Stop"
+    MMControl1.Command = "Close"
+    MMControl1.Notify = True
+    MMControl1.Wait = True
+    MMControl1.Shareable = False
+    MMControl1.DeviceType = "WaveAudio"
+    MMControl1.fileName = Path_Of_Sound_File
+'    Debug.Print Path_Of_Sound_File
+    
+    'Path_Of_Sound(1) = App.Path + "\Camera1a_2_8kHz.wav"
+    'MMControl1.fileName = App.Path + "\Camera1a_2_8kHz.wav"
+    'MMControl1.fileName = App.Path + "\Shot-12 Mix to Shot-18.wav"
+    'MMControl1.fileName = App.Path + "\01 Woarble Tone 5 Mins.wav"
+    MMControl1.Command = "Open"
+
+End If
+
+
+vPathSOUND2 = App.Path + "\Sound_Wav's--2\" + GetComputerName + "\"
+vFileSOUND2 = Dir(vPathSOUND2 + "*.WAV")
+
+If vFileSOUND2 <> "" And Dir(vPathSOUND2 + vFileSOUND2) <> "" Then
+    MNU_SOUND_2.Caption = "SOUND OPTION - 2 ------ \" + vFileSOUND2
+    
+    MMControl2.Command = "Stop"
+    MMControl2.Command = "Close"
+    '---- Set properties needed by MCI to open.
+    MMControl2.Notify = True
+    MMControl2.Wait = True
+    MMControl2.Shareable = False
+    MMControl2.DeviceType = "WaveAudio"
+    MMControl2.fileName = vPathSOUND2 + vFileSOUND2
+    ' Open the MCI WaveAudio device.
+    MMControl2.Command = "Open"
+       
+    'MMControl2.Command = "prev"
+    'MMControl2.Command = "Play"
+End If
+     
+'If DUPE_CLIPPER_AT_LOAD_FORM = False Then
+
+'If Mnu_SoundOn.Checked = True And VARSOUND <> "NOTSOUND" Then
+
+ If VARSOUND <> "NOTSOUND" Then
+            
+    If Path_Of_Sound_File <> "" Then
+        'MMControl1.Command = "prev"
+        MMControl1.Command = "Play"
+    End If
+    If vFileSOUND2 <> "" Then
+        'MMControl2.Command = "prev"
+        MMControl2.Command = "Play"
+    End If
+
+End If
+
+
+If Dir(Path_Of_Sound_File) = "" Then
+    Me.WindowState = vbNormal
+    MsgBox "SOUND FILE 01# IS MISSING", vbMsgBoxSetForeground
+End If
+
+If Dir(vPathSOUND2 + vFileSOUND2) = "" Then
+    Me.WindowState = vbNormal
+    MsgBox "SOUND FILE 02# IS MISSING", vbMsgBoxSetForeground
+End If
+
+
+
+'LATCH_RUN_ONCE = True
+'MODIFY_SOUND_SELECTION = False
+'DUPE_CLIPPER_AT_LOAD_FORM = False
+
+EXIT_END:
+
+End Sub
+
+
+
+
+Private Sub MNU_LAST_GRAB_ALL_CAPS_Click()
+    'AD$
+    
+    If MNU_LAST_GRAB_ALL_CAPS.Checked = False Then
+        MNU_LAST_GRAB_ALL_CAPS.Checked = True
+        GoTo EXIT1
+    End If
+
+
+     If MNU_LAST_GRAB_ALL_CAPS.Checked = True Then
+        MNU_LAST_GRAB_ALL_CAPS.Checked = False
+    End If
+    
+    
+EXIT1:
+
+AD$ = UCase(AD$)
+
+'Clipboard.Clear
+'Clipboard.SetText AD$
+
+    EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+        Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+AD_DATE = 0
+
+Me.WindowState = 1
+
+'solvability
+          
+End Sub
+
+
+
+Private Sub LAST_GRAB_ALL_CAPS_002_Click()
+    
+    If MNU_LAST_GRAB_ALL_CAPS.Checked = False Then Exit Sub
+    
+    If Clipboard.GetFormat(vbCFText) = False Then Exit Sub
+    
+    AD$ = UCase(AD$)
+    EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+        Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+    
+    Me.WindowState = 1
+    AD_DATE = 0
+    
+'solvability
+    
+
+
+End Sub
+
+Private Sub MNU_ALL_CAPS_Click()
+
+End Sub
+
+Private Sub MNU_CB_SIZE_BYTE_Click()
+
+RESET_RRR = True
+Call Mnu_CB_Size02(TT, TT1)
+    EXECUTE_TIMER_ENABLED = False
+Clipboard.Clear
+    EXECUTE_TIMER_ENABLED = True
+RESET_RRR = True
+Clipboard.SetText TT1
+
+End Sub
+
+
+
+Private Sub MNU_CB_SIZE_MEG_Click()
+
+RESET_RRR = True
+Call Mnu_CB_Size02(TT, TT1)
+
+    EXECUTE_TIMER_ENABLED = False
+Clipboard.Clear
+    EXECUTE_TIMER_ENABLED = True
+
+RESET_RRR = True
+Clipboard.SetText TT
+
+End Sub
+
+Sub Mnu_CB_Size02(TT, TT1)
+    
+    'RELATED
+    'Menu_clipboard_size
+    
+    RESET_RRR = True
+    
+    Dim TTX
+    Clipboard.Clear
+    TT = Replace(MNU_CB_SIZE_MEG.Caption, " Meg", "")
+    TT = Replace(TT, " Image", "")
+    TT = Replace(TT, " Text", "")
+    TT1 = Replace(MNU_CB_SIZE_BYTE.Caption, " Byte", "")
+    TT1 = Replace(TT1, " Image", "")
+    TT1 = Replace(TT1, " Text", "")
+    
+    If InStr(MNU_CB_SIZE_MEG.Caption, "Image") > 0 Then
+        cat = "ClipBoard = Image"
+    Else
+        cat = "Clipboard = Text"
+    End If
+    
+    Mnu_LAST_CLIP_TIME.Caption = Format(Now, "DD-MM-YYYY -- HH:MM:SS")
+    TTX = TTX + MNU_CB_SIZE_MEG.Caption + vbCrLf + TT + vbCrLf
+    TTX = TTX + MNU_CB_SIZE_BYTE.Caption + vbCrLf + TT1
+    TTX = Replace(TTX, " Image", "")
+    TTX = Replace(TTX, " Text", "")
+    TTX = cat + vbCrLf + TTX
+    
+    
+    EXECUTE_TIMER_ENABLED = False
+Clipboard.Clear
+    EXECUTE_TIMER_ENABLED = True
+    Clipboard.SetText TTX
+
+    Me.Refresh
+    DoEvents
+
+
+End Sub
+
+Private Sub Mnu_Explorer_Sound_1_Click()
+
+Me.WindowState = vbMinimized
+
+Shell "Explorer.exe /select," + Path_Of_Sound_File, vbNormalFocus
+
+
+End Sub
+
+Private Sub Mnu_Explorer_Sound_2_Click()
+
+Me.WindowState = vbMinimized
+
+Shell "Explorer.exe /select," + vPathSOUND2 + vFileSOUND2, vbNormalFocus
+
+End Sub
+
+
+Private Sub Mnu_Find_New_Sounds_Click()
+
+'THIS GET RUN HERE FIND NEW SOUND
+'AND AT ONE CLICK
+'AND AT MENU RESET AUDIO
+'FIRST RUN FORM LOAD
+'
+
+
+MODIFY_SOUND_SELECTION = True
+Call SETUP_SOUND_FILE("")
+'MODIFY_SOUND_SELECTION = True
+
+'                    MMControl1.Command = "prev"
+'                    MMControl1.Command = "Play"
+'                    MMControLl.Command = "prev"
+'                    MMControl2.Command = "Play"
+                    
+                    
+                    
+
+End Sub
+
+Private Sub MNU_FORMAT_MINE_Click()
+
+'Call MNU_PROCAPS_Click
+
+Dim EE As String
+
+EE = LCase(AD$)
+
+Mid$(EE, 1, 1) = UCase(Mid$(EE, 1, 1))
+
+Dim DIE(21)
+DIE(1) = " USB"
+DIE(2) = " XP"
+DIE(3) = " Windows XP"
+DIE(4) = " I"
+DIE(5) = " I'm"
+DIE(6) = vbLf + "I'm"
+DIE(7) = " I'll"
+DIE(8) = vbLf + "I'll"
+DIE(9) = vbLf + "I"
+DIE(10) = " HDD"
+DIE(11) = " BIOS"
+DIE(12) = " NTFS"
+DIE(13) = " UBUNTU"
+DIE(14) = " HW"
+DIE(15) = " CH"
+DIE(16) = " HBCD"
+DIE(17) = " LINUX"
+DIE(18) = " XBOOT"
+DIE(19) = " VGA"
+DIE(20) = " ISO"
+DIE(21) = " DigiWiz"
+
+
+Dim Test1(3, 2)
+Test1(1, 1) = "oppo": Test1(1, 2) = "Operating"
+Test1(2, 1) = "grug4dos": Test1(2, 2) = "Grub4Dos"
+Test1(3, 1) = "hirens": Test1(3, 2) = "Hiren's"
+
+Dim Test3
+For r = 1 To 3
+    For R1 = 1 To 3
+        If R1 = 1 Then Test3 = vbCr
+        If R1 = 2 Then Test3 = vbLf
+        If R1 = 3 Then Test3 = " "
+    
+        EE = Replace(EE, Test3 + Test1(r, 1) + " ", Test3 + Test1(r, 2) + " ")
+        EE = Replace(EE, Test3 + Test1(r, 1) + vbCr, Test3 + Test1(r, 2) + vbCr)
+        EE = Replace(EE, Test3 + Test1(r, 1) + vbLf, Test3 + Test1(r, 2) + vbLf)
+    Next
+Next
+
+For r = 1 To UBound(DIE)
+'    Mid(Test, 2, 1) = UCase(Mid(Test, 2, 1))
+    EE = Replace(EE, LCase(DIE(r)) + " ", DIE(r) + " ")
+    EE = Replace(EE, LCase(DIE(r)) + vbCr, DIE(r) + vbCr)
+    EE = Replace(EE, LCase(DIE(r)) + vbLf, DIE(r) + vbLf)
+Next
+
+For r = 65 To 65 + 25
+    EE = Replace(EE, " " + LCase(Chr(r)), " " + UCase(Chr(r)))
+    EE = Replace(EE, vbLf + LCase(Chr(r)), vbLf + UCase(Chr(r)))
+    EE = Replace(EE, vbCr + LCase(Chr(r)), vbCr + UCase(Chr(r)))
+    EE = Replace(EE, "-" + LCase(Chr(r)), "-" + UCase(Chr(r)))
+    EE = Replace(EE, "(" + LCase(Chr(r)), "-" + UCase(Chr(r)))
+Next
+
+AD$ = EE
+
+'Call MNU_PROCAPS_Click
+   
+    EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+        Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+
+
+Clipboard.Clear
+Clipboard.SetText AD$
+AD_DATE = 0
+
+'Me.WindowState = 1
+
+End Sub
+
+Private Sub MNU_FORMAT_PLAIN_TEXT_Click()
+'RRR = Now + TimeSerial(0, 0, 3)
+
+Call MNU_FORMAT_PLAIN_TEXT2_Click
+
+'Me.WindowState = vbMinimized
+
+'Clipboard.Clear
+'Clipboard.SetText AD$
+
+End Sub
+
+Private Sub MNU_FORMAT_PLAIN_TEXT2_Click()
+'Call MNU_FORMAT_PLAIN_TEXT_Click
+
+
+    EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+        Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+Me.WindowState = vbMinimized
+AD_DATE = 0
+End Sub
+
+Private Sub MNU_CLIP_TIME_Click()
+TIME_XYZ = Format(Now, "DDD DD MMMM YYYY HH:MM:SS")
+Clipboard.Clear
+Clipboard.SetText TIME_XYZ
+MsgBox "THE TIME IS CLIPBOARD" + vbCrLf + TIME_XYZ
+
+Me.WindowState = vbMinimized
+AD_DATE = 0
+
+End Sub
+
+
+Private Sub MNU_FORMAT_PLAIN_TEXT_LARGE_CLIPBOARD_Click()
+Dim TEMPVAR$
+TEMPVAR$ = Clipboard.GetText
+
+    EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+        Clipboard.SetText TEMPVAR$
+    EXECUTE_TIMER_ENABLED = True
+    
+'Clipboard.Clear
+'Clipboard.SetText TEMPVAR$
+TEMPVAR$ = ""
+End Sub
+
+
+Private Sub MNU_INFO_RAPID_MYUSER_Click()
+
+'ii = " /nologo /WithSubdirectoriesYES /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\ /File\*.TXT"
+'ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\"
+
+ii = GetShortName(App.Path + "\# DATA\" + GetComputerName + "\Data\")
+ii = " /nologo /Dir" + ii
+
+Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+Me.WindowState = 1
+
+End Sub
+
+Private Sub MNU_LAST_GRAB_CAPS_Click()
+'RRR = Now + TimeSerial(0, 0, 3)
+
+AD$ = UCase(AD$)
+    EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+        Clipboard.SetText AD$
+    EXECUTE_TIMER_ENABLED = True
+Me.WindowState = vbMinimized
+AD_DATE = 0
+
+
+
+End Sub
+
+Private Sub MNU_LAST_WEBCAM_PIC_Click()
+
+Call LAST_IMAGE("EXPLORER", "D:\0 00 ART LOGGERS - WEBCAM\WEBCAM\") '=EXPLORER
+
+Exit Sub
+'ScanPath.SHOW
+
+'XdATE2 = 0
+'ScanPath.chk_LIST_VIEW_SHORT_5 = vbChecked
+LAST_FILE_DATE_PATH = ""
+LAST_FILE_DATE_TIME = DateSerial(100, 1, 1)
+
+ScanPath.cboMask = "*.JPG"
+ScanPath.chkSubFolders = vbChecked
+
+ScanPath.TxtPath = "D:\0 00 Art Loggers - WEBCAM\"
+
+ScanPath.chkCopyMemory.Value = vbChecked
+
+Call ScanPath.CMDScan_NO_LIST_FAST_Click
+
+FileSpec = LAST_FILE_DATE_PATH 'ScanPath.lblCount7
+
+If FileSpec = "" Then MsgBox "NOT ANY OF THOSE FILES" + vbCrLf + ScanPath.TxtPath + "\" + ScanPath.cboMask: Exit Sub
+
+'FileSpec = LAST_FILE_DATE_PATH_HOT_KEY_SCREENSHOT
+
+'Set F = FS.getfile((Filespec1))
+'ADATE1 = F.datelastmodified
+
+'ScanPath.lblCount7 = ""
+'ScanPath.ListView1.ListItems.Clear
+
+'ScanPath.TxtPath = "D:\0 00 Art Loggers - WEBCAM\"
+'Call ScanPath.cmdScan_Click
+
+
+'Filespec2 = ScanPath.lblCount7
+'If Filespec2 <> "" Then
+'    Set F = FS.getfile((Filespec2))
+'    ADATE2 = F.datelastmodified
+'    If ADATE1 > ADATE2 Then
+'        FileSpec = Filespec1
+'    Else
+'        FileSpec = Filespec2
+'
+'    End If
+'Else
+'    FileSpec = Filespec1
+'End If
+
+'Me.WindowState = vbMinimized
+If MNU_MESSAGE_BOXES.Checked = False Then
+    'MsgBox "FOUND LATEST IMAGE Clipboarded - LOAD Explorer Minimized AS Well as IrFan Maximized To View" + vbCrLf + "FILES FOUND =" + str(tFileCount) + vbCrLf, vbMsgBoxSetForeground
+End If
+'Me.WindowState = vbMinimized
+
+
+
+Shell "Explorer.exe /select, " + FileSpec, vbMinimizedNoFocus
+
+'If IRFANVIEW_PATH <> "" Then
+'    If VAR1 = "IVIEW" Then
+'        Shell IRFANVIEW_PATH + FileSpec + """ /fs /silent", vbMaximizedFocus
+'    End If
+'Else
+'    Me.WindowState = vbNormal
+'    MsgBox "IRFANVIEW_PATH VAR -- PATH NOT FOUND FOR FILE" + vbCrLf + "NOT INSTALED AT EXPECTED LOCATION " + IRFANVIEW_PATH3 + vbCrLf + "OR" + vbCrLf + IRFANVIEW_PATH2, vbMsgBoxSetForeground
+'End If
+
+'Me.WindowState = vbMinimized
+
+End Sub
+
+Private Sub MNU_MESSAGE_BOXES_Click()
+    
+    If MNU_MESSAGE_BOXES.Checked = True Then MNU_MESSAGE_BOXES.Checked = False: Exit Sub
+    
+    MNU_MESSAGE_BOXES.Checked = True
+
+End Sub
+
+Private Sub MNU_PLAY_SOUND_ON_LOAD_Click()
+
+    'ONLY A SOUND TEST
+    'IF A SOUND REQUIRED AS WHEN DUPE CLIPBOARD WILL MAKE DOUBLE SOUND
+
+    If MNU_PLAY_SOUND_ON_LOAD.Checked = True Then MNU_PLAY_SOUND_ON_LOAD.Checked = False: Exit Sub
+    
+    MNU_PLAY_SOUND_ON_LOAD.Checked = True
+
+End Sub
+
+
+Private Sub MNU_PROCAPS_Click()
+'    RRR = Now + TimeSerial(0, 0, 3)
+
+
+
+
+    Call Mnu_Fix1st_Letters_Click
+    Me.WindowState = vbMinimized
+End Sub
+
+Private Sub Mnu_Fix1st_Letters_Click()
+'HERE IS -- PROCAPS
+    
+Dim EE As String
+
+'EE = Text1.Text
+EE = AD$
+   
+'If EGG = 0 Then EE = LCase(EE)
+EE = LCase(EE)
+
+Mid$(EE, 1, 1) = UCase(Mid$(EE, 1, 1))
+
+For r = 65 To 65 + 25
+    EE = Replace(EE, " " + LCase(Chr(r)), " " + UCase(Chr(r)))
+    EE = Replace(EE, vbLf + LCase(Chr(r)), vbLf + UCase(Chr(r)))
+    EE = Replace(EE, vbCr + LCase(Chr(r)), vbCr + UCase(Chr(r)))
+    EE = Replace(EE, "-" + LCase(Chr(r)), "-" + UCase(Chr(r)))
+    EE = Replace(EE, "(" + LCase(Chr(r)), "-" + UCase(Chr(r)))
+    EE = Replace(EE, "." + LCase(Chr(r)), "." + UCase(Chr(r)))
+    EE = Replace(EE, "\" + LCase(Chr(r)), "\" + UCase(Chr(r)))
+    EE = Replace(EE, "_" + LCase(Chr(r)), "_" + UCase(Chr(r)))
+Next
+
+'HERE IS -- PROCAPS
+
+AD$ = EE
+    EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+            EXECUTE_TIMER_ENABLED = True
+        Clipboard.SetText AD$
+
+AD_DATE = 0
+
+'Me.WindowState = 1
+
+'Text1.Text = EE
+
+End Sub
+
+
+
+Private Sub MNU_100_Click()
+TimerSCROLL.Enabled = True
+TimerSCROLL.Interval = 100
+For Each Control In Controls
+If InStr(Control.Name, "MNU_") > 0 And InStr(Control.Name, "00") > 0 Then
+    Control.Checked = False
+End If
+Next
+MNU_100.Checked = True
+End Sub
+
+Private Sub MNU_200_Click()
+TimerSCROLL.Enabled = True
+TimerSCROLL.Interval = 200
+For Each Control In Controls
+If InStr(Control.Name, "MNU_") > 0 And InStr(Control.Name, "00") > 0 Then
+    Control.Checked = False
+End If
+Next
+MNU_200.Checked = True
+
+End Sub
+
+Private Sub MNU_300_Click()
+TimerSCROLL.Enabled = True
+TimerSCROLL.Interval = 300
+For Each Control In Controls
+If InStr(Control.Name, "MNU_") > 0 And InStr(Control.Name, "00") > 0 Then
+    Control.Checked = False
+End If
+Next
+
+MNU_300.Checked = True
+
+End Sub
+
+Private Sub MNU_400_Click()
+TimerSCROLL.Enabled = True
+TimerSCROLL.Interval = 400
+For Each Control In Controls
+If InStr(Control.Name, "MNU_") > 0 And InStr(Control.Name, "00") > 0 Then
+    Control.Checked = False
+End If
+Next
+MNU_400.Checked = True
+
+End Sub
+
+Private Sub MNU_500_Click()
+TimerSCROLL.Enabled = True
+TimerSCROLL.Interval = 500
+For Each Control In Controls
+If InStr(Control.Name, "MNU_") > 0 And InStr(Control.Name, "00") > 0 Then
+    Control.Checked = False
+End If
+Next
+MNU_500.Checked = True
+
+End Sub
+
+Private Sub MNU_800_Click()
+TimerSCROLL.Enabled = True
+TimerSCROLL.Interval = 800
+For Each Control In Controls
+If InStr(Control.Name, "MNU_") > 0 And InStr(Control.Name, "00") > 0 Then
+    Control.Checked = False
+End If
+Next
+MNU_800.Checked = True
+
+End Sub
+
+Private Sub Mnu_Clear_Text_Click()
+'Call Command3_Click
+End Sub
+
+Private Sub Mnu_ClearClipBoard_Click()
+'Call Command2_Click
+End Sub
+
+Private Sub Mnu_ClipAll_Click()
+'Call Command1_Click
+End Sub
+
+Private Sub Mnu_Test_Clip_Click()
+'Call Command4_Click
+End Sub
+
+Private Sub Mnu_Edit_Sound_Click()
+
+Dim TT As String
+
+TT = Path_Of_Sound_File
+
+TT = FindShortPath(TT)
+
+Shell """C:\Program Files\Cool2000\cool2000.exe"" """ + TT + """", vbNormalFocus
+
+End Sub
+
+Private Sub Mnu_Exit_Click()
+
+'MMControl1.Command = "close"
+'
+'Tx1$ = App.Path + "\# DATA\" + GetComputerName + "\Data\#OutClipChunck.Txt"
+'DumVar = IsFileOpenDelay(Tx1$)
+'FR1 = FreeFile
+'Open Tx1$ For Output As #FR1
+'Print #FR1, AD$;
+'Close #FR1
+
+EXIT_TRUE = True
+
+Unload Form1
+
+
+End Sub
+
+Private Sub MNU_INFO_RAPID_Click()
+
+
+'ii = " /nologo /DirD:\#*MY*DOCS\01*My*Documents\03*NotePad*Files\00*TOP\  /FileClued*Up.txt"
+
+
+ii = " /nologo /Dir" + App.Path + "\#*DATA\" + GetComputerName + "\  /File00_ClipBoard_Total--TRIM.txt"
+ii = Replace(ii, "Fast Clipboard", "Fast*Clipboard")
+ii = Replace(ii, "\# Data", "\#*Data")
+
+Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+
+Me.WindowState = 1
+
+End Sub
+
+Private Sub MNU_INFRO_RAPID_ALL_Click()
+
+ii = " /nologo /WithSubdirectoriesYES /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\ /File\*.TXT"
+ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\"
+
+Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+Me.WindowState = 1
+
+
+'ClipBoard-
+
+End Sub
+
+Private Sub MNU_INFRO_RAPID_ALL_SMALL_FILES_Click()
+
+
+Timer_INFORAPID_MSGBOX.Enabled = True
+
+
+ii = " /nologo /WithSubdirectoriesYES /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\ /FileClipBoard-**.TXT"
+ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\ /FileClipBoard-*.TXT"
+
+'ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\"
+
+Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+Me.WindowState = 1
+
+
+'ClipBoard-
+
+
+End Sub
+
+Private Sub MNU_LAST_ART_PIC_Click()
+
+Call LAST_IMAGE("EXPLORER", "D:\0 00 ART LOGGERS\# APP AND SCREEN -- SHOT\" + GetComputerName + "\Hot-Key-App-Shots\") '=EXPLORER
+
+End Sub
+
+Private Sub Mnu_LoggExplorer_Click()
+Me.WindowState = vbMinimized
+Shell "Explorer.exe /e," + App.Path + "\# DATA\" + GetComputerName + "\Data", vbNormalFocus
+End Sub
+
+
+
+Sub TOT()
+
+End Sub
+
+
+'---------------------------------------------------------------
+
+'http://www.vbforums.com/showthread.php?673134-RESOLVED-Minimum-height-for-menu-bar-to-be-visible
+'-------------- MENU SIZE DECLARE
+'Private Type rect
+'    Left As Long
+'    Top As Long
+'    Right As Long
+'    Bottom As Long
+'End Type
+'Private Type MENUBARINFO
+'  cbSize As Long
+'  rcBar As rect
+'  hMenu As Long
+'  hwndMenu As Long
+'  fBarFocused As Boolean
+'  fFocused As Boolean
+'End Type
+'Private MenuInfo As MENUBARINFO
+'Private Const OBJID_MENU As Long = &HFFFFFFFD
+'Private Const OBJID_SYSMENU As Long = &HFFFFFFFF
+'Private Declare Function GetMenuBarInfo Lib "user32" (ByVal hwnd As Long, _
+'ByVal idObject As Long, ByVal idItem As Long, ByRef pmbi As MENUBARINFO) As Boolean
+'Private Declare Function GetMenu Lib "user32" (ByVal hwnd As Long) As Long
+
+Private Function Menu_Height()
+ 
+    MenuInfo.cbSize = Len(MenuInfo)
+    
+    If GetMenuBarInfo(Me.hwnd, OBJID_MENU, 0, MenuInfo) Then
+   
+        With MenuInfo.rcBar
+       
+'            Debug.Print "Left: " & CStr(.Left)
+'            Debug.Print "Right: " & CStr(.Right)
+'            Debug.Print "Top: " & CStr(.Top)
+'            Debug.Print "Bottom: " & CStr(.Bottom)
+            'Menu_Height = CStr(.Top) + CStr(.Bottom)
+            Menu_Height = CStr(.Bottom) - CStr(.Top)
+        End With
+       
+    End If
+   
+End Function
+'------------------------------------------
+
+Private Sub Mnu_Open_Logg_Click()
+'Shell "notepad " + App.Path + "\# DATA\"+GetComputerName + "\Data\Day-Data\ClipBoard-" + Format$(Start, "YYYY-MM-DD") + ".Txt", vbNormalFocus
+
+
+'WON'T DO THIS
+'Shell "EXPLORER " + App.Path + "\# DATA\"+GetComputerName + "\Data\Day-Data\ClipBoard-" + Format$(Start, "YYYY-MM-DD") + ".Txt", vbNormalFocus
+'OR THIS
+'Shell "CMD /C ""START /MAX """ + App.Path + "\# DATA\"+GetComputerName + "\Data\Day-Data\ClipBoard-" + Format$(Start, "YYYY-MM-DD") + ".Txt""""", vbNormalFocus
+
+'ANSWER
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\Day-Data\ClipBoard-" + Format$(start, "YYYY-MM-DD") + ".Txt"
+
+Me.WindowState = vbMinimized
+
+ShellExecute Me.hwnd, "open", vFile, vbNullString, vbNullString, conSwNormal
+
+End Sub
+
+Private Sub Mnu_Open_Recent_Click()
+Me.WindowState = vbMinimized
+
+'Shell "notepad " + App.Path + "\# DATA\"+GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt", vbNormalFocus
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt"
+ShellExecute Me.hwnd, "open", vFile, vbNullString, vbNullString, conSwNormal
+
+End Sub
+
+Private Sub Mnu_Open_Recent_Hex_Click()
+Me.WindowState = vbMinimized
+
+'C:\Program Files\XVI32\XVI32.exe
+Shell "C:\Program Files\XVI32\XVI32.exe """ + App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt""", vbNormalFocus
+
+
+End Sub
+
+Private Sub Mnu_Open_Total_Click()
+Me.WindowState = vbMinimized
+
+'Shell "notepad " + App.Path + "\# DATA\"+GetComputerName + "\Data\00_ClipBoard_Total.txt", vbNormalFocus
+
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total.txt"
+ShellExecute Me.hwnd, "open", vFile, vbNullString, vbNullString, conSwNormal
+
+End Sub
+
+
+
+
+Private Sub MNU_SCREEN_SHOT_Click()
+
+Me.WindowState = vbMinimized
+
+Shell "Explorer.exe /e, D:\0 00 Art Loggers\", vbNormalFocus
+
+'If Dir("M:\0 00 Art Loggers\", vbDirectory) <> "" And 1 = 2 Then
+    'Shell "Explorer.exe /e, M:\0 00 Art Loggers\", vbNormalFocus
+'End If
+
+End Sub
+
+Private Sub MNU_SCROLL_DOWN_Click()
+TimerSCROLL.Enabled = Not TimerSCROLL.Enabled
+End Sub
+
+Private Sub MNU_SCROLL_OFF_Click()
+TimerSCROLL.Enabled = False
+End Sub
+
+Private Sub Mnu_Shell_T_Click()
+
+If Dir("D:\Utils\T.com") = "" Then
+    MsgBox "D:\UTILS\T.COM" + vbCrLf + "PROGRAM DON'T EXIST" + vbCrLf + " I SET THIS MENU OPTION TO USE " + vbCrLf + "LIST Enhanced v2.4y1 (c) 1990-2005 Vernon D. Buerg - All rights reserved" + vbCrLf + "Matthew Lancaster, Single-User, s/n ######" + vbCrLf + "Unauthorized duplication prohibited." + vbCrLf + "A FREE VERSION YOU CAN GET - ITS A TEXT BASED VIEWER FROM DOS6.22 DAYS AND HANDLES LONG FILE NAMES" + vbCrLf + "I CALL IT RENAMED FROM LIST.COM TO T.COM -- T FOR TEXT -- IN DIRECTORY D:\UTILS\T.COM", vbMsgBoxSetForeground
+    Exit Sub
+End If
+
+EE$ = GetShortName(App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total.txt")
+Shell "D:\Utils\T.com " + EE$, vbNormalFocus
+End Sub
+
+Private Sub Mnu_ShellTRecent_Click()
+
+End Sub
+
+Private Sub Mnu_ShellT_Todays_Click()
+
+If Dir("D:\Utils\T.com") = "" Then
+    MsgBox "D:\UTILS\T.COM" + vbCrLf + "PROGRAM DON'T EXIST" + vbCrLf + " I SET THIS MENU OPTION TO USE " + vbCrLf + "LIST Enhanced v2.4y1 (c) 1990-2005 Vernon D. Buerg - All rights reserved" + vbCrLf + "Matthew Lancaster, Single-User, s/n ######" + vbCrLf + "Unauthorized duplication prohibited." + vbCrLf + "A FREE VERSION YOU CAN GET - ITS A TEXT BASED VIEWER FROM DOS6.22 DAYS AND HANDLES LONG FILE NAMES" + vbCrLf + "I CALL IT RENAMED FROM LIST.COM TO T.COM -- T FOR TEXT -- IN DIRECTORY D:\UTILS\T.COM", vbMsgBoxSetForeground
+    Exit Sub
+End If
+
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\Day-Data\ClipBoard-" + Format$(start, "YYYY-MM-DD") + ".Txt"
+
+'EE$ = GetShortName(App.Path + "\# DATA\"+GetComputerName + "\Data\#ClipBoard.Txt")
+
+EE$ = GetShortName(vFile)
+Shell "D:\Utils\T.com " + EE$, vbNormalFocus
+
+End Sub
+
+
+Private Sub MNU_SOUND_OPTION_Click(Index As Integer)
+
+
+
+'THIS GET RUN HERE AT CLICK
+'AND AT MENU RESET AUDIO
+'FIRST RUN
+'AND FIND NEW SOUND
+
+
+
+'If MNU_SOUND_OPTION(Index).Checked = True Then Exit Sub
+If MNU_SOUND_OPTION(Index).Enabled = False Then Exit Sub
+If MNU_SOUND_OPTION(Index).Visible = False Then Exit Sub
+
+
+For Each Control In MNU_SOUND_OPTION
+        'Control.Enabled = False
+        Control.Checked = False
+'        Debug.Print Control.Index
+        
+        DoEvents
+Next
+
+MNU_SOUND_OPTION(Index).Checked = True
+
+
+'THIS GET RUN HERE AT CLICK MENU
+'AND AT RESET AUDIO
+
+
+
+For Each Control In MNU_SOUND_OPTION
+    If Control.Caption <> "MNU_SOUND_OPTION" Then
+        Control.Enabled = True
+    End If
+Next
+
+MODIFY_SOUND_SELECTION = True
+
+Call SETUP_SOUND_FILE("")
+
+
+
+'--------------
+Exit Sub
+'--------------
+
+
+
+'For Each Control In Controls
+'    If InStr(Control.Name, "MNU_SOUND_OPTION") > 0 Then
+'        If Control.Caption = MNU_SOUND_OPTION(Index).Caption Then Exit Sub
+'        Control.Enabled = False
+'    End If
+'Next
+
+For Each Control In MNU_SOUND_OPTION
+    'If InStr(Control.Name, "MNU_SOUND_OPTION") > 0 Then
+        'If Control.Enabled = False Then Exit
+        Control.Enabled = False
+    'End If
+Next
+
+MNU_SOUND_OPTION(Index).Checked = True
+For Each Control In MNU_SOUND_OPTION
+    If Control.Caption <> "MNU_SOUND_OPTION" Then
+        Control.Enabled = True
+    End If
+Next
+'MNU_SOUND_OPTION(Index).Enabled = True
+
+
+
+End Sub
+
+Private Sub Mnu_SoundOn_Click()
+
+If Mnu_SoundOn.Checked = True Then Mnu_SoundOn.Checked = False: Exit Sub
+
+Mnu_SoundOn.Checked = True
+
+End Sub
+
+Private Sub MNU_SPACE_Click()
+    
+    Me.WindowState = vbMinimized
+        EXECUTE_TIMER_ENABLED = False
+        Clipboard.Clear
+        Clipboard.SetText " "
+    EXECUTE_TIMER_ENABLED = True
+'    Clipboard.Clear
+'    Clipboard.SetText " "
+    
+    If MNU_MESSAGE_BOXES.Checked = True Then Exit Sub
+    
+    MsgBox "CLIPBOARDED YOU A SPACE CHARACTER"
+    
+    'Me.WindowState = 1
+
+End Sub
+
+Private Sub Mnu_StripLogg_Click()
+'    Shell "notepad " + App.Path + "\# DATA\"+GetComputerName + "\Data\00_ClipBoard_Tot_Strip.txt", vbNormalFocus
+    
+    Me.WindowState = vbMinimized
+    
+    vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Tot_Strip.txt"
+    ShellExecute Me.hwnd, "open", vFile, vbNullString, vbNullString, conSwNormal
+    
+End Sub
+
+
+
+
+
+Private Sub Mnu_TEXT_Open_Logg_Click()
+If Dir("C:\Program Files\TextView\Textview.exe") = "" Then
+    DATA5 = "C:\Program Files\TextView\Textview.exe" + vbCrLf
+    DATA5 = DATA5 + "PROGRAM DON'T EXIST" + vbCrLf
+    DATA5 = DATA5 + "I SET THIS MENU OPTION TO USE THAT" + vbCrLf
+    DATA5 = DATA5 + "----------------------------------" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0 - The Explorer-like Text File Viewer" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0.12" + vbCrLf
+    DATA5 = DATA5 + "(c) Florian Balmer 1996-2004" + vbCrLf
+    DATA5 = DATA5 + "http://www.flos-freeware.ch" + vbCrLf
+    MsgBox DATA5, vbMsgBoxSetForeground
+    Exit Sub
+End If
+
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\Day-Data\ClipBoard-" + Format$(start, "YYYY-MM-DD") + ".Txt"
+
+Shell "C:\Program Files\TextView\Textview.exe """ + vFile + """", vbMaximizedFocus
+
+End Sub
+
+Private Sub Mnu_TEXT_Open_Recent_Click()
+
+If Dir("C:\Program Files\TextView\Textview.exe") = "" Then
+    DATA5 = "C:\Program Files\TextView\Textview.exe" + vbCrLf
+    DATA5 = DATA5 + "PROGRAM DON'T EXIST" + vbCrLf
+    DATA5 = DATA5 + "I SET THIS MENU OPTION TO USE THAT" + vbCrLf
+    DATA5 = DATA5 + "----------------------------------" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0 - The Explorer-like Text File Viewer" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0.12" + vbCrLf
+    DATA5 = DATA5 + "(c) Florian Balmer 1996-2004" + vbCrLf
+    DATA5 = DATA5 + "http://www.flos-freeware.ch" + vbCrLf
+    MsgBox DATA5, vbMsgBoxSetForeground
+    Exit Sub
+End If
+
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt"
+Shell "C:\Program Files\TextView\Textview.exe """ + vFile + """", vbMaximizedFocus
+
+End Sub
+
+Private Sub Mnu_TEXT_Open_Total_Click()
+If Dir("C:\Program Files\TextView\Textview.exe") = "" Then
+    DATA5 = "C:\Program Files\TextView\Textview.exe" + vbCrLf
+    DATA5 = DATA5 + "PROGRAM DON'T EXIST" + vbCrLf
+    DATA5 = DATA5 + "I SET THIS MENU OPTION TO USE THAT" + vbCrLf
+    DATA5 = DATA5 + "----------------------------------" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0 - The Explorer-like Text File Viewer" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0.12" + vbCrLf
+    DATA5 = DATA5 + "(c) Florian Balmer 1996-2004" + vbCrLf
+    DATA5 = DATA5 + "http://www.flos-freeware.ch" + vbCrLf
+    MsgBox DATA5, vbMsgBoxSetForeground
+    Exit Sub
+End If
+
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total.txt"
+Shell "C:\Program Files\TextView\Textview.exe """ + vFile + """", vbMaximizedFocus
+
+End Sub
+
+Private Sub Mnu_TEXT_StripLogg_Click()
+If Dir("C:\Program Files\TextView\Textview.exe") = "" Then
+    DATA5 = "C:\Program Files\TextView\Textview.exe" + vbCrLf
+    DATA5 = DATA5 + "PROGRAM DON'T EXIST" + vbCrLf
+    DATA5 = DATA5 + "I SET THIS MENU OPTION TO USE THAT" + vbCrLf
+    DATA5 = DATA5 + "----------------------------------" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0 - The Explorer-like Text File Viewer" + vbCrLf
+    DATA5 = DATA5 + "Textview 6.0.12" + vbCrLf
+    DATA5 = DATA5 + "(c) Florian Balmer 1996-2004" + vbCrLf
+    DATA5 = DATA5 + "http://www.flos-freeware.ch" + vbCrLf
+    MsgBox DATA5, vbMsgBoxSetForeground
+    Exit Sub
+End If
+
+vFile = App.Path + "\# DATA\" + GetComputerName + "\Data\00_ClipBoard_Total--TRIM.txt"
+Shell "C:\Program Files\TextView\Textview.exe """ + vFile + """", vbMaximizedFocus
+
+End Sub
+
+Private Sub MNU_URL_Browser_Click()
+    
+    If LCase(Mid(Clipboard.GetText, 1, 4)) <> "http" Then
+        MsgBox "LAST CLIPBOARD NOT A HTTP URL TO LOAD", vbMsgBoxSetForeground
+        'Me.WindowState = vbMinimized
+        Exit Sub
+    End If
+    
+    Me.WindowState = vbMinimized
+    
+    'Shell "Explorer.exe /e," + Clipboard.GetText, vbNormalFocus
+    vFile = Clipboard.GetText
+    ShellExecute Me.hwnd, "open", vFile, vbNullString, vbNullString, conSwNormal
+
+End Sub
+
+Private Sub Mnu_Html_Url_Click()
+
+    '<a href="LoveFolder/index.php?dir=HTML/&file=quotes_an_stuff.html">Quotes and Stuff</a>
+    
+    If LCase(Mid(Clipboard.GetText, 1, 4)) <> "http" Then
+        MsgBox "LAST CLIPBOARD NOT A HTTP URL TO MAKE HTML", vbMsgBoxSetForeground
+        Me.WindowState = vbMinimized
+        Exit Sub
+    End If
+    
+    AD$ = "<a href="""
+    AD$ 
