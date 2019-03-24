@@ -2,7 +2,7 @@
 @REM ----------------------------------------------------------------
 @REM RUN FROM HERE NOW NEWER 2018 INFO NOTE 2018-MAY-03
 @REM ----------------------------------------------------------------
-@REM C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+@REM C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
 @REM IN ANOTHER WAY LIKE THIS
 @REM ----------------------------------------------------------------
 @REM Run, "%VICE_VERSA_EXE%" "%VICE_VERSA_PATH%\VV C DRIVE ROOT __ %A_ComputerName%.fsf" /hiddenautoexec

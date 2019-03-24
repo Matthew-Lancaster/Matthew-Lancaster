@@ -38,9 +38,9 @@ SS=Second(VAR_NOW)
 HH12=Hour(VAR_NOW)
 IF HH12=>12 THEN 
 	HH12=HH12-12
-	AM_PM="Pm"
+	AM_PM="PM"
 ELSE
-	AM_PM="Am"
+	AM_PM="AM"
 END IF 
 DDD=WeekdayName(Weekday(VAR_NOW),TRUE)
 

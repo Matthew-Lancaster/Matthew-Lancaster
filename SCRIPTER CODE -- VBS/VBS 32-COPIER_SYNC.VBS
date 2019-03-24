@@ -169,7 +169,7 @@ I_COUNT=0
 ' -------------------------------------------------------------------
 ' 64 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
 ' I2="C:\Program Files\Notepad++\userDefineLang_AHK.xml"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
@@ -181,7 +181,7 @@ I_COUNT=0
 ' -------------------------------------------------------------------
 ' 32 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
 ' I2="C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
@@ -348,7 +348,7 @@ I2="C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\SysIntern
 ' PRIORITY TO WORK IN GOODSYNC INSTEAD MAYBE UNTIL GET SYNC CONFLICT ANSWER
 ' -------------------------------------------------------------------
 ' I1="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS"
-' I2="D:\VB6\VB-NT\#1 Document\Programming Snippets.txt.bas"
+' I2="D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
 ' VAR_PATH_FILE_1(I_COUNT)=I1
@@ -438,53 +438,15 @@ Dim folderName
 FOR RD=1 TO 12
 	i_LINE="##_"+LPad(RD, "0", 4)
 
-	FolderName_1 = "C:\SCRIPTER\SYNC_FOLDER_1\"+i_LINE+"\"
-	FolderName_2 = "C:\SCRIPTER\SYNC_FOLDER_2\"+i_LINE+"\"
+	FolderName = "C:\SCRIPTER\SYNC_FOLDER_1\"+i_LINE+"\"
 	PATH_FILE_001=""
 	ERR.CLEAR
-
-	FolderName=FolderName_1
-	IF fso.FolderEXISTS(FolderName) THEN 
-		Set folder = fso.GetFolder(FolderName)  
-		For each file In folder.Files    
-			I_COUNT_01=I_COUNT_01+1
-		Next
-	END IF
-	FolderName=FolderName_2
-	IF fso.FolderEXISTS(FolderName) THEN 
-		Set folder = fso.GetFolder(FolderName)  
-		For each file In folder.Files    
-			I_COUNT_02=I_COUNT_02+1
-		Next
-	END IF
-	
-	SET_GO=FALSE
-	IF I_COUNT_01=I_COUNT_02 THEN SET_GO=TRUE
-	
-	IF SET_GO=FALSE THEN 
-		MSGBOX "VBS 32-COPIER_SYNC.VBS" + VBCRLF+ "FILE COUNT IN PAIR SYNC FOLDER NOT MATCH"+VBCRLF+FolderName_1+VBCRLF+FolderName_2
-		Wscript.QUIT
-	END IF
-	
-	I_COUNT_01=0
-	I_COUNT_02=0
-	
 	IF fso.FolderEXISTS(FolderName) THEN 
 		Set folder = fso.GetFolder(FolderName)  
 		For each file In folder.Files    
 			PATH_FILE_001=file.name
 			PATH_FILE_001=file.PATH
-			PATH_FILE_VAR=PATH_FILE_001
-			' FIRST FILE COME TO THAT ISN'T A LINK SHORTCUT OR INFO TEXT FILE
-			SET_GO=TRUE
-			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                THEN SET_GO=FALSE
-			IF INSTR(UCASE(PATH_FILE_VAR),"#_INFO_SYNC_FOLDER_")>0 THEN SET_GO=FALSE
-			IF SET_GO=TRUE THEN 
-				IF PATH_FILE_VAR<>"" THEN
-					I_COUNT_01=I_COUNT_01+1
-					VAR_PATH_FILE_1(I_COUNT_01)=PATH_FILE_VAR
-				END IF
-			END IF
+			Exit For
 		Next
 	END IF
 
@@ -496,21 +458,18 @@ FOR RD=1 TO 12
 		For each file In folder.Files    
 			PATH_FILE_002=file.name
 			PATH_FILE_002=file.PATH
-			PATH_FILE_VAR=PATH_FILE_002
-			' FIRST FILE COME TO THAT ISN'T A LINK SHORTCUT OR INFO TEXT FILE
-			SET_GO=TRUE
-			IF INSTR(UCASE(PATH_FILE_VAR),".LNK")>0                THEN SET_GO=FALSE
-			IF INSTR(UCASE(PATH_FILE_VAR),"#_INFO_SYNC_FOLDER_")>0 THEN SET_GO=FALSE
-			IF SET_GO=TRUE THEN 
-				IF PATH_FILE_VAR<>"" THEN
-					I_COUNT_02=I_COUNT_02+1
-					VAR_PATH_FILE_2(I_COUNT_02)=PATH_FILE_VAR
-					' MSGBOX VAR_PATH_FILE_1(I_COUNT_02)+VBCRLF+VAR_PATH_FILE_2(I_COUNT_02)
-				END IF
-			END IF
+			Exit For
 		Next
 	END IF
 
+	IF PATH_FILE_001<>"" AND PATH_FILE_002<>"" THEN
+		'MSGBOX PATH_FILE_001
+		I_COUNT=I_COUNT+1
+		VAR_PATH_FILE_1(I_COUNT)=PATH_FILE_001
+		VAR_PATH_FILE_2(I_COUNT)=PATH_FILE_002
+	END IF
+	
+	
 NEXT
 
 
@@ -1052,7 +1011,7 @@ Sub Main
 	
 	IF I_COUNT_1>=0 AND JPG_BEEN_DONE=TRUE THEN 
 		
-		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 	
 	END IF
 	

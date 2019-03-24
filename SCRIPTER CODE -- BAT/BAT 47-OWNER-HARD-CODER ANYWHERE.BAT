@@ -282,6 +282,10 @@ REM ----------------------------------------------------------------
 SET LDA=0
 REM ---------------------------------------------------------------- 
 SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\SCRIPTER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C:\SCRIPTOR GITHUB"
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6-ARC"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6"
@@ -296,8 +300,6 @@ SET Sources[!LDA!]="C:\Windows\System32\Printing_Admin_Scripts\en-US.VBS"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VI_ DSC ME"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C:\SCRIPTOR GITHUB"
-SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\DSC"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\SNAPSHOT CCSE HIKVISION"
@@ -309,8 +311,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C:\Users\MATT 03\AppData"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C:\Users\MATT 04\AppData"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="C:\SCRIPTER"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C:\DOWNLOADS"
 SET /A LDA=LDA+1
@@ -452,46 +452,20 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		CALL :SET_COUNTER_FOR_DISPLAY_03_WRITE_APPENDER_LOGGER_INFO
 
 		SET VAR_FLAG=NOT
-		IF !PATH_TO_DO!=="E:\01 Desktop\*" SET VAR_FLAG=YES
-		SET VAR_FLAG=NOT
+		IF !PATH_TO_DO!=="E:\01 Desktop\*"      SET VAR_FLAG=YES
+		IF !PATH_TO_DO!=="C:\SCRIPTER\*"        SET VAR_FLAG=YES
+		IF !PATH_TO_DO!=="C:\SCRIPTOR GITHUB\*" SET VAR_FLAG=YES
+		
 		IF !VAR_FLAG!==YES (
 			SET COMMAND_VAR=TAKEOWN /F !PATH_TO_DO! /A /R /D Y
-			REM ECHO !COMMAND_VAR!
-			REM !COMMAND_VAR! >NUL
+			ECHO !COMMAND_VAR!
+			!COMMAND_VAR! >NUL
 			REM -- TAKEOWN TO ADMIN AND MORE NON STOP AT ERROR WITH /C UNLIKE ABOVE
 			REM -- ABLE SET TO EVERYONE AGAIN ONE ADMIN IS DONE BEFORE
-			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
-			ECHO !COMMAND_VAR!
-			!COMMAND_VAR!
-			ECHO.
-			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
-			ECHO !COMMAND_VAR!
-			!COMMAND_VAR!
-			ECHO.
-		)
-		
-		IF !VAR_FLAG!==NOT (
-			
-			REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
-			REM ECHO !COMMAND_VAR!
-			REM !COMMAND_VAR!
-			REM SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
-			REM ECHO !COMMAND_VAR!
-			REM !COMMAND_VAR!
-			REM ECHO.
-
-			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Everyone /T /C /L /Q 
-			ECHO !COMMAND_VAR!
-			!COMMAND_VAR!
-			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
-			ECHO !COMMAND_VAR!
-			!COMMAND_VAR!
-			ECHO.
 		)
 
-		SET VAR_FLAG=NOT
-		IF !PATH_TO_DO!=="C:\SCRIPTOR GITHUB\*" SET VAR_FLAG=YES
 		IF !VAR_FLAG!==YES (
+			PAUSE
 			REM -- NOTICE HAD TO USE THE ^(CI^)H THESE Circumflex accent or Caret
 			REM -- TO TELL DOS WITH STRING THAT NORMAL CHARACTER -- ( ( ) )
 			SET COMMAND_VAR=ICACLS !PATH_TO_DO! /setintegritylevel ^(CI^)H
@@ -508,6 +482,22 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		REM iCacls - Modify Access Control List - Windows CMD - SS64.com
 		REM https://ss64.com/nt/icacls.html
 		REM ----
+		
+		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Administrators /T /C /L /Q 
+		ECHO !COMMAND_VAR!
+		!COMMAND_VAR!
+		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q  /Grant Administrators:F
+		ECHO !COMMAND_VAR!
+		!COMMAND_VAR!
+		ECHO.
+
+		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /Setowner Everyone /T /C /L /Q 
+		ECHO !COMMAND_VAR!
+		!COMMAND_VAR!
+		SET COMMAND_VAR=ICACLS !PATH_TO_DO! /T /L /C /Q /Grant Everyone:F
+		ECHO !COMMAND_VAR!
+		!COMMAND_VAR!
+		ECHO.
 	)
 )
 

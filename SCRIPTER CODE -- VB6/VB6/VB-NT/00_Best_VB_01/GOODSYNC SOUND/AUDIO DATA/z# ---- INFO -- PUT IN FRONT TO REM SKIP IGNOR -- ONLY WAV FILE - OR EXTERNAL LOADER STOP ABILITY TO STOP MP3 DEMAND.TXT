@@ -1,6 +1,0 @@
-------------------------------------------------------------------------------------------------------------------
-D:\VB6\VB-NT\00_Best_VB_01\GOODSYNC SOUND\AUDIO DATA\z# ---- INFO -- PUT IN FRONT TO REM SKIP IGNOR -- ONLY WAV FILE - OR EXTERNAL LOADER STOP ABILITY TO STOP MP3 DEMAND.TXT
-
-A NOTE FOR THE USER -- WILL BE MADE BY PROGRAM CODE IF NOT THERE Tuesday Tue 20 September 2016 13:58:03
-
-------------------------------------------------------------------------------------------------------------------
