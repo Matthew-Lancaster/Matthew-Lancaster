@@ -852,7 +852,7 @@ If (OSVER_N_VAR=10 and SET_GO_1=0)
 		; STRIP QUOTES
 		FN_VAR_1:=StrReplace(FN_VAR_1, """" , "")
 		IfExist, %FN_VAR_1%
-			Run, %FN_VAR_2% , , HIDE
+			Run, %FN_VAR_2% , ,HIDE
 		}
 	}
 	
@@ -2041,6 +2041,21 @@ GOSUB GRAMMARLY_CREATE_SHORTCUT
 RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
 
 GOSUB RUN_HUBIC
+
+; -------------------------------------------------------------------
+; HERE FOR THE SOURCE CODE OF 
+; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+; -------------------------------------------------------------------
+; [ Monday 05:28:00 Am_25 March 2019 ]
+; -------------------------------------------------------------------
+FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\WBEMADS.TLB.BAT"
+IFEXIST, %FN_VAR%
+IFNOTEXIST, C:\WINDOWS\SYSTEM32\WBEMADS.TLB
+{
+	SoundBeep , 2500 , 100
+	Run, "%FN_VAR%" QUICK_GO,,HIDE
+}
+
 
 RETURN
 
