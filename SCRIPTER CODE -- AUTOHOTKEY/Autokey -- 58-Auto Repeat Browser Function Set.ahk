@@ -133,7 +133,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Mon 25-Mar-2019 __ 9 DAY
 ; 290 Views _ 12 OCT 2018 + ++  __ So my very lovely and generous brother bought me a guitar to keep
 ; 309 Views _ 17 OCT 2018 + ++  __ So...I wrote and composed my first ever song! Its called Penguin Lullaby
-; 225 Views _ 09 NOV 2018 + ++   __ Time for a happier song - Riptide
+; 225 Views _ 09 NOV 2018 + ++  __ Time for a happier song - Riptide
 ; 243 Views _ 18 NOV 2018 + ++  __ Hurt
 ; 261 Views _ 29 NOV 2018 + ++  __ New song - Standing in the Rain
 ; 147 Views _ 28 FEB 2019 + ++  __ Blue - In honor of Beth __ About a week ago 
@@ -141,7 +141,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;  71 Views _ 29 DEC 2018 +     __ Angels
 ; 143 Views _ 11 MAR 2019 +     __ For my Papa Bryan Donald Hall-T he City of Chicago.
 ;  75 Views _ 13 MAR 2019 +     __ Had a really bad lost my leave. Try myself with music. Here is Moonshadow.
-;  65 Views _ 22 MAR 2019 +     __ She _ YouTube
+;  73 Views _ 22 MAR 2019 +     __ She _ YouTube
 ;   8 Views _ 23 MAR 2019 +     __ In my pyjamas with bed hair, but a lovely song nonetheless. :) Follow the Sun
 ; -------------------------------------------------------------------
 ; WELL MORE CODE HAS TO GO INNER NOW REQUIRE A REFRESH PAGE AFTER EVERY PLAY
@@ -278,13 +278,14 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	; AFTER EVERY SONG WAIT AND PRESS F5 REFRESH 
 	; MIGHT IMPROVE RESULT AS GOT NONE HITTER LAST LOT
 	; -------------------------------------------------------------------
+
+	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5,OFF
 	
 	If (A_TimeIdle < 10000)
 	{
 		RETURN
 	}
 	
-	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5,OFF
 
 	XR_3=
 	IfWinExist, ahk_class Chrome_WidgetWin_1
@@ -662,6 +663,17 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		IF XR_2>0
 			IF SET_GO_YOU=FALSE 
 			{
+				; ---------------------------------------------------
+				; REQUIRE EXTRA F5 REFRESH PAGE AS WHEN LEFT FOR A WHILE
+				; AND COME BACK ASK TO PLAYER ONLY ABOUT 1- SECONDS 
+				; BUT NOT OF REFRESH PAGE BEFORE
+				; ---------------------------------------------------
+				SLEEP 1000
+				SENDINPUT {F5}
+				SLEEP 8000
+				IF A_ComputerName=3-LINDA-PC
+					SLEEP 10000
+
 				SLEEP 1500
 				; CoordMode, Mouse, Client 
 				SENDINPUT ^{HOME}
@@ -677,7 +689,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				SOUNDBEEP 1500,50
 				SOUNDBEEP 2000,50
 				
-				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 240000 ; 4 MINUTE
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, OFF
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 300000 ; 5 MINUTE
 
 				; MouseClick, LEFT, 80, 200
 			}
@@ -686,6 +699,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		IF XR_2>0
 			IF SET_GO_YOU=TRUE
 			{
+				SLEEP 1000
+				SENDINPUT {F5}
+				SLEEP 8000
+
 				SLEEP 1500
 				; CoordMode, Mouse, Client 
 				SENDINPUT ^{HOME}
@@ -699,7 +716,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				SOUNDBEEP 1500,50
 				SOUNDBEEP 2000,50
 				
-				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 240000 ; 4 MINUTE
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, OFF
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 300000 ; 5 MINUTE
 
 				; MouseClick, LEFT, 80, 200
 			}
