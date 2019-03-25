@@ -334,7 +334,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   125566977
+      Format          =   183500801
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -348,7 +348,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   125566977
+      Format          =   183500801
       CurrentDate     =   37296
    End
    Begin MSComctlLib.ListView ListView2 
@@ -841,10 +841,10 @@ End Sub
 
 Private Sub cmdBrowse_Click()
     txtPath.Text = GetFolder(Me.hWnd, "Scan Path:", txtPath.Text)
-    fg1 = FreeFile
-    Open App.Path + "\Scan Path.txt" For Output As #fg1
-    Print #fg1, txtPath.Text
-    Close #fg1
+    FR2 = FreeFile
+    Open App.Path + "\Scan Path.txt" For Output As #FR2
+    Print #FR2, txtPath.Text
+    Close #FR2
 
 '    fg1 = FreeFile
 '    Open App.Path + "\Scan Path.txt" For Input As #fg1
@@ -1101,7 +1101,7 @@ Private Sub SP_DirMatch(Directory As String, Path As String)
     '####################################################################################################
 End Sub
 
-Private Sub SP_FileMatch(Filename As String, Path As String)
+Private Sub SP_FileMatch(FileName As String, Path As String)
     Dim LV As ListItem
     Dim uWIN32 As WIN32_FIND_DATA
     
@@ -1112,7 +1112,7 @@ Private Sub SP_FileMatch(Filename As String, Path As String)
     On Local Error GoTo GetFileError
     
     With ListView1
-        Set LV = .ListItems.Add(, , Filename)
+        Set LV = .ListItems.Add(, , FileName)
         LV.SubItems(1) = Path
         
         
