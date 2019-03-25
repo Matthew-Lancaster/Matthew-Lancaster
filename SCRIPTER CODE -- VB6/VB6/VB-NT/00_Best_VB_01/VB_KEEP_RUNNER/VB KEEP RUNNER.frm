@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB KEEP RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10932
-   ScaleWidth      =   12864
+   ScaleHeight     =   11916
+   ScaleWidth      =   22944
    Begin VB.FileListBox File_GOODSYNC 
       Height          =   264
       Left            =   10932
@@ -602,6 +602,48 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
+   Begin VB.Label Label44 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "My VB Coder Modify"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   10.2
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   264
+      Left            =   5712
+      TabIndex        =   139
+      Top             =   6360
+      Width           =   2004
+   End
+   Begin VB.Label Label_VB_MODIFIED_TIME 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "GS HR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   10.2
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   264
+      Left            =   7740
+      TabIndex        =   138
+      Top             =   6360
+      Width           =   804
+   End
    Begin VB.Label Label_GOODSYNC_04_HOUR 
       Alignment       =   2  'Center
       Appearance      =   0  'Flat
@@ -620,7 +662,7 @@ Begin VB.Form Form1
       Height          =   264
       Left            =   4848
       TabIndex        =   137
-      Top             =   6324
+      Top             =   6360
       Width           =   804
    End
    Begin VB.Label Label_GOODSYNC_02_HOUR 
@@ -641,7 +683,7 @@ Begin VB.Form Form1
       Height          =   264
       Left            =   3984
       TabIndex        =   135
-      Top             =   6324
+      Top             =   6360
       Width           =   852
    End
    Begin VB.Label Label_GOODSYNC_01 
@@ -662,7 +704,7 @@ Begin VB.Form Form1
       Height          =   264
       Left            =   24
       TabIndex        =   134
-      Top             =   6324
+      Top             =   6360
       Width           =   3948
    End
    Begin VB.Label Label13 
@@ -921,7 +963,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H80000008&
-      Height          =   696
+      Height          =   456
       Left            =   5712
       TabIndex        =   104
       Top             =   5892
@@ -1995,6 +2037,14 @@ Option Explicit
 ' VARIABL DECLARE BLOCK FROM VB KEEP RUNNER
 ' ------------------------------------------------------------------
 
+Dim Form_Resize_VB
+Dim TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE
+
+
+Dim OLD_VB_COUNT_ARRAY_SIZE
+
+Dim TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE
+Dim TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02
 Dim SET_VB_EXE_ARRAY_FIRST_TIME
 
 Dim VB_EXE_SYNC_TIMER
@@ -2357,13 +2407,13 @@ Private Enum Priorities
   p_Idle = &H40
 End Enum
 
-Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+Private Declare Function Process32First Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function Process32Next Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
 Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadId As Long) As Long
 Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
-Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+Private Declare Function TerminateProcess Lib "kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
@@ -2373,9 +2423,9 @@ Private Declare Function GetExitCodeThread Lib "kernel32.dll" (ByVal hThread As 
 Private Declare Function TerminateThread Lib "kernel32.dll" (ByVal hThread As Long, ByVal dwExitCode As Long) As Long
 Private Declare Function SetPriorityClass Lib "kernel32.dll" (ByVal hProcess As Long, ByVal dwPriorityClass As Long) As Boolean
 
-Private Declare Function CloseHandle Lib "Kernel32" _
+Private Declare Function CloseHandle Lib "kernel32" _
         (ByVal hObject As Long) As Long
-Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
 Private Const TH32CS_SNAPPROCESS = &H2&
 
 Private Type MENUBARINFO
@@ -2407,7 +2457,7 @@ Private Const SW_SHOW = 5
 'Private Const HWND_NOTOPMOST = -2
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Private Type SHITEMID
     cb As Long
@@ -2425,7 +2475,7 @@ Private Declare Function IsZoomed Lib "user32.dll" (ByVal hwnd As Long) As Long
 
 Private Declare Function IsWindowVisible Lib "user32" (ByVal hwnd As Long) As Long
 
-Private Declare Function GetShortPathName Lib "Kernel32" _
+Private Declare Function GetShortPathName Lib "kernel32" _
       Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
       ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
 
@@ -2437,8 +2487,8 @@ Private Const GW_HWNDNEXT = 2
 Private Const WM_CLOSE = &H10
 
 
-Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -2467,7 +2517,7 @@ Private Declare Function MoveWindow _
          ByVal nHeight As Long, _
          ByVal bRepaint As Long) As Long
 
-Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
+Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 Private Declare Function Putfocus _
         Lib "user32" _
@@ -2495,7 +2545,7 @@ Private Const FILE_SHARE_READ = &H1
 Private Const FILE_SHARE_WRITE = &H2
 Private Const GENERIC_WRITE = &H40000000
  
-Private Declare Function CreateFile Lib "Kernel32" Alias _
+Private Declare Function CreateFile Lib "kernel32" Alias _
   "CreateFileA" (ByVal lpFileName As String, _
   ByVal dwDesiredAccess As Long, _
   ByVal dwShareMode As Long, _
@@ -2506,16 +2556,16 @@ Private Declare Function CreateFile Lib "Kernel32" Alias _
   As Long
 
 Private Declare Function LocalFileTimeToFileTime Lib _
-    "Kernel32" (lpLocalFileTime As FILETIME, _
+    "kernel32" (lpLocalFileTime As FILETIME, _
      lpFileTime As FILETIME) As Long
 
-Private Declare Function SetFileTime Lib "Kernel32" _
+Private Declare Function SetFileTime Lib "kernel32" _
   (ByVal hFile As Long, ByVal MullP As Long, _
    ByVal NullP2 As Long, lpLastWriteTime _
    As FILETIME) As Long
 
 Private Declare Function SystemTimeToFileTime Lib _
-   "Kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
+   "kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
    As FILETIME) As Long
 
 
@@ -2545,11 +2595,11 @@ Private Declare Function SystemTimeToFileTime Lib _
 '    wMilliseconds As Integer
 'End Type
 
-Private Declare Function CreateDirectory Lib "Kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
-Private Declare Function GetFileTime Lib "Kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
-Private Declare Function FileTimeToSystemTime Lib "Kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
-Private Declare Function FileTimeToLocalFileTime Lib "Kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
-Private Declare Function GetFileAttributes Lib "Kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
+Private Declare Function CreateDirectory Lib "kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
+Private Declare Function GetFileTime Lib "kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
+Private Declare Function FileTimeToSystemTime Lib "kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
+Private Declare Function FileTimeToLocalFileTime Lib "kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
+Private Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
 'Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
 
@@ -2722,7 +2772,7 @@ Private Const PRF_OWNED = &H20&    ' Draw all owned windows
 '-----------------------
 'THE UNIVERSAL TIME DOWN
 '-----------------------
-Private Declare Function GetTimeZoneInformation Lib "Kernel32" (lpTimeZoneInformation As TIME_ZONE_INFORMATION) As Long
+Private Declare Function GetTimeZoneInformation Lib "kernel32" (lpTimeZoneInformation As TIME_ZONE_INFORMATION) As Long
 Public MoonPhaseDate
 
 Private Const TIME_ZONE_ID_INVALID = -1
@@ -3086,7 +3136,9 @@ Private Sub Form_Load()
     End If
 
     Me.Visible = False
-
+    
+    Label54.FontSize = 10
+    
     Call READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY
     
     FIRST_RUN_FOR_TOP_AND_LEFT = 6
@@ -3905,6 +3957,10 @@ Private Sub Label_GOODSYNC_02_HOUR_Click()
 'Label_GOODSYNC_02_HOUR
 End Sub
 
+Private Sub Label_GOODSYNC_04_HOUR_Click()
+'Label_GOODSYNC_04_HOUR.caption
+End Sub
+
 Private Sub Label_KILL_CMD_AND_AHK_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_CMD_AND_AHK.BackColor = RGB(255, 255, 255)
@@ -4313,6 +4369,14 @@ End Sub
 
 
 
+
+Private Sub Label15_Click()
+
+End Sub
+
+Private Sub Label_VB_MODIFED_TIME_Click()
+
+End Sub
 
 Private Sub Label22_Click()
 'Label22.CAPTION
@@ -5040,6 +5104,8 @@ End Sub
 Private Sub Form_Resize()
 
 If NOT_RESIZE_EVENTER = True Then Exit Sub
+
+Form_Resize_VB = True
 
 If O_Me_WindowState = vbMaximized And Me.WindowState = vbNormal Then Exit Sub
 
@@ -7211,13 +7277,75 @@ End Sub
 
 Sub VB_EXE_SYNC()
 
+Dim RIPER
+RIPER = False
+If GetComputerName = "1-ASUS-X5DIJ" Then RIPER = True
+If GetComputerName = "2-ASUS-EEE" Then RIPER = True
+If GetComputerName = "3-LINDA-PC" Then RIPER = True
+If GetComputerName = "5-ASUS-P2520LA" Then RIPER = True
+If RIPER = True Then
+    Label_VB_MODIFIED_TIME.Caption = "Not GO"
+    Exit Sub
+End If
+
 Dim R, A1, A2
 Dim TxtEXE_INFO, X1_F
 Dim F1, F2
 Dim VAR_DATE_1, VAR_DATE_2
 Dim TT_0, TT_1, TT_2
+Dim V_VAR, V_TIME_01
+Dim TIME_MARKER
 
 VB_EXE_SYNC_TIMER = VB_EXE_SYNC_TIMER + 1
+
+V_VAR = TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02
+V_TIME_01 = Trim(Str(DateDiff("s", V_VAR, Now)))
+If Val(V_TIME_01) > -1 Then
+    V_TIME_01 = V_TIME_01
+    TIME_MARKER = " Sec"
+End If
+If Val(V_TIME_01) > 120 Then
+    V_TIME_01 = Trim(Str(DateDiff("n", V_VAR, Now)))
+    TIME_MARKER = " Min"
+End If
+If Val(V_TIME_01) > 60 Then
+    V_TIME_01 = Trim(Str(DateDiff("h", V_VAR, Now)))
+    TIME_MARKER = " Hour"
+End If
+If V_VAR < 1 Then
+    V_TIME_01 = "0"
+    TIME_MARKER = " Sec"
+End If
+If V_VAR < 1 Then
+    If Label_VB_MODIFIED_TIME.Caption = "GS HR" _
+    Or Label_VB_MODIFIED_TIME.Caption = "Not YET" Then
+        V_TIME_01 = ""
+        TIME_MARKER = "Not YET"
+    End If
+End If
+Label_VB_MODIFIED_TIME.Caption = V_TIME_01 + TIME_MARKER
+Label_VB_MODIFIED_TIME.FontSize = 9
+'THE VARIABLE FOR ERROR
+If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE > 0 Then
+    Label_VB_MODIFIED_TIME.BackColor = RGB(200, 127, 127)
+Else
+    Label_VB_MODIFIED_TIME.BackColor = RGB(255, 255, 255)
+End If
+
+If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE < Now Then
+    If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE > 0 Then
+        VB_EXE_SYNC_TIMER = 10
+    End If
+End If
+
+
+If TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE < Now Then
+    If TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE > 0 Then
+        TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE = 0
+        VB_EXE_SYNC_TIMER = 10
+    End If
+End If
+
 If VB_EXE_SYNC_TIMER > 2 Then
     VB_EXE_SYNC_TIMER = 0
 Else
@@ -7242,17 +7370,20 @@ End If
 VB_EXE_ARRAY_COUNTER = UBound(VB_EXE_ARRAY) - 1
 
 VB_EXE_ARRAY_COMPARE = ""
-
 For R = 1 To UBound(VB_EXE_ARRAY)
     VB_EXE_ARRAY_COMPARE = VB_EXE_ARRAY_COMPARE + "----" + VB_EXE_ARRAY(R)
 Next
 
+Dim VB_COUNT_ARRAY_SIZE
+
+VB_COUNT_ARRAY_SIZE = 0
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     A2 = lstProcess_3_SORTER_ListView.ListItems.Item(R)
     If Val(A2) > 0 Then
         TxtEXE_INFO = GetFileFromProc(Val(A2))
         If InStr(TxtEXE_INFO, "D:\VB6\") > 0 Then
+            VB_COUNT_ARRAY_SIZE = VB_COUNT_ARRAY_SIZE + 1
             If InStr(VB_EXE_ARRAY_COMPARE, TxtEXE_INFO + "----") = 0 Then
                 VB_EXE_ARRAY_COUNTER = VB_EXE_ARRAY_COUNTER + 1
                 ReDim Preserve VB_EXE_ARRAY(VB_EXE_ARRAY_COUNTER)
@@ -7261,6 +7392,16 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         End If
     End If
 Next
+
+
+NET_COPY_CHANGE_HAPPENER = False
+' IF A PROCESS HAS LOADED AND GONE THEN DO ALL THE NETWORK CHECK ANOTHER
+' BEST WAY TO CATCH RATHER THAN HASHER PID NUMBER WITH FILE PATH
+' ----------------------------------------------------------------------
+If OLD_VB_COUNT_ARRAY_SIZE <> VB_COUNT_ARRAY_SIZE Then
+    NET_COPY_CHANGE_HAPPENER = True
+End If
+OLD_VB_COUNT_ARRAY_SIZE = VB_COUNT_ARRAY_SIZE
 
 For R = 1 To UBound(VB_EXE_ARRAY)
     TxtEXE_INFO = VB_EXE_ARRAY(R)
@@ -7291,34 +7432,76 @@ For R = 1 To UBound(VB_EXE_ARRAY)
             If VAR_DATE_1 > VAR_DATE_2 Then
                 FSO.CopyFile NET_NAME_1, NET_NAME_2
                 NET_COPY_CHANGE_HAPPENER = True
+                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
             End If
             If VAR_DATE_1 < VAR_DATE_2 Then
                 FSO.CopyFile NET_NAME_2, NET_NAME_1
                 NET_COPY_CHANGE_HAPPENER = True
+                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
             End If
         End If
         Set F1 = Nothing
         Set F2 = Nothing
                 
+        If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE < Now Then
+            If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE > 0 Then
+                NET_COPY_CHANGE_HAPPENER = True
+            End If
+        End If
+                
         ' NET_COPY_CHANGE_HAPPENER = True
         If NET_COPY_CHANGE_HAPPENER = True Then
-
+            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE = 0
+'            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = 0
             If Array_FileName(1) = "" Then
                 Call READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY
             End If
             
             ' TWICE FOR GOOD FUN
             ' ------------------
-            For TT_0 = 1 To 1
+            For TT_0 = 1 To 2
             For TT_1 = 1 To UBound(Array_FileName)
             For TT_2 = 1 To UBound(Array_FileName)
-                If UCase(Array_NETPATH_01(TT_1)) <> Array_NETPATH_01(TT_2) Then
+                If UCase(Array_NETPATH_01(TT_1)) <> UCase(Array_NETPATH_01(TT_2)) Then
+                    
+                    DoEvents
+                    If Form_Resize_VB = True Then
+                        Form_Resize_VB = False
+                        TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 0, 30)
+                        Exit Sub
+                    End If
+                    
                     NET_NAME_1 = NET_NAME_12
                     NET_NAME_2 = NET_NAME_22
                     NET_NAME_1 = "\\" + Array_NETPATH_01(TT_1) + "\" + "" + Array_NETPATH_02(TT_1) + "_02_d_drive\" + Mid(NET_NAME_1, 4)
                     NET_NAME_2 = "\\" + Array_NETPATH_01(TT_2) + "\" + "" + Array_NETPATH_02(TT_2) + "_02_d_drive\" + Mid(NET_NAME_2, 4)
+                                                        
+                    If TT_0 = 2 Then
+                        NET_NAME_2 = NET_NAME_12
+                        NET_NAME_2 = "\\" + Array_NETPATH_01(TT_2) + "\" + "" + Array_NETPATH_02(TT_2) + "_02_d_drive\" + Mid(NET_NAME_2, 4)
+                    End If
                                     
+                    'Debug.Print Array_NETPATH_01(TT_1)
+                    'Debug.Print Array_NETPATH_01(TT_2)
+                    'Stop
+                    'Dim HEREHERE
                     Err.Clear
+                    'HEREHERE = 0
+                    'If InStr(NET_NAME_1, "X5DIJ") Then HEREHERE = 1
+                    'If InStr(NET_NAME_2, "X5DIJ") Then HEREHERE = 1
+                    'If HEREHERE = 1 And InStr(NET_NAME_1, "Shell Explorer Loader") Then HEREHERE = 2
+                    'If HEREHERE = 1 And InStr(NET_NAME_2, "Shell Explorer Loader") Then HEREHERE = 2
+                    'If TT_0 <> 2 Then HEREHERE = 0
+                    
+                    'Debug.Print NET_NAME_1
+                    'Debug.Print NET_NAME_2
+                    'If HEREHERE = 2 Then Stop
+                    
+                    ' ------------------------------------------------------------------
+                    'DEBUG GO AND SOME EXE ABLE TO RUN AND UPDATE THEMSELVE UNDERNETH
+                    ' SOLVED SOMETHING THOUGH A DOUBLE PASS FIRST FOR NEXT LLOP REQUIRE
+                    ' ------------------------------------------------------------------
+                    
                     On Error Resume Next
                     Set F1 = FSO.GetFile(NET_NAME_1)
                     Set F2 = FSO.GetFile(NET_NAME_2)
@@ -7332,12 +7515,22 @@ For R = 1 To UBound(VB_EXE_ARRAY)
                     End If
                     If VAR_DATE_1 > 0 Then
                         If VAR_DATE_1 > VAR_DATE_2 Then
+                            Err.Clear
                             FSO.CopyFile NET_NAME_1, NET_NAME_2
+                            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
+                            If Err.Number > 0 Then
+                                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 0, 30)
+                            End If
                         End If
                     End If
                     If VAR_DATE_2 > 0 Then
                         If VAR_DATE_1 < VAR_DATE_2 Then
+                            Err.Clear
                             FSO.CopyFile NET_NAME_2, NET_NAME_1
+                            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
+                            If Err.Number > 0 Then
+                                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 0, 30)
+                            End If
                         End If
                     End If
                     Set F1 = Nothing
@@ -7349,8 +7542,8 @@ For R = 1 To UBound(VB_EXE_ARRAY)
         End If
 End If
 Next
-'Debug.Print Now
-'Debug.Print "----"
+Debug.Print Now
+Debug.Print "----"
 
 On Error GoTo 0
 
@@ -11723,3 +11916,4 @@ Public Function GetHWndFromProcess(p_lngProcessId As Long) As Long
         lngChild = GetWindow(lngChild, GW_HWNDNEXT)
     Loop
 End Function
+

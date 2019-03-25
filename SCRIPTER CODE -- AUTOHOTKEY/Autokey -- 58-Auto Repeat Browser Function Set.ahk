@@ -1,4 +1,4 @@
-;  =============================================================
+	 ;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk
 ;# __ 
 ;# __ Autokey -- 58-Auto Repeat Browser Function Set.ahk
@@ -143,6 +143,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;  75 Views _ 13 MAR 2019 +     __ Had a really bad lost my leave. Try myself with music. Here is Moonshadow.
 ;  73 Views _ 22 MAR 2019 +     __ She _ YouTube
 ;   8 Views _ 23 MAR 2019 +     __ In my pyjamas with bed hair, but a lovely song nonetheless. :) Follow the Sun
+;   3 Views _ 22 MAR 2019 +     __ Hallelujah
 ; -------------------------------------------------------------------
 ; WELL MORE CODE HAS TO GO INNER NOW REQUIRE A REFRESH PAGE AFTER EVERY PLAY
 ; GET IT GOING RESULT BETTER
@@ -285,7 +286,6 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	{
 		RETURN
 	}
-	
 
 	XR_3=
 	IfWinExist, ahk_class Chrome_WidgetWin_1
@@ -319,6 +319,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	{
 		XR_2=1
 		XR_4=Follow the Sun - YouTube - Google Chrome
+	}
+	IfWinExist, Hallelujah - YouTube - Google Chrome
+	{
+		XR_2=1
+		XR_4=Hallelujah - YouTube - Google Chrome
 	}
 	
 	IF XR_2=0
@@ -365,6 +370,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
 	XR_2=1
 	IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
+	XR_2=1
+	IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
 	XR_2=1
 
 
@@ -504,7 +511,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			XR_2=1
 		IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
 			XR_2=1
-
+		IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
+			XR_2=1
 			
 		IF (!XR_1 or !XR_2)
 		{
@@ -561,6 +569,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			XR_2=1
 			XR_4=Follow the Sun - YouTube - Google Chrome
 		}
+		IfWinExist, Hallelujah - YouTube - Google Chrome
+		{
+			XR_2=1
+			XR_4=Hallelujah - YouTube - Google Chrome
+		}
 		
 		IF XR_2=0
 			XR_3=
@@ -608,6 +621,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		XR_2=1
 	IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
 		XR_2=1
+	IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
+		XR_2=1
 
 	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
 	LOOP_COUNTER=0
@@ -640,9 +655,13 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 					SET_GO=TRUE
 				IF INSTR(CurrentWindowTitle,"Follow the Sun - YouTube - Google Chrome")
 					SET_GO=TRUE
+				IF INSTR(CurrentWindowTitle,"Hallelujah - YouTube - Google Chrome")
+					SET_GO=TRUE
+				
 				SET_GO_YOU=FALSE
 				IF INSTR(CurrentWindowTitle,"YouTube - Google Chrome")
 					SET_GO_YOU=TRUE
+				
 				
 				IF SET_GO=TRUE 
 				{
@@ -690,7 +709,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				SOUNDBEEP 2000,50
 				
 				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, OFF
-				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 300000 ; 5 MINUTE
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 420000 ; 7 MINUTE
 
 				; MouseClick, LEFT, 80, 200
 			}
@@ -717,7 +736,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				SOUNDBEEP 2000,50
 				
 				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, OFF
-				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 300000 ; 5 MINUTE
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 420000 ; 7 MINUTE
 
 				; MouseClick, LEFT, 80, 200
 			}
