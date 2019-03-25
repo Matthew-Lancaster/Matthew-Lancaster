@@ -47,8 +47,6 @@ Sub Main()
     
     Debug.Print App.Path
     
-    
-    
     FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
     
     If InStr(Command$, "TASKBAR_TRAY_ICON") = 0 Then
@@ -64,14 +62,11 @@ Sub Main()
     End If
     
     CMD = "C:\Windows\System32\cmd.exe"
-    GOODSYNC_MODE_VAR = "GOODSYNC_MODE"
+    GOODSYNC_MODE_VAR = "GOODSYNC_AND_CLOUD_MODE"
     
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + GOODSYNC_MODE_VAR + " " + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
- 
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + GOODSYNC_MODE_VAR + Command$, SHOWWINDOW_X
     
     End
-    
-    
 
 End Sub
 
