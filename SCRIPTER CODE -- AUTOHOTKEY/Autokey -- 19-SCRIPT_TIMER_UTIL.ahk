@@ -2854,6 +2854,10 @@ IF SET_GO=TRUE
 		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
 		{
 			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+			; IF A_ComputerName=2-ASUS-EEE
+				; If MMX<>-1
+					; MSGBOX % MMX 
+			
 			If MMX<>-1
 			{
 				; -------------------------------------------------------------
@@ -2869,18 +2873,19 @@ IF SET_GO=TRUE
 				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 				SOUNDBEEP 2000,100
 				SLEEP 2000
-			}
-			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			; MSGBOX % MMX
-			If MMX<>-1
-			{
-				GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=0
+
+				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+				If MMX<>-1
+				{
+					HWND_1=0
+				}
 			}
 		}
 
 		; ------------------------------------------------------------------------
 		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
 		; ------------------------------------------------------------------------
+		
 		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE = %HWND_1%
 	}
 }

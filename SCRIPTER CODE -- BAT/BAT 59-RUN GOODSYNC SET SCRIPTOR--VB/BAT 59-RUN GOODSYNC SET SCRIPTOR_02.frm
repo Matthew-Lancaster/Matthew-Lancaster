@@ -5,7 +5,7 @@ Begin VB.Form Form1
    ClientLeft      =   108
    ClientTop       =   456
    ClientWidth     =   3624
-   Icon            =   "BAT 59-RUN GOODSYNC SET SCRIPTOR.frx":0000
+   Icon            =   "BAT 59-RUN GOODSYNC SET SCRIPTOR_02.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   2316
    ScaleWidth      =   3624
@@ -27,7 +27,7 @@ Attribute VB_Exposed = False
 '    Modified   : Sunday 04:05:20 Pm_07 October 2018
 '--------------------------------------------------------------------------------
 
-
+' WANT ICON AND THEN HAVE A FORM
 
 Private Sub Form_Load()
 
