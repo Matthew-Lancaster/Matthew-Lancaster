@@ -2361,8 +2361,8 @@ End Type
 
 Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Type POINTAPI
-    x As Long
-    y As Long
+    X As Long
+    Y As Long
 End Type
 
 Private Type RECT
@@ -2486,7 +2486,7 @@ Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (
 Private Declare Function Escape Lib "gdi32" (ByVal HDC As Long, ByVal nEscape As Long, ByVal nCount As Long, ByVal lpInData As String, lpOutData As Any) As Long
 Private Declare Function CreateCompatibleDC Lib "gdi32" (ByVal HDC As Long) As Long
 Private Declare Function CreateCompatibleBitmap Lib "gdi32" (ByVal HDC As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
-Private Declare Function StretchBlt Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long
+Private Declare Function StretchBlt Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long
 Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
      
 'HDC SET 2
@@ -2498,11 +2498,11 @@ Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObj
 'Private Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal HDC As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As Size) As Long
 Private Declare Function SetBkMode Lib "gdi32" (ByVal HDC As Long, ByVal nBkMode As Long) As Long
 Private Declare Function BeginPath Lib "gdi32" (ByVal HDC As Long) As Long
-Private Declare Function TextOut Lib "gdi32" Alias "TextOutA" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, ByVal lpString As String, ByVal nCount As Long) As Long
+Private Declare Function TextOut Lib "gdi32" Alias "TextOutA" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long, ByVal lpString As String, ByVal nCount As Long) As Long
 Private Declare Function EndPath Lib "gdi32" (ByVal HDC As Long) As Long
 Private Declare Function SelectClipPath Lib "gdi32" (ByVal HDC As Long, ByVal iMode As Long) As Long
-Private Declare Function MoveToEx Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, lpPoint As POINTAPI) As Long
-Private Declare Function LineTo Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long) As Long
+Private Declare Function MoveToEx Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long, lpPoint As POINTAPI) As Long
+Private Declare Function LineTo Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long) As Long
      
 'HDC SET 3
 'Private Declare Function CreateCompatibleBitmap Lib "gdi32" (ByVal HDC As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
@@ -2511,7 +2511,7 @@ Private Declare Function GetSystemPaletteEntries Lib "gdi32" (ByVal HDC As Long,
 Private Declare Function CreatePalette Lib "gdi32" (lpLogPalette As LOGPALETTE) As Long
 Private Declare Function SelectPalette Lib "gdi32" (ByVal HDC As Long, ByVal hPalette As Long, ByVal bForceBackground As Long) As Long
 Private Declare Function RealizePalette Lib "gdi32" (ByVal HDC As Long) As Long
-Private Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
+Private Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
  
 'HCD SET 4
 Private Declare Function OleCreatePictureIndirect Lib "olepro32.dll" (PicDesc As PicBmp, RefIID As GUID, ByVal fPictureOwnsHandle As Long, IPic As IPicture) As Long
@@ -3644,7 +3644,7 @@ Private Sub Form_LostFocus()
 'Me.SetFocus
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 'Me.AutoRedraw = False
 'Me.SetFocus
 End Sub
@@ -4083,7 +4083,7 @@ Private Sub lstProcess_2_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
 LISTVIEW_2_OR_3_HITT = 2
 End Sub
 
-Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
 LISTVIEW_2_OR_3_HITT = 2
 End Sub
 
@@ -4092,7 +4092,7 @@ LISTVIEW_2_OR_3_HITT = 3
 
 End Sub
 
-Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
 LISTVIEW_2_OR_3_HITT = 3
 
 End Sub
@@ -4480,6 +4480,9 @@ Private Sub cmdShow_Click()
 
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
+    
+    Me.WindowState = vbMinimized
+    Me.WindowState = vbMinimized
 
 End Sub
 Private Sub cmdTerminate_Click()
@@ -8237,7 +8240,7 @@ End Sub
 '////////////////////////////////////////////////////////////////////
 '//// CROSSHAIR EVENTS
 '////////////////////////////////////////////////////////////////////
-Private Sub picCrossHair_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub picCrossHair_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
     ' If user pressed left mouse button and we are not dragging
     If Button = vbLeftButton And Not m_bDragging Then
         picCrossHair_MouseMove_Dragging_VAR = True
@@ -8270,7 +8273,7 @@ Private Sub picCrossHair_MouseMove_02()
     ' Set label caption to cursor cordinates
     'lblCordi.Caption = "X: " & tPA.X & "  Y: " & tPA.Y
     
-    If tPA.y = 0 Or tPA.y < (Me.Top / Screen.TwipsPerPixelY) Then
+    If tPA.Y = 0 Or tPA.Y < (Me.Top / Screen.TwipsPerPixelY) Then
         NOT_RESIZE_EVENTER = True
         Me.WindowState = vbNormal
         'Me.Hide
@@ -8294,7 +8297,7 @@ Private Sub picCrossHair_MouseMove_02()
 End Sub
 
 
-Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
     
     picCrossHair_MouseMove_02
     
@@ -8306,7 +8309,7 @@ Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, x As Sin
 
 End Sub
 
-Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
     ' If user pressed left mouse button and we are dragging
     If Button = vbLeftButton And m_bDragging Then
         ' Set dragging flag to true
@@ -8372,7 +8375,7 @@ Sub ChunkCodeOnMouse()
                 ' Get cursor position
                 GetCursorPos tPA
                 ' Get window handle from point
-                lHwnd = WindowFromPoint(tPA.x, tPA.y)
+                lHwnd = WindowFromPoint(tPA.X, tPA.Y)
                 ' Get window caption
             End If
         End If
@@ -8665,15 +8668,15 @@ End If
 
 End Sub
 
-Public Sub FindCursor(x, y)
+Public Sub FindCursor(X, Y)
 
 Dim P As POINTAPI
 
 GetCursorPos P
 '   return x and y co-ordinate
-x = P.x ' / GetSystemMetrics(0) * Screen.Width
+X = P.X ' / GetSystemMetrics(0) * Screen.Width
 '   for current cursor position
-y = P.y '/ GetSystemMetrics(1) * Screen.Height
+Y = P.Y '/ GetSystemMetrics(1) * Screen.Height
 
 End Sub
 
@@ -9161,7 +9164,7 @@ If IsIDE = True And IsIDE_TEST = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 
 
 Dim tPA As POINTAPI, lHwnd As Long, O_lhWndParent, lhWndParent, lhWndParentX
 GetCursorPos tPA
-lHwnd = WindowFromPoint(tPA.x, tPA.y)
+lHwnd = WindowFromPoint(tPA.X, tPA.Y)
 O_lhWndParent = lHwnd
 lhWndParent = GetParent(lHwnd)
 If lhWndParent = 0 Then lhWndParent = O_lhWndParent
@@ -9509,7 +9512,7 @@ Private Sub Timer_MOUSE_CORD_Timer()
     ' Get cursor cordinates
     GetCursorPos tPA
     ' Set label caption to cursor cordinates
-    lblCordi.Caption = "X: " & tPA.x & "  Y: " & tPA.y
+    lblCordi.Caption = "X: " & tPA.X & "  Y: " & tPA.Y
     
     If TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20) > Now Then
     
@@ -9519,7 +9522,7 @@ Private Sub Timer_MOUSE_CORD_Timer()
         
         i_string = "USE " + Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20), "00")) + " SECOND HOOVER"
         If i_string <> MNU_HOOVER_20_SECOND.Caption Then MNU_HOOVER_20_SECOND.Caption = i_string
-            mWnd = WindowFromPoint(tPA.x, tPA.y)
+            mWnd = WindowFromPoint(tPA.X, tPA.Y)
             Call ChunkCodeOnMouse
         Else
             
