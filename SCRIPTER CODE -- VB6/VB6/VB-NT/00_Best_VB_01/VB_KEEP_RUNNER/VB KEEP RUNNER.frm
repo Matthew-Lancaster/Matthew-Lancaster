@@ -3169,8 +3169,9 @@ Private Sub Form_Load()
         .FullRowSelect = True
     End With
     With ListView_VB_MODIFIED_ERROR
+        .ColumnHeaders.Add , "STATUS", "STATUS", 1000, lvwColumnLeft
         .ColumnHeaders.Add , "COMPUTER_NAME", "COMPUTER_NAME", 1450, lvwColumnLeft
-        .ColumnHeaders.Add , "PATH_AND_FILE", "PATH_AND_FILE", ListView_VB_MODIFIED_ERROR.width - .ColumnHeaders.Item(1).width, lvwColumnLeft
+        .ColumnHeaders.Add , "PATH_AND_FILE", "PATH_AND_FILE", ListView_VB_MODIFIED_ERROR.width - .ColumnHeaders.Item(1).width, lvwColumnLeft - .ColumnHeaders.Item(2).width, lvwColumnLeft
         .View = lvwReport
         .FullRowSelect = True
         
@@ -4434,6 +4435,19 @@ Private Sub Label_VB_MODIFED_TIME_Click()
 End Sub
 
 Private Sub Label_VB_MODIFIED_ERROR_Click()
+
+End Sub
+
+Private Sub Label_VB_MODIFIED_ACTIVE_Change()
+'Stop
+
+'Debug.Print Label_VB_MODIFIED_ACTIVE.Caption
+
+End Sub
+
+Private Sub Label_VB_MODIFIED_ACTIVE_Click()
+
+'Stop
 
 End Sub
 
@@ -7385,6 +7399,7 @@ If VB_EXE_SYNC_TIMER = -1 Then
 End If
 If VB_EXE_SYNC_TIMER = 0 Then
     VB_EXE_SYNC_TIMER = Now + TimeSerial(0, 0, 30)
+    Label_VB_MODIFIED_ACTIVE = "IDLE"
 End If
 
 Call TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_SUB
@@ -7435,14 +7450,14 @@ NET_COPY_CHANGE_HAPPENER = False
 ' IF A PROCESS HAS LOADED AND GONE THEN DO ALL THE NETWORK CHECK ANOTHER
 ' BEST WAY TO CATCH RATHER THAN HASHER PID NUMBER WITH FILE PATH
 ' ----------------------------------------------------------------------
-If OLD_VB_COUNT_ARRAY_SIZE <> VB_COUNT_ARRAY_SIZE Then
+If OLD_VB_COUNT_ARRAY_SIZE > 0 And OLD_VB_COUNT_ARRAY_SIZE <> VB_COUNT_ARRAY_SIZE Then
     NET_COPY_CHANGE_HAPPENER = True
 End If
 
 OLD_VB_COUNT_ARRAY_SIZE = VB_COUNT_ARRAY_SIZE
 
-Label_VB_MODIFIED_ACTIVE.Caption = "MY COMPUTER"
-Label_VB_MODIFIED_ACTIVE.FontSize = 6.8
+'Label_VB_MODIFIED_ACTIVE.Caption = "MY COMPUTER"
+'Label_VB_MODIFIED_ACTIVE.FontSize = 6.8
 For R = 1 To UBound(VB_EXE_ARRAY)
     TxtEXE_INFO = VB_EXE_ARRAY(R)
     If InStr(TxtEXE_INFO, "D:\VB6\") > 0 Then
@@ -7482,15 +7497,7 @@ For R = 1 To UBound(VB_EXE_ARRAY)
         End If
         Set F1 = Nothing
         Set F2 = Nothing
-                
-                
-        ' NET_COPY_CHANGE_HAPPENER = TRUE OR NOT
 
-        If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 < Now Then
-            If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 > 0 Then
-                NET_COPY_CHANGE_HAPPENER = True
-            End If
-        End If
     End If
 Next
                 
@@ -7518,8 +7525,8 @@ If NET_COPY_CHANGE_HAPPENER = True Then
         TT_VAR_0 = Format((2 - TT_0), "0")
         TT_VAR_1 = Format((UBound(Array_FileName) - TT_1), "0")
         TT_VAR_2 = Format((UBound(Array_FileName) - TT_2), "0")
-        Label_VB_MODIFIED_ACTIVE.Caption = "GO -- " + TT_VAR_0 + "," + TT_VAR_1 + "," + TT_VAR_2
-        Label_VB_MODIFIED_ACTIVE.FontSize = 9.4
+        Label_VB_MODIFIED_ACTIVE.Caption = "GO - " + TT_VAR_0 + "," + TT_VAR_1 + "," + TT_VAR_2
+        Label_VB_MODIFIED_ACTIVE.FontSize = 9.2
         
         If UCase(Array_NETPATH_01(TT_1)) <> UCase(Array_NETPATH_01(TT_2)) Then
             
@@ -7582,6 +7589,8 @@ If NET_COPY_CHANGE_HAPPENER = True Then
                     FSO.CopyFile NET_NAME_1, NET_NAME_2
                     If Err.Number > 0 Then
                         Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_2, NET_NAME_1, 0)
+                    Else
+                        Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_2, NET_NAME_1, 1)
                     End If
                 End If
             End If
@@ -7602,6 +7611,8 @@ If NET_COPY_CHANGE_HAPPENER = True Then
                     FSO.CopyFile NET_NAME_2, NET_NAME_1
                     If Err.Number > 0 Then
                         Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_1, NET_NAME_2, 0)
+                    Else
+                        Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_1, NET_NAME_2, 1)
                     End If
                 End If
             End If
@@ -7614,9 +7625,10 @@ If NET_COPY_CHANGE_HAPPENER = True Then
 End If
 
 VB_EXE_SYNC_TIMER = 0
+' Label_VB_MODIFIED_ACTIVE = "IDLE"
 
-Label_VB_MODIFIED_ACTIVE.Caption = "IDLE"
-Label_VB_MODIFIED_ACTIVE.FontSize = 9.4
+'Label_VB_MODIFIED_ACTIVE.Caption = "IDLE"
+'Label_VB_MODIFIED_ACTIVE.FontSize = 9.4
 
 Debug.Print Now
 Debug.Print "----"
@@ -7682,7 +7694,7 @@ If Val(V_TIME_01) > 300 Then
     V_TIME_01 = Trim(Str(DateDiff("n", V_VAR, Now)))
     TIME_MARKER = " Min"
 End If
-If Val(V_TIME_01) > 60 Then
+If Val(V_TIME_01) > 60 And TIME_MARKER = " Min" Then
     V_TIME_01 = Trim(Str(DateDiff("h", V_VAR, Now)))
     TIME_MARKER = " Hour"
 End If
@@ -7709,11 +7721,12 @@ Else
     Label_VB_MODIFIED_TIME.BackColor = RGB(255, 255, 255)
 End If
 
-V_TIME_01 = Trim(Str(DateDiff("s", Now, VB_EXE_SYNC_TIMER)))
-
-Label_VB_MODIFIED_ACTIVE.Caption = "IDLE " + V_TIME_01
-
-
+If VB_EXE_SYNC_TIMER > 0 Then
+    V_TIME_01 = Trim(Str(DateDiff("s", Now, VB_EXE_SYNC_TIMER)))
+    If InStr(Label_VB_MODIFIED_ACTIVE.Caption, "GO -") = 0 Then
+        Label_VB_MODIFIED_ACTIVE.Caption = "IDLE " + V_TIME_01
+    End If
+End If
 
 End Sub
 
@@ -7739,8 +7752,9 @@ Sub ADD_TO_ListView_VB_MODIFIED_ERROR(VAR_STRING_10, VAR_STRING_20, ID_VAR)
         
         If ListView_VB_MODIFIED_ERROR.ListItems.Count = 0 Then
             With ListView_VB_MODIFIED_ERROR
-                Set LV3 = .ListItems.Add(, , VAR_STRING_02)
-                LV3.SubItems(1) = VAR_STRING_01
+                Set LV3 = .ListItems.Add(, , "COPIER")
+                LV3.SubItems(1) = VAR_STRING_02
+                LV3.SubItems(2) = VAR_STRING_01
             End With
         End If
         Exit Sub
@@ -7760,16 +7774,21 @@ Sub ADD_TO_ListView_VB_MODIFIED_ERROR(VAR_STRING_10, VAR_STRING_20, ID_VAR)
     WANT_HERE = True
     If ListView_VB_MODIFIED_ERROR.ListItems.Count > 1 Then
         For RW = 2 To ListView_VB_MODIFIED_ERROR.ListItems.Count
-            COMPARE_02 = ListView_VB_MODIFIED_ERROR.ListItems(RW) + ListView_VB_MODIFIED_ERROR.ListItems(RW).SubItems(1)
+            COMPARE_02 = ListView_VB_MODIFIED_ERROR.ListItems(RW).SubItems(1) + ListView_VB_MODIFIED_ERROR.ListItems(RW).SubItems(2)
             If COMPARE_01 = COMPARE_02 Then
                 WANT_HERE = False
             End If
         Next
     End If
+    
+    If ID_VAR = 0 Then TESTER_STRING = "ERROR COPY"
+    If ID_VAR = 2 Then TESTER_STRING = "GOOD COPY"
+
     If WANT_HERE = True Then
         With ListView_VB_MODIFIED_ERROR
-            Set LV3 = .ListItems.Add(, , VAR_STRING_01)
-            LV3.SubItems(1) = VAR_STRING_02
+            Set LV3 = .ListItems.Add(, , TESTER_STRING)
+            LV3.SubItems(1) = VAR_STRING_01
+            LV3.SubItems(2) = VAR_STRING_02
         End With
     End If
     
