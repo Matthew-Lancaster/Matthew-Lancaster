@@ -9,59 +9,59 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB KEEP RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11916
-   ScaleWidth      =   22944
+   ScaleHeight     =   10932
+   ScaleWidth      =   12864
    Begin VB.FileListBox File_GOODSYNC 
       Height          =   264
-      Left            =   10932
+      Left            =   11424
       TabIndex        =   136
-      Top             =   3792
+      Top             =   3804
       Visible         =   0   'False
       Width           =   1236
    End
    Begin VB.Timer ONE_MILLISECOND_2_Timer 
       Interval        =   1
-      Left            =   9420
-      Top             =   1572
+      Left            =   9912
+      Top             =   1584
    End
    Begin VB.TextBox Text_OS_INSTALL_DATE_02 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   3840
+      Left            =   4332
       Locked          =   -1  'True
       TabIndex        =   131
       Text            =   "OS INSTALL DATE"
-      Top             =   528
+      Top             =   540
       Width           =   1824
    End
    Begin VB.TextBox Text_SYSTEM_START_TIME_02 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   3840
+      Left            =   4332
       Locked          =   -1  'True
       TabIndex        =   130
       Text            =   "SYSTEM START"
-      Top             =   276
+      Top             =   288
       Width           =   1824
    End
    Begin VB.TextBox Text_OS_INSTALL_DATE_01 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   20
+      Left            =   516
       Locked          =   -1  'True
       TabIndex        =   129
       Text            =   "OS INSTALL DATE"
-      Top             =   528
+      Top             =   540
       Width           =   3780
    End
    Begin VB.TextBox Text_SYSTEM_START_TIME_01 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   20
+      Left            =   516
       Locked          =   -1  'True
       TabIndex        =   128
       Text            =   "SYSTEM START TIME"
@@ -71,89 +71,89 @@ Begin VB.Form Form1
    Begin VB.PictureBox picCrossHair 
       BorderStyle     =   0  'None
       Height          =   384
-      Left            =   5172
+      Left            =   5664
       Picture         =   "VB KEEP RUNNER.frx":0E42
       ScaleHeight     =   384
       ScaleWidth      =   384
       TabIndex        =   115
-      Top             =   2832
+      Top             =   2844
       Width           =   384
    End
    Begin VB.Timer TIMER_OS_REBOOT 
       Enabled         =   0   'False
       Interval        =   1000
-      Left            =   14616
-      Top             =   1572
+      Left            =   15108
+      Top             =   1584
    End
    Begin VB.Timer TIMER_TO_RESIZE 
       Enabled         =   0   'False
       Interval        =   100
-      Left            =   14268
-      Top             =   1572
+      Left            =   14760
+      Top             =   1584
    End
    Begin VB.Timer Timer_MOUSE_CORD 
       Interval        =   10
-      Left            =   13920
-      Top             =   1524
+      Left            =   14412
+      Top             =   1536
    End
    Begin VB.ListBox List_SORT_FOR_AHK_LIMITER 
       Height          =   432
-      Left            =   8712
+      Left            =   9204
       Sorted          =   -1  'True
       TabIndex        =   105
-      Top             =   2928
+      Top             =   2940
       Visible         =   0   'False
       Width           =   1845
    End
    Begin VB.Timer Timer_Pause_Update 
       Enabled         =   0   'False
       Interval        =   20000
-      Left            =   13584
-      Top             =   1572
+      Left            =   14076
+      Top             =   1584
    End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
       Interval        =   1000
-      Left            =   13248
-      Top             =   1572
+      Left            =   13740
+      Top             =   1584
    End
    Begin VB.Timer Timer_SHOW_THE_TIME 
       Interval        =   1000
-      Left            =   12900
-      Top             =   1572
+      Left            =   13392
+      Top             =   1584
    End
    Begin VB.Timer Timer_GET_KEY_ASYNC_STATE 
       Interval        =   5
-      Left            =   12552
-      Top             =   1524
+      Left            =   13044
+      Top             =   1536
    End
    Begin VB.Timer Timer_FOREGROUND_WINDOW_CHANGE_02 
       Interval        =   10
-      Left            =   12216
-      Top             =   1572
+      Left            =   12708
+      Top             =   1584
    End
    Begin VB.Timer Timer_EnumProcess 
       Enabled         =   0   'False
       Interval        =   1000
-      Left            =   11856
-      Top             =   1572
+      Left            =   12348
+      Top             =   1584
    End
    Begin VB.ListBox lstProcess_3_SORTER 
       Height          =   276
       IntegralHeight  =   0   'False
-      Left            =   8712
+      Left            =   9204
       Sorted          =   -1  'True
       TabIndex        =   76
-      Top             =   5184
+      Top             =   5196
       Visible         =   0   'False
       Width           =   1728
    End
    Begin VB.ListBox lstProcess_2_ 
       Height          =   324
       IntegralHeight  =   0   'False
-      Left            =   8712
+      Left            =   9204
       TabIndex        =   75
-      Top             =   4836
+      Top             =   4848
       Visible         =   0   'False
       Width           =   1128
    End
@@ -169,9 +169,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   372
-      Left            =   11160
+      Left            =   11652
       TabIndex        =   72
-      Top             =   5496
+      Top             =   5508
       Visible         =   0   'False
       Width           =   1320
    End
@@ -179,154 +179,154 @@ Begin VB.Form Form1
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   39
-      Top             =   3552
+      Top             =   3564
       Width           =   1044
    End
    Begin VB.TextBox txtTitle 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   38
-      Top             =   3804
+      Top             =   3816
       Width           =   2004
    End
    Begin VB.TextBox txtClass 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   37
-      Top             =   4056
+      Top             =   4068
       Width           =   2004
    End
    Begin VB.TextBox txtParent 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   36
-      Top             =   4812
+      Top             =   4824
       Width           =   1044
    End
    Begin VB.TextBox txtStyle 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   35
-      Top             =   4308
+      Top             =   4320
       Width           =   2004
    End
    Begin VB.TextBox txtParentText 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   34
-      Top             =   5064
+      Top             =   5076
       Width           =   2004
    End
    Begin VB.TextBox txtParentClass 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   33
-      Top             =   5316
+      Top             =   5328
       Width           =   2004
    End
    Begin VB.TextBox txtRect 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   32
-      Top             =   4560
+      Top             =   4572
       Width           =   2004
    End
    Begin VB.TextBox txtParentClassX 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   31
-      Top             =   6072
+      Top             =   6084
       Width           =   2004
    End
    Begin VB.TextBox txtParentTextX 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   30
-      Top             =   5820
+      Top             =   5832
       Width           =   2004
    End
    Begin VB.TextBox txtParentX 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   29
-      Top             =   5568
+      Top             =   5580
       Width           =   2004
    End
    Begin VB.TextBox TxtEXE 
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1224
+      Left            =   1716
       Locked          =   -1  'True
       TabIndex        =   28
-      Top             =   15
+      Top             =   24
       Width           =   7320
    End
    Begin VB.Timer Timer_ALWAYS_ON_TOP_TO_START_WITH_ER 
       Interval        =   1000
-      Left            =   11508
-      Top             =   1572
+      Left            =   12000
+      Top             =   1584
    End
    Begin VB.TextBox txthWndHX 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   2340
+      Left            =   2832
       Locked          =   -1  'True
       TabIndex        =   27
-      Top             =   3552
+      Top             =   3564
       Width           =   936
    End
    Begin VB.TextBox txtParentHX 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   2340
+      Left            =   2832
       Locked          =   -1  'True
       TabIndex        =   26
-      Top             =   4812
+      Top             =   4824
       Width           =   936
    End
    Begin VB.TextBox TxtPID 
       Appearance      =   0  'Flat
       BorderStyle     =   0  'None
       Height          =   240
-      Left            =   1272
+      Left            =   1764
       Locked          =   -1  'True
       TabIndex        =   25
-      Top             =   3300
+      Top             =   3312
       Width           =   1044
    End
    Begin VB.TextBox txtAPhysicalMemory 
@@ -342,10 +342,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   15480
+      Left            =   15972
       Locked          =   -1  'True
       TabIndex        =   13
-      Top             =   5652
+      Top             =   5664
       Visible         =   0   'False
       Width           =   2688
    End
@@ -362,10 +362,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   15480
+      Left            =   15972
       Locked          =   -1  'True
       TabIndex        =   12
-      Top             =   5400
+      Top             =   5412
       Visible         =   0   'False
       Width           =   2688
    End
@@ -382,10 +382,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   15480
+      Left            =   15972
       Locked          =   -1  'True
       TabIndex        =   11
-      Top             =   6156
+      Top             =   6168
       Visible         =   0   'False
       Width           =   2688
    End
@@ -402,10 +402,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   15480
+      Left            =   15972
       Locked          =   -1  'True
       TabIndex        =   10
-      Top             =   5916
+      Top             =   5928
       Visible         =   0   'False
       Width           =   2688
    End
@@ -422,10 +422,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   15480
+      Left            =   15972
       Locked          =   -1  'True
       TabIndex        =   9
-      Top             =   6408
+      Top             =   6420
       Visible         =   0   'False
       Width           =   2688
    End
@@ -442,10 +442,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   216
-      Left            =   15480
+      Left            =   15972
       Locked          =   -1  'True
       TabIndex        =   8
-      Top             =   6660
+      Top             =   6672
       Visible         =   0   'False
       Width           =   2688
    End
@@ -463,82 +463,82 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   240
-      Left            =   3324
+      Left            =   3816
       TabIndex        =   7
       ToolTipText     =   "STORE IN REISTRY FOR START UP OVERRIDE TIMER IF DO"
-      Top             =   5712
+      Top             =   5724
       Width           =   2340
    End
    Begin VB.Timer Timer_1_SECOND 
       Interval        =   1000
-      Left            =   8724
-      Top             =   1572
+      Left            =   9216
+      Top             =   1584
    End
    Begin VB.FileListBox File3 
       Height          =   264
-      Left            =   8700
+      Left            =   9192
       TabIndex        =   6
-      Top             =   4152
+      Top             =   4164
       Visible         =   0   'False
       Width           =   1665
    End
    Begin VB.FileListBox File2 
       Height          =   264
-      Left            =   8700
+      Left            =   9192
       TabIndex        =   5
-      Top             =   3888
+      Top             =   3900
       Visible         =   0   'False
       Width           =   1665
    End
    Begin VB.Timer Timer_DIR_FOR_C_DRIVE_ROOT_VICE_VERSA_VBSCRIPT 
       Interval        =   1000
-      Left            =   11148
-      Top             =   1572
+      Left            =   11640
+      Top             =   1584
    End
    Begin VB.Timer Timer_VB_PROJECT_CHECKDATE 
       Interval        =   1000
-      Left            =   10800
-      Top             =   1572
+      Left            =   11292
+      Top             =   1584
    End
    Begin VB.FileListBox File1 
       Height          =   264
-      Left            =   8700
+      Left            =   9192
       TabIndex        =   4
-      Top             =   3624
+      Top             =   3636
       Visible         =   0   'False
       Width           =   1665
    End
    Begin VB.DirListBox Dir1 
       Height          =   1152
-      Left            =   10944
+      Left            =   11436
       TabIndex        =   3
-      Top             =   4272
+      Top             =   4284
       Visible         =   0   'False
       Width           =   1455
    End
    Begin VB.Timer TIMER_DO_IN_1_SECOND 
       Interval        =   1000
-      Left            =   10452
-      Top             =   1572
+      Left            =   10944
+      Top             =   1584
    End
    Begin VB.Timer ONE_MILLISECOND_Timer 
       Interval        =   1
-      Left            =   9072
-      Top             =   1572
+      Left            =   9564
+      Top             =   1584
    End
    Begin VB.ListBox lstProcess 
       Height          =   240
-      Left            =   8712
+      Left            =   9204
       TabIndex        =   2
-      Top             =   3372
+      Top             =   3384
       Visible         =   0   'False
       Width           =   1896
    End
    Begin MSComctlLib.ListView lstProcess_2_ListView 
       Height          =   576
-      Left            =   8712
+      Left            =   9204
       TabIndex        =   0
-      Top             =   852
+      Top             =   864
       Width           =   2460
       _ExtentX        =   4339
       _ExtentY        =   995
@@ -552,19 +552,19 @@ Begin VB.Form Form1
    End
    Begin VB.Timer Timer_VB_MAXIMIZE 
       Interval        =   10
-      Left            =   9780
-      Top             =   1572
+      Left            =   10272
+      Top             =   1584
    End
    Begin VB.Timer Timer_FOREGROUND_WINDOW_CHANGE 
       Interval        =   1
-      Left            =   10128
-      Top             =   1536
+      Left            =   10620
+      Top             =   1548
    End
    Begin MSComctlLib.ListView lstProcess_3_SORTER_ListView 
       Height          =   576
-      Left            =   11244
+      Left            =   11736
       TabIndex        =   1
-      Top             =   852
+      Top             =   864
       Width           =   2556
       _ExtentX        =   4509
       _ExtentY        =   995
@@ -578,9 +578,9 @@ Begin VB.Form Form1
    End
    Begin MSComctlLib.ListView ListView_CPU_INFO 
       Height          =   1464
-      Left            =   24
+      Left            =   516
       TabIndex        =   132
-      Top             =   780
+      Top             =   792
       Width           =   5640
       _ExtentX        =   9948
       _ExtentY        =   2582
@@ -602,11 +602,35 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
-   Begin VB.Label Label44 
+   Begin MSComctlLib.ListView ListView_VB_MODIFIED_ERROR 
+      Height          =   948
+      Left            =   504
+      TabIndex        =   140
+      Top             =   6648
+      Width           =   8532
+      _ExtentX        =   15050
+      _ExtentY        =   1672
+      LabelWrap       =   -1  'True
+      HideSelection   =   -1  'True
+      _Version        =   393217
+      ForeColor       =   -2147483640
+      BackColor       =   -2147483643
+      Appearance      =   1
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Arial"
+         Size            =   7.8
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      NumItems        =   0
+   End
+   Begin VB.Label Label_VB_MODIFIED_ACTIVE 
       Alignment       =   2  'Center
       Appearance      =   0  'Flat
       BackColor       =   &H80000005&
-      Caption         =   "My VB Coder Modify"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   10.2
@@ -618,10 +642,31 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   264
-      Left            =   5712
+      Left            =   7188
+      TabIndex        =   141
+      Top             =   6372
+      Width           =   1032
+   End
+   Begin VB.Label Label44 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
+      Caption         =   "VB Modify"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   10.2
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   264
+      Left            =   6204
       TabIndex        =   139
-      Top             =   6360
-      Width           =   2004
+      Top             =   6372
+      Width           =   972
    End
    Begin VB.Label Label_VB_MODIFIED_TIME 
       Alignment       =   2  'Center
@@ -639,9 +684,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   264
-      Left            =   7740
+      Left            =   8232
       TabIndex        =   138
-      Top             =   6360
+      Top             =   6372
       Width           =   804
    End
    Begin VB.Label Label_GOODSYNC_04_HOUR 
@@ -660,9 +705,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   264
-      Left            =   4848
+      Left            =   5340
       TabIndex        =   137
-      Top             =   6360
+      Top             =   6372
       Width           =   804
    End
    Begin VB.Label Label_GOODSYNC_02_HOUR 
@@ -681,9 +726,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   264
-      Left            =   3984
+      Left            =   4476
       TabIndex        =   135
-      Top             =   6360
+      Top             =   6372
       Width           =   852
    End
    Begin VB.Label Label_GOODSYNC_01 
@@ -702,9 +747,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   264
-      Left            =   24
+      Left            =   516
       TabIndex        =   134
-      Top             =   6360
+      Top             =   6372
       Width           =   3948
    End
    Begin VB.Label Label13 
@@ -712,9 +757,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "OPERATE ON REMOTE COMPUTER"
       Height          =   240
-      Left            =   5712
+      Left            =   6204
       TabIndex        =   133
-      Top             =   5016
+      Top             =   5028
       Width           =   2832
    End
    Begin VB.Label Label42 
@@ -730,9 +775,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   300
-      Left            =   5712
+      Left            =   6204
       TabIndex        =   127
-      Top             =   5268
+      Top             =   5280
       Width           =   2832
    End
    Begin VB.Label Label_KILL_CMD_AND_AHK 
@@ -740,9 +785,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CMD* && AH&K*"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   126
-      Top             =   3504
+      Top             =   3516
       Width           =   2844
    End
    Begin VB.Label Label_KILL_CMD 
@@ -750,9 +795,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL &CMD*"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   125
-      Top             =   3756
+      Top             =   3768
       Width           =   2844
    End
    Begin VB.Label Label_8M 
@@ -760,9 +805,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "8M"
       Height          =   240
-      Left            =   8076
+      Left            =   8568
       TabIndex        =   124
-      Top             =   4764
+      Top             =   4776
       Width           =   468
    End
    Begin VB.Label Label_7G 
@@ -770,9 +815,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "7G"
       Height          =   240
-      Left            =   7680
+      Left            =   8172
       TabIndex        =   123
-      Top             =   4764
+      Top             =   4776
       Width           =   384
    End
    Begin VB.Label Label_5P 
@@ -780,9 +825,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "5P"
       Height          =   240
-      Left            =   7284
+      Left            =   7776
       TabIndex        =   122
-      Top             =   4764
+      Top             =   4776
       Width           =   384
    End
    Begin VB.Label Label_4G 
@@ -790,9 +835,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "4G"
       Height          =   240
-      Left            =   6888
+      Left            =   7380
       TabIndex        =   121
-      Top             =   4764
+      Top             =   4776
       Width           =   384
    End
    Begin VB.Label Label_3L 
@@ -800,9 +845,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "3L"
       Height          =   240
-      Left            =   6492
+      Left            =   6984
       TabIndex        =   120
-      Top             =   4764
+      Top             =   4776
       Width           =   384
    End
    Begin VB.Label Label_2E 
@@ -810,9 +855,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "2E"
       Height          =   240
-      Left            =   6096
+      Left            =   6588
       TabIndex        =   119
-      Top             =   4764
+      Top             =   4776
       Width           =   384
    End
    Begin VB.Label Label_1X 
@@ -820,9 +865,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "1X"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   118
-      Top             =   4764
+      Top             =   4776
       Width           =   384
    End
    Begin VB.Label Label_KILL_CHROME 
@@ -830,9 +875,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CHROME"
       Height          =   216
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   117
-      Top             =   3276
+      Top             =   3288
       Width           =   2844
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET_NETWORK 
@@ -840,23 +885,23 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "RUN AUTOHOTKEY NETWORK"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   116
-      Top             =   1548
+      Top             =   1560
       Width           =   2844
    End
    Begin VB.Image Image1 
       Height          =   384
-      Left            =   4704
+      Left            =   5196
       Picture         =   "VB KEEP RUNNER.frx":170C
-      Top             =   2832
+      Top             =   2844
       Width           =   384
    End
    Begin VB.Image imgCursor 
       Height          =   432
-      Left            =   4704
+      Left            =   5196
       MouseIcon       =   "VB KEEP RUNNER.frx":1B4E
-      Top             =   2844
+      Top             =   2856
       Width           =   600
    End
    Begin VB.Label LABEL_KILL_NOT_RESPOND_FORCE 
@@ -864,9 +909,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "TASKKILL NOT RESPOND FORCE"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   114
-      Top             =   4512
+      Top             =   4524
       Width           =   2844
    End
    Begin VB.Label LABEL_KILL_NOT_RESPOND 
@@ -874,9 +919,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "TASKKILL NOT RESPOND"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   113
-      Top             =   4260
+      Top             =   4272
       Width           =   2844
    End
    Begin VB.Label Label_TASK_KILLER_CMD 
@@ -884,9 +929,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "TASKKILL CMD*"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   112
-      Top             =   4008
+      Top             =   4020
       Width           =   2844
    End
    Begin VB.Label Label_CLOSE_HWND 
@@ -894,9 +939,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "CLOSE HWND"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   111
-      Top             =   540
+      Top             =   552
       Width           =   2844
    End
    Begin VB.Label Lab_KILL_EXPLORER 
@@ -904,9 +949,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL EXPLORER"
       Height          =   216
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   110
-      Top             =   3048
+      Top             =   3060
       Width           =   2844
    End
    Begin VB.Label Label_KILL_HUBIC 
@@ -914,9 +959,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL HUBIC"
       Height          =   228
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   109
-      Top             =   2808
+      Top             =   2820
       Width           =   2844
    End
    Begin VB.Label Label_GOODSYNC_COLLECTION_SCRIPT_RUN 
@@ -924,9 +969,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "RUN GOODSYNC SCRIPT SET"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   108
-      Top             =   2556
+      Top             =   2568
       Width           =   2844
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
@@ -934,17 +979,17 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "CLOSE GOODSYNC"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   107
-      Top             =   2304
+      Top             =   2316
       Width           =   2844
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
       Height          =   408
-      Left            =   8724
+      Left            =   9216
       TabIndex        =   106
-      Top             =   5892
+      Top             =   5904
       Visible         =   0   'False
       Width           =   3936
    End
@@ -964,9 +1009,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   456
-      Left            =   5712
+      Left            =   6204
       TabIndex        =   104
-      Top             =   5892
+      Top             =   5904
       Width           =   2832
    End
    Begin VB.Label Label_MINIMIZE_GOODSYNC 
@@ -974,9 +1019,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "MINIMIZE GOODSYNC"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   103
-      Top             =   2052
+      Top             =   2064
       Width           =   2844
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
@@ -984,9 +1029,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "MAXIMIZE GOODSYNC"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   102
-      Top             =   1800
+      Top             =   1812
       Width           =   2844
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET 
@@ -994,9 +1039,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "RUN AUTOHOTKEY.EXE"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   101
-      Top             =   1296
+      Top             =   1308
       Width           =   2844
    End
    Begin VB.Label Label_KILL_AUTOHOTKEY 
@@ -1004,9 +1049,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL &AUTOHOTKEY.EXE"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   100
-      Top             =   1044
+      Top             =   1056
       Width           =   2844
    End
    Begin VB.Label Label64 
@@ -1022,36 +1067,36 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   348
-      Left            =   4476
+      Left            =   4968
       TabIndex        =   99
-      Top             =   3552
+      Top             =   3564
       Width           =   1188
    End
    Begin VB.Label Label16 
       BackColor       =   &H00FFC0C0&
       Caption         =   "TASKKILLER /F /IM * /T"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   98
-      Top             =   2496
+      Top             =   2508
       Visible         =   0   'False
       Width           =   1776
    End
    Begin VB.Label Label17 
       Caption         =   "TASKKILLER /IM * /T"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   97
-      Top             =   2784
+      Top             =   2796
       Visible         =   0   'False
       Width           =   1776
    End
    Begin VB.Label Label18 
       Caption         =   "TASKKILLER /IM *"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   96
-      Top             =   3324
+      Top             =   3336
       Visible         =   0   'False
       Width           =   1776
    End
@@ -1059,27 +1104,27 @@ Begin VB.Form Form1
       BackColor       =   &H00FFC0FF&
       Caption         =   "TASKKILLER /F /IM /T"
       Height          =   240
-      Left            =   14520
+      Left            =   15012
       TabIndex        =   95
-      Top             =   2496
+      Top             =   2508
       Visible         =   0   'False
       Width           =   1848
    End
    Begin VB.Label Label20 
       Caption         =   "TASKKILLER /IM /T"
       Height          =   240
-      Left            =   14520
+      Left            =   15012
       TabIndex        =   94
-      Top             =   2784
+      Top             =   2796
       Visible         =   0   'False
       Width           =   1860
    End
    Begin VB.Label Label21 
       Caption         =   "TASKKILLER /IM"
       Height          =   240
-      Left            =   14520
+      Left            =   15012
       TabIndex        =   93
-      Top             =   3048
+      Top             =   3060
       Visible         =   0   'False
       Width           =   1860
    End
@@ -1095,17 +1140,17 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   264
-      Left            =   24
+      Left            =   516
       TabIndex        =   92
-      Top             =   2508
+      Top             =   2520
       Width           =   5640
    End
    Begin VB.Label Label25 
       Caption         =   "TASKLIST GO"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   91
-      Top             =   3900
+      Top             =   3912
       Visible         =   0   'False
       Width           =   5400
    End
@@ -1113,9 +1158,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0FFC0&
       Caption         =   "TASKKILLER /F /IM"
       Height          =   240
-      Left            =   14520
+      Left            =   15012
       TabIndex        =   90
-      Top             =   3324
+      Top             =   3336
       Visible         =   0   'False
       Width           =   1860
    End
@@ -1123,9 +1168,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0FFC0&
       Caption         =   "TASKKILLER /F /IM"
       Height          =   240
-      Left            =   16416
+      Left            =   16908
       TabIndex        =   89
-      Top             =   3048
+      Top             =   3060
       Visible         =   0   'False
       Width           =   1740
    End
@@ -1133,9 +1178,9 @@ Begin VB.Form Form1
       BackColor       =   &H00FFC0FF&
       Caption         =   "TASKKILLER /F /IM /T"
       Height          =   240
-      Left            =   16416
+      Left            =   16908
       TabIndex        =   88
-      Top             =   2784
+      Top             =   2796
       Visible         =   0   'False
       Width           =   1740
    End
@@ -1143,9 +1188,9 @@ Begin VB.Form Form1
       BackColor       =   &H00FFC0C0&
       Caption         =   "TASKKILLER /F /IM * /T"
       Height          =   240
-      Left            =   16392
+      Left            =   16884
       TabIndex        =   87
-      Top             =   2496
+      Top             =   2508
       Visible         =   0   'False
       Width           =   1740
    End
@@ -1154,9 +1199,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E0E0E0&
       Caption         =   "KILLER With /F FORCE"
       Height          =   240
-      Left            =   16392
+      Left            =   16884
       TabIndex        =   86
-      Top             =   2184
+      Top             =   2196
       Visible         =   0   'False
       Width           =   1740
    End
@@ -1165,9 +1210,9 @@ Begin VB.Form Form1
       BackColor       =   &H00E0E0E0&
       Caption         =   "Without WildCard Butter"
       Height          =   240
-      Left            =   14520
+      Left            =   15012
       TabIndex        =   85
-      Top             =   2184
+      Top             =   2196
       Visible         =   0   'False
       Width           =   1848
    End
@@ -1176,27 +1221,27 @@ Begin VB.Form Form1
       BackColor       =   &H00E0E0E0&
       Caption         =   "WILD CARD ****"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   84
-      Top             =   2184
+      Top             =   2196
       Visible         =   0   'False
       Width           =   1776
    End
    Begin VB.Label Label34 
       Caption         =   "TASKKILLER BY HWND HANDLE _ POST MESSENGER"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   83
-      Top             =   4164
+      Top             =   4176
       Visible         =   0   'False
       Width           =   5400
    End
    Begin VB.Label Label43 
       Caption         =   "TASKKILLER BY HWND HANDLE _ PROCESS KILL FORCE"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   82
-      Top             =   4416
+      Top             =   4428
       Visible         =   0   'False
       Width           =   5400
    End
@@ -1204,18 +1249,18 @@ Begin VB.Form Form1
       BorderColor     =   &H00B7FFB5&
       BorderWidth     =   5
       Visible         =   0   'False
-      X1              =   12756
-      X2              =   18096
-      Y1              =   2448
-      Y2              =   2448
+      X1              =   13248
+      X2              =   18588
+      Y1              =   2460
+      Y2              =   2460
    End
    Begin VB.Label Label56 
       Alignment       =   2  'Center
       Caption         =   "TASKKILLER PID_NUMERIC OPTION_INSTEAD"
       Height          =   240
-      Left            =   14532
+      Left            =   15024
       TabIndex        =   81
-      Top             =   3636
+      Top             =   3648
       Visible         =   0   'False
       Width           =   3600
    End
@@ -1223,44 +1268,44 @@ Begin VB.Form Form1
       BorderColor     =   &H00C0FFFF&
       BorderWidth     =   5
       Visible         =   0   'False
-      X1              =   12756
-      X2              =   18096
-      Y1              =   3588
-      Y2              =   3588
+      X1              =   13248
+      X2              =   18588
+      Y1              =   3600
+      Y2              =   3600
    End
    Begin VB.Label Label57 
       BackColor       =   &H00DFFFFF&
       Caption         =   "TASKKILLER COMMAND LINE EXECUTE STATUS"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   80
-      Top             =   2256
+      Top             =   2268
       Width           =   5640
    End
    Begin VB.Line Line3 
       BorderColor     =   &H00B7FFB5&
       BorderWidth     =   5
       Visible         =   0   'False
-      X1              =   12756
-      X2              =   18096
-      Y1              =   4680
-      Y2              =   4680
+      X1              =   13248
+      X2              =   18588
+      Y1              =   4692
+      Y2              =   4692
    End
    Begin VB.Line Line4 
       BorderColor     =   &H00B7FFB5&
       BorderWidth     =   5
       Visible         =   0   'False
-      X1              =   12756
-      X2              =   18096
-      Y1              =   4788
-      Y2              =   4788
+      X1              =   13248
+      X2              =   18588
+      Y1              =   4800
+      Y2              =   4800
    End
    Begin VB.Label Label62 
       Caption         =   "TASKKILLER /F /IM *"
       Height          =   240
-      Left            =   12732
+      Left            =   13224
       TabIndex        =   79
-      Top             =   3048
+      Top             =   3060
       Visible         =   0   'False
       Width           =   1776
    End
@@ -1269,9 +1314,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL WSCRIPT.EXE"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   78
-      Top             =   792
+      Top             =   804
       Width           =   2844
    End
    Begin VB.Label Label29 
@@ -1279,9 +1324,9 @@ Begin VB.Form Form1
       BackColor       =   &H00FFC0C0&
       Caption         =   "TASKKILLER /F /IM * /T"
       Height          =   240
-      Left            =   5700
+      Left            =   6192
       TabIndex        =   77
-      Top             =   288
+      Top             =   300
       Width           =   2844
    End
    Begin VB.Label lblCordi 
@@ -1297,9 +1342,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   300
-      Left            =   5712
+      Left            =   6204
       TabIndex        =   74
-      Top             =   5580
+      Top             =   5592
       Width           =   2832
    End
    Begin VB.Label Label3 
@@ -1314,9 +1359,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   348
-      Left            =   8724
+      Left            =   9216
       TabIndex        =   73
-      Top             =   5508
+      Top             =   5520
       Visible         =   0   'False
       Width           =   2616
    End
@@ -1332,18 +1377,18 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   264
-      Left            =   3324
+      Left            =   3816
       TabIndex        =   71
-      Top             =   5964
+      Top             =   5976
       Width           =   2328
    End
    Begin VB.Label Label_FORM_BACK_COLOUR 
       BackColor       =   &H00005959&
       Caption         =   "Label_FORM BACK_Form Ground COLOUR"
       Height          =   396
-      Left            =   8724
+      Left            =   9216
       TabIndex        =   70
-      Top             =   4440
+      Top             =   4452
       Visible         =   0   'False
       Width           =   1896
       WordWrap        =   -1  'True
@@ -1352,9 +1397,9 @@ Begin VB.Form Form1
       BackColor       =   &H00FFC0C0&
       Caption         =   "C1"
       Height          =   240
-      Left            =   8748
+      Left            =   9240
       TabIndex        =   69
-      Top             =   2088
+      Top             =   2100
       Visible         =   0   'False
       Width           =   216
    End
@@ -1362,9 +1407,9 @@ Begin VB.Form Form1
       BackColor       =   &H00FFC0FF&
       Caption         =   "C2"
       Height          =   240
-      Left            =   8988
+      Left            =   9480
       TabIndex        =   68
-      Top             =   2088
+      Top             =   2100
       Visible         =   0   'False
       Width           =   216
    End
@@ -1372,9 +1417,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0FFC0&
       Caption         =   "C3"
       Height          =   240
-      Left            =   9240
+      Left            =   9732
       TabIndex        =   67
-      Top             =   2088
+      Top             =   2100
       Visible         =   0   'False
       Width           =   216
    End
@@ -1382,18 +1427,18 @@ Begin VB.Form Form1
       BackColor       =   &H0080FFFF&
       Caption         =   "C4"
       Height          =   240
-      Left            =   9468
+      Left            =   9960
       TabIndex        =   66
-      Top             =   2088
+      Top             =   2100
       Visible         =   0   'False
       Width           =   240
    End
    Begin VB.Label Label58 
       Caption         =   "C5"
       Height          =   240
-      Left            =   9732
+      Left            =   10224
       TabIndex        =   65
-      Top             =   2088
+      Top             =   2100
       Visible         =   0   'False
       Width           =   228
    End
@@ -1401,9 +1446,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "C7"
       Height          =   240
-      Left            =   9972
+      Left            =   10464
       TabIndex        =   64
-      Top             =   2088
+      Top             =   2100
       Visible         =   0   'False
       Width           =   216
    End
@@ -1411,9 +1456,9 @@ Begin VB.Form Form1
       BackColor       =   &H0068F9CA&
       Caption         =   "C8"
       Height          =   240
-      Left            =   10212
+      Left            =   10704
       TabIndex        =   63
-      Top             =   2088
+      Top             =   2100
       Visible         =   0   'False
       Width           =   216
    End
@@ -1429,9 +1474,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   372
-      Left            =   8724
+      Left            =   9216
       TabIndex        =   61
-      Top             =   48
+      Top             =   60
       Width           =   2436
    End
    Begin VB.Label Label50 
@@ -1446,9 +1491,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   372
-      Left            =   12324
+      Left            =   12816
       TabIndex        =   60
-      Top             =   48
+      Top             =   60
       Width           =   2448
    End
    Begin VB.Label Label51 
@@ -1463,9 +1508,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   348
-      Left            =   11520
+      Left            =   12012
       TabIndex        =   59
-      Top             =   84
+      Top             =   96
       Width           =   216
    End
    Begin VB.Label Label53 
@@ -1480,124 +1525,124 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   312
-      Left            =   8724
+      Left            =   9216
       TabIndex        =   58
       ToolTipText     =   "Pause Update for 20 Second"
-      Top             =   468
+      Top             =   480
       Width           =   6048
    End
    Begin VB.Label lblHwnd 
       Caption         =   "hWnd:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   57
-      Top             =   3552
+      Top             =   3564
       Width           =   1236
    End
    Begin VB.Label lblTitle 
       Caption         =   "Title:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   56
-      Top             =   3804
+      Top             =   3816
       Width           =   1236
    End
    Begin VB.Label Label1 
       Caption         =   $"VB KEEP RUNNER.frx":2418
       Height          =   1776
-      Left            =   3324
+      Left            =   3816
       TabIndex        =   55
-      Top             =   3924
+      Top             =   3936
       Width           =   2340
    End
    Begin VB.Label lblClass 
       Caption         =   "Class:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   54
-      Top             =   4056
+      Top             =   4068
       Width           =   1236
    End
    Begin VB.Label lblParent 
       Caption         =   "Parent:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   53
-      Top             =   4812
+      Top             =   4824
       Width           =   1236
    End
    Begin VB.Label Label2 
       Caption         =   "Style:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   52
-      Top             =   4308
+      Top             =   4320
       Width           =   1236
    End
    Begin VB.Label lblParentText 
       Caption         =   "Parent Text:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   51
-      Top             =   5064
+      Top             =   5076
       Width           =   1236
    End
    Begin VB.Label Label5 
       Caption         =   "Parent Class:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   50
-      Top             =   5316
+      Top             =   5328
       Width           =   1236
    End
    Begin VB.Label Label6 
       Caption         =   "Rectangle:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   49
-      Top             =   4560
+      Top             =   4572
       Width           =   1236
    End
    Begin VB.Label Label7 
       Caption         =   "Parent X Class:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   48
-      Top             =   6072
+      Top             =   6084
       Width           =   1236
    End
    Begin VB.Label Label8 
       Caption         =   "Parent X Text:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   47
-      Top             =   5820
+      Top             =   5832
       Width           =   1236
    End
    Begin VB.Label Label9 
       Caption         =   "Parent X:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   46
-      Top             =   5568
+      Top             =   5580
       Width           =   1236
    End
    Begin VB.Label Label10 
       BackColor       =   &H00DFFFFF&
       Caption         =   " Goto File Name"
       Height          =   240
-      Left            =   20
+      Left            =   516
       TabIndex        =   45
-      Top             =   12
+      Top             =   24
       Width           =   1176
    End
    Begin VB.Label Label11 
       BackColor       =   &H00C0FFC0&
       Caption         =   " Put Whole File on Clipboard"
       Height          =   228
-      Left            =   8724
+      Left            =   9216
       TabIndex        =   44
-      Top             =   2664
+      Top             =   2676
       Visible         =   0   'False
       Width           =   2088
    End
@@ -1614,26 +1659,26 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   348
-      Left            =   3324
+      Left            =   3816
       TabIndex        =   43
-      Top             =   3552
+      Top             =   3564
       Width           =   1128
    End
    Begin VB.Label cmdCopy 
       Alignment       =   2  'Center
       Caption         =   "Copy All Clipboard"
       Height          =   228
-      Left            =   3324
+      Left            =   3816
       TabIndex        =   42
-      Top             =   3300
+      Top             =   3312
       Width           =   2340
    End
    Begin VB.Label Label65 
       Caption         =   "Process ID:"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   41
-      Top             =   3300
+      Top             =   3312
       Width           =   1236
    End
    Begin VB.Label Label66 
@@ -1641,27 +1686,27 @@ Begin VB.Form Form1
       BackColor       =   &H00E2FEEA&
       Caption         =   "Kill PID"
       Height          =   240
-      Left            =   2340
+      Left            =   2832
       TabIndex        =   40
-      Top             =   3300
+      Top             =   3312
       Width           =   936
    End
    Begin VB.Label Label30 
       Caption         =   "TASKKILLER COMMAND LINE GENERATED "
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   24
       ToolTipText     =   "PRESS HERE TO KILL BY PROCESS NAME"
-      Top             =   3036
+      Top             =   3048
       Width           =   4584
    End
    Begin VB.Label Label22 
       Caption         =   "TASKKILLER BY PROCESS NUMBER"
       Height          =   240
-      Left            =   24
+      Left            =   516
       TabIndex        =   23
       ToolTipText     =   "PRESS HERE TO KILL BY PROCESS NUMBER"
-      Top             =   2784
+      Top             =   2796
       Width           =   4584
    End
    Begin VB.Label Label41 
@@ -1679,9 +1724,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   228
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   22
-      Top             =   4896
+      Top             =   4908
       Visible         =   0   'False
       Width           =   3312
    End
@@ -1701,9 +1746,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   228
-      Left            =   16092
+      Left            =   16584
       TabIndex        =   21
-      Top             =   4896
+      Top             =   4908
       Visible         =   0   'False
       Width           =   2076
    End
@@ -1719,9 +1764,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   20
-      Top             =   5148
+      Top             =   5160
       Visible         =   0   'False
       Width           =   5400
    End
@@ -1737,9 +1782,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   19
-      Top             =   5652
+      Top             =   5664
       Visible         =   0   'False
       Width           =   2700
    End
@@ -1755,9 +1800,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   18
-      Top             =   5400
+      Top             =   5412
       Visible         =   0   'False
       Width           =   2700
    End
@@ -1773,9 +1818,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   17
-      Top             =   6156
+      Top             =   6168
       Visible         =   0   'False
       Width           =   2700
    End
@@ -1791,9 +1836,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   16
-      Top             =   5916
+      Top             =   5928
       Visible         =   0   'False
       Width           =   2700
    End
@@ -1809,9 +1854,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   228
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   15
-      Top             =   6408
+      Top             =   6420
       Visible         =   0   'False
       Width           =   2700
    End
@@ -1827,18 +1872,18 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   216
-      Left            =   12756
+      Left            =   13248
       TabIndex        =   14
-      Top             =   6660
+      Top             =   6672
       Visible         =   0   'False
       Width           =   2700
    End
    Begin VB.Label Label52 
       Caption         =   "Label52"
       Height          =   348
-      Left            =   11208
+      Left            =   11700
       TabIndex        =   62
-      Top             =   60
+      Top             =   72
       Width           =   1056
    End
    Begin VB.Menu MNU_EXIT 
@@ -2043,9 +2088,10 @@ Dim TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE
 
 Dim OLD_VB_COUNT_ARRAY_SIZE
 
-Dim TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE
+Dim TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01
 Dim TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02
 Dim SET_VB_EXE_ARRAY_FIRST_TIME
+Dim NET_COPY_CHANGE_HAPPENER
 
 Dim VB_EXE_SYNC_TIMER
 Dim VB_EXE_ARRAY()
@@ -2299,14 +2345,14 @@ Private Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" _
 
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
 
-Private Declare Function GetWindowTextLength Lib "user32.dll" Alias "GetWindowTextLengthA" (ByVal hwnd As Long) As Long  'MODULE 1141
+Private Declare Function GetWindowTextLength Lib "user32.dll" Alias "GetWindowTextLengthA" (ByVal hWnd As Long) As Long  'MODULE 1141
 
 Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" _
     (ByVal lpClassName As String, _
      ByVal lpWindowName As String) _
     As Long
 
-Private Declare Function EnableWindow Lib "user32" (ByVal hwnd As Long, ByVal fEnable As Long) As Long
+Private Declare Function EnableWindow Lib "user32" (ByVal hWnd As Long, ByVal fEnable As Long) As Long
 
 Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
 
@@ -2317,36 +2363,36 @@ Private Type RECT
    Bottom As Long
 End Type
 
-Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 
 Private Declare Function WindowFromPoint Lib "user32" (ByVal xPoint As Long, ByVal yPoint As Long) As Long
 
-Private Declare Function ShowWindow Lib "user32" (ByVal hwnd As Long, ByVal nCmdShow As Long) As Long
+Private Declare Function ShowWindow Lib "user32" (ByVal hWnd As Long, ByVal nCmdShow As Long) As Long
 
-Private Declare Function CreateCaret Lib "user32" (ByVal hwnd As Long, _
+Private Declare Function CreateCaret Lib "user32" (ByVal hWnd As Long, _
     ByVal hBitmap As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
-Private Declare Function ShowCaret Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function ShowCaret Lib "user32" (ByVal hWnd As Long) As Long
 Private Declare Function SetCaretBlinkTime Lib "user32" (ByVal wMSeconds As Long) As _
     Long
 Private Declare Function GetCaretBlinkTime Lib "user32" () As Long
 
-Private Declare Function PostMessage Lib "user32.dll" Alias "PostMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long  'MODULE 1135
-Private Declare Function GetParent Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function PostMessage Lib "user32.dll" Alias "PostMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long  'MODULE 1135
+Private Declare Function GetParent Lib "user32" (ByVal hWnd As Long) As Long
 
 Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
 Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" (ByVal uAction&, ByVal uParam&, ByRef lpvParam As Any, ByVal fuWinIni&) As Long
 'Private Declare Function GetSystemMetrics Lib "user32" (ByVal nIndex As Long) As Long
 
-Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
-Private Declare Function SendMessageAny Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Integer, ByVal lParam As Any) As Long
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+Private Declare Function SendMessageAny Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Integer, ByVal lParam As Any) As Long
 
-Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
-Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long  'MODULE 1142
+Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
+Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long  'MODULE 1142
 
-Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
-Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long) As Long
-Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hwnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
-Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long) As Long
+Private Declare Function SetWindowLong Lib "user32" Alias "SetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
+Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Const PROCESS_CREATE_PROCESS = &H80
 Private Const PROCESS_CREATE_THREAD = &H2
@@ -2407,14 +2453,14 @@ Private Enum Priorities
   p_Idle = &H40
 End Enum
 
-Private Declare Function Process32First Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function Process32Next Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
 Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadId As Long) As Long
 Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
-Private Declare Function TerminateProcess Lib "kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
-Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
+Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
 Private Declare Function CreateProcess Lib "kernel32.dll" Alias "CreateProcessA" (ByVal lpApplicationName As String, ByVal lpCommandLine As String, ByVal lpProcessAttributes As Long, ByVal lpThreadAttributes As Long, ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, ByRef lpEnvironment As Any, ByVal lpCurrentDirectory As String, ByRef lpStartupInfo As STARTUPINFO, ByRef lpProcessInformation As PROCESS_INFORMATION) As Long
@@ -2423,9 +2469,9 @@ Private Declare Function GetExitCodeThread Lib "kernel32.dll" (ByVal hThread As 
 Private Declare Function TerminateThread Lib "kernel32.dll" (ByVal hThread As Long, ByVal dwExitCode As Long) As Long
 Private Declare Function SetPriorityClass Lib "kernel32.dll" (ByVal hProcess As Long, ByVal dwPriorityClass As Long) As Boolean
 
-Private Declare Function CloseHandle Lib "kernel32" _
+Private Declare Function CloseHandle Lib "Kernel32" _
         (ByVal hObject As Long) As Long
-Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
 Private Const TH32CS_SNAPPROCESS = &H2&
 
 Private Type MENUBARINFO
@@ -2440,9 +2486,9 @@ End Type
 Private MenuInfo As MENUBARINFO
 Private Const OBJID_MENU As Long = &HFFFFFFFD
 Private Const OBJID_SYSMENU As Long = &HFFFFFFFF
-Private Declare Function GetMenuBarInfo Lib "user32" (ByVal hwnd As Long, _
+Private Declare Function GetMenuBarInfo Lib "user32" (ByVal hWnd As Long, _
 ByVal idObject As Long, ByVal idItem As Long, ByRef pmbi As MENUBARINFO) As Boolean
-Private Declare Function GetMenu Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function GetMenu Lib "user32" (ByVal hWnd As Long) As Long
 
 ' PRIVATE constants for ShowWindow API declaration
 Private Const SW_HIDE = 0
@@ -2457,7 +2503,7 @@ Private Const SW_SHOW = 5
 'Private Const HWND_NOTOPMOST = -2
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Private Type SHITEMID
     cb As Long
@@ -2469,26 +2515,26 @@ End Type
 Private Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hWndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
 
-Private Declare Function IsIconic Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsZoomed Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function IsIconic Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 
-Private Declare Function IsWindowVisible Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
-Private Declare Function GetShortPathName Lib "kernel32" _
+Private Declare Function GetShortPathName Lib "Kernel32" _
       Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
       ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
 
 Private Declare Function FindWindowDLL Lib "user32" Alias "FindWindowA" (ByVal lpClassName As Long, ByVal lpWindowName As Long) As Long
 
-Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 
 Private Const GW_HWNDNEXT = 2
 Private Const WM_CLOSE = &H10
 
 
-Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -2510,19 +2556,19 @@ End Type
 
 Private Declare Function MoveWindow _
         Lib "user32" _
-        (ByVal hwnd As Long, _
+        (ByVal hWnd As Long, _
          ByVal x As Long, _
          ByVal y As Long, _
          ByVal nWidth As Long, _
          ByVal nHeight As Long, _
          ByVal bRepaint As Long) As Long
 
-Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 
 Private Declare Function Putfocus _
         Lib "user32" _
         Alias "SetFocus" _
-        (ByVal hwnd As Long) As Long
+        (ByVal hWnd As Long) As Long
 
 'Private Type FILETIME
 '    dwLowDate  As Long
@@ -2545,7 +2591,7 @@ Private Const FILE_SHARE_READ = &H1
 Private Const FILE_SHARE_WRITE = &H2
 Private Const GENERIC_WRITE = &H40000000
  
-Private Declare Function CreateFile Lib "kernel32" Alias _
+Private Declare Function CreateFile Lib "Kernel32" Alias _
   "CreateFileA" (ByVal lpFileName As String, _
   ByVal dwDesiredAccess As Long, _
   ByVal dwShareMode As Long, _
@@ -2556,16 +2602,16 @@ Private Declare Function CreateFile Lib "kernel32" Alias _
   As Long
 
 Private Declare Function LocalFileTimeToFileTime Lib _
-    "kernel32" (lpLocalFileTime As FILETIME, _
+    "Kernel32" (lpLocalFileTime As FILETIME, _
      lpFileTime As FILETIME) As Long
 
-Private Declare Function SetFileTime Lib "kernel32" _
+Private Declare Function SetFileTime Lib "Kernel32" _
   (ByVal hFile As Long, ByVal MullP As Long, _
    ByVal NullP2 As Long, lpLastWriteTime _
    As FILETIME) As Long
 
 Private Declare Function SystemTimeToFileTime Lib _
-   "kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
+   "Kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
    As FILETIME) As Long
 
 
@@ -2595,11 +2641,11 @@ Private Declare Function SystemTimeToFileTime Lib _
 '    wMilliseconds As Integer
 'End Type
 
-Private Declare Function CreateDirectory Lib "kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
-Private Declare Function GetFileTime Lib "kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
-Private Declare Function FileTimeToSystemTime Lib "kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
-Private Declare Function FileTimeToLocalFileTime Lib "kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
-Private Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
+Private Declare Function CreateDirectory Lib "Kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
+Private Declare Function GetFileTime Lib "Kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
+Private Declare Function FileTimeToSystemTime Lib "Kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
+Private Declare Function FileTimeToLocalFileTime Lib "Kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
+Private Declare Function GetFileAttributes Lib "Kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
 'Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
 
@@ -2608,7 +2654,7 @@ Private Const WS_EX_TOOLWINDOW = &H80
 Private Const WS_EX_APPWINDOW = &H40000
 Private Const GA_ROOT = 2
 
-Private Declare Function GetAncestor Lib "user32.dll" (ByVal hwnd As Long, ByVal gaFlags As Long) As Long
+Private Declare Function GetAncestor Lib "user32.dll" (ByVal hWnd As Long, ByVal gaFlags As Long) As Long
 
 Private Const LVM_FIRST = &H1000
 Private Const LVM_SETEXTENDEDLISTVIEWSTYLE = LVM_FIRST + 54
@@ -2643,7 +2689,7 @@ Private Const FILE_ATTRIBUTE_SYSTEM = &H4
 Private Const FILE_ATTRIBUTE_TEMPORARY = &H100
 
 
-Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
 Private Const conSwNormal = 1
 
 
@@ -2729,7 +2775,7 @@ Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
      
 'HDC SET 2
 'Private Declare Function BeginPaint Lib "user32" (ByVal hwnd As Long, lpPaint As PAINTSTRUCT) As Long
-Private Declare Function GetClientRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function DPtoLP Lib "gdi32" (ByVal HDC As Long, lpPoint As POINTAPI, ByVal nCount As Long) As Long
 Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
 Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObject As Long) As Long
@@ -2772,7 +2818,7 @@ Private Const PRF_OWNED = &H20&    ' Draw all owned windows
 '-----------------------
 'THE UNIVERSAL TIME DOWN
 '-----------------------
-Private Declare Function GetTimeZoneInformation Lib "kernel32" (lpTimeZoneInformation As TIME_ZONE_INFORMATION) As Long
+Private Declare Function GetTimeZoneInformation Lib "Kernel32" (lpTimeZoneInformation As TIME_ZONE_INFORMATION) As Long
 Public MoonPhaseDate
 
 Private Const TIME_ZONE_ID_INVALID = -1
@@ -2812,7 +2858,7 @@ Private Const pi = 3.14159265359
 ' Dragging window
 Private m_bDragging As Boolean
 '-----------------------------
-Private Declare Function GetDC Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function GetDC Lib "user32" (ByVal hWnd As Long) As Long
 
 Private Type PALETTEENTRY
     peRed As Byte
@@ -2852,7 +2898,7 @@ Private Const SIZEPALETTE As Long = 104
 Private Const RASTERCAPS As Long = 38
 
 Private Declare Function MessageBoxTimeout Lib "user32.dll" Alias "MessageBoxTimeoutA" ( _
-ByVal hwnd As Long, _
+ByVal hWnd As Long, _
 ByVal lpText As String, _
 ByVal lpCaption As String, _
 ByVal uType As Long, _
@@ -2875,7 +2921,7 @@ Private Const GW_CHILD = 5
 'Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
 'Private Declare Function GetDesktopWindow Lib "user32" () As Long
 'Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
-Private Declare Function BringWindowToTop Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function BringWindowToTop Lib "user32" (ByVal hWnd As Long) As Long
 
 
 'Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -2926,13 +2972,13 @@ Public Function DirExist(sPath As String) As Boolean
     DirExist = (Dir(sPath, vbDirectory) <> "")
 End Function
 
-Function AlwaysOnTop(ByVal hwnd As Long)  'Makes a form always on top
-    SetWindowPos hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
+    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 
 End Function
-Function NotAlwaysOnTop(ByVal hwnd As Long)
+Function NotAlwaysOnTop(ByVal hWnd As Long)
     Dim Flags
-    SetWindowPos hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, Flags
+    SetWindowPos hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, Flags
 End Function
 
 
@@ -3045,7 +3091,7 @@ Private Sub Form_Load()
     FORM_LOAD_TRUE = False
     SET_VB_EXE_ARRAY_FIRST_TIME = True
     QUICK_KEY_ESCPAPE_AT_LOAD_20_SECOND = Now + TimeSerial(0, 0, 20)
-
+    VB_EXE_SYNC_TIMER = -1
 
 '    HWND_GET = FindWindow("Sym_Common_Scan_Window", vbNullString)
 '    MsgBox HWND_GET
@@ -3122,7 +3168,16 @@ Private Sub Form_Load()
         .View = lvwReport
         .FullRowSelect = True
     End With
-
+    With ListView_VB_MODIFIED_ERROR
+        .ColumnHeaders.Add , "COMPUTER_NAME", "COMPUTER_NAME", 1450, lvwColumnLeft
+        .ColumnHeaders.Add , "PATH_AND_FILE", "PATH_AND_FILE", ListView_VB_MODIFIED_ERROR.width - .ColumnHeaders.Item(1).width, lvwColumnLeft
+        .View = lvwReport
+        .FullRowSelect = True
+        
+    End With
+    ListView_VB_MODIFIED_ERROR.Appearance = ccFlat
+    ListView_VB_MODIFIED_ERROR.HideColumnHeaders = True
+    
     O_lstProcess_ListCount = -1
 
     Me.Caption = App.EXEName
@@ -3476,7 +3531,7 @@ If IsIDE = True Then Me.WindowState = vbNormal
 If IsIDE = False Then Me.WindowState = vbMinimized
     
 '__ Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
-SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 
 ' Command_Screen_Shot_Auto_ClipBoard_er.Caption = "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF" + vbCrLf + "Hitt Button Here to Change"
 
@@ -3544,7 +3599,7 @@ i_Menu_Count = 0
 
 For i = 0 To Forms.Count - 1
     Text_Checker_Form_Menu = ""
-    frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(i).hwnd), 0, "", Text_Checker_Form_Menu
+    frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(i).hWnd), 0, "", Text_Checker_Form_Menu
     Text_Checker_Form_Menu = UCase(Text_Checker_Form_Menu)
     For Each Control In Forms(i).Controls
         If InStr(UCase(Control.Name), "MNU_") > 0 Then
@@ -3641,12 +3696,12 @@ For Each Form In Forms
         XXER = Control.Visible
         If Err.Number > 0 Then XXER = False
         If XXER = True Then
-            If Form.hwnd = Me.hwnd Then
+            If Form.hWnd = Me.hWnd Then
             CONTROL_THIS_FORM_V_ = CONTROL_THIS_FORM_V_ + 1
             End If
             CONTROL_THIS_FORM_TOT_V_ = CONTROL_THIS_FORM_TOT_V_ + 1
         Else
-            If Form.hwnd = Me.hwnd Then
+            If Form.hWnd = Me.hWnd Then
                 CONTROL_THIS_FORM_VN = CONTROL_THIS_FORM_VN + 1
             End If
                 CONTROL_THIS_FORM_TOT_VN = CONTROL_THIS_FORM_TOT_VN + 1
@@ -4378,6 +4433,14 @@ Private Sub Label_VB_MODIFED_TIME_Click()
 
 End Sub
 
+Private Sub Label_VB_MODIFIED_ERROR_Click()
+
+End Sub
+
+Private Sub Label_VB_MODIFIED_TIME_Click()
+'Label_VB_MODIFIED_TIME.CAP
+End Sub
+
 Private Sub Label22_Click()
 'Label22.CAPTION
 'Clipboard.Clear
@@ -4611,7 +4674,7 @@ Private Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
     Label60.Caption = "Me on Top " + Str(Counter_ALWAYS_ON_TOP_TIMER) + "_20 Sec"
     
     Counter_ALWAYS_ON_TOP_TIMER = Counter_ALWAYS_ON_TOP_TIMER - 1
-    SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     If Counter_ALWAYS_ON_TOP_TIMER > -1 Then Exit Sub
     
@@ -4624,7 +4687,7 @@ Private Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
     'SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     ' Remove window from top
-    SetWindowPos Me.hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 '    Label60.Caption = "Me on Top @ Loader EXE Timer 20 Second NOT DONE"
     Label60.Caption = "Me on Top 20 Sec"
     Label60.BackColor = Label59.BackColor '49 58_59
@@ -5105,7 +5168,9 @@ Private Sub Form_Resize()
 
 If NOT_RESIZE_EVENTER = True Then Exit Sub
 
-Form_Resize_VB = True
+If O_Me_WindowState <> Me.WindowState Then
+    Form_Resize_VB = True
+End If
 
 If O_Me_WindowState = vbMaximized And Me.WindowState = vbNormal Then Exit Sub
 
@@ -5964,8 +6029,8 @@ End Sub
 Sub ShowCustomCaret(ByVal width As Integer, ByVal height As Integer)
     On Error Resume Next
     With Screen.ActiveForm.ActiveControl
-        CreateCaret .hwnd, 0, width, height
-        ShowCaret .hwnd
+        CreateCaret .hWnd, 0, width, height
+        ShowCaret .hWnd
     End With
 
 '    mWnd_VB_VbaWindow_MAXIMIZE
@@ -6401,7 +6466,7 @@ Private Function Menu_Height()
  
     MenuInfo.cbSize = Len(MenuInfo)
     
-    If GetMenuBarInfo(Me.hwnd, OBJID_MENU, 0, MenuInfo) Then
+    If GetMenuBarInfo(Me.hWnd, OBJID_MENU, 0, MenuInfo) Then
    
         With MenuInfo.rcBar
        
@@ -6476,7 +6541,7 @@ Private Sub MNU_ME_ON_TOP_Click()
     Beep
     ' Put window on top of all others
     'SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-    SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = False
     Label60.BackColor = Label49.BackColor '49 58_59
@@ -7016,8 +7081,8 @@ Dim HWND_NUMBERING As Long
 '    rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
 '    rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
     
-    rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
-    rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
     
     SCREEN_CAP_PICTURE.Show
     
@@ -7277,7 +7342,19 @@ End Sub
 
 Sub VB_EXE_SYNC()
 
+Dim R, A1, A2
+Dim TxtEXE_INFO, X1_F
+Dim F1, F2
+Dim VAR_DATE_1, VAR_DATE_2
+Dim TT_0, TT_1, TT_2
+Dim NET_NAME_1
+Dim NET_NAME_2
+Dim NET_NAME_12
+Dim NET_NAME_22
+Dim VB_EXE_ARRAY_COUNTER
+Dim VB_EXE_ARRAY_COMPARE
 Dim RIPER
+
 RIPER = False
 If GetComputerName = "1-ASUS-X5DIJ" Then RIPER = True
 If GetComputerName = "2-ASUS-EEE" Then RIPER = True
@@ -7288,83 +7365,44 @@ If RIPER = True Then
     Exit Sub
 End If
 
-Dim R, A1, A2
-Dim TxtEXE_INFO, X1_F
-Dim F1, F2
-Dim VAR_DATE_1, VAR_DATE_2
-Dim TT_0, TT_1, TT_2
-Dim V_VAR, V_TIME_01
-Dim TIME_MARKER
-
-VB_EXE_SYNC_TIMER = VB_EXE_SYNC_TIMER + 1
-
-V_VAR = TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02
-V_TIME_01 = Trim(Str(DateDiff("s", V_VAR, Now)))
-If Val(V_TIME_01) > -1 Then
-    V_TIME_01 = V_TIME_01
-    TIME_MARKER = " Sec"
-End If
-If Val(V_TIME_01) > 120 Then
-    V_TIME_01 = Trim(Str(DateDiff("n", V_VAR, Now)))
-    TIME_MARKER = " Min"
-End If
-If Val(V_TIME_01) > 60 Then
-    V_TIME_01 = Trim(Str(DateDiff("h", V_VAR, Now)))
-    TIME_MARKER = " Hour"
-End If
-If V_VAR < 1 Then
-    V_TIME_01 = "0"
-    TIME_MARKER = " Sec"
-End If
-If V_VAR < 1 Then
-    If Label_VB_MODIFIED_TIME.Caption = "GS HR" _
-    Or Label_VB_MODIFIED_TIME.Caption = "Not YET" Then
-        V_TIME_01 = ""
-        TIME_MARKER = "Not YET"
-    End If
-End If
-Label_VB_MODIFIED_TIME.Caption = V_TIME_01 + TIME_MARKER
-Label_VB_MODIFIED_TIME.FontSize = 9
-'THE VARIABLE FOR ERROR
-If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE > 0 Then
-    Label_VB_MODIFIED_TIME.BackColor = RGB(200, 127, 127)
-Else
-    Label_VB_MODIFIED_TIME.BackColor = RGB(255, 255, 255)
-End If
-
-If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE < Now Then
-    If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE > 0 Then
-        VB_EXE_SYNC_TIMER = 10
-    End If
-End If
-
-
-If TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE < Now Then
-    If TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE > 0 Then
-        TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE = 0
-        VB_EXE_SYNC_TIMER = 10
-    End If
-End If
-
-If VB_EXE_SYNC_TIMER > 2 Then
-    VB_EXE_SYNC_TIMER = 0
-Else
-    Exit Sub
-End If
-    
-Dim NET_NAME_1
-Dim NET_NAME_2
-Dim NET_NAME_12
-Dim NET_NAME_22
-Dim NET_COPY_CHANGE_HAPPENER
-Dim VB_EXE_ARRAY_COUNTER
-Dim VB_EXE_ARRAY_COMPARE
-    
-'Debug.Print Now
-
 If SET_VB_EXE_ARRAY_FIRST_TIME = True Then
     ReDim Preserve VB_EXE_ARRAY(1)
     SET_VB_EXE_ARRAY_FIRST_TIME = False
+End If
+
+If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 > VB_EXE_SYNC_TIMER Then
+    TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 = 0
+    VB_EXE_SYNC_TIMER = TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 + VB_EXE_SYNC_TIMER
+End If
+
+If TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE > VB_EXE_SYNC_TIMER Then
+    TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE = 0
+    VB_EXE_SYNC_TIMER = TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 + VB_EXE_SYNC_TIMER
+End If
+
+If VB_EXE_SYNC_TIMER = -1 Then
+    VB_EXE_SYNC_TIMER = Now + TimeSerial(0, 0, 4)
+End If
+If VB_EXE_SYNC_TIMER = 0 Then
+    VB_EXE_SYNC_TIMER = Now + TimeSerial(0, 0, 30)
+End If
+
+Call TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_SUB
+
+Call CHECK_NET_ARRAY
+
+If NET_COPY_CHANGE_HAPPENER = True Then
+    If VB_EXE_SYNC_TIMER > Now + TimeSerial(0, 0, 4) Then
+        VB_EXE_SYNC_TIMER = Now + TimeSerial(0, 0, 4)
+    End If
+End If
+
+If VB_EXE_SYNC_TIMER > Now Then
+    Exit Sub
+End If
+
+If VB_EXE_SYNC_TIMER < Now Then
+    VB_EXE_SYNC_TIMER = 0
 End If
 
 VB_EXE_ARRAY_COUNTER = UBound(VB_EXE_ARRAY) - 1
@@ -7393,7 +7431,6 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     End If
 Next
 
-
 NET_COPY_CHANGE_HAPPENER = False
 ' IF A PROCESS HAS LOADED AND GONE THEN DO ALL THE NETWORK CHECK ANOTHER
 ' BEST WAY TO CATCH RATHER THAN HASHER PID NUMBER WITH FILE PATH
@@ -7401,8 +7438,11 @@ NET_COPY_CHANGE_HAPPENER = False
 If OLD_VB_COUNT_ARRAY_SIZE <> VB_COUNT_ARRAY_SIZE Then
     NET_COPY_CHANGE_HAPPENER = True
 End If
+
 OLD_VB_COUNT_ARRAY_SIZE = VB_COUNT_ARRAY_SIZE
 
+Label_VB_MODIFIED_ACTIVE.Caption = "MY COMPUTER"
+Label_VB_MODIFIED_ACTIVE.FontSize = 6.8
 For R = 1 To UBound(VB_EXE_ARRAY)
     TxtEXE_INFO = VB_EXE_ARRAY(R)
     If InStr(TxtEXE_INFO, "D:\VB6\") > 0 Then
@@ -7443,110 +7483,298 @@ For R = 1 To UBound(VB_EXE_ARRAY)
         Set F1 = Nothing
         Set F2 = Nothing
                 
-        If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE < Now Then
-            If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE > 0 Then
+                
+        ' NET_COPY_CHANGE_HAPPENER = TRUE OR NOT
+
+        If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 < Now Then
+            If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 > 0 Then
                 NET_COPY_CHANGE_HAPPENER = True
             End If
         End If
+    End If
+Next
                 
-        ' NET_COPY_CHANGE_HAPPENER = True
-        If NET_COPY_CHANGE_HAPPENER = True Then
-            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE = 0
-'            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = 0
-            If Array_FileName(1) = "" Then
-                Call READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY
+            
+' NET_COPY_CHANGE_HAPPENER = True
+If NET_COPY_CHANGE_HAPPENER = True Then
+    TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 = 0
+' TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = 0
+    If Array_FileName(1) = "" Then
+        Call READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY
+    End If
+    
+    Dim TT_VAR_0
+    Dim TT_VAR_1
+    Dim TT_VAR_2
+    
+    ListView_VB_MODIFIED_ERROR.ListItems.Clear
+    
+    ' TWICE FOR GOOD FUN
+    ' ------------------
+    For TT_0 = 1 To 2
+    For TT_1 = 1 To UBound(Array_FileName)
+    For TT_2 = 1 To UBound(Array_FileName)
+        
+        TT_VAR_0 = Format((2 - TT_0), "0")
+        TT_VAR_1 = Format((UBound(Array_FileName) - TT_1), "0")
+        TT_VAR_2 = Format((UBound(Array_FileName) - TT_2), "0")
+        Label_VB_MODIFIED_ACTIVE.Caption = "GO -- " + TT_VAR_0 + "," + TT_VAR_1 + "," + TT_VAR_2
+        Label_VB_MODIFIED_ACTIVE.FontSize = 9.4
+        
+        If UCase(Array_NETPATH_01(TT_1)) <> UCase(Array_NETPATH_01(TT_2)) Then
+            
+            DoEvents
+            If Form_Resize_VB = True Then
+                Form_Resize_VB = False
+                TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 0, 30)
+                Exit Sub
             End If
             
-            ' TWICE FOR GOOD FUN
-            ' ------------------
-            For TT_0 = 1 To 2
-            For TT_1 = 1 To UBound(Array_FileName)
-            For TT_2 = 1 To UBound(Array_FileName)
-                If UCase(Array_NETPATH_01(TT_1)) <> UCase(Array_NETPATH_01(TT_2)) Then
-                    
-                    DoEvents
-                    If Form_Resize_VB = True Then
-                        Form_Resize_VB = False
-                        TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 0, 30)
-                        Exit Sub
-                    End If
-                    
-                    NET_NAME_1 = NET_NAME_12
-                    NET_NAME_2 = NET_NAME_22
-                    NET_NAME_1 = "\\" + Array_NETPATH_01(TT_1) + "\" + "" + Array_NETPATH_02(TT_1) + "_02_d_drive\" + Mid(NET_NAME_1, 4)
-                    NET_NAME_2 = "\\" + Array_NETPATH_01(TT_2) + "\" + "" + Array_NETPATH_02(TT_2) + "_02_d_drive\" + Mid(NET_NAME_2, 4)
-                                                        
-                    If TT_0 = 2 Then
-                        NET_NAME_2 = NET_NAME_12
-                        NET_NAME_2 = "\\" + Array_NETPATH_01(TT_2) + "\" + "" + Array_NETPATH_02(TT_2) + "_02_d_drive\" + Mid(NET_NAME_2, 4)
-                    End If
-                                    
-                    'Debug.Print Array_NETPATH_01(TT_1)
-                    'Debug.Print Array_NETPATH_01(TT_2)
-                    'Stop
-                    'Dim HEREHERE
+            NET_NAME_1 = NET_NAME_12
+            NET_NAME_2 = NET_NAME_22
+            NET_NAME_1 = "\\" + Array_NETPATH_01(TT_1) + "\" + "" + Array_NETPATH_02(TT_1) + "_02_d_drive\" + Mid(NET_NAME_1, 4)
+            NET_NAME_2 = "\\" + Array_NETPATH_01(TT_2) + "\" + "" + Array_NETPATH_02(TT_2) + "_02_d_drive\" + Mid(NET_NAME_2, 4)
+                                                
+            If TT_0 = 2 Then
+                NET_NAME_2 = NET_NAME_12
+                NET_NAME_2 = "\\" + Array_NETPATH_01(TT_2) + "\" + "" + Array_NETPATH_02(TT_2) + "_02_d_drive\" + Mid(NET_NAME_2, 4)
+            End If
+                            
+            'Debug.Print Array_NETPATH_01(TT_1)
+            'Debug.Print Array_NETPATH_01(TT_2)
+            'Stop
+            'Dim HEREHERE
+            Err.Clear
+            'HEREHERE = 0
+            'If InStr(NET_NAME_1, "X5DIJ") Then HEREHERE = 1
+            'If InStr(NET_NAME_2, "X5DIJ") Then HEREHERE = 1
+            'If HEREHERE = 1 And InStr(NET_NAME_1, "Shell Explorer Loader") Then HEREHERE = 2
+            'If HEREHERE = 1 And InStr(NET_NAME_2, "Shell Explorer Loader") Then HEREHERE = 2
+            'If TT_0 <> 2 Then HEREHERE = 0
+            
+            'Debug.Print NET_NAME_1
+            'Debug.Print NET_NAME_2
+            'If HEREHERE = 2 Then Stop
+            
+            ' ------------------------------------------------------------------
+            'DEBUG GO AND SOME EXE ABLE TO RUN AND UPDATE THEMSELVE UNDERNETH
+            ' SOLVED SOMETHING THOUGH A DOUBLE PASS FIRST FOR NEXT LLOP REQUIRE
+            ' ------------------------------------------------------------------
+            
+            On Error Resume Next
+            Set F1 = FSO.GetFile(NET_NAME_1)
+            Set F2 = FSO.GetFile(NET_NAME_2)
+            VAR_DATE_1 = 0
+            VAR_DATE_2 = 0
+            VAR_DATE_1 = F1.DateLastModified
+            VAR_DATE_2 = F2.DateLastModified
+            If Err.Number > 0 Then
+                VAR_DATE_1 = 0
+                VAR_DATE_2 = 0
+            End If
+            If VAR_DATE_1 > 0 Then
+                Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_1, NET_NAME_2, 1)
+                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
+                Call TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_SUB
+                
+                If VAR_DATE_1 > VAR_DATE_2 Then
                     Err.Clear
-                    'HEREHERE = 0
-                    'If InStr(NET_NAME_1, "X5DIJ") Then HEREHERE = 1
-                    'If InStr(NET_NAME_2, "X5DIJ") Then HEREHERE = 1
-                    'If HEREHERE = 1 And InStr(NET_NAME_1, "Shell Explorer Loader") Then HEREHERE = 2
-                    'If HEREHERE = 1 And InStr(NET_NAME_2, "Shell Explorer Loader") Then HEREHERE = 2
-                    'If TT_0 <> 2 Then HEREHERE = 0
-                    
-                    'Debug.Print NET_NAME_1
-                    'Debug.Print NET_NAME_2
-                    'If HEREHERE = 2 Then Stop
-                    
-                    ' ------------------------------------------------------------------
-                    'DEBUG GO AND SOME EXE ABLE TO RUN AND UPDATE THEMSELVE UNDERNETH
-                    ' SOLVED SOMETHING THOUGH A DOUBLE PASS FIRST FOR NEXT LLOP REQUIRE
-                    ' ------------------------------------------------------------------
-                    
-                    On Error Resume Next
-                    Set F1 = FSO.GetFile(NET_NAME_1)
-                    Set F2 = FSO.GetFile(NET_NAME_2)
-                    VAR_DATE_1 = 0
-                    VAR_DATE_2 = 0
-                    VAR_DATE_1 = F1.DateLastModified
-                    VAR_DATE_2 = F2.DateLastModified
+                    FSO.CopyFile NET_NAME_1, NET_NAME_2
                     If Err.Number > 0 Then
-                        VAR_DATE_1 = 0
-                        VAR_DATE_2 = 0
+                        Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_2, NET_NAME_1, 0)
                     End If
-                    If VAR_DATE_1 > 0 Then
-                        If VAR_DATE_1 > VAR_DATE_2 Then
-                            Err.Clear
-                            FSO.CopyFile NET_NAME_1, NET_NAME_2
-                            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
-                            If Err.Number > 0 Then
-                                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 0, 30)
-                            End If
-                        End If
-                    End If
-                    If VAR_DATE_2 > 0 Then
-                        If VAR_DATE_1 < VAR_DATE_2 Then
-                            Err.Clear
-                            FSO.CopyFile NET_NAME_2, NET_NAME_1
-                            TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
-                            If Err.Number > 0 Then
-                                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 0, 30)
-                            End If
-                        End If
-                    End If
-                    Set F1 = Nothing
-                    Set F2 = Nothing
                 End If
-            Next
-            Next
-            Next
+            End If
+            DoEvents
+            If Form_Resize_VB = True Then
+                Form_Resize_VB = False
+                TIME_RETRY_REDO_NETWORK_ARRAY_VB_UPDATE = Now + TimeSerial(0, 1, 0)
+                Exit Sub
+            End If
+
+            If VAR_DATE_2 > 0 Then
+                Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_2, NET_NAME_1, 1)
+                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
+                Call TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_SUB
+                
+                If VAR_DATE_1 < VAR_DATE_2 Then
+                    Err.Clear
+                    FSO.CopyFile NET_NAME_2, NET_NAME_1
+                    If Err.Number > 0 Then
+                        Call ADD_TO_ListView_VB_MODIFIED_ERROR(NET_NAME_1, NET_NAME_2, 0)
+                    End If
+                End If
+            End If
+            Set F1 = Nothing
+            Set F2 = Nothing
         End If
+    Next
+    Next
+    Next
 End If
-Next
+
+VB_EXE_SYNC_TIMER = 0
+
+Label_VB_MODIFIED_ACTIVE.Caption = "IDLE"
+Label_VB_MODIFIED_ACTIVE.FontSize = 9.4
+
 Debug.Print Now
 Debug.Print "----"
 
 On Error GoTo 0
 
+End Sub
+
+Sub CHECK_NET_ARRAY()
+Dim R, TxtEXE_INFO, X1_F, NET_NAME_1, NET_NAME_2, NET_NAME_12, NET_NAME_22
+Dim F2, VAR_DATE_1, VAR_DATE_2
+For R = 1 To UBound(VB_EXE_ARRAY)
+    TxtEXE_INFO = VB_EXE_ARRAY(R)
+    If InStr(TxtEXE_INFO, "D:\VB6\") > 0 Then
+        X1_F = Replace(TxtEXE_INFO, "\VB6\", "\VB6-EXE\")
+        Err.Clear
+        NET_NAME_1 = TxtEXE_INFO
+        NET_NAME_2 = X1_F
+        NET_NAME_12 = NET_NAME_1
+        NET_NAME_22 = NET_NAME_2
+        On Error Resume Next
+        Set F1 = FSO.GetFile(NET_NAME_1)
+        Set F2 = FSO.GetFile(NET_NAME_2)
+        VAR_DATE_1 = 0
+        VAR_DATE_2 = 0
+        VAR_DATE_1 = F1.DateLastModified
+        VAR_DATE_2 = F2.DateLastModified
+        If Err.Number > 0 Then
+            VAR_DATE_1 = 0
+            VAR_DATE_2 = 0
+        End If
+        If VAR_DATE_1 > 0 Then
+            If VAR_DATE_1 > VAR_DATE_2 Then
+                NET_COPY_CHANGE_HAPPENER = True
+                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
+            End If
+            If VAR_DATE_1 < VAR_DATE_2 Then
+                NET_COPY_CHANGE_HAPPENER = True
+                TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02 = Now
+            End If
+        End If
+        Set F1 = Nothing
+        Set F2 = Nothing
+    End If
+Next
+End Sub
+
+
+Sub TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_SUB()
+
+Dim V_VAR, V_TIME_01
+Dim TIME_MARKER
+
+' VB_EXE_SYNC_TIMER = VB_EXE_SYNC_TIMER + 1
+
+V_VAR = TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_02
+V_TIME_01 = Trim(Str(DateDiff("s", V_VAR, Now)))
+If Val(V_TIME_01) > -1 Then
+    V_TIME_01 = V_TIME_01
+    TIME_MARKER = " Sec"
+End If
+If Val(V_TIME_01) > 300 Then
+    V_TIME_01 = Trim(Str(DateDiff("n", V_VAR, Now)))
+    TIME_MARKER = " Min"
+End If
+If Val(V_TIME_01) > 60 Then
+    V_TIME_01 = Trim(Str(DateDiff("h", V_VAR, Now)))
+    TIME_MARKER = " Hour"
+End If
+If V_VAR < 1 Then
+    V_TIME_01 = "0"
+    TIME_MARKER = " Sec"
+End If
+If V_VAR < 1 Then
+    If Label_VB_MODIFIED_TIME.Caption = "GS HR" _
+    Or Label_VB_MODIFIED_TIME.Caption = "Not YET" Then
+        V_TIME_01 = ""
+        TIME_MARKER = "Not YET"
+    End If
+End If
+
+Label_VB_MODIFIED_TIME.Caption = V_TIME_01 + TIME_MARKER
+Label_VB_MODIFIED_TIME.FontSize = 9
+
+
+'THE VARIABLE FOR ERROR
+If TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 > 0 Then
+    Label_VB_MODIFIED_TIME.BackColor = RGB(200, 127, 127)
+Else
+    Label_VB_MODIFIED_TIME.BackColor = RGB(255, 255, 255)
+End If
+
+V_TIME_01 = Trim(Str(DateDiff("s", Now, VB_EXE_SYNC_TIMER)))
+
+Label_VB_MODIFIED_ACTIVE.Caption = "IDLE " + V_TIME_01
+
+
+
+End Sub
+
+Sub ADD_TO_ListView_VB_MODIFIED_ERROR(VAR_STRING_10, VAR_STRING_20, ID_VAR)
+    
+    Dim WANT_HERE, RW, LV3
+    Dim VAR_STRING_01, VAR_STRING_02
+    Dim COMPARE_01, COMPARE_02
+    
+    ListView_VB_MODIFIED_ERROR.Font.size = 7
+    ListView_VB_MODIFIED_ERROR.Refresh
+    
+    If ID_VAR = 1 Then
+        VAR_STRING_01 = Mid(VAR_STRING_10, 3, InStr(3, VAR_STRING_10, "\") - 3)
+        VAR_STRING_02 = Mid(VAR_STRING_20, 3, InStr(3, VAR_STRING_20, "\") - 3)
+        VAR_STRING_02 = "---->> " + VAR_STRING_02 + " ---- " + Mid(VAR_STRING_20, InStr(3, VAR_STRING_20, "drive\") + Len("drive\") - 1)
+        
+        If ListView_VB_MODIFIED_ERROR.ListItems.Count > 0 Then
+            ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(1) = VAR_STRING_02
+            ListView_VB_MODIFIED_ERROR.ListItems(1).Text = VAR_STRING_01
+        
+        End If
+        
+        If ListView_VB_MODIFIED_ERROR.ListItems.Count = 0 Then
+            With ListView_VB_MODIFIED_ERROR
+                Set LV3 = .ListItems.Add(, , VAR_STRING_02)
+                LV3.SubItems(1) = VAR_STRING_01
+            End With
+        End If
+        Exit Sub
+    End If
+    
+    Label_VB_MODIFIED_TIME.BackColor = RGB(200, 127, 127)
+    If IsNumeric(Label_VB_MODIFIED_TIME.Caption) = False Then
+        Label_VB_MODIFIED_TIME.Caption = "Net Err"
+    End If
+    
+    TIME_RETRY_ERROR_NETWORK_ARRAY_VB_UPDATE_01 = Now + TimeSerial(0, 1, 0)
+    
+    ListView_VB_MODIFIED_ERROR.Font.size = 7
+    VAR_STRING_01 = Mid(VAR_STRING_10, 1, InStr(3, VAR_STRING_10, "\") - 1)
+    VAR_STRING_02 = Mid(VAR_STRING_10, InStr(3, VAR_STRING_10, "drive\") + Len("drive\") - 1)
+    COMPARE_01 = VAR_STRING_01 + VAR_STRING_02
+    WANT_HERE = True
+    If ListView_VB_MODIFIED_ERROR.ListItems.Count > 1 Then
+        For RW = 2 To ListView_VB_MODIFIED_ERROR.ListItems.Count
+            COMPARE_02 = ListView_VB_MODIFIED_ERROR.ListItems(RW) + ListView_VB_MODIFIED_ERROR.ListItems(RW).SubItems(1)
+            If COMPARE_01 = COMPARE_02 Then
+                WANT_HERE = False
+            End If
+        Next
+    End If
+    If WANT_HERE = True Then
+        With ListView_VB_MODIFIED_ERROR
+            Set LV3 = .ListItems.Add(, , VAR_STRING_01)
+            LV3.SubItems(1) = VAR_STRING_02
+        End With
+    End If
+    
+    ListView_VB_MODIFIED_ERROR.Refresh
+    
 End Sub
 
 
@@ -8470,6 +8698,8 @@ For R_I = 0 To lstProcess.ListCount - 1
         '------------------------
     End With
 
+    'ADDITEM
+    'lstProcess_3_SORTER_ListView.ListItems.Add
     With lstProcess_3_SORTER_ListView
         Set LV3 = .ListItems.Add(, , ITEM_ADD_10)
         LV3.SubItems(1) = ITEM_ADD_22
@@ -8889,10 +9119,10 @@ Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column _
  Dim c As ColumnHeader
  If Column Is Nothing Then
   For Each c In LV.ColumnHeaders
-   SendMessage LV.hwnd, LVM_FIRST + 30, c.Index - 1, -1
+   SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
   Next
  Else
-  SendMessage LV.hwnd, LVM_FIRST + 30, Column.Index - 1, -1
+  SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
  End If
  LV.Refresh
 End Sub
@@ -8993,18 +9223,18 @@ Function GetParentTitle(ByVal Handle As Long) As String
 
 End Function
 
-Function GetWindowTitle(ByVal hwnd As Long) As String
+Function GetWindowTitle(ByVal hWnd As Long) As String
    Dim l As Long
    Dim s As String
-   l = GetWindowTextLength(hwnd)
+   l = GetWindowTextLength(hWnd)
    s = Space(l + 1)
-   GetWindowText hwnd, s, l + 1
+   GetWindowText hWnd, s, l + 1
    GetWindowTitle = Left$(s, l)
 End Function
-Function GetWindowClass(ByVal hwnd As Long) As String
+Function GetWindowClass(ByVal hWnd As Long) As String
     Dim ret As Long, sText As String
     sText = Space(255)
-    ret = GetClassName(hwnd, sText, 255)
+    ret = GetClassName(hWnd, sText, 255)
     sText = Left$(sText, ret)
    GetWindowClass = sText
 End Function
@@ -10898,15 +11128,15 @@ VB_Error:
 End Sub
 
 
-Property Let WindowVisible(hwnd As Long, New_Value As Boolean)
+Property Let WindowVisible(hWnd As Long, New_Value As Boolean)
 
-    Call ShowWindow(hwnd, IIf(New_Value, SW_SHOW, SW_HIDE))
+    Call ShowWindow(hWnd, IIf(New_Value, SW_SHOW, SW_HIDE))
 
 End Property
 
-Property Get WindowVisible(hwnd As Long) As Boolean
+Property Get WindowVisible(hWnd As Long) As Boolean
 
-    WindowVisible = (IsWindowVisible(hwnd) > 0)
+    WindowVisible = (IsWindowVisible(hWnd) > 0)
   
 End Property
 
@@ -10935,7 +11165,7 @@ Private Sub chkOnTop_Click()
     If chkOnTop.Value = 1 Then
         ' Put window on top of all others
         
-        SetWindowPos Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
         SaveSetting "EliteSpy+", "Settings", "AlwaysOnTop", "1"
         MNU_ME_ON_TOP.Caption = "[__ ME ON TOP = YES __]"
         Label60.BackColor = Label49.BackColor '49 58_59
@@ -10947,7 +11177,7 @@ Private Sub chkOnTop_Click()
 
     Else
         ' Remove window from top
-        SetWindowPos Me.hwnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
         SaveSetting "EliteSpy+", "Settings", "AlwaysOnTop", "0"
         MNU_ME_ON_TOP.Caption = "[__ ME ON tOP = NOT __]"
         'Label60.BackColor = Label59.BackColor '49 58_59
@@ -10971,7 +11201,7 @@ Private Sub cmdMoveMax_Click()
     ' --------------------------------------------------------------------------------
 
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
 
     Dim Rect_Get As RECT
     Dim HX, HY, HW, HH, SSHW, SSHH
@@ -11004,7 +11234,7 @@ End Sub
 Private Sub cmdMaximize_Click()
     ' Maximize window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     ShowWindow txtMhWnd.Text, SW_MAXIMIZE
 
@@ -11016,7 +11246,7 @@ Private Sub cmdMinimize_Click()
     
     ' Minimize window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     ShowWindow txtMhWnd.Text, SW_MINIMIZE
     'ShowWindow txtMhWnd.Text, SW_NORMAL
@@ -11040,7 +11270,7 @@ Private Sub cmdNormal_Click()
     
     Dim lhWndParentX
     
-    If Val(txtMhWnd.Text) = 0 Then txtMhWnd.Text = Me.hwnd
+    If Val(txtMhWnd.Text) = 0 Then txtMhWnd.Text = Me.hWnd
    
     ' txtMhWnd.Text = GetParent(Val(txtMhWnd.Text))
     ' txtMhWnd.Text = GetParentHwnd(Val(txtMhWnd.Text))
@@ -11059,7 +11289,7 @@ End Sub
 Private Sub cmdFlash_Click()
     ' Flash window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     FlashWindow txtMhWnd.Text, 3
     
@@ -11070,9 +11300,9 @@ End Sub
 Private Sub cmdEnable_Click()
     ' Enable window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     EnableWindow txtMhWnd.Text, 1
 
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
@@ -11082,9 +11312,9 @@ End Sub
 Private Sub cmdDisable_Click()
     ' Disable window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd: Exit Sub
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd: Exit Sub
     EnableWindow txtMhWnd.Text, 0
 
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
@@ -11097,7 +11327,7 @@ Private Sub cmdSetTitle_Click()
     Dim i_Result
     
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     
     ' Ask user for new window title
     sTitle = InputBox("Enter new window title:", "EliteSpy +")
@@ -11121,7 +11351,7 @@ Private Sub cmdOnTop_Click()
     
     If txtMhWnd.Text = "" Then
         Call MNU_ME_ON_TOP_Click
-        If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+        If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
         Exit Sub
     End If
     
@@ -11134,7 +11364,7 @@ Private Sub cmdOnTop_Click()
 End Sub
 Private Sub cmdNotOnTop_Click()
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
 
     ' Remove window from top
     SetWindowPos txtMhWnd.Text, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
@@ -11149,7 +11379,7 @@ Private Sub cmdHide_Click()
     Beep
     
     If txtMhWnd.Text = "" Then
-        txtMhWnd.Text = Me.hwnd
+        txtMhWnd.Text = Me.hWnd
         Call ChunkCodeOnMouse
         MsgBox "DON'T HIDE OWN WINDOW", vbMsgBoxSetForeground
         Exit Sub
@@ -11164,7 +11394,7 @@ End Sub
 Private Sub cmdShow_Click()
     ' Show window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     ShowWindow txtMhWnd.Text, SW_SHOW
 
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
@@ -11174,7 +11404,7 @@ End Sub
 Private Sub cmdTerminate_Click()
     ' Close window
     Beep
-    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hwnd: Exit Sub
+    If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd: Exit Sub
     SendMessage txtMhWnd.Text, WM_CLOSE, 0, 0
 End Sub
 
@@ -11682,7 +11912,7 @@ If lhWndParent = 0 Then lhWndParent = O_lhWndParent
 lhWndParentX = GetParentHwnd(LHWND)
 
 If GetAsyncKeyState(27) < 0 Then
-    If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         If IsIDE = True Then
             Unload Me
         Else
@@ -11720,21 +11950,21 @@ End If
 
 'C
 If GetAsyncKeyState(67) < 0 Then
-    If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Call Label_KILL_CMD_Click
     End If
 End If
 
 'A
 If GetAsyncKeyState(65) < 0 Then
-    If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Call Label_KILL_AUTOHOTKEY_Click
     End If
 End If
 
 'K
 If GetAsyncKeyState(75) < 0 Then
-    If GetForegroundWindow = Me.hwnd Or lhWndParent = Me.hwnd Or lhWndParentX = Me.hwnd Then
+    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         Call Label_KILL_CMD_AND_AHK_Click
     End If
 End If
