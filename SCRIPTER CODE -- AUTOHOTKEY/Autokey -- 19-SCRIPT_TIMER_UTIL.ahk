@@ -1193,20 +1193,26 @@ IfWinExist Session timeout! ahk_class #32770
 
 DetectHiddenWindows, OFF
 SetTitleMatchMode 3  ; Exactly
-;Visual BASIC
 IfWinExist Visual Component Manager
 {
-	ControlClick, OK, Visual Component Manager
-	SoundBeep , 2500 , 100
+	ControlGet, OutputVar_4, Visible, , OK, Visual Component Manager
+	IF OutputVar_4 
+	{
+		ControlClick, OK, Visual Component Manager
+		SoundBeep , 2500 , 100
+	}
 }
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 DetectHiddenWindows, OFF
-;Visual BASIC
-IfWinExist Data View
+IfWinExist Data View ahk_class VBFloatingPalette
 {
-	SoundBeep , 2500 , 100
-	ControlClick, OK, Data View
+	ControlGet, OutputVar_4, Visible, , OK, Data View ahk_class VBFloatingPalette
+	IF OutputVar_4
+	{
+		ControlClick, OK, Data View ahk_class VBFloatingPalette
+		SoundBeep , 2500 , 100
+	}
 }
 
 DetectHiddenWindows, ON
