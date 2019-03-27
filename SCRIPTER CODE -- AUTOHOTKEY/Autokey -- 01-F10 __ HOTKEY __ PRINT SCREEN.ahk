@@ -89,35 +89,49 @@ OLD_STATE_XYPOSCOUNTER=0
 
 OLD_HWND_4=0
 
-
-
 ; HERE THE FUNCTION ROUTINE FOR GOODSYNC
 ; --------------------------------------
 GOSUB F5_ROUTINE
 
-
 SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,100
-
-; OLD_AUTO_RELOAD_FACEBOOK_VAR=0
-; SETTIMER AUTO_RELOAD_FACEBOOK,59000
-
-; SETTIMER AUTO_RELOAD_RAIN_ALARM,10000
-
-; AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
-; SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,1000
-
-; AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
-; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO,1000
-
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-
 RETURN
 
+; *D::
 ; *::
 ; MSGBOX  You pressed %A_ThisHotkey%.
 ; Return
+
+TIMER_HOTKEY:
+	VAR_IN_NAME=Confirm Save As ahk_class #32770
+	SetTitleMatchMode 3  ; Specify Full path
+	IFWINEXIST %VAR_IN_NAME%
+	IFWINEXIST Confirm Save As ahk_exe VB6.EXE
+	{
+		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
+		
+		STRING_V:=&&Yes  0
+		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+		{	
+			; NA [v1.0.45+]: May improve reliability. See reliability below.
+			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
+			SOUNDBEEP 4000,300
+			VAR_DONE_ESCAPE_KEY=TRUE
+		}
+		IF CONTROL_TEXT=&Yes
+		{
+			Secs_MSGBOX_04=5
+			SOUNDBEEP 5000,200
+		}
+
+		IF Secs_MSGBOX_04>0 	
+			Secs_MSGBOX_04-=1
+			
+		ControlSetText,Button1,&Yes  %Secs_MSGBOX_04%, %VAR_IN_NAME%
+	}
+RETURN
 
 ESC::
 
@@ -243,12 +257,35 @@ ESC::
 	; ---------------------------------------------------------------
 
 	SetTitleMatchMode 3  ; Specify Full path
-
 	IfWinActive Confirm Save As ahk_class #32770
 	IfWinActive Confirm Save As ahk_exe VB6.EXE
 	{	
 		ControlClick, &Yes,Confirm Save As ahk_class #32770
 		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+
+	; ---------------------------------------------------------------
+	; IF NOT WANT A DUAL CALLER OF VB6 TO SAME CODER 
+	; SOLUTION HERE -- 01 OF 02 -- AND -- 02 OF 02 -- NEXT
+	; ---------------------------------------------------------------
+	IfWinActive New Project ahk_class #32770
+	IfWinActive New Project ahk_exe VB6.EXE
+	{	
+		WinClose
+		SoundBeep , 5000 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+	
+	; 02 OF 02
+	; ---------------------------------------------------------------
+	IfWinActive Microsoft Visual Basic ahk_class wndclass_desked_gsk
+	IfWinActive Microsoft Visual Basic ahk_exe VB6.EXE
+	; DO BOTH TOGETHER OR ONE AT A GO
+	; IF VAR_DONE_ESCAPE_KEY=FALSE
+	{	
+		SEND !{F4}
+		SoundBeep , 6000 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 

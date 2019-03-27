@@ -96,10 +96,11 @@ TIMER_HOTKEY:
 
 	VAR_IN_NAME=Confirm Save As ahk_class #32770
 	SetTitleMatchMode 3  ; Specify Full path
-	IfWinActive %VAR_IN_NAME%
-	IfWinActive Confirm Save As ahk_exe VB6.EXE
+	IFWINEXIST %VAR_IN_NAME%
+	IFWINEXIST Confirm Save As ahk_exe VB6.EXE
 	{
 		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
+		
 		STRING_V:=&&Yes  0
 		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
 		{	
@@ -119,6 +120,24 @@ TIMER_HOTKEY:
 			
 		ControlSetText,Button1,&Yes  %Secs_MSGBOX_04%, %VAR_IN_NAME%
 	}
+	
+	
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 2
+	IFWINEXIST Microsoft Visual Basic ahk_class wndclass_desked_gsk
+	IFWINEXIST Browser ahk_class wndclass_desked_gsk
+	IFWINEXIST Microsoft Visual Basic ahk_exe VB6.EXE
+	{
+		ControlGet, OutputVar_4, Visible, , ToolbarWindow321, Microsoft Visual Basic ahk_class wndclass_desked_gsk
+		ControlGet, OutputVar_4, Visible, , Object Browser, Microsoft Visual Basic ahk_class wndclass_desked_gsk
+		IF OutputVar_4=1
+			Control, HIDE,, Object Browser, Microsoft Visual Basic ahk_class wndclass_desked_gsk
+		ControlGet, OutputVar_4, Visible, , Object Browser, Microsoft Visual Basic ahk_class wndclass_desked_gsk
+		TOOLTIP % OutputVar_4
+		SOUNDBEEP 5000,200
+	
+	}
+	
 
 RETURN
 
