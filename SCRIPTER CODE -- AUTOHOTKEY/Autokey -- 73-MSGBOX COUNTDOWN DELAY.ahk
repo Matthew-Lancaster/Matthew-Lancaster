@@ -87,7 +87,42 @@ SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,1000
 SETTIMER MSGBOX_PRESS_FOR_RELOADER,4000
 	
 	
+SETTIMER TIMER_HOTKEY,1000
+	
 RETURN
+
+
+TIMER_HOTKEY:
+
+	VAR_IN_NAME=Confirm Save As ahk_class #32770
+	SetTitleMatchMode 3  ; Specify Full path
+	IfWinActive %VAR_IN_NAME%
+	IfWinActive Confirm Save As ahk_exe VB6.EXE
+	{
+		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
+		STRING_V:=&&Yes  0
+		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+		{	
+			; NA [v1.0.45+]: May improve reliability. See reliability below.
+			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
+			SOUNDBEEP 4000,300
+			VAR_DONE_ESCAPE_KEY=TRUE
+		}
+		IF CONTROL_TEXT=&Yes
+		{
+			Secs_MSGBOX_04=5
+			SOUNDBEEP 5000,200
+		}
+
+		IF Secs_MSGBOX_04>0 	
+			Secs_MSGBOX_04-=1
+			
+		ControlSetText,Button1,&Yes  %Secs_MSGBOX_04%, %VAR_IN_NAME%
+	}
+
+RETURN
+
+
 
 MSGBOX_PRESS_FOR_RELOADER:
 SET_GO=FALSE
