@@ -115,14 +115,11 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 
 RETURN
 
+; *::
+; MSGBOX  You pressed %A_ThisHotkey%.
+; Return
 
-; ESC::
-
-
-*::
-ToolTip You pressed %A_ThisHotkey%.
-return
-
+ESC::
 
 	SetTitleMatchMode 3  ; Specify Full path
 
@@ -148,18 +145,21 @@ return
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
+
 	IfWinActive ahk_class Afx:00007FF6A22C0000:b:0000000000010003:0000000000000006:0000000000000000
 	{
 		Process, Close, mpc-hc64.exe
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
+
 	IfWinActive ahk_class AfxControlBar140su
 	{
 		Process, Close, mpc-hc64.exe
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
+
 	IfWinActive ahk_class FullScreenClass
 	{
 		Process, Close, mpc-hc64.exe
@@ -167,28 +167,28 @@ return
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
-	; Find ahk_class #32770 ahk_exe notepad++.exe
+	IfWinActive Find ahk_class #32770
 	IfWinActive Find ahk_exe notepad++.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
-	; Replace ahk_class #32770 ahk_exe notepad++.exe
+	IfWinActive Replace ahk_class #32770
 	IfWinActive Replace ahk_exe notepad++.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
-	; Microsoft Visual Basic ahk_class #32770 ahk_exe vb6.exe
+	IfWinActive Microsoft Visual Basic ahk_class #32770
 	IfWinActive Microsoft Visual Basic ahk_exe vb6.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
-	; Find ahk_class #32770 ahk_exe vb6.exe
+	IfWinActive Find ahk_class #32770
 	IfWinActive Find ahk_exe vb6.exe
 	{	WinClose
 		SoundBeep , 1500 , 400
@@ -211,12 +211,12 @@ return
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 
-	; ahk_exe VB6.EXE
 	; OK
 	; Help
 	; Compile error:
 	; Expected: Then or GoTo
 	IfWinActive Microsoft Visual Basic ahk_class #32770
+	IfWinActive Microsoft Visual Basic ahk_exe VB6.EXE
 	{	
 		ControlGetText, Output_Var, Static2
 		if instr(Output_Var,"Compile error:")
@@ -227,16 +227,12 @@ return
 		}
 	}
 
-	
-	
-	
-	
 	SetTitleMatchMode 2  ; Specify Full path
-	
 	; ---------------------------------------------------------------
 	; VBKeepRunner - Microsoft Visual Basic [design] - [Object Browser]
-	; ahk_class wndclass_desked_gsk
 	; ---------------------------------------------------------------
+	IfWinActive Microsoft Visual Basic [design] ahk_class wndclass_desked_gsk
+	IfWinActive [design] - [Object Browser] ahk_class wndclass_desked_gsk
 	IfWinActive Microsoft Visual Basic [design] ahk_exe VB6.EXE
 	IfWinActive [design] - [Object Browser] ahk_exe VB6.EXE
 	{	
@@ -245,6 +241,17 @@ return
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	; ---------------------------------------------------------------
+
+	SetTitleMatchMode 3  ; Specify Full path
+
+	IfWinActive Confirm Save As ahk_class #32770
+	IfWinActive Confirm Save As ahk_exe VB6.EXE
+	{	
+		ControlClick, &Yes,Confirm Save As ahk_class #32770
+		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+
 	
 	; ---------------------------------------------------------------
 	; # Win (Windows logo key) 
@@ -256,7 +263,7 @@ return
 
 	IF VAR_DONE_ESCAPE_KEY=FALSE
 	{
-		SENDINPUT {ESC}
+		SEND {ESC}
 		SOUNDBEEP 4000,50
 	}
 
