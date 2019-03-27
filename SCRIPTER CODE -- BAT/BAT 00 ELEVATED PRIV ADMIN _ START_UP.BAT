@@ -110,11 +110,11 @@ ECHO.
 REM ALL USERS
 REM Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /F /v "STARTUP_COMMON_04_ALL" /t REG_SZ /d "\"E:\01 Start Menu\#_0_STARTUP_COMMON_04_ALL\BAT 00 ELEVATED PRIV ADMIN _ START_UP.BAT\"
 
-REM START "" /WAIT "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AutoRun.ahk"
+REM START "" /WAIT "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AutoRun.ahk"
 
 REM PAUSE
 
-START "" "C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AutoRun.ahk"
+START "" "C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AutoRun.ahk"
 ECHO.
 
 SET X_TIME=24
