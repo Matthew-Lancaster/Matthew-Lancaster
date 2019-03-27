@@ -124,20 +124,20 @@ TIMER_HOTKEY:
 	
 	DetectHiddenWindows, ON
 	SetTitleMatchMode 2
-	IFWINEXIST Microsoft Visual Basic ahk_class wndclass_desked_gsk
-	IFWINEXIST Browser ahk_class wndclass_desked_gsk
-	IFWINEXIST Microsoft Visual Basic ahk_exe VB6.EXE
+	IFWINEXIST Microsoft Visual Basic [design] ahk_class wndclass_desked_gsk
+	IFWINEXIST [design] - [Object Browser] ahk_class wndclass_desked_gsk
+	IFWINEXIST Microsoft Visual Basic [design] ahk_exe VB6.EXE
 	{
-		ControlGet, OutputVar_4, Visible, , ToolbarWindow321, Microsoft Visual Basic ahk_class wndclass_desked_gsk
+		; ---------------------------------------------------------------------
+		; IN VB6 PRESS F2 BY MISTAKE INSTEAD OF JUMP BACK TO WHERE YOU WERE HOTKEY WITH CONTROL KEY
+		; AND BRING UP OBJECT BROWSER AND RIGHT CLICK ON IT HIDE YOU HAVE TO DO
+		; SOLOTUION HERE
+		; ---------------------------------------------------------------------
 		ControlGet, OutputVar_4, Visible, , Object Browser, Microsoft Visual Basic ahk_class wndclass_desked_gsk
 		IF OutputVar_4=1
 			Control, HIDE,, Object Browser, Microsoft Visual Basic ahk_class wndclass_desked_gsk
-		ControlGet, OutputVar_4, Visible, , Object Browser, Microsoft Visual Basic ahk_class wndclass_desked_gsk
-		TOOLTIP % OutputVar_4
 		SOUNDBEEP 5000,200
-	
 	}
-	
 
 RETURN
 
