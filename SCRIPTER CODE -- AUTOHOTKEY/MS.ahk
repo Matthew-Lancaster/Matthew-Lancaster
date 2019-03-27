@@ -1,5 +1,5 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 72-RUN HUBIC WITH DELAY.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 72-RUN HUBIC WITH DELAY.ahk
 ;# __ 
 ;# __ Autokey -- 72-RUN HUBIC WITH DELAY.ahk
 ;# __ 

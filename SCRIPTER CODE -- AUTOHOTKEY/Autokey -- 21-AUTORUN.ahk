@@ -212,8 +212,16 @@ Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
 
 
+
+
+
+
+
+
+
 DetectHiddenWindows, on
 SetStoreCapslockMode, off
+
 
 SoundBeep , 2000 , 100
 SoundBeep , 2500 , 100
@@ -987,20 +995,47 @@ If ProcessExist("LogiOptions.exe", A_UserName)=0
 
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, LogiOptions
 
+; -------------------------------------------------------------------
 If ProcessExist("ProcessLasso.exe", A_UserName)=0
-	{
+{
 	FN_VAR:="C:\Program Files\Process Lasso\ProcessLasso.exe"
 	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%" /tray , , HIDE
+
+	}
+}
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+IF (A_ComputerName = "2-ASUS-EEE") 
+{
+	COUNT_TICK_TIME=% 1000*60*12
+	; IF OUR SET TIME IS LESS THEN TICK TIME 
+	;-------------------------------------------------
+	IF COUNT_TICK_TIME<%A_TICKCOUNT%
+	{
+		DetectHiddenWindows, on
+		IFWINNOTEXIST Process Lasso Pro ahk_class Class_PLMain
+			SLEEP 4000
+		IFWINNOTEXIST Process Lasso Pro ahk_class Class_PLMain
+			SLEEP 4000
+		IFWINNOTEXIST Process Lasso Pro ahk_class Class_PLMain
+			SLEEP 4000
+		WINWAIT Process Lasso Pro ahk_class Class_PLMain,, 40
+		IFWINEXIST Process Lasso Pro ahk_class Class_PLMain
+			WinGet, Style2, Style, Process Lasso Pro ahk_class Class_PLMain
+			; 0x10000000 is WS_VISIBLE  Style & 0x10000000 = 0 IS HIDDEN > 0 NOT HIDDEN
+		IF (Style2 & 0x10000000)=0
 		{
+			WINSHOW Process Lasso Pro ahk_class Class_PLMain
 			SoundBeep , 2500 , 100
-			Run, "%FN_VAR%" /tray , , HIDE
-			
-			;WinWait, ahk_class Class_PLMain, , 80
-			;WinGet, HWND, ID, ahk_class Class_PLMain
-			;IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
 		}
 	}
+}
+; -------------------------------------------------------------------
 
+	
 If ProcessExist("picpick.exe", A_UserName)=0
 	{
 		FN_VAR:="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
