@@ -2168,6 +2168,8 @@ Attribute VB_Exposed = False
 ' -------------------------------------------------------------------------------------
 
 
+Dim FILE_RUN
+
 Dim LISTVIEW_2_OR_3_HITT
 
 '
@@ -5037,19 +5039,41 @@ End Sub
 
 
 Private Sub MNU_LAUNCH_AUTORUNS_SET_BOOT_Click()
+On Error Resume Next
+
+FILE_RUN = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk"
+If Dir(FILE_RUN) = "" Then
+    MsgBox "FILE NOT FOUND FROM " + vbCrLf + vbCrLf + App.Path + "\" + App.EXEName + vbCrLf + vbCrLf + FILE_RUN
+    Beep
+    Exit Sub
+End If
+
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
 
-objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
+objShell.Run """" + FILE_RUN + """", 0, True
     
 Set objShell = Nothing
+
 End Sub
 
 Private Sub MNU_LAUNCH_AUTORUNS_SET_Click()
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk" + """"
-Set WSHShell = Nothing
+On Error Resume Next
+
+FILE_RUN = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk"
+If Dir(FILE_RUN) = "" Then
+    MsgBox "FILE NOT FOUND FROM " + vbCrLf + vbCrLf + App.Path + "\" + App.EXEName + vbCrLf + vbCrLf + FILE_RUN
+    Beep
+    Exit Sub
+End If
+
+Dim objShell
+Set objShell = CreateObject("Wscript.Shell")
+
+objShell.Run """" + FILE_RUN + """", 0, True
+    
+Set objShell = Nothing
+
 End Sub
 
 Private Sub MNU_LAUNCH_VB_SYNCRONIZER_Click()
