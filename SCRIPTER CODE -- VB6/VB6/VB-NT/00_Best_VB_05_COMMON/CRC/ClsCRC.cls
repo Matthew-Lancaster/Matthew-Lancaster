@@ -51,7 +51,7 @@ Private m_CRC32Asm() As Byte
 Private m_CRC32Init As Boolean
 Private m_CRC32Table(0 To 255) As Long
 
-Private Declare Function CallWindowProc Lib "user32" Alias "CallWindowProcA" (ByVal lpPrevWndFunc As Long, ByVal hWnd As Long, ByVal Msg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
+Private Declare Function CallWindowProc Lib "user32" Alias "CallWindowProcA" (ByVal lpPrevWndFunc As Long, ByVal hwnd As Long, ByVal msg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long
 
 Public Function AddBytes(ByteArray() As Byte) As Variant
 
@@ -129,21 +129,21 @@ Public Function CalculateBytes(ByteArray() As Byte) As Variant
   
 End Function
 
-Public Function CalculateFile(Filename As String) As Variant
+Public Function CalculateFile(fileName As String) As Variant
 
   Dim Filenr As Integer
   Dim ByteArray() As Byte
   
   'Make sure the file contains data
   'to avoid errors later below
-  If (FileLen(Filename) = 0) Then Exit Function
+  If (FileLen(fileName) = 0) Then Exit Function
   
   'Open the file in binary mode, read
   'the data into a bytearray and then
   'close the file
   On Error GoTo CalcErrHandler
   Filenr = FreeFile
-  Open Filename For Binary As #Filenr
+  Open fileName For Binary As #Filenr
   ReDim ByteArray(0 To LOF(Filenr) - 1)
   Get #Filenr, , ByteArray()
   Close #Filenr
