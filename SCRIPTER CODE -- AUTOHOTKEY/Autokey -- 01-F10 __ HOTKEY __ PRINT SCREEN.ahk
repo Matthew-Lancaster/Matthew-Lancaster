@@ -289,6 +289,17 @@ ESC::
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 
+	SetTitleMatchMode 2
+	IfWinActive ] Options ahk_class #32770
+	IfWinActive ] Options ahk_exe GoodSync-v10.exe
+	{	
+		ControlGetPos, x, y, , , Button63, Options ahk_class #32770 ; SAVE BUTTON
+		MouseMove, X+10, Y+10
+		ControlClick, Button63, Options ahk_class #32770,,,, NA x20 y20
+		SoundBeep , 1500 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+
 	
 	; ---------------------------------------------------------------
 	; # Win (Windows logo key) 
