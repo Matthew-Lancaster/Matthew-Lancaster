@@ -15,7 +15,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
 '
 Dim R As Long
@@ -50,7 +49,7 @@ End Function
 
 Public Sub FormStartLoader()
 
-'Set FS = CreateObject("Scripting.FileSystemObject")
+Set FS = CreateObject("Scripting.FileSystemObject")
 
 FontSizez = 12
 
@@ -63,7 +62,7 @@ On Error Resume Next
 For R = 3 To 25
     
     Err.Clear
-    Set z = FSO.GetDrive(FSO.GetDriveName(FSO.GetAbsolutePathName(Chr$(R + 64) + ":")))
+    Set z = FS.GetDrive(FS.GetDriveName(FS.GetAbsolutePathName(Chr$(R + 64) + ":")))
      
     Select Case z.DriveType
         Case 0: t = "Unknown"
@@ -80,7 +79,7 @@ For R = 3 To 25
         'RD$(tg) = tt$
         tg = tg + 1
         Y1$ = Y1$ + tt$
-        Filename = z.DriveLetter + ":\ __ " + z.VolumeName
+        Filename = z.DriveLetter + ":\" + z.VolumeName
         Path = "--Drive"
         
         With ScanPath.ListView1
@@ -207,15 +206,6 @@ For R_L = 1 To 9
     End If
 Next
 
-'On Error Resume Next
-'For R = 0 To 255
-'
-'    If GetSpecialfolder(R) <> "" Then
-'        Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
-'    End If
-'
-'Next
-'Stop
 
 On Error Resume Next
 For R = 0 To 255
@@ -246,7 +236,7 @@ For R = 0 To 255
     If R = 56 Then q = 1
     
     If GetSpecialfolder(R) <> "" Then
-        Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
+        'Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
     End If
     
     If GetSpecialfolder(R) <> "" And q = q Then
@@ -268,37 +258,12 @@ For R = 0 To 255
         'C:\Users\MATT 01\AppData\Roaming\Microsoft\Windows\Printer Shortcuts
         '3-LINDA-PC
         
-        'DUPE CHECKER
-        
-        
-        
-        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
-            SET_GO = False
-        End If
-        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
-        
-        
-        
         If SET_GO = True Then
             With ScanPath.ListView2
                 Set LV = .ListItems.Add(, , Filename)
                 LV.SubItems(1) = Path
             End With
         End If
-        
-        If InStr(Filename + "--", "Program Files (x86)" + "--") > 0 Then
-        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
-            SET_GO = False
-        End If
-        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
-            With ScanPath.ListView2
-                Filename = Replace(Filename, " (x86)", "")
-                Set LV = .ListItems.Add(, , Filename)
-                LV.SubItems(1) = Path
-            End With
-        End If
-        
-        
     End If
 
 Next
@@ -322,7 +287,9 @@ For R = 0 To ScanPath.ListView2.ListItems.Count
     End With
 Next
 
+Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
+
 
 ad = Dir("E:\01 VB Shell Folders\00 Shell *", vbDirectory)
 Do
@@ -345,15 +312,6 @@ For R = ScanPath.ListView1.ListItems.Count To 0 Step -1
     EE = EE + ScanPath.ListView1.ListItems.Item(R) + "**"
 Next
 EE = ""
-
-For R = ScanPath.ListView1.ListItems.Count To 0 Step -1
-    If InStr(ScanPath.ListView1.ListItems.Item(R) + "--", "Program Files (x86)--") > 0 Then
-        If FSO.FolderExists("C:\Program Files (x86)") = False Then
-            ScanPath.ListView1.ListItems.Remove (R)
-        End If
-    End If
-Next
-
 
 
 
@@ -402,8 +360,3 @@ End
 
 End Sub
 
-Private Sub Form_Load()
-
-Call SET_UP_PULIC_FSO
-
-End Sub

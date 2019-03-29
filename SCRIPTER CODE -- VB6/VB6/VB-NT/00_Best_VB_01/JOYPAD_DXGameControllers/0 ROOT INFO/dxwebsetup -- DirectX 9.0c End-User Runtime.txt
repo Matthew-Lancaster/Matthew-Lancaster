@@ -1,9 +1,0 @@
-------------------------------------------------
-Thu 27-Apr-2017 11:04:08 A
-D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\DXGameControllers\dxwebsetup -- DirectX 9.0c End-User Runtime.exe
-D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\DXGameControllers\dxwebsetup -- DirectX 9.0c End-User Runtime.txt
-------------------------------------------------
-NOT GOOD UNLESS XP AND FEW OTHER VERSION 
-NOT WINDOW 10
-
-D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\DXGameControllers\dxwebsetup -- DirectX 9.0c End-User Runtime.exe
