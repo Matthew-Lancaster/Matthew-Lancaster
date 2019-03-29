@@ -1,0 +1,40 @@
+Type=Exe
+Object={248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0; Mswinsck.ocx
+Form=C:\Documents and Settings\Matt5\frmMain.frm
+Module=Record; Record.bas
+IconForm="frmMain"
+Startup="Sub Main"
+HelpFile=""
+Title="Mp3Rec"
+ExeName32="Mp3Rec.exe"
+Command32=""
+Name="Mp3Rec"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=32
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Fri 03-Sep-2010 03-05-29p"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

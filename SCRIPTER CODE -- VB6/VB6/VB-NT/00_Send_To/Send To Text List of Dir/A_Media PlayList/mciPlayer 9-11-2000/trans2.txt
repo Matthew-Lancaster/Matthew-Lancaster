@@ -1,0 +1,7 @@
+[Main]
+Areas=5
+Area1=dReCt,0,0,400,300
+Area2=cEliP,50,0,350,300
+Area3=dRndRect,90,40,310,260,50,50
+Area4=cRndRect,110,208,290,250,20,20
+Area5=cRndRect,100,148,300,190,90,30

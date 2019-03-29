@@ -1,0 +1,41 @@
+Type=Exe
+Form=Sample.frm
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+Object={CDE57A40-8B86-11D0-B3C6-00A0C90AEA82}#1.0#0; MSDATGRD.OCX
+Form=Sample_Display.frm
+Form=[_Fill_non184815242005\Fill Polygons\frmMain.frm
+Module=mdlDraw; [_Fill_non184815242005\Fill Polygons\mdlDraw.bas
+IconForm="Sample"
+Startup="Sample"
+ExeName32="Sample.exe"
+Command32=""
+Name="Project1"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=1
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Tue 26-Oct-2010 06-03-55p"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

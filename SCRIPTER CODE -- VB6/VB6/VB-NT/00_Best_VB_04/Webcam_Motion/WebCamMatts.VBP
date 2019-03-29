@@ -1,0 +1,70 @@
+Type=Exe
+Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCT2.OCX
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCTL.OCX
+Form=MotionDetect.frm
+Module=mVFW; VFW.bas
+Module=mCmnDlg; CmnDlg.bas
+Form=Main.frm
+Module=mCapApp; CapApp.bas
+Module=mApiDecs; ApiDecs.bas
+Module=mACM; ACM.bas
+Form=CapVid.frm
+Form=CapFrame.frm
+Form=Alloc.frm
+Form=Prefs.frm
+Form=CapPal.frm
+Form=About.frm
+Module=mGetFree; GetFree.bas
+Form=Picture Blend Box.frm
+Form=Picture Blend Box2.frm
+Form=..\..\00_Best_VB_05_COMMON\ScanPath\ScanPathDemo.frm
+Class=cScanPath; ..\..\00_Best_VB_05_COMMON\ScanPath\ScanPath.cls
+Module=mdlFileSys; ..\..\00_Best_VB_05_COMMON\ScanPath\FileSys.bas
+Class=clsCRC; ..\..\00_Best_VB_05_COMMON\CRC\ClsCRC.cls
+IconForm="frmMain"
+Startup="Form1"
+HelpFile=""
+Title="WebCamMatts"
+ExeName32="WebCamMatts.exe"
+Command32=""
+Name="WebCamMatts"
+HelpContextID="0"
+Description="VB version of VidCap32.exe by Ray Mercer"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=1
+RevisionVer=135
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Fri 19-Aug-2011 03-25-46p"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionFileDescription="vbVidCap - Video Capture Application"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+VersionProductName="vbVidCap"
+CondComp="USECALLBACKS = 1"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+DebugStartupOption=0
+
+[RVB]
+DeleteClass1=frmMain
+DeleteClass2=MemCap
+DeleteClass3=frmAlloc
+DeleteClass4=Form2
+
+[MS Transaction Server]
+AutoRefresh=1

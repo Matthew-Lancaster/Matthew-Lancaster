@@ -1,0 +1,33 @@
+------------------------------------------------
+Mon 09-May-2016 11:51:33 a
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\DXGameControllers\DXGameControllers\dx8vb.dll
+D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\DXGameControllers\DXGameControllers\dx8vb.txt
+------------------------------------------------
+THIS FILE YOU COPY INTO THE VB APPLICATION PROJECT AREA
+FOR THE JOYPAD
+--------------
+
+dx8vb.dll activex component can't create object 429
+
+THE PROBLEM WITH THIS .DLL
+AND FIX LIKE THIS
+regsvr32 C:\Windows\system32\dx8vb.dll
+
+SEEM NOT GOOD ENOUGH TO PUT .DLL IN PATH WHERE EXE APPLICATION CODE IS
+MAYBE IF REGISTER IT THERE
+
+https://www.google.co.uk/search?num=100&rlz=1C1SKPL_enGB417&q=dx8vb.dll+activex+component+can%27t+create+object+429&oq=dx8vb.dll+activex+component+can%27t+create+object+429&gs_l=serp.12...3958.5360.0.8774.2.2.0.0.0.0.242.327.1j0j1.2.0....0...1c.1.64.serp..0.1.236...30i10.zVuh2klQo68
+
+http://forums.pcsx2.net/Thread-TwinPad-v0-9-25?page=5
+
+----
+THE --- DX8VB.DLL
+MIGHT OF BEEN INSTALLED BY LOGITECH JOY PAD SOFTWARE
+AND IT IS NOW AT MOMENT -- NOT SURE KNOW IF WANTED THE 
+
+----
+Download DirectX 9.0c End-User Runtime from Official Microsoft Download Center
+https://www.microsoft.com/en-in/download/confirmation.aspx?id=34429
+----
+
+
