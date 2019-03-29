@@ -1,0 +1,39 @@
+Type=Exe
+Form=send_cmd.frm
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+IconForm="Form1"
+Startup="Form1"
+HelpFile=""
+Title="send_cmd"
+ExeName32="Send_Cmd.exe"
+Command32=""
+Name="SendCmd"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=9
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Mon 01-Apr-2013 06-36-15p"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1
