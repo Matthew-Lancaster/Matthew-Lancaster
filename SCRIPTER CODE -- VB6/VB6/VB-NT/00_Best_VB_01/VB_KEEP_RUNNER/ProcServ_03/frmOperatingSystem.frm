@@ -2,14 +2,14 @@ VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFlxGrd.ocx"
 Begin VB.Form frmOperatingSystem 
    Caption         =   "Operating System"
-   ClientHeight    =   7905
+   ClientHeight    =   7908
    ClientLeft      =   60
    ClientTop       =   360
-   ClientWidth     =   11175
+   ClientWidth     =   11172
    LinkTopic       =   "Form1"
    MDIChild        =   -1  'True
-   ScaleHeight     =   7905
-   ScaleWidth      =   11175
+   ScaleHeight     =   7908
+   ScaleWidth      =   11172
    Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin MSFlexGridLib.MSFlexGrid msfgOperatingSystem 
@@ -18,8 +18,8 @@ Begin VB.Form frmOperatingSystem
       TabIndex        =   0
       Top             =   0
       Width           =   10935
-      _ExtentX        =   19288
-      _ExtentY        =   13785
+      _ExtentX        =   19283
+      _ExtentY        =   13780
       _Version        =   393216
       Rows            =   53
       FixedCols       =   0
@@ -67,7 +67,7 @@ Public Sub ShowForm()
     If Form1.VAR_FORM1_EXIST = True Then
         If Err.Number = 0 Then VAR_FORM1_EXIST = Form1.VAR_FORM1_EXIST
     End If
-'    On Error GoTo 0
+    On Error GoTo 0
     If VAR_FORM1_EXIST = True Then
         Me.Hide
         MDIProcServ.Hide

@@ -1,9 +1,0 @@
-
-
-@CD\
-
-
-COPY "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\wbemads.tlb" "C:\WINDOWS\SYSTEM32"
-
-IF NOT "%*"=="QUICK_GO"  PAUSE
-EXIT

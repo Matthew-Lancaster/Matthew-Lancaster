@@ -177,6 +177,9 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
+Menu, Tray, Add  ; Creates a separator line.
+Menu, Tray, Add, Pause __ Debby Hall, MenuHandler  ; Creates a new menu item.
+DEBBY_HALL_PAUSE=TRUE
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
@@ -434,6 +437,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; GOES TO SHOW PEOPLE WATCH ANYTHING WHEN FIRST COME ON SCREEN
 	; AND FACEBOOK ALWAYS HAD A HITT POLICY OF THEIR UP FOR THING ZACK AND NO ANYBODY ELSE
 	; ---------------------------------------------------------------
+
+
+	IF DEBBY_HALL_PAUSE=TRUE
+		RETURN
 	
 	SetTitleMatchMode 2  ; NOT Specify Full path.
 
@@ -1045,6 +1052,20 @@ MenuHandler:
 		; MOST LIKELY TRY AND KEEP IN SYNC LATER
 		; EXCEPT THE AUTO GENERATOR
 		; -------------------------------------------------------------------
+}
+
+if A_ThisMenuItem=Pause __ Debby Hall
+{
+	IF DEBBY_HALL_PAUSE=TRUE
+	{
+		DEBBY_HALL_PAUSE=FALSE
+		SOUNDBEEP 5000,200
+	}
+	ELSE
+	{
+		DEBBY_HALL_PAUSE=TRUE
+		SOUNDBEEP 1000,200
+	}
 }
 return
 
