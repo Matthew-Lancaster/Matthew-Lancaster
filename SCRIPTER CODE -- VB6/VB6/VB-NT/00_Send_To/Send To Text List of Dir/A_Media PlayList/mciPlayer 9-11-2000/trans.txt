@@ -1,0 +1,8 @@
+[Main]
+Areas=6
+Area1=dRect,100,0,300,50
+Area2=dRect,0,100,50,200
+Area3=dREct,350,100,400,200
+Area4=dReCt,100,250,300,300
+Area5=dEliP,100,100,300,200
+Area6=cRndRect,150,125,250,175,20,20

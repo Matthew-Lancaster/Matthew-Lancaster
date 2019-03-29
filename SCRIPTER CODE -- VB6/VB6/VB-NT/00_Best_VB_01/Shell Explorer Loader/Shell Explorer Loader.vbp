@@ -20,6 +20,7 @@ Class=clsCnProc; ClsCnProc.cls
 Class=clsCRC; Sort_Anything\ClsCRC.cls
 Class=cScanPath; Sort_Anything\ScanPath.cls
 Class=clsIPResolve; Multiple_Thread Port Scanner 02\Class1.cls
+Form=List_Menus\ListMenu.frm
 Startup="Form1"
 HelpFile=""
 Title="Winamp Loader"
@@ -30,7 +31,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=55
+RevisionVer=86
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Sat 09-Jun-2018 11-13-03a"
