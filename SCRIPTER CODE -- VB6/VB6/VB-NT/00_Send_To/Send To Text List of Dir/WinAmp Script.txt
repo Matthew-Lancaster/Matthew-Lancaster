@@ -1,0 +1,155 @@
+  Contents // Winamp Scripting Support Plugin   
+  
+  
+Scripting Support Plugin for Winamp
+This Winamp plugin allows you to control and query Winamp from Active Scripting langauges such as VBScript, JScript and Perl, as well as programming languages such as C++ and Visual Basic.
+
+The plugin, in a nutshell, exposes almost all of the Winamp 2 general plugin API in a COM object which allows you to do things like query the current track title and filename, skip to the next track, open and adjust the EQ settings, and so on.
+
+The plugin should work fine with Winamp 5 but doesn't support any of the new things it adds to the general plugin API.
+
+Install
+gen_scripting_1004.zip (52k) (PGP sig) version 1.0.0.3 (12 Jun 2003)
+
+Copy gen_scripting.dll from the Zip to your Winamp plugins directory and then register it with regsvr32 from a command prompt: 
+
+cd "C:\Program Files\Winamp\Plugins"
+regsvr32.exe gen_scripting.dll
+
+
+To remove the plugin, unregister it with "regsvr32.exe /u gen_scripting.dll" and then delete the DLL file.
+
+Source Code
+gen_scripting_source_1004.zip (90k) (PGP sig)
+
+C++ source code is available for anyone who wants to see or change how the plugin works. You will probably need Visual Studio .Net to open the project, which also uses ATL.
+
+History
+1.0.0.4 (24th July 2003)
+Purely cosmetic change to the version string. 
+1.0.0.3 (12th June 2003)
+Statically linked so it no longer requires VS.Net C-RunTime DLL. 
+1.0.0.2 (25th February 2003)
+Initial release. 
+
+--------------------------------------------------------------------------------
+
+Usage (VBScript)
+Before doing anything you must instantiate the object. Note that an error will be thrown if you call any method when Winamp isn't actually running. 
+
+    Set winamp = CreateObject("gen_scripting.WinAmp")
+
+You can check which version of Winamp is running. The version number is the hexadecimal value provided by WinAmp: "Version will be 0x20yx for Winamp 2.yx. Versions previous to Winamp 2.0 typically (but not always) use 0x1zyx for 1.zx versions." For example, 10241 = 0x2801 = WinAmp 2.81. 
+
+    x = winamp.GetVersion()
+
+GUI Control -- You can toggle the EQ and Playlist windows, show the Open File dialog, and so on. 
+
+    winamp.ToggleEq
+    winamp.TogglePlaylist
+    winamp.ShowOpenFileDialog
+    winamp.ShowPreferences
+    winamp.ToggleAlwaysOnTop
+    winamp.ShowAbout
+
+
+Buttons -- Your scripts can perform actions equivalent to pressing Winamp's buttons. 
+
+    winamp.ButtonPreviousTrack
+    winamp.ButtonPlay
+    winamp.ButtonPause
+    winamp.ButtonStop
+    winamp.ButtonNextTrack
+    winamp.ButtonOpenAndPlay            ' Same as Shift-Play
+    winamp.ButtonFadeOutAndStop         ' Same as Shift-Stop
+    winamp.ButtonPreviousFileInPlaylist ' Same as Ctrl-Previous
+    winamp.ButtonOpenLocation           ' Same as Ctrl-Play
+    winamp.ButtonNextFileInPlaylist     ' Same as Ctrl-Next
+
+    winamp.StartPlay    ' Like Play but restarts the playlist.
+
+
+Volume & EQ -- You can adjust the volume and EQ settings. The current EQ settings can also be queried. Please note that the Winamp EQ window does not always seem to update to changes made immediately and I'm not sure why. 
+
+    winamp.SetVolume(255)   ' 0=Min ... 255=Max
+    winamp.VolumeUp         ' increase volume a little
+    winamp.VolumeDown       ' decrease volume a little
+    winamp.SetPanning(0)    ' -128=Left ... 0=Center ... 128=Right
+    winamp.SetEqData(a, x)
+x = winamp.GetEqData(a)
+
+
+Valid "a" and "x" values for SetEqData & GetEqData are as follows: 
+
+Description               a        x
+------------------------  -------  --------------------------------
+The 10 bands of EQ data   0 to 9   0 (+20db) to 63 (-20db)
+The pre-amp value         10       0 (+20db) to 63 (-20db)
+Is the EQ Enabled?        11       0 (disabled) or other (enabled)
+Is AutoLoad enabled?      12       0 (disabled) or other (enabeld)
+
+
+Current Track -- You can get and set data about the track currently playing. (If you need the title or file-path, keep reading...) 
+
+x = winamp.IsPlaying()                          ' 0=Stopped 1=Playing 3=Paused
+    winamp.ForwardFiveSeconds                   ' Skip forward about 5 seconds
+    winamp.RewindFiveSeconds                    ' Skip backard about 5 seconds
+    winamp.SetTrackPositionMilliseconds(12000)  ' Jump to 0:12 in the track
+x = winamp.GetTrackPositionMilliseconds()       ' Get current position in the track
+x = winamp.GetTrackLengthSeconds()              ' Get track's total time
+x = winamp.GetTrackSampleRate()                 ' Get track's sample rate
+x = winamp.GetTrackBitRate()                    ' Get track's bit rate
+x = winamp.GetTrackChannels()                   ' Get track's number of channels
+
+
+The Playlist -- You can edit and query the playlist and tracks within it. 
+
+    winamp.ClearPlaylist           ' Empties the playlist
+    winamp.PlayFile("C:\blah.mp3") ' Add C:\blah.mp3 to the playlist
+    winamp.ChangeDirectory("C:\")  ' Set Winamp's current dir to C:\
+x = winamp.GetPlaylistLength()     ' Get number of entries in the playlist
+x = winamp.WritePlaylist()         ' As above, but also writes the playlist to "winamp.m3u"
+                                   '      in Winamp's program directory.
+x = winamp.GetPlaylistPosition()   ' Get the number of the current track in the playlist
+    winamp.SetPlaylistPosition(7)  ' Jump to the 7th track in the playlist
+s = winamp.GetPlaylistFile(11)     ' Get the file-path for the 11th track in the playlist
+s = winamp.GetPlaylistTitle(5)     ' Get the title for the 5th track in the playlist
+
+
+Example
+This small script gets the directory where the currently playing mp3 can be found: 
+
+option explicit
+
+Dim winamp,fs,currentTrack,trackPath,trackFolder,trackFile
+
+Set winamp = CreateObject("gen_scripting.WinAmp")
+Set fs = CreateObject("Scripting.FileSystemObject")
+
+currentTrack = winamp.GetPlaylistPosition()
+trackPath = winamp.GetPlaylistFile(currentTrack)
+
+trackFolder = fs.GetParentFolderName(trackPath)
+trackFile = fs.GetFileName(trackPath)
+
+Set fs = Nothing
+Set winamp = Nothing
+
+
+
+--------------------------------------------------------------------------------
+
+Usage (Other Languages)
+Check out the IDL file in the source code for the full interface description for languages which do proper type checking. Generally, numbers are passed as LONG and strings as BSTR.
+
+More information, and usage with mIRC.
+Check out this forum post, which describes how to use this plugin with mIRC, for some good tips. (I didn't write the post, just noticed it as a referer in my web-logs and thought it looked useful.) There's also information there about controlling Windows Media Player via COM, if you prefer it. (WMP has built-in COM support and doesn't require a plugin like this.)
+
+Email Note
+Before you email me, please note that I'm not much of an expert with advanced VBScript, ASP, etc. configuration/issues so if you're having problems just creating the object, and you've made sure it's registered and permissioned so that the script, webserver or whatever can access and execute it, then I probably won't be able to help much, sorry.
+ 
+
+
+  
+  
+  © 2005 Leo Davidson // E-mail // PGP   
