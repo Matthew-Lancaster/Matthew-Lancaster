@@ -786,6 +786,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 				; ---------------------------------------------------
 				PostMessage, 0x112, 0xF060,,, IrfanView ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 				WinClose, IrfanView
+				; MSGBOX HH
 				
 				Soundbeep 2000,200
 			}
