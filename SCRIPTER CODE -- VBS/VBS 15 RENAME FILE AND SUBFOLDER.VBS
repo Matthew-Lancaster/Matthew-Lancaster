@@ -5,6 +5,7 @@ DIM I_COUNT
 
 Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
+
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 DIM FIND_NAME_F(2)
