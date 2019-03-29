@@ -65,9 +65,6 @@ Option Explicit
 'AND NONE TO DO ALL WORK NORMAL
 'OR PUT IN APP FOLDER ROOT MAYBE NOT TEST YET
 ' -------------------------------------------------
-' USE THE BATCH COMMAND FILE TO COPY IT THERE FROM HOME FOLDER OF THIS CODE
-' D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\WBEMADS.TLB.BAT
-' -------------------------------------------------
 '[ Sunday 21:40:00 Pm_17 March 2019 ]
 ' -------------------------------------------------
 

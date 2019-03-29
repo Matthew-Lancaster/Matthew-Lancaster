@@ -334,7 +334,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   183500801
+      Format          =   93323265
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -348,7 +348,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   183500801
+      Format          =   93323265
       CurrentDate     =   37296
    End
    Begin MSComctlLib.ListView ListView2 
@@ -591,6 +591,123 @@ Attribute SP.VB_VarHelpID = -1
 
 
 
+
+
+
+Sub Bangers()
+
+tpath1$ = "E:\04 Music ---\03 My Music Zen\"
+tpath2$ = "E:\04 Music ---\04 My Music\"
+tpath3$ = "E:\04 Music ---\Del\"
+'MkDir tpath3$
+txtPath.Text = tpath1$
+
+cboMask.Text = "*.mp3"
+
+Call cmdScan_Click
+
+'Fs22.copyFile a1$ + b1$, tpath2$ + c1$ + b1$
+List1.AddItem "Copy On Smallest Size From Zen Folder an To Zen folder"
+List1.AddItem "Then it will compare for duplicates an click them bottom list to put removed folder"
+
+For we = 1 To ListView1.ListItems.Count
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
+C1$ = Mid$(A1$, Len(tpath1$))
+rr = FileExists(tpath2$ + C1$ + B1$)
+If rr = True Then
+'call date_File()
+tt1 = FindFileSize(A1$ + B1$)
+tt2 = FindFileSize(tpath2$ + C1$ + B1$)
+If tt1 <> tt2 Then
+If tt1 = 0 And Mid$(B1$, 1, 8) <> "--------" Then MsgBox A1$ + B1$ + " = Zero"
+If tt2 = 0 And Mid$(B1$, 1, 8) <> "--------" Then MsgBox A1$ + B1$ + " = Zero"
+End If
+If tt1 < tt2 And tt1 > 0 Then
+snot = snot + 1
+List1.AddItem "Copy From Zen Folder " + Str(we) + Str(snot) + " -- " + A1$ + B1$
+DoEvents
+List1.Refresh
+DoEvents
+FS22.CopyFile A1$ + B1$, tpath2$ + C1$ + B1$
+End If
+If tt2 < tt1 And tt2 > 0 Then
+snot = snot + 1
+List1.AddItem "Copy To Zen Folder " + Str(we) + Str(snot) + " -- " + A1$ + B1$
+DoEvents
+List1.Refresh
+DoEvents
+FS22.CopyFile tpath2$ + C1$ + B1$, A1$ + B1$
+End If
+
+
+
+End If
+Next
+
+
+tpath1$ = "E:\04 Music ---\03 My Music Zen\"
+tpath2$ = "E:\04 Music ---\04 My Music\"
+
+txtPath.Text = tpath1$
+
+cboMask.Text = "*.mp3"
+
+Call cmdScan_Click
+
+
+
+For we = ListView1.ListItems.Count To 1 Step -1
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
+    tt1 = FindFileSize(A1$ + B1$)
+
+    ListView1.ListItems.Item(we).SubItems(1) = Format$(tt1, "0000000000") + " - " + A1$ + B1$
+    ListView1.SelectedItem = ListView1.ListItems(we)
+    ListView1.SelectedItem.EnsureVisible
+    If tt1 = 0 Then ListView1.ListItems.Remove (we)
+Next
+
+ListView1.SortOrder = lvwAscending
+ListView1.Sorted = True        'Use default sorting to sort the
+ListView1.SortKey = 1
+
+For we = ListView1.ListItems.Count To 2 Step -1
+    DoEvents
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
+    a2$ = ListView1.ListItems.Item(we - 1).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we - 1)
+    'tt1 = FindFileSize(a1$ + b1$)
+kk1 = Val(Mid$(ListView1.ListItems.Item(we).SubItems(1), 1, 10))
+kk2 = Val(Mid$(ListView1.ListItems.Item(we - 1).SubItems(1), 1, 10))
+ii1$ = "0": ii2$ = "1"
+
+If kk1 = kk2 Then
+    Reset
+    fr1 = FreeFile
+    Open Mid$(A1$, 14) For Binary As #fr1
+    fr2 = FreeFile
+    Open Mid$(a2$, 14) For Binary As #fr2
+    ii1$ = Input$(4000, fr1)
+    ii2$ = Input$(4000, fr2)
+    Close #fr1, #fr2
+End If
+
+
+If ii1$ = ii2$ Then
+List1.AddItem A1$
+List1.AddItem a2$
+ListView1.ListItems.Remove (we)
+End If
+Next
+If Val(Mid$(ListView1.ListItems.Item(1).SubItems(1), 1, 10)) = 0 Then
+    ListView1.ListItems.Remove (1)
+End If
+
+List1.AddItem "Complete.................."
+
+End Sub
 
 
 Sub AutoPix()
@@ -841,10 +958,10 @@ End Sub
 
 Private Sub cmdBrowse_Click()
     txtPath.Text = GetFolder(Me.hWnd, "Scan Path:", txtPath.Text)
-    FR2 = FreeFile
-    Open App.Path + "\Scan Path.txt" For Output As #FR2
-    Print #FR2, txtPath.Text
-    Close #FR2
+    fg1 = FreeFile
+    Open App.Path + "\Scan Path.txt" For Output As #fg1
+    Print #fg1, txtPath.Text
+    Close #fg1
 
 '    fg1 = FreeFile
 '    Open App.Path + "\Scan Path.txt" For Input As #fg1
@@ -1044,7 +1161,7 @@ Exit Sub
 
 'frmMain.Show
 
-' Call Bangers
+Call Bangers
 
 Exit Sub
     fg1 = FreeFile
@@ -1101,7 +1218,7 @@ Private Sub SP_DirMatch(Directory As String, Path As String)
     '####################################################################################################
 End Sub
 
-Private Sub SP_FileMatch(FileName As String, Path As String)
+Private Sub SP_FileMatch(Filename As String, Path As String)
     Dim LV As ListItem
     Dim uWIN32 As WIN32_FIND_DATA
     
@@ -1112,7 +1229,7 @@ Private Sub SP_FileMatch(FileName As String, Path As String)
     On Local Error GoTo GetFileError
     
     With ListView1
-        Set LV = .ListItems.Add(, , FileName)
+        Set LV = .ListItems.Add(, , Filename)
         LV.SubItems(1) = Path
         
         

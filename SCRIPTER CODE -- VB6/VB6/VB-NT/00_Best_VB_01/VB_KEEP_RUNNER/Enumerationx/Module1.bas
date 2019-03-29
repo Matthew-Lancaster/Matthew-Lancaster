@@ -9,8 +9,6 @@ Attribute VB_Name = "API_Powered_Module"
 
 '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-'Text:   C:\WINDOWS\system32\wbem\wbemads.tlb
-
 Option Explicit
 'APIs : WHERE THE REAL POWER IS
 Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long

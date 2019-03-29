@@ -2,10 +2,10 @@ VERSION 5.00
 Begin VB.Form Form1 
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000007&
-   Caption         =   "EXPLORER LOADER"
+   Caption         =   "NotePad Loader"
    ClientHeight    =   5928
-   ClientLeft      =   132
-   ClientTop       =   780
+   ClientLeft      =   192
+   ClientTop       =   840
    ClientWidth     =   12324
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
@@ -15,17 +15,17 @@ Begin VB.Form Form1
    Visible         =   0   'False
    Begin VB.FileListBox File1 
       Height          =   456
-      Left            =   11340
+      Left            =   10800
       TabIndex        =   265
-      Top             =   228
+      Top             =   276
       Visible         =   0   'False
       Width           =   504
    End
    Begin VB.DirListBox Dir1 
       Height          =   288
-      Left            =   10908
+      Left            =   10248
       TabIndex        =   264
-      Top             =   360
+      Top             =   324
       Visible         =   0   'False
       Width           =   372
    End
@@ -42,16 +42,16 @@ Begin VB.Form Form1
    Begin VB.Timer Timer2 
       Enabled         =   0   'False
       Interval        =   1
-      Left            =   5136
-      Top             =   312
+      Left            =   6192
+      Top             =   768
    End
    Begin VB.ComboBox Combo1 
-      Height          =   288
-      Left            =   4128
+      Height          =   315
+      Left            =   4125
       TabIndex        =   166
       Text            =   "Combo1"
-      Top             =   72
-      Width           =   2652
+      Top             =   75
+      Width           =   2655
    End
    Begin VB.ListBox List1 
       Height          =   432
@@ -79,24 +79,6 @@ Begin VB.Form Form1
       Top             =   5235
       Visible         =   0   'False
       Width           =   2055
-   End
-   Begin VB.Label Label4 
-      BackColor       =   &H006FFBE2&
-      Caption         =   "Label3"
-      Height          =   324
-      Left            =   7932
-      TabIndex        =   267
-      Top             =   108
-      Width           =   396
-   End
-   Begin VB.Label Label3 
-      BackColor       =   &H00C0FFC0&
-      Caption         =   "Label3"
-      Height          =   324
-      Left            =   7476
-      TabIndex        =   266
-      Top             =   120
-      Width           =   396
    End
    Begin VB.Label Label2 
       BackColor       =   &H0080FFFF&
@@ -4951,11 +4933,11 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FFFFFF&
-      Height          =   276
-      Left            =   8544
+      Height          =   270
+      Left            =   7560
       TabIndex        =   18
-      Top             =   96
-      Width           =   2112
+      Top             =   135
+      Width           =   2115
    End
    Begin VB.Label TitleLbl 
       Alignment       =   2  'Center
@@ -5313,7 +5295,7 @@ Begin VB.Form Form1
       End
    End
    Begin VB.Menu Mnu_LoadFolder 
-      Caption         =   "LOAD FOLDER LINK"
+      Caption         =   "Load Folder"
    End
 End
 Attribute VB_Name = "Form1"
@@ -5321,8 +5303,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim LABLE_BACKCOLOR_SET
-
 Dim Form1_Width, Form1_Height
 Dim X_Y_DONE_ONCE
 '-------------
@@ -5348,17 +5328,6 @@ Private Type Rect
 End Type
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
-
-
-Private Type POINTAPI
-        x As Long
-        y As Long
-End Type
-
-Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
-Private Declare Function WindowFromPoint Lib "user32" (ByVal xPoint As Long, ByVal yPoint As Long) As Long
-Private Declare Function GetParent Lib "user32" (ByVal hWnd As Long) As Long
-
 
 
 Private Sub Combo1_Click()
@@ -5400,8 +5369,6 @@ End Sub
 
 Private Sub Form_Load()
 ReDim A4$(500), B4$(500), C4$(500)
-
-Call SET_UP_PULIC_FSO
 
 NAME_FORM = App.EXEName
 
@@ -5501,49 +5468,10 @@ Timer_SUB_CODE_LOAD.Enabled = True
 End Sub
 
 Private Sub Timer_KEY_CODE_Timer()
-
-' If IsIDE = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 1000
-
-
-Dim tPA As POINTAPI, LHWND As Long, O_lhWndParent, lhWndParent, lhWndParentX
-GetCursorPos tPA
-LHWND = WindowFromPoint(tPA.x, tPA.y)
-O_lhWndParent = LHWND
-lhWndParent = GetParent(LHWND)
-If lhWndParent = 0 Then lhWndParent = O_lhWndParent
-lhWndParentX = GetParentHwnd(LHWND)
-
-If GetAsyncKeyState(27) < 0 Then
-    If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
-        If IsIDE = True Then
-            Unload Me
-        Else
-            Unload Me
-            ' Me.WindowState = vbMinimized
-        End If
-    End If
-End If
-
-
+If GetForegroundWindow <> Me.hWnd Then Exit Sub
+A = GetAsyncKeyState(27)
+If A < 0 Then End
 End Sub
-
-Function GetParentHwnd(ByVal ReturnParent As Long) As String
-   Dim i As Long
-   Dim j As Long
-   Dim k As Long
-   i = ReturnParent
-   If ReturnParent Then
-      Do While i <> 0
-         k = j
-         j = i
-         i = GetParent(i)
-      Loop
-    i = j
-    End If
-    GetParentHwnd = i
-End Function
-
-
 
 Private Sub Timer_SUB_CODE_LOAD_Timer()
     Timer_SUB_CODE_LOAD.Enabled = False
@@ -5555,7 +5483,7 @@ End Sub
 Sub SubCode()
 
 rg = 0
-FontSizez = 9
+FontSizez = 8
 LABEL_GAP = 12
 
 For Each Control In Controls
@@ -5598,7 +5526,7 @@ If IV = 5.1 Then
         If InStr((UCase(B1$)), "PROGRAM FILES (X86)") > 0 Then
             Call GETSHORTLINK(A1$ + B1$)
             D1$ = txtTargetPath
-            If FSO.FileExists(D1$) = False And FSO.FolderExists(D1$) = False Then
+            If FS.FileExists(D1$) = False And FS.FolderExists(D1$) = False Then
                 If IsIDE = False Then
                     ScanPath.ListView1.ListItems.Remove (R)
                 End If
@@ -5610,7 +5538,9 @@ End If
 Lbl2.Top = 0
 Lbl2.Left = 0
 
+
 x = Lbl2.Height + LABEL_GAP
+
 
 Check1.Top = x
 Check1.Left = (Form1.Width / 2) + 10
@@ -5627,6 +5557,8 @@ RD = 0
 
 DoEvents
 
+
+
 SH = Screen.Height - 4000 'higer = smaller
 SH = Me.Height - 1500
 '---------------------------
@@ -5640,68 +5572,30 @@ SH = Me.Height - 1500
 'ScreenTwipsY = Screen.TwipsPerPixelY
 'SH = (FORM_MAX.Top + FORM_MAX.Bottom) * Screen.TwipsPerPixelY
 
-
-RX = 0
-For R = 1 To ScanPath.ListView1.ListItems.Count + 100
-    RX = RX + 1
-    If RX > ScanPath.ListView1.ListItems.Count Then Exit For
-    
-    A1$ = ScanPath.ListView1.ListItems.Item(RX).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(RX)
-    If InStrRev(A1$, "\") > 0 Then
-        seedy$ = Mid$(A1$, InStrRev(A1$, "\", Len(A1$) - 1))
-    End If
-    
-    
-    If oseedy$ <> seedy$ Then
-        With ScanPath.ListView1
-            Set LV = .ListItems.Add(RX, , seedy$ + " ----#")
-            LV.SubItems(1) = A1$
-        End With
-    
-    End If
-    oseedy$ = seedy$
-Next
-
 x = tx
-RX = 0
-rt = 0
 For R = 1 To ScanPath.ListView1.ListItems.Count
-    
-    RX = RX + 1
-    rt = rt + 1
-    
-    If Label1(RX - 1).Top > SH Then
+    If Label1(R - 1).Top > SH Then
         x = tx
     End If
     
-    Label1(RX).Top = x
+    Label1(R).Top = x
     
-    Label1(RX).Visible = True
-    A1$ = ScanPath.ListView1.ListItems.Item(RX).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(RX)
+    Label1(R).Visible = True
+    'For r = 1 To ScanPath.ListView1.ListItems.Count
+    A1$ = ScanPath.ListView1.ListItems.Item(R).SubItems(1)
+    B1$ = ScanPath.ListView1.ListItems.Item(R)
     
     If InStrRev(A1$, "\") > 0 Then
         seedy$ = Mid$(A1$, InStrRev(A1$, "\", Len(A1$) - 1))
     End If
     
-    If oseedy$ <> seedy$ Then
-        txr = Not txr
-    End If
+    If oseedy$ <> seedy$ Then txr = Not txr
     oseedy$ = seedy$
-    
-    'LABEL_BACKCOLOR_VAR = Label1(RX).BackColor
-    If txr = -1 Then LABEL_BACKCOLOR_VAR = &HFF00&
-    If txr = 0 Then LABEL_BACKCOLOR_VAR = RGB(127, 200, 127) '&H56E25E
-    
-    If InStrRev(B1$, " ----#") > 0 Then
-        rt = rt - 1
-    End If
-    
-    
+    If txr = -1 Then Label1(R).BackColor = &HFF00&
+    If txr = 0 Then Label1(R).BackColor = RGB(127, 200, 127) '&H56E25E
     'If txr = 0 Then Label1(R).BackColor = &HFF00&
     
-    ttg$ = ScanPath.ListView1.ListItems.Item(RX)
+    ttg$ = ScanPath.ListView1.ListItems.Item(R)
     Mid$(ttg$, 1, 1) = UCase$(Mid$(ttg$, 1, 1))
     If InStr(ttg$, ".lnk") > 0 Then ttg$ = Mid$(ttg$, 1, InStrRev(ttg$, ".") - 1)
     EE = InStr(ttg$, "&")
@@ -5709,35 +5603,13 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
         ttg$ = Mid$(ttg$, 1, EE) + Mid$(ttg$, EE)
     End If
     
-    If InStrRev(B1$, " ----#") > 0 Then
-        LABEL_BACKCOLOR_VAR = RGB(255, 255, 255)
-        ttg$ = Replace(ttg$, "\", " \ ")
-        ttg$ = Replace(ttg$, " ----#", "")
-        Label1(RX).Caption = ttg$
-        Label1(RX).Alignment = 2
-    Else
-        Label1(RX).Caption = Format$(rt, "000") + ". " + ttg$
+    Label1(R).Caption = Format$(R, "00") + ". " + ttg$
+    If InStr(Label1(R), ":\") > 0 And InStr(Label1(R), "\\") = 0 Then
+        Label1(R).BackColor = Label2.BackColor
     End If
     
-    If InStr(Label1(RX), ":\") > 0 Then
-        If FSO.FolderExists(Mid(Label1(RX), InStr(Label1(RX), ".") + 2)) = True Then
-            LABEL_BACKCOLOR_VAR = Label3.BackColor - RGB(40, 40, 40)
-        Else
-            LABEL_BACKCOLOR_VAR = Label3.BackColor
-        End If
-    End If
-    If InStr(Label1(RX), "\\") > 0 Then
-        LABEL_BACKCOLOR_VAR = Label2.BackColor
-    End If
-    
-    Label1(RX).BackColor = LABEL_BACKCOLOR_VAR
-    
-    If InStr(LABLE_BACKCOLOR_SET, LABEL_BACKCOLOR_VAR) = 0 Then
-        LABLE_BACKCOLOR_SET = LABLE_BACKCOLOR_SET + Str(LABEL_BACKCOLOR_VAR)
-    End If
-    
-    x = x + Label1(RX).Height + LABEL_GAP
-    fheight = Label1(RX).Top + Label1(RX).Height + 420
+    x = x + Label1(R).Height + LABEL_GAP
+    fheight = Label1(R).Top + Label1(R).Height + 420
     If fheight > fheightx Then fheightx = fheight
     RD = RD + 1
 
@@ -5774,6 +5646,10 @@ For rt = tig2 To R - 1
 Next
 xy(xgag) = wdt + 150
 
+
+
+
+
 For R = 1 To ScanPath.ListView1.ListItems.Count
     fw = Label1(R).Width
     If fw > fw2 Then fw2 = fw + 200
@@ -5782,25 +5658,26 @@ fw2 = fw2
 
 xgag = 1: xgax2 = 0
 For R = 1 To ScanPath.ListView1.ListItems.Count
-    Label1(R).AutoSize = False
-    
-    DoEvents
-    xxb = Label1(R - 1).Top
-    xxb = Form1.Height
-    
-    If Label1(R - 1).Top > SH Then
-        xgax2 = xgax2 + 1
-        xgag = 0
-        For rs2 = 1 To xgax2
-            xgag = xgag + xy(rs2)
-        Next
-    End If
-    
-    Label1(R).Width = xy(xgax2 + 1) - 20
-    Label1(R).Left = xgag
-    
-Next
+Label1(R).AutoSize = False
 
+DoEvents
+xxb = Label1(R - 1).Top
+xxb = Form1.Height
+
+If Label1(R - 1).Top > SH Then
+    xgax2 = xgax2 + 1
+    xgag = 0
+    For rs2 = 1 To xgax2
+        xgag = xgag + xy(rs2)
+    Next
+End If
+
+Label1(R).Width = xy(xgax2 + 1) - 20
+Label1(R).Left = xgag
+
+
+
+Next
 fheightx = 0
 For rt = 1 To ScanPath.ListView1.ListItems.Count
     fheight = Label1(rt).Top + Label1(rt).Height
@@ -5831,90 +5708,7 @@ Form1.Refresh
 
 Me.Visible = True
 
-' THE TIMER WILL TELL FOR DEAD LINK
-' Timer2_Timer
-
 End Sub
-
-Private Sub Timer2_Timer()
-
-'If FSO.FolderExists("C:\Program Files (x86)") = False Then
-
-XXT2 = XXT2 + 1
-If XXT2 > ScanPath.ListView1.ListItems.Count Then
-    Timer2.Enabled = False
-    Exit Sub
-End If
-
-X_COLOR = Form1.Label1(XXT2).BackColor
-
-If Form1.Label1(XXT2).BackColor = RGB(255, 255, 255) Then
-    Exit Sub
-End If
-
-
-'DOEVENTS
-SET_REAL_LINK = False
-If InStr(Label1(XXT2), ":\") > 0 Then SET_REAL_LINK = True
-If InStr(Label1(XXT2), "\\") > 0 Then SET_REAL_LINK = True
-
-If SET_REAL_LINK = True Then
-    Exit Sub
-End If
-
-If InStr(LABLE_BACKCOLOR_SET, Form1.Label1(XXT2).BackColor) = 0 Then
-    Exit Sub
-End If
-
-Form1.Label1(XXT2).BackColor = &HFFFFFF
-Form1.Label1(XXT2).Refresh
-
-If SET_REAL_LINK = False Then
-    Sleep 10
-End If
-
-A1$ = ScanPath.ListView1.ListItems.Item(XXT2).SubItems(1)
-B1$ = ScanPath.ListView1.ListItems.Item(XXT2)
-'C1$ = Form1.Label1(XXT2).Caption
-
-On Local Error Resume Next
-
-Form1.Label1(XXT2).BackColor = X_COLOR
-
-' SET HERE WHY
-' D1$ = A1$ + B1$
-
-' IF TYPE OF THAT NOT REAL NORMAL LIKE CONTROL PANEL ITEM AND OTHER THEN HERE GREY
-' FOR SCHEUDLE-TASKS ON XP
-' --------------------------------------------------------------------------------
-If InStr(LCase(B1$), ".lnk") > 0 Then
-    'LINK
-    On Local Error GoTo 0
-    Call GETSHORTLINK(A1$ + B1$)
-    D1$ = txtTargetPath
-    If Trim(D1$) = "" Then
-        Label1(XXT2).BackColor = RGB(147, 147, 147)
-        Exit Sub
-    End If
-End If
-
-If InStr(A1$ + "--", "Program Files (x86)" + "--") > 0 Then
-    If FSO.FolderExists("C:\Program Files (x86)") = False Then
-        Label1(XXT2).BackColor = RGB(147, 147, 147)
-        Exit Sub
-    End If
-End If
-
-Form1.Label1(XXT2).BackColor = X_COLOR
-
-If Mid(D1$, 2, 2) = ":\" Or Mid(D1$, 1, 2) = "\\" Then
-    If FSO.FileExists(D1$) = False And FSO.FolderExists(D1$) = False Then
-        Label1(XXT2).BackColor = RGB(240, 127, 127) 'QBColor(12)
-    End If
-End If
-End Sub
-
-
 
 
 Private Sub Form_Unload(Cancel As Integer)
@@ -5927,10 +5721,6 @@ Beep
 
 If Label1(Index).BackColor = QBColor(12) Then
     MsgBox "THIS LINK IS MARKED RED FOR NOT USE"
-End If
-
-If Label1(Index).BackColor = RGB(255, 255, 255) Then
-    LoadFolder = True
 End If
 
 If SetTrueToLoadLast = False Then
@@ -6001,6 +5791,58 @@ End
 
 End Sub
 
+
+Private Sub Timer2_Timer()
+
+XXT2 = XXT2 + 1
+If XXT2 > ScanPath.ListView1.ListItems.Count Then
+    Timer2.Enabled = False
+    Exit Sub
+End If
+
+
+X_COLOR = Form1.Label1(XXT2).BackColor
+Form1.Label1(XXT2).BackColor = &HFFFFFF
+Form1.Label1(XXT2).Refresh
+'DOEVENTS
+SET_REAL_LINK = False
+If InStr(Label1(XXT2), ":\") > 0 Then SET_REAL_LINK = True
+If InStr(Label1(XXT2), "\\") > 0 Then SET_REAL_LINK = True
+
+If SET_REAL_LINK = False Then
+Sleep 10
+End If
+
+A1$ = ScanPath.ListView1.ListItems.Item(XXT2).SubItems(1)
+B1$ = ScanPath.ListView1.ListItems.Item(XXT2)
+'C1$ = Form1.Label1(XXT2).Caption
+
+On Local Error Resume Next
+
+Form1.Label1(XXT2).BackColor = X_COLOR
+
+If SET_REAL_LINK = True Then Exit Sub
+
+'GoTo skip:
+D1$ = A1$ + B1$
+If InStr(LCase(B1$), ".lnk") > 0 Then
+    'LINK
+    On Local Error GoTo 0
+    Call GETSHORTLINK(A1$ + B1$)
+    D1$ = txtTargetPath
+    If Trim(D1$) = "" Then
+        Label1(XXT2).BackColor = RGB(147, 147, 147): Exit Sub 'QBColor(12)
+    End If
+End If
+
+Form1.Label1(XXT2).BackColor = X_COLOR
+
+If Mid(D1$, 2, 2) = ":\" Or Mid(D1$, 1, 2) = "\\" Then
+    If FS.FileExists(D1$) = False And FS.FolderExists(D1$) = False Then
+        Label1(XXT2).BackColor = RGB(240, 127, 127) 'QBColor(12)
+    End If
+End If
+End Sub
 
 
 Private Sub TitleLbl_Click()
