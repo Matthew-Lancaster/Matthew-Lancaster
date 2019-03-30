@@ -1,15 +1,15 @@
 ------------------------------------------------------------------------------
-2019-Mar-30 -- 07:34:22 - 07:34:22-AM - Sat
-2019-Mar-30 -- 07:13:32 - 07:13:32-AM - Sat -- BEGIN DATE TIME
+2019-Mar-30 -- 07:55:22 - 07:55:22-AM - Sat
+2019-Mar-30 -- 07:33:20 - 07:33:20-AM - Sat -- BEGIN DATE TIME
 ------------------------------------------------------------------------------
-WORK CURRENT 0017 OF 0747 -- 7-ASUS-GL522VW
+WORK CURRENT 0005 OF 0165 -- 5-ASUS-P2520LA
 ------------------------------------------------------------------------------
-COMMANDING COUNT ALL WORKER                                       0747
+COMMANDING COUNT ALL WORKER                                       0165
 COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0028
-COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0670
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0088
 COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0049
-TOTAL COMPUTER ROOT FOLDER COUNT                                  0670
-TOTAL COMPUTER DRIVE COUNT                                        19
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0088
+TOTAL COMPUTER DRIVE COUNT                                        3
 ------------------------------------------------------------------------------
 WORK SET OF THREE
 ---------------------------------------------------------XxxX-----------------
@@ -17,10 +17,10 @@ WORK SET OF THREE
 02 OF 03 ALL DRIVE ROOT
 03 OF 03 ALL E DRIVE ROOT WITH SUB
 ------------------------------------------------------------------------------
-WORK CURRENT 0017 OF 0747 -- WORK TOTAL
-WORK CURRENT 0017 OF 0028 -- 01 OF 03 MAIN ARRAY
+WORK CURRENT 0005 OF 0165 -- WORK TOTAL
+WORK CURRENT 0005 OF 0028 -- 01 OF 03 MAIN ARRAY
 ------------------------------------------------------------------------------
 PATH TO DO -------------------------------------------------------------------
 ------------------------------------------------------------------------------
-C:\Users\MATT 04\AppData\*
+D:\VB6\*
 ------------------------------------------------------------------------------

@@ -282,6 +282,10 @@ REM ----------------------------------------------------------------
 SET LDA=0
 REM ---------------------------------------------------------------- 
 SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\0 00 ART LOGGERS\# APP AND SCREEN -- SHOT"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT"
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\0 00 ART LOGGERS"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6-ARC"
