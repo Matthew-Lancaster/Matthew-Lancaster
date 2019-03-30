@@ -85,6 +85,7 @@ IF OSVER_N_VAR<10
 }
 
 GLOBAL O_HWND_ID_1
+GLOBAL MSGBOX_CAMERA_CountDown_Generate_VAR
 
 setTimer TIMER_PREVIOUS_INSTANCE,1
 	
@@ -139,7 +140,8 @@ IF (!VAR_STORE_CAMERA_LABEL and SET_GO="TRUE")
 	VAR_STORE_CAMERA_LABEL:=Label_CAMERA
 	Secs_CAMERA := 800
 	SetTimer, MSGBOX_CAMERA_CountDown, 1000
-	MsgBox, 4, Copy_Camera_Media_Card, Would you like to Copy Camera Media Card`n%Label_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds, %Secs_CAMERA%
+	GOSUB MSGBOX_CAMERA_CountDown_Generate_Line
+	MsgBox, 4, Copy_Camera_Media_Card, %MSGBOX_CAMERA_CountDown_Generate_VAR%, %Secs_CAMERA%
 	SetTimer, MSGBOX_CAMERA_CountDown, Off
 	IfMsgBox Yes
 	{
@@ -177,9 +179,15 @@ O_HWND_ID_1=%HWND_ID_1%
 
 RETURN
 
+MSGBOX_CAMERA_CountDown_Generate_Line:
+MSGBOX_CAMERA_CountDown_Generate_VAR=Would you like to Copy Camera Media Card`n%Label_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds
+RETURN
+
 MSGBOX_CAMERA_CountDown:
 Secs_CAMERA -= 1
-ControlSetText,Static1,Would you like to Copy Camera Media Card`n%Label_CAMERA%`nAnswer in`n%Secs_CAMERA% Seconds,Copy_Camera_Media_Card ahk_class #32770
+GOSUB MSGBOX_CAMERA_CountDown_Generate_Line
+ControlSetText,Static1,%MSGBOX_CAMERA_CountDown_Generate_VAR%,Copy_Camera_Media_Card ahk_class #32770
+
 Return
 
 
