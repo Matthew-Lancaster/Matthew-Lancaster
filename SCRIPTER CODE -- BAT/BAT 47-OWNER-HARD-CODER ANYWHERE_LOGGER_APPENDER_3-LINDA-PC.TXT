@@ -1,0 +1,11 @@
+------------------------------------------------------------------------------
+2019-Mar-30 -- 07:16:46 - 07:16:46-AM - Sat
+WORK BEGIN 0166 TOTAL WORK -- 3-LINDA-PC
+------------------------------------------------------------------------------
+COMMANDING COUNT ALL WORKER                                       0166
+COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0028
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0089
+COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0049
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0089
+TOTAL COMPUTER DRIVE COUNT                                        3
+------------------------------------------------------------------------------
