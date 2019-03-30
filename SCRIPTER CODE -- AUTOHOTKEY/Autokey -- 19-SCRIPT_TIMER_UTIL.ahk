@@ -2495,9 +2495,9 @@ DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 WinGet, HWND_1, ID, ] Options ahk_class #32770
-WinGet, HWND_1_EXENAME,  ProcessName, ahk_id %HWND_1%
 IF HWND_1>0
 {
+	WinGet, HWND_1_EXENAME, ProcessName, ahk_id %HWND_1%
 	WinGet, HWND_2, ID, A
 	IF HWND_2=%HWND_1%
 	{
@@ -2510,24 +2510,24 @@ IF HWND_1>0
 		
 		WinGetTitle OutputVar_3,ahk_id %HWND_1%
 		
-		IF HWND_1_EXENAME=GoodSync.exe
-		If (OutputVar_1 = 2
-			and OutputVar_2="Periodically (On Timer), every")
-			{
-				ControlSetText, Edit9,, ahk_id %HWND_1%
-				Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
+		IF HWND_1_EXENAME=GoodSync-v10.exe
+		IF OutputVar_1=2
+	    IF (OutputVar_2="Periodically (On Timer), every")
+		{
+			ControlSetText, Edit9,, ahk_id %HWND_1%
+			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
 
-			}
+		}
 			
 		IF HWND_1_EXENAME=GoodSync2Go.exe
-		If OutputVar_1<>1
-		If (OutputVar_2="Periodically (On Timer), every")
-			{
-				ControlSetText, Edit9,, ahk_id %HWND_1%
-				Control, EditPaste, 1, Edit9, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
+		IF OutputVar_1<>1
+		IF (OutputVar_2="Periodically (On Timer), every")
+		{
+			ControlSetText, Edit9,, ahk_id %HWND_1%
+			Control, EditPaste, 1, Edit9, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+		}
 		
 			
 		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
