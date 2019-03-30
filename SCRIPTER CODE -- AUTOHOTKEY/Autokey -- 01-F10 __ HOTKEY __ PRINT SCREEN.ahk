@@ -313,6 +313,7 @@ ESC::
 	{
 		SEND {ESC}
 		SOUNDBEEP 4000,50
+		SOUNDBEEP 5000,40
 	}
 	
 	IfWinActive Rename Job ahk_class #32770
