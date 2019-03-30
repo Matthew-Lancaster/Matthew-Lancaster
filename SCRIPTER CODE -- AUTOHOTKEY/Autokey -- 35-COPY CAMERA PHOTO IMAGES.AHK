@@ -139,25 +139,17 @@ IF (!VAR_STORE_CAMERA_LABEL and SET_GO="TRUE")
 	VAR_STORE_CAMERA_LABEL:=Label_CAMERA
 	Secs_CAMERA := 800
 	SetTimer, MSGBOX_CAMERA_CountDown, 1000
-	MsgBox, 4, Copy_Camera_Media_Card, Would you like to Copy Camera Media Card`n%Label_CAMERA%`nAnswer in`n%Secs_CAMERA% Seconds, %Secs_CAMERA%
+	MsgBox, 4, Copy_Camera_Media_Card, Would you like to Copy Camera Media Card`n%Label_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds, %Secs_CAMERA%
 	SetTimer, MSGBOX_CAMERA_CountDown, Off
 	IfMsgBox Yes
 	{
-		Process, Exist, WSCRIPT.EXE
-		If Not ErrorLevel
+		VAR_STORE_CAMERA_LABEL:=Label_CAMERA
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS"
+		IfExist, %FN_VAR%
 		{
-			VAR_STORE_CAMERA_LABEL:=Label_CAMERA
-			FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS"
-			IfExist, %FN_VAR%
-			{
-				SoundBeep , 2000 , 100
-				SoundBeep , 3000 , 100
-				Run, "%FN_VAR%"
-			}
-		}
-		ELSE
-		{
-			MSGBOX, WSCRIPT IS ALREADY RUNNER _ ABORT UPLOAD CAMERA REEL `nRECONNECT CABLE TO TRY AGAIN`nMSGBOX EXIT IN 40 SECONDS,40
+			SoundBeep , 2000 , 100
+			SoundBeep , 3000 , 100
+			Run, "%FN_VAR%"
 		}
 	}
 }
