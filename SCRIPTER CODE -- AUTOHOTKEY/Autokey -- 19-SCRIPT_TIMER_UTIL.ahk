@@ -3469,12 +3469,14 @@ IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 		FileReadLine, TIMER_SUB_OWNER_SAVE_TIMER, %SCRIPT_NAME_VAR%, 1
 	}
 }
-	
+
+; TIMER_SUB_OWNER_SAVE_TIMER=0
+
 IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 {	
 	TIMER_SUB_OWNER_SAVE_TIMER=%A_NOW%
 	TIMER_SUB_OWNER_SAVE_TIMER+= 2, Days
-;	TIMER_SUB_OWNER_SAVE_TIMER+= 10,SECONDS
+	; TIMER_SUB_OWNER_SAVE_TIMER+= 10,SECONDS
 
 	IF (A_ComputerName="3-LINDA-PC") 
 		TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
@@ -3489,11 +3491,16 @@ ELSE
 	RETURN
 }
 
+; --------------------------------------------
+; LOOK ABOVE OWNER DON'T HAVE TO RUN ON WIN XP
+; --- IF (OSVER_N_VAR < 6 ) ; THAN XP
+; --------------------------------------------
+
 ; -------------------------------------------------------------------
 ; 03 OF 03 RUN PROG TO SET ICACLS -- TAKEOWN OWNER
 ; -------------------------------------------------------------------
 SET_GO=TRUE
-IFWINNOTEXIST, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
+IFWINEXIST, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
 	SET_GO=FALSE
 IF SET_GO=TRUE Process, Exist, ICACLS.EXE
 If ErrorLevel>0
@@ -3508,6 +3515,7 @@ IF SET_GO=TRUE
 	; SET ICACLS -- TAKEOWN OWNER
 	; ---------------------------------------------------------------
 	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN ; HIDE
+	SLEEP 4000
 }
 
 DetectHiddenWindows, % dhw
