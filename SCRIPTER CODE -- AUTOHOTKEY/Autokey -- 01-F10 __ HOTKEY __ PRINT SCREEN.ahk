@@ -314,6 +314,15 @@ ESC::
 		SEND {ESC}
 		SOUNDBEEP 4000,50
 	}
+	
+	IfWinActive Rename Job ahk_class #32770
+	IfWinActive Rename Job ahk_exe GoodSync.exe
+	{	
+		WinClose
+		SoundBeep , 5000 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+
 
 	
 Return
