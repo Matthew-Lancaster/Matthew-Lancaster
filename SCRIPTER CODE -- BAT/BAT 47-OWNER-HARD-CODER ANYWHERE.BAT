@@ -282,6 +282,8 @@ REM ----------------------------------------------------------------
 SET LDA=0
 REM ---------------------------------------------------------------- 
 SET /A LDA=LDA+1
+SET Sources[!LDA!]="D:\0 00 ART LOGGERS"
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6-ARC"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6"
@@ -331,8 +333,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\0 00 MUSIC ---"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C:\RF"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
