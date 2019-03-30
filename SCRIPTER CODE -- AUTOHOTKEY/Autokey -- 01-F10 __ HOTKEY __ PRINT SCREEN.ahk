@@ -300,6 +300,21 @@ ESC::
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 
+	IfWinActive Rename Job ahk_class #32770
+	IfWinActive Rename Job ahk_exe GoodSync.exe
+	{	
+		WinClose
+		SoundBeep , 5000 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+
+	IfWinActive Left Folder ahk_class #32770
+	IfWinActive Left Folder ahk_exe GoodSync2Go.exe
+	{	
+		WinClose
+		SoundBeep , 5000 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
 	
 	; ---------------------------------------------------------------
 	; # Win (Windows logo key) 
@@ -316,15 +331,6 @@ ESC::
 		SOUNDBEEP 5000,40
 	}
 	
-	IfWinActive Rename Job ahk_class #32770
-	IfWinActive Rename Job ahk_exe GoodSync.exe
-	{	
-		WinClose
-		SoundBeep , 5000 , 400
-		VAR_DONE_ESCAPE_KEY=TRUE
-	}
-
-
 	
 Return
 
