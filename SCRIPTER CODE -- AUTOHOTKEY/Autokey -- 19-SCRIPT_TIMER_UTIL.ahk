@@ -2521,7 +2521,7 @@ IF HWND_1>0
 		}
 			
 		IF HWND_1_EXENAME=GoodSync2Go.exe
-		IF OutputVar_1<>1
+		IF OutputVar_1=2
 		IF (OutputVar_2="Periodically (On Timer), every")
 		{
 			ControlSetText, Edit9,, ahk_id %HWND_1%
