@@ -18,6 +18,8 @@ Set WSHShell = CreateObject("WScript.Shell")
 Set args = Wscript.Arguments
 For Each arg In args
 	XF0 = XF0 +""""+ arg + """ "
+	XF0 = Arg 
+	EXIT FOR
 Next
 
 MSGBOX XF0
@@ -34,6 +36,6 @@ MSGBOX XF0
 ' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT""" , ShowWindow, DontWaitUntilFinished
 
 
-WSHShell.Run XF0 , ShowWindow, WaitUntilFinished
+WSHShell.Run XF0 , ShowWindow, DontWaitUntilFinished
 
 'WSHShell.Run XF0+ " " + ""+XF2_VOID+"" , ShowWindow, WaitUntilFinished
