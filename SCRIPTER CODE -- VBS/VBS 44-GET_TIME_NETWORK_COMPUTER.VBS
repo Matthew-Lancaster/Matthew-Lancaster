@@ -59,9 +59,17 @@ FOR EACH objProcess IN colProcesses
 NEXT
 
 
-
+' -------------------------------------------------------------------
+' 1 IN  DAYLIGHT SAVING SUMMER 
+' 0 NOT DAYLIGHT SAVING WINTER
+' -------------------------------------------------------------------
+' Wscript.Echo GetTimeZoneOffset
+' -------------------------------------------------------------------
+GetTimeZoneOffset_2=GetTimeZoneOffset
 
 strComputer = "."
+strComputer = "7-ASUS-GL522VW"
+strComputer = "4-ASUS-GL522VW"
 
 Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\cimv2")
 
@@ -69,14 +77,12 @@ Set colItems = objWMIService.ExecQuery("Select * From Win32_OperatingSystem")
  
 For Each objItem in colItems
     strTime = objItem.LocalDateTime
-    dtmTime = CDate(Mid (strTime, 9, 2) & ":" & Mid(strTime, 11, 2) & ":" & _
+    dtmTime = CDate(Mid(strTime, 9, 2) & ":" & Mid(strTime, 11, 2) & ":" & _
         Mid(strTime, 13, 2))
     dtmTime = CDate(dtmTime)
+	dtmTime = dtmTime + TimeSerial (GetTimeZoneOffset_2,0,0)
     Wscript.Echo FormatDateTime(dtmTime, vbFormatLongTime)
 Next
-
-
-Wscript.Echo GetTimeZoneOffset
 
 Wscript.Quit
 
