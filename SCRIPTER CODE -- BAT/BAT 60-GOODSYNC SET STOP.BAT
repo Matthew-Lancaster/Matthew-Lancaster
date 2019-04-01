@@ -329,7 +329,10 @@ for /L %%a in (1,1,!LDA!) do (
 	@REM CMD /A /C "%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!"
 	@ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
 	@ECHO.
-	START /B "" %GoodSync_GSync% sync !Sources_02[%%a]!
+	REM START /B "" %GoodSync_GSync% sync !Sources_02[%%a]!
+	START "" "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE 1 ARG.VBS" "%GoodSync_GSync% sync !Sources_02[%%a]!"
+	REM CMD /K "%GoodSync_GSync% sync !Sources_02[%%a]!">!FILENAME_ER!
+	ECHO HH >!FILENAME_ER!
 	@ECHO OFF
 	
 	ECHO ----------------------------------------------------------------
@@ -351,6 +354,7 @@ for /L %%a in (1,1,!LDA!) do (
 	@SET Unresolved_Conflicts=FALSE
 	@SET Computer_Is_Offline=FALSE
 	@SET Change_Happen=TRUE
+	@SET Sync_Runner_ONE=TRUE
 
 	@find "-- Analysis Complete" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Analysis_Complete=TRUE
@@ -361,30 +365,41 @@ for /L %%a in (1,1,!LDA!) do (
 	@find "== Sync Complete." !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Sync_Runner=TRUE
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Another_Job=TRUE
+	@if !errorlevel!==0 (
+		SET Another_Job=TRUE
+		SET Sync_Runner_TOTAL=FALSE
+		SET Sync_Runner_ONE=FALSE
+	)
 	@find "unresolved conflits" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Unresolved_Conflicts=TRUE
+	@if !errorlevel!==0 (
+		SET Unresolved_Conflicts=TRUE
+		SET Sync_Runner_TOTAL=FALSE
+		SET Sync_Runner_ONE=FALSE
+	)
 	@find "Analyze has finished with Conflicts" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Unresolved_Conflicts=TRUE
+	@if !errorlevel!==0 (
+		SET Unresolved_Conflicts=TRUE
+		SET Sync_Runner_TOTAL=FALSE
+		SET Sync_Runner_ONE=FALSE
+	)
 	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Computer_Is_Offline=TRUE
+	@if !errorlevel!==0 (
+		SET Computer_Is_Offline=TRUE
+		SET Sync_Runner_TOTAL=FALSE
+		SET Sync_Runner_ONE=FALSE
+	)
+	IF "!Computer_Is_Offline!"=="FALSE" (
+		IF "!Analysis_Complete!"=="FALSE" (
+			IF "!Another_Job!"=="FALSE" (
+				SET Sync_Runner_TOTAL=FALSE
+				SET Sync_Runner_ONE=FALSE
+			)
+		)
+	)
+			
 	@find "Changes: 0," !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Change_Happen=FALSE
-	
-	SET Sync_Runner_ONE=TRUE
-	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
-	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
-	@find "unresolved conflits" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
-	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
-	@find "Analyze has finished with Conflicts" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
-	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
-	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
-	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
-	
+
 	IF "!Sync_Runner_TOTAL!"=="FALSE"  SET FAULT_FLAG="TRUE"
 	IF "!Sync_Runner_ONE!"=="FALSE"    SET /A "FAULT_COUNTER+=1"
 	
@@ -603,7 +618,7 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	"%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
 	ECHO ----------------------------------------------------------------
 	ECHO.
-	TIMEOUT /T 300
+	TIMEOUT /T 1
 	REM 300 = 5 MINUTE
 )
 
@@ -613,13 +628,13 @@ IF "!Sync_Runner_TOTAL!"=="FALSE" (
 	ECHO NOT __ SUCCESSFUL ATTENTION REQUIRING     ---- *****************
 	ECHO ----------------------------------------------------------------
 	ECHO.
-	TIMEOUT /T 300
+	TIMEOUT /T 1
 	REM 300 = 5 MINUTE
 )
 
 
 :ENDER
-IF NOT "!MODE_RUN!"=="GITHUB_ONLY"    TIMEOUT /T 90
+REM IF NOT "!MODE_RUN!"=="GITHUB_ONLY"    TIMEOUT /T 90
 
 @REM ----------------------------------------------------------------
 @REM --- ECHO DE-STUPID-POO
