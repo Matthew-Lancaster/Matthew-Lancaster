@@ -1,0 +1,260 @@
+
+  NIFTYWINDOWS VERSION 0.9.3.1
+
+Company:  Enovatic-Solutions (IT Service Provider)
+Author:   Oliver Pfeiffer, Bremen (GERMANY)
+Homepage: http://www.enovatic.org/products/niftywindows/
+Email:    niftywindows@enovatic.org
+
+
+    CHANGE LOG
+
+This change log contains details of the changes between versions.
+Please be aware that the log *may* be incomplete.
+
+[ADD]
+    added
+[REM]
+    removed
+[IMP]
+    improved
+[UPD]
+    updated
+[FIX]
+    fixed
+
+    * 2005/07/02 Version 0.9.3.1
+
+      [UPD]
+          Updated the documentation.
+
+      [UPD]
+          Updated AutoHotkey to version 1.0.36.01.
+
+      [UPD]
+          Updated UPX (packer for executables) to version 1.25. Files
+          that were packed and encrypted with the old UPX version 1.24
+          (as NiftyWindows before) might confuse (alerted by mistake)
+          some security software. The current version of NiftyWindows
+          isn't encrypted anymore but still compressed using UPX version
+          1.25.
+
+      [FIX]
+          Fixed /CTRL+WIN+S/ to enable power management after screen
+          saver activation. This feature is very useful if you already
+          know that you are going to leave the system for a long period
+          of time.
+
+    * 2005/03/14 Version 0.9.3
+
+      [UPD]
+          Updated the documentation.
+
+      [UPD]
+          Updated AutoHotkey to version 1.0.30.03.
+
+      [IMP]
+          Provided several minor improvements to most features.
+
+      [UPD]
+          Released the full source code under the GNU General Public
+          License (GPL) <http://www.gnu.org/licenses/gpl.html>.
+
+      [ADD]
+          Provided a 'X Window' like focus switching by mouse cursor
+          movement. After activation of this feature (by using the
+          responsible entry in the tray icon menu) the focus will follow
+          the mouse cursor with a delayed focus change (after movement
+          end) of 500 milliseconds (half a second). This feature is
+          disabled per default to avoid any confusion due to the new
+          user-interface-flow.
+
+      [ADD]
+          Provided some new hotkeys to organize and access your process
+          windows in semantic groups quickly. Use /CTRL+WIN+F1..F24/ to
+          add all windows of the active process to the responsible group
+          and use /WIN+F1..F24/ to step through the group easily. Take a
+          look in the readme for further details of this innovative feature.
+
+    * 2005/02/28 Version 0.9.2
+
+      [UPD]
+          Updated the documentation.
+
+      [UPD]
+          Updated AutoHotkey to version 1.0.29.
+
+      [ADD]
+          Provided a global hotkey (/CTRL+ALT+BACKSPACE/) to remove
+          *all* visual effects (like on exit) that have been made before
+          by NiftyWindows. You can use this action as fall-back solution
+          to revert any always-on-top, rolled windows and transparency
+          features you've set before quickly.
+
+      [ADD]
+          Provided many new features to adjust several transparency
+          settings of your windows. Especially the pixel (not window)
+          transparency is unknown to most people and can now be used
+          easily by NiftyWindows. Take a look in the readme to join this
+          complex feature.
+
+      [ADD]
+          Provided some new hotkeys (/WIN+0..9/) to open and close the
+          drive trays of the installed CD/DVD-ROM readers/writers. The
+          hotkeys are used in the sequence of the key placement on your
+          physical keyboard from left to right (1 refers to the first
+          and 0 to the tenth drive).
+
+      [ADD]
+          Provided a tooltip feedback for most of the NiftyWindows
+          features. These tooltips can be enabled or disabled by
+          clicking the responsible entry in the tray menu. The current
+          setting is stored in the applications ini file to make it
+          persistent (application directory). [thanks Ronald]
+
+      [ADD]
+          Provided an easy to use resize mode (/ALT+WHEEL/) to change
+          the size of the active window in steps of 10 or 1 percent.
+
+      [ADD]
+          Provided a web aware resize mode (/ALT+NumAdd/NumSub/) to
+          change the size of the active window in steps of the standard
+          screen resolutions. /ALT+NumAdd/ increases to the next higher,
+          /ALT+NumSub/ decreases to the previous lower resolution.
+          [thanks Ronald]
+
+      [ADD]
+          Provided a check for update service (menu entry and monthly
+          reminder) to stay easily up to date with all NiftyWindows
+          features. NiftyWindows does never perform any update check
+          without your interactive admission before the check.
+
+      [ADD]
+          Provided a tray icon (with menu) that contains several
+          interaction components. You can disable the mouse hooks for
+          all buttons separately in the responsible submenu to keep the
+          original behaviour of any button. This makes sense if you need
+          some special handling provided by some applications like
+          Internet Explorer or Mozilla/Firefox (e.g. previous/next on
+          fourth and fifth mouse button or close-tab on middle).
+
+      [UPD]
+          Changed the always on top hotkey from /CTRL+^/ to /WIN+^/.
+
+      [IMP]
+          Provided an additional hotkey (/CTRL+WIN+S/) to launch the
+          screensaver with the addition that the display(s) will be
+          powered down shortly (five seconds) after the screensaver
+          started successfully. This feature is very useful if you
+          already know that you are going to leave the system for a long
+          period of time. [thanks Christian]
+
+    * 2005/01/28 Version 0.9.1
+
+      [UPD]
+          Updated the documentation.
+
+      [UPD]
+          Updated AutoHotkey to version 1.0.25.09.
+
+      [ADD]
+          Provided a forced mode modifier (/CTRL/) to use the window
+          interactions independently of the current window state. With
+          this forced mode you can drag and resize the special windows
+          specified in the readme (makes sense) as well as adjust the
+          bounds of context menus and other (naturally) unchangeable GUI
+          components (be careful). [thanks Daniel]
+
+      [ADD]
+          Provided a new feature combination to roll windows up to their
+          titlebars. Press /RIGHT_BUTTON+LEFT_BUTTON/ over the caption
+          of a window to roll it up instead of minimize it (normal
+          behaviour). You have to apply this action again to roll the
+          window back down. [thanks Daniel]
+
+      [ADD]
+          Provided a new mouse button combination
+          (/RIGHT_BUTTON+MIDDLE_BUTTON/) to close the selected window as
+          if you click the close button in the titlebar.
+
+      [ADD]
+          Provided a new feature combination to send the selected window
+          to the bottom of the windows stack. Press
+          /RIGHT_BUTTON+MIDDLE_BUTTON/ over the caption of a window to
+          use this action. [thanks Carsten]
+
+      [ADD]
+          Provided two hotkeys (/CTRL+SHIFT+B/ and /CTRL+SHIFT+U/) to
+          control the visibility of Miranda's buddy list and message
+          windows. This feature is applied only if the Miranda
+          executable can be found at: %ProgramFiles%\Miranda\Miranda32.exe
+
+      [UPD]
+          Changed the modifier for the virtual grid from /CTRL/ to
+          /SHIFT/ (due to the new forced mode).
+
+      [UPD]
+          Changed the key/mouse combination for the alt-tab-menu from
+          /CTRL+WHEEL/ to /RIGHT_BUTTON+WHEEL/. [thanks Stephen]
+
+      [UPD]
+          Updated the list (dragging disabled) of certain windows whose
+          mouse behaviour may have a special handling controlled by the
+          application. Currently the following windows (and its possible
+          child windows) have been taken into account:
+
+          Windows Explorer; Cabinet; Internet Explorer; Mozilla/Firefox;
+          Opera; Xplore
+
+      [IMP]
+          All popup menus/windows are excluded from dragging (otherwise
+          you can drag around the start or context menus which is funny
+          but does not make any sense) (see forced mode).
+
+      [IMP]
+          By now the toggle maximize feature does not work on windows
+          that do not provide the maximize button in the titlebar (see
+          forced mode).
+
+      [IMP]
+          By now the resize feature does not work on windows that do not
+          provide a thick frame for the normal resize operation (see
+          forced mode).
+
+      [FIX]
+          Fixed the visual update effects of VMWare (and similar) windows.
+
+    * 2005/01/04 Version 0.9
+
+          This is the first public release of NiftyWindows (using
+          AutoHotkey version 1.0.24).
+
+------------------------------------------------------------------------
+
+
+    TODO
+
+This list is incomplete, but contains the most important things.
+
+    * Extend the configuration menu to enable/disable all features
+      separately.
+
+    * Make the eject drive feature operating simultaneously to
+      open/close multiple drives at the same time.
+
+------------------------------------------------------------------------
+
+
+    KNOWN PROBLEMS
+
+If the area (see below) in this section is empty there are currently no
+known unsolved problems. Please be aware that there *may* be unknown
+problems.
+
+    * There are some visual problems when using the transparency
+      features on Java windows (JFrame, JWindow, JDialog, etc.). You can
+      fix this easily by adding the following VM parameter to the java
+      command line:
+
+      java -Dsun.java2d.noddraw=true (...)
+

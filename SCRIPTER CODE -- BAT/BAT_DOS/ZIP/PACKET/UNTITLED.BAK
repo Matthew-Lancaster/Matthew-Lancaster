@@ -1,0 +1,33 @@
+DEFDBL A-Z
+OPEN "birtdate.txt" FOR INPUT AS #1
+OPEN "birtdat2.txt" FOR OUTPUT AS #2
+DO
+LINE INPUT #1, a$
+'a$ = RTRIM$(a$)
+a = INSTR(a$, " ")
+a1 = INSTR(a$, ",")
+IF a1 = 0 THEN a1 = INSTR(a$, ".")
+b$ = MID$(a$, 1, a)
+d$ = MID$(a$, a, (a1 - a))
+f$ = MID$(a$, a1 + 2, 4)
+h$ = "B DAY:-" + MID$(a$, a1 + 9)
+IF c$ <> b$ THEN c = c + 1
+'w = DATESERIAL(VAL(f$), c, VAL(d$))
+PRINT c, d$, f$, h$
+PRINT FORMAT$(c, "00"); "-";
+PRINT FORMAT$(VAL(d$), "00"); "-";
+PRINT f$
+
+PRINT h$
+PRINT
+PRINT #2, FORMAT$(c, "00"); "-";
+PRINT #2, FORMAT$(VAL(d$), "00"); "-";
+PRINT #2, f$
+
+'PRINT #2, FORMAT$(w, "DD-MM-YYYY")
+PRINT #2, h$
+PRINT #2,
+c$ = b$
+LOOP UNTIL EOF(1)
+CLOSE #1, #2
+

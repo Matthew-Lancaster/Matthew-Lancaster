@@ -1,0 +1,28 @@
+-----------------------------------
+THE TWO EXIF TYPE INFO VARIABLE
+THAT CAN TELL A IMAGE BEEN MODIFIED
+-----------------------------------
+FileSource - DSC - Digital still camera
+SceneType - A directly photographed image
+-----------------------------------
+-----------------------------------
+FileSource - Other
+SceneType - Other
+-----------------------------------
+-----------------------------------
+
+
+NOT ORGINAL IMAGES ARE FIND BY NOT HAVE THIS ----
+-------------------------------------------------
+000000C0:  20 20 20 20  20 20 20 20  20 00 53 4F  4E 59 00 00  |         .SONY..|
+4X4X2 SONY 00 00 DSC-HX60V
+C0+4+4+2
+CA
+
+Textview - D:\DSC\2015 2016\2016 Sony CyberShot DSC-HX60V\DCIM2\20160220
+---------------------
+SONY..|
+000000D0:  44 53 43 2D  48 58 36 30  56 00 5E 01  00 00 01 00  |DSC-HX60V
+
+
+
