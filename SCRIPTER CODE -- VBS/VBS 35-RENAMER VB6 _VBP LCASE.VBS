@@ -133,6 +133,13 @@ DIM FindMostRecentFile_VAR
 
 DIM I_SET_DONE
 
+'--------------------------------------------------------------------
+' USAGE IN GOODSYNC SCRIPT TEXT FIELD
+'--------------------------------------------------------------------
+' "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS" %JOBNAME%
+'--------------------------------------------------------------------
+
+
 Set args = Wscript.Arguments
 For Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
