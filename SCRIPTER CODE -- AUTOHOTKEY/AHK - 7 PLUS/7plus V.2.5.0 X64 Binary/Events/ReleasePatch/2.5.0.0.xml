@@ -1,0 +1,3964 @@
+<BugfixVersion>0</BugfixVersion>
+<Events>
+<Event>
+<Actions>
+<Action>
+<Type>Show settings</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>0</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>1</OfficialEvent>
+<Trigger>
+<Key>#H</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Restart 7plus</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>2</OfficialEvent>
+<Trigger>
+<Key>#Q</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>0</Clear>
+<Content>${SelNM}</Content>
+<Cut>0</Cut>
+<InsertType>File</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(DirectUIHWND3|SysListView321)</With>
+</Condition></Conditions>
+<OfficialEvent>3</OfficialEvent>
+<Trigger>
+<Key>+C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>0</Clear>
+<Content>${SelNM}</Content>
+<Cut>1</Cut>
+<InsertType>File</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(DirectUIHWND3|SysListView321)</With>
+</Condition></Conditions>
+<OfficialEvent>4</OfficialEvent>
+<Trigger>
+<Key>+X</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Path>Upward</Path>
+<Type>Set current directory</Type>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>DirectUIHWND3</With>
+</Condition></Conditions>
+<OfficialEvent>7</OfficialEvent>
+<Trigger>
+<Key>Backspace</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>cmd.exe /k cd /D "${P}\"</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition></Conditions>
+<OfficialEvent>10</OfficialEvent>
+<Trigger>
+<Key>#C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>0</Append>
+<Clear>1</Clear>
+<Content>${SelNNEM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>228</OfficialEvent>
+<Trigger>
+<Key>!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>0</Append>
+<Clear>1</Clear>
+<Content>${SelNM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>229</OfficialEvent>
+<Trigger>
+<Key>^!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>1</Clear>
+<Content>${SelNNEM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>230</OfficialEvent>
+<Trigger>
+<Key>+!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>1</Clear>
+<Content>${SelNM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>231</OfficialEvent>
+<Trigger>
+<Key>^+!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Rename>1</Rename>
+<Type>Create new file</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>232</OfficialEvent>
+<Trigger>
+<Key>F7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Rename>1</Rename>
+<Type>Create new folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>233</OfficialEvent>
+<Trigger>
+<Key>F8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>"%WinDir%\explorer.exe" /n,/e,${P}</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>236</OfficialEvent>
+<Trigger>
+<Type>Double click on desktop</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Path>Upward</Path>
+<Type>Set current directory</Type>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>238</OfficialEvent>
+<Trigger>
+<Type>Double click on empty space</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Keep list entries from</Action>
+<ExitOnEmptyList>1</ExitOnEmptyList>
+<Filter>(.*\.jpg|.*\.bmp|.*\.png|.*\.gif)</Filter>
+<List>${SelNQ}</List>
+<Operator>that match regular expression</Operator>
+<Type>Filter list</Type>
+</Action><Action>
+<Command>"%ProgramFiles%\Paint.NET\PaintDotNet.exe" ${SelNQ}</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>301</OfficialEvent>
+<Trigger>
+<Key>F3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Remove list entries from</Action>
+<ExitOnEmptyList>1</ExitOnEmptyList>
+<Filter>(.*\.jpg|.*\.bmp|.*\.png|.*\.gif)</Filter>
+<List>${SelNQ}</List>
+<Operator>that match regular expression</Operator>
+<Separator>`n</Separator>
+<Type>Filter list</Type>
+</Action><Action>
+<Command>"%ProgramFiles%\Notepad++\notepad++.exe" ${SelNQ}</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>302</OfficialEvent>
+<Trigger>
+<Key>F3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Cancel>1</Cancel>
+<DataType>Text</DataType>
+<Text>Filter Text</Text>
+<Title>Select Files</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+</Action><Action>
+<Clear>1</Clear>
+<Deselect>0</Deselect>
+<Filter>${Input}</Filter>
+<Type>Select files</Type>
+<Wildcard>1</Wildcard>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition></Conditions>
+<OfficialEvent>305</OfficialEvent>
+<Trigger>
+<Key>^S</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Close a window</Type>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Action></Actions>
+<Conditions>
+<Condition>
+<MouseOverType>Titlebar</MouseOverType>
+<Negate>0</Negate>
+<Type>Mouse over</Type>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition><Condition>
+<Compare>${MC}</Compare>
+<Negate>1</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>OperaWindowClass|MozillaWindowClass</With>
+</Condition></Conditions>
+<OfficialEvent>306</OfficialEvent>
+<Trigger>
+<Key>MButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<FlashingWindows>1</FlashingWindows>
+<Notifications>1</Notifications>
+<ToggleWindows>1</ToggleWindows>
+<Type>Flashing windows</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>308</OfficialEvent>
+<Trigger>
+<Key>CapsLock</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Toggle always on top</Action>
+<ShowState>1</ShowState>
+<Type>Change window state</Type>
+<Value>100</Value>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Action><Action>
+<Action>Start timer</Action>
+<TimerID>311</TimerID>
+<Type>Control timer</Type>
+</Action><Action>
+<Action>Enable Event</Action>
+<EventID>309</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Enable Event</Action>
+<EventID>310</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Trigger Event</Action>
+<EventID>309</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Trigger Event</Action>
+<EventID>310</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<MouseOverType>Titlebar</MouseOverType>
+<Negate>0</Negate>
+<Type>Mouse over</Type>
+</Condition></Conditions>
+<OfficialEvent>309</OfficialEvent>
+<Trigger>
+<Key>RButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>{Esc}</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action><Action>
+<Action>Disable Event</Action>
+<EventID>311</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Disable Event</Action>
+<EventID>310</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Context menu active</Type>
+</Condition></Conditions>
+<OfficialEvent>310</OfficialEvent>
+<Trigger>
+<Type>Triggered by an action</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Trigger Event</Action>
+<EventID>309</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Trigger Event</Action>
+<EventID>310</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Context menu active</Type>
+</Condition></Conditions>
+<Enabled>1</Enabled>
+<OfficialEvent>311</OfficialEvent>
+<Trigger>
+<Type>Triggered by an action</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Disable Event</Action>
+<EventID>309</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Disable Event</Action>
+<EventID>310</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Disable Event</Action>
+<EventID>311</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>312</OfficialEvent>
+<Trigger>
+<Restart>0</Restart>
+<ShowProgress>0</ShowProgress>
+<Time>2000</Time>
+<Type>Timer</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Disable always on top</Action>
+<Type>Change window state</Type>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>317</OfficialEvent>
+<Trigger>
+<Event>Window maximized</Event>
+<Type>Window state changed</Type>
+<WindowMatchType>Active</WindowMatchType>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<ForceClose>1</ForceClose>
+<Type>Close a window</Type>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Action></Actions>
+<Conditions>
+<Condition>
+<MouseOverType>CloseButton</MouseOverType>
+<Negate>0</Negate>
+<Type>Mouse over</Type>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition></Conditions>
+<OfficialEvent>313</OfficialEvent>
+<Trigger>
+<Key>RButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Close a window</Type>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>314</OfficialEvent>
+<Trigger>
+<Key>!F5</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Minimize-&gt;Normal-&gt;Maximize</Action>
+<Type>Change window state</Type>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>315</OfficialEvent>
+<Trigger>
+<Key>!WheelUp</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Maximize-&gt;Normal-&gt;Minimize</Action>
+<Type>Change window state</Type>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>316</OfficialEvent>
+<Trigger>
+<Key>!WheelDown</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<FlashingWindows>1</FlashingWindows>
+<Type>Show Accessor</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>318</OfficialEvent>
+<Trigger>
+<Key>!Space</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Activate a window</Type>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Action><Action>
+<Button>Right</Button>
+<Double>0</Double>
+<Relative>1</Relative>
+<RestorePosition>1</RestorePosition>
+<Type>Mouse click</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${MNN}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>DirectUIHWND3</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Window active</Type>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Condition><Condition>
+<Compare>${MC}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(ExploreWClass|CabinetWClass)</With>
+</Condition></Conditions>
+<OfficialEvent>319</OfficialEvent>
+<Trigger>
+<Key>RButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>0</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>320</OfficialEvent>
+<Trigger>
+<Key>Numpad0</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>0</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>321</OfficialEvent>
+<Trigger>
+<Key>Numpad0</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>1</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>322</OfficialEvent>
+<Trigger>
+<Key>Numpad1</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>1</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>323</OfficialEvent>
+<Trigger>
+<Key>Numpad1</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>2</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>324</OfficialEvent>
+<Trigger>
+<Key>Numpad2</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>2</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>325</OfficialEvent>
+<Trigger>
+<Key>Numpad2</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>3</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>326</OfficialEvent>
+<Trigger>
+<Key>Numpad3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>3</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>327</OfficialEvent>
+<Trigger>
+<Key>Numpad3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>4</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>328</OfficialEvent>
+<Trigger>
+<Key>Numpad4</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>4</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>329</OfficialEvent>
+<Trigger>
+<Key>Numpad4</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>5</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>330</OfficialEvent>
+<Trigger>
+<Key>Numpad5</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>5</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>331</OfficialEvent>
+<Trigger>
+<Key>Numpad5</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>6</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>332</OfficialEvent>
+<Trigger>
+<Key>Numpad6</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>6</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>333</OfficialEvent>
+<Trigger>
+<Key>Numpad6</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>7</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>334</OfficialEvent>
+<Trigger>
+<Key>Numpad7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>7</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>335</OfficialEvent>
+<Trigger>
+<Key>Numpad7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>8</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>336</OfficialEvent>
+<Trigger>
+<Key>Numpad8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>8</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>337</OfficialEvent>
+<Trigger>
+<Key>Numpad8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>9</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>Edit1</With>
+</Condition></Conditions>
+<OfficialEvent>338</OfficialEvent>
+<Trigger>
+<Key>Numpad9</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>9</Slot>
+<Type>Open Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>339</OfficialEvent>
+<Trigger>
+<Key>Numpad9</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>0</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>340</OfficialEvent>
+<Trigger>
+<Key>^Numpad0</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>0</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>341</OfficialEvent>
+<Trigger>
+<Key>^Numpad0</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>1</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>342</OfficialEvent>
+<Trigger>
+<Key>^Numpad1</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>1</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>343</OfficialEvent>
+<Trigger>
+<Key>^Numpad1</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>2</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>344</OfficialEvent>
+<Trigger>
+<Key>^Numpad2</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>2</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>345</OfficialEvent>
+<Trigger>
+<Key>^Numpad2</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>3</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>346</OfficialEvent>
+<Trigger>
+<Key>^Numpad3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>3</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>347</OfficialEvent>
+<Trigger>
+<Key>^Numpad3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>4</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>348</OfficialEvent>
+<Trigger>
+<Key>^Numpad4</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>4</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>349</OfficialEvent>
+<Trigger>
+<Key>^Numpad4</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>5</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>350</OfficialEvent>
+<Trigger>
+<Key>^Numpad5</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>5</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>351</OfficialEvent>
+<Trigger>
+<Key>^Numpad5</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>6</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>352</OfficialEvent>
+<Trigger>
+<Key>^Numpad6</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>6</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>353</OfficialEvent>
+<Trigger>
+<Key>^Numpad6</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>7</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>354</OfficialEvent>
+<Trigger>
+<Key>^Numpad7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>7</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>355</OfficialEvent>
+<Trigger>
+<Key>^Numpad7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>8</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>356</OfficialEvent>
+<Trigger>
+<Key>^Numpad8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>8</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>357</OfficialEvent>
+<Trigger>
+<Key>^Numpad8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>9</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>358</OfficialEvent>
+<Trigger>
+<Key>^Numpad9</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>9</Slot>
+<Type>Save Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>359</OfficialEvent>
+<Trigger>
+<Key>^Numpad9</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>0</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>360</OfficialEvent>
+<Trigger>
+<Key>!Numpad0</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>0</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>361</OfficialEvent>
+<Trigger>
+<Key>!Numpad0</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>1</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>362</OfficialEvent>
+<Trigger>
+<Key>!Numpad1</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>1</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>363</OfficialEvent>
+<Trigger>
+<Key>!Numpad1</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>2</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>364</OfficialEvent>
+<Trigger>
+<Key>!Numpad2</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>2</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>365</OfficialEvent>
+<Trigger>
+<Key>!Numpad2</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>3</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>366</OfficialEvent>
+<Trigger>
+<Key>!Numpad3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>3</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>367</OfficialEvent>
+<Trigger>
+<Key>!Numpad3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>4</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>368</OfficialEvent>
+<Trigger>
+<Key>!Numpad4</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>4</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>369</OfficialEvent>
+<Trigger>
+<Key>!Numpad4</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>5</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>370</OfficialEvent>
+<Trigger>
+<Key>!Numpad5</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>5</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>371</OfficialEvent>
+<Trigger>
+<Key>!Numpad5</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>6</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>372</OfficialEvent>
+<Trigger>
+<Key>!Numpad6</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>6</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>373</OfficialEvent>
+<Trigger>
+<Key>!Numpad6</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>7</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>374</OfficialEvent>
+<Trigger>
+<Key>!Numpad7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>7</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>375</OfficialEvent>
+<Trigger>
+<Key>!Numpad7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>8</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>376</OfficialEvent>
+<Trigger>
+<Key>!Numpad8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>8</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>377</OfficialEvent>
+<Trigger>
+<Key>!Numpad8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>9</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>378</OfficialEvent>
+<Trigger>
+<Key>!Numpad9</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Slot>9</Slot>
+<Type>Clear Fast Folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>1</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>Edit</With>
+</Condition></Conditions>
+<OfficialEvent>379</OfficialEvent>
+<Trigger>
+<Key>!Numpad9</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Clipboard>1</Clipboard>
+<FTPProfile>1</FTPProfile>
+<Silent>0</Silent>
+<SourceFiles>${SelNQ}</SourceFiles>
+<Type>Upload to FTP</Type>
+</Action></Actions>
+<Category>Internet</Category>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<Description>Uploads the file(s) selected in the currently active explorer window to the FTP server defined in FTP profile 1. Make sure to configure the FTP profile with your FTP login data.</Description>
+<OfficialEvent>382</OfficialEvent>
+<Trigger>
+<Key>^U</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Clipboard>1</Clipboard>
+<FTPProfile>1</FTPProfile>
+<Silent>0</Silent>
+<SourceFiles>${SelNQ}</SourceFiles>
+<Type>Upload to FTP</Type>
+</Action></Actions>
+<Category>Internet</Category>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<Description>Uploads the file(s) selected in the currently active file dialog window to the FTP server defined in FTP profile 1. Make sure to configure the FTP profile with your FTP login data.</Description>
+<OfficialEvent>383</OfficialEvent>
+<Trigger>
+<Key>^U</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Clipboard Manager menu</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>384</OfficialEvent>
+<Trigger>
+<Key>#V</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>cmd.exe /k cd /D c:\</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>1</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Compare>${TitlePath}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+</Condition><Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>1</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>385</OfficialEvent>
+<Trigger>
+<Key>#C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>cmd.exe /k cd /D "${TitlePath}\"</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>1</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Compare>${TitlePath}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+</Condition><Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>1</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>386</OfficialEvent>
+<Trigger>
+<Key>#C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Close a window</Type>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window active</Type>
+<WindowFilterClass>ConsoleWindowClass</WindowFilterClass>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition></Conditions>
+<OfficialEvent>388</OfficialEvent>
+<Trigger>
+<Key>!F4</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Button>Right</Button>
+<Double>0</Double>
+<Relative>1</Relative>
+<RestorePosition>1</RestorePosition>
+<Type>Mouse click</Type>
+<X>40</X>
+<Y>40</Y>
+</Action><Action>
+<KeyDelay>0</KeyDelay>
+<Keys>{Down 3}{Enter}</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window active</Type>
+<WindowFilterClass>ConsoleWindowClass</WindowFilterClass>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition></Conditions>
+<OfficialEvent>389</OfficialEvent>
+<Trigger>
+<Key>^V</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>cmd.exe /k cd /D "${TitlePath}\"</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>597</OfficialEvent>
+<Trigger>
+<Key>#C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>0</Clear>
+<Content>${SelNM}</Content>
+<Cut>0</Cut>
+<InsertType>File</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(DirectUIHWND2|SysListView321)</With>
+</Condition></Conditions>
+<OfficialEvent>598</OfficialEvent>
+<Trigger>
+<Key>+C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>0</Clear>
+<Content>${SelNM}</Content>
+<Cut>1</Cut>
+<InsertType>File</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(DirectUIHWND2|SysListView321)</With>
+</Condition></Conditions>
+<OfficialEvent>599</OfficialEvent>
+<Trigger>
+<Key>+X</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Path>Upward</Path>
+<Type>Set current directory</Type>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>DirectUIHWND2</With>
+</Condition></Conditions>
+<OfficialEvent>601</OfficialEvent>
+<Trigger>
+<Key>Backspace</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>0</Append>
+<Clear>1</Clear>
+<Content>${SelNNEM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>DirectUIHWND2</With>
+</Condition><Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>817</OfficialEvent>
+<Trigger>
+<Key>!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>0</Append>
+<Clear>1</Clear>
+<Content>${SelNM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>DirectUIHWND2</With>
+</Condition><Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>818</OfficialEvent>
+<Trigger>
+<Key>^!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>1</Clear>
+<Content>${SelNNEM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>DirectUIHWND2</With>
+</Condition><Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>819</OfficialEvent>
+<Trigger>
+<Key>+!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Append>1</Append>
+<Clear>1</Clear>
+<Content>${SelNM}</Content>
+<Cut>0</Cut>
+<InsertType>Text</InsertType>
+<Type>Write to clipboard</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>DirectUIHWND2</With>
+</Condition><Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>820</OfficialEvent>
+<Trigger>
+<Key>^+!C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Rename>1</Rename>
+<Type>Create new file</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>827</OfficialEvent>
+<Trigger>
+<Key>F7</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Rename>1</Rename>
+<Type>Create new folder</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>828</OfficialEvent>
+<Trigger>
+<Key>F8</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Keep list entries from</Action>
+<ExitOnEmptyList>1</ExitOnEmptyList>
+<Filter>(.*\.jpg|.*\.bmp|.*\.png|.*\.gif)</Filter>
+<List>${SelNQ}</List>
+<Operator>that match regular expression</Operator>
+<Type>Filter list</Type>
+</Action><Action>
+<Command>"%ProgramFiles%\Paint.NET\PaintDotNet.exe" ${SelNQ}</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>896</OfficialEvent>
+<Trigger>
+<Key>F3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Remove list entries from</Action>
+<ExitOnEmptyList>1</ExitOnEmptyList>
+<Filter>(.*\.jpg|.*\.bmp|.*\.png|.*\.gif)</Filter>
+<List>${SelNQ}</List>
+<Operator>that match regular expression</Operator>
+<Separator>`n</Separator>
+<Type>Filter list</Type>
+</Action><Action>
+<Command>"%ProgramFiles%\Notepad++\notepad++.exe" ${SelNQ}</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<ListViewOnly>1</ListViewOnly>
+<Negate>0</Negate>
+<Type>Window is file dialog</Type>
+</Condition></Conditions>
+<OfficialEvent>897</OfficialEvent>
+<Trigger>
+<Key>F3</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>C:\Windows\System32\taskmgr.exe</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+<WorkingDirectory>C:\Windows\System32</WorkingDirectory>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>898</OfficialEvent>
+<Trigger>
+<Type>Double click on taskbar</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Set volume</Action>
+<ShowVolume>1</ShowVolume>
+<Type>Change sound volume</Type>
+<Volume>+5</Volume>
+</Action></Actions>
+<Conditions>
+<Condition>
+<MouseOverType>Window</MouseOverType>
+<Negate>0</Negate>
+<Type>Mouse over</Type>
+<WindowFilterClass>Shell_TrayWnd</WindowFilterClass>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition></Conditions>
+<OfficialEvent>960</OfficialEvent>
+<Trigger>
+<Key>WheelUp</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Set volume</Action>
+<ShowVolume>1</ShowVolume>
+<Type>Change sound volume</Type>
+<Volume>-5</Volume>
+</Action></Actions>
+<Conditions>
+<Condition>
+<MouseOverType>Window</MouseOverType>
+<Negate>0</Negate>
+<Type>Mouse over</Type>
+<WindowFilterClass>Shell_TrayWnd</WindowFilterClass>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition></Conditions>
+<OfficialEvent>961</OfficialEvent>
+<Trigger>
+<Key>WheelDown</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>^.</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window active</Type>
+<WindowFilterClass>Photo_Lightweight_Viewer</WindowFilterClass>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition><Condition>
+<Compare>${WinVer}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>WIN_XP</With>
+</Condition></Conditions>
+<OfficialEvent>962</OfficialEvent>
+<Trigger>
+<Key>R</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>^,</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window active</Type>
+<WindowFilterClass>Photo_Lightweight_Viewer</WindowFilterClass>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition><Condition>
+<Compare>${WinVer}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>WIN_XP</With>
+</Condition></Conditions>
+<OfficialEvent>963</OfficialEvent>
+<Trigger>
+<Key>L</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Clipboard>1</Clipboard>
+<FTPProfile>1</FTPProfile>
+<Silent>0</Silent>
+<SourceFiles>${SelNNEM}</SourceFiles>
+<TargetFile>${Input}</TargetFile>
+<Type>Upload to FTP</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>979</OfficialEvent>
+<Trigger>
+<Name>Upload</Name>
+<ShowNoSelected>0</ShowNoSelected>
+<ShowSelected>1</ShowSelected>
+<Tooltip>Upload a file</Tooltip>
+<Type>Explorer bar button</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Rename>1</Rename>
+<Type>Create new file</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>980</OfficialEvent>
+<Trigger>
+<Name>New text file</Name>
+<ShowNoSelected>1</ShowNoSelected>
+<ShowSelected>1</ShowSelected>
+<Tooltip>Creates a new text file</Tooltip>
+<Type>Explorer bar button</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Restore file selection</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${Control}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(DirectUIHWND3|SysListView321)</With>
+</Condition></Conditions>
+<OfficialEvent>985</OfficialEvent>
+<Trigger>
+<Key>^+Z</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Toggle show hidden files</Action>
+<Type>Change explorer view mode</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>981</OfficialEvent>
+<Trigger>
+<Key>^!H</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Put window in background</Type>
+<WindowMatchType>UnderMouse</WindowMatchType>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>986</OfficialEvent>
+<Trigger>
+<Key>#MButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>cmd.exe /k cd /D "%Desktop%"</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>987</OfficialEvent>
+<Trigger>
+<Key>#C</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Cancel>1</Cancel>
+<DataType>Text</DataType>
+<Placeholder>Input</Placeholder>
+<Text>Enter parameters. Paths might need`n to be enclosed in double quotes.</Text>
+<Title>Enter Parameters</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+</Action><Action>
+<Command>${Context} ${Input}</Command>
+<RunAsAdmin>0</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+<WorkingDirectory>${P}</WorkingDirectory>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>988</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Runs an executable file with parameters</Description>
+<Desktop>0</Desktop>
+<Directory>0</Directory>
+<DirectoryBackground>0</DirectoryBackground>
+<FileTypes>exe,bat,cmd</FileTypes>
+<Name>Run with parameters...</Name>
+<SingleFileOnly>1</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Files>${Context}</Files>
+<Hoster>ImgUr</Hoster>
+<ReuseWindow>0</ReuseWindow>
+<TemporaryFiles>0</TemporaryFiles>
+<Type>Show Image Converter</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>989</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Opens a dialog for batch image conversion.</Description>
+<Desktop>0</Desktop>
+<Directory>0</Directory>
+<DirectoryBackground>0</DirectoryBackground>
+<FileTypes>BMP,DIB,RLE,JPG,JPEG,JPE,JFIF,GIF,TIF,TIFF,PNG</FileTypes>
+<Name>Convert Images</Name>
+<SingleFileOnly>0</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Files>${Context}</Files>
+<Type>Show Explorer checksum dialog</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>990</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Opens a dialog that displays MD5 checksums of the selected files.</Description>
+<Desktop>0</Desktop>
+<Directory>0</Directory>
+<DirectoryBackground>0</DirectoryBackground>
+<FileTypes>*</FileTypes>
+<Name>MD5 Checksum(s)</Name>
+<SingleFileOnly>0</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Clipboard>1</Clipboard>
+<FTPProfile>1</FTPProfile>
+<Silent>0</Silent>
+<SourceFiles>${Context}</SourceFiles>
+<Type>Upload to FTP</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>991</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Uploads the selected files to an FTP server</Description>
+<Desktop>0</Desktop>
+<Directory>0</Directory>
+<DirectoryBackground>0</DirectoryBackground>
+<Name>Upload</Name>
+<SingleFileOnly>0</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Toggle show hidden files</Action>
+<Type>Change explorer view mode</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>992</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Toggles the visibility of hidden files</Description>
+<Desktop>0</Desktop>
+<Directory>0</Directory>
+<DirectoryBackground>1</DirectoryBackground>
+<Name>Toggle hidden files</Name>
+<SingleFileOnly>0</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Toggle mute/unmute</Action>
+<ShowVolume>1</ShowVolume>
+<Type>Change sound volume</Type>
+<Volume>100</Volume>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>993</OfficialEvent>
+<Trigger>
+<Key>Volume_Mute</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Set volume</Action>
+<ShowVolume>1</ShowVolume>
+<Type>Change sound volume</Type>
+<Volume>-2</Volume>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>994</OfficialEvent>
+<Trigger>
+<Key>Volume_Down</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Set volume</Action>
+<ShowVolume>1</ShowVolume>
+<Type>Change sound volume</Type>
+<Volume>+2</Volume>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>995</OfficialEvent>
+<Trigger>
+<Key>Volume_Up</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Trigger Event</Action>
+<EventID>1599</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>5</OfficialEvent>
+<Trigger>
+<Menu>Tray</Menu>
+<Name>Start timer</Name>
+<Type>Menu item clicked</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Cancel>1</Cancel>
+<DataType>Selection</DataType>
+<Placeholder>TimerType</Placeholder>
+<Selection>Message timer|Shutdown timer|Run program timer</Selection>
+<Text>What type of timer would you like to start?</Text>
+<Title>Dynamic timer</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+</Action><Action>
+<Cancel>1</Cancel>
+<DataType>Time</DataType>
+<Placeholder>TimerTime</Placeholder>
+<Text>Enter time [HH:MM:SS]:</Text>
+<Title>Dynamic timer - Enter time</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+</Action><Action>
+<Action>Trigger Event</Action>
+<Compare>${TimerType}</Compare>
+<EventID>1602</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+<With>Message Timer</With>
+</Action><Action>
+<Action>Trigger Event</Action>
+<Compare>${TimerType}</Compare>
+<EventID>1603</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+<With>Run program timer</With>
+</Action><Action>
+<Action>Trigger Event</Action>
+<Compare>${TimerType}</Compare>
+<EventID>1606</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+<With>Shutdown timer</With>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>6</OfficialEvent>
+<Trigger>
+<Type>Triggered by an action</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Text>${TimerMessage}</Text>
+<Title>Timer</Title>
+<Type>Message</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>8</OfficialEvent>
+<Trigger>
+<Restart>0</Restart>
+<ShowProgress>1</ShowProgress>
+<Text>${TimerMessage}</Text>
+<Time>10000</Time>
+<Type>Timer</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Cancel>1</Cancel>
+<DataType>Text</DataType>
+<Placeholder>TimerMessage</Placeholder>
+<Text>Enter message text:</Text>
+<Title>Message text</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+</Action><Action>
+<Action>Copy Event</Action>
+<DeleteAfterUse>1</DeleteAfterUse>
+<EvaluateOnCopy>1</EvaluateOnCopy>
+<EventID>1600</EventID>
+<Operator>equals</Operator>
+<Placeholder>MessageTimer</Placeholder>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Set time</Action>
+<Time>${TimerTime}</Time>
+<TimerID>${MessageTimer}</TimerID>
+<Type>Control timer</Type>
+</Action><Action>
+<Action>Start timer</Action>
+<TimerID>${MessageTimer}</TimerID>
+<Type>Control timer</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>9</OfficialEvent>
+<Trigger>
+<Type>Triggered by an action</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Cancel>1</Cancel>
+<DataType>File</DataType>
+<Placeholder>TimerProgram</Placeholder>
+<Text>Enter program to launch</Text>
+<Title>Select program</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+</Action><Action>
+<Action>Copy Event</Action>
+<DeleteAfterUse>1</DeleteAfterUse>
+<EvaluateOnCopy>1</EvaluateOnCopy>
+<EventID>1604</EventID>
+<Operator>equals</Operator>
+<Placeholder>RunTimer</Placeholder>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Set time</Action>
+<Time>${TimerTime}</Time>
+<TimerID>${RunTimer}</TimerID>
+<Type>Control timer</Type>
+</Action><Action>
+<Action>Start timer</Action>
+<TimerID>${RunTimer}</TimerID>
+<Type>Control timer</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>11</OfficialEvent>
+<Trigger>
+<Type>Triggered by an action</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>${TimerProgram}</Command>
+<RunAsAdmin>-1</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>12</OfficialEvent>
+<Trigger>
+<Restart>0</Restart>
+<ShowProgress>1</ShowProgress>
+<Text>Run ${TimerProgram}</Text>
+<Time>10000</Time>
+<Type>Timer</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<ForceClose>0</ForceClose>
+<ShutDownSelection>Shutdown</ShutDownSelection>
+<Type>Shutdown computer</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>13</OfficialEvent>
+<Trigger>
+<Restart>0</Restart>
+<ShowProgress>1</ShowProgress>
+<Text>Shutdown</Text>
+<Time>600000</Time>
+<Type>Timer</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Copy Event</Action>
+<DeleteAfterUse>1</DeleteAfterUse>
+<EvaluateOnCopy>1</EvaluateOnCopy>
+<EventID>1605</EventID>
+<Operator>equals</Operator>
+<Placeholder>ShutdownTimer</Placeholder>
+<Type>Control event</Type>
+</Action><Action>
+<Action>Set time</Action>
+<Time>${TimerTime}</Time>
+<TimerID>${ShutdownTimer}</TimerID>
+<Type>Control timer</Type>
+</Action><Action>
+<Action>Start timer</Action>
+<TimerID>${ShutdownTimer}</TimerID>
+<Type>Control timer</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>14</OfficialEvent>
+<Trigger>
+<Type>Triggered by an action</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Trigger Event</Action>
+<EventID>1599</EventID>
+<Operator>equals</Operator>
+<Type>Control event</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<MouseOverType>Clock</MouseOverType>
+<Negate>0</Negate>
+<Type>Mouse over</Type>
+<WindowMatchType>Specific Window</WindowMatchType>
+</Condition></Conditions>
+<OfficialEvent>17</OfficialEvent>
+<Trigger>
+<Key>MButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>^k</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>ShImgVw:</With>
+</Condition><Condition>
+<Compare>${WinVer}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>WIN_XP</With>
+</Condition></Conditions>
+<OfficialEvent>15</OfficialEvent>
+<Trigger>
+<Key>R</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>`r`n</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>1</WriteText>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>16</OfficialEvent>
+<Trigger>
+<Key>^#Enter</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>^l</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>starts with</Operator>
+<Type>If</Type>
+<With>ShImgVw:</With>
+</Condition><Condition>
+<Compare>${WinVer}</Compare>
+<Negate>0</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>WIN_XP</With>
+</Condition></Conditions>
+<OfficialEvent>18</OfficialEvent>
+<Trigger>
+<Key>L</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Paths>${SelNM}</Paths>
+<Type>Show Explorer flat view</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|WorkerW|Progman)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition><Condition>
+<Compare>${WinVer}</Compare>
+<Negate>1</Negate>
+<Operator>equals</Operator>
+<Type>If</Type>
+<With>WIN_XP</With>
+</Condition></Conditions>
+<OfficialEvent>19</OfficialEvent>
+<Trigger>
+<Key>+Enter</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Tab in Background</Action>
+<Type>Open folder in new window / tab</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition><Condition>
+<Negate>0</Negate>
+<Type>Mouse over file list</Type>
+</Condition></Conditions>
+<OfficialEvent>22</OfficialEvent>
+<Trigger>
+<Key>MButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Close taskbar button under mouse</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition><Condition>
+<Negate>0</Negate>
+<Type>Mouse over taskbar list</Type>
+</Condition></Conditions>
+<OfficialEvent>23</OfficialEvent>
+<Trigger>
+<Key>MButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Change desktop wallpaper</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition><Condition>
+<Compare>${MC}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(WorkerW|Progman)</With>
+</Condition></Conditions>
+<OfficialEvent>24</OfficialEvent>
+<Trigger>
+<Key>MButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Close tab under mouse</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition><Condition>
+<Negate>0</Negate>
+<Type>Mouse over tab button</Type>
+</Condition></Conditions>
+<OfficialEvent>25</OfficialEvent>
+<Trigger>
+<Key>MButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<SelectedFiles>0</SelectedFiles>
+<Type>Explorer replace dialog</Type>
+<View>Filenames</View>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>20</OfficialEvent>
+<Trigger>
+<Key>^H</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Paths>${Context}</Paths>
+<Type>Show Explorer flat view</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>21</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Shows the contents of the selected folders in a flat view.</Description>
+<Desktop>0</Desktop>
+<Directory>1</Directory>
+<DirectoryBackground>0</DirectoryBackground>
+<Name>Flat View</Name>
+<SingleFileOnly>0</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Show Aero Flip</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>26</OfficialEvent>
+<Trigger>
+<Corner>1</Corner>
+<Time>100</Time>
+<Type>Screen corner</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Method>Goo.gl</Method>
+<Type>Shorten a URL</Type>
+<URL>${Clip}</URL>
+<WriteToClipboard>1</WriteToClipboard>
+<WriteToPlaceholder>ShortURL</WriteToPlaceholder>
+</Action></Actions>
+<Category>Internet</Category>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>27</OfficialEvent>
+<Trigger>
+<Key>#S</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Merge Explorer windows</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition></Conditions>
+<OfficialEvent>28</OfficialEvent>
+<Trigger>
+<Key>^M</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Drag window with mouse</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window is dragable</Type>
+</Condition><Condition>
+<Compare>${MC}</Compare>
+<Negate>1</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|#32770)</With>
+</Condition></Conditions>
+<OfficialEvent>29</OfficialEvent>
+<Trigger>
+<Key>~!LButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Drag window with mouse</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window is dragable</Type>
+</Condition><Condition>
+<Compare>${MC}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|#32770)</With>
+</Condition></Conditions>
+<OfficialEvent>30</OfficialEvent>
+<Trigger>
+<Key>!LButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Resize window with mouse</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window is dragable</Type>
+</Condition><Condition>
+<Compare>${MC}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|#32770)</With>
+</Condition></Conditions>
+<OfficialEvent>31</OfficialEvent>
+<Trigger>
+<Key>!RButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Resize window with mouse</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>0</Negate>
+<Type>Window is dragable</Type>
+</Condition><Condition>
+<Compare>${MC}</Compare>
+<Negate>1</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass|#32770)</With>
+</Condition></Conditions>
+<OfficialEvent>32</OfficialEvent>
+<Trigger>
+<Key>~!RButton</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Type>Invert file selection</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(ExploreWClass|CabinetWClass)</With>
+</Condition></Conditions>
+<OfficialEvent>33</OfficialEvent>
+<Trigger>
+<Key>^I UP</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<SelectedFiles>0</SelectedFiles>
+<Type>Explorer replace dialog</Type>
+<View>Files</View>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition><Condition>
+<Negate>1</Negate>
+<Type>Explorer is renaming</Type>
+</Condition></Conditions>
+<OfficialEvent>34</OfficialEvent>
+<Trigger>
+<Key>^+H</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<SelectedFiles>1</SelectedFiles>
+<Type>Explorer replace dialog</Type>
+<View>Filenames</View>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition></Conditions>
+<OfficialEvent>35</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Opens the batch rename/replace dialog to replace parts of the filenames of the selected files.</Description>
+<Desktop>0</Desktop>
+<Directory>1</Directory>
+<DirectoryBackground>0</DirectoryBackground>
+<Name>Replace in filenames</Name>
+<SingleFileOnly>0</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<SelectedFiles>1</SelectedFiles>
+<Type>Explorer replace dialog</Type>
+<View>Files</View>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Compare>${Class}</Compare>
+<Negate>0</Negate>
+<Operator>matches regular expression</Operator>
+<Type>If</Type>
+<With>(CabinetWClass|ExploreWClass)</With>
+</Condition></Conditions>
+<OfficialEvent>36</OfficialEvent>
+<Trigger>
+<Computer>0</Computer>
+<Description>Opens the batch rename/replace dialog to batch-replace text in the selected files.</Description>
+<Desktop>0</Desktop>
+<Directory>1</Directory>
+<DirectoryBackground>0</DirectoryBackground>
+<Name>Replace in file contents</Name>
+<SingleFileOnly>0</SingleFileOnly>
+<Type>Context menu</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Area>Screen</Area>
+<Quality>95</Quality>
+<TargetFile>Screenshot.png</TargetFile>
+<TargetFolder>%Temp%\7plus</TargetFolder>
+<Type>Take a screenshot</Type>
+</Action><Action>
+<Cancel>1</Cancel>
+<DataType>Text</DataType>
+<Placeholder>NewName</Placeholder>
+<Rows>1</Rows>
+<Text>Enter a filename for the screenshot (without extension)</Text>
+<Title>Enter filename</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+<Width>200</Width>
+</Action><Action>
+<Overwrite>0</Overwrite>
+<Silent>0</Silent>
+<SourceFile>%Temp%\7plus\Screenshot.png</SourceFile>
+<TargetFile>${NewName}</TargetFile>
+<TargetPath>%Temp%\7plus</TargetPath>
+<Type>Move file</Type>
+</Action><Action>
+<Files>%Temp%\7plus\${NewName}.png</Files>
+<Hoster>ImgUr</Hoster>
+<ReuseWindow>1</ReuseWindow>
+<TemporaryFiles>1</TemporaryFiles>
+<Type>Show Image Converter</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>37</OfficialEvent>
+<Trigger>
+<Key>PrintScreen</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Area>User selection</Area>
+<Quality>95</Quality>
+<TargetFile>Screenshot.png</TargetFile>
+<TargetFolder>%Temp%\7plus</TargetFolder>
+<Type>Take a screenshot</Type>
+</Action><Action>
+<Cancel>1</Cancel>
+<DataType>Text</DataType>
+<Placeholder>NewName</Placeholder>
+<Rows>1</Rows>
+<Text>Enter a filename for the screenshot (without extension)</Text>
+<Title>Enter filename</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+<Width>200</Width>
+</Action><Action>
+<Overwrite>0</Overwrite>
+<Silent>0</Silent>
+<SourceFile>%Temp%\7plus\Screenshot.png</SourceFile>
+<TargetFile>${NewName}</TargetFile>
+<TargetPath>%Temp%\7plus</TargetPath>
+<Type>Move file</Type>
+</Action><Action>
+<Files>%Temp%\7plus\${NewName}.png</Files>
+<Hoster>ImgUr</Hoster>
+<ReuseWindow>1</ReuseWindow>
+<TemporaryFiles>1</TemporaryFiles>
+<Type>Show Image Converter</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>38</OfficialEvent>
+<Trigger>
+<Key>!PrintScreen</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Area>Window</Area>
+<Quality>95</Quality>
+<TargetFile>Screenshot.png</TargetFile>
+<TargetFolder>%Temp%\7plus</TargetFolder>
+<Type>Take a screenshot</Type>
+</Action><Action>
+<Cancel>1</Cancel>
+<DataType>Text</DataType>
+<Placeholder>NewName</Placeholder>
+<Rows>1</Rows>
+<Text>Enter a filename for the screenshot (without extension)</Text>
+<Title>Enter filename</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+<Width>200</Width>
+</Action><Action>
+<Overwrite>0</Overwrite>
+<Silent>0</Silent>
+<SourceFile>%Temp%\7plus\Screenshot.png</SourceFile>
+<TargetFile>${NewName}</TargetFile>
+<TargetPath>%Temp%\7plus</TargetPath>
+<Type>Move file</Type>
+</Action><Action>
+<Files>%Temp%\7plus\${NewName}.png</Files>
+<Hoster>ImgUr</Hoster>
+<ReuseWindow>1</ReuseWindow>
+<TemporaryFiles>1</TemporaryFiles>
+<Type>Show Image Converter</Type>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>39</OfficialEvent>
+<Trigger>
+<Key>#PrintScreen</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Direction>1</Direction>
+<Type>Move Slide Window out of screen</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>40</OfficialEvent>
+<Trigger>
+<Key>+#Left</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Direction>3</Direction>
+<Type>Move Slide Window out of screen</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>41</OfficialEvent>
+<Trigger>
+<Key>+#Right</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Direction>2</Direction>
+<Type>Move Slide Window out of screen</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>42</OfficialEvent>
+<Trigger>
+<Key>+#Up</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Direction>4</Direction>
+<Type>Move Slide Window out of screen</Type>
+</Action></Actions>
+<Conditions>
+<Condition>
+<Negate>1</Negate>
+<Type>Fullscreen window active</Type>
+<UseExcludeList>1</UseExcludeList>
+<UseIncludeList>1</UseIncludeList>
+</Condition></Conditions>
+<OfficialEvent>43</OfficialEvent>
+<Trigger>
+<Key>+#Down</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Action>Toggle always on top</Action>
+<ShowState>1</ShowState>
+<Type>Change window state</Type>
+<Value>100</Value>
+<WindowMatchType>Active</WindowMatchType>
+</Action></Actions>
+<Conditions></Conditions>
+<OfficialEvent>44</OfficialEvent>
+<Trigger>
+<Key>#A</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Cancel>1</Cancel>
+<DataType>Text</DataType>
+<Placeholder>Script</Placeholder>
+<Rows>30</Rows>
+<Text>Enter script here</Text>
+<Title>Enter Script</Title>
+<Type>Ask for user input</Type>
+<Validate>1</Validate>
+<Width>600</Width>
+</Action><Action>
+<Append>0</Append>
+<Content>${script}</Content>
+<ImageExtension>png</ImageExtension>
+<Quality>95</Quality>
+<Target>%Temp%\7plus\script.ahk</Target>
+<Type>Write to file</Type>
+</Action><Action>
+<Command>%Temp%\7plus\script.ahk</Command>
+<RunAsAdmin>1</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+<WorkingDirectory>%Temp%\7plus</WorkingDirectory>
+</Action></Actions>
+<Category>Misc Hotkeys</Category>
+<DeleteAfterUse>0</DeleteAfterUse>
+<Description>This event allows to paste an AutoHotkey script in a dialog  and runs it afterwards. This event requires that you have installed an AutoHotkey interpreter and assigned it to the .ahk file extension. The script file is deleted when 7plus exits. This event can be used as a template for other scripting languages.</Description>
+<DisableAfterUse>0</DisableAfterUse>
+<Enabled>1</Enabled>
+<EventComplexityLevel>0</EventComplexityLevel>
+<ID>1645</ID>
+<Name>Run temporary AHK script</Name>
+<OfficialEvent>45</OfficialEvent>
+<OneInstance>0</OneInstance>
+<Trigger>
+<Key>#T</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>(</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Category>Numpad Enhancements</Category>
+<DeleteAfterUse>0</DeleteAfterUse>
+<Description>This event sends an opening bracket character when NumpadEnd is pressed (Numpad1 with NumLock OFF). This remapping is used to enter equations into scientific calculators using only the numpad.</Description>
+<DisableAfterUse>0</DisableAfterUse>
+<Enabled>1</Enabled>
+<EventComplexityLevel>0</EventComplexityLevel>
+<ID>1646</ID>
+<Name>NumpadEnd -&gt; '('</Name>
+<OfficialEvent>46</OfficialEvent>
+<OneInstance>0</OneInstance>
+<Trigger>
+<Key>NumpadEnd</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>)</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Category>Numpad Enhancements</Category>
+<DeleteAfterUse>0</DeleteAfterUse>
+<Description>This event sends a closing bracket character when NumpadPgDn is pressed (Numpad3 with NumLock OFF). This remapping is used to enter equations into scientific calculators using only the numpad.</Description>
+<DisableAfterUse>0</DisableAfterUse>
+<Enabled>1</Enabled>
+<EventComplexityLevel>0</EventComplexityLevel>
+<ID>1647</ID>
+<Name>NumpadPgDn -&gt; ')'</Name>
+<OfficialEvent>47</OfficialEvent>
+<OneInstance>0</OneInstance>
+<Trigger>
+<Key>NumpadPgDn</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>{^ 2}{Backspace}</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Category>Numpad Enhancements</Category>
+<DeleteAfterUse>0</DeleteAfterUse>
+<Description>This event sends a '^' character when NumpadHome is pressed (Numpad7 with NumLock OFF). This remapping is used to enter equations into scientific calculators using only the numpad.</Description>
+<DisableAfterUse>0</DisableAfterUse>
+<Enabled>1</Enabled>
+<EventComplexityLevel>0</EventComplexityLevel>
+<ID>1648</ID>
+<Name>NumpadHome -&gt; '^'</Name>
+<OfficialEvent>48</OfficialEvent>
+<OneInstance>0</OneInstance>
+<Trigger>
+<Key>NumpadHome</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>sqrt(</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Category>Numpad Enhancements</Category>
+<DeleteAfterUse>0</DeleteAfterUse>
+<Description>This event sends a sqrt( string when NumpadPgUp is pressed Numpad9 with NumLock OFF). This remapping is used to enter equations into scientific calculators using only the numpad.</Description>
+<DisableAfterUse>0</DisableAfterUse>
+<Enabled>1</Enabled>
+<EventComplexityLevel>0</EventComplexityLevel>
+<ID>1649</ID>
+<Name>NumpadPgUp -&gt; "sqrt("</Name>
+<OfficialEvent>49</OfficialEvent>
+<OneInstance>0</OneInstance>
+<Trigger>
+<Key>NumpadPgUp</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<KeyDelay>0</KeyDelay>
+<Keys>=</Keys>
+<Type>Send keyboard input</Type>
+<WriteText>0</WriteText>
+</Action></Actions>
+<Category>Numpad Enhancements</Category>
+<DeleteAfterUse>0</DeleteAfterUse>
+<Description>This event sends a '=' character when NumpadIns is pressed (Numpad0 with NumLock OFF). This remapping is used to enter equations into scientific calculators using only the numpad.</Description>
+<DisableAfterUse>0</DisableAfterUse>
+<Enabled>1</Enabled>
+<EventComplexityLevel>0</EventComplexityLevel>
+<ID>1650</ID>
+<Name>NumpadIns -&gt; '='</Name>
+<OfficialEvent>50</OfficialEvent>
+<OneInstance>0</OneInstance>
+<Trigger>
+<Key>NumpadIns</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event><Event>
+<Actions>
+<Action>
+<Command>http://www.google.com/search?q=${SelText}</Command>
+<RunAsAdmin>-1</RunAsAdmin>
+<Type>Run a program</Type>
+<WaitForFinish>0</WaitForFinish>
+</Action></Actions>
+<Category>Internet</Category>
+<DeleteAfterUse>0</DeleteAfterUse>
+<Description>This event runs a google search for the selected text.</Description>
+<DisableAfterUse>0</DisableAfterUse>
+<Enabled>1</Enabled>
+<EventComplexityLevel>0</EventComplexityLevel>
+<ID>1652</ID>
+<Name>Search selected text with Google</Name>
+<OfficialEvent>52</OfficialEvent>
+<OneInstance>0</OneInstance>
+<Trigger>
+<Key>#G</Key>
+<Type>Hotkey</Type>
+</Trigger>
+</Event></Events>
+<MajorVersion>2</MajorVersion>
+<Message>Automatically generated</Message>
+<MinorVersion>5</MinorVersion>
+<PatchVersion>0</PatchVersion>
+<Remove>
+<OfficialEvent>380</OfficialEvent>
+<OfficialEvent>381</OfficialEvent>
+</Remove>
