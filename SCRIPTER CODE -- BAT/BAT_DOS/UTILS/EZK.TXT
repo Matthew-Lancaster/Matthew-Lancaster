@@ -1,0 +1,3 @@
+rem this is the way to get a floppy from an image stored with easy disk clone
+ezk /p=c:\attach\parity.fdf a:
+this works where the menu dont on my system

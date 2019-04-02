@@ -1,0 +1,9 @@
+[AutoRun]
+rem icon=HBCD\HBCDMenu.exe
+rem label=Hiren's BootCD
+rem Shell\Option1=Hiren's BootCD
+rem Shell\Option1\Command=HBCD\HBCDMenu.exe
+icon=PStart\PStart.exe
+rem label=BootCD
+Shell\Option1=BootCD MiniPE - PStart
+Shell\Option1\Command=PStart\PStart.exe

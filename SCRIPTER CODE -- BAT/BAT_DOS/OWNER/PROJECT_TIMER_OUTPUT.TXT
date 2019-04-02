@@ -1,0 +1,21 @@
+PROJECT TIME COUNTER RESULT SCRIPT -- TIME MACHINE
+TOTAL PROJECT SESSION COUNT SHIFT'S SPENT = 1PROJECT IS DONE FINISHED
+#1.. Fri 26 Aug Shift 1
+#2.. Sat 27 Aug Shift 1
+------------------------------------------------------------------
+TOTAL TIME SPENT EACH SESSION ---- & ---- MOD DIVEDE -------------
+------------------------------------------------------------------
+SESSION -- 01 of 01 ----------------- 
+-------------------------------------
+BEGIN ---- Fri 26-AUG-2016 15:22:56
+END ------ Sat 27-AUG-2016 22:08:00
+------------------------------------------------------------------
+(DAY 01) -- (HOUR  31) -- (MINUTE 1846) -- (SECOND 110704) -- 
+(DAY 01) -- (HOUR  07) -- (MINUTE   46) -- (SECOND     04) -- 
+==================================================================
+TOTAL TIME SPENT ALL 1 SESSION ---- & ---- MOD DIVEDE ------------
+------------------------------------------------------------------
+Sess 1-1 Fr-Sa 26-Aug (DAY 01) -- (HOUR  31) -- (MINUTE 1846) -- (SECOND 110704) -- 
+Sess 1-1 Fr-Sa 26-Aug (DAY 01) -- (HOUR  07) -- (MINUTE   46) -- (SECOND     04) -- 
+------------------------------------------------------------------
+
