@@ -1,0 +1,5 @@
+@ECHO OFF
+MD LOOKdumy
+CD LOOKdumy
+NCD RD .
+

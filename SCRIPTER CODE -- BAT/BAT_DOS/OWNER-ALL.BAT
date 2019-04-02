@@ -1,0 +1,86 @@
+
+@ECHO -- LEARN METHOD JULY 13 MID-NIGHT ---
+@ECHO -- CREDIT DUE TO
+@ECHO -- CREATE THIS BATCH FILE 1:40 PM 13 JULY WEDNESDAY --- 
+@ECHO -- RUN THIS BATCH FILE ADMINISTRATOOR PERMISSION
+@ECHO -- TO DO IT ALWAYS CREATE A SHORTCUT TO THIS BATCH FILE AND PROPERTIES SET
+
+@ECHO -- MY PERSONAL SETUP IS I SET ALL DRIVE WITH OWNER AND FULL PERMISSION
+@ECHO -- BUT NOT ALL OF C DRIVE OR ERROR OCCUR
+
+@ECHO -- IT IS THE SAME WITH NORTON NIS - I SET ALL DRIVE ABOVE C NOT TO INCLUDE CHECKER
+@ECHO -- EXCEPT SOME FOLDER ON C ARE EXCLUDED
+@ECHO -- AND THE DOWNLOAD FOLDER IS THERE AND NOT EXCLUDED
+
+@ECHO -- RUN THE JOB FOR ALL DRIVE ABOVE DRIVE C - NOT NETWORK
+@ECHO ------------------------------------------------------
+@ECHO -- THE JOB IS RUN TO OUTPUT PIPE TO NULL OUTPUT AND THEN GRAPHIC DISPLAY SCROLLING
+@ECHO -- WON'T HOLD UP THE SPEED OF OPERATION
+@ECHO -- YOU
+@ECHO -- THERE WILL BE DISPLAY WHEN ERROR OCCUR --
+@ECHO -- THE PROGRAM Icacls OVERRIDE THE NULL FOR INFO FOR THAT
+@ECHO -- IF WANTING YOU USE PROCESS TAMER TO SET THE PRIORITY REALTIME OF THE Icacls PROGRAM
+@ECHO -- I GET 10% CPU USAGE OUT OF IT THEN TO SPEED UP
+@ECHO -- OR I CAN DO THAT WITH START IN CMD COMMAND LANGAUGE BATCH FILE HERE
+@ECHO -- LATER FOR THAT ONE
+@ECHO -----------------------------------------------------------
+@ECHO -- ALSO PUT A TITLE FOR WHEN COMPETE AND WHAT DRIVE IT UPTO
+@ECHO -----------------------------------------------------------
+
+@ECHO ------------------------------------------------------
+@ECHO -- CREATE A TEMP FILE IN ROOT TO MARK IF A DRIVE EXIST  
+@ECHO -- WHICH WILL REMOVE AFTER
+@ECHO ------------------------------------------------------
+
+@ECHO --- BEGIN TIME
+
+@REM -- UK TIME - CHECK - DONT MATTER CMD PROMPT ALWAYS USA 
+@REM -- WHEN AT RECOVERY BOOT
+@REM -- @SET VARDATE_BEGIN=%DATE:~10,4%-%DATE:~4,2%-%DATE:~7,2%--%TIME%
+
+@SET VARDATE_BEGIN=%DATE%--%TIME%
+
+@FOR %%G IN (D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@ECHO Icacls %%G:\* /setowner "Everyone" /T /C /L >%%G:\OWNER_SET_TEMP_FILE.BAT)
+
+@ECHO ------------------------------------------------------
+@ECHO -- SET OWNER EVERYONE
+@ECHO -- FOR ALL DRIVE HAT THE TEMP FILE EXIST
+@ECHO ------------------------------------------------------
+@FOR %%G IN (D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@SET VARDATE_BEGIN_JOB1=%DATE%--%TIME% & @TITLE %%G:\* -- %VARDATE_BEGIN_JOB1% -- 1 OF 2 -- SET OWNER EVERYONE FOR DRIVE %%G:\* & @IF EXIST "%%G:\OWNER_SET_TEMP_FILE.BAT >%%G:\OWNER_SET_TEMP_FILE.BAT" Icacls %%G:\* /setowner "Everyone" /T /C /L >NUL
+
+PAUSE
+ 
+@ECHO ------------------------------------------------------
+@ECHO -- GRANT PERMISSION EVERYONE
+@ECHO -- FOR ALL DRIVE HAT THE TEMP FILE EXIST
+@ECHO ------------------------------------------------------
+@FOR %%G IN (D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@SET VARDATE_BEGIN_JOB2=%DATE%--%TIME% & @TITLE %%G:\* -- %VARDATE_BEGIN_JOB2% -- 2 OF 2 -- GRANT PERMISSION EVERYONE FOR DRIVE %%G:\* & @IF EXIST "%%G:\OWNER_TEMP_FILE.TXT" Icacls Q:\* /t  /grant Everyone:F >NUL
+
+@ECHO ------------------------------------------------------
+@ECHO -- DELETE THE TEMP FILE  
+@ECHO -- FOR ALL DRIVE THAT THE TEMP FILE HAD EXIST
+@ECHO ------------------------------------------------------
+@FOR %%G IN (D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@TYPE TEMP_TXT >%%G:\OWNER_TEMP_FILE.TXT)
+@ECHO ------------------------------------------------------
+
+@TITLE JOB DONE -- SET OWNER EVERYONE AND GRANT PERMISSION EVERYONE FOR ALL ABOVE D DRIVE
+
+@ECHO ------------------------------------------------------------------------
+@ECHO -- JOB DONE -- 
+@ECHO -- SET OWNER EVERYONE AND GRANT PERMISSION EVERYONE 
+@ECHO -- FOR ALL DRIVE ABOVE D DRIVE
+@ECHO ------------------------------------------------------------------------
+
+@ECHO -- BEGINNER DATE TIME -- %VARDATE_BEGIN%
+@ECHO -- FINISH   DATE TIME -- %DATE%--%TIME%
+@ECHO ------------------------------------------------------------------------
+@ECHO -- LAST JOB COMPLETE PART 1 OF 2 -- DATE TIME -- %VARDATE_BEGIN_JOB1%
+@ECHO -- LAST JOB COMPLETE PART 2 OF 2 -- DATE TIME -- %VARDATE_BEGIN_JOB2%
+@ECHO ------------------------------------------------------------------------
+
+@PAUSE
+
+
+@REM START "%%G:\ -- CHKDSK IN PROGRESS AN READ ONLY" /D"%%G:\" /MIN /NORMAL "%%G:\CHKDSK-VAR.BAT")
+Icacls %%G:\* /setowner "Everyone" /T /C /L >NUL
+START "%%G:\ -- CHKDSK IN PROGRESS AN READ ONLY" /D"%%G:\" /MIN /NORMAL "%%G:\CHKDSK-VAR.BAT")
