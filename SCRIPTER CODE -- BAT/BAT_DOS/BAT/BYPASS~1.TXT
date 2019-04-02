@@ -1,0 +1,43 @@
+E:\Program Files NT\Creative\SBAudigy\RemoteCenter\Rc\RCMan.CFG -> F:\Program Files NT\Creative\SBAudigy\RemoteCenter\Rc\RCMan.CFG
+E:\Program Files NT\Navnt\NAVOPTS.DAT -> F:\Program Files NT\Navnt\NAVOPTS.DAT
+E:\Program Files NT\Navnt\Navoptx.dat -> F:\Program Files NT\Navnt\Navoptx.dat
+E:\Program Files NT\Navnt\navstart.dat -> F:\Program Files NT\Navnt\navstart.dat
+E:\Program Files NT\Navnt\Schedule.Dat -> F:\Program Files NT\Navnt\Schedule.Dat
+E:\Program Files NT\Navnt\Schedule.Bak -> F:\Program Files NT\Navnt\Schedule.Bak
+E:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\frmCentral.frx -> F:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\frmCentral.frx
+E:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\CID Run Me.vbw -> F:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\CID Run Me.vbw
+E:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\frmCentral.frm -> F:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\frmCentral.frm
+E:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\CID Run Me.vbp -> F:\Program Files NT\Microsoft Visual Studio\VB98\cid run me\CID Run Me.vbp
+E:\Program Files NT\Norton Personal Firewall\nisum.dat -> F:\Program Files NT\Norton Personal Firewall\nisum.dat
+E:\Program Files NT\Norton Personal Firewall\NAM.GID -> F:\Program Files NT\Norton Personal Firewall\NAM.GID
+E:\temp\timeout.txt -> F:\temp\timeout.txt
+E:\Program Files\Common Files\Symantec Shared\VirusDefs\USAGE.DAT -> F:\Program Files\Common Files\Symantec Shared\VirusDefs\USAGE.DAT
+E:\Program Files\Creative\ShareDLL\Mediadet.log -> F:\Program Files\Creative\ShareDLL\Mediadet.log
+E:\Program Files\Creative\News\CTNews.ini -> F:\Program Files\Creative\News\CTNews.ini
+E:\Program Files\Creative\News\News.inl -> F:\Program Files\Creative\News\News.inl
+E:\Program Files\Creative\News\PlayCenter2\PlayCenter21.lst -> F:\Program Files\Creative\News\PlayCenter2\PlayCenter21.lst
+E:\Program Files\Creative\Media Database\MUSIC.DBF -> F:\Program Files\Creative\Media Database\MUSIC.DBF
+E:\Program Files\Creative\Media Database\MUSIC.CDX -> F:\Program Files\Creative\Media Database\MUSIC.CDX
+E:\Program Files\Creative\Media Database\PLAYLIST.DBF -> F:\Program Files\Creative\Media Database\PLAYLIST.DBF
+E:\Program Files\Creative\Media Database\PLAYLIST.CDX -> F:\Program Files\Creative\Media Database\PLAYLIST.CDX
+E:\Program Files\Creative\Media Database\PLLABEL.DBF -> F:\Program Files\Creative\Media Database\PLLABEL.DBF
+E:\Program Files\Creative\Media Database\PLLABEL.CDX -> F:\Program Files\Creative\Media Database\PLLABEL.CDX
+E:\Program Files\Creative\Media Database\ALBUM.DBF -> F:\Program Files\Creative\Media Database\ALBUM.DBF
+E:\Program Files\Creative\Media Database\ALBUM0.CDX -> F:\Program Files\Creative\Media Database\ALBUM0.CDX
+E:\Program Files\Creative\Media Database\ARTIST.DBF -> F:\Program Files\Creative\Media Database\ARTIST.DBF
+E:\Program Files\Creative\Media Database\ARTIST0.CDX -> F:\Program Files\Creative\Media Database\ARTIST0.CDX
+E:\Program Files\Creative\Media Database\GENRE.DBF -> F:\Program Files\Creative\Media Database\GENRE.DBF
+E:\Program Files\Creative\Media Database\GENRE0.CDX -> F:\Program Files\Creative\Media Database\GENRE0.CDX
+E:\Program Files\Microsoft Visual Studio\VB98\restart1.frm -> F:\Program Files\Microsoft Visual Studio\VB98\restart1.frm
+E:\WINNT\system32\wbem\Repository\CIM.REP -> F:\WINNT\system32\wbem\Repository\CIM.REP
+E:\WINNT\system32\wbem\Repository\CIM.REC -> F:\WINNT\system32\wbem\Repository\CIM.REC
+E:\WINNT\system32\wbem\Repository\$WinMgmt.CFG -> F:\WINNT\system32\wbem\Repository\$WinMgmt.CFG
+E:\WINNT\system32\wbem\Logs\wbemcore.log -> F:\WINNT\system32\wbem\Logs\wbemcore.log
+E:\WINNT\system32\wbem\Logs\WinMgmt.log -> F:\WINNT\system32\wbem\Logs\WinMgmt.log
+E:\WINNT\inf\LAYOUT.PNF -> F:\WINNT\inf\LAYOUT.PNF
+E:\WINNT\inf\intl.PNF -> F:\WINNT\inf\intl.PNF
+E:\WINNT\Debug\UserMode\userenv.log -> F:\WINNT\Debug\UserMode\userenv.log
+E:\WINNT\Registration\{02D4B3F1-FD88-11D1-960D-00805FC79235}.crmlog -> F:\WINNT\Registration\{02D4B3F1-FD88-11D1-960D-00805FC79235}.crmlog
+E:\WINNT\CSC\csc1.tmp -> F:\WINNT\CSC\csc1.tmp
+E:\WINNT\CSC\00000002 -> F:\WINNT\CSC\00000002
+42 File(s)

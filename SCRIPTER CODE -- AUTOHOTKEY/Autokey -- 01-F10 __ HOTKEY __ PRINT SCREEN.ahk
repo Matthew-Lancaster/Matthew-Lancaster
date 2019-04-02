@@ -100,31 +100,6 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 RETURN
 
 
-hk(keyboard:=0, mouse:=0, message:="", timeout:=3, displayonce:=0) { 
-   ; static AllKeys, z, d
-   For k,v in AllKeys {
-           ; Hotkey, *%v%, Block_Input, off         ; initialisation
-      }
-   if !AllKeys {
-      s := "||NumpadEnter|Home|End|PgUp|PgDn|Left|Right|Up|Down|Del|Ins|"
-      Loop, 254
-         k := GetKeyName(Format("VK{:0X}", A_Index))
-       , s .= InStr(s, "|" k "|") ? "" : k "|"
-      For k,v in {Control:"Ctrl",Escape:"Esc"}
-         AllKeys := StrReplace(s, k, v)
-      AllKeys := StrSplit(Trim(AllKeys, "|"), "|")
-   }
-
-
-   TOOLTIP % k 
-   
-   Return
-}
-
-; !F1::hk(1,1,"Keyboard keys and mouse buttons disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys and mouse buttons
-!F2::hk(0,0,"Keyboard keys and mouse buttons restored!")         ; Enable all keyboard keys and mouse buttons
-
-
 ; *D::
 ; *::
 ; MSGBOX  You pressed %A_ThisHotkey%.
@@ -159,8 +134,11 @@ TIMER_HOTKEY:
 	}
 RETURN
 
-ESC::
+~ESC::
+	GOSUB CHECK_ESC_KEY
+RETURN 
 
+CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path
 
 	VAR_DONE_ESCAPE_KEY=FALSE
@@ -351,21 +329,8 @@ ESC::
 	; ---------------------------------------------------------------
 	
 	
-	IfWinActive ahk_exe GoodSync-v10.exe
-	{
-		VAR_DONE_ESCAPE_KEY=TRUE
-		SOUNDBEEP 1000,400
-		SEND {ESC down}
-		SLEEP 500
-		SEND {ESC up}
-		SOUNDBEEP 2000,200
-	}
-	
-	
 	IF VAR_DONE_ESCAPE_KEY=FALSE
 	{
-		SEND {ESC}
-		MSGBOX SS
 		SOUNDBEEP 4000,50
 		SOUNDBEEP 5000,40
 	}
@@ -561,12 +526,12 @@ RETURN
 Return
 
 
-^/::
-{
-	SOUNDBEEP 1000,50
-	SENDINPUT, {F5}
-}
-RETURN
+; ^/::
+; {
+	; SOUNDBEEP 1000,50
+	; SENDINPUT, {F5}
+; }
+; RETURN
 
 
 ; C:\SCRIPTER\NOTEPAD TALK\TEXT 2018-11-25 __ D DRIVE FOLDER NAME.txt
@@ -792,6 +757,8 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 
 	; TOOLTIP % STATE_XYPOSCOUNTER ", " OLD_STATE_XYPOSCOUNTER
 
+	; RETURN
+	
 	IF XR=0 
 	{
 		SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,OFF
@@ -803,7 +770,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 	IF STATE_XYPOS=0
 	IF STATE_XYPOSCOUNTER<>%OLD_STATE_XYPOSCOUNTER%
 		SOUNDBEEP 2000,100
-	
+		
 	IF STATE_XYPOSCOUNTER>0
 	IF STATE_XYPOSCOUNTER<>%OLD_STATE_XYPOSCOUNTER%
 	{

@@ -1,0 +1,50 @@
+  
+		  ฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿฿
+			  SOURCER DEFINITION FILE
+		  ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+  
+ ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ Section 1: CONTROL INFORMATION   ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+  
+Analysis Options = a b c d e f g h i j k l m n o p Q R S t u v w x y z
+uP		 = 8088
+File format	 = lst
+Label type	 = Decimal
+Remarks		 = All
+Target Assembler = NONE
+Input filename	 = reset.exe
+Code style	 = Exe
+Drive (output)	 = C
+Output filename	 = reset.lst
+Passes		 = 9
+Xref		 = ON
+  
+  
+
+  
+ ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ Section 2: RANGE DEFINITION      ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+  
+ ออออ Segments ออออออออออออออออออออออออออ
+  
+  begin      end      default      seg   seg     seg
+ seg:off     off     ds	    es     type  size    value
+ -------     ----    ----   ----   ----- -----   -----
+seg_a:0000   001F    34BF   34BF   auto  use16   ; 34CF
+seg_b:0000   000F    seg_b  seg_b  auto  use16   ; 34D1
+seg_c:0000   00FF    0000   0000   stack use16   ; 34D2
+  
+ ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ Section 3: REFERENCE DEFINITIONS ฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑฑ
+  
+ ออออ Subroutines อออออออออออออออออออออออ
+  seg:off   type & options     label           comments
+  -------   --------------     --------------  --------------
+  
+ ออออ Locations	อออออออออออออออออออออออออ
+  seg:off   type & options     label           comments
+  -------   --------------     --------------  --------------
+seg_a:0000  loc, far	       start
+  
+ ออออ Data Items ออออออออออออออออออออออออ
+  seg:off   type & options     label           comments
+  -------   --------------     --------------  --------------
+seg_b:0004  dd					; data_2
+seg_b:000C  dw					; data_3

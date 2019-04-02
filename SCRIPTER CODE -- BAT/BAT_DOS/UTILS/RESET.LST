@@ -1,0 +1,96 @@
+      reset.lst						 Sourcer Listing v3.10    10-Oct- 1   9:51 pm   Page 1
+
+  
+				PAGE  59,132
+  
+				;лллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+				;лл								         лл
+				;лл			        RESET				         лл
+				;лл								         лл
+				;лл      Created:   17-Sep-92					         лл
+				;лл      Version:						         лл
+				;лл      Passes:    9	       Analysis Options on: QRS		         лл
+				;лл								         лл
+				;лл								         лл
+				;лллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+  
+				.err     Target	Assembler set to NONE, re-assembly not recomended
+  
+  
+				;--------------------------------------------------------------	seg_a  ----
+  
+				seg_a		segment	byte public
+						assume cs:seg_a , ds:seg_a , ss:stack_seg_c
+  
+  
+				;лллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+				;
+				;			Program Entry Point
+				;
+				;лллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл
+  
+  
+				reset		proc	far
+  
+34CF:0000			start:
+34CF:0000  B8 34D1				mov	ax,seg_b
+34CF:0003  8E D8				mov	ds,ax
+34CF:0005  8C D3				mov	bx,ss
+34CF:0007  2B D8				sub	bx,ax
+34CF:0009  C1 E3 04 8E D0 03			db	0C1h,0E3h, 04h, 8Eh,0D0h, 03h
+34CF:000F  E3 B8 00 00 B9 FF			db	0E3h,0B8h, 00h, 00h,0B9h,0FFh
+34CF:0015  FF 8B 1E 0C 00 89			db	0FFh, 8Bh, 1Eh, 0Ch, 00h, 89h
+34CF:001B  07 89 4F 02 FF			db	 07h, 89h, 4Fh, 02h,0FFh
+  
+				reset		endp
+  
+				seg_a		ends
+  
+  
+  
+				;--------------------------------------------------------------	seg_b  ----
+  
+				seg_b		segment	byte public
+						assume cs:seg_b , ds:seg_b , ss:stack_seg_c
+  
+34D1:0000  2E 04 00				db	 2Eh, 04h, 00h
+34D1:0003  00					db	0
+34D1:0004  0000 0000		data_2		dd	00000h
+34D1:0008  00 00 00 00				db	0, 0, 0, 0
+     reset.lst						 Sourcer Listing v3.10    10-Oct- 1   9:51 pm   Page 2
+
+34D1:000C  0004			data_3		dw	4
+34D1:000E  00 00				db	0, 0
+  
+				seg_b		ends
+  
+  
+  
+				;--------------------------------------------------------- stack_seg_c  ---
+  
+				 stack_seg_c	 segment word stack 'STACK'
+  
+34D2:0000  0100[00]				db	256 dup (0)
+  
+				stack_seg_c	ends
+  
+  
+  
+						end	start
+     reset.lst						 Sourcer Listing v3.10    10-Oct- 1   9:51 pm   Page 3
+
+  
+				ББББББББББББББББББББ CROSS REFERENCE - KEY ENTRY POINTS БББББББББББББББББББ
+  
+				    seg:off    type	   label
+				   ---- ----   ----   ---------------
+				   34CF:0000   far    start
+  
+				 ББББББББББББББББББ Interrupt Usage Synopsis ББББББББББББББББББ
+  
+				        No Interrupts used.
+  
+				 ББББББББББББББББББ I/O	Port Usage Synopsis  ББББББББББББББББББ
+  
+				        No I/O ports used.
+  

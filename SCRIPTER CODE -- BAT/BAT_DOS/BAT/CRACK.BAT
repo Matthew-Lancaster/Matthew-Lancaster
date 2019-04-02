@@ -1,0 +1,4 @@
+h:
+CD \dospro~1\h-drive\LOOKHFO3\JRCB3\ZIP
+CALL CRACK
+

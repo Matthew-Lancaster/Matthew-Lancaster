@@ -1,0 +1,130 @@
+The Independent JPEG Group's JPEG software
+==========================================
+
+This distribution contains MS-DOS executable copies of version 4 of the
+Independent JPEG Group's free JPEG software.  You are welcome to redistribute
+this software and to use it for any purpose, subject to the conditions under
+LEGAL ISSUES, below.
+
+This version of the software runs ONLY on MS-DOS machines with 386 or 486 CPUs
+and at least 1Mb free extended memory.  It requires a VCPI-compatible memory
+manager (such as QEMM or 386MAX), and therefore it will NOT run under Windows
+or OS/2 (DESQview is OK though).  If you don't have a compatible system, use
+the vanilla DOS version, posted separately.  But if you do have a compatible
+system, this code runs up to twice as fast as the vanilla version.
+
+For usage instructions, see the file USAGE.  Useful information can also be
+found in the JPEG FAQ (Frequently Asked Questions) article, posted regularly
+in the Usenet news.answers newsgroup.
+
+Please report any problems with this software to jpeg-info@uunet.uu.net.
+
+
+INSTALLATION
+============
+
+Put the CJPEG.EXE and DJPEG.EXE files someplace handy.  You may also want to
+add a line to your AUTOEXEC.BAT file to define the directory in which the
+programs will create temporary files; it should look something like this:
+	set GO32TMP=C:\TEMP
+Make sure that the indicated directory is on a disk with plenty of free space;
+if the programs create temporary files at all, the files will be large
+(several megabytes for typical images).  If you haven't set GO32TMP, the
+programs will look at your TMP or TEMP variables (in that order), and will
+create files in the current directory if none of these are defined.
+
+If you have installed DJ Delorie's DJGPP (version 1.09), you can save some
+disk space by removing the GO32 DOS extender from CJPEG.EXE and DJPEG.EXE.
+See the DJGPP documentation for details.
+
+
+ABOUT JPEG FILE FORMATS
+=======================
+
+CAUTION: Handmade Software's shareware PC program GIF2JPG produces files that
+are totally incompatible with our programs (and everyone else's too).  They
+use a proprietary format that is an amalgam of GIF and JPEG representations.
+However, you can force GIF2JPG to produce compatible files with its -j switch,
+and their decompression program JPG2GIF can read our files (at least ones
+produced with our default option settings).
+
+The file format we have adopted is called JFIF.  This format has been agreed
+to by a number of major commercial JPEG vendors, and we expect that it will
+become the de facto standard.  JFIF is a minimal representation; work is also
+going forward to incorporate JPEG compression into the TIFF 6.0 standard, for
+use in "high end" applications that need to record a lot of additional data
+about an image.  We intend to support TIFF 6.0 in the future.  We hope that
+these two formats will be sufficient and that other, incompatible JPEG file
+formats will not proliferate.
+
+Indeed, part of the reason for developing and releasing this free software is
+to help force rapid convergence to de facto standards for JPEG file formats.
+SUPPORT STANDARD, NON-PROPRIETARY FORMATS: demand JFIF or TIFF 6.0!
+
+
+LEGAL ISSUES
+============
+
+The authors make NO WARRANTY or representation, either express or implied,
+with respect to this software, its quality, accuracy, merchantability, or
+fitness for a particular purpose.  This software is provided "AS IS", and you,
+its user, assume the entire risk as to its quality and accuracy.
+
+This software is copyright (C) 1991, 1992, Thomas G. Lane.
+All Rights Reserved except as specified below.
+
+Permission is hereby granted to use, copy, modify, and distribute this
+software (or portions thereof) for any purpose, without fee, subject to these
+conditions:
+(1) If any part of the source code for this software is distributed, then this
+README file must be included, with this copyright and no-warranty notice
+unaltered; and any additions, deletions, or changes to the original files
+must be clearly indicated in accompanying documentation.
+(2) If only executable code is distributed, then the accompanying
+documentation must state that "this software is based in part on the work of
+the Independent JPEG Group".
+(3) Permission for use of this software is granted only if the user accepts
+full responsibility for any undesirable consequences; the authors accept
+NO LIABILITY for damages of any kind.
+
+Permission is NOT granted for the use of any IJG author's name or company name
+in advertising or publicity relating to this software or products derived from
+it.  This software may be referred to only as "the Independent JPEG Group's
+software".
+
+We specifically permit and encourage the use of this software as the basis of
+commercial products, provided that all warranty or liability claims are
+assumed by the product vendor.
+
+
+We are required to state that
+    "The Graphics Interchange Format(c) is the Copyright property of
+    CompuServe Incorporated.  GIF(sm) is a Service Mark property of
+    CompuServe Incorporated."
+
+
+SOURCE CODE
+===========
+
+The source code from which this software was generated is freely available.
+The "official" archive site for the source code is ftp.uu.net (Internet
+address 137.39.1.9 or 192.48.96.9).  The most recent released version can
+always be found there in directory graphics/jpeg.  This particular version is
+jpegsrc.v4.tar.Z.  If you are on the Internet, you can retrieve files from
+UUNET by anonymous FTP.  If you don't have FTP access, UUNET's archives are
+also available via UUCP; contact postmaster@uunet.uu.net for information on
+retrieving files that way.
+
+The source code will also appear in the SIMTEL20 archives and on CompuServe,
+but I don't have exact locations yet.  These copies will be ZIP files which
+may be easier for PC users to deal with.
+
+You are welcome to use the source code in other JPEG-related programs.
+The conditions for doing so may be found in LEGAL ISSUES, above.
+
+The executables in this package were compiled using DJ Delorie's DJGPP version
+1.09, a freely available 32-bit C compiler and DOS extender.  (You can obtain
+source and executables for DJGPP from barnacle.erc.clarkson.edu; look in
+directory pub/msdos/djgpp.)  Note that the user interface used by these
+programs differs from the Unix-style user interface found in the main IJG
+distribution.
