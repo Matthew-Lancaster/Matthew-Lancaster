@@ -145,32 +145,6 @@ CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
-' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
-' -------------------------------------------------------------------
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
-
-i1 = 0 ' ANY PROGRAM WSCRIPT 
-i2 = 0 ' MY  PROGRAM WSCRIPT 
-FOR EACH objProcess IN colProcesses
-    IF NOT (IsNull(objProcess.CommandLine )) THEN
-		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
-		IF strScriptName = Wscript.ScriptName THEN
-			i2=i2+1
-		else
-			i1=i1+1
-		END IF
-		IF i1 > 0 THEN ' ---------- ' ANY PROGRAM WSCRIPT 
-				' Wscript.Quit 
-		END IF  
-		IF i2 > 1 THEN ' ---------- ' MY  PROGRAM WSCRIPT 
-				MSGBOX "MY CODE ALREADY RUNNER "+VBCRLF+strScriptName
-				Wscript.Quit   
-		END IF  
-    END IF  
-NEXT
-
 DIM JPG_BEEN_DONE
 DIM MP4_BEEN_DONE
 
@@ -202,8 +176,6 @@ Dim oDict ' Key: Full filename, Item: Filename
 
 Dim FileModDate
 DIM FileModDate_3
-
-
 
 'FOLDER_PATH_VAR="D:\DSC\2011"
 'FOLDER_PATH_VAR="D:\DSC\z compare\NIKON TOTAL\DCIM"

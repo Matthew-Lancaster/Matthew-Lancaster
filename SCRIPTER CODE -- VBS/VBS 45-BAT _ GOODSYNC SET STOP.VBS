@@ -33,6 +33,30 @@
 ' [ Wednesday 13:08:00 Pm_20 March 2019 ]
 ' -------------------------------------------------------------------
 
+
+
+Const DontWaitUntilFinished = false, WaitUntilFinished = true, ShowWindow = 1, DontShowWindow = 0
+
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+
+Set args = Wscript.Arguments
+For Each arg In args
+	XF0 = XF0 + arg + " "
+Next
+
+'If Sent-to is Used Sometime Additional Quote Surround are User
+'--------------------------------------------------------------
+XF0 = UCASE(Replace(XF0,"""",""))
+
+' WSHShell.Run "CMD /K """ + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT" + """ , ShowWindow, DontWaitUntilFinished
+
+' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT""" , ShowWindow, DontWaitUntilFinished
+
+
+WSHShell.Run """"+XF0+"""" + " " + ""+XF2_VOID+"" , ShowWindow, DontWaitUntilFinished
+
+
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
 ' -------------------------------------------------------------------
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
