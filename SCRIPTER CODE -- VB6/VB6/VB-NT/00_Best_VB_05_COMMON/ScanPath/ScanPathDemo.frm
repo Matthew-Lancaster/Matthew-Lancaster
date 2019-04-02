@@ -1,18 +1,18 @@
 VERSION 5.00
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form ScanPath 
    BackColor       =   &H00808080&
    Caption         =   "ScanPath 2.0 - Sort  Anything -"
-   ClientHeight    =   8130
+   ClientHeight    =   8124
    ClientLeft      =   60
-   ClientTop       =   30
-   ClientWidth     =   12570
+   ClientTop       =   36
+   ClientWidth     =   12576
    Icon            =   "ScanPathDemo.frx":0000
    LinkTopic       =   "Form1"
    Picture         =   "ScanPathDemo.frx":08CA
-   ScaleHeight     =   8130
-   ScaleWidth      =   12570
+   ScaleHeight     =   8124
+   ScaleWidth      =   12576
    StartUpPosition =   2  'CenterScreen
    WhatsThisButton =   -1  'True
    WhatsThisHelp   =   -1  'True
@@ -22,8 +22,8 @@ Begin VB.Form ScanPath
       TabIndex        =   13
       Top             =   4320
       Width           =   6375
-      _ExtentX        =   11271
-      _ExtentY        =   3651
+      _ExtentX        =   11261
+      _ExtentY        =   3641
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
       _Version        =   393217
@@ -54,7 +54,7 @@ Begin VB.Form ScanPath
       Caption         =   "Del Emptys"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -72,7 +72,7 @@ Begin VB.Form ScanPath
       Caption         =   "Find Replace .LNK'S"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -90,7 +90,7 @@ Begin VB.Form ScanPath
       Caption         =   "CALL CRC DUPE MULTI MATRIX ON SMALLEST FILE LEAVE THE BIGGEST"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -125,7 +125,7 @@ Begin VB.Form ScanPath
       Caption         =   "PATH TREE DIFF PLACE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -176,7 +176,7 @@ Begin VB.Form ScanPath
       Default         =   -1  'True
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -194,7 +194,7 @@ Begin VB.Form ScanPath
       Caption         =   "Files to Text List"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -212,7 +212,7 @@ Begin VB.Form ScanPath
       Caption         =   "Del Boy"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -246,7 +246,7 @@ Begin VB.Form ScanPath
       Caption         =   "Find Replace"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -264,7 +264,7 @@ Begin VB.Form ScanPath
       Caption         =   "EXTRACT ALL WINRAR"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -282,7 +282,7 @@ Begin VB.Form ScanPath
       Caption         =   "CALL CRC DUPE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -351,7 +351,7 @@ Begin VB.Form ScanPath
    Begin VB.TextBox TxtPath 
       BeginProperty Font 
          Name            =   "Microsoft Sans Serif"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -525,11 +525,11 @@ Begin VB.Form ScanPath
       TabIndex        =   68
       Top             =   2064
       Width           =   1548
-      _ExtentX        =   2699
-      _ExtentY        =   582
+      _ExtentX        =   2709
+      _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   113836033
+      Format          =   225050625
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -539,11 +539,11 @@ Begin VB.Form ScanPath
       TabIndex        =   69
       Top             =   2424
       Width           =   1548
-      _ExtentX        =   2699
-      _ExtentY        =   582
+      _ExtentX        =   2709
+      _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   113836033
+      Format          =   225050625
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -553,10 +553,10 @@ Begin VB.Form ScanPath
       TabIndex        =   70
       Top             =   2052
       Width           =   1116
-      _ExtentX        =   1958
-      _ExtentY        =   582
+      _ExtentX        =   1969
+      _ExtentY        =   572
       _Version        =   393216
-      Format          =   113836034
+      Format          =   225050626
       CurrentDate     =   37299
    End
    Begin VB.Label lblCount7 
@@ -623,7 +623,7 @@ Begin VB.Form ScanPath
       Caption         =   "Simulate Dont Del"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -789,7 +789,7 @@ Begin VB.Form ScanPath
       Caption         =   "Date/Size Filter:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -807,7 +807,7 @@ Begin VB.Form ScanPath
       Caption         =   "Options:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -843,7 +843,7 @@ Begin VB.Form ScanPath
       Caption         =   "Attributes:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1087,7 +1087,7 @@ Private Sub SP_DirMatchFAST(Directory As String, DDirectory As String, Path As S
     
     If Path = "" Then Exit Sub
     
-    If SCAN_PARTMASK <> "" And InStr(Path + fileName, SCAN_PARTMASK) = 0 Then Exit Sub
+    If SCAN_PARTMASK <> "" And InStr(Path + Filename, SCAN_PARTMASK) = 0 Then Exit Sub
     
 '    If FormatFileDate(DDate) >= LAST_FILE_DATE_TIME Then
     If DDate >= LAST_FILE_DATE_TIME Then
@@ -1250,7 +1250,7 @@ End Sub
 
 
 
-Private Sub SP_FileMatch(fileName As String, DFilename As String, Path As String)
+Private Sub SP_FileMatch(Filename As String, DFilename As String, Path As String)
     Dim LV As ListItem
     Dim uWIN32 As WIN32_FIND_DATA
     Dim ASIZE1 As Long
@@ -1264,7 +1264,7 @@ Private Sub SP_FileMatch(fileName As String, DFilename As String, Path As String
     If Path = "" Then
         Exit Sub
     End If
-    If fileName = "" Then
+    If Filename = "" Then
         Exit Sub
     End If
 
@@ -1281,7 +1281,7 @@ Private Sub SP_FileMatch(fileName As String, DFilename As String, Path As String
     
     
     With ListView1
-        Set LV = .ListItems.Add(, , fileName)
+        Set LV = .ListItems.Add(, , Filename)
         LV.SubItems(1) = Path
         'mod by matt l
         LV.SubItems(2) = DFilename
@@ -1310,7 +1310,7 @@ Private Sub SP_FileMatch(fileName As String, DFilename As String, Path As String
             'LV.SubItems(4) = FormatFileDate(uWIN32.ftLastWriteTime)
         'FindFilesAPI = FindFilesAPI + (WFD.nFileSizeHigh * MAXDWORD) + WFD.nFileSizeLow
                     'Remember Public FS
-            If fileName <> "" Then
+            If Filename <> "" Then
                 Set F = FS.GetFile(Path + DFilename)
                 ADATE1 = F.DateLastModified
                 ASIZE1 = F.Size
@@ -1364,7 +1364,7 @@ GetFileError:
     MsgBox Err.Description, vbCritical + vbMsgBoxSetForeground
 End Sub
 
-Private Sub SP_FileMatchFast(fileName As String, DFilename As String, Path As String, DDate As Date)
+Private Sub SP_FileMatchFast(Filename As String, DFilename As String, Path As String, DDate As Date)
     
 '    Dim LAST_FILE_DATE_TIME1, LAST_FILE_DATE_TIME2
     
@@ -1382,13 +1382,13 @@ Private Sub SP_FileMatchFast(fileName As String, DFilename As String, Path As St
     'If Path = "" Then Exit Sub
     'If fileName = "" Then Exit Sub
     
-If SCAN_PARTMASK <> "" And InStr(Path + fileName, SCAN_PARTMASK) = 0 Then Exit Sub
+If SCAN_PARTMASK <> "" And InStr(Path + Filename, SCAN_PARTMASK) = 0 Then Exit Sub
     
 '    If FormatFileDate(DDate) >= LAST_FILE_DATE_TIME Then
     If DDate >= LAST_FILE_DATE_TIME Then
         LAST_FILE_DATE_TIME1 = DDate
 
-        LAST_FILE_DATE_PATH = Path + fileName
+        LAST_FILE_DATE_PATH = Path + Filename
         'If InStr(Path, "\Hot-Key") > 0 Then
         '    LAST_FILE_DATE_PATH_WEB_CAM
         'End If
@@ -1668,7 +1668,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     MkDir OutPutPath + hole + GeText
     On Error GoTo 0
     
-    F.COPY OutPutPath + hole + GeText
+    F.Copy OutPutPath + hole + GeText
 
 Next
 
@@ -1724,7 +1724,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     Set F = FS.GetFile(A1 + G1$)
 
     GeText = "#" + LCase(Mid$(B1, Len(B1) - 2, 3)) + "\"
-    F.COPY OutPutPath + GeText
+    F.Copy OutPutPath + GeText
 Next
 
 ListView1.ListItems.Clear
@@ -4131,79 +4131,60 @@ Else
 End If
 ScanPath.Height = y + pluso
     
-    Dim lCount As Long
+Dim lCount As Long
+
+With cboMask
+    .AddItem "*.*"
+    .AddItem "*.dll;*.exe;*.ocx"
+    .AddItem "*.doc;*.mdb;*.xls"
+    .AddItem "*.bmp;*.gif;*.jpg;*.tif"
+    .AddItem "*.bas;*.cls;*.ctl;*.frm;*.vbp"
+    .ListIndex = 0
+End With
+
+DTPicker1(0).Value = DateSerial(Year(Now), Month(Now) - 3, Day(Now))
+DTPicker1(1).Value = Now
+
+DTPicker1(0).Value = Empty
+DTPicker1(1).Value = Empty
+
+With cboDate
+    .AddItem "Modified"
+    .AddItem "Created"
+    .AddItem "Last Accessed"
+    .ListIndex = 0
+End With
+
+With cboSize
+    .AddItem "Any Size"
+    .AddItem "Less Than"
+    .AddItem "Greater Than"
+    .AddItem "Between"
+    .ListIndex = 0
+End With
     
-    With cboMask
-        .AddItem "*.*"
-        .AddItem "*.dll;*.exe;*.ocx"
-        .AddItem "*.doc;*.mdb;*.xls"
-        .AddItem "*.bmp;*.gif;*.jpg;*.tif"
-        .AddItem "*.bas;*.cls;*.ctl;*.frm;*.vbp"
-        .ListIndex = 0
+For lCount = 0 To 1
+    With cboSizeType(lCount)
+        .AddItem "Bytes"
+        .AddItem "Kilobytes"
+        .AddItem "Megabytes"
+        .ListIndex = 0 ' set it to bytes here
     End With
+Next lCount
+
+With ListView1
+    .ColumnHeaders.Add , "FILE", "File", 4200, lvwColumnLeft
+    .ColumnHeaders.Add , "PATH", "Path", 8100, lvwColumnLeft
+    .ColumnHeaders.Add , "DOS-8.3", "Dos", 1400, lvwColumnLeft
+    .ColumnHeaders.Add , "SIZE", "Size", 1100, lvwColumnRight
+    .ColumnHeaders.Add , "DATE", "Date", 1700, lvwColumnLeft
+    .ColumnHeaders.Add , "CRC", "CRC", 1700, lvwColumnLeft
     
-    DTPicker1(0).Value = DateSerial(Year(Now), Month(Now) - 3, Day(Now))
-    DTPicker1(1).Value = Now
-    
-    DTPicker1(0).Value = Empty
-    DTPicker1(1).Value = Empty
-    
-    With cboDate
-        .AddItem "Modified"
-        .AddItem "Created"
-        .AddItem "Last Accessed"
-        .ListIndex = 0
-    End With
-    
-    With cboSize
-        .AddItem "Any Size"
-        .AddItem "Less Than"
-        .AddItem "Greater Than"
-        .AddItem "Between"
-        .ListIndex = 0
-    End With
-        
-    For lCount = 0 To 1
-        With cboSizeType(lCount)
-            .AddItem "Bytes"
-            .AddItem "Kilobytes"
-            .AddItem "Megabytes"
-            .ListIndex = 0 ' set it to bytes here
-        End With
-    Next lCount
-    
-    With ListView1
-        .ColumnHeaders.Add , "FILE", "File", 4200, lvwColumnLeft
-        .ColumnHeaders.Add , "PATH", "Path", 8100, lvwColumnLeft
-        .ColumnHeaders.Add , "DOS-8.3", "Dos", 1400, lvwColumnLeft
-        .ColumnHeaders.Add , "SIZE", "Size", 1100, lvwColumnRight
-        .ColumnHeaders.Add , "DATE", "Date", 1700, lvwColumnLeft
-        .ColumnHeaders.Add , "CRC", "CRC", 1700, lvwColumnLeft
-        
-        .View = lvwReport
-    End With
+    .View = lvwReport
+End With
 
-    'Call chkCopyMemory_Click
-    chkCopyMemory.Value = False
-Me.Top = 500
-
-
-'Exit Sub
-
-'Call DelJunkFrontPage
-
-
-
-'Call INetContent
-
-'Call Bangers
-
-'txtPath.Text = "D:\MY WEBS\MatthewLan.Com Web\"
-
-'Call CRCDUPE
-
-'TxtPath = Clipboard.GetText
-'txtPath02 = Clipboard.GetText
+'Call chkCopyMemory_Click
+chkCopyMemory.Value = False
 
 ListView1.Width = Me.Width - 50
 
@@ -4329,7 +4310,7 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2)
 
-        If InStr(f1$, D2$) = 0 Then
+        If InStr(F1$, D2$) = 0 Then
             On Local Error GoTo jeep
             MkDir D2$
             If errs2 <> 75 And errs2 > 0 Then
@@ -4340,7 +4321,7 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = D2$
+    F1$ = D2$
 
     errs2 = 0
     On Local Error GoTo jeep
@@ -4427,7 +4408,7 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2 - 1)
 
-        If InStr(f1$, D2$) = 0 Then
+        If InStr(F1$, D2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             'MkDir d2$
@@ -4440,7 +4421,7 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = D2$
+    F1$ = D2$
 
     errs2 = 0
     On Local Error Resume Next
@@ -4495,7 +4476,7 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2 - 1)
 
-        If InStr(f1$, D2$) = 0 Then
+        If InStr(F1$, D2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             MkDir D2$
@@ -4508,7 +4489,7 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = D2$
+    F1$ = D2$
     Err.Clear
     errs2 = 0
     On Local Error Resume Next

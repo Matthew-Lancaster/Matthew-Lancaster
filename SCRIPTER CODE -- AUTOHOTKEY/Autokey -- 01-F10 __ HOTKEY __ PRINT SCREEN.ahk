@@ -99,6 +99,32 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 
 RETURN
 
+
+hk(keyboard:=0, mouse:=0, message:="", timeout:=3, displayonce:=0) { 
+   ; static AllKeys, z, d
+   For k,v in AllKeys {
+           ; Hotkey, *%v%, Block_Input, off         ; initialisation
+      }
+   if !AllKeys {
+      s := "||NumpadEnter|Home|End|PgUp|PgDn|Left|Right|Up|Down|Del|Ins|"
+      Loop, 254
+         k := GetKeyName(Format("VK{:0X}", A_Index))
+       , s .= InStr(s, "|" k "|") ? "" : k "|"
+      For k,v in {Control:"Ctrl",Escape:"Esc"}
+         AllKeys := StrReplace(s, k, v)
+      AllKeys := StrSplit(Trim(AllKeys, "|"), "|")
+   }
+
+
+   TOOLTIP % k 
+   
+   Return
+}
+
+; !F1::hk(1,1,"Keyboard keys and mouse buttons disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys and mouse buttons
+!F2::hk(0,0,"Keyboard keys and mouse buttons restored!")         ; Enable all keyboard keys and mouse buttons
+
+
 ; *D::
 ; *::
 ; MSGBOX  You pressed %A_ThisHotkey%.
@@ -301,7 +327,7 @@ ESC::
 	}
 
 	IfWinActive Rename Job ahk_class #32770
-	IfWinActive Rename Job ahk_exe GoodSync.exe
+	IfWinActive Rename Job ahk_exe GoodSync-v10.exe
 	{	
 		WinClose
 		SoundBeep , 5000 , 400
@@ -323,10 +349,23 @@ ESC::
 	; + Shift 
 	; & An ampersand 
 	; ---------------------------------------------------------------
-
+	
+	
+	IfWinActive ahk_exe GoodSync-v10.exe
+	{
+		VAR_DONE_ESCAPE_KEY=TRUE
+		SOUNDBEEP 1000,400
+		SEND {ESC down}
+		SLEEP 500
+		SEND {ESC up}
+		SOUNDBEEP 2000,200
+	}
+	
+	
 	IF VAR_DONE_ESCAPE_KEY=FALSE
 	{
 		SEND {ESC}
+		MSGBOX SS
 		SOUNDBEEP 4000,50
 		SOUNDBEEP 5000,40
 	}
