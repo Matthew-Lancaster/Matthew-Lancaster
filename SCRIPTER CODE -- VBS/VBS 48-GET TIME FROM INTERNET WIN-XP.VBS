@@ -18,6 +18,10 @@
 '#==============================================================================
 '**Start Encode**
 
+' ----
+' Sync System Time with Internet Time Server - Script Center - Spiceworks
+' https://community.spiceworks.com/scripts/show/467-sync-system-time-with-internet-time-server
+' ----
 
 ' -------------------------------------------------------------------
 ' [ Tuesday 15:28:20 Pm_02 April 2019 ]
