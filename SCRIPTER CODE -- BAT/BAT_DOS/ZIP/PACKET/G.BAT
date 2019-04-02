@@ -1,0 +1,2 @@
+e:
+cd e:\G-DRIVE\1LOOK\1SWAPS\CD-ROM

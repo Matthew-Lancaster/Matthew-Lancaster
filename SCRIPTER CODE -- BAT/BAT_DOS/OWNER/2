@@ -1,0 +1,1 @@
+Icacls "C:\_gsdata_" /T /C /L /Q /setowner "Everyone" 

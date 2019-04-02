@@ -1,0 +1,307 @@
+﻿' -----------------------------------
+' GETTING STARTED TIP NOTES FOR WIN 7
+' START WIN 7 EXPLORER IN MY COMPUTER
+' -----------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+TIP NOTEPAD __ IF THE PROXY HAS GONE
+CHECK LAN SETTER IS IN AUTO DETECT IN INTERNET EXPLORER
+
+IF STILL NOT WORKING DO THE INTERNET EXPLORER RESET SETTER ADVANCED OPTION TAB
+
+AND ALSO NOT CORRECT ORDER BUT COULD DO WITH RESET FIREWALL SETTER NORTON 
+BUT MAY NOT HAVE TO
+2ND OPTION FIRST WORK OKAY
+SOME TIME DOUBLE UP SOMETIME MAYBE FIRST OPTION WORKING OKAY 
+SET PROXY BACK TO AUTO
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------
+WINDOW 10
+BY DEFAULT I THINK OR NOT SURE
+TRY SETTING PERSONALIZATION
+START
+AT BOTTOM CHOOSE WHICH FOLDERS APPEAR ON START
+SELECT THEM ALL ON AND IF AGAIN __ WONDER WHERE GONE
+----------------------------------------------------
+
+
+NOTEPAD++
+PLUGINS
+DSPELLCHECK
+SWITCH TO Aspell-15.dll ___ DICTIONARY AT TOP SETTINGS
+NOT THE OTHER Hunspell  ___ SOMETHING
+IF NOT START WORKING
+
+NOTEPAD++ __ HOW TO SETUP FOR ADMIN
+E:\REG KEY SETTINGS\# Windows 7 REG SCRIPT\NOTEPAD++ WORK\INFO SETUP NOTEPADD++ INFO.txt
+
+
+
+----------------------------------------------------------------------------------------------------
+GOOGLE DRIVE IS ABLE DO A MOVE
+GOOGLE DRIVE LEAVE A LOT OF DESKTOP.INI BEHIND EACH FOLDER
+----------------------------------------------------------------------------------------------------
+NOT SURE ABOUT DROPBOX
+----------------------------------------------------------------------------------------------------
+
+
+
+UAC
+CONTROL
+USER ACCOUNT CONTROL
+GOTO CONTROL PANEL
+TYPE SEARCH UAC
+
+FIND SECURITY AND MAINTENANCE
+FIND CHANGE USER ACCOUNT CONTROL SETTER SET
+SLIDE BAR SET LOW
+FIND FROM HERE SEARCHER
+----
+THE PROGRAM ADMINISTRATOR QUESTION SLIDE BAR - Google Search
+https://www.google.co.uk/search?rlz=1C1CHBD_en-GBGB744GB744&biw=1536&bih=694&q=THE+PROGRAM+ADMINISTRATOR+QUESTION+SLIDE+BAR&oq=THE+PROGRAM+ADMINISTRATOR+QUESTION+SLIDE+BAR&gs_l=psy-ab.3...7757.9582.0.9743.0.0.0.0.0.0.0.0..0.0....0...1.1.64.psy-ab..0.0.0.ksyyQutPyME
+--------
+Domain Administrator no permissions, Local Admin has permissions
+https://social.technet.microsoft.com/Forums/en-US/fb3bad72-82fb-4d74-9777-ddff71692707/domain-administrator-no-permissions-local-admin-has-permissions?forum=win10itprogeneral
+--------
+The Windows 7 UAC Slider, and What You Can Do on Windows Vista Today – The App Compat Guy
+https://blogs.msdn.microsoft.com/cjacks/2009/01/07/the-windows-7-uac-slider-and-what-you-can-do-on-windows-vista-today/
+--------
+DON'T NOTIFY ME WHEN I MAKE CHANGES TO WINDOWS - Google Search
+https://www.google.co.uk/search?rlz=1C1CHBD_en-GBGB744GB744&q=DON%27T+NOTIFY+ME+WHEN+I+MAKE+CHANGES+TO+WINDOWS&spell=1&sa=X&ved=0ahUKEwivo5j1nvTVAhXEaVAKHbZrDIAQBQgjKAA&biw=1536&bih=694
+--------
+Guided Help: Adjust User Account Control settings in Windows 7 and Windows 8
+https://support.microsoft.com/en-us/help/975787/guided-help-adjust-user-account-control-settings-in-windows-7-and-wind
+----
+
+
+
+----
+register dll windows 10 - Google Search
+https://www.google.co.uk/search?num=50&q=register+dll+windows+10&oq=REGISTER+A+DLL&gs_l=psy-ab.1.0.0i71k1l4.0.0.0.172607.0.0.0.0.0.0.0.0..0.0....0...1..64.psy-ab..0.0.0.V0F3tMue1bk
+----
+Type regsvr32 ocxname.ocx to register .ocx
+
+visual basic setter
+-------------------
+
+
+
+
+---------------------------
+ClipBoard Logger
+---------------------------
+Component 'RICHTX32.OCX' or one of its dependencies not correctly registered: a file is missing or invalid
+---------------------------
+OK   
+---------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\RICHTX32.OCX
+COPY "D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\RICHTX32.OCX" "C:\WINDOWS"
+regsvr32 "C:\WINDOWS\SYSTEM32\RICHTX32.OCX"
+regsvr32 "C:\WINDOWS\RICHTX32.OCX"
+
+---------------------------
+RegSvr32
+---------------------------
+DllRegisterServer in C:\WINDOWS\RICHTX32.OCX succeeded.
+---------------------------
+OK   
+---------------------------
+
+
+---------------------------
+ClipBoard Logger
+---------------------------
+Run-time error '339':
+
+Component 'ClipboardViewer.ocx' or one of its dependencies not correctly registered: a file is missing or invalid
+---------------------------
+OK   
+---------------------------
+COPY "D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipboardViewer.ocx" "C:\WINDOWS"
+regsvr32 "C:\WINDOWS\ClipboardViewer.ocx"
+---------------------------
+RegSvr32
+---------------------------
+DllRegisterServer in C:\WINDOWS\ClipboardViewer.ocx succeeded.
+---------------------------
+OK   
+---------------------------
+
+---------------------------
+EliteSpy
+---------------------------
+Component 'COMCTL32.OCX' or one of its dependencies not correctly registered: a file is missing or invalid
+---------------------------
+OK   
+---------------------------
+COPY "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\COMCTL32.OCX" "C:\WINDOWS"
+regsvr32 "C:\WINDOWS\COMCTL32.OCX"
+---------------------------
+RegSvr32
+---------------------------
+DllRegisterServer in C:\WINDOWS\COMCTL32.OCX succeeded.
+---------------------------
+OK   
+---------------------------
+
+
+---------------------------
+VB MOUSE WHEEL
+---------------------------
+\VB6\VB-NT\#__ MOUSE_WHEEL_FIX\VB6IDEMouseWheelAddin.dll
+---------------------------
+COPY "D:\VB6\VB-NT\#__ MOUSE_WHEEL_FIX\VB6IDEMouseWheelAddin.dll" "C:\WINDOWS"
+regsvr32 "C:\WINDOWS\VB6IDEMouseWheelAddin.dll"
+---------------------------
+RegSvr32
+---------------------------
+DllRegisterServer in C:\WINDOWS\VB6IDEMouseWheelAddin.dll succeeded.
+---------------------------
+OK   
+---------------------------
+AND THEN 
+LOAD VISUAL BASIC GOTO THE ADD-IN AREA MENU ON THE TOP
+AND LOAD THE VB CODE I THINKER TO DO WITH THE MOUSE WHEEL SETUP OR NOT THAT BIT
+AND THEN ADD THE ADD-IN AS STARTUP LOADED
+
+
+
+
+
+
+
+'-----------------------------------
+CONTROL PANEL 
+SERVICES __ WINDOWS SEARCH
+TURN OFF WINDOWS INDEXER SEARCHER
+WSearch
+Windows Search
+C:\Windows\system32\SearchIndexer.exe /Embedding
+'-----------------------------------
+
+'-----------------------------------
+RIGHT CLICK TASK BAR SETTIINGS _ GOES TO TASKBAR TO ENABLED DISPLAY MORE ICON
+'-----------------------------------
+
+
+'-----------------------------------
+NOT ABLE TO ACCESS STARTUP FROM USER_ FOLDER 
+RIGHT CLICK SHARE SETTING AND ENABLE READ/WRITTER ACCESS AND THEN OKAY
+'-----------------------------------
+
+
+
+
+'-----------------------------------
+'01 - EXPLORER IN MY COMPUTER START
+'-----------------------------------
+'%windir%\explorer.exe /E,::{20D04FE0-3AEA-1069-A2D8-08002B30309D}
+'-----------------------------------
+
+
+
+
+'-----------------------------------
+'02 - TURN OFF INDEXER - WIN 7 - UP
+'-----------------------------------
+'http://superuser.com/questions/73204/correct-way-to-disable-indexing-in-windows-7
+'-----------------------------------
+'CONTROL PANEL - SERVICES - WINDOWS SEARCH - DISABLE
+'-----------------------------------
+
+
+THIS ONE WIN 7
+https://www.raymond.cc/blog/disable-program-has-stopped-working-error-dialog-in-windows-server-2008/
+
+--------------------------------
+ON THAT WEB
+WIN 10 HAS TO BE REGISTRY CHANGE
+Turn off the Error Dialog Via the Registry
+
+Although editing the registry manually is not recommended for average users, sometimes there isn’t a choice because something like the Group policy Editor might not be available in your version of Windows or the group policy method itself doesn’t work. This works on Windows Vista and above.
+
+1. Open the Registry Editor by typing regedit into the Start search box or the Win+R Run dialog.
+
+2. Navigate to the following registry key:
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting
+
+3. Double click the DontShowUI entry on the right and change its value to 1, then close the registry editor.
+Read More: https://www.raymond.cc/blog/disable-program-has-stopped-working-error-dialog-in-windows-server-2008/
+
+--------------------------------
+reg.exe ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /f /v "DontShowUI" /t REG_DWORD /d 1
+--------------------------------
+
+
+JOB TO DO LOGG
+SET TO INCLUDE AFTER A 1ST SCAN ASUS-EEE -- GOOD SYNC
+\\1-asus-eee\asus-eee d\#0 1 INSTALLATIONS\ISO'S
+
+INCLUDE HERE
+\\1-asus-eee\asus-eee d\#0 1 INSTALLATIONS\Installation programs\# COMMS JOYPAD BLUETOOTH\US Robotics.rar
+\\1-asus-eee\asus-eee d\#0 1 INSTALLATIONS\Installation programs\# COMMS JOYPAD BLUETOOTH
+
+CHECK THESE DUPE BIGG FILES COMPARE
+\\1-asus-eee\asus-eee d\#0 1 INSTALLATIONS\Installation programs\# 00 New Install Progs\01 Downloads 2015\www.pricelesswarehome.org 2006 PL2006 SYSTEMUTILITIES\# DONE
+SORTED THAT ONE --------------
+
+AND IS THIS TO RE-ENABLE INCLUDE OR NOT
+\\1-asus-eee\asus-eee d\#0 1 INSTALLATIONS\Installation programs\# 00 New Install Progs\01 Downloads 2015
+INCLUDE IS =
+EXCLUDE IS ||
+NOT TOLD EXCLUDE
+
+FIND WHAT THIS BIG FILE IS ABOUT
+\\1-asus-eee\asus-eee d\#0 1 INSTALLATIONS\Installation programs\# 00 New Install Progs\# Installed Now\#01 Matthew's\DOCUMENTS -- OXFORD DICTIONARY\OXFORD DICTIONARY.nrg
+
+RE-INCLUDE AFTER RUN
+\\1-asus-eee\asus-eee d\#0 1 INSTALLATIONS\Installation programs\03 Mp3 & Winamp\WINAMP1 MAIN\WinAmp Skins & Plugins Total\Skins
+EXCLUDED CAN'T MODIFY
+
+WHAT IS WRONG WITH WEB-CAM IN WIN 10
+
+-----------------------------------
+SET DELAY NOTIFICATIONS LONGER
+-----------------------------------
+----
+Notifications - Change How Long to Stay Open - Windows 7 Help Forums
+http://www.sevenforums.com/tutorials/10697-notifications-change-how-long-stay-open.html
+----
+. In regedit, navigate to: (See screenshot below)
+HKEY_CURRENT_USER\Control Panel\Accessibility
+Control Panel\All Control Panel Items\Ease of Access Center __ \ 
+
+AFTER SET ONCE OPTION DIS_APPEARED
+REG SETTER 
+IN SECOND
+MAYBE USE THE STEP METHOD BY COMBI BOX OR NOT ANY SECOND 
+
+
+reg.exe ADD "HKEY_CURRENT_USER\Control Panel\Accessibility" /f /v "MessageDuration" /t REG_DWORD /d 82
+-----------------------------------
+
+EMAIL LOGON ALERT
+----
+windows 7 notification alerts system log - Google Search
+https://www.google.co.uk/search?num=30&q=windows+7+notification+alerts+system+log&oq=windows+7+notification+alerts+system+log&gs_l=serp.3..33i21.113889.118877.0.119555.19.19.0.0.0.0.146.1605.16j3.19.0....0...1c.1.64.serp..0.9.818.7g2QVKFHwDM
+----
+THIS SYSTEM IS SETUP FOR EMAIL LOGIN HAPPEN BY MY CODE
+
+
+
+----
+HOW TO RELOCATE GOOGLE DRIVE FOLDER - Google Search
+https://www.google.co.uk/search?q=HOW+TO+RELOCATE+GOOGLE+DRIVE+FOLDER&oq=HOW+TO+RELOCATE+GOOGLE+DRIVE+FOLDER&aqs=chrome..69i57j0l5.14644j0j7&sourceid=chrome&ie=UTF-8
+--------
+Change the Google Drive default folder | G Suite Tips
+https://gsuitetips.com/tips/drive/change-the-google-drive-default-folder/
+----
+DO A DISCONNECT ACCOUNT
+RECONNECT ACCOUNT
+AND OPTION IS THERE
+
