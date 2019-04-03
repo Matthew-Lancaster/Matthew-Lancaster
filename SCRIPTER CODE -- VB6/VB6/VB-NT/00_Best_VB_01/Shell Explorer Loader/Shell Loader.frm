@@ -6199,8 +6199,6 @@ For Each Control In Controls
 Next
 
 
-
-
 Open TEXT_PATH_1 + "\" + OIP$ + " Loads Logg.txt" For Binary As #1
 
 On Error Resume Next
