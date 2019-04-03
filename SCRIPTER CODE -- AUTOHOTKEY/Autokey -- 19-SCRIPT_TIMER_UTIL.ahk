@@ -2511,14 +2511,15 @@ IF HWND_1>0
 		WinGetTitle OutputVar_3,ahk_id %HWND_1%
 		
 		HWND_1_EXENAME_GoodSync_v10_exe_DONE=FALSE
-		
 		SET_GO=FALSE
 		IF A_ComputerName=8-MSI-GP62M-7RD
 		IF HWND_1_EXENAME=GoodSync-v10.exe
-		IF OutputVar_1=2
-			SET_GO=TRUE
-		IF OutputVar_1=5
-			SET_GO=TRUE
+		{
+			IF OutputVar_1=2
+				SET_GO=TRUE
+			IF OutputVar_1=5
+				SET_GO=TRUE
+		}
 		IF SET_GO=TRUE
 	    IF (OutputVar_2="Periodically (On Timer), every")
 		{
@@ -2541,10 +2542,12 @@ IF HWND_1>0
 		}
 		SET_GO=FALSE
 		IF HWND_1_EXENAME=GoodSync2Go.exe
-		IF OutputVar_1=1
-			SET_GO=TRUE
-		IF OutputVar_1=2
-			SET_GO=TRUE
+		{
+			IF OutputVar_1=1
+				SET_GO=TRUE
+			IF OutputVar_1=2
+				SET_GO=TRUE
+		}
 		IF SET_GO=TRUE
 		IF (OutputVar_2="Periodically (On Timer), every")
 		{
