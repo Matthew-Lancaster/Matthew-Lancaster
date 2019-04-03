@@ -1,4 +1,7 @@
 Attribute VB_Name = "APublics"
+Public TEXT_PATH_1
+Public TEXT_PATH_2
+
 Public ProProjects, ProProjects2, TERMINATE_FORMS
 
 Public LoadFolderFile
@@ -31,6 +34,23 @@ Private Const FILE_SHARE_READ = &H1
 Private Const FILE_SHARE_WRITE = &H2
 Private Declare Function CloseHandle Lib "kernel32.dll" (ByVal hObject As Long) As Long
 'right order
+
+'----------------------------------------------------
+Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Function GetUserName() As String
+   Dim UserName As String * 255
+   Call GetUserNameA(UserName, 255)
+   GetUserName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
+End Function
+
+Function GetComputerName() As String
+   Dim UserName As String * 255
+   Call GetComputerNameA(UserName, 255)
+   GetComputerName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
+End Function
+'----------------------------------------------------
+
 
 Function LastModifiedToCurrent(dufile As String)
     Dim lngHandle As Long
