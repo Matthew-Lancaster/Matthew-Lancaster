@@ -1,0 +1,20 @@
+----
+Setup Notepad++ for AutoHotkey - AutoHotkey Community
+https://autohotkey.com/boards/viewtopic.php?t=50
+----
+
+Setup Notepad++ for AutoHotkey
+
+(tested up to Notepad++ v7.3.3 - x64)
+
+
+
+Syntax-Highlighting
+1. Download userDefineLang_AHK.xml as raw (Right-click and choosing save as target...)
+2. Save it to the right location C:\Program Files\Notepad++\userDefineLang_AHK.xml (on 32-Bit: C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml)
+3. Start Notepad++ and click on Menu Language -> Define your language
+4. Import your userDefineLang
+5. Restart Notepad++
+
+* Default Theme (Preview)
+* Lazy Theme (Preview)
