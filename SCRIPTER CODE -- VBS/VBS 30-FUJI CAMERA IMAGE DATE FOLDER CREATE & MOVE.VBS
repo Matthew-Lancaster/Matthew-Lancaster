@@ -202,7 +202,7 @@ IF I_COUNT_1+I_COUNT_2+I_COUNT_3+I_COUNT_4+I_COUNT_5+I_COUNT_7>0 OR 1 = 1 THEN
 	END IF
 	
 	IF I_COUNT_1+I_COUNT_2+I_COUNT_3+I_COUNT_4>0 THEN 
-		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 	END IF
 
 END IF
