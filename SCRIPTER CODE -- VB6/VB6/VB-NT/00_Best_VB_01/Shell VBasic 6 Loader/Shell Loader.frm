@@ -4,8 +4,8 @@ Begin VB.Form Form1
    BackColor       =   &H80000007&
    Caption         =   "NotePad Loader"
    ClientHeight    =   5928
-   ClientLeft      =   192
-   ClientTop       =   840
+   ClientLeft      =   132
+   ClientTop       =   780
    ClientWidth     =   12324
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
@@ -17049,7 +17049,18 @@ tt1 = InStr(OIP$, "Shell")
 tt2 = InStr(tt1, OIP$, "Loader")
 OIP2$ = Mid$(OIP$, tt1 + 6, tt2 - tt1 - 7)
 OIP$ = OIP2$
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads Logg.txt" For Binary As #1
+
+TEXT_PATH_1 = App.Path + "\Text Loggs\" + GetComputerName + "-" + GetUserName
+TEXT_PATH_2 = App.Path + "\Text Loggs\" + GetComputerName
+
+If Dir(TEXT_PATH_1, vbDirectory) = "" Then
+    CreateFolderTree TEXT_PATH_1
+End If
+If Dir(TEXT_PATH_2, vbDirectory) = "" Then
+    CreateFolderTree TEXT_PATH_2
+End If
+
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 02.txt" For Binary As #1
 
 On Error Resume Next
     Seek 1, LOF(1) - 3000
@@ -17108,8 +17119,8 @@ Loop Until easy = 0
 
 Combo1 = "List of Last Viewed Files"
 
-If Dir$(App.Path + "\Text Loggs\" + OIP$ + " Loads.txt") <> "" Then
-    Open App.Path + "\Text Loggs\" + OIP$ + " Loads.txt" For Input As #1
+If Dir$(TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt") <> "" Then
+    Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt" For Input As #1
     Line Input #1, A1$
     Line Input #1, B1$
     Line Input #1, C1$
@@ -17708,7 +17719,7 @@ Sub TEST_LINK_MODIFY()
 End Sub
 
 Private Sub TitleLbl_Click()
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads.txt" For Input As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt" For Input As #1
 Line Input #1, A1$
 Line Input #1, B1$
 Line Input #1, C1$
@@ -17720,19 +17731,19 @@ Call Label1_Click(0)
 End Sub
 
 Sub SaveLoggs()
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads.txt" For Output As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt" For Output As #1
 Print #1, A1$
 Print #1, B1$
 Print #1, C1$
 Close #1
 
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads Logg.txt" For Append As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 02.txt" For Append As #1
 Print #1, A1$
 Print #1, B1$
 Print #1, C1$
 Close #1
 
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads Logg 02.txt" For Append As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 03.txt" For Append As #1
 Print #1, Format$(Now, "dd-mm-yyyy hh:mm:ss ") + A1$ + B1$
 Close #1
 
