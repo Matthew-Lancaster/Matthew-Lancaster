@@ -17,23 +17,16 @@ Set WSHShell = CreateObject("WScript.Shell")
 
 Set args = Wscript.Arguments
 For Each arg In args
-	XF0 = XF0 +""""+ arg + """ "
+	XF0 = XF0 + arg + " "
 Next
-
-MSGBOX XF0
 
 'If Sent-to is Used Sometime Additional Quote Surround are User
 '--------------------------------------------------------------
-XF0 = UCASE(Replace(XF0,"""""",""""))
-
-MSGBOX XF0
-
+XF0 = UCASE(Replace(XF0,"""",""))
 
 ' WSHShell.Run "CMD /K """ + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT" + """ , ShowWindow, DontWaitUntilFinished
 
 ' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\BAT_03_PROCESS_KILLER.BAT""" , ShowWindow, DontWaitUntilFinished
 
 
-WSHShell.Run XF0 , ShowWindow, WaitUntilFinished
-
-'WSHShell.Run XF0+ " " + ""+XF2_VOID+"" , ShowWindow, WaitUntilFinished
+WSHShell.Run """"+XF0+"""" + " " + ""+XF2_VOID+"" , ShowWindow, DontWaitUntilFinished
