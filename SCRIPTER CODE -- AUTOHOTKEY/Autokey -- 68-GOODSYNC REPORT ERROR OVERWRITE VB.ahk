@@ -19,7 +19,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 ; SESSION 01
 ; -------------------------------------------------------------------
-; 
+; HERE RUN THE EXE WHEN DATE IS NEWER
+; IT NOT RELOADER VIA KILL PROCESS
+; IT USED IN GOODSYNC HERE
+; VB G7 VB-NT 1X _1_ EXE ONLY Autokey -- 68-GOODSYNC ERROR OVERWRITE SCRIPT
+; SCRIPT LINE WITH POST SYNC
+; nowait: "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME %JOBNAME% RESULT %RESULT% ERRORS %ERRORS%
 ; -------------------------------------------------------------------
 ; FROM __ Mon 04-Mar-2019 05:19:59
 ; TO   __ Mon 04-Mar-2019 05:19:59 __ 
