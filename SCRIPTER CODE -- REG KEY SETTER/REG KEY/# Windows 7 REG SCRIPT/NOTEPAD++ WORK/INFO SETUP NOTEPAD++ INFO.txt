@@ -1,0 +1,50 @@
+SET UP NOTEPAD LIKE HERE
+IS OKAY WHEN WANT RUN AS ADMIN
+
+CLICK THE REG SCRIPT
+
+EDITOR OPTION FOR BAT FILE WILL STILL BE NOTEPAD NOT NOTEPAD++
+YET
+
+DO A REBOOT 
+
+THE WHOLE REGISTRY ENTRY WILL GO UNDER THE LONG NUMBER WHEN SEARCH REMOVE
+
+AS INSTRUCTED ELSE WHERE
+
+
+
+
+
+
+---------------------
+Count = 014 -- Wed 16-Aug-2017 05:56:32
+---------------------
+Form FindWindow ---
+64 bit - ShellExecute failed (2) error for Notepad++ on Windows 7 64bit - Super User - Google Chrome
+---------------------
+
+46
+down vote
+This is a registry file that might help everybody:
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\OpenWithNotepad]
+@="Edit with &Notepad++"
+"icon"="C:\\Program Files (x86)\\Notepad++\\Notepad++.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\OpenWithNotepad\Command]
+@="\"C:\\Program Files (x86)\\Notepad++\\Notepad++.exe\" \"%1\""
+Copy it into Notepad and save it with a .reg extension. Close Notepad and double-click the file.
+
+shareimprove this answer
+edited May 10 '13 at 14:47
+
+SliverNinja
+1566
+answered Feb 15 '11 at 6:55
+
+John Swaringen
+56144
+---------------------
