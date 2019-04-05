@@ -1,0 +1,33 @@
+------------------------------------------------------------------------------
+2019-Mar-30 -- 07:12:53 - 07:12:53-AM - Sat
+WORK BEGIN 0169 TOTAL WORK -- 4-ASUS-GL522VW
+------------------------------------------------------------------------------
+COMMANDING COUNT ALL WORKER                                       0169
+COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0028
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0092
+COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0049
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0092
+TOTAL COMPUTER DRIVE COUNT                                        3
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+2019-Apr-01 -- 07:22:25 - 07:22:25-AM - Mon
+WORK BEGIN 0169 TOTAL WORK -- 4-ASUS-GL522VW
+------------------------------------------------------------------------------
+COMMANDING COUNT ALL WORKER                                       0169
+COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0028
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0092
+COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0049
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0092
+TOTAL COMPUTER DRIVE COUNT                                        3
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+2019-Apr-04 -- 16:38:59 - 04:38:59-PM - Thu
+WORK BEGIN 0172 TOTAL WORK -- 4-ASUS-GL522VW
+------------------------------------------------------------------------------
+COMMANDING COUNT ALL WORKER                                       0172
+COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0025
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0097
+COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0050
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0097
+TOTAL COMPUTER DRIVE COUNT                                        3
+------------------------------------------------------------------------------

@@ -1,0 +1,45 @@
+------------------------------------------------
+Tue 14-Jun-2016 12:53:24 P
+G:\03 Useful Shortcuts\In XP, getting error 0X80090016 Keyset does not exist, Task Scheduler - Microsoft Community.url
+G:\03 Useful Shortcuts\In XP, getting error 0X80090016 Keyset does not exist, Task Scheduler - Microsoft Community.TXT
+------------------------------------------------
+Most Helpful Reply
+Naman R
+Naman R replied on  May 9, 2011See post history
+Hi,
+I would suggest you to follow the steps provided in the below link and check if they help in resolving the issue.
+Step 1:
+Set Protected Storage to Automatic and verify the Status is started.  
+1. Click Start.  
+2. Choose Run.  
+3. In the Run box, type services.msc.  
+4. Click OK.  
+5. Find the Protected Storage service, and right-click to select it.  
+6. Select Properties.  
+7. In the Startup Type list, select Automatic. (THIS WAS MY EXISTING SETTING) 
+8. Verify the service Status is Started. (IT WAS STARTED) 
+9. Click OK. 
+
+Step 2:
+Delete the files in Safe Mode   
+1. Restart the computer.  
+2. Keep pressing the F8 key until the Windows Startup menu appears.  
+3. Choose Safe Mode, and press Enter.   
+4. Start your computer in Safe mode. 
+5. Double-click My Computer, and then click Folder Options on the Tools menu.  
+(THERE WAS NO "My Computer" on the desktop - used Start -> My Computer) 
+6. On the View tab, click to select Show hidden files and folders, and then click OK.   
+7. Delete all of the files in the "C:\Documents and Settings\All Users\Application Data\Microsoft\Crypto\RSA\S-1-5-18" folder. 
+(THERE WAS ONLY ONE FILE) 
+
+TRY YOUR USER - THIS ONE IS NOT EXIST HERE
+AND DO ALL THE USER OF -- C:\Documents and Settings\
+
+WRITE THE CODE
+
+C:\Documents and Settings\MATT 04\Application Data\Microsoft\Crypto\RSA\S-1-5-21-329068152-842925246-839522115-1015
+
+
+8. Restart your computer, and then run the task scheduler. 
+9. Re-enter the password for the user running each job.
+  (“Right click" -> run now executes the job. And they now also run as scheduled)
