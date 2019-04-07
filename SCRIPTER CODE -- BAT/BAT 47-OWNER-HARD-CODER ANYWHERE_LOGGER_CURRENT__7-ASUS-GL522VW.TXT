@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------
-2019-Apr-07 -- 02:00:42 - 02:00:42-AM - Sun
+2019-Apr-07 -- 02:13:04 - 02:13:04-AM - Sun
 2019-Apr-07 -- 01:03:21 - 01:03:21-AM - Sun -- BEGIN DATE TIME
 ------------------------------------------------------------------------------
-WORK CURRENT 0254 OF 0762 -- 7-ASUS-GL522VW
+WORK CURRENT 0760 OF 0762 -- 7-ASUS-GL522VW
 ------------------------------------------------------------------------------
 COMMANDING COUNT ALL WORKER                                       0762
 COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0025
@@ -14,13 +14,13 @@ TOTAL COMPUTER DRIVE COUNT                                        19
 WORK SET OF THREE
 ---------------------------------------------------------XxxX-----------------
 01 OF 03 MAIN ARRAY
-02 OF 03 ALL DRIVE ROOT               ---- CURRENT WORKER
-03 OF 03 ALL E DRIVE ROOT WITH SUB
+02 OF 03 ALL DRIVE ROOT
+03 OF 03 ALL E DRIVE ROOT WITH SUB    ---- CURRENT WORKER
 ------------------------------------------------------------------------------
-WORK CURRENT 0254 OF 0762 -- WORK TOTAL
-WORK CURRENT 0229 OF 0687 -- 02 OF 03 ALL DRIVE ROOT
+WORK CURRENT 0760 OF 0762 -- WORK TOTAL
+WORK CURRENT 0048 OF 0050 -- 03 OF 03 ALL E DRIVE ROOT WITH SUB
 ------------------------------------------------------------------------------
 PATH TO DO -------------------------------------------------------------------
 ------------------------------------------------------------------------------
-G:\APP_EliteSpy.exe.lnk
+E:\z RAR ARCHIVE FOLDER
 ------------------------------------------------------------------------------
