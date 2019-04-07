@@ -31,3 +31,14 @@ COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0050
 TOTAL COMPUTER ROOT FOLDER COUNT                                  0097
 TOTAL COMPUTER DRIVE COUNT                                        3
 ------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+2019-Apr-07 -- 01:35:52 - 01:35:52-AM - Sun
+WORK BEGIN 0172 TOTAL WORK -- 4-ASUS-GL522VW
+------------------------------------------------------------------------------
+COMMANDING COUNT ALL WORKER                                       0172
+COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0025
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0097
+COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0050
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0097
+TOTAL COMPUTER DRIVE COUNT                                        3
+------------------------------------------------------------------------------
