@@ -2168,10 +2168,6 @@ Attribute VB_Exposed = False
 ' -------------------------------------------------------------------------------------
 
 
-Dim OLD_HWND_WINAMP_GetWindowState
-Dim OLD_HWND_MediaPlayerClassicW_GetWindowState
-
-
 Dim LISTVIEW_2_OR_3_HITT
 
 '
@@ -5041,7 +5037,7 @@ Private Sub MNU_LAUNCH_AUTORUNS_SET_BOOT_Click()
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
 
-objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
     
 Set objShell = Nothing
 End Sub
@@ -5049,7 +5045,7 @@ End Sub
 Private Sub MNU_LAUNCH_AUTORUNS_SET_Click()
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk" + """"
+    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk" + """"
 Set WSHShell = Nothing
 End Sub
 
@@ -8663,27 +8659,15 @@ O_GetForegroundWindow_02 = GetForegroundWindow
 Call Timer_VB_MAXIMIZE_Timer
 
 Dim I_HWnd
-Dim HWND_MediaPlayerClassicW_GetWindowState
-Dim HWND_WINAMP_GetWindowState
-
-
 I_HWnd = FindWindow("MediaPlayerClassicW", vbNullString)
-If OLD_HWND_MediaPlayerClassicW_GetWindowState <> HWND_MediaPlayerClassicW_GetWindowState Then
-    If I_HWnd > 0 Then
-        SetWindowPos I_HWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-    End If
+If I_HWnd > 0 Then
+    SetWindowPos I_HWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 End If
-OLD_HWND_MediaPlayerClassicW_GetWindowState = HWND_MediaPlayerClassicW_GetWindowState
 
 I_HWnd = FindWindow("Winamp v1.x", vbNullString)
-
-HWND_WINAMP_GetWindowState = GetWindowState(I_HWnd)
-If OLD_HWND_WINAMP_GetWindowState <> HWND_WINAMP_GetWindowState Then
-    If I_HWnd > 0 Then
-        SetWindowPos I_HWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-    End If
+If I_HWnd > 0 Then
+    SetWindowPos I_HWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 End If
-OLD_HWND_WINAMP_GetWindowState = HWND_WINAMP_GetWindowState
 
 End Sub
 

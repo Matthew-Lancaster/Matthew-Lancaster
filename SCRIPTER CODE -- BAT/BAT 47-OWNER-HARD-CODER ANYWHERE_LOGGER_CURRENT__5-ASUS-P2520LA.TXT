@@ -1,15 +1,15 @@
 ------------------------------------------------------------------------------
-2019-Apr-07 -- 04:27:55 - 04:27:55-AM - Sun
-2019-Apr-07 -- 01:02:10 - 01:02:10-AM - Sun -- BEGIN DATE TIME
+2019-Apr-07 -- 18:38:25 - 06:38:25-PM - Sun
+2019-Apr-07 -- 10:02:29 - 10:02:29-AM - Sun -- BEGIN DATE TIME
 ------------------------------------------------------------------------------
-WORK CURRENT 0176 OF 0178 -- 8-MSI-GP62M-7RD
+WORK CURRENT 0161 OF 0163 -- 5-ASUS-P2520LA
 ------------------------------------------------------------------------------
-COMMANDING COUNT ALL WORKER                                       0178
+COMMANDING COUNT ALL WORKER                                       0163
 COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0025
-COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0103
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0088
 COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0050
-TOTAL COMPUTER ROOT FOLDER COUNT                                  0103
-TOTAL COMPUTER DRIVE COUNT                                        4
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0088
+TOTAL COMPUTER DRIVE COUNT                                        3
 ------------------------------------------------------------------------------
 WORK SET OF THREE
 ---------------------------------------------------------XxxX-----------------
@@ -17,7 +17,7 @@ WORK SET OF THREE
 02 OF 03 ALL DRIVE ROOT
 03 OF 03 ALL E DRIVE ROOT WITH SUB    ---- CURRENT WORKER
 ------------------------------------------------------------------------------
-WORK CURRENT 0176 OF 0178 -- WORK TOTAL
+WORK CURRENT 0161 OF 0163 -- WORK TOTAL
 WORK CURRENT 0048 OF 0050 -- 03 OF 03 ALL E DRIVE ROOT WITH SUB
 ------------------------------------------------------------------------------
 PATH TO DO -------------------------------------------------------------------
