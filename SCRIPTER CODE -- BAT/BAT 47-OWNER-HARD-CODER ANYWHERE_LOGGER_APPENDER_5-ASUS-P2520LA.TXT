@@ -31,3 +31,14 @@ COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0049
 TOTAL COMPUTER ROOT FOLDER COUNT                                  0088
 TOTAL COMPUTER DRIVE COUNT                                        3
 ------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+2019-Apr-09 -- 10:02:31 - 10:02:31-AM - Tue
+WORK BEGIN 0163 TOTAL WORK -- 5-ASUS-P2520LA
+------------------------------------------------------------------------------
+COMMANDING COUNT ALL WORKER                                       0163
+COMMANDING COUNT 01 OF 03 MAIN ARRAY                              0025
+COMMANDING COUNT 02 OF 03 ALL DRIVE ROOT                          0088
+COMMANDING COUNT 03 OF 03 ALL E DRIVE ROOT WITH SUB               0050
+TOTAL COMPUTER ROOT FOLDER COUNT                                  0088
+TOTAL COMPUTER DRIVE COUNT                                        3
+------------------------------------------------------------------------------
