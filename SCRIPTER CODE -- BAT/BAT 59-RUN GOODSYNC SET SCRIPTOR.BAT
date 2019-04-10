@@ -440,12 +440,22 @@ for /L %%a in (1,1,!LDA!) do (
 
 	@find "-- Analysis Complete" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Analysis_Complete=TRUE
+	@REM ------------------------------------------------------------
 	@REM Sync: Running: ____ DOESN'T APPEAR TO SHOW ALWAYS OR ANYMORE _ CHANGE TO NEXT ONE __ Sync Complete.
+	@REM SOMETIME THINKER MACHINE UNDER LOAD GS-IT NOT REPORT Analysis Complete AND MISS THAT STEP LINE
+	@REM ------------------------------------------------------------
 	@find "Sync: Running:" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner=TRUE
-	@REM == Sync Complete.
+	@if !errorlevel!==0 (
+		SET Sync_Runner=TRUE
+		SET Analysis_Complete=TRUE
+	)
 	@find "== Sync Complete." !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@if !errorlevel!==0 (
+		SET Sync_Runner=TRUE
+		SET Analysis_Complete=TRUE
+	)
+	
+	@if !Sync_Runner!==TRUE SET Analysis_Complete=TRUE
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Another_Job=TRUE
 	@find "unresolved conflits" !FILENAME_ER!>NUL
