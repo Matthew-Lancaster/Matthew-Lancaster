@@ -19,19 +19,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 ; SESSION 01
 ; -------------------------------------------------------------------
-; IF ERROR WHILE TRY COPY VB CODE EXE IN GOODSYNC
-; THEN DO KILL ALL VBCODE EXE 
-; AND RELOAD IT SO GOODSYNC RUN WORKER
-; -------------------------------------------------------------------
-; NOT REAY YET -- DEBUG TO DO
-; -------------------------------------------------------------------
-
 ; HERE RUN THE EXE WHEN DATE IS NEWER
 ; IT NOT RELOADER VIA KILL PROCESS
 ; IT USED IN GOODSYNC HERE
 ; VB G7 VB-NT 1X _1_ EXE ONLY Autokey -- 68-GOODSYNC ERROR OVERWRITE SCRIPT
 ; SCRIPT LINE WITH POST SYNC
-; nowait: "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME %JOBNAME% RESULT %RESULT% ERRORS %ERRORS%
+; nowait: "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk" JOBNAME %JOBNAME% RESULT %RESULT% ERRORS %ERRORS%
 ; -------------------------------------------------------------------
 ; FROM __ Mon 04-Mar-2019 05:19:59
 ; TO   __ Mon 04-Mar-2019 05:19:59 __ 
@@ -53,13 +46,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 #Persistent
 ; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; NOT RUNNER AT MO
-; WAS IDEA NOT YET COMPLETE
-; DEBUG SHOWING WANT TO DO
-; -------------------------------------------------------------------
-EXITAPP
 
 ; -------------------------------------------------------------------
 ; Register a function to be called on exit:
@@ -157,7 +143,7 @@ COMMAND_LINE_JOB_NAME:=SubStr(COMMAND_LINE, INSTR(COMMAND_LINE," JOBNAME "))
 COMMAND_LINE_JOB_NAME_VALUE:=SubStr(COMMAND_LINE_JOB_NAME,11)
 COMMAND_LINE_JOB_NAME_VALUE:=SubStr(COMMAND_LINE_JOB_NAME_VALUE,1,INSTR(COMMAND_LINE_JOB_NAME_VALUE," RESULT")-2)
 
-MSGBOX % COMMAND_LINE_JOB_NAME_VALUE
+; MSGBOX % COMMAND_LINE_JOB_NAME_VALUE
 
 GoodSync_GSync:="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 
@@ -526,18 +512,12 @@ KILL_ALL_NET_VB_CODE_EXE_01:
 			}
 		}
 
-		; -----------------------------------------------------------
-		; GOT DEBUG ERROR HERE -- CAN'T WORK HERE
-		; THE JOB RUN IN TEST BY ITSELF TO RUN SCRIPT
-		; AND RETURN THE ERROR IN MSGBOX BELOW
-		; [ Wednesday 13:20:40 Pm_10 April 2019 ]
-		; -----------------------------------------------------------
 		Loop %ArrayCount%
 		{
 			file := FileOpen(Array_FileName%A_Index%, "w")
 			if !IsObject(file)
 			{
-				MsgBox Can't open`r`n"%FileName%"`r`nfor writing.`r`nAutokey -- 68-GOODSYNC REPORT ERROR OVERWRITE VB.ahk
+				MsgBox Can't open "%FileName%" for writing.
 				return
 			}
 			TestString := "This is a test string.`r`n"  
