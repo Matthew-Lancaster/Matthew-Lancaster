@@ -3042,7 +3042,10 @@ Dim INFO_NOTE, INFO_NOTE_1, INFO_NOTE_2
 '--------------------------------------
 'INFO_NOTE_1 = "EliteSpy+ by Andrea B 2001 __ Origin_Unknown _www.PlanetSourceCode.com_ & Also Major Working By Matthew Lancaster __ Contact ME __ BT __ 07722224555"
 INFO_NOTE_1 = "EliteSpy+ by Andrea Batina 2001 __ www.PlanetSourceCode.com_ & Major Worker By Matthew Lancaster __ Contact ME __ BT __ 07722224555"
+
 INFO_NOTE_1 = "EliteSpy+ by Andrea B 2001 __ www.PlanetSourceCode.com_ & Big Timer Worker By Matthew Lancaster __ 07722224555"
+INFO_NOTE_1 = "EliteSpy+ 2001 __ www.PlanetSourceCode.com" '_ & Big Timer Worker By Me"
+
 INFO_NOTE_2 = " __ Version " + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision))
 INFO_NOTE = INFO_NOTE_1 + INFO_NOTE_2
 
@@ -4095,6 +4098,20 @@ End Sub
 Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
 LISTVIEW_2_OR_3_HITT = 3
 
+End Sub
+
+Private Sub mnu_Contact_Me_Click()
+mnu_Telephone_BT_07722224555.Visible = True
+MNU_MATT_LAN_BTINTERNET_COM.Visible = True
+End Sub
+
+Private Sub MNU_MATT_LAN_BTINTERNET_COM_Click()
+MNU_MATT_LAN_BTINTERNET_COM.Visible = False
+End Sub
+
+Private Sub mnu_Telephone_BT_07722224555_Click()
+mnu_Telephone_BT_07722224555.Visible = False
+MNU_MATT_LAN_BTINTERNET_COM.Visible = False
 End Sub
 
 Private Sub TIMER_TO_RESIZE_Timer()
