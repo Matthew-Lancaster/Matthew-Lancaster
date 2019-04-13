@@ -252,6 +252,59 @@ GOSUB, MONITOR_BRIGHTNESS_UP
 SetTimer,Mouse_Idle_Timer, 1000     ; Check Every Second
 setTimer TIMER_PREVIOUS_INSTANCE,1
 
+; -------------------------------------------------------------------
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 10000
+
+IF (A_ComputerName="1-ASUS-X5DIJ")
+	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
+IF (A_ComputerName="2-ASUS-EEE")
+	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
+; -------------------------------------------------------------------
+RS232_LOGGER_VAR=0
+RS232_LOGGER_DELAY=0
+OLD_RS232_LOGGER_VAR=0
+; -------------------------------------------------------------------
+RETURN
+
+RS232_LOGGER_TIMER_RUN_EXE:
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe"
+	IfExist, %FN_VAR%
+	{
+		Run, %FN_VAR%,,HIDE
+	}
+RETURN
+
+RS232_LOGGER_TIMER_CHANGE:
+
+	FN_VAR:="C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer.txt"
+	IFNOTEXIST, %FN_VAR%
+	{
+		RS232_LOGGER_VAR=0
+	}
+	ELSE
+	{
+		RS232_LOGGER_VAR=1
+	}
+
+	IF OLD_RS232_LOGGER_VAR<>%RS232_LOGGER_VAR%
+	IF RS232_LOGGER_VAR=0
+	{
+		RS232_LOGGER_DELAY:=A_Now
+		RS232_LOGGER_DELAY += 1, minutes
+	}
+	
+	OLD_RS232_LOGGER_VAR=%RS232_LOGGER_VAR%
+	
+	
+	
+	
+	
+RETURN
+
+
 
 ; ------------------------------------
 Mouse_Idle_Timer:
@@ -514,8 +567,17 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	
 	GOSUB IS_IN_DAY
 	
+	IF RS232_LOGGER_VAR=0
+	IF RS232_LOGGER_DELAY<%A_NOW%
+		IN_DAY=FALSE
+
+		
 	IF IN_DAY=TRUE
 		SET_GO=FALSE
+	
+	
+	
+	
 	
 	; TOOLTIP % IN_DAY " __ " 
 	
