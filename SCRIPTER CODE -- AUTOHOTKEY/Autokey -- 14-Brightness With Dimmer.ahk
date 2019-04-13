@@ -202,6 +202,8 @@ VAR_Z__TimeIdle_2 = %VAR_Z__TimeIdle_2_DEFAULT%
 VAR_Z__TimeIdle = %VAR_Z__TimeIdle_1%
 OLDWinActive = 0
 WinActive_2 = 0
+VAR_A__TimeIdle=%A_TimeIdle%
+
 
 GLOBAL IN_DAY
 GLOBAL O_IN_DAY_1
@@ -222,7 +224,7 @@ IF (A_ComputerName="4-ASUS-GL522VW")
 
 BLANK_DIMMER_TIME=10
 	
-BLANK_DIMMER:= A_Now
+BLANK_DIMMER=%A_Now%
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
 SoundBeep , 1000 , 100
@@ -318,6 +320,8 @@ RS232_LOGGER_TIMER_CHANGE:
 	; WANT OFF ------------------------------------------------------
 	IF RS232_LOGGER_PIR_VAR=0
 	{
+		
+		; TOOLTIP %A_NOW% 
 
 		; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
 		; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
@@ -481,17 +485,22 @@ if state = D
 	; MOUSE BUTTON LEFT HELD DOWN WHEN DRAGGER FOR LONG NOT DETECT BY IDLE ACTIVE UNLESS SWITCH
 
 
+
+
+
 	
 ;#-------------------------------
-SET_GO=FALSE
-If (A_TimeIdle > %VAR_Z__TimeIdle% and ALLOW_DIMMER = "True")
-	SET_GO=TRUE
+SET_GO=TRUE
+IF (ALLOW_DIMMER = "False")
+	SET_GO=FALSE
+If A_TimeIdle < %VAR_Z__TimeIdle%
+	SET_GO=FALSE
 	
 IF SET_GO=TRUE
 {
-	VAR_Z__TimeIdle = %VAR_Z__TimeIdle_2%
 	GOSUB, MONITOR_BRIGHTNESS_DIM
 }
+VAR_Z__TimeIdle=%VAR_Z__TimeIdle_2%
 GOSUB, Keyboard_Idle_Timer
 ;#-------------------------------
 Return ; End of Mouse_Idle_Timer
@@ -502,7 +511,9 @@ Keyboard_Idle_Timer:
 ;TEST DEBUG ___________
 
 
-TOOLTIP %A_TimeIdle% " -- " %VAR_A__TimeIdle%
+
+; TOOLTIP %A_TimeIdle% " -- " %VAR_A__TimeIdle%
+
 		
 IF A_TimeIdle < %VAR_A__TimeIdle%
 {
@@ -510,11 +521,11 @@ IF A_TimeIdle < %VAR_A__TimeIdle%
 	;TEST DEBUG ___________
 	GOSUB, MONITOR_BRIGHTNESS_UP
 
-	BLANK_DIMMER:= A_Now
+	BLANK_DIMMER=%A_Now%
 	BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
 }
-VAR_A__TimeIdle=A_TimeIdle
+VAR_A__TimeIdle=%A_TimeIdle%
 
 ; A_TimeIdle - SHOW TIME SINCE LAST KEYBOARD OR MOUSE IN MILLISECOND
 ; THE DETECT IS IF LOWER THAN
