@@ -214,11 +214,6 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 
 
 
-
-
-
-
-
 DetectHiddenWindows, on
 SetStoreCapslockMode, off
 
