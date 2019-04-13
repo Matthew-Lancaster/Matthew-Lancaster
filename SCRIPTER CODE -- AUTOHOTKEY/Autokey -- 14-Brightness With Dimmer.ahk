@@ -216,7 +216,9 @@ ALLOW_DIMMER := "True"
 O_IN_DAY_1=FALSE
 BLANK_DIMMER_VAR=FALSE
 
-BLANK_DIMMER_TIME=80
+BLANK_DIMMER_TIME=60
+IF (A_ComputerName="4-ASUS-GL522VW")
+	BLANK_DIMMER_TIME=60*5
 BLANK_DIMMER:= A_Now
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
@@ -253,6 +255,9 @@ SetTimer,Mouse_Idle_Timer, 1000     ; Check Every Second
 setTimer TIMER_PREVIOUS_INSTANCE,1
 
 ; -------------------------------------------------------------------
+RS232_LOGGER_PIR_FLICK_ON=FALSE
+RS232_LOGGER_PIR_VAR=0
+OLD_RS232_LOGGER_PIR_VAR=0
 IF (A_ComputerName="4-ASUS-GL522VW")
 	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 10000
 
@@ -263,9 +268,6 @@ IF (A_ComputerName="2-ASUS-EEE")
 IF (A_ComputerName="4-ASUS-GL522VW")
 	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
 ; -------------------------------------------------------------------
-RS232_LOGGER_VAR=0
-RS232_LOGGER_DELAY=0
-OLD_RS232_LOGGER_VAR=0
 ; -------------------------------------------------------------------
 RETURN
 
@@ -282,22 +284,20 @@ RS232_LOGGER_TIMER_CHANGE:
 	FN_VAR:="C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer.txt"
 	IFNOTEXIST, %FN_VAR%
 	{
-		RS232_LOGGER_VAR=0
+		RS232_LOGGER_PIR_VAR=0
 	}
 	ELSE
 	{
-		RS232_LOGGER_VAR=1
+		RS232_LOGGER_PIR_VAR=1
 	}
 
-	IF OLD_RS232_LOGGER_VAR<>%RS232_LOGGER_VAR%
-	IF RS232_LOGGER_VAR=0
-	{
-		RS232_LOGGER_DELAY:=A_Now
-		RS232_LOGGER_DELAY += 1, minutes
-	}
+	IF OLD_RS232_LOGGER_PIR_VAR<>%RS232_LOGGER_PIR_VAR%
+	IF RS232_LOGGER_PIR_VAR=1
+		RS232_LOGGER_PIR_FLICK_ON=TRUE
 	
-	OLD_RS232_LOGGER_VAR=%RS232_LOGGER_VAR%
-	
+	OLD_RS232_LOGGER_PIR_VAR=%RS232_LOGGER_PIR_VAR%
+
+
 	
 	
 	
@@ -308,7 +308,6 @@ RETURN
 
 ; ------------------------------------
 Mouse_Idle_Timer:
-
 
 COUNT_TICK_TIME=% 1000*60*24
 ; TOOLTIP %A_TICKCOUNT% __ %COUNT_TICK_TIME%
@@ -349,7 +348,6 @@ IF (A_ComputerName="8-MSI-GP62M-7RD")
 ;	ALLOW_DIMMER := "False"
 
 GOSUB IS_IN_DAY
-
 
 isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
 if isFullScreen 
@@ -475,6 +473,15 @@ Keyboard_Idle_Timer:
 ; Tooltip % + A_TimeIdle " -- " VAR_A__TimeIdle 
 ;TEST DEBUG ___________
 
+IF RS232_LOGGER_PIR_FLICK_ON=TRUE 
+{
+	RS232_LOGGER_PIR_FLICK_ON=FALSE
+	SoundBeep , 2500 , 100
+	GOSUB, MONITOR_BRIGHTNESS_UP
+	BLANK_DIMMER:= A_Now
+	BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
+}
+
 IF (A_TimeIdle < VAR_A__TimeIdle)
 {
 	;SoundBeep , 2500 , 100
@@ -566,11 +573,9 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	}
 	
 	GOSUB IS_IN_DAY
-	
-	IF RS232_LOGGER_VAR=0
-	IF RS232_LOGGER_DELAY<%A_NOW%
-		IN_DAY=FALSE
 
+	IF RS232_LOGGER_PIR_VAR=0
+		IN_DAY=FALSE
 		
 	IF IN_DAY=TRUE
 		SET_GO=FALSE
