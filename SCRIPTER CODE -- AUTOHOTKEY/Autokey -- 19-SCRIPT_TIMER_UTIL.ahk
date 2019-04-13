@@ -2649,20 +2649,20 @@ IF HWND_1>0
 		
 		
 		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
 		
 		If (!OutputVar_1 
 			and OutputVar_2="Wait for Locks to clear, minutes")
 			{
 				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
+				Control, EditPaste, 20, Edit12, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 
 		}
 		ControlGet, Status, Checked,, Button22, ahk_id %HWND_1%
-		If Status=1
+		If Status=0
 		{
-			Control, UnCheck,, Button22, ahk_id %HWND_1%
+			Control, Check,, Button22, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
 		}
 
@@ -2917,7 +2917,7 @@ IF SET_GO=TRUE
 				; -------------------------------------------------------------
 				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 				SOUNDBEEP 2000,100
-				SLEEP 2000
+				; SLEEP 2000
 
 				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 				If MMX<>-1
