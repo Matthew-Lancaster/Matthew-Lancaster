@@ -2620,13 +2620,13 @@ IF HWND_1>0
 		; }
 		
 		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
 		
 		If (OutputVar_1 <> 80
 			and OutputVar_2="Do not Sync if changed files more than")
 			{
-				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 80,	Edit12, ahk_id %HWND_1%
+				ControlSetText, Edit11,, ahk_id %HWND_1%
+				Control, EditPaste, 80,	Edit11, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 		}
 		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
@@ -2651,7 +2651,7 @@ IF HWND_1>0
 		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
 		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
 		
-		If (!OutputVar_1 
+		If (OutputVar_1 <> 20
 			and OutputVar_2="Wait for Locks to clear, minutes")
 			{
 				ControlSetText, Edit12,, ahk_id %HWND_1%
