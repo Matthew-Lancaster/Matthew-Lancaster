@@ -81,18 +81,18 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 001 ---------------------------------------------------------------
+; SESSION 001
 ; Fri 15 September 2017 01:09:04---- ABOVE WORK BEGINNER
 ; ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 002 ---------------------------------------------------------------
+; SESSION 002
 ; Wed 21 March     2018 02:10:21---- Work to Detect Explorer Was Active ; As it Remains Present When Closed and Minimal Sometimes Error There 
 ; had to be Resolved _ Explorer and Other Program make Quicker Timeout ; Brightness Change _ Few Hour-ing
 ; ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 003 ---------------------------------------------------------------
+; SESSION 003
 ; WORK EXTRA INCLUDE DAY TIME MODE BRIGHTNESS UP
 ; -------------------------------------------------------------------
 ; FROM TIME __ Wed 20-Jun-2018 15:20:52
@@ -100,7 +100,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 004 ---------------------------------------------------------------
+; SESSION 004
 ; WORK _ INCLUDE A BLACK SCREEN ALSO WITH DIM _ SLEEP BETTER AT NIGHT IN ROOM
 ; -------------------------------------------------------------------
 ; FROM TIME __ Tue 03-Jul-2018 22:01:03
@@ -109,7 +109,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 005 ---------------------------------------------------------------
+; SESSION 005
 ; WORK _ ADD DISPLAY OFF WORKING POWER ENERGY SAVER COMBINED WITH BLANK SCREEN
 ; -------------------------------------------------------------------
 ; FROM TIME __ Wed 04-Jul-2018 07:46:36 __ SESSION 01 OF 02
@@ -120,7 +120,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 00* ---------------------------------------------------------------
+; SESSION 00*
 ; MORE WORK _ DEBUG NOT WORK CORRECTLY TIMER AND LATCH 
 ; -------------------------------------------------------------------
 ; FROM TIME __ Wed 04-Jul-2018 22:35:01 _ DEBUG VARIABLE SYNTAX
@@ -128,7 +128,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 007 ---------------------------------------------------------------
+; SESSION 007
 ; MORE WORK _ THE LAST OF THE LATCHING BUGGS SORTED
 ; -------------------------------------------------------------------
 ; FROM TIME __ Thu 05-Jul-2018 10:06:11 _ DEBUG VARIABLE SYNTAX
@@ -136,7 +136,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 008 ---------------------------------------------------------------
+; SESSION 008
 ; MORE WORK _ MY 7-ASUS HAS A DUPLICATE MONITOR SYSTEM AND MONITOR 
 ; POWER LEAVES DUPLICATE MODE SO ONLY BLANK SCREEN USER
 ; -------------------------------------------------------------------
@@ -145,13 +145,31 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 009 ---------------------------------------------------------------
+; SESSION 009
 ; MORE WORK _ FINIAL LOOK AT CODE PROBLEM MONITOR WASN'T COMING OUT OF 
 ; STANDBY AT THE PRESET TIME IN MORNING _ ANSWER WAS TO MOVE A THE MOUSE
 ; A LITTLE BIT-PIXEL AND BACK AGAIN REMARK COMMENTS ARE NEAR CODE
 ; -------------------------------------------------------------------
 ; FROM TIME __ Thu 05-Jul-2018 22:20:55
 ; TO   TIME __ Thu 05-Jul-2018 12:02:00 _ 1 HOUR 42 MINUTE
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; SESSION 010
+; -------------------------------------------------------------------
+; ADD THE RS232 PIR CONTROL 
+; -------------------------------------------------------------------
+; TOOK BIT OF STRESS INTRO AND THEN EASIER THAN THOUGHT 
+; LAST TOOK BIT OF CLEAN TIDIER UP SORT A FEW BUG SEEM TO BE ON
+; JITTER BUG
+; TWO SESSION EARLY HOUR FROM 1 AM TO 5 AM AND THEN MORNING AFTER WAKE AGAIN
+; EARLIER TO POST DELIVERY
+; -------------------------------------------------------------------
+; FROM TIME __ Sat 13-Apr-2019 01:16:44
+; TO   TIME __ Sat 13-Apr-2019 05:14:58 _ 5 HOUR
+; FROM TIME __ Sat 13-Apr-2019 09:08:08
+; TO   TIME __ Sat 13-Apr-2019 11:33:55 _ 2 HOUR 15 MINUTE
 ; -------------------------------------------------------------------
 
 
