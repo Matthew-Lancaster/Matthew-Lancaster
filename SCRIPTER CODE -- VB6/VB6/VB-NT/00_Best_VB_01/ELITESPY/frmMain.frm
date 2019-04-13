@@ -520,7 +520,7 @@ Begin VB.Form frmMain
    Begin VB.Timer Timer_VIRCOP 
       Enabled         =   0   'False
       Left            =   12456
-      Top             =   3468
+      Top             =   3480
    End
    Begin VB.DirListBox Dir1 
       Height          =   528
@@ -581,8 +581,8 @@ Begin VB.Form frmMain
    End
    Begin VB.Timer Timer_1_MINUTE 
       Interval        =   1000
-      Left            =   12804
-      Top             =   3828
+      Left            =   10860
+      Top             =   3348
    End
    Begin VB.ListBox lstProcess_3_SORTER 
       Height          =   276
@@ -10544,7 +10544,29 @@ End Sub
 
 Private Sub Timer_1_MINUTE_Timer()
 
-'Timer_1_MINUTE.Interval = 1000
+If Timer_1_MINUTE.Interval <> 60000 Then
+    Timer_1_MINUTE.Interval = 60000
+End If
+
+'Call RS232_LOGGER
+
+
+End Sub
+
+Sub RS232_LOGGER()
+
+' ------------------------------------------------------------------
+' NEW RS232 LOGGER
+' OUTPUT FROM HERE WILL BE FILE BLOW REM LINE
+' RSR232 DETECT A PIR
+' A FILE IS CREATED WHEN THE PIR FEEL SOMETHING
+' AND WHEN ASK IF NONTHING FILE WILL BE DELETER
+' ------------------------------------------------------------------
+On Error Resume Next
+
+Shell "D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe", vbHide
+
+'Kill "C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer_" + GetComputerName + ".txt"
 
 End Sub
 
