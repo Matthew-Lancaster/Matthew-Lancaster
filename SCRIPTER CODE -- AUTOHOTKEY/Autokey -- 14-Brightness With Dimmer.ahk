@@ -194,7 +194,7 @@ Mouse_Idle = 0
 Mouse_Idle_Flip_Flop_Toggle := "True"
 LastX = 0
 LastY = 0
-VAR_A__TimeIdle = 0
+VAR_A__TimeIdle:=0
 VAR_Z__TimeIdle_1 = 4000
 VAR_Z__TimeIdle_4_DEFAULT = 80000 ; 4 MINUTE
 VAR_Z__TimeIdle_3_FORCE = 2000 
@@ -219,9 +219,11 @@ BLANK_DIMMER_VAR=FALSE
 BLANK_DIMMER_TIME=60*2
 IF (A_ComputerName="4-ASUS-GL522VW")
 	BLANK_DIMMER_TIME=60*5
+
+BLANK_DIMMER_TIME=10
+	
 BLANK_DIMMER:= A_Now
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
-
 
 SoundBeep , 1000 , 100
 SoundBeep , 3000 , 100
@@ -254,6 +256,13 @@ IF (A_ComputerName="4-ASUS-GL522VW")
 	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 2000
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
+	RS232_IDLE_SET_DELAY=1000
+IF (A_ComputerName="2-ASUS-EEE")
+	RS232_IDLE_SET_DELAY=1000
+IF (A_ComputerName="4-ASUS-GL522VW")
+	RS232_IDLE_SET_DELAY=1000
+
+IF (A_ComputerName="1-ASUS-X5DIJ")
 	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
 IF (A_ComputerName="2-ASUS-EEE")
 	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
@@ -283,18 +292,39 @@ RS232_LOGGER_TIMER_CHANGE:
 		RS232_LOGGER_PIR_VAR=1
 	}
 
-	IF OLD_RS232_LOGGER_PIR_VAR<>%RS232_LOGGER_PIR_VAR%
+	; TOOLTIP % RS232_LOGGER_PIR_VAR
+	; TOOLTIP %A_TimeIdle% " -- " %RS232_IDLE_SET_DELAY%
+	
+	IF OLD_RS232_LOGGER_PIR_VAR=%RS232_LOGGER_PIR_VAR%
+	IF RS232_LOGGER_PIR_VAR=1
+		RETURN
+
+	OLD_RS232_LOGGER_PIR_VAR=%RS232_LOGGER_PIR_VAR%
+	
+	; WANT ON -------------------------------------------------------
 	IF RS232_LOGGER_PIR_VAR=1
 	{
-		MouseMove, 1, 1, 50, R
-		MouseMove, -1, -1, 50, R
+		MouseMove, 10, 10, , R
+		MouseMove, -10, -10, , R
 		SoundBeep , 2500 , 100
-		GOSUB, MONITOR_BRIGHTNESS_UP
-		BLANK_DIMMER:= A_Now
-		BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
+		Monitor.SetBrightness(127, 127, 127)
 	}
 	
-	OLD_RS232_LOGGER_PIR_VAR=%RS232_LOGGER_PIR_VAR%
+	IF A_TimeIdle < %RS232_IDLE_SET_DELAY%
+	{
+		RETURN
+	}
+
+	; WANT OFF ------------------------------------------------------
+	IF RS232_LOGGER_PIR_VAR=0
+	{
+
+		; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
+		; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
+		SendMessage, 0x112, 0xF170, 2,, Program Manager
+		SoundBeep , 2500 , 100
+	}
+
 RETURN
 
 
@@ -449,10 +479,15 @@ GetKeyState, state, LButton
 if state = D              
 	ALLOW_DIMMER := "False"
 	; MOUSE BUTTON LEFT HELD DOWN WHEN DRAGGER FOR LONG NOT DETECT BY IDLE ACTIVE UNLESS SWITCH
- 
- 
+
+
+	
 ;#-------------------------------
-If (A_TimeIdle > VAR_Z__TimeIdle and ALLOW_DIMMER = "True")
+SET_GO=FALSE
+If (A_TimeIdle > %VAR_Z__TimeIdle% and ALLOW_DIMMER = "True")
+	SET_GO=TRUE
+	
+IF SET_GO=TRUE
 {
 	VAR_Z__TimeIdle = %VAR_Z__TimeIdle_2%
 	GOSUB, MONITOR_BRIGHTNESS_DIM
@@ -467,7 +502,9 @@ Keyboard_Idle_Timer:
 ;TEST DEBUG ___________
 
 
-IF (A_TimeIdle < VAR_A__TimeIdle)
+TOOLTIP %A_TimeIdle% " -- " %VAR_A__TimeIdle%
+		
+IF A_TimeIdle < %VAR_A__TimeIdle%
 {
 	;SoundBeep , 2500 , 100
 	;TEST DEBUG ___________
@@ -477,14 +514,15 @@ IF (A_TimeIdle < VAR_A__TimeIdle)
 	BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
 }
-VAR_A__TimeIdle = %A_TimeIdle%
+VAR_A__TimeIdle=A_TimeIdle
 
 ; A_TimeIdle - SHOW TIME SINCE LAST KEYBOARD OR MOUSE IN MILLISECOND
 ; THE DETECT IS IF LOWER THAN
 ; ---------------------------
 
+RETURN
 
-return
+
 
 ; ------------------------------------------------------------------
 MONITOR_BRIGHTNESS_DIM:
@@ -516,8 +554,8 @@ If (Mouse_Idle_Flip_Flop_Toggle = "True")
 	SetTimer,Mouse_Idle_Timer, 1000
 	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
 	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
-	; SendMessage, 0x112, 0xF170, 0,, Program Manager
-	SendMessage, 0x112, 0xF170, -1,, Program Manager
+	SendMessage, 0x112, 0xF170, 0,, Program Manager
+	; SendMessage, 0x112, 0xF170, -1,, Program Manager
 
 	Gui, HIDE
 	Mouse_Idle_Flip_Flop_Toggle := "False"
@@ -544,7 +582,7 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 
 	IF SET_GO=FALSE
 		RETURN
-
+		
 	IF A_NOW<%BLANK_DIMMER%
 	{
 		BLANK_DIMMER_VAR=TRUE
@@ -560,15 +598,9 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	}
 	
 	GOSUB IS_IN_DAY
-
-	IF RS232_LOGGER_PIR_VAR=0
-		IN_DAY=FALSE
 		
 	IF IN_DAY=TRUE
 		SET_GO=FALSE
-	
-	
-	
 	
 	
 	; TOOLTIP % IN_DAY " __ " 
