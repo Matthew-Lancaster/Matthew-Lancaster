@@ -157,6 +157,8 @@ SetTitleMatchMode 3  ; EXACTLY
 
 SoundBeep , 2000 , 100
 
+SETTIMER TIMER_RS232_LOGGER_WITH_BRIGTHNESS_CONTROLLER,1000
+
 ;--------------------------------------------------------------------
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
@@ -183,7 +185,6 @@ DATE_MOD_Array := []
 
 Element_3 := 
 Element_4 := 
-
 
 ArrayCount := 0
 
@@ -375,6 +376,20 @@ RETURN
 ; -------------------------------------------------------------------
 
 
+TIMER_RS232_LOGGER_WITH_BRIGTHNESS_CONTROLLER:
+
+DHW := A_DetectHiddenWindows
+DetectHiddenWindows, On
+
+IFWinExist Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk ahk_class #32770
+	MSGBOX HH
+
+DetectHiddenWindows, % DHW
+
+RETURN
+
+
+
 
 TIMER_SUB_HUBIC_LAUNCHER_DELETER:
 
@@ -389,10 +404,7 @@ RETURN
 
 
 
-
 TIMER_SUB_FileZilla_Server:
-
-
 
 IfWinNotExist, AHK_CLASS FileZilla Server Main Window
 {
@@ -628,10 +640,10 @@ return
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
-	dhw := A_DetectHiddenWindows
+	DHW := A_DetectHiddenWindows
 	DetectHiddenWindows, On
 	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % dhw
+	DetectHiddenWindows, % DHW
 	return (match > 1)
 	}
 Return
