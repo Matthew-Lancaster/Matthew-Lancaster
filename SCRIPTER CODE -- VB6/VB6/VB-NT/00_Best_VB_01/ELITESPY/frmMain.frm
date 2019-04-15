@@ -579,7 +579,7 @@ Begin VB.Form frmMain
       Visible         =   0   'False
       Width           =   1128
    End
-   Begin VB.Timer Timer_1_MINUTE 
+   Begin VB.Timer Timer_1_SECOND 
       Interval        =   1000
       Left            =   10860
       Top             =   3348
@@ -2167,15 +2167,17 @@ Attribute VB_Exposed = False
 ' Tue 23-Oct-2018 14:40:00 _ 4 HOUR WORK
 ' -------------------------------------------------------------------------------------
 
+Option Explicit
+
 
 Dim LISTVIEW_2_OR_3_HITT
 
-'
 'JOB TO CORRECT HERE _ __ 'NOT DOING MY RUNAS PROPER
 
 Public EXIT_TRUE
 
-Option Explicit
+
+Dim OLD_FD As String
 
 Dim picCrossHair_MouseMove_Dragging_VAR
 
@@ -4113,6 +4115,8 @@ Private Sub mnu_Telephone_BT_07722224555_Click()
 mnu_Telephone_BT_07722224555.Visible = False
 MNU_MATT_LAN_BTINTERNET_COM.Visible = False
 End Sub
+
+
 
 Private Sub TIMER_TO_RESIZE_Timer()
     TIMER_TO_RESIZE.Enabled = False
@@ -10542,14 +10546,43 @@ Me.WindowState = vbMinimized
 
 End Sub
 
-Private Sub Timer_1_MINUTE_Timer()
 
-If Timer_1_MINUTE.Interval <> 60000 Then
-    Timer_1_MINUTE.Interval = 60000
+
+Private Sub Timer_1_SECOND_Timer()
+
+Dim FN1, FN2, F1, F2, FD1, FD2, DATESET As Date, XX
+
+FN1 = "C:\Users\" + GetUserName + "\AppData\Roaming\Logitech\SetPoint\user.xml"
+FN2 = "C:\SCRIPTER\SYNC_FOLDER_1\##_0005\user.xml"
+If FS.FileExists(FN1) = True And FS.FileExists(FN2) = True Then
+    Set F1 = FS.GetFile(FN1)
+    Set F2 = FS.GetFile(FN2)
+    FD1 = F1.DateLastModified
+    If OLD_FD <> "" Then
+        If InStr(OLD_FD, Format(FD1, "YYY-MM-DD HH-MM-SS")) = 0 Then
+            FD1 = F1.DateLastModified - TimeSerial(0, 1, 0)
+            DATESET = FD1
+            TT = SetFileDateTime(FN1, DATESET)
+            DATESET = F2.DateLastModified - TimeSerial(0, 2, 0)
+            TT = SetFileDateTime(FN2, DATESET)
+        End If
+    End If
+    If InStr(OLD_FD, Format(FD1, "YYY-MM-DD HH-MM-SS")) = 0 Then
+        OLD_FD = OLD_FD + " ---- " + Format(FD1, "YYY-MM-DD HH-MM-SS")
+    End If
+    If Len(OLD_FD) > 800 Then
+        XX = Len(OLD_FD) - 800
+        If XX < 1 Then XX = 1
+        OLD_FD = Mid(OLD_FD, XX)
+    End If
 End If
 
-'Call RS232_LOGGER
+'
+'If Timer_1_MINUTE.Interval <> 60000 Then
+'    Timer_1_MINUTE.Interval = 60000
+'End If
 
+'Call RS232_LOGGER
 
 End Sub
 
