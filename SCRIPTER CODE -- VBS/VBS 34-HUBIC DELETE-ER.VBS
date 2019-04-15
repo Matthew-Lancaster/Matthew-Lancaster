@@ -420,10 +420,19 @@ Sub DisplayFindings_4()
 		' MSGBOX VAR_PATH_SCANNER
 		
 		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
+			ON ERROR RESUME NEXT
+			ERR.CLEAR
 			Set f = fso.GetFile(VAR_PATH_SCANNER)
+			FileModDate=0
 			FileModDate = f.DateLastModified
+			FileCreateDate = 0
 			FileCreateDate = f.DateCreated 
 			SET f=NOTHING
+			IF ERR.NUMBER>0 THEN 
+				FileModDate=0
+				FileCreateDate = 0
+			END IF
+			ON ERROR GOTO 0
 			IF FileCreateDate+DELETE_FILE_TIME_SPAN<NOW THEN 
 				' MSGBOX VAR_PATH_SCANNER
 				ON ERROR RESUME NEXT
