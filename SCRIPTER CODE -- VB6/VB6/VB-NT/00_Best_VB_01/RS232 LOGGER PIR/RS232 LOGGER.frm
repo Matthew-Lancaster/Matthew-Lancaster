@@ -2,7 +2,7 @@ VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSComm32.Ocx"
 Begin VB.Form DIALER 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Comm Port 4"
+   Caption         =   "RS232_LOGGER"
    ClientHeight    =   3228
    ClientLeft      =   10056
    ClientTop       =   300
@@ -14,9 +14,15 @@ Begin VB.Form DIALER
    ScaleHeight     =   3228
    ScaleWidth      =   11352
    ShowInTaskbar   =   0   'False
+   StartUpPosition =   2  'CenterScreen
    Visible         =   0   'False
    WhatsThisHelp   =   -1  'True
    WindowState     =   1  'Minimized
+   Begin VB.Timer Timer2 
+      Interval        =   1000
+      Left            =   1956
+      Top             =   1140
+   End
    Begin VB.PictureBox RichTextBox1 
       Height          =   735
       Left            =   2964
@@ -47,7 +53,7 @@ Begin VB.Form DIALER
       Width           =   1428
    End
    Begin VB.Timer Timer1 
-      Interval        =   20
+      Interval        =   1000
       Left            =   1860
       Top             =   720
    End
@@ -96,6 +102,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Public cProcesses As New clsCnProc
+Dim OLD_VAR_DSR
 Private Const MONITOR_ON = -1&
 Private Const MONITOR_OFF = 2&
 Private Const SC_MONITORPOWER = &HF170&
@@ -108,6 +116,30 @@ Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As Stri
 
 Private Sub Form_Load()
 
+If App.PrevInstance = True Then End
+
+'KILL ITSELF IN __.EXE KILL SOFTLY
+'WHILE ISIDE LEARN
+'---------------------------------
+Dim VAR, PID As Long
+If IsIDE = True Then
+    PID = -1
+    VAR = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
+    If PID <> -1 Then
+        'Call Process_HIGH_PRIORITY_CLASS(PID)
+        VAR = cProcesses.Process_Kill(PID)
+        Beep
+        End
+    End If
+End If
+
+OLD_VAR_DSR = -10
+
+End Sub
+
+
+Sub TIMER2_TIMER()
+
 On Error Resume Next
 For R = 1 To 16
     Err.Clear
@@ -115,14 +147,47 @@ For R = 1 To 16
     Me.MSComm3.Settings = "1200,N,8,1"
     Me.MSComm3.PortOpen = True
     Me.MSComm3.DTREnable = True
+
     VAR_DSR = Me.MSComm3.DSRHolding
     
     If Err.Number <> 8002 Then
         Exit For
     End If
 Next
+If Err.Number = 0 Then
+    Timer2.Enabled = False
+End If
 
+' --------------------------------------
+' NONE COMM PORT ALL 16 TESTER
+' LEAVE HIGH TO KEEP LIGHT FOR SCREEN ON
+' --------------------------------------
+If R = 17 Then VAR_DSR = 1
+
+End Sub
+
+
+Private Sub Timer1_Timer()
+        
 Dim FSO
+
+VAR_DSR = Me.MSComm3.DSRHolding
+If Err.Number > 0 Then
+    Timer2.Enabled = True
+    VAR_DSR = 1
+End If
+
+If OLD_VAR_DSR = VAR_DSR Then Exit Sub
+
+If Err.Number = 8002 Then
+    VAR_DSR = 1
+End If
+If Err.Number > 0 Then
+    VAR_DSR = 1
+End If
+
+OLD_VAR_DSR = VAR_DSR
+
 Set FSO = CreateObject("Scripting.FileSystemObject")
 
 
@@ -156,17 +221,6 @@ Else
         Kill FILE_NAME
     Next
 End If
-
-
-
-
-
-' Flush the input buffer.
-' MSComm2.InBufferCount = 0
-'Ci.MSComm2.InputLen = 1
-    
-
-End
 
 End Sub
 
@@ -239,4 +293,16 @@ Public Function CreateFolderTree(ByVal sPath As String) As Boolean
 CreateFolderTreeError:
     Exit Function
 End Function
+
+'***********************************************
+'# Check, whether we are in the IDE
+Function IsIDE() As Boolean
+  'IsIDE = False
+  'Exit Function
+  Debug.Assert Not TestIDE(IsIDE)
+End Function
+Private Function TestIDE(Test As Boolean) As Boolean
+  Test = True
+End Function
+'***********************************************
 
