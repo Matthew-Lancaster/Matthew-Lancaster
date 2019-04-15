@@ -103,7 +103,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Public cProcesses As New clsCnProc
-Dim OLD_VAR_DSR
+Dim OLD_VAR_DSR, VAR_DSR
 Private Const MONITOR_ON = -1&
 Private Const MONITOR_OFF = 2&
 Private Const SC_MONITORPOWER = &HF170&
@@ -135,6 +135,10 @@ End If
 
 OLD_VAR_DSR = -10
 
+Call TIMER2_TIMER
+
+Me.Visible = True
+
 End Sub
 
 
@@ -155,7 +159,7 @@ For R = 1 To 16
     End If
 Next
 If Err.Number = 0 Then
-    Timer2.Enabled = False
+     Timer2.Enabled = False
 End If
 
 ' --------------------------------------
@@ -177,14 +181,14 @@ If Err.Number > 0 Then
     VAR_DSR = 1
 End If
 
-If OLD_VAR_DSR = VAR_DSR Then Exit Sub
-
 If Err.Number = 8002 Then
     VAR_DSR = 1
 End If
 If Err.Number > 0 Then
     VAR_DSR = 1
 End If
+
+If OLD_VAR_DSR = VAR_DSR Then Exit Sub
 
 OLD_VAR_DSR = VAR_DSR
 
@@ -195,11 +199,9 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 ' Debug.Print Str(R) + " -- " + Str(VAR_DSR)
 
 Dim AR(3)
-For R = 1 To 3
-    AR(1) = "\\1-asus-x5dij\1_asus_x5dij_01_c_drive"
-    AR(2) = "\\2-asus-eee\2_asus_eee_01_c_drive"
-    AR(3) = "\\4-asus-gl522vw\4_asus_gl522vw_01_c_drive"
-Next
+AR(1) = "\\1-asus-x5dij\1_asus_x5dij_01_c_drive"
+AR(2) = "\\2-asus-eee\2_asus_eee_01_c_drive"
+AR(3) = "\\4-asus-gl522vw\4_asus_gl522vw_01_c_drive"
 
 On Error Resume Next
 If VAR_DSR = True Then
