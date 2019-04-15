@@ -455,7 +455,10 @@ for /L %%a in (1,1,!LDA!) do (
 	@if !errorlevel!==0 SET Analysis_Complete=TRUE
 	@REM Sync: Running: ____ DOESN'T APPEAR TO SHOW ALWAYS OR ANYMORE _ CHANGE TO NEXT ONE __ Sync Complete.
 	@find "Sync: Running:" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@if !errorlevel!==0 (
+		SET Sync_Runner=TRUE
+		SET Analysis_Complete=TRUE
+	)
 	@REM == Sync Complete.
 	@find "== Sync Complete." !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Sync_Runner=TRUE
