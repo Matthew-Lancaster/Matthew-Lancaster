@@ -2,6 +2,7 @@ Type=Exe
 Form=RS232 LOGGER.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Object={648A5603-2C6E-101B-82B6-000000000014}#1.1#0; MSComm32.Ocx
+Class=clsCnProc; Process Info, Traversal & Conversion\clsCnProc.cls
 IconForm="DIALER"
 Startup="DIALER"
 HelpFile=""
@@ -31,6 +32,3 @@ Unattended=0
 Retained=0
 ThreadPerObject=0
 MaxNumberOfThreads=1
-
-[MS Transaction Server]
-AutoRefresh=1
