@@ -295,6 +295,11 @@ RETURN
 RS232_LOGGER_TIMER_RUN_EXE:
 	
 	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe"
+	Style_X=-2
+	IFWINEXIST RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
+	WinGet Style_X, MinMax,RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
+	msgbox % Style_X
+	IF Style_X<>1
 	IFWINNOTEXIST RS232_LOGGER ahk_class ThunderFormDC
 	IFEXIST, %FN_VAR%
 	{
