@@ -414,6 +414,14 @@ Sub DisplayFindings_4()
     Dim oKeys, oKey
     oKeys = oDict_2.Keys
     For Each oKey In oKeys
+		' -----------------------------------------------------------
+		' ERROR TRAP REQUIRE ON THIS LINE
+		' WHY MESSENGER TALK -- FILE NOT FOUND
+		' VAR_PATH_SCANNER=oKey
+		' [ Wednesday 20:51:40 Pm_17 April 2019 ]
+		' -----------------------------------------------------------
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
 		VAR_PATH_SCANNER=oKey
 		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 		
