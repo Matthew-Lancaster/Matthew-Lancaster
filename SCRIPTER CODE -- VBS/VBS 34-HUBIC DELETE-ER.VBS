@@ -429,6 +429,13 @@ Sub DisplayFindings_4()
 			FileCreateDate = f.DateCreated 
 			SET f=NOTHING
 			IF ERR.NUMBER>0 THEN 
+				' ---------------------------------------------------
+				' A ERROR HAPPEN HERE FileCreateDate = f.DateCreated 
+				' ERROR RETURN CODE WAS FILE NOT FOUND
+				' PROBABLY DELETE FROM ANOTHER OPERATION
+				' PUT SOME ERROR LEVEL TRAP ON
+				' [ Monday 15:00:50 Pm_15 April 2019 ]
+				' ---------------------------------------------------
 				FileModDate=0
 				FileCreateDate = 0
 			END IF
