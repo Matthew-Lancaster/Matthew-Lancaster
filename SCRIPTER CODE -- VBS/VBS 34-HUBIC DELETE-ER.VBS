@@ -465,11 +465,13 @@ Sub DisplayFindings_4()
 		IF SET_GO=TRUE THEN 
 			IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
 				IF FolderEmpty(VAR_PATH_SCANNER) THEN
+					ON ERROR RESUME NEXT
+					ERR.CLEAR
 					Set f = fso.GetFolder(VAR_PATH_SCANNER)
 					FolderModDate = f.DateLastModified
 					FolderCreateDate = f.DateCreated 
 					SET f=NOTHING
-					IF FolderCreateDate+DELETE_FOLDER_TIME_SPAN<NOW THEN 
+					IF ERR.NUMBER=0 AND FolderCreateDate+DELETE_FOLDER_TIME_SPAN<NOW THEN 
 						' MSGBOX VAR_PATH_SCANNER
 						ON ERROR RESUME NEXT
 						ERR.CLEAR
