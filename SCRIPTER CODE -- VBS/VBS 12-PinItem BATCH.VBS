@@ -629,9 +629,10 @@ If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 	ARRAY_1(I)=REPLACE(UCASE(ARRAY_1(I)), "\PROGRAM FILES (X86)\","\PROGRAM FILES\")
 END IF
 
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MIKSOFT\Mobile Media Converter\mmc.exe"
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MIKSOFT\Mobile Media Converter\mmc.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MIKSOFT\Mobile Media Converter\mmc.exe"
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 
