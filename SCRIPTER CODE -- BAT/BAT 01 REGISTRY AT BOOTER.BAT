@@ -1442,7 +1442,6 @@ reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseThreshold1" /t REG_SZ /d "6"
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseThreshold2" /t REG_SZ /d "10"
 ECHO ON
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSpeed" /t REG_SZ /d "1"
-PAUSE
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSensitivity" /t REG_SZ /d "4"
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "SnapToDefaultButton" /t REG_SZ /d "0"
 @REM ------------------------------------
