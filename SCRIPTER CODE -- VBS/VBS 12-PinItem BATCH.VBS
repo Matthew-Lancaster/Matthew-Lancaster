@@ -105,8 +105,8 @@ DIM objShell
 DIM objFSO
 DIM LINK_SET_STRING
 DIM APPDATA_FOLDER_FILE_COUNT_VAR_1
-DIM ARRAY_1(200)
-DIM ARRAY_2(200)
+DIM ARRAY_1(280)
+DIM ARRAY_2(280)
 
 Set objShell = Wscript.CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
@@ -216,7 +216,7 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 		END IF
 	END IF
 	
-	'PUT THE CASE CONVERSTION BACK RESTORE
+	' PUT THE CASE CONVERSION BACK RESTORE
 	IF UCASE(HOLDER_VAR) = UCASE(ARRAY_1(R_SET_1)) THEN
 		ARRAY_1(R_SET_1)=HOLDER_VAR
 	END IF
@@ -231,9 +231,11 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 NEXT
 '-------------------------------------
 
-If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
-	ARRAY_1(I)="C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
-END IF
+' If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	' ARRAY_1(I)="C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
+' END IF
+
+
 
 
 
@@ -630,7 +632,7 @@ If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 END IF
 
 
-I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MIKSOFT\Mobile Media Converter\mmc.exe"
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 
