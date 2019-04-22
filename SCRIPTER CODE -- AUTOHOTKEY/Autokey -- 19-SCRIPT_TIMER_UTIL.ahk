@@ -294,9 +294,13 @@ IF OSVER_N_VAR=WIN_XP
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
-setTimer TIMER_SUB_1,200
+setTimer TIMER_SUB_1,400
 
 setTimer TIMER_SUB_EliteSpy, OFF
+
+GLOBAL GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2
+GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2=0
+setTimer TIMER_SUB_GOODSYNC2GO,5000
 
 setTimer TIMER_SUB_GOODSYNC,5000
 setTimer TIMER_SUB_GOODSYNC_OPTIONS,1000
@@ -370,7 +374,7 @@ SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
 SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
 SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
 
-SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
+SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 400
 
 SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
 
@@ -2087,6 +2091,7 @@ UniqueID := WinActive("mysms - Google Chrome")
 IF UniqueID=0
 	OLD_UniqueID_MYSMS=0
 ; tooltip % OLD_UniqueID_MYSMS
+UniqueID = 0
 IF UniqueID>0 
 	IfWinExist ahk_id %UniqueID%
 	{
@@ -2864,6 +2869,90 @@ IF HWND_1>0
 }
 DetectHiddenWindows, % dhw
 Return
+
+
+
+TIMER_SUB_GOODSYNC2GO:
+;--------------------------------------------------------------------
+;setTimer TIMER_SUB_GOODSYNC, OFF
+dhw := A_DetectHiddenWindows
+DetectHiddenWindows, OFF
+SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+
+
+; GET GOODSYNC HANDLE AND THEN CHECK IF CHANGE DUE TO UPDATE HAPPEN
+; IF HAS AND THEN MINIMIZE ON CERTAIN COMPUTER
+; -------------------------------------------------------------------
+DetectHiddenWindows, ON
+SET_GO=TRUE
+IF A_ComputerName=1-ASUS-X5DIJ
+	SET_GO=TRUE
+IF A_ComputerName=2-ASUS-EEE
+	SET_GO=TRUE
+IF A_ComputerName=3-LINDA-PC
+	SET_GO=TRUE
+IF A_ComputerName=4-ASUS-GL522VW
+	SET_GO=TRUE
+IF A_ComputerName=5-ASUS-P2520LA
+	SET_GO=TRUE
+	
+IF SET_GO=TRUE
+{
+				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+				TOOLTIP % MMX
+
+
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+
+	IF HWND_1>0 
+	{
+		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2 <> %HWND_1%
+		{
+			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+			; IF A_ComputerName=2-ASUS-EEE
+				; If MMX<>-1
+					; MSGBOX % MMX 
+			
+			If MMX<>-1
+			{
+				; -------------------------------------------------------------
+				; IF A_ComputerName=2-ASUS-EEE
+				; -------------------------------------------------------------
+				; OF HERE LOW THE END EEE ON WIN-XP IT DOESN'T TAKE THE REQUEST 
+				; TO MINIMIZE AS ONE COMMAND
+				; AND HAS TO REPEAT UNTIL DONE IT
+				; EXAMPLE LEFT WITH WINDOW UP IN MAXIMUM AND NOT ISSUE IT COMMAND TO DO MINIMIZED
+				; UNTIL REPEAT UNTIL FEW TIME AND THEN STOP
+				; [ Thursday 14:05:20 Pm_14 March 2019 ]
+				; -------------------------------------------------------------
+				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+				SOUNDBEEP 2000,100
+				; SLEEP 2000
+
+				LOOP, 4000
+				{
+				SLEEP 10
+				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+				TOOLTIP % MMX
+				If MMX<>-1
+				{
+					HWND_1=0
+					BREAK
+				}
+				}
+				
+			}
+		}
+
+		; ------------------------------------------------------------------------
+		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
+		; ------------------------------------------------------------------------
+		
+		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2 = %HWND_1%
+	}
+}
+
+RETURN
 
 ;--------------------------------------------------------------------
 TIMER_SUB_GOODSYNC:
