@@ -281,7 +281,7 @@ If VAR_DSR_3 = True Then
     For R = 1 To UBound(AR)
         FOLDER_NAME = AR(R) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
         FILE_NAME = FOLDER_NAME + "\Autokey -- 14-Brightness With Dimmer.txt"
-        If FSO.FILEExists(FILE_NAME) = FLASE Then
+        If FSO.FILEExists(FILE_NAME) = False Then
             If FSO.FOLDERExists(FOLDER_NAME) = False Then
                 RESULT = CreateFolderTree(FOLDER_NAME)
             End If
@@ -347,7 +347,7 @@ If VAR_DSR_4 = True Then
         DOOR_OPEN_HAPPEN = True
         FOLDER_NAME = AR(1) + "\SCRIPTOR DATA\" + PATH_2
         FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_2
-        If FSO.FILEExists(FILE_NAME) = FLASE Then
+        If FSO.FILEExists(FILE_NAME) = False Then
             If FSO.FOLDERExists(FOLDER_NAME) = False Then
                 RESULT = CreateFolderTree(FOLDER_NAME)
             End If
