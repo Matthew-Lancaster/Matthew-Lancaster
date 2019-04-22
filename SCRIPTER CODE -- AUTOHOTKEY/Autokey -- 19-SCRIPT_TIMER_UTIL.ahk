@@ -298,10 +298,12 @@ setTimer TIMER_SUB_1,400
 
 setTimer TIMER_SUB_EliteSpy, OFF
 
-GLOBAL GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2
-GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2=0
+GLOBAL GOODSYNC2GO_HWND
+GOODSYNC2GO_HWND=0
 setTimer TIMER_SUB_GOODSYNC2GO,5000
 
+GLOBAL GOODSYNC_HWND
+GOODSYNC_HWND=0
 setTimer TIMER_SUB_GOODSYNC,5000
 setTimer TIMER_SUB_GOODSYNC_OPTIONS,1000
 
@@ -2876,9 +2878,7 @@ TIMER_SUB_GOODSYNC2GO:
 ;--------------------------------------------------------------------
 ;setTimer TIMER_SUB_GOODSYNC, OFF
 dhw := A_DetectHiddenWindows
-DetectHiddenWindows, OFF
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-
 
 ; GET GOODSYNC HANDLE AND THEN CHECK IF CHANGE DUE TO UPDATE HAPPEN
 ; IF HAS AND THEN MINIMIZE ON CERTAIN COMPUTER
@@ -2898,20 +2898,23 @@ IF A_ComputerName=5-ASUS-P2520LA
 	
 IF SET_GO=TRUE
 {
-				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-				TOOLTIP % MMX
-
-
 	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-
+	
 	IF HWND_1>0 
 	{
-		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2 <> %HWND_1%
+		If GOODSYNC2GO_HWND = 0
 		{
 			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-			; IF A_ComputerName=2-ASUS-EEE
-				; If MMX<>-1
-					; MSGBOX % MMX 
+			If MMX=-1
+			{
+				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+				GOODSYNC2GO_HWND=%HWND_1%
+			}
+		}
+
+		If GOODSYNC2GO_HWND <> %HWND_1%
+		{
+			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 			
 			If MMX<>-1
 			{
@@ -2928,27 +2931,32 @@ IF SET_GO=TRUE
 				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 				SOUNDBEEP 2000,100
 				; SLEEP 2000
-
-				LOOP, 4000
-				{
-				SLEEP 10
-				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-				TOOLTIP % MMX
-				If MMX<>-1
-				{
-					HWND_1=0
-					BREAK
-				}
-				}
 				
+				LOOP, 10000
+				{
+					SLEEP 10
+					WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+					If MMX=-1
+					{
+						WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+						GOODSYNC2GO_HWND=%HWND_1%
+						; -------------------------------------------
+						; LONG VAR NAME WASN'T LIKE SO HERE REDUCED
+						; AFTER STORE %HWND_1% IN GOODSYNC2GO_HWND AND THEN LATER
+						; %HWND_1% LOSS'S IT VALUE
+						; LONG TIME SORT THAT ONE
+						; -------------------------------------------
+						BREAK
+					}
+				}
 			}
-		}
+			If MMX=-1
+			{
+				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+				GOODSYNC2GO_HWND=%HWND_1%
+			}
 
-		; ------------------------------------------------------------------------
-		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
-		; ------------------------------------------------------------------------
-		
-		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE_2 = %HWND_1%
+		}
 	}
 }
 
@@ -2985,12 +2993,18 @@ IF SET_GO=TRUE
 
 	IF HWND_1>0 
 	{
-		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
+		If GOODSYNC_HWND = 0
 		{
 			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			; IF A_ComputerName=2-ASUS-EEE
-				; If MMX<>-1
-					; MSGBOX % MMX 
+			If MMX=-1
+			{
+				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+				GOODSYNC_HWND=%HWND_1%
+			}
+		}
+		If GOODSYNC_HWND <> %HWND_1%
+		{
+			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			
 			If MMX<>-1
 			{
@@ -3008,11 +3022,28 @@ IF SET_GO=TRUE
 				SOUNDBEEP 2000,100
 				; SLEEP 2000
 
-				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-				If MMX<>-1
+				LOOP, 10000
 				{
-					HWND_1=0
+					SLEEP 10
+					WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+					If MMX=-1
+					{
+						WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+						GOODSYNC_HWND=%HWND_1%
+						; -------------------------------------------
+						; LONG VAR NAME WASN'T LIKE SO HERE REDUCED
+						; AFTER STORE %HWND_1% IN GOODSYNC_HWND AND THEN LATER
+						; %HWND_1% LOSS'S IT VALUE
+						; LONG TIME SORT THAT ONE
+						; -------------------------------------------
+						BREAK
+					}
 				}
+			}
+			If MMX=-1
+			{
+				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+				GOODSYNC_HWND=%HWND_1%
 			}
 		}
 

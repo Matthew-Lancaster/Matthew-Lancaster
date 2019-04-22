@@ -3184,6 +3184,8 @@ End Sub
 
 Sub VB_EXE_SYNC()
 
+Exit Sub
+
 Dim R, A1, A2
 Dim TxtEXE_INFO, X1_F
 Dim F1, F2
@@ -3672,10 +3674,10 @@ If NET_COPY_CHANGE_HAPPENER = True Then
     
     'REMOVE ListView
     'If ListView_VB_MODIFIED_ERROR.ListItems.Count > 1 Then
-        'ListView_VB_MODIFIED_ERROR.ListItems.Remove (1)
-        ListView_VB_MODIFIED_ERROR.ListItems(1).Text = Replace(ListView_VB_MODIFIED_ERROR.ListItems(1).Text, " _ ", " ")
-        ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(1) = Format(Now, "DDD DD-MMM-YYYY HH:MM:SS AM/PM")
-        ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(2) = ""
+    'ListView_VB_MODIFIED_ERROR.ListItems.Remove (1)
+    ListView_VB_MODIFIED_ERROR.ListItems(1).Text = Replace(ListView_VB_MODIFIED_ERROR.ListItems(1).Text, " _ ", " ")
+    ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(1) = Format(Now, "DDD DD-MMM-YYYY HH:MM:SS AM/PM")
+    ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(2) = ""
 
     'End If
     NET_COPY_CHANGE_HAPPENER = False

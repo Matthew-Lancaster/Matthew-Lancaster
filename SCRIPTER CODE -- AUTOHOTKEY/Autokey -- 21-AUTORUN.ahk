@@ -1157,8 +1157,6 @@ IF SET_GO_1=1
 		IfExist, %FN_VAR%
 		{
 			SoundBeep , 2500 , 100
-			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
 			Run, "%FN_VAR%" 
 		}
 	}

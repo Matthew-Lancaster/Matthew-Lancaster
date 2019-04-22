@@ -1,15 +1,32 @@
 VERSION 5.00
 Begin VB.Form Form1 
-   BackColor       =   &H80000016&
+   BackColor       =   &H00808080&
    Caption         =   "FormMODIFY DATE AS CREATED DATE1"
-   ClientHeight    =   6135
+   ClientHeight    =   6552
    ClientLeft      =   60
-   ClientTop       =   645
-   ClientWidth     =   10710
+   ClientTop       =   648
+   ClientWidth     =   10716
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6135
-   ScaleWidth      =   10710
+   ScaleHeight     =   6552
+   ScaleWidth      =   10716
    StartUpPosition =   2  'CenterScreen
+   Begin VB.Label Label12 
+      Caption         =   "SET OLDER 1ST DATE TO ALL OTHER IN FOLDER"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   588
+      Left            =   108
+      TabIndex        =   11
+      Top             =   4752
+      Width           =   9696
+   End
    Begin VB.Label Label11 
       Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
       BeginProperty Font 
@@ -21,27 +38,27 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   585
-      Left            =   120
+      Height          =   588
+      Left            =   108
       TabIndex        =   10
-      Top             =   3990
-      Width           =   9645
+      Top             =   3552
+      Width           =   9648
    End
    Begin VB.Label Label10 
       Caption         =   "FILE LABEL10"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   525
-      Left            =   105
+      Height          =   528
+      Left            =   108
       TabIndex        =   9
-      Top             =   1305
+      Top             =   1200
       Width           =   10500
    End
    Begin VB.Label Label9 
@@ -55,11 +72,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   585
-      Left            =   120
+      Height          =   588
+      Left            =   108
       TabIndex        =   8
-      Top             =   3345
-      Width           =   9645
+      Top             =   2952
+      Width           =   9648
    End
    Begin VB.Label Label8 
       Caption         =   "SET ONE DATE HARDCODED"
@@ -72,11 +89,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   585
-      Left            =   105
+      Height          =   588
+      Left            =   108
       TabIndex        =   7
-      Top             =   4695
-      Width           =   6345
+      Top             =   4152
+      Width           =   6348
    End
    Begin VB.Label Label7 
       BackColor       =   &H00C0FFC0&
@@ -111,27 +128,27 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   585
-      Left            =   75
+      Height          =   588
+      Left            =   108
       TabIndex        =   4
-      Top             =   5340
+      Top             =   5352
       Width           =   10500
    End
    Begin VB.Label Label4 
       Caption         =   "FOLDER LABEL4"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   525
-      Left            =   105
+      Height          =   528
+      Left            =   108
       TabIndex        =   3
-      Top             =   735
+      Top             =   660
       Width           =   10500
    End
    Begin VB.Label Label3 
@@ -162,10 +179,10 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   585
-      Left            =   90
+      Height          =   588
+      Left            =   108
       TabIndex        =   1
-      Top             =   2640
+      Top             =   2352
       Width           =   9660
    End
    Begin VB.Label Label1 
@@ -179,11 +196,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   585
-      Left            =   105
+      Height          =   588
+      Left            =   108
       TabIndex        =   0
-      Top             =   1950
-      Width           =   4110
+      Top             =   1740
+      Width           =   4116
    End
    Begin VB.Menu MNU_VB_ME 
       Caption         =   "VB ME"
@@ -398,6 +415,10 @@ App.Title = "#0 Send To Modify Date With Menu"
 Me.Caption = App.Title
 
 If FSO.FolderExists(W$) = False Then
+    W$ = Clipboard.GetText
+End If
+
+If FSO.FolderExists(W$) = False Then
     If CONVET_FOLDER = True Then
         MsgBox "Not Proper Folder Given" + vbCrLf + vbCrLf + "Command$ = " + vbCrLf + Command$ + vbCrLf + vbCrLf + "Convert File to Folder = " + vbCrLf + vbCrLf + W$, vbMsgBoxSetForeground
         End
@@ -478,6 +499,68 @@ Next
 
 MsgBox "Done = " + vbCrLf + str(XC) '+dd$
 End
+
+
+End Sub
+
+Sub FILE_OLDER_TO_ALL_OTHER_MODIFIED_TIME()
+
+Dim DT1 As Date
+Dim DS2 As Date
+
+On Error Resume Next
+XX = FSO.FolderExists(W$)
+
+Dim DateSet As Date
+
+Dim TPath$
+
+ScanPath.chkSubFolders = vbChecked
+ScanPath.cboMask.Text = "*.*"
+
+'ScanPath.txtPath.Text = "E:\01 FAVS\#00 Palm\#000 New\2009-08 Aug\Unet\Mine\Word Example Usage"
+'ScanPath.txtPath.Text = "E:\01 FAVS\Ministers\Images"
+ScanPath.txtPath.Text = W$
+
+If Len(W$) < 5 Then End
+
+OLDEST_DATE = DateSerial(2999, 1, 1)
+
+For we = 1 To ScanPath.ListView1.ListItems.Count
+    A1$ = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ScanPath.ListView1.ListItems.Item(we)
+    
+    Set F = FSO.GetFile(A1$ + B1$)
+    DT3 = F.DateCreated
+    DT1 = F.datelastmodified
+    Set F = Nothing
+    
+    If DT1 < OLDEST_DATE Then
+        OLDEST_DATE = DT1
+    End If
+Next
+
+I_MSG = ""
+For we = 1 To ScanPath.ListView1.ListItems.Count
+    A1$ = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ScanPath.ListView1.ListItems.Item(we)
+    
+    Set F = FSO.GetFile(A1$ + B1$)
+    DT3 = F.DateCreated
+    DT1 = F.datelastmodified
+    Set F = Nothing
+    If OLDEST_DATE > 0 Then
+        tt = SetFileDateTime(A1$ + B1$, OLDEST_DATE)
+    End If
+    XC = XC + 1
+    
+    I_MSG = I_MSG + B1$ + vbCrLf
+    
+Next
+
+MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + I_MSG '+dd$
+End
+
 
 
 End Sub
@@ -754,6 +837,22 @@ WORK = "FILE_CREATED_TO_MODIFIED_TIME"
 
 End Sub
 
+Private Sub Label12_Click()
+
+If Label1.BackColor = Label6.BackColor Then Exit Sub
+If Label2.BackColor = Label6.BackColor Then Exit Sub
+If Label8.BackColor = Label6.BackColor Then Exit Sub
+If Label9.BackColor = Label6.BackColor Then Exit Sub
+If Label2.BackColor = Label6.BackColor Then Exit Sub
+
+Label12.BackColor = Label6.BackColor
+Label5.BackColor = Label7.BackColor
+
+WORK = "SET_OLDER_DATE_AS_OTHER"
+
+
+End Sub
+
 Private Sub Label2_Click()
 
 If Label1.BackColor = Label6.BackColor Then Exit Sub
@@ -814,14 +913,18 @@ If WORK = "FILE_CREATED_TO_MODIFIED_TIME" = True Then
 End If
 
 
+If WORK = "SET_OLDER_DATE_AS_OTHER" = True Then
+    Call FILE_OLDER_TO_ALL_OTHER_MODIFIED_TIME
+    Exit Sub
+End If
+
 
 If WORK = "SET_ONE_DATE" = True Then
         
     a = "D:\DSC\# Docus Proofs Texts\# BHT\NOTICE BOARD\2009-09-22 21-23-03 - Sony Ericsson K800i - DSC03044.JPG"
     a = "D:\DSC\# Docus Proofs Texts\# BHT\SMS PROOFS\2009-09-22 23-09-55 - Sony Ericsson K800i - DSC03047.JPG"
     a = "D:\DSC\# Docus Proofs Texts\# BHT\SMS PROOFS\2009-09-22 23-10-12 - Sony Ericsson K800i - DSC03048.JPG"
-    'A = ""
-    'A = ""
+    a = "G:\RECORD\N\REC024-SARAN -- DIRECT CUT.mp3"
     'A = ""
     'A = ""
     'A = ""
@@ -836,7 +939,7 @@ If WORK = "SET_ONE_DATE" = True Then
     DATEVAR = "2009-09-22 21-23-03"
     DATEVAR = "2009-09-22 23-09-55"
     DATEVAR = "2009-09-22 23-10-12"
-    'DATEVAR = ""
+    DATEVAR = "2019-04-17 14-48-38"
     'DATEVAR = ""
     'DATEVAR = ""
     'DATEVAR = ""
