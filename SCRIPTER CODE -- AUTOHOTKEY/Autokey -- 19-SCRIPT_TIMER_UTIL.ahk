@@ -2963,10 +2963,14 @@ IF SET_GO=TRUE
 DetectHiddenWindows, ON
 
 SET_GO=FALSE
-IF (A_ComputerName="7-ASUS-GL522VW") 
+IF A_ComputerName="7-ASUS-GL522VW"
+{
 	SET_GO=TRUE
+}
+	
 IF SET_GO=TRUE
 {
+	
 	; ---------------------------------------------------------------
 	; PROBLEM ONE COMPUTER MY MSI INTEL 7 WIN 10 
 	; HAS THAT PROCESS IS CALLED GoodSync.exe
@@ -2995,9 +2999,6 @@ IF SET_GO=TRUE
 		}
 	}
 }
-
-
-
 RETURN
 
 ;--------------------------------------------------------------------
