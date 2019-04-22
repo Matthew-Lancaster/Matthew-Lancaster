@@ -798,35 +798,45 @@ Begin VB.Form frmMain
       Top             =   696
       Width           =   1044
    End
+   Begin VB.Label LAB_MAXIMIZE_HUBIC 
+      Alignment       =   2  'Center
+      BackColor       =   &H00C0FFFF&
+      Caption         =   "MAX HUBIC"
+      Height          =   216
+      Left            =   1584
+      TabIndex        =   128
+      Top             =   3600
+      Width           =   1296
+   End
    Begin VB.Label Lab_KILL_EXPLORER 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL EXPLORER"
       Height          =   216
-      Left            =   3336
+      Left            =   3828
       TabIndex        =   127
       Top             =   3600
-      Width           =   2016
+      Width           =   1512
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "CLOSE GOODSYNC"
       Height          =   228
-      Left            =   3336
+      Left            =   3828
       TabIndex        =   126
       Top             =   3840
-      Width           =   2016
+      Width           =   1512
    End
    Begin VB.Label Label_KILL_HUBIC 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL HUBIC"
       Height          =   228
-      Left            =   1776
+      Left            =   2904
       TabIndex        =   125
       Top             =   3840
-      Width           =   1524
+      Width           =   900
    End
    Begin VB.Label Label_CLOSE_HWND 
       Alignment       =   2  'Center
@@ -843,20 +853,20 @@ Begin VB.Form frmMain
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL AHK"
       Height          =   216
-      Left            =   1776
+      Left            =   2904
       TabIndex        =   123
       Top             =   3600
-      Width           =   1524
+      Width           =   900
    End
    Begin VB.Label LAB_MAXIMIZE_GOODSYNC 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
-      Caption         =   "MAXIMIZE GOODSYNC"
+      Caption         =   "MAX GOODSYNC"
       Height          =   216
       Left            =   48
       TabIndex        =   122
       Top             =   3600
-      Width           =   1692
+      Width           =   1512
    End
    Begin VB.Label Label66 
       BackColor       =   &H00C0FFC0&
@@ -867,9 +877,10 @@ Begin VB.Form frmMain
       Top             =   432
       Width           =   912
    End
-   Begin VB.Label Label65 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Process ID:"
       Height          =   240
+      Index           =   1
       Left            =   48
       TabIndex        =   119
       Top             =   432
@@ -899,7 +910,7 @@ Begin VB.Form frmMain
       Left            =   60
       TabIndex        =   113
       Top             =   3840
-      Width           =   1680
+      Width           =   1500
    End
    Begin VB.Image imgCursor 
       Height          =   276
@@ -1650,76 +1661,85 @@ Begin VB.Form frmMain
       Top             =   36
       Width           =   1164
    End
-   Begin VB.Label Label9 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Parent X:"
       Height          =   240
+      Index           =   9
       Left            =   48
       TabIndex        =   25
       Top             =   2808
       Width           =   1224
    End
-   Begin VB.Label Label8 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Parent X Text:"
       Height          =   240
+      Index           =   10
       Left            =   48
       TabIndex        =   24
       Top             =   3072
       Width           =   1224
    End
-   Begin VB.Label Label7 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Parent X Class:"
       Height          =   240
+      Index           =   11
       Left            =   48
       TabIndex        =   23
       Top             =   3336
       Width           =   1224
    End
-   Begin VB.Label Label6 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Rectangle:"
       Height          =   240
+      Index           =   5
       Left            =   48
       TabIndex        =   19
       Top             =   1752
       Width           =   1224
    End
-   Begin VB.Label Label5 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Parent Class:"
       Height          =   240
+      Index           =   8
       Left            =   48
       TabIndex        =   17
       Top             =   2544
       Width           =   1224
    End
-   Begin VB.Label lblParentText 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Parent Text:"
       Height          =   240
+      Index           =   7
       Left            =   48
       TabIndex        =   14
       Top             =   2280
       Width           =   1224
    End
-   Begin VB.Label Label2 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Style:"
       Height          =   240
+      Index           =   4
       Left            =   48
       TabIndex        =   9
       Top             =   1488
       Width           =   1224
    End
-   Begin VB.Label lblParent 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Parent:"
       Height          =   240
+      Index           =   6
       Left            =   48
       TabIndex        =   7
       Top             =   2016
       Width           =   1224
    End
-   Begin VB.Label lblClass 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Class:"
       Height          =   240
+      Index           =   3
       Left            =   48
       TabIndex        =   5
-      Top             =   1224
+      Top             =   1236
       Width           =   1224
    End
    Begin VB.Label Label1 
@@ -1730,17 +1750,19 @@ Begin VB.Form frmMain
       Top             =   744
       Width           =   1992
    End
-   Begin VB.Label lblTitle 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "Title:"
       Height          =   240
-      Left            =   48
+      Index           =   2
+      Left            =   60
       TabIndex        =   2
       Top             =   960
       Width           =   1224
    End
-   Begin VB.Label lblHwnd 
+   Begin VB.Label HWND_BLOCK 
       Caption         =   "hWnd:"
       Height          =   240
+      Index           =   0
       Left            =   48
       TabIndex        =   0
       Top             =   696
@@ -3903,6 +3925,34 @@ Lab_KILL_EXPLORER.BackColor = RGB(255, 255, 255)
 Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click
 End Sub
 
+Private Sub LAB_MAXIMIZE_HUBIC_Click()
+' ---------------------
+' ALIGN BY
+' lstProcess_2_ListView.LEFT
+' LAB_MAXIMIZE_HUBIC.LEFT
+' ---------------------
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+LAB_MAXIMIZE_HUBIC.BackColor = RGB(255, 255, 255)
+
+Dim WINDOW_HWND
+WINDOW_HWND = FindWindow("Class_PLMain", "Process Lasso Pro")
+
+ShowWindow WINDOW_HWND, SW_MAXIMIZE
+Beep
+Me.WindowState = vbMinimized
+
+Dim VAR, EXE_STRING
+PID = -1
+VAR = cProcesses.Convert(WINDOW_HWND, PID, cnFromhWnd Or cnToProcessID)
+VAR = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
+
+PROCESS_TO_KILLER = EXE_STRING
+PROCESS_TO_KILLER_PID = PID
+Call LISTVIEW_CLICKER
+
+End Sub
+
 Private Sub Label_CLOSE_GOODSYNC_Click()
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
@@ -4049,7 +4099,7 @@ ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_CLOSE_HWND"                      ' -- ELITESPY ONLY
 LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
+ARRAY_CB(LDAC) = "LAB_MAXIMIZE_HUBIC"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 LDAC = LDAC + 1
@@ -4083,6 +4133,10 @@ End If
 
 End Sub
 
+
+Private Sub Label65_Click()
+
+End Sub
 
 Private Sub lstProcess_2_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
 LISTVIEW_2_OR_3_HITT = 2
@@ -5920,21 +5974,21 @@ OcWnd_ICACLS_SETTER_PERMISSION_HWND = i3_2
 End Sub
 
 
-Public Function WindowText(ByVal window_hwnd As Long) As String
+Public Function WindowText(ByVal WINDOW_HWND As Long) As String
 
     Dim txtlen              As Long
 
-    If window_hwnd = 0 Then
+    If WINDOW_HWND = 0 Then
         Exit Function
     End If
 
-    txtlen = SendMessage(window_hwnd, WM_GETTEXTLENGTH, ByVal 0, ByVal 0)
+    txtlen = SendMessage(WINDOW_HWND, WM_GETTEXTLENGTH, ByVal 0, ByVal 0)
     If txtlen = 0 Then
         Exit Function
     End If
 
     WindowText = String$(txtlen, vbNullChar)
-    SendMessage window_hwnd, WM_GETTEXT, ByVal (txtlen + 1), ByVal StrPtr(WindowText)
+    SendMessage WINDOW_HWND, WM_GETTEXT, ByVal (txtlen + 1), ByVal StrPtr(WindowText)
 
 End Function
 
