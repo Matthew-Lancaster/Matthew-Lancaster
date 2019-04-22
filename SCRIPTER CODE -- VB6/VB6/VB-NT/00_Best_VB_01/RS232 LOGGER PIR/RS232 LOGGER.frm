@@ -255,7 +255,7 @@ Dim FSO
 On Error Resume Next
 If Me.MSComm3.PortOpen = False Then Exit Sub
 VAR_DSR_3 = Me.MSComm3.DSRHolding
-Debug.Print Time$ + " " + Str(VAR_DSR_3)
+'Debug.Print Time$ + " " + Str(VAR_DSR_3)
 If Err.Number > 0 Or Err.Number = 8002 Then
     TIMER_1.Enabled = True
     VAR_DSR_3 = True
@@ -306,7 +306,7 @@ Dim STRING_VAR As String
 
 If Me.MSComm4.PortOpen = False Then Exit Sub
 VAR_DSR_4 = Me.MSComm4.DSRHolding
-'Debug.Print VAR_DSR_4
+Debug.Print Time$ + " " + Str(VAR_DSR_3)
 On Error Resume Next
 If Me.MSComm4.PortOpen = False Then
     VAR_DSR_4 = False
