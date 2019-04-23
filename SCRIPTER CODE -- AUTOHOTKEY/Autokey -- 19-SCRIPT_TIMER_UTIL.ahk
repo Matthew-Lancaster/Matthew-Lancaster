@@ -2963,11 +2963,14 @@ IF SET_GO=TRUE
 DetectHiddenWindows, ON
 
 SET_GO=FALSE
-IF A_ComputerName="7-ASUS-GL522VW"
+IF (A_ComputerName="2-ASUS-EEE")
+msgbox % A_ComputerName
+
+IF (A_ComputerName="7-ASUS-GL522VW")
 {
 	SET_GO=TRUE
 }
-	
+
 IF SET_GO=TRUE
 {
 	
