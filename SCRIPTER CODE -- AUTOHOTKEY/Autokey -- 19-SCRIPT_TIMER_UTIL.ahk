@@ -402,6 +402,8 @@ HWNDID=
 SETTIMER ONE_SECOND,1000
 
 
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 10000
 
 RETURN
 
@@ -409,6 +411,21 @@ RETURN
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+
+
+RS232_LOGGER_TIMER_RUN_EXE:
+	
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe"
+	IfWinNotActive RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
+	IFWINNOTEXIST RS232_LOGGER ahk_class ThunderFormDC
+	IFWINNOTEXIST Make Project ahk_class #32770
+	IFEXIST, %FN_VAR%
+	{
+		Run, %FN_VAR%,,HIDE
+	}
+RETURN
+
+
 
 
 ONE_MOMENT_CLOSE_CMD:
@@ -2963,14 +2980,14 @@ IF SET_GO=TRUE
 DetectHiddenWindows, ON
 
 SET_GO=FALSE
-IF (A_ComputerName="2-ASUS-EEE")
-msgbox % A_ComputerName
-
 IF (A_ComputerName="7-ASUS-GL522VW")
 {
 	SET_GO=TRUE
 }
+IF (A_ComputerName="2-ASUS-EEE")
+	SET_GO=FALSE
 
+	
 IF SET_GO=TRUE
 {
 	
