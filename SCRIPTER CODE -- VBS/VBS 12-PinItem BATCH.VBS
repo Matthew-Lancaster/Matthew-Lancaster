@@ -730,9 +730,9 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		
 		IF objFSO.FileExists(ITEM_VAR_SET)= FALSE THEN 
 		
-			IF R_SET=94 THEN
-				MSGBOX ITEM_VAR_SET
-			END IF
+			' IF R_SET=94 THEN
+				' MSGBOX ITEM_VAR_SET
+			' END IF
 			' THIS IS FUNNY THE PROGRAM HERE
 			' DOES NOT GET ADD
 			' "C:\Program Files (x86)\MIKSOFT\Mobile Media Converter\mmc.exe"
