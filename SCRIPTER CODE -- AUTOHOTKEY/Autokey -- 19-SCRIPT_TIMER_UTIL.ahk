@@ -3110,7 +3110,8 @@ IF SET_GO=TRUE
 		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
 		; ------------------------------------------------------------------------
 		
-		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE = %HWND_1%
+		; WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		; GOODSYNC_HWND_OLD = %HWND_1%
 	}
 }
 
