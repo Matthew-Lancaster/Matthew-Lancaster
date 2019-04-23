@@ -198,12 +198,13 @@ End Sub
 
 Sub TIMER_1_TIMER()
 
+TIMER_1.Interval = 10000
+
 On Error Resume Next
-For R = 1 To 16
+For R = 1 To 9
     Err.Clear
     Me.MSComm3.CommPort = R
-    'Me.MSComm3.PortOpen = False
-    'DoEvents
+    Me.MSComm3.PortOpen = False
     Me.MSComm3.Settings = "1200,N,8,1"
     Me.MSComm3.PortOpen = True
     Me.MSComm3.DTREnable = True
@@ -221,7 +222,7 @@ Next
 
 ' NEXT PORT IS MY FRONT DOOR OPEN LOGGER
 ' 1ST PORT DETECTED WILL BE FOR PIR 2ND DOOR
-For R = Me.MSComm3.CommPort To 16
+For R = 10 To 16
     Err.Clear
     Me.MSComm4.CommPort = R
     Me.MSComm4.PortOpen = False
@@ -255,7 +256,7 @@ Dim FSO
 On Error Resume Next
 If Me.MSComm3.PortOpen = False Then Exit Sub
 VAR_DSR_3 = Me.MSComm3.DSRHolding
-'Debug.Print Time$ + " " + Str(VAR_DSR_3)
+Debug.Print "PIR ____ " + Time$ + " " + Str(VAR_DSR_3)
 If Err.Number > 0 Or Err.Number = 8002 Then
     TIMER_1.Enabled = True
     VAR_DSR_3 = True
@@ -306,7 +307,7 @@ Dim STRING_VAR As String
 
 If Me.MSComm4.PortOpen = False Then Exit Sub
 VAR_DSR_4 = Me.MSComm4.DSRHolding
-Debug.Print Time$ + " " + Str(VAR_DSR_3)
+' Debug.Print Time$ + " " + Str(VAR_DSR_3)
 On Error Resume Next
 If Me.MSComm4.PortOpen = False Then
     VAR_DSR_4 = False
