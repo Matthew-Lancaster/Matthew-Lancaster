@@ -2979,16 +2979,17 @@ IF SET_GO=TRUE
 
 DetectHiddenWindows, ON
 
-SET_GO=FALSE
+SET_GO_8=FALSE
 IF (A_ComputerName="7-ASUS-GL522VW")
 {
-	SET_GO=TRUE
+	SET_GO_8=TRUE
 }
 IF (A_ComputerName="2-ASUS-EEE")
-	SET_GO=FALSE
+	SET_GO_8=FALSE
 
 	
-IF SET_GO=TRUE
+	
+IF SET_GO_8=TRUE
 {
 	
 	; ---------------------------------------------------------------
@@ -2997,18 +2998,18 @@ IF SET_GO=TRUE
 	; WHILE OTHER COMPUTER USE   GoodSync-v10.exe
 	; SO WE __ 19 JAN 2019 13:50
 	; ---------------------------------------------------------------
-	SET_GO=TRUE
+	SET_GO_8=TRUE
 	Process, Exist, GoodSync2Go.exe
 	If ErrorLevel
-		SET_GO=FALSE
+		SET_GO_8=FALSE
 	Process, Exist, GoodSync2Go.exe
 	If ErrorLevel
-		SET_GO=FALSE
+		SET_GO_8=FALSE
 
 	IFWINEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-		SET_GO=FALSE
+		SET_GO_8=FALSE
 	
-	IF SET_GO = TRUE
+	IF SET_GO_8 = TRUE
 	{
 		FN_VAR:="C:\GoodSync\x64\GoodSync2Go.exe"
 		IfExist, %FN_VAR%
