@@ -414,40 +414,16 @@ Sub DisplayFindings_4()
     Dim oKeys, oKey
     oKeys = oDict_2.Keys
     For Each oKey In oKeys
-		' -----------------------------------------------------------
-		' ERROR TRAP REQUIRE ON THIS LINE
-		' WHY MESSENGER TALK -- FILE NOT FOUND
-		' VAR_PATH_SCANNER=oKey
-		' [ Wednesday 20:51:40 Pm_17 April 2019 ]
-		' -----------------------------------------------------------
-		ON ERROR RESUME NEXT
-		ERR.CLEAR
 		VAR_PATH_SCANNER=oKey
 		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 		
 		' MSGBOX VAR_PATH_SCANNER
 		
 		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
-			ON ERROR RESUME NEXT
-			ERR.CLEAR
 			Set f = fso.GetFile(VAR_PATH_SCANNER)
-			FileModDate=0
 			FileModDate = f.DateLastModified
-			FileCreateDate = 0
 			FileCreateDate = f.DateCreated 
 			SET f=NOTHING
-			IF ERR.NUMBER>0 THEN 
-				' ---------------------------------------------------
-				' A ERROR HAPPEN HERE FileCreateDate = f.DateCreated 
-				' ERROR RETURN CODE WAS FILE NOT FOUND
-				' PROBABLY DELETE FROM ANOTHER OPERATION
-				' PUT SOME ERROR LEVEL TRAP ON
-				' [ Monday 15:00:50 Pm_15 April 2019 ]
-				' ---------------------------------------------------
-				FileModDate=0
-				FileCreateDate = 0
-			END IF
-			ON ERROR GOTO 0
 			IF FileCreateDate+DELETE_FILE_TIME_SPAN<NOW THEN 
 				' MSGBOX VAR_PATH_SCANNER
 				ON ERROR RESUME NEXT
@@ -473,13 +449,11 @@ Sub DisplayFindings_4()
 		IF SET_GO=TRUE THEN 
 			IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
 				IF FolderEmpty(VAR_PATH_SCANNER) THEN
-					ON ERROR RESUME NEXT
-					ERR.CLEAR
 					Set f = fso.GetFolder(VAR_PATH_SCANNER)
 					FolderModDate = f.DateLastModified
 					FolderCreateDate = f.DateCreated 
 					SET f=NOTHING
-					IF ERR.NUMBER=0 AND FolderCreateDate+DELETE_FOLDER_TIME_SPAN<NOW THEN 
+					IF FolderCreateDate+DELETE_FOLDER_TIME_SPAN<NOW THEN 
 						' MSGBOX VAR_PATH_SCANNER
 						ON ERROR RESUME NEXT
 						ERR.CLEAR

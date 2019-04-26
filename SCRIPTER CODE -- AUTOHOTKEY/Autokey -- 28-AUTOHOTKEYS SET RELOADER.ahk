@@ -12,7 +12,7 @@
 ;  =============================================================
 
 ; -------------------------------------------------------------------
-; SESSION 001 ---------------------------------------------------------------
+; 001 ---------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; FROM TIME __ Fri 04-May-2018 17:20:00
@@ -20,7 +20,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; SESSION 002 ---------------------------------------------------------------
+; 002 ---------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; FROM TIME __ Thu 07-Jun-2018 16:21:43
@@ -28,7 +28,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; SESSION 003 ---------------------------------------------------------------
+; 003 ---------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; NOW WITH MORE INTELLIGENT MODIFIED DATE RELOADER 
 ; AND USER OF ARRAY'S
@@ -43,7 +43,7 @@
 
 
 ; -------------------------------------------------------------------
-; SESSION 004 ---------------------------------------------------------------
+; 004 ---------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; ADD CODE - MORE PRECISE USING EXACT - SetTitleMatchMode 3 ; EXACTING
 ; DEPENDENT ON VERSION NUMBER OF AHK IS SAME FOREVER UNLESS MODIFY
@@ -67,7 +67,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; SESSION 005 ---------------------------------------------------------------
+; 005 ---------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; ADD CODE _ MADE A CHANGE _ IF YOU KILL A PROCESS IT WON'T RELOAD 
 ; BECAUSE THE APP FILE PROGRAM WILL ALREADY BEEN SCANNED IN
@@ -80,7 +80,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; SESSION 007 ---------------------------------------------------------------
+; 007 ---------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; ADD CODE _ DON'T RUN UPDATED CODE ALREADY RUNNER WHEN IDLE NOT AT 
 ; CERTAIN LEVEL
@@ -91,7 +91,7 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; SESSION 008 ---------------------------------------------------------------
+; 008 ---------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; THE CODE _ HAS WORK IN BRUTE SHUT-DOWN MODE NOW
 ; READ THE REAM STATEMENT LINE IN CODE
@@ -107,23 +107,6 @@
 ; TO   TIME __ Sat 02-Mar-2019 22:08:00
 ; TO   TIME __ Sat 02-Mar-2019 23:38:00
 ; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; SESSION 009 
-; -------------------------------------------------------------------
-; ADD ROUTINE FOR RS232 LOGGER
-; STUPID HEADACHE
-; ALREADY DONE IT BEFORE
-; BUT COULDN'T RECREATE
-; SEARCH STRING WANT IN PARTIAL RATHER THAN EXACT
-; OR USE EXACT STRING HAS CHARACTER THAT MUST BE STORE IN VARIABLE STRING AND MANIPULATE
-; ALL THAT TIME FOR SOMETHING THAT WOULD BE QUICKER OTHERWISE
-; AND HERE IN THIS CODE ALREADY USE ARRAY
-; -------------------------------------------------------------------
-; FROM TIME __ Sun 14-Apr-2019 10:31:27
-; TO   TIME __ Sun 14-Apr-2019 11:44:00
-; -------------------------------------------------------------------
-
 
 ; CERTAINLY CONCERNED - PRO-CON PRO-CERNED PROCEED
 
@@ -174,7 +157,6 @@ SetTitleMatchMode 3  ; EXACTLY
 
 SoundBeep , 2000 , 100
 
-
 ;--------------------------------------------------------------------
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
@@ -201,6 +183,7 @@ DATE_MOD_Array := []
 
 Element_3 := 
 Element_4 := 
+
 
 ArrayCount := 0
 
@@ -377,40 +360,19 @@ IF (A_ComputerName = "7-ASUS-GL522VW")
 	SETTIMER TIMER_SUB_FileZilla_Server,10000
 
 IF (A_ComputerName = "7-ASUS-GL522VW") 
-	; SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,2000 ; 1 SECOND
-	SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,600000 ; 10 MINUTER
+	SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,1000 ; 1 SECOND
+	;SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,600000 ; 10 MINUTER
 
 	
 FIRST_RUN=TRUE
 
-SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,2000
-
-SETTIMER TIMER_RS232_LOGGER_WITH_BRIGTHNESS_CONTROLLER,4000
-
+SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,200
+	
 RETURN
 
 ; -------------------------------------------------------------------
 ; END OF INIT CODE
 ; -------------------------------------------------------------------
-
-
-TIMER_RS232_LOGGER_WITH_BRIGTHNESS_CONTROLLER:
-
-SetTitleMatchMode 2  ; PARTIAL
-
-FN_VAR_1 := "D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe"
-IfWinNotExist Autokey -- 14-Brightness With Dimmer.ahk - AutoHotkey v1.1.30.00
-IFWinExist RS232_LOGGER
-{
-	WinGet, PID_1, PID, RS232_LOGGER
-	IF PID_1>0 
-	{
-		Process, Close, %PID_1%
-	}
-}	
-
-RETURN
-
 
 
 
@@ -427,7 +389,10 @@ RETURN
 
 
 
+
 TIMER_SUB_FileZilla_Server:
+
+
 
 IfWinNotExist, AHK_CLASS FileZilla Server Main Window
 {
@@ -663,10 +628,10 @@ return
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
-	DHW := A_DetectHiddenWindows
+	dhw := A_DetectHiddenWindows
 	DetectHiddenWindows, On
 	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % DHW
+	DetectHiddenWindows, % dhw
 	return (match > 1)
 	}
 Return

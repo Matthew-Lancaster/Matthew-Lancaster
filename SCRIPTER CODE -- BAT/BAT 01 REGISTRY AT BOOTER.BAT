@@ -1440,7 +1440,6 @@ reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWOR
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseTrails" /t REG_SZ /d "5"
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseThreshold1" /t REG_SZ /d "6"
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseThreshold2" /t REG_SZ /d "10"
-ECHO ON
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSpeed" /t REG_SZ /d "1"
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSensitivity" /t REG_SZ /d "4"
 reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "SnapToDefaultButton" /t REG_SZ /d "0"
