@@ -228,11 +228,11 @@ SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 2E"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 3L"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 4G"
+SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 4G_ GSD"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 5P"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 8M"
+SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C C DRIVE ROOT CROSS 00 C SCRIPTER FOLDER"
 SET /A LDA=LDA+1
@@ -282,24 +282,11 @@ SET Sources[!LDA!]="D #0 1 INSTALL 7G 4G_1"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D #0 1 INSTALL 7G 8M_1"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="VB G7 VB-NT 1X _3_ LONGER GSD"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="VB G7 VB-NT 2E _3_ LONGER GSD"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="VB G7 VB-NT 3L _3_ LONGER"
-
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="VB G7 VB-NT 4G _3_ LONGER"
+SET Sources[!LDA!]="VB G7 VB-NT 8M _3_ LONGER"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="VB G7 VB-NT 5P _3_ LONGER GSD"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="VB G7 VB-NT 8M _3_ LONGER"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]=""
-SET /A LDA=LDA+1
-SET Sources[!LDA!]=""
-SET /A LDA=LDA+1
-SET Sources[!LDA!]=""
+SET Sources[!LDA!]="VB G7 VB-NT 4G _3_ LONGER"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 
@@ -455,16 +442,10 @@ for /L %%a in (1,1,!LDA!) do (
 	@if !errorlevel!==0 SET Analysis_Complete=TRUE
 	@REM Sync: Running: ____ DOESN'T APPEAR TO SHOW ALWAYS OR ANYMORE _ CHANGE TO NEXT ONE __ Sync Complete.
 	@find "Sync: Running:" !FILENAME_ER!>NUL
-	@if !errorlevel!==0	(
-		SET Sync_Runner=TRUE
-		SET Analysis_Complete=TRUE
-	)
+	@if !errorlevel!==0 SET Sync_Runner=TRUE
 	@REM == Sync Complete.
 	@find "== Sync Complete." !FILENAME_ER!>NUL
-	@if !errorlevel!==0 (
-		SET Sync_Runner=TRUE
-		SET Analysis_Complete=TRUE
-	)	
+	@if !errorlevel!==0 SET Sync_Runner=TRUE
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Another_Job=TRUE
 	@find "unresolved conflits" !FILENAME_ER!>NUL

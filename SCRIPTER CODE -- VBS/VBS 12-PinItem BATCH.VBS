@@ -80,7 +80,7 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 DIM Q
 DIM PinTo10_EXE_PATH
 Q=CHR(34)
-PinTo10_EXE_PATH="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10.exe"
+PinTo10_EXE_PATH=Q & "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10.exe" & Q
 
 'EXAMPLE
 'PinTo10.exe /PTFOL:"C:\Windows" /PTFILE:"notepad.exe"
@@ -105,8 +105,8 @@ DIM objShell
 DIM objFSO
 DIM LINK_SET_STRING
 DIM APPDATA_FOLDER_FILE_COUNT_VAR_1
-DIM ARRAY_1(280)
-DIM ARRAY_2(280)
+DIM ARRAY_1(200)
+DIM ARRAY_2(200)
 
 Set objShell = Wscript.CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
@@ -148,9 +148,6 @@ DIM FILE_SCAN_FIND_4
 
 CALL CREATE_PIN_ITEM_ARRAY
 
-FOR R_SET_1=1 TO UBOUND(ARRAY_1)
-	ARRAY_2(R_SET_1)=FALSE
-NEXT
 
 '-------------------------------------
 ' CHECK FOR DUPLICATES IN ARRAY
@@ -184,10 +181,8 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 	IF ARRAY_1(R_SET)<>"" THEN 
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then
 			FILE_SCAN_FIND_1=UCASE(MID(ARRAY_1(R_SET),INSTR(ARRAY_1(R_SET),"\")+1))
-			
+
 			IF INSTR(LINK_SET_STRING,FILE_SCAN_FIND_1)>0 THEN 
-				' SET IF LINK ALREADY EXIST
-				' ---------------------------------------------------
 				ARRAY_2(R_SET)=TRUE
 				LINK_SET_ALREADY_EXIST_TOTAL=LINK_SET_ALREADY_EXIST_TOTAL+1
 			END IF
@@ -221,7 +216,7 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 		END IF
 	END IF
 	
-	' PUT THE CASE CONVERSION BACK RESTORE
+	'PUT THE CASE CONVERSTION BACK RESTORE
 	IF UCASE(HOLDER_VAR) = UCASE(ARRAY_1(R_SET_1)) THEN
 		ARRAY_1(R_SET_1)=HOLDER_VAR
 	END IF
@@ -234,7 +229,12 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 	END IF
 	
 NEXT
-'--------------------------------------------------------------------
+'-------------------------------------
+
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)="C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
+END IF
+
 
 
 '--------------------------------------------------------------------
@@ -629,9 +629,7 @@ If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 	ARRAY_1(I)=REPLACE(UCASE(ARRAY_1(I)), "\PROGRAM FILES (X86)\","\PROGRAM FILES\")
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MIKSOFT\Mobile Media Converter\mmc.exe"
 
-I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
@@ -721,23 +719,9 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		ITEM_VAR_FILE=Q & MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1) & Q
 		ITEM_VAR_SET=" /PTFOL:" & ITEM_VAR_PATH & " /PTFILE:" & ITEM_VAR_FILE
 		
-		IF DONT_SHOW_BOX_AGAIN=FALSE THEN 
-			IF objFSO.FileExists(PinTo10_EXE_PATH)= FALSE THEN 
-				MSGBOX "NOT EXIST"+VBCRLF+PinTo10_EXE_PATH
-				DONT_SHOW_BOX_AGAIN=TRUE
-			END IF
-		END IF
-		
-		IF objFSO.FileExists(ITEM_VAR_SET)= FALSE THEN 
-		
-			' IF R_SET=94 THEN
-				' MSGBOX ITEM_VAR_SET
-			' END IF
-			' THIS IS FUNNY THE PROGRAM HERE
-			' DOES NOT GET ADD
-			' "C:\Program Files (x86)\MIKSOFT\Mobile Media Converter\mmc.exe"
-			
-			objShell.Run Q & PinTo10_EXE_PATH & Q & ITEM_VAR_SET , 0 , TRUE
+		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
+
+			objShell.Run PinTo10_EXE_PATH & ITEM_VAR_SET , 0 , TRUE
 			'WScript.Sleep 1000
 
 			IF QUITE_MODE_ENDING=FALSE THEN

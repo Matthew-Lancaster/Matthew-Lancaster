@@ -294,16 +294,10 @@ IF OSVER_N_VAR=WIN_XP
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
-setTimer TIMER_SUB_1,400
+setTimer TIMER_SUB_1,200
 
 setTimer TIMER_SUB_EliteSpy, OFF
 
-GLOBAL GOODSYNC2GO_HWND
-GOODSYNC2GO_HWND=0
-setTimer TIMER_SUB_GOODSYNC2GO,5000
-
-GLOBAL GOODSYNC_HWND
-GOODSYNC_HWND=0
 setTimer TIMER_SUB_GOODSYNC,5000
 setTimer TIMER_SUB_GOODSYNC_OPTIONS,1000
 
@@ -376,7 +370,7 @@ SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
 SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
 SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
 
-SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 400
+SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
 
 SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
 
@@ -402,8 +396,6 @@ HWNDID=
 SETTIMER ONE_SECOND,1000
 
 
-IF (A_ComputerName="4-ASUS-GL522VW")
-	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 10000
 
 RETURN
 
@@ -411,21 +403,6 @@ RETURN
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
-
-
-RS232_LOGGER_TIMER_RUN_EXE:
-	
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe"
-	IfWinNotActive RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
-	IFWINNOTEXIST RS232_LOGGER ahk_class ThunderFormDC
-	IFWINNOTEXIST Make Project ahk_class #32770
-	IFEXIST, %FN_VAR%
-	{
-		Run, %FN_VAR%,,HIDE
-	}
-RETURN
-
-
 
 
 ONE_MOMENT_CLOSE_CMD:
@@ -2110,7 +2087,6 @@ UniqueID := WinActive("mysms - Google Chrome")
 IF UniqueID=0
 	OLD_UniqueID_MYSMS=0
 ; tooltip % OLD_UniqueID_MYSMS
-UniqueID = 0
 IF UniqueID>0 
 	IfWinExist ahk_id %UniqueID%
 	{
@@ -2644,13 +2620,13 @@ IF HWND_1>0
 		; }
 		
 		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
 		
 		If (OutputVar_1 <> 80
 			and OutputVar_2="Do not Sync if changed files more than")
 			{
-				ControlSetText, Edit11,, ahk_id %HWND_1%
-				Control, EditPaste, 80,	Edit11, ahk_id %HWND_1%
+				ControlSetText, Edit12,, ahk_id %HWND_1%
+				Control, EditPaste, 80,	Edit12, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 		}
 		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
@@ -2673,20 +2649,20 @@ IF HWND_1>0
 		
 		
 		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
+		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
 		
-		If (OutputVar_1 <> 20
+		If (!OutputVar_1 
 			and OutputVar_2="Wait for Locks to clear, minutes")
 			{
 				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 20, Edit12, ahk_id %HWND_1%
+				Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 
 		}
 		ControlGet, Status, Checked,, Button22, ahk_id %HWND_1%
-		If Status=0
+		If Status=1
 		{
-			Control, Check,, Button22, ahk_id %HWND_1%
+			Control, UnCheck,, Button22, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
 		}
 
@@ -2889,139 +2865,6 @@ IF HWND_1>0
 DetectHiddenWindows, % dhw
 Return
 
-
-
-TIMER_SUB_GOODSYNC2GO:
-;--------------------------------------------------------------------
-;setTimer TIMER_SUB_GOODSYNC, OFF
-dhw := A_DetectHiddenWindows
-SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-
-; GET GOODSYNC HANDLE AND THEN CHECK IF CHANGE DUE TO UPDATE HAPPEN
-; IF HAS AND THEN MINIMIZE ON CERTAIN COMPUTER
-; -------------------------------------------------------------------
-DetectHiddenWindows, ON
-SET_GO=TRUE
-IF A_ComputerName=1-ASUS-X5DIJ
-	SET_GO=TRUE
-IF A_ComputerName=2-ASUS-EEE
-	SET_GO=TRUE
-IF A_ComputerName=3-LINDA-PC
-	SET_GO=TRUE
-IF A_ComputerName=4-ASUS-GL522VW
-	SET_GO=TRUE
-IF A_ComputerName=5-ASUS-P2520LA
-	SET_GO=TRUE
-	
-IF SET_GO=TRUE
-{
-	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-	
-	IF HWND_1>0 
-	{
-		If GOODSYNC2GO_HWND = 0
-		{
-			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-			If MMX=-1
-			{
-				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-				GOODSYNC2GO_HWND=%HWND_1%
-			}
-		}
-
-		If GOODSYNC2GO_HWND <> %HWND_1%
-		{
-			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-			
-			If MMX<>-1
-			{
-				; -------------------------------------------------------------
-				; IF A_ComputerName=2-ASUS-EEE
-				; -------------------------------------------------------------
-				; OF HERE LOW THE END EEE ON WIN-XP IT DOESN'T TAKE THE REQUEST 
-				; TO MINIMIZE AS ONE COMMAND
-				; AND HAS TO REPEAT UNTIL DONE IT
-				; EXAMPLE LEFT WITH WINDOW UP IN MAXIMUM AND NOT ISSUE IT COMMAND TO DO MINIMIZED
-				; UNTIL REPEAT UNTIL FEW TIME AND THEN STOP
-				; [ Thursday 14:05:20 Pm_14 March 2019 ]
-				; -------------------------------------------------------------
-				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-				SOUNDBEEP 2000,100
-				; SLEEP 2000
-				
-				LOOP, 10000
-				{
-					SLEEP 10
-					WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-					If MMX=-1
-					{
-						WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-						GOODSYNC2GO_HWND=%HWND_1%
-						; -------------------------------------------
-						; LONG VAR NAME WASN'T LIKE SO HERE REDUCED
-						; AFTER STORE %HWND_1% IN GOODSYNC2GO_HWND AND THEN LATER
-						; %HWND_1% LOSS'S IT VALUE
-						; LONG TIME SORT THAT ONE
-						; -------------------------------------------
-						BREAK
-					}
-				}
-			}
-			If MMX=-1
-			{
-				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-				GOODSYNC2GO_HWND=%HWND_1%
-			}
-
-		}
-	}
-}
-
-DetectHiddenWindows, ON
-
-SET_GO_8=FALSE
-IF (A_ComputerName="7-ASUS-GL522VW")
-{
-	SET_GO_8=TRUE
-}
-IF (A_ComputerName="2-ASUS-EEE")
-	SET_GO_8=FALSE
-
-	
-	
-IF SET_GO_8=TRUE
-{
-	
-	; ---------------------------------------------------------------
-	; PROBLEM ONE COMPUTER MY MSI INTEL 7 WIN 10 
-	; HAS THAT PROCESS IS CALLED GoodSync.exe
-	; WHILE OTHER COMPUTER USE   GoodSync-v10.exe
-	; SO WE __ 19 JAN 2019 13:50
-	; ---------------------------------------------------------------
-	SET_GO_8=TRUE
-	Process, Exist, GoodSync2Go.exe
-	If ErrorLevel
-		SET_GO_8=FALSE
-	Process, Exist, GoodSync2Go.exe
-	If ErrorLevel
-		SET_GO_8=FALSE
-
-	IFWINEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-		SET_GO_8=FALSE
-	
-	IF SET_GO_8 = TRUE
-	{
-		FN_VAR:="C:\GoodSync\x64\GoodSync2Go.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			Run, "%FN_VAR%" , , MIN
-		}
-	}
-}
-RETURN
-
 ;--------------------------------------------------------------------
 TIMER_SUB_GOODSYNC:
 ;--------------------------------------------------------------------
@@ -3053,18 +2896,12 @@ IF SET_GO=TRUE
 
 	IF HWND_1>0 
 	{
-		If GOODSYNC_HWND = 0
+		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
 		{
 			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			If MMX=-1
-			{
-				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-				GOODSYNC_HWND=%HWND_1%
-			}
-		}
-		If GOODSYNC_HWND <> %HWND_1%
-		{
-			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+			; IF A_ComputerName=2-ASUS-EEE
+				; If MMX<>-1
+					; MSGBOX % MMX 
 			
 			If MMX<>-1
 			{
@@ -3080,30 +2917,13 @@ IF SET_GO=TRUE
 				; -------------------------------------------------------------
 				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 				SOUNDBEEP 2000,100
-				; SLEEP 2000
+				SLEEP 2000
 
-				LOOP, 10000
+				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+				If MMX<>-1
 				{
-					SLEEP 10
-					WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-					If MMX=-1
-					{
-						WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-						GOODSYNC_HWND=%HWND_1%
-						; -------------------------------------------
-						; LONG VAR NAME WASN'T LIKE SO HERE REDUCED
-						; AFTER STORE %HWND_1% IN GOODSYNC_HWND AND THEN LATER
-						; %HWND_1% LOSS'S IT VALUE
-						; LONG TIME SORT THAT ONE
-						; -------------------------------------------
-						BREAK
-					}
+					HWND_1=0
 				}
-			}
-			If MMX=-1
-			{
-				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-				GOODSYNC_HWND=%HWND_1%
 			}
 		}
 
@@ -3111,8 +2931,7 @@ IF SET_GO=TRUE
 		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
 		; ------------------------------------------------------------------------
 		
-		; WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		; GOODSYNC_HWND_OLD = %HWND_1%
+		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE = %HWND_1%
 	}
 }
 
