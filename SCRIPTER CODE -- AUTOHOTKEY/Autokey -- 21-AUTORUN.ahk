@@ -214,6 +214,11 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 
 
 
+
+
+
+
+
 DetectHiddenWindows, on
 SetStoreCapslockMode, off
 
@@ -1115,6 +1120,7 @@ IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
 	SET_GO_1=1	
 
+
 IF SET_GO_1=1
 {
 	Process, Exist, GoodSync-v10.exe
@@ -1143,25 +1149,6 @@ IF SET_GO_1=1
 	}
 
 }
-
-SET_GO_1=0
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=1
-
-IF SET_GO_1=1
-{
-	Process, Exist, GoodSync2Go-v10.exe
-	If Not ErrorLevel
-	{
-		FN_VAR:="C:\GoodSync\x64\GoodSync2Go-v10.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			Run, "%FN_VAR%" 
-		}
-	}
-}
-
 	
 	
 	

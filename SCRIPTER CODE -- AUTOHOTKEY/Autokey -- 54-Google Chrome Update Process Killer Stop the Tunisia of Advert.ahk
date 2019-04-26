@@ -45,9 +45,6 @@ IF A_ComputerName=2-ASUS-EEE
 	ExitApp     
 
 	
-PAUSE	
-	
-	
 #Warn
 #NoEnv
 #SingleInstance Force
