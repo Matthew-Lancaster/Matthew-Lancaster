@@ -110,7 +110,17 @@ MenuHandler:
 	
 	if A_ThisMenuItem=Terminate All AutoHotKey.exe
 	{
-		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
+		; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
+		DetectHiddenWindows, On 
+		WinGet, List, List, ahk_class AutoHotkey 
+		Loop %List% 
+		  { 
+			WinGet, PID, PID, % "ahk_id " List%A_Index% 
+			If ( PID <> DllCall("GetCurrentProcessId") ) 
+				 ; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
+				 Process, Close, List%A_Index% 
+		  }
+		Process, Close,% DllCall("GetCurrentProcessId")
 		
 		;  ----------------------------------------------------------
 		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
