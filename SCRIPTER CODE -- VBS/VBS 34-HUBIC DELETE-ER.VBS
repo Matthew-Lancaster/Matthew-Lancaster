@@ -414,29 +414,35 @@ Sub DisplayFindings_4()
     Dim oKeys, oKey
     oKeys = oDict_2.Keys
     For Each oKey In oKeys
+		ON ERROR RESUME NEXT
+		' FUNNY ERROR TRAP PATH NOT FOUND LINE BELOW
+		ERR.CLEAR
+		' ------------------------------------------
 		VAR_PATH_SCANNER=oKey
-		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-		
-		' MSGBOX VAR_PATH_SCANNER
-		
-		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
-			Set f = fso.GetFile(VAR_PATH_SCANNER)
-			FileModDate = f.DateLastModified
-			FileCreateDate = f.DateCreated 
-			SET f=NOTHING
-			IF FileCreateDate+DELETE_FILE_TIME_SPAN<NOW THEN 
-				' MSGBOX VAR_PATH_SCANNER
-				ON ERROR RESUME NEXT
-				ERR.CLEAR
-				FSO.DeleteFile VAR_PATH_SCANNER
-				I_COUNT_1=I_COUNT_1+1
-				IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+		ON ERROR GOTO 0
+		IF ERR.NUMBER=0 THEN 
+			PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+			
+			' MSGBOX VAR_PATH_SCANNER
+			
+			IF FSO.FileExists(VAR_PATH_SCANNER) Then 
+				Set f = fso.GetFile(VAR_PATH_SCANNER)
+				FileModDate = f.DateLastModified
+				FileCreateDate = f.DateCreated 
+				SET f=NOTHING
+				IF FileCreateDate+DELETE_FILE_TIME_SPAN<NOW THEN 
+					' MSGBOX VAR_PATH_SCANNER
+					ON ERROR RESUME NEXT
+					ERR.CLEAR
+					FSO.DeleteFile VAR_PATH_SCANNER
+					I_COUNT_1=I_COUNT_1+1
+					IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
+						MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+					END IF
+					ON ERROR GOTO 0
 				END IF
-				ON ERROR GOTO 0
 			END IF
 		END IF
-		
 		IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
 			SET_GO=TRUE
 			FOR R_COUNT= 1 TO UBOUND(FOLDER_PATH_FILTER)
