@@ -33,17 +33,17 @@ CUR_USER = CreateObject("WScript.Network").UserName
 ' C:\Users\MATT 04\AppData\Roaming\GoodSync\jobs-groups-options.tic
 ' C:\Users\MATT 01\AppData\Roaming\GoodSync\jobs-groups-options.tic
 
-
 ' WINDOWS XP
 FILEN_1="C:\Documents and Settings\"&CUR_USER&"\Application Data\GoodSync\jobs-groups-options.tic"
 FILEN_2="C:\Documents and Settings\"&CUR_USER&"\Application Data\GoodSync\jobs-groups-options - COPY.tic"
 
+' WINDOWS 07 UP
 FILEN_1="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
 FILEN_2="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options - Copy.tic"
 
 ' GOODSYNC 2 GO
-' FILEN_1="C:\GoodSync\Profile\jobs-groups-options.tic"
-' FILEN_2="C:\GoodSync\Profile\jobs-groups-options.tic - Copy.tic"
+FILEN_1="C:\GoodSync\Profile\jobs-groups-options.tic"
+FILEN_2="C:\GoodSync\Profile\jobs-groups-options.tic - Copy.tic"
 
 
 FSO.COPYFILE FILEN_1, FILEN_2
@@ -58,15 +58,12 @@ TT_EDITOR = File_1.ReadAll
 TT_EDITOR_2=TT_EDITOR
 
 ' CALL USUAL_MAIN
-
-' USUAL RUNNER
 ' CALL USUAL_MAIN_2
-
 ' CALL ROUTINE_WITH_ACTION_ON_SPECIFIC_JOB
 
-
+' -------------------------------------------------------------------
 CALL GS_SERVER_CHANGE_USER_NAME
-
+' -------------------------------------------------------------------
 
 
 IF TT_EDITOR_2<>TT_EDITOR THEN 
@@ -82,8 +79,6 @@ SUB GS_SERVER_CHANGE_USER_NAME:
 
 	DIM X
 	
-
-	' -------------------
 	X = 1
 	Do
 		T2=0
@@ -101,16 +96,19 @@ SUB GS_SERVER_CHANGE_USER_NAME:
 				T1=X1
 			END IF
 		END IF
-		' gstp://4-asus-gl522vw.matt-lan-2.goodsync/D:/VB6/VB-NT
+
 		IF T1>0 THEN 
 			T2 = InStr(T1, TT_EDITOR, ":gstp")
 			T4 = InStr(T1, TT_EDITOR, "matt-lan-2.goodsync")
-			X8 = InStr(T1, TT_EDITOR, "://matt-lan-2")
-			IF X8<T4 AND X8>0 AND AND (X8>T1 AND T4<X8) THEN 
-				T4=X8
-			END IF
+			X4 = InStr(T1, TT_EDITOR, "://matt-lan-2")
 			T5 = InStr(T1+3, TT_EDITOR, ":")
 			T8 = InStr(T1+1, TT_EDITOR, "|")
+			IF T2>0 AND T4 > 0 AND (T4>T1 AND T4<T8)THEN 
+				' MSGBOX CSTR(T1)+ " -- "+CSTR(T2)+ " -- "+CSTR(T4)+ " -- "+CSTR(T5)+ " -- "+CSTR(T8)
+			END IF
+			IF X4<T4 AND X4>0 AND (X4>T1 AND X4<T8) THEN 
+				T4=X4
+			END IF
 		END IF
 		
 		If T4>0 AND (T4>T1 AND T4<T8) AND T2>0 AND (T2>T1 AND T2<T8) Then
@@ -119,15 +117,12 @@ SUB GS_SERVER_CHANGE_USER_NAME:
 		
 			N1 = Mid(TT_EDITOR, T1, (T5 - T1))     ' LEADING FIGURE WITH COUNT
 			N3 = Mid(TT_EDITOR, T1, (T8 - T1)+1)   ' FULL STRING TOTAL
-			ON ERROR RESUME NEXT
-			ERR.CLEAR
+
 			N4 = Mid(TT_EDITOR, T2+1, (T8 - T2)-1) ' FULL STRING WHICH HAVE COUNT LEN
-			IF ERR.NUMBER>0 THEN 
-				MSGBOX CSTR(T1) +" -- " +CSTR(T2) +" -- " +CSTR(T4) +" -- " +CSTR(T8) +" -- " + STRING_SET
-				WScript.Quit(0)
-			END IF
-			F4 = Replace(N4, ".matt-lan-2.goodsync",".matt-lan-btinternet-com.goodsync")
-			F4 = Replace(N4, "://matt-lan-2","://matt-lan-btinternet-com")
+
+			F4=N4
+			F4 = Replace(F4, ".matt-lan-2.goodsync",".matt-lan-btinternet-com.goodsync")
+			F4 = Replace(F4, "://matt-lan-2","://matt-lan-btinternet-com")
 			F5 = LEN(F4)
 			F8 = STRING_SET+CSTR(F5)+":"+F4+"|"
 			Counter_VAR = Counter_VAR + 1
@@ -145,35 +140,6 @@ SUB GS_SERVER_CHANGE_USER_NAME:
 	Loop Until T1 = 0
 
 	' XML|2=0|3=0|4=0|8[k:9:@%GSDISK%|u:39:%GSDISK%/SCRIPTER/SYNC_FOLDER_1/##_0005|m:0:|]9[k:31:gstps://matt-lan-btinternet-com|u:94:gstps://8-msi-gp62m-7rd.matt-lan-2.goodsync/C:/Users/MATT 01/AppData/Roaming/Logitech/SetPoint|m:0:|]F[F=0|H=0|S=1|m=1|i[L<:14:path 
-
-	
-		' T5 = InStr(X-2, TT_EDITOR, VBLF)
-		' T8 = InStr(X-2, TT_EDITOR, "|==")
-		' T9 = InStr(X-2, TT_EDITOR, "]"+CHR(&HA5)+"=")
-
-		' IF T8<T5 THEN
-			' ' FILES CHANGED MORE THAN A PERCENT AND THEN PREVENT SYNCE 
-			' ' IF NOT = TO 90 THEN SET TO = 90
-			' ' -------------------------------------------------------
-			' T1 = InStr(X, TT_EDITOR, "|==")
-			' If T1 > 0 Then
-				
-				' T2 = InStr(T1+1, TT_EDITOR, "|")
-				' N3 = Mid(TT_EDITOR, T1, (T2 - T1))+"|"
-				' N4 = Replace(N3, "|==","")
-				' N4 = Replace(N4, "|","")
-				' ' MSGBOX N3
-				
-				' IF LEN(N3)<=8 THEN
-					' IF N4<>"80" THEN 
-						' TT_EDITOR_2=Mid(TT_EDITOR, X, T5-X)
-						' TT_EDITOR_3=Mid(TT_EDITOR, X, T5-X)
-						' TT_EDITOR_3 = Replace(TT_EDITOR_3, N3, "|=="+"80"&"|",1,1)
-						' TT_EDITOR = Replace(TT_EDITOR, TT_EDITOR_2,TT_EDITOR_3,1,1)
-						' Counter_Change_VAR = Counter_Change_VAR + 1
-					' END IF
-				' END IF
-			' END IF
 	
 
 END SUB
