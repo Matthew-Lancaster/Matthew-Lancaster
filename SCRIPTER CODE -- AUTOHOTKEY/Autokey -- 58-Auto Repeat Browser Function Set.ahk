@@ -180,6 +180,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, Pause __ Debby Hall, MenuHandler  ; Creates a new menu item.
 DEBBY_HALL_PAUSE=TRUE
+DEBBY_HALL_PAUSE=FALSE
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
