@@ -397,6 +397,9 @@ SETTIMER ONE_SECOND,1000
 
 
 
+SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY,14000
+
+
 RETURN
 
 ; -------------------------------------------------------------------
@@ -1570,55 +1573,6 @@ IF OLD_UniqueID_NOTEPAD_PLUS_PLUS<>%UniqueID%
 }
 	
 
-; -------------------------------------------------------------------
-; IF NOT WANT TO CLICK ON __ AutoFill - RoboForm __ TO GAIN 
-; FOCUS AND OPERATE
-; INSTEAD GOT TO GO TO ROBOFORM SETTING AND CLICK 
-; AUTOFILL STEALS KEYBOARD FOCUS
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-SetTitleMatchMode 3  ; Exactly
-
-WINDOW_Array := []
-
-ArrayCount := 0
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
-
-UniqueID := WinActive("AutoFill - RoboForm")
-IF UniqueID>0 
-Loop % ArrayCount
-{
-  Element := WINDOW_Array[A_Index]
-	IfWinExist %Element%
-	{
-		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
-		If (OutputVar_2="&Fill Forms")
-		{
-			#WinActivateForce, AutoFill - RoboForm
-			ControlClick, Button1, AutoFill - RoboForm
-			SoundBeep , 2500 , 100
-			#WinActivateForce, %Element%
-			
-			Loop, 30
-			{
-				IfWinExist %Element%
-				{
-					SLEEP 500
-					SENDINPUT {ENTER}
-					SoundBeep , 2500 , 100
-				}
-				ELSE
-					BREAK
-			}
-			
-		}
-	}
-}
-	
-
 
 ; -------------------------------------------------------------------
 ; GOT SOME PROBLEM HERE SOMEWHERE MYSSM IS CHECKED 
@@ -1879,13 +1833,64 @@ Return
 
 
 
+TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY:
 
+
+; -------------------------------------------------------------------
+; IF NOT WANT TO CLICK ON __ AutoFill - RoboForm __ TO GAIN 
+; FOCUS AND OPERATE
+; INSTEAD GOT TO GO TO ROBOFORM SETTING AND CLICK 
+; AUTOFILL STEALS KEYBOARD FOCUS
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+SetTitleMatchMode 3  ; Exactly
+
+WINDOW_Array := []
+
+ArrayCount := 0
+ArrayCount += 1
+WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
+ArrayCount += 1
+WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
+
+UniqueID := WinActive("AutoFill - RoboForm")
+IF UniqueID>0 
+Loop % ArrayCount
+{
+  Element := WINDOW_Array[A_Index]
+	IfWinExist %Element%
+	{
+		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
+		If (OutputVar_2="&Fill Forms")
+		{
+			#WinActivateForce, AutoFill - RoboForm
+			ControlClick, Button1, AutoFill - RoboForm
+			SoundBeep , 2500 , 100
+			#WinActivateForce, %Element%
+			
+			Loop, 10
+			{
+				IfWinExist %Element%
+				{
+					SLEEP 500
+					SENDINPUT {ENTER}
+					SoundBeep , 2500 , 100
+				}
+				ELSE
+					BREAK
+			}
+			
+		}
+	}
+}
+	
+
+RETURN
+	
 
 
 
 MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART:
-
-
 
 VAR_WORKER_MSGBOX_DELAY_COUNT_01=VB KEEP RUNNER ahk_class #32770
 VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
@@ -2494,6 +2499,9 @@ dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
+GOSUB SET_OK_BOX
+
+
 WinGet, HWND_1, ID, ] Options ahk_class #32770
 IF HWND_1>0
 {
@@ -2595,9 +2603,13 @@ IF HWND_1>0
 				; }
 			; }
 		}
-			
+		
+		
+		O_HWND_1=0
 		if O_HWND_1<>%HWND_1%
 		{
+			; ClassNN:	Button16
+			; Text:	Periodically (On Timer), every
 			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
 			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
 			If Status=0
@@ -2864,6 +2876,89 @@ IF HWND_1>0
 }
 DetectHiddenWindows, % dhw
 Return
+
+
+; SET OKAY BOX AFTER MADE SELECTION
+SET_OK_BOX:
+{
+
+	; WinGet, HWND_1, ID, GoodSync ahk_class #32770
+	; IF HWND_1
+	; {
+		; WinGetText OutputVar_3,ahk_id %HWND_1%
+
+		; WinGet, HWND_2, ID, A
+		; IF HWND_2<>%HWND_1%
+		; {
+			; #WinActivateForce, ahk_id %HWND_1%
+		; }
+		
+		; IfInString, OutputVar_3, Removable drive with volume name
+		; {
+			; LOOP
+			; {
+				; SLEEP 50
+				; ControlGetPos, x, y, w, h, Yes, ahk_id %HWND_1%
+				; MouseMove, X+10, Y+10
+				
+				; ControlClick, Yes,ahk_id %HWND_1%
+				; IfWinNotExist, ahk_id %HWND_1%
+					; BREAK
+				; SoundBeep , 4000 , 50
+			; }
+		; }
+	; }
+DetectHiddenWindows, OFF
+
+	WinGet, HWND_1, ID, Left Folder ahk_class #32770
+	IF !HWND_1 
+		WinGet, HWND_1, ID, Right Folder ahk_class #32770
+	IF !HWND_1 
+		O_OutputVar_store=
+	
+	TOOLTIP % HWND_1 " -- "
+	
+	IF HWND_1 
+	{
+	; WinGetPos, X, Y, Width, Height, ahk_id %HWND_1%
+	; ; tooltip % x " -- " y
+	; IF X<>770 and Y<>180
+		; WinMove, ahk_id %HWND_1%,,990,180
+
+	; ControlGetText, OutputVar_store, Edit1, ahk_id %HWND_1%
+	
+	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
+	
+	O_OutputVar_store=1
+	OutputVar_store=2
+	
+	if O_OutputVar_store
+		if OutputVar_store<>%O_OutputVar_store%
+		{
+			O_OutputVar_store=
+			LOOP
+			{
+				SLEEP 50
+				ControlGetPos, x, y, w, h, OK, ahk_id %HWND_1%
+				MouseMove, X+10, Y+10
+				
+				ControlClick, OK, ahk_id %HWND_1%
+				IfWinNotExist, ahk_id %HWND_1%
+					BREAK
+				SoundBeep , 4000 , 50
+			}
+		}
+	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
+	
+	O_OutputVar_store=%OutputVar_store%
+
+	}
+	
+}
+RETURN
+
+
+
 
 ;--------------------------------------------------------------------
 TIMER_SUB_GOODSYNC:
