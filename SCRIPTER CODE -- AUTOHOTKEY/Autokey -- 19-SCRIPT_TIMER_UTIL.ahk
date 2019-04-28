@@ -2881,31 +2881,40 @@ Return
 ; SET OKAY BOX AFTER MADE SELECTION
 SET_OK_BOX:
 {
+	RETURN
 
-	DetectHiddenWindows, OFF
+	DetectHiddenWindows, ON
 	SetTitleMatchMode 3
 	IfWinExist Left Folder ahk_class #32770
-		#WinActivateForce, Left Folder ahk_class #32770
+		WinActivate, Left Folder ahk_class #32770
+		; #WinActivateForce, Left Folder ahk_class #32770
 	IfWinActive Left Folder ahk_class #32770
 	{	
 		ControlGetPos, x, y, , , OK, Left Folder ahk_class #32770
-		MouseMove, X+10, Y+10
+		; MouseMove, X+10, Y+10
 		ControlClick, OK, Left Folder ahk_class #32770,,,, NA x20 y20
 		SoundBeep , 2000 , 400
 	}	
 	IfWinExist Right Folder ahk_class #32770
-		#WinActivateForce, Right Folder ahk_class #32770
+		WinActivate, Right Folder ahk_class #32770
+		; #WinActivateForce, Right Folder ahk_class #32770
 	IfWinActive Right Folder ahk_class #32770
 	{	
 		ControlGetPos, x, y, , , OK, Right Folder ahk_class #32770
-		MouseMove, X+10, Y+10
+		; MouseMove, X+10, Y+10
 		ControlClick, OK, Right Folder ahk_class #32770,,,, NA x20 y20
 		SoundBeep , 3000 , 400
 	}	
 
 	
 	
+	DetectHiddenWindows, ON
 	SetTitleMatchMode 2
+	IfWinExist Options ahk_class #32770
+	WinActivate, Options ahk_class #32770
+	;#WinActivateForce, Options ahk_class #32770
+	; IfWinExist ] Options ahk_class #32770
+	; TOOLTIP OO
 	IfWinActive ] Options ahk_class #32770
 	{	
 		ControlGettext, OutputVar_2, Button16, ] Options ahk_class #32770
@@ -2919,15 +2928,25 @@ SET_OK_BOX:
 		}
 
 		IF OutputVar_1=5
-		IfWinExist ] Options ahk_class #32770
-		#WinActivateForce, ] Options ahk_class #32770
-		IF OutputVar_1=5
 		IfWinActive ] Options ahk_class #32770
 		{	
-			ControlGetPos, x, y, , , Button61, ] Options ahk_class #32770 ; SAVE BUTTON
+			X=0
+			ControlGetPos, x, y, , , Button61, Options ahk_class #32770 ; SAVE BUTTON
 			; TOOLTIP % X " -- " Y
-			MouseMove, X+10, Y+10
-			ControlClick, Button61, ] Options ahk_class #32770,,,, NA x10 y10
+			IF X>0
+			; MouseMove, X+10, Y+10
+			IF X>0
+			ControlClick, Button61, Options ahk_class #32770,,,, NA x10 y10
+			IF X>0
+			SoundBeep , 5000 , 400
+			X=0
+			ControlGetPos, x, y, , , Button63, Options ahk_class #32770 ; SAVE BUTTON
+			; TOOLTIP % X " -- " Y
+			IF X>0
+			; MouseMove, X+10, Y+10
+			IF X>0
+			ControlClick, Button63, Options ahk_class #32770,,,, NA x10 y10
+			IF X>0
 			SoundBeep , 5000 , 400
 		}	
 	}
