@@ -2495,11 +2495,11 @@ RETURN
 TIMER_SUB_GOODSYNC_OPTIONS:
 
 ; -------------------------------------------------------------------
+GOSUB SET_OK_BOX
+
 dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
-
-GOSUB SET_OK_BOX
 
 
 WinGet, HWND_1, ID, ] Options ahk_class #32770
@@ -2882,77 +2882,56 @@ Return
 SET_OK_BOX:
 {
 
-	; WinGet, HWND_1, ID, GoodSync ahk_class #32770
-	; IF HWND_1
-	; {
-		; WinGetText OutputVar_3,ahk_id %HWND_1%
+	DetectHiddenWindows, OFF
+	SetTitleMatchMode 3
+	IfWinExist Left Folder ahk_class #32770
+		#WinActivateForce, Left Folder ahk_class #32770
+	IfWinActive Left Folder ahk_class #32770
+	{	
+		ControlGetPos, x, y, , , OK, Left Folder ahk_class #32770
+		MouseMove, X+10, Y+10
+		ControlClick, OK, Left Folder ahk_class #32770,,,, NA x20 y20
+		SoundBeep , 2000 , 400
+	}	
+	IfWinExist Right Folder ahk_class #32770
+		#WinActivateForce, Right Folder ahk_class #32770
+	IfWinActive Right Folder ahk_class #32770
+	{	
+		ControlGetPos, x, y, , , OK, Right Folder ahk_class #32770
+		MouseMove, X+10, Y+10
+		ControlClick, OK, Right Folder ahk_class #32770,,,, NA x20 y20
+		SoundBeep , 3000 , 400
+	}	
 
-		; WinGet, HWND_2, ID, A
-		; IF HWND_2<>%HWND_1%
-		; {
-			; #WinActivateForce, ahk_id %HWND_1%
-		; }
-		
-		; IfInString, OutputVar_3, Removable drive with volume name
-		; {
-			; LOOP
-			; {
-				; SLEEP 50
-				; ControlGetPos, x, y, w, h, Yes, ahk_id %HWND_1%
-				; MouseMove, X+10, Y+10
-				
-				; ControlClick, Yes,ahk_id %HWND_1%
-				; IfWinNotExist, ahk_id %HWND_1%
-					; BREAK
-				; SoundBeep , 4000 , 50
-			; }
-		; }
-	; }
-DetectHiddenWindows, OFF
-
-	WinGet, HWND_1, ID, Left Folder ahk_class #32770
-	IF !HWND_1 
-		WinGet, HWND_1, ID, Right Folder ahk_class #32770
-	IF !HWND_1 
-		O_OutputVar_store=
 	
-	TOOLTIP % HWND_1 " -- "
 	
-	IF HWND_1 
-	{
-	; WinGetPos, X, Y, Width, Height, ahk_id %HWND_1%
-	; ; tooltip % x " -- " y
-	; IF X<>770 and Y<>180
-		; WinMove, ahk_id %HWND_1%,,990,180
-
-	; ControlGetText, OutputVar_store, Edit1, ahk_id %HWND_1%
-	
-	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
-	
-	O_OutputVar_store=1
-	OutputVar_store=2
-	
-	if O_OutputVar_store
-		if OutputVar_store<>%O_OutputVar_store%
+	SetTitleMatchMode 2
+	IfWinActive ] Options ahk_class #32770
+	{	
+		ControlGettext, OutputVar_2, Button16, ] Options ahk_class #32770
+		ControlGet, OutputVar_1, Line, 1, Edit9, ] Options ahk_class #32770
+		IF (OutputVar_2="Periodically (On Timer), every")
+		IF OutputVar_1<>5
 		{
-			O_OutputVar_store=
-			LOOP
-			{
-				SLEEP 50
-				ControlGetPos, x, y, w, h, OK, ahk_id %HWND_1%
-				MouseMove, X+10, Y+10
-				
-				ControlClick, OK, ahk_id %HWND_1%
-				IfWinNotExist, ahk_id %HWND_1%
-					BREAK
-				SoundBeep , 4000 , 50
-			}
+			ControlSetText, Edit9,, ] Options ahk_class #32770
+			Control, EditPaste, 5, Edit9, ] Options ahk_class #32770
+			SoundBeep , 4000 , 100
 		}
-	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
-	
-	O_OutputVar_store=%OutputVar_store%
 
+		IF OutputVar_1=5
+		IfWinExist ] Options ahk_class #32770
+		#WinActivateForce, ] Options ahk_class #32770
+		IF OutputVar_1=5
+		IfWinActive ] Options ahk_class #32770
+		{	
+			ControlGetPos, x, y, , , Button61, ] Options ahk_class #32770 ; SAVE BUTTON
+			; TOOLTIP % X " -- " Y
+			MouseMove, X+10, Y+10
+			ControlClick, Button61, ] Options ahk_class #32770,,,, NA x10 y10
+			SoundBeep , 5000 , 400
+		}	
 	}
+		
 	
 }
 RETURN
