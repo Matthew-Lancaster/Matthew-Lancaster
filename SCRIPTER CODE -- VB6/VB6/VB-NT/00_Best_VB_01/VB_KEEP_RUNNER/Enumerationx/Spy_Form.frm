@@ -1,22 +1,22 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Begin VB.Form Spy_Form 
    Caption         =   "Spying Menus <Enumerating Menus>"
-   ClientHeight    =   4275
-   ClientLeft      =   2550
-   ClientTop       =   2370
-   ClientWidth     =   4935
+   ClientHeight    =   4272
+   ClientLeft      =   2556
+   ClientTop       =   2376
+   ClientWidth     =   4932
    LinkTopic       =   "Form1"
-   ScaleHeight     =   4275
-   ScaleWidth      =   4935
+   ScaleHeight     =   4272
+   ScaleWidth      =   4932
    Begin MSComctlLib.TreeView Tree 
       Height          =   3375
       Left            =   120
       TabIndex        =   0
       Top             =   120
       Width           =   4695
-      _ExtentX        =   8281
-      _ExtentY        =   5953
+      _ExtentX        =   8276
+      _ExtentY        =   5948
       _Version        =   393217
       LineStyle       =   1
       Style           =   7
@@ -78,8 +78,8 @@ End Sub
 
 Private Sub Form_Load()
     With size
-        .hParam = Me.Height
-        .wParam = Me.Width
+        .hParam = Me.height
+        .wParam = Me.width
         .Map Tree, RS_Height_Width
         .Map Frame1, RS_TopOnly
         .Map Frame1, RS_WidthOnly
@@ -88,8 +88,8 @@ Private Sub Form_Load()
         .Map Command2, RS_LeftOnly
         
     End With
-    Me.Left = (Screen.Width - Me.Width) / 2
-    Me.Top = (Screen.Height - Me.Height) / 2
+    Me.Left = (Screen.width - Me.width) / 2
+    Me.Top = (Screen.height - Me.height) / 2
 End Sub
 
 Private Sub Form_Resize()
@@ -98,20 +98,20 @@ Private Sub Form_Resize()
 End Sub
 
 Private Sub Tree_DblClick()
-    On Error GoTo hwndE
+    On Error GoTo hWndE
     
     Dim id As Long, l As Long
     If Check1.Value = vbChecked Then
-        BringWindowToTop SpyHwnd
+        BringWindowToTop SpyhWnd
     End If
     With Tree.SelectedItem
         id = CLng(Right(.Key, Len(.Key) - 1)) - 15000
     End With
-    l = PostMessage(SpyHwnd, WM_COMMAND, id, 0&)
+    l = PostMessage(SpyhWnd, WM_COMMAND, id, 0&)
     'Debug.Print l
 
     Exit Sub
-hwndE:
+hWndE:
     MsgBox "error"
     
 

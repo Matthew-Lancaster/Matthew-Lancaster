@@ -787,7 +787,7 @@ RETURN
 ; ---------------------------------------------------------------------
 ; THIS ROUTINE COULD BE INCLUDED IN HERE BUT IS NOT CALLED FROM ANYWHERE
 ; RUN FORM ANOTHER CODE ON TIMER
-; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ; ---------------------------------------------------------------------
 SUB_TO_CLOSE_PRINT_WINDOW:
 ; -------------------------------------------------------------------

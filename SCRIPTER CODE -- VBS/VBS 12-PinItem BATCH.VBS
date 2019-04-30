@@ -479,6 +479,9 @@ END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\GoodSync\x64\GoodSync2Go.exe"
+END IF
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\hashmyfiles.exe"

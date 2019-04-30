@@ -26,7 +26,7 @@ Public Idle_Timer_Proc
 '// so you could use them, if you need.
 
 Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
-'Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessId As Long) As Long
+'Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessId As Long) As Long
 Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
 
@@ -1273,7 +1273,7 @@ Public Sub List_ActiveModules()
         'ProcLB.List1.AddItem Format$(rr, "0000 ") + Ew$
         
         
-        'Curprochwnd = Module(i).hModule
+        'CurprochWnd = Module(i).hModule
         
         OTSS = ProcessID(O)
         

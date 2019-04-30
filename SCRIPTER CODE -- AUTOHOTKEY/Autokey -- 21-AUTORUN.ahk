@@ -508,6 +508,15 @@ Loop, %id%
 	table := id%A_Index%
 	WinMinimize  ahk_id %table%
 } 
+; GOODSYNC2GO
+WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+Loop, %id%
+{
+
+	table := id%A_Index%
+	WinMinimize  ahk_id %table%
+} 
+
 RETURN
 
 
@@ -765,7 +774,7 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, STARTUP_COMMON_04_ALL, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 00 ELEVATED PRIV ADMIN _ START_UP.BAT"
 
 ; THIS ONE IS TO DO WITH THIS 
-; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ; --------------------------------------------------------------------
 ; Stopping With Warning About Open a Batchfile in Scripter GitHub Folder
 ; --------------------------------------------------------------------
@@ -1135,22 +1144,39 @@ IF SET_GO_1=1
 			Run, "%FN_VAR%" 
 		}
 	}
+}
 
-	Process, Exist, gs-server.exe
+SET_GO_1=0
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	SET_GO_1=1
+
+IF SET_GO_1=1
+{
+	Process, Exist, GoodSync2Go.exe
 	If Not ErrorLevel
 	{
-		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
+		FN_VAR:="C:\GoodSync\x64\GoodSync2Go.exe"
 		IfExist, %FN_VAR%
 		{
 			SoundBeep , 2500 , 100
-			; Run, "%FN_VAR%"  /service, , MIN
-			Run, "%FN_VAR%"  /service
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			Run, "%FN_VAR%" 
 		}
 	}
-
 }
 	
-	
+Process, Exist, gs-server.exe
+If Not ErrorLevel
+{
+	FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		; Run, "%FN_VAR%"  /service, , MIN
+		Run, "%FN_VAR%"  /service
+	}
+}
 	
 IF SKIP_CODE=FALSE
 {
