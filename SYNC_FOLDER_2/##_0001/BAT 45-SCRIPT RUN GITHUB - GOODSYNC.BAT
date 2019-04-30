@@ -3,7 +3,7 @@
 @REM __ 
 @REM __ BAT 59-SCRIPT RUN GOOD OLE GOODSYNC SCRIPTOR FOLDER.BAT
 @REM __ 
-@REM __ MATTHEW LANCASTER  
+@REM __ MATTHEW LANCASTER 
 @REM __ MATT.LAN@BTINTERNET.COM
 @REM ----------------------------------------------------------------
 @REM __ FROM ---- Fri 19-Oct-2018 15:05:42 Created Time _ Original Creation for GITHUB
@@ -76,7 +76,15 @@
 
 @ECHO OFF
 
-IF '%1%'=='/ADMIN' (
+ECHO THE ALL THE COMMAND LINE PARAMETER --  ENV VARS
+IF NOT "%*"=="" ECHO %*
+IF "%*"==""     ECHO -- NONE COMMANDLINE  PARAMETER --  ENV VARS WERE GIVE ----------
+ECHO.
+
+ECHO %* | FIND "/ADMIN" >NUL
+IF %errorlevel% EQU 0 SET ADMIN_REQUEST=/ADMIN
+
+IF '%ADMIN_REQUEST%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
 	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 	@IF '%errorlevel%' GTR '2' SET NOT_GOT_ADMIN=TRUE
@@ -97,7 +105,7 @@ IF '%1%'=='/ADMIN' (
 @IF '%errorlevel%' GTR '2' (
 	@REM Get ADMIN Privileges
 	@ECHO Set UAC = CreateObject^("Shell.Application"^) >> "%temp%\getadmin.vbs"
-	@ECHO UAC.ShellExecute "%~s0", "/ADMIN", "", "runas", 1 >> "%temp%\getadmin.vbs"
+	@ECHO UAC.ShellExecute "%~s0", "/ADMIN %*", "", "runas", 1 >> "%temp%\getadmin.vbs"
 
 	"%temp%\getadmin.vbs"
 	@DEL "%temp%\getadmin.vbs"
@@ -105,7 +113,8 @@ IF '%1%'=='/ADMIN' (
 	@EXIT /B
 )
 
-@ECHO Got ADMIN Privileges
+IF '%ADMIN_REQUEST%'=='/ADMIN'     @ECHO Got ADMIN Privileges -- By Push For Them
+IF NOT '%ADMIN_REQUEST%'=='/ADMIN' @ECHO Got ADMIN Privileges -- By Natual
 
 @ECHO OFF
 
@@ -120,19 +129,59 @@ REM ---- FILENAME WITHOUT EXTENSION
 @SET TITLE_VAR=%~n0
 REM ---- FILENAME WITH   EXTENSION
 @SET TITLE_VAR=%~n0%~x0
+REM ---- FULL SCRIPT PATH
+@SET TITLE_VAR=%~f0
+
+REM ----
+REM How can I echo a newline in a batch file? - Stack Overflow
+REM https://stackoverflow.com/questions/132799/how-can-i-echo-a-newline-in-a-batch-file
+REM ----
+REM ---- EXAMPLE ---- ECHO READY!\n!STEADY!\n!GO
+REM ----
+(set \n=^
+%=Do not remove this line=%
+)
 
 @TITLE !TITLE_VAR!
 
-ECHO !TITLE_VAR! | FIND "BAT 59-RUN GOODSYNC SET SCRIPTOR" 
-@if !errorlevel!==0 (
+ECHO READY STEADY GO
+ECHO READY!\n!STEADY!\n!GO
+
+ECHO %* | FIND "GOODSYNC_MODE" >NUL
+IF %errorlevel% EQU 0 (
+REM ECHO !TITLE_VAR! | FIND "BAT 59-RUN GOODSYNC SET SCRIPTOR" >NUL
+REM @if !errorlevel!==0 (
 	SET MODE_RUN=GOODSYNC
-	@CD /D "C:\SCRIPTER"
+	REM @CD /D "C:\SCRIPTER"
+	GOTO START
 )
-ECHO !TITLE_VAR! | FIND "BAT 45-SCRIPT RUN GITHUB - GOODSYNC" 
-@if !errorlevel!==0 (
+
+ECHO %* | FIND "GITHUB_MODE" >NUL
+IF %errorlevel% EQU 0 (
 	SET MODE_RUN=GITHUB
-	@CD /D "C:\SCRIPTOR GITHUB"
+	REM @CD /D "C:\SCRIPTOR GITHUB"
+	GOTO START
 )
+
+IF "!MODE_RUN!"=="" (
+
+	SET MODE_RUN=GITHUB
+	REM @CD /D "C:\SCRIPTER"
+	GOTO START
+)
+
+
+:START
+
+
+ECHO %* | FIND "WITH_GITHUB_MODE" >NUL
+IF %errorlevel% EQU 0 SET MODE_RUN_WITH_GITHUB=TRUE
+
+REM SET TITLE_RUN_MODE=BAT 45-SCRIPT RUN GITHUB - GOODSYNC
+REM SET MODE_RUN=GITHUB
+
+ECHO RUN MODE -- !MODE_RUN!
+REM ECHO !TITLE_RUN_MODE!
 
 @SET PATH_GIT="C:\Program Files\Git\bin"
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
@@ -184,7 +233,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 8M_ GSD"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C C DRIVE ROOT CROSS 00 C SCRIPTER FOLDER"
 SET /A LDA=LDA+1
@@ -201,7 +249,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C C DRIVE ROOT CROSS 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C C DRIVE ROOT CROSS 8M _ GSD"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C ISO __ 7G TO 1X"
 SET /A LDA=LDA+1
@@ -214,7 +261,6 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C ISO __ 7G TO 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C ISO __ 7G TO 8M"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C GOODSYNC __ 7G TO 1X"
 SET /A LDA=LDA+1
@@ -227,62 +273,107 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C GOODSYNC __ 7G TO 5P"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C GOODSYNC __ 7G TO 8M"
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D # MY DOC __ 7G TO 4G_1"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D BT Cloud Sync _ 00 _ Caller ID"
-
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
+SET Sources[!LDA!]="D #0 1 INSTALL 7G 4G_1"
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
+SET Sources[!LDA!]="D #0 1 INSTALL 7G 8M_1"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB G7 VB-NT 8M _3_ LONGER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB G7 VB-NT 5P _3_ LONGER GSD"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="VB G7 VB-NT 4G _3_ LONGER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
 
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-REM SET /A LDA=LDA+1
-REM SET Sources[!LDA!]=""
-
-GOTO NEXT_CONTINUE
+REM GOTO NEXT_CONTINUE
 
 :GITHUB___SET_ARRRAY
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT"
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
-@SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT 0 COMP_NAMER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT 1"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 02 SCRIPTER CODE -- GITHUB"
+REM SET /A LDA=LDA+1
+REM SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 ELITESPY"
+REM SET /A LDA=LDA+1
+REM SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 VB_KEEP_RUNNER"
+REM SET /A LDA=LDA+1
+REM SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_05_COMMON"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 02 BAT 59-RUN GOODSYNC SET SCRIPTOR -- VB WANT QUICK CHANGER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 02 BAT 59-RUN GOODSYNC SET SCRIPTOR--VB -- 00_Best_VB_01"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_#_1_2"
+REM GOTO JUMP
+	REM SET /A LDA=LDA+1
+	REM SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_001_PAIR_01_BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+	REM SET /A LDA=LDA+1
+	REM SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_001_PAIR_02_BAT 45-SCRIPT RUN GITHUB - GOODSYNC.BAT"
+REM :JUMP
+REM SET /A LDA=LDA+1
+REM SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_Multiple_Thread Port Scanner 02 CON"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
 SET /A LDA=LDA+1
 SET Sources[!LDA!]=""
+SET /A LDA=LDA+1
+SET Sources[!LDA!]=""
+
+REM -----------------------------------------------------------------
+REM -- LEAVE UNTIL END AND THEN THE GITHUB SCRIPT WILL RUN FROM GOODSYNC CALL SCRIPT THE 
+REM -- BAT 45-SCRIPT RUN GITHUB.BAT
+REM -----------------------------------------------------------------
+REM -- MAYBE WE DON'T WANT GITHUB UPDATE WHILE GOODSYNC MODE WORKER
+REM -----------------------------------------------------------------
+IF !MODE_RUN_WITH_GITHUB!==TRUE GOTO WANT_GITHUB
+IF !MODE_RUN!==GITHUB           GOTO WANT_GITHUB
+GOTO NEXT_CONTINUE
+
+:WANT_GITHUB
+	SET /A LDA=LDA+1
+	SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
 
 :NEXT_CONTINUE
 
+
+
+REM -----------------------------------------------------------------
+REM -- SORT THE EMPTY ARRAY FOR VOID VALUE
+REM -----------------------------------------------------------------
+SET LDB=0
 for /L %%a in (1,1,!LDA!) do (
-
-	ECHO !sources[%%a]!
-
-	IF !sources[%%a]!=="" SET /A LDA=LDA-1
-	
+	IF NOT !sources[%%a]!=="" (
+		SET /A LDB=LDB+1
+		SET Sources_02[!LDB!]=!sources[%%a]!
+	)
 )
 
+SET LDA=%LDB%
+
+REM -- TEST DEBUG
+REM SET LDA=1
+
+REM -----------------------------------------------------------------
+REM TEST ONLY RUN 1 JOB QUICKER DEBUGGING
+REM SET LDA=1
+REM -----------------------------------------------------------------
+
+for /L %%a in (1,1,!LDA!) do (
+	ECHO %%a -- !sources_02[%%a]!
+)
 
 
 
@@ -300,19 +391,21 @@ REM -----------------------------------------------------------------
 for /L %%a in (1,1,!LDA!) do (
 
 	@ECHO OFF
-
+	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
+	ECHO ----------------------------------------------------------------
+	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
 
 	REM STRIP QUOTES THIS BIT BEFORE END :"=
-	REM NORMAL VAR BE LIKE !sources[%%a]!
+	REM NORMAL VAR BE LIKE !Sources_02[%%a]!
 	REM CREDIT FINDER AT END OF CODE 
 	
-	ECHO !sources[%%a]:"=!
+	ECHO !Sources_02[%%a]:"=!
 	
 	@ECHO ON
 	@ECHO.
@@ -321,14 +414,12 @@ for /L %%a in (1,1,!LDA!) do (
 	@ECHO ----------------------------------------------------------------
 	@ECHO.
 	@REM DEL !FILENAME_ER! >NUL 2>NUL
-	@REM CMD /A /C "%GoodSync_GSync% sync !sources[%%a]!>!FILENAME_ER!"
-	@ECHO %GoodSync_GSync% sync !sources[%%a]!^>!FILENAME_ER!
+	@REM CMD /A /C "%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!"
+	@ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
 	@ECHO.
-	%GoodSync_GSync% sync !sources[%%a]!>!FILENAME_ER!
-
+	%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
 	@ECHO OFF
 	
-	ECHO.
 	ECHO ----------------------------------------------------------------
 
 	@REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
@@ -342,23 +433,30 @@ for /L %%a in (1,1,!LDA!) do (
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
 	TYPE !FILENAME_ER!
 	
-	ECHO ----------------------------------------------------------------
-
 	@SET Analysis_Complete=FALSE
 	@SET Sync_Runner=FALSE
 	@SET Another_Job=FALSE
 	@SET Unresolved_Conflicts=FALSE
 	@SET Computer_Is_Offline=FALSE
 	@SET Change_Happen=TRUE
+	@SET JOB_NOT_FOUND=FALSE
 
 	@find "-- Analysis Complete" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Analysis_Complete=TRUE
+	@if !errorlevel!==0 (
+		SET Analysis_Complete=TRUE
+	)
 	@REM Sync: Running: ____ DOESN'T APPEAR TO SHOW ALWAYS OR ANYMORE _ CHANGE TO NEXT ONE __ Sync Complete.
 	@find "Sync: Running:" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@if !errorlevel!==0 (
+		SET Sync_Runner=TRUE
+		SET Analysis_Complete=TRUE
+	)
 	@REM == Sync Complete.
 	@find "== Sync Complete." !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@if !errorlevel!==0 (
+		SET Sync_Runner=TRUE
+		SET Analysis_Complete=TRUE
+	)
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Another_Job=TRUE
 	@find "unresolved conflits" !FILENAME_ER!>NUL
@@ -370,6 +468,14 @@ for /L %%a in (1,1,!LDA!) do (
 	@find "Changes: 0," !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Change_Happen=FALSE
 	
+	SET FLAG_HERE=FALSE
+	@find " not found" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET FLAG_HERE=TRUE
+	@IF !FLAG_HERE!==TRUE (
+		@find "Error parsing command line: Job" !FILENAME_ER!>NUL
+		@if !errorlevel!==0 SET JOB_NOT_FOUND=TRUE
+	)
+		
 	SET Sync_Runner_ONE=TRUE
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
@@ -383,6 +489,18 @@ for /L %%a in (1,1,!LDA!) do (
 	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
+
+	@SET FLAG_HERE=FALSE
+	@find " not found" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET FLAG_HERE=TRUE
+	@IF !FLAG_HERE!==TRUE (
+		@find "Error parsing command line: Job" !FILENAME_ER!>NUL
+		@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
+		@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
+	)
+	
+	@REM 021814 Error parsing command line: Job 'C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT' not found
+	@REM Job 'C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT' not found
 	
 	IF "!Sync_Runner_TOTAL!"=="FALSE"  SET FAULT_FLAG="TRUE"
 	IF "!Sync_Runner_ONE!"=="FALSE"    SET /A "FAULT_COUNTER+=1"
@@ -393,17 +511,17 @@ for /L %%a in (1,1,!LDA!) do (
 
 	@ECHO OFF
 
-	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
 	ECHO ----------------------------------------------------------------
-	ECHO !sources[%%a]:"=!
+	ECHO !Sources_02[%%a]:"=!
 	ECHO ----------------------------------------------------------------
 	ECHO Analysis_Complete   !Analysis_Complete!
 	ECHO Sync_Runner         !Sync_Runner!
 	ECHO Another_Job         !Another_Job!
 	ECHO Conflicts           !Unresolved_Conflicts!
 	ECHO Computer_Is_Offline !Computer_Is_Offline!
+	ECHO Job Not Found       !JOB_NOT_FOUND!
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	
@@ -412,54 +530,71 @@ for /L %%a in (1,1,!LDA!) do (
 	SET STATUS_6[%%a]="Another_Job         !Another_Job!"
 	SET STATUS_7[%%a]="Conflicts           !Unresolved_Conflicts!"
 	SET STATUS_8[%%a]="Computer_Is_Offline !Computer_Is_Offline!"
+	SET STATUS_9[%%a]="Job Not Found       !JOB_NOT_FOUND!"
 
-	IF "!Computer_Is_Offline!"=="FALSE" (
-		IF "!Analysis_Complete!"=="FALSE" (
-			IF "!Another_Job!"=="FALSE" (
-				SET /A "X+=1"
-				ECHO ----------------------------------------------------------------
-				ECHO ANALYSIS ^& SYNC NOT RUN
-				ECHO.
-				ECHO NOT SURE WHY -- xxxxxxxxxx
-				ECHO ----------------------------------------------------------------
-				ECHO ----------------------------------------------------------------
-				ECHO %%a of !LDA!
-				ECHO ----------------------------------------------------------------
-				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
-				SET STATUS_2[!X!]=!sources[%%a]!
-				SET STATUS_3[!X!]=%%a of !LDA!
-
-			)
-			IF "!Another_Job!"=="TRUE" (
-				SET /A "X+=1"
-				ECHO ----------------------------------------------------------------
-				ECHO ANALYSIS ^& SYNC NOT RUN
-				ECHO.
-				ECHO ANOTHER JOB IS RUNNING -- ********** 
-				ECHO ----------------------------------------------------------------
-				ECHO ----------------------------------------------------------------
-				ECHO %%a of !LDA!
-				SET STATUS_1[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
-				SET STATUS_2[!X!]=!sources[%%a]!
-				SET STATUS_3[!X!]=%%a of !LDA!
+	IF "!Analysis_Complete!"=="FALSE" (
+		IF "!Another_Job!"=="FALSE" (
+			IF "!Unresolved_Conflicts!"=="FALSE" (
+				IF "!Computer_Is_Offline!"=="FALSE" (
+					IF "!JOB_NOT_FOUND!"=="FALSE" (
+						SET /A "X+=1"
+						ECHO ----------------------------------------------------------------
+						ECHO ANALYSIS ^& SYNC NOT RUN
+						ECHO.
+						ECHO NOT SURE WHY                              ---- X-X-X-X-X-X-X-X-X
+						ECHO ----------------------------------------------------------------
+						ECHO %%a of !LDA!
+						ECHO ----------------------------------------------------------------
+						SET STATUS_1[!X!]=%%a of !LDA!
+						SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
+						SET STATUS_3[!X!]=!Sources_02[%%a]!
+					)
+				)
 			)
 		)
 	)
 	
+	IF "!JOB_NOT_FOUND!"=="TRUE" (
+		SET /A "X+=1"
+		ECHO ----------------------------------------------------------------
+		ECHO JOB NOT FOUND                             ---- X-X-X-X-X-X-X-X-X
+		ECHO.
+		ECHO ----------------------------------------------------------------
+		ECHO %%a of !LDA!
+		ECHO ----------------------------------------------------------------
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="JOB NOT FOUND ----"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
+	)
+
+	IF "!Another_Job!"=="TRUE" (
+		SET /A "X+=1"
+		ECHO ----------------------------------------------------------------
+		ECHO ANALYSIS ^& SYNC NOT RUN
+		ECHO.
+		ECHO ANOTHER JOB IS RUNNING                    ---- X-X-X-X-X-X-X-X-X
+		ECHO ----------------------------------------------------------------
+		ECHO %%a of !LDA!
+		ECHO ----------------------------------------------------------------
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
+	)
+
 	IF "!Computer_Is_Offline!"=="TRUE" (
 		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO ANALYSIS ^& SYNC NOT RUN
 		ECHO.
-		ECHO Computer_Is_Offline -- xxxxxxxxxx
+		ECHO Computer_Is_Offline                       ---- X-X-X-X-X-X-X-X-X
 		ECHO.
-		ECHO !sources[%%a]:"=!
-		ECHO ----------------------------------------------------------------
+		ECHO !Sources_02[%%a]:"=!
 		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
-		SET STATUS_1[!X!]="Computer_Is_Offline"
-		SET STATUS_2[!X!]=!sources[%%a]!
-		SET STATUS_3[!X!]=%%a of !LDA!
+		ECHO ----------------------------------------------------------------
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="Computer_Is_Offline"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
 		REM TIMEOUT /T 10
 	)
 
@@ -473,7 +608,6 @@ for /L %%a in (1,1,!LDA!) do (
 			IF "!Unresolved_Conflicts!"=="TRUE" (
 				ECHO POSSIBLE BECAUSE __ NONE CHANGE HAPPEN -- BUT -- CONFLICTS ARE FOUND
 			)
-			ECHO.
 			ECHO ----------------------------------------------------------------
 			IF "!Unresolved_Conflicts!"=="FALSE" (
 				REM TIMEOUT /T 4
@@ -501,45 +635,50 @@ for /L %%a in (1,1,!LDA!) do (
 		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
 		ECHO Unresolved Conflicts At
+		ECHO ----------------------------------------------------------------
 		ECHO %%a of !LDA!
-		ECHO !sources[%%a]!
-		SET STATUS_1[!X!]="Unresolved Conflicts"
-		SET STATUS_2[!X!]=!sources[%%a]!
-		SET STATUS_3[!X!]=%%a of !LDA!
+		ECHO !Sources_02[%%a]:"=!
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="Unresolved Conflicts"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
 		ECHO ----------------------------------------------------------------
 		REM TIMEOUT /T 5
 	)
 
+	SET COMP_1="%%a of !LDA!"
+	SET COMP_2="!LDA! of !LDA!"
+
 	IF "!Sync_Runner_TOTAL!"=="TRUE" (
-		SET COMP_1="%%a of !LDA!"
-		SET COMP_2="!LDA! of !LDA!"
 		REM ---- FOR THE DURING ONE
 		IF NOT "!COMP_1!"=="!COMP_2!" (
-			ECHO NOT ERROR OVERALL YET                    ---- ********** 
+			ECHO ----------------------------------------------------------------
+			ECHO NOT ERROR OVERALL YET                     ---- *****************
+			ECHO ----------------------------------------------------------------
 		)
 		REM ---- FOR THE LAST ONE
 		IF "!COMP_1!"=="!COMP_2!" (
-			ECHO NOT ERROR OVERALL TOTALLY SUCCESSFUL     ---- ********** 
+			ECHO ----------------------------------------------------------------
+			ECHO NOT ERROR OVERALL TOTALLY SUCCESSFUL      ---- ***************** 
+			ECHO ----------------------------------------------------------------
 		)
-	)
-
-	IF "!Sync_Runner_TOTAL!"=="FALSE" (
-		ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER! ---- X X X X X X
-		REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1 ---- X-X-X-X-X-X
-		ECHO ----------------------------------------------------------------
-		for /L %%a in (1,1,!X!) do (
-			ECHO !STATUS_1[%%a]:"=!
-			ECHO !STATUS_3[%%a]:"=!
-			ECHO !STATUS_2[%%a]:"=!
-			REM ECHO.
-		)
-		REM TIMEOUT /T 4
 	)
 	
-	ECHO ----------------------------------------------------------------
-	ECHO ----------------------------------------------------------------
-	ECHO.	
-
+	IF NOT "!COMP_1!"=="!COMP_2!" (
+		IF "!Sync_Runner_TOTAL!"=="FALSE" (
+			ECHO CONFLICT ERROR FOUND OVERALL _ COUNT = !FAULT_COUNTER!  ---- X-X-X-X-X-X-X-X-X
+			REM  CONFLICT ERROR FOUND OVERALL _ COUNT = 1  ---- X-X-X-X-X-X-X-X-X
+			ECHO ----------------------------------------------------------------
+			for /L %%a in (1,1,!X!) do (
+				ECHO !STATUS_1[%%a]:"=!
+				ECHO !STATUS_3[%%a]:"=!
+				ECHO !STATUS_2[%%a]:"=!
+				ECHO ----------------------------------------------------------------
+			)
+			REM TIMEOUT /T 4
+		)
+	)
+	
+	ECHO.
 )
 
 @REM ----------------------------------------------------------------
@@ -548,56 +687,49 @@ for /L %%a in (1,1,!LDA!) do (
 @REM MONTH-DAY
 @REM ----------------------------------------------------------------
 
-if !X! EQU 0 (
-	ECHO ----------------------------------------------------------------
-	ECHO NOT ATTENTION REQUIRED SUCCESSFUL        ---- ********** 
-	ECHO ----------------------------------------------------------------
-	ECHO.
-)
-
-
-if !X! GTR 0 (
-	ECHO ----------------------------------------------------------------
-	ECHO ATTENTION REQUIRING NOT SUCCESSFUL       ---- X-X-X-X-X-X
-	ECHO ----------------------------------------------------------------
-	ECHO.
-	for /L %%a in (1,1,!X!) do (
-		ECHO ----------------------------------------------------------------
-		ECHO !STATUS_3[%%a]:"=!
-		ECHO !STATUS_1[%%a]:"=!
-		ECHO !STATUS_2[%%a]:"=!
-		ECHO.
-	)
-	ECHO ----------------------------------------------------------------
-	REM TIMEOUT /T 8
-)
-
+ECHO.
+ECHO ----------------------------------------------------------------
 for /L %%a in (1,1,!LDA!) do (
-	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA!
-	ECHO !sources[%%a]:"=!
+	ECHO !Sources_02[%%a]:"=!
 	ECHO !STATUS_4[%%a]:"=!
 	ECHO !STATUS_5[%%a]:"=!
 	ECHO !STATUS_6[%%a]:"=!
 	ECHO !STATUS_7[%%a]:"=!
 	ECHO !STATUS_8[%%a]:"=!
+	ECHO !STATUS_9[%%a]:"=!
+	ECHO ----------------------------------------------------------------
 )
 
-ECHO ----------------------------------------------------------------
-
-IF !MODE_RUN!=GITHUB (
-	ECHO -- 
-	ECHO -- GITHUB MOD AND DO -- RUN -- GITHUB COMMIT -- PRORGAM
-	ECHO -- 
+if !X! EQU 0 (
 	ECHO.
-	C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT
+	ECHO ----------------------------------------------------------------
+	ECHO SYNC SUCCESSFUL                           ---- ***************** 
+	ECHO ----------------------------------------------------------------
+	ECHO.
 )
 
+if !X! GTR 0 (
+	ECHO.
+	ECHO ----------------------------------------------------------------
+	ECHO NOT SUCCESSFUL ATTENTION REQUIRING        ---- X-X-X-X-X-X-X-X-X
+	ECHO ----------------------------------------------------------------
+	ECHO.
+	for /L %%a in (1,1,!X!) do (
+		ECHO ----------------------------------------------------------------
+		ECHO !STATUS_1[%%a]:"=!
+		ECHO !STATUS_2[%%a]:"=!
+		ECHO !STATUS_3[%%a]:"=!
+		ECHO.
+	)
+	ECHO ----------------------------------------------------------------
+	ECHO.
+)
 
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
-	ECHO END RUNNER                               ---- **********
-	ECHO SYNC COMPLETE SUCCESSFUL                 ---- **********
+	ECHO END RUNNER                                ---- *****************
+	ECHO SYNC COMPLETE SUCCESSFUL                  ---- *****************
 	ECHO ----------------------------------------------------------------
 	REM TIMEOUT /T 8
 	REM ECHO ----------------------------------------------------------------
@@ -607,20 +739,24 @@ IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	"%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
 	ECHO ----------------------------------------------------------------
+	ECHO.
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
 
 IF "!Sync_Runner_TOTAL!"=="FALSE" (
 	ECHO ----------------------------------------------------------------
-	ECHO END RUNNER                               ---- **********
-	ECHO NOT __ SYNCER SUCCESSFUL                 ---- **********
+	ECHO END RUNNER                                ---- *****************
+	ECHO NOT __ SUCCESSFUL ATTENTION REQUIRING     ---- *****************
 	ECHO ----------------------------------------------------------------
-	ECHO ----------------------------------------------------------------
+	ECHO.
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
 
+
+:ENDER
+IF NOT "!MODE_RUN!"=="GITHUB_ONLY"    TIMEOUT /T 90
 
 @REM ----------------------------------------------------------------
 @REM --- ECHO DE-STUPID-POO
@@ -636,6 +772,7 @@ IF "!Sync_Runner_TOTAL!"=="FALSE" (
 
 @ECHO.
 ECHO ----------------------------------------------------------------
+
 
 :ENDE
 EXIT
@@ -674,3 +811,22 @@ REM How to loop through array in batch? - Stack Overflow
 REM https://stackoverflow.com/questions/18462169/how-to-loop-through-array-in-batch
 REM ----
 
+
+REM ----
+REM Batch Script Variables
+REM https://www.tutorialspoint.com/batch_script/batch_script_variables.htm
+REM ----
+REM Example
+REM @echo off 
+REM set globalvar = 5
+REM SETLOCAL
+REM set var = 13145
+REM set /A var = %var% + 5
+REM echo %var%
+REM echo %globalvar%
+REM ENDLOCAL
+REM Few key things to note about the above program.
+
+REM The ‘globalvar’ is defined with a global scope and is available throughout the entire script.
+
+REM The ‘var‘ variable is defined in a local scope because it is enclosed between a ‘SETLOCAL’ and ‘ENDLOCAL’ block. Hence, this variable will be destroyed as soon the ‘ENDLOCAL’ statement is executed.
