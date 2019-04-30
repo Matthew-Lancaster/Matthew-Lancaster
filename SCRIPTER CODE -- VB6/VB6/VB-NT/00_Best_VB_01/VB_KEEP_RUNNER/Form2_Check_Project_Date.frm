@@ -51,7 +51,7 @@ Attribute VB_Exposed = False
 
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 
 Public EXIT_TRUE
@@ -61,8 +61,8 @@ Dim XVB_DATE
 Dim XVB_DATE_2
 Dim FSO
 
-Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -96,7 +96,7 @@ Private Const conSwNormal = 1
 
 
 '-----------------------------------------------------------------
-Private Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
+Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
 
 Private Type OSVERSIONINFO
     dwOSVersionInfoSize As Long
@@ -406,7 +406,7 @@ If READY_TO_GO = True Then
         ' Shell VBS_LAUNCHER_NAME ____ NOT WORKING
         ' -------------------------------------------------------------------------------
         ' Eample of using ShellExecute
-        ' ShellExecute hwnd, "open", pathandfile, vbNullString, vbNullString, conSwNormal
+        ' ShellExecute hWnd, "open", pathandfile, vbNullString, vbNullString, conSwNormal
         ' -------------------------------------------------------------------------------
         'ShellExecute Me.hWnd, "open", VBS_LAUNCHER_NAME, vbNullString, vbNullString, conSwNormal
         

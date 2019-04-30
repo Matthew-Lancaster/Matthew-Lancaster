@@ -30,7 +30,7 @@
 ; Well I Decide is Good Enough to Use as Own Desperate Code Program
 ; And use ignore mouse on keyboard hook
 ; -------------------------------------------------------------------
-; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ; -------------------------------------------------------------------
 
 ; # ------------------------------------------------------------------

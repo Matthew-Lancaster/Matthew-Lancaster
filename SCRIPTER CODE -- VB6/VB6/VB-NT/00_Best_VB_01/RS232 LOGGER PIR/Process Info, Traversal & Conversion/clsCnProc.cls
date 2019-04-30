@@ -17,17 +17,17 @@ Option Explicit
 ' Form or Module
 ' Public cProcesses As New clsCnProc
 
-' VAR = cProcesses.Convert(CPhWnd, Otss, cnFromProcessID Or cnTohWnd)
-' VAR = cProcesses.Convert(CPhWnd, Otss, cnFromhWnd Or cnToProcessID)
+' VAR = cProcesses.Convert(CPHwnd, Otss, cnFromProcessID Or cnTohWnd)
+' VAR = cProcesses.Convert(CPHwnd, Otss, cnFromhWnd Or cnToProcessID)
 
-' SEEMS TO BE ERROR USING hWnd TO EXE IT WANTS PROCESSID
+' SEEMS TO BE ERROR USING HWND TO EXE IT WANTS PROCESSID
 ' HAVE TO RUN TWO ROUTINE
-' VAR = cProcesses.Convert(CPhWnd, Otss, cnFromhWnd Or cnToEXE)
+' VAR = cProcesses.Convert(CPHwnd, Otss, cnFromhWnd Or cnToEXE)
 
 ' SEE EXAMPLE
-' VAR = cProcesses.Convert(CPhWnd, Otss, cnFromhWnd Or cnToProcessID)
-' VAR = cProcesses.Convert(CPhWnd, Otss, cnFromProcessID Or cnToEXE)
-' VAR = cProcesses.Convert(CPhWnd, Otss, cnFromProcessID Or cnTohWnd)
+' VAR = cProcesses.Convert(CPHwnd, Otss, cnFromhWnd Or cnToProcessID)
+' VAR = cProcesses.Convert(CPHwnd, Otss, cnFromProcessID Or cnToEXE)
+' VAR = cProcesses.Convert(CPHwnd, Otss, cnFromProcessID Or cnTohWnd)
 
 
 ' VAR = GetEXEID(ByRef lRunningID As Long, ByRef sRunningEXE As String) As Boolean
@@ -88,13 +88,85 @@ Option Explicit
 '#########################################################
 '# General definitions
 '#########################################################
+Private Declare Function GetParent Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
+Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long) As Long
+' PRIVATE Constants for GetWindowLong API declaration
+Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
+Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
+Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+
+Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" ( _
+     ByVal hProcess As Long, _
+     ByVal hModule As Long, _
+     ByVal lpFileName As String, _
+     ByVal nSize As Long) As Long
+
+Private Const GWL_STYLE = (-16)
+Private Const GWL_EXSTYLE = (-20)
+
+' PRIVATE Constants for window styles
+Private Const WS_BORDER = &H800000
+Private Const WS_CAPTION = &HC00000
+Private Const WS_CHILD = &H40000000
+Private Const WS_CLIPCHILDREN = &H2000000
+Private Const WS_CLIPSIBLINGS = &H4000000
+Private Const WS_DLGFRAME = &H400000
+Private Const WS_GROUP = &H20000
+Private Const WS_HSCROLL = &H100000
+Private Const WS_MAXIMIZEBOX = &H10000
+Private Const WS_MINIMIZEBOX = &H20000
+Private Const WS_SYSMENU = &H80000
+Private Const WS_POPUP = &H80000000
+Private Const WS_POPUPWINDOW = (WS_POPUP Or WS_BORDER Or WS_SYSMENU)
+Private Const WS_TABSTOP = &H10000
+Private Const WS_THICKFRAME = &H40000
+Private Const WS_SIZEBOX = WS_THICKFRAME
+Private Const WS_VISIBLE = &H10000000
+Private Const WS_VSCROLL = &H200000
+Private Const WM_CLOSE = &H10
+
+' Private constants for extended window styles
+Private Const WS_EX_CLIENTEDGE = &H200&
+Private Const WS_EX_STATICEDGE = &H20000
+
+Private Const DELETE As Long = &H10000
+Private Const READ_CONTROL As Long = &H20000
+Private Const WRITE_DAC As Long = &H40000
+Private Const WRITE_OWNER As Long = &H80000
+Private Const SYNCHRONIZE As Long = &H100000
+Private Const STANDARD_RIGHTS_REQUIRED As Long = &HF0000
+Private Const STANDARD_RIGHTS_READ As Long = READ_CONTROL
+Private Const STANDARD_RIGHTS_WRITE As Long = READ_CONTROL
+Private Const STANDARD_RIGHTS_EXECUTE As Long = READ_CONTROL
+Private Const STANDARD_RIGHTS_ALL As Long = &H1F0000
+Private Const SPECIFIC_RIGHTS_ALL As Long = &HFFFF
+Private Const GENERIC_READ As Long = &H80000000
+Private Const GENERIC_WRITE As Long = &H40000000
+Private Const GENERIC_EXECUTE As Long = &H20000000
+Private Const GENERIC_ALL As Long = &H10000000
+
+Private Const PROCESS_TERMINATE As Long = &H1
+Private Const PROCESS_CREATE_THREAD As Long = &H2
+Private Const PROCESS_SET_SESSIONID As Long = &H4
+Private Const PROCESS_VM_OPERATION As Long = &H8
+Private Const PROCESS_VM_READ As Long = &H10
+Private Const PROCESS_VM_WRITE As Long = &H20
+Private Const PROCESS_DUP_HANDLE As Long = &H40
+Private Const PROCESS_CREATE_PROCESS As Long = &H80
+Private Const PROCESS_SET_QUOTA As Long = &H100
+Private Const PROCESS_SET_INFORMATION As Long = &H200
+Private Const PROCESS_QUERY_INFORMATION As Long = &H400
+Private Const PROCESS_ALL_ACCESS As Long = (STANDARD_RIGHTS_REQUIRED Or SYNCHRONIZE Or &HFFF)
+
 Private Declare Function TerminateProcess _
-        Lib "Kernel32" _
+        Lib "kernel32" _
         (ByVal hProcess As Long, _
         ByVal uExitCode As Long) As Long
 
 
-Private Declare Sub CloseHandle Lib "Kernel32" (ByVal hPass As Long)
+Private Declare Sub CloseHandle Lib "kernel32" (ByVal hPass As Long)
 Private Const MAX_PATH = 260
 
 Private sEXEName As String
@@ -113,7 +185,7 @@ Private Declare Function FindWindowDLL _
 '#########################################################
 '# Functions/Consts/Types used for GetVersionEx()
 '#########################################################
-Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
+Private Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
 'Private Const VER_PLATFORM_WIN32s = 0
 'Private Const VER_PLATFORM_WIN32_WINDOWS = 1
 Private Const VER_PLATFORM_WIN32_NT = 2
@@ -130,9 +202,9 @@ End Type
 '#########################################################
 '# Win32 (non-NT4) specific definitions
 '#########################################################
-Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal lFlags As Long, lProcessID As Long) As Long
-Private Declare Function ProcessFirst Lib "Kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
-Private Declare Function ProcessNext Lib "Kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal lFlags As Long, lProcessID As Long) As Long
+Private Declare Function ProcessFirst Lib "kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function ProcessNext Lib "kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
 Private Const TH32CS_SNAPPROCESS As Long = 2&
 Private Type PROCESSENTRY32
     dwSize As Long
@@ -156,12 +228,11 @@ Private hSnapShot As Long
 '# Windows NT4 specific definitions
 '#    NOTE: Remember to distribute the PSAPI.DLL file.
 '#########################################################
-Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
-Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
-Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
-Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
-Private Const PROCESS_QUERY_INFORMATION = 1024
-Private Const PROCESS_VM_READ = 16
+'Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
+'Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+'Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
+'Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
+
 'Private Const STANDARD_RIGHTS_REQUIRED = &HF0000
 'Private Const SYNCHRONIZE = &H100000
 'STANDARD_RIGHTS_REQUIRED Or SYNCHRONIZE Or &HFFF
@@ -178,13 +249,13 @@ Private i As Long
 '#########################################################
 '# Convert() releated definitions
 '#########################################################
-    '#### Functions/Consts used for GethWnd() (part of Convert())
+    '#### Functions/Consts used for GetHWnd() (part of Convert())
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
 Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
 Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
-Private Const GW_hWndNEXT = 2
+Private Const GW_HWNDNEXT = 2
 Private Const GW_CHILD = 5
 
     '#### eNum used with Convert()
@@ -201,10 +272,10 @@ Public Enum cnProcessConv
     cnToTitle = 512
 End Enum
 
-Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
-'Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
-'Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
-'Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
+Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+'Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+'Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
+'Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
 Private Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hWnd As Long) As Long
 
 Private Const GW_OWNER = 4
@@ -219,12 +290,12 @@ Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpCl
 
 
 Private Function GetWindowTitle(ByVal hWnd As Long) As String
-   Dim l As Long
-   Dim s As String
-   l = GetWindowTextLength(hWnd)
-   s = Space(l + 1)
-   GetWindowText hWnd, s, l + 1
-   GetWindowTitle = Left$(s, l)
+   Dim L As Long
+   Dim S As String
+   L = GetWindowTextLength(hWnd)
+   S = Space(L + 1)
+   GetWindowText hWnd, S, L + 1
+   GetWindowTitle = Left$(S, L)
 End Function
 
 '#####################################################################################
@@ -511,21 +582,21 @@ Public Sub CloseProcesses()
 End Sub
 
 
-Public Function Get_PID_From_hWnd(ByRef InputData, ByRef OutputData) As Boolean
+Public Function Get_PID_From_HWND(ByRef InputData, ByRef OutputData) As Boolean
 
     Dim sClass As String
     Dim sTitle As String
     Dim sEXE As String
-    Dim LhWnd As Long
+    Dim lHwnd As Long
     Dim lProcessID As Long
 
         '#### Init the vars to invalid values for an hWnd/ProcessID
-    LhWnd = -1
+    lHwnd = -1
     lProcessID = -1
 
     '#### Else if we are converting from an hWnd
     If (IsNumeric(InputData)) Then
-        LhWnd = InputData
+        lHwnd = InputData
     Else
         GoTo Convert_Error
     End If
@@ -533,18 +604,18 @@ Public Function Get_PID_From_hWnd(ByRef InputData, ByRef OutputData) As Boolean
     '#### Else if we are converting to a ProcessID
     '#### If lProcessID is not already set, determine its value now then set the OutputData
     If (lProcessID = -1) Then
-        If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+        If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
     OutputData = lProcessID
     
     '#### If we got here, all is well
-    Get_PID_From_hWnd = True
+    Get_PID_From_HWND = True
     Exit Function
     
     
     '#### If we end up here some sort of error occurred, so return false
 Convert_Error:
-    Get_PID_From_hWnd = False
+    Get_PID_From_HWND = False
 End Function
 
 
@@ -555,11 +626,11 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
     Dim sClass As String
     Dim sTitle As String
     Dim sEXE As String
-    Dim LhWnd As Long
+    Dim lHwnd As Long
     Dim lProcessID As Long
 
         '#### Init the vars to invalid values for an hWnd/ProcessID
-    LhWnd = -1
+    lHwnd = -1
     lProcessID = -1
 
         '#### If we are converting from a Class name
@@ -578,7 +649,7 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
         '#### Else if we are converting from an hWnd
     ElseIf (eConversionType And cnFromhWnd) Then
         If (IsNumeric(InputData)) Then
-            LhWnd = InputData
+            lHwnd = InputData
         Else
             GoTo Convert_Error
         End If
@@ -604,16 +675,17 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
     If (eConversionType And cnToClass) Then
             '#### If sClass is not already set, determine its value now then set the OutputData
         If (Len(sClass) = 0) Then
-            If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+            If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
         OutputData = sClass
 
-        'SEEMS TO BE ERROR USING hWnd IT WANTS PROCESSID
+        'SEEMS TO BE ERROR USING HWND IT WANTS PROCESSID
         'HAVE TO RUN TWO ROUTINE
         '#### Else if we are converting to an EXE name
     ElseIf (eConversionType And cnToEXE) Then
             '#### If sEXE is not already set, determine its value now then set the OutputData
         If (Len(sEXE) = 0) Then
+        
             If (Not GetEXEID(lProcessID, sEXE)) Then GoTo Convert_Error
         End If
         OutputData = sEXE
@@ -621,16 +693,16 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
         '#### Else if we are converting to an hWnd
     ElseIf (eConversionType And cnTohWnd) Then
             '#### If lhWnd is not already set, determine its value now then set the OutputData
-        If (LhWnd = -1) Then
-            If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+        If (lHwnd = -1) Then
+            If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
-        OutputData = LhWnd
+        OutputData = lHwnd
 
         '#### Else if we are converting to a ProcessID
     ElseIf (eConversionType And cnToProcessID) Then
             '#### If lProcessID is not already set, determine its value now then set the OutputData
         If (lProcessID = -1) Then
-            If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+            If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
         OutputData = lProcessID
 
@@ -638,7 +710,7 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
     ElseIf (eConversionType And cnToTitle) Then
             '#### If sTitle is not already set, determine its value now then set the OutputData
         If (Len(sTitle) = 0) Then
-            If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+            If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
         OutputData = sTitle
 
@@ -664,11 +736,11 @@ Public Function Convert_2(ByRef InputData, ByRef OutputData, ByVal eConversionTy
     Dim sClass As String
     Dim sTitle As String
     Dim sEXE As String
-    Dim LhWnd As Long
+    Dim lHwnd As Long
     Dim lProcessID As Long
 
         '#### Init the vars to invalid values for an hWnd/ProcessID
-    LhWnd = -1
+    lHwnd = -1
     lProcessID = -1
 
         '#### If we are converting from a Class name
@@ -687,7 +759,7 @@ Public Function Convert_2(ByRef InputData, ByRef OutputData, ByVal eConversionTy
         '#### Else if we are converting from an hWnd
     ElseIf (eConversionType And cnFromhWnd) Then
         If (IsNumeric(InputData)) Then
-            LhWnd = InputData
+            lHwnd = InputData
         Else
             GoTo Convert_Error
         End If
@@ -713,11 +785,11 @@ Public Function Convert_2(ByRef InputData, ByRef OutputData, ByVal eConversionTy
     If (eConversionType And cnToClass) Then
             '#### If sClass is not already set, determine its value now then set the OutputData
         If (Len(sClass) = 0) Then
-            If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+            If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
         OutputData = sClass
 
-        'SEEMS TO BE ERROR USING hWnd IT WANTS PROCESSID
+        'SEEMS TO BE ERROR USING HWND IT WANTS PROCESSID
         'HAVE TO RUN TWO ROUTINE
         '#### Else if we are converting to an EXE name
     ElseIf (eConversionType And cnToEXE) Then
@@ -730,18 +802,18 @@ Public Function Convert_2(ByRef InputData, ByRef OutputData, ByVal eConversionTy
         '#### Else if we are converting to an hWnd
     ElseIf (eConversionType And cnTohWnd) Then
             '#### If lhWnd is not already set, determine its value now then set the OutputData
-        If (LhWnd = -1) Then
-            ' If (Not GethWndFromProcess(lProcessID, lhWnd, sTitle, sClass)) Then GoTo Convert_Error
-            If (Not GethWnd_From_PID_VISIBLE(lProcessID)) Then GoTo Convert_Error
+        If (lHwnd = -1) Then
+            ' If (Not GetHWndFromProcess(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
+            If (Not GetHwnd_From_PID(lProcessID)) Then GoTo Convert_Error
             
         End If
-        OutputData = LhWnd
+        OutputData = lHwnd
 
         '#### Else if we are converting to a ProcessID
     ElseIf (eConversionType And cnToProcessID) Then
             '#### If lProcessID is not already set, determine its value now then set the OutputData
         If (lProcessID = -1) Then
-            If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+            If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
         OutputData = lProcessID
 
@@ -749,7 +821,7 @@ Public Function Convert_2(ByRef InputData, ByRef OutputData, ByVal eConversionTy
     ElseIf (eConversionType And cnToTitle) Then
             '#### If sTitle is not already set, determine its value now then set the OutputData
         If (Len(sTitle) = 0) Then
-            If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
+            If (Not GetHwnd(lProcessID, lHwnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
         OutputData = sTitle
 
@@ -928,6 +1000,7 @@ Public Function GetEXEID(ByRef lRunningID As Long, ByRef sRunningEXE As String) 
                 lRunningID = lProcessID
                 sRunningEXE = TrimNull(sEXEName)
                 GetEXEID = True
+                ' Exit Do
                 GoTo GetEXEID_Close
             End If
         Loop While (NextProcess())
@@ -953,14 +1026,14 @@ End Function
 ' ---------------------------------------------------------
 ' CREDIT DUE BUT DIDN'T DELCARE ANYTHING
 ' ----
-' getting hWnd from process-VBForums
-' http://www.vbforums.com/showthread.php?561413-getting-hWnd-from-process
+' getting hwnd from process-VBForums
+' http://www.vbforums.com/showthread.php?561413-getting-hwnd-from-process
 ' ----
 ' [ Tuesday 11:49:00 Am_23 October 2018 ]
 ' ---------------------------------------------------------
-Public Function GethWnd_From_PID_VISIBLE(ByVal pid As Long) As Long
+Public Function GetHwnd_From_PID(ByVal PID As Long) As Long
     ' Return the window handle for an instance handle.
-    Dim LhWnd       As Long
+    Dim lHwnd       As Long
     Dim test_pid    As Long
     Dim Thread_ID   As Long
     Dim lExStyle    As Long
@@ -969,33 +1042,33 @@ Public Function GethWnd_From_PID_VISIBLE(ByVal pid As Long) As Long
     'Private Const WS_EX_TOOLWINDOW = &H80
     'Private Const WS_EX_APPWINDOW = &H40000
     'Private Const GA_ROOT = 2
-    'Private Declare Function GetAncestor Lib "user32.dll" (ByVal hWnd As Long, ByVal gaFlags As Long) As Long
+    'Private Declare Function GetAncestor Lib "user32.dll" (ByVal hwnd As Long, ByVal gaFlags As Long) As Long
   
     ' Get the first window handle.
-    LhWnd = FindWindow(vbNullString, vbNullString)
+    lHwnd = FindWindow(vbNullString, vbNullString)
     ' Loop until we find the target or we run out
     ' of windows.
-    Do While LhWnd <> 0
+    Do While lHwnd <> 0
         ' check if window is visible or not
-        If IsWindowVisible(LhWnd) Then
+        If IsWindowVisible(lHwnd) Then
             ' See if this window has a parent. If not,
             ' it is a top-level window.
-            If GetParent(LhWnd) = 0 Then
-                bNoOwner = (GetWindow(LhWnd, GW_OWNER) = 0)
-                lExStyle = GetWindowLong(LhWnd, GWL_EXSTYLE)
+            If GetParent(lHwnd) = 0 Then
+                bNoOwner = (GetWindow(lHwnd, GW_OWNER) = 0)
+                lExStyle = GetWindowLong(lHwnd, GWL_EXSTYLE)
                 
                 If (((lExStyle And WS_EX_TOOLWINDOW) = 0) And bNoOwner) Or _
                     ((lExStyle And WS_EX_APPWINDOW) And Not bNoOwner) Then
                     ' This is a top-level window. See if
                     ' it has the target instance handle.
-                    Thread_ID = GetWindowThreadProcessId(LhWnd, test_pid)
+                    Thread_ID = GetWindowThreadProcessId(lHwnd, test_pid)
                     ' Debug.Print test_pid, Thread_ID
-                    If test_pid = pid Then
-                        LhWnd = GetAncestor(LhWnd, GA_ROOT)
+                    If test_pid = PID Then
+                        lHwnd = GetAncestor(lHwnd, GA_ROOT)
                         'check if a top window
                         
-                        'If IsTopWIndow(lhWnd) Then
-                            GethWnd_From_PID_VISIBLE = LhWnd
+                        'If IsTopWIndow(lHwnd) Then
+                            GetHwnd_From_PID = lHwnd
                         'End If
                         Exit Function
                     End If
@@ -1003,105 +1076,15 @@ Public Function GethWnd_From_PID_VISIBLE(ByVal pid As Long) As Long
             End If
         End If
         ' Examine the next window.
-        LhWnd = GetWindow(LhWnd, GW_hWndNEXT)
+        lHwnd = GetWindow(lHwnd, GW_HWNDNEXT)
     Loop
 End Function
-
-' ---------------------------------------------------------
-Public Function GethWnd_From_PID(ByVal pid As Long) As Long
-    ' Return the window handle for an instance handle.
-    Dim LhWnd       As Long
-    Dim test_pid    As Long
-    Dim Thread_ID   As Long
-    Dim lExStyle    As Long
-    Dim bNoOwner    As Boolean
-    'Private Const GW_OWNER = 4
-    'Private Const WS_EX_TOOLWINDOW = &H80
-    'Private Const WS_EX_APPWINDOW = &H40000
-    'Private Const GA_ROOT = 2
-    'Private Declare Function GetAncestor Lib "user32.dll" (ByVal hWnd As Long, ByVal gaFlags As Long) As Long
-  
-    ' Get the first window handle.
-    LhWnd = FindWindow(vbNullString, vbNullString)
-    ' Loop until we find the target or we run out
-    ' of windows.
-    Do While LhWnd <> 0
-        ' check if window is visible or not
-        If 1 = 1 Or IsWindowVisible(LhWnd) Then
-            ' See if this window has a parent. If not,
-            ' it is a top-level window.
-            If GetParent(LhWnd) = 0 Then
-                bNoOwner = (GetWindow(LhWnd, GW_OWNER) = 0)
-                lExStyle = GetWindowLong(LhWnd, GWL_EXSTYLE)
-                
-                If 1 = 1 Or (((lExStyle And WS_EX_TOOLWINDOW) = 0) And bNoOwner) Or _
-                    ((lExStyle And WS_EX_APPWINDOW) And Not bNoOwner) Then
-                    ' This is a top-level window. See if
-                    ' it has the target instance handle.
-                    Thread_ID = GetWindowThreadProcessId(LhWnd, test_pid)
-                    ' Debug.Print test_pid, Thread_ID
-                    If test_pid = pid Then
-                        LhWnd = GetAncestor(LhWnd, GA_ROOT)
-                        'check if a top window
-                        
-                        'If IsTopWIndow(lhWnd) Then
-                            GethWnd_From_PID = LhWnd
-                        'End If
-                        Exit Function
-                    End If
-                End If
-            End If
-        End If
-        ' Examine the next window.
-        LhWnd = GetWindow(LhWnd, GW_hWndNEXT)
-    Loop
-End Function
-
-
-Public Function GethWnd_From_PID_123(ByVal pid As Long) As Long
-    ' Return the window handle for an instance handle.
-    Dim LhWnd       As Long
-    Dim test_pid    As Long
-    Dim Thread_ID   As Long
-    Dim lExStyle    As Long
-    Dim bNoOwner    As Boolean
-    'Private Const GW_OWNER = 4
-    'Private Const WS_EX_TOOLWINDOW = &H80
-    'Private Const WS_EX_APPWINDOW = &H40000
-    'Private Const GA_ROOT = 2
-    'Private Declare Function GetAncestor Lib "user32.dll" (ByVal hWnd As Long, ByVal gaFlags As Long) As Long
-  
-    ' Get the first window handle.
-    LhWnd = FindWindow(vbNullString, vbNullString)
-    ' Loop until we find the target or we run out
-    ' of windows.
-    Do While LhWnd <> 0
-  
-                
-                    ' This is a top-level window. See if
-                    ' it has the target instance handle.
-                    Thread_ID = GetWindowThreadProcessId(LhWnd, test_pid)
-                    ' Debug.Print test_pid, Thread_ID
-                    If test_pid = pid Then
-                        LhWnd = GetAncestor(LhWnd, GA_ROOT)
-                        'check if a top window
-                        
-                        'If IsTopWIndow(lhWnd) Then
-                            GethWnd_From_PID_123 = LhWnd
-                        'End If
-                        Exit Function
-                    End If
-        ' Examine the next window.
-        LhWnd = GetWindow(LhWnd, GW_hWndNEXT)
-    Loop
-End Function
-
 
 '----
 '[RESOLVED] Get exe name from Process ID fails Help-VBForums
 'http://www.vbforums.com/showthread.php?763427-RESOLVED-Get-exe-name-from-Process-ID-fails-Help
 '----
-Public Function GetEXE_Path_From_ProcessID(pid As Long) As String
+Public Function GetEXE_Path_From_ProcessID(PID As Long) As String
 Dim Process As Object
 Dim lzFile As String
 On Error GoTo GetFileErr:
@@ -1109,7 +1092,7 @@ On Error GoTo GetFileErr:
     'Scan process and find pid then return the path and exe name
     For Each Process In GetObject("winmgmts:").ExecQuery("Select * from Win32_Process")
         Debug.Print CLng(Process.ProcessID)
-        If (pid = CLng(Process.ProcessID)) Then
+        If (PID = CLng(Process.ProcessID)) Then
             'Return exe path
             lzFile = Process.ExecutablePath
             Exit For
@@ -1126,7 +1109,7 @@ End Function
 '#########################################################
 '# Returns a windows hWnd, ProcessID, Title and Class from the passed hWnd, ProcessID, Title or Class
 '#########################################################
-Private Function GethWndFromProcess(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTitle As String, ByRef sClass As String) As Boolean
+Private Function GetHWndFromProcess(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTitle As String, ByRef sClass As String) As Boolean
     Dim sWinTitle As String
     Dim sClassName As String
     Dim hWndChild As Long
@@ -1134,7 +1117,7 @@ Private Function GethWndFromProcess(ByRef hProcessID As Long, ByRef hWnd As Long
 
         '#### Get the Desktop handle while getting the first child under the Desktop and default the return value
     hWndChild = GetWindow(GetDesktopWindow(), GW_CHILD)
-    GethWndFromProcess = False
+    GetHWndFromProcess = False
 
         '#### While we still have hWndChild(en) to look at
     Do While (hWndChild <> 0)
@@ -1155,12 +1138,12 @@ Private Function GethWndFromProcess(ByRef hProcessID As Long, ByRef hWnd As Long
             hWnd = hWndChild
             sTitle = sWinTitle
             sClass = sClassName
-            GethWndFromProcess = True
+            GetHWndFromProcess = True
             'Exit Do
         End If
 
             '#### We've not yet found a match, so get the next hWndChild
-        hWndChild = GetWindow(hWndChild, GW_hWndNEXT)
+        hWndChild = GetWindow(hWndChild, GW_HWNDNEXT)
     Loop
 End Function
 
@@ -1170,7 +1153,7 @@ End Function
 '#########################################################
 '# Returns a windows hWnd, ProcessID, Title and Class from the passed hWnd, ProcessID, Title or Class
 '#########################################################
-Private Function GethWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTitle As String, ByRef sClass As String) As Boolean
+Private Function GetHwnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTitle As String, ByRef sClass As String) As Boolean
     Dim sWinTitle As String
     Dim sClassName As String
     Dim hWndChild As Long
@@ -1178,7 +1161,7 @@ Private Function GethWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTi
 
         '#### Get the Desktop handle while getting the first child under the Desktop and default the return value
     hWndChild = GetWindow(GetDesktopWindow(), GW_CHILD)
-    GethWnd = False
+    GetHwnd = False
 
         '#### While we still have hWndChild(en) to look at
     Do While (hWndChild <> 0)
@@ -1199,7 +1182,7 @@ Private Function GethWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTi
             hWnd = hWndChild
             sTitle = sWinTitle
             sClass = sClassName
-            GethWnd = True
+            GetHwnd = True
             Exit Do
 
             '#### Else if sWinTitle has a value that is like sTitle, return the values
@@ -1209,7 +1192,7 @@ Private Function GethWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTi
                 hWnd = hWndChild
                 sTitle = sWinTitle
                 sClass = sClassName
-                GethWnd = True
+                GetHwnd = True
                 Exit Do
             End If
 
@@ -1220,13 +1203,13 @@ Private Function GethWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTi
                 hWnd = hWndChild
                 sTitle = sWinTitle
                 sClass = sClassName
-                GethWnd = True
+                GetHwnd = True
                 Exit Do
             End If
         End If
 
             '#### We've not yet found a match, so get the next hWndChild
-        hWndChild = GetWindow(hWndChild, GW_hWndNEXT)
+        hWndChild = GetWindow(hWndChild, GW_HWNDNEXT)
     Loop
 End Function
 
@@ -1292,7 +1275,6 @@ Public Function Process_Kill(P_ID As Long) As Long
     
     hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_TERMINATE, False, P_ID)
     
-    
     XI = TerminateProcess(hProcess, lExitCode) = False
     
     Call CloseHandle(hProcess)
@@ -1302,29 +1284,30 @@ End Function
 
 
 
+
 Public Function FindHighestHandle() As Long
 
-Dim test_hWnd As Long, _
+Dim test_hwnd As Long, _
     test_pid As Long, _
     test_thread_id As Long
 
 Dim cText As String
-Dim WText As String
+Dim wText As String
 Dim HighTest_hWnd As Long
 
 'Find the first window
-test_hWnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
 
-Do While test_hWnd <> 0
+Do While test_hwnd <> 0
     
-    WText = GetWindowTitle(test_hWnd)
+    wText = GetWindowTitle(test_hwnd)
 
-    If test_hWnd > HighTest_hWnd Then
-        HighTest_hWnd = test_hWnd:
-        WText = GetWindowTitle(test_hWnd)
+    If test_hwnd > HighTest_hWnd Then
+        HighTest_hWnd = test_hwnd:
+        wText = GetWindowTitle(test_hwnd)
     End If
     'retrieve the next window
-    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
 
 Loop
 
@@ -1348,7 +1331,7 @@ End Function
 
 
 
-Public Function GetFileFromhWnd(lnghWnd) As String
+Public Function GetFileFromHwnd(lngHwnd) As String
 
 '-----------------------------------------------------------
 'REPAIR DONE NOW GET FULL PATH OF EXE BY USE THE OPENPROCESS
@@ -1361,25 +1344,25 @@ Public Function GetFileFromhWnd(lnghWnd) As String
 '------------------------------------------------------------------
 'TEMPORARY AS FULL EXE WAS NOT WORKING FOR A BIT
 '------------------------------------------------------------------
-'MsgBox getfilefromhWnd(Me.hWnd)
-'Var = cProcesses.Convert(lnghWnd, vfile, cnFromhWnd Or cnToEXE)
-'Var = cProcesses.Convert(lnghWnd, PID, cnFromhWnd Or cnToProcessID)
+'MsgBox getfilefromhwnd(Me.hwnd)
+'Var = cProcesses.Convert(lngHwnd, vfile, cnFromhWnd Or cnToEXE)
+'Var = cProcesses.Convert(lngHwnd, PID, cnFromhWnd Or cnToProcessID)
 'Var = cProcesses.Convert(PID, vfile, cnFromProcessID Or cnToEXE)
-'GetFileFromhWnd = vfile
+'GetFileFromHwnd = vfile
 'Exit Function
 '------------------------------------------------------------------
 
 '------------------------------------------------------------------
-Dim lngProcess&, hProcess&, bla&, c&
+Dim lngProcess&, hProcess&, bla&, C&
 Dim strFile As String
-Dim x
+Dim X
 
 strFile = String$(256, 0)
-x = GetWindowThreadProcessId(lnghWnd, lngProcess)
+X = GetWindowThreadProcessId(lngHwnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
-c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromhWnd = Left(strFile, c)
+X = EnumProcessModules(hProcess, bla, 4&, C)
+C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromHwnd = Left(strFile, C)
 '------------------------------------------------------------------
 
 End Function

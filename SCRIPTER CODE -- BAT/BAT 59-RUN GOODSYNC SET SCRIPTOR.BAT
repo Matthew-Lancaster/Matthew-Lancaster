@@ -294,7 +294,9 @@ REM GOTO NEXT_CONTINUE
 
 :GITHUB___SET_ARRRAY
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT"
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT 0 COMP_NAMER"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT 1"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 02 SCRIPTER CODE -- GITHUB"
 REM SET /A LDA=LDA+1
@@ -437,15 +439,24 @@ for /L %%a in (1,1,!LDA!) do (
 	@SET Unresolved_Conflicts=FALSE
 	@SET Computer_Is_Offline=FALSE
 	@SET Change_Happen=TRUE
+	@SET JOB_NOT_FOUND=FALSE
 
 	@find "-- Analysis Complete" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Analysis_Complete=TRUE
+	@if !errorlevel!==0 (
+		SET Analysis_Complete=TRUE
+	)
 	@REM Sync: Running: ____ DOESN'T APPEAR TO SHOW ALWAYS OR ANYMORE _ CHANGE TO NEXT ONE __ Sync Complete.
 	@find "Sync: Running:" !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@if !errorlevel!==0 (
+		SET Sync_Runner=TRUE
+		SET Analysis_Complete=TRUE
+	)
 	@REM == Sync Complete.
 	@find "== Sync Complete." !FILENAME_ER!>NUL
-	@if !errorlevel!==0 SET Sync_Runner=TRUE
+	@if !errorlevel!==0 (
+		SET Sync_Runner=TRUE
+		SET Analysis_Complete=TRUE
+	)
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Another_Job=TRUE
 	@find "unresolved conflits" !FILENAME_ER!>NUL
@@ -457,6 +468,14 @@ for /L %%a in (1,1,!LDA!) do (
 	@find "Changes: 0," !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Change_Happen=FALSE
 	
+	SET FLAG_HERE=FALSE
+	@find " not found" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET FLAG_HERE=TRUE
+	@IF !FLAG_HERE!==TRUE (
+		@find "Error parsing command line: Job" !FILENAME_ER!>NUL
+		@if !errorlevel!==0 SET JOB_NOT_FOUND=TRUE
+	)
+		
 	SET Sync_Runner_ONE=TRUE
 	@find "Another job is Syncing in folder" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
@@ -470,6 +489,18 @@ for /L %%a in (1,1,!LDA!) do (
 	@find "Computer is offline or turned off" !FILENAME_ER!>NUL
 	@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
 	@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
+
+	@SET FLAG_HERE=FALSE
+	@find " not found" !FILENAME_ER!>NUL
+	@if !errorlevel!==0 SET FLAG_HERE=TRUE
+	@IF !FLAG_HERE!==TRUE (
+		@find "Error parsing command line: Job" !FILENAME_ER!>NUL
+		@if !errorlevel!==0 SET Sync_Runner_TOTAL=FALSE
+		@if !errorlevel!==0   SET Sync_Runner_ONE=FALSE
+	)
+	
+	@REM 021814 Error parsing command line: Job 'C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT' not found
+	@REM Job 'C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT' not found
 	
 	IF "!Sync_Runner_TOTAL!"=="FALSE"  SET FAULT_FLAG="TRUE"
 	IF "!Sync_Runner_ONE!"=="FALSE"    SET /A "FAULT_COUNTER+=1"
@@ -490,6 +521,7 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO Another_Job         !Another_Job!
 	ECHO Conflicts           !Unresolved_Conflicts!
 	ECHO Computer_Is_Offline !Computer_Is_Offline!
+	ECHO Job Not Found       !JOB_NOT_FOUND!
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	
@@ -498,39 +530,57 @@ for /L %%a in (1,1,!LDA!) do (
 	SET STATUS_6[%%a]="Another_Job         !Another_Job!"
 	SET STATUS_7[%%a]="Conflicts           !Unresolved_Conflicts!"
 	SET STATUS_8[%%a]="Computer_Is_Offline !Computer_Is_Offline!"
+	SET STATUS_9[%%a]="Job Not Found       !JOB_NOT_FOUND!"
 
-	IF "!Computer_Is_Offline!"=="FALSE" (
-		IF "!Analysis_Complete!"=="FALSE" (
-			IF "!Another_Job!"=="FALSE" (
-				SET /A "X+=1"
-				ECHO ----------------------------------------------------------------
-				ECHO ANALYSIS ^& SYNC NOT RUN
-				ECHO.
-				ECHO NOT SURE WHY                              ---- X-X-X-X-X-X-X-X-X
-				ECHO ----------------------------------------------------------------
-				ECHO %%a of !LDA!
-				ECHO ----------------------------------------------------------------
-				SET STATUS_1[!X!]=%%a of !LDA!
-				SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
-				SET STATUS_3[!X!]=!Sources_02[%%a]!
-
-			)
-			IF "!Another_Job!"=="TRUE" (
-				SET /A "X+=1"
-				ECHO ----------------------------------------------------------------
-				ECHO ANALYSIS ^& SYNC NOT RUN
-				ECHO.
-				ECHO ANOTHER JOB IS RUNNING                    ---- X-X-X-X-X-X-X-X-X
-				ECHO ----------------------------------------------------------------
-				ECHO %%a of !LDA!
-				ECHO ----------------------------------------------------------------
-				SET STATUS_1[!X!]=%%a of !LDA!
-				SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
-				SET STATUS_3[!X!]=!Sources_02[%%a]!
+	IF "!Analysis_Complete!"=="FALSE" (
+		IF "!Another_Job!"=="FALSE" (
+			IF "!Unresolved_Conflicts!"=="FALSE" (
+				IF "!Computer_Is_Offline!"=="FALSE" (
+					IF "!JOB_NOT_FOUND!"=="FALSE" (
+						SET /A "X+=1"
+						ECHO ----------------------------------------------------------------
+						ECHO ANALYSIS ^& SYNC NOT RUN
+						ECHO.
+						ECHO NOT SURE WHY                              ---- X-X-X-X-X-X-X-X-X
+						ECHO ----------------------------------------------------------------
+						ECHO %%a of !LDA!
+						ECHO ----------------------------------------------------------------
+						SET STATUS_1[!X!]=%%a of !LDA!
+						SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- NOT SURE WHY"
+						SET STATUS_3[!X!]=!Sources_02[%%a]!
+					)
+				)
 			)
 		)
 	)
 	
+	IF "!JOB_NOT_FOUND!"=="TRUE" (
+		SET /A "X+=1"
+		ECHO ----------------------------------------------------------------
+		ECHO JOB NOT FOUND                             ---- X-X-X-X-X-X-X-X-X
+		ECHO.
+		ECHO ----------------------------------------------------------------
+		ECHO %%a of !LDA!
+		ECHO ----------------------------------------------------------------
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="JOB NOT FOUND ----"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
+	)
+
+	IF "!Another_Job!"=="TRUE" (
+		SET /A "X+=1"
+		ECHO ----------------------------------------------------------------
+		ECHO ANALYSIS ^& SYNC NOT RUN
+		ECHO.
+		ECHO ANOTHER JOB IS RUNNING                    ---- X-X-X-X-X-X-X-X-X
+		ECHO ----------------------------------------------------------------
+		ECHO %%a of !LDA!
+		ECHO ----------------------------------------------------------------
+		SET STATUS_1[!X!]=%%a of !LDA!
+		SET STATUS_2[!X!]="ANALYSIS ^& SYNC NOT RUN -- ANOTHER JOB IS RUNNING"
+		SET STATUS_3[!X!]=!Sources_02[%%a]!
+	)
+
 	IF "!Computer_Is_Offline!"=="TRUE" (
 		SET /A "X+=1"
 		ECHO ----------------------------------------------------------------
@@ -647,6 +697,7 @@ for /L %%a in (1,1,!LDA!) do (
 	ECHO !STATUS_6[%%a]:"=!
 	ECHO !STATUS_7[%%a]:"=!
 	ECHO !STATUS_8[%%a]:"=!
+	ECHO !STATUS_9[%%a]:"=!
 	ECHO ----------------------------------------------------------------
 )
 
