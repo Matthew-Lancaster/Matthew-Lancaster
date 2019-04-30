@@ -138,6 +138,21 @@ RETURN
 	GOSUB CHECK_ESC_KEY
 RETURN 
 
+F4::
+	SEND ^{V}
+	SEND {ENTER}
+	
+	
+	; ---------------------------------------------------------------
+	; # Win (Windows logo key) 
+	; ! Alt 
+	; ^ Control 
+	; + Shift 
+	; & An ampersand 
+	; ---------------------------------------------------------------
+	
+RETURN
+
 CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path
 
