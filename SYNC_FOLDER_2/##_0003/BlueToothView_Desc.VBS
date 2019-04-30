@@ -9,7 +9,7 @@
 ' RUN FROM
 '--------------------------------------------------------------------
 ' C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\
-' Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+' Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ' EVERY HOUR
 ' AND 
 ' D:\VB6\VB-NT\00_Best_VB_01\BLUETOOTH SOUND\BLUETOOTH_LOGGER_SOUND.exe
