@@ -83,7 +83,6 @@ IfExist, %GoodSync_GSync%
 	SoundBeep , 3500 , 100
 	Run, %GoodSync_GSync% sync "zzz HALT GOODSYNC E ADATA MANUAL EXTREME LOCK",,hide
 }
-
 	
 RETURN
 

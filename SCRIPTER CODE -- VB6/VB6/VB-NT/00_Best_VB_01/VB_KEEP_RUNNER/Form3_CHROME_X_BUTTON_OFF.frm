@@ -48,10 +48,10 @@ End Sub
 
 Public Sub SET_CHROME_WINDOW_X_BUTTON_CLOSE_TO_OFF()
 
-XHWND_OFF = FindWindow("Chrome_WidgetWin_1", vbNullString)
+XhWnd_OFF = FindWindow("Chrome_WidgetWin_1", vbNullString)
 
-XHWND_OFF = Me.hWnd
+XhWnd_OFF = Me.hWnd
 
-Call SetXState(XHWND_OFF, False)
+Call SetXState(XhWnd_OFF, False)
 
 End Sub
