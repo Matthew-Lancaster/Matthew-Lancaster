@@ -2983,8 +2983,17 @@ MenuHandler:
 	; ---------------------------------------------------------------
 	if MNU_CODE=TERMINATE All AutoHotKey.exe
 	{
-		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
-		
+		; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
+		DetectHiddenWindows, On 
+		WinGet, List, List, ahk_class AutoHotkey 
+		Loop %List% 
+		{ 
+			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+			If ( PID_8 <> DllCall("GetCurrentProcessId") ) 
+				 ; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
+				 Process, Close, %PID_8% 
+		}		
+		Process, Close,% DllCall("GetCurrentProcessId")
 		;  ----------------------------------------------------------
 		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
 		; AND WE GET OVER THAT BY GO EXTRA VIA VBSCRIPT ANOTHER FILE
