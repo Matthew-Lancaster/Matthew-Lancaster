@@ -138,20 +138,20 @@ RETURN
 	GOSUB CHECK_ESC_KEY
 RETURN 
 
-F4::
-	SEND ^{V}
-	SEND {ENTER}
+; F4::
+	; SEND ^{V}
+	; SEND {ENTER}
 	
 	
-	; ---------------------------------------------------------------
-	; # Win (Windows logo key) 
-	; ! Alt 
-	; ^ Control 
-	; + Shift 
-	; & An ampersand 
-	; ---------------------------------------------------------------
+	; ; ---------------------------------------------------------------
+	; ; # Win (Windows logo key) 
+	; ; ! Alt 
+	; ; ^ Control 
+	; ; + Shift 
+	; ; & An ampersand 
+	; ; ---------------------------------------------------------------
 	
-RETURN
+; RETURN
 
 CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path
@@ -1902,12 +1902,12 @@ MenuHandler:
 		DetectHiddenWindows, On 
 		WinGet, List, List, ahk_class AutoHotkey 
 		Loop %List% 
-		  { 
-			WinGet, PID, PID, % "ahk_id " List%A_Index% 
-			If ( PID <> DllCall("GetCurrentProcessId") ) 
+		{ 
+			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+			If ( PID_8 <> DllCall("GetCurrentProcessId") ) 
 				 ; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				 Process, Close, List%A_Index% 
-		  }
+				 Process, Close, %PID_8% 
+		}
 		Process, Close,% DllCall("GetCurrentProcessId")
 		
 		;  ----------------------------------------------------------

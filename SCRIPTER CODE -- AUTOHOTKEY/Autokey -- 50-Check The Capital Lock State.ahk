@@ -516,12 +516,12 @@ MenuHandler:
 		DetectHiddenWindows, On 
 		WinGet, List, List, ahk_class AutoHotkey 
 		Loop %List% 
-		  { 
-			WinGet, PID, PID, % "ahk_id " List%A_Index% 
-			If ( PID <> DllCall("GetCurrentProcessId") ) 
+		{ 
+			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+			If ( PID_8 <> DllCall("GetCurrentProcessId") ) 
 				 ; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				 Process, Close, List%A_Index% 
-		  }
+				 Process, Close, %PID_8% 
+		}		
 		Process, Close,% DllCall("GetCurrentProcessId")
 		
 		;  ----------------------------------------------------------
