@@ -3,7 +3,7 @@ Const vbUnicode = 64
 Const adTypeBinary = 1
 Const adTypeText = 2
 Const adLongVarBinary = 205
-
+                       
 Dim fso
 Set fso = CreateObject("Scripting.FileSystemObject")
 

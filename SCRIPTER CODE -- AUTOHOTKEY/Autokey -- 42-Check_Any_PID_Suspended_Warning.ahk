@@ -189,7 +189,7 @@ START:
 	; ---------------------------------------------------------------
 	; TEST DEBUGGE
 	; RUN BY
-	; Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+	; Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 	; ---------------------------------------------------------------
 	; Command_Params=/QUITE_COMMANDLINE_ARGS
 	; ---------------------------------------------------------------
