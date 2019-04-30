@@ -40,7 +40,7 @@
 ; TO    Thu 05-Jul-2018 08:45:29
 ; --------------------------------------------------------------
 ; BEGIN CODE EXTRACTED FROM 
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL.ahk
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ; TO ENABLE SHARE EASIER
 ; 
 ; --------------------------------------------------------------

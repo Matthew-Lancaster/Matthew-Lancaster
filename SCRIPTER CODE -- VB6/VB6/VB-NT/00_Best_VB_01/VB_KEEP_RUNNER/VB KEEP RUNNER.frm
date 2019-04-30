@@ -787,20 +787,20 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CMD* && AH&K*"
       Height          =   240
-      Left            =   6270
+      Left            =   6276
       TabIndex        =   126
-      Top             =   3510
-      Width           =   2850
+      Top             =   3768
+      Width           =   2856
    End
    Begin VB.Label Label_KILL_CMD 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL &CMD*"
       Height          =   240
-      Left            =   6270
+      Left            =   6276
       TabIndex        =   125
-      Top             =   3765
-      Width           =   2850
+      Top             =   3516
+      Width           =   2856
    End
    Begin VB.Label Label_8M 
       Alignment       =   2  'Center
@@ -2087,8 +2087,8 @@ Option Explicit
 ' VARIABL DECLARE BLOCK FROM VB KEEP RUNNER
 ' ------------------------------------------------------------------
 
-Dim OLD_HWND_WINAMP_GetWindowState
-Dim OLD_HWND_MediaPlayerClassicW_GetWindowState
+Dim OLD_hWnd_WINAMP_GetWindowState
+Dim OLD_hWnd_MediaPlayerClassicW_GetWindowState
 
 Dim RIPER
 
@@ -2152,14 +2152,14 @@ Dim Index_String_Camera
 
 Dim IsIDE_TEST
 
-Dim OHWnd_VB_EXE
-Dim OHWnd_VB_CLIPPER_ERROR
-Dim OHWnd_VB_LOADER
-Dim OHWnd_TEAM_VIEWER
+Dim OhWnd_VB_EXE
+Dim OhWnd_VB_CLIPPER_ERROR
+Dim OhWnd_VB_LOADER
+Dim OhWnd_TEAM_VIEWER
 Dim O_mWnd_VB_VbaWindow_MAXIMIZE
 
 Dim OcWnd
-Dim iHwnd, O_IHWND
+Dim ihWnd, O_IhWnd
 
 Dim TO_SETTER
 
@@ -2188,11 +2188,11 @@ Dim RESIZE_LOOP_STOP
 Dim RUN_ONCE_VB_DIRECTORY
 
 Dim O_lstProcess_ListCount
-Dim OHWnd_FINDER_1
-Dim OHWnd_FINDER_2
+Dim OhWnd_FINDER_1
+Dim OhWnd_FINDER_2
 Dim Result As Long
 Dim OcWnd_GOODSYNC_CRASH, OcWnd_GOOD_SYNC
-Dim I_Memmer, OcWnd_ICACLS_SETTER_PERMISSION_HWND
+Dim I_Memmer, OcWnd_ICACLS_SETTER_PERMISSION_hWnd
 
 
 Dim Form As Form
@@ -2246,7 +2246,7 @@ Dim FILENAME_PATH_EXE_MENU
 Dim hWnd_From_ListView
 Dim From_ListView
 Dim OLD_TxtEXE_Text
-Dim lHwnd_Function_Button_Set_MIN_MAX
+Dim lhWnd_Function_Button_Set_MIN_MAX
 ' ------------------------------------------------------------------
 ' VARIABL DECLARE BLOCK FROM ELITEPSY
 
@@ -2315,8 +2315,8 @@ Public ScreenTwipsX, ScreenTwipsY, ScreenWidthX, ScreenHeightY, Idle_Timer_Proc
 
 Const E = 2.7182818284
 'Const pi = 3.141592648
-Const HWND_TOPMOST = -1
-Const HWND_NOTOPMOST = -2
+Const hWnd_TOPMOST = -1
+Const hWnd_NOTOPMOST = -2
 Const MF_BYPOSITION = &H400&
 Const SWP_NOSIZE = &H1
 Const SWP_NOMOVE = &H2
@@ -2346,10 +2346,10 @@ Dim FIND_COMPUTER_TO_RUN_VAR
 
 Dim VAR_LAB_TEXT As String
 
-Dim OLD_FindHandle_HWND_COUNT
+Dim OLD_FindHandle_hWnd_COUNT
 Dim SET_GO_CONTROL_LEFT_F1
 
-Dim Old_lHwnd
+Dim Old_lhWnd
 
 Public VAR_FORM1_EXIST
 
@@ -2360,7 +2360,7 @@ End Type
 
 
 Private Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" _
-    (ByVal hwndParent As Long, _
+    (ByVal hWndParent As Long, _
      ByVal hWndChildAfter As Long, _
      ByVal lpszClass As String, _
      ByVal lpszTitle As String) _
@@ -2522,8 +2522,8 @@ Private Const SW_RESTORE = 9
 Private Const SW_SHOW = 5
 
 ' PRIVATE constants for set window on top
-'Private Const HWND_TOPMOST = -1
-'Private Const HWND_NOTOPMOST = -2
+'Private Const hWnd_TOPMOST = -1
+'Private Const hWnd_NOTOPMOST = -2
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
 Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -2552,7 +2552,7 @@ Private Declare Function FindWindowDLL Lib "user32" Alias "FindWindowA" (ByVal l
 
 Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 
-Private Const GW_HWNDNEXT = 2
+Private Const GW_hWndNEXT = 2
 Private Const WM_CLOSE = &H10
 
 
@@ -2670,7 +2670,7 @@ Private Declare Function FileTimeToSystemTime Lib "Kernel32" (lpFileTime As FILE
 Private Declare Function FileTimeToLocalFileTime Lib "Kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
 Private Declare Function GetFileAttributes Lib "Kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
-'Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
+'Private Declare Function CloseHandle Lib "Kernel32" (ByVal hObject As Long) As Long
 
 Private Const GW_OWNER = 4
 Private Const WS_EX_TOOLWINDOW = &H80
@@ -2797,7 +2797,7 @@ Private Declare Function StretchBlt Lib "gdi32" (ByVal HDC As Long, ByVal x As L
 Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
      
 'HDC SET 2
-'Private Declare Function BeginPaint Lib "user32" (ByVal hwnd As Long, lpPaint As PAINTSTRUCT) As Long
+'Private Declare Function BeginPaint Lib "user32" (ByVal hWnd As Long, lpPaint As PAINTSTRUCT) As Long
 Private Declare Function GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function DPtoLP Lib "gdi32" (ByVal HDC As Long, lpPoint As POINTAPI, ByVal nCount As Long) As Long
 Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
@@ -2937,18 +2937,18 @@ Private Const MB_ICONASTERISK& = &H40&
 Private Const MB_TIMEDOUT& = &H7D00&
 
 
-Private Const GW_HWNDFIRST = 0
-'Private Const GW_HWNDNEXT = 2
+Private Const GW_hWndFIRST = 0
+'Private Const GW_hWndNEXT = 2
 Private Const GW_CHILD = 5
 
-'Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
+'Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
 'Private Declare Function GetDesktopWindow Lib "user32" () As Long
-'Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
+'Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function BringWindowToTop Lib "user32" (ByVal hWnd As Long) As Long
 
 
 'Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-'Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+'Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 'Function GetUserName() As String
 '   Dim UserName As String * 255
@@ -2978,16 +2978,16 @@ Private Declare Function BringWindowToTop Lib "user32" (ByVal hWnd As Long) As L
 'Public Declare Function FlashWindow Lib "user32" (ByVal hWnd As Long, ByVal bInvert As Long) As Long
 'Public Declare Function EnableWindow Lib "user32" (ByVal hWnd As Long, ByVal fEnable As Long) As Long
 'Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
-'Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
-'Private Declare Function Process32First Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-'Public Declare Function Process32Next Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-'Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
-'Public Declare Function TerminateProcess Lib "kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+'Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+'Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+'Public Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+'Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+'Public Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
 'Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 'Public Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal hWnd1 As Long, ByVal hWnd2 As Long, ByVal lpsz1 As String, ByVal lpsz2 As String) As Long
 'Public Declare Function EnumWindows Lib "user32.dll" (ByVal lpEnumFunc As Long, ByVal lParam As Long) As Long
-'Public Declare Sub GlobalMemoryStatus Lib "kernel32" (lpBuffer As MEMORYSTATUS)
-'Private Declare Sub CloseHandle Lib "kernel32" (ByVal hPass As Long)
+'Public Declare Sub GlobalMemoryStatus Lib "Kernel32" (lpBuffer As MEMORYSTATUS)
+'Private Declare Sub CloseHandle Lib "Kernel32" (ByVal hPass As Long)
 
 
 
@@ -2996,7 +2996,7 @@ Private Declare Function BringWindowToTop Lib "user32" (ByVal hWnd As Long) As L
 'I PUT THIS HERE FOR THE SHELL EXECUTE LOADER PROGRAM
 '----------------------------------------------------
 'Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-'Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+'Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 Function GetUserName() As String
    Dim UserName As String * 255
    Call GetUserNameA(UserName, 255)
@@ -3013,6 +3013,7 @@ End Function
 Private Sub Form_Load()
 
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
+    Dim i As String
 
     FORM_LOAD_TRUE = False
     SET_VB_EXE_ARRAY_FIRST_TIME = True
@@ -3027,15 +3028,23 @@ Private Sub Form_Load()
 '    XX = (425 / 100) * 60
 '    Debug.Print XX
 
-    If App.PrevInstance = True Then End
+    If App.PrevInstance = True Then
+        i = FindWinPart_SEARCHER("VB KEEP RUNNER")
+        If i > 0 Then
+            ShowWindow i, SW_SHOW
+            ShowWindow i, SW_RESTORE
+            ShowWindow i, SW_NORMAL
+            SetWindowPos i, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        End If
+        End
+    End If
     
-    Dim i As String
     If App.PrevInstance = True And IsIDE = True Then
         'i = FindWindow(vbNullString, Me.Caption)
         i = FindWinPart_SEARCHER("VB KEEP RUNNER")
-        ShowWindow i, SW_MAXIMIZE
+        ShowWindow i, SW_NORMAL
     '        On Error Resume Next
-        SetWindowPos i, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos i, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
         End
     End If
 
@@ -3183,6 +3192,8 @@ End Sub
 
 
 Sub VB_EXE_SYNC()
+
+Exit Sub
 
 Dim R, A1, A2
 Dim TxtEXE_INFO, X1_F
@@ -3672,10 +3683,10 @@ If NET_COPY_CHANGE_HAPPENER = True Then
     
     'REMOVE ListView
     'If ListView_VB_MODIFIED_ERROR.ListItems.Count > 1 Then
-        'ListView_VB_MODIFIED_ERROR.ListItems.Remove (1)
-        ListView_VB_MODIFIED_ERROR.ListItems(1).Text = Replace(ListView_VB_MODIFIED_ERROR.ListItems(1).Text, " _ ", " ")
-        ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(1) = Format(Now, "DDD DD-MMM-YYYY HH:MM:SS AM/PM")
-        ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(2) = ""
+    'ListView_VB_MODIFIED_ERROR.ListItems.Remove (1)
+    ListView_VB_MODIFIED_ERROR.ListItems(1).Text = Replace(ListView_VB_MODIFIED_ERROR.ListItems(1).Text, " _ ", " ")
+    ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(1) = Format(Now, "DDD DD-MMM-YYYY HH:MM:SS AM/PM")
+    ListView_VB_MODIFIED_ERROR.ListItems(1).SubItems(2) = ""
 
     'End If
     NET_COPY_CHANGE_HAPPENER = False
@@ -3948,12 +3959,12 @@ Public Function DirExist(sPath As String) As Boolean
 End Function
 
 Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
-    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 
 End Function
 Function NotAlwaysOnTop(ByVal hWnd As Long)
     Dim Flags
-    SetWindowPos hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, Flags
+    SetWindowPos hWnd, hWnd_NOTOPMOST, 0, 0, 0, 0, Flags
 End Function
 
 Public Function GetShortName(ByVal sLongFileName As String) As String
@@ -4337,7 +4348,7 @@ If IsIDE = True Then Me.WindowState = vbNormal
 If IsIDE = False Then Me.WindowState = vbMinimized
     
 '__ Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
-SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 
 ' Command_Screen_Shot_Auto_ClipBoard_er.Caption = "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF" + vbCrLf + "Hitt Button Here to Change"
 
@@ -4355,7 +4366,7 @@ SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 'frmAbout.Show
 
 '---------------------------------
-'Label15.Caption = "Scan Processor Quicker For Some Moment and Also ForeGound Window HWND Handle Change Massive esponce Speed Up That Method __ __ __ __ Soon Next Process Logger With Full Path Name"
+'Label15.Caption = "Scan Processor Quicker For Some Moment and Also ForeGound Window hWnd Handle Change Massive esponce Speed Up That Method __ __ __ __ Soon Next Process Logger With Full Path Name"
 'Label15.Caption = "Scan Processor For A Moment Same As Other Command Set _ " + Trim(Str(EnumProcess_COUNTER))
 'Label15.Caption = "Scan Processor For A Moment Timer Second _ " + Trim(Str(EnumProcess_COUNTER)) + " Plus ForeGound Window Change"
 Call Timer_EnumProcess_Timer
@@ -4590,29 +4601,29 @@ FindWindow_Get_All_Explorer = ""
 
 Dim Huge, VAR_STRING
 Dim WINDOW_TITLE
-Dim test_hwnd As Long, _
+Dim test_hWnd As Long, _
     test_pid As Long, _
     test_thread_id As Long
 
 Dim cText As String
 Huge = 0
 
-test_hwnd = FindWindow2(ByVal 0&, ByVal 0&)
+test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
 VAR_STRING = ""
-Do While test_hwnd <> 0
+Do While test_hWnd <> 0
     
-    WINDOW_TITLE = GetWindowTitle(test_hwnd)
+    WINDOW_TITLE = GetWindowTitle(test_hWnd)
     
     '--------------------------------------------------
     'C:\Windows\explorer.exe
     '--------------------------------------------------
-    If GetWindowClass(test_hwnd) = "CabinetWClass" Then
+    If GetWindowClass(test_hWnd) = "CabinetWClass" Then
         Huge = Huge + 1
         VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf
     End If
         
     'retrieve the next window
-    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
 
 Loop
 
@@ -5055,7 +5066,7 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
     ' DetectHiddenWindows, ON
     ' SetTitleMatchMode 3  ; EXACTLY
     
-    Dim XX_HWND, AHK_TERMINATOR_VERSION, VAR
+    Dim XX_hWnd, AHK_TERMINATOR_VERSION, VAR
     Dim TEMP_VAR_1
     Dim TEMP_VAR_2
     Dim TEMP_VAR_3
@@ -5068,20 +5079,20 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
     TEMP_VAR_3 = TEMP_VAR_1 + TEMP_VAR_2
     TEMP_VAR_3 = Replace(TEMP_VAR_3, """", "")
     FN_VAR_2 = TEMP_VAR_3
-    XX_HWND = FindWindow(FN_VAR_2, "AutoHotkey")
+    XX_hWnd = FindWindow(FN_VAR_2, "AutoHotkey")
     
-    If XX_HWND > 0 Then
+    If XX_hWnd > 0 Then
         
         'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
         pid = -1
-        VAR = cProcesses.Convert(XX_HWND, pid, cnFromhWnd Or cnToProcessID)
+        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
         If pid > 0 Then
             Result = cProcesses.Process_Kill(pid)
             Exit Sub
         End If
     End If
     
-    If XX_HWND = 0 Then
+    If XX_hWnd = 0 Then
         'Const DontWaitUntilFinished = False, WaitUntilFinished = True, ShowWindow_2 = 1, DontShowWindow = 0
         Dim WSHShell
         Set WSHShell = CreateObject("WScript.Shell")
@@ -5139,23 +5150,23 @@ Call MNU_TASK_KILLER_CMD_Click
 End Sub
 
 
-Private Sub Label_CLOSE_HWND_Click()
+Private Sub Label_CLOSE_hWnd_Click()
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_CLOSE_HWND.BackColor = RGB(255, 255, 255)
 
-Dim HWND_RESULT
-HWND_RESULT = txthWnd
-If HWND_RESULT > 0 Then
-    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
+Dim hWnd_RESULT
+hWnd_RESULT = txthWnd
+If hWnd_RESULT > 0 Then
+    Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
 End If
-HWND_RESULT = txtParent
-If HWND_RESULT > 0 Then
-    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
+hWnd_RESULT = txtParent
+If hWnd_RESULT > 0 Then
+    Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
 End If
-HWND_RESULT = txtParentX
-If HWND_RESULT > 0 Then
-    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
+hWnd_RESULT = txtParentX
+If hWnd_RESULT > 0 Then
+    Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
 End If
 
 Me.WindowState = vbMinimized
@@ -5529,21 +5540,21 @@ Private Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
     ' ----------------------------------------------
     If IsIDE = True And Me.hWnd = GetForegroundWindow Then
         Counter_ALWAYS_ON_TOP_TIMER = Counter_ALWAYS_ON_TOP_TIMER - 1
-        SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     End If
     
     If Counter_ALWAYS_ON_TOP_TIMER > -1 Then Exit Sub
     
     ' Put window on top of all others
-    'SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-    'SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    'SetWindowPos txtMhWnd.Text, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    'SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     ' Put window on top of all others
-    'SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-    'SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    'SetWindowPos txtMhWnd.Text, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    'SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     ' Remove window from top
-    SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, hWnd_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 '    Label60.Caption = "Me on Top @ Loader EXE Timer 20 Second NOT DONE"
     Label60.Caption = "Me on Top 20 Sec"
     Label60.BackColor = Label59.BackColor '49 58_59
@@ -5560,10 +5571,10 @@ End Sub
 
 Private Sub MNU_CLOSE_GOODSYNC_Click()
 
-Dim HWND_RESULT
-HWND_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
-If HWND_RESULT > 0 Then
-    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
+Dim hWnd_RESULT
+hWnd_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+If hWnd_RESULT > 0 Then
+    Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
 End If
 
 Me.WindowState = vbMinimized
@@ -5586,10 +5597,10 @@ Private Sub Label_KILL_HUBIC_Click()
 'How to select an external program's tray menu item? - Ask for Help - AutoHotkey Community
 'https://autohotkey.com/board/topic/80327-how-to-select-an-external-programs-tray-menu-item/
 '----
-Dim HWND_RESULT
-HWND_RESULT = FindWindow("HwndWrapper[hubiC.exe;;d22553e4-d0db-4e73-aa9f-48b38951eef0]", vbNullString)
-If HWND_RESULT > 0 Then
-    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
+Dim hWnd_RESULT
+hWnd_RESULT = FindWindow("hWndWrapper[hubiC.exe;;d22553e4-d0db-4e73-aa9f-48b38951eef0]", vbNullString)
+If hWnd_RESULT > 0 Then
+    Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
 End If
 ' ---------------------------------------------------------------------
 ' CAN'T FIND UNLESS OPEN ON SCREEN
@@ -5601,7 +5612,7 @@ End If
 
 Dim VAR, EXE_STRING As String
 pid = -1
-VAR = cProcesses.Convert(HWND_RESULT, pid, cnFromhWnd Or cnToProcessID)
+VAR = cProcesses.Convert(hWnd_RESULT, pid, cnFromhWnd Or cnToProcessID)
 VAR = cProcesses.Convert(pid, EXE_STRING, cnFromProcessID Or cnToEXE)
 
 
@@ -5856,21 +5867,21 @@ Private Sub Timer_MOUSE_CORD_Timer()
     Dim tPA As POINTAPI
     Dim mWnd
     Dim i_string
-    Dim LHWND
+    Dim LhWnd
     
     ' Get cursor cordinates
     GetCursorPos tPA
     ' Set label caption to cursor cordinates
     lblCordi.Caption = "X: " & tPA.x & "  Y: " & tPA.y
     
-    LHWND = WindowFromPoint(tPA.x, tPA.y)
-    If Old_lHwnd = LHWND Then
-        If FindHandle_HWND_COUNT_CHANGE = True Then
+    LhWnd = WindowFromPoint(tPA.x, tPA.y)
+    If Old_lhWnd = LhWnd Then
+        If FindHandle_hWnd_COUNT_CHANGE = True Then
             Call EnumProcess
         End If
     End If
     
-    Old_lHwnd = LHWND
+    Old_lhWnd = LhWnd
     
     If TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20) > Now Then
     
@@ -6124,15 +6135,15 @@ End Sub
 
 Private Sub Form_Resize_OLD()
     
-    Dim Me_Top, HwndTask, HwndResult
+    Dim Me_Top, hWndTask, hWndResult
     
     If SIZE_SET = True Then Exit Sub
     SIZE_SET = True
     'Taskbar at the Bottom
     '---------------------
     Dim RectTaskbar As RECT
-    HwndTask = FindWindow("Shell_TrayWnd", vbNullString)
-    HwndResult = GetWindowRect(HwndTask, RectTaskbar)
+    hWndTask = FindWindow("Shell_TrayWnd", vbNullString)
+    hWndResult = GetWindowRect(hWndTask, RectTaskbar)
     ' CENTER ON SCREEN COMPENSATE TASKBAR AT BOTTOM
     '----------------------------------------------
     If Screen.height - RectTaskbar.Top * Screen.TwipsPerPixelY < 2500 Then
@@ -6601,7 +6612,7 @@ ARRAY_CB(LDAC) = "Lab_KILL_EXPLORER"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC"
 LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_CLOSE_HWND"                      ' -- ELITESPY ONLY
+ARRAY_CB(LDAC) = "Label_CLOSE_hWnd"                      ' -- ELITESPY ONLY
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_TASK_KILLER_CMD"                 ' -- VB_KEEP_RUNNER ONLY
 LDAC = LDAC + 1
@@ -6669,13 +6680,13 @@ End Sub
 
 Private Sub Label_MAXIMIZE_GOODSYNC_Click()
 
-Dim GOODSYNC_WINDOW_HWND
-GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+Dim GOODSYNC_WINDOW_hWnd
+GOODSYNC_WINDOW_hWnd = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_MAXIMIZE_GOODSYNC.BackColor = RGB(255, 255, 255)
 
-ShowWindow GOODSYNC_WINDOW_HWND, SW_MAXIMIZE
+ShowWindow GOODSYNC_WINDOW_hWnd, SW_MAXIMIZE
 Beep
 Me.WindowState = vbMinimized
 
@@ -6686,10 +6697,10 @@ Private Sub Label_MINIMIZE_GOODSYNC_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_MINIMIZE_GOODSYNC.BackColor = RGB(255, 255, 255)
 
-Dim GOODSYNC_WINDOW_HWND
-GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+Dim GOODSYNC_WINDOW_hWnd
+GOODSYNC_WINDOW_hWnd = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
 
-ShowWindow GOODSYNC_WINDOW_HWND, SW_MINIMIZE
+ShowWindow GOODSYNC_WINDOW_hWnd, SW_MINIMIZE
 Beep
 Me.WindowState = vbMinimized
 
@@ -6909,28 +6920,28 @@ O_GetForegroundWindow_02 = GetForegroundWindow
 
 Call Timer_VB_MAXIMIZE_Timer
 
-Dim I_HWnd
-Dim HWND_MediaPlayerClassicW_GetWindowState
-Dim HWND_WINAMP_GetWindowState
+Dim I_hWnd
+Dim hWnd_MediaPlayerClassicW_GetWindowState
+Dim hWnd_WINAMP_GetWindowState
 
 
-I_HWnd = FindWindow("MediaPlayerClassicW", vbNullString)
-If OLD_HWND_MediaPlayerClassicW_GetWindowState <> HWND_MediaPlayerClassicW_GetWindowState Then
-    If I_HWnd > 0 Then
-        SetWindowPos I_HWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+I_hWnd = FindWindow("MediaPlayerClassicW", vbNullString)
+If OLD_hWnd_MediaPlayerClassicW_GetWindowState <> hWnd_MediaPlayerClassicW_GetWindowState Then
+    If I_hWnd > 0 Then
+        SetWindowPos I_hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     End If
 End If
-OLD_HWND_MediaPlayerClassicW_GetWindowState = HWND_MediaPlayerClassicW_GetWindowState
+OLD_hWnd_MediaPlayerClassicW_GetWindowState = hWnd_MediaPlayerClassicW_GetWindowState
 
-I_HWnd = FindWindow("Winamp v1.x", vbNullString)
+I_hWnd = FindWindow("Winamp v1.x", vbNullString)
 
-HWND_WINAMP_GetWindowState = GetWindowState(I_HWnd)
-If OLD_HWND_WINAMP_GetWindowState <> HWND_WINAMP_GetWindowState Then
-    If I_HWnd > 0 Then
-        SetWindowPos I_HWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+hWnd_WINAMP_GetWindowState = GetWindowState(I_hWnd)
+If OLD_hWnd_WINAMP_GetWindowState <> hWnd_WINAMP_GetWindowState Then
+    If I_hWnd > 0 Then
+        SetWindowPos I_hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     End If
 End If
-OLD_HWND_WINAMP_GetWindowState = HWND_WINAMP_GetWindowState
+OLD_hWnd_WINAMP_GetWindowState = hWnd_WINAMP_GetWindowState
 End Sub
 
 
@@ -6995,10 +7006,10 @@ End Sub
 
 Private Sub MNU_MAXIMIZE_GOODSYNC_Click()
 
-Dim GOODSYNC_WINDOW_HWND
-GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+Dim GOODSYNC_WINDOW_hWnd
+GOODSYNC_WINDOW_hWnd = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
 
-ShowWindow GOODSYNC_WINDOW_HWND, SW_MAXIMIZE
+ShowWindow GOODSYNC_WINDOW_hWnd, SW_MAXIMIZE
 Beep
 Me.WindowState = vbMinimized
 
@@ -7011,7 +7022,7 @@ End Sub
 '----
 
 'Private Declare Function MessageBoxTimeout Lib "user32.dll" Alias "MessageBoxTimeoutA" ( _
-'ByVal hwnd As Long, _
+'ByVal hWnd As Long, _
 'ByVal lpText As String, _
 'ByVal lpCaption As String, _
 'ByVal uType As Long, _
@@ -7057,7 +7068,7 @@ Public Sub TIMER_OS_REBOOT_Timer()
 
 Dim VB_LOADER, PWnd, GS_cWnd1, GS_cWnd2, R_REPEAT
 VB_LOADER = FindWindow("#32770", "VB KEEP RUNNER")
-If VB_LOADER > 0 Then 'And VB_LOADER <> OHWnd_VB_LOADER Then
+If VB_LOADER > 0 Then 'And VB_LOADER <> OhWnd_VB_LOADER Then
     PWnd = VB_LOADER
     GS_cWnd1 = FindWindowEx(PWnd, 0, vbNullString, "Can't open Clipboard")
     GS_cWnd2 = FindWindowEx(PWnd, 0, vbNullString, "OK")
@@ -7078,9 +7089,9 @@ End If
 End Sub
 
 Private Sub MNU_OS_RESTART_Click()
-Dim iHwnd
-iHwnd = FindWindow("wndclass_desked_gsk", vbNullString)
-ShowWindow iHwnd, SW_MINIMIZE
+Dim ihWnd
+ihWnd = FindWindow("wndclass_desked_gsk", vbNullString)
+ShowWindow ihWnd, SW_MINIMIZE
 Me.WindowState = vbMinimized
 
 Dim lRet
@@ -7410,8 +7421,8 @@ Private Sub MNU_ME_ON_TOP_Click()
     
     Beep
     ' Put window on top of all others
-    'SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-    SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    'SetWindowPos txtMhWnd.Text, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = False
     Label60.BackColor = Label49.BackColor '49 58_59
@@ -7565,7 +7576,7 @@ Sub ChunkCodeOnMouse()
         
         Dim tRC2 As RECT
         Dim tPA As POINTAPI
-        Dim LHWND As Long
+        Dim LhWnd As Long
         Dim sTitle As String * 255
         Dim sClass As String * 255
         Dim sParentTitle As String * 255
@@ -7584,11 +7595,11 @@ Sub ChunkCodeOnMouse()
         ' Get window rectCLEAR
         
         If From_ListView = False Then
-            If hWnd_From_ListView = 0 And lHwnd_Function_Button_Set_MIN_MAX = 0 Then
+            If hWnd_From_ListView = 0 And lhWnd_Function_Button_Set_MIN_MAX = 0 Then
                 ' Get cursor position
                 GetCursorPos tPA
                 ' Get window handle from point
-                LHWND = WindowFromPoint(tPA.x, tPA.y)
+                LhWnd = WindowFromPoint(tPA.x, tPA.y)
                 ' Get window caption
             End If
         End If
@@ -7602,7 +7613,7 @@ Sub ChunkCodeOnMouse()
         If From_ListView = True Then
             Set_Collect_More_Info = True
             If hWnd_From_ListView > 0 Then
-                LHWND = hWnd_From_ListView
+                LhWnd = hWnd_From_ListView
                 TxtPID.Text = Val(PROCESS_TO_KILLER_PID)
                 hWnd_From_ListView = 0
                 Set_Collect_More_Info = False
@@ -7613,33 +7624,33 @@ Sub ChunkCodeOnMouse()
         End If
         
         
-        If lHwnd_Function_Button_Set_MIN_MAX > 0 Then
-            ' txthWnd.Text = lHwnd
-            LHWND = lHwnd_Function_Button_Set_MIN_MAX
-            lHwnd_Function_Button_Set_MIN_MAX = 0
+        If lhWnd_Function_Button_Set_MIN_MAX > 0 Then
+            ' txthWnd.Text = lhWnd
+            LhWnd = lhWnd_Function_Button_Set_MIN_MAX
+            lhWnd_Function_Button_Set_MIN_MAX = 0
             ' Set_Collect_More_Info = false
         End If
         
         
         
         
-        GetWindowRect LHWND, tRC2
+        GetWindowRect LhWnd, tRC2
         
-        lRetVal = GetWindowText(LHWND, sTitle, 255)
+        lRetVal = GetWindowText(LhWnd, sTitle, 255)
         ' Get window class name
-        lRetVal = GetClassName(LHWND, sClass, 255)
+        lRetVal = GetClassName(LhWnd, sClass, 255)
         ' Get window style
-        sStyle = GetWindowStyle(LHWND)
+        sStyle = GetWindowStyle(LhWnd)
         ' Get window parent
         
-        O_lhWndParent = LHWND
-        lhWndParent = GetParent(LHWND)
+        O_lhWndParent = LhWnd
+        lhWndParent = GetParent(LhWnd)
         If lhWndParent = 0 Then lhWndParent = O_lhWndParent
-        lhWndParentX = GetParentHwnd(LHWND)
+        lhWndParentX = GetParenthWnd(LhWnd)
         
         
         If Set_Collect_More_Info = True Then
-            Success_Result = cProcesses.Get_PID_From_HWND(lhWndParentX, PID_MARK)
+            Success_Result = cProcesses.Get_PID_From_hWnd(lhWndParentX, PID_MARK)
             
             TxtPID.Text = PID_MARK
         End If
@@ -7660,7 +7671,7 @@ Sub ChunkCodeOnMouse()
         ' Set values to textboxes
         If From_ListView = False Then
         
-            TxtEXE.Text = GetFileFromHwnd(LHWND)
+            TxtEXE.Text = GetFileFromhWnd(LhWnd)
             
             
             PROCESS_TO_KILLER = Mid(TxtEXE.Text, InStrRev(TxtEXE.Text, "\") + 1)
@@ -7673,8 +7684,8 @@ Sub ChunkCodeOnMouse()
         From_ListView = False
         
         
-        txthWnd.Text = LHWND
-        txthWndHX.Text = Hex(LHWND)
+        txthWnd.Text = LhWnd
+        txthWndHX.Text = Hex(LhWnd)
         txtTitle.Text = sTitle
         txtClass.Text = sClass
         txtStyle.Text = sStyle
@@ -7682,7 +7693,7 @@ Sub ChunkCodeOnMouse()
         
         'lhWndParent = GetParent(lhWndParent)
         'lhWndParentHX = Hex(GetParent(lhWndParent))
-        If LHWND <> lhWndParent Then
+        If LhWnd <> lhWndParent Then
             txtParent.Text = lhWndParent
             txtParentHX.Text = Hex(lhWndParent)
             txtParentText.Text = sParentTitle
@@ -7694,7 +7705,7 @@ Sub ChunkCodeOnMouse()
             txtParentClass.Text = ""
         End If
         
-        If LHWND <> lhWndParentX And lhWndParentX <> lhWndParent Then
+        If LhWnd <> lhWndParentX And lhWndParentX <> lhWndParent Then
             txtParentX.Text = lhWndParentX
             txtParentTextX.Text = sParentTitleX
             txtParentClassX.Text = sParentClassX
@@ -7705,7 +7716,7 @@ Sub ChunkCodeOnMouse()
         End If
         
         
-        txtMhWnd.Text = LHWND
+        txtMhWnd.Text = LhWnd
         
         If TxtEXE.Text <> OLD_TxtEXE_Text Then
             Call TxtEXE_CLICK
@@ -7715,14 +7726,14 @@ Sub ChunkCodeOnMouse()
 
 End Sub
 
-Private Sub SCREEN_SHOT_HERE_2(HWND_NUMBER)
+Private Sub SCREEN_SHOT_HERE_2(hWnd_NUMBER)
     
     If InStr(Command_Screen_Shot_Auto_ClipBoard_er.Caption, "Archive Mode _ON") = 0 Then
         Exit Sub
     End If
     
     Dim TT, TS, FOLDERNAME_AUTO
-    Dim HWND_LONG As Long
+    Dim hWnd_LONG As Long
     
     FOLDERNAME_AUTO = App.Path + "\# DATA\" + GetComputerName + "\"
     
@@ -7737,14 +7748,14 @@ Private Sub SCREEN_SHOT_HERE_2(HWND_NUMBER)
     
     'TT = PrintCurrentFormOntoForm(SCREEN_CAP)
     
-    HWND_LONG = Val(HWND_NUMBER)
+    hWnd_LONG = Val(hWnd_NUMBER)
     
     ' --------------------
     ' SCREEN_CAP IS A FORM
     ' --------------------
     
-    'TT = Print_HWND_FORM_ontoForm(SCREEN_CAP, Val(HWND_NUMBER))
-    TT = Print_HWND_FORM_ontoForm_EVEN_WHEN_BEHIND_ANOTHER(SCREEN_CAP, HWND_LONG)
+    'TT = Print_hWnd_FORM_ontoForm(SCREEN_CAP, Val(hWnd_NUMBER))
+    TT = Print_hWnd_FORM_ontoForm_EVEN_WHEN_BEHIND_ANOTHER(SCREEN_CAP, hWnd_LONG)
     TS = FOLDERNAME_AUTO + "FormCapture- " + Format$(Now, "YYYY-MM-DD HH-MM-SS DDD") + ".jpg"
     'MsgBox TS
     On Error Resume Next
@@ -7770,7 +7781,7 @@ Private Sub SCREEN_SHOT_HERE_2(HWND_NUMBER)
 
 End Sub
 
-Private Sub SCREEN_SHOT_HERE(HWND_NUMBER)
+Private Sub SCREEN_SHOT_HERE(hWnd_NUMBER)
     Dim TT, TS, FOLDERNAME_AUTO
     
     If InStr(Command_Screen_Shot_Auto_ClipBoard_er.Caption, "Archive Mode _ON") = 0 Then
@@ -7791,7 +7802,7 @@ Private Sub SCREEN_SHOT_HERE(HWND_NUMBER)
     'TT = PrintCurrentFormOntoForm(SCREEN_CAP)
     
     
-    TT = Print_HWND_FORM_ontoForm(SCREEN_CAP, Val(HWND_NUMBER))
+    TT = Print_hWnd_FORM_ontoForm(SCREEN_CAP, Val(hWnd_NUMBER))
     TS = FOLDERNAME_AUTO + "EliteSPY_FormCapture_ " + Format$(Now, "YYYY-MM-DD HH-MM-SS DDD") + ".jpg"
     'MsgBox TS
     On Error Resume Next
@@ -7886,10 +7897,10 @@ End Function
 
 Function PrintCurrentFormOntoForm(ByVal Form As Form)
     Dim R As RECT
-    Dim HWndx, LEFT_RIGHT_INSET___________, i1, i2
-    HWndx = GetForegroundWindow
+    Dim hWndx, LEFT_RIGHT_INSET___________, i1, i2
+    hWndx = GetForegroundWindow
     
-    GetWindowRect HWndx, R
+    GetWindowRect hWndx, R
     
     'WINDOW 10 OR ADJUST
     Dim i, LEFT_RIGHT_INSET_AND_OFFSET
@@ -7907,45 +7918,45 @@ End Function
 
 
 
-Function Print_HWND_FORM_ontoForm(ByVal Form As Form, HWND_NUMBER As Long)
+Function Print_hWnd_FORM_ontoForm(ByVal Form As Form, hWnd_NUMBER As Long)
     Dim R As RECT
-    Dim HWndx
+    Dim hWndx
     
-    HWndx = HWND_NUMBER
+    hWndx = hWnd_NUMBER
     
-    'HWndx = GetForegroundWindow
+    'hWndx = GetForegroundWindow
         
-    GetWindowRect HWndx, R
+    GetWindowRect hWndx, R
     
     Set Form.Picture = hDCToPicture(GetDC(0), R.Left, R.Top, R.Right - R.Left, R.Bottom - R.Top)
 End Function
 
-Function Print_HWND_FORM_ontoForm_2(ByVal Form As Form, HWND_NUMBER As Long)
+Function Print_hWnd_FORM_ontoForm_2(ByVal Form As Form, hWnd_NUMBER As Long)
     'NOT OVERLAP
     Dim R As RECT
-    Dim HWndx
+    Dim hWndx
     
-    HWndx = HWND_NUMBER
+    hWndx = hWnd_NUMBER
     
-    'HWndx = GetForegroundWindow
+    'hWndx = GetForegroundWindow
         
-    GetWindowRect HWndx, R
+    GetWindowRect hWndx, R
     
     Set Form.Picture = hDCToPicture(GetDC(0), R.Left, R.Top, R.Right - R.Left, R.Bottom - R.Top)
 
-    'rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
-    'rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    'rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    'rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
     
-    'rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP.HDC, 0)
-    'rv = SendMessage(HWND_NUMBERING, WM_PRINT, SCREEN_CAP.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    'rv = SendMessage(hWnd_NUMBERING, WM_PAINT, SCREEN_CAP.HDC, 0)
+    'rv = SendMessage(hWnd_NUMBERING, WM_PRINT, SCREEN_CAP.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
 
 End Function
 
-Private Function Print_HWND_FORM_ontoForm_EVEN_WHEN_BEHIND_ANOTHER(ByVal Form As Form, HWND_NUMBER As Long)
+Private Function Print_hWnd_FORM_ontoForm_EVEN_WHEN_BEHIND_ANOTHER(ByVal Form As Form, hWnd_NUMBER As Long)
 Dim rv As Long
-Dim HWND_NUMBERING As Long
+Dim hWnd_NUMBERING As Long
 
-    HWND_NUMBERING = Val(HWND_NUMBER)
+    hWnd_NUMBERING = Val(hWnd_NUMBER)
     
     'Clipboard.Clear
     
@@ -7954,11 +7965,11 @@ Dim HWND_NUMBERING As Long
    
     'Picture1.AutoRedraw = True
     
-    'rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP.HDC, 0)
-    'rv = SendMessage(HWND_NUMBERING, WM_PRINT, SCREEN_CAP.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
+    'rv = SendMessage(hWnd_NUMBERING, WM_PAINT, SCREEN_CAP.HDC, 0)
+    'rv = SendMessage(hWnd_NUMBERING, WM_PRINT, SCREEN_CAP.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
     
-'    rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
-'    rv = SendMessage(HWND_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
+'    rv = SendMessage(hWnd_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
+'    rv = SendMessage(hWnd_NUMBERING, WM_PAINT, SCREEN_CAP_PICTURE.Picture1.HDC, 0)
     
     rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
     rv = SendMessage(Me.hWnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
@@ -8034,11 +8045,11 @@ End Sub
 '//// PRIVATE FUNCTIONS
 '////////////////////////////////////////////////////////////////////
 ' Get window styles
-Private Function GetWindowStyle(ByVal LHWND As Long) As String
+Private Function GetWindowStyle(ByVal LhWnd As Long) As String
     Dim lStyle As Long
         
     ' Get window styles
-    lStyle = GetWindowLong(LHWND, GWL_STYLE)
+    lStyle = GetWindowLong(LhWnd, GWL_STYLE)
     
     ' Get window styles
     If lStyle And WS_BORDER Then GetWindowStyle = GetWindowStyle & "WS_BORDER "
@@ -8061,28 +8072,28 @@ Private Function GetWindowStyle(ByVal LHWND As Long) As String
 End Function
 
 ' Make textboxes flat
-Private Sub MakeFlat(LHWND As Long)
+Private Sub MakeFlat(LhWnd As Long)
     Dim lStyle As Long
     
     ' Get window style
-    lStyle = GetWindowLong(LHWND, GWL_EXSTYLE)
+    lStyle = GetWindowLong(LhWnd, GWL_EXSTYLE)
     ' Setup window styles
     lStyle = lStyle And Not WS_EX_CLIENTEDGE Or WS_EX_STATICEDGE
     ' Set window style
-    SetWindowLong LHWND, GWL_EXSTYLE, lStyle
-    RemoveBorder LHWND
+    SetWindowLong LhWnd, GWL_EXSTYLE, lStyle
+    RemoveBorder LhWnd
 End Sub
-Private Sub RemoveBorder(LHWND As Long)
+Private Sub RemoveBorder(LhWnd As Long)
     Dim lStyle As Long
     
     ' Get window style
-    lStyle = GetWindowLong(LHWND, GWL_STYLE)
+    lStyle = GetWindowLong(LhWnd, GWL_STYLE)
     ' Setup window styles
     lStyle = lStyle And Not (WS_BORDER Or WS_DLGFRAME Or WS_CAPTION Or WS_BORDER Or WS_SIZEBOX Or WS_THICKFRAME)
     ' Set window style
-    SetWindowLong LHWND, GWL_STYLE, lStyle
+    SetWindowLong LhWnd, GWL_STYLE, lStyle
     ' Update window
-    SetWindowPos LHWND, 0, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_NOZORDER Or SWP_FRAMECHANGED Or SWP_NOSIZE Or SWP_NOMOVE
+    SetWindowPos LhWnd, 0, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_NOZORDER Or SWP_FRAMECHANGED Or SWP_NOSIZE Or SWP_NOMOVE
 End Sub
 
 Sub PROCESS_RELOADER_WATCHER_VAR_SET_CHECK_CONDICTION(VAR_IN, VAR_OUT)
@@ -8192,11 +8203,16 @@ Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
 
 ' Call Timer_RELOAD_AUTOHOTKEY_APP_Timer
 
-If FindHandle_HWND_COUNT_CHANGE = True Then
+If FindHandle_hWnd_COUNT_CHANGE = True Then
     Call EnumProcess
 End If
 If frmOperatingSystem.TT_1VDT > 0 Or frmOperatingSystem.TT_2VDT > 0 Then
-    Form1.Text_SYSTEM_START_TIME_02.Text = Str(DateDiff("h", frmOperatingSystem.TT_1VDT, Now)) + " HOUR"
+    Dim XI_STRING
+    XI_STRING = ""
+    XI_STRING = XI_STRING + Str(DateDiff("h", frmOperatingSystem.TT_1VDT, Now)) + " hr -- "
+    XI_STRING = XI_STRING + Format(Int((DateDiff("h", frmOperatingSystem.TT_1VDT, Now) / 24)), "0") + " d "
+    XI_STRING = XI_STRING + Format((DateDiff("h", frmOperatingSystem.TT_1VDT, Now) Mod 24), "0") + " hr "
+    Form1.Text_SYSTEM_START_TIME_02.Text = XI_STRING
     Form1.Text_SYSTEM_START_TIME_02.FontSize = 10
     Form1.Text_OS_INSTALL_DATE_02.Text = Str(DateDiff("d", frmOperatingSystem.TT_2VDT, Now)) + " DAY"
     Form1.Text_OS_INSTALL_DATE_02.FontSize = 10
@@ -8438,7 +8454,7 @@ If MSDN_Lib > 0 And MSDN_Lib <> OcWnd Then
     '1. DONT CLOSE THE HELP ALERT VB INFO
     '2. DISABLE THE HELP BUTTON ACIDENT FLICKER
     '---------------------------------------
-    'HWND_2 = GET_CHILD_TEST(MSDN_Lib)
+    'hWnd_2 = GET_CHILD_TEST(MSDN_Lib)
     '---------------------------------------
     
     PWnd = MSDN_Lib
@@ -8563,9 +8579,9 @@ End If
 'MAXIMIZE THE VB WINDOW ENTRY
 '---------------------------------------
 'MSDN_Lib = FindWindow("#32770", "Microsoft Visual Basic")
-'IHWND = FindWindow(vbNullString, "wndclass_desked_gsk")
-'I IHWND > 0
-'    I_CH_HWND = FindWindowEx("VbaWindow", vbNullString)
+'IhWnd = FindWindow(vbNullString, "wndclass_desked_gsk")
+'I IhWnd > 0
+'    I_CH_hWnd = FindWindowEx("VbaWindow", vbNullString)
 'End If
 
 'MAX WINDOWS WITHIN VB FOR ------------------------------------
@@ -8599,7 +8615,7 @@ End If
 '---------------------------------------
 Dim TEAM_VIEWER
 TEAM_VIEWER = FindWindow("#32770", "Sponsored session")
-If TEAM_VIEWER > 0 And TEAM_VIEWER <> OHWnd_TEAM_VIEWER Then
+If TEAM_VIEWER > 0 And TEAM_VIEWER <> OhWnd_TEAM_VIEWER Then
 
     '---------------------------------------
     Result = PostMessage(TEAM_VIEWER, WM_CLOSE, 0&, 0&)
@@ -8611,7 +8627,7 @@ If TEAM_VIEWER > 0 And TEAM_VIEWER <> OHWnd_TEAM_VIEWER Then
     '1. DONT CLOSE THE HELP ALERT VB INFO
     '2. DISABLE THE HELP BUTTON ACIDENT FLICKER
     '---------------------------------------
-    'HWND_2 = GET_CHILD_TEST(MSDN_Lib)
+    'hWnd_2 = GET_CHILD_TEST(MSDN_Lib)
     '---------------------------------------
     
 '    pwnd = TEAM_VIEWER
@@ -8651,7 +8667,7 @@ If TEAM_VIEWER > 0 And TEAM_VIEWER <> OHWnd_TEAM_VIEWER Then
     '---------------------------------------
 End If
 
-OHWnd_TEAM_VIEWER = TEAM_VIEWER
+OhWnd_TEAM_VIEWER = TEAM_VIEWER
 
 
 
@@ -8667,7 +8683,7 @@ OHWnd_TEAM_VIEWER = TEAM_VIEWER
 'TYPE 01 OF 02
 Dim VB_LOADER
 VB_LOADER = FindWindow("#32770", "Visual Component Manager")
-If VB_LOADER > 0 And VB_LOADER <> OHWnd_VB_LOADER Then
+If VB_LOADER > 0 And VB_LOADER <> OhWnd_VB_LOADER Then
     PWnd = VB_LOADER
     GS_cWnd1 = FindWindowEx(PWnd, 0, vbNullString, "Can't open Clipboard")
     GS_cWnd2 = FindWindowEx(PWnd, 0, vbNullString, "OK")
@@ -8689,7 +8705,7 @@ End If
 
 'TYPE 02 OF 02
 VB_LOADER = FindWindow("#32770", "Data View")
-If VB_LOADER > 0 And VB_LOADER <> OHWnd_VB_LOADER Then
+If VB_LOADER > 0 And VB_LOADER <> OhWnd_VB_LOADER Then
     PWnd = VB_LOADER
     GS_cWnd1 = FindWindowEx(PWnd, 0, vbNullString, "Method '~' of object '~' failed")
     GS_cWnd2 = FindWindowEx(PWnd, 0, vbNullString, "OK")
@@ -8704,9 +8720,9 @@ End If
 'TYPE 02 OF 02
 'VB_LOADER = FindWindow("#32770", "Add-In Toolbar")
 VB_LOADER = FindWindow("#32770", vbNullString)
-If VB_LOADER > 0 And VB_LOADER <> OHWnd_VB_LOADER Then
-    'OHWnd_VB_CLIPPER_ERROR = VB_CLIPPER_ERROR
-    OHWnd_VB_LOADER = VB_LOADER
+If VB_LOADER > 0 And VB_LOADER <> OhWnd_VB_LOADER Then
+    'OhWnd_VB_CLIPPER_ERROR = VB_CLIPPER_ERROR
+    OhWnd_VB_LOADER = VB_LOADER
     PWnd = VB_LOADER
     GS_cWnd1 = FindWindowEx(PWnd, 0, vbNullString, "Method '~' of object '~' failed")
     GS_cWnd2 = FindWindowEx(PWnd, 0, vbNullString, "OK")
@@ -8721,8 +8737,8 @@ End If
 
 Dim VB_CLIPPER_ERROR
 VB_CLIPPER_ERROR = FindWindow("#32770", vbNullString)
-If VB_CLIPPER_ERROR > 0 And VB_CLIPPER_ERROR <> OHWnd_VB_CLIPPER_ERROR Then
-    OHWnd_VB_CLIPPER_ERROR = VB_CLIPPER_ERROR
+If VB_CLIPPER_ERROR > 0 And VB_CLIPPER_ERROR <> OhWnd_VB_CLIPPER_ERROR Then
+    OhWnd_VB_CLIPPER_ERROR = VB_CLIPPER_ERROR
     PWnd = VB_CLIPPER_ERROR
     GS_cWnd1 = FindWindowEx(PWnd, 0, vbNullString, "Can't open Clipboard")
     GS_cWnd2 = FindWindowEx(PWnd, 0, vbNullString, "OK")
@@ -8742,7 +8758,7 @@ End If
 Dim VB_EXE
 If IsIDE = True Then
     VB_EXE = FindWindow("ThunderRT6FormDC", "KAT MP3 RELOAD")
-    If VB_EXE > 0 And VB_EXE <> OHWnd_VB_EXE Then
+    If VB_EXE > 0 And VB_EXE <> OhWnd_VB_EXE Then
         Result = PostMessage(VB_EXE, WM_CLOSE, 0&, 0&)
     End If
 End If
@@ -8750,7 +8766,7 @@ End If
 
 'TYPE 02 OF 02
 VB_LOADER = FindWindow("#32770", "Add-In Toolbar")
-If 1 = 2 And VB_LOADER > 0 And VB_LOADER <> OHWnd_VB_LOADER Then
+If 1 = 2 And VB_LOADER > 0 And VB_LOADER <> OhWnd_VB_LOADER Then
 'Add-In Toolbar
 
     '---------------------------------------
@@ -8763,7 +8779,7 @@ If 1 = 2 And VB_LOADER > 0 And VB_LOADER <> OHWnd_VB_LOADER Then
     '1. DONT CLOSE THE HELP ALERT VB INFO
     '2. DISABLE THE HELP BUTTON ACIDENT FLICKER
     '---------------------------------------
-    'HWND_2 = GET_CHILD_TEST(MSDN_Lib)
+    'hWnd_2 = GET_CHILD_TEST(MSDN_Lib)
     '---------------------------------------
     
 '    pwnd = VB_LOADER
@@ -8810,7 +8826,7 @@ End If
 '-----------------------------
 Dim Text1
 VB_LOADER = FindWindow("#32770", "Microsoft Visual Basic")
-If 1 = 2 And VB_LOADER > 0 And VB_LOADER <> OHWnd_VB_LOADER Then
+If 1 = 2 And VB_LOADER > 0 And VB_LOADER <> OhWnd_VB_LOADER Then
     PWnd = VB_LOADER
     GS_cWnd1 = FindWindowEx(PWnd, 0, vbNullString, "OK")
     GS_cWnd1 = FindWindowEx(PWnd, 0, "Static", vbNullString)
@@ -8869,13 +8885,13 @@ End If
 
 If InStr(MNU_WINMERGE_ON_TOP_ALLTME.Caption, "ALLTIME=YES") > 0 Then
 
-    iHwnd = FindWindow("WinMergeWindowClassW", vbNullString)
-    If iHwnd > 0 And O_IHWND <> iHwnd Then
+    ihWnd = FindWindow("WinMergeWindowClassW", vbNullString)
+    If ihWnd > 0 And O_IhWnd <> ihWnd Then
         
-        SetWindowPos iHwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos ihWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
     
     End If
-    O_IHWND = iHwnd
+    O_IhWnd = ihWnd
 End If
 
 
@@ -9431,7 +9447,7 @@ End Sub
 
 Public Function FindHandle_AutoHotkey() As Long
 
-Dim test_hwnd As Long, _
+Dim test_hWnd As Long, _
     test_pid As Long, _
     test_thread_id As Long
 
@@ -9442,7 +9458,7 @@ Dim HighTest_hWnd As Long
 Dim T_COMPARE, T_COUNTER
 Dim RI
 Dim FINDER_LINE, FINDER_LINE_1
-Dim FINDER_LINE_HWND As Long
+Dim FINDER_LINE_hWnd As Long
 Dim VAR As Long
 
 Dim T_COUNTER_FLAG_VAR
@@ -9451,13 +9467,13 @@ Do
     List_SORT_FOR_AHK_LIMITER.Clear
     
     'Find the first window
-    test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+    test_hWnd = FindWindowDLL(ByVal 0&, ByVal 0&)
     T_COMPARE = ""
     T_COUNTER = 1
     
-    Do While test_hwnd <> 0
+    Do While test_hWnd <> 0
         
-        WText = GetWindowTitle(test_hwnd)
+        WText = GetWindowTitle(test_hWnd)
     
         ' Autokey -- 58-Auto Repeat Browser Function Set.ahk
         ' ahk_class #32770
@@ -9468,11 +9484,11 @@ Do
     '    End If
         
         If InStr(WText, ".ahk") > 0 Then
-            List_SORT_FOR_AHK_LIMITER.AddItem Trim(WText) + " ---------X " + Str(test_hwnd)
+            List_SORT_FOR_AHK_LIMITER.AddItem Trim(WText) + " ---------X " + Str(test_hWnd)
         End If
         
         'retrieve the next window
-        test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+        test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
     
     Loop
         
@@ -9490,7 +9506,7 @@ Do
     For RI = 0 To List_SORT_FOR_AHK_LIMITER.ListCount - 1
         FINDER_LINE = List_SORT_FOR_AHK_LIMITER.List(RI)
         FINDER_LINE_1 = Mid(FINDER_LINE, 1, InStr(FINDER_LINE, " ---------X ") - 1)
-        FINDER_LINE_HWND = Val(Mid(FINDER_LINE, InStr(FINDER_LINE, " ---------X  ") + Len(" ---------X  ")))
+        FINDER_LINE_hWnd = Val(Mid(FINDER_LINE, InStr(FINDER_LINE, " ---------X  ") + Len(" ---------X  ")))
         If FINDER_LINE_1 = T_COMPARE Then
             T_COUNTER = T_COUNTER + 1
             If T_COUNTER > 15 Then
@@ -9499,14 +9515,14 @@ Do
                 
                 
                 ' NOT WORK FOR WHAT WE WANTER
-                ' closewindow (FINDER_LINE_HWND)
+                ' closewindow (FINDER_LINE_hWnd)
                 
-                ' FINDER_LINE_HWND_2 = GetParent(FINDER_LINE_HWND)
-                ' closewindow (FINDER_LINE_HWND_2)
+                ' FINDER_LINE_hWnd_2 = GetParent(FINDER_LINE_hWnd)
+                ' closewindow (FINDER_LINE_hWnd_2)
                 
-                If FINDER_LINE_HWND > 0 Then
+                If FINDER_LINE_hWnd > 0 Then
                     pid = -1
-                    VAR = cProcesses.Convert(FINDER_LINE_HWND, pid, cnFromhWnd Or cnToProcessID)
+                    VAR = cProcesses.Convert(FINDER_LINE_hWnd, pid, cnFromhWnd Or cnToProcessID)
                 End If
                 If pid > 0 Then
                     Result = cProcesses.Process_Kill(pid)
@@ -9528,26 +9544,26 @@ Loop Until T_COUNTER_FLAG_VAR = False
 End Function
 
 
-Public Function FindHandle_HWND_COUNT_CHANGE() As Long
+Public Function FindHandle_hWnd_COUNT_CHANGE() As Long
 
-Dim test_hwnd As Long
+Dim test_hWnd As Long
 Dim T_COUNTER
-Dim FindHandle_HWND_COUNT
+Dim FindHandle_hWnd_COUNT
 'Find the first window
-test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+test_hWnd = FindWindowDLL(ByVal 0&, ByVal 0&)
 T_COUNTER = 1
-Do While test_hwnd <> 0
+Do While test_hWnd <> 0
     'retrieve the next window
-    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
     T_COUNTER = T_COUNTER + 1
 Loop
 
-FindHandle_HWND_COUNT = T_COUNTER
-If FindHandle_HWND_COUNT <> OLD_FindHandle_HWND_COUNT Then
-    FindHandle_HWND_COUNT_CHANGE = True
-    Label42.Caption = "hWnd Count:" + Str(FindHandle_HWND_COUNT)
+FindHandle_hWnd_COUNT = T_COUNTER
+If FindHandle_hWnd_COUNT <> OLD_FindHandle_hWnd_COUNT Then
+    FindHandle_hWnd_COUNT_CHANGE = True
+    Label42.Caption = "hWnd Count:" + Str(FindHandle_hWnd_COUNT)
 End If
-OLD_FindHandle_HWND_COUNT = FindHandle_HWND_COUNT
+OLD_FindHandle_hWnd_COUNT = FindHandle_hWnd_COUNT
 
 End Function
 
@@ -9569,21 +9585,21 @@ End Sub
 
 
 
-Private Function WindowText(ByVal window_hwnd As Long) As String
+Private Function WindowText(ByVal window_hWnd As Long) As String
 
     Dim txtlen              As Long
 
-    If window_hwnd = 0 Then
+    If window_hWnd = 0 Then
         Exit Function
     End If
 
-    txtlen = SendMessage(window_hwnd, WM_GETTEXTLENGTH, ByVal 0, ByVal 0)
+    txtlen = SendMessage(window_hWnd, WM_GETTEXTLENGTH, ByVal 0, ByVal 0)
     If txtlen = 0 Then
         Exit Function
     End If
 
     WindowText = String$(txtlen, vbNullChar)
-    SendMessage window_hwnd, WM_GETTEXT, ByVal (txtlen + 1), ByVal StrPtr(WindowText)
+    SendMessage window_hWnd, WM_GETTEXT, ByVal (txtlen + 1), ByVal StrPtr(WindowText)
 
 End Function
 
@@ -9698,18 +9714,18 @@ Function FindWindowPart(Test) As Long
 
 FindWindowPart = False
 
-Dim test_hwnd As Long
+Dim test_hWnd As Long
 
-test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
-Do While test_hwnd <> 0
+test_hWnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+Do While test_hWnd <> 0
         
-        If InStr(GetWindowTitle(test_hwnd), Test) > 0 Then
-            FindWindowPart = test_hwnd
+        If InStr(GetWindowTitle(test_hWnd), Test) > 0 Then
+            FindWindowPart = test_hWnd
             Exit Do
         End If
         
     'retrieve the next window
-    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
 
 Loop
 
@@ -9785,16 +9801,16 @@ End Function
 '
 'Dim Handle2
 'Dim Handle3
-'Dim FileHWND2
+'Dim FilehWnd2
 '
 'Handle2 = FindWindow(vbNullString, "Deleting...")
 'Handle3 = FindWindow(vbNullString, "ImageDupe registered to EPSiLON")
 '
 ''GetWindowState
-'FileHWND2 = ""
-'If Handle2 > 0 Then FileHWND2 = GetFileFromHwnd(Handle2)
+'FilehWnd2 = ""
+'If Handle2 > 0 Then FilehWnd2 = GetFileFromhWnd(Handle2)
 '
-'If FileHWND2 = "C:\Program Files\ImageDupe\ImageDupe.exe" And _
+'If FilehWnd2 = "C:\Program Files\ImageDupe\ImageDupe.exe" And _
 '    Check1.Value = vbChecked Then
 ''If handle2 > 0 Then
 ''If DupeCool = 0 Then
@@ -9802,7 +9818,7 @@ End Function
 ''MsgBox "Image Dupe Ready": DupeCool = 1
 'Dim Rect5 As RECT
 'Dim Rect7 As RECT
-'hwnd9 = GetWindowRect(Handle2, Rect5)
+'hWnd9 = GetWindowRect(Handle2, Rect5)
 'hWnd8 = GetWindowRect(Handle3, Rect7)
 '
 ''CID_Run_Me.Top = (Rt2.Top * ScreenTwipsX) - CID_Run_Me.Height
@@ -9819,10 +9835,10 @@ End Function
 ''If handle2 = 0 And FindWindow(vbNullString, "ImageDupe registered to EPSiLON") = 0 Then DupeCo
 '
 '
-'FileHWND2 = ""
-'If Handle2 > 0 Then FileHWND2 = GetFileFromHwnd(Handle2)
+'FilehWnd2 = ""
+'If Handle2 > 0 Then FilehWnd2 = GetFileFromhWnd(Handle2)
 '
-'If FileHWND2 = "C:\Program Files\ImageDupe\ImageDupe.exe" And _
+'If FilehWnd2 = "C:\Program Files\ImageDupe\ImageDupe.exe" And _
 '    Check1.Value = vbChecked Then
 '
 ''    kk = Int(Now) + Timer + 0.2
@@ -9886,11 +9902,11 @@ End Function
 '
 'Handle2 = FindWindow(vbNullString, "DocumentsTo Go")
 'If Handle2 = 0 Then Exit Sub
-'FileHWND2 = ""
-'If Handle2 > 0 Then FileHWND2 = GetFileFromHwnd(Handle2)
+'FilehWnd2 = ""
+'If Handle2 > 0 Then FilehWnd2 = GetFileFromhWnd(Handle2)
 ''CM$ = GetFileFromProc(CMediaSource)
 '
-'If FileHWND2 = "C:\Program Files\Documents To Go\DocsToGo.exe" Then
+'If FilehWnd2 = "C:\Program Files\Documents To Go\DocsToGo.exe" Then
 '
 '
 '    On Local Error Resume Next
@@ -10117,7 +10133,7 @@ End Function
 '
 '
 'Rf = FindWindow(vbNullString, "WMI Demo - CPU Information")
-'If CurProcHwnd = Me.hWnd And CurProcHwnd <> Rf And TiTBait <> CurProcHwnd And Rf > 0 Then
+'If CurProchWnd = Me.hWnd And CurProchWnd <> Rf And TiTBait <> CurProchWnd And Rf > 0 Then
 '
 '    'Rf = FindWindow(vbNullString, "WMI Demo - CPU Information")
 '
@@ -10127,7 +10143,7 @@ End Function
 ''    On Local Error GoTo 0
 '
 '    'Rft = Putfocus(Rf)
-'    'Rft = Putfocus(Me.hwnd)
+'    'Rft = Putfocus(Me.hWnd)
 '
 'End If
 '
@@ -10135,23 +10151,23 @@ End Function
 '
 '
 ''FOR OLD CALLER ID PROG BREAK AND PUT RUN -------------
-'TiTBait = CurProcHwnd
+'TiTBait = CurProchWnd
 '
-''hwnd3 = FindWindowPart("Microsoft Visual Basic [break]")
-'hwnd3 = FindWindow(vbNullString, "CallerID - Microsoft Visual Basic [break]")
-'If hwnd3 > 0 Then
+''hWnd3 = FindWindowPart("Microsoft Visual Basic [break]")
+'hWnd3 = FindWindow(vbNullString, "CallerID - Microsoft Visual Basic [break]")
+'If hWnd3 > 0 Then
 'On Local Error Resume Next
 'If Mnu_CIDBreak.Checked = True Then
 'AppActivate "CallerID - Microsoft Visual Basic [break]", False
 ''r = Int(Now) + Timer + 0.1
 ''Do
 ''DoEvents
-'CurProcHwnd = GetForegroundWindow
-''If CurProcHwnd = hwnd3 Then Exit Do
+'CurProchWnd = GetForegroundWindow
+''If CurProchWnd = hWnd3 Then Exit Do
 ''Loop Until r < Int(Now) + Timer
 '
 '
-'If CurProcHwnd = hwnd3 Then SendKeys "{f5}", False
+'If CurProchWnd = hWnd3 Then SendKeys "{f5}", False
 'End If
 'End If
 '
@@ -10159,9 +10175,9 @@ End Function
 '
 '
 '
-''cphwnd = GetForegroundWindow
+''cphWnd = GetForegroundWindow
 ''If GetWindow("IEFrame", vbNullString) > 0 Then
-''rrt$ = GetWindowTitle(CPHwnd)
+''rrt$ = GetWindowTitle(CPhWnd)
 '
 ''            Dim cText As String
 '
@@ -10169,10 +10185,10 @@ End Function
 '            'Ret = GetClassName(Peet2, sText, 255)
 '
 '
-''TT = GetClassName(cphwnd, cText, 255)
+''TT = GetClassName(cphWnd, cText, 255)
 ''ctext = Mid$(ctext, 1, InStr(ctext, Chr(0)) - 1)
 ''If Mid$(cText, 1, 7) = "IEFrame" Then
-''Xxr = cphwnd
+''Xxr = cphWnd
 ''If Xxr > 0 And Xxr <> Xxr8 Then
 '    'ShowWindow Xxr, SW_MAXIMIZE
 ''    ShowWindow Xxr, SW_MINIMIZE
@@ -10260,7 +10276,7 @@ End Function
 '    'detect normal ones
 '    If GetWindowState(Val(CID_Run_Me.Lst1.List(R))) = -1 Then Flag = Flag + 1
 '
-'    'if all the hwnds in our list are present on screen then cool
+'    'if all the hWnds in our list are present on screen then cool
 '    If Val(CID_Run_Me.Lst1.List(R)) = Xxr Then Flag2 = 1
 '
 '    'XOR this rather add then some kind hashing system detect change
@@ -10425,8 +10441,8 @@ End Function
 'Xxr = FindWindow(vbNullString, "Extreme Lock Build: 2011"): lol = 1
 'If Xxr = 0 Then Xxr = FindWindow(vbNullString, "Tidal Information..."): lol = 0
 'If Xxr > 0 And Xxr <> Xxr16 Then
-'    'If lol = 1 Then rt = AlwaysOnTop(Me.hwnd)
-'    'If lol = 0 Then rt = NotAlwaysOnTop(Me.hwnd)
+'    'If lol = 1 Then rt = AlwaysOnTop(Me.hWnd)
+'    'If lol = 0 Then rt = NotAlwaysOnTop(Me.hWnd)
 '    'me.top
 '    'me.left
 '    Xxr16 = Xxr
@@ -10434,7 +10450,7 @@ End Function
 '    'win3 = FindWindow("Winamp PE", vbNullString)
 '    'rt = AlwaysOnTop(win2)
 '    'rt = AlwaysOnTop(win3)
-'    'ShowWindow Me.hwnd, SW_NORMAL
+'    'ShowWindow Me.hWnd, SW_NORMAL
 '    'ShowWindow win2, SW_NORMAL
 '
 '    TTT = cProcesses.Convert(Xxr, OTSS, cnFromhWnd Or cnToProcessID)
@@ -10580,7 +10596,7 @@ End Function
 'Xxr = FindWindow(vbNullString, "Web Site Update Dates")
 'If Xxr > 0 And Xxr55 <> Xxr Then
 '    Xxr55 = Xxr
-'    If InStr(GetFileFromHwnd(Xxr), "VB6.EXE") = 0 Then
+'    If InStr(GetFileFromhWnd(Xxr), "VB6.EXE") = 0 Then
 '
 '    TTT = cProcesses.Convert(Xxr, OTSS, cnFromhWnd Or cnToProcessID)
 '    'Process_Low_BELOW_NORM (Otss)
@@ -10594,7 +10610,7 @@ End Function
 'Xxr = FindWindow("Afx:10000000:0", vbNullString)
 'If Xxr > 0 And Xxr73 <> Xxr Then
 '    Xxr73 = Xxr
-'    'If InStr(GetFileFromHwnd(Xxr), "WaveEdit.exe") = 0 Then
+'    'If InStr(GetFileFromhWnd(Xxr), "WaveEdit.exe") = 0 Then
 '
 '    TTT = cProcesses.Convert(Xxr, OTSS, cnFromhWnd Or cnToProcessID)
 '    Process_Low_BELOW_NORM (OTSS)
@@ -10797,7 +10813,7 @@ End Function
 '    wert1 = GetWindowRect(Xxt1, MeRyu4)
 '
 '    'FUTURE SEARCHES
-'    'HwndCTLTask2 = FindWindow(vbNullString, "CTLTask")
+'    'hWndCTLTask2 = FindWindow(vbNullString, "CTLTask")
 '    xxt2 = FindWindow("Shell_TrayWnd", vbNullString)
 '    wert2 = GetWindowRect(xxt2, MeRyu5)
 '
@@ -10866,7 +10882,7 @@ End Function
 '    If MeRyu4.Right - MeRyu4.Left = 429 Then
 '        If MeRyu4.Bottom - MeRyu4.Top = 172 Then
 '            MsgBox "What"
-'            CloseProgramHwnd (Xxr)
+'            CloseProgramhWnd (Xxr)
 '        End If
 '    End If
 'End If
@@ -10879,7 +10895,7 @@ End Function
 '    wert1 = GetWindowRect(Xxr, MeRyu4)
 '   'If MeRyu4.Right - MeRyu4.Left = 462 Then
 '        If MeRyu4.Bottom - MeRyu4.Top < 500 Then
-'            'CloseProgramHwnd (Xxr)
+'            'CloseProgramhWnd (Xxr)
 '        End If
 '    'End If
 'End If
@@ -10894,7 +10910,7 @@ End Function
 '    If MeRyu4.Right - MeRyu4.Left = 429 Then
 '        If MeRyu4.Bottom - MeRyu4.Top = 172 Then
 '            MsgBox "What"
-'            CloseProgramHwnd (Xxr)
+'            CloseProgramhWnd (Xxr)
 '        End If
 '    End If
 'End If
@@ -10912,7 +10928,7 @@ End Function
 '    xxoe2 = MeRyu4.Bottom - MeRyu4.Top
 '    If xxoe1 = 429 Or xxoe1 = 514 Then
 '        If xxoe2 = 429 Or xxoe2 = 136 Then
-'            CloseProgramHwnd (Xxr)
+'            CloseProgramhWnd (Xxr)
 '
 '        End If
 '    End If
@@ -10971,7 +10987,7 @@ End Function
 ''SEND KEY'S CODE -----------------------------
 '
 '
-''If CurProcHwnd <> CurProcHwnd2 Or ReRun = 1 Or FirstRun2 = False Then
+''If CurProchWnd <> CurProchWnd2 Or ReRun = 1 Or FirstRun2 = False Then
 ''start the stuff------------
 '
 '
@@ -10994,7 +11010,7 @@ End Function
 '
 '    wert1 = GetWindowRect(Xxr, MeRyu4)
 '    If MeRyu4.Bottom - MeRyu4.Top < 500 Then
-'    'CloseProgramHwnd (Xxr)
+'    'CloseProgramhWnd (Xxr)
 '    Xxr72 = Xxr
 '    If GetForegroundWindow <> Xxr Then SetForegroundWindow Xxr
 '        SendKeys "N", True
@@ -11014,7 +11030,7 @@ End Function
 '        If xxoe2 = 171 Then
 '
 '            'DONT WORK
-'            'CloseProgramHwnd (Xxr)
+'            'CloseProgramhWnd (Xxr)
 '
 '
 '            If GetForegroundWindow <> Xxr Then SetForegroundWindow Xxr
@@ -11151,9 +11167,9 @@ End Function
 'If KKQ <> 0 Then KKQ = KKQ + 1
 'KKQ = 0 'SET NOT USE ------------------------
 'If KKQ > 7 Then
-'hwnd3 = FindWindow("IEFrame", vbNullString)
-'If hwnd3 > 0 Then
-'ash$ = GetWindowTitle(hwnd3)
+'hWnd3 = FindWindow("IEFrame", vbNullString)
+'If hWnd3 > 0 Then
+'ash$ = GetWindowTitle(hWnd3)
 'Err.Clear
 'On Local Error Resume Next
 'AppActivate ash$, False
@@ -11179,22 +11195,22 @@ End Function
 'If (Xxr > 0 And Xxr34 <> Xxr) Or hWndChild2 > 0 Then
 '
 'Xxr35 = Xxrg
-''file2$ = GetFileFromHwnd(Xxr)
+''file2$ = GetFileFromhWnd(Xxr)
 ''    If InStr(file2$, "VPN_Auto-Dialer") Or InStr(file2$, "VB6.EXE") Or InStr(file2$, "SendEmail") Then
 '    If 1 = 1 Then
-'        test_hwnd = FindWindowDLL(0&, 0&)
+'        test_hWnd = FindWindowDLL(0&, 0&)
 '        hWndChild2 = FindWindowEx(Xxr, 0&, "Button", "&Do Not Send")
 '        If hWndChild2 > 0 Then Xxr = hWndChild2: easyx = 1
 '        If hWndChild2 = 0 Then
 '            Do
-'                hWndChild2 = FindWindowEx(test_hwnd, 0&, "Button", "&Do Not Send")
+'                hWndChild2 = FindWindowEx(test_hWnd, 0&, "Button", "&Do Not Send")
 '                easyx = 0
 '                If hWndChild2 > 0 Then
 '                    easyx = 1
-'                    Xxr = test_hwnd
+'                    Xxr = test_hWnd
 '                End If
-'            test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
-'            Loop Until test_hwnd = 0 Or easyx = 1
+'            test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+'            Loop Until test_hWnd = 0 Or easyx = 1
 '        End If
 '
 '        If easyx = 1 Then
@@ -11302,13 +11318,13 @@ End Function
 'Dim MeRyu3 As RECT
 '
 'If FindWindow(vbNullString, "Microsoft Excel") > 0 Then
-'Dim HwndMicE As Long
-'HwndMicE = FindWindow(vbNullString, "Microsoft Excel")
+'Dim hWndMicE As Long
+'hWndMicE = FindWindow(vbNullString, "Microsoft Excel")
 '
-'wert = GetWindowRect(HwndMicE, MeRyu3)
+'wert = GetWindowRect(hWndMicE, MeRyu3)
 'If MeRyu3.Top < 40 Then
 '
-''MoveWindow HwndMicE, MeRyu3.Left, 131, MeRyu3.Right - MeRyu3.Left, MeRyu3.Bottom - MeRyu3.Top, True
+''MoveWindow hWndMicE, MeRyu3.Left, 131, MeRyu3.Right - MeRyu3.Left, MeRyu3.Bottom - MeRyu3.Top, True
 ''only if its not already maxmized correct this
 '
 'End If
@@ -11318,7 +11334,7 @@ End Function
 '
 '
 ''Process explorer Properties
-'CurProcHwnd = GetForegroundWindow
+'CurProchWnd = GetForegroundWindow
 'Xxr = FindWindow("#32770", vbNullString)
 '
 'If Xxr > 0 And Xxr31 <> Xxr Then
@@ -11373,12 +11389,12 @@ End Function
 
 
 
-Public Function GetWindowState(ByVal lngHwnd As Long) As Integer
-    If IsWindow(lngHwnd) = 1 Then
+Public Function GetWindowState(ByVal lnghWnd As Long) As Integer
+    If IsWindow(lnghWnd) = 1 Then
         GetWindowState = -1
-    If IsIconic(lngHwnd) <> 0 Then
+    If IsIconic(lnghWnd) <> 0 Then
         GetWindowState = vbMinimized
-    ElseIf IsZoomed(lngHwnd) <> 0 Then
+    ElseIf IsZoomed(lnghWnd) <> 0 Then
         GetWindowState = vbMaximized
     End If
     End If
@@ -11386,34 +11402,34 @@ End Function
 
 
 
-Public Function GetFileFromHwnd(lngHwnd) As String
+Public Function GetFileFromhWnd(lnghWnd) As String
 
-'MsgBox getfilefromhwnd(Me.hwnd)
+'MsgBox getfilefromhWnd(Me.hWnd)
 
 Dim lngProcess&, hProcess&, bla&, c&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
-x = GetWindowThreadProcessId(lngHwnd, lngProcess)
+x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
 x = EnumProcessModules(hProcess, bla, 4&, c)
 c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromHwnd = Left(strFile, c)
+GetFileFromhWnd = Left(strFile, c)
 
 End Function
 
 
 Public Function GetFileFromProc(lngProcess) As String
 
-'MsgBox getfilefromhwnd(Me.hwnd)
+'MsgBox getfilefromhWnd(Me.hWnd)
 'Dim lngProcess&, hProcess&, bla&, C&
 Dim hProcess&, bla&, c&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
-'x = GetWindowThreadProcessId(lngHwnd, lngProcess)
+'x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
 x = EnumProcessModules(hProcess, bla, 4&, c)
 c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
@@ -11590,7 +11606,7 @@ Public Sub CloseProgram(ByVal Caption As String)
 
 End Sub
 
-Public Sub CloseProgramHwnd(ByVal Handle As Long)
+Public Sub CloseProgramhWnd(ByVal Handle As Long)
 
  If Handle = 0 Then Exit Sub
  SendMessage Handle, WM_CLOSE, 0&, 0&
@@ -11605,7 +11621,7 @@ Private Sub chkOnTop_Click()
     If chkOnTop.Value = 1 Then
         ' Put window on top of all others
         
-        SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
         SaveSetting "EliteSpy+", "Settings", "AlwaysOnTop", "1"
         MNU_ME_ON_TOP.Caption = "[__ ME ON TOP = YES __]"
         Label60.BackColor = Label49.BackColor '49 58_59
@@ -11617,7 +11633,7 @@ Private Sub chkOnTop_Click()
 
     Else
         ' Remove window from top
-        SetWindowPos Me.hWnd, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+        SetWindowPos Me.hWnd, hWnd_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
         SaveSetting "EliteSpy+", "Settings", "AlwaysOnTop", "0"
         MNU_ME_ON_TOP.Caption = "[__ ME ON tOP = NOT __]"
         'Label60.BackColor = Label59.BackColor '49 58_59
@@ -11667,7 +11683,7 @@ Private Sub cmdMoveMax_Click()
     ShowWindow txtMhWnd.Text, SW_NORMAL
     
     MoveWindow txthWnd.Text, HX, HY, HW, HH, True
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11678,7 +11694,7 @@ Private Sub cmdMaximize_Click()
     
     ShowWindow txtMhWnd.Text, SW_MAXIMIZE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11700,7 +11716,7 @@ Private Sub cmdMinimize_Click()
     'ShowWindow txtParent.Text, SW_RESTORE
     'txtParent
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11713,15 +11729,15 @@ Private Sub cmdNormal_Click()
     If Val(txtMhWnd.Text) = 0 Then txtMhWnd.Text = Me.hWnd
    
     ' txtMhWnd.Text = GetParent(Val(txtMhWnd.Text))
-    ' txtMhWnd.Text = GetParentHwnd(Val(txtMhWnd.Text))
-    ' lhWndParentX = GetParentHwnd(Val(txtMhWnd.Text))
-    ' txtMhWnd.Text = GetParentHwnd(Val(txtMhWnd.Text))
+    ' txtMhWnd.Text = GetParenthWnd(Val(txtMhWnd.Text))
+    ' lhWndParentX = GetParenthWnd(Val(txtMhWnd.Text))
+    ' txtMhWnd.Text = GetParenthWnd(Val(txtMhWnd.Text))
 
     ' txtMhWnd.Text = GetAncestor(Val(txtMhWnd.Text), GA_ROOT)
 
     ShowWindow txtMhWnd.Text, SW_NORMAL
     
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txtMhWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txtMhWnd.Text)
     Call ChunkCodeOnMouse
     
 End Sub
@@ -11733,7 +11749,7 @@ Private Sub cmdFlash_Click()
     
     FlashWindow txtMhWnd.Text, 3
     
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11745,7 +11761,7 @@ Private Sub cmdEnable_Click()
     If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     EnableWindow txtMhWnd.Text, 1
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11757,7 +11773,7 @@ Private Sub cmdDisable_Click()
     If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd: Exit Sub
     EnableWindow txtMhWnd.Text, 0
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11782,7 +11798,7 @@ Private Sub cmdSetTitle_Click()
     Beep
     SetWindowText txtMhWnd.Text, sTitle
     
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11796,9 +11812,9 @@ Private Sub cmdOnTop_Click()
     End If
     
     ' Put window on top of all others
-    SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos txtMhWnd.Text, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11807,9 +11823,9 @@ Private Sub cmdNotOnTop_Click()
     If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
 
     ' Remove window from top
-    SetWindowPos txtMhWnd.Text, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos txtMhWnd.Text, hWnd_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11827,7 +11843,7 @@ Private Sub cmdHide_Click()
     
     ShowWindow txtMhWnd.Text, SW_HIDE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11837,7 +11853,7 @@ Private Sub cmdShow_Click()
     If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     ShowWindow txtMhWnd.Text, SW_SHOW
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    lhWnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -11853,7 +11869,7 @@ End Sub
 '
 '        Dim tRC2 As RECT
 '        Dim tPA As POINTAPI
-'        Dim lHwnd As Long
+'        Dim lhWnd As Long
 '        Dim sTitle As String * 255
 '        Dim sClass As String * 255
 '        Dim sParentTitle As String * 255
@@ -11872,11 +11888,11 @@ End Sub
 '        ' Get window rectCLEAR
 '
 '        If From_ListView = False Then
-'            If hWnd_From_ListView = 0 And lHwnd_Function_Button_Set_MIN_MAX = 0 Then
+'            If hWnd_From_ListView = 0 And lhWnd_Function_Button_Set_MIN_MAX = 0 Then
 '                ' Get cursor position
 '                GetCursorPos tPA
 '                ' Get window handle from point
-'                lHwnd = WindowFromPoint(tPA.X, tPA.Y)
+'                lhWnd = WindowFromPoint(tPA.X, tPA.Y)
 '                ' Get window caption
 '            End If
 '        End If
@@ -11890,7 +11906,7 @@ End Sub
 '        If From_ListView = True Then
 '            Set_Collect_More_Info = True
 '            If hWnd_From_ListView > 0 Then
-'                lHwnd = hWnd_From_ListView
+'                lhWnd = hWnd_From_ListView
 '                TxtPID.Text = Val(PROCESS_TO_KILLER_PID)
 '                hWnd_From_ListView = 0
 '                Set_Collect_More_Info = False
@@ -11901,33 +11917,33 @@ End Sub
 '        End If
 '
 '
-'        If lHwnd_Function_Button_Set_MIN_MAX > 0 Then
-'            ' txthWnd.Text = lHwnd
-'            lHwnd = lHwnd_Function_Button_Set_MIN_MAX
-'            lHwnd_Function_Button_Set_MIN_MAX = 0
+'        If lhWnd_Function_Button_Set_MIN_MAX > 0 Then
+'            ' txthWnd.Text = lhWnd
+'            lhWnd = lhWnd_Function_Button_Set_MIN_MAX
+'            lhWnd_Function_Button_Set_MIN_MAX = 0
 '            ' Set_Collect_More_Info = false
 '        End If
 '
 '
 '
 '
-'        GetWindowRect lHwnd, tRC2
+'        GetWindowRect lhWnd, tRC2
 '
-'        lRetVal = GetWindowText(lHwnd, sTitle, 255)
+'        lRetVal = GetWindowText(lhWnd, sTitle, 255)
 '        ' Get window class name
-'        lRetVal = GetClassName(lHwnd, sClass, 255)
+'        lRetVal = GetClassName(lhWnd, sClass, 255)
 '        ' Get window style
-'        sStyle = GetWindowStyle(lHwnd)
+'        sStyle = GetWindowStyle(lhWnd)
 '        ' Get window parent
 '
-'        O_lhWndParent = lHwnd
-'        lhWndParent = GetParent(lHwnd)
+'        O_lhWndParent = lhWnd
+'        lhWndParent = GetParent(lhWnd)
 '        If lhWndParent = 0 Then lhWndParent = O_lhWndParent
-'        lhWndParentX = GetParentHwnd(lHwnd)
+'        lhWndParentX = GetParenthWnd(lhWnd)
 '
 '
 '        If Set_Collect_More_Info = True Then
-'            Success_Result = cProcesses.Get_PID_From_HWND(lhWndParentX, PID_MARK)
+'            Success_Result = cProcesses.Get_PID_From_hWnd(lhWndParentX, PID_MARK)
 '
 '            TxtPID.Text = PID_MARK
 '        End If
@@ -11948,7 +11964,7 @@ End Sub
 '        ' Set values to textboxes
 '        If From_ListView = False Then
 '
-'            TxtEXE.Text = GetFileFromHwnd(lHwnd)
+'            TxtEXE.Text = GetFileFromhWnd(lhWnd)
 '
 '
 '            PROCESS_TO_KILLER = Mid(TxtEXE.Text, InStrRev(TxtEXE.Text, "\") + 1)
@@ -11961,8 +11977,8 @@ End Sub
 '        From_ListView = False
 '
 '
-'        txthWnd.Text = lHwnd
-'        txthWndHX.Text = Hex(lHwnd)
+'        txthWnd.Text = lhWnd
+'        txthWndHX.Text = Hex(lhWnd)
 '        txtTitle.Text = sTitle
 '        txtClass.Text = sClass
 '        txtStyle.Text = sStyle
@@ -11970,7 +11986,7 @@ End Sub
 '
 '        'lhWndParent = GetParent(lhWndParent)
 '        'lhWndParentHX = Hex(GetParent(lhWndParent))
-'        If lHwnd <> lhWndParent Then
+'        If lhWnd <> lhWndParent Then
 '            txtParent.Text = lhWndParent
 '            txtParentHX.Text = Hex(lhWndParent)
 '            txtParentText.Text = sParentTitle
@@ -11982,7 +11998,7 @@ End Sub
 '            txtParentClass.Text = ""
 '        End If
 '
-'        If lHwnd <> lhWndParentX And lhWndParentX <> lhWndParent Then
+'        If lhWnd <> lhWndParentX And lhWndParentX <> lhWndParent Then
 '            txtParentX.Text = lhWndParentX
 '            txtParentTextX.Text = sParentTitleX
 '            txtParentClassX.Text = sParentClassX
@@ -11993,7 +12009,7 @@ End Sub
 '        End If
 '
 '
-'        txtMhWnd.Text = lHwnd
+'        txtMhWnd.Text = lhWnd
 '
 '        If TxtEXE.Text <> OLD_TxtEXE_Text Then
 '            Call TxtEXE_CLICK
@@ -12007,11 +12023,11 @@ End Sub
 '//// PRIVATE FUNCTIONS
 '////////////////////////////////////////////////////////////////////
 ' Get window styles
-'Private Function GetWindowStyle(ByVal lHwnd As Long) As String
+'Private Function GetWindowStyle(ByVal lhWnd As Long) As String
 '    Dim lStyle As Long
 '
 '    ' Get window styles
-'    lStyle = GetWindowLong(lHwnd, GWL_STYLE)
+'    lStyle = GetWindowLong(lhWnd, GWL_STYLE)
 '
 '    ' Get window styles
 '    If lStyle And WS_BORDER Then GetWindowStyle = GetWindowStyle & "WS_BORDER "
@@ -12033,7 +12049,7 @@ End Sub
 '
 'End Function
 
-Function GetParentHwnd(ByVal ReturnParent As Long) As String
+Function GetParenthWnd(ByVal ReturnParent As Long) As String
    Dim i As Long
    Dim j As Long
    Dim k As Long
@@ -12046,7 +12062,7 @@ Function GetParentHwnd(ByVal ReturnParent As Long) As String
       Loop
     i = j
     End If
-    GetParentHwnd = i
+    GetParenthWnd = i
 End Function
 
 
@@ -12185,7 +12201,7 @@ End Sub
 Sub LISTVIEW_CLICKER()
 
 Dim Success_Result
-Dim HWND_VAR
+Dim hWnd_VAR
 Dim PID_MARK
 Dim PID_INPUT As Long
 Dim NAME_EXE As String
@@ -12201,9 +12217,9 @@ TxtEXE.Text = GetFileFromProc(Val(PROCESS_TO_KILLER_PID))
 TxtPID.Text = Val(PROCESS_TO_KILLER_PID)
 If TxtEXE.Text = "" Then
     PID_INPUT = Val(PROCESS_TO_KILLER_PID)
-    HWND_VAR = cProcesses.GetHwnd_From_PID(PID_INPUT)
-    If HWND_VAR > 0 Then
-        Success_Result = cProcesses.Get_PID_From_HWND(HWND_VAR, PID_MARK)
+    hWnd_VAR = cProcesses.GethWnd_From_PID(PID_INPUT)
+    If hWnd_VAR > 0 Then
+        Success_Result = cProcesses.Get_PID_From_hWnd(hWnd_VAR, PID_MARK)
         TxtEXE.Text = GetFileFromProc(Val(PID_MARK))
     End If
     If TxtEXE.Text = "" Then
@@ -12222,20 +12238,20 @@ End If
 Dim hWnd_Parent As Long
 PID_INPUT = Val(PROCESS_TO_KILLER_PID)
 
-hWnd_Parent = cProcesses.GetHwnd_From_PID_VISIBLE(PID_INPUT)
+hWnd_Parent = cProcesses.GethWnd_From_PID_VISIBLE(PID_INPUT)
 If hWnd_Parent = 0 Then
-    ' hWnd_Parent = cProcesses.GetHwnd_From_PID(PID_INPUT)
+    ' hWnd_Parent = cProcesses.GethWnd_From_PID(PID_INPUT)
 End If
 Dim IRESULT
 If hWnd_Parent = 0 Then
     ' IRESULT = cProcesses.Convert(PID_INPUT, hWnd_Parent, cnFromProcessID Or cnTohWnd)
 End If
 If hWnd_Parent = 0 Then
-      ' hWnd_Parent = cProcesses.GetHwnd_From_PID_123(PID_INPUT)
-      ' hWnd_Parent = GetHwndFromProcess(PID_INPUT)
+      ' hWnd_Parent = cProcesses.GethWnd_From_PID_123(PID_INPUT)
+      ' hWnd_Parent = GethWndFromProcess(PID_INPUT)
       
       ' ------------------------------------------------------------------------------
-      ' PLAYING AORUND AND CHROME NOT GIVE HWND FOR PROCESS
+      ' PLAYING AORUND AND CHROME NOT GIVE hWnd FOR PROCESS
       ' EXAMPLE GOT TWO WINDOW OPEN
       ' BOTH GOT A TITLE
       ' OUGHT TO BE EASY FIND BOTH
@@ -12246,7 +12262,7 @@ If hWnd_Parent = 0 Then
       ' ahk_exe procexp64.EXE
       ' NEAR MESSED UP ALL MY CODE
       ' ------------------------------------------------------------------------------
-      ' CAN'T GET THIS CHILD UNTIL GOT HWND FROM PID
+      ' CAN'T GET THIS CHILD UNTIL GOT hWnd FROM PID
       ' Mod1_EnumChildProc.EnumChildWindow_Routine (hWndForm)
       ' ------------------------------------------------------------------------------
 
@@ -12285,7 +12301,7 @@ Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
 ' Dim PID_INPUT As Long
 ' PID_INPUT = Val(PROCESS_TO_KILLER_PID)
 
-' hWnd_Parent = cProcesses.GetHwnd_From_PID(PID_INPUT)
+' hWnd_Parent = cProcesses.GethWnd_From_PID(PID_INPUT)
 ' txthWnd.Text = hWnd_Parent
 
 ' hWnd_From_ListView = hWnd_Parent
@@ -12343,13 +12359,13 @@ Private Sub Timer_GET_KEY_ASYNC_STATE_Timer()
 
 If IsIDE = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 1000
 
-Dim tPA As POINTAPI, LHWND As Long, O_lhWndParent, lhWndParent, lhWndParentX
+Dim tPA As POINTAPI, LhWnd As Long, O_lhWndParent, lhWndParent, lhWndParentX
 GetCursorPos tPA
-LHWND = WindowFromPoint(tPA.x, tPA.y)
-O_lhWndParent = LHWND
-lhWndParent = GetParent(LHWND)
+LhWnd = WindowFromPoint(tPA.x, tPA.y)
+O_lhWndParent = LhWnd
+lhWndParent = GetParent(LhWnd)
 If lhWndParent = 0 Then lhWndParent = O_lhWndParent
-lhWndParentX = GetParentHwnd(LHWND)
+lhWndParentX = GetParenthWnd(LhWnd)
 
 If GetAsyncKeyState(27) < 0 Then
     If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
@@ -12447,8 +12463,8 @@ End Sub
 '
 '    Beep
 '    ' Put window on top of all others
-'    'SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
-'    SetWindowPos Me.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+'    'SetWindowPos txtMhWnd.Text, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+'    SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 '
 '    Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = False
 '    Label60.BackColor = Label49.BackColor '49 58_59
@@ -12491,7 +12507,7 @@ End Sub
 Function FindWinPart_SEARCHER_hWnd_TO_EXE(SEARCH_STRING) As Long
     
     Dim Text_TEMP_ER As String
-    Dim test_hwnd As Long, _
+    Dim test_hWnd As Long, _
         test_pid As Long, _
         test_thread_id As Long
     
@@ -12499,11 +12515,11 @@ Function FindWinPart_SEARCHER_hWnd_TO_EXE(SEARCH_STRING) As Long
     Dim Huge
     
     'Find the first window
-    test_hwnd = FindWindow2(ByVal 0&, ByVal 0&)
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
     Huge = 0
-    Do While test_hwnd <> 0
+    Do While test_hWnd <> 0
         
-        Text_TEMP_ER = GetFileFromHwnd(test_hwnd)
+        Text_TEMP_ER = GetFileFromhWnd(test_hWnd)
         'If InStr(GetWindowTitle(test_hWnd), SEARCH_STRING) > 0 Then
         If InStr(UCase(Text_TEMP_ER), UCase(SEARCH_STRING)) > 0 Then
             Huge = Huge + 1
@@ -12517,7 +12533,7 @@ Function FindWinPart_SEARCHER_hWnd_TO_EXE(SEARCH_STRING) As Long
         End If
             
     'retrieve the next window
-    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
     
     Loop
 End Function
@@ -12526,7 +12542,7 @@ End Function
 Function FindWinPart_SEARCHER(SEARCH_STRING) As Long
     FindWinPart_SEARCHER = False
     
-    Dim test_hwnd As Long, _
+    Dim test_hWnd As Long, _
         test_pid As Long, _
         test_thread_id As Long
     
@@ -12536,18 +12552,18 @@ Function FindWinPart_SEARCHER(SEARCH_STRING) As Long
     Dim CLASS_NAME_______________
 
     'Find the first window
-    test_hwnd = FindWindow2(ByVal 0&, ByVal 0&)
-    Do While test_hwnd <> 0
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    Do While test_hWnd <> 0
         
-        CLASS_NAME_______________ = GetWindowClass(test_hwnd)
+        CLASS_NAME_______________ = GetWindowClass(test_hWnd)
         If InStr(UCase(CLASS_NAME_______________), UCase(SEARCH_STRING)) > 0 Then XGO = True
-        If InStr(UCase(GetWindowTitle(test_hwnd)), UCase(SEARCH_STRING)) > 0 Then XGO = True
+        If InStr(UCase(GetWindowTitle(test_hWnd)), UCase(SEARCH_STRING)) > 0 Then XGO = True
         If XGO = True Then
-            FindWinPart_SEARCHER = test_hwnd: Exit Function
+            FindWinPart_SEARCHER = test_hWnd: Exit Function
         End If
             
     'retrieve the next window
-    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
     
     Loop
 End Function
@@ -12557,7 +12573,7 @@ End Function
 
 
 
-Public Function GetHWndFromProcess(p_lngProcessId As Long) As Long
+Public Function GethWndFromProcess(p_lngProcessId As Long) As Long
     Dim lngDesktop As Long
     Dim lngChild As Long
     Dim lngChildProcessID As Long
@@ -12578,12 +12594,12 @@ Public Function GetHWndFromProcess(p_lngProcessId As Long) As Long
         'if ProcessId matches the parameter passed
         'then return that value
         If lngChildProcessID = p_lngProcessId Then
-            GetHWndFromProcess = lngChild
+            GethWndFromProcess = lngChild
             Exit Do
         End If
         
         'not found, continue enumeration
-        lngChild = GetWindow(lngChild, GW_HWNDNEXT)
+        lngChild = GetWindow(lngChild, GW_hWndNEXT)
     Loop
 End Function
 

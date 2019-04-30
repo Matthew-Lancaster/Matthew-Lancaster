@@ -81,18 +81,18 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 001 ---------------------------------------------------------------
+; SESSION 001
 ; Fri 15 September 2017 01:09:04---- ABOVE WORK BEGINNER
 ; ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 002 ---------------------------------------------------------------
+; SESSION 002
 ; Wed 21 March     2018 02:10:21---- Work to Detect Explorer Was Active ; As it Remains Present When Closed and Minimal Sometimes Error There 
 ; had to be Resolved _ Explorer and Other Program make Quicker Timeout ; Brightness Change _ Few Hour-ing
 ; ------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 003 ---------------------------------------------------------------
+; SESSION 003
 ; WORK EXTRA INCLUDE DAY TIME MODE BRIGHTNESS UP
 ; -------------------------------------------------------------------
 ; FROM TIME __ Wed 20-Jun-2018 15:20:52
@@ -100,7 +100,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 004 ---------------------------------------------------------------
+; SESSION 004
 ; WORK _ INCLUDE A BLACK SCREEN ALSO WITH DIM _ SLEEP BETTER AT NIGHT IN ROOM
 ; -------------------------------------------------------------------
 ; FROM TIME __ Tue 03-Jul-2018 22:01:03
@@ -109,7 +109,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 005 ---------------------------------------------------------------
+; SESSION 005
 ; WORK _ ADD DISPLAY OFF WORKING POWER ENERGY SAVER COMBINED WITH BLANK SCREEN
 ; -------------------------------------------------------------------
 ; FROM TIME __ Wed 04-Jul-2018 07:46:36 __ SESSION 01 OF 02
@@ -120,7 +120,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 00* ---------------------------------------------------------------
+; SESSION 00*
 ; MORE WORK _ DEBUG NOT WORK CORRECTLY TIMER AND LATCH 
 ; -------------------------------------------------------------------
 ; FROM TIME __ Wed 04-Jul-2018 22:35:01 _ DEBUG VARIABLE SYNTAX
@@ -128,7 +128,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 007 ---------------------------------------------------------------
+; SESSION 007
 ; MORE WORK _ THE LAST OF THE LATCHING BUGGS SORTED
 ; -------------------------------------------------------------------
 ; FROM TIME __ Thu 05-Jul-2018 10:06:11 _ DEBUG VARIABLE SYNTAX
@@ -136,7 +136,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 008 ---------------------------------------------------------------
+; SESSION 008
 ; MORE WORK _ MY 7-ASUS HAS A DUPLICATE MONITOR SYSTEM AND MONITOR 
 ; POWER LEAVES DUPLICATE MODE SO ONLY BLANK SCREEN USER
 ; -------------------------------------------------------------------
@@ -145,13 +145,31 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 009 ---------------------------------------------------------------
+; SESSION 009
 ; MORE WORK _ FINIAL LOOK AT CODE PROBLEM MONITOR WASN'T COMING OUT OF 
 ; STANDBY AT THE PRESET TIME IN MORNING _ ANSWER WAS TO MOVE A THE MOUSE
 ; A LITTLE BIT-PIXEL AND BACK AGAIN REMARK COMMENTS ARE NEAR CODE
 ; -------------------------------------------------------------------
 ; FROM TIME __ Thu 05-Jul-2018 22:20:55
 ; TO   TIME __ Thu 05-Jul-2018 12:02:00 _ 1 HOUR 42 MINUTE
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; SESSION 010
+; -------------------------------------------------------------------
+; ADD THE RS232 PIR CONTROL 
+; -------------------------------------------------------------------
+; TOOK BIT OF STRESS INTRO AND THEN EASIER THAN THOUGHT 
+; LAST TOOK BIT OF CLEAN TIDIER UP SORT A FEW BUG SEEM TO BE ON
+; JITTER BUG
+; TWO SESSION EARLY HOUR FROM 1 AM TO 5 AM AND THEN MORNING AFTER WAKE AGAIN
+; EARLIER TO POST DELIVERY
+; -------------------------------------------------------------------
+; FROM TIME __ Sat 13-Apr-2019 01:16:44
+; TO   TIME __ Sat 13-Apr-2019 05:14:58 _ 5 HOUR
+; FROM TIME __ Sat 13-Apr-2019 09:08:08
+; TO   TIME __ Sat 13-Apr-2019 11:33:55 _ 2 HOUR 15 MINUTE
 ; -------------------------------------------------------------------
 
 
@@ -194,7 +212,7 @@ Mouse_Idle = 0
 Mouse_Idle_Flip_Flop_Toggle := "True"
 LastX = 0
 LastY = 0
-VAR_A__TimeIdle = 0
+VAR_A__TimeIdle:=0
 VAR_Z__TimeIdle_1 = 4000
 VAR_Z__TimeIdle_4_DEFAULT = 80000 ; 4 MINUTE
 VAR_Z__TimeIdle_3_FORCE = 2000 
@@ -202,6 +220,8 @@ VAR_Z__TimeIdle_2 = %VAR_Z__TimeIdle_2_DEFAULT%
 VAR_Z__TimeIdle = %VAR_Z__TimeIdle_1%
 OLDWinActive = 0
 WinActive_2 = 0
+VAR_A__TimeIdle=%A_TimeIdle%
+
 
 GLOBAL IN_DAY
 GLOBAL O_IN_DAY_1
@@ -216,18 +236,17 @@ ALLOW_DIMMER := "True"
 O_IN_DAY_1=FALSE
 BLANK_DIMMER_VAR=FALSE
 
-BLANK_DIMMER_TIME=80
-BLANK_DIMMER:= A_Now
+BLANK_DIMMER_TIME=60*2
+IF (A_ComputerName="4-ASUS-GL522VW")
+	BLANK_DIMMER_TIME=60*5
+
+BLANK_DIMMER_TIME=10
+	
+BLANK_DIMMER=%A_Now%
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
-
-
-; IF (A_ComputerName="7-ASUS-GL522VW")
-	; PAUSE
-
 
 SoundBeep , 1000 , 100
 SoundBeep , 3000 , 100
-
 
 ; IF (A_ComputerName="1-ASUS-X5DIJ")
 	; PAUSE
@@ -245,17 +264,103 @@ Gui, hide
 ; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
 SendMessage, 0x112, 0xF170, 0,, Program Manager
 
-
 GOSUB, MONITOR_BRIGHTNESS_UP
-
 
 SetTimer,Mouse_Idle_Timer, 1000     ; Check Every Second
 setTimer TIMER_PREVIOUS_INSTANCE,1
 
+; -------------------------------------------------------------------
+RS232_LOGGER_PIR_VAR=0
+OLD_RS232_LOGGER_PIR_VAR=-1
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 10000
+
+IF (A_ComputerName="1-ASUS-X5DIJ")
+	RS232_IDLE_SET_DELAY=1000
+IF (A_ComputerName="2-ASUS-EEE")
+	RS232_IDLE_SET_DELAY=1000
+IF (A_ComputerName="4-ASUS-GL522VW")
+	RS232_IDLE_SET_DELAY=1000
+
+IF (A_ComputerName="1-ASUS-X5DIJ")
+	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
+IF (A_ComputerName="2-ASUS-EEE")
+	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+RETURN
+
+RS232_LOGGER_TIMER_RUN_EXE:
+	
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe"
+	IfWinNotActive RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
+	IFWINNOTEXIST RS232_LOGGER ahk_class ThunderFormDC
+	IFEXIST, %FN_VAR%
+	{
+		Run, %FN_VAR%,,HIDE
+	}
+	IFNOTEXIST, %FN_VAR%
+	{
+		MSGBOX NOT EXIST`n%FN_VAR%
+	}
+
+RETURN
+
+RS232_LOGGER_TIMER_CHANGE:
+
+	FN_VAR:="C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer.txt"
+	IFNOTEXIST, %FN_VAR%
+	{
+		RS232_LOGGER_PIR_VAR=0
+	}
+	ELSE
+	{
+		RS232_LOGGER_PIR_VAR=1
+	}
+
+	; TOOLTIP % RS232_LOGGER_PIR_VAR
+	; TOOLTIP %A_TimeIdle% " -- " %RS232_IDLE_SET_DELAY%
+	
+	IF OLD_RS232_LOGGER_PIR_VAR=%RS232_LOGGER_PIR_VAR%
+	IF RS232_LOGGER_PIR_VAR=1
+		RETURN
+
+	OLD_RS232_LOGGER_PIR_VAR=%RS232_LOGGER_PIR_VAR%
+	
+	; WANT ON -------------------------------------------------------
+	IF RS232_LOGGER_PIR_VAR=1
+	{
+		MouseMove, 10, 10, , R
+		MouseMove, -10, -10, , R
+		SoundBeep , 2500 , 100
+		Monitor.SetBrightness(127, 127, 127)
+	}
+	
+	IF A_TimeIdle < %RS232_IDLE_SET_DELAY%
+	{
+		RETURN
+	}
+
+	; WANT OFF ------------------------------------------------------
+	IF RS232_LOGGER_PIR_VAR=0
+	{
+		
+		; TOOLTIP %A_NOW% 
+
+		; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
+		; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
+		SendMessage, 0x112, 0xF170, 2,, Program Manager
+		SoundBeep , 2500 , 100
+	}
+
+RETURN
+
+
 
 ; ------------------------------------
 Mouse_Idle_Timer:
-
 
 COUNT_TICK_TIME=% 1000*60*24
 ; TOOLTIP %A_TICKCOUNT% __ %COUNT_TICK_TIME%
@@ -296,7 +401,6 @@ IF (A_ComputerName="8-MSI-GP62M-7RD")
 ;	ALLOW_DIMMER := "False"
 
 GOSUB IS_IN_DAY
-
 
 isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
 if isFullScreen 
@@ -405,14 +509,24 @@ GetKeyState, state, LButton
 if state = D              
 	ALLOW_DIMMER := "False"
 	; MOUSE BUTTON LEFT HELD DOWN WHEN DRAGGER FOR LONG NOT DETECT BY IDLE ACTIVE UNLESS SWITCH
- 
- 
+
+
+
+
+
+	
 ;#-------------------------------
-If (A_TimeIdle > VAR_Z__TimeIdle and ALLOW_DIMMER = "True")
+SET_GO=TRUE
+IF (ALLOW_DIMMER = "False")
+	SET_GO=FALSE
+If A_TimeIdle < %VAR_Z__TimeIdle%
+	SET_GO=FALSE
+	
+IF SET_GO=TRUE
 {
-	VAR_Z__TimeIdle = %VAR_Z__TimeIdle_2%
 	GOSUB, MONITOR_BRIGHTNESS_DIM
 }
+VAR_Z__TimeIdle=%VAR_Z__TimeIdle_2%
 GOSUB, Keyboard_Idle_Timer
 ;#-------------------------------
 Return ; End of Mouse_Idle_Timer
@@ -422,24 +536,30 @@ Keyboard_Idle_Timer:
 ; Tooltip % + A_TimeIdle " -- " VAR_A__TimeIdle 
 ;TEST DEBUG ___________
 
-IF (A_TimeIdle < VAR_A__TimeIdle)
+
+
+; TOOLTIP %A_TimeIdle% " -- " %VAR_A__TimeIdle%
+
+		
+IF A_TimeIdle < %VAR_A__TimeIdle%
 {
 	;SoundBeep , 2500 , 100
 	;TEST DEBUG ___________
 	GOSUB, MONITOR_BRIGHTNESS_UP
 
-	BLANK_DIMMER:= A_Now
+	BLANK_DIMMER=%A_Now%
 	BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
 }
-VAR_A__TimeIdle = %A_TimeIdle%
+VAR_A__TimeIdle=%A_TimeIdle%
 
 ; A_TimeIdle - SHOW TIME SINCE LAST KEYBOARD OR MOUSE IN MILLISECOND
 ; THE DETECT IS IF LOWER THAN
 ; ---------------------------
 
+RETURN
 
-return
+
 
 ; ------------------------------------------------------------------
 MONITOR_BRIGHTNESS_DIM:
@@ -472,6 +592,8 @@ If (Mouse_Idle_Flip_Flop_Toggle = "True")
 	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
 	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
 	SendMessage, 0x112, 0xF170, 0,, Program Manager
+	; SendMessage, 0x112, 0xF170, -1,, Program Manager
+
 	Gui, HIDE
 	Mouse_Idle_Flip_Flop_Toggle := "False"
 }
@@ -497,7 +619,7 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 
 	IF SET_GO=FALSE
 		RETURN
-
+		
 	IF A_NOW<%BLANK_DIMMER%
 	{
 		BLANK_DIMMER_VAR=TRUE
@@ -513,9 +635,10 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	}
 	
 	GOSUB IS_IN_DAY
-	
+		
 	IF IN_DAY=TRUE
 		SET_GO=FALSE
+	
 	
 	; TOOLTIP % IN_DAY " __ " 
 	
@@ -716,17 +839,7 @@ MenuHandler:
 	
 	if A_ThisMenuItem=Terminate All AutoHotKey.exe
 	{
-		; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
-		DetectHiddenWindows, On 
-		WinGet, List, List, ahk_class AutoHotkey 
-		Loop %List% 
-		  { 
-			WinGet, PID, PID, % "ahk_id " List%A_Index% 
-			If ( PID <> DllCall("GetCurrentProcessId") ) 
-				 ; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				 Process, Close, List%A_Index% 
-		  }
-		Process, Close,% DllCall("GetCurrentProcessId")
+		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
 		
 		;  ----------------------------------------------------------
 		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
