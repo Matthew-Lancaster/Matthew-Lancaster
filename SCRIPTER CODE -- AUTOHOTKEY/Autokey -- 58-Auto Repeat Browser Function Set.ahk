@@ -133,17 +133,32 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Mon 25-Mar-2019 __ 9 DAY
 ; 290 Views _ 12 OCT 2018 + ++  __ So my very lovely and generous brother bought me a guitar to keep
 ; 309 Views _ 17 OCT 2018 + ++  __ So...I wrote and composed my first ever song! Its called Penguin Lullaby
+; 104 Views _ 01 NOV 2018 +     __ New song that I filmed myself playing ago. The song is called Hospital Bed.
 ; 225 Views _ 09 NOV 2018 + ++  __ Time for a happier song - Riptide
 ; 243 Views _ 18 NOV 2018 + ++  __ Hurt
 ; 261 Views _ 29 NOV 2018 + ++  __ New song - Standing in the Rain
-; 147 Views _ 28 FEB 2019 + ++  __ Blue - In honor of Beth __ About a week ago 
-; 104 Views _ 01 NOV 2018 +     __ New song that I filmed myself playing ago. The song is called Hospital Bed.
 ;  71 Views _ 29 DEC 2018 +     __ Angels
+; 147 Views _ 28 FEB 2019 + ++  __ Blue - In honor of Beth __ About a week ago 
 ; 143 Views _ 11 MAR 2019 +     __ For my Papa Bryan Donald Hall-T he City of Chicago.
 ;  75 Views _ 13 MAR 2019 +     __ Had a really bad lost my leave. Try myself with music. Here is Moonshadow.
 ;  73 Views _ 22 MAR 2019 +     __ She _ YouTube
-;   8 Views _ 23 MAR 2019 +     __ In my pyjamas with bed hair, but a lovely song nonetheless. :) Follow the Sun
 ;   3 Views _ 22 MAR 2019 +     __ Hallelujah
+;   8 Views _ 23 MAR 2019 +     __ In my pyjamas with bed hair, but a lovely song nonetheless. :) Follow the Sun
+; -------------------------------------------------------------------
+; Tue 30-Apr-2019 __ Lot of DAY -- Been Play Couple Day Now Set Counter
+; 351 Views _ 12 OCT 2018 + ++  __ So my very lovely and generous brother bought me a guitar to keep
+; 372 Views _ 17 OCT 2018 + ++  __ So...I wrote and composed my first ever song! Its called Penguin Lullaby
+; 166 Views _ 01 NOV 2018 + ++  __ New song Filmed myself play a few days ago. The song is called Hospital Bed.
+; 273 Views _ 09 NOV 2018 + ++  __ Time for a happier song - Riptide
+; 286 Views _ 18 NOV 2018 + ++  __ Hurt
+; 330 Views _ 29 NOV 2018 + ++  __ New song - Standing in the Rain
+; 121 Views _ 29 DEC 2018 +     __ Angels
+; 234 Views _ 28 FEB 2019 + ++  __ Blue - In honor of Beth __ About a week ago 
+; 219 Views _ 11 MAR 2019 +     __ For my Papa Bryan Donald Hall-T he City of Chicago.
+; 183 Views _ 13 MAR 2019 +     __ Had a really bad lost my leave. Try myself with music. Here is Moonshadow.
+;  41 Views _ 22 MAR 2019 +     __ She _ YouTube
+;   7 Views _ 22 MAR 2019 +     __ Hallelujah
+;  24 Views _ 23 MAR 2019 +     __ In my pyjamas with bed hair, but a lovely song nonetheless. :) Follow the Sun
 ; -------------------------------------------------------------------
 ; WELL MORE CODE HAS TO GO INNER NOW REQUIRE A REFRESH PAGE AFTER EVERY PLAY
 ; GET IT GOING RESULT BETTER
