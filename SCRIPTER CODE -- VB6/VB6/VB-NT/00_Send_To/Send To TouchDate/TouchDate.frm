@@ -2,13 +2,13 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H80000016&
    Caption         =   "FormMODIFY DATE AS CREATED DATE1"
-   ClientHeight    =   6135
+   ClientHeight    =   6132
    ClientLeft      =   60
-   ClientTop       =   645
-   ClientWidth     =   10710
+   ClientTop       =   648
+   ClientWidth     =   10716
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6135
-   ScaleWidth      =   10710
+   ScaleHeight     =   6132
+   ScaleWidth      =   10716
    StartUpPosition =   2  'CenterScreen
    Begin VB.Label Label11 
       Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
@@ -31,7 +31,7 @@ Begin VB.Form Form1
       Caption         =   "FILE LABEL10"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -72,11 +72,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   585
-      Left            =   105
+      Height          =   588
+      Left            =   108
       TabIndex        =   7
-      Top             =   4695
-      Width           =   6345
+      Top             =   4656
+      Width           =   6348
    End
    Begin VB.Label Label7 
       BackColor       =   &H00C0FFC0&
@@ -121,7 +121,7 @@ Begin VB.Form Form1
       Caption         =   "FOLDER LABEL4"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -374,7 +374,7 @@ W$ = "D:\DSC\# Docus Proofs Texts\# BHT\NOTICE BOARD"
 
 W$ = "D:\DSC\2018 Double Screen Cam\DCIM\2018-10-21"
 
-W$ = ""
+W$ = "D:\VI_ DSC ME\2010+NOKIA\" '"2015 NOKIA E72 _ 008 AUG _ MP4 _ x001 _ Home Front Room.MP4"
 
 ' CARE WHEN MODIFY DATE FROM MOD TO CREATED _
 ' EXPLORER WITH A DISPLAY OF JPG TREAT AS PICTURE AND NOT THE REAL FILE SYSTEM MOD-DATE SELECTION FOR COLOUMN HEADER
@@ -820,7 +820,7 @@ If WORK = "SET_ONE_DATE" = True Then
     a = "D:\DSC\# Docus Proofs Texts\# BHT\NOTICE BOARD\2009-09-22 21-23-03 - Sony Ericsson K800i - DSC03044.JPG"
     a = "D:\DSC\# Docus Proofs Texts\# BHT\SMS PROOFS\2009-09-22 23-09-55 - Sony Ericsson K800i - DSC03047.JPG"
     a = "D:\DSC\# Docus Proofs Texts\# BHT\SMS PROOFS\2009-09-22 23-10-12 - Sony Ericsson K800i - DSC03048.JPG"
-    'A = ""
+    a = "D:\VI_ DSC ME\2010+NOKIA\2015 NOKIA E72 _ 008 AUG _ MP4 _ x001 _ Home Front Room\2015_08_07 AUG_FRI 15_13_38__MAQ06717 - MY HOME.MP4"
     'A = ""
     'A = ""
     'A = ""
@@ -829,6 +829,9 @@ If WORK = "SET_ONE_DATE" = True Then
     'A = ""
     'A = ""
     
+    'SET THE FILE ABOVE
+    'SET DATE BELOW
+    
     Set F = FSO.GetFile(a)
     DT1 = F.datelastmodified
     Set F = Nothing
@@ -836,7 +839,7 @@ If WORK = "SET_ONE_DATE" = True Then
     DATEVAR = "2009-09-22 21-23-03"
     DATEVAR = "2009-09-22 23-09-55"
     DATEVAR = "2009-09-22 23-10-12"
-    'DATEVAR = ""
+    DATEVAR = "2015-08-07 15-13-38"
     'DATEVAR = ""
     'DATEVAR = ""
     'DATEVAR = ""
