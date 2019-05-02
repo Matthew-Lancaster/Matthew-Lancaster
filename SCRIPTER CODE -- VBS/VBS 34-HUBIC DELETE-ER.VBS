@@ -461,20 +461,27 @@ Sub DisplayFindings_4()
 		IF SET_GO=TRUE THEN 
 			IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
 				IF FolderEmpty(VAR_PATH_SCANNER) THEN
+					ON ERROR RESUME NEXT
+					FolderModDate=0
+					FolderCreateDat=0
+					ERR.CLEAR
 					Set f = fso.GetFolder(VAR_PATH_SCANNER)
 					FolderModDate = f.DateLastModified
 					FolderCreateDate = f.DateCreated 
 					SET f=NOTHING
-					IF FolderCreateDate+DELETE_FOLDER_TIME_SPAN<NOW THEN 
-						' MSGBOX VAR_PATH_SCANNER
-						ON ERROR RESUME NEXT
-						ERR.CLEAR
-						FSO.DeleteFolder VAR_PATH_SCANNER
-						I_COUNT_2=I_COUNT_2+1
-						IF ERR.NUMBER>0  AND Wscript_Arguments="" THEN 
-							MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+					ON ERROR GOTO 0
+					IF FileCreateDate>0 AND FolderModDate>0 THEN 
+						IF FolderCreateDate+DELETE_FOLDER_TIME_SPAN<NOW THEN 
+							' MSGBOX VAR_PATH_SCANNER
+							ON ERROR RESUME NEXT
+							ERR.CLEAR
+							FSO.DeleteFolder VAR_PATH_SCANNER
+							I_COUNT_2=I_COUNT_2+1
+							IF ERR.NUMBER>0  AND Wscript_Arguments="" THEN 
+								MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+							END IF
+							ON ERROR GOTO 0
 						END IF
-						ON ERROR GOTO 0
 					END IF
 				END IF
 			END IF
