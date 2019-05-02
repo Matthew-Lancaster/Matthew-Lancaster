@@ -113,60 +113,10 @@ IF OSVER_N_VAR=WIN_7
 ; ------------------------------------------------------------------------
 ; SETTIMER SET_OK_BOX,800
 
-; SET OKAY BOX AFTER MADE SELECTION
-; -------------------------------------------------------------------
-SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,1000
 
 ; -------------------------------------------------------------------
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
 SETTIMER TIMER_SUB_GOODSYNC,1000
-
-RETURN
-
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT:
-
-	DetectHiddenWindows, ON
-	SetTitleMatchMode 3
-
-	WinGet, HWND_1, ID, A
-	
-	HWND_2=0
-	IfWinExist Reload ahk_exe notepad++.exe
-	IfWinExist Reload ahk_class #32770
-	WinGet, HWND_2, ID, Reload ahk_class #32770
-	IF HWND_2>0 
-	IF HWND_1<>%HWND_2%
-		WinActivate,  ahk_id %HWND_2%
-	HWND_2=0
-	IfWinExist Reload ahk_exe notepad++.exe
-	IfWinExist Reload ahk_class #32770
-		HWND_2=10
-	IF HWND_2=0
-		RETURN
-
-
-	ControlGettext, OutputVar_2, Static2, Reload ahk_class #32770
-	
-	LINE_CHECKER_1="This file has been modified by another program.`nDo you want to reload it?"
-	; CAN'T DO THIS ONE VARIABLE WAY BECAUSE THE RETURN NEW LINE `n
-	; ---------------------------------------------------------------
-	LINE_CHECKER_1=This file has been modified by another program.
-	LINE_CHECKER_2=Do you want to reload it?
-	; STRIP QUOTES -- LINE_CHECKER:=StrReplace(LINE_CHECKER, """" , "")
-	; LINE_CHECKER:=StrReplace(LINE_CHECKER, """" , "")
-	
-	; TOOLTIP %OutputVar_2%`n%LINE_CHECKER_1%`n%LINE_CHECKER_2%
-		
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-		SOUNDBEEP 4000,100
-		
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-		ControlClick, &Yes, Reload ahk_class #32770,,,, NA x10 y10
-
 
 RETURN
 
