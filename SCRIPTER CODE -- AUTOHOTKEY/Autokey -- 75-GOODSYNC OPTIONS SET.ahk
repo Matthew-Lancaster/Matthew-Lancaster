@@ -83,8 +83,8 @@ SetStoreCapslockMode, off
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
-IF A_ComputerName=2-ASUS-EEE
-	Exitapp
+; IF A_ComputerName=2-ASUS-EEE
+	; Exitapp
 
 GLOBAL OSVER_N_VAR
 
@@ -117,6 +117,9 @@ IF OSVER_N_VAR=WIN_7
 ; -------------------------------------------------------------------
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
 SETTIMER TIMER_SUB_GOODSYNC,1000
+SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
+SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
+
 
 RETURN
 
@@ -793,14 +796,13 @@ RETURN
 ;--------------------------------------------------------------------
 TIMER_SUB_GOODSYNC:
 ;--------------------------------------------------------------------
-setTimer TIMER_SUB_GOODSYNC, OFF
+; setTimer TIMER_SUB_GOODSYNC, OFF
 dhw := A_DetectHiddenWindows
 DetectHiddenWindows, OFF
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
-GOSUB MINIMIZE_AND_RUN_GOODSYNC_V10
-GOSUB MINIMIZE_AND_RUN_GOODSYNC_2GO
+
 
 
 ; -------------------------------------------------------------------
@@ -854,6 +856,7 @@ IF (A_ComputerName="7-ASUS-GL522VW")
 OutputVar=
 IF (A_ComputerName="7-ASUS-GL522VW") 
 	IFWINEXIST GoodSync ahk_class #32770
+	{
 		ControlGetText, OutputVar, Edit1, GoodSync ahk_class #32770
 		IF Instr(OutputVar,"One or more jobs are running now")
 		{
@@ -862,7 +865,7 @@ IF (A_ComputerName="7-ASUS-GL522VW")
 			ControlClick, Button2 , ahk_class #32770 ; OK
 				
 		}
-	
+	}
 	
 IfWinExist GoodSync - Preparing Crash Report
 {
