@@ -1,3 +1,40 @@
+'====================================================================
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 50-OUTLOOK IMAP EMAIL SAVE ATTACHMENT & DELETE AFTER DATE.VBS
+'# __ 
+'# __ VBS 50-OUTLOOK IMAP EMAIL SAVE ATTACHMENT & DELETE AFTER DATE.VBS
+'# __ 
+'# BY Matthew __ Matt.Lan@Btinternet.com
+'# __ 
+'# START     TIME [ Fri 22-Mar-2019 10:31:08 ]
+'# END FINAL TIME [ Fri 22-Mar-2019 11:50:00 ]
+'# __ 
+'====================================================================
+
+'# ------------------------------------------------------------------
+' DESCRIPTION 
+' -------------------------------------------------------------------
+' IDEA GMAIL WITH ONLY 15 GIG KEEP FILL UP FULL WITH ATTACHMENT
+' REQUIRE SAVE ATTACHMENT AND DELETE EMAIL AFTER A DATE 
+' BEEN SPEND SOME TIME CHECKER SOFTWARE TO DO THIS FROM
+' Fri 03-May-2019 12:01:57
+' ALL VERY EXPENSIVE SOFTWARE
+' EASIER WAY IS USE OUTLOOK AND VBSCRIPTOR
+' IS FOR VBA -- WE DON'T WANT THAT - WHAT WANTED IS VBS
+'#-------------------------------------------------------------------
+' SESSION 001 __ CREATED
+' -------------------------------------------------------------------
+'# START     TIME [ Fri 03-May-2019 17:40:00 ]
+'# END FINAL TIME [ Fri 03-May-2019 17:40:00 ]
+'#-------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' SOURCE HERE
+' -------------------------------------------------------------------
+' vba - Remove email attachments after saving them and adding save location to email in Outlook - Stack Overflow
+' https://stackoverflow.com/questions/26745239/remove-email-attachments-after-saving-them-and-adding-save-location-to-email-in
+' -------------------------------------------------------------------
+
+
 Public Sub SaveAttachments()
 Dim objOL As Outlook.Application
 Dim objMsg As Outlook.MailItem 'Object
@@ -9,8 +46,8 @@ Dim strFile As String
 Dim strFolderpath As String
 Dim strDeletedFiles As String
 
-' Get the path to your My Documents folder
-strFolderpath = CreateObject("WScript.Shell").SpecialFolders(16)
+' Get the path
+strFolderpath = "D:\GM OUTLOOK\"
 On Error Resume Next
 
 ' Instantiate an Outlook Application object.
@@ -19,14 +56,10 @@ Set objOL = CreateObject("Outlook.Application")
 ' Get the collection of selected objects.
 Set objSelection = objOL.ActiveExplorer.Selection
 
-' Set the Attachment folder.
-strFolderpath = strFolderpath & "OLAttachments"
-
 'Use the MsgBox command to troubleshoot. Remove it from the final code.
 MsgBox strFolderpath
 
-' Check each selected item for attachments. If attachments exist,
-' save them to the Temp folder and strip them from the item.
+' Check each selected item for attachments. 
 For Each objMsg In objSelection
 
     ' This code only strips attachments from mail items.
@@ -38,6 +71,14 @@ For Each objMsg In objSelection
         'Use the MsgBox command to troubleshoot. Remove it from the final code.
         MsgBox objAttachments.Count
 
+		Set objAttachments = Nothing
+		Set objMsg = Nothing
+		Set objSelection = Nothing
+		Set objOL = Nothing
+		
+		WScript.Quit(0)
+		
+		
         If lngCount > 0 Then
 
             ' We need to use a count down loop for removing items
