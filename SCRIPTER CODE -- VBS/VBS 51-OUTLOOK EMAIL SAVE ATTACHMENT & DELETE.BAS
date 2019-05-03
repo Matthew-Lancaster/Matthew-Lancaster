@@ -76,15 +76,8 @@ For Each objMsg In objSelection
         'Use the MsgBox command to troubleshoot. Remove it from the final code.
         MsgBox objAttachments.Count
 
-        Set objAttachments = Nothing
-        Set objMsg = Nothing
-        Set objSelection = Nothing
-        Set objOL = Nothing
+        GoTo ExitSub
         
-        Stop
-        ' WScript.Quit (0)
-        End
-
         If lngCount > 0 Then
 
                 ' Use a count down loop for removing items
