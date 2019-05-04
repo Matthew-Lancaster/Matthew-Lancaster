@@ -55,6 +55,17 @@
 ' SEEM TO DO IN ORDER FIRST COME
 ' SO TOP MAIN ROUTINE COULD SUB CALL INTO A FEW OTHER
 ' HAD DIFFICULTY AS WANT TO SCHEDULE IN SOMEHOW AND ON 
+' FOUND ANSWER HERE
+' ----
+' Outlook's Rules and Alerts: Run a Script
+' https://www.slipstick.com/outlook/rules/outlooks-rules-and-alerts-run-a-script/
+' ----
+' YOU GOT TO INSERT THIS SNIPPET INTO YOUR CODE AS MAIN EXECUTION ROUTINE CALL
+' -------------------------------------------------------------------
+' Public Sub ShowMessage(Item As Outlook.MailItem)
+' Call MAIN
+' End Sub
+'
 ' EMAIL ARRIVE DOESN'T SHOW RUN SCRIPT WITH MACRO NOT SHOW THERE TO SELECT IN
 ' HAD TO FIND MY OWN CODE WHICH USED TO RUN ENTIRELY WITHIN VBA AS A STAND ALONE APP
 ' AS WEBSITE PROVIDE CODE MAY OF WORK ONE TIME BUT BIT BUGGY FOR CLEVER
@@ -91,6 +102,14 @@ Call RemoveAllItemsAndFoldersInDeletedItems
 End
 
 End Sub
+
+
+Public Sub ShowMessage(Item As Outlook.MailItem)
+
+Call MAIN
+
+End Sub
+
 
 Sub RemoveAllItemsAndFoldersInDeletedItems()
  Dim oDeletedItems As Outlook.Folder
