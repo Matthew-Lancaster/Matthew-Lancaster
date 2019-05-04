@@ -4,6 +4,7 @@
 /* Declutter Nationwide Bank Logon Screen */
 /* DECLUTTER NATIONWIDE BANK LOGON SCREEN */
 
+
 /* 
 --------------------------------------------------------------------- 
 Description 
@@ -83,18 +84,31 @@ https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CO
 /*
 WRITE CODE TIME
 ---------------------------------------------------------------------
+1ST Editor
+---------------------------------------------------------------------
 All Been Rem-med Remark On
 2 Hour to Write Code and Publisher
 ---------------------------------------------------------------------
 Wed 23-Jan-2019 21:37:37
 Wed 23-Jan-2019 23:40:00
 ---------------------------------------------------------------------
-Another Editor
+2ND Editor
 ---------------------------------------------------------------------
 Change To Use All URL Starting With Prefix Unless Error Same Code On Another Page Is Only One URL Login Screen _ Slight Problem is if Nationwide Change the Name of URL for Login Page Or Else Whole Domain Name Would of Been Better _ What Efficiency Is Better in Long Run Who Know _ Look at Remark Line In Code Scriptor
 ---------------------------------------------------------------------
 Fri 25-Jan-2019 22:08:19
 Fri 25-Jan-2019 23:00:00
+---------------------------------------------------------------------
+3RD Editor
+---------------------------------------------------------------------
+Had To Bring Back An Element Of Memorable Data Line
+New Stronger Banker Make Enter This Info Now
+But If Not Reset Cookie It Won't Be Notice Yet
+Rem Line In Code About It
+
+---------------------------------------------------------------------
+Sat 04-May-2019 03:54:52
+Sat 04-May-2019 04:48:00
 ---------------------------------------------------------------------
 /*
 
@@ -130,20 +144,30 @@ Fri 25-Jan-2019 23:00:00
     display: none;
 }
 
+
+/* HERE LINE NOT INCLUDED ANYMORE AS NEW TOUGH BANKER MAKE ENTER THIS INFO NOW    */
+/* NOT ALL BROWSER UPDATE TO IT NEW I STILL HAVE SOME SET OLDER WAY               */
+/* [ Saturday 04:38:40 Am_04 May 2019 ]                                           */
+
 /* MEMORABLE DATA BLOCK 01 TO 03 */
 .control-group > .text-input-control.control--simple.control > .control__label > .control__label__title {
     display: none;
 }
 
-/* TEXT AREA INFO __ Enter one of your three items of memorable data. */
+/* HERE LINE NOT INCLUDED ANYMORE AS NEW TOUGH BANKER MAKE ENTER THIS INFO NOW    */
+/* NOT ALL BROWSER UPDATE TO IT NEW I STILL HAVE SOME SET OLDER WAY               */
+
+/* TEXT AREA INFO __ Enter one of your three items of memorable data. 
 .control-group > .text-input-control.control--simple.control > .control__label > .control__label__description {
     display: none;
 }
+*/
 
-/* PASS OF MEMORABLE DATA ENTRY BOX STARED OUT USUAL */
+/* PASS OF MEMORABLE DATA ENTRY BOX STARED OUT USUAL 
 .control-group > .text-input-control.control--simple.control > .control__input {
     display: none;
 }
+*/
 
 /* TEXT INFO __ We recommend using a card reader, if you have one. 
    If you don’t, you can borrow someone else’s or log in using your 
