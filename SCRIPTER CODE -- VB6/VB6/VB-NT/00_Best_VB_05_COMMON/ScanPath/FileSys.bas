@@ -77,7 +77,7 @@ End Type
 Public Type SHELLEXECUTEINFO
     cbSize As Long
     fMask As Long
-    hwnd As Long
+    hWnd As Long
     lpVerb As String
     lpFile As String
     lpParameters As String
@@ -132,10 +132,10 @@ Private Type WIN32_FIND_DATA
     cAlternate        As String * 14
 End Type
 
-Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+Public Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
 Public Declare Sub CoTaskMemFree Lib "ole32" (ByVal pv As Long)
 
-Public Declare Function SHEmptyRecycleBin Lib "shell32.dll" Alias "SHEmptyRecycleBinA" (ByVal hwnd As Long, ByVal pszRootPath As String, ByVal dwFlags As Long) As Long
+Public Declare Function SHEmptyRecycleBin Lib "shell32.dll" Alias "SHEmptyRecycleBinA" (ByVal hWnd As Long, ByVal pszRootPath As String, ByVal dwFlags As Long) As Long
 Public Declare Function SHUpdateRecycleBinIcon Lib "shell32.dll" () As Long
 Public Declare Function SHQueryRecycleBin Lib "shell32.dll" Alias "SHQueryRecycleBinA" (ByVal pszRootPath As String, pSHQueryRBInfo As SHQUERYRBINFO) As Long
 Public Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
@@ -145,7 +145,7 @@ Public Declare Function SHBrowseForFolder Lib "shell32" Alias "SHBrowseForFolder
 
 Public Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
 Public Declare Function FileTimeToSystemTime Lib "kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
-Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
 Public Declare Function ShellExecuteEx Lib "shell32" Alias "ShellExecuteExA" (SEI As SHELLEXECUTEINFO) As Long
 Public Declare Function DeleteFile Lib "kernel32" Alias "DeleteFileA" (ByVal lpFileName As String) As Long
 Public Declare Function GetTempPath Lib "kernel32" Alias "GetTempPathA" (ByVal nBufferLength As Long, ByVal lpBuffer As String) As Long
@@ -194,9 +194,10 @@ Public Function CreateFolderTree(ByVal sPath As String) As Boolean
         End If
         nPos = InStr(nPos + 1, sPath, "\")
     Wend
-    If Not FolderExists(sPath) Then MkDir sPath
-    
-    CreateFolderTree = True
+    If Not FolderExists(sPath) Then
+        MkDir sPath
+    End If
+    CreateFolderTree = FolderExists(sPath)
     Exit Function
 
 CreateFolderTreeError:
@@ -256,7 +257,7 @@ Public Sub ShowProperties(sFileName As String, hwndOwner As Long)
     With SEI
         .cbSize = Len(SEI)
         .fMask = SEE_MASK_NOCLOSEPROCESS Or SEE_MASK_INVOKEIDLIST Or SEE_MASK_FLAG_NO_UI
-        .hwnd = hwndOwner
+        .hWnd = hwndOwner
         .lpVerb = "properties"
         .lpFile = sFileName
         .lpParameters = vbNullChar
@@ -314,6 +315,30 @@ Public Function FolderExists(sFolder As String) As Boolean
     'Returns True if the specified folder exists
     '##############################################################################################
     
+    
+    
+    ' ---------------------------------------------------------------------------------------------
+    ' PROBLEMS HERE WITH THE API VERSION
+    ' AT START EVERY NEW DAY
+    ' UNABLE TO DETECT FOLDER EXIST OR NOT
+    ' AND MAYBE IS CAUSE OF PROBLEM
+    ' OF ERROR REPLORT NOT BEING MADE
+    ' REBOOT CODE AND OKAY
+    ' USE FSO INSTEAD FOR HERE
+    ' ---------------------------------------------------------------------------------------------
+    ' MAYBE A CLOSE AHNDLE AFTER API USE
+    ' ---------------------------------------------------------------------------------------------
+    ' [ Saturday 00:18:00 Am_04 May 2019 ]
+    ' ---------------------------------------------------------------------------------------------
+    
+    Dim FSO
+    Set FSO = CreateObject("Scripting.FileSystemObject")
+
+    FolderExists = FSO.FolderExists(sFolder)
+        
+    Exit Function
+    
+    
     Dim WFD As WIN32_FIND_DATA
     Dim lResult As Long
     
@@ -330,7 +355,7 @@ End Function
 
 
 
-Public Function GetFolder(hwnd As Long, Optional sPrompt As String, Optional sStartFolder As String) As String
+Public Function GetFolder(hWnd As Long, Optional sPrompt As String, Optional sStartFolder As String) As String
     '##############################################################################################
     'Displays a Folder Browser to select a Folder
     '##############################################################################################
@@ -343,7 +368,7 @@ Public Function GetFolder(hwnd As Long, Optional sPrompt As String, Optional sSt
     'Fill the BROWSEINFO structure with the needed data
     With bi
         'hwnd of the window that receives messages from the call. Can be your application or the handle from GetDesktopWindow().
-        .hOwner = hwnd
+        .hOwner = hWnd
         
         'Pointer to the item identifier list specifying the location of the "root" folder to browse from.
         'If NULL, the desktop folder is used.
@@ -380,14 +405,14 @@ End Function
 
 
 
-Private Function BrowseCallbackProc(ByVal hwnd As Long, ByVal uMsg As Long, ByVal lParam As Long, ByVal lpData As Long) As Long
+Private Function BrowseCallbackProc(ByVal hWnd As Long, ByVal uMsg As Long, ByVal lParam As Long, ByVal lpData As Long) As Long
     '############################################################################
     'Purpose: Required by GetGolder() Function
     '############################################################################
  
     Select Case uMsg
     Case BFFM_INITIALIZED
-        Call SendMessage(hwnd, BFFM_SETSELECTIONA, 0&, ByVal lpData)
+        Call SendMessage(hWnd, BFFM_SETSELECTIONA, 0&, ByVal lpData)
                     
     Case Else
     
