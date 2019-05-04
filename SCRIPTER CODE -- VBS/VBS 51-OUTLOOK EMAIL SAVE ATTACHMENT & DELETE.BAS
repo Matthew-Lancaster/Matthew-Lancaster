@@ -32,6 +32,47 @@
 '# END FINAL TIME [ Fri 03-May-2019 18:10:00 ]
 '#-------------------------------------------------------------------
 
+'#-------------------------------------------------------------------
+' SESSION 002 __ 
+' -------------------------------------------------------------------
+' FEW MORE WORK THE NEXT DAY
+' SEEM FAULT AS NOT ABLE TO READ A IMAP FOLDER
+' SO USE POP3 FOR NOW
+' ADDED ON EMPTY THE DELETED FOLDER AFTER USER AND BEFORE FUNNY
+' YET TO SEE OF DELETE ON THIS CLIENT SIDE HAPPEN ON-LINE WEB SERVER
+' TO USE THE CODE
+' IT IS MORE LIKE VBA VB6 THAN VBSCRIPT
+' BUT STILL SAME ALMOST
+' THE IDE IN OUTLOOK IS QUITE A GOOD ONE
+' FOR PROPER-ING SYNTAX AND THING
+' AND USUAL HOT KEY TO RUN IT ALL
+' LOOK UP MACRO SET SECURITY LOW SO ABLE RUN THE SCRIPT HERE
+' WHEN GO TO VISUAL BASIC EDITOR 
+' PASTE THE CODE INTO THIS_OUTLOOK_SESSION ALL ONE WORD
+' YOU CAN HAVE ANOTHER MODULE IF CODE BIGGER
+' AND THEN LOOK AT MACRO 
+' EVERY ROUTINE YOU PUT IN WILL CAN AS MACRO TO RUN
+' SEEM TO DO IN ORDER FIRST COME
+' SO TOP MAIN ROUTINE COULD SUB CALL INTO A FEW OTHER
+' HAD DIFFICULTY AS WANT TO SCHEDULE IN SOMEHOW AND ON 
+' EMAIL ARRIVE DOESN'T SHOW RUN SCRIPT WITH MACRO NOT SHOW THERE TO SELECT IN
+' HAD TO FIND MY OWN CODE WHICH USED TO RUN ENTIRELY WITHIN VBA AS A STAND ALONE APP
+' AS WEBSITE PROVIDE CODE MAY OF WORK ONE TIME BUT BIT BUGGY FOR CLEVER
+' ANOTHER NICE THING TO LEARN
+' JUST LIKE THE VB IDE ENVIRONMENT
+' YOU CAN CHANGE CONTROL BUTTON CUSTOMIZE QUITE MANICALLY TO WHATEVER YOU WANTER
+' AND HAVE THE SCRIPT TO RUN AS A BUTTON ANYTIME WANT
+' REMEMBER TO EXIT PROPERLY LET IT DO IT CLOSE DOWN WHICH TAKE TIME EVERY NOW AND THEN
+' OR ELSE ALL CUSTOMIZATION GONE & AND YOUR CODE UP-TO-DATE 
+' JUST DRAG AND DROP THEM CONTROL CUSTOMIZE
+' AND SET ICON HAVE LABEL ALSO
+' YOU CAN EVEN DRAG A MAIN MENU ITEM FROM PULL DOWN
+' AND DRAG DROP AS A BUTTON THERE EASIER THAN VB6 WOULD BE
+' -------------------------------------------------------------------
+'# START     TIME [ Sat 04-May-2019 11:00:00 ]
+'# END FINAL TIME [ Sat 04-May-2019 13:28:00 ]
+'#-------------------------------------------------------------------
+
 ' -------------------------------------------------------------------
 ' SOURCE HERE
 ' -------------------------------------------------------------------
@@ -41,24 +82,55 @@
 
 Sub MAIN()
 
+Call RemoveAllItemsAndFoldersInDeletedItems
+
 Call SaveAttachments_Good
+
+Call RemoveAllItemsAndFoldersInDeletedItems
 
 End
 
 End Sub
 
+Sub RemoveAllItemsAndFoldersInDeletedItems()
+ Dim oDeletedItems As Outlook.Folder
+ Dim oFolders As Outlook.Folders
+ Dim oItems As Outlook.Items
+ Dim i As Long
+ 'Obtain a reference to deleted items folder
+ Set oDeletedItems = Application.Session.GetDefaultFolder(olFolderDeletedItems)
+ Set oItems = oDeletedItems.Items
+ For i = oItems.Count To 1 Step -1
+ oItems.Item(i).Delete
+ Next
+ Set oFolders = oDeletedItems.Folders
+ For i = oFolders.Count To 1 Step -1
+ oFolders.Item(i).Delete
+ Next
+
+' SOURCE ROUTINE
+' ----
+' Delete All Items and Subfolders in the Deleted Items Folder | Microsoft Docs
+' https://docs.microsoft.com/en-us/office/vba/outlook/how-to/items-folders-and-stores/delete-all-items-and-subfolders-in-the-deleted-items-folder
+' ----
+
+End Sub
+
 Public Sub SaveAttachments_Good()
 
-' Instantiate an Outlook Application object.
+
+' Init an Outlook Application object.
 Dim objOL As New Outlook.Application
 
+' ---------------------------------
 ' METHOD THROW ERROR IS NOT SAME
+' GLAD HAD MY OLDER ARCHIVE OF CODE
+' THESE THING TAKE FOREVER TO DEBUG
+' ---------------------------------
 ' Dim objOL As Outlook.Application
-
-
+' Dim objSelection As Outlook.Selection
 
 Dim objAttachments As Outlook.Attachments
-' Dim objSelection As Outlook.Selection
 Dim objSelection As MAPIFolder
 Dim objMsg As Outlook.MailItem 'Object
 Dim oNameSpace As NameSpace
@@ -74,50 +146,41 @@ Dim RR
 ' Get the path
 strFolderpath = "D:\GM OUTLOOK\"
 
-
 ' Set oFolder = oNameSpace.PickFolder
 ' Set oFolder = oNameSpace2.GetDefaultFolder(23)  'olFolderJunkFolder
 ' Set oFolder = oNameSpace3.GetDefaultFolder(3)   'olFolderDeleted
 ' Set oFolder = oNameSpace.GetDefaultFolder(6)    'olFolderInBox
-
+' Set oParentFolder = oMAPI.Folders("nvr1000.roidsrim@gmail.com")
+' Set oParentFolder = oMAPI.Folders(oNameSpace.GetDefaultFolder(0).Name)
+' Set oParentFolder = oNameSpace.GetDefaultFolder(1)
 
 Set oNameSpace = objOL.GetNamespace("MAPI")
 
 Set oMAPI = GetObject("", "Outlook.application").GetNamespace("MAPI")
-' Set oParentFolder = oMAPI.Folders("nvr1000.roidsrim@gmail.com")
-' Set oParentFolder = oMAPI.Folders(oNameSpace.GetDefaultFolder(0).Name)
-' Set oParentFolder = oNameSpace.GetDefaultFolder(1)
+
+' THIS FOLDER FINDER ROUTINE IS MY WORK MATT.LAN@BTINTERNET.COM
+' -------------------------------------------------------------
 Set oParentFolder = oMAPI.Folders(1)
 If oParentFolder.Folders.Count Then
   For RR = 1 To oParentFolder.Folders.Count
     If Trim(oParentFolder.Folders(RR).Name) = "Inbox" Then
+        ' MsgBox Trim(oParentFolder.Folders(RR).Name)
         Exit For
     End If
-    ' MsgBox Trim(oParentFolder.Folders(RR).Name)
   Next RR
 End If
 
-' MsgBox oParentFolder.Folders(RR)
-
 Set objSelection = oParentFolder.Folders(RR)
 
-'r = olFolderDeleted
 TT_VAR = objSelection.Name
 
 'MsgBox objSelection.Name
-
 'MsgBox Str(objSelection.Items.Count)
-
-' Set MyItems = oFolder.Items
-
-' Set objMsg = objSelection.Items
 
 ' Check each selected item for attachments.
 ' For Each objMsg In objSelection
 
-
 For RR = objSelection.Items.Count To 1 Step -1
-'For rr = 1 To objSelection.Items.Count
 
         Set objMsg = objSelection.Items.Item(RR)
 
@@ -127,20 +190,16 @@ For RR = objSelection.Items.Count To 1 Step -1
         D1 = objMsg.ReceivedTime
         D2 = " " + Format(D1, "YYYYMMDDHHMMSS") + " "
         D3 = Format(D1, "YYYYMMDD")
-        
-        
-        
-        
+
+'        TRY TO GET EMAIL MSG ID LIKE SOME OTHER APP ABLE TO - NOT HERE
+'        --------------------------------------------------------------
 '        D3 = objMsg.EntryID
 '        D3 = objMsg.ReceivedByEntryID
 '        D3 = objMsg.ReceivedOnBehalfOfEntryID
 '        D3 = objMsg.Class
 '        D3 = objMsg.MessageClass
 '        D3 = objMsg.ConversationIndex
-'
 '        MsgBox D3
-        
-
         
         SET_GO = False
         If InStr(A1, "Alarm Message From Device EDVR") > 0 Then
@@ -176,9 +235,11 @@ For RR = objSelection.Items.Count To 1 Step -1
         If SET_GO = True Then
             If lngCount > 0 Then
     
+                    ' ---------------------------------------------------
                     ' Use a count down loop for removing items
                     ' from a collection. Otherwise, the loop counter gets
                     ' confused and only every other item is removed.
+                    ' ---------------------------------------------------
                     For i = lngCount To 1 Step -1
                             UNIQUE = 0
     
@@ -187,6 +248,10 @@ For RR = objSelection.Items.Count To 1 Step -1
                             Do
                                 UNIQUE_VAR = Format(UNIQUE, "0")
                                 
+                                ' -----------------------------------------------------
+                                ' HOW BIG WAS THAT STRING MANIPULATE
+                                ' WITHOUT ERROR
+                                ' -----------------------------------------------------
                                 If InStr(A1, "Alarm Message From Device EDVR") > 0 Then
                                     A2 = "A" + Mid(strFile, InStr(strFile, "_") - 1, 1)
                                     strFolderpath_2 = strFolderpath + D3 + "\" + A2 + "\"
@@ -242,22 +307,15 @@ For RR = objSelection.Items.Count To 1 Step -1
     
                             ' Save the attachment as a file.
                             objAttachments.Item(i).SaveAsFile strFile_NAME
-                            
-
-                            
-    
+                            If Dir(strFile_NAME) = "" Then Stop
                     Next i
-            
                     
-                    If Dir(strFile_NAME) <> "" Then
-                        If D1 < Now - 10 Then
-                            objMsg.Delete
-                            
-                            RR_X = RR_X + 1
-                            If RR_X >= 10000 Then GoTo ExitSub
-                        End If
+                    If D1 < Now - 10 Then
+                        objMsg.Delete
+                        
+                        RR_X = RR_X + 1
+                        If RR_X >= 10000 Then GoTo ExitSub
                     End If
-            
             
             End If
         End If
@@ -270,5 +328,13 @@ Set objMsg = Nothing
 Set objSelection = Nothing
 Set objOL = Nothing
 
+' SOURCE ROUTINE
+' ----
+' Save Attachments to the Hard Drive
+' https://www.slipstick.com/developer/save-attachments-to-the-hard-drive/
+' ----
+
+
 End Sub
+
 
