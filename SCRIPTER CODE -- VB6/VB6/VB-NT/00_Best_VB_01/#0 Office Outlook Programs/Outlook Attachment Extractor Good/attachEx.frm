@@ -2,16 +2,16 @@ VERSION 5.00
 Begin VB.Form Form1 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Outlook Spam an File in Future Deleter"
-   ClientHeight    =   7485
-   ClientLeft      =   45
-   ClientTop       =   330
-   ClientWidth     =   4890
+   ClientHeight    =   7476
+   ClientLeft      =   48
+   ClientTop       =   336
+   ClientWidth     =   4884
    Icon            =   "attachEx.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   7485
-   ScaleWidth      =   4890
+   ScaleHeight     =   7476
+   ScaleWidth      =   4884
    StartUpPosition =   2  'CenterScreen
    Visible         =   0   'False
    Begin VB.CommandButton Command2 
@@ -19,7 +19,7 @@ Begin VB.Form Form1
       Caption         =   "Unet Posts Into Text"
       BeginProperty Font 
          Name            =   "Verdana"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -38,7 +38,7 @@ Begin VB.Form Form1
       Caption         =   "Extract Work Folder..."
       BeginProperty Font 
          Name            =   "Verdana"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -57,7 +57,7 @@ Begin VB.Form Form1
       Caption         =   "Extract Email Addys"
       BeginProperty Font 
          Name            =   "Verdana"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -81,7 +81,7 @@ Begin VB.Form Form1
    End
    Begin VB.ListBox lstExtractionStatus 
       Enabled         =   0   'False
-      Height          =   1620
+      Height          =   1584
       Left            =   135
       TabIndex        =   5
       Top             =   2790
@@ -90,7 +90,7 @@ Begin VB.Form Form1
    Begin VB.DriveListBox Drive1 
       BeginProperty Font 
          Name            =   "Verdana"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -106,7 +106,7 @@ Begin VB.Form Form1
    Begin VB.DirListBox Dir1 
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -124,7 +124,7 @@ Begin VB.Form Form1
       Caption         =   "Start EXtraction Orginal Code..."
       BeginProperty Font 
          Name            =   "Verdana"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -143,7 +143,7 @@ Begin VB.Form Form1
       Caption         =   "Label4"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -161,7 +161,7 @@ Begin VB.Form Form1
       Caption         =   "Label3"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -187,7 +187,7 @@ Begin VB.Form Form1
       Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -204,7 +204,7 @@ Begin VB.Form Form1
       Caption         =   "Select the drive "
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -221,7 +221,7 @@ Begin VB.Form Form1
       Caption         =   "Select Folder where you want the Attachment to be extracted"
       BeginProperty Font 
          Name            =   "Tahoma"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -814,11 +814,9 @@ Print #3, rr2$
 Close #3
 '----------------
 
-
 'End With
 
 'Next oMailitem
-
 
 Set oMailitem = Nothing
 Set oFolder = Nothing
