@@ -1,7 +1,7 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOZE\system32\stdole2.tlb#OLE Automation
-Reference=*\G{00062FFF-0000-0000-C000-000000000046}#9.0#0#C:\Program Files\Microsoft Office\OFFICE11\msoutl.olb#Microsoft Outlook 9.0 Object Library
-Object={20C62CAE-15DA-101B-B9A8-444553540000}#1.1#0; MSMAPI32.OCX
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{00062FFF-0000-0000-C000-000000000046}#9.0#0#C:\Program Files (x86)\Microsoft Office\Office12\MSOUTL.OLB#Microsoft Outlook 9.0 Object Library
+Object={20C62CAE-15DA-101B-B9A8-444553540000}#1.1#0; msmapi32.Ocx
 Form=attachEx.frm
 Startup="Form1"
 ExeName32="Attachment Extractor.exe"
