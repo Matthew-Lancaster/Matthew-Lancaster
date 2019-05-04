@@ -61,6 +61,7 @@
 ' https://www.slipstick.com/outlook/rules/outlooks-rules-and-alerts-run-a-script/
 ' ----
 ' YOU GOT TO INSERT THIS SNIPPET INTO YOUR CODE AS MAIN EXECUTION ROUTINE CALL
+' TO USER RUN BY RULE
 ' -------------------------------------------------------------------
 ' Public Sub ShowMessage(Item As Outlook.MailItem)
 ' Call MAIN
@@ -93,45 +94,55 @@
 
 Sub MAIN()
 
-Call RemoveAllItemsAndFoldersInDeletedItems
+	Call RemoveAllItemsAndFoldersInDeletedItems
 
-Call SaveAttachments_Good
+	Call SaveAttachments_Good
 
-Call RemoveAllItemsAndFoldersInDeletedItems
+	Call RemoveAllItemsAndFoldersInDeletedItems
 
-End
+	End
 
 End Sub
 
 
+' ----
+' Outlook's Rules and Alerts: Run a Script
+' https://www.slipstick.com/outlook/rules/outlooks-rules-and-alerts-run-a-script/
+' ----
+' YOU GOT TO INSERT THIS SNIPPET INTO YOUR CODE AS MAIN EXECUTION ROUTINE CALL
+' TO USER RUN BY RULE
+' -------------------------------------------------------------------
 Public Sub ShowMessage(Item As Outlook.MailItem)
 
-Call MAIN
+	Call MAIN
 
 End Sub
 
 
 Sub RemoveAllItemsAndFoldersInDeletedItems()
- Dim oDeletedItems As Outlook.Folder
- Dim oFolders As Outlook.Folders
- Dim oItems As Outlook.Items
- Dim i As Long
- 'Obtain a reference to deleted items folder
- Set oDeletedItems = Application.Session.GetDefaultFolder(olFolderDeletedItems)
- Set oItems = oDeletedItems.Items
- For i = oItems.Count To 1 Step -1
- oItems.Item(i).Delete
- Next
- Set oFolders = oDeletedItems.Folders
- For i = oFolders.Count To 1 Step -1
- oFolders.Item(i).Delete
- Next
+	Dim oDeletedItems As Outlook.Folder
+	Dim oFolders As Outlook.Folders
+	Dim oItems As Outlook.Items
+	Dim i As Long
+	'Obtain a reference to deleted items folder
+	Set oDeletedItems = Application.Session.GetDefaultFolder(olFolderDeletedItems)
+	Set oItems = oDeletedItems.Items
+	For i = oItems.Count To 1 Step -1
+		oItems.Item(i).Delete
+		X = X + 1
+	If X Mod 10 = 0 Then DoEvents
+	Next
+	Set oFolders = oDeletedItems.Folders
+	For i = oFolders.Count To 1 Step -1
+		oFolders.Item(i).Delete
+		X = X + 1
+	If X Mod 10 = 0 Then DoEvents
+	Next
 
-' SOURCE ROUTINE
-' ----
-' Delete All Items and Subfolders in the Deleted Items Folder | Microsoft Docs
-' https://docs.microsoft.com/en-us/office/vba/outlook/how-to/items-folders-and-stores/delete-all-items-and-subfolders-in-the-deleted-items-folder
-' ----
+	'----
+	'Delete All Items and Subfolders in the Deleted Items Folder | Microsoft Docs
+	'https://docs.microsoft.com/en-us/office/vba/outlook/how-to/items-folders-and-stores/delete-all-items-and-subfolders-in-the-deleted-items-folder
+	'----
 
 End Sub
 
@@ -177,8 +188,6 @@ Set oNameSpace = objOL.GetNamespace("MAPI")
 
 Set oMAPI = GetObject("", "Outlook.application").GetNamespace("MAPI")
 
-' THIS FOLDER FINDER ROUTINE IS MY WORK MATT.LAN@BTINTERNET.COM
-' -------------------------------------------------------------
 Set oParentFolder = oMAPI.Folders(1)
 If oParentFolder.Folders.Count Then
   For RR = 1 To oParentFolder.Folders.Count
@@ -209,6 +218,9 @@ For RR = objSelection.Items.Count To 1 Step -1
         D1 = objMsg.ReceivedTime
         D2 = " " + Format(D1, "YYYYMMDDHHMMSS") + " "
         D3 = Format(D1, "YYYYMMDD")
+        
+        X = X + 1
+        If X Mod 10 = 0 Then DoEvents
 
 '        TRY TO GET EMAIL MSG ID LIKE SOME OTHER APP ABLE TO - NOT HERE
 '        --------------------------------------------------------------
@@ -260,11 +272,15 @@ For RR = objSelection.Items.Count To 1 Step -1
                     ' confused and only every other item is removed.
                     ' ---------------------------------------------------
                     For i = lngCount To 1 Step -1
+                            X = X + 1
+                            If X Mod 10 = 0 Then DoEvents
                             UNIQUE = 0
     
                             ' Get the file name.
                             strFile = objAttachments.Item(i).FileName
                             Do
+                                X = X + 1
+                                If X Mod 10 = 0 Then DoEvents
                                 UNIQUE_VAR = Format(UNIQUE, "0")
                                 
                                 ' -----------------------------------------------------
@@ -285,6 +301,9 @@ For RR = objSelection.Items.Count To 1 Step -1
                                     End If
                                     
                                     Do
+                                        X = X + 1
+                                        If X Mod 10 = 0 Then DoEvents
+
                                     
                                         strFile_F0 = Mid(strFile, 1, 5) + "20" + Mid(strFile, 6)
                                         
@@ -333,7 +352,7 @@ For RR = objSelection.Items.Count To 1 Step -1
                         objMsg.Delete
                         
                         RR_X = RR_X + 1
-                        If RR_X >= 10000 Then GoTo ExitSub
+                        If RR_X >= 1000 Then GoTo ExitSub
                     End If
             
             End If
@@ -347,11 +366,10 @@ Set objMsg = Nothing
 Set objSelection = Nothing
 Set objOL = Nothing
 
-' SOURCE ROUTINE
-' ----
-' Save Attachments to the Hard Drive
-' https://www.slipstick.com/developer/save-attachments-to-the-hard-drive/
-' ----
+'----
+'Save Attachments to the Hard Drive
+'https://www.slipstick.com/developer/save-attachments-to-the-hard-drive/
+'----
 
 
 End Sub
