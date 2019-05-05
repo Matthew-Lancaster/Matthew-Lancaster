@@ -426,6 +426,8 @@ Sub DisplayFindings_4()
 			' MSGBOX VAR_PATH_SCANNER
 			
 			IF FSO.FileExists(VAR_PATH_SCANNER) Then 
+				ON ERROR RESUME NEXT
+				ERR.CLEAR
 				Set f = fso.GetFile(VAR_PATH_SCANNER)
 				ON ERROR RESUME NEXT
 				ERR.CLEAR
