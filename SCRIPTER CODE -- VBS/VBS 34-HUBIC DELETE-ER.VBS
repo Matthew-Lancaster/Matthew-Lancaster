@@ -427,10 +427,15 @@ Sub DisplayFindings_4()
 			
 			IF FSO.FileExists(VAR_PATH_SCANNER) Then 
 				Set f = fso.GetFile(VAR_PATH_SCANNER)
-				FileModDate = f.DateLastModified
 				ON ERROR RESUME NEXT
-				FileCreateDate=0
 				ERR.CLEAR
+				' FileModDate __ HERE IS NOT USER
+				FileModDate = 0
+				FileModDate = f.DateLastModified
+				ON ERROR GOTO 0
+				ON ERROR RESUME NEXT
+				ERR.CLEAR
+				FileCreateDate=0
 				FileCreateDate = f.DateCreated 
 				ON ERROR GOTO 0
 				SET f=NOTHING
