@@ -51,10 +51,11 @@
 
 '#-------------------------------------------------------------------
 ' SESSION 002 __ CREATE DAY -- LATE NIGHT CODE 
-' & OTHER CODE WAS 12:20 BED AND UP AGAIN MORE CODE AT 3:20 AM
-' FRIDAY DAY WAKE UP WAS 7 AM
+' & ALSO OTHER CODE MORE WAS 12:20 BED AND UP AGAIN MORE OTHER CODE AT 3:20 AM 
+' WITH JUST 2 HOUR ASLEEP PATTERN
+' BEGIN FRIDAY DAY WAKE UP WAS 7 AM UNTIL SAT 04 MAY 12 12:20
 ' -------------------------------------------------------------------
-'# START     TIME [ Fri 03-May-2019 20:50:05 ]
+'# START TIME [ Fri 03-May-2019 20:50:05 ]
 '# END FINAL TIME [ Sat 04-May-2019 00:00:49 ]
 '#-------------------------------------------------------------------
 
