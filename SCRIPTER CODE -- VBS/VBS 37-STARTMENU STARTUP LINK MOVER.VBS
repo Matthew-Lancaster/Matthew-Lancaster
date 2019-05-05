@@ -21,13 +21,10 @@
 ' -------------------------------------------------------------------
 
 '# ------------------------------------------------------------------
-' LOCATTION ON-LINE 
+' LOCATION ON-LINE 
 '# ------------------------------------------------------------------
-' -------------------------------------------------------------------
-' ----
 ' Matthew-Lancaster/VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS at master · Matthew-Lancaster/Matthew-Lancaster
 ' https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20VBS/VBS%2030-FUJI%20CAMERA%20IMAGE%20DATE%20FOLDER%20CREATE%20%26%20MOVE.VBS
-' ----
 ' -------------------------------------------------------------------
 
 '#-------------------------------------------------------------------
