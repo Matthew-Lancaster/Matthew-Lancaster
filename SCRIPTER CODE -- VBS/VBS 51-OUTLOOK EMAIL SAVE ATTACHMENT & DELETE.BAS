@@ -52,7 +52,7 @@
 '#-------------------------------------------------------------------
 ' SESSION 002 __ CREATE DAY -- LATE NIGHT CODE 
 ' & ALSO OTHER CODE MORE WAS 12:20 BED AND UP AGAIN MORE OTHER CODE AT 3:20 AM 
-' WITH JUST 2 HOUR ASLEEP PATTERN
+' WITH JUST 3 HOUR ASLEEP PATTERN
 ' BEGIN FRIDAY DAY WAKE UP WAS 7 AM UNTIL SAT 04 MAY 12 12:20
 ' -------------------------------------------------------------------
 '# START TIME [ Fri 03-May-2019 20:50:05 ]
@@ -186,21 +186,21 @@ Private Declare Function sndPlaySound32 _
 
 Sub MAIN()
 
-sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 10&
+	sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 10&
 
-Call RemoveAllItemsAndFoldersInDeletedItems
+	Call RemoveAllItemsAndFoldersInDeletedItems
 
-Call SaveAttachments_Good
+	Call SaveAttachments_Good
 
-'Call RemoveAllItemsAndFoldersInDeletedItems
+	'Call RemoveAllItemsAndFoldersInDeletedItems
 
-End
+	End
 
 End Sub
 
 Public Sub ShowMessage(Item As Outlook.MailItem)
 
-Call MAIN
+	Call MAIN
 
 End Sub
 
@@ -514,3 +514,82 @@ Set objOL = Nothing
 End Sub
 
 
+' SOME EARLIER SOURCER
+' -------------------------------------------------------------------
+' SOURCE HERE
+' -------------------------------------------------------------------
+' vba - Remove email attachments after saving them and adding save location to email in Outlook - Stack Overflow
+' https://stackoverflow.com/questions/26745239/remove-email-attachments-after-saving-them-and-adding-save-location-to-email-in
+' -------------------------------------------------------------------
+
+' LINK REFERENCE WHILE CODING
+' ----
+' Purchase Automatic Email Manager
+' https://www.automatic-email-manager.com/order-automatic-email-manager
+' --------
+' GMIAL IMAP SERVER NAME - Google Search
+' https://www.google.com/search?q=GMIAL+IMAP+SERVER+NAME
+' --------
+' VBSCRIPT FOR OUTLOOK TO DELETE OLDER MAIL - Google Search
+' https://www.google.com/search?q=VBSCRIPT+FOR+OUTLOOK+TO+DELETE+OLDER+MAIL
+' --------
+' VBS OUTLOOK SAVE ATTACHMENT AND DELETE ON DATE - Google Search
+' https://www.google.com/search?safe=active&ei=fG3MXIiCBfPgxgPxhauoAQ&q=VBS+OUTLOOK+SAVE+ATTACHMENT+AND+DELETE+ON+DATE&oq=VBS+OUTLOOK+SAVE+ATTACHMENT+AND+DELETE+ON+DATE&gs_l=psy-ab.3..33i160.3058.18916..19308...2.0..1.150.4598.61j4......0....1..gws-wiz.......0i71j35i304i39.zfpXIKNnuDc
+' --------
+' Save and Rename Outlook Email Attachments
+' https://www.slipstick.com/developer/code-samples/save-rename-outlook-email-attachments/
+' --------
+' Save Attachments to the Hard Drive
+' https://www.slipstick.com/developer/save-attachments-to-the-hard-drive/
+' --------
+' OutlookCode.com - Developer Learning Center for Microsoft Outlook
+' http://www.outlookcode.com/
+' --------
+' Save and Delete Attachments from Outlook messages
+' https://www.slipstick.com/developer/code-samples/save-and-delete-attachments/
+' --------
+' Attachment Management Tools for Outlook
+' https://www.slipstick.com/addins/auto-process/attachment-management-tools-for-outlook/
+' --------
+' vba - Remove email attachments after saving them and adding save location to email in Outlook - Stack Overflow
+' https://stackoverflow.com/questions/26745239/remove-email-attachments-after-saving-them-and-adding-save-location-to-email-in
+' --------
+' Outlook User's Solutions Center
+' https://www.slipstick.com/outlook-user/
+' --------
+' Q and A - Office Vbscript for Outlook emails backup and cleanup
+' https://gallery.technet.microsoft.com/office/Vbscript-for-Outlook-ec13f44a/view/Discussions#content
+' --------
+' Adding/Recreating a Mail Profile - HowTo-Outlook
+' https://www.howto-outlook.com/faq/newprofile.htm
+' --------
+' vba outlook command to empty deleted items - Google Search
+' https://www.google.com/search?safe=active&ei=7FjNXOeiNPHGxgO9r7fABw&q=vba+outlook+command+to+empty+deleted+items&oq=vba+outlook+command+to+empty+deleted+items&gs_l=psy-ab.3...171785.172157..172498...0.0..0.190.679.0j4......0....1..gws-wiz.......0i71.gBe2acgT688
+' --------
+' Can't empty deleted items folder - Outlook 2016 / Exchange Online Plan 1 - Microsoft Tech Community - 297841
+' https://techcommunity.microsoft.com/t5/Office-365/Can-t-empty-deleted-items-folder-Outlook-2016-Exchange-Online/td-p/297841
+' --------
+' Delete All Items and Subfolders in the Deleted Items Folder | Microsoft Docs
+' https://docs.microsoft.com/en-us/office/vba/outlook/how-to/items-folders-and-stores/delete-all-items-and-subfolders-in-the-deleted-items-folder
+' --------
+' Outlook's Rules and Alerts: Run a Script
+' https://www.slipstick.com/outlook/rules/outlooks-rules-and-alerts-run-a-script/
+' --------
+' HOW MAKE OUTLOOK SEND / RECEIVE PROGREES AS A BUTTON - Google Search
+' https://www.google.com/search?q=HOW+MAKE+OUTLOOK+SEND+%2F+RECEIVE+PROGREES+AS+A+BUTTON
+' --------
+' OUTLOOK HOW MAKE SCRIPT RUN UNTIL END NOT AS EVERY EMAIL ARRIVE - Google Search
+' https://www.google.com/search?q=OUTLOOK+HOW+MAKE+SCRIPT+RUN+UNTIL+END+NOT+AS+EVERY+EMAIL+ARRIVE
+' --------
+' Rule using "run script" not working when new mail arrives
+' https://social.technet.microsoft.com/Forums/en-US/5153ffae-fe92-48ab-ae1a-47ff545486b1/rule-using-run-script-not-working-when-new-mail-arrives?forum=outlook
+' --------
+' Playing A Sound In VBA
+' http://www.cpearson.com/excel/PlaySound.aspx
+' --------
+' Free Sound Effect (SFX) Downloads for WavePad Sound Editor
+' https://www.nch.com.au/wavepad/free-sfx-sound-effects-library.html?msclkid=0b951831240f1e6ca0c544ff805bfcc9
+' --------
+' VBA Code to permanently delete selected email | Outlook Forums by Slipstick.com
+' https://forums.slipstick.com/threads/96078-vba-code-to-permanently-delete-selected-email/
+' ----
