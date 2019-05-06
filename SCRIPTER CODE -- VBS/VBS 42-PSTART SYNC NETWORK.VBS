@@ -114,12 +114,14 @@ CALL READ_PSTART_FOR_BIGGER
 ' SELECT BIGGER COUNTER FROM ALL NETWORK PStart.xml
 FOR RI=1 TO UBOUND(Array_PSTART_COUNTER)
 	T_VAR=Array_PSTART_COUNTER(RI)
-	R_COUNT=MID(T_VAR,INSTR(T_VAR,"<count>")+7)
-	T_VAR=R_COUNT
-	R_COUNT=MID(T_VAR,1,INSTR(T_VAR,"</count>")-1)
-	IF R_COUNT>R_COUNT_REMEMBER THEN 
-		R_COUNT_REMEMBER=R_COUNT
-		R_COUNT_REMEMBER_ID=RI
+	IF T_VAR<>"" THEN 
+		R_COUNT=MID(T_VAR,INSTR(T_VAR,"<count>")+7)
+		T_VAR=R_COUNT
+		R_COUNT=MID(T_VAR,1,INSTR(T_VAR,"</count>")-1)
+		IF R_COUNT>R_COUNT_REMEMBER THEN 
+			R_COUNT_REMEMBER=R_COUNT
+			R_COUNT_REMEMBER_ID=RI
+		END IF
 	END IF
 	' <count>4834</count>
 NEXT
@@ -142,7 +144,9 @@ FOR RI=1 TO UBOUND(Array_FileName)
 	R_COUNT=MID(T_VAR,1,INSTR(T_VAR,"</count>")-1)
 	IF R_COUNT<R_COUNT_REMEMBER THEN 
 		IF Array_FileName(R_COUNT_REMEMBER_ID)<> Array_FileName(RI) THEN 
-			Fso.CopyFile Array_FileName(R_COUNT_REMEMBER_ID), Array_FileName(RI)
+			IF FSO.FileExists(R_COUNT_REMEMBER_ID) THEN
+				Fso.CopyFile Array_FileName(R_COUNT_REMEMBER_ID), Array_FileName(RI)
+			END IF
 		END IF
 	END IF
 	' IF R_COUNT=R_COUNT_REMEMBER THEN 
@@ -171,23 +175,25 @@ Sub READ_PSTART_FOR_BIGGER()
 	'\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\PStart\PStart.xml
 	
 		FILEN_1=Array_FileName(RI)
-		Set File_1 = fso.OpenTextFile(FILEN_1, ForReading)
-		Do Until File_1.AtEndOfStream
-			NET_PATH_1 = File_1.ReadLine+VBCRLF
-			
-			SET_GO = FALSE
-			If InStr(NET_PATH_1, "<execution>") > 0 Then SET_GO = TRUE
-			If SET_GO = True Then
-				NET_PATH_2 = File_1.ReadLine+VBCRLF
-				NET_PATH_3 = File_1.ReadLine+VBCRLF
-				NET_PATH_4 = File_1.ReadLine+VBCRLF
-				If InStr(NET_PATH_2, "<count>") > 0 Then
-					Array_PSTART_COUNTER(RI)=NET_PATH_1+NET_PATH_2+NET_PATH_3+NET_PATH_4
-				END IF
-				EXIT DO
-			End If
-		Loop
-		File_1.Close
+		IF FSO.FileExists(FILEN_1) THEN
+			Set File_1 = fso.OpenTextFile(FILEN_1, ForReading)
+			Do Until File_1.AtEndOfStream
+				NET_PATH_1 = File_1.ReadLine+VBCRLF
+				
+				SET_GO = FALSE
+				If InStr(NET_PATH_1, "<execution>") > 0 Then SET_GO = TRUE
+				If SET_GO = True Then
+					NET_PATH_2 = File_1.ReadLine+VBCRLF
+					NET_PATH_3 = File_1.ReadLine+VBCRLF
+					NET_PATH_4 = File_1.ReadLine+VBCRLF
+					If InStr(NET_PATH_2, "<count>") > 0 Then
+						Array_PSTART_COUNTER(RI)=NET_PATH_1+NET_PATH_2+NET_PATH_3+NET_PATH_4
+					END IF
+					EXIT DO
+				End If
+			Loop
+			File_1.Close
+		End If
 	NEXT
 End Sub
 
@@ -199,34 +205,35 @@ Sub READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY()
     ArrayCount = 0
 
 	FILEN_1="C:\NETWORK_COMPUTER_NAME.txt"
-	Set File_1 = fso.OpenTextFile(FILEN_1, ForReading)
-	Do Until File_1.AtEndOfStream
-		NET_PATH = File_1.ReadLine
-        
-        SET_GO = True
-        If InStr(NET_PATH, "BTHUB") > 0 Then SET_GO = False
-        If InStr(NET_PATH, "NAS-QNAP-ML") > 0 Then SET_GO = False
-        If SET_GO = True Then
-            ArrayCount = ArrayCount + 1
-            Array_NETPATH_01(ArrayCount) = NET_PATH
-            Array_NETPATH_02(ArrayCount) = Replace(NET_PATH, "-", "_")
-            ELEMENT1 = "\\"
-            ELEMENT2 = Array_NETPATH_01(ArrayCount)
-            ELEMENT3 = "\"
-            ELEMENT4 = Array_NETPATH_02(ArrayCount)
-            ELEMENT5 = FileName_2
-            ELEMENT7 = "_" + NET_PATH
+	IF FSO.FileExists(FILEN_1) THEN
+		Set File_1 = fso.OpenTextFile(FILEN_1, ForReading)
+		Do Until File_1.AtEndOfStream
+			NET_PATH = File_1.ReadLine
+			
+			SET_GO = True
+			If InStr(NET_PATH, "BTHUB") > 0 Then SET_GO = False
+			If InStr(NET_PATH, "NAS-QNAP-ML") > 0 Then SET_GO = False
+			If SET_GO = True Then
+				ArrayCount = ArrayCount + 1
+				Array_NETPATH_01(ArrayCount) = NET_PATH
+				Array_NETPATH_02(ArrayCount) = Replace(NET_PATH, "-", "_")
+				ELEMENT1 = "\\"
+				ELEMENT2 = Array_NETPATH_01(ArrayCount)
+				ELEMENT3 = "\"
+				ELEMENT4 = Array_NETPATH_02(ArrayCount)
+				ELEMENT5 = FileName_2
+				ELEMENT7 = "_" + NET_PATH
 
-            Array_FileName(ArrayCount) = ELEMENT1 + ELEMENT2 + ELEMENT3 + ELEMENT4 + ELEMENT5' + ELEMENT7
-        End If
-	Loop
-	File_1.Close
-    
-    ReDim Preserve Array_FileName(ArrayCount)
-    ReDim Preserve Array_NETPATH_01(ArrayCount)
-    ReDim Preserve Array_NETPATH_02(ArrayCount)
-	ReDim Preserve Array_PSTART_COUNTER(ArrayCount)
-
+				Array_FileName(ArrayCount) = ELEMENT1 + ELEMENT2 + ELEMENT3 + ELEMENT4 + ELEMENT5' + ELEMENT7
+			End If
+		Loop
+		File_1.Close
+		
+		ReDim Preserve Array_FileName(ArrayCount)
+		ReDim Preserve Array_NETPATH_01(ArrayCount)
+		ReDim Preserve Array_NETPATH_02(ArrayCount)
+		ReDim Preserve Array_PSTART_COUNTER(ArrayCount)
+	END IF
 End Sub
 
 
