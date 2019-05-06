@@ -139,23 +139,25 @@ NEXT
 ' -------------------------------------------------------------------
 FOR RI=1 TO UBOUND(Array_FileName)
 	T_VAR=Array_PSTART_COUNTER(RI)
-	R_COUNT=MID(T_VAR,INSTR(T_VAR,"<count>")+7)
-	T_VAR=R_COUNT
-	R_COUNT=MID(T_VAR,1,INSTR(T_VAR,"</count>")-1)
-	IF R_COUNT<R_COUNT_REMEMBER THEN 
-		IF Array_FileName(R_COUNT_REMEMBER_ID)<> Array_FileName(RI) THEN 
-			IF FSO.FileExists(R_COUNT_REMEMBER_ID) THEN
-				Fso.CopyFile Array_FileName(R_COUNT_REMEMBER_ID), Array_FileName(RI)
+	IF T_VAR<>"" THEN 
+		R_COUNT=MID(T_VAR,INSTR(T_VAR,"<count>")+7)
+		T_VAR=R_COUNT
+		R_COUNT=MID(T_VAR,1,INSTR(T_VAR,"</count>")-1)
+		IF R_COUNT<R_COUNT_REMEMBER THEN 
+			IF Array_FileName(R_COUNT_REMEMBER_ID)<> Array_FileName(RI) THEN 
+				IF FSO.FileExists(R_COUNT_REMEMBER_ID) THEN
+					Fso.CopyFile Array_FileName(R_COUNT_REMEMBER_ID), Array_FileName(RI)
+				END IF
 			END IF
 		END IF
-	END IF
-	' IF R_COUNT=R_COUNT_REMEMBER THEN 
-		' IF Array_PSTART_COUNTER(RI)<>Array_PSTART_COUNTER(R_COUNT_REMEMBER) THEN 
-			' IF Array_FileName(R_COUNT_REMEMBER_ID)<> Array_FileName(RI) THEN 
-				' Fso.CopyFile Array_FileName(R_COUNT_REMEMBER_ID), Array_FileName(RI)
+		' IF R_COUNT=R_COUNT_REMEMBER THEN 
+			' IF Array_PSTART_COUNTER(RI)<>Array_PSTART_COUNTER(R_COUNT_REMEMBER) THEN 
+				' IF Array_FileName(R_COUNT_REMEMBER_ID)<> Array_FileName(RI) THEN 
+					' Fso.CopyFile Array_FileName(R_COUNT_REMEMBER_ID), Array_FileName(RI)
+				' END IF
 			' END IF
 		' END IF
-	' END IF
+	END IF
 NEXT
 
 ' Wscript.Echo "HH"
