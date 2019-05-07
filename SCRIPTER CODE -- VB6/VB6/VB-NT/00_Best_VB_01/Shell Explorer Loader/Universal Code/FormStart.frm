@@ -376,10 +376,19 @@ Next
 'End
 
 
-'ScanPath.ListView1.SortOrder = lvwAscending
-'ScanPath.ListView1.SortKey = 0
-'ScanPath.ListView1.Sorted = True
-'ScanPath.ListView1.Sorted = False
+' FAKE THE NAME 26 ADD IT IN WITH OTHER ORDER
+Path = "--SPECIAL"
+With ScanPath.ListView2
+    Set LV = .ListItems.Add(, , "26 C:\Users\" + GetUserName + "\AppData\Roaming\Microsoft\Windows")
+    LV.SubItems(1) = Path
+End With
+
+Path = "--SPECIAL"
+With ScanPath.ListView2
+    Set LV = .ListItems.Add(, , "26 C:\Users\" + GetUserName + "\AppData\Local\Microsoft")
+    LV.SubItems(1) = Path
+End With
+
 ScanPath.ListView2.SortOrder = lvwAscending
 ScanPath.ListView2.SortKey = 0
 ScanPath.ListView2.Sorted = True
@@ -391,13 +400,133 @@ For R = 1 To ScanPath.ListView2.ListItems.Count
         Set LV = .ListItems.Add(, , ScanPath.ListView2.ListItems.Item(R))
         LV.SubItems(1) = ScanPath.ListView2.ListItems.Item(R).SubItems(1)
     End With
+    
 Next
+
+
 
 
 '----
 'Shell Commands List for Windows 10 | Tutorials
 'https://www.tenforums.com/tutorials/3109-shell-commands-list-windows-10-a.html
 '----
+'shell:3D Objects    %UserProfile%\3D Objects
+'shell:AccountPictures   %AppData%\Microsoft\Windows\AccountPictures
+'shell:AddNewProgramsFolder  Control Panel\All Control Panel Items\Get Programs
+'shell:Administrative Tools  %AppData%\Microsoft\Windows\Start Menu\Programs\Administrative Tools
+'shell:AppData   %AppData%
+'shell:Application Shortcuts %LocalAppData%\Microsoft\Windows\Application Shortcuts
+'shell: AppsFolder Applications
+'shell:AppUpdatesFolder  Installed Updates
+'shell:Cache %LocalAppData%\Microsoft\Windows\INetCache
+'shell:Camera Roll   %UserProfile%\Pictures\Camera Roll
+'shell:CD Burning    %LocalAppData%\Microsoft\Windows\Burn\Burn
+'shell:ChangeRemoveProgramsFolder    Control Panel\All Control Panel Items\Programs and Features
+'shell:Common Administrative Tools   %ProgramData%\Microsoft\Windows\Start Menu\Programs\Administrative Tools
+'shell:Common AppData    %ProgramData%
+'shell:Common Desktop    %Public%\Desktop
+'shell:Common Documents  %Public%\Documents
+'shell:CommonDownloads   %Public%\Downloads
+'shell:CommonMusic   %Public%\Music
+'shell:CommonPictures    %Public%\Pictures
+'shell:Common Programs   %ProgramData%\Microsoft\Windows\Start Menu\Programs
+'shell:CommonRingtones   %ProgramData%\Microsoft\Windows\Ringtones
+'shell:Common Start Menu %ProgramData%\Microsoft\Windows\Start Menu
+'shell:Common Startup    %ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup
+'shell:Common Templates  %ProgramData%\Microsoft\Windows\Templates
+'??shell:CommonVideo %Public%\Videos
+'shell:ConflictFolder    Control Panel\All Control Panel Items\Sync Center\Conflicts
+'shell:ConnectionsFolder Control Panel\All Control Panel Items\Network Connections
+'shell:Contacts  %UserProfile%\Contacts
+'shell:ControlPanelFolder    Control Panel\All Control Panel Items
+'shell:Cookies   %LocalAppData%\Microsoft\Windows\INetCookies
+'shell:Cookies\Low   %LocalAppData%\Microsoft\Windows\INetCookies\Low
+'shell:CredentialManager %AppData%\Microsoft\Credentials
+'shell:CryptoKeys    %AppData%\Microsoft\Crypto
+'shell: Desktop Desktop
+'shell:device Metadata Store %ProgramData%\Microsoft\Windows\DeviceMetadataStore
+'shell:documentsLibrary??    Libraries\Documents
+'shell:downloads %UserProfile%\Downloads
+'shell:dpapiKeys %AppData%\Microsoft\Protect
+'shell:Favorites %UserProfile%\Favorites
+'shell:Fonts %WinDir%\Fonts
+'shell:Games (removed in version 1803)   Games
+'shell:GameTasks %LocalAppData%\Microsoft\Windows\GameExplorer
+'??shell:History %LocalAppData%\Microsoft\Windows\History
+'shell: HomeGroupCurrentUserFolder Homegroup \ (User - Name)
+'shell: HomeGroupFolder Homegroup
+'shell:ImplicitAppShortcuts  %AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\ImplicitAppShortcuts
+'shell:InternetFolder    Internet Explorer
+'shell: Libraries Libraries
+'shell:Links %UserProfile%\Links
+'shell:Local AppData %LocalAppData%
+'shell:LocalAppDataLow   %UserProfile%\AppData\LocalLow
+'??shell:MusicLibrary    Libraries\Music
+'shell:MyComputerFolder  This PC
+'shell:My Music  %UserProfile%\Music
+'shell:My Pictures   %UserProfile%\Pictures
+'shell:My Video  %UserProfile%\Videos
+'shell:NetHood   %AppData%\Microsoft\Windows\Network Shortcuts
+'shell: NetworkPlacesFolder Network
+'shell: OneDrive OneDrive
+'shell:OneDriveCameraRoll    %UserProfile%\OneDrive\Pictures\Camera Roll
+'shell:OneDriveDocuments %UserProfile%\OneDrive\Documents
+'shell:OneDriveMusic %UserProfile%\OneDrive\Music
+'shell:OneDrivePictures  %UserProfile%\OneDrive\Pictures
+'shell:Personal  %UserProfile%\Documents
+'shell: PicturesLibrary Libraries \ Pictures
+'shell:PrintersFolder    All Control Panel Items\Printers
+'??shell:PrintHood   %AppData%\Microsoft\Windows\Printer Shortcuts
+'shell:Profile   %UserProfile%
+'??shell:ProgramFiles    %ProgramFiles%
+'shell:ProgramFilesCommon    %ProgramFiles%\Common Files
+'shell:ProgramFilesCommonX64 %ProgramFiles%\Common Files (64-bit Windows only)
+'shell:ProgramFilesCommonX86 %ProgramFiles(x86)%\Common Files (64-bit Windows only)
+'shell:ProgramFilesX64   %ProgramFiles% (64-bit Windows only)
+'shell:ProgramFilesX86   %ProgramFiles(x86)% (64-bit Windows only)
+'shell:Programs  %AppData%\Microsoft\Windows\Start Menu\Programs
+'shell:Public    %Public%
+'shell:PublicAccountPictures %Public%\AccountPictures
+'shell:PublicGameTasks   %ProgramData%\Microsoft\Windows\GameExplorer
+'shell:PublicLibraries   %Public%\Libraries
+'shell:Quick Launch  %AppData%\Microsoft\Internet Explorer\Quick Launch
+'shell:Recent    %AppData%\Microsoft\Windows\Recent
+'shell:RecordedTVLibrary Libraries\Recorded TV
+'??shell:RecycleBinFolder    Recycle Bin
+'shell:ResourceDir   %WinDir%\Resources
+'shell:Ringtones %ProgramData%\Microsoft\Windows\Ringtones
+'shell:Roamed Tile Images    %LocalAppData%\Microsoft\Windows\RoamedTileImages
+'shell:Roaming Tiles %AppData%\Microsoft\Windows\RoamingTiles
+'shell:::{2559a1f3-21d7-11d4-bdaf-00c04f60b9f0}  Run dialog box
+'shell:SavedGames    %UserProfile%\Saved Games
+'shell:Screenshots   %UserProfile%\Pictures\Screenshots
+'shell:Searches  %UserProfile%\Searches
+'shell:SearchHistoryFolder   %LocalAppData%\Microsoft\Windows\ConnectedSearch\History
+'shell: SearchHomeFolder search - ms:
+'shell:SearchTemplatesFolder %LocalAppData%\Microsoft\Windows\ConnectedSearch\Templates
+'shell:SendTo    %AppData%\Microsoft\Windows\SendTo
+'shell:Start Menu    %AppData%\Microsoft\Windows\Start Menu
+'shell: StartMenuAllPrograms StartMenuAllPrograms
+'shell:Startup   %AppData%\Microsoft\Windows\Start Menu\Programs\Startup
+'shell:SyncCenterFolder  Control Panel\All Control Panel Items\Sync Center
+'shell:SyncResultsFolder Control Panel\All Control Panel Items\Sync Center\Sync Results
+'shell:SyncSetupFolder   Control Panel\All Control Panel Items\Sync Center\Sync Setup
+'shell:System    %WinDir%\System32
+'shell:SystemCertificates    %AppData%\Microsoft\SystemCertificates
+'shell:SystemX86 %WinDir%\SysWOW64
+'shell:Templates %AppData%\Microsoft\Windows\Templates
+'shell: ThisPCDesktopFolder Desktop
+'??shell:UsersFilesFolder    %UserProfile%
+'shell:User Pinned   %AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned
+'shell:UserProfiles  %HomeDrive%\Users
+'shell:UserProgramFiles  %LocalAppData%\Programs
+'shell:UserProgramFilesCommon    %LocalAppData%\Programs\Common
+'shell: UsersLibrariesFolder Libraries
+'??shell:VideosLibrary   Libraries\Videos
+'shell:Windows   %WinDir%
+'
+
+
 ' ----------------------------------
 ' ADD HEADER TITLE FOR EXPLORER SHELL FOLDER
 ' ----------------------------------
@@ -447,7 +576,6 @@ AVI = AVI + 1: ARRAY_V(AVI) = ""
 AVI = AVI + 1: ARRAY_V(AVI) = ""
 AVI = AVI + 1: ARRAY_V(AVI) = ""
 AVI = AVI + 1: ARRAY_V(AVI) = ""
-AVI = AVI + 1: ARRAY_V(AVI) = ""
 
 AVI = 0
 For R_AVI = 1 To UBound(ARRAY_V)
@@ -470,6 +598,189 @@ For AVI = 1 To UBound(ARRAY_V)
 Next
 
 
+
+'----
+'How to Access Device Manager From the Command Prompt
+'https://www.lifewire.com/how-to-access-device-manager-from-the-command-prompt-2626360
+'----
+'----
+'How to run Control Panel tools by typing a command
+'https://support.microsoft.com/en-gb/help/192806/how-to-run-control-panel-tools-by-typing-a-command
+'----
+
+'   Control panel tool             Command
+'   -----------------------------------------------------------------
+'   Accessibility Options          control access.cpl
+'   Add New Hardware               control sysdm.cpl add new hardware
+'   Add/Remove Programs            control appwiz.cpl
+'   Date/Time Properties           control timedate.cpl
+'   Display Properties             control desk.cpl
+'   FindFast                       control findfast.cpl
+'   Fonts Folder                   control fonts
+'   Internet Properties            control inetcpl.cpl
+'   Joystick Properties            control joy.cpl
+'   Keyboard Properties            control main.cpl keyboard
+'   Microsoft Exchange             control mlcfg32.cpl
+'      (or Windows Messaging)
+'   Microsoft Mail Post Office     control wgpocpl.cpl
+'   Modem Properties               control modem.cpl
+'   Mouse Properties               control main.cpl
+'   Multimedia Properties          control mmsys.cpl
+'   Network Properties             control netcpl.cpl
+'                                  NOTE: In Windows NT 4.0, Network
+'                                  properties is Ncpa.cpl, not Netcpl.cpl
+'   Password Properties            control password.cpl
+'   PC Card                        control main.cpl pc card (PCMCIA)
+'   Power Management (Windows 95)  control main.cpl power
+'   Power Management (Windows 98)  control powercfg.cpl
+'   Printers Folder                control printers
+'   Regional Settings              control intl.cpl
+'   Scanners and Cameras           control sticpl.cpl
+'   Sound Properties               control mmsys.cpl sounds
+'   System Properties              control sysdm.cpl
+
+
+
+With ScanPath.ListView1
+    Set LV = .ListItems.Add(, , "\CONTROL PANEL COMMAND LINE TOOL\")
+    LV.SubItems(1) = "TITLE_BLOCK"
+End With
+
+ReDim ARRAY_V(100)
+ReDim ARRAY_V_2(100)
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC            ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL HDWWIZ.CPL       ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL /NAME MICROSOFT.DEVICEMANAGER  ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "control appwiz.cpl       ---- Add/Remove Programs"
+AVI = AVI + 1: ARRAY_V(AVI) = "control main.cpl             ---- Mouse"
+AVI = AVI + 1: ARRAY_V(AVI) = "control netcpl.cpl       ---- Network"
+AVI = AVI + 1: ARRAY_V(AVI) = "control mmsys.cpl sounds ---- Sound Properties"
+AVI = AVI + 1: ARRAY_V(AVI) = "control sysdm.cpl        ---- System"
+
+AVI = 0
+For R_AVI = 1 To UBound(ARRAY_V)
+    If ARRAY_V(R_AVI) <> "" Then
+        AVI = AVI + 1
+        ARRAY_V_2(AVI) = UCase(ARRAY_V(R_AVI))
+    End If
+Next
+ReDim Preserve ARRAY_V(AVI)
+ReDim Preserve ARRAY_V_2(AVI)
+For AVI = 1 To UBound(ARRAY_V_2)
+    ARRAY_V(AVI) = ARRAY_V_2(AVI)
+Next
+
+For AVI = 1 To UBound(ARRAY_V)
+    With ScanPath.ListView1
+        Set LV = .ListItems.Add(, , ARRAY_V(AVI))
+        LV.SubItems(1) = "CONTROL_PANEL_SHELL"
+    End With
+Next
+
+
+
+'----
+'Control Panel Command Line – Pahoehoe
+'https://www.pahoehoe.net/control-panel-command-line/
+'----
+
+With ScanPath.ListView1
+    Set LV = .ListItems.Add(, , "\WINDOWS GOD MODE FOLDER\")
+    LV.SubItems(1) = "TITLE_BLOCK"
+End With
+
+ReDim ARRAY_V(100)
+ReDim ARRAY_V_2(100)
+AVI = AVI + 1: ARRAY_V(AVI) = "Explorer.exe Shell:::{ED7BA470-8E54-465E-825C-99712043E01C}"
+
+AVI = 0
+For R_AVI = 1 To UBound(ARRAY_V)
+    If ARRAY_V(R_AVI) <> "" Then
+        AVI = AVI + 1
+        ARRAY_V_2(AVI) = ARRAY_V(R_AVI)
+    End If
+Next
+ReDim Preserve ARRAY_V(AVI)
+ReDim Preserve ARRAY_V_2(AVI)
+For AVI = 1 To UBound(ARRAY_V_2)
+    ARRAY_V(AVI) = ARRAY_V_2(AVI)
+Next
+
+For AVI = 1 To UBound(ARRAY_V)
+    With ScanPath.ListView1
+        Set LV = .ListItems.Add(, , ARRAY_V(AVI))
+        LV.SubItems(1) = "CONTROL_PANEL_SHELL"
+    End With
+Next
+
+
+
+'----
+'Control Panel Command Line – Pahoehoe
+'https://www.pahoehoe.net/control-panel-command-line/
+'----
+'
+'Other Useful Tools  Command
+'Windows 10 Settings start ms-settings:
+'(Powershell Start-Process "ms-settings:"
+'Computer Management compmgmt.msc
+'Disk Management diskmgmt.msc
+'Event Viewer    eventvwr.msc
+'Device Manager  devmgmt.msc
+'Services & Applications services.msc
+'Local Group Policy Editor   gpedit.msc
+'MMC (Management Console)    mmc
+'Component Services  dcomcnfg
+'Disk Cleanup    C:\windows\SYSTEM32\cleanmgr.exe /d{DRIVELETTER}
+'System Configuration    msconfig
+'System Information  msinfo32
+'Task Scheduler  taskschd.msc
+'Windows Firewall    wf.msc
+'
+
+
+With ScanPath.ListView1
+    Set LV = .ListItems.Add(, , "\OTHER\")
+    LV.SubItems(1) = "TITLE_BLOCK"
+End With
+
+ReDim ARRAY_V(100)
+ReDim ARRAY_V_2(100)
+' AVI = AVI + 1: ARRAY_V(AVI) = "ms-settings"
+AVI = AVI + 1: ARRAY_V(AVI) = "start ms-settings:"
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC           ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC diskmgmt.msc"
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC eventvwr.msc"
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC services.msc"
+AVI = AVI + 1: ARRAY_V(AVI) = ""
+AVI = AVI + 1: ARRAY_V(AVI) = ""
+
+AVI = 0
+For R_AVI = 1 To UBound(ARRAY_V)
+    If ARRAY_V(R_AVI) <> "" Then
+        AVI = AVI + 1
+        ARRAY_V_2(AVI) = UCase(ARRAY_V(R_AVI))
+    End If
+Next
+ReDim Preserve ARRAY_V(AVI)
+ReDim Preserve ARRAY_V_2(AVI)
+For AVI = 1 To UBound(ARRAY_V_2)
+    ARRAY_V(AVI) = ARRAY_V_2(AVI)
+Next
+
+For AVI = 1 To UBound(ARRAY_V)
+    With ScanPath.ListView1
+        Set LV = .ListItems.Add(, , ARRAY_V(AVI))
+        LV.SubItems(1) = "CONTROL_PANEL_SHELL"
+    End With
+Next
+
+
+
+
+
+'-------------------------------------------------------------------------------
+'-------------------------------------------------------------------------------
 
 ad = Dir("E:\01 VB Shell Folders\00 Shell *", vbDirectory)
 Do
@@ -513,15 +824,43 @@ If SetTrueToLoadLast = False Then
     C1$ = Form1.Label1.Item(Index)
 End If
 
+TARGET_PATH_ALREADY_GOT = False
+
+If A1$ = "--SPECIAL" Then
+    A1$ = ""
+    B1$ = Mid(B1$, InStr(B1$, " ") + 1)
+    TARGET_PATH_ALREADY_GOT = True
+End If
+
 'Call Form1.LoadLoggs
+
+If A1$ = "CONTROL_PANEL_SHELL" Then
+    SET_GO = 0
+    If InStr(B1$, " ---- ") > 0 Then
+    B1$ = Trim(Mid(B1$, 1, InStr(B1$, " ---- ") - 1))
+    End If
+    If UCase(B1$) = UCase("start ms-settings:") Then
+        SET_GO = 1
+    End If
+    If SET_GO = 0 Then Shell B1$, vbMaximizedFocus
+    If SET_GO = 1 Then
+        Shell "CMD /C """ + B1$ + """", vbMaximizedFocus
+'        vLaunch "CMD /C ""start ms-settings:""", vbMaximizedFocus
+'        Dim objShell
+'        Set objShell = CreateObject("Wscript.Shell")
+'        objShell.Run "CMD /K " + B1$, 0, True
+'        Set objShell = Nothing
+
+    End If
+    End
+End If
+
 
 If A1$ = "EXPLORER_SHELL" Then
     Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
     Beep
     End
 End If
-
-
 
 
 que = 0
@@ -563,6 +902,13 @@ If Mid(A1$, 1, 2) = "--" Then
     End If
 End If
 
+If TARGET_PATH_ALREADY_GOT = True Then
+    PATH_WANTER = B1$
+    
+    ' MsgBox PATH_WANTER
+    Shell "Explorer.exe /Select," + PATH_WANTER, vbNormalFocus
+
+End If
 
 If SetTrueToLoadLast = False Then
     Call GETSHORTLINK(A1$ + B1$)
@@ -570,19 +916,22 @@ If SetTrueToLoadLast = False Then
     D1$ = txtTargetPath
     If Trim(D1$) = "" Then
         vLaunch A1$ + B1$
-    Else
-    
-        Form1.Dir1.Path = txtTargetPath
-        Form1.File1.Path = txtTargetPath
-        If Form1.Dir1.ListCount > 0 Then
-            PATH_WANTING = Form1.Dir1.List(0)
-        Else
-            PATH_WANTING = Form1.File1.Path + "\" + Form1.File1.List(0)
-        End If
-    
-        ' MsgBox PATH_WANTING
-        Shell "Explorer.exe /Select," + PATH_WANTING, vbNormalFocus
+        End
     End If
+End If
+
+If SetTrueToLoadLast = True Then
+
+    Form1.Dir1.Path = txtTargetPath
+    Form1.File1.Path = txtTargetPath
+    If Form1.Dir1.ListCount > 0 Then
+        PATH_WANTER = Form1.Dir1.List(0)
+    Else
+        PATH_WANTER = Form1.File1.Path + "\" + Form1.File1.List(0)
+    End If
+
+    ' MsgBox PATH_WANTER
+    Shell "Explorer.exe /Select," + PATH_WANTER, vbNormalFocus
 End If
 
 If SetTrueToLoadLast = True Then
