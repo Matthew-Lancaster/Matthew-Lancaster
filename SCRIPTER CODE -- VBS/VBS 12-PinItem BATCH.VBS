@@ -632,6 +632,33 @@ If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 	ARRAY_1(I)=REPLACE(UCASE(ARRAY_1(I)), "\PROGRAM FILES (X86)\","\PROGRAM FILES\")
 END IF
 
+IF Version_OS=10 THEN
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Evernote\Evernote\EvernoteClipper.exe"
+END IF
+
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
+	FOR R_USERNAME=1 TO 8
+		U1=TRIM(CSTR(R_USERNAME))
+		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
+		If objFSO.FileExists(U2) = TRUE Then
+			I=I+1:ARRAY_1(I)=U2
+		END IF
+	NEXT
+END IF
+IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
+	FOR R_USERNAME=1 TO 8
+		U1=TRIM(CSTR(R_USERNAME))
+		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
+		If objFSO.FileExists(U2) = TRUE Then
+			I=I+1:ARRAY_1(I)=U2
+		END IF
+	NEXT
+END IF
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Office\Office12\OUTLOOK.EXE"
+END IF
+
 
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
