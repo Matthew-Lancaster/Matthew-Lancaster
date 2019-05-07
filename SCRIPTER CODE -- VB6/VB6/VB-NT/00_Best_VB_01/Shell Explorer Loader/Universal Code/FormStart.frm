@@ -648,14 +648,14 @@ End With
 
 ReDim ARRAY_V(100)
 ReDim ARRAY_V_2(100)
-AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC            ---- DEVICE MANAGER"
-AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL HDWWIZ.CPL       ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC                       ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL HDWWIZ.CPL                 ---- DEVICE MANAGER"
 AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL /NAME MICROSOFT.DEVICEMANAGER  ---- DEVICE MANAGER"
-AVI = AVI + 1: ARRAY_V(AVI) = "control appwiz.cpl       ---- Add/Remove Programs"
-AVI = AVI + 1: ARRAY_V(AVI) = "control main.cpl             ---- Mouse"
-AVI = AVI + 1: ARRAY_V(AVI) = "control netcpl.cpl       ---- Network"
-AVI = AVI + 1: ARRAY_V(AVI) = "control mmsys.cpl sounds ---- Sound Properties"
-AVI = AVI + 1: ARRAY_V(AVI) = "control sysdm.cpl        ---- System"
+AVI = AVI + 1: ARRAY_V(AVI) = "control appwiz.cpl                  ---- Add / Remove Programs"
+AVI = AVI + 1: ARRAY_V(AVI) = "control main.cpl                        ---- Mouse"
+AVI = AVI + 1: ARRAY_V(AVI) = "control netcpl.cpl                   ---- Network"
+AVI = AVI + 1: ARRAY_V(AVI) = "control mmsys.cpl sounds  ---- Sound Properties"
+AVI = AVI + 1: ARRAY_V(AVI) = "control sysdm.cpl                    ---- System"
 
 AVI = 0
 For R_AVI = 1 To UBound(ARRAY_V)
@@ -748,7 +748,7 @@ ReDim ARRAY_V(100)
 ReDim ARRAY_V_2(100)
 ' AVI = AVI + 1: ARRAY_V(AVI) = "ms-settings"
 AVI = AVI + 1: ARRAY_V(AVI) = "start ms-settings:"
-AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC           ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC                       ---- DEVICE MANAGER"
 AVI = AVI + 1: ARRAY_V(AVI) = "MMC diskmgmt.msc"
 AVI = AVI + 1: ARRAY_V(AVI) = "MMC eventvwr.msc"
 AVI = AVI + 1: ARRAY_V(AVI) = "MMC services.msc"
