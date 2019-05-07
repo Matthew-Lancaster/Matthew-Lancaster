@@ -5871,6 +5871,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim FontSizez
+Dim FontSizez_2
+
+
 Dim FR1
 Dim m_CRC
 
@@ -6123,7 +6127,38 @@ If Form1.Width = Form1_Width And Form1.Height = Form1_Height Then X_Y_DONE_ONCE 
 End Sub
 
 Private Sub Form_Load()
+
 ReDim A4$(500), B4$(500), C4$(500)
+
+If GetComputerName = GetComputerName Then
+    FontSizez = 8
+    FontSizez_2 = 7       ' 6.9 -- THE SPECIAL FOLDERIN GET HERE - UNLESS SAME AS OTHER ONE
+End If
+If GetComputerName = "1-ASUS-X5DIJ" Then
+    FontSizez = 8
+    FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
+End If
+
+If GetComputerName = "2-ASUS-EEE" Then
+    FontSizez = 6.3
+    FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
+End If
+
+If GetComputerName = "4-ASUS-GL522VW" Then
+    FontSizez = 9
+    FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
+End If
+
+If GetComputerName = "7-ASUS-GL522VW" Then
+    FontSizez = 7.4
+    FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
+End If
+
+If GetComputerName = "8-MSI-GP62M-7RD" Then
+    FontSizez = 9
+    FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
+End If
+
 
 Call SET_UP_PULIC_FSO
 
@@ -6328,33 +6363,6 @@ End Sub
 
 Sub SubCode()
 
-FontSizez = 8
-FontSizez_2 = 7 '6.9
-
-If GetComputerName = "1-ASUS-X5DIJ" Then
-    FontSizez = 8
-    FontSizez_2 = 8
-End If
-
-If GetComputerName = "2-ASUS-EEE" Then
-    FontSizez = 6.3
-    FontSizez_2 = FontSizez
-End If
-
-If GetComputerName = "4-ASUS-GL522VW" Then
-    FontSizez = 9
-    FontSizez_2 = FontSizez
-End If
-
-If GetComputerName = "7-ASUS-GL522VW" Then
-    FontSizez = 8
-    FontSizez_2 = FontSizez
-End If
-
-If GetComputerName = "8-MSI-GP62M-7RD" Then
-    FontSizez = 9
-    FontSizez_2 = FontSizez
-End If
 
 Dim RG
 RG = 0
@@ -6932,7 +6940,7 @@ End Sub
 
 Private Sub Label1_Click(Index As Integer)
 
-Beep
+'Beep
 
 If Label1(Index).BackColor = QBColor(12) Then
     MsgBox "THIS LINK IS MARKED RED FOR NOT USE"
@@ -6959,7 +6967,7 @@ If LoadFolder = True And InStr(C1$, "NETWORK COMPUTER NAME") > 0 Then
 
     Call SaveLoggs
 
-    Shell "explorer shell:NetworkPlacesFolder", vbNormalFocus
+    shell "explorer shell:NetworkPlacesFolder", vbNormalFocus
     End
 End If
 
@@ -6971,7 +6979,7 @@ If LoadFolder = True Then
 
     Call SaveLoggs
     
-    Shell "explorer /e, " + A1$, vbNormalFocus
+    shell "explorer /e, " + A1$, vbNormalFocus
     End
 End If
 
@@ -6984,7 +6992,7 @@ End Sub
 
 Private Sub Lbl2_Click()
 
-Shell "explorer /e, E:\01 VB Shell Folders\00 " + App.EXEName, vbNormalFocus
+shell "explorer /e, E:\01 VB Shell Folders\00 " + App.EXEName, vbNormalFocus
 
 End Sub
 
@@ -7009,7 +7017,7 @@ End Sub
 
 
 Private Sub MNU_VB_FOLDER_Click()
-    Shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".VBP", vbMaximizedFocus
+    shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".VBP", vbMaximizedFocus
 End Sub
 
 Private Sub MNU_VB_ME_Click()
@@ -7019,7 +7027,7 @@ If Dir(VBPATH) = "" Then
     VBPATH = "C:\Program Files (X86)\Microsoft Visual Studio\VB98\VB6.EXE"
 End If
 
-Shell VBPATH + " """ + App.Path + "\" + App.EXEName + ".VBP""", vbNormalFocus
+shell VBPATH + " """ + App.Path + "\" + App.EXEName + ".VBP""", vbNormalFocus
 End
 
 End Sub
@@ -7028,11 +7036,12 @@ End Sub
 
 Private Sub Lbl_Title_Click()
 
-Open TEXT_PATH_1 + "\" + OIP$ + " Loads.txt" For Input As #1
-Line Input #1, A1$
-Line Input #1, B1$
-Line Input #1, C1$
-Close #1
+FR1 = FreeFile
+Open TEXT_PATH_1 + "\" + OIP$ + " Loads.txt" For Input As #FR1
+Line Input #FR1, A1$
+Line Input #FR1, B1$
+Line Input #FR1, C1$
+Close #FR1
 
 SetTrueToLoadLast = True
 Call Label1_Click(0)
