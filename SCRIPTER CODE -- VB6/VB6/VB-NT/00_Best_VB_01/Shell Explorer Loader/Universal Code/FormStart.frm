@@ -932,6 +932,7 @@ If SetTrueToLoadLast = True Then
 
     ' MsgBox PATH_WANTER
     Shell "Explorer.exe /Select," + PATH_WANTER, vbNormalFocus
+    End
 End If
 
 If SetTrueToLoadLast = True Then
@@ -942,8 +943,12 @@ If SetTrueToLoadLast = True Then
     End If
     
     Shell "Explorer.exe /Select," + PATH_WANT, vbMaximizedFocus
+    End
 End If
 
+If D1$ <> "" Then
+    Shell "Explorer.exe " + D1$, vbMaximizedFocus
+End If
 End
 
 End Sub
