@@ -931,12 +931,10 @@ Dim TT_1, TT_2
     Dim TT_1DV
     Dim TT_1TV
     Dim TT_1DR
-    Dim TT_1VDT
     Dim TT_2DV
     Dim TT_2TV
     Dim TT_2DR
-    Dim TT_2VDT
-
+    
     TT_1DV = Mid(TT_1, 1, 8)
     TT_1TV = Mid(TT_1, 9, 6)
     TT_1DV = Mid(TT_1DV, 1, 4) + "-" + Mid(TT_1DV, 5, 2) + "-" + Mid(TT_1DV, 7, 2)
@@ -969,6 +967,7 @@ Public Sub Processor_GET_INFO()
     Dim Enumerator As SWbemObjectSet
     Dim Object As SWbemObject
     Dim Item As ListItem
+    Dim Item_2 As ListItem
 
     On Error Resume Next
     
@@ -1036,17 +1035,16 @@ Public Sub Processor_GET_INFO()
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Description")
         Item_2.SubItems(1) = Object.Description
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Manufacturer & Model")
-        Item_2.SubItems(1) = frmComputerSystem.Manufacturer_and_Model
+        Item_2.SubItems(1) = Manufacturer_and_Model
         
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Manufacturer")
         Item_2.SubItems(1) = Object.Manufacturer
         
+        Dim A_MEM
+        
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "TotalPhysicalMemory")
-        A_MEM = Int(frmComputerSystem.TotalPhysicalMemory / 1024 ^ 3) + 1
-        Item_2.SubItems(1) = Trim(Str(A_MEM)) + " GB _ " + Format(frmComputerSystem.TotalPhysicalMemory / 1024 ^ 3, "0.0000") + " GB _ " + Format(frmComputerSystem.TotalPhysicalMemory) + " BYTE"
-
-        
-        
+        A_MEM = Int(TotalPhysicalMemory / 1024 ^ 3) + 1
+        Item_2.SubItems(1) = Trim(Str(A_MEM)) + " GB _ " + Format(TotalPhysicalMemory / 1024 ^ 3, "0.0000") + " GB _ " + Format(MDIProcServ.TotalPhysicalMemory) + " BYTE"
         
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "AddressWidth & L2CacheSize")
         Item_2.SubItems(1) = Trim(Str(Object.AddressWidth)) + " Bit ____ " + Trim(Str(Object.L2CacheSize)) + " Kbyte"
@@ -1063,10 +1061,11 @@ Public Sub Processor_GET_INFO()
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "SocketDesignation")
         Item_2.SubItems(1) = Object.SocketDesignation
         
-        
         'Item_2.SubItems(1) = Object.Manufacturer + "   Level_" + Trim(Str(Object.Level)) + "   ProcessorID_" + Object.ProcessorID
 '        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "ProcessorID")
 '        Item_2.SubItems(1) = Object.ProcessorID
+        
+        Dim TT_1
         
         TT_1 = ""
         TT_1 = TT_1 + "Description ___ " + Item.SubItems(12) + vbCrLf
@@ -1077,17 +1076,8 @@ Public Sub Processor_GET_INFO()
         TT_1 = TT_1 + "Manufacturer __ " + Item.SubItems(23) + " __ "
         TT_1 = TT_1 + "SocketDesignation _ " + Item.SubItems(34) + vbCrLf
         TT_1 = TT_1 + "ProcessorID __ " + Item.SubItems(30)
-        
     
     Next
-    
-'    Form1.Text_CPU_INFO.Text = TT_1
-
-    'Me.Show
-
-'    Call Form1.LV_AutoSizeColumn(Form1.ListView_CPU_INFO, Form1.ListView_CPU_INFO.ColumnHeaders.Item(1))
-'    Call Form1.LV_AutoSizeColumn(Form1.ListView_CPU_INFO, Form1.ListView_CPU_INFO.ColumnHeaders.Item(2))
-
 
 End Sub
 

@@ -8208,20 +8208,19 @@ Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
 If FindHandle_hWnd_COUNT_CHANGE = True Then
     Call EnumProcess
 End If
-If frmOperatingSystem.TT_1VDT > 0 Or frmOperatingSystem.TT_2VDT > 0 Then
+If MDIProcServ.TT_1VDT > 0 Or MDIProcServ.TT_2VDT > 0 Then
     Dim XI_STRING
     XI_STRING = ""
-    XI_STRING = XI_STRING + Str(DateDiff("h", frmOperatingSystem.TT_1VDT, Now)) + " hr -- "
-    XI_STRING = XI_STRING + Format(Int((DateDiff("h", frmOperatingSystem.TT_1VDT, Now) / 24)), "0") + " d "
-    XI_STRING = XI_STRING + Format((DateDiff("h", frmOperatingSystem.TT_1VDT, Now) Mod 24), "0") + " hr "
+    XI_STRING = XI_STRING + Str(DateDiff("h", MDIProcServ.TT_1VDT, Now)) + " hr -- "
+    XI_STRING = XI_STRING + Format(Int((DateDiff("h", MDIProcServ.TT_1VDT, Now) / 24)), "0") + " d "
+    XI_STRING = XI_STRING + Format((DateDiff("h", MDIProcServ.TT_1VDT, Now) Mod 24), "0") + " hr "
     Form1.Text_SYSTEM_START_TIME_02.Text = XI_STRING
     Form1.Text_SYSTEM_START_TIME_02.FontSize = 10
-    Form1.Text_OS_INSTALL_DATE_02.Text = Str(DateDiff("d", frmOperatingSystem.TT_2VDT, Now)) + " DAY"
+    Form1.Text_OS_INSTALL_DATE_02.Text = Str(DateDiff("d", MDIProcServ.TT_2VDT, Now)) + " DAY"
     Form1.Text_OS_INSTALL_DATE_02.FontSize = 10
 Else
     Form1.Text_SYSTEM_START_TIME_02.Text = "SYSTEM START _ " + Str(TIMER_GO_COMPUTER_START)
 End If
-
 
 
 TIMER_GO_COMPUTER_START = TIMER_GO_COMPUTER_START - 1

@@ -396,30 +396,47 @@ CHECK_ESC_KEY:
 	if state = D
 	IfWinExist, VB KEEP RUNNER
 	{
-		WinActivate, VB KEEP RUNNER
-		SoundBeep , 1000 , 100
-		SoundBeep , 2000 , 100
-		SoundBeep , 3000 , 100
-		VAR_DONE_ESCAPE_KEY=TRUE
-		VB_KEEP_RUNNER_VAR=TRUE
+		WinGet, HWND_10, ID, VB KEEP RUNNER
+		WinGet style, MinMax, ahk_id %HWND_10%
+		IF style=-1
+		{
+			WinRestore, VB KEEP RUNNER ahk_class ThunderRT6FormDC
+			WinActivate, VB KEEP RUNNER ahk_class ThunderRT6FormDC
+			SoundBeep , 1000 , 100
+			SoundBeep , 2000 , 100
+			SoundBeep , 3000 , 100
+			VAR_DONE_ESCAPE_KEY=TRUE
+			SLEEP 400
+		}
+		WinGet, HWND_10, ID, VB KEEP RUNNER
+		WinGet style, MinMax, ahk_id %HWND_10%
+		IF style=0
+		{
+			VAR_DONE_ESCAPE_KEY=TRUE
+			VB_KEEP_RUNNER_VAR=TRUE
+			VB_KEEP_RUNNER_VAR_2=TRUE
+			SLEEP 400
+		}
 	}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	SetTitleMatchMode 2
+	VB_ELITE_SPY_VAR=FALSE
 	GetKeyState, state, Shift
 	if state = D
 	IfWinExist, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
 	{
-		WinActivate, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+		WinRestore, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version ahk_class ThunderRT6FormDC
+; 		WinActivate, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
 		SoundBeep , 1000 , 100
 		SoundBeep , 2000 , 100
 		SoundBeep , 3000 , 100
-		VAR_DONE_ESCAPE_KEY=TRUE
+		VB_ELITE_SPY_VAR=TRUE
 	}
 	
+	VB_KEEP_RUNNER_VAR_2=FALSE
 	IF VB_KEEP_RUNNER_VAR=TRUE
 	{
-		VB_KEEP_RUNNER_VAR_2=FALSE
 		LOOP 
 		{
 			X_COUNTER+=1
@@ -427,8 +444,16 @@ CHECK_ESC_KEY:
 			WinGet style, MinMax, ahk_id %HWND_10%
 			; IF style=0
 			; MSGBOX % style
+			; MinMax
+			; Retrieves the minimized/maximized state for a window.
+			; WinGet, OutputVar, MinMax [, WinTitle, WinText, ExcludeTitle, ExcludeText]
+			; OutputVar is made blank if no matching window exists; otherwise, it is set to one of the following numbers:
+			; •-1: The window is minimized (WinRestore can unminimize it).
+			; •1: The window is maximized (WinRestore can unmaximize it).
+			; •0: The window is neither minimized nor maximized.
 
-			IF style=0
+
+			IF style=-1
 			{
 				VB_KEEP_RUNNER_VAR_2=TRUE
 				BREAK
@@ -464,6 +489,61 @@ CHECK_ESC_KEY:
 		{
 			SoundBeep , 3000 , 100
 			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+			IfExist, %FN_VAR%
+				{
+					Run, %FN_VAR% MAXIMUM
+				}
+		}	
+	}
+	
+	VB_ELITE_SPY_VAR=FALSE
+	VB_ELITE_SPY_VAR_2=FALSE
+	IF VB_ELITE_SPY_VAR=TRUE
+	{
+		LOOP 
+		{
+			X_COUNTER+=1
+			WinGet, HWND_10, ID, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+			WinGet style, MinMax, ahk_id %HWND_10%
+			; IF style=0
+			; MSGBOX % style
+
+			IF style=0
+			{
+				VB_ELITE_SPY_VAR_2=TRUE
+				BREAK
+			}
+			SLEEP 100
+			IF X_COUNTER>100
+				BREAK
+		}
+	}
+	IfWinNotExist EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+	{
+		VAR_DONE_ESCAPE_KEY=TRUE
+		SoundBeep , 3000 , 100
+		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+		IfExist, %FN_VAR%
+			{
+				Run, %FN_VAR% MAXIMUM
+			}
+	}	
+	
+	IF VB_ELITE_SPY_VAR_2=TRUE
+	{
+		VAR_DONE_ESCAPE_KEY=TRUE
+		WinGet, HWND_10, ID, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+		WinGet, UniquePID, PID,  ahk_id %HWND_10%
+		IF UniquePID>0
+		{
+			SOUNDBEEP 1000,100
+			Process, Close, %UniquePID% 
+		}
+
+		IfWinNotExist EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+		{
+			SoundBeep , 3000 , 100
+			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 			IfExist, %FN_VAR%
 				{
 					Run, %FN_VAR% MAXIMUM
