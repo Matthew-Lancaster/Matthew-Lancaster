@@ -388,59 +388,90 @@ CHECK_ESC_KEY:
 	; ---------------------------------------------------------------
 	; WINAMP VISUALIZATION CONTROL KEY WINDOW
 	; ---------------------------------------------------------------
-
+	
+	; 
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	;
+	; THIS IS MY CODER TO BRING UP WINDOW 
+	; VB KEEP RUNNER 
+	; AND
+	; ELITE SPY 
+	; BUT FOR NOW THESE TWO PROGRAM WHEN COMPUTER UNDER PRESSURE FOR LONG WHEN GET BACK TO
+	; THEY BOTH NEVER SEEM RUNNER
+	; SO SOMEHOW GOT TO FIND THAT WINDOW POP UP NOT HAPPEN AS NORMAL
+	; AND THEN TAKE ACTION TO KILL AND RELOAD
+	;
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	VB_KEEP_RUNNER_VAR=FALSE
+	VB_KEEP_RUNNER_TITLE=VB KEEP RUNNER
 	GetKeyState, state, Shift
 	if state = D
-	IfWinExist, VB KEEP RUNNER
+	IfWinExist, %VB_KEEP_RUNNER_TITLE%
 	{
-		WinGet, HWND_10, ID, VB KEEP RUNNER
+		WinGet, HWND_10, ID, %VB_KEEP_RUNNER_TITLE%
 		WinGet style, MinMax, ahk_id %HWND_10%
 		IF style=-1
 		{
-			WinRestore, VB KEEP RUNNER ahk_class ThunderRT6FormDC
-			WinActivate, VB KEEP RUNNER ahk_class ThunderRT6FormDC
+			WinRestore, %VB_KEEP_RUNNER_TITLE%
+			WinActivate, %VB_KEEP_RUNNER_TITLE%
 			SoundBeep , 1000 , 100
 			SoundBeep , 2000 , 100
 			SoundBeep , 3000 , 100
 			VAR_DONE_ESCAPE_KEY=TRUE
 			SLEEP 400
 		}
-		WinGet, HWND_10, ID, VB KEEP RUNNER
+		WinGet, HWND_10, ID, %VB_KEEP_RUNNER_TITLE%
 		WinGet style, MinMax, ahk_id %HWND_10%
 		IF style=0
 		{
 			VAR_DONE_ESCAPE_KEY=TRUE
-			VB_KEEP_RUNNER_VAR=TRUE
-			VB_KEEP_RUNNER_VAR_2=TRUE
-			SLEEP 400
+			; VB_KEEP_RUNNER_VAR=TRUE
+			; VB_KEEP_RUNNER_VAR_2=TRUE
+			; SLEEP 400
 		}
 	}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	SetTitleMatchMode 2
 	VB_ELITE_SPY_VAR=FALSE
+	ELITE_SPY_TITLE=EliteSpy`+ 2001 __ www.PlanetSourceCode.com __ Version
 	GetKeyState, state, Shift
 	if state = D
-	IfWinExist, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+	IfWinExist, %ELITE_SPY_TITLE%
 	{
-		WinRestore, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version ahk_class ThunderRT6FormDC
-; 		WinActivate, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
-		SoundBeep , 1000 , 100
-		SoundBeep , 2000 , 100
-		SoundBeep , 3000 , 100
-		VB_ELITE_SPY_VAR=TRUE
+		WinGet, HWND_10, ID, %ELITE_SPY_TITLE%
+		WinGet style, MinMax, ahk_id %HWND_10%
+		IF style=-1
+		{
+			WinRestore, %ELITE_SPY_TITLE%
+	 		WinActivate, %ELITE_SPY_TITLE%
+			SoundBeep , 1000 , 100
+			SoundBeep , 2000 , 100
+			SoundBeep , 3000 , 100
+			VAR_DONE_ESCAPE_KEY=TRUE
+			VB_ELITE_SPY_VAR=TRUE
+		}
+		WinGet, HWND_10, ID, %ELITE_SPY_TITLE%
+		WinGet style, MinMax, ahk_id %HWND_10%
+		IF style=0
+		{
+			VAR_DONE_ESCAPE_KEY=TRUE
+			; VB_ELITE_SPY_VAR=TRUE
+			; VB_ELITE_SPY_VAR_2=TRUE
+			; SLEEP 400
+		}
 	}
 	
+	VB_KEEP_RUNNER_VAR=FALSE
 	VB_KEEP_RUNNER_VAR_2=FALSE
 	IF VB_KEEP_RUNNER_VAR=TRUE
 	{
 		LOOP 
 		{
 			X_COUNTER+=1
-			WinGet, HWND_10, ID, VB KEEP RUNNER
+			WinGet, HWND_10, ID, %VB_KEEP_RUNNER_TITLE%
 			WinGet style, MinMax, ahk_id %HWND_10%
 			; IF style=0
 			; MSGBOX % style
@@ -463,7 +494,7 @@ CHECK_ESC_KEY:
 				BREAK
 		}
 	}
-	IfWinNotExist VB KEEP RUNNER
+	IfWinNotExist %VB_KEEP_RUNNER_TITLE%
 	{
 		VAR_DONE_ESCAPE_KEY=TRUE
 		SoundBeep , 3000 , 100
@@ -477,7 +508,7 @@ CHECK_ESC_KEY:
 	IF VB_KEEP_RUNNER_VAR_2=TRUE
 	{
 		VAR_DONE_ESCAPE_KEY=TRUE
-		WinGet, HWND_10, ID, VB KEEP RUNNER
+		WinGet, HWND_10, ID, %VB_KEEP_RUNNER_TITLE%
 		WinGet, UniquePID, PID,  ahk_id %HWND_10%
 		IF UniquePID>0
 		{
@@ -485,7 +516,7 @@ CHECK_ESC_KEY:
 			Process, Close, %UniquePID% 
 		}
 
-		IfWinNotExist VB KEEP RUNNER
+		IfWinNotExist %VB_KEEP_RUNNER_TITLE%
 		{
 			SoundBeep , 3000 , 100
 			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
@@ -503,14 +534,14 @@ CHECK_ESC_KEY:
 		LOOP 
 		{
 			X_COUNTER+=1
-			WinGet, HWND_10, ID, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+			WinGet, HWND_10, ID, %ELITE_SPY_TITLE%
 			WinGet style, MinMax, ahk_id %HWND_10%
 			; IF style=0
 			; MSGBOX % style
 
 			IF style=0
 			{
-				VB_ELITE_SPY_VAR_2=TRUE
+				VB_ELITE_SPY_VAR_2=TRUE
 				BREAK
 			}
 			SLEEP 100
@@ -518,7 +549,7 @@ CHECK_ESC_KEY:
 				BREAK
 		}
 	}
-	IfWinNotExist EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+	IfWinNotExist %ELITE_SPY_TITLE%
 	{
 		VAR_DONE_ESCAPE_KEY=TRUE
 		SoundBeep , 3000 , 100
@@ -532,7 +563,7 @@ CHECK_ESC_KEY:
 	IF VB_ELITE_SPY_VAR_2=TRUE
 	{
 		VAR_DONE_ESCAPE_KEY=TRUE
-		WinGet, HWND_10, ID, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+		WinGet, HWND_10, ID, %ELITE_SPY_TITLE%
 		WinGet, UniquePID, PID,  ahk_id %HWND_10%
 		IF UniquePID>0
 		{
@@ -540,7 +571,7 @@ CHECK_ESC_KEY:
 			Process, Close, %UniquePID% 
 		}
 
-		IfWinNotExist EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+		IfWinNotExist %ELITE_SPY_TITLE%
 		{
 			SoundBeep , 3000 , 100
 			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
