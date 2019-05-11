@@ -264,6 +264,7 @@ Public Sub ShowForm()
     Dim Enumerator As SWbemObjectSet
     Dim Object As SWbemObject
     Dim Item As ListItem
+    Dim Item_2 As ListItem
 
     On Error Resume Next
     
