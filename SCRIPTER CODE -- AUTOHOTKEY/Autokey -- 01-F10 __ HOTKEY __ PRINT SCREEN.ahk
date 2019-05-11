@@ -392,7 +392,7 @@ CHECK_ESC_KEY:
 	; 
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	;
+	; 
 	; THIS IS MY CODER TO BRING UP WINDOW 
 	; VB KEEP RUNNER 
 	; AND
@@ -401,7 +401,15 @@ CHECK_ESC_KEY:
 	; THEY BOTH NEVER SEEM RUNNER
 	; SO SOMEHOW GOT TO FIND THAT WINDOW POP UP NOT HAPPEN AS NORMAL
 	; AND THEN TAKE ACTION TO KILL AND RELOAD
-	;
+	; I TRY AND CATCH ERROR OF WINDOW-STATE STYLE
+	; AND RESULT WAS 0
+	; 0 FOR NONE OF MIN OR MAX AS IF WAS NORMAL
+	; BUT NOT TRUE 0 WAS RESULT BUT NOT SHOW-ER
+	; SO NEXT TIME DEBUG CHECK FOR HIDDEN STATE OR MORE
+	; FROM       Sat 11-May-2019 06:04:11
+	; STOP TIME  Sat 11-May-2019 07:07:55 -- CODE SOMETHING ELSE -- VB KEEP RUNNER -- IMPROVE
+	; RESUME-A   Sat 11-May-2019 08:24:53 --
+	; TO         Sat 11-May-2019 09:41:33
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	VB_KEEP_RUNNER_VAR=FALSE
