@@ -2117,6 +2117,31 @@ IFNOTEXIST, C:\WINDOWS\SYSTEM32\WBEMADS.TLB
 	Run, "%FN_VAR%" QUICK_GO,,HIDE
 }
 
+SET_GO=FALSE
+
+If OSVER_N_VAR=10
+	SET_GO=TRUE
+IF SET_GO=TRUE
+{
+	FN_VAR:="C:\Program Files (x86)\Notepad++\notepad++.exe"
+	IFEXIST, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%"
+		SET_GO=FALSE
+	}
+}
+IF SET_GO=TRUE
+{
+	FN_VAR:="C:\Program Files\Notepad++\notepad++.exe"
+	IFEXIST, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%"
+	}
+}
+
+
 
 RETURN
 
