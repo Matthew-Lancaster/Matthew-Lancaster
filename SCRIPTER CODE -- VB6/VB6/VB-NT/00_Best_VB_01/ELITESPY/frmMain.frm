@@ -2998,6 +2998,11 @@ MNU_NEXT_WORK_TALK_KILLER_NETWORK.Visible = False
 Dim i As String
 If App.PrevInstance = True And IsIDE = True Then
     'i = FindWindow(vbNullString, Me.Caption)
+    ' ------------------------------------------------------------------------------------
+    ' AT LOAD TIME THIS IS CORRECT NAME PARTIAL
+    ' AFTER FORM LOAD CHANGE TO HERE
+    ' "EliteSpy+ 2001 __ www.PlanetSourceCode.com" + " __ Version " + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision))
+    ' ------------------------------------------------------------------------------------
     i = FindWinPart_SEARCHER("EliteSpy+ by")
     ShowWindow i, SW_MAXIMIZE
 '        On Error Resume Next

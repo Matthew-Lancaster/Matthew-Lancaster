@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "KILL &CMD*"
@@ -3148,6 +3148,8 @@ Private Sub Form_Load()
     ' ONE_MILLISECOND_Timer.Enabled = True
 
     TIMER_GO_COMPUTER_START = 4
+    
+    If InStr(Command$, "MAXIMUM") > 0 Then Me.WindowState = vbNormal
 
 End Sub
 
