@@ -375,18 +375,101 @@ CHECK_ESC_KEY:
 		{
 			SEND !{ENTER}
 			VAR_DONE_01=TRUE
+			VAR_DONE_ESCAPE_KEY=TRUE
 		}
 		if isWindowFullScreen(%HWND_10%)<>0 
 		IF VAR_DONE_01=FALSE
 		{
 			SEND !{D}
+			VAR_DONE_ESCAPE_KEY=TRUE
 		}
 	}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	; WINAMP VISUALIZATION CONTROL KEY WINDOW
 	; ---------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	VB_KEEP_RUNNER_VAR=FALSE
+	GetKeyState, state, Shift
+	if state = D
+	IfWinExist, VB KEEP RUNNER
+	{
+		WinActivate, VB KEEP RUNNER
+		SoundBeep , 1000 , 100
+		SoundBeep , 2000 , 100
+		SoundBeep , 3000 , 100
+		VAR_DONE_ESCAPE_KEY=TRUE
+		VB_KEEP_RUNNER_VAR=TRUE
+	}
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	SetTitleMatchMode 2
+	GetKeyState, state, Shift
+	if state = D
+	IfWinExist, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+	{
+		WinActivate, EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version
+		SoundBeep , 1000 , 100
+		SoundBeep , 2000 , 100
+		SoundBeep , 3000 , 100
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
 	
+	IF VB_KEEP_RUNNER_VAR=TRUE
+	{
+		VB_KEEP_RUNNER_VAR_2=FALSE
+		LOOP 
+		{
+			X_COUNTER+=1
+			WinGet, HWND_10, ID, VB KEEP RUNNER
+			WinGet style, MinMax, ahk_id %HWND_10%
+			; IF style=0
+			; MSGBOX % style
+
+			IF style=0
+			{
+				VB_KEEP_RUNNER_VAR_2=TRUE
+				BREAK
+			}
+			SLEEP 100
+			IF X_COUNTER>100
+				BREAK
+		}
+	}
+	IfWinNotExist VB KEEP RUNNER
+	{
+		VAR_DONE_ESCAPE_KEY=TRUE
+		SoundBeep , 3000 , 100
+		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+		IfExist, %FN_VAR%
+			{
+				Run, %FN_VAR% MAXIMUM
+			}
+	}	
+	
+	IF VB_KEEP_RUNNER_VAR_2=TRUE
+	{
+		VAR_DONE_ESCAPE_KEY=TRUE
+		WinGet, HWND_10, ID, VB KEEP RUNNER
+		WinGet, UniquePID, PID,  ahk_id %HWND_10%
+		IF UniquePID>0
+		{
+			SOUNDBEEP 1000,100
+			Process, Close, %UniquePID% 
+		}
+
+		IfWinNotExist VB KEEP RUNNER
+		{
+			SoundBeep , 3000 , 100
+			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+			IfExist, %FN_VAR%
+				{
+					Run, %FN_VAR% MAXIMUM
+				}
+		}	
+	}
 	
 	; ---------------------------------------------------------------
 	; # Win (Windows logo key) 
