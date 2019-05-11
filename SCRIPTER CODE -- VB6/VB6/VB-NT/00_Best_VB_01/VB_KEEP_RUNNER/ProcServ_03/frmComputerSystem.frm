@@ -16,6 +16,7 @@ Begin VB.Form frmComputerSystem
       Left            =   0
       TabIndex        =   0
       Top             =   0
+      Visible         =   0   'False
       Width           =   11055
       _ExtentX        =   19495
       _ExtentY        =   13780
@@ -51,7 +52,7 @@ Public Sub ShowForm()
         Exit Sub
     End If
     
-        ' -------------------------------------------------------------
+    ' -------------------------------------------------------------
     ' CAN'T STOP THIS FORM FROM SHOW UP
     ' WHEN EVENT KICK OFF LINE ABOVE AND RETURN HERE
     ' SO CODE EVENT ABOVE MOVE SO SMALL AND OFF ABOVE TOP OF SCREEN
@@ -66,323 +67,324 @@ Public Sub ShowForm()
     End If
     On Error GoTo 0
     If VAR_FORM1_EXIST = True Then
-        Me.Hide
+        ' Me.Hide
+        Me.Visible = False
         MDIProcServ.Hide
     End If
     
     For Each Object In Enumerator
-      With msfgComputerSystem
-      
-        .ColWidth(0) = 3000
-        .ColWidth(1) = 2000
-      
-        .Row = 1
-        .Col = 0
-        .Text = "AdminPasswordStatus"
-        .Col = 1
-        .Text = Object.AdminPasswordStatus
-        
-        .Row = 2
-        .Col = 0
-        .Text = "AutomaticResetBootOption"
-        .Col = 1
-        .Text = Object.AutomaticResetBootOption
-        
-        .Row = 3
-        .Col = 0
-        .Text = "AutomaticResetCapability"
-        .Col = 1
-        .Text = Object.AutomaticResetCapability
-        
-'        .Row = 4
+'      With msfgComputerSystem
+'
+'        .ColWidth(0) = 3000
+'        .ColWidth(1) = 2000
+'
+'        .Row = 1
 '        .Col = 0
-'        .Text = "BootOptionOnLimit"
+'        .Text = "AdminPasswordStatus"
 '        .Col = 1
-'        .Text = Object.BootOptionOnLimit
-        
-'        .Row = 5
+'        .Text = Object.AdminPasswordStatus
+'
+'        .Row = 2
 '        .Col = 0
-'        .Text = "BootOptionOnWatchDog"
+'        .Text = "AutomaticResetBootOption"
 '        .Col = 1
-'        .Text = Object.BootOptionOnWatchDog
-        
-        .Row = 6
-        .Col = 0
-        .Text = "BootROMSupported"
-        .Col = 1
-        .Text = Object.BootROMSupported
-        
-        .Row = 7
-        .Col = 0
-        .Text = "BootupState"
-        .Col = 1
-        .Text = Object.BootupState
-        
-        .Row = 8
-        .Col = 0
-        .Text = "Caption"
-        .Col = 1
-        .Text = Object.Caption
-        
-        .Row = 9
-        .Col = 0
-        .Text = "ChassisBootupState"
-        .Col = 1
-        .Text = Object.ChassisBootupState
-        
-        .Row = 10
-        .Col = 0
-        .Text = "CreationClassName"
-        .Col = 1
-        .Text = Object.CreationClassName
-        
-        .Row = 11
-        .Col = 0
-        .Text = "CurrentTimeZone"
-        .Col = 1
-        .Text = Object.CurrentTimeZone
-        
-        .Row = 12
-        .Col = 0
-        .Text = "DaylightInEffect"
-        .Col = 1
-        .Text = Object.DaylightInEffect
-        
-        .Row = 13
-        .Col = 0
-        .Text = "Description"
-        .Col = 1
-        .Text = Object.Description
-        
-        .Row = 14
-        .Col = 0
-        .Text = "Domain"
-        .Col = 1
-        .Text = Object.Domain
-        
-        .Row = 15
-        .Col = 0
-        .Text = "DomainRole"
-        .Col = 1
-        .Text = Object.DomainRole
-        
-        .Row = 16
-        .Col = 0
-        .Text = "FrontPanelResetStatus"
-        .Col = 1
-        .Text = Object.FrontPanelResetStatus
-        
-        .Row = 17
-        .Col = 0
-        .Text = "InfraredSupported"
-        .Col = 1
-        .Text = Object.InfraredSupported
-        
-'        .Row = 18
+'        .Text = Object.AutomaticResetBootOption
+'
+'        .Row = 3
 '        .Col = 0
-'        .Text = "InitialLoadInfo"
+'        .Text = "AutomaticResetCapability"
 '        .Col = 1
-'        .Text = Object.InitialLoadInfo
-        
-'        .Row = 19
+'        .Text = Object.AutomaticResetCapability
+'
+''        .Row = 4
+''        .Col = 0
+''        .Text = "BootOptionOnLimit"
+''        .Col = 1
+''        .Text = Object.BootOptionOnLimit
+'
+''        .Row = 5
+''        .Col = 0
+''        .Text = "BootOptionOnWatchDog"
+''        .Col = 1
+''        .Text = Object.BootOptionOnWatchDog
+'
+'        .Row = 6
 '        .Col = 0
-'        .Text = "InstallDate"
+'        .Text = "BootROMSupported"
 '        .Col = 1
-'        .Text = Object.InstallDate
-        
-        .Row = 20
-        .Col = 0
-        .Text = "KeyboardPasswordStatus"
-        .Col = 1
-        .Text = Object.KeyboardPasswordStatus
-        
-'        .Row = 21
+'        .Text = Object.BootROMSupported
+'
+'        .Row = 7
 '        .Col = 0
-'        .Text = "LastLoadInfo"
+'        .Text = "BootupState"
 '        .Col = 1
-'        .Text = Object.LastLoadInfo
-        
-        .Row = 22
-        .Col = 0
-        .Text = "Manufacturer"
-        .Col = 1
-        .Text = Object.Manufacturer
-        
-        .Row = 23
-        .Col = 0
-        .Text = "Model"
-        .Col = 1
-        .Text = Object.Model
-        
-        .Row = 24
-        .Col = 0
-        .Text = "Name"
-        .Col = 1
-        .Text = Object.Name
-        
-'        .Row = 25
+'        .Text = Object.BootupState
+'
+'        .Row = 8
 '        .Col = 0
-'        .Text = "NameFormat"
+'        .Text = "Caption"
 '        .Col = 1
-'        .Text = Object.NameFormat
-        
-'        .Row = 26
+'        .Text = Object.Caption
+'
+'        .Row = 9
 '        .Col = 0
-'        .Text = "NetworkModelServerEnabled"
+'        .Text = "ChassisBootupState"
 '        .Col = 1
-'        .Text = Object.NetworkModelServerEnabled
-        
-        .Row = 27
-        .Col = 0
-        .Text = "NumberOfProcessors"
-        .Col = 1
-        .Text = Object.NumberOfProcessors
-        
-'        .Row = 28
+'        .Text = Object.ChassisBootupState
+'
+'        .Row = 10
 '        .Col = 0
-'        .Text = "OEMLogoBitMap"
+'        .Text = "CreationClassName"
 '        .Col = 1
-'        .Text = Object.OEMLogoBitMap
-        
-'        .Row = 29
+'        .Text = Object.CreationClassName
+'
+'        .Row = 11
 '        .Col = 0
-'        .Text = "OEMStringArray"
+'        .Text = "CurrentTimeZone"
 '        .Col = 1
-'        .Text = Object.OEMStringArray
-        
-        .Row = 30
-        .Col = 0
-        .Text = "PauseAfterReset"
-        .Col = 1
-        .Text = Object.PauseAfterReset
-        
-'        .Row = 31
+'        .Text = Object.CurrentTimeZone
+'
+'        .Row = 12
 '        .Col = 0
-'        .Text = "PowerManagementCapabilities"
+'        .Text = "DaylightInEffect"
 '        .Col = 1
-'        .Text = Object.PowerManagementCapabilities
-        
-'        .Row = 32
+'        .Text = Object.DaylightInEffect
+'
+'        .Row = 13
 '        .Col = 0
-'        .Text = "PowerManagementSupported"
+'        .Text = "Description"
 '        .Col = 1
-'        .Text = Object.PowerManagementSupported
-        
-        .Row = 33
-        .Col = 0
-        .Text = "PowerOnPasswordStatus"
-        .Col = 1
-        .Text = Object.PowerOnPasswordStatus
-        
-        .Row = 34
-        .Col = 0
-        .Text = "PowerState"
-        .Col = 1
-        .Text = Object.PowerState
-        
-        .Row = 35
-        .Col = 0
-        .Text = "PowerSupplyState"
-        .Col = 1
-        .Text = Object.PowerSupplyState
-        
-'        .Row = 36
+'        .Text = Object.Description
+'
+'        .Row = 14
 '        .Col = 0
-'        .Text = "PrimaryOwnerContact"
+'        .Text = "Domain"
 '        .Col = 1
-'        .Text = Object.PrimaryOwnerContact
-        
-        .Row = 37
-        .Col = 0
-        .Text = "PrimaryOwnerName"
-        .Col = 1
-        .Text = Object.PrimaryOwnerName
-        
-        .Row = 38
-        .Col = 0
-        .Text = "ResetCapability"
-        .Col = 1
-        .Text = Object.ResetCapability
-        
-        .Row = 39
-        .Col = 0
-        .Text = "ResetCount"
-        .Col = 1
-        .Text = Object.ResetCount
-        
-        .Row = 40
-        .Col = 0
-        .Text = "ResetLimit"
-        .Col = 1
-        .Text = Object.ResetLimit
-        
-'        .Row = 41
+'        .Text = Object.Domain
+'
+'        .Row = 15
 '        .Col = 0
-'        .Text = "Roles"
+'        .Text = "DomainRole"
 '        .Col = 1
-'        .Text = Object.Roles
-        
-        .Row = 42
-        .Col = 0
-        .Text = "Status"
-        .Col = 1
-        .Text = Object.Status
-        
-'        .Row = 43
+'        .Text = Object.DomainRole
+'
+'        .Row = 16
 '        .Col = 0
-'        .Text = "SupportContactDescription"
+'        .Text = "FrontPanelResetStatus"
 '        .Col = 1
-'        .Text = Object.SupportContactDescription
-
-'        .Row = 44
+'        .Text = Object.FrontPanelResetStatus
+'
+'        .Row = 17
 '        .Col = 0
-'        .Text = "SystemStartupDelay"
+'        .Text = "InfraredSupported"
 '        .Col = 1
-'        .Text = Object.SystemStartupDelay
-        
-'        .Row = 45
+'        .Text = Object.InfraredSupported
+'
+''        .Row = 18
+''        .Col = 0
+''        .Text = "InitialLoadInfo"
+''        .Col = 1
+''        .Text = Object.InitialLoadInfo
+'
+''        .Row = 19
+''        .Col = 0
+''        .Text = "InstallDate"
+''        .Col = 1
+''        .Text = Object.InstallDate
+'
+'        .Row = 20
 '        .Col = 0
-'        .Text = "SystemStartupOptions"
+'        .Text = "KeyboardPasswordStatus"
 '        .Col = 1
-'        .Text = Object.SystemStartupOptions
-        
-'        .Row = 46
+'        .Text = Object.KeyboardPasswordStatus
+'
+''        .Row = 21
+''        .Col = 0
+''        .Text = "LastLoadInfo"
+''        .Col = 1
+''        .Text = Object.LastLoadInfo
+'
+'        .Row = 22
 '        .Col = 0
-'        .Text = "SystemStartupSettings"
+'        .Text = "Manufacturer"
 '        .Col = 1
-'        .Text = Object.SystemStartupSettings
-        
-        .Row = 47
-        .Col = 0
-        .Text = "SystemType"
-        .Col = 1
-        .Text = Object.SystemType
-        
-        .Row = 48
-        .Col = 0
-        .Text = "ThermalState"
-        .Col = 1
-        .Text = Object.ThermalState
-        
-        .Row = 49
-        .Col = 0
-        .Text = "TotalPhysicalMemory"
-        .Col = 1
-        .Text = Object.TotalPhysicalMemory
-        
-        .Row = 50
-        .Col = 0
-        .Text = "UserName"
-        .Col = 1
-        .Text = Object.UserName
-        
-        .Row = 51
-        .Col = 0
-        .Text = "WakeUpType"
-        .Col = 1
-        .Text = Object.WakeUpType
-        
-      End With
+'        .Text = Object.Manufacturer
+'
+'        .Row = 23
+'        .Col = 0
+'        .Text = "Model"
+'        .Col = 1
+'        .Text = Object.Model
+'
+'        .Row = 24
+'        .Col = 0
+'        .Text = "Name"
+'        .Col = 1
+'        .Text = Object.Name
+'
+''        .Row = 25
+''        .Col = 0
+''        .Text = "NameFormat"
+''        .Col = 1
+''        .Text = Object.NameFormat
+'
+''        .Row = 26
+''        .Col = 0
+''        .Text = "NetworkModelServerEnabled"
+''        .Col = 1
+''        .Text = Object.NetworkModelServerEnabled
+'
+'        .Row = 27
+'        .Col = 0
+'        .Text = "NumberOfProcessors"
+'        .Col = 1
+'        .Text = Object.NumberOfProcessors
+'
+''        .Row = 28
+''        .Col = 0
+''        .Text = "OEMLogoBitMap"
+''        .Col = 1
+''        .Text = Object.OEMLogoBitMap
+'
+''        .Row = 29
+''        .Col = 0
+''        .Text = "OEMStringArray"
+''        .Col = 1
+''        .Text = Object.OEMStringArray
+'
+'        .Row = 30
+'        .Col = 0
+'        .Text = "PauseAfterReset"
+'        .Col = 1
+'        .Text = Object.PauseAfterReset
+'
+''        .Row = 31
+''        .Col = 0
+''        .Text = "PowerManagementCapabilities"
+''        .Col = 1
+''        .Text = Object.PowerManagementCapabilities
+'
+''        .Row = 32
+''        .Col = 0
+''        .Text = "PowerManagementSupported"
+''        .Col = 1
+''        .Text = Object.PowerManagementSupported
+'
+'        .Row = 33
+'        .Col = 0
+'        .Text = "PowerOnPasswordStatus"
+'        .Col = 1
+'        .Text = Object.PowerOnPasswordStatus
+'
+'        .Row = 34
+'        .Col = 0
+'        .Text = "PowerState"
+'        .Col = 1
+'        .Text = Object.PowerState
+'
+'        .Row = 35
+'        .Col = 0
+'        .Text = "PowerSupplyState"
+'        .Col = 1
+'        .Text = Object.PowerSupplyState
+'
+''        .Row = 36
+''        .Col = 0
+''        .Text = "PrimaryOwnerContact"
+''        .Col = 1
+''        .Text = Object.PrimaryOwnerContact
+'
+'        .Row = 37
+'        .Col = 0
+'        .Text = "PrimaryOwnerName"
+'        .Col = 1
+'        .Text = Object.PrimaryOwnerName
+'
+'        .Row = 38
+'        .Col = 0
+'        .Text = "ResetCapability"
+'        .Col = 1
+'        .Text = Object.ResetCapability
+'
+'        .Row = 39
+'        .Col = 0
+'        .Text = "ResetCount"
+'        .Col = 1
+'        .Text = Object.ResetCount
+'
+'        .Row = 40
+'        .Col = 0
+'        .Text = "ResetLimit"
+'        .Col = 1
+'        .Text = Object.ResetLimit
+'
+''        .Row = 41
+''        .Col = 0
+''        .Text = "Roles"
+''        .Col = 1
+''        .Text = Object.Roles
+'
+'        .Row = 42
+'        .Col = 0
+'        .Text = "Status"
+'        .Col = 1
+'        .Text = Object.Status
+'
+''        .Row = 43
+''        .Col = 0
+''        .Text = "SupportContactDescription"
+''        .Col = 1
+''        .Text = Object.SupportContactDescription
+'
+''        .Row = 44
+''        .Col = 0
+''        .Text = "SystemStartupDelay"
+''        .Col = 1
+''        .Text = Object.SystemStartupDelay
+'
+''        .Row = 45
+''        .Col = 0
+''        .Text = "SystemStartupOptions"
+''        .Col = 1
+''        .Text = Object.SystemStartupOptions
+'
+''        .Row = 46
+''        .Col = 0
+''        .Text = "SystemStartupSettings"
+''        .Col = 1
+''        .Text = Object.SystemStartupSettings
+'
+'        .Row = 47
+'        .Col = 0
+'        .Text = "SystemType"
+'        .Col = 1
+'        .Text = Object.SystemType
+'
+'        .Row = 48
+'        .Col = 0
+'        .Text = "ThermalState"
+'        .Col = 1
+'        .Text = Object.ThermalState
+'
+'        .Row = 49
+'        .Col = 0
+'        .Text = "TotalPhysicalMemory"
+'        .Col = 1
+'        .Text = Object.TotalPhysicalMemory
+'
+'        .Row = 50
+'        .Col = 0
+'        .Text = "UserName"
+'        .Col = 1
+'        .Text = Object.UserName
+'
+'        .Row = 51
+'        .Col = 0
+'        .Text = "WakeUpType"
+'        .Col = 1
+'        .Text = Object.WakeUpType
+'
+'      End With
       
       
 '              For R = 1 To 43
@@ -393,19 +395,20 @@ Public Sub ShowForm()
 '        Item_2.SubItems(1) = Object.Manufacturer + " _ " + Object.Model
 '        Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "TotalPhysicalMemory")
 '        Item_2.SubItems(1) = Format(Object.TotalPhysicalMemory / 1024 ^ 3) + " Gigabyte"
+        
         Manufacturer_and_Model = Object.Manufacturer + " _ " + Object.Model
         TotalPhysicalMemory = Format(Object.TotalPhysicalMemory / 1024 ^ 3) + " Gigabyte"
         TotalPhysicalMemory = Object.TotalPhysicalMemory
     Next
     
-    Me.Show
+    ' Me.Show
 
 End Sub
 
 Private Sub Form_Load()
 
-    frmComputerSystem.height = MDIProcServ.height - 200
-    frmComputerSystem.width = MDIProcServ.width - 275
+'    frmComputerSystem.height = MDIProcServ.height - 200
+'    frmComputerSystem.width = MDIProcServ.width - 275
     On Error Resume Next
         If Form1.VAR_FORM1_EXIST = True Then
             If Err.Number = 0 Then VAR_FORM1_EXIST = Form1.VAR_FORM1_EXIST
@@ -413,10 +416,16 @@ Private Sub Form_Load()
     On Error GoTo 0
     
     If VAR_FORM1_EXIST = True Then
+        Me.Hide
+        MDIProcServ.Hide
         MDIProcServ.height = 0
         MDIProcServ.width = 0
         MDIProcServ.Top = -1000
+        MDIProcServ.Hide
+        Me.Hide
+        Me.Visible = False
     End If
+    
 End Sub
 
 

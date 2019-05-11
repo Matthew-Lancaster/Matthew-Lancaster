@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmProcessor 
    Caption         =   "Processor"
    ClientHeight    =   7908
@@ -10,6 +10,7 @@ Begin VB.Form frmProcessor
    MDIChild        =   -1  'True
    ScaleHeight     =   7908
    ScaleWidth      =   11172
+   Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin MSComctlLib.ListView lvwProcessor 
       Height          =   7935
@@ -290,51 +291,51 @@ Public Sub ShowForm()
     For Each Object In Enumerator
         Set Item = lvwProcessor.ListItems.Add(, Object.DeviceID, Object.DeviceID)
 
-        With Item
-            .SubItems(1) = Object.AddressWidth
-            .SubItems(2) = Object.Architecture
-            .SubItems(3) = Object.Availability
-            .SubItems(4) = Object.Caption
-'            .SubItems(5) = Object.ConfigManagerErrorCode
-'            .SubItems(6) = Object.ConfigManagerUserConfig
-            .SubItems(7) = Object.CpuStatus
-            .SubItems(8) = Object.CreationClassName
-            .SubItems(9) = Object.CurrentClockSpeed
-            .SubItems(10) = Object.CurrentVoltage
-            .SubItems(11) = Object.DataWidth
-            .SubItems(12) = Object.Description
-'            .SubItems(13) = Object.ErrorCleared
-'            .SubItems(14) = Object.ErrorDescription
-            .SubItems(15) = Object.ExtClock
-            .SubItems(16) = Object.Family
-'            .SubItems(17) = Object.InstallDate
-            .SubItems(18) = Object.L2CacheSize
-'            .SubItems(19) = Object.L2CacheSpeed
-'            .SubItems(20) = Object.LastErrorCode
-            .SubItems(21) = Object.Level
-            .SubItems(22) = Object.LoadPercentage
-            .SubItems(23) = Object.Manufacturer
-            .SubItems(24) = Object.MaxClockSpeed
-            .SubItems(25) = Object.Name
-'            .SubItems(26) = Object.OtherFamilyDescription
-'            .SubItems(27) = Object.PNPDeviceID
-'            .SubItems(28) = Object.PowerManagementCapabilities
-'            .SubItems(29) = Object.PowerManagementSuported
-            .SubItems(30) = Object.ProcessorID
-            .SubItems(31) = Object.ProcessorType
-'            .SubItems(32) = Object.Revision
-            .SubItems(33) = Object.Role
-            .SubItems(34) = Object.SocketDesignation
-            .SubItems(35) = Object.Status
-            .SubItems(36) = Object.StatusInfo
-'            .SubItems(37) = Object.Stepping
-            .SubItems(38) = Object.SystemCreationClassName
-            .SubItems(39) = Object.SystemName
-'            .SubItems(40) = Object.UniqueID
-            .SubItems(41) = Object.UpgradeMethod
-            .SubItems(42) = Object.Version
-'            .SubItems(43) = Object.VoltageCaps
-        End With
+'        With Item
+'            .SubItems(1) = Object.AddressWidth
+'            .SubItems(2) = Object.Architecture
+'            .SubItems(3) = Object.Availability
+'            .SubItems(4) = Object.Caption
+''            .SubItems(5) = Object.ConfigManagerErrorCode
+''            .SubItems(6) = Object.ConfigManagerUserConfig
+'            .SubItems(7) = Object.CpuStatus
+'            .SubItems(8) = Object.CreationClassName
+'            .SubItems(9) = Object.CurrentClockSpeed
+'            .SubItems(10) = Object.CurrentVoltage
+'            .SubItems(11) = Object.DataWidth
+'            .SubItems(12) = Object.Description
+''            .SubItems(13) = Object.ErrorCleared
+''            .SubItems(14) = Object.ErrorDescription
+'            .SubItems(15) = Object.ExtClock
+'            .SubItems(16) = Object.Family
+''            .SubItems(17) = Object.InstallDate
+'            .SubItems(18) = Object.L2CacheSize
+''            .SubItems(19) = Object.L2CacheSpeed
+''            .SubItems(20) = Object.LastErrorCode
+'            .SubItems(21) = Object.Level
+'            .SubItems(22) = Object.LoadPercentage
+'            .SubItems(23) = Object.Manufacturer
+'            .SubItems(24) = Object.MaxClockSpeed
+'            .SubItems(25) = Object.Name
+''            .SubItems(26) = Object.OtherFamilyDescription
+''            .SubItems(27) = Object.PNPDeviceID
+''            .SubItems(28) = Object.PowerManagementCapabilities
+''            .SubItems(29) = Object.PowerManagementSuported
+'            .SubItems(30) = Object.ProcessorID
+'            .SubItems(31) = Object.ProcessorType
+''            .SubItems(32) = Object.Revision
+'            .SubItems(33) = Object.Role
+'            .SubItems(34) = Object.SocketDesignation
+'            .SubItems(35) = Object.Status
+'            .SubItems(36) = Object.StatusInfo
+''            .SubItems(37) = Object.Stepping
+'            .SubItems(38) = Object.SystemCreationClassName
+'            .SubItems(39) = Object.SystemName
+''            .SubItems(40) = Object.UniqueID
+'            .SubItems(41) = Object.UpgradeMethod
+'            .SubItems(42) = Object.Version
+''            .SubItems(43) = Object.VoltageCaps
+'        End With
     
 '        For R = 1 To 43
 '            Debug.Print Str(R) + " -- " + Item.SubItems(R)
@@ -403,9 +404,9 @@ Public Sub ShowForm()
 End Sub
 
 Private Sub Form_Load()
-
-    frmProcessor.height = MDIProcServ.height - 200
-    frmProcessor.width = MDIProcServ.width - 275
+'
+'    frmProcessor.height = MDIProcServ.height - 200
+'    frmProcessor.width = MDIProcServ.width - 275
 
     On Error Resume Next
         If Form1.VAR_FORM1_EXIST = True Then
@@ -414,9 +415,12 @@ Private Sub Form_Load()
     On Error GoTo 0
     
     If VAR_FORM1_EXIST = True Then
+        MDIProcServ.Hide
         MDIProcServ.height = 0
         MDIProcServ.width = 0
         MDIProcServ.Top = -1000
+        MDIProcServ.Hide
+        Me.Hide
     End If
 
 End Sub
