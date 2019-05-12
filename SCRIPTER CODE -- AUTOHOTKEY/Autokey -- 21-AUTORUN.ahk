@@ -596,11 +596,11 @@ IF SET_GO_1=TRUE
 
 ; PAUSE
 
-SKIP_CODE=FALSE
+SET_GO=TRUE
 IF (A_ComputerName = "3-LINDA-PC") 
-	SKIP_CODE=TRUE
+	SET_GO=FALSE
 
-IF SKIP_CODE=FALSE
+IF SET_GO=TRUE
 {
 	If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
 	{
@@ -613,13 +613,8 @@ IF SKIP_CODE=FALSE
 	}
 }
 
-SKIP_CODE_2=FALSE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SKIP_CODE_2=TRUE
-SKIP_CODE_2=FALSE
 
-IF SKIP_CODE=FALSE 
-IF SKIP_CODE_2=FALSE
+IF SET_GO=TRUE 
 {
 	If ProcessExist("URL Logger.exe", A_UserName)=0
 	{
@@ -633,15 +628,15 @@ IF SKIP_CODE_2=FALSE
 }
 
 
-SKIP_CODE=FALSE
+SET_GO=TRUE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SKIP_CODE=TRUE
+	SET_GO=FALSE
 IF (A_ComputerName = "2-ASUS-EEE") 
-	SKIP_CODE=TRUE
+	SET_GO=FALSE
 IF (A_ComputerName = "3-LINDA-PC") 
-	SKIP_CODE=TRUE
+	SET_GO=FALSE
 
-IF SKIP_CODE=FALSE
+IF SET_GO=TRUE
 {
 
 	Process, Exist, EliteSpy.exe
@@ -1104,13 +1099,13 @@ If ProcessExist("wweb32.exe", A_UserName)=0
 
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WordWeb
 	
-SKIP_CODE=FALSE
+SET_GO=FALSE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SKIP_CODE=TRUE
+	SET_GO=TRUE
 IF (A_ComputerName = "2-ASUS-EEE") 
-	SKIP_CODE=TRUE
+	SET_GO=TRUE
 IF (A_ComputerName = "3-LINDA-PC") 
-	SKIP_CODE=TRUE
+	SET_GO=TRUE
 
 
 SET_GO_1=0
@@ -1178,7 +1173,7 @@ If Not ErrorLevel
 	}
 }
 	
-IF SKIP_CODE=FALSE
+IF SET_GO=FALSE
 {
 	PID=1
 	Process, Exist, pushbullet_client.exe
@@ -1195,7 +1190,7 @@ IF SKIP_CODE=FALSE
 			}
 		}
 
-	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Pushbullet
+;	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Pushbullet
 
 		
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -1214,7 +1209,7 @@ IF SKIP_CODE=FALSE
 				}
 			}
 		}
-	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, NokiaSuite.exe
+; 	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, NokiaSuite.exe
 
 
 
@@ -1245,9 +1240,9 @@ IF SKIP_CODE=FALSE
 				}
 			}
 		}
+	; RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, BoxSync
 
-	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, BoxSync
-		
+	
 	
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
 	; --------------------------
@@ -1289,9 +1284,6 @@ IF SKIP_CODE=FALSE
 			}
 	}
 
-	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WebStorage
-	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, WebStorage
-		
 
 	IF SET_GO_1=1001
 	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
@@ -1307,7 +1299,6 @@ IF SKIP_CODE=FALSE
 			}
 		}
 	}
-	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, GoogleDriveSync
 	
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
 	; --------------------------
@@ -1325,9 +1316,8 @@ IF SKIP_CODE=FALSE
 				}
 			}
 		}
-	RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, OneDrive
 
-	IF SET_GO_1=1
+	IF SET_GO_1=1001
 	{
 	Process, Exist, Dropbox.exe
 	If Not ErrorLevel
@@ -1340,9 +1330,19 @@ IF SKIP_CODE=FALSE
 			}
 		}
 	}
-	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, Dropbox
 }
 
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Pushbullet
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, NokiaSuite.exe
+RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, BoxSync
+
+RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WebStorage
+RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, WebStorage
+
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, GoogleDriveSync
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, GoogleDriveSync
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, OneDrive
+RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, Dropbox
 
 
 Process, Exist, ViceVersa.exe
