@@ -232,6 +232,26 @@ OLD_STATE_XYPOSCOUNTER=0
 
 GLOBAL OSVER_N_VAR
 
+
+	FN_Array_1 := []
+	ArrayCount := 0
+
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]=Facebook - Mozilla Firefox
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]=Facebook - Google Chrome
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]=Deborah Hall -
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]=Dibs Dabs -
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]=She - YouTube - Google Chrome
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]=Follow the Sun - YouTube - Google Chrome
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]=Hallelujah - YouTube - Google Chrome
+
+
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
 OSVER_N_VAR:=a_osversion
@@ -300,6 +320,9 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	; -------------------------------------------------------------------
 
 	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5,OFF
+
+	IF A_ComputerName<>4-ASUS-GL5222VW
+		RETURN
 	
 	If (A_TimeIdle < 10000)
 	{
@@ -311,38 +334,19 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 		XR_3=Chrome_WidgetWin_1
 	IfWinExist, ahk_class MozillaWindowClass
 		XR_3=MozillaWindowClass
+	
 
 	XR_2=0
 	XR_4=
-	IfWinExist, Facebook - Google Chrome
+	
+	Loop % ArrayCount
 	{
-		XR_2=1
-		XR_4=Facebook - Google Chrome
-	}
-	IfWinExist, Deborah Hall -
-	{
-		XR_2=1
-		XR_4=Deborah Hall -
-	}
-	IfWinExist, Facebook - Mozilla Firefox
-	{
-		XR_2=1
-		XR_4=Facebook - Mozilla Firefox
-	}
-	IfWinExist, She - YouTube - Google Chrome
-	{
-		XR_2=1
-		XR_4=She - YouTube - Google Chrome
-	}
-	IfWinExist, Follow the Sun - YouTube - Google Chrome
-	{
-		XR_2=1
-		XR_4=Follow the Sun - YouTube - Google Chrome
-	}
-	IfWinExist, Hallelujah - YouTube - Google Chrome
-	{
-		XR_2=1
-		XR_4=Hallelujah - YouTube - Google Chrome
+		Element := FN_Array_1[A_Index]
+		IfWinExist, %Element%
+		{
+			XR_2=1
+			XR_4=%Element%
+		}
 	}
 	
 	IF XR_2=0
@@ -380,19 +384,26 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 		XR_3=MozillaWindowClass
 	}
 
-	IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
-	XR_2=1
-	IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
-	XR_2=1
-	IF INSTR(TITLE_VAR,"Deborah Hall -")
-	XR_2=1
-	IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
-	XR_2=1
-	IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
-	XR_2=1
-	IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
-	XR_2=1
 
+	Loop % ArrayCount
+	{
+		Element := FN_Array_1[A_Index]
+		IF INSTR(TITLE_VAR,%Element%)
+			XR_2=1
+	}
+
+	; IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
+	; XR_2=1
+	; IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
+	; XR_2=1
+	; IF INSTR(TITLE_VAR,"Deborah Hall -")
+	; XR_2=1
+	; IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
+	; XR_2=1
+	; IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
+	; XR_2=1
+	; IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
+	; XR_2=1
 
 	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
 	LOOP_COUNTER=0
@@ -455,6 +466,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; ---------------------------------------------------------------
 
 
+	IF A_ComputerName<>4-ASUS-GL5222VW
+		RETURN
+
+	
 	IF DEBBY_HALL_PAUSE=TRUE
 		RETURN
 	
@@ -524,18 +539,26 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		}
 		
 		XR_2=
-		IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
-			XR_2=1
-		IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
-			XR_2=1
-		IF INSTR(TITLE_VAR,"Deborah Hall -")
-			XR_2=1
-		IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
-			XR_2=1
-		IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
-			XR_2=1
-		IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
-			XR_2=1
+		Loop % ArrayCount
+		{
+			Element := FN_Array_1[A_Index]
+			IF INSTR(TITLE_VAR,%Element%)
+				XR_2=1
+		}
+
+		; XR_2=
+		; IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
+			; XR_2=1
+		; IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
+			; XR_2=1
+		; IF INSTR(TITLE_VAR,"Deborah Hall -")
+			; XR_2=1
+		; IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
+			; XR_2=1
+		; IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
+			; XR_2=1
+		; IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
+			; XR_2=1
 			
 		IF (!XR_1 or !XR_2)
 		{
@@ -567,35 +590,13 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		
 		XR_2=0
 		XR_4=
-		IfWinExist, Facebook - Google Chrome
+		Loop % ArrayCount
 		{
-			XR_2=1
-			XR_4=Facebook - Google Chrome
-		}
-		IfWinExist, Deborah Hall -
-		{
-			XR_2=1
-			XR_4=Deborah Hall -
-		}
-		IfWinExist, Facebook - Mozilla Firefox
-		{
-			XR_2=1
-			XR_4=Facebook - Mozilla Firefox
-		}
-		IfWinExist, She - YouTube - Google Chrome
-		{
-			XR_2=1
-			XR_4=She - YouTube - Google Chrome
-		}
-		IfWinExist, Follow the Sun - YouTube - Google Chrome
-		{
-			XR_2=1
-			XR_4=Follow the Sun - YouTube - Google Chrome
-		}
-		IfWinExist, Hallelujah - YouTube - Google Chrome
-		{
-			XR_2=1
-			XR_4=Hallelujah - YouTube - Google Chrome
+			Element := FN_Array_1[A_Index]
+			; MSGBOX %Element%
+			IfWinExist, %Element%
+				XR_2=1
+				XR_4=%Element%
 		}
 		
 		IF XR_2=0
@@ -634,18 +635,13 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		XR_3=MozillaWindowClass
 	}
 	
-	IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"Deborah Hall -")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
-		XR_2=1
+	XR_2=
+	Loop % ArrayCount
+	{
+		Element := FN_Array_1[A_Index]
+		IF INSTR(TITLE_VAR,%Element%)
+			XR_2=1
+	}
 
 	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
 	LOOP_COUNTER=0
@@ -664,22 +660,20 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				
 				WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
 				SET_GO=FALSE
-				IF INSTR(CurrentWindowTitle,"Facebook - Google Chrome")
-					SET_GO=TRUE
-				IF INSTR(CurrentWindowTitle,"Deborah Hall -")
-					SET_GO=TRUE
+				Loop % ArrayCount
+				{
+					Element := FN_Array_1[A_Index]
+					IF INSTR(CurrentWindowTitle,%Element%)
+						SET_GO=TRUE
+				}
 					
 				WinGetTITLE, CurrentWindowTitle, A
-				IF INSTR(CurrentWindowTitle,"Facebook - Google Chrome")
-					SET_GO=TRUE
-				IF INSTR(CurrentWindowTitle,"Deborah Hall -")
-					SET_GO=TRUE
-				IF INSTR(CurrentWindowTitle,"She - YouTube - Google Chrome")
-					SET_GO=TRUE
-				IF INSTR(CurrentWindowTitle,"Follow the Sun - YouTube - Google Chrome")
-					SET_GO=TRUE
-				IF INSTR(CurrentWindowTitle,"Hallelujah - YouTube - Google Chrome")
-					SET_GO=TRUE
+				Loop % ArrayCount
+				{
+					Element := FN_Array_1[A_Index]
+					IF INSTR(CurrentWindowTitle,%Element%)
+						SET_GO=TRUE
+				}
 				
 				SET_GO_YOU=FALSE
 				IF INSTR(CurrentWindowTitle,"YouTube - Google Chrome")
