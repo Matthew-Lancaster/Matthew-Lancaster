@@ -395,8 +395,8 @@ IF (A_ComputerName="5-ASUS-P2520LA")
 	ALLOW_DIMMER := "False"
 ;IF (A_ComputerName="4-ASUS-GL522VW")
 	;ALLOW_DIMMER := "False"
-IF (A_ComputerName="8-MSI-GP62M-7RD")
-	ALLOW_DIMMER := "False"
+;IF (A_ComputerName="8-MSI-GP62M-7RD")
+;	ALLOW_DIMMER := "False"
 ;IF (A_ComputerName="7-ASUS-GL522VW")
 ;	ALLOW_DIMMER := "False"
 
@@ -660,8 +660,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 			POWER_SCREEN_SAVE_OFF := "True"
 		
 		DIMMER_ONLY_NOT_BLANK := "False"
-		IF (A_ComputerName="8-MSI-GP62M-7RD")
-			DIMMER_ONLY_NOT_BLANK := "True"
+		;IF (A_ComputerName="8-MSI-GP62M-7RD")
+		;	DIMMER_ONLY_NOT_BLANK := "True"
 	
 		IF (IN_DAY="FALSE" or SET_GO="TRUE")
 			IF (ALLOW_DIMMER="True")
