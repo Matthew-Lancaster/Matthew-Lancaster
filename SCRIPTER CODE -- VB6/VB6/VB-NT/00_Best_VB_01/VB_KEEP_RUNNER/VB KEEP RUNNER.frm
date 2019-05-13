@@ -607,6 +607,7 @@ Begin VB.Form Form1
       Left            =   492
       TabIndex        =   140
       Top             =   9036
+      Visible         =   0   'False
       Width           =   11736
       _ExtentX        =   20680
       _ExtentY        =   3239
