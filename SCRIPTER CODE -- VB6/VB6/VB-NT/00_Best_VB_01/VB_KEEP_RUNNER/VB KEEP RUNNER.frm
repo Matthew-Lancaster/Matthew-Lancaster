@@ -663,10 +663,10 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H80000008&
       Height          =   276
-      Left            =   7248
+      Left            =   7272
       TabIndex        =   141
       ToolTipText     =   "HIIT ME SHOW NETWORK SYNC-ER"
-      Top             =   6408
+      Top             =   6420
       Width           =   1032
    End
    Begin VB.Label Label44 
@@ -687,7 +687,7 @@ Begin VB.Form Form1
       Height          =   276
       Left            =   6276
       TabIndex        =   139
-      Top             =   6408
+      Top             =   6420
       Width           =   972
    End
    Begin VB.Label Label_VB_MODIFIED_TIME 
@@ -709,7 +709,7 @@ Begin VB.Form Form1
       Left            =   8316
       TabIndex        =   138
       ToolTipText     =   "PUSH ME TO SHOW LISTVIEW INFO"
-      Top             =   6408
+      Top             =   6420
       Width           =   804
    End
    Begin VB.Label Label_GOODSYNC_04_HOUR 
@@ -4320,8 +4320,10 @@ lstProcess_3_WIDTH_POSTION_LEFT_AND_WIDTH = lstProcess_3_SORTER_ListView.Left + 
 Label50_Width_VAR = lstProcess_3_WIDTH_POSTION_LEFT_AND_WIDTH - (Label52.Left + Label52.width) - 40
 Label50.width = Label50_Width_VAR
 
-ListView_VB_MODIFIED_ERROR.Top = Label_GOODSYNC_01.Top + Label_GOODSYNC_01.height + 20
-
+'ListView_VB_MODIFIED_ERROR.Top = Label_GOODSYNC_01.Top + Label_GOODSYNC_01.height + 20
+'ListView_VB_MODIFIED_ERROR.Top = ListView_CPU_INFO.Top + ListView_CPU_INFO.height + 20
+ListView_VB_MODIFIED_ERROR.Top = Label_VB_MODIFIED_ACTIVE.Top + Label_VB_MODIFIED_ACTIVE.height + 20
+ListView_VB_MODIFIED_ERROR.Left = ListView_CPU_INFO.Left
 'FORM_LOAD
 'Me.Height = HY2
 'Me.Width = WX2
