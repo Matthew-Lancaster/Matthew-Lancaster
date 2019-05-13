@@ -42,6 +42,11 @@ IF HH12>12 THEN
 ELSE
 	AM_PM="AM"
 END IF 
+IF HH12=12 THEN 
+	AM_PM="PM"
+END IF 
+
+
 DDD=WeekdayName(Weekday(VAR_NOW),TRUE)
 
 i_TIME=""
