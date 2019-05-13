@@ -1031,7 +1031,7 @@ Public Sub Processor_GET_INFO()
 '        Next
         
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Name")
-        Item_2.SubItems(1) = Object.Name
+        Item_2.SubItems(1) = Trim(Object.Name)
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Description")
         Item_2.SubItems(1) = Object.Description
         Set Item_2 = Form1.ListView_CPU_INFO.ListItems.Add(, , "Manufacturer & Model")
