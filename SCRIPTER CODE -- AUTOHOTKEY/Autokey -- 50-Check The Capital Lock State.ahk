@@ -180,6 +180,8 @@ IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 	
 
+; THE WIDTH IS MEASURE AWAY FROM LEFT OF SCREEN AS SAME X Y
+; -------------------------------------------------------------------
 ; LOWER NUMBER MAKES TIGHTER TO EDGE OF SCREEN
 ; -------------------------------------------------------------------
 width := A_ScreenWidth - 150
@@ -205,7 +207,11 @@ If OSVER_N_VAR=5
 	W_P_B=W62
 	F_S_P_B=FS6
 	H_P_B=H18
+	
+	; THE WIDTH IS MEASURE AWAY FROM LEFT OF SCREEN AS SAME X Y
+	; LOWER NUMBER MAKES TIGHTER TO EDGE OF SCREEN
 	width := A_ScreenWidth - 64
+	; LOWER NUMBER MAKES LOWER TO BOTTOM OF SCREEN
 	height := A_ScreenHeight - 84
 }
 
@@ -215,7 +221,9 @@ If OSVER_N_VAR=6
 	W_P_B=W62
 	F_S_P_B=FS6
 	H_P_B=H18
+	; LOWER NUMBER MAKES TIGHTER TO EDGE OF SCREEN
 	width := A_ScreenWidth - 85
+	; LOWER NUMBER MAKES LOWER TO BOTTOM OF SCREEN
 	height := A_ScreenHeight - 28
 }
 
@@ -225,8 +233,10 @@ If OSVER_N_VAR=10
 	W_P_B=W69
 	F_S_P_B=FS8
 	H_P_B=H20
+	; LOWER NUMBER MAKES TIGHTER TO EDGE OF SCREEN
 	width := A_ScreenWidth - 100
-	height := A_ScreenHeight - 50
+	; LOWER NUMBER MAKES LOWER TO BOTTOM OF SCREEN
+	height := A_ScreenHeight - (32+4+1)
 }
 	
 
