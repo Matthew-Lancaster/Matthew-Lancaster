@@ -189,7 +189,7 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; ------------------------------------------------------------------
 
 
-; #InstallKeybdHook
+#InstallKeybdHook
 ;#InstallMouseHook
 
 ; IF YOU GOT ANYTHING KEYBOARD HOOKING SENDING A KEY OR MOUSE
