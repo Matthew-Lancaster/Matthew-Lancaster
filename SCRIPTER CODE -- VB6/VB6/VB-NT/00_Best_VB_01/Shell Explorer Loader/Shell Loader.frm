@@ -6,11 +6,11 @@ Begin VB.Form Form1
    ClientHeight    =   5928
    ClientLeft      =   132
    ClientTop       =   780
-   ClientWidth     =   12324
+   ClientWidth     =   12312
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   5928
-   ScaleWidth      =   12324
+   ScaleWidth      =   12312
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
    Begin VB.Timer Timer3 
@@ -20,7 +20,7 @@ Begin VB.Form Form1
       Top             =   3660
    End
    Begin VB.FileListBox File1 
-      Height          =   456
+      Height          =   264
       Left            =   8472
       TabIndex        =   265
       Top             =   1584
@@ -61,7 +61,7 @@ Begin VB.Form Form1
       Width           =   2652
    End
    Begin VB.ListBox List1 
-      Height          =   432
+      Height          =   240
       Left            =   8472
       TabIndex        =   19
       Top             =   2544
@@ -6135,12 +6135,12 @@ If GetComputerName = GetComputerName Then
     FontSizez_2 = 7       ' 6.9 -- THE SPECIAL FOLDERIN GET HERE - UNLESS SAME AS OTHER ONE
 End If
 If GetComputerName = "1-ASUS-X5DIJ" Then
-    FontSizez = 8
+    FontSizez = 7
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
 End If
 
 If GetComputerName = "2-ASUS-EEE" Then
-    FontSizez = 6.3
+    FontSizez = 5.5
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
 End If
 
@@ -6967,7 +6967,7 @@ If LoadFolder = True And InStr(C1$, "NETWORK COMPUTER NAME") > 0 Then
 
     Call SaveLoggs
 
-    shell "explorer shell:NetworkPlacesFolder", vbNormalFocus
+    Shell "explorer shell:NetworkPlacesFolder", vbNormalFocus
     End
 End If
 
@@ -6979,7 +6979,7 @@ If LoadFolder = True Then
 
     Call SaveLoggs
     
-    shell "explorer /e, " + A1$, vbNormalFocus
+    Shell "explorer /e, " + A1$, vbNormalFocus
     End
 End If
 
@@ -6992,7 +6992,7 @@ End Sub
 
 Private Sub Lbl2_Click()
 
-shell "explorer /e, E:\01 VB Shell Folders\00 " + App.EXEName, vbNormalFocus
+Shell "explorer /e, E:\01 VB Shell Folders\00 " + App.EXEName, vbNormalFocus
 
 End Sub
 
@@ -7017,7 +7017,7 @@ End Sub
 
 
 Private Sub MNU_VB_FOLDER_Click()
-    shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".VBP", vbMaximizedFocus
+    Shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".VBP", vbMaximizedFocus
 End Sub
 
 Private Sub MNU_VB_ME_Click()
@@ -7027,7 +7027,7 @@ If Dir(VBPATH) = "" Then
     VBPATH = "C:\Program Files (X86)\Microsoft Visual Studio\VB98\VB6.EXE"
 End If
 
-shell VBPATH + " """ + App.Path + "\" + App.EXEName + ".VBP""", vbNormalFocus
+Shell VBPATH + " """ + App.Path + "\" + App.EXEName + ".VBP""", vbNormalFocus
 End
 
 End Sub
