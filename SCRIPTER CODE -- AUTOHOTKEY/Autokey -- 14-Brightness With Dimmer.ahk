@@ -189,12 +189,14 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; ------------------------------------------------------------------
 
 
-;#InstallKeybdHook
+; #InstallKeybdHook
 ;#InstallMouseHook
 
 ; IF YOU GOT ANYTHING KEYBOARD HOOKING SENDING A KEY OR MOUSE
 ; AND USE HERE A_TimeIdlePhysical __ INSTEAD OF A_TimeIdle
 ; ONLY Physical INPUT NOT SIMULATED SENDER
+
+; -------------------------------------------------------------------
 
 ; TRICK PART OF CODE IS MANY DON'T TELL HAVE TO FIND IDLE AS WELL ALSO THE ACTIVE PART
 ; ALL VERY WELL SWITCH THE SCREEN SAVER ON BUT____ AND THEN OFF SCREEN SAVER
@@ -220,8 +222,22 @@ VAR_Z__TimeIdle_2 = %VAR_Z__TimeIdle_2_DEFAULT%
 VAR_Z__TimeIdle = %VAR_Z__TimeIdle_1%
 OLDWinActive = 0
 WinActive_2 = 0
-VAR_A__TimeIdle=%A_TimeIdle%
 
+USE_A_TimeIdlePhysical=FALSE
+IF (A_ComputerName="7-ASUS-GL522VW")
+	USE_A_TimeIdlePhysical=TRUE
+IF (A_ComputerName="8-MSI-GP62M-7RD")
+	USE_A_TimeIdlePhysical=TRUE
+IF (A_ComputerName="5-ASUS-P2520LA") 
+	USE_A_TimeIdlePhysical=TRUE
+
+IF USE_A_TimeIdlePhysical=FALSE
+	VAR_A__TimeIdle=%A_TimeIdle%
+ELSE
+{
+	VAR_A__TimeIdle=%A_TimeIdlePhysical%
+}
+	
 
 GLOBAL IN_DAY
 GLOBAL O_IN_DAY_1
@@ -337,8 +353,15 @@ RS232_LOGGER_TIMER_CHANGE:
 		SoundBeep , 2500 , 100
 		Monitor.SetBrightness(127, 127, 127)
 	}
+
 	
-	IF A_TimeIdle < %RS232_IDLE_SET_DELAY%
+	; TOOLTIP % USE_A_TimeIdlePhysical
+	IF USE_A_TimeIdlePhysical=FALSE
+		VAR_A__TimeIdle_2=%A_TimeIdle%
+	ELSE
+		VAR_A__TimeIdle_2=%A_TimeIdlePhysical%
+
+	IF VAR_A__TimeIdle_2 < %RS232_IDLE_SET_DELAY%
 	{
 		RETURN
 	}
@@ -519,7 +542,15 @@ if state = D
 SET_GO=TRUE
 IF (ALLOW_DIMMER = "False")
 	SET_GO=FALSE
-If A_TimeIdle < %VAR_Z__TimeIdle%
+	
+TOOLTIP %A_TimeIdle% " -- " %A_TimeIdlePhysical%
+	
+IF USE_A_TimeIdlePhysical=FALSE
+	VAR_A__TimeIdle_4=%A_TimeIdle%
+ELSE
+	VAR_A__TimeIdle_4=%A_TimeIdlePhysical%
+	
+If VAR_A__TimeIdle_4 < %VAR_Z__TimeIdle%
 	SET_GO=FALSE
 	
 IF SET_GO=TRUE
@@ -540,8 +571,12 @@ Keyboard_Idle_Timer:
 
 ; TOOLTIP %A_TimeIdle% " -- " %VAR_A__TimeIdle%
 
+IF USE_A_TimeIdlePhysical=FALSE
+	VAR_A__TimeIdle_8=%A_TimeIdle%
+ELSE
+	VAR_A__TimeIdle_8=%A_TimeIdlePhysical%
 		
-IF A_TimeIdle < %VAR_A__TimeIdle%
+IF VAR_A__TimeIdle_8 < %VAR_A__TimeIdle%
 {
 	;SoundBeep , 2500 , 100
 	;TEST DEBUG ___________
@@ -551,7 +586,7 @@ IF A_TimeIdle < %VAR_A__TimeIdle%
 	BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
 }
-VAR_A__TimeIdle=%A_TimeIdle%
+VAR_A__TimeIdle=%VAR_A__TimeIdle_8%
 
 ; A_TimeIdle - SHOW TIME SINCE LAST KEYBOARD OR MOUSE IN MILLISECOND
 ; THE DETECT IS IF LOWER THAN
@@ -663,8 +698,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		POWER_SCREEN_SAVE_OFF := "False"
 		IF (A_ComputerName="7-ASUS-GL522VW")
 			POWER_SCREEN_SAVE_OFF := "True"
-		; IF (A_ComputerName="8-MSI-GP62M-7RD")
-			; POWER_SCREEN_SAVE_OFF := "True"
+		IF (A_ComputerName="8-MSI-GP62M-7RD")
+			POWER_SCREEN_SAVE_OFF := "True"
 		
 		DIMMER_ONLY_NOT_BLANK := "False"
 		;IF (A_ComputerName="8-MSI-GP62M-7RD")
