@@ -175,7 +175,7 @@ GLOBAL OutputVar
 VAR_A__TimeIdle=0
 
 ; Each array must be initialized before use:
-FN_Array_1 := []
+FN_Array_1 := [] 
 FN_Array_2 := []
 FN_Array_3 := []
 FN_Array_4 := []
