@@ -173,6 +173,35 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
+; SESSION 011
+; -------------------------------------------------------------------
+; NEW CODER AS HERE
+; THIS CODE IS IN REPEAT BLOCK USE 4 TIME
+; -------------------------------------------------------------------
+; WANT REAL MOUSE TIME __ TimeIdle
+; ONLY WANT PSYCHICAL KEYBOARD TIME __ TimeIdle
+; [ Tuesday 09:51:00 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+; THAT IS COMPLETE 
+; THE SITUATION IS 
+; KEYBOARD TIMEIDLE IS ONLY WANT PSYCHICAL AS THERE ARE USE SOME 
+; F5 REFRESH PAGE ON THE INTERNET AND AS THIS IS A GLORY HOLE SCREEN SAVER
+; WE DON'T WANT THEM SIMULATED KEY PRESS AND THE KEYBOARD HOOK IS INSTALLED FOR THAT
+; BUT WITH MOUSE WE WANT OPPOSITE THAT SIMULATED MOUSE MOUSE IS ABLE BRING 
+; OUT OF SCREEN SAVER
+; GET MY DRIFTER
+; HAD TO GO TO BED FALLER ALSLEEP ON THIS ONE AND WAKE TO THE GO
+; [ Tuesday 10:12:30 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; FROM TIME __ Tue 14-May-2019 02:20:42 -- NIGHT BEFORE STARTER
+; TO   TIME __ Tue 14-May-2019 02:20:42
+; FROM TIME __ Tue 14-May-2019 09:18:45 -- MORNING
+; TO   TIME __ Tue 14-May-2019 10:15:54
+; -------------------------------------------------------------------
+
+
 ;# ------------------------------------------------------------------
 ; Location Internet
 ;--------------------------------------------------------------------
@@ -214,7 +243,10 @@ Mouse_Idle = 0
 Mouse_Idle_Flip_Flop_Toggle := "True"
 LastX = 0
 LastY = 0
-VAR_A__TimeIdle:=0
+VAR_A__TimeIdle_1_OF_4:=0
+VAR_A__TimeIdle_2_OF_4:=0
+VAR_A__TimeIdle_3_OF_4:=0
+VAR_A__TimeIdle_4_OF_4:=0
 VAR_Z__TimeIdle_1 = 4000
 VAR_Z__TimeIdle_4_DEFAULT = 80000 ; 4 MINUTE
 VAR_Z__TimeIdle_3_FORCE = 2000 
@@ -224,8 +256,6 @@ OLDWinActive = 0
 WinActive_2 = 0
 
 USE_A_TimeIdlePhysical=FALSE
-IF (A_ComputerName="1-ASUS-X5DIJ")
-	USE_A_TimeIdlePhysical=TRUE
 IF (A_ComputerName="7-ASUS-GL522VW")
 	USE_A_TimeIdlePhysical=TRUE
 IF (A_ComputerName="8-MSI-GP62M-7RD")
@@ -233,11 +263,30 @@ IF (A_ComputerName="8-MSI-GP62M-7RD")
 IF (A_ComputerName="5-ASUS-P2520LA") 
 	USE_A_TimeIdlePhysical=TRUE
 
+; -------------------------------------------------------------------
+; WANT REAL MOUSE TIME __ TimeIdle
+; ONLY WANT PSYCHICAL KEYBOARD TIME __ TimeIdle
+; [ Tuesday 09:51:00 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+; THAT IS COMPLETE 
+; THE SITUATION IS 
+; KEYBOARD TIMEIDLE IS ONLY WANT PSYCHICAL AS THERE ARE USE SOME 
+; F5 REFRESH PAGE ON THE INTERNET AND AS THIS IS A GLORY HOLE SCREEN SAVER
+; WE DON'T WANT THEM SIMULATED KEY PRESS AND THE KEYBOARD HOOK IS INSTALLED FOR THAT
+; BUT WITH MOUSE WE WANT OPPOSITE THAT SIMULATED MOUSE MOUSE IS ABLE BRING 
+; OUT OF SCREEN SAVER
+; GET MY DRIFTER
+; HAD TO GO TO BED FALLER ALSLEEP ON THIS ONE AND WAKE TO THE GO
+; [ Tuesday 10:12:30 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+
 IF USE_A_TimeIdlePhysical=FALSE
-	VAR_A__TimeIdle=%A_TimeIdle%
+	VAR_A__TimeIdle_1_OF_4=%A_TimeIdle%
 ELSE
 {
-	VAR_A__TimeIdle=%A_TimeIdlePhysical%
+	VAR_A__TimeIdle_1_OF_4=%A_TimeIdlePhysical%
+	IF A_TimeIdleMouse<%VAR_A__TimeIdle_1_OF_4% 
+	VAR_A__TimeIdle_1_OF_4=%A_TimeIdleMouse%
 }
 	
 
@@ -357,13 +406,33 @@ RS232_LOGGER_TIMER_CHANGE:
 	}
 
 	
-	; TOOLTIP % USE_A_TimeIdlePhysical
-	IF USE_A_TimeIdlePhysical=FALSE
-		VAR_A__TimeIdle_2=%A_TimeIdle%
-	ELSE
-		VAR_A__TimeIdle_2=%A_TimeIdlePhysical%
+	; -------------------------------------------------------------------
+	; WANT REAL MOUSE TIME __ TimeIdle
+	; ONLY WANT PSYCHICAL KEYBOARD TIME __ TimeIdle
+	; [ Tuesday 09:51:00 Am_14 May 2019 ]
+	; -------------------------------------------------------------------
+	; THAT IS COMPLETE 
+	; THE SITUATION IS 
+	; KEYBOARD TIMEIDLE IS ONLY WANT PSYCHICAL AS THERE ARE USE SOME 
+	; F5 REFRESH PAGE ON THE INTERNET AND AS THIS IS A GLORY HOLE SCREEN SAVER
+	; WE DON'T WANT THEM SIMULATED KEY PRESS AND THE KEYBOARD HOOK IS INSTALLED FOR THAT
+	; BUT WITH MOUSE WE WANT OPPOSITE THAT SIMULATED MOUSE MOUSE IS ABLE BRING 
+	; OUT OF SCREEN SAVER
+	; GET MY DRIFTER
+	; HAD TO GO TO BED FALLER ALSLEEP ON THIS ONE AND WAKE TO THE GO
+	; [ Tuesday 10:12:30 Am_14 May 2019 ]
+	; -------------------------------------------------------------------
 
-	IF VAR_A__TimeIdle_2 < %RS232_IDLE_SET_DELAY%
+	IF USE_A_TimeIdlePhysical=FALSE
+		VAR_A__TimeIdle_2_OF_4=%A_TimeIdle%
+	ELSE
+	{
+		VAR_A__TimeIdle_2_OF_4=%A_TimeIdlePhysical%
+		IF A_TimeIdleMouse<%VAR_A__TimeIdle_2_OF_4% 
+			VAR_A__TimeIdle_2_OF_4=%A_TimeIdleMouse%
+	}
+		
+	IF VAR_A__TimeIdle_2_OF_4 < %RS232_IDLE_SET_DELAY%
 	{
 		RETURN
 	}
@@ -545,14 +614,37 @@ SET_GO=TRUE
 IF (ALLOW_DIMMER = "False")
 	SET_GO=FALSE
 	
-TOOLTIP %A_TimeIdle% " -- " %A_TimeIdlePhysical%
-	
+
+; -------------------------------------------------------------------
+; WANT REAL MOUSE TIME __ TimeIdle
+; ONLY WANT PSYCHICAL KEYBOARD TIME __ TimeIdle
+; [ Tuesday 09:51:00 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+; THAT IS COMPLETE 
+; THE SITUATION IS 
+; KEYBOARD TIMEIDLE IS ONLY WANT PSYCHICAL AS THERE ARE USE SOME 
+; F5 REFRESH PAGE ON THE INTERNET AND AS THIS IS A GLORY HOLE SCREEN SAVER
+; WE DON'T WANT THEM SIMULATED KEY PRESS AND THE KEYBOARD HOOK IS INSTALLED FOR THAT
+; BUT WITH MOUSE WE WANT OPPOSITE THAT SIMULATED MOUSE MOUSE IS ABLE BRING 
+; OUT OF SCREEN SAVER
+; GET MY DRIFTER
+; HAD TO GO TO BED FALLER ALSLEEP ON THIS ONE AND WAKE TO THE GO
+; [ Tuesday 10:12:30 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+
+; TOOLTIP %A_TimeIdle% " -- " %A_TimeIdleMouse% " -- " %A_TimeIdlePhysical%
+
 IF USE_A_TimeIdlePhysical=FALSE
-	VAR_A__TimeIdle_4=%A_TimeIdle%
+	VAR_A__TimeIdle_3_OF_4=%A_TimeIdle%
 ELSE
-	VAR_A__TimeIdle_4=%A_TimeIdlePhysical%
+{
+	VAR_A__TimeIdle_3_OF_4=%A_TimeIdlePhysical%
+	IF A_TimeIdleMouse<%VAR_A__TimeIdle_3_OF_4% 
+		VAR_A__TimeIdle_3_OF_4=%A_TimeIdleMouse%
+}	
+
 	
-If VAR_A__TimeIdle_4 < %VAR_Z__TimeIdle%
+If VAR_A__TimeIdle_3_OF_4 < %VAR_Z__TimeIdle%
 	SET_GO=FALSE
 	
 IF SET_GO=TRUE
@@ -571,14 +663,35 @@ Keyboard_Idle_Timer:
 
 
 
-; TOOLTIP %A_TimeIdle% " -- " %VAR_A__TimeIdle%
+; TOOLTIP %A_TimeIdle% " -- " %VAR_A__TimeIdle_1_OF_4%
+
+; -------------------------------------------------------------------
+; WANT REAL MOUSE TIME __ TimeIdle
+; ONLY WANT PSYCHICAL KEYBOARD TIME __ TimeIdle
+; [ Tuesday 09:51:00 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+; THAT IS COMPLETE 
+; THE SITUATION IS 
+; KEYBOARD TIMEIDLE IS ONLY WANT PSYCHICAL AS THERE ARE USE SOME 
+; F5 REFRESH PAGE ON THE INTERNET AND AS THIS IS A GLORY HOLE SCREEN SAVER
+; WE DON'T WANT THEM SIMULATED KEY PRESS AND THE KEYBOARD HOOK IS INSTALLED FOR THAT
+; BUT WITH MOUSE WE WANT OPPOSITE THAT SIMULATED MOUSE MOUSE IS ABLE BRING 
+; OUT OF SCREEN SAVER
+; GET MY DRIFTER
+; HAD TO GO TO BED FALLER ALSLEEP ON THIS ONE AND WAKE TO THE GO
+; [ Tuesday 10:12:30 Am_14 May 2019 ]
+; -------------------------------------------------------------------
 
 IF USE_A_TimeIdlePhysical=FALSE
-	VAR_A__TimeIdle_8=%A_TimeIdle%
+	VAR_A__TimeIdle_4_OF_4=%A_TimeIdle%
 ELSE
-	VAR_A__TimeIdle_8=%A_TimeIdlePhysical%
-		
-IF VAR_A__TimeIdle_8 < %VAR_A__TimeIdle%
+{
+	VAR_A__TimeIdle_4_OF_4=%A_TimeIdlePhysical%
+	IF A_TimeIdleMouse<%VAR_A__TimeIdle_4_OF_4% 
+		VAR_A__TimeIdle_4_OF_4=%A_TimeIdleMouse%
+}
+	
+IF VAR_A__TimeIdle_4_OF_4 < %VAR_A__TimeIdle_1_OF_4%
 {
 	;SoundBeep , 2500 , 100
 	;TEST DEBUG ___________
@@ -588,7 +701,7 @@ IF VAR_A__TimeIdle_8 < %VAR_A__TimeIdle%
 	BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
 }
-VAR_A__TimeIdle=%VAR_A__TimeIdle_8%
+VAR_A__TimeIdle_1_OF_4=%VAR_A__TimeIdle_4_OF_4%
 
 ; A_TimeIdle - SHOW TIME SINCE LAST KEYBOARD OR MOUSE IN MILLISECOND
 ; THE DETECT IS IF LOWER THAN
@@ -801,7 +914,10 @@ ELSE
 	IN_DAY=TRUE
 }
 
-IN_DAY=FALSE
+; -------------------------------------------------------------------
+; TEST DEBUG PUT LIGHT OUT
+; -------------------------------------------------------------------
+; IN_DAY=FALSE
 
 IF IN_DAY=TRUE 
 	ALLOW_DIMMER := "False"
