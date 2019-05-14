@@ -583,8 +583,15 @@ RETURN
 
 ; ------------------------------------------------------------------
 MONITOR_BRIGHTNESS_UP:
-If (Mouse_Idle_Flip_Flop_Toggle = "True")
-{
+; FIX BIG DIM SUPPOSED TO COME OUT OF DIM BUT WAS HAPPEN EVERY OTHER ODD ALTERNATE
+; DON'T REQUIRE THE IF AROUND HERE
+; [ Tuesday 02:20:40 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+; NEXT BUG RS232 PIR SCREEN SAVER IS NOT WORK DURING DAY
+; [ Tuesday 02:20:40 Am_14 May 2019 ]
+; -------------------------------------------------------------------
+; If (Mouse_Idle_Flip_Flop_Toggle = "True")
+; {
 	;SoundBeep , 2500 , 100
 	; BRIGHTNESS UP 50% IS 100% __ Full Bright
 	Monitor.SetBrightness(127, 127, 127)
@@ -596,7 +603,7 @@ If (Mouse_Idle_Flip_Flop_Toggle = "True")
 
 	Gui, HIDE
 	Mouse_Idle_Flip_Flop_Toggle := "False"
-}
+; }
 RETURN
 
 MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
