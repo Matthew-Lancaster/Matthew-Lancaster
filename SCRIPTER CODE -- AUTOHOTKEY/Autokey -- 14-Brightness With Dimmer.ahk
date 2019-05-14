@@ -224,6 +224,8 @@ OLDWinActive = 0
 WinActive_2 = 0
 
 USE_A_TimeIdlePhysical=FALSE
+IF (A_ComputerName="1-ASUS-X5DIJ")
+	USE_A_TimeIdlePhysical=TRUE
 IF (A_ComputerName="7-ASUS-GL522VW")
 	USE_A_TimeIdlePhysical=TRUE
 IF (A_ComputerName="8-MSI-GP62M-7RD")
@@ -799,7 +801,7 @@ ELSE
 	IN_DAY=TRUE
 }
 
-; IN_DAY=FALSE
+IN_DAY=FALSE
 
 IF IN_DAY=TRUE 
 	ALLOW_DIMMER := "False"
