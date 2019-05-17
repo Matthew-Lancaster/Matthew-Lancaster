@@ -142,6 +142,21 @@ FILE_PATH_WILDPATH_JPG := regexreplace(FILE_PATH_WILDPATH_JPG, "\\$")
 ; 03 _ ADD THE \*.JPG
 FILE_PATH_WILDPATH_JPG=%FILE_PATH_WILDPATH_JPG%\*.JPG
 
+; SET DELAY SPEED 
+; LESS IMAGE QUICKER SPEED ALLOW
+; IF TROUBLE LARGE COUNT IMAGE INCREASE DELAY
+; IF EDITOR MODE AFTER PUBLISH IS MORE HARD WORK AND EXTRA 
+; DELAY REQUIRE
+; FACEBOOK_TIMER_DELAY_NORMAL=1000 -- QUICK LESS IMAGE PICTURE 1 SECOND
+; FACEBOOK_TIMER_DELAY_NORMAL=3000 -- FAIR AMOUNT OF IMAGE-ER COUPLE HUNDRED 3 SECOND
+; FACEBOOK_TIMER_DELAY_IN_EDITOR=14000 -- NORMAL FOR MOST
+; -------------------------------------------------------------------
+FACEBOOK_TIMER_DELAY_NORMAL=500
+FACEBOOK_TIMER_DELAY_IN_EDITOR=14000
+
+
+
+
 ; -------------------------------------------------------------------
 ; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
 ; AT THE NUMBER NEXT NEEDER TO BE ENTER
@@ -288,7 +303,8 @@ IfWinExist, %SET_String%
 	IfWinExist, %FACEBOOK_URL_TITLE_1%
 	{
 		SET_GO=TRUE
-		SETTIMER F4,3000
+		FACEBOOK_TIMER_DELAY=%FACEBOOK_TIMER_DELAY_NORMAL%
+		SETTIMER F4,%FACEBOOK_TIMER_DELAY%
 	}
 	
 	IF SET_GO=FALSE
@@ -301,7 +317,7 @@ IfWinExist, %SET_String%
 		; GIVING ENOUGH SPEED IS CRITICAL TAB WILL JUMP IF NOT READY 
 		; FOR NEXT ONE IN
 		; -----------------------------------------------------------
-		FACEBOOK_TIMER_DELAY=14000
+		FACEBOOK_TIMER_DELAY=%FACEBOOK_TIMER_DELAY_IN_EDITOR%
 		SETTIMER F4,%FACEBOOK_TIMER_DELAY%
 	}
 	IF SET_GO=TRUE
@@ -397,15 +413,39 @@ IfWinExist, %SET_String%
 		}
 }
 
+END_MESSENGER=Hitt Push the Back Link for Whole Album Top Left
+
+IF GetKeyState("Capslock", "T")
+{
+	 Lab_Invert_Char_Out:= ""
+	 Loop % Strlen(END_MESSENGER) {
+		Lab_Invert_Char:= Substr(END_MESSENGER, A_Index, 1)
+		if Lab_Invert_Char is upper
+		   Lab_Invert_Char_Out:= Lab_Invert_Char_Out Chr(Asc(Lab_Invert_Char) + 32)
+		else if Lab_Invert_Char is lower
+		   Lab_Invert_Char_Out:= Lab_Invert_Char_Out Chr(Asc(Lab_Invert_Char) - 32)
+		else
+		   Lab_Invert_Char_Out:= Lab_Invert_Char_Out Lab_Invert_Char
+	 }
+	 END_MESSENGER=%Lab_Invert_Char_Out%
+}
+; Source Creditor
+; ----
+; Convert text - uppercase, lowercase, capitalized or inverted - Scripts and Functions - AutoHotkey Community
+; https://autohotkey.com/board/topic/24431-convert-text-uppercase-lowercase-capitalized-or-inverted/
+; ----
+
 
 Sendinput ^a{delete}
 Sendinput %VAR_COUNTER% %OF_COUNT% %FILE_SCRIPT_COUNT%`n
 Sendinput %OutputVar_1%`n
-Sendinput Hitt Push the Back Link for Whole Album Top Left`n
 
 if POS_VAR>0 
 	Sendinput %OutputVar_2%`n
 
+Sendinput %END_MESSENGER%`n
+
+	
 ; -------------------------------------------------------------------
 ; IF ALREADY PUBLISHED PHOTO AND WANT TO ADD INFO DESCRIPTION 
 ; USE ONE TAB INSTEAD 
