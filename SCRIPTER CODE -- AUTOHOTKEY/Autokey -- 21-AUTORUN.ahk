@@ -596,12 +596,13 @@ IF SET_GO_1=TRUE
 
 ; PAUSE
 
-SET_GO=TRUE
+SET_GO_8=TRUE
 IF (A_ComputerName = "3-LINDA-PC") 
-	SET_GO=FALSE
+	SET_GO_8=FALSE
 
-IF SET_GO=TRUE
+IF SET_GO_8=TRUE
 {
+	MSGBOX HERE1
 	If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
 	{
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
@@ -613,11 +614,18 @@ IF SET_GO=TRUE
 	}
 }
 
+; --------------------------------------------------------
+; SET_GO_8 -- VARIABLE GETTING WASTED AGAIN IF SET AS HERE 
+; SO CHANGE VARIABLE NAME
+; [ Friday 09:09:30 Am_17 May 2019 ]
+; --------------------------------------------------------
 
-IF SET_GO=TRUE 
+IF SET_GO_8=TRUE 
 {
+	MSGBOX HERE2
 	If ProcessExist("URL Logger.exe", A_UserName)=0
 	{
+		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
 		IfExist, %FN_VAR%
 		{
