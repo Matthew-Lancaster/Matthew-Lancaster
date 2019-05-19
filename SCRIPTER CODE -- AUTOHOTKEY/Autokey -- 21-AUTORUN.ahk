@@ -602,7 +602,7 @@ IF (A_ComputerName = "3-LINDA-PC")
 
 IF SET_GO_8=TRUE
 {
-	MSGBOX HERE1
+	; MSGBOX HERE1
 	If ProcessExist("ClipBoard Logger.exe", A_UserName)=0
 	{
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
@@ -622,7 +622,7 @@ IF SET_GO_8=TRUE
 
 IF SET_GO_8=TRUE 
 {
-	MSGBOX HERE2
+	; MSGBOX HERE2
 	If ProcessExist("URL Logger.exe", A_UserName)=0
 	{
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
