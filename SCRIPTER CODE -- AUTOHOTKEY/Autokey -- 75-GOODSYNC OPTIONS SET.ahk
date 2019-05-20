@@ -418,8 +418,12 @@ IF HWND_1>0
 		; }
 		
 		
-		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
+		ControlGettext, OutputVar_2, Button23, ahk_id %HWND_1%
 		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
+		
+		IF (OutputVar_2<>"Wait for Locks to clear, minutes")
+			MSGBOX Button23 NOT ANY LONGER ASSOCIATED WITH`nWait for Locks to clear, minutes
+		
 		
 		If (OutputVar_1<>20 
 			and OutputVar_2="Wait for Locks to clear, minutes")
@@ -429,10 +433,10 @@ IF HWND_1>0
 				SoundBeep , 4000 , 100
 
 		}
-		ControlGet, Status, Checked,, Button22, ahk_id %HWND_1%
+		ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
 		If Status=0
 		{
-			Control, Check,, Button22, ahk_id %HWND_1%
+			Control, Check,, Button23, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
 		}
 
@@ -459,7 +463,11 @@ IF HWND_1>0
 		Var_check=[VB
 		if (SubStr(OutputVar_3, 1, 3)=Var_check)
 		{
-			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+			ControlGet, Status, Checked,, *4, ahk_id %HWND_1%
+
+
+
+
 			If Status = 1
 			{
 				ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
