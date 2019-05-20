@@ -181,7 +181,7 @@ SET_OK_BOX:
 
 	IfWinActive ] Options ahk_class #32770
 	{	
-		ControlGettext, OutputVar_2, Button16, ] Options ahk_class #32770
+		ControlGettext, OutputVar_2, Button17, ] Options ahk_class #32770
 		ControlGet, OutputVar_1, Line, 1, Edit9, ] Options ahk_class #32770
 		; -----------------------------------------------------------
 		Periodic_TIMER_VALUE=5
@@ -194,15 +194,24 @@ SET_OK_BOX:
 			SoundBeep , 4000 , 100
 		}
 		
-		; ClassNN:	Button16
+		; ClassNN:	Button17
 		; Text:	Periodically (On Timer), every
-		ControlGet, Status, Checked,, Button16, ] Options ahk_class #32770
-		If Status=0
+		IF (OutputVar_2="Periodically (On Timer), every")
 		{
-			Control, Check,, Button16, ] Options ahk_class #32770
-			SoundBeep , 4000 , 100
+			ControlGet, Status, Checked,, Button17, ] Options ahk_class #32770
+			If Status=0
+			{
+				Control, Check,, Button17, ] Options ahk_class #32770
+				SoundBeep , 4000 , 100
+			}
 		}
 
+		MSGBOX % OutputVar_2
+		
+		IF (OutputVar_2<>"Periodically (On Timer), every")
+			MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
+
+		
 		If Status=1
 		IF OutputVar_1=%Periodic_TIMER_VALUE%
 		IfWinActive ] Options ahk_class #32770
@@ -250,7 +259,7 @@ IF HWND_1>0
 		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
 		; Tooltip, % OutputVar ; List All Controls of Active Window
 		;---------------------------------------------------------
-		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_1%
+		ControlGettext, OutputVar_2, Button17, ahk_id %HWND_1%
 
 		ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
 		
@@ -266,6 +275,10 @@ IF HWND_1>0
 			IF OutputVar_1=5
 				SET_GO=TRUE
 		}
+		
+		IF (OutputVar_2<>"Periodically (On Timer), every")
+			MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
+
 		IF SET_GO=TRUE
 	    IF (OutputVar_2="Periodically (On Timer), every")
 		{
@@ -305,7 +318,7 @@ IF HWND_1>0
 			
 		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
 		; ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
-		; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+		; ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
 		; If (OutputVar_1 = 5 and Status=1)
 		; {
 			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
@@ -346,24 +359,31 @@ IF HWND_1>0
 		; O_HWND_1=0
 		if O_HWND_1<>%HWND_1%
 		{
-			; ClassNN:	Button16
+			; ClassNN:	Button17
 			; Text:	Periodically (On Timer), every
-			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-			If Status=0
+			
+			IF (OutputVar_2<>"Periodically (On Timer), every")
+				MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
+			
+			IF (OutputVar_2="Periodically (On Timer), every")
 			{
-				Control, Check,, Button16, ahk_id %HWND_1%
-				IF OutputVar_4=1
-					SoundBeep , 4000 , 100
+				ControlGet, OutputVar_4, Visible, , Button17, ahk_id %HWND_1%
+				ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
+				If Status=0
+				{
+					Control, Check,, Button17, ahk_id %HWND_1%
+					IF OutputVar_4=1
+						SoundBeep , 4000 , 100
+				}
 			}
 		}
 
 		; {
-			; ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-			; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
+			; ControlGet, OutputVar_4, Visible, , Button17, ahk_id %HWND_1%
+			; ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
 			; If Status=0
 			; {
-				; Control, Check,, Button16, ahk_id %HWND_1%
+				; Control, Check,, Button17, ahk_id %HWND_1%
 				; IF OutputVar_4=1
 					; SoundBeep , 4000 , 100
 			; }
