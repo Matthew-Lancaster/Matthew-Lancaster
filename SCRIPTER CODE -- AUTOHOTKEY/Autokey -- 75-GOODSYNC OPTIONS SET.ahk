@@ -206,8 +206,9 @@ SET_OK_BOX:
 			}
 		}
 
-		MSGBOX % OutputVar_2
-		
+		; MSGBOX % OutputVar_2
+
+		IF OutputVar_2
 		IF (OutputVar_2<>"Periodically (On Timer), every")
 			MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
 
@@ -276,6 +277,7 @@ IF HWND_1>0
 				SET_GO=TRUE
 		}
 		
+		IF OutputVar_2
 		IF (OutputVar_2<>"Periodically (On Timer), every")
 			MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
 
@@ -361,7 +363,8 @@ IF HWND_1>0
 		{
 			; ClassNN:	Button17
 			; Text:	Periodically (On Timer), every
-			
+
+			IF OutputVar_2
 			IF (OutputVar_2<>"Periodically (On Timer), every")
 				MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
 			
@@ -389,7 +392,7 @@ IF HWND_1>0
 			; }
 		; }
 		
-		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
+		ControlGettext, OutputVar_2,F Button21, ahk_id %HWND_1%
 		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
 		
 		If (OutputVar_1 = 100 ; DEFAULT
@@ -420,7 +423,8 @@ IF HWND_1>0
 		
 		ControlGettext, OutputVar_2, Button23, ahk_id %HWND_1%
 		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
-		
+
+		IF OutputVar_2
 		IF (OutputVar_2<>"Wait for Locks to clear, minutes")
 			MSGBOX Button23 NOT ANY LONGER ASSOCIATED WITH`nWait for Locks to clear, minutes
 		
