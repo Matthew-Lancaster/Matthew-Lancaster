@@ -41,7 +41,7 @@ i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
 ' R_T -- 20 = DAYS BEFORE
 ' -------------------------------------------------------------------
 
-FOR R_T=0 TO 4
+FOR R_T=0 TO 40
 
 	i_TIME=""
 	i_TIME=i_TIME+LPad(Year(Now-R_T), "0", 4)
