@@ -5114,12 +5114,12 @@ If TO_SETTER = False Then
     Exit Sub
 End If
 
-If InStr(i, "=_NOT") Then
-    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, "_NOT", "_YES")
+If InStr(i, "= NOT") Then
+    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, " NOT", " YES")
     Exit Sub
 End If
-If InStr(i, "=_YES") Then
-    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, "_YES", "_NOT")
+If InStr(i, "= YES") Then
+    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, " YES", " NOT")
 End If
 
 
@@ -5153,6 +5153,7 @@ Private Sub MNU_LAUNCH_AUTORUNS_Click()
     FILE_EXE_HERE = "C:\PStart\Progs\#_PortableApps\PortableApps\AutorunsPortable\App\Autoruns\Autoruns64.exe"
     PARAM = ""
     Shell "CMD /C START """" /REALTIME /MAX """ + FILE_EXE_HERE + """", vbMaximizedFocus
+    Me.WindowState = vbMinimized
 End Sub
 
 
@@ -5160,16 +5161,18 @@ Private Sub MNU_LAUNCH_AUTORUNS_SET_BOOT_Click()
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
 
-objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
     
 Set objShell = Nothing
+Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_LAUNCH_AUTORUNS_SET_Click()
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk" + """"
+    WSHShell.Run """" + "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk" + """"
 Set WSHShell = Nothing
+Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_LAUNCH_VB_SYNCRONIZER_Click()
@@ -5179,6 +5182,7 @@ Private Sub MNU_LAUNCH_VB_SYNCRONIZER_Click()
     RUN_EXE = "D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.exe"
     objShell.Run """" + RUN_EXE + """", 1, False
     Set objShell = Nothing
+    Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_LAUNCH_BATCH_COMPILER_Click()
@@ -5186,6 +5190,7 @@ Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
     WSHShell.Run """" + "D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe" + """"
 Set WSHShell = Nothing
+Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_LAUNCH_Shell_VBasic_6_Loader_Click()
@@ -5193,6 +5198,7 @@ Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
     WSHShell.Run """" + "D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe" + """"
 Set WSHShell = Nothing
+Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_LAUNCH_GRAMMARLY_Click()
