@@ -140,6 +140,22 @@
 '# END FINAL TIME [ Sun 05-May-2019 11:32:00 ]
 '#-------------------------------------------------------------------
 
+'#-------------------------------------------------------------------
+' SESSION 005 __
+' -------------------------------------------------------------------
+' FOR FIRST TIME CODE IS ABLE TO LEFT RUNNING AND WORK WELL
+' WE ADD NEW ROUTINE TO OPEN FILE ON DRIVE TO INDICATE WORKER IN ACTION
+' OR ELSE THE OUTLOOK BEGIN RUN THE SCRIPT AND NEW MAIL ARRIVE VERY QUICKLY 
+' IS PROCESSOR THE SCRIPT TO RUN AGAIN
+' NEW TEMP FILE ALLOW SCRIPT TO RUN FULL BEFORE WANT AGAIN
+' EVERYTHING RUN SMOOTH AND QUICKER NOW
+' ALSO A CODE IN AUTOHOTKEY THAT DEL THE TEMP FILE IF OUTLOOK NOT RUNNER
+' SOMEWAY THE TEMP FILE LEFT BEHIND WITH CRASH SHUTDOWN OF OUTLOOK
+' -------------------------------------------------------------------
+'# START     TIME [ Sat 25-May-2019 15:14:44 ] 1 HOUR
+'# END FINAL TIME [ Sat 25-May-2019 16:14:44 ]
+'#-------------------------------------------------------------------
+
 ' -------------------------------------------------------------------
 ' SOURCE HERE
 ' -------------------------------------------------------------------
@@ -155,6 +171,7 @@
 ' -------------------------------------------------------------------
 
 Dim SOME_PROCESS_DONE
+Dim SOME_ITEM_DELETER
 
 Private Declare Function sndPlaySound32 _
     Lib "winmm.dll" _
@@ -206,17 +223,23 @@ If Dir(strFileControlpath) <> "" Then
 End If
 
 
-sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
     
 Call RemoveAllItemsAndFoldersInDeletedItems
 
-Call SaveAttachments_Good
-
-If SOME_PROCESS_DONE = True Then
-    Call RemoveAllItemsAndFoldersInDeletedItems
+If SOME_ITEM_DELETER = True Then
+    sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
 End If
 
-sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+Call SaveAttachments_Good
+
+SOME_ITEM_DELETER = False
+If SOME_PROCESS_DONE = True Then
+    Call RemoveAllItemsAndFoldersInDeletedItems
+    If SOME_ITEM_DELETER = True Then
+        sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+    End If
+End If
+
 
 End
 
@@ -234,6 +257,7 @@ If oDeletedItems.Items.Count > 0 Then
     Set oItems = oDeletedItems.Items
     For i = oItems.Count To 1 Step -1
         oItems.Item(i).Delete
+        SOME_ITEM_DELETER = True
         X = X + 1
         If X Mod 10 = 0 Then DoEvents
     Next
@@ -241,6 +265,7 @@ If oDeletedItems.Items.Count > 0 Then
         Set oFolders = oDeletedItems.Folders
         For i = oFolders.Count To 1 Step -1
             oFolders.Item(i).Delete
+            SOME_ITEM_DELETER = True
             X = X + 1
             If X Mod 10 = 0 Then DoEvents
         Next
