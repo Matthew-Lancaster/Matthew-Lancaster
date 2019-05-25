@@ -5194,6 +5194,10 @@ Private Sub Label_CLOSE_hWnd_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_CLOSE_HWND.BackColor = RGB(255, 255, 255)
 
+If Val(TxtPID) > 0 Then
+    Thread_Resume TxtPID
+End If
+
 Dim hWnd_RESULT
 hWnd_RESULT = txthWnd
 If hWnd_RESULT > 0 Then
