@@ -97,7 +97,7 @@ SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,100
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-
+MESSENGER_KEY=
 
 
 
@@ -113,11 +113,33 @@ RETURN
 ; must type an ending character after typing btw, such as Space, ., or Enter).
 
 ::hima::
-SENDINPUT (Hi Marianne and Eddie)
+MESSENGER_KEY=Hi Marianne and Eddie
+GOSUB STRING_INVERT_MESSENGER
+SENDINPUT %MESSENGER_KEY%
 RETURN
 
 
-
+STRING_INVERT_MESSENGER:
+	IF GetKeyState("Capslock", "T")
+	{
+		 Lab_Invert_Char_Out:= ""
+		 Loop % Strlen(MESSENGER_KEY) {
+			Lab_Invert_Char:= Substr(MESSENGER_KEY, A_Index, 1)
+			if Lab_Invert_Char is upper
+			   Lab_Invert_Char_Out:= Lab_Invert_Char_Out Chr(Asc(Lab_Invert_Char) + 32)
+			else if Lab_Invert_Char is lower
+			   Lab_Invert_Char_Out:= Lab_Invert_Char_Out Chr(Asc(Lab_Invert_Char) - 32)
+			else
+			   Lab_Invert_Char_Out:= Lab_Invert_Char_Out Lab_Invert_Char
+		 }
+		 MESSENGER_KEY=%Lab_Invert_Char_Out%
+	}
+	; Source Creditor
+	; ----
+	; Convert text - uppercase, lowercase, capitalized or inverted - Scripts and Functions - AutoHotkey Community
+	; https://autohotkey.com/board/topic/24431-convert-text-uppercase-lowercase-capitalized-or-inverted/
+	; ----
+RETURN
 
 
 ; *D::
