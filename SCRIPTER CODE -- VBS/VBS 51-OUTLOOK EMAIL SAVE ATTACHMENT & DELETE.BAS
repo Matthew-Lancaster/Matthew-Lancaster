@@ -38,7 +38,7 @@
 ' GET OVER LIMIT OF POP3 MAIL ONLY READ INBOX NOT WHAT IN FOLDER
 ' OOPS WELL TRY FIND VSB SCRIPT BUT SEEM HARD MUST USE VBA AS HERE
 '
-' WELL I INCLUDE IT IDEALLY AS A VBS BUT WITH EXTENSION .BAS 
+' WELL I INCLUDE IT IDEALLY AS A VBS BUT WITH EXTENSION .BAS
 ' IT BETTER SUIT TO RUN AS BAS RATHER THAN VBS
 
 '#-------------------------------------------------------------------
@@ -127,7 +127,7 @@
 ' AND THAT DOES HAPPEN WITH ERROR TRAP ALL CLEAR
 ' ANOTHER THING IS LESS SPAGHETTI CODE ON UNIQUE NAME
 ' AND A STOP THING
-' WITH COMPARE SO THAT ANY IMAGE WITH SAME FILENAME BUT 
+' WITH COMPARE SO THAT ANY IMAGE WITH SAME FILENAME BUT
 ' DIFFERENT CONTENT ARE CHECKED OVER
 ' THAT IS IMPORTANT BECAUSE ALL ATTACHMENT ARE COLLECTING
 ' BUT NOT WANT DELETE ANY EMAIL UNLESS WEEK OLDER
@@ -148,12 +148,13 @@
 ' -------------------------------------------------------------------
 
 '# ------------------------------------------------------------------
-' LOCATION ON-LINE 
+' LOCATION ON-LINE
 '# ------------------------------------------------------------------
 ' Matthew-Lancaster/VBS 51-OUTLOOK EMAIL SAVE ATTACHMENT & DELETE.BAS
 ' https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20VBS/VBS%2051-OUTLOOK%20EMAIL%20SAVE%20ATTACHMENT%20%26%20DELETE.BAS
 ' -------------------------------------------------------------------
 
+Dim SOME_PROCESS_DONE
 
 Private Declare Function sndPlaySound32 _
     Lib "winmm.dll" _
@@ -185,22 +186,39 @@ Private Declare Function sndPlaySound32 _
 '                            ' the specified sound.
 
 Sub MAIN()
+    
+Dim objMsg As Outlook.MailItem 'Object
 
-	sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 10&
-
-	Call RemoveAllItemsAndFoldersInDeletedItems
-
-	Call SaveAttachments_Good
-
-	'Call RemoveAllItemsAndFoldersInDeletedItems
-
-	End
+Call ShowMessage(objMsg)
 
 End Sub
 
 Public Sub ShowMessage(Item As Outlook.MailItem)
 
-	Call MAIN
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+If Dir(strFileControlpath) <> "" Then
+    FR1 = FreeFile
+    Open strFileControlpath For Input As FR1
+        Line Input #FR1, LINE_INPUT
+    Close #FR1
+    If LINE_INPUT = "STOP" Then Exit Sub
+End If
+
+
+sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+    
+Call RemoveAllItemsAndFoldersInDeletedItems
+
+Call SaveAttachments_Good
+
+If SOME_PROCESS_DONE = True Then
+    Call RemoveAllItemsAndFoldersInDeletedItems
+End If
+
+sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+
+End
 
 End Sub
 
@@ -264,6 +282,24 @@ Dim RR
 
 ' Get the path
 strFolderpath = "D:\GM OUTLOOK\"
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control.txt"
+If Dir(strFileControlpath) <> "" Then
+    FR1 = FreeFile
+    Open strFileControlpath For Input As FR1
+        Line Input #FR1, LINE_INPUT
+    Close #FR1
+    If LINE_INPUT = "STOP" Then Exit Sub
+End If
+
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+FR1 = FreeFile
+Open strFileControlpath For Output As FR1
+    Print #FR1, "STOP"
+Close #FR1
+
+
 
 ' Set oFolder = oNameSpace.PickFolder
 ' Set oFolder = oNameSpace2.GetDefaultFolder(23)  'olFolderJunkFolder
@@ -359,7 +395,8 @@ For RR = X_COUNT To 1 Step -1
         ' MsgBox A1
         ' MsgBox Str(lngCount)
                     
-        If SET_GO = True Then
+         ' GET THE ATTACHMENT FROM THEM ALL
+'        If SET_GO = True Then
             If lngCount > 0 Then
     
                     ' ---------------------------------------------------
@@ -454,6 +491,7 @@ For RR = X_COUNT To 1 Step -1
                                     End If
                                     
                                     objAttachments.Item(i).SaveAsFile strFile_TEMP
+                                    SOME_PROCESS_DONE = True
                                     
                                     FR1 = FreeFile
                                     Open strFile_TEMP For Binary As #FR1
@@ -474,11 +512,17 @@ For RR = X_COUNT To 1 Step -1
                             If Dir(strFile_NAME) = "" Then Stop
                     Next i
                     
+                    ' DELETE THE MAIL OF 10 DAY OLDER
                     If D1 < Now - 10 Then
+                        ' Set objAttachments = Nothing
                         On Error Resume Next
-                        'objMsg.Delete
+'                        objMsg.Delete
                         'objMsg.Item(RR).Delete
-                        objMsg.Move DeletedFolder
+                        ' Set objMsg = objSelection.Items.Item(RR)
+'                        FF = objMsg.To
+'                        If FF <> "" Then
+                         objMsg.Move DeletedFolder
+'                        End If
                         If Err.Number > 0 Then
                             Stop
                         End If
@@ -493,8 +537,7 @@ For RR = X_COUNT To 1 Step -1
                             GoTo ExitSub
                         End If
                     End If
-            
-            End If
+'            End If
         End If
 Next
 End If
@@ -510,11 +553,18 @@ Set objOL = Nothing
 'https://www.slipstick.com/developer/save-attachments-to-the-hard-drive/
 '----
 
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+On Error Resume Next
+Kill strFileControlpath
+On Error GoTo 0
+
 
 End Sub
 
 
+
 ' SOME EARLIER SOURCER
+'
 ' -------------------------------------------------------------------
 ' SOURCE HERE
 ' -------------------------------------------------------------------
