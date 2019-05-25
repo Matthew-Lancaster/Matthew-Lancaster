@@ -103,7 +103,7 @@ FOR RV=1 TO 2
 					END IF
 				END IF
 			END IF
-			objFolder=NOTHING
+			' objFolder=NOTHING
 		END IF
 	NEXT
 NEXT
