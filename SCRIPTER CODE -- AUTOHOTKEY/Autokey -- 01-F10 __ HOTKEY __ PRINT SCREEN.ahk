@@ -97,7 +97,27 @@ SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,100
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
+
+
+
+
 RETURN
+
+
+
+
+
+
+
+; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
+; must type an ending character after typing btw, such as Space, ., or Enter).
+
+::hima::
+SENDINPUT (Hi Marianne and Eddie)
+RETURN
+
+
+
 
 
 ; *D::
