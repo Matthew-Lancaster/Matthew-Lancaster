@@ -6145,7 +6145,7 @@ If GetComputerName = "2-ASUS-EEE" Then
 End If
 
 If GetComputerName = "4-ASUS-GL522VW" Then
-    FontSizez = 9
+    FontSizez = 7.5
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
 End If
 
@@ -6156,7 +6156,7 @@ If GetComputerName = "5-ASUS-P2520LA" Then
 End If
 
 If GetComputerName = "7-ASUS-GL522VW" Then
-    FontSizez = 7.4
+    FontSizez = 7.5
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
 End If
 
