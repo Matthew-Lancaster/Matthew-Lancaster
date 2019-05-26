@@ -13,7 +13,6 @@ Begin VB.Form DIALER
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   3228
    ScaleWidth      =   11352
-   ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Visible         =   0   'False
    WhatsThisHelp   =   -1  'True
@@ -176,11 +175,11 @@ If IsIDE = True Then
 End If
 
 I_N_TAIL = "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe"
-If Dir(I_N_TAIL) = "" Then
+'If Dir(I_N_TAIL) = "" Then
     ' MsgBox "THE EXE FILE __ NOT EXIST" + vbCrLf + vbCrLf + I_N_TAIL
     ' Beep
     ' Exit Sub
-End If
+'End If
 
 
 PROGRAM_LOAD = True
@@ -190,7 +189,16 @@ OLD_VAR_DSR_4 = -10
 
 Call TIMER_1_TIMER
 
+If IsIDE = True Then
+    Me.Visible = True
+    ' Me.ShowInTaskbar = True
+End If
+
 'Me.Visible = True
+'
+'If IsIDE = False Then
+'    Me.WindowState = vbMinimized
+'End If
 
 
 End Sub

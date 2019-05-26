@@ -365,6 +365,7 @@ RS232_LOGGER_TIMER_RUN_EXE:
 	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.exe"
 	IfWinNotActive RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
 	IFWINNOTEXIST RS232_LOGGER ahk_class ThunderFormDC
+	IFWINNOTEXIST RS232_LOGGER ahk_exe RS232 LOGGER.exe
 	IFEXIST, %FN_VAR%
 	{
 		Run, %FN_VAR%,,HIDE
