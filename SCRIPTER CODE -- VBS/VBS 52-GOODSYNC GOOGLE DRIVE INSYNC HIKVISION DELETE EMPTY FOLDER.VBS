@@ -87,16 +87,16 @@ FOR RV=1 TO 2
 		IF RV=2 THEN FOLDER_STRING=FOLDER_STRING_2+XXC+")"
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-			' MSGBOX FOLDER_STRING
-			
-			' MSGBOX objFolder.SubFolders.Count
-			' MSGBOX objFolder.Files.Count
+			'MSGBOX FOLDER_STRING
 
-			Set objFolder = fso.GetFolder(FOLDER_STRING)
+			Set objFolder = FSO.GetFolder(FOLDER_STRING)
+
+			'MSGBOX objFolder.SubFolders.Count
+			'MSGBOX objFolder.Files.Count
 			
 			If objFolder.SubFolders.Count = 0 Then 
 				IF objFolder.Files.Count = 0 Then
-					' MSGBOX FOLDER_STRING
+					MSGBOX FOLDER_STRING
 					fso.DeleteFolder objFolder.Path
 					IF FSO.FOLDERExists(FOLDER_STRING) THEN
 						fso.DeleteFolder FOLDER_STRING
