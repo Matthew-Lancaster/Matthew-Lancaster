@@ -13,6 +13,40 @@
 
 Const DontWaitUntilFinished = false, WaitUntilFinished = true, ShowWindow = 1, DontShowWindow = 0
 
+' -------------------------------------------------------------------
+' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
+' SOURCE GIVEN
+' -------------------------------------------------------------------
+' vbscript - how to check vbs script in windows is running or not? - Stack Overflow
+' https://stackoverflow.com/questions/7849699/how-to-check-vbs-script-in-windows-is-running-or-not
+' -------------------------------------------------------------------
+' [ Wednesday 13:08:00 Pm_20 March 2019 ]
+' -------------------------------------------------------------------
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		else
+			i1=i1+1
+		END IF
+		IF i1 > 0 THEN 
+				' Wscript.Quit
+		END IF  
+		IF i2 > 1 THEN 
+				Wscript.Quit
+		END IF  
+    END IF  
+NEXT
+
+
 Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set OBJFSO = CreateObject("Scripting.FileSystemObject")
@@ -41,7 +75,7 @@ i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
 ' R_T -- 20 = DAYS BEFORE
 ' -------------------------------------------------------------------
 
-FOR R_T=0 TO 40
+FOR R_T=0 TO 4
 
 	i_TIME=""
 	i_TIME=i_TIME+LPad(Year(Now-R_T), "0", 4)
