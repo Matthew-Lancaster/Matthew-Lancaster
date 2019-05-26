@@ -627,6 +627,8 @@ For RR = X_COUNT To 1 Step -1
                                     If PIC2_COMPARE <> PIC1_COMPARE Then
                                         MsgBox "PIC1_COMPARE<>PIC2_COMPARE" + vbCrLf + "IMAGE NOT THE SAME AT COMPARE" + vbCrLf + "OUTLOOK SCRIPTOR -- NOW STOP"
                                         Stop
+                                        strFile_NAME = Mid(strFile_NAME, 1, InStrRev(strFile_NAME, ".") - 1) + "_Dupe_" + Trim(Str(Timer)) + ".jpg"
+                                        'MsgBox strFile_NAME
                                     End If
                                 End If
     
