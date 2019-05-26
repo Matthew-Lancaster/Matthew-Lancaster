@@ -2898,6 +2898,84 @@ Private Function GetText(pHandle As Long) As String
 End Function
      
      
+     
+Sub COLOUR_BOX_SELECTOR_RESTORE_DEFAULT()
+' CALL COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+
+Dim ARRAY_CB()
+ReDim ARRAY_CB(100)
+Dim LDAC, R_COUNTER
+
+' --------------------------------------------------
+' SOME AFTER HERE MIXED FROM ANOTHER APP
+' VB_KEEP_RUNNER AND ELITESPY
+' PASTED IN
+' FLOUR -- COLOUR -- POWDER --
+' --------------------------------------------------
+LDAC = 0
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_GOODSYNC_COLLECTION_SCRIPT_RUN"  ' -- VB_KEEP_RUNNER ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_AUTOHOTKEY"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_RUN_AUTOHOTKEY_SET"              ' -- VB_KEEP_RUNNER ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MINIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_WSCRIPT"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_HUBIC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Lab_KILL_AHK"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Lab_KILL_EXPLORER"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_HWND"                      ' -- ELITESPY ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "LAB_MAXIMIZE_HUBIC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "LAB_MAXIMIZE_GOODSYNC2GO"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "LAB_MAXIMIZE_VB_KEEP_RUNNER"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+
+For R_COUNTER = 1 To LDAC
+    If ARRAY_CB(R_COUNTER) = "" Then Exit For
+Next
+
+ReDim Preserve ARRAY_CB(R_COUNTER - 1)
+
+Dim Control As Control
+For Each Control In Me.Controls
+    For R_COUNTER = 1 To UBound(ARRAY_CB)
+        If Control.Name = ARRAY_CB(R_COUNTER) Then
+            Control.BackColor = Label59.BackColor
+            Control.ForeColor = RGB(0, 0, 0)
+        End If
+    Next
+Next
+
+' Lab_KILL_EXPLORER.BackColor = RGB(255, 255, 255)
+
+Dim HWND_RESULT
+HWND_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+If HWND_RESULT > 0 Then
+    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
+End If
+
+End Sub
+
+     
+     
 Private Sub SetFullRowSelection(ByVal hWndListView, ByVal bFullRow As Boolean)
    SendMessage hWndListView, LVM_SETEXTENDEDLISTVIEWSTYLE, LVS_EX_FULLROWSELECT, ByVal CLng(bFullRow)
 End Sub
@@ -4143,81 +4221,6 @@ Label23_Click
 Me.WindowState = vbMinimized
 Beep
 
-
-End Sub
-
-Sub COLOUR_BOX_SELECTOR_RESTORE_DEFAULT()
-' CALL COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-
-Dim ARRAY_CB()
-ReDim ARRAY_CB(100)
-Dim LDAC, R_COUNTER
-
-' --------------------------------------------------
-' SOME AFTER HERE MIXED FROM ANOTHER APP
-' VB_KEEP_RUNNER AND ELITESPY
-' PASTED IN
-' FLOUR -- COLOUR -- POWDER --
-' --------------------------------------------------
-LDAC = 0
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_GOODSYNC_COLLECTION_SCRIPT_RUN"  ' -- VB_KEEP_RUNNER ONLY
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_AUTOHOTKEY"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_RUN_AUTOHOTKEY_SET"              ' -- VB_KEEP_RUNNER ONLY
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_MINIMIZE_GOODSYNC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_WSCRIPT"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_HUBIC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Lab_KILL_AHK"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Lab_KILL_EXPLORER"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_CLOSE_HWND"                      ' -- ELITESPY ONLY
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "LAB_MAXIMIZE_HUBIC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "LAB_MAXIMIZE_GOODSYNC2GO"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "LAB_MAXIMIZE_VB_KEEP_RUNNER"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
-
-For R_COUNTER = 1 To LDAC
-    If ARRAY_CB(R_COUNTER) = "" Then Exit For
-Next
-
-ReDim Preserve ARRAY_CB(R_COUNTER - 1)
-
-Dim Control As Control
-For Each Control In Me.Controls
-    For R_COUNTER = 1 To UBound(ARRAY_CB)
-        If Control.Name = ARRAY_CB(R_COUNTER) Then
-            Control.BackColor = Label59.BackColor
-            Control.ForeColor = RGB(0, 0, 0)
-        End If
-    Next
-Next
-
-Lab_KILL_EXPLORER.BackColor = RGB(255, 255, 255)
-
-Dim HWND_RESULT
-HWND_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
-If HWND_RESULT > 0 Then
-    Result = PostMessage(HWND_RESULT, WM_CLOSE, 0&, 0&)
-End If
 
 End Sub
 
