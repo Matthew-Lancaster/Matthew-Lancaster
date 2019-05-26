@@ -798,6 +798,16 @@ Begin VB.Form frmMain
       Top             =   696
       Width           =   1044
    End
+   Begin VB.Label LAB_MAXIMIZE_VB_KEEP_RUNNER 
+      Alignment       =   2  'Center
+      BackColor       =   &H00C0FFFF&
+      Caption         =   "MAX VB-KR"
+      Height          =   216
+      Left            =   2316
+      TabIndex        =   130
+      Top             =   3600
+      Width           =   876
+   End
    Begin VB.Label LAB_MAXIMIZE_GOODSYNC2GO 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
@@ -813,20 +823,20 @@ Begin VB.Form frmMain
       BackColor       =   &H00C0FFFF&
       Caption         =   "MAX HUBIC"
       Height          =   216
-      Left            =   1728
+      Left            =   1416
       TabIndex        =   128
       Top             =   3600
-      Width           =   1152
+      Width           =   876
    End
    Begin VB.Label Lab_KILL_EXPLORER 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL EXPLORER"
       Height          =   216
-      Left            =   3828
+      Left            =   4104
       TabIndex        =   127
       Top             =   3600
-      Width           =   1512
+      Width           =   1236
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
       Alignment       =   2  'Center
@@ -863,10 +873,10 @@ Begin VB.Form frmMain
       BackColor       =   &H00C0FFFF&
       Caption         =   "KILL AHK"
       Height          =   216
-      Left            =   2904
+      Left            =   3348
       TabIndex        =   123
       Top             =   3600
-      Width           =   900
+      Width           =   732
    End
    Begin VB.Label LAB_MAXIMIZE_GOODSYNC 
       Alignment       =   2  'Center
@@ -3997,6 +4007,36 @@ Call LISTVIEW_CLICKER
 
 End Sub
 
+Private Sub LAB_MAXIMIZE_VB_KEEP_RUNNER_Click()
+' ---------------------
+' ALIGN BY
+' lstProcess_2_ListView.LEFT
+' LAB_MAXIMIZE_HUBIC.LEFT
+' ---------------------
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+LAB_MAXIMIZE_VB_KEEP_RUNNER.BackColor = RGB(255, 255, 255)
+
+Dim WINDOW_HWND
+WINDOW_HWND = FindWindow("ThunderRT6FormDC", "VB KEEP RUNNER")
+txthWnd.Text = Trim(Str(WINDOW_HWND))
+
+Call cmdNormal_Click
+' Call cmdMoveMax_Click
+
+Beep
+Me.WindowState = vbMinimized
+
+Dim VAR, EXE_STRING
+PID = -1
+VAR = cProcesses.Convert(WINDOW_HWND, PID, cnFromhWnd Or cnToProcessID)
+VAR = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
+
+PROCESS_TO_KILLER = EXE_STRING
+PROCESS_TO_KILLER_PID = PID
+Call LISTVIEW_CLICKER
+End Sub
+
 Private Sub Label_CLOSE_GOODSYNC_Click()
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
@@ -4147,7 +4187,7 @@ ARRAY_CB(LDAC) = "LAB_MAXIMIZE_HUBIC"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "LAB_MAXIMIZE_GOODSYNC2GO"
 LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
+ARRAY_CB(LDAC) = "LAB_MAXIMIZE_VB_KEEP_RUNNER"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 LDAC = LDAC + 1
@@ -4183,6 +4223,10 @@ End Sub
 
 
 Private Sub Label65_Click()
+
+End Sub
+
+Private Sub Label2_Click()
 
 End Sub
 
@@ -4384,9 +4428,14 @@ Private Sub cmdMoveMax_Click()
         GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
         txthWnd.Text = GOODSYNC_WINDOW_HWND
         If GOODSYNC_WINDOW_HWND = 0 Then
-            MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            txtMhWnd.Text = Me.hWnd
+
         Else
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+            If Val(txthWnd.Text) = 0 Then
+                MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+            End If
         End If
     End If
     
@@ -4404,7 +4453,7 @@ Private Sub cmdMoveMax_Click()
     HW = SSHW - 20
     HH = SSHH - 240
     
-    ShowWindow txtMhWnd.Text, SW_NORMAL
+    ShowWindow txthWnd.Text, SW_NORMAL
     
     MoveWindow txthWnd.Text, HX, HY, HW, HH, True
     lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
@@ -4419,7 +4468,9 @@ Private Sub cmdMaximize_Click()
         GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
         txthWnd.Text = GOODSYNC_WINDOW_HWND
         If GOODSYNC_WINDOW_HWND = 0 Then
-            MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            txtMhWnd.Text = Me.hWnd
         Else
             MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
         End If
@@ -4440,7 +4491,9 @@ Private Sub cmdMinimize_Click()
         GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
         txthWnd.Text = GOODSYNC_WINDOW_HWND
         If GOODSYNC_WINDOW_HWND = 0 Then
-            MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            txtMhWnd.Text = Me.hWnd
         Else
             MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
         End If
@@ -4468,11 +4521,17 @@ Private Sub cmdNormal_Click()
     
     Dim lhWndParentX
     
-    If Val(txtMhWnd.Text) = 0 Then
-        MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
-    Else
-        MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
-        txtMhWnd.Text = Me.hWnd
+    If Val(txthWnd.Text) = 0 Then
+        Dim GOODSYNC_WINDOW_HWND
+        GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+        txthWnd.Text = GOODSYNC_WINDOW_HWND
+        If GOODSYNC_WINDOW_HWND = 0 Then
+            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            txtMhWnd.Text = Me.hWnd
+        Else
+            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+        End If
     End If
    
    
@@ -4483,9 +4542,14 @@ Private Sub cmdNormal_Click()
 
     ' txtMhWnd.Text = GetAncestor(Val(txtMhWnd.Text), GA_ROOT)
 
-    ShowWindow txtMhWnd.Text, SW_NORMAL
+    Dim SET_HWND As Long
+
+    If Val(txtMhWnd.Text) > 0 Then SET_HWND = Val(txtMhWnd.Text)
+    If Val(txthWnd.Text) > 0 Then SET_HWND = Val(txthWnd.Text)
     
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txtMhWnd.Text)
+    ShowWindow SET_HWND, SW_NORMAL
+        
+    lHwnd_Function_Button_Set_MIN_MAX = SET_HWND
     Call ChunkCodeOnMouse
     
 End Sub
