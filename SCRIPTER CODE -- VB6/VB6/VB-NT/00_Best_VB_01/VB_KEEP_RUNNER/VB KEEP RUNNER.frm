@@ -628,25 +628,65 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
+   Begin VB.Label Label_CLOSE_GOODSYNC2GO 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "CLOSE GOODSYNC 2 GO"
+      Height          =   216
+      Left            =   6276
+      TabIndex        =   147
+      Top             =   2748
+      Width           =   2856
+   End
+   Begin VB.Label Label_MAXIMIZE_GOODSYNC2GO 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "MAX GOODSYNC 2 GO"
+      Height          =   216
+      Left            =   6276
+      TabIndex        =   146
+      Top             =   1824
+      Width           =   2856
+   End
+   Begin VB.Label Label_MAXIMIZE_ELITE_SPY 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "MAX ELITE SPY"
+      Height          =   216
+      Left            =   6264
+      TabIndex        =   145
+      Top             =   768
+      Width           =   2856
+   End
+   Begin VB.Label Label10 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "NORMAL"
+      Height          =   216
+      Left            =   8328
+      TabIndex        =   144
+      Top             =   540
+      Width           =   804
+   End
    Begin VB.Label Label15 
       Alignment       =   2  'Center
       BackColor       =   &H00C0FFC0&
-      Caption         =   "HWND ACTION"
-      Height          =   240
+      Caption         =   "HWND"
+      Height          =   216
       Left            =   6276
       TabIndex        =   143
       Top             =   540
-      Width           =   1212
+      Width           =   576
    End
    Begin VB.Label Label_HWND_MAXIMIZE 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "MAXIMIZE"
-      Height          =   240
-      Left            =   8232
+      Height          =   216
+      Left            =   7488
       TabIndex        =   142
       Top             =   540
-      Width           =   900
+      Width           =   828
    End
    Begin VB.Label Label_VB_MODIFIED_ACTIVE 
       Alignment       =   2  'Center
@@ -807,21 +847,21 @@ Begin VB.Form Form1
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CMD* && AH&K*"
-      Height          =   240
-      Left            =   6276
+      Height          =   216
+      Left            =   7332
       TabIndex        =   126
-      Top             =   3768
-      Width           =   2856
+      Top             =   3780
+      Width           =   1800
    End
    Begin VB.Label Label_KILL_CMD 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL &CMD*"
-      Height          =   240
+      Height          =   216
       Left            =   6276
       TabIndex        =   125
-      Top             =   3516
-      Width           =   2856
+      Top             =   3780
+      Width           =   1044
    End
    Begin VB.Label Label_8M 
       Alignment       =   2  'Center
@@ -897,21 +937,21 @@ Begin VB.Form Form1
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CHROME"
-      Height          =   210
-      Left            =   6270
+      Height          =   204
+      Left            =   7764
       TabIndex        =   117
-      Top             =   3285
-      Width           =   2850
+      Top             =   3276
+      Width           =   1368
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET_NETWORK 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "RUN AUTOHOTKEY NETWORK"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   116
-      Top             =   1545
-      Width           =   2850
+      Top             =   1512
+      Width           =   2856
    End
    Begin VB.Image Image1 
       Height          =   384
@@ -931,81 +971,81 @@ Begin VB.Form Form1
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "TASKKILL NOT RESPOND FORCE"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   114
-      Top             =   4530
-      Width           =   2850
+      Top             =   4560
+      Width           =   2856
    End
    Begin VB.Label LABEL_KILL_NOT_RESPOND 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "TASKKILL NOT RESPOND"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   113
-      Top             =   4275
-      Width           =   2850
+      Top             =   4332
+      Width           =   2856
    End
    Begin VB.Label Label_TASK_KILLER_CMD 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "TASKKILL CMD*"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   112
       Top             =   4020
-      Width           =   2850
+      Width           =   2856
    End
    Begin VB.Label Label_CLOSE_HWND 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "CLOSE"
-      Height          =   240
-      Left            =   7500
+      Height          =   216
+      Left            =   6864
       TabIndex        =   111
       Top             =   540
-      Width           =   720
+      Width           =   612
    End
    Begin VB.Label Lab_KILL_EXPLORER 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL EXPLORER"
-      Height          =   210
-      Left            =   6270
+      Height          =   192
+      Left            =   7236
       TabIndex        =   110
-      Top             =   3060
-      Width           =   2850
+      Top             =   3492
+      Width           =   1896
    End
    Begin VB.Label Label_KILL_HUBIC 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL HUBIC"
-      Height          =   225
-      Left            =   6270
+      Height          =   192
+      Left            =   6276
       TabIndex        =   109
-      Top             =   2820
-      Width           =   2850
+      Top             =   3492
+      Width           =   948
    End
    Begin VB.Label Label_GOODSYNC_COLLECTION_SCRIPT_RUN 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "RUN GOODSYNC SCRIPT SET"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   108
-      Top             =   2565
-      Width           =   2850
+      Top             =   2976
+      Width           =   2856
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "CLOSE GOODSYNC"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   107
-      Top             =   2310
-      Width           =   2850
+      Top             =   2520
+      Width           =   2856
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
@@ -1041,41 +1081,41 @@ Begin VB.Form Form1
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "MINIMIZE GOODSYNC"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   103
-      Top             =   2055
-      Width           =   2850
+      Top             =   2292
+      Width           =   2856
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "MAXIMIZE GOODSYNC"
-      Height          =   240
-      Left            =   6270
+      Caption         =   "MAX GOODSYNC"
+      Height          =   216
+      Left            =   6276
       TabIndex        =   102
-      Top             =   1800
-      Width           =   2850
+      Top             =   2064
+      Width           =   2856
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "RUN AUTOHOTKEY.EXE"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   101
-      Top             =   1290
-      Width           =   2850
+      Top             =   1284
+      Width           =   2856
    End
    Begin VB.Label Label_KILL_AUTOHOTKEY 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL &AUTOHOTKEY.EXE"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   100
-      Top             =   1035
-      Width           =   2850
+      Top             =   1056
+      Width           =   2856
    End
    Begin VB.Label Label64 
       Alignment       =   2  'Center
@@ -1336,21 +1376,21 @@ Begin VB.Form Form1
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL WSCRIPT.EXE"
-      Height          =   240
-      Left            =   6270
+      Height          =   204
+      Left            =   6276
       TabIndex        =   78
-      Top             =   795
-      Width           =   2850
+      Top             =   3276
+      Width           =   1476
    End
    Begin VB.Label Label29 
       Alignment       =   2  'Center
       BackColor       =   &H00FFC0C0&
       Caption         =   "TASKKILLER /F /IM * /T"
-      Height          =   240
-      Left            =   6270
+      Height          =   216
+      Left            =   6276
       TabIndex        =   77
-      Top             =   285
-      Width           =   2850
+      Top             =   288
+      Width           =   2856
    End
    Begin VB.Label lblCordi 
       Alignment       =   2  'Center
@@ -3029,8 +3069,8 @@ Function GetComputerName() As String
    Call GetComputerNameA(UserName, 255)
    GetComputerName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
 End Function
-'----------------------------------------------------
-'----------------------------------------------------
+
+
 Private Sub Form_Load()
 
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
@@ -3194,6 +3234,110 @@ If IsIDE = True Then
 End If
 End Sub
 
+Sub COLOUR_BOX_SELECTOR_RESTORE_DEFAULT()
+'CALL COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+
+Dim ARRAY_CB()
+ReDim ARRAY_CB(100)
+Dim LDAC, R_COUNTER
+Dim COLOUR_VAR
+Dim Test
+
+' --------------------------------------------------
+' SOME AFTER HERE MIXED FROM ANOTHER APP
+' VB_KEEP_RUNNER AND ELITESPY
+' PASTED IN
+' FLOUR -- COLOUR -- POWDER --
+' --------------------------------------------------
+LDAC = 0
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_GOODSYNC_COLLECTION_SCRIPT_RUN"  ' -- VB_KEEP_RUNNER ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_AUTOHOTKEY"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_RUN_AUTOHOTKEY_SET"              ' -- VB_KEEP_RUNNER ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MINIMIZE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_WSCRIPT"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_HUBIC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Lab_KILL_AHK"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Lab_KILL_EXPLORER"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_hWnd"                      ' -- ELITESPY ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_TASK_KILLER_CMD"                 ' -- VB_KEEP_RUNNER ONLY
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "LABEL_KILL_NOT_RESPOND"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "LABEL_KILL_NOT_RESPOND_FORCE"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_RUN_AUTOHOTKEY_SET_NETWORK"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_CHROME"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_1X"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_2E"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_3L"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_4G"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_5P"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_7G"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_8M"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_CMD"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_CMD_AND_AHK"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_HWND_MAXIMIZE"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MAXIMIZE_ELITE_SPY"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC2GO"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC2GO"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+
+Test = "_1X_2E_3L_4G_5P_7G_8M"
+Test = Replace(Test, "_", "Label_")
+
+For R_COUNTER = 1 To LDAC
+    If ARRAY_CB(R_COUNTER) = "" Then Exit For
+Next
+
+ReDim Preserve ARRAY_CB(R_COUNTER - 1)
+
+Dim Control As Control
+For Each Control In Me.Controls
+    For R_COUNTER = 1 To UBound(ARRAY_CB)
+        If Control.Name = ARRAY_CB(R_COUNTER) Then
+            If InStr(Test, Control.Name) > 0 Then
+                COLOUR_VAR = &HE2FEEA
+            Else
+                COLOUR_VAR = Label59.BackColor
+            End If
+            Control.BackColor = COLOUR_VAR
+            Control.ForeColor = RGB(0, 0, 0)
+        End If
+    Next
+Next
+
+End Sub
 
 
 Sub GO_DO_IT_WITH_LOW_END_COMPUTER()
@@ -4779,6 +4923,15 @@ SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 End Sub
 
+Private Sub Label_CLOSE_GOODSYNC2GO_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_CLOSE_GOODSYNC2GO.BackColor = RGB(255, 255, 255)
+
+Call MNU_CLOSE_GOODSYNC_2_GO_Click
+
+End Sub
+
 Private Sub Label_GOODSYNC_01_Click()
 ' -------------------------------------------------------------------------------
 ' SESSION AT [__ Ver_2019_1.0.279 __]
@@ -4952,6 +5105,33 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         cProcesses.Process_Kill (pid)
     End If
 Next
+
+End Sub
+
+Private Sub Label_MAXIMIZE_ELITE_SPY_Click()
+
+Dim WINDOW_hWnd
+' window_hWnd = FindWindow("ThunderRT6FormDC", "EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version 1.0.510)")
+WINDOW_hWnd = FindWindowPart("EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version")
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_MAXIMIZE_ELITE_SPY.BackColor = RGB(255, 255, 255)
+
+ShowWindow WINDOW_hWnd, SW_NORMAL
+Beep
+Me.WindowState = vbMinimized
+End Sub
+
+Private Sub Label_MAXIMIZE_GOODSYNC2GO_Click()
+
+Dim GOODSYNC_WINDOW_hWnd
+GOODSYNC_WINDOW_hWnd = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F00A}", vbNullString)
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_MAXIMIZE_GOODSYNC2GO.BackColor = RGB(255, 255, 255)
+
+ShowWindow GOODSYNC_WINDOW_hWnd, SW_MAXIMIZE
+Beep
+Me.WindowState = vbMinimized
 
 End Sub
 
@@ -5317,10 +5497,6 @@ Call Form_Resize
 
 End Sub
 
-Private Sub Label10_Click()
-
-End Sub
-
 Private Sub Label22_Click()
 'Label22.CAPTION
 'Clipboard.Clear
@@ -5612,6 +5788,19 @@ Private Sub MNU_CLOSE_GOODSYNC_Click()
 
 Dim hWnd_RESULT
 hWnd_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
+If hWnd_RESULT > 0 Then
+    Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
+End If
+
+Me.WindowState = vbMinimized
+Beep
+
+End Sub
+
+Private Sub MNU_CLOSE_GOODSYNC_2_GO_Click()
+
+Dim hWnd_RESULT
+hWnd_RESULT = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F00A}", vbNullString)
 If hWnd_RESULT > 0 Then
     Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
 End If
@@ -6614,106 +6803,6 @@ Call MNU_AUTOHOTKEYS_SET_Click
 
 End Sub
 
-Sub COLOUR_BOX_SELECTOR_RESTORE_DEFAULT()
-'CALL COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-
-Dim ARRAY_CB()
-ReDim ARRAY_CB(100)
-Dim LDAC, R_COUNTER
-Dim COLOUR_VAR
-Dim Test
-
-' --------------------------------------------------
-' SOME AFTER HERE MIXED FROM ANOTHER APP
-' VB_KEEP_RUNNER AND ELITESPY
-' PASTED IN
-' FLOUR -- COLOUR -- POWDER --
-' --------------------------------------------------
-LDAC = 0
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_GOODSYNC_COLLECTION_SCRIPT_RUN"  ' -- VB_KEEP_RUNNER ONLY
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_AUTOHOTKEY"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_RUN_AUTOHOTKEY_SET"              ' -- VB_KEEP_RUNNER ONLY
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_MINIMIZE_GOODSYNC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_WSCRIPT"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_HUBIC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Lab_KILL_AHK"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Lab_KILL_EXPLORER"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_CLOSE_hWnd"                      ' -- ELITESPY ONLY
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_TASK_KILLER_CMD"                 ' -- VB_KEEP_RUNNER ONLY
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "LABEL_KILL_NOT_RESPOND"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "LABEL_KILL_NOT_RESPOND_FORCE"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_RUN_AUTOHOTKEY_SET_NETWORK"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_CHROME"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_1X"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_2E"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_3L"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_4G"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_5P"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_7G"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_8M"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_CMD"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_KILL_CMD_AND_AHK"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = "Label_HWND_MAXIMIZE"
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
-LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
-
-Test = "_1X_2E_3L_4G_5P_7G_8M"
-Test = Replace(Test, "_", "Label_")
-
-For R_COUNTER = 1 To LDAC
-    If ARRAY_CB(R_COUNTER) = "" Then Exit For
-Next
-
-ReDim Preserve ARRAY_CB(R_COUNTER - 1)
-
-Dim Control As Control
-For Each Control In Me.Controls
-    For R_COUNTER = 1 To UBound(ARRAY_CB)
-        If Control.Name = ARRAY_CB(R_COUNTER) Then
-            If InStr(Test, Control.Name) > 0 Then
-                COLOUR_VAR = &HE2FEEA
-            Else
-                COLOUR_VAR = Label59.BackColor
-            End If
-            Control.BackColor = COLOUR_VAR
-            Control.ForeColor = RGB(0, 0, 0)
-        End If
-    Next
-Next
-
-End Sub
 
 
 
@@ -9623,21 +9712,21 @@ End Sub
 
 
 
-Private Function WindowText(ByVal window_hWnd As Long) As String
+Private Function WindowText(ByVal WINDOW_hWnd As Long) As String
 
     Dim txtlen              As Long
 
-    If window_hWnd = 0 Then
+    If WINDOW_hWnd = 0 Then
         Exit Function
     End If
 
-    txtlen = SendMessage(window_hWnd, WM_GETTEXTLENGTH, ByVal 0, ByVal 0)
+    txtlen = SendMessage(WINDOW_hWnd, WM_GETTEXTLENGTH, ByVal 0, ByVal 0)
     If txtlen = 0 Then
         Exit Function
     End If
 
     WindowText = String$(txtlen, vbNullChar)
-    SendMessage window_hWnd, WM_GETTEXT, ByVal (txtlen + 1), ByVal StrPtr(WindowText)
+    SendMessage WINDOW_hWnd, WM_GETTEXT, ByVal (txtlen + 1), ByVal StrPtr(WindowText)
 
 End Function
 
