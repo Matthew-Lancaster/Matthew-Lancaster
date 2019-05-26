@@ -170,8 +170,9 @@
 ' https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20VBS/VBS%2051-OUTLOOK%20EMAIL%20SAVE%20ATTACHMENT%20%26%20DELETE.BAS
 ' -------------------------------------------------------------------
 
-Dim SOME_PROCESS_DONE
-Dim SOME_ITEM_DELETER
+Public SOME_PROCESS_DONE
+Public SOME_ITEM_DELETER
+Public SOUND_OFF_ON
 
 Private Declare Function sndPlaySound32 _
     Lib "winmm.dll" _
@@ -204,14 +205,26 @@ Private Declare Function sndPlaySound32 _
 
 Sub MAIN()
     
+' --------------------------------------------------
+' DUMMY SETTER SO ABLE TO THROW THROUGHT THE ROUTINE
+' --------------------------------------------------
 Dim objMsg As Outlook.MailItem 'Object
-
+' --------------------------------------------------
 Call ShowMessage(objMsg)
+' --------------------------------------------------
+
 
 End Sub
 
 Public Sub ShowMessage(Item As Outlook.MailItem)
 
+' ----------------------------------------------------------------------------------------------
+' BY THIS ROUTINE IS ONLY WAY ABLE TO USE OUTLOOK TO MAKE ROUTINE WITH ON EVENT MESSENGER ARRIVE
+' AND STILL HAVE TO USE __ SUB MAIN __ FOR OTHER TYPE OF CALL
+' ----------------------------------------------------------------------------------------------
+' IT NOT GOOD TO CALL THIS ROUTINE MANUALLY
+' IS DOESN'T SEEM TO HOLD AND DIM VARIABLE IS BETTER USE __ SUB MAIN
+' ----------------------------------------------------------------------------------------------
 
 strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
 If Dir(strFileControlpath) <> "" Then
@@ -222,12 +235,27 @@ If Dir(strFileControlpath) <> "" Then
     If LINE_INPUT = "STOP" Then Exit Sub
 End If
 
+strFileControlpath = "D:\GM OUTLOOK\File_Control.txt"
+If Dir(strFileControlpath) <> "" Then
+    FR1 = FreeFile
+    Open strFileControlpath For Input As FR1
+        Line Input #FR1, LINE_INPUT
+        On Error Resume Next
+        Line Input #FR1, SOUND_OFF_ON
+        On Error GoTo 0
+    Close #FR1
+    If LINE_INPUT = "STOP" Then Exit Sub
+End If
+
+
 
     
 Call RemoveAllItemsAndFoldersInDeletedItems
 
 If SOME_ITEM_DELETER = True Then
-    sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+    If SOUND_OFF_ON <> "SOUND OFF" Then
+        sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+    End If
 End If
 
 Call SaveAttachments_Good
@@ -236,10 +264,11 @@ SOME_ITEM_DELETER = False
 If SOME_PROCESS_DONE = True Then
     Call RemoveAllItemsAndFoldersInDeletedItems
     If SOME_ITEM_DELETER = True Then
-        sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+        If SOUND_OFF_ON <> "SOUND OFF" Then
+            sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+        End If
     End If
 End If
-
 
 End
 
@@ -258,7 +287,9 @@ If oDeletedItems.Items.Count > 0 Then
     For i = oItems.Count To 1 Step -1
         oItems.Item(i).Delete
         If SOME_ITEM_DELETER = False Then
-            sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+            If SOUND_OFF_ON <> "SOUND OFF" Then
+                sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+            End If
         End If
         SOME_ITEM_DELETER = True
         X = X + 1
@@ -310,15 +341,6 @@ Dim RR
 
 ' Get the path
 strFolderpath = "D:\GM OUTLOOK\"
-
-strFileControlpath = "D:\GM OUTLOOK\File_Control.txt"
-If Dir(strFileControlpath) <> "" Then
-    FR1 = FreeFile
-    Open strFileControlpath For Input As FR1
-        Line Input #FR1, LINE_INPUT
-    Close #FR1
-    If LINE_INPUT = "STOP" Then Exit Sub
-End If
 
 
 strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
@@ -551,6 +573,7 @@ For RR = X_COUNT To 1 Step -1
 '                        FF = objMsg.To
 '                        If FF <> "" Then
                          objMsg.Move DeletedFolder
+                         SOME_PROCESS_DONE = True
 '                        End If
                         If Err.Number > 0 Then
                             Stop
@@ -562,7 +585,7 @@ For RR = X_COUNT To 1 Step -1
                             DoEvents
                         End If
                         RR_X = RR_X + 1
-                        If RR_X >= 200 Then
+                        If RR_X >= 100 Then
                             GoTo ExitSub
                         End If
                     End If
