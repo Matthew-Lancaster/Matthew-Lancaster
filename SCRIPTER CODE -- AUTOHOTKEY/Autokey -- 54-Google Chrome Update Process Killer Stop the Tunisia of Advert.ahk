@@ -44,6 +44,8 @@ IF A_ComputerName=1-ASUS-X5DIJ
 IF A_ComputerName=2-ASUS-EEE
 	ExitApp     
 
+ExitApp     
+
 	
 #Warn
 #NoEnv
@@ -79,6 +81,29 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; #InstallKeybdHook ;<- add this
 ; #InstallMouseHook ;<- this
 ; #UseHook, On ;<- and this
+
+
+; -------------------------------------------------------------------
+; LEFT RUN LONG TIMER AND OUT OF DATE WAS THIS MUCH
+; CNET PUBLISH STORY OF AMERICAN BULL TROLLOP AND THEN 
+; HOW AN ADVERT INVASION WAS ABOUT TO TAKE OVER
+; PLAGGY FROM MY LEARN 
+; TALK ABOUT ADVERT SAME TIME
+; NOTHING CAME ABOUT OF THAT THING
+; TOO HARD NOW-A-DAY IF THINK LEARN
+; STOP THIS BIT AND THAT
+; SURPRISE FOR ADVERT PEOPLE
+; [ Sunday 12:33:40 Pm_26 May 2019 ]
+; THIS NOT A MAIN CODE LEFT RUN ANYMORE FOR ME
+; QUITE EFFECTIVE AT KILL UPDATE CHROME
+; -------------------------------------------------------------------
+; Google Chrome (64bit)
+; Publisher: Google
+; License: Freeware
+; Installed Version: 74.0.3729.131
+; -------------------------------------------------------------------
+
+
 
 ; DetectHiddenWindows, on
 SetStoreCapslockMode, off
