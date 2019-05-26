@@ -538,12 +538,12 @@ Process_Suspend_esif_assist_64(PID){
 ; -------------------------------------------------------------------
 MAIN_ROUTINE_2:
 
-Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
-IfExist, %Element_1%
-{
-	SoundBeep , 2000 , 100
-	Run, %Element_1%
-}
+; Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
+; IfExist, %Element_1%
+; {
+	; SoundBeep , 2000 , 100
+	; Run, %Element_1%
+; }
 
 GOSUB MINIMIZE_ALL__EXPLORER_AT_BOOT
 GOSUB MINIMIZE_ALL_CMD_AT_BOOT
