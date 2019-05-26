@@ -248,12 +248,12 @@ IF OSVER_N_VAR>5
 ; FN_Array_3[ArrayCount] := "FileZilla Server Main Window"
 
 
-; WIN XP IS 5
-IF OSVER_N_VAR>5
-{
-	ArrayCount += 1
-	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
-}
+; ; WIN XP IS 5
+; IF OSVER_N_VAR>5
+; {
+	; ArrayCount += 1
+	; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
+; }
 
 SET_GO=TRUE
 IF (A_ComputerName = "2-ASUS-EEE") 
