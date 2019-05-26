@@ -151,7 +151,6 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ;---------------------------------------------------------
 ; CODE INITIALIZE SOUND EFFECT LEARN
 ;---------------------------------------------------------
-PAUSE
 SoundBeep , 1500 , 400
 ;SoundSetWaveVolume, 100 
 ;SoundSet, 5
@@ -174,6 +173,19 @@ RELEASE_SOUNDPLAY=%A_Now%
 ALLOW_SOUND=1
 
 
+; NOT REQUIRE HERE IS NOT AUTO RUN FOR THE COMPUTER THAT ARE OTHER ONE
+; SET_GO=FALSE
+; IF (A_ComputerName = "4-ASUS-GL522VW") 
+; SET_GO=TRUE
+; IF (A_ComputerName = "7-ASUS-GL522VW") 
+; SET_GO=TRUE
+; IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+; SET_GO=TRUE
+
+; IF SET_GO=FALSE
+	; PAUSE
+
+
 ; -------------------------------------------------------------------
 ; TEST RUN IN CODE STARTUP
 ; FILE NAME TOO LONG HERE AND WON'T LIKE IT NEVER PLAY
@@ -194,6 +206,8 @@ IF !(A_ComputerName = "7-ASUS-GL522VW")
 setTimer MOUSE_CURSOR_SUB,1
 setTimer TIMER_PREVIOUS_INSTANCE,1
 setTimer RELEASE_SOUNDPLAY_TIMER,1000
+
+
 return
 
 ; ---------------------------------------------------------------
@@ -260,6 +274,12 @@ IF (A_ComputerName = "7-ASUS-GL522VW")
 	IfWinNotActive, GoodSync -
 		ALLOW_SOUND=0
 ; -------------------------------------------------------------------
+
+ALLOW_SOUND=0
+IfWinActive, GoodSync -
+	ALLOW_SOUND=1
+IfWinActive, GoodSync2Go -
+	ALLOW_SOUND=1
 	
 IF ALLOW_SOUND=0
 	SET_GO=0

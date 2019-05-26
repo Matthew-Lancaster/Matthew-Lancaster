@@ -50,8 +50,8 @@
 
 
 '#-------------------------------------------------------------------
-' SESSION 002 __ CREATE DAY -- LATE NIGHT CODE 
-' & ALSO OTHER CODE MORE WAS 12:20 BED AND UP AGAIN MORE OTHER CODE AT 3:20 AM 
+' SESSION 002 __ CREATE DAY -- LATE NIGHT CODE
+' & ALSO OTHER CODE MORE WAS 12:20 BED AND UP AGAIN MORE OTHER CODE AT 3:20 AM
 ' WITH JUST 3 HOUR ASLEEP PATTERN
 ' BEGIN FRIDAY DAY WAKE UP WAS 7 AM UNTIL SAT 04 MAY 12 12:20
 ' -------------------------------------------------------------------
@@ -145,7 +145,7 @@
 ' -------------------------------------------------------------------
 ' FOR FIRST TIME CODE IS ABLE TO LEFT RUNNING AND WORK WELL
 ' WE ADD NEW ROUTINE TO OPEN FILE ON DRIVE TO INDICATE WORKER IN ACTION
-' OR ELSE THE OUTLOOK BEGIN RUN THE SCRIPT AND NEW MAIL ARRIVE VERY QUICKLY 
+' OR ELSE THE OUTLOOK BEGIN RUN THE SCRIPT AND NEW MAIL ARRIVE VERY QUICKLY
 ' IS PROCESSOR THE SCRIPT TO RUN AGAIN
 ' NEW TEMP FILE ALLOW SCRIPT TO RUN FULL BEFORE WANT AGAIN
 ' EVERYTHING RUN SMOOTH AND QUICKER NOW
@@ -257,6 +257,9 @@ If oDeletedItems.Items.Count > 0 Then
     Set oItems = oDeletedItems.Items
     For i = oItems.Count To 1 Step -1
         oItems.Item(i).Delete
+        If SOME_ITEM_DELETER = False Then
+            sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+        End If
         SOME_ITEM_DELETER = True
         X = X + 1
         If X Mod 10 = 0 Then DoEvents
@@ -534,6 +537,7 @@ For RR = X_COUNT To 1 Step -1
     
                             ' Save the attachment as a file.
                             objAttachments.Item(i).SaveAsFile strFile_NAME
+                            SOME_PROCESS_DONE = True
                             If Dir(strFile_NAME) = "" Then Stop
                     Next i
                     
@@ -558,7 +562,7 @@ For RR = X_COUNT To 1 Step -1
                             DoEvents
                         End If
                         RR_X = RR_X + 1
-                        If RR_X >= 100 Then
+                        If RR_X >= 200 Then
                             GoTo ExitSub
                         End If
                     End If
@@ -668,3 +672,4 @@ End Sub
 ' VBA Code to permanently delete selected email | Outlook Forums by Slipstick.com
 ' https://forums.slipstick.com/threads/96078-vba-code-to-permanently-delete-selected-email/
 ' ----
+
