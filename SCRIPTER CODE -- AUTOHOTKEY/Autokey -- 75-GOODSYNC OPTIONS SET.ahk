@@ -304,8 +304,8 @@ IF HWND_1>0
 		SET_GO=FALSE
 		IF HWND_1_EXENAME=GoodSync2Go.exe
 		{
-			IF OutputVar_1=1
-				SET_GO=TRUE
+			; IF OutputVar_1=1
+				; SET_GO=TRUE
 			IF OutputVar_1=2
 				SET_GO=TRUE
 		}
