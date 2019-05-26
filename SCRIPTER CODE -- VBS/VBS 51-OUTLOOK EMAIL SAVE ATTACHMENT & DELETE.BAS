@@ -161,7 +161,7 @@
 ' -------------------------------------------------------------------
 ' ANOTHER DAY
 ' WORK IT ALL
-' IS A FILE NOW WITH CONFIG OPTION 
+' IS A FILE NOW WITH CONFIG OPTION
 ' SET FILE TO STOP RUN BY EDIT CHANGE THERE
 ' AND EDIT TO HAVE SOUND OR NOT
 ' -------------------------------------------------------------------
@@ -326,6 +326,47 @@ End If
 
 End Sub
 
+
+Sub Remove_All_INBOX()
+ 
+Dim oINBOXItems As Outlook.Folder
+Dim oFolders As Outlook.Folders
+Dim oItems As Outlook.Items
+Dim i As Long
+'Obtain a reference to deleted items folder
+Set oINBOXItems = Application.Session.GetDefaultFolder(olFolderInbox)
+If oINBOXItems.Items.Count > 0 Then
+    Set oItems = oINBOXItems.Items
+    For i = oItems.Count To 1 Step -1
+        oItems.Item(i).Delete
+        If SOME_ITEM_DELETER = False Then
+            ' If SOUND_OFF_ON <> "SOUND OFF" Then
+                sndPlaySound32 "C:\Windows\Media\Windows Ringout.wav", 1&
+            ' End If
+        End If
+        SOME_ITEM_DELETER = True
+        X = X + 1
+        If X Mod 10 = 0 Then DoEvents
+    Next
+'    If oINBOXItems.Folders.Count > 0 Then
+'        Set oFolders = oINBOXItems.Folders
+'        For i = oFolders.Count To 1 Step -1
+'            oFolders.Item(i).Delete
+'            SOME_ITEM_DELETER = True
+'            X = X + 1
+'            If X Mod 10 = 0 Then DoEvents
+'        Next
+'    End If
+End If
+'----
+'Delete All Items and Subfolders in the Deleted Items Folder | Microsoft Docs
+'https://docs.microsoft.com/en-us/office/vba/outlook/how-to/items-folders-and-stores/delete-all-items-and-subfolders-in-the-deleted-items-folder
+'----
+
+End Sub
+
+
+
 Public Sub SaveAttachments_Good()
 
 
@@ -410,7 +451,7 @@ For RR = X_COUNT To 1 Step -1
         If lngCount > 0 Then
             Set objAttachments = objMsg.Attachments
         End If
-        A1 = objMsg.Subject
+        A1 = Trim(objMsg.Subject)
         D1 = objMsg.ReceivedTime
         D2 = Format(D1, "YYYYMMDDHHMMSS")
         D3 = Format(D1, "YYYYMMDD")
@@ -437,10 +478,12 @@ For RR = X_COUNT To 1 Step -1
         ' Embedded Net DVR: Motion Detected On Channel A3
         If InStr(A1, "Embedded Net DVR: Motion Detected On Channel") > 0 Then
             SET_GO = True
-            H1 = Mid(A1, Len(A1) - 5)
-            H2 = Format(Val(Mid(A1, Len(A1) - 4)), "00")
+            h1 = Mid(A1, InStrRev(A1, "On Channel") + 11)
+            h1 = Replace(h1, " ", "_")
+            ' H2 = Format(Val(Mid(A1, Len(A1) - 4)), "00")
             ' H3 = "DVR_A03_Motion_Detected"
-            H3 = "DVR_" + H1 + H2 + "_Motion_Detected"
+            ' H3 = "DVR_" + H1 + H2 + "_Motion_Detected"
+            H3 = "DVR_" + h1 + "_Motion_Detected_" + D2 + "_" + ""
         End If
         If lngCount = 0 Then
             SET_GO = False
@@ -536,10 +579,26 @@ For RR = X_COUNT To 1 Step -1
 '                                If UNIQUE = 0 Then UNIQUE_VAR = ""
                                 
                                 If InStr(A1, "Embedded Net DVR: Motion Detected On Channel") > 0 Then
-                                    MsgBox "STOP REQUIRE -- GOT HERE - Embedded Net DVR: Motion Detected On Channel"
-                                    Stop
-                                    strFile_NAME = strFolderpath_2 + H3 + D2 + strFile
+                                    If Len(h1) <> 2 Then
+'                                        MsgBox "STOP REQUIRE -- GOT HERE - Embedded Net DVR: Motion Detected On Channel"
+'                                        Stop
+                                    End If
+                                    strFolderpath_2 = strFolderpath + D3 + "\" + h1 + "\"
+
+                                    strFile_NAME = strFolderpath_2 + H3 + strFile
                                     strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile
+                                    
+                                    If Dir(strFolderpath_2, vbDirectory) = "" Then
+                                        On Error Resume Next
+                                            MkDir strFolderpath + D3
+                                        On Error GoTo 0
+                                        MkDir strFolderpath + D3 + "\" + h1
+                                    End If
+                                    If Dir(strFolderpath_2, vbDirectory) = "" Then
+                                        MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
+                                    End If
+
+                                    
                                 End If
                                 
                                 If Dir(strFile_NAME) <> "" Then
@@ -709,4 +768,8 @@ End Sub
 ' VBA Code to permanently delete selected email | Outlook Forums by Slipstick.com
 ' https://forums.slipstick.com/threads/96078-vba-code-to-permanently-delete-selected-email/
 ' ----
+
+
+
+
 
