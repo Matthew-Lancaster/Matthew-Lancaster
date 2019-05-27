@@ -186,7 +186,7 @@ RETURN
 
 MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART:
 
-VAR_WORKER_MSGBOX_DELAY_COUNT_01=VB KEEP RUNNER ahk_class #32770
+VAR_WORKER_MSGBOX_DELAY_COUNT_01=VB_KEEP_RUNNER ahk_class #32770
 VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
 VAR_WORKER_MSGBOX_DELAY_COUNT_03=Autokey -- ahk_class #32770
 VAR_WORKER_MSGBOX_DELAY_COUNT=
@@ -244,7 +244,7 @@ IF OLD_VAR_WORKER_MSGBOX_DELAY_COUNT<>%VAR_WORKER_MSGBOX_DELAY_COUNT%
 {
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_01%
 	{
-		; VB KEEP RUNNER _ REBOOT
+		; VB_KEEP_RUNNER _ REBOOT
 		Secs_MSGBOX_01=40
 		Secs_MSGBOX_02=5
 		MSGBOX_ACTIVATE=TRUE
@@ -354,10 +354,10 @@ Return
 
 SUB_MESS_SPARE_CODE:
 ; CoordMode, Mouse, SCREEN
-		; #WinActivateForce, VB KEEP RUNNER ahk_class #32770
-		; WinActivate, VB KEEP RUNNER ahk_class #32770
-		; WinGetPos, X_2, Y_2, , , VB KEEP RUNNER ahk_class #32770
-		; ControlGetPos, x, y, w, h, Button1, VB KEEP RUNNER ahk_class #32770
+		; #WinActivateForce, VB_KEEP_RUNNER ahk_class #32770
+		; WinActivate, VB_KEEP_RUNNER ahk_class #32770
+		; WinGetPos, X_2, Y_2, , , VB_KEEP_RUNNER ahk_class #32770
+		; ControlGetPos, x, y, w, h, Button1, VB_KEEP_RUNNER ahk_class #32770
 		; if Secs_MSGBOX_02>0
 			; MouseMove, X+20+X_2, Y+20+Y_2
 		
@@ -404,7 +404,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
 		; -------------------------------------------------------------------
 		; AND USED BY HERE
