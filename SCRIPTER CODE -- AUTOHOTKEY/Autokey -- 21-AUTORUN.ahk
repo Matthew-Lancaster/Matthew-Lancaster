@@ -2135,7 +2135,7 @@ IF SET_GO=TRUE
 	IFEXIST, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%"
+		Run, "%FN_VAR%",,MIN
 		SET_GO=FALSE
 	}
 }
@@ -2145,7 +2145,7 @@ IF SET_GO=TRUE
 	IFEXIST, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%"
+		Run, "%FN_VAR%",,MIN
 	}
 }
 
