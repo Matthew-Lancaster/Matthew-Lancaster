@@ -436,7 +436,7 @@ CHECK_ESC_KEY:
 	; ---------------------------------------------------------------
 	; 
 	; THIS IS MY CODER TO BRING UP WINDOW 
-	; VB KEEP RUNNER 
+	; VB_KEEP_RUNNER 
 	; AND
 	; ELITE SPY 
 	; BUT FOR NOW THESE TWO PROGRAM WHEN COMPUTER UNDER PRESSURE FOR LONG WHEN GET BACK TO
@@ -449,13 +449,13 @@ CHECK_ESC_KEY:
 	; BUT NOT TRUE 0 WAS RESULT BUT NOT SHOW-ER
 	; SO NEXT TIME DEBUG CHECK FOR HIDDEN STATE OR MORE
 	; FROM       Sat 11-May-2019 06:04:11
-	; STOP TIME  Sat 11-May-2019 07:07:55 -- CODE SOMETHING ELSE -- VB KEEP RUNNER -- IMPROVE
+	; STOP TIME  Sat 11-May-2019 07:07:55 -- CODE SOMETHING ELSE -- VB_KEEP_RUNNER -- IMPROVE
 	; RESUME-A   Sat 11-May-2019 08:24:53 --
 	; TO         Sat 11-May-2019 09:41:33
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	VB_KEEP_RUNNER_VAR=FALSE
-	VB_KEEP_RUNNER_TITLE=VB KEEP RUNNER
+	VB_KEEP_RUNNER_TITLE=VB_KEEP_RUNNER
 	GetKeyState, state, Shift
 	if state = D
 	IfWinExist, %VB_KEEP_RUNNER_TITLE%
@@ -548,7 +548,7 @@ CHECK_ESC_KEY:
 	{
 		VAR_DONE_ESCAPE_KEY=TRUE
 		SoundBeep , 3000 , 100
-		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 		IfExist, %FN_VAR%
 			{
 				Run, %FN_VAR% MAXIMUM
@@ -569,7 +569,7 @@ CHECK_ESC_KEY:
 		IfWinNotExist %VB_KEEP_RUNNER_TITLE%
 		{
 			SoundBeep , 3000 , 100
-			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 			IfExist, %FN_VAR%
 				{
 					Run, %FN_VAR% MAXIMUM
@@ -2170,7 +2170,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
 		; -------------------------------------------------------------------
 		; AND USED BY HERE
