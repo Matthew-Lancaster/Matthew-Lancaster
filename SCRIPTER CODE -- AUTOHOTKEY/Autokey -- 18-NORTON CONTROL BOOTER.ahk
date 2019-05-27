@@ -585,7 +585,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
 		; -------------------------------------------------------------------
 		; AND USED BY HERE

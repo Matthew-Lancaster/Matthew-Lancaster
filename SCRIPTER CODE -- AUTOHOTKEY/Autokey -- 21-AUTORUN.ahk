@@ -729,9 +729,9 @@ IF SET_GO=TRUE
 		}
 	}
 		
-If ProcessExist("VB KEEP RUNNER.exe", A_UserName)=0
+If ProcessExist("VB_KEEP_RUNNER.exe", A_UserName)=0
 {
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 	IfExist, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
@@ -1508,7 +1508,7 @@ IfWinNotExist SendSMTP_REBOOT_BATCH
 ; TRY ANOTHER METHOD
 ;--------------------------------------------------------------------
 ;DetectHiddenWindows, ON
-;WinWait, VB KEEP RUNNER ahk_class ThunderRT6FormDC, , 30
+;WinWait, VB_KEEP_RUNNER ahk_class ThunderRT6FormDC, , 30
 ;--------------------------------------------------------------------
 
 ; TRY ANOTHER METHOD DIDN'T WORK EITHER
@@ -1516,7 +1516,7 @@ IfWinNotExist SendSMTP_REBOOT_BATCH
 ;LCOUNT=20
 ;LOOP
 ;{
-;	IFWINEXIST, VB KEEP RUNNER ahk_class ThunderRT6FormDC
+;	IFWINEXIST, VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
 ;		BREAK
 ;	LCOUNT-=1
 ;	IF LCOUNT<0
@@ -2130,7 +2130,7 @@ GOSUB RUN_HUBIC
 
 ; -------------------------------------------------------------------
 ; HERE FOR THE SOURCE CODE OF 
-; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 ; -------------------------------------------------------------------
 ; [ Monday 05:28:00 Am_25 March 2019 ]
 ; -------------------------------------------------------------------
@@ -2333,7 +2333,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
 		; -------------------------------------------------------------------
 		; AND USED BY HERE
