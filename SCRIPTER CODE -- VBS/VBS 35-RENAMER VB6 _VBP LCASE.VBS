@@ -63,7 +63,6 @@ Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
 
 ' -------------------------------------------------------------------
-' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
 ' SOURCE GIVEN
 ' -------------------------------------------------------------------
 ' vbscript - how to check vbs script in windows is running or not? - Stack Overflow
@@ -72,11 +71,13 @@ Set WSHShell = CreateObject("WScript.Shell")
 ' [ Wednesday 13:08:00 Pm_20 March 2019 ]
 ' -------------------------------------------------------------------
 
+' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
+' -------------------------------------------------------------------
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 
-i1 = 0
-i2 = 0
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
 FOR EACH objProcess IN colProcesses
     IF NOT (IsNull(objProcess.CommandLine )) THEN
 		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
@@ -87,7 +88,7 @@ FOR EACH objProcess IN colProcesses
 			i1=i1+1
 		END IF
 		IF i1 > 0 THEN 
-				Wscript.Quit
+				' Wscript.Quit
 		END IF  
 		IF i2 > 1 THEN 
 				Wscript.Quit
@@ -222,7 +223,7 @@ NEXT
 ' D:\VB6\VB-NT\00_Best_VB_01\MP3 PLAYED\MP3 PLAYED.VBP
 ' D:\VB6\VB-NT\00_Best_VB_01\MPH AND DISTANCE\MP3 PLAYED\MP3 PLAYED.VBP
 ' D:\VB6\VB-NT\00_Best_VB_01\REBOOT CLOSE PROGRAMS\REBOOT CLOSE PROGRAMS.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\VB KEEP RUNNER\VB KEEP RUNNER.VBP
+' D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.VBP
 ' D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER\VU METER LOGGER.VBP
 ' D:\VB6\VB-NT\00_Best_VB_01\Wmi_CPU\WMICPU1 BIG.VBP
 

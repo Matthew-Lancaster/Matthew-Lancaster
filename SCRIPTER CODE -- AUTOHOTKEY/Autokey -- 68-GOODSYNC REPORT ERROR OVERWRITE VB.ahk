@@ -210,8 +210,8 @@ TIMER_CHECK_DATE_VB_PROJECT_FOR_UPDATED:
 	FN_Array_1[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 	FN_Array_2[ArrayCount]:="EliteSpy+ by Andrea"
 	ArrayCount+=1
-	FN_Array_1[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
-	FN_Array_2[ArrayCount]:="VB KEEP RUNNER"
+	FN_Array_1[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER"
 	ArrayCount+=1
 	FN_Array_1[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
 	FN_Array_2[ArrayCount]:="INDIVIDUAL PROCESS"
@@ -332,10 +332,10 @@ dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
-IfWinNotExist VB KEEP RUNNER
+IfWinNotExist VB_KEEP_RUNNER
 {
 	SoundBeep , 3000 , 100
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 	IfExist, %FN_VAR%
 		{
 			Run, %FN_VAR%
@@ -400,7 +400,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
 		; -------------------------------------------------------------------
 		; AND USED BY HERE
@@ -558,10 +558,10 @@ TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE:
 		{
 		
 			WINCLOSE EliteSpy+ by Andrea B 2001 __
-			WINCLOSE VB KEEP RUNNER
+			WINCLOSE VB_KEEP_RUNNER
 			WINCLOSE INDIVIDUAL PROCESS _ Ver
 			
-			; Process, Close, VB KEEP RUNNER.exe
+			; Process, Close, VB_KEEP_RUNNER.exe
 		}		
 
 	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
