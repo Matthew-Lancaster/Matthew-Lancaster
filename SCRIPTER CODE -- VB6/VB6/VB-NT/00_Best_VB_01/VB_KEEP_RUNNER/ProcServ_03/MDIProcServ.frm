@@ -103,7 +103,26 @@ Public StrConnect As String
 
 Private Sub MDIForm_Load()
 
+    Dim Form
+    On Error Resume Next
+    Err.Clear
+'    For Each Form In Forms
+    If Form1.EXIT_TRUE = True Then
+        If Err.Number = 0 Then
+            Unload Me: Exit Sub
+        End If
+    End If
+'    Next
+
+
+    On Error Resume Next
+    Err.Clear
     Me.Hide
+    If Err.Number > 0 Then
+        Exit Sub
+    End If
+    On Error GoTo 0
+    
     
     Set Locator = New SWbemLocator
     Set eventSink = New SWbemSink
