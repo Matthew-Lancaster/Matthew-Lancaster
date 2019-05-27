@@ -1880,7 +1880,7 @@ RETURN
 
 MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART:
 
-VAR_WORKER_MSGBOX_DELAY_COUNT_01=VB KEEP RUNNER ahk_class #32770
+VAR_WORKER_MSGBOX_DELAY_COUNT_01=VB_KEEP_RUNNER ahk_class #32770
 VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
 VAR_WORKER_MSGBOX_DELAY_COUNT_03=Autokey -- ahk_class #32770
 VAR_WORKER_MSGBOX_DELAY_COUNT=
@@ -1920,7 +1920,7 @@ IF OLD_VAR_WORKER_MSGBOX_DELAY_COUNT<>%VAR_WORKER_MSGBOX_DELAY_COUNT%
 {
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_01%
 	{
-		; VB KEEP RUNNER _ REBOOT
+		; VB_KEEP_RUNNER _ REBOOT
 		Secs_MSGBOX_01=40
 		Secs_MSGBOX_02=5
 	}
@@ -2009,10 +2009,10 @@ Return
 
 SUB_MESS_SPARE_CODE:
 ; CoordMode, Mouse, SCREEN
-		; #WinActivateForce, VB KEEP RUNNER ahk_class #32770
-		; WinActivate, VB KEEP RUNNER ahk_class #32770
-		; WinGetPos, X_2, Y_2, , , VB KEEP RUNNER ahk_class #32770
-		; ControlGetPos, x, y, w, h, Button1, VB KEEP RUNNER ahk_class #32770
+		; #WinActivateForce, VB_KEEP_RUNNER ahk_class #32770
+		; WinActivate, VB_KEEP_RUNNER ahk_class #32770
+		; WinGetPos, X_2, Y_2, , , VB_KEEP_RUNNER ahk_class #32770
+		; ControlGetPos, x, y, w, h, Button1, VB_KEEP_RUNNER ahk_class #32770
 		; if Secs_MSGBOX_02>0
 			; MouseMove, X+20+X_2, Y+20+Y_2
 		
@@ -2435,10 +2435,10 @@ dhw := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
-IfWinNotExist VB KEEP RUNNER
+IfWinNotExist VB_KEEP_RUNNER
 {
 	SoundBeep , 3000 , 100
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe"
+	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 	IfExist, %FN_VAR%
 		{
 			Run, %FN_VAR%
@@ -2472,7 +2472,7 @@ Return
 {
 dhw := A_DetectHiddenWindows
 SetTitleMatchMode 2  ; Avoids Specify Full path.
-WinRestore, VB KEEP RUNNER ahk_class ThunderRT6FormDC
+WinRestore, VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
 WinRestore, EliteSpy+ ahk_class ThunderRT6FormDC
 DetectHiddenWindows, % dhw
 ; PAUSE
@@ -3010,7 +3010,7 @@ MenuHandler:
 		;  ----------------------------------------------------------
 	
 		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
 		; -------------------------------------------------------------------
 		; AND USED BY HERE
@@ -3092,10 +3092,10 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_02_OF_04:
 	; ---------------------------------------------------------------
 
 	WINCLOSE EliteSpy+ by Andrea B 2001 __
-	WINCLOSE VB KEEP RUNNER
+	WINCLOSE VB_KEEP_RUNNER
 	WINCLOSE INDIVIDUAL PROCESS _ Ver
 		
-	; Process, Close, VB KEEP RUNNER.exe
+	; Process, Close, VB_KEEP_RUNNER.exe
 
 	;FileName_RESTORE_VB_AHK=%FileName_4%
 	;GOSUB CREATE_FILENAME_FORMAT_LOCAL_LEVEL_FROM_PARAM

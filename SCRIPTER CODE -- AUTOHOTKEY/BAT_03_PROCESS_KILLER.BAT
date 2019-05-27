@@ -1,6 +1,6 @@
 @ECHO OFF
 REM -- AUTO GENERATED FILE BY HERE VISUAL BASIC
-REM -- D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.exe
+REM -- D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 REM -- D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
 REM -- -------------------------------------------------------------------
 REM -- AND USED BY HERE

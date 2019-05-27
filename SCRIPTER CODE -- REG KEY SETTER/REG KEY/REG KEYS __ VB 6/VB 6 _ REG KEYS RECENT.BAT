@@ -5,7 +5,7 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "2" /t REG
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "3" /t REG_SZ /d "D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2012-10-10 VER 1.0.203\Matt_RunAS.vbp" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "4" /t REG_SZ /d "D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2011-06-11\Matt_RunAS.VBP" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "5" /t REG_SZ /d "D:\VB6\VB-NT\00_Best_VB_01\CPU %% OF A PROGRAM\CPU %% INDIVIDUAL PROCESS.vbp" /f
-Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "6" /t REG_SZ /d "D:\VB6\VB-NT\00_Best_VB_01\VB KEEP RUNNER\VB KEEP RUNNER.vbp" /f
+Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "6" /t REG_SZ /d "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.vbp" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "7" /t REG_SZ /d "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.vbp" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "8" /t REG_SZ /d "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.vbp" /f
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Visual Basic\6.0\RecentFiles" /v "9" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send Cmd\Send_Cmd.vbp" /f
