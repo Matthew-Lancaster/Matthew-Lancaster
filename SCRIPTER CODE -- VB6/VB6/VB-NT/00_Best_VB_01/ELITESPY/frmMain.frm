@@ -6116,7 +6116,7 @@ End Function
 
 
 Private Sub Label10_Click()
-Beep
+'Beep
 
 Shell "EXPLORER /e, /SELECT, " + TxtEXE, vbNormalFocus
 
