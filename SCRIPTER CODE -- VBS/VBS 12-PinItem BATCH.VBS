@@ -552,7 +552,7 @@ END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\MiniTool Partition Wizard 11\partitionwizard.exe"
 If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
-	I=I+1:ARRAY_1(I)="C:\Program Files\MiniTool Partition Wizard 10\partitionwizard.exe"
+	ARRAY_1(I)="C:\Program Files\MiniTool Partition Wizard 10\partitionwizard.exe"
 END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe"
