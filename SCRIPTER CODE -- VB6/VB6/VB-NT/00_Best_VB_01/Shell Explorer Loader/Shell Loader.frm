@@ -6178,7 +6178,7 @@ Me.BackColor = RGB(R_RGB - 180, G_RGB - 180, B_RGB - 100)
 Dim i As String
 If App.PrevInstance = True And IsIDE = True Then
     'i = FindWindow(vbNullString, Me.Caption)
-    i = FindWinPart_SEARCHER("VB KEEP RUNNER")
+    i = FindWinPart_SEARCHER("VB_KEEP_RUNNER")
     ShowWindow i, SW_MAXIMIZE
 '        On Error Resume Next
     SetWindowPos i, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
