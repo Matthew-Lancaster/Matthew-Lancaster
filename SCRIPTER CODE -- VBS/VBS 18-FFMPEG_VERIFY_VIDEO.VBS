@@ -187,7 +187,15 @@ Sub BEGIN
 	' ---------------------------------------------------------------
 	' UP-TO-DATE VERSION 
 	' ---------------------------------------------------------------
-	PATH_FFMPEG="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
+	' PATH_FFMPEG="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
+	
+	' ---------------------------------------------------------------
+	' SAME AS HERE COPIER
+	' ---------------------------------------------------------------
+	' C:\PStart\# NOT INSTALL REQUIRED\FFMPEG\ffmpeg-4.1.3-win64-static\bin\ffmpeg.exe
+	' ---------------------------------------------------------------
+	PATH_FFMPEG="C:\PStart\# NOT INSTALL REQUIRED\FFMPEG\ffmpeg.exe"
+	' ---------------------------------------------------------------
 	DH = """" + PATH_FFMPEG + """ -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
 
 	'-----------------------------
