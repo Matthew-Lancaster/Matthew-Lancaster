@@ -2,12 +2,12 @@ VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
-   Caption         =   "KILL &CMD*"
+   Caption         =   "VB_KEEP_RUNNER"
    ClientHeight    =   10116
    ClientLeft      =   48
    ClientTop       =   912
    ClientWidth     =   12864
-   Icon            =   "VB KEEP RUNNER.frx":0000
+   Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   10116
    ScaleWidth      =   12864
@@ -72,7 +72,7 @@ Begin VB.Form Form1
       BorderStyle     =   0  'None
       Height          =   384
       Left            =   5664
-      Picture         =   "VB KEEP RUNNER.frx":0E42
+      Picture         =   "VB_KEEP_RUNNER.frx":0E42
       ScaleHeight     =   384
       ScaleWidth      =   384
       TabIndex        =   115
@@ -522,6 +522,7 @@ Begin VB.Form Form1
       Top             =   1584
    End
    Begin VB.Timer ONE_MILLISECOND_Timer 
+      Enabled         =   0   'False
       Interval        =   1
       Left            =   9645
       Top             =   1584
@@ -956,14 +957,14 @@ Begin VB.Form Form1
    Begin VB.Image Image1 
       Height          =   384
       Left            =   5196
-      Picture         =   "VB KEEP RUNNER.frx":170C
+      Picture         =   "VB_KEEP_RUNNER.frx":170C
       Top             =   336
       Width           =   384
    End
    Begin VB.Image imgCursor 
       Height          =   432
       Left            =   5196
-      MouseIcon       =   "VB KEEP RUNNER.frx":1B4E
+      MouseIcon       =   "VB_KEEP_RUNNER.frx":1B4E
       Top             =   336
       Width           =   600
    End
@@ -1611,7 +1612,7 @@ Begin VB.Form Form1
       Width           =   1236
    End
    Begin VB.Label Label1 
-      Caption         =   $"VB KEEP RUNNER.frx":2418
+      Caption         =   $"VB_KEEP_RUNNER.frx":2418
       Height          =   1776
       Left            =   3816
       TabIndex        =   55
@@ -2053,10 +2054,10 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 '  =============================================================
-'# __ D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB KEEP RUNNER.vbp
+'# __ D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.vbp
 '# __
-'# __ VB KEEP RUNNER.vbp
-'# __ VB KEEP RUNNER.exe
+'# __ VB_KEEP_RUNNER.vbp
+'# __ VB_KEEP_RUNNER.exe
 '# __
 '# BY Matthew __ Matt.Lan@Btinternet.com __
 '# __
@@ -2092,7 +2093,7 @@ Option Explicit
 ' SORTED THE UPDATER AND EXIT UNLOAD FROM MAIN FORM
 ' HEAD-ACHE TOOK LONG
 ' THIS UPDATER CODE IS IN THESE ONE
-' 1. VB KEEP RUNNER __ HERE
+' 1. VB_KEEP_RUNNER __ HERE
 ' 2. ELITESPY
 ' 3. CLIPBOARD LOGGER
 ' 4. TIDAL
@@ -2145,8 +2146,10 @@ Option Explicit
 
 ' ------------------------------------------------------------------
 ' VARIABL DECLARE BLOCK FROM ELITEPSY
-' VARIABL DECLARE BLOCK FROM VB KEEP RUNNER
+' VARIABL DECLARE BLOCK FROM VB_KEEP_RUNNER
 ' ------------------------------------------------------------------
+
+Dim DO_ONCE_BOOTER
 
 Dim OLD_hWnd_WINAMP_GetWindowState
 Dim OLD_hWnd_MediaPlayerClassicW_GetWindowState
@@ -3071,6 +3074,7 @@ Function GetComputerName() As String
 End Function
 
 
+
 Private Sub Form_Load()
 
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
@@ -3089,8 +3093,12 @@ Private Sub Form_Load()
 '    XX = (425 / 100) * 60
 '    Debug.Print XX
 
-    If App.PrevInstance = True Then
-        i = FindWinPart_SEARCHER("VB KEEP RUNNER")
+    App.title = "VB_KEEP_RUNNER"
+    Me.Caption = "VB_KEEP_RUNNER"
+
+    If App.PrevInstance = True And IsIDE = False Then
+        i = FindWinPart_SEARCHER_NOT_ME("VB_KEEP_RUNNER")
+        ' MsgBox i
         If i > 0 Then
             ShowWindow i, SW_SHOW
             ShowWindow i, SW_RESTORE
@@ -3102,7 +3110,7 @@ Private Sub Form_Load()
     
     If App.PrevInstance = True And IsIDE = True Then
         'i = FindWindow(vbNullString, Me.Caption)
-        i = FindWinPart_SEARCHER("VB KEEP RUNNER")
+        i = FindWinPart_SEARCHER_NOT_ME("VB_KEEP_RUNNER")
         ShowWindow i, SW_NORMAL
     '        On Error Resume Next
         SetWindowPos i, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
@@ -3182,7 +3190,7 @@ Private Sub Form_Load()
     
     O_lstProcess_ListCount = -1
 
-    Me.Caption = App.EXEName
+'    Me.Caption = App.EXEName
     
     FORM_LOAD_EnumProcess = True
 
@@ -3192,8 +3200,6 @@ Private Sub Form_Load()
         MNU_PIN_ITEM_BATCH_VBS.Visible = False
     End If
 
-    Me.Visible = False
-    
     Label54.FontSize = 10
     
     Call READ_ALL_NETWORK_COMPUTER_NAME_PATH_INTO_ARRAY
@@ -3202,7 +3208,12 @@ Private Sub Form_Load()
     Counter_ALWAYS_ON_TOP_TIMER = 20
     FORM_LOAD_TRUE = True
     
+'    Exit Sub
+    
+    ' Me.Visible = False
     Call RUN_BLOCK_OF_SETUP_CONTROLS_POSTION
+    
+    
     
     Call WIDTH_AND_HEIGHT(WX, HY)
 
@@ -3210,17 +3221,135 @@ Private Sub Form_Load()
 
     TIMER_GO_COMPUTER_START = 4
     
-    If InStr(Command$, "MAXIMUM") > 0 Then Me.WindowState = vbNormal
+'    MsgBox Me.WindowState
+    'MsgBox vbNormal
+    
+    
+    'If IsIDE = True Then Me.WindowState = vbNormal
+'    If IsIDE = False Then Me.WindowState = vbMinimized
+
+    ' Me.Hide
+     Me.WindowState = vbMinimized
+'    Me.WindowState = vbNormal
+    'Me.Hide
+    ONE_MILLISECOND_Timer.Enabled = False
+    ONE_MILLISECOND_Timer.Interval = 0
+    ONE_MILLISECOND_Timer.Interval = 100
+    ONE_MILLISECOND_Timer.Enabled = True
 
 End Sub
-
-
 
 Private Sub Form_Activate_2()
     'Call Form3_CHROME_X_BUTTON_OFF.SetXState(Me.hWnd, False)
     'Call Form3_CHROME_X_BUTTON_OFF.SET_CHROME_WINDOW_X_BUTTON_CLOSE_TO_OFF
     'Call Form4_DISABLE_CLOSE_BUTTON.SET_BUTTON_CHROME
 End Sub
+
+
+Private Sub Form_Resize()
+
+' Call Form_Activate_3
+
+
+If NOT_RESIZE_EVENTER = True Then Exit Sub
+
+If O_Me_WindowState <> Me.WindowState Then
+    Form_Resize_VB = True
+End If
+
+If O_Me_WindowState = vbMaximized And Me.WindowState = vbNormal Then Exit Sub
+
+
+If Me.WindowState = vbMinimized Then
+    ListView_VB_MODIFIED_ERROR.Visible = False
+End If
+
+Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = True
+Counter_ALWAYS_ON_TOP_TIMER = 20
+Label60.BackColor = RGB(255, 255, 255)
+
+If RESIZE_LOOP_STOP = True Then
+    RESIZE_LOOP_STOP = False
+    Exit Sub
+End If
+
+'--------SUB __ frmMain.EnumProcess IT IS IN HERE
+If Me.WindowState <> vbMinimized Then
+'    Call EnumProcess
+    Timer_EnumProcess.Interval = 1000
+End If
+
+'RESIZE
+'If CMD_Process_STATE_TO_SET_1ST = True Then
+'    Call cmdProcess_Click
+'End If
+'------------------------------------------------
+Call WIDTH_AND_HEIGHT(WX, HY)
+
+If RUN_ONCE_DEBUG_PRINT_HY_RESIZE = False Then
+    RUN_ONCE_DEBUG_PRINT_HY_RESIZE = True
+    Debug.Print vbCrLf & Time & "-------"
+    Debug.Print "Control.Name __ " + TT
+    Debug.Print "Control.Top + Control.Height __ " + TTHY1
+    Debug.Print "Control.Top __ " + TTHY2
+    Debug.Print "Control.Height __ " + TTHY3
+End If
+
+If Me.height + Me.width = HY2 + WX2 Then Exit Sub
+If Me.WindowState = vbMinimized Then Exit Sub
+
+If O_Me_WindowState <> vbMaximized And Me.WindowState = vbMaximized Then Exit Sub
+O_Me_WindowState = Me.WindowState
+'VBNORMAL    = 0
+'VBMAXIMIZED = 2
+
+On Error Resume Next
+'CHANGE HEIGHT DONT RELOOP RESIZE
+'--------------------------------
+
+RESIZE_LOOP_STOP = True
+Me.width = WX2
+
+'TOP AND LEFT ONLY FIRST RUN
+'DO HERE LAST OF ALL
+'If Me.WindowState <> 1 Then Exit Sub
+If FIRST_RUN_FOR_TOP_AND_LEFT > 0 Then
+    FIRST_RUN_FOR_TOP_AND_LEFT = FIRST_RUN_FOR_TOP_AND_LEFT - 1
+    Debug.Print FIRST_RUN_FOR_TOP_AND_LEFT
+    '6 RUN HAPPEN BEFORE LAST SET IS PROPER AT FORM_LOAD
+    
+    RESIZE_LOOP_STOP = True
+    Me.Top = 0 '20 'TOP_HEIGHT 'Screen.Height / 2 - Me.Height / 2 - 800
+    
+    'MsgBox GetSystemMetrics(SM_CXSCREEN)*Screen.TwipsPerPixelX & "x" & GetSystemMetrics(SM_CYSCREEN)
+    
+    RESIZE_LOOP_STOP = True
+    Me.Left = GetSystemMetrics(SM_CXSCREEN) * Screen.TwipsPerPixelX / 2 - Me.width / 2
+End If
+
+'-------------------------------------------------------------------------
+'THE MENU HAS TO BE LOADED WITH HEIGHT AND THEN REDONE AGAIN TWICE FOR X Y
+Call WIDTH_AND_HEIGHT(WX, HY)
+
+If Me.height + Me.width = HY2 + WX2 Then Exit Sub
+
+On Error Resume Next
+'CHANGE HEIGHT DONT RELOOP RESIZE
+'--------------------------------
+RESIZE_LOOP_STOP = True
+
+''FORM_RESIZE
+'Call WIDTH_AND_HEIGHT(WX, HY)
+'Me.height = HY2 - 100 '+ 350
+
+RESIZE_LOOP_STOP = True
+Me.width = WX2 + 80
+
+
+Exit Sub
+
+End Sub
+
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 If IsIDE = True Then
@@ -3882,6 +4011,9 @@ End If
 End Sub
 
 Sub CHECK_NET_ARRAY()
+
+' Exit Sub ' FOR NOW
+
 Dim R, TxtEXE_INFO, X1_F, NET_NAME_1, NET_NAME_2, NET_NAME_12, NET_NAME_22
 Dim F2, VAR_DATE_1, VAR_DATE_2
 For R = 1 To UBound(VB_EXE_ARRAY)
@@ -4490,7 +4622,7 @@ ListView_VB_MODIFIED_ERROR.Left = ListView_CPU_INFO.Left
 'Timer_EnumProcess.Enabled = True
 'Timer_EnumProcess.Interval = 1000
 
-If Command$ <> "" Then Me.WindowState = vbMinimized
+' If Command$ <> "" Then Me.WindowState = vbMinimized
 
 Call IsInternetConnected
 
@@ -4513,8 +4645,8 @@ Call SET_LABEL_PADD_WORK
 '----------------------
 '----------------------
 '----------------------
-If IsIDE = True Then Me.WindowState = vbNormal
-If IsIDE = False Then Me.WindowState = vbMinimized
+'If IsIDE = True Then Me.WindowState = vbNormal
+'If IsIDE = False Then Me.WindowState = vbMinimized
     
 '__ Sub Timer_ALWAYS_ON_TOP_TO_START_WITH_ER_Timer()
 SetWindowPos Me.hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
@@ -6271,105 +6403,6 @@ ENDER:
 End Sub
 
 
-Private Sub Form_Resize()
-
-If NOT_RESIZE_EVENTER = True Then Exit Sub
-
-If O_Me_WindowState <> Me.WindowState Then
-    Form_Resize_VB = True
-End If
-
-If O_Me_WindowState = vbMaximized And Me.WindowState = vbNormal Then Exit Sub
-
-
-If Me.WindowState = vbMinimized Then
-    ListView_VB_MODIFIED_ERROR.Visible = False
-End If
-
-Timer_ALWAYS_ON_TOP_TO_START_WITH_ER.Enabled = True
-Counter_ALWAYS_ON_TOP_TIMER = 20
-Label60.BackColor = RGB(255, 255, 255)
-
-If RESIZE_LOOP_STOP = True Then
-    RESIZE_LOOP_STOP = False
-    Exit Sub
-End If
-
-'--------SUB __ frmMain.EnumProcess IT IS IN HERE
-If Me.WindowState <> vbMinimized Then
-'    Call EnumProcess
-    Timer_EnumProcess.Interval = 1000
-End If
-
-'RESIZE
-'If CMD_Process_STATE_TO_SET_1ST = True Then
-'    Call cmdProcess_Click
-'End If
-'------------------------------------------------
-Call WIDTH_AND_HEIGHT(WX, HY)
-
-If RUN_ONCE_DEBUG_PRINT_HY_RESIZE = False Then
-    RUN_ONCE_DEBUG_PRINT_HY_RESIZE = True
-    Debug.Print vbCrLf & Time & "-------"
-    Debug.Print "Control.Name __ " + TT
-    Debug.Print "Control.Top + Control.Height __ " + TTHY1
-    Debug.Print "Control.Top __ " + TTHY2
-    Debug.Print "Control.Height __ " + TTHY3
-End If
-
-If Me.height + Me.width = HY2 + WX2 Then Exit Sub
-If Me.WindowState = vbMinimized Then Exit Sub
-
-If O_Me_WindowState <> vbMaximized And Me.WindowState = vbMaximized Then Exit Sub
-O_Me_WindowState = Me.WindowState
-'VBNORMAL    = 0
-'VBMAXIMIZED = 2
-
-On Error Resume Next
-'CHANGE HEIGHT DONT RELOOP RESIZE
-'--------------------------------
-
-RESIZE_LOOP_STOP = True
-Me.width = WX2
-
-'TOP AND LEFT ONLY FIRST RUN
-'DO HERE LAST OF ALL
-'If Me.WindowState <> 1 Then Exit Sub
-If FIRST_RUN_FOR_TOP_AND_LEFT > 0 Then
-    FIRST_RUN_FOR_TOP_AND_LEFT = FIRST_RUN_FOR_TOP_AND_LEFT - 1
-    Debug.Print FIRST_RUN_FOR_TOP_AND_LEFT
-    '6 RUN HAPPEN BEFORE LAST SET IS PROPER AT FORM_LOAD
-    
-    RESIZE_LOOP_STOP = True
-    Me.Top = 0 '20 'TOP_HEIGHT 'Screen.Height / 2 - Me.Height / 2 - 800
-    
-    'MsgBox GetSystemMetrics(SM_CXSCREEN)*Screen.TwipsPerPixelX & "x" & GetSystemMetrics(SM_CYSCREEN)
-    
-    RESIZE_LOOP_STOP = True
-    Me.Left = GetSystemMetrics(SM_CXSCREEN) * Screen.TwipsPerPixelX / 2 - Me.width / 2
-End If
-
-'-------------------------------------------------------------------------
-'THE MENU HAS TO BE LOADED WITH HEIGHT AND THEN REDONE AGAIN TWICE FOR X Y
-Call WIDTH_AND_HEIGHT(WX, HY)
-
-If Me.height + Me.width = HY2 + WX2 Then Exit Sub
-
-On Error Resume Next
-'CHANGE HEIGHT DONT RELOOP RESIZE
-'--------------------------------
-RESIZE_LOOP_STOP = True
-
-''FORM_RESIZE
-'Call WIDTH_AND_HEIGHT(WX, HY)
-'Me.height = HY2 - 100 '+ 350
-
-RESIZE_LOOP_STOP = True
-Me.width = WX2 + 80
-
-Exit Sub
-
-End Sub
 
 
 
@@ -6401,18 +6434,19 @@ Private Sub Form_Resize_OLD()
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
-
 On Error Resume Next
 For Each Form In Forms
-Err.Clear
+    Err.Clear
     If Form.EXIT_TRUE = True Then
-        'Form.Name
         If Err.Number = 0 Then
-            Me.EXIT_TRUE = True
+            EXIT_TRUE = True
+            Exit For
         End If
     End If
 Next Form
-On Error GoTo 0
+For Each Form In Forms
+    Form.EXIT_TRUE = EXIT_TRUE
+Next Form
 
 If IsIDE = False Then
     If Me.WindowState <> vbMinimized And Me.EXIT_TRUE = False Then
@@ -6421,6 +6455,20 @@ If IsIDE = False Then
         Exit Sub
     End If
 End If
+
+Dim i, Control
+
+'SET ALL TIMERS IN ALL FORMS ENABLED TO =FALSE
+On Error Resume Next
+    For i = 0 To Forms.Count - 1
+        For Each Control In Forms(i).Controls
+            If InStr(UCase(Control.Name), "TIMER") > 0 Then
+                'Debug.Print Control.Name
+                Control.Enabled = False
+            End If
+        Next
+    Next i
+On Error GoTo 0
 
 If Me.EXIT_TRUE = True Then Cancel = False
 
@@ -7207,7 +7255,7 @@ Public Sub TIMER_OS_REBOOT_Timer()
 
 
 Dim VB_LOADER, PWnd, GS_cWnd1, GS_cWnd2, R_REPEAT
-VB_LOADER = FindWindow("#32770", "VB KEEP RUNNER")
+VB_LOADER = FindWindow("#32770", "VB_KEEP_RUNNER")
 If VB_LOADER > 0 Then 'And VB_LOADER <> OhWnd_VB_LOADER Then
     PWnd = VB_LOADER
     GS_cWnd1 = FindWindowEx(PWnd, 0, vbNullString, "Can't open Clipboard")
@@ -7445,19 +7493,69 @@ Private Sub ONE_MILLISECOND_Timer_Timer()
 
 ONE_MILLISECOND_Timer.Enabled = False
 
+' ----------------------------------------------------------------------------------------
+' APP THAT START IN WINDOWS 10
+' AND THEY BEGIN MINIMIZED THAT IS GOOD FOR TASKBAR
+' IF EVER NOTICE SOMETIME HITT THE TASKBAR BUTTON AND THE TASKBAR ITEM MOVE SOMEWHERE ELSE
+' NOT IF MINIMIZED
+' BUT ONLY IF START UP SHOWER
+' AND TASKBAR ITEM THAT WHAT WANT
+' AND THEN FIND A WAY
+' ----------------------------------------------------------------------------------------
+' [ Monday 10:04:30 Am_27 May 2019 ]
+' ----------------------------------------------------------------------------------------
+' WELL STILL HAVE A PROBLME LIKE HERE
+' IT SEEM THEN THAT IS TASKBAR PROPERTIE HAS AND EXTRA PARAMETER
+' THAT MESSES IT UP
+' ----------------------------------------------------------------------------------------
+' STILL SAME PROBLEM
+' AND THEN IT SEEM
+' ONCE YOU MODIFY THAT TASKBAR PROPERTY TO ADD PARAMERTER IT MESSES WITH THAT ONE
+' ----------------------------------------------------------------------------------------
+
+
+
+If DO_ONCE_BOOTER = True Then Exit Sub
+DO_ONCE_BOOTER = True
+
+
+Dim OR_LOGIC
+OR_LOGIC = 0
+If InStr(Command$, "MINIMAL") > 0 Then OR_LOGIC = 2
+If InStr(Command$, "MAXIMUM") > 0 Then OR_LOGIC = 1
+If InStr(Command$, "TASKBAR") > 0 Then OR_LOGIC = 1
+If InStr(Command$, "T") > 0 Then OR_LOGIC = 1
+If IsIDE = True Then OR_LOGIC = 1
+' Me.Visible = True
+' DoEvents
+If OR_LOGIC = 1 Then
+    Me.WindowState = vbNormal
+    
+    ' MsgBox "HH"
+    
+    ' Exit Sub
+End If
+
+If OR_LOGIC = 1 Then
+    ' Me.WindowState = vbNormal
+    Exit Sub
+End If
+
+
+
 'Exit Sub
 '
 'Call WIDTH_AND_HEIGHT(WX, HY)
 'Me.height = HY2 + 350
 
-If IsIDE = True Then
-    Me.WindowState = vbNormal
-Else
-    Me.WindowState = vbMinimized
-End If
+'If IsIDE = True Then
+'    Me.WindowState = vbNormal
+'Else
+'    Me.WindowState = vbMinimized
+'End If
 
 'Me.WindowState = vbMinimized
-Me.Visible = True
+'Me.Visible = True
 
 End Sub
 
@@ -8361,11 +8459,34 @@ Else
 End If
 
 
+
+'For Each Form In Forms
+'    If Form.EXIT_TRUE = True Then
+'        EXIT_TRUE = True
+'        Exit For
+'    End If
+'Next Form
+'
+'If EXIT_TRUE = True Then
+'    Exit Sub
+'End If
+
+On Error Resume Next
+Err.Clear
 TIMER_GO_COMPUTER_START = TIMER_GO_COMPUTER_START - 1
 If TIMER_GO_COMPUTER_START = 0 Then
     Load MDIProcServ
 End If
 If TIMER_GO_COMPUTER_START < -10 Then TIMER_GO_COMPUTER_START = -10
+
+' ------------------------
+'GOT PROBLEM WHEN UNLOADER
+' ------------------------
+If Err.Number > 0 Then
+    Timer_1_SECOND.Enabled = False
+    Exit Sub
+End If
+
 
 Call Label_GOODSYNC_01_Click
 
@@ -12676,6 +12797,41 @@ Function FindWinPart_SEARCHER_hWnd_TO_EXE(SEARCH_STRING) As Long
     
     Loop
 End Function
+
+
+Function FindWinPart_SEARCHER_NOT_ME(SEARCH_STRING) As Long
+    FindWinPart_SEARCHER_NOT_ME = False
+    
+    Dim test_hWnd As Long, _
+        test_pid As Long, _
+        test_thread_id As Long
+    
+    Dim cText As String
+    Dim CLASS_NAME As String
+    Dim XGO
+    Dim CLASS_NAME_______________
+
+    'Find the first window
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    Do While test_hWnd <> 0
+        
+        CLASS_NAME_______________ = GetWindowClass(test_hWnd)
+        ' If InStr(UCase(CLASS_NAME_______________), UCase(SEARCH_STRING)) > 0 Then XGO = True
+        ' If InStr(UCase(GetWindowTitle(test_hWnd)), UCase(SEARCH_STRING)) > 0 Then XGO = True
+        If GetWindowTitle(test_hWnd) = SEARCH_STRING Then XGO = True
+        If CLASS_NAME_______________ = "ThunderRT6FormDC" Then
+        If XGO = True And test_hWnd <> Form1.hWnd Then
+            FindWinPart_SEARCHER_NOT_ME = test_hWnd: Exit Function
+        End If
+        End If
+        XGO = False
+            
+    'retrieve the next window
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    
+    Loop
+End Function
+
 
 
 Function FindWinPart_SEARCHER(SEARCH_STRING) As Long

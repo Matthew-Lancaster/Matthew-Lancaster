@@ -720,6 +720,7 @@ DoEvents
 
 On Error GoTo 0
 On Error GoTo EXIT_ERROR
+On Error GoTo 0
 
 
 VBPath = "C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"
@@ -778,7 +779,7 @@ TxtLog.Refresh
 DoEvents
 
 
-On Error Resume Next
+' On Error Resume Next ' FOR NOW
 'HERE NO
 lstProj.SetFocus
 
@@ -1796,7 +1797,7 @@ If END_STATE = True Then Unload Me
 End Sub
 
 Private Sub MNU_VB_FOLDER_Click()
-Shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".VBP", vbMaximizedFocus
+Shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".vbp", vbMaximizedFocus
 End Sub
 
 Private Sub MNU_VB_ME_Click()
@@ -1813,7 +1814,7 @@ Private Sub MNU_VB_ME_Click()
     '------------------------------------------------------
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
-    CODER_VBP_FILE_NAME_2 = App.Path + "\" + App.EXEName + ".VBP"
+    CODER_VBP_FILE_NAME_2 = App.Path + "\" + App.EXEName + ".vbp"
     objShell.Run """" + VB_3 + """ """ + CODER_VBP_FILE_NAME_2 + """", 1, False
     Set objShell = Nothing
     
@@ -2457,8 +2458,20 @@ End Sub
 Sub UpdateFileLoggs()
             
     Dim LVS
+    Dim R_RESULT
+    Dim GOOD
+    Dim TX1
             
+    TX1 = Tx$ = App.Path + "\#_Data\" + GetComputerName
     Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLogger.txt"
+    
+    R_RESULT = CreateFolderTree(TX1)
+    If R_RESULT = True Then
+        GOOD = "YES"
+    Else
+        MsgBox "UNABLE TO MAKE FOLDER " + vbCrLf + Tx$
+    End If
+    
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Append As #FR1
@@ -2588,3 +2601,39 @@ Sub UpdateFileLoggs()
     Close #FR1
 
 End Sub
+
+Public Function CreateFolderTree(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+
+    On Error GoTo CreateFolderTreeError
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        
+        '----------------------------------------------------------------------------
+        'ROUTINE TAKEN FROM
+        '----------------------------------------------------------------------------
+        'SEND_TO_SCRIPT_IRFAR - Microsoft Visual Basic [design] - [mdlFileSys (Code)]
+        'D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAR\#0 Send To Text List of Files and Sub Folders IRFAN.exe
+        '----------------------------------------------------------------------------
+        'MODIFIED A BIT DIR COMMAND REPLACE MORE COMPLEX WAY
+        '----------------------------------------------------------------------------
+        
+        'If Not FolderExists(Left$(sPath, nPos - 1)) Then
+        
+        If Dir((Left$(sPath, nPos - 1)), vbDirectory) = "" Then
+            MkDir Left$(sPath, nPos - 1)
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+    'If Not FolderExists(sPath) Then MkDir sPath
+    If Dir(sPath, vbDirectory) = "" Then MkDir sPath
+    
+    CreateFolderTree = True
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
+
+
