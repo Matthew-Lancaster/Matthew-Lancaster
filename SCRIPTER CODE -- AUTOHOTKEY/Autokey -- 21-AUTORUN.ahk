@@ -488,6 +488,23 @@ Loop, %id%
 } 
 RETURN
 
+MINIMIZE_NOTEPAD_PLUS:
+; MINIMIZE NOTEPAD++ 
+
+; *C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk - Notepad++ [Administrator]
+; ahk_class Notepad++
+; ahk_exe notepad++.exe
+
+; WinGet, id, list,ahk_class Notepad++
+; Loop, %id%
+; {
+
+	; table := id%A_Index%
+	; WinMinimize  ahk_id %table%
+; } 
+RETURN
+
+
 MINIMIZE_ALL_CHROME_AT_BOOT:
 ; MINIMIZE ALL THE CHROME AT BOOT
 WinGet, id, list,ahk_class Chrome_WidgetWin_1
@@ -2127,6 +2144,8 @@ IFNOTEXIST, C:\WINDOWS\SYSTEM32\WBEMADS.TLB
 
 SET_GO=FALSE
 
+SET_DONE=FALSE
+
 If OSVER_N_VAR=10
 	SET_GO=TRUE
 IF SET_GO=TRUE
@@ -2135,8 +2154,9 @@ IF SET_GO=TRUE
 	IFEXIST, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%",,MIN
+		Run, "%FN_VAR%"
 		SET_GO=FALSE
+		SET_DONE=TRUE
 	}
 }
 IF SET_GO=TRUE
@@ -2145,9 +2165,30 @@ IF SET_GO=TRUE
 	IFEXIST, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%",,MIN
+		Run, "%FN_VAR%"
+		SET_DONE=TRUE
 	}
 }
+
+IF SET_DONE=TRUE 
+{
+	style_NOTEPAD=-2
+	WinWait, ahk_class Notepad++
+	LOOP
+	{
+		WinMinimize ahk_class Notepad++
+		WinGet style_NOTEPAD, MinMax, ahk_class Notepad++
+		;1 maximized 0 normal -1 minimized
+		If style_NOTEPAD=-1
+			BREAK
+		SLEEP 50
+	}
+}
+
+; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800)
+; WinMinimize  ahk_id %table%
+		
+		
 
 
 
