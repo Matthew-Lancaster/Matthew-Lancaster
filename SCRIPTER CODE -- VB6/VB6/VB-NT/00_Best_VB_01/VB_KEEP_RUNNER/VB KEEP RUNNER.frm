@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "KILL &CMD*"
@@ -5008,6 +5008,18 @@ End Sub
 
 Private Sub Label_GOODSYNC_04_HOUR_Click()
 'Label_GOODSYNC_04_HOUR.caption
+End Sub
+
+Private Sub Label_Goto_File_Name_Click()
+'Beep
+
+Shell "EXPLORER /e, /SELECT, " + TxtEXE, vbNormalFocus
+
+Me.WindowState = vbMinimized
+
+
+'txtFile
+
 End Sub
 
 Private Sub Label_HWND_MAXIMIZE_Click()
