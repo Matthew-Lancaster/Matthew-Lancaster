@@ -735,7 +735,7 @@ If ProcessExist("VB_KEEP_RUNNER.exe", A_UserName)=0
 	IfExist, %FN_VAR%
 	{
 		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%"
+		Run, "%FN_VAR%" , , MIN
 		; SLEEP 8000
 		; -----------------------------------------------------------------
 		; GIVE TIME TO RUN FOR XP THE TWO BLUEOOTH APP ON TASK BAR TOGETHER
