@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -629,6 +629,16 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
+   Begin VB.Label Label_MAXIMIZE_CLIPBOARD_LOGGER 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "MAX CLIPPER"
+      Height          =   216
+      Left            =   7656
+      TabIndex        =   148
+      Top             =   1476
+      Width           =   1476
+   End
    Begin VB.Label Label_CLOSE_GOODSYNC2GO 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
@@ -656,8 +666,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6264
       TabIndex        =   145
-      Top             =   768
-      Width           =   2856
+      Top             =   1476
+      Width           =   1368
    End
    Begin VB.Label Label10 
       Alignment       =   2  'Center
@@ -951,7 +961,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   116
-      Top             =   1512
+      Top             =   1224
       Width           =   2856
    End
    Begin VB.Image Image1 
@@ -1105,7 +1115,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   101
-      Top             =   1284
+      Top             =   996
       Width           =   2856
    End
    Begin VB.Label Label_KILL_AUTOHOTKEY 
@@ -1115,7 +1125,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   100
-      Top             =   1056
+      Top             =   768
       Width           =   2856
    End
    Begin VB.Label Label64 
@@ -3229,13 +3239,44 @@ Private Sub Form_Load()
 '    If IsIDE = False Then Me.WindowState = vbMinimized
 
     ' Me.Hide
-     Me.WindowState = vbMinimized
+'     Me.WindowState = vbMinimized
 '    Me.WindowState = vbNormal
     'Me.Hide
     ONE_MILLISECOND_Timer.Enabled = False
-    ONE_MILLISECOND_Timer.Interval = 0
-    ONE_MILLISECOND_Timer.Interval = 100
-    ONE_MILLISECOND_Timer.Enabled = True
+    'ONE_MILLISECOND_Timer.Interval = 0
+    'ONE_MILLISECOND_Timer.Interval = 100
+    'ONE_MILLISECOND_Timer.Enabled = True
+
+
+Dim OR_LOGIC
+OR_LOGIC = 0
+If InStr(Command$, "MINIMAL") > 0 Then OR_LOGIC = 2
+If InStr(Command$, "MIN") > 0 Then OR_LOGIC = 2
+If InStr(Command$, "MAXIMUM") > 0 Then OR_LOGIC = 1
+If InStr(Command$, "TASKBAR") > 0 Then OR_LOGIC = 1
+If InStr(Command$, "T") > 0 Then OR_LOGIC = 1
+If IsIDE = True Then OR_LOGIC = 1
+' Me.Visible = True
+' DoEvents
+If OR_LOGIC = 1 Then
+'    Me.WindowState = vbNormal
+    
+    ' MsgBox "HH"
+    
+    ' Exit Sub
+End If
+
+If OR_LOGIC = 1 Then
+    ' Me.WindowState = vbNormal
+    'Exit Sub
+End If
+
+If OR_LOGIC = 2 Then
+     Me.WindowState = vbMinimized
+End If
+
+
+
 
 End Sub
 
@@ -3438,7 +3479,7 @@ ARRAY_CB(LDAC) = "Label_MAXIMIZE_GOODSYNC2GO"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC2GO"
 LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
+ARRAY_CB(LDAC) = "Label_MAXIMIZE_CLIPBOARD_LOGGER"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 
@@ -5252,6 +5293,17 @@ Next
 
 End Sub
 
+Private Sub Label_MAXIMIZE_CLIPBOARD_LOGGER_Click()
+Dim WINDOW_hWnd
+WINDOW_hWnd = FindWindow("ThunderRT6FormDC", "ClipBoard Logger")
+'WINDOW_hWnd = FindWindowPart("EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version")
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_MAXIMIZE_CLIPBOARD_LOGGER.BackColor = RGB(255, 255, 255)
+
+ShowWindow WINDOW_hWnd, SW_NORMAL
+' BEep
+Me.WindowState = vbMinimized
+End Sub
 Private Sub Label_MAXIMIZE_ELITE_SPY_Click()
 
 Dim WINDOW_hWnd
