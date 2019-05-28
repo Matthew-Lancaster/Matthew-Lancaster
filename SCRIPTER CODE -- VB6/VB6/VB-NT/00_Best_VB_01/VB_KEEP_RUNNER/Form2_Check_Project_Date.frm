@@ -141,7 +141,7 @@ Private Sub Timer_VB_PROJECT_CHECKDATE_Timer()
         Timer_VB_PROJECT_CHECKDATE.Interval = 1000
     End If
     
-    Exit Sub ' FOR NOW
+    ' Exit Sub ' FOR NOW
     
     Call VB_PROJECT_CHECKDATE("")
 
