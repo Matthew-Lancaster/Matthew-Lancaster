@@ -159,6 +159,23 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;  41 Views _ 22 MAR 2019 +     __ She _ YouTube
 ;   7 Views _ 22 MAR 2019 +     __ Hallelujah
 ;  24 Views _ 23 MAR 2019 +     __ In my pyjamas with bed hair, but a lovely song nonetheless. :) Follow the Sun
+
+; -------------------------------------------------------------------
+; Sat 01-Jun-2019 __ Begin A Play Session
+; 484 Views _ 12 OCT 2018 + __ So my very lovely and generous brother bought me a guitar to keep
+; 443 Views _ 17 OCT 2018 + __ So...I wrote and composed my first ever song! Its called Penguin Lullaby
+; 250 Views _ 01 NOV 2018 + __ New song Filmed myself play a few days ago. The song is called Hospital Bed.
+; 412 Views _ 09 NOV 2018 + __ Time for a happier song - Riptide
+; 319 Views _ 18 NOV 2018 + __ Hurt
+; 338 Views _ 29 NOV 2018 + __ New song - Standing in the Rain
+; 166 Views _ 29 DEC 2018 + __ Angels
+; 295 Views _ 28 FEB 2019 + __ Blue - In honor of Beth __ About a week ago 
+; 291 Views _ 11 MAR 2019 + __ For my Papa Bryan Donald Hall-T he City of Chicago.
+; 225 Views _ 13 MAR 2019 + __ Had a really bad lost my leave. Try myself with music. Here is Moonshadow.
+; 121 Views _ 22 MAR 2019 + __ She _ YouTube
+;  87 Views _ 22 MAR 2019 + __ Hallelujah
+; 101 Views _ 23 MAR 2019 + __ In my pyjamas with bed hair, but a lovely song nonetheless. :) Follow the Sun
+
 ; -------------------------------------------------------------------
 ; WELL MORE CODE HAS TO GO INNER NOW REQUIRE A REFRESH PAGE AFTER EVERY PLAY
 ; GET IT GOING RESULT BETTER
