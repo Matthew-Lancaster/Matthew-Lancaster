@@ -323,8 +323,6 @@ IF OSVER_N_VAR>5
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-
-
 RETURN
 
 ; -------------------------------------------------------------------
@@ -338,7 +336,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 
 	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5,OFF
 
-	IF A_ComputerName<>4-ASUS-GL5222VW
+	IF A_ComputerName<>4-ASUS-GL522VW
 		RETURN
 	
 	If (A_TimeIdle < 10000)
@@ -482,17 +480,13 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; AND FACEBOOK ALWAYS HAD A HITT POLICY OF THEIR UP FOR THING ZACK AND NO ANYBODY ELSE
 	; ---------------------------------------------------------------
 
-
-	IF A_ComputerName<>4-ASUS-GL5222VW
+	IF A_ComputerName<>4-ASUS-GL522VW
 		RETURN
-
 	
 	IF DEBBY_HALL_PAUSE=TRUE
 		RETURN
 	
 	SetTitleMatchMode 2  ; NOT Specify Full path.
-
-	
 	
 	; FORNICATE PLEASURE
 	; ----
@@ -562,6 +556,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			IF INSTR(TITLE_VAR,%Element%)
 				XR_2=1
 		}
+		
+		MSGBOX % XR_2
 
 		; XR_2=
 		; IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
