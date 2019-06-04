@@ -259,6 +259,9 @@ GLOBAL OSVER_N_VAR
 ; NOW YOU KNOW HOW TO SETUP ARRAY FOR BIGGER USER
 ; 
 ; OOPS VAR ArrayCount HAD TO BE SET GLOBAL ON FURTHER DEBUG METHOD
+; OOPS STILL PROBLEM ARRAY USE AS FUNCTION
+; AND THE STRUCTURE ARRAY LINE CHANGE NOW USE :="" WITH QUOTE 
+; BUTTER QUOTE ARE NOT INCLUDE SO NONE STRIP THERE
 ; -------------------------------------------------------------------
 ; [ Tuesday 19:20:50 Pm_04 June 2019 ]
 ; -------------------------------------------------------------------
@@ -266,10 +269,14 @@ GLOBAL OSVER_N_VAR
 ; GLOBAL ArrayCount
 
 ; -------------------------------------------------------------------
-GOSUB SET_THE_ARRAY_FACEBOOK_VIDEO
+; FN_Array_1 := SET_THE_ARRAY_FACEBOOK_VIDEO()
 ; -------------------------------------------------------------------
 
+FN_Array_1 := SET_ARRAY_1()
 
+RETURN
+	
+	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
 OSVER_N_VAR:=a_osversion
@@ -324,49 +331,30 @@ IF OSVER_N_VAR>5
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
-
-	MSGBOX %ArrayCount%
-
-	Loop % ArrayCount
-	{
-		Element := FN_Array_1[A_Index]
-		MSGBOX %Element%
-	}
-
 RETURN
 
-SET_THE_ARRAY_FACEBOOK_VIDEO:
-GLOBAL FN_Array_1
-
-; GLOBAL FN_Array_1 := []
-FN_Array_1 := []
-
-ArrayCount := 0
-
-ArrayCount += 1
-GLOBAL FN_Array_1[ArrayCount]=Facebook - Mozilla Firefox
-ArrayCount += 1
-GLOBAL FN_Array_1[ArrayCount]=Facebook - Google Chrome
-ArrayCount += 1
-GLOBAL FN_Array_1[ArrayCount]=Deborah Hall -
-ArrayCount += 1
-GLOBAL FN_Array_1[ArrayCount]=Dibs Dabs -
-ArrayCount += 1
-GLOBAL FN_Array_1[ArrayCount]=She - YouTube - Google Chrome
-ArrayCount += 1
-GLOBAL FN_Array_1[ArrayCount]=Follow the Sun - YouTube - Google Chrome
-ArrayCount += 1
-GLOBAL FN_Array_1[ArrayCount]=Hallelujah - YouTube - Google Chrome
 
 
-
-Loop % ArrayCount
-{
-	MSGBOX % FN_Array_1[A_Index]
-	; GLOBAL FN_Array_1[A_Index]
+SET_ARRAY_1() {
+	GLOBAL ArrayCount ; DECLARE GLOBAL WITHIN THE FUNCTION HERE 1ST AND BE USER EVERYWHERE
+	FN_Array_1 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="Facebook - Mozilla Firefox"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="Facebook - Google Chrome"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="Deborah Hall -"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="Dibs Dabs -"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="She - YouTube - Google Chrome"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="Follow the Sun - YouTube - Google Chrome"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="Hallelujah - YouTube - Google Chrome"
+RETURN FN_Array_1
 }
-
-RETURN
 
 
 ; -------------------------------------------------------------------
@@ -634,9 +622,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; ---------------------------------------------------------------
 	; DODGY LINE LEFT IN 
 	; MAKE WORK ALL THE TIME -- WHEN WINDOW NOT IN FOCUS
+	; HAVE A TRY
 	; ---------------------------------------------------------------
-	; IF A_ComputerName=4-ASUS-GL522VW
-		; AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
+	IF A_ComputerName=4-ASUS-GL522VW
+		AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 		
 	XR_2=0
 	IF AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
@@ -726,7 +715,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 					Element := FN_Array_1[A_Index]
 					IF INSTR(CurrentWindowTitle,%Element%)
 						SET_GO=TRUE
-						MSGBOX HH1 %Element%
+						; MSGBOX HH1 %Element%
 				}
 					
 				WinGetTITLE, CurrentWindowTitle, A
