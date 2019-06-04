@@ -96,7 +96,7 @@ FOR RV=1 TO 2
 			
 			If objFolder.SubFolders.Count = 0 Then 
 				IF objFolder.Files.Count = 0 Then
-					MSGBOX FOLDER_STRING
+					' MSGBOX FOLDER_STRING
 					fso.DeleteFolder objFolder.Path
 					IF FSO.FOLDERExists(FOLDER_STRING) THEN
 						fso.DeleteFolder FOLDER_STRING
