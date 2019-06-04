@@ -249,24 +249,25 @@ OLD_STATE_XYPOSCOUNTER=0
 
 GLOBAL OSVER_N_VAR
 
+; -------------------------------------------------------------------
+; NICE ARRAY HERE BUT IF SET GLOBAL HERE NOT WORK
+; AND IF SET ARRAY WHILE INIT LIKE DURING DECLARE GOING ON DOESN'T WORK ALSO
+; THE ARRAY REQUIRE TWO USE IN BY TWO SUBROUTINE
+; SO ANSWER IS SETUP THE ARRAY IN ANOTHER NEW SUBROUTINE OF IT OWN
+; AND THAT WAY WORKER
+; QUITE GOOD THAT ONE 
+; NOW YOU KNOW HOW TO SETUP ARRAY FOR BIGGER USER
+; 
+; OOPS VAR ArrayCount HAD TO BE SET GLOBAL ON FURTHER DEBUG METHOD
+; -------------------------------------------------------------------
+; [ Tuesday 19:20:50 Pm_04 June 2019 ]
+; -------------------------------------------------------------------
+; GLOBAL FN_Array_1
+; GLOBAL ArrayCount
 
-	FN_Array_1 := []
-	ArrayCount := 0
-
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]=Facebook - Mozilla Firefox
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]=Facebook - Google Chrome
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]=Deborah Hall -
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]=Dibs Dabs -
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]=She - YouTube - Google Chrome
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]=Follow the Sun - YouTube - Google Chrome
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]=Hallelujah - YouTube - Google Chrome
+; -------------------------------------------------------------------
+GOSUB SET_THE_ARRAY_FACEBOOK_VIDEO
+; -------------------------------------------------------------------
 
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -323,7 +324,50 @@ IF OSVER_N_VAR>5
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
+
+	MSGBOX %ArrayCount%
+
+	Loop % ArrayCount
+	{
+		Element := FN_Array_1[A_Index]
+		MSGBOX %Element%
+	}
+
 RETURN
+
+SET_THE_ARRAY_FACEBOOK_VIDEO:
+GLOBAL FN_Array_1
+
+; GLOBAL FN_Array_1 := []
+FN_Array_1 := []
+
+ArrayCount := 0
+
+ArrayCount += 1
+GLOBAL FN_Array_1[ArrayCount]=Facebook - Mozilla Firefox
+ArrayCount += 1
+GLOBAL FN_Array_1[ArrayCount]=Facebook - Google Chrome
+ArrayCount += 1
+GLOBAL FN_Array_1[ArrayCount]=Deborah Hall -
+ArrayCount += 1
+GLOBAL FN_Array_1[ArrayCount]=Dibs Dabs -
+ArrayCount += 1
+GLOBAL FN_Array_1[ArrayCount]=She - YouTube - Google Chrome
+ArrayCount += 1
+GLOBAL FN_Array_1[ArrayCount]=Follow the Sun - YouTube - Google Chrome
+ArrayCount += 1
+GLOBAL FN_Array_1[ArrayCount]=Hallelujah - YouTube - Google Chrome
+
+
+
+Loop % ArrayCount
+{
+	MSGBOX % FN_Array_1[A_Index]
+	; GLOBAL FN_Array_1[A_Index]
+}
+
+RETURN
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -682,6 +726,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 					Element := FN_Array_1[A_Index]
 					IF INSTR(CurrentWindowTitle,%Element%)
 						SET_GO=TRUE
+						MSGBOX HH1 %Element%
 				}
 					
 				WinGetTITLE, CurrentWindowTitle, A
