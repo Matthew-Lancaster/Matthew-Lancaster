@@ -273,8 +273,6 @@ GLOBAL OSVER_N_VAR
 ; -------------------------------------------------------------------
 
 FN_Array_1 := SET_ARRAY_1()
-
-RETURN
 	
 	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -435,7 +433,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	Loop % ArrayCount
 	{
 		Element := FN_Array_1[A_Index]
-		IF INSTR(TITLE_VAR,%Element%)
+		IF INSTR(TITLE_VAR,Element)
 			XR_2=1
 	}
 
@@ -585,11 +583,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		Loop % ArrayCount
 		{
 			Element := FN_Array_1[A_Index]
-			IF INSTR(TITLE_VAR,%Element%)
+			IF INSTR(TITLE_VAR,Element)
 				XR_2=1
 		}
 		
-		MSGBOX % XR_2
+		; MSGBOX % XR_2
 
 		; XR_2=
 		; IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
@@ -689,7 +687,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	Loop % ArrayCount
 	{
 		Element := FN_Array_1[A_Index]
-		IF INSTR(TITLE_VAR,%Element%)
+		IF INSTR(TITLE_VAR,Element)
 			XR_2=1
 	}
 
@@ -713,7 +711,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				Loop % ArrayCount
 				{
 					Element := FN_Array_1[A_Index]
-					IF INSTR(CurrentWindowTitle,%Element%)
+					IF INSTR(CurrentWindowTitle,Element)
 						SET_GO=TRUE
 						; MSGBOX HH1 %Element%
 				}
@@ -722,7 +720,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				Loop % ArrayCount
 				{
 					Element := FN_Array_1[A_Index]
-					IF INSTR(CurrentWindowTitle,%Element%)
+					IF INSTR(CurrentWindowTitle,Element)
 						SET_GO=TRUE
 				}
 				
@@ -815,7 +813,6 @@ RETURN
 
 AUTO_RELOAD_RAIN_ALARM:
 
-
 	IF A_ComputerName=2-ASUS-EEE
 	{
 		SETTIMER AUTO_RELOAD_RAIN_ALARM, OFF
@@ -852,7 +849,7 @@ AUTO_RELOAD_RAIN_ALARM:
 		; WINDOWS VB6 REPORT SPY AS 1ST ONE
 		; AHK SPY REPORT AS 2ND
 		; -----------------------------------------------------------
-		; TODAY DONE THE CORODINATE FOR HERE
+		; TODAY DONE THE COORDINATE FOR HERE
 		; WinMove
 		; THAT TAKE INTO ACCOUNT THE WIN XP MY COMPUTER DOCKED TO LEFT SCREEN
 		; AND TASK BAR TRAY BAR AT BOTTOM OF SCREEN
@@ -912,18 +909,21 @@ AUTO_RELOAD_RAIN_ALARM:
 		
 		; (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 		
-		IfWinExist, Rain Alarm - Mozilla Firefox
+		IF SET_GO=TRUE
 		{
-
-			XR_3=Rain Alarm - Mozilla Firefox
-			IF XR_3
+			IfWinExist, Rain Alarm - Mozilla Firefox
 			{
-				WinActivate, %XR_3%
-				WinWaitActive, %XR_3%
-				SLEEP 400
+
+				XR_3=Rain Alarm - Mozilla Firefox
+				IF XR_3
+				{
+					WinActivate, %XR_3%
+					WinWaitActive, %XR_3%
+					SLEEP 400
+				}
+				
+				WinMove, %XR_3%, ,x, 4, Width_2, Height_4
 			}
-			
-			WinMove, %XR_3%, ,x, 4, Width_2, Height_4
 		}
 	}
 	
@@ -945,7 +945,7 @@ AUTO_RELOAD_RAIN_ALARM:
 			SLEEP 1000
 		}
 	}
-	
+				
 	WinGetCLASS, CLASS, A
 	WinGetTITLE, TITLE_VAR, A
 
@@ -965,7 +965,7 @@ AUTO_RELOAD_RAIN_ALARM:
 		IF XR_2>0
 		{
 			SENDINPUT {F5}
-			; SOUNDBEEP 1000,50
+			SOUNDBEEP 1000,50
 		}
 		
 		
