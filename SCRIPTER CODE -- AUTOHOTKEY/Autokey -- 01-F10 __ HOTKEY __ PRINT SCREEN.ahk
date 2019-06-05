@@ -71,8 +71,9 @@ GLOBAL XPOS
 GLOBAL YPOS
 
 GLOBAL O_ID
-
 O_ID=0
+
+GLOBAL OLD_id
 
 GLOBAL OutputVar_4
 
@@ -99,12 +100,30 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 
 MESSENGER_KEY=
 
-
+SETTIMER WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON,100
 
 RETURN
 
+WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 
+	id := WinExist("A")
 
+	IF OLD_id<>id
+	{
+		IfWinActive mysms - Google Chrome ahk_class Chrome_WidgetWin_1
+		{
+			SetCapsLockState ,Off
+			; SOUNDBEEP 1000,200
+		}
+		IfWinActive ahk_class ahk_class Notepad++
+		{
+			SetCapsLockState ,ON
+			; SOUNDBEEP 4000,200
+		}
+	}
+	OLD_id=%id%
+
+RETURN
 
 
 
