@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -8531,11 +8531,28 @@ If TIMER_GO_COMPUTER_START = 0 Then
 End If
 If TIMER_GO_COMPUTER_START < -10 Then TIMER_GO_COMPUTER_START = -10
 
-' ------------------------
-'GOT PROBLEM WHEN UNLOADER
-' ------------------------
+' ----------------------------------------
+' GOT PROBLEM WHEN UNLOADER
+' ----------------------------------------
+' CAN'T USE THIS NOW
+' THE LINE ABOVE NEAR ALWAYS GOT ERROR
+' WITH
+' OBJECT VARTIABLE OR WIDTH BLOCK NOT SET
+' MOSTLY WHEN GET TO
+' ----------------------------------------
+' LOOK HERE
+' ----------------------------------------
+' MORE TO DO IF ERROR PERSIST
+' ----------------------------------------
+' Call ComputerSystem_GET_INFO
+' Call OperatingSystem_GET_INFO
+' Call Processor_GET_INFO
+' ----------------------------------------
+
+'ERR.DESCRIPTION
+
 If Err.Number > 0 Then
-    Timer_1_SECOND.Enabled = False
+    ' Timer_1_SECOND.Enabled = False
     Exit Sub
 End If
 
