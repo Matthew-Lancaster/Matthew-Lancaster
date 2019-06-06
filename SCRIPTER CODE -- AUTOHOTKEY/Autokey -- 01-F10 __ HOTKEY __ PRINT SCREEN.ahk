@@ -110,12 +110,19 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 
 	IF OLD_id<>id
 	{
+		SetTitleMatchMode 3  ; Specify Full path
 		IfWinActive mysms - Google Chrome ahk_class Chrome_WidgetWin_1
 		{
 			SetCapsLockState ,Off
 			; SOUNDBEEP 1000,200
 		}
-		IfWinActive ahk_class ahk_class Notepad++
+		IfWinActive ahk_class Notepad++
+		{
+			SetCapsLockState ,ON
+			; SOUNDBEEP 4000,200
+		}
+		SetTitleMatchMode 2  ; PARTIAL PATH
+		IfWinActive  | eBay - Google Chrome
 		{
 			SetCapsLockState ,ON
 			; SOUNDBEEP 4000,200
