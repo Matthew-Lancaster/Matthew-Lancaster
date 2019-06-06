@@ -557,57 +557,62 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO, OFF
 		RETURN
 	}
+
+	SET_GO=TRUE
 	IF A_ComputerName=7-ASUS-GL522VW
 		SET_GO=FALSE
 	IF A_ComputerName=8-MSI-GP62M-7RD
 		SET_GO=FALSE
-
+		
 	IF SET_GO=FALSE
-	{
-		WinGetCLASS, CLASS_VAR, A
-		WinGetTITLE, TITLE_VAR, A
+		RETURN
 
-		XR_1=
-		IF INSTR(CLASS_VAR,"Chrome_WidgetWin_1")
-		{
-			XR_1=1
-			XR_3=Chrome_WidgetWin_1
-		}
-		IF INSTR(CLASS_VAR,"MozillaWindowClass")
-		{
-			XR_1=1
-			XR_3=MozillaWindowClass
-		}
-		
-		XR_2=
-		Loop % ArrayCount
-		{
-			Element := FN_Array_1[A_Index]
-			IF INSTR(TITLE_VAR,Element)
-				XR_2=1
-		}
-		
-		; MSGBOX % XR_2
+	; IF SET_GO=FALSE
+	; {
+		; WinGetCLASS, CLASS_VAR, A
+		; WinGetTITLE, TITLE_VAR, A
 
+		; XR_1=
+		; IF INSTR(CLASS_VAR,"Chrome_WidgetWin_1")
+		; {
+			; XR_1=1
+			; XR_3=Chrome_WidgetWin_1
+		; }
+		; IF INSTR(CLASS_VAR,"MozillaWindowClass")
+		; {
+			; XR_1=1
+			; XR_3=MozillaWindowClass
+		; }
+		
 		; XR_2=
-		; IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
-			; XR_2=1
-		; IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
-			; XR_2=1
-		; IF INSTR(TITLE_VAR,"Deborah Hall -")
-			; XR_2=1
-		; IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
-			; XR_2=1
-		; IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
-			; XR_2=1
-		; IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
-			; XR_2=1
+		; Loop % ArrayCount
+		; {
+			; Element := FN_Array_1[A_Index]
+			; IF INSTR(TITLE_VAR,Element)
+				; XR_2=1
+		; }
+		
+		; ; MSGBOX % XR_2
+
+		; ; XR_2=
+		; ; IF INSTR(TITLE_VAR,"Facebook - Google Chrome")
+			; ; XR_2=1
+		; ; IF INSTR(TITLE_VAR,"Facebook - Mozilla Firefox")
+			; ; XR_2=1
+		; ; IF INSTR(TITLE_VAR,"Deborah Hall -")
+			; ; XR_2=1
+		; ; IF INSTR(TITLE_VAR,"She - YouTube - Google Chrome")
+			; ; XR_2=1
+		; ; IF INSTR(TITLE_VAR,"Follow the Sun - YouTube - Google Chrome")
+			; ; XR_2=1
+		; ; IF INSTR(TITLE_VAR,"Hallelujah - YouTube - Google Chrome")
+			; ; XR_2=1
 			
-		IF (!XR_1 or !XR_2)
-		{
-			RETURN
-		}
-	}
+		; IF (!XR_1 or !XR_2)
+		; {
+			; RETURN
+		; }
+	; }
 		
 	
 	IF A_ComputerName=3-LINDA-PC
@@ -653,6 +658,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		IF XR_3
 			IF XR_4
 			{	
+				MSGBOX HH1
 				WinActivate, %XR_4%
 				WinWaitActive, %XR_4%
 				SLEEP 1000
@@ -691,6 +697,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			XR_2=1
 	}
 
+	; MSGBOX  HH2 " -- " %XR_2%
+	
 	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
 	LOOP_COUNTER=0
 
@@ -712,8 +720,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				{
 					Element := FN_Array_1[A_Index]
 					IF INSTR(CurrentWindowTitle,Element)
+						{
 						SET_GO=TRUE
-						; MSGBOX HH1 %Element%
+						MSGBOX HH3 " -- " %Element%
+						}
 				}
 					
 				WinGetTITLE, CurrentWindowTitle, A
@@ -721,7 +731,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				{
 					Element := FN_Array_1[A_Index]
 					IF INSTR(CurrentWindowTitle,Element)
+						{
 						SET_GO=TRUE
+						MSGBOX HH4 " -- " %Element%
+						}
 				}
 				
 				SET_GO_YOU=FALSE
@@ -755,6 +768,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				; ---------------------------------------------------
 				SLEEP 1000
 				SENDINPUT {F5}
+				MSGBOX STOP1
 				SLEEP 8000
 				IF A_ComputerName=3-LINDA-PC
 					SLEEP 10000
@@ -786,6 +800,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			{
 				SLEEP 1000
 				SENDINPUT {F5}
+				MSGBOX STOP2
 				SLEEP 8000
 
 				SLEEP 1500
