@@ -278,6 +278,17 @@ RETURN
 
 
 HIGHER_SPEED:
+	; ---------------------------------------------------------------
+	; NEW CODE BLOCK
+	; AND THEN LOOK IN AHK HELP FILE
+	; THEY CHANGED THE FORMAT OF COMMAND TO USE FORMAT LIKE HERE
+	; AND I HAD TO BE CAREFUL LOWERCASE THE ahk_id
+	; ID_2:=WinExist("ahk_id " OLD_HUBIC_STATUS_MAX)
+	; BUT AND OTHER COMMAND DON'T HAVE TO
+	; I HAVE A TON OF CODE THAT USE THE OLDER STYLE BOO
+	; ---------------------------------------------------------------
+	; [ Thursday 23:05:10 Pm_Sixer June 2019 ]
+	; ---------------------------------------------------------------
 
 	id := WinExist("A")
 
@@ -293,26 +304,19 @@ HIGHER_SPEED:
 		{
 			IF id<>%OLD_HUBIC_STATUS_MAX%
 			{
-				WinMaximize, ahk_id %id%
+				WinMaximize, AHK_ID %id%
 				OLD_HUBIC_STATUS_MAX:=id
 			}
 		}
-	
-	ID_2=0
-	IF OLD_HUBIC_STATUS_MAX>0
-	IF OLD_HUBIC_STATUS_MAX<>%ID%
-	{
-		ID_2:=WinExist(ahk_id %OLD_HUBIC_STATUS_MAX%)
-		IF ID_2=0
+		ID_2=0
+		IF OLD_HUBIC_STATUS_MAX>0
+		IF OLD_HUBIC_STATUS_MAX<>%ID%
 		{
-			OLD_HUBIC_STATUS_MAX=0
-			MSGBOX HH
+			ID_2:=WinExist("ahk_id " OLD_HUBIC_STATUS_MAX)
+			IF ID_2=0
+				OLD_HUBIC_STATUS_MAX=0
 		}
 	}
-		
-	
-	}
-		
 
 	OLD_id=%id%
 
