@@ -68,6 +68,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 004 
+; -------------------------------------------------------------------
+; ALL AT A WORKER STATE NOW
+; ARRAY BEEN ADD AND USE BY FUNCTION CALL FUNCTION TO USE IN WHATEVER SUBROUTINE
+; LITTLE BUG HERE AND THERE
+; TOOK WHILE SORT FACEBOOK VIDEO TAB ALONG AND PLAY AFTER ARRAY WORKER 
+; THINGS WERE NOT PROPER SORTED NOW
+;
+; -------------------------------------------------------------------
+; TO   __ Count = 345 -- Thu 06-Jun-2019 21:27:04
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
 ; MONITOR OF VIDEO FACEBOOK REPEAT HITT PUMP HER COUNTER 
 ; -------------------------------------------------------------------
 ; Deborah Hall
@@ -222,8 +237,8 @@ SetStoreCapslockMode, off
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
-IF A_ComputerName=2-ASUS-EEE
-	Exitapp
+; IF A_ComputerName=2-ASUS-EEE
+	; Exitapp
 
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
@@ -301,7 +316,7 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
 OLD_AUTO_RELOAD_FACEBOOK_VAR=0
 
 ; 02 OF 04
-IF OSVER_N_VAR>5 
+IF OSVER_N_VAR>0
 {
 	SETTIMER AUTO_RELOAD_FACEBOOK,59000
 	SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,1000

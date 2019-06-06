@@ -255,16 +255,16 @@ IF OSVER_N_VAR>5
 	; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
 ; }
 
-SET_GO=TRUE
-IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO=FALSE
+; SET_GO=TRUE
+; IF (A_ComputerName = "2-ASUS-EEE") 
+	; SET_GO=FALSE
 ; IF (A_ComputerName = "8-MSI-GP62M-7RD")
 	; SET_GO=FALSE
-IF SET_GO=TRUE
-{
+; IF SET_GO=TRUE
+; {
 	ArrayCount += 1
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk"
-}
+; }
 
 
 
