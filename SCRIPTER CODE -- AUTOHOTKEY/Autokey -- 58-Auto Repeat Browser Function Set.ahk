@@ -658,7 +658,6 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		IF XR_3
 			IF XR_4
 			{	
-				MSGBOX HH1
 				WinActivate, %XR_4%
 				WinWaitActive, %XR_4%
 				SLEEP 1000
@@ -697,65 +696,65 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			XR_2=1
 	}
 
-	; MSGBOX  HH2 " -- " %XR_2%
-	
 	AUTO_HITTER_COUNTER_FACEBOOK_COUNTER+=1
 	LOOP_COUNTER=0
 
 	IF XR_1>0
-		IF AUTO_HITTER_COUNTER_FACEBOOK_COUNTER>0
+	{
+		IF XR_2>0
 		{
-			AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0
-			Loop
+			IF AUTO_HITTER_COUNTER_FACEBOOK_COUNTER>0
 			{
-				LOOP_COUNTER+=1
-				; TAB NEXT
-				; --------
-				Send, ^{Tab}
-				Sleep, 2000
-				
-				WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
-				SET_GO=FALSE
-				Loop % ArrayCount
+				AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0
+				Loop
 				{
-					Element := FN_Array_1[A_Index]
-					IF INSTR(CurrentWindowTitle,Element)
-						{
-						SET_GO=TRUE
-						MSGBOX HH3 " -- " %Element%
-						}
-				}
+					LOOP_COUNTER+=1
+					; TAB NEXT
+					; --------
+					Send, ^{Tab}
+					Sleep, 2000
 					
-				WinGetTITLE, CurrentWindowTitle, A
-				Loop % ArrayCount
-				{
-					Element := FN_Array_1[A_Index]
-					IF INSTR(CurrentWindowTitle,Element)
-						{
-						SET_GO=TRUE
-						MSGBOX HH4 " -- " %Element%
-						}
-				}
-				
-				SET_GO_YOU=FALSE
-				IF INSTR(CurrentWindowTitle,"YouTube - Google Chrome")
-					SET_GO_YOU=TRUE
-				
-				
-				IF SET_GO=TRUE 
-				{
-					XR_2=1
-					SLEEP 1000
-					BREAK
-				}
-				IF LOOP_COUNTER>10
-				{
-					XR_1=0
-					BREAK
+					WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
+					SET_GO=FALSE
+					Loop % ArrayCount
+					{
+						Element := FN_Array_1[A_Index]
+						IF INSTR(CurrentWindowTitle,Element)
+							{
+								SET_GO=TRUE
+							}
+					}
+						
+					WinGetTITLE, CurrentWindowTitle, A
+					Loop % ArrayCount
+					{
+						Element := FN_Array_1[A_Index]
+						IF INSTR(CurrentWindowTitle,Element)
+							{
+								SET_GO=TRUE
+							}
+					}
+					
+					SET_GO_YOU=FALSE
+					IF INSTR(CurrentWindowTitle,"YouTube - Google Chrome")
+						SET_GO_YOU=TRUE
+					
+					
+					IF SET_GO=TRUE 
+					{
+						XR_2=1
+						SLEEP 1000
+						BREAK
+					}
+					IF LOOP_COUNTER>10
+					{
+						XR_1=0
+						BREAK
+					}
 				}
 			}
 		}
-
+	}
 		
 	IF XR_1>0
 		IF XR_2>0
@@ -768,7 +767,6 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				; ---------------------------------------------------
 				SLEEP 1000
 				SENDINPUT {F5}
-				MSGBOX STOP1
 				SLEEP 8000
 				IF A_ComputerName=3-LINDA-PC
 					SLEEP 10000
@@ -800,7 +798,6 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			{
 				SLEEP 1000
 				SENDINPUT {F5}
-				MSGBOX STOP2
 				SLEEP 8000
 
 				SLEEP 1500
