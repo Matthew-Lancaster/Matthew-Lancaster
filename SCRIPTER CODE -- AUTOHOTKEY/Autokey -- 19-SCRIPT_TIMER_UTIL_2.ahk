@@ -251,6 +251,13 @@ HWNDID=
 
 SETTIMER ONE_SECOND,1000
 
+GLOBAL OLD_id
+OLD_id=0
+GLOBAL OLD_HUBIC_STATUS_MAX
+OLD_HUBIC_STATUS_MAX=0
+ID_2=0
+
+SETTIMER HIGHER_SPEED,100
 
 
 ; SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY,14000
@@ -268,6 +275,48 @@ RETURN
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+
+
+HIGHER_SPEED:
+
+	id := WinExist("A")
+
+	IF OLD_id<>%id%
+	{
+		DetectHiddenWindows, OFF
+		SetTitleMatchMode 2  ; Specify PARTIAL path
+		; -----------------------------------------------------------
+		; ahk_exe hubiC.exe
+		; -----------------------------------------------------------
+		; IfWinActive ahk_class HwndWrapper
+		IfWinActive Status
+		{
+			IF id<>%OLD_HUBIC_STATUS_MAX%
+			{
+				WinMaximize, ahk_id %id%
+				OLD_HUBIC_STATUS_MAX:=id
+			}
+		}
+	
+	ID_2=0
+	IF OLD_HUBIC_STATUS_MAX>0
+	IF OLD_HUBIC_STATUS_MAX<>%ID%
+	{
+		ID_2:=WinExist(ahk_id %OLD_HUBIC_STATUS_MAX%)
+		IF ID_2=0
+		{
+			OLD_HUBIC_STATUS_MAX=0
+			MSGBOX HH
+		}
+	}
+		
+	
+	}
+		
+
+	OLD_id=%id%
+
+RETURN
 
 
 ONE_MOMENT_CLOSE_CMD:
