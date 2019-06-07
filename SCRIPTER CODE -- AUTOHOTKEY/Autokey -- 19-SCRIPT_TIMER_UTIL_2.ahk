@@ -368,6 +368,14 @@ ONE_SECOND:
 		SOUNDBEEP 1000,200
 	}
 	
+	
+	IfWinExist Notepad++ update ahk_class #32770
+	{
+		ControlClick, &No,  Notepad++ update ahk_class #32770,,,, NA x10 y10
+		SOUNDBEEP 1000,200
+	}
+	
+	
 
 RETURN
 
