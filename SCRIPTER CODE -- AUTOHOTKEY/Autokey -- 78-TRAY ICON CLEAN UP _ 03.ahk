@@ -1,21 +1,18 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-;
+﻿#noEnv
+#persistent
+#singleInstance force
+detectHiddenWindows, on
+setWorkingDir %a_scriptDir%
 
-
-;-------------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SOURCE CREDIT
+; -------------------------------------------------------------------
 ; ----
-; Tech for Passion: Refresh tray icons - How to remove dead tray icon after killing a program/process
-; https://techforpassion.blogspot.com/2014/04/refresh-tray-icons-how-to-remove-dead-tray-icons-after-killing-program.html
+; [LIB] TrayIcon - Sean's TrayIcon for Unicode and 64 bit - AutoHotkey Community
+; https://www.autohotkey.com/boards/viewtopic.php?p=9186#p9186
 ; ----
-;-------------------------------------------------------------------------
+; -------------------------------------------------------------------
 
-;-------------------------------------------------------------------------
-#SingleInstance force
-;-------------------------------------------------------------------------
-;-------------------------------------------------------------------------
 
 ;---------------------------------------------------------
 ; CODE INITIALIZE SOUND EFFECT LEARN
@@ -23,34 +20,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SoundBeep , 1500 , 400
 ;---------------------------------------------------------
 
-#noEnv
-#persistent
-#singleInstance force
-detectHiddenWindows, on
-setWorkingDir %a_scriptDir%
+SETTIMER RUN_TIMER_TRAY_ICON_CLEAN_UP,60000
 
-test := TrayIcon_GetInfo()
-COUNTER := % test.MaxIndex
-MSGBOX % COUNTER
-Loop
-{
-	COUNTER-=1
-	; ---------------------------------------------------------------
-	; IF THE ICON RETURN INFO IS BLANK IT MEAN A DEAD ONE 
-	; AND THEN ABLE TO DELETE THEN
-	; ---------------------------------------------------------------
-	IF !test[COUNTER].process
+RUN_TIMER_TRAY_ICON_CLEAN_UP:
+
+	Array_Icon_GetInfo := TrayIcon_GetInfo()
+	Loop % Array_Icon_GetInfo.MaxIndex()
 	{
-		MsgBox, % test[COUNTER].process
-		; TrayIcon_Delete(test[COUNTER].idx, test[COUNTER].Tray)
-    }
-	
-	;MsgBox, % test[A_Index].process
-	IF COUNTER<0 
-		BREAK
 
-}
+		IF Array_Icon_GetInfo[A_Index].process<1
+		{
+			TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
+		}
+	}
 RETURN
+
 	
 
 ; ----------------------------------------------------------------------------------------------------------------------
