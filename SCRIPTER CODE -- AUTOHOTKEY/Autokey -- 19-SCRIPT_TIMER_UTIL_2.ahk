@@ -251,11 +251,11 @@ HWNDID=
 
 SETTIMER ONE_SECOND,1000
 
-GLOBAL OLD_id
 OLD_id=0
-GLOBAL OLD_HUBIC_STATUS_MAX
-OLD_HUBIC_STATUS_MAX=0
 ID_2=0
+OLD_HUBIC_STATUS_MAX=0
+OLD_CHROME_STATUS_MAX=0
+OLD_EXPLORER_STATUS_MAX=0
 
 SETTIMER HIGHER_SPEED,100
 
@@ -297,10 +297,10 @@ HIGHER_SPEED:
 		DetectHiddenWindows, OFF
 		SetTitleMatchMode 2  ; Specify PARTIAL path
 		; -----------------------------------------------------------
+		; HUBIC 01 OF 02
 		; ahk_exe hubiC.exe
 		; -----------------------------------------------------------
-		; IfWinActive ahk_class HwndWrapper
-		IfWinActive Status
+		IfWinActive Status ahk_class HwndWrapper
 		{
 			IF id<>%OLD_HUBIC_STATUS_MAX%
 			{
@@ -308,6 +308,9 @@ HIGHER_SPEED:
 				OLD_HUBIC_STATUS_MAX:=id
 			}
 		}
+		; -----------------------------------------------------------
+		; HUBIC 02 OF 02
+		; -----------------------------------------------------------
 		ID_2=0
 		IF OLD_HUBIC_STATUS_MAX>0
 		IF OLD_HUBIC_STATUS_MAX<>%ID%
@@ -316,8 +319,70 @@ HIGHER_SPEED:
 			IF ID_2=0
 				OLD_HUBIC_STATUS_MAX=0
 		}
-	}
 
+
+		
+		SetTitleMatchMode 3  ; Specify PARTIAL path
+		; -----------------------------------------------------------
+		; CHROME 01 OF 02
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		IfWinActive ahk_class Chrome_WidgetWin_1
+		{
+			IF id<>%OLD_CHROME_STATUS_MAX%
+			{
+				WinGetTitle, Title, ahk_id %id%
+				IF INSTR(Title,"- Google Chrome")
+				{
+					WinMaximize, AHK_ID %id%
+					OLD_CHROME_STATUS_MAX:=id
+				}
+			}
+		}
+		; -----------------------------------------------------------
+		; CHROME 02 OF 02
+		; -----------------------------------------------------------
+		ID_2=0
+		IF OLD_CHROME_STATUS_MAX>0
+		IF OLD_CHROME_STATUS_MAX<>%ID%
+		{
+			ID_2:=WinExist("ahk_id " OLD_CHROME_STATUS_MAX)
+			IF ID_2=0
+				OLD_CHROME_STATUS_MAX=0
+		}
+
+		SetTitleMatchMode 3  ; Specify PARTIAL path
+		; -----------------------------------------------------------
+		; EXPLORER 01 OF 02
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		IfWinActive ahk_class CabinetWClass
+		IfWinActive ahk_exe explorer.exe
+		{
+			IF id<>%OLD_EXPLORER_STATUS_MAX%
+			{
+				WinMaximize, AHK_ID %id%
+				OLD_EXPLORER_STATUS_MAX:=id
+			}
+		}
+		; -----------------------------------------------------------
+		; EXPLORER 02 OF 02
+		; -----------------------------------------------------------
+		ID_2=0
+		IF OLD_EXPLORER_STATUS_MAX>0
+		IF OLD_EXPLORER_STATUS_MAX<>%ID%
+		{
+			ID_2:=WinExist("ahk_id " OLD_EXPLORER_STATUS_MAX)
+			IF ID_2=0
+				OLD_EXPLORER_STATUS_MAX=0
+		}
+
+
+		
+		
+		
+		
+	}
 	OLD_id=%id%
 
 RETURN
