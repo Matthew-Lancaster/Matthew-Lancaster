@@ -291,6 +291,13 @@ IF SET_GO=TRUE
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk"
 
+
+
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEAN UP.ahk"
+
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF ARRAY SETTER
