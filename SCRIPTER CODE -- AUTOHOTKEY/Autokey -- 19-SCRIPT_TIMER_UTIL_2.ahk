@@ -254,8 +254,7 @@ SETTIMER ONE_SECOND,1000
 OLD_id=0
 ID_2=0
 OLD_HUBIC_STATUS_MAX=0
-OLD_CHROME_STATUS_MAX=0
-OLD_EXPLORER_STATUS_MAX=0
+OLD_CHROME_ID_STR=
 OLD_EXPLORER_ID_STR=
 
 SETTIMER HIGHER_SPEED,100
@@ -322,93 +321,71 @@ HIGHER_SPEED:
 		}
 
 
-		
-		SetTitleMatchMode 3  ; Specify PARTIAL path
+		SetTitleMatchMode 3  ; Specify EXACT path
 		; -----------------------------------------------------------
-		; CHROME 01 OF 02
-		; -----------------------------------------------------------
+		; CHROME
 		; -----------------------------------------------------------
 		IfWinActive ahk_class Chrome_WidgetWin_1
 		{
-			IF id<>%OLD_CHROME_STATUS_MAX%
+			ID_STRING= -- %id%
+			IF INSTR(OLD_CHROME_ID_STR,ID_STRING)=0
 			{
 				WinGetTitle, Title, ahk_id %id%
 				IF INSTR(Title,"- Google Chrome")
 				{
 					WinMaximize, AHK_ID %id%
-					OLD_CHROME_STATUS_MAX:=id
+					OLD_CHROME_ID_STR=%OLD_CHROME_ID_STR% -- %id%
+				}
+				Length := StrLen(OLD_CHROME_ID_STR)
+				; ---------------------------------------------------
+				; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
+				; ---------------------------------------------------
+				; ONLY 4 WINDOW FOR CHROME 
+				; SOMETIME WANT SIDE BY SIDE WINDOW AND HAVE 
+				; 2 OKAY WITHOUT MAXIMIZE HAPPEN
+				; BUT ANY MORE WANT ALL MAXIMIZED
+				; ---------------------------------------------------
+				; CODE COMPLETE NEW METHOD CHROME AND EXPLORER
+				; CHROME HAS EXTRA TO DETECT IF TITLE DISPLAY
+				; --------------------------------T-------------------
+				; FROM -- Fri 07-Jun-2019 09:41:40
+				; TO   -- Fri 07-Jun-2019 11:18:00 -- 1 HOUR 40 MINUTE
+				; ---------------------------------------------------
+				
+				WHILE Length>4*10
+				{
+					StringTrimRIGHT, OLD_CHROME_ID_STR, OLD_CHROME_ID_STR, 10
+					Length := StrLen(OLD_CHROME_ID_STR)
 				}
 			}
 		}
-		; -----------------------------------------------------------
-		; CHROME 02 OF 02
-		; -----------------------------------------------------------
-		ID_2=0
-		IF OLD_CHROME_STATUS_MAX>0
-		IF OLD_CHROME_STATUS_MAX<>%ID%
-		{
-			ID_2:=WinExist("ahk_id " OLD_CHROME_STATUS_MAX)
-			IF ID_2=0
-				OLD_CHROME_STATUS_MAX=0
-		}
 
+		
+		
 		SetTitleMatchMode 3  ; Specify EXACT path
 		; -----------------------------------------------------------
-		; EXPLORER 01 OF 02
-		; -----------------------------------------------------------
+		; EXPLORER
 		; -----------------------------------------------------------
 		; IfWinActive ahk_exe explorer.exe
+		; -----------------------------------------------------------
 		IfWinActive ahk_class CabinetWClass
 		{
-			IF id<>%OLD_EXPLORER_STATUS_MAX%
+			ID_STRING= -- %id%
+			IF INSTR(OLD_EXPLORER_ID_STR,ID_STRING)=0
 			{
-				OLD_EXPLORER_STATUS_MAX=%id%
-				ID_STRING= -- %id%
-				IF INSTR(OLD_EXPLORER_ID_STR,ID_STRING)=0
+				WinMaximize, AHK_ID %id%
+				OLD_EXPLORER_ID_STR=%OLD_EXPLORER_ID_STR% -- %id%
+				Length := StrLen(OLD_EXPLORER_ID_STR)
+				; ---------------------------------------------------
+				; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
+				; ---------------------------------------------------
+				WHILE Length>10*10
 				{
-					; MSGBOX HH
-					WinMaximize, AHK_ID %id%
-					OLD_EXPLORER_ID_STR=%OLD_EXPLORER_ID_STR% -- %id%
+					StringTrimRIGHT, OLD_EXPLORER_ID_STR, OLD_EXPLORER_ID_STR, 10
 					Length := StrLen(OLD_EXPLORER_ID_STR)
-					; ---------------------------------------------------
-					; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
-					; ---------------------------------------------------
-					WHILE Length>40
-					{
-						StringTrimRIGHT, OLD_EXPLORER_ID_STR_2, OLD_EXPLORER_ID_STR, 10
-						OLD_EXPLORER_ID_STR:=OLD_EXPLORER_ID_STR_2
-					}
-					
-					
 				}
-				TOOLTIP % OLD_EXPLORER_ID_STR " -- " INSTR(OLD_EXPLORER_ID_STR,id) " -- " id
-				
 			}
-			MSGBOX % id " -- " OLD_EXPLORER_STATUS_MAX
 		}
-		; -----------------------------------------------------------
-		; EXPLORER 02 OF 02
-		; -----------------------------------------------------------
-		; ID_2=0
-		; IF OLD_EXPLORER_STATUS_MAX>0
-		; IF OLD_EXPLORER_STATUS_MAX<>%ID%
-		; {
-			; ID_2:=WinExist("ahk_id " OLD_EXPLORER_STATUS_MAX)
-			; IF ID_2=0
-				; OLD_EXPLORER_STATUS_MAX=0
-		; }
-
-		
-		; -----------------------------------------------------------
-		; MAKE THIS HERE 
-		; SO HWND STORE IN STRING AND STRING SO MANY LENGTH TRUNCATED
-		; AND ALL THE HWND IN STRING COMPARE 
-		; -----------------------------------------------------------
-		
-		
-		
-		
-		
 	}
 	OLD_id=%id%
 
