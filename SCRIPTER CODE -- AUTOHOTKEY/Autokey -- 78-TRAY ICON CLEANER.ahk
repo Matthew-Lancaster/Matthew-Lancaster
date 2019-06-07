@@ -1,7 +1,7 @@
 ﻿;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEAN UP.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER.ahk
 ;# __ 
-;# __ Autokey -- 78-TRAY ICON CLEAN UP.ahk
+;# __ Autokey -- 78-TRAY ICON CLEANER.ahk
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com
@@ -12,7 +12,7 @@
 ; -------------------------------------------------------------------
 ; SESSION 01
 ; -------------------------------------------------------------------
-; FIND THE CODE -- Autokey -- 78-TRAY ICON CLEAN UP.ahk
+; FIND THE CODE -- Autokey -- 78-TRAY ICON CLEANER.ahk
 ; SELF EXPLANATORY
 ; -------------------------------------------------------------------
 ; FROM __ Fri 07-Jun-2019 07:16:33
