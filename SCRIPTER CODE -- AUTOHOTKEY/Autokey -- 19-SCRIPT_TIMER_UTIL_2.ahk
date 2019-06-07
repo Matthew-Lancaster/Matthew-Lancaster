@@ -256,6 +256,7 @@ ID_2=0
 OLD_HUBIC_STATUS_MAX=0
 OLD_CHROME_STATUS_MAX=0
 OLD_EXPLORER_STATUS_MAX=0
+OLD_EXPLORER_ID_STR=
 
 SETTIMER HIGHER_SPEED,100
 
@@ -351,33 +352,59 @@ HIGHER_SPEED:
 				OLD_CHROME_STATUS_MAX=0
 		}
 
-		SetTitleMatchMode 3  ; Specify PARTIAL path
+		SetTitleMatchMode 3  ; Specify EXACT path
 		; -----------------------------------------------------------
 		; EXPLORER 01 OF 02
 		; -----------------------------------------------------------
 		; -----------------------------------------------------------
+		; IfWinActive ahk_exe explorer.exe
 		IfWinActive ahk_class CabinetWClass
-		IfWinActive ahk_exe explorer.exe
 		{
 			IF id<>%OLD_EXPLORER_STATUS_MAX%
 			{
-				WinMaximize, AHK_ID %id%
-				OLD_EXPLORER_STATUS_MAX:=id
+				OLD_EXPLORER_STATUS_MAX=%id%
+				ID_STRING= -- %id%
+				IF INSTR(OLD_EXPLORER_ID_STR,ID_STRING)=0
+				{
+					; MSGBOX HH
+					WinMaximize, AHK_ID %id%
+					OLD_EXPLORER_ID_STR=%OLD_EXPLORER_ID_STR% -- %id%
+					Length := StrLen(OLD_EXPLORER_ID_STR)
+					; ---------------------------------------------------
+					; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
+					; ---------------------------------------------------
+					WHILE Length>40
+					{
+						StringTrimRIGHT, OLD_EXPLORER_ID_STR_2, OLD_EXPLORER_ID_STR, 10
+						OLD_EXPLORER_ID_STR:=OLD_EXPLORER_ID_STR_2
+					}
+					
+					
+				}
+				TOOLTIP % OLD_EXPLORER_ID_STR " -- " INSTR(OLD_EXPLORER_ID_STR,id) " -- " id
+				
 			}
+			MSGBOX % id " -- " OLD_EXPLORER_STATUS_MAX
 		}
 		; -----------------------------------------------------------
 		; EXPLORER 02 OF 02
 		; -----------------------------------------------------------
-		ID_2=0
-		IF OLD_EXPLORER_STATUS_MAX>0
-		IF OLD_EXPLORER_STATUS_MAX<>%ID%
-		{
-			ID_2:=WinExist("ahk_id " OLD_EXPLORER_STATUS_MAX)
-			IF ID_2=0
-				OLD_EXPLORER_STATUS_MAX=0
-		}
+		; ID_2=0
+		; IF OLD_EXPLORER_STATUS_MAX>0
+		; IF OLD_EXPLORER_STATUS_MAX<>%ID%
+		; {
+			; ID_2:=WinExist("ahk_id " OLD_EXPLORER_STATUS_MAX)
+			; IF ID_2=0
+				; OLD_EXPLORER_STATUS_MAX=0
+		; }
 
-
+		
+		; -----------------------------------------------------------
+		; MAKE THIS HERE 
+		; SO HWND STORE IN STRING AND STRING SO MANY LENGTH TRUNCATED
+		; AND ALL THE HWND IN STRING COMPARE 
+		; -----------------------------------------------------------
+		
 		
 		
 		
