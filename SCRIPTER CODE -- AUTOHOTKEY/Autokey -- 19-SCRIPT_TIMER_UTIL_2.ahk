@@ -300,7 +300,8 @@ HIGHER_SPEED:
 		; HUBIC 01 OF 02
 		; ahk_exe hubiC.exe
 		; -----------------------------------------------------------
-		IfWinActive Status ahk_class HwndWrapper
+		;IfWinActive Status ahk_class HwndWrapper
+		IfWinActive Status
 		{
 			IF id<>%OLD_HUBIC_STATUS_MAX%
 			{
