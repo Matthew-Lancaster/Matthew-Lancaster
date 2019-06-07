@@ -956,7 +956,7 @@ Begin VB.Form Form1
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET_NETWORK 
       Alignment       =   2  'Center
-      BackColor       =   &H00DFFFFF&
+      BackColor       =   &H00808080&
       Caption         =   "RUN AUTOHOTKEY NETWORK"
       Height          =   216
       Left            =   6276
