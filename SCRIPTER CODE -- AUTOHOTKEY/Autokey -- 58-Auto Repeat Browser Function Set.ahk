@@ -288,6 +288,7 @@ GLOBAL OSVER_N_VAR
 ; -------------------------------------------------------------------
 
 FN_Array_1 := SET_ARRAY_1()
+FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
 	
 	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -349,7 +350,7 @@ RETURN
 
 
 SET_ARRAY_1() {
-	GLOBAL ArrayCount ; DECLARE GLOBAL WITHIN THE FUNCTION HERE 1ST AND BE USER EVERYWHERE
+;	GLOBAL ArrayCount ; DECLARE GLOBAL WITHIN THE FUNCTION HERE 1ST AND BE USER EVERYWHERE
 	FN_Array_1 := []
 	ArrayCount := 0
 	ArrayCount += 1
@@ -368,6 +369,19 @@ SET_ARRAY_1() {
 	FN_Array_1[ArrayCount]:="Hallelujah - YouTube - Google Chrome"
 RETURN FN_Array_1
 }
+
+SET_ARRAY_FB_F5() {
+	SET_ARRAY_FB_F5 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Your Notifications - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Privacy error - Google Chrome"
+RETURN SET_ARRAY_FB_F5
+}
+
 
 
 ; -------------------------------------------------------------------
@@ -398,8 +412,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 
 	XR_2=0
 	XR_4=
-	
-	Loop % ArrayCount
+
+
+	; Loop % ArrayCount
+	Loop % FN_Array_1.MaxIndex()
 	{
 		Element := FN_Array_1[A_Index]
 		IfWinExist, %Element%
@@ -445,7 +461,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	}
 
 
-	Loop % ArrayCount
+	; Loop % ArrayCount
+	Loop % FN_Array_1.MaxIndex()
 	{
 		Element := FN_Array_1[A_Index]
 		IF INSTR(TITLE_VAR,Element)
@@ -658,7 +675,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 		
 		XR_2=0
 		XR_4=
-		Loop % ArrayCount
+		;Loop % ArrayCount
+		Loop % FN_Array_1.MaxIndex()
 		{
 			Element := FN_Array_1[A_Index]
 			; MSGBOX %Element%
@@ -704,7 +722,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	}
 	
 	XR_2=
-	Loop % ArrayCount
+	; Loop % ArrayCount
+	Loop % FN_Array_1.MaxIndex()
 	{
 		Element := FN_Array_1[A_Index]
 		IF INSTR(TITLE_VAR,Element)
@@ -731,7 +750,9 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 					
 					WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
 					SET_GO=FALSE
-					Loop % ArrayCount
+					
+					; Loop % ArrayCount
+					Loop % FN_Array_1.MaxIndex()
 					{
 						Element := FN_Array_1[A_Index]
 						IF INSTR(CurrentWindowTitle,Element)
@@ -741,7 +762,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 					}
 						
 					WinGetTITLE, CurrentWindowTitle, A
-					Loop % ArrayCount
+					; Loop % ArrayCount
+					Loop % FN_Array_1.MaxIndex()
 					{
 						Element := FN_Array_1[A_Index]
 						IF INSTR(CurrentWindowTitle,Element)
@@ -1006,6 +1028,10 @@ RETURN
 
 AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	; ---------------------------------------------------
+	; WHEN FACEBOOK PAGE GONE WRONG BECAUSE SOME RELOADER 
+	; ERROR
+	; MADE TITLE NOT AS EXPECTER
+	; ---------------------------------------------------
 	; IF IT WASN'T ON FACEBOOK AND THEN IT IS ON THAT 
 	; SITE AND THEN HERE IS THE CODE TO REFRESH
 	; QUICKER TALKER
@@ -1016,14 +1042,12 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	WinGetTITLE, TITLE_VAR, A
 
 	AUTO_RELOAD_FACEBOOK_VAR=0
-
-	IF INSTR(TITLE_VAR,"Your Notifications - Google Chrome")
-		AUTO_RELOAD_FACEBOOK_VAR=1
-	;Facebook | Error - Google Chrome
-	IF INSTR(TITLE_VAR,"Facebook | Error - Google Chrome")
-		AUTO_RELOAD_FACEBOOK_VAR=1
-	IF INSTR(TITLE_VAR,"Privacy error - Google Chrome")
-		AUTO_RELOAD_FACEBOOK_VAR=1
+	Loop % FN_ARRAY_FB_F5.MaxIndex()
+	{
+		Element := FN_ARRAY_FB_F5[A_Index]
+		IF INSTR(TITLE_VAR,Element)
+			AUTO_RELOAD_FACEBOOK_VAR=1
+	}
 	
 	; ---------------------------------------------------------------
 	; WHEN LOAD THE COLOUR PALETTE IT LIKE A WINDOW OUTSIDE OF CHROME 
@@ -1033,7 +1057,6 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	; ---------------------------------------------------------------
 	IF INSTR(TITLE_VAR,"Colour")
 		AUTO_RELOAD_FACEBOOK_VAR=1
-
 		
 		
 	IF OLD_AUTO_RELOAD_FACEBOOK_VAR<>%AUTO_RELOAD_FACEBOOK_VAR%
@@ -1042,7 +1065,6 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 		AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=TRUE
 		SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY, 4000
 	}
-	
 		
 	IF OLD_AUTO_RELOAD_FACEBOOK_VAR<>%AUTO_RELOAD_FACEBOOK_VAR%
 		IF AUTO_RELOAD_FACEBOOK_VAR=1
@@ -1050,7 +1072,6 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 			{
 				SENDINPUT {F5}
 				SLEEP 4000
-				;WINWAIT Your Notifications - Google Chrome
 				AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=TRUE
 				SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY, 10000
 			}
@@ -1062,26 +1083,29 @@ RETURN
 
 AUTO_RELOAD_FACEBOOK:
 
-
 	If (A_TimeIdle < 8000)
-	{
 		RETURN
-	}
 	
-	IF A_ComputerName=2-ASUS-EEE
+	SET_GO_2=FALSE
+	IF A_ComputerName=2-ASUS-EEE		
+		SET_GO_2=TRUE
+	IF A_ComputerName=3-LINDA-PC
+		SET_GO_2=TRUE
+		
+	IF SET_GO_2=TRUE
 	{
-		XR_3=
-		IfWinExist, ahk_class Chrome_WidgetWin_1
-			XR_3=Chrome_WidgetWin_1
-		IfWinExist, ahk_class MozillaWindowClass
-			XR_3=MozillaWindowClass
-		IF XR_3
-		{	
-			WinActivate, %XR_3%
-			WinWaitActive, %XR_3%
-			SLEEP 100
+		Loop % FN_ARRAY_FB_F5.MaxIndex()
+		{
+			Element := FN_ARRAY_FB_F5[A_Index]
+			IfWinExist, %Element%
+			{
+				WinActivate, %Element%
+				WinWaitActive, %Element%
+				BREAK
+			}
 		}
 	}
+
 	WinGetCLASS, CLASS, A
 	WinGetTITLE, TITLE_VAR, A
 
@@ -1090,13 +1114,12 @@ AUTO_RELOAD_FACEBOOK:
 		XR_1=1
 
 	XR_2=0
-	IF INSTR(TITLE_VAR,"Your Notifications - Google Chrome")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"Facebook | Error - Google Chrome")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"Privacy error - Google Chrome")
-		XR_2=1
-
+	Loop % FN_ARRAY_FB_F5.MaxIndex()
+	{
+		Element := FN_ARRAY_FB_F5[A_Index]
+		IF INSTR(TITLE_VAR,Element)
+			XR_2=1
+	}
 
 	IF XR_1>0
 		IF XR_2>0
