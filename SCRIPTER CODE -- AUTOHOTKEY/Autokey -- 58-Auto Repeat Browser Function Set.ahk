@@ -235,11 +235,28 @@ DEBBY_HALL_PAUSE=FALSE
 SoundBeep , 1500 , 400
 SetStoreCapslockMode, off
 
+; -------------------------------------------------------------------
+SendLevel 1
+; -------------------------------------------------------------------
+; IF ANOTHER CODE AHK APP IS USE _ IF A_PriorKey=F5
+; AND THEN SENDINPUT IS LOW-LEVEL KEY HOOKER 
+; AND SYSTEM DOESN'T SEE THE KEY ALL THE TIME 
+; AND THEN THIS VARIABLE DOES NOT SEE THE KEY _ IF A_PriorKey=F5
+; UNLESS SendLevel 1 __ ALL OTHER CODE WILL READ THE _ IF A_PriorKey=F5
+; NOT ONLY WITHIN ONE FILE PROJECT
+; -------------------------------------------------------------------
+; [ Saturday 21:11:00 Pm_08 June 2019 ]
+; -------------------------------------------------------------------
+
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 ; IF A_ComputerName=2-ASUS-EEE
 	; Exitapp
 
+#InstallKeybdHook
+;#InstallMouseHook
+
+	
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 
@@ -1165,8 +1182,8 @@ AUTO_RELOAD_FACEBOOK:
 	IF XR_1>0
 		IF XR_2>0
 		{
-			; SENDINPUT {F5}
-			SEND {F5}
+			; SendLevel 1 ; ---- USED DURING DECLARE STAGE CODE INITIALIZE ABOVE
+			SENDINPUT {F5}
 			; SOUNDBEEP 1000,50
 		}
 		
