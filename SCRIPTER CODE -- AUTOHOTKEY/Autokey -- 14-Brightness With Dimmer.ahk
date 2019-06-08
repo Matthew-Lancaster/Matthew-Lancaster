@@ -341,6 +341,7 @@ setTimer TIMER_PREVIOUS_INSTANCE,1
 
 ; -------------------------------------------------------------------
 FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
+ARTIFICIAL_F5=-2
 
 RS232_LOGGER_PIR_VAR=0
 OLD_RS232_LOGGER_PIR_VAR=-1
@@ -438,6 +439,7 @@ RS232_LOGGER_TIMER_RUN_EXE:
 
 RETURN
 
+RS232_SUB:
 RS232_LOGGER_TIMER_CHANGE:
 
 	FN_VAR_TXT:="C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer.txt"
@@ -497,16 +499,16 @@ RS232_LOGGER_TIMER_CHANGE:
 	
 	
 	QUICKER_OFF=FALSE
-	SET_GO_H_K=FALSE
+	SET_GO_ARTIFICIAL=FALSE
 	IF A_PriorKey=F5
-		SET_GO_H_K=TRUE
-	IF A_PriorKey=F5
-		SOUNDBEEP 2000,200
-	IF A_PriorKey=F5
-		TOOLTIP OOOOOOOOO
-
+	IF ARTIFICIAL_F5=1
+		SET_GO_ARTIFICIAL=TRUE
+	IF ARTIFICIAL_F5=1
+		TOOLTIP % SET_GO_ARTIFICIAL
 		
-	IF SET_GO_H_K=TRUE
+	; TOOLTIP % A_TimeIdle " -- " A_TimeIdleKeyboard " -- " A_TimeIdlePhysical		
+		
+	IF SET_GO_ARTIFICIAL=TRUE
 	Loop % FN_ARRAY_AUTO_KEY.MaxIndex()
 	{
 		Element := FN_ARRAY_AUTO_KEY[A_Index]
@@ -539,6 +541,11 @@ RS232_LOGGER_TIMER_CHANGE:
 RETURN
 
 
+$F5::
+{
+ARTIFICIAL_F5=GetKeyState("F5","P")
+}
+RETURN
 
 ; ------------------------------------
 Mouse_Idle_Timer:
