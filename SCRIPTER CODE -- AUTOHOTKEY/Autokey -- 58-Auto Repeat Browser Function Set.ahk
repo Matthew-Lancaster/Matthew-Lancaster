@@ -456,10 +456,10 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	IF A_ComputerName<>4-ASUS-GL522VW
 		RETURN
 	
-	If (A_TimeIdle < 10000)
-	{
-		RETURN
-	}
+	; If (A_TimeIdle < 10000)
+	; {
+		; RETURN
+	; }
 
 	XR_3=
 	IfWinExist, ahk_class Chrome_WidgetWin_1
