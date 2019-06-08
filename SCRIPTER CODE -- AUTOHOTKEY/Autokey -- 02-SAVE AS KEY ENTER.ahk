@@ -118,11 +118,13 @@ SetStoreCapslockMode, off
 
 Var_Count=0
 
-pause
-soundbeep , 1100,100
-
 SetTimer TIMER_Main_Code,1000
 SetTimer TIMER_PREVIOUS_INSTANCE,1
+
+GOSUB TIMER_PREVIOUS_INSTANCE
+
+pause
+soundbeep , 1100,100
 
 Return
 
