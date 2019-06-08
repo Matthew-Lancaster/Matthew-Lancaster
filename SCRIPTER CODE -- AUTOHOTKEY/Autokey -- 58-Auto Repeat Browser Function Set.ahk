@@ -1068,6 +1068,20 @@ AUTO_RELOAD_FACEBOOK:
 		RETURN
 	}
 	
+	IF A_ComputerName=2-ASUS-EEE
+	{
+		XR_3=
+		IfWinExist, ahk_class Chrome_WidgetWin_1
+			XR_3=Chrome_WidgetWin_1
+		IfWinExist, ahk_class MozillaWindowClass
+			XR_3=MozillaWindowClass
+		IF XR_3
+		{	
+			WinActivate, %XR_3%
+			WinWaitActive, %XR_3%
+			SLEEP 100
+		}
+	}
 	WinGetCLASS, CLASS, A
 	WinGetTITLE, TITLE_VAR, A
 
