@@ -340,17 +340,28 @@ SetTimer,Mouse_Idle_Timer, 1000     ; Check Every Second
 setTimer TIMER_PREVIOUS_INSTANCE,1
 
 ; -------------------------------------------------------------------
+FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
+
 RS232_LOGGER_PIR_VAR=0
 OLD_RS232_LOGGER_PIR_VAR=-1
 IF (A_ComputerName="4-ASUS-GL522VW")
 	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 10000
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
-	RS232_IDLE_SET_DELAY=20000
+{
+	RS232_IDLE_SET_DELAY_1=20000
+	RS232_IDLE_SET_DELAY_2=1
+}
 IF (A_ComputerName="2-ASUS-EEE")
-	RS232_IDLE_SET_DELAY=20000
+{
+	RS232_IDLE_SET_DELAY_1=20000
+	RS232_IDLE_SET_DELAY_2=1
+}
 IF (A_ComputerName="4-ASUS-GL522VW")
-	RS232_IDLE_SET_DELAY=40000
+{
+	RS232_IDLE_SET_DELAY_1=40000
+	RS232_IDLE_SET_DELAY_2=10000
+}
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
 	SetTimer,RS232_LOGGER_TIMER_CHANGE, 1000
@@ -361,6 +372,54 @@ IF (A_ComputerName="4-ASUS-GL522VW")
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 RETURN
+
+
+; -------------------------------------------------------------------
+; INITIALIZE
+; -------------------------------------------------------------------
+; 1ST SUBROUTINE / FUNCTION
+; -------------------------------------------------------------------
+
+; Loop % FN_Array_1.MaxIndex()
+; {
+	; Element := FN_Array_1[A_Index]
+	; ; MSGBOX %Element%
+	; IfWinExist, %Element%
+		; XR_2=1
+		; XR_4=%Element%
+; }
+; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
+SET_ARRAY_AUTO_KEY() {
+	SET_ARRAY_AUTO_KEY := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Your Notifications - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook | Error - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Privacy error - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook - Mozilla Firefox"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Deborah Hall -"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Dibs Dabs -"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="She - YouTube - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Follow the Sun - YouTube - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Hallelujah - YouTube - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Rain Alarm - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Rain Alarm - Mozilla Firefox"
+RETURN SET_ARRAY_AUTO_KEY
+}
+
+
 
 RS232_LOGGER_TIMER_RUN_EXE:
 	
@@ -392,7 +451,7 @@ RS232_LOGGER_TIMER_CHANGE:
 	}
 
 	; TOOLTIP % RS232_LOGGER_PIR_VAR
-	; TOOLTIP %A_TimeIdle% " -- " %RS232_IDLE_SET_DELAY%
+	; TOOLTIP %A_TimeIdle% " -- " %RS232_IDLE_SET_DELAY_1%
 	
 	IF OLD_RS232_LOGGER_PIR_VAR=%RS232_LOGGER_PIR_VAR%
 	IF RS232_LOGGER_PIR_VAR=1
@@ -435,11 +494,35 @@ RS232_LOGGER_TIMER_CHANGE:
 		IF A_TimeIdleMouse<%VAR_A__TimeIdle_2_OF_4% 
 			VAR_A__TimeIdle_2_OF_4=%A_TimeIdleMouse%
 	}
+	
+	
+	QUICKER_OFF=FALSE
+	SET_GO_H_K=FALSE
+	IF A_PriorKey=F5
+		SET_GO_H_K=TRUE
+	IF A_PriorKey=F5
+		SOUNDBEEP 2000,200
+	IF A_PriorKey=F5
+		TOOLTIP OOOOOOOOO
+
 		
-	IF VAR_A__TimeIdle_2_OF_4 < %RS232_IDLE_SET_DELAY%
+	IF SET_GO_H_K=TRUE
+	Loop % FN_ARRAY_AUTO_KEY.MaxIndex()
 	{
-		RETURN
+		Element := FN_ARRAY_AUTO_KEY[A_Index]
+		IfWinActive, %Element%
+			QUICKER_OFF=TRUE
 	}
+	
+	; TOOLTIP % QUICKER_OFF " -- " VAR_A__TimeIdle_2_OF_4 " -- " RS232_IDLE_SET_DELAY_1 " -- " RS232_IDLE_SET_DELAY_2
+
+	IF QUICKER_OFF=FALSE
+	IF VAR_A__TimeIdle_2_OF_4 < %RS232_IDLE_SET_DELAY_1%
+		RETURN
+	IF QUICKER_OFF=TRUE
+	IF VAR_A__TimeIdle_2_OF_4 < %RS232_IDLE_SET_DELAY_2%
+		RETURN
+	
 
 	; WANT OFF ------------------------------------------------------
 	IF RS232_LOGGER_PIR_VAR=0
