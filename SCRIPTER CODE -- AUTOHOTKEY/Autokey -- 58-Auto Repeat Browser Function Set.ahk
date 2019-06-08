@@ -289,6 +289,7 @@ GLOBAL OSVER_N_VAR
 
 FN_Array_1 := SET_ARRAY_1()
 FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
+; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
 	
 	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -380,6 +381,46 @@ SET_ARRAY_FB_F5() {
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Privacy error - Google Chrome"
 RETURN SET_ARRAY_FB_F5
+}
+
+
+; Loop % FN_Array_1.MaxIndex()
+; {
+	; Element := FN_Array_1[A_Index]
+	; ; MSGBOX %Element%
+	; IfWinExist, %Element%
+		; XR_2=1
+		; XR_4=%Element%
+; }
+; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
+SET_ARRAY_AUTO_KEY() {
+	SET_ARRAY_AUTO_KEY := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Your Notifications - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook | Error - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Privacy error - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook - Mozilla Firefox"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Deborah Hall -"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Dibs Dabs -"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="She - YouTube - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Follow the Sun - YouTube - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Hallelujah - YouTube - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Rain Alarm - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Rain Alarm - Mozilla Firefox"
+RETURN SET_ARRAY_AUTO_KEY
 }
 
 
@@ -1124,7 +1165,8 @@ AUTO_RELOAD_FACEBOOK:
 	IF XR_1>0
 		IF XR_2>0
 		{
-			SENDINPUT {F5}
+			; SENDINPUT {F5}
+			SEND {F5}
 			; SOUNDBEEP 1000,50
 		}
 		
