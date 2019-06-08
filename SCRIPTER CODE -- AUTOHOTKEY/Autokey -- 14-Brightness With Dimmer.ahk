@@ -342,6 +342,8 @@ setTimer TIMER_PREVIOUS_INSTANCE,1
 ; -------------------------------------------------------------------
 FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
 ARTIFICIAL_F5=-2
+ARTIFICIAL_F5_A_Now:=A_Now
+ARTIFICIAL_F5_A_Now-=40
 
 RS232_LOGGER_PIR_VAR=0
 OLD_RS232_LOGGER_PIR_VAR=-1
@@ -361,7 +363,7 @@ IF (A_ComputerName="2-ASUS-EEE")
 IF (A_ComputerName="4-ASUS-GL522VW")
 {
 	RS232_IDLE_SET_DELAY_1=40000
-	RS232_IDLE_SET_DELAY_2=10000
+	RS232_IDLE_SET_DELAY_2=1
 }
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
@@ -497,27 +499,40 @@ RS232_LOGGER_TIMER_CHANGE:
 			VAR_A__TimeIdle_2_OF_4=%A_TimeIdleMouse%
 	}
 	
-	
 	QUICKER_OFF=FALSE
-	SET_GO_ARTIFICIAL=FALSE
+	
+	; ---------------------------------------------------------------
+	; A_PriorKey WILL NOT WORK FOR WHAT WANT HERE
+	; UNLESS OTHER CODE Autokey -- 58-Auto Repeat Browser Function Set.ahk
+	; HAS HERE
+	; 
+	; SendLevel 1
+	; ---------------------------------------------------------------
+	
+	ARTIFICIAL_IDLE=%A_Now%
+	ARTIFICIAL_IDLE-=%ARTIFICIAL_F5_A_Now%,s
+	
+	; TOOLTIP % ARTIFICIAL_IDLE
+	; IF ARTIFICIAL_IDLE<8  ; ---- SECOND THAT OUGHT TO DO HER
+
+	IF A_PriorKey<>F5
+		ARTIFICIAL_F5=1
+	
 	IF A_PriorKey=F5
-	IF ARTIFICIAL_F5=1
-		SET_GO_ARTIFICIAL=TRUE
-	IF ARTIFICIAL_F5=1
-		TOOLTIP % SET_GO_ARTIFICIAL
-		
-	; TOOLTIP % A_TimeIdle " -- " A_TimeIdleKeyboard " -- " A_TimeIdlePhysical		
-		
-	IF SET_GO_ARTIFICIAL=TRUE
+	IF ARTIFICIAL_F5=0    ; ---- 0 = ARTIFICIAL ---- 1 = PSYCHICAL
 	Loop % FN_ARRAY_AUTO_KEY.MaxIndex()
 	{
 		Element := FN_ARRAY_AUTO_KEY[A_Index]
 		IfWinActive, %Element%
 			QUICKER_OFF=TRUE
 	}
-	
-	; TOOLTIP % QUICKER_OFF " -- " VAR_A__TimeIdle_2_OF_4 " -- " RS232_IDLE_SET_DELAY_1 " -- " RS232_IDLE_SET_DELAY_2
 
+	; ---------------------------------------------------------------
+	; TOOLTIP % ARTIFICIAL_IDLE " -- " ARTIFICIAL_F5 " -- " QUICKER_OFF
+	; DONE END HERE THIS LINE
+	; [ Saturday 22:59:20 Pm_08 June 2019 ]
+	; ---------------------------------------------------------------
+	
 	IF QUICKER_OFF=FALSE
 	IF VAR_A__TimeIdle_2_OF_4 < %RS232_IDLE_SET_DELAY_1%
 		RETURN
@@ -536,14 +551,16 @@ RS232_LOGGER_TIMER_CHANGE:
 		; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
 		SendMessage, 0x112, 0xF170, 2,, Program Manager
 		SoundBeep , 2500 , 100
+		ARTIFICIAL_F5=1
 	}
 
 RETURN
 
 
-$F5::
+~$F5:: 
 {
-ARTIFICIAL_F5=GetKeyState("F5","P")
+ARTIFICIAL_F5:=GetKeyState("F5","P")
+ARTIFICIAL_F5_A_Now:=A_Now
 }
 RETURN
 
