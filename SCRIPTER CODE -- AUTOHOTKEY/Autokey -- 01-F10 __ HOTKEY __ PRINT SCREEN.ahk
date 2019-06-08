@@ -74,6 +74,8 @@ GLOBAL O_ID
 O_ID=0
 
 GLOBAL OLD_id
+GLOBAL OLD_Title_VAR
+GLOBAL OLD_STATE_CAP
 
 GLOBAL OutputVar_4
 
@@ -107,28 +109,67 @@ RETURN
 WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 
 	id := WinExist("A")
-
-	IF OLD_id<>id
+	WinGetTitle, Title_VAR, ahk_id %id%
+	; WinGetCLASS, CLASS_VAR, ahk_id %id%
+	
+	SET_GO_CAP_PUTTER=FALSE
+	IF OLD_id<>%id% 
+		SET_GO_CAP_PUTTER=TRUE
+	IF Title_VAR<>%OLD_Title_VAR%
+		SET_GO_CAP_PUTTER=TRUE
+	
+	IF SET_GO_CAP_PUTTER=TRUE
 	{
 		SetTitleMatchMode 3  ; Specify Full path
 		IfWinActive mysms - Google Chrome ahk_class Chrome_WidgetWin_1
 		{
-			SetCapsLockState ,Off
-			; SOUNDBEEP 1000,200
+			SetCapsLockState ,OFF
 		}
 		IfWinActive ahk_class Notepad++
 		{
 			SetCapsLockState ,ON
-			; SOUNDBEEP 4000,200
 		}
 		SetTitleMatchMode 2  ; PARTIAL PATH
-		IfWinActive  | eBay - Google Chrome
+		IfWinActive eBay
+		IfWinActive  - Google Chrome
 		{
 			SetCapsLockState ,ON
-			; SOUNDBEEP 4000,200
 		}
+		IfWinActive Your Notifications
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,OFF
+		}
+		IfWinActive Matthew Lancaster
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,OFF
+		}
+		IfWinActive Facebook
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,OFF
+		}
+		IfWinActive New Tab - Google Chrome
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,ON
+		}
+		
+		STATE_CAP := GetKeyState("CapsLock", "T") ; True if CapsLock is ON, false otherwise.
+		IF OLD_STATE_CAP<>%STATE_CAP%
+		{
+		IF STATE_CAP=1
+			SOUNDBEEP 4000,200
+		IF STATE_CAP=0
+			SOUNDBEEP 1000,200
+		}
+		
+		OLD_STATE_CAP=%STATE_CAP%
+		
 	}
 	OLD_id=%id%
+	OLD_Title_VAR=%Title_VAR%
 
 RETURN
 
