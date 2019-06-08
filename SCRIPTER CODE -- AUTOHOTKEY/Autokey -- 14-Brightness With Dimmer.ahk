@@ -202,6 +202,35 @@ Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu
 ; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
+; SESSION 012
+; -------------------------------------------------------------------
+; BANGED OUT THE CODE 
+; TO
+; I GOT RS232 PIR FOR SCREEN SAVER
+; AND I GOT SOME CODE WHICH HAS ARTIFICIAL KEY-PRESS TO KEEP THING RUNNER
+; AS YOU LEARN SCREEN SAVER ALWAYS COMES OUT OF IT BY A KEY PRESS EVEN 
+; IF ARTIFICIAL 
+; THE BEST WAY AROUND THAT _ TOOK HARD WORK
+; IS WHEN THE SCREEN SAVER COME ON QUICKLY PUT BACK
+; I REQUIRE _ PRIOR-KEY SPECIAL VARIABLE
+; I REQUIRE _ HOTKEY ON THE F5 KEY TO DETERMINE WITH KEY-STATE IS ARTIFICIAL OR NOT
+; I REQUIRE _ SETLEVEL FROM ON SEPARATE CODE TO MAKE PRIOR-KEY WORK IN ANOTHER SCRIPT
+; I REQUIRE _ USE OF THE HOTKEY TO RECORD THE TIME OF KEY-PRESS
+; I REQUIRE _ MAYBE REQUIRE MORE OTHER HOTKEY AS USE TAB FOR ANOTHER THING BUT LATER TO THEM
+; I REQUIRE _ ALL THE PROPER DELAY EXTENDED OF MOUSE MOVE AND F5 REFRESH HOTKEY HAS EXPIRED TIMER
+; I REQUIRE _ AND USE A DELAY FOR PIR IN CODE DIFFERENT LONGER FOR MAIN WORK COMPUTER ANY COMPUTER NAME SET TO WHAT WANT AND SHORTER IF IN PIR OFF TO ACTIVATE BLANK SCREEN MODE
+; I REQUIRE _ AFTER THE SCREEN SAVER HAPPEN AND THE DELAY SINCE HOTKEY F5 ALSO REQUIRE THE VARIABLE IS RESET AFTER BEEN USE TO PUT INTO SCREEN SAVER BLANK SCREEN
+; THAT WRAPPED IT UP
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; FROM TIME __ Sat 08-Jun-2019 18:40:43 _ CLIPBOARD COUNT _ 384
+; TO   TIME __ Sat 08-Jun-2019 23:09:10 _ CLIPBOARD COUNT _ 557
+; TO   TIME __ Sat 08-Jun-2019 23:09:10 _ Result: 2 hours, 28 minutes and 27 seconds
+; -------------------------------------------------------------------
+Count = 577 -- Sat 08-Jun-2019 23:09:10
+Count = 384 -- Sat 08-Jun-2019 18:40:43
+
 ;# ------------------------------------------------------------------
 ; Location Internet
 ;--------------------------------------------------------------------
