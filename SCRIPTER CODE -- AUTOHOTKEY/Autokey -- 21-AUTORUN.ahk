@@ -247,6 +247,7 @@ IF OSVER_N_VAR=WIN_XP
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 	
+	
 
 GOSUB TEST_STARTER_RUN_IN
 
@@ -2187,11 +2188,9 @@ IF SET_DONE=TRUE
 
 ; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800)
 ; WinMinimize  ahk_id %table%
-		
-		
 
-
-
+GOSUB OUTLOOK_RUN_AND_MIN
+	
 RETURN
 
 ; -------------------------------------------------------------------
@@ -2204,6 +2203,45 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+OUTLOOK_RUN_AND_MIN:
+			
+	SET_DONE=FALSE
+	IF (A_ComputerName = "7-ASUS-GL522VW") 
+	{	
+		Process, Exist, OUTLOOK.EXE		
+		If ErrorLevel=0  ; errorlevel will = 0 if process doesn't exist
+		{
+			; ahk_class rctrl_renwnd32
+			FN_VAR:="C:\Program Files (x86)\Microsoft Office\Office12\OUTLOOK.EXE"
+			Run, "%FN_VAR%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
+			SoundBeep , 2500 , 100
+			SET_DONE=TRUE
+		}
+	}
+
+	IF SET_DONE=TRUE 
+	{
+		style_OUTLOOK=-2
+		WinWait, ahk_class rctrl_renwnd32
+		EXIT_LOOP=10 ; SEND OUTLOOK INTO MIN AT LOAD HAS TO BE CALLER 2 TWICE 
+		; AT LEAST MAYBE BIT MORE IF UNDER LOAD 10
+		LOOP
+		{
+			WinMinimize ahk_class rctrl_renwnd32
+			WinGet style_OUTLOOK, MinMax, ahk_class rctrl_renwnd32
+			SoundBeep , 2500 , 100
+			;1 maximized 0 normal -1 minimized
+			If style_OUTLOOK=-1
+			{
+				EXIT_LOOP-=1
+				IF EXIT_LOOP<0
+					BREAK
+			}
+			SLEEP 50
+		}
+	}
+RETURN
 
 
 ;--------------------------------------------------------------------
