@@ -277,14 +277,40 @@ SETTIMER HIGHER_SPEED,100
 ; -------------------------------------------------------------------
 SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,1000
 
+SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 
-
-RETURN
 
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+
+;SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
+
+TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
+
+	LINE_CHECKER_1=Could not close the previous instance of this script.
+	LINE_CHECKER_2=Keep waiting?
+
+	SetTitleMatchMode 2  ; Specify PARTIAL path
+	ControlGettext, OutputVar_2, Static2, Autokey ahk_class #32770
+
+	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
+	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
+		SOUNDBEEP 4000,100
+		
+	ControlGettext, OutputVar_2, Static2, Autokey ahk_class #32770
+	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
+	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
+	{
+		ControlClick, Button2, Autokey ahk_class #32770,,,, NA x10 y10
+	}
+	ControlGettext, OutputVar_2, Static2, Autokey ahk_class #32770
+	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
+	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
+		ControlClick, Button2, Autokey ahk_class #32770
+
+RETURN
 
 
 HIGHER_SPEED:
