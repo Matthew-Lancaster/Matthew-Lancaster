@@ -129,7 +129,7 @@ End Function
 
 Private Sub Form_Load()
     
-    ' Form2_Check_Project_Date
+    'Form2_Check_Project_Date
     
     Set FSO = CreateObject("Scripting.FileSystemObject")
     
@@ -364,9 +364,9 @@ If XVB_DATE < VB_DATE And XVB_DATE > 0 Then
     'WIN XP = 5.1 _ WINDOWS 10 = 6.2
     '----------------------------------------------------
     If GetWindowsVersion > 5.1 Then
-        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1, """", """", ""RUNAS"", 1" + vbCrLf
+        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1, ""/MINIMAL"", """", ""RUNAS"", 1" + vbCrLf
     Else
-        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1" + vbCrLf
+        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1, ""/MINIMAL""" + vbCrLf
     End If
     I_TEXT = I_TEXT + "If Err.Number > 0 Then" + vbCrLf
     I_TEXT = I_TEXT + "    MsgBox ""ERROR LAUNCH VB PROGRAM FROM UPDATE"" + vbCrLf + FC_1 + vbCrLf + Err.Description" + vbCrLf
