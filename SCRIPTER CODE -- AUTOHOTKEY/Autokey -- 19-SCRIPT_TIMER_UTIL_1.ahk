@@ -725,14 +725,19 @@ IF A_ComputerName=3-LINDA-PC
 IF A_ComputerName=5-ASUS-P2520LA
 	SET_GO=TRUE
 		
+SET_GO=TRUE		
 IF SET_GO=TRUE
 {
 	Process, Exist, TeamViewer_Service.exe
 	If ErrorLevel > 0
 	{
-		RunWait,sc stop "TeamViewer",,hide
-		RunWait,sc config "TeamViewer" start= disabled,,hide
-		RunWait,sc delete "TeamViewer",,hide
+		RunWait,sc stop "TeamViewer", , hide, pid2
+		; WinWait, ahk_pid %pid2%
+		; WinWaitactive, ahk_pid %pid2%
+		; WinMinimize  ahk_pid %pid2%
+		
+		RunWait,sc config "TeamViewer" start= disabled, , hide, pid2
+		RunWait,sc delete "TeamViewer", , hide, pid2
 		
 		SoundBeep , 2000 , 100
 	}
