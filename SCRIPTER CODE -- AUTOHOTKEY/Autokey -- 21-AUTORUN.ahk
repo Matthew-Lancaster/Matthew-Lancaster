@@ -2199,6 +2199,15 @@ IF SET_DONE=TRUE
 
 GOSUB OUTLOOK_RUN_AND_MIN
 GOSUB CHROME_RUN_AND_MIN
+
+
+; E:\01 Start Menu\#_1-ASUS-X5DIJ\Programs\Startup\Set FUJIFILM PC AutoSave to stby.lnk
+MSGBOX %A_Startup%
+PAUSE
+FN_VAR_LNK:=%A_Startup%\Set FUJIFILM PC AutoSave to stby.lnk
+AttributeString := FileExist(FN_VAR_EXE)
+		IF !AttributeString
+	
 	
 RETURN
 
@@ -2216,36 +2225,49 @@ CHROME_RUN_AND_MIN:
 			
 	IF (A_ComputerName = "7-ASUS-GL522VW") 
 		RETURN
-	IF (A_ComputerName = "4-ASUS-GL522VW") 
-		RETURN
+	; IF (A_ComputerName = "4-ASUS-GL522VW") 
+		; RETURN
 		
 	SET_DONE=FALSE
-	IF (A_ComputerName = "7-ASUS-GL522VW") 
-	{	
-		Process, Exist, chrome.exe
-		If ErrorLevel=0  ; errorlevel will = 0 if process doesn't exist
+	Process, Exist, chrome.exe
+	; If ErrorLevel=0  ; errorlevel will = 0 if process doesn't exist
+	; {
+		; ahk_class rctrl_renwnd32
+		FN_VAR_EXE:="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+		AttributeString := FileExist(FN_VAR_EXE)
+		IF !AttributeString
+			FN_VAR_EXE:="C:\Program Files\Google\Chrome\Application\chrome.exe"
+		AttributeString := FileExist(FN_VAR_EXE)
+		IF !AttributeString
 		{
-			; ahk_class rctrl_renwnd32
-			FN_VAR:="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-			; IF (A_ComputerName = "2-ASUS-EEE") 
-			IF (A_ComputerName = "1-ASUS-X5DIJ") 
-			CHROME_PAGE:="https://www.rain-alarm.com/?from=chrome2"
-			IF (A_ComputerName = "2-ASUS-EEE") 
-			CHROME_PAGE:="https://www.facebook.com/notifications"
-			IF (A_ComputerName = "3-LINDA-PC") 
-			CHROME_PAGE:="https://www.facebook.com/notifications"
-			IF (A_ComputerName = "5-ASUS-P2520LA") 
-			CHROME_PAGE:="https://www.rain-alarm.com/?from=chrome2"
-			IF (A_ComputerName = "8-MSI-GP62M-7RD") 
-			CHROME_PAGE:="https://www.facebook.com/notifications"
-			
-			FN_VAR=%FN_VAR%" "%CHROME_PAGE%
-			Run, "%FN_VAR%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
-			SoundBeep , 2500 , 100
-			SET_DONE=TRUE
-		}
-	}
+			MSGBOX CHROME.EXE NOT EXIST TO FIND
+			RETURN
+		}	
+		
+		; IF (A_ComputerName = "2-ASUS-EEE") 
+		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
+		IF (A_ComputerName = "2-ASUS-EEE") 
+		CHROME_PAGE=https://www.facebook.com/notifications
+		IF (A_ComputerName = "3-LINDA-PC") 
+		CHROME_PAGE=https://www.facebook.com/notifications
+		IF (A_ComputerName = "4-ASUS-GL522VW") 
+		CHROME_PAGE=https://www.facebook.com/notifications
+		IF (A_ComputerName = "4-LINDA-PC") 
+		CHROME_PAGE=https://www.facebook.com/notifications
+		IF (A_ComputerName = "5-ASUS-P2520LA") 
+		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
+		IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+		CHROME_PAGE=https://www.facebook.com/notifications
+		
+		FN_VAR_EXE=%FN_VAR_EXE%" "%CHROME_PAGE%
+		Run, "%FN_VAR_EXE%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
+		SoundBeep , 2500 , 100
+		SET_DONE=TRUE
+	; }
 	
+	
+	SET_DONE=FALSE
 	IF SET_DONE=TRUE 
 	{
 		style_CHROME=-2
