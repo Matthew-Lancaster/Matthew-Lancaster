@@ -5865,12 +5865,16 @@ Begin VB.Form Form1
    Begin VB.Menu Mnu_LoadFolder 
       Caption         =   "LOAD FOLDER LINK"
    End
+   Begin VB.Menu MNU_CLIPBOARDOR 
+      Caption         =   "CLIPBOARD ITEM TEXT"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim CLIPBOARDOR
 Dim FontSizez
 Dim FontSizez_2
 
@@ -6338,6 +6342,10 @@ End Sub
 
 Private Sub Lbl_COMBO_NUMBER_Click()
 'Lbl_COMBO_NUMBER.CAPTION
+End Sub
+
+Private Sub MNU_CLIPBOARDOR_Click()
+CLIPBOARDOR = True
 End Sub
 
 Private Sub Timer_KEY_CODE_Timer()
@@ -6947,6 +6955,12 @@ End Sub
 Private Sub Label1_Click(Index As Integer)
 
 'Beep
+
+If CLIPBOARDOR = True Then
+    Clipboard.Clear
+    Clipboard.SetText Mid(Label1(Index).Caption, InStr(Label1(Index).Caption, " ") + 1)
+    End
+End If
 
 If Label1(Index).BackColor = QBColor(12) Then
     MsgBox "THIS LINK IS MARKED RED FOR NOT USE"
