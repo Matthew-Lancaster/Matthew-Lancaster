@@ -394,9 +394,12 @@ SETTIMER ONE_SECOND,1000
 
 SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY,14000
 
-
+; SETTIMER CHECK_TEAMVIEWER_NOT_RUN_ALL_MACHINER,60000
+SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
 
 RETURN
+
+
 
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
@@ -707,23 +710,30 @@ RETURN
 
 KILL_TEAMVIEWER_ON_LOW_END_COMPUTER:
 
+	SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,60000
+
 	; C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe
 	; C:\Program Files (x86)\TeamViewer\TeamViewer.exe
 
-	SET_GO=FALSE
-	IF A_ComputerName=1-ASUS-X5DIJ
-		SET_GO=TRUE
-	IF A_ComputerName=2-ASUS-EEE
-		SET_GO=TRUE
-	IF A_ComputerName=3-LINDA-PC
-		SET_GO=TRUE
-
+SET_GO=FALSE
+IF A_ComputerName=1-ASUS-X5DIJ
+	SET_GO=TRUE
+IF A_ComputerName=2-ASUS-EEE
+	SET_GO=TRUE
+IF A_ComputerName=3-LINDA-PC
+	SET_GO=TRUE
+IF A_ComputerName=5-ASUS-P2520LA
+	SET_GO=TRUE
+		
 IF SET_GO=TRUE
 {
 	Process, Exist, TeamViewer_Service.exe
 	If ErrorLevel > 0
 	{
-		Process, Close, TeamViewer_Service.exe
+		RunWait,sc stop "TeamViewer",,hide
+		RunWait,sc config "TeamViewer" start= disabled,,hide
+		RunWait,sc delete "TeamViewer",,hide
+		
 		SoundBeep , 2000 , 100
 	}
 	Process, Exist, TeamViewer.exe
