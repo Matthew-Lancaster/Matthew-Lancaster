@@ -69,6 +69,26 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 ; SCRIPT ============================================================
 
+; ---------------------------------------------------------------
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; 01. INTRO SETUP MENU
+; 02. THE MENU ROUTINE
+; 03. ANY ROUTINE THE MENU USE
+; ---------------------------------------------------------------
+; SAVER OF RSI INJURY AND MORE ACCURATE
+; THE INCLUDE FILE ARE SAME FOLDER
+; ---------------------------------------------------------------
+; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
+; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
+; ---------------------------------------------------------------
+; Create the popup menu by adding some items to it.
+; MenuHandler:
+; ---------------------------------------------------------------
+; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
+; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
+; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
+
 VAR_STORE_CAMERA_LABEL=
 
 OSVER_N_VAR:=a_osversion
@@ -190,6 +210,12 @@ ControlSetText,Static1,%MSGBOX_CAMERA_CountDown_Generate_VAR%,Copy_Camera_Media_
 
 Return
 
+MenuHandler:
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02-INCLUDE MENU 02 of 03.ahk
+return
+
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03-INCLUDE MENU 03 of 03.ahk
+
 
 
 ;# ------------------------------------------------------------------
@@ -204,13 +230,14 @@ return
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
-	dhw := A_DetectHiddenWindows
+	DHW_2 := A_DetectHiddenWindows
 	DetectHiddenWindows, On
 	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % dhw
+	DetectHiddenWindows, % DHW_2
 	return (match > 1)
 	}
 Return
+
 
 ; ------------------------------------------------------------------
 EOF:                           ; on exit

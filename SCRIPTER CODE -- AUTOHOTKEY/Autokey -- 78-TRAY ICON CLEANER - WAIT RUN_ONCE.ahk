@@ -1,7 +1,7 @@
 ﻿;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk
 ;# __ 
-;# __ Autokey -- 78-TRAY ICON CLEANER.ahk
+;# __ Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk
 ;# __ 
 ;# __ BY Matthew Lancaster 
 ;# __ Matt.Lan@Btinternet.com
@@ -20,6 +20,17 @@
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 02
+; -------------------------------------------------------------------
+; MAKE RUN ONCE VERSION
+; -------------------------------------------------------------------
+; FROM __ Sun 09-Jun-2019 11:24:29
+; TO   __ Sun 09-Jun-2019 11:28:00
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
 ; SOURCE CREDIT
 ; -------------------------------------------------------------------
 ; ----
@@ -30,27 +41,28 @@
 
 
 #noEnv
-#persistent
+; #persistent
 #singleInstance force
 detectHiddenWindows, on
 setWorkingDir %a_scriptDir%
-
+#NoTrayIcon
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
 SoundBeep , 1500 , 400
-SetStoreCapslockMode, off
-SETTIMER TIMER_PREVIOUS_INSTANCE,1
+; SetStoreCapslockMode, off
+
+; SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 
-; -------------------------------------------------------------------
-; Register a function to be called on exit:
-OnExit("ExitFunc")
+; ; -------------------------------------------------------------------
+; ; Register a function to be called on exit:
+; OnExit("ExitFunc")
 
-; Register an object to be called on exit:
-OnExit(ObjBindMethod(MyObject, "Exiting"))
-; -------------------------------------------------------------------
+; ; Register an object to be called on exit:
+; OnExit(ObjBindMethod(MyObject, "Exiting"))
+; ; -------------------------------------------------------------------
 
 ; ---------------------------------------------------------------
 ; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
@@ -74,24 +86,36 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 
 
+REMOVER_ONE=0
+REMOVER_COUNT=0
 
-; --------------------------------------------------------
-; ONCE A MINUTE CLEAN UP THE ICON NOTIFICATION AREA
-; --------------------------------------------------------
-GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
-SETTIMER RUN_TIMER_TRAY_ICON_CLEAN_UP,60000
-
-RUN_TIMER_TRAY_ICON_CLEAN_UP:
-
+WHILE REMOVER_ONE=0
+{
 	Array_Icon_GetInfo := TrayIcon_GetInfo()
 	Loop % Array_Icon_GetInfo.MaxIndex()
 	{
-
 		IF Array_Icon_GetInfo[A_Index].process<1
 		{
 			TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
+			SoundBeep , 2000 , 20
+			; SoundBeep REDUCTION IN LENGTH BEEP MAKE QUICKER
+			REMOVER_ONE=1
 		}
 	}
+	
+	IF REMOVER_ONE=1
+		BREAK
+	
+	; TOOLTIP % REMOVER_COUNT
+	REMOVER_COUNT+=1
+	IF REMOVER_COUNT>40
+		BREAK
+	IF REMOVER_ONE=0
+		SLEEP 40
+}
+
+EXITAPP
+	
 RETURN
 	
 
