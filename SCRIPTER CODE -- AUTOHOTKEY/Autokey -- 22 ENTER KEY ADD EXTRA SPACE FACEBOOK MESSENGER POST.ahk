@@ -116,10 +116,10 @@ return
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
-	dhw := A_DetectHiddenWindows
+	DHW_2 := A_DetectHiddenWindows
 	DetectHiddenWindows, On
 	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % dhw
+	DetectHiddenWindows, % DHW_2
 	return (match > 1)
 	}
 Return

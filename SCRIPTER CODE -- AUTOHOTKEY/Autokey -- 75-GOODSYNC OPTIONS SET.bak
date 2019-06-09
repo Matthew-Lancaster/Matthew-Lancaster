@@ -79,14 +79,11 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; THE INCLUDE FILE ARE SAME FOLDER
 ; ---------------------------------------------------------------
 ; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
-; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
+; TO   __ Sun 09-Jun-2019 14:00:00 __ Clipboard Count = 318 __  7 HOUR
 ; ---------------------------------------------------------------
 ; Create the popup menu by adding some items to it.
 ; MenuHandler:
-; ---------------------------------------------------------------
-; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
-; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
-; ---------------------------------------------------------------
+;
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
 
 
