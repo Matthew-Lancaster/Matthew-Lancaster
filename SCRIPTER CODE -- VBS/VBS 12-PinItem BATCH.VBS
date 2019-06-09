@@ -665,6 +665,9 @@ IF Version_OS=10 THEN
 END IF
 
 
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe"
+
+
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
