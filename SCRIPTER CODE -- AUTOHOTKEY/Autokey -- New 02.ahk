@@ -47,7 +47,18 @@ OnExit("ExitFunc")
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
-; Create the popup menu by adding some items to it.
+; ---------------------------------------------------------------
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; 01. INTRO SETUP MENU
+; 02. THE MENU ROUTINE
+; 03. ANY ROUTINE THE MENU USE
+; ---------------------------------------------------------------
+; SAVER OF RSI INJURY AND MORE ACCURATE
+; THE INCLUDE FILE ARE SAME FOLDER
+; ---------------------------------------------------------------
+; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
+; TO   __ Sun 09-Jun-2019 10:00:00 __ Clipboard Count = 139 __ NEAR 3 HOUR
+; ---------------------------------------------------------------
 Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  

@@ -1,29 +1,165 @@
 ﻿;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ;# __ 
-;# __ Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+;# __ Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
-;# START     TIME [ Sun 28-Apr-2019 14:38:04 ]
-;# LAST EDIT TIME [ Sun 28-Apr-2019 14:38:04 ]
+;# START     TIME [ Tue 00:52:00 Am_12 Dec 2017 ]
+;# LAST EDIT TIME [ Fri 16:08:00 Pm_27 Apr 2018 ]
 ;# __ 
 ;  =============================================================
 
 ; ------------------------------------------------------------------
 ; Location Internet
 ;---------------------------------------------------------------------
-; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk at master · Matthew-Lancaster/Matthew-Lancaster
+; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk at master · Matthew-Lancaster/Matthew-Lancaster
 ; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL.ahk
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; SESSION 001
-; DECIDE TO SPLIT THE PROJECT
-; MORE SPEED -- FURTHER CODER
+; SESSION 002
 ; -------------------------------------------------------------------
+; FROM TO Sun 15-Apr-2018 19:26:10
+; -------------------------------------------------------------------
+; THIS IS OUR PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
+; THE MIDDLE CHECK-BOX IS SELECTED
+; Reference's at End
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; SESSION 003
+; -------------------------------------------------------------------
+; New work the GoodSync Routine to Set Number of Hour in Options
+; From Default 2 to 4
+; Straight Form The Help File Nothing Checked On-line
+; -------------------------------------------------------------------
+; FROM -- Fri 27-Apr-2018 13:44:49
+; TO ---- Fri 27-Apr-2018 14:28:00 -- 50 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; Well That Hard Work To Set the Content of an Edit Control 
+; You Must Delete Whats in There First to Do with Caret Positioning
+; And I Had to Look Up on the Internet
+; Better than Using Sendinput key and Having to Be In Focus 
+; Active Window __ Very Easy in the End
+; Credit Due
+; ----
+; Delete edit control text ahk - Google Search
+; https://www.google.co.uk/search?num=50&rlz=1C1CHWL_enGB794&ei=HDjjWvX4KI63gQab46zQDQ&q=Delete+edit+control+text+ahk&oq=Delete+edit+control+text+ahk&gs_l=psy-ab.3..35i39k1.5379.5647.0.6669.2.2.0.0.0.0.143.203.1j1.2.0....0...1c.1.64.psy-ab..0.2.201....0.9781WNbiPGQ
+; --------
+; Delete contents of edit control? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/80399-delete-contents-of-edit-control/
+; ----
+; -------------------------------------------------------------------
+; FROM -- Fri 27-Apr-2018 14:28:00
+; TO ---- Fri 27-Apr-2018 15:51:00 -- 1 HOUR 20 MINUTE
+; SESSION PAIR 2 HOURS 10 MINUTE-ER
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 004
+; MORE WORK WANTED A SOUND EFFECT IF A WINDOW CAME OUT OF NOT RESPONDING 
+; TO LET LEARN THE WAIT IS OVER FOR GOODSYNC NETWORK PATHS TIME CONSUMING
+; TOOK A WHILE BECAUSE SOUND SYSTEM EVENTS WERE SWITCHED OFF
+; -------------------------------------------------------------------
+; FROM -- Fri 27-Apr-2018 18:53:27
+; TO ---- Fri 27-Apr-2018 19:33:58 -- 40 MINUTE
+; SESSION PAIR 2 HOURS 10 MINUTE-ER
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 005
+; NEXT WANTER THE CHECK-BOX SET WHEN GOODSYNC HAS THE TEXT BOX FILLED
+; AND IT CHECK HWND OF WINDOW AND DOES ONCE 
+; IT HARD TO TEST BECAUSE WHEN CHECK-BOX NOT CHECKED THE TEXTBOX FIGURE 
+; ENTRY IS ENABLED=FALSE
+; -------------------------------------------------------------------
+; FROM -- Fri 27-Apr-2018 19:33:58
+; TO ---- Fri 27-Apr-2018 19:53:05 -- 20 MINUTE
+; SESSION PAIR 2 HOURS 10 MINUTE-ER
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 00*
+; SESSION CODER _ ADD LOADER OF CAMERA REEL OFFLOAD
+; TIMER_DRIVE_GET_CAMERA
+; -------------------------------------------------------------------
+; FROM -- Thu 14-Jun-2018 17:15:27
+; TO ---- Thu 14-Jun-2018 18:44:00 -- 1 HOUR 30 MINUTE
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 007
+; DFX REQUIRED WORKING PROPERLY AND EXTRA FOR IT
+; -------------------------------------------------------------------
+; FROM -- Wed 20-Jun-2018 14:50:48
+; TO ---- Wed 20-Jun-2018 15:02:00
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 008 PROBLEM THIS PROCESS REQUIRED SUSPENDER HOGGER
+; CPU IN SHORT QUICK BURSTS
+; -------------------------------------------------------------------
+; Intel(R) Dynamic Platform and Thermal Framework Utility Application
+; PROBLEM KEEP REPEAT RUNNING FOR SHORT SPACE FREQUENTLY AND REDUCE CPU COST
+; Intel Corporation
+; C:\Windows\Temp\DPTF\esif_assist_64.exe
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; STOP THE PROCESS WITH SUSPEND FOR AN HOUR AND LET BREATHE AGAIN 
+; FOR A FEW MINUTE AND LOOPER
+; [ Sunday 19:28:30 Pm_07 October 2018 ]
+; -------------------------------------------------------------------
+; DFX REQUIRED WORKING PROPERLY AND EXTRA FOR IT
+; -------------------------------------------------------------------
+; FROM -- Sun 07-Oct-2018 18:00:41
+; TO ---- Sun 07-Oct-2018 19:24:00 _ 1 & HALF HOUR ALMOST _ INTO AN ALL-NIGHTER AGAIN
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 009
+; ADD CODE THIS ROUTINE _ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
+; A NEW LEVEL OF TIMER PERIODIC ON THE HOUR OR MINUTE OR DAY
+; ACTUALLY ON THE HOUR OR DAY MIDNIGHT SORT OF THING
+; EASY DONE PROGRAMMED
+; THAT ALL MY WORK WANTED TODAY
+; COMPLETELY KNACKER-ED _ EASY AN ALL-NIGHTER
+; STILL NEXT PROJECT BEEN WAITING FOR 
+; MY APK'S PACKS ON MOBILE WANT BACKING UP NICELY
+; FILENAME RECURSIVE AND MOVE _.VBS
+; GETTING A DAB HAND AT THEM REMEMBER WHEN SO HARD TO GET FILES 
+; AND FOLDER TOGETHER
+; AN THEN LOADS OF PHOTO'S TO SORT _ GETTING ON WITH IT QUICKER NOW
+; I BEGAN PROGRAM IT PROPER
+; -------------------------------------------------------------------
+; FROM -- Sat 20-Oct-2018 06:29:02
+; TO ---- Sat 20-Oct-2018 08:00:02 _ 1 AND HALF HOUR
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 010
+; ADD CODE PIXEL FIND ROUTINE TO CHROME AND YAHOO PRINTER OUTPUT NEW THING
+; ON PRESS P IN YAHOO - BIT BUGGY THEY HAVING PRINT ONLY COME UP ONCE SOMETIMES
+; -------------------------------------------------------------------
+; FROM -- Mon 22-Oct-2018 19:18:41
+; TO ---- Mon 22-Oct-2018 20:12:14 - 1 HOUR 
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; SESSION 011
+; -------------------------------------------------------------------
+; TO DO WITH THE ICACLS ICACLS AND THAT WITH TEAM-VIEWER WHEN 
+; THAT HALT THE OTHER IF GO
+; THE PRE PREPARER WORK BEFORE SPEND 12 HOUR ON TOTAL REVAMP THAT ONE
+; BAT 47-OWNER-HARD-CODER ANYWHERE.BAT
+; -------------------------------------------------------------------
+; WORK FROM 
+; -------------------------------------------------------------------
+; 0090 * CLIPBOARD'S TAKEN
+; Count = 008 -- Tue 19-Mar-2019 11:34:43
+; Count = 098 -- Tue 19-Mar-2019 12:51:50
+; -------------------------------------------------------------------
 
 
 #Warn
@@ -55,16 +191,12 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; THE INCLUDE FILE ARE SAME FOLDER
 ; ---------------------------------------------------------------
 ; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
-; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
+; TO   __ Sun 09-Jun-2019 10:00:00 __ Clipboard Count = 139 __ NEAR 3 HOUR
 ; ---------------------------------------------------------------
 ; Create the popup menu by adding some items to it.
 ; MenuHandler:
-; ---------------------------------------------------------------
-; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
-; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
-; ---------------------------------------------------------------
+;
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
-
 
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
@@ -120,7 +252,7 @@ VAR_STORE_CAMERA_LABEL=
 
 TIMER_SUB_OWNER_SAVE_TIMER=
 
-; SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
+SETTIMER TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE,1000
 
 TIMER_KILL_RELOAD_ALL_NET_ARRAY_CODE_EXE_STOP_DELAY_VAR=FALSE 
 
@@ -158,49 +290,47 @@ IF OSVER_N_VAR=WIN_XP
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
-SETTIMER TIMER_SUB_1,1000
+setTimer TIMER_SUB_1,800
 
-; SETTIMER TIMER_SUB_EliteSpy, OFF
+setTimer TIMER_SUB_EliteSpy, OFF
 
-; SETTIMER TIMER_SUB_GOODSYNC,5000
-; SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
 
-; SETTIMER TIMER_SUB_NOTEPAD_PLUS_PLUS,1000
+setTimer TIMER_SUB_NOTEPAD_PLUS_PLUS,1000
 
-; SETTIMER TIMER_SUB_WINDOWS_UPDATE,OFF
+setTimer TIMER_SUB_WINDOWS_UPDATE,OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-; SETTIMER TIMER_SUB_WINDOWS_DESKTOP_ICON,10000
+setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,10000
 ; STARTS AS 10 SECOND AND THEN GOES TO 10 MINUTE
 
-; SETTIMER TIMER_SUB_VICE_VERSA,OFF
+setTimer TIMER_SUB_VICE_VERSA,OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-; SETTIMER TIMER_SUB_SCRIPT_SHELL_FOLDERING,1000
+setTimer TIMER_SUB_SCRIPT_SHELL_FOLDERING,1000
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-; SETTIMER TIMER_SUB_OWNER, 1000 ; After1Hours
+setTimer TIMER_SUB_OWNER, 1000 ; After1Hours
 ; STARTS AS AFTER 1 HOUR AND THEN GOES TO EVERY 24 HOUR
 
-;; SETTIMER TIMER_SUB_WSCRIPT,100
+;setTimer TIMER_SUB_WSCRIPT,100
 
-;; SETTIMER TIMER_SUB_CMD_KILL, OFF
+;setTimer TIMER_SUB_CMD_KILL, OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-; SETTIMER TIMER_SUB_LOGGER, 1000
+setTimer TIMER_SUB_LOGGER, 1000
 ; LOGGING BLUETOOTH AND DUPLICATE CLEANER LOGGER TRUNCATE
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-; SETTIMER TIMER_SUB__SendSMTP__0__LOG_BAT,1000
+setTimer TIMER_SUB__SendSMTP__0__LOG_BAT,1000
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-; SETTIMER TIMER_SUB_I_VIEW32_CONVERT_CCSE,10000
+setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,10000
 ; STARTS AS 10 SECOND AND THEN GOES TO EVERY HALF HOUR
 
-; SETTIMER TIMER_SUB__MY_IP, 10000
+setTimer TIMER_SUB__MY_IP, 10000
 ; STARTS AS 10 SECOND AND THEN GOES TO EVERY 10 MINUTE
 
-; SETTIMER TIMER_PREVIOUS_INSTANCE, 10
+setTimer TIMER_PREVIOUS_INSTANCE, 10
 ; STARTS AS 10 MILLI-SECOND AND THEN GOES TO EVERY 1 MINUTE
 ; -------------------------------------------------------------------
 ; I used PREVIOUS_INSTANCE Detection For My Scripts Now 
@@ -210,13 +340,13 @@ SETTIMER TIMER_SUB_1,1000
 ; -------------------------------------------------------------------
 
 
-; SETTIMER TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX,4000
+SETTIMER TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX,4000
 
-; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
-; ; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
+SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
+; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 
 
-; ; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
+; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 10000 ; ---- 10 SECONDS ---- And Then 1 Hour
 
 
 GITHUB_HOUR_NOW=
@@ -225,20 +355,20 @@ GOODSYNC_HOUR_NOW=
 GOODSYNC_SET_GO=
 
 GOSUB GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
-; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, 1000
+SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, 1000
 
 DAY_AND_HOUR_NOW=
-; SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
+SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
 
 
-; SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
-; SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
+SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
+SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
 
-; SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
+SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
 
-; SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
+SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
 
-; SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 100000 ; 10 SECOND AND THEN 10 MINUTE
+SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 100000 ; 10 SECOND AND THEN 10 MINUTE
 
 Secs_MSGBOX_01=18
 Secs_MSGBOX_02=5
@@ -247,34 +377,19 @@ X_COUNT_EXIT=0
 MSGBOX_COUNTDOWN_RESTART=""
 VAR_WORKER_MSGBOX_DELAY_COUNT=""
 OLD_VAR_WORKER_MSGBOX_DELAY_COUNT=-2
-; SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,OFF
+SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,OFF
  
-; GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
+GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
 
 CLEAN_UP_HDD_SPACE_ONE_A_DAY_VAR=
 DATE_CALC_DAY=
-; SETTIMER CLEAN_UP_HDD_SPACE_ONE_A_DAY,1000
+SETTIMER CLEAN_UP_HDD_SPACE_ONE_A_DAY,1000
 
 HWNDID=
 
-
 SETTIMER ONE_SECOND,1000
 
-OLD_id=0
-ID_2=0
-OLD_HUBIC_STATUS_MAX=0
-OLD_CHROME_ID_STR=
-OLD_EXPLORER_ID_STR=
-
-SETTIMER HIGHER_SPEED,100
-
-
-; SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY,14000
-
-
-; SET OKAY BOX AFTER MADE SELECTION
-; -------------------------------------------------------------------
-SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,1000
+SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY,14000
 
 
 
@@ -286,127 +401,11 @@ RETURN
 ; -------------------------------------------------------------------
 
 
-HIGHER_SPEED:
-	; ---------------------------------------------------------------
-	; NEW CODE BLOCK
-	; AND THEN LOOK IN AHK HELP FILE
-	; THEY CHANGED THE FORMAT OF COMMAND TO USE FORMAT LIKE HERE
-	; AND I HAD TO BE CAREFUL LOWERCASE THE ahk_id
-	; ID_2:=WinExist("ahk_id " OLD_HUBIC_STATUS_MAX)
-	; BUT AND OTHER COMMAND DON'T HAVE TO
-	; I HAVE A TON OF CODE THAT USE THE OLDER STYLE BOO
-	; ---------------------------------------------------------------
-	; [ Thursday 23:05:10 Pm_Sixer June 2019 ]
-	; ---------------------------------------------------------------
-
-	id := WinExist("A")
-
-	IF OLD_id<>%id%
-	{
-		DetectHiddenWindows, OFF
-		SetTitleMatchMode 2  ; Specify PARTIAL path
-		; -----------------------------------------------------------
-		; HUBIC 01 OF 02
-		; ahk_exe hubiC.exe
-		; -----------------------------------------------------------
-		;IfWinActive Status ahk_class HwndWrapper
-		IfWinActive Status
-		{
-			IF id<>%OLD_HUBIC_STATUS_MAX%
-			{
-				WinMaximize, AHK_ID %id%
-				OLD_HUBIC_STATUS_MAX:=id
-			}
-		}
-		; -----------------------------------------------------------
-		; HUBIC 02 OF 02
-		; -----------------------------------------------------------
-		ID_2=0
-		IF OLD_HUBIC_STATUS_MAX>0
-		IF OLD_HUBIC_STATUS_MAX<>%ID%
-		{
-			ID_2:=WinExist("ahk_id " OLD_HUBIC_STATUS_MAX)
-			IF ID_2=0
-				OLD_HUBIC_STATUS_MAX=0
-		}
-
-
-		SetTitleMatchMode 3  ; Specify EXACT path
-		; -----------------------------------------------------------
-		; CHROME
-		; -----------------------------------------------------------
-		IfWinActive ahk_class Chrome_WidgetWin_1
-		{
-			ID_STRING= -- %id%
-			IF INSTR(OLD_CHROME_ID_STR,ID_STRING)=0
-			{
-				WinGetTitle, Title, ahk_id %id%
-				IF INSTR(Title,"- Google Chrome")
-				{
-					WinMaximize, AHK_ID %id%
-					OLD_CHROME_ID_STR=%OLD_CHROME_ID_STR% -- %id%
-				}
-				Length := StrLen(OLD_CHROME_ID_STR)
-				; ---------------------------------------------------
-				; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
-				; ---------------------------------------------------
-				; ONLY 4 WINDOW FOR CHROME 
-				; SOMETIME WANT SIDE BY SIDE WINDOW AND HAVE 
-				; 2 OKAY WITHOUT MAXIMIZE HAPPEN
-				; BUT ANY MORE WANT ALL MAXIMIZED
-				; ---------------------------------------------------
-				; CODE COMPLETE NEW METHOD CHROME AND EXPLORER
-				; CHROME HAS EXTRA TO DETECT IF TITLE DISPLAY
-				; --------------------------------T-------------------
-				; FROM -- Fri 07-Jun-2019 09:41:40
-				; TO   -- Fri 07-Jun-2019 11:18:00 -- 1 HOUR 40 MINUTE
-				; ---------------------------------------------------
-				
-				WHILE Length>4*10
-				{
-					StringTrimRIGHT, OLD_CHROME_ID_STR, OLD_CHROME_ID_STR, 10
-					Length := StrLen(OLD_CHROME_ID_STR)
-				}
-			}
-		}
-
-		
-		
-		SetTitleMatchMode 3  ; Specify EXACT path
-		; -----------------------------------------------------------
-		; EXPLORER
-		; -----------------------------------------------------------
-		; IfWinActive ahk_exe explorer.exe
-		; -----------------------------------------------------------
-		IfWinActive ahk_class CabinetWClass
-		{
-			ID_STRING= -- %id%
-			IF INSTR(OLD_EXPLORER_ID_STR,ID_STRING)=0
-			{
-				WinMaximize, AHK_ID %id%
-				OLD_EXPLORER_ID_STR=%OLD_EXPLORER_ID_STR% -- %id%
-				Length := StrLen(OLD_EXPLORER_ID_STR)
-				; ---------------------------------------------------
-				; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
-				; ---------------------------------------------------
-				WHILE Length>10*10
-				{
-					StringTrimRIGHT, OLD_EXPLORER_ID_STR, OLD_EXPLORER_ID_STR, 10
-					Length := StrLen(OLD_EXPLORER_ID_STR)
-				}
-			}
-		}
-	}
-	OLD_id=%id%
-
-RETURN
-
-
 ONE_MOMENT_CLOSE_CMD:
 
 	WINCLOSE ahk_id %HWNDID%
 	HWNDID=
-	; SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
+	SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
 	SOUNDBEEP 1000,200
 
 RETURN
@@ -420,67 +419,10 @@ ONE_SECOND:
 		WinGet, HWNDID, ID ,C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe ahk_class ConsoleWindowClass
 		IF HWNDID
 		{
-			; SETTIMER ONE_MOMENT_CLOSE_CMD,120000
+			SETTIMER ONE_MOMENT_CLOSE_CMD,120000
 			SOUNDBEEP 1000,200
 		}
 	}
-
-
-
-	; ---------------------------------------------------------------
-	; SOFTWARE WITH TRAIL 30 DAY AND NAG SCREEN
-	; ---------------------------------------------------------------
-	; Personal License
-	; Private usage only, One user / multiple computers / lifetime usage
-	; Free lifetime upgrades
-	; $44.90 USD	Buy now!
-	; Free upgrades within two years
-	; $29.90 USD	Buy now!
-	; Free upgrades within one year
-	; $19.90 USD	Buy now!
-	; Personal license lets you use the program on each of your computers personally. The license purchase will entitle you to free upgrades for one year from the purchase date. If you wish to get upgrades of the program after your initial one year upgrade period you need to pay only $9.90 USD to extend your subscription for upgrades for additional one year.
-	; ---------------------------------------------------------------
-	; ----
-	; Order USB Safely Remove
-	; https://safelyremove.com/order.htm?ver=6.1.5.1274&ostype=win64&sm=quickmenu_b&name=SafelyRemove&FirstRunDT=260520190906&RunCount=7
-	; ----
-	; ahk_class TNag
-	; ahk_exe USBSafelyRemove.exe
-	IfWinExist USB Safely Remove - Registration Reminder
-		WINCLOSE
-
-
-	
-	
-	; --------------------------------------------------
-	; Inbox - Microsoft Outlook ahk_class rctrl_renwnd32
-	; --------------------------------------------------
-	; KILL THE TEMP FILE WHEN OUTLOOK IS CLOSED
-	; WE MADE A SCRIPT THAT RUN IT QUITE HEAVY DUTY ONB EVERY MAIL THAT ARRIVE
-	; BUTTER OUTLOOK RERUN THE SCRIPT BEFORE FINISH AS ANOTHER EMAIL 
-	; COME IN FROM THE STACKER
-	; SO HAVE MADE TEMP FILE TO SOLVE PROBLEM
-	; SOMETIME THE FILE IS LEFT BEHIND IF CRASHER
-	; OUTLOOK DOESN'T HAVE A WAY TO SOLVE THAT PART
-	; --------------------------------------------------
-	FN_VAR_OUTLOOK:="D:\GM OUTLOOK\File_Control_TEMP.txt"
-	WinGet, HWNDID_OUTLOOK, ID ,ahk_class rctrl_renwnd32
-	; MSGBOX %HWNDID_OUTLOOK%
-	IF !HWNDID_OUTLOOK
-	IfExist, %FN_VAR_OUTLOOK%
-	{
-		FileDelete, %FN_VAR_OUTLOOK%
-		SOUNDBEEP 1000,200
-	}
-	
-	
-	IfWinExist Notepad++ update ahk_class #32770
-	{
-		ControlClick, &No,  Notepad++ update ahk_class #32770,,,, NA x10 y10
-		SOUNDBEEP 1000,200
-	}
-	
-	
 
 RETURN
 
@@ -491,7 +433,7 @@ CLEAN_UP_HDD_SPACE_ONE_A_DAY:
 
 IF (OSVER_N_VAR=5) 
 {
-	; SETTIMER CLEAN_UP_HDD_SPACE_ONE_A_DAY, OFF
+	SETTIMER CLEAN_UP_HDD_SPACE_ONE_A_DAY, OFF
 	RETURN
 }
 
@@ -566,7 +508,7 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 
 	IF (A_ComputerName<>"7-ASUS-GL522VW")
 	{
-		; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
+		SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
 		RETURN
 	}
 
@@ -654,9 +596,9 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	; LATE BY TIME GET THERE
 	; BETTER FOR SHORT TIMING
 	; ---------------------------------------------------------------
-	; ; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
-	; ; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, %Midnight%
-	; ; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, ON
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, %Midnight%
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, ON
 	; ----
 	; Test Timer Status - Ask for Help - AutoHotkey Community
 	; https://autohotkey.com/board/topic/55321-test-timer-status/
@@ -731,9 +673,9 @@ MIDNIGHT_AND_HOUR_TIMER:
 	; LATE BY TIME GET THERE
 	; BETTER FOR SHORT TIMING
 	; ---------------------------------------------------------------
-	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER, OFF
-	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER, %Midnight%
-	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER, ON
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER, OFF
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER, %Midnight%
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER, ON
 	; ----
 	; Test Timer Status - Ask for Help - AutoHotkey Community
 	; https://autohotkey.com/board/topic/55321-test-timer-status/
@@ -744,7 +686,7 @@ RETURN
 
 
 TIMER_Check_Any_PID_Suspended_Warning:
-	; ; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 7200000 ; ---- 10 SECONDS ---- And Then 2 Hour
+	; SETTIMER TIMER_Check_Any_PID_Suspended_Warning, 7200000 ; ---- 10 SECONDS ---- And Then 2 Hour
 
 	Element_1=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 42-Check_Any_PID_Suspended_Warning.ahk
 
@@ -801,71 +743,6 @@ RETURN
 ;----------------------------------------
 ;----------------------------------------
 TIMER_SUB_1:
-
-DetectHiddenWindows, ON
-SetTitleMatchMode 2
-
-
-
-
-RETURN
-
-
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT:
-
-	DetectHiddenWindows, ON
-	SetTitleMatchMode 3
-
-	WinGet, HWND_1, ID, A
-	
-	HWND_2=0
-	IfWinExist Reload ahk_exe notepad++.exe
-	IfWinExist Reload ahk_class #32770
-	WinGet, HWND_2, ID, Reload ahk_class #32770
-	IF HWND_2>0 
-	IF HWND_1<>%HWND_2%
-		WinActivate,  ahk_id %HWND_2%
-	HWND_2=0
-	IfWinExist Reload ahk_exe notepad++.exe
-	IfWinExist Reload ahk_class #32770
-		HWND_2=10
-	IF HWND_2=0
-		RETURN
-
-
-	LINE_CHECKER_1="This file has been modified by another program.`nDo you want to reload it?"
-	; CAN'T DO THIS ONE VARIABLE WAY BECAUSE THE RETURN NEW LINE `n
-	; ---------------------------------------------------------------
-	LINE_CHECKER_1=This file has been modified by another program.
-	LINE_CHECKER_2=Do you want to reload it?
-	; STRIP QUOTES -- LINE_CHECKER:=StrReplace(LINE_CHECKER, """" , "")
-	; LINE_CHECKER:=StrReplace(LINE_CHECKER, """" , "")
-	
-	; TOOLTIP %OutputVar_2%`n%LINE_CHECKER_1%`n%LINE_CHECKER_2%
-		
-	ControlGettext, OutputVar_2, Static2, Reload ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-		SOUNDBEEP 4000,100
-		
-	ControlGettext, OutputVar_2, Static2, Reload ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-		ControlClick, &Yes, Reload ahk_class #32770,,,, NA x10 y10
-
-	ControlGettext, OutputVar_2, Static2, Reload ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-		ControlClick, &Yes, Reload ahk_class #32770
-
-
-RETURN
-
-
-
-TIMER_SUB_1_OLD:
 	
 DetectHiddenWindows, ON
 SetTitleMatchMode 2
@@ -2149,7 +2026,7 @@ Return
 
 TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 
-	; SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 600000 ; 10 MINUTE
+	SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 600000 ; 10 MINUTE
 
 	Process, Exist, WSCRIPT.EXE
 	If NOT ErrorLevel
@@ -2166,7 +2043,7 @@ RETURN
 
 TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER:
 
-; SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER, OFF
+SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER, OFF
 
 ; SET_GO=FALSE
 ; Process, Exist, GoogleUpdate.exe
@@ -2327,7 +2204,7 @@ IF UniqueID>0
 TIMER_SUB_HUBIC_1:
 ; -------------------------------------------------------------------
 
-	; SETTIMER TIMER_SUB_HUBIC_1, OFF
+	SETTIMER TIMER_SUB_HUBIC_1, OFF
 	
 	RETURN
 	
@@ -2372,7 +2249,7 @@ TIMER_SUB_WINDOWS_DESKTOP_ICON:
 ; ONLY AFTER TIME WHEN LOPP COME AROUND AGAIN
 ; -------------------------------------------------------------------
 
-; SETTIMER TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
+setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
 
 ;C:\Windows10Upgrade\Windows10UpgraderApp.exe /ClientID "Win10Upgrade:VNL:NHV13SIH:{}"
 
@@ -2414,7 +2291,7 @@ IfExist, %FN_VAR_1%
 	; LESS_TIMER=FALSE
 
 ; IF LESS_TIMER=TRUE
-	; ; SETTIMER TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
+	; setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,600000 ; 10 MINUTE
 	
 RETURN
 
@@ -2513,699 +2390,20 @@ Loop %ArrayCount%
 RETURN
 
 
+; ----
 
-; ^F1::
-; {
-; dhw := A_DetectHiddenWindows
-; SetTitleMatchMode 2  ; Avoids Specify Full path.
-; WinRestore, VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
-; WinRestore, EliteSpy+ ahk_class ThunderRT6FormDC
-; DetectHiddenWindows, % dhw
-; ; PAUSE
-; }
-; RETURN
-
-; -------------------------------------------------------------------
-TIMER_SUB_GOODSYNC_OPTIONS:
-
-; -------------------------------------------------------------------
-GOSUB SET_OK_BOX
-
+^F1::
+{
 dhw := A_DetectHiddenWindows
-DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
-
-
-WinGet, HWND_1, ID, ] Options ahk_class #32770
-IF HWND_1>0
-{
-	WinGet, HWND_1_EXENAME, ProcessName, ahk_id %HWND_1%
-	WinGet, HWND_2, ID, A
-	IF HWND_2=%HWND_1%
-	{
-		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
-		; Tooltip, % OutputVar ; List All Controls of Active Window
-		;---------------------------------------------------------
-		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_1%
-
-		ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
-		
-		WinGetTitle OutputVar_3,ahk_id %HWND_1%
-		
-		HWND_1_EXENAME_GoodSync_v10_exe_DONE=FALSE
-		SET_GO=FALSE
-		IF A_ComputerName=8-MSI-GP62M-7RD
-		IF HWND_1_EXENAME=GoodSync-v10.exe
-		{
-			IF OutputVar_1=2
-				SET_GO=TRUE
-			IF OutputVar_1=5
-				SET_GO=TRUE
-		}
-		IF SET_GO=TRUE
-	    IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			HWND_1_EXENAME_GoodSync_v10_exe_DONE=TRUE
-			ControlSetText, Edit9,, ahk_id %HWND_1%
-			Control, EditPaste, 4, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-
-		}
-
-		IF HWND_1_EXENAME_GoodSync_v10_exe_DONE=FALSE
-		IF HWND_1_EXENAME=GoodSync-v10.exe
-		IF OutputVar_1=2
-	    IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			ControlSetText, Edit9,, ahk_id %HWND_1%
-			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-
-		}
-		SET_GO=FALSE
-		IF HWND_1_EXENAME=GoodSync2Go.exe
-		{
-			IF OutputVar_1=1
-				SET_GO=TRUE
-			IF OutputVar_1=2
-				SET_GO=TRUE
-		}
-		IF SET_GO=TRUE
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			ControlSetText, Edit9,, ahk_id %HWND_1%
-			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		
-			
-		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
-		; ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
-		; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-		; If (OutputVar_1 = 5 and Status=1)
-		; {
-			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
-			; MouseMove, X+10, Y+10		
-			; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
-			; SoundBeep , 4000 , 100
-		; }	
-		
-		; WinGet, HWND_1, ID, ] Options ahk_class #32770
-		; TOOLTIP % OutputVar_3
-		If INSTR(OutputVar_3,"HDD HUBIC")>0 
-		{
-			ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
-			If Status=1
-			{
-				Control, UNCheck,, Button58, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-
-			; ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
-			; If Status=0
-			; {
-				; LOOP
-				; {
-					; SLEEP 50
-					; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
-					; MouseMove, X+10, Y+10
-					
-					; ControlClick, Button65,ahk_id %HWND_1%
-					; IfWinNotExist, ahk_id %HWND_1%
-						; BREAK
-					; SoundBeep , 4000 , 50
-				; }
-			; }
-		}
-		
-		
-		O_HWND_1=0
-		if O_HWND_1<>%HWND_1%
-		{
-			; ClassNN:	Button16
-			; Text:	Periodically (On Timer), every
-			ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-			ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-			If Status=0
-			{
-				Control, Check,, Button16, ahk_id %HWND_1%
-				IF OutputVar_4=1
-					SoundBeep , 4000 , 100
-			}
-		}
-
-		; {
-			; ControlGet, OutputVar_4, Visible, , Button16, ahk_id %HWND_1%
-			; ControlGet, Status, Checked,, Button16, ahk_id %HWND_1%
-			; If Status=0
-			; {
-				; Control, Check,, Button16, ahk_id %HWND_1%
-				; IF OutputVar_4=1
-					; SoundBeep , 4000 , 100
-			; }
-		; }
-		
-		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
-		
-		If (OutputVar_1 <> 80
-			and OutputVar_2="Do not Sync if changed files more than")
-			{
-				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 80,	Edit12, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-		}
-		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
-		; If Status=0
-		; {
-			; Control, Check,, Button21, ahk_id %HWND_1%
-				; SoundBeep , 4000 , 100
-		; }
-		
-		; ; PRESS SAVE WHEN SETTING OPTIONS DONE
-		; ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
-		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
-		; If (OutputVar_1 = 90 and Status=1)
-		; {
-			; ControlGetPos, x, y, , , Button65, ahk_id %HWND_1%
-			; MouseMove, X+10, Y+10		
-			; ControlClick, Button65,ahk_id %HWND_1% ; SAVE 
-			; SoundBeep , 4000 , 100
-		; }
-		
-		
-		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-		
-		If (!OutputVar_1 
-			and OutputVar_2="Wait for Locks to clear, minutes")
-			{
-				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-
-		}
-		ControlGet, Status, Checked,, Button22, ahk_id %HWND_1%
-		If Status=1
-		{
-			Control, UnCheck,, Button22, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-
-		;------------------------------------------------------------
-		; Button5 ---- Save deleted/replaced files to History f (...)
-		; Button6 ---- Cleanup _history_ folder after this many (...)
-		; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
-		;------------------------------------------------------------
-		ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
-		If Status = 1
-		{
-			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button6, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-		}
-
-		
-		;------------------------------------------------------------
-		; ---- HISTORY SET DAYS TO 30
-		;------------------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-			If Status = 1
-			{
-				ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-				ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
-				
-				If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
-				{
-						ControlSetText, Edit2,, ahk_id %HWND_1%
-						Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
-						SoundBeep , 4000 , 100
-				}
-			}
-		}
-		
-		;-----------------------------------------------------
-		; Button3
-		; Text:	Save deleted/replaced files to Recycle B (...)
-		; Button4
-		; Text:	Cleanup _saved_ folder after this many d (...)
-		;-----------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 1
-		{
-			sleep, 500
-			ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
-			ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
-			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
-				{
-					ControlSetText, Edit1,, ahk_id %HWND_1%
-					Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
-			}
-		}
-		}
-		
-		;-----------------------------------------------------
-		; CAN'T DO THIS ONE 
-		; IT'S EITHER HISTORY OR SAVED NOT BOTH
-		; WELL YOU CAN DO BUTTON4 SAVE DO-ER INFINITE
-		; Button3
-		; Text:	Save deleted/replaced files to Recycle B (...)
-		; Button4
-		; Text:	Cleanup _saved_ folder after this many d (...)
-		; Button6
-		; Cleanup _history_ folder after this many (...)
-		; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
-		;-----------------------------------------------------
-		;ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
-		;If Status = 0
-		;{
-		;	Control, Check,, Button3, ahk_id %HWND_1%
-		;	SoundBeep , 4000 , 100
-		;}
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button4, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button6, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		
-		
-		IF O_HWND_1<>%HWND_1%
-		{
-			O_Status_GSDATA=0
-		}
-		;------------------------------------------------------------
-		; ---- No _gsdata_ folder here
-		;------------------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-			If Status = 1
-			IF O_Status_GSDATA<>%Status%
-			{
-				Control, unCheck,, Button41, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-				ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-				If Status=0
-					O_Status_GSDATA=1
-			}
-		}
-		
-		;------------------------------------------------------------
-		;Button10 ---	Text:	Exclude empty folders
-		;Button11 --- Text:	Exclude Hidden files and folders
-		;Button12 -- Text:	Exclude System files and folders
-		;------------------------------------------------------------
-		Var_check=[VB EXE SYNC
-		if (SubStr(OutputVar_3, 1, 12)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button10, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button10, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button11, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button12, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-		}
-		O_HWND_1=%HWND_1%
-	}
-}
-
-;Are you sure you want to move _GSDATA_ folder back to the sync folder?
-;This option is for Advanced users and you should read the manual first.
-;Yes
-;No
-
-;WinGet, HWND_1, ID, GoodSync Warning ahk_class #32770
-WinGet, HWND_1, ID, GoodSync ahk_class #32770
-IF HWND_1>0 
-{
-	WinGet, HWND_2, ID, A
-	IF HWND_2=%HWND_1%
-	{
-		WinGetText OutputVar_3,ahk_id %HWND_1%
-
-		IfInString, OutputVar_3, Are you sure you want to move _GSDATA_
-		{
-			ControlClick, Button2,ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-
-		IfInString, OutputVar_3, Are you sure you want to keep _GSDATA_
-		{
-			ControlClick, Button2,ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-
-		WinGet, HWND_1, ID, GoodSync ahk_class #32770
-		WinGetText OutputVar_3,ahk_id %HWND_1%
-
-		IfInString, OutputVar_3, Removable drive with volume name
-		{
-			ControlClick, Yes,ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-
-
-		; We recommend not to sync to disk root folder, because:
-		; - there are limitations on how many files and folders you can have in disk root folder,
-		; - sync folder name would help you identify copy of what folder you keep in there.
-		; So we will sync to folder K:\=D_DRIVE-2TB - Backup instead. Is this Ok?
-		; Yes
-		; No
-		IfInString, OutputVar_3, We recommend not to sync to disk root folder
-		{
-			ControlClick, Button3,ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-	}
-}
+WinRestore, VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
+WinRestore, EliteSpy+ ahk_class ThunderRT6FormDC
 DetectHiddenWindows, % dhw
-Return
-
-
-; SET OKAY BOX AFTER MADE SELECTION
-SET_OK_BOX:
-{
-	RETURN
-
-	DetectHiddenWindows, ON
-	SetTitleMatchMode 3
-	IfWinExist Left Folder ahk_class #32770
-		WinActivate, Left Folder ahk_class #32770
-		; #WinActivateForce, Left Folder ahk_class #32770
-	IfWinActive Left Folder ahk_class #32770
-	{	
-		ControlGetPos, x, y, , , OK, Left Folder ahk_class #32770
-		; MouseMove, X+10, Y+10
-		ControlClick, OK, Left Folder ahk_class #32770,,,, NA x20 y20
-		SoundBeep , 2000 , 400
-	}	
-	IfWinExist Right Folder ahk_class #32770
-		WinActivate, Right Folder ahk_class #32770
-		; #WinActivateForce, Right Folder ahk_class #32770
-	IfWinActive Right Folder ahk_class #32770
-	{	
-		ControlGetPos, x, y, , , OK, Right Folder ahk_class #32770
-		; MouseMove, X+10, Y+10
-		ControlClick, OK, Right Folder ahk_class #32770,,,, NA x20 y20
-		SoundBeep , 3000 , 400
-	}	
-
-	
-	
-	DetectHiddenWindows, ON
-	SetTitleMatchMode 2
-	IfWinExist Options ahk_class #32770
-	WinActivate, Options ahk_class #32770
-	;#WinActivateForce, Options ahk_class #32770
-	; IfWinExist ] Options ahk_class #32770
-	; TOOLTIP OO
-	IfWinActive ] Options ahk_class #32770
-	{	
-		ControlGettext, OutputVar_2, Button16, ] Options ahk_class #32770
-		ControlGet, OutputVar_1, Line, 1, Edit9, ] Options ahk_class #32770
-		IF (OutputVar_2="Periodically (On Timer), every")
-		IF OutputVar_1<>5
-		{
-			ControlSetText, Edit9,, ] Options ahk_class #32770
-			Control, EditPaste, 5, Edit9, ] Options ahk_class #32770
-			SoundBeep , 4000 , 100
-		}
-
-		IF OutputVar_1=5
-		IfWinActive ] Options ahk_class #32770
-		{	
-			X=0
-			ControlGetPos, x, y, , , Button61, Options ahk_class #32770 ; SAVE BUTTON
-			; TOOLTIP % X " -- " Y
-			IF X>0
-			; MouseMove, X+10, Y+10
-			IF X>0
-			ControlClick, Button61, Options ahk_class #32770,,,, NA x10 y10
-			IF X>0
-			SoundBeep , 5000 , 400
-			X=0
-			ControlGetPos, x, y, , , Button63, Options ahk_class #32770 ; SAVE BUTTON
-			; TOOLTIP % X " -- " Y
-			IF X>0
-			; MouseMove, X+10, Y+10
-			IF X>0
-			ControlClick, Button63, Options ahk_class #32770,,,, NA x10 y10
-			IF X>0
-			SoundBeep , 5000 , 400
-		}	
-	}
-		
-	
+; PAUSE
 }
 RETURN
 
 
-
-
-;--------------------------------------------------------------------
-TIMER_SUB_GOODSYNC:
-;--------------------------------------------------------------------
-; SETTIMER TIMER_SUB_GOODSYNC, OFF
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, OFF
-SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-
-
-; GET GOODSYNC HANDLE AND THEN CHECK IF CHANGE DUE TO UPDATE HAPPEN
-; IF HAS AND THEN MINIMIZE ON CERTAIN COMPUTER
-; -------------------------------------------------------------------
-DetectHiddenWindows, ON
-SET_GO=TRUE
-IF A_ComputerName=1-ASUS-X5DIJ
-	SET_GO=TRUE
-IF A_ComputerName=2-ASUS-EEE
-	SET_GO=TRUE
-IF A_ComputerName=3-LINDA-PC
-	SET_GO=TRUE
-IF A_ComputerName=4-ASUS-GL522VW
-	SET_GO=TRUE
-IF A_ComputerName=5-ASUS-P2520LA
-	SET_GO=TRUE
-	
-IF SET_GO=TRUE
-{
-	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-
-	IF HWND_1>0 
-	{
-		If GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE <> %HWND_1%
-		{
-			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			; IF A_ComputerName=2-ASUS-EEE
-				; If MMX<>-1
-					; MSGBOX % MMX 
-			
-			If MMX<>-1
-			{
-				; -------------------------------------------------------------
-				; IF A_ComputerName=2-ASUS-EEE
-				; -------------------------------------------------------------
-				; OF HERE LOW THE END EEE ON WIN-XP IT DOESN'T TAKE THE REQUEST 
-				; TO MINIMIZE AS ONE COMMAND
-				; AND HAS TO REPEAT UNTIL DONE IT
-				; EXAMPLE LEFT WITH WINDOW UP IN MAXIMUM AND NOT ISSUE IT COMMAND TO DO MINIMIZED
-				; UNTIL REPEAT UNTIL FEW TIME AND THEN STOP
-				; [ Thursday 14:05:20 Pm_14 March 2019 ]
-				; -------------------------------------------------------------
-				WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-				SOUNDBEEP 2000,100
-				SLEEP 2000
-
-				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-				If MMX<>-1
-				{
-					HWND_1=0
-				}
-			}
-		}
-
-		; ------------------------------------------------------------------------
-		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
-		; ------------------------------------------------------------------------
-		
-		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE = %HWND_1%
-	}
-}
-
-DetectHiddenWindows, ON
-
-IF (TRUE=TRUE)
-{
-	; ---------------------------------------------------------------
-	; PROBLEM ONE COMPUTER MY MSI INTEL 7 WIN 10 
-	; HAS THAT PROCESS IS CALLED GoodSync.exe
-	; WHILE OTHER COMPUTER USE   GoodSync-v10.exe
-	; SO WE __ 19 JAN 2019 13:50
-	; ---------------------------------------------------------------
-	SET_GO=TRUE
-	Process, Exist, GoodSync-v10.exe
-	If ErrorLevel
-		SET_GO=FALSE
-	Process, Exist, GoodSync.exe
-	If ErrorLevel
-		SET_GO=FALSE
-
-	IFWINEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		SET_GO=FALSE
-	
-	IF SET_GO = TRUE
-	{
-		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			; MSGBOX HERE
-			Run, "%FN_VAR%" , , MIN
-		}
-	}
-}
-
-; -------------------------------------------------------------------
-; GoodSync Script Command to Stop in Wait using a Messenger Box
-; TO MAX AND THEN RESTORE WINDOW OF GOODSYNC WHEN GET TO END &
-; PRESS BUTTON ON MESSAGE BOX THAT INDICATED END TO ALLOW CONTINUE AGAIN
-; TRY AND GET OVER PROBLEM AND WINDOW WON'T REFRESH AFTER RUN BIG 
-; LONG JOB AFTER ABOUT ONE DAY
-; IF ANYTHING ELSE FAIL THEN RESTART GOODSYNC WHEN END OF WORK
-; RESTART WILL JUST 
-; REQUIRE CLOSE AND LINE SET ABOVE WILL DO 
-; THAT RESTART THING
-; -------------------------------------------------------------------
-; GoodSync Script Command to Stop in Wait using a Messenger Box
-
-DetectHiddenWindows, OFF
-SetTitleMatchMode 2  
-
-VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
-
-OutputVar=
-IF (A_ComputerName="7-ASUS-GL522VW") 
-{
-	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-	{
-		ControlGetText, OutputVar, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-		ControlGettext, OutputVar_2, Button1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-	}
-	IF Instr(OutputVar,"GoodSync Script Command to Stop")
-	IF INSTR(OutputVar_2,"&Yes  0")
-	{
-		WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		SLEEP 4000
-		WinRESTORE, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		SLEEP 4000
-	
-		; CLICK THE MESSENGER BOX
-		ControlClick, &Yes  0, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-		SOUNDBEEP 1500,50
-		
-		; CLOSE GOODSYNC
-		ControlGetText, OutputVar, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-		IF Instr(OutputVar,"GoodSync Script Command to Stop")=0
-		{
-			SOUNDBEEP 1500,50
-			WinClose, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		}
-	}
-}
- 	
-OutputVar=
-IF (A_ComputerName="7-ASUS-GL522VW") 
-	IFWINEXIST GoodSync ahk_class #32770
-		ControlGetText, OutputVar, Edit1, GoodSync ahk_class #32770
-		IF Instr(OutputVar,"One or more jobs are running now")
-		{
-			SoundBeep , 2000 , 100
-			SoundBeep , 1500 , 100
-			ControlClick, Button2 , ahk_class #32770 ; OK
-				
-		}
-	
-	
-IfWinExist GoodSync - Preparing Crash Report
-{
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
-}
-
-IfWinExist Reporting a Crash
-{
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	SoundBeep , 4000 , 100
-	SoundBeep , 3000 , 100
-	Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
-}
-
-;OK
-;GoodSync has crashed just now and we are sorry for that.
-;Click OK to assemble Crash Report.
-;You will be given option to submit it to Siber Systems.
-;Submitting Crash Reports helps us in fixing these crashes.
-
-IF (TRUE=FALSE)
-{
-	DetectHiddenWindows, OFF
-	IfWinExist GoodSync
-	{
-		ControlGetText, OutputVar, GoodSync has crashed just now , GoodSync
-		IF OutputVar 
-		{
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			SoundBeep , 4000 , 100
-			SoundBeep , 3000 , 100
-			ControlClick, OK, GoodSync
-			;WINHIDE
-			
-			;Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
-		}
-	}
-}
-
-DetectHiddenWindows, % dhw
-
-Return
 
 ;--------------------------------------------------------------------
 TIMER_SUB_WSCRIPT:
@@ -3226,12 +2424,12 @@ Return
 ;--------------------------------------------------------------------
 TIMER_SUB__MY_IP:
 
-; SETTIMER TIMER_SUB__MY_IP, % -1 * 1000 * 60 * 10 ; After10Minute
+setTimer TIMER_SUB__MY_IP, % -1 * 1000 * 60 * 10 ; After10Minute
 
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
-IfExist, %FN_VAR%
+FN_VAR_20:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
+IfExist, %FN_VAR_20%
 	{
-		Run, %FN_VAR%
+		Run, %FN_VAR_20%
 	}
 
 RETURN
@@ -3239,7 +2437,7 @@ RETURN
 ;--------------------------------------------------------------------
 TIMER_SUB__SendSMTP__0__LOG_BAT:
 
-; SETTIMER TIMER_SUB__SendSMTP__0__LOG_BAT, % -1 * 1000 * 60 * 60 ; 1 HOUR
+setTimer TIMER_SUB__SendSMTP__0__LOG_BAT, % -1 * 1000 * 60 * 60 ; 1 HOUR
 
 FN_VAR:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP__0__LOG.BAT"
 IfExist, %FN_VAR%
@@ -3252,11 +2450,11 @@ RETURN
 ;--------------------------------------------------------------------
 TIMER_SUB_I_VIEW32_CONVERT_CCSE:
 
-; SETTIMER TIMER_SUB_I_VIEW32_CONVERT_CCSE, % -1 * 1000 * 60 * 30 ; HALF HOUR
+setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE, % -1 * 1000 * 60 * 30 ; HALF HOUR
 
 if OSVER_N_VAR<10
 {
-	; SETTIMER TIMER_SUB_I_VIEW32_CONVERT_CCSE,off
+	setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,off
 	RETURN
 }
 
@@ -3272,7 +2470,7 @@ RETURN
 ;--------------------------------------------------------------------
 TIMER_SUB_VICE_VERSA:
 
-; SETTIMER TIMER_SUB_VICE_VERSA, % -1 * 1000 * 60 * 60 ; After1Hours
+setTimer TIMER_SUB_VICE_VERSA, % -1 * 1000 * 60 * 60 ; After1Hours
 
 VICE_VERSA_EXE=C:\Program Files\ViceVersa Pro\ViceVersa.exe
 VICE_VERSA_PATH=C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\# VV C DRIVE ROOT
@@ -3287,7 +2485,7 @@ Return
 ;----------------------------------------
 TIMER_SUB_CMD_KILL:
 
-;; SETTIMER TIMER_SUB_CMD_KILL, % -1 * 1000 * 60 * 60 ; After1Hours
+;setTimer TIMER_SUB_CMD_KILL, % -1 * 1000 * 60 * 60 ; After1Hours
 
 If (A_Now>START_CMD_KILL)
 {
@@ -3332,7 +2530,7 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
 	; }
 	
 	; ; IF (NewPID_1 = 0 and NewPID_2 =0)
-	; ; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,OFF
+	; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,OFF
 
 	; return
 	
@@ -3364,10 +2562,10 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
 			
 			; Process_Suspend("esif_uf.exe")
 			
-			; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,OFF
-			; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,OFF
-			; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR, 86400000 ; 24 HOUR ---- 3600000 ; ---- 1 HOUR
-			; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,ON
+			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,OFF
+			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,OFF
+			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR, 86400000 ; 24 HOUR ---- 3600000 ; ---- 1 HOUR
+			SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,ON
 		}
 Return
 ;--------------------------------------------------------------------
@@ -3378,9 +2576,9 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR:
 	;SoundBeep , 4000 , 100
 	;SoundBeep , 4200 , 100
 	Process_Resume("esif_assist_64.exe")
-	; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
-	; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,ON
-	; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,OFF
+	SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
+	SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,ON
+	SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,OFF
 	
 Return
 ;--------------------------------------------------------------------
@@ -3456,7 +2654,7 @@ ProcExist(PID_or_Name=""){
 TIMER_SUB_SCRIPT_SHELL_FOLDERING:
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-; SETTIMER TIMER_SUB_SCRIPT_SHELL_FOLDERING,% -1 * 1000 * 60 * 60 ; After1Hours
+setTimer TIMER_SUB_SCRIPT_SHELL_FOLDERING,% -1 * 1000 * 60 * 60 ; After1Hours
 
 ; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 13-COPY MOVE SHELL FOLDING.VBS" , , hide
 
@@ -3471,7 +2669,7 @@ Return
 ;----------------------------------------
 TIMER_SUB_LOGGER:
 
-; SETTIMER TIMER_SUB_LOGGER, % -1 * 1000 * 60 * 60 ; After24Hours
+setTimer TIMER_SUB_LOGGER, % -1 * 1000 * 60 * 60 ; After24Hours
 
 Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 31-Duplicate Cleaner Logger.BAT" , , hide
 
@@ -3492,7 +2690,7 @@ RETURN
 IF (A_ComputerName="7-ASUS-GL522VW") 
 	RETURN
 
-; SETTIMER TIMER_SUB_WINDOWS_UPDATE, % -1 * 1000 * 60 * 60 ; After24Hours
+setTimer TIMER_SUB_WINDOWS_UPDATE, % -1 * 1000 * 60 * 60 ; After24Hours
 
 OSVER_N_RESULT=0
 IF (OSVER_N_VAR = 5)  ; WIN XP
@@ -3697,7 +2895,6 @@ return
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03-INCLUDE MENU 03 of 03.ahk
 
 
-
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -3711,7 +2908,7 @@ return
 
 ; -------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
-; SETTIMER TIMER_PREVIOUS_INSTANCE,59000
+SETTIMER TIMER_PREVIOUS_INSTANCE,59000
 
 if ScriptInstanceExist()
 {
@@ -3728,6 +2925,7 @@ ScriptInstanceExist() {
 	return (match > 1)
 	}
 Return
+
 
 
 

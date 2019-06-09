@@ -220,12 +220,27 @@ OnExit("ExitFunc")
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
+; ---------------------------------------------------------------
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; 01. INTRO SETUP MENU
+; 02. THE MENU ROUTINE
+; 03. ANY ROUTINE THE MENU USE
+; ---------------------------------------------------------------
+; SAVER OF RSI INJURY AND MORE ACCURATE
+; THE INCLUDE FILE ARE SAME FOLDER
+; ---------------------------------------------------------------
+; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
+; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
+; ---------------------------------------------------------------
 ; Create the popup menu by adding some items to it.
-Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
-Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
-Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, Pause __ Debby Hall, MenuHandler  ; Creates a new menu item.
+; MenuHandler:
+; ---------------------------------------------------------------
+; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
+; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
+; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
+
+
 DEBBY_HALL_PAUSE=TRUE
 DEBBY_HALL_PAUSE=FALSE
 
@@ -308,6 +323,7 @@ FN_Array_1 := SET_ARRAY_1()
 FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
 ; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
 	
+FN_ARRAY_RAINER_F5 := SET_ARRAY_RAINER_F5()
 	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
@@ -399,6 +415,19 @@ SET_ARRAY_FB_F5() {
 	SET_ARRAY_FB_F5[ArrayCount]:="Privacy error - Google Chrome"
 RETURN SET_ARRAY_FB_F5
 }
+
+SET_ARRAY_RAINER_F5() {
+	SET_ARRAY_RAINER_F5 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_RAINER_F5[ArrayCount]:="502 Bad Gateway"
+	ArrayCount += 1
+	SET_ARRAY_RAINER_F5[ArrayCount]:="Rain Alarm - Mozilla Firefox"
+	ArrayCount += 1
+	SET_ARRAY_RAINER_F5[ArrayCount]:="Rain Alarm - Google Chrome"
+RETURN SET_ARRAY_RAINER_F5
+}
+
 
 
 ; Loop % FN_Array_1.MaxIndex()
@@ -1018,19 +1047,23 @@ AUTO_RELOAD_RAIN_ALARM:
 		
 		IF SET_GO=TRUE
 		{
-			IfWinExist, Rain Alarm - Mozilla Firefox
-			{
 
-				XR_3=Rain Alarm - Mozilla Firefox
-				IF XR_3
-				{
-					WinActivate, %XR_3%
-					WinWaitActive, %XR_3%
-					SLEEP 400
-				}
-				
-				WinMove, %XR_3%, ,x, 4, Width_2, Height_4
+			RAINER_F5_SET_GO=
+			Loop % FN_ARRAY_RAINER_F5.MaxIndex()
+			{
+				Element := FN_ARRAY_RAINER_F5[A_Index]
+				IF INSTR(TITLE_VAR,Element)
+					RAINER_F5_SET_GO=%Element%
 			}
+
+			If RAINER_F5_SET_GO
+			{
+				WinActivate, %RAINER_F5_SET_GO%
+				WinWaitActive, %RAINER_F5_SET_GO%
+				SLEEP 400
+			}
+				
+			WinMove, %RAINER_F5_SET_GO3%, ,x, 4, Width_2, Height_4
 		}
 	}
 	
@@ -1039,16 +1072,18 @@ AUTO_RELOAD_RAIN_ALARM:
 	IF SET_GO=TRUE
 	{
 	
-		XR_3=
-		IfWinExist, Rain Alarm - Google Chrome
-			XR_3=Rain Alarm - Google Chrome
-		IfWinExist, Rain Alarm - Mozilla Firefox
-			XR_3=Rain Alarm - Mozilla Firefox
-
-		IF XR_3
+		RAINER_F5_SET_GO=
+		Loop % FN_ARRAY_RAINER_F5.MaxIndex()
 		{
-			WinActivate, %XR_3%
-			WinWaitActive, %XR_3%
+			Element := FN_ARRAY_RAINER_F5[A_Index]
+			IF INSTR(TITLE_VAR,Element)
+				RAINER_F5_SET_GO=%Element%
+		}
+
+		If RAINER_F5_SET_GO
+		{
+			WinActivate, %RAINER_F5_SET_GO%
+			WinWaitActive, %RAINER_F5_SET_GO%
 			SLEEP 1000
 		}
 	}
@@ -1062,21 +1097,20 @@ AUTO_RELOAD_RAIN_ALARM:
 	IF INSTR(CLASS,"MozillaWindowClass")
 		XR_1=1
 
-	XR_2=0
-	IF INSTR(TITLE_VAR,"Rain Alarm - Google Chrome")
-		XR_2=1
-	IF INSTR(TITLE_VAR,"Rain Alarm - Mozilla Firefox")
-		XR_2=1
+	RAINER_F5_SET_GO=
+	Loop % FN_ARRAY_RAINER_F5.MaxIndex()
+	{
+		Element := FN_ARRAY_RAINER_F5[A_Index]
+		IF INSTR(TITLE_VAR,Element)
+			RAINER_F5_SET_GO=%Element%
+	}
 
 	IF XR_1>0
-		IF XR_2>0
+		If RAINER_F5_SET_GO
 		{
 			SENDINPUT {F5}
 			SOUNDBEEP 1000,50
 		}
-		
-		
-		
 		
 RETURN
 
@@ -1190,79 +1224,11 @@ AUTO_RELOAD_FACEBOOK:
 RETURN
 
 
-
 MenuHandler:
-	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
-	if A_ThisMenuItem=Terminate Script
-		Process, Close,% DllCall("GetCurrentProcessId")
-	
-	if A_ThisMenuItem=Terminate All AutoHotKey.exe
-	{
-		; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
-		DetectHiddenWindows, On 
-		WinGet, List, List, ahk_class AutoHotkey 
-		Loop %List% 
-		{ 
-			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
-			If ( PID_8 <> DllCall("GetCurrentProcessId") ) 
-				 ; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				 Process, Close, %PID_8% 
-		}		
-		Process, Close,% DllCall("GetCurrentProcessId")
-		
-		
-		;  ----------------------------------------------------------
-		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
-		; AND WE GET OVER THAT BY GO EXTRA VIA VBSCRIPT ANOTHER FILE
-		; COULD OF RUN A  LOOP AND KILL BUT TRY NOT LOSE OWN ONE FIRST
-		; [ Saturday 14:55:00 Pm_02 March 2019 ]
-		;  ----------------------------------------------------------
-
-		;  ----------------------------------------------------------
-		; OTHER OPTION SET PROCESS KILLER
-		;  ----------------------------------------------------------
-		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
-		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process, Close, AutoHotKey.exe
-		;  ----------------------------------------------------------
-	
-		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
-		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
-		; -------------------------------------------------------------------
-		; AND USED BY HERE
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; -------------------------------------------------------------------
-		; [ Saturday 14:52:10 Pm_02 March 2019 ]
-		; -------------------------------------------------------------------
-		; EDITOR COPY PASTE FROM VBS 39-KILL PROCESS.VBS
-		; THIS FILE BECAME USE BY
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
-		; ORIGINAL AT HERE LOCATION 
-		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
-		; AND MOVED HERE MAYBE 
-		; -------------------------------------------------------------------
-		; MOST LIKELY TRY AND KEEP IN SYNC LATER
-		; EXCEPT THE AUTO GENERATOR
-		; -------------------------------------------------------------------
-}
-
-if A_ThisMenuItem=Pause __ Debby Hall
-{
-	IF DEBBY_HALL_PAUSE=TRUE
-	{
-		DEBBY_HALL_PAUSE=FALSE
-		SOUNDBEEP 5000,200
-	}
-	ELSE
-	{
-		DEBBY_HALL_PAUSE=TRUE
-		SOUNDBEEP 1000,200
-	}
-}
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02-INCLUDE MENU 02 of 03.ahk
 return
+
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03-INCLUDE MENU 03 of 03.ahk
 
 
 ;# ------------------------------------------------------------------
@@ -1277,10 +1243,10 @@ return
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
-	dhw := A_DetectHiddenWindows
+	DHW_2 := A_DetectHiddenWindows
 	DetectHiddenWindows, On
 	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % dhw
+	DetectHiddenWindows, % DHW_2
 	return (match > 1)
 	}
 Return

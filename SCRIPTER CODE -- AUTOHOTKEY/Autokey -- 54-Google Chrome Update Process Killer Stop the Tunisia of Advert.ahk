@@ -66,10 +66,26 @@ OnExit("ExitFunc")
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
+; ---------------------------------------------------------------
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; 01. INTRO SETUP MENU
+; 02. THE MENU ROUTINE
+; 03. ANY ROUTINE THE MENU USE
+; ---------------------------------------------------------------
+; SAVER OF RSI INJURY AND MORE ACCURATE
+; THE INCLUDE FILE ARE SAME FOLDER
+; ---------------------------------------------------------------
+; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
+; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
+; ---------------------------------------------------------------
 ; Create the popup menu by adding some items to it.
-Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
-Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  ; Creates a new menu item.
+; MenuHandler:
+; ---------------------------------------------------------------
+; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
+; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
+; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
+
 
 
 ;# ------------------------------------------------------------------
@@ -135,62 +151,11 @@ RETURN
 
 
 MenuHandler:
-	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
-	if A_ThisMenuItem=Terminate Script
-		Process, Close,% DllCall("GetCurrentProcessId")
-	
-	if A_ThisMenuItem=Terminate All AutoHotKey.exe
-	{
-		; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
-		DetectHiddenWindows, On 
-		WinGet, List, List, ahk_class AutoHotkey 
-		Loop %List% 
-		{ 
-			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
-			If ( PID_8 <> DllCall("GetCurrentProcessId") ) 
-				 ; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				 Process, Close, %PID_8% 
-		}		
-		Process, Close,% DllCall("GetCurrentProcessId")
-		
-		;  ----------------------------------------------------------
-		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
-		; AND WE GET OVER THAT BY GO EXTRA VIA VBSCRIPT ANOTHER FILE
-		; COULD OF RUN A  LOOP AND KILL BUT TRY NOT LOSE OWN ONE FIRST
-		; [ Saturday 14:55:00 Pm_02 March 2019 ]
-		;  ----------------------------------------------------------
-
-		;  ----------------------------------------------------------
-		; OTHER OPTION SET PROCESS KILLER
-		;  ----------------------------------------------------------
-		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
-		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process, Close, AutoHotKey.exe
-		;  ----------------------------------------------------------
-	
-		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
-		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
-		; -------------------------------------------------------------------
-		; AND USED BY HERE
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; -------------------------------------------------------------------
-		; [ Saturday 14:52:10 Pm_02 March 2019 ]
-		; -------------------------------------------------------------------
-		; EDITOR COPY PASTE FROM VBS 39-KILL PROCESS.VBS
-		; THIS FILE BECAME USE BY
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
-		; ORIGINAL AT HERE LOCATION 
-		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
-		; AND MOVED HERE MAYBE 
-		; -------------------------------------------------------------------
-		; MOST LIKELY TRY AND KEEP IN SYNC LATER
-		; EXCEPT THE AUTO GENERATOR
-		; -------------------------------------------------------------------
-}
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02-INCLUDE MENU 02 of 03.ahk
 return
+
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03-INCLUDE MENU 03 of 03.ahk
+
 
 ;# ------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:
@@ -204,10 +169,10 @@ return
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
-	dhw := A_DetectHiddenWindows
+	DHW_2 := A_DetectHiddenWindows
 	DetectHiddenWindows, On
 	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % dhw
+	DetectHiddenWindows, % DHW_2
 	return (match > 1)
 	}
 Return
