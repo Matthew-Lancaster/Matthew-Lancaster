@@ -2198,6 +2198,7 @@ IF SET_DONE=TRUE
 ; WinMinimize  ahk_id %table%
 
 GOSUB OUTLOOK_RUN_AND_MIN
+GOSUB CHROME_RUN_AND_MIN
 	
 RETURN
 
@@ -2211,8 +2212,46 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-
 OUTLOOK_RUN_AND_MIN:
+			
+	SET_DONE=FALSE
+	IF (A_ComputerName = "7-ASUS-GL522VW") 
+	{	
+		Process, Exist, chrome.exe
+		If ErrorLevel=0  ; errorlevel will = 0 if process doesn't exist
+		{
+			; ahk_class rctrl_renwnd32
+			FN_VAR:="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+			Run, "%FN_VAR%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
+			SoundBeep , 2500 , 100
+			SET_DONE=TRUE
+		}
+	}
+
+	IF SET_DONE=TRUE 
+	{
+		style_CHROME=-2
+		WinWait, ahk_class Chrome_WidgetWin_1
+		EXIT_LOOP=10 ; ---- DO A FEW MIGHT AS WELL
+		LOOP
+		{
+			WinMinimize ahk_class Chrome_WidgetWin_1
+			WinGet style_CHROME, MinMax, ahk_class Chrome_WidgetWin_1
+			SoundBeep , 2500 , 100
+			;1 maximized 0 normal -1 minimized
+			If style_CHROME=-1
+			{
+				EXIT_LOOP-=1
+				IF EXIT_LOOP<0
+					BREAK
+			}
+			SLEEP 50
+		}
+	}
+RETURN
+
+
+CHROME_RUN_AND_MIN:
 			
 	SET_DONE=FALSE
 	IF (A_ComputerName = "7-ASUS-GL522VW") 
