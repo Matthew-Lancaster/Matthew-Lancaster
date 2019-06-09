@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -292,7 +292,7 @@ Begin VB.Form Form1
       Locked          =   -1  'True
       TabIndex        =   28
       Top             =   24
-      Width           =   7410
+      Width           =   7452
    End
    Begin VB.Timer Timer_ALWAYS_ON_TOP_TO_START_WITH_ER 
       Interval        =   1000
@@ -629,15 +629,35 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
+   Begin VB.Label Label_CLOSE_OUTLOOK 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "CLOSE OUTLOOK"
+      Height          =   216
+      Left            =   7524
+      TabIndex        =   150
+      Top             =   3408
+      Width           =   1476
+   End
+   Begin VB.Label Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "KILL && RUN ANOTHER AHK"
+      Height          =   216
+      Left            =   6288
+      TabIndex        =   149
+      Top             =   1236
+      Width           =   2232
+   End
    Begin VB.Label Label_MAXIMIZE_CLIPBOARD_LOGGER 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "MAX CLIPPER"
       Height          =   216
-      Left            =   7656
+      Left            =   7668
       TabIndex        =   148
-      Top             =   1476
-      Width           =   1476
+      Top             =   1716
+      Width           =   1500
    End
    Begin VB.Label Label_CLOSE_GOODSYNC2GO 
       Alignment       =   2  'Center
@@ -646,8 +666,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   147
-      Top             =   2748
-      Width           =   2856
+      Top             =   2916
+      Width           =   1992
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC2GO 
       Alignment       =   2  'Center
@@ -656,8 +676,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   146
-      Top             =   1824
-      Width           =   2856
+      Top             =   2232
+      Width           =   1788
    End
    Begin VB.Label Label_MAXIMIZE_ELITE_SPY 
       Alignment       =   2  'Center
@@ -666,7 +686,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6264
       TabIndex        =   145
-      Top             =   1476
+      Top             =   1716
       Width           =   1368
    End
    Begin VB.Label Label10 
@@ -677,7 +697,7 @@ Begin VB.Form Form1
       Left            =   8328
       TabIndex        =   144
       Top             =   540
-      Width           =   804
+      Width           =   840
    End
    Begin VB.Label Label15 
       Alignment       =   2  'Center
@@ -761,7 +781,7 @@ Begin VB.Form Form1
       TabIndex        =   138
       ToolTipText     =   "PUSH ME TO SHOW LISTVIEW INFO"
       Top             =   6420
-      Width           =   804
+      Width           =   840
    End
    Begin VB.Label Label_GOODSYNC_04_HOUR 
       Alignment       =   2  'Center
@@ -834,7 +854,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   133
       Top             =   5040
-      Width           =   2844
+      Width           =   2880
    End
    Begin VB.Label Label42 
       Alignment       =   2  'Center
@@ -852,17 +872,17 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   127
       Top             =   5292
-      Width           =   2844
+      Width           =   2880
    End
    Begin VB.Label Label_KILL_CMD_AND_AHK 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CMD* && AH&K*"
       Height          =   216
-      Left            =   7332
+      Left            =   7632
       TabIndex        =   126
-      Top             =   3780
-      Width           =   1800
+      Top             =   4080
+      Width           =   1524
    End
    Begin VB.Label Label_KILL_CMD 
       Alignment       =   2  'Center
@@ -871,7 +891,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   125
-      Top             =   3780
+      Top             =   3852
       Width           =   1044
    End
    Begin VB.Label Label_8M 
@@ -882,7 +902,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   124
       Top             =   4788
-      Width           =   480
+      Width           =   516
    End
    Begin VB.Label Label_7G 
       Alignment       =   2  'Center
@@ -948,21 +968,22 @@ Begin VB.Form Form1
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CHROME"
-      Height          =   204
-      Left            =   7764
+      Height          =   216
+      Left            =   7356
       TabIndex        =   117
-      Top             =   3276
-      Width           =   1368
+      Top             =   3852
+      Width           =   1404
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET_NETWORK 
       Alignment       =   2  'Center
       BackColor       =   &H00808080&
       Caption         =   "RUN AUTOHOTKEY NETWORK"
+      ForeColor       =   &H00C0FFFF&
       Height          =   216
       Left            =   6276
       TabIndex        =   116
-      Top             =   1224
-      Width           =   2856
+      Top             =   1464
+      Width           =   2568
    End
    Begin VB.Image Image1 
       Height          =   384
@@ -986,7 +1007,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   114
       Top             =   4560
-      Width           =   2856
+      Width           =   2892
    End
    Begin VB.Label LABEL_KILL_NOT_RESPOND 
       Alignment       =   2  'Center
@@ -996,7 +1017,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   113
       Top             =   4332
-      Width           =   2856
+      Width           =   2892
    End
    Begin VB.Label Label_TASK_KILLER_CMD 
       Alignment       =   2  'Center
@@ -1005,8 +1026,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   112
-      Top             =   4020
-      Width           =   2856
+      Top             =   4080
+      Width           =   1320
    End
    Begin VB.Label Label_CLOSE_HWND 
       Alignment       =   2  'Center
@@ -1023,10 +1044,10 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL EXPLORER"
       Height          =   192
-      Left            =   7236
+      Left            =   7260
       TabIndex        =   110
-      Top             =   3492
-      Width           =   1896
+      Top             =   3636
+      Width           =   1800
    End
    Begin VB.Label Label_KILL_HUBIC 
       Alignment       =   2  'Center
@@ -1035,7 +1056,7 @@ Begin VB.Form Form1
       Height          =   192
       Left            =   6276
       TabIndex        =   109
-      Top             =   3492
+      Top             =   3636
       Width           =   948
    End
    Begin VB.Label Label_GOODSYNC_COLLECTION_SCRIPT_RUN 
@@ -1045,8 +1066,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   108
-      Top             =   2976
-      Width           =   2856
+      Top             =   3144
+      Width           =   2892
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
       Alignment       =   2  'Center
@@ -1055,8 +1076,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   107
-      Top             =   2520
-      Width           =   2856
+      Top             =   2688
+      Width           =   1584
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
@@ -1086,7 +1107,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   104
       Top             =   5928
-      Width           =   2844
+      Width           =   2880
    End
    Begin VB.Label Label_MINIMIZE_GOODSYNC 
       Alignment       =   2  'Center
@@ -1095,8 +1116,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   103
-      Top             =   2292
-      Width           =   2856
+      Top             =   2460
+      Width           =   1764
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
       Alignment       =   2  'Center
@@ -1105,18 +1126,18 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   102
-      Top             =   2064
-      Width           =   2856
+      Top             =   2004
+      Width           =   1428
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "RUN AUTOHOTKEY.EXE"
+      Caption         =   "RUN AHK"
       Height          =   216
       Left            =   6276
       TabIndex        =   101
       Top             =   996
-      Width           =   2856
+      Width           =   936
    End
    Begin VB.Label Label_KILL_AUTOHOTKEY 
       Alignment       =   2  'Center
@@ -1126,7 +1147,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   100
       Top             =   768
-      Width           =   2856
+      Width           =   2016
    End
    Begin VB.Label Label64 
       Alignment       =   2  'Center
@@ -1386,12 +1407,12 @@ Begin VB.Form Form1
    Begin VB.Label Label_KILL_WSCRIPT 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "KILL WSCRIPT.EXE"
-      Height          =   204
+      Caption         =   "KILL WSCRIPT"
+      Height          =   216
       Left            =   6276
       TabIndex        =   78
-      Top             =   3276
-      Width           =   1476
+      Top             =   3408
+      Width           =   1212
    End
    Begin VB.Label Label29 
       Alignment       =   2  'Center
@@ -1401,7 +1422,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   77
       Top             =   288
-      Width           =   2856
+      Width           =   2892
    End
    Begin VB.Label lblCordi 
       Alignment       =   2  'Center
@@ -1419,7 +1440,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   74
       Top             =   5616
-      Width           =   2844
+      Width           =   2880
    End
    Begin VB.Label Label3 
       Caption         =   "Manage Window _ hWnd:"
@@ -2159,6 +2180,9 @@ Option Explicit
 ' VARIABL DECLARE BLOCK FROM VB_KEEP_RUNNER
 ' ------------------------------------------------------------------
 
+' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
+Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
 Dim DO_ONCE_BOOTER
 
 Dim OLD_hWnd_WINAMP_GetWindowState
@@ -2199,7 +2223,6 @@ Dim LISTVIEW_2_OR_3_HITT
 
 Dim QUICK_KEY_ESCPAPE_AT_LOAD_20_SECOND
 
-Const DontWaitUntilFinished = False, WaitUntilFinished = True, ShowWindow_2 = 1, DontShowWindow = 0
 
 Dim TIMER_GO_COMPUTER_START
 
@@ -3481,6 +3504,14 @@ ARRAY_CB(LDAC) = "Label_CLOSE_GOODSYNC2GO"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_MAXIMIZE_CLIPBOARD_LOGGER"
 LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_OUTLOOK"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 
 Test = "_1X_2E_3L_4G_5P_7G_8M"
@@ -3506,6 +3537,8 @@ For Each Control In Me.Controls
         End If
     Next
 Next
+
+Label_RUN_AUTOHOTKEY_SET_NETWORK.BackColor = &H808080
 
 End Sub
 
@@ -5105,6 +5138,22 @@ Call MNU_CLOSE_GOODSYNC_2_GO_Click
 
 End Sub
 
+Private Sub Label_CLOSE_OUTLOOK_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_CLOSE_OUTLOOK.BackColor = RGB(255, 255, 255)
+
+Dim hWnd_RESULT
+hWnd_RESULT = FindWindow("rctrl_renwnd32", vbNullString)
+If hWnd_RESULT > 0 Then
+    Result = PostMessage(hWnd_RESULT, WM_CLOSE, 0&, 0&)
+End If
+
+Me.WindowState = vbMinimized
+Beep
+
+End Sub
+
 Private Sub Label_GOODSYNC_01_Click()
 ' -------------------------------------------------------------------------------
 ' SESSION AT [__ Ver_2019_1.0.279 __]
@@ -5206,6 +5255,19 @@ If hWnd_RESULT > 0 Then
     
     Me.WindowState = vbMinimized
 End If
+
+End Sub
+
+Private Sub Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY.BackColor = RGB(255, 255, 255)
+
+Call KILL_AUTOHOTKEY_GLOBAL
+
+Sleep 1000
+
+Call MNU_AUTOHOTKEYS_SET_Click
 
 End Sub
 
@@ -5334,9 +5396,14 @@ End Sub
 Private Sub Label_RUN_AUTOHOTKEY_SET_NETWORK_Click()
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_RUN_AUTOHOTKEY_SET_NETWORK.BackColor = RGB(255, 255, 255)
 
-Call RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_03_OF_04
+Label_RUN_AUTOHOTKEY_SET_NETWORK.BackColor = RGB(255, 255, 255)
+Label_RUN_AUTOHOTKEY_SET_NETWORK.BackColor = &H808080
+
+' Call RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_03_OF_04
+
+MsgBox "TRY NOT TO RUN AT MOMENT WORK IN PROGRESS" + vbCrLf + vbCrLf + "Label_RUN_AUTOHOTKEY_SET_NETWORK"
+
 
 End Sub
 
@@ -5508,7 +5575,7 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
     End If
     
     If XX_hWnd = 0 Then
-        'Const DontWaitUntilFinished = False, WaitUntilFinished = True, ShowWindow_2 = 1, DontShowWindow = 0
+        ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
         Dim WSHShell
         Set WSHShell = CreateObject("WScript.Shell")
             WSHShell.Run """" + FN_VAR_1 + """", DontShowWindow, DontWaitUntilFinished
@@ -5930,9 +5997,10 @@ Beep
 End Sub
 
 Private Sub MNU_STOP_GOODSYNC_SCRIPTOR_Click()
+' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
-objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 74-GOODSYNC STOP JOB WORKER.ahk""", 0, True
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 74-GOODSYNC STOP JOB WORKER.ahk""", ShowWindow_2, DontWaitUntilFinished
 Set objShell = Nothing
 Me.WindowState = vbMinimized
 End Sub
@@ -6618,6 +6686,12 @@ Private Sub Label_KILL_AUTOHOTKEY_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_AUTOHOTKEY.BackColor = RGB(255, 255, 255)
 
+Call KILL_AUTOHOTKEY_GLOBAL
+
+End Sub
+
+Sub KILL_AUTOHOTKEY_GLOBAL()
+
 SET_COMPUTER_TO_RUN_PID_EXE = "AutoHotkey.exe"
 If SET_COMPUTER_TO_RUN <> "" Then
     Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
@@ -6627,6 +6701,8 @@ End If
 
 Dim R, A1, A2
 
+' DO 1ST FOR SPEEDER
+
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
@@ -6635,27 +6711,40 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     End If
 Next
 
+Dim EXECUTE_KILL_1
+Dim EXECUTE_KILL_2
+Dim EXECUTE_KILL_COUNTER
+Do
+    ' DO EXTRA FOR A GOOD MESSURE
+    Call EnumProcess
+    EXECUTE_KILL_1 = False
+    EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
+    For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+        If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (pid)
+            EXECUTE_KILL_1 = True
+            EXECUTE_KILL_2 = True
+        End If
+    Next
+
+Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > 100
+
+If EXECUTE_KILL_COUNTER > 100 Then
+    MsgBox "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST AFTER 1-0 RETRY", vbMsgBoxSetForeground
+End If
+
+If EXECUTE_KILL_2 = True Or 1 = 1 Then
+    ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+    Dim objShell
+    Set objShell = CreateObject("Wscript.Shell")
+    objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk""", DontShowWindow, DontWaitUntilFinished
+    Set objShell = Nothing
+End If
 
 
-
-
-''PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
-'PROCESS_TO_KILLER = "AUTOHOTKEY.EXE"
-''PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
-'
-''Label22.Caption = "TASKKILLER BY PID NUMBER __ # " + PROCESS_TO_KILLER_PID
-'Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
-'
-''PROCESS_TO_KILLER PID
-'Label29_Click
-'
-''PROCESS_TO_KILLER PID
-''Label22_Click
-'
-''PROCESS_TO_KILLER /F * /T
-'Label57.Caption = "COMMAND LINE STATUS__ " + "TASKKILL /F /IM """ + Replace(UCase(PROCESS_TO_KILLER), ".EXE", "") + "*"" /T"
-'
-'Label23_Click
+' Me.WindowState = vbMinimized
 
 
 End Sub
@@ -7215,9 +7304,10 @@ Label23_Click
 End Sub
 
 Private Sub MNU_AUTOHOTKEY_STARTING_Click()
+' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
-objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk""", 0, True
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk""", ShowWindow_2, DontWaitUntilFinished
 Set objShell = Nothing
 Me.WindowState = vbMinimized
 End Sub
@@ -7424,6 +7514,7 @@ Private Sub MNU_VB_ME_Click()
     '------------------------------------------------------
     'ADD MICROSFOT SCRIPTING RUNTIME FOR HERE IN REFERENCES
     '------------------------------------------------------
+    ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
     CODER_VBP_FILE_NAME_2 = App.Path + "\" + App.EXEName + ".VBP"
@@ -7534,6 +7625,7 @@ End Function
 
 Private Sub MNU_VB_SYNCRONIZER_Click()
     Dim RUN_EXE
+    ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
     Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
     RUN_EXE = "D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.exe"
@@ -12618,7 +12710,9 @@ Sub MOUSE_HOOVER_SLECTION_CLICKER()
 ' ----------------------------------------------------------------
 ' CAP 1ST LETTER
 ' ----------------------------------------------------------------
+If PROCESS_TO_KILLER <> "" Then
 Mid(PROCESS_TO_KILLER, 1, 1) = UCase(Mid(PROCESS_TO_KILLER, 1, 1))
+End If
 
 Label22.Caption = "TASKKILLER BY PID NUMBER __ # " + PROCESS_TO_KILLER_PID
 Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
@@ -12727,7 +12821,7 @@ SET_GO_CONTROL_LEFT_F1 = True
 End If
 If GetAsyncKeyState(112) < 0 And SET_GO_CONTROL_LEFT_F1 = True Then
     If Me.WindowState = vbMinimized Then
-        Me.WindowState = vbNormal ' vbMaximized
+        ' Me.WindowState = vbNormal ' vbMaximized
         SET_GO_CONTROL_LEFT_F1 = False
     End If
 End If
