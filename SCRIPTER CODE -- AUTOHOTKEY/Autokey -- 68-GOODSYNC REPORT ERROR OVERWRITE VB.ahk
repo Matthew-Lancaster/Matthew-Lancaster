@@ -55,14 +55,26 @@ OnExit("ExitFunc")
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
+; ---------------------------------------------------------------
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; 01. INTRO SETUP MENU
+; 02. THE MENU ROUTINE
+; 03. ANY ROUTINE THE MENU USE
+; ---------------------------------------------------------------
+; SAVER OF RSI INJURY AND MORE ACCURATE
+; THE INCLUDE FILE ARE SAME FOLDER
+; ---------------------------------------------------------------
+; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
+; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
+; ---------------------------------------------------------------
 ; Create the popup menu by adding some items to it.
-Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, Terminate Script, MenuHandler  ; Creates a new menu item.
-Menu, Tray, Add, Terminate All AutoHotKey.exe, MenuHandler  
-Menu, Tray, Add  ; Creates a separator line.
-Menu, Tray, Add, KILL   ALL NETWORK - VB CODE.exe, MenuHandler 
-Menu, Tray, Add, RELOAD ALL NETWORK - VB CODE.exe, MenuHandler 
-Menu, Tray, Add  ; Creates a separator line.
+; MenuHandler:
+; ---------------------------------------------------------------
+; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
+; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
+; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
+
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
@@ -364,221 +376,11 @@ DetectHiddenWindows, % dhw
 Return
 
 
-
 MenuHandler:
-	; MsgBox You selected %A_ThisMenuItem% from the menu %A_ThisMenu%.
-	MNU_CODE:=A_ThisMenuItem
-	
-	; MNU_CODE=RELOAD ALL NETWORK - VB CODE.exe
-	; MNU_CODE=KILL   ALL NETWORK - VB CODE.exe
-	; TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
-
-	; ---------------------------------------------------------------
-	; ---------------------------------------------------------------
-	if MNU_CODE=Terminate Script
-		Process, Close,% DllCall("GetCurrentProcessId")
-	
-	; ---------------------------------------------------------------
-	; ---------------------------------------------------------------
-	if MNU_CODE=Terminate All AutoHotKey.exe
-	{
-		Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
-		
-		;  ----------------------------------------------------------
-		; PROBLEM HERE IF PROGRAM THAT CALL THE BATCH FILE IS KILL SO IS THEN BATCH FILE
-		; AND WE GET OVER THAT BY GO EXTRA VIA VBSCRIPT ANOTHER FILE
-		; COULD OF RUN A  LOOP AND KILL BUT TRY NOT LOSE OWN ONE FIRST
-		; [ Saturday 14:55:00 Pm_02 March 2019 ]
-		;  ----------------------------------------------------------
-
-		;  ----------------------------------------------------------
-		; OTHER OPTION SET PROCESS KILLER
-		;  ----------------------------------------------------------
-		; Run, BAT_03_PROCESS_KILLER.BAT /F /IM AutoHotKey.exe /T , , Max
-		; Run, %ComSpec% /k ""BAT_03_PROCESS_KILLER.BAT" "/F" "/IM" "AutoHotKey.exe" "/T"" , , Max
-		; Process, Close, AutoHotKey.exe
-		;  ----------------------------------------------------------
-	
-		; AUTO GENERATED FILE BY HERE VISUAL BASIC ORIGINAL LONG BEFORE AUTOHOTKEY WANT
-		; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
-		; D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
-		; -------------------------------------------------------------------
-		; AND USED BY HERE
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; -------------------------------------------------------------------
-		; [ Saturday 14:52:10 Pm_02 March 2019 ]
-		; -------------------------------------------------------------------
-		; EDITOR COPY PASTE FROM VBS 39-KILL PROCESS.VBS
-		; THIS FILE BECAME USE BY
-		; LOT OF AUTOHOTKEYS TRAY MENU ITEM
-		; AND THEY USE IT HERE THIS ONE
-		; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
-		; ORIGINAL AT HERE LOCATION 
-		; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 39-KILL PROCESS.VBS
-		; AND MOVED HERE MAYBE 
-		; -------------------------------------------------------------------
-		; MOST LIKELY TRY AND KEEP IN SYNC LATER
-		; EXCEPT THE AUTO GENERATOR
-		; -------------------------------------------------------------------
-	}
-
-	; ---------------------------------------------------------------
-	; ---------------------------------------------------------------
-	if MNU_CODE=RELOAD ALL NETWORK - VB CODE.exe
-	{
-		GOSUB RELOAD_ALL_NET___VB_CODE_EXE_SUB
-	}
-	
-	; ---------------------------------------------------------------
-	; ---------------------------------------------------------------
-	if MNU_CODE=KILL   ALL NETWORK - VB CODE.exe
-	{
-		GOSUB KILL_ALL_NET_VB_CODE_EXE_01
-
-	}
-	
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02-INCLUDE MENU 02 of 03.ahk
 return
 
-RELOAD_ALL_NET___VB_CODE_EXE_SUB:
-
-		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
-		
-		ArrayCount = 0
-		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
-		{
-			NET_PATH:=A_LoopReadLine
-			
-			SET_GO=TRUE
-			IF INSTR(NET_PATH,"BTHUB")
-				SET_GO=FALSE
-			IF INSTR(NET_PATH,"NAS-QNAP-ML")
-				SET_GO=FALSE
-			IF SET_GO=TRUE
-			{
-				ArrayCount += 1
-				Array_NETPATH_01%ArrayCount% = %NET_PATH%
-				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
-				ELEMENT1=\\
-				ELEMENT2:=Array_NETPATH_01%ArrayCount%
-				ELEMENT3=\
-				ELEMENT4:=Array_NETPATH_02%ArrayCount%
-				ELEMENT5=%FileName_2%
-				NET_PATH:=A_LoopReadLine
-				ELEMENT7=_%NET_PATH%.TXT
-
-				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-			}
-		}
-
-		Loop %ArrayCount%
-		{
-			FileDelete, % Array_FileName%A_Index%
-			SOUNDBEEP 1000,100
-		}
-		SOUNDBEEP 2000,100
-
-RETURN
- 
-
-
-KILL_ALL_NET_VB_CODE_EXE_01:
-		
-		FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
-		
-		ArrayCount = 0
-		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
-		{
-			NET_PATH:=A_LoopReadLine
-			
-			SET_GO=TRUE
-			IF INSTR(NET_PATH,"BTHUB")
-				SET_GO=FALSE
-			IF INSTR(NET_PATH,"NAS-QNAP-ML")
-				SET_GO=FALSE
-			IF SET_GO=TRUE
-			{
-				ArrayCount += 1
-				Array_NETPATH_01%ArrayCount% = %NET_PATH%
-				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
-				ELEMENT1=\\
-				ELEMENT2:=Array_NETPATH_01%ArrayCount%
-				ELEMENT3=\
-				ELEMENT4:=Array_NETPATH_02%ArrayCount%
-				ELEMENT5=%FileName_2%
-				NET_PATH:=A_LoopReadLine
-				ELEMENT7=_%NET_PATH%.TXT
-
-				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-			}
-		}
-
-		Loop %ArrayCount%
-		{
-			file := FileOpen(Array_FileName%A_Index%, "w")
-			if !IsObject(file)
-			{
-				MsgBox Can't open "%FileName%" for writing.
-				return
-			}
-			TestString := "This is a test string.`r`n"  
-			file.Write(TestString)
-			file.Close()
-			SOUNDBEEP 1000,100
-		}
-		SOUNDBEEP 2000,100
-
-RETURN
-
-
-TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE:
-
-	dhw := A_DetectHiddenWindows
-	DetectHiddenWindows, OFF
-	SetTitleMatchMode 2  ; Avoids the need to specify the full path
-
-	FileName_2=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE_%A_ComputerName%.TXT
-	
-	NET_PATH = %A_ComputerName%
-
-	ELEMENT1=\\
-	ELEMENT2=%NET_PATH%
-	NET_PATH := StrReplace(NET_PATH, "-", "_")
-	ELEMENT3=\
-	ELEMENT4=%NET_PATH%
-	ELEMENT5=%FileName_2%
-
-	FileName_2 =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%
-	
-	FileExist_FLAG=FALSE
-	if FileExist(FileName_2)
-		FileExist_FLAG=TRUE
-		
-	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
-		IF FileExist(FileName_2)
-		{
-		
-			WINCLOSE EliteSpy+ by Andrea B 2001 __
-			WINCLOSE VB_KEEP_RUNNER
-			WINCLOSE INDIVIDUAL PROCESS _ Ver
-			
-			; Process, Close, VB_KEEP_RUNNER.exe
-		}		
-
-	; IF FileExist_FLAG<>%OLD_FileExist_FLAG%
-		IF !FileExist(FileName_2)
-		{
-		
-			GOSUB TIMER_SUB_EliteSpy
-			GOSUB TIMER_SUB_VB_KEEP_RUNNER
-			; GOSUB TIMER_SUB_CPU_INDIVIDUAL_PROCESS
-			
-		}		
-		
-	OLD_FileExist_FLAG=%FileExist_FLAG%
-
-DetectHiddenWindows, % dhw
-	
-RETURN
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03-INCLUDE MENU 03 of 03.ahk
 
 
 ;# ------------------------------------------------------------------
@@ -593,10 +395,10 @@ return
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion
-	dhw := A_DetectHiddenWindows
+	DHW_2 := A_DetectHiddenWindows
 	DetectHiddenWindows, On
 	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % dhw
+	DetectHiddenWindows, % DHW_2
 	return (match > 1)
 	}
 Return

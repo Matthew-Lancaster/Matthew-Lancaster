@@ -40,7 +40,7 @@
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
-Const DontWaitUntilFinished = false, WaitUntilFinished = true, ShowWindow = 1, DontShowWindow = 0
+Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
 DIM STOP_PROGRESS
 DIM IX_ERROR_MESSENGER

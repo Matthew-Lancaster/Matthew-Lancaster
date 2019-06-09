@@ -11,8 +11,7 @@
 ' CONVERT WITH IrfanView TO MAKE GOOGLE ABLE TO DISPLAY
 '-----------------------------------------------------------------
 
-Const DontWaitUntilFinished = false, WaitUntilFinished = true, ShowWindow = 1, DontShowWindow = 0
-
+Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 ' -------------------------------------------------------------------
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
 ' SOURCE GIVEN
