@@ -262,9 +262,14 @@ Private Sub Timer_PIR_Timer()
         
 Dim FSO
 On Error Resume Next
-If Me.MSComm3.PortOpen = False Then Exit Sub
+TTITTY = " __ Port " + Format(Me.MSComm3.CommPort, "00") + " ___ PIR"
+If Me.MSComm3.PortOpen = False Then
+    Debug.Print "PIR ____ " + Time$ + " Me.MSComm3.PortOpen = False" + TTITTY
+    Exit Sub
+End If
+
 VAR_DSR_3 = Me.MSComm3.DSRHolding
-Debug.Print "PIR ____ " + Time$ + " " + Str(VAR_DSR_3)
+Debug.Print "PIR ____ " + Time$ + " " + Str(VAR_DSR_3) + TTITTY
 If Err.Number > 0 Or Err.Number = 8002 Then
     TIMER_1.Enabled = True
     VAR_DSR_3 = True
@@ -313,9 +318,15 @@ Sub TIMER_FRONT_DOOR_TIMER()
 
 Dim STRING_VAR As String
 
-If Me.MSComm4.PortOpen = False Then Exit Sub
+TTITTY = " __ Port " + Format(Me.MSComm4.CommPort, "00") + " ___ DOOR"
+
+If Me.MSComm4.PortOpen = False Then
+    Debug.Print "DOOR ___ " + Time$ + " Me.MSComm4.PortOpen = False" + TTITTY
+    Exit Sub
+End If
+
 VAR_DSR_4 = Me.MSComm4.DSRHolding
-' Debug.Print Time$ + " " + Str(VAR_DSR_3)
+Debug.Print "DOOR ___ " + Time$ + " " + Str(VAR_DSR_3) + TTITTY
 On Error Resume Next
 If Me.MSComm4.PortOpen = False Then
     VAR_DSR_4 = False
