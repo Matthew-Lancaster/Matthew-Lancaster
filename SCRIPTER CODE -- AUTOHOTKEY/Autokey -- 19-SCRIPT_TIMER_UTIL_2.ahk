@@ -265,6 +265,7 @@ ID_2=0
 OLD_HUBIC_STATUS_MAX=0
 OLD_CHROME_ID_STR=
 OLD_EXPLORER_ID_STR=
+OLD_AUTORUNS_ID_STR=
 
 SETTIMER HIGHER_SPEED,100
 
@@ -396,6 +397,32 @@ HIGHER_SPEED:
 				}
 			}
 		}
+		
+		SetTitleMatchMode 3  ; Specify EXACT path
+		; -----------------------------------------------------------
+		; Autoruns
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		IfWinActive ahk_class Autoruns
+		{
+			ID_STRING= -- %id%
+			IF INSTR(OLD_AUTORUNS_ID_STR,ID_STRING)=0
+			{
+				WinMaximize, AHK_ID %id%
+				OLD_AUTORUNS_ID_STR=%OLD_AUTORUNS_ID_STR% -- %id%
+				Length := StrLen(OLD_AUTORUNS_ID_STR)
+				; ---------------------------------------------------
+				; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
+				; ---------------------------------------------------
+				WHILE Length>10*10
+				{
+					StringTrimRIGHT, OLD_AUTORUNS_ID_STR, OLD_AUTORUNS_ID_STR, 10
+					Length := StrLen(OLD_AUTORUNS_ID_STR)
+				}
+			}
+		}
+		
+		
 	}
 	OLD_id=%id%
 
