@@ -1,3 +1,44 @@
+;  =============================================================
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-LOAD URL AT BOOT CHROME.ahk
+;# __ 
+;# __ Autokey -- 79-LOAD URL AT BOOT CHROME.ahk
+;# __ 
+;# __ BY Matthew Lancaster 
+;# __ Matt.Lan@Btinternet.com
+;# __ 
+;  =============================================================
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 01
+; -------------------------------------------------------------------
+; WANT TO SEPARATE THIS ONE SO ABLE RUN FROM MY CODE MENU OPTION
+; -------------------------------------------------------------------
+; FROM __ Fri 07-Jun-2019 07:16:33
+; TO   __ Fri 07-Jun-2019 08:51:00
+; -------------------------------------------------------------------
+
+
+#noEnv
+; #persistent
+#singleInstance force
+detectHiddenWindows, on
+setWorkingDir %a_scriptDir%
+; #NoTrayIcon
+
+; -------------------------------------------------------------------
+; CODE INITIALIZE
+; -------------------------------------------------------------------
+SoundBeep , 1500 , 400
+; SetStoreCapslockMode, off
+
+
+GOSUB CHROME_RUN_AND_MIN
+
+EXITAPP
+
+RETURN
+
 
 CHROME_RUN_AND_MIN:
 			
