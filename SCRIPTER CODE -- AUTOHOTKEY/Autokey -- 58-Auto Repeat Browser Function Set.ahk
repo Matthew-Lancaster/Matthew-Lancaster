@@ -1011,19 +1011,17 @@ AUTO_RELOAD_RAIN_ALARM:
 		{
 			; msgbox % x "x " y "y " width_2 "w " height
 			x=%Width%
-			x+=2
-			Width_2=%A_ScreenWidth%
-			Width_2-=%X%
-			Width_2-=5
+			; x+=2
+			;x+=1
 		}
 
 		if !Width
 		{
-			x=1
-			Width_2=%A_ScreenWidth%
-			Width_2-=%X%
-			Width_2-=5
+			;x=1
 		}
+		Width_2=%A_ScreenWidth%
+		Width_2-=%X%
+		; Width_2-=2
 
 		WinGet, active_id, ID, ahk_class Shell_TrayWnd
 		if active_id
@@ -1033,7 +1031,8 @@ AUTO_RELOAD_RAIN_ALARM:
 
 		if Y_4>0 
 		{
-			Y_4-=4
+			;Y_4-=4
+			;Y_4-=1
 		}
 
 		if !Y_4
@@ -1041,7 +1040,8 @@ AUTO_RELOAD_RAIN_ALARM:
 			Y_4=%A_ScreenHeight%
 		}
 		Height_4=%Y_4%
-		Height_4-=12
+		; Height_4-=12
+		; Height_4-=2
 		
 		; (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 		
@@ -1062,8 +1062,8 @@ AUTO_RELOAD_RAIN_ALARM:
 				WinWaitActive, %RAINER_F5_SET_GO%
 				SLEEP 400
 			}
-				
-			WinMove, %RAINER_F5_SET_GO3%, ,x, 4, Width_2, Height_4
+			
+			WinMove, %RAINER_F5_SET_GO3%, ,x, -2, Width_2, Height_4
 		}
 	}
 	
@@ -1116,6 +1116,7 @@ RETURN
 
 AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY:
 	AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
+	SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY,OFF
 RETURN
 
 AUTO_RELOAD_FACEBOOK_QUICK_SUB:
@@ -1138,7 +1139,10 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	{
 		Element := FN_ARRAY_FB_F5[A_Index]
 		IF INSTR(TITLE_VAR,Element)
+		{
 			AUTO_RELOAD_FACEBOOK_VAR=1
+			BREAK
+		}
 	}
 	
 	; ---------------------------------------------------------------
@@ -1148,24 +1152,29 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	; YES WORKER FIRST TIME
 	; ---------------------------------------------------------------
 	IF INSTR(TITLE_VAR,"Colour")
-		AUTO_RELOAD_FACEBOOK_VAR=1
-		
-		
-	IF OLD_AUTO_RELOAD_FACEBOOK_VAR<>%AUTO_RELOAD_FACEBOOK_VAR%
-	IF AUTO_RELOAD_FACEBOOK_VAR=0
 	{
-		AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=TRUE
-		SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY, 4000
-	}
+		AUTO_RELOAD_FACEBOOK_VAR=0
+		RETURN
+	}	
+		
+	; IF OLD_AUTO_RELOAD_FACEBOOK_VAR<>%AUTO_RELOAD_FACEBOOK_VAR%
+		; IF AUTO_RELOAD_FACEBOOK_VAR=1
+		; {
+			; AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=TRUE
+			; SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY, 4000
+			; ; WHEN PAGE SWAP DELAY A LITTLE BEFORE ACTION F5
+		; }
 		
 	IF OLD_AUTO_RELOAD_FACEBOOK_VAR<>%AUTO_RELOAD_FACEBOOK_VAR%
 		IF AUTO_RELOAD_FACEBOOK_VAR=1
 			IF AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
 			{
+				; SLEEP 2000
 				SENDINPUT {F5}
-				SLEEP 4000
+				; SLEEP 2000
 				AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=TRUE
 				SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY, 10000
+				; AFTER ISSUE F5 DELAY IS LONGER
 			}
 		
 	OLD_AUTO_RELOAD_FACEBOOK_VAR=%AUTO_RELOAD_FACEBOOK_VAR%
