@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11916
-   ScaleWidth      =   22944
+   ScaleHeight     =   10116
+   ScaleWidth      =   12864
    Begin VB.FileListBox File_GOODSYNC 
       Height          =   264
       Left            =   11505
@@ -628,6 +628,16 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       NumItems        =   0
+   End
+   Begin VB.Label Label_CHROME_PAGE_AUTO_ON 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "CHROME PAGE"
+      Height          =   216
+      Left            =   7896
+      TabIndex        =   151
+      Top             =   2004
+      Width           =   1284
    End
    Begin VB.Label Label_CLOSE_OUTLOOK 
       Alignment       =   2  'Center
@@ -3511,7 +3521,7 @@ ARRAY_CB(LDAC) = "Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_CLOSE_OUTLOOK"
 LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
+ARRAY_CB(LDAC) = "Label_CHROME_PAGE_AUTO_ON"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 LDAC = LDAC + 1
@@ -4970,6 +4980,8 @@ Loop Until FW_P = 0 Or XNOW < Now
 objShell.Run "C:WINDOWS\EXPLORER.EXE", 0, False
 Set objShell = Nothing
     
+Me.WindowState = vbMinimized
+    
 End Sub
 
 
@@ -5132,12 +5144,29 @@ SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 End Sub
 
+Private Sub Label_CHROME_PAGE_AUTO_ON_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_CHROME_PAGE_AUTO_ON.BackColor = RGB(255, 255, 255)
+
+' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+Dim objShell
+Set objShell = CreateObject("Wscript.Shell")
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-LOAD URL AT BOOT CHROME.ahk""", DontShowWindow, DontWaitUntilFinished
+Set objShell = Nothing
+
+Me.WindowState = vbMinimized
+
+End Sub
+
 Private Sub Label_CLOSE_GOODSYNC2GO_Click()
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_CLOSE_GOODSYNC2GO.BackColor = RGB(255, 255, 255)
 
 Call MNU_CLOSE_GOODSYNC_2_GO_Click
+
+Me.WindowState = vbMinimized
 
 End Sub
 
@@ -5356,6 +5385,8 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     End If
 Next
 
+Me.WindowState = vbMinimized
+
 End Sub
 
 Private Sub Label_MAXIMIZE_CLIPBOARD_LOGGER_Click()
@@ -5405,7 +5436,7 @@ Label_RUN_AUTOHOTKEY_SET_NETWORK.BackColor = &H808080
 
 ' Call RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_03_OF_04
 
-MsgBox "TRY NOT TO RUN AT MOMENT WORK IN PROGRESS" + vbCrLf + vbCrLf + "Label_RUN_AUTOHOTKEY_SET_NETWORK"
+MsgBox "TRY NOT TO RUN AT MOMENT WORK IN PROGRESS _ NOT RUN" + vbCrLf + vbCrLf + "Label_RUN_AUTOHOTKEY_SET_NETWORK"
 
 
 End Sub
@@ -5632,6 +5663,9 @@ Private Sub Label_TASK_KILLER_CMD_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_TASK_KILLER_CMD.BackColor = RGB(255, 255, 255)
 Call MNU_TASK_KILLER_CMD_Click
+
+Me.WindowState = vbMinimized
+
 End Sub
 
 
@@ -5668,6 +5702,9 @@ Private Sub LABEL_KILL_NOT_RESPOND_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 LABEL_KILL_NOT_RESPOND.BackColor = RGB(255, 255, 255)
 Call MNU_KILL_NOT_RESPOND_TOP_Click
+
+Me.WindowState = vbMinimized
+
 End Sub
 
 
@@ -5676,6 +5713,8 @@ Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 LABEL_KILL_NOT_RESPOND_FORCE.BackColor = RGB(255, 255, 255)
 
 Call MNU_TASK_KILLER_NOT_RESPONDER_FORCE_Click
+
+Me.WindowState = vbMinimized
 
 End Sub
 
@@ -5722,6 +5761,7 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     End If
 Next
 
+Me.WindowState = vbMinimized
 
 End Sub
 
@@ -5823,6 +5863,8 @@ Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_CLOSE_GOODSYNC.BackColor = RGB(255, 255, 255)
 
 Call MNU_CLOSE_GOODSYNC_Click
+
+Me.WindowState = vbMinimized
 
 End Sub
 
@@ -6084,6 +6126,8 @@ Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_GOODSYNC_COLLECTION_SCRIPT_RUN.BackColor = RGB(255, 255, 255)
 
 Call MNU_GOODSYNC_COLLECTION_SCRIPT_RUN_Click
+
+Me.WindowState = vbMinimized
 
 End Sub
 
@@ -6691,6 +6735,8 @@ Label_KILL_AUTOHOTKEY.BackColor = RGB(255, 255, 255)
 
 Call KILL_AUTOHOTKEY_GLOBAL
 
+'Me.WindowState = vbMinimized
+
 End Sub
 
 Sub KILL_AUTOHOTKEY_GLOBAL()
@@ -7005,6 +7051,8 @@ Label_RUN_AUTOHOTKEY_SET.BackColor = RGB(255, 255, 255)
 
 Call MNU_AUTOHOTKEYS_SET_Click
 
+Me.WindowState = vbMinimized
+
 End Sub
 
 
@@ -7302,6 +7350,8 @@ Label29_Click
 Label57.Caption = "COMMAND LINE STATUS__ " + "TASKKILL /F /IM """ + Replace(UCase(PROCESS_TO_KILLER), ".EXE", "") + "*"" /T"
 
 Label23_Click
+
+Me.WindowState = vbMinimized
 
 
 End Sub
