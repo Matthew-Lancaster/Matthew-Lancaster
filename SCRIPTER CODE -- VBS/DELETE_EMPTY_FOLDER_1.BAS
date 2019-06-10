@@ -46,11 +46,18 @@ i = "I:\"
 i = "D:\VIDEO"
 i = "D:\VB6-EXE"
 i = "D:\VB6-EXE"
+i = "O:\5P"
 
-Call FindFiles(i, "*.EXE", True)
-End
+
+'Call FindFiles(i, "*.EXE", True)
+'End
 
 Call DeleteEmptyFolders(i)
+
+Stop
+Exit Sub
+
+
 i = "\\1-asus-x5dij\1_asus_x5dij_02_d_drive\VB6-EXE"
 Call DeleteEmptyFolders(i)
 i = "\\2-asus-eee\2_asus_eee_02_d_drive\VB6-EXE"
