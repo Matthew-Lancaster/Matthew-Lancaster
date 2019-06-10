@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10116
-   ScaleWidth      =   12864
+   ScaleHeight     =   11916
+   ScaleWidth      =   22944
    Begin VB.FileListBox File_GOODSYNC 
       Height          =   264
       Left            =   11505
@@ -2061,6 +2061,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_GIVER_ME_UPTIME 
       Caption         =   "GIVE ME UPTIME"
       Visible         =   0   'False
+   End
+   Begin VB.Menu MNU_LAUNCH_AUTORUNS_SET_BOOT 
+      Caption         =   "AUTOHOTKEY BOOT"
    End
    Begin VB.Menu MNU_CLIPBOARDER_REPLACE_ER_AND 
       Caption         =   "CLIPBOARD REPLACE ""AND"""
@@ -7632,6 +7635,18 @@ Private Sub MNU_VB_SYNCRONIZER_Click()
     objShell.Run """" + RUN_EXE + """", 1, False
     Set objShell = Nothing
 End Sub
+
+Private Sub MNU_LAUNCH_AUTORUNS_SET_BOOT_Click()
+' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+Dim objShell
+Set objShell = CreateObject("Wscript.Shell")
+
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk""", ShowWindow_2, DontWaitUntilFinished
+    
+Set objShell = Nothing
+Me.WindowState = vbMinimized
+End Sub
+
 
 Private Sub ONE_MILLISECOND_Timer_Timer()
 

@@ -2201,12 +2201,22 @@ GOSUB OUTLOOK_RUN_AND_MIN
 GOSUB CHROME_RUN_AND_MIN
 
 
+
+; -------------------------------------------------------------------
 ; E:\01 Start Menu\#_1-ASUS-X5DIJ\Programs\Startup\Set FUJIFILM PC AutoSave to stby.lnk
-MSGBOX %A_Startup%
-PAUSE
-FN_VAR_LNK:=%A_Startup%\Set FUJIFILM PC AutoSave to stby.lnk
-AttributeString := FileExist(FN_VAR_EXE)
-		IF !AttributeString
+; -------------------------------------------------------------------
+FN_VAR_LNK=%A_Startup%\Set FUJIFILM PC AutoSave to stby.lnk
+AttributeString := FileExist(FN_VAR_LNK)
+IF AttributeString
+	FileDelete, %FN_VAR_LNK%
+; -------------------------------------------------------------------
+FN_VAR_LNK=%A_StartupCommon%\Set FUJIFILM PC AutoSave to stby.lnk
+AttributeString := FileExist(FN_VAR_LNK)
+IF AttributeString
+	FileDelete, %FN_VAR_LNK%
+; -------------------------------------------------------------------
+
+
 	
 	
 RETURN
@@ -2228,10 +2238,24 @@ CHROME_RUN_AND_MIN:
 	; IF (A_ComputerName = "4-ASUS-GL522VW") 
 		; RETURN
 		
-	SET_DONE=FALSE
-	Process, Exist, chrome.exe
+	; Process, Exist, chrome.exe
 	; If ErrorLevel=0  ; errorlevel will = 0 if process doesn't exist
-	; {
+	
+	AUTO_RELOAD_FACEBOOK_VAR=0
+	Element=Your Notifications - Google Chrome
+	WinGetTITLE, TITLE_VAR, %Element% ahk_class Chrome_WidgetWin_1
+	IF INSTR(TITLE_VAR,Element)
+		AUTO_RELOAD_FACEBOOK_VAR=1
+	Element=Rain Alarm - Google Chrome
+	WinGetTITLE, TITLE_VAR, %Element% ahk_class Chrome_WidgetWin_1
+	IF INSTR(TITLE_VAR,Element)
+		AUTO_RELOAD_FACEBOOK_VAR=1
+		
+	; MSGBOX % AUTO_RELOAD_FACEBOOK_VAR " -- " Element
+
+	SET_DONE=FALSE
+	IF AUTO_RELOAD_FACEBOOK_VAR=0
+	{
 		; ahk_class rctrl_renwnd32
 		FN_VAR_EXE:="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 		AttributeString := FileExist(FN_VAR_EXE)
@@ -2264,10 +2288,10 @@ CHROME_RUN_AND_MIN:
 		Run, "%FN_VAR_EXE%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
 		SoundBeep , 2500 , 100
 		SET_DONE=TRUE
-	; }
+	}
 	
 	
-	SET_DONE=FALSE
+	SET_DONE=TRUE
 	IF SET_DONE=TRUE 
 	{
 		style_CHROME=-2
@@ -2275,11 +2299,12 @@ CHROME_RUN_AND_MIN:
 		EXIT_LOOP=10 ; ---- DO A FEW MIGHT AS WELL
 		LOOP
 		{
-			WinMinimize ahk_class Chrome_WidgetWin_1
+			; WinMinimize ahk_class Chrome_WidgetWin_1
+			WinMAXIMIZE ahk_class Chrome_WidgetWin_1
 			WinGet style_CHROME, MinMax, ahk_class Chrome_WidgetWin_1
 			SoundBeep , 2500 , 100
 			;1 maximized 0 normal -1 minimized
-			If style_CHROME=-1
+			If style_CHROME=1
 			{
 				EXIT_LOOP-=1
 				IF EXIT_LOOP<0
