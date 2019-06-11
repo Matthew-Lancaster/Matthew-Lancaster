@@ -37,6 +37,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
 ; -------------------------------------------------------------------
 
+
+
 ; -------------------------------------------------------------------
 ; Register a function to be called on exit:
 OnExit("ExitFunc")
@@ -224,27 +226,21 @@ RETURN
 ; -------------------------------------------------------------------
 ; [ Tuesday 07:21:30 Am_11 June 2019 ]
 ; [ Tuesday 07:38:00 Am_11 June 2019 ]
+; [ Tuesday 08:17:00 Am_11 June 2019 ]
 ; -------------------------------------------------------------------
 
-; THIS METHOD DO THE CASE PROPER
+; THIS METHOD DO THE CASE INSENSITIVE PROPER
 ; -------------------------------------------------------------------
-; ::n`;t::
-; MESSENGER_KEY=n't
-; SENDINPUT %MESSENGER_KEY%
-; RETURN
+::n`;t::
+	SENDINPUT n't
+RETURN
 
-; AFTER escape it with an accent I CAN;T USE COMMAND AFTER IN ONE LINE
-; NOT DOCUMENTED
-; ::n`;t::
-; SENDINPUT n't
-; RETURN
-
-
-::nt::SENDINPUT n't
-
-
-
-
+; -------------------------------------------------------------------
+; HOTKEY ABLE TO DO ONE LINER BUT HOTSTRING NOT
+; NOT WORKER
+; -------------------------------------------------------------------
+; ::nt::SENDINPUT n't  
+; -------------------------------------------------------------------
 
 
 ; THIS METHOD NOT THE CASE PROPER
@@ -260,6 +256,28 @@ RETURN
 	; SENDINPUT n't
 ; RETURN
 ; ::+n`;+t::N'T
+; -------------------------------------------------------------------
+
+; OTHER WAY PAIR TO DO IT WITH CASE SENSITIVE ON
+; WORKER
+; -------------------------------------------------------------------
+; :C:n`;t::
+; :C:N`;T::
+	; SENDINPUT n't
+; RETURN
+
+; OTHER WAY PAIR TO DO IT WITH CASE SENSITIVE ON
+; WORKER
+; -------------------------------------------------------------------
+; :C:n`;t::
+	; SENDINPUT n't
+; RETURN
+; :C:N`;T::
+	; SENDINPUT n't
+; RETURN
+; -------------------------------------------------------------------
+
+
 
 
 
