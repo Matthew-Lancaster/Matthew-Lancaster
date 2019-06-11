@@ -203,10 +203,70 @@ GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
 RETURN
 
+; ::N&SC027::
+; MESSENGER_KEY=n'
+; GOSUB STRING_INVERT_MESSENGER
+; SENDINPUT %MESSENGER_KEY%
+; RETURN
+
+
+; -------------------------------------------------------------------
+; Setting a Semicolon as a Hotkey? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/3423-setting-a-semicolon-as-a-hotkey/
+; ----
+; SEMICOLON
+; You can also escape it with an accent:
+; -------------------------------------------------------------------
+; I KEEP SPELLER __ DON;T AND WOULDN;T __ RATHER THAN
+;                __ DON'T AND WOULDN'T __
+; -------------------------------------------------------------------
+; LAZY KEYBOARD
+; -------------------------------------------------------------------
+; [ Tuesday 07:21:30 Am_11 June 2019 ]
+; [ Tuesday 07:38:00 Am_11 June 2019 ]
+; -------------------------------------------------------------------
+
+; THIS METHOD DO THE CASE PROPER
+; -------------------------------------------------------------------
+; ::n`;t::
+; MESSENGER_KEY=n't
+; SENDINPUT %MESSENGER_KEY%
+; RETURN
+
+; AFTER escape it with an accent I CAN;T USE COMMAND AFTER IN ONE LINE
+; NOT DOCUMENTED
+; ::n`;t::
+; SENDINPUT n't
+; RETURN
+
+
+::nt::SENDINPUT n't
+
+
+
+
+
+
+; THIS METHOD NOT THE CASE PROPER
+; -------------------------------------------------------------------
+; ::n`;t::n't
+; ::+n`;+t::N'T
+
+; THIS METHOD DO THE CASE PROPER
+; TRY THIS METHOD DONE MY HEAD IN
+; -------------------------------------------------------------------
+; ::n`;t::
+; IF GetKeyState("Capslock", "T")=0
+	; SENDINPUT n't
+; RETURN
+; ::+n`;+t::N'T
+
+
 
 STRING_INVERT_MESSENGER:
 	IF GetKeyState("Capslock", "T")
 	{
+		TOOLTIP % YES ON
 		 Lab_Invert_Char_Out:= ""
 		 Loop % Strlen(MESSENGER_KEY) {
 			Lab_Invert_Char:= Substr(MESSENGER_KEY, A_Index, 1)
