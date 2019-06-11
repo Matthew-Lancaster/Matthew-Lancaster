@@ -288,6 +288,14 @@ SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 ;SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 
 TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
+	; ---------------------------------------------------------------
+	; THIS ROUTINE CODE USER IN TWO PROJECT 
+	; MIGHT AS WELL TWO AS ONE CLOSED DOWN WHILE WORK CODE
+	; OTHER KEEP STUFF RUNNING
+	; ---------------------------------------------------------------
+	; 01 Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
+	; 02 Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+	; ---------------------------------------------------------------
 
 	LINE_CHECKER_1=Could not close the previous instance of this script.
 	LINE_CHECKER_2=Keep waiting?
@@ -297,29 +305,38 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 	VAR_GET:=WINEXIST("Autokey ahk_class #32770")
 	IF !VAR_GET
 		RETURN 
-	WinGet, list, List, Autokey ahk_class #32770
-	Loop %list% {
-		hwnd := list%A_Index%
-		SetTitleMatchMode, 2
-		ControlGettext, OutVar_2, Static2, ahk_id %hwnd%
+	LOOP 2 {
+		IF A_Index=1 
+			STATIC_CONTROL=Static1
+		IF A_Index=2
+			STATIC_CONTROL=Static2
+		WinGet, list, List, Autokey ahk_class #32770
+		Loop %list% {
+			hwnd := list%A_Index%
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			; TOOLTIP % " -- " OutVar_2
 
-		IF INSTR(OutVar_2,LINE_CHECKER_1)>0
-		IF INSTR(OutVar_2,LINE_CHECKER_2)>0
-		{
-			SOUNDBEEP 4000,100
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+			IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+			{
+				SOUNDBEEP 4000,100
+				ControlClick, Button2, ahk_id %hwnd%,,,, NA x10 y10
+			}
+			; -------------------------------------------------------
+			; GET THE CONTROL AGAIN BECAUSE IF SUCCESSFULLY 
+			; KILL 1ST TIME DON'T WANT TO HITT ON NOTHING
+			; BETTER QUICKER METHOD CHECK -- WANT
+			; IF CHECK EASIER REMOVE TWO LINE SET OF CODE TO ONE
+			; -------------------------------------------------------
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+			IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+			{
+				SOUNDBEEP 4000,100
+				ControlClick, Button2, ahk_id %hwnd%
+			}
 		}
-			
-		MSGBOX % OutVar_2
-		ControlGettext, OutVar_2, Static2,  ahk_id %hwnd%
-		IF INSTR(OutVar_2,LINE_CHECKER_1)>0
-		IF INSTR(OutVar_2,LINE_CHECKER_2)>0
-		{
-			ControlClick, Button2, ahk_id %hwnd%,,,, NA x10 y10
-		}
-		ControlGettext, OutVar_2, Static2,  ahk_id %hwnd%
-		IF INSTR(OutVar_2,LINE_CHECKER_1)>0
-		IF INSTR(OutVar_2,LINE_CHECKER_2)>0
-			ControlClick, Button2, ahk_id %hwnd%
 	}
 RETURN
 
