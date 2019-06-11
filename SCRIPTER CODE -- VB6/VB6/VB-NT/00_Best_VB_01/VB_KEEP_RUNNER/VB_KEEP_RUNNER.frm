@@ -3122,6 +3122,19 @@ End Function
 
 
 Private Sub Form_Load()
+    
+    ' CODE MOD
+    ' COUNT BACKSLASHER
+    ' --------------------------------------------------------------------
+'    X1 = "D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (3)"
+'    X2 = "D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (3)\20190611"
+'    X3 = "D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (3)\20190611\A3"
+'    X4 = Len(X1) - Len(Replace(X1, "\", ""))
+'    X5 = Len(X2) - Len(Replace(X2, "\", ""))
+'    a = a
+'
+'    End
+
 
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
     Dim i As String
