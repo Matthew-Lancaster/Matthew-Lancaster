@@ -9,6 +9,14 @@ SetWorkingDir %A_ScriptDir%
 SetStoreCapslockMode, off
 
 SoundBeep , 1500 , 400
+
+O_ID=0
+OLD_id=0
+OLD_Title_VAR=0
+OLD_STATE_CAP=0
+OutputVar_4=0
+SETTIMER WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON,100
+
 RETURN
 
 ; -------------------------------------------------------------------
@@ -23,17 +31,82 @@ RETURN
 	SENDINPUT n't
 RETURN
 
-
-
-
-
-
-
 ; :*:hima::
 ; MESSENGER_KEY=Hi Marianne and Eddie
 ; GOSUB STRING_INVERT_MESSENGER
 ; SENDINPUT %MESSENGER_KEY%
 ; RETURN
+
+
+
+WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
+
+	id := WinExist("A")
+	WinGetTitle, Title_VAR, ahk_id %id%
+	; WinGetCLASS, CLASS_VAR, ahk_id %id%
+	
+	SET_GO_CAP_PUTTER=FALSE
+	IF OLD_id<>%id% 
+		SET_GO_CAP_PUTTER=TRUE
+	IF Title_VAR<>%OLD_Title_VAR%
+		SET_GO_CAP_PUTTER=TRUE
+	
+	IF SET_GO_CAP_PUTTER=TRUE
+	{
+		SetTitleMatchMode 3  ; Specify Full path
+		IfWinActive mysms - Google Chrome ahk_class Chrome_WidgetWin_1
+		{
+			SetCapsLockState ,OFF
+		}
+		IfWinActive ahk_class Notepad++
+		{
+			SetCapsLockState ,ON
+		}
+		SetTitleMatchMode 2  ; PARTIAL PATH
+		IfWinActive eBay
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,ON
+		}
+		IfWinActive Your Notifications
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,OFF
+		}
+		IfWinActive Matthew Lancaster
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,OFF
+		}
+		IfWinActive Facebook
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,OFF
+		}
+		IfWinActive New Tab - Google Chrome
+		IfWinActive  - Google Chrome
+		{
+			SetCapsLockState ,ON
+		}
+		
+		STATE_CAP := GetKeyState("CapsLock", "T") ; True if CapsLock is ON, false otherwise.
+		IF OLD_STATE_CAP<>%STATE_CAP%
+		{
+		IF STATE_CAP=1
+			SOUNDBEEP 4000,200
+		IF STATE_CAP=0
+			SOUNDBEEP 1000,200
+		}
+		
+		OLD_STATE_CAP=%STATE_CAP%
+		
+	}
+	OLD_id=%id%
+	OLD_Title_VAR=%Title_VAR%
+
+RETURN
+
+
 
 
 ; -------------------------------------------------------------------
