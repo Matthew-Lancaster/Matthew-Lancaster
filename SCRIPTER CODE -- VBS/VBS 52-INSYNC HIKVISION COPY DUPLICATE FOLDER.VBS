@@ -6,7 +6,7 @@
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
 '# START     TIME [ Tue 11-Jun-2019 13:25:39 ]
-'# END FINAL TIME [ Tue 11-Jun-2019 13:25:39 ]
+'# END FINAL TIME [ Tue 11-Jun-2019 15:00:00 ]
 '# __ 
 '====================================================================
 
@@ -15,9 +15,10 @@
 ' -------------------------------------------------------------------
 '#-------------------------------------------------------------------
 ' SESSION 001 __ CREATED
+' 2 HOUR AND 35 MINUTE TO COMPLETE ANOTHER PROJECT IN
 ' -------------------------------------------------------------------
 '# START     TIME [ Tue 11-Jun-2019 13:25:39 ]
-'# END FINAL TIME [ Tue 11-Jun-2019 13:25:39 ]
+'# END FINAL TIME [ Tue 11-Jun-2019 15:00:00 ]
 '#-------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
@@ -49,9 +50,6 @@
 ' __ DATE BEGINNER AND ENDER ----------------------------------------
 ' -------------------------------------------------------------------
 ' THIS WILL COPY SOURCE TO TARGET AND OPTION DELETE AFTER 
-' FOR
-' DESKTOP
-' SENDTO
 ' -------------------------------------------------------------------
 
 DIM DELETE_AFTER
@@ -163,10 +161,10 @@ FOR RV=1 TO 2
 			'MSGBOX objFolder.Files.Count
 			
 			If objFolder.SubFolders.Count > 0 Then 
+				 
+				CALL COPY_FOLDER_ONE_UP_ROOT_LEVEL
 				
-				CALL USERS_DESKTOP
-				
-				' MSGBOX FOLDER_STRING
+				MSGBOX FOLDER_STRING
 				' fso.DeleteFolder objFolder.Path
 				' IF FSO.FOLDERExists(FOLDER_STRING) THEN
 				' 	fso.DeleteFolder FOLDER_STRING
@@ -253,74 +251,19 @@ End Function
 WScript.Quit 0
 
 '-------------------------------------
-Sub USERS_DESKTOP
+Sub COPY_FOLDER_ONE_UP_ROOT_LEVEL
 '-------------------------------------
 	DELETE_AFTER=TRUE
 	obj_SOURCE_Folder = FOLDER_STRING
-	obj_TARGET_Folder = TARGET_STRING+"\"
+	obj_TARGET_Folder = TARGET_STRING ' +"\"
+	
+	' MSGBOX obj_SOURCE_Folder+VBCRLF +obj_TARGET_Folder
 
 	SET_GO=TRUE
 	If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
 	If objFSO.FOLDERExists(obj_TARGET_Folder) = FALSE Then SET_GO=FALSE
-
-	IF SET_GO=TRUE THEN 
-		Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-		Call ShowSubfolders (objSuperFolder)
-	END IF
-END SUB
-
-'-------------------------------------
-Sub USERS_SEND_TO
-'-------------------------------------
-FOR R_X=1 TO 5
-	DELETE_AFTER=TRUE
-	XX=CSTR(R_X)
-	IF LEN(XX)=1 THEN XX="0"&XX
-	IF R_X >0 THEN obj_SOURCE_Folder = "C:\Users\MATT "&XX&"\AppData\Roaming\Microsoft\Windows\SendTo"
-	obj_TARGET_Folder = "E:\01 SendTo\#_"&ComputerName&"\"
-
-	SET_GO=TRUE
-	If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
-	If objFSO.FOLDERExists(obj_TARGET_Folder) = FALSE Then SET_GO=FALSE
-
-	IF SET_GO=TRUE THEN 
-		Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-		Call ShowSubfolders (objSuperFolder)
-	END IF
-NEXT
-END SUB
-
-'-------------------------------------
-Sub USERS_START_MENU
-'-------------------------------------
-FOR R_X=1 TO 5
-	DELETE_AFTER=FALSE
-	XX=CSTR(R_X)
-	IF LEN(XX)=1 THEN XX="0"&XX
-	IF R_X >0 THEN obj_SOURCE_Folder = "C:\Users\MATT "&XX&"\AppData\Roaming\Microsoft\Windows\Start Menu"
-	obj_TARGET_Folder = "E:\01 Start Menu\#_"&ComputerName&"\"
-
-	SET_GO=TRUE
-	If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
-	If objFSO.FOLDERExists(obj_TARGET_Folder) = FALSE Then SET_GO=FALSE
-
-	IF SET_GO=TRUE THEN 
-		Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-		Call ShowSubfolders (objSuperFolder)
-	END IF
-NEXT
-END SUB
-
-'-------------------------------------
-Sub USERS_PROGRAM_DATA_START_MENU
-'-------------------------------------
-	DELETE_AFTER=TRUE
-	obj_SOURCE_Folder = "C:\ProgramData\Microsoft\Windows\Start Menu"
-	obj_TARGET_Folder = "E:\01 Start Menu\#_"&ComputerName&"\"
-
-	SET_GO=TRUE
-	If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
-	If objFSO.FOLDERExists(obj_TARGET_Folder) = FALSE Then SET_GO=FALSE
+	
+	' MSGBOX SET_GO
 
 	IF SET_GO=TRUE THEN 
 		Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
@@ -333,19 +276,31 @@ Sub ShowSubFolders(fFolder)
 '-------------------------------------
     Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
-    For Each objFile in colFiles
-		SET_GO=TRUE
-		If INSTR(objFolder.name, "_gsdata_")>0 Then SET_GO=FALSE
-		If INSTR(objFile.name, "desktop.ini")>0 Then SET_GO=FALSE
-		IF SET_GO=TRUE THEN 
-			ERR.CLEAR
-			ON ERROR RESUME NEXT
-			objFSO.CopyFile objFile.PATH, obj_TARGET_Folder
-			IF DELETE_AFTER=TRUE AND ERR.NUMBER=0 THEN 
-				' objFSO.DELETEFILE objFile.PATH
-			END IF
-		End If
-    Next
+    
+	SET_GO=FALSE
+
+	' --------------------------------------
+	' COUNT BACKSLASH 
+	' --------------------------------------
+	' WANT ONLY FOLDER THAT ARE ONE UP FROM ROOT OF PATH REQUEST COPIER
+	' --------------------------------------
+    X1 = obj_SOURCE_Folder
+    X2 = objFolder.PATH
+	X1 = Len(X1) - Len(Replace(X1, "\", ""))
+    X2 = Len(X2) - Len(Replace(X2, "\", ""))
+
+	IF X1+1=X2 THEN SET_GO=TRUE
+	
+	IF SET_GO=TRUE THEN 
+		ERR.CLEAR
+		ON ERROR RESUME NEXT
+
+		objFSO.COPYFOLDER objFolder.PATH, obj_TARGET_Folder+"\"+objFolder.NAME
+		
+		IF DELETE_AFTER=TRUE AND ERR.NUMBER=0 THEN 
+			objFSO.DELETEFOLDER objFolder.PATH
+		END IF
+	End If
 	
     For Each Subfolder in fFolder.SubFolders
         ShowSubFolders(Subfolder)
@@ -384,10 +339,4 @@ SUB GET_WINDOWS_VERSION
 	' Source: 	Microsoft VBScript runtime error
 	' ---------------------------
 END SUB
-
-
-'-------------------------------------
-' JUNK 
-'-------------------------------------
-'Set objSuperFolder = objFSO.GetFolder(WScript.Arguments(0))
 
