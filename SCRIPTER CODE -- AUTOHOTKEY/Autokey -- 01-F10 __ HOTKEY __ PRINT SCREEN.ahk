@@ -199,7 +199,7 @@ RETURN
 ; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
 ; must type an ending character after typing btw, such as Space, ., or Enter).
 
-::hima::
+:*:hima::
 MESSENGER_KEY=Hi Marianne and Eddie
 GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
@@ -229,11 +229,19 @@ RETURN
 ; [ Tuesday 08:17:00 Am_11 June 2019 ]
 ; -------------------------------------------------------------------
 
-; THIS METHOD DO THE CASE INSENSITIVE PROPER
 ; -------------------------------------------------------------------
-::n`;t::
+; THIS METHOD DO THE CASE INSENSITIVE PROPER
+; ADD THEN ASTERISK AND NONE REQUIRE SPACE BEFORE OR AFTER 
+; ASTERISK STILL REQUIRE SPACE BEFORE
+; TRY ?
+; USE BOTH LIKE HERE
+; -------------------------------------------------------------------
+:*?:n`;t::
 	SENDINPUT n't
 RETURN
+
+
+
 
 ; -------------------------------------------------------------------
 ; HOTKEY ABLE TO DO ONE LINER BUT HOTSTRING NOT
