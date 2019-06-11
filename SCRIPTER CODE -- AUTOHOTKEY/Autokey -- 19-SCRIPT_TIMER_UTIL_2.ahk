@@ -293,8 +293,14 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 	LINE_CHECKER_2=Keep waiting?
 
 	SetTitleMatchMode 2  ; Specify PARTIAL path
+	VAR_GET:=WINEXIST("Autokey ahk_class #32770")
+	IF !VAR_GET
+		RETURN 
+		
 	ControlGettext, OutputVar_2, Static2, Autokey ahk_class #32770
 
+	MSGBOX % OutputVar_2
+	
 	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
 	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
 		SOUNDBEEP 4000,100
