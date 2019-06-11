@@ -6,7 +6,7 @@
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
 '# START     TIME [ Tue 11-Jun-2019 13:25:39 ]
-'# END FINAL TIME [ Tue 11-Jun-2019 15:00:00 ]
+'# END FINAL TIME [ Tue 11-Jun-2019 15:14:00 ]
 '# __ 
 '====================================================================
 
@@ -15,10 +15,16 @@
 ' -------------------------------------------------------------------
 '#-------------------------------------------------------------------
 ' SESSION 001 __ CREATED
-' 2 HOUR AND 35 MINUTE TO COMPLETE ANOTHER PROJECT IN
+' -------------------------------------------------------------------
+' 2 HOUR AND 49 MINUTE TO COMPLETE ANOTHER PROJECT IN
+' -------------------------------------------------------------------
+' NOW INCLUDE 
+' WILL COPY SOURCE TO TARGET BY FOLDER AND DELETE AFTER 
+' UNABLE DO MOVE EFFECTIVE-AH IN VBS
+' AND INCORPORATE CODE FROM BEFORE THAT DELETE EMPTY
 ' -------------------------------------------------------------------
 '# START     TIME [ Tue 11-Jun-2019 13:25:39 ]
-'# END FINAL TIME [ Tue 11-Jun-2019 15:00:00 ]
+'# END FINAL TIME [ Tue 11-Jun-2019 15:14:00 ]
 '#-------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
@@ -36,9 +42,6 @@
 ' -------------------------------------------------------------------
 ' VBS 13-COPY MOVE SHELL FOLDING.VBS
 ' -------------------------------------------------------------------
-' ------------------------------------------------------------------
-' -----------------------------------------------------------------
-' ----------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' __ CODE BY MATTHEW LANCASTER
 ' __ DATE BEGINNER 5 AM -- 5 HOURS
@@ -46,11 +49,12 @@
 ' [ Saturday 10:18:00 Am_30 December 2017 ] The UK
 ' [ Saturday 10:18:00 Am_30 December 2017 ] GMT UTC+0 WET
 ' __ DATE BEGINNER AND ENDER ----------------------------------------
-' ADDITIONAL 3 URL'S OPEN OF HELPING
-' __ DATE BEGINNER AND ENDER ----------------------------------------
 ' -------------------------------------------------------------------
-' THIS WILL COPY SOURCE TO TARGET AND OPTION DELETE AFTER 
+' THIS WILL COPY SOURCE TO TARGET BY FOLDER AND OPTION DELETE AFTER 
 ' -------------------------------------------------------------------
+' ------------------------------------------------------------------
+' -----------------------------------------------------------------
+' ----------------------------------------------------------------
 
 DIM DELETE_AFTER
 DIM objFSO
@@ -70,15 +74,9 @@ CALL GET_WINDOWS_VERSION
 
 IF Version_OS=<5 THEN 
 	'Wscript.Echo "begin."
-	'CALL USERS_DESKTOP
-	'CALL USERS_SEND_TO
-	'CALL USERS_START_MENU
-	'CALL USERS_PROGRAM_DATA_START_MENU
 	'Wscript.Echo "end."
 	WScript.Quit(0)
 END IF
-
-
 ' ----------------------------------------------------------------
 ' -----------------------------------------------------------------
 ' ------------------------------------------------------------------
@@ -153,24 +151,12 @@ FOR RV=1 TO 2
 		END IF
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-			'MSGBOX FOLDER_STRING
-
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
+				MSGBOX "--"+FOLDER_STRING
 
-			'MSGBOX objFolder.SubFolders.Count
-			'MSGBOX objFolder.Files.Count
-			
 			If objFolder.SubFolders.Count > 0 Then 
-				 
 				CALL COPY_FOLDER_ONE_UP_ROOT_LEVEL
-				
-				MSGBOX FOLDER_STRING
-				' fso.DeleteFolder objFolder.Path
-				' IF FSO.FOLDERExists(FOLDER_STRING) THEN
-				' 	fso.DeleteFolder FOLDER_STRING
-				' END IF
 			END IF
-			' objFolder=NOTHING
 		END IF
 	NEXT
 NEXT
@@ -194,7 +180,6 @@ FOR RV=1 TO 2
 		END IF
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-			'MSGBOX FOLDER_STRING
 
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
 
@@ -203,20 +188,22 @@ FOR RV=1 TO 2
 			
 			If objFolder.SubFolders.Count = 0 Then 
 				IF objFolder.Files.Count = 0 Then
-					' MSGBOX FOLDER_STRING
+					' -------------------------------------------
+					' THE ROOT FOLDER IS NOT EVER DELETE HERE 
+					' AND NEXT ROUTINE IS SPECIAL DESIGN FOR THAT
+					' ALL DELETE EMPTY WILL BE GONE
+					' -------------------------------------------
 					fso.DeleteFolder objFolder.Path
 					IF FSO.FOLDERExists(FOLDER_STRING) THEN
 						fso.DeleteFolder FOLDER_STRING
 					END IF
 				END IF
 			END IF
-			' objFolder=NOTHING
 		END IF
 	NEXT
 NEXT
 
-
-' Wscript.Echo "HH"
+' Wscript.Echo "ENDER"
 
 WScript.Quit(0)
 
@@ -237,8 +224,6 @@ End Function
 ' 2019-Mar-18 -- 14:00:40 - 02:00:40-PM - Sun
 
 
-
-
 ' SOURCE CREDIT DELETE EMPTY
 ' ----
 ' Deleting Empty Folders – Random Musings of Jeremy Jameson
@@ -246,9 +231,6 @@ End Function
 ' ----
 
 
-
-
-WScript.Quit 0
 
 '-------------------------------------
 Sub COPY_FOLDER_ONE_UP_ROOT_LEVEL
