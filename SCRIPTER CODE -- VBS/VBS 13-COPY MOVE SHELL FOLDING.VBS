@@ -1,15 +1,16 @@
-'-----------------------------------------------------------------
+' -----------------------------------------------------------------
 ' __ CODE BY MATTHEW LANCASTER
 ' __ DATE BEGINNER 5 AM -- 5 HOURS
 ' __ DATE BEGINNER AND ENDER --------------------------------------
 ' [ Saturday 10:18:00 Am_30 December 2017 ] The UK
 ' [ Saturday 10:18:00 Am_30 December 2017 ] GMT UTC+0 WET'-----------------------------------------------------------------
 ' ADDITIONAL 3 URL'S OPEN OF HELPING
-'-----------------------------------------------------------------
-'THIS WILL COPY SOURCE TO TARGET AND OPTION DELETE AFTER 
-'FOR
-'DESKTOP
-'SENDTO
+' -----------------------------------------------------------------
+' THIS WILL COPY SOURCE TO TARGET BY FOLDER AND OPTION DELETE AFTER 
+
+' FOR
+' DESKTOP
+' SENDTO
 
 DIM DELETE_AFTER
 DIM objFSO
