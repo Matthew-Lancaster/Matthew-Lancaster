@@ -205,12 +205,6 @@ GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
 RETURN
 
-; ::N&SC027::
-; MESSENGER_KEY=n'
-; GOSUB STRING_INVERT_MESSENGER
-; SENDINPUT %MESSENGER_KEY%
-; RETURN
-
 
 ; -------------------------------------------------------------------
 ; Setting a Semicolon as a Hotkey? - Ask for Help - AutoHotkey Community
@@ -241,6 +235,16 @@ RETURN
 RETURN
 
 
+; -------------------------------------------------------------------
+; THIS METHOD USE THE KEYBOARD CONTROL KEY NUMBER
+; UNABLE TO MAKE WORKER
+; PROBABLY AS CONTROL KEY CODE ARE DIFFERENT EVERY KEYBOARD MODEL
+; -------------------------------------------------------------------
+; ::N&SC027::
+; MESSENGER_KEY=n'
+; GOSUB STRING_INVERT_MESSENGER
+; SENDINPUT %MESSENGER_KEY%
+; RETURN
 
 
 ; -------------------------------------------------------------------
