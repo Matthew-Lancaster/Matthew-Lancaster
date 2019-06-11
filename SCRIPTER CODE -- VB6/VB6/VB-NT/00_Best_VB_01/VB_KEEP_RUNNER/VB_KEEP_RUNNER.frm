@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -10219,7 +10219,9 @@ Loop
 End Function
 
 
-
+' --------------------------------------------------------------------
+' ALL IN ONE FUNCTION LESS API LESS DEMAN JOB WORKER
+' --------------------------------------------------------------------
 Private Function CreateFolderTree(ByVal sPath As String) As Boolean
     Dim nPos As Integer
 
@@ -10229,14 +10231,54 @@ Private Function CreateFolderTree(ByVal sPath As String) As Boolean
     
     nPos = InStr(sPath, "\")
     While nPos > 0
-        If Not FolderExists(Left$(sPath, nPos - 1)) Then
-            MkDir Left$(sPath, nPos - 1)
+        If nPos - 1 > 3 Then
+            If Dir(Left$(sPath, nPos - 1), vbDirectory) = "" Then
+                MkDir Left$(sPath, nPos - 1)
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+    If Dir(sPath, vbDirectory) = "" Then MkDir sPath
+    
+    CreateFolderTree = True
+    If Dir(sPath, vbDirectory) = "" Then
+        CreateFolderTree = False
+    End If
+
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
+
+
+' --------------------------------------------------------------------
+' WORK BUT EASIER ALL IN ONE FUNCTION NOT WITH API THOUGH
+' MORE TRANSPORTBALE TO OTHER CODE MAYBE IN ONE FUNCTION LESS DELCLARE
+' --------------------------------------------------------------------
+Private Function CreateFolderTree_API(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+
+    On Error GoTo CreateFolderTreeError
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        If nPos - 1 > 3 Then ' NOT CHECK ROOT
+            If Not FolderExists(Left$(sPath, nPos - 1)) Then
+                MkDir Left$(sPath, nPos - 1)
+            End If
         End If
         nPos = InStr(nPos + 1, sPath, "\")
     Wend
     If Not FolderExists(sPath) Then MkDir sPath
     
-    CreateFolderTree = True
+    If Not FolderExists(sPath) Then
+        CreateFolderTree_API = False
+        Exit Function
+    End If
+    CreateFolderTree_API = True
     Exit Function
 
 CreateFolderTreeError:
