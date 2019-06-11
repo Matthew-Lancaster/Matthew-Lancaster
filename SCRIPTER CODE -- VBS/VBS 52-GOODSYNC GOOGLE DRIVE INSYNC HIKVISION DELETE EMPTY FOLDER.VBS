@@ -30,6 +30,31 @@
 ' [ Wednesday 13:08:00 Pm_20 March 2019 ]
 ' -------------------------------------------------------------------
 
+
+' -------------------------------------------------------------------
+' NEW CODE INCORPORATE BOTH SET CODE NOW
+' TEMPORARY RUNNER BY THIS SCRIPT LEARN ASSHOLE MODIFY GOODSYNC
+' NEW SCRIPT MOVE FOLDER INTO CORRECT AREA ALSO AS WELL
+' HERE DO THE DELETE EMPTY
+' -------------------------------------------------------------------
+
+
+
+Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS"
+'--------------------------------------------------------------
+WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+'--------------------------------------------------------------
+
+WScript.Quit(0)
+'--------------------------------------------------------------------
+'END STOP -----------------------------------------------------------
+'--------------------------------------------------------------------
+
+
+
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 
