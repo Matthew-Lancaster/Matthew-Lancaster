@@ -350,7 +350,12 @@ IF SET_GO=TRUE
 AUTO_RELOAD_FACEBOOK_QUICK_SUB_DELAY_VAR=FALSE
 OLD_AUTO_RELOAD_FACEBOOK_VAR=0
 
+SET_GO=TRUE
+IF A_ComputerName=1-ASUS-X5DIJ
+	SET_GO=FALSE
+
 ; 02 OF 04
+IF SET_GO=TRUE
 IF OSVER_N_VAR>0
 {
 	SETTIMER AUTO_RELOAD_FACEBOOK,59000
@@ -469,7 +474,7 @@ SET_ARRAY_AUTO_KEY() {
 RETURN SET_ARRAY_AUTO_KEY
 }
 
-
+ 
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -1044,6 +1049,7 @@ AUTO_RELOAD_RAIN_ALARM:
 		; Height_4-=2
 		
 		; (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+		
 		
 		IF SET_GO=TRUE
 		{
