@@ -292,30 +292,35 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 	LINE_CHECKER_1=Could not close the previous instance of this script.
 	LINE_CHECKER_2=Keep waiting?
 
+	DetectHiddenWindows, ON
 	SetTitleMatchMode 2  ; Specify PARTIAL path
 	VAR_GET:=WINEXIST("Autokey ahk_class #32770")
 	IF !VAR_GET
 		RETURN 
-		
-	ControlGettext, OutputVar_2, Static2, Autokey ahk_class #32770
+	WinGet, list, List, Autokey ahk_class #32770
+	Loop %list% {
+		hwnd := list%A_Index%
+		SetTitleMatchMode, 2
+		ControlGettext, OutVar_2, Static2, ahk_id %hwnd%
 
-	MSGBOX % OutputVar_2
-	
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-		SOUNDBEEP 4000,100
-		
-	ControlGettext, OutputVar_2, Static2, Autokey ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-	{
-		ControlClick, Button2, Autokey ahk_class #32770,,,, NA x10 y10
+		IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+		{
+			SOUNDBEEP 4000,100
+		}
+			
+		MSGBOX % OutVar_2
+		ControlGettext, OutVar_2, Static2,  ahk_id %hwnd%
+		IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+		{
+			ControlClick, Button2, ahk_id %hwnd%,,,, NA x10 y10
+		}
+		ControlGettext, OutVar_2, Static2,  ahk_id %hwnd%
+		IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+			ControlClick, Button2, ahk_id %hwnd%
 	}
-	ControlGettext, OutputVar_2, Static2, Autokey ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
-		ControlClick, Button2, Autokey ahk_class #32770
-
 RETURN
 
 
@@ -902,21 +907,21 @@ NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT:
 	; STRIP QUOTES -- LINE_CHECKER:=StrReplace(LINE_CHECKER, """" , "")
 	; LINE_CHECKER:=StrReplace(LINE_CHECKER, """" , "")
 	
-	; TOOLTIP %OutputVar_2%`n%LINE_CHECKER_1%`n%LINE_CHECKER_2%
+	; TOOLTIP %OutVar_2%`n%LINE_CHECKER_1%`n%LINE_CHECKER_2%
 		
-	ControlGettext, OutputVar_2, Static2, Reload ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
+	ControlGettext, OutVar_2, Static2, Reload ahk_class #32770
+	IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+	IF INSTR(OutVar_2,LINE_CHECKER_2)>0
 		SOUNDBEEP 4000,100
 		
-	ControlGettext, OutputVar_2, Static2, Reload ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
+	ControlGettext, OutVar_2, Static2, Reload ahk_class #32770
+	IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+	IF INSTR(OutVar_2,LINE_CHECKER_2)>0
 		ControlClick, &Yes, Reload ahk_class #32770,,,, NA x10 y10
 
-	ControlGettext, OutputVar_2, Static2, Reload ahk_class #32770
-	IF INSTR(OutputVar_2,LINE_CHECKER_1)>0
-	IF INSTR(OutputVar_2,LINE_CHECKER_2)>0
+	ControlGettext, OutVar_2, Static2, Reload ahk_class #32770
+	IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+	IF INSTR(OutVar_2,LINE_CHECKER_2)>0
 		ControlClick, &Yes, Reload ahk_class #32770
 
 
@@ -1056,9 +1061,9 @@ IfWinExist FxSound Message
 	;WinGet, OutputVar, ControlList, FxSound Message
 	;Tooltip, % OutputVar ; List All Controls of Active Window
 	;---------------------------------------------------------
-	ControlGettext, OutputVar_2, Static1,  FxSound Message
+	ControlGettext, OutVar_2, Static1,  FxSound Message
 	
-	IfInString, OutputVar_2, Would you like to
+	IfInString, OutVar_2, Would you like to
 	{
 		SoundBeep , 3000 , 100
 		SoundBeep , 2000 , 100
@@ -1072,11 +1077,11 @@ IfWinExist File Access Denied ahk_class #32770
 	;WinGet, OutputVar, ControlList, FxSound Message
 	;Tooltip, % OutputVar ; List All Controls of Active Window
 	;---------------------------------------------------------
-	ControlGettext, OutputVar_2, SysLink1, File Access Denied ahk_class #32770
+	ControlGettext, OutVar_2, SysLink1, File Access Denied ahk_class #32770
 	
-	; MSGBOX % OutputVar_2
+	; MSGBOX % OutVar_2
 	
-	IfInString, OutputVar_2, You'll need to provide administrator
+	IfInString, OutVar_2, You'll need to provide administrator
 	{
 	    ControlClick, Button1, File Access Denied ahk_class #32770
 		SoundBeep , 3000 , 100
@@ -1167,8 +1172,8 @@ IfWinExist ahk_class #32770
 	; Don't Save
 	; _RoboForm_Dialog_1100973_
 	; -------------------------------------------------------
-	ControlGetText, OutputVar_2, Don't Save, ahk_class #32770
-	; ControlGetText, OutputVar_2, Save`r`nDon't Save`r`n_RoboForm_Dialog_1100973_, ahk_class #32770
+	ControlGetText, OutVar_2, Don't Save, ahk_class #32770
+	; ControlGetText, OutVar_2, Save`r`nDon't Save`r`n_RoboForm_Dialog_1100973_, ahk_class #32770
 	
 	; Fill Empty Fields &Only
 	; _RoboForm_Dialog_1100973_
@@ -1178,7 +1183,7 @@ IfWinExist ahk_class #32770
 	SET_GO=FALSE
 	IF OutputVar_1
 		SET_GO=TRUE
-	IF OutputVar_2
+	IF OutVar_2
 		SET_GO=FALSE
 	IF OutputVar_3
 		SET_GO=FALSE
@@ -2035,8 +2040,8 @@ Loop % ArrayCount
   Element := WINDOW_Array[A_Index]
 	IfWinExist %Element%
 	{
-		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
-		If (OutputVar_2="&Fill Forms")
+		ControlGettext, OutVar_2, Button1, AutoFill - RoboForm
+		If (OutVar_2="&Fill Forms")
 		{
 			#WinActivateForce, AutoFill - RoboForm
 			ControlClick, Button1, AutoFill - RoboForm
@@ -2605,7 +2610,7 @@ IF HWND_1>0
 		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
 		; Tooltip, % OutputVar ; List All Controls of Active Window
 		;---------------------------------------------------------
-		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_1%
+		ControlGettext, OutVar_2, Button16, ahk_id %HWND_1%
 
 		ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
 		
@@ -2622,7 +2627,7 @@ IF HWND_1>0
 				SET_GO=TRUE
 		}
 		IF SET_GO=TRUE
-	    IF (OutputVar_2="Periodically (On Timer), every")
+	    IF (OutVar_2="Periodically (On Timer), every")
 		{
 			HWND_1_EXENAME_GoodSync_v10_exe_DONE=TRUE
 			ControlSetText, Edit9,, ahk_id %HWND_1%
@@ -2634,7 +2639,7 @@ IF HWND_1>0
 		IF HWND_1_EXENAME_GoodSync_v10_exe_DONE=FALSE
 		IF HWND_1_EXENAME=GoodSync-v10.exe
 		IF OutputVar_1=2
-	    IF (OutputVar_2="Periodically (On Timer), every")
+	    IF (OutVar_2="Periodically (On Timer), every")
 		{
 			ControlSetText, Edit9,, ahk_id %HWND_1%
 			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
@@ -2650,7 +2655,7 @@ IF HWND_1>0
 				SET_GO=TRUE
 		}
 		IF SET_GO=TRUE
-		IF (OutputVar_2="Periodically (On Timer), every")
+		IF (OutVar_2="Periodically (On Timer), every")
 		{
 			ControlSetText, Edit9,, ahk_id %HWND_1%
 			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
@@ -2724,11 +2729,11 @@ IF HWND_1>0
 			; }
 		; }
 		
-		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
+		ControlGettext, OutVar_2, Button21, ahk_id %HWND_1%
 		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
 		
 		If (OutputVar_1 <> 80
-			and OutputVar_2="Do not Sync if changed files more than")
+			and OutVar_2="Do not Sync if changed files more than")
 			{
 				ControlSetText, Edit12,, ahk_id %HWND_1%
 				Control, EditPaste, 80,	Edit12, ahk_id %HWND_1%
@@ -2753,11 +2758,11 @@ IF HWND_1>0
 		; }
 		
 		
-		ControlGettext, OutputVar_2, Button22, ahk_id %HWND_1%
+		ControlGettext, OutVar_2, Button22, ahk_id %HWND_1%
 		ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
 		
 		If (!OutputVar_1 
-			and OutputVar_2="Wait for Locks to clear, minutes")
+			and OutVar_2="Wait for Locks to clear, minutes")
 			{
 				ControlSetText, Edit12,, ahk_id %HWND_1%
 				Control, EditPaste, 10, Edit2, ahk_id %HWND_1%
@@ -3010,9 +3015,9 @@ SET_OK_BOX:
 	; TOOLTIP OO
 	IfWinActive ] Options ahk_class #32770
 	{	
-		ControlGettext, OutputVar_2, Button16, ] Options ahk_class #32770
+		ControlGettext, OutVar_2, Button16, ] Options ahk_class #32770
 		ControlGet, OutputVar_1, Line, 1, Edit9, ] Options ahk_class #32770
-		IF (OutputVar_2="Periodically (On Timer), every")
+		IF (OutVar_2="Periodically (On Timer), every")
 		IF OutputVar_1<>5
 		{
 			ControlSetText, Edit9,, ] Options ahk_class #32770
@@ -3181,10 +3186,10 @@ IF (A_ComputerName="7-ASUS-GL522VW")
 	IFWINEXIST %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 	{
 		ControlGetText, OutputVar, Static1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
-		ControlGettext, OutputVar_2, Button1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
+		ControlGettext, OutVar_2, Button1, %VAR_WORKER_MSGBOX_DELAY_COUNT_02%
 	}
 	IF Instr(OutputVar,"GoodSync Script Command to Stop")
-	IF INSTR(OutputVar_2,"&Yes  0")
+	IF INSTR(OutVar_2,"&Yes  0")
 	{
 		WinMaximize, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 		SLEEP 4000
@@ -3614,17 +3619,17 @@ SetTitleMatchMode 2
 
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  
-OutputVar_2=
+OutVar_2=
 MMX=
 WinGet, HID, ID ,TeamViewer Panel ahk_class TV_ControlWin
 If HID>0
 {
-	ControlGettext, OutputVar_2, Static1, ahk_id %HID%
+	ControlGettext, OutVar_2, Static1, ahk_id %HID%
 	; WinGet MMX, MinMax, ahk_id %HID%
 	; WinGetPos, WinLeft, WinTop, WinWidth, WinHeight, ahk_id %HID%
 	; ControlGetPos, x, y, w, h, Static1, ahk_id %HID%
-	; TOOLTIP %OutputVar_2%"`n"%HID% " -- " %MMX%"`n"%WinLeft% " -- " %WinTop% " -- " %WinWidth% " -- " %WinHeight%"`n"%x% " -- " %y% " -- " %w% " -- " %h%
-	IF Instr(OutputVar_2,"Free license (non-commercial use only)")
+	; TOOLTIP %OutVar_2%"`n"%HID% " -- " %MMX%"`n"%WinLeft% " -- " %WinTop% " -- " %WinWidth% " -- " %WinHeight%"`n"%x% " -- " %y% " -- " %w% " -- " %h%
+	IF Instr(OutVar_2,"Free license (non-commercial use only)")
 	{
 		; soundbeep 1500,200
 	}
@@ -3637,7 +3642,7 @@ If HID>0
 SET_GO=TRUE
 If !HID
 	SET_GO=FALSE
-IF !Instr(OutputVar_2,"Free license (non-commercial use only)")
+IF !Instr(OutVar_2,"Free license (non-commercial use only)")
 	SET_GO=FALSE
 
 ; -------------------------------------------------------------------
