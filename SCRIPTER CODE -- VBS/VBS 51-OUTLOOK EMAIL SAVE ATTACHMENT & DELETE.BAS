@@ -8,18 +8,30 @@
 '# 1st Work
 '# START     TIME [ Fri 03-May-2019 17:55:00 ]
 '# END FINAL TIME [ Fri 03-May-2019 18:10:00 ]
+'# __
 '# 1st Work Total Day Resume After
 '# START     TIME [ Fri 03-May-2019 17:55:00 ]
 '# END FINAL TIME [ Sat 04-May-2019 00:00:49 ]
 '# __
-'# Last Work -- SESSION 04 OF 04
+'# Work -- SESSION 04 OF **
 '# START     TIME [ Sun 05-May-2019 09:15:00 ]
 '# END FINAL TIME [ Sun 05-May-2019 11:32:00 ]
 '# __
+'# Work -- SESSION 07 OF **
+'# START     TIME [ Sun 11-Jun-2019 09:00:00 ]
+'# END FINAL TIME [ Sun 11-May-2019 12:00:00 ]
+'# __
+'# Work -- SESSION 08 OF 08
+'# START     TIME [ Wed 12-Jun-2019 10:05:50 ]
+'# END FINAL TIME [ Wed 12-Jun-2019 11:40:00 ]
+'# __
 '# Time Span Begin to Ender
 '# START     TIME [ Fri 03-May-2019 18:10:00 ]
-'# END FINAL TIME [ Sun 05-May-2019 11:32:00 ]
+'# END FINAL TIME [ Sun 11-May-2019 12:00:00 ]
 '# __
+'
+' MORE DETAIL ABOUT SESSION INFO FOLLOW
+'
 '====================================================================
 
 '# ------------------------------------------------------------------
@@ -48,7 +60,6 @@
 '# END FINAL TIME [ Fri 03-May-2019 18:10:00 ]
 '#-------------------------------------------------------------------
 
-
 '#-------------------------------------------------------------------
 ' SESSION 002 __ CREATE DAY -- LATE NIGHT CODE
 ' & ALSO OTHER CODE MORE WAS 12:20 BED AND UP AGAIN MORE OTHER CODE AT 3:20 AM
@@ -58,7 +69,6 @@
 '# START TIME [ Fri 03-May-2019 20:50:05 ]
 '# END FINAL TIME [ Sat 04-May-2019 00:00:49 ]
 '#-------------------------------------------------------------------
-
 
 '#-------------------------------------------------------------------
 ' SESSION 003 __
@@ -123,7 +133,7 @@
 ' IF ERROR IT BREAK THE CODE AND JUMP BACK TO SOME PART BEFORE LIKE IN NEST LOOP
 ' MUST CHECK COUNT OF ITEM BEFORE ASK COLLECT THEM
 ' SOUND EFFECT INCLUDED RATHER THAN SET RULE
-' WAS A DESIRE NIGHT BEFORE TO ALLOW CODE RUN UNTIL FINISH
+' WAS A DESIRE NIGHT BEFORE TO ALLOW_GO CODE RUN UNTIL FINISH
 ' AND THAT DOES HAPPEN WITH ERROR TRAP ALL CLEAR
 ' ANOTHER THING IS LESS SPAGHETTI CODE ON UNIQUE NAME
 ' AND A STOP THING
@@ -147,7 +157,7 @@
 ' WE ADD NEW ROUTINE TO OPEN FILE ON DRIVE TO INDICATE WORKER IN ACTION
 ' OR ELSE THE OUTLOOK BEGIN RUN THE SCRIPT AND NEW MAIL ARRIVE VERY QUICKLY
 ' IS PROCESSOR THE SCRIPT TO RUN AGAIN
-' NEW TEMP FILE ALLOW SCRIPT TO RUN FULL BEFORE WANT AGAIN
+' NEW TEMP FILE ALLOW_GO SCRIPT TO RUN FULL BEFORE WANT AGAIN
 ' EVERYTHING RUN SMOOTH AND QUICKER NOW
 ' ALSO A CODE IN AUTOHOTKEY THAT DEL THE TEMP FILE IF OUTLOOK NOT RUNNER
 ' SOMEWAY THE TEMP FILE LEFT BEHIND WITH CRASH SHUTDOWN OF OUTLOOK
@@ -157,7 +167,7 @@
 '#-------------------------------------------------------------------
 
 '#-------------------------------------------------------------------
-' SESSION SIX __
+' SESSION 006 __
 ' -------------------------------------------------------------------
 ' ANOTHER DAY
 ' WORK IT ALL
@@ -169,9 +179,52 @@
 '# END FINAL TIME [ Sun 26-May-2019 14:58:00 ]
 '#-------------------------------------------------------------------
 
+'#-------------------------------------------------------------------
+' SESSION 007 __
+' -------------------------------------------------------------------
+' STOP START BUTTON FRONT SCREEN WORK GOOD
+' THAT TAKE AWAY FROM CONTROL IN A FILE
+'
+' MORE DEFINE OF HOW I WANT FILE RENAME DONE
+' CREATE FOLDER TREE DONE PROPERLY
+'
+' ADD FOLDER SCANNER NOT TO BE DONE EACH TIME
+' AND LEARN DIFFERENCE OF DEFAULT FOLDER SCAN DO AND PERSONAL FOLDER
+' WHICH DEFAULT ARE PRESET ONE
+' USE HARDCODER AND IF NUMBER FOR PERSONAL FOLDE CHANGE GIVE WARNING
+' USE THE ROUTINE TO SET NEW NUMBER AGAIN ON YOUR OWN
+' ALSO ADD MOVE EMAIL THAT HASN;T GOT ATTACHMENT TO ANOTHER FOLDER FOR THEM
+' SO NOT CLOGGING THE INBOX _ TO DO LATER FIND WHAT ABLE DO DELETER
+'
+' PLAY ABOUT SOD
+' -------------------------------------------------------------------
+'# START     TIME [ Sun 11-Jun-2019 09:00:00 ]
+'# END FINAL TIME [ Sun 11-Jun-2019 12:00:00 ]
+'#-------------------------------------------------------------------
+
+'#-------------------------------------------------------------------
+' SESSION 008 __
+' -------------------------------------------------------------------
+' MAKE THE STOP START ALLOW_GO BUTTON WORK BETTER
+' NOW WE HAVE PROCESS PID NUMBER FOR OUTLOOK
+' SO START UP RUN SMOOTHER
+' SOMETIME YOU DO REQUEST STOP AND CLOSE OUTLOOK
+' BUT WHEN RESUME YOU FORGET PRESS STOP
+' AND WANT TO BEGIN WHEN REQUIR WANTER PRESS ALLOW_GO BUTTON FIRST
+' THIS IS NOW DONE HERE
+'
+' IS GOOD IF SCHEDUAL IS SET TO RUN AUTO GO OPENING
+' AND THEN THAT WILL BEGIN
+' -------------------------------------------------------------------
+'# START     TIME [ Wed 12-Jun-2019 10:05:50 ]
+'# END FINAL TIME [ Wed 12-Jun-2019 11:40:00 ]
+'#-------------------------------------------------------------------
+
+
 
 ' -------------------------------------------------------------------
-' SOURCE HERE
+' SOURCE HERE CREDIT -- JUST A LITTLE HELP DONE MANY THIS ONE BEFORE
+' WAS ADDITIONAL HELPFUL READER
 ' -------------------------------------------------------------------
 ' Save Attachments to the Hard Drive
 ' https://www.slipstick.com/developer/save-attachments-to-the-hard-drive/
@@ -240,6 +293,59 @@ Public Sub ShowMessage(Item As Outlook.MailItem)
 ' IS DOESN'T SEEM TO HOLD AND DIM VARIABLE IS BETTER USE __ SUB MAIN
 ' ----------------------------------------------------------------------------------------------
 
+' ---------------------------------------------------------------------
+' NEW ROUTINE CHUNK CODE -- IN 3 BYTE SIZE EDUCATION
+' [ Wednesday 10:44:20 Am_12 June 2019 ]
+' ---------------------------------------------------
+' THIS IS A BIT BIGG ROUTINE MAYBE FOR MAIL FLYING IN
+' HAVE A GO MAKE EASIER
+' LESS BUTTON TO PRESS LESS QUESTION TO ANSWER-AH
+' QUICKER START LIFT OFF
+' ---------------------------------------------------
+' 0001
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'OUTLOOK.EXE'")
+' KNOCK UP THIS FOR USE IN MY OUTLOOK SCRIPT CODING
+For Each objProcess In colProcesses
+    If Not (IsNull(objProcess.ProcessID)) Then
+        strScriptProcessID = objProcess.ProcessID
+        ' MsgBox "MY PROCESS NUMBER PID IS -- " + CStr(strScriptProcessID)
+    End If
+Next
+
+' 0002
+strFileControlpath = "D:\GM OUTLOOK\File_Control_PID.txt"
+If Dir(strFileControlpath) <> "" Then
+    FR1 = FreeFile
+    Open strFileControlpath For Input As FR1
+        Line Input #FR1, LINE_INPUT
+        strScriptProcessID_CHECK = Val(LINE_INPUT)
+    Close #FR1
+End If
+
+' 0003
+If strScriptProcessID_CHECK <> strScriptProcessID Then
+    strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+    On Error Resume Next
+    Kill strFileControlpath
+    On Error GoTo 0
+    
+    strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
+    On Error Resume Next
+    Kill strFileControlpath
+    On Error GoTo 0
+End If
+' ---------------------------------------------------------------------
+
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_PID.txt"
+FR1 = FreeFile
+Open strFileControlpath For Output As FR1
+    Print #FR1, strScriptProcessID
+Close #FR1
+
+
+
 strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
 If Dir(strFileControlpath) <> "" Then
     FR1 = FreeFile
@@ -257,6 +363,16 @@ If Dir(strFileControlpath) <> "" Then
         On Error Resume Next
         Line Input #FR1, SOUND_OFF_ON
         On Error GoTo 0
+    Close #FR1
+    If LINE_INPUT = "STOP" Then Exit Sub
+End If
+
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
+If Dir(strFileControlpath) <> "" Then
+    FR1 = FreeFile
+    Open strFileControlpath For Input As FR1
+        Line Input #FR1, LINE_INPUT
     Close #FR1
     If LINE_INPUT = "STOP" Then Exit Sub
 End If
@@ -366,8 +482,141 @@ End If
 End Sub
 
 
+Public Sub COMMAND_STOP()
+
+Dim FSO
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
+
+If Dir(strFileControlpath) <> "" Then
+    Set f = FSO.GetFile(strFileControlpath)
+    FileModDate = f.DateLastModified
+    Set f = Nothing
+End If
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
+FR1 = FreeFile
+Open strFileControlpath For Output As FR1
+    Print #FR1, "STOP"
+Close #FR1
+
+Dim TEXT_1(100)
+i = i + 1: TEXT_1(i) = "QUICK REPEAT BUTTON TIMER 10 SECOND INFO"
+i = i + 1: TEXT_1(i) = "THIS BUTTON WILL STOP THE PROCESS OF ALL QUICK AS ABLE"
+i = i + 1: TEXT_1(i) = "AND THEN YOU HAVE TO PRESS ALLOW_GO BUTTON AGAIN TO MAKE ANYTHING HAPPEN MAIN ROUTINE"
+i = i + 1: TEXT_1(i) = "A CHECK IS MADE OUTLOOK HAS BEEN SHUT DONE"
+i = i + 1: TEXT_1(i) = "BY PROCESS PID NUMBER SINCE CLOSE TO CLEAR THE FLAG THAT WAY"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
+i = i + 1: TEXT_1(i) = "IF THIS STOP BUTTON PRESS STOP WORK GO"
+i = i + 1: TEXT_1(i) = "IF ALLOW_GO BUTTON PRESS IT WILL ENABLE RESUME WORK WHEN REQUEST"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
+i = i + 1: TEXT_1(i) = "IF OUTLOOK HAS JUST OPENED AND STOP PRESS BEFORE IT WILL STILL BE STOP UNLESS"
+i = i + 1: TEXT_1(i) = "IF OUTLOOK HAS JUST OPENED THE PROCESS PID NUMBER WILL CHECK"
+i = i + 1: TEXT_1(i) = "AND THEN ALLOW_GO WILL RESUME AS IF PRESS BUTTON"
+i = i + 1: TEXT_1(i) = "THE PROCESS PID NUMBER IS CHECK FOR EVERY MAIL THAT ARRIVE"
+i = i + 1: TEXT_1(i) = "HAS TO GET THERE BEFORE STOP CHECKER"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
+i = i + 1: TEXT_1(i) = "IS GOOD IF SCHEDUAL IS SET TO RUN AUTO GO OPENING"
+i = i + 1: TEXT_1(i) = "AND THEN THAT WILL BEGIN"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
+
+For R = 1 To i
+    H1 = H1 + TEXT_1(R) + vbCrLf
+Next
+
+If FileModDate > Now - TimeSerial(0, 0, 10) Then
+    MsgBox H1, vbMsgBoxSetForeground
+End If
+
+End Sub
+
+Public Sub COMMAND_GO()
+
+Call COMMAND_ALLOW_GO
+
+End Sub
+
+
+Public Sub COMMAND_ALLOW_GO()
+
+Dim TEXT_1(100)
+i = i + 1: TEXT_1(i) = "ALL MAIN ROUTINE RUNNER ARE SET TO ALLOW_GO THINGS WILL HAPPEN FOR MAIN ROUTINE"
+i = i + 1: TEXT_1(i) = "CAREFULL DON'T PRESS THIS BUTTON WHILE INCOMING MESSENGER ARE GO"
+i = i + 1: TEXT_1(i) = "THIS IS THE PROBLEM WHEN EACH MSSAGE ARRIVE FROM EMAIL SYSTEM"
+i = i + 1: TEXT_1(i) = "AND THEN THIS WHOLE MAIN ROUTINE IS CALLED AND IT TAKE A LONG TIME AND REALLY"
+i = i + 1: TEXT_1(i) = "CONFUSE THING IF IT ABLE TO BE QUICKLY PUT ON AND THEN INTERRUPTED OFF"
+i = i + 1: TEXT_1(i) = "AND PUT ON AGAIN AS QUICK AS EMAIL ARRIVER HTH"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
+i = i + 1: TEXT_1(i) = "IF THIS BUTTON PRESS RESUME WORK GO"
+i = i + 1: TEXT_1(i) = "IF STOP BUTTON PRESS IT WILL STOP WORK"
+i = i + 1: TEXT_1(i) = "IF OUTLOOK HAS JUST OPENED AND STOP PRESS BEFORE IT WILL STILL BE STOP UNLESS"
+i = i + 1: TEXT_1(i) = "IF OUTLOOK HAS JUST OPENED THE PROCESS PID NUMBER WILL CHECK"
+i = i + 1: TEXT_1(i) = "AND THEN ALLOW_GO WILL RESUME AS IF PRESS BUTTON"
+i = i + 1: TEXT_1(i) = "THE PROCESS PID NUMBER IS CHECK FOR EVERY MAIL THAT ARRIVE"
+i = i + 1: TEXT_1(i) = "HAS TO GET THERE BEFORE STOP CHECKER"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
+i = i + 1: TEXT_1(i) = "IS GOOD IF SCHEDUAL IS SET TO RUN AUTO GO OPENING"
+i = i + 1: TEXT_1(i) = "AND THEN THAT WILL BEGIN"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
+
+For R = 1 To i
+    H1 = H1 + TEXT_1(R) + vbCrLf
+Next
+
+MsgBox H1, vbMsgBoxSetForeground
+
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
+On Error Resume Next
+Kill strFileControlpath
+On Error GoTo 0
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+On Error Resume Next
+Kill strFileControlpath
+If Err.Number > 0 Then
+    ' FILE NOT FOUND
+    ' MsgBox Err.Description
+    ' Stop
+    If Err.Description <> "File not found" Then
+        A_TEST = A_TEST
+        MsgBox Err.Description
+        Stop
+    End If
+End If
+On Error GoTo 0
+
+
+End Sub
+
+Public Sub CLEAR_LOCK_FLAG()
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+On Error Resume Next
+Kill strFileControlpath
+On Error GoTo 0
+
+End Sub
+
+
+
 
 Public Sub SaveAttachments_Good()
+
+
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
+If Dir(strFileControlpath) <> "" Then
+    FR1 = FreeFile
+    Open strFileControlpath For Input As FR1
+        Line Input #FR1, LINE_INPUT
+    Close #FR1
+    strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+    On Error Resume Next
+    Kill strFileControlpath
+    On Error GoTo 0
+    If LINE_INPUT = "STOP" Then Exit Sub
+End If
+
 
 
 ' Init an Outlook Application object.
@@ -418,24 +667,73 @@ Set oNameSpace = objOL.GetNamespace("MAPI")
 
 Set oMAPI = GetObject("", "Outlook.application").GetNamespace("MAPI")
 
-Set oParentFolder = oMAPI.Folders(1)
-If oParentFolder.Folders.Count Then
-  For RR = 1 To oParentFolder.Folders.Count
-    If Trim(oParentFolder.Folders(RR).Name) = "Inbox" Then
-        ' MsgBox Trim(oParentFolder.Folders(RR).Name)
-        Exit For
-    End If
-  Next RR
-End If
+'Set oParentFolder = oMAPI.Folders(1)
+'If oParentFolder.Folders.Count Then
+'  For RR = 1 To oParentFolder.Folders.Count
+'    If Trim(oParentFolder.Folders(RR).Name) = "Inbox" Then
+'        ' MsgBox Trim(oParentFolder.Folders(RR).Name)
+'        Exit For
+'    End If
+'  Next RR
+'End If
+'Set objSelection = oParentFolder.Folders(RR)
 
-Set objSelection = oParentFolder.Folders(RR)
+Set objSelection = oNameSpace.GetDefaultFolder(olFolderInbox)
 
 Set DeletedFolder = oNameSpace.GetDefaultFolder(olFolderDeletedItems)
 
-TT_VAR = objSelection.Name
+'Set oParentFolder = oMAPI.Folders(1)
+'If oParentFolder.Folders.Count Then
+'  For RR = 1 To oParentFolder.Folders.Count
+'    If Trim(oParentFolder.Folders(RR).Name) = "NOT_ATTACHMENT" Then
+'        MsgBox Str(RR) + " -- " + Trim(oParentFolder.Folders(RR).Name)
+'        Exit For
+'    End If
+'  Next RR
+'End If
 
-'MsgBox objSelection.Name
-'MsgBox Str(objSelection.Items.Count)
+' -----------------------------------------
+' METHOD FOR FIND DEFAULT FOLDER -- NOT FOR PERSONAL MADE FOLDER
+' -----------------------------------------
+' oNameSpace.GetDefaultFolder.Folders.Count
+' -----------------------------------------
+If 1 = 2 Then
+    For RR = 1 To 100
+        On Error Resume Next
+        Err.Clear
+        Set NOT_ATTACHMENT_Folder = oNameSpace.GetDefaultFolder(RR)
+        If Err.Number = 0 Then
+            EXAMPLE = NOT_ATTACHMENT_Folder.Name
+            If NOT_ATTACHMENT_Folder.Name = "NOT_ATTACHMENT" Then
+              MsgBox Str(RR) + " -- " + NOT_ATTACHMENT_Folder.Name
+              Exit For
+            End If
+        End If
+        On Error GoTo 0
+    Next RR
+End If
+
+Set oParentFolder = oMAPI.Folders(1)
+If 1 = 2 Then
+    If oParentFolder.Folders.Count Then
+      For RR = 1 To oParentFolder.Folders.Count
+        If oParentFolder.Folders(RR).Name = "NOT_ATTACHMENT" Then
+            MsgBox Str(RR) + " -- " + oParentFolder.Folders(RR).Name
+            Exit For
+        End If
+      Next RR
+    End If
+' Set NOT_ATTACHMENT_Folder = oParentFolder.Folders(RR)
+End If
+
+Set NOT_ATTACHMENT_Folder = oParentFolder.Folders(15)
+If NOT_ATTACHMENT_Folder.Name <> "NOT_ATTACHMENT" Then
+    MsgBox "THE ""NOT_ATTACHMENT"" FOLDER IS NOT CONFIGER TO CORRECT NUMBER SUPPOSED TO BE 15 -- STOP"
+    Stop
+End If
+
+' MsgBox objSelection.Name
+' MsgBox Str(objSelection.Items.Count)
 
 ' Check each selected item for attachments.
 ' For Each objMsg In objSelection
@@ -444,20 +742,39 @@ X_COUNT = objSelection.Items.Count
 If X_COUNT > 0 Then
 For RR = X_COUNT To 1 Step -1
 
-        Set objMsg = objSelection.Items.Item(RR)
     
-        
-        lngCount = objMsg.Attachments.Count
-        If lngCount > 0 Then
-            Set objAttachments = objMsg.Attachments
-        End If
-        A1 = Trim(objMsg.Subject)
-        D1 = objMsg.ReceivedTime
-        D2 = Format(D1, "YYYYMMDDHHMMSS")
-        D3 = Format(D1, "YYYYMMDD")
-        
-        'X = X + 1
-        'If X Mod 10 = 0 Then DoEvents
+    ' ----------------------------
+    ' HAD A CHECK AT BEGIN ROUTINE
+    ' AND ANOTHER HERE IN THE LOOP
+    ' ----------------------------
+    strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
+    If Dir(strFileControlpath) <> "" Then
+        FR1 = FreeFile
+        Open strFileControlpath For Input As FR1
+            Line Input #FR1, LINE_INPUT
+        Close #FR1
+        strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+        On Error Resume Next
+        Kill strFileControlpath
+        On Error GoTo 0
+        If LINE_INPUT = "STOP" Then Exit Sub
+    End If
+
+
+
+    Set objMsg = objSelection.Items.Item(RR)
+    
+    lngCount = objMsg.Attachments.Count
+    If lngCount > 0 Then
+        Set objAttachments = objMsg.Attachments
+    End If
+    A1 = Trim(objMsg.Subject)
+    D1 = objMsg.ReceivedTime
+    D2 = Format(D1, "YYYYMMDDHHMMSS")
+    D3 = Format(D1, "YYYYMMDD")
+    
+    'X = X + 1
+    'If X Mod 10 = 0 Then DoEvents
 
 '        TRY TO GET EMAIL MSG ID LIKE SOME OTHER APP ABLE TO - NOT HERE
 '        --------------------------------------------------------------
@@ -468,204 +785,213 @@ For RR = X_COUNT To 1 Step -1
 '        D3 = objMsg.MessageClass
 '        D3 = objMsg.ConversationIndex
 '        MsgBox D3
-        
+    H3 = ""
+    SET_GO = False
+    If InStr(A1, "Alarm Message From Device EDVR") > 0 Then
+        SET_GO = True
+        H3 = "Motion Alarm On Device EDVR_"
+        D2 = "" ' REMOVE THE TIME FOR THIS ONE AS IT IN .JPG ATTACHMENT
+    End If
+    ' Embedded Net DVR: Motion Detected On Channel A3
+    If InStr(A1, "Embedded Net DVR: Motion Detected On Channel") > 0 Then
+        SET_GO = True
+        H1 = Mid(A1, InStrRev(A1, "On Channel") + 11)
+        H1 = Replace(H1, " ", "_")
+        ' H2 = Format(Val(Mid(A1, Len(A1) - 4)), "00")
+        ' H3 = "DVR_A03_Motion_Detected"
+        ' H3 = "DVR_" + H1 + H2 + "_Motion_Detected"
+        H3 = "DVR_" + H1 + "_Motion_Detected_" + D2 + "_" + ""
+    End If
+
+    If InStr(A1, "Embedded Net DVR: sound intensity alarm On Channel") > 0 Then
+        SET_GO = True
+        H1 = Mid(A1, InStrRev(A1, "On Channel") + 11)
+        H1 = Replace(H1, " ", "_")
+        ' H2 = Format(Val(Mid(A1, Len(A1) - 4)), "00")
+        ' H3 = "DVR_A03_Motion_Detected"
+        ' H3 = "DVR_" + H1 + H2 + "_Motion_Detected"
+        H3 = "DVR_" + H1 + "_Sound_Intensity_Detected_" + D2 + "_" + ""
+    End If
+    
+    If lngCount = 0 Then
         SET_GO = False
-        If InStr(A1, "Alarm Message From Device EDVR") > 0 Then
-            SET_GO = True
-            H3 = "Motion Alarm On Device EDVR_"
-            D2 = "" ' REMOVE THE TIME FOR THIS ONE AS IT IN .JPG ATTACHMENT
-        End If
-        ' Embedded Net DVR: Motion Detected On Channel A3
-        If InStr(A1, "Embedded Net DVR: Motion Detected On Channel") > 0 Then
-            SET_GO = True
-            h1 = Mid(A1, InStrRev(A1, "On Channel") + 11)
-            h1 = Replace(h1, " ", "_")
-            ' H2 = Format(Val(Mid(A1, Len(A1) - 4)), "00")
-            ' H3 = "DVR_A03_Motion_Detected"
-            ' H3 = "DVR_" + H1 + H2 + "_Motion_Detected"
-            H3 = "DVR_" + h1 + "_Motion_Detected_" + D2 + "_" + ""
-        End If
-        If lngCount = 0 Then
-            SET_GO = False
-        End If
-        If D1 >= Now - 10 Then
-            SET_GO = False
-        End If
-        
-        'a1 = MyItems.Item(rrr).SenderName
-        'a2 = MyItems.Item(rrr).SenderEmailAddress
-        'a3 = Trim(MyItems.Item(rrr).Subject)
-        'a4 = Trim(MyItems.Item(rrr).Body)
+    End If
+    
+    ' NOT WANTED FOR A MINUTE
+    ' -----------------------
+'        If D1 >= Now - 10 Then
+'            SET_GO = False
+'        End If
+    
+    'a1 = MyItems.Item(rrr).SenderName
+    'a2 = MyItems.Item(rrr).SenderEmailAddress
+    'a3 = Trim(MyItems.Item(rrr).Subject)
+    'a4 = Trim(MyItems.Item(rrr).Body)
 
 
-        ' Use the MsgBox command to troubleshoot. Remove it from the final code.
-        ' MsgBox A1
-        ' MsgBox Str(lngCount)
+    ' Use the MsgBox command to troubleshoot. Remove it from the final code.
+    ' MsgBox A1
+    ' MsgBox Str(lngCount)
+                
+     ' GET THE ATTACHMENT FROM THEM ALL
+    If SET_GO = True Then
+        If lngCount > 0 Then
+
+            ' ---------------------------------------------------
+            ' Use a count down loop for removing items
+            ' from a collection. Otherwise, the loop counter gets
+            ' confused and only every other item is removed.
+            ' ---------------------------------------------------
+            For i = lngCount To 1 Step -1
+                    X = X + 1
+                    If X Mod 10 = 0 Then DoEvents
                     
-         ' GET THE ATTACHMENT FROM THEM ALL
-'        If SET_GO = True Then
-            If lngCount > 0 Then
-    
-                    ' ---------------------------------------------------
-                    ' Use a count down loop for removing items
-                    ' from a collection. Otherwise, the loop counter gets
-                    ' confused and only every other item is removed.
-                    ' ---------------------------------------------------
-                    For i = lngCount To 1 Step -1
-                            X = X + 1
-                            If X Mod 10 = 0 Then DoEvents
-'                            UNIQUE = 0
-    
-                            ' Get the file name.
-                            strFile = objAttachments.Item(i).FileName
-'                            Do
-                                'X = X + 1
-                                'If X Mod 10 = 0 Then DoEvents
-'                                UNIQUE_VAR = Format(UNIQUE, "0")
-                                
-                                ' -----------------------------------------------------
-                                ' HOW BIG WAS THAT STRING MANIPULATE
-                                ' WITHOUT ERROR
-                                ' -----------------------------------------------------
-                                If InStr(A1, "Alarm Message From Device EDVR") > 0 Then
-                                    A2 = "A" + Mid(strFile, InStr(strFile, "_") - 1, 1)
-                                    strFolderpath_2 = strFolderpath + D3 + "\" + A2 + "\"
-                                    If Dir(strFolderpath_2, vbDirectory) = "" Then
-                                        On Error Resume Next
-                                            MkDir strFolderpath + D3
-                                        On Error GoTo 0
-                                        MkDir strFolderpath + D3 + "\" + A2
-                                    End If
-                                    If Dir(strFolderpath_2, vbDirectory) = "" Then
-                                        MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
-                                    End If
-                                    
-'                                    Do
-                                        'X = X + 1
-                                        'If X Mod 10 = 0 Then DoEvents
-
-                                    
-                                        strFile_F0 = Mid(strFile, 1, 5) + "20" + Mid(strFile, 6)
-                                        
-'                                        strFile_F1 = Mid(strFile_F0, 1, InStr(strFile_F0, ".") - 1)
-'                                        If InStr(strFile_F0, ".") > 0 Then
-'                                            strFile_F1 = Mid(strFile_F0, 1, InStr(strFile_F0, ".") - 1)
-'                                        End If
-'                                        If InStr(10, strFile_F0, "_") > 0 Then
-'                                            strFile_F1 = Mid(strFile_F0, 1, InStr(10, strFile_F0, "_", 10) - 1)
-'                                        End If
-'                                        If UNIQUE = 0 Then
-'                                            If InStr(10, strFile_F0, "_") > 0 Then
-'                                                UNIQUE = Mid(strFile_F0, InStr(10, strFile_F0, "_") + 1)
-'                                            End If
-'                                        End If
-'                                        If InStrRev(UNIQUE, ".") > 0 Then
-'                                            UNIQUE = Mid(UNIQUE, 1, InStrRev(UNIQUE, ".") - 1)
-'                                        End If
-'                                        UNIQUE_VAR = Format(Val(UNIQUE), "0")
-'                                        strFile_F1 = strFile_F1 + "_" + UNIQUE_VAR + ".jpg"
-'                                        strFile_NAME = strFolderpath_2 + H3 + D2 + " " + strFile_F1
-                                        
-                                        strFile_NAME = strFolderpath_2 + H3 + D2 + strFile_F0
-                                        strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile_F0
-                                                
-
-'                                        If Dir(strFile_NAME) <> "" Then
-'                                            UNIQUE = UNIQUE + 1
-'                                        End If
-'                                    Loop Until Dir(strFile_NAME) = ""
-                                End If
-                                
-'                                If UNIQUE = 0 Then UNIQUE_VAR = ""
-                                
-                                If InStr(A1, "Embedded Net DVR: Motion Detected On Channel") > 0 Then
-                                    If Len(h1) <> 2 Then
-'                                        MsgBox "STOP REQUIRE -- GOT HERE - Embedded Net DVR: Motion Detected On Channel"
-'                                        Stop
-                                    End If
-                                    strFolderpath_2 = strFolderpath + D3 + "\" + h1 + "\"
-
-                                    strFile_NAME = strFolderpath_2 + H3 + strFile
-                                    strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile
-                                    
-                                    If Dir(strFolderpath_2, vbDirectory) = "" Then
-                                        On Error Resume Next
-                                            MkDir strFolderpath + D3
-                                        On Error GoTo 0
-                                        MkDir strFolderpath + D3 + "\" + h1
-                                    End If
-                                    If Dir(strFolderpath_2, vbDirectory) = "" Then
-                                        MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
-                                    End If
-
-                                    
-                                End If
-                                
-                                If Dir(strFile_NAME) <> "" Then
-'                                    UNIQUE = UNIQUE + 1
-                                    If Dir("D:\GM OUTLOOK\TEMP", vbDirectory) = "" Then
-                                        On Error Resume Next
-                                            MkDir "D:\GM OUTLOOK"
-                                            MkDir "D:\GM OUTLOOK\TEMP"
-                                        On Error GoTo 0
-                                    End If
-                                    If Dir("D:\GM OUTLOOK\TEMP", vbDirectory) = "" Then
-                                        MsgBox "PATH FAILED TO MAKE" + vbCrLf + "D:\GM OUTLOOK\TEMP"
-                                    End If
-                                    
-                                    objAttachments.Item(i).SaveAsFile strFile_TEMP
-                                    SOME_PROCESS_DONE = True
-                                    
-                                    FR1 = FreeFile
-                                    Open strFile_TEMP For Binary As #FR1
-                                        PIC1_COMPARE = Input$(LOF(FR1), FR1)
-                                    Close #FR1
-                                    FR1 = FreeFile
-                                    Open strFile_NAME For Binary As #FR1
-                                        PIC2_COMPARE = Input$(LOF(FR1), FR1)
-                                    Close #FR1
-                                    If PIC2_COMPARE <> PIC1_COMPARE Then
-                                        MsgBox "PIC1_COMPARE<>PIC2_COMPARE" + vbCrLf + "IMAGE NOT THE SAME AT COMPARE" + vbCrLf + "OUTLOOK SCRIPTOR -- NOW STOP"
-                                        Stop
-                                        strFile_NAME = Mid(strFile_NAME, 1, InStrRev(strFile_NAME, ".") - 1) + "_Dupe_" + Trim(Str(Timer)) + ".jpg"
-                                        'MsgBox strFile_NAME
-                                    End If
-                                End If
-    
-                            ' Save the attachment as a file.
-                            objAttachments.Item(i).SaveAsFile strFile_NAME
-                            SOME_PROCESS_DONE = True
-                            If Dir(strFile_NAME) = "" Then Stop
-                    Next i
-                    
-                    ' DELETE THE MAIL OF 10 DAY OLDER
-                    If D1 < Now - 10 Then
-                        ' Set objAttachments = Nothing
-                        On Error Resume Next
-'                        objMsg.Delete
-                        'objMsg.Item(RR).Delete
-                        ' Set objMsg = objSelection.Items.Item(RR)
-'                        FF = objMsg.To
-'                        If FF <> "" Then
-                         objMsg.Move DeletedFolder
-                         SOME_PROCESS_DONE = True
-'                        End If
-                        If Err.Number > 0 Then
-                            Stop
-                        End If
-                        On Error GoTo 0
+                    ' Get the file name.
+                    strFile = objAttachments.Item(i).FileName
                         
-                        X = X + 1
-                        If X Mod 10 = 0 Then
-                            DoEvents
+                    ' -----------------------------------------------------
+                    ' HOW BIG WAS THAT STRING MANIPULATE
+                    ' WITHOUT ERROR
+                    ' -----------------------------------------------------
+                    If InStr(A1, "Alarm Message From Device EDVR") > 0 Then
+                        A2 = "A" + Mid(strFile, InStr(strFile, "_") - 1, 1)
+                        strFolderpath_2 = strFolderpath + D3 + "\" + A2 + "\"
+                        If Dir(strFolderpath_2, vbDirectory) = "" Then
+                            I_RESULT = CreateFolderTree(strFolderpath_2)
                         End If
-                        RR_X = RR_X + 1
-                        If RR_X >= 100 Then
-                            GoTo ExitSub
+                        If Dir(strFolderpath_2, vbDirectory) = "" Then
+                            MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
+                        End If
+                        
+                        strFile_NAME = strFolderpath_2 + H3 + D2 + strFile_F0
+                        strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile_F0
+                                    
+                    End If
+                    
+                    If InStr(A1, "Embedded Net DVR: Motion Detected On Channel") > 0 Then
+                        strFolderpath_2 = strFolderpath + D3 + "\" + H1 + "\"
+
+                        strFile_NAME = strFolderpath_2 + H3 + strFile
+                        strFile_NAME_2 = H3 + strFile
+                        strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile
+                        
+                        If Dir(strFolderpath_2, vbDirectory) = "" Then
+                            I_RESULT = CreateFolderTree(strFolderpath_2)
+                        End If
+                        If Dir(strFolderpath_2, vbDirectory) = "" Then
+                            MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
+                        End If
+                        If Dir(strFolderpath_2, vbDirectory) = "" Then
+                            MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
                         End If
                     End If
-'            End If
+                    
+                    
+                    If InStr(A1, "Embedded Net DVR: sound intensity alarm On Channel") > 0 Then
+                        strFolderpath_2 = strFolderpath + D3 + " Sound Intensity Alarm\" + H1 + "\"
+
+                        strFile_NAME = strFolderpath_2 + H3 + strFile
+                        strFile_NAME_2 = H3 + strFile
+                        strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile
+                        
+                        If Dir(strFolderpath_2, vbDirectory) = "" Then
+                            I_RESULT = CreateFolderTree(strFolderpath_2)
+                        End If
+                        If Dir(strFolderpath_2, vbDirectory) = "" Then
+                            MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
+                        End If
+                    End If
+                    
+                    
+                    
+                    If strFile_NAME <> "" Then
+                        If Dir(strFile_NAME) <> "" Then
+'                                    UNIQUE = UNIQUE + 1
+                            If Dir("D:\GM OUTLOOK\TEMP", vbDirectory) = "" Then
+                                On Error Resume Next
+                                    MkDir "D:\GM OUTLOOK"
+                                    MkDir "D:\GM OUTLOOK\TEMP"
+                                On Error GoTo 0
+                            End If
+                            If Dir("D:\GM OUTLOOK\TEMP", vbDirectory) = "" Then
+                                MsgBox "PATH FAILED TO MAKE" + vbCrLf + "D:\GM OUTLOOK\TEMP"
+                            End If
+                            
+                            objAttachments.Item(i).SaveAsFile strFile_TEMP
+                            SOME_PROCESS_DONE = True
+                            
+                            FR1 = FreeFile
+                            Open strFile_TEMP For Binary As #FR1
+                                PIC1_COMPARE = Input$(LOF(FR1), FR1)
+                            Close #FR1
+                            FR1 = FreeFile
+                            A_TEST = strFile_NAME_2
+                            Open strFile_NAME For Binary As #FR1
+                                PIC2_COMPARE = Input$(LOF(FR1), FR1)
+                            Close #FR1
+                            If PIC2_COMPARE <> PIC1_COMPARE Then
+                                RENAME = RENAME + 1
+                                If RENAME < -1 Then
+                                    MsgBox "PIC1_COMPARE<>PIC2_COMPARE" + vbCrLf + vbCrLf + strFile_TEMP + vbCrLf + strFile_NAME + "IMAGE NOT THE SAME AT COMPARE" + vbCrLf + "OUTLOOK SCRIPTOR -- NOW STOP" + vbCrLf + "WILL GET RENAME _DUPE_ AND TIMER"
+                                    ' Shell "Explorer.exe /select," + strFile_NAME, vbMaximizedFocus
+                                    ' Stop
+                                End If
+                                If InStr(strFile_NAME, "_Dupe_") > 0 Then
+                                    ' Stop
+                                    ' strFile_NAME_8 = strFile_NAME
+                                    strFile_NAME = Mid(strFile_NAME, 1, InStrRev(strFile_NAME, "_Dupe_") - 1) + "_Dupe_" + Trim(Str(Timer)) + ".jpg"
+                                    ' MsgBox strFile_NAME + vbCrLf + strFile_NAME_8
+                                Else
+                                    strFile_NAME = Mid(strFile_NAME, 1, InStrRev(strFile_NAME, ".") - 1) + "_Dupe_" + Trim(Str(Timer)) + ".jpg"
+                                End If
+                                sndPlaySound32 "C:\Windows\Media\Windows Error.wav", 1&
+
+                                ' MsgBox strFile_NAME
+                            End If
+                        End If
+                        ' Save the attachment as a file.
+                        objAttachments.Item(i).SaveAsFile strFile_NAME
+                        SOME_PROCESS_DONE = True
+                        If Dir(strFile_NAME) = "" Then Stop
+                    End If
+            Next i
+            
+            ' DELETE THE MAIL WITH ATTACHEMTN USER OF 2 DAY OLDER
+            If D1 < Now - 2 Then
+                ' Set objAttachments = Nothing
+                On Error Resume Next
+'                        objMsg.Delete
+                'objMsg.Item(RR).Delete
+                ' Set objMsg = objSelection.Items.Item(RR)
+'                        FF = objMsg.To
+'                        If FF <> "" Then
+                 objMsg.Move DeletedFolder
+                 SOME_PROCESS_DONE = True
+'                        End If
+                If Err.Number > 0 Then
+                    Stop
+                End If
+                On Error GoTo 0
+                
+                RR_X = RR_X + 1
+                If RR_X >= 1000 Then
+                    GoTo ExitSub
+                End If
+            End If
         End If
+    End If
+    
+    ' IF MESSAGE HAS NOT ATTACHMENT THAT I USE
+    If SET_GO = False Then
+        On Error Resume Next
+        objMsg.Move NOT_ATTACHMENT_Folder
+    End If
+    
+    X = X + 1
+    If X Mod 10 = 0 Then
+        DoEvents
+    End If
+    
 Next
 End If
 ExitSub:
@@ -687,6 +1013,36 @@ On Error GoTo 0
 
 
 End Sub
+
+
+Private Function CreateFolderTree(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+
+    On Error GoTo CreateFolderTreeError
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        If nPos - 1 > 3 Then
+            If Dir(Left$(sPath, nPos - 1), vbDirectory) = "" Then
+                MkDir Left$(sPath, nPos - 1)
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+    If Dir(sPath, vbDirectory) = "" Then MkDir sPath
+    
+    CreateFolderTree = True
+    If Dir(sPath, vbDirectory) = "" Then
+        CreateFolderTree = False
+    End If
+
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
 
 
 
@@ -770,6 +1126,8 @@ End Sub
 ' VBA Code to permanently delete selected email | Outlook Forums by Slipstick.com
 ' https://forums.slipstick.com/threads/96078-vba-code-to-permanently-delete-selected-email/
 ' ----
+
+
 
 
 
