@@ -98,12 +98,27 @@ FOR EACH objProcess IN colProcesses
 		END IF
 		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
 				' Wscript.Quit
-		END IF  
+		END IF
 		IF i2 > 1 THEN ' MY  PROGRAM WSCRIPT 
 				Wscript.Quit
-		END IF  
-    END IF  
+		END IF
+    END IF
 NEXT
+
+' Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+' Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+' KNOCK UP THIS FOR USE IN MY OUTLOOK SCRIPT CODING
+IF 1=2 THEN 
+	FOR EACH objProcess IN colProcesses
+		IF NOT (IsNull(objProcess.ProcessID )) THEN
+			strScriptProcessID = objProcess.ProcessID
+			MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(strScriptProcessID)
+		END IF
+	NEXT
+ENDIF
+
+
+
 
 ' -------------------------------------------------------------------
 ' ALL THE -- IF ____ Wscript.Quit ____ ROUTINE SET DONE
