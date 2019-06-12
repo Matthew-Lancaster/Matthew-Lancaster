@@ -115,7 +115,7 @@ IF 1=2 THEN
 			MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(strScriptProcessID)
 		END IF
 	NEXT
-ENDIF
+END IF
 
 
 
@@ -167,7 +167,7 @@ FOR RV=1 TO 2
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
-				MSGBOX "--"+FOLDER_STRING
+				' MSGBOX "--"+FOLDER_STRING
 
 			If objFolder.SubFolders.Count > 0 Then 
 				CALL COPY_FOLDER_ONE_UP_ROOT_LEVEL
