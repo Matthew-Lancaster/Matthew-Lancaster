@@ -9,8 +9,14 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10116
-   ScaleWidth      =   12864
+   ScaleHeight     =   11916
+   ScaleWidth      =   22944
+   Begin VB.Timer FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   11112
+      Top             =   2040
+   End
    Begin VB.FileListBox File_GOODSYNC 
       Height          =   264
       Left            =   11505
@@ -2196,6 +2202,9 @@ Option Explicit
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 
+Dim FOREGROUND_WINDOW_CHANGE_DELAY_1
+Dim FOREGROUND_WINDOW_CHANGE_DELAY_2
+
 Dim DO_ONCE_BOOTER
 
 Dim OLD_hWnd_WINAMP_GetWindowState
@@ -3120,6 +3129,16 @@ Function GetComputerName() As String
 End Function
 
 
+
+Private Sub FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO_Timer()
+If FOREGROUND_WINDOW_CHANGE_DELAY_1 < Now Then
+If FOREGROUND_WINDOW_CHANGE_DELAY_2 < Now Then
+    Call Timer_FOREGROUND_WINDOW_CHANGE_Timer
+    Call Timer_FOREGROUND_WINDOW_CHANGE_02_Timer
+    FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO.Enabled = False
+End If
+End If
+End Sub
 
 Private Sub Form_Load()
     
@@ -5413,15 +5432,156 @@ ShowWindow WINDOW_hWnd, SW_NORMAL
 ' BEep
 Me.WindowState = vbMinimized
 End Sub
+
+Private Sub MAX_FORM_CHECKER()
+
+' --------------------------------------------------------------------
+' SOME FORM GET PUSH DOWN OF SCREEN INTO MINUS AREA ON ALL CORDINATE
+' SO CHECKER AUTO ANY PUSH LIKE THAT THING BRING THEM CORD INTO SCREEN
+' THAT ENABLE WHEN MINIMIZED THE PROGRAM ACTUALLY DO POP UP WHEN WANT
+' --------------------------------------------------------------------
+' FROM -- TO
+' [ Wednesday 08:47:20 Am_12 June 2019 ]
+' [ Wednesday 09:30:00 Am_12 June 2019 ]
+' --------------------------------------------------------------------
+
+' --------------------------------------------------------------------
+' THIS CODE IS RUN BY -- WHICH IS QUITE QUICKER AT 10 MILLISECOND RUN
+' ONLY IF FOREGROUND WINDOW CHANGE AND DELAY TIMER NOT TOO QUICK
+' --------------------------------------------------------------------
+'    Call Timer_FOREGROUND_WINDOW_CHANGE_Timer
+'    Call Timer_FOREGROUND_WINDOW_CHANGE_02_Timer
+' --------------------------------------------------------------------
+' IT IS RUN BY PROJECT ELITESPY AND VB_KEEP_RUNNER
+' --------------------------------------------------------------------
+
+Dim WINDOW_hWnd(10)
+Dim hWndResult
+Dim RectFINDER As RECT
+Dim SET_GO, RT, RB, RR, RL
+Dim RR_EYE
+Dim I_R
+
+WINDOW_hWnd(1) = FindWindowPart("EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version")
+WINDOW_hWnd(2) = FindWindow(vbNullString, "VB_KEEP_RUNNER")
+WINDOW_hWnd(3) = FindWindow(vbNullString, "ClipBoard Logger")
+WINDOW_hWnd(4) = FindWindow(vbNullString, "URL Logger")
+WINDOW_hWnd(5) = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString) ' GOODSYNC
+WINDOW_hWnd(6) = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F00A}", vbNullString) ' GOODSYNC2GO
+WINDOW_hWnd(7) = FindWindow("rctrl_renwnd32", vbNullString) ' C:\Program Files (x86)\Microsoft Office\Office12\OUTLOOK.EXE
+
+For RR_EYE = 1 To 10
+    If WINDOW_hWnd(RR_EYE) > 0 Then
+        I_R = GetWindowState(WINDOW_hWnd(RR_EYE))
+        If I_R = -1 Then
+            hWndResult = GetWindowRect(WINDOW_hWnd(RR_EYE), RectFINDER)
+            
+            SET_GO = True
+            RT = RectFINDER.Top
+            RB = RectFINDER.Bottom
+            RR = RectFINDER.Right
+            RL = RectFINDER.Left
+            
+            If RT < 0 And RB < 0 And RR < 0 And RL < 0 Then
+                Call cmdMoveMax_SIMPLE(WINDOW_hWnd(RR_EYE))
+            
+            End If
+        End If
+    End If
+Next
+
+End Sub
+
 Private Sub Label_MAXIMIZE_ELITE_SPY_Click()
+    
+    Dim WINDOW_hWnd
+    ' window_hWnd = FindWindow("ThunderRT6FormDC", "EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version 1.0.510)")
+    WINDOW_hWnd = FindWindowPart("EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version")
+    Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+    Label_MAXIMIZE_ELITE_SPY.BackColor = RGB(255, 255, 255)
+    
+    Call MAX_FORM_CHECKER
+    
+    ShowWindow WINDOW_hWnd, SW_NORMAL
+    
+    Me.WindowState = vbMinimized
 
-Dim WINDOW_hWnd
-' window_hWnd = FindWindow("ThunderRT6FormDC", "EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version 1.0.510)")
-WINDOW_hWnd = FindWindowPart("EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version")
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_MAXIMIZE_ELITE_SPY.BackColor = RGB(255, 255, 255)
+Exit Sub
 
-ShowWindow WINDOW_hWnd, SW_NORMAL
+Dim hWndResult
+Dim RectFINDER As RECT
+hWndResult = GetWindowRect(WINDOW_hWnd, RectFINDER)
+
+Dim SET_GO, RT, RB, RR, RL
+
+SET_GO = True
+RT = RectFINDER.Top
+RB = RectFINDER.Bottom
+RR = RectFINDER.Right
+RL = RectFINDER.Left
+
+If RT < 0 And RB < 0 And RR < 0 And RL < 0 Then
+
+End If
+
+'' CENTER ON SCREEN COMPENSATE TASKBAR AT BOTTOM
+''----------------------------------------------
+'If Screen.height - RectTaskbar.Top * Screen.TwipsPerPixelY < 2500 Then
+'    Me.Left = Screen.width / 2 - Me.width / 2
+'    Me_Top = (Screen.height - ((RectTaskbar.Bottom - RectTaskbar.Top) * Screen.TwipsPerPixelY)) / 2 - Me.height / 2
+'Else
+'    Me.Left = Screen.width / 2 - Me.width / 2
+
+
+
+
+' txtMhWnd.Text = WINDOW_hWnd
+
+
+
+Call cmdMoveMax_Click
+
+GoTo ENDER
+
+Dim XNOW, I_R, XX_hWnd, VAR, FN_VAR
+XNOW = Now + TimeSerial(0, 1, 5)
+Do
+    I_R = GetWindowState(WINDOW_hWnd)
+    If I_R > 0 Then Exit Do
+    Sleep 10
+Loop Until XNOW < Now
+
+XX_hWnd = WINDOW_hWnd
+
+
+
+If I_R = 0 Then
+
+    If XX_hWnd > 0 Then
+        
+        'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
+        pid = -1
+        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
+        If pid > 0 Then
+            Result = cProcesses.Process_Kill(pid)
+            Exit Sub
+        End If
+    End If
+    
+    
+    FN_VAR = "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+    ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+    Dim WSHShell
+    Set WSHShell = CreateObject("WScript.Shell")
+        WSHShell.Run """" + FN_VAR_1 + """", DontShowWindow, DontWaitUntilFinished
+    Set WSHShell = Nothing
+
+
+
+End If
+
+ENDER:
+
 Beep
 Me.WindowState = vbMinimized
 End Sub
@@ -7310,6 +7470,14 @@ If GetForegroundWindow = O_GetForegroundWindow_02 Then
 End If
 O_GetForegroundWindow_02 = GetForegroundWindow
 
+If FOREGROUND_WINDOW_CHANGE_DELAY_1 > Now Then
+    FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO.Enabled = True
+    Exit Sub
+End If
+FOREGROUND_WINDOW_CHANGE_DELAY_1 = Now + TimeSerial(0, 0, 2)
+
+Call MAX_FORM_CHECKER
+' [ Wednesday 08:47:20 Am_12 June 2019 ]
 
 Call Timer_VB_MAXIMIZE_Timer
 
@@ -9372,12 +9540,20 @@ End If
 If FORM_LOAD_EnumProcess = False Then
     If Me.WindowState = vbMinimized Then Exit Sub
 End If
- FORM_LOAD_EnumProcess = False
+
+FORM_LOAD_EnumProcess = False
 'If GetForegroundWindow <> Me.hWnd Then
 '    If Me.WindowState = vbMinimized Then Exit Sub
 'End If
 
+
 If GetForegroundWindow <> O_GetForegroundWindow Then
+    If FOREGROUND_WINDOW_CHANGE_DELAY_2 > Now Then
+        FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO.Enabled = True
+        Exit Sub
+    End If
+    FOREGROUND_WINDOW_CHANGE_DELAY_2 = Now + TimeSerial(0, 0, 2)
+    
     Call EnumProcess
 End If
 
@@ -12228,6 +12404,44 @@ Private Sub cmdMoveMax_Click()
     Call ChunkCodeOnMouse
 
 End Sub
+
+Private Sub cmdMoveMax_SIMPLE(txtMhWnd_SIMPLE)
+    
+    ' Make Sure there is a space between the Eye _ i _ I _ iResult I_Result I Borg Kim
+    ' --------------------------------------------------------------------------------
+
+    If txtMhWnd_SIMPLE = "" Then txtMhWnd_SIMPLE = Me.hWnd
+
+    Dim Rect_Get As RECT
+    Dim HX, HY, HW, HH, SSHW, SSHH
+    Dim i_Result
+    Dim ScreenSize As RECT
+    
+    i_Result = GetWindowRect(GetDesktopWindow(), ScreenSize)
+    
+    i_Result = GetWindowRect(txtMhWnd_SIMPLE, Rect_Get)
+    
+    HX = (Rect_Get.Right - Rect_Get.Left)
+    HY = 40
+    HW = Rect_Get.Right - Rect_Get.Left
+    HH = Rect_Get.Bottom - Rect_Get.Top
+    SSHW = ScreenSize.Right - ScreenSize.Left
+    SSHH = ScreenSize.Bottom - ScreenSize.Top
+    
+    HX = 10
+    HY = 10
+    HW = SSHW - 20
+    HH = SSHH - 240
+    
+    ' ShowWindow txtMhWnd_SIMPLE, SW_NORMAL
+    
+    MoveWindow txtMhWnd_SIMPLE, HX, HY, HW, HH, True
+    
+    ' lhWnd_Function_Button_Set_MIN_MAX = Val(txtMhWnd_SIMPLE)
+    ' Call ChunkCodeOnMouse
+
+End Sub
+
 Private Sub cmdMaximize_Click()
     ' Maximize window
     Beep
