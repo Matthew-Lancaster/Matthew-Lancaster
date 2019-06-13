@@ -769,9 +769,9 @@ For RR = X_COUNT To 1 Step -1
         Set objAttachments = objMsg.Attachments
     End If
     A1 = Trim(objMsg.Subject)
-    D1 = objMsg.ReceivedTime
-    D2 = Format(D1, "YYYYMMDDHHMMSS")
-    D3 = Format(D1, "YYYYMMDD")
+    d1 = objMsg.ReceivedTime
+    D2 = Format(d1, "YYYYMMDDHHMMSS")
+    D3 = Format(d1, "YYYYMMDD")
     
     'X = X + 1
     'If X Mod 10 = 0 Then DoEvents
@@ -957,7 +957,7 @@ For RR = X_COUNT To 1 Step -1
             Next i
             
             ' DELETE THE MAIL WITH ATTACHEMTN USER OF 2 DAY OLDER
-            If D1 < Now - 2 Then
+            If d1 = d1 Then '< Now - 1 Then
                 ' Set objAttachments = Nothing
                 On Error Resume Next
 '                        objMsg.Delete
@@ -974,7 +974,7 @@ For RR = X_COUNT To 1 Step -1
                 On Error GoTo 0
                 
                 RR_X = RR_X + 1
-                If RR_X >= 1000 Then
+                If RR_X >= 40000 Then
                     GoTo ExitSub
                 End If
             End If
