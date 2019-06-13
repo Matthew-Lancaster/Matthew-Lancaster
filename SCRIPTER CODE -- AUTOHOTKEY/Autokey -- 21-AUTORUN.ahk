@@ -1505,14 +1505,14 @@ If (OSVER_N_VAR=10)
 ;--------------------------------------------------------------------
 
 IfWinNotExist SendSMTP_REBOOT_BATCH
+{
+	FN_VAR:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_BATCH.BAT"
+	IfExist, %FN_VAR%
 	{
-		FN_VAR:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_BATCH.BAT"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			Run, "%FN_VAR%" , , MIN
-		}
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%" , , MIN
 	}
+}
 
 ;--------------------------------------------------------------------
 ; THIS COMMAND PROCESS TERMINATES THE APP IN WINDOWS XP	
@@ -1541,9 +1541,9 @@ IfWinNotExist SendSMTP_REBOOT_BATCH
 	
 SET_GO=FALSE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO=TRUE
+	SET_GO=FALSE
 IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO=TRUE
+	SET_GO=FALSE
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=TRUE
 IF (A_ComputerName = "7-ASUS-GL522VW") 
@@ -1562,19 +1562,28 @@ IF SET_GO=TRUE
 		{
 			SoundBeep , 2500 , 100
 			Run, "%FN_VAR%"
-			
-			; If OSVER_N_VAR>5
-			; {
-				; Run, "%FN_VAR%"
-			; }
-			; ELSE
-			; {
-				; Run, "%FN_VAR%", , MIN
-			; }			
 		}
 	}
 	SLEEP 2000
+}
 	
+	
+	
+SET_GO=FALSE
+IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	SET_GO=TRUE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO=TRUE
+IF (A_ComputerName = "4-ASUS-GL522VW") 
+	SET_GO=TRUE
+IF (A_ComputerName = "7-ASUS-GL522VW") 
+	SET_GO=TRUE
+IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+	SET_GO=TRUE
+
+DetectHiddenWindows, off	
+IF SET_GO=TRUE
+{
 	Process, Exist, bluetoothview.exe
 	If Not ErrorLevel
 	{
@@ -1583,22 +1592,12 @@ IF SET_GO=TRUE
 		{
 			SoundBeep , 2500 , 100
 			Run, "%FN_VAR%"
-
-			; If OSVER_N_VAR>5
-			; {
-				; Run, "%FN_VAR%"
-			; }
-			; ELSE
-			; {
-				; Run, "%FN_VAR%", , MIN
-			; }
 		}
 	}
+}
 	SLEEP 2000
 	
-	;GOSUB MINIMIZE_ALL_BLUETOOTH
-
-}
+;GOSUB MINIMIZE_ALL_BLUETOOTH
 
 DetectHiddenWindows, ON
 
