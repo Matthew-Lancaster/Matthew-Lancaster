@@ -334,6 +334,13 @@ If strScriptProcessID_CHECK <> strScriptProcessID Then
     On Error Resume Next
     Kill strFileControlpath
     On Error GoTo 0
+    
+    strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_GO.txt"
+    FR1 = FreeFile
+    Open strFileControlpath For Output As FR1
+        Print #FR1, "FLAG FOR GO _ MESGBOX INFO _ ONE PER RUN OF OUTLOOK"
+    Close #FR1
+    
 End If
 ' ---------------------------------------------------------------------
 
@@ -525,9 +532,16 @@ For R = 1 To i
     H1 = H1 + TEXT_1(R) + vbCrLf
 Next
 
-If FileModDate > Now - TimeSerial(0, 0, 10) Then
-    MsgBox H1, vbMsgBoxSetForeground
+sndPlaySound32 "C:\Windows\Media\Windows Error.wav", 1&
+
+Dim oDeletedItems As Outlook.Folder
+Set oDeletedItems = Application.Session.GetDefaultFolder(olFolderDeletedItems)
+If oDeletedItems.Items.Count = 0 Then
+    If FileModDate > Now - TimeSerial(0, 0, 10) Then
+        MsgBox H1, vbMsgBoxSetForeground
+    End If
 End If
+
 
 End Sub
 
@@ -559,12 +573,22 @@ i = i + 1: TEXT_1(i) = "----------------------------------------------"
 i = i + 1: TEXT_1(i) = "IS GOOD IF SCHEDUAL IS SET TO RUN AUTO GO OPENING"
 i = i + 1: TEXT_1(i) = "AND THEN THAT WILL BEGIN"
 i = i + 1: TEXT_1(i) = "----------------------------------------------"
+i = i + 1: TEXT_1(i) = "MESSENGER HERE DISPLAY ONCE PER RUN OF OUTLOOK"
+i = i + 1: TEXT_1(i) = "----------------------------------------------"
 
 For R = 1 To i
     H1 = H1 + TEXT_1(R) + vbCrLf
 Next
 
-MsgBox H1, vbMsgBoxSetForeground
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_GO.txt"
+If Dir(strFileControlpath) <> "" Then
+    MsgBox H1, vbMsgBoxSetForeground
+End If
+    
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_GO.txt"
+On Error Resume Next
+Kill strFileControlpath
+On Error GoTo 0
 
 
 strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
@@ -586,6 +610,8 @@ If Err.Number > 0 Then
     End If
 End If
 On Error GoTo 0
+
+sndPlaySound32 "C:\Windows\Media\Windows Error.wav", 1&
 
 
 End Sub
@@ -789,8 +815,9 @@ For RR = X_COUNT To 1 Step -1
     SET_GO = False
     If InStr(A1, "Alarm Message From Device EDVR") > 0 Then
         SET_GO = True
+        H1 = Mid(A1, InStrRev(A1, "On Channel") + 11)
         H3 = "Motion Alarm On Device EDVR_"
-        D2 = "" ' REMOVE THE TIME FOR THIS ONE AS IT IN .JPG ATTACHMENT
+        ' D2 = "" ' REMOVE THE TIME FOR THIS ONE AS IT IN .JPG ATTACHMENT
     End If
     ' Embedded Net DVR: Motion Detected On Channel A3
     If InStr(A1, "Embedded Net DVR: Motion Detected On Channel") > 0 Then
@@ -863,8 +890,7 @@ For RR = X_COUNT To 1 Step -1
                             MsgBox "PATH FAILED TO MAKE" + vbCrLf + strFolderpath_2
                         End If
                         
-                        strFile_NAME = strFolderpath_2 + H3 + D2 + strFile_F0
-                        strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile_F0
+                        strFile_NAME = strFolderpath_2 + H3 + strFile
                                     
                     End If
                     
@@ -873,7 +899,6 @@ For RR = X_COUNT To 1 Step -1
 
                         strFile_NAME = strFolderpath_2 + H3 + strFile
                         strFile_NAME_2 = H3 + strFile
-                        strFile_TEMP = "D:\GM OUTLOOK\TEMP\" + strFile
                         
                         If Dir(strFolderpath_2, vbDirectory) = "" Then
                             I_RESULT = CreateFolderTree(strFolderpath_2)
@@ -917,6 +942,12 @@ For RR = X_COUNT To 1 Step -1
                                 MsgBox "PATH FAILED TO MAKE" + vbCrLf + "D:\GM OUTLOOK\TEMP"
                             End If
                             
+                            ' ---------------------------------------------------------------------------------
+                            ' THE TEMP FILE IS WIRTTEN AND THEN COMPARE TO WHAT MIGHT ALREADY BE AT DESTINATION
+                            ' FOR A DUPE-AH
+                            ' MIGHT AS WELL TMEP IS SAME NAME ALWAYS COMPARE TO SEE WHAT CODE ABOVE
+                            ' ---------------------------------------------------------------------------------
+                            strFile_TEMP = "D:\GM OUTLOOK\TEMP\TEMP.JPG"
                             objAttachments.Item(i).SaveAsFile strFile_TEMP
                             SOME_PROCESS_DONE = True
                             
@@ -942,6 +973,7 @@ For RR = X_COUNT To 1 Step -1
                                     strFile_NAME = Mid(strFile_NAME, 1, InStrRev(strFile_NAME, "_Dupe_") - 1) + "_Dupe_" + Trim(Str(Timer)) + ".jpg"
                                     ' MsgBox strFile_NAME + vbCrLf + strFile_NAME_8
                                 Else
+                                '1 11
                                     strFile_NAME = Mid(strFile_NAME, 1, InStrRev(strFile_NAME, ".") - 1) + "_Dupe_" + Trim(Str(Timer)) + ".jpg"
                                 End If
                                 sndPlaySound32 "C:\Windows\Media\Windows Error.wav", 1&
@@ -974,7 +1006,7 @@ For RR = X_COUNT To 1 Step -1
                 On Error GoTo 0
                 
                 RR_X = RR_X + 1
-                If RR_X >= 40000 Then
+                If RR_X >= 1000 Then
                     GoTo ExitSub
                 End If
             End If
