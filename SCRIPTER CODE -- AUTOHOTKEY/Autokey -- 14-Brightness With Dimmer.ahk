@@ -970,8 +970,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		POWER_SCREEN_SAVE_OFF := "False"
 		IF (A_ComputerName="7-ASUS-GL522VW")
 			POWER_SCREEN_SAVE_OFF := "True"
-		; IF (A_ComputerName="8-MSI-GP62M-7RD")
-			; POWER_SCREEN_SAVE_OFF := "True"
+		IF (A_ComputerName="8-MSI-GP62M-7RD")
+			POWER_SCREEN_SAVE_OFF := "True"
 		
 		DIMMER_ONLY_NOT_BLANK := "False"
 		;IF (A_ComputerName="8-MSI-GP62M-7RD")
