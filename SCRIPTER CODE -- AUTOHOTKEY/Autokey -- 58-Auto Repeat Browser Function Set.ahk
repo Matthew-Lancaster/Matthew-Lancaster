@@ -321,6 +321,7 @@ GLOBAL OSVER_N_VAR
 
 FN_Array_1 := SET_ARRAY_1()
 FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
+
 ; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
 	
 FN_ARRAY_RAINER_F5 := SET_ARRAY_RAINER_F5()
@@ -1137,6 +1138,28 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	; IF WASN'T ON FACEBOOK AND THEN IT IS AGAIN
 	; ---------------------------------------------------
 	; TIMER REQUIRED FOR NOT TOO QUICK
+
+	SET_GO_2=FALSE
+	IF A_ComputerName=2-ASUS-EEE		
+		SET_GO_2=TRUE
+	IF A_ComputerName=3-LINDA-PC
+		SET_GO_2=TRUE
+	IF A_ComputerName=8-MSI-GP62M-7RD
+		SET_GO_2=TRUE
+		
+	IF SET_GO_2=TRUE
+	{
+		Loop % FN_ARRAY_FB_F5.MaxIndex()
+		{
+			Element := FN_ARRAY_FB_F5[A_Index]
+			IfWinExist, %Element%
+			{
+				WinActivate, %Element%
+				WinWaitActive, %Element%
+				BREAK
+			}
+		}
+	}
 	
 	WinGetTITLE, TITLE_VAR, A
 	; "Your Notifications - Google Chrome"
