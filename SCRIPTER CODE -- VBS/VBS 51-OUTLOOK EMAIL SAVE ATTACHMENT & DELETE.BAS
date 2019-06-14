@@ -340,6 +340,7 @@ If strScriptProcessID_CHECK <> strScriptProcessID Then
     Open strFileControlpath For Output As FR1
         Print #FR1, "FLAG FOR GO _ MESGBOX INFO _ ONE PER RUN OF OUTLOOK"
     Close #FR1
+    ' Stop
     
 End If
 ' ---------------------------------------------------------------------
@@ -581,7 +582,9 @@ For R = 1 To i
 Next
 
 strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_GO.txt"
+'Stop
 If Dir(strFileControlpath) <> "" Then
+    sndPlaySound32 "C:\Windows\Media\Windows Error.wav", 1&
     MsgBox H1, vbMsgBoxSetForeground
 End If
     
