@@ -408,6 +408,11 @@ If SOME_PROCESS_DONE = True Then
     End If
 End If
 
+strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP.txt"
+On Error Resume Next
+Kill strFileControlpath
+On Error GoTo 0
+
 End
 
 End Sub
