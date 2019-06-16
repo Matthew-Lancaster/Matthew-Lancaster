@@ -2219,6 +2219,8 @@ Attribute VB_Exposed = False
 Option Explicit
 
 
+Dim X_ONE_SECOND
+
 Dim FOREGROUND_WINDOW_CHANGE_DELAY_1
 Dim FOREGROUND_WINDOW_CHANGE_DELAY_2
 
@@ -3761,7 +3763,8 @@ Command_Screen_Shot_Auto_ClipBoard_er.Caption = "Screen Shot Auto ClipBoard_er w
 Call Timer_EnumProcess_Timer
 '---------------------------------
 
-
+Timer_Pause_Update.Interval = 60000
+Label53.ToolTipText = "Pause Update for 1 Minute"
 
 
 End Sub
@@ -4169,18 +4172,18 @@ Function FindWindowPart(Test) As Long
 
 FindWindowPart = False
 
-Dim test_hWnd As Long
+Dim test_hwnd As Long
 
-test_hWnd = FindWindowDLL(ByVal 0&, ByVal 0&)
-Do While test_hWnd <> 0
+test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+Do While test_hwnd <> 0
         
-        If InStr(GetWindowTitle(test_hWnd), Test) > 0 Then
-            FindWindowPart = test_hWnd
+        If InStr(GetWindowTitle(test_hwnd), Test) > 0 Then
+            FindWindowPart = test_hwnd
             Exit Do
         End If
         
     'retrieve the next window
-    test_hWnd = GetWindow(test_hWnd, GW_HWNDNEXT)
+    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
 
 Loop
 
@@ -7711,7 +7714,7 @@ FindWinPartExplorerGone = False
 Dim Rect8 As RECT
 
 Dim ash$
-Dim test_hWnd As Long, _
+Dim test_hwnd As Long, _
     test_pid As Long, _
     test_thread_id As Long
 
@@ -7723,25 +7726,25 @@ Dim cText As String
 
 Dim Huge
 
-test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+test_hwnd = FindWindow2(ByVal 0&, ByVal 0&)
 'test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
 Dim BR$, HWnd9, GWS, EF, ECUTE
 
 BR$ = ""
-Do While test_hWnd <> 0
+Do While test_hwnd <> 0
 
     DoEvents
-    HWnd9 = GetWindowRect(test_hWnd, Rect8)
-        ash$ = GetWindowTitle(test_hWnd)
+    HWnd9 = GetWindowRect(test_hwnd, Rect8)
+        ash$ = GetWindowTitle(test_hwnd)
 '        If InStr(Ash$, "Double") > 0 Then Stop
-        GWS = GetWindowState(test_hWnd)
+        GWS = GetWindowState(test_hwnd)
 '        If gws = -1 Then gws2$ = "Window State Normal"
 '        If gws = vbMinimized Then gws2$ = "Window State Minimized"
 '        If gws = vbMaximized Then gws2$ = "Window State Maximized"
 '
 '
     If (Rect8.Top > 0 And Rect8.Left > 0) Or GWS = vbMinimized Then
-        ash$ = GetWindowTitle(test_hWnd)
+        ash$ = GetWindowTitle(test_hwnd)
         If ash$ <> "" And InStr(BR$, "-- " + ash$ + " -- ") = 0 Then
             BR$ = BR$ + "-- " + ash$ + " -- "
 '            On Error Resume Next
@@ -7765,7 +7768,7 @@ Do While test_hWnd <> 0
     End If
         
 'retrieve the next window
-test_hWnd = GetWindow(test_hWnd, GW_HWNDNEXT)
+test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
 
 Loop
 
@@ -10387,7 +10390,7 @@ End Sub
 
 Public Function FindHandle_AutoHotkey() As Long
 
-Dim test_hWnd As Long, _
+Dim test_hwnd As Long, _
     test_pid As Long, _
     test_thread_id As Long
 
@@ -10407,13 +10410,13 @@ Do
     List_SORT_FOR_AHK_LIMITER.Clear
     
     'Find the first window
-    test_hWnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+    test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
     T_COMPARE = ""
     T_COUNTER = 1
     
-    Do While test_hWnd <> 0
+    Do While test_hwnd <> 0
         
-        wText = GetWindowTitle(test_hWnd)
+        wText = GetWindowTitle(test_hwnd)
     
         ' Autokey -- 58-Auto Repeat Browser Function Set.ahk
         ' ahk_class #32770
@@ -10424,11 +10427,11 @@ Do
     '    End If
         
         If InStr(wText, ".ahk") > 0 Then
-            List_SORT_FOR_AHK_LIMITER.AddItem Trim(wText) + " ---------X " + Str(test_hWnd)
+            List_SORT_FOR_AHK_LIMITER.AddItem Trim(wText) + " ---------X " + Str(test_hwnd)
         End If
         
         'retrieve the next window
-        test_hWnd = GetWindow(test_hWnd, GW_HWNDNEXT)
+        test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
     
     Loop
         
@@ -10794,29 +10797,29 @@ FindWindow_Get_All_Explorer = ""
 
 Dim Huge, VAR_STRING
 Dim WINDOW_TITLE
-Dim test_hWnd As Long, _
+Dim test_hwnd As Long, _
     test_pid As Long, _
     test_thread_id As Long
 
 Dim cText As String
 Huge = 0
 
-test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+test_hwnd = FindWindow2(ByVal 0&, ByVal 0&)
 VAR_STRING = ""
-Do While test_hWnd <> 0
+Do While test_hwnd <> 0
     
-    WINDOW_TITLE = GetWindowTitle(test_hWnd)
+    WINDOW_TITLE = GetWindowTitle(test_hwnd)
     
     '--------------------------------------------------
     'C:\Windows\explorer.exe
     '--------------------------------------------------
-    If GetWindowClass(test_hWnd) = "CabinetWClass" Then
+    If GetWindowClass(test_hwnd) = "CabinetWClass" Then
         Huge = Huge + 1
         VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf
     End If
         
     'retrieve the next window
-    test_hWnd = GetWindow(test_hWnd, GW_HWNDNEXT)
+    test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
 
 Loop
 
@@ -10903,6 +10906,16 @@ If FS.FileExists(FN1) = True And FS.FileExists(FN2) = True Then
         XX = Len(OLD_FD) - 800
         If XX < 1 Then XX = 1
         OLD_FD = Mid(OLD_FD, XX)
+    End If
+End If
+
+X_ONE_SECOND = X_ONE_SECOND + 1
+' EVERY 4 SECOND
+If X_ONE_SECOND Mod 4 = 0 Then
+    X_ONE_SECOND = 0
+    If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
+        Call Label53_Click
+        Call Label_CLOSE_GOODSYNC_Click
     End If
 End If
 

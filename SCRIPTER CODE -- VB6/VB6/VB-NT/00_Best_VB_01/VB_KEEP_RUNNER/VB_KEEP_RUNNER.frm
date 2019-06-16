@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11916
-   ScaleWidth      =   22944
+   ScaleHeight     =   10116
+   ScaleWidth      =   12864
    Begin VB.Timer FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO 
       Enabled         =   0   'False
       Interval        =   100
@@ -2202,6 +2202,8 @@ Option Explicit
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 
+Dim X_ONE_SECOND
+
 Dim FOREGROUND_WINDOW_CHANGE_DELAY_1
 Dim FOREGROUND_WINDOW_CHANGE_DELAY_2
 
@@ -3344,7 +3346,8 @@ If OR_LOGIC = 2 Then
 End If
 
 
-
+Timer_Pause_Update.Interval = 60000
+Label53.ToolTipText = "Pause Update for 1 Minute"
 
 End Sub
 
@@ -6065,6 +6068,13 @@ Private Sub Label53_Click()
 'Label53.left
 'Label53.caption
 'Label53.font
+
+'Label53_Here
+Call EnumProcess
+
+Timer_Pause_Update.Enabled = True
+
+Label53.BackColor = Label59.BackColor
 
 End Sub
 
@@ -8888,6 +8898,18 @@ If TIMER_GO_COMPUTER_START < -10 Then TIMER_GO_COMPUTER_START = -10
 ' ----------------------------------------
 
 'ERR.DESCRIPTION
+
+X_ONE_SECOND = X_ONE_SECOND + 1
+' EVERY 4 SECOND
+If X_ONE_SECOND Mod 4 = 0 Then
+    X_ONE_SECOND = 0
+    If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
+        Call Label53_Click
+        Call Label_CLOSE_GOODSYNC_Click
+    End If
+End If
+
+
 
 If Err.Number > 0 Then
     ' Timer_1_SECOND.Enabled = False
