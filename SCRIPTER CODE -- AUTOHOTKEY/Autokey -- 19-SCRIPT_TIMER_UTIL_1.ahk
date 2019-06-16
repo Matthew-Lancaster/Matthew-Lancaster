@@ -320,6 +320,13 @@ setTimer TIMER_SUB_OWNER, 1000 ; After1Hours
 ;setTimer TIMER_SUB_CMD_KILL, OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
+; -------------------------------------------------------------------
+; THIS OUGHT TO BE CHANGED TO DETECT WHEN TO RUN IF FILE 
+; UPDATE DATE CHANGE
+; -------------------------------------------------------------------
+setTimer TIMER_SUB_BLUETOOTH_LOGGER, 1000
+
+
 setTimer TIMER_SUB_LOGGER, 1000
 ; LOGGING BLUETOOTH AND DUPLICATE CLEANER LOGGER TRUNCATE
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
@@ -2672,16 +2679,22 @@ Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK"
 Return
 
 
-;----------------------------------------
+; ----------------------------------------
 TIMER_SUB_LOGGER:
 
 setTimer TIMER_SUB_LOGGER, % -1 * 1000 * 60 * 60 ; After24Hours
 
 Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 31-Duplicate Cleaner Logger.BAT" , , hide
 
+Return
+
+; ----------------------------------------
+TIMER_SUB_BLUETOOTH_LOGGER:
+
 Run, "C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS" , , hide
 
 Return
+
 
 ;----------------------------------------
 TIMER_SUB_WINDOWS_UPDATE:
