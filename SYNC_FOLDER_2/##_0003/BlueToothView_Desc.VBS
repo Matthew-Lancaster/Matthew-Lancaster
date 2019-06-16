@@ -16,6 +16,29 @@
 '--------------------------------------------------------------------
 
 
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		else
+			i1=i1+1
+		END IF
+		IF i1 > 0 THEN 
+				' Wscript.Quit
+		END IF  
+		IF i2 > 1 THEN 
+				Wscript.Quit
+		END IF  
+    END IF  
+NEXT
+
 
 Set wshShell = CreateObject( "WScript.Shell" )
 strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
@@ -52,12 +75,16 @@ End If
 
 REM ---------------------------------------
 Fil_1_PATH="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothView_Desc -- " & strComputerName & ".txt"
-Set Fil_1 = FSO.GetFile (Fil_1_PATH)
-Fil_1_SIZE=Fil_1.Size
+Fil_1_SIZE=0
+IF FSO.FileExists(Fil_1_PATH) THEN
+	Set Fil_1 = FSO.GetFile (Fil_1_PATH)
+	Fil_1_SIZE=Fil_1.Size
+END IF
 
 Fil_2_PATH="C:\0 00 LOGGERS TEXT\BlueToothView Logger\BluetoothView_Desc -- " & strComputerName & ".txt"
 
 Fil_2_PATH_TRIM=MID(Fil_2_PATH,1,INSTRREV(Fil_2_PATH,"\"))
+Fil_2_SIZE=0
 
 IF FSO.FileExists(Fil_2_PATH) THEN
 	Set Fil_2 = FSO.GetFile (Fil_2_PATH)
@@ -77,12 +104,16 @@ End If
 REM ---------------------------------------
 
 Fil_1_PATH="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothLogView.cfg"
-Set Fil_1 = FSO.GetFile (Fil_1_PATH)
-Fil_1_SIZE=Fil_1.Size
+Fil_1_SIZE=0
+IF FSO.FileExists(Fil_1_PATH) THEN
+	Set Fil_1 = FSO.GetFile (Fil_1_PATH)
+	Fil_1_SIZE=Fil_1.Size
+END IF
 
 Fil_2_PATH="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothLogView -- " & strComputerName & ".txt"
 
 Fil_2_PATH_TRIM=MID(Fil_2_PATH,1,INSTRREV(Fil_2_PATH,"\"))
+Fil_2_SIZE=0
 
 IF FSO.FileExists(Fil_2_PATH) THEN
 	Set Fil_2 = FSO.GetFile (Fil_2_PATH)
