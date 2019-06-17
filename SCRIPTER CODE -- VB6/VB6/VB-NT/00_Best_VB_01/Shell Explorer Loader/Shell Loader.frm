@@ -5868,6 +5868,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_CLIPBOARDOR 
       Caption         =   "CLIPBOARD ITEM TEXT"
    End
+   Begin VB.Menu MNU_NETWORK_2_STEP_JUMPER 
+      Caption         =   "NETWORK 2 STEP JUMPER"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -6346,6 +6349,16 @@ End Sub
 
 Private Sub MNU_CLIPBOARDOR_Click()
 CLIPBOARDOR = True
+End Sub
+
+Private Sub MNU_NETWORK_2_STEP_JUMPER_Click()
+
+NETWORK_2_STEP_JUMPER = True
+
+' MsgBox "SELECT THE NETWORK PATH AND THEN ANOTHER NORMAL FOLDER AND I WILL JUMP THERE AT NETWORK LOCATION"
+
+Beep
+
 End Sub
 
 Private Sub Timer_KEY_CODE_Timer()

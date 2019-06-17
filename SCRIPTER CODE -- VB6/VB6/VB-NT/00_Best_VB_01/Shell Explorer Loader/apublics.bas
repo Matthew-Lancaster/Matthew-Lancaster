@@ -1,4 +1,7 @@
 Attribute VB_Name = "APublics"
+Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER
+Public NETWORK_2_STEP_JUMPER
+
 Public TEXT_PATH_1
 Public TEXT_PATH_2
 

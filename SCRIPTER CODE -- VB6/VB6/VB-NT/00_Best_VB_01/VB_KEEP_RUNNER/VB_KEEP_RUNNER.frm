@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10116
-   ScaleWidth      =   12864
+   ScaleHeight     =   11916
+   ScaleWidth      =   22944
    Begin VB.Timer FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO 
       Enabled         =   0   'False
       Interval        =   100
@@ -3156,12 +3156,14 @@ Private Sub Form_Load()
 '
 '    End
     
+' ------------------------------------------------------------------------------
+    
 '    Dim R, FR
 '    ' Clipboard.GetText
 '    Dim VAR_STRING As String
 '
 '    FR = FreeFile
-'    Open "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 2.txt" For Binary As FR
+'    Open "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 1.txt" For Binary As FR
 '        VAR_STRING = Space(LOF(FR))
 '        Get #FR, , VAR_STRING
 '    Close FR
@@ -3172,17 +3174,17 @@ Private Sub Form_Load()
 '    VAR_STRING_2 = Space(Len(VAR_STRING))
 '    XA = 1
 '
-'    For R = 1 To Len(VAR_STRING) Step 2
+'    For R = 2 To Len(VAR_STRING) Step 2
 '        Mid(VAR_STRING_2, XA, 1) = Mid(VAR_STRING, R, 1)
 '        XA = XA + 1
 '    Next
 '
-'    If Dir("D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 3.txt") <> "" Then
-'        Kill "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 3.txt"
+'    If Dir("D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 2.txt") <> "" Then
+'        Kill "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 2.txt"
 '    End If
 '
 '    FR = FreeFile
-'    Open "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 3.txt" For Binary As FR
+'    Open "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\new 2.txt" For Binary As FR
 '        Put #FR, , VAR_STRING_2
 '    Close FR
 '
@@ -3191,8 +3193,11 @@ Private Sub Form_Load()
 '
 '    End
 
+' ------------------------------------------------------------------------------
+
 
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
+    
     Dim i As String
 
     FORM_LOAD_TRUE = False
@@ -3396,6 +3401,11 @@ End Sub
 Private Sub Form_Resize()
 
 ' Call Form_Activate_3
+
+
+Timer_Pause_Update.Interval = 4000
+Timer_Pause_Update.Enabled = True
+Label53.BackColor = Label59.BackColor
 
 
 If NOT_RESIZE_EVENTER = True Then Exit Sub
@@ -6107,6 +6117,7 @@ Private Sub Label53_Click()
 'Label53_Here
 Call EnumProcess
 
+Timer_Pause_Update.Interval = 60000
 Timer_Pause_Update.Enabled = True
 
 Label53.BackColor = Label59.BackColor
@@ -6165,6 +6176,14 @@ Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer,
 LISTVIEW_2_OR_3_HITT = 2
 End Sub
 
+Private Sub lstProcess_2_ListView_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+
+Timer_Pause_Update.Interval = 4000
+Timer_Pause_Update.Enabled = True
+Label53.BackColor = Label59.BackColor
+
+End Sub
+
 Private Sub lstProcess_3_SORTER_ListView_DblClick()
 PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
 PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
@@ -6191,6 +6210,14 @@ End Sub
 
 Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 LISTVIEW_2_OR_3_HITT = 3
+End Sub
+
+Private Sub lstProcess_3_SORTER_ListView_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+
+Timer_Pause_Update.Interval = 4000
+Timer_Pause_Update.Enabled = True
+Label53.BackColor = Label59.BackColor
+
 End Sub
 
 Private Sub MNU_CLIPBOARDER_REPLACE_ER_AND_Click()
