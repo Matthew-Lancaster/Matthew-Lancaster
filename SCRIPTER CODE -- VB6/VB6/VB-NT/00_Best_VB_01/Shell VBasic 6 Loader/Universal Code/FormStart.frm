@@ -406,6 +406,44 @@ If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then
         End
     End If
     
+    
+    
+    ' --------------------------------------------------------------------
+    ' FIND IF THE IS NOT CORRECT VERSION AND SIMPLE PUT CORRECT
+    ' ONE MY COMPUTER SEEM PROBLEM WITH BASIC
+    ' TALK HAS WRONG VERISON ONCE EVERY FEW DAY
+    ' AND EDIT IT TO WHAT NORM VERISON SUPPOSED TO BE AND FINE
+    ' DISCOVERY -- IT SEEM TO HAPPEN JUST AFTER A COMPILE SOMETIME_
+    ' [ Monday 15:37:30 Pm_17 June 2019 ]
+    ' --------------------------------------------------------------------
+    ' --------------------------------------------------------------------
+    Dim R, FR
+    Dim VAR_STRING As String
+
+    FR = FreeFile
+    Open A1$ + B1$ For Binary As FR
+        VAR_STRING = Space(LOF(FR))
+        Get #FR, , VAR_STRING
+    Close FR
+
+    XR = InStr(UCase(VAR_STRING), UCase("A1}#2.2#0; mscomctl.OCX"))
+    If XR > 0 Then
+        Mid(VAR_STRING, XR, Len("A1}#2.1#0; mscomctl.OCX")) = "A1}#2.1#0; MSCOMCTL.OCX"
+        MsgBox UCase("#2.2# -- mscomctl.OCX") + vbCrLf + "WRONG VERSION -- AUTO CHANGED TO" + vbCrLf + UCase("#2.1# -- mscomctl.OCX"), vbMsgBoxSetForeground
+        GO_NEXT_IN = True
+    End If
+    
+    If GO_NEXT_IN = True Then
+        If Dir(A1$ + B1$) <> "" Then
+            Kill A1$ + B1$
+        End If
+        FR = FreeFile
+        Open A1$ + B1$ For Binary As FR
+            Put #FR, , VAR_STRING
+        Close FR
+    End If
+    
+    
     Shell VBPATH + " """ + A1$ + B1$ + """", vbNormalFocus
     End
 End If
