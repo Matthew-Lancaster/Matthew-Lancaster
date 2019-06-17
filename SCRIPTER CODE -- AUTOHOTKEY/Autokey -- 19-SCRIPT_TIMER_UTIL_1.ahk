@@ -2684,14 +2684,24 @@ TIMER_SUB_LOGGER:
 
 setTimer TIMER_SUB_LOGGER, % -1 * 1000 * 60 * 60 ; After24Hours
 
-Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 31-Duplicate Cleaner Logger.BAT" , , hide
+FILE_PATH_DUPLICATE_CLEANER:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 31-Duplicate Cleaner Logger.BAT"
+
+If FileExist(FILE_PATH_DUPLICATE_CLEANER)
+{
+	Run, "%FILE_PATH_DUPLICATE_CLEANER%" , , HIDE
+}
 
 Return
 
 ; ----------------------------------------
 TIMER_SUB_BLUETOOTH_LOGGER:
 
-Run, "C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS" , , hide
+	FILE_PATH_BLUETOOTHVIEW_DESC:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS"
+
+	If FileExist(FILE_PATH_BLUETOOTHVIEW_DESC)
+	{
+		Run, "%FILE_PATH_BLUETOOTHVIEW_DESC%" , , HIDE
+	}
 
 Return
 
