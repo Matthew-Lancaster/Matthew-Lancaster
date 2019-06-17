@@ -2218,6 +2218,9 @@ Attribute VB_Exposed = False
 
 Option Explicit
 
+Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+
 
 Dim X_ONE_SECOND
 
@@ -10878,6 +10881,149 @@ Me.WindowState = vbMinimized
 
 End Sub
 
+Private Sub Label_KILL_AUTOHOTKEY_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+'Label_KILL_AUTOHOTKEY.BackColor = RGB(255, 255, 255)
+' -----------------------------------------------------
+' NOT YET IN THIS CODE _ IS ORIGINALLY FROM VB_KEEP_RUNNER ME
+' -----------------------------------------------------
+
+Call KILL_AUTOHOTKEY_GLOBAL
+
+'Me.WindowState = vbMinimized
+
+End Sub
+
+Sub KILL_AUTOHOTKEY_GLOBAL()
+
+Dim SET_COMPUTER_TO_RUN_PID_EXE
+Dim SET_COMPUTER_TO_RUN
+
+SET_COMPUTER_TO_RUN_PID_EXE = "AutoHotkey.exe"
+'If SET_COMPUTER_TO_RUN <> "" Then
+'    Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+'    SET_COMPUTER_TO_RUN = ""
+'    Exit Sub
+'End If
+' -----------------------------------------------------
+' NOT YET IN THIS CODE _ IS ORIGINALLY FROM VB_KEEP_RUNNER ME
+' -----------------------------------------------------
+
+Dim R, A1, A2
+
+' DO 1ST FOR SPEEDER
+
+For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+    A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+    If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
+    End If
+Next
+
+Dim EXECUTE_KILL_1
+Dim EXECUTE_KILL_2
+Dim EXECUTE_KILL_COUNTER
+Do
+    ' DO EXTRA FOR A GOOD MESSURE
+    Call EnumProcess
+    EXECUTE_KILL_1 = False
+    EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
+    For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+        If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (PID)
+            EXECUTE_KILL_1 = True
+            EXECUTE_KILL_2 = True
+        End If
+    Next
+
+Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > 100
+
+If EXECUTE_KILL_COUNTER > 100 Then
+    MsgBox "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST AFTER 1-0 RETRY", vbMsgBoxSetForeground
+End If
+
+If EXECUTE_KILL_2 = True Or 1 = 1 Then
+    ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+    Dim objShell
+    Set objShell = CreateObject("Wscript.Shell")
+    objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk""", DontShowWindow, DontWaitUntilFinished
+    Set objShell = Nothing
+End If
+
+
+' Me.WindowState = vbMinimized
+
+
+End Sub
+
+Sub KILL_WSCRIPT_GLOBAL()
+
+Dim SET_COMPUTER_TO_RUN_PID_EXE
+Dim SET_COMPUTER_TO_RUN
+
+SET_COMPUTER_TO_RUN_PID_EXE = "WSCRIPT.exe"
+'If SET_COMPUTER_TO_RUN <> "" Then
+'    Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+'    SET_COMPUTER_TO_RUN = ""
+'    Exit Sub
+'End If
+' -----------------------------------------------------
+' NOT YET IN THIS CODE _ IS ORIGINALLY FROM VB_KEEP_RUNNER ME
+' -----------------------------------------------------
+
+Dim R, A1, A2
+
+' DO 1ST FOR SPEEDER
+
+For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+    A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+    If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
+    End If
+Next
+
+Dim EXECUTE_KILL_1
+Dim EXECUTE_KILL_2
+Dim EXECUTE_KILL_COUNTER
+Do
+    ' DO EXTRA FOR A GOOD MESSURE
+    Call EnumProcess
+    EXECUTE_KILL_1 = False
+    EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
+    For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+        If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (PID)
+            EXECUTE_KILL_1 = True
+            EXECUTE_KILL_2 = True
+        End If
+    Next
+
+Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > 100
+
+If EXECUTE_KILL_COUNTER > 100 Then
+    MsgBox "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST AFTER 1-0 RETRY", vbMsgBoxSetForeground
+End If
+
+'If EXECUTE_KILL_2 = True Or 1 = 1 Then
+'    ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+'    Dim objShell
+'    Set objShell = CreateObject("Wscript.Shell")
+'    objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk""", DontShowWindow, DontWaitUntilFinished
+'    Set objShell = Nothing
+'End If
+
+' Me.WindowState = vbMinimized
+
+End Sub
+
+
 
 
 Private Sub Timer_1_SECOND_Timer()
@@ -10916,6 +11062,10 @@ If X_ONE_SECOND Mod 4 = 0 Then
     If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
         Call Label53_Click
         Call Label_CLOSE_GOODSYNC_Click
+        Call KILL_WSCRIPT_GLOBAL
+        If Me.WindowState <> vbNormal Then
+            Me.WindowState = vbNormal
+        End If
     End If
 End If
 
