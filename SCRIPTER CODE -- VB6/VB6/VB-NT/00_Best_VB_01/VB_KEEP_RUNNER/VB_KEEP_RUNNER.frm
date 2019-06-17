@@ -3172,7 +3172,7 @@ Private Sub Form_Load()
 '    VAR_STRING_2 = Space(Len(VAR_STRING))
 '    XA = 1
 '
-'    For R = 2 To Len(VAR_STRING) Step 2
+'    For R = 1 To Len(VAR_STRING) Step 2
 '        Mid(VAR_STRING_2, XA, 1) = Mid(VAR_STRING, R, 1)
 '        XA = XA + 1
 '    Next
