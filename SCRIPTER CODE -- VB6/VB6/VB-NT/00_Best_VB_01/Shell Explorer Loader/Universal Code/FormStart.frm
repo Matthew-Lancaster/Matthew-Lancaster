@@ -885,6 +885,13 @@ If Mid(A1$, 1, 2) = "--" Then
             COMPUTER_NAME_PUT_02 = DRIVE_VAR + "_" + COMPUTER_NAME_DRIVE_LETTER_VAR + "_DRIVE"
             COMPUTER_NAME_PUT = COMPUTER_NAME_PUT_01 + COMPUTER_NAME_PUT_02
             ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive
+            
+            If NETWORK_2_STEP_JUMPER = True Then
+                NETWORK_2_STEP_JUMPER = False
+                COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER = COMPUTER_NAME_PUT
+                Exit Sub
+            End If
+            
             Shell "Explorer.exe " + COMPUTER_NAME_PUT, vbNormalFocus
             End
             
@@ -947,11 +954,39 @@ If SetTrueToLoadLast = True Then
 End If
 
 If D1$ <> "" Then
+
+    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER <> "" Then
+        X1 = GetLongName(D1$)
+        DR1 = Mid(X1, 1, 1)
+        DR2 = Format(Asc(DR1) - 50 - 10 - 4 - 2, "00")
+        X2 = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER + Mid(X1, 3)
+        If FSO.FolderExists(X2) = False Then
+        ' If Dir(X2, vbDirectory) = "" Then
+            If InStr(X2, "_01_C") > 0 Then
+                X2 = Replace(X2, "_01_C", "_" + DR2 + "_" + DR1)
+            End If
+            If InStr(X2, "_02_D") > 0 Then
+                X2 = Replace(X2, "_02_D", "_" + DR2 + "_" + DR1)
+            End If
+            If InStr(X2, "_03_E") > 0 Then
+                X2 = Replace(X2, "_03_E", "_" + DR2 + "_" + DR1)
+            End If
+        End If
+        D1$ = X2
+        
+        If FSO.FolderExists(D1$) = False Then
+            MsgBox "FOLDER NOT EXIST" + vbCrLf + D1$ + vbCrLf + "TRY AND PLAY ANOTHER" + vbCrLf + "NOT ABLE RESELECT NETWORK FOLDER AGAIN YET"
+            End
+        End If
+    End If
+
     Shell "Explorer.exe " + D1$, vbMaximizedFocus
 End If
 End
 
 End Sub
+
+
 
 Private Sub Form_Load()
 
