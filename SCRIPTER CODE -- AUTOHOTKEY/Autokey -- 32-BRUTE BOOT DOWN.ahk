@@ -11,6 +11,7 @@
 ;# __ 
 ;====================================================================
 
+
 ;# ------------------------------------------------------------------
 ; DESCRIPTION 
 ;# ------------------------------------------------------------------
@@ -116,6 +117,13 @@ SetStoreCapslockMode, off
 ; ---------------------------------------------------------------
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
 
+OSVER_N_VAR:=a_osversion
+IF INSTR(a_osversion,".")>0
+	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
+IF OSVER_N_VAR=WIN_XP
+	OSVER_N_VAR=5
+IF OSVER_N_VAR=WIN_7
+	OSVER_N_VAR=6
 
 GLOBAL SIGNAL_TO_RESTART_HAPPEN
 GLOBAL I_COUNT
@@ -156,17 +164,35 @@ MAIN_RUNNER:
 		SET_GO=FALSE
 	If WinExist("CAsyncSocketEx Helper Window")
 		SET_GO=FALSE
-
+	If WinExist("End Program - CSR_SYNCML_CLASS_1EF5ED00AB77")
+		SET_GO=FALSE
 
 	IF SIGNAL_TO_RESTART_HAPPEN=TRUE
 	{
 		SoundBeep , 2000 , 100
 		ESCAPE_KEY_A_FEW+=1
-		IF ESCAPE_KEY_A_FEW<10 
-		SENDINPUT {ESC}
+		IF ESCAPE_KEY_A_FEW<100
+		{
+			; CODE HELP CREDIT 
+			; ----
+			; Taskbar and Start Menu manipulation - AutoHotkey Community
+			; https://www.autohotkey.com/boards/viewtopic.php?t=37718
+			; ----
+			IF (OSVER_N_VAR = 10) ; WIN 10
+			{
+				fVisible=0
+				AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
+				if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
+				IF fVisible=1 
+				{
+					Send {LWin}
+				}
+			}
+		}
 		
 		Process, Close, SystemExplorer.exe
 		Process, Close, FileZilla Server Interface.exe
+		; Process, Close, FileZilla Server Interface.exe
 		
 	}
 	
@@ -218,6 +244,31 @@ MAIN_RUNNER:
 		ControlClick, &End Now, End Program - CAsyncSocketEx Helper Window
 	}	
 
+	IfWinExist End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
+	{
+		; CODE HELP CREDIT 
+		; ----
+		; Taskbar and Start Menu manipulation - AutoHotkey Community
+		; https://www.autohotkey.com/boards/viewtopic.php?t=37718
+		; ----
+		IF (OSVER_N_VAR = 10) ; WIN 10
+		{
+			fVisible=0
+			AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
+			if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
+			IF fVisible=1 
+			{
+				Send {LWin}
+			}
+		}
+
+		Sleep 4000
+		SoundBeep , 2500 , 100
+		WINACTIVATE, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
+		ControlClick, &End Now, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
+	}	
+
+	
 RETURN
 
 
