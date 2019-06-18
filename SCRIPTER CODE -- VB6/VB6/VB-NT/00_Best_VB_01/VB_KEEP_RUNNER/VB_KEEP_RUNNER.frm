@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -2201,6 +2201,8 @@ Option Explicit
 
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+Dim ENUMPROCESS_MUST_RUNNER
 
 Dim ENUMPROCESS_NOT_RUN_YET
 
@@ -7012,8 +7014,10 @@ Next
 Dim EXECUTE_KILL_1
 Dim EXECUTE_KILL_2
 Dim EXECUTE_KILL_COUNTER
+EXECUTE_KILL_COUNTER = 0
 Do
     ' DO EXTRA FOR A GOOD MESSURE
+    ENUMPROCESS_MUST_RUNNER = True
     Call EnumProcess
     EXECUTE_KILL_1 = False
     EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
@@ -7027,10 +7031,10 @@ Do
         End If
     Next
 
-Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > 100
+Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > 400
 
-If EXECUTE_KILL_COUNTER > 100 Then
-    MsgBox "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST AFTER 1-0 RETRY", vbMsgBoxSetForeground
+If EXECUTE_KILL_COUNTER > 400 Then
+    MsgBox "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST AFTER" + Str(EXECUTE_KILL_COUNTER) + " RETRY", vbMsgBoxSetForeground
 End If
 
 If EXECUTE_KILL_2 = True Or 1 = 1 Then
@@ -9921,13 +9925,14 @@ Dim ITEM_ADD_22 As String
 '        .ColumnHeaders.Add , "EXE SORTED", "EXE SORTED", 9000, lvwColumnLeft
 '        .View = lvwReport
 '    End With
-
-If ENUMPROCESS_NOT_RUN_YET = True Then
-    If Timer_Pause_Update.Enabled = True Then Exit Sub
+If ENUMPROCESS_MUST_RUNNER = False Then
+    If ENUMPROCESS_NOT_RUN_YET = True Then
+        If Timer_Pause_Update.Enabled = True Then Exit Sub
+    End If
 End If
     
 ENUMPROCESS_NOT_RUN_YET = True
-    
+ENUMPROCESS_MUST_RUNNER = False
 
 Dim PROCESS_PID_STORE_LST_01, PROCESS_PID_STORE_LST_02
 
