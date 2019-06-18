@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11916
-   ScaleWidth      =   22944
+   ScaleHeight     =   10116
+   ScaleWidth      =   12864
    Begin VB.Timer FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO 
       Enabled         =   0   'False
       Interval        =   100
@@ -640,9 +640,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "CHROME PAGE"
       Height          =   216
-      Left            =   7896
+      Left            =   6276
       TabIndex        =   151
-      Top             =   2004
+      Top             =   4548
       Width           =   1284
    End
    Begin VB.Label Label_CLOSE_OUTLOOK 
@@ -652,7 +652,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7524
       TabIndex        =   150
-      Top             =   3408
+      Top             =   3156
       Width           =   1476
    End
    Begin VB.Label Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY 
@@ -662,8 +662,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6288
       TabIndex        =   149
-      Top             =   1236
-      Width           =   2232
+      Top             =   1020
+      Width           =   2160
    End
    Begin VB.Label Label_MAXIMIZE_CLIPBOARD_LOGGER 
       Alignment       =   2  'Center
@@ -672,7 +672,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7668
       TabIndex        =   148
-      Top             =   1716
+      Top             =   1524
       Width           =   1500
    End
    Begin VB.Label Label_CLOSE_GOODSYNC2GO 
@@ -682,8 +682,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   147
-      Top             =   2916
-      Width           =   1992
+      Top             =   2688
+      Width           =   1980
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC2GO 
       Alignment       =   2  'Center
@@ -692,7 +692,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   146
-      Top             =   2232
+      Top             =   2004
       Width           =   1788
    End
    Begin VB.Label Label_MAXIMIZE_ELITE_SPY 
@@ -702,7 +702,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6264
       TabIndex        =   145
-      Top             =   1716
+      Top             =   1524
       Width           =   1368
    End
    Begin VB.Label Label10 
@@ -897,7 +897,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7632
       TabIndex        =   126
-      Top             =   4080
+      Top             =   3828
       Width           =   1524
    End
    Begin VB.Label Label_KILL_CMD 
@@ -907,7 +907,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   125
-      Top             =   3852
+      Top             =   3600
       Width           =   1044
    End
    Begin VB.Label Label_8M 
@@ -987,7 +987,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7356
       TabIndex        =   117
-      Top             =   3852
+      Top             =   3600
       Width           =   1404
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET_NETWORK 
@@ -998,7 +998,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   116
-      Top             =   1464
+      Top             =   1272
       Width           =   2568
    End
    Begin VB.Image Image1 
@@ -1022,7 +1022,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   114
-      Top             =   4560
+      Top             =   4308
       Width           =   2892
    End
    Begin VB.Label LABEL_KILL_NOT_RESPOND 
@@ -1032,7 +1032,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   113
-      Top             =   4332
+      Top             =   4080
       Width           =   2892
    End
    Begin VB.Label Label_TASK_KILLER_CMD 
@@ -1042,7 +1042,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   112
-      Top             =   4080
+      Top             =   3828
       Width           =   1320
    End
    Begin VB.Label Label_CLOSE_HWND 
@@ -1062,7 +1062,7 @@ Begin VB.Form Form1
       Height          =   192
       Left            =   7260
       TabIndex        =   110
-      Top             =   3636
+      Top             =   3384
       Width           =   1800
    End
    Begin VB.Label Label_KILL_HUBIC 
@@ -1072,7 +1072,7 @@ Begin VB.Form Form1
       Height          =   192
       Left            =   6276
       TabIndex        =   109
-      Top             =   3636
+      Top             =   3384
       Width           =   948
    End
    Begin VB.Label Label_GOODSYNC_COLLECTION_SCRIPT_RUN 
@@ -1082,8 +1082,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   108
-      Top             =   3144
-      Width           =   2892
+      Top             =   2916
+      Width           =   2412
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
       Alignment       =   2  'Center
@@ -1092,7 +1092,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   107
-      Top             =   2688
+      Top             =   2460
       Width           =   1584
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
@@ -1132,7 +1132,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   103
-      Top             =   2460
+      Top             =   2232
       Width           =   1764
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
@@ -1142,7 +1142,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   102
-      Top             =   2004
+      Top             =   1776
       Width           =   1428
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET 
@@ -1150,9 +1150,9 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "RUN AHK"
       Height          =   216
-      Left            =   6276
+      Left            =   8232
       TabIndex        =   101
-      Top             =   996
+      Top             =   792
       Width           =   936
    End
    Begin VB.Label Label_KILL_AUTOHOTKEY 
@@ -1160,10 +1160,10 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL &AUTOHOTKEY.EXE"
       Height          =   216
-      Left            =   6276
+      Left            =   6288
       TabIndex        =   100
-      Top             =   768
-      Width           =   2016
+      Top             =   792
+      Width           =   1920
    End
    Begin VB.Label Label64 
       Alignment       =   2  'Center
@@ -1427,7 +1427,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   78
-      Top             =   3408
+      Top             =   3156
       Width           =   1212
    End
    Begin VB.Label Label29 
@@ -2201,6 +2201,10 @@ Option Explicit
 
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+Dim ENUMPROCESS_NOT_RUN_YET
+
+Dim OLD_ME_POS
 
 Dim X_ONE_SECOND
 
@@ -3389,6 +3393,8 @@ End If
 Timer_Pause_Update.Interval = 60000
 Label53.ToolTipText = "Pause Update for 1 Minute"
 
+Label_RUN_AUTOHOTKEY_SET_NETWORK.Visible = False
+
 End Sub
 
 Private Sub Form_Activate_2()
@@ -3402,11 +3408,9 @@ Private Sub Form_Resize()
 
 ' Call Form_Activate_3
 
-
 Timer_Pause_Update.Interval = 4000
 Timer_Pause_Update.Enabled = True
 Label53.BackColor = Label59.BackColor
-
 
 If NOT_RESIZE_EVENTER = True Then Exit Sub
 
@@ -9232,6 +9236,15 @@ End Sub
 
 Private Sub Timer_VB_MAXIMIZE_Timer()
 
+
+If Me.Top + Me.Left + Me.width + Me.height <> OLD_ME_POS Then
+    Timer_Pause_Update.Interval = 4000
+    Timer_Pause_Update.Enabled = True
+    Label53.BackColor = Label59.BackColor
+End If
+
+OLD_ME_POS = Me.Top + Me.Left + Me.width + Me.height
+
 Dim Nx, Ny
 
 'PURELY FOR VB ROUTINE IF ANOTHER ARE HERE
@@ -9909,7 +9922,12 @@ Dim ITEM_ADD_22 As String
 '        .View = lvwReport
 '    End With
 
-If Timer_Pause_Update.Enabled = True Then Exit Sub
+If ENUMPROCESS_NOT_RUN_YET = True Then
+    If Timer_Pause_Update.Enabled = True Then Exit Sub
+End If
+    
+ENUMPROCESS_NOT_RUN_YET = True
+    
 
 Dim PROCESS_PID_STORE_LST_01, PROCESS_PID_STORE_LST_02
 

@@ -324,6 +324,7 @@ setTimer TIMER_SUB_OWNER, 1000 ; After1Hours
 ; THIS OUGHT TO BE CHANGED TO DETECT WHEN TO RUN IF FILE 
 ; UPDATE DATE CHANGE
 ; -------------------------------------------------------------------
+OLD_BluetoothView_Desc_FILE_DATE=0
 setTimer TIMER_SUB_BLUETOOTH_LOGGER, 1000
 
 
@@ -2695,13 +2696,20 @@ Return
 
 ; ----------------------------------------
 TIMER_SUB_BLUETOOTH_LOGGER:
+	
+	Fil_1_PATH:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothView_Desc.txt"
 
-	FILE_PATH_BLUETOOTHVIEW_DESC:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS"
-
-	If FileExist(FILE_PATH_BLUETOOTHVIEW_DESC)
+	FileGetTime, BluetoothView_Desc_FILE_DATE, %Fil_1_PATH%, M
+	IF BluetoothView_Desc_FILE_DATE<>%OLD_BluetoothView_Desc_FILE_DATE%
 	{
-		Run, "%FILE_PATH_BLUETOOTHVIEW_DESC%" , , HIDE
+		FILE_PATH_BLUETOOTHVIEW_DESC:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS"
+		If FileExist(FILE_PATH_BLUETOOTHVIEW_DESC)
+		{
+			Run, "%FILE_PATH_BLUETOOTHVIEW_DESC%" , , HIDE
+		}
 	}
+	OLD_BluetoothView_Desc_FILE_DATE=%BluetoothView_Desc_FILE_DATE%
+
 
 Return
 
