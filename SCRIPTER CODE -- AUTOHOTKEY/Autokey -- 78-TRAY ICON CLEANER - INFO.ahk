@@ -87,31 +87,27 @@ SoundBeep , 1500 , 400
 RUN_TIMER_TRAY_ICON_CLEAN_UP:
 
 	Array_Icon_GetInfo := TrayIcon_GetInfo()
+
+	I1=0
+	I2:=Array_Icon_GetInfo.MaxIndex()
 	Loop % Array_Icon_GetInfo.MaxIndex()
 	{
-
-		IF Array_Icon_GetInfo[A_Index].process<1
+		I1+=1
+		Controls .= I1 " -of- " I2 " -- " Array_Icon_GetInfo[A_Index].pID " -- " Array_Icon_GetInfo[A_Index].process "`n"
+	}
+	MSGBOX, %ControlS%
+	
+	IF TRUE=FALSE
+	{
+		; C:\Program Files\CSR\CSR Harmony Wireless Software Stack\TrayApplication.exe
+		Loop % Array_Icon_GetInfo.MaxIndex()
 		{
-			TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
-			SoundBeep , 2000 , 20
+			IF Array_Icon_GetInfo[A_Index].process="TrayApplication.exe"
+				TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
 		}
 	}
-	
-	; ---------------------------------------------------------------
-	; THIS THE SOFTWARE TO DEVICE DRIVER THE CSR BLUETOOTH 4.0 BY STAR-TECH
-	; I GOT TWO COMPUTER SAME BUT ONE DOES NOT RUN UPDATES FOR WINDOWS 10
-	; AND SO THE SOFTWARE HAS BE INSTALLED AGAINST ADVISE AS WINDOWS 10 NORMAL 
-	; INSTALL DEVICE WON'T WORK
-	; GOT EVERYTHING GOING NORMAL AS RESULT THIS
-	; BUT LEAVE BEHIND AN ICON IN TASK TRAY UNABLE REMOVE ANY OTHER WAY
-	; ---------------------------------------------------------------
-	; C:\Program Files\CSR\CSR Harmony Wireless Software Stack\TrayApplication.exe
-	; ---------------------------------------------------------------
-	; Loop % Array_Icon_GetInfo.MaxIndex()
-	; {
-		; IF Array_Icon_GetInfo[A_Index].process="TrayApplication.exe"
-			; TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
-	; }
+
+	; TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
 
 	EXITAPP
 	
