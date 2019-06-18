@@ -506,6 +506,85 @@ ONE_SECOND:
 		}
 	}
 
+	
+
+	IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770
+	{
+		WINCLOSE
+		SOUNDBEEP 1000,200
+	}
+	
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 3
+	
+	
+	;Control, Show, , Button1, ahk_class Shell_TrayWnd
+	; IfWinExist Start ahk_class DV2ControlHost
+	; IfWinExist ahk_class Shell_TrayWnd
+	; ; 
+	; {
+		; ControlClick, Button1, ahk_class Shell_TrayWnd
+		
+		; ;SENDINPUT {ESC}
+		; ;MSGBOX HH
+	; }
+
+
+	; CODE HELP CREDIT 
+	; ----
+	; Taskbar and Start Menu manipulation - AutoHotkey Community
+	; https://www.autohotkey.com/boards/viewtopic.php?t=37718
+	; ----
+	IF TRUE=FALSE
+	{
+		IF (OSVER_N_VAR = 10) ; WIN 10
+		{
+			fVisible=0
+			AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
+			if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
+			IF fVisible=1 
+			{
+				Send {LWin}
+			}
+		}
+		
+		; WANT THE START MENU GONE
+		IF (OSVER_N_VAR = 10) ; WIN 10
+		{
+			fVisible=0
+			AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
+			if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
+			IF fVisible=1 
+			{
+				Send {LWin}
+			}
+		}
+	}
+	
+	IfWinExist End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
+	{
+		; CODE HELP CREDIT 
+		; ----
+		; Taskbar and Start Menu manipulation - AutoHotkey Community
+		; https://www.autohotkey.com/boards/viewtopic.php?t=37718
+		; ----
+		IF (OSVER_N_VAR = 10) ; WIN 10
+		{
+			fVisible=0
+			AppVisibility := ComObjCreate(CLSID_AppVisibility := "{7E5FE3D9-985F-4908-91F9-EE19F9FD1514}", IID_IAppVisibility := "{2246EA2D-CAEA-4444-A3C4-6DE827E44313}")
+			if (DllCall(NumGet(NumGet(AppVisibility+0)+4*A_PtrSize), "Ptr", AppVisibility, "Int*", fVisible) >= 0)
+			IF fVisible=1 
+			{
+				Send {LWin}
+			}
+		}
+		SoundBeep , 2500 , 100
+		WINACTIVATE, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
+		ControlClick, &End Now, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
+	}	
+
+
+	
 
 
 	; ---------------------------------------------------------------
