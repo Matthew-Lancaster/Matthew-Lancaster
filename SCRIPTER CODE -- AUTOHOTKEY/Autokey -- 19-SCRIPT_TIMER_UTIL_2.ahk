@@ -279,6 +279,8 @@ SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,1000
 
 SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 
+SETTIMER TIMER_PROCESS_LASSO_POST_UPDATE_01,1000
+SETTIMER TIMER_PROCESS_LASSO_POST_UPDATE_02,1000
 
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
@@ -339,6 +341,126 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 		}
 	}
 RETURN
+
+
+
+TIMER_PROCESS_LASSO_POST_UPDATE_01:
+	; ---------------------------------------------------------------
+	; THIS ROUTINE CODE USER IN TWO PROJECT 
+	; MIGHT AS WELL TWO AS ONE CLOSED DOWN WHILE WORK CODE
+	; OTHER KEEP STUFF RUNNING
+	; ---------------------------------------------------------------
+	; 01 Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
+	; 02 Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+	; ---------------------------------------------------------------
+
+	WIN_LINE_____1=Process Lasso ahk_class #32770
+	LINE_CHECKER_1=The system
+	LINE_CHECKER_2=Task Scheduler service
+
+	; ClassNN:	Static2
+	; Text:	The system's Task Scheduler service is n (...)
+	
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 3  ; Specify EXACT path
+	VAR_GET:=WINEXIST(WIN_LINE_____1)
+	IF !VAR_GET
+		RETURN 
+	LOOP 2 {
+		IF A_Index=1 
+			STATIC_CONTROL=Static1
+		IF A_Index=2
+			STATIC_CONTROL=Static2
+		WinGet, list, List, %WIN_LINE_____1%
+		Loop %list% {
+			hwnd := list%A_Index%
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			; TOOLTIP % " -- " OutVar_2
+
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+			IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+			{
+				SOUNDBEEP 4000,100
+				ControlClick, Button1, ahk_id %hwnd%,,,, NA x10 y10
+			}
+			; -------------------------------------------------------
+			; GET THE CONTROL AGAIN BECAUSE IF SUCCESSFULLY 
+			; KILL 1ST TIME OR NOT -- DON'T WANT TO HITT ON NOTHING
+			; BETTER QUICKER METHOD CHECK -- WANT
+			; IF CHECK EASIER REMOVE TWO LINE SET OF CODE TO ONE
+			; -------------------------------------------------------
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+			IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+			{
+				SOUNDBEEP 4000,100
+				ControlClick, Button1, ahk_id %hwnd%
+			}
+		}
+	}
+RETURN
+
+TIMER_PROCESS_LASSO_POST_UPDATE_02:
+	; ---------------------------------------------------------------
+	; THIS ROUTINE CODE USER IN TWO PROJECT 
+	; MIGHT AS WELL TWO AS ONE CLOSED DOWN WHILE WORK CODE
+	; OTHER KEEP STUFF RUNNING
+	; ---------------------------------------------------------------
+	; 01 Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
+	; 02 Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+	; ---------------------------------------------------------------
+
+	WIN_LINE_____1=Process Lasso [x64] Setup ahk_class #32770
+	WIN_LINE_____1=Process Lasso ahk_class #32770
+	LINE_CHECKER_1=Error saving
+	LINE_CHECKER_2=task
+	; ---------------------------------------------------------------
+	; PROBLEM WITH SCHEDULER AS CORRUPTED
+	; AND THEN REQUIRE THESE NAG SCREEN GONE
+	; ---------------------------------------------------------------
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 2  ; Specify PARTIAL path
+	VAR_GET:=WINEXIST(WIN_LINE_____1)
+	IF !VAR_GET
+		RETURN 
+	LOOP 2 {
+		IF A_Index=1 
+			STATIC_CONTROL=Static1
+		IF A_Index=2
+			STATIC_CONTROL=Static2
+		WinGet, list, List, %WIN_LINE_____1%
+		Loop %list% {
+			hwnd := list%A_Index%
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			; TOOLTIP % " -- " OutVar_2
+
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+			IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+			{
+				SOUNDBEEP 4000,100
+				ControlClick, Button1, ahk_id %hwnd%,,,, NA x10 y10
+			}
+			; -------------------------------------------------------
+			; GET THE CONTROL AGAIN BECAUSE IF SUCCESSFULLY 
+			; KILL 1ST TIME OR NOT -- DON'T WANT TO HITT ON NOTHING
+			; BETTER QUICKER METHOD CHECK -- WANT
+			; IF CHECK EASIER REMOVE TWO LINE SET OF CODE TO ONE
+			; -------------------------------------------------------
+			ControlGettext, OutVar_2, %STATIC_CONTROL%, ahk_id %hwnd%
+			IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+			IF INSTR(OutVar_2,LINE_CHECKER_2)>0
+			{
+				SOUNDBEEP 4000,100
+				ControlClick, Button1, ahk_id %hwnd%
+			}
+		}
+	}
+RETURN
+
+
+
 
 
 HIGHER_SPEED:
