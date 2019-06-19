@@ -51,13 +51,16 @@ Set FSO = CreateObject("scripting.filesystemobject")
 
 REM ---------------------------------------
 Fil_1_PATH="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothView_Desc.txt"
-Set Fil_1 = FSO.GetFile (Fil_1_PATH)
-Fil_1_SIZE=Fil_1.Size
+Fil_1_SIZE=0
+IF FSO.FileExists(Fil_1_PATH) THEN
+	Set Fil_1 = FSO.GetFile (Fil_1_PATH)
+	Fil_1_SIZE=Fil_1.Size
+END IF
 
 Fil_2_PATH="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothView_Desc -- " & strComputerName & ".txt"
 
 Fil_2_PATH_TRIM=MID(Fil_2_PATH,1,INSTRREV(Fil_2_PATH,"\"))
-
+Fil_2_SIZE=0
 IF FSO.FileExists(Fil_2_PATH) THEN
 	Set Fil_2 = FSO.GetFile (Fil_2_PATH)
 	Fil_2_SIZE=Fil_2.Size
