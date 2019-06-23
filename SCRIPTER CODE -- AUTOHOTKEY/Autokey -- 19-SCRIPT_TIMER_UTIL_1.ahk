@@ -733,7 +733,6 @@ IF A_ComputerName=3-LINDA-PC
 IF A_ComputerName=5-ASUS-P2520LA
 	SET_GO=TRUE
 		
-SET_GO=TRUE		
 IF SET_GO=TRUE
 {
 	Process, Exist, TeamViewer_Service.exe
