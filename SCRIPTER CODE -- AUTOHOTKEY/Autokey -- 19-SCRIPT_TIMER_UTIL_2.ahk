@@ -1047,6 +1047,7 @@ KILL_TEAMVIEWER_ON_LOW_END_COMPUTER:
 	; C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe
 	; C:\Program Files (x86)\TeamViewer\TeamViewer.exe
 
+	MSGBOX HH
 	SET_GO=FALSE
 	IF A_ComputerName=1-ASUS-X5DIJ
 		SET_GO=TRUE
