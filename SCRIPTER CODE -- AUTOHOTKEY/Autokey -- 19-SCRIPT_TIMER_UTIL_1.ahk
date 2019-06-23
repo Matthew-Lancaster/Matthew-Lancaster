@@ -2705,6 +2705,8 @@ TIMER_SUB_BLUETOOTH_LOGGER:
 		FILE_PATH_BLUETOOTHVIEW_DESC:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS"
 		If FileExist(FILE_PATH_BLUETOOTHVIEW_DESC)
 		{
+			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV
+			
 			Run, "%FILE_PATH_BLUETOOTHVIEW_DESC%" , , HIDE
 		}
 	}
