@@ -2706,7 +2706,6 @@ TIMER_SUB_BLUETOOTH_LOGGER:
 		If FileExist(FILE_PATH_BLUETOOTHVIEW_DESC)
 		{
 
-
 			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
 
 			IF (A_ComputerName="1-ASUS-X5DIJ")
@@ -2729,7 +2728,25 @@ TIMER_SUB_BLUETOOTH_LOGGER:
 	}
 	OLD_BluetoothView_Desc_FILE_DATE=%BluetoothView_Desc_FILE_DATE%
 
+	RETURN
+	
+	Fil_1_PATH:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothView_Desc.txt"
 
+	FileGetTime, BluetoothView_Desc_FILE_DATE, %Fil_1_PATH%, M
+	IF BluetoothView_Desc_FILE_DATE<>%OLD_BluetoothView_Desc_FILE_DATE%
+	{
+		FILE_PATH_BLUETOOTHVIEW_DESC:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS"
+		If FileExist(FILE_PATH_BLUETOOTHVIEW_DESC)
+		{
+
+
+			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
+	
+	}
+	}
+	
+	
+	
 Return
 
 
