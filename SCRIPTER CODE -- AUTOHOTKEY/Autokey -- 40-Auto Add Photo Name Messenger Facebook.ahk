@@ -151,7 +151,7 @@ SetTitleMatchMode 2  ; ANY PARTIAL
 ; SINGLE FOLDER ONLY AT THE MOMENT
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 05 16 _ TRIPOD ASSEMBLY WITH HDMI LEAD & TRIPLE HOT SHOE _ 1ST SELFIE OF TYPE LOOKER SCREEN & MIRROR & BY MYSELF
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 07 05
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 FILE_PATH_WILDPATH_JPG := regexreplace(FILE_PATH_WILDPATH_JPG, "\\$")
 ; 03 _ ADD THE \*.JPG
@@ -458,7 +458,7 @@ Sendinput %OutputVar_1%`n
 if POS_VAR>0 
 	Sendinput %OutputVar_2%`n
 
-Sendinput %END_MESSENGER%`n
+; Sendinput %END_MESSENGER%`n
 
 	
 ; -------------------------------------------------------------------
