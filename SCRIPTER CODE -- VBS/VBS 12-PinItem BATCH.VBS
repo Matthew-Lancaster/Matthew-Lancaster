@@ -480,7 +480,7 @@ END IF
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" OR COMPUTER_NAME_VAR="4-ASUS-GL522VW" THEN
 	IF Version_OS=10 THEN
 		I=I+1:ARRAY_1(I)="C:\GoodSync\x64\GoodSync2Go.exe"
 	END IF
