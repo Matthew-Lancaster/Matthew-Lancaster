@@ -1180,6 +1180,8 @@ IF SET_GO_1=1
 SET_GO_1=0
 IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	SET_GO_1=1
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+	SET_GO_1=1
 
 IF SET_GO_1=1
 {
