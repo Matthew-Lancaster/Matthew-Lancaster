@@ -763,8 +763,15 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 ; IF HAS AND THEN MINIMIZE ON CERTAIN COMPUTER
 ; -------------------------------------------------------------------
 DetectHiddenWindows, ON
-IF (A_ComputerName<>"7-ASUS-GL522VW" or A_UserName<>"MATT 04")
+SET_GO_1=0
+IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+	SET_GO_1=1
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	SET_GO_1=1
+	
+IF SET_GO_1=0 
 	RETURN
+
 	
 WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 
