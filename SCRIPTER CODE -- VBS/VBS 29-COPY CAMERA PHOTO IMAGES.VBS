@@ -496,6 +496,9 @@ Sub Main
 	
 	IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
 		
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER.VBS""", ShowWindow, DontWaitUntilFinished
+		
+		
 		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 	
 	END IF
