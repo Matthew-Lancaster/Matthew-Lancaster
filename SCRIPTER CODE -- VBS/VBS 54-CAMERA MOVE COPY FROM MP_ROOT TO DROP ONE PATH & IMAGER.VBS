@@ -1,339 +1,910 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER 01.VBS
 '# __ 
-'# __ VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS
+'# __ VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER 01.VBS
 '# __ 
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
-'# START     TIME [ Tue 11-Jun-2019 13:25:39 ]
-'# END FINAL TIME [ Tue 11-Jun-2019 15:14:00 ]
+'# START     TIME [ Mon 15-Jul-2019 06:56:50 ]
+'# END FINAL TIME [ Mon 15-Jul-2019 07:54:00 ] 1 hour
 '# __ 
 '====================================================================
 
 '# ------------------------------------------------------------------
 ' DESCRIPTION 
 ' -------------------------------------------------------------------
-'#-------------------------------------------------------------------
-' SESSION 001 __ CREATED
-' -------------------------------------------------------------------
-' 2 HOUR AND 49 MINUTE TO COMPLETE ANOTHER PROJECT IN
-' -------------------------------------------------------------------
-' NOW INCLUDE 
-' WILL COPY SOURCE TO TARGET BY FOLDER AND DELETE AFTER 
-' UNABLE DO MOVE EFFECTIVE-AH IN VBS
-' AND INCORPORATE CODE FROM BEFORE THAT DELETE EMPTY
-' -------------------------------------------------------------------
-'# START     TIME [ Tue 11-Jun-2019 13:25:39 ]
-'# END FINAL TIME [ Tue 11-Jun-2019 15:14:00 ]
-'#-------------------------------------------------------------------
+' AFTER OFF LOAD MY CAMERA REEL
+' BASICALLY IF MOVE THE FILE LIKE THIS
+
+' FOLDER_PATH(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\MP_ROOT"
+' FOLDER_PATH(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\DCIM"
+' FOLDER_PATH_DEST(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
+' FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_ IMAGE"
+
+' IT IS DONE IN RECURSIVE 
+' ALL THE FILE ARE READ BEFORE SO NONE PROBLEM 
+' IDEA IS IT TAKE A PATH FROM HIGH LEVEL AND MOVE LOWER
+' SOMETHING MOST SYNC PROGRAM WON'T OBEY
+
+' VARIOUS OPTION FOR EACH PATH SET IN ARRAY 
+
+' IT THE MODIFY WATER DOWN VERSION COPY OF 
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
 
 ' -------------------------------------------------------------------
-' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
-' SOURCE GIVEN
-' -------------------------------------------------------------------
-' vbscript - how to check vbs script in windows is running or not? - Stack Overflow
-' https://stackoverflow.com/questions/7849699/how-to-check-vbs-script-in-windows-is-running-or-not
-' -------------------------------------------------------------------
-' [ Wednesday 13:08:00 Pm_20 March 2019 ]
-' -------------------------------------------------------------------
 
-' -------------------------------------------------------------------
-' DOUBLE CODE VERSION SECOND HALF OF CODE TAKEN FROM ANOTHER PROJECT
-' -------------------------------------------------------------------
-' VBS 13-COPY MOVE SHELL FOLDING.VBS
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' __ CODE BY MATTHEW LANCASTER
-' __ DATE BEGINNER 5 AM -- 5 HOURS
-' __ DATE BEGINNER AND ENDER ----------------------------------------
-' [ Saturday 10:18:00 Am_30 December 2017 ] The UK
-' [ Saturday 10:18:00 Am_30 December 2017 ] GMT UTC+0 WET
-' __ DATE BEGINNER AND ENDER ----------------------------------------
-' -------------------------------------------------------------------
-' THIS WILL COPY SOURCE TO TARGET BY FOLDER AND OPTION DELETE AFTER 
-' -------------------------------------------------------------------
-' ------------------------------------------------------------------
-' -----------------------------------------------------------------
-' ----------------------------------------------------------------
-
-DIM DELETE_AFTER
-DIM objFSO
-Dim objShell
-DIM ComputerName
-DIM obj_SOURCE_Folder
-DIM obj_TARGET_Folder
-DIM Version_OS
-
-Set objShell = Wscript.CreateObject("WScript.Shell")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
-WindowsDir = objShell.ExpandEnvironmentStrings("%windir%")
-AppDataLocation=objShell.ExpandEnvironmentStrings("%APPDATA%")
-ComputerName=objShell.ExpandEnvironmentStrings("%COMPUTERNAME%")
-
-CALL GET_WINDOWS_VERSION
-
-IF Version_OS=<5 THEN 
-	'Wscript.Echo "begin."
-	'Wscript.Echo "end."
-	WScript.Quit(0)
-END IF
-' ----------------------------------------------------------------
-' -----------------------------------------------------------------
-' ------------------------------------------------------------------
-' -------------------------------------------------------------------
-
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
-
-i1 = 0 ' ANY PROGRAM WSCRIPT 
-i2 = 0 ' MY  PROGRAM WSCRIPT 
-FOR EACH objProcess IN colProcesses
-    IF NOT (IsNull(objProcess.CommandLine )) THEN
-		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
-		IF strScriptName = Wscript.ScriptName THEN
-			i2=i2+1
-		else
-			i1=i1+1
-		END IF
-		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
-				' Wscript.Quit
-		END IF
-		IF i2 > 1 THEN ' MY  PROGRAM WSCRIPT 
-				Wscript.Quit
-		END IF
-    END IF
-NEXT
-
-' Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-' Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
-' KNOCK UP THIS FOR USE IN MY OUTLOOK SCRIPT CODING
-IF 1=2 THEN 
-	FOR EACH objProcess IN colProcesses
-		IF NOT (IsNull(objProcess.ProcessID )) THEN
-			strScriptProcessID = objProcess.ProcessID
-			MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(strScriptProcessID)
-		END IF
-	NEXT
-END IF
-
-
-
-
-' -------------------------------------------------------------------
-' ALL THE -- IF ____ Wscript.Quit ____ ROUTINE SET DONE
-' -------------------------------------------------------------------
-
-Const vbFromUnicode = 128
-Const vbUnicode = 64
-Const adTypeBinary = 1
-Const adTypeText = 2
-Const adLongVarBinary = 205
-
-Dim fso
-Set fso = CreateObject("Scripting.FileSystemObject")
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
+Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
-'--------------------------------------------------------
-' AFTER THE EFFORT 
-' VBSCRIPT SEEMS TO READER IN UNICODE MANIPULATE AND SAVE
-' IN VBA VB6 Replace() DOES MULTIPLE OCCUR HER WITH , , 1)
-' HERE VBS DOES SINGLE 
-'--------------------------------------------------------
+DIM CUR_USER
+DIM ComputerName
 
 CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
-Dim objFolder
+DIM JPG_BEEN_DONE
+DIM MP4_BEEN_DONE
 
-FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
-TARGET_FOLDER_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot"
-TARGET_FOLDER_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
+DIM STOP_PROGRESS
+DIM IX_ERROR_MESSENGER
 
-FOR RV=1 TO 2
-	FOR RO=2 TO 20
-		XXC=CSTR(RO)
-		IF RV=1 THEN 
-			FOLDER_STRING=FOLDER_STRING_1+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_1
-		END IF
-		IF RV=2 THEN 
-			FOLDER_STRING=FOLDER_STRING_2+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_2
-		END IF
+DIM DRIVE_SPACE_INFO
 
-		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-			Set objFolder = FSO.GetFolder(FOLDER_STRING)
-				' MSGBOX "--"+FOLDER_STRING
+DIM objStartFolder
+DIM objFolder
+DIM I_COUNT_1
+DIM I_COUNT_2
+DIM VAR_PATH_SCANNER
+DIM IMAGE_POINTER_NAME
 
-			If objFolder.SubFolders.Count > 0 Then 
-				CALL COPY_FOLDER_ONE_UP_ROOT_LEVEL
-			END IF
-		END IF
-	NEXT
+DIM objSuperFolder
+
+Dim FSO
+Set FSO = CreateObject("Scripting.FileSystemObject")
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
+
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+
+
+Dim arr1
+Dim oDict ' Key: Full filename, Item: Filename
+
+Dim FileModDate
+DIM FileModDate_3
+
+'FOLDER_PATH_VAR="D:\DSC\2011"
+'FOLDER_PATH_VAR="D:\DSC\z compare\NIKON TOTAL\DCIM"
+'FOLDER_PATH_VAR="\"
+
+' IF FSO.FolderExists(FOLDER_PATH_VAR)=FALSE THEN 
+	' MSGBOX "FOLDER NOT EXIST"
+	' Wscript.QUIT
+' END IF
+
+
+'Call the Search subroutine to start the recursive search.
+'Search objFSO.GetFolder(FOLDER_PATH_VAR)
+'---------------------------------------------------------
+'FindWantedFiles objFSO.GetFolder(FOLDER_PATH_VAR)
+'DisplayFindings
+'---------------------------------------------------------
+
+DIM R_COUNT
+
+DIM FOLDER_PATH_INDEX
+
+NUMBER_OF_ITEM = 10
+
+DIM FOLDER_PATH()
+DIM FOLDER_PATH_DEST()
+DIM FOLDER_PATH_VAR()
+DIM FOLDER_PATH_DO_ALL_FILE()
+DIM FOLDER_PATH_MOVE_MODE_FILE()
+DIM FOLDER_PATH_IGNOR_DATE_INDEX()
+DIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY()
+DIM FOLDER_PATH_DO_SUBFOLDER()
+
+REDIM FOLDER_PATH(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH_DEST(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH_VAR(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH_DO_ALL_FILE(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH_MOVE_MODE_FILE(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH_IGNOR_DATE_INDEX(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH_DO_SUBFOLDER(NUMBER_OF_ITEM)
+
+DIM FOLDER_PATH_AVOID_ITEM()
+REDIM PRESERVE FOLDER_PATH_AVOID_ITEM(100)
+NUMBER_COUNTER = 0
+I=NUMBER_COUNTER
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="_gsdata_"
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="System Volume Information"
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\F.A"                      ' DASH CAMERA
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=".THM"                      ' SONY
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=".AmazonDriveConfig"
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
+' I=I+1:FOLDER_PATH_AVOID_ITEM(I)="AVF_INFO"
+FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_AVOID_ITEM)
+	IF FOLDER_PATH_AVOID_ITEM(R_COUNT_2)<>"" THEN NUMBER_COUNTER=R_COUNT_2
 NEXT
+REDIM PRESERVE FOLDER_PATH_AVOID_ITEM(NUMBER_COUNTER)
 
 
-
-
-FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
-
-FOR RV=1 TO 2
-	FOR RO=2 TO 20
-		XXC=CSTR(RO)
-		IF RV=1 THEN 
-			FOLDER_STRING=FOLDER_STRING_1+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_1
-		END IF
-		IF RV=2 THEN 
-			FOLDER_STRING=FOLDER_STRING_2+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_2
-		END IF
-
-		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-
-			Set objFolder = FSO.GetFolder(FOLDER_STRING)
-
-			'MSGBOX objFolder.SubFolders.Count
-			'MSGBOX objFolder.Files.Count
-			
-			If objFolder.SubFolders.Count = 0 Then 
-				IF objFolder.Files.Count = 0 Then
-					' -------------------------------------------
-					' THE ROOT FOLDER IS NOT EVER DELETE HERE 
-					' AND NEXT ROUTINE IS SPECIAL DESIGN FOR THAT
-					' ALL DELETE EMPTY WILL BE GONE
-					' -------------------------------------------
-					fso.DeleteFolder objFolder.Path
-					IF FSO.FOLDERExists(FOLDER_STRING) THEN
-						fso.DeleteFolder FOLDER_STRING
-					END IF
-				END IF
-			END IF
-		END IF
-	NEXT
+DIM FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE()
+REDIM PRESERVE FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(100)
+NUMBER_COUNTER = 0
+NUMBER_COUNTER = NUMBER_COUNTER + 1
+I=NUMBER_COUNTER
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".JPG"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".AVI"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MOV"                      ' DASH CAMERA
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MP4"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".TXT"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
+FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
+	IF FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2)<>"" THEN NUMBER_COUNTER=R_COUNT_2
 NEXT
+REDIM PRESERVE FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(NUMBER_COUNTER)
 
-' Wscript.Echo "ENDER"
-
-WScript.Quit(0)
-
-'--------------------------------------------------------------------
-'END STOP -----------------------------------------------------------
-'--------------------------------------------------------------------
-
-
-
-
-
-Function LPad (str, pad, length)
-    LPad = String(length - Len(str), pad) & str
-End Function
-
-' MsgBox i_TIME
-' MsgBox Format(Now, "YYYY-MMM-DD -- HH:MM:SS - HH:MM:SS-AM/PM DDD")
-' 2019-Mar-18 -- 14:00:40 - 02:00:40-PM - Sun
-
-
-' SOURCE CREDIT DELETE EMPTY
-' ----
-' Deleting Empty Folders – Random Musings of Jeremy Jameson
-' https://blogs.msdn.microsoft.com/jjameson/2009/11/03/deleting-empty-folders/
-' ----
-
-
-
-'-------------------------------------
-Sub COPY_FOLDER_ONE_UP_ROOT_LEVEL
-'-------------------------------------
-	DELETE_AFTER=TRUE
-	obj_SOURCE_Folder = FOLDER_STRING
-	obj_TARGET_Folder = TARGET_STRING ' +"\"
 	
-	' MSGBOX obj_SOURCE_Folder+VBCRLF +obj_TARGET_Folder
+DIM FOLDER_PATH_DEST_VAR
+DIM FOLDER_PATH_VAR_3
 
-	SET_GO=TRUE
-	If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
-	If objFSO.FOLDERExists(obj_TARGET_Folder) = FALSE Then SET_GO=FALSE
+DIM EXPLORER_LOADED
+DIM SHOW_EXPLORER_FLAG
+
+FOLDER_PATH(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\MP_ROOT"
+FOLDER_PATH(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\DCIM"
+
+' FOLDER_PATH(2)="MC - HX60V0"
+' FOLDER_PATH(3)="FUJI XP90"
+' FOLDER_PATH(4)="GOPRO"
+' FOLDER_PATH(5)="GOPRO"
+' FOLDER_PATH(6)="DUAL SCRN" ' __ COPY FIRST TO END PLACE
+' FOLDER_PATH(7)="DUAL SCRN" ' __ MOVE NEXT TO ANOTHER
+' FOLDER_PATH(8)="D DRIVE"
+' FOLDER_PATH(9)="DASH_CAMERA" ' __ COPY FIRST TO END PLACE
+' FOLDER_PATH(10)="DASH_CAMERA" ' __ MOVE NEXT TO ANOTHER
+
+' NOKIA TO DO 1 2 3
+
+FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(8)=TRUE
+
+FOLDER_PATH_VAR(1)="\"
+' FOLDER_PATH_VAR(2)="\"
+' FOLDER_PATH_VAR(3)="\"
+' FOLDER_PATH_VAR(4)="\"
+' FOLDER_PATH_VAR(5)="\"
+' FOLDER_PATH_VAR(6)="\"
+' FOLDER_PATH_VAR(7)="\"
+' FOLDER_PATH_VAR(8)="\Android\SDCard2_Sync\DCIM\"
+' FOLDER_PATH_VAR(9)="\"
+' FOLDER_PATH_VAR(10)="\"
+
+FOLDER_PATH_DEST(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
+FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_ IMAGE"
+
+' FOLDER_PATH_DEST(1)="D:\DSC\2015+Sony\" + CSTR(Year(Now)) + " CyberShot HX60V"
+' FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+' FOLDER_PATH_DEST(3)="D:\DSC\2017+FUJI XP90\" + CSTR(Year(Now)) + " FinePix XP90"
+' FOLDER_PATH_DEST(4)="D:\DSC\" + CSTR(Year(Now)) + " GoPro 01"
+' FOLDER_PATH_DEST(5)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " GoPro 01"
+' FOLDER_PATH_DEST(6)="D:\DSC\" + CSTR(Year(Now)) + " Double Screen Cam"
+' FOLDER_PATH_DEST(7)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " Double Screen Cam"
+' FOLDER_PATH_DEST(8)="D:\DSC\" + CSTR(Year(Now)) + " Samsung Mini S5\DCIM"
+' FOLDER_PATH_DEST(9)="D:\DSC\" + CSTR(Year(Now)) + " DASH CAMERA"
+' FOLDER_PATH_DEST(10)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " DASH CAMERA"
+
+'THINKER WE WANT MOVE MODE FOR FUJI
+
+' THIS IS THE GOPRO DRIVE AND WILL WANT ALL COPY WITH MOVE AND IGNOR_DATE_INDEX
+FOLDER_PATH_MOVE_MODE_FILE(1)=TRUE
+FOLDER_PATH_DO_ALL_FILE(1)=TRUE
+FOLDER_PATH_DO_SUBFOLDER(1)=FALSE
+
+FOLDER_PATH_MOVE_MODE_FILE(2)=TRUE
+FOLDER_PATH_DO_ALL_FILE(4)=TRUE
+FOLDER_PATH_DO_ALL_FILE(5)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(5)=TRUE
+'FOLDER_PATH_IGNOR_DATE_INDEX(4)=TRUE
+'FOLDER_PATH_IGNOR_DATE_INDEX(5)=TRUE
+' THIS IS THE DUAL SCREEN DRIVE AND WILL WANT ALL COPY BUT MOVE_MODE VIDEO & IMAGE
+' THIS IS THE DUAL SCREEN DRIVE & DO HERE IS 2 STEP 1ST COPY TO ONE FOLDER 2ND MOVE ANOTHER FOLDER
+' AND IGNORE DATE INDEX REQUIRED WILL BE OKAY AS MOVE MODE IS AFTER THAT ALSO IGNORE DATE INDEX
+FOLDER_PATH_DO_ALL_FILE(6)=TRUE
+FOLDER_PATH_DO_ALL_FILE(7)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(7)=TRUE
+' SAMSUNG MINI S 5 _ ALLOW OVER WRITER & ALLOW ALL FILE EXTENSION TYPE TYPEO TYPO P & E & O
+FOLDER_PATH_DO_ALL_FILE(8)=TRUE
+' DASH CAMERA
+FOLDER_PATH_DO_ALL_FILE(9)=TRUE
+FOLDER_PATH_DO_ALL_FILE(10)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(10)=TRUE
+
+' FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_DEST)
+	' If Not FSO.FolderExists(FOLDER_PATH_DEST(R_COUNT)) Then
+		' BuildFullPath FOLDER_PATH_DEST(R_COUNT)
+	' End If
+' NEXT
+
+DIM FOLDER_DO_SUBFOLDER_2
+DIM FOLDER_PATH_VAR_2
+
+FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
+
+	I_COUNT_1=0
+	I_COUNT_2=0
+
+	FOLDER_PATH_INDEX=CSTR(R_COUNT)+" "+FOLDER_PATH(R_COUNT)
+	' FOLDER_PATH_VAR_2=getDriveLetterFromVolumeName(FOLDER_PATH(R_COUNT))
+	' MSGBOX getDriveLetterFromVolumeName("D DRIVE") ANSWER D:
+	' Wscript.QUIT
 	
-	' MSGBOX SET_GO
-
-	IF SET_GO=TRUE THEN 
-		Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-		Call ShowSubfolders (objSuperFolder)
-	END IF
-END SUB
-
-'-------------------------------------
-Sub ShowSubFolders(fFolder)
-'-------------------------------------
-    Set objFolder = objFSO.GetFolder(fFolder.Path)
-    Set colFiles = objFolder.Files
-    
-	SET_GO=FALSE
-
-	' --------------------------------------
-	' COUNT BACKSLASH 
-	' --------------------------------------
-	' WANT ONLY FOLDER THAT ARE ONE UP FROM ROOT OF PATH REQUEST COPIER
-	' --------------------------------------
-    X1 = obj_SOURCE_Folder
-    X2 = objFolder.PATH
-	X1 = Len(X1) - Len(Replace(X1, "\", ""))
-    X2 = Len(X2) - Len(Replace(X2, "\", ""))
-
-	IF X1+1=X2 THEN SET_GO=TRUE
+	FOLDER_PATH_VAR_2=MID(FOLDER_PATH(R_COUNT),1,2)
+	FOLDER_PATH_DEST_VAR=FOLDER_PATH_DEST(R_COUNT)
 	
-	IF SET_GO=TRUE THEN 
-		ERR.CLEAR
-		ON ERROR RESUME NEXT
+	FOLDER_PATH_VAR_3=FOLDER_PATH_VAR(R_COUNT)
 
-		objFSO.COPYFOLDER objFolder.PATH, obj_TARGET_Folder+"\"+objFolder.NAME
+	
+	IF FOLDER_PATH_VAR_2<>"" THEN 
 		
-		IF DELETE_AFTER=TRUE AND ERR.NUMBER=0 THEN 
-			objFSO.DELETEFOLDER objFolder.PATH
+		WORK_GO_ER=TRUE
+		
+		FOLDER_PATH_VAR_2=FOLDER_PATH(R_COUNT)
+		MSGBOX FOLDER_PATH_VAR_2
+		' Wscript.QUIT
+		FOLDER_DO_SUBFOLDER_2=FOLDER_PATH_DO_SUBFOLDER(R_COUNT)
+
+		' MSGBOX FOLDER_PATH_VAR_2
+		' Wscript.QUIT
+		
+		FOLDER_PATH_DEST_VAR_2=FOLDER_PATH_DEST(R_COUNT)
+		
+		'---------------------------------------------------------------------------------
+		' DON'T SHOW EXPLORER ON DODGY COMPUTER AROUND BUILDING AND IF DODGY PATH IMAGE-ER
+		' OR DODGY LESS QUICKER SPEC LOW END PC
+		'---------------------------------------------------------------------------------
+		' DON'T SHOW EXPLORER ON D DRIVE IF ONLY PICTURE IS NONE
+		'---------------------------------------------------------------------------------
+		SHOW_EXPLORER_FLAG=TRUE
+		IF INSTR(FOLDER_PATH_DEST_VAR,"D:\VI_ DSC ME\") > 0 THEN 
+			IF ComputerName="1-ASUS-X5DIJ" THEN SHOW_EXPLORER_FLAG=FALSE
+			IF ComputerName="2-ASUS-EEE" THEN SHOW_EXPLORER_FLAG=FALSE
+			IF ComputerName="3-LINDA-PC" THEN SHOW_EXPLORER_FLAG=FALSE
+			IF ComputerName="4-ASUS-GL522VW" THEN SHOW_EXPLORER_FLAG=FALSE
 		END IF
-	End If
+		SHOW_EXPLORER_FLAG=FALSE
+		
+		IF FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(R_COUNT)=TRUE THEN
+			SHOW_EXPLORER_FLAG=FALSE
+		END IF
+		
+		EXPLORER_LOADED=FALSE
+		IF SHOW_EXPLORER_FLAG=TRUE THEN 
+			EXPLORER_LOADED=TRUE
+			WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+		END IF
+		
+		' IMAGE_POINTER_FOLDER_1=MID(Wscript.ScriptFullName,1,INSTRREV(Wscript.ScriptFullName,"\"))+"VBS 29-COPY CAMERA\"
+		' IMAGE_POINTER_NAME=IMAGE_POINTER_FOLDER_1+"COPY_CAMERA_PHOTO_IMAGE_POINTER_"+FOLDER_PATH(R_COUNT)+".TXT"
+
+		' If Not FSO.FolderExists(IMAGE_POINTER_FOLDER_1) Then
+			' BuildFullPath IMAGE_POINTER_FOLDER_1
+		' End If
+
+		' IF FSO.FileExists(IMAGE_POINTER_NAME)=TRUE THEN 
+			' Set File_1 = fso.OpenTextFile(IMAGE_POINTER_NAME, ForReading)
+			' TT_DATE_POINTER = File_1.ReadAll
+			' set File_1=NOTHING
+		' END IF
+			
+		' DIM FileModDate_2
+		' FileModDate_2=CDate(TT_DATE_POINTER)
+		' FileModDate_3=FileModDate_2
+		
+		'TEST ---------------------------------------------
+		'FileModDate_2=CDate("14/06/2018")
+		'FileModDate_2=NOW
+		'Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
+		'objFile.Write FileModDate_2
+		'SET objFile=NOTHING
+		' --------------------------------------------------
+
+		MAIN
+
+		' If FSO.FileExists(IMAGE_POINTER_NAME) Then 
+			' FSO.DeleteFile IMAGE_POINTER_NAME
+		' END IF
+
+		' Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
+		' objFile.Write FileModDate_3
+		' SET objFile=NOTHING
+		
+		
+	END IF
+
+NEXT
+
+IF WORK_GO_ER=FALSE THEN
+
+	I=""
+	I=I+"CAMERA COPY _ NOTHING DONE " + VBCRLF
+	I=I+"CHECKED VOLUME NAME" + VBCRLF
+	I=I+"--------------------------" + VBCRLF
+	FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
+		I=I+FOLDER_PATH(R_COUNT) + VBCRLF
+	NEXT
+	MSGBOX I
+
+END IF
+
+
+' -------------------------------------------------------------------
+' THIS PROCESS NOT TOO GOOD AS THESE SCRIPT IN BAT WAKE ALL THE DRIVE WHEN SCAN THEM FOR FOLDER
+' AS PART OF SYNC DO
+' INCORP IN TO CAMERA LOADER
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' THIS SYNC NOT GOOD AS NOT CHECKER FOR CONFLICTS
+' UNTIL DONE
+' -------------------------------------------------------------------
+
+' DIM RUN_COPY(1)
+
+' RUN_COPY(1)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-XCOPY SYNC.BAT"
+
+' FOR R_COUNT=1 TO UBOUND(RUN_COPY)
+
+	' IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
+		' WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
+	' END IF
 	
-    For Each Subfolder in fFolder.SubFolders
-        ShowSubFolders(Subfolder)
-    Next
+' NEXT
+
+
+
+SET objFSO = NOTHING
+Wscript.QUIT
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
+Sub Main
+    Set oDict = CreateObject("Scripting.Dictionary")
+    ' Call Recursive Sub
+    FindWantedFiles(objFSO.GetFolder(FOLDER_PATH_VAR_2))
+    ' Display All Findings from Dictionary object
+
+    DisplayFindings
+
+	ShowDriveInfo(MID(FOLDER_PATH_VAR_2,1,2))
+
+	' ---------------------------------------------------------------
+	' CHECK EXPLORER BEEN LOADED BEFORE _ IF NOT
+	' NOW IS TIME TO MAKE SURE _ AND DECIDE IF THE COUNTER HAS GONE UP FOR ANY COPY FILE
+	' WHILE STILL MAINTAIN NOT FIR ANY DODGY COMPUTER OR FOLDER
+	' INCLUDE D DRIVE OR BE SHOW EVERY TIME
+	' ---------------------------------------------------------------
+	
+	' IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE AND I_COUNT_1>0 THEN 
+		' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+	' END IF
+	
+	I=""
+	I=I+"DONE COPY COUNT: " 
+	I=I+CSTR(I_COUNT_1)
+	I=I+" of " + CSTR(I_COUNT_2) + VBCRLF
+	I=I+DRIVE_SPACE_INFO
+	
+	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
+		MSGBOX I
+	END IF
+	
+	' ---------------------------------------------------------------
+	' MP4_BEEN_DONE=TRUE
+	' WOULD BE GOOD BUT NOT REQUIRE IF ONLY MP4
+	' IT DOESN'T REQUIRE CONVERSION CODING STRICTLY
+	' ---------------------------------------------------------------
+	' Wed 20-Mar-2019 04:43:54
+	' ---------------------------------------------------------------
+	
+	' IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
+		
+		' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+	
+	' END IF
+	
+    Set oDict = Nothing
 End Sub
 
-'--------------------------------------------------------
-SUB GET_WINDOWS_VERSION
-'--------------------------------------------------------
-	Version_OS=0
+
+function ShowDriveInfo(drvPath)
+	strComputer = "." 
+
+	Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2") 
+	Set colItems = objWMIService.ExecQuery( _
+		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+drvPath+"'",,48) 
+
+	For Each objItem in colItems 
+		if len(objItem.VolumeName)>0 then
+			S=S+"-----------------------------------------------------------" & vbCrLf
+			S=S+"VolumeName:" & vbTab & objItem.VolumeName  & vbCrLf
+			S=S+"-----------------------------------------------------------" & vbCrLf
+			S=S+"Drive Letter 1st Found for Match Volume Name: " & drvPath & "\" & vbCrLf
+			S=S+"-----------------------------------------------------------" & vbCrLf
+			S=S+"FreeSpace:" & vbTab
+			S=S+FormatNumber((CDbl(objItem.FreeSpace)/1024/1024/1024))  & " GB" & vbCrLf
+			S=S+"Size:" & vbTab & vbTab
+			S=S+FormatNumber((CDbl(objItem.Size)/1024/1024/1024)) & " GB" & vbCrLf
+			S=S+"Occupied Space:" & vbTab
+			S=S+FormatNumber((CDbl(objItem.Size - objItem.FreeSpace)/1024/1024/1024)) & " GB"
+			IF IX_ERROR_MESSENGER<>"" THEN 
+				S=S+vbCrLf
+				S=IX_ERROR_MESSENGER
+			END IF
+		END IF
+	Next
+	DRIVE_SPACE_INFO=S
+END FUNCTION
+
+Sub FindWantedFiles(sFolder)
+    On Error Resume Next
+    Dim oFDR, oItem, file
+    ' Check if wanted files are in this folder
+    For Each file In sFolder.Files
+		oDict.Add FILE.path, file
+    Next
+	
+	' IF FOLDER_DO_SUBFOLDER_2=TRUE THEN
+		' Recurse into it's sub folders
+		For Each oFDR In sFolder.SubFolders
+			FindWantedFiles objFSO.GetFolder(oFDR.Path)
+		Next
+	' END IF
+	
+End Sub
+
+Sub DisplayFindings()
+    Dim oKeys, oKey
+    oKeys = oDict.Keys
+    For Each oKey In oKeys
+		VAR_PATH_SCANNER=oKey
+		' MSGBOX VAR_PATH_SCANNER
+
+		IF FSO.FILEExists(VAR_PATH_SCANNER)=TRUE THEN 
+			CALL PATH_SCANNER_COPY_CAMERA
+		END IF
+	Next
+End Sub
+
+SUB PATH_SCANNER_COPY_CAMERA
+	SET_GO_FILE=FALSE
+	IF mid(ucase(VAR_PATH_SCANNER),3,5)="\DCIM" then    SET_GO_FILE=TRUE
+	IF mid(ucase(VAR_PATH_SCANNER),3,8)="\MP_ROOT" then SET_GO_FILE=TRUE
+	
+	DO_ALL_FILE=FALSE
+	MOVE_MODE_FILE=FALSE
+	IGNOR_DATE_INDEX=FALSE
+
+	IF FOLDER_PATH_DO_ALL_FILE(R_COUNT)=TRUE THEN
+		DO_ALL_FILE=TRUE
+	END IF
+	IF FOLDER_PATH_MOVE_MODE_FILE(R_COUNT)=TRUE THEN
+		MOVE_MODE_FILE=TRUE
+	END IF
+	IF FOLDER_PATH_IGNOR_DATE_INDEX(R_COUNT)=TRUE THEN
+		IGNOR_DATE_INDEX=TRUE
+	END IF
+	IGNOR_DATE_INDEX=TRUE
+	
+	' MSGBOX VAR_PATH_SCANNER
+
+	
+	' FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_AVOID_ITEM)
+		' IF NOT MID(FOLDER_PATH_AVOID_ITEM(R_COUNT_2),1,1)="." THEN
+			' IF INSTR(UCASE(VAR_PATH_SCANNER),UCASE(FOLDER_PATH_AVOID_ITEM(R_COUNT_2)))>0 then 
+				' SET_GO_FILE=FALSE
+			' END IF 
+		' ELSE
+			' I_X__=LEN(FOLDER_PATH_AVOID_ITEM(R_COUNT_2))
+			' I_TXT=UCASE(FOLDER_PATH_AVOID_ITEM(R_COUNT_2))
+			' IF RIGHT(UCASE(VAR_PATH_SCANNER),I_X__)=I_TXT then SET_GO_FILE=FALSE
+		' END IF
+	' NEXT
+
+	' MSGBOX SET_GO_FILE
+	
+	' IF SET_GO_FILE=FALSE THEN EXIT SUB
+
+	
+	I_COUNT_2=I_COUNT_2+1
+	
+	IF STOP_PROGRESS=TRUE THEN EXIT SUB
+	
+	Set f = fso.GetFile(VAR_PATH_SCANNER)
+	FileModDate = f.DateLastModified
+	SET f=NOTHING
+
+	' IF IGNOR_DATE_INDEX=FALSE THEN 
+		' IF FileModDate<=FileModDate_2 THEN EXIT SUB
+	' END IF 
+	
+	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".JPG" then JPG_BEEN_DONE=TRUE
+	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".MP4" then MP4_BEEN_DONE=TRUE
+	
+	' ".JPG"
+	' ".AVI"
+	' ".MOV"  ' DASH CAMERA
+	MOVE_MODE_FLAG=FALSE
+	FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
+		I_X__=LEN(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
+		I_TXT=UCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
+		IF RIGHT(UCASE(VAR_PATH_SCANNER),I_X__)=I_TXT then 
+			MOVE_MODE_FLAG=TRUE
+		END IF
+	NEXT
+
+	' IF FileModDate>FileModDate_3 THEN FileModDate_3=FileModDate
+	
+	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
+	
+	' PATH_VAR="D:\DSC\2015-2018\2018 CyberShot HX60V"+MID(PATH_VAR,3)
+	PATH_VAR=FOLDER_PATH_DEST_VAR ' +MID(PATH_VAR,3)
+	' PATH_VAR=REPLACE(PATH_VAR,MID(FOLDER_PATH_VAR_3,2),"")
+	
+	
+	' TRICKY BUT WILL IT RUN
+	
+	' MSGBOX "PATH_VAR  "+PATH_VAR
+	' Wscript.QUIT
+	
+	PATH_FILE_VAR=PATH_VAR+"\"+FILE_VAR
+	PATH_FILE_VAR=REPLACE(PATH_FILE_VAR,"\\","\")
+
+	If Not FSO.FolderExists(PATH_VAR) Then
+		BuildFullPath PATH_VAR
+	End If
+	
 	ON ERROR RESUME NEXT
-	Set SystemSet = GetObject("winmgmts:").InstancesOf ("Win32_OperatingSystem") 
-	for each System in SystemSet 
-	' WScript.Echo System.Caption 
-	' WScript.Echo System.Manufacturer 
-	' WScript.Echo System.BuildType 
-	' WScript.Echo " Version: " + System.Version 
-	' WScript.Echo " Locale: " + System.Locale 
-	' WScript.Echo " Windows Directory: " + System.WindowsDirectory 
-	' WScript.Echo " Total memory: " + System.TotalVisibleMemorySize + " bytes" 
-	' WScript.Echo " Serial Number: " + System.SerialNumber 
-	' Wscript.Echo "" 
-	Version_OS = CINT(MID(System.Version,1,INSTR(System.Version,".")-1))
-	'WINDOWS 7 = 6.1.7601
-	next 
-	IF ERR.NUMBER>0 THEN Version_OS=0
-	' CATCH THE ERROR
-	' ---------------------------
-	' Windows Script Host
-	' ---------------------------
-	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 13-COPY MOVE SHELL FOLDING.VBS
-	' Line:	150
-	' Char:	2
-	' Error:	ActiveX component can't create object
-	' Code:	800A01AD
-	' Source: 	Microsoft VBScript runtime error
-	' ---------------------------
+	ERR.CLEAR
+	
+	If Not FSO.FileExists(PATH_FILE_VAR) OR DO_ALL_FILE=TRUE Then
+		IF MOVE_MODE_FILE=FALSE THEN 
+			' MSGBOX "1.. COPY "+VAR_PATH_SCANNER+" -- "+PATH_FILE_VAR
+			Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR
+		END IF
+		IF MOVE_MODE_FILE=TRUE THEN 
+			IF MOVE_MODE_FLAG=TRUE THEN
+				' MSGBOX "2.. MOVE "+VAR_PATH_SCANNER+" -- "+PATH_FILE_VAR
+				Fso.MoveFile VAR_PATH_SCANNER, PATH_FILE_VAR
+				'MSGBOX PATH_FILE_VAR
+
+			END IF
+			IF MOVE_MODE_FLAG=FALSE THEN
+				' MSGBOX "3.. COPY "+VAR_PATH_SCANNER+" -- "+PATH_FILE_VAR
+				Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR
+			END IF
+		END IF
+			
+		I_COUNT_1=I_COUNT_1+1
+	END IF
+	IF ERR.NUMBER>0 THEN
+		IX=""+VBCRLF
+		IX=IX+"ERROR COPY FILE _ TRY REDO ANOTHER"+VBCRLF+VBCRLF
+		IX=IX+VAR_PATH_SCANNER +VBCRLF+VBCRLF
+		IX=IX+PATH_FILE_VAR    +VBCRLF+VBCRLF
+		IX=IX+ERR.DESCRIPTION  +VBCRLF+VBCRLF
+		IX_ERROR_MESSENGER=IX
+		STOP_PROGRESS=TRUE
+		EXIT SUB
+	END IF
+	
 END SUB
 
+Sub BuildFullPath(ByVal FullPath)
+	If Not fso.FolderExists(FullPath) Then
+		BuildFullPath fso.GetParentFolderName(FullPath)
+		fso.CreateFolder FullPath
+	End If
+End Sub
+
+Function GetDriveLetterFromVolumeName( volumeName )
+Dim volumes, volume
+
+    ' Unless we found a matching volume, an empty string will be the returned value
+    GetDriveLetterFromVolumeName=""
+
+    ' Ask WMI for the list of volumes with the requested label
+    Set volumes = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") _ 
+                  .ExecQuery("SELECT DriveLetter FROM Win32_Volume WHERE Label='" & volumeName & "'")
+
+    ' If exist an matching volume, get its drive letter
+	If volumes.Count > 0 Then 
+        For Each volume In volumes 
+            GetDriveLetterFromVolumeName = volume.DriveLetter
+            Exit For
+        Next 
+    End If
+
+End Function
+
+SUB PATH_SCANNER_RENAME_4
+
+	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
+
+	NewFilename=FILE_VAR
+	NewFilename=REPLACE(NewFilename,"__","_")
+	NewFilename=REPLACE(NewFilename," _ ","_")
+	NewFilename=REPLACE(NewFilename,"_ ","_")
+	NewFilename=REPLACE(NewFilename," _","_")
+	NewFilename=REPLACE(NewFilename,".jpg",".JPG")
+	Extension=ucase(mid(NewFilename,len(NewFilename)-3))
+	
+	NewFilename=PATH_VAR+NewFilename
+	
+	SET_GO=FALSE
+	if Extension=".JPG" then 
+		SET_GO=TRUE
+	end	if
+	
+	if VAR_PATH_SCANNER <> NewFilename AND SET_GO=TRUE then 
+		'msgbox NewFilename
+		I_COUNT_1=I_COUNT_1+1
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
+		IF ERR.NUMBER>0 THEN 
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
+		END IF
+		'Wscript.QUIT
+	end if
+
+END SUB
+
+
+SUB PATH_SCANNER_RENAME_3
+
+	NewFilename=REPLACE(VAR_PATH_SCANNER,".JPG",".jpg")
+	
+	if VAR_PATH_SCANNER <> NewFilename then 
+		I_COUNT_1=I_COUNT_1+1
+		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
+		'msgbox NewFilename
+		'Wscript.QUIT
+	end if
+
+END SUB
+
+SUB PATH_SCANNER_RENAME_2
+
+	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
+
+	SET_GO=TRUE 
+	IF INSTR(UCASE(VAR_PATH_SCANNER),".JPG")=0 THEN SET_GO=FALSE
+	'IF MID(FILE_VAR,1,4)<>"2010" THEN  SET_GO=FALSE
+
+	NewFilename=FILE_VAR
+
+	IF LEN(FILE_VAR)>= 12 AND SET_GO=TRUE THEN SET_GO=FALSE
+	
+	ON ERROR RESUME NEXT
+	if SET_GO=TRUE then
+		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
+		IF ERR.NUMBER >0 THEN 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+		END IF
+	END IF
+
+	'IF NewFilename_COUNTER>= 761 THEN SET_GO=FALSE
+	
+	IF SET_GO=TRUE THEN
+		'MSGBOX VAR_PATH_SCANNER
+		NewFilename=FILE_VAR
+
+		if FSO.FileExists(PATH_VAR+NewFilename)=TRUE THEN 
+			'msgbox "FILE ALREADY EXISTS "+VBCRLF+VBCRLF+NewFilename
+			'Wscript.QUIT
+			X_D=0
+			DO
+				FOR R=1 TO 500
+					X_D=X_D+1
+					NewFilename="DSC"+CSTR(X_D)+".jpg"
+					NewFilename_VAR_2=MID(NewFilename,4)
+					 
+					IF LEN(NewFilename)<12 THEN 
+						X_C=1
+						DO
+							IF LEN(NewFilename)<12 THEN 
+								NewFilename="DSC"+STRING(X_C,"0")+NewFilename_VAR_2
+								X_C=X_C+1
+							END IF
+						LOOP UNTIL LEN(NewFilename)=12
+					end if
+					if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
+				NEXT
+			LOOP UNTIL FSO.FileExists(PATH_VAR+NewFilename)=FALSE
+
+		END IF
+
+		NewFilename=PATH_VAR+NewFilename
+
+		if VAR_PATH_SCANNER <> NewFilename then 
+			msgbox NewFilename
+			Wscript.QUIT
+			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
+
+			I_COUNT_1=I_COUNT_1+1
+		END IF
+	END IF
+	
+	
+END SUB
+
+SUB PATH_SCANNER_RENAME
+
+	SET_GO=FALSE
+	IF INSTR(UCASE(VAR_PATH_SCANNER),"- SONY DSC-H7 -") THEN SET_GO=TRUE
+	IF INSTR(UCASE(VAR_PATH_SCANNER),".JPG")=0 THEN SET_GO=FALSE
+	
+	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
+	
+	'IF MID(UCASE(FILE_VAR),1,4)="2010" THEN SET_GO=TRUE
+	
+	SET_GO=TRUE 
+	IF INSTR(UCASE(VAR_PATH_SCANNER),".JPG")=0 THEN SET_GO=FALSE
+	
+	'IF MID(FILE_VAR,1,4)="DSCN" THEN  SET_GO=FALSE
+	'IF MID(FILE_VAR,1,4)<>"2010" THEN  SET_GO=FALSE
+
+	IF LEN(FILE_VAR)>= 12 AND SET_GO=TRUE THEN SET_GO=FALSE
+	
+	NewFilename=FILE_VAR
+	NewFilename="DSC"+MID(NewFilename,12)
+	
+	ON ERROR RESUME NEXT
+	if SET_GO=TRUE then
+		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
+		IF ERR.NUMBER >0 THEN 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+		END IF
+	END IF
+
+	'IF NewFilename_COUNTER>= 761 THEN SET_GO=FALSE
+	
+	IF SET_GO=TRUE THEN 
+		
+		NewFilename_COUNTER_STRING=MID(NewFilename,INSTR(NewFilename,".")-4)
+		NewFilename_COUNTER_STRING=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
+		NewFilename_COUNTER_STRING=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
+		NewFilename
+		IF LEN(NewFilename)<12 THEN 
+			X_C=1
+			DO
+				IF LEN(NewFilename)<12 THEN 
+					NewFilename="DSC"+STRING(X_C,"0")+MID(NewFilename,4)
+					X_C=X_C+1
+				END IF
+			LOOP UNTIL LEN(NewFilename)=12
+		end if
+
+
+		
+		' IF LEN(FILE_VAR)<12 THEN 
+			' X_C=1
+			' DO
+				' IF LEN(FILE_VAR)<12 THEN 
+					' NewFilename="DSC"+STRING(X_C,"0")+MID(FILE_VAR,4)
+					' X_C=X_C+1
+				' END IF
+			' LOOP UNTIL LEN(NewFilename)=12
+			' NewFilename=PATH_VAR+NewFilename
+		' end if
+			
+		'msgbox NewFilename
+		'Wscript.QUIT
+		
+		if FSO.FileExists(PATH_VAR+NewFilename)=TRUE THEN 
+			'msgbox "FILE ALREADY EXISTS "+VBCRLF+VBCRLF+NewFilename
+			'Wscript.QUIT
+			FOR R=1 TO 400
+				NewFilename="DSC"+CSTR(R)+".jpg"
+				IF LEN(NewFilename)<12 THEN 
+					X_C=1
+					DO
+						IF LEN(NewFilename)<12 THEN 
+							NewFilename="DSC"+STRING(X_C,"0")+MID(NewFilename,4)
+							X_C=X_C+1
+						END IF
+					LOOP UNTIL LEN(NewFilename)=12
+				end if
+				 
+				msgbox NewFilename
+				 
+				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
+			 NEXT
+		END IF
+		
+		NewFilename=PATH_VAR+NewFilename
+		
+		SET_GO=FALSE
+		if instr(ucase(NewFilename),".JPG")>0 THEN SET_GO=TRUE
+		PATH_VAR_4=MID(NewFilename,1,INSTRREV(NewFilename,"\"))
+		IF INSTR(VAR_PATH_SCANNER,PATH_VAR_4)=0 THEN SET_GO=FALSE
+		'MSGBOX PATH_VAR_4
+		'MSGBOX VAR_PATH_SCANNER
+		IF SET_GO=TRUE THEN 
+			msgbox NewFilename
+			'Wscript.QUIT
+			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
+			I_COUNT_1=I_COUNT_1+1
+		END IF
+	END IF
+
+END SUB
+
+
+
+
+
+'------------------------------------------------
+Sub Search(Folder)
+'------------------------------------------------
+	ON ERROR RESUME NEXT
+	
+	ERR.CLEAR
+	for each file in Folder.Files
+		IF ERR.NUMBER=0 THEN 
+			VAR_PATH_SCANNER=file.PATH
+			CALL PATH_SCANNER_RENAME
+		END IF
+	NEXT
+
+	'Find EACH SUBFOLDER.
+	For Each subFolder In Folder.SubFolders
+		'Call the Search subroutine to start the recursive search on EACH SUBFOLDER.
+		Search objFSO.GetFolder(subFolder.Path)
+	Next
+
+End Sub
+		
+		
+
+
+'---------
+' REFERANCE
+'---------
+' How Can I Get a List of All the Files in a Folder and Its Subfolders? – Hey, Scripting Guy! Blog
+' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
+' ----
+
+'------------------------------------------------------------------------
+' THIS PROJECT USING THIS CODE
+' BECAUSE A MOVE FILE HAPPEN MUST GATHER WHOLE FILE LIST BEFORE ACT ON IT
+' AND IT WAS DEBUGED IN THE NEXT URL LINK LINE
+'------------------------------------------------------------------------
+'----
+' windows - VBS to Search for Multiple Files Recursively in C:\Users - Stack Overflow
+' https://stackoverflow.com/questions/25658004/vbs-to-search-for-multiple-files-recursively-in-c-users
+'------------------------------------------------------------------------
+'------------------------------------------------------------------------
+' vbscript - Read files in subfolders - Stack Overflow
+' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
+'----
+'------------------------------------------------------------------------
+
+' ----
+' vbscript - Read files in subfolders - Stack Overflow
+' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
+' ----
