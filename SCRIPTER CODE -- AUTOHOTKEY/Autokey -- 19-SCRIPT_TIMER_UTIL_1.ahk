@@ -400,7 +400,8 @@ HWNDID=
 
 SETTIMER ONE_SECOND,1000
 
-SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY,14000
+SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01,3000
+SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_02,500
 
 ; SETTIMER CHECK_TEAMVIEWER_NOT_RUN_ALL_MACHINER,60000
 SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
@@ -1851,7 +1852,7 @@ Return
 
 
 
-TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY:
+TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01:
 
 
 ; -------------------------------------------------------------------
@@ -1864,8 +1865,10 @@ TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY:
 SetTitleMatchMode 3  ; Exactly
 
 WINDOW_Array := []
+WINDOW_Ar_OPT := []
 
 ArrayCount := 0
+
 ArrayCount += 1
 WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
 ArrayCount += 1
@@ -1876,6 +1879,7 @@ IF UniqueID>0
 Loop % ArrayCount
 {
   Element := WINDOW_Array[A_Index]
+  OPTION_PRESS_ENTER := WINDOW_Ar_OPT[A_Index]
 	IfWinExist %Element%
 	{
 		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
@@ -1906,6 +1910,53 @@ Loop % ArrayCount
 RETURN
 	
 
+TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_02:
+
+
+; -------------------------------------------------------------------
+; IF NOT WANT TO CLICK ON __ AutoFill - RoboForm __ TO GAIN 
+; FOCUS AND OPERATE
+; INSTEAD GOT TO GO TO ROBOFORM SETTING AND CLICK 
+; AUTOFILL STEALS KEYBOARD FOCUS
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+SetTitleMatchMode 3  ; Exactly
+
+WINDOW_Array := []
+WINDOW_Ar_OPT := []
+
+ArrayCount := 0
+; ArrayCount += 1
+; WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
+; ArrayCount += 1
+; WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
+ArrayCount += 1
+WINDOW_Array[ArrayCount] := "Flickr Login - Google Chrome"
+
+; PRESS ENTER AFTER SELECT FILL FORM -- BUTTON1 LEFTER
+
+UniqueID := WinActive("AutoFill - RoboForm")
+IF UniqueID>0 
+Loop % ArrayCount
+{
+	Element := WINDOW_Array[A_Index]
+	IfWinExist %Element%
+	{
+		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
+		If (OutputVar_2="&Fill Forms")
+		{
+			#WinActivateForce, AutoFill - RoboForm
+			ControlClick, Button1, AutoFill - RoboForm
+			SoundBeep , 2500 , 100
+			; #WinActivateForce, %Element%
+			
+		}
+	}
+}
+	
+
+RETURN
+	
 
 
 MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART:
