@@ -270,9 +270,6 @@ OLD_AUTORUNS_ID_STR=
 SETTIMER HIGHER_SPEED,100
 
 
-; SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY,14000
-
-
 ; SET OKAY BOX AFTER MADE SELECTION
 ; -------------------------------------------------------------------
 SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,1000
@@ -2229,63 +2226,6 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-
-
-
-TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY:
-
-
-; -------------------------------------------------------------------
-; IF NOT WANT TO CLICK ON __ AutoFill - RoboForm __ TO GAIN 
-; FOCUS AND OPERATE
-; INSTEAD GOT TO GO TO ROBOFORM SETTING AND CLICK 
-; AUTOFILL STEALS KEYBOARD FOCUS
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-SetTitleMatchMode 3  ; Exactly
-
-WINDOW_Array := []
-
-ArrayCount := 0
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
-
-UniqueID := WinActive("AutoFill - RoboForm")
-IF UniqueID>0 
-Loop % ArrayCount
-{
-  Element := WINDOW_Array[A_Index]
-	IfWinExist %Element%
-	{
-		ControlGettext, OutVar_2, Button1, AutoFill - RoboForm
-		If (OutVar_2="&Fill Forms")
-		{
-			#WinActivateForce, AutoFill - RoboForm
-			ControlClick, Button1, AutoFill - RoboForm
-			SoundBeep , 2500 , 100
-			#WinActivateForce, %Element%
-			
-			Loop, 10
-			{
-				IfWinExist %Element%
-				{
-					SLEEP 500
-					SENDINPUT {ENTER}
-					SoundBeep , 2500 , 100
-				}
-				ELSE
-					BREAK
-			}
-			
-		}
-	}
-}
-	
-
-RETURN
-	
 
 
 
