@@ -193,7 +193,7 @@ if "%Sync_Runner%"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	
-	START "" "C:\WINDOWS\EXPLORER.EXE " D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM\126_FUJI
+	START "" "C:\WINDOWS\EXPLORER.EXE " D:\DSC\2017+FUJI XP90\FUJI XP90 IMPORT\DCIM
 
 	START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk"
 )
