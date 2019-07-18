@@ -130,9 +130,9 @@ DIM FindMostRecentFile_VAR
 ' THIS END PATH FOLDER MAY BE CHANGE FROM CAMERA SELECTOR 
 ' AT SOME POINT TIME
 ' -------------------------------------------------------------------
-FOLDER_PATH_VAR_1="D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM"
-FOLDER_PATH_VAR_2="D:\DSC\2017-Now FUJI XP90\FUJI XP90 IMPORT\DCIM\126_FUJI"
-FOLDER_PATH_VAR_3="D:\DSC\2017-Now FUJI XP90\2018 FinePix XP90\DCIM"
+FOLDER_PATH_VAR_1="D:\DSC\2017+FUJI XP90\FUJI XP90 IMPORT\DCIM"
+FOLDER_PATH_VAR_2="D:\DSC\2017+FUJI XP90\FUJI XP90 IMPORT\DCIM\126_FUJI"
+FOLDER_PATH_VAR_3="D:\DSC\2017+FUJI XP90\" + CSTR(Year(Now)) + " FinePix XP90\DCIM"
 
 FOLDER_PATH_VAR=FOLDER_PATH_VAR_1
 
@@ -197,8 +197,10 @@ IF I_COUNT_1+I_COUNT_2+I_COUNT_3+I_COUNT_4+I_COUNT_5+I_COUNT_7>0 OR 1 = 1 THEN
 	IF SHOW_EXPLORER_FLAG=TRUE THEN
 		
 		CALL FindMostRecentFile(FOLDER_PATH_VAR_3)
-		MSGBOX FindFirstFile_VAR
-		WSHShell.Run "EXPLORER /select, """+FindMostRecentFile_VAR+"""" , ShowWindow, DontWaitUntilFinished
+		' MSGBOX FindFirstFile_VAR
+		IF FindMostRecentFile_VAR<>"" THEN 
+			WSHShell.Run "EXPLORER /select, """+FindMostRecentFile_VAR+"""" , ShowWindow, DontWaitUntilFinished
+		END IF
 	END IF
 	
 	IF I_COUNT_1+I_COUNT_2+I_COUNT_3+I_COUNT_4>0 THEN 
@@ -317,7 +319,9 @@ End Sub
 Sub FindMostRecentFile(sFolder)
 	O_FileModDate=0
 	FindMostRecentFile_VAR=""
-	FindMostRecentFile_2(objFSO.GetFolder(sFolder))
+	IF FSO.FOLDEREXISTS(sFolder)=TRUE THEN
+		FindMostRecentFile_2(objFSO.GetFolder(sFolder))
+	END IF
 END SUB
 
 ' -------------------------------------------------------------------
