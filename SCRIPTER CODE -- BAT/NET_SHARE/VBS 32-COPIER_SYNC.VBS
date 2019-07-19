@@ -53,7 +53,7 @@
 ' RequireAdmin
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
-Const DontWaitUntilFinished = false, WaitUntilFinished = true, ShowWindow = 1, DontShowWindow = 0
+Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
 DIM CUR_USER
 DIM ComputerName
@@ -169,7 +169,7 @@ I_COUNT=0
 ' -------------------------------------------------------------------
 ' 64 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
 ' I2="C:\Program Files\Notepad++\userDefineLang_AHK.xml"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
@@ -181,7 +181,7 @@ I_COUNT=0
 ' -------------------------------------------------------------------
 ' 32 BIT NOTEPAD++ AUTOHOTKEYS LANGUAGE IN
 ' -------------------------------------------------------------------
-' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\NOTEPAD++ AUTOHOTKEYS LANGUAGE PLUG-IN\userDefineLang_AHK.xml"
 ' I2="C:\Program Files (x86)\Notepad++\userDefineLang_AHK.xml"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
@@ -271,7 +271,7 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 
 ' GOODSYNC PRIORITY
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARDCODED ANYWHERE.BAT"
+I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT"
 I2="C:\SCRIPTER\SCRIPTER CODE -- BAT\OWNER\#_OWNER-HARDCODED ANYWHERE.BAT"
 ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
@@ -829,9 +829,9 @@ DIM FileModDate_3
 
 DIM FOLDER_PATH_INDEX
 
-DIM FOLDER_PATH(7)
-DIM FOLDER_PATH_DEST(7)
-DIM FOLDER_PATH_VAR(7)
+DIM FOLDER_PATH(20)
+DIM FOLDER_PATH_DEST(20)
+DIM FOLDER_PATH_VAR(20)
 DIM FOLDER_PATH_DEST_VAR
 DIM FOLDER_PATH_VAR_3
 
@@ -845,6 +845,7 @@ FOLDER_PATH(4)="GOPRO"
 FOLDER_PATH(5)="DUAL SCRN" ' __ COPY FIRST TO OE PLACE
 FOLDER_PATH(6)="DUAL SCRN" ' __ MOVE NEXT TO ANOTHER
 FOLDER_PATH(7)="D DRIVE"
+FOLDER_PATH(8)="4K-ULTRA-HD"
 
 ' NOKIA TO DO 1 2 3
 
@@ -855,26 +856,31 @@ FOLDER_PATH_VAR(4)="\"
 FOLDER_PATH_VAR(5)="\"
 FOLDER_PATH_VAR(6)="\"
 FOLDER_PATH_VAR(7)="\Android\SDCard2_Sync\DCIM\"
+FOLDER_PATH_VAR(8)="\"
 
-FOLDER_PATH_DEST(1)="D:\DSC\2015-2018\2018 CyberShot HX60V"
-FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010-2018 CyberShot\2018 CyberShot HX60V_#"
-FOLDER_PATH_DEST(3)="D:\DSC\2017-2018 FUJI XP90\2018 FinePix XP90"
-IF Year(Now)>2018 THEN
-	FOLDER_PATH_DEST(1)="D:\DSC\" + CSTR(Year(Now)) + " CyberShot HX60V"
-	FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
-	FOLDER_PATH_DEST(3)="D:\DSC\" + CSTR(Year(Now)) + " FUJI FinePix XP90"
-END IF
+FOLDER_PATH_DEST(1)="D:\DSC\2015+Sony\" + CSTR(Year(Now)) + " CyberShot HX60V"
+FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+Sony\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+FOLDER_PATH_DEST(3)="D:\DSC\" + CSTR(Year(Now)) + " FUJI FinePix XP90"
 FOLDER_PATH_DEST(4)="D:\DSC\" + CSTR(Year(Now)) + " GoPro 01"
 FOLDER_PATH_DEST(5)="D:\DSC\" + CSTR(Year(Now)) + " Double Screen Cam"
 FOLDER_PATH_DEST(6)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " Double Screen Cam"
 FOLDER_PATH_DEST(7)="D:\DSC\" + CSTR(Year(Now)) + " Samsung Mini S5\DCIM"
+FOLDER_PATH_DEST(8)="D:\DSC\" + CSTR(Year(Now)) + "+4K ULTRA HD"
 
+FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_DEST)
+	IF FOLDER_PATH_DEST(R_COUNT)="" THEN 
+		REDIM PRESERVE FOLDER_PATH(R_COUNT-1)
+		REDIM PRESERVE FOLDER_PATH_VAR(R_COUNT-1)
+		REDIM PRESERVE FOLDER_PATH_DEST(R_COUNT-1)
+	END IF
+NEXT
 
 FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_DEST)
 	If Not FSO.FolderExists(FOLDER_PATH_DEST(R_COUNT)) Then
 		BuildFullPath FOLDER_PATH_DEST(R_COUNT)
 	End If
 NEXT
+
 
 FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 
@@ -1011,7 +1017,7 @@ Sub Main
 	
 	IF I_COUNT_1>=0 AND JPG_BEEN_DONE=TRUE THEN 
 		
-		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 	
 	END IF
 	
