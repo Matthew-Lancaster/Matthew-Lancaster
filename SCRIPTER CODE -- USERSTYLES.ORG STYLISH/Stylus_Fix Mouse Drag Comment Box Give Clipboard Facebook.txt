@@ -39,14 +39,53 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 */    
 }
 
-
-/* REMOVE TOP FAN MESSENGER POST FROM FACEBOOK     */
+/* ---------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+/* REMOVE TOP FAN MESSENGER POST FROM FAN PAGE     */
 /* ----------------------------------------------- */
+._6qw3
+{
+   display: none !important;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+/* TEST METHOD TO REMOVE IF VIDEO IS DISPLAY IN COMMENT WITH TOP FAN UNABLE FIND WAY REMOVE THAT        */
+/* AS IT STAND THE ICON IMAGE IS STILL LEFT THERE OF TOP FAN                                            */
+/* ---------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
 /*
 ._4299>._3w53>._7791>li>._7793._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3 {
    display: none !important;
+*/
+
+/* div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>div>._6qw3._7jxd */
+
+/* div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i._4eez.clearfix._4eek { */
+/* ._4eez.clearfix._4eek {
+   display: none !important;
 }
 */
+
+/* 
+||video-lht6-1.xx.fbcdn.net/v/t42.4659-2/32562162_2559893204036383_4679127836882108416_n.mp4?_nc_cat=110&_nc_oc=AQkXXRR1wQK3JEDK5PoVTyLM-w0wVg8bSzHh3szzvqY0S27yeErjMDpfMGYiIL_xhO-jvPvQOU98Ory2zu4xsZX-&_nc_ht=video-lht6-1.xx&oh=b8b6ab51357bbd0fd684132b15daf5ce&oe=5D31F858
+*/
+
+/*
+div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i._4eez.clearfix._4eek {
+   display: none !important;
+}
+*/
+
+/*
+div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>div>._4eez.clearfix._4eek {
+   display: none !important;
+}
+*/
+/* ---------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------- */
+
+
+
 
 
 
