@@ -1,6 +1,4 @@
-@namespace url(http://www.w3.org/1999/xhtml);
-@-moz-document domain("facebook.com") 
-{
+@-moz-document domain("facebook.com") {
 /* Fix Mouse Drag Comment Box Give Clipboard Facebook */
 /* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
 
@@ -54,10 +52,15 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 /* ---------------------------------------------------------------------------------------------------- */
 /* REMOVE THE _ TOP FAN _ MESSENGER POST FROM FAN PAGE     */
 /* ------------------------------------------------------- */
+/*
 ._6qw3._7jxd 
 {
    display: none !important;
 }
+*/
+/* THIS IS NOT WORK AS REMOVE TEXT IF GRAPHIC BUT DOES IT FOR ALL NOT ONLY IF _ TOP FAN _ */
+/* REM OUT TIMER ------------------------------------------------------------------------ */
+
 
 /* ###u_fetchstream_4_1l>._4299>._3w53>._7791>li:nth-of-type(5)>div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div    */
 /* ##li:nth-of-type(5)>div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3>._7w_c>a[href="#"]>._7w-o>._3x69 */
@@ -411,5 +414,4 @@ text-align:right;
 }
 
 */
-
 }
