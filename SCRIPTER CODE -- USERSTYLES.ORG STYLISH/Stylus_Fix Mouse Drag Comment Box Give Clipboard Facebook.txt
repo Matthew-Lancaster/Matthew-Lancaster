@@ -1,5 +1,6 @@
-@-moz-document domain("facebook.com") {
 @namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document domain("facebook.com") 
+{
 /* Fix Mouse Drag Comment Box Give Clipboard Facebook */
 /* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
 
@@ -15,7 +16,17 @@ Source Me GitHub
 Stylus_Fix Mouse Drag Comment Box Give Clipboard Facebook
 https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20Mouse%20Drag%20Comment%20Box%20Give%20Clipboard%20Facebook.txt
 ----
+*/
 
+/*
+------------------------------------
+SEE NOTE LOGG AT ENDER FOR WORK INFO 
+------------------------------------
+NOTE A SESSION SPEND TIMER WORK LOGG
+------------------------------------
+*/
+
+/*
 Copied From Source Original Credit
 ----
 Fix The Missing Cursor In Facebook Comment Boxes | Userstyles.org
@@ -109,10 +120,10 @@ div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-ty
 
 
 
-/* THERE IS A NEW WRITE A POST BOX AT THE TOP OF EVERY FAN PAGE */
-/* AND IT DISRUPT COPY PASTE AGAIN HERE                         */
-/* [ Friday 18:15:00 Pm_19 July 2019 ]                          */
-/* ------------------------------------------------------------ */
+/* THERE IS A NEW _ WRITE A POST _ BOX AT THE TOP OF EVERY FAN PAGE */
+/* AND IT DISRUPT COPY PASTE AGAIN HERE                             */
+/* [ Friday 18:15:00 Pm_19 July 2019 ]                              */
+/* ---------------------------------------------------------------- */
 ._4-u3._4cw._5xv3._4zoz
 ._2qma._4ab3._4aay._4a8c._1cx1
 {
@@ -204,8 +215,9 @@ THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
 */
 
 
-/* 
-------------------------------------------------------------------------------------------------------
+/* ------------------------------------------------------------------
+NOTE A SESSION SPEND TIMER WORK LOGG
+---------------------------------------------------------------------
 Additional Edit by me matt.lan@btinternet.com remove then top comment box
 This Fix has the effect of cure the mouse drag over comment box now it does not snap gone as per above
 The Line Below is for the top comment box remove
@@ -253,10 +265,37 @@ WORKER __ FROM __ TO
 Fri 04-Jan-2019 00:28:00
 Fri 04-Jan-2019 00:28:00
 
+SESSION 007 __ TWO NEW COMMENT BOX ADD
+			__ ONE WEHN PAGE GO TYPE OF FULL SCREEN OF YOUR CONTACT FRIEND BEEN MEAN DO __ THAT A WHILE NOW
+			__ A NEW _ WRITE A POST _ BOX APPEARED FOR FAN PAGES AT TOP INCLUDE THAT BIT
+			
+			__ EXTRA OFF TOPIC TO DO WITH CLIPBOARD _ BUTTER AND
+			__ I PUT IN THAT __ TOP FAN __ WOULD DISAPPEAR
+			__ SPEND A LOT OF TIME ON IT
+			__ AND HAD OPTIONS 
+			__ IF A TOP FAN PUT A VIDEO WITH COMMENT
+			__ I ABLE REMOVE THEIR TEXT
+			__ BUT UNABLE FIND SYSTEM REMOVE TEXT IF NOT VIDEO THERE
+			__ SO ANSWER NEW _ TOP FAN _
+			__ IS PU THEM ON BLOCK BASICALLY
+			__ OR HIDE MESSENGER IS ALL DO
+			__ BUT THAT NOT STOP COPY PASTE
+			__ IF NOT WANTER _ JUST GO DIM
+			__ A CHECK AN NONE OTHER SYSTEM 
+			__ BUT FB-PURITY HAS A FRIEND WHITE LIST WHEN BLOCK ALL 
+			__ IT ALLOW YOUR WHITE LIST NOT BLOCK
+			__ RATHER A BLOCK LIST BE BETTER
+			__ TO SWITCH SOMEONE OUT OF BLOCK IS NOT EASIER
+			
+WORKER __ FROM __ TO
+Fri 19-Jul-2019 12:11:20
+Fri 19-Jul-2019 20:14:00
+
+
 Creation
 [ Wednesday 05:20:00 Am_26 December 2018 ]
-------------------------------------------------------------------------------------------------------
-*/
+------------------------------------------------------------------ */
+
 
 /* Here the TOP Comment box on Our TimeLine */
 /* --------------------------------------------- */
@@ -372,4 +411,5 @@ text-align:right;
 }
 
 */
+
 }
