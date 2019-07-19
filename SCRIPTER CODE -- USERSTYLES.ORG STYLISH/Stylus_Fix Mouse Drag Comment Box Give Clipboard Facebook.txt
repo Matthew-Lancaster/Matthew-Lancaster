@@ -42,9 +42,12 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 
 /* REMOVE TOP FAN MESSENGER POST FROM FACEBOOK     */
 /* ----------------------------------------------- */
-._4299>._3w53>._7791>li>div:nth-of-type(1)>._7793._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3 {
+/*
+._4299>._3w53>._7791>li>._7793._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3 {
    display: none !important;
 }
+*/
+
 
 
 /* Here the TOP Comment box on Fan Pages */
