@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    BackColor       =   &H8000000A&
@@ -363,7 +363,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   70057985
+      Format          =   162856961
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -377,7 +377,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   70057985
+      Format          =   162856961
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -886,22 +886,33 @@ W$ = "D:\DSC\2015-2018\2018 CyberShot HX60V\DCIM"
 ReDim ARRAY_I(10)
 ReDim ARRAY_I_BAK(10)
 ReDim ARRAY_DESC(10)
-IP1 = 1
+IP1 = 0
 X_YEAR = Format(Now, "YYYY")
+
+
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2015+Sony\" + X_YEAR + " CyberShot HX60V\DCIM"
-IP1 = IP1 + 0: ARRAY_DESC(IP1) = X_YEAR + " CyberShot HX60V"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\2010+Sony\" + X_YEAR + " CyberShot HX60V_#\DCIM"
-IP1 = IP1 + 0: ARRAY_DESC(IP1) = "V " + X_YEAR + " CyberShot HX60V"
-If GetComputerName <> "4-ASUS-GL522VW" Then
-End If
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2012+Nokia E72"
-IP1 = IP1 + 0: ARRAY_DESC(IP1) = "NOKIA"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2017+FUJI XP90"
-IP1 = IP1 + 0: ARRAY_DESC(IP1) = "FUJI XP90"
+' 4.
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2018 Double Screen Cam"
-IP1 = IP1 + 0: ARRAY_DESC(IP1) = "Double Screen Camera"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\2018 Double Screen Cam"
-IP1 = IP1 + 0: ARRAY_DESC(IP1) = "V Double Screen Camera"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\4K-ULTRA-HD"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\4K-ULTRA-HD"
+
+IP1 = 0
+
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = X_YEAR + " CyberShot HX60V"
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = "V " + X_YEAR + " CyberShot HX60V"
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = "NOKIA"
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = "FUJI XP90"
+' 4.
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = "Double Screen Camera"
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = "V Double Screen Camera"
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = "4K-ULTRA-HD"
+IP1 = IP1 + 1: ARRAY_DESC(IP1) = "V 4K-ULTRA-HD"
+
+
 
 ' NEW TO ARRIVE DASH CAM
 ' ONLY INTERESTED IN IMAGE CAMERA
@@ -1009,21 +1020,26 @@ For R_COUNTER = 1 To UBound(ARRAY_I)
             ' ---------------------------------------------------------------------------
             ' HERE MODIFY
             ' Len(B1$) = 13
-            ' SO ANY UNUSAL IMAGE GET PUT IN FOLDER ALLONG WITH DAY FOLDER
+            ' SO ANY UNUSAL IMAGE GET PUT IN FOLDER ALONG WITH DAY FOLDER
             ' AND THEN MAKE SO THEY NOT INCLUDED IN RESULT OF NOT SET TO DO-ER PROCESS ON
             ' [ Friday 08:28:00 Am_17 May 2019 ]
             ' ---------------------------------------------------------------------------
-            If Len(B1$) = 13 Then
-                If Mid(B1$, 5, 1) <> "-" Or Mid(B1$, 8, 1) <> "-" Then
-                    FLAG_OFF = True
-                End If
-                If IsNumeric(Replace(Mid(B1$, 1, 10), "-", "")) = False Then
-                    FLAG_OFF = True
-                End If
+            ' CHECK BEEN DONE BEFORE
+            
+            If Len(B1$) <= 13 Then
+                FLAG_OFF = True
+            
+'                If Mid(B1$, 5, 1) <> "-" Or Mid(B1$, 8, 1) <> "-" Then
+'                    FLAG_OFF = True
+'                End If
+'                If IsNumeric(Replace(Mid(B1$, 1, 10), "-", "")) = False Then
+'                    FLAG_OFF = True
+'                End If
             End If
-            If FLAG_OFF = True Then
-                Exit For
-            End If
+            
+'            If FLAG_OFF = True Then
+'                Exit For
+'            End If
         Next
         
         If FLAG_OFF = False Then
@@ -2651,7 +2667,7 @@ For WE = 1 To ListView1.ListItems.Count
                 '------------------------------------------------------------------
                 Do
                     TEST_DONE = False
-                    If Dir(FrontofLastPath + LastPath + "-" + Trim(Str(WX)), vbDirectory) <> "" Then
+                    If Dir(FrontofLastPath + LastPath + " _ " + Trim(Str(WX)), vbDirectory) <> "" Then
                         WX = WX + 1
                         TEST_DONE = True
                     End If
