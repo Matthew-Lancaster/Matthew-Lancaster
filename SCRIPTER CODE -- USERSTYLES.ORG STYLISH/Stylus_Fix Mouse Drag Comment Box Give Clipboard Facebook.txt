@@ -1,4 +1,3 @@
-@-moz-document domain("facebook.com") {
 @namespace url(http://www.w3.org/1999/xhtml);
 /* Fix Mouse Drag Comment Box Give Clipboard Facebook */
 /* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
@@ -43,7 +42,7 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 /* ---------------------------------------------------------------------------------------------------- */
 /* REMOVE TOP FAN MESSENGER POST FROM FAN PAGE     */
 /* ----------------------------------------------- */
-._6qw3
+._6qw3._7jxd 
 {
    display: none !important;
 }
@@ -325,4 +324,3 @@ text-align:right;
 }
 
 */
-}
