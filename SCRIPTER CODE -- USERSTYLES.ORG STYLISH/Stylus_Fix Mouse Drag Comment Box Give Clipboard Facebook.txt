@@ -41,8 +41,8 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 
 /* ---------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */
-/* REMOVE TOP FAN MESSENGER POST FROM FAN PAGE     */
-/* ----------------------------------------------- */
+/* REMOVE THE _ TOP FAN _ MESSENGER POST FROM FAN PAGE     */
+/* ------------------------------------------------------- */
 ._6qw3._7jxd 
 {
    display: none !important;
@@ -114,6 +114,7 @@ div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-ty
 /* [ Friday 18:15:00 Pm_19 July 2019 ]                          */
 /* ------------------------------------------------------------ */
 ._4-u3._4cw._5xv3._4zoz
+._2qma._4ab3._4aay._4a8c._1cx1
 {
    display: none !important;
 }
@@ -143,6 +144,20 @@ div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-ty
 .clearfix._4eez._43u6.clearfix {
    display: none !important;
 }
+
+
+/* Here the Comment box at bottom of a messenger Post                   */
+/* When It Fold Out to Like Full Screen ReSized                         */
+/* Like Somebody Put a Picture that of your Contact Base Friend         */
+/* [ Friday 19:27:30 Pm_19 July 2019 ] FINALLY ADD THIS ONE COMPLETER   */
+/* -------------------------------------------------------------------- */
+._6ijr.clearfix
+{
+   display: none !important;
+}
+
+
+
 
 /* Here the Repeated Grammarly Button on Our TimeLine */
 /* "Protected by Grammarly" */
