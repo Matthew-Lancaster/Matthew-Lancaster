@@ -1,3 +1,4 @@
+@-moz-document domain("facebook.com") {
 @namespace url(http://www.w3.org/1999/xhtml);
 /* Fix Mouse Drag Comment Box Give Clipboard Facebook */
 /* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
@@ -46,6 +47,30 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
 {
    display: none !important;
 }
+
+/* ###u_fetchstream_4_1l>._4299>._3w53>._7791>li:nth-of-type(5)>div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div    */
+/* ##li:nth-of-type(5)>div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3>._7w_c>a[href="#"]>._7w-o>._3x69 */
+
+
+/* ._6qw3>._7w_c>a[href="#"]>._7w-o>._3x69 */
+/* ._7793._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3 */
+
+/* ###u_fetchstream_3_1v>._4299>._3w53>._7791>li:nth-of-type(2)>div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3    */
+
+
+/* ###u_fetchstream_3_1v>._4299>._3w53>._7791>li:nth-of-type(2)>div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3 */
+
+
+/* ._4299>._3w53>._7791>._42ef>._6c7i>._680y>._6cuy>div>._6qw3 */
+/* 
+._6qw3._6cuy
+{
+   display: none !important;
+}
+*/
+
+
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */
 /* TEST METHOD TO REMOVE IF VIDEO IS DISPLAY IN COMMENT WITH TOP FAN UNABLE FIND WAY REMOVE THAT        */
@@ -64,11 +89,6 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
    display: none !important;
 }
 */
-
-/* 
-||video-lht6-1.xx.fbcdn.net/v/t42.4659-2/32562162_2559893204036383_4679127836882108416_n.mp4?_nc_cat=110&_nc_oc=AQkXXRR1wQK3JEDK5PoVTyLM-w0wVg8bSzHh3szzvqY0S27yeErjMDpfMGYiIL_xhO-jvPvQOU98Ory2zu4xsZX-&_nc_ht=video-lht6-1.xx&oh=b8b6ab51357bbd0fd684132b15daf5ce&oe=5D31F858
-*/
-
 /*
 div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i._4eez.clearfix._4eek {
    display: none !important;
@@ -79,11 +99,24 @@ div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-ty
 div:nth-of-type(1)>._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>div>._4eez.clearfix._4eek {
    display: none !important;
 }
+
+/* 
+||video-lht6-1.xx.fbcdn.net/v/t42.4659-2/32562162_2559893204036383_4679127836882108416_n.mp4?_nc_cat=110&_nc_oc=AQkXXRR1wQK3JEDK5PoVTyLM-w0wVg8bSzHh3szzvqY0S27yeErjMDpfMGYiIL_xhO-jvPvQOU98Ory2zu4xsZX-&_nc_ht=video-lht6-1.xx&oh=b8b6ab51357bbd0fd684132b15daf5ce&oe=5D31F858
 */
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------------------- */
 
 
+
+/* THERE IS A NEW WRITE A POST BOX AT THE TOP OF EVERY FAN PAGE */
+/* AND IT DISRUPT COPY PASTE AGAIN HERE                         */
+/* [ Friday 18:15:00 Pm_19 July 2019 ]                          */
+/* ------------------------------------------------------------ */
+._4-u3._4cw._5xv3._4zoz
+{
+   display: none !important;
+}
 
 
 
@@ -324,3 +357,4 @@ text-align:right;
 }
 
 */
+}
