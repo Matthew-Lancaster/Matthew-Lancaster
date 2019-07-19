@@ -1,6 +1,5 @@
+@-moz-document domain("facebook.com") {
 @namespace url(http://www.w3.org/1999/xhtml);
-@-moz-document domain("facebook.com")
-{
 /* Fix Mouse Drag Comment Box Give Clipboard Facebook */
 /* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
 
@@ -14,7 +13,7 @@ https://userstyles.org/styles/167266/fix-mouse-drag-comment-box-give-clipboard-f
 Source Me GitHub
 ----
 Stylus_Fix Mouse Drag Comment Box Give Clipboard Facebook
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20Mouse%20Drag%20Comment%20Box%20Give%20Clipboard%20Facebook.txt
 ----
 
 Copied From Source Original Credit
@@ -39,6 +38,14 @@ https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-b
     margin-left:40px;
 */    
 }
+
+
+/* REMOVE TOP FAN MESSENGER POST FROM FACEBOOK     */
+/* ----------------------------------------------- */
+._4299>._3w53>._7791>li>div:nth-of-type(1)>._7793._4eez.clearfix._4eek>div:nth-of-type(2)>._42ef>div:nth-of-type(1)>._6c7i>._680y>._6cuy>div>._6qw3 {
+   display: none !important;
+}
+
 
 /* Here the TOP Comment box on Fan Pages */
 /* ------------------------------------- */
@@ -146,13 +153,13 @@ Thu 27-Dec-2018 09:02:54
 Thu 27-Dec-2018 09:12:00
 
 SESSION 004 __ The Comment Box Has to Go on Our Timeline and Is Same on Friends So Gone -- So all Comment Boxes Gone
-            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over anbd then Appear
+            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over and then Appear
 WORKER __ FROM __ TO
 Wed 02-Jan-2019 19:40:00
 Wed 02-Jan-2019 19:48:00
 
 SESSION 005 __ The Comment Box Has to Go on Our Timeline and Is Same on Friends So Gone -- So all Comment Boxes Gone
-            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over anbd then Appear
+            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over and then Appear
 WORKER __ FROM __ TO
 Fri 04-Jan-2019 00:28:00
 Fri 04-Jan-2019 00:28:00
@@ -179,6 +186,7 @@ Creation
    display: none !important;
 }
 
+
 /* Hide the Announcement Messenger Post From Fan Page         */
 /* [ Wednesday 20:02:50 Pm_02 January 2019 ]                  */
 /* ----------------------------------------------------       */
@@ -188,10 +196,9 @@ Creation
    display: none !important;
 }
 
-/* Same as Hide the Announcement Messenger Post From Fan Page also Pinned Top Post From Fanner Page  */
-/* [ Wednesday 22:32:00 Pm_02 January 2019 ]                                                         */
-/* ----------------------------------------------------                                              */
-
+/* Same as Hide the Announcement Messenger Post From Fan Page and also Pinned Top Post From Fanner Page  */
+/* [ Wednesday 22:32:00 Pm_02 January 2019 ]                                                             */
+/* ----------------------------------------------------                                                  */
 /*
 ._5pcr.userContentWrapper.has-downloader
 {
@@ -199,12 +206,10 @@ Creation
 }
 */
 
-
-
 /*
 ------------------------------------------------------------------------------------------------------
 Some Test Play _ I'm Not That Good on Here
-Try make good comment box of TOP one With Similar Code at Above 
+Try make good comment box of TOP one With Simualr Code at Above 
 ------------------------------------------------------------------------------------------------------
 
 .timeline_composer_container, .pagelet_timeline_composer
