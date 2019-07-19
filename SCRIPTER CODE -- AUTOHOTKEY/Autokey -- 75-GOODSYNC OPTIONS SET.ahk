@@ -702,10 +702,15 @@ IF SET_GO=TRUE
 				SOUNDBEEP 2000,100
 				SLEEP 2000
 
-				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-				If MMX<>-1
+				HAS_MIMIMIZE_DO=0
+				LOOP, 100
 				{
-					HWND_1=0
+					WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+					If MMX=-1
+					{
+						HAS_MIMIMIZE_DO=1
+					}
+					SLEEP 50
 				}
 			}
 		}
@@ -713,9 +718,11 @@ IF SET_GO=TRUE
 		; ------------------------------------------------------------------------
 		; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
 		; ------------------------------------------------------------------------
-		
-		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE = %HWND_1%
-	}
+		HWND_1=0
+		IF HAS_MIMIMIZE_DO=1
+			WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=%HWND_1%
+		}
 }
 
 DetectHiddenWindows, ON
@@ -799,12 +806,17 @@ IF HWND_1>0
 			; -------------------------------------------------------------
 			WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 			SOUNDBEEP 2000,100
-			SLEEP 2000
+			SLEEP 200
 
-			WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-			If MMX<>-1
+			HAS_MIMIMIZE_DO=0
+			LOOP, 100
 			{
-				HWND_1=0
+				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+				If MMX=-1
+				{
+					HAS_MIMIMIZE_DO=1
+				}
+				SLEEP 50
 			}
 		}
 	}
@@ -812,7 +824,10 @@ IF HWND_1>0
 	; ------------------------------------------------------------------------
 	; SO SOMETHING TURNED UP I PUT AND _IF_ IN VARIABLE NAME AND WOULDN'T WORK
 	; ------------------------------------------------------------------------
-	GOODSYNC_HANDLE_CHECK_CHANGE_OLD_2GO = %HWND_1%
+	HWND_1=0
+	IF HAS_MIMIMIZE_DO=1
+		WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	GOODSYNC_HANDLE_CHECK_CHANGE_OLD_2GO=%HWND_1%
 }
 
 DetectHiddenWindows, ON
@@ -824,6 +839,7 @@ DetectHiddenWindows, ON
 ; SO WE __ 19 JAN 2019 13:50
 ; ---------------------------------------------------------------
 SET_GO=TRUE
+IFWINNOTEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 Process, Exist, GoodSync2Go.exe
 If ErrorLevel
 	SET_GO=FALSE
