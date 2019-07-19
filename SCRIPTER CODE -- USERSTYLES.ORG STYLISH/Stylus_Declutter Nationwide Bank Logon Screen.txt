@@ -1,5 +1,5 @@
 @namespace url(http://www.w3.org/1999/xhtml);
-@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login")
+@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login") 
 {
 /* Declutter Nationwide Bank Logon Screen */
 /* DECLUTTER NATIONWIDE BANK LOGON SCREEN */
