@@ -267,7 +267,7 @@ THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
 
 
 /* HIDE THE COMMENT BOX __ AFTER WORK IS TO REMOVE COMMENT ALSO                    */
-/* REMOVE FORMT HE POST                                                            */
+/* REMOVE FORMAT THE POST                                                            */
 /* BECUASE IT GET IN THE WAY WHEN TRY MOUSE SLECTOR DRAG BEGIN BOTTOM LEFT CORNER  */
 /* ------------------------------------------------------------------------------- */
 ._42ft._18vk._18vj._666h
@@ -275,6 +275,21 @@ THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
    display: none !important;
 }
 
+/* HIDE THE SHARE BOX __ ALSO APPEAR FAR RIGHT SOMETIME CERTAIN MESSNEGR POST DON'T REQUIRE COMMENT SEEMS   */
+/* REMOVE FORMAT THE POST                                                                                   */
+/* BECUASE IT GET IN THE WAY WHEN TRY MOUSE SLECTOR DRAG BEGIN BOTTOM LEFT CORNER                           */
+/* -------------------------------------------------------------------------------------------------------- */
+._18vk._18vj._2nj7
+{
+   display: none !important;
+}
+
+/* HIDE THE REPLY BOX __ ALSO APPEAR FULL WINDOW LIKE WHEN SOMEONE ADD PHOTO STOORY                         */
+/* -------------------------------------------------------------------------------------------------------- */
+.clearfix._6ijm
+{
+   display: none !important;
+}
 
 
 /* ------------------------------------------------------------------
@@ -377,6 +392,13 @@ SESSION 008 __ SORT OF DEBUG WORK __ MESS UP IF NOT TEST ALL FOUND FAULTY SOME
 WORKER __ FROM __ TO
 Sat 20-Jul-2019 10:35:20
 Sat 20-Jul-2019 11:00:00
+
+ADDITIONAL TODAY QUICK THING
+Sat 20-Jul-2019 15:54:00
+
+ADDITIONAL TODAY
+Sat 20-Jul-2019 18:00:00
+
 ---------------------------------------------------------------------
 
 Creation-or
