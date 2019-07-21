@@ -159,6 +159,7 @@ FOR EACH objProcess IN colProcesses
     END IF  
 NEXT
 
+DIM EXPLORER_COUNTING
 
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'explorer.exe'")
@@ -167,11 +168,11 @@ For Each objProcess In colProcesses
     If Not (IsNull(objProcess.ProcessID)) Then
         strScriptProcessID = objProcess.ProcessID
 		EXPLORER_COUNTING=EXPLORER_COUNTING+1
-        MsgBox "MY PROCESS NUMBER PID IS -- " + CStr(strScriptProcessID)
+        ' MsgBox "MY PROCESS NUMBER PID IS -- " + CStr(strScriptProcessID)
     End If
 Next
                              
-Wscript.QUIT
+' Wscript.QUIT
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -213,6 +214,7 @@ Set WSHShell = CreateObject("WScript.Shell")
 
 Dim arr1
 Dim oDict ' Key: Full filename, Item: Filename
+Dim oDict_4
 
 Dim FileModDate
 DIM FileModDate_3
@@ -247,6 +249,7 @@ DIM FOLDER_PATH_DO_ALL_FILE()
 DIM FOLDER_PATH_MOVE_MODE_FILE()
 DIM FOLDER_PATH_IGNOR_DATE_INDEX()
 DIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY()
+
 
 REDIM FOLDER_PATH(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_DEST(NUMBER_OF_ITEM)
@@ -297,6 +300,8 @@ DIM FOLDER_PATH_VAR_3
 
 DIM EXPLORER_LOADED
 DIM SHOW_EXPLORER_FLAG
+
+DIM FOLDER_PATH_MAIN_4
 
 FOLDER_PATH(1)="MC - HX60V"
 FOLDER_PATH(2)="MC - HX60V0"
@@ -389,8 +394,10 @@ REDIM PRESERVE FOLDER_PATH_MOVE_MODE_FILE(NUMBER_COUNTER)
 REDIM PRESERVE FOLDER_PATH_IGNOR_DATE_INDEX(NUMBER_COUNTER)
 REDIM PRESERVE FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(NUMBER_COUNTER)
 
-DIM CAMERA_BACKUP_CODE_TO_ACT_ON
-CAMERA_BACKUP_CODE_TO_ACT_ON=FALSE
+DIM CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR
+CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR=FALSE
+
+DIM FOLDER_PATH_R_COUNT
 
 FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 
@@ -402,14 +409,38 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	FOLDER_PATH_DEST_VAR=FOLDER_PATH_DEST(R_COUNT)
 	
 	FOLDER_PATH_VAR_3=FOLDER_PATH_VAR(R_COUNT)
-
+	FOLDER_PATH_R_COUNT=FOLDER_PATH(R_COUNT)
+	
 	IF FOLDER_PATH(1)="MC - HX60V" THEN 
 		IF FOLDER_PATH(1)=FOLDER_PATH(R_COUNT) THEN 
 			IF FOLDER_PATH_VAR_2<>"" THEN 
-				CAMERA_BACKUP_CODE_TO_ACT_ON=TRUE
+				CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR=TRUE
 			END IF
 		END IF
 	END IF
+
+	' ---------------------------------------------------------------
+	' ONLY THESE CAMERA REQUIRE HAD DATE PUT ON FRONT FILENAME
+	' ONLY CARRY EXIF
+	' OTHER FOLDER ONLY DO FROM FILE _ DATE _ MODIFIED
+	' ---------------------------------------------------------------
+	IF INSTR("MC - HX60V -- FUJI XP90",FOLDER_PATH(R_COUNT)) THEN 
+		IF FOLDER_PATH_VAR_2<>"" THEN 
+			DO_SEND_TO_PUT_DATE_INFRONT_FILENAME=TRUE
+		END IF
+	END IF
+	
+	IF INSTR("MC - HX60V",FOLDER_PATH(R_COUNT)) THEN 
+		IF FOLDER_PATH_VAR_2<>"" THEN 
+			ONLY_SONY_CYBERSHOT_HAS_DO=TRUE
+		END IF
+	END IF
+	
+	
+	
+
+	
+
 	
 	
 	
@@ -424,12 +455,12 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		
 		FOLDER_PATH_DEST_VAR_2=FOLDER_PATH_DEST(R_COUNT)
 		
-		'---------------------------------------------------------------------------------
+		'------------------------------------------------------------
 		' DON'T SHOW EXPLORER ON DODGY COMPUTER AROUND BUILDING AND IF DODGY PATH IMAGE-ER
 		' OR DODGY LESS QUICKER SPEC LOW END PC
-		'---------------------------------------------------------------------------------
+		'------------------------------------------------------------
 		' DON'T SHOW EXPLORER ON D DRIVE IF ONLY PICTURE IS NONE
-		'---------------------------------------------------------------------------------
+		'------------------------------------------------------------
 		SHOW_EXPLORER_FLAG=TRUE
 		IF INSTR(FOLDER_PATH_DEST_VAR,"D:\VI_ DSC ME\") > 0 THEN 
 			IF ComputerName="1-ASUS-X5DIJ" THEN SHOW_EXPLORER_FLAG=FALSE
@@ -439,6 +470,10 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		END IF
 		
 		IF FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(R_COUNT)=TRUE THEN
+			SHOW_EXPLORER_FLAG=FALSE
+		END IF
+		
+		IF EXPLORER_COUNTING=>2 THEN 
 			SHOW_EXPLORER_FLAG=FALSE
 		END IF
 		
@@ -571,26 +606,74 @@ Sub Main
 	' Wed 20-Mar-2019 04:43:54
 	' ---------------------------------------------------------------
 	
-	IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
-		
-		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER.VBS""", ShowWindow, DontWaitUntilFinished
-		
-		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+	' IF THEN MP4_BEEN_DONE=TRUE
+		' JPG_BEEN_DONE=TRUE
+	' END IF
+	' IF THEN AVI_BEEN_DONE=TRUE
+		' JPG_BEEN_DONE=TRUE
+	' END IF
+	
+	IF DO_SEND_TO_PUT_DATE_INFRONT_FILENAME=TRUE THEN 
+		IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
+			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+		END IF
+	END IF
 
-		
-		FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
-		PARAM="CAMERA_BACKUP_MODE"
-		
-		IF CAMERA_BACKUP_CODE_TO_ACT_ON=TRUE THEN 
+	IF ONLY_SONY_CYBERSHOT_HAS_DO=TRUE THEN
+		IF I_COUNT_1>=0 AND (MP4_BEEN_DONE=TRUE) THEN 
+			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER.VBS""", ShowWindow, DontWaitUntilFinished
+		END IF
+	END IF
+
+	' ---------------------------------------------------------------	
+	' ONLY THE SONY CYBERSHOT RUN HERE TO MAKE DUPE MC-CARD
+	' ---------------------------------------------------------------	
+	IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR=TRUE THEN 
+		IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE OR MP4_BEEN_DONE=TRUE) THEN 
+			' ---------------------------------------
+			FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+			PARAM="CAMERA_BACKUP_MODE"
+			' ---------------------------------------
 			WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 		END IF
-		
+	END IF
 
+
+	' ---------------------------------------------------------------	
+	' ---------------------------------------------------------------	
+	' NOW LEFT TO FIND CODE
+	' FOR CAMERA 
+	' THAT DON'T USE USUAL RENAME METHOD FOR PUT DATE IN FRONT
+	' MOST THE ONE THAT DON'T USE EXIF
+	' SO TAKE FROM DATE FILE _ DATE _ MODIFIED
+	' FOR VIDEO AND JPG
+	' AND ALSO THE SONY CYBERSHOT VIDEO MP4 COULD DO WITH THAT ON
+	' WHICH I HAVE CODE ABOUT FOR
+	' BUT GUESS EASIER IF NOT BACKWARD COMPATIBLE
+	' ---------------------------------------------------------------	
+	' ---------------------------------------------------------------	
+	' SOMETHING BEGIN LIKE HERE
+
+	IF INSTR("4K-ULTRA-HD",FOLDER_PATH_R_COUNT) THEN 
+		' DO SOME WORK TO RENAME FILE
+
+		FOLDER_PATH_MAIN_4=FOLDER_PATH_DEST_VAR_2
+
+		CALL MAIN_4
 		
 	END IF
 	
+	' ---------------------------------------------------------------	
+	' ---------------------------------------------------------------	
+	' ---------------------------------------------------------------	
+	' ---------------------------------------------------------------	
+
     Set oDict = Nothing
 End Sub
+
+' -------------------------------------------------------------------
+
+
 
 
 function ShowDriveInfo(drvPath)
@@ -605,7 +688,7 @@ function ShowDriveInfo(drvPath)
 			S=S+"-----------------------------------------------------------" & vbCrLf
 			S=S+"VolumeName:" & vbTab & objItem.VolumeName  & vbCrLf
 			S=S+"-----------------------------------------------------------" & vbCrLf
-			S=S+"Drive Letter 1st Found for Match Volume Name: " & drvPath & "\" & vbCrLf
+			S=S+"Drive Letter 1st Found for Match Volume Name: " & VBCRLF & drvPath & "\" & vbCrLf
 			S=S+"-----------------------------------------------------------" & vbCrLf
 			S=S+"FreeSpace:" & vbTab
 			S=S+FormatNumber((CDbl(objItem.FreeSpace)/1024/1024/1024))  & " GB" & vbCrLf
@@ -799,7 +882,67 @@ Dim volumes, volume
 
 End Function
 
+
+
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' THE BLOCK 4 ROUTINE BELOW IS USE FOR RENAME 
+' OF TYPE PUT DATE IN FRONT FILE FOR CAMERA
+' -------------------------------------------------------------------
+
+
+Sub Main_4
+	IF FSO.FolderExists(FOLDER_PATH_MAIN_4)=FALSE THEN 
+		EXIT SUB
+	END IF
+
+    ' Set fso = CreateObject("Scripting.FileSystemObject")
+    Set oDict_4 = CreateObject("Scripting.Dictionary")
+    ' Call Recursive Sub
+    FindWantedFiles_4(objFSO.GetFolder(FOLDER_PATH_MAIN_4))
+    ' Display All Findings from Dictionary object
+    DisplayFindings_4
+
+	MSGBOX "DONE RENAME COUNT _ " & CSTR(I_COUNT) & " of " & CSTR(oDict.count)
+
+    Set oDict_4 = Nothing
+End Sub
+
+Sub FindWantedFiles_4(sFolder)
+    On Error Resume Next
+    Dim oFDR, oItem, file
+    ' Check if wanted files are in this folder
+    For Each file In sFolder.Files
+		IF INSTR(file,".JPG") THEN
+			oDict_4.Add FILE.path, file
+		END IF
+		IF INSTR(file,".AVI") THEN
+			oDict_4.Add FILE.path, file
+		END IF
+    Next
+    ' Recurse into it's sub folders
+    For Each oFDR In sFolder.SubFolders
+        FindWantedFiles_4 objFSO.GetFolder(oFDR.Path)
+    Next
+	
+End Sub
+
+Sub DisplayFindings_4()
+    Dim oKeys, oKey
+    oKeys = oDict_4.Keys
+    For Each oKey In oKeys
+		VAR_PATH_SCANNER=oKey
+		CALL PATH_SCANNER_RENAME_4
+    Next
+End Sub
+
 SUB PATH_SCANNER_RENAME_4
+
+'	MSGBOX VAR_PATH_SCANNER
+	
+	EXIT SUB
 
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
@@ -821,7 +964,7 @@ SUB PATH_SCANNER_RENAME_4
 	
 	if VAR_PATH_SCANNER <> NewFilename AND SET_GO=TRUE then 
 		'msgbox NewFilename
-		I_COUNT_1=I_COUNT_1+1
+		I_COUNT=I_COUNT+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
@@ -832,6 +975,11 @@ SUB PATH_SCANNER_RENAME_4
 	end if
 
 END SUB
+
+' -------------------------------------------------------------------
+' THE BLOCK 4 ROUTINE ABOVE IS USE FOR RENAME 
+' OF TYPE PUT DATE IN FRONT FILE FOR CAMERA
+' -------------------------------------------------------------------
 
 
 SUB PATH_SCANNER_RENAME_3
