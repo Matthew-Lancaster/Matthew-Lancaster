@@ -561,6 +561,25 @@ CHECK_ESC_KEY:
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 
+	
+	IfWinActive ahk_class #32770
+	IfWinActive ahk_exe WScript.exe
+	{	
+		; WinGet, List, List, ahk_class AutoHotkey 
+		WinGet, List, List, ahk_exe WScript.exe
+		Loop %List%  
+		{ 
+			Process, Close, WScript.exe
+			SOUNDBEEP 1200,40
+		}
+
+		; PROCESS, CLOSE, WScript.exe
+		; SoundBeep , 5000 , 400
+		VAR_DONE_ESCAPE_KEY=TRUE
+	}
+
+	
+	
 	; ---------------------------------------------------------------
 	; WINAMP VISUALIZATION CONTROL KEY WINDOW
 	; ---------------------------------------------------------------
