@@ -894,19 +894,21 @@ End Function
 
 
 Sub Main_4
+	
+	I_COUNT=0
 	IF FSO.FolderExists(FOLDER_PATH_MAIN_4)=FALSE THEN 
 		EXIT SUB
 	END IF
 
-    ' Set fso = CreateObject("Scripting.FileSystemObject")
     Set oDict_4 = CreateObject("Scripting.Dictionary")
     ' Call Recursive Sub
     FindWantedFiles_4(objFSO.GetFolder(FOLDER_PATH_MAIN_4))
     ' Display All Findings from Dictionary object
     DisplayFindings_4
-
-	MSGBOX "DONE RENAME COUNT _ " & CSTR(I_COUNT) & " of " & CSTR(oDict.count)
-
+	IF I_COUNT>0 THEN 
+		MSGBOX "DONE RENAME COUNT AT" & VBCRLF & FOLDER_PATH_MAIN_4 & VBCRLF & CSTR(I_COUNT) & " of " & CSTR(oDict_4.count)
+	END IF
+	
     Set oDict_4 = Nothing
 End Sub
 
@@ -940,30 +942,94 @@ End Sub
 
 SUB PATH_SCANNER_RENAME_4
 
-'	MSGBOX VAR_PATH_SCANNER
+	' ---------------------
+	' 4K-ULTRA-HD -- FORMAT
+	' ---------------------
+	' JPG00000.JPG
+	' REC00003.AVI
+	' D:\DSC\2019+4K ULTRA HD\2019 4K ULTRA\DCIMA
+	' ---------------------
 	
-	EXIT SUB
-
+	' --------------------------------
+	' SONY CYBERSHOT AFTER DONE FORMAT
+	' --------------------------------
+	' 2019-01-05 00-13-12 - SONY DSC-HX60V - DSC03146.JPG
+	' 2019_01_07 Jan_Mon 14_41_48__MAQ03178.MP4
+	' --------------------------------
+	
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
 
-	NewFilename=FILE_VAR
-	NewFilename=REPLACE(NewFilename,"__","_")
-	NewFilename=REPLACE(NewFilename," _ ","_")
-	NewFilename=REPLACE(NewFilename,"_ ","_")
-	NewFilename=REPLACE(NewFilename," _","_")
-	NewFilename=REPLACE(NewFilename,".jpg",".JPG")
-	Extension=ucase(mid(NewFilename,len(NewFilename)-3))
+	FileModDate=0
+	Set f = fso.GetFile(VAR_PATH_SCANNER)
+		FileModDate = f.DateLastModified
+	SET f=NOTHING	
+	IF FileModDate=0 THEN 
+		MSGBOX "ERROR FILE DATE = 0 " + VBCRLF + VAR_PATH_SCANNER
+	END IF
 	
-	NewFilename=PATH_VAR+NewFilename
+	IF INSTR("4K-ULTRA-HD",FOLDER_PATH_R_COUNT) THEN 
+		' IF LEN(FILE_VAR)<>12 THEN EXIT SUB
+		i_TIME=FILE_VAR
+		IF INSTR(FILE_VAR,".JPG") THEN 
+			IF MID(FILE_VAR,1,3)="JPG" THEN 
+				i_TIME=""
+				i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"-"
+				i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"-"
+				i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)
+				i_TIME=i_TIME+" "
+				i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+"-"
+				i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+"-"
+				i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)
+				i_TIME=i_TIME+" - 4K ULTRA A_CAM - "+FILE_VAR
+			END IF
+		END IF
+		IF INSTR(FILE_VAR,".AVI") THEN 
+			IF MID(FILE_VAR,1,3)="REC" THEN 
+				i_TIME=""
+				i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"_"
+				i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)+" "
+				i_TIME=i_TIME+MonthName(MONTH(FileModDate),TRUE)+"_"
+				i_TIME=i_TIME+WeekdayName(Weekday(VAR_NOW),TRUE)
+
+				i_TIME=i_TIME+" "
+				i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)+"__"
+				i_TIME=i_TIME+FILE_VAR
+			END IF
+		END IF
+
+		NewFilename=i_TIME
+		IF INSTR(FILE_VAR,".AVI") THEN 
+			NewPATH=REPLACE(PATH_VAR,"4K ULTRA\DCIMA","4K ULTRA")+"AVI\"
+		END IF
+		IF INSTR(FILE_VAR,".JPG") THEN 
+			NewPATH=REPLACE(PATH_VAR,"4K ULTRA\DCIMA","4K ULTRA")+"JPG\"
+		END IF
+		NewFilename=NewPATH+NewFilename
+		IF FSO.FolderExists(NewPATH)=FALSE THEN 
+			CreateFolderTree(NewPATH)
+		END IF
+		
+	END IF
+
+	IF i_TIME="" THEN EXIT SUB
 	
-	SET_GO=FALSE
-	if Extension=".JPG" then 
-		SET_GO=TRUE
-	end	if
+	' NewFilename=i_TIME
 	
-	if VAR_PATH_SCANNER <> NewFilename AND SET_GO=TRUE then 
-		'msgbox NewFilename
+	' NewFilename=REPLACE(NewFilename,"__","_")
+	' NewFilename=REPLACE(NewFilename," _ ","_")
+	' NewFilename=REPLACE(NewFilename,"_ ","_")
+	' NewFilename=REPLACE(NewFilename," _","_")
+	' NewFilename=REPLACE(NewFilename,".jpg",".JPG")
+	' Extension=ucase(mid(NewFilename,len(NewFilename)-3))
+	
+	' NewFilename=PATH_VAR+NewFilename
+	
+	if VAR_PATH_SCANNER <> NewFilename then 
+		msgbox NewFilename
 		I_COUNT=I_COUNT+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
@@ -980,6 +1046,41 @@ END SUB
 ' THE BLOCK 4 ROUTINE ABOVE IS USE FOR RENAME 
 ' OF TYPE PUT DATE IN FRONT FILE FOR CAMERA
 ' -------------------------------------------------------------------
+
+Function LPad (str, pad, length)
+    LPad = String(length - Len(str), pad) & str
+End Function
+
+Function CreateFolderTree(sPath)
+    Dim nPos
+    On Error RESUME NEXT
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        If nPos - 1 > 3 Then
+            If Dir(Left(sPath, nPos - 1), vbDirectory) = "" Then
+				newfolderpath=Left(sPath, nPos - 1)
+                If Not FSO.FolderExists(newfolderpath) Then 
+					Set newfolder = FSO.CreateFolder(newfolderpath) 
+				END IF
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+	newfolderpath=sPath
+	If Not FSO.FolderExists(newfolderpath) Then 
+		Set newfolder = FSO.CreateFolder(newfolderpath) 
+	END IF
+    CreateFolderTree = True
+	If Not FSO.FolderExists(newfolderpath) Then 
+        CreateFolderTree = False
+    End If
+
+End Function
+
+
 
 
 SUB PATH_SCANNER_RENAME_3
