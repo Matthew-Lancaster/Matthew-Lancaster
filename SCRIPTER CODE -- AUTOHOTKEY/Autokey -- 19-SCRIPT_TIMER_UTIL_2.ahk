@@ -1002,7 +1002,7 @@ MIDNIGHT_AND_HOUR_TIMER:
 
 	GOSUB TIMER_Check_Any_PID_Suspended_Warning
 	
-	GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
+	; GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
 
 	
 	; ---------------------------------------------------------------
@@ -1039,36 +1039,6 @@ TIMER_Check_Any_PID_Suspended_Warning:
 RETURN
 
 
-KILL_TEAMVIEWER_ON_LOW_END_COMPUTER:
-
-	; C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe
-	; C:\Program Files (x86)\TeamViewer\TeamViewer.exe
-
-	MSGBOX HH
-	SET_GO=FALSE
-	IF A_ComputerName=1-ASUS-X5DIJ
-		SET_GO=TRUE
-	IF A_ComputerName=2-ASUS-EEE
-		SET_GO=TRUE
-	IF A_ComputerName=3-LINDA-PC
-		SET_GO=TRUE
-
-IF SET_GO=TRUE
-{
-	Process, Exist, TeamViewer_Service.exe
-	If ErrorLevel > 0
-	{
-		Process, Close, TeamViewer_Service.exe
-		SoundBeep , 2000 , 100
-	}
-	Process, Exist, TeamViewer.exe
-	If ErrorLevel > 0
-	{
-		Process, Close, TeamViewer.exe
-		SoundBeep , 2000 , 100
-	}
-}
-RETURN
 
 
 ;----------------------------------------
