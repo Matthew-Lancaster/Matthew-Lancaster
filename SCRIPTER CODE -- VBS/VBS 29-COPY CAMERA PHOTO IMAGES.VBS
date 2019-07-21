@@ -134,6 +134,45 @@
 ' Sun 25-Nov-2018 11:34:00 __ 
 ' -------------------------------------------------------------------
 
+' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
+' -------------------------------------------------------------------
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		else
+			i1=i1+1
+		END IF
+		IF i1 > 0 THEN 
+				' Wscript.Quit
+		END IF  
+		IF i2 > 1 THEN 
+				Wscript.Quit
+		END IF  
+    END IF  
+NEXT
+
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'explorer.exe'")
+' KNOCK UP THIS FOR USE IN MY OUTLOOK SCRIPT CODING
+For Each objProcess In colProcesses
+    If Not (IsNull(objProcess.ProcessID)) Then
+        strScriptProcessID = objProcess.ProcessID
+		EXPLORER_COUNTING=EXPLORER_COUNTING+1
+        MsgBox "MY PROCESS NUMBER PID IS -- " + CStr(strScriptProcessID)
+    End If
+Next
+                             
+Wscript.QUIT
+
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
@@ -147,6 +186,7 @@ ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 DIM JPG_BEEN_DONE
 DIM MP4_BEEN_DONE
+DIM AVI_BEEN_DONE
 
 DIM STOP_PROGRESS
 DIM IX_ERROR_MESSENGER
@@ -225,7 +265,7 @@ I=I+1:FOLDER_PATH_AVOID_ITEM(I)="System Volume Information"
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\F.A"                      ' DASH CAMERA
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=".THM"                      ' SONY
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=".AmazonDriveConfig"
-I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="CAPTURE.TXT"               ' 4K ULTRA ACTION CAM
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
@@ -268,8 +308,8 @@ FOLDER_PATH(7)="DUAL SCRN" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
 FOLDER_PATH(8)="D DRIVE"
 FOLDER_PATH(9)="DASH_CAMERA" ' __ COPY FIRST TO END PLACE
 FOLDER_PATH(10)="DASH_CAMERA" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
-FOLDER_PATH(11)="4K ULTRA HD" ' __ COPY FIRST TO END PLACE
-FOLDER_PATH(12)="4K ULTRA HD" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
+FOLDER_PATH(11)="4K-ULTRA-HD" ' __ COPY FIRST TO END PLACE
+FOLDER_PATH(12)="4K-ULTRA-HD" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
 
 ' NOKIA TO DO 1 2 3
 
@@ -323,10 +363,9 @@ FOLDER_PATH_DO_ALL_FILE(9)=TRUE
 FOLDER_PATH_DO_ALL_FILE(10)=TRUE
 FOLDER_PATH_MOVE_MODE_FILE(10)=TRUE
 
-FOLDER_PATH_DO_ALL_FILE(11)=TRUE
-
 ' DO ALL THE FILE FROM SD CARD FIRST
 ' AND THEN DO AGAIN FROM SD CARD AND ERASE THEM AFTER
+FOLDER_PATH_DO_ALL_FILE(11)=TRUE
 FOLDER_PATH_DO_ALL_FILE(12)=TRUE
 FOLDER_PATH_MOVE_MODE_FILE(12)=TRUE
 
@@ -365,9 +404,10 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	FOLDER_PATH_VAR_3=FOLDER_PATH_VAR(R_COUNT)
 
 	IF FOLDER_PATH(1)="MC - HX60V" THEN 
-		IF FOLDER_PATH_VAR_2<>"" THEN 
-			CAMERA_BACKUP_CODE_TO_ACT_ON=TRUE
-	
+		IF FOLDER_PATH(1)=FOLDER_PATH(R_COUNT) THEN 
+			IF FOLDER_PATH_VAR_2<>"" THEN 
+				CAMERA_BACKUP_CODE_TO_ACT_ON=TRUE
+			END IF
 		END IF
 	END IF
 	
@@ -610,8 +650,9 @@ End Sub
 
 SUB PATH_SCANNER_COPY_CAMERA
 	SET_GO_FILE=FALSE
-	IF mid(ucase(VAR_PATH_SCANNER),3,5)="\DCIM" then    SET_GO_FILE=TRUE
+	IF mid(ucase(VAR_PATH_SCANNER),3,5)="\DCIM"    then SET_GO_FILE=TRUE
 	IF mid(ucase(VAR_PATH_SCANNER),3,8)="\MP_ROOT" then SET_GO_FILE=TRUE
+	IF mid(ucase(VAR_PATH_SCANNER),3,6)="\DCIMA"   then SET_GO_FILE=TRUE
 	
 	DO_ALL_FILE=FALSE
 	MOVE_MODE_FILE=FALSE
@@ -641,6 +682,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 	NEXT
 
 	
+	
 	IF SET_GO_FILE=FALSE THEN EXIT SUB
 
 	
@@ -655,9 +697,12 @@ SUB PATH_SCANNER_COPY_CAMERA
 	IF IGNOR_DATE_INDEX=FALSE THEN 
 		IF FileModDate<=FileModDate_2 THEN EXIT SUB
 	END IF 
-	
+
+	' ONLY JPG IS REALLY CHECK FOR ANYTHING AT THE MOMENT
+	' ---------------------------------------------------
 	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".JPG" then JPG_BEEN_DONE=TRUE
 	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".MP4" then MP4_BEEN_DONE=TRUE
+	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".AVI" then AVI_BEEN_DONE=TRUE
 	
 	' ".JPG"
 	' ".AVI"
