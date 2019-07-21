@@ -752,6 +752,7 @@ IF SET_GO=TRUE
 	Process, Exist, TeamViewer.exe
 	If ErrorLevel > 0
 	{
+		; TOOLTIP "__ TEAM VIEWER WAS KILLER __ Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
 		Process, Close, TeamViewer.exe
 		SoundBeep , 2000 , 100
 	}
