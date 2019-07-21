@@ -791,10 +791,18 @@ RETURN
 
 
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
 MAIN_ROUTINE:
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
+
+GOSUB TEAMVIWER_LOAD
+PAUSE
 
 ; --------------------------------------------
 ; Main Boot up File Source Written to Registry
@@ -1177,6 +1185,8 @@ IF SET_GO_1=1
 	}
 }
 
+
+
 SET_GO_1=0
 IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	SET_GO_1=1
@@ -1198,6 +1208,7 @@ IF SET_GO_1=1
 		}
 	}
 }
+	
 	
 Process, Exist, gs-server.exe
 If Not ErrorLevel
@@ -2205,6 +2216,8 @@ GOSUB CHROME_RUN_AND_MIN
 
 
 
+
+
 ; -------------------------------------------------------------------
 ; E:\01 Start Menu\#_1-ASUS-X5DIJ\Programs\Startup\Set FUJIFILM PC AutoSave to stby.lnk
 ; -------------------------------------------------------------------
@@ -2233,6 +2246,56 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+TEAMVIWER_LOAD:
+
+; "C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe"
+
+Process, Exist, TeamViewer.exe
+If Not ErrorLevel
+{
+	FN_VAR:="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%"
+	}
+	
+	Style_4=-2
+	WinWait, TeamViewer ahk_class #32770
+	EXIT_LOOP=10 ; ---- DO A FEW MIGHT AS WELL
+	TIMER_CLOSE_4 = % A_Now
+	TIMER_CLOSE_4 += 20, SECONDS
+
+	LOOP
+	{
+		; WinMinimize ahk_class Chrome_WidgetWin_1
+		; WinMAXIMIZE ahk_class Chrome_WidgetWin_1
+		; WinMinimize TeamViewer ahk_class #32770
+		WinClose, TeamViewer ahk_class #32770
+		BREAK
+		HWND_4 := WinExist("TeamViewer ahk_class #32770")
+		IF HWND_4=0
+			Style_4=0
+		
+		;WinGet style_4, MinMax, TeamViewer ahk_class #32770
+		SoundBeep , 2500 , 100
+		;1 maximized 0 normal -1 minimized
+		If Style_4=0
+		{
+			EXIT_LOOP-=1
+			IF EXIT_LOOP<0
+				BREAK
+		}
+		SLEEP 50
+		IF TIMER_CLOSE_4<%A_Now%
+			BREAK
+	}
+}	
+
+RETURN
+
+
 
 CHROME_RUN_AND_MIN:
 
