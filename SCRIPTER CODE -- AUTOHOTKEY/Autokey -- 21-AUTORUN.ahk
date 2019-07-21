@@ -801,9 +801,6 @@ MAIN_ROUTINE:
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
-GOSUB TEAMVIWER_LOAD
-PAUSE
-
 ; --------------------------------------------
 ; Main Boot up File Source Written to Registry
 ; IT SETS THE UAC TO ADMIN IF POSSIBLE
@@ -2233,6 +2230,8 @@ IF AttributeString
 ; -------------------------------------------------------------------
 
 
+GOSUB TEAMVIWER_LOAD
+
 	
 	
 RETURN
@@ -2250,6 +2249,17 @@ RETURN
 TEAMVIWER_LOAD:
 
 ; "C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe"
+SET_GO_4=0
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SET_GO_4=1
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_GO_4=1
+IF (A_ComputerName="8-MSI-GP62M-7RD")
+	SET_GO_4=1
+
+IF SET_GO_4=0
+	RETURN
+
 
 Process, Exist, TeamViewer.exe
 If Not ErrorLevel
@@ -2274,6 +2284,12 @@ If Not ErrorLevel
 		; WinMinimize TeamViewer ahk_class #32770
 		WinClose, TeamViewer ahk_class #32770
 		BREAK
+		; -----------------------------------------------------------
+		; BREAK -- GET IT OVER WITH HERE
+		; NONE SAFETY CHECK AFTER IF NOT CLOSE
+		; ONE ISSUE COMMAND AND DONE EVEN IF WAIT THERE
+		; -----------------------------------------------------------
+		
 		HWND_4 := WinExist("TeamViewer ahk_class #32770")
 		IF HWND_4=0
 			Style_4=0
