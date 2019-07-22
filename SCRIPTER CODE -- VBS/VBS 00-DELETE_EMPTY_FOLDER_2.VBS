@@ -26,7 +26,7 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 Dim objFolder
 DIM objFolderERR
 
- IF LEN(strPath) = 2 AND MID(strPath,2,1) = ":" THEN strPath = strPath + "\"
+IF LEN(strPath) = 2 AND MID(strPath,2,1) = ":" THEN strPath = strPath + "\"
 
 
 IF fso.FOLDEREXISTS(strPath) = TRUE THEN 

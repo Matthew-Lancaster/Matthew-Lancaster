@@ -134,6 +134,42 @@
 ' Sun 25-Nov-2018 11:34:00 __ 
 ' -------------------------------------------------------------------
 
+' -------------------------------------------------------------------
+' 008
+' -------------------------------------------------------------------
+' PUT LOAD OF CHANGE
+' RENAME IS DO FOR THING THAT NOT EXIF -- BY MOD DATE
+' CHECK EXPLORER IS RUN NOT RUN TOO MANY ON -- KNOW HOW THAT GET
+' ROUTINE NEW MAIN_4 _ SEARCH FOR RENAME -- DO WITHIN HERE NOT EXTERNAL
+' WHEN FOR SIMPLE RENAME -- BY MOD DATE
+' ALSO MAKE 
+' A GOODSYNC SCRIPT RUN FROM HERE
+' THAT DO A BACKUP OF MY MEDIA CARD
+' THAT IS SIMPLE AS LEAVE CARD CONNECT COMPUTER ALL THE TIME
+' MY MC CARD HAS 2 YEAR OF STUFF ON
+' AND IF LOST OR DAMAGER -- BE PAIN TO CORRECT
+' MY PHOTOGRAPHY -- IS DANGER OF STOLEN
+' PEOPLE DON'T LIKE IT HAVING CAMERA
+' IF THERE WERE SABOTAGE TO CAMERA AND LOST MEDIA CARD
+' HAVE NONE PROOF WHAT DO-ER
+' LIKE TRAFFIC WARDEN
+' BUT THEY HAVE IT EASIER
+' MOST LIKELY THEY DELETE CAMERA ROLL BEFORE START NEW SHIFT
+' AND IF IN CONFLICT WITH ANYONE THEY DON'T TALK 
+' ONLY PHOTO-ER
+' AND THEN YOU GOT PAPERERTZZE PHOTO ANYONE
+' AND NOT MUCH CHANCE OF GET IT OFF THEM
+' DAMAGE THEIR CAMERA OR THEM AND LOOK
+' SOD ALL THAT
+' BACK IT UP ANOTHER MEDIA CARD
+' TAKE A PHOTO EVERYDAY BEFORE YOU GO OUT ANYWHERE
+'
+' -------------------------------------------------------------------
+' Sun 21-Jul-2019 17:54:45
+' Mon 22-Jul-2019 00:58:00
+' -------------------------------------------------------------------
+
+
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
 ' -------------------------------------------------------------------
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
@@ -613,16 +649,18 @@ Sub Main
 		' JPG_BEEN_DONE=TRUE
 	' END IF
 	
+	IF AVI_BEEN_DONE=TRUE THEN
+		MP4_BEEN_DONE=TRUE
+	END IF
+	
 	IF DO_SEND_TO_PUT_DATE_INFRONT_FILENAME=TRUE THEN 
 		IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
 			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 		END IF
 	END IF
 
-	IF ONLY_SONY_CYBERSHOT_HAS_DO=TRUE THEN
-		IF I_COUNT_1>=0 AND (MP4_BEEN_DONE=TRUE) THEN 
-			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER.VBS""", ShowWindow, DontWaitUntilFinished
-		END IF
+	IF I_COUNT_1>=0 AND (MP4_BEEN_DONE=TRUE) THEN 
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER.VBS""", ShowWindow, DontWaitUntilFinished
 	END IF
 
 	' ---------------------------------------------------------------	
@@ -947,6 +985,7 @@ SUB PATH_SCANNER_RENAME_4
 	' ---------------------
 	' JPG00000.JPG
 	' REC00003.AVI
+	' SOS00003.AVI
 	' D:\DSC\2019+4K ULTRA HD\2019 4K ULTRA\DCIMA
 	' ---------------------
 	
@@ -1016,30 +1055,17 @@ SUB PATH_SCANNER_RENAME_4
 				NewPATH=REPLACE(PATH_VAR,"4K ULTRA\DCIMA","4K ULTRA")+"1 JPG\"
 			END IF
 		END IF
-		' msgbox PATH_VAR+VBCRLF+NewPATH
 
 		NewFilename=NewPATH+NewFilename
 		IF FSO.FolderExists(NewPATH)=FALSE THEN 
 			CreateFolderTree(NewPATH)
+			' BuildFullPath PATH_VAR
 		END IF
 		
 	END IF
 
-	IF i_TIME="" THEN EXIT SUB
-	
-	' NewFilename=i_TIME
-	
-	' NewFilename=REPLACE(NewFilename,"__","_")
-	' NewFilename=REPLACE(NewFilename," _ ","_")
-	' NewFilename=REPLACE(NewFilename,"_ ","_")
-	' NewFilename=REPLACE(NewFilename," _","_")
-	' NewFilename=REPLACE(NewFilename,".jpg",".JPG")
-	' Extension=ucase(mid(NewFilename,len(NewFilename)-3))
-	
-	' NewFilename=PATH_VAR+NewFilename
-	
 	if VAR_PATH_SCANNER <> NewFilename then 
-		msgbox NewFilename
+		' MSGBOX NewFilename
 		I_COUNT=I_COUNT+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
@@ -1047,8 +1073,7 @@ SUB PATH_SCANNER_RENAME_4
 		IF ERR.NUMBER>0 THEN 
 			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
 		END IF
-		'Wscript.QUIT
-		'Wscript.QUIT
+		'WSCRIPT.QUIT
 	end if
 
 END SUB
