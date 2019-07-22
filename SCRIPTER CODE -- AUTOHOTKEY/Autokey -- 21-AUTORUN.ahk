@@ -642,6 +642,26 @@ IF SET_GO_8=TRUE
 	}
 }
 
+; WIN_XP 5 WIN_7 6 WIN_10 10
+; --------------------------
+If (OSVER_N_VAR=10)
+{
+
+
+	; MSGBOX HERE1
+	If ProcessExist("ClipBoard Viewer.exe", A_UserName)=0
+	{
+		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
+		IfExist, %FN_VAR%
+		{
+				SoundBeep , 2000 , 100
+				Run, "%FN_VAR%" MINIMAL____START_22
+		}
+	}
+}
+
+
+
 ; --------------------------------------------------------
 ; SET_GO_8 -- VARIABLE GETTING WASTED AGAIN IF SET AS HERE 
 ; SO CHANGE VARIABLE NAME
