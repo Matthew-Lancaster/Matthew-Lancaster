@@ -7655,27 +7655,27 @@ Private Sub Label_KILL_WSCRIPT_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_WSCRIPT.BackColor = RGB(255, 255, 255)
 
-PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
-PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
-
-Label22.Caption = "TASKKILLER BY PID NUMBER __ # " + PROCESS_TO_KILLER_PID
-Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
-
-PROCESS_TO_KILLER = "WSCRIPT.EXE"
-
-'PROCESS_TO_KILLER PID
-Label29_Click
-
-'PROCESS_TO_KILLER PID
-'Label22_Click
-
-'PROCESS_TO_KILLER /F * /T
-Label57.Caption = "COMMAND LINE STATUS__ " + "TASKKILL /F /IM """ + Replace(UCase(PROCESS_TO_KILLER), ".EXE", "") + "*"" /T"
-
-Label23_Click
+Dim R, A1, A2
+Dim ALL_DONE
+Dim NAME_EXE As String
+Dim PID_INPUT As Long
+Dim i
+Do
+    ALL_DONE = True
+    SET_COMPUTER_TO_RUN_PID_EXE = UCase("WSCRIPT.EXE")
+    For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+        If InStr(UCase(A1), SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(pid)
+            ALL_DONE = False
+        End If
+    Next
+    
+    Call EnumProcess
+Loop Until ALL_DONE = True
 
 Me.WindowState = vbMinimized
-
 
 End Sub
 

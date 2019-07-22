@@ -363,7 +363,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   162856961
+      Format          =   142147585
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -377,7 +377,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   162856961
+      Format          =   142147585
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -897,8 +897,8 @@ IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2017+FUJI XP90"
 ' 4.
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2018 Double Screen Cam"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\2018 Double Screen Cam"
-IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\4K-ULTRA-HD"
-IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\4K-ULTRA-HD"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2019+4K ULTRA HD\2019 4K ULTRA\DCIMA"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\2019+4K ULTRA HD\DCIMA"
 
 IP1 = 0
 

@@ -33,6 +33,17 @@
 
 ' -------------------------------------------------------------------
 
+' -------------------------------------------------------------------
+' SESSION 002
+' -------------------------------------------------------------------
+' PUT LOAD OF CHANGE
+' MOVE FOLDER 
+' DELETE EMPTY
+' -------------------------------------------------------------------
+' Sun 21-Jul-2019 22:43:00
+' Mon 22-Jul-2019 00:58:00
+' -------------------------------------------------------------------
+
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
@@ -102,20 +113,12 @@ NUMBER_OF_ITEM = 10
 DIM FOLDER_PATH()
 DIM FOLDER_PATH_DEST()
 DIM FOLDER_PATH_VAR()
-DIM FOLDER_PATH_DO_ALL_FILE()
-DIM FOLDER_PATH_MOVE_MODE_FILE()
 DIM FOLDER_PATH_IGNOR_DATE_INDEX()
-DIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY()
-DIM FOLDER_PATH_DO_SUBFOLDER()
 
 REDIM FOLDER_PATH(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_DEST(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_VAR(NUMBER_OF_ITEM)
-REDIM FOLDER_PATH_DO_ALL_FILE(NUMBER_OF_ITEM)
-REDIM FOLDER_PATH_MOVE_MODE_FILE(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_IGNOR_DATE_INDEX(NUMBER_OF_ITEM)
-REDIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(NUMBER_OF_ITEM)
-REDIM FOLDER_PATH_DO_SUBFOLDER(NUMBER_OF_ITEM)
 
 DIM FOLDER_PATH_AVOID_ITEM()
 REDIM PRESERVE FOLDER_PATH_AVOID_ITEM(100)
@@ -130,7 +133,7 @@ I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
-' I=I+1:FOLDER_PATH_AVOID_ITEM(I)="AVF_INFO"
+
 FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_AVOID_ITEM)
 	IF FOLDER_PATH_AVOID_ITEM(R_COUNT_2)<>"" THEN NUMBER_COUNTER=R_COUNT_2
 NEXT
@@ -145,7 +148,7 @@ I=NUMBER_COUNTER
 
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".JPG"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".AVI"
-I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MOV"                      ' DASH CAMERA
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MOV"          ' DASH CAMERA
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MP4"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".TXT"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
@@ -157,8 +160,8 @@ FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
 NEXT
 REDIM PRESERVE FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(NUMBER_COUNTER)
 	
-DIM FOLDER_PATH_DEST_VAR
-DIM FOLDER_PATH_VAR_3
+DIM FOLDER_PATH_STORE
+DIM FOLDER_PATH_DEST_STORE
 
 DIM EXPLORER_LOADED
 DIM SHOW_EXPLORER_FLAG
@@ -167,28 +170,11 @@ FOLDER_PATH(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\MP_ROOT"
 FOLDER_PATH(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\DCIM"
 FOLDER_PATH(3)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP_ROOT"
 
-' NOKIA TO DO 1 2 3
-
-FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(8)=TRUE
-
-FOLDER_PATH_VAR(1)="\"
-' FOLDER_PATH_VAR(7)="\"
-' FOLDER_PATH_VAR(8)="\Android\SDCard2_Sync\DCIM\"
-' FOLDER_PATH_VAR(9)="\"
-
 FOLDER_PATH_DEST(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
 FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_ IMAGE"
-'FOLDER_PATH(3)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP_ROOT"
 FOLDER_PATH_DEST(3)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4"
 
-FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_DEST)
-	FOLDER_PATH_MOVE_MODE_FILE(R_COUNT)=TRUE
-	FOLDER_PATH_DO_ALL_FILE(R_COUNT)=TRUE
-	FOLDER_PATH_DO_SUBFOLDER(R_COUNT)=TRUE
-NEXT
 
-DIM FOLDER_DO_SUBFOLDER_2
-DIM FOLDER_PATH_VAR_2
 
 FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	IF FOLDER_PATH(R_COUNT)<>"" THEN 
@@ -203,95 +189,33 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	I_COUNT_1=0
 	I_COUNT_2=0
 
+	WORK_GO_ER=TRUE
 	FOLDER_PATH_INDEX=CSTR(R_COUNT)+" "+FOLDER_PATH(R_COUNT)
-	' FOLDER_PATH_VAR_2=getDriveLetterFromVolumeName(FOLDER_PATH(R_COUNT))
-	' MSGBOX getDriveLetterFromVolumeName("D DRIVE") ANSWER D:
-	' Wscript.QUIT
-	
-	FOLDER_PATH_VAR_2=MID(FOLDER_PATH(R_COUNT),1,2)
-	FOLDER_PATH_DEST_VAR=FOLDER_PATH_DEST(R_COUNT)
-	
-	FOLDER_PATH_VAR_3=FOLDER_PATH_VAR(R_COUNT)
+	FOLDER_PATH_STORE=MID(FOLDER_PATH(R_COUNT),1,2)
 
-	
-	IF FOLDER_PATH_VAR_2<>"" THEN 
-		
-		WORK_GO_ER=TRUE
-		
-		FOLDER_PATH_VAR_2=FOLDER_PATH(R_COUNT)
-		' MSGBOX FOLDER_PATH_VAR_2
-		' Wscript.QUIT
-		FOLDER_DO_SUBFOLDER_2=FOLDER_PATH_DO_SUBFOLDER(R_COUNT)
-
-		' MSGBOX FOLDER_PATH_VAR_2
-		' Wscript.QUIT
-		
-		FOLDER_PATH_DEST_VAR_2=FOLDER_PATH_DEST(R_COUNT)
-		
-		'---------------------------------------------------------------------------------
-		' DON'T SHOW EXPLORER ON DODGY COMPUTER AROUND BUILDING AND IF DODGY PATH IMAGE-ER
-		' OR DODGY LESS QUICKER SPEC LOW END PC
-		'---------------------------------------------------------------------------------
-		' DON'T SHOW EXPLORER ON D DRIVE IF ONLY PICTURE IS NONE
-		'---------------------------------------------------------------------------------
-		SHOW_EXPLORER_FLAG=TRUE
-		IF INSTR(FOLDER_PATH_DEST_VAR,"D:\VI_ DSC ME\") > 0 THEN 
-			IF ComputerName="1-ASUS-X5DIJ" THEN SHOW_EXPLORER_FLAG=FALSE
-			IF ComputerName="2-ASUS-EEE" THEN SHOW_EXPLORER_FLAG=FALSE
-			IF ComputerName="3-LINDA-PC" THEN SHOW_EXPLORER_FLAG=FALSE
-			IF ComputerName="4-ASUS-GL522VW" THEN SHOW_EXPLORER_FLAG=FALSE
-		END IF
-		SHOW_EXPLORER_FLAG=FALSE
-		
-		IF FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(R_COUNT)=TRUE THEN
-			SHOW_EXPLORER_FLAG=FALSE
-		END IF
-		
-		EXPLORER_LOADED=FALSE
-		IF SHOW_EXPLORER_FLAG=TRUE THEN 
-			EXPLORER_LOADED=TRUE
-			WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
-		END IF
-		
-		' IMAGE_POINTER_FOLDER_1=MID(Wscript.ScriptFullName,1,INSTRREV(Wscript.ScriptFullName,"\"))+"VBS 29-COPY CAMERA\"
-		' IMAGE_POINTER_NAME=IMAGE_POINTER_FOLDER_1+"COPY_CAMERA_PHOTO_IMAGE_POINTER_"+FOLDER_PATH(R_COUNT)+".TXT"
-
-		' If Not FSO.FolderExists(IMAGE_POINTER_FOLDER_1) Then
-			' BuildFullPath IMAGE_POINTER_FOLDER_1
-		' End If
-
-		' IF FSO.FileExists(IMAGE_POINTER_NAME)=TRUE THEN 
-			' Set File_1 = fso.OpenTextFile(IMAGE_POINTER_NAME, ForReading)
-			' TT_DATE_POINTER = File_1.ReadAll
-			' set File_1=NOTHING
-		' END IF
-			
-		' DIM FileModDate_2
-		' FileModDate_2=CDate(TT_DATE_POINTER)
-		' FileModDate_3=FileModDate_2
-		
-		'TEST ---------------------------------------------
-		'FileModDate_2=CDate("14/06/2018")
-		'FileModDate_2=NOW
-		'Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
-		'objFile.Write FileModDate_2
-		'SET objFile=NOTHING
-		' --------------------------------------------------
+	IF FOLDER_PATH_STORE<>"" THEN 
+		FOLDER_PATH_STORE=FOLDER_PATH(R_COUNT)
+		FOLDER_PATH_DEST_STORE=FOLDER_PATH_DEST(R_COUNT)
 
 		MAIN
-
-		' If FSO.FileExists(IMAGE_POINTER_NAME) Then 
-			' FSO.DeleteFile IMAGE_POINTER_NAME
-		' END IF
-
-		' Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
-		' objFile.Write FileModDate_3
-		' SET objFile=NOTHING
-		
-		
 	END IF
 
 NEXT
+
+FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
+
+	IF fso.FOLDEREXISTS(FOLDER_PATH(R_COUNT)) = TRUE THEN 
+		
+		IF fso.FILEEXISTS(FOLDER_PATH(R_COUNT)+"Thumbs.db") = TRUE THEN 
+			FSO.DeleteFile FOLDER_PATH(R_COUNT)+"\Thumbs.db"
+		END IF
+		
+		Set objFolder = fso.GetFolder(FOLDER_PATH(R_COUNT))
+		DeleteEmptyFolders objFolder
+		
+	END IF
+
+NEXT 
 
 IF WORK_GO_ER=FALSE THEN
 
@@ -307,62 +231,55 @@ IF WORK_GO_ER=FALSE THEN
 END IF
 
 
-' -------------------------------------------------------------------
-' THIS PROCESS NOT TOO GOOD AS THESE SCRIPT IN BAT WAKE ALL THE DRIVE WHEN SCAN THEM FOR FOLDER
-' AS PART OF SYNC DO
-' INCORP IN TO CAMERA LOADER
-' -------------------------------------------------------------------
-
-' -------------------------------------------------------------------
-' THIS SYNC NOT GOOD AS NOT CHECKER FOR CONFLICTS
-' UNTIL DONE
-' -------------------------------------------------------------------
-
-' DIM RUN_COPY(1)
-
-' RUN_COPY(1)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-XCOPY SYNC.BAT"
-
-' FOR R_COUNT=1 TO UBOUND(RUN_COPY)
-
-	' IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
-		' WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
-	' END IF
-	
-' NEXT
-
-
-
 SET objFSO = NOTHING
 Wscript.QUIT
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
 
+
+
+Sub DeleteEmptyFolders(folder)
+    Dim subfolder
+	ON ERROR RESUME NEXT
+	ERR.CLEAR
+    For Each subfolder in folder.SubFolders
+		DeleteEmptyFolders subfolder
+    Next
+
+    If folder.SubFolders.Count = 0 And folder.Files.Count = 0 Then
+
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		fso.DeleteFolder folder.Path, TRUE
+		IF ERR.NUMBER>0 THEN 
+			ERR_COUNTER = ERR_COUNTER +1
+			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+
+			ERR.CLEAR
+			objFolder.DELETE, TRUE
+			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
+		END IF
+    End If
+End Sub
+
+
+
+
+
 Sub Main
     Set oDict = CreateObject("Scripting.Dictionary")
 	
-	IF FSO.FolderExists(FOLDER_PATH_VAR_2)=FALSE THEN 
-		' MSGBOX "THIS FOLDER DO NOT EXIST" + VBCRLF + FOLDER_PATH_VAR_2
+	IF FSO.FolderExists(FOLDER_PATH_STORE)=FALSE THEN 
 		EXIT SUB
 	END IF
 
     ' Call Recursive Sub
-    FindWantedFiles(objFSO.GetFolder(FOLDER_PATH_VAR_2))
+    FindWantedFiles(objFSO.GetFolder(FOLDER_PATH_STORE))
     ' Display All Findings from Dictionary object
 
     DisplayFindings
 
-	ShowDriveInfo(MID(FOLDER_PATH_VAR_2,1,2))
-
-	' ---------------------------------------------------------------
-	' CHECK EXPLORER BEEN LOADED BEFORE _ IF NOT
-	' NOW IS TIME TO MAKE SURE _ AND DECIDE IF THE COUNTER HAS GONE UP FOR ANY COPY FILE
-	' WHILE STILL MAINTAIN NOT FIR ANY DODGY COMPUTER OR FOLDER
-	' INCLUDE D DRIVE OR BE SHOW EVERY TIME
-	' ---------------------------------------------------------------
-	
-	' IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE AND I_COUNT_1>0 THEN 
-		' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
-	' END IF
+	ShowDriveInfo(MID(FOLDER_PATH_STORE,1,2))
 	
 	I=""
 	I=I+"DONE COPY COUNT: " 
@@ -373,20 +290,6 @@ Sub Main
 	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
 		MSGBOX I
 	END IF
-	
-	' ---------------------------------------------------------------
-	' MP4_BEEN_DONE=TRUE
-	' WOULD BE GOOD BUT NOT REQUIRE IF ONLY MP4
-	' IT DOESN'T REQUIRE CONVERSION CODING STRICTLY
-	' ---------------------------------------------------------------
-	' Wed 20-Mar-2019 04:43:54
-	' ---------------------------------------------------------------
-	
-	' IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
-		
-		' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
-	
-	' END IF
 	
     Set oDict = Nothing
 End Sub
@@ -456,37 +359,21 @@ SUB PATH_SCANNER_COPY_CAMERA
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
 	
-	PATH_VAR=FOLDER_PATH_DEST_VAR ' +MID(PATH_VAR,3)
-	
-	' TRICKY BUT WILL IT RUN
-	
-	' Wscript.QUIT
+	NewFilename=REPLACE(VAR_PATH_SCANNER,FOLDER_PATH_STORE,FOLDER_PATH_DEST_STORE)
+	PATH_VAR_2=MID(NewFilename,1,INSTRREV(NewFilename,"\"))
+	NewFilename=REPLACE(NewFilename,"\\","\")
 
-	If Not FSO.FileExists(PATH_FILE_VAR) Then
-		MSGBOX VAR_PATH_SCANNER+VBCRLF+PATH_FILE_VAR
-
-		IF INSTR(PATH_VAR,"DOC") THEN MSGBOX "HH"
-		'FOLDER_PATH(3)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP_ROOT"
-		FOLDER_PATH_DEST(3)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4"
-	END IF
-	
-	PATH_FILE_VAR=PATH_VAR+"\"+FILE_VAR
-	PATH_FILE_VAR=REPLACE(PATH_FILE_VAR,"\\","\")
-
-	If Not FSO.FolderExists(PATH_VAR) Then
-		BuildFullPath PATH_VAR
+	If Not FSO.FolderExists(PATH_VAR_2) Then
+		BuildFullPath PATH_VAR_2
+		' CreateFolderTree(NewPATH)
 	End If
 	
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
-
-
 	
-	'MSGBOX VAR_PATH_SCANNER+VBCRLF+PATH_FILE_VAR
-	If Not FSO.FileExists(PATH_FILE_VAR) Then
-		MSGBOX VAR_PATH_SCANNER+VBCRLF+PATH_FILE_VAR
+	If Not FSO.FileExists(NewFilename) Then
 		' Wscript.QUIT
-		Fso.MoveFile VAR_PATH_SCANNER, PATH_FILE_VAR
+		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			
 		I_COUNT_1=I_COUNT_1+1
 	END IF
