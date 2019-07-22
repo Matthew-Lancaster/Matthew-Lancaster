@@ -991,7 +991,14 @@ For RR = X_COUNT To 1 Step -1
                         End If
                         ' Save the attachment as a file.
                         objAttachments.Item(i).SaveAsFile strFile_NAME
+                        Rem i = objAttachments.Item(i).DisplayName
                         SOME_PROCESS_DONE = True
+                        
+                        ' SOMETIME IS ERROR HERE A FILE DO EXIST CLICK OPEN WHEN CHECKER
+                        ' RESTART AGAIN SUPPOSE
+                        '[ Monday 11:54:30 Am_22 July 2019 ]
+                        ' --------------------------------------------------------------
+                        If FSO.FILEEXISTS(strFile_NAME) = False Then Stop
                         If Dir(strFile_NAME) = "" Then Stop
                     End If
             Next i
@@ -1014,7 +1021,7 @@ For RR = X_COUNT To 1 Step -1
                 On Error GoTo 0
                 
                 RR_X = RR_X + 1
-                If RR_X >= 1000 Then
+                If RR_X >= 10000 Then
                     GoTo ExitSub
                 End If
             End If
