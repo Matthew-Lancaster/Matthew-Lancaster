@@ -267,7 +267,7 @@ THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
 
 
 /* HIDE THE COMMENT BOX __ AFTER WORK IS TO REMOVE COMMENT ALSO                    */
-/* REMOVE FORMAT THE POST                                                            */
+/* REMOVE FORMAT THE POST                                                          */
 /* BECUASE IT GET IN THE WAY WHEN TRY MOUSE SLECTOR DRAG BEGIN BOTTOM LEFT CORNER  */
 /* ------------------------------------------------------------------------------- */
 ._42ft._18vk._18vj._666h
@@ -284,9 +284,25 @@ THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
    display: none !important;
 }
 
-/* HIDE THE REPLY BOX __ ALSO APPEAR FULL WINDOW LIKE WHEN SOMEONE ADD PHOTO STOORY                         */
-/* -------------------------------------------------------------------------------------------------------- */
-.clearfix._6ijm
+
+/* HIDE THE DISCUSSION BOX #01 ON SOME FAN PAGE LIKE PORTSMOUTH UNIVERSITY        */
+/* IT IN BOTTOM RIGHT CORNER OF ELEMENT                                           */
+/* SO UNABLE GET MOUSE IN TIGHT ENOUGHT TO COPY PASTE                             */
+/* THIS IS COMBINE ON SAME LKEVEL LINE AS SHARE BUTTON OR SOMETHING               */
+/* [ Monday 13:48:00 Pm_22 July 2019 ]                                            */
+/* ------------------------------------------------------------------------------ */
+._1hqh._45hc._5vwy._5vwz>._468f._3m1v
+{
+   display: none !important;
+}
+
+/* HIDE THE DISCUSSION BOX #02 ON SOME FAN PAGE LIKE EVENTS PAGE                  */
+/* IT IN BOTTOM RIGHT CORNER OF ELEMENT                                           */
+/* SO UNABLE GET MOUSE IN TIGHT ENOUGHT TO COPY PASTE                             */
+/* THIS BOX IS ON IT OWN SO REMOVE MEAN LEAVE GAP CAN'T FIND                      */
+/* [ Monday 13:48:00 Pm_22 July 2019 ]                                            */
+/* ------------------------------------------------------------------------------ */
+._5vx4._5vx2>.clearfix._5vx7>.lfloat._ohe>._4470._43o4>._45hc._5vwz
 {
    display: none !important;
 }
@@ -395,10 +411,6 @@ Sat 20-Jul-2019 11:00:00
 
 ADDITIONAL TODAY QUICK THING
 Sat 20-Jul-2019 15:54:00
-
-ADDITIONAL TODAY
-Sat 20-Jul-2019 18:00:00
-
 ---------------------------------------------------------------------
 
 Creation-or
