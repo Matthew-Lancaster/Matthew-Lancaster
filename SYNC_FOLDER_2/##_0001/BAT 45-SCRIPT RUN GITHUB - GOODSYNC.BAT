@@ -49,6 +49,16 @@
 @REM __ TO    Wed 07-Nov-2018 23:34:00
 @REM ----------------------------------------------------------------
 
+@REM ----------------------------------------------------------------
+@REM -- 003 SESSION
+@REM -- ADD CAMERA BACKUP MODE 
+@REM -- OTHER DAY START AND THEN THIS PART TO DO
+@REM ----------------------------------------------------------------
+@REM __ FROM  Sun 21-Jul-2019 17:54:45
+@REM __ TO    Sun 21-Jul-2019 18:10:00 -- 15 MINUTE
+@REM ----------------------------------------------------------------
+
+
 
 @REM ----------------------------------------------------------------
 @REM -- Located in Sync Location 1.. 2..
@@ -163,6 +173,17 @@ IF %errorlevel% EQU 0 (
 	GOTO START
 )
 
+
+@REM -- COMMAND LINE DEMO
+@REM -- C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT CAMERA_BACKUP_MODE
+
+
+ECHO %* | FIND "CAMERA_BACKUP_MODE" >NUL
+IF %errorlevel% EQU 0 (
+	SET MODE_RUN=CAMERA_BACKUP
+	GOTO START
+)
+
 IF "!MODE_RUN!"=="" (
 
 	SET MODE_RUN=GITHUB
@@ -213,8 +234,9 @@ SET FILENAME_ER_4="%~n0_GOODSYNC_OUTPUT.TXT"
 
 SET LDA=0
 
-IF !MODE_RUN!==GOODSYNC GOTO GOODSYNC_SET_ARRRAY
-IF !MODE_RUN!==GITHUB   GOTO GITHUB___SET_ARRRAY
+IF !MODE_RUN!==GOODSYNC       GOTO GOODSYNC_SET_ARRRAY
+IF !MODE_RUN!==GITHUB         GOTO GITHUB___SET_ARRRAY
+IF !MODE_RUN!==CAMERA_BACKUP  GOTO CAMERA___SET_ARRRAY
 
 ECHO MUST BE AN ERROR ESCAPE FROM RUN PRESS CLOSE WINDOW -- CONTROL C
 PAUSE
@@ -345,6 +367,14 @@ GOTO NEXT_CONTINUE
 :WANT_GITHUB
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
+
+:NEXT_CONTINUE
+GOTO NEXT_CONTINUE
+
+:CAMERA___SET_ARRRAY
+	SET /A LDA=LDA+1
+	SET Sources[!LDA!]="D DSC 1 __  SONY CYBER SHOT MEDIA CARD BACKUP"
+
 
 :NEXT_CONTINUE
 
