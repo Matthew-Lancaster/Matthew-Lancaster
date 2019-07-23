@@ -164,12 +164,12 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		IfWinActive Matthew Lancaster
 		IfWinActive  - Google Chrome
 		{
-			SetCapsLockState ,OFF
+			SetCapsLockState ,ON
 		}
 		IfWinActive Facebook
 		IfWinActive  - Google Chrome
 		{
-			SetCapsLockState ,OFF
+			SetCapsLockState ,ON
 		}
 		IfWinActive New Tab - Google Chrome
 		IfWinActive  - Google Chrome
