@@ -6,6 +6,15 @@
 ;# Copied BY Matthew __ Matt.Lan@Btinternet.com
 ;# __ 
 ;  =============================================================
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+;
+
+; -------------------------------------------------------------------
+#SingleInstance force
+; -------------------------------------------------------------------
 
 ;---------------------------------------------------------------
 ; DESCRIPTION
@@ -41,6 +50,14 @@
 ;https://autohotkey.com/boards/viewtopic.php?t=33925
 ; --------------------------------------------------------------
 
+
+
+!F1::hk(1,1,"Keyboard keys and mouse buttons disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys and mouse buttons
+!F2::hk(0,0,"Keyboard keys and mouse buttons restored!")         ; Enable all keyboard keys and mouse buttons
+!F3::hk(1,0,"Keyboard keys disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys (but not mouse buttons)
+!F4::hk(0,1,"Mouse buttons disabled!`nPress Alt+F2 to enable")   ; Disable all mouse buttons (but not keyboard keys)
+!F5::hk(1,2,"Keyboard keys and Right Mouse button disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys and right mouse button only
+!F6::hk(0,2,"Right Mouse button disabled!`nPress Alt+F2 to enable",3,1)   ; Disable right mouse button only and show message only once
 
 hk(keyboard:=0, mouse:=0, message:="", timeout:=3, displayonce:=0) { 
    static AllKeys, z, d
@@ -99,10 +116,3 @@ hk(keyboard:=0, mouse:=0, message:="", timeout:=3, displayonce:=0) {
    Progress, Off
    Return
 }
-
-!F1::hk(1,1,"Keyboard keys and mouse buttons disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys and mouse buttons
-!F2::hk(0,0,"Keyboard keys and mouse buttons restored!")         ; Enable all keyboard keys and mouse buttons
-!F3::hk(1,0,"Keyboard keys disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys (but not mouse buttons)
-!F4::hk(0,1,"Mouse buttons disabled!`nPress Alt+F2 to enable")   ; Disable all mouse buttons (but not keyboard keys)
-!F5::hk(1,2,"Keyboard keys and Right Mouse button disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys and right mouse button only
-!F6::hk(0,2,"Right Mouse button disabled!`nPress Alt+F2 to enable",3,1)   ; Disable right mouse button only and show message only once
