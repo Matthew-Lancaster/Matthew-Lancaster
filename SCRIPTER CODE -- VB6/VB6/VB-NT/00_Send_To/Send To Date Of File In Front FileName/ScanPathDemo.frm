@@ -363,7 +363,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   142147585
+      Format          =   129892353
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -377,7 +377,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   142147585
+      Format          =   129957889
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -937,19 +937,33 @@ If Command$ <> "" Then
     End If
 End If
 
-If Clipboard.GetText <> "" Then
-    Clipboard_VAR = Clipboard.GetText
-    Clipboard_VAR = Replace(Clipboard_VAR, """", "")
-    If FSO.FolderExists(Clipboard_VAR) = True Then
-        ' CHECK ROOT DIR
-        If Len(Clipboard_VAR) > 3 Then
-            IP1 = IP1 + 1: ARRAY_I(IP1) = Clipboard_VAR
-            ARRAY_DESC(IP1) = "Clipboard"
-            
-            Result = MsgBox("DO YOU WANT TO USER CLIBOARD PASTE" + vbCrLf + vbCrLf + ARRAY_I(IP1), vbYesNoCancel + vbMsgBoxSetForeground)
-            If Result = vbNo Then ARRAY_I(IP1) = ""
-            If Result = vbCancel Then ARRAY_I(IP1) = ""
-            End If
+Dim ERROR_NOTE, XXTT, HH
+ERROR_NOTE = 0
+XXTT = Now + TimeSerial(0, 0, 10)
+On Error Resume Next
+Do
+    Err.Clear
+    HH = Clipboard.GetText
+    If Err.Number = 0 Then Exit Do
+    If XXTT < Now Then ERROR_NOTE = 1: Exit Do
+    Sleep 100
+Loop Until 1 = 2
+
+If ERROR_NOTE = 0 Then
+    If HH <> "" Then
+        Clipboard_VAR = HH
+        Clipboard_VAR = Replace(Clipboard_VAR, """", "")
+        If FSO.FolderExists(Clipboard_VAR) = True Then
+            ' CHECK ROOT DIR
+            If Len(Clipboard_VAR) > 3 Then
+                IP1 = IP1 + 1: ARRAY_I(IP1) = Clipboard_VAR
+                ARRAY_DESC(IP1) = "Clipboard"
+                
+                Result = MsgBox("DO YOU WANT TO USER CLIBOARD PASTE" + vbCrLf + vbCrLf + ARRAY_I(IP1), vbYesNoCancel + vbMsgBoxSetForeground)
+                If Result = vbNo Then ARRAY_I(IP1) = ""
+                If Result = vbCancel Then ARRAY_I(IP1) = ""
+                End If
+        End If
     End If
 End If
 '-----------------------------------------------------------------------------------
