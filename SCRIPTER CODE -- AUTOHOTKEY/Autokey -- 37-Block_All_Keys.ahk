@@ -51,7 +51,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; --------------------------------------------------------------
 
 
-
+! = ALT
 !F1::hk(1,1,"Keyboard keys and mouse buttons disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys and mouse buttons
 !F2::hk(0,0,"Keyboard keys and mouse buttons restored!")         ; Enable all keyboard keys and mouse buttons
 !F3::hk(1,0,"Keyboard keys disabled!`nPress Alt+F2 to enable")   ; Disable all keyboard keys (but not mouse buttons)
