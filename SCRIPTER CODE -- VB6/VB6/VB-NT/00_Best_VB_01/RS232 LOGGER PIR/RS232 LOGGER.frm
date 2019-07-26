@@ -114,6 +114,17 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+' ------------------------------------------------------------------------
+' IF WANT TO DISPLAY TAIL.EXE AT BEGINNER THEN RESTORE THIS LINE BACK INNER
+' FILE_NAME_4 = "RS232 FRONT DOOR LOGGER.txt"
+' ------------------------------------------------------------------------
+' Shell I_N_TAIL + " """ + Path_And_FileName + """", vbMinimized
+' ------------------------------------------------------------------------
+' SEARCH ANY THIS TEXT CHUNK
+' [ Friday 09:50:50 Am_26 July 2019 ]
+' BE NICER IF START MINIMIZED
+' ------------------------------------------------------------------------
+
 Dim DOOR_OPEN_HAPPEN
 Dim FOLDER_NAME, FILE_NAME_4
 Dim FILE_NAME, X1, X2, A_NOW
@@ -437,7 +448,13 @@ If NEXT_AFTER_PROGRAM_LOAD = True Then
     Path_And_FileName = FILE_NAME
     If FindWinPart_ANY_STRING("Tail for Win32 - [Non-Workspace Files - " + Path_And_FileName + "]") = 0 Then
         If Dir(I_N_TAIL) <> "" Then
-            Shell I_N_TAIL + " """ + Path_And_FileName + """", vbMinimized
+            
+            
+            ' ------------------------------------------------------------------------
+            ' IF WANT TO DISPLAY TAIL.EXE AT BEGINNER THEN RESTORE THIS LINE BACK INNER
+            ' FILE_NAME_4 = "RS232 FRONT DOOR LOGGER.txt"
+            ' ------------------------------------------------------------------------
+            'Shell I_N_TAIL + " """ + Path_And_FileName + """", vbMinimized
         End If
     End If
 End If
