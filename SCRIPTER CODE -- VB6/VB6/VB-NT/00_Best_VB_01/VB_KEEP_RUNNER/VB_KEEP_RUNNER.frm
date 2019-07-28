@@ -6480,12 +6480,12 @@ If TO_SETTER = False Then
     Exit Sub
 End If
 
-If InStr(i, "=_NOT") Then
-    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, "_NOT", "_YES")
+If InStr(i, "NOT") Then
+    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, "NOT", "YES")
     Exit Sub
 End If
-If InStr(i, "=_YES") Then
-    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, "_YES", "_NOT")
+If InStr(i, "YES") Then
+    MNU_GIVE_ME_TIME_WITHER_UTC.Caption = Replace(i, "YES", "NOT")
 End If
 
 
