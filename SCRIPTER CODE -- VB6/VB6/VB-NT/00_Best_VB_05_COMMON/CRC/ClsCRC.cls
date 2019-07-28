@@ -157,11 +157,16 @@ CalcErrHandler:
   CalculateFile = "00000000"
 End Function
 Public Function CalculateString(Text As String)
-
-  'Convert the string into a bytearray
-  'and send it to the function that
-  'calculates the CRC from a bytearray
-  CalculateString = CalculateBytes(StrConv(Text, vbFromUnicode))
+    
+    If Text = "" Then
+        CalculateString = "00000000"
+        Exit Function
+    End If
+    
+    'Convert the string into a bytearray
+    'and send it to the function that
+    'calculates the CRC from a bytearray
+    CalculateString = CalculateBytes(StrConv(Text, vbFromUnicode))
   
 End Function
 Public Property Get Value() As Variant
