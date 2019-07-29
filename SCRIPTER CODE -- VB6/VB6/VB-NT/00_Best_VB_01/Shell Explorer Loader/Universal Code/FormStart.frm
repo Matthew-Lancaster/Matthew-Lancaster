@@ -956,11 +956,14 @@ End If
 If D1$ <> "" Then
 
     If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER <> "" Then
-        X1 = GetLongName(D1$)
+        PATH_USE_X = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER + Mid(D1$, 3)
+        X1 = GetLongName(PATH_USE_X)
         DR1 = Mid(X1, 1, 1)
         DR2 = Format(Asc(DR1) - 50 - 10 - 4 - 2, "00")
-        X2 = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER + Mid(X1, 3)
-        If FSO.FolderExists(X2) = False Then
+        X2 = X1
+        ' IT DOES EXIST THEN NOT HAPPEN HERE
+        ' ----------------------------------
+        If FSO.FolderExists(X1) = False Then
         ' If Dir(X2, vbDirectory) = "" Then
             If InStr(X2, "_01_C") > 0 Then
                 X2 = Replace(X2, "_01_C", "_" + DR2 + "_" + DR1)
