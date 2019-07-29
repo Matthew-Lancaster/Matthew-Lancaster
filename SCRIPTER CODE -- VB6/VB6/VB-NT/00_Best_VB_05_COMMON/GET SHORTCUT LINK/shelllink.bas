@@ -106,33 +106,47 @@ Public Function GetLongName(ByVal sShortName As String) As String
 ' ---> Microsoft's/MSDN's code
 ' ->  http://support.microsoft.com/default.aspx?scid=kb;EN-US;154822
 ' ---> The original comments were by them :
-
-     Dim sLongName As String
-     Dim sTemp As String
-     Dim iSlashPos As Integer
-
-     'Add \ to short name to prevent Instr from failing
-     
-     sShortName = sShortName & "\"
-
-     'Start from 4 to ignore the "[Drive Letter]:\" characters
-     iSlashPos = InStr(4, sShortName, "\")
-
-     'Pull out each string between \ character for conversion
-     While iSlashPos
-       sTemp = Dir(Left$(sShortName, iSlashPos - 1), vbNormal + vbHidden + vbSystem + vbDirectory)
-       If sTemp = "" Then
-         'Error 52 - Bad File Name or Number
-         GetLongName = ""
-         Exit Function
-       End If
-       sLongName = sLongName & "\" & sTemp
-       iSlashPos = InStr(iSlashPos + 1, sShortName, "\")
-     Wend
-
-     'Prefix with the drive letter
-     GetLongName = Left$(sShortName, 2) & sLongName
-
+    
+    Dim sLongName As String
+    Dim sTemp As String
+    Dim iSlashPos As Integer
+    
+    'Add \ to short name to prevent Instr from failing
+    
+    sShortName = sShortName & "\"
+    
+    Dim DRIVE_LETTER
+    
+    'Start from 4 to ignore the "[Drive Letter]:\" characters
+    iSlashPos = InStr(4, sShortName, "\")
+    DRIVE_LETTER = Left$(sShortName, 2)
+    ' --------------------------------------
+    ' IF NETWORK FOLDER
+    ' [ Monday 09:30:00 Am_29 July 2019 ]
+    ' --------------------------------------
+    If Mid(sShortName, 1, 2) = "\\" Then
+        iSlashPos = InStr(iSlashPos + 1, sShortName, "\")
+        DRIVE_LETTER = Left$(sShortName, iSlashPos)
+        iSlashPos = InStr(iSlashPos + 1, sShortName, "\")
+    End If
+    
+    DRIVE_LETTER = Mid(DRIVE_LETTER, 1, Len(DRIVE_LETTER) - 1)
+    
+    'Pull out each string between \ character for conversion
+    While iSlashPos
+      sTemp = Dir(Left$(sShortName, iSlashPos - 1), vbNormal + vbHidden + vbSystem + vbDirectory)
+      If sTemp = "" Then
+        'Error 52 - Bad File Name or Number
+        GetLongName = ""
+        Exit Function
+      End If
+      sLongName = sLongName & "\" & sTemp
+      iSlashPos = InStr(iSlashPos + 1, sShortName, "\")
+    Wend
+    
+    'Prefix with the drive letter
+    GetLongName = DRIVE_LETTER & sLongName
+    
 End Function
 
 
