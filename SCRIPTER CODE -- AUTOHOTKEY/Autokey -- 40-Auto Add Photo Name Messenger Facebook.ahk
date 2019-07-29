@@ -150,12 +150,44 @@ SetTitleMatchMode 2  ; ANY PARTIAL
 ; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER 
 ; SINGLE FOLDER ONLY AT THE MOMENT
 ; -------------------------------------------------------------------
+; MAIN FREQUENT FEW SETTING SOME OTHER LATER IN CODE DOWNA BIT
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 07 28
+; -------------------------------------------------------------------
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 07 28_ DINNER AND UP THE DOWNS NEAR BEFORE MIDDAY
+; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
+; -------------------------------------------------------------------
 FILE_PATH_WILDPATH_JPG := regexreplace(FILE_PATH_WILDPATH_JPG, "\\$")
+; -------------------------------------------------------------------
 ; 03 _ ADD THE \*.JPG
+; -------------------------------------------------------------------
 FILE_PATH_WILDPATH_JPG=%FILE_PATH_WILDPATH_JPG%\*.JPG
+
+; -------------------------------------------------------------------
+; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
+; -------------------------------------------------------------------
+; START AT VALUE
+; NORM WOULD BE 1 FOR 1ST
+; VAR_COUNTER_START_AT_VALUE
+; -------------------------------------------------------------------
+VAR_COUNTER_START_AT_VALUE=8
+
+; -------------------------------------------------------------------
+; 0=NEW ALBUM
+; 1=EDITOR
+NEW_ALBUM_OR_EDITOR_PAGE=1
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+	
 
 ; SET DELAY SPEED 
 ; LESS IMAGE QUICKER SPEED ALLOW
@@ -172,6 +204,8 @@ FACEBOOK_TIMER_DELAY_IN_EDITOR=14000
 
 
 
+
+
 ; -------------------------------------------------------------------
 ; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
 ; AT THE NUMBER NEXT NEEDER TO BE ENTER
@@ -183,7 +217,9 @@ FACEBOOK_TIMER_DELAY_IN_EDITOR=14000
 ; -------------------------------------------------------------------
 ; START AT VALUE
 ; NORM WOULD BE 1 FOR 1ST
-VAR_COUNTER=1
+; VAR_COUNTER_START_AT_VALUE
+; -------------------------------------------------------------------
+VAR_COUNTER=%VAR_COUNTER_START_AT_VALUE%
 
 ; -------------------------------------------------------------------
 ; VAR_COUNTER_STOP_AT= NUMBER = STOP __ NOTHING 0 NAUGHT = ALL THE WAY
@@ -260,7 +296,10 @@ FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
 ; WHEN IN THE ALBUM EDIT PAGE
 ; -----------------------------------------------------------------------
 FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
-; FACEBOOK_URL_TITLE_1=Facebook - Google Chrome
+; 0=NEW ALBUM
+; 1=EDITOR
+IF NEW_ALBUM_OR_EDITOR_PAGE=1
+	FACEBOOK_URL_TITLE_1=%FACEBOOK_URL_TITLE_2%
 
 IF HAS_FIRST_BATCH_BEEN_DONE_AND_NEXT_SUBSEQUENT_BATCH_DOARH=TRUE
 	FACEBOOK_URL_TITLE_1=%FACEBOOK_URL_TITLE_2%
