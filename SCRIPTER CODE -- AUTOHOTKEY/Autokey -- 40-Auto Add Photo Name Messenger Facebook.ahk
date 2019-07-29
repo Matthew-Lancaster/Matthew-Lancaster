@@ -174,12 +174,12 @@ FILE_PATH_WILDPATH_JPG=%FILE_PATH_WILDPATH_JPG%\*.JPG
 ; NORM WOULD BE 1 FOR 1ST
 ; VAR_COUNTER_START_AT_VALUE
 ; -------------------------------------------------------------------
-VAR_COUNTER_START_AT_VALUE=8
+VAR_COUNTER_START_AT_VALUE=1
 
 ; -------------------------------------------------------------------
 ; 0=NEW ALBUM
 ; 1=EDITOR
-NEW_ALBUM_OR_EDITOR_PAGE=1
+NEW_ALBUM_OR_EDITOR_PAGE=0
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
