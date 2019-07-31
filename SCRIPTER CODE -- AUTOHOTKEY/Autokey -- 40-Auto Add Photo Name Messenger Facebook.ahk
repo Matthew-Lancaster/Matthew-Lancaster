@@ -157,7 +157,7 @@ SetTitleMatchMode 2  ; ANY PARTIAL
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 07 28_ DINNER AND UP THE DOWNS NEAR BEFORE MIDDAY
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 07 31
 ; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 ; -------------------------------------------------------------------
