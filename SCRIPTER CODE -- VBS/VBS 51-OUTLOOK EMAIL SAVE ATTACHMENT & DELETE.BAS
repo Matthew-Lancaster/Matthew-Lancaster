@@ -237,6 +237,8 @@
 ' https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20VBS/VBS%2051-OUTLOOK%20EMAIL%20SAVE%20ATTACHMENT%20%26%20DELETE.BAS
 ' -------------------------------------------------------------------
 
+Dim FSO
+
 Public SOME_PROCESS_DONE
 Public SOME_ITEM_DELETER
 Public SOUND_OFF_ON
@@ -497,7 +499,7 @@ End Sub
 
 Public Sub COMMAND_STOP()
 
-Dim FSO
+' Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 
 strFileControlpath = "D:\GM OUTLOOK\File_Control_TEMP_STOP.txt"
@@ -989,8 +991,18 @@ For RR = X_COUNT To 1 Step -1
                                 ' MsgBox strFile_NAME
                             End If
                         End If
+                        
+                        On Error Resume Next
                         ' Save the attachment as a file.
                         objAttachments.Item(i).SaveAsFile strFile_NAME
+                        
+                        If Err.Number > 0 Then
+                            MsgBox "ERROR SAVE ATTACHMENT " + vbCrLf + Err.Description + vbCrLf + strFile_NAME
+                            Stop
+                        End If
+                        
+                        On Error GoTo 0
+                        
                         Rem i = objAttachments.Item(i).DisplayName
                         SOME_PROCESS_DONE = True
                         
@@ -998,8 +1010,11 @@ For RR = X_COUNT To 1 Step -1
                         ' RESTART AGAIN SUPPOSE
                         '[ Monday 11:54:30 Am_22 July 2019 ]
                         ' --------------------------------------------------------------
-                        If FSO.FILEEXISTS(strFile_NAME) = False Then Stop
-                        If Dir(strFile_NAME) = "" Then Stop
+                        If FSO.FILEEXISTS(strFile_NAME) = False Then
+                            MsgBox "ERROR SAVE ATTACHMENT NOT EXIST AFTER WRITE " + vbCrLf + Err.Description + vbCrLf + strFile_NAME
+                            Stop
+                        End If
+                        ' If Dir(strFile_NAME) = "" Then Stop
                     End If
             Next i
             
@@ -1173,9 +1188,6 @@ End Function
 ' VBA Code to permanently delete selected email | Outlook Forums by Slipstick.com
 ' https://forums.slipstick.com/threads/96078-vba-code-to-permanently-delete-selected-email/
 ' ----
-
-
-
 
 
 
