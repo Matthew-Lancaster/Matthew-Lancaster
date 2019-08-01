@@ -109,7 +109,7 @@ IF '%ADMIN_REQUEST%'=='/ADMIN' (
 )
 
 IF '%ADMIN_REQUEST%'=='/ADMIN'     @ECHO Got ADMIN Privileges -- By Push For Them
-IF NOT '%ADMIN_REQUEST%'=='/ADMIN' @ECHO Got ADMIN Privileges -- By Natual
+IF NOT '%ADMIN_REQUEST%'=='/ADMIN' @ECHO Got ADMIN Privileges -- By Natural
 
 @ECHO OFF
 
