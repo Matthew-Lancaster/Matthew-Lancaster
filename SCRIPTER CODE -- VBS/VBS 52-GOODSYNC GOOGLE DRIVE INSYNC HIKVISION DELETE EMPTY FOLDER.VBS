@@ -48,7 +48,7 @@ FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-INSYNC HIKVISION COPY DUPLICA
 WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 '--------------------------------------------------------------
 
-WScript.Quit(0)
+'WScript.Quit(0)
 '--------------------------------------------------------------------
 'END STOP -----------------------------------------------------------
 '--------------------------------------------------------------------
@@ -134,7 +134,14 @@ FOR RV=1 TO 2
 NEXT
 
 
-' Wscript.Echo "HH"
+
+FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER_2.VBS"
+'--------------------------------------------------------------
+WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+'--------------------------------------------------------------
+
+
+
 
 WScript.Quit(0)
 
