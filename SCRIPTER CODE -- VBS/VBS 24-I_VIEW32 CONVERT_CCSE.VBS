@@ -128,11 +128,28 @@ FOR R_T=10 TO 0 STEP -1
 	Next
 Next
 
-Set WSHShell = Nothing
-
 ' MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
 
+IF COUNT_1>0 THEN 
+
+	FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER.VBS"
+	PARAM=""
+	'--------------------------------------------------------------
+	WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+	'--------------------------------------------------------------
+
+END IF 
+
+
+
+
+Set WSHShell = Nothing
 WScript.Quit(0)
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 Function LPad (str, pad, length)
     LPad = String(length - Len(str), pad) & str
