@@ -74,13 +74,18 @@ i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
 ' R_T -- 20 = DAYS BEFORE
 ' -------------------------------------------------------------------
 
-FOR R_T=0 TO 4
+FOR R_T=10 TO 0 STEP -1
 
 	i_TIME=""
 	i_TIME=i_TIME+LPad(Year(Now-R_T), "0", 4)
 	i_TIME=i_TIME+LPad(Month(Now-R_T), "0", 2)
 	i_TIME=i_TIME+LPad(Day(Now-R_T), "0", 2)
 
+	' IF DONE_ONCE=FLSE THEN 
+		' DONE_ONCE=TRUE
+		' MSGBOX i_TIME
+	' END IF
+	
 	FOR R_I=1 TO 2
 		FOLDER_1="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"+i_TIME+"\"+ARRAY(R_I)
 		If fso.FolderExists(FOLDER_1) Then
