@@ -149,11 +149,35 @@ ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 Dim objFolder
 
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
 TARGET_FOLDER_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot"
+
+FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
 TARGET_FOLDER_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 
-FOR RV=1 TO 2
+
+' -------------------------------------------------------------------
+' SOMETIME FOLDER IS ACCESS DENY
+' BUT LITTLE TRICK SEND THEM OVER FROM
+' D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (
+' TO 
+' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot
+' LESS DENY THAT WAY
+' KEEP OPERATION SMOOTHER
+
+' EXAMPLE 
+' snapshot (3) -- HAS ACCESS OVER AT 
+' D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (
+' BUT NOT ACCESS OVER AT -- WITH snapshot (3)
+' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot (3)
+' SO COPY DIRECT TO 
+' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
+' -------------------------------------------------------------------
+
+FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
+TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
+
+
+FOR RV=1 TO 3
 	FOR RO=2 TO 20
 		XXC=CSTR(RO)
 		IF RV=1 THEN 
@@ -163,6 +187,14 @@ FOR RV=1 TO 2
 		IF RV=2 THEN 
 			FOLDER_STRING=FOLDER_STRING_2+XXC+")"
 			TARGET_STRING=TARGET_FOLDER_2
+		END IF
+		IF RV=3 THEN 
+			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
+			TARGET_STRING=TARGET_FOLDER_3
+			IF FSO.FOLDERExists(FOLDER_STRING) THEN
+				MSGBOX FOLDER_STRING
+			END IF
+			
 		END IF
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
