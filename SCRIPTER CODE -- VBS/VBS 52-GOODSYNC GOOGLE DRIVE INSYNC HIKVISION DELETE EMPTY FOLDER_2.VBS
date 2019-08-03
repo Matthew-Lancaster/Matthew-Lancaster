@@ -1,12 +1,34 @@
+'====================================================================
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER_2.VBS
+'# __ 
+'# __ VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER_2.VBS
+'# __ 
+'# BY Matthew __ Matt.Lan@Btinternet.com
+'# __ 
+'# START     TIME [ Sat 03-Aug-2019 12:38:20 ]
+'# END FINAL TIME [ Sat 03-Aug-2019 12:38:20 ]
+'# __ 
+'====================================================================
+
+'# ------------------------------------------------------------------
+' DESCRIPTION 
+' -------------------------------------------------------------------
+'#-------------------------------------------------------------------
+' SESSION 001 __ CREATED
+' THIS DO MORE THAN DELETE EMPTY FOLDER OF PREDECESSOR HERE
+' VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER.VBS
+' THIS ONE REALLY DO DELETE EVERY EMPTY FOLDER AT SUB FOLDER ALSO
+' AND IT RUN DOS COMMAND TO DELETE ALL THUMB.DB SO DEL EMPTY WORK WELL
+' IT WAS COPY MODIFY FROM
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 00-DELETE_EMPTY_FOLDER_2.VBS
+'
+' -------------------------------------------------------------------
+'# START     TIME [ Sat 03-Aug-2019 12:38:20 ]
+'# END FINAL TIME [ Sat 03-Aug-2019 12:38:20 ]
+'#-------------------------------------------------------------------
+
+
 Option Explicit
-
-' If (WScript.Arguments.Count <> 1) Then
-
-    ' WScript.Echo("Usage: cscript DeleteEmptyFolders.vbs {path}")
-
-    ' WScript.Quit(1)
-
-' End If
 
 Dim strPath
 
@@ -26,41 +48,30 @@ PARAM="/C DEL """+strPath+"\THUMBS.DB"" /S /AH"
 WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , DontShowWindow, WaitUntilFinished
 '--------------------------------------------------------------
 
-
-' WScript.Quit(0)
-
-
-
 DIM ERR_COUNTER
 DIM TEST_COUNTER
 DIM EXECUTE_LANUCHED
 DIM ERROR_WITH_SOME
 
 Dim fso
-
 Set fso = CreateObject("Scripting.FileSystemObject")
-
 
 Dim objFolder
 DIM objFolderERR
 
 IF LEN(strPath) = 2 AND MID(strPath,2,1) = ":" THEN strPath = strPath + "\"
 
-
 IF fso.FOLDEREXISTS(strPath) = TRUE THEN 
 
 	Set objFolder = fso.GetFolder(strPath)
-	WScript.Echo strPath & VBCRLF & "TO GO _ KILL PROCESS IF NOT SURE ____"
+	' WScript.Echo strPath & VBCRLF & "TO GO _ KILL PROCESS IF NOT SURE ____"
 	DeleteEmptyFolders objFolder
 	EXECUTE_LANUCHED = TRUE
 	ELSE
 	
-	WScript.Echo strPath & VBCRLF & "__ NOT A VAILD FOLDER GIVEN __ EXIT END __"
+	' WScript.Echo strPath & VBCRLF & "__ NOT A VAILD FOLDER GIVEN __ EXIT END __"
 	
 END IF
-
-
-
 
 Sub DeleteEmptyFolders(folder)
 
@@ -72,7 +83,6 @@ Sub DeleteEmptyFolders(folder)
     For Each subfolder in folder.SubFolders
 			DeleteEmptyFolders subfolder
     Next
-
 
     If folder.SubFolders.Count = 0 And folder.Files.Count = 0 Then
 
@@ -102,13 +112,11 @@ Sub DeleteEmptyFolders(folder)
 		
     End If
 
-
-	
 End Sub
 
 IF EXECUTE_LANUCHED = TRUE THEN 
 	IF TEST_COUNTER="" THEN TEST_COUNTER=0
-	WScript.Echo "DELETE DONE ON _ " & CSTR(TEST_COUNTER) & " _ EMPTY FOLDER"
+	' WScript.Echo "DELETE DONE ON _ " & CSTR(TEST_COUNTER) & " _ EMPTY FOLDER"
 END IF
 
 IF ERROR_WITH_SOME <> "" THEN 
@@ -119,10 +127,10 @@ IF ERROR_WITH_SOME <> "" THEN
 	strPath = "explorer.exe /e," & ERROR_WITH_SOME
 	objShell.Run strPath
 
-	WScript.Echo "ERROR WITH SOME OF THEM HERE _ " & VBCRLF & ERROR_WITH_SOME & VBCRLF & CSTR(ERR_COUNTER) & VBCRLF & "TAKE YOU THERE"
-	
-	
+	' WScript.Echo "ERROR WITH SOME OF THEM HERE _ " & VBCRLF & ERROR_WITH_SOME & VBCRLF & CSTR(ERR_COUNTER) & VBCRLF & "TAKE YOU THERE"
 END IF
+
+WScript.Quit(0)
 
 ' ---------------------
 ' Count = 011 -- Tue 05-Sep-2017 07:21:53
