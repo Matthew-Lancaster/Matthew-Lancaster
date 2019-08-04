@@ -2393,6 +2393,7 @@ Dim lhWnd_Function_Button_Set_MIN_MAX
 ' Thu 03-May-2018 11:25:00 -- 3 HOUR
 ' ----------------------------------------------------------
 
+Dim O_DAY_NOW_DIR_FOR_VIDEO
 Dim O_DAY_NOW_DIR_FOR_VIDEO_ME_YOU_TUBE
 Dim O_DAY_NOW_DIR_FOR_VIDEO_KILLSOMETIME
 Dim O_DAY_NOW_DIR_FOR_XXX_BUNKER_COM
@@ -8915,6 +8916,20 @@ MkDir DIR_PATH + "\" + UCase(Format(Now, "YYYY-MM-MMM"))
 
 End Sub
 
+Private Sub Timer_DIR_FOR_FACEBOOK_VIDEO_Timer()
+On Error Resume Next
+
+Dim DIR_PATH
+
+DIR_PATH = "C:\DOWNLOADS\# 00 VIDEO\# VIDEO FACEBOOK"
+    
+If Dir(DIR_PATH + "\" + Format(Now, "YYYY-MM-MMM"), vbDirectory) <> "" Then Exit Sub
+
+MkDir DIR_PATH + "\" + UCase(Format(Now, "YYYY-MM-MMM"))
+
+
+End Sub
+
 Private Sub Timer_DIR_FOR_ARGUS_VIDEO_Timer()
 
 On Error Resume Next
@@ -8987,6 +9002,10 @@ Call Timer_DIR_FOR_HARDWARE_Timer
 Call Timer_DIR_FOR_VIDEO_KILLSOMETIME_Timer
 Call Timer_DIR_FOR_VIDEO_ME_YOU_TUBE_Timer
 Call Timer_DIR_FOR_ARGUS_VIDEO_Timer
+If O_DAY_NOW_DIR_FOR_VIDEO <> Day(Now) Then
+    O_DAY_NOW_DIR_FOR_VIDEO = Day(Now)
+    Call Timer_DIR_FOR_FACEBOOK_VIDEO_Timer
+End If
 
 Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
 
