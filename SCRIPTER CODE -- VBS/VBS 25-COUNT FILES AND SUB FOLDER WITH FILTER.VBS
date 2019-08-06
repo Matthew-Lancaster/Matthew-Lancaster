@@ -8,7 +8,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 FOLDER_PATH="D:\DSC"
-Search_EXTENSION_VAR=""
+Dim Search_EXTENSION_VAR
 
 'Call the Search subroutine to start the recursive search.
 Search_EXTENSION objFSO.GetFolder(FOLDER_PATH)
@@ -70,13 +70,14 @@ End Sub
 Sub Search_EXTENSION(Folder)
 '------------------------------------------------
 	ON ERROR RESUME NEXT
-	Search_EXTENSION_VAR=""
 	ERR.CLEAR
 	for each file in Folder.Files
 		IF ERR.NUMBER=0 THEN 
-			IF instr(Search_EXTENSION_VAR,UCASE(file.type))=0 THEN 
-				Search_EXTENSION_VAR=Search_EXTENSION_VAR+VBCRLF+CSTR(I_COUNT)+"--"+UCASE(file.type)
+			EXTENSION_T = UCASE(Fso.getextensionname(file.path))
+			IF instr(Search_EXTENSION_VAR,EXTENSION_T)=0 THEN 
 				I_COUNT=I_COUNT+1
+				Search_EXTENSION_VAR=Search_EXTENSION_VAR+CSTR(I_COUNT)+" -- ."+EXTENSION_T+VBCRLF
+				' MSGBOX Search_EXTENSION_VAR
 			END IF
 		END IF
 	NEXT
@@ -84,8 +85,12 @@ Sub Search_EXTENSION(Folder)
 	'Find EACH SUBFOLDER.
 	For Each subFolder In Folder.SubFolders
 
-		'Call the Search subroutine to start the recursive search on EACH SUBFOLDER.
-		Search objFSO.GetFolder(subFolder.Path)
+		' Call the Search subroutine to start the recursive search on EACH SUBFOLDER.
+		' -----------------------------------------------------------
+		' TAKE CARE
+		' THIS ROUTINE NAME MUST BE SAME AT TOP OF SUBROUTINE NAME
+		' -----------------------------------------------------------
+		Search_EXTENSION objFSO.GetFolder(subFolder.Path)
 	Next
 
 End Sub
