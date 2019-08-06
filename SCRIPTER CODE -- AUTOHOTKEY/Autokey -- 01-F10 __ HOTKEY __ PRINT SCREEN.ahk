@@ -176,6 +176,27 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		{
 			SetCapsLockState ,ON
 		}
+		IfWinActive Clip Type Form
+		{
+			SetCapsLockState ,ON
+		}
+		
+		IfWinActive ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009} ; GOODSYNC2GO
+		{
+			SetCapsLockState ,ON
+		}
+		IfWinActive ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A} ; GOODSYNC
+		{
+			SetCapsLockState ,ON
+		}
+		
+		
+		IfWinActive ahk_class CabinetWClass ; GOODSYNC
+		{
+			SetCapsLockState ,ON
+		}
+		
+		
 		
 		STATE_CAP := GetKeyState("CapsLock", "T") ; True if CapsLock is ON, false otherwise.
 		IF OLD_STATE_CAP<>%STATE_CAP%
