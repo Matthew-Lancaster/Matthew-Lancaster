@@ -7,6 +7,18 @@ Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
+FOLDER_PATH="D:\DSC"
+Search_EXTENSION_VAR=""
+
+'Call the Search subroutine to start the recursive search.
+Search_EXTENSION objFSO.GetFolder(FOLDER_PATH)
+'------------------------------------------------
+MSGBOX "FILE COUNT & EXTENSION ON _ " + VBCRLF + Search_EXTENSION_VAR
+
+
+Wscript.QUIT
+
+
 FOLDER_PATH="D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM"
 
 'FOLDER_PATH="D:\DSC\z compare\NIKON TOTAL"
@@ -52,6 +64,34 @@ Sub Search(Folder)
 	Next
 
 End Sub
+
+
+'------------------------------------------------
+Sub Search_EXTENSION(Folder)
+'------------------------------------------------
+	ON ERROR RESUME NEXT
+	Search_EXTENSION_VAR=""
+	ERR.CLEAR
+	for each file in Folder.Files
+		IF ERR.NUMBER=0 THEN 
+			IF instr(Search_EXTENSION_VAR,UCASE(file.type))=0 THEN 
+				Search_EXTENSION_VAR=Search_EXTENSION_VAR+VBCRLF+CSTR(I_COUNT)+"--"+UCASE(file.type)
+				I_COUNT=I_COUNT+1
+			END IF
+		END IF
+	NEXT
+
+	'Find EACH SUBFOLDER.
+	For Each subFolder In Folder.SubFolders
+
+		'Call the Search subroutine to start the recursive search on EACH SUBFOLDER.
+		Search objFSO.GetFolder(subFolder.Path)
+	Next
+
+End Sub
+		
+
+
 		
 
 '---------
