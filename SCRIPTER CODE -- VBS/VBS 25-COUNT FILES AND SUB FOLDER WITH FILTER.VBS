@@ -7,7 +7,7 @@ Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-FOLDER_PATH="D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM"
+FOLDER_PATH="D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM"
 
 'FOLDER_PATH="D:\DSC\z compare\NIKON TOTAL"
 
