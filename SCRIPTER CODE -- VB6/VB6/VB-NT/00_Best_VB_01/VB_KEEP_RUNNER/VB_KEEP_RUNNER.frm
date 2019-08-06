@@ -6988,7 +6988,7 @@ Label_KILL_AUTOHOTKEY.BackColor = RGB(255, 255, 255)
 
 Call KILL_AUTOHOTKEY_GLOBAL
 
-'Me.WindowState = vbMinimized
+Me.WindowState = vbMinimized
 
 End Sub
 
