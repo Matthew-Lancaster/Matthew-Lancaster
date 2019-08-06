@@ -1,3 +1,32 @@
+'====================================================================
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 25-COUNT FILES AND SUB FOLDER WITH FILTER.VBS
+'# __ 
+'# __ VBS 25-COUNT FILES AND SUB FOLDER WITH FILTER.VBS
+'# __ 
+'# BY Matthew __ Matt.Lan@Btinternet.com
+'# __ 
+'# COPY TWIN OF CODE NEXT TO HER
+'# __ 
+'# START     TIME [ Tue 05-Jun-2018 14:39:00 ]
+'# END FINAL TIME [ Tue 05-Jun-2018 14:39:00 ]
+'# __ 
+'====================================================================
+
+'# ------------------------------------------------------------------
+' DESCRIPTION 
+' -------------------------------------------------------------------
+' THIS WILL CREATE A MSGBOX AT END
+' WITH ALL THE COUNT OF FILE IN SUB FOLDER ALSO
+' -------------------------------------------------------------------
+
+'#-------------------------------------------------------------------
+' -- 001 SESSION __
+' -------------------------------------------------------------------
+' __ FROM  [ Tue 05-Jun-2018 14:39:00 ]
+' __ TO    [ Tue 05-Jun-2018 14:39:00 ] _ MIXED OF OTHER CODE
+'#-------------------------------------------------------------------
+
+
 DIM objStartFolder
 DIM objFolder
 DIM I_COUNT
@@ -7,16 +36,16 @@ Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-FOLDER_PATH="D:\DSC"
-Dim Search_EXTENSION_VAR
+' FOLDER_PATH="D:\DSC"
+' Dim Search_EXTENSION_VAR
 
-'Call the Search subroutine to start the recursive search.
-Search_EXTENSION objFSO.GetFolder(FOLDER_PATH)
-'------------------------------------------------
-MSGBOX "FILE COUNT & EXTENSION ON _ " + VBCRLF + Search_EXTENSION_VAR
+' 'Call the Search subroutine to start the recursive search.
+' Search_EXTENSION objFSO.GetFolder(FOLDER_PATH)
+' '------------------------------------------------
+' MSGBOX "FILE COUNT & EXTENSION ON _ " + VBCRLF + Search_EXTENSION_VAR
 
 
-Wscript.QUIT
+' Wscript.QUIT
 
 
 FOLDER_PATH="D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM"

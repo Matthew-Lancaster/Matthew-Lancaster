@@ -1,3 +1,33 @@
+'====================================================================
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 25-COUNT FILES AND SUB - RETURN EXTENSION TYPE.VBS
+'# __ 
+'# __ VBS 25-COUNT FILES AND SUB - RETURN EXTENSION TYPE.VBS
+'# __ 
+'# BY Matthew __ Matt.Lan@Btinternet.com
+'# __ 
+'# COPY TWIN OF CODE NEXT TO HER
+'# __ 
+'# START     TIME [ Tue 05-Jun-2018 14:39:00 ]
+'# END FINAL TIME [ Tue 05-Jun-2018 14:39:00 ]
+'# __ 
+'====================================================================
+
+'# ------------------------------------------------------------------
+' DESCRIPTION 
+' -------------------------------------------------------------------
+' THIS WILL CREATE A MSGBOX AT END
+' WITH ALL THE DIFFERENT EXTENSION IN FOLDER
+' LIKE TREE SIZE PRO EDITION PAY FOR DO
+' -------------------------------------------------------------------
+
+'#-------------------------------------------------------------------
+' -- 002 SESSION __
+' -------------------------------------------------------------------
+' __ FROM  Tue 06-Aug-2019 18:54:20
+' __ TO    Tue 06-Aug-2019 18:54:20 _ MIXED OF OTHER CODE
+'#-------------------------------------------------------------------
+
+
 DIM objStartFolder
 DIM objFolder
 DIM I_COUNT
