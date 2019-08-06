@@ -83,6 +83,38 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 004 
+; ----------------------------------------------------
+; TODAY WORK HERE AND ADD NEW ROUTINE WITH AN ARRAY
+; TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+; THAT HAS TWO FUNCTION
+; ONE IT SOLE WORK IT TO DELETE ANY UN-WANTER TAB THAT COME UP
+; LIKE THE HOME HUB TELL CONNECTION NOT PROPER
+; AND LOSE FOCUS OF ONE THAT WAS THERE
+
+; AND DOUBLE
+; WHEN A TAB REMOVE AND IT IS 
+; "404 Page Not Found | CPC"
+; IT THEN REMOVE THAN A CHECK FOR EVEN MORE
+; AND ALSO
+; DO A CONTROL SHIFT TAB TO GO BACK ONE
+; WELL THAT WAS INTENSION BUT NOT REQUIRE
+; AFTER A 404 PAGE REMOVE ALSO TWO OTHER TYPE
+; IS THERE
+; NEW BROWSER START IN BATCH OF 10
+; AND NEW PAGE GET PUT FOR ONE THEM
+; AND ALSO SOME OTHER PAGE CPC NOT QUITE 404 BUT STILL DO WITH DELETER
+; ----------------------------------------------------
+; LOT OF EFFORT PLAY AROUND WITH CODE
+; NOT BEEN A WHILE CODER
+; LOST IT ON MY EYE TO SPOT ERROR RUSTY ABOUT IT
+; ----------------------------------------------------
+; FROM   __ Mon 05-Aug-2019 13:25:04
+; TO     __ Mon 05-Aug-2019 17:30:00
+; ----------------------------------------------------
+
+; -------------------------------------------------------------------
 ; MONITOR OF VIDEO FACEBOOK REPEAT HITT PUMP HER COUNTER 
 ; -------------------------------------------------------------------
 ; Deborah Hall
@@ -325,6 +357,7 @@ FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
 ; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
 	
 FN_ARRAY_RAINER_F5 := SET_ARRAY_RAINER_F5()
+
 	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
@@ -395,6 +428,25 @@ IF OSVER_N_VAR>5
 	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO,1000
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+
+
+FN_SET_ARRAY_BROWSER_TAB_CLOSE := SET_ARRAY_BROWSER_TAB_CLOSE()
+
+SET_GO=FALSE
+IF A_ComputerName=1-ASUS-X5DIJ
+	SET_GO=TRUE
+IF A_ComputerName=2-ASUS-EEE
+	SET_GO=TRUE
+IF A_ComputerName=3-LINDA-PC
+	SET_GO=TRUE
+	
+SET_GO=TRUE
+
+; 03 OF 04
+IF SET_GO=TRUE 
+{
+	SETTIMER TIMER_SET_ARRAY_BROWSER_TAB_CLOSE,1000
+}
 
 RETURN
 
@@ -485,6 +537,27 @@ SET_ARRAY_AUTO_KEY() {
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Rain Alarm - Mozilla Firefox"
 RETURN SET_ARRAY_AUTO_KEY
 }
+
+SET_ARRAY_BROWSER_TAB_CLOSE() {
+	SET_ARRAY_BROWSER_TAB_CLOSE := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="BT Smart Hub Manager"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="404 Page Not Found | CPC"
+	
+	; ArrayCount += 1
+	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Home"
+	
+RETURN SET_ARRAY_BROWSER_TAB_CLOSE
+}
+
+; BT Smart Hub Manager
+; ----
+; Home
+; http://bthomehub.home/00000110500/gui/#/main/
+; ----
+
 
  
 
@@ -962,6 +1035,121 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			}
 			
 		
+RETURN
+
+
+
+
+TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+
+	WinGetCLASS, CLASS_FOCUS, A
+	WinGetTITLE, TITLE_VAR_FOCUS, A
+	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
+	WinGetTITLE, TITLE_MOZILLA, ahk_class MozillaWindowClass
+
+	ARRAY_BROWSER_TAB_CLOSE_SET_GO=
+	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE.MaxIndex()
+	{
+		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE[A_Index]
+		IF INSTR(TITLE_VAR,Element)
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		IF INSTR(TITLE_CHROME,Element)
+		{
+			BROWSER_APP=1
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		}
+		IF INSTR(TITLE_MOZILLA,Element)
+		{
+			BROWSER_APP=2
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		}
+	}
+
+	If ARRAY_BROWSER_TAB_CLOSE_SET_GO
+	{
+		IF BROWSER_APP=1
+		{
+			WinActivate, ahk_class Chrome_WidgetWin_1
+			WinWaitActive, ahk_class Chrome_WidgetWin_1
+		}
+		IF BROWSER_APP=2
+		{
+			WinActivate, ahk_class MozillaWindowClass
+			WinWaitActive, ahk_class MozillaWindowClass
+		}
+		
+		WinGetTITLE, TITLE_VAR_2, A
+		IF INSTR(TITLE_VAR_2,ARRAY_BROWSER_TAB_CLOSE_SET_GO)
+		{
+			WinGet, HWND_2, ID, %ARRAY_BROWSER_TAB_CLOSE_SET_GO%
+			IF HWND_2
+			{
+				Send,,^{w}
+				SOUNDBEEP 1000,50
+				SLEEP 100
+			}
+			
+			IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+			DONE_ONE_COUNTER=10
+			LOOP, 100
+			{
+				WinGetCLASS, CLASS_FOCUS, A
+				BROWSER_APP=
+				IF INSTR(CLASS_FOCUS,"Chrome_WidgetWin_1")
+					BROWSER_APP=1
+				IF INSTR(CLASS_FOCUS,"MozillaWindowClass")
+					BROWSER_APP=2
+
+				HWND_2=
+				TITLE_VAR=
+				IF BROWSER_APP=1
+				{
+					WinGetTITLE, TITLE_VAR, ahk_class Chrome_WidgetWin_1
+					WinGet, HWND_2, ID, ahk_class Chrome_WidgetWin_1
+				}
+				IF BROWSER_APP=2
+				{
+					WinGetTITLE, TITLE_VAR, ahk_class MozillaWindowClass
+					WinGet, HWND_2, ID, ahk_class MozillaWindowClass
+				}
+
+				DONE_ONE=0
+				IF HWND_2
+				IF INSTR(TITLE_VAR,"CPC - Google Chrome")
+				{
+					Send,,^{w}
+					SLEEP 100
+					DONE_ONE=1
+					DONE_ONE_COUNTER+=1
+				}
+				
+				IF DONE_ONE=0
+				IF INSTR(TITLE_VAR,"New Tab - Google Chrome")
+				{
+					Send,,^{w}
+					SLEEP 100
+					DONE_ONE=1
+					DONE_ONE_COUNTER+=1
+				}
+				IF DONE_ONE=0
+				IF INSTR(TITLE_VAR,"404 Page Not Found | CPC")
+				{
+					Send,,^{w}
+					SLEEP 100
+					DONE_ONE=1
+					DONE_ONE_COUNTER+=1
+				}
+				
+				DONE_ONE_COUNTER-=1
+				IF DONE_ONE_COUNTER<0
+					BREAK
+				
+				; SLEEP 100
+
+			}
+		}
+	}
+
 RETURN
 
 
