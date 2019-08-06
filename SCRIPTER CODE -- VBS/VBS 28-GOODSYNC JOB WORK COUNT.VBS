@@ -44,6 +44,8 @@ ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 FILEN_1="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
 
+
+
 Set File_1 = fso.OpenTextFile(FILEN_1, ForReading)
 TT_EDITOR = File_1.ReadAll
 
