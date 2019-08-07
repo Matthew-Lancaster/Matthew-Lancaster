@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -634,6 +634,16 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       NumItems        =   0
+   End
+   Begin VB.Label Label24 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "CLOSE GOODSYNC BOTH"
+      Height          =   672
+      Left            =   8088
+      TabIndex        =   152
+      Top             =   1992
+      Width           =   1080
    End
    Begin VB.Label Label_CHROME_PAGE_AUTO_ON 
       Alignment       =   2  'Center
@@ -6044,7 +6054,10 @@ Label57.Caption = "COMMAND LINE STATUS__ " + Label22
 End Sub
 
 Private Sub Label24_Click()
-
+ 
+Call Label_CLOSE_GOODSYNC_Click
+Call Label_CLOSE_GOODSYNC2GO_Click
+ 
 End Sub
 
 Private Sub Label30_Click()
@@ -6229,9 +6242,12 @@ Label53.BackColor = Label59.BackColor
 End Sub
 
 Private Sub MNU_CLIPBOARDER_REPLACE_ER_AND_Click()
+' CLIPBOARD REPLACE "AND"
+
 
 Dim VAR_ST_1
 Dim VAR_ST_2
+Dim VAR_ST_4
 Dim CHANGE_VAR_1
 Dim CHANGE_VAR_2
 Dim CH_1
@@ -6272,22 +6288,26 @@ For R1 = 0 To Len(CHANGE_VAR_1) + 1
     Next
 Next
 
-Do
-    On Error Resume Next
-    Clipboard.Clear
-    VAR_ST_2 = Clipboard.GetText
-    On Error GoTo 0
-    If VAR_ST_2 <> "" Then Sleep 500
-Loop Until VAR_ST_2 = ""
-Sleep 500
-Do
-    On Error Resume Next
-    Clipboard.SetText VAR_ST_1, vbCFText
+If VAR_ST_1 <> VAR_ST_4 Then
+
+    Do
+        On Error Resume Next
+        Clipboard.Clear
+        VAR_ST_2 = Clipboard.GetText
+        On Error GoTo 0
+        If VAR_ST_2 <> "" Then Sleep 500
+    Loop Until VAR_ST_2 = ""
     Sleep 500
-    VAR_ST_2 = Clipboard.GetText
-    On Error GoTo 0
-    If VAR_ST_2 <> VAR_ST_1 Then Sleep 800
-Loop Until VAR_ST_2 = VAR_ST_1
+    Do
+        On Error Resume Next
+        Clipboard.SetText VAR_ST_1, vbCFText
+        Sleep 500
+        VAR_ST_2 = Clipboard.GetText
+        On Error GoTo 0
+        If VAR_ST_2 <> VAR_ST_1 Then Sleep 800
+    Loop Until VAR_ST_2 = VAR_ST_1
+
+End If
 
 Me.WindowState = vbMinimized
 Beep
@@ -7664,7 +7684,7 @@ Dim i
 Do
     ALL_DONE = True
     SET_COMPUTER_TO_RUN_PID_EXE = UCase("WSCRIPT.EXE")
-    For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+    For R = lstProcess_3_SORTER_ListView.ListItems.Count To 1 Step -1
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(UCase(A1), SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
             pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
@@ -7673,6 +7693,7 @@ Do
         End If
     Next
     
+    ENUMPROCESS_MUST_RUNNER = True
     Call EnumProcess
 Loop Until ALL_DONE = True
 
