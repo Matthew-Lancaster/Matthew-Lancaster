@@ -157,7 +157,7 @@ SetTitleMatchMode 2  ; ANY PARTIAL
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 07 12_ UP THE SOUTH DOWNS SOUTHWICK HILL
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 08 07_ COMBINE HARVESTER UP SOUTHWICK HILL SOUTH DOWNS -- MILE OAK FARM
 ; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 ; -------------------------------------------------------------------
@@ -380,9 +380,16 @@ IfWinExist, %SET_String%
 	}
 }
 
+IfWinNOTExist, %SET_String%
+{
+	MSGBOX YOU HAVE TO BE IN THE EXPLORER FOLDER WHERE FILE EXIST`nTHE APP DOES NOT FIND THE REQUIREMENT TO RUN `nAS MET BY EXIST `n`n%SET_String% `n`nWINDOW DOES NOT RESULT TO WINEXIST`n`nGOING TO EXIT`n`nA BIT FUSSY TRUE
+	EXITAPP
+	RETURN
+}
+
 IF SET_GO=FALSE
 {
-	MSGBOX THE APP DOES NOT FIND THE REQUIREMENT TO RUN `nAS MET BY `n`n%FACEBOOK_URL_TITLE_1% `nWindow Does Not Result to WinExist `n`nAnd Also `n`n%FACEBOOK_URL_TITLE_2% `nDoes Not Result to WinExist `n`nGOING TO EXIT
+	MSGBOX THE APP DOES NOT FIND THE REQUIREMENT TO RUN `nAS MET BY `n`n%FACEBOOK_URL_TITLE_1% `nWINDOW DOES NOT RESULT TO WINEXIST`n`nAnd Also `n`n%FACEBOOK_URL_TITLE_2% `n`nDoes Not Result to WinExist `n`nGOING TO EXIT
 	EXITAPP
 	RETURN
 }
