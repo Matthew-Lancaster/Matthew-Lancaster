@@ -1290,6 +1290,9 @@ AUTO_RELOAD_RAIN_ALARM:
 		
 		; (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
 		
+		WinGetCLASS, CLASS, A
+		WinGetTITLE, TITLE_VAR, A
+
 		IF SET_GO=TRUE
 		{
 			RAINER_F5_SET_GO=
@@ -1311,11 +1314,27 @@ AUTO_RELOAD_RAIN_ALARM:
 		}
 	}
 	
-	
+
+	; CHECK FOR WIN EXIST AND MAKE ACTIVE
+	; -----------------------------------
+	IF SET_GO=TRUE
+	{
+		Loop % FN_ARRAY_RAINER_F5.MaxIndex()
+		{
+			Element := FN_ARRAY_RAINER_F5[A_Index]
+			IfWinExist, %Element%
+			{
+				WinActivate, %Element%
+				WinWaitActive, %Element%
+				SLEEP 1000
+				BREAK
+			}
+
+		}
+	}
 	
 	IF SET_GO=TRUE
 	{
-	
 		RAINER_F5_SET_GO=
 		Loop % FN_ARRAY_RAINER_F5.MaxIndex()
 		{
