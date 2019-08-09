@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form ScanPath 
    BackColor       =   &H00808080&
    Caption         =   "ScanPath 2.0 - Sort  Anything -"
@@ -529,7 +529,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   225050625
+      Format          =   36175873
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -543,7 +543,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   225050625
+      Format          =   36175873
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -556,7 +556,7 @@ Begin VB.Form ScanPath
       _ExtentX        =   1969
       _ExtentY        =   572
       _Version        =   393216
-      Format          =   225050626
+      Format          =   36175874
       CurrentDate     =   37299
    End
    Begin VB.Label lblCount7 
@@ -935,6 +935,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 '-------------Is This Sub Get on It at start      at       Bangers
 
+Public EXIT_TRUE
 
 Dim LAST_FILE_DATE_TIME1, LAST_FILE_DATE_TIME2
 

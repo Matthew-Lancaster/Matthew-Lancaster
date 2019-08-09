@@ -771,10 +771,6 @@ WORK = "MOD_TO_CREATED_DATE"
 
 End Sub
 
-Private Sub Label3_Click()
-
-End Sub
-
 Private Sub Label9_Click()
 
 
@@ -825,55 +821,32 @@ If WORK = "SET_ONE_DATE" = True Then
     a = "D:\DSC\# Docus Proofs Texts\# BHT\SMS PROOFS\2009-09-22 23-09-55 - Sony Ericsson K800i - DSC03047.JPG"
     a = "D:\DSC\# Docus Proofs Texts\# BHT\SMS PROOFS\2009-09-22 23-10-12 - Sony Ericsson K800i - DSC03048.JPG"
     a = "D:\VI_ DSC ME\2010+NOKIA\2015 NOKIA E72 _ 008 AUG _ MP4 _ x001 _ Home Front Room\2015_08_07 AUG_FRI 15_13_38__MAQ06717 - MY HOME.MP4"
-    
-    
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_07_24 Jul_Wed 22_48_08__MAQ07083_A Piezoelectric Speaker (AKA A Piezo Bender)_ELECTRONIC TECHNO RECORDER.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_02_07 Feb_Thu 14_42_48__MAQ03670_SEAGULLS AT BEACH SWARM.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_02_27 Feb_Wed 08_04_38__MAQ04106 VIDEO OF DEVICE THAT DOESN'T WORK GOT FROM EBAY ALARM AT POWER FAILURE ALERT.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_02_27 Feb_Wed 08_04_38__MAQ04106 VIDEO OF DEVICE THAT DOESN'T WORK GOT FROM EBAY ALARM AT POWER FAILURE ALERT.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_08_01 Aug_Thu 20_19_40__MAQ07292_VIEW TOP SOUTHWICK HILL SOUTH DOWNS.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_07_28 Jul_Sun 17_00_39__MAQ07182_UP THE DOWNS SUOTHWICK HILL.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_07_12 Jul_Fri 16_04_05__MAQ06893_UP THE SOUTH DOWN_.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_07_06 Jul_Sat 09_58_34__MAQ06634_UP THE SOUTH DOWN_ VIEW ON CHANCTONBURY RING _ LOT OF ANIMAL_ CATTLE & OTHER.txt"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_06_27 Jun_Thu 16_11_26__MAQ06357_A Walk Up The Downs _ Was Giver Show Sound Of Pylon Wire Thrash By Heavy Wind And Sunny A Type Of Undescribable Audio A View of Chantonbury Ring.MP4"
-    a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_02_27 Feb_Wed 08_04_38__MAQ04106 VIDEO OF DEVICE THAT DOESN'T WORK GOT FROM EBAY ALARM AT POWER FAILURE ALERT.MP4"
-    XX = InStr(a, "\2019_")
-    DATEVAR = Replace(Mid(a, XX + 1, 10) + " " + Mid(a, XX + 20, 8), "_", "-")
-    
-    
-    
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_02_27 Feb_Tue 15_27_03__MAQ08676 _ Down at the Docks, Shoreham Port The Digger Weighs How Much Hardcore In The Spade_2.mp4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_05_28 May_Mon 15_25_36__MAQ00290 _ STARLING NEW BORN.MP4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_06_17 Jun_Sun 13_21_11__MAQ00586.mp4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_07_13 Jul_Fri 16_05_40__MAQ01488 _ Rotated_Garden_Water.mp4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_07_19 Jul_Thu 10_58_21__MAQ01563 _ Logitech 533 Speaker Standby Mode Removed Circuit Delay Control Gear.mp4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_08_20 Aug_Mon 19_02_51__MAQ02416 _ Helicopter Along the Seafront.mp4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_08_20 Aug_Mon 16_39_01__MAQ02389 _ SQUIRREL IN THE GARDEN.mp4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_10_27 Oct_Sat 10_18_46__MAQ01732_SEAGULL AND THE BIRD FEAST FAT TRAY WITH CHERRIES ON.MP4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_10_27 Oct_Sat 10_18_46__MAQ01732_SEAGULL AND THE BIRD FEAST FAT TRAY WITH CHERRIES ON.MP4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_10_27 Oct_Sat 10_18_46__MAQ01732_SEAGULL AND THE BIRD FEAST FAT TRAY WITH CHERRIES ON.MP4"
-    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_10_31 Oct_Wed 11_55_50__MAQ01836 (2).mp4"
-    
-    XX = InStr(a, "\2018_")
-    DATEVAR = Replace(Mid(a, XX + 1, 10) + " " + Mid(a, XX + 20, 8), "_", "-")
+    'A = ""
+    'A = ""
+    'A = ""
+    'A = ""
+    'A = ""
+    'A = ""
+    'A = ""
     
     'SET THE FILE ABOVE
     'SET DATE BELOW
-
-'    Set F = FSO.GetFile(a)
-'    DT1 = F.datelastmodified
-'    Set F = Nothing
     
+    Set F = FSO.GetFile(a)
+    DT1 = F.datelastmodified
+    Set F = Nothing
     'DateSet = DT1 - TimeSerial(1, 0, 0)
-
-'    DATEVAR = "2009-09-22 21-23-03"
-'    DATEVAR = "2009-09-22 23-09-55"
-'    DATEVAR = "2009-09-22 23-10-12"
-'    DATEVAR = "2015-08-07 15-13-38"
+    DATEVAR = "2009-09-22 21-23-03"
+    DATEVAR = "2009-09-22 23-09-55"
+    DATEVAR = "2009-09-22 23-10-12"
+    DATEVAR = "2015-08-07 15-13-38"
     'DATEVAR = ""
     'DATEVAR = ""
-    
-    
+    'DATEVAR = ""
+    'DATEVAR = ""
+    'DATEVAR = ""
+    'DATEVAR = ""
+    'DATEVAR = ""
     For r = 1 To 10
     If Mid(DATEVAR, r, 1) = "-" Then Mid(DATEVAR, r, 1) = "/"
     Next
@@ -911,8 +884,6 @@ Label8.BackColor = Label6.BackColor
 Label5.BackColor = Label7.BackColor
 
 WORK = "SET_ONE_DATE"
-
-Call Label5_Click
 
 End Sub
 

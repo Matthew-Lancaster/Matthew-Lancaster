@@ -20,6 +20,8 @@ Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwn
 '
 Dim R As Long
 
+Dim NET_PATH_AND_DRIVE
+
 '-----------------------------------------------------------------
 Private Declare Function GetVersionExA Lib "kernel32" _
 (lpVersionInformation As OSVERSIONINFO) As Integer
@@ -185,17 +187,27 @@ Do
 
     If HERE_GO = True Then
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename_VAR(R_L) + "__C")
+            NET_PATH_AND_DRIVE = Filename_VAR(R_L) + "__C"
+            Set LV = .ListItems.Add(, , NET_PATH_AND_DRIVE)
             LV.SubItems(1) = Path
+            Call GET_COMPUTR_NETWORK_NAME
+            NET_C_PATH = NET_C_PATH + NET_PATH_AND_DRIVE + vbCrLf
         End With
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename_VAR(R_L) + "__D")
+            NET_PATH_AND_DRIVE = Filename_VAR(R_L) + "__D"
+            Set LV = .ListItems.Add(, , NET_PATH_AND_DRIVE)
             LV.SubItems(1) = Path
+            Call GET_COMPUTR_NETWORK_NAME
+            NET_D_PATH = NET_D_PATH + NET_PATH_AND_DRIVE + vbCrLf
+            
         End With
         If R_L_X > 0 Then
             With ScanPath.ListView1
-                Set LV = .ListItems.Add(, , Filename_VAR(R_L) + "__E")
+                NET_PATH_AND_DRIVE = Filename_VAR(R_L) + "__E"
+                Set LV = .ListItems.Add(, , NET_PATH_AND_DRIVE)
                 LV.SubItems(1) = Path
+                Call GET_COMPUTR_NETWORK_NAME
+                NET_E_PATH = NET_E_PATH + NET_PATH_AND_DRIVE + vbCrLf
             End With
         End If
     End If
@@ -816,6 +828,25 @@ Next
 
 End Sub
 
+
+Sub GET_COMPUTR_NETWORK_NAME()
+
+            B1 = NET_PATH_AND_DRIVE
+            COMPUTER_NAME_VAR = Mid(B1, 3, InStr(B1, "__") - 3)
+            COMPUTER_NAME_UNDERSCORE_VAR = Replace(COMPUTER_NAME_VAR, "-", "_")
+            COMPUTER_NAME_DRIVE_LETTER_VAR = Mid(B1, InStr(B1, "__") + 2, 1)
+            If COMPUTER_NAME_DRIVE_LETTER_VAR = "C" Then DRIVE_VAR = "01"
+            If COMPUTER_NAME_DRIVE_LETTER_VAR = "D" Then DRIVE_VAR = "02"
+            If COMPUTER_NAME_DRIVE_LETTER_VAR = "E" Then DRIVE_VAR = "03"
+            COMPUTER_NAME_PUT_01 = "\\" + COMPUTER_NAME_VAR + "\" + COMPUTER_NAME_UNDERSCORE_VAR + "_"
+            COMPUTER_NAME_PUT_02 = DRIVE_VAR + "_" + COMPUTER_NAME_DRIVE_LETTER_VAR + "_DRIVE"
+            COMPUTER_NAME_PUT = COMPUTER_NAME_PUT_01 + COMPUTER_NAME_PUT_02
+            ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive
+            NET_PATH_AND_DRIVE = COMPUTER_NAME_PUT
+
+End Sub
+
+
 Sub LabelClick(Index)
 
 If SetTrueToLoadLast = False Then
@@ -874,7 +905,10 @@ If Mid(A1$, 1, 2) = "--" Then
     End If
     If A1$ = "--DriveRemote" And Mid(B1, 1, 2) = "\\" Then
         If InStr(B1, "__") > 0 Then
-            
+'                        NET_C_PATH = NET_C_PATH + Filename_VAR(R_L) + "__C" + vbCrLf
+'            NET_D_PATH = NET_D_PATH + Filename_VAR(R_L) + "__D" + vbCrLf
+'            NET_E_PATH = NET_E_PATH + Filename_VAR(R_L) + "__C" + vbCrLf
+
             COMPUTER_NAME_VAR = Mid(B1, 3, InStr(B1, "__") - 3)
             COMPUTER_NAME_UNDERSCORE_VAR = Replace(COMPUTER_NAME_VAR, "-", "_")
             COMPUTER_NAME_DRIVE_LETTER_VAR = Mid(B1, InStr(B1, "__") + 2, 1)
