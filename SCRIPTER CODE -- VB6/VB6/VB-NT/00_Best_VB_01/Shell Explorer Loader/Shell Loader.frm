@@ -5868,6 +5868,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_CLIPBOARDOR 
       Caption         =   "CLIPBOARD ITEM TEXT"
    End
+   Begin VB.Menu MNU_CLIPBOARD_ALL_NET_PATH 
+      Caption         =   "CLIPBOARD ALL NET PATH"
+   End
    Begin VB.Menu MNU_NETWORK_2_STEP_JUMPER 
       Caption         =   "NETWORK 2 STEP JUMPER"
    End
@@ -6345,6 +6348,15 @@ End Sub
 
 Private Sub Lbl_COMBO_NUMBER_Click()
 'Lbl_COMBO_NUMBER.CAPTION
+End Sub
+
+Private Sub MNU_CLIPBOARD_ALL_NET_PATH_Click()
+
+
+    Clipboard.Clear
+    Clipboard.SetText NET_C_PATH + vbCrLf + NET_D_PATH + vbCrLf + NET_E_PATH + vbCrLf
+    End
+
 End Sub
 
 Private Sub MNU_CLIPBOARDOR_Click()
