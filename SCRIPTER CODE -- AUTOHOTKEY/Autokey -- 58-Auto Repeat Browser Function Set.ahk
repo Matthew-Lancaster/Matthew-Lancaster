@@ -368,6 +368,8 @@ IF OSVER_N_VAR=WIN_XP
 	OSVER_N_VAR=5
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
+IF OSVER_N_VAR=WIN_10
+	OSVER_N_VAR=10
 
 SET_GO=TRUE
 IF A_ComputerName=1-ASUS-X5DIJ
@@ -610,7 +612,12 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 		{	
 			; SOUNDBEEP 2000,100
 			WinActivate, %XR_4%
-			WinWaitActive
+			IF OSVER_N_VAR=WIN_XP
+				WinWaitActive, %XR_4%
+			IF OSVER_N_VAR=WIN_7
+				WinWaitActive
+			IF OSVER_N_VAR=WIN_10
+				WinWaitActive
 			SLEEP 100
 		}
 
@@ -870,7 +877,13 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			IF XR_4
 			{	
 				WinActivate, %XR_4%
-				WinWaitActive
+				IF OSVER_N_VAR=WIN_XP
+					WinWaitActive, %XR_4%
+				IF OSVER_N_VAR=WIN_7
+					WinWaitActive
+				IF OSVER_N_VAR=WIN_10
+					WinWaitActive
+
 				SLEEP 1000
 			}
 	}
@@ -1243,7 +1256,12 @@ SET_RAIN_ALARM_WINDOW_DIMENSION:
 			If RAINER_F5_SET_GO
 			{
 				WinActivate, %RAINER_F5_SET_GO%
-				WinWaitActive
+				IF OSVER_N_VAR=WIN_XP
+					WinWaitActive, %RAINER_F5_SET_GO%
+				IF OSVER_N_VAR=WIN_7
+					WinWaitActive
+				IF OSVER_N_VAR=WIN_10
+					WinWaitActive
 				SLEEP 400
 			}
 			
@@ -1355,11 +1373,12 @@ AUTO_RELOAD_RAIN_ALARM:
 			IfWinExist, %Element%
 			{
 				WinActivate, %Element%
-				
-				; WinWaitActive ---- NOT WORK ON WINDOWS 07 IN THE STYLE SHOW NEXT
-				; WinWaitActive, %Element%
-				
-				WinWaitActive
+				IF OSVER_N_VAR=WIN_XP
+					WinWaitActive, %Element%
+				IF OSVER_N_VAR=WIN_7
+					WinWaitActive
+				IF OSVER_N_VAR=WIN_10
+					WinWaitActive
 				SLEEP 200
 				BREAK
 			}
@@ -1383,7 +1402,12 @@ AUTO_RELOAD_RAIN_ALARM:
 		If RAINER_F5_SET_GO
 		{
 			WinActivate, %RAINER_F5_SET_GO%
-			WinWaitActive
+			IF OSVER_N_VAR=WIN_XP
+				WinWaitActive, %RAINER_F5_SET_GO%
+			IF OSVER_N_VAR=WIN_7
+				WinWaitActive
+			IF OSVER_N_VAR=WIN_10
+				WinWaitActive
 			SLEEP 1000
 		}
 	}
@@ -1458,7 +1482,12 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 			IfWinExist, %Element%
 			{
 				WinActivate, %Element%
-				WinWaitActive
+				IF OSVER_N_VAR=WIN_XP
+					WinWaitActive, %Element%
+				IF OSVER_N_VAR=WIN_7
+					WinWaitActive
+				IF OSVER_N_VAR=WIN_10
+					WinWaitActive
 				BREAK
 			}
 		}
@@ -1533,7 +1562,12 @@ AUTO_RELOAD_FACEBOOK:
 			IfWinExist, %Element%
 			{
 				WinActivate, %Element%
-				WinWaitActive
+				IF OSVER_N_VAR=WIN_XP
+					WinWaitActive, %Element%
+				IF OSVER_N_VAR=WIN_7
+					WinWaitActive
+				IF OSVER_N_VAR=WIN_10
+					WinWaitActive
 				BREAK
 			}
 		}
