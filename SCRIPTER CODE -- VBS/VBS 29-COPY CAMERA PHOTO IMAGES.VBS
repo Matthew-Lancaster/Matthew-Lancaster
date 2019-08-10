@@ -697,11 +697,14 @@ Sub Main
 	' ---------------------------------------------------------------	
 	' SOMETHING BEGIN LIKE HERE
 
-	IF INSTR("4K-ULTRA-HD",FOLDER_PATH_R_COUNT) THEN 
+	SET_GO=FALSE
+	IF INSTR("4K-ULTRA-HD",FOLDER_PATH_R_COUNT) THEN SET_GO=TRUE
+	IF INSTR("MC - HX60V",FOLDER_PATH_R_COUNT) THEN SET_GO=TRUE
+	IF INSTR("MC - HX60V0",FOLDER_PATH_R_COUNT) THEN SET_GO=TRUE
+	IF SET_GO=TRUE THEN
 		' DO SOME WORK TO RENAME FILE
-
 		FOLDER_PATH_MAIN_4=FOLDER_PATH_DEST_VAR_2
-
+		MSGBOX FOLDER_PATH_DEST_VAR_2
 		CALL MAIN_4
 		
 	END IF
@@ -793,7 +796,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 	IF FOLDER_PATH_IGNOR_DATE_INDEX(R_COUNT)=TRUE THEN
 		IGNOR_DATE_INDEX=TRUE
 	END IF
-
 	
 	FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_AVOID_ITEM)
 		IF NOT MID(FOLDER_PATH_AVOID_ITEM(R_COUNT_2),1,1)="." THEN
@@ -806,11 +808,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 			IF RIGHT(UCASE(VAR_PATH_SCANNER),I_X__)=I_TXT then SET_GO_FILE=FALSE
 		END IF
 	NEXT
-
-	
 	
 	IF SET_GO_FILE=FALSE THEN EXIT SUB
-
 	
 	I_COUNT_2=I_COUNT_2+1
 	
@@ -996,6 +995,7 @@ SUB PATH_SCANNER_RENAME_4
 	
 	' --------------------------------
 	' SONY CYBERSHOT AFTER DONE FORMAT
+	' "MC - HX60V"
 	' --------------------------------
 	' 2019-01-05 00-13-12 - SONY DSC-HX60V - DSC03146.JPG
 	' 2019_01_07 Jan_Mon 14_41_48__MAQ03178.MP4
@@ -1012,6 +1012,9 @@ SUB PATH_SCANNER_RENAME_4
 		MSGBOX "ERROR FILE DATE = 0 " + VBCRLF + VAR_PATH_SCANNER
 	END IF
 	
+	' 4K-ULTRA-HD
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
 	IF INSTR("4K-ULTRA-HD",FOLDER_PATH_R_COUNT) THEN 
 		' IF LEN(FILE_VAR)<>12 THEN EXIT SUB
 		i_TIME=FILE_VAR
@@ -1066,8 +1069,61 @@ SUB PATH_SCANNER_RENAME_4
 			CreateFolderTree(NewPATH)
 			' BuildFullPath PATH_VAR
 		END IF
-		
 	END IF
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	' 4K-ULTRA-HD  ---- ENDER
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	
+	
+	' MC - HX60V
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	SET_GO=FALSE
+	IF INSTR("MC - HX60V",FOLDER_PATH_R_COUNT) THEN SET_GO=TRUE
+	IF INSTR("MC - HX60V0",FOLDER_PATH_R_COUNT) THEN SET_GO=TRUE
+	IF SET_GO=TRUE THEN
+	
+		' IF LEN(FILE_VAR)<>12 THEN EXIT SUB
+		i_TIME=FILE_VAR
+		MSGBOX PATH_VAR
+		IF INSTR(UCASE(FILE_VAR),".MP4") THEN 
+			MSGBOX UCASE(FILE_VAR)
+			SET_GO=FALSE
+			IF MID(FILE_VAR,1,2)="MA" THEN SET_GO=TRUE
+			IF SET_GO=TRUE THEN
+				i_TIME=""
+				i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"_"
+				i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)+" "
+				i_TIME=i_TIME+MonthName(MONTH(FileModDate),TRUE)+"_"
+				i_TIME=i_TIME+WeekdayName(Weekday(VAR_NOW),TRUE)
+
+				i_TIME=i_TIME+" "
+				i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)+"__"
+				i_TIME=i_TIME+FILE_VAR
+			END IF
+		END IF
+
+		NewFilename=i_TIME
+		NewPATH=PATH_VAR
+
+		NewFilename=NewPATH+NewFilename
+		IF FSO.FolderExists(NewPATH)=FALSE THEN 
+			MSGBOX "FOLDER NOT EXIST ERROR"+VBCRLF+VBCLF+NewPATH
+			' CreateFolderTree(NewPATH)
+			' BuildFullPath PATH_VAR
+		END IF
+	END IF
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	' MC - HX60V  ---- ENDER
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	
 
 	if VAR_PATH_SCANNER <> NewFilename then 
 		' MSGBOX NewFilename
