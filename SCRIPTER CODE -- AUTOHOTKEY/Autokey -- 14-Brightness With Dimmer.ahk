@@ -624,17 +624,24 @@ GOSUB, MONITOR_BRIGHTNESS_DIMMER_PER_DAY
 DetectHiddenWindows, on
 ALLOW_DIMMER := "True"
 
-if WinActive("ahk_class MediaPlayerClassicW")
-ALLOW_DIMMER := "False"
+WinGetCLASS, CLASS, A
+WinGetTITLE, TITLE_VAR_2, A
 
-; if WinActive("ahk_class Notepad++")
+IF INSTR(CLASS,"MediaPlayerClassicW")
+	ALLOW_DIMMER := "False"
+
+; IF INSTR(CLASS,"Notepad++")
 ; ALLOW_DIMMER := "False"
 
-If WinActive("tube - Google Chrome")
+IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
 	ALLOW_DIMMER := "False"
 	
-If WinActive("YouTube - Google Chrome")
+IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
 	ALLOW_DIMMER := "False"
+
+IF INSTR(TITLE_VAR_2,"bunker.com")
+	ALLOW_DIMMER := "False"
+
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
 	ALLOW_DIMMER := "False"
@@ -762,10 +769,6 @@ if state = D
 	; MOUSE BUTTON LEFT HELD DOWN WHEN DRAGGER FOR LONG NOT DETECT BY IDLE ACTIVE UNLESS SWITCH
 
 
-
-
-
-	
 ;#-------------------------------
 SET_GO=TRUE
 IF (ALLOW_DIMMER = "False")
@@ -800,7 +803,6 @@ ELSE
 		VAR_A__TimeIdle_3_OF_4=%A_TimeIdleMouse%
 }	
 
-	
 If VAR_A__TimeIdle_3_OF_4 < %VAR_Z__TimeIdle%
 	SET_GO=FALSE
 	
@@ -995,11 +997,27 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 				;DEBUGGER LITTLE SQUARE FOR BLANK SCREEN
 				;---------------------------------------
 				; Gui, Show, x0 y0 w100 h100	
+
+
+
+				WinGetCLASS, CLASS, A
+				WinGetTITLE, TITLE_VAR_2, A
+				ALLOW_BLANK := "True"
+				IF INSTR(CLASS,"MediaPlayerClassicW")
+					ALLOW_BLANK := "False"
+				IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
+					ALLOW_BLANK := "False"
+				IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
+					ALLOW_BLANK := "False"
+				IF INSTR(TITLE_VAR_2,"bunker.com")
+					ALLOW_BLANK := "False"
+
 				
 				;--------------------------------------------------------
 				; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
 				; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
 				;--------------------------------------------------------
+				IF ALLOW_BLANK=TRUE
 				IF (POWER_SCREEN_SAVE_OFF="False")
 					SendMessage, 0x112, 0xF170, 2,, Program Manager
 				;--------------------------------------------------------
