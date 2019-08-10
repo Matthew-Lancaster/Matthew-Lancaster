@@ -610,7 +610,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 		{	
 			; SOUNDBEEP 2000,100
 			WinActivate, %XR_4%
-			WinWaitActive, %XR_4%
+			WinWaitActive
 			SLEEP 100
 		}
 
@@ -870,7 +870,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 			IF XR_4
 			{	
 				WinActivate, %XR_4%
-				WinWaitActive, %XR_4%
+				WinWaitActive
 				SLEEP 1000
 			}
 	}
@@ -1070,12 +1070,12 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 		IF BROWSER_APP=1
 		{
 			WinActivate, ahk_class Chrome_WidgetWin_1
-			WinWaitActive, ahk_class Chrome_WidgetWin_1
+			WinWaitActive
 		}
 		IF BROWSER_APP=2
 		{
 			WinActivate, ahk_class MozillaWindowClass
-			WinWaitActive, ahk_class MozillaWindowClass
+			WinWaitActive
 		}
 		
 		WinGetTITLE, TITLE_VAR_2, A
@@ -1243,7 +1243,7 @@ SET_RAIN_ALARM_WINDOW_DIMENSION:
 			If RAINER_F5_SET_GO
 			{
 				WinActivate, %RAINER_F5_SET_GO%
-				WinWaitActive, %RAINER_F5_SET_GO%
+				WinWaitActive
 				SLEEP 400
 			}
 			
@@ -1254,6 +1254,15 @@ RETURN
 
 
 AUTO_RELOAD_RAIN_ALARM:
+
+	SET_GO_8=FALSE
+	IF A_ComputerName=1-ASUS-X5DIJ
+		SET_GO_8=TRUE
+	IF A_ComputerName=5-ASUS-P2520LA
+		SET_GO_8=TRUE
+	IF A_ComputerName=4-ASUS-GL522VW
+		SET_GO_8=TRUE
+
 
 	IF A_ComputerName=2-ASUS-EEE
 	{
@@ -1334,20 +1343,11 @@ AUTO_RELOAD_RAIN_ALARM:
 	; If (A_TimeIdle < 8000)
 		; RETURN
 	
-	
-	SET_GO=FALSE
-	IF A_ComputerName=1-ASUS-X5DIJ
-		SET_GO=TRUE
-	IF A_ComputerName=5-ASUS-P2520LA
-		SET_GO=TRUE
-	IF A_ComputerName=4-ASUS-GL522VW
-		SET_GO=TRUE
-
 		
 	; CHECK FOR WIN EXIST AND MAKE ACTIVE
 	; -----------------------------------
-	; SET_GO IS COMPUTER NAME
-	IF SET_GO=TRUE
+	; SET_GO_8 IS COMPUTER NAME
+	IF SET_GO_8=TRUE
 	{
 		Loop % FN_ARRAY_RAINER_F5.MaxIndex()
 		{
@@ -1355,24 +1355,22 @@ AUTO_RELOAD_RAIN_ALARM:
 			IfWinExist, %Element%
 			{
 				WinActivate, %Element%
-				WinWaitActive, %Element%
-				SLEEP 1000
+				
+				; WinWaitActive ---- NOT WORK ON WINDOWS 07 IN THE STYLE SHOW NEXT
+				; WinWaitActive, %Element%
+				
+				WinWaitActive
+				SLEEP 200
 				BREAK
 			}
 
 		}
 	}
-	
-	SET_GO=FALSE
-	IF A_ComputerName=1-ASUS-X5DIJ
-		SET_GO=TRUE
-	IF A_ComputerName=5-ASUS-P2520LA
-		SET_GO=TRUE
-	IF A_ComputerName=4-ASUS-GL522VW
-		SET_GO=TRUE
 
-		; SET_GO IS COMPUTER NAME
-	IF SET_GO=TRUE
+	; SET_GO_8 IS COMPUTER NAME
+	WinGetCLASS, CLASS, A
+	WinGetTITLE, TITLE_VAR, A
+	IF SET_GO_8=TRUE
 	{
 		RAINER_F5_SET_GO=
 		Loop % FN_ARRAY_RAINER_F5.MaxIndex()
@@ -1385,7 +1383,7 @@ AUTO_RELOAD_RAIN_ALARM:
 		If RAINER_F5_SET_GO
 		{
 			WinActivate, %RAINER_F5_SET_GO%
-			WinWaitActive, %RAINER_F5_SET_GO%
+			WinWaitActive
 			SLEEP 1000
 		}
 	}
@@ -1434,6 +1432,16 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 	; ---------------------------------------------------
 	; TIMER REQUIRED FOR NOT TOO QUICK
 
+	SET_GO=FALSE
+	IF A_ComputerName=1-ASUS-X5DIJ
+		SET_GO=TRUE
+	IF A_ComputerName=5-ASUS-P2520LA
+		SET_GO=TRUE
+	IF SET_GO
+		SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,OFF
+	
+		
+	
 	SET_GO_2=FALSE
 	IF A_ComputerName=2-ASUS-EEE		
 		SET_GO_2=TRUE
@@ -1450,7 +1458,7 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 			IfWinExist, %Element%
 			{
 				WinActivate, %Element%
-				WinWaitActive, %Element%
+				WinWaitActive
 				BREAK
 			}
 		}
@@ -1525,7 +1533,7 @@ AUTO_RELOAD_FACEBOOK:
 			IfWinExist, %Element%
 			{
 				WinActivate, %Element%
-				WinWaitActive, %Element%
+				WinWaitActive
 				BREAK
 			}
 		}
