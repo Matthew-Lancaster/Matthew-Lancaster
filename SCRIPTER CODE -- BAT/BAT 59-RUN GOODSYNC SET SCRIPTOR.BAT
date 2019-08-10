@@ -376,6 +376,7 @@ GOTO NEXT_CONTINUE
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="D DSC 1 __  SONY CYBER SHOT MEDIA CARD BACKUP"
 
+	SET GoodSync_GSync="C:\GoodSync\x64\gsync.exe"
 
 :NEXT_CONTINUE
 
