@@ -1059,7 +1059,7 @@ End Function
 
 
 '---------
-' REFERANCE
+' REFERENCE
 '---------
 ' How Can I Get a List of All the Files in a Folder and Its Subfolders? – Hey, Scripting Guy! Blog
 ' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
