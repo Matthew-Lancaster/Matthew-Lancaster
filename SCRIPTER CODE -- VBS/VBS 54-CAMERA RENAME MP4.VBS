@@ -5,43 +5,35 @@
 '# __ 
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
-'# START     TIME [ Sat 10-Aug-2019 10:16:20 ]
-'# END FINAL TIME [ Mon 15-Jul-2019 07:54:00 ] 1 hour
+'# START     TIME [ Sat 10-Aug-2019 10:18:00 ]
+'# END FINAL TIME [ Sat 10-Aug-2019 12:04:00 ] NEAR 2 HOUR
 '# __ 
 '====================================================================
 
 '# ------------------------------------------------------------------
 ' DESCRIPTION 
 ' -------------------------------------------------------------------
-' AFTER OFF LOAD MY CAMERA REEL
-' BASICALLY IF MOVE THE FILE LIKE THIS
-
-' FOLDER_PATH(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\MP_ROOT"
-' FOLDER_PATH(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#\DCIM"
-' FOLDER_PATH_DEST(1)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
-' FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_ IMAGE"
-
-' IT IS DONE IN RECURSIVE 
+' IT GOT AN ARRAY LIKE HERE
+'
+' I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4"
+' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"'
+'
+' IT IS DONE IN SUB RECURSIVE 
 ' ALL THE FILE ARE READ BEFORE SO NONE PROBLEM 
-' IDEA IS IT TAKE A PATH FROM HIGH LEVEL AND MOVE LOWER
-' SOMETHING MOST SYNC PROGRAM WON'T OBEY
-
-' VARIOUS OPTION FOR EACH PATH SET IN ARRAY 
-
-' IT THE MODIFY WATER DOWN VERSION COPY OF 
+'
+' IT THE MODIFY VERSION COPY OF 
 ' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
-
+'
+' IT RENAME VIDEO FILE .MP4 AND .TXT SO EXTENSION ARE UPPER CASE
+'
 ' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
 ' SESSION 002
 ' -------------------------------------------------------------------
-' PUT LOAD OF CHANGE
-' MOVE FOLDER 
-' DELETE EMPTY
 ' -------------------------------------------------------------------
-' Sun 21-Jul-2019 22:43:00
-' Mon 22-Jul-2019 00:58:00
+' Sat 10-Aug-2019 10:18:00
+' Sat 10-Aug-2019 12:04:00
 ' -------------------------------------------------------------------
 
 
@@ -108,7 +100,7 @@ DIM R_COUNT
 
 DIM FOLDER_PATH_INDEX
 
-NUMBER_OF_ITEM = 10
+NUMBER_OF_ITEM = 100
 
 DIM FOLDER_PATH()
 DIM FOLDER_PATH_VAR()
@@ -163,15 +155,21 @@ DIM FOLDER_PATH_STORE
 DIM EXPLORER_LOADED
 DIM SHOW_EXPLORER_FLAG
 
-FOLDER_PATH(1)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4"
-FOLDER_PATH(2)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
-FOLDER_PATH(3)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot H70____#"
-FOLDER_PATH(4)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot HX5V__#"
-FOLDER_PATH(5)="D:\VI_ DSC ME\2010+Sony\2015 CyberShot HX60V_#"
-FOLDER_PATH(6)="D:\VI_ DSC ME\2010+Sony\2016 CyberShot HX60V_#"
-FOLDER_PATH(7)="D:\VI_ DSC ME\2010+Sony\2017 CyberShot HX60V_#"
-FOLDER_PATH(8)="D:\VI_ DSC ME\2010+Sony\2018 CyberShot HX60V_#"
-
+DIM I
+I=0
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot H70____#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot HX5V__#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2015 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2016 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2017 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2018 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2018 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2017 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2016 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2015 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2011 CyberShot H70 __\MP4"
 
 
 
@@ -199,67 +197,11 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 
 NEXT
 
-' FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
-
-	' IF fso.FOLDEREXISTS(FOLDER_PATH(R_COUNT)) = TRUE THEN 
-		
-		' IF fso.FILEEXISTS(FOLDER_PATH(R_COUNT)+"Thumbs.db") = TRUE THEN 
-			' FSO.DeleteFile FOLDER_PATH(R_COUNT)+"\Thumbs.db"
-		' END IF
-		
-		' Set objFolder = fso.GetFolder(FOLDER_PATH(R_COUNT))
-		' DeleteEmptyFolders objFolder
-		
-	' END IF
-' NEXT 
-
-IF WORK_GO_ER=FALSE THEN
-
-	I=""
-	I=I+"CAMERA COPY _ NOTHING DONE " + VBCRLF
-	I=I+"CHECKED VOLUME NAME" + VBCRLF
-	I=I+"--------------------------" + VBCRLF
-	FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
-		I=I+FOLDER_PATH(R_COUNT) + VBCRLF
-	NEXT
-	MSGBOX I
-
-END IF
-
 
 SET objFSO = NOTHING
 Wscript.QUIT
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
-
-
-
-Sub DeleteEmptyFolders(folder)
-    Dim subfolder
-	ON ERROR RESUME NEXT
-	ERR.CLEAR
-    For Each subfolder in folder.SubFolders
-		DeleteEmptyFolders subfolder
-    Next
-
-    If folder.SubFolders.Count = 0 And folder.Files.Count = 0 Then
-
-		ON ERROR RESUME NEXT
-		ERR.CLEAR
-		fso.DeleteFolder folder.Path, TRUE
-		IF ERR.NUMBER>0 THEN 
-			ERR_COUNTER = ERR_COUNTER +1
-			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
-
-			ERR.CLEAR
-			objFolder.DELETE, TRUE
-			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
-		END IF
-    End If
-End Sub
-
-
-
 
 
 Sub Main
@@ -279,10 +221,11 @@ Sub Main
 	ShowDriveInfo(MID(FOLDER_PATH_STORE,1,2))
 	
 	I=""
-	I=I+"DONE COPY COUNT: " 
+	I=I+"DONE RENAME COUNT: " 
 	I=I+CSTR(I_COUNT_1)
 	I=I+" of " + CSTR(I_COUNT_2) + VBCRLF
-	I=I+DRIVE_SPACE_INFO
+	'I=I+DRIVE_SPACE_INFO
+	I=I+FOLDER_PATH_STORE
 	
 	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
 		MSGBOX I
@@ -429,6 +372,33 @@ Dim volumes, volume
 
 End Function
 
+' NOT ROUTINE USER HERE THIS CODE SCRIPT
+Sub DeleteEmptyFolders(folder)
+    Dim subfolder
+	ON ERROR RESUME NEXT
+	ERR.CLEAR
+    For Each subfolder in folder.SubFolders
+		DeleteEmptyFolders subfolder
+    Next
+
+    If folder.SubFolders.Count = 0 And folder.Files.Count = 0 Then
+
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		fso.DeleteFolder folder.Path, TRUE
+		IF ERR.NUMBER>0 THEN 
+			ERR_COUNTER = ERR_COUNTER +1
+			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+
+			ERR.CLEAR
+			objFolder.DELETE, TRUE
+			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
+		END IF
+    End If
+End Sub
+
+
+' NOT ROUTINE USER HERE THIS CODE SCRIPT
 SUB PATH_SCANNER_RENAME_4
 
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
@@ -464,6 +434,7 @@ SUB PATH_SCANNER_RENAME_4
 END SUB
 
 
+' NOT ROUTINE USER HERE THIS CODE SCRIPT
 SUB PATH_SCANNER_RENAME_3
 
 	NewFilename=REPLACE(VAR_PATH_SCANNER,".JPG",".jpg")
@@ -477,6 +448,7 @@ SUB PATH_SCANNER_RENAME_3
 
 END SUB
 
+' NOT ROUTINE USER HERE THIS CODE SCRIPT
 SUB PATH_SCANNER_RENAME_2
 
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
@@ -543,6 +515,7 @@ SUB PATH_SCANNER_RENAME_2
 	
 END SUB
 
+' NOT ROUTINE USER HERE THIS CODE SCRIPT
 SUB PATH_SCANNER_RENAME
 
 	SET_GO=FALSE
@@ -647,9 +620,6 @@ SUB PATH_SCANNER_RENAME
 END SUB
 
 
-
-
-
 '------------------------------------------------
 Sub Search(Folder)
 '------------------------------------------------
@@ -675,7 +645,7 @@ End Sub
 
 
 '---------
-' REFERANCE
+' REFERENCE REFERENCE
 '---------
 ' How Can I Get a List of All the Files in a Folder and Its Subfolders? – Hey, Scripting Guy! Blog
 ' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
