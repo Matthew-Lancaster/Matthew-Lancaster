@@ -368,7 +368,7 @@ IF OSVER_N_VAR=WIN_XP
 	OSVER_N_VAR=5
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
-IF OSVER_N_VAR=WIN_10
+IF OSVER_N_VAR=10
 	OSVER_N_VAR=10
 
 SET_GO=TRUE
@@ -616,7 +616,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 				WinWaitActive, %XR_4%
 			IF OSVER_N_VAR=WIN_7
 				WinWaitActive
-			IF OSVER_N_VAR=WIN_10
+			IF OSVER_N_VAR=10
 				WinWaitActive
 			SLEEP 100
 		}
@@ -881,7 +881,7 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 					WinWaitActive, %XR_4%
 				IF OSVER_N_VAR=WIN_7
 					WinWaitActive
-				IF OSVER_N_VAR=WIN_10
+				IF OSVER_N_VAR=10
 					WinWaitActive
 
 				SLEEP 1000
@@ -1260,7 +1260,7 @@ SET_RAIN_ALARM_WINDOW_DIMENSION:
 					WinWaitActive, %RAINER_F5_SET_GO%
 				IF OSVER_N_VAR=WIN_7
 					WinWaitActive
-				IF OSVER_N_VAR=WIN_10
+				IF OSVER_N_VAR=10
 					WinWaitActive
 				SLEEP 400
 			}
@@ -1377,7 +1377,7 @@ AUTO_RELOAD_RAIN_ALARM:
 					WinWaitActive, %Element%
 				IF OSVER_N_VAR=WIN_7
 					WinWaitActive
-				IF OSVER_N_VAR=WIN_10
+				IF OSVER_N_VAR=10
 					WinWaitActive
 				SLEEP 200
 				BREAK
@@ -1406,7 +1406,7 @@ AUTO_RELOAD_RAIN_ALARM:
 				WinWaitActive, %RAINER_F5_SET_GO%
 			IF OSVER_N_VAR=WIN_7
 				WinWaitActive
-			IF OSVER_N_VAR=WIN_10
+			IF OSVER_N_VAR=10
 				WinWaitActive
 			SLEEP 1000
 		}
@@ -1461,7 +1461,7 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 		SET_GO=TRUE
 	IF A_ComputerName=5-ASUS-P2520LA
 		SET_GO=TRUE
-	IF SET_GO
+	IF SET_GO=TRUE
 		SETTIMER AUTO_RELOAD_FACEBOOK_QUICK_SUB,OFF
 	
 		
@@ -1485,12 +1485,17 @@ AUTO_RELOAD_FACEBOOK_QUICK_SUB:
 			IfWinExist, %Element%
 			{
 				WinActivate, %Element%
+				IF OSVER_N_VAR=WIN_7
+					MSGBOX % OSVER_N_VAR
+				IF OSVER_N_VAR=7
+					MSGBOX % OSVER_N_VAR
 				IF OSVER_N_VAR=WIN_XP
 					WinWaitActive, %Element%
 				IF OSVER_N_VAR=WIN_7
 					WinWaitActive
-				IF OSVER_N_VAR=WIN_10
+				IF OSVER_N_VAR=10
 					WinWaitActive
+					; WinWaitActive, %Element%
 				BREAK
 			}
 		}
@@ -1573,8 +1578,8 @@ AUTO_RELOAD_FACEBOOK:
 					WinWaitActive, %Element%
 				IF OSVER_N_VAR=WIN_7
 					WinWaitActive
-				IF OSVER_N_VAR=WIN_10
-					WinWaitActive
+				IF OSVER_N_VAR=10
+					WinWaitActive, %Element%
 				BREAK
 			}
 		}
