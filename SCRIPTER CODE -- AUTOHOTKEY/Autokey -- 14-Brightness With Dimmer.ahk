@@ -637,6 +637,26 @@ ARTIFICIAL_F5_A_Now:=A_Now
 }
 RETURN
 
+ALLOW_DIMMER_CHECKER:
+
+WinGetCLASS, CLASS, A
+WinGetTITLE, TITLE_VAR_2, A
+
+IF INSTR(CLASS,"MediaPlayerClassicW")
+	ALLOW_DIMMER := "False"
+
+IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
+	ALLOW_DIMMER := "False"
+	
+IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
+	ALLOW_DIMMER := "False"
+
+IF INSTR(TITLE_VAR_2,"bunker.com")
+	ALLOW_DIMMER := "False"
+
+RETURN
+
+
 ; ------------------------------------
 Mouse_Idle_Timer:
 
@@ -651,23 +671,7 @@ GOSUB, MONITOR_BRIGHTNESS_DIMMER_PER_DAY
 DetectHiddenWindows, on
 ALLOW_DIMMER := "True"
 
-WinGetCLASS, CLASS, A
-WinGetTITLE, TITLE_VAR_2, A
-
-IF INSTR(CLASS,"MediaPlayerClassicW")
-	ALLOW_DIMMER := "False"
-
-; IF INSTR(CLASS,"Notepad++")
-; ALLOW_DIMMER := "False"
-
-IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
-	ALLOW_DIMMER := "False"
-	
-IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
-	ALLOW_DIMMER := "False"
-
-IF INSTR(TITLE_VAR_2,"bunker.com")
-	ALLOW_DIMMER := "False"
+GOSUB ALLOW_DIMMER_CHECKER
 
 IF ALLOW_DIMMER := "False" 
 	RETURN
@@ -924,6 +928,10 @@ RETURN
 ; ------------------------------------------------------------------
 MONITOR_BRIGHTNESS_DIM:
 
+GOSUB ALLOW_DIMMER_CHECKER
+
+IF ALLOW_DIMMER="False" 
+	RETURN
 IF ALLOW_DIMMER=FALSE
 	RETURN
 	
@@ -967,6 +975,13 @@ MONITOR_BRIGHTNESS_UP:
 RETURN
 
 MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
+
+GOSUB ALLOW_DIMMER_CHECKER
+IF ALLOW_DIMMER="False" 
+	RETURN
+IF ALLOW_DIMMER=FALSE
+	RETURN
+
 	
 	SET_GO=FALSE
 	IF (A_ComputerName="1-ASUS-X5DIJ")
