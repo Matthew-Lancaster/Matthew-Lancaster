@@ -552,6 +552,8 @@ SET_ARRAY_BROWSER_TAB_CLOSE() {
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="404 Page Not Found | CPC"
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Blocked Access - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Google Chrome Help"
 	
 	; ArrayCount += 1
 	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Home"
