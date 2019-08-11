@@ -157,7 +157,7 @@ SetTitleMatchMode 2  ; ANY PARTIAL
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 08 07_ COMBINE HARVESTER UP SOUTHWICK HILL SOUTH DOWNS -- MILE OAK FARM
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM\2019 08 02 TO 10_ FROM BEGIN MONTH INCLUDE STORM DAY WALKER
 ; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 ; -------------------------------------------------------------------
@@ -340,9 +340,6 @@ IF HAS_FIRST_BATCH_BEEN_DONE_AND_NEXT_SUBSEQUENT_BATCH_DOARH=TRUE
 ; USE SET_GO HERE IF BOTH WINDOW OPEN PRIORITY TO FIRST ONE
 ; ---------------------------------------------------------
 SET_GO=FALSE
-
-; D:\DSC\2015-Now Sony\2019 CyberShot HX60V\DCIM\2019 02 07 _ DAY AT SEAFRONT WHEN SUNNY AND ROUG
-
 
 ; -------------------------------------------------------------------
 ; TRIM THIS LINE A BIT BECAUSE EXPLORER TITLE DOES THAT ALSO
