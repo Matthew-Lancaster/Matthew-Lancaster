@@ -348,14 +348,24 @@ ALLOW_DIMMER := "True"
 O_IN_DAY_1=FALSE
 BLANK_DIMMER_VAR=FALSE
 
+; -------------------------------------------------------------------
 BLANK_DIMMER_TIME=60*2
-
 BLANK_DIMMER_TIME=40
 IF (A_ComputerName="4-ASUS-GL522VW")
 	BLANK_DIMMER_TIME=60*5
 IF (A_ComputerName="8-MSI-GP62M-7RD")
 	BLANK_DIMMER_TIME=60*1
 
+IN_DAY=TRUE
+FormatTime, T,, HHmm
+If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+	IN_DAY=FALSE
+IF IN_DAY=TRUE
+{
+IF (A_ComputerName="7-ASUS-GL522VW")
+	BLANK_DIMMER_TIME=120*1
+}
+; -------------------------------------------------------------------
 	
 BLANK_DIMMER=%A_Now%
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
@@ -487,6 +497,12 @@ RS232_LOGGER_TIMER_RUN_EXE:
 
 RETURN
 
+~LButton::
+	VAR_A__TimeIdle_2_OF_4=0
+~RButton::
+	VAR_A__TimeIdle_2_OF_4=0
+return
+
 RS232_SUB:
 RS232_LOGGER_TIMER_CHANGE:
 
@@ -532,7 +548,7 @@ RS232_LOGGER_TIMER_CHANGE:
 	; BUT WITH MOUSE WE WANT OPPOSITE THAT SIMULATED MOUSE MOUSE IS ABLE BRING 
 	; OUT OF SCREEN SAVER
 	; GET MY DRIFTER
-	; HAD TO GO TO BED FALLER ALSLEEP ON THIS ONE AND WAKE TO THE GO
+	; HAD TO GO TO BED FALLER ASLEEP ON THIS ONE AND WAKE TO THE GO
 	; [ Tuesday 10:12:30 Am_14 May 2019 ]
 	; -------------------------------------------------------------------
 
@@ -541,9 +557,20 @@ RS232_LOGGER_TIMER_CHANGE:
 	ELSE
 	{
 		VAR_A__TimeIdle_2_OF_4=%A_TimeIdlePhysical%
-		IF A_TimeIdleMouse<%VAR_A__TimeIdle_2_OF_4% 
-			VAR_A__TimeIdle_2_OF_4=%A_TimeIdleMouse%
+		
+		IN_DAY=TRUE
+		FormatTime, T,, HHmm
+		If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+			IN_DAY=FALSE
+		IF IN_DAY=TRUE
+		{
+			IF A_TimeIdleMouse<%VAR_A__TimeIdle_2_OF_4% 
+				VAR_A__TimeIdle_2_OF_4=%A_TimeIdleMouse%
+		}	
+		
 	}
+	
+;	TOOLTIP % " --" VAR_A__TimeIdle_2_OF_4
 	
 	QUICKER_OFF=FALSE
 	
@@ -642,6 +669,8 @@ IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
 IF INSTR(TITLE_VAR_2,"bunker.com")
 	ALLOW_DIMMER := "False"
 
+IF ALLOW_DIMMER := "False" 
+	RETURN
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
 	ALLOW_DIMMER := "False"
@@ -799,9 +828,22 @@ IF USE_A_TimeIdlePhysical=FALSE
 ELSE
 {
 	VAR_A__TimeIdle_3_OF_4=%A_TimeIdlePhysical%
-	IF A_TimeIdleMouse<%VAR_A__TimeIdle_3_OF_4% 
-		VAR_A__TimeIdle_3_OF_4=%A_TimeIdleMouse%
+
+
+
+	IN_DAY=TRUE
+	FormatTime, T,, HHmm
+	If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+		IN_DAY=FALSE
+	IF IN_DAY=TRUE
+	{
+		IF A_TimeIdleMouse<%VAR_A__TimeIdle_3_OF_4% 
+			VAR_A__TimeIdle_3_OF_4=%A_TimeIdleMouse%
+	}	
+	
+	
 }	
+	; TOOLTIP % " --" IN_DAY " -- " VAR_A__TimeIdle_3_OF_4
 
 If VAR_A__TimeIdle_3_OF_4 < %VAR_Z__TimeIdle%
 	SET_GO=FALSE
@@ -846,8 +888,17 @@ IF USE_A_TimeIdlePhysical=FALSE
 ELSE
 {
 	VAR_A__TimeIdle_4_OF_4=%A_TimeIdlePhysical%
-	IF A_TimeIdleMouse<%VAR_A__TimeIdle_4_OF_4% 
-		VAR_A__TimeIdle_4_OF_4=%A_TimeIdleMouse%
+
+	IN_DAY=TRUE
+	FormatTime, T,, HHmm
+	If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+		IN_DAY=FALSE
+	IF IN_DAY=TRUE
+	{
+		IF A_TimeIdleMouse<%VAR_A__TimeIdle_4_OF_4% 
+			VAR_A__TimeIdle_4_OF_4=%A_TimeIdleMouse%
+	}	
+	
 }
 	
 IF VAR_A__TimeIdle_4_OF_4 < %VAR_A__TimeIdle_1_OF_4%
