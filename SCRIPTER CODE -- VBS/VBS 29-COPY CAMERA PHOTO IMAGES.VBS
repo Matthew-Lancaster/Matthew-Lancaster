@@ -278,6 +278,7 @@ DIM FileModDate_3
 '---------------------------------------------------------
 
 DIM R_COUNT
+DIM CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE
 
 DIM FOLDER_PATH_INDEX
 
@@ -671,13 +672,20 @@ Sub Main
 	' ---------------------------------------------------------------	
 	' ONLY THE SONY CYBERSHOT RUN HERE TO MAKE DUPE MC-CARD
 	' ---------------------------------------------------------------	
+
+
+
 	IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR=TRUE THEN 
-		IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE OR MP4_BEEN_DONE=TRUE) THEN 
-			' ---------------------------------------
-			FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
-			PARAM="CAMERA_BACKUP_MODE"
-			' ---------------------------------------
-			WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+		IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=FALSE THEN 
+			IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE OR MP4_BEEN_DONE=TRUE) THEN 
+
+				CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=TRUE
+				' ---------------------------------------
+				FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+				PARAM="CAMERA_BACKUP_MODE"
+				' ---------------------------------------
+				WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+			END IF
 		END IF
 	END IF
 
