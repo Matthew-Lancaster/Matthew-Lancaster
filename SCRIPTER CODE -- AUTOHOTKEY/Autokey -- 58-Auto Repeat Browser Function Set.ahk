@@ -496,6 +496,9 @@ SET_ARRAY_RAINER_F5() {
 	SET_ARRAY_RAINER_F5[ArrayCount]:="Rain Alarm - Mozilla Firefox"
 	ArrayCount += 1
 	SET_ARRAY_RAINER_F5[ArrayCount]:="Rain Alarm - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_RAINER_F5[ArrayCount]:="https://www.rain-alarm.com/ is not available - Google Chrome"
+	
 RETURN SET_ARRAY_RAINER_F5
 }
 
