@@ -1083,12 +1083,12 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 		IF BROWSER_APP=1
 		{
 			WinActivate, ahk_class Chrome_WidgetWin_1
-			WinWaitActive
+			WinWaitActive, ahk_class Chrome_WidgetWin_1
 		}
 		IF BROWSER_APP=2
 		{
 			WinActivate, ahk_class MozillaWindowClass
-			WinWaitActive
+			WinWaitActive, ahk_class MozillaWindowClass
 		}
 		
 		WinGetTITLE, TITLE_VAR_2, A
