@@ -484,6 +484,8 @@ SET_ARRAY_FB_F5() {
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Privacy error - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Connect to network - Google Chrome"
 RETURN SET_ARRAY_FB_F5
 }
 
