@@ -38,6 +38,9 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 FOLDER_PATH="D:\DSC"
+FOLDER_PATH="D:\VI_ DSC ME"
+FOLDER_PATH="K:\VI_ DSC ME"
+
 Dim Search_EXTENSION_VAR
 
 'Call the Search subroutine to start the recursive search.
