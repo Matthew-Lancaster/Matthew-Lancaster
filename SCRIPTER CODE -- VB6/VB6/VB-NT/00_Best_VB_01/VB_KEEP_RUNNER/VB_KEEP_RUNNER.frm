@@ -10011,10 +10011,16 @@ Dim ITEM_ADD_22 As String
 '        .ColumnHeaders.Add , "EXE SORTED", "EXE SORTED", 9000, lvwColumnLeft
 '        .View = lvwReport
 '    End With
-If ENUMPROCESS_MUST_RUNNER = False Then
-    If ENUMPROCESS_NOT_RUN_YET = True Then
-        If Timer_Pause_Update.Enabled = True Then Exit Sub
-    End If
+
+' --------------------------------------------
+' WHEN KILL SOME THING WANT ENUM PROCESS AFTER
+' WILL = TRUE IN THAT INSTANCE
+' --------------------------------------------
+' ENUMPROCESS_NOT_RUN_YET = TRUE FALSE
+' WILL = FALSE IF NEVER HAD A RUN YET
+' --------------------------------------------
+If ENUMPROCESS_MUST_RUNNER = False And ENUMPROCESS_NOT_RUN_YET = True Then
+    If Timer_Pause_Update.Enabled = True Then Exit Sub
 End If
     
 ENUMPROCESS_NOT_RUN_YET = True
