@@ -635,14 +635,24 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
+   Begin VB.Label Label55 
+      Alignment       =   2  'Center
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "MAX G-SYNC BOTH "
+      Height          =   396
+      Left            =   8088
+      TabIndex        =   153
+      Top             =   2280
+      Width           =   1080
+   End
    Begin VB.Label Label24 
       Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "CLOSE GOODSYNC BOTH"
-      Height          =   672
+      Caption         =   "END G-SYNC BOTH"
+      Height          =   396
       Left            =   8088
       TabIndex        =   152
-      Top             =   1992
+      Top             =   1860
       Width           =   1080
    End
    Begin VB.Label Label_CHROME_PAGE_AUTO_ON 
@@ -5259,6 +5269,8 @@ End Sub
 
 Private Sub Label_CLOSE_GOODSYNC2GO_Click()
 
+Call Label_MAXIMIZE_GOODSYNC2GO_Click
+
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_CLOSE_GOODSYNC2GO.BackColor = RGB(255, 255, 255)
 
@@ -6054,6 +6066,9 @@ Label57.Caption = "COMMAND LINE STATUS__ " + Label22
 End Sub
 
 Private Sub Label24_Click()
+
+Call Label_MAXIMIZE_GOODSYNC_Click
+Call Label_MAXIMIZE_GOODSYNC2GO_Click
  
 Call Label_CLOSE_GOODSYNC_Click
 Call Label_CLOSE_GOODSYNC2GO_Click
@@ -6100,6 +6115,8 @@ Call Timer_EnumProcess_Timer
 End Sub
 
 Private Sub Label_CLOSE_GOODSYNC_Click()
+
+Call Label_MAXIMIZE_GOODSYNC_Click
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_CLOSE_GOODSYNC.BackColor = RGB(255, 255, 255)
@@ -6148,6 +6165,15 @@ End Sub
 Private Sub Label54_Click()
 'Label54.top
 'Label54.FONT -- NOT CODED
+
+End Sub
+
+Private Sub Label55_Click()
+
+Call Label_MAXIMIZE_GOODSYNC_Click
+Call Label_MAXIMIZE_GOODSYNC2GO_Click
+
+
 
 End Sub
 
