@@ -192,7 +192,12 @@ FOR RV=1 TO 3
 			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
 			TARGET_STRING=TARGET_FOLDER_3
 			IF FSO.FOLDERExists(FOLDER_STRING) THEN
-				MSGBOX FOLDER_STRING
+				' ---------------------------------
+				' WHY WANT HERE
+				' LATER ON SHOWED UP
+				' PROVE WORKER
+				' ---------------------------------
+				' MSGBOX FOLDER_STRING
 			END IF
 			
 		END IF
