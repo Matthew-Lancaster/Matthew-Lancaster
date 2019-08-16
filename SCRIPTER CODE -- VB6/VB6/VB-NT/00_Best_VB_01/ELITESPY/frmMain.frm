@@ -2220,7 +2220,7 @@ Option Explicit
 
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 
-
+Dim FROM_picCrossHair_MouseUP
 
 Dim X_ONE_SECOND
 
@@ -5042,8 +5042,9 @@ Call EnumProcess
 End Sub
 
 Private Sub Label48_Click()
+' 20 SECOND HOVER
+TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 20)
 
-TIMER2_TIMER_BEGAN = Now
 
 End Sub
 
@@ -5133,7 +5134,8 @@ End Sub
 
 Private Sub Label64_Click()
 
-TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 20)
+' 40 SECOND HOVER
+TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 40)
 
 End Sub
 
@@ -7211,8 +7213,10 @@ End Sub
 
 Private Sub Label24_Click()
 
-'Private Sub MNU_HOOVER_20_SECOND_Click()
-TIMER2_TIMER_BEGAN = Now
+' BIG BUTTON TEXT TALK
+' 20 SECOND HOVER OVER
+TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 20)
+
 
 End Sub
 
@@ -8060,7 +8064,7 @@ End Sub
 
 
 Private Sub MNU_HOOVER_20_SECOND_Click()
-TIMER2_TIMER_BEGAN = Now
+    TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 20)
 End Sub
 
 Private Sub MNU_KILLER_A_VB_PROJECT_Click()
@@ -8661,6 +8665,7 @@ Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, X As Singl
         Me.MousePointer = vbNormal
         ' Load picture into picCrossHair
         picCrossHair.Picture = imgCursor.MouseIcon
+        FROM_picCrossHair_MouseUP = True
         Call ChunkCodeOnMouse
         
         'If Me.WindowState <> vbMaximized Then
@@ -8726,6 +8731,19 @@ Sub ChunkCodeOnMouse()
                 ' Get window caption
             End If
         End If
+        If FROM_picCrossHair_MouseUP = True Then
+            FROM_picCrossHair_MouseUP = False
+            If lHwnd > 0 Then
+                O_lhWndParent = lHwnd
+                lhWndParent = GetParent(lHwnd)
+                If lhWndParent = 0 Then lhWndParent = O_lhWndParent
+                lhWndParentX = GetParentHwnd(lHwnd)
+
+                Success_Result = cProcesses.Get_PID_From_HWND(lhWndParentX, PID_MARK)
+                TxtPID.Text = PID_MARK
+            End If
+        End If
+
         
         ' ---------------------------------------------------
         ' USED BY
@@ -9873,13 +9891,17 @@ Private Sub Timer_MOUSE_CORD_Timer()
     ' Set label caption to cursor cordinates
     lblCordi.Caption = "X: " & tPA.X & "  Y: " & tPA.Y
     
-    If TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20) > Now Then
+    If TIMER2_TIMER_BEGAN > Now Then
     
-        Label48.Caption = Format(20 - DateDiff("s", TIMER2_TIMER_BEGAN, Now), "00") + " Second"
+        Label48.Caption = Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN), "00") + " Second"
         Label48.FontBold = True
         Label48.FontSize = 15
         
-        i_string = "USE " + Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20), "00")) + " SECOND HOOVER"
+        Label64.Caption = Label48.Caption
+        Label64.FontBold = Label48.FontBold
+        Label64.FontSize = Label48.FontSize
+        
+        i_string = "USE " + Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN, "00")) + " SECOND HOOVER"
         If i_string <> MNU_HOOVER_20_SECOND.Caption Then MNU_HOOVER_20_SECOND.Caption = i_string
             mWnd = WindowFromPoint(tPA.X, tPA.Y)
             Call ChunkCodeOnMouse
@@ -9888,8 +9910,7 @@ Private Sub Timer_MOUSE_CORD_Timer()
             If TIMER2_TIMER_BEGAN <> 0 Then
                 TIMER2_TIMER_BEGAN = 0
                 Label48.Caption = "20 Sec"
-                ' Label48.FontBold = False
-                ' Label48.FontSize = 10
+                Label64.Caption = "40 Sec"
             End If
     End If
 End Sub
@@ -10526,33 +10547,6 @@ Function GetParentHwnd(ByVal ReturnParent As Long) As String
 End Function
 
 
-Private Sub txtClass_CLICK()
-
-On Error GoTo ENDER
-Clipboard.Clear
-Clipboard.SetText txtClass
-
-Exit Sub
-ENDER:
-DoEvents
-Resume
-
-End Sub
-
-Private Sub TxtEXE_CLICK()
-
-If TIMER2_TIMER_BEGAN > 0 Then Exit Sub
-
-On Error GoTo ENDER
-Clipboard.Clear
-Clipboard.SetText TxtEXE
-
-Exit Sub
-ENDER:
-DoEvents
-Resume
-
-End Sub
 
 
 Private Sub SCREEN_SHOT_HERE_2(HWND_NUMBER)
@@ -10655,14 +10649,6 @@ End Sub
 
 
 
-Private Sub txtMemoryUsage_Click()
-'txtMemoryUsage_HERE
-End Sub
-
-Private Sub txtTitle_CLICK()
-Clipboard.Clear
-Clipboard.SetText txtTitle
-End Sub
 
 '***********************************************
 '# Check, whether we are in the IDE
@@ -12341,3 +12327,180 @@ End Function
 '----
 '
 '
+
+
+
+Private Sub txtRect_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtRect
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtStyle_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtStyle
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParentX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParentHX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentHX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParent_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParent
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub TxtPID_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText TxtPID
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txthWndHX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txthWndHX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txthWnd_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txthWnd
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtClass_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtClass
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub TxtEXE_CLICK()
+    ' MNU_HOOVER_20_SECOND
+    If TIMER2_TIMER_BEGAN > 0 Then Exit Sub
+    
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText TxtEXE
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParentClass_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentClass
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtParentClassX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentClassX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtParentTextX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentTextX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtParentText_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentText
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtMemoryUsage_Click()
+'txtMemoryUsage_HERE
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtMemoryUsage
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtTitle_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtTitle
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
