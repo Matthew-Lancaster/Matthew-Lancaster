@@ -271,6 +271,11 @@ RETURN
 
 
 
+; ----
+; OnMessage() - Syntax & Usage | AutoHotkey
+; https://www.autohotkey.com/docs/commands/OnMessage.htm
+; ----
+
 
 
 WM_LBUTTONDOWN(wParam, lParam)
