@@ -5,7 +5,7 @@ Begin VB.Form Form1
    Caption         =   "VB_KEEP_RUNNER"
    ClientHeight    =   10116
    ClientLeft      =   48
-   ClientTop       =   912
+   ClientTop       =   612
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
@@ -649,16 +649,16 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   " MAX G-SYNC ALL"
       Height          =   216
-      Left            =   6276
+      Left            =   7800
       TabIndex        =   153
       Top             =   2232
-      Width           =   1572
+      Width           =   1368
    End
    Begin VB.Label Label24 
       BackColor       =   &H00DFFFFF&
       Caption         =   " END G-SYNC ALL"
       Height          =   216
-      Left            =   6276
+      Left            =   7800
       TabIndex        =   152
       Top             =   2688
       Width           =   1356
@@ -703,23 +703,21 @@ Begin VB.Form Form1
       Width           =   1092
    End
    Begin VB.Label Label_CLOSE_GOODSYNC2GO 
-      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
-      Caption         =   "CLOSE GS 2 GO"
+      Caption         =   " END GS 2 GO"
       Height          =   216
-      Left            =   7920
+      Left            =   6552
       TabIndex        =   147
-      Top             =   2448
-      Width           =   1236
+      Top             =   2688
+      Width           =   1092
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC2GO 
-      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
-      Caption         =   "MAX GS 2 GO"
+      Caption         =   " MAX GS 2 GO"
       Height          =   216
-      Left            =   8100
+      Left            =   6576
       TabIndex        =   146
-      Top             =   2004
+      Top             =   2232
       Width           =   1068
    End
    Begin VB.Label Label_MAXIMIZE_ELITE_SPY 
@@ -1106,14 +1104,13 @@ Begin VB.Form Form1
       Width           =   2412
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "CLOSE GOODSYNC"
+      Caption         =   " END GOODSYNC"
       Height          =   216
       Left            =   6276
       TabIndex        =   107
       Top             =   2460
-      Width           =   1560
+      Width           =   1368
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
@@ -2103,6 +2100,7 @@ Begin VB.Form Form1
    End
    Begin VB.Menu MNU_STOP_GOODSYNC_SCRIPTOR 
       Caption         =   "STOP GOODSYNC SCRIPTOR"
+      Visible         =   0   'False
    End
    Begin VB.Menu MNU_OS_RESTART 
       Caption         =   "OS RESTART"
