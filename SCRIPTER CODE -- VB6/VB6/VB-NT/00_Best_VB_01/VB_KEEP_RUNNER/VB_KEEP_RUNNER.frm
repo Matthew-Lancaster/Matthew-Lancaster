@@ -635,30 +635,37 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
-   Begin VB.Label Label55 
-      Alignment       =   2  'Center
+   Begin VB.Label Label_CLOSE_EXPLORER 
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
-      Caption         =   "MAX G-SYNC BOTH "
-      Height          =   396
-      Left            =   8088
+      Caption         =   "CLOSE EXPLORER"
+      Height          =   216
+      Left            =   7680
+      TabIndex        =   154
+      Top             =   3600
+      Width           =   1476
+   End
+   Begin VB.Label Label55 
+      BackColor       =   &H00DFFFFF&
+      Caption         =   " MAX G-SYNC ALL"
+      Height          =   216
+      Left            =   6276
       TabIndex        =   153
-      Top             =   2280
-      Width           =   1080
+      Top             =   2232
+      Width           =   1572
    End
    Begin VB.Label Label24 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "END G-SYNC BOTH"
-      Height          =   396
-      Left            =   8088
+      Caption         =   " END G-SYNC ALL"
+      Height          =   216
+      Left            =   6276
       TabIndex        =   152
-      Top             =   1860
-      Width           =   1080
+      Top             =   2688
+      Width           =   1356
    End
    Begin VB.Label Label_CHROME_PAGE_AUTO_ON 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "CHROME PAGE"
+      Caption         =   " CHROME PAGE"
       Height          =   216
       Left            =   6276
       TabIndex        =   151
@@ -666,14 +673,14 @@ Begin VB.Form Form1
       Width           =   1284
    End
    Begin VB.Label Label_CLOSE_OUTLOOK 
-      Alignment       =   2  'Center
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
       Caption         =   "CLOSE OUTLOOK"
       Height          =   216
-      Left            =   7524
+      Left            =   7776
       TabIndex        =   150
       Top             =   3156
-      Width           =   1476
+      Width           =   1380
    End
    Begin VB.Label Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY 
       Alignment       =   2  'Center
@@ -686,44 +693,43 @@ Begin VB.Form Form1
       Width           =   2160
    End
    Begin VB.Label Label_MAXIMIZE_CLIPBOARD_LOGGER 
-      Alignment       =   2  'Center
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
       Caption         =   "MAX CLIPPER"
       Height          =   216
-      Left            =   7668
+      Left            =   8076
       TabIndex        =   148
-      Top             =   1524
-      Width           =   1500
+      Top             =   1548
+      Width           =   1092
    End
    Begin VB.Label Label_CLOSE_GOODSYNC2GO 
-      Alignment       =   2  'Center
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
-      Caption         =   "CLOSE GOODSYNC 2 GO"
+      Caption         =   "CLOSE GS 2 GO"
       Height          =   216
-      Left            =   6276
+      Left            =   7920
       TabIndex        =   147
-      Top             =   2688
-      Width           =   1980
+      Top             =   2448
+      Width           =   1236
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC2GO 
-      Alignment       =   2  'Center
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
-      Caption         =   "MAX GOODSYNC 2 GO"
+      Caption         =   "MAX GS 2 GO"
       Height          =   216
-      Left            =   6276
+      Left            =   8100
       TabIndex        =   146
       Top             =   2004
-      Width           =   1788
+      Width           =   1068
    End
    Begin VB.Label Label_MAXIMIZE_ELITE_SPY 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "MAX ELITE SPY"
+      Caption         =   " MAX ELITE SPY"
       Height          =   216
-      Left            =   6264
+      Left            =   6276
       TabIndex        =   145
-      Top             =   1524
-      Width           =   1368
+      Top             =   1548
+      Width           =   1296
    End
    Begin VB.Label Label10 
       Alignment       =   2  'Center
@@ -911,24 +917,23 @@ Begin VB.Form Form1
       Width           =   2880
    End
    Begin VB.Label Label_KILL_CMD_AND_AHK 
-      Alignment       =   2  'Center
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CMD* && AH&K*"
       Height          =   216
-      Left            =   7632
+      Left            =   7788
       TabIndex        =   126
-      Top             =   3828
-      Width           =   1524
+      Top             =   3840
+      Width           =   1368
    End
    Begin VB.Label Label_KILL_CMD 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "KILL &CMD*"
+      Caption         =   " KILL &CMD*"
       Height          =   216
       Left            =   6276
       TabIndex        =   125
       Top             =   3600
-      Width           =   1044
+      Width           =   876
    End
    Begin VB.Label Label_8M 
       Alignment       =   2  'Center
@@ -1001,14 +1006,14 @@ Begin VB.Form Form1
       Width           =   372
    End
    Begin VB.Label Label_KILL_CHROME 
-      Alignment       =   2  'Center
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CHROME"
       Height          =   216
-      Left            =   7356
+      Left            =   8052
       TabIndex        =   117
-      Top             =   3600
-      Width           =   1404
+      Top             =   4548
+      Width           =   1104
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET_NETWORK 
       Alignment       =   2  'Center
@@ -1036,34 +1041,31 @@ Begin VB.Form Form1
       Width           =   600
    End
    Begin VB.Label LABEL_KILL_NOT_RESPOND_FORCE 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "TASKKILL NOT RESPOND FORCE"
+      Caption         =   " TASKKILL NOT RESPOND FORCE"
       Height          =   216
       Left            =   6276
       TabIndex        =   114
       Top             =   4308
-      Width           =   2892
+      Width           =   2616
    End
    Begin VB.Label LABEL_KILL_NOT_RESPOND 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "TASKKILL NOT RESPOND"
+      Caption         =   " TASKKILL NOT RESPOND"
       Height          =   216
       Left            =   6276
       TabIndex        =   113
       Top             =   4080
-      Width           =   2892
+      Width           =   2040
    End
    Begin VB.Label Label_TASK_KILLER_CMD 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "TASKKILL CMD*"
+      Caption         =   " TASKKILL CMD*"
       Height          =   216
       Left            =   6276
       TabIndex        =   112
-      Top             =   3828
-      Width           =   1320
+      Top             =   3840
+      Width           =   1284
    End
    Begin VB.Label Label_CLOSE_HWND 
       Alignment       =   2  'Center
@@ -1076,19 +1078,18 @@ Begin VB.Form Form1
       Width           =   612
    End
    Begin VB.Label Lab_KILL_EXPLORER 
-      Alignment       =   2  'Center
+      Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL EXPLORER"
       Height          =   192
-      Left            =   7260
+      Left            =   7896
       TabIndex        =   110
       Top             =   3384
-      Width           =   1800
+      Width           =   1260
    End
    Begin VB.Label Label_KILL_HUBIC 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "KILL HUBIC"
+      Caption         =   " KILL HUBIC"
       Height          =   192
       Left            =   6276
       TabIndex        =   109
@@ -1096,9 +1097,8 @@ Begin VB.Form Form1
       Width           =   948
    End
    Begin VB.Label Label_GOODSYNC_COLLECTION_SCRIPT_RUN 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "RUN GOODSYNC SCRIPT SET"
+      Caption         =   " RUN GOODSYNC SCRIPT SET"
       Height          =   216
       Left            =   6276
       TabIndex        =   108
@@ -1113,7 +1113,7 @@ Begin VB.Form Form1
       Left            =   6276
       TabIndex        =   107
       Top             =   2460
-      Width           =   1584
+      Width           =   1560
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
@@ -1146,24 +1146,22 @@ Begin VB.Form Form1
       Width           =   2880
    End
    Begin VB.Label Label_MINIMIZE_GOODSYNC 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "MINIMIZE GOODSYNC"
+      Caption         =   " MINIMIZE GOODSYNC"
       Height          =   216
       Left            =   6276
       TabIndex        =   103
-      Top             =   2232
-      Width           =   1764
+      Top             =   1776
+      Width           =   1740
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "MAX GOODSYNC"
+      Caption         =   " MAX GOODSYNC"
       Height          =   216
       Left            =   6276
       TabIndex        =   102
-      Top             =   1776
-      Width           =   1428
+      Top             =   2004
+      Width           =   1380
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET 
       Alignment       =   2  'Center
@@ -1441,9 +1439,8 @@ Begin VB.Form Form1
       Width           =   1770
    End
    Begin VB.Label Label_KILL_WSCRIPT 
-      Alignment       =   2  'Center
       BackColor       =   &H00DFFFFF&
-      Caption         =   "KILL WSCRIPT"
+      Caption         =   " KILL WSCRIPT"
       Height          =   216
       Left            =   6276
       TabIndex        =   78
@@ -2221,6 +2218,8 @@ Option Explicit
 
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+Dim FROM_picCrossHair_MouseUP
 
 Dim ENUMPROCESS_MUST_RUNNER
 
@@ -3630,6 +3629,16 @@ LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_CLOSE_OUTLOOK"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_CHROME_PAGE_AUTO_ON"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = "Label_CLOSE_EXPLORER"
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
+LDAC = LDAC + 1
+ARRAY_CB(LDAC) = ""
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 LDAC = LDAC + 1
@@ -6101,9 +6110,7 @@ End Sub
 
 Private Sub Label48_Click()
 
-'TIMER2_TIMER_BEGAN = Now
-
-
+TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 20)
 
 End Sub
 
@@ -6130,11 +6137,6 @@ End Sub
 Private Sub Label72_Click()
 
 End Sub
-
-Private Sub Label63_Click()
-
-End Sub
-
 
 Private Sub Label51_Click()
 'Label51.TOP
@@ -6183,7 +6185,7 @@ End Sub
 
 Private Sub Label64_Click()
 
-TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 20)
+TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 40)
 
 End Sub
 
@@ -6721,13 +6723,17 @@ Private Sub Timer_MOUSE_CORD_Timer()
     
     Old_lhWnd = LhWnd
     
-    If TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20) > Now Then
+    If TIMER2_TIMER_BEGAN > Now Then
     
-        Label48.Caption = Format(20 - DateDiff("s", TIMER2_TIMER_BEGAN, Now), "00") + " Second"
+        Label48.Caption = Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN), "00") + " Second"
         Label48.FontBold = True
         Label48.FontSize = 15
         
-        i_string = "USE " + Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN + TimeSerial(0, 0, 20), "00")) + " SECOND HOOVER"
+        Label64.Caption = Label48.Caption
+        Label64.FontBold = Label48.FontBold
+        Label64.FontSize = Label48.FontSize
+        
+        i_string = "USE " + Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN, "00")) + " SECOND HOOVER"
         If i_string <> MNU_HOOVER_20_SECOND.Caption Then MNU_HOOVER_20_SECOND.Caption = i_string
             mWnd = WindowFromPoint(tPA.x, tPA.y)
             Call ChunkCodeOnMouse
@@ -6736,8 +6742,7 @@ Private Sub Timer_MOUSE_CORD_Timer()
             If TIMER2_TIMER_BEGAN <> 0 Then
                 TIMER2_TIMER_BEGAN = 0
                 Label48.Caption = "20 Sec"
-                ' Label48.FontBold = False
-                ' Label48.FontSize = 10
+                Label64.Caption = "40 Sec"
             End If
     End If
 End Sub
@@ -7727,6 +7732,43 @@ Me.WindowState = vbMinimized
 
 End Sub
 
+Private Sub Label_CLOSE_EXPLORER_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_CLOSE_EXPLORER.BackColor = RGB(255, 255, 255)
+
+Dim R, A1, A2
+Dim ALL_DONE
+Dim NAME_EXE As String
+Dim PID_INPUT As Long
+Dim i
+Dim pid As Long
+Dim hWnd_LINE As Long
+Dim HWND_STR As String
+Dim strarray As Variant
+
+'PASTE THE CURRENT SESSION TO CLIPBOARD __ QUITELY WITHOUT MSGBOX REPSONCE REQUIRING
+'----------------------------------------------------
+Call FindWindow_Get_All_Explorer("QUITE MSGBOX=TRUE")
+'----------------------------------------------------
+
+HWND_STR = FindWinPart_EXPLORER
+If HWND_STR <> "" Then
+    strarray = Split(HWND_STR, vbCrLf)
+    For R = 0 To UBound(strarray)
+        hWnd_LINE = Val(strarray(R))
+        If hWnd_LINE > 0 Then
+            Result = PostMessage(hWnd_LINE, WM_CLOSE, 0&, 0&)
+        End If
+    Next
+End If
+
+Beep
+Me.WindowState = vbMinimized
+
+End Sub
+
+
 Private Sub MNU_AUTOHOTKEY_STARTING_Click()
 ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 Dim objShell
@@ -8355,6 +8397,7 @@ Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, x As Singl
         Me.MousePointer = vbNormal
         ' Load picture into picCrossHair
         picCrossHair.Picture = imgCursor.MouseIcon
+        FROM_picCrossHair_MouseUP = True
         Call ChunkCodeOnMouse
         
         'If Me.WindowState <> vbMaximized Then
@@ -8421,6 +8464,18 @@ Sub ChunkCodeOnMouse()
                 ' Get window caption
             End If
         End If
+        If FROM_picCrossHair_MouseUP = True Then
+            FROM_picCrossHair_MouseUP = False
+            If LhWnd > 0 Then
+                O_lhWndParent = LhWnd
+                lhWndParent = GetParent(LhWnd)
+                If lhWndParent = 0 Then lhWndParent = O_lhWndParent
+                lhWndParentX = GetParenthWnd(LhWnd)
+
+                Success_Result = cProcesses.Get_PID_From_hWnd(lhWndParentX, PID_MARK)
+                TxtPID.Text = PID_MARK
+            End If
+        End If
         
         ' ---------------------------------------------------
         ' USED BY
@@ -8448,6 +8503,8 @@ Sub ChunkCodeOnMouse()
             lhWnd_Function_Button_Set_MIN_MAX = 0
             ' Set_Collect_More_Info = false
         End If
+        
+        
         
         
         
@@ -13497,33 +13554,7 @@ End Sub
 
 
 
-Private Sub txtClass_CLICK()
 
-On Error GoTo ENDER
-Clipboard.Clear
-Clipboard.SetText txtClass
-
-Exit Sub
-ENDER:
-DoEvents
-Resume
-
-End Sub
-
-Private Sub TxtEXE_CLICK()
-
-If TIMER2_TIMER_BEGAN > 0 Then Exit Sub
-
-On Error GoTo ENDER
-Clipboard.Clear
-Clipboard.SetText TxtEXE
-
-Exit Sub
-ENDER:
-DoEvents
-Resume
-
-End Sub
 
 Function FindWinPart_SEARCHER_hWnd_TO_EXE(SEARCH_STRING) As Long
     
@@ -13626,6 +13657,42 @@ End Function
 
 
 
+Function FindWinPart_EXPLORER() As String
+    
+    FindWinPart_EXPLORER = ""
+    
+    Dim test_hWnd As Long, _
+        test_pid As Long, _
+        test_thread_id As Long
+    
+    Dim cText As String
+    Dim CLASS_NAME As String
+    Dim XGO
+    Dim CLASS_NAME_______________
+
+
+    ' SET ONE DUMMY OR SPLIT NOT HAPPEN LATR IF ONLY 1
+    FindWinPart_EXPLORER = "0000" + vbCrLf
+    
+    'Find the first window
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    Do While test_hWnd <> 0
+        XGO = False
+        CLASS_NAME_______________ = GetWindowClass(test_hWnd)
+        If InStr(CLASS_NAME_______________, "CabinetWClass") > 0 Then XGO = True
+        ' If InStr(UCase(GetWindowTitle(test_hWnd)), UCase(SEARCH_STRING)) > 0 Then XGO = True
+        If XGO = True Then
+            FindWinPart_EXPLORER = FindWinPart_EXPLORER + Trim(Str(test_hWnd)) + vbCrLf
+        End If
+            
+    'retrieve the next window
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    
+    Loop
+End Function
+
+
+
 
 
 
@@ -13658,4 +13725,181 @@ Public Function GethWndFromProcess(p_lngProcessId As Long) As Long
         lngChild = GetWindow(lngChild, GW_hWndNEXT)
     Loop
 End Function
+
+
+
+Private Sub txtRect_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtRect
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtStyle_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtStyle
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParentX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParentHX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentHX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParent_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParent
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub TxtPID_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText TxtPID
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txthWndHX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txthWndHX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txthWnd_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txthWnd
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtClass_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtClass
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub TxtEXE_CLICK()
+    ' MNU_HOOVER_20_SECOND
+    If TIMER2_TIMER_BEGAN > 0 Then Exit Sub
+    
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText TxtEXE
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtParentClass_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentClass
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtParentClassX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentClassX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtParentTextX_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentTextX
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtParentText_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtParentText
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+Private Sub txtMemoryUsage_Click()
+'txtMemoryUsage_HERE
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtMemoryUsage
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
+Private Sub txtTitle_CLICK()
+    On Error GoTo ENDER
+    Clipboard.Clear
+    Clipboard.SetText txtTitle
+    Exit Sub
+ENDER:
+    DoEvents
+    Sleep 100
+    Resume
+End Sub
+
 
