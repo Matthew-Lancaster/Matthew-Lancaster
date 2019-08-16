@@ -255,6 +255,12 @@ If OSVER_N_VAR=10
 	height := A_ScreenHeight - (32+4+1)
 }
 	
+	
+	
+; Gui, Add, Progress, Vertical vMyProgress
+; Gui, Show
+
+; OnMessage(0x201, "WM_LBUTTONDOWN")
 
 GOSUB ~*CapsLock
 
@@ -263,6 +269,27 @@ SETTIMER CapsLock_SUB_TIMER_1_SECOND,1000
 
 RETURN
 
+
+
+
+
+WM_LBUTTONDOWN(wParam, lParam)
+{
+    X := lParam & 0xFFFF
+    Y := lParam >> 16
+    if A_GuiControl
+        Control := "`n(in control " . A_GuiControl . ")"
+    ; ToolTip You left-clicked in Gui window #%A_Gui% at client coordinates %X%x%Y%.%Control%
+	MSGBOX You left-clicked in Gui window #%A_Gui% at client coordinates %X%x%Y%.%Control%
+}
+
+; OnMessage(0x201,"WM_LBUTTONDOWN")
+; WM_LBUTTONDOWN() {
+; MSGBOX % A_GuiControl
+	; If (A_GuiControl = "PrBar1") {
+      ; Msgbox % "You've clicked on the progress bar"
+   ; }
+; }
 
 ; -------------------------------------------------------------------
 ; END OF INIT
