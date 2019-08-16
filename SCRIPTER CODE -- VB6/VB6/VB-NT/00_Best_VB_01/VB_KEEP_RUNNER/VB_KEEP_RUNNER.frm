@@ -5,7 +5,7 @@ Begin VB.Form Form1
    Caption         =   "VB_KEEP_RUNNER"
    ClientHeight    =   10116
    ClientLeft      =   48
-   ClientTop       =   612
+   ClientTop       =   912
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
@@ -2102,6 +2102,9 @@ Begin VB.Form Form1
       Caption         =   "STOP GOODSYNC SCRIPTOR"
       Visible         =   0   'False
    End
+   Begin VB.Menu MNU_GOOGLE_SYNC 
+      Caption         =   "GOOGLE SYNC"
+   End
    Begin VB.Menu MNU_OS_RESTART 
       Caption         =   "OS RESTART"
    End
@@ -2946,7 +2949,7 @@ Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
 'Private Declare Function BeginPaint Lib "user32" (ByVal hWnd As Long, lpPaint As PAINTSTRUCT) As Long
 Private Declare Function GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function DPtoLP Lib "gdi32" (ByVal HDC As Long, lpPoint As POINTAPI, ByVal nCount As Long) As Long
-Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
+Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal C As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
 Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObject As Long) As Long
 'Private Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal HDC As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As Size) As Long
 Private Declare Function SetBkMode Lib "gdi32" (ByVal HDC As Long, ByVal nBkMode As Long) As Long
@@ -6338,6 +6341,22 @@ End If
 Me.WindowState = vbMinimized
 Beep
 
+End Sub
+
+Private Sub MNU_GOOGLE_SYNC_Click()
+'C:\Program Files\Google\Drive\googledrivesync.exe
+
+'
+'Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+'Label_CHROME_PAGE_AUTO_ON.BackColor = RGB(255, 255, 255)
+
+' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+Dim objShell
+Set objShell = CreateObject("Wscript.Shell")
+objShell.Run """C:\Program Files\Google\Drive\googledrivesync.exe""", DontShowWindow, DontWaitUntilFinished
+Set objShell = Nothing
+
+Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_STOP_GOODSYNC_SCRIPTOR_Click()
@@ -10566,10 +10585,10 @@ End Function
 
 
 Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column As ColumnHeader = Nothing)
-    Dim c As ColumnHeader
+    Dim C As ColumnHeader
     If Column Is Nothing Then
-    For Each c In LV.ColumnHeaders
-        SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
+    For Each C In LV.ColumnHeaders
+        SendMessage LV.hWnd, LVM_FIRST + 30, C.Index - 1, -1
     Next
     Else
         SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
@@ -12442,16 +12461,16 @@ Public Function GetFileFromhWnd(lnghWnd) As String
 
 'MsgBox getfilefromhWnd(Me.hWnd)
 
-Dim lngProcess&, hProcess&, bla&, c&
+Dim lngProcess&, hProcess&, bla&, C&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
-c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromhWnd = Left(strFile, c)
+x = EnumProcessModules(hProcess, bla, 4&, C)
+C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromhWnd = Left(strFile, C)
 
 End Function
 
@@ -12460,16 +12479,16 @@ Public Function GetFileFromProc(lngProcess) As String
 
 'MsgBox getfilefromhWnd(Me.hWnd)
 'Dim lngProcess&, hProcess&, bla&, C&
-Dim hProcess&, bla&, c&
+Dim hProcess&, bla&, C&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 'x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
-c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromProc = Left(strFile, c)
+x = EnumProcessModules(hProcess, bla, 4&, C)
+C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromProc = Left(strFile, C)
 
 End Function
 
