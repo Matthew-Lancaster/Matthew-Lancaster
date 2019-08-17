@@ -93,6 +93,8 @@ IF OSVER_N_VAR=WIN_7
 Secs_MSGBOX_01=18
 Secs_MSGBOX_02=5
 Secs_MSGBOX_03=50
+Secs_MSGBOX_04=5
+Secs_MSGBOX_05=5
 X_COUNT_EXIT=0
 MSGBOX_COUNTDOWN_RESTART=""
 VAR_WORKER_MSGBOX_DELAY_COUNT=""
@@ -102,13 +104,25 @@ SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,1000
 
 SETTIMER MSGBOX_PRESS_FOR_RELOADER,4000
 	
+SETTIMER TIMER_HOTKEY_VB_CONFIRM_SAVE_AS,1000
 	
-SETTIMER TIMER_HOTKEY,1000
+SETTIMER TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX,1000	
 	
 RETURN
 
 
-TIMER_HOTKEY:
+TIMER_HOTKEY_VB_CONFIRM_SAVE_AS:
+
+	; -------------------------------------------
+	; [Window Title]
+	; Confirm Save As
+
+	; [Content]
+	; Shell VBasic 6 Loader.exe already exists.
+	; Do you want to replace it?
+
+	; [Yes] [No]
+	; -------------------------------------------
 
 	VAR_IN_NAME=Confirm Save As ahk_class #32770
 	SetTitleMatchMode 3  ; Specify Full path
@@ -158,6 +172,54 @@ TIMER_HOTKEY:
 RETURN
 
 
+TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX:
+
+	; -------------------------------------------
+	; Form FindWindow ---
+	; Vb6 Loader
+	; ---------------------
+	; ---------------------------
+	; Vb6 Loader
+	; ---------------------------
+	; #2.2# -- MSCOMCTL.OCX
+
+	; WRONG VERSION -- AUTO CHANGED TO
+
+	; #2.1# -- MSCOMCTL.OCX
+	; ---------------------------
+	; OK   
+	; -------------------------------------------
+	;IFWINEXIST Vb6 Loader ahk_exe Shell VBasic 6 Loader.exe
+	
+	VAR_IN_NAME=Vb6 Loader ahk_class #32770
+	SetTitleMatchMode 3  ; Specify Full path
+	IFWINEXIST %VAR_IN_NAME%
+	{
+		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
+		STRING_V:=OK  0
+		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+		{	
+			; NA [v1.0.45+]: May improve reliability. See reliability below.
+			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
+			SOUNDBEEP 4000,300
+			VAR_DONE_ESCAPE_KEY=TRUE
+		}
+		IF CONTROL_TEXT=&Yes
+		{
+			Secs_MSGBOX_05=4
+			SOUNDBEEP 5000,200
+		}
+
+		IF Secs_MSGBOX_05>0 	
+			Secs_MSGBOX_05-=1
+			
+		ControlSetText,Button1,OK  %Secs_MSGBOX_05%, %VAR_IN_NAME%
+	}
+
+RETURN
+
+
+
 
 MSGBOX_PRESS_FOR_RELOADER:
 SET_GO=FALSE
@@ -197,7 +259,6 @@ IF SET_GO=TRUE
 	}
 }
 RETURN
-
 
 
 MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART:
