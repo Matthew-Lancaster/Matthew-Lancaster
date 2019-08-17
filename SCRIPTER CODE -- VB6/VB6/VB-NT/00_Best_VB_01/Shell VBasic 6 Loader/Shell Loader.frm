@@ -17027,6 +17027,8 @@ End Function
 
 Private Sub Form_Load()
 
+
+
 If App.PrevInstance = True Then End
 
 GetOsBitness_2 = GetOsBitness
@@ -17230,45 +17232,45 @@ XX1 = XX1 + (RECT2.Bottom - RECT2.Top) * Screen.TwipsPerPixelY
 SH = Screen.Height - (XX1 + 1300) 'higer = smaller
 
 
-For r = ScanPath.ListView1.ListItems.Count To 1 Step -1
-    If InStr(ScanPath.ListView1.ListItems.Item(r).SubItems(1), "\_gsdata_") > 0 Then
-        ScanPath.ListView1.ListItems.Remove (r)
+For R = ScanPath.ListView1.ListItems.Count To 1 Step -1
+    If InStr(ScanPath.ListView1.ListItems.Item(R).SubItems(1), "\_gsdata_") > 0 Then
+        ScanPath.ListView1.ListItems.Remove (R)
     End If
 Next
 
 x = TX
-For r = 1 To ScanPath.ListView1.ListItems.Count
-    If Label1(r - 1).Top > SH Then
+For R = 1 To ScanPath.ListView1.ListItems.Count
+    If Label1(R - 1).Top > SH Then
         x = TX
     End If
     
-    Label1(r).Top = x
+    Label1(R).Top = x
     
-    Label1(r).Visible = True
+    Label1(R).Visible = True
     'For r = 1 To ScanPath.ListView1.ListItems.Count
-    A1$ = ScanPath.ListView1.ListItems.Item(r).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(r)
+    A1$ = ScanPath.ListView1.ListItems.Item(R).SubItems(1)
+    B1$ = ScanPath.ListView1.ListItems.Item(R)
     If InStrRev(A1$, "\") > 0 Then
         seedy$ = Mid$(A1$, InStrRev(A1$, "\", Len(A1$) - 1))
     End If
     If oseedy$ <> seedy$ Then txr = Not txr
     oseedy$ = seedy$
-    If txr = -1 Then Label1(r).BackColor = Label1(836).BackColor
-    If txr = 0 Then Label1(r).BackColor = Label1(837).BackColor
-    If r > AStart Then
+    If txr = -1 Then Label1(R).BackColor = Label1(836).BackColor
+    If txr = 0 Then Label1(R).BackColor = Label1(837).BackColor
+    If R > AStart Then
         'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects + 1
             
-        If txr = -1 Then Label1(r).BackColor = Label1(175).BackColor
-        If txr = 0 Then Label1(r).BackColor = Label1(208).BackColor
+        If txr = -1 Then Label1(R).BackColor = Label1(175).BackColor
+        If txr = 0 Then Label1(R).BackColor = Label1(208).BackColor
     End If
-    ttg$ = ScanPath.ListView1.ListItems.Item(r)
+    ttg$ = ScanPath.ListView1.ListItems.Item(R)
     If InStr(ttg$, "_gsdata_") = 0 Then
         Mid$(ttg$, 1, 1) = UCase$(Mid$(ttg$, 1, 1))
         If InStr(ttg$, ".lnk") > 0 Then ttg$ = Mid$(ttg$, 1, InStrRev(ttg$, ".") - 1)
         
-        Label1(r).Caption = Format$(r, "00") + ". " + ttg$
-        x = x + Label1(r).Height + LABEL_GAP
-        fheight = Label1(r).Top + Label1(r).Height + 420
+        Label1(R).Caption = Format$(R, "00") + ". " + ttg$
+        x = x + Label1(R).Height + LABEL_GAP
+        fheight = Label1(R).Top + Label1(R).Height + 420
         If fheight > fheightx Then fheightx = fheight
         RD = RD + 1
     End If
@@ -17280,25 +17282,25 @@ td = 29
 xgag = 0
 Dim xy(20 * 2)
 
-For r = 1 To ScanPath.ListView1.ListItems.Count
-    If Label1(r - 1).Top > SH Then
-        If tig = 0 Then tig = r
+For R = 1 To ScanPath.ListView1.ListItems.Count
+    If Label1(R - 1).Top > SH Then
+        If tig = 0 Then tig = R
         x = TX
         xgag = xgag + 1
         wdt = 0
-        For rt = r - 1 To r - tig Step -1
+        For rt = R - 1 To R - tig Step -1
         If Label1(rt).Width > wdt Then wdt = Label1(rt).Width
         Next
         xy(xgag) = wdt + 150
-        tig2 = r
+        tig2 = R
     End If
-    Label1(r).Top = x
-    x = x + Label1(r).Height + LABEL_GAP
+    Label1(R).Top = x
+    x = x + Label1(R).Height + LABEL_GAP
 Next
 
 xgag = xgag + 1
 wdt = 0
-For rt = tig2 To r - 1
+For rt = tig2 To R - 1
     If Label1(rt).Width > wdt Then wdt = Label1(rt).Width
 Next
 xy(xgag) = wdt + 150
@@ -17307,21 +17309,21 @@ xy(xgag) = wdt + 150
 
 
 
-For r = 1 To ScanPath.ListView1.ListItems.Count
-    fw = Label1(r).Width
+For R = 1 To ScanPath.ListView1.ListItems.Count
+    fw = Label1(R).Width
     If fw > fw2 Then fw2 = fw + 200
 Next
 fw2 = fw2
 
 xgag = 1: xgax2 = 0
-For r = 1 To ScanPath.ListView1.ListItems.Count
-Label1(r).AutoSize = False
+For R = 1 To ScanPath.ListView1.ListItems.Count
+Label1(R).AutoSize = False
 
 DoEvents
-xxb = Label1(r - 1).Top
+xxb = Label1(R - 1).Top
 xxb = Form1.Height
 
-If Label1(r - 1).Top > SH Then
+If Label1(R - 1).Top > SH Then
     xgax2 = xgax2 + 1
     xgag = 0
     For rs2 = 1 To xgax2
@@ -17329,19 +17331,19 @@ If Label1(r - 1).Top > SH Then
     Next
 End If
 
-Label1(r).Width = xy(xgax2 + 1) - 20
-Label1(r).Left = xgag
+Label1(R).Width = xy(xgax2 + 1) - 20
+Label1(R).Left = xgag
 'Tolerance
-If Label1(r).Left + Label1(r).Width > Screen.Width + 1500 Then
-    Label1(r).Visible = False
-    A1$ = ScanPath.ListView1.ListItems.Item(r).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(r)
+If Label1(R).Left + Label1(R).Width > Screen.Width + 1500 Then
+    Label1(R).Visible = False
+    A1$ = ScanPath.ListView1.ListItems.Item(R).SubItems(1)
+    B1$ = ScanPath.ListView1.ListItems.Item(R)
     
     'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
     'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
     
     If halo = 0 Then
-    halo = r
+    halo = R
     On Error Resume Next
         Set F = FS.getfile(A1$ + B1$)
         ttdate = DateDiff("d", F.datelastmodified, Now)
