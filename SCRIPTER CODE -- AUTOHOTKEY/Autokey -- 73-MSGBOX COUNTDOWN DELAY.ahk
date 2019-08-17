@@ -108,6 +108,8 @@ SETTIMER TIMER_HOTKEY_VB_CONFIRM_SAVE_AS,1000
 	
 SETTIMER TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX,1000	
 	
+SETTIMER TIMER_MSGBOX_WINDOWS_SCRIPT_HOST_IP_CHANGER,1000
+	
 RETURN
 
 
@@ -217,6 +219,58 @@ TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX:
 	}
 
 RETURN
+
+
+
+TIMER_MSGBOX_WINDOWS_SCRIPT_HOST_IP_CHANGER:
+
+	; -------------------------------------------
+	; Form FindWindow ---
+	; ---------------------------
+	; Windows Script Host
+	; ---------------------------
+	; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS
+
+	; IP Address Has Changed
+
+	; 2019-08-17--03-13-42__7-ASUS-GL522VW__86.169.161.128
+	; ---------------------------
+	; OK   
+	; -------------------------------------------
+	;IFWINEXIST Vb6 Loader ahk_exe Shell VBasic 6 Loader.exe
+	
+	VAR_IN_NAME=Windows Script Host ahk_class #32770
+	SetTitleMatchMode 3  ; Specify Full path
+	IFWINEXIST %VAR_IN_NAME%
+	{
+		ControlGettext, MSGBOX_INFO, Static1, %VAR_IN_NAME%
+		IF INSTR(MSGBOX_INFO,"VBS 23-MY IP.VBS")
+		{
+			ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
+			STRING_V:=OK  0
+			IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+			{	
+				; NA [v1.0.45+]: May improve reliability. See reliability below.
+				ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
+				SOUNDBEEP 4000,300
+				VAR_DONE_ESCAPE_KEY=TRUE
+			}
+			IF CONTROL_TEXT=&Yes
+			{
+				Secs_MSGBOX_05=40
+				SOUNDBEEP 5000,200
+			}
+
+			IF Secs_MSGBOX_05>0 	
+				Secs_MSGBOX_05-=1
+				
+			ControlSetText,Button1,OK  %Secs_MSGBOX_05%, %VAR_IN_NAME%
+		}
+	}
+
+RETURN
+
+
 
 
 
