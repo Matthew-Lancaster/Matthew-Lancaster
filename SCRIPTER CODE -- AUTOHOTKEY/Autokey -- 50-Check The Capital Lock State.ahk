@@ -272,6 +272,23 @@ RETURN
 
 
 ; ----
+; Click On Progress Bar? - AutoHotkey Community
+; https://www.autohotkey.com/boards/viewtopic.php?t=66561
+; --------
+; OnMessage() - Syntax & Usage | AutoHotkey
+; https://www.autohotkey.com/docs/commands/OnMessage.htm
+; --------
+; Click On Progress Bar? - AutoHotkey Community
+; https://www.autohotkey.com/boards/viewtopic.php?t=66561
+; --------
+; ProgressBar Examples - AutoHotkey Community
+; https://www.autohotkey.com/boards/viewtopic.php?t=4662
+; --------
+; Clickable ProgressBar, subclassed to ListView/StatusBar - Scripts and Functions - AutoHotkey Community
+; https://autohotkey.com/board/topic/70135-clickable-progressbar-subclassed-to-listviewstatusbar/
+; ----
+
+; ----
 ; OnMessage() - Syntax & Usage | AutoHotkey
 ; https://www.autohotkey.com/docs/commands/OnMessage.htm
 ; ----
