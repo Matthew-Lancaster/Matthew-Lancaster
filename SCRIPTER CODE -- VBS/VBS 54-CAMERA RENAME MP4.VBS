@@ -208,7 +208,7 @@ Sub Main
     Set oDict = CreateObject("Scripting.Dictionary")
 	
 	IF FSO.FolderExists(FOLDER_PATH_STORE)=FALSE THEN 
-		MSGBOX "Folder NOT Exist ERROR"+VBCRLF+VBCRLF+FOLDER_PATH_STORE
+		' MSGBOX "Folder NOT Exist ERROR"+VBCRLF+VBCRLF+FOLDER_PATH_STORE
 		EXIT SUB
 	END IF
 
