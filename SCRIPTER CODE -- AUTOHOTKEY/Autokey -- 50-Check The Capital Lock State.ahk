@@ -278,15 +278,15 @@ RETURN
 
 
 
-WM_LBUTTONDOWN(wParam, lParam)
-{
-    X := lParam & 0xFFFF
-    Y := lParam >> 16
-    if A_GuiControl
-        Control := "`n(in control " . A_GuiControl . ")"
-    ; ToolTip You left-clicked in Gui window #%A_Gui% at client coordinates %X%x%Y%.%Control%
-	MSGBOX You left-clicked in Gui window #%A_Gui% at client coordinates %X%x%Y%.%Control%
-}
+; WM_LBUTTONDOWN(wParam, lParam)
+; {
+    ; X := lParam & 0xFFFF
+    ; Y := lParam >> 16
+    ; if A_GuiControl
+        ; Control := "`n(in control " . A_GuiControl . ")"
+    ; ; ToolTip You left-clicked in Gui window #%A_Gui% at client coordinates %X%x%Y%.%Control%
+	; MSGBOX You left-clicked in Gui window #%A_Gui% at client coordinates %X%x%Y%.%Control%
+; }
 
 ; OnMessage(0x201,"WM_LBUTTONDOWN")
 ; WM_LBUTTONDOWN() {
