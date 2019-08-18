@@ -179,8 +179,8 @@ IF %errorlevel% EQU 0 (
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT CAMERA_BACKUP_MODE
 
 
-	SET MODE_RUN=CAMERA_BACKUP
-	GOTO START
+REM SET MODE_RUN=CAMERA_BACKUP
+REM GOTO START
 
 
 ECHO %* | FIND "CAMERA_BACKUP_MODE" >NUL
@@ -762,6 +762,18 @@ if !X! GTR 0 (
 	ECHO.
 )
 
+IF !MODE_RUN!==CAMERA_BACKUP (
+IF "!Sync_Runner_TOTAL!"=="FALSE" (
+	ECHO ----------------------------------------------------------------
+	ECHO END RUNNER                                ---- *****************
+	ECHO NOT __ GOOD CAMERA_BACKUP                 ---- *****************
+	ECHO ATTENTION REQUIRE                         ---- *****************
+	ECHO ----------------------------------------------------------------
+	ECHO.
+	PAUSE
+)
+)
+
 IF "!Sync_Runner_TOTAL!"=="TRUE" (
 	ECHO ----------------------------------------------------------------
 	ECHO END RUNNER                                ---- *****************
@@ -789,6 +801,8 @@ IF "!Sync_Runner_TOTAL!"=="FALSE" (
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
 )
+
+
 
 
 :ENDER
