@@ -282,6 +282,8 @@ REM ----------------------------------------------------------------
 SET LDA=0
 REM ---------------------------------------------------------------- 
 SET /A LDA=LDA+1
+SET Sources[!LDA!]="K:\VI_ DSC ME"
+SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\0 CLOUD\GD-INSYNC"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6-ARC"
