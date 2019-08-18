@@ -38,9 +38,9 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 FOLDER_PATH="D:\DSC"
-FOLDER_PATH="D:\VI_ DSC ME"
-FOLDER_PATH="K:\VI_ DSC ME"
-FOLDER_PATH="D:\VI_ DSC ME"
+' FOLDER_PATH="D:\VI_ DSC ME"
+' FOLDER_PATH="K:\VI_ DSC ME"
+' FOLDER_PATH="D:\VI_ DSC ME"
 ' FOLDER_PATH="D:\VI_ DSC ME 02"
 REM FOLDER_PATH=""
 REM FOLDER_PATH=""
