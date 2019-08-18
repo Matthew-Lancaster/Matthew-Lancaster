@@ -5,7 +5,7 @@ SYSTEM BOOT __ LOGON OR SYSTEM START __ SYSTEM __ OF MY COMPUTER
  
 --------------------------- 
 IP ADDRESS @ MY COMPUTER SHARED FOLDER SETTING 
-FTP://86.171.3.40/4-ASUS-GL522VW/__ROOM/ 
+FTP://192.168.56.1/4-ASUS-GL522VW/__ROOM/ 
 --------------------------- 
  
 --------------------------------------------------------------------------- 
@@ -34,8 +34,8 @@ http://192.168.1.180:8080/cgi-bin/
 http://matthew.myqnapcloud.com:8080/cgi-bin/ 
 www.matthew.myqnapcloud.com:8080/cgi-bin/ 
 -------------------------------- 
-QNAP IP FOR PUBLIC REMOTE -- 86.171.3.40 
-http://86.171.3.40:8080/cgi-bin/ 
+QNAP IP FOR PUBLIC REMOTE -- 192.168.56.1 
+http://192.168.56.1:8080/cgi-bin/ 
 NO-IP.COM DDNS -- 
 http://matthew.ddns.net:8080/ 
 --------------------------------------------------------------------------- 
