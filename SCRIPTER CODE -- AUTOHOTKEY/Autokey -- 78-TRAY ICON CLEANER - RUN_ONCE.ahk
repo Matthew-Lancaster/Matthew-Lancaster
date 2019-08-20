@@ -29,6 +29,13 @@
 ; TO   __ Sun 09-Jun-2019 11:28:00
 ; -------------------------------------------------------------------
 
+; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
+; IfExist, %FN_VAR%
+; {
+	; Run, "%FN_VAR%"
+; }
+
+
 
 ; -------------------------------------------------------------------
 ; SOURCE CREDIT
