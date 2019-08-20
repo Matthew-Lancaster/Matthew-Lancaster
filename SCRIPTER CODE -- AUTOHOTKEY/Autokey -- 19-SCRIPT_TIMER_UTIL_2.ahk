@@ -1224,8 +1224,8 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 	ArrayCount := 0
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="ahk_class CabinetWClass"
-	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="ahk_class Chrome_WidgetWin_1"
+	; ArrayCount += 1
+	; FN_Array_3[ArrayCount]:="ahk_class Chrome_WidgetWin_1"
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}" ; - GOODSYNC2GO
 	ArrayCount += 1
@@ -1465,42 +1465,42 @@ RETURN
 
 
 
-CHECK_SET_OF_APP_NOT_NOT_RESPONDING:
+; CHECK_SET_OF_APP_NOT_NOT_RESPONDING:
 
-	; IF !(A_ComputerName = "7-ASUS-GL522VW") 
-		; RETURN
+	; ; IF !(A_ComputerName = "7-ASUS-GL522VW") 
+		; ; RETURN
 
-	DetectHiddenWindows, OFF
+	; DetectHiddenWindows, OFF
 
-	WinGet, HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	; WinGet, HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 
-	IF HWND_4>0 
-	{
-		WinGetTitle, Title_4, ahk_id %HWND_4%
+	; IF HWND_4>0 
+	; {
+		; WinGetTitle, Title_4, ahk_id %HWND_4%
 		
-		; TOOLTIP % Title_4
+		; ; TOOLTIP % Title_4
 		
-		IF INSTR(Title_4,"(Not Responding)")=0
-			TIMER_NOT_RESPONDING=0
+		; IF INSTR(Title_4,"(Not Responding)")=0
+			; TIMER_NOT_RESPONDING=0
 		
-		IF INSTR(Title_4,"(Not Responding)")>0
-			IF TIMER_NOT_RESPONDING=0
-			{
-				TIMER_NOT_RESPONDING = % A_Now
-				TIMER_NOT_RESPONDING += 20, MINUTES
-			}
-			IF TIMER_NOT_RESPONDING>0
-				IF TIMER_NOT_RESPONDING<%A_Now%
-				{
-					SoundBeep , 1000 , 100
-					SoundBeep , 1500 , 100
-					Process, Close, GoodSync-v10.exe
-				}	
-	}
-	IF TIMER_NOT_RESPONDING>0
-		TOOLTIP "TIMER_NOT_RESPONDING GOODSYNC" %TIMER_NOT_RESPONDING%
+		; IF INSTR(Title_4,"(Not Responding)")>0
+			; IF TIMER_NOT_RESPONDING=0
+			; {
+				; TIMER_NOT_RESPONDING = % A_Now
+				; TIMER_NOT_RESPONDING += 20, MINUTES
+			; }
+			; IF TIMER_NOT_RESPONDING>0
+				; IF TIMER_NOT_RESPONDING<%A_Now%
+				; {
+					; SoundBeep , 1000 , 100
+					; SoundBeep , 1500 , 100
+					; Process, Close, GoodSync-v10.exe
+				; }	
+	; }
+	; IF TIMER_NOT_RESPONDING>0
+		; TOOLTIP "TIMER_NOT_RESPONDING GOODSYNC" %TIMER_NOT_RESPONDING%
 
-RETURN
+; RETURN
 
 
 
