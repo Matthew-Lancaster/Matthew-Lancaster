@@ -160,6 +160,10 @@ IF OSVER_N_VAR=WIN_7
 
 SETTIMER TIMER_SUB_1,1000
 
+TIMER_SET_NOT_RESPONDING=0
+SETTIMER CHECK_SET_OF_APP_NOT_NOT_RESPONDING_MAIN,4000
+
+
 ; SETTIMER TIMER_SUB_EliteSpy, OFF
 
 ; SETTIMER TIMER_SUB_GOODSYNC,5000
@@ -285,6 +289,11 @@ SETTIMER TIMER_PROCESS_LASSO_POST_UPDATE_02,1000
 ; -------------------------------------------------------------------
 
 ;SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
+
+
+RETURN
+
+
 
 TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 	; ---------------------------------------------------------------
@@ -1038,6 +1047,390 @@ TIMER_Check_Any_PID_Suspended_Warning:
 		}
 RETURN
 
+
+
+
+MINIMIZE_ALL__EXPLORER_AT_BOOT:
+
+WinGet, id, list,ahk_class CabinetWClass
+Loop, %id%
+{
+	;WinGetTitle, title, ahk_id %table%
+	;some_variable%A_Index%=%title%
+
+	table := id%A_Index%
+	WinGetTitle, title, ahk_id %table%
+	WinMinimize  ahk_id %table%
+	IF (A_ComputerName="2-ASUS-EEE")
+	IF title=D:\#
+		WinClose,  ahk_id %table% ; Got an Annoyer Explorer Window Every Boot On "2-ASUS-EEE"
+	IF title=D:\0 CLOUD\ASUS WEBSTORAGE _5GB
+		WinClose,  ahk_id %table% ; Got an Annoyer Explorer Window Every Run Twice Booter
+	
+} 
+RETURN
+
+
+CHECK_SET_OF_APP_NOT_NOT_RESPONDING_MAIN:
+
+	WinGet, WIN_HWND_LIST, List
+	SET_VAR_NOT_RESPONDER=FALSE
+
+	Loop, %WIN_HWND_LIST%
+	{
+		table := WIN_HWND_LIST%A_Index%
+		WinGetTitle, title, ahk_id %table%
+		IF INSTR(title,"(Not Responding)")>0
+		{
+			SET_VAR_NOT_RESPONDER=TRUE
+			BREAK
+		}
+	}
+	SET_VAR_NOT_RESPONDER=TRUE
+
+	IF SET_VAR_NOT_RESPONDER=FALSE
+		TIMER_SET_NOT_RESPONDING=0
+
+	IF SET_VAR_NOT_RESPONDER=TRUE
+		IF TIMER_SET_NOT_RESPONDING=0
+		{
+			TIMER_SET_NOT_RESPONDING = % A_Now
+			;TIMER_SET_NOT_RESPONDING += 4, MINUTES
+			TIMER_SET_NOT_RESPONDING += 10, SECONDS
+		}
+		IF TIMER_SET_NOT_RESPONDING>0
+			IF TIMER_SET_NOT_RESPONDING<%A_Now%
+			{
+				SoundBeep , 1000 , 100
+				SoundBeep , 1500 , 100
+				GOSUB CLOSE_MANY_APP_IF_NOT_RESPONDER
+			}	
+			
+	; TOOLTIP %TIMER_SET_NOT_RESPONDING% " -- " %A_Now%
+	GOSUB CLOSE_MANY_APP_IF_NOT_RESPONDER
+
+	SETTIMER CHECK_SET_OF_APP_NOT_NOT_RESPONDING_MAIN,OFF
+	
+RETURN
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+CLOSE_MANY_APP_IF_NOT_RESPONDER:
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+	DetectHiddenWindows, ON
+
+	; ---------------------------------------------------------------
+	; CLOSE 01 OF 03
+	; KILL BY FORCE
+	; ---------------------------------------------------------------
+	FN_Array_1 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="WScript.exe"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="cmd.exe"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="conhost.exe"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="GoogleUpdate.exe"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="Software Update.exe"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="SystemExplorer.exe"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:=""
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:=""
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:=""
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:=""
+	
+	; ---------------------------------------------------------------
+	; CLOSE 02 OF 03
+	; CLOSE NICELY 02 OF 02
+	; CLOSE QUADRUPLE CHECKER - WITH TIME HONER
+	; ---------------------------------------------------------------
+	FN_Array_2 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="DropboxUpdate.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="notepad++.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="EliteSpy.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="ClipBoard Viewer.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="URL Logger.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="CPU % INDIVIDUAL PROCESS.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="LogiOptions.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="LogiOptionsMgr.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="LogiOverlay.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="NokiaSuite.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="TeamViewer.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="WordWebChromeExtension.exe" ; WORDWEB
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="wweb32.exe"                 ; WORDWEB
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="wwnotray.exe"               ; WORDWEB
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:=""
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:=""
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:=""
+
+	; ---------------------------------------------------------------
+	; CLOSE 03 OF 03
+	; CLOSE NICELY 02 OF 02
+	; ---------------------------------------------------------------
+	FN_Array_3 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="ahk_class CabinetWClass"
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="ahk_class Chrome_WidgetWin_1"
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}" ; - GOODSYNC2GO
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}" ; - GOODSYNC
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="AutoHotkey Help"
+
+
+	SOUND_TONE=2000
+
+	; ---------------------------------------------------------------
+	; CLOSE 01 OF 03
+	; KILL BY FORCE
+	; KILL PROCESS EXE
+	; ---------------------------------------------------------------
+	Loop % FN_Array_1.MaxIndex()
+	{
+		Element := FN_Array_1[A_Index]
+		IF Element
+		{
+			; MSGBOX % Element
+			WinGet, List, List, ahk_exe %Element%
+			Loop %List%
+			{
+				WinGet, PID_NUMBER_VAR, PID, % "ahk_id " List%A_Index% 
+
+				IF PID_NUMBER_VAR>0
+					Process, Close, %PID_NUMBER_VAR%
+
+				SOUNDBEEP %SOUND_TONE%,40
+				SOUND_TONE+=20
+			}
+		}
+	}
+
+	; ---------------------------------------------------------------
+	; CLOSE 02 OF 03 - PART A
+	; KILL FRIENDLY BY PROCESS EXE NAME TO HWND
+	; ---------------------------------------------------------------
+	OLD_aParent=0
+	OLD_aParent+=-1
+	; ---------------------------------------------------------------
+	Loop, 4
+	{
+		FOUR_LOOP:=A_Index
+		; -----------------------------------------------------------
+		Loop % FN_Array_2.MaxIndex()
+		{
+			Element := FN_Array_2[A_Index]
+			IF Element
+			IfWinExist, ahk_exe %Element%
+			{
+				WinGet, List, List, ahk_exe %Element%
+				; ---------------------------------------------------
+				Loop %List%  
+				{ 
+					WinGet, PID_NUMBER_VAR, PID, % "ahk_id " List%A_Index% 
+					IF PID_NUMBER_VAR>0
+					{
+						HWND_NUMBER_VAR:=List%A_Index%
+						HWND:=List%A_Index%
+						aParent:=DllCall( "GetParent", UInt, HWND) + 0
+						HWND=%aParent%
+
+						IF aParent=0 
+							aParent=%HWND_NUMBER_VAR%
+
+						IF WinExist("ahk_id " HWND_NUMBER_VAR) 
+							IF OLD_aParent<>%aParent%
+							{
+								OLD_aParent=%aParent%
+								
+								; -----------------------------------
+								IF FOUR_LOOP=1
+									PostMessage, 0x112, 0xF060,,, ahk_id %aParent%  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+								; -----------------------------------
+
+								; -----------------------------------
+								; ANY NOT CLOSE AFTER FIRST SUCCESSFUL
+								; -----------------------------------
+								IF FOUR_LOOP=2
+									WINCLOSE ahk_id %aParent%
+								; -----------------------------------
+									
+								; -----------------------------------
+								; ANY NOT CLOSE AFTER 2ND NOT SUCCESSFUL - AND THEN - BY EXE NAME
+								; -----------------------------------
+								IF FOUR_LOOP=3
+									WINCLOSE ahk_exe %Element%
+								; -----------------------------------
+
+								; -----------------------------------
+								; ANY NOT CLOSE AFTER LAST ATTEMPT KILL PROCESS FORCE
+								; -----------------------------------
+								IF FOUR_LOOP=4
+								{
+									WinGet, PID_NUMBER_VAR, PID, % "ahk_id " HWND_NUMBER_VAR
+									IF PID_NUMBER_VAR>0
+									{
+										Process, Close, %PID_NUMBER_VAR%
+									}
+								}
+								; -----------------------------------
+
+								SOUNDBEEP %SOUND_TONE%,40
+								SOUND_TONE+=20
+							}
+					}
+				}
+			}
+		}
+
+		; -----------------------------------------------------------
+		IF FOUR_LOOP<3
+			SLEEP 1000
+		; -----------------------------------------------------------
+		
+		; -----------------------------------------------------------
+		IF FOUR_LOOP=3
+		{
+			Loop, 14
+			{
+				SET_WAIT=FALSE
+				Loop, % FN_Array_2.MaxIndex()
+				{
+					Element := FN_Array_2[A_Index]
+					IF Element
+					IfWinExist, ahk_exe %Element%
+						SET_WAIT=TRUE
+				}
+				IF SET_WAIT=TRUE
+				{
+					SLEEP 4000
+					SOUNDBEEP 3000,100
+				}
+			}	
+		}
+		; -----------------------------------------------------------
+	}
+	
+	; ---------------------------------------------------------------
+	; CLOSE 03 OF 03
+	; CLOSE NICELY 02 OF 02
+	; ---------------------------------------------------------------
+	Loop % FN_Array_3.MaxIndex()
+	{
+		Element := FN_Array_3[A_Index]
+		IF Element
+		IfWinExist, %Element%
+		{
+			WinGet, List, List, %Element%
+			Loop %List%  
+			{ 
+				
+				HWND_RESULT := List%A_Index%
+				IF WinExist("ahk_id " HWND_RESULT) 
+				{
+					WINCLOSE ahk_id %HWND_RESULT%
+					
+					SOUNDBEEP %SOUND_TONE%,40
+					SOUND_TONE+=20
+				}
+			}
+		}
+	}
+
+	; ---------------------------------------------------------------
+	; CLEAR UP THE ICON LEFT IN TASK TRAY
+	; ---------------------------------------------------------------
+		
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
+	IfExist, %FN_VAR%
+	{
+		Run, "%FN_VAR%"
+	}
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+
+
+
+CHECK_SET_OF_APP_NOT_NOT_RESPONDING:
+
+	; IF !(A_ComputerName = "7-ASUS-GL522VW") 
+		; RETURN
+
+	DetectHiddenWindows, OFF
+
+	WinGet, HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+
+	IF HWND_4>0 
+	{
+		WinGetTitle, Title_4, ahk_id %HWND_4%
+		
+		; TOOLTIP % Title_4
+		
+		IF INSTR(Title_4,"(Not Responding)")=0
+			TIMER_NOT_RESPONDING=0
+		
+		IF INSTR(Title_4,"(Not Responding)")>0
+			IF TIMER_NOT_RESPONDING=0
+			{
+				TIMER_NOT_RESPONDING = % A_Now
+				TIMER_NOT_RESPONDING += 20, MINUTES
+			}
+			IF TIMER_NOT_RESPONDING>0
+				IF TIMER_NOT_RESPONDING<%A_Now%
+				{
+					SoundBeep , 1000 , 100
+					SoundBeep , 1500 , 100
+					Process, Close, GoodSync-v10.exe
+				}	
+	}
+	IF TIMER_NOT_RESPONDING>0
+		TOOLTIP "TIMER_NOT_RESPONDING GOODSYNC" %TIMER_NOT_RESPONDING%
+
+RETURN
 
 
 

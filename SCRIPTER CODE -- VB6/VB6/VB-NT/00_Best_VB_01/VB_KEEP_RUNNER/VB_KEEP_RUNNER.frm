@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -635,6 +635,16 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
+   Begin VB.Label Label_DE_DUPE_EXPLORER 
+      Alignment       =   1  'Right Justify
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "DE-DUPE EXPLORER"
+      Height          =   216
+      Left            =   7512
+      TabIndex        =   155
+      Top             =   3132
+      Width           =   1644
+   End
    Begin VB.Label Label_CLOSE_EXPLORER 
       Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
@@ -642,7 +652,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7680
       TabIndex        =   154
-      Top             =   3600
+      Top             =   2880
       Width           =   1476
    End
    Begin VB.Label Label55 
@@ -651,7 +661,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7800
       TabIndex        =   153
-      Top             =   2232
+      Top             =   2184
       Width           =   1368
    End
    Begin VB.Label Label24 
@@ -660,7 +670,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7800
       TabIndex        =   152
-      Top             =   2688
+      Top             =   2424
       Width           =   1356
    End
    Begin VB.Label Label_CHROME_PAGE_AUTO_ON 
@@ -677,10 +687,10 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "CLOSE OUTLOOK"
       Height          =   216
-      Left            =   7776
+      Left            =   7764
       TabIndex        =   150
-      Top             =   3156
-      Width           =   1380
+      Top             =   3588
+      Width           =   1404
    End
    Begin VB.Label Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY 
       Alignment       =   2  'Center
@@ -699,7 +709,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   8076
       TabIndex        =   148
-      Top             =   1548
+      Top             =   1728
       Width           =   1092
    End
    Begin VB.Label Label_CLOSE_GOODSYNC2GO 
@@ -708,7 +718,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6552
       TabIndex        =   147
-      Top             =   2688
+      Top             =   2868
       Width           =   1092
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC2GO 
@@ -717,7 +727,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6576
       TabIndex        =   146
-      Top             =   2232
+      Top             =   2412
       Width           =   1068
    End
    Begin VB.Label Label_MAXIMIZE_ELITE_SPY 
@@ -726,7 +736,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   145
-      Top             =   1548
+      Top             =   1728
       Width           =   1296
    End
    Begin VB.Label Label10 
@@ -919,10 +929,10 @@ Begin VB.Form Form1
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL CMD* && AH&K*"
       Height          =   216
-      Left            =   7788
+      Left            =   7764
       TabIndex        =   126
       Top             =   3840
-      Width           =   1368
+      Width           =   1392
    End
    Begin VB.Label Label_KILL_CMD 
       BackColor       =   &H00DFFFFF&
@@ -1082,7 +1092,7 @@ Begin VB.Form Form1
       Height          =   192
       Left            =   7896
       TabIndex        =   110
-      Top             =   3384
+      Top             =   2664
       Width           =   1260
    End
    Begin VB.Label Label_KILL_HUBIC 
@@ -1100,7 +1110,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   108
-      Top             =   2916
+      Top             =   1392
       Width           =   2412
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
@@ -1109,7 +1119,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   107
-      Top             =   2460
+      Top             =   2640
       Width           =   1368
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
@@ -1148,7 +1158,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   103
-      Top             =   1776
+      Top             =   1956
       Width           =   1740
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
@@ -1157,7 +1167,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   102
-      Top             =   2004
+      Top             =   2184
       Width           =   1380
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET 
@@ -1441,7 +1451,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   78
-      Top             =   3156
+      Top             =   3132
       Width           =   1212
    End
    Begin VB.Label Label29 
@@ -2949,7 +2959,7 @@ Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
 'Private Declare Function BeginPaint Lib "user32" (ByVal hWnd As Long, lpPaint As PAINTSTRUCT) As Long
 Private Declare Function GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function DPtoLP Lib "gdi32" (ByVal HDC As Long, lpPoint As POINTAPI, ByVal nCount As Long) As Long
-Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal C As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
+Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
 Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObject As Long) As Long
 'Private Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal HDC As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As Size) As Long
 Private Declare Function SetBkMode Lib "gdi32" (ByVal HDC As Long, ByVal nBkMode As Long) As Long
@@ -3633,7 +3643,7 @@ ARRAY_CB(LDAC) = "Label_CHROME_PAGE_AUTO_ON"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_CLOSE_EXPLORER"
 LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
+ARRAY_CB(LDAC) = "Label_DE_DUPE_EXPLORER"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 LDAC = LDAC + 1
@@ -6184,6 +6194,10 @@ Private Sub Label60_Click()
 'Label60.CAP
 End Sub
 
+Private Sub Label63_Click()
+
+End Sub
+
 Private Sub Label64_Click()
 
 TIMER2_TIMER_BEGAN = Now + TimeSerial(0, 0, 40)
@@ -7785,7 +7799,47 @@ Me.WindowState = vbMinimized
 
 End Sub
 
+Private Sub Label_DE_DUPE_EXPLORER_Click()
 
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_DE_DUPE_EXPLORER.BackColor = RGB(255, 255, 255)
+
+Dim R, A1, A2
+Dim ALL_DONE
+Dim NAME_EXE As String
+Dim PID_INPUT As Long
+Dim i
+Dim pid As Long
+Dim hWnd_LINE As Long
+Dim HWND_STR As String
+Dim strarray As Variant
+Dim TITLE_COMPARE_1
+Dim TITLE_COMPARE_2
+
+'PASTE THE CURRENT SESSION TO CLIPBOARD __ QUITELY WITHOUT MSGBOX REPSONCE REQUIRING
+'----------------------------------------------------
+Call FindWindow_Get_All_Explorer("QUITE MSGBOX=TRUE")
+'----------------------------------------------------
+
+HWND_STR = FindWinPart_EXPLORER
+If HWND_STR <> "" Then
+    strarray = Split(HWND_STR, vbCrLf)
+    For R = 0 To UBound(strarray)
+        hWnd_LINE = Val(strarray(R))
+        TITLE_COMPARE_1 = "----" + UCase(GetWindowTitle(hWnd_LINE)) + "++++"
+        If InStr(TITLE_COMPARE_2, TITLE_COMPARE_1) > 0 Then
+            If hWnd_LINE > 0 Then
+                Result = PostMessage(hWnd_LINE, WM_CLOSE, 0&, 0&)
+            End If
+        End If
+        TITLE_COMPARE_2 = TITLE_COMPARE_2 + "----" + UCase(GetWindowTitle(hWnd_LINE)) + "++++"
+    Next
+End If
+
+Beep
+Me.WindowState = vbMinimized
+
+End Sub
 Private Sub MNU_AUTOHOTKEY_STARTING_Click()
 ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 Dim objShell
@@ -10585,10 +10639,10 @@ End Function
 
 
 Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column As ColumnHeader = Nothing)
-    Dim C As ColumnHeader
+    Dim c As ColumnHeader
     If Column Is Nothing Then
-    For Each C In LV.ColumnHeaders
-        SendMessage LV.hWnd, LVM_FIRST + 30, C.Index - 1, -1
+    For Each c In LV.ColumnHeaders
+        SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
     Next
     Else
         SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
@@ -12461,16 +12515,16 @@ Public Function GetFileFromhWnd(lnghWnd) As String
 
 'MsgBox getfilefromhWnd(Me.hWnd)
 
-Dim lngProcess&, hProcess&, bla&, C&
+Dim lngProcess&, hProcess&, bla&, c&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, C)
-C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromhWnd = Left(strFile, C)
+x = EnumProcessModules(hProcess, bla, 4&, c)
+c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromhWnd = Left(strFile, c)
 
 End Function
 
@@ -12479,16 +12533,16 @@ Public Function GetFileFromProc(lngProcess) As String
 
 'MsgBox getfilefromhWnd(Me.hWnd)
 'Dim lngProcess&, hProcess&, bla&, C&
-Dim hProcess&, bla&, C&
+Dim hProcess&, bla&, c&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 'x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, C)
-C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromProc = Left(strFile, C)
+x = EnumProcessModules(hProcess, bla, 4&, c)
+c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromProc = Left(strFile, c)
 
 End Function
 
