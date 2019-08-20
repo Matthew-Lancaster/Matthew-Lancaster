@@ -202,20 +202,24 @@ TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX:
 	IFWINEXIST %VAR_IN_NAME%
 	{
 		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
-		STRING_V:=OK  0
-		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+		STRING_V="OK  0"
+		STRING_V:=StrReplace(STRING_V, """" , "")
+		IF INSTR(CONTROL_TEXT,STRING_V)>0
 		{	
 			; NA [v1.0.45+]: May improve reliability. See reliability below.
 			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
 			SOUNDBEEP 4000,300
 			VAR_DONE_ESCAPE_KEY=TRUE
 		}
-		IF CONTROL_TEXT=&Yes
+		
+		STRING_V="OK"
+		STRING_V:=StrReplace(STRING_V, """" , "")
+		IF INSTR(CONTROL_TEXT,STRING_V)>0 
+		IF StrLen(CONTROL_TEXT)=4
 		{
 			Secs_MSGBOX_05=4
 			SOUNDBEEP 5000,200
 		}
-
 		IF Secs_MSGBOX_05>0 	
 			Secs_MSGBOX_05-=1
 			
