@@ -6,15 +6,17 @@
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
 ;# START     TIME [ Sun 28-Apr-2019 14:38:04 ]
-;# LAST EDIT TIME [ Sun 28-Apr-2019 14:38:04 ]
+;# LAST EDIT TIME [ Tue 20-Aug-2019 15:40:00 ]
 ;# __ 
 ;  =============================================================
 
 ; ------------------------------------------------------------------
 ; Location Internet
 ;---------------------------------------------------------------------
-; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk at master · Matthew-Lancaster/Matthew-Lancaster
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL.ahk
+; ----
+; Matthew-Lancaster/Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOHOTKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL_2.ahk
+; ----
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
@@ -24,6 +26,22 @@
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+; -------------------------------------------------------------------
+; SESSION 002
+; -------------------------------------------------------------------
+; MADE THIS ROUTINE 
+; CLOSE_MANY_APP_IF_NOT_RESPONDER:
+; LOOK QUITE SUCCESSFUL
+; IT WILL SCAN ALL APP TO FIND ANY THAT GOT NOT RESPONDING
+; FOR THOSE SITUATION WHEN MACHINE IS GRIND TO A HALT 
+; AND BIG HOLD UP OF TIME
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; FROM  -- Tue 20-Aug-2019 14:08:21
+; TO    -- Tue 20-Aug-2019 15:40:00 -- 1 & HALF HOUR & A BIT 
+;                                      LOOK AT SIZE OF CODE
+; -------------------------------------------------------------------
 
 
 #Warn
@@ -161,7 +179,7 @@ IF OSVER_N_VAR=WIN_7
 SETTIMER TIMER_SUB_1,1000
 
 TIMER_SET_NOT_RESPONDING=0
-SETTIMER CHECK_SET_OF_APP_NOT_NOT_RESPONDING_MAIN,4000
+SETTIMER CHECK_SET_OF_APP_NOT_RESPONDING_MAIN,4000
 
 
 ; SETTIMER TIMER_SUB_EliteSpy, OFF
@@ -1071,7 +1089,7 @@ Loop, %id%
 RETURN
 
 
-CHECK_SET_OF_APP_NOT_NOT_RESPONDING_MAIN:
+CHECK_SET_OF_APP_NOT_RESPONDING_MAIN:
 
 	WinGet, WIN_HWND_LIST, List
 	SET_VAR_NOT_RESPONDER=FALSE
@@ -1083,33 +1101,36 @@ CHECK_SET_OF_APP_NOT_NOT_RESPONDING_MAIN:
 		IF INSTR(title,"(Not Responding)")>0
 		{
 			SET_VAR_NOT_RESPONDER=TRUE
+
 			BREAK
 		}
 	}
-	SET_VAR_NOT_RESPONDER=TRUE
 
 	IF SET_VAR_NOT_RESPONDER=FALSE
+	{
 		TIMER_SET_NOT_RESPONDING=0
-
+		TOOLTIP
+	}
+	
 	IF SET_VAR_NOT_RESPONDER=TRUE
 		IF TIMER_SET_NOT_RESPONDING=0
 		{
 			TIMER_SET_NOT_RESPONDING = % A_Now
-			;TIMER_SET_NOT_RESPONDING += 4, MINUTES
-			TIMER_SET_NOT_RESPONDING += 10, SECONDS
+			TIMER_SET_NOT_RESPONDING += 4, MINUTES
+			;TIMER_SET_NOT_RESPONDING += 10, SECONDS
 		}
 		IF TIMER_SET_NOT_RESPONDING>0
 			IF TIMER_SET_NOT_RESPONDING<%A_Now%
 			{
 				SoundBeep , 1000 , 100
 				SoundBeep , 1500 , 100
+				TIMER_SET_NOT_RESPONDING=0
+				TOOLTIP
 				GOSUB CLOSE_MANY_APP_IF_NOT_RESPONDER
 			}	
 			
-	; TOOLTIP %TIMER_SET_NOT_RESPONDING% " -- " %A_Now%
-	GOSUB CLOSE_MANY_APP_IF_NOT_RESPONDER
-
-	SETTIMER CHECK_SET_OF_APP_NOT_NOT_RESPONDING_MAIN,OFF
+	IF TIMER_SET_NOT_RESPONDING>0
+		TOOLTIP "SOME COMPUTER APP ARE NOT RESPONDER KILL THEM IS DUE`nAutokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`n"%TIMER_SET_NOT_RESPONDING% " -- `n" %A_Now%
 	
 RETURN
 
@@ -1225,17 +1246,41 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 		Element := FN_Array_1[A_Index]
 		IF Element
 		{
-			; MSGBOX % Element
+			; -------------------------------------------------------
 			WinGet, List, List, ahk_exe %Element%
+			STOP_GO=FALSE
 			Loop %List%
 			{
-				WinGet, PID_NUMBER_VAR, PID, % "ahk_id " List%A_Index% 
+				WinGetTITLE, WIN_TITLE_KEY_VAR, % "ahk_id " List%A_Index% 
+				IF INSTR(WIN_TITLE_KEY_VAR,"SCRIPTER CODE")>0 
+					STOP_GO=TRUE
+				
+				; ---------------------------------------------------
+				; DON'T WANT DOS COMMAND PROMPT TO BE DELETER 
+				; IF CERTAIN TASK LEFT ON
+				; ---------------------------------------------------
+				; DOS COMMAND PROMPT
+				; ---------------------------------------------------
+				; Administrator:  
+				; C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
+				; ---------------------------------------------------
+			}
+			; -------------------------------------------------------
+				
+			; -------------------------------------------------------
+			IF STOP_GO=FALSE
+			{
+				WinGet, List, List, ahk_exe %Element%
+				Loop %List%
+				{
+					WinGet, PID_NUMBER_VAR, PID, % "ahk_id " List%A_Index% 
 
-				IF PID_NUMBER_VAR>0
-					Process, Close, %PID_NUMBER_VAR%
+					IF PID_NUMBER_VAR>0
+						Process, Close, %PID_NUMBER_VAR%
 
-				SOUNDBEEP %SOUND_TONE%,40
-				SOUND_TONE+=20
+					SOUNDBEEP %SOUND_TONE%,40
+					SOUND_TONE+=20
+				}
 			}
 		}
 	}
@@ -1325,22 +1370,47 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 		; -----------------------------------------------------------
 		IF FOUR_LOOP=3
 		{
-			Loop, 14
+			Loop, 100
 			{
 				SET_WAIT=FALSE
 				Loop, % FN_Array_2.MaxIndex()
 				{
 					Element := FN_Array_2[A_Index]
 					IF Element
-					IfWinExist, ahk_exe %Element%
-						SET_WAIT=TRUE
+						IfWinExist, ahk_exe %Element%
+							SET_WAIT=TRUE
 				}
 				IF SET_WAIT=TRUE
 				{
 					SLEEP 4000
 					SOUNDBEEP 3000,100
 				}
+				; ---------------------------------------------------
+				Loop, % FN_Array_2.MaxIndex()
+				{
+					Element := FN_Array_2[A_Index]
+					IfWinExist, ahk_exe %Element%
+						If Element="notepad++.exe"
+						{
+							SLEEP 4000
+							SOUNDBEEP 3000,100
+						}
+				}
+				; ---------------------------------------------------
 			}	
+			; -------------------------------------------------------
+			Loop, % FN_Array_2.MaxIndex()
+			{
+				Element := FN_Array_2[A_Index]
+				IfWinExist, ahk_exe %Element%
+					If Element="notepad++.exe"
+					{
+						MSGBOX %Element% "`nNOTEPAD DOESN'T WANT TO KILL AFTER WAIT LONG`nABORT USE LEFY CTRL KEY > LEFT WINDOWS KEY > AND ESCAPE"
+						SOUNDBEEP 3000,100
+					}
+			}
+			; -------------------------------------------------------
+
 		}
 		; -----------------------------------------------------------
 	}
