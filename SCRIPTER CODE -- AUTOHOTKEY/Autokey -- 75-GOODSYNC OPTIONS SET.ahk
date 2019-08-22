@@ -137,7 +137,6 @@ SETTIMER TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP,1000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
 SETTIMER CHECK_GOODSYNC_NOT_RESPOND,2000
-SETTIMER TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER,1000
 
 ; -------------------------------------------------------------------
 
@@ -1028,61 +1027,6 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 	DetectHiddenWindows, % dhw
 
 Return
-
-; MSGBOX COUNTDOWN DELAY
-; -------------------------------------------------------------------
-TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER:
-
-	; -------------------------------------------
-	; Form FindWindow ---
-	; ---------------------------
-	; Windows Script Host
-	; ---------------------------
-	; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS
-
-	; IP Address Has Changed
-
-	; 2019-08-17--03-13-42__7-ASUS-GL522VW__86.169.161.128
-	; ---------------------------
-	; OK   
-	; -------------------------------------------
-	;IFWINEXIST Vb6 Loader ahk_exe Shell VBasic 6 Loader.exe
-	
-	; RETURN
-	
-	VAR_IN_NAME=GoodSync ahk_class #32770
-	SetTitleMatchMode 3  ; Specify Full path
-	IFWINEXIST %VAR_IN_NAME%
-	{
-		ControlGettext, MSGBOX_INFO, Edit1, %VAR_IN_NAME%
-		IF INSTR(MSGBOX_INFO,"One or more jobs")
-		{
-			ControlGetText CONTROL_TEXT,Button2,%VAR_IN_NAME%
-			STRING_V:=OK  0
-			IF INSTR(CONTROL_TEXT,%STRING_V%)>1
-			{	
-				; NA [v1.0.45+]: May improve reliability. See reliability below.
-				ControlClick, Button2,%VAR_IN_NAME%,,,, NA x10 y10 
-				SOUNDBEEP 4000,300
-				VAR_DONE_ESCAPE_KEY=TRUE
-			}
-
-			
-			IF INSTR(CONTROL_TEXT,"OK")>0
-			IF StrLen(CONTROL_TEXT)=4
-			{
-				Secs_MSGBOX_07=20
-				SOUNDBEEP 5000,200
-			}
-
-			IF Secs_MSGBOX_07>0 	
-				Secs_MSGBOX_07-=1
-			
-			ControlSetText,Button2,OK  %Secs_MSGBOX_07%, %VAR_IN_NAME%
-		}
-	}
-
-RETURN
 
 
 

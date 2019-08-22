@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -638,12 +638,12 @@ Begin VB.Form Form1
    Begin VB.Label Label_DE_DUPE_EXPLORER 
       Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
-      Caption         =   "DE-DUPE EXPLORER"
+      Caption         =   "KILL DUPE EXPLORER"
       Height          =   216
-      Left            =   7512
+      Left            =   7440
       TabIndex        =   155
-      Top             =   3132
-      Width           =   1644
+      Top             =   3144
+      Width           =   1716
    End
    Begin VB.Label Label_CLOSE_EXPLORER 
       Alignment       =   1  'Right Justify
@@ -652,26 +652,26 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7680
       TabIndex        =   154
-      Top             =   2880
+      Top             =   2904
       Width           =   1476
    End
    Begin VB.Label Label55 
       BackColor       =   &H00DFFFFF&
-      Caption         =   " MAX G-SYNC ALL"
+      Caption         =   " MAX G-SYNC MULTI"
       Height          =   216
-      Left            =   7800
+      Left            =   7536
       TabIndex        =   153
-      Top             =   2184
-      Width           =   1368
+      Top             =   2436
+      Width           =   1620
    End
    Begin VB.Label Label24 
       BackColor       =   &H00DFFFFF&
-      Caption         =   " END G-SYNC ALL"
+      Caption         =   " END G-SYNC MULTI"
       Height          =   216
-      Left            =   7800
+      Left            =   7536
       TabIndex        =   152
-      Top             =   2424
-      Width           =   1356
+      Top             =   2208
+      Width           =   1620
    End
    Begin VB.Label Label_CHROME_PAGE_AUTO_ON 
       BackColor       =   &H00DFFFFF&
@@ -689,7 +689,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   7764
       TabIndex        =   150
-      Top             =   3588
+      Top             =   3600
       Width           =   1404
    End
    Begin VB.Label Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY 
@@ -709,25 +709,25 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   8076
       TabIndex        =   148
-      Top             =   1728
+      Top             =   1740
       Width           =   1092
    End
    Begin VB.Label Label_CLOSE_GOODSYNC2GO 
       BackColor       =   &H00DFFFFF&
       Caption         =   " END GS 2 GO"
       Height          =   216
-      Left            =   6552
+      Left            =   6336
       TabIndex        =   147
-      Top             =   2868
+      Top             =   2436
       Width           =   1092
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC2GO 
       BackColor       =   &H00DFFFFF&
       Caption         =   " MAX GS 2 GO"
       Height          =   216
-      Left            =   6576
+      Left            =   6348
       TabIndex        =   146
-      Top             =   2412
+      Top             =   2904
       Width           =   1068
    End
    Begin VB.Label Label_MAXIMIZE_ELITE_SPY 
@@ -736,7 +736,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   145
-      Top             =   1728
+      Top             =   1740
       Width           =   1296
    End
    Begin VB.Label Label10 
@@ -1016,12 +1016,12 @@ Begin VB.Form Form1
    Begin VB.Label Label_KILL_CHROME 
       Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
-      Caption         =   "KILL CHROME"
+      Caption         =   "CLOSE CHROME"
       Height          =   216
-      Left            =   8052
+      Left            =   7848
       TabIndex        =   117
       Top             =   4548
-      Width           =   1104
+      Width           =   1308
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET_NETWORK 
       Alignment       =   2  'Center
@@ -1089,10 +1089,10 @@ Begin VB.Form Form1
       Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
       Caption         =   "KILL EXPLORER"
-      Height          =   192
+      Height          =   204
       Left            =   7896
       TabIndex        =   110
-      Top             =   2664
+      Top             =   2688
       Width           =   1260
    End
    Begin VB.Label Label_KILL_HUBIC 
@@ -1110,17 +1110,17 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   108
-      Top             =   1392
+      Top             =   1512
       Width           =   2412
    End
    Begin VB.Label Label_CLOSE_GOODSYNC 
       BackColor       =   &H00DFFFFF&
-      Caption         =   " END GOODSYNC"
+      Caption         =   " END GS"
       Height          =   216
       Left            =   6276
       TabIndex        =   107
-      Top             =   2640
-      Width           =   1368
+      Top             =   2208
+      Width           =   1092
    End
    Begin VB.Label Command_Screen_Shot_Auto_ClipBoard_er 
       Caption         =   "Screen Shot Auto ClipBoard_er when Spy_er && Archive Mode _OFF_ Hitt Button Here to Change"
@@ -1158,16 +1158,16 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   103
-      Top             =   1956
+      Top             =   1968
       Width           =   1740
    End
    Begin VB.Label Label_MAXIMIZE_GOODSYNC 
       BackColor       =   &H00DFFFFF&
       Caption         =   " MAX GOODSYNC"
       Height          =   216
-      Left            =   6276
+      Left            =   6288
       TabIndex        =   102
-      Top             =   2184
+      Top             =   2676
       Width           =   1380
    End
    Begin VB.Label Label_RUN_AUTOHOTKEY_SET 
@@ -1451,8 +1451,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6276
       TabIndex        =   78
-      Top             =   3132
-      Width           =   1212
+      Top             =   3144
+      Width           =   1152
    End
    Begin VB.Label Label29 
       Alignment       =   2  'Center
@@ -2230,6 +2230,8 @@ Option Explicit
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 
+Dim AUTOHOTKEY_RUN_FIND
+
 Dim FROM_picCrossHair_MouseUP
 
 Dim ENUMPROCESS_MUST_RUNNER
@@ -2379,7 +2381,7 @@ Public PROCESS_TO_KILLER_TO_GO
 Dim EnumProcess_COUNTER
 
 Dim DELAY_TICKER
-Dim pid As Long, APP_NAME_EXE_PASS_FOR_CALL_BACK As String
+Dim PID As Long, APP_NAME_EXE_PASS_FOR_CALL_BACK As String
 
 Dim VAR_IN, VAR_OUT
 
@@ -3280,11 +3282,11 @@ Private Sub Form_Load()
     '---------------------------------
     Dim VAR
     If IsIDE = True Then
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, App.Path + "\" + App.EXEName + ".exe")
-        If pid <> -1 Then
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
+        If PID <> -1 Then
             'Call Process_HIGH_PRIORITY_CLASS(PID)
-            VAR = cProcesses.Process_Kill(pid)
+            VAR = cProcesses.Process_Kill(PID)
             Beep
             End
         End If
@@ -5075,6 +5077,8 @@ Private Sub Lab_KILL_EXPLORER_Click()
 
 Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click
 
+Me.WindowState = vbMinimized
+
 End Sub
 
 Private Sub MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click()
@@ -5274,6 +5278,8 @@ End Sub
 
 Private Sub Label_CHROME_PAGE_AUTO_ON_Click()
 
+Me.WindowState = vbMinimized
+
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_CHROME_PAGE_AUTO_ON.BackColor = RGB(255, 255, 255)
 
@@ -5422,6 +5428,8 @@ End Sub
 
 Private Sub Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY_Click()
 
+Me.WindowState = vbMinimized
+
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_AND_RUN_ANOTHER_AUTOHOTKEY.BackColor = RGB(255, 255, 255)
 
@@ -5455,8 +5463,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -5465,8 +5473,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -5475,8 +5483,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -5501,8 +5509,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -5510,8 +5518,8 @@ SET_COMPUTER_TO_RUN_PID_EXE = "Conhost.exe"
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -5658,10 +5666,10 @@ If I_R = 0 Then
     If XX_hWnd > 0 Then
         
         'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
-        pid = -1
-        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
-        If pid > 0 Then
-            Result = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.Convert(XX_hWnd, PID, cnFromhWnd Or cnToProcessID)
+        If PID > 0 Then
+            Result = cProcesses.Process_Kill(PID)
             Exit Sub
         End If
     End If
@@ -5871,10 +5879,10 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
     If XX_hWnd > 0 Then
         
         'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
-        pid = -1
-        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
-        If pid > 0 Then
-            Result = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.Convert(XX_hWnd, PID, cnFromhWnd Or cnToProcessID)
+        If PID > 0 Then
+            Result = cProcesses.Process_Kill(PID)
             Exit Sub
         End If
     End If
@@ -6012,6 +6020,8 @@ End Function
 
 Private Sub Label_KILL_CHROME_Click()
  
+ 
+ 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_CHROME.BackColor = RGB(255, 255, 255)
 
@@ -6027,8 +6037,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -6087,11 +6097,20 @@ End Sub
 
 Private Sub Label24_Click()
 
+Me.WindowState = vbMinimized
+
 Call Label_MAXIMIZE_GOODSYNC_Click
 Call Label_MAXIMIZE_GOODSYNC2GO_Click
  
 Call Label_CLOSE_GOODSYNC_Click
 Call Label_CLOSE_GOODSYNC2GO_Click
+ 
+Dim objShell
+Set objShell = CreateObject("Wscript.Shell")
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk""", DontShowWindow, DontWaitUntilFinished
+Set objShell = Nothing
+
+'Me.WindowState = vbMinimized
  
 End Sub
 
@@ -6186,7 +6205,7 @@ Private Sub Label55_Click()
 Call Label_MAXIMIZE_GOODSYNC_Click
 Call Label_MAXIMIZE_GOODSYNC2GO_Click
 
-
+Me.WindowState = vbMinimized
 
 End Sub
 
@@ -6482,9 +6501,9 @@ End If
 ' ---------------------------------------------------------------------
 
 Dim VAR, EXE_STRING As String
-pid = -1
-VAR = cProcesses.Convert(hWnd_RESULT, pid, cnFromhWnd Or cnToProcessID)
-VAR = cProcesses.Convert(pid, EXE_STRING, cnFromProcessID Or cnToEXE)
+PID = -1
+VAR = cProcesses.Convert(hWnd_RESULT, PID, cnFromhWnd Or cnToProcessID)
+VAR = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
 
 
 ' -------------------------------------------------------------------
@@ -6495,11 +6514,11 @@ VAR = cProcesses.Convert(pid, EXE_STRING, cnFromProcessID Or cnToEXE)
 'PID = -1
 'VAR = cProcesses.GetEXEID(PID, EXE_STRING)
 EXE_STRING = "HubiC.exe"
-pid = -1
-VAR = cProcesses.Convert(EXE_STRING, pid, cnFromEXE Or cnToProcessID)
+PID = -1
+VAR = cProcesses.Convert(EXE_STRING, PID, cnFromEXE Or cnToProcessID)
 
 PROCESS_TO_KILLER = EXE_STRING
-PROCESS_TO_KILLER_PID = pid
+PROCESS_TO_KILLER_PID = PID
 Call LISTVIEW_CLICKER
 
 'PROCESS_TO_KILLER PID
@@ -7064,6 +7083,7 @@ End Sub
 
 
 Private Sub Label_KILL_AUTOHOTKEY_Click()
+Me.WindowState = vbMinimized
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_AUTOHOTKEY.BackColor = RGB(255, 255, 255)
@@ -7090,8 +7110,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -7108,8 +7128,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            cProcesses.Process_Kill (pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (PID)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
         End If
@@ -7151,8 +7171,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -7167,8 +7187,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            cProcesses.Process_Kill (pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (PID)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
         End If
@@ -7749,8 +7769,8 @@ Do
     For R = lstProcess_3_SORTER_ListView.ListItems.Count To 1 Step -1
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(UCase(A1), SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -7773,7 +7793,7 @@ Dim ALL_DONE
 Dim NAME_EXE As String
 Dim PID_INPUT As Long
 Dim i
-Dim pid As Long
+Dim PID As Long
 Dim hWnd_LINE As Long
 Dim HWND_STR As String
 Dim strarray As Variant
@@ -7809,7 +7829,7 @@ Dim ALL_DONE
 Dim NAME_EXE As String
 Dim PID_INPUT As Long
 Dim i
-Dim pid As Long
+Dim PID As Long
 Dim hWnd_LINE As Long
 Dim HWND_STR As String
 Dim strarray As Variant
@@ -9170,6 +9190,75 @@ MkDir DIR_PATH + "\" + UCase(Format(Now, "YYYY-MM-MMM"))
 End Sub
 
 
+
+Sub Timer_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER()
+
+Dim VAR, PID As Long
+
+If IS_AUTOHOTKEY_RUN = True Then
+    AUTOHOTKEY_RUN_FIND = True
+End If
+
+If AUTOHOTKEY_RUN_FIND = True Then
+    If IS_AUTOHOTKEY_RUN = False Then
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
+            Beep
+        End If
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
+            Beep
+        End If
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
+            Beep
+        End If
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
+            Beep
+        End If
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "C:\Program Files (x86)\Winamp\winamp.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
+            Beep
+        End If
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
+            Beep
+        End If
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
+            Beep
+        End If
+
+        Unload Me
+        
+    End If
+End If
+
+
+
+
+
+
+End Sub
+
+
+
+
 Private Sub Timer_1_SECOND_Timer()
 
 Call Timer_DIR_FOR_XXX_BUNKER_COM_Timer
@@ -9183,6 +9272,9 @@ If O_DAY_NOW_DIR_FOR_VIDEO <> Day(Now) Then
 End If
 
 Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
+If Second(Now) Mod 4 = 0 Then
+    Call Timer_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER
+End If
 
 ' Call Timer_RELOAD_AUTOHOTKEY_APP_Timer
 
@@ -10433,8 +10525,8 @@ For R_I = 0 To lstProcess_2_ListView.ListItems.Count - 1
             T_COUNTER = T_COUNTER + 1
         End If
         If T_COUNTER > 20 Then
-            pid = Val(lstProcess_2_ListView.ListItems.Item(R_I))
-            cProcesses.Process_Kill (pid)
+            PID = Val(lstProcess_2_ListView.ListItems.Item(R_I))
+            cProcesses.Process_Kill (PID)
         End If
     End If
 Next
@@ -10588,11 +10680,11 @@ Do
                 ' closewindow (FINDER_LINE_hWnd_2)
                 
                 If FINDER_LINE_hWnd > 0 Then
-                    pid = -1
-                    VAR = cProcesses.Convert(FINDER_LINE_hWnd, pid, cnFromhWnd Or cnToProcessID)
+                    PID = -1
+                    VAR = cProcesses.Convert(FINDER_LINE_hWnd, PID, cnFromhWnd Or cnToProcessID)
                 End If
-                If pid > 0 Then
-                    Result = cProcesses.Process_Kill(pid)
+                If PID > 0 Then
+                    Result = cProcesses.Process_Kill(PID)
                 End If
             
             End If
@@ -13708,14 +13800,18 @@ Function FindWinPart_SEARCHER(SEARCH_STRING) As Long
     Dim CLASS_NAME As String
     Dim XGO
     Dim CLASS_NAME_______________
-
+    Dim TITLE_NAME_______________
+    
     'Find the first window
     test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
     Do While test_hWnd <> 0
         
+        CLASS_NAME_______________ = ""
+        TITLE_NAME_______________ = ""
         CLASS_NAME_______________ = GetWindowClass(test_hWnd)
+        TITLE_NAME_______________ = GetWindowTitle(test_hWnd)
         If InStr(UCase(CLASS_NAME_______________), UCase(SEARCH_STRING)) > 0 Then XGO = True
-        If InStr(UCase(GetWindowTitle(test_hWnd)), UCase(SEARCH_STRING)) > 0 Then XGO = True
+        If InStr(UCase(TITLE_NAME_______________), UCase(SEARCH_STRING)) > 0 Then XGO = True
         If XGO = True Then
             FindWinPart_SEARCHER = test_hWnd: Exit Function
         End If
@@ -13725,6 +13821,43 @@ Function FindWinPart_SEARCHER(SEARCH_STRING) As Long
     
     Loop
 End Function
+
+
+Function IS_AUTOHOTKEY_RUN() As Long
+    IS_AUTOHOTKEY_RUN = False
+    
+    Dim test_hWnd As Long, _
+        test_pid As Long, _
+        test_thread_id As Long
+    
+    Dim cText As String
+    Dim CLASS_NAME As String
+    Dim XGO
+    Dim CLASS_NAME_______________
+    Dim TITLE_NAME_______________
+    
+    'Find the first window
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    Do While test_hWnd <> 0
+        
+        CLASS_NAME_______________ = ""
+        TITLE_NAME_______________ = ""
+        CLASS_NAME_______________ = GetWindowClass(test_hWnd)
+        ' TITLE_NAME_______________ = GetWindowTitle(test_hWnd)
+        'If InStr(UCase(CLASS_NAME_______________), UCase(SEARCH_STRING)) > 0 Then XGO = True
+        'If InStr(UCase(TITLE_NAME_______________), UCase(SEARCH_STRING)) > 0 Then XGO = True
+        If InStr(UCase(CLASS_NAME_______________), UCase("AutoHotkey")) > 0 Then XGO = True
+        
+        If XGO = True Then
+            IS_AUTOHOTKEY_RUN = True: Exit Function
+        End If
+            
+    'retrieve the next window
+    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    
+    Loop
+End Function
+
 
 
 
