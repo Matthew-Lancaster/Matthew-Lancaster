@@ -136,11 +136,16 @@ NUMBER_COUNTER = 0
 NUMBER_COUNTER = NUMBER_COUNTER + 1
 I=NUMBER_COUNTER
 
-I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".JPG"
+'I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".JPG"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".AVI"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MOV"          ' DASH CAMERA
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MP4"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".TXT"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".FLV"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".URL"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
@@ -170,6 +175,7 @@ I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2017 CyberShot HX60V\MP4"
 I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2016 CyberShot HX60V\MP4"
 I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2015 CyberShot HX60V\MP4"
 I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2011 CyberShot H70 __\MP4"
+I=I+1:FOLDER_PATH(I)="D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM"
 
 
 
@@ -302,8 +308,18 @@ SUB PATH_SCANNER_COPY_CAMERA
 	FileModDate = f.DateLastModified
 	SET f=NOTHING
 	
-	NewFilename=REPLACE(VAR_PATH_SCANNER,".mp4",".MP4")
-	NewFilename=REPLACE(NewFilename,".txt",".TXT")
+	' CONVERT THE CASE HERE
+	' --------------------------
+	NewFilename=VAR_PATH_SCANNER
+	FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
+		IF FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2)<>"" THEN 
+			EXT_1=LCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
+			EXT_2=UCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
+			IF INSTR(LCASE(NewFilename),EXT_1)>0 THEN 
+				NewFilename=REPLACE(NewFilename,EXT_1,EXT_2)
+			END IF
+		END IF
+	NEXT
 
 	PATH_VAR_2=MID(NewFilename,1,INSTRREV(NewFilename,"\"))
 	
@@ -396,228 +412,6 @@ Sub DeleteEmptyFolders(folder)
 		END IF
     End If
 End Sub
-
-
-' NOT ROUTINE USER HERE THIS CODE SCRIPT
-SUB PATH_SCANNER_RENAME_4
-
-	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
-
-	NewFilename=FILE_VAR
-	NewFilename=REPLACE(NewFilename,"__","_")
-	NewFilename=REPLACE(NewFilename," _ ","_")
-	NewFilename=REPLACE(NewFilename,"_ ","_")
-	NewFilename=REPLACE(NewFilename," _","_")
-	NewFilename=REPLACE(NewFilename,".jpg",".JPG")
-	Extension=ucase(mid(NewFilename,len(NewFilename)-3))
-	
-	NewFilename=PATH_VAR+NewFilename
-	
-	SET_GO=FALSE
-	if Extension=".JPG" then 
-		SET_GO=TRUE
-	end	if
-	
-	if VAR_PATH_SCANNER <> NewFilename AND SET_GO=TRUE then 
-		'msgbox NewFilename
-		I_COUNT_1=I_COUNT_1+1
-		ON ERROR RESUME NEXT
-		ERR.CLEAR
-		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
-		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
-		END IF
-		'Wscript.QUIT
-	end if
-
-END SUB
-
-
-' NOT ROUTINE USER HERE THIS CODE SCRIPT
-SUB PATH_SCANNER_RENAME_3
-
-	NewFilename=REPLACE(VAR_PATH_SCANNER,".JPG",".jpg")
-	
-	if VAR_PATH_SCANNER <> NewFilename then 
-		I_COUNT_1=I_COUNT_1+1
-		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
-		'msgbox NewFilename
-		'Wscript.QUIT
-	end if
-
-END SUB
-
-' NOT ROUTINE USER HERE THIS CODE SCRIPT
-SUB PATH_SCANNER_RENAME_2
-
-	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
-
-	SET_GO=TRUE 
-	IF INSTR(UCASE(VAR_PATH_SCANNER),".JPG")=0 THEN SET_GO=FALSE
-	'IF MID(FILE_VAR,1,4)<>"2010" THEN  SET_GO=FALSE
-
-	NewFilename=FILE_VAR
-
-	IF LEN(FILE_VAR)>= 12 AND SET_GO=TRUE THEN SET_GO=FALSE
-	
-	ON ERROR RESUME NEXT
-	if SET_GO=TRUE then
-		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
-		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
-		END IF
-	END IF
-
-	'IF NewFilename_COUNTER>= 761 THEN SET_GO=FALSE
-	
-	IF SET_GO=TRUE THEN
-		'MSGBOX VAR_PATH_SCANNER
-		NewFilename=FILE_VAR
-
-		if FSO.FileExists(PATH_VAR+NewFilename)=TRUE THEN 
-			'msgbox "FILE ALREADY EXISTS "+VBCRLF+VBCRLF+NewFilename
-			'Wscript.QUIT
-			X_D=0
-			DO
-				FOR R=1 TO 500
-					X_D=X_D+1
-					NewFilename="DSC"+CSTR(X_D)+".jpg"
-					NewFilename_VAR_2=MID(NewFilename,4)
-					 
-					IF LEN(NewFilename)<12 THEN 
-						X_C=1
-						DO
-							IF LEN(NewFilename)<12 THEN 
-								NewFilename="DSC"+STRING(X_C,"0")+NewFilename_VAR_2
-								X_C=X_C+1
-							END IF
-						LOOP UNTIL LEN(NewFilename)=12
-					end if
-					if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
-				NEXT
-			LOOP UNTIL FSO.FileExists(PATH_VAR+NewFilename)=FALSE
-
-		END IF
-
-		NewFilename=PATH_VAR+NewFilename
-
-		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename
-			Wscript.QUIT
-			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
-
-			I_COUNT_1=I_COUNT_1+1
-		END IF
-	END IF
-	
-	
-END SUB
-
-' NOT ROUTINE USER HERE THIS CODE SCRIPT
-SUB PATH_SCANNER_RENAME
-
-	SET_GO=FALSE
-	IF INSTR(UCASE(VAR_PATH_SCANNER),"- SONY DSC-H7 -") THEN SET_GO=TRUE
-	IF INSTR(UCASE(VAR_PATH_SCANNER),".JPG")=0 THEN SET_GO=FALSE
-	
-	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
-	
-	'IF MID(UCASE(FILE_VAR),1,4)="2010" THEN SET_GO=TRUE
-	
-	SET_GO=TRUE 
-	IF INSTR(UCASE(VAR_PATH_SCANNER),".JPG")=0 THEN SET_GO=FALSE
-	
-	'IF MID(FILE_VAR,1,4)="DSCN" THEN  SET_GO=FALSE
-	'IF MID(FILE_VAR,1,4)<>"2010" THEN  SET_GO=FALSE
-
-	IF LEN(FILE_VAR)>= 12 AND SET_GO=TRUE THEN SET_GO=FALSE
-	
-	NewFilename=FILE_VAR
-	NewFilename="DSC"+MID(NewFilename,12)
-	
-	ON ERROR RESUME NEXT
-	if SET_GO=TRUE then
-		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
-		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
-		END IF
-	END IF
-
-	'IF NewFilename_COUNTER>= 761 THEN SET_GO=FALSE
-	
-	IF SET_GO=TRUE THEN 
-		
-		NewFilename_COUNTER_STRING=MID(NewFilename,INSTR(NewFilename,".")-4)
-		NewFilename_COUNTER_STRING=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
-		NewFilename_COUNTER_STRING=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
-		NewFilename
-		IF LEN(NewFilename)<12 THEN 
-			X_C=1
-			DO
-				IF LEN(NewFilename)<12 THEN 
-					NewFilename="DSC"+STRING(X_C,"0")+MID(NewFilename,4)
-					X_C=X_C+1
-				END IF
-			LOOP UNTIL LEN(NewFilename)=12
-		end if
-
-
-		
-		' IF LEN(FILE_VAR)<12 THEN 
-			' X_C=1
-			' DO
-				' IF LEN(FILE_VAR)<12 THEN 
-					' NewFilename="DSC"+STRING(X_C,"0")+MID(FILE_VAR,4)
-					' X_C=X_C+1
-				' END IF
-			' LOOP UNTIL LEN(NewFilename)=12
-			' NewFilename=PATH_VAR+NewFilename
-		' end if
-			
-		'msgbox NewFilename
-		'Wscript.QUIT
-		
-		if FSO.FileExists(PATH_VAR+NewFilename)=TRUE THEN 
-			'msgbox "FILE ALREADY EXISTS "+VBCRLF+VBCRLF+NewFilename
-			'Wscript.QUIT
-			FOR R=1 TO 400
-				NewFilename="DSC"+CSTR(R)+".jpg"
-				IF LEN(NewFilename)<12 THEN 
-					X_C=1
-					DO
-						IF LEN(NewFilename)<12 THEN 
-							NewFilename="DSC"+STRING(X_C,"0")+MID(NewFilename,4)
-							X_C=X_C+1
-						END IF
-					LOOP UNTIL LEN(NewFilename)=12
-				end if
-				 
-				msgbox NewFilename
-				 
-				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
-			 NEXT
-		END IF
-		
-		NewFilename=PATH_VAR+NewFilename
-		
-		SET_GO=FALSE
-		if instr(ucase(NewFilename),".JPG")>0 THEN SET_GO=TRUE
-		PATH_VAR_4=MID(NewFilename,1,INSTRREV(NewFilename,"\"))
-		IF INSTR(VAR_PATH_SCANNER,PATH_VAR_4)=0 THEN SET_GO=FALSE
-		'MSGBOX PATH_VAR_4
-		'MSGBOX VAR_PATH_SCANNER
-		IF SET_GO=TRUE THEN 
-			msgbox NewFilename
-			'Wscript.QUIT
-			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
-			I_COUNT_1=I_COUNT_1+1
-		END IF
-	END IF
-
-END SUB
 
 
 '------------------------------------------------
