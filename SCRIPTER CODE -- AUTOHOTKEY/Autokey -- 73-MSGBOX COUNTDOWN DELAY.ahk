@@ -98,6 +98,7 @@ Secs_MSGBOX_05=
 Secs_MSGBOX_06=
 Secs_MSGBOX_07=
 Secs_MSGBOX_08=
+RELAUNCH_PATH_VAR=
 
 X_COUNT_EXIT=0
 MSGBOX_COUNTDOWN_RESTART=""
@@ -566,6 +567,10 @@ RETURN
 
 
 
+
+
+
+
 TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 
 	; -------------------------------------------
@@ -577,13 +582,16 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	; OK   
 	; ---------------------------
 	; -------------------------------------------
+	; D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe is not a valid Win32 application.
+	; -------------------------------------------
+
 	; IFWINEXIST Vb6 Loader ahk_exe Shell VBasic 6 Loader.exe
 	
 	SetTitleMatchMode 2  ; Specify Full path
 	
 	SET_GO_GS=FALSE
-	VAR_IN_NAME_1:=EXE - Application Error
-	VAR_IN_NAME_2:=EXE - Application Error
+	VAR_IN_NAME_1:=- Application Error
+	VAR_IN_NAME_2:="VB6\VB-NT\"
 	IFWINEXIST %VAR_IN_NAME_1% ahk_class #32770
 	{
 		SET_GO_GS=TRUE
@@ -597,26 +605,42 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 
 	IF SET_GO_GS=TRUE
 	{
-			WinGet, HWND, ID, %VAR_IN_NAME%
-			WinGet, path, ProcessName, ahk_id %HWND%
-			IF INSTR(PATH,"VB6\")=0 
-				SET_GO_GS=FALSE
+			SET_GO_GS=FALSE
+			WinGetTitle, OutputVar_1, %VAR_IN_NAME% ahk_class #32770
+			IF INSTR(OutputVar_1,"VB_KEEP_RUNNER.EXE")>0 
+			{
+				SET_GO_GS=TRUE
+				RELAUNCH_PATH_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+			}
 	}
 	
-	
-	IFWINEXIST %VAR_IN_NAME%
+	IF SET_GO_GS=TRUE
 	{
-		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME%
+		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME% ahk_class #32770
+		SET_GO_02=FALSE
 		IF INSTR(MSGBOX_INFO,"The application failed to initialize properly")
+			SET_GO_02=TRUE
+		IF INSTR(MSGBOX_INFO,"is not a valid Win32 application.")
+			SET_GO_02=TRUE
+		IF SET_GO_02=TRUE
 		{
-			ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
-			STRING_V:=OK  0
-			IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+			ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME% ahk_class #32770
+			STRING_V:="OK  0"
+			SetTitleMatchMode 3
+			; TOOLTIP %CONTROL_TEXT% " -- " %STRING_V%
+			IF INSTR(CONTROL_TEXT,STRING_V)>0
 			{	
 				; NA [v1.0.45+]: May improve reliability. See reliability below.
-				ControlClick, Button2,%VAR_IN_NAME%,,,, NA x10 y10 
+				; ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
 				SOUNDBEEP 4000,300
 				VAR_DONE_ESCAPE_KEY=TRUE
+				SLEEP 1000
+				; MSGBOX %CONTROL_TEXT%
+				IfExist, %RELAUNCH_PATH_VAR%
+				{
+					MSGBOX %RELAUNCH_PATH_VAR%
+					Run, "%RELAUNCH_PATH_VAR%"
+				}
 			}
 			
 			IF INSTR(CONTROL_TEXT,"OK")>0
@@ -628,13 +652,26 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 
 			IF Secs_MSGBOX_08>0 	
 				Secs_MSGBOX_08-=1
-			
+
+			;TOOLTIP "OK  "%A_INDEX%
+			IF !Secs_MSGBOX_08
+			LOOP, 88
+			{
+			TOOLTIP "%CONTROL_TEXT%"`n"OK  %A_INDEX%"
+			SLEEP 500
+			IF INSTR(CONTROL_TEXT,"OK %A_INDEX%")>0
+			{
+				Secs_MSGBOX_08=%A_INDEX%
+				BREAK
+			}
+				
+			}
+				
 			ControlSetText,Button1,OK  %Secs_MSGBOX_08%, %VAR_IN_NAME%
 		}
 	}
 
 RETURN
-
 
 
 
