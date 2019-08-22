@@ -627,6 +627,7 @@ RUN_THE_APP:
 	{
 		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
 		Process, Close,% DllCall("GetCurrentProcessId")
+		SOUNDBEEP, 1500,100
 		RETURN
 	}
 	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
@@ -637,6 +638,7 @@ RUN_THE_APP:
 			Process, Close,% PID_1
 		}
 		Run, %Element_1%
+		SOUNDBEEP, 1500,100
 		RETURN
 	}
 	 
