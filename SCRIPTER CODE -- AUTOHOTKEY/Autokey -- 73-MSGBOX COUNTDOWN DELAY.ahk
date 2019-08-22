@@ -96,6 +96,9 @@ Secs_MSGBOX_03=50
 Secs_MSGBOX_04=5
 Secs_MSGBOX_05=
 Secs_MSGBOX_06=
+Secs_MSGBOX_07=
+Secs_MSGBOX_08=
+
 X_COUNT_EXIT=0
 MSGBOX_COUNTDOWN_RESTART=""
 VAR_WORKER_MSGBOX_DELAY_COUNT=""
@@ -111,9 +114,9 @@ SETTIMER TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX,1000
 	
 SETTIMER TIMER_MSGBOX_WINDOWS_SCRIPT_HOST_IP_CHANGER,1000
 
-Secs_MSGBOX_07=0
 SETTIMER TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER,1000
 
+SETTIMER TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX,1000
 	
 RETURN
 
@@ -224,6 +227,7 @@ TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX:
 	}
 
 RETURN
+
 
 
 
@@ -515,8 +519,6 @@ TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER:
 	; RETURN
 
 	SetTitleMatchMode 3  ; Specify Full path
-
-	
 	
 	SET_GO_GS=FALSE
 	VAR_IN_NAME_1=GoodSync ahk_class #32770
@@ -562,6 +564,76 @@ TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER:
 
 RETURN
 
+
+
+TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
+
+	; -------------------------------------------
+	; ---------------------------
+	; VB_KEEP_RUNNER.EXE - Application Error
+	; ---------------------------
+	; The application failed to initialize properly (0xc0000033). Click on OK to terminate the application. 
+	; ---------------------------
+	; OK   
+	; ---------------------------
+	; -------------------------------------------
+	; IFWINEXIST Vb6 Loader ahk_exe Shell VBasic 6 Loader.exe
+	
+	SetTitleMatchMode 2  ; Specify Full path
+	
+	SET_GO_GS=FALSE
+	VAR_IN_NAME_1:=EXE - Application Error
+	VAR_IN_NAME_2:=EXE - Application Error
+	IFWINEXIST %VAR_IN_NAME_1% ahk_class #32770
+	{
+		SET_GO_GS=TRUE
+		VAR_IN_NAME=%VAR_IN_NAME_1%
+	}
+	IFWINEXIST %VAR_IN_NAME_2% ahk_class #32770
+	{
+		SET_GO_GS=TRUE
+		VAR_IN_NAME=%VAR_IN_NAME_2%
+	}
+
+	IF SET_GO_GS=TRUE
+	{
+			WinGet, HWND, ID, %VAR_IN_NAME%
+			WinGet, path, ProcessName, ahk_id %HWND%
+			IF INSTR(PATH,"VB6\")=0 
+				SET_GO_GS=FALSE
+	}
+	
+	
+	IFWINEXIST %VAR_IN_NAME%
+	{
+		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME%
+		IF INSTR(MSGBOX_INFO,"The application failed to initialize properly")
+		{
+			ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
+			STRING_V:=OK  0
+			IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+			{	
+				; NA [v1.0.45+]: May improve reliability. See reliability below.
+				ControlClick, Button2,%VAR_IN_NAME%,,,, NA x10 y10 
+				SOUNDBEEP 4000,300
+				VAR_DONE_ESCAPE_KEY=TRUE
+			}
+			
+			IF INSTR(CONTROL_TEXT,"OK")>0
+			IF StrLen(CONTROL_TEXT)=4
+			{
+				Secs_MSGBOX_08=20
+				SOUNDBEEP 5000,200
+			}
+
+			IF Secs_MSGBOX_08>0 	
+				Secs_MSGBOX_08-=1
+			
+			ControlSetText,Button1,OK  %Secs_MSGBOX_08%, %VAR_IN_NAME%
+		}
+	}
+
+RETURN
 
 
 
