@@ -1229,8 +1229,8 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 	; FN_Array_3[ArrayCount]:="ahk_class Chrome_WidgetWin_1"
 	; ArrayCount += 1
 	; FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}" ; - GOODSYNC2GO
-	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}" ; - GOODSYNC
+	; ArrayCount += 1
+	; FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}" ; - GOODSYNC
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="AutoHotkey Help"
 
