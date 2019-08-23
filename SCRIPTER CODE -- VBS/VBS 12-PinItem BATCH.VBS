@@ -460,10 +460,14 @@ IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
 END IF
+
+IF Version_OS=10  ORCOMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
+END IF
+
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
 END IF 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
