@@ -297,9 +297,9 @@ TIMER_SUB_RELOAD_PROCESS_ARRAY:
 
 	GOSUB RELOAD_ALL_NET___VB_CODE_EXE_SUB
 
-	GOSUB TIMER_SUB_EliteSpy
+	GOSUB TIMER_SUB_EliteSpy_2
 
-	GOSUB TIMER_SUB_VB_KEEP_RUNNER
+	GOSUB TIMER_SUB_VB_KEEP_RUNNER_2
 
 	; -------------------------------------------------------------------
 	; GOOD WORKER DON'T STAY AT FINISHER
@@ -319,28 +319,28 @@ RETURN
 
 
 ; -------------------------------------------------------------------
-TIMER_SUB_EliteSpy:
+TIMER_SUB_EliteSpy_2:
 ; -------------------------------------------------------------------
-dhw := A_DetectHiddenWindows
+DHW_2 := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 IfWinNotExist EliteSpy+ by Andrea
 {
 	SoundBeep , 3000 , 100
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
-	IfExist, %FN_VAR%
+	FN_VAR_2:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+	IfExist, %FN_VAR_2%
 		{
-			Run, %FN_VAR%
+			Run, %FN_VAR_2%
 		}
 }
-DetectHiddenWindows, % dhw
+DetectHiddenWindows, % DHW_2
 Return
 
 ; -------------------------------------------------------------------
-TIMER_SUB_VB_KEEP_RUNNER:
+TIMER_SUB_VB_KEEP_RUNNER_2:
 ; -------------------------------------------------------------------
-dhw := A_DetectHiddenWindows
+DHW := A_DetectHiddenWindows
 DetectHiddenWindows, ON
 SetTitleMatchMode 2  ; Avoids Specify Full path.
 
@@ -353,27 +353,9 @@ IfWinNotExist VB_KEEP_RUNNER
 			Run, %FN_VAR%
 		}
 }
-DetectHiddenWindows, % dhw
+DetectHiddenWindows, % DHW
 Return
 
-; -------------------------------------------------------------------
-TIMER_SUB_CPU_INDIVIDUAL_PROCESS:
-; -------------------------------------------------------------------
-dhw := A_DetectHiddenWindows
-DetectHiddenWindows, ON
-SetTitleMatchMode 2  ; Avoids Specify Full path.
-
-IfWinNotExist INDIVIDUAL PROCESS
-{
-	SoundBeep , 3000 , 100
-	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
-	IfExist, %FN_VAR%
-		{
-			Run, %FN_VAR%
-		}
-}
-DetectHiddenWindows, % dhw
-Return
 
 
 MenuHandler:
