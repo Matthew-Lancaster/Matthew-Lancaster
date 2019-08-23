@@ -99,6 +99,7 @@ Secs_MSGBOX_06=
 Secs_MSGBOX_07=
 Secs_MSGBOX_08=0
 Secs_MSGBOX_08_RUN_ONCE=FALSE
+SHOW_COUNTDOWN_ACTION=FALSE
 RELAUNCH_PATH_VAR=
 
 X_COUNT_EXIT=0
@@ -623,7 +624,6 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		{
 			SET_GO_GS=TRUE
 			VAR_IN_NAME_4=%VAR_IN_NAME_1%
-			; TOOLTIP %VAR_IN_NAME_4% " -- " %VAR_IN_NAME_1%
 		}
 	}
 
@@ -642,40 +642,39 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		}
 	}
 
-	; TOOLTIP %SET_GO_GS%
-	
 	IF SET_GO_GS=TRUE
 	{
-		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME_4% ahk_class #32770
+		ControlGettext, MSGBOX_INFO, Static1, %VAR_IN_NAME_4% ahk_class #32770
 		SET_GO_02=FALSE
 		Loop % FN_Array_3.MaxIndex()
 		{
 			VAR_IN_NAME_3:=FN_Array_3[A_Index]
 			IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
 				SET_GO_02=TRUE
-				
 		}
+		
+		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME_4% ahk_class #32770
+		Loop % FN_Array_3.MaxIndex()
+		{
+			VAR_IN_NAME_3:=FN_Array_3[A_Index]
+			IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
+				SET_GO_02=TRUE
+		}
+		
 		IF SET_GO_02=TRUE
 		{
 			ControlGetText CONTROL_TEXT_01,Button1,%VAR_IN_NAME_4% ahk_class #32770
 			STRING_V:="OK  0"
-			; SetTitleMatchMode 3
-			; TOOLTIP %CONTROL_TEXT_01% " -- " %STRING_V%
 			IF INSTR(CONTROL_TEXT_01,STRING_V)>0
 			{	
 				; NA [v1.0.45+]: May improve reliability. See reliability below.
-				VAR_IN_NAME_8:="%VAR_IN_NAME_4% ahk_class #32770"
-				IFWinExist %VAR_IN_NAME_8%
-					TOOLTIP % VAR_IN_NAME_8
-				
-				IFWinExist %VAR_IN_NAME_8%
-					MSGBOX "YES 02"
+				VAR_IN_NAME_8=%VAR_IN_NAME_4% ahk_class #32770
 				LOOP, 1000
 				{
-					; ControlClick, Button1,%VAR_IN_NAME_4%,,,, NA x10 y10 
-					IF WinExist("%VAR_IN_NAME_4% ahk_class #32770")=10
+					ControlClick, Button1,%VAR_IN_NAME_4%,,,, NA x10 y10 
+					IFWinNOTExist %VAR_IN_NAME_8%
 					{
-						MSGBOX "YES"
+						SHOW_COUNTDOWN_ACTION=FALSE
 						BREAK
 					}
 					SLEEP 500
@@ -683,12 +682,9 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				SOUNDBEEP 4000,300
 				VAR_DONE_ESCAPE_KEY=TRUE
 				SLEEP 1000
-				TOOLTIP %VAR_IN_NAME_4%  ; "ahk_class #32770"
-				; TOOLTIP % WinExist(%VAR_IN_NAME_4% "ahk_class #32770")
 				IfExist, %RELAUNCH_PATH_VAR%
 				{
-					; MSGBOX %RELAUNCH_PATH_VAR%
-					; Run, "%RELAUNCH_PATH_VAR%"
+					Run, "%RELAUNCH_PATH_VAR%"
 				}
 			}
 			
@@ -697,13 +693,21 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 			{
 				Secs_MSGBOX_08=20
 				SOUNDBEEP 5000,200
+				SHOW_COUNTDOWN_ACTION=TRUE
+			}
+
+			TOOLTIP "-"%CONTROL_TEXT_01%"-"
+			IF CONTROL_TEXT_01="OK "
+			{
+				Secs_MSGBOX_08=20
+				SOUNDBEEP 5000,200
+				SHOW_COUNTDOWN_ACTION=TRUE
 			}
 
 			IF Secs_MSGBOX_08>0 	
 				Secs_MSGBOX_08-=1
 
-			;TOOLTIP "OK  "%A_INDEX%
-			IF !Secs_MSGBOX_08
+			IF Secs_MSGBOX_08<1
 			IF Secs_MSGBOX_08_RUN_ONCE=FALSE
 			{
 				Secs_MSGBOX_08_RUN_ONCE=TRUE
@@ -716,12 +720,13 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 					IF INSTR(CONTROL_TEXT_03,CONTROL_TEXT_02)>0
 					{
 						Secs_MSGBOX_08=20; %A_INDEX%
+						SHOW_COUNTDOWN_ACTION=TRUE
 						BREAK
 					}
 				}
 			}
-			; TOOLTIP %Secs_MSGBOX_08% "HH " %VAR_IN_NAME_4%
-			ControlSetText,Button1,OK  %Secs_MSGBOX_08%, %VAR_IN_NAME_4% ahk_class #32770
+			IF SHOW_COUNTDOWN_ACTION=TRUE
+				ControlSetText,Button1,OK  %Secs_MSGBOX_08%, %VAR_IN_NAME_4% ahk_class #32770
 		}
 	}
 
