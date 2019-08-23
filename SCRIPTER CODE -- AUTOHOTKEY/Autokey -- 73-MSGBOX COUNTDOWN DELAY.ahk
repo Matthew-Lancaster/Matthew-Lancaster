@@ -600,6 +600,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_1[ArrayCount]:="VB6\VB-NT\"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
 
 	FN_Array_2 := []
 	ArrayCount := 0
@@ -607,6 +609,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.EXE"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
 
 	FN_Array_3 := []
 	ArrayCount := 0
@@ -614,6 +618,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_3[ArrayCount]:="The application failed to initialize properly"
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="is not a valid Win32 application."
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="The application was unable to start correctly"
 
 	
 	SET_GO_GS=FALSE
@@ -664,9 +670,11 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		IF SET_GO_02=TRUE
 		{
 			ControlGetText CONTROL_TEXT_01,Button1,%VAR_IN_NAME_4% ahk_class #32770
-			STRING_V:="OK  0"
-			IF INSTR(CONTROL_TEXT_01,STRING_V)>0
+			IF Secs_MSGBOX_08<1
+			IF Secs_MSGBOX_08_RUN_ONCE=TRUE
 			{	
+				Secs_MSGBOX_08_RUN_ONCE=FALSE
+				Secs_MSGBOX_08=0
 				; NA [v1.0.45+]: May improve reliability. See reliability below.
 				VAR_IN_NAME_8=%VAR_IN_NAME_4% ahk_class #32770
 				LOOP, 1000
@@ -674,7 +682,6 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 					ControlClick, Button1,%VAR_IN_NAME_4%,,,, NA x10 y10 
 					IFWinNOTExist %VAR_IN_NAME_8%
 					{
-						SHOW_COUNTDOWN_ACTION=FALSE
 						BREAK
 					}
 					SLEEP 500
@@ -684,7 +691,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				SLEEP 1000
 				IfExist, %RELAUNCH_PATH_VAR%
 				{
-					Run, "%RELAUNCH_PATH_VAR%"
+					Run, "%RELAUNCH_PATH_VAR%", , MIN
 				}
 			}
 			
@@ -696,12 +703,12 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				SHOW_COUNTDOWN_ACTION=TRUE
 			}
 
-			TOOLTIP "-"%CONTROL_TEXT_01%"-"
-			IF CONTROL_TEXT_01="OK "
+			IF CONTROL_TEXT_01=OK
 			{
 				Secs_MSGBOX_08=20
 				SOUNDBEEP 5000,200
 				SHOW_COUNTDOWN_ACTION=TRUE
+				Secs_MSGBOX_08_RUN_ONCE=TRUE
 			}
 
 			IF Secs_MSGBOX_08>0 	
@@ -716,10 +723,9 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				{
 					; SLEEP 500
 					CONTROL_TEXT_02=OK  %A_INDEX%X
-					; TOOLTIP "%CONTROL_TEXT_03%"`n"%CONTROL_TEXT_02%"
 					IF INSTR(CONTROL_TEXT_03,CONTROL_TEXT_02)>0
 					{
-						Secs_MSGBOX_08=20; %A_INDEX%
+						Secs_MSGBOX_08=20 ; %A_INDEX%
 						SHOW_COUNTDOWN_ACTION=TRUE
 						BREAK
 					}
