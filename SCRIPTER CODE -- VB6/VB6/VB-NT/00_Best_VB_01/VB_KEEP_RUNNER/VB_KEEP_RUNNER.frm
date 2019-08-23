@@ -9201,6 +9201,7 @@ End If
 
 If AUTOHOTKEY_RUN_FIND = True Then
     If IS_AUTOHOTKEY_RUN = False Then
+        AUTOHOTKEY_RUN_FIND = False
         PID = -1
         VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe")
         If PID <> -1 Then
@@ -9243,7 +9244,8 @@ If AUTOHOTKEY_RUN_FIND = True Then
             VAR = cProcesses.Process_Kill(PID)
             Beep
         End If
-
+    
+        EXIT_TRUE = True
         Unload Me
         
     End If
@@ -13611,6 +13613,7 @@ lhWndParentX = GetParenthWnd(LhWnd)
 If GetAsyncKeyState(27) < 0 Then
     If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
         If IsIDE = True Then
+            EXIT_TRUE = True
             Unload Me
         Else
             Me.WindowState = vbMinimized
