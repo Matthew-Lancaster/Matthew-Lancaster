@@ -595,6 +595,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX_02:
 	FN_Array_1 := []
 	ArrayCount := 0
 	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="- Application Error"
+	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
@@ -609,13 +611,14 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX_02:
 	FN_Array_3 := []
 	ArrayCount := 0
 	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="The application failed to initialize properly"
+	FN_Array_3[ArrayCount]:="The application failed to initialize properly" ; WIN 10
 	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="is not a valid Win32 application"
+	FN_Array_3[ArrayCount]:="is not a valid Win32 application."             ; WIN XP
 	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="Failed attempt to launch program or document"
+	FN_Array_3[ArrayCount]:="Failed attempt to launch program or document"  ; WIN XP ANOTHER TYPE OF BUG WHEN CORRUPTED EXE FILE -- THIS PROGRAM FOR COUNT DOWN MSGBOX SO NOT STUCK ON SCREEN AND ALLOW CONTINUE WHEN COPY OVER DO
+	; STARVED OF DRINK WHILE THIS CODE AWKARD - BIT RUSTY AUTOHOTKEYS ARRAY COME ALONG NICELY
 	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="The application was unable to start correctly"
+	FN_Array_3[ArrayCount]:="The application was unable to start correctly" ; WIN 07
 
 	
 	SET_GO_GS=FALSE
