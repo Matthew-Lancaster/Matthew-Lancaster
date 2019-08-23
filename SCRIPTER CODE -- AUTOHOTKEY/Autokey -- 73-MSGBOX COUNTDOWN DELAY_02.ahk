@@ -106,19 +106,19 @@ MSGBOX_COUNTDOWN_RESTART=""
 VAR_WORKER_MSGBOX_DELAY_COUNT=""
 OLD_VAR_WORKER_MSGBOX_DELAY_COUNT=-2
 
-SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,1000
+; SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,1000
 
-SETTIMER MSGBOX_PRESS_FOR_RELOADER,4000
+; SETTIMER MSGBOX_PRESS_FOR_RELOADER,4000
 	
-SETTIMER TIMER_HOTKEY_VB_CONFIRM_SAVE_AS,1000
+; SETTIMER TIMER_HOTKEY_VB_CONFIRM_SAVE_AS,1000
 	
-SETTIMER TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX,1000	
+; SETTIMER TIMER_HOTKEY_VB_MSGBOX_MSCOMCTL_OCX,1000	
 	
-SETTIMER TIMER_MSGBOX_WINDOWS_SCRIPT_HOST_IP_CHANGER,1000
+; SETTIMER TIMER_MSGBOX_WINDOWS_SCRIPT_HOST_IP_CHANGER,1000
 
-SETTIMER TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER,1000
+; SETTIMER TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER,1000
 
-SETTIMER TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX,1000
+SETTIMER TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX_02,1000
 	
 RETURN
 
@@ -572,7 +572,9 @@ RETURN
 
 
 
-TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
+TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX_02:
+
+PAUSE
 
 	; -------------------------------------------
 	; ---------------------------
@@ -588,22 +590,22 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 
 	; IFWINEXIST Vb6 Loader ahk_exe Shell VBasic 6 Loader.exe
 	
-	SetTitleMatchMode 2  
+	SetTitleMatchMode 2  ; Specify Full path
 	; ---------------------------------------------------------------
 
 	FN_Array_1 := []
 	ArrayCount := 0
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]:="- Application Error"
-	ArrayCount += 1
-	FN_Array_1[ArrayCount]:="VB6\VB-NT\"
+	; ArrayCount += 1
+	; FN_Array_1[ArrayCount]:="- Application Error"
+	; ArrayCount += 1
+	; FN_Array_1[ArrayCount]:="VB6\VB-NT\"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 
 	FN_Array_2 := []
 	ArrayCount := 0
-	ArrayCount += 1
-	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.EXE"
+	; ArrayCount += 1
+	; FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.EXE"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 
@@ -664,31 +666,17 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 			IF INSTR(CONTROL_TEXT_01,STRING_V)>0
 			{	
 				; NA [v1.0.45+]: May improve reliability. See reliability below.
-				VAR_IN_NAME_8:="%VAR_IN_NAME_4% ahk_class #32770"
-				IFWinExist %VAR_IN_NAME_8%
-					TOOLTIP % VAR_IN_NAME_8
-				
-				IFWinExist %VAR_IN_NAME_8%
-					MSGBOX "YES 02"
-				LOOP, 1000
-				{
-					; ControlClick, Button1,%VAR_IN_NAME_4%,,,, NA x10 y10 
-					IF WinExist("%VAR_IN_NAME_4% ahk_class #32770")=10
-					{
-						MSGBOX "YES"
-						BREAK
-					}
-					SLEEP 500
-				}
+				ControlClick, Button1,%VAR_IN_NAME_4%,,,, NA x10 y10 
 				SOUNDBEEP 4000,300
 				VAR_DONE_ESCAPE_KEY=TRUE
 				SLEEP 1000
 				TOOLTIP %VAR_IN_NAME_4%  ; "ahk_class #32770"
 				; TOOLTIP % WinExist(%VAR_IN_NAME_4% "ahk_class #32770")
+				IF WinExist("%VAR_IN_NAME_4% ahk_class #32770")=FALSE
 				IfExist, %RELAUNCH_PATH_VAR%
 				{
-					; MSGBOX %RELAUNCH_PATH_VAR%
-					; Run, "%RELAUNCH_PATH_VAR%"
+					MSGBOX %RELAUNCH_PATH_VAR%
+					Run, "%RELAUNCH_PATH_VAR%"
 				}
 			}
 			
