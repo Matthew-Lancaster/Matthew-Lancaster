@@ -136,7 +136,7 @@ SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
 SETTIMER TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP,1000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
-SETTIMER CHECK_GOODSYNC_NOT_RESPOND,2000
+; SETTIMER CHECK_GOODSYNC_NOT_RESPOND,2000
 
 ; -------------------------------------------------------------------
 
@@ -670,42 +670,42 @@ Return
 
 
 
-CHECK_GOODSYNC_NOT_RESPOND:
+; CHECK_GOODSYNC_NOT_RESPOND:
 
-	; IF !(A_ComputerName = "7-ASUS-GL522VW") 
-		; RETURN
+	; ; IF !(A_ComputerName = "7-ASUS-GL522VW") 
+		; ; RETURN
 
-	DetectHiddenWindows, OFF
+	; DetectHiddenWindows, OFF
 
-	WinGet, HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	; WinGet, HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 
-	IF HWND_4>0 
-	{
-		WinGetTitle, Title_4, ahk_id %HWND_4%
+	; IF HWND_4>0 
+	; {
+		; WinGetTitle, Title_4, ahk_id %HWND_4%
 		
-		; TOOLTIP % Title_4
+		; ; TOOLTIP % Title_4
 		
-		IF INSTR(Title_4,"(Not Responding)")=0
-			TIMER_NOT_RESPONDING=0
+		; IF INSTR(Title_4,"(Not Responding)")=0
+			; TIMER_NOT_RESPONDING=0
 		
-		IF INSTR(Title_4,"(Not Responding)")>0
-			IF TIMER_NOT_RESPONDING=0
-			{
-				TIMER_NOT_RESPONDING = % A_Now
-				TIMER_NOT_RESPONDING += 20, MINUTES
-			}
-			IF TIMER_NOT_RESPONDING>0
-				IF TIMER_NOT_RESPONDING<%A_Now%
-				{
-					SoundBeep , 1000 , 100
-					SoundBeep , 1500 , 100
-					Process, Close, GoodSync-v10.exe
-				}	
-	}
-	IF TIMER_NOT_RESPONDING>0
-		TOOLTIP "TIMER_NOT_RESPONDING GOODSYNC" %TIMER_NOT_RESPONDING%
+		; IF INSTR(Title_4,"(Not Responding)")>0
+			; IF TIMER_NOT_RESPONDING=0
+			; {
+				; TIMER_NOT_RESPONDING = % A_Now
+				; TIMER_NOT_RESPONDING += 20, MINUTES
+			; }
+			; IF TIMER_NOT_RESPONDING>0
+				; IF TIMER_NOT_RESPONDING<%A_Now%
+				; {
+					; SoundBeep , 1000 , 100
+					; SoundBeep , 1500 , 100
+					; Process, Close, GoodSync-v10.exe
+				; }	
+	; }
+	; IF TIMER_NOT_RESPONDING>0
+		; TOOLTIP "TIMER_NOT_RESPONDING GOODSYNC" %TIMER_NOT_RESPONDING%
 
-RETURN
+; RETURN
 
 
 
