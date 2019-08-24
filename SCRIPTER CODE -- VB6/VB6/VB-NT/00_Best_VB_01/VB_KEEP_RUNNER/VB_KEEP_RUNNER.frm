@@ -2381,7 +2381,7 @@ Public PROCESS_TO_KILLER_TO_GO
 Dim EnumProcess_COUNTER
 
 Dim DELAY_TICKER
-Dim PID As Long, APP_NAME_EXE_PASS_FOR_CALL_BACK As String
+Dim pid As Long, APP_NAME_EXE_PASS_FOR_CALL_BACK As String
 
 Dim VAR_IN, VAR_OUT
 
@@ -3282,11 +3282,11 @@ Private Sub Form_Load()
     '---------------------------------
     Dim VAR
     If IsIDE = True Then
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
-        If PID <> -1 Then
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, App.Path + "\" + App.EXEName + ".exe")
+        If pid <> -1 Then
             'Call Process_HIGH_PRIORITY_CLASS(PID)
-            VAR = cProcesses.Process_Kill(PID)
+            VAR = cProcesses.Process_Kill(pid)
             Beep
             End
         End If
@@ -5463,8 +5463,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(PID)
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(pid)
             ALL_DONE = False
         End If
     Next
@@ -5473,8 +5473,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(PID)
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(pid)
             ALL_DONE = False
         End If
     Next
@@ -5483,8 +5483,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(PID)
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(pid)
             ALL_DONE = False
         End If
     Next
@@ -5509,8 +5509,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (PID)
+        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (pid)
     End If
 Next
 
@@ -5518,8 +5518,8 @@ SET_COMPUTER_TO_RUN_PID_EXE = "Conhost.exe"
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (PID)
+        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (pid)
     End If
 Next
 
@@ -5666,10 +5666,10 @@ If I_R = 0 Then
     If XX_hWnd > 0 Then
         
         'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
-        PID = -1
-        VAR = cProcesses.Convert(XX_hWnd, PID, cnFromhWnd Or cnToProcessID)
-        If PID > 0 Then
-            Result = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
+        If pid > 0 Then
+            Result = cProcesses.Process_Kill(pid)
             Exit Sub
         End If
     End If
@@ -5879,10 +5879,10 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
     If XX_hWnd > 0 Then
         
         'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
-        PID = -1
-        VAR = cProcesses.Convert(XX_hWnd, PID, cnFromhWnd Or cnToProcessID)
-        If PID > 0 Then
-            Result = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
+        If pid > 0 Then
+            Result = cProcesses.Process_Kill(pid)
             Exit Sub
         End If
     End If
@@ -6037,8 +6037,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (PID)
+        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (pid)
     End If
 Next
 
@@ -6501,9 +6501,9 @@ End If
 ' ---------------------------------------------------------------------
 
 Dim VAR, EXE_STRING As String
-PID = -1
-VAR = cProcesses.Convert(hWnd_RESULT, PID, cnFromhWnd Or cnToProcessID)
-VAR = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
+pid = -1
+VAR = cProcesses.Convert(hWnd_RESULT, pid, cnFromhWnd Or cnToProcessID)
+VAR = cProcesses.Convert(pid, EXE_STRING, cnFromProcessID Or cnToEXE)
 
 
 ' -------------------------------------------------------------------
@@ -6514,11 +6514,11 @@ VAR = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
 'PID = -1
 'VAR = cProcesses.GetEXEID(PID, EXE_STRING)
 EXE_STRING = "HubiC.exe"
-PID = -1
-VAR = cProcesses.Convert(EXE_STRING, PID, cnFromEXE Or cnToProcessID)
+pid = -1
+VAR = cProcesses.Convert(EXE_STRING, pid, cnFromEXE Or cnToProcessID)
 
 PROCESS_TO_KILLER = EXE_STRING
-PROCESS_TO_KILLER_PID = PID
+PROCESS_TO_KILLER_PID = pid
 Call LISTVIEW_CLICKER
 
 'PROCESS_TO_KILLER PID
@@ -7110,8 +7110,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (PID)
+        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (pid)
     End If
 Next
 
@@ -7128,8 +7128,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            cProcesses.Process_Kill (PID)
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (pid)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
         End If
@@ -7171,8 +7171,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (PID)
+        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (pid)
     End If
 Next
 
@@ -7187,8 +7187,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            cProcesses.Process_Kill (PID)
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (pid)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
         End If
@@ -7755,6 +7755,8 @@ End Sub
 
 Private Sub Label_KILL_WSCRIPT_Click()
 
+Me.WindowState = vbMinimized
+
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_WSCRIPT.BackColor = RGB(255, 255, 255)
 
@@ -7769,8 +7771,8 @@ Do
     For R = lstProcess_3_SORTER_ListView.ListItems.Count To 1 Step -1
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(UCase(A1), SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(PID)
+            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(pid)
             ALL_DONE = False
         End If
     Next
@@ -7779,7 +7781,6 @@ Do
     Call EnumProcess
 Loop Until ALL_DONE = True
 
-Me.WindowState = vbMinimized
 
 End Sub
 
@@ -7793,7 +7794,7 @@ Dim ALL_DONE
 Dim NAME_EXE As String
 Dim PID_INPUT As Long
 Dim i
-Dim PID As Long
+Dim pid As Long
 Dim hWnd_LINE As Long
 Dim HWND_STR As String
 Dim strarray As Variant
@@ -7829,7 +7830,7 @@ Dim ALL_DONE
 Dim NAME_EXE As String
 Dim PID_INPUT As Long
 Dim i
-Dim PID As Long
+Dim pid As Long
 Dim hWnd_LINE As Long
 Dim HWND_STR As String
 Dim strarray As Variant
@@ -9193,7 +9194,7 @@ End Sub
 
 Sub Timer_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER()
 
-Dim VAR, PID As Long
+Dim VAR, pid As Long
 
 If IS_AUTOHOTKEY_RUN = True Then
     AUTOHOTKEY_RUN_FIND = True
@@ -9202,46 +9203,46 @@ End If
 If AUTOHOTKEY_RUN_FIND = True Then
     If IS_AUTOHOTKEY_RUN = False Then
         AUTOHOTKEY_RUN_FIND = False
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe")
-        If PID <> -1 Then
-            VAR = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe")
+        If pid <> -1 Then
+            VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe")
-        If PID <> -1 Then
-            VAR = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe")
+        If pid <> -1 Then
+            VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe")
-        If PID <> -1 Then
-            VAR = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe")
+        If pid <> -1 Then
+            VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe")
-        If PID <> -1 Then
-            VAR = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe")
+        If pid <> -1 Then
+            VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, "C:\Program Files (x86)\Winamp\winamp.exe")
-        If PID <> -1 Then
-            VAR = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, "C:\Program Files (x86)\Winamp\winamp.exe")
+        If pid <> -1 Then
+            VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe")
-        If PID <> -1 Then
-            VAR = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe")
+        If pid <> -1 Then
+            VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
-        PID = -1
-        VAR = cProcesses.GetEXEID(PID, "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe")
-        If PID <> -1 Then
-            VAR = cProcesses.Process_Kill(PID)
+        pid = -1
+        VAR = cProcesses.GetEXEID(pid, "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe")
+        If pid <> -1 Then
+            VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
     
@@ -10527,8 +10528,8 @@ For R_I = 0 To lstProcess_2_ListView.ListItems.Count - 1
             T_COUNTER = T_COUNTER + 1
         End If
         If T_COUNTER > 20 Then
-            PID = Val(lstProcess_2_ListView.ListItems.Item(R_I))
-            cProcesses.Process_Kill (PID)
+            pid = Val(lstProcess_2_ListView.ListItems.Item(R_I))
+            cProcesses.Process_Kill (pid)
         End If
     End If
 Next
@@ -10682,11 +10683,11 @@ Do
                 ' closewindow (FINDER_LINE_hWnd_2)
                 
                 If FINDER_LINE_hWnd > 0 Then
-                    PID = -1
-                    VAR = cProcesses.Convert(FINDER_LINE_hWnd, PID, cnFromhWnd Or cnToProcessID)
+                    pid = -1
+                    VAR = cProcesses.Convert(FINDER_LINE_hWnd, pid, cnFromhWnd Or cnToProcessID)
                 End If
-                If PID > 0 Then
-                    Result = cProcesses.Process_Kill(PID)
+                If pid > 0 Then
+                    Result = cProcesses.Process_Kill(pid)
                 End If
             
             End If
