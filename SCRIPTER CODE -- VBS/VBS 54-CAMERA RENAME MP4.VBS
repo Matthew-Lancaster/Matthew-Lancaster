@@ -44,13 +44,18 @@
 ' -------------------------------------------------------------------
 ' CAPITAL_FOLDER RENAME
 ' NEAR DONE
+' THE SCRIPT HAVE -- VBS 54-CAMERA RENAME MP4.VBS" 
+' IS SYNCER OTHER LOCATION 
+' IF NOT HERE 
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA RENAME MP4.VBS
+' IT WILL BE OVERWRITTEN ONE WAY OTHER LOCATION
+' COPIER HERE 
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' Sat 24-Aug-2019 07:25:00
 ' Sat 24-Aug-2019 22:40:40
 ' -------------------------------------------------------------------
-
-
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
