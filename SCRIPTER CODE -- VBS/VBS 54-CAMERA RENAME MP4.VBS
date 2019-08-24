@@ -362,17 +362,31 @@ SUB PATH_SCANNER_COPY_CAMERA
 				EE = LCase(FILE_VAR_2)
 				EE = UCASE(MID(EE,1,1))+MID(EE,2)
 
+				' USE AT END ROUTINE ARRAY
+				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
 				REDIM STRING_KEEPER1(100)
 				REDIM STRING_KEEPER2(100)
 				ISK=0
 				String1=""
-				String1=String1+" .com cdn"
+				String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
+				String1=String1+" fb-1"
 				String1=String1+" "
 				String1=TRIM(String1)
 				String_ARRAY=Split(String1," ",-1,1)
+				I=UBOUND(String_ARRAY)
+				MSGBOX I
+				' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
+				REDIM PRESERVE String_ARRAY(I+100)
+				I=I+1:String_ARRAY(I)=" A."
+				MSGBOX I
+				FOR R3 = 1 TO UBOUND(String_ARRAY)
+					IF String_ARRAY(R3)="" THEN EXIT FOR
+				NEXT
+				REDIM PRESERVE String_ARRAY(R3)
+
 				For EACH R3 IN String_ARRAY
 					STR2=R3
-					IF INSTR(FILE_VAR_2,STR2)>0 THEN 
+					IF INSTR(FILE_VAR_2,STR2)>0 THEN
 						T1=1
 						DO
 							X=INSTR(T1,FILE_VAR_2,STR2)
@@ -380,7 +394,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 								ISK=ISK+1
 								STRING_KEEPER1(ISK)=STR2
 								STRING_KEEPER2(ISK)=X
-								' MSGBOX STRING_KEEPER1(ISK)+VBCRLF+CSTR(STRING_KEEPER2(ISK))
 							END IF
 							IF X=0 THEN EXIT DO
 							T1=X+1
@@ -427,8 +440,11 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 				' HERE A LATER ONE CLEAR UP AFTER TYPE THING
 				' TEST IF SEARCH CHAR AND THEN NUMBER AFTER
+				'
+				' THESE ARE WHAT PUT LOWER CASE
+				'
 				STR1=" -().\/_"""+VBCR+VBLF
-				String1=LCASE(" A AND IN")
+				String1=LCASE(" A AND IN OF GO BY AN")
 				For r2 = 1 To LEN(STRY)
 					STR3=MID(STRY,r2,1)
 					String1 = Replace(String1, " "+ LCase(STR3), " " + UCase(STR3))
@@ -446,9 +462,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 				Next
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
+				' THESE ARE PRESERVE STRING
 				String1=""
 				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
-				String1=String1+" "
+				String1=String1+" BF MMF GF WOW"
 				String1=String1+" "
 				String1=TRIM(String1)
 				
@@ -496,12 +513,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 					' END IF
 				NEXT
 
+				' FROM THE TOP ARRAY
+				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
 				For ISK = 1 TO UBOUND(STRING_KEEPER1)
 					G1=LEN(STRING_KEEPER1(ISK))
 					G2=STRING_KEEPER2(ISK)
 					EF1=EE
 					EE=MID(EE,1,G2-1)+STRING_KEEPER1(ISK)+MID(EE,G1+G2)
-					IF EF1<>EE THEN MSGBOX EF1+VBCRLF+EE
 				NEXT
 				
 				FILE_VAR_2=EE
