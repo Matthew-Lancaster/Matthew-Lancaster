@@ -32,9 +32,25 @@
 ' SESSION 002
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-' Sat 10-Aug-2019 10:18:00
+' Sat 10-Aug-2019 07:18:00
 ' Sat 10-Aug-2019 12:04:00
 ' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+' SESSION 003
+' -------------------------------------------------------------------
+' ADD LINES OF CODE WHERE SEE HERE 580 LINE
+' -------------------------------------------------------------------
+' CAPITAL_FOLDER RENAME
+' NEAR DONE
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' Sat 24-Aug-2019 07:25:00
+' Sat 24-Aug-2019 22:40:40
+' -------------------------------------------------------------------
+
+
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -344,7 +360,15 @@ SUB PATH_SCANNER_COPY_CAMERA
 		' END IF
 	' NEXT
 
+
+	' ----------------------------
+	' Sat 22:50:30 Pm_24 August 2019
+ 	'
 	' CAPITAL_FOLDER RENAME
+	' ----------------------------
+	' NOW I MADE THIS BLOCK OF CODE 
+	' ALL MY VAIRABLE NEED TO BE PUT SET BEFORE THE BLOCK BEGIN 
+	' SPEED UP A BIT BECAUSE BINARY SORTER REDUCE SPEED QUITE A BIT
 	' ----------------------------
 	FOR R_COUNT_CAP=1 TO UBOUND(CAPITAL_FOLDER)
 	FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
@@ -523,7 +547,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' ---------------------------------------------------
 				String1=""
 				String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
-				String1=String1+" CUM NEEDS HAS GUY"
+				String1=String1+" CUM NEEDS HAS GUY xvideos.com"
 				String1=String1+" "
 				' ---------------------------------------------------
 				String1=TRIM(LCASE(String1))
@@ -597,9 +621,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 				REDIM PRESERVE String_ARRAY_1(R3-1)
 				REDIM PRESERVE String_ARRAY_3(R3-1)
 				
-				DIM BINARY_ST 
-				' DIM BI_4
-				
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For R3 = 0 TO UBOUND(String_ARRAY_1)
@@ -610,28 +631,35 @@ SUB PATH_SCANNER_COPY_CAMERA
 							' WITH BINARY COUNTER CONVERSION TO CASE
 							' ON STRING
 							' ---------------------------------------
-							' Function LPad (str, pad, length)
-								' LPad = String(length - Len(str), pad) & str
-							' End Function
 							BI_4=0
 							DO
+
+								' -----------------------------------
+								' WHEN DO THE BINARY NOT LIKE NORMAL COUNT
+								' EXAMPLE HERE IS 
+								' 0 = 0 -- 1 = 1 -- 2 = 10 -- 3 = 11
+								' SO WE HAVE NUMBER 2 WITH PADDING AFTER 
+								' LOOK SAME AS 1
+								' NOW CHECK DUPE IT 
+								' SAVE UNNECESSARY CODE COSTING SUPER
+								' -----------------------------------
+								DO 
+									BINARY_ST_2=DecimalToBinary(BI_4)
+									BI_4=BI_4+1
+								LOOP UNTIL RIGHT(BINARY_ST_2,1)="1" OR BI_4=1
 								
-								' BINARY_ST=DecimalToBinary(BI_4)
-								' MSGBOX BINARY_ST_2
-								MSGBOX DecimalToBinary(BI_4)
-								'MSGBOX CSTR(BI_4)+VBCRLF+BINARY_ST_2
-								' MSGBOX BINARY_ST
-								' FOR BI2=1 TO 10
-									' BINARY_ST=DecimalToBinary(BI2)
-									' MSGBOX BINARY_ST
-								' NEXT
-								
-								' BINARY_ST=CSTR(BINARY_ST)
-								
-								IF LEN(BINARY_ST)>LEN(String_ARRAY_1(R3)) THEN 
+								IF LEN(BINARY_ST_2)>LEN(String_ARRAY_1(R3)) THEN 
 									EXIT DO
 								END IF
-								BINARY_ST_2=CSTR(BINARY_ST)+STRING(LEN(String_ARRAY_1(R3))-LEN(BINARY_ST),"0")
+								
+								' -----------------------------------
+								' IT ABLE GET THE LEN OF BINARY WITHOUT PADDING 
+								' AND LEARN IF TOO LONG -- SO EXIT ABOVE LINE
+								' -----------------------------------
+								' BAD LINE OF CODE -- COMMENTOR
+								' -----------------------------------
+								BINARY_ST_2=BINARY_ST_2+STRING(LEN(String_ARRAY_1(R3))-LEN(BINARY_ST_2),"0")
+								
 								STRING_1=""
 								For R10=1 To LEN(String_ARRAY_1(R3))
 									IF MID(BINARY_ST_2,R10,1)="1" THEN 
@@ -640,11 +668,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 										STRING_1=STRING_1+LCASE(MID(String_ARRAY_1(R3),R10,1))
 									END IF
 								NEXT 
-								'MSGBOX CSTR(BI_4)+VBCRLF+BINARY_ST_2
 
-								'MSGBOX "--"+VBCRLF+CSTR(BI_4)+VBCRLF+BINARY_ST_2+VBCRLF+STRING_1
-
-								BI_4=BI_4+1
+								' MSGBOX CSTR(BI_4-1)+VBCRLF+BINARY_ST_2+VBCRLF+STRING_1
 								
 								IF INSTR(EE,STR4 + STRING_1 + STR5)>0 THEN 
 									IF String_ARRAY_3(R3)<>"" THEN  
@@ -710,10 +735,12 @@ SUB PATH_SCANNER_COPY_CAMERA
 					EE = Replace(EE, STR5, STR4)
 				NEXT
 
-
+				' ---------------------------------------------------
 				' HERE A LATER AGAIN -- CLEAR UP AFTER
 				' MUST STAY AS TYPE
 				' IT USER 1ST LETTER MUST CAPITAL IN SEARCHER
+				' MAYBE THIS NOT REQUIRE AN BIT OF OVER SHOOT WHERE ABOVE 
+				' WORK BETTER
 				' ---------------------------------------------------
 				' 06 OF 07
 				' ---------------------------------------------------
@@ -873,20 +900,9 @@ END SUB
 
 
 
-' Function DecimalToBinary(ByVal Number) 
-    ' DecNumber = HexNumber 
-    ' For i = 32 To 0 Step -1 
-        ' If Int(DecNumber / (2 ^ i)) = 1 Then 
-            ' BinNumber = BinNumber & "1" 
-            ' DecNumber = DecNumber - (2 ^ i) 
-        ' Else 
-            ' If BinNumber <> "" Then 
-                ' BinNumber = BinNumber & "0" 
-            ' End If 
-        ' End If 
-    ' Next 
-    ' HexToBin = BinNumber 
-' End Function 
+' Function LPad (str, pad, length)
+	' LPad = String(length - Len(str), pad) & str
+' End Function
 
 
 ' ----
@@ -899,7 +915,6 @@ Function DecimalToBinary(ByVal Number)
        Number = Number \ 2 
     Loop Until Number = 0 
 End Function 
-
 
 ' NOT WORKER
 ' ----
