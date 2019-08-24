@@ -318,6 +318,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 	
 	DIM STRING_KEEPER1()
 	DIM STRING_KEEPER2()
+	DIM String_ARRAY_3()
 
 	I_COUNT_2=I_COUNT_2+1
 	
@@ -367,6 +368,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				REDIM STRING_KEEPER1(100)
 				REDIM STRING_KEEPER2(100)
 				REDIM STRING_KEEPER3(100)
+				REDIM String_ARRAY_3(100)
+
 				ISK=0
 				' ---------------------------------------------------
 				' 01 OF 07 PART 001 OF 003
@@ -377,62 +380,79 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" _ing"
 				String1=String1+" "
 				String1=String1+" "
+				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				I=UBOUND(String_ARRAY_1)
 				' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
 				REDIM PRESERVE String_ARRAY_1(I+100)
+				REDIM PRESERVE String_ARRAY_3(I+100)
 				' ---------------------------------------------------
 				' 01 OF 07 PART 002 OF 003
 				' ---------------------------------------------------
-				I=I+1:String_ARRAY_1(I)=" A."        ' -- FILENAME END ON " A.FLV"
+				' -- FILENAME HAS LETTER END ON LIKE " A.FLV"
+				' -- EXAMPLE MAKE CASE UPPER OF THE -A- " A.FLV"
+				' -- || THE SEPARATOR
+				' ---------------------------------------------------
+				String1=""
+				String1=String1+"A.||"
+				String1=String1+"||"
+				String1=String1+"||"
+				String_ARRAY_2=Split(String1,"||",-1,1)
+				For R3 = 0 TO UBOUND(String_ARRAY_2)
+					IF String_ARRAY_2(R3)<>"" THEN 
+						I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
+					END IF
+				NEXT
+				' ---------------------------------------------------
+				' 01 OF 07 PART 003 OF 003
+				' ---------------------------------------------------
+				' HERE IT WILL SEARCH 
+				' String_ARRAY_3 -- EXAMPLE
+				' IS TO HAVE CASE CONVERT AS IS IN THERE
+				' WHAT SEARCH FOR -- AN EXAMPLE
+				' IS UCASE VERSION "_Ing" AND WANT LOWER "_ing"
+				' STRING LENGTH ARE NOT ABLE TO VARY OR ELSE BE USE INSTR IF WANT TO
+				' HOW HARD THAT BE -- CAREFUL WORDER - PARTIAL WORD
+				' ---------------------------------------------------
+				' CONVERT STRING PAIR CASE SENSITIVE TARGET RESULT
+				' String_ARRAY_1  ---- SOURCE 
+				' String_ARRAY_3  ---- TARGET
+				' ---------------------------------------------------
+				I=I+1:String_ARRAY_1(I)="_Ing" : String_ARRAY_3(I)="_ing"        
+				'I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
+				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+				' ---------------------------------------------------
 				FOR R3 = 1 TO UBOUND(String_ARRAY_1)
 					IF String_ARRAY_1(R3)="" THEN EXIT FOR
 				NEXT
 				REDIM PRESERVE String_ARRAY_1(R3-1)
+				REDIM PRESERVE String_ARRAY_3(R3-1)
 
-				For EACH R3 IN String_ARRAY_1
-					STR2=R3
-					IF INSTR(FILE_VAR_2,STR2)>0 THEN
+				For R3 = 0 TO UBOUND(String_ARRAY_1)
+					IF INSTR(FILE_VAR_2,String_ARRAY_1(R3))>0 THEN
+						
 						T1=1
 						DO
-							X=INSTR(T1,FILE_VAR_2,STR2)
+							' POSITION IN FILENAME WHERE SEARCH IS STRING ALSO
+							' ISK -- COUNTER POSITION UP OF ARRAY
+							' STRING_KEEPER1 -- SEARCH STRING 
+							' STRING_KEEPER2 -- POSITION IN FILENAME
+							' STRING_KEEPER3 -- ALTERNATIVE SEARCH REPLACE
+							X=INSTR(T1,FILE_VAR_2,String_ARRAY_1(R3))
 							IF X>0 THEN 
 								ISK=ISK+1
-								STRING_KEEPER1(ISK)=STR2
+								STRING_KEEPER1(ISK)=String_ARRAY_1(R3)
 								STRING_KEEPER2(ISK)=X
+								STRING_KEEPER3(ISK)=String_ARRAY_3(R3)
+								' MSGBOX FILE_VAR_2+VBCRLF+VBCRLF+CSTR(ISK) +VBCRLF+String_ARRAY_1(R3)
 							END IF
 							IF X=0 THEN EXIT DO
 							T1=X+1
 						LOOP UNTIL T1=0
 					END IF
-				NEXT
-				' ---------------------------------------------------
-				' HERE IT WILL SEARCH 
-				' String_ARRAY_1 
-				' AND 
-				' String_ARRAY_2
-				' IF A MATCH -- IT MAKE NOTE STORE HERE STRING_KEEPER3
-				' IS TO HAVE CASE CONVERT AS IS IN THERE
-				' WHAT SEARCH FOR -- AN EXAMPLE
-				' IS UCASE VERSION " _Ing" AND WANT LOWER " _ing"
-				' STRING LENGTH ARE NOT ABLE TO VARY OR BE USE INSTR IF WANT TO
-				' HOW HARD THAT BE -- CAREFUL WORDER - PARTIAL WORD
-				' ---------------------------------------------------
-				' ---------------------------------------------------
-				' 01 OF 07 PART 003 OF 003
-				' ---------------------------------------------------
-				String2=""
-				String2=String2+" _ing"
-				String_ARRAY_2=Split(String2," ",-1,1)
-				String2=TRIM(String2) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
-				For R11=1 TO UBOUND(STRING_KEEPER1)
-				For R22=1 TO UBOUND(String_ARRAY_2)
-					IF UCASE(STRING_KEEPER1(R11))=UCASE(String_ARRAY_2(R22)) THEN
-						STRING_KEEPER3(R11)=String_ARRAY_2(R22)
-						MSGBOX STRING_KEEPER3(R11)
-					END IF
-				NEXT
 				NEXT
 				
 				REDIM PRESERVE STRING_KEEPER1(ISK)
@@ -470,9 +490,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" _ADV _HD"
 				String1=String1+GET_FILE_EXTENSION ' FUNCTION
 				' ---------------------------------------------------
+				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
-				For r1 = 1 To LEN(STR1)
+				For r1 = 0 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For EACH R3 IN String_ARRAY_1
 							STR2=R3
@@ -486,13 +506,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' TEST IF SEARCH CHAR AND THEN NUMBER AFTER
 				'
 				' THESE ARE WHAT PUT LOWER CASE
-				'
+				' NOT PARTIAL WORD
 				' ---------------------------------------------------
 				' 03 OF 07
 				' ---------------------------------------------------
 				String1=""
-				String1=String1+" A AND AN AS IN OF GO BY TO FROM JUST WITH BOY"
-				String1=String1+" "
+				String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
+				String1=String1+" CUM NEEDS HAS GUY" ' WORD -- OLDER -- WANT %
 				String1=String1+" "
 				' ---------------------------------------------------
 				String1=LCASE(String1)
@@ -501,8 +521,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 					STR3=MID(STRY,r2,1)
 					String1 = Replace(String1, " "+ LCase(STR3), " " + UCase(STR3))
 				Next
+				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For EACH R3 IN String_ARRAY_1
@@ -516,6 +536,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' THESE ARE PRESERVE STRING
 				' THESE SEARCH 1ST CHARACTER STRING WITH CASE
+				' 1ST LETTER WON'T LOWER LOOK USE -- 01 OF 07 OR 03 OF 07
 				' ---------------------------------------------------
 				' 04 OF 07
 				' ---------------------------------------------------
@@ -523,9 +544,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
 				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
 				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
+				String1=String1+" GirlFriend TiT WebCam CheerLeader"
+				String1=String1+" "
+				String1=String1+" "
+				String1=String1+" "
 				' ---------------------------------------------------
+				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For EACH R3 IN String_ARRAY_1
@@ -540,8 +565,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				Next
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
-				' SEARCH AS 2ND LETTER UCASE & KEEP AS TYPE
-				' IF FAIL WANT FROM HERE LOOK 
+				' USER 2ND UCASE LETTER SEARCH & KEEP AS TYPE
+				' IF FAIL WANT FROM HERE LOOK
 				' NEXT 06 OF 07 OR ' DOUBT IT -- AND THEN 
 				' 1ST  01 OF 07
 				' ---------------------------------------------------
@@ -551,8 +576,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" .com .cdn"
 				String1=String1+" "
 				' ---------------------------------------------------
+				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				For EACH R3 IN String_ARRAY_1
 					STR2=R3
 					STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
@@ -560,8 +585,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				NEXT
 
 
-				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
+				' HERE A LATER AGAIN -- CLEAR UP AFTER
 				' MUST STAY AS TYPE
+				' IT USER 1ST LETTER MUST CAPITAL IN SEARCHER
 				' ---------------------------------------------------
 				' 06 OF 07
 				' ---------------------------------------------------
@@ -570,15 +596,17 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" "
 				String1=String1+" "
 				' ---------------------------------------------------
-				
+				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				For EACH R3 IN String_ARRAY_1
 					STR2=LCASE(R3)
 					STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
 					EE = Replace(EE, STR3, STR2)
 				NEXT
 
+				' ---------------------------------------------------
+				' 01 OF 07
+				' ---------------------------------------------------
 				' ---------------------------------------------------
 				' FROM THE TOP ARRAY
 				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
@@ -622,9 +650,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' ---------------------------------------------------
 				String1=GET_FILE_EXTENSION ' FUNCTION NEXT AFTER HERE SUB
 				' ---------------------------------------------------
+				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
-				FOR R3 = 1 TO UBOUND(String_ARRAY_1)
+				FOR R3 = 0 TO UBOUND(String_ARRAY_1)
 					STR2=String_ARRAY_1(R3)
 					EE1=EE
 					DO
