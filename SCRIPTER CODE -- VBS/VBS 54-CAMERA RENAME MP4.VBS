@@ -91,10 +91,10 @@ DIM FileModDate_3
 
 'Call the Search subroutine to start the recursive search.
 'Search objFSO.GetFolder(FOLDER_PATH_VAR)
-'---------------------------------------------------------
+' --------------------------------------------------------
 'FindWantedFiles objFSO.GetFolder(FOLDER_PATH_VAR)
 'DisplayFindings
-'---------------------------------------------------------
+' --------------------------------------------------------
 
 DIM R_COUNT
 
@@ -223,8 +223,8 @@ NEXT
 
 SET objFSO = NOTHING
 Wscript.QUIT
-'-------------------------------------------------------------------
-'-------------------------------------------------------------------
+' ------------------------------------------------------------------
+' ------------------------------------------------------------------
 
 
 Sub Main
@@ -366,29 +366,32 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
 				REDIM STRING_KEEPER1(100)
 				REDIM STRING_KEEPER2(100)
+				REDIM STRING_KEEPER3(100)
 				ISK=0
-				'----------------------------------------------------
-				' 01 OF 07 PART A
-				'----------------------------------------------------
+				' ---------------------------------------------------
+				' 01 OF 07 PART 001 OF 003
+				' ---------------------------------------------------
 				String1=""
 				String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
 				String1=String1+" fb-1 _LD.MP4 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
+				String1=String1+" _ing"
 				String1=String1+" "
-				String1=TRIM(String1)
-				String_ARRAY=Split(String1," ",-1,1)
-				I=UBOUND(String_ARRAY)
+				String1=String1+" "
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
+				I=UBOUND(String_ARRAY_1)
 				' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
-				REDIM PRESERVE String_ARRAY(I+100)
-				'----------------------------------------------------
-				' 01 OF 07 PART B
-				'----------------------------------------------------
-				I=I+1:String_ARRAY(I)=" A."        ' -- FILENAME END ON " A.FLV"
-				FOR R3 = 1 TO UBOUND(String_ARRAY)
-					IF String_ARRAY(R3)="" THEN EXIT FOR
+				REDIM PRESERVE String_ARRAY_1(I+100)
+				' ---------------------------------------------------
+				' 01 OF 07 PART 002 OF 003
+				' ---------------------------------------------------
+				I=I+1:String_ARRAY_1(I)=" A."        ' -- FILENAME END ON " A.FLV"
+				FOR R3 = 1 TO UBOUND(String_ARRAY_1)
+					IF String_ARRAY_1(R3)="" THEN EXIT FOR
 				NEXT
-				REDIM PRESERVE String_ARRAY(R3-1)
+				REDIM PRESERVE String_ARRAY_1(R3-1)
 
-				For EACH R3 IN String_ARRAY
+				For EACH R3 IN String_ARRAY_1
 					STR2=R3
 					IF INSTR(FILE_VAR_2,STR2)>0 THEN
 						T1=1
@@ -404,8 +407,37 @@ SUB PATH_SCANNER_COPY_CAMERA
 						LOOP UNTIL T1=0
 					END IF
 				NEXT
+				' ---------------------------------------------------
+				' HERE IT WILL SEARCH 
+				' String_ARRAY_1 
+				' AND 
+				' String_ARRAY_2
+				' IF A MATCH -- IT MAKE NOTE STORE HERE STRING_KEEPER3
+				' IS TO HAVE CASE CONVERT AS IS IN THERE
+				' WHAT SEARCH FOR -- AN EXAMPLE
+				' IS UCASE VERSION " _Ing" AND WANT LOWER " _ing"
+				' STRING LENGTH ARE NOT ABLE TO VARY OR BE USE INSTR IF WANT TO
+				' HOW HARD THAT BE -- CAREFUL WORDER - PARTIAL WORD
+				' ---------------------------------------------------
+				' ---------------------------------------------------
+				' 01 OF 07 PART 003 OF 003
+				' ---------------------------------------------------
+				String2=""
+				String2=String2+" _ing"
+				String_ARRAY_2=Split(String2," ",-1,1)
+				String2=TRIM(String2) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
+				For R11=1 TO UBOUND(STRING_KEEPER1)
+				For R22=1 TO UBOUND(String_ARRAY_2)
+					IF UCASE(STRING_KEEPER1(R11))=UCASE(String_ARRAY_2(R22)) THEN
+						STRING_KEEPER3(R11)=String_ARRAY_2(R22)
+						MSGBOX STRING_KEEPER3(R11)
+					END IF
+				NEXT
+				NEXT
+				
 				REDIM PRESERVE STRING_KEEPER1(ISK)
 				REDIM PRESERVE STRING_KEEPER2(ISK)
+				REDIM PRESERVE STRING_KEEPER3(ISK)
 				
 				For r1 = 2 To LEN(EE)
 					ED1=MID(EE,r1,1)
@@ -418,8 +450,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				Next
 
 				' NONE USER INTERVENTION REQUIRING - KEEP CAPITAL
-				'----------------------------------------------------
-				'----------------------------------------------------
+				' ---------------------------------------------------
+				' ---------------------------------------------------
 				STR1=" -().\/_"""+VBCR+VBLF+"0123456789"
 				STRY="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 				For r1 = 1 To LEN(STR1)
@@ -430,19 +462,19 @@ SUB PATH_SCANNER_COPY_CAMERA
 					Next
 				Next
 
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				' 02 OF 07
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				' THESE ARE THING WHERE CAPITAL IS 2ND LETTER SEARCHER
 				String1=""
 				String1=String1+" _ADV _HD"
-				String1=String1+" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg"
-				'----------------------------------------------------
-				String1=TRIM(String1)
-				String_ARRAY=Split(String1," ",-1,1)
+				String1=String1+GET_FILE_EXTENSION ' FUNCTION
+				' ---------------------------------------------------
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY
+						For EACH R3 IN String_ARRAY_1
 							STR2=R3
 							STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
 							EE = Replace(EE, STR3 , STR2)
@@ -455,25 +487,25 @@ SUB PATH_SCANNER_COPY_CAMERA
 				'
 				' THESE ARE WHAT PUT LOWER CASE
 				'
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				' 03 OF 07
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				String1=""
 				String1=String1+" A AND AN AS IN OF GO BY TO FROM JUST WITH BOY"
 				String1=String1+" "
 				String1=String1+" "
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				String1=LCASE(String1)
 				STR1=" -().\/_"""+VBCR+VBLF   ' NOTICE 0 TO 9 IS NOT HERE NOT WANTER LOWER
 				For r2 = 1 To LEN(STRY)
 					STR3=MID(STRY,r2,1)
 					String1 = Replace(String1, " "+ LCase(STR3), " " + UCase(STR3))
 				Next
-				String1=TRIM(String1)
-				String_ARRAY=Split(String1," ",-1,1)
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY
+						For EACH R3 IN String_ARRAY_1
 							STR2=MID(STR1,r1,1)
 							STR3=MID(STR1,r2,1)
 							EE = Replace(EE, STR2 + R3 + STR3, LCASE(STR2 + R3 + STR3))
@@ -484,20 +516,19 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' THESE ARE PRESERVE STRING
 				' THESE SEARCH 1ST CHARACTER STRING WITH CASE
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				' 04 OF 07
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				String1=""
 				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
 				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
-				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn"
-				'----------------------------------------------------
-				String1=TRIM(String1)
-				
-				String_ARRAY=Split(String1," ",-1,1)
+				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
+				' ---------------------------------------------------
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY
+						For EACH R3 IN String_ARRAY_1
 							STR2=R3
 							STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
 							EE = Replace(EE, STR3, STR2)
@@ -509,16 +540,20 @@ SUB PATH_SCANNER_COPY_CAMERA
 				Next
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
-				'----------------------------------------------------
+				' SEARCH AS 2ND LETTER UCASE & KEEP AS TYPE
+				' IF FAIL WANT FROM HERE LOOK 
+				' NEXT 06 OF 07 OR ' DOUBT IT -- AND THEN 
+				' 1ST  01 OF 07
+				' ---------------------------------------------------
 				' 05 OF 07
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				String1=""
 				String1=String1+" .com .cdn"
 				String1=String1+" "
-				'----------------------------------------------------
-				String1=TRIM(String1)
-				String_ARRAY=Split(String1," ",-1,1)
-				For EACH R3 IN String_ARRAY
+				' ---------------------------------------------------
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
+				For EACH R3 IN String_ARRAY_1
 					STR2=R3
 					STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
 					EE = Replace(EE, STR3 , STR2)
@@ -526,65 +561,91 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
-				'----------------------------------------------------
+				' MUST STAY AS TYPE
+				' ---------------------------------------------------
 				' 06 OF 07
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				String1=""
 				String1=String1+" xvideos.com"
 				String1=String1+" "
 				String1=String1+" "
-				'----------------------------------------------------
-				String1=TRIM(String1)
+				' ---------------------------------------------------
 				
-				String_ARRAY=Split(String1," ",-1,1)
-				For EACH R3 IN String_ARRAY
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
+				For EACH R3 IN String_ARRAY_1
 					STR2=LCASE(R3)
 					STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
 					EE = Replace(EE, STR3, STR2)
-					' IF INSTR(LCASE(EE),LCASE("xvideos.com")) THEN
-						' MSGBOX EE+VBCRLF+STR2+VBCRLF+STR3
-					' END IF
 				NEXT
 
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				' FROM THE TOP ARRAY
 				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				For ISK = 1 TO UBOUND(STRING_KEEPER1)
+					' STRING_KEEPER1(ISK) -- SEARCH STRING 
+					' STRING_KEEPER2(ISK) -- POSITION IN ARRAY OF STRING 
+					' STRING_KEEPER3(ISK) -- CONVERT STRING 
 					G1=LEN(STRING_KEEPER1(ISK))
 					G2=STRING_KEEPER2(ISK)
-					EF1=EE
-					EE=MID(EE,1,G2-1)+STRING_KEEPER1(ISK)+MID(EE,G1+G2)
+					MODIFY_INPUT=STRING_KEEPER1(ISK)
+					IF STRING_KEEPER3(ISK)<>"" THEN 
+						MODIFY_INPUT=STRING_KEEPER3(ISK)
+					END IF
+					EE=MID(EE,1,G2-1)+MODIFY_INPUT+MID(EE,G1+G2)
 				NEXT
 
-				'----------------------------------------------------
+				' HARDCODE MORE THAN USER INTERVENTION 
+				' BUT PLAY WITH POSSIBLE
+				' ---------------------------------------------------
+				' 07 OF 06
+				' ---------------------------------------------------
+				' ---------------------------------------------------
 				' SPACE BEFORE DOT -- DOUBLE SPACE -- DOUBLE DOT 
 				' DOUBLE DASH
 				' DOUBLE ~
-				'----------------------------------------------------
-				' EE1=EE
-				' DO
-					' EE2=EE1
-					' EE1=REPLACE(EE1," .",".")
-					' EE1=REPLACE(EE1,"..",".")
-					' EE1=REPLACE(EE1,"  "," ")
+				' ---------------------------------------------------
+				EE1=EE
+				DO
+					EE2=EE1
+					EE1=REPLACE(EE1,"..",".")
+					EE1=REPLACE(EE1,"  "," ")
 					' EE1=REPLACE(EE1,"--","-")
-					' EE1=REPLACE(EE1,"~~","~")
-					' 'EE=REPLACE(EE,"__","_")
-				' LOOP UNTIL EE1=EE2
-				' EE=EE1
+					EE1=REPLACE(EE1,"~~","~")
+					'EE=REPLACE(EE,"__","_")
+				LOOP UNTIL EE1=EE2
+				EE=EE1
+
+				' ---------------------------------------------------
+				' FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT"
+				' ---------------------------------------------------
+				String1=GET_FILE_EXTENSION ' FUNCTION NEXT AFTER HERE SUB
+				' ---------------------------------------------------
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1) ' ---- TRIM AFTER SPLIT FOR USER FOR USE AR GOOD PRACTICE
+				FOR R3 = 1 TO UBOUND(String_ARRAY_1)
+					STR2=String_ARRAY_1(R3)
+					EE1=EE
+					DO
+						EE2=EE1
+						EE1=REPLACE(EE1,"."+STR2,""+STR2)
+						EE1=REPLACE(EE1," "+STR2,""+STR2)
+					LOOP UNTIL EE1=EE2
+					EE=EE1
+				Next
 
 				
-				'----------------------------------------------------
-				' DO HERE ONE MORE
-				' -------------------------------
+				' ---------------------------------------------------
+				' DO HERE ONE MORE -- 1ST LETTER BACK CAPITAL AGAIN
+				' ---------------------------------------------------
 				EE = UCASE(MID(EE,1,1))+MID(EE,2)
 
 				FILE_VAR_2=EE
 			
 				NewFilename=PATH_VAR_2+FILE_VAR_2
 				
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				' NOT REALLY REQUIRE EXTENSION DONE ABOVE 03 OF 07 NOW
 				' CONVERT THE CASE FOR EXTENSION HERE RENAME AGAIN
 				' ------------------------------------------------
@@ -599,11 +660,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 				FILE_VAR_3=MID(NewFilename,INSTRREV(NewFilename,"\")+1)
 				
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				' TEST DEBUG
-				'----------------------------------------------------
+				' ---------------------------------------------------
 				IF NewFilename<>VAR_PATH_SCANNER THEN 
-					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3
+					X1=CSTR(LEN(FILE_VAR_OLD))
+					X2=CSTR(LEN(FILE_VAR_3))
+					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3+VBCRLF+VBCRLF+X1+VBCRLF+X2
 				END IF
 				' Wscript.QUIT
 
@@ -653,6 +716,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF
 	
 END SUB
+
+FUNCTION GET_FILE_EXTENSION
+	GET_FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT"
+END FUNCTION
 
 Sub BuildFullPath(ByVal FullPath)
 	If Not fso.FolderExists(FullPath) Then
@@ -738,20 +805,20 @@ End Sub
 ' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
 ' ----
 
-'------------------------------------------------------------------------
+' -----------------------------------------------------------------------
 ' THIS PROJECT USING THIS CODE
 ' BECAUSE A MOVE FILE HAPPEN MUST GATHER WHOLE FILE LIST BEFORE ACT ON IT
 ' AND IT WAS DEBUGED IN THE NEXT URL LINK LINE
-'------------------------------------------------------------------------
+' -----------------------------------------------------------------------
 '----
 ' windows - VBS to Search for Multiple Files Recursively in C:\Users - Stack Overflow
 ' https://stackoverflow.com/questions/25658004/vbs-to-search-for-multiple-files-recursively-in-c-users
-'------------------------------------------------------------------------
-'------------------------------------------------------------------------
+' -----------------------------------------------------------------------
+' -----------------------------------------------------------------------
 ' vbscript - Read files in subfolders - Stack Overflow
 ' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
 '----
-'------------------------------------------------------------------------
+' -----------------------------------------------------------------------
 
 ' ----
 ' vbscript - Read files in subfolders - Stack Overflow
