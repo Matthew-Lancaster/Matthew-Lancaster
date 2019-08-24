@@ -345,12 +345,60 @@ SUB PATH_SCANNER_COPY_CAMERA
 			IF INSTR(VAR_PATH_SCANNER,CAPITAL(R_COUNT_CAP))>0 THEN 
 				PATH_VAR_2=MID(NewFilename,1,INSTRREV(NewFilename,"\"))
 				FILE_VAR_2=MID(NewFilename,INSTRREV(NewFilename,"\")+1)
-				FILE_VAR_3=FILE_VAR_2
+				FILE_VAR_2=MID(FILE_VAR_2,1,INSTRREV(FILE_VAR_2,".")-1)
+				FILE_EXT_2=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"."))
+				FILE_VAR_2_OLD=FILE_VAR_2
+				
 				IF MID(FILE_VAR_2,1,1)<>UCASE(MID(FILE_VAR_2,1,1)) THEN 
 					FILE_VAR_2=UCASE(MID(FILE_VAR_2,1,1))+MID(FILE_VAR_2,2)
-					NewFilename=PATH_VAR_2+FILE_VAR_2
-					' MSGBOX FILE_VAR_2+VBCRLF+FILE_VAR_3
 				END IF
+				EE = LCase(FILE_VAR_2)
+
+				STR1=" -().\/_"""
+				For r1 = 1 To LEN(STR1)
+					For r2 = 65 To 65 + 25
+						STR2=MID(STR1,r1,1)
+						EE = Replace(EE, STR2 + LCase(Chr(r2)), STR2 + UCase(Chr(r2)))
+					Next
+				Next
+				
+				String1=LCASE(" A AND IN")
+				For r2 = 65 To 65 + 25
+					String1 = Replace(String1, " "+ LCase(Chr(r2)), " " + UCase(Chr(r2)))
+				Next
+				String1=MID(String1,2)
+				a=Split(String1," ",-1,1)
+				For each x in a
+					MSGBOX x
+				next
+				MSGBOX String1
+				For r1 = 1 To LEN(STR1)
+					For r2 = 1 To LEN(STR1)
+						STR2=MID(STR1,r1,1)
+						STR3=MID(STR1,r2,1)
+						EE = Replace(EE, STR2 + "A" + STR3, LCASE(STR2 + "A" + STR3))
+						EE = Replace(EE, STR2 + "And" + STR3, LCASE(STR2 + "and" + STR3))
+						EE = Replace(EE, STR2 + "In" + STR3, LCASE(STR2 + "in" + STR3))
+					Next
+				Next
+				
+				For r1 = 2 To LEN(EE)
+					ED1=MID(EE,r1,1)
+					ED2=MID(EE,r1-1,1)
+					IF ISNUMERIC(ED2) THEN 
+						IF LCase(ED1)<> UCase(ED1) THEN 
+							EE = Replace(EE, ED2+ED1, UCase(ED2+ED1))
+						END IF
+					END IF
+				Next
+				FILE_VAR_2=EE
+				FILE_VAR_2=UCASE(MID(FILE_VAR_2,1,1))+MID(FILE_VAR_2,2)
+
+				' Wscript.QUIT
+				
+				NewFilename=PATH_VAR_2+FILE_VAR_2
+				' MSGBOX FILE_VAR_2+VBCRLF+FILE_VAR_3
+				MSGBOX FILE_VAR_2_OLD+VBCRLF+FILE_VAR_2+VBCRLF+NewFilename
 			END IF
 		END IF
 	NEXT
