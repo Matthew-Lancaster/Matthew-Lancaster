@@ -517,6 +517,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' ---------------------------------------------------
 				' THESE ARE WHAT PUT LOWER CASE
 				' NOT PARTIAL WORD
+				' HAS TO BE SURROUND BY OTHER MARK CHARACTER
 				' ---------------------------------------------------
 				' 03 OF 07 -- 001 OF 002
 				' ---------------------------------------------------
@@ -553,8 +554,29 @@ SUB PATH_SCANNER_COPY_CAMERA
 						For EACH R3 IN String_ARRAY_1
 							STR4=MID(STR1,r1,1)
 							STR5=MID(STR1,r2,1)
-							IF STR4 + R3 + STR5="_in_" THEN MSGBOX EE+VBCRLF+STR4 + R3 + STR5
-							EE = Replace(EE, STR4 + R3 + STR5, LCASE(STR4 + R3 + STR5))
+							' ---------------------------------------
+							' WORK OUT MATRIX ANY TYPE OF CASE
+							' WITH BINARY COUNTER CONVERSION TO CASE
+							' ON STRING
+							' ---------------------------------------
+							BI=0
+							DO 
+								BINARY_ST=ToBase(BI,2)
+								BI=BI+1
+								IF LEN(BINARY_ST)>LEN(R3) THEN EXIT DO
+								BINARY_ST=CSTR(BINARY_ST)+STRING("0",LEN(R4)-LEN(BINARY_ST))
+								STRING_1=""
+								For R10=1 To LEN(R3)
+									IF MID(BINARY_ST,R10,1)="1" THEN 
+										STRING_1=STRING_1+UCASE(MID(R3,R10,1))
+									ELSE
+										STRING_1=STRING_1+LCASE(MID(R3,R10,1))
+									END IF
+								NEXT 
+
+								IF STR4 + STRING_1 + STR5="_in_" THEN MSGBOX EE+VBCRLF+STR4 + STRING_1 + STR5
+								EE = Replace(EE, STR4 + STRING_1 + STR5, LCASE(STR4 + STRING_1 + STR5))
+							LOOP UNTIL TRUE=FALSE
 						NEXT
 					Next
 				Next
@@ -770,6 +792,44 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF
 	
 END SUB
+
+
+
+' ----
+' Base conversion function in VBScript - Stack Overflow
+' https://stackoverflow.com/questions/32416311/base-conversion-function-in-vbscript
+' ----
+' [ Saturday 19:38:00 Pm_24 August 2019 ]
+' ----
+Function ToBase(ByVal n, b)
+    ' Handle everything from binary to base 36...
+	If b < 2 Or b > 36 Then Exit Function
+
+    Const SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    Do
+        ToBase = Mid(SYMBOLS, n Mod b + 1, 1) & ToBase
+        n = Int(n / b)
+    Loop While n > 0
+
+End Function
+
+' ----
+' Convert a binary data (BinaryRead) to a string by VBS
+' https://www.motobit.com/tips/detpg_binarytostring/
+' ----
+Function SimpleBinaryToString_NOT(Binary)
+  'SimpleBinaryToString converts binary data (VT_UI1 | VT_ARRAY Or MultiByte string)
+  'to a string (BSTR) using MultiByte VBS functions
+  Binary=22
+  MSGBOX Binary
+  Dim I, S
+  For I = 1 To LenB(Binary)
+    S = S & Chr(AscB(MidB(Binary, I, 1)))
+  Next
+  SimpleBinaryToString = S
+End Function
+
 
 FUNCTION GET_FILE_EXTENSION
 	GET_FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT"
