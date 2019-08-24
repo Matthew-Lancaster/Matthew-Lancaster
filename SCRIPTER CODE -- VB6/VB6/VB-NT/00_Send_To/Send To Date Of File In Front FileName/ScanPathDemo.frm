@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    BackColor       =   &H8000000A&
@@ -363,7 +363,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   129892353
+      Format          =   100990977
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -377,7 +377,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   129957889
+      Format          =   100990977
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -413,6 +413,7 @@ Begin VB.Form ScanPath
       Left            =   6840
       TabIndex        =   47
       Top             =   1920
+      Visible         =   0   'False
       Width           =   1368
    End
    Begin VB.Label Label18 
@@ -426,6 +427,7 @@ Begin VB.Form ScanPath
       Left            =   8352
       TabIndex        =   46
       Top             =   1920
+      Visible         =   0   'False
       Width           =   1644
    End
    Begin VB.Label Label17 
@@ -465,6 +467,7 @@ Begin VB.Form ScanPath
       Left            =   6840
       TabIndex        =   43
       Top             =   1644
+      Visible         =   0   'False
       Width           =   1368
    End
    Begin VB.Label Label14 
@@ -478,6 +481,7 @@ Begin VB.Form ScanPath
       Left            =   8352
       TabIndex        =   42
       Top             =   1644
+      Visible         =   0   'False
       Width           =   1644
    End
    Begin VB.Label Label13 
