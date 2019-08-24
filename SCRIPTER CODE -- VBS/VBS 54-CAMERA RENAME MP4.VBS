@@ -516,10 +516,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 				' ---------------------------------------------------
 				' THESE ARE WHAT PUT LOWER CASE
-				' NOT PARTIAL WORD
-				' HAS TO BE SURROUND BY OTHER MARK CHARACTER
+				' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
+				' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
 				' ---------------------------------------------------
-				' 03 OF 07 -- 001 OF 002
+				' 03 OF 07 -- 001 OF 003
 				' ---------------------------------------------------
 				String1=""
 				String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
@@ -529,8 +529,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=TRIM(LCASE(String1))
 				String_ARRAY_1=Split(String1," ",-1,1)
 				' ---------------------------------------------------
-				' WORD WITH SPACE BETWEEN
-				' 03 OF 07 -- 002 OF 002
+				' INCLUDE WORD WITH SPACE BETWEEN
+         		' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+				'
+				' 03 OF 07 -- 002 OF 003
 				' ---------------------------------------------------
 				String1=""
 				String1=String1+"OLDER GUY||"
@@ -540,18 +542,64 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=TRIM(LCASE(String1))
 				I=UBOUND(String_ARRAY_1)
 				String_ARRAY_2=Split(String1,"||",-1,1)
-				REDIMMER=I+UBOUND(String_ARRAY_2)
-				REDIM PRESERVE String_ARRAY_1(REDIMMER)
+				REDIM PRESERVE String_ARRAY_1(I+UBOUND(String_ARRAY_2))
 				For R3 = 0 TO UBOUND(String_ARRAY_2)
 					IF String_ARRAY_2(R3)<>"" THEN 
 						I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
 					END IF
 				NEXT
-				' MSGBOX "-"+String_ARRAY_1(1)+"-"
+				
+				' ---------------------------------------------------
+				' SEARCH STRING AND REPLACE OF VARY TEXT LENGTH
+				' POST EDIT				
+         		' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+				' EXAMPLE String1 WILL CONVERT 
+				' TO ADJACENT EQUIVALENT String2
+				'
+				' ---------------------------------------------
+				' 03 OF 07 -- 003 OF 003
+				' ---------------------------------------------
+				REDIM String_ARRAY_3(I+1)
+				REDIM PRESERVE String_ARRAY_1(I+1)
+				String1=""
+				String2=""
+				String1=String1+"MAN"
+				String1=String1+" "
+				String2=String2+"male" 
+				' ---------------------------------------------------
+				' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
+				' LOWER CASE HAVE TO PUT OVER AT
+				' OR THE TOP ONE ' 01 OF 07
+				' THIS IS THE MOST OF WORD CONVERT LOWER CASE FIRST LETTER
+				' WITH SURROUNDED BY CHARACTER SET SCANNER OPTION
+				' ---------------------------------------------------
+				String2=String2+" "
+				I=UBOUND(String_ARRAY_1)
+				String_ARRAY_D2=Split(String1," ",-1,1)
+				String_ARRAY_D3=Split(String2," ",-1,1)
+				I2=UBOUND(String_ARRAY_1)
+				I=UBOUND(String_ARRAY_1)+UBOUND(String_ARRAY_D2)
+				REDIM PRESERVE String_ARRAY_1(I)
+				REDIM PRESERVE String_ARRAY_3(I)
+				I=I2-1
+				For R3 = 0 TO UBOUND(String_ARRAY_D2)
+					IF String_ARRAY_D2(R3)<>"" THEN 
+						I=I+1
+						String_ARRAY_1(I)=String_ARRAY_D2(R3)
+						String_ARRAY_3(I)=String_ARRAY_D3(R3)
+						' MSGBOX String_ARRAY_D2(R3)
+					END IF
+				NEXT
+				' ---------------------------------------------------
+				FOR R3 = 0 TO UBOUND(String_ARRAY_1)
+					IF String_ARRAY_1(R3)="" THEN EXIT FOR
+				NEXT
+				REDIM PRESERVE String_ARRAY_1(R3-1)
+				REDIM PRESERVE String_ARRAY_3(R3-1)
 
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY_1
+						For R3 = 0 TO UBOUND(String_ARRAY_1)
 							STR4=MID(STR1,r1,1)
 							STR5=MID(STR1,r2,1)
 							' ---------------------------------------
@@ -563,19 +611,29 @@ SUB PATH_SCANNER_COPY_CAMERA
 							DO 
 								BINARY_ST=ToBase(BI,2)
 								BI=BI+1
-								IF LEN(BINARY_ST)>LEN(R3) THEN EXIT DO
-								BINARY_ST=CSTR(BINARY_ST)+STRING("0",LEN(R4)-LEN(BINARY_ST))
+								BINARY_ST=CSTR(BINARY_ST)
+								IF LEN(BINARY_ST)>LEN(String_ARRAY_1(R3)) THEN EXIT DO
+								MSGBOX CSTR(LEN(BINARY_ST))+VBCRLF+CSTR(LEN(String_ARRAY_1(R3)))
+								'MSGBOX String_ARRAY_1(R3)+VBCRLF+STRING("0",LEN(String_ARRAY_1(R3))-LEN(BINARY_ST)))
+								BINARY_ST=BINARY_ST+STRING("0",LEN(String_ARRAY_1(R3))-LEN(BINARY_ST))
+								'MSGBOX String_ARRAY_1(R3)+VBCRLF+BINARY_ST
 								STRING_1=""
-								For R10=1 To LEN(R3)
+								For R10=1 To LEN(String_ARRAY_1(R3))
 									IF MID(BINARY_ST,R10,1)="1" THEN 
-										STRING_1=STRING_1+UCASE(MID(R3,R10,1))
+										STRING_1=STRING_1+UCASE(MID(String_ARRAY_1(R3),R10,1))
 									ELSE
-										STRING_1=STRING_1+LCASE(MID(R3,R10,1))
+										STRING_1=STRING_1+LCASE(MID(String_ARRAY_1(R3),R10,1))
 									END IF
 								NEXT 
-
-								IF STR4 + STRING_1 + STR5="_in_" THEN MSGBOX EE+VBCRLF+STR4 + STRING_1 + STR5
-								EE = Replace(EE, STR4 + STRING_1 + STR5, LCASE(STR4 + STRING_1 + STR5))
+								
+								IF INSTR(EE,STR4 + STRING_1 + STR5)>0 THEN 
+									IF String_ARRAY_3(R3)<>"" THEN  
+										STRING_REPLACE=String_ARRAY_3(R3)
+									ELSE
+										STRING_REPLACE=String_ARRAY_1(R3)
+									END IF
+									EE = Replace(EE, STR4 + STRING_1 + STR5, LCASE(STR4 + STRING_REPLACE + STR5))
+								END IF 
 							LOOP UNTIL TRUE=FALSE
 						NEXT
 					Next
@@ -584,7 +642,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' THESE ARE PRESERVE STRING
 				' THESE SEARCH 1ST CHARACTER STRING WITH CASE
-				' 1ST LETTER WON'T LOWER LOOK USE -- 01 OF 07 OR 03 OF 07
+				' 1ST LETTER WON'T LOWER LOOK AT USE -- 
+				' 01 OF 07 OR 
+				' 03 OF 07 OR 
+				' 06 OF 07
 				' ---------------------------------------------------
 				' 04 OF 07
 				' ---------------------------------------------------
@@ -605,9 +666,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 							STR4=R3
 							STR5=UCASE(MID(STR4,1,1))+LCASE(MID(STR4,2))
 							EE = Replace(EE, STR5, STR4)
-							 ' IF INSTR(LCASE(EE),LCASE("xvideos.com")) THEN
-								' MSGBOX EE+VBCRLF+STR2+VBCRLF+STR3
-							' END IF
 						NEXT
 					Next
 				Next
@@ -647,9 +705,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
 				For EACH R3 IN String_ARRAY_1
-					STR4=LCASE(R3)
-					STR5=UCASE(MID(STR41,1))+LCASE(MID(STR4,2))
-					EE = Replace(EE, STR5, STR4)
+					STR4=UCASE(MID(STR41,1))+LCASE(MID(STR4,2))
+					STR5=LCASE(R3)
+					EE = Replace(EE, STR4, STR5)
 				NEXT
 
 				' ---------------------------------------------------
@@ -675,7 +733,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' HARDCODE MORE THAN USER INTERVENTION 
 				' BUT PLAY WITH POSSIBLE
 				' ---------------------------------------------------
-				' 07 OF 06
+				' 07 OF 07
 				' ---------------------------------------------------
 				' ---------------------------------------------------
 				' SPACE BEFORE DOT -- DOUBLE SPACE -- DOUBLE DOT 
