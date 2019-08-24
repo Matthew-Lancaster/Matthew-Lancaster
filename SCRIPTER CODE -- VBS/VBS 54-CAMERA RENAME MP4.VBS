@@ -316,6 +316,9 @@ End Sub
 
 SUB PATH_SCANNER_COPY_CAMERA
 	
+	DIM STRING_KEEPER1()
+	DIM STRING_KEEPER2()
+
 	I_COUNT_2=I_COUNT_2+1
 	
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
@@ -359,6 +362,34 @@ SUB PATH_SCANNER_COPY_CAMERA
 				EE = LCase(FILE_VAR_2)
 				EE = UCASE(MID(EE,1,1))+MID(EE,2)
 
+				REDIM STRING_KEEPER1(100)
+				REDIM STRING_KEEPER2(100)
+				ISK=0
+				String1=""
+				String1=String1+" .com cdn"
+				String1=String1+" "
+				String1=TRIM(String1)
+				String_ARRAY=Split(String1," ",-1,1)
+				For EACH R3 IN String_ARRAY
+					STR2=R3
+					IF INSTR(FILE_VAR_2,STR2)>0 THEN 
+						T1=1
+						DO
+							X=INSTR(T1,FILE_VAR_2,STR2)
+							IF X>0 THEN 
+								ISK=ISK+1
+								STRING_KEEPER1(ISK)=STR2
+								STRING_KEEPER2(ISK)=X
+								' MSGBOX STRING_KEEPER1(ISK)+VBCRLF+CSTR(STRING_KEEPER2(ISK))
+							END IF
+							IF X=0 THEN EXIT DO
+							T1=X+1
+						LOOP UNTIL T1=0
+					END IF
+				NEXT
+				REDIM PRESERVE STRING_KEEPER1(ISK)
+				REDIM PRESERVE STRING_KEEPER2(ISK)
+				
 				For r1 = 2 To LEN(EE)
 					ED1=MID(EE,r1,1)
 					ED2=MID(EE,r1-1,1)
@@ -437,36 +468,41 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				String1=""
+				String1=String1+" .com"
+				String1=String1+" .cdn"
+				String1=TRIM(String1)
+				String_ARRAY=Split(String1," ",-1,1)
+				For EACH R3 IN String_ARRAY
+					STR2=R3
+					STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
+					EE = Replace(EE, STR3 , STR2)
+				NEXT
+
+
+				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
+				String1=""
 				String1=String1+" xvideos.com"
 				String1=String1+" "
 				String1=String1+" "
 				String1=TRIM(String1)
 				
 				String_ARRAY=Split(String1," ",-1,1)
-					For EACH R3 IN String_ARRAY
-						STR2=LCASE(R3)
-						STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
-						EE = Replace(EE, STR3, STR2)
-						IF INSTR(LCASE(EE),LCASE("xvideos.com")) THEN
-							MSGBOX EE+VBCRLF+STR2+VBCRLF+STR3
-						END IF
-					NEXT
+				For EACH R3 IN String_ARRAY
+					STR2=LCASE(R3)
+					STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
+					EE = Replace(EE, STR3, STR2)
+					' IF INSTR(LCASE(EE),LCASE("xvideos.com")) THEN
+						' MSGBOX EE+VBCRLF+STR2+VBCRLF+STR3
+					' END IF
+				NEXT
 
-				String1=""
-				String1=String1+" .com"
-				String1=String1+" .cdn"
-				String1=TRIM(String1)
-				String_ARRAY=Split(String1," ",-1,1)
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY
-							STR2=R3
-							STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
-							EE = Replace(EE, STR3 , STR2)
-						NEXT
-					Next
-				Next
-
+				For ISK = 1 TO UBOUND(STRING_KEEPER1)
+					G1=LEN(STRING_KEEPER1(ISK))
+					G2=STRING_KEEPER2(ISK)
+					EF1=EE
+					EE=MID(EE,1,G2-1)+STRING_KEEPER1(ISK)+MID(EE,G1+G2)
+					IF EF1<>EE THEN MSGBOX EF1+VBCRLF+EE
+				NEXT
 				
 				FILE_VAR_2=EE
 			
