@@ -367,22 +367,26 @@ SUB PATH_SCANNER_COPY_CAMERA
 				REDIM STRING_KEEPER1(100)
 				REDIM STRING_KEEPER2(100)
 				ISK=0
+				'----------------------------------------------------
+				' 01 OF 07 PART A
+				'----------------------------------------------------
 				String1=""
 				String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
-				String1=String1+" fb-1"
+				String1=String1+" fb-1 _LD.MP4 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
 				String1=String1+" "
 				String1=TRIM(String1)
 				String_ARRAY=Split(String1," ",-1,1)
 				I=UBOUND(String_ARRAY)
-				MSGBOX I
 				' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
 				REDIM PRESERVE String_ARRAY(I+100)
-				I=I+1:String_ARRAY(I)=" A."
-				MSGBOX I
+				'----------------------------------------------------
+				' 01 OF 07 PART B
+				'----------------------------------------------------
+				I=I+1:String_ARRAY(I)=" A."        ' -- FILENAME END ON " A.FLV"
 				FOR R3 = 1 TO UBOUND(String_ARRAY)
 					IF String_ARRAY(R3)="" THEN EXIT FOR
 				NEXT
-				REDIM PRESERVE String_ARRAY(R3)
+				REDIM PRESERVE String_ARRAY(R3-1)
 
 				For EACH R3 IN String_ARRAY
 					STR2=R3
@@ -413,6 +417,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 					END IF
 				Next
 
+				' NONE USER INTERVENTION REQUIRING - KEEP CAPITAL
+				'----------------------------------------------------
+				'----------------------------------------------------
 				STR1=" -().\/_"""+VBCR+VBLF+"0123456789"
 				STRY="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 				For r1 = 1 To LEN(STR1)
@@ -423,9 +430,14 @@ SUB PATH_SCANNER_COPY_CAMERA
 					Next
 				Next
 
+				'----------------------------------------------------
+				' 02 OF 07
+				'----------------------------------------------------
+				' THESE ARE THING WHERE CAPITAL IS 2ND LETTER SEARCHER
 				String1=""
 				String1=String1+" _ADV _HD"
 				String1=String1+" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg"
+				'----------------------------------------------------
 				String1=TRIM(String1)
 				String_ARRAY=Split(String1," ",-1,1)
 				For r1 = 1 To LEN(STR1)
@@ -443,8 +455,16 @@ SUB PATH_SCANNER_COPY_CAMERA
 				'
 				' THESE ARE WHAT PUT LOWER CASE
 				'
-				STR1=" -().\/_"""+VBCR+VBLF
-				String1=LCASE(" A AND IN OF GO BY AN")
+				'----------------------------------------------------
+				' 03 OF 07
+				'----------------------------------------------------
+				String1=""
+				String1=String1+" A AND AN AS IN OF GO BY TO FROM JUST WITH BOY"
+				String1=String1+" "
+				String1=String1+" "
+				'----------------------------------------------------
+				String1=LCASE(String1)
+				STR1=" -().\/_"""+VBCR+VBLF   ' NOTICE 0 TO 9 IS NOT HERE NOT WANTER LOWER
 				For r2 = 1 To LEN(STRY)
 					STR3=MID(STRY,r2,1)
 					String1 = Replace(String1, " "+ LCase(STR3), " " + UCase(STR3))
@@ -463,10 +483,15 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' THESE ARE PRESERVE STRING
+				' THESE SEARCH 1ST CHARACTER STRING WITH CASE
+				'----------------------------------------------------
+				' 04 OF 07
+				'----------------------------------------------------
 				String1=""
 				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
-				String1=String1+" BF MMF GF WOW"
-				String1=String1+" "
+				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
+				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn"
+				'----------------------------------------------------
 				String1=TRIM(String1)
 				
 				String_ARRAY=Split(String1," ",-1,1)
@@ -484,9 +509,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 				Next
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
+				'----------------------------------------------------
+				' 05 OF 07
+				'----------------------------------------------------
 				String1=""
-				String1=String1+" .com"
-				String1=String1+" .cdn"
+				String1=String1+" .com .cdn"
+				String1=String1+" "
+				'----------------------------------------------------
 				String1=TRIM(String1)
 				String_ARRAY=Split(String1," ",-1,1)
 				For EACH R3 IN String_ARRAY
@@ -497,10 +526,14 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
+				'----------------------------------------------------
+				' 06 OF 07
+				'----------------------------------------------------
 				String1=""
 				String1=String1+" xvideos.com"
 				String1=String1+" "
 				String1=String1+" "
+				'----------------------------------------------------
 				String1=TRIM(String1)
 				
 				String_ARRAY=Split(String1," ",-1,1)
@@ -513,19 +546,46 @@ SUB PATH_SCANNER_COPY_CAMERA
 					' END IF
 				NEXT
 
+				'----------------------------------------------------
 				' FROM THE TOP ARRAY
 				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
+				'----------------------------------------------------
 				For ISK = 1 TO UBOUND(STRING_KEEPER1)
 					G1=LEN(STRING_KEEPER1(ISK))
 					G2=STRING_KEEPER2(ISK)
 					EF1=EE
 					EE=MID(EE,1,G2-1)+STRING_KEEPER1(ISK)+MID(EE,G1+G2)
 				NEXT
+
+				'----------------------------------------------------
+				' SPACE BEFORE DOT -- DOUBLE SPACE -- DOUBLE DOT 
+				' DOUBLE DASH
+				' DOUBLE ~
+				'----------------------------------------------------
+				' EE1=EE
+				' DO
+					' EE2=EE1
+					' EE1=REPLACE(EE1," .",".")
+					' EE1=REPLACE(EE1,"..",".")
+					' EE1=REPLACE(EE1,"  "," ")
+					' EE1=REPLACE(EE1,"--","-")
+					' EE1=REPLACE(EE1,"~~","~")
+					' 'EE=REPLACE(EE,"__","_")
+				' LOOP UNTIL EE1=EE2
+				' EE=EE1
+
 				
+				'----------------------------------------------------
+				' DO HERE ONE MORE
+				' -------------------------------
+				EE = UCASE(MID(EE,1,1))+MID(EE,2)
+
 				FILE_VAR_2=EE
 			
 				NewFilename=PATH_VAR_2+FILE_VAR_2
 				
+				'----------------------------------------------------
+				' NOT REALLY REQUIRE EXTENSION DONE ABOVE 03 OF 07 NOW
 				' CONVERT THE CASE FOR EXTENSION HERE RENAME AGAIN
 				' ------------------------------------------------
 				FOR R_COUNT_3=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
@@ -539,7 +599,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 				FILE_VAR_3=MID(NewFilename,INSTRREV(NewFilename,"\")+1)
 				
+				'----------------------------------------------------
 				' TEST DEBUG
+				'----------------------------------------------------
 				IF NewFilename<>VAR_PATH_SCANNER THEN 
 					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3
 				END IF
