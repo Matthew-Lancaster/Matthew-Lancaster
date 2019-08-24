@@ -578,6 +578,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					END IF
 				NEXT
 				
+				
 				' ---------------------------------------------------
 				' SEARCH STRING AND REPLACE OF VARY TEXT LENGTH
 				' POST EDIT				
@@ -625,12 +626,17 @@ SUB PATH_SCANNER_COPY_CAMERA
 				NEXT
 				REDIM PRESERVE String_ARRAY_1(R3-1)
 				REDIM PRESERVE String_ARRAY_3(R3-1)
-				
+
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For R3 = 0 TO UBOUND(String_ARRAY_1)
 							STR4=MID(STR1,r1,1)
 							STR5=MID(STR1,r2,1)
+							MSGBOX STR4
+
+
+IF 1=2 THEN 
+
 							' ---------------------------------------
 							' WORK OUT MATRIX ANY TYPE OF CASE
 							' WITH BINARY COUNTER CONVERSION TO CASE
@@ -674,6 +680,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 									END IF
 								NEXT 
 
+								IF STRING_1="" THEN
+								STRING_1=String_ARRAY_1(R3)
+								END IF
+								
 								' MSGBOX CSTR(BI_4-1)+VBCRLF+BINARY_ST_2+VBCRLF+STRING_1
 								
 								IF INSTR(EE,STR4 + STRING_1 + STR5)>0 THEN 
@@ -685,10 +695,33 @@ SUB PATH_SCANNER_COPY_CAMERA
 									EE = Replace(EE, STR4 + STRING_1 + STR5, LCASE(STR4 + STRING_REPLACE + STR5))
 								END IF 
 							LOOP UNTIL TRUE=FALSE
+
+				END IF
+
+								STRING_1=String_ARRAY_1(R3)
+								MSGBOX STR4 + STRING_1 + STR5
+								IF INSTR(EE,STR4 + STRING_1 + STR5)>0 THEN 
+									MSGBOX STR4 + STRING_1 + STR5
+								END IF
+
+								IF INSTR(EE,STR4 + STRING_1 + STR5)>0 THEN 
+									IF String_ARRAY_3(R3)<>"" THEN  
+										STRING_REPLACE=String_ARRAY_3(R3)
+									ELSE
+										STRING_REPLACE=String_ARRAY_1(R3)
+									END IF
+									STRING_REPLACE=String_ARRAY_1(R3)
+									EE = Replace(EE, STR4 + STRING_1 + STR5, LCASE(STR4 + STRING_REPLACE + STR5))
+								END IF 
+
+				
+				
+
 						NEXT
 					Next
 				Next
 
+				
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' THESE ARE PRESERVE STRING
 				' THESE SEARCH 1ST CHARACTER STRING WITH CASE
@@ -903,6 +936,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 	
 END SUB
 
+FUNCTION GET_FILE_EXTENSION
+	GET_FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT"
+END FUNCTION
 
 
 ' Function LPad (str, pad, length)
@@ -959,9 +995,6 @@ Function SimpleBinaryToString_NOT(Binary)
 End Function
 
 
-FUNCTION GET_FILE_EXTENSION
-	GET_FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT"
-END FUNCTION
 
 Sub BuildFullPath(ByVal FullPath)
 	If Not fso.FolderExists(FullPath) Then
