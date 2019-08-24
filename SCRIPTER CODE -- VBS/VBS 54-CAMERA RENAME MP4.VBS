@@ -354,10 +354,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' THE EXTENSION WAS SORTED OUT BUT WILL LOWER CASE AGAIN AND REPEAT FUCTION AFTER AGIN
 
 				FILE_VAR_2_OLD=FILE_VAR_2
-				IF MID(FILE_VAR_2,1,1)<>UCASE(MID(FILE_VAR_2,1,1)) THEN 
-					FILE_VAR_2=UCASE(MID(FILE_VAR_2,1,1))+MID(FILE_VAR_2,2)
-				END IF
+				FILE_VAR_2=UCASE(MID(FILE_VAR_2,1,1))+MID(FILE_VAR_2,2)
+				
 				EE = LCase(FILE_VAR_2)
+				EE = UCASE(MID(EE,1,1))+MID(EE,2)
 
 				For r1 = 2 To LEN(EE)
 					ED1=MID(EE,r1,1)
@@ -370,49 +370,19 @@ SUB PATH_SCANNER_COPY_CAMERA
 				Next
 
 				STR1=" -().\/_"""+VBCR+VBLF+"0123456789"
-				STRY="ABCDEFGUIJKLMNOPQRSTUVWXYZ0123456789"
+				STRY="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STRY)
 						STR2=MID(STR1,r1,1)
 						STR3=MID(STRY,r2,1)
-						EE = Replace(EE, STR2 + LCase(STR3), STR2 + UCase(STR3)
-					Next
-				Next
-				
-				String1=LCASE(" A AND IN")
-				For r2 = 65 To 65 + 25
-					String1 = Replace(String1, " "+ LCase(Chr(r2)), " " + UCase(Chr(r2)))
-				Next
-				String1=MID(String1,2)
-				String_ARRAY=Split(String1," ",-1,1)
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY
-							STR2=MID(STR1,r1,1)
-							STR3=MID(STR1,r2,1)
-							EE = Replace(EE, STR2 + R3 + STR3, LCASE(STR2 + R3 + STR3))
-						NEXT
-					Next
-				Next
-				
-				String1=""
-				String1=String1+" MILF CD POV"
-				String1=MID(String1,2)
-				String_ARRAY=Split(String1," ",-1,1)
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY
-							STR2=R3
-							STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
-							EE = Replace(EE, STR3 , STR2)
-						NEXT
+						EE = Replace(EE, STR2 + LCase(STR3), STR2 + UCase(STR3))
 					Next
 				Next
 
 				String1=""
-				String1=String1+" _ADV"
+				String1=String1+" _ADV _HD"
 				String1=String1+" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg"
-				String1=MID(String1,2)
+				String1=TRIM(String1)
 				String_ARRAY=Split(String1," ",-1,1)
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
@@ -424,9 +394,82 @@ SUB PATH_SCANNER_COPY_CAMERA
 					Next
 				Next
 
-				FILE_VAR_2=EE
-				FILE_VAR_2=UCASE(MID(FILE_VAR_2,1,1))+MID(FILE_VAR_2,2)
+				' HERE A LATER ONE CLEAR UP AFTER TYPE THING
+				' TEST IF SEARCH CHAR AND THEN NUMBER AFTER
+				STR1=" -().\/_"""+VBCR+VBLF
+				String1=LCASE(" A AND IN")
+				For r2 = 1 To LEN(STRY)
+					STR3=MID(STRY,r2,1)
+					String1 = Replace(String1, " "+ LCase(STR3), " " + UCase(STR3))
+				Next
+				String1=TRIM(String1)
+				String_ARRAY=Split(String1," ",-1,1)
+				For r1 = 1 To LEN(STR1)
+					For r2 = 1 To LEN(STR1)
+						For EACH R3 IN String_ARRAY
+							STR2=MID(STR1,r1,1)
+							STR3=MID(STR1,r2,1)
+							EE = Replace(EE, STR2 + R3 + STR3, LCASE(STR2 + R3 + STR3))
+						NEXT
+					Next
+				Next
+
+				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
+				String1=""
+				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
+				String1=String1+" "
+				String1=String1+" "
+				String1=TRIM(String1)
 				
+				String_ARRAY=Split(String1," ",-1,1)
+				For r1 = 1 To LEN(STR1)
+					For r2 = 1 To LEN(STR1)
+						For EACH R3 IN String_ARRAY
+							STR2=R3
+							STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
+							EE = Replace(EE, STR3, STR2)
+							 ' IF INSTR(LCASE(EE),LCASE("xvideos.com")) THEN
+								' MSGBOX EE+VBCRLF+STR2+VBCRLF+STR3
+							' END IF
+						NEXT
+					Next
+				Next
+
+				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
+				String1=""
+				String1=String1+" xvideos.com"
+				String1=String1+" "
+				String1=String1+" "
+				String1=TRIM(String1)
+				
+				String_ARRAY=Split(String1," ",-1,1)
+					For EACH R3 IN String_ARRAY
+						STR2=LCASE(R3)
+						STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
+						EE = Replace(EE, STR3, STR2)
+						IF INSTR(LCASE(EE),LCASE("xvideos.com")) THEN
+							MSGBOX EE+VBCRLF+STR2+VBCRLF+STR3
+						END IF
+					NEXT
+
+				String1=""
+				String1=String1+" .com"
+				String1=String1+" .cdn"
+				String1=TRIM(String1)
+				String_ARRAY=Split(String1," ",-1,1)
+				For r1 = 1 To LEN(STR1)
+					For r2 = 1 To LEN(STR1)
+						For EACH R3 IN String_ARRAY
+							STR2=R3
+							STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
+							EE = Replace(EE, STR3 , STR2)
+						NEXT
+					Next
+				Next
+
+				
+				FILE_VAR_2=EE
+			
 				NewFilename=PATH_VAR_2+FILE_VAR_2
 				
 				' CONVERT THE CASE FOR EXTENSION HERE RENAME AGAIN
@@ -444,7 +487,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				
 				' TEST DEBUG
 				IF NewFilename<>VAR_PATH_SCANNER THEN 
-					MSGBOX PATH_VAR+VBCRLF+FILE_VAR_OLD+VBCRLF+FILE_VAR_3
+					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3
 				END IF
 				' Wscript.QUIT
 
