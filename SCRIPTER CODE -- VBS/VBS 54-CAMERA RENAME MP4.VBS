@@ -596,7 +596,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 				NEXT
 				REDIM PRESERVE String_ARRAY_1(R3-1)
 				REDIM PRESERVE String_ARRAY_3(R3-1)
-
+				
+				DIM BINARY_ST 
+				' DIM BI_4
+				
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For R3 = 0 TO UBOUND(String_ARRAY_1)
@@ -607,24 +610,41 @@ SUB PATH_SCANNER_COPY_CAMERA
 							' WITH BINARY COUNTER CONVERSION TO CASE
 							' ON STRING
 							' ---------------------------------------
-							BI=0
-							DO 
-								BINARY_ST=ToBase(BI,2)
-								BI=BI+1
-								BINARY_ST=CSTR(BINARY_ST)
-								IF LEN(BINARY_ST)>LEN(String_ARRAY_1(R3)) THEN EXIT DO
-								MSGBOX CSTR(LEN(BINARY_ST))+VBCRLF+CSTR(LEN(String_ARRAY_1(R3)))
-								'MSGBOX String_ARRAY_1(R3)+VBCRLF+STRING("0",LEN(String_ARRAY_1(R3))-LEN(BINARY_ST)))
-								BINARY_ST=BINARY_ST+STRING("0",LEN(String_ARRAY_1(R3))-LEN(BINARY_ST))
-								'MSGBOX String_ARRAY_1(R3)+VBCRLF+BINARY_ST
+							' Function LPad (str, pad, length)
+								' LPad = String(length - Len(str), pad) & str
+							' End Function
+							BI_4=0
+							DO
+								
+								' BINARY_ST=DecimalToBinary(BI_4)
+								' MSGBOX BINARY_ST_2
+								MSGBOX DecimalToBinary(BI_4)
+								'MSGBOX CSTR(BI_4)+VBCRLF+BINARY_ST_2
+								' MSGBOX BINARY_ST
+								' FOR BI2=1 TO 10
+									' BINARY_ST=DecimalToBinary(BI2)
+									' MSGBOX BINARY_ST
+								' NEXT
+								
+								' BINARY_ST=CSTR(BINARY_ST)
+								
+								IF LEN(BINARY_ST)>LEN(String_ARRAY_1(R3)) THEN 
+									EXIT DO
+								END IF
+								BINARY_ST_2=CSTR(BINARY_ST)+STRING(LEN(String_ARRAY_1(R3))-LEN(BINARY_ST),"0")
 								STRING_1=""
 								For R10=1 To LEN(String_ARRAY_1(R3))
-									IF MID(BINARY_ST,R10,1)="1" THEN 
+									IF MID(BINARY_ST_2,R10,1)="1" THEN 
 										STRING_1=STRING_1+UCASE(MID(String_ARRAY_1(R3),R10,1))
 									ELSE
 										STRING_1=STRING_1+LCASE(MID(String_ARRAY_1(R3),R10,1))
 									END IF
 								NEXT 
+								'MSGBOX CSTR(BI_4)+VBCRLF+BINARY_ST_2
+
+								'MSGBOX "--"+VBCRLF+CSTR(BI_4)+VBCRLF+BINARY_ST_2+VBCRLF+STRING_1
+
+								BI_4=BI_4+1
 								
 								IF INSTR(EE,STR4 + STRING_1 + STR5)>0 THEN 
 									IF String_ARRAY_3(R3)<>"" THEN  
@@ -853,6 +873,35 @@ END SUB
 
 
 
+' Function DecimalToBinary(ByVal Number) 
+    ' DecNumber = HexNumber 
+    ' For i = 32 To 0 Step -1 
+        ' If Int(DecNumber / (2 ^ i)) = 1 Then 
+            ' BinNumber = BinNumber & "1" 
+            ' DecNumber = DecNumber - (2 ^ i) 
+        ' Else 
+            ' If BinNumber <> "" Then 
+                ' BinNumber = BinNumber & "0" 
+            ' End If 
+        ' End If 
+    ' Next 
+    ' HexToBin = BinNumber 
+' End Function 
+
+
+' ----
+' vbscript, Decimal to Binary conversion
+' http://computer-programming-forum.com/59-vbscript/45ad88581c74bcdc.htm
+' ----
+Function DecimalToBinary(ByVal Number) 
+	Do 
+       DecimalToBinary = Number Mod 2 & DecimalToBinary
+       Number = Number \ 2 
+    Loop Until Number = 0 
+End Function 
+
+
+' NOT WORKER
 ' ----
 ' Base conversion function in VBScript - Stack Overflow
 ' https://stackoverflow.com/questions/32416311/base-conversion-function-in-vbscript
@@ -872,6 +921,7 @@ Function ToBase(ByVal n, b)
 
 End Function
 
+' NOT WORKER
 ' ----
 ' Convert a binary data (BinaryRead) to a string by VBS
 ' https://www.motobit.com/tips/detpg_binarytostring/
