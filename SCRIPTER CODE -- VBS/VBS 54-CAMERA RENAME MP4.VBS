@@ -472,13 +472,15 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' NONE USER INTERVENTION REQUIRING - KEEP CAPITAL
 				' ---------------------------------------------------
 				' ---------------------------------------------------
-				STR1=" -().\/_"""+VBCR+VBLF+"0123456789"
+				STR2=" -~().\/_"""+VBCR+VBLF   ' THE 0 TO 9 IS NOT HERE NOT WANTER LOWER
+				STR3=STR2+"0123456789"
+				STR1=STR3
 				STRY="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STRY)
-						STR2=MID(STR1,r1,1)
-						STR3=MID(STRY,r2,1)
-						EE = Replace(EE, STR2 + LCase(STR3), STR2 + UCase(STR3))
+						STR4=MID(STR1,r1,1)
+						STR5=MID(STRY,r2,1)
+						EE = Replace(EE, STR4 + LCase(STR5), STR4 + UCase(STR5))
 					Next
 				Next
 
@@ -495,40 +497,64 @@ SUB PATH_SCANNER_COPY_CAMERA
 				For r1 = 0 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For EACH R3 IN String_ARRAY_1
-							STR2=R3
-							STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
-							EE = Replace(EE, STR3 , STR2)
+							STR4=R3
+							STR5=MID(STR4,1,1)+UCASE(MID(STR4,2,1))+LCASE(MID(STR4,3))
+							EE = Replace(EE, STR5 , STR4)
 						NEXT
 					Next
 				Next
 
 				' HERE A LATER ONE CLEAR UP AFTER TYPE THING
 				' TEST IF SEARCH CHAR AND THEN NUMBER AFTER
-				'
+				' ---------------------------------------------------
+				STR1=STR2     ' THE 0 TO 9 IS NOT HERE NOT WANTER LOWER
+				For r2 = 1 To LEN(STRY)
+					STR4=MID(STRY,r2,1)
+					String1 = Replace(String1, " "+ LCase(STR4), " " + UCase(STR4))
+				Next
+				' ---------------------------------------------------
+
+				' ---------------------------------------------------
 				' THESE ARE WHAT PUT LOWER CASE
 				' NOT PARTIAL WORD
 				' ---------------------------------------------------
-				' 03 OF 07
+				' 03 OF 07 -- 001 OF 002
 				' ---------------------------------------------------
 				String1=""
 				String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
-				String1=String1+" CUM NEEDS HAS GUY" ' WORD -- OLDER -- WANT %
+				String1=String1+" CUM NEEDS HAS GUY"
 				String1=String1+" "
 				' ---------------------------------------------------
-				String1=LCASE(String1)
-				STR1=" -().\/_"""+VBCR+VBLF   ' NOTICE 0 TO 9 IS NOT HERE NOT WANTER LOWER
-				For r2 = 1 To LEN(STRY)
-					STR3=MID(STRY,r2,1)
-					String1 = Replace(String1, " "+ LCase(STR3), " " + UCase(STR3))
-				Next
-				String1=TRIM(String1)
+				String1=TRIM(LCASE(String1))
 				String_ARRAY_1=Split(String1," ",-1,1)
+				' ---------------------------------------------------
+				' WORD WITH SPACE BETWEEN
+				' 03 OF 07 -- 002 OF 002
+				' ---------------------------------------------------
+				String1=""
+				String1=String1+"OLDER GUY||"
+				String1=String1+"||"
+				String1=String1+"||"
+				' ---------------------------------------------------
+				String1=TRIM(LCASE(String1))
+				I=UBOUND(String_ARRAY_1)
+				String_ARRAY_2=Split(String1,"||",-1,1)
+				REDIMMER=I+UBOUND(String_ARRAY_2)
+				REDIM PRESERVE String_ARRAY_1(REDIMMER)
+				For R3 = 0 TO UBOUND(String_ARRAY_2)
+					IF String_ARRAY_2(R3)<>"" THEN 
+						I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
+					END IF
+				NEXT
+				' MSGBOX "-"+String_ARRAY_1(1)+"-"
+
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For EACH R3 IN String_ARRAY_1
-							STR2=MID(STR1,r1,1)
-							STR3=MID(STR1,r2,1)
-							EE = Replace(EE, STR2 + R3 + STR3, LCASE(STR2 + R3 + STR3))
+							STR4=MID(STR1,r1,1)
+							STR5=MID(STR1,r2,1)
+							IF STR4 + R3 + STR5="_in_" THEN MSGBOX EE+VBCRLF+STR4 + R3 + STR5
+							EE = Replace(EE, STR4 + R3 + STR5, LCASE(STR4 + R3 + STR5))
 						NEXT
 					Next
 				Next
@@ -554,9 +580,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				For r1 = 1 To LEN(STR1)
 					For r2 = 1 To LEN(STR1)
 						For EACH R3 IN String_ARRAY_1
-							STR2=R3
-							STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
-							EE = Replace(EE, STR3, STR2)
+							STR4=R3
+							STR5=UCASE(MID(STR4,1,1))+LCASE(MID(STR4,2))
+							EE = Replace(EE, STR5, STR4)
 							 ' IF INSTR(LCASE(EE),LCASE("xvideos.com")) THEN
 								' MSGBOX EE+VBCRLF+STR2+VBCRLF+STR3
 							' END IF
@@ -579,9 +605,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
 				For EACH R3 IN String_ARRAY_1
-					STR2=R3
-					STR3=MID(STR2,1,1)+UCASE(MID(STR2,2,1))+LCASE(MID(STR2,3))
-					EE = Replace(EE, STR3 , STR2)
+					STR4=R3
+					STR5=MID(STR4,1,1)+UCASE(MID(STR4,2,1))+LCASE(MID(STR4,3))
+					EE = Replace(EE, STR5, STR4)
 				NEXT
 
 
@@ -599,9 +625,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
 				For EACH R3 IN String_ARRAY_1
-					STR2=LCASE(R3)
-					STR3=UCASE(MID(STR2,1,1))+LCASE(MID(STR2,2))
-					EE = Replace(EE, STR3, STR2)
+					STR4=LCASE(R3)
+					STR5=UCASE(MID(STR41,1))+LCASE(MID(STR4,2))
+					EE = Replace(EE, STR5, STR4)
 				NEXT
 
 				' ---------------------------------------------------
@@ -653,12 +679,12 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=TRIM(String1)
 				String_ARRAY_1=Split(String1," ",-1,1)
 				FOR R3 = 0 TO UBOUND(String_ARRAY_1)
-					STR2=String_ARRAY_1(R3)
+					STR4=String_ARRAY_1(R3)
 					EE1=EE
 					DO
 						EE2=EE1
-						EE1=REPLACE(EE1,"."+STR2,""+STR2)
-						EE1=REPLACE(EE1," "+STR2,""+STR2)
+						EE1=REPLACE(EE1,"."+STR4,""+STR4)
+						EE1=REPLACE(EE1," "+STR4,""+STR4)
 					LOOP UNTIL EE1=EE2
 					EE=EE1
 				Next
