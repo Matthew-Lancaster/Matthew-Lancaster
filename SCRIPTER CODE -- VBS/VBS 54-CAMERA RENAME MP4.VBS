@@ -379,7 +379,7 @@ SUB ROUTINE_01_OF_07
 	String1=""
 	String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
 	String1=String1+" fb-1 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
-	String1=String1+" _ing"
+	String1=String1+" _ing The _Ld.MP4"
 	String1=String1+" "
 	String1=String1+" "
 	String1=TRIM(String1)
@@ -430,6 +430,11 @@ SUB ROUTINE_01_OF_07
 	I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
 	I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" A."
 	I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" A."
+	I=I+1:String_ARRAY_1(I)="_Ld.MP4" : String_ARRAY_3(I)="_LD.MP4"
+	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	' ---------------------------------------------------
@@ -498,10 +503,10 @@ SUB ROUTINE_03_OF_07
 	' 03 OF 07 -- 001 OF 003
 	' ---------------------------------------------------
 	String1=""
-	String1=String1+" A AND AN AS IN OF GO BY TO ON THE FROM JUST WITH BOY"
+	String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
 	String1=String1+" CUM CUMSHOT NEEDS HAS GUY xvideos"
 	String1=String1+" MALE"
-	String1=String1+" "
+	' String1=String1+" THE"
 	String1=String1+" "
 	' ---------------------------------------------------
 	String1=TRIM(LCASE(String1))
@@ -541,9 +546,9 @@ SUB ROUTINE_03_OF_07
 	REDIM PRESERVE String_ARRAY_B_01(I+1)
 	String1=""
 	String2=""
-	String1=String1+"MAN"
+	String1=String1+"MAN "
 	String1=String1+" "
-	String2=String2+"male" 
+	String2=String2+"male " 
 	' ---------------------------------------------------
 	' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
 	' LOWER CASE HAVE TO PUT OVER AT
@@ -681,7 +686,7 @@ SUB ROUTINE_04_OF_07
 	REDIM String_ARRAY_U_01(100)
 	REDIM String_ARRAY_U_02(100)
 	' ---------------------------------------------------
-	' THESE ARE WHAT PUT LOWER CASE
+	' THESE ARE WHAT PUT UPPER CASE
 	' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
 	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
 	' THIS ROUTINE WON'T BE SURROUND BY CHARACTER AS ABOVE NOT LIKE IT THOUGH
@@ -732,9 +737,10 @@ SUB ROUTINE_04_OF_07
 	REDIM PRESERVE String_ARRAY_U_01(I+1)
 	String1=""
 	String2=""
-	' String1=String1+"MAN"
+	' String1=String1+"_LD.MP4"
+	' String2=String2+"_LD.MP4" 
 	' String1=String1+" "
-	' String2=String2+"male" 
+	' String1=String1+" "
 	' ---------------------------------------------------
 	' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
 	' LOWER CASE HAVE TO PUT OVER AT
@@ -844,10 +850,10 @@ SUB ROUTINE_04_OF_07
 					END IF
 					
 					I=I+1
-					' String_ARRAY_U_01(I)=STR4 + STRING_1 + STR5
-					' String_ARRAY_U_02(I)=UCASE(STR4 + STRING_1 + STR5)
-					String_ARRAY_U_01(I)=STRING_1
-					String_ARRAY_U_02(I)=UCASE(STRING_1)
+					String_ARRAY_U_01(I)=STR4 + STRING_1 + STR5
+					String_ARRAY_U_02(I)=UCASE(STR4 + STRING_1 + STR5)
+					' String_ARRAY_U_01(I)=STRING_1
+					''String_ARRAY_U_02(I)=UCASE(STRING_1)
 
 					
 				LOOP UNTIL TRUE=FALSE
@@ -1022,9 +1028,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' MSGBOX UBOUND(String_ARRAY_U_01)
 				For R3 = 1 TO UBOUND(String_ARRAY_U_01)
 					STRING_1=String_ARRAY_U_01(R3)
-					'MSGBOX STRING_1
+					' STRING_1=MID(String_ARRAY_U_01(R3),2)
+					' STRING_1=MID(STRING_1,1,LEN(STRING_1)-1)
 					IF INSTR(EE, STRING_1)>0 THEN 
-						' MSGBOX EE
 						IF String_ARRAY_U_02(R3)="" THEN  
 							STRING_REPLACE=String_ARRAY_U_01(R3)
 						ELSE
@@ -1032,8 +1038,20 @@ SUB PATH_SCANNER_COPY_CAMERA
 						END IF
 						EE = Replace(EE, STRING_1, UCASE(STRING_REPLACE))
 					END IF 
-				
 				NEXT
+				' MSGBOX UBOUND(String_ARRAY_U_01)
+				' For R3 = 1 TO UBOUND(String_ARRAY_U_01)
+					' STRING_1=String_ARRAY_U_01(R3)
+					' IF INSTR(EE, STRING_1)>0 THEN 
+						' IF String_ARRAY_U_02(R3)="" THEN  
+							' STRING_REPLACE=String_ARRAY_U_01(R3)
+						' ELSE
+							' STRING_REPLACE=String_ARRAY_U_02(R3)
+						' END IF
+						' EE = Replace(EE, STRING_1, UCASE(STRING_REPLACE))
+					' END IF 
+				
+				' NEXT
 				
 				
 
@@ -1048,12 +1066,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' 04 OF 07
 				' ---------------------------------------------------
 				String1=""
-				
 				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
 				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
 				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
 				String1=String1+" GirlFriend TiT WebCam CheerLeader HomeMade"
-				String1=String1+" CukitasCom"
+				String1=String1+" CukitasCom" 
+				String1=String1+" "
+				String1=String1+" "
 				String1=String1+" "
 				String1=String1+" "
 				' ---------------------------------------------------
@@ -1069,6 +1088,29 @@ SUB PATH_SCANNER_COPY_CAMERA
 						NEXT
 					Next
 				Next
+
+				' String1=""
+				' ' String1=String1+" The"
+				' String1=String1+"_Ld.MP4 "
+				' String1=String1+" "
+				' String1=String1+" "
+				' String1=String1+" "
+				' ' ---------------------------------------------------
+				' String_ARRAY_1=Split(String1," ",-1,1)
+				' String1=TRIM(String1)
+				' For r1 = 1 To LEN(STR1)
+					' For r2 = 1 To LEN(STR1)
+						' For EACH R3 IN String_ARRAY_1
+							' IF R3<>"" THEN 
+								' ' IF INSTR(UCASE(EE),"_LD.MP4")>0 THEN 	MSGBOX EE
+								' STR4=R3
+								' STR5=STR4'UCASE(MID(STR4,1,1))+LCASE(MID(STR4,2))
+								' EE = Replace(EE, STR5, STR4)
+								' EE4=EE
+							' END IF
+						' NEXT
+					' Next
+				' Next
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' USER 2ND UCASE LETTER SEARCH & KEEP AS TYPE
