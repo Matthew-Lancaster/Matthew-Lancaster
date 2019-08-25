@@ -379,7 +379,7 @@ SUB ROUTINE_01_OF_07
 	String1=""
 	String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
 	String1=String1+" fb-1 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
-	String1=String1+" _ing The _Ld.MP4"
+	String1=String1+" _ing The"
 	String1=String1+" "
 	String1=String1+" "
 	String1=TRIM(String1)
@@ -430,9 +430,9 @@ SUB ROUTINE_01_OF_07
 	I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
 	I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" A."
 	I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" A."
-	I=I+1:String_ARRAY_1(I)="_Ld.MP4" : String_ARRAY_3(I)="_LD.MP4"
-	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+	I=I+1:String_ARRAY_1(I)=" in." : String_ARRAY_3(I)=" In."
+	' I=I+1:String_ARRAY_1(I)=" HJ." : String_ARRAY_3(I)=" HJ."
+	I=I+1:String_ARRAY_1(I)="Masturbation" : String_ARRAY_3(I)="Masturbation"
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
@@ -503,7 +503,7 @@ SUB ROUTINE_03_OF_07
 	' 03 OF 07 -- 001 OF 003
 	' ---------------------------------------------------
 	String1=""
-	String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
+	String1=String1+" A AND AN AS IN OF GO BY TO ON HE US IS FOR FROM JUST WITH BOY"
 	String1=String1+" CUM CUMSHOT NEEDS HAS GUY xvideos"
 	String1=String1+" MALE"
 	' String1=String1+" THE"
@@ -1070,8 +1070,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
 				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
 				String1=String1+" GirlFriend TiT WebCam CheerLeader HomeMade"
-				String1=String1+" CukitasCom" 
-				String1=String1+" "
+				String1=String1+" CukitasCom HJ"  ' BathRoom
+				String1=String1+" MASTU"
 				String1=String1+" "
 				String1=String1+" "
 				String1=String1+" "
@@ -1089,28 +1089,46 @@ SUB PATH_SCANNER_COPY_CAMERA
 					Next
 				Next
 
-				' String1=""
-				' ' String1=String1+" The"
-				' String1=String1+"_Ld.MP4 "
-				' String1=String1+" "
-				' String1=String1+" "
-				' String1=String1+" "
-				' ' ---------------------------------------------------
-				' String_ARRAY_1=Split(String1," ",-1,1)
-				' String1=TRIM(String1)
-				' For r1 = 1 To LEN(STR1)
-					' For r2 = 1 To LEN(STR1)
-						' For EACH R3 IN String_ARRAY_1
-							' IF R3<>"" THEN 
-								' ' IF INSTR(UCASE(EE),"_LD.MP4")>0 THEN 	MSGBOX EE
-								' STR4=R3
-								' STR5=STR4'UCASE(MID(STR4,1,1))+LCASE(MID(STR4,2))
-								' EE = Replace(EE, STR5, STR4)
-								' EE4=EE
-							' END IF
-						' NEXT
-					' Next
-				' Next
+				String1=""
+				' String1=String1+" The"
+				String1=String1+"_Ld.MP4 "
+				String1=String1+" 1980s"
+				String1=String1+" "
+				String1=String1+" "
+				' ---------------------------------------------------
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1)
+				For r1 = 1 To LEN(STR1)
+					For r2 = 1 To LEN(STR1)
+						For EACH R3 IN String_ARRAY_1
+							IF R3<>"" THEN 
+								' IF INSTR(UCASE(EE),"_LD.MP4")>0 THEN MSGBOX EE
+								STR4=R3
+								EE = Replace(EE, STR4, UCASE(STR4))
+								EE4=EE
+							END IF
+						NEXT
+					Next
+				Next
+
+				String1=""
+				String1=String1+" 1980S"
+				String1=String1+""
+				String1=String1+" "
+				' ---------------------------------------------------
+				String_ARRAY_1=Split(String1," ",-1,1)
+				String1=TRIM(String1)
+				For r1 = 1 To LEN(STR1)
+					For r2 = 1 To LEN(STR1)
+						For EACH R3 IN String_ARRAY_1
+							IF R3<>"" THEN 
+								STR4=R3
+								EE = Replace(EE, STR4, LCASE(STR4))
+								EE4=EE
+							END IF
+						NEXT
+					Next
+				Next
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' USER 2ND UCASE LETTER SEARCH & KEEP AS TYPE
@@ -1231,6 +1249,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 					' EE1=REPLACE(EE1,"--","-")
 					EE1=REPLACE(EE1,"~~","~")
 					'EE=REPLACE(EE,"__","_")
+					EE=REPLACE(EE,"(6)","")
+					EE=REPLACE(EE,"(8)","")
 				LOOP UNTIL EE1=EE2
 				EE=EE1
 
@@ -1285,8 +1305,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 				IF NewFilename<>VAR_PATH_SCANNER THEN 
 					X1=LEN(TRIM(FILE_VAR_OLD))
 					X2=LEN(TRIM(FILE_VAR_3))
-					IF X1=X2 THEN SAMETIT="SAME" ELSE SAMETIT=""
-					FIND_DIFF=""
+					IF X1=X2 THEN SAMETIT="" ELSE SAMETIT=" NOT THE SAME  XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+					FIND_DIFF1=""
+					FIND_DIFF2=""
 					IF FILE_VAR_OLD<>FILE_VAR_3 THEN
 						XX=X1
 						IF X2>XX THEN 
@@ -1303,13 +1324,15 @@ SUB PATH_SCANNER_COPY_CAMERA
 							IF BYTE_B="--" OR BYTE_D="--" THEN SIGNAL=FALSE
 							IF DD>X1 OR DD>X2 THEN EXIT FOR 
 							IF SIGNAL THEN
-								FIND_DIFF=FIND_DIFF+"1"
+								FIND_DIFF1=FIND_DIFF1+"0"
+								FIND_DIFF2=FIND_DIFF2+"_"
 							ELSE
-								FIND_DIFF=FIND_DIFF+"0"
+								FIND_DIFF1=FIND_DIFF1+"1"
+								FIND_DIFF2=FIND_DIFF2+BYTE_D
 							END IF
 						NEXT
 					END IF
-					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3+VBV+FIND_DIFF+VBV+VBCRLF+VBCRLF+CSTR(X1)+VBCRLF+CSTR(X2)+" "+SAMETIT
+					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3+VBV+FIND_DIFF1+VBV+FIND_DIFF2+VBV+VBCRLF+VBCRLF+CSTR(X1)+VBCRLF+CSTR(X2)+" "+SAMETIT
 				END IF
 				' Wscript.QUIT
 
