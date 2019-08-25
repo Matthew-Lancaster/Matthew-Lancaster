@@ -384,8 +384,13 @@ SUB ROUTINE_01_OF_07
 				' -- EXAMPLE MAKE CASE UPPER OF THE -A- " A.FLV"
 				' -- || THE SEPARATOR
 				' ---------------------------------------------------
+				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
+				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
+				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
+				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
+				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
 				String1=""
-				String1=String1+"A.||"
+				String1=String1+" A.||"
 				String1=String1+"||"
 				String1=String1+"||"
 				String_ARRAY_2=Split(String1,"||",-1,1)
@@ -394,6 +399,7 @@ SUB ROUTINE_01_OF_07
 						I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
 					END IF
 				NEXT
+
 				' ---------------------------------------------------
 				' 01 OF 07 PART 003 OF 003
 				' ---------------------------------------------------
@@ -411,8 +417,8 @@ SUB ROUTINE_01_OF_07
 				' ---------------------------------------------------
 				I=I+1:String_ARRAY_1(I)="_Ing" : String_ARRAY_3(I)="_ing"        
 				'I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
-				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+				I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" A."
+				I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" A."
 				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 				' ---------------------------------------------------
@@ -421,6 +427,7 @@ SUB ROUTINE_01_OF_07
 				NEXT
 				
 				REDIM PRESERVE String_ARRAY_1(R3-1)
+				REDIM PRESERVE String_ARRAY_3(R3-1) ' IS DIM AT TOP AND HERE
 
 				CALL ROUTINE_SUB_01_OF_07_PART_02
 				
@@ -429,7 +436,6 @@ END SUB
 
 SUB ROUTINE_SUB_01_OF_07_PART_02:
 
-	REDIM String_ARRAY_3(UBOUND(String_ARRAY_1))
 	ISK=0
 	
 	For R3 = 0 TO UBOUND(String_ARRAY_1)
@@ -852,11 +858,17 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
 				' ---------------------------------------------------
 				
+				
 				IF LEN(EE)<>LEN(FILE_VAR_2_OLD) THEN 
-					MSGBOX "44"+VBV+EE+VBV+"NOT HAVE STRING CHANGE SIZE"
+					MSGBOX EE+VBV+"NOT HAVE STRING CHANGE SIZE"
+					RENAME_HAPPEN=FALSE
+					Wscript.QUIT
+				ELSE
+					RENAME_HAPPEN=TRUE
 				END IF 
-				CALL ROUTINE_01_OF_07
-				CALL ROUTINE_SUB_01_OF_07_PART_02
+				
+				'CALL ROUTINE_01_OF_07
+				'CALL ROUTINE_SUB_01_OF_07_PART_02
 
 				' For ISK = 1 TO UBOUND(STRING_KEEPER1)
 					' ' IF STRING_KEEPER1(ISK)<>"" THEN	MSGBOX STRING_KEEPER1(ISK)
@@ -864,8 +876,12 @@ SUB PATH_SCANNER_COPY_CAMERA
 					
 					
 				For ISK = 1 TO UBOUND(STRING_KEEPER1)
-					' MSGBOX String_ARRAY_1(ISK)
-
+					if STRING_KEEPER1(ISK)="A."  then 
+						MSGBOX EE+VBV+String_ARRAY_1(ISK)
+					end if
+					if STRING_KEEPER1(ISK)="A." AND INSTR(EE," A.FLV") then 
+						MSGBOX EE+VBV+String_ARRAY_1(ISK)
+					end if
 					IF STRING_KEEPER1(ISK)<>"" THEN
 						' MSGBOX STRING_KEEPER1(ISK)
 						' STRING_KEEPER1(ISK) -- CONVERT STRING1
@@ -876,8 +892,11 @@ SUB PATH_SCANNER_COPY_CAMERA
 						MODIFY_INPUT=STRING_KEEPER1(ISK)
 						IF STRING_KEEPER3(ISK)<>"" THEN 
 							MODIFY_INPUT=STRING_KEEPER3(ISK)
+							MSGBOX STRING_KEEPER3(ISK)
 						END IF
 						' MSGBOX CSTR(G1)+VBV+G2+VBV+MODIFY_INPUT
+						
+						
 						EE=MID(EE,1,G2-1)+MODIFY_INPUT+MID(EE,G1+G2)
 					END IF
 				NEXT
@@ -924,7 +943,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 					EE=EE1
 				Next
 
-				
 				' ---------------------------------------------------
 				' DO HERE ONE MORE -- 1ST LETTER BACK CAPITAL AGAIN
 				' ---------------------------------------------------
@@ -987,8 +1005,9 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 	
 	
-	IF NewFilename<>VAR_PATH_SCANNER THEN 
+	IF NewFilename<>VAR_PATH_SCANNER AND RENAME_HAPPEN=TRUE THEN 
 		' Wscript.QUIT
+		
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			
 		I_COUNT_1=I_COUNT_1+1
