@@ -52,10 +52,22 @@
 ' COPIER HERE 
 ' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS
 ' -------------------------------------------------------------------
+' A BINARY TREE SEARCH REPLACE SORTER IS NOT THAT QUICKER WITH DRAG DOWN 
+' BUT GOOD JOB 
+' NOT MUCH ELSE TO DO
+' SOME SEARCH AND REPLACE BASE OF FIND INDEX AND REPLACE TEXT THAT WAY QUICKER
+' TRY AND NORMALISE BRING ALL ADJUSTABLE VARIABLE TO ONE PLACE HOW SMART
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' Sat 24-Aug-2019 07:25:00
-' Sat 24-Aug-2019 22:40:40
+' Sun 25-Aug-2019 09:00:00  -- 24 HOUR HOUR SESSION ONE SIT DOWN 
+'						    -- HARDEST WORKER'
+'						    -- AND CONTINUE LATER DAY TO GET OVER WITH
+'					        -- BUT FAIL KEEP UP WITH REMARK NEAT AND TIDY DO LATER
+'						    -- WHEN TIDY MORE
+' Sun 25-Aug-2019 15:58:00  -- SMASH PROJECT ALL WEEKEND
 ' -------------------------------------------------------------------
+
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -955,7 +967,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' NONE USER INTERVENTION REQUIRING - KEEP CAPITAL
 				' ---------------------------------------------------
 				' ---------------------------------------------------
-				STR2="-~().\/_"" "+VBCR+VBLF   ' THE 0 TO 9 IS NOT HERE NOT WANTER LOWER
+				STR2="-~()[]{};:=+*&^%$£!.\/_"" "+VBCR+VBLF   ' THE 0 TO 9 IS NOT HERE NOT WANTER LOWER
 				STR3=STR2+"0123456789"
 				STR1=STR3
 				STRY="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -1197,7 +1209,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 							R5=LEN(String_ARRAY_1(R3))
 							EE2=EE
 							EE = MID(EE,1,XI-1)+R4+MID(EE,XI+R5)
-							MSGBOX  EE2+VBV+EE+VBV'+"-----"+UCASE(String_ARRAY_1(R3))+"-----"
+							' MSGBOX  EE2+VBV+EE+VBV'+"-----"+UCASE(String_ARRAY_1(R3))+"-----"
 						END IF
 					END IF
 				NEXT
@@ -1294,6 +1306,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				ELSE
 					RENAME_HAPPEN=TRUE
 				END IF 
+				RENAME_HAPPEN=TRUE
+				
 				
 				'CALL ROUTINE_01_OF_07
 				'CALL ROUTINE_SUB_01_OF_07_PART_02
