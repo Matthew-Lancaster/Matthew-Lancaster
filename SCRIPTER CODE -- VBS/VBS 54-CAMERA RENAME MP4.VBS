@@ -363,81 +363,80 @@ End Sub
 SUB ROUTINE_01_OF_07
 
 
-				' USE AT END ROUTINE ARRAY
-				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
-				REDIM STRING_KEEPER1(100)
-				REDIM STRING_KEEPER2(100)
-				REDIM STRING_KEEPER3(100)
-				REDIM String_ARRAY_3(100)
+	' USE AT END ROUTINE ARRAY
+	' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
+	REDIM STRING_KEEPER1(100)
+	REDIM STRING_KEEPER2(100)
+	REDIM STRING_KEEPER3(100)
+	REDIM String_ARRAY_3(100)
 
-				' ---------------------------------------------------
-				' 01 OF 07 PART 001 OF 003
-				' ---------------------------------------------------
-				String1=""
-				String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
-				String1=String1+" fb-1 _LD.MP4 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
-				String1=String1+" _ing"
-				String1=String1+" "
-				String1=String1+" "
-				String1=TRIM(String1)
-				String_ARRAY_1=Split(String1," ",-1,1)
-				I=UBOUND(String_ARRAY_1)
-				' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
-				REDIM PRESERVE String_ARRAY_1(I+100)
-				REDIM PRESERVE String_ARRAY_3(I+100)
-				' ---------------------------------------------------
-				' 01 OF 07 PART 002 OF 003
-				' ---------------------------------------------------
-				' -- FILENAME HAS LETTER END ON LIKE " A.FLV"
-				' -- EXAMPLE MAKE CASE UPPER OF THE -A- " A.FLV"
-				' -- || THE SEPARATOR
-				' ---------------------------------------------------
-				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
-				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
-				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
-				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
-				' NOT WORK WHEN A. HAS GONE LOWER CASE -- NEW IDEA
-				String1=""
-				String1=String1+" A.||"
-				String1=String1+"||"
-				String1=String1+"||"
-				String_ARRAY_2=Split(String1,"||",-1,1)
-				For R3 = 0 TO UBOUND(String_ARRAY_2)
-					IF String_ARRAY_2(R3)<>"" THEN 
-						I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
-					END IF
-				NEXT
+	' ---------------------------------------------------
+	' 01 OF 07 PART 001 OF 003
+	' ---------------------------------------------------
+	String1=""
+	String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
+	String1=String1+" fb-1 _LD.MP4 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
+	String1=String1+" _ing"
+	String1=String1+" "
+	String1=String1+" "
+	String1=TRIM(String1)
+	String_ARRAY_1=Split(String1," ",-1,1)
+	I=UBOUND(String_ARRAY_1)
+	' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
+	REDIM PRESERVE String_ARRAY_1(I+100)
+	REDIM PRESERVE String_ARRAY_3(I+100)
+	' ---------------------------------------------------
+	' 01 OF 07 PART 002 OF 003
+	' ---------------------------------------------------
+	' -- FILENAME HAS LETTER END ON LIKE " A.FLV"
+	' -- EXAMPLE MAKE CASE UPPER OF THE -A- " A.FLV"
+	' -- || THE SEPARATOR
+	' ---------------------------------------------------
+	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
+	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
+	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
+	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
+	String1=""
+	String1=String1+"A.||"
+	String1=String1+"||"
+	String1=String1+"||"
+	String_ARRAY_2=Split(String1,"||",-1,1)
+	For R3 = 0 TO UBOUND(String_ARRAY_2)
+		IF String_ARRAY_2(R3)<>"" THEN 
+			I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
+		END IF
+	NEXT
 
-				' ---------------------------------------------------
-				' 01 OF 07 PART 003 OF 003
-				' ---------------------------------------------------
-				' HERE IT WILL SEARCH 
-				' String_ARRAY_3 -- EXAMPLE
-				' IS TO HAVE CASE CONVERT AS IS IN THERE
-				' WHAT SEARCH FOR -- AN EXAMPLE
-				' IS UCASE VERSION "_Ing" AND WANT LOWER "_ing"
-				' STRING LENGTH ARE NOT ABLE TO VARY OR ELSE BE USE INSTR IF WANT TO
-				' HOW HARD THAT BE -- CAREFUL WORDER - PARTIAL WORD
-				' ---------------------------------------------------
-				' CONVERT STRING PAIR CASE SENSITIVE TARGET RESULT
-				' String_ARRAY_1  ---- SOURCE 
-				' String_ARRAY_3  ---- TARGET
-				' ---------------------------------------------------
-				I=I+1:String_ARRAY_1(I)="_Ing" : String_ARRAY_3(I)="_ing"        
-				'I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
-				'I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" A."
-				'I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" A."
-				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-				I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-				' ---------------------------------------------------
-				FOR R3 = 1 TO UBOUND(String_ARRAY_1)
-					IF String_ARRAY_1(R3)="" THEN EXIT FOR
-				NEXT
-				
-				REDIM PRESERVE String_ARRAY_1(R3-1)
-				REDIM PRESERVE String_ARRAY_3(R3-1) ' IS DIM AT TOP AND HERE
+	' ---------------------------------------------------
+	' 01 OF 07 PART 003 OF 003
+	' ---------------------------------------------------
+	' HERE IT WILL SEARCH 
+	' String_ARRAY_3 -- EXAMPLE
+	' IS TO HAVE CASE CONVERT AS IS IN THERE
+	' WHAT SEARCH FOR -- AN EXAMPLE
+	' IS UCASE VERSION "_Ing" AND WANT LOWER "_ing"
+	' STRING LENGTH ARE NOT ABLE TO VARY OR ELSE BE USE INSTR IF WANT TO
+	' HOW HARD THAT BE -- CAREFUL WORDER - PARTIAL WORD
+	' ---------------------------------------------------
+	' CONVERT STRING PAIR CASE SENSITIVE TARGET RESULT
+	' String_ARRAY_1  ---- SOURCE 
+	' String_ARRAY_3  ---- TARGET END BEING LOWER CASE
+	' ---------------------------------------------------
+	I=I+1:String_ARRAY_1(I)="_Ing" : String_ARRAY_3(I)="_ing"        
+	' I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
+	' I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" a."
+	' I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" a."
+	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
+	' ---------------------------------------------------
+	FOR R3 = 1 TO UBOUND(String_ARRAY_1)
+		IF String_ARRAY_1(R3)="" THEN EXIT FOR
+	NEXT
+	
+	REDIM PRESERVE String_ARRAY_1(R3-1)
+	REDIM PRESERVE String_ARRAY_3(R3-1) ' IS DIM AT TOP AND HERE
 
-				CALL ROUTINE_SUB_01_OF_07_PART_02
+	CALL ROUTINE_SUB_01_OF_07_PART_02
 				
 END SUB				
 
@@ -470,9 +469,9 @@ SUB ROUTINE_SUB_01_OF_07_PART_02:
 		END IF
 	NEXT
 
-	'REDIM PRESERVE STRING_KEEPER1(ISK)
-	'REDIM PRESERVE STRING_KEEPER2(ISK)
-	'REDIM PRESERVE STRING_KEEPER3(ISK)
+	REDIM PRESERVE STRING_KEEPER1(ISK)
+	REDIM PRESERVE STRING_KEEPER2(ISK)
+	REDIM PRESERVE STRING_KEEPER3(ISK)
 
 END SUB				
 
@@ -480,188 +479,184 @@ END SUB
 
 SUB ROUTINE_03_OF_07
 				
-				' ---------------------------------------------------
-				' THESE ARE WHAT PUT LOWER CASE
-				' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
-				' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-				' ---------------------------------------------------
-				' 03 OF 07 -- 001 OF 003
-				' ---------------------------------------------------
-				String1=""
-				String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
-				String1=String1+" CUM NEEDS HAS GUY xvideos"
-				String1=String1+" MALE"
-				String1=String1+" "
-				String1=String1+" "
-				' ---------------------------------------------------
-				String1=TRIM(LCASE(String1))
-				String_ARRAY_B_01=Split(String1," ",-1,1)
-				' ---------------------------------------------------
-				' INCLUDE WORD WITH SPACE BETWEEN
-         		' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-				'
-				' 03 OF 07 -- 002 OF 003
-				' ---------------------------------------------------
-				String1=""
-				String1=String1+"OLDER GUY||"
-				String1=String1+"||"
-				String1=String1+"||"
-				' ---------------------------------------------------
-				String1=TRIM(LCASE(String1))
-				I=UBOUND(String_ARRAY_B_01)
-				String_ARRAY_2=Split(String1,"||",-1,1)
-				REDIM PRESERVE String_ARRAY_B_01(I+UBOUND(String_ARRAY_2))
-				For R3 = 0 TO UBOUND(String_ARRAY_2)
-					IF String_ARRAY_2(R3)<>"" THEN 
-						I=I+1:String_ARRAY_B_01(I)=String_ARRAY_2(R3)
+	' ---------------------------------------------------
+	' THESE ARE WHAT PUT LOWER CASE
+	' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
+	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+	' ---------------------------------------------------
+	' 03 OF 07 -- 001 OF 003
+	' ---------------------------------------------------
+	String1=""
+	String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
+	String1=String1+" CUM NEEDS HAS GUY xvideos"
+	String1=String1+" MALE"
+	String1=String1+" "
+	String1=String1+" "
+	' ---------------------------------------------------
+	String1=TRIM(LCASE(String1))
+	String_ARRAY_B_01=Split(String1," ",-1,1)
+	' ---------------------------------------------------
+	' INCLUDE WORD WITH SPACE BETWEEN
+	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+	'
+	' 03 OF 07 -- 002 OF 003
+	' ---------------------------------------------------
+	String1=""
+	String1=String1+"OLDER GUY||"
+	String1=String1+"||"
+	String1=String1+"||"
+	' ---------------------------------------------------
+	String1=TRIM(LCASE(String1))
+	I=UBOUND(String_ARRAY_B_01)
+	String_ARRAY_2=Split(String1,"||",-1,1)
+	REDIM PRESERVE String_ARRAY_B_01(I+UBOUND(String_ARRAY_2))
+	For R3 = 0 TO UBOUND(String_ARRAY_2)
+		IF String_ARRAY_2(R3)<>"" THEN 
+			I=I+1:String_ARRAY_B_01(I)=String_ARRAY_2(R3)
+		END IF
+	NEXT
+	
+	' ---------------------------------------------------
+	' SEARCH STRING AND REPLACE OF VARY TEXT LENGTH
+	' POST EDIT				
+	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+	' EXAMPLE String1 WILL CONVERT 
+	' TO ADJACENT EQUIVALENT String2
+	'
+	' ---------------------------------------------
+	' 03 OF 07 -- 003 OF 003
+	' ---------------------------------------------
+	REDIM String_ARRAY_B_02(I+1)
+	REDIM PRESERVE String_ARRAY_B_01(I+1)
+	String1=""
+	String2=""
+	String1=String1+"MAN"
+	String1=String1+" "
+	String2=String2+"male" 
+	' ---------------------------------------------------
+	' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
+	' LOWER CASE HAVE TO PUT OVER AT
+	' OR THE TOP ONE ' 01 OF 07
+	' THIS IS THE MOST OF WORD CONVERT LOWER CASE FIRST LETTER
+	' WITH SURROUNDED BY CHARACTER SET SCANNER OPTION
+	' ---------------------------------------------------
+	String2=String2+" "
+	I=UBOUND(String_ARRAY_B_01)
+	String_ARRAY_D2=Split(String1," ",-1,1)
+	String_ARRAY_D3=Split(String2," ",-1,1)
+	I2=UBOUND(String_ARRAY_B_01)
+	I=UBOUND(String_ARRAY_B_01)+UBOUND(String_ARRAY_D2)
+	REDIM PRESERVE String_ARRAY_B_01(I)
+	REDIM PRESERVE String_ARRAY_B_02(I)
+	I=I2-1
+	For R3 = 0 TO UBOUND(String_ARRAY_D2)
+		IF String_ARRAY_D2(R3)<>"" THEN 
+			I=I+1
+			String_ARRAY_B_01(I)=String_ARRAY_D2(R3)
+			String_ARRAY_B_02(I)=String_ARRAY_D3(R3)
+			' MSGBOX String_ARRAY_D2(R3)
+		END IF
+	NEXT
+	' ---------------------------------------------------
+	FOR R3 = 0 TO UBOUND(String_ARRAY_B_01)
+		IF String_ARRAY_B_01(R3)="" THEN EXIT FOR
+	NEXT
+	
+	REDIM PRESERVE String_ARRAY_B_01(R3-1)
+	REDIM PRESERVE String_ARRAY_B_02(R3-1)
+
+	I2=UBOUND(String_ARRAY_B_01)
+	I=UBOUND(String_ARRAY_B_01)+1000
+	REDIM PRESERVE String_ARRAY_B_01(I)
+	REDIM PRESERVE String_ARRAY_B_02(I)
+	I=I2-1
+
+	For R3 = 0 TO I
+		LEN_PATTERN=LEN(String_ARRAY_B_01(R3))
+		BINARY_GIVER=String_ARRAY_B_01(R3)
+		For r1 = 1 To LEN(STR1)
+			For r2 = 1 To LEN(STR1)
+				STR4=MID(STR1,r1,1)
+				STR5=MID(STR1,r2,1)
+				' MSGBOX "00"+STR4
+				' MSGBOX STR4 + STRING_1 + STR5
+
+				' ---------------------------------------
+				' WORK OUT MATRIX ANY TYPE OF CASE
+				' WITH BINARY COUNTER CONVERSION TO CASE
+				' ON STRING
+				' ---------------------------------------
+				BI_4=0
+				DO
+
+					' -----------------------------------
+					' WHEN DO THE BINARY NOT LIKE NORMAL COUNT
+					' EXAMPLE HERE IS 
+					' 0 = 0 -- 1 = 1 -- 2 = 10 -- 3 = 11
+					' SO WE HAVE NUMBER 2 WITH PADDING AFTER 
+					' LOOK SAME AS 1
+					' NOW CHECK DUPE IT 
+					' SAVE UNNECESSARY CODE COSTING SUPER
+					' -----------------------------------
+					' PROBLEM IF USE VARIABLE BINARY_ST
+					' I DEBUG IT MUST BE SYSTEM ONE
+					' -----------------------------------
+					DO 
+						BINARY_ST_2=DecimalToBinary(BI_4)
+						BI_4=BI_4+1
+					LOOP UNTIL RIGHT(BINARY_ST_2,1)="1" OR BI_4=1
+					
+					IF LEN(BINARY_ST_2)>LEN_PATTERN THEN 
+						EXIT DO
 					END IF
-				NEXT
-				
-				
-				' ---------------------------------------------------
-				' SEARCH STRING AND REPLACE OF VARY TEXT LENGTH
-				' POST EDIT				
-         		' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-				' EXAMPLE String1 WILL CONVERT 
-				' TO ADJACENT EQUIVALENT String2
-				'
-				' ---------------------------------------------
-				' 03 OF 07 -- 003 OF 003
-				' ---------------------------------------------
-				REDIM String_ARRAY_B_02(I+1)
-				REDIM PRESERVE String_ARRAY_B_01(I+1)
-				String1=""
-				String2=""
-				String1=String1+"MAN"
-				String1=String1+" "
-				String2=String2+"male" 
-				' ---------------------------------------------------
-				' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
-				' LOWER CASE HAVE TO PUT OVER AT
-				' OR THE TOP ONE ' 01 OF 07
-				' THIS IS THE MOST OF WORD CONVERT LOWER CASE FIRST LETTER
-				' WITH SURROUNDED BY CHARACTER SET SCANNER OPTION
-				' ---------------------------------------------------
-				String2=String2+" "
-				I=UBOUND(String_ARRAY_B_01)
-				String_ARRAY_D2=Split(String1," ",-1,1)
-				String_ARRAY_D3=Split(String2," ",-1,1)
-				I2=UBOUND(String_ARRAY_B_01)
-				I=UBOUND(String_ARRAY_B_01)+UBOUND(String_ARRAY_D2)
-				REDIM PRESERVE String_ARRAY_B_01(I)
-				REDIM PRESERVE String_ARRAY_B_02(I)
-				I=I2-1
-				For R3 = 0 TO UBOUND(String_ARRAY_D2)
-					IF String_ARRAY_D2(R3)<>"" THEN 
-						I=I+1
-						String_ARRAY_B_01(I)=String_ARRAY_D2(R3)
-						String_ARRAY_B_02(I)=String_ARRAY_D3(R3)
-						' MSGBOX String_ARRAY_D2(R3)
+
+					IF BI_4>3 THEN
+						' EXIT DO
 					END IF
-				NEXT
-				' ---------------------------------------------------
-				FOR R3 = 0 TO UBOUND(String_ARRAY_B_01)
-					IF String_ARRAY_B_01(R3)="" THEN EXIT FOR
-				NEXT
-				
-				REDIM PRESERVE String_ARRAY_B_01(R3-1)
-				REDIM PRESERVE String_ARRAY_B_02(R3-1)
 
-				I2=UBOUND(String_ARRAY_B_01)
-				I=UBOUND(String_ARRAY_B_01)+1000
-				REDIM PRESERVE String_ARRAY_B_01(I)
-				REDIM PRESERVE String_ARRAY_B_02(I)
-				I=I2-1
-				
-				' MSGBOX "XX" +CSTR(UBOUND(String_ARRAY_B_01))
-				
-				UBOUND_String_ARRAY_B_01=UBOUND(String_ARRAY_B_01)
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For R3 = 0 TO UBOUND_String_ARRAY_B_01
-							STR4=MID(STR1,r1,1)
-							STR5=MID(STR1,r2,1)
-							LEN_PATTERN=LEN(String_ARRAY_B_01(R3))
-							BINARY_GIVER=String_ARRAY_B_01(R3)
-							' MSGBOX "00"+STR4
-							' MSGBOX STR4 + STRING_1 + STR5
+					
+					' -----------------------------------
+					' IT ABLE GET THE LEN OF BINARY WITHOUT PADDING 
+					' AND LEARN IF TOO LONG -- SO EXIT ABOVE LINE
+					' -----------------------------------
+					' BAD LINE OF CODE -- COMMENTOR
+					' -----------------------------------
+					' PADD THE NAUGHT AH
+					BINARY_ST_2=BINARY_ST_2+STRING(LEN(BINARY_GIVER)-LEN(BINARY_ST_2),"0")
+					
+					
+					STRING_1=""
+					For R10=1 To LEN(BINARY_GIVER)
+						IF MID(BINARY_ST_2,R10,1)="1" THEN 
+							STRING_1=STRING_1+UCASE(MID(BINARY_GIVER,R10,1))
+						ELSE
+							STRING_1=STRING_1+LCASE(MID(BINARY_GIVER,R10,1))
+						END IF
+					NEXT 
 
-							' ---------------------------------------
-							' WORK OUT MATRIX ANY TYPE OF CASE
-							' WITH BINARY COUNTER CONVERSION TO CASE
-							' ON STRING
-							' ---------------------------------------
-							BI_4=0
-							DO
+					IF I+100>UBOUND(String_ARRAY_B_01) THEN 
+						'MSGBOX CSTR(UBOUND(String_ARRAY_B_01))+VBV+BINARY_ST_2+VBCRLF+STRING_1+VBCRLF+BINARY_GIVER
+						I2=UBOUND(String_ARRAY_B_01)+15000
+						REDIM PRESERVE String_ARRAY_B_01(I2)
+						REDIM PRESERVE String_ARRAY_B_02(I2)
+					END IF
+					
+					I=I+1
+					String_ARRAY_B_01(I)=STR4 + STRING_1 + STR5
+					String_ARRAY_B_02(I)=LCASE(STR4 + STRING_1 + STR5)
 
-								' -----------------------------------
-								' WHEN DO THE BINARY NOT LIKE NORMAL COUNT
-								' EXAMPLE HERE IS 
-								' 0 = 0 -- 1 = 1 -- 2 = 10 -- 3 = 11
-								' SO WE HAVE NUMBER 2 WITH PADDING AFTER 
-								' LOOK SAME AS 1
-								' NOW CHECK DUPE IT 
-								' SAVE UNNECESSARY CODE COSTING SUPER
-								' -----------------------------------
-								' PROBLEM IF USE VARIABLE BINARY_ST
-								' I DEBUG IT MUST BE SYSTEM ONE
-								' -----------------------------------
-								DO 
-									BINARY_ST_2=DecimalToBinary(BI_4)
-									BI_4=BI_4+1
-								LOOP UNTIL RIGHT(BINARY_ST_2,1)="1" OR BI_4=1
-								
-								IF LEN(BINARY_ST_2)>LEN_PATTERN THEN 
-									EXIT DO
-								END IF
+					
+				LOOP UNTIL TRUE=FALSE
 
-								IF BI_4>3 THEN
-									' EXIT DO
-								END IF
+			NEXT
+		Next
+	Next
 
-								
-								' -----------------------------------
-								' IT ABLE GET THE LEN OF BINARY WITHOUT PADDING 
-								' AND LEARN IF TOO LONG -- SO EXIT ABOVE LINE
-								' -----------------------------------
-								' BAD LINE OF CODE -- COMMENTOR
-								' -----------------------------------
-								' PADD THE NAUGHT AH
-								BINARY_ST_2=BINARY_ST_2+STRING(LEN(BINARY_GIVER)-LEN(BINARY_ST_2),"0")
-								
-								STRING_1=""
-								NSGBOX BINARY_GIVER
-								For R10=1 To LEN(BINARY_GIVER)
-									IF MID(BINARY_ST_2,R10,1)="1" THEN 
-										STRING_1=STRING_1+UCASE(MID(BINARY_GIVER,R10,1))
-									ELSE
-										STRING_1=STRING_1+LCASE(MID(BINARY_GIVER,R10,1))
-									END IF
-								NEXT 
+	
+	REDIM PRESERVE String_ARRAY_B_01(I)
+	REDIM PRESERVE String_ARRAY_B_02(I)
 
-								IF I+100>UBOUND(String_ARRAY_B_01) THEN 
-									MSGBOX BINARY_ST_2+VBV+VBV+STRING_1
-									'MSGBOX BINARY_ST_2+VBV+CSTR(BI_4)+VBV+CSTR(I)+VBV+STRING_1
-									I2=UBOUND(String_ARRAY_B_01)+15000
-									REDIM PRESERVE String_ARRAY_B_01(I2)
-									REDIM PRESERVE String_ARRAY_B_02(I2)
-								END IF
-								
-								I=I+1
-								String_ARRAY_B_01(I)=STR4 + STRING_1 + STR5
-								String_ARRAY_B_02(I)=LCASE(STR4 + STRING_1 + STR5)
-
-								
-							LOOP UNTIL TRUE=FALSE
-
-						NEXT
-					Next
-				Next
-
-				REDIM PRESERVE String_ARRAY_B_01(I)
-				REDIM PRESERVE String_ARRAY_B_02(I)
-
-				MSGBOX String_ARRAY_B_01(UBOUND(String_ARRAY_B_01))
+	' 71000 SIZE ARRAY HERE
 				
 				
 END SUB
@@ -791,8 +786,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 					ROUTINE_03_OF_07_CALL_ONE=TRUE
 				END IF
 				' ---------------------------------------------------
-								
-				MSGBOX UBOUND(String_ARRAY_B_01)
 						
 				For R3 = 1 TO UBOUND(String_ARRAY_B_01)
 					STRING_1=String_ARRAY_B_01(R3)
@@ -918,14 +911,17 @@ SUB PATH_SCANNER_COPY_CAMERA
 					' ' IF STRING_KEEPER1(ISK)<>"" THEN	MSGBOX STRING_KEEPER1(ISK)
 				' NEXT
 					
+				MSGBOX UBOUND(STRING_KEEPER1)
 					
 				For ISK = 1 TO UBOUND(STRING_KEEPER1)
-					if STRING_KEEPER1(ISK)="A."  then 
-						MSGBOX EE+VBV+String_ARRAY_1(ISK)
-					end if
-					if STRING_KEEPER1(ISK)="A." AND INSTR(EE," A.FLV") then 
-						MSGBOX EE+VBV+String_ARRAY_1(ISK)
-					end if
+					' if STRING_KEEPER1(ISK)="A."  then 
+						' MSGBOX "JJ"
+						' MSGBOX EE+VBV+String_ARRAY_1(ISK)
+					' end if
+					' if STRING_KEEPER1(ISK)="A." AND INSTR(EE," A.FLV") then 
+						' MSGBOX "GG"
+						' MSGBOX EE+VBV+String_ARRAY_1(ISK)
+					' end if
 					IF STRING_KEEPER1(ISK)<>"" THEN
 						' MSGBOX STRING_KEEPER1(ISK)
 						' STRING_KEEPER1(ISK) -- CONVERT STRING1
@@ -936,9 +932,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 						MODIFY_INPUT=STRING_KEEPER1(ISK)
 						IF STRING_KEEPER3(ISK)<>"" THEN 
 							MODIFY_INPUT=STRING_KEEPER3(ISK)
-							MSGBOX STRING_KEEPER3(ISK)
+							' MSGBOX STRING_KEEPER3(ISK)
 						END IF
-						' MSGBOX CSTR(G1)+VBV+G2+VBV+MODIFY_INPUT
+						'VBV=VBCRLF
+						'MSGBOX CSTR(G1)+VBV+CSTR(G2)+VBV+MODIFY_INPUT
 						
 						
 						EE=MID(EE,1,G2-1)+MODIFY_INPUT+MID(EE,G1+G2)
@@ -991,6 +988,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' DO HERE ONE MORE -- 1ST LETTER BACK CAPITAL AGAIN
 				' ---------------------------------------------------
 				EE = UCASE(MID(EE,1,1))+MID(EE,2)
+				' ---------------------------------------------------
 
 				FILE_VAR_2=EE
 			
