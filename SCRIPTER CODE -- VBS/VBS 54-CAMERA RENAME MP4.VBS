@@ -219,7 +219,10 @@ DIM String_ARRAY_4
 
 DIM String_ARRAY_B_01
 DIM String_ARRAY_B_02
+DIM String_ARRAY_U_01
+DIM String_ARRAY_U_02
 DIM ROUTINE_03_OF_07_CALL_ONE
+DIM ROUTINE_04_OF_07_CALL_ONE
 
 DIM STR1
 DIM STR2
@@ -375,7 +378,7 @@ SUB ROUTINE_01_OF_07
 	' ---------------------------------------------------
 	String1=""
 	String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
-	String1=String1+" fb-1 _LD.MP4 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
+	String1=String1+" fb-1 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
 	String1=String1+" _ing"
 	String1=String1+" "
 	String1=String1+" "
@@ -385,6 +388,7 @@ SUB ROUTINE_01_OF_07
 	' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
 	REDIM PRESERVE String_ARRAY_1(I+100)
 	REDIM PRESERVE String_ARRAY_3(I+100)
+
 	' ---------------------------------------------------
 	' 01 OF 07 PART 002 OF 003
 	' ---------------------------------------------------
@@ -396,19 +400,19 @@ SUB ROUTINE_01_OF_07
 	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
 	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
 	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
-	String1=""
-	String1=String1+"A.||"
-	String1=String1+"||"
-	String1=String1+"||"
-	String_ARRAY_2=Split(String1,"||",-1,1)
-	For R3 = 0 TO UBOUND(String_ARRAY_2)
-		IF String_ARRAY_2(R3)<>"" THEN 
-			I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
-		END IF
-	NEXT
+	' String1=""
+	' String1=String1+" A.||"
+	' String1=String1+" a.||"
+	' String1=String1+"||"
+	' String_ARRAY_2=Split(String1,"||",-1,1)
+	' For R3 = 0 TO UBOUND(String_ARRAY_2)
+		' IF String_ARRAY_2(R3)<>"" THEN 
+			' I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
+		' END IF
+	' NEXT
 
 	' ---------------------------------------------------
-	' 01 OF 07 PART 003 OF 003
+	' 01 OF 07 PART 002 OF 002
 	' ---------------------------------------------------
 	' HERE IT WILL SEARCH 
 	' String_ARRAY_3 -- EXAMPLE
@@ -423,9 +427,9 @@ SUB ROUTINE_01_OF_07
 	' String_ARRAY_3  ---- TARGET END BEING LOWER CASE
 	' ---------------------------------------------------
 	I=I+1:String_ARRAY_1(I)="_Ing" : String_ARRAY_3(I)="_ing"        
-	' I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
-	' I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" a."
-	' I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" a."
+	I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
+	I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" A."
+	I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" A."
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	' ---------------------------------------------------
@@ -446,6 +450,8 @@ SUB ROUTINE_SUB_01_OF_07_PART_02:
 	ISK=0
 	
 	For R3 = 0 TO UBOUND(String_ARRAY_1)
+			' IF INSTR(EE," A.")>0 THEN MSGBOX  EE
+			' IF INSTR(EE," a.")>0 THEN MSGBOX  EE
 		IF INSTR(EE,String_ARRAY_1(R3))>0 THEN
 			
 			T1=1
@@ -458,6 +464,7 @@ SUB ROUTINE_SUB_01_OF_07_PART_02:
 				X=INSTR(T1,EE,String_ARRAY_1(R3))
 				IF X>0 THEN 
 					ISK=ISK+1
+					
 					STRING_KEEPER1(ISK)=String_ARRAY_1(R3)
 					STRING_KEEPER2(ISK)=X
 					STRING_KEEPER3(ISK)=String_ARRAY_3(R3)
@@ -468,6 +475,8 @@ SUB ROUTINE_SUB_01_OF_07_PART_02:
 			LOOP UNTIL T1=0
 		END IF
 	NEXT
+	
+	' IF ISK>0 THEN MSGBOX ISK
 
 	REDIM PRESERVE STRING_KEEPER1(ISK)
 	REDIM PRESERVE STRING_KEEPER2(ISK)
@@ -479,6 +488,8 @@ END SUB
 
 SUB ROUTINE_03_OF_07
 				
+	REDIM String_ARRAY_B_01(100)
+	REDIM String_ARRAY_B_02(100)
 	' ---------------------------------------------------
 	' THESE ARE WHAT PUT LOWER CASE
 	' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
@@ -526,7 +537,7 @@ SUB ROUTINE_03_OF_07
 	' ---------------------------------------------
 	' 03 OF 07 -- 003 OF 003
 	' ---------------------------------------------
-	REDIM String_ARRAY_B_02(I+1)
+	REDIM PRESERVE String_ARRAY_B_02(I+1)
 	REDIM PRESERVE String_ARRAY_B_01(I+1)
 	String1=""
 	String2=""
@@ -663,6 +674,202 @@ END SUB
 
 
 
+
+
+SUB ROUTINE_04_OF_07
+				
+	REDIM String_ARRAY_U_01(100)
+	REDIM String_ARRAY_U_02(100)
+	' ---------------------------------------------------
+	' THESE ARE WHAT PUT LOWER CASE
+	' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
+	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+	' ---------------------------------------------------
+	' 03 OF 07 -- 001 OF 003
+	' ---------------------------------------------------
+	String1=""
+	String1=String1+" _LD.MP4"
+	String1=String1+" "
+	String1=String1+" "
+	String1=String1+" "
+	String1=String1+" "
+	' ---------------------------------------------------
+	String1=TRIM(LCASE(String1))
+	String_ARRAY_U_01=Split(String1," ",-1,1)
+	' ---------------------------------------------------
+	' INCLUDE WORD WITH SPACE BETWEEN
+	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+	'
+	' 03 OF 07 -- 002 OF 003
+	' ---------------------------------------------------
+	String1=""
+	String1=String1+" XYZZ||"
+	String1=String1+"||"
+	String1=String1+"||"
+	' ---------------------------------------------------
+	String1=TRIM(LCASE(String1))
+	I=UBOUND(String_ARRAY_U_01)
+	String_ARRAY_2=Split(String1,"||",-1,1)
+	REDIM PRESERVE String_ARRAY_U_01(I+UBOUND(String_ARRAY_2))
+	For R3 = 0 TO UBOUND(String_ARRAY_2)
+		IF String_ARRAY_2(R3)<>"" THEN 
+			I=I+1:String_ARRAY_U_01(I)=String_ARRAY_2(R3)
+		END IF
+	NEXT
+	
+	' ---------------------------------------------------
+	' SEARCH STRING AND REPLACE OF VARY TEXT LENGTH
+	' POST EDIT				
+	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+	' EXAMPLE String1 WILL CONVERT 
+	' TO ADJACENT EQUIVALENT String2
+	'
+	' ---------------------------------------------
+	' 03 OF 07 -- 003 OF 003
+	' ---------------------------------------------
+	REDIM PRESERVE String_ARRAY_U_02(I+1)
+	REDIM PRESERVE String_ARRAY_U_01(I+1)
+	String1=""
+	String2=""
+	' String1=String1+"MAN"
+	' String1=String1+" "
+	' String2=String2+"male" 
+	' ---------------------------------------------------
+	' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
+	' LOWER CASE HAVE TO PUT OVER AT
+	' OR THE TOP ONE ' 01 OF 07
+	' THIS IS THE MOST OF WORD CONVERT LOWER CASE FIRST LETTER
+	' WITH SURROUNDED BY CHARACTER SET SCANNER OPTION
+	' ---------------------------------------------------
+	String2=String2+" "
+	I=UBOUND(String_ARRAY_U_01)
+	String_ARRAY_D2=Split(String1," ",-1,1)
+	String_ARRAY_D3=Split(String2," ",-1,1)
+	I2=UBOUND(String_ARRAY_U_01)
+	I=UBOUND(String_ARRAY_U_01)+UBOUND(String_ARRAY_D2)
+	REDIM PRESERVE String_ARRAY_U_01(I)
+	REDIM PRESERVE String_ARRAY_U_02(I)
+	I=I2-1
+	For R3 = 0 TO UBOUND(String_ARRAY_D2)
+		IF String_ARRAY_D2(R3)<>"" THEN 
+			I=I+1
+			String_ARRAY_U_01(I)=String_ARRAY_D2(R3)
+			String_ARRAY_U_02(I)=String_ARRAY_D3(R3)
+			' MSGBOX String_ARRAY_D2(R3)
+		END IF
+	NEXT
+	' ---------------------------------------------------
+	FOR R3 = 0 TO UBOUND(String_ARRAY_U_01)
+		IF String_ARRAY_U_01(R3)="" THEN EXIT FOR
+	NEXT
+	
+	REDIM PRESERVE String_ARRAY_U_01(R3-1)
+	REDIM PRESERVE String_ARRAY_U_02(R3-1)
+
+	I2=UBOUND(String_ARRAY_U_01)
+	I=UBOUND(String_ARRAY_U_01)+1000
+	REDIM PRESERVE String_ARRAY_U_01(I)
+	REDIM PRESERVE String_ARRAY_U_02(I)
+	I=I2-1
+
+	For R3 = 0 TO I
+		LEN_PATTERN=LEN(String_ARRAY_U_01(R3))
+		BINARY_GIVER=String_ARRAY_U_01(R3)
+		For r1 = 1 To LEN(STR1)
+			For r2 = 1 To LEN(STR1)
+				STR4=MID(STR1,r1,1)
+				STR5=MID(STR1,r2,1)
+				' MSGBOX "00"+STR4
+				' MSGBOX STR4 + STRING_1 + STR5
+
+				' ---------------------------------------
+				' WORK OUT MATRIX ANY TYPE OF CASE
+				' WITH BINARY COUNTER CONVERSION TO CASE
+				' ON STRING
+				' ---------------------------------------
+				BI_4=0
+				DO
+
+					' -----------------------------------
+					' WHEN DO THE BINARY NOT LIKE NORMAL COUNT
+					' EXAMPLE HERE IS 
+					' 0 = 0 -- 1 = 1 -- 2 = 10 -- 3 = 11
+					' SO WE HAVE NUMBER 2 WITH PADDING AFTER 
+					' LOOK SAME AS 1
+					' NOW CHECK DUPE IT 
+					' SAVE UNNECESSARY CODE COSTING SUPER
+					' -----------------------------------
+					' PROBLEM IF USE VARIABLE BINARY_ST
+					' I DEBUG IT MUST BE SYSTEM ONE
+					' -----------------------------------
+					DO 
+						BINARY_ST_2=DecimalToBinary(BI_4)
+						BI_4=BI_4+1
+					LOOP UNTIL RIGHT(BINARY_ST_2,1)="1" OR BI_4=1
+					
+					IF LEN(BINARY_ST_2)>LEN_PATTERN THEN 
+						EXIT DO
+					END IF
+
+					IF BI_4>3 THEN
+						' EXIT DO
+					END IF
+
+					
+					' -----------------------------------
+					' IT ABLE GET THE LEN OF BINARY WITHOUT PADDING 
+					' AND LEARN IF TOO LONG -- SO EXIT ABOVE LINE
+					' -----------------------------------
+					' BAD LINE OF CODE -- COMMENTOR
+					' -----------------------------------
+					' PADD THE NAUGHT AH
+					BINARY_ST_2=BINARY_ST_2+STRING(LEN(BINARY_GIVER)-LEN(BINARY_ST_2),"0")
+					
+					
+					STRING_1=""
+					For R10=1 To LEN(BINARY_GIVER)
+						IF MID(BINARY_ST_2,R10,1)="1" THEN 
+							STRING_1=STRING_1+UCASE(MID(BINARY_GIVER,R10,1))
+						ELSE
+							STRING_1=STRING_1+LCASE(MID(BINARY_GIVER,R10,1))
+						END IF
+					NEXT 
+
+					IF I+100>UBOUND(String_ARRAY_U_01) THEN 
+						'MSGBOX CSTR(UBOUND(String_ARRAY_U_01))+VBV+BINARY_ST_2+VBCRLF+STRING_1+VBCRLF+BINARY_GIVER
+						I2=UBOUND(String_ARRAY_U_01)+15000
+						REDIM PRESERVE String_ARRAY_U_01(I2)
+						REDIM PRESERVE String_ARRAY_U_02(I2)
+					END IF
+					
+					I=I+1
+					String_ARRAY_U_01(I)=STR4 + STRING_1 + STR5
+					String_ARRAY_U_02(I)=LCASE(STR4 + STRING_1 + STR5)
+
+					
+				LOOP UNTIL TRUE=FALSE
+
+			NEXT
+		Next
+	Next
+
+	
+	REDIM PRESERVE String_ARRAY_U_01(I)
+	REDIM PRESERVE String_ARRAY_U_02(I)
+
+	' 71000 SIZE ARRAY HERE
+				
+				
+END SUB
+
+
+
+
+
+
+
+
+
 SUB PATH_SCANNER_COPY_CAMERA
 	
 
@@ -776,7 +983,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 					String1 = Replace(String1, " "+ LCase(STR4), " " + UCase(STR4))
 				Next
 				' ---------------------------------------------------
-
 				
 				' ---------------------------------------------------
 				' ROUTINE_03_OF_07
@@ -801,7 +1007,32 @@ SUB PATH_SCANNER_COPY_CAMERA
 				
 				NEXT
 				
-
+				' ---------------------------------------------------
+				' ROUTINE_04_OF_07
+				' ---------------------------------------------------
+				IF ROUTINE_04_OF_07_CALL_ONE=FALSE THEN 
+					CALL ROUTINE_04_OF_07
+					ROUTINE_04_OF_07_CALL_ONE=TRUE
+				END IF
+				' ---------------------------------------------------
+						
+				' MSGBOX UBOUND(String_ARRAY_U_01)
+				For R3 = 1 TO UBOUND(String_ARRAY_U_01)
+					STRING_1=String_ARRAY_U_01(R3)
+					'MSGBOX STRING_1
+					IF INSTR(EE, STRING_1)>0 THEN 
+						MSGBOX EE
+						IF String_ARRAY_U_02(R3)="" THEN  
+							STRING_REPLACE=String_ARRAY_U_01(R3)
+						ELSE
+							STRING_REPLACE=String_ARRAY_U_02(R3)
+						END IF
+						EE = Replace(EE, STRING_1, UCASE(STRING_REPLACE))
+					END IF 
+				
+				NEXT
+				
+				
 
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' THESE ARE PRESERVE STRING
@@ -814,6 +1045,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' 04 OF 07
 				' ---------------------------------------------------
 				String1=""
+				
 				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
 				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
 				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
@@ -830,6 +1062,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 							STR4=R3
 							STR5=UCASE(MID(STR4,1,1))+LCASE(MID(STR4,2))
 							EE = Replace(EE, STR5, STR4)
+							EE4=EE
 						NEXT
 					Next
 				Next
@@ -910,20 +1143,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' For ISK = 1 TO UBOUND(STRING_KEEPER1)
 					' ' IF STRING_KEEPER1(ISK)<>"" THEN	MSGBOX STRING_KEEPER1(ISK)
 				' NEXT
-					
-				MSGBOX UBOUND(STRING_KEEPER1)
-					
+				
 				For ISK = 1 TO UBOUND(STRING_KEEPER1)
 					' if STRING_KEEPER1(ISK)="A."  then 
 						' MSGBOX "JJ"
 						' MSGBOX EE+VBV+String_ARRAY_1(ISK)
 					' end if
-					' if STRING_KEEPER1(ISK)="A." AND INSTR(EE," A.FLV") then 
-						' MSGBOX "GG"
-						' MSGBOX EE+VBV+String_ARRAY_1(ISK)
-					' end if
 					IF STRING_KEEPER1(ISK)<>"" THEN
-						' MSGBOX STRING_KEEPER1(ISK)
 						' STRING_KEEPER1(ISK) -- CONVERT STRING1
 						' STRING_KEEPER2(ISK) -- POSITION IN ARRAY OF STRING
 						' STRING_KEEPER3(ISK) -- CONVERT STRING2 VARY SIZE
@@ -932,13 +1158,12 @@ SUB PATH_SCANNER_COPY_CAMERA
 						MODIFY_INPUT=STRING_KEEPER1(ISK)
 						IF STRING_KEEPER3(ISK)<>"" THEN 
 							MODIFY_INPUT=STRING_KEEPER3(ISK)
-							' MSGBOX STRING_KEEPER3(ISK)
 						END IF
-						'VBV=VBCRLF
-						'MSGBOX CSTR(G1)+VBV+CSTR(G2)+VBV+MODIFY_INPUT
-						
 						
 						EE=MID(EE,1,G2-1)+MODIFY_INPUT+MID(EE,G1+G2)
+						EE5=EE
+						IF EE4<>EE5 THEN MSGBOX EE4+VBV+EE5
+
 					END IF
 				NEXT
 
