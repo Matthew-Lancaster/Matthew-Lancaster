@@ -432,7 +432,7 @@ SUB ROUTINE_01_OF_07
 	I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" A."
 	I=I+1:String_ARRAY_1(I)=" in." : String_ARRAY_3(I)=" In."
 	' I=I+1:String_ARRAY_1(I)=" HJ." : String_ARRAY_3(I)=" HJ."
-	I=I+1:String_ARRAY_1(I)="Masturbation" : String_ARRAY_3(I)="Masturbation"
+	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
 	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
@@ -1071,7 +1071,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
 				String1=String1+" GirlFriend TiT WebCam CheerLeader HomeMade"
 				String1=String1+" CukitasCom HJ"  ' BathRoom
-				String1=String1+" MASTU"
+				String1=String1+" "
 				String1=String1+" "
 				String1=String1+" "
 				String1=String1+" "
@@ -1092,8 +1092,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=""
 				' String1=String1+" The"
 				String1=String1+"_Ld.MP4 "
-				String1=String1+" 1980s"
-				String1=String1+" "
 				String1=String1+" "
 				' ---------------------------------------------------
 				String_ARRAY_1=Split(String1," ",-1,1)
@@ -1102,7 +1100,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					For r2 = 1 To LEN(STR1)
 						For EACH R3 IN String_ARRAY_1
 							IF R3<>"" THEN 
-								' IF INSTR(UCASE(EE),"_LD.MP4")>0 THEN MSGBOX EE
+								'IF INSTR(UCASE(EE),UCASE("Masturbation"))>0 THEN MSGBOX EE
 								STR4=R3
 								EE = Replace(EE, STR4, UCASE(STR4))
 								EE4=EE
@@ -1118,18 +1116,61 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' ---------------------------------------------------
 				String_ARRAY_1=Split(String1," ",-1,1)
 				String1=TRIM(String1)
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY_1
-							IF R3<>"" THEN 
-								STR4=R3
-								EE = Replace(EE, STR4, LCASE(STR4))
-								EE4=EE
-							END IF
-						NEXT
-					Next
-				Next
+				For EACH R3 IN String_ARRAY_1
+					IF R3<>"" THEN 
+						STR4=R3
+						EE = Replace(EE, STR4, LCASE(STR4))
+						EE4=EE
+					END IF
+				NEXT
 
+				'DISTURBATION
+				String1=""
+				String1=String1+" Masturba;"
+				String1=String1+" MASTUR;"
+				String1=String1+"MASTU ;"
+				String1=String1+"MASTURBEARS;"
+				String1=String1+"Masturbting;"
+				String1=String1+"Masturbation;"
+				String1=String1+" ;"
+				String1=String1+" ;"
+				String1=String1+" ;"
+				
+				String_ARRAY_1=Split(String1,";",-1,1)
+				String1=TRIM(String1)
+				For EACH R3 IN String_ARRAY_1
+					IF TRIM(R3)<>"" THEN 
+						XI=INSTR(UCASE(EE),UCASE(R3))
+						IF XI>0 THEN 
+							EE2=EE
+							EE = MID(EE,1,XI-1)+R3+MID(EE,XI+LEN(R3))
+							' MSGBOX  EE2+VBV+EE
+							EE4=EE
+						END IF
+					END IF
+				NEXT
+
+				String1=""
+				FOR RD=0 TO 9
+					String1=String1+" ("+TRIM(CSTR(RD))+");"
+				NEXT
+				String1=String1+" "
+				' ---------------------------------------------------
+				String_ARRAY_1=Split(String1,";",-1,1)
+				String1=TRIM(String1)
+				For EACH R3 IN String_ARRAY_1
+					IF R3<>"" THEN 
+						XI=INSTR(UCASE(EE),UCASE(R3))
+						IF XI>0 THEN 
+							EE2=EE
+							EE = MID(EE,1,XI-1)+R3+MID(EE,XI+LEN(R3))
+							' MSGBOX  EE2+VBV+EE
+							EE4=EE
+						END IF
+					END IF
+				NEXT
+				
+				
 				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
 				' USER 2ND UCASE LETTER SEARCH & KEEP AS TYPE
 				' IF FAIL WANT FROM HERE LOOK
@@ -1385,7 +1426,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 END SUB
 
 FUNCTION GET_FILE_EXTENSION
-	GET_FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT"
+	GET_FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT .NET"
 END FUNCTION
 
 
