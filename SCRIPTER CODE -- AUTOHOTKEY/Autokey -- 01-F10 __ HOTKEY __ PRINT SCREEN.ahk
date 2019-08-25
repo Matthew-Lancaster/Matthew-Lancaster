@@ -125,6 +125,12 @@ OLD_Title_VAR=0
 OLD_STATE_CAP=0
 OutputVar_4=0
 SETTIMER WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON,100
+
+WSCRIPT_FOCUS_SET_FLAG_01=
+WSCRIPT_FOCUS_SET_FLAG_02=
+SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
+
+
 RETURN
 
 WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
@@ -399,6 +405,32 @@ RETURN
 	; ; ---------------------------------------------------------------
 	
 ; RETURN
+
+TIMER_WSCRIPT_FOCUS_LEFT_KILL:
+	
+	WSCRIPT_FOCUS_SET_FLAG_01=FALSE
+	IfWinActive ahk_class #32770
+	IfWinActive ahk_exe WScript.exe
+	{	
+		WSCRIPT_FOCUS_SET_FLAG_01=TRUE
+		WSCRIPT_FOCUS_SET_FLAG_02=TRUE
+	}
+	
+	IF WSCRIPT_FOCUS_SET_FLAG_01=FALSE
+	IF WSCRIPT_FOCUS_SET_FLAG_02=TRUE
+	{
+
+		WinGet, List, List, ahk_exe WScript.exe
+		Loop %List%  
+		{ 
+			Process, Close, WScript.exe
+			SOUNDBEEP 1200,40
+		}
+	}
+RETURN
+
+
+
 
 CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path
