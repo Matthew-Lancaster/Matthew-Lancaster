@@ -498,8 +498,8 @@ SUB ROUTINE_03_OF_07
 	' 03 OF 07 -- 001 OF 003
 	' ---------------------------------------------------
 	String1=""
-	String1=String1+" A AND AN AS IN OF GO BY TO ON FROM JUST WITH BOY"
-	String1=String1+" CUM NEEDS HAS GUY xvideos"
+	String1=String1+" A AND AN AS IN OF GO BY TO ON THE FROM JUST WITH BOY"
+	String1=String1+" CUM CUMSHOT NEEDS HAS GUY xvideos"
 	String1=String1+" MALE"
 	String1=String1+" "
 	String1=String1+" "
@@ -684,8 +684,9 @@ SUB ROUTINE_04_OF_07
 	' THESE ARE WHAT PUT LOWER CASE
 	' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
 	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
+	' THIS ROUTINE WON'T BE SURROUND BY CHARACTER AS ABOVE NOT LIKE IT THOUGH
 	' ---------------------------------------------------
-	' 03 OF 07 -- 001 OF 003
+	' 04 OF 07 -- 001 OF 003
 	' ---------------------------------------------------
 	String1=""
 	String1=String1+" _LD.MP4"
@@ -700,7 +701,7 @@ SUB ROUTINE_04_OF_07
 	' INCLUDE WORD WITH SPACE BETWEEN
 	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
 	'
-	' 03 OF 07 -- 002 OF 003
+	' 04 OF 07 -- 002 OF 003
 	' ---------------------------------------------------
 	String1=""
 	String1=String1+" XYZZ||"
@@ -725,7 +726,7 @@ SUB ROUTINE_04_OF_07
 	' TO ADJACENT EQUIVALENT String2
 	'
 	' ---------------------------------------------
-	' 03 OF 07 -- 003 OF 003
+	' 04 OF 07 -- 003 OF 003
 	' ---------------------------------------------
 	REDIM PRESERVE String_ARRAY_U_02(I+1)
 	REDIM PRESERVE String_ARRAY_U_01(I+1)
@@ -843,8 +844,10 @@ SUB ROUTINE_04_OF_07
 					END IF
 					
 					I=I+1
-					String_ARRAY_U_01(I)=STR4 + STRING_1 + STR5
-					String_ARRAY_U_02(I)=LCASE(STR4 + STRING_1 + STR5)
+					' String_ARRAY_U_01(I)=STR4 + STRING_1 + STR5
+					' String_ARRAY_U_02(I)=UCASE(STR4 + STRING_1 + STR5)
+					String_ARRAY_U_01(I)=STRING_1
+					String_ARRAY_U_02(I)=UCASE(STRING_1)
 
 					
 				LOOP UNTIL TRUE=FALSE
@@ -1021,7 +1024,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 					STRING_1=String_ARRAY_U_01(R3)
 					'MSGBOX STRING_1
 					IF INSTR(EE, STRING_1)>0 THEN 
-						MSGBOX EE
+						' MSGBOX EE
 						IF String_ARRAY_U_02(R3)="" THEN  
 							STRING_REPLACE=String_ARRAY_U_01(R3)
 						ELSE
@@ -1049,8 +1052,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
 				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
 				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
-				String1=String1+" GirlFriend TiT WebCam CheerLeader"
-				String1=String1+" "
+				String1=String1+" GirlFriend TiT WebCam CheerLeader HomeMade"
+				String1=String1+" CukitasCom"
 				String1=String1+" "
 				String1=String1+" "
 				' ---------------------------------------------------
@@ -1162,7 +1165,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 						
 						EE=MID(EE,1,G2-1)+MODIFY_INPUT+MID(EE,G1+G2)
 						EE5=EE
-						IF EE4<>EE5 THEN MSGBOX EE4+VBV+EE5
+						' IF EE4<>EE5 THEN MSGBOX EE4+VBV+EE5
 
 					END IF
 				NEXT
@@ -1238,10 +1241,33 @@ SUB PATH_SCANNER_COPY_CAMERA
 				' TEST DEBUG
 				' ---------------------------------------------------
 				IF NewFilename<>VAR_PATH_SCANNER THEN 
-					X1=CSTR(LEN(FILE_VAR_OLD))
-					X2=CSTR(LEN(FILE_VAR_3))
+					X1=LEN(TRIM(FILE_VAR_OLD))
+					X2=LEN(TRIM(FILE_VAR_3))
 					IF X1=X2 THEN SAMETIT="SAME" ELSE SAMETIT=""
-					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3+VBCRLF+VBCRLF+X1+VBCRLF+X2+" "+SAMETT
+					FIND_DIFF=""
+					IF FILE_VAR_OLD<>FILE_VAR_3 THEN
+						XX=X1
+						IF X2>XX THEN 
+							XX=X2
+						END IF
+						FOR DD=1 TO XX
+							SIGNAL=FALSE
+							BYTE_B="--"
+							BYTE_D="--"
+							IF DD<=LEN(TRIM(FILE_VAR_OLD)) THEN BYTE_B=MID(TRIM(FILE_VAR_OLD),DD,1)
+							BYTE_D="--"
+							IF DD<=LEN(TRIM(FILE_VAR_3)) THEN BYTE_D=MID(TRIM(FILE_VAR_3),DD,1)
+							IF BYTE_B=BYTE_D THEN SIGNAL=TRUE
+							IF BYTE_B="--" OR BYTE_D="--" THEN SIGNAL=FALSE
+							IF DD>X1 OR DD>X2 THEN EXIT FOR 
+							IF SIGNAL THEN
+								FIND_DIFF=FIND_DIFF+"1"
+							ELSE
+								FIND_DIFF=FIND_DIFF+"0"
+							END IF
+						NEXT
+					END IF
+					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3+VBV+FIND_DIFF+VBV+VBCRLF+VBCRLF+CSTR(X1)+VBCRLF+CSTR(X2)+" "+SAMETIT
 				END IF
 				' Wscript.QUIT
 
