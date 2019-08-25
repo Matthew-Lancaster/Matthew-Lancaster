@@ -269,6 +269,10 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 NEXT
 
 
+MSGBOX "DONE"
+
+
+
 SET objFSO = NOTHING
 Wscript.QUIT
 ' ------------------------------------------------------------------
@@ -1126,15 +1130,29 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 				'DISTURBATION
 				String1=""
-				String1=String1+" Masturba;"
-				String1=String1+" MASTUR;"
-				String1=String1+"MASTU ;"
+				String1=String1+"MASTUR.;"
+				String1=String1+"MASTU.;"
 				String1=String1+"MASTURBEARS;"
 				String1=String1+"Masturbting;"
 				String1=String1+"Masturbation;"
+				String1=String1+"Masturbates;"
+				String1=String1+"Masturbating;"
+				String1=String1+" Mastur ;"
+				String1=String1+" XxX ;"
+				String1=String1+"RFICU7XPE2TF;"
+				String1=String1+" RI;"
+				String1=String1+" SLIT;"
+				String1=String1+" big cock;"
+				String1=String1+" big big cock;"
+				String1=String1+"_in_car;"
+				String1=String1+"EPORNER.COM;"
+				String1=String1+" EP1;"
+				String1=String1+" LABIA;"
 				String1=String1+" ;"
 				String1=String1+" ;"
 				String1=String1+" ;"
+				String1=String1+" ;"
+				
 				
 				String_ARRAY_1=Split(String1,";",-1,1)
 				String1=TRIM(String1)
@@ -1422,6 +1440,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 		STOP_PROGRESS=TRUE
 		EXIT SUB
 	END IF
+	
+	
 	
 END SUB
 
