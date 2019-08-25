@@ -408,6 +408,8 @@ RETURN
 
 TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 	
+	RETURN
+	
 	WSCRIPT_FOCUS_SET_FLAG_01=FALSE
 	IfWinActive ahk_class #32770
 	IfWinActive ahk_exe WScript.exe
