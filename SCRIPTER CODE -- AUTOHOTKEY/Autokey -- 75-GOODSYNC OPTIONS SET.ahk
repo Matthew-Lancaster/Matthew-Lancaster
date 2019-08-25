@@ -764,8 +764,10 @@ MINIMIZE_AND_RUN_GOODSYNC_V10:
 			; ------------------------------------------------------------------------
 			HWND_1=0
 			IF HAS_MIMIMIZE_DO=1
+			{
 				WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=%HWND_1%
+				GOODSYNC_HANDLE_CHECK_CHANGE_OLD_ONE=%HWND_1%
+			}
 			}
 	}
 
@@ -861,6 +863,12 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 						HAS_MIMIMIZE_DO=1
 					}
 					SLEEP 50
+				}
+				HWND_1=0
+				IF HAS_MIMIMIZE_DO=1
+				{
+					WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+					GOODSYNC_HANDLE_CHECK_CHANGE_OLD_2GO=%HWND_1%
 				}
 			}
 		}
