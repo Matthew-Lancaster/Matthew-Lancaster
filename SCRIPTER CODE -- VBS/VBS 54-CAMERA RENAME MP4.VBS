@@ -1148,9 +1148,19 @@ SUB PATH_SCANNER_COPY_CAMERA
 				String1=String1+"EPORNER.COM;"
 				String1=String1+" EP1;"
 				String1=String1+" LABIA;"
-				String1=String1+" ;"
-				String1=String1+" ;"
-				String1=String1+" ;"
+				String1=String1+"_PR.20;"
+				String1=String1+"_PamelaFlowers;"
+				String1=String1+"VBS 54-CAMERA RENAME MP4;"
+				String1=String1+" EXCL;"
+				String1=String1+" Mmtl;"
+				String1=String1+"_RelayURL;"
+				String1=String1+" HD 1080P;"
+				String1=String1+"_GRL;"
+				String1=String1+"[NV0RGWETMLZ];"
+				String1=String1+".USB;"
+				String1=String1+".COM;"
+				String1=String1+" WF;"
+				String1=String1+"ist-BA;"
 				String1=String1+" ;"
 				
 				
@@ -1168,6 +1178,32 @@ SUB PATH_SCANNER_COPY_CAMERA
 					END IF
 				NEXT
 
+				'DISTURBATION
+				' SEARCH AND REPLACE VARY STRING
+				String1=""
+				String2=""
+				String1=String1+"Smoking;"
+				String2=String2+"Smoker;"
+				String1=String1+" ;"
+				String2=String2+" ;"
+				
+				String_ARRAY_1=Split(String1,";",-1,1)
+				String_ARRAY_2=Split(String2,";",-1,1)
+				For R3 = 0 TO UBOUND(String_ARRAY_1)
+					IF TRIM(String_ARRAY_1(R3))<>"" THEN 
+						XI=INSTR(UCASE(EE),UCASE(String_ARRAY_1(R3)))
+						IF XI>0 THEN 
+							R4=String_ARRAY_2(R3)
+							R5=LEN(String_ARRAY_1(R3))
+							EE2=EE
+							EE = MID(EE,1,XI-1)+R4+MID(EE,XI+R5)
+							MSGBOX  EE2+VBV+EE+VBV'+"-----"+UCASE(String_ARRAY_1(R3))+"-----"
+						END IF
+					END IF
+				NEXT
+
+				' Smoker Teacher
+				
 				String1=""
 				FOR RD=0 TO 9
 					String1=String1+" ("+TRIM(CSTR(RD))+");"
@@ -1253,8 +1289,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 				
 				IF LEN(EE)<>LEN(FILE_VAR_2_OLD) THEN 
 					MSGBOX EE+VBV+"NOT HAVE STRING CHANGE SIZE"
-					RENAME_HAPPEN=FALSE
-					Wscript.QUIT
+					'RENAME_HAPPEN=FALSE
+					'Wscript.QUIT
 				ELSE
 					RENAME_HAPPEN=TRUE
 				END IF 
