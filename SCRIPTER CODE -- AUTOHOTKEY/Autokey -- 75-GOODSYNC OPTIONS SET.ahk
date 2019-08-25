@@ -800,7 +800,7 @@ MINIMIZE_AND_RUN_GOODSYNC_V10:
 				SoundBeep , 4000 , 100
 				SoundBeep , 3000 , 100
 				; MSGBOX HERE
-				Run, "%FN_VAR%" , , MIN
+				 ;Run, "%FN_VAR%" , , MIN
 			}
 		}
 	}
@@ -901,7 +901,7 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 			SoundBeep , 4000 , 100
 			SoundBeep , 3000 , 100
 			; MSGBOX HERE
-			Run, "%FN_VAR%" , , MIN
+			; Run, "%FN_VAR%" , , MIN
 		}
 	}
 
