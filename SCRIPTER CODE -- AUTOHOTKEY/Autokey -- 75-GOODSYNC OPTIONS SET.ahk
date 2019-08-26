@@ -771,6 +771,8 @@ MINIMIZE_AND_RUN_GOODSYNC_V10:
 
 	DetectHiddenWindows, ON
 
+	RETURN
+	
 	IF (TRUE=TRUE)
 	{
 		; ---------------------------------------------------------------
@@ -876,6 +878,8 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 
 	DetectHiddenWindows, ON
 
+	RETURN
+	
 	; ---------------------------------------------------------------
 	; PROBLEM ONE COMPUTER MY MSI INTEL 7 WIN 10 
 	; HAS THAT PROCESS IS CALLED GoodSync.exe
