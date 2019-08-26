@@ -217,6 +217,9 @@ SetStoreCapslockMode, off
 SoundBeep , 2000 , 100
 SoundBeep , 2500 , 100
 
+OL_Hour_Get_01=
+OL_Day_Get__01=
+
 Set_Var_Responding_1=FALSE
 Set_Var_Responding_2=FALSE
 O_HWND_1=0
@@ -623,6 +626,27 @@ RETURN
 
 
 MIDNIGHT_AND_HOUR_TIMER:
+
+
+	; ---------------------------------------------------------------
+	; DAY TIMER 
+	; ---------------------------------------------------------------
+	Midnight_Get_01 := SubStr( A_Now, 1, 8 ) . "000000"
+	Midnight_Get_01 += 1, days
+	IF OL_Day_Get__01<>%Hour_Get_01%
+		MSGBOX % Hour_Get_01 " -- " OL_Day_Get__01
+	OL_Day_Get__01=%Hour_Get_01%
+
+	; ---------------------------------------------------------------
+	; HOUR TIMER
+	; ---------------------------------------------------------------
+	Hour_Get_01 := SubStr( A_Now, 1, 10 ) . "000000"
+	Hour_Get_01 += 1, hours
+	IF OL_Hour_Get_01<>%Hour_Get_01%
+		MSGBOX % Hour_Get_01 " -- " OL_Hour_Get_01
+	OL_Hour_Get_01=%Hour_Get_01%
+		
+	; if FileExist("%A_Desktop%\Norton Security.lnk")=false
 
 	; ---------------------------------------------------------------
 	; 1 = DAY TIMER 
