@@ -625,6 +625,11 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 RETURN
 
 DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP:
+
+	; -----------------------------------------------------------
+	; HERE GET RUN ONCE A MIDNIGHT FROM 
+	; MIDNIGHT_AND_HOUR_TIMER:
+	; -----------------------------------------------------------
 		
 	; -----------------------------------------------------------
 	; DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP
@@ -674,16 +679,25 @@ DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP:
 	; DELETE DESKTOP.INI ON DESKTOP
 	; CAN'T DELETE THIS ONE BUT CHANGED MIND THROUGH IT 
 	; -----------------------------------------------------------
-	FILE_NAME=%A_Desktop%\desktop.ini
-	IfExist %A_Desktop%\desktop.ini
-	IF FileExist("%FILE_NAME%")
-	IfExist %FILE_NAME%
+	; FILE_NAME=%A_Desktop%\desktop.ini
+	; IfExist %A_Desktop%\desktop.ini
+	; IF FileExist("%FILE_NAME%")
+	; IfExist %FILE_NAME%
+	; {
+		; ; FileSetAttrib, -RHS, %A_Desktop%\desktop.ini
+		; ; MSGBOX "HH"
+		; ; FileDelete, %A_Desktop%\desktop.ini
+	; }
+
+	; -----------------------------------------------------------
+	; 04 OF 04 -- GoodSync Explorer.lnk -- IS DONE SOMEWHERE ELSE ALSO
+	; -----------------------------------------------------------
+	IfExist %A_Desktop%\GoodSync Explorer.lnk
 	{
-		; FileSetAttrib, -RHS, %A_Desktop%\desktop.ini
-		; MSGBOX "HH"
-		; FileDelete, %A_Desktop%\desktop.ini
+		FileDelete, %A_Desktop%\GoodSync Explorer.lnk
 	}
 
+	
 RETURN
 
 
