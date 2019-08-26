@@ -672,19 +672,16 @@ DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP:
 	; 03 OF 03
 	; -----------------------------------------------------------
 	; DELETE DESKTOP.INI ON DESKTOP
+	; CAN'T DELETE THIS ONE BUT CHANGED MIND THROUGH IT 
 	; -----------------------------------------------------------
 	FILE_NAME=%A_Desktop%\desktop.ini
-	FileSetAttrib, -RHS, %A_Desktop%\desktop.ini
 	IfExist %A_Desktop%\desktop.ini
-		MSGBOX "JJ"
 	IF FileExist("%FILE_NAME%")
-		MSGBOX "TT"
-	
-	
 	IfExist %FILE_NAME%
 	{
-		MSGBOX "HH"
-		FileDelete, %A_Desktop%\desktop.ini
+		; FileSetAttrib, -RHS, %A_Desktop%\desktop.ini
+		; MSGBOX "HH"
+		; FileDelete, %A_Desktop%\desktop.ini
 	}
 
 RETURN
