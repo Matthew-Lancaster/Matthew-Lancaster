@@ -1116,7 +1116,7 @@ CHECK_SET_OF_APP_NOT_RESPONDING_MAIN:
 		IF TIMER_SET_NOT_RESPONDING=0
 		{
 			TIMER_SET_NOT_RESPONDING = % A_Now
-			TIMER_SET_NOT_RESPONDING += 30, MINUTES
+			TIMER_SET_NOT_RESPONDING += 1, MINUTES
 			; TIMER_SET_NOT_RESPONDING += 30, SECONDS
 			; TIMER_SET_NOT_RESPONDING += 4, SECONDS
 		}
@@ -1192,8 +1192,8 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 	FN_Array_2[ArrayCount]:="ClipBoard Viewer.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="URL Logger.exe"
-	; ArrayCount += 1
-	; FN_Array_2[ArrayCount]:="CPU % INDIVIDUAL PROCESS.exe"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="CPU % INDIVIDUAL PROCESS.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="LogiOptions.exe"
 	ArrayCount += 1
@@ -1227,10 +1227,10 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 	FN_Array_3[ArrayCount]:="ahk_class CabinetWClass"
 	; ArrayCount += 1
 	; FN_Array_3[ArrayCount]:="ahk_class Chrome_WidgetWin_1"
-	; ArrayCount += 1
-	; FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}" ; - GOODSYNC2GO
-	; ArrayCount += 1
-	; FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}" ; - GOODSYNC
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}" ; - GOODSYNC2GO
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}" ; - GOODSYNC
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="AutoHotkey Help"
 
