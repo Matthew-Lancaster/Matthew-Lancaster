@@ -602,15 +602,30 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="ClipBoard Logger"
 
 	FN_Array_2 := []
 	ArrayCount := 0
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.EXE"
 	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="ClipBoard Logger.EXE"
+	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
+
+	FN_Array_4 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE"
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:=""
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:=""
 
 	FN_Array_3 := []
 	ArrayCount := 0
@@ -623,6 +638,14 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	; STARVED OF DRINK WHILE THIS CODE AWKARD - BIT RUSTY AUTOHOTKEYS ARRAY COME ALONG NICELY
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="The application was unable to start correctly" ; WIN 07
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="The application was unable to start correctly" ; WIN 07
+	; ArrayCount += 1
+	; FN_Array_3[ArrayCount]:="Run-time error" ; WIN XP
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="Object doesn't support the Property or method" ; WIN XP
+	; ArrayCount += 1
+	; FN_Array_3[ArrayCount]:="Object doesn" ; WIN XP
 
 	
 	SET_GO_GS=FALSE
@@ -643,10 +666,11 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		Loop % FN_Array_2.MaxIndex()
 		{
 			VAR_IN_NAME_2:=FN_Array_2[A_Index]
+			VAR_IN_NAME_4:=FN_Array_4[A_Index]
 			IF INSTR(OutputVar_1,VAR_IN_NAME_2)>0 
 			{
 				SET_GO_GS=TRUE
-				RELAUNCH_PATH_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+				RELAUNCH_PATH_VAR:=%VAR_IN_NAME_4%
 			}
 		}
 	}
