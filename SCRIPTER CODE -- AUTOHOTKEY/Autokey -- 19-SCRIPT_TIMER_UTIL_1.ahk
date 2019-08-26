@@ -624,6 +624,71 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	
 RETURN
 
+DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP:
+		
+	; -----------------------------------------------------------
+	; DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP
+	; WELL I HAVE PROBLEM GOODSYNC NONE MATTER HOW MANY EFFORT 
+	; THE HIDDEN DATA FOLDER _GSDATA_ STILL APPEAR ON FEW COMPUTER
+	;
+	; AND THUMBS.DB WHILE THERE
+	; WHILE I USE ALWAYS SHOW FILE
+	; -----------------------------------------------------------
+
+	; -----------------------------------------------------------
+	; 01 OF 03
+	; -----------------------------------------------------------
+	; DELETE THUMBS.DB ON DESKTOP
+	; -----------------------------------------------------------
+	FILE_NAME=%A_Desktop%\Thumbs.db
+	; -----------------------------------------------------------
+	; MAYBE THIS NEW FileExist COMMAND WORK BUT NOT HERE
+	; -----------------------------------------------------------
+	; IF FileExist("%FILE_NAME%")
+	; 
+	; HAD TO USER INSTEAD
+	; 
+	; IfExist %FILE_NAME%
+	; -----------------------------------------------------------
+	IfExist %FILE_NAME%
+	{
+		FileSetAttrib, -RHS, %A_Desktop%\Thumbs.db
+		FileDelete, %A_Desktop%\Thumbs.db
+	}
+
+	; -----------------------------------------------------------
+	; 02 OF 03
+	; -----------------------------------------------------------
+	; DELETE _GSDATA_ ON DESKTOP
+	; -----------------------------------------------------------
+	; FOLDER_NAME=%A_Desktop%\Thumbs.db
+	IfExist %A_Desktop%\_gsdata_
+	{
+		; FileSetAttrib, -RHS, %A_Desktop%\Thumbs.db
+		FileRemoveDir, %A_Desktop%\_gsdata_ , TRUE
+	}
+
+	; -----------------------------------------------------------
+	; 03 OF 03
+	; -----------------------------------------------------------
+	; DELETE DESKTOP.INI ON DESKTOP
+	; -----------------------------------------------------------
+	FILE_NAME=%A_Desktop%\desktop.ini
+	FileSetAttrib, -RHS, %A_Desktop%\desktop.ini
+	IfExist %A_Desktop%\desktop.ini
+		MSGBOX "JJ"
+	IF FileExist("%FILE_NAME%")
+		MSGBOX "TT"
+	
+	
+	IfExist %FILE_NAME%
+	{
+		MSGBOX "HH"
+		FileDelete, %A_Desktop%\desktop.ini
+	}
+
+RETURN
+
 
 MIDNIGHT_AND_HOUR_TIMER:
 
@@ -633,20 +698,22 @@ MIDNIGHT_AND_HOUR_TIMER:
 	; ---------------------------------------------------------------
 	Midnight_Get_01 := SubStr( A_Now, 1, 8 ) . "000000"
 	Midnight_Get_01 += 1, days
-	IF OL_Day_Get__01<>%Hour_Get_01%
-		MSGBOX % Hour_Get_01 " -- " OL_Day_Get__01
-	OL_Day_Get__01=%Hour_Get_01%
-
+	IF OL_Day_Get__01<>%Midnight_Get_01%
+	{
+		GOSUB DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP
+		
+		OL_Day_Get__01=%Midnight_Get_01%
+	}
+	
 	; ---------------------------------------------------------------
 	; HOUR TIMER
 	; ---------------------------------------------------------------
 	Hour_Get_01 := SubStr( A_Now, 1, 10 ) . "000000"
 	Hour_Get_01 += 1, hours
 	IF OL_Hour_Get_01<>%Hour_Get_01%
-		MSGBOX % Hour_Get_01 " -- " OL_Hour_Get_01
-	OL_Hour_Get_01=%Hour_Get_01%
-		
-	; if FileExist("%A_Desktop%\Norton Security.lnk")=false
+	{
+		OL_Hour_Get_01=%Hour_Get_01%
+	}
 
 	; ---------------------------------------------------------------
 	; 1 = DAY TIMER 
