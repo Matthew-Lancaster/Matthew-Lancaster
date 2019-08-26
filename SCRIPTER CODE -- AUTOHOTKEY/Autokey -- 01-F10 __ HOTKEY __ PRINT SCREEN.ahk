@@ -227,8 +227,12 @@ RETURN
 ; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
 ; must type an ending character after typing btw, such as Space, ., or Enter).
 
+; MESSENGER_KEY=Hi Marianne and Eddie 
+; THIS ONE ENDED -- Mon 26-Aug-2019 11:01:30
+
+
 :*:hima::
-MESSENGER_KEY=Hi Marianne and Eddie
+MESSENGER_KEY=Hi Marianne, Eddie
 GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
 RETURN

@@ -605,7 +605,10 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="ClipBoard Logger"
 
+	; ---------------------------------------------------------------
+	; WHEN SEARCH FOR EXE NAME IT USER TITLE FOR MATCH GO
 	; NOT CASE SENSITIVE
+	; ---------------------------------------------------------------
 	FN_Array_2 := []
 	ArrayCount := 0
 	ArrayCount += 1
@@ -617,17 +620,26 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
 
+	; ---------------------------------------------------------------
+	; GIVE THE EXE NAME THAT WILL RELAUNCH WHEN WINDOW POPPED OUT THE WAY
+	; THE INDEX NUMBER HAS TO MATCH THE ARRAY ABOVE FN_Array_2
+	; ---------------------------------------------------------------
 	FN_Array_4 := []
 	ArrayCount := 0
 	ArrayCount += 1
-	FN_Array_4[ArrayCount]:=D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
+	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 	ArrayCount += 1
-	FN_Array_4[ArrayCount]:=D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE
+	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE"
 	ArrayCount += 1
 	FN_Array_4[ArrayCount]:=""
 	ArrayCount += 1
 	FN_Array_4[ArrayCount]:=""
 
+	; ---------------------------------------------------------------
+	; GIVE SOME INFO THAT WILL BE IN THE STATIC1 OR STATIC2 CONTROL 
+	; FIELD OF MSGBOX 
+	; NOT CASE SENSITIVE - I LET YOU HAVE IT EASIER
+	; ---------------------------------------------------------------
 	FN_Array_3 := []
 	ArrayCount := 0
 	ArrayCount += 1
@@ -640,13 +652,18 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="The application was unable to start correctly" ; WIN 07
 	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="The application was unable to start correctly" ; WIN 07
+	FN_Array_3[ArrayCount]:="Run-time error" ; WIN XP
 	; ArrayCount += 1
-	; FN_Array_3[ArrayCount]:="Run-time error" ; WIN XP
+	; FN_Array_3[ArrayCount]:="Object doesn't support the Property or method" ; WIN XP
 	ArrayCount += 1
-	FN_Array_3[ArrayCount]:="Object doesn't support the Property or method" ; WIN XP
-	; ArrayCount += 1
-	; FN_Array_3[ArrayCount]:="Object doesn" ; WIN XP
+	FN_Array_3[ArrayCount]:="Object doesn" ; WIN XP
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="support the Property or method" ; WIN XP
+	; ---------------------------------------------------------------
+	; LINE THAT HAVE ODD CHARACTER HERE DON'T WORK -- doesn't
+	; Run-time error -- WAS THE ALTERNATIVE IN THIS PARTICULAR ONE
+	; AND WITH SPLITTER
+	; ---------------------------------------------------------------
 
 	
 	SET_GO_GS=FALSE
@@ -679,7 +696,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 			IF INSTR(OutputVar_1,VAR_IN_NAME_2)>0 
 			{
 				SET_GO_GS=TRUE
-				RELAUNCH_PATH_VAR:=%VAR_IN_NAME_4%
+				RELAUNCH_PATH_VAR=%VAR_IN_NAME_4%
 			}
 		}
 	}
@@ -688,28 +705,39 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		SHOW_COUNTDOWN_ACTION=FALSE
 	
 	; TEST DEBUG
-	IF SET_GO_GS=TRUE
-		TOOLTIP %SET_GO_GS%
+	; IF SET_GO_GS=TRUE
+		; TOOLTIP %SET_GO_GS%
+		; TOOLTIP %RELAUNCH_PATH_VAR%
 	
 	IF SET_GO_GS=TRUE
 	{
-		ControlGettext, MSGBOX_INFO, Static1, %VAR_IN_NAME_4% ahk_class #32770
+		; SEARCH STATIC2 
+		; MOST COMMON -- BUT MSGBOX DO HAVE CHANGE SOMETIME
+		; -----------------------------------------------------------
+		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME_4% ahk_class #32770
 		SET_GO_02=FALSE
 		Loop % FN_Array_3.MaxIndex()
 		{
 			VAR_IN_NAME_3:=FN_Array_3[A_Index]
+			StringUpper, VAR_IN_NAME_3, VAR_IN_NAME_3
+			StringUpper, MSGBOX_INFO, MSGBOX_INFO
 			IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
 				SET_GO_02=TRUE
 		}
-		
-		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME_4% ahk_class #32770
-		Loop % FN_Array_3.MaxIndex()
+		; SEARCH STATIC1
+		; -----------------------------------------------------------
+		IF SET_GO_02=FALSE
 		{
-			VAR_IN_NAME_3:=FN_Array_3[A_Index]
-			IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
-				SET_GO_02=TRUE
+			ControlGettext, MSGBOX_INFO, Static1, %VAR_IN_NAME_4% ahk_class #32770
+			Loop % FN_Array_3.MaxIndex()
+			{
+				VAR_IN_NAME_3:=FN_Array_3[A_Index]
+				StringUpper, VAR_IN_NAME_3, VAR_IN_NAME_3
+				StringUpper, MSGBOX_INFO, MSGBOX_INFO
+				IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
+					SET_GO_02=TRUE
+			}
 		}
-		
 		IF SET_GO_02=TRUE
 		{
 			ControlGetText CONTROL_TEXT_01,Button1,%VAR_IN_NAME_4% ahk_class #32770
@@ -738,7 +766,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				}
 			}
 			
-			TOOLTIP % StrLen(CONTROL_TEXT_01)
+			; TOOLTIP % StrLen(CONTROL_TEXT_01)
 			
 			IF INSTR(CONTROL_TEXT_01,"OK")>0
 			IF StrLen(CONTROL_TEXT_01)=4
