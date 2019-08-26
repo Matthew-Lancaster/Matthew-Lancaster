@@ -22,10 +22,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   588
-      Index           =   3
+      Index           =   4
       Left            =   108
       TabIndex        =   2
-      Top             =   1128
+      Top             =   1152
       Width           =   10500
    End
    Begin VB.Label LABEL_SET 
@@ -40,7 +40,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   588
-      Index           =   7
+      Index           =   8
       Left            =   120
       TabIndex        =   10
       Top             =   3468
@@ -58,7 +58,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   516
-      Index           =   6
+      Index           =   7
       Left            =   108
       TabIndex        =   8
       Top             =   2916
@@ -76,7 +76,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   588
-      Index           =   8
+      Index           =   9
       Left            =   108
       TabIndex        =   7
       Top             =   4080
@@ -94,7 +94,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   528
-      Index           =   5
+      Index           =   6
       Left            =   96
       TabIndex        =   1
       Top             =   2340
@@ -112,7 +112,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   516
-      Index           =   4
+      Index           =   5
       Left            =   108
       TabIndex        =   0
       Top             =   1800
@@ -130,11 +130,249 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   588
-      Index           =   9
+      Index           =   10
       Left            =   120
       TabIndex        =   11
       Top             =   4692
       Width           =   10500
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   11
+      Left            =   13656
+      TabIndex        =   12
+      Top             =   360
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   12
+      Left            =   13968
+      TabIndex        =   13
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   13
+      Left            =   13968
+      TabIndex        =   14
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   14
+      Left            =   13968
+      TabIndex        =   15
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   15
+      Left            =   13968
+      TabIndex        =   16
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   16
+      Left            =   13968
+      TabIndex        =   17
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   17
+      Left            =   13968
+      TabIndex        =   18
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   18
+      Left            =   13968
+      TabIndex        =   19
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   19
+      Left            =   13968
+      TabIndex        =   20
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   20
+      Left            =   13968
+      TabIndex        =   21
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   21
+      Left            =   13968
+      TabIndex        =   22
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   22
+      Left            =   13968
+      TabIndex        =   23
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   23
+      Left            =   13968
+      TabIndex        =   24
+      Top             =   348
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   24
+      Left            =   13968
+      TabIndex        =   25
+      Top             =   348
+      Width           =   396
    End
    Begin VB.Label LABEL_SET 
       Alignment       =   2  'Center
@@ -150,8 +388,8 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   588
-      Index           =   10
-      Left            =   120
+      Index           =   1
+      Left            =   108
       TabIndex        =   4
       Top             =   5376
       Width           =   10500
@@ -168,10 +406,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   528
-      Index           =   2
+      Index           =   3
       Left            =   108
       TabIndex        =   9
-      Top             =   576
+      Top             =   612
       Width           =   10500
    End
    Begin VB.Label LABEL_SET 
@@ -186,10 +424,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   528
-      Index           =   1
-      Left            =   108
+      Index           =   2
+      Left            =   120
       TabIndex        =   3
-      Top             =   24
+      Top             =   48
       Width           =   10500
    End
    Begin VB.Label Label_COLOR_GREEN 
@@ -211,7 +449,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   3072
    End
-   Begin VB.Label Label_COLOUR_YELLOW 
+   Begin VB.Label Label_COLOR_YELLOW 
       BackColor       =   &H00C0FFFF&
       Caption         =   "Label_COLOUR_YELLOW"
       BeginProperty Font 
@@ -242,6 +480,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim FIRST_RUN
 Dim a
 Dim W$
 Dim WORK
@@ -362,133 +601,97 @@ End Function
 
 
 
-Private Sub LABEL_SET_Click(Index As Integer)
-
-Select Case Index
-Case 1
-    ' FOLDER BUTTON
-    ' LABEL_SET(1)
-Case 2
-    ' FILE BUTTON
-    ' LABEL_SET
-Case 3
-    'Call Label3_Click
-    ' Caption         =   "PERFORM ON ALL FILES IN FOLDER OR FILE"
-    
-Case 4
-    Call Label1_Click
-    ' Caption         =   "NOW DATE"
-    
-Case 5
-    Call Label2_Click
-    ' Caption         =   "MODIFY DATE TO CREATED DATE - NOT WORKING"
-    
-Case 6
-    Call Label9_Click
-    ' Caption         =   "BATCH - CREATED DATE TO MODIFY DATE"
-    
-Case 7
-    Call Label11_Click
-    ' Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
-    
-Case 8
-    Call Label8_Click
-    ' Caption         =   "SET ONE DATE HARDCODED"
-    
-Case 9
-    Call SET_OLDER_1ST_DATE_TO_OTHER_IN_FOLDER
-    ' Caption         =   "SET OLDER 1ST DATE TO OTHER IN FOLDER"
-    
-Case 10
-    Call Label5_Click
-    ' Caption         =   "GO"
-    
-End Select
-
-
-End Sub
-
-
-Sub SET_OLDER_1ST_DATE_TO_OTHER_IN_FOLDER()
-    
-    ScanPath.txtPath.Text = LABEL_SET(1).Caption
-    ScanPath.txtPath.Text = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy"
-    
-    If Len(ScanPath.txtPath.Text) < 5 Then
-        MsgBox "PATH TO SHORT -- EXIT"
-        End
-    End If
-    
-    ScanPath.chkSubFolders = vbChecked
-    ScanPath.cboMask.Text = "*.*"
-    
-    'ScanPath.Show
-    Dim DT1 As Date
-    Dim DS2 As Date
-    Dim DS4 As Date ' OLDER COMPARE
-    Dim TT
-    
-    For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
-        
-        Set F = FSO.GetFile(A1$ + B1$)
-        DT2 = F.DateCreated
-        DT1 = F.datelastmodified
-        
-        If DT4 = 0 Then DT4 = DT1
-        If DT1 < DT4 Then DT4 = DT1
-        
-        Set F = Nothing
-        
-        TT = SetFileDateTime(A1$ + B1$, DateSet)
-        XC = XC + 1
-        
-    Next
-    
-    If DT4 = 0 Then
-        MsgBox "NAUGHT DATE FOUND IN FILE GATHER -- EXIT"
-        End
-    End If
-    
-    For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
-        
-        TT = SetFileDateTime(A1$ + B1$, DT4)
-        
-        XC = XC + 1
-        
-    Next
-    
-    MsgBox "Done = " + vbCrLf + str(XC) '+dd$
-    End
-End Sub
-    
-
-
 Private Sub Form_Resize()
 
+LABEL_SET(10).Caption = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+LABEL_SET(11).Caption = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 
 ' TOP LABEL
 ' HEIGHT LABEL
-HL = LABEL_SET(1).Height
+HL = LABEL_SET(2).Height
 HL = 500
 
 STEP_H = 100
-
-For r = 1 To LABEL_SET.Count
+Dim R
+For R = 2 To LABEL_SET.Count
+    If LABEL_SET(R).Caption = "" Then
+        LABEL_SET(R).Visible = False
+    End If
     
-    LABEL_SET(r).Left = 100
-    LABEL_SET(r).Width = Me.Width - 300
-    LABEL_SET(r).Height = HL
-    LABEL_SET(r).Top = STEP_H
-    STEP_H = STEP_H + 40 + HL
-
+    If LABEL_SET(R).Visible = True Then
+        LABEL_SET(R).Left = 100
+        LABEL_SET(R).Width = Me.Width - 300
+        LABEL_SET(R).Height = HL
+        LABEL_SET(R).Top = STEP_H
+        STEP_H = STEP_H + 40 + HL
+    End If
 Next
+
+R = 1
+LABEL_SET(R).Left = 100
+LABEL_SET(R).Width = Me.Width - 300
+LABEL_SET(R).Height = HL
+LABEL_SET(R).Top = STEP_H
+STEP_H = STEP_H + 40 + HL
+
 
 
 End Sub
+
+
+
+Private Sub LABEL_SET_Click(index As Integer)
+
+LABEL_SET(index).BackColor = Label_COLOR_YELLOW.BackColor
+
+Select Case index
+Case 2
+    ' FOLDER BUTTON
+    ' LABEL_SET(2)
+Case 3
+    ' FILE BUTTON
+    ' LABEL_SET(3)
+
+Case 4
+    'Call Label3_Click
+    ' Caption         =   "PERFORM ON ALL FILES IN FOLDER OR FILE"
+    
+Case 5
+    Call Label1_Click
+    ' Caption         =   "NOW DATE"
+    
+Case 6
+    Call Label2_Click
+    ' Caption         =   "MODIFY DATE TO CREATED DATE - NOT WORKING"
+    
+Case 7
+    Call Label9_Click
+    ' Caption         =   "BATCH - CREATED DATE TO MODIFY DATE"
+    
+Case 8
+    Call Label11_Click
+    ' Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
+    
+Case 9
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    WORK = "SET_ONE_DATE_HARDCODER"
+    
+Case 10
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+
+Case 11
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    WORK = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+    
+Case 1
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    Call Label_GO_AH_Click
+    
+End Select
+
+End Sub
+
 
 
 
@@ -582,12 +785,71 @@ If Mid$(W$, Len(W$), 1) <> "\" Then
 End If
 
 'FOLDER LABEL
-LABEL_SET(1).Caption = W$
+LABEL_SET(2).Caption = W$
 
 'FILE LABEL
-LABEL_SET(2).Caption = FULL_PATH_AND_FILENAME
+LABEL_SET(3).Caption = FULL_PATH_AND_FILENAME
 
 End Sub
+
+
+Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
+    
+    ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    ScanPath.txtPath.Text = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy"
+    
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        
+        Set F = FSO.GetFile(A1$ + B1$)
+        DT2 = F.DateCreated
+        DT1 = F.datelastmodified
+        
+        If DT4 = 0 Then DT4 = DT1
+        If DT1 < DT4 Then DT4 = DT1
+        
+        Set F = Nothing
+        
+        TT = SetFileDateTime(A1$ + B1$, DateSet)
+        XC = XC + 1
+        
+    Next
+    
+    If DT4 = 0 Then
+        MsgBox "NAUGHT DATE FOUND IN FILE GATHER -- EXIT"
+        End
+    End If
+    
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        
+        TT = SetFileDateTime(A1$ + B1$, DT4)
+        
+        XC = XC + 1
+        
+    Next
+    
+    MsgBox "Done = " + vbCrLf + str(XC) '+dd$
+    End
+End Sub
+    
+
 
 
 Sub BATCH_MODIFIED_TO_CREATED_TIME()
@@ -899,12 +1161,11 @@ Private Sub Label1_Click()
 
 If Label1.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label2.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label8.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label9.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label11.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 
 Label1.BackColor = Label_COLOR_YELLOW.BackColor
-Label5.BackColor = Label_COLOR_GREEN.BackColor
+Label_GO_AH.BackColor = Label_COLOR_GREEN.BackColor
 
 WORK = "MOD_TO_NOW_DATE"
 
@@ -914,12 +1175,11 @@ Private Sub Label11_Click()
 
 If Label1.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label2.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label8.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label9.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label11.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 
 Label11.BackColor = Label_COLOR_YELLOW.BackColor
-Label5.BackColor = Label_COLOR_GREEN.BackColor
+Label_GO_AH.BackColor = Label_COLOR_GREEN.BackColor
 
 WORK = "FILE_CREATED_TO_MODIFIED_TIME"
 
@@ -930,20 +1190,15 @@ Private Sub Label2_Click()
 
 If Label1.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label2.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label8.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label9.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label2.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 
 Label2.BackColor = Label_COLOR_YELLOW.BackColor
-Label5.BackColor = Label_COLOR_GREEN.BackColor
+Label_GO_AH.BackColor = Label_COLOR_GREEN.BackColor
 
 WORK = "MOD_TO_CREATED_DATE"
 
-' NEXT -- Label5_Click
-
-End Sub
-
-Private Sub Label_COLOR_YELLOW_Click()
+' NEXT -- Label_GO_AH_Click
 
 End Sub
 
@@ -954,20 +1209,19 @@ If Label11.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label9.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label1.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 If Label2.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label8.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
 
 Label9.BackColor = Label_COLOR_YELLOW.BackColor
-Label5.BackColor = Label_COLOR_GREEN.BackColor
+Label_GO_AH.BackColor = Label_COLOR_GREEN.BackColor
 
 WORK = "CREATED_TO_MOD_DATE"
 
-' NEXT -- Label5_Click
+' NEXT -- Label_GO_AH_Click
 ' NEXT -- Call BATCH_CREATED_TO_MODIFIED_TIME
 
 End Sub
 
 
-Private Sub Label5_Click()
+Private Sub Label_GO_AH_Click()
 
 If WORK = "MOD_TO_NOW_DATE" = True Then
     Call CODE_RUN
@@ -987,6 +1241,24 @@ End If
 If WORK = "FILE_CREATED_TO_MODIFIED_TIME" = True Then
     Call FILE_CREATED_TO_MODIFIED_TIME
     Exit Sub
+End If
+
+If WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER" Then
+    Call SET_OLDER_DATE_TO_OTHER_IN_FOLDER
+    Exit Sub
+End If
+
+If WORK = "SET_ONE_DATE_HARDCODER" = True Then
+    
+'   SIMPLE
+'   -------------------------------
+    a = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy\2012 07 GALAXY SAMSUNG GT-P1000_ VIDEO.MP4"
+    DATEVAR = "2015/07/01 18:00:00"
+    DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
+    TT = SetFileDateTime(a, DateSet)
+    MsgBox "Done " + vbCrLf + vbCrLf + a + vbCrLf + vbCrLf + DATEVAR, vbMsgBoxSetForeground
+    End
+
 End If
 
 
@@ -1046,11 +1318,11 @@ If WORK = "SET_ONE_DATE" = True Then
     'DATEVAR = ""
     
     
-    For r = 1 To 10
-    If Mid(DATEVAR, r, 1) = "-" Then Mid(DATEVAR, r, 1) = "/"
+    For R = 1 To 10
+    If Mid(DATEVAR, R, 1) = "-" Then Mid(DATEVAR, R, 1) = "/"
     Next
-    For r = 10 To Len(DATEVAR)
-    If Mid(DATEVAR, r, 1) = "-" Then Mid(DATEVAR, r, 1) = ":"
+    For R = 10 To Len(DATEVAR)
+    If Mid(DATEVAR, R, 1) = "-" Then Mid(DATEVAR, R, 1) = ":"
     Next
     DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
     
@@ -1074,17 +1346,12 @@ End If
 End Sub
 
 
-Private Sub Label8_Click()
-If Label1.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label2.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label8.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-
-Label8.BackColor = Label_COLOR_YELLOW.BackColor
-Label5.BackColor = Label_COLOR_GREEN.BackColor
-
-WORK = "SET_ONE_DATE"
-
-Call Label5_Click
+Private Sub SET_ONE_DATE_HARDCODER()
+    
+    
+    WORK = "SET_ONE_DATE_HARDCODER"
+    
+    Call Label_GO_AH_Click
 
 End Sub
 
@@ -1162,10 +1429,10 @@ End Sub
 
 Public Function GetSpecialFolder_Show_Script_Debug(CSIDL As Long) As String
 
-Dim r As Long
+Dim R As Long
 On Error Resume Next
-For r = 0 To 120
-    If Trim(GetSpecialfolder(r)) <> "" Then
+For R = 0 To 120
+    If Trim(GetSpecialfolder(R)) <> "" Then
         'Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
         'AAX = GetSpecialfolder(R)
     End If
@@ -1195,442 +1462,3 @@ End Function
 
 
 
-
-Sub MENU_TT_1()
-
-   ' Begin VB.Label Label12
-      ' Caption         =   "SET OLDR 1ST DATE TO OTHER IN FOLDER"
-   ' Begin VB.Label Label11
-      ' Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
-   ' Begin VB.Label LABEL_SET(2)
-      ' Caption         =   "FILE LABEL_SET(2)"
-   ' Begin VB.Label Label9
-      ' Caption         =   "BATCH - CREATED DATE TO MODIFY DATE"
-   ' Begin VB.Label Label8
-      ' Caption         =   "SET ONE DATE HARDCODED"
-   ' Begin VB.Label Label_COLOR_GREEN
-      ' BackColor       =   &H00C0FFC0&
-      ' Caption         =   "Label_COLOR_GREEN"
-   ' Begin VB.Label Label_COLOUR_YELLOW
-      ' BackColor       =   &H00C0FFFF&
-      ' Caption         =   "Label_COLOUR_YELLOW"
-   ' Begin VB.Label Label5
-      ' Alignment       =   2  'Center
-      ' BackColor       =   &H00C0C0C0&
-      ' Caption         =   "GO"
-   ' Begin VB.Label LABEL_SET(1)
-      ' Caption         =   "FOLDER LABEL_SET(1)"
-   ' Begin VB.Label Label3
-      ' Caption         =   "PERFORM ON ALL FILES IN FOLDER OR FILE"
-   ' Begin VB.Label Label2
-      ' Caption         =   "MODIFY DATE TO CREATED DATE - NOT WORKING"
-   ' Begin VB.Label Label1
-      ' Caption         =   "NOW DATE"
-
-End Sub
-
-
-
-Sub MENU_TT_2()
-
-   ' Begin VB.Label Label12
-      ' Caption         =   "SET OLDR 1ST DATE TO OTHER IN FOLDER"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   120
-      ' TabIndex        =   11
-      ' Top             =   4704
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label Label11
-      ' Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   108
-      ' TabIndex        =   10
-      ' Top             =   3468
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET(2)
-      ' Caption         =   "FILE LABEL_SET(2)"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   9.6
-         ' Charset         =   0
-         ' Weight          =   400
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   528
-      ' Left            =   108
-      ' TabIndex        =   9
-      ' Top             =   576
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label Label9
-      ' Caption         =   "BATCH - CREATED DATE TO MODIFY DATE"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   516
-      ' Left            =   96
-      ' TabIndex        =   8
-      ' Top             =   2916
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label Label8
-      ' Caption         =   "SET ONE DATE HARDCODED"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   108
-      ' TabIndex        =   7
-      ' Top             =   4092
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label Label_COLOR_GREEN
-      ' BackColor       =   &H00C0FFC0&
-      ' Caption         =   "Label_COLOR_GREEN"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   12
-         ' Charset         =   0
-         ' Weight          =   400
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   312
-      ' Left            =   12204
-      ' TabIndex        =   6
-      ' Top             =   3924
-      ' Visible         =   0   'False
-      ' Width           =   3072
-   ' End
-   ' Begin VB.Label
-      ' BackColor       =   &H00C0FFFF&
-      ' Caption         =   "Label_COLOUR_YELLOW"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   12
-         ' Charset         =   0
-         ' Weight          =   400
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   300
-      ' Left            =   12192
-      ' TabIndex        =   5
-      ' Top             =   3576
-      ' Visible         =   0   'False
-      ' Width           =   3072
-   ' End
-   ' Begin VB.Label Label5
-      ' Alignment       =   2  'Center
-      ' BackColor       =   &H00C0C0C0&
-      ' Caption         =   "GO"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   120
-      ' TabIndex        =   4
-      ' Top             =   5376
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET(1)
-      ' Caption         =   "FOLDER LABEL_SET(1)"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   9.6
-         ' Charset         =   0
-         ' Weight          =   400
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   528
-      ' Left            =   108
-      ' TabIndex        =   3
-      ' Top             =   24
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label Label3
-      ' Caption         =   "PERFORM ON ALL FILES IN FOLDER OR FILE"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   108
-      ' TabIndex        =   2
-      ' Top             =   1140
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label Label2
-      ' Caption         =   "MODIFY DATE TO CREATED DATE - NOT WORKING"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   528
-      ' Left            =   96
-      ' TabIndex        =   1
-      ' Top             =   2352
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label Label1
-      ' Caption         =   "NOW DATE"
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   516
-      ' Left            =   108
-      ' TabIndex        =   0
-      ' Top             =   1800
-      ' Width           =   10500
-   ' End
-
-End Sub
-
-
-
-
-Sub MENU_TT_3()
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "PERFORM ON ALL FILES IN FOLDER OR FILE"
-          ' Index           =   1
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   108
-      ' TabIndex        =   2
-      ' Top             =   1140
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
-          ' Index           =   2
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   108
-      ' TabIndex        =   10
-      ' Top             =   3468
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "BATCH - CREATED DATE TO MODIFY DATE"
-          ' Index           =   3
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   516
-      ' Left            =   96
-      ' TabIndex        =   8
-      ' Top             =   2916
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "SET ONE DATE HARDCODED"
-          ' Index           =   4
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   108
-      ' TabIndex        =   7
-      ' Top             =   4092
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "MODIFY DATE TO CREATED DATE - NOT WORKING"
-          ' Index           =   5
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   528
-      ' Left            =   96
-      ' TabIndex        =   1
-      ' Top             =   2352
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "NOW DATE"
-          ' Index           =   6
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   516
-      ' Left            =   108
-      ' TabIndex        =   0
-      ' Top             =   1800
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "SET OLDER 1ST DATE TO OTHER IN FOLDER"
-          ' Index           =   7
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   120
-      ' TabIndex        =   11
-      ' Top             =   4704
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Alignment       =   2  'Center
-      ' BackColor       =   &H00C0C0C0&
-      ' Caption         =   "GO"
-          ' Index           =   8
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   18
-         ' Charset         =   0
-         ' Weight          =   700
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   588
-      ' Left            =   120
-      ' TabIndex        =   4
-      ' Top             =   5376
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "FILE LABEL"
-          ' Index           =   9
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   9.6
-         ' Charset         =   0
-         ' Weight          =   400
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   528
-      ' Left            =   108
-      ' TabIndex        =   9
-      ' Top             =   576
-      ' Width           =   10500
-   ' End
-   ' Begin VB.Label LABEL_SET
-      ' Caption         =   "FOLDER LABEL"
-          ' Index           =   10
-      ' BeginProperty Font
-         ' Name            =   "MS Sans Serif"
-         ' Size            =   9.6
-         ' Charset         =   0
-         ' Weight          =   400
-         ' Underline       =   0   'False
-         ' Italic          =   0   'False
-         ' Strikethrough   =   0   'False
-      ' EndProperty
-      ' Height          =   528
-      ' Left            =   108
-      ' TabIndex        =   3
-      ' Top             =   24
-      ' Width           =   10500
-   ' End
-
-End Sub
