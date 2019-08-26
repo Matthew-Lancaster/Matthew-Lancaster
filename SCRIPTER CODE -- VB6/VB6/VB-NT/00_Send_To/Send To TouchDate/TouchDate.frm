@@ -65,7 +65,7 @@ Begin VB.Form Form1
       Width           =   10500
    End
    Begin VB.Label LABEL_SET 
-      Caption         =   "SET ONE DATE HARDCODED"
+      Caption         =   "SET ONE DATE HARDCODER"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   18
@@ -376,7 +376,7 @@ Begin VB.Form Form1
    End
    Begin VB.Label LABEL_SET 
       Alignment       =   2  'Center
-      BackColor       =   &H00C0C0C0&
+      BackColor       =   &H00FED3D1&
       Caption         =   "GO"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -603,8 +603,22 @@ End Function
 
 Private Sub Form_Resize()
 
+Dim R
+
 LABEL_SET(10).Caption = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
 LABEL_SET(11).Caption = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+
+For R = 1 To LABEL_SET.Count
+    If LABEL_SET(R).Caption = "PERFORM ON ALL FILES IN FOLDER OR FILE" Then
+        LABEL_SET(R).Caption = ""
+    End If
+Next
+For R = 1 To LABEL_SET.Count
+    LABEL_SET(R).Caption = Replace(LABEL_SET(R).Caption, "_", " ")
+Next
+
+LABEL_SET(2).FontSize = 12
+LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
 
 ' TOP LABEL
 ' HEIGHT LABEL
@@ -612,7 +626,6 @@ HL = LABEL_SET(2).Height
 HL = 500
 
 STEP_H = 100
-Dim R
 For R = 2 To LABEL_SET.Count
     If LABEL_SET(R).Caption = "" Then
         LABEL_SET(R).Visible = False
@@ -792,6 +805,60 @@ LABEL_SET(3).Caption = FULL_PATH_AND_FILENAME
 
 End Sub
 
+Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
+
+    
+    ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    ScanPath.txtPath.Text = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy"
+    
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        
+        Set F = FSO.GetFile(A1$ + B1$)
+        DT2 = F.DateCreated
+        DT1 = F.datelastmodified
+        
+        If DT4 = 0 Then DT4 = DT1
+        If DT1 > DT4 Then DT4 = DT1
+        
+        Set F = Nothing
+        
+    Next
+    
+    If DT4 = 0 Then
+        MsgBox "NAUGHT DATE FOUND IN FILE GATHER -- EXIT"
+        End
+    End If
+    
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        
+        TT = SetFileDateTime(A1$ + B1$, DT4)
+        
+        XC = XC + 1
+        
+    Next
+    
+    MsgBox "Done = " + vbCrLf + str(XC)
+    End
+
+End Sub
 
 Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     
@@ -825,9 +892,6 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
         
         Set F = Nothing
         
-        TT = SetFileDateTime(A1$ + B1$, DateSet)
-        XC = XC + 1
-        
     Next
     
     If DT4 = 0 Then
@@ -845,7 +909,7 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
         
     Next
     
-    MsgBox "Done = " + vbCrLf + str(XC) '+dd$
+    MsgBox "Done = " + vbCrLf + str(XC)
     End
 End Sub
     
@@ -1248,12 +1312,17 @@ If WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER" Then
     Exit Sub
 End If
 
+If WORK = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER" Then
+    Call SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER
+    Exit Sub
+End If
+
 If WORK = "SET_ONE_DATE_HARDCODER" = True Then
     
 '   SIMPLE
 '   -------------------------------
     a = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy\2012 07 GALAXY SAMSUNG GT-P1000_ VIDEO.MP4"
-    DATEVAR = "2015/07/01 18:00:00"
+    DATEVAR = "2012/07/01 18:00:00"
     DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
     TT = SetFileDateTime(a, DateSet)
     MsgBox "Done " + vbCrLf + vbCrLf + a + vbCrLf + vbCrLf + DATEVAR, vbMsgBoxSetForeground
