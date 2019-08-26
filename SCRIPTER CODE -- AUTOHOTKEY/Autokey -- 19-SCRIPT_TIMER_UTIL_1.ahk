@@ -645,20 +645,35 @@ DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP:
 	; -----------------------------------------------------------
 	; DELETE THUMBS.DB ON DESKTOP
 	; -----------------------------------------------------------
-	FILE_NAME=%A_Desktop%\Thumbs.db
-	; -----------------------------------------------------------
-	; MAYBE THIS NEW FileExist COMMAND WORK BUT NOT HERE
-	; -----------------------------------------------------------
-	; IF FileExist("%FILE_NAME%")
-	; 
-	; HAD TO USER INSTEAD
-	; 
-	; IfExist %FILE_NAME%
-	; -----------------------------------------------------------
-	IfExist %FILE_NAME%
+	IfExist %A_Desktop%\Thumbs.db
 	{
 		FileSetAttrib, -RHS, %A_Desktop%\Thumbs.db
 		FileDelete, %A_Desktop%\Thumbs.db
+	}
+	IfExist C:\Users\Public\Desktop\Thumbs.db
+	{
+		FileSetAttrib, -RHS, C:\Users\Public\Desktop\Thumbs.db
+		FileDelete, C:\Users\Public\Desktop\Thumbs.db
+	}
+
+	IfExist %A_Desktop%\desktop.ini
+	{
+		FileSetAttrib, -RHS, %A_Desktop%\desktop.ini
+		FileDelete, %A_Desktop%\desktop.ini
+	}
+	IfExist C:\Users\Public\Desktop\desktop.ini
+	{
+		FileSetAttrib, -RHS, C:\Users\Public\Desktop\desktop.ini
+		FileDelete, C:\Users\Public\Desktop\desktop.ini
+	}
+
+	IfExist %A_Desktop%\GoodSync Explorer.lnk
+	{
+		FileDelete, %A_Desktop%\GoodSync Explorer.lnk
+	}
+	IfExist C:\Users\Public\Desktop\GoodSync Explorer.lnk
+	{
+		FileDelete, C:\Users\Public\Desktop\GoodSync Explorer.lnk
 	}
 
 	; -----------------------------------------------------------
@@ -666,35 +681,18 @@ DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP:
 	; -----------------------------------------------------------
 	; DELETE _GSDATA_ ON DESKTOP
 	; -----------------------------------------------------------
-	; FOLDER_NAME=%A_Desktop%\Thumbs.db
 	IfExist %A_Desktop%\_gsdata_
 	{
-		; FileSetAttrib, -RHS, %A_Desktop%\Thumbs.db
 		FileRemoveDir, %A_Desktop%\_gsdata_ , TRUE
 	}
-
-	; -----------------------------------------------------------
-	; 03 OF 03
-	; -----------------------------------------------------------
-	; DELETE DESKTOP.INI ON DESKTOP
-	; CAN'T DELETE THIS ONE BUT CHANGED MIND THROUGH IT 
-	; -----------------------------------------------------------
-	; FILE_NAME=%A_Desktop%\desktop.ini
-	; IfExist %A_Desktop%\desktop.ini
-	; IF FileExist("%FILE_NAME%")
-	; IfExist %FILE_NAME%
-	; {
-		; ; FileSetAttrib, -RHS, %A_Desktop%\desktop.ini
-		; ; MSGBOX "HH"
-		; ; FileDelete, %A_Desktop%\desktop.ini
-	; }
-
-	; -----------------------------------------------------------
-	; 04 OF 04 -- GoodSync Explorer.lnk -- IS DONE SOMEWHERE ELSE ALSO
-	; -----------------------------------------------------------
-	IfExist %A_Desktop%\GoodSync Explorer.lnk
+	IfExist C:\Users\Public\Desktop\_gsdata_
 	{
-		FileDelete, %A_Desktop%\GoodSync Explorer.lnk
+		FileRemoveDir, C:\Users\Public\Desktop\_gsdata_ , TRUE
+	}
+	; 2-ASUS-EEE
+	IfExist %A_DesktopCommon%\_gsdata_
+	{
+		FileRemoveDir, %A_DesktopCommon%\_gsdata_ , TRUE
 	}
 
 	
@@ -2853,6 +2851,10 @@ TIMER_SUB_BLUETOOTH_LOGGER:
 	Fil_1_PATH:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothView_Desc.txt"
 
 	FileGetTime, BluetoothView_Desc_FILE_DATE, %Fil_1_PATH%, M
+	IF BluetoothView_Desc_FILE_DATE<>%OLD_BluetoothView_Desc_FILE_DATE%
+	IF OLD_BluetoothView_Desc_FILE_DATE=0
+		OLD_BluetoothView_Desc_FILE_DATE=%BluetoothView_Desc_FILE_DATE%
+	
 	IF BluetoothView_Desc_FILE_DATE<>%OLD_BluetoothView_Desc_FILE_DATE%
 	{
 		FILE_PATH_BLUETOOTHVIEW_DESC:="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS"
