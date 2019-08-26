@@ -605,12 +605,13 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="ClipBoard Logger"
 
+	; NOT CASE SENSITIVE
 	FN_Array_2 := []
 	ArrayCount := 0
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.EXE"
 	ArrayCount += 1
-	FN_Array_2[ArrayCount]:="ClipBoard Logger.EXE"
+	FN_Array_2[ArrayCount]:="ClipBoard Logger"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 	ArrayCount += 1
@@ -619,9 +620,9 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_4 := []
 	ArrayCount := 0
 	ArrayCount += 1
-	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	FN_Array_4[ArrayCount]:=D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
 	ArrayCount += 1
-	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE"
+	FN_Array_4[ArrayCount]:=D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE
 	ArrayCount += 1
 	FN_Array_4[ArrayCount]:=""
 	ArrayCount += 1
@@ -659,14 +660,22 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		}
 	}
 
+	; TEST DEBUG
+;	IF SET_GO_GS=TRUE
+;			TOOLTIP %VAR_IN_NAME_1%
+
 	IF SET_GO_GS=TRUE
 	{
 		SET_GO_GS=FALSE
 		WinGetTitle, OutputVar_1, %VAR_IN_NAME_4% ahk_class #32770
 		Loop % FN_Array_2.MaxIndex()
 		{
+			; WHEN SEARCH FOR EXE NAME IT ONLY LOOK FOR TITLE
+			; -----------------------------------------------
 			VAR_IN_NAME_2:=FN_Array_2[A_Index]
 			VAR_IN_NAME_4:=FN_Array_4[A_Index]
+			StringUpper, VAR_IN_NAME_2, VAR_IN_NAME_2
+			StringUpper, OutputVar_1, OutputVar_1
 			IF INSTR(OutputVar_1,VAR_IN_NAME_2)>0 
 			{
 				SET_GO_GS=TRUE
@@ -678,7 +687,9 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	IF SET_GO_GS=FALSE
 		SHOW_COUNTDOWN_ACTION=FALSE
 	
-	; TOOLTIP %SET_GO_GS%
+	; TEST DEBUG
+	IF SET_GO_GS=TRUE
+		TOOLTIP %SET_GO_GS%
 	
 	IF SET_GO_GS=TRUE
 	{
@@ -727,7 +738,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				}
 			}
 			
-			; TOOLTIP % StrLen(CONTROL_TEXT_01)
+			TOOLTIP % StrLen(CONTROL_TEXT_01)
 			
 			IF INSTR(CONTROL_TEXT_01,"OK")>0
 			IF StrLen(CONTROL_TEXT_01)=4
