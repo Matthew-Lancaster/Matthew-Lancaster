@@ -461,7 +461,7 @@ IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
 END IF
 
-IF Version_OS=10 OR COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF Version_OS=10  ORCOMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
 END IF
 
@@ -484,11 +484,11 @@ END IF
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
 I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 
-IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\GoodSync\x64\GoodSync2Go.exe"
-	I=I+1:ARRAY_1(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go.bat BAT2EXE - D TARGET\GoodSync2Go_D.exe"
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" OR COMPUTER_NAME_VAR="4-ASUS-GL522VW" THEN
+	IF Version_OS=10 THEN
+		I=I+1:ARRAY_1(I)="C:\GoodSync\x64\GoodSync2Go.exe"
+	END IF
 END IF
-
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\hashmyfiles.exe"
