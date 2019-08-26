@@ -1,5 +1,5 @@
 ; =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\
 ;# __ 
 ;# __ Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk
 ;# __ 
@@ -7,6 +7,13 @@
 ;# __ Matt.Lan@Btinternet.com
 ;# __ 
 ; =============================================================
+
+; -------------------------------------------------------------------
+; SESSION UP 
+; 
+; Mon 26-Aug-2019 13:10:47
+; Mon 26-Aug-2019 15:00:10
+; -------------------------------------------------------------------
 
 TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 
@@ -24,7 +31,12 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 
 	; IFWINEXIST Vb6 Loader ahk_exe Shell VBasic 6 Loader.exe
 	
-	SetTitleMatchMode 2  ; Specify Full path
+	SetTitleMatchMode 2  
+	; ---------------------------------------------------------------
+
+	
+	; ---------------------------------------------------------------
+	; ADD THE TITLE NEXT WILL BE USER MATCH FOR EXE WITH THAT THING
 	; ---------------------------------------------------------------
 
 	FN_Array_1 := []
@@ -32,17 +44,49 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="- Application Error"
 	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="VB6\VB-NT\"
+	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="ClipBoard Logger"
 
+	; ---------------------------------------------------------------
+	; WHEN SEARCH FOR EXE NAME IT USER TITLE FOR MATCH GO
+	; NOT CASE SENSITIVE
+	; ---------------------------------------------------------------
 	FN_Array_2 := []
 	ArrayCount := 0
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.EXE"
+	ArrayCount += 1
+	FN_Array_2[ArrayCount]:="ClipBoard Logger"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY_02.ahk"
 
+	; ---------------------------------------------------------------
+	; GIVE THE EXE NAME THAT WILL RELAUNCH WHEN WINDOW POPPED OUT THE WAY
+	; THE INDEX NUMBER HAS TO MATCH THE ARRAY ABOVE FN_Array_2
+	; ---------------------------------------------------------------
+	FN_Array_4 := []
+	ArrayCount := 0
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE"
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:=""
+	ArrayCount += 1
+	FN_Array_4[ArrayCount]:=""
+
+	; ---------------------------------------------------------------
+	; GIVE SOME INFO THAT WILL BE IN THE STATIC1 OR STATIC2 CONTROL 
+	; FIELD OF MSGBOX 
+	; NOT CASE SENSITIVE - I LET YOU HAVE IT EASIER
+	; ---------------------------------------------------------------
 	FN_Array_3 := []
 	ArrayCount := 0
 	ArrayCount += 1
@@ -54,6 +98,19 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	; STARVED OF DRINK WHILE THIS CODE AWKARD - BIT RUSTY AUTOHOTKEYS ARRAY COME ALONG NICELY
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="The application was unable to start correctly" ; WIN 07
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="Run-time error" ; WIN XP
+	; ArrayCount += 1
+	; FN_Array_3[ArrayCount]:="Object doesn't support the Property or method" ; WIN XP
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="Object doesn" ; WIN XP
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="support the Property or method" ; WIN XP
+	; ---------------------------------------------------------------
+	; LINE THAT HAVE ODD CHARACTER HERE DON'T WORK -- doesn't
+	; Run-time error -- WAS THE ALTERNATIVE IN THIS PARTICULAR ONE
+	; AND WITH SPLITTER
+	; ---------------------------------------------------------------
 
 	
 	SET_GO_GS=FALSE
@@ -64,9 +121,12 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		{
 			SET_GO_GS=TRUE
 			VAR_IN_NAME_4=%VAR_IN_NAME_1%
-			; TOOLTIP %VAR_IN_NAME_4% " -- " %VAR_IN_NAME_1%
 		}
 	}
+
+	; TEST DEBUG
+;	IF SET_GO_GS=TRUE
+;			TOOLTIP %VAR_IN_NAME_1%
 
 	IF SET_GO_GS=TRUE
 	{
@@ -74,33 +134,56 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 		WinGetTitle, OutputVar_1, %VAR_IN_NAME_4% ahk_class #32770
 		Loop % FN_Array_2.MaxIndex()
 		{
+			; WHEN SEARCH FOR EXE NAME IT ONLY LOOK FOR TITLE
+			; -----------------------------------------------
 			VAR_IN_NAME_2:=FN_Array_2[A_Index]
+			VAR_IN_NAME_4:=FN_Array_4[A_Index]
+			StringUpper, VAR_IN_NAME_2, VAR_IN_NAME_2
+			StringUpper, OutputVar_1, OutputVar_1
 			IF INSTR(OutputVar_1,VAR_IN_NAME_2)>0 
 			{
 				SET_GO_GS=TRUE
-				RELAUNCH_PATH_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+				RELAUNCH_PATH_VAR=%VAR_IN_NAME_4%
 			}
 		}
 	}
 
+	IF SET_GO_GS=FALSE
+		SHOW_COUNTDOWN_ACTION=FALSE
+	
+	; TEST DEBUG
+	; IF SET_GO_GS=TRUE
+		; TOOLTIP %SET_GO_GS%
+		; TOOLTIP %RELAUNCH_PATH_VAR%
+	
 	IF SET_GO_GS=TRUE
 	{
+		; SEARCH STATIC2 
+		; MOST COMMON -- BUT MSGBOX DO HAVE CHANGE SOMETIME
+		; -----------------------------------------------------------
 		ControlGettext, MSGBOX_INFO, Static2, %VAR_IN_NAME_4% ahk_class #32770
 		SET_GO_02=FALSE
 		Loop % FN_Array_3.MaxIndex()
 		{
 			VAR_IN_NAME_3:=FN_Array_3[A_Index]
+			StringUpper, VAR_IN_NAME_3, VAR_IN_NAME_3
+			StringUpper, MSGBOX_INFO, MSGBOX_INFO
 			IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
 				SET_GO_02=TRUE
-				
 		}
-		ControlGettext, MSGBOX_INFO, Static1, %VAR_IN_NAME_4% ahk_class #32770
-		Loop % FN_Array_3.MaxIndex()
+		; SEARCH STATIC1
+		; -----------------------------------------------------------
+		IF SET_GO_02=FALSE
 		{
-			VAR_IN_NAME_3:=FN_Array_3[A_Index]
-			IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
-				SET_GO_02=TRUE
-				
+			ControlGettext, MSGBOX_INFO, Static1, %VAR_IN_NAME_4% ahk_class #32770
+			Loop % FN_Array_3.MaxIndex()
+			{
+				VAR_IN_NAME_3:=FN_Array_3[A_Index]
+				StringUpper, VAR_IN_NAME_3, VAR_IN_NAME_3
+				StringUpper, MSGBOX_INFO, MSGBOX_INFO
+				IF INSTR(MSGBOX_INFO,VAR_IN_NAME_3)>0
+					SET_GO_02=TRUE
+			}
 		}
 		IF SET_GO_02=TRUE
 		{
@@ -130,6 +213,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				}
 			}
 			
+			; TOOLTIP % StrLen(CONTROL_TEXT_01)
+			
 			IF INSTR(CONTROL_TEXT_01,"OK")>0
 			IF StrLen(CONTROL_TEXT_01)=4
 			{
@@ -137,7 +222,15 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				SOUNDBEEP 5000,200
 				SHOW_COUNTDOWN_ACTION=TRUE
 			}
-			
+
+			IF INSTR(CONTROL_TEXT_01,"OK")>0
+			IF StrLen(CONTROL_TEXT_01)=2
+			{
+				Secs_MSGBOX_08=20
+				SOUNDBEEP 5000,200
+				SHOW_COUNTDOWN_ACTION=TRUE
+			}
+
 			IF CONTROL_TEXT_01=OK
 			{
 				Secs_MSGBOX_08=20
@@ -156,6 +249,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				CONTROL_TEXT_03=%CONTROL_TEXT_01%X
 				LOOP, 88
 				{
+					; SLEEP 500
 					CONTROL_TEXT_02=OK  %A_INDEX%X
 					IF INSTR(CONTROL_TEXT_03,CONTROL_TEXT_02)>0
 					{
