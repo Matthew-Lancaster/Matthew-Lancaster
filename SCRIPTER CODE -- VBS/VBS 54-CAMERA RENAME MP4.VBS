@@ -32,42 +32,9 @@
 ' SESSION 002
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-' Sat 10-Aug-2019 07:18:00
+' Sat 10-Aug-2019 10:18:00
 ' Sat 10-Aug-2019 12:04:00
 ' -------------------------------------------------------------------
-
-
-' -------------------------------------------------------------------
-' SESSION 003
-' -------------------------------------------------------------------
-' ADD LINES OF CODE WHERE SEE HERE 580 LINE
-' -------------------------------------------------------------------
-' CAPITAL_FOLDER RENAME
-' NEAR DONE
-' THE SCRIPT HAVE -- VBS 54-CAMERA RENAME MP4.VBS" 
-' IS SYNCER OTHER LOCATION 
-' IF NOT HERE 
-' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA RENAME MP4.VBS
-' IT WILL BE OVERWRITTEN ONE WAY OTHER LOCATION
-' COPIER HERE 
-' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS
-' -------------------------------------------------------------------
-' A BINARY TREE SEARCH REPLACE SORTER IS NOT THAT QUICKER WITH DRAG DOWN 
-' BUT GOOD JOB 
-' NOT MUCH ELSE TO DO
-' SOME SEARCH AND REPLACE BASE OF FIND INDEX AND REPLACE TEXT THAT WAY QUICKER
-' TRY AND NORMALISE BRING ALL ADJUSTABLE VARIABLE TO ONE PLACE HOW SMART
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' Sat 24-Aug-2019 07:25:00
-' Sun 25-Aug-2019 09:00:00  -- 24 HOUR HOUR SESSION ONE SIT DOWN 
-'						    -- HARDEST WORKER'
-'						    -- AND CONTINUE LATER DAY TO GET OVER WITH
-'					        -- BUT FAIL KEEP UP WITH REMARK NEAT AND TIDY DO LATER
-'						    -- WHEN TIDY MORE
-' Sun 25-Aug-2019 15:58:00  -- SMASH PROJECT ALL WEEKEND
-' -------------------------------------------------------------------
-
 
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -124,10 +91,10 @@ DIM FileModDate_3
 
 'Call the Search subroutine to start the recursive search.
 'Search objFSO.GetFolder(FOLDER_PATH_VAR)
-' --------------------------------------------------------
+'---------------------------------------------------------
 'FindWantedFiles objFSO.GetFolder(FOLDER_PATH_VAR)
 'DisplayFindings
-' --------------------------------------------------------
+'---------------------------------------------------------
 
 DIM R_COUNT
 
@@ -136,15 +103,10 @@ DIM FOLDER_PATH_INDEX
 NUMBER_OF_ITEM = 100
 
 DIM FOLDER_PATH()
-DIM CAPITAL_FOLDER()
 DIM FOLDER_PATH_VAR()
 DIM FOLDER_PATH_IGNOR_DATE_INDEX()
 
-DIM VBV
-VBV=VBCRLF
-
 REDIM FOLDER_PATH(NUMBER_OF_ITEM)
-REDIM CAPITAL_FOLDER(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_VAR(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_IGNOR_DATE_INDEX(NUMBER_OF_ITEM)
 
@@ -152,7 +114,6 @@ DIM FOLDER_PATH_AVOID_ITEM()
 REDIM PRESERVE FOLDER_PATH_AVOID_ITEM(100)
 NUMBER_COUNTER = 0
 I=NUMBER_COUNTER
-I=0
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="_gsdata_"
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="System Volume Information"
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\F.A"                      ' DASH CAMERA
@@ -175,7 +136,6 @@ NUMBER_COUNTER = 0
 NUMBER_COUNTER = NUMBER_COUNTER + 1
 I=NUMBER_COUNTER
 
-I=0
 'I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".JPG"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".AVI"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MOV"          ' DASH CAMERA
@@ -183,9 +143,8 @@ I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MP4"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".TXT"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".FLV"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".URL"
-I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".WMV"
-I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".FFmpeg"
-I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".ADV"
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
@@ -203,57 +162,22 @@ DIM SHOW_EXPLORER_FLAG
 
 DIM I
 I=0
-' I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4"
-' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
-' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot H70____#"
-' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot HX5V__#"
-' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2015 CyberShot HX60V_#"
-' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2016 CyberShot HX60V_#"
-' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2017 CyberShot HX60V_#"
-' I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2018 CyberShot HX60V_#"
-' I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2018 CyberShot HX60V\MP4"
-' I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2017 CyberShot HX60V\MP4"
-' I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2016 CyberShot HX60V\MP4"
-' I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2015 CyberShot HX60V\MP4"
-' I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2011 CyberShot H70 __\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2019 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot H70____#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2011 CyberShot HX5V__#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2015 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2016 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2017 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\VI_ DSC ME\2010+Sony\2018 CyberShot HX60V_#"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2018 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2017 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2016 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2015 CyberShot HX60V\MP4"
+I=I+1:FOLDER_PATH(I)="D:\DSC\2015+Sony\2011 CyberShot H70 __\MP4"
 I=I+1:FOLDER_PATH(I)="D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM"
 
-DIM EE
 
-
-DIM STRING_KEEPER1()
-DIM STRING_KEEPER2()
-DIM STRING_KEEPER3()
-DIM String_ARRAY_1
-DIM String_ARRAY_2
-DIM String_ARRAY_3
-DIM String_ARRAY_4
-
-DIM String_ARRAY_B_01
-DIM String_ARRAY_B_02
-DIM String_ARRAY_U_01
-DIM String_ARRAY_U_02
-DIM ROUTINE_03_OF_07_CALL_ONE
-DIM ROUTINE_04_OF_07_CALL_ONE
-
-DIM STR1
-DIM STR2
-DIM STR3
-
-
-
-I=0
-I=I+1:CAPITAL_FOLDER(I)="D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM"
-
-
-
-FOR R_COUNT=1 TO UBOUND(CAPITAL_FOLDER)
-	IF CAPITAL_FOLDER(R_COUNT)<>"" THEN 
-		DIMSIZE=R_COUNT
-	END IF
-NEXT
-
-REDIM PRESERVE CAPITAL_FOLDER(DIMSIZE)
 
 FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	IF FOLDER_PATH(R_COUNT)<>"" THEN 
@@ -273,7 +197,6 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	FOLDER_PATH_STORE=MID(FOLDER_PATH(R_COUNT),1,2)
 
 	IF FOLDER_PATH_STORE<>"" THEN 
-		FOLDE_POINTER=R_COUNT
 		FOLDER_PATH_STORE=FOLDER_PATH(R_COUNT)
 		MAIN
 	END IF
@@ -281,14 +204,10 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 NEXT
 
 
-MSGBOX "DONE"
-
-
-
 SET objFSO = NOTHING
 Wscript.QUIT
-' ------------------------------------------------------------------
-' ------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
 
 
 Sub Main
@@ -378,1079 +297,30 @@ Sub DisplayFindings()
 	Next
 End Sub
 
-
-SUB ROUTINE_01_OF_07
-
-
-	' USE AT END ROUTINE ARRAY
-	' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
-	REDIM STRING_KEEPER1(100)
-	REDIM STRING_KEEPER2(100)
-	REDIM STRING_KEEPER3(100)
-	REDIM String_ARRAY_3(100)
-
-	' ---------------------------------------------------
-	' 01 OF 07 PART 001 OF 003
-	' ---------------------------------------------------
-	String1=""
-	String1=String1+" .com cdn cdn_hash cdn_ttl .com-content cdn_creation_time"
-	String1=String1+" fb-1 FINAL_FULL E2LhoI12el6t.480 _PUBLIC"
-	String1=String1+" _ing The"
-	String1=String1+" "
-	String1=String1+" "
-	String1=TRIM(String1)
-	String_ARRAY_1=Split(String1," ",-1,1)
-	I=UBOUND(String_ARRAY_1)
-	' FOR THE TIME WHEN A SPACE IN FRONT -- ADD TO THE ARRAY
-	REDIM PRESERVE String_ARRAY_1(I+100)
-	REDIM PRESERVE String_ARRAY_3(I+100)
-
-	' ---------------------------------------------------
-	' 01 OF 07 PART 002 OF 003
-	' ---------------------------------------------------
-	' -- FILENAME HAS LETTER END ON LIKE " A.FLV"
-	' -- EXAMPLE MAKE CASE UPPER OF THE -A- " A.FLV"
-	' -- || THE SEPARATOR
-	' ---------------------------------------------------
-	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
-	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
-	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
-	' NOT WORK WHEN A. HAS GONE UPPER LOWER CASE -- NEW IDEA
-	' String1=""
-	' String1=String1+" A.||"
-	' String1=String1+" a.||"
-	' String1=String1+"||"
-	' String_ARRAY_2=Split(String1,"||",-1,1)
-	' For R3 = 0 TO UBOUND(String_ARRAY_2)
-		' IF String_ARRAY_2(R3)<>"" THEN 
-			' I=I+1:String_ARRAY_1(I)=String_ARRAY_2(R3)
-		' END IF
-	' NEXT
-
-	' ---------------------------------------------------
-	' 01 OF 07 PART 002 OF 002
-	' ---------------------------------------------------
-	' HERE IT WILL SEARCH 
-	' String_ARRAY_3 -- EXAMPLE
-	' IS TO HAVE CASE CONVERT AS IS IN THERE
-	' WHAT SEARCH FOR -- AN EXAMPLE
-	' IS UCASE VERSION "_Ing" AND WANT LOWER "_ing"
-	' STRING LENGTH ARE NOT ABLE TO VARY OR ELSE BE USE INSTR IF WANT TO
-	' HOW HARD THAT BE -- CAREFUL WORDER - PARTIAL WORD
-	' ---------------------------------------------------
-	' CONVERT STRING PAIR CASE SENSITIVE TARGET RESULT
-	' String_ARRAY_1  ---- SOURCE 
-	' String_ARRAY_3  ---- TARGET END BEING LOWER CASE
-	' ---------------------------------------------------
-	I=I+1:String_ARRAY_1(I)="_Ing" : String_ARRAY_3(I)="_ing"        
-	I=I+1:String_ARRAY_1(I)="_ing" : String_ARRAY_3(I)="_ing"        
-	I=I+1:String_ARRAY_1(I)=" a." : String_ARRAY_3(I)=" A."
-	I=I+1:String_ARRAY_1(I)=" A." : String_ARRAY_3(I)=" A."
-	I=I+1:String_ARRAY_1(I)=" in." : String_ARRAY_3(I)=" In."
-	' I=I+1:String_ARRAY_1(I)=" HJ." : String_ARRAY_3(I)=" HJ."
-	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-	I=I+1:String_ARRAY_1(I)="" : String_ARRAY_3(I)=""
-	' ---------------------------------------------------
-	FOR R3 = 1 TO UBOUND(String_ARRAY_1)
-		IF String_ARRAY_1(R3)="" THEN EXIT FOR
-	NEXT
-	
-	REDIM PRESERVE String_ARRAY_1(R3-1)
-	REDIM PRESERVE String_ARRAY_3(R3-1) ' IS DIM AT TOP AND HERE
-
-	CALL ROUTINE_SUB_01_OF_07_PART_02
-				
-END SUB				
-
-
-SUB ROUTINE_SUB_01_OF_07_PART_02:
-
-	ISK=0
-	
-	For R3 = 0 TO UBOUND(String_ARRAY_1)
-			' IF INSTR(EE," A.")>0 THEN MSGBOX  EE
-			' IF INSTR(EE," a.")>0 THEN MSGBOX  EE
-		IF INSTR(EE,String_ARRAY_1(R3))>0 THEN
-			
-			T1=1
-			DO
-				' POSITION IN FILENAME WHERE SEARCH IS STRING ALSO
-				' ISK -- COUNTER POSITION UP OF ARRAY
-				' STRING_KEEPER1 -- SEARCH STRING 
-				' STRING_KEEPER2 -- POSITION IN FILENAME
-				' STRING_KEEPER3 -- ALTERNATIVE SEARCH REPLACE
-				X=INSTR(T1,EE,String_ARRAY_1(R3))
-				IF X>0 THEN 
-					ISK=ISK+1
-					
-					STRING_KEEPER1(ISK)=String_ARRAY_1(R3)
-					STRING_KEEPER2(ISK)=X
-					STRING_KEEPER3(ISK)=String_ARRAY_3(R3)
-					' MSGBOX EE+VBCRLF+VBCRLF+CSTR(ISK) +VBCRLF+String_ARRAY_1(R3)
-				END IF
-				IF X=0 THEN EXIT DO
-				T1=X+1
-			LOOP UNTIL T1=0
-		END IF
-	NEXT
-	
-	' IF ISK>0 THEN MSGBOX ISK
-
-	REDIM PRESERVE STRING_KEEPER1(ISK)
-	REDIM PRESERVE STRING_KEEPER2(ISK)
-	REDIM PRESERVE STRING_KEEPER3(ISK)
-
-END SUB				
-
-
-
-SUB ROUTINE_03_OF_07
-				
-	REDIM String_ARRAY_B_01(100)
-	REDIM String_ARRAY_B_02(100)
-	' ---------------------------------------------------
-	' THESE ARE WHAT PUT LOWER CASE
-	' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
-	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-	' ---------------------------------------------------
-	' 03 OF 07 -- 001 OF 003
-	' ---------------------------------------------------
-	String1=""
-	String1=String1+" A AND AN AS IN OF GO BY TO ON HE US IS FOR FROM JUST WITH BOY"
-	String1=String1+" CUM CUMSHOT NEEDS HAS GUY xvideos"
-	String1=String1+" MALE"
-	' String1=String1+" THE"
-	String1=String1+" "
-	' ---------------------------------------------------
-	String1=TRIM(LCASE(String1))
-	String_ARRAY_B_01=Split(String1," ",-1,1)
-	' ---------------------------------------------------
-	' INCLUDE WORD WITH SPACE BETWEEN
-	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-	'
-	' 03 OF 07 -- 002 OF 003
-	' ---------------------------------------------------
-	String1=""
-	String1=String1+"OLDER GUY||"
-	String1=String1+"||"
-	String1=String1+"||"
-	' ---------------------------------------------------
-	String1=TRIM(LCASE(String1))
-	I=UBOUND(String_ARRAY_B_01)
-	String_ARRAY_2=Split(String1,"||",-1,1)
-	REDIM PRESERVE String_ARRAY_B_01(I+UBOUND(String_ARRAY_2))
-	For R3 = 0 TO UBOUND(String_ARRAY_2)
-		IF String_ARRAY_2(R3)<>"" THEN 
-			I=I+1:String_ARRAY_B_01(I)=String_ARRAY_2(R3)
-		END IF
-	NEXT
-	
-	' ---------------------------------------------------
-	' SEARCH STRING AND REPLACE OF VARY TEXT LENGTH
-	' POST EDIT				
-	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-	' EXAMPLE String1 WILL CONVERT 
-	' TO ADJACENT EQUIVALENT String2
-	'
-	' ---------------------------------------------
-	' 03 OF 07 -- 003 OF 003
-	' ---------------------------------------------
-	REDIM PRESERVE String_ARRAY_B_02(I+1)
-	REDIM PRESERVE String_ARRAY_B_01(I+1)
-	String1=""
-	String2=""
-	String1=String1+"MAN "
-	String1=String1+" "
-	String2=String2+"male " 
-	' ---------------------------------------------------
-	' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
-	' LOWER CASE HAVE TO PUT OVER AT
-	' OR THE TOP ONE ' 01 OF 07
-	' THIS IS THE MOST OF WORD CONVERT LOWER CASE FIRST LETTER
-	' WITH SURROUNDED BY CHARACTER SET SCANNER OPTION
-	' ---------------------------------------------------
-	String2=String2+" "
-	I=UBOUND(String_ARRAY_B_01)
-	String_ARRAY_D2=Split(String1," ",-1,1)
-	String_ARRAY_D3=Split(String2," ",-1,1)
-	I2=UBOUND(String_ARRAY_B_01)
-	I=UBOUND(String_ARRAY_B_01)+UBOUND(String_ARRAY_D2)
-	REDIM PRESERVE String_ARRAY_B_01(I)
-	REDIM PRESERVE String_ARRAY_B_02(I)
-	I=I2-1
-	For R3 = 0 TO UBOUND(String_ARRAY_D2)
-		IF String_ARRAY_D2(R3)<>"" THEN 
-			I=I+1
-			String_ARRAY_B_01(I)=String_ARRAY_D2(R3)
-			String_ARRAY_B_02(I)=String_ARRAY_D3(R3)
-			' MSGBOX String_ARRAY_D2(R3)
-		END IF
-	NEXT
-	' ---------------------------------------------------
-	FOR R3 = 0 TO UBOUND(String_ARRAY_B_01)
-		IF String_ARRAY_B_01(R3)="" THEN EXIT FOR
-	NEXT
-	
-	REDIM PRESERVE String_ARRAY_B_01(R3-1)
-	REDIM PRESERVE String_ARRAY_B_02(R3-1)
-
-	I2=UBOUND(String_ARRAY_B_01)
-	I=UBOUND(String_ARRAY_B_01)+1000
-	REDIM PRESERVE String_ARRAY_B_01(I)
-	REDIM PRESERVE String_ARRAY_B_02(I)
-	I=I2-1
-
-	For R3 = 0 TO I
-		LEN_PATTERN=LEN(String_ARRAY_B_01(R3))
-		BINARY_GIVER=String_ARRAY_B_01(R3)
-		For r1 = 1 To LEN(STR1)
-			For r2 = 1 To LEN(STR1)
-				STR4=MID(STR1,r1,1)
-				STR5=MID(STR1,r2,1)
-				' MSGBOX "00"+STR4
-				' MSGBOX STR4 + STRING_1 + STR5
-
-				' ---------------------------------------
-				' WORK OUT MATRIX ANY TYPE OF CASE
-				' WITH BINARY COUNTER CONVERSION TO CASE
-				' ON STRING
-				' ---------------------------------------
-				BI_4=0
-				DO
-
-					' -----------------------------------
-					' WHEN DO THE BINARY NOT LIKE NORMAL COUNT
-					' EXAMPLE HERE IS 
-					' 0 = 0 -- 1 = 1 -- 2 = 10 -- 3 = 11
-					' SO WE HAVE NUMBER 2 WITH PADDING AFTER 
-					' LOOK SAME AS 1
-					' NOW CHECK DUPE IT 
-					' SAVE UNNECESSARY CODE COSTING SUPER
-					' -----------------------------------
-					' PROBLEM IF USE VARIABLE BINARY_ST
-					' I DEBUG IT MUST BE SYSTEM ONE
-					' -----------------------------------
-					DO 
-						BINARY_ST_2=DecimalToBinary(BI_4)
-						BI_4=BI_4+1
-					LOOP UNTIL RIGHT(BINARY_ST_2,1)="1" OR BI_4=1
-					
-					IF LEN(BINARY_ST_2)>LEN_PATTERN THEN 
-						EXIT DO
-					END IF
-
-					IF BI_4>3 THEN
-						' EXIT DO
-					END IF
-
-					
-					' -----------------------------------
-					' IT ABLE GET THE LEN OF BINARY WITHOUT PADDING 
-					' AND LEARN IF TOO LONG -- SO EXIT ABOVE LINE
-					' -----------------------------------
-					' BAD LINE OF CODE -- COMMENTOR
-					' -----------------------------------
-					' PADD THE NAUGHT AH
-					BINARY_ST_2=BINARY_ST_2+STRING(LEN(BINARY_GIVER)-LEN(BINARY_ST_2),"0")
-					
-					
-					STRING_1=""
-					For R10=1 To LEN(BINARY_GIVER)
-						IF MID(BINARY_ST_2,R10,1)="1" THEN 
-							STRING_1=STRING_1+UCASE(MID(BINARY_GIVER,R10,1))
-						ELSE
-							STRING_1=STRING_1+LCASE(MID(BINARY_GIVER,R10,1))
-						END IF
-					NEXT 
-
-					IF I+100>UBOUND(String_ARRAY_B_01) THEN 
-						'MSGBOX CSTR(UBOUND(String_ARRAY_B_01))+VBV+BINARY_ST_2+VBCRLF+STRING_1+VBCRLF+BINARY_GIVER
-						I2=UBOUND(String_ARRAY_B_01)+15000
-						REDIM PRESERVE String_ARRAY_B_01(I2)
-						REDIM PRESERVE String_ARRAY_B_02(I2)
-					END IF
-					
-					I=I+1
-					String_ARRAY_B_01(I)=STR4 + STRING_1 + STR5
-					String_ARRAY_B_02(I)=LCASE(STR4 + STRING_1 + STR5)
-
-					
-				LOOP UNTIL TRUE=FALSE
-
-			NEXT
-		Next
-	Next
-
-	
-	REDIM PRESERVE String_ARRAY_B_01(I)
-	REDIM PRESERVE String_ARRAY_B_02(I)
-
-	' 71000 SIZE ARRAY HERE
-				
-				
-END SUB
-
-
-
-
-
-SUB ROUTINE_04_OF_07
-				
-	REDIM String_ARRAY_U_01(100)
-	REDIM String_ARRAY_U_02(100)
-	' ---------------------------------------------------
-	' THESE ARE WHAT PUT UPPER CASE
-	' NOT PARTIAL WORD -- BUTTY LOOK 03 OF 07 -- 003 OF 003
-	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-	' THIS ROUTINE WON'T BE SURROUND BY CHARACTER AS ABOVE NOT LIKE IT THOUGH
-	' ---------------------------------------------------
-	' 04 OF 07 -- 001 OF 003
-	' ---------------------------------------------------
-	String1=""
-	String1=String1+" _LD.MP4"
-	String1=String1+" "
-	String1=String1+" "
-	String1=String1+" "
-	String1=String1+" "
-	' ---------------------------------------------------
-	String1=TRIM(LCASE(String1))
-	String_ARRAY_U_01=Split(String1," ",-1,1)
-	' ---------------------------------------------------
-	' INCLUDE WORD WITH SPACE BETWEEN
-	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-	'
-	' 04 OF 07 -- 002 OF 003
-	' ---------------------------------------------------
-	String1=""
-	String1=String1+" XYZZ||"
-	String1=String1+"||"
-	String1=String1+"||"
-	' ---------------------------------------------------
-	String1=TRIM(LCASE(String1))
-	I=UBOUND(String_ARRAY_U_01)
-	String_ARRAY_2=Split(String1,"||",-1,1)
-	REDIM PRESERVE String_ARRAY_U_01(I+UBOUND(String_ARRAY_2))
-	For R3 = 0 TO UBOUND(String_ARRAY_2)
-		IF String_ARRAY_2(R3)<>"" THEN 
-			I=I+1:String_ARRAY_U_01(I)=String_ARRAY_2(R3)
-		END IF
-	NEXT
-	
-	' ---------------------------------------------------
-	' SEARCH STRING AND REPLACE OF VARY TEXT LENGTH
-	' POST EDIT				
-	' HAS TO BE SURROUND BY OTHER SET OF MARK CHARACTER
-	' EXAMPLE String1 WILL CONVERT 
-	' TO ADJACENT EQUIVALENT String2
-	'
-	' ---------------------------------------------
-	' 04 OF 07 -- 003 OF 003
-	' ---------------------------------------------
-	REDIM PRESERVE String_ARRAY_U_02(I+1)
-	REDIM PRESERVE String_ARRAY_U_01(I+1)
-	String1=""
-	String2=""
-	' String1=String1+"_LD.MP4"
-	' String2=String2+"_LD.MP4" 
-	' String1=String1+" "
-	' String1=String1+" "
-	' ---------------------------------------------------
-	' ONLY A POINTER String2 -- WHEN CHANGE WORD AND WANT 
-	' LOWER CASE HAVE TO PUT OVER AT
-	' OR THE TOP ONE ' 01 OF 07
-	' THIS IS THE MOST OF WORD CONVERT LOWER CASE FIRST LETTER
-	' WITH SURROUNDED BY CHARACTER SET SCANNER OPTION
-	' ---------------------------------------------------
-	String2=String2+" "
-	I=UBOUND(String_ARRAY_U_01)
-	String_ARRAY_D2=Split(String1," ",-1,1)
-	String_ARRAY_D3=Split(String2," ",-1,1)
-	I2=UBOUND(String_ARRAY_U_01)
-	I=UBOUND(String_ARRAY_U_01)+UBOUND(String_ARRAY_D2)
-	REDIM PRESERVE String_ARRAY_U_01(I)
-	REDIM PRESERVE String_ARRAY_U_02(I)
-	I=I2-1
-	For R3 = 0 TO UBOUND(String_ARRAY_D2)
-		IF String_ARRAY_D2(R3)<>"" THEN 
-			I=I+1
-			String_ARRAY_U_01(I)=String_ARRAY_D2(R3)
-			String_ARRAY_U_02(I)=String_ARRAY_D3(R3)
-			' MSGBOX String_ARRAY_D2(R3)
-		END IF
-	NEXT
-	' ---------------------------------------------------
-	FOR R3 = 0 TO UBOUND(String_ARRAY_U_01)
-		IF String_ARRAY_U_01(R3)="" THEN EXIT FOR
-	NEXT
-	
-	REDIM PRESERVE String_ARRAY_U_01(R3-1)
-	REDIM PRESERVE String_ARRAY_U_02(R3-1)
-
-	I2=UBOUND(String_ARRAY_U_01)
-	I=UBOUND(String_ARRAY_U_01)+1000
-	REDIM PRESERVE String_ARRAY_U_01(I)
-	REDIM PRESERVE String_ARRAY_U_02(I)
-	I=I2-1
-
-	For R3 = 0 TO I
-		LEN_PATTERN=LEN(String_ARRAY_U_01(R3))
-		BINARY_GIVER=String_ARRAY_U_01(R3)
-		For r1 = 1 To LEN(STR1)
-			For r2 = 1 To LEN(STR1)
-				STR4=MID(STR1,r1,1)
-				STR5=MID(STR1,r2,1)
-				' MSGBOX "00"+STR4
-				' MSGBOX STR4 + STRING_1 + STR5
-
-				' ---------------------------------------
-				' WORK OUT MATRIX ANY TYPE OF CASE
-				' WITH BINARY COUNTER CONVERSION TO CASE
-				' ON STRING
-				' ---------------------------------------
-				BI_4=0
-				DO
-
-					' -----------------------------------
-					' WHEN DO THE BINARY NOT LIKE NORMAL COUNT
-					' EXAMPLE HERE IS 
-					' 0 = 0 -- 1 = 1 -- 2 = 10 -- 3 = 11
-					' SO WE HAVE NUMBER 2 WITH PADDING AFTER 
-					' LOOK SAME AS 1
-					' NOW CHECK DUPE IT 
-					' SAVE UNNECESSARY CODE COSTING SUPER
-					' -----------------------------------
-					' PROBLEM IF USE VARIABLE BINARY_ST
-					' I DEBUG IT MUST BE SYSTEM ONE
-					' -----------------------------------
-					DO 
-						BINARY_ST_2=DecimalToBinary(BI_4)
-						BI_4=BI_4+1
-					LOOP UNTIL RIGHT(BINARY_ST_2,1)="1" OR BI_4=1
-					
-					IF LEN(BINARY_ST_2)>LEN_PATTERN THEN 
-						EXIT DO
-					END IF
-
-					IF BI_4>3 THEN
-						' EXIT DO
-					END IF
-
-					
-					' -----------------------------------
-					' IT ABLE GET THE LEN OF BINARY WITHOUT PADDING 
-					' AND LEARN IF TOO LONG -- SO EXIT ABOVE LINE
-					' -----------------------------------
-					' BAD LINE OF CODE -- COMMENTOR
-					' -----------------------------------
-					' PADD THE NAUGHT AH
-					BINARY_ST_2=BINARY_ST_2+STRING(LEN(BINARY_GIVER)-LEN(BINARY_ST_2),"0")
-					
-					
-					STRING_1=""
-					For R10=1 To LEN(BINARY_GIVER)
-						IF MID(BINARY_ST_2,R10,1)="1" THEN 
-							STRING_1=STRING_1+UCASE(MID(BINARY_GIVER,R10,1))
-						ELSE
-							STRING_1=STRING_1+LCASE(MID(BINARY_GIVER,R10,1))
-						END IF
-					NEXT 
-
-					IF I+100>UBOUND(String_ARRAY_U_01) THEN 
-						'MSGBOX CSTR(UBOUND(String_ARRAY_U_01))+VBV+BINARY_ST_2+VBCRLF+STRING_1+VBCRLF+BINARY_GIVER
-						I2=UBOUND(String_ARRAY_U_01)+15000
-						REDIM PRESERVE String_ARRAY_U_01(I2)
-						REDIM PRESERVE String_ARRAY_U_02(I2)
-					END IF
-					
-					I=I+1
-					String_ARRAY_U_01(I)=STR4 + STRING_1 + STR5
-					String_ARRAY_U_02(I)=UCASE(STR4 + STRING_1 + STR5)
-					' String_ARRAY_U_01(I)=STRING_1
-					''String_ARRAY_U_02(I)=UCASE(STRING_1)
-
-					
-				LOOP UNTIL TRUE=FALSE
-
-			NEXT
-		Next
-	Next
-
-	
-	REDIM PRESERVE String_ARRAY_U_01(I)
-	REDIM PRESERVE String_ARRAY_U_02(I)
-
-	' 71000 SIZE ARRAY HERE
-				
-				
-END SUB
-
-
-
-
-
-
-
-
-
 SUB PATH_SCANNER_COPY_CAMERA
 	
-
 	I_COUNT_2=I_COUNT_2+1
 	
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
-	FILE_EXT=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"."))
-	FILE_EXT=UCASE(FILE_EXT)
-	FILE_VAR_OLD=FILE_VAR
+
 	Set f = fso.GetFile(VAR_PATH_SCANNER)
 	FileModDate = f.DateLastModified
 	SET f=NOTHING
 	
-	' ' CONVERT THE CASE HERE RENAME 
-	' ' ----------------------------
+	' CONVERT THE CASE HERE
+	' --------------------------
 	NewFilename=VAR_PATH_SCANNER
-	' FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
-		' IF FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2)=FILE_EXT THEN 
-			' EXT_1=LCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
-			' EXT_2=UCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
-			' IF INSTR(LCASE(NewFilename),EXT_1)>0 THEN 
-				' NewFilename=REPLACE(NewFilename,EXT_1,EXT_2)
-			' END IF
-		' END IF
-	' NEXT
-
-
-	' ----------------------------
-	' Sat 22:50:30 Pm_24 August 2019
- 	'
-	' CAPITAL_FOLDER RENAME
-	' ----------------------------
-	' NOW I MADE THIS BLOCK OF CODE 
-	' ALL MY VAIRABLE NEED TO BE PUT SET BEFORE THE BLOCK BEGIN 
-	' SPEED UP A BIT BECAUSE BINARY SORTER REDUCE SPEED QUITE A BIT
-	' ----------------------------
-	FOR R_COUNT_CAP=1 TO UBOUND(CAPITAL_FOLDER)
 	FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
-		IF FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2)=FILE_EXT THEN 
-			IF INSTR(VAR_PATH_SCANNER,CAPITAL_FOLDER(R_COUNT_CAP))>0 THEN 
-				PATH_VAR_2=MID(NewFilename,1,INSTRREV(NewFilename,"\"))
-				FILE_VAR_2=MID(NewFilename,INSTRREV(NewFilename,"\")+1)
-				' FILE_VAR_2=MID(FILE_VAR_2,1,INSTRREV(FILE_VAR_2,".")-1)
-				' FILE_EXT_2=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"."))
-
-				' THE EXTENSION WAS SORTED OUT BUT WILL LOWER CASE AGAIN AND REPEAT FUCTION AFTER AGIN
-
-				FILE_VAR_2_OLD=FILE_VAR_2
-				FILE_VAR_2=UCASE(MID(FILE_VAR_2,1,1))+MID(FILE_VAR_2,2)
-				
-				EE = LCase(FILE_VAR_2)
-				
-				EE = UCASE(MID(EE,1,1))+MID(EE,2)
-
-				
-				CALL ROUTINE_01_OF_07
-				
-				
-				For r1 = 2 To LEN(EE)
-					ED1=MID(EE,r1,1)
-					ED2=MID(EE,r1-1,1)
-					IF ISNUMERIC(ED2) THEN 
-						IF LCase(ED1)<> UCase(ED1) THEN 
-							EE = Replace(EE, ED2+ED1, UCase(ED2+ED1))
-						END IF
-					END IF
-				Next
-
-				' NONE USER INTERVENTION REQUIRING - KEEP CAPITAL
-				' ---------------------------------------------------
-				' ---------------------------------------------------
-				STR2="-~()[]{};:=+*&^%$£!.\/_"" "+VBCR+VBLF   ' THE 0 TO 9 IS NOT HERE NOT WANTER LOWER
-				STR3=STR2+"0123456789"
-				STR1=STR3
-				STRY="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STRY)
-						STR4=MID(STR1,r1,1)
-						STR5=MID(STRY,r2,1)
-						EE = Replace(EE, STR4 + LCase(STR5), STR4 + UCase(STR5))
-					Next
-				Next
-
-				' ---------------------------------------------------
-				' 02 OF 07
-				' ---------------------------------------------------
-				' THESE ARE THING WHERE CAPITAL IS 2ND LETTER SEARCHER
-				String1=""
-				String1=String1+" _ADV _HD"
-				String1=String1+GET_FILE_EXTENSION ' FUNCTION
-				' ---------------------------------------------------
-				String1=TRIM(String1)
-				String_ARRAY_1=Split(String1," ",-1,1)
-				For r1 = 0 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY_1
-							STR4=R3
-							STR5=MID(STR4,1,1)+UCASE(MID(STR4,2,1))+LCASE(MID(STR4,3))
-							EE = Replace(EE, STR5 , STR4)
-						NEXT
-					Next
-				Next
-
-				' HERE A LATER ONE CLEAR UP AFTER TYPE THING
-				' TEST IF SEARCH CHAR AND THEN NUMBER AFTER
-				' ---------------------------------------------------
-				STR1=STR2     ' THE 0 TO 9 IS NOT HERE NOT WANTER LOWER
-				For r2 = 1 To LEN(STRY)
-					STR4=MID(STRY,r2,1)
-					String1 = Replace(String1, " "+ LCase(STR4), " " + UCase(STR4))
-				Next
-				' ---------------------------------------------------
-				
-				' ---------------------------------------------------
-				' ROUTINE_03_OF_07
-				' ---------------------------------------------------
-				IF ROUTINE_03_OF_07_CALL_ONE=FALSE THEN 
-					CALL ROUTINE_03_OF_07
-					ROUTINE_03_OF_07_CALL_ONE=TRUE
-				END IF
-				' ---------------------------------------------------
-						
-				For R3 = 1 TO UBOUND(String_ARRAY_B_01)
-					STRING_1=String_ARRAY_B_01(R3)
-					
-					IF INSTR(EE, STRING_1)>0 THEN 
-						IF String_ARRAY_B_02(R3)="" THEN  
-							STRING_REPLACE=String_ARRAY_B_01(R3)
-						ELSE
-							STRING_REPLACE=String_ARRAY_B_02(R3)
-						END IF
-						EE = Replace(EE, STRING_1, LCASE(STRING_REPLACE))
-					END IF 
-				
-				NEXT
-				
-				' ---------------------------------------------------
-				' ROUTINE_04_OF_07
-				' ---------------------------------------------------
-				IF ROUTINE_04_OF_07_CALL_ONE=FALSE THEN 
-					CALL ROUTINE_04_OF_07
-					ROUTINE_04_OF_07_CALL_ONE=TRUE
-				END IF
-				' ---------------------------------------------------
-						
-				' MSGBOX UBOUND(String_ARRAY_U_01)
-				For R3 = 1 TO UBOUND(String_ARRAY_U_01)
-					STRING_1=String_ARRAY_U_01(R3)
-					' STRING_1=MID(String_ARRAY_U_01(R3),2)
-					' STRING_1=MID(STRING_1,1,LEN(STRING_1)-1)
-					IF INSTR(EE, STRING_1)>0 THEN 
-						IF String_ARRAY_U_02(R3)="" THEN  
-							STRING_REPLACE=String_ARRAY_U_01(R3)
-						ELSE
-							STRING_REPLACE=String_ARRAY_U_02(R3)
-						END IF
-						EE = Replace(EE, STRING_1, UCASE(STRING_REPLACE))
-					END IF 
-				NEXT
-				' MSGBOX UBOUND(String_ARRAY_U_01)
-				' For R3 = 1 TO UBOUND(String_ARRAY_U_01)
-					' STRING_1=String_ARRAY_U_01(R3)
-					' IF INSTR(EE, STRING_1)>0 THEN 
-						' IF String_ARRAY_U_02(R3)="" THEN  
-							' STRING_REPLACE=String_ARRAY_U_01(R3)
-						' ELSE
-							' STRING_REPLACE=String_ARRAY_U_02(R3)
-						' END IF
-						' EE = Replace(EE, STRING_1, UCASE(STRING_REPLACE))
-					' END IF 
-				
-				' NEXT
-				
-				
-
-				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
-				' THESE ARE PRESERVE STRING
-				' THESE SEARCH 1ST CHARACTER STRING WITH CASE
-				' 1ST LETTER WON'T LOWER LOOK AT USE -- 
-				' 01 OF 07 OR 
-				' 03 OF 07 OR 
-				' 06 OF 07
-				' ---------------------------------------------------
-				' 04 OF 07
-				' ---------------------------------------------------
-				String1=""
-				String1=String1+" MILF CD POV AndEager FilthyGhettoD MyThickBlackA"
-				String1=String1+" BF MMF GF WOW YouPorn BBW XxxBunker UK CreamPied HD. HandJob"
-				String1=String1+" CFNM BlowJob PoolSide DoggyStyle KickIn OutDoor"
-				String1=String1+" GirlFriend TiT WebCam CheerLeader HomeMade"
-				String1=String1+" CukitasCom HJ"  ' BathRoom
-				String1=String1+" "
-				String1=String1+" "
-				String1=String1+" "
-				String1=String1+" "
-				' ---------------------------------------------------
-				String1=TRIM(String1)
-				String_ARRAY_1=Split(String1," ",-1,1)
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY_1
-							STR4=R3
-							STR5=UCASE(MID(STR4,1,1))+LCASE(MID(STR4,2))
-							EE = Replace(EE, STR5, STR4)
-							EE4=EE
-						NEXT
-					Next
-				Next
-
-				String1=""
-				' String1=String1+" The"
-				String1=String1+"_Ld.MP4 "
-				String1=String1+" "
-				' ---------------------------------------------------
-				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1)
-				For r1 = 1 To LEN(STR1)
-					For r2 = 1 To LEN(STR1)
-						For EACH R3 IN String_ARRAY_1
-							IF R3<>"" THEN 
-								'IF INSTR(UCASE(EE),UCASE("Masturbation"))>0 THEN MSGBOX EE
-								STR4=R3
-								EE = Replace(EE, STR4, UCASE(STR4))
-								EE4=EE
-							END IF
-						NEXT
-					Next
-				Next
-
-				String1=""
-				String1=String1+" 1980S"
-				String1=String1+""
-				String1=String1+" "
-				' ---------------------------------------------------
-				String_ARRAY_1=Split(String1," ",-1,1)
-				String1=TRIM(String1)
-				For EACH R3 IN String_ARRAY_1
-					IF R3<>"" THEN 
-						STR4=R3
-						EE = Replace(EE, STR4, LCASE(STR4))
-						EE4=EE
-					END IF
-				NEXT
-
-				'DISTURBATION
-				String1=""
-				String1=String1+"MASTUR.;"
-				String1=String1+"MASTU.;"
-				String1=String1+"MASTURBEARS;"
-				String1=String1+"Masturbting;"
-				String1=String1+"Masturbation;"
-				String1=String1+"Masturbates;"
-				String1=String1+"Masturbating;"
-				String1=String1+" Mastur ;"
-				String1=String1+" XxX ;"
-				String1=String1+"RFICU7XPE2TF;"
-				String1=String1+" RI;"
-				String1=String1+" SLIT;"
-				String1=String1+" big cock;"
-				String1=String1+" big big cock;"
-				String1=String1+"_in_car;"
-				String1=String1+"EPORNER.COM;"
-				String1=String1+" EP1;"
-				String1=String1+" LABIA;"
-				String1=String1+"_PR.20;"
-				String1=String1+"_PamelaFlowers;"
-				String1=String1+"VBS 54-CAMERA RENAME MP4;"
-				String1=String1+" EXCL;"
-				String1=String1+" Mmtl;"
-				String1=String1+"_RelayURL;"
-				String1=String1+" HD 1080P;"
-				String1=String1+"_GRL;"
-				String1=String1+"[NV0RGWETMLZ];"
-				String1=String1+".USB;"
-				String1=String1+".COM;"
-				String1=String1+" WF;"
-				String1=String1+"ist-BA;"
-				String1=String1+" ;"
-				
-				
-				String_ARRAY_1=Split(String1,";",-1,1)
-				String1=TRIM(String1)
-				For EACH R3 IN String_ARRAY_1
-					IF TRIM(R3)<>"" THEN 
-						XI=INSTR(UCASE(EE),UCASE(R3))
-						IF XI>0 THEN 
-							EE2=EE
-							EE = MID(EE,1,XI-1)+R3+MID(EE,XI+LEN(R3))
-							' MSGBOX  EE2+VBV+EE
-							EE4=EE
-						END IF
-					END IF
-				NEXT
-
-				'DISTURBATION
-				' SEARCH AND REPLACE VARY STRING
-				String1=""
-				String2=""
-				String1=String1+"Smoking;"
-				String2=String2+"Smoker;"
-				String1=String1+" ;"
-				String2=String2+" ;"
-				
-				String_ARRAY_1=Split(String1,";",-1,1)
-				String_ARRAY_2=Split(String2,";",-1,1)
-				For R3 = 0 TO UBOUND(String_ARRAY_1)
-					IF TRIM(String_ARRAY_1(R3))<>"" THEN 
-						XI=INSTR(UCASE(EE),UCASE(String_ARRAY_1(R3)))
-						IF XI>0 THEN 
-							R4=String_ARRAY_2(R3)
-							R5=LEN(String_ARRAY_1(R3))
-							EE2=EE
-							EE = MID(EE,1,XI-1)+R4+MID(EE,XI+R5)
-							' MSGBOX  EE2+VBV+EE+VBV'+"-----"+UCASE(String_ARRAY_1(R3))+"-----"
-						END IF
-					END IF
-				NEXT
-
-				' Smoker Teacher
-				
-				String1=""
-				FOR RD=0 TO 9
-					String1=String1+" ("+TRIM(CSTR(RD))+");"
-				NEXT
-				String1=String1+" "
-				' ---------------------------------------------------
-				String_ARRAY_1=Split(String1,";",-1,1)
-				String1=TRIM(String1)
-				For EACH R3 IN String_ARRAY_1
-					IF R3<>"" THEN 
-						XI=INSTR(UCASE(EE),UCASE(R3))
-						IF XI>0 THEN 
-							EE2=EE
-							EE = MID(EE,1,XI-1)+R3+MID(EE,XI+LEN(R3))
-							' MSGBOX  EE2+VBV+EE
-							EE4=EE
-						END IF
-					END IF
-				NEXT
-				
-				
-				' HERE A LATER AGAIN -- CLEAR UP AFTER TYPE THING
-				' USER 2ND UCASE LETTER SEARCH & KEEP AS TYPE
-				' IF FAIL WANT FROM HERE LOOK
-				' NEXT 06 OF 07 OR ' DOUBT IT -- AND THEN 
-				' 1ST  01 OF 07
-				' ---------------------------------------------------
-				' 05 OF 07
-				' ---------------------------------------------------
-				String1=""
-				String1=String1+" .com .cdn"
-				String1=String1+" "
-				' ---------------------------------------------------
-				String1=TRIM(String1)
-				String_ARRAY_1=Split(String1," ",-1,1)
-				For EACH R3 IN String_ARRAY_1
-					STR4=R3
-					STR5=MID(STR4,1,1)+UCASE(MID(STR4,2,1))+LCASE(MID(STR4,3))
-					EE = Replace(EE, STR5, STR4)
-				NEXT
-
-				
-				
-				
-
-				
-				' ---------------------------------------------------
-				' HERE A LATER AGAIN -- CLEAR UP AFTER
-				' MUST STAY AS TYPE
-				' IT USER 1ST LETTER MUST CAPITAL IN SEARCHER
-				' MAYBE THIS NOT REQUIRE AN BIT OF OVER SHOOT WHERE ABOVE 
-				' WORK BETTER
-				' ---------------------------------------------------
-				' 06 OF 07
-				' ---------------------------------------------------
-				String1=""
-				String1=String1+" xvideos.com"
-				String1=String1+" "
-				String1=String1+" "
-				' ---------------------------------------------------
-				String1=TRIM(String1)
-				String_ARRAY_1=Split(String1," ",-1,1)
-				For EACH R3 IN String_ARRAY_1
-					STR4=R3
-					STR4=UCASE(MID(STR4,1,1))+LCASE(MID(STR4,2))
-					STR5=LCASE(R3)
-					EE = Replace(EE, STR4, STR5)
-				NEXT
-
-				' IF LEN(EE)<>LEN(FILE_VAR_2_OLD) THEN 
-					' MSGBOX "22"+VBV+EE+VBV+"NOT HAVE STRING CHANGE SIZE"
-				' END IF 
-
-				
-				' ---------------------------------------------------
-				' 01 OF 07
-				' ---------------------------------------------------
-				' ---------------------------------------------------
-				' FROM THE TOP ARRAY
-				' IS COLLECT VARIABLE STRING THAT WANT PRESERVE IN ORIGINAL STATE
-				' ---------------------------------------------------
-				
-				
-				IF LEN(EE)<>LEN(FILE_VAR_2_OLD) THEN 
-					MSGBOX EE+VBV+"NOT HAVE STRING CHANGE SIZE"
-					'RENAME_HAPPEN=FALSE
-					'Wscript.QUIT
-				ELSE
-					RENAME_HAPPEN=TRUE
-				END IF 
-				RENAME_HAPPEN=TRUE
-				
-				
-				'CALL ROUTINE_01_OF_07
-				'CALL ROUTINE_SUB_01_OF_07_PART_02
-
-				' For ISK = 1 TO UBOUND(STRING_KEEPER1)
-					' ' IF STRING_KEEPER1(ISK)<>"" THEN	MSGBOX STRING_KEEPER1(ISK)
-				' NEXT
-				
-				For ISK = 1 TO UBOUND(STRING_KEEPER1)
-					' if STRING_KEEPER1(ISK)="A."  then 
-						' MSGBOX "JJ"
-						' MSGBOX EE+VBV+String_ARRAY_1(ISK)
-					' end if
-					IF STRING_KEEPER1(ISK)<>"" THEN
-						' STRING_KEEPER1(ISK) -- CONVERT STRING1
-						' STRING_KEEPER2(ISK) -- POSITION IN ARRAY OF STRING
-						' STRING_KEEPER3(ISK) -- CONVERT STRING2 VARY SIZE
-						G1=LEN(STRING_KEEPER1(ISK))
-						G2=STRING_KEEPER2(ISK)
-						MODIFY_INPUT=STRING_KEEPER1(ISK)
-						IF STRING_KEEPER3(ISK)<>"" THEN 
-							MODIFY_INPUT=STRING_KEEPER3(ISK)
-						END IF
-						
-						EE=MID(EE,1,G2-1)+MODIFY_INPUT+MID(EE,G1+G2)
-						EE5=EE
-						' IF EE4<>EE5 THEN MSGBOX EE4+VBV+EE5
-
-					END IF
-				NEXT
-
-
-				' HARDCODE MORE THAN USER INTERVENTION 
-				' BUT PLAY WITH POSSIBLE
-				' ---------------------------------------------------
-				' 07 OF 07
-				' ---------------------------------------------------
-				' ---------------------------------------------------
-				' SPACE BEFORE DOT -- DOUBLE SPACE -- DOUBLE DOT 
-				' DOUBLE DASH
-				' DOUBLE ~
-				' ---------------------------------------------------
-				EE1=EE
-				DO
-					EE2=EE1
-					EE1=REPLACE(EE1,"..",".")
-					EE1=REPLACE(EE1,"  "," ")
-					' EE1=REPLACE(EE1,"--","-")
-					EE1=REPLACE(EE1,"~~","~")
-					'EE=REPLACE(EE,"__","_")
-					EE=REPLACE(EE,"(6)","")
-					EE=REPLACE(EE,"(8)","")
-				LOOP UNTIL EE1=EE2
-				EE=EE1
-
-				
-				
-				' ---------------------------------------------------
-				' FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT"
-				' ---------------------------------------------------
-				String1=GET_FILE_EXTENSION ' FUNCTION NEXT AFTER HERE SUB
-				' ---------------------------------------------------
-				String1=TRIM(String1)
-				String_ARRAY_1=Split(String1," ",-1,1)
-				FOR R3 = 0 TO UBOUND(String_ARRAY_1)
-					STR4=String_ARRAY_1(R3)
-					EE1=EE
-					DO
-						EE2=EE1
-						EE1=REPLACE(EE1,"."+STR4,""+STR4)
-						EE1=REPLACE(EE1," "+STR4,""+STR4)
-					LOOP UNTIL EE1=EE2
-					EE=EE1
-				Next
-
-				' ---------------------------------------------------
-				' DO HERE ONE MORE -- 1ST LETTER BACK CAPITAL AGAIN
-				' ---------------------------------------------------
-				EE = UCASE(MID(EE,1,1))+MID(EE,2)
-				' ---------------------------------------------------
-
-				FILE_VAR_2=EE
-			
-				NewFilename=PATH_VAR_2+FILE_VAR_2
-				
-				' ---------------------------------------------------
-				' NOT REALLY REQUIRE EXTENSION DONE ABOVE 03 OF 07 NOW
-				' CONVERT THE CASE FOR EXTENSION HERE RENAME AGAIN
-				' ------------------------------------------------
-				FOR R_COUNT_3=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
-					EXT_1=LCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_3))
-					EXT_1="."+UCASE(MID(EXT_1,2,1))+MID(EXT_1,3)
-					EXT_2=FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_3)
-					IF INSTR(NewFilename,EXT_1)>0 THEN 
-						NewFilename=REPLACE(NewFilename,EXT_1,EXT_2)
-					END IF
-				NEXT
-
-				FILE_VAR_3=MID(NewFilename,INSTRREV(NewFilename,"\")+1)
-				
-				' ---------------------------------------------------
-				' TEST DEBUG
-				' ---------------------------------------------------
-				IF NewFilename<>VAR_PATH_SCANNER THEN 
-					X1=LEN(TRIM(FILE_VAR_OLD))
-					X2=LEN(TRIM(FILE_VAR_3))
-					IF X1=X2 THEN SAMETIT="" ELSE SAMETIT=" NOT THE SAME  XXXXXXXXXXXXXXXXXXXXXXXXXXX"
-					FIND_DIFF1=""
-					FIND_DIFF2=""
-					IF FILE_VAR_OLD<>FILE_VAR_3 THEN
-						XX=X1
-						IF X2>XX THEN 
-							XX=X2
-						END IF
-						FOR DD=1 TO XX
-							SIGNAL=FALSE
-							BYTE_B="--"
-							BYTE_D="--"
-							IF DD<=LEN(TRIM(FILE_VAR_OLD)) THEN BYTE_B=MID(TRIM(FILE_VAR_OLD),DD,1)
-							BYTE_D="--"
-							IF DD<=LEN(TRIM(FILE_VAR_3)) THEN BYTE_D=MID(TRIM(FILE_VAR_3),DD,1)
-							IF BYTE_B=BYTE_D THEN SIGNAL=TRUE
-							IF BYTE_B="--" OR BYTE_D="--" THEN SIGNAL=FALSE
-							IF DD>X1 OR DD>X2 THEN EXIT FOR 
-							IF SIGNAL THEN
-								FIND_DIFF1=FIND_DIFF1+"0"
-								FIND_DIFF2=FIND_DIFF2+"_"
-							ELSE
-								FIND_DIFF1=FIND_DIFF1+"1"
-								FIND_DIFF2=FIND_DIFF2+BYTE_D
-							END IF
-						NEXT
-					END IF
-					MSGBOX PATH_VAR+VBCRLF+VBCRLF+FILE_VAR_OLD+VBCRLF+VBCRLF+FILE_VAR_3+VBV+FIND_DIFF1+VBV+FIND_DIFF2+VBV+VBCRLF+VBCRLF+CSTR(X1)+VBCRLF+CSTR(X2)+" "+SAMETIT
-				END IF
-				' Wscript.QUIT
-
+		IF FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2)<>"" THEN 
+			EXT_1=LCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
+			EXT_2=UCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
+			IF INSTR(LCASE(NewFilename),EXT_1)>0 THEN 
+				NewFilename=REPLACE(NewFilename,EXT_1,EXT_2)
 			END IF
 		END IF
 	NEXT
-	NEXT
-	
-	
+
 	PATH_VAR_2=MID(NewFilename,1,INSTRREV(NewFilename,"\"))
 	
 	NewFilename=REPLACE(NewFilename,"\\","\")
@@ -1471,10 +341,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF
 
 	
-	
-	IF NewFilename<>VAR_PATH_SCANNER AND RENAME_HAPPEN=TRUE THEN 
+	IF NewFilename<>VAR_PATH_SCANNER THEN 
 		' Wscript.QUIT
-		
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			
 		I_COUNT_1=I_COUNT_1+1
@@ -1491,69 +359,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 		EXIT SUB
 	END IF
 	
-	
-	
 END SUB
-
-FUNCTION GET_FILE_EXTENSION
-	GET_FILE_EXTENSION=" .JPG .AVI .MOV .MP4 .TXT .FLV .URL .WMV .FFmpeg .TXT .NET"
-END FUNCTION
-
-
-' Function LPad (str, pad, length)
-	' LPad = String(length - Len(str), pad) & str
-' End Function
-
-
-' ----
-' vbscript, Decimal to Binary conversion
-' http://computer-programming-forum.com/59-vbscript/45ad88581c74bcdc.htm
-' ----
-Function DecimalToBinary(ByVal Number) 
-	Do 
-       DecimalToBinary = Number Mod 2 & DecimalToBinary
-       Number = Number \ 2 
-    Loop Until Number = 0 
-End Function 
-
-' NOT WORKER
-' ----
-' Base conversion function in VBScript - Stack Overflow
-' https://stackoverflow.com/questions/32416311/base-conversion-function-in-vbscript
-' ----
-' [ Saturday 19:38:00 Pm_24 August 2019 ]
-' ----
-Function ToBase(ByVal n, b)
-    ' Handle everything from binary to base 36...
-	If b < 2 Or b > 36 Then Exit Function
-
-    Const SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-    Do
-        ToBase = Mid(SYMBOLS, n Mod b + 1, 1) & ToBase
-        n = Int(n / b)
-    Loop While n > 0
-
-End Function
-
-' NOT WORKER
-' ----
-' Convert a binary data (BinaryRead) to a string by VBS
-' https://www.motobit.com/tips/detpg_binarytostring/
-' ----
-Function SimpleBinaryToString_NOT(Binary)
-  'SimpleBinaryToString converts binary data (VT_UI1 | VT_ARRAY Or MultiByte string)
-  'to a string (BSTR) using MultiByte VBS functions
-  Binary=22
-  MSGBOX Binary
-  Dim I, S
-  For I = 1 To LenB(Binary)
-    S = S & Chr(AscB(MidB(Binary, I, 1)))
-  Next
-  SimpleBinaryToString = S
-End Function
-
-
 
 Sub BuildFullPath(ByVal FullPath)
 	If Not fso.FolderExists(FullPath) Then
@@ -1639,20 +445,20 @@ End Sub
 ' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
 ' ----
 
-' -----------------------------------------------------------------------
+'------------------------------------------------------------------------
 ' THIS PROJECT USING THIS CODE
 ' BECAUSE A MOVE FILE HAPPEN MUST GATHER WHOLE FILE LIST BEFORE ACT ON IT
 ' AND IT WAS DEBUGED IN THE NEXT URL LINK LINE
-' -----------------------------------------------------------------------
+'------------------------------------------------------------------------
 '----
 ' windows - VBS to Search for Multiple Files Recursively in C:\Users - Stack Overflow
 ' https://stackoverflow.com/questions/25658004/vbs-to-search-for-multiple-files-recursively-in-c-users
-' -----------------------------------------------------------------------
-' -----------------------------------------------------------------------
+'------------------------------------------------------------------------
+'------------------------------------------------------------------------
 ' vbscript - Read files in subfolders - Stack Overflow
 ' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
 '----
-' -----------------------------------------------------------------------
+'------------------------------------------------------------------------
 
 ' ----
 ' vbscript - Read files in subfolders - Stack Overflow
