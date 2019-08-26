@@ -290,7 +290,7 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
 
 I1="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA RENAME MP4.VBS"
-I2="D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM\"+YY+"-"+MM+"-"+MMM+"\VBS 54-CAMERA RENAME MP4.TXT"
+I2="D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM\"+YY+"-"+MM+"-"+MMM+"\VBS 54-CAMERA RENAME MP4.VBS.TXT"
 
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
@@ -302,6 +302,22 @@ VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
 VAR_PATH_FILE_1(I_COUNT)=I1
 VAR_PATH_FILE_2(I_COUNT)=I2
 ' -------------------------------------------------------------------
+
+
+I1="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 54-CAMERA RENAME MP4.VBS"
+I2="D:\VI_ DSC ME\2010+SONY\HARDCORE\VBS 54-CAMERA RENAME MP4.VBS.TXT"
+
+' -------------------------------------------------------------------
+I_COUNT=I_COUNT+1
+VAR_DO_SECONDARY_FULL_PATH_TO_EXIST(I_COUNT)="TRUE"
+VAR_DO_ONLY_SOURCE_TO_DESTINATION_1_WAY(I_COUNT)="TRUE"
+
+'VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="TRUE"
+
+VAR_PATH_FILE_1(I_COUNT)=I1
+VAR_PATH_FILE_2(I_COUNT)=I2
+' -------------------------------------------------------------------
+
 
 
 
