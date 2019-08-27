@@ -55,7 +55,7 @@ Fil_1_PATH="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BluetoothView_Desc -- " & 
 Set Fil_1 = FSO.GetFile (Fil_1_PATH)
 Fil_1_SIZE=Fil_1.Size
 
-Fil_2_PATH="C:\0 00 LOGGERS TEXT\BlueToothView Logger\BluetoothView_Desc -- " & strComputerName & ".txt"
+Fil_2_PATH="C:\0 00 LOGGERS TEXT\BlueToothView Logger #NFS\BluetoothView_Desc -- " & strComputerName & ".txt"
 
 Fil_2_PATH_TRIM=MID(Fil_2_PATH,1,INSTRREV(Fil_2_PATH,"\"))
 
