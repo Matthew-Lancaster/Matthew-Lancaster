@@ -1116,7 +1116,7 @@ CHECK_SET_OF_APP_NOT_RESPONDING_MAIN:
 		IF TIMER_SET_NOT_RESPONDING=0
 		{
 			TIMER_SET_NOT_RESPONDING = % A_Now
-			TIMER_SET_NOT_RESPONDING += 1, MINUTES
+			TIMER_SET_NOT_RESPONDING += 20, MINUTES
 			; TIMER_SET_NOT_RESPONDING += 30, SECONDS
 			; TIMER_SET_NOT_RESPONDING += 4, SECONDS
 		}
@@ -1143,6 +1143,13 @@ RETURN
 CLOSE_MANY_APP_IF_NOT_RESPONDER:
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	; VARIABLE HOLD TIME FOR NOT RESPONDER
+	; SEARCH AND FIND
+	; ---------------------------------------------------------------
+	; TIMER_SET_NOT_RESPONDING += 1, MINUTES
+	; ---------------------------------------------------------------
 
 	DetectHiddenWindows, ON
 
