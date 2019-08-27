@@ -21,6 +21,13 @@ Menu, Tray, Add  ; Creates a separator line.
 Menu, Tray, Add, RELAUNCH CODE, MenuHandler  ; Creates a new menu item.
 }
 
+if A_ScriptName=Autokey -- 21-AUTORUN.ahk
+{
+VAR_RUN_ME_NOW_AUTOBOOT=FALSE
+Menu, Tray, Add  ; Creates a separator line.
+Menu, Tray, Add, RUN HERE NOW, MenuHandler  ; Creates a new menu item.
+}
+
 
 Menu, Tray, Add  
 Menu, Tray, Add, Terminate Script, MenuHandler

@@ -26,6 +26,12 @@ if A_ThisMenuItem=RELAUNCH CODE
 	Process, Close,% DllCall("GetCurrentProcessId")
 }
 
+if A_ThisMenuItem=RUN HERE NOW
+{
+	VAR_RUN_ME_NOW_AUTOBOOT=TRUE
+
+}
+
 
 if A_ThisMenuItem=RESTORE_VB_KEEP_RUNNER AND ELITESPY -- RIGHT(Ctrl)+F1
 {
