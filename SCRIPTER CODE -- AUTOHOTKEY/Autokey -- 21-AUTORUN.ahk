@@ -193,10 +193,16 @@
 
 
 ; SCRIPT BEGINNER ===================================================
-#Warn
 #NoEnv
+#Warn
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+
 #SingleInstance Force
 ; -------------------------------------------------------------------
+
+
 
 ; -------------------------------------------------------------------
 ; Register a function to be called on exit:
@@ -619,6 +625,10 @@ IF SET_GO_1=TRUE
 		SLEEP 1000
 		IF I_COUNT>%SET_GO_2%
 			BREAK
+			
+		IF VAR_RUN_ME_NOW_AUTOBOOT=TRUE
+			BREAK
+		
 	}
 }
 
