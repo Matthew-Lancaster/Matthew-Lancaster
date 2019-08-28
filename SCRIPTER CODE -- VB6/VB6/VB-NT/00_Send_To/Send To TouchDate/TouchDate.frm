@@ -603,19 +603,37 @@ End Function
 
 Private Sub Form_Resize()
 
-Dim R
+Dim r
 
-LABEL_SET(10).Caption = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
-LABEL_SET(11).Caption = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+Dim M()
+ReDim M(LABEL_SET.Count)
+i = 0
 
-For R = 1 To LABEL_SET.Count
-    If LABEL_SET(R).Caption = "PERFORM ON ALL FILES IN FOLDER OR FILE" Then
-        LABEL_SET(R).Caption = ""
+i = i + 1: M(i) = "GO"
+i = i + 1: M(i) = "Folder Label"
+i = i + 1: M(i) = "File Label"
+'i = i + 1: M(i) = "PERFORM ON ALL FILES IN FOLDER OR FILE"
+i = i + 1: M(i) = "NOW DATE"
+i = i + 1: M(i) = "MODIFY DATE TO CREATED DATE - NOT WORKING"
+i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
+i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
+i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+
+For r = 1 To LABEL_SET.Count
+    If LABEL_SET(r).Caption <> M(r) Then
+        LABEL_SET(r).Caption = M(r)
+    End If
+    If LABEL_SET(r).Caption = "" Then
+        LABEL_SET(r).Visible = False
     End If
 Next
-For R = 1 To LABEL_SET.Count
-    LABEL_SET(R).Caption = Replace(LABEL_SET(R).Caption, "_", " ")
-Next
+
+'For r = 1 To LABEL_SET.Count
+'    LABEL_SET(r).Caption = Replace(LABEL_SET(r).Caption, "_", " ")
+'Next
 
 LABEL_SET(2).FontSize = 12
 LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
@@ -626,26 +644,27 @@ HL = LABEL_SET(2).Height
 HL = 500
 
 STEP_H = 100
-For R = 2 To LABEL_SET.Count
-    If LABEL_SET(R).Caption = "" Then
-        LABEL_SET(R).Visible = False
+For r = 1 To LABEL_SET.Count
+    If LABEL_SET(r).Caption = "" Then
+        LABEL_SET(r).Visible = False
     End If
     
-    If LABEL_SET(R).Visible = True Then
-        LABEL_SET(R).Left = 100
-        LABEL_SET(R).Width = Me.Width - 300
-        LABEL_SET(R).Height = HL
-        LABEL_SET(R).Top = STEP_H
+    If LABEL_SET(r).Visible = True Then
+        LABEL_SET(r).Left = 100
+        LABEL_SET(r).Width = Me.Width - 300
+        LABEL_SET(r).Height = HL
+        LABEL_SET(r).Top = STEP_H
         STEP_H = STEP_H + 40 + HL
     End If
 Next
 
-R = 1
-LABEL_SET(R).Left = 100
-LABEL_SET(R).Width = Me.Width - 300
-LABEL_SET(R).Height = HL
-LABEL_SET(R).Top = STEP_H
+r = 1
+LABEL_SET(r).Left = 100
+LABEL_SET(r).Width = Me.Width - 300
+LABEL_SET(r).Height = HL
+LABEL_SET(r).Top = STEP_H
 STEP_H = STEP_H + 40 + HL
+
 
 
 
@@ -657,7 +676,9 @@ Private Sub LABEL_SET_Click(index As Integer)
 
 LABEL_SET(index).BackColor = Label_COLOR_YELLOW.BackColor
 
-Select Case index
+
+Select Case M(index)
+
 Case 2
     ' FOLDER BUTTON
     ' LABEL_SET(2)
@@ -665,39 +686,31 @@ Case 3
     ' FILE BUTTON
     ' LABEL_SET(3)
 
-Case 4
-    'Call Label3_Click
-    ' Caption         =   "PERFORM ON ALL FILES IN FOLDER OR FILE"
+Case "PERFORM ON ALL FILES IN FOLDER OR FILE"
+    ' Call Label3_Click
     
-Case 5
+Case "NOW DATE"
     Call Label1_Click
-    ' Caption         =   "NOW DATE"
     
-Case 6
+Case "MODIFY DATE TO CREATED DATE - NOT WORKING"
     Call Label2_Click
-    ' Caption         =   "MODIFY DATE TO CREATED DATE - NOT WORKING"
     
-Case 7
+Case "BATCH - CREATED DATE TO MODIFY DATE"
     Call Label9_Click
-    ' Caption         =   "BATCH - CREATED DATE TO MODIFY DATE"
     
-Case 8
+Case "FILE  - CREATED DATE TO MODIFY DATE"
     Call Label11_Click
-    ' Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
     
-Case 9
+Case "SET_ONE_DATE_HARDCODER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    WORK = "SET_ONE_DATE_HARDCODER"
     
-Case 10
+Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
 
-Case 11
+Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    WORK = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
     
-Case 1
+Case "GO"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     Call Label_GO_AH_Click
     
@@ -1387,11 +1400,11 @@ If WORK = "SET_ONE_DATE" = True Then
     'DATEVAR = ""
     
     
-    For R = 1 To 10
-    If Mid(DATEVAR, R, 1) = "-" Then Mid(DATEVAR, R, 1) = "/"
+    For r = 1 To 10
+    If Mid(DATEVAR, r, 1) = "-" Then Mid(DATEVAR, r, 1) = "/"
     Next
-    For R = 10 To Len(DATEVAR)
-    If Mid(DATEVAR, R, 1) = "-" Then Mid(DATEVAR, R, 1) = ":"
+    For r = 10 To Len(DATEVAR)
+    If Mid(DATEVAR, r, 1) = "-" Then Mid(DATEVAR, r, 1) = ":"
     Next
     DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
     
@@ -1498,10 +1511,10 @@ End Sub
 
 Public Function GetSpecialFolder_Show_Script_Debug(CSIDL As Long) As String
 
-Dim R As Long
+Dim r As Long
 On Error Resume Next
-For R = 0 To 120
-    If Trim(GetSpecialfolder(R)) <> "" Then
+For r = 0 To 120
+    If Trim(GetSpecialfolder(r)) <> "" Then
         'Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
         'AAX = GetSpecialfolder(R)
     End If
