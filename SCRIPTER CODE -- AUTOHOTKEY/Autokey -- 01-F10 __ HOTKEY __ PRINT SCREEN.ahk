@@ -222,7 +222,7 @@ RETURN
 ; must type an ending character after typing btw, such as Space, ., or Enter).
 
 :*:hima::
-MESSENGER_KEY=Hi Marianne and Eddie
+MESSENGER_KEY=Hi Marianne Eddie
 GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
 RETURN
