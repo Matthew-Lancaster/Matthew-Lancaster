@@ -42,7 +42,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_1 := []
 	ArrayCount := 0
 	ArrayCount += 1
-	FN_Array_1[ArrayCount]:="- Application Error"
+	FN_Array_1[ArrayCount]:="Application Error"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="VB6\VB-NT\"
 	ArrayCount += 1
@@ -127,8 +127,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	}
 
 	; TEST DEBUG
-;	IF SET_GO_GS=TRUE
-;			TOOLTIP %VAR_IN_NAME_1%
+	; IF SET_GO_GS=TRUE
+			; TOOLTIP %VAR_IN_NAME_1%
 
 	IF SET_GO_GS=TRUE
 	{
@@ -187,6 +187,11 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 					SET_GO_02=TRUE
 			}
 		}
+		
+		; TEST DEBUG
+		; IF SET_GO_GS=TRUE
+			; TOOLTIP %SET_GO_GS%
+		
 		IF SET_GO_02=TRUE
 		{
 			ControlGetText CONTROL_TEXT_01,Button1,%VAR_IN_NAME_4% ahk_class #32770
@@ -216,6 +221,9 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 			}
 			
 			; TOOLTIP % StrLen(CONTROL_TEXT_01)
+
+			TOOLTIP % StrLen(CONTROL_TEXT_01)
+
 			
 			IF INSTR(CONTROL_TEXT_01,"OK")>0
 			IF StrLen(CONTROL_TEXT_01)=4
