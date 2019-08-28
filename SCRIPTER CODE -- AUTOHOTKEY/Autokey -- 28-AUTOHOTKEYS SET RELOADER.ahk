@@ -192,6 +192,7 @@ FN_Array_1 := []
 FN_Array_2 := []
 FN_Array_3 := []
 FN_Array_4 := []
+FN_Array_5 := []
 DATE_MOD_Array := []
 
 Element_3 := 
@@ -303,11 +304,28 @@ IF SET_GO=TRUE
 
 ; IF (A_ComputerName = "7-ASUS-GL522VW") 
 
+
+; -------------------------------------------------------------------
+; HERE THE INCLUDE SET PAIR IN THIS EXAMPLE
+; WHEN THE INCLUDE DETECT CHANGE DATE FILE
+; IT RUN THE ADJACENT ONE LESS APP AHK
+; QUICK IMPLEMENT
+; -------------------------------------------------------------------
+; Wed 28-Aug-2019 23:24:50
+; -------------------------------------------------------------------
+ 
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk"
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
 
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_02.ahk"
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
+
+
+
 
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER.ahk"
@@ -349,6 +367,7 @@ Loop % ArrayCount
 	TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
 	TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
 	TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+	; TEMP_VAR_4 -- PATH
 	TEMP_VAR_4:=SUBSTR(TEMP_VAR_1,INSTR(TEMP_VAR_1,"\",,0)+1)
 
 	FN_Array_2.InsertAt(A_Index,TEMP_VAR_3)
@@ -421,6 +440,174 @@ RETURN
 ; -------------------------------------------------------------------
 ; END OF INIT CODE
 ; -------------------------------------------------------------------
+
+TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
+
+SET_TIMER=FALSE
+
+Loop % ArrayCount
+{
+	TT_1_LESS=A_Index
+	TT_1_LESS+=-1
+	Element_1 := FN_Array_1[A_Index]
+	Element_7 := FN_Array_1[TT_1_LESS]
+
+	Element_2 := DATE_MOD_Array[A_Index]
+
+	Element_3 := FN_Array_2[A_Index]
+	Element_5 := FN_Array_2[TT_1_LESS]
+	Element_4 := FN_Array_4[A_Index]
+	Element_4 = %Element_4% ahk_class #32770
+
+	RUN_APP_GO=TRUE
+
+	IF WinExist(Element_4)
+	{
+		; MSGBOX % Element_4
+		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,40000
+		Element_8=%Element_2%
+		Element_8+= -1, Days
+		DATE_MOD_Array.InsertAt(A_Index,Element_8)
+		; MSGBOX % Element_2 " -- " DATE_MOD_Array[A_Index]
+		SET_TIMER=TRUE
+		RUN_APP_GO=FALSE
+	}
+	IF SET_TIMER=FALSE
+	{	
+		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
+	}
+	
+	IfExist, %Element_1%
+		FileGetTime, OutputVar, %Element_1%, M
+	
+	RUN_APP_HAPPEN_FLAG=FALSE
+	IfExist, %Element_1%
+		IF (!WinExist(Element_3))
+			IF RUN_APP_GO=TRUE
+			{
+				DATE_MOD_Array[A_Index] := OutputVar
+				TOOLTIP % Element_3
+				if INSTR(Element_3,"_INCLUDE.ahk")=0
+					GOSUB RUN_THE_APP
+				RUN_APP_HAPPEN_FLAG=TRUE
+			}
+	
+	IF RUN_APP_HAPPEN_FLAG=FALSE
+		IF OutputVar<>%Element_2%
+			IF RUN_APP_GO=TRUE
+			{
+				; -----------------------------------------------------------
+				; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
+				; IMMEDIATELY AGAIN
+				; -----------------------------------------------------------
+				; IF (A_TimeIdle > 1000)
+				IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
+				{
+					DATE_MOD_Array[A_Index] := OutputVar
+					GOSUB RUN_THE_APP
+				}
+			}
+}
+
+FIRST_RUN=FALSE
+
+RETURN
+
+RUN_THE_APP:
+
+	SET_GO=TRUE
+	
+	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	{
+		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "2-ASUS-EEE") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "3-LINDA-PC") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "5-ASUS-P2520LA") 
+			SET_GO=FALSE
+	}
+
+	
+	; ----------------------------------------------------------
+	; NEW CODE FOR INCLUDE FILE -- DON'T RUN THE INCLUDE BUT 
+	; RUN THE ALTERNATIVE PROGRAM THAT INCLUDE IS WITH OR MANY
+	; ----------------------------------------------------------
+	if INSTR(Element_3,"_INCLUDE.ahk")
+	{
+		TOOLTIP % Element_5
+		WinGet, PID_1, PID, %Element_5% ahk_class AutoHotkey
+		IF PID_1>0 
+		{
+			Process, Close,% PID_1
+		}
+		Run, %Element_5%
+		SOUNDBEEP, 1500,100
+		RETURN	
+	}
+
+	
+	; ----------------------------------------------------------
+	; FOUND ANSWER LOOK AT CODE HERE
+	; REQUIRE SOME SORT OF HOT SWAP LAUNCHER FOR ITSELF OWN CODE
+	; ----------------------------------------------------------
+	if INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
+	{
+		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+		Process, Close,% DllCall("GetCurrentProcessId")
+		SOUNDBEEP, 1500,100
+		RETURN
+	}
+	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	{
+		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
+		IF PID_1>0 
+		{
+			Process, Close,% PID_1
+		}
+		Run, %Element_1%
+		SOUNDBEEP, 1500,100
+		RETURN
+	}
+
+	; Loop % 500
+	; {
+		; PID_1=
+		; PID_2=
+		; WinGet, PID_1, PID, %Element_4% ahk_class #32770
+		; IF PID_1>0 
+		; {
+			; ; MSGBOX %PID_1% " -- " %Element_4%
+			; ; Process, Close,% PID_1
+			; PID_1=
+		; }
+		; WinGet, PID_2, PID, %Element_3% ahk_class AutoHotkey
+		; IF PID_1>0 
+		; {
+			; Process, Close,% PID_2
+			; ; MSGBOX % PID_1 " -- " PID_2
+		; }
+		; if (!PID_1 and !PID_2)
+			; BREAK
+	; }
+		
+	SoundBeep , 2000 , 20
+	Run, %Element_1%
+
+
+RETURN
+
+; WinGetTitle, Titel, ahk_id %ID%
+
+; SkriptPath := RegExReplace(Titel, " - AutoHotkey v" A_AhkVersion )
+; SplitPath,SkriptPath,KurzName
+
+; WinGet, PID, PID, %SkriptPath% ahk_class AutoHotkey
+
+
+
+
 
 TIMER_CLOSE_DIFFERCULT_TO_SHUTDOWN_PROGRAM_WHEN_RESTART:
 	IfWinExist End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
@@ -539,144 +726,6 @@ IfWinNotExist, AHK_CLASS FileZilla Server Main Window
 	}
 }
 RETURN
-
-TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
-
-SET_TIMER=FALSE
-
-Loop % ArrayCount
-{
-	Element_1 := FN_Array_1[A_Index]
-	Element_2 := DATE_MOD_Array[A_Index]
-	Element_3 := FN_Array_2[A_Index]
-	Element_4 := FN_Array_4[A_Index]
-	Element_4 = %Element_4% ahk_class #32770
-
-	RUN_APP_GO=TRUE
-
-	IF WinExist(Element_4)
-	{
-		; MSGBOX % Element_4
-		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,40000
-		Element_8=%Element_2%
-		Element_8+= -1, Days
-		DATE_MOD_Array.InsertAt(A_Index,Element_8)
-		; MSGBOX % Element_2 " -- " DATE_MOD_Array[A_Index]
-		SET_TIMER=TRUE
-		RUN_APP_GO=FALSE
-	}
-	IF SET_TIMER=FALSE
-	{	
-		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
-	}
-	
-	IfExist, %Element_1%
-		FileGetTime, OutputVar, %Element_1%, M
-	
-	RUN_APP_HAPPEN_FLAG=FALSE
-	IfExist, %Element_1%
-		IF (!WinExist(Element_3))
-			IF RUN_APP_GO=TRUE
-			{
-				DATE_MOD_Array[A_Index] := OutputVar
-				GOSUB RUN_THE_APP
-				RUN_APP_HAPPEN_FLAG=TRUE
-			}
-	
-	IF RUN_APP_HAPPEN_FLAG=FALSE
-		IF OutputVar<>%Element_2%
-			IF RUN_APP_GO=TRUE
-			{
-				; -----------------------------------------------------------
-				; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
-				; IMMEDIATELY AGAIN
-				; -----------------------------------------------------------
-				; IF (A_TimeIdle > 1000)
-				IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
-				{
-					DATE_MOD_Array[A_Index] := OutputVar
-					GOSUB RUN_THE_APP
-				}
-			}
-}
-
-FIRST_RUN=FALSE
-
-RETURN
-
-RUN_THE_APP:
-
-	SET_GO=TRUE
-	
-	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
-	{
-		IF (A_ComputerName = "1-ASUS-X5DIJ") 
-			SET_GO=FALSE
-		IF (A_ComputerName = "2-ASUS-EEE") 
-			SET_GO=FALSE
-		IF (A_ComputerName = "3-LINDA-PC") 
-			SET_GO=FALSE
-		IF (A_ComputerName = "5-ASUS-P2520LA") 
-			SET_GO=FALSE
-	}
-
-	; ----------------------------------------------------------
-	; FOUND ANSWER LOOK AT CODE HERE
-	; REQUIRE SOME SORT OF HOT SWAP LAUNCHER FOR ITSELF OWN CODE
-	; ----------------------------------------------------------
-	if INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
-	{
-		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
-		Process, Close,% DllCall("GetCurrentProcessId")
-		SOUNDBEEP, 1500,100
-		RETURN
-	}
-	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
-	{
-		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
-		IF PID_1>0 
-		{
-			Process, Close,% PID_1
-		}
-		Run, %Element_1%
-		SOUNDBEEP, 1500,100
-		RETURN
-	}
-
-	; Loop % 500
-	; {
-		; PID_1=
-		; PID_2=
-		; WinGet, PID_1, PID, %Element_4% ahk_class #32770
-		; IF PID_1>0 
-		; {
-			; ; MSGBOX %PID_1% " -- " %Element_4%
-			; ; Process, Close,% PID_1
-			; PID_1=
-		; }
-		; WinGet, PID_2, PID, %Element_3% ahk_class AutoHotkey
-		; IF PID_1>0 
-		; {
-			; Process, Close,% PID_2
-			; ; MSGBOX % PID_1 " -- " PID_2
-		; }
-		; if (!PID_1 and !PID_2)
-			; BREAK
-	; }
-		
-	SoundBeep , 2000 , 20
-	Run, %Element_1%
-
-
-RETURN
-
-; WinGetTitle, Titel, ahk_id %ID%
-
-; SkriptPath := RegExReplace(Titel, " - AutoHotkey v" A_AhkVersion )
-; SplitPath,SkriptPath,KurzName
-
-; WinGet, PID, PID, %SkriptPath% ahk_class AutoHotkey
-
 
 
 
