@@ -222,9 +222,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 			
 			; TOOLTIP % StrLen(CONTROL_TEXT_01)
 
-			TOOLTIP % StrLen(CONTROL_TEXT_01)
-
-			
+						
 			IF INSTR(CONTROL_TEXT_01,"OK")>0
 			IF StrLen(CONTROL_TEXT_01)=4
 			{
@@ -270,7 +268,11 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 				}
 			}
 			IF SHOW_COUNTDOWN_ACTION=TRUE
+			{
+				TOOLTIP % Secs_MSGBOX_08
+
 				ControlSetText,Button1,OK  %Secs_MSGBOX_08%, %VAR_IN_NAME_4% ahk_class #32770
+			}
 		}
 	}
 
