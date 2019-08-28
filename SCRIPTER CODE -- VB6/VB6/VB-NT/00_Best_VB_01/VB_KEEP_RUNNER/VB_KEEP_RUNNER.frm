@@ -5359,7 +5359,7 @@ Dim F
 Dim V_VAR
 Dim GOOD_SYNC
 Dim V_TIME_01
-GS_NAME_01 = "D:\0 00 LOGGERS TEXT GOODSYNC\" + GetComputerName + "\"
+GS_NAME_01 = "D:\0 00 LOGGERS TEXT GOODSYNC\#NFS-" + GetComputerName + "\"
 GS_NAME_02 = "GOODSYNC-*.LOG"
 If FSO.FolderExists(GS_NAME_01) = False Then
     IRESULT = CreateFolderTree(GS_NAME_01)
