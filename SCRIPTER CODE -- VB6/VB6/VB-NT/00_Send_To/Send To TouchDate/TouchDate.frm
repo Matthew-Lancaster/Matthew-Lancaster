@@ -480,6 +480,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim M()
+
 Dim FIRST_RUN
 Dim a
 Dim W$
@@ -605,7 +607,6 @@ Private Sub Form_Resize()
 
 Dim r
 
-Dim M()
 ReDim M(LABEL_SET.Count)
 i = 0
 
@@ -615,16 +616,22 @@ i = i + 1: M(i) = "File Label"
 'i = i + 1: M(i) = "PERFORM ON ALL FILES IN FOLDER OR FILE"
 i = i + 1: M(i) = "NOW DATE"
 i = i + 1: M(i) = "MODIFY DATE TO CREATED DATE - NOT WORKING"
+i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
 i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
+i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
 i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
 
 For r = 1 To LABEL_SET.Count
-    If LABEL_SET(r).Caption <> M(r) Then
-        LABEL_SET(r).Caption = M(r)
+    If M(r) <> "Folder Label" Then
+        If M(r) <> "File Label" Then
+            If LABEL_SET(r).Caption <> M(r) Then
+                LABEL_SET(r).Caption = M(r)
+            End If
+        End If
     End If
     If LABEL_SET(r).Caption = "" Then
         LABEL_SET(r).Visible = False
@@ -644,7 +651,7 @@ HL = LABEL_SET(2).Height
 HL = 500
 
 STEP_H = 100
-For r = 1 To LABEL_SET.Count
+For r = 2 To LABEL_SET.Count
     If LABEL_SET(r).Caption = "" Then
         LABEL_SET(r).Visible = False
     End If
@@ -666,6 +673,8 @@ LABEL_SET(r).Top = STEP_H
 STEP_H = STEP_H + 40 + HL
 
 
+Me.Height = STEP_H + 800
+Me.Top = 0
 
 
 End Sub
@@ -675,7 +684,9 @@ End Sub
 Private Sub LABEL_SET_Click(index As Integer)
 
 LABEL_SET(index).BackColor = Label_COLOR_YELLOW.BackColor
-
+If M(index) <> "GO" Then
+    WORK = M(index)
+End If
 
 Select Case M(index)
 
@@ -778,9 +789,21 @@ W$ = "D:\VI_ DSC ME\2010+NOKIA\" '"2015 NOKIA E72 _ 008 AUG _ MP4 _ x001 _ Home 
 ' CARE WHEN MODIFY DATE FROM MOD TO CREATED _
 ' EXPLORER WITH A DISPLAY OF JPG TREAT AS PICTURE AND NOT THE REAL FILE SYSTEM MOD-DATE SELECTION FOR COLOUMN HEADER
 
+W$ = ""
+
 If Command$ <> "" Or W$ <> "" Then
     If W$ = "" Then W$ = Command$
 End If
+
+If Command$ = "" And W$ = "" Then
+    If Clipboard.GetFormat(vbCFText) Then
+        W$ = Clipboard.GetText(vbCFText) ' Get Clipboard text.
+        If FSO.FolderExists(W$) = False Then
+            W$ = ""
+        End If
+    End If
+End If
+
 
 If Mid(W$, 1, 1) = """" Then
     W$ = Mid(W$, 2): W$ = Mid(W$, 1, Len(W$) - 1)
