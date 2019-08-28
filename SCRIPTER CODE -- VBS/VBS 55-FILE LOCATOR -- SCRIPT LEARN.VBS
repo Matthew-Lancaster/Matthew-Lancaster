@@ -29,6 +29,7 @@ On Error Resume Next
 	IF INSTR(strPath + strFileName,"\Start Menu\")>0 THEN bIsValid = False
 	IF INSTR(strPath + strFileName,"#NFS-")>0 THEN bIsValid = False
 	IF INSTR(strPath + strFileName,"C:\0 00 SETTING INI SYNC-ER\")>0 THEN bIsValid = False
+	IF INSTR(ucase(strPath),":\TEMP")>0 THEN bIsValid = False
 	
 	
 	isValidFileName = bIsValid
