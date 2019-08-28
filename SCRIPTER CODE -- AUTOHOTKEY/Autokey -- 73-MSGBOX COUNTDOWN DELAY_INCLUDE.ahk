@@ -106,6 +106,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_3[ArrayCount]:="Object doesn" ; WIN XP
 	ArrayCount += 1
 	FN_Array_3[ArrayCount]:="support the Property or method" ; WIN XP
+	ArrayCount += 1
+	FN_Array_3[ArrayCount]:="The application was unable to start" ; WIN 07 STARTER
 	; ---------------------------------------------------------------
 	; LINE THAT HAVE ODD CHARACTER HERE DON'T WORK -- doesn't
 	; Run-time error -- WAS THE ALTERNATIVE IN THIS PARTICULAR ONE
