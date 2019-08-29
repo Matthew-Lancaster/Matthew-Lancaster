@@ -110,6 +110,19 @@
 
 ; CERTAINLY CONCERNED - PRO-CON PRO-CERNED PROCEED
 
+; -------------------------------------------------------------------
+; 009 ---------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
+; INCLUDER
+; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
+; -------------------------------------------------------------------
+; Wed 28-Aug-2019 23:07:02
+; Thu 29-Aug-2019 00:35:10 -- HOW LONG SMALL CODE WANT BEFORE BEDTIME
+; ----------------------------------------------------------------------------
+
+
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
 ; Location Internet
@@ -447,15 +460,18 @@ SET_TIMER=FALSE
 
 Loop % ArrayCount
 {
-	TT_1_LESS=A_Index
-	TT_1_LESS+=-1
+	TT_1_LESS=%A_Index%
+	TT_1_LESS-=1
 	Element_1 := FN_Array_1[A_Index]
-	Element_7 := FN_Array_1[TT_1_LESS]
+	
+	Element_7 := FN_Array_1[TT_1_LESS]  ; -- LESS 
 
 	Element_2 := DATE_MOD_Array[A_Index]
 
 	Element_3 := FN_Array_2[A_Index]
-	Element_5 := FN_Array_2[TT_1_LESS]
+	
+	Element_5 := FN_Array_2[TT_1_LESS]  ; -- LESS 
+	
 	Element_4 := FN_Array_4[A_Index]
 	Element_4 = %Element_4% ahk_class #32770
 
@@ -482,13 +498,27 @@ Loop % ArrayCount
 	
 	RUN_APP_HAPPEN_FLAG=FALSE
 	IfExist, %Element_1%
+		IF INSTR(Element_3,"_INCLUDE.ahk")=0
 		IF (!WinExist(Element_3))
 			IF RUN_APP_GO=TRUE
 			{
 				DATE_MOD_Array[A_Index] := OutputVar
-				TOOLTIP % Element_3
-				if INSTR(Element_3,"_INCLUDE.ahk")=0
-					GOSUB RUN_THE_APP
+				GOSUB RUN_THE_APP
+				RUN_APP_HAPPEN_FLAG=TRUE
+			}
+	; ---------------------------------------------------------------
+	; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
+	; INCLUDER
+	; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
+	; Thu 29-Aug-2019 00:35:10
+	; ---------------------------------------------------------------
+	IfExist, %Element_1%
+		IF INSTR(Element_3,"_INCLUDE.ahk")>0
+		IF (!WinExist(Element_5))
+			IF RUN_APP_GO=TRUE
+			{
+				DATE_MOD_Array[A_Index] := OutputVar
+				GOSUB RUN_THE_APP
 				RUN_APP_HAPPEN_FLAG=TRUE
 			}
 	
@@ -536,7 +566,8 @@ RUN_THE_APP:
 	; ----------------------------------------------------------
 	if INSTR(Element_3,"_INCLUDE.ahk")
 	{
-		TOOLTIP % Element_5
+	
+		; MSGBOX %Element_5%
 		WinGet, PID_1, PID, %Element_5% ahk_class AutoHotkey
 		IF PID_1>0 
 		{
