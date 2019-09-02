@@ -2,8 +2,15 @@ Attribute VB_Name = "APublics"
 Public NET_C_PATH
 Public NET_D_PATH
 Public NET_E_PATH
+Public NET_PATH_ALL
 
-Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER
+Public CLIPBOARDOR_PATH_NAME
+Public CLIPBOARDOR_PATH_LINK
+Public CLIPBOARDOR_PATH_SHORT
+
+Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01
+Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02
+Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_03
 Public NETWORK_2_STEP_JUMPER
 
 Public TEXT_PATH_1
@@ -30,12 +37,12 @@ End Type
 Public Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
 Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As Rect) As Long
 
-Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
+Public Declare Sub CopyMemory Lib "Kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Public Declare Function GetForegroundWindow Lib "user32" () As Long
 Public Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 
-Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
