@@ -24,6 +24,8 @@ Public Declare Function SHGetFileInfo Lib "shell32.dll" Alias "SHGetFileInfoA" (
 
 Public Sub GETSHORTLINK(LINKTXT)
 
+' OPPOSITE == GetLongName
+
 'MAKE SURE CHDRIVE APP.PATH AND CHDIR APP.PATH -- ARE SET FOR "sheltarg.dll"
 ChDrive App.Path
 ChDir App.Path
@@ -145,7 +147,7 @@ Public Function GetLongName(ByVal sShortName As String) As String
     Wend
     
     'Prefix with the drive letter
-    GetLongName = DRIVE_LETTER & sLongName
+    GetLongName = DRIVE_LETTER + ":" + sLongName
     
 End Function
 
