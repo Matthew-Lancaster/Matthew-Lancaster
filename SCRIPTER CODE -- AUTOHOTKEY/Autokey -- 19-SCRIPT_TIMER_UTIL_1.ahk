@@ -524,10 +524,6 @@ RETURN
 
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 
-
-	
-
-
 	IF (A_ComputerName<>"7-ASUS-GL522VW")
 	{
 		SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
@@ -591,27 +587,17 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 		RETURN
 
 	WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-	IF !INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+	IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+	{
+		GITHUB_SET_GO=FALSE
+		; MSGBOX INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+	}
 	IF GITHUB_SET_GO=TRUE
 	{
 		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
 		IfExist, %FN_VAR%
 		{
 			Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
-		}
-	}
-
-	; ---------------------------------------------------------------
-	; WASTE OF CODE TWO THE SAME ALREADY DOES WHAT WANTED TO DO
-	; -- GOODSYNC_MODE
-	; ---------------------------------------------------------------
-	IF TRUE=FALSE
-	IF GOODSYNC_SET_GO=TRUE
-	{
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
-		IfExist, %FN_VAR%
-		{
-			Run, %FN_VAR% /GOODSYNC_MODE /WITH_GITHUB_MODE /TASKBAR_TRAY_ICON
 		}
 	}
 	
