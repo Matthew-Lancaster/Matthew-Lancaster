@@ -130,6 +130,10 @@ MSGBOX_COUNTDOWN_RESTART=""
 VAR_WORKER_MSGBOX_DELAY_COUNT=""
 OLD_VAR_WORKER_MSGBOX_DELAY_COUNT=-2
 
+O_DATE_MOD_1=
+O_DATE_MOD_2=
+O_DATE_MOD_3=
+
 SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,1000
 
 SETTIMER MSGBOX_PRESS_FOR_RELOADER,4000
@@ -143,8 +147,26 @@ SETTIMER TIMER_MSGBOX_WINDOWS_SCRIPT_HOST_IP_CHANGER,1000
 SETTIMER TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER,1000
 
 SETTIMER TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX,1000
+
+SETTIMER RELOAD_OWN_SCRIPT_IF_INCLUDE_UPDATER,1000
 	
 RETURN
+
+RELOAD_OWN_SCRIPT_IF_INCLUDE_UPDATER:
+
+	; ---------------------------------------------------------------
+	GOSUB SUB_ROUTINE_INCLUDE
+	; ---------------------------------------------------------------
+	; #Include %A_ScriptDir%\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE_02.ahk
+	; ---------------------------------------------------------------
+		
+RETURN
+
+; -------------------------------------------------------------------
+; GOSUB SUB_ROUTINE_INCLUDE
+; -------------------------------------------------------------------
+#Include %A_ScriptDir%\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE_02.ahk
+; -------------------------------------------------------------------
 
 
 TIMER_HOTKEY_VB_CONFIRM_SAVE_AS:
