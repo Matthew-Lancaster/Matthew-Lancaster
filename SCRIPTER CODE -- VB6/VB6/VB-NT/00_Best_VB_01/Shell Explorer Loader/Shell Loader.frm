@@ -5,7 +5,7 @@ Begin VB.Form Form1
    Caption         =   "EXPLORER LOADER"
    ClientHeight    =   5928
    ClientLeft      =   132
-   ClientTop       =   780
+   ClientTop       =   1380
    ClientWidth     =   12312
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
@@ -5868,11 +5868,26 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_CLIPBOARDOR 
       Caption         =   "CLIPBOARD ITEM TEXT"
    End
+   Begin VB.Menu MNU_CLIPBOARDOR_PATH_LINK 
+      Caption         =   "CLIPBOARD ITEM PATH LINKER"
+   End
+   Begin VB.Menu MNU_CLIPBOARDOR_PATH_NAME 
+      Caption         =   "CLIPBOARD ITEM PATH NAME"
+   End
+   Begin VB.Menu MNU_CLIP_PATH_NAME_SHORT 
+      Caption         =   "CLIPBOARD ITEM PATH SHORT"
+   End
    Begin VB.Menu MNU_CLIPBOARD_ALL_NET_PATH 
       Caption         =   "CLIPBOARD ALL NET PATH"
    End
+   Begin VB.Menu MNU_CLIPBOARD_ALL_NET_PATH_REVERSE 
+      Caption         =   "CLIPBOARD ALL NET PATH REVERSE"
+   End
    Begin VB.Menu MNU_NETWORK_2_STEP_JUMPER 
       Caption         =   "NETWORK 2 STEP JUMPER"
+   End
+   Begin VB.Menu MNU_NETWORK_2_STEP_DRIVE_SELECTOR 
+      Caption         =   "NETWORK DRIVE SELECT - DONE"
    End
 End
 Attribute VB_Name = "Form1"
@@ -5927,7 +5942,7 @@ Private Declare Function FindWindow2 _
 
 
 
-Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
+Private Declare Sub CopyMemory Lib "Kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
 
 Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
@@ -5941,7 +5956,7 @@ Private Type Rect
     Bottom As Long
 End Type
 
-Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 
 
 Private Type POINTAPI
@@ -6139,6 +6154,8 @@ End Sub
 Private Sub Form_Load()
 
 ReDim A4$(500), B4$(500), C4$(500)
+
+Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = False
 
 If GetComputerName = GetComputerName Then
     FontSizez = 8
@@ -6352,9 +6369,21 @@ End Sub
 
 Private Sub MNU_CLIPBOARD_ALL_NET_PATH_Click()
 
-
     Clipboard.Clear
-    Clipboard.SetText NET_C_PATH + vbCrLf + NET_D_PATH + vbCrLf + NET_E_PATH + vbCrLf
+    Clipboard.SetText NET_PATH_ALL + vbCrLf
+    End
+
+End Sub
+
+Private Sub MNU_CLIPBOARD_ALL_NET_PATH_REVERSE_Click()
+
+    NET_PATH_ALL_REVERSE = ""
+    NET_PATH_ALL_R = Split(NET_PATH_ALL, vbCrLf)
+    For r3 = UBound(NET_PATH_ALL_R) To 0 Step -1
+        NET_PATH_ALL_REVERSE = NET_PATH_ALL_REVERSE + NET_PATH_ALL_R(r3) + vbCrLf
+    Next
+    Clipboard.Clear
+    Clipboard.SetText NET_PATH_ALL_REVERSE + vbCrLf
     End
 
 End Sub
@@ -6363,11 +6392,33 @@ Private Sub MNU_CLIPBOARDOR_Click()
 CLIPBOARDOR = True
 End Sub
 
+Private Sub MNU_CLIPBOARDOR_PATH_NAME_Click()
+CLIPBOARDOR_PATH_NAME = True
+End Sub
+Private Sub MNU_CLIPBOARDOR_PATH_LINK_Click()
+CLIPBOARDOR_PATH_LINK = True
+End Sub
+Private Sub MNU_CLIP_PATH_NAME_SHORT_Click()
+CLIPBOARDOR_PATH_NAME = True
+CLIPBOARDOR_PATH_SHORT = True
+End Sub
+
+
 Private Sub MNU_NETWORK_2_STEP_JUMPER_Click()
 
-NETWORK_2_STEP_JUMPER = True
+NETWORK_2_STEP_JUMPER = 2
+
+COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = ""
+COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = ""
+COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_03 = ""
+
+Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True
+Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Caption = "NETWORK DRIVE SELECT - " + Format(2 - NETWORK_2_STEP_JUMPER, "00") + " OF 02"
 
 ' MsgBox "SELECT THE NETWORK PATH AND THEN ANOTHER NORMAL FOLDER AND I WILL JUMP THERE AT NETWORK LOCATION"
+
+' SELECT ANY WAY WANT AROUND
+' JUST SELECT TWO NETOWRK AND LOCAL PATH
 
 Beep
 
@@ -6977,6 +7028,26 @@ Private Sub Form_Unload(Cancel As Integer)
 End
 End Sub
 
+Sub CLIP_PATH_LINK(TTIT)
+    Clipboard.Clear
+    Clipboard.SetText TTIT
+    End
+End Sub
+
+Sub CLIP_PATH_NAME(TTIT)
+    On Error Resume Next
+    Clipboard.Clear
+    If CLIPBOARDOR_PATH_SHORT = False Then
+        TTEYES = GetLongName(TTIT)
+        If TTEYES <> TTIT And TTEYES <> "" Then TTIT = TTEYES
+    End If
+    Clipboard.SetText TTIT
+    End
+End Sub
+
+
+
+
 Private Sub Label1_Click(Index As Integer)
 
 'Beep
@@ -6986,6 +7057,7 @@ If CLIPBOARDOR = True Then
     Clipboard.SetText Mid(Label1(Index).Caption, InStr(Label1(Index).Caption, " ") + 1)
     End
 End If
+
 
 If Label1(Index).BackColor = QBColor(12) Then
     MsgBox "THIS LINK IS MARKED RED FOR NOT USE"
@@ -7004,6 +7076,11 @@ Else
 'End
 End If
 
+If CLIPBOARDOR_PATH_LINK = True Then
+    Call Form1.CLIP_PATH_LINK(A1$ + B1$)
+End If
+
+
 '----
 'Shell Commands List for Windows 10 | Tutorials
 'https://www.tenforums.com/tutorials/3109-shell-commands-list-windows-10-a.html
@@ -7011,6 +7088,10 @@ End If
 If LoadFolder = True And InStr(C1$, "NETWORK COMPUTER NAME") > 0 Then
 
     Call SaveLoggs
+
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME("explorer shell:NetworkPlacesFolder")
+    End If
 
     Shell "explorer shell:NetworkPlacesFolder", vbNormalFocus
     End
@@ -7024,10 +7105,12 @@ If LoadFolder = True Then
 
     Call SaveLoggs
     
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME(A1$)
+    End If
     Shell "explorer /e, " + A1$, vbNormalFocus
     End
 End If
-
 
 Call SaveLoggs
 
@@ -7036,6 +7119,7 @@ Call FormStart.LabelClick(Index)
 End Sub
 
 Private Sub Lbl2_Click()
+
 
 Shell "explorer /e, E:\01 VB Shell Folders\00 " + App.EXEName, vbNormalFocus
 
@@ -7083,9 +7167,9 @@ Private Sub Lbl_Title_Click()
 
 FR1 = FreeFile
 Open TEXT_PATH_1 + "\" + OIP$ + " Loads.txt" For Input As #FR1
-Line Input #FR1, A1$
-Line Input #FR1, B1$
-Line Input #FR1, C1$
+    Line Input #FR1, A1$
+    Line Input #FR1, B1$
+    Line Input #FR1, C1$
 Close #FR1
 
 SetTrueToLoadLast = True

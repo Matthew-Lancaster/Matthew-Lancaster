@@ -15,15 +15,17 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
 '
 Dim R As Long
 
 Dim NET_PATH_AND_DRIVE
-
+Dim F1$
+Dim D1$
 '-----------------------------------------------------------------
-Private Declare Function GetVersionExA Lib "kernel32" _
+Private Declare Function GetVersionExA Lib "Kernel32" _
 (lpVersionInformation As OSVERSIONINFO) As Integer
 
 Private Type OSVERSIONINFO
@@ -69,17 +71,17 @@ For R = 3 To 25
     Set z = FSO.GetDrive(FSO.GetDriveName(FSO.GetAbsolutePathName(Chr$(R + 64) + ":")))
      
     Select Case z.DriveType
-        Case 0: t = "Unknown"
-        Case 1: t = "Removable"
-        Case 2: t = "Fixed"
-        Case 3: t = "Network"
-        Case 4: t = "CD-ROM"
-        Case 5: t = "RAM Disk"
+        Case 0: T = "Unknown"
+        Case 1: T = "Removable"
+        Case 2: T = "Fixed"
+        Case 3: T = "Network"
+        Case 4: T = "CD-ROM"
+        Case 5: T = "RAM Disk"
     End Select
     
     
     If Err.Number = 0 Then
-        tt$ = z.DriveLetter + ":" + "- Type - " + t + " --- Serial - " + Hex$(z.SerialNumber) + " - Vol.Name - " + z.VolumeName + vbCrLf
+        tt$ = z.DriveLetter + ":" + "- Type - " + T + " --- Serial - " + Hex$(z.SerialNumber) + " - Vol.Name - " + z.VolumeName + vbCrLf
         'RD$(tg) = tt$
         tg = tg + 1
         Y1$ = Y1$ + tt$
@@ -193,6 +195,7 @@ Do
             Call GET_COMPUTR_NETWORK_NAME
             NET_C_PATH = NET_C_PATH + NET_PATH_AND_DRIVE + vbCrLf
         End With
+        NET_PATH_ALL = NET_PATH_ALL + vbCrLf
         With ScanPath.ListView1
             NET_PATH_AND_DRIVE = Filename_VAR(R_L) + "__D"
             Set LV = .ListItems.Add(, , NET_PATH_AND_DRIVE)
@@ -201,6 +204,7 @@ Do
             NET_D_PATH = NET_D_PATH + NET_PATH_AND_DRIVE + vbCrLf
             
         End With
+        NET_PATH_ALL = NET_PATH_ALL + vbCrLf
         If R_L_X > 0 Then
             With ScanPath.ListView1
                 NET_PATH_AND_DRIVE = Filename_VAR(R_L) + "__E"
@@ -210,6 +214,7 @@ Do
                 NET_E_PATH = NET_E_PATH + NET_PATH_AND_DRIVE + vbCrLf
             End With
         End If
+        NET_PATH_ALL = NET_C_PATH + vbCrLf + NET_D_PATH + vbCrLf + NET_E_PATH + vbCrLf
     End If
 Loop Until EOF(FR_1)
 Close #FR_1
@@ -337,15 +342,15 @@ For R = 0 To 255
         Path = "--SPECIAL"
         
         SET_GO = True
-        f1 = UCase(Filename)
-        If InStr(f1, "DOCUMENTS AND") > 0 And InStr(f1, "ADMINISTRATIVE") > 0 Then
+        F1 = UCase(Filename)
+        If InStr(F1, "DOCUMENTS AND") > 0 And InStr(F1, "ADMINISTRATIVE") > 0 Then
             SET_GO = False
         End If
-        If InStr(f1, "DOCUMENTS AND") > 0 And InStr(f1, "MICROSOFT\CD BURNING") > 0 Then
+        If InStr(F1, "DOCUMENTS AND") > 0 And InStr(F1, "MICROSOFT\CD BURNING") > 0 Then
             SET_GO = False
         End If
         
-        If InStr(f1, UCase("AppData\Roaming\Microsoft\Windows\Printer Shortcuts")) > 0 Then
+        If InStr(F1, UCase("AppData\Roaming\Microsoft\Windows\Printer Shortcuts")) > 0 Then
             SET_GO = False
         End If
         'C:\Users\MATT 01\AppData\Roaming\Microsoft\Windows\Printer Shortcuts
@@ -840,6 +845,10 @@ Sub GET_COMPUTR_NETWORK_NAME()
             If COMPUTER_NAME_DRIVE_LETTER_VAR = "E" Then DRIVE_VAR = "03"
             COMPUTER_NAME_PUT_01 = "\\" + COMPUTER_NAME_VAR + "\" + COMPUTER_NAME_UNDERSCORE_VAR + "_"
             COMPUTER_NAME_PUT_02 = DRIVE_VAR + "_" + COMPUTER_NAME_DRIVE_LETTER_VAR + "_DRIVE"
+            If InStr(COMPUTER_NAME_PUT_02, "E_DRIVE") > 0 Then
+                'fat32_4gb
+                COMPUTER_NAME_PUT_02 = Replace(COMPUTER_NAME_PUT_02, "E_DRIVE", UCase("fat32_4gb"))
+            End If
             COMPUTER_NAME_PUT = COMPUTER_NAME_PUT_01 + COMPUTER_NAME_PUT_02
             ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive
             NET_PATH_AND_DRIVE = COMPUTER_NAME_PUT
@@ -875,6 +884,10 @@ If A1$ = "CONTROL_PANEL_SHELL" Then
     End If
     If SET_GO = 0 Then Shell B1$, vbMaximizedFocus
     If SET_GO = 1 Then
+        If CLIPBOARDOR_PATH_NAME = True Then
+            Call Form1.CLIP_PATH_NAME(B1$)
+        End If
+
         Shell "CMD /C """ + B1$ + """", vbMaximizedFocus
 '        vLaunch "CMD /C ""start ms-settings:""", vbMaximizedFocus
 '        Dim objShell
@@ -888,8 +901,56 @@ End If
 
 
 If A1$ = "EXPLORER_SHELL" Then
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME(B1$)
+    End If
     Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
     Beep
+    End
+End If
+
+
+If SetTrueToLoadLast = True Then
+            
+    PATH_WANT = Trim(B1$)
+    If IsNumeric(Mid(PATH_WANT, 1, 2)) Then
+        PATH_WANT = Trim(Mid(PATH_WANT, 3))
+    End If
+    
+    ' ------------------------------------------------------------
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+        ' SELECT THE NETWORK FOLDER
+        ' -------------------------------
+        If NETWORK_2_STEP_JUMPER > 0 Then
+            If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then
+                NETWORK_2_STEP_JUMPER = NETWORK_2_STEP_JUMPER - 1
+                Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True
+                Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Caption = "NETWORK DRIVE SELECT - " + Format(2 - NETWORK_2_STEP_JUMPER, "00") + " OF 02"
+            End If
+            COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = COMPUTER_NAME_PUT
+            Beep
+            
+            
+            If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then
+                Exit Sub
+            End If
+            If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then
+                Exit Sub
+            End If
+            
+            Call LOAD_NETWORK_PATH_TO_EXPLORER
+            
+        End If
+        
+        PATH_WANT = D1$
+        
+        If CLIPBOARDOR_PATH_NAME = True Then
+            Call Form1.CLIP_PATH_NAME(PATH_WANT)
+        End If
+        ' ------------------------------------------------------------
+    End If
+    
+    Shell "Explorer.exe /Select," + PATH_WANT, vbMaximizedFocus
     End
 End If
 
@@ -900,6 +961,9 @@ If Mid(A1$, 1, 2) = "--" Then
         B1 = Mid(B1, 1, 2)
         'Shell "Explorer.exe /e," + B1$, vbNormalFocus
         'Shell "Explorer.exe /select," + B1$, vbNormalFocus
+        If CLIPBOARDOR_PATH_NAME = True Then
+            Call Form1.CLIP_PATH_NAME(B1$)
+        End If
         Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
         End
     End If
@@ -917,19 +981,53 @@ If Mid(A1$, 1, 2) = "--" Then
             If COMPUTER_NAME_DRIVE_LETTER_VAR = "E" Then DRIVE_VAR = "03"
             COMPUTER_NAME_PUT_01 = "\\" + COMPUTER_NAME_VAR + "\" + COMPUTER_NAME_UNDERSCORE_VAR + "_"
             COMPUTER_NAME_PUT_02 = DRIVE_VAR + "_" + COMPUTER_NAME_DRIVE_LETTER_VAR + "_DRIVE"
+            If InStr(COMPUTER_NAME_PUT_02, "E_DRIVE") > 0 Then
+                'fat32_4gb
+                COMPUTER_NAME_PUT_02 = Replace(COMPUTER_NAME_PUT_02, "E_DRIVE", UCase("fat32_4gb"))
+            End If
+
             COMPUTER_NAME_PUT = COMPUTER_NAME_PUT_01 + COMPUTER_NAME_PUT_02
             ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive
             
-            If NETWORK_2_STEP_JUMPER = True Then
-                NETWORK_2_STEP_JUMPER = False
-                COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER = COMPUTER_NAME_PUT
-                Exit Sub
+            
+            ' SELECT THE NETWORK FOLDER
+            ' -------------------------------
+            If NETWORK_2_STEP_JUMPER > 0 Then
+                If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then
+                    NETWORK_2_STEP_JUMPER = NETWORK_2_STEP_JUMPER - 1
+                    Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True
+                    Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Caption = "NETWORK DRIVE SELECT - " + Format(2 - NETWORK_2_STEP_JUMPER, "00") + " OF 02"
+                End If
+                COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = COMPUTER_NAME_PUT
+                Beep
+                
+                
+                If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then
+                    Exit Sub
+                End If
+                If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then
+                    Exit Sub
+                End If
+                
+                Call LOAD_NETWORK_PATH_TO_EXPLORER
+                
+            End If
+            
+            If CLIPBOARDOR_PATH_NAME = True Then
+                Call Form1.CLIP_PATH_NAME(COMPUTER_NAME_PUT)
+            End If
+            
+            If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+                COMPUTER_NAME_PUT = D1$
             End If
             
             Shell "Explorer.exe " + COMPUTER_NAME_PUT, vbNormalFocus
             End
             
         Else
+            If CLIPBOARDOR_PATH_NAME = True Then
+                Call Form1.CLIP_PATH_NAME(B1$)
+            End If
             Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
             End
         End If
@@ -938,6 +1036,9 @@ If Mid(A1$, 1, 2) = "--" Then
     If A1$ = "--Drive" Then
         'Shell "Explorer.exe /e," + B1$, vbNormalFocus
         'Shell "Explorer.exe /select," + B1$, vbNormalFocus
+            If CLIPBOARDOR_PATH_NAME = True Then
+                Call Form1.CLIP_PATH_NAME(B1$)
+            End If
         Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
         End
     End If
@@ -947,15 +1048,49 @@ If TARGET_PATH_ALREADY_GOT = True Then
     PATH_WANTER = B1$
     
     ' MsgBox PATH_WANTER
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME(PATH_WANTER)
+    End If
     Shell "Explorer.exe /Select," + PATH_WANTER, vbNormalFocus
 
 End If
 
 If SetTrueToLoadLast = False Then
-    Call GETSHORTLINK(A1$ + B1$)
+    COUNT_EXIT = 0
+    Do
+        Call GETSHORTLINK(A1$ + B1$)
+        D1$ = txtTargetPath
+        ' -----------------------------------------------
+        ' DON'T KNOW SEEM RUN TWICE FOR CORRECT RESULT
+        ' OR SPEED
+        ' GETSHORTLINK IS WANT RUN FEW TIME TO RETURN D1$
+        ' -----------------------------------------------
+        F1$ = GetLongName(D1$)
+        DoEvents
+        If F1$ <> ":" Then Exit Do
+        Sleep 100
+        COUNT_EXIT = COUNT_EXIT + 1
+    Loop Until F1$ <> ":" Or COUNT_EXIT = 500
     
-    D1$ = txtTargetPath
+    If D1$ = "" Then
+        MsgBox "SHELL EXPLORER" + vbCrLf + "RETRY 500" + vbCrLf + "Call GETSHORTLINK(A1$ + B1$) RESULT NOTHING IN D1$"
+        Unload Me
+        Exit Sub
+    End If
+    
+    If Len(F1$) < 2 Then
+        MsgBox "SHELL EXPLORER" + vbCrLf + "RETRY 500" + vbCrLf + "F1$ = GetLongName(D1$) F1$ RESULT NOTHING"
+        Unload Me
+        Exit Sub
+    End If
+    
+
+    
+    
     If Trim(D1$) = "" Then
+        If CLIPBOARDOR_PATH_NAME = True Then
+            Call Form1.CLIP_PATH_NAME(A1$ + B1$)
+        End If
         vLaunch A1$ + B1$
         End
     End If
@@ -972,51 +1107,93 @@ If SetTrueToLoadLast = True Then
     End If
 
     ' MsgBox PATH_WANTER
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME(PATH_WANTER)
+    End If
+    
+        
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+        If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then
+            NETWORK_2_STEP_JUMPER = NETWORK_2_STEP_JUMPER - 1
+        End If
+        Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Caption = "NETWORK DRIVE SELECT - " + Format(2 - NETWORK_2_STEP_JUMPER, "00") + " OF 02"
+        COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = PATH_WANTER
+        Beep
+    End If
+    
+    SET_GO = True
+    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then SET_GO = False
+    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then SET_GO = False
+    
+    If SET_GO = False Then
+        If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+            Exit Sub
+        End If
+    End If
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = False Then
+        SET_GO = True
+    End If
+    
+    If SET_GO = True Then
+        Call LOAD_NETWORK_PATH_TO_EXPLORER
+    End If
+
+    
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+        PATH_WANTER = D1$
+    End If
+    
+    
     Shell "Explorer.exe /Select," + PATH_WANTER, vbNormalFocus
     End
 End If
 
-If SetTrueToLoadLast = True Then
-            
-    PATH_WANT = Trim(B1$)
-    If IsNumeric(Mid(PATH_WANT, 1, 2)) Then
-        PATH_WANT = Trim(Mid(PATH_WANT, 3))
-    End If
-    
-    Shell "Explorer.exe /Select," + PATH_WANT, vbMaximizedFocus
-    End
-End If
 
 If D1$ <> "" Then
 
-    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER <> "" Then
-        PATH_USE_X = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER + Mid(D1$, 3)
-        X1 = GetLongName(PATH_USE_X)
-        DR1 = Mid(X1, 1, 1)
-        DR2 = Format(Asc(DR1) - 50 - 10 - 4 - 2, "00")
-        X2 = X1
-        ' IT DOES EXIST THEN NOT HAPPEN HERE
-        ' ----------------------------------
-        If FSO.FolderExists(X1) = False Then
-        ' If Dir(X2, vbDirectory) = "" Then
-            If InStr(X2, "_01_C") > 0 Then
-                X2 = Replace(X2, "_01_C", "_" + DR2 + "_" + DR1)
-            End If
-            If InStr(X2, "_02_D") > 0 Then
-                X2 = Replace(X2, "_02_D", "_" + DR2 + "_" + DR1)
-            End If
-            If InStr(X2, "_03_E") > 0 Then
-                X2 = Replace(X2, "_03_E", "_" + DR2 + "_" + DR1)
-            End If
+    ' COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 -- NETWORK PATH
+    ' COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 -- LOCAL   PATH
+    ' IF NETWORK PATH DONE THEN READY TO GO
+    ' OR GET LOCAL PATH AND WAIT NETWORK PATH
+    '
+    ' IF NOTHING AT NETWORK THEN LOCAL GET
+    '
+    ' IF NETWORK 2 STEP MODE
+    ' WAIT UNTIL BOTH PARAM GOT
+    '
+    ' I AM HERE BUT MORE INTERESTED IN COLLECT A LOCAL PATH
+    '
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+        If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then
+            NETWORK_2_STEP_JUMPER = NETWORK_2_STEP_JUMPER - 1
         End If
-        D1$ = X2
-        
-        If FSO.FolderExists(D1$) = False Then
-            MsgBox "FOLDER NOT EXIST" + vbCrLf + D1$ + vbCrLf + "TRY AND PLAY ANOTHER" + vbCrLf + "NOT ABLE RESELECT NETWORK FOLDER AGAIN YET"
-            End
+        Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Caption = "NETWORK DRIVE SELECT - " + Format(2 - NETWORK_2_STEP_JUMPER, "00") + " OF 02"
+        COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = F1$
+        Beep
+    End If
+    
+    SET_GO = True
+    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then SET_GO = False
+    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then SET_GO = False
+    
+    If SET_GO = False Then
+        If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+            
+            Exit Sub
         End If
     End If
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = False Then
+        SET_GO = True
+    End If
+    
+    If SET_GO = True Then
+        Call LOAD_NETWORK_PATH_TO_EXPLORER
+    End If
 
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME(D1$)
+    End If
+        
     Shell "Explorer.exe " + D1$, vbMaximizedFocus
 End If
 End
@@ -1024,9 +1201,79 @@ End
 End Sub
 
 
+Sub LOAD_NETWORK_PATH_TO_EXPLORER()
+    
+    SET_GO = False
+    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 <> "" Then SET_GO = True
+    If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 <> "" Then SET_GO = True
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+        If SET_GO = True Then
+            F1$ = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02
+        End If
+    End If
+    If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = False Then
+        SET_GO = True
+    End If
+    
+    PATH_USE_X = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 + Mid(F1$, 3)
+    ' -----------------------------------------------------------
+    ' HERE ABOVE IT WILL HAVE THE PATH FROM SHORTCUT
+    ' AND SHORTCUT WILL ALWAYS BE SHORTNAME
+    ' F1$ IS THE LONG NAME -- ONLY IS PATH EXIST ORGINAL LOCATION
+    ' FROM THE SHORTCUT -- OR NOT POSIABLE SHORT TO LONG
+    ' FOR RELOCATION
+    ' -----------------------------------------------------------
+    ' X1 = F1$ ' X1 = GetLongName(PATH_USE_X)
+    ' If X1 = "" Then X1 = PATH_USE_X
+    X1 = PATH_USE_X
+    DR1 = Mid(X1, InStr(X1, "_0") + 1, 2)
+    ' GOT NUMBER NETWORK PATH -- 01 02 OR 03
+    DR2 = Format(Val(DR1) + 64, "00")
+    DR2 = DR1
+    ' -----------------------------------------------------------
+    ' DR1 GET DRIVE LETTER OF PATH REQUEST ON LOCAL
+    ' DR2 IT WILL CONVERT DRIVE NUMERIC
+    ' LETTER TO NUMBER 01 OR 02 OR 03 FOR NETWORK PATH C D OR E
+    ' -----------------------------------------------------------
+
+'    If Asc(DR1) > 64 And Asc(DR1) < 64 + 27 Then
+'        DR2 = Format(Asc(DR1) - 50 - 10 - 4 - 2, "00")
+'    End If
+    
+    X2 = X1
+    ' IT DOES EXIST THEN NOT HAPPEN HERE
+    ' ----------------------------------
+    If FSO.FolderExists(X1) = False Then
+    ' If Dir(X2, vbDirectory) = "" Then
+        If InStr(X2, "_01_C") > 0 Then
+            X2 = Replace(X2, "_01_C", "_" + DR2 + "_" + DR1)
+        End If
+        If InStr(X2, "_02_D") > 0 Then
+            X2 = Replace(X2, "_02_D", "_" + DR2 + "_" + DR1)
+        End If
+        If InStr(X2, "_03_FAT32_4GB") > 0 Then
+            X2 = Replace(X2, "_03_FAT32_4GB", "_" + DR2 + "_" + DR1)
+        End If
+    End If
+    D1$ = X2
+    ' COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_03 = D1$
+
+    If FSO.FolderExists(D1$) = False Then
+        MsgBox "FOLDER NOT EXIST" + vbCrLf + D1$ + vbCrLf + "TRY AND PLAY ANOTHER" + vbCrLf + "NOT ABLE RESELECT NETWORK FOLDER AGAIN YET"
+        End
+    End If
+    '\\4-asus-gl522vw\4_asus_gl522vw_02_d_drive\0 00 ART LOGGERS
+End Sub
+
+
 
 Private Sub Form_Load()
 
+' HERE ROUTINE GET CALL FOR FORM_LOAD
+' Public Sub FormStartLoader()
+' NOT HERE FORM_LOAD
+    
 Call SET_UP_PULIC_FSO
 
 End Sub
+
