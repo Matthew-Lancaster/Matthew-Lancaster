@@ -77,6 +77,40 @@
 @REM ----------------------------------------------------------------
 @REM -- ALL SYNC-ER NOW ANY MINUTE _ NOW A UNIVERSAL CODE PROGRAM
 @REM ----------------------------------------------------------------
+@GOTO JUMP_REMMER
+REM -----------------------------------------------------------------
+REM THE CODE
+REM ON THE HOUR 
+REM 1..
+REM C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe
+REM THIS CODE WILL EITHER RUN -- 
+REM 2..
+REM GITHUB - ONLY 
+REM WHICH IS HERE RUN
+REM BAT 45-SCRIPT RUN GITHUB.BAT
+REM ..
+REM OR WILL RUN 
+REM 3..
+REM GOODSYNC SYNC SET AND THEN GITHUB
+REM 4..
+REM ON THE HOUR IT WILL BE BOTH
+REM ..
+REM IF IT RUN GOODSYNC SET JOB IT WILL RUN HERE ITSELF ME 
+REM BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
+REM 5..
+REM -----------------------------------------------------------------
+REM ON THE HOUR 
+REM 1..
+REM C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe
+REM IS RUN BY HERE
+REM Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
+REM SUBROUTINE 
+REM GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
+REM THIS WILL NOT ACTOR IF GOODSYNC2GO IS RUN BY THE D DRIVE PROCESS
+REM -----------------------------------------------------------------
+REM Mon 02-Sep-2019 11:45:40
+REM -----------------------------------------------------------------
+:JUMP_REMMER
 
 
 @REM ----------------------------------------------------------------
@@ -228,9 +262,16 @@ REM ECHO !TITLE_RUN_MODE!
 
 @ECHO OFF
 
+
+
+
+
+
+@IF NOT EXIST "%~dp0#NFS-%COMPUTERNAME%\" MKDIR "%~dp0#NFS-%COMPUTERNAME%\"
+
 REM Write %~n0 to get the filename without the extension.
-SET FILENAME_ER="%~dp0%~n0_GOODSYNC_OUTPUT.TXT"
-SET FILENAME_ER_2="%~dp0%~n0_GOODSYNC_OUTPUT.TXT.TMP"
+SET FILENAME_ER="%~dp0#NFS-%COMPUTERNAME%\%~n0_GOODSYNC_OUTPUT.TXT"
+SET FILENAME_ER_2="%~dp0#NFS-%COMPUTERNAME%\%~n0_GOODSYNC_OUTPUT.TXT.TMP"
 SET FILENAME_ER_4="%~n0_GOODSYNC_OUTPUT.TXT"
 @REM ------------------------------------------------------------
 @REM EXAMPLE WITHOUT VARIABLE
