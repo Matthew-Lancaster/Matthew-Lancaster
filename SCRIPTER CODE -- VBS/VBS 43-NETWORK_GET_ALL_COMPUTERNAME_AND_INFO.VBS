@@ -123,13 +123,13 @@ NEXT
 
 For Each strComputer in arrComputers
 	IF strComputer<>"" THEN 
-		MSGBOX strComputer
+		MSGBOX strComputer,vbMsgBoxSetForeground 
 		Set objWMIService = GetObject ("winmgmts:\\" & strComputer & "\root\cimv2")
 		Set colItems = objWMIService.ExecQuery ("Select * From Win32_OperatingSystem")
 		For Each objItem in ColItems
 
 			' Wscript.Echo strComputer & ": " & objItem.Caption
-			MSGBOX strComputer & ": " & objItem.Caption
+			MSGBOX strComputer & ": " & objItem.Caption,vbMsgBoxSetForeground 
 		Next
 	END IF
 Next

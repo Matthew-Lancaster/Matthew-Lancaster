@@ -33,6 +33,6 @@ Print #FR1, StrConv(TT_EDITOR, vbFromUnicode);
 Close #FR1
 
 
-MsgBox "Done Total " & Counter_VAR & " Proecesses"
+MsgBox "Done Total " & Counter_VAR & " Proecesses",vbMsgBoxSetForeground 
 
 End Sub

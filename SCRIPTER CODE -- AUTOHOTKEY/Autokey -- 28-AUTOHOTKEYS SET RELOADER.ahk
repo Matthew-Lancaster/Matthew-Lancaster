@@ -292,7 +292,7 @@ IF OSVER_N_VAR>5
 ; IF SET_GO=TRUE
 ; {
 	ArrayCount += 1
-	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk"
+	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-AUTO REPEAT BROWSER FUNCTION SET.ahk"
 ; }
 
 

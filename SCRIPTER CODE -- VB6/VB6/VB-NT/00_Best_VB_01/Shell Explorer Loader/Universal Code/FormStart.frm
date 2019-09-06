@@ -15,7 +15,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
+Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
 '
@@ -25,7 +25,7 @@ Dim NET_PATH_AND_DRIVE
 Dim F1$
 Dim D1$
 '-----------------------------------------------------------------
-Private Declare Function GetVersionExA Lib "Kernel32" _
+Private Declare Function GetVersionExA Lib "kernel32" _
 (lpVersionInformation As OSVERSIONINFO) As Integer
 
 Private Type OSVERSIONINFO
@@ -85,11 +85,11 @@ For R = 3 To 25
         'RD$(tg) = tt$
         tg = tg + 1
         Y1$ = Y1$ + tt$
-        Filename = z.DriveLetter + ":\ __ " + z.VolumeName
+        FileName = z.DriveLetter + ":\ __ " + z.VolumeName
         Path = "--Drive"
         
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename)
+            Set LV = .ListItems.Add(, , FileName)
             LV.SubItems(1) = Path
         End With
     
@@ -144,10 +144,10 @@ Do
     End If
     
     If HERE_GO = False And LINE_STINGER = "BTHUB" Then
-        Filename = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
+        FileName = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
         'Path = "--Drive"
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename)
+            Set LV = .ListItems.Add(, , FileName)
             LV.SubItems(1) = Path
         End With
         HERE_GO = True
@@ -194,6 +194,7 @@ Do
             LV.SubItems(1) = Path
             Call GET_COMPUTR_NETWORK_NAME
             NET_C_PATH = NET_C_PATH + NET_PATH_AND_DRIVE + vbCrLf
+            NET_PATH_ALL_2 = NET_PATH_ALL_2 + NET_PATH_AND_DRIVE + vbCrLf
         End With
         NET_PATH_ALL = NET_PATH_ALL + vbCrLf
         With ScanPath.ListView1
@@ -202,6 +203,7 @@ Do
             LV.SubItems(1) = Path
             Call GET_COMPUTR_NETWORK_NAME
             NET_D_PATH = NET_D_PATH + NET_PATH_AND_DRIVE + vbCrLf
+            NET_PATH_ALL_2 = NET_PATH_ALL_2 + NET_PATH_AND_DRIVE + vbCrLf
             
         End With
         NET_PATH_ALL = NET_PATH_ALL + vbCrLf
@@ -212,6 +214,7 @@ Do
                 LV.SubItems(1) = Path
                 Call GET_COMPUTR_NETWORK_NAME
                 NET_E_PATH = NET_E_PATH + NET_PATH_AND_DRIVE + vbCrLf
+                NET_PATH_ALL_2 = NET_PATH_ALL_2 + NET_PATH_AND_DRIVE + vbCrLf
             End With
         End If
         NET_PATH_ALL = NET_C_PATH + vbCrLf + NET_D_PATH + vbCrLf + NET_E_PATH + vbCrLf
@@ -219,6 +222,70 @@ Do
 Loop Until EOF(FR_1)
 Close #FR_1
 
+
+
+' ----------------------------------
+' ADD HEADER TITLE FOR NETWORK USER FOLDER
+' ----------------------------------
+With ScanPath.ListView1
+    Set LV = .ListItems.Add(, , "\NETWORK USER FOLDER\")
+    LV.SubItems(1) = "TITLE_BLOCK"
+End With
+
+NET_PATH_ALL_R = Split(NET_PATH_ALL, vbCrLf)
+
+Dim M()
+ReDim M(UBound(NET_PATH_ALL_R) + 10)
+Dim R3
+For R3 = 0 To UBound(NET_PATH_ALL_R)
+    CK1 = UCase(NET_PATH_ALL_R(R3))
+    If InStr(CK1, "1_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "2_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "03_FAT32") > 0 Then NET_PATH_ALL_R(R3) = ""
+Next
+For R3 = 0 To UBound(NET_PATH_ALL_R)
+    If NET_PATH_ALL_R(R3) <> "" Then
+        
+        For R5 = 1 To 5
+        
+        CK1 = NET_PATH_ALL_R(R3)
+        CK3 = CK1 + "\USERS\MATT " + Format(R5, "00")
+        If Dir(CK1 + "\USERS\MATT " + Format(R5, "00") + "\Desktop", vbDirectory) <> "" Then
+            
+            Path = "--DriveRemote_USER"
+            CK2 = Mid(CK1, 1, InStr(4, CK1, "\") - 1)
+            If InStr(CK1, "3_LINDA") > 0 Then STRV = 8
+            If InStr(CK1, "4_ASUS") > 0 Then STRV = 2
+            If InStr(CK1, "5_ASUS") > 0 Then STRV = 3
+            If InStr(CK1, "7_ASUS") > 0 Then STRV = 2
+            If InStr(CK1, "8_MSI") > 0 Then STRV = 2
+            STRV = STRV - 1
+            CK2 = CK2 + " " + String(STRV, "_") + " C:\USER\MATT " + Format(R5, "00")
+            SET_HERE_2 = False
+            If InStr(CK2, "3-L") > 0 And InStr(CK2, "MATT 01") > 0 Then SET_HERE_2 = True
+            If InStr(CK2, "4-A") > 0 And InStr(CK2, "MATT 01") > 0 Then SET_HERE_2 = True
+            If InStr(CK2, "5-A") > 0 And InStr(CK2, "MATT 01") > 0 Then SET_HERE_2 = True
+            If InStr(CK2, "7-A") > 0 And InStr(CK2, "MATT 04") > 0 Then SET_HERE_2 = True
+            If InStr(CK2, "8-M") > 0 And InStr(CK2, "MATT 01") > 0 Then SET_HERE_2 = True
+            If SET_HERE_2 = True Then
+            CK2 = CK2 + " #"
+            End If
+            With ScanPath.ListView1
+                Set LV = .ListItems.Add(, , CK2)
+                LV.SubItems(1) = Path
+                LV.SubItems(2) = CK3
+            End With
+        End If
+        Next
+    End If
+Next
+
+
+'-------------------------------
+'-------------------------------
+'-------------------------------
+'-------------------------------
 
 
 
@@ -273,13 +340,13 @@ Next
 GetSpecialfolder_VAR = Mid(GetSpecialfolder_VAR, 1, Len(GetSpecialfolder_VAR) - 1)
 For R_L = 1 To 9
     GET_USER_NAME_VAR_NAME = GetSpecialfolder_VAR + Format(R_L, "0")
-    Filename = GET_USER_NAME_VAR_NAME
-    If Dir(Filename, vbDirectory) <> "" Then
+    FileName = GET_USER_NAME_VAR_NAME
+    If Dir(FileName, vbDirectory) <> "" Then
     
         Path = "--Drive"
         
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename)
+            Set LV = .ListItems.Add(, , FileName)
             LV.SubItems(1) = Path
         End With
         
@@ -337,12 +404,12 @@ For R = 0 To 255
     End If
     
     If GetSpecialfolder(R) <> "" And q = 0 Then
-        Filename = GetSpecialfolder(R)
+        FileName = GetSpecialfolder(R)
         'Filename = GetSpecialfolder(R)
         Path = "--SPECIAL"
         
         SET_GO = True
-        F1 = UCase(Filename)
+        F1 = UCase(FileName)
         If InStr(F1, "DOCUMENTS AND") > 0 And InStr(F1, "ADMINISTRATIVE") > 0 Then
             SET_GO = False
         End If
@@ -360,28 +427,36 @@ For R = 0 To 255
         
         
         
-        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
+        If InStr(DUPE_CHECK, "__" + FileName + "__") > 0 Then
             SET_GO = False
         End If
-        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
+        DUPE_CHECK = DUPE_CHECK + "__" + FileName + "__"
         
         
         
         If SET_GO = True Then
             With ScanPath.ListView2
-                Set LV = .ListItems.Add(, , Format(R, "00 ") + Filename)
+                XF_1 = FileName
+                XF_2 = FileName
+                If InStr(UCase(XF_1), "TOOLS") > 0 Then
+                    XF_1 = Replace(XF_1, "Tools", "Tool")
+                End If
+                Set LV = .ListItems.Add(, , Format(R, "00 ") + XF_1)
                 LV.SubItems(1) = Path
+                If InStr(UCase(XF_2), "TOOLS") > 0 Then
+                    LV.SubItems(2) = XF_2
+                End If
             End With
         End If
         
-        If InStr(Filename + "--", "Program Files (x86)" + "--") > 0 Then
-        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
+        If InStr(FileName + "--", "Program Files (x86)" + "--") > 0 Then
+        If InStr(DUPE_CHECK, "__" + FileName + "__") > 0 Then
             SET_GO = False
         End If
-        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
+        DUPE_CHECK = DUPE_CHECK + "__" + FileName + "__"
             With ScanPath.ListView2
-                Filename = Replace(Filename, " (x86)", "")
-                Set LV = .ListItems.Add(, , Format(R, "00 ") + Filename)
+                FileName = Replace(FileName, " (x86)", "")
+                Set LV = .ListItems.Add(, , Format(R, "00 ") + FileName)
                 LV.SubItems(1) = Path
             End With
         End If
@@ -416,6 +491,7 @@ For R = 1 To ScanPath.ListView2.ListItems.Count
     With ScanPath.ListView1
         Set LV = .ListItems.Add(, , ScanPath.ListView2.ListItems.Item(R))
         LV.SubItems(1) = ScanPath.ListView2.ListItems.Item(R).SubItems(1)
+        LV.SubItems(2) = ScanPath.ListView2.ListItems.Item(R).SubItems(2)
     End With
     
 Next
@@ -665,14 +741,17 @@ End With
 
 ReDim ARRAY_V(100)
 ReDim ARRAY_V_2(100)
-AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC                       ---- DEVICE MANAGER"
-AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL HDWWIZ.CPL                 ---- DEVICE MANAGER"
-AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL /NAME MICROSOFT.DEVICEMANAGER  ---- DEVICE MANAGER"
-AVI = AVI + 1: ARRAY_V(AVI) = "control appwiz.cpl                  ---- Add / Remove Programs"
-AVI = AVI + 1: ARRAY_V(AVI) = "control main.cpl                        ---- Mouse"
-AVI = AVI + 1: ARRAY_V(AVI) = "control netcpl.cpl                   ---- Network"
-AVI = AVI + 1: ARRAY_V(AVI) = "control mmsys.cpl sounds  ---- Sound Properties"
-AVI = AVI + 1: ARRAY_V(AVI) = "control sysdm.cpl                    ---- System"
+
+DIFA = 14
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC" + Space(24 - DIFA) + " ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL HDWWIZ.CPL" + Space(19 - DIFA) + " ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "CONTROL /NAME MICROSOFT.DEVICEMANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "control appwiz.cpl" + Space(20 - DIFA) + " ---- Add / Remove Programs"
+AVI = AVI + 1: ARRAY_V(AVI) = "control main.cpl" + Space(25 - DIFA) + " ---- Mouse"
+AVI = AVI + 1: ARRAY_V(AVI) = "control netcpl.cpl" + Space(21 - DIFA) + " ---- Network"
+'control mmsys.cpl sounds
+AVI = AVI + 1: ARRAY_V(AVI) = "control mmsys.cpl" + Space(22 - DIFA) + " ---- Sound Properties"
+AVI = AVI + 1: ARRAY_V(AVI) = "control sysdm.cpl" + Space(23 - DIFA) + " ---- System"
 
 AVI = 0
 For R_AVI = 1 To UBound(ARRAY_V)
@@ -710,6 +789,10 @@ ReDim ARRAY_V(100)
 ReDim ARRAY_V_2(100)
 AVI = AVI + 1: ARRAY_V(AVI) = "Explorer.exe Shell:::{ED7BA470-8E54-465E-825C-99712043E01C}"
 
+
+
+
+' -----------------------------------------------
 AVI = 0
 For R_AVI = 1 To UBound(ARRAY_V)
     If ARRAY_V(R_AVI) <> "" Then
@@ -765,7 +848,7 @@ ReDim ARRAY_V(100)
 ReDim ARRAY_V_2(100)
 ' AVI = AVI + 1: ARRAY_V(AVI) = "ms-settings"
 AVI = AVI + 1: ARRAY_V(AVI) = "start ms-settings:"
-AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC                       ---- DEVICE MANAGER"
+AVI = AVI + 1: ARRAY_V(AVI) = "MMC DEVMGMT.MSC" + Space(24 - DIFA) + " ---- DEVICE MANAGER"
 AVI = AVI + 1: ARRAY_V(AVI) = "MMC diskmgmt.msc"
 AVI = AVI + 1: ARRAY_V(AVI) = "MMC eventvwr.msc"
 AVI = AVI + 1: ARRAY_V(AVI) = "MMC services.msc"
@@ -791,6 +874,93 @@ For AVI = 1 To UBound(ARRAY_V)
         LV.SubItems(1) = "CONTROL_PANEL_SHELL"
     End With
 Next
+
+
+With ScanPath.ListView1
+    Set LV = .ListItems.Add(, , "\GOODSYNC PROFILE FOLDERING\")
+    LV.SubItems(1) = "TITLE_BLOCK"
+End With
+
+
+NET_PATH_ALL_R = Split(NET_PATH_ALL_2, vbCrLf)
+' Dim M()
+ReDim M(UBound(NET_PATH_ALL_R) + 10)
+' Dim R3
+For R3 = 0 To UBound(NET_PATH_ALL_R)
+    CK1 = UCase(NET_PATH_ALL_R(R3))
+    ' ------------------------------------------------------
+    ' YOU MIGHT THINK MY CODE IS CRAPPY
+    ' BUT PUT >0 AFTER EACH INSTR AS WHEN COMPARE 2
+    ' AND WITH AN AND STATEMENT BETWEEN
+    ' IT CHANGE THE VALUE OF LOGIC
+    ' SO NOT ABLE LEAVE >0 OUT
+    ' INSTR RETURN RESULT HOW FAR IN THE STRING IS POSITION
+    ' ------------------------------------------------------
+    If InStr(CK1, "1_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "2_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "3_LINDA") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "E_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "2_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "5_ASUS") > 0 And InStr(CK1, "D_DRIVE") > 0 Then
+        NET_PATH_ALL_R(R3) = ""
+    End If
+    ' If InStr(CK1, "7_ASUS") > 0 And InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "8_MSI") > 0 And InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+Next
+i = -1
+For R3 = 0 To UBound(NET_PATH_ALL_R)
+    CK1 = UCase(NET_PATH_ALL_R(R3))
+    CK2 = NET_PATH_ALL_R(R3)
+    If CK1 <> "" Then
+        SET_GO = False
+        If InStr(CK1, "4_ASUS") > 0 Then SET_GO = True
+        If InStr(CK1, "7_ASUS") > 0 Then SET_GO = True
+        If InStr(CK1, "8_MSI") > 0 Then SET_GO = True
+        If SET_GO = True Then
+        If InStr(CK1, "C_DRIVE") > 0 Then
+            i = i + 1: M(i) = CK2 + "\GoodSync\Profile\jobs-groups-options.tic"
+            ' -----------------------------------------------------------------
+            For R5 = 1 To 5
+                GS_1 = CK2 + "\Users\MATT " + Format(R5, "00") + "\AppData\Roaming\GoodSync\jobs-groups-options.tic"
+                If Dir(GS_1) <> "" Then
+                    i = i + 1: M(i) = GS_1
+                End If
+            Next
+            ' -----------------------------------------------------------------
+        End If
+        End If
+        If InStr(CK1, "D_DRIVE") > 0 Then
+            i = i + 1: M(i) = CK2 + "\GoodSync\Profile\jobs-groups-options.tic"
+        End If
+    End If
+Next
+
+ReDim Preserve M(i)
+
+For R3 = 0 To UBound(M)
+    If Dir(M(R3)) <> "" Then
+        Path = "--DriveRemote_GS"
+        
+        With ScanPath.ListView1
+            TT1 = M(R3)
+            HDD = ""
+            If InStr(TT1, "D_DRIVE") > 0 Then HDD = "D"
+            If InStr(TT1, "C_DRIVE") > 0 Then HDD = "C"
+            X5 = InStr(TT1, "_DRIVE")
+            TT2 = Mid(TT1, X5 + 7)
+            TT3 = Mid(TT2, 1, InStrRev(TT2, "\") - 1)
+            TT1 = Mid(TT1, 1, InStr(4, TT1, "\") - 1) + " " + HDD + ":\" + TT3
+            TT1 = Mid(TT1, 1, 8) + "  " + Mid(TT1, InStr(4, TT1, " "))
+            TT1 = Replace(TT1, "MSI- ", "MSI    ")
+            Set LV = .ListItems.Add(, , TT1)
+            LV.SubItems(1) = Path
+            TT3 = Mid(M(R3), 1, InStrRev(M(R3), "\") - 1)
+            LV.SubItems(2) = TT3
+        End With
+    End If
+Next
+
+
 
 
 
@@ -859,6 +1029,7 @@ End Sub
 Sub LabelClick(Index)
 
 If SetTrueToLoadLast = False Then
+    H1$ = ScanPath.ListView1.ListItems.Item(Index).SubItems(2)
     A1$ = ScanPath.ListView1.ListItems.Item(Index).SubItems(1)
     B1$ = ScanPath.ListView1.ListItems.Item(Index)
     C1$ = Form1.Label1.Item(Index)
@@ -868,7 +1039,11 @@ TARGET_PATH_ALREADY_GOT = False
 
 If A1$ = "--SPECIAL" Then
     A1$ = ""
+    ' COME AFTER THE SPACE AND INDEX NUMBER
+    ' -------------------------------------
     B1$ = Mid(B1$, InStr(B1$, " ") + 1)
+    If H1$ <> "" Then B1$ = H1$
+    
     TARGET_PATH_ALREADY_GOT = True
 End If
 
@@ -967,6 +1142,39 @@ If Mid(A1$, 1, 2) = "--" Then
         Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
         End
     End If
+    
+    If A1$ = "--DriveRemote_USER" And Mid(B1, 1, 2) = "\\" Then
+    
+    
+            COMPUTER_NAME_PUT = H1$
+            If CLIPBOARDOR_PATH_NAME = True Then
+                Call Form1.CLIP_PATH_NAME(COMPUTER_NAME_PUT)
+            End If
+            
+'            If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+'                COMPUTER_NAME_PUT = D1$
+'            End If
+            
+            Shell "Explorer.exe " + COMPUTER_NAME_PUT, vbNormalFocus
+            End
+    End If
+    
+    If A1$ = "--DriveRemote_GS" Then 'And Mid(B1, 1, 2) = "\\" Then
+    
+    
+            COMPUTER_NAME_PUT = H1$
+            If CLIPBOARDOR_PATH_NAME = True Then
+                Call Form1.CLIP_PATH_NAME(COMPUTER_NAME_PUT)
+            End If
+            
+'            If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
+'                COMPUTER_NAME_PUT = D1$
+'            End If
+            
+            Shell "Explorer.exe " + COMPUTER_NAME_PUT, vbNormalFocus
+            End
+    End If
+    
     If A1$ = "--DriveRemote" And Mid(B1, 1, 2) = "\\" Then
         If InStr(B1, "__") > 0 Then
 '                        NET_C_PATH = NET_C_PATH + Filename_VAR(R_L) + "__C" + vbCrLf
@@ -1183,7 +1391,9 @@ If D1$ <> "" Then
         End If
     End If
     If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = False Then
-        SET_GO = True
+        ' WORK UNDERWAY UNFINSIH PART HAD ERROR WANT BEHAVIOUR
+        ' INVERT STATE SOUND REASON
+        SET_GO = False
     End If
     
     If SET_GO = True Then
