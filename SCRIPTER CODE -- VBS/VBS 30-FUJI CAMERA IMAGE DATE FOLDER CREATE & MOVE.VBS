@@ -137,7 +137,7 @@ FOLDER_PATH_VAR_3="D:\DSC\2017+FUJI XP90\" + CSTR(Year(Now)) + " FinePix XP90\DC
 FOLDER_PATH_VAR=FOLDER_PATH_VAR_1
 
 IF FSO.FolderExists(FOLDER_PATH_VAR)=FALSE THEN 
-	MSGBOX "FOLDER NOT EXIST"
+	MSGBOX "FOLDER NOT EXIST",vbMsgBoxSetForeground 
 	Wscript.QUIT
 END IF
 
@@ -189,7 +189,7 @@ I=I+"FUJI DELETE FOLDER COUNT" + VBCRLF + CSTR(I_COUNT_7) + VBCRLF
 I=I+""+ VBCRLF 
 I=I+"DONE...."
 
-MSGBOX I
+MSGBOX I,vbMsgBoxSetForeground 
 
 IF I_COUNT_1+I_COUNT_2+I_COUNT_3+I_COUNT_4+I_COUNT_5+I_COUNT_7>0 OR 1 = 1 THEN
 	
@@ -251,7 +251,7 @@ Sub FindWantedFiles(sFolder)
 		oDict_1.Add FILE.path, file
 	IF SET_VAR_MODE_ORDER=3 THEN 
 
-		MSGBOX file
+		MSGBOX file,vbMsgBoxSetForeground 
 	END IF 
     Next
     ' Recurse into it's sub folders
@@ -388,7 +388,7 @@ Sub DisplayFindings_3()
 				FSO.DeleteFile VAR_PATH_SCANNER
 				I_COUNT_5=I_COUNT_5+1
 				IF ERR.NUMBER>0 THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
 				END IF
 				ON ERROR GOTO 0
 			END IF
@@ -401,7 +401,7 @@ Sub DisplayFindings_3()
 				FSO.DeleteFolder VAR_PATH_SCANNER
 				I_COUNT_7=I_COUNT_7+1
 				IF ERR.NUMBER>0 THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER 
+					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground  
 				END IF
 				ON ERROR GOTO 0
 			END IF
@@ -452,7 +452,7 @@ SUB PATH_SCANNER_FOLDER_MOVE_FROM_IMPORT
 	Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 	I_COUNT_4=I_COUNT_4+1		
 	IF ERR.NUMBER>0 THEN 
-		MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename
+		MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground 
 		Wscript.QUIT
 	END IF
 	
@@ -495,7 +495,7 @@ SUB PATH_SCANNER_FOLDER_DATE_CREATE
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		I_COUNT_2=I_COUNT_2+1		
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground 
 			Wscript.QUIT
 		END IF
 	END IF
@@ -530,7 +530,7 @@ SUB PATH_SCANNER_FOLDER_FUJI_RENAME
 	Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 	I_COUNT_2=I_COUNT_2+1		
 	IF ERR.NUMBER>0 THEN 
-		MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
+		MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
 		Wscript.QUIT
 	END IF
 End Sub
@@ -642,7 +642,7 @@ SUB PATH_SCANNER_RENAME_4
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
 		END IF
 		'Wscript.QUIT
 	end if
@@ -681,7 +681,7 @@ SUB PATH_SCANNER_RENAME_2
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
 		END IF
 	END IF
 
@@ -719,7 +719,7 @@ SUB PATH_SCANNER_RENAME_2
 		NewFilename=PATH_VAR+NewFilename
 
 		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename
+			msgbox NewFilename,vbMsgBoxSetForeground 
 			Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 
@@ -755,7 +755,7 @@ SUB PATH_SCANNER_RENAME
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
 		END IF
 	END IF
 
@@ -808,7 +808,7 @@ SUB PATH_SCANNER_RENAME
 					LOOP UNTIL LEN(NewFilename)=12
 				end if
 				 
-				msgbox NewFilename
+				msgbox NewFilename,vbMsgBoxSetForeground 
 				 
 				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
 			 NEXT
@@ -823,7 +823,7 @@ SUB PATH_SCANNER_RENAME
 		'MSGBOX PATH_VAR_4
 		'MSGBOX VAR_PATH_SCANNER
 		IF SET_GO=TRUE THEN 
-			msgbox NewFilename
+			msgbox NewFilename,vbMsgBoxSetForeground 
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT_1=I_COUNT_1+1

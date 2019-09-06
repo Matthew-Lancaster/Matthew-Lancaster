@@ -300,11 +300,11 @@ FOR VV_2=3 TO UBOUND(VV_VAR)
 			END IF
 
 			IF IRETURN >0 AND IRETURN <>5 THEN 
-				msgbox "VICE VERSA C ROOT = " & iReturn
+				msgbox "VICE VERSA C ROOT = " & iReturn,vbMsgBoxSetForeground 
 				iReturn=objShell.Run (CHR(34)& "C:\Program Files\ViceVersa Pro\ViceVersa.exe" & CHR(34)& " " & CHR(34)& FILEN_2 & CHR(34) & " /autocompare",0,TRUE)
 			END IF
 		ELSE
-			msgbox "VICE VERSA C ROOT = USER_INTERACTIVE_MODE=TRUE"
+			msgbox "VICE VERSA C ROOT = USER_INTERACTIVE_MODE=TRUE",vbMsgBoxSetForeground 
 			iReturn=objShell.Run (CHR(34)& "C:\Program Files\ViceVersa Pro\ViceVersa.exe" & CHR(34)& " " & CHR(34)& FILEN_2 & CHR(34) & " /autocompare",0,TRUE)
 		END IF
 		

@@ -95,7 +95,7 @@ Sub BEGIN
         exit sub
     End if
 
-	result=Msgbox(VAR_2_FOLDER&"\" & VBCRLF & "Ownership Change Ready __ Are you sure?",vbYesNo+vbInformation, "")
+	result=Msgbox(VAR_2_FOLDER&"\" & VBCRLF & "Ownership Change Ready __ Are you sure?",vbYesNo+vbInformation+vbMsgBoxSetForeground , "")
 	if result = vbno then WScript.Quit 0
 	if result = vbcancle then WScript.Quit 0
 	

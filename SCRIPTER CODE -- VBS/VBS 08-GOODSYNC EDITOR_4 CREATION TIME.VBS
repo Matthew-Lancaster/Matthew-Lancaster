@@ -52,7 +52,7 @@ CALL USUAL_MAIN_2
 
 
 
-MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR
+MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR,vbMsgBoxSetForeground 
 
 
 Set File_2 = fso.OpenTextFile("C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic", ForWriting)
@@ -187,15 +187,8 @@ SUB USUAL_MAIN_2
 		End If
 		X = T1 + 2
 	Loop Until T1 = 0
-
-	
-	
 	
 	Counter_Change_VAR=Counter_VAR
-	
-	
-	
-	
 	
 END SUB
 
