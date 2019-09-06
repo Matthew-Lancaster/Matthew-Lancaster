@@ -57,7 +57,7 @@ Dim Search_EXTENSION_VAR
 'Call the Search subroutine to start the recursive search.
 Search_EXTENSION objFSO.GetFolder(FOLDER_PATH)
 '------------------------------------------------
-MSGBOX "FILE COUNT & EXTENSION ON _ " + VBCRLF + Search_EXTENSION_VAR
+MSGBOX "FILE COUNT & EXTENSION ON _ " + VBCRLF + Search_EXTENSION_VAR,vbMsgBoxSetForeground 
 
 
 Wscript.QUIT
@@ -68,14 +68,14 @@ Wscript.QUIT
 'FOLDER_PATH="D:\DSC\z compare\NIKON TOTAL"
 
 IF FSO.FolderExists(FOLDER_PATH)=FALSE THEN 
-	MSGBOX "FOLDER NOT EXIST"
+	MSGBOX "FOLDER NOT EXIST",vbMsgBoxSetForeground 
 	Wscript.QUIT
 END IF
 
 'Call the Search subroutine to start the recursive search.
 Search objFSO.GetFolder(FOLDER_PATH)
 
-MSGBOX "FILE COUNT FILTERING _ " & CSTR(I_COUNT) 
+MSGBOX "FILE COUNT FILTERING _ " & CSTR(I_COUNT) ,vbMsgBoxSetForeground 
 
 SET objFSO = NOTHING
 Wscript.QUIT
