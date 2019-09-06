@@ -44,6 +44,44 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; SESSION 002 AND 003 
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 004
+; -------------------------------------------------------------------
+; NEW SUBROUTINE SET WORK ON TODAY
+; -------------------------------------------------------------------
+; GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
+; SETTIMER TIMER_SET_ACTIVATION_BOX,1000
+; -------------------------------------------------------------------
+; THIS WILL PUT ACTIVATION KEY ON GOODSYNC
+; WHICH IS HANDY AS GOODSYNC2GO ON D DRIVE WHEN SHARING MANY COMPUTER
+; DOES APPEAR FREQUENTLY
+; AND GOT 10 COPY OF GOODSYNC ABOUT 3 ARE GOODSYNC2GO 
+; THE EXPENSIVE VERSION
+; DOES GET HARD FIDDLY PUT ALL THE RIGHT SERIAL NUMBER IN
+;
+; THE CODE IF FILE BASE FOR KEY
+; AND COMPLETE ARRAY BASE FOR EASIER 
+; ALSO CHECK THE TEXT FILE FOR UPDATE TO INCLUDE CHANGER
+;
+; A MORNING WORK FOR ONE CHECK BOX IN
+;
+; GOODSYNC2GO IS LITTLE ANNOYER
+; AS FOR PORTABLE
+; WOULD THINK
+; THAT SERIAL KEY NOT REQUIRE AS MUCH
+; IF STOP DOWN ALL OTHER INSTANCE NETWORK
+; SHOULD BE THAT NOT REQUIRE PUT KEY SO OFTEN
+; MAYBE IS CHANGE COMPUTER NORMALLY USE ON
+; SO IF OUT PORTABLE HAVE TO GET OUT KEY EVERYWHERE
+; AND AUTO ENTRY NOT WORK
+; -------------------------------------------------------------------
+; Wed 04-Sep-2019 12:58:00
+; -------------------------------------------------------------------
+; FROM __ Wed 04-Sep-2019 10:34:52
+; TO   __ Wed 04-Sep-2019 12:13:10
+; -------------------------------------------------------------------
+
 
 ;# ------------------------------------------------------------------
 ; Location Internet
@@ -138,15 +176,174 @@ IF OSVER_N_VAR=WIN_7
 GLOBAL TIMER_NOT_RESPONDING
 TIMER_NOT_RESPONDING=0
 
+SET_ACTIVATION__HWND=0
+
 ; -------------------------------------------------------------------
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
 SETTIMER TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP,1000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
 SETTIMER CHECK_GOODSYNC_NOT_RESPOND,2000
+FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT=0
+GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
+SETTIMER TIMER_SET_ACTIVATION_BOX,1000
+SET_GOODSYNC_CONNECT_BOX_HWND=0
+SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
 
 ; -------------------------------------------------------------------
+RETURN
+; -------------------------------------------------------------------
 
+TIMER_SET_GOODSYNC_CONNECT_BOX:
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 3
+	IfWinExist GoodSync Account Setup ahk_class #32770
+	WinGet, HWND_GOODSYNC_CONNECT_BOX, ID, GoodSync Account Setup ahk_class #32770
+	IF SET_GOODSYNC_CONNECT_BOX_HWND<>%HWND_GOODSYNC_CONNECT_BOX%
+	IF HWND_GOODSYNC_CONNECT_BOX
+	{
+		Element_2=matt-lan-btinternet-com
+		Element_3=24682468
+		ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+		IF OutputVar_2<>%Element_2%
+		{
+			ControlSetText, Edit2,, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+			Control, EditPaste, %Element_2%, Edit2, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+			SoundBeep , 4000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+		ControlGettext, OutputVar_2, Edit3, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+		IF OutputVar_2<>%Element_3%
+		{
+			ControlSetText, Edit3,, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+			Control, EditPaste, %Element_3%, Edit3, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+			SoundBeep , 4000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+	}
+	
+	IF SET_GOODSYNC_CONNECT_BOX_HWND<>%HWND_GOODSYNC_CONNECT_BOX%
+	{
+		ALL_SET_OF_GOODSYNC_CONNECT=TRUE
+
+		ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+		IF OutputVar_2<>%Element_2%
+			ALL_SET_OF_GOODSYNC_CONNECT=FALSE
+		ControlGettext, OutputVar_2, Edit3, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+		; RESULT IS NONE SEEM A PASS BOX
+		; NONE WAY LEARN IS COMPLETER		
+		; -----------------------------------------------------------
+		; TOOLTIP % OutputVar_2
+		; IF OutputVar_2<>%Element_3%
+			; ALL_SET_OF_GOODSYNC_CONNECT=FALSE
+		IF ALL_SET_OF_GOODSYNC_CONNECT=TRUE
+			SET_GOODSYNC_CONNECT_BOX_HWND=%HWND_GOODSYNC_CONNECT_BOX%
+	}
+RETURN
+
+
+; -------------------------------------------------------------------
+SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE:
+
+	FN_Array_1 := []
+	ArrayCount := 1
+	File_NAME := "C:\RF\7-ASUS-GL522VW\SAFE NOTE\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
+	IfNOTExist, %File_NAME%
+		RETURN 
+	
+	FileRead, LoadedText, %File_NAME%
+	oText := StrSplit(LoadedText, "`n")
+	Loop, % oText.MaxIndex()
+	{
+		IF SUBSTR(oText[A_Index],1,1)<>"#"
+		IF TRIM(oText[A_Index])<>""
+		{
+			STRING_V:=oText[A_Index]
+			StringReplace, STRING_V, STRING_V, `n, , All
+			StringReplace, STRING_V, STRING_V, `r, , All
+			FN_Array_1[ArrayCount]:=STRING_V
+			ArrayCount += 1
+		}
+	}
+	FileGetTime, OutputVar, %File_NAME%, M
+	IF FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT<>%OutputVar%
+		FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT = %OutputVar%
+
+	
+RETURN
+
+TIMER_SET_ACTIVATION_BOX:
+{
+
+	File_NAME := "C:\RF\7-ASUS-GL522VW\SAFE NOTE\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
+	IfExist, %File_NAME%
+	{
+		FileGetTime, OutputVar, %File_NAME%, M
+		IF FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT<>%OutputVar%
+		{
+			FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT = %OutputVar%
+			GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
+		}
+	}
+		
+	
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 3
+	IfWinExist GoodSync Activation ahk_class #32770
+	HWND_ACTIVATION=
+	WinGet, HWND_ACTIVATION, ID, GoodSync Activation ahk_class #32770
+	IF SET_ACTIVATION__HWND<>%HWND_ACTIVATION%
+	IF HWND_ACTIVATION>0
+	{
+		IDX_MAX:=FN_Array_1.MaxIndex()
+		IDX_MAX-=3
+		IDX_1=-2
+		Loop 200
+		{
+			IF IDX_1>%IDX_MAX%
+				BREAK
+			IDX_1+=3
+			IDX_2=%IDX_1%
+			IDX_2+=1
+			IDX_3=%IDX_1%
+			IDX_3+=2
+			
+			Element_1 := FN_Array_1[IDX_1]
+			Element_2 := FN_Array_1[IDX_2]
+			Element_3 := FN_Array_1[IDX_3]
+
+			OK_COMPUTER_NAME=FALSE
+			IF Element_1=*
+				OK_COMPUTER_NAME=TRUE
+			IF (A_ComputerName = "%Element_1%") 
+				OK_COMPUTER_NAME=TRUE
+			
+			WinGet Path, ProcessPath, ahk_id %HWND_ACTIVATION%
+			IF INSTR(Path,Element_2)
+			{
+				ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_ACTIVATION%
+				IF OutputVar_2<>%Element_3%
+				{
+					ControlSetText, Edit1,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, MATTHEW LANCASTER, Edit1, ahk_id %HWND_ACTIVATION%
+					ControlSetText, Edit2,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, %Element_3%, Edit2, ahk_id %HWND_ACTIVATION%
+					SoundBeep , 4000 , 100
+				}
+			}
+		}
+		
+		IF SET_ACTIVATION__HWND<>%HWND_ACTIVATION%
+		{
+			ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_ACTIVATION%
+			IF OutputVar_2=%Element_3%
+			{
+				SET_ACTIVATION__HWND=%HWND_ACTIVATION%
+				RETURN
+			}
+		}
+	}
+}
 RETURN
 
 ; OPTIONAL SUB ROUTINE
@@ -266,6 +463,7 @@ SET_OK_BOX:
 	
 }
 RETURN
+
 
 
 ; -------------------------------------------------------------------

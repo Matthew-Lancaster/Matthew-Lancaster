@@ -67,7 +67,7 @@ CALL GS_SERVER_CHANGE_USER_NAME
 
 
 IF TT_EDITOR_2<>TT_EDITOR THEN 
-	MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR
+	MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR,vbMsgBoxSetForeground 
 	Set File_2 = fso.OpenTextFile(FILEN_1, ForWriting)
 	File_2.Write TT_EDITOR
 END IF

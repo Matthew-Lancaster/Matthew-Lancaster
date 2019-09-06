@@ -58,15 +58,32 @@ SoundBeep , 2500 , 100
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
 
-FN_VAR:="D:\VB6\VB-NT\00_Send_To\Send To Date Of File In Front FileName\#0 Send To Date Of File In Front FileName.vbp"
+FN_VAR_1=C:\Program Files (X86)\Microsoft Visual Studio\VB98\VB6.EXE
+FN_VAR_2=D:\VB6\VB-NT\00_Send_To\Send To Date Of File In Front FileName\#0 Send To Date Of File In Front FileName.vbp
+FN_VAR="%FN_VAR_1%" /R "%FN_VAR_2%"
+
+
+
+; -------------------------------------------------------------------
+; VBP VBA VBS
+; -------------------------------------------------------------------
+; HOW TO RUN A VBP IN IDE FROM LOADER ----  /r 
+; AND THEM COMMMAND LINE OF VB6 REQUIRE
+; -------------------------------------------------------------------
+; Shell """C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"" """ + App.Path + "\" + App.EXEName + ".vbp""", vbNormalFocus
+; -------------------------------------------------------------------
+; Shell """C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"" /r """ + App.Path + "\" + App.EXEName + ".vbp""", vbNormalFocus
+; -------------------------------------------------------------------
+
 
 WIN_VAR:="Send_To_Date_In_Front_FName - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk"
 
-IfExist, %FN_VAR%
+IfExist, %FN_VAR_1%
+IfExist, %FN_VAR_2%
 	IFWinNotExist, %WIN_VAR%
 	{
 		SoundBeep , 2000 , 100
-		Run, "%FN_VAR%", , MAX
+		Run, %FN_VAR%, , MAX
 	}
 	ELSE
 	{

@@ -163,7 +163,7 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 				I_VAR=I_VAR + "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS = " & VBCRLF 
 				I_VAR=I_VAR + VBCRLF 
 				I_VAR=I_VAR + ARRAY_1(R_SET_1)
-				MSGBOX I_VAR
+				MSGBOX I_VAR,vbMsgBoxSetForeground 
 			END IF
 		END IF
 	NEXT
@@ -268,7 +268,7 @@ IF APPDATA_FOLDER_FILE_COUNT_VAR_1=APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
 		I_VAR=I_VAR + "DONE _ PUT ITEM SET PUT ON TASKBAR COUNT TOTAL = " & VBCRLF & COUNT_I & VBCRLF
 		I_VAR=I_VAR + VBCRLF 
 		I_VAR=I_VAR + "NONE EXTRA ADDED"
-		MSGBOX I_VAR
+		MSGBOX I_VAR,vbMsgBoxSetForeground 
 	END IF
 END IF
 
@@ -278,7 +278,7 @@ IF APPDATA_FOLDER_FILE_COUNT_VAR_1<>APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
 	I_VAR=I_VAR + VBCRLF 
 	I_VAR=I_VAR + "EXTRA PIN ITEM SET PUT ON TASKBAR = " & VBCRLF
 	I_VAR=I_VAR + CSTR(APPDATA_FOLDER_FILE_COUNT_VAR_2-APPDATA_FOLDER_FILE_COUNT_VAR_1)
-	MSGBOX I_VAR
+	MSGBOX I_VAR,vbMsgBoxSetForeground 
 END IF
 
 WScript.Quit(0)
@@ -481,12 +481,17 @@ END IF
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
+' -------------------------------------------------------------------
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
+' -------------------------------------------------------------------
 I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-
-IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\GoodSync\x64\GoodSync2Go.exe"
-	I=I+1:ARRAY_1(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go.bat BAT2EXE - D TARGET\GoodSync2Go_D.exe"
+' -------------------------------------------------------------------
+SET_GO_GS=FALSE
+IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then SET_GO_GS=TRUE
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then SET_GO_GS=TRUE
+IF Version_OS=10 AND SET_GO_GS=TRUE THEN
+	I=I+1:ARRAY_1(I)="C:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - C\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO C DRIVE.AHK.EXE"
+	I=I+1:ARRAY_1(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - D\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.AHK.EXE"
 END IF
 
 IF Version_OS=10 THEN
@@ -564,8 +569,26 @@ END IF
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe"
 
 IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
 	I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
+	If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+		I=I-1
+		I=I+1:ARRAY_1(I)="C:\Program Files\Logitech\LogiOptions\LogiOptions.exe"
+	END IF
+	' ---------------------------------------------------------------
+	' THIS THE NEW VERSION ARRIVE 2019 09 05 
+	' "C:\Program Files\Logitech\LogiOptions\LogiOptions.exe"
+	' IF BOTH NOT EXIST ANY COMPUTER 
+	' THEN PUT BACK AND DISPLAY BOTH FOR NOT EXIST AT ENDER MESSENGER
+	' ---------------------------------------------------------------
+	If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+		I=I-1
+		I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
+		I=I+1:ARRAY_1(I)="C:\Program Files\Logitech\LogiOptions\LogiOptions.exe"
+	END IF
+END IF
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
@@ -680,6 +703,13 @@ I=I+1:ARRAY_1(I)=""
 
 
 
+' -------------------------------------------------------------------
+' WORK
+' -------------------------------------------------------------------
+' DO A CHECK FOR DUPLICATE CROSS ARRAY
+' -------------------------------------------------------------------
+
+
 
 ' -------------------------------------------------------------------
 ' ASUS 5-P NOT REQUIRED ON TASKBAR
@@ -787,7 +817,7 @@ SUB GET_LINK_SET_STRING(fFolder)
 	Dim oFile
 	For Each objFile in colFiles
 		Set oFile = oFSO.GetFile(objFile.PATH)
-		If IsNull(oFile) Then MsgBox("File not found: " & strPath) : Exit SUB
+		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground  : Exit SUB
 		With oFile.OpenAsTextStream()
 			readBinary = .Read(oFile.Size)
 			.Close
@@ -811,7 +841,7 @@ FUNCTION LINK_ALREADY_EXIST(fFolder,FILE_SCAN_FIND_1)
 		'Set File_1 = fso.OpenTextFile(objFile.PATH, ForReading,0,0)
 		
 		Set oFile = oFSO.GetFile(objFile.PATH)
-		If IsNull(oFile) Then MsgBox("File not found: " & strPath) : Exit Function
+		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground  : Exit Function
 		With oFile.OpenAsTextStream()
 			readBinary = .Read(oFile.Size)
 			.Close
@@ -915,7 +945,7 @@ Sub ShowSubfolders_FIND_FOLDER(fFolder,FILE_SCAN_FIND_1)
 		If INSTR(UCASE(Subfolder.PATH), UCASE(FILE_SCAN_FIND_1))>0 Then SET_GO=TRUE
 		IF SET_GO=TRUE THEN 
 			FILE_SCAN_FIND_2=Subfolder.PATH
-			MSGBOX FILE_SCAN_FIND_2
+			MSGBOX FILE_SCAN_FIND_2,vbMsgBoxSetForeground 
 			EXIT FOR
 		End If
 

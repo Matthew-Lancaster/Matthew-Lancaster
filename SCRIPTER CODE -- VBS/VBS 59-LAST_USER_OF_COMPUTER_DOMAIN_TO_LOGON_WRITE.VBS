@@ -1,58 +1,149 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\
 '# __ 
-'# __ VBS 35-RENAMER VB6 _VBP LCASE.VBS
+'# __ VBS 59-LAST_USER_OF_COMPUTER_DOMAIN_TO_LOGON_WRITE.VBS
 '# __ 
 '# BY Matthew __ Matt.Lan@Btinternet.com
 '# __ 
-'# START      TIME [ Thu 18-Oct-2018 13:28:00 ] COPY FROM ANOTHER CODE
-'# END LAST EDITOR [ Thu 18-Oct-2018 14:32:04 ] 
+'# START      TIME [ Fri 06-Sep-2019 00:13:30 ]
+'# END LAST EDITOR [ Fri 06-Sep-2019 00:13:30 ] 
 '# __ 
 '====================================================================
 
-'# ------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' DESCRIPTION 
-'# ------------------------------------------------------------------
-' ON GOING PROBLEM 
-' NOT FOUND ANSWER YET
-' BUT SOMETHING KEEP PUT THE EXTENSION FOR _.VBP INTO UPPER CASE
-' MAKE THE SYNC TO GOOGLE DRIVE GO WONKY
-' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
-'# ------------------------------------------------------------------
+' -------------------------------------------------------------------
+' SESSION 001
+' -------------------------------------------------------------------
+' CODE SET TAKEN FROM ONBE BEFORE 
+' VBS 58-VB6 CORRECT MSCOMCTL.OCX _2.2_ _TO_ _2.1_.VBS
+' -------------------------------------------------------------------
+' OUR MODIFY
+' LAST USER TO LOGON WILL HELP WITH WHAT IS THE MOST COMMON USER FOR EACH COMPUTER
+' WHILE OTHER NIGHT TESTER ROUTINE
+' FOR GATHER ALL USER OF A COMPUTER NAME
+' IT SEEM WAS ROUTINE THAT COULD BE USEFUL
+' BUT FIND WHO REMOTE LOGGED IN
+' AND NOT A TIME QUICKER TASK
+' THAT IS WHAT WE WANT
+' WOULD COULD HAVE THAT 
+' A FILE OR FOLDER IS WRITTEN TO A FOLDER IN USER AREA
+' OR SOMEWHERE OTHER
+' GATHER THEM UP COULD BE QUITE DIFFICULT IS RANDOM NAME USER
+' BUTT JUST LIKE COMPUTER DOMAIN IS 
+' THEY ARE GENERALLY EASIER
+' IF I HAVE A LAUNCHER FOR EXPLORER 
+' IT NOT WANT HELD UP AT LOAD TIME
+' I FIND LOAD OF FOLDER EXIST POWERFULLY QUICKER
+' AND THEN EVEN QUICKER STILL IF IN THE CACHE 
+' FILE DATE CHECKER
+' ALL CHECK ROOT FOLDER TO FIND ALL USER GONE THROUGH WITH SCRIPT
+' STORE FEW OTHER VARIABLE LIKE LAST COMPUTER BOOT TIME EACH COMPUTER
+' THAT LOOK GOOD
+' PROBLEM GET ALL USER REMOTE ALSO HAS ACCESS AREA 
+' I TRY IN VB2008 VB.NET CODE
+' -------------------------------------------------------------------
+' Fri 06-Sep-2019 00:13:30
+' Fri 06-Sep-2019 00:13:30
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
 ' LOCATION ON-LINE 
-'# ------------------------------------------------------------------
 ' -------------------------------------------------------------------
-' ----
-' Matthew-Lancaster/VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS at master · Matthew-Lancaster/Matthew-Lancaster
-' https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20VBS/VBS%2030-FUJI%20CAMERA%20IMAGE%20DATE%20FOLDER%20CREATE%20%26%20MOVE.VBS
-' ----
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
-'#-------------------------------------------------------------------
-' 001 __ 
-'#-------------------------------------------------------------------
-' ADDER
-' ADD CODE
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' Thu 18-Oct-2018 13:28:00
-' Thu 18-Oct-2018 14:32:04 __ 
-'#-------------------------------------------------------------------
 
 
 '--------------------------------------------------------------------
 DIM Version_OS
 CALL GET_WINDOWS_VERSION
 '--------------------------------------------------------------------
-IF Version_OS<10 THEN 
-	Wscript.QUIT
-END IF
+' IF Version_OS<10 THEN 
+	' Wscript.QUIT
+' END IF
 '--------------------------------------------------------------------
 
-Const ForReading = 1, ForWriting = 2, ForAppending = 8
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		else
+			i1=i1+1
+		END IF
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+				' Wscript.Quit
+		END IF
+		IF i2 > 1 THEN ' MY  PROGRAM WSCRIPT 
+				' Wscript.Quit
+		END IF
+    END IF
+NEXT
+
+
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
+
+Const vbFromUnicode = 128
+Const vbUnicode = 64
+Const adTypeBinary = 1
+Const adTypeText = 2
+Const adLongVarBinary = 205
+
+Const ForReading = 1, ForWriting = 2, ForAppending = 8
+
+' --------------------------------------------------------
+' VBSCRIPT SEEMS TO READER IN UNICODE MANIPULATE AND SAVE
+' IN VBA VB6 Replace() DOES MULTIPLE OCCUR HER WITH , , 1)
+' HERE VBS DOES SINGLE 
+'
+' IT READ IN THE SAME UNI CODE AND WRITE AS IT FIND
+'
+' --------------------------------------------------------
+
+' CUR_USER = CreateObject("WScript.Network").UserName
+' 
+' FILEN_1=
+' FILEN_2=
+
+' FSO.COPYFILE FILEN_1, FILEN_2
+
+DIM TT_EDITOR
+
+FileModDate=NOW
+i_TIME=""
+i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"/"
+i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"/"
+i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)+" "
+i_TIME=i_TIME+" "
+i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+":"
+i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+":"
+i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)+""
+i_TIME=i_TIME+" "
+i_TIME=i_TIME+MonthName(MONTH(FileModDate),TRUE)+" "
+i_TIME=i_TIME+WeekdayName(Weekday(VAR_NOW),TRUE)
+
+MsgBox i_TIME
+
+Wscript.QUIT
+
+TT_EDITOR
+
+Set File_2 = fso.OpenTextFile(VAR_PATH_SCANNER, ForWriting)
+File_2.Write TT_EDITOR
+Set File_2 = NOTHING
+
+
 
 DIM STOP_PROGRESS
 DIM IX_ERROR_MESSENGER
@@ -70,42 +161,7 @@ Set objFSO = CreateObject("Scripting.FileSystemObject")
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-
-' -------------------------------------------------------------------
-' SOURCE GIVEN
-' -------------------------------------------------------------------
-' vbscript - how to check vbs script in windows is running or not? - Stack Overflow
-' https://stackoverflow.com/questions/7849699/how-to-check-vbs-script-in-windows-is-running-or-not
-' -------------------------------------------------------------------
-' [ Wednesday 13:08:00 Pm_20 March 2019 ]
-' -------------------------------------------------------------------
-
-' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
-' -------------------------------------------------------------------
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
-
-i1 = 0 ' ANY PROGRAM WSCRIPT 
-i2 = 0 ' MY  PROGRAM WSCRIPT 
-FOR EACH objProcess IN colProcesses
-    IF NOT (IsNull(objProcess.CommandLine )) THEN
-		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
-		IF strScriptName = Wscript.ScriptName THEN
-			i2=i2+1
-		else
-			i1=i1+1
-		END IF
-		IF i1 > 0 THEN 
-				' Wscript.Quit
-		END IF  
-		IF i2 > 1 THEN 
-				Wscript.Quit
-		END IF  
-    END IF  
-NEXT
-
-
+DIM STR_PATH
 
 Dim oDict_1 ' Key: Full filename, Item: Filename
 Dim oDict_2 ' Key: Full filename, Item: Filename
@@ -143,134 +199,91 @@ DIM FindMostRecentFile_VAR
 
 DIM I_SET_DONE
 
-'--------------------------------------------------------------------
-' USAGE IN GOODSYNC SCRIPT TEXT FIELD
-'--------------------------------------------------------------------
-' "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS" %JOBNAME%
-'--------------------------------------------------------------------
-
-
 Set args = Wscript.Arguments
 For Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
 Next
 
-FOLDER_PATH_VAR_1="D:\VB6\VB-NT\00_Best_VB_01"
+'--------------------------------------------------------------------
+' USAGE ONCE A DAY AT WITH QUITE MODE
+'--------------------------------------------------------------------
+' C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
+'--------------------------------------------------------------------
 
-DONE_IDEA=FALSE
-IF INSTR(Wscript_Arguments,"ONLY_SCRIPT_FOLDER")>0 THEN
-	I=0
-	I=I+1:FOLDER_PATH_SET_VAR(I)="C:\SCRIPTER"
-	DONE_IDEA=TRUE
-END IF
-' IF INSTR(Wscript_Arguments,"ONLY_CALLERID_FOLDER")>0 THEN
-' D BT Cloud Sync _ 03 GOOGLE DRIVE
-IF INSTR(Wscript_Arguments,"D BT Cloud Sync _")>0 THEN
-	I=0
-	I=I+1:FOLDER_PATH_SET_VAR(I)="D:\BT Cloud Sync Online\CallerID"
-	DONE_IDEA=TRUE
-END IF
-IF DONE_IDEA=FALSE THEN
-	I=0
-	I=I+1:FOLDER_PATH_SET_VAR(I)="D:\VB6\VB-NT"
-	I=I+1:FOLDER_PATH_SET_VAR(I)="C:\SCRIPTER"
+' -------------------------------------------------------------------
+' LOAD ONCE TO GET GO AND AGAIN LATER FOR TWO SHOW
+' WHEN SORT ORDER DONE
+' -------------------------------------------------------------------
+IF Wscript_Arguments="" THEN 
 END IF
 
-REDIM PRESERVE FOLDER_PATH_SET_VAR(I)
+' I=0
+' I=I+1:FOLDER_PATH_SET_VAR(I)="D:\VB6\VB-NT"
+' I=I+1:FOLDER_PATH_SET_VAR(I)=""
+' I=I+1:FOLDER_PATH_SET_VAR(I)=""
+' I=I+1:FOLDER_PATH_SET_VAR(I)=""
+' I=I+1:FOLDER_PATH_SET_VAR(I)=""
 
-' -------------------------------------------------------------------
-' TO MAKE QUICKER IF ANY GITHUB JOB ONLY C DRIVE THAT SMALLER
-' SPEED UP BY REMOVE THE VB SCAN
-' THAT'LL DO
-' AND THEN ABLE HAVE PRE AND POST SCAN FOR VB UPPER CASE PROJECT EXTENSION
-' -------------------------------------------------------------------
-' [ Monday 14:00:50 Pm_18 March 2019 ]
-' -------------------------------------------------------------------
-I=0
-IF INSTR(Wscript_Arguments,"C SCRIPTOR __")>0 THEN 
-	FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
-		IF FOLDER_PATH_SET_VAR(RR)<>"D:\VB6\VB-NT" THEN 
-			I=I+1:FOLDER_PATH_SET_VAR_02(I)=FOLDER_PATH_SET_VAR(RR)
-		END IF
-	NEXT 
-	REDIM PRESERVE FOLDER_PATH_SET_VAR_02(I)
-	I=0
-	FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR_02)
-		I=I+1
-		FOLDER_PATH_SET_VAR(RR)=FOLDER_PATH_SET_VAR_02(RR)
-	NEXT 
-	REDIM PRESERVE FOLDER_PATH_SET_VAR(I)
-END IF
+' REDIM PRESERVE FOLDER_PATH_SET_VAR(I)
 
 
+' DIM FOLDER_PATH_FILTER()
+' REDIM FOLDER_PATH_FILTER(1)
+' FOLDER_PATH_FILTER(1)="\_gsdata_\"
 
-DIM FOLDER_PATH_FILTER()
-REDIM FOLDER_PATH_FILTER(1)
-FOLDER_PATH_FILTER(1)="\#0 AllApi\"
-
-FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
-	IF FSO.FolderExists(FOLDER_PATH_SET_VAR(RR))=FALSE THEN 
-		MSGBOX "FOLDER NOT EXIST"+VBCRLF+VBCRLF+FOLDER_PATH_SET_VAR(RR),vbMsgBoxSetForeground 
-		Wscript.QUIT
-	END IF
-NEXT 
+' FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
+	' IF FSO.FolderExists(FOLDER_PATH_SET_VAR(RR))=FALSE THEN 
+		' MSGBOX "FOLDER NOT EXIST"+VBCRLF+VBCRLF+FOLDER_PATH_SET_VAR(RR)
+		' Wscript.QUIT
+	' END IF
+' NEXT 
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
-	SET_VAR_MODE_ORDER=1
-	FOLDER_PATH_VAR=FOLDER_PATH_SET_VAR(RR)
-	CALL MAIN
-NEXT 
-' CHANGES MADE ON 1ST RUN
+' FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
+	' SET_VAR_MODE_ORDER=1
+	' FOLDER_PATH_VAR=FOLDER_PATH_SET_VAR(RR)
+	' CALL MAIN
+' NEXT 
 
-' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calender\Calender Ace.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\Drives Gig\Drives_Gig.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\Drives Gig_MINIMIZE VERSION\Drives_Gig.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\Winamp - Volume MINI\VolumeBar MINI.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\WinAmp MP3%\WinAmp MP3%-VideoBar.VBP
 
-' D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\vbedit\VBEDIT.VBP
-
-' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Alarm\ALARM.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc\CALC.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc - ORIGINAL\CALC.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\#0 SMALL PROGS\Calc - TEXT_&_HEX\CALC - TEXT_&_HEX.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\METRONOME\METRONOME.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\MP3 PLAYED\MP3 PLAYED.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\MPH AND DISTANCE\MP3 PLAYED\MP3 PLAYED.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\REBOOT CLOSE PROGRAMS\REBOOT CLOSE PROGRAMS.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\VU_METER_LOGGER\VU METER LOGGER.VBP
-' D:\VB6\VB-NT\00_Best_VB_01\Wmi_CPU\WMICPU1 BIG.VBP
 
 I=""
-I=I+"RENAME VBASIC __FROM__" + VBCRLF 
-I=I+"UCASE _.VBP" + VBCRLF 
-I=I+"__TO__" + VBCRLF 
-I=I+"LCASE _.vbp" + VBCRLF 
+I=I+Wscript.ScriptName + VBCRLF 
 I=I+""+ VBCRLF 
-FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
-	I=I+ FOLDER_PATH_SET_VAR(RR) +"\*.VBS"+ VBCRLF 
-NEXT
 I=I+"----------------------------------------------------------------"+ VBCRLF 
-I=I+"RENAME _.vbp FILE COUNT" + VBCRLF + CSTR(I_COUNT_1) + VBCRLF 
-I=I+"TOTAL _.vbp EXTENSION COUNT" + VBCRLF + CSTR(I_COUNT_2) + VBCRLF 
-I=I+"ERROR RENAME COUNT" + VBCRLF + CSTR(I_COUNT_3) + VBCRLF 
-I=I+""+ VBCRLF 
+I=I+"CORRECTION MADE _.VBP FILE COUNT" + VBCRLF + CSTR(I_COUNT_1) + VBCRLF
+I=I+VBCRLF 
+I=I+"TOTAL _.VBP COUNT" + VBCRLF + CSTR(I_COUNT_2) + VBCRLF 
+I=I+VBCRLF 
 I=I+I_SET_DONE
 
 IF Wscript_Arguments="" THEN 
 	MSGBOX I,vbMsgBoxSetForeground 
 END IF
 
+
+' -------------------------------------------------------------------
+' LOAD ONCE TO GET GO AND AGAIN LATER FOR TWO SHOW
+' WHEN SORT ORDER DONE
+' -------------------------------------------------------------------
+IF Wscript_Arguments="" AND I_COUNT_1>0 THEN 
+	STR_PATH = """D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"""
+	WSHShell.Run STR_PATH
+END IF
+
+
 SET fso = NOTHING
 SET objFSO = NOTHING
 SET WSHShell = NOTHING
 
 Wscript.QUIT
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
@@ -290,72 +303,30 @@ Sub Main
 End Sub
 
 ' -------------------------------------------------------------------
-Sub FindWantedFiles(sFolder)
-    On Error Resume Next
-    Dim oFDR, oItem, file
-    ' Check if wanted files are in this folder
-    For Each file In sFolder.Files
-		oDict_1.Add FILE.path, file
-    Next
-    ' Recurse into it's sub folders
-    For Each oFDR In sFolder.SubFolders
-		oDict.Add objFSO.GetFolder(oFDR.Path), ""
-        FindWantedFiles objFSO.GetFolder(oFDR.Path)
-    Next
-End Sub
-
-' -------------------------------------------------------------------
-Sub FindWantedFiles_2(sFolder)
-    On Error Resume Next
-    DIM FILE_FOLDER_COUNTER
-	Dim oFDR, oItem, file
-    ' Check if wanted files are in this folder
-    For Each file In sFolder.Files
-		oDict_2.Add FILE.path, file
-    Next
-    ' Recurse into it's sub folders
-    For Each oFDR In sFolder.SubFolders
-		' -----------------------------------------------------------
-		' REMEMBER HERE USE THIS RESULT TWICE ONCE TO STORE FOLDER PATH 
-		' AND THEN USE FOLDER PATH FOR RECURSIVE
-		' AND THEN GET ALL FILE AND FOLDER _ KINDA TRICKY
-		' -----------------------------------------------------------
-		' MSGBOX objFSO.GetFolder(oFDR.Path)
-		oDict_2.Add objFSO.GetFolder(oFDR.Path), ""
-        FindWantedFiles_2 objFSO.GetFolder(oFDR.Path)
-    Next
-End Sub
-
-' -------------------------------------------------------------------
 Sub FindWantedFiles_5(sFolder)
     On Error Resume Next
     DIM FILE_FOLDER_COUNTER
 	Dim oFDR, oItem, file
     ' Check if wanted files are in this folder
     For Each file In sFolder.Files
-		
+
+		GOT_VBP=FALSE
 		FILE_STRIP_PATH=MID(FILE,INSTRREV(FILE,"\")+1)
 		IF UCASE(MID(file,LEN(file)-3))=".VBP" THEN 
 			I_COUNT_2=I_COUNT_2+1
+			GOT_VBP=TRUE
 		END IF
 
-		SET_FILTER_GO=FALSE
+		SET_FILTER_GO=TRUE
 		FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_FILTER)
-			IF INSTR(FILE,FOLDER_PATH_FILTER(R_COUNT)) THEN SET_FILTER_GO=TRUE
+			IF INSTR(FILE,FOLDER_PATH_FILTER(R_COUNT)) THEN SET_FILTER_GO=FALSE
 		NEXT
-		
-		' IN REM IF FILENAME IS ALL UCASE THEN IGNORE
-		'IF UCASE(FILE_STRIP_PATH)<>FILE_STRIP_PATH THEN 
-		
-		IF SET_FILTER_GO=FALSE THEN 
-			IF LCASE(MID(file,LEN(file)-3))= ".vbp" THEN 
-				IF MID(file,LEN(file)-3)<>".vbp" THEN 
-					I_COUNT_1=I_COUNT_1+1
-					oDict_1.Add FILE.path, file
-				END IF
+		IF SET_FILTER_GO=TRUE THEN 
+			IF GOT_VBP=TRUE THEN 
+				oDict_1.Add FILE.path, file
+				I_COUNT_2=I_COUNT_2+1
 			END IF
 		END IF
-		'END IF
     Next
     ' Recurse into it's sub folders
     For Each oFDR In sFolder.SubFolders
@@ -369,6 +340,65 @@ Sub FindWantedFiles_5(sFolder)
         FindWantedFiles_5 objFSO.GetFolder(oFDR.Path)
     Next
 End Sub
+
+' -------------------------------------------------------------------
+Sub DisplayFindings_5()
+    Dim oKeys, oKey
+    oKeys = oDict_1.Keys
+    For Each oKey In oKeys
+		VAR_PATH_SCANNER=oKey
+		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+		
+		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
+
+			Set f = fso.GetFile(VAR_PATH_SCANNER)
+			FileModDate = f.DateLastModified
+			SET f=NOTHING
+			FILE_DATE_SPAN=40
+			IF FileModDate+FILE_DATE_SPAN>NOW THEN
+				Set File_1 = fso.OpenTextFile(VAR_PATH_SCANNER, ForReading)
+				TT_EDITOR = File_1.ReadAll
+				Set File_1 = NOTHING
+				IF InStr(UCASE(TT_EDITOR), "#2.2#0; MSCOMCTL.OCX")>0 THEN 
+					CALL USUAL_MAIN
+					Set File_2 = fso.OpenTextFile(VAR_PATH_SCANNER, ForWriting)
+					File_2.Write TT_EDITOR
+					Set File_2 = NOTHING
+					' --------------------------------------------------
+					STR_PATH = "EXPLORER.EXE /SELECT," & VAR_PATH_SCANNER
+					WSHShell.Run STR_PATH
+					' --------------------------------------------------
+					' MSGBOX VAR_PATH_SCANNER
+					I_COUNT_1=I_COUNT_1+1
+				END IF
+			END IF
+		END IF
+	Next
+End Sub
+
+SUB USUAL_MAIN
+
+	X = 1
+	T1 = InStr(X,UCASE(TT_EDITOR), "#2.2#0; MSCOMCTL.OCX")
+	IF T1>0 THEN 
+		MODSTR="#2.1#0; MSCOMCTL.OCX"
+		TT_EDITOR_2 = Replace(UCASE(TT_EDITOR), "#2.2#0; MSCOMCTL.OCX", MODSTR,1,1)
+		TT_EDITOR_3=MID(TT_EDITOR,1,T1-1)+MODSTR+MID(TT_EDITOR,T1+LEN(MODSTR))
+		' -----------------------------------------------------------
+		' DEBUG DOUBLE CHECKER FOR STRING MANIPULATE TWO METHOD
+		' ----------------------------------
+		' TT_EDITOR_3=UCASE(TT_EDITOR_3)
+		' IF TT_EDITOR_2=TT_EDITOR_3 THEN MSGBOX "MATCH GOOD"
+		' IF TT_EDITOR_2<>TT_EDITOR_3 THEN 
+			' MSGBOX MID(TT_EDITOR_2,T1-20,40)+VBCRLF+VBCRLF+MID(TT_EDITOR_3,T1-20,40)
+		' END IF
+		' -----------------------------------------------------------
+		TT_EDITOR=TT_EDITOR_3
+	END IF
+	
+END SUB
+
+
 
 
 ' -------------------------------------------------------------------
@@ -441,149 +471,7 @@ Sub FindMostRecentFile_2(sFolder)
     Next
 End Sub
 
-' -------------------------------------------------------------------
-Sub DisplayFindings_1()
-    Dim oKeys, oKey
-    oKeys = oDict_1.Keys
-    For Each oKey In oKeys
-		VAR_PATH_SCANNER=oKey
-		CALL PATH_SCANNER_FOLDER_DATE_CREATE
-	Next
-End Sub
 
-' -------------------------------------------------------------------
-Sub DisplayFindings_2()
-    Dim oKeys, oKey
-    oKeys = oDict_1.Keys
-    For Each oKey In oKeys
-		VAR_PATH_SCANNER=oKey
-		CALL PATH_SCANNER_FOLDER_MOVE_FROM_IMPORT
-	Next
-End Sub
-
-' -------------------------------------------------------------------
-Sub DisplayFindings_3()
-    Dim oKeys, oKey
-    oKeys = oDict_2.Keys
-    For Each oKey In oKeys
-		VAR_PATH_SCANNER=oKey
-		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-		
-		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
-			ON ERROR RESUME NEXT
-			ERR.CLEAR
-			FSO.DeleteFile VAR_PATH_SCANNER
-			I_COUNT_1=I_COUNT_1+1
-			IF ERR.NUMBER>0 THEN 
-				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
-			END IF
-			ON ERROR GOTO 0
-		END IF
-		
-		IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
-			IF FolderEmpty(VAR_PATH_SCANNER) THEN
-				ON ERROR RESUME NEXT
-				ERR.CLEAR
-				FSO.DeleteFolder VAR_PATH_SCANNER
-				I_COUNT_2=I_COUNT_2+1
-				IF ERR.NUMBER>0 THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
-				END IF
-				ON ERROR GOTO 0
-			END IF
-		END IF
-
-	Next
-End Sub
-
-' -------------------------------------------------------------------
-Sub DisplayFindings_4()
-    Dim oKeys, oKey
-    oKeys = oDict_2.Keys
-    For Each oKey In oKeys
-		VAR_PATH_SCANNER=oKey
-		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-		
-		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
-			Set f = fso.GetFile(VAR_PATH_SCANNER)
-			FileModDate = f.DateLastModified
-			FileCreateDate = f.DateCreated 
-			SET f=NOTHING
-			IF FileCreateDate+TIMESERIAL(1,20,0)<NOW THEN 
-				' MSGBOX VAR_PATH_SCANNER
-				ON ERROR RESUME NEXT
-				ERR.CLEAR
-				FSO.DeleteFile VAR_PATH_SCANNER
-				I_COUNT_1=I_COUNT_1+1
-				IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
-				END IF
-				ON ERROR GOTO 0
-			END IF
-		END IF
-		
-		IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
-		SET_GO=TRUE
-		FOR R_COUNT= 1 TO UBOUND(FOLDER_PATH_FILTER)
-			IF VAR_PATH_SCANNER=FOLDER_PATH_FILTER(R_COUNT) THEN
-				SET_GO=FALSE
-			END IF
-		NEXT
-			END IF
-		
-		IF SET_GO=TRUE THEN 
-			IF FSO.FolderExists(VAR_PATH_SCANNER) Then 
-				IF FolderEmpty(VAR_PATH_SCANNER) THEN
-					Set f = fso.GetFolder(VAR_PATH_SCANNER)
-					FolderModDate = f.DateLastModified
-					FolderCreateDate = f.DateCreated 
-					SET f=NOTHING
-					IF FolderCreateDate+TIMESERIAL(24,0,0)<NOW THEN 
-						' MSGBOX VAR_PATH_SCANNER
-						ON ERROR RESUME NEXT
-						ERR.CLEAR
-						FSO.DeleteFolder VAR_PATH_SCANNER
-						I_COUNT_2=I_COUNT_2+1
-						IF ERR.NUMBER>0  AND Wscript_Arguments="" THEN 
-							MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
-						END IF
-						ON ERROR GOTO 0
-					END IF
-				END IF
-			END IF
-		END IF
-	Next
-End Sub
-
-
-' -------------------------------------------------------------------
-Sub DisplayFindings_5()
-    Dim oKeys, oKey
-    oKeys = oDict_1.Keys
-    For Each oKey In oKeys
-		VAR_PATH_SCANNER=oKey
-		PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-		
-		IF FSO.FileExists(VAR_PATH_SCANNER) Then 
-			ON ERROR RESUME NEXT
-			ERR.CLEAR
-			
-			VAR_PATH_SCANNER_RENAME= VAR_PATH_SCANNER
-			VAR_PATH_SCANNER_RENAME= MID(VAR_PATH_SCANNER_RENAME,1,LEN(VAR_PATH_SCANNER_RENAME)-4)+".vbp"
-			
-			Fso.MoveFile VAR_PATH_SCANNER, VAR_PATH_SCANNER_RENAME
-
-			' MSGBOX VAR_PATH_SCANNER + VBCRLF + VAR_PATH_SCANNER_RENAME
-
-			I_SET_DONE=I_SET_DONE+VAR_PATH_SCANNER+VBCRLF
-			IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
-				I_COUNT_3=I_COUNT_3+1
-				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO RENAME" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
-			END IF
-			ON ERROR GOTO 0
-		END IF
-	Next
-End Sub
 
 
 ' -------------------------------------------------------------------
@@ -628,7 +516,7 @@ SUB PATH_SCANNER_FOLDER_MOVE_FROM_IMPORT
 	Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 	I_COUNT_4=I_COUNT_4+1		
 	IF ERR.NUMBER>0 THEN 
-		MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+		MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename
 		Wscript.QUIT
 	END IF
 	
@@ -671,7 +559,7 @@ SUB PATH_SCANNER_FOLDER_DATE_CREATE
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		I_COUNT_2=I_COUNT_2+1		
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename
 			Wscript.QUIT
 		END IF
 	END IF
@@ -706,7 +594,7 @@ SUB PATH_SCANNER_FOLDER_FUJI_RENAME
 	Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 	I_COUNT_2=I_COUNT_2+1		
 	IF ERR.NUMBER>0 THEN 
-		MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+		MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
 		Wscript.QUIT
 	END IF
 End Sub
@@ -818,7 +706,7 @@ SUB PATH_SCANNER_RENAME_4
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
 		END IF
 		'Wscript.QUIT
 	end if
@@ -857,7 +745,7 @@ SUB PATH_SCANNER_RENAME_2
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
 		END IF
 	END IF
 
@@ -895,7 +783,7 @@ SUB PATH_SCANNER_RENAME_2
 		NewFilename=PATH_VAR+NewFilename
 
 		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename,vbMsgBoxSetForeground 
+			msgbox NewFilename
 			Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 
@@ -931,7 +819,7 @@ SUB PATH_SCANNER_RENAME
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
 		END IF
 	END IF
 
@@ -984,7 +872,7 @@ SUB PATH_SCANNER_RENAME
 					LOOP UNTIL LEN(NewFilename)=12
 				end if
 				 
-				msgbox NewFilename,vbMsgBoxSetForeground 
+				msgbox NewFilename
 				 
 				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
 			 NEXT
@@ -999,7 +887,7 @@ SUB PATH_SCANNER_RENAME
 		'MSGBOX PATH_VAR_4
 		'MSGBOX VAR_PATH_SCANNER
 		IF SET_GO=TRUE THEN 
-			msgbox NewFilename,vbMsgBoxSetForeground 
+			msgbox NewFilename
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT_1=I_COUNT_1+1
@@ -1086,11 +974,10 @@ SUB GET_WINDOWS_VERSION
 END SUB
 
 
-
 '---------
 ' REFERENCE
 '---------
-' How Can I Get a List of All the Files in a Folder and Its Subfolders? – Hey, Scripting Guy! Blog
+' How Can I Get a List of All the Files in a Folder and Its Subfolders? â€“ Hey, Scripting Guy! Blog
 ' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
 ' ----
 
@@ -1112,4 +999,4 @@ END SUB
 ' ----
 ' vbscript - Read files in subfolders - Stack Overflow
 ' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
-' ----
+' ----	

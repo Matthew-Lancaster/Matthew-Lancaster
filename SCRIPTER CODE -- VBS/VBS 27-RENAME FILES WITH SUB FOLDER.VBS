@@ -19,7 +19,7 @@ FOLDER_PATH="D:\DSC"
 I_COUNT=0
 
 IF FSO.FolderExists(FOLDER_PATH)=FALSE THEN 
-	MSGBOX "FOLDER NOT EXIST"
+	MSGBOX "FOLDER NOT EXIST",vbMsgBoxSetForeground 
 	Wscript.QUIT
 END IF
 
@@ -45,7 +45,7 @@ Sub Main
     ' Display All Findings from Dictionary object
     DisplayFindings
 
-	MSGBOX "DONE RENAME COUNT _ " & CSTR(I_COUNT) & " of " & CSTR(oDict.count)
+	MSGBOX "DONE RENAME COUNT _ " & CSTR(I_COUNT) & " of " & CSTR(oDict.count),vbMsgBoxSetForeground 
 
     Set fso = Nothing
     Set oDict = Nothing
@@ -102,7 +102,7 @@ SUB PATH_SCANNER_RENAME_4
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
 		END IF
 		'Wscript.QUIT
 	end if
@@ -140,7 +140,7 @@ SUB PATH_SCANNER_RENAME_2
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
 		END IF
 	END IF
 
@@ -178,7 +178,7 @@ SUB PATH_SCANNER_RENAME_2
 		NewFilename=PATH_VAR+NewFilename
 
 		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename
+			msgbox NewFilename,vbMsgBoxSetForeground 
 			Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 
@@ -215,7 +215,7 @@ SUB PATH_SCANNER_RENAME
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
 		END IF
 	END IF
 
@@ -268,7 +268,7 @@ SUB PATH_SCANNER_RENAME
 					LOOP UNTIL LEN(NewFilename)=12
 				end if
 				 
-				msgbox NewFilename
+				msgbox NewFilename,vbMsgBoxSetForeground 
 				 
 				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
 			 NEXT
@@ -283,7 +283,7 @@ SUB PATH_SCANNER_RENAME
 		'MSGBOX PATH_VAR_4
 		'MSGBOX VAR_PATH_SCANNER
 		IF SET_GO=TRUE THEN 
-			msgbox NewFilename
+			msgbox NewFilename,vbMsgBoxSetForeground 
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT=I_COUNT+1

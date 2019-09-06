@@ -39,7 +39,7 @@ Sub CreateSRP
 		If sOut <> 0 Then
 	 		WScript.echo "Error " & sOut & ": Unable to create Restore Point."
                 else 
-                MsgBox "The restore point was created successfully.", 0, "Create Manual System Restore Point"
+                MsgBox "The restore point was created successfully.", 0, "Create Manual System Restore Point",vbMsgBoxSetForeground 
 		End If
 	End If
 End Sub

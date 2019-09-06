@@ -334,7 +334,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   93323265
+      Format          =   152764417
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -348,7 +348,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   93323265
+      Format          =   152764417
       CurrentDate     =   37296
    End
    Begin MSComctlLib.ListView ListView2 
@@ -587,322 +587,6 @@ Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwndLock As Long) 
 'We must declare with WithEvents to process the files returned
 Private WithEvents SP As cScanPath
 Attribute SP.VB_VarHelpID = -1
-
-
-
-
-
-
-
-Sub Bangers()
-
-tpath1$ = "E:\04 Music ---\03 My Music Zen\"
-tpath2$ = "E:\04 Music ---\04 My Music\"
-tpath3$ = "E:\04 Music ---\Del\"
-'MkDir tpath3$
-txtPath.Text = tpath1$
-
-cboMask.Text = "*.mp3"
-
-Call cmdScan_Click
-
-'Fs22.copyFile a1$ + b1$, tpath2$ + c1$ + b1$
-List1.AddItem "Copy On Smallest Size From Zen Folder an To Zen folder"
-List1.AddItem "Then it will compare for duplicates an click them bottom list to put removed folder"
-
-For we = 1 To ListView1.ListItems.Count
-    A1$ = ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ListView1.ListItems.Item(we)
-C1$ = Mid$(A1$, Len(tpath1$))
-rr = FileExists(tpath2$ + C1$ + B1$)
-If rr = True Then
-'call date_File()
-tt1 = FindFileSize(A1$ + B1$)
-tt2 = FindFileSize(tpath2$ + C1$ + B1$)
-If tt1 <> tt2 Then
-If tt1 = 0 And Mid$(B1$, 1, 8) <> "--------" Then MsgBox A1$ + B1$ + " = Zero"
-If tt2 = 0 And Mid$(B1$, 1, 8) <> "--------" Then MsgBox A1$ + B1$ + " = Zero"
-End If
-If tt1 < tt2 And tt1 > 0 Then
-snot = snot + 1
-List1.AddItem "Copy From Zen Folder " + Str(we) + Str(snot) + " -- " + A1$ + B1$
-DoEvents
-List1.Refresh
-DoEvents
-FS22.CopyFile A1$ + B1$, tpath2$ + C1$ + B1$
-End If
-If tt2 < tt1 And tt2 > 0 Then
-snot = snot + 1
-List1.AddItem "Copy To Zen Folder " + Str(we) + Str(snot) + " -- " + A1$ + B1$
-DoEvents
-List1.Refresh
-DoEvents
-FS22.CopyFile tpath2$ + C1$ + B1$, A1$ + B1$
-End If
-
-
-
-End If
-Next
-
-
-tpath1$ = "E:\04 Music ---\03 My Music Zen\"
-tpath2$ = "E:\04 Music ---\04 My Music\"
-
-txtPath.Text = tpath1$
-
-cboMask.Text = "*.mp3"
-
-Call cmdScan_Click
-
-
-
-For we = ListView1.ListItems.Count To 1 Step -1
-    A1$ = ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ListView1.ListItems.Item(we)
-    tt1 = FindFileSize(A1$ + B1$)
-
-    ListView1.ListItems.Item(we).SubItems(1) = Format$(tt1, "0000000000") + " - " + A1$ + B1$
-    ListView1.SelectedItem = ListView1.ListItems(we)
-    ListView1.SelectedItem.EnsureVisible
-    If tt1 = 0 Then ListView1.ListItems.Remove (we)
-Next
-
-ListView1.SortOrder = lvwAscending
-ListView1.Sorted = True        'Use default sorting to sort the
-ListView1.SortKey = 1
-
-For we = ListView1.ListItems.Count To 2 Step -1
-    DoEvents
-    A1$ = ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ListView1.ListItems.Item(we)
-    a2$ = ListView1.ListItems.Item(we - 1).SubItems(1)
-    B1$ = ListView1.ListItems.Item(we - 1)
-    'tt1 = FindFileSize(a1$ + b1$)
-kk1 = Val(Mid$(ListView1.ListItems.Item(we).SubItems(1), 1, 10))
-kk2 = Val(Mid$(ListView1.ListItems.Item(we - 1).SubItems(1), 1, 10))
-ii1$ = "0": ii2$ = "1"
-
-If kk1 = kk2 Then
-    Reset
-    fr1 = FreeFile
-    Open Mid$(A1$, 14) For Binary As #fr1
-    fr2 = FreeFile
-    Open Mid$(a2$, 14) For Binary As #fr2
-    ii1$ = Input$(4000, fr1)
-    ii2$ = Input$(4000, fr2)
-    Close #fr1, #fr2
-End If
-
-
-If ii1$ = ii2$ Then
-List1.AddItem A1$
-List1.AddItem a2$
-ListView1.ListItems.Remove (we)
-End If
-Next
-If Val(Mid$(ListView1.ListItems.Item(1).SubItems(1), 1, 10)) = 0 Then
-    ListView1.ListItems.Remove (1)
-End If
-
-List1.AddItem "Complete.................."
-
-End Sub
-
-
-Sub AutoPix()
-
-
-'Fs22.moveFile a1$ + b1$, c1$ + b1$
-'    Fs22.moveFile a1$ + b1$, tp1$ + b1$
-
-
-'Put in Sub Of Code
-Set m_CRC = New clsCRC
-m_CRC.Algorithm = CRC32
-'WxHex$ = Hex(m_CRC.CalculateString(Form3.Text1.Text))
-'WxHex$ = Hex(m_CRC.CalculateFile(Filename))
-
-'tp1$ = "G:\Art\AutoPix Dont Want CRC - Done\"
-
-'txtPath.Text = "G:\Art\AutoPix Dont Want CRC\"
-'If Mid$(txtPath.Text, Len(txtPath.Text), 1) <> "\" Then
-'    txtPath.Text = txtPath.Text + "\"
-'End If
-
-cboMask.Text = "*.mp3"
-
-Call cmdScan_Click
-
-For we = 1 To ListView1.ListItems.Count
-    A1$ = ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ListView1.ListItems.Item(we)
-'    WxHex$ = Space$(10)
-'    LSet WxHex$ = Hex(m_CRC.CalculateFile(a1$ + b1$))
-'    Print #f1, WxHex$
-Err.Clear
-On Local Error Resume Next
-'    tp2$ = tp1$ + Mid$(a1$, Len(txtPath.Text) + 1)
-'    Fs22.moveFile a1$ + b1$, tp1$ + b1$
-
-If Err.Number > 0 Then
-'    tp2$ = tp1$ + Mid$(a1$, Len(txtPath.Text) + 1)
-'    ff$ = Err.Description
-'    Err.Clear
-'    MkDir (tp2$)
-    'If Err.Number > 0 Then Stop
-'    Err.Clear
-    
-'    Fs22.moveFile a1$ + b1$, tp2$ + Left$(b1$, Len(b1$) - 4) + "_" + Trim(Str(we)) + ".jpg"
-'    If Err.Number > 0 Then Stop
-
-End If
-Next
-Close #f1
-
-f1 = FreeFile
-Open txtPath.Text + "CRC File.txt" For Input As #f1
-rr$ = Input$(LOF(f1), f1)
-Close #f1
-
-For r3 = 1 To 1
-
-If r3 = 2 Then txtPath.Text = "G:\Art\AutoPix\AutoPix 000-000\"
-If r3 = 1 Then txtPath.Text = "G:\Art\AutoPix\"
-'If r3 = 1 Then txtPath.Text = "G:\Art\AutoPix\AutoPix zz 000-000\"
-
-If Mid$(txtPath.Text, Len(txtPath.Text), 1) <> "\" Then
-    txtPath.Text = txtPath.Text + "\"
-End If
-cboMask.Text = "*.jpg"
-
-Call cmdScan_Click
-
-
-
-
-
-'MsgBox "Ready to Go"
-
-'Open App.Path + "\CRC Dupe.txt" For Output As #1
-
-
-For we = 1 To ListView1.ListItems.Count
-'For we = 1 To 5000
-    
-    
-    
-    A1$ = ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ListView1.ListItems.Item(we)
-
-
-    ii = ii + 1
-'    List1.AddItem Str$(ii) + " -- " + a1$ + b1$
- '   List1.ListIndex = List1.ListCount - 1
-    
-    WxHex$ = Space$(8)
-
-    LSet WxHex$ = Hex(m_CRC.CalculateFile(A1$ + B1$))
-    
-    ListView1.ListItems.Item(we).SubItems(1) = WxHex$ + " - - " + Format$(we, "0000000") + " - - " + A1$
-    ListView1.SelectedItem = ListView1.ListItems(we)
-    ListView1.SelectedItem.EnsureVisible
-    Label13.Caption = Str(we)
-    Label14.Caption = Str(we)
-
- '   Print #1, WxHex$, " - - "; a1$, b1$
-DoEvents
-
-
-
-Next
-    
-    ListView1.SortOrder = lvwAscending
-        
-    ListView1.Sorted = True        'Use default sorting to sort the
-    
-    ListView1.SortKey = 1
-
-For we = 2 To ListView1.ListItems.Count
-    
-    A1$ = ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ListView1.ListItems.Item(we)
-    
-    a12$ = ListView1.ListItems.Item(we - 1).SubItems(1)
-    b12$ = ListView1.ListItems.Item(we - 1)
-
-
-
-
-If Mid$(A1$, 1, 3) <> "G:\" Then
-    
-    g1$ = Mid$(A1$, 1, 8)
-    g2 = Val(Mid$(A1$, 14, 7))
-    g3$ = Mid$(A1$, 26)
-    
-    h1$ = Mid$(a12$, 1, 8)
-    h2 = Val(Mid$(a12$, 14, 7))
-    h3$ = Mid$(a12$, 26)
-
-rt = 0
-If InStr(rr$, g1$) Then
-    If rt = 0 Then MsgBox "1st Del CRC Dont Want"
-    rt = 1
-    
-    Kill g3$ + B1$
-    aga = aga + 1
-    Label14.Caption = Str(aga)
-End If
-
-
-'Shell "C:\Program Files\IceView\IceView.exe " + h3$ + b12$, vbNormalFocus
-'Shell "C:\Program Files\IceView\IceView.exe " + g3$ + b1$, vbNormalFocus
-    
-    If g1$ = h1$ Then
-        aga = aga + 1
-        Label14.Caption = Str(aga)
-        If g2 > h2 Then xxcrc = 1
-        If g2 < h2 Then xxcrc = 2
-        If xxcrc = 1 Then Kill g3$ + B1$
-        If xxcrc = 2 Then Kill h3$ + b12$
-    End If
-    
-    End If
-    
-    ListView1.SelectedItem = ListView1.ListItems(we)
-    ListView1.SelectedItem.EnsureVisible
-    Label13.Caption = Str(we)
-
-Next
-
-
-
-Next
-
-
-
-
-MsgBox "End"
-
-Exit Sub
-
-End
-
-End Sub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Private Sub cboSize_Click()
@@ -1161,7 +845,7 @@ Exit Sub
 
 'frmMain.Show
 
-Call Bangers
+' Call Bangers
 
 Exit Sub
     fg1 = FreeFile
@@ -1337,7 +1021,7 @@ For we = 1 To ListView1.ListItems.Count
 
         d2$ = Mid$(C1$, 1, ets2)
 
-        If InStr(f1$, d2$) = 0 Then
+        If InStr(F1$, d2$) = 0 Then
             On Local Error GoTo jeep
             MkDir d2$
             If errs2 <> 75 And errs2 > 0 Then
@@ -1348,7 +1032,7 @@ For we = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = d2$
+    F1$ = d2$
     
     '
     errs2 = 0
@@ -1440,7 +1124,7 @@ For we = 1 To ListView1.ListItems.Count
 
         d2$ = Mid$(C1$, 1, ets2 - 1)
 
-        If InStr(f1$, d2$) = 0 Then
+        If InStr(F1$, d2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             'MkDir d2$
@@ -1453,7 +1137,7 @@ For we = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = d2$
+    F1$ = d2$
 
     errs2 = 0
     On Local Error Resume Next
@@ -1509,7 +1193,7 @@ For we = 1 To ListView1.ListItems.Count
 
         d2$ = Mid$(C1$, 1, ets2 - 1)
 
-        If InStr(f1$, d2$) = 0 Then
+        If InStr(F1$, d2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             MkDir d2$
@@ -1522,7 +1206,7 @@ For we = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = d2$
+    F1$ = d2$
     Err.Clear
     errs2 = 0
     On Local Error Resume Next

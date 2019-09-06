@@ -2,12 +2,12 @@
 'Location -- D:\03_MICROSOFT\#_OPPO_SYS\#_OP_SYS_-_TOOL_KITT\Windows 7 Product Key VBS\VBS 21-Get Windows Product Key.VBS
 
 IF GET_WINDOWS_VERSION=>6 THEN 
-	MsgBox "Get Windows Product Key __ Not Work OS-VER Above Windows 7"
+	MsgBox "Get Windows Product Key __ Not Work OS-VER Above Windows 7",vbMsgBoxSetForeground 
 	WScript.Quit(0)
 end if
 
 Set WshShell = CreateObject("WScript.Shell")
-MsgBox ConvertToKey(WshShell.RegRead("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\DigitalProductId"))
+MsgBox ConvertToKey(WshShell.RegRead("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\DigitalProductId")),vbMsgBoxSetForeground 
 
 
 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\DigitalProductId
