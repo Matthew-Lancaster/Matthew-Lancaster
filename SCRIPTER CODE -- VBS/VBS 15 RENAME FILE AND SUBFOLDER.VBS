@@ -77,7 +77,7 @@ NEXT
 
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
-MSGBOX "RENAME FILE AND SUBFOLDER _ DONE ON _ " & CSTR(TEST_COUNTER) 
+MSGBOX "RENAME FILE AND SUBFOLDER _ DONE ON _ " & CSTR(TEST_COUNTER) ,vbMsgBoxSetForeground 
 '-------------------------------------------------------------------
 Wscript.QUIT
 '-------------------------------------------------------------------

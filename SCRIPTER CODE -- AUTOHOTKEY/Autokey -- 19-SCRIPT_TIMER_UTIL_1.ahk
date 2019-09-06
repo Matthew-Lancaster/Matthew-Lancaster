@@ -240,6 +240,8 @@ GLOBAL dhw
 
 GLOBAL OLD_UniqueID_MYSMS
 
+
+
 OLD_UniqueID_MYSMS=0
 
 OLD_UniqueID_CHROME=0
@@ -373,7 +375,6 @@ SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, 1000
 
 DAY_AND_HOUR_NOW=
 SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
-
 
 SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
 SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
@@ -521,6 +522,12 @@ IF (OSVER_N_VAR=5)
 RETURN
 
 
+MIDNIGHT_TIMER:
+
+
+
+RETURN
+
 
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 
@@ -586,18 +593,43 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	IF (GITHUB_SET_GO=FALSE and GOODSYNC_SET_GO=FALSE)
 		RETURN
 
-	WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	; INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe") ---- \BAT 45-SCRIPT RUN GITHUB.exe
+
+	WinGet, Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 	IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
-	{
 		GITHUB_SET_GO=FALSE
 		; MSGBOX INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
-	}
+	
+	; ---------------------------------------------------------------
+	; IF BOTH C DRIVE GOOD SYNC AND WITH GS2GO NOT RUN 
+	; THEN DON'T RUN THESE SCRIPT
+	; AS I PROBABLY RUN LONG TASK IN WHOLE D-DRIVE BACK UP 
+	; WITH ANOTHER GS2GO ON DRIVE FROM ANOTHER
+	; 
+	; IF D DRIVE GS2GO WAS HAPPEN THAT WOULDN'T ALLOW LOGIC EITHER
+	; ---------------------------------------------------------------
+	WinGet, Path_1, ProcessPath, ahk_exe GoodSync2Go.exe
+	WinGet, Path_2, ProcessPath, ahk_exe GoodSync-v10.exe
+	IF INSTR(Path_1,"\GoodSync2Go.exe")=0
+	IF INSTR(Path_2,"\GoodSync-v10.exe")=0
+		GITHUB_SET_GO=FALSE
+
 	IF GITHUB_SET_GO=TRUE
 	{
 		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
 		IfExist, %FN_VAR%
 		{
 			Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
+			; -------------------------------------------------------
+			; HERE WILL EVENTUALLY RUN 
+			; BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
+			; -------------------------------------------------------
+			; AND IT WILL RUN JOB FOR GOODSYNC 
+			; NOT GOODSYNC2GO
+			; -------------------------------------------------------
+			; APPLY TO ONLY -- A_ComputerName="7-ASUS-GL522VW"
+			; LOOKER TOP OF ROUTINE
+			; -------------------------------------------------------
 		}
 	}
 	
@@ -700,10 +732,29 @@ NOTEPAD_PP_SESSION_BACKUP_DAILY:
 
 RETURN
 
+GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
+
+VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS:
+
+	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 58-VB6 CORRECT MSCOMCTL.OCX _2.2_ _TO_ _2.1_.VBS"
+
+	IfExist, %Element_1%
+		Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
+
+RETURN
+
+
+VBS_35_RENAMER_VB6_VBP_LCASE_VBS:
+
+	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS"
+
+	IfExist, %Element_1%
+		Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
+
+RETURN
 
 
 MIDNIGHT_AND_HOUR_TIMER:
-
 
 	; ---------------------------------------------------------------
 	; DAY TIMER 
@@ -713,7 +764,12 @@ MIDNIGHT_AND_HOUR_TIMER:
 	IF OL_Day_Get__01<>%Midnight_Get_01%
 	{
 		GOSUB DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP
-		GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
+		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+			GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
+		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+			GOSUB VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS
+		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
 		
 		OL_Day_Get__01=%Midnight_Get_01%
 	}

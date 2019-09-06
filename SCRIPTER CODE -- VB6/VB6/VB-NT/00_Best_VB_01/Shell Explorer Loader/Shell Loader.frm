@@ -5883,6 +5883,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_CLIPBOARD_ALL_NET_PATH_REVERSE 
       Caption         =   "CLIPBOARD ALL NET PATH REVERSE"
    End
+   Begin VB.Menu MNU_LOAD_ALL_GOODSYNC_PROFILE_TIC_NOTEPAD 
+      Caption         =   "LOAD ALL GOODSYNC PROFILE IN NOTEPAD"
+   End
    Begin VB.Menu MNU_NETWORK_2_STEP_JUMPER 
       Caption         =   "NETWORK 2 STEP JUMPER"
    End
@@ -5895,6 +5898,39 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+' ------------------------------------------------------------------------------
+' SESSION COUNT NUMBER MASSIVE
+' 002 SESSION
+' 01.. -------------------------------------------------------------------------
+' MASSIVE WORK TONIGHT
+' ADD NEW NETWORK FOLDER FOR USER
+' SHAME ABOUT THE HARD CODER FOR EXTRA AT THE MOMENT
+' TO SHOW WHICH IS MIAN LOGGIONG USER FOR EACH COMPUTER
+' WAS GONG TO CODE SOME VB NET 2008
+' TEST CODE WASN'T ALLOW ACCESS OVER NETWORK
+' 02.. -------------------------------------------------------------------------
+' ADD CODE FOR GOOD SYNC PATH FOR PROFILE EVERY COMPUTER NETOWRK
+' AND MAKE A GOODSYNC PROFILE LOADER FOR NOTEPAD++
+' THESE TPYE OF FILE NOT WANT NOTEPAD++ AS CHANGE SO OFTEN
+' SO LOAD IN WORK AND MOVE OUT AGAIN
+' 03.. -------------------------------------------------------------------------
+' IN ORDER TO MAKE EASIER WITH PATH AND SHOW ANOTHR NAME THAT HAD REPLACE STRING
+' FOR SMALLER NEATER USE ANOTHER ARRAY PART OF LISTVIEW
+' ------------------------------------------------------------------------------
+' TIME SLICE WORKER
+' ------------------------------------------------------------------------------
+' Tue 03-Sep-2019 12:33:48 -- STARTED AND WORK OTHER THING FOR WHILE MORE
+' Wed 04-Sep-2019 01:45:10
+' ------------------------------------------------------------------------------
+
+
+
+' -------------------------------------
+' NOTE FORM VBS COMMON LABEL NAME CLASH
+' SO CALL ShowWindow_2
+' -------------------------------------
+Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
 Dim CLIPBOARDOR
 Dim FontSizez
 Dim FontSizez_2
@@ -5942,7 +5978,7 @@ Private Declare Function FindWindow2 _
 
 
 
-Private Declare Sub CopyMemory Lib "Kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
 
 Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
@@ -5956,7 +5992,7 @@ Private Type Rect
     Bottom As Long
 End Type
 
-Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
+Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 
 Private Type POINTAPI
@@ -6233,9 +6269,9 @@ End If
 SET_TRACER_ONCE = True
 
 OIP$ = App.Path
-tt1 = InStr(OIP$, "Shell")
-tt2 = InStr(tt1, OIP$, "Loader")
-OIP2$ = Mid$(OIP$, tt1 + 6, tt2 - tt1 - 7)
+TT1 = InStr(OIP$, "Shell")
+TT2 = InStr(TT1, OIP$, "Loader")
+OIP2$ = Mid$(OIP$, TT1 + 6, TT2 - TT1 - 7)
 OIP$ = OIP2$
 
 TEXT_PATH_1 = App.Path + "\Text Loggs\" + GetComputerName + "-" + GetUserName
@@ -6379,8 +6415,8 @@ Private Sub MNU_CLIPBOARD_ALL_NET_PATH_REVERSE_Click()
 
     NET_PATH_ALL_REVERSE = ""
     NET_PATH_ALL_R = Split(NET_PATH_ALL, vbCrLf)
-    For r3 = UBound(NET_PATH_ALL_R) To 0 Step -1
-        NET_PATH_ALL_REVERSE = NET_PATH_ALL_REVERSE + NET_PATH_ALL_R(r3) + vbCrLf
+    For R3 = UBound(NET_PATH_ALL_R) To 0 Step -1
+        NET_PATH_ALL_REVERSE = NET_PATH_ALL_REVERSE + NET_PATH_ALL_R(R3) + vbCrLf
     Next
     Clipboard.Clear
     Clipboard.SetText NET_PATH_ALL_REVERSE + vbCrLf
@@ -6403,6 +6439,107 @@ CLIPBOARDOR_PATH_NAME = True
 CLIPBOARDOR_PATH_SHORT = True
 End Sub
 
+
+Private Sub MNU_LOAD_ALL_GOODSYNC_PROFILE_TIC_NOTEPAD_Click()
+
+' -------------------------------------
+' NOTE FORM VBS COMMON LABEL NAME CLASH
+' SO CALL ShowWindow_2
+' -------------------------------------
+' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+NET_PATH_ALL_R = Split(NET_PATH_ALL, vbCrLf)
+
+Dim M()
+ReDim M(UBound(NET_PATH_ALL_R) + 10)
+Dim R3
+For R3 = 0 To UBound(NET_PATH_ALL_R)
+    CK1 = UCase(NET_PATH_ALL_R(R3))
+    ' ------------------------------------------------------
+    ' YOU MIGHT THINK MY CODE IS CRAPPY
+    ' BUT PUT >0 AFTER EACH INSTR AS WHEN COMPARE 2
+    ' AND WITH AN AND STATEMENT BETWEEN
+    ' IT CHANGE THE VALUE OF LOGIC
+    ' SO NOT ABLE LEAVE >0 OUT
+    ' INSTR RETURN RESULT HOW FAR IN THE STRING IS POSITION
+    ' ------------------------------------------------------
+    If InStr(CK1, "1_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "2_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "3_LINDA") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "E_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "2_ASUS") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "5_ASUS") > 0 And InStr(CK1, "D_DRIVE") > 0 Then
+        NET_PATH_ALL_R(R3) = ""
+    End If
+'    If InStr(CK1, "7_ASUS") > 0 And InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+    If InStr(CK1, "8_MSI") > 0 And InStr(CK1, "D_DRIVE") > 0 Then NET_PATH_ALL_R(R3) = ""
+Next
+i = -1
+For R3 = 0 To UBound(NET_PATH_ALL_R)
+    CK1 = UCase(NET_PATH_ALL_R(R3))
+    CK2 = NET_PATH_ALL_R(R3)
+    If CK1 <> "" Then
+        SET_GO = False
+        If InStr(CK1, "4_ASUS") > 0 Then SET_GO = True
+        If InStr(CK1, "7_ASUS") > 0 Then SET_GO = True
+        If InStr(CK1, "8_MSI") > 0 Then SET_GO = True
+        If SET_GO = True Then
+        If InStr(CK1, "C_DRIVE") > 0 Then
+            i = i + 1: M(i) = CK2 + "\GoodSync\Profile\jobs-groups-options.tic"
+            ' -----------------------------------------------------------------
+            For R5 = 1 To 5
+                GS_1 = CK2 + "\Users\MATT " + Format(R5, "00") + "\AppData\Roaming\GoodSync\jobs-groups-options.tic"
+                If Dir(GS_1) <> "" Then
+                    i = i + 1: M(i) = GS_1
+                End If
+            Next
+            ' -----------------------------------------------------------------
+        End If
+        End If
+        If InStr(CK1, "D_DRIVE") > 0 Then
+            i = i + 1: M(i) = CK2 + "\GoodSync\Profile\jobs-groups-options.tic"
+        End If
+    End If
+Next
+
+ReDim Preserve M(i)
+
+NP = ""
+If NP = "" Then
+    NP1 = "C:\Program Files\Notepad++\notepad++.exe"
+    NP = Dir(NP1)
+End If
+If NP = "" Then
+    NP2 = "C:\Program Files (X86)\Notepad++\notepad++.exe"
+    NP = Dir(NP2)
+End If
+If NP = "" Then
+    MsgBox "NOTEPAD++ NOT FOUND -- HERE " + vbCrLf + vbCrLf + NP1 + vbCrLf + vbCrLf + NP2
+End If
+For R3 = 0 To UBound(M)
+    If Dir(M(R3)) <> "" Then
+        Dim objShell
+        Set objShell = CreateObject("Wscript.Shell")
+        objShell.Run NP + " """ + M(R3) + """", ShowWindow_2, DontWaitUntilFinished
+        Set objShell = Nothing
+        M(R3) = ""
+    End If
+Next
+
+XX = ""
+For R3 = 0 To UBound(M)
+    If M(R3) <> "" Then
+        XX = XX + M(R3) + vbCrLf
+    End If
+Next
+
+If XX <> "" Then
+    MsgBox "THESE GOODSYNC PROFILE DID NOT FIND" + vbCrLf + XX, vbMsgBoxSetForeground
+End If
+
+End
+
+End Sub
 
 Private Sub MNU_NETWORK_2_STEP_JUMPER_Click()
 
@@ -6658,20 +6795,39 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
         Label1(RX).Caption = Format$(rt, "000") + ". " + ttg$
         
     End If
+    'If InStr(Label1(RX), 125) = 1 Then Stop
     
-    If InStr(Label1(RX), ":\") > 0 Then
-        SET_GO = False
-        'If FSO.FolderExists(Mid(Label1(RX), 5)) = True Then SET_GO = True
-        If FSO.FolderExists(Mid(Label1(RX), InStr(Label1(RX), ":") - 1)) = True Then SET_GO = True
-        If SET_GO = True Then
-            LABEL_BACKCOLOR_VAR = Label3.BackColor - RGB(40, 40, 40)
-        Else
-            LABEL_BACKCOLOR_VAR = Label3.BackColor
+    If InStr(Label1(RX), "\\") = 0 Then
+        If InStr(Label1(RX), ":\") > 0 Then
+            SET_GO = False
+            'If FSO.FolderExists(Mid(Label1(RX), 5)) = True Then SET_GO = True
+            If Dir(Mid(Label1(RX), InStr(Label1(RX), ":") - 1), vbDirectory) <> "" Then SET_GO = True
+            If FSO.FolderExists(Mid(Label1(RX), InStr(Label1(RX), ":") - 1)) = True Then SET_GO = True
+            If SET_GO = True Then
+                LABEL_BACKCOLOR_VAR = Label3.BackColor - RGB(40, 40, 40)
+            Else
+                LABEL_BACKCOLOR_VAR = Label3.BackColor
+            End If
         End If
     End If
+    
     If InStr(Label1(RX), "\\") > 0 Then
         LABEL_BACKCOLOR_VAR = Label2.BackColor
     End If
+    
+    If InStr(Label1(RX), "_ C:\USER") > 0 Then
+        SET_HERE_2 = False
+        CV1 = Label1(RX).Caption
+        If InStr(CV1, "3-L") > 0 And InStr(CV1, "MATT 01") > 0 Then SET_HERE_2 = True
+        If InStr(CV1, "4-A") > 0 And InStr(CV1, "MATT 01") > 0 Then SET_HERE_2 = True
+        If InStr(CV1, "5-A") > 0 And InStr(CV1, "MATT 01") > 0 Then SET_HERE_2 = True
+        If InStr(CV1, "7-A") > 0 And InStr(CV1, "MATT 04") > 0 Then SET_HERE_2 = True
+        If InStr(CV1, "8-M") > 0 And InStr(CV1, "MATT 01") > 0 Then SET_HERE_2 = True
+        If SET_HERE_2 = True Then
+            LABEL_BACKCOLOR_VAR = &HFF00& 'Label3.BackColor - RGB(40, 40, 40)
+        End If
+    End If
+    
     
     Label1(RX).BackColor = LABEL_BACKCOLOR_VAR
     
@@ -6902,6 +7058,7 @@ If SET_REAL_LINK = False Then
     ' Sleep 10
 End If
 
+H1$ = ScanPath.ListView1.ListItems.Item(XXT2).SubItems(2)
 A1$ = ScanPath.ListView1.ListItems.Item(XXT2).SubItems(1)
 B1$ = ScanPath.ListView1.ListItems.Item(XXT2)
 'C1$ = Form1.Label1(XXT2).Caption
@@ -6964,14 +7121,31 @@ If InStr(LCase(B1$), ".lnk") > 0 Then
     End If
 
     If Mid(D1$, 2, 2) = ":\" Or Mid(D1$, 1, 2) = "\\" Then
-        If FSO.FileExists(D1$) = False And FSO.FolderExists(D1$) = False Then
+        ' FILE_CHECK_IF_EXIST_FOR_COLOUR = D1$
+        ' ------------------------------------
+        D4$ = D1$
+        SET_GO_4 = True
+        If FSO.FileExists(D4$) = False And FSO.FolderExists(D4$) = False Then
+            SET_GO_4 = False
+        End If
+        If H1$ <> "" Then
+            D4$ = H1$
+            If SET_GO_4 = False Then
+                SET_GO_4 = True
+                If FSO.FileExists(D4$) = False And FSO.FolderExists(D4$) = False Then
+                    SET_GO_4 = False
+                End If
+            End If
+        End If
+        If SET_GO_4 = False Then
             Label1(XXT2).BackColor = RGB(240, 127, 127) 'QBColor(12)
             X_COLOR_ARRAY(XXT2) = Form1.Label1(XXT2).BackColor
             WxHex$ = Hex(m_CRC.CalculateFile(A1$ + B1$))
             Print #FR1, WxHex$
             Print #FR1, A1$ + B1$
-            Print #FR1, D1$
+            Print #FR1, D4$
         End If
+            
     End If
 
 End If

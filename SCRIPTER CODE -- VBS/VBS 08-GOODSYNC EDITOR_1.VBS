@@ -21,7 +21,7 @@ Do
     IF T1>0 THEN 
 		T2 = InStr(T1, TT_EDITOR, "|i=")
 		N3 = Mid(TT_EDITOR, T1, (T2 - T1) + 3)
-		MSGBOX N3
+		MSGBOX N3,vbMsgBoxSetForeground 
 		N4 = Replace(N3, "|", "")
 		' COUNT THE PIPE TOTAL INBETWEEN
 		If Len(N3) - 5 = Len(N4) Then
@@ -42,4 +42,4 @@ Loop Until T1=0
 Set File_2 = fso.OpenTextFile("C:\SCRIPTER\jobs-groups-options.tic", 2)
 File_2.Write TT_EDITOR
 
-MsgBox "Done Total " & Counter & " Proecesses"
+MsgBox "Done Total " & Counter & " Proecesses",vbMsgBoxSetForeground 

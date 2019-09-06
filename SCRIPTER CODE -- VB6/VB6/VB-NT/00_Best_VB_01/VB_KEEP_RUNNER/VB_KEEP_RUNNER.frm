@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11916
-   ScaleWidth      =   22944
+   ScaleHeight     =   10116
+   ScaleWidth      =   12864
    Begin VB.Timer FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO 
       Enabled         =   0   'False
       Interval        =   100
@@ -8330,10 +8330,10 @@ Private Sub TIMER_TO_RESIZE_Timer()
 End Sub
 Private Sub MNU_WINMERGE_ON_TOP_ALLTME_Click()
 Beep
-If MNU_WINMERGE_ON_TOP_ALLTME = "WINMERGE ON TOP ALLTIME=YES" Then
-    MNU_WINMERGE_ON_TOP_ALLTME = "WINMERGE ON TOP ALLTIME=NOT"
+If InStr(MNU_WINMERGE_ON_TOP_ALLTME, "=YES") > 0 Then
+    MNU_WINMERGE_ON_TOP_ALLTME = Replace(MNU_WINMERGE_ON_TOP_ALLTME, "=YES", "=NOT")
 Else
-    MNU_WINMERGE_ON_TOP_ALLTME = "WINMERGE ON TOP ALLTIME=YES"
+    MNU_WINMERGE_ON_TOP_ALLTME = Replace(MNU_WINMERGE_ON_TOP_ALLTME, "=NOT", "=YES")
 End If
 End Sub
 
@@ -10033,7 +10033,7 @@ If GetForegroundWindow <> O_GetForegroundWindow Then
 End If
 
 
-If InStr(MNU_WINMERGE_ON_TOP_ALLTME.Caption, "ALLTIME=YES") > 0 Then
+If InStr(MNU_WINMERGE_ON_TOP_ALLTME.Caption, "=YES") > 0 Then
 
     ihWnd = FindWindow("WinMergeWindowClassW", vbNullString)
     If ihWnd > 0 And O_IhWnd <> ihWnd Then
