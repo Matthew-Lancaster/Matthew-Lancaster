@@ -587,7 +587,7 @@ IF WORK_GO_ER=FALSE THEN
 	FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		I=I+FOLDER_PATH(R_COUNT) + VBCRLF
 	NEXT
-	MSGBOX I
+	MSGBOX I,vbMsgBoxSetForeground 
 
 END IF
 
@@ -649,7 +649,7 @@ Sub Main
 	I=I+DRIVE_SPACE_INFO
 	
 	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
-		MSGBOX I
+		MSGBOX I,vbMsgBoxSetForeground 
 	END IF
 	
 	' ---------------------------------------------------------------
@@ -673,6 +673,7 @@ Sub Main
 	
 	IF DO_SEND_TO_PUT_DATE_INFRONT_FILENAME=TRUE THEN 
 		IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
+			' VB6
 			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 		END IF
 	END IF
@@ -980,7 +981,7 @@ Sub Main_4
     ' Display All Findings from Dictionary object
     DisplayFindings_4
 	IF I_COUNT>0 THEN 
-		MSGBOX "DONE RENAME COUNT AT" & VBCRLF & FOLDER_PATH_MAIN_4 & VBCRLF & CSTR(I_COUNT) & " of " & CSTR(oDict_4.count)
+		MSGBOX "DONE RENAME COUNT AT" & VBCRLF & FOLDER_PATH_MAIN_4 & VBCRLF & CSTR(I_COUNT) & " of " & CSTR(oDict_4.count),vbMsgBoxSetForeground 
 	END IF
 	
     Set oDict_4 = Nothing
@@ -1044,7 +1045,7 @@ SUB PATH_SCANNER_RENAME_4
 		FileModDate = f.DateLastModified
 	SET f=NOTHING	
 	IF FileModDate=0 THEN 
-		MSGBOX "ERROR FILE DATE = 0 " + VBCRLF + VAR_PATH_SCANNER
+		MSGBOX "ERROR FILE DATE = 0 " + VBCRLF + VAR_PATH_SCANNER,vbMsgBoxSetForeground 
 	END IF
 	
 	' 4K-ULTRA-HD
@@ -1146,7 +1147,7 @@ SUB PATH_SCANNER_RENAME_4
 
 		NewFilename=NewPATH+NewFilename
 		IF FSO.FolderExists(NewPATH)=FALSE THEN 
-			MSGBOX "FOLDER NOT EXIST ERROR"+VBCRLF+VBCLF+NewPATH
+			MSGBOX "FOLDER NOT EXIST ERROR"+VBCRLF+VBCLF+NewPATH,vbMsgBoxSetForeground 
 			' CreateFolderTree(NewPATH)
 			' BuildFullPath PATH_VAR
 		END IF
@@ -1165,7 +1166,7 @@ SUB PATH_SCANNER_RENAME_4
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
 		END IF
 		'WSCRIPT.QUIT
 	end if
@@ -1243,7 +1244,7 @@ SUB PATH_SCANNER_RENAME_2
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
 		END IF
 	END IF
 
@@ -1281,7 +1282,7 @@ SUB PATH_SCANNER_RENAME_2
 		NewFilename=PATH_VAR+NewFilename
 
 		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename
+			msgbox NewFilename,vbMsgBoxSetForeground 
 			Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 
@@ -1318,7 +1319,7 @@ SUB PATH_SCANNER_RENAME
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
 		END IF
 	END IF
 
@@ -1371,7 +1372,7 @@ SUB PATH_SCANNER_RENAME
 					LOOP UNTIL LEN(NewFilename)=12
 				end if
 				 
-				msgbox NewFilename
+				msgbox NewFilename,vbMsgBoxSetForeground 
 				 
 				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
 			 NEXT
@@ -1386,7 +1387,7 @@ SUB PATH_SCANNER_RENAME
 		'MSGBOX PATH_VAR_4
 		'MSGBOX VAR_PATH_SCANNER
 		IF SET_GO=TRUE THEN 
-			msgbox NewFilename
+			msgbox NewFilename,vbMsgBoxSetForeground 
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT_1=I_COUNT_1+1
