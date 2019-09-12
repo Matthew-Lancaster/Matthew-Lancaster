@@ -5838,6 +5838,341 @@ End If
 
 End Sub
 
+Sub GOOD_SYNC_MSGBOX_AT_END()
+
+    Dim PWnd, GS_cWnd2, R_REPEAT
+    
+    '-------------------------------------------------------------------------------
+    '-------------------------------------------------------------------------------
+    'GOODSYNC
+    '-------------------------------------------------------------------------------
+    '-------------------------------------------------------------------------------
+    
+    Dim GOOD_SYNC_MSGBOX_CRASH_HWND As Long, I3, EXE_STRING, VAR
+    
+    'GOODSYNC CRASH kill task not create report confidential and too large zip create
+    'and also hold up not continue happen restarter
+    '--------------------------------------------------------------------------------
+    'TESTER
+    '------
+    'GOOD_SYNC_MSGBOX_CRASH_HWND = FindWinPart("GoodSync2Go")
+    '--------------------------------------------------------------------------------
+    GOOD_SYNC_MSGBOX_CRASH_HWND = FindWindow("#32770", "Preparing Crash Report - GoodSync")
+    I3 = GOOD_SYNC_MSGBOX_CRASH_HWND
+    If I3 = 0 Then GOOD_SYNC_MSGBOX_CRASH_HWND = FindWindow("#32770", "GoodSync Crash")
+    I3 = GOOD_SYNC_MSGBOX_CRASH_HWND
+    If I3 > 0 And I3 <> OcWnd_GOOD_SYNC_CRASH Then
+        
+        'PID = -1
+        'Var = cProcesses.GetEXEID(PID, "C:\Program Files\WinMerge\WinMergeU.exe")
+        'Var = cProcesses.Convert(PID, OTSS, cnFromProcessID Or cnTohWnd)
+        'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToProcessID)
+        'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToProcessID)
+        'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToProcessIDcnToEXE)
+        'PID = -1
+        'Var = cProcesses.Convert(i3, EXE_STRING, cnFromhWnd Or CNToEXE)
+        
+        '---------------------------------------------------------------
+        '2017
+        'LEACHED FROM ELITESPY TO GET PROPER FULL EXE NAME
+        'INCLUDED IN CLASS ROUTINE TOGETHER
+        'THIS IS NOT ENOUGH WHEN BE SHORT EXE NAME -- cnToEXE
+        'MAYBE UPDATE WITH OTHER CODE NEARBY
+        'NORMAL ROUTINE BUT ADD THE cProcesses. BECUASE IT IS IN A CLASS
+        'AND CLASS MUST BE INITALISED -- AS IT IS DONE
+        '---------------------------------------------------------------
+        EXE_STRING = cProcesses.GetFileFromHwnd(I3)
+        'Stop
+        PID = -1
+        VAR = cProcesses.Convert(I3, PID, cnFromhWnd Or cnToProcessID)
+        
+        'Stop
+        
+        '---------------------------------------------------------------------
+        'WORKING BUT NOT FULL EXE NAME PATH
+        'Var = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
+        'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToEXE)
+        '---------------------------------------------------------------------
+        'VAR = GetEXEID(PID, ByRef sRunningEXE As String) As Boolean
+        '-----------------------------------------------------------
+        
+        
+        VAR = cProcesses.Process_Kill(PID)
+        
+        Sleep 1000
+        
+        Shell EXE_STRING, vbMinimizedNoFocus
+        
+        MsgBox_11 = "GOODSYNC RESTARTED OF ELITE SPY CONTROL" + vbCrLf + vbCrLf + EXE_STRING ', vbMsgBoxSetForeground
+        
+        'Load Messenger_Box
+        Messenger_Box.Show
+        Messenger_Box.WindowState = vbNormal
+        
+        
+        '---------------------------------------
+        'RESULT = PostMessage(MSDN_Lib, WM_CLOSE, 0&, 0&)
+        'Microsoft Visual Basic
+        '#32770
+        '---------------------------------------
+        'INSTEAD OF METHOD 1 USE METHOD 2
+        '---------------------------------------
+        '1. DONT CLOSE THE HELP ALERT VB INFO
+        '2. DISABLE THE HELP BUTTON ACIDENT FLICKER
+        '---------------------------------------
+        'HWND_2 = GET_CHILD_TEST(MSDN_Lib)
+        '---------------------------------------
+        'TEXT1 = GetWindowText GS_cWnd1, S, l + 1
+        'TEXT1 = GetWindowTitle(GS_cWnd1)
+        
+        '----------------------------------------------------------------
+        'TO GET THE TEXT OF A BUTTON OR MSGBOX ORGINAL SOURCE CREDIT HERE
+        '----
+        'GET THE TEXT OF A BUTTON WITH HWND IN VB6 - Google Search
+        'https://www.google.co.uk/search?q=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6&oq=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6+&aqs=chrome..69i57.9997j0j7&sourceid=chrome&ie=UTF-8
+        '--------
+        'How you get the hwnd's of a text box or button of another window?-VBForums
+        'http://www.vbforums.com/showthread.php?576117-How-you-get-the-hwnd-s-of-a-text-box-or-button-of-another-window
+        '----
+        '----------------------------------------------------------------
+        
+    '    Dim GS_cWnd1 As Long
+    '
+    '    pwnd = i3
+    '    GS_cWnd4 = 0
+    '    GS_cWnd1 = FindWindowEx(pwnd, 0, "Edit", vbNullString) '"One or more jobs are running now:")
+    '    TEXT1 = GetText(GS_cWnd1)
+    '    If InStr(TEXT1, "One or more jobs are running now:") > 0 Then GS_cWnd4 = 1
+    '
+    '    GS_cWnd2 = FindWindowEx(pwnd, 0, "Button", "&OK")
+    '    GS_cWnd3 = FindWindowEx(pwnd, 0, "button", "&Cancel")
+        
+        
+        'ENABLE BUTTON = FALSE -- LEARN BEOFRE
+        'EnableWindow cWnd, False
+        
+        
+        '---------------------------------------------------------
+        'Const BM_CLICK = &HF5&
+        
+        'CREDIT TO LEARN THE PUSH BUTTON WITH THESE 2 OR 3 COMMAND
+        
+        '----
+        'POSTMESSAGE TO PRESS BUTTON ON A MSGBOX VB6 - Google Search
+        'https://www.google.co.uk/search?q=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&oq=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&aqs=chrome..69i57.13373j0j7&sourceid=chrome&ie=UTF-8
+        '--------
+        'VBA/VB.Net/VB6–Click Open/Save/Cancel Button on IE Download window – PART I
+        'http://www.siddharthrout.com/2011/10/23/vbavb-netvb6click-opensavecancel-button-on-ie-download-window/
+        '----
+        '---------------------------------------------------------
+        
+    '    If GS_cWnd2 > 0 And GS_cWnd3 > 0 And GS_cWnd4 = 1 Then
+    '
+    '        '-------------------------------------------------
+    '        'RESULT = PostMessage(i3, WM_CLOSE, 0&, 0&)
+    '        '1ST RUN DEBUG FOCUSED TO BUTTON BUT NOT HITT IT IN UNTIL 2ND
+    '        'FOCUS PROBLEM FIRST
+    '        '-------------------------------------------------
+    '        For R_REPEAT = 1 To 3
+    '            SendMessage GS_cWnd2, BM_CLICK, 0, 0
+    '        Next
+    '    End If
+        
+        '---------------------------------------
+        '31 AUG 2K SIXTEEN
+        'LEARN
+        '---------------------------------------
+        'Find Window Tutorial Part1 <A must see> by Paul Zaczkowski (from psc cd)
+        'https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=37467&lngWId=1
+        '---------------------------------------
+    End If
+    
+    OcWnd_GOOD_SYNC_CRASH = I3
+    
+    
+    Dim GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND, GS_cWnd4, Text1, GS_cWnd3
+    
+    'GOODSYNC
+    GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND = FindWindow("#32770", "GoodSync")
+    I3 = GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND
+    If I3 >= 0 And I3 <> OcWnd_GOOD_SYNC Then
+    
+        '---------------------------------------
+        'RESULT = PostMessage(MSDN_Lib, WM_CLOSE, 0&, 0&)
+        'Microsoft Visual Basic
+        '#32770
+        '---------------------------------------
+        'INSTEAD OF METHOD 1 USE METHOD 2
+        '---------------------------------------
+        '1. DONT CLOSE THE HELP ALERT VB INFO
+        '2. DISABLE THE HELP BUTTON ACIDENT FLICKER
+        '---------------------------------------
+        'HWND_2 = GET_CHILD_TEST(MSDN_Lib)
+        '---------------------------------------
+        'TEXT1 = GetWindowText GS_cWnd1, S, l + 1
+        'TEXT1 = GetWindowTitle(GS_cWnd1)
+        
+        '----------------------------------------------------------------
+        'TO GET THE TEXT OF A BUTTON OR MSGBOX ORGINAL SOURCE CREDIT HERE
+        '----
+        'GET THE TEXT OF A BUTTON WITH HWND IN VB6 - Google Search
+        'https://www.google.co.uk/search?q=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6&oq=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6+&aqs=chrome..69i57.9997j0j7&sourceid=chrome&ie=UTF-8
+        '--------
+        'How you get the hwnd's of a text box or button of another window?-VBForums
+        'http://www.vbforums.com/showthread.php?576117-How-you-get-the-hwnd-s-of-a-text-box-or-button-of-another-window
+        '----
+        '----------------------------------------------------------------
+        
+        Dim GS_cWnd1 As Long
+        
+        PWnd = I3
+        GS_cWnd4 = 0
+        GS_cWnd1 = FindWindowEx(PWnd, 0, "Edit", vbNullString) '"One or more jobs are running now:")
+        Text1 = GetText(GS_cWnd1)
+        If InStr(Text1, "One or more jobs are running now:") > 0 Then GS_cWnd4 = 1
+        
+        GS_cWnd2 = FindWindowEx(PWnd, 0, "Button", "&OK")
+        GS_cWnd3 = FindWindowEx(PWnd, 0, "button", "&Cancel")
+        
+        
+        'ENABLE BUTTON = FALSE -- LEARN BEOFRE
+        'EnableWindow cWnd, False
+        
+        
+        '---------------------------------------------------------
+        'Const BM_CLICK = &HF5&
+        
+        'CREDIT TO LEARN THE PUSH BUTTON WITH THESE 2 OR 3 COMMAND
+        
+        '----
+        'POSTMESSAGE TO PRESS BUTTON ON A MSGBOX VB6 - Google Search
+        'https://www.google.co.uk/search?q=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&oq=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&aqs=chrome..69i57.13373j0j7&sourceid=chrome&ie=UTF-8
+        '--------
+        'VBA/VB.Net/VB6–Click Open/Save/Cancel Button on IE Download window – PART I
+        'http://www.siddharthrout.com/2011/10/23/vbavb-netvb6click-opensavecancel-button-on-ie-download-window/
+        '----
+        '---------------------------------------------------------
+        
+        If GS_cWnd2 > 0 And GS_cWnd3 > 0 And GS_cWnd4 = 1 Then
+            
+            '-------------------------------------------------
+            'RESULT = PostMessage(i3, WM_CLOSE, 0&, 0&)
+            '1ST RUN DEBUG FOCUSED TO BUTTON BUT NOT HITT IT IN UNTIL 2ND
+            'FOCUS PROBLEM FIRST
+            '-------------------------------------------------
+            For R_REPEAT = 1 To 3
+                SendMessage GS_cWnd2, BM_CLICK, 0, 0
+            Next
+        End If
+        
+        '---------------------------------------
+        '31 AUG 2K SIXTEEN
+        'LEARN
+        '---------------------------------------
+        'Find Window Tutorial Part1 <A must see> by Paul Zaczkowski (from psc cd)
+        'https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=37467&lngWId=1
+        '---------------------------------------
+    End If
+    
+    OcWnd_GOOD_SYNC = I3
+    
+    
+End Sub
+    
+Sub ICACLS_ERROR_APPLYING_SECURITY()
+    ' -------------------------------------------------------------------
+    ' "Error Applying Security"
+    ' THIS CODE IS OF -- D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
+    ' -------------------------------------------------------------------
+    
+    Dim ICACLS_SETTER_PERMISSION_HWND
+    Dim PWnd, R_REPEAT
+    '-------------------------------------------------------------------------------
+    '-------------------------------------------------------------------------------
+    ' ICACLS -- Error Applying Security
+    '-------------------------------------------------------------------------------
+    
+    Dim ICACLS_cWnd1 As Long, ICACLS_cWnd2 As Long, ICACLS_cWnd3 As Long, i3_2 As Long
+    ICACLS_SETTER_PERMISSION_HWND = FindWindow("#32770", "Error Applying Security")
+    i3_2 = ICACLS_SETTER_PERMISSION_HWND
+    If i3_2 >= 0 Then 'And i3_2 <> OcWnd_ICACLS_SETTER_PERMISSION_HWND Then
+        'Sleep 2
+        
+        PWnd = i3_2
+        'ICACLS_cWnd4 = 0
+        'ICACLS_cWnd2 = FindWindowEx(pWnd, 0, "button", "&Continue")
+        
+    '    TEXT1 = GetText(ICACLS_cWnd2)
+    '    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd2, 0, "static", vbNullString) '"One or more jobs are running now:")
+    '    TEXT1 = GetText(ICACLS_cWnd2)
+    '    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd2, 0, "static", vbNullString) '"One or more jobs are running now:")
+    '    TEXT1 = GetText(ICACLS_cWnd2)
+    '    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd1, 0, "Static", vbNullString) '"One or more jobs are running now:")
+    '    TEXT1 = GetText(ICACLS_cWnd1)
+    '    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd2, 0, "Static", vbNullString) '"One or more jobs are running now:")
+    '    TEXT1 = GetText(ICACLS_cWnd1)
+        
+        'If InStr(TEXT1, "One or more jobs are running now:") > 0 Then ICACLS_cWnd4 = 1
+        
+        'ICACLS_cWnd2 = FindWindowEx(pWnd, 0, "Button", "&OK")
+        'ICACLS_cWnd3 = FindWindowEx(pWnd, 0, "button", "&Cancel")
+        ICACLS_cWnd2 = FindWindowEx(PWnd, 0, "button", "&Continue")
+        
+        If ICACLS_cWnd2 > 0 Then
+            
+            '-------------------------------------------------
+            'RESULT = PostMessage(i3, WM_CLOSE, 0&, 0&)
+            '1ST RUN DEBUG FOCUSED TO BUTTON BUT NOT HITT IT IN UNTIL 2ND
+            'FOCUS PROBLEM FIRST
+            '-------------------------------------------------
+            For R_REPEAT = 1 To 2
+                ICACLS_cWnd2 = FindWindowEx(PWnd, 0, "button", "&Continue")
+                If ICACLS_cWnd2 > 0 Then
+                    
+                    i = SendMessage(ICACLS_cWnd2, BM_CLICK, 0, 0)
+                    'I = SendMessageany(ICACLS_cWnd2, BM_CLICK, 0, 0)
+                    'I = PostMessage(ICACLS_cWnd2, BM_CLICK, 0&, 0&)
+                    'I = SetForegroundWindow(ICACLS_SETTER_PERMISSION_HWND)
+                    'If I > 0 Then
+                        'Sleep 100
+                    'End If
+                    
+                    If I_Memmer < Now Then
+                        Beep
+                        I_Memmer = Now + TimeSerial(0, 0, 3)
+                                
+                    End If
+                DoEvents
+                End If
+                Next
+    '            ICACLS_cWnd2 = FindWindowEx(pwnd, 0, "button", "&Continue")
+    '            If ICACLS_cWnd2 > 0 Then
+                    'AppActivate "Error Applying Security", True
+                    'Sleep 3
+    
+                
+                    'cWnd = FindWindowEx(pwnd, 0, "button", "Cancel")
+                    'EnableWindow cWnd, False
+                    'EnableWindow ICACLS_cWnd2, False
+                
+    '            End If
+    
+        End If
+        
+        '---------------------------------------
+        '31 AUG 2K SIXTEEN
+        'LEARN
+        '---------------------------------------
+        'Find Window Tutorial Part1 <A must see> by Paul Zaczkowski (from psc cd)
+        'https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=37467&lngWId=1
+        '---------------------------------------
+    End If
+    
+    OcWnd_ICACLS_SETTER_PERMISSION_HWND = i3_2
+    
+    
+End Sub
+
 
 Private Sub Timer_01_VB_HELP_BOX_02_MSDN_Timer()
 
@@ -5851,15 +6186,15 @@ Private Sub Timer_01_VB_HELP_BOX_02_MSDN_Timer()
 ' ----------------------------------
 
 '--------------------------------------------------------------------------------
-'1..
-'FIREFOX ADD AND SERACH ENGINE WITHOUT QUESTION ADD
-
-'2..
-'GOODSYNC
-'GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND = FindWindow("#32770", "GoodSync")
-
-'3..
-'ICACLS -- Error Applying Security
+' 1..
+' Call GOOD_SYNC_MSGBOX_AT_END   '  ---- CALLED OFF FOR NOW -- LIKE IF AHK HANDLE INSTEAD
+' GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND = FindWindow("#32770", "GoodSync")
+'
+' 2..
+Call ICACLS_ERROR_APPLYING_SECURITY
+'
+' 3..
+' FIREFOX ADD AND SERACH ENGINE WITHOUT QUESTION ADD
 '--------------------------------------------------------------------------------
 
 Dim FINDER, PWnd, GS_cWnd2, R_REPEAT
@@ -5903,7 +6238,6 @@ End If
 OHWnd_FINDER_1 = FINDER
 
 
-
 FINDER = FindWindow(vbNullString, "RoboForm Upgrade")
 If FINDER > 0 And FINDER <> OHWnd_FINDER_2 Then
     OHWnd_FINDER_2 = FINDER
@@ -5915,332 +6249,6 @@ If FINDER > 0 And FINDER <> OHWnd_FINDER_2 Then
 
 End If
 
-
-
-
-'-------------------------------------------------------------------------------
-'-------------------------------------------------------------------------------
-'GOODSYNC
-'-------------------------------------------------------------------------------
-'-------------------------------------------------------------------------------
-
-Dim GOOD_SYNC_MSGBOX_CRASH_HWND As Long, I3, EXE_STRING, VAR
-
-'GOODSYNC CRASH kill task not create report confidential and too large zip create
-'and also hold up not continue happen restarter
-'--------------------------------------------------------------------------------
-'TESTER
-'------
-'GOOD_SYNC_MSGBOX_CRASH_HWND = FindWinPart("GoodSync2Go")
-'--------------------------------------------------------------------------------
-GOOD_SYNC_MSGBOX_CRASH_HWND = FindWindow("#32770", "Preparing Crash Report - GoodSync")
-I3 = GOOD_SYNC_MSGBOX_CRASH_HWND
-If I3 = 0 Then GOOD_SYNC_MSGBOX_CRASH_HWND = FindWindow("#32770", "GoodSync Crash")
-I3 = GOOD_SYNC_MSGBOX_CRASH_HWND
-If I3 > 0 And I3 <> OcWnd_GOOD_SYNC_CRASH Then
-    
-    'PID = -1
-    'Var = cProcesses.GetEXEID(PID, "C:\Program Files\WinMerge\WinMergeU.exe")
-    'Var = cProcesses.Convert(PID, OTSS, cnFromProcessID Or cnTohWnd)
-    'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToProcessID)
-    'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToProcessID)
-    'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToProcessIDcnToEXE)
-    'PID = -1
-    'Var = cProcesses.Convert(i3, EXE_STRING, cnFromhWnd Or CNToEXE)
-    
-    '---------------------------------------------------------------
-    '2017
-    'LEACHED FROM ELITESPY TO GET PROPER FULL EXE NAME
-    'INCLUDED IN CLASS ROUTINE TOGETHER
-    'THIS IS NOT ENOUGH WHEN BE SHORT EXE NAME -- cnToEXE
-    'MAYBE UPDATE WITH OTHER CODE NEARBY
-    'NORMAL ROUTINE BUT ADD THE cProcesses. BECUASE IT IS IN A CLASS
-    'AND CLASS MUST BE INITALISED -- AS IT IS DONE
-    '---------------------------------------------------------------
-    EXE_STRING = cProcesses.GetFileFromHwnd(I3)
-    'Stop
-    PID = -1
-    VAR = cProcesses.Convert(I3, PID, cnFromhWnd Or cnToProcessID)
-    
-    'Stop
-    
-    '---------------------------------------------------------------------
-    'WORKING BUT NOT FULL EXE NAME PATH
-    'Var = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
-    'Var = cProcesses.Convert(i3, PID, cnFromhWnd Or cnToEXE)
-    '---------------------------------------------------------------------
-    'VAR = GetEXEID(PID, ByRef sRunningEXE As String) As Boolean
-    '-----------------------------------------------------------
-    
-    
-    VAR = cProcesses.Process_Kill(PID)
-    
-    Sleep 1000
-    
-    Shell EXE_STRING, vbMinimizedNoFocus
-    
-    MsgBox_11 = "GOODSYNC RESTARTED OF ELITE SPY CONTROL" + vbCrLf + vbCrLf + EXE_STRING ', vbMsgBoxSetForeground
-    
-    'Load Messenger_Box
-    Messenger_Box.Show
-    Messenger_Box.WindowState = vbNormal
-    
-    
-    '---------------------------------------
-    'RESULT = PostMessage(MSDN_Lib, WM_CLOSE, 0&, 0&)
-    'Microsoft Visual Basic
-    '#32770
-    '---------------------------------------
-    'INSTEAD OF METHOD 1 USE METHOD 2
-    '---------------------------------------
-    '1. DONT CLOSE THE HELP ALERT VB INFO
-    '2. DISABLE THE HELP BUTTON ACIDENT FLICKER
-    '---------------------------------------
-    'HWND_2 = GET_CHILD_TEST(MSDN_Lib)
-    '---------------------------------------
-    'TEXT1 = GetWindowText GS_cWnd1, S, l + 1
-    'TEXT1 = GetWindowTitle(GS_cWnd1)
-    
-    '----------------------------------------------------------------
-    'TO GET THE TEXT OF A BUTTON OR MSGBOX ORGINAL SOURCE CREDIT HERE
-    '----
-    'GET THE TEXT OF A BUTTON WITH HWND IN VB6 - Google Search
-    'https://www.google.co.uk/search?q=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6&oq=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6+&aqs=chrome..69i57.9997j0j7&sourceid=chrome&ie=UTF-8
-    '--------
-    'How you get the hwnd's of a text box or button of another window?-VBForums
-    'http://www.vbforums.com/showthread.php?576117-How-you-get-the-hwnd-s-of-a-text-box-or-button-of-another-window
-    '----
-    '----------------------------------------------------------------
-    
-'    Dim GS_cWnd1 As Long
-'
-'    pwnd = i3
-'    GS_cWnd4 = 0
-'    GS_cWnd1 = FindWindowEx(pwnd, 0, "Edit", vbNullString) '"One or more jobs are running now:")
-'    TEXT1 = GetText(GS_cWnd1)
-'    If InStr(TEXT1, "One or more jobs are running now:") > 0 Then GS_cWnd4 = 1
-'
-'    GS_cWnd2 = FindWindowEx(pwnd, 0, "Button", "&OK")
-'    GS_cWnd3 = FindWindowEx(pwnd, 0, "button", "&Cancel")
-    
-    
-    'ENABLE BUTTON = FALSE -- LEARN BEOFRE
-    'EnableWindow cWnd, False
-    
-    
-    '---------------------------------------------------------
-    'Const BM_CLICK = &HF5&
-    
-    'CREDIT TO LEARN THE PUSH BUTTON WITH THESE 2 OR 3 COMMAND
-    
-    '----
-    'POSTMESSAGE TO PRESS BUTTON ON A MSGBOX VB6 - Google Search
-    'https://www.google.co.uk/search?q=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&oq=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&aqs=chrome..69i57.13373j0j7&sourceid=chrome&ie=UTF-8
-    '--------
-    'VBA/VB.Net/VB6–Click Open/Save/Cancel Button on IE Download window – PART I
-    'http://www.siddharthrout.com/2011/10/23/vbavb-netvb6click-opensavecancel-button-on-ie-download-window/
-    '----
-    '---------------------------------------------------------
-    
-'    If GS_cWnd2 > 0 And GS_cWnd3 > 0 And GS_cWnd4 = 1 Then
-'
-'        '-------------------------------------------------
-'        'RESULT = PostMessage(i3, WM_CLOSE, 0&, 0&)
-'        '1ST RUN DEBUG FOCUSED TO BUTTON BUT NOT HITT IT IN UNTIL 2ND
-'        'FOCUS PROBLEM FIRST
-'        '-------------------------------------------------
-'        For R_REPEAT = 1 To 3
-'            SendMessage GS_cWnd2, BM_CLICK, 0, 0
-'        Next
-'    End If
-    
-    '---------------------------------------
-    '31 AUG 2K SIXTEEN
-    'LEARN
-    '---------------------------------------
-    'Find Window Tutorial Part1 <A must see> by Paul Zaczkowski (from psc cd)
-    'https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=37467&lngWId=1
-    '---------------------------------------
-End If
-
-OcWnd_GOOD_SYNC_CRASH = I3
-
-
-Dim GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND, GS_cWnd4, Text1, GS_cWnd3
-
-'GOODSYNC
-GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND = FindWindow("#32770", "GoodSync")
-I3 = GOOD_SYNC_MSGBOX_AT_END_IF_JOB_S_RUNNING_HWND
-If I3 >= 0 And I3 <> OcWnd_GOOD_SYNC Then
-
-    '---------------------------------------
-    'RESULT = PostMessage(MSDN_Lib, WM_CLOSE, 0&, 0&)
-    'Microsoft Visual Basic
-    '#32770
-    '---------------------------------------
-    'INSTEAD OF METHOD 1 USE METHOD 2
-    '---------------------------------------
-    '1. DONT CLOSE THE HELP ALERT VB INFO
-    '2. DISABLE THE HELP BUTTON ACIDENT FLICKER
-    '---------------------------------------
-    'HWND_2 = GET_CHILD_TEST(MSDN_Lib)
-    '---------------------------------------
-    'TEXT1 = GetWindowText GS_cWnd1, S, l + 1
-    'TEXT1 = GetWindowTitle(GS_cWnd1)
-    
-    '----------------------------------------------------------------
-    'TO GET THE TEXT OF A BUTTON OR MSGBOX ORGINAL SOURCE CREDIT HERE
-    '----
-    'GET THE TEXT OF A BUTTON WITH HWND IN VB6 - Google Search
-    'https://www.google.co.uk/search?q=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6&oq=GET+THE+TEXT+OF+A+BUTTON+WITH+HWND+IN+VB6+&aqs=chrome..69i57.9997j0j7&sourceid=chrome&ie=UTF-8
-    '--------
-    'How you get the hwnd's of a text box or button of another window?-VBForums
-    'http://www.vbforums.com/showthread.php?576117-How-you-get-the-hwnd-s-of-a-text-box-or-button-of-another-window
-    '----
-    '----------------------------------------------------------------
-    
-    Dim GS_cWnd1 As Long
-    
-    PWnd = I3
-    GS_cWnd4 = 0
-    GS_cWnd1 = FindWindowEx(PWnd, 0, "Edit", vbNullString) '"One or more jobs are running now:")
-    Text1 = GetText(GS_cWnd1)
-    If InStr(Text1, "One or more jobs are running now:") > 0 Then GS_cWnd4 = 1
-    
-    GS_cWnd2 = FindWindowEx(PWnd, 0, "Button", "&OK")
-    GS_cWnd3 = FindWindowEx(PWnd, 0, "button", "&Cancel")
-    
-    
-    'ENABLE BUTTON = FALSE -- LEARN BEOFRE
-    'EnableWindow cWnd, False
-    
-    
-    '---------------------------------------------------------
-    'Const BM_CLICK = &HF5&
-    
-    'CREDIT TO LEARN THE PUSH BUTTON WITH THESE 2 OR 3 COMMAND
-    
-    '----
-    'POSTMESSAGE TO PRESS BUTTON ON A MSGBOX VB6 - Google Search
-    'https://www.google.co.uk/search?q=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&oq=POSTMESSAGE+TO+PRESS+BUTTON+ON+A+MSGBOX+VB6&aqs=chrome..69i57.13373j0j7&sourceid=chrome&ie=UTF-8
-    '--------
-    'VBA/VB.Net/VB6–Click Open/Save/Cancel Button on IE Download window – PART I
-    'http://www.siddharthrout.com/2011/10/23/vbavb-netvb6click-opensavecancel-button-on-ie-download-window/
-    '----
-    '---------------------------------------------------------
-    
-    If GS_cWnd2 > 0 And GS_cWnd3 > 0 And GS_cWnd4 = 1 Then
-        
-        '-------------------------------------------------
-        'RESULT = PostMessage(i3, WM_CLOSE, 0&, 0&)
-        '1ST RUN DEBUG FOCUSED TO BUTTON BUT NOT HITT IT IN UNTIL 2ND
-        'FOCUS PROBLEM FIRST
-        '-------------------------------------------------
-        For R_REPEAT = 1 To 3
-            SendMessage GS_cWnd2, BM_CLICK, 0, 0
-        Next
-    End If
-    
-    '---------------------------------------
-    '31 AUG 2K SIXTEEN
-    'LEARN
-    '---------------------------------------
-    'Find Window Tutorial Part1 <A must see> by Paul Zaczkowski (from psc cd)
-    'https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=37467&lngWId=1
-    '---------------------------------------
-End If
-
-OcWnd_GOOD_SYNC = I3
-
-
-Dim ICACLS_SETTER_PERMISSION_HWND
-
-
-'-------------------------------------------------------------------------------
-'-------------------------------------------------------------------------------
-' ICACLS -- Error Applying Security
-'-------------------------------------------------------------------------------
-
-Dim ICACLS_cWnd1 As Long, ICACLS_cWnd2 As Long, ICACLS_cWnd3 As Long, i3_2 As Long
-ICACLS_SETTER_PERMISSION_HWND = FindWindow("#32770", "Error Applying Security")
-i3_2 = ICACLS_SETTER_PERMISSION_HWND
-If i3_2 >= 0 Then 'And i3_2 <> OcWnd_ICACLS_SETTER_PERMISSION_HWND Then
-    'Sleep 2
-    
-    PWnd = i3_2
-    'ICACLS_cWnd4 = 0
-    'ICACLS_cWnd2 = FindWindowEx(pWnd, 0, "button", "&Continue")
-    
-'    TEXT1 = GetText(ICACLS_cWnd2)
-'    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd2, 0, "static", vbNullString) '"One or more jobs are running now:")
-'    TEXT1 = GetText(ICACLS_cWnd2)
-'    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd2, 0, "static", vbNullString) '"One or more jobs are running now:")
-'    TEXT1 = GetText(ICACLS_cWnd2)
-'    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd1, 0, "Static", vbNullString) '"One or more jobs are running now:")
-'    TEXT1 = GetText(ICACLS_cWnd1)
-'    ICACLS_cWnd2 = FindWindowEx(ICACLS_cWnd2, 0, "Static", vbNullString) '"One or more jobs are running now:")
-'    TEXT1 = GetText(ICACLS_cWnd1)
-    
-    'If InStr(TEXT1, "One or more jobs are running now:") > 0 Then ICACLS_cWnd4 = 1
-    
-    'ICACLS_cWnd2 = FindWindowEx(pWnd, 0, "Button", "&OK")
-    'ICACLS_cWnd3 = FindWindowEx(pWnd, 0, "button", "&Cancel")
-    ICACLS_cWnd2 = FindWindowEx(PWnd, 0, "button", "&Continue")
-    
-    If ICACLS_cWnd2 > 0 Then
-        
-        '-------------------------------------------------
-        'RESULT = PostMessage(i3, WM_CLOSE, 0&, 0&)
-        '1ST RUN DEBUG FOCUSED TO BUTTON BUT NOT HITT IT IN UNTIL 2ND
-        'FOCUS PROBLEM FIRST
-        '-------------------------------------------------
-        For R_REPEAT = 1 To 2
-            ICACLS_cWnd2 = FindWindowEx(PWnd, 0, "button", "&Continue")
-            If ICACLS_cWnd2 > 0 Then
-                
-                i = SendMessage(ICACLS_cWnd2, BM_CLICK, 0, 0)
-                'I = SendMessageany(ICACLS_cWnd2, BM_CLICK, 0, 0)
-                'I = PostMessage(ICACLS_cWnd2, BM_CLICK, 0&, 0&)
-                'I = SetForegroundWindow(ICACLS_SETTER_PERMISSION_HWND)
-                'If I > 0 Then
-                    'Sleep 100
-                'End If
-                
-                If I_Memmer < Now Then
-                    Beep
-                    I_Memmer = Now + TimeSerial(0, 0, 3)
-                            
-                End If
-            DoEvents
-            End If
-            Next
-'            ICACLS_cWnd2 = FindWindowEx(pwnd, 0, "button", "&Continue")
-'            If ICACLS_cWnd2 > 0 Then
-                'AppActivate "Error Applying Security", True
-                'Sleep 3
-
-            
-                'cWnd = FindWindowEx(pwnd, 0, "button", "Cancel")
-                'EnableWindow cWnd, False
-                'EnableWindow ICACLS_cWnd2, False
-                
-
-                
-            
-'            End If
-
-    End If
-    
-    '---------------------------------------
-    '31 AUG 2K SIXTEEN
-    'LEARN
-    '---------------------------------------
-    'Find Window Tutorial Part1 <A must see> by Paul Zaczkowski (from psc cd)
-    'https://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=37467&lngWId=1
-    '---------------------------------------
-End If
-
-OcWnd_ICACLS_SETTER_PERMISSION_HWND = i3_2
 
 End Sub
 
