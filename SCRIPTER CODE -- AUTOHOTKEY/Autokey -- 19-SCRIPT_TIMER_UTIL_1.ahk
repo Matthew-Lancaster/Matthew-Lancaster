@@ -754,6 +754,24 @@ VBS_35_RENAMER_VB6_VBP_LCASE_VBS:
 RETURN
 
 
+HANDBRAKE_COPY_THE_DLL_FILE:
+
+	Element_1:="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\HANDBRAKE DVD COPIER\libdvdcss-2.dll"
+	IfExist, %Element_1%
+	{
+		IfNOTExist, C:\Program Files\HandBrake\libdvdcss-2.dll
+		IfExist, C:\Program Files\HandBrake
+		{
+			FileCopy, %Element_1%, C:\Program Files\HandBrake\libdvdcss-2.dll,1 
+		}
+	}
+	; ---------------------------------------------------------------
+	; Fri 06-Sep-2019 17:33:40
+	; ---------------------------------------------------------------
+
+RETURN
+
+
 MIDNIGHT_AND_HOUR_TIMER:
 
 	; ---------------------------------------------------------------
@@ -765,12 +783,13 @@ MIDNIGHT_AND_HOUR_TIMER:
 	{
 		GOSUB DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP
 		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
 			GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
-		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
 			GOSUB VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS
-		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
 			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+		}
 		
+		GOSUB HANDBRAKE_COPY_THE_DLL_FILE
 		OL_Day_Get__01=%Midnight_Get_01%
 	}
 	

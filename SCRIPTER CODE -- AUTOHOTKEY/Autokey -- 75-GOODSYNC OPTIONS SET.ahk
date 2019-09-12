@@ -82,6 +82,40 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO   __ Wed 04-Sep-2019 12:13:10
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; SESSION 005
+; -------------------------------------------------------------------
+; TIDY UP OPTION SET FOR GOODSYNC
+; -------------------------------------------------------------------
+; ADD THIS ROUTINE
+; -------------------------------------------------------------------
+; EDITOR -- QUICK MADE NOT OPERATION AND TRANSFER TO 
+; FOR AN ALL IN ONE ROUTINE WITH ARRAY PUT
+; -------------------------------------------------------------------
+; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; TIMER_RENAME_EXTENSION_OF_MP4_TO_UPPER:
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; BIT SEMI OFF TOPIC FOR HERE
+; JUST PLANT ONE IN THAN OWN CODE MAYBE ON TO IT
+; STILL GOT TO DO WITH GOODSYNC FOR VB
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; HERE IS SIMILAR TO PROJECT DONE AFTER AND BETTER
+; QUICK TURN INTO NOT OPERATION AND MOVE LOCATE HERE
+; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; TIMER_RENAME_EXTENSION_OF_MP4_TO_UPPER:
+; LIKE HERE LINK BOTH IN CASE MORE PROGRESS TO BE DONE
+; -------------------------------------------------------------------
+; Autokey -- 75-GOODSYNC OPTIONS SET.ahk
+; DETECT_VB_IDE_BEEN_RUN_MULTIPLE_AND_DO_TASK_AFTER:
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; FROM __ Tue 10-Sep-2019 20:00:00
+; TO   __ Tue 10-Sep-2019 20:15:00
+; -------------------------------------------------------------------
+
+
 
 ;# ------------------------------------------------------------------
 ; Location Internet
@@ -139,6 +173,9 @@ SETTIMER TIMER_PREVIOUS_INSTANCE,1
 ; IF A_ComputerName=2-ASUS-EEE
 	; Exitapp
 
+GLOBAL TOOLTIP_SET_REMOVE_TIMER
+TOOLTIP_SET_REMOVE_TIMER=	
+	
 GLOBAL OSVER_N_VAR
 
 GLOBAL GOODSYNC_CHECK_CHANGE_OLD_ONE_HANDLE
@@ -148,10 +185,13 @@ GLOBAL GOODSYNC_CHECK_CHANGE_OLD_ONE_PID
 GLOBAL O_Status_GSDATA
 GLOBAL O_HWND_1
 
-TEMPORARY_FILE_HWND_1=
-PERIODICALLY_SET_VALUE_HWND_1=
-UNCHECK_PERIODIC_TIMER_HWND_1=
-CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND_1=
+TEMPORARY_FILE_HWND=
+PERIODICALLY_SET_VALUE_HWND=
+UNCHECK_PERIODIC_TIMER_HWND=
+CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=
+HDD_HUBIC_HWND=
+DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=
+WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND=
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
@@ -177,6 +217,9 @@ GLOBAL TIMER_NOT_RESPONDING
 TIMER_NOT_RESPONDING=0
 
 SET_ACTIVATION__HWND=0
+ACTIVATION_GS_FILENAME_CONTENT=
+O_WNDCLASS_DESKED_GSK_MATCH=
+
 
 ; -------------------------------------------------------------------
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
@@ -189,10 +232,41 @@ GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
 SETTIMER TIMER_SET_ACTIVATION_BOX,1000
 SET_GOODSYNC_CONNECT_BOX_HWND=0
 SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
+SETTIMER TOOLTIP_REMOVER,OFF
 
 ; -------------------------------------------------------------------
 RETURN
 ; -------------------------------------------------------------------
+
+DETECT_VB_IDE_BEEN_RUN_MULTIPLE_AND_DO_TASK_AFTER:
+RETURN
+; -------------------------------------------------------------------
+; HERE IS SIMILAR TO PROJECT DONE AFTER AND BETTER
+; -------------------------------------------------------------------
+; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; TIMER_RENAME_EXTENSION_OF_MP4_TO_UPPER:
+; LIKE HERE LINK BOTH IN CASE MORE PROGRESS TO BE DONE
+; -------------------------------------------------------------------
+; Autokey -- 75-GOODSYNC OPTIONS SET.ahk
+; DETECT_VB_IDE_BEEN_RUN_MULTIPLE_AND_DO_TASK_AFTER:
+; -------------------------------------------------------------------
+
+DetectHiddenWindows, On
+WinGet, WNDCLASS_DESKED_GSK_MATCH, List, ahk_class wndclass_desked_gsk
+
+IF O_WNDCLASS_DESKED_GSK_MATCH
+IF WNDCLASS_DESKED_GSK_MATCH<%O_WNDCLASS_DESKED_GSK_MATCH%
+{
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 82-RENAME VB PROJECT VBP LOWER CASE.ahk"
+	IfExist, %FN_VAR%
+	{
+		Run, "%FN_VAR%" , , MIN
+	}
+}
+O_WNDCLASS_DESKED_GSK_MATCH=%WNDCLASS_DESKED_GSK_MATCH%
+RETURN
+
+
 
 TIMER_SET_GOODSYNC_CONNECT_BOX:
 	DetectHiddenWindows, ON
@@ -283,9 +357,23 @@ TIMER_SET_ACTIVATION_BOX:
 		{
 			FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT = %OutputVar%
 			GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
+			; HERE IT READER FILE GET IN ARRAY
 		}
 	}
+	
 		
+	WinGet, HWND_ACTIVATION, ID, GoodSync Activation ahk_class #32770
+	WinGet, HWND_ACTIVE_WINDOW, ID, A
+	MouseGetPos,,,WIN_ID_UNDER_MOUSE_CURSOR
+	IF HWND_ACTIVATION<>%WIN_ID_UNDER_MOUSE_CURSOR%
+		SET_ACTIVATION__HWND=0
+	IF HWND_ACTIVATION<>%HWND_ACTIVE_WINDOW%
+		SET_ACTIVATION__HWND=0
+
+	; TOOLTIP % HWND_ACTIVATION "`n" WIN_ID_UNDER_MOUSE_CURSOR "`n" SET_ACTIVATION__HWND
+	
+	; [ Monday 19:28:20 Pm_09 September 2019 ]
+	; LARGER LARGER LOUDER BEER
 	
 	DetectHiddenWindows, ON
 	SetTitleMatchMode 3
@@ -295,6 +383,7 @@ TIMER_SET_ACTIVATION_BOX:
 	IF SET_ACTIVATION__HWND<>%HWND_ACTIVATION%
 	IF HWND_ACTIVATION>0
 	{
+		; SET_ACTIVATION__HWND=%HWND_ACTIVATION%  ; ---- DO LATER
 		IDX_MAX:=FN_Array_1.MaxIndex()
 		IDX_MAX-=3
 		IDX_1=-2
@@ -312,15 +401,25 @@ TIMER_SET_ACTIVATION_BOX:
 			Element_2 := FN_Array_1[IDX_2]
 			Element_3 := FN_Array_1[IDX_3]
 
-			OK_COMPUTER_NAME=FALSE
+			; TOOLTIP % Element_1 "`n" Element_2 "`n" Element_3 "`n" 
+			
+			OK_COMPUTER_NAME=
 			IF Element_1=*
 				OK_COMPUTER_NAME=TRUE
-			IF (A_ComputerName = "%Element_1%") 
+			IF A_ComputerName=%Element_1%
 				OK_COMPUTER_NAME=TRUE
+
+			; TOOLTIP % Element_1 "`n" OK_COMPUTER_NAME
 			
+			; GET AGAIN SPEED REQUIRE MAYBE
+			WinGet, HWND_ACTIVATION, ID, GoodSync Activation ahk_class #32770
 			WinGet Path, ProcessPath, ahk_id %HWND_ACTIVATION%
+
+			IF OK_COMPUTER_NAME
+			IF HWND_ACTIVATION>0
 			IF INSTR(Path,Element_2)
 			{
+				; TOOLTIP % PATH "`n" Element_2
 				ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_ACTIVATION%
 				IF OutputVar_2<>%Element_3%
 				{
@@ -330,12 +429,35 @@ TIMER_SET_ACTIVATION_BOX:
 					Control, EditPaste, %Element_3%, Edit2, ahk_id %HWND_ACTIVATION%
 					SoundBeep , 4000 , 100
 				}
+					
+				; THERE TO TYPE OF ACTIVATION FORM
+				; ONE IS PULL DOWN MENU ASK
+				; ANOTHER COME AS GO TO DO ANYTHING REQUIRE THEM
+				; WHEN 2ND ONE COME 
+				; IT IS EDIT BOX 4 AND 5
+				; I FILL BOTH SO LAZY TO CODE PROPERLY
+					
+				ControlGettext, OutputVar_2, Edit5, ahk_id %HWND_ACTIVATION%
+				IF OutputVar_2<>%Element_3%
+				{
+					ControlSetText, Edit4,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, MATTHEW LANCASTER, Edit4, ahk_id %HWND_ACTIVATION%
+					ControlSetText, Edit5,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, %Element_3%, Edit5, ahk_id %HWND_ACTIVATION%
+					SoundBeep , 4000 , 100
+				}
 			}
 		}
 		
 		IF SET_ACTIVATION__HWND<>%HWND_ACTIVATION%
 		{
 			ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_ACTIVATION%
+			IF OutputVar_2=%Element_3%
+			{
+				SET_ACTIVATION__HWND=%HWND_ACTIVATION%
+				RETURN
+			}
+			ControlGettext, OutputVar_2, Edit5, ahk_id %HWND_ACTIVATION%
 			IF OutputVar_2=%Element_3%
 			{
 				SET_ACTIVATION__HWND=%HWND_ACTIVATION%
@@ -465,16 +587,33 @@ SET_OK_BOX:
 RETURN
 
 
+TOOLTIP_REMOVER:
+	IF TOOLTIP_SET_REMOVE_TIMER
+	IF TOOLTIP_SET_REMOVE_TIMER<%A_NOW%
+	{
+		TOOLTIP
+		TOOLTIP_SET_REMOVE_TIMER=
+	}
+	SETTIMER TOOLTIP_REMOVER,OFF
+RETURN
+
 
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
+
+	; IF TOOLTIP_SET_REMOVE_TIMER
+	; IF TOOLTIP_SET_REMOVE_TIMER<%A_NOW%
+	; {
+		; TOOLTIP
+		; TOOLTIP_SET_REMOVE_TIMER=
+	; }
 
 	dhw := A_DetectHiddenWindows
 	DetectHiddenWindows, ON
 	SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 	; ---------------------------------------------------------------
-	NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=FALSE
+	NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=
 	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 	IF HWND_1>0
 	{
@@ -527,22 +666,9 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 				SET_GO=TRUE
 		}
 		; -----------------------------------------------------------
-		; SET THE Periodically IS NOT SET VALUE WANT
+		; APPLY TO  -- GoodSync-v10.exe
 		; -----------------------------------------------------------
-		IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D<>TRUE
-		IF PERIODICALLY_SET_VALUE_HWND_1<>%HWND_1%
-		IF SET_GO=TRUE
-		IF HWND_1_EXENAME=GoodSync2Go.exe
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			SET_GO=FALSE
-			ControlSetText, Edit9,, ahk_id %HWND_1%
-			TOOLTIP AUTO - SET PERIODIC VAULE
-			Control, EditPaste, 4, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		; -----------------------------------------------------------
-		IF PERIODICALLY_SET_VALUE_HWND_1<>%HWND_1%
+		IF PERIODICALLY_SET_VALUE_HWND<>%HWND_1%
 		IF SET_GO=TRUE
 		IF HWND_1_EXENAME=GoodSync-v10.exe
 		IF OutputVar_1=2
@@ -550,12 +676,54 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		{
 			ControlSetText, Edit9,, ahk_id %HWND_1%
 			TOOLTIP AUTO - SET PERIODIC VALUE
-			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
+			TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+			TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
+			VALUE_PASTE_IN=5
+			Control, EditPaste, %VALUE_PASTE_IN%, Edit9, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
+			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
+			IF OutputVar_3=%VALUE_PASTE_IN%
+			{
+				PERIODICALLY_SET_VALUE_HWND=%HWND_1%
+				TOOLTIP
+			}	
 		}
 		; -----------------------------------------------------------
+		; SET THE Periodically IS NOT SET VALUE WANT
+		; -----------------------------------------------------------
+		; APPLY TO  -- GoodSync2Go.exe
+		; -----------------------------------------------------------
+		IF !NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D
+		IF PERIODICALLY_SET_VALUE_HWND<>%HWND_1%
+		IF SET_GO=TRUE
+		IF HWND_1_EXENAME=GoodSync2Go.exe
+		IF (OutputVar_2="Periodically (On Timer), every")
+		{
+			SET_GO=FALSE
+			ControlSetText, Edit9,, ahk_id %HWND_1%
+			TOOLTIP AUTO - SET PERIODIC VAULE
+			TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+			TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+			
+			; REMOVE -- HOW RUDE
+			VALUE_PASTE_IN=4
+			Control, EditPaste, %VALUE_PASTE_IN%, Edit9, ahk_id %HWND_1%
+			SoundBeep , 4000 , 100
+
+			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
+			IF OutputVar_3=%VALUE_PASTE_IN%
+			{
+				PERIODICALLY_SET_VALUE_HWND=%HWND_1%
+				TOOLTIP
+			}	
+		}
+		; -----------------------------------------------------------
+		; APPLY TO  -- D DRIVE GoodSync2Go.exe
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
 		IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
-		IF PERIODICALLY_SET_VALUE_HWND_1<>%HWND_1%
+		IF PERIODICALLY_SET_VALUE_HWND<>%HWND_1%
 		IF SET_GO=TRUE
 		IF HWND_1_EXENAME=GoodSync2Go.exe
 		IF (OutputVar_2="Periodically (On Timer), every")
@@ -563,16 +731,21 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			SET_GO=FALSE
 			ControlSetText, Edit9,, ahk_id %HWND_1%
 			TOOLTIP AUTO - SET PERIODIC VALUE
-			Control, EditPaste, 4, Edit9, ahk_id %HWND_1%
+			TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+			TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
+			VALUE_PASTE_IN=4
+			Control, EditPaste, %VALUE_PASTE_IN%, Edit9, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
 
 			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
-			IF OutputVar_3=%OutputVar_1%
+			IF OutputVar_3=%VALUE_PASTE_IN%
 			{
-				PERIODICALLY_SET_VALUE_HWND_1=%HWND_1%
+				PERIODICALLY_SET_VALUE_HWND=%HWND_1%
 				TOOLTIP
 			}	
 		}
+		
 		; -----------------------------------------------------------
 		; -----------------------------------------------------------
 	
@@ -581,28 +754,35 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		; SET THE PERIODICALLY WHEN COME STRAIGHT IN ON AUTO FORM 
 		; WITH A ONE HITTER
 		; -----------------------------------------------------------
-		IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D<>TRUE
+		IF !NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D
 		IF O_HWND_1<>%HWND_1%
+		IF (OutputVar_2="Periodically (On Timer), every")
 		{
-			IF (OutputVar_2="Periodically (On Timer), every")
+			TOOLTIP AUTO - CHECK PERIODIC TIMER
+			TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+			TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
+			ControlGet, OutputVar_4, Visible, , Button17, ahk_id %HWND_1%
+			ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
+			If Status=0
 			{
-				ControlGet, OutputVar_4, Visible, , Button17, ahk_id %HWND_1%
-				ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
-				If Status=0
+				Control, Check,, Button17, ahk_id %HWND_1%
+				IF OutputVar_4=1
 				{
-					Control, Check,, Button17, ahk_id %HWND_1%
-					IF OutputVar_4=1
-						SoundBeep , 4000 , 100
+					SoundBeep , 4000 , 100
+					TOOLTIP
 				}
 			}
 		}
 		
-		; -----------------------------------------------------------
 		IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
-		IF UNCHECK_PERIODIC_TIMER_HWND_1<>%HWND_1%
+		IF UNCHECK_PERIODIC_TIMER_HWND<>%HWND_1%
 		IF (OutputVar_2="Periodically (On Timer), every")
 		{
 			TOOLTIP AUTO - UNCHECK PERIODIC TIMER
+			TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+			TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
 			ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
 			If Status=1
 			{
@@ -612,19 +792,21 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
 			If Status=0
 			{
-				UNCHECK_PERIODIC_TIMER_HWND_1=%HWND_1%
+				UNCHECK_PERIODIC_TIMER_HWND=%HWND_1%
 				TOOLTIP
 			}
-		}
-		; -----------------------------------------------------------
 
-		; -----------------------------------------------------------
-		IF CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND_1<>%HWND_1%
+		}
+
+		IF CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND<>%HWND_1%
 		{
 			ControlGettext, OutputVar_2, Button35, ahk_id %HWND_1%
 			IF (OutputVar_2="Estimate disk space required for Sync")
 			{
 				TOOLTIP ADAVANCED - CHECK_ESTIMATE_DISK_SPACE_REQUIRED
+				TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+				TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
 				ControlGet, Status, Checked,, Button35, ahk_id %HWND_1%
 				If Status=0
 				{
@@ -634,83 +816,130 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 				ControlGet, Status, Checked,, Button35, ahk_id %HWND_1%
 				If Status=1
 				{
-					CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND_1=%HWND_1%
+					CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=%HWND_1%
 					TOOLTIP
 				}
 			}
 		}
-		; -----------------------------------------------------------
 		
-	
+		IF WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND<>%HWND_1%
+		{
+			ControlGettext, OutputVar_2, Button23, ahk_id %HWND_1%
+			ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
+			
+			If OutputVar_1<>20
+			IF OutputVar_2="Wait for Locks to clear, minutes"
+			{
+				TOOLTIP AUTO - WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND
+				TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+				TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
+				ControlSetText, Edit12,, ahk_id %HWND_1%
+				Control, EditPaste, 20, Edit12, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+
+			}
+			ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
+			If Status=0
+			{
+				Control, Check,, Button23, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+			ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
+			If Status=1
+			{
+				WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND=%HWND_1%
+				TOOLTIP
+			}
+		}
+			
 		; Text:	Exclude Temporary files and folders
 		; -----------------------------------------------------------
-		IF TEMPORARY_FILE_HWND_1<>%HWND_1%
+		IF TEMPORARY_FILE_HWND<>%HWND_1%
 		{
+			; UNCHECKER -- IS Status=0
+			; ------------------------
 			ControlGet, Status, Checked,, Button13, ahk_id %HWND_1%
 			If Status=1
 			{
 				Control, UNCheck,, Button13, ahk_id %HWND_1%
 				SoundBeep , 4000 , 100
 				TOOLTIP FILTERS - TEMPORARY_FILE
-				ControlGet, Status, Checked,, Button13, ahk_id %HWND_1%
-				If Status=0
+				TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+				TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+			}
+			ControlGet, Status, Checked,, Button13, ahk_id %HWND_1%
+			If Status=0
+			{
+				TEMPORARY_FILE_HWND=%HWND_1%
+				TOOLTIP
+			}
+		}
+
+		
+		IF DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND<>%HWND_1%
+		{
+			ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
+			ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+			
+			If OutputVar_1 = 100 ; DEFAULT
+			IF OutputVar_2="Do not Sync if changed files more than"
+			{
+				TOOLTIP AUTO - Do not Sync if changed files more than
+				TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+				TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
+				ControlSetText, Edit11,, ahk_id %HWND_1%
+				VALUE_PASTE_IN=80
+				Control, EditPaste, %VALUE_PASTE_IN%, Edit11, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+			
+			ControlGet, OutputVar_3, Line, 1, Edit11, ahk_id %HWND_1%
+			IF OutputVar_3=%VALUE_PASTE_IN%
+			{
+				DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=%HWND_1%
+				TOOLTIP
+			}	
+		}
+		
+		IF HDD_HUBIC_HWND<>%HWND_1%
+		{
+			WinGetTitle OutputVar_3, ahk_id %HWND_1%
+			If INSTR(OutputVar_3,"HDD HUBIC")>0 
+			{
+				TOOLTIP ---- - HUBIC UNCHECK BUTTON58
+				TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+				TOOLTIP_SET_REMOVE_TIMER+=4, SECONDS
+
+				ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
+				If Status=1
 				{
-					TEMPORARY_FILE_HWND_1=%HWND_1%
-					TOOLTIP 
+					Control, UNCheck,, Button58, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
 				}
 			}
-		}
-
-		
-		If INSTR(OutputVar_3,"HDD HUBIC")>0 
-		{
 			ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
-			If Status=1
+			If Status=0
 			{
-				Control, UNCheck,, Button58, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
+				HDD_HUBIC_HWND=%HWND_1%
+				TOOLTIP
 			}
 		}
-		
-		
-		ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
-		
-		If (OutputVar_1 = 100 ; DEFAULT
-			and OutputVar_2="Do not Sync if changed files more than")
-			{
-				ControlSetText, Edit11,, ahk_id %HWND_1%
-				Control, EditPaste, 80,	Edit11, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-		}
 
-		; ControlGet, Status, Checked,, Button21, ahk_id %HWND_1%
-		; If Status=0
-		; {
-			; Control, Check,, Button21, ahk_id %HWND_1%
-				; SoundBeep , 4000 , 100
-		; }
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; MORE WORK TO DO FROM HERE BEYOND
+		; ALL HWND MUST BE STORE EACH FOR CHANGE
+		; TO MAKE SMOOTHER NOT PINGER BOX FOR INFO
+		; HIGH REPEATER
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
 		
-		
-		
-		ControlGettext, OutputVar_2, Button23, ahk_id %HWND_1%
-		ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
-		
-		If (OutputVar_1<>20
-			and OutputVar_2="Wait for Locks to clear, minutes")
-			{
-				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 20, Edit12, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-
-		}
-		ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
-		If Status=0
-		{
-			Control, Check,, Button23, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-
 		;------------------------------------------------------------
 		; Button5 ---- Save deleted/replaced files to History f (...)
 		; Button6 ---- Cleanup _history_ folder after this many (...)
@@ -791,6 +1020,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		;	Control, Check,, Button3, ahk_id %HWND_1%
 		;	SoundBeep , 4000 , 100
 		;}
+		
 		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
 		If Status = 0
 		{
@@ -980,7 +1210,14 @@ CHECK_GOODSYNC_NOT_RESPOND:
 				}	
 	}
 	IF TIMER_NOT_RESPONDING>0
+	{
 		TOOLTIP "TIMER_NOT_RESPONDING GOODSYNC" %TIMER_NOT_RESPONDING%
+		TOOLTIP_SET_REMOVE_TIMER=%A_NOW%
+		TOOLTIP_SET_REMOVE_TIMER+=20, SECONDS
+		SETTIMER TOOLTIP_REMOVER,OFF
+
+	}
+
 
 RETURN
 

@@ -603,82 +603,6 @@ End Function
 
 
 
-Private Sub Form_Resize()
-
-Dim r
-
-ReDim M(LABEL_SET.Count)
-i = 0
-
-i = i + 1: M(i) = "GO"
-i = i + 1: M(i) = "Folder Label"
-i = i + 1: M(i) = "File Label"
-'i = i + 1: M(i) = "PERFORM ON ALL FILES IN FOLDER OR FILE"
-i = i + 1: M(i) = "NOW DATE"
-i = i + 1: M(i) = "MODIFY DATE TO CREATED DATE - NOT WORKING"
-i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
-i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
-i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
-i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
-i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
-
-For r = 1 To LABEL_SET.Count
-    If M(r) <> "Folder Label" Then
-        If M(r) <> "File Label" Then
-            If LABEL_SET(r).Caption <> M(r) Then
-                LABEL_SET(r).Caption = M(r)
-            End If
-        End If
-    End If
-    If LABEL_SET(r).Caption = "" Then
-        LABEL_SET(r).Visible = False
-    End If
-Next
-
-'For r = 1 To LABEL_SET.Count
-'    LABEL_SET(r).Caption = Replace(LABEL_SET(r).Caption, "_", " ")
-'Next
-
-LABEL_SET(2).FontSize = 12
-LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
-
-' TOP LABEL
-' HEIGHT LABEL
-HL = LABEL_SET(2).Height
-HL = 500
-
-STEP_H = 100
-For r = 2 To LABEL_SET.Count
-    If LABEL_SET(r).Caption = "" Then
-        LABEL_SET(r).Visible = False
-    End If
-    
-    If LABEL_SET(r).Visible = True Then
-        LABEL_SET(r).Left = 100
-        LABEL_SET(r).Width = Me.Width - 300
-        LABEL_SET(r).Height = HL
-        LABEL_SET(r).Top = STEP_H
-        STEP_H = STEP_H + 40 + HL
-    End If
-Next
-
-r = 1
-LABEL_SET(r).Left = 100
-LABEL_SET(r).Width = Me.Width - 300
-LABEL_SET(r).Height = HL
-LABEL_SET(r).Top = STEP_H
-STEP_H = STEP_H + 40 + HL
-
-
-Me.Height = STEP_H + 800
-Me.Top = 0
-
-
-End Sub
-
 
 
 Private Sub LABEL_SET_Click(index As Integer)
@@ -735,6 +659,8 @@ End Sub
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 
 If KeyCode = 27 Then End
+
+i = MsgBox("", vbMsgBoxSetForeground)
 
 End Sub
 
@@ -824,13 +750,15 @@ If FSO.FolderExists(W$) = False Then
         MsgBox "Not Proper Folder Given" + vbCrLf + vbCrLf + "Command$ = " + vbCrLf + Command$ + vbCrLf + vbCrLf + "Convert File to Folder = " + vbCrLf + vbCrLf + W$, vbMsgBoxSetForeground
         End
     Else
-        MsgBox "Not Proper Folder Given" + vbCrLf + vbCrLf + "Command$ = " + vbCrLf + Command$, vbMsgBoxSetForeground
-        End
+'        MsgBox "Not Proper Folder Given" + vbCrLf + vbCrLf + "Command$ = " + vbCrLf + Command$, vbMsgBoxSetForeground
+'        End
     End If
 End If
-    
-If Mid$(W$, Len(W$), 1) <> "\" Then
-    W$ = W$ + "\"
+
+If W$ <> "" Then
+    If Mid$(W$, Len(W$), 1) <> "\" Then
+        W$ = W$ + "\"
+    End If
 End If
 
 'FOLDER LABEL
@@ -840,6 +768,86 @@ LABEL_SET(2).Caption = W$
 LABEL_SET(3).Caption = FULL_PATH_AND_FILENAME
 
 End Sub
+
+Private Sub Form_Resize()
+
+Dim r
+
+ReDim M(LABEL_SET.Count)
+i = 0
+
+i = i + 1: M(i) = "GO"
+i = i + 1: M(i) = "Folder Label"
+i = i + 1: M(i) = "File Label"
+'i = i + 1: M(i) = "PERFORM ON ALL FILES IN FOLDER OR FILE"
+i = i + 1: M(i) = "NOW DATE"
+i = i + 1: M(i) = "MODIFY DATE TO CREATED DATE - NOT WORKING"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
+i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+
+For r = 1 To LABEL_SET.Count
+    If M(r) <> "Folder Label" Then
+        If M(r) <> "File Label" Then
+            If LABEL_SET(r).Caption <> M(r) Then
+                LABEL_SET(r).Caption = M(r)
+            End If
+        End If
+    End If
+    If LABEL_SET(r).Caption = "" Then
+        LABEL_SET(r).Visible = False
+    End If
+Next
+
+'For r = 1 To LABEL_SET.Count
+'    LABEL_SET(r).Caption = Replace(LABEL_SET(r).Caption, "_", " ")
+'Next
+
+LABEL_SET(2).FontSize = 12
+LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
+
+' TOP LABEL
+' HEIGHT LABEL
+HL = LABEL_SET(2).Height
+HL = 500
+
+LENGHT_LABEL = 380
+
+STEP_H = 100
+For r = 2 To LABEL_SET.Count
+    If LABEL_SET(r).Caption = "" Then
+        LABEL_SET(r).Visible = False
+    End If
+    
+    If LABEL_SET(r).Visible = True Then
+        LABEL_SET(r).Left = 100
+        LABEL_SET(r).Width = Me.Width - LENGHT_LABEL
+        LABEL_SET(r).Height = HL
+        LABEL_SET(r).Top = STEP_H
+        STEP_H = STEP_H + 40 + HL
+    End If
+Next
+
+r = 1
+LABEL_SET(r).Left = 100
+LABEL_SET(r).Width = Me.Width - LENGHT_LABEL
+LABEL_SET(r).Height = HL
+LABEL_SET(r).Top = STEP_H
+STEP_H = STEP_H + 40 + HL
+
+
+Me.Height = STEP_H + 1000
+Me.Top = 0
+
+
+End Sub
+
+
 
 Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
 
