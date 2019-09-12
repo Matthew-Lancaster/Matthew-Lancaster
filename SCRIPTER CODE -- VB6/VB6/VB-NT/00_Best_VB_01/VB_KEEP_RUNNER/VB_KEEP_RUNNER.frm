@@ -11,6 +11,12 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    ScaleHeight     =   10116
    ScaleWidth      =   12864
+   Begin VB.Timer TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD 
+      Enabled         =   0   'False
+      Interval        =   1
+      Left            =   11664
+      Top             =   2148
+   End
    Begin VB.Timer FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO 
       Enabled         =   0   'False
       Interval        =   100
@@ -2033,6 +2039,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_VERSION 
       Caption         =   "MNU_VERSION"
    End
+   Begin VB.Menu MNU_OS_RESTART 
+      Caption         =   "OS RESTART"
+   End
    Begin VB.Menu MNU_ME_ON_TOP 
       Caption         =   "ME ON TOP"
    End
@@ -2114,9 +2123,6 @@ Begin VB.Form Form1
    End
    Begin VB.Menu MNU_GOOGLE_SYNC 
       Caption         =   "GOOGLE SYNC"
-   End
-   Begin VB.Menu MNU_OS_RESTART 
-      Caption         =   "OS RESTART"
    End
    Begin VB.Menu Mnu_Menu_Item_Count 
       Caption         =   "Menu Item Count"
@@ -2229,6 +2235,12 @@ Option Explicit
 
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+Dim NOT_FORM_LOAD_MNU_TASK_KILLER_EXPLORER
+
+Dim FindWindow_Get_All_Explorer_VAR_STRING
+
+Dim IS_AUTOHOTKEY_RUN_2
 
 Dim AUTOHOTKEY_RUN_FIND
 
@@ -2425,12 +2437,12 @@ Dim lhWnd_Function_Button_Set_MIN_MAX
 ' Thu 03-May-2018 11:25:00 -- 3 HOUR
 ' ----------------------------------------------------------
 
-Dim O_DAY_NOW_DIR_FOR_VIDEO
-Dim O_DAY_NOW_DIR_FOR_VIDEO_ME_YOU_TUBE
-Dim O_DAY_NOW_DIR_FOR_VIDEO_KILLSOMETIME
-Dim O_DAY_NOW_DIR_FOR_XXX_BUNKER_COM
-Dim O_DAY_NOW_DIR_FOR_HARDWARE
-Dim O_DAY_NOW_DIR_FOR_ARGUS_VIDEO
+Dim O_DAY_NOW_MIDNIGHT_1
+Dim O_DAY_NOW_MIDNIGHT_ME_YOU_TUBE
+Dim O_DAY_NOW_MIDNIGHT_KILLSOMETIME
+Dim O_DAY_NOW_MIDNIGHT_XXX_BUNKER_COM
+Dim O_DAY_NOW_MIDNIGHT_HARDWARE
+Dim O_DAY_NOW_MIDNIGHT_ARGUS_VIDEO
 
 Dim XVB_DATE_2
 'Public EXIT_TRUE
@@ -3235,7 +3247,8 @@ Private Sub Form_Load()
 
 ' ------------------------------------------------------------------------------
 
-
+    IS_AUTOHOTKEY_RUN_2 = True
+    
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
     
     Dim i As String
@@ -5081,12 +5094,50 @@ Me.WindowState = vbMinimized
 
 End Sub
 
-Private Sub MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click()
-    
+Private Sub TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD_Timer()
+    MsgBox FindWindow_Get_All_Explorer_VAR_STRING, vbMsgBoxSetForeground
+    TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD.Enabled = False
+End Sub
+
+
+Sub MNU_TASK_KILLER_EXPLORER_CLIPBOARD_MIDNIGHT()
+
 'PASTE THE CURRENT SESSION TO CLIPBOARD __ QUITELY WITHOUT MSGBOX REPSONCE REQUIRING
 '----------------------------------------------------
 Call FindWindow_Get_All_Explorer("QUITE MSGBOX=TRUE")
 '----------------------------------------------------
+TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD.Enabled = True
+'----------------------------------------------------
+
+Me.WindowState = vbMinimized
+
+Dim objShell
+Set objShell = CreateObject("Wscript.Shell")
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 81-RESTART EXPLORER.ahk""", DontShowWindow, DontWaitUntilFinished
+Set objShell = Nothing
+
+End Sub
+
+Private Sub MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click()
+    
+Me.WindowState = vbMinimized
+
+'PASTE THE CURRENT SESSION TO CLIPBOARD __ QUITELY WITHOUT MSGBOX REPSONCE REQUIRING
+'----------------------------------------------------
+Call FindWindow_Get_All_Explorer("QUITE MSGBOX=TRUE")
+'----------------------------------------------------
+TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD.Enabled = True
+'----------------------------------------------------
+
+Label23.BackColor = Label11.BackColor
+
+
+Dim objShell
+Set objShell = CreateObject("Wscript.Shell")
+objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 81-RESTART EXPLORER.ahk""", DontShowWindow, DontWaitUntilFinished
+Set objShell = Nothing
+Exit Sub
+
 
 'PROCESS_TO_KILLER_TO_GO = "/F /IM EXPLORER* /T"
 'PROCESS_TO_KILLER = PROCESS_TO_KILLER_TO_GO
@@ -5097,14 +5148,14 @@ Beep
 Me.WindowState = vbMinimized
 'Shell "CMD /C START """" /REALTIME ""C:\SCRIPTER\SCRIPTER CODE -- BAT\ELITESPY - TASKKILL BAT\TASKKILLER_EXPLORER.BAT"" " + PROCESS_TO_KILLER, vbMaximizedFocus
 Beep
-Dim objShell
+'Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
 
 'Shell "TASKKILL /F /IM ""EXPLORER*"""
 objShell.Run "TASKKILL /F /IM ""EXPLORER*""", 0, True
     
 Dim XNOW, FW_P
-XNOW = Now + TimeSerial(0, 0, 4)
+XNOW = Now + TimeSerial(0, 0, 8)
 Do
     FW_P = FindWindow("Progman", "Program Manager")
 Loop Until FW_P = 0 Or XNOW < Now
@@ -5113,6 +5164,12 @@ objShell.Run "C:WINDOWS\EXPLORER.EXE", 0, False
 Set objShell = Nothing
     
 Me.WindowState = vbMinimized
+
+' AHK VERSION
+' Process,close,explorer.exe
+' sleep, 5000 ;This sleep 5000 is to let you see what actually happens. Decrease it later
+' run , explorer.EXE
+
     
 End Sub
 
@@ -5162,7 +5219,7 @@ I_1 = I_1 + VAR_STRING
 Clipboard.Clear
 Clipboard.SetText VAR_STRING
 FindWindow_Get_All_Explorer = I_1
-
+FindWindow_Get_All_Explorer_VAR_STRING = I_1
 If QUITE_MSGBOX = "QUITE MSGBOX=FALSE" Then MsgBox I_1
 
 End Function
@@ -7111,6 +7168,13 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
         pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        ' -----------------------------------------
+        ' WHEN REQUEST BY OWN COMPUTER APP ARE KILL AHK
+        ' AND THEN DON'T ACT TO CLOSE MINE APP
+        ' OF UPON NONE AHK LEFT RULE
+        ' SET HERE IS_AUTOHOTKEY_RUN = FALSE
+        ' -----------------------------------------
+        IS_AUTOHOTKEY_RUN_2 = False
         cProcesses.Process_Kill (pid)
     End If
 Next
@@ -7129,6 +7193,13 @@ Do
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
             pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            ' -----------------------------------------
+            ' WHEN REQUEST BY OWN COMPUTER APP ARE KILL AHK
+            ' AND THEN DON'T ACT TO CLOSE MINE APP
+            ' OF UPON NONE AHK LEFT RULE
+            ' SET HERE IS_AUTOHOTKEY_RUN = FALSE
+            ' -----------------------------------------
+            IS_AUTOHOTKEY_RUN_2 = False
             cProcesses.Process_Kill (pid)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
@@ -9100,9 +9171,9 @@ On Error Resume Next
 
 Dim DIR_PATH
 
-If O_DAY_NOW_DIR_FOR_VIDEO_ME_YOU_TUBE = Day(Now) Then Exit Sub
+If O_DAY_NOW_MIDNIGHT_ME_YOU_TUBE = Day(Now) Then Exit Sub
 
-O_DAY_NOW_DIR_FOR_VIDEO_ME_YOU_TUBE = Day(Now)
+O_DAY_NOW_MIDNIGHT_ME_YOU_TUBE = Day(Now)
 
 DIR_PATH = "C:\DOWNLOADS\# 00 VIDEO\# VIDEO ME YOU_TUBE"
     
@@ -9132,9 +9203,9 @@ On Error Resume Next
 
 Dim DIR_PATH
 
-If O_DAY_NOW_DIR_FOR_ARGUS_VIDEO = Day(Now) Then Exit Sub
+If O_DAY_NOW_MIDNIGHT_ARGUS_VIDEO = Day(Now) Then Exit Sub
 
-O_DAY_NOW_DIR_FOR_ARGUS_VIDEO = Day(Now)
+O_DAY_NOW_MIDNIGHT_ARGUS_VIDEO = Day(Now)
 
 DIR_PATH = "C:\DOWNLOADS\# 00 VIDEO\# VIDEO ARGUS"
     
@@ -9151,9 +9222,9 @@ On Error Resume Next
 
 Dim DIR_PATH
 
-If O_DAY_NOW_DIR_FOR_VIDEO_KILLSOMETIME = Day(Now) Then Exit Sub
+If O_DAY_NOW_MIDNIGHT_KILLSOMETIME = Day(Now) Then Exit Sub
 
-O_DAY_NOW_DIR_FOR_VIDEO_KILLSOMETIME = Day(Now)
+O_DAY_NOW_MIDNIGHT_KILLSOMETIME = Day(Now)
 
 DIR_PATH = "C:\DOWNLOADS\# 00 VIDEO\# VIDEO KILLSOMETIME.COM"
     
@@ -9172,9 +9243,9 @@ On Error Resume Next
 
 Dim DIR_PATH
 
-If O_DAY_NOW_DIR_FOR_XXX_BUNKER_COM = Day(Now) Then Exit Sub
+If O_DAY_NOW_MIDNIGHT_XXX_BUNKER_COM = Day(Now) Then Exit Sub
 
-O_DAY_NOW_DIR_FOR_XXX_BUNKER_COM = Day(Now)
+O_DAY_NOW_MIDNIGHT_XXX_BUNKER_COM = Day(Now)
 
 DIR_PATH = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM"
 
@@ -9199,16 +9270,19 @@ Dim VAR, pid As Long
 If IS_AUTOHOTKEY_RUN = True Then
     AUTOHOTKEY_RUN_FIND = True
 End If
-
+If IS_AUTOHOTKEY_RUN_2 = False Then
+    AUTOHOTKEY_RUN_FIND = False
+    IS_AUTOHOTKEY_RUN_2 = True
+End If
 If AUTOHOTKEY_RUN_FIND = True Then
     If IS_AUTOHOTKEY_RUN = False Then
         AUTOHOTKEY_RUN_FIND = False
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe")
-        If pid <> -1 Then
-            VAR = cProcesses.Process_Kill(pid)
-            Beep
-        End If
+'        pid = -1
+'        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe")
+'        If pid <> -1 Then
+'            VAR = cProcesses.Process_Kill(pid)
+'            Beep
+'        End If
         pid = -1
         VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe")
         If pid <> -1 Then
@@ -9233,18 +9307,21 @@ If AUTOHOTKEY_RUN_FIND = True Then
             VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe")
-        If pid <> -1 Then
-            VAR = cProcesses.Process_Kill(pid)
-            Beep
-        End If
+'        pid = -1
+'        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe")
+'        If pid <> -1 Then
+'            VAR = cProcesses.Process_Kill(pid)
+'            Beep
+'        End If
         pid = -1
         VAR = cProcesses.GetEXEID(pid, "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe")
         If pid <> -1 Then
             VAR = cProcesses.Process_Kill(pid)
             Beep
         End If
+    
+    
+        Exit Sub
     
         EXIT_TRUE = True
         Unload Me
@@ -9269,9 +9346,14 @@ Call Timer_DIR_FOR_HARDWARE_Timer
 Call Timer_DIR_FOR_VIDEO_KILLSOMETIME_Timer
 Call Timer_DIR_FOR_VIDEO_ME_YOU_TUBE_Timer
 Call Timer_DIR_FOR_ARGUS_VIDEO_Timer
-If O_DAY_NOW_DIR_FOR_VIDEO <> Day(Now) Then
-    O_DAY_NOW_DIR_FOR_VIDEO = Day(Now)
+If O_DAY_NOW_MIDNIGHT_1 <> Day(Now) Then
+    O_DAY_NOW_MIDNIGHT_1 = Day(Now)
     Call Timer_DIR_FOR_FACEBOOK_VIDEO_Timer
+    
+    If NOT_FORM_LOAD_MNU_TASK_KILLER_EXPLORER = True Then
+        Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_MIDNIGHT
+    End If
+    NOT_FORM_LOAD_MNU_TASK_KILLER_EXPLORER = True
 End If
 
 Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
@@ -9379,8 +9461,8 @@ Dim SET_TRIGGER_1, SET_TRIGGER_2, R_Y
 DIR_PATH = "E:\HARDWARE"
 
 ALLOW_GO = False
-If O_DAY_NOW_DIR_FOR_HARDWARE <> Day(Now) Then ALLOW_GO = True
-O_DAY_NOW_DIR_FOR_HARDWARE = Day(Now)
+If O_DAY_NOW_MIDNIGHT_HARDWARE <> Day(Now) Then ALLOW_GO = True
+O_DAY_NOW_MIDNIGHT_HARDWARE = Day(Now)
 
 If ALLOW_GO = False Then
     If FindWindowPart(DIR_PATH) = 0 Then

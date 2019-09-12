@@ -33,6 +33,14 @@
 ; Fri 30-Aug-2019 15:50:00 -- 10 TILL 4 -- SIX HOUR
 ; -------------------------------------------------------------------
 
+
+; ' Sub ICACLS_ERROR_APPLYING_SECURITY()
+; ' -------------------------------------------------------------------
+; ' "Error Applying Security"
+; ' THIS CODE IS OF -- D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe
+; ' -------------------------------------------------------------------
+
+
 IF INSTR(A_ScriptName,"_INCLUDE.ahk")>0 
 	EXITAPP
 
