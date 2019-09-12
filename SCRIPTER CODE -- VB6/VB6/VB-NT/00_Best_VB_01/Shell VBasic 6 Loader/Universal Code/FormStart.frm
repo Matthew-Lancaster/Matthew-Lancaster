@@ -275,7 +275,7 @@ End Sub
 Function GetRelativePath(findPath As String, startPath As String) As String
   
   Dim l As Integer
-  Dim I As Integer
+  Dim i As Integer
   Dim Backs As Integer
   Dim vstartPath As String
   
@@ -290,8 +290,8 @@ Function GetRelativePath(findPath As String, startPath As String) As String
   Backs = (l - Len(findPath)) / 3
   
   'Back up BACKS BackDirs
-  For I = 1 To Backs
-    If I = 1 Then
+  For i = 1 To Backs
+    If i = 1 Then
       l = InStrRev(vstartPath, "\")
     Else
       l = InStrRev(vstartPath, "\", l - 1)
@@ -350,10 +350,10 @@ If InStr(LCase(B1$), ".lnk") > 0 Then
     'End If
     If InStr(rr$, ":\") = 0 Then
     
-        I = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
+        i = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
         
-        I = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
-        If I = vbYes Then
+        i = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
+        If i = vbYes Then
             Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
             Unload Form1
             Exit Sub
@@ -509,3 +509,6 @@ End
 
 End Sub
 
+Private Sub Form_Load()
+
+End Sub

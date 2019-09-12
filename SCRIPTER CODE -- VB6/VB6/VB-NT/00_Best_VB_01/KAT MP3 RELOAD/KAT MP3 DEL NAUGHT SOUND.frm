@@ -3835,6 +3835,9 @@ End Sub
 
 Sub TIMER_SET_CAMERA_CHECK_TIMER()
 
+    Debug.Print "NOT USE - TIMER_SET_CAMERA_CHECK_TIMER"
+    Exit Sub
+
 XDrive1_ListCount = Drive1.ListCount
 If XDrive1_ListCount = O_DRIVE1_ListCount Then Exit Sub
 
@@ -3864,6 +3867,10 @@ End Sub
 
 
 Sub TIMER_SET_CAMERA_WITH_SECURITY_INFO_TIMER()
+
+    Debug.Print "NOT USE - TIMER_SET_CAMERA_WITH_SECURITY_INFO_TIMER"
+    Exit Sub
+
 'Exit Sub ' here ----
 PASS_DRIVE_AT = ""
 TO_GO = False
@@ -3935,6 +3942,9 @@ End Sub
 
 Private Sub TIMER_SET_CAMERA_UP_TO_MARK_FOLDER_Timer()
 
+    Debug.Print "NOT USE - TIMER_SET_CAMERA_UP_TO_MARK_FOLDER_Timer"
+    Exit Sub
+
 If Timer_VICE_VERSA_TIMER_ON.Enabled = False Then Exit Sub
 
 On Error Resume Next
@@ -3969,6 +3979,9 @@ Call WRITE_INFO_TXT_IN_EMPTY_FOLDER("W:\MP_ROOT")
 End Sub
 
 Sub COPY_MY_SECURITY_INFO_TO_CAMERA(PASS_DRIVE_AT)
+    
+    Debug.Print "NOT USE - COPY_MY_SECURITY_INFO_TO_CAMERA"
+    Exit Sub
     
     On Error Resume Next
     i = App.Path + "\CAMERA DATA"
@@ -4655,6 +4668,11 @@ Timer_VICE_VERSA_TIMER_ON.Enabled = False
 End Sub
 
 Private Sub Timer_W32TM_Timer()
+
+Debug.Print "Private Sub Timer_W32TM_Timer() -- NOT USE ANYMORE -- NICE ROUTINE IF USE ANYWHERE OTHER"
+
+Exit Sub
+
 
 '---------------------------------------
 'USE THE SYSTEM SYNC TIME REGULAR - NICE
@@ -5965,6 +5983,9 @@ Sub DEL_WAVS()
         If UNLOAD_FORM_FLAG = True Then GoTo Exit_Sub22
         
         MIN_SIZE______ = 0
+        LEN_TT = Len("2019-01-01-00-00-00.WAV")
+        If DONT_GO_TEMPORARY_OFF = 22 Then
+        If Len(FILE1.List(R)) = LEN_TT Then
         If Right(FILE1.List(R), 4) = ".WAV" Or Right(FILE1.List(R), 4) = ".MP3" Then
             
             If GetComputerName = "1-ASUS-EEE" Then
@@ -6115,6 +6136,8 @@ Sub DEL_WAVS()
                     End If
                 End If
             End If
+        End If
+        End If
         End If
     Next R
     

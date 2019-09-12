@@ -371,9 +371,6 @@ GLOBAL OSVER_N_VAR
 
 FN_Array_1 := SET_ARRAY_1()
 FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
-
-; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
-	
 FN_ARRAY_RAINER_F5 := SET_ARRAY_RAINER_F5()
 
 	
@@ -409,48 +406,34 @@ IF SET_GO=TRUE
 
 O_RELO_FB=
 AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR=
+AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR=
 HWND_LAST_FACEBOOK_WINDOW=0
 TIMER_FOR_MOMENT_WAIT_EVENT_HAPPEN_ACTIVATE_VAR=
-
-SET_GO=TRUE
-IF A_ComputerName=1-ASUS-X5DIJ
-	SET_GO=FALSE
-IF A_ComputerName=5-ASUS-P2520LA
-	SET_GO=FALSE
 
 SET_ARRAY_FB_HITT_CN_33=  ; ---- VARIABLE HOLD TIMER_1 - ACTIVATE SECOND LONG
 SET_ARRAY_FB_HITT_CN_44=  ; ---- VARIABLE HOLD TIMER_2 - F5 REFRESH MINUTE
 SET_ARRAY_FB_HITT_CN_3_DO_ONCE=SOME_TO_DO
-TOOLTIP
 
-IF SET_GO=TRUE
-IF OSVER_N_VAR>0
-{
-	SETTIMER AUTO_RELOAD_FACEBOOK,1000
-}
+SET_ARRAY_RAIN_HITT_CN_33=      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
+SET_ARRAY_RAIN_HITT_CN_44=      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
+NEW_NOTIFY_UPDATE_TIMER_DELAY=
+
+
+SETTIMER AUTO_RELOAD_FACEBOOK,1000
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
 
-RAIN_ALARM_DO_ONCE=
-O_RELO_RA=
-
-SET_GO=TRUE
-IF A_ComputerName=2-ASUS-EEE
-	SET_GO=FALSE
-IF A_ComputerName=3-LINDA-PC
-	SET_GO=FALSE
+RAIN_ALARM_DO_ONCE=TRUE
+O_RELO_RAIN=
 
 TIMER_AUTO_RELOAD_RAIN_ALARM_1=
 TIMER_AUTO_RELOAD_RAIN_ALARM_2=
 	
-; 03 OF 04
-IF SET_GO=TRUE 
-{
-	SETTIMER AUTO_RELOAD_RAIN_ALARM,1000
-}
+SETTIMER AUTO_RELOAD_RAIN_ALARM,1000
+
 	
 AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0	
 AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
@@ -542,14 +525,7 @@ RETURN SET_ARRAY_RAINER_F5
 }
 
 
-; Loop % FN_Array_1.MaxIndex()
-; {
-	; Element := FN_Array_1[A_Index]
-	; ; MSGBOX %Element%
-	; IfWinExist, %Element%
-		; XR_2=1
-		; XR_4=%Element%
-; }
+; ------------------------------------
 ; FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
 ; ------------------------------------
 ; THIS IS NOT USE ANYWHERE BEEN REMMER
@@ -609,9 +585,18 @@ RETURN SET_ARRAY_BROWSER_TAB_CLOSE
 ; http://bthomehub.home/00000110500/gui/#/main/
 ; ----
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
 
  
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -736,6 +721,14 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 	; & An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey. 
 		
 RETURN
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
 
 AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 	; ---------------------------------------------------------------
@@ -1100,6 +1093,11 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 RETURN
 
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
 TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
@@ -1215,174 +1213,10 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 RETURN
 
 
-
-AUTO_RELOAD_RAIN_ALARM:
-
-	SET_GO_RELOAD_RAIN_A=
-	IF A_ComputerName=1-ASUS-X5DIJ
-		SET_GO_RELOAD_RAIN_A=TRUE
-	IF A_ComputerName=5-ASUS-P2520LA
-		SET_GO_RELOAD_RAIN_A=TRUE
-	IF A_ComputerName=4-ASUS-GL522VW
-		SET_GO_RELOAD_RAIN_A=TRUE
-		
-
-	IF A_ComputerName=2-ASUS-EEE
-	{
-		SETTIMER AUTO_RELOAD_RAIN_ALARM, OFF
-		RETURN
-	}
-		
-	; ---------------------------------------------------------------
-	; RAIN ALARM HAS INTRO A NEW THING LIKE A NAG SCREEN
-	; THAT IS LEFT RUNNER A LONG TIME IT ASK YOU TO REFRESH THE SCREEN
-	; HA HA
-	; [ Wednesday 13:55:40 Pm_16 January 2019 ]
-	; ---------------------------------------------------------------
-
-	
-	WinGetCLASS, CLASS, A
-	WinGetTITLE, TITLE_VAR, A
-
-	; QUICK ONE IF PROBLEM 
-	; ONLY QUICK ON IF ACTIVE WINDOW 
-	; NEED CORRECTION
-	; --------------------
-	Element := "502 Bad Gateway"
-	IF INSTR(TITLE_VAR,Element)
-	{
-		IF TIMER_AUTO_RELOAD_RAIN_ALARM_1<%A_NOW%
-		{
-			TIMER_AUTO_RELOAD_RAIN_ALARM_1=%A_NOW%
-			TIMER_AUTO_RELOAD_RAIN_ALARM_1+=10,seconds
-		}
-	}
-	
-	; USUAL ONE
-	; ---------
-	IF TIMER_AUTO_RELOAD_RAIN_ALARM_2<%A_NOW%
-	{
-		TIMER_AUTO_RELOAD_RAIN_ALARM_2=%A_NOW%
-		TIMER_AUTO_RELOAD_RAIN_ALARM_2+=30,Minutes
-	}	
-	
-	SET_GO_RAIN_1=
-	IF TIMER_AUTO_RELOAD_RAIN_ALARM_1
-		IF TIMER_AUTO_RELOAD_RAIN_ALARM_1<%A_NOW%
-		{
-			TIMER_AUTO_RELOAD_RAIN_ALARM_1=
-			SET_GO_RAIN_1=TRUE
-		}
-
-	; USUAL ONE
-	; ---------
-	SET_GO_RAIN_2=
-	IF TIMER_AUTO_RELOAD_RAIN_ALARM_2
-		IF TIMER_AUTO_RELOAD_RAIN_ALARM_2<%A_NOW%
-		{
-			TIMER_AUTO_RELOAD_RAIN_ALARM_2=
-			SET_GO_RAIN_2=TRUE
-		}
-	
-	IF !RAIN_ALARM_DO_ONCE
-	{
-		TIMER_AUTO_RELOAD_RAIN_ALARM_2=%A_NOW%
-		TIMER_AUTO_RELOAD_RAIN_ALARM_2+=10,Seconds
-
-		RAIN_ALARM_DO_ONCE=TRUE
-		GOSUB SET_RAIN_ALARM_WINDOW_DIMENSION
-		SET_GO_RAIN_1=2
-		SET_GO_RAIN_2=3
-	}
-
-	
-	WinGet, HWND_AUTO_RELO_RA_1, ID, A    ; Get Active Window
-	WinGetTITLE, HWND_AUTO_RELO_RA_2, A   ; Get Active Window TITLE
-	HWND_AUTO_RELO_RA_3=% HWND_AUTO_RELO_RA_1 "`n" HWND_AUTO_RELO_RA_2
-	
-	IF O_RELO_RA<>%HWND_AUTO_RELO_RA_3%
-	{
-		SET_GO_RAIN_1=TRUE
-		SET_GO_RAIN_2=TRUE
-	}
-	
-	O_RELO_RA=%HWND_AUTO_RELO_RA_3%
-
-	; ---------------------------------------------------------------
-	; IF ALL TIMER TALK DON'T GO 
-	; WANT IT BETTER
-	; ONE EXTRA TIMER QUICK WHEN SCRIPT FIRST BEGIN
-	; USE 2ND TIMER USUAL FOR THAT
-	; ---------------------------------------------------------------
-		
-	IF !SET_GO_RAIN_1
-		IF !SET_GO_RAIN_2
-			RETURN
-		
-	; -------------------------------------
-	; CHECK FOR WIN EXIST AND MAKE ACTIVE
-	; -------------------------------------
-	; SET_GO_RELOAD_RAIN_A IS COMPUTER NAME
-	; -------------------------------------
-	RAINER_F5_SET_GO=
-	IF SET_GO_RELOAD_RAIN_A=TRUE
-	{
-		Loop % FN_ARRAY_RAINER_F5.MaxIndex()
-		{
-			Element := FN_ARRAY_RAINER_F5[A_Index]
-			IfWinExist, %Element%
-			{
-				WinActivate, %Element%
-				LOOP 50
-				{
-					WinGetTITLE, TITLE_VAR_RAIN_F5, A
-					IF INSTR(TITLE_VAR_RAIN_F5,Element)>0 
-					{
-						RAINER_F5_SET_GO=TRUE
-						BREAK
-					}
-					SLEEP 200
-				}
-			}
-			IF RAINER_F5_SET_GO=TRUE
-				BREAK 
-		}
-	}
-				
-	WinGetCLASS, CLASS, A
-	WinGetTITLE, TITLE_VAR, A
-
-	XR_1=
-	IF INSTR(CLASS,"Chrome_WidgetWin_1")>0
-		XR_1=1
-	IF INSTR(CLASS,"MozillaWindowClass")>0
-		XR_1=1
-	
-	RAINER_F5_SET_GO=
-	IF XR_1
-	Loop % FN_ARRAY_RAINER_F5.MaxIndex()
-	{
-		Element := FN_ARRAY_RAINER_F5[A_Index]
-		IF INSTR(TITLE_VAR,Element)
-		{
-			RAINER_F5_SET_GO=TRUE
-			BREAK
-		}
-	}
-	
-	
-	If RAINER_F5_SET_GO
-	{
-		; TOOLTIP % A_NOW
-		SENDINPUT {F5}
-		IF A_ComputerName=1-ASUS-X5DIJ
-		{
-			; SOUNDBEEP 2000,100
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		}
-	}
-		
-RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
 
@@ -1502,6 +1336,365 @@ SET_RAIN_ALARM_WINDOW_DIMENSION:
 
 RETURN
 
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+AUTO_RELOAD_RAIN_ALARM:
+	
+	IF RAIN_ALARM_DO_ONCE
+	{
+		GOSUB SET_RAIN_ALARM_WINDOW_DIMENSION
+		RAIN_ALARM_DO_ONCE=
+	}
+	
+	SET_ARRAY_RAIN_HITT_CN_1 := []  ; ---- COMPUTER NAME
+	SET_ARRAY_RAIN_HITT_CN_2 := []  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE
+	SET_ARRAY_RAIN_HITT_CN_3 := []  ; ---- TIMER INTERVAL ACTIVATE
+	SET_ARRAY_RAIN_HITT_CN_4 := []  ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
+	SET_ARRAY_RAIN_HITT_CN_5 := []  ; ---- MAKE AUDIO HITTER
+	SET_ARRAY_RAIN_HITT_CN_6 := []  ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
+	
+	; DECLARE
+	; SET_ARRAY_RAIN_HITT_CN_33      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
+	; SET_ARRAY_RAIN_HITT_CN_44      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
+
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=40
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=
+	ArrayCount += 1 
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="3-LINDA-PC"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=10
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="5-ASUS-P2520LA"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=20
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="7-ASUS-GL522VW"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=10
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="8-MSI-GP62M-7RD"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=10
+
+	
+	COMPUTER_NAME_FOUND=
+	Loop % SET_ARRAY_RAIN_HITT_CN_1.MaxIndex()
+	{
+		Element1_RAIN := SET_ARRAY_RAIN_HITT_CN_1[A_Index]
+		IF A_COMPUTERNAME=%Element1_RAIN%
+		{
+			COMPUTER_NAME_FOUND=TRUE
+		
+			Element2_RAIN := SET_ARRAY_RAIN_HITT_CN_2[A_Index]
+			Element3_RAIN := SET_ARRAY_RAIN_HITT_CN_3[A_Index]
+			Element6_RAIN := SET_ARRAY_RAIN_HITT_CN_6[A_Index]
+			IF !Element3_RAIN
+			{
+				SETTIMER AUTO_RELOAD_RAIN_ALARM,OFF
+				RETURN
+			}
+			
+			Element4_RAIN := SET_ARRAY_RAIN_HITT_CN_4[A_Index]
+			Element5_RAIN := SET_ARRAY_RAIN_HITT_CN_5[A_Index]
+			Element33_RAIN = %SET_ARRAY_RAIN_HITT_CN_33%
+			Element44_RAIN = %SET_ARRAY_RAIN_HITT_CN_44%
+			; -------------------------------------------------------
+			; Element33_RAIN -- BRING BACK TO ACTIVATE TIMER
+			; SUB ROUTINE HERE IS 1 SECOND FOR HWND CHANGE WHEN BACK TO RAIN_ALARM
+			; AND THEN DO F5
+			; -------------------------------------------------------
+			; IF SET_ARRAY_RAIN_HITT_CN_3_DO_ONCE
+			; {
+			; }
+			
+			; WITH REGARD Element33_RAIN
+			; DON'T WANT ACTIVATE MODE BUT DO WANT ACTIVATE MODE WHEN 
+			; ARRIVE AT LONG TIMER
+			; NOT REALLY DON'T WANT ACTIVATE AT ALL IF OPTION SET
+			ACTIVATE_TIMER_READY_INTERVAL_RAIN=
+			IF !Element2_RAIN
+			IF Element33_RAIN<%A_NOW%
+			{
+				ACTIVATE_TIMER_READY_INTERVAL_RAIN=TRUE
+				Element33_RAIN=%A_Now%
+				Element33_RAIN+= %Element3_RAIN%, SECONDS
+				SET_ARRAY_RAIN_HITT_CN_33=%Element33_RAIN%
+			}
+			READY_TO_GO_TIMER_INTERVAL_RAIN=
+			IF Element44_RAIN<%A_NOW%
+			{
+				READY_TO_GO_TIMER_INTERVAL_RAIN=TRUE
+				Element44_RAIN=%A_Now%
+				Element44_RAIN+= %Element4_RAIN%, MINUTES
+				SET_ARRAY_RAIN_HITT_CN_44=%Element44_RAIN%
+			}
+			BREAK
+		}
+	}
+	
+	IF !COMPUTER_NAME_FOUND
+		MSGBOX "COMPUTER NAME NOT FOUND"
+	
+	CHANGE_HWND_GO_RAIN=
+	WinGet,      HWND_AUTO_RELO_RAIN_1, ID, A    ; Get Active Window
+	WinGetTITLE, HWND_AUTO_RELO_RAIN_2, A   ; Get Active Window TITLE
+	HWND_AUTO_RELO_RAIN_3=% HWND_AUTO_RELO_RAIN_1 "`n" HWND_AUTO_RELO_RAIN_2
+	IF !O_RELO_RAIN
+		O_RELO_RAIN=%HWND_AUTO_RELO_RAIN_3%
+	
+	IF O_RELO_RAIN<>%HWND_AUTO_RELO_RAIN_3%
+	{
+		O_RELO_RAIN=%HWND_AUTO_RELO_RAIN_3%
+		CHANGE_HWND_GO_RAIN=TRUE
+
+	}
+	; TOOLTIP % O_RELO_RAIN "`n" HWND_AUTO_RELO_RAIN_3 "`n" CHANGE_HWND_GO_RAIN
+	
+	; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
+	IF AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR>%A_NOW%
+		RETURN
+
+	; If (A_TimeIdle < 8000)
+		; RETURN
+	
+	; ---------------------------------------------------------------
+	; SetTitleMatchMode 2 
+	; ---------------------------------------------------------------
+	; PARTIAL THIS ONE AS FACEBOOK ---- XXXX ---- RAIN_ALARM
+	; SOMETIME GETT AH (1) OR (2) NUMBER IN FRONT
+	; ---------------------------------------------------------------
+	; Wed 04-Sep-2019 08:59:10
+	; ---------------------------------------------------------------
+
+	SetTitleMatchMode 2                ; PARTIAL FIND
+	; ---------------------------------------------------------------
+	; ACTIVATE CODE BLOCK ROUTINE
+	; Element2_RAIN -- ACTIVATE ARE GO IS TIMER READY 
+	; ---------------------------------------------------------------
+	SET_GO_10_RAIN=
+	IF !Element2_RAIN
+	IF ACTIVATE_TIMER_READY_INTERVAL_RAIN
+		SET_GO_10_RAIN=TRUE      ; DO WHEN ACTIVATE TIMER INTERVAL
+								 ; IF NOT ACTIVATE RELOAD F5 PAGE AFTER
+	IF !Element2_RAIN
+	IF READY_TO_GO_TIMER_INTERVAL_RAIN
+		SET_GO_10_RAIN=TRUE      ; DO WHEN TIMER INTERVAL
+								 ; DON'T ACTIVATE WHEN REQUEST READY INTERVAL IF 
+								 ; ACTIVATE NOT ON
+								 ; FOR COMPUTER THAT DON'T HASSLE SWAPPER 
+								 ; SCREEN ALL THE TIME
+
+	; TOOLTIP % HWND_COMP_1 "`n`n" HWND_COMP_2 "`n`nACTIVATE_TIMER_READY_INTERVAL_RAIN -- IF Element33_RAIN<%A_NOW% `n" ACTIVATE_TIMER_READY_INTERVAL_RAIN "`n`nElement33_RAIN`n" Element33_RAIN "`n`nREADY_TO_GO_TIMER_INTERVAL_RAIN --  IF Element44_RAIN<%A_NOW%`n" READY_TO_GO_TIMER_INTERVAL_RAIN  "`n`nElement1_RAIN`n" Element1_RAIN  "`n`nElement4_RAIN`n" Element4_RAIN "`n`nElement44_RAIN`n" Element44_RAIN  "`n`nA_NOW`n" A_NOW   "`n`nElement2_RAIN`n" Element2_RAIN  "`n`nSET_GO_10_RAIN`n" SET_GO_10_RAIN  "`n`n`n"   "`n`n`n"   "`n`n`n" 
+								 
+	SET_ACTIVE_AND_F5_RAIN=
+	FIND_RAIN_ACTI=
+
+	ACTIVATE_MODE_CHCK_ENTER=
+	IS_ANYTHING_DO_AS_CHECK_REQUIRE_ACTIVATE=
+	
+	IF !Element2_RAIN
+	IF SET_GO_10_RAIN
+	Loop % FN_ARRAY_RAINER_F5.MaxIndex()
+	{
+		ACTIVATE_MODE_CHCK_ENTER=TRUE
+		ELEMENT_ARRAY_RAIN_F5 := FN_ARRAY_RAINER_F5[A_Index]
+		WinGet, HWND_COMP_1, ID, %ELEMENT_ARRAY_RAIN_F5%
+		WinGet, HWND_COMP_2, ID, A
+		
+		IfWinExist, %ELEMENT_ARRAY_RAIN_F5%
+		IF HWND_COMP_1<>%HWND_COMP_2%
+			IS_ANYTHING_DO_AS_CHECK_REQUIRE_ACTIVATE=TRUE
+		
+		IfWinExist, %ELEMENT_ARRAY_RAIN_F5%
+		IF HWND_COMP_1<>%HWND_COMP_2%
+			SET_ACTIVE_AND_F5_RAIN=TRUE
+		IF SET_ACTIVE_AND_F5_RAIN
+		{
+			WinActivate, %ELEMENT_ARRAY_RAIN_F5%
+
+			; -------------------------------------------------------
+			; LOOP WAIT WINDOW CHANGE 
+			; NOT WinWaitActive
+			; AS ERROR BETWEEN COMPUTER XP WIN 07 WIN 10 -- WIN 07 IS ODD ONE
+			; -------------------------------------------------------
+			
+			LOOP 100
+			{
+				WinGetTITLE, TITLE_VAR_RAIN_F5, A
+				IF INSTR(TITLE_VAR_RAIN_F5,ELEMENT_ARRAY_RAIN_F5)>0
+				{
+					FIND_RAIN_ACTI=TRUE
+					BREAK
+				}
+				SLEEP 400
+			}
+				
+			; WHEN ACTIVATE HAPPEN GET NEW HWND CHANGE
+			; -------------------------------------------------------
+			IF INSTR(TITLE_VAR_RAIN_F5,ELEMENT_ARRAY_RAIN_F5)>0 
+			{
+				WinGet, HWND_AUTO_RELO_RAIN_1, ID, A    ; Get Active Window
+				WinGetTITLE, HWND_AUTO_RELO_RAIN_2, A   ; Get Active Window TITLE
+				HWND_AUTO_RELO_RAIN_3=% HWND_AUTO_RELO_RAIN_1 "`n" HWND_AUTO_RELO_RAIN_2
+				O_RELO_RAIN=%HWND_AUTO_RELO_RAIN_3%
+
+				; ------------------------------------
+				; TOP UP THE TIMER XPAIR---- ONE AFTER ACTIVATE
+				; NOT SUDDEN ONE AFTER
+				; ------------------------------------
+				Element33_RAIN=%A_Now%
+				Element33_RAIN+= %Element3_RAIN%, SECONDS
+				SET_ARRAY_RAIN_HITT_CN_33=%Element33_RAIN%
+				Element44_RAIN=%A_Now%
+				Element44_RAIN+= %Element4_RAIN%, MINUTES
+				; SET_ARRAY_RAIN_HITT_CN_44=%Element44_RAIN%
+				; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
+			}
+			IF FIND_RAIN_ACTI
+				BREAK
+		}
+	}
+	
+	
+	; ---------------------------------------------------------------
+	; END OF ACTIVATE CODE BLOCK ROUTINE
+	; ---------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	; WANT ACTIVATE ABOVE 
+	; AND SCREEN SWAP HERE
+	; WHY F5 WHEN ACTIVATE WANT IS ONLY SCREEN SWAPPER
+	; WHOLE THING IS SCREEN SWAPPER
+	; UNLESS TIMER INTERVAL COME INTO IT
+	
+	; GET TITLE AGAIN IN CASE THING CHANGE
+	; LIKE ACTIVATE HAD FAULT
+	; OR NOT IN FOCUS CHECK
+	; ---------------------------------------------------------------
+	CHECKER_RAIN=
+	WinGetTITLE, TITLE_VAR_RAIN_F5, A
+	Loop % FN_ARRAY_RAINER_F5.MaxIndex()
+	{
+		ELEMENT_ARRAY_RAIN_F5=% FN_ARRAY_RAINER_F5[A_Index]
+		IF INSTR(TITLE_VAR_RAIN_F5,ELEMENT_ARRAY_RAIN_F5)>0
+		{
+			CHECKER_RAIN=TRUE
+			BREAK
+		}
+	}
+	
+	IF !CHECKER_RAIN
+	{
+		AUTO_RELOAD_RAIN_ALARM_VAR=
+		READY_TO_GO_TIMER_INTERVAL_RAIN=
+		CHANGE_HWND_GO_RAIN=
+	}
+	
+	; ---------------------------------------------------------------
+	; IF TIMER ACTIVATE WAS REQUEST AND NONE REQUIRE DO 
+	; AND THEN IGNORE THE FOLLOW UP F5 
+	; ---------------------------------------------------------------
+	; IF ACTIVATE_TIMER_READY_INTERVAL
+	; IF !SET_ACTIVE_AND_F5_RAIN          ; IF HWND_COMP_1<>%HWND_COMP_2%
+		; AUTO_RELOAD_RAIN_ALARM_VAR=
+
+	IF !READY_TO_GO_TIMER_INTERVAL_RAIN
+	IF ACTIVATE_MODE_CHCK_ENTER
+	IF IS_ANYTHING_DO_AS_CHECK_REQUIRE_ACTIVATE
+		AUTO_RELOAD_RAIN_ALARM_VAR=
+		
+	; ---------------------------------------------------------------
+	; F5 CODE BLOCK ROUTINE
+	; ---------------------------------------------------------------
+	SET_GO_RAIN=
+	IF AUTO_RELOAD_RAIN_ALARM_VAR
+		SET_GO_RAIN=TRUE
+	IF READY_TO_GO_TIMER_INTERVAL_RAIN
+		SET_GO_RAIN=TRUE
+	IF CHANGE_HWND_GO_RAIN=TRUE
+		SET_GO_RAIN=TRUE
+	
+
+	
+	IF SET_GO_RAIN=TRUE
+	{
+		SLEEP 100
+		SENDINPUT {F5}
+
+		SLEEP 100
+		IF Element5_RAIN
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		
+		; ------------------------------------
+		; TOP UP THE TIMER PAIR AFTER ACTIVATE
+		; NOT SUDDEN ONE AFTER
+		; ------------------------------------
+		Element33_RAIN=%A_Now%
+		Element33_RAIN+= %Element3_RAIN%, SECONDS
+		SET_ARRAY_RAIN_HITT_CN_33=%Element33_RAIN%
+		Element44_RAIN=%A_Now%
+		Element44_RAIN+= %Element4_RAIN%, MINUTES
+		SET_ARRAY_RAIN_HITT_CN_44=%Element44_RAIN%
+		; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
+		AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR=%A_Now%
+		AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR+= %Element6_RAIN%, seconds
+		
+	}
+	SLEEP 100
+		
+RETURN
+		
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
 AUTO_RELOAD_FACEBOOK:
 
 	; ONLY INTEREST IF WINDOW HWND CHANGER
@@ -1521,6 +1714,7 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_3 := []  ; ---- TIMER INTERVAL ACTIVATE
 	SET_ARRAY_FB_HITT_CN_4 := []  ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
 	SET_ARRAY_FB_HITT_CN_5 := []  ; ---- MAKE AUDIO HITTER
+	SET_ARRAY_FB_HITT_CN_6 := []  ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
 	
 	; DECLARE
 	; SET_ARRAY_FB_HITT_CN_33      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
@@ -1533,50 +1727,60 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=10
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50
 	ArrayCount += 1 
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="3-LINDA-PC"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=10
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=1
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=20
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="5-ASUS-P2520LA"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="7-ASUS-GL522VW"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=1
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=20
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="8-MSI-GP62M-7RD"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=1
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=20
 
+	COMPUTER_NAME_FOUND=
 	Loop % SET_ARRAY_FB_HITT_CN_1.MaxIndex()
 	{
 		Element1 := SET_ARRAY_FB_HITT_CN_1[A_Index]
 		IF A_COMPUTERNAME=%Element1%
 		{
+			COMPUTER_NAME_FOUND=TRUE
 			Element2 := SET_ARRAY_FB_HITT_CN_2[A_Index]
 			Element3 := SET_ARRAY_FB_HITT_CN_3[A_Index]
+			Element6 := SET_ARRAY_FB_HITT_CN_6[A_Index]
+			AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR_2 := SET_ARRAY_FB_HITT_CN_6[A_Index]
 			IF !Element3
 			{
 				SETTIMER AUTO_RELOAD_FACEBOOK,OFF
@@ -1595,7 +1799,12 @@ AUTO_RELOAD_FACEBOOK:
 			; IF SET_ARRAY_FB_HITT_CN_3_DO_ONCE
 			; {
 			; }
+			; WITH REGARD Element33
+			; DON'T WANT ACTIVATE MODE BUT DO WANT ACTIVATE MODE WHEN 
+			; ARRIVE AT LONG TIMER
+			; NOT REALLY DON'T WANT ACTIVATE AT ALL IF OPTION SET
 			ACTIVATE_TIMER_READY_INTERVAL=
+			IF !Element2
 			IF Element33<%A_NOW%
 			{
 				ACTIVATE_TIMER_READY_INTERVAL=TRUE
@@ -1614,13 +1823,10 @@ AUTO_RELOAD_FACEBOOK:
 			BREAK
 		}
 	}
-	
-	; TOOLTIP % HWND_COMP_1 "`n" HWND_COMP_2 "`nACT --`n" ACTIVATE_TIMER_READY_INTERVAL "`n" Element33 "`nREADY --`n" READY_TO_GO_TIMER_INTERVAL "`n" Element44  "`n" A_NOW
 
+	IF !COMPUTER_NAME_FOUND
+		MSGBOX "COMPUTER NAME NOT FOUND"
 	
-	; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
-	IF AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR>%A_NOW%
-		RETURN
 	
 	WinGet, HWND_AUTO_RELO_FB_1, ID, A    ; Get Active Window
 	WinGetTITLE, HWND_AUTO_RELO_FB_2, A   ; Get Active Window TITLE
@@ -1628,16 +1834,22 @@ AUTO_RELOAD_FACEBOOK:
 	IF !O_RELO_FB
 		O_RELO_FB=%HWND_AUTO_RELO_FB_3%
 
-	; TOOLTIP % "1..`n" O_RELO_FB "`n2..`n" HWND_AUTO_RELO_FB_3 "`n" Element33
-	
-	IF ACTIVATE_TIMER_READY_INTERVAL
-		O_RELO_FB=    ; WANT TO GO - & THEN CHEAT A LITTLE UPSET ANOTHER VARIABLE
-	IF READY_TO_GO_TIMER_INTERVAL
-		O_RELO_FB=    ; WANT TO GO - & THEN CHEAT A LITTLE UPSET ANOTHER VARIABLE
-		
-	IF O_RELO_FB=%HWND_AUTO_RELO_FB_3%
+	; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
+	IF AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR>%A_NOW%
 		RETURN
-	O_RELO_FB=%HWND_AUTO_RELO_FB_3%
+
+	CHANGE_HWND_GO_FB=
+	WinGet, HWND_AUTO_RELO_FB_1, ID, A    ; Get Active Window
+	WinGetTITLE, HWND_AUTO_RELO_FB_2, A   ; Get Active Window TITLE
+	HWND_AUTO_RELO_FB_3=% HWND_AUTO_RELO_FB_1 "`n" HWND_AUTO_RELO_FB_2
+	IF !O_RELO_FB
+		O_RELO_FB=%HWND_AUTO_RELO_FB_3%
+
+	IF O_RELO_FB<>%HWND_AUTO_RELO_FB_3%
+	{
+		O_RELO_FB=%HWND_AUTO_RELO_FB_3%
+		CHANGE_HWND_GO_FB=TRUE
+	}
 
 	; If (A_TimeIdle < 8000)
 		; RETURN
@@ -1656,27 +1868,35 @@ AUTO_RELOAD_FACEBOOK:
 	; ACTIVATE CODE BLOCK ROUTINE
 	; Element2 -- ACTIVATE ARE GO IS TIMER READY 
 	; ---------------------------------------------------------------
-	SET_GO_10=
+	SET_GO_10_RAIN=
 	IF !Element2
 	IF ACTIVATE_TIMER_READY_INTERVAL
-		SET_GO_10=TRUE           ; DO WHEN ACTIVATE TIMER INTERVAL
+		SET_GO_10_RAIN=TRUE           ; DO WHEN ACTIVATE TIMER INTERVAL
 								 ; IF NOT ACTIVATE RELOAD F5 PAGE AFTER
 	IF !Element2
 	IF READY_TO_GO_TIMER_INTERVAL
-		SET_GO_10=TRUE           ; DO WHEN TIMER INTERVAL
+		SET_GO_10_RAIN=TRUE           ; DO WHEN TIMER INTERVAL
 								 ; DON'T ACTIVATE WHEN REQUEST READY INTERVAL IF 
 								 ; ACTIVATE NOT ON
 								 ; FOR COMPUTER THAT DON'T HASSLE SWAPPER 
 								 ; SCREEN ALL THE TIME
 
+	IS_ANYTHING_DO_AS_CHECK_REQUIRE_ACTIVATE=
+								 
 	SET_ACTIVE_AND_F5=
 	FIND_FB_ACTI=
-	IF SET_GO_10
+	IF SET_GO_10_RAIN
 	Loop % FN_ARRAY_FB_F5.MaxIndex()
 	{
+		ACTIVATE_MODE_CHCK_ENTER=TRUE
 		ELEMENT_ARRAY_FB_F5 := FN_ARRAY_FB_F5[A_Index]
 		WinGet, HWND_COMP_1, ID, %ELEMENT_ARRAY_FB_F5%
 		WinGet, HWND_COMP_2, ID, A
+
+		IfWinExist, %ELEMENT_ARRAY_FB_F5%
+		IF HWND_COMP_1<>%HWND_COMP_2%
+			IS_ANYTHING_DO_AS_CHECK_REQUIRE_ACTIVATE=TRUE
+
 		IfWinExist, %ELEMENT_ARRAY_FB_F5%
 		IF HWND_COMP_1<>%HWND_COMP_2%
 			SET_ACTIVE_AND_F5=TRUE
@@ -1720,10 +1940,6 @@ AUTO_RELOAD_FACEBOOK:
 				Element44=%A_Now%
 				Element44+= %Element4%, MINUTES
 				SET_ARRAY_FB_HITT_CN_44=%Element44%
-				; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
-				AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR=%A_Now%
-				AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR+= 10, seconds
-
 			}
 			IF FIND_FB_ACTI
 				BREAK
@@ -1741,31 +1957,98 @@ AUTO_RELOAD_FACEBOOK:
 	
 	; GET TITLE AGAIN IN CASE THING CHANGE
 	; LIKE ACTIVATE HAD FAULT
+	; OR NOT IN FOCUS CHECK
 	; ---------------------------------------------------------------
+	CHECKER_FB=
 	WinGetTITLE, TITLE_VAR_FB_F5, A
-	AUTO_RELOAD_FACEBOOK_VAR=
 	Loop % FN_ARRAY_FB_F5.MaxIndex()
 	{
 		ELEMENT_ARRAY_FB_F5=% FN_ARRAY_FB_F5[A_Index]
 		IF INSTR(TITLE_VAR_FB_F5,ELEMENT_ARRAY_FB_F5)>0
 		{
-			AUTO_RELOAD_FACEBOOK_VAR=TRUE
+			CHECKER_FB=TRUE
 			BREAK
 		}
+	}
+	IF !CHECKER_FB
+	{
+		AUTO_RELOAD_FACEBOOK_VAR=
+		READY_TO_GO_TIMER_INTERVAL=
+		CHANGE_HWND_GO_FB=
+	}
+
+
+	NEW_NOTIFY_UPDATE=
+	WinGetTITLE, TITLE_VAR_FB_F5, A
+	Loop % FN_ARRAY_FB_F5.MaxIndex()
+	{
+		ELEMENT_ARRAY_FB_F5=% FN_ARRAY_FB_F5[A_Index]
+		IF INSTR(TITLE_VAR_FB_F5,ELEMENT_ARRAY_FB_F5)>0
+		{
+			IF INSTR(TITLE_VAR_FB_F5,"(")=1
+			NEW_NOTIFY_UPDATE=TRUE
+			BREAK
+		}
+	}
+
+	; ---------------------------------------------------------------
+	; THE NEW NOTIFICATION INDICATE BY A 
+	; ENCLOSED BRACKET AND NUMBER (1)
+	; INITIAL PLAN WAS ABANDON 
+	; AS ONE COMPUTE WOULD TAKE THE NOTIFY GONE AND LEFT OTHER SIT THERE
+	; BUTTY IF INTRODUCE DELAY -- MIGHT WORKER
+	; ---------------------------------------------------------------
+	IF CHECKER_FB
+	IF NEW_NOTIFY_UPDATE
+	{
+		IF !NEW_NOTIFY_UPDATE_TIMER_DELAY
+		{
+			NEW_NOTIFY_UPDATE_TIMER_DELAY=%A_NOW%
+			NEW_NOTIFY_UPDATE_TIMER_DELAY+= 10, seconds
+		}
+	}
+	
+	NEW_NOTIFY_UPDATE_FLAGER=
+	IF NEW_NOTIFY_UPDATE_TIMER_DELAY
+	IF NEW_NOTIFY_UPDATE_TIMER_DELAY<%A_NOW%
+	{
+		NEW_NOTIFY_UPDATE_TIMER_DELAY=
+		NEW_NOTIFY_UPDATE_FLAGER=TRUE
+	}
+
+	IF !CHECKER_FB
+	{
+		AUTO_RELOAD_FACEBOOK_VAR=
+		READY_TO_GO_TIMER_INTERVAL=
+		CHANGE_HWND_GO_FB=
+		NEW_NOTIFY_UPDATE_FLAGER=
 	}
 	
 	; ---------------------------------------------------------------
 	; IF TIMER ACTIVATE WAS REQUEST AND NONE REQUIRE DO 
 	; AND THEN IGNORE THE FOLLOW UP F5 
 	; ---------------------------------------------------------------
+
+	IF !READY_TO_GO_TIMER_INTERVAL
 	IF ACTIVATE_TIMER_READY_INTERVAL
 	IF !SET_ACTIVE_AND_F5
 		AUTO_RELOAD_FACEBOOK_VAR=
-
+		
 	; ---------------------------------------------------------------
 	; F5 CODE BLOCK ROUTINE
 	; ---------------------------------------------------------------
+	SET_GO_FB=
 	IF AUTO_RELOAD_FACEBOOK_VAR
+		SET_GO_FB=TRUE
+	IF READY_TO_GO_TIMER_INTERVAL
+		SET_GO_FB=TRUE
+	IF CHANGE_HWND_GO_FB=TRUE
+		SET_GO_FB=TRUE
+	IF NEW_NOTIFY_UPDATE_FLAGER=TRUE
+		SET_GO_FB=TRUE
+
+		
+	IF SET_GO_FB=TRUE
 	{
 		SLEEP 100
 		SENDINPUT {Up}
@@ -1787,7 +2070,9 @@ AUTO_RELOAD_FACEBOOK:
 		SET_ARRAY_FB_HITT_CN_44=%Element44%
 		; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
 		AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR=%A_Now%
-		AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR+= 10, seconds
+		AUTO_RELOAD_FB_QUICK_SUB_TIMER_VAR+=%Element6%, seconds
+		NEW_NOTIFY_UPDATE_TIMER_DELAY=
+
 	}
 	SLEEP 100
 		
