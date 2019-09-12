@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    BackColor       =   &H8000000A&
@@ -12,51 +12,84 @@ Begin VB.Form ScanPath
    LinkTopic       =   "Form1"
    ScaleHeight     =   8484
    ScaleWidth      =   12648
+   Begin VB.Timer TIMER_COUNTDOWN_COMMAND_BUTTON_AUTO_GO_AH 
+      Enabled         =   0   'False
+      Interval        =   1000
+      Left            =   3396
+      Top             =   1464
+   End
    Begin VB.CommandButton SPECIAL_RENAME_Command_BUTTON 
       BackColor       =   &H00C0FFFF&
       Caption         =   "SPECIAL RENAME"
       Default         =   -1  'True
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   372
-      Left            =   10044
+      Left            =   8976
       Style           =   1  'Graphical
-      TabIndex        =   53
-      Top             =   2280
-      Width           =   2556
+      TabIndex        =   45
+      Top             =   1740
+      Width           =   4416
    End
    Begin VB.Timer FORM_LOAD_Timer 
       Interval        =   1
       Left            =   2580
-      Top             =   1560
+      Top             =   1416
    End
    Begin VB.CheckBox Check_Dont_Do_Already_Modified 
       BackColor       =   &H8000000E&
       Caption         =   "Also Do What Already Modified"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   300
-      Left            =   10068
-      TabIndex        =   52
-      Top             =   1932
-      Width           =   2532
+      Left            =   8988
+      TabIndex        =   44
+      Top             =   1392
+      Width           =   4368
    End
    Begin VB.Timer Timer_1_MINUTE 
       Interval        =   1000
       Left            =   2988
-      Top             =   1572
+      Top             =   1428
    End
    Begin VB.CommandButton Command1 
       BackColor       =   &H00C0FFFF&
       Caption         =   "WHEN READY TO GO"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   825
       Left            =   10056
       Style           =   1  'Graphical
-      TabIndex        =   51
-      Top             =   1056
-      Width           =   2556
+      TabIndex        =   43
+      Top             =   520
+      Width           =   3336
    End
    Begin VB.FileListBox File1 
       Height          =   264
       Left            =   2712
-      TabIndex        =   50
-      Top             =   6300
+      TabIndex        =   42
+      Top             =   6156
       Visible         =   0   'False
       Width           =   1380
    End
@@ -64,15 +97,15 @@ Begin VB.Form ScanPath
       Enabled         =   0   'False
       Interval        =   5000
       Left            =   585
-      Top             =   4896
+      Top             =   4752
    End
    Begin VB.CommandButton cmdHelp 
       Caption         =   "Help !"
       Height          =   825
       Left            =   9300
       Style           =   1  'Graphical
-      TabIndex        =   40
-      Top             =   4020
+      TabIndex        =   36
+      Top             =   3876
       Visible         =   0   'False
       Width           =   1875
    End
@@ -84,42 +117,60 @@ Begin VB.Form ScanPath
       Locked          =   -1  'True
       MultiLine       =   -1  'True
       ScrollBars      =   2  'Vertical
-      TabIndex        =   39
-      Top             =   4020
+      TabIndex        =   35
+      Top             =   3876
       Visible         =   0   'False
       Width           =   7245
    End
    Begin VB.ComboBox cboMask 
-      Height          =   288
-      Left            =   540
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   384
+      Left            =   740
       TabIndex        =   1
       Text            =   "*.jpg"
-      Top             =   1056
-      Width           =   6105
+      Top             =   520
+      Width           =   5928
    End
    Begin VB.CommandButton cmdBrowse 
       Caption         =   "..."
-      Height          =   300
-      Left            =   12120
-      TabIndex        =   27
+      Height          =   396
+      Left            =   12852
+      TabIndex        =   23
       TabStop         =   0   'False
-      Top             =   708
+      Top             =   84
       Width           =   516
    End
    Begin VB.TextBox txtPath 
-      Height          =   288
-      Left            =   555
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   408
+      Left            =   750
       TabIndex        =   0
       Text            =   "E:\My Music Zen"
-      Top             =   696
-      Width           =   11508
+      Top             =   60
+      Width           =   12012
    End
    Begin VB.CheckBox chkSubFolders 
       Caption         =   "Search Sub-Folders"
       Height          =   195
       Left            =   1530
       TabIndex        =   8
-      Top             =   2424
+      Top             =   2280
       Width           =   1785
    End
    Begin VB.CheckBox chkPatternMatching 
@@ -127,7 +178,7 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   1530
       TabIndex        =   7
-      Top             =   2184
+      Top             =   2040
       Value           =   1  'Checked
       Width           =   1815
    End
@@ -136,7 +187,7 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   90
       TabIndex        =   2
-      Top             =   2184
+      Top             =   2040
       Value           =   1  'Checked
       Width           =   1365
    End
@@ -145,7 +196,7 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   90
       TabIndex        =   3
-      Top             =   2424
+      Top             =   2280
       Value           =   1  'Checked
       Width           =   1365
    End
@@ -154,7 +205,7 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   90
       TabIndex        =   4
-      Top             =   2664
+      Top             =   2520
       Value           =   1  'Checked
       Width           =   1365
    End
@@ -163,7 +214,7 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   90
       TabIndex        =   5
-      Top             =   2880
+      Top             =   2736
       Value           =   1  'Checked
       Width           =   1365
    End
@@ -172,7 +223,7 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   90
       TabIndex        =   6
-      Top             =   3108
+      Top             =   2964
       Value           =   1  'Checked
       Width           =   1365
    End
@@ -181,7 +232,7 @@ Begin VB.Form ScanPath
       Left            =   5940
       Style           =   2  'Dropdown List
       TabIndex        =   12
-      Top             =   2364
+      Top             =   2220
       Width           =   1545
    End
    Begin VB.ComboBox cboSizeType 
@@ -190,7 +241,7 @@ Begin VB.Form ScanPath
       Left            =   9930
       Style           =   2  'Dropdown List
       TabIndex        =   17
-      Top             =   2748
+      Top             =   2604
       Width           =   1365
    End
    Begin VB.ComboBox cboSize 
@@ -198,7 +249,7 @@ Begin VB.Form ScanPath
       Left            =   8580
       Style           =   2  'Dropdown List
       TabIndex        =   15
-      Top             =   2364
+      Top             =   2172
       Width           =   1365
    End
    Begin VB.TextBox txtSize 
@@ -207,7 +258,7 @@ Begin VB.Form ScanPath
       Index           =   0
       Left            =   8580
       TabIndex        =   16
-      Top             =   2748
+      Top             =   2604
       Width           =   1305
    End
    Begin VB.ComboBox cboSizeType 
@@ -216,7 +267,7 @@ Begin VB.Form ScanPath
       Left            =   9930
       Style           =   2  'Dropdown List
       TabIndex        =   19
-      Top             =   3108
+      Top             =   2964
       Width           =   1365
    End
    Begin VB.TextBox txtSize 
@@ -225,7 +276,7 @@ Begin VB.Form ScanPath
       Index           =   1
       Left            =   8580
       TabIndex        =   18
-      Top             =   3108
+      Top             =   2964
       Width           =   1305
    End
    Begin VB.CheckBox chkRefreshListView 
@@ -233,92 +284,22 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   1530
       TabIndex        =   10
-      Top             =   2964
+      Top             =   2820
       Width           =   2205
-   End
-   Begin VB.PictureBox Picture1 
-      Align           =   1  'Align Top
-      BackColor       =   &H00FFFFFF&
-      Height          =   624
-      Left            =   0
-      ScaleHeight     =   576
-      ScaleWidth      =   12600
-      TabIndex        =   22
-      Top             =   0
-      Width           =   12648
-      Begin VB.Label Label7 
-         AutoSize        =   -1  'True
-         BackStyle       =   0  'Transparent
-         Caption         =   "Single File solution to quickly add file processing to any Utility Project."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   7.8
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FF0000&
-         Height          =   195
-         Left            =   1260
-         TabIndex        =   25
-         Top             =   300
-         Width           =   6015
-      End
-      Begin VB.Label Label6 
-         AutoSize        =   -1  'True
-         BackStyle       =   0  'Transparent
-         Caption         =   "A High Performance API file/folder scanner Class."
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   7.8
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FF0000&
-         Height          =   195
-         Left            =   1260
-         TabIndex        =   24
-         Top             =   60
-         Width           =   4260
-      End
-      Begin VB.Label Label5 
-         AutoSize        =   -1  'True
-         BackStyle       =   0  'Transparent
-         Caption         =   "Description:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   7.8
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   195
-         Left            =   90
-         TabIndex        =   23
-         Top             =   60
-         Width           =   1035
-      End
    End
    Begin VB.CheckBox chkCopyMemory 
       Caption         =   "Use CopyMemory (display Date && Size)"
       Height          =   195
       Left            =   1530
       TabIndex        =   11
-      Top             =   3204
+      Top             =   3060
       Width           =   3465
    End
    Begin MSComctlLib.ListView ListView1 
       Height          =   4440
       Left            =   48
       TabIndex        =   21
-      Top             =   3564
+      Top             =   3420
       Width           =   11916
       _ExtentX        =   21019
       _ExtentY        =   7832
@@ -338,7 +319,7 @@ Begin VB.Form ScanPath
       Height          =   195
       Left            =   1530
       TabIndex        =   9
-      Top             =   2664
+      Top             =   2520
       Value           =   1  'Checked
       Width           =   2535
    End
@@ -348,7 +329,7 @@ Begin VB.Form ScanPath
       Left            =   12060
       Style           =   1  'Graphical
       TabIndex        =   20
-      Top             =   3612
+      Top             =   3468
       Visible         =   0   'False
       Width           =   810
    End
@@ -357,13 +338,13 @@ Begin VB.Form ScanPath
       Index           =   0
       Left            =   5940
       TabIndex        =   13
-      Top             =   2748
+      Top             =   2604
       Width           =   1548
       _ExtentX        =   2709
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   100990977
+      Format          =   136445953
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -371,13 +352,13 @@ Begin VB.Form ScanPath
       Index           =   1
       Left            =   5940
       TabIndex        =   14
-      Top             =   3108
+      Top             =   2964
       Width           =   1548
       _ExtentX        =   2709
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   100990977
+      Format          =   136445953
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -386,8 +367,8 @@ Begin VB.Form ScanPath
       Caption         =   "Sort 02"
       Height          =   240
       Left            =   12072
-      TabIndex        =   49
-      Top             =   4740
+      TabIndex        =   41
+      Top             =   4596
       Visible         =   0   'False
       Width           =   816
    End
@@ -397,92 +378,52 @@ Begin VB.Form ScanPath
       Caption         =   "Sort 01"
       Height          =   240
       Left            =   12072
-      TabIndex        =   48
-      Top             =   4476
+      TabIndex        =   40
+      Top             =   4332
       Visible         =   0   'False
       Width           =   816
    End
-   Begin VB.Label Label19 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000005&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "Remaining"
-      ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   6840
-      TabIndex        =   47
-      Top             =   1920
-      Visible         =   0   'False
-      Width           =   1368
-   End
-   Begin VB.Label Label18 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000005&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "-"
-      ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   8352
-      TabIndex        =   46
-      Top             =   1920
-      Visible         =   0   'False
-      Width           =   1644
-   End
    Begin VB.Label Label17 
-      Alignment       =   2  'Center
       Appearance      =   0  'Flat
       BackColor       =   &H80000005&
       BorderStyle     =   1  'Fixed Single
-      Caption         =   "Count"
+      Caption         =   "  Count"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   6840
-      TabIndex        =   45
-      Top             =   1068
-      Width           =   1368
+      Height          =   384
+      Left            =   6744
+      TabIndex        =   39
+      Top             =   516
+      Width           =   1500
    End
    Begin VB.Label Label16 
-      Alignment       =   2  'Center
       Appearance      =   0  'Flat
       BackColor       =   &H80000005&
       BorderStyle     =   1  'Fixed Single
-      Caption         =   "Counting"
+      Caption         =   "  Count ah"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   6840
-      TabIndex        =   44
-      Top             =   1356
-      Width           =   1368
-   End
-   Begin VB.Label Label15 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000005&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "Deleted"
-      ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   6840
-      TabIndex        =   43
-      Top             =   1644
-      Visible         =   0   'False
-      Width           =   1368
-   End
-   Begin VB.Label Label14 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H80000005&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "-"
-      ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   8352
-      TabIndex        =   42
-      Top             =   1644
-      Visible         =   0   'False
-      Width           =   1644
+      Height          =   384
+      Left            =   6744
+      TabIndex        =   38
+      Top             =   948
+      Width           =   1500
    End
    Begin VB.Label Label13 
       Alignment       =   2  'Center
@@ -490,12 +431,21 @@ Begin VB.Form ScanPath
       BackColor       =   &H80000005&
       BorderStyle     =   1  'Fixed Single
       Caption         =   "-"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   8352
-      TabIndex        =   41
-      Top             =   1356
-      Width           =   1644
+      Height          =   384
+      Left            =   8280
+      TabIndex        =   37
+      Top             =   948
+      Width           =   1740
    End
    Begin VB.Label Label12 
       AutoSize        =   -1  'True
@@ -511,8 +461,8 @@ Begin VB.Form ScanPath
       EndProperty
       Height          =   192
       Left            =   5136
-      TabIndex        =   38
-      Top             =   1944
+      TabIndex        =   34
+      Top             =   1800
       Width           =   1416
    End
    Begin VB.Label Label11 
@@ -529,27 +479,45 @@ Begin VB.Form ScanPath
       EndProperty
       Height          =   192
       Left            =   1536
-      TabIndex        =   30
-      Top             =   1944
+      TabIndex        =   26
+      Top             =   1800
       Width           =   720
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
       Caption         =   "Mask"
-      Height          =   192
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   348
       Left            =   96
-      TabIndex        =   28
-      Top             =   1080
-      Width           =   396
+      TabIndex        =   24
+      Top             =   540
+      Width           =   636
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
       Caption         =   "Path"
-      Height          =   192
-      Left            =   120
-      TabIndex        =   26
-      Top             =   732
-      Width           =   336
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   348
+      Left            =   96
+      TabIndex        =   22
+      Top             =   84
+      Width           =   636
    End
    Begin VB.Label Label3 
       AutoSize        =   -1  'True
@@ -565,8 +533,8 @@ Begin VB.Form ScanPath
       EndProperty
       Height          =   192
       Left            =   96
-      TabIndex        =   29
-      Top             =   1944
+      TabIndex        =   25
+      Top             =   1800
       Width           =   888
    End
    Begin VB.Label lblSize 
@@ -575,8 +543,8 @@ Begin VB.Form ScanPath
       Height          =   192
       Index           =   0
       Left            =   7776
-      TabIndex        =   35
-      Top             =   2808
+      TabIndex        =   31
+      Top             =   2664
       Width           =   252
    End
    Begin VB.Label Label10 
@@ -584,8 +552,8 @@ Begin VB.Form ScanPath
       Caption         =   "File Size"
       Height          =   192
       Left            =   7776
-      TabIndex        =   33
-      Top             =   2388
+      TabIndex        =   29
+      Top             =   2244
       Width           =   588
    End
    Begin VB.Label lblSize 
@@ -594,8 +562,8 @@ Begin VB.Form ScanPath
       Height          =   192
       Index           =   1
       Left            =   7776
-      TabIndex        =   37
-      Top             =   3168
+      TabIndex        =   33
+      Top             =   3024
       Width           =   300
    End
    Begin VB.Label Label9 
@@ -603,8 +571,8 @@ Begin VB.Form ScanPath
       Caption         =   "From"
       Height          =   192
       Left            =   5136
-      TabIndex        =   34
-      Top             =   2808
+      TabIndex        =   30
+      Top             =   2664
       Width           =   348
    End
    Begin VB.Label Label8 
@@ -612,8 +580,8 @@ Begin VB.Form ScanPath
       Caption         =   "File Date"
       Height          =   192
       Left            =   5136
-      TabIndex        =   32
-      Top             =   2388
+      TabIndex        =   28
+      Top             =   2244
       Width           =   636
    End
    Begin VB.Label Label4 
@@ -621,8 +589,8 @@ Begin VB.Form ScanPath
       Caption         =   "To"
       Height          =   192
       Left            =   5136
-      TabIndex        =   36
-      Top             =   3108
+      TabIndex        =   32
+      Top             =   2964
       Width           =   192
    End
    Begin VB.Label lblCount 
@@ -631,12 +599,21 @@ Begin VB.Form ScanPath
       BackColor       =   &H80000005&
       BorderStyle     =   1  'Fixed Single
       Caption         =   "-"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H80000008&
-      Height          =   288
-      Left            =   8352
-      TabIndex        =   31
-      Top             =   1068
-      Width           =   1644
+      Height          =   384
+      Left            =   8280
+      TabIndex        =   27
+      Top             =   516
+      Width           =   1740
    End
    Begin VB.Menu MNU_EXIT 
       Caption         =   "EXIT"
@@ -711,6 +688,7 @@ Attribute VB_Exposed = False
 ' END       TIME [ Sat 16-Jun-2018 12:11:28 ] 38 MINUTE
 '# ------------------------------------------------------------------
 
+Dim COUNT_DOWN_TIMER_COMMAND_BUTTON
 
 Dim IM_2
 Dim ONE_DONE
@@ -1022,6 +1000,8 @@ For R_COUNTER = 1 To UBound(ARRAY_I)
         cboMask.Text = "*.JPG"
         ListView1.ListItems.Clear
         
+        ' YELLOW NOT READY TO GO
+        ' -------------------------------------
         Command1.BackColor = &HC0FFFF
         'cboMask = "*.wav;*.wma;*.amr;*.mp3"
         
@@ -1068,8 +1048,10 @@ Next
 
 ListView1.ListItems.Clear
 
-Command1.BackColor = RGB(127, 200, 127)
-Command1.BackColor = &HC0FFFF
+' YELLOW NOT READY TO GO
+' -------------------------------------
+Command1.BackColor = RGB(127, 200, 127) ' GREEN
+Command1.BackColor = &HC0FFFF           ' YELLOW
         
 Z_COUNTER = 0
 For R_COUNTER = 1 To UBound(ARRAY_I)
@@ -1191,7 +1173,8 @@ ListView1.Width = ScanPath.Width - 200
         .View = lvwReport
     End With
 
-txtPath.Top = Picture1.Height + Picture1.Top + 40
+'txtPath.Top = Picture1.Height + Picture1.Top + 40
+txtPath.Top = 40
 
 cmdBrowse.Top = txtPath.Top - 20
 cmdBrowse.Left = txtPath.Left + txtPath.Width + 50 + 5
@@ -1257,6 +1240,9 @@ For R_COUNTER = 1 To UBound(ARRAY_I)
         ' GREEN READY TO GO
         ' -------------------------------------
         Command1.BackColor = RGB(127, 200, 127)
+        Command1.Caption = "WHEN READY TO GO _" + Str(40)
+        COUNT_DOWN_TIMER_COMMAND_BUTTON = 40
+        TIMER_COUNTDOWN_COMMAND_BUTTON_AUTO_GO_AH.Enabled = True
 
         'cboMask = "*.wav;*.wma;*.amr;*.mp3"
         cboMask.Text = "*.JPG"
@@ -3625,3 +3611,18 @@ End Function
 
 '***********************************************
 
+
+Private Sub TIMER_COUNTDOWN_COMMAND_BUTTON_AUTO_GO_AH_Timer()
+    
+    Command1.Caption = "WHEN READY TO GO _" + Str(COUNT_DOWN_TIMER_COMMAND_BUTTON)
+    COUNT_DOWN_TIMER_COMMAND_BUTTON = COUNT_DOWN_TIMER_COMMAND_BUTTON - 1
+    If COUNT_DOWN_TIMER_COMMAND_BUTTON = 0 Then
+        Command1.Caption = "WHEN READY TO GO _" + Str(COUNT_DOWN_TIMER_COMMAND_BUTTON)
+        TIMER_COUNTDOWN_COMMAND_BUTTON_AUTO_GO_AH.Enabled = False
+        Call Command1_Click
+        
+        Exit Sub
+    
+    End If
+    TIMER_COUNTDOWN_COMMAND_BUTTON_AUTO_GO_AH.Enabled = True
+End Sub
