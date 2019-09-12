@@ -276,7 +276,7 @@ SET FILENAME_ER_4="%~n0_GOODSYNC_OUTPUT.TXT"
 @REM ------------------------------------------------------------
 @REM EXAMPLE WITHOUT VARIABLE
 @REM ------------------------------------------------------------
-@REM CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB"      >!FILENAME_ER!"
+@REM CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB"      >! !"
 
 SET LDA=0
 
