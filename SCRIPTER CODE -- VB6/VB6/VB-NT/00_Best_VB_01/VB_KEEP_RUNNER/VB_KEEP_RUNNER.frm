@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -5220,7 +5220,7 @@ Clipboard.Clear
 Clipboard.SetText VAR_STRING
 FindWindow_Get_All_Explorer = I_1
 FindWindow_Get_All_Explorer_VAR_STRING = I_1
-If QUITE_MSGBOX = "QUITE MSGBOX=FALSE" Then MsgBox I_1
+If QUITE_MSGBOX = "QUITE MSGBOX=FALSE" And Huge > 0 Then MsgBox I_1
 
 End Function
 
