@@ -409,6 +409,7 @@ Private Function DirectScan_USE_NO_LIST(Path As String, SubFolders As Boolean) A
                         MDIR3 = sDir + sFile ' IRFAR
                         MDIR2 = ""
                         
+                        ' Sub SP_DirMatch
                         RaiseEvent DirMatch(sFile, dFile, sDir, dtFileDate1, dtFileDate2, dtFileDate3)
                         'DoEvents
                     End If
@@ -427,11 +428,11 @@ Private Function DirectScan_USE_NO_LIST(Path As String, SubFolders As Boolean) A
                         dtFileDate3 = FormatFileDate(mWFD.ftLastAccessTime)
                         dtFSize = (mWFD.nFileSizeHigh * MAXDWORD) + mWFD.nFileSizeLow
                         
-                        
                         MDIR2 = sDir + sFile ' IRFAR
                         
-                        
-                        
+
+
+                        ' Sub SP_FileMatch
                         RaiseEvent FileMatch(sFile, dFile, sDir, dtFileDate1, dtFileDate2, dtFileDate3, dtFSize)
                     
                     End If

@@ -1,0 +1,127 @@
+---------------------------------------------------------------------------
+SOURCE -- SOLUTION -- SOLVABILITY -- Drive SiteMap
+---------------------------------------------------------------------------
+PATH :-:
+FILE :-:FOLDER SCRIPT -- 2019_09_13_17_11_21 -- COMPLEX -- D__VIDEO_NOT_X 00 NOT ME_00 Vid XXX_00 ROOT VOL - D DRIVE.txt
+---------------------------------------------------------------------------
+FOLDER DIRECTORY OBJECTIVE SCAN --
+## D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT
+---------------------------------------------------------------------------
+DIR:                  ___,___,___,___,_24
+FILE:                 ___,___,___,___,240
+PROCESS:              ___,___,___,___,264
+---------------------------------------------------------------------------
+Volume Name:          D DRIVE
+Drive Type:           2
+Drive Type:           FIXED
+File System:          NTFS
+Serial Number:        -356263520
+Serial Number &H:     EA,C3,D9,A0
+Share Name:           LOCAL SYSTEM DRIVE
+Total Size:           002,___,397,791,232 - TERA - TETRA - TERRORIZOR - RANGE
+Available:            ___,_55,992,803,328 - GIGA RANGE
+Free Space:           ___,_55,992,803,328 - GIGA RANGE
+Process Lenght Time:  0.0 Minute Divide Clock
+Process Lenght Time:  0 -- Seconds
+BEGIN TIME:           13 Sep 2019 17:11:21h
+AFTER TIME:           13 Sep 2019 17:11:21h - 0 Sec
+FORMAT BEGIN TIME:    Fri 13 Sep 2019 05:11:21p
+OBJECTIVE MODE BRIEF: SEND TO CONTEXT MENU MODE FOLDER
+---------------------------------------------------------------------------
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999
+01KINK~1
+Date Created:-2019-09-13 10-27-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 10-27-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998
+02FEMA~1
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998
+03VEJE~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998
+04VNAS~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995
+05DIRT~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995
+06GERM~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995
+07HOLL~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995
+08URAN~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995
+09REDH~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\10 ERA -- 1995
+10ERA-~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984
+11NURS~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984
+12SEKA~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985
+13EARL~1
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993
+14LIRA~1
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993
+15SQUE~1
+Date Created:-2019-09-13 14-13-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993
+16STUD~1
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993
+17OLD-~1
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995
+18TOOL~1
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY
+02CONT~1
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE
+02CONT~2
+Date Created:-2019-09-13 14-39-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-39-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01
+15SQUE~2
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER
+15SQUE~1
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\FFMPEG DOC
+FFMPEG~1
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\FFMPEG DOC
+FFMPEG~1
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->

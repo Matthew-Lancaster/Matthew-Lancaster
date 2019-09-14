@@ -3,16 +3,22 @@ Begin VB.Form frm_SEND_TO
    AutoRedraw      =   -1  'True
    BackColor       =   &H00008080&
    Caption         =   "SEND TO SCRIPT SUB FOLDER FILES SETCOUNT DIR"
-   ClientHeight    =   6495
-   ClientLeft      =   165
+   ClientHeight    =   6492
+   ClientLeft      =   168
    ClientTop       =   540
-   ClientWidth     =   13830
+   ClientWidth     =   13824
    Icon            =   "Test.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6495
-   ScaleWidth      =   13830
+   ScaleHeight     =   6492
+   ScaleWidth      =   13824
+   Begin VB.Timer TIMER_MAIN_GO 
+      Enabled         =   0   'False
+      Interval        =   1
+      Left            =   8520
+      Top             =   504
+   End
    Begin VB.FileListBox File1 
-      Height          =   480
+      Height          =   456
       Left            =   6600
       TabIndex        =   48
       Top             =   276
@@ -30,13 +36,34 @@ Begin VB.Form frm_SEND_TO
       Top             =   600
    End
    Begin VB.ListBox List1 
-      Height          =   645
+      Height          =   624
       Left            =   9000
       Sorted          =   -1  'True
       TabIndex        =   0
       Top             =   4800
       Visible         =   0   'False
       Width           =   1515
+   End
+   Begin VB.Label LabelX 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000C0C0&
+      Caption         =   "LOGG FOLDER 2"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Index           =   13
+      Left            =   564
+      TabIndex        =   49
+      Top             =   1392
+      Width           =   5652
+      WordWrap        =   -1  'True
    End
    Begin VB.Label LabelX 
       AutoSize        =   -1  'True
@@ -271,12 +298,12 @@ Begin VB.Form frm_SEND_TO
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   435
+      Height          =   432
       Index           =   0
-      Left            =   600
+      Left            =   612
       TabIndex        =   36
-      Top             =   600
-      Width           =   5655
+      Top             =   360
+      Width           =   5652
       WordWrap        =   -1  'True
    End
    Begin VB.Label Label9 
@@ -285,7 +312,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "IRFAR GO FROM INI NUMERIC ONE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -306,7 +333,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "IRFAR EDIT"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -327,7 +354,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "IRFAR GO"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -348,7 +375,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "IRFAR XSCRIPT PROCESS"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -369,7 +396,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "IRFAR SCAN"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -402,7 +429,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -424,7 +451,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -446,7 +473,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -468,7 +495,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -490,7 +517,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -512,7 +539,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -534,7 +561,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -556,7 +583,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -578,7 +605,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -600,7 +627,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -622,7 +649,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -644,7 +671,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -666,7 +693,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -688,7 +715,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -710,7 +737,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -732,7 +759,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -754,7 +781,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -776,7 +803,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -798,7 +825,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -820,7 +847,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -842,7 +869,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -864,7 +891,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -886,7 +913,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -908,7 +935,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -930,7 +957,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -952,7 +979,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -970,7 +997,7 @@ Begin VB.Form frm_SEND_TO
    Begin VB.Label LabelX 
       AutoSize        =   -1  'True
       BackColor       =   &H0000C0C0&
-      Caption         =   "LOGG FOLDER"
+      Caption         =   "LOGG FOLDER 1"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   18
@@ -980,12 +1007,12 @@ Begin VB.Form frm_SEND_TO
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   435
+      Height          =   420
       Index           =   1
       Left            =   600
       TabIndex        =   3
-      Top             =   1560
-      Width           =   5655
+      Top             =   852
+      Width           =   5652
       WordWrap        =   -1  'True
    End
    Begin VB.Label LabelX 
@@ -1013,7 +1040,7 @@ Begin VB.Form frm_SEND_TO
       Caption         =   "BEGIN"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   27.75
+         Size            =   27.6
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1037,9 +1064,6 @@ Begin VB.Form frm_SEND_TO
    Begin VB.Menu MNU_VB_FOLDER 
       Caption         =   "VB FOLDER"
    End
-   Begin VB.Menu MNU_EXPLORER 
-      Caption         =   "OPEN LOGG FOLDER"
-   End
    Begin VB.Menu MNU_PULL 
       Caption         =   "MENU PULL                                      "
       NegotiatePosition=   1  'Left
@@ -1058,6 +1082,12 @@ Begin VB.Form frm_SEND_TO
       End
       Begin VB.Menu MNU_04 
          Caption         =   "MNU_04"
+      End
+      Begin VB.Menu MNU_05 
+         Caption         =   "MNU_05"
+      End
+      Begin VB.Menu MNU_06 
+         Caption         =   "MNU_06"
       End
    End
    Begin VB.Menu MNU_VOID 
@@ -1094,24 +1124,74 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'Routine_Set_Drive_Label
-'Main_Routine
+' ---------------------------------------------------
+' Routine_Set_Drive_Label
+' ---------------------------------------------------
+' Main_Routine
+' ---------------------------------------------------
+' AND
+' ---------------------------------------------------
+' Main_Routine_FOLDER_SUPPLY_BY_COMMAND_LINE()
+' ---------------------------------------------------
 
-'----------------------------------------------------
+' ---------------------------------------------------
+' AS FROM TODAY
+' Fri 13-Sep-2019 17:39:00
+' NOW FINSIHER AND WORK COMMANDLINE SEND TO MODE
+' ---------------------------------------------------
+
+' ---------------------------------------------------
+' WORK ON HERE TODAY
+' ---------------------------------------------------
+' TIDY FORM COMNTROL WITH SYSTEM TO ALLOW ADDED
+' LABEL OR ARRAY IN CUSTOM SORT WANT
+' ---------------------------------------------------
+' WORK ON MAKE SCAN A SINGLE FOLDER OR DRIVE
+' AND AS BEFORE IF NONE GIVEN IT SCAN ALL DRIVE
+' ---------------------------------------------------
+' MAKE SURE FOLDER IN CORRECT PLACE
+' AND DUAL FOLDER TO A COMMON ONE
+' FOR REQUETS SINGLE
+' AND NEAT IN ONE PLACE RATHER THEN MULITPLE
+' ABOUT EVERYWHERE
+' AND TIDY FORM CONTROL
+' ----------------------------------------------------
+' THE IDEA TO SINGLE FOLDER WAS LEFT COMPLETELY ALMOST
+' AND INTENSION WAS OBVISOUS THERE TO FINISH
+' LATER LIKE DONE TODAY
+' THE CODE WILL GET LOT INFO CREATED DATE MODIDIFED DATE
+' ALL THEM
+' AND PUT IN FILE
+' 1.0.77 REVISION VERSION
+' ----------------------------------------------------
+' FROM -- TO
+' Fri 13-Sep-2019 16:31:31
+' Fri 13-Sep-2019 20:19:30 -- NEAR 4 HOUR
+' FROM -- TO -- ENTENDED OVER
+' Fri 13-Sep-2019 20:19:30
+' Fri 13-Sep-2019 22:24:00 -- SIX HOUR
+' ----------------------------------------------------
+
+
+Dim LF_1
+
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
 Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 '----------------------------------------------------
 '----------------------------------------------------
 
+Dim TDIR_1
+Dim TDIR_2
+Dim FSO
+' Set FSO = CreateObject("Scripting.FileSystemObject")
 
 
-Public VARCENTER
+Public FORM_RESIZE_ONCE
 Dim FFILEAR(), WORKFLAG
 Dim OBJECTIVE_BRIEF
 Dim i
 Dim i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16
 
-Public LOGGFOLDER
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
@@ -1183,6 +1263,9 @@ End Function
 Private Sub SET_VAR_FS()
 
 Set FS = CreateObject("Scripting.FileSystemObject")
+Set FSO = CreateObject("Scripting.FileSystemObject")
+' DIM FS
+' DIM FSO
 
 End Sub
 
@@ -1224,26 +1307,25 @@ Private Sub Main_Routine()
         'If Control.BackColor <> 12648384 And Control.BackColor <> 8454143 Then
         
         N = GET_DRIVES
-        If GetComputerName = "8-MSI-GP62M-7RD" Then
-            N = Replace(N, "C", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-        End If
-        If GetComputerName = "7-ASUS-GL522VW" Then
-            N = Replace(N, "C", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "D", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "E", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "F", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "G", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "H", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "I", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "J", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "N", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-            N = Replace(N, "T", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
-        End If
+'        If GetComputerName = "8-MSI-GP62M-7RD" Then
+'            N = Replace(N, "C", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'        End If
+'        If GetComputerName = "7-ASUS-GL522VW" Then
+'            N = Replace(N, "C", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "D", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "E", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "F", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "G", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "H", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "I", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "J", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "N", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'            N = Replace(N, "T", "") ' ---- HARDCODER -- DON'T DO C DRIVE AGAIN HERE
+'        End If
         
         If InStr("*" + LCase(N), LCase(Mid(Control.Caption, 2, 1))) = 0 And Control.BackColor <> 8421504 Then
             Control.BackColor = vbRed 'Label4.BackColor
         End If
-
         
         If InStr("*" + LCase(N), LCase(Mid(Control.Caption, 2, 1))) > 0 Then
             
@@ -1257,6 +1339,7 @@ Private Sub Main_Routine()
                     
                     If mCancelScan2 = True Then Exit For
                     
+                    ' HERE DO MAIN SCAN BIT
                     Call Label1_Click
                     
                     'i7 = DateDiff("n", PROCESSBEGIN, Now)
@@ -1264,7 +1347,10 @@ Private Sub Main_Routine()
                     
                     Call Timer1_Timer
                     Call Timer2_Timer
-                    If ScanPath.Enabled = True Then Call ScanPath.Timer1_Timer
+                    ' MONITOR THE SCAN
+                    If ScanPath.Enabled = True Then
+                        Call ScanPath.Timer1_Timer
+                    End If
                     
                     'ScanPath.cmdScan_Click
                     'Exit For
@@ -1272,385 +1358,349 @@ Private Sub Main_Routine()
                 'End If
             End If
         End If
-    
     Next
     
-    
-    'Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FFILEAR(4) + """", vbNormalFocus
+    'Shell "C:\Program Files\TextView\Textview.exe     """ + FFILEAR(4) + """", vbNormalFocus
     
     'End
-
     
 End Sub
 
 
 
-Private Sub Form_Activate()
 
 
+Private Sub Main_Routine_FOLDER_SUPPLY_BY_COMMAND_LINE()
 
-'File1.Path = "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\SCRIPT LIST ALL DRIVES\2018-11-04 21-26-28 -- 8-MSI-GP62M-7RD"
-'For R1 = 0 To File1.ListCount - 1
-'
-'    Filename = File1.Path + "\" + File1.List(R1)
-'    FF01 = FreeFile
-'    Open Filename + ".TMP" For Output As #FF01
-'    FF02 = FreeFile
-'    Open Filename For Input As #FF02
-'    Do
-'        Line Input #FF02, LINE_STRING
-'        LINE_STRING = Trim(LINE_STRING)
-'        Print #FF01, LINE_STRING
-'    Loop Until EOF(FF02)
-'    Close #FF01
-'    Close #FF02
-'    Kill Filename
-'    Name Filename + ".TMP" As Filename
-'Next
-'
-'End
+    Dim MCHAR
+    On Error Resume Next
+        
+    OBJECTIVE_BRIEF = "SEND TO CONTEXT MENU MODE FOLDER"
+                    
+    ScanPath.TxtPath.Text = AT$
+    'ScanPath.Timer1.Enabled = True
 
+    Call Label1_Click
 
-Call SET_VAR_FS
+    'i7 = DateDiff("n", PROCESSBEGIN, Now)
+    LastDriveTime = MCHAR + " -- " + Trim(Str(DateDiff("n", PROCESSBEGIN2, Now))) + " Min -- " + Trim(Str(DateDiff("s", PROCESSBEGIN2, Now) Mod 60)) + " Sec"
 
-'Call GIVE_DRIVE_COMMAND_STRING
+    Call Timer1_Timer
+    Call Timer2_Timer
+    If ScanPath.Enabled = True Then Call ScanPath.Timer1_Timer
 
-'Me.Show
-Me.Hide
+    'ScanPath.cmdScan_Click
+    
+    'Shell "C:\Program Files\TextView\Textview.exe     """ + FFILEAR(4) + """", vbNormalFocus
 
-LOGGFOLDER = "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\SCRIPT LIST ALL DRIVES\" + Format(Now, "YYYY-MM-DD HH-MM-SS") + " -- " + GetComputerName + "\"
-
-If Dir("D:\0 00 LOGGERS TEXT\", vbDirectory) = "" Then
-    MkDir "D:\0 00 LOGGERS TEXT"
-End If
-If Dir("D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\", vbDirectory) = "" Then
-    MkDir "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\"
-End If
-If Dir("D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\SCRIPT LIST ALL DRIVES\", vbDirectory) = "" Then
-    MkDir "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\SCRIPT LIST ALL DRIVES\"
-End If
-If Dir(LOGGFOLDER, vbDirectory) = "" Then
-    MkDir LOGGFOLDER
-End If
-
-
-LabelX(1).Caption = LOGGFOLDER
-
-
-'FILE13 = "C:\TEMP\IRFAN_SLIDESHOW.txt"
-'Set F = FS.GETFILE(FILE13)
-
-
-'Label3.Caption = "SCAN TO GIVE -- " + AT$
-'Label5.Caption = "IRFAR -- " + FILE13 + " -- " + Str(F.Size)
-
-
-'Label2.FontSize = 12
-'Label2.WordWrap = False
-'Label2.AutoSize = True
-
-LabelX(2) = "OBJECTIVE ---------- DRIVE SITEMAP -------" + vbCrLf
-'LabelX(2) = LabelX(2) + "------------------" + vbCrLf
-LabelX(2) = LabelX(2) + "GIVE -- FILE SCRIPT AS BOTH COMPLEX AND NORMAL AND BOTH FOLDER AND FILE SCRIPT" + vbCrLf
-'LabelX(2) = LabelX(2) + "------- SITEMAP OF YOUR DRIVES" + vbCrLf
-'Label2 = Label2 + "GIVE -- FILE ONLY OPTION" + vbCrLf
-'Label2 = Label2 + "GIVE -- DIRECTORY ONLY OPTION" + vbCrLf
-'Label2 = Label2 + "GIVE -- LATER -- CRC OPTION" + vbCrLf
-'Label2 = Label2 + "GIVE 2012-OCT-21 -- SEND TO NOW HAS WORKING WITH IRFAR" + vbCrLf
-'Label2 = Label2 + "       AND XSCRIPT DONT PROCESS WITH IT" + vbCrLf
-'Label2 = Label2 + "OPTION TO GIVE DRIVE WHOLE SELECTOR TO ROOT DOWN BY FILE SEND-TO" + vbCrLf
-'
-'Label2 = Label2 + "------------------" + vbCrLf
-'Label2 = Label2 + "PRESS BUTTON AIM HERE - BEGIN AS OPTION NUMBER ONE" + vbCrLf
-LabelX(2) = LabelX(2) + "IF YOU NOTICE THE PATH AND FILE PATH ARE OUT OF SYNC IT IS BECAUSE THE SCAN IS IS NATRUAL ORDER - NOT SORTED" + vbCrLf
-LabelX(2) = LabelX(2) + "WOULD HAVE TO LOAD INTO MEMORY TO SORT" + vbCrLf
-LabelX(2) = LabelX(2) + "------------------"
-
-'Label2.BackColor = QBColor(14)
-'MsgBox Label2
-
-
-'1 of 2 SET AS DRIVES
-
-'Me.Top = Screen.Height / 2 - Me.Height / 2 '+400
-'Me.Left = Screen.Width / 2 - Me.Width / 2 '+400
-
-
-
-'XALL THE DRIVES HEIGHT WILL BE SET TO FIRST ONE
-'LabDR(1).Height = 500
-
-LabelX(1).BackColor = Label2.BackColor 'RGB(100, 200, 200)
-
-LabelX(0).Caption = "SCAN ALL THESE DRIVES - HITT TO GO - AUTO GO" 'PRESS A KEY OR CLICK"
-LabelX(0).FontSize = 20
-LabelX(1).FontSize = 12
-LabelX(2).FontSize = 12
-'LabelX(9).Visible = False
-'LabelX(9).FontSize = 15
-LabelX(4).BackColor = Label2.BackColor
-LabelX(3).BackColor = Label2.BackColor
-
-LabelX(7).BackColor = Label2.BackColor
-LabelX(8).BackColor = Label2.BackColor
-
-
-LabelX(9).FontSize = 15
-LabelX(10).FontSize = 15
-
-LabelX(11).FontSize = 11
-LabelX(12).FontSize = 11
-LabelX(11).BackColor = Label2.BackColor 'RGB(100, 200, 200)
-LabelX(12).BackColor = Label2.BackColor 'RGB(100, 200, 200)
-
-'------------------------
-'Set the Drives Positions
-'They take the size of the form
-'GOT TO SET THE HEIGHT AND MOVE TO THE TOP
-Call A12
-'------------------------
-
-'For Each Control In Controls
-'    If Mid(Control.Name, 1, 5) = "Label" Then
-'        Control.AutoSize = False
-'    End If
-'Next
-Dim XXWidth, YYHeight
-
-For Each Control In Controls
-    If Mid(Control.Name, 1, 6) = "LabelX" Then
-        Control.Left = 0
-        Control.AutoSize = True
-        'Control.FontSize = 12
-        Control.Refresh
-        Control.WordWrap = False
-'        Control.Width = Me.Width
-        Control.Refresh
-        Control.AutoSize = False
-        If Control.Width > XXWidth Then XXWidth = Control.Width + Control.Left
-    End If
-Next
-
-Me.Width = XXWidth
-
-'------------------------
-'Set the Drives Positions
-'They take the size of the form
-'Call A12
-'------------------------
-
-'For Each Control In Controls
-'    If (Mid(Control.Name, 1, 5) = "Label" Or _
-'        Control.Name = "LabDR") And _
-'            Control.Visible Then
-'                If Control.Width > XXWidth Then XXWidth = Control.Width + Control.Left
-'    End If
-'Next
-
-
-'Me.Width = XXWidth + 120
-
-
-'LabelX(1).Caption = ""
-'LabelX(2).Caption = ""
-
-
-HL = LabDR(1).Height + LabDR(1).Top
-For Each Control In LabelX
-    If Control.Visible = True Then
-        Control.Top = HL
-        HL = Control.Height + Control.Top + 40
-            'Control.WordWrap = TRUE
-    End If
-Next
-
-
-
-'Label10.Top = LabDR(1).Height + LabDR(1).Top
-'Label3.Top = Label10.Height + Label10.Top + 20
-'Label2.Top = Label3.Height + Label3.Top + 20
-
-
-
-For Each Control In Controls
-    If LCase(Mid(Control.Name, 1, 3)) <> "mnu" Then
-        If LCase(Mid(Control.Name, 1, 5)) <> "timer" Then
-            If Control.Visible = True Then
-                If Control.Width > XXWidth Then XXWidth = Control.Width + Control.Left
-                If Control.Height > YYHeight Then YYHeight = Control.Height + Control.Top
-            End If
-        End If
-    End If
-Next
-
-For Each Control In Controls
-    If Control.Name = "LabelX" Then
-        Control.Width = XXWidth + 150
-    End If
-Next
-
-'Me.Show
-
-Me.Width = XXWidth + 250 '240
-Me.Height = YYHeight + 880
-
-'------------------------
-'Set the Drives Positions
-'They take the size of the form
-Call A12
-'------------------------
-
-VARCENTER = False
-
-'Me.Show
-Me.Show
-ScanPath.Timer1.Enabled = True
-
-Call Main_Routine
-
-
-If mCancelScan2 = True Then Unload ScanPath: Unload Me: Exit Sub
-
-LabelX(0).Caption = "SCAN ALL THESE DRIVES DONE -- DRIVE SITEMAP FINISHED -- @ -- " + Format(Now, "DDD DD-MMM-YYYY HH:MM:SS")
-LabelX(0).BackColor = RGB(120, 220, 120)
-'LabelX(0).ForeColor = RGB(255, 255, 255)
-LabelX(0).FontSize = LabelX(0).FontSize - 5
-
-If Me.WindowState = vbMinimized Then Me.WindowState = vbNormal
-Beep
-
-
-If mCancelScan2 = True Then Unload ScanPath: Unload Me: Exit Sub
-
-ScanPath.Timer1.Enabled = False
-Timer1.Enabled = False
-Timer2.Enabled = False
-
-
-Exit Sub
-
-
-
-'If Command$ <> "" Then MNU_IRFAR_02_Click
-'Call Test4
-Exit Sub
-
-
-End
-'Call Test2
-'Exit Sub
-Call Test1
-End
-
-
-
-Exit Sub
-
-
-'1 pound = 0.0714285714 stone
-'    More about calculator.
-
-'1 pound = 0.0714285714 stone
-
-stone = 112 * 0.0714285714
-stone = 212 * 0.0714285714
-Debug.Print stone
-'= 7.9999999968
-'= 15.1428571368
- 
- 
- 'More than a year ago, in July 2007, International Space Station astronauts threw
- 'an obsolete, refrigerator-sized ammonia reservoir overboard. Ever since,
- 'the 1400-lb piece of space junk has been circling Earth in a decaying orbit--and now
- 'it is about to reenter.
- 
-stone = 1400 * 0.0714285714
-Debug.Print stone
-
- 
- 
- 
-' That 's cheating! You still don't know HOW it's done.
-
-'256 ^ 0 = 1
-'256 ^ 1 = 256
-'256 ^ 2 = 65,536
-'256 ^ 3 = 16,777,216
-
-'So, 194.247.44.146 is ...
-
-'146 * 256^0 = 146
-'44 * 256^1 = 11,264
-'247*256^2 = 16,187,392
-'194*256^3 = 3,254,779,904
-'
-'Add those up, and ...
-
-'146 + 11,264 + 16,187,392 + 3,254,779,904 = 3270978706
-'
-'3410960384  3410964479  UK  UNITED KINGDOM
-
-Dim a0
-Dim A1
-a0 = 3270978706#
-A1 = a0 / (256 ^ 3)
-a2 = A1 - Int(A1) / 256 ^ 2
-a3 = 3270978706# / 256 ^ 1
-a4 = 3270978706# / 256 ^ 0
-
- 
-'203.79.32.0
-'203.79.47.255
- 
- 
+    'End
+    
 End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
-
-If KeyCode = 27 Then Unload Me
+    
+    If KeyCode = 27 Then Unload Me
 
 End Sub
 
 Private Sub Form_Load()
 
-If App.PrevInstance = True Then End
+    If App.PrevInstance = True Then End
+     
+    'File1.Path = "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\SCRIPT LIST ALL DRIVES\2018-11-04 21-26-28 -- 8-MSI-GP62M-7RD"
+    'For R1 = 0 To File1.ListCount - 1
+    '
+    '    Filename = File1.Path + "\" + File1.List(R1)
+    '    FF01 = FreeFile
+    '    Open Filename + ".TMP" For Output As #FF01
+    '    FF02 = FreeFile
+    '    Open Filename For Input As #FF02
+    '    Do
+    '        Line Input #FF02, LINE_STRING
+    '        LINE_STRING = Trim(LINE_STRING)
+    '        Print #FF01, LINE_STRING
+    '    Loop Until EOF(FF02)
+    '    Close #FF01
+    '    Close #FF02
+    '    Kill Filename
+    '    Name Filename + ".TMP" As Filename
+    'Next
+    'End
+    
+    Call SET_VAR_FS
+    
+    Call GIVE_DRIVE_COMMAND_STRING
+    
+    LF_1 = "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT\SCRIPT LIST ALL DRIVES\" + Format(Now, "YYYY-MM-DD HH-MM-SS") + " -- " + GetComputerName
+    
+    LOGGFOLDER = LF_1
+    LabelX(1).Caption = LOGGFOLDER
+    LabelX(13).Caption = AT$
+    
+    'Me.Show
+    'Me.Hide
+    
+    'FILE13 = "C:\TEMP\IRFAN_SLIDESHOW.txt"
+    'Set F = FS.GETFILE(FILE13)
+    
+    'Label3.Caption = "SCAN TO GIVE -- " + AT$
+    'Label5.Caption = "IRFAR -- " + FILE13 + " -- " + Str(F.Size)
+    
+    'Label2.FontSize = 12
+    'Label2.WordWrap = False
+    'Label2.AutoSize = True
+    
+    LabelX(2) = "OBJECTIVE ---------- DRIVE SITEMAP -------" + vbCrLf
+    'LabelX(2) = LabelX(2) + "------------------" + vbCrLf
+    LabelX(2) = LabelX(2) + "GIVE -- FILE SCRIPT AS BOTH COMPLEX AND NORMAL AND BOTH FOLDER AND FILE SCRIPT" + vbCrLf
+    'LabelX(2) = LabelX(2) + "------- SITEMAP OF YOUR DRIVES" + vbCrLf
+    'Label2 = Label2 + "GIVE -- FILE ONLY OPTION" + vbCrLf
+    'Label2 = Label2 + "GIVE -- DIRECTORY ONLY OPTION" + vbCrLf
+    'Label2 = Label2 + "GIVE -- LATER -- CRC OPTION" + vbCrLf
+    'Label2 = Label2 + "GIVE 2012-OCT-21 -- SEND TO NOW HAS WORKING WITH IRFAR" + vbCrLf
+    'Label2 = Label2 + "       AND XSCRIPT DONT PROCESS WITH IT" + vbCrLf
+    'Label2 = Label2 + "OPTION TO GIVE DRIVE WHOLE SELECTOR TO ROOT DOWN BY FILE SEND-TO" + vbCrLf
+    '
+    'Label2 = Label2 + "------------------" + vbCrLf
+    'Label2 = Label2 + "PRESS BUTTON AIM HERE - BEGIN AS OPTION NUMBER ONE" + vbCrLf
+    LabelX(2) = LabelX(2) + "IF YOU NOTICE THE PATH AND FILE PATH ARE OUT OF SYNC IT IS BECAUSE THE SCAN IS IS NATRUAL ORDER - NOT SORTED" + vbCrLf
+    LabelX(2) = LabelX(2) + "WOULD HAVE TO LOAD INTO MEMORY TO SORT IF WANT AH" + vbCrLf
+    LabelX(2) = LabelX(2) + "-------------------------------------------------"
+    
+    LabelX(0).Caption = "SCAN ALL THESE DRIVES - HITT TO GO - AUTO GO" 'PRESS A KEY OR CLICK"
+    
+    Me.Visible = False
+    
+    TIMER_MAIN_GO.Enabled = True
 
-'Me.Show
+End Sub
 
- 
+Sub TIMER_MAIN_GO_TIMER()
+    
+    TIMER_MAIN_GO.Enabled = False
+    
+    '------------------------
+    '------------------------
+    'Set the Drives Positions
+    'They take the size of the form
+    Call A12
+    '------------------------
+    ScanPath.Timer1.Enabled = True
+'    Me.Show
+'    DoEvents
+    
+    Call SET_THE_DRIVE_OR_FOLDER_USER_1
+    Call SET_THE_DRIVE_OR_FOLDER_USER_2
+    
+    Call SET_FORM_SIZE_CONTROLS_BIT
+    Call A12
+    Call SET_FORM_SIZE
+    
+    Me.Visible = True
+    
+    If OBJECTIVE_BRIEF = "SEND TO CONTEXT MENU MODE FOLDER" Then
+        Call Main_Routine_FOLDER_SUPPLY_BY_COMMAND_LINE
+    Else
+        Call Main_Routine
+    End If
+    
+    If mCancelScan2 = True Then Unload ScanPath: Unload Me: Exit Sub
+    
+    If OBJECTIVE_BRIEF = "SEND TO CONTEXT MENU MODE FOLDER" Then
+        LabelX(0).Caption = "SCAN ALL THESE DRIVES DONE -- DRIVE SITEMAP FINISHED -- @ -- " + Format(Now, "DDD DD-MMM-YYYY HH:MM:SS")
+    Else
+        LabelX(0).Caption = "SCAN THE PATH -- FINISHED -- @ -- " + Format(Now, "DDD DD-MMM-YYYY HH:MM:SS")
+    End If
+    
+    LabelX(0).BackColor = RGB(120, 220, 120)
+    LabelX(0).FontSize = LabelX(0).FontSize - 5
+    
+    If Me.WindowState = vbMinimized Then Me.WindowState = vbNormal
+    Beep
+    
+    If mCancelScan2 = True Then Unload ScanPath: Unload Me: Exit Sub
+    
+    ScanPath.Timer1.Enabled = False
+    Timer1.Enabled = False
+    Timer2.Enabled = False
+    
 End Sub
 
 
-
 Private Sub Form_Resize()
+    
+    If FORM_RESIZE_ONCE = True Then Exit Sub
+    If Me.WindowState = vbMinimized Or Me.WindowState = vbmaximised Then Exit Sub
+    
+    Call SET_FORM_SIZE_CONTROLS_BIT
+    Call SET_FORM_SIZE
+    
+    FORM_RESIZE_ONCE = True
 
-If VARCENTER = True Then Exit Sub
-If Me.WindowState <> vbNormal And Me.WindowState <> vbmaximised Then Exit Sub
+End Sub
 
-'Me.Top = Screen.Height / 2 - Me.Height / 2 '+400
-Me.Top = 100
-Me.Left = Screen.Width / 2 - Me.Width / 2 - 500
+Sub A12()
+    On Error Resume Next
+    XC = 64
+    For Each Control In LabDR
+        XC = XC + 1
+        'Control.Visible = FALSE
+        Control.AutoSize = False
+        Control.Caption = "-" + Chr(XC) + "-"
+        Control.AutoSize = True
+        Control.Refresh
+        Control.AutoSize = False
+    Next
+'
+'    DoEvents
+'
+    For Each Control In LabDR
+        If Control.Index Mod 2 = 0 Then
+            Control.BackColor = &HC0FFC0
+        End If
+        
+        MCHAR = Mid(Control.Caption, 2, 1) + ":\"
+        Err.Clear
+        
+        'Set F = FS.GetDrive(MCHAR)
+                
+        If InStr("*" + LCase(GET_DRIVES), LCase(Mid(Control.Caption, 2, 1))) = 0 Then
+            Control.BackColor = Label4.BackColor
+        End If
+    
+    '    If F.IsReady = False Or Err.Number > 0 Then
+    '        Control.BackColor = Label4.BackColor
+    '    End If
+        
+        If Control.Width > XT Then XT = Control.Width
+    Next
+    
+    XT = (Me.Width - 100) / 26
+    XD = LabelX(12).Left
+    For Each Control In LabDR
+        Control.Top = 0
+        Control.Left = XD
+        Control.Width = XT
+        XD = XD + XT
+        'Control.Height = 500
+        Control.Visible = True
+    Next
+End Sub
 
+Sub SET_FORM_SIZE_CONTROLS_BIT()
 
-VARCENTER = True
+    ' ALL THE DRIVES HEIGHT WILL BE SET TO FIRST ONE
+    ' LabDR(1).Height = 500
+    
+    LabelX(1).BackColor = Label2.BackColor 'RGB(100, 200, 200)
+    LabelX(0).FontSize = 20
+    LabelX(1).FontSize = 12
+    LabelX(2).FontSize = 12
+    'LabelX(9).Visible = False
+    'LabelX(9).FontSize = 15
+    LabelX(4).BackColor = Label2.BackColor
+    LabelX(3).BackColor = Label2.BackColor
+    
+    LabelX(7).BackColor = Label2.BackColor
+    LabelX(8).BackColor = Label2.BackColor
+    LabelX(13).FontSize = LabelX(1).FontSize
+    LabelX(13).BackColor = LabelX(1).BackColor
+    LabelX(13).Height = LabelX(1).Height
+    
+    LabelX(9).FontSize = 15
+    LabelX(10).FontSize = 15
+    
+    LabelX(11).FontSize = 11
+    LabelX(12).FontSize = 11
+    LabelX(11).BackColor = Label2.BackColor 'RGB(100, 200, 200)
+    LabelX(12).BackColor = Label2.BackColor 'RGB(100, 200, 200)
+
+    For Each Control In Controls
+        If Mid(Control.Name, 1, 6) = "LabelX" Then
+            Control.Left = 150
+            Control.AutoSize = True
+            'Control.FontSize = 12
+            Control.Refresh
+            Control.WordWrap = False
+            Control.Refresh
+            Control.AutoSize = False
+        End If
+    Next
+    
+    i = 0
+    For Each Control In LabelX
+        If Control.Visible = True Then
+            i = i + 1
+            STRING_1 = STRING_1 + Format(i, "00") + vbCr
+        End If
+    Next
+    
+    ' SWAP 13 WITH 02
+    STRING_1 = Replace(STRING_1, "13" + vbCr, "**" + vbCr)
+    STRING_1 = Replace(STRING_1, "02" + vbCr, "13" + vbCr)
+    STRING_1 = Replace(STRING_1, "**" + vbCr, "02" + vbCr)
+    ARRAY_2 = Split(STRING_1, vbCr)
+    
+    HL = LabDR(1).Height + LabDR(1).Top
+    STRING_1 = ""
+    For R4 = 0 To UBound(ARRAY_2)
+        For Each Control In LabelX
+            If Control.Visible = True Then
+                If Control.Index = Val(ARRAY_2(R4)) Then
+                    Control.Top = HL
+                    HL = Control.Height + Control.Top + 40
+                End If
+            End If
+        Next
+    Next
+    
+End Sub
+
+Sub SET_FORM_SIZE()
+    
+    XXWidth = 0
+    YYHeight = 0
+    For Each Control In Controls
+        If LCase(Mid(Control.Name, 1, 3)) <> "mnu" Then
+            If LCase(Mid(Control.Name, 1, 5)) <> "timer" Then
+                If Control.Visible = True Then
+                    If Control.Width > XXWidth Then XXWidth = Control.Width + Control.Left
+                    If Control.Height > YYHeight Then YYHeight = Control.Height + Control.Top
+                End If
+            End If
+        End If
+    Next
+    
+    XXWidth = XXWidth + 200
+    
+    For Each Control In Controls
+        If Control.Name = "LabelX" Then
+            Control.Width = XXWidth
+        End If
+    Next
+    
+    Me.Top = 100
+    Me.Left = Screen.Width / 2 - Me.Width / 2 - 500
+    Me.Width = XXWidth + 400
+    Me.Height = YYHeight + 1400
 
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
-'On Error Resume Next
-'If ScanPath.Enabled = True Then SP.StopScan
-'On Error GoTo 0
-
-mCancelScan2 = True
-
-Unload ScanPath
-
-Dim Form As Form
-For Each Form In Forms
-    If Form.Enabled = True Then Unload Form
-Next
-
-'End
+    'On Error Resume Next
+    'If ScanPath.Enabled = True Then SP.StopScan
+    'On Error GoTo 0
+    
+    mCancelScan2 = True
+    
+    Unload ScanPath
+    
+    Dim Form As Form
+    For Each Form In Forms
+        If Form.Enabled = True Then Unload Form
+    Next
+    
+    'End
 End Sub
 
 
@@ -1665,7 +1715,7 @@ File1 = Mid$(List1.List(List1.ListCount - 1), 21)
 For R = List1.ListCount - 2 To 0 Step -1
 FILE2 = Mid$(List1.List(R), 21)
 If Mid$(List1.List(List1.ListCount - 1), 1, 19) <> Mid$(List1.List(R), 1, 19) Then
-FS.CopyFile File1, FILE2
+FS.COPYFILE File1, FILE2
 TT = LastModifiedToCurrent(FILE2)
 End If
 Next
@@ -1823,7 +1873,7 @@ Next
 
 'T1 = DateSerial(bytearray(1), bytearray(2), bytearray(3),bytearray(4))
 
-t1 = DateDiff("h", DateSerial(2008, 11, 27) + TimeSerial(0, 36, 3), DateSerial(2008, 11, 28) + TimeSerial(13, 2, 14))
+T1 = DateDiff("h", DateSerial(2008, 11, 27) + TimeSerial(0, 36, 3), DateSerial(2008, 11, 28) + TimeSerial(13, 2, 14))
 t2 = DateDiff("n", DateSerial(2008, 11, 27) + TimeSerial(0, 36, 3), DateSerial(2008, 11, 28) + TimeSerial(13, 2, 14)) Mod 60
 t3 = DateDiff("s", DateSerial(2008, 11, 27) + TimeSerial(0, 36, 3), DateSerial(2008, 11, 28) + TimeSerial(13, 2, 14)) Mod 60
 
@@ -1921,12 +1971,6 @@ End Sub
 
 
 
-Sub Test4()
-
-Exit Sub
-End
-End Sub
-
 '***********************************************
 '# Check, whether we are in the IDE
 Function IsIDE() As Boolean
@@ -1935,22 +1979,11 @@ End Function
 Private Function TestIDE(Test As Boolean) As Boolean
   Test = True
 End Function
-
 '***********************************************
 
 
 
-
-Sub Label0_Click()
-
-
-End Sub
-
-
 Sub GIVE_DRIVE_COMMAND_STRING()
-
-Exit Sub
-
 
 If AT$ = "" Then
         AT$ = Command$
@@ -1959,29 +1992,29 @@ If AT$ = "" Then
         Exit Sub
 End If
 
+' DEBUG -- ' AT$ = Command$
+'AT$ = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT"
+'OBJECTIVE_BRIEF = "SEND TO CONTEXT MENU MODE FOLDER"
 
 
-If IsIDE = True Then
-    AT$ = "M:\#\#D\00 Pen Drives MOBILES"
-'    OBJECTIVE_BRIEF = "IDE MODE SET  " + AT$
-
-End If
+'If IsIDE = True Then
+'    ' AT$ = "M:\#\#D\00 Pen Drives MOBILES"
+''    OBJECTIVE_BRIEF = "IDE MODE SET  " + AT$
+'
+'End If
 'If IsIDE = True Then AT$ = "C:\TEMP\" + Dir("C:\TEMP\*.*")
 
 If AT$ <> "" And Mid$(AT$, 1, 1) = """" Then
     AT$ = Mid$(AT$, 2)
     AT$ = Mid$(AT$, 1, Len(AT$) - 1)
     OBJECTIVE_BRIEF = "SEND TO CONTEXT MENU MODE FOLDER"
-
 End If
-
 
 On Error Resume Next
 
 If FS.FileExists(AT$) Then
     AT$ = Mid(AT, 1, 1) + ":\"
     OBJECTIVE_BRIEF = "SEND TO CONTEXT MENU MODE -- ROOT DRIVE FROM -- FILE SELECT"
-
 End If
 
 End Sub
@@ -2024,327 +2057,382 @@ Next
 
 End Sub
 
-Private Sub Label1_Click()
-' --- BEGIN
 
 
-'Dim AT$
+Sub SET_THE_DRIVE_OR_FOLDER_USER_1()
 
-'Set FS = CreateObject("Scripting.FileSystemObject")
-
-'Call GIVE_DRIVE_COMMAND_STRING
-
-'Set F = FS.GetDrive(Mid(AT$, 1)) '+ ":\")
-
-Set F = FS.GetDrive(FS.GetDriveName(AT$))
-
-'Me.Hide
-
-'ScanPath.Show
-'DoEvents
-'ScanPath.SetFocus
-'DoEvents
-'ScanPath.Show
-'DoEvents
-
-
-ScanPath.TxtPath.Text = AT$
-
-FILE5TXT = ScanPath.TxtPath.Text
-FILE5TXT = Replace(FILE5TXT, "\", "_")
-FILE5TXT = Replace(FILE5TXT, ":", "_")
-FILE5TXT = FILE5TXT + " VOL - " + F.VolumeName
-
-'Set F = FS.GetFolder(folderspec)
-'s = F.DateCreated
-
-'s = s & "Created: " & F.DateCreated & vbCrLf
-'s = s & "Last Accessed: " & F.DateLastAccessed & vbCrLf
-'s = s & "Last Modified: " & F.DateLastModified
-'MsgBox s, 0, "File Access Info"
-
-'DAT1 = F.DateCreated
-'DAT1 = F.DateLastModified
-'DAT1 = F.DateLastAccessed
-
-If Len(ScanPath.TxtPath.Text) = 3 Then
-    'SUBTEXTFOLDER = "#0 ACHIVE - SCRIPT FILE FOLDER AND SUB\"
-    SUBTEXTFOLDER = LOGGFOLDER
-    'TDIR = ScanPath.TxtPath.Text + SUBTEXTFOLDER
-    TDIR = SUBTEXTFOLDER
-    
-    If Dir(TDIR, vbDirectory) = "" Then
-        MkDir TDIR
+    If AT$ <> "" Then
+        Set F = FS.GetDrive(FS.GetDriveName(AT$))
     End If
     
-'    TDIR = SUBTEXTFOLDER
-End If
-
-FILE11 = "FILE & FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- COMPLEX -- " + FILE5TXT + ".txt"
-FILE12 = "FILE & FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- NORMAL ---- " + FILE5TXT + ".txt"
-FILE13 = "FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- COMPLEX -- " + FILE5TXT + ".txt"
-FILE14 = "FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- NORMAL ---- " + FILE5TXT + ".txt"
-
-
-Dim ORGTAGFILE(4)
-ORGTAGFILE(1) = FILE11
-ORGTAGFILE(2) = FILE12
-ORGTAGFILE(3) = FILE13
-ORGTAGFILE(4) = FILE14
-
-
-
-FILE21 = TDIR + FILE11  '" -- COMPLEX --  "
-FILE22 = TDIR + FILE12  '" -- NORMAL ---- "
-FILE23 = TDIR + FILE13  '" -- COMPLEX --  DIR"
-FILE24 = TDIR + FILE14  '" -- NORMAL ---- DIR"
-
-'ABOVE
-'WORK DIM THE ARRAY HERE
-'BELOW
-
-ReDim FFILEAR(4)
-FFILEAR(1) = FILE21
-FFILEAR(2) = FILE22
-FFILEAR(3) = FILE23
-FFILEAR(4) = FILE24
-
-For Each Control In Controls
-If Mid(Control.Name, 1, 5) = "MNU_0" Then
-    RT = Val(Mid(Control.Name, 5))
-        Control.Caption = Mid(FFILEAR(RT), InStrRev(FFILEAR(RT), "\") + 1)
-    End If
-Next
-
-FF01 = FreeFile
-Open FILE21 For Output As #FF01
-FF02 = FreeFile
-Open FILE22 For Output As #FF02
-FF03 = FreeFile
-Open FILE23 For Output As #FF03
-FF04 = FreeFile
-Open FILE24 For Output As #FF04
-
-Dim FFAR(4)
-FFAR(1) = FF01
-FFAR(2) = FF02
-FFAR(3) = FF03
-FFAR(4) = FF04
-
-
-
-' -------------------------------------- DC SET
-' -------------------------------------- DC SET
-' -------------------------------------- DC SET
-DC = 19
-For R = 1 To 4
-    Print #FFAR(R), "---------------------------------------------------------------------------"
-    Print #FFAR(R), "SOURCE -- SOLUTION -- SOLVABILITY -- Drive SiteMap"
-    Print #FFAR(R), "---------------------------------------------------------------------------"
-    Print #FFAR(R), "PATH :-:" + TDIR
-    Print #FFAR(R), "FILE :-:" + ORGTAGFILE(R)
-    Print #FFAR(R), "---------------------------------------------------------------------------"
-    Print #FFAR(R), "FOLDER DIRECTORY OBJECTIVE SCAN -- "
-    Print #FFAR(R), "## " + AT$
-    Print #FFAR(R), "---------------------------------------------------------------------------"
+    ScanPath.TxtPath.Text = AT$
     
-    For R1 = 0 To DC
-        Print #FFAR(R), String(140, "#")
-    Next
-    Print #FFAR(R), "---------------------------------------------------------------------------"
-    Print #FFAR(R), "<-------------------->"
+    FILE5TXT = ScanPath.TxtPath.Text
+    FILE5TXT = Replace(FILE5TXT, "\", "_")
+    FILE5TXT = Replace(FILE5TXT, ":", "_")
+    If AT$ <> "" Then
+        FILE5TXT = FILE5TXT + " VOL - " + F.VolumeName
+    End If
+    'Set F = FS.GetFolder(folderspec)
+    's = F.DateCreated
+    
+    's = s & "Created: " & F.DateCreated & vbCrLf
+    's = s & "Last Accessed: " & F.DateLastAccessed & vbCrLf
+    's = s & "Last Modified: " & F.DateLastModified
+    'MsgBox s, 0, "File Access Info"
+    
+    'DAT1 = F.DateCreated
+    'DAT1 = F.DateLastModified
+    'DAT1 = F.DateLastAccessed
+    
+End Sub
 
-Next
-
-    PROCESSTIMEDIFF = Now
-
-' ---------------------------------------------------------------
-' ----------- EXECUTE BEGIN ------------------------
-' ---------------------------------------------------------------
-
-
-'ScanPath.Show
-
-
-ScanPath.cmdScan_Click
-
-
-For R = 1 To 4
-    Close FFAR(R)
-Next
-
-Select Case F.DriveType
-    Case 0: TDriveType = "Unknown"
-    Case 1: TDriveType = "Removable"
-    Case 2: TDriveType = "Fixed"
-    Case 3: TDriveType = "Network"
-    Case 4: TDriveType = "CD-ROM"
-    Case 5: TDriveType = "RAM Disk"
-End Select
-
-'Set F1 = FS.GetDrive(Mid(AT$, 1)) '+ ":\")
-
-Set F = FS.GetDrive(FS.GetDriveName(AT$))
-
-i1 = Format(mDIRCount2, "000,000,000,000,000")
-i2 = Format(mFILECount2, "000,000,000,000,000")
-i3 = Format(COUNTPROCES2, "000,000,000,000,000")
-
-'THIS DOES FORMATING TO THE NUMBER VAR WITH 1000 SEPERATOR
-'LIKE 000,000,000,000,023
-'LIKE ___,___,___,___,023
-
-Call NAUGHT_NULL(i1, 0, 0)
-Call NAUGHT_NULL(i2, 0, 0)
-Call NAUGHT_NULL(i3, 0, 0)
-
-
-'  --  ___,___,___,___,__1  - 3-3-3-3 = 12 DIGITS = AROUND 20 GIGBYTE
-'DC IS FIXED ABOVE --- DC = 20
-ReDim DAT1(40)
-DC = -1
-DC = DC + 1: DAT1(DC) = "DIR:                  " + i1
-DC = DC + 1: DAT1(DC) = "FILE:                 " + i2
-DC = DC + 1: DAT1(DC) = "PROCESS:              " + i3
-
-DC = DC + 1: DAT1(DC) = "---------------------------------------------------------------------------"
-DC = DC + 1: DAT1(DC) = "Volume Name:          " + F.VolumeName
-DC = DC + 1: DAT1(DC) = "Drive Type:           " & UCase(F.DriveType)
-DC = DC + 1: DAT1(DC) = "Drive Type:           " & UCase(TDriveType)  ' --- ABOVE
-DC = DC + 1: DAT1(DC) = "File System:          " & F.FileSystem
-DC = DC + 1: DAT1(DC) = "Serial Number:        " & F.serialnumber
-i1 = Hex$(F.serialnumber)
-i1 = Mid(i1, 1, 2) + "," + Mid(i1, 3, 2) + "," + Mid(i1, 5, 2) + "," + Mid(i1, 7, 2)
-DC = DC + 1: DAT1(DC) = "Serial Number &H:     " & i1
-
-i1 = F.ShareName
-If i1 = "" Then i1 = "LOCAL SYSTEM DRIVE"
-DC = DC + 1: DAT1(DC) = "Share Name:           " & i1
-
-i1 = Format(F.TotalSize, "000,000,000,000,000")
-Call NAUGHT_NULL(i1, F.TotalSize, i2)
-DC = DC + 1: DAT1(DC) = "Total Size:           " & i1 + " - " + i2
-
-i1 = Format(F.AvailableSpace, "000,000,000,000,000")
-Call NAUGHT_NULL(i1, F.AvailableSpace, i2)
-DC = DC + 1: DAT1(DC) = "Available:            " & i1 + " - " + i2
-
-i1 = Format(F.FreeSpace, "000,000,000,000,000")
-Call NAUGHT_NULL(i1, F.FreeSpace, i2)
-DC = DC + 1: DAT1(DC) = "Free Space:           " & i1 + " - " + i2
-
-INOW = Now
-i = Format(DateDiff("s", PROCESSTIMEDIFF, INOW) / 60, "0.0##")
-DC = DC + 1: DAT1(DC) = "Process Lenght Time:  " + i + " Minute Divide Clock"
-i = Trim(Str(DateDiff("s", PROCESSTIMEDIFF, INOW)))
-DC = DC + 1: DAT1(DC) = "Process Lenght Time:  " + i + " -- Seconds"
-DC = DC + 1: DAT1(DC) = "BEGIN TIME:           " + Format(PROCESSTIMEDIFF, "DD MMM YYYY HH:MM:SS") + "h"
-DC = DC + 1: DAT1(DC) = "AFTER TIME:           " + Format(INOW, "DD MMM YYYY HH:MM:SS") + "h" + " -" + Str(i) + " Sec"
-DC = DC + 1: DAT1(DC) = "FORMAT BEGIN TIME:    " + Format(PROCESSTIMEDIFF, "DDD DD MMM YYYY HH:MM:SSa/p")
-If OBJECTIVE_BRIEF = "" Then OBJECTIVE_BRIEF = "NORMAL"
-DC = DC + 1: DAT1(DC) = "OBJECTIVE MODE BRIEF: " + OBJECTIVE_BRIEF
-
-
-
-
-
-'MsgBox DC
-
-
-ReDim Preserve DAT1(DC)
-
-For R1 = 1 To 4
-
-    Dim CHUNK As String
-    FF01 = FreeFile
-    Open FFILEAR(R1) For Binary As #FF01
-        CHUNK = Space(8000)
-        If CHUNK > Len(FF01) Then
-            CHUNK = Space(Len(FF01) - 2)
-        End If
+Sub SET_THE_DRIVE_OR_FOLDER_USER_2()
+    ' OUGHT TO HAVE IF MULTI DRIVE OR ONE DRIVE
+    ' -----------------------------------------
+    ' -----------------------------------------
+    LOGGFOLDER = LF_1
+    If Len(ScanPath.TxtPath.Text) <= 3 Then
+        SUBTEXTFOLDER_1 = "\# ALL HDD\"
+        TDIR_1 = LOGGFOLDER + SUBTEXTFOLDER_1
+        IRESULT = CreateFolderTree(TDIR_1)
+        ' HERE ALLOW THAT ALL FILE FOLDER SCAN INCLUDE WHAT GENERATE OF OWN
+        ' ALLOW INCLUDE ALL -- WHEN FULL MULTI DRIVE SCAN
+        ' -----------------------------------------------------------------
+        LOGGFOLDER = ""
+        SUBTEXTFOLDER_1 = ""
+        ' -----------------------------------------------------------------
+    Else
+        ' ---------------------------------------------------
+        ' THE NORM IS WRITE TO FOLDER REQUST INFO
+        ' WHEN FOLDER MODE NOT USE AND ALL DRIVE
+        ' THE NORM DON' HAVE A SELECTABLE FOLDER
+        ' AND ALL IN ONE PLACE
+        ' WITH TDIR_2 ANY FOLDER REQUEST COPY
+        ' ARE ALSO COPY ALL IN ONE
+        ' ---------------------------------------------------
+        ' AS FROM TODAY
+        ' Fri 13-Sep-2019 17:39:00
+        ' NOW FINSIHER AND WORK COMMANDLINE SEND TO MODE
+        ' ---------------------------------------------------
+        SUBTEXTFOLDER_1 = " # FOLDER\"
+        SUBTEXTFOLDER_2 = "\# FILE FOLDER LISTER\"
+        TDIR_1 = ScanPath.TxtPath.Text + "\" + SUBTEXTFOLDER_2
+        TDIR_2 = LOGGFOLDER + SUBTEXTFOLDER_1
+        IRESULT = CreateFolderTree(TDIR_1)
+        IRESULT = CreateFolderTree(TDIR_2)
+    End If
+    
+    ' ------------------------------
+    ' WHEN THE SCAN GO
+    ' ------------------------------
+    ' SUBTEXTFOLDER_1
+    ' ------------------------------
+    ' AND
+    ' ------------------------------
+    ' SUBTEXTFOLDER_1
+    ' ------------------------------
+    ' WILL BE EXAMINE NOT TO INCLUDE
+    ' ------------------------------
+    SUBTEXTFOLDER_1 = Replace(SUBTEXTFOLDER_1, "\", "")
+    SUBTEXTFOLDER_2 = Replace(SUBTEXTFOLDER_2, "\", "")
         
-        Get #FF01, 1, CHUNK
-        For R = 0 To UBound(DAT1)
-            STRING1 = DAT1(R)
-            UU0 = String$(140, "#")
-            UU1 = String$(140, "#")
-            Mid(UU1, 1, Len(STRING1)) = STRING1
-            
-            UU1 = Replace(UU1, "#", " ")
-            CHUNK = Replace(CHUNK, UU0, UU1, , 1)
-        Next
-        Put #FF01, 1, CHUNK
-    Close #FF01
+    LabelX(1).Caption = TDIR_1
+    LabelX(13).Caption = TDIR_2
+    
+    If TDIR_2 = "" Then
+        LabelX(13).Caption = "LOGGFOLDER 2 ____ NOT USER WHEN ALL DRIVE OR MULTI DRIVE LISTER - ONLY INDIVIDUAL FOLDER"
+        MNU_02.Caption = LabelX(13).Caption
+    End If
 
-Next
+End Sub
 
 
 
-For R1 = 1 To 4
+Private Sub Label1_Click()
+    
+    Call SET_THE_DRIVE_OR_FOLDER_USER_1
+    Call SET_THE_DRIVE_OR_FOLDER_USER_2
+    
+    FILE11 = "FILE & FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- COMPLEX -- " + FILE5TXT + ".txt"
+    FILE12 = "FILE & FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- NORMAL ---- " + FILE5TXT + ".txt"
+    FILE13 = "FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- COMPLEX -- " + FILE5TXT + ".txt"
+    FILE14 = "FOLDER SCRIPT -- " + Format(Now, "YYYY_MM_DD_HH_MM_SS") + " -- NORMAL ---- " + FILE5TXT + ".txt"
+    
+    Dim ORGTAGFILE(4)
+    ORGTAGFILE(1) = FILE11
+    ORGTAGFILE(2) = FILE12
+    ORGTAGFILE(3) = FILE13
+    ORGTAGFILE(4) = FILE14
+    
+    FILE21 = TDIR_1 + FILE11 '" -- COMPLEX --  "
+    FILE22 = TDIR_1 + FILE12 '" -- NORMAL ---- "
+    FILE23 = TDIR_1 + FILE13 '" -- COMPLEX --  DIR"
+    FILE24 = TDIR_1 + FILE14 '" -- NORMAL ---- DIR"
+    
+    ReDim FFILEAR(4)
+    FFILEAR(1) = FILE21
+    FFILEAR(2) = FILE22
+    FFILEAR(3) = FILE23
+    FFILEAR(4) = FILE24
+    
+    
+    ' ------------------------------------------
+    ' IF ERROR IN HERE ROUTINE IT WILL JUMP AWAY
+    ' BACK TO SUB CAME FORM
+    ' MAKE HARDER DEBUGGER
+    ' CAREFUL THE LABEL AS SEE I HAVE TO PUT LEN
+    ' AS OTHER LABEL SIMULAR WITH MNU_0
+    ' ------------------------------------------
+    i = 1
+    For Each Control In Controls
+        If Len(Control.Name) = 6 And Mid(Control.Name, 1, 5) = "MNU_0" Then
+            If i > 2 Then
+                RT = Val(Mid(Control.Name, 5) - 2)
+                Control.Caption = FFILEAR(RT)
+            End If
+            If i = 1 Then Control.Caption = "LOGGFOLDER 1 ____ " + TDIR_1
+            If i = 2 Then Control.Caption = "LOGGFOLDER 2 ____ " + TDIR_2
+            i = i + 1
+        End If
+    Next
+    'Control.Caption = Mid(FFILEAR(RT), InStrRev(FFILEAR(RT), "\") + 1)
+    If TDIR_2 = "" Then
+        LabelX(13).Caption = "LOGGFOLDER 2 ____ NOT USER WHEN ALL DRIVE OR MULTI DRIVE LISTER - ONLY INDIVIDUAL FOLDER"
+        MNU_02.Caption = LabelX(13).Caption
+    End If
+
+    
+    
     FF01 = FreeFile
-    Open FFILEAR(R1) + ".TMP" For Output As #FF01
+    Open FILE21 For Output As #FF01
     FF02 = FreeFile
-    Open FFILEAR(R1) For Input As #FF02
-    Do
-        Line Input #FF02, LINE_STRING
-        LINE_STRING = Trim(LINE_STRING)
-        Print #FF01, LINE_STRING
-    Loop Until EOF(FF02)
-    Close #FF01
-    Close #FF02
-    Kill FFILEAR(R1)
-    Name FFILEAR(R1) + ".TMP" As FFILEAR(R1)
-Next
-
-
-
-
-'FILE32 = "D:\0 00 LOGGERS TEXT"
-'FILE31 = "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT"
-'
-'If Dir(FILE31, vbDirectory) = "" Then
-'    MkDir FILE32
-'    MkDir FILE31
-'End If
-'
-'
-'For R = 1 To 4
-'    'EVEN ARE ' " -- COMPLEX ---- "
-'    'ODD ARE ' " -- NORMAL ---- "
-'    Set F = FS.GETFILE(FFILEAR(R))
-'    F.Copy FILE31 + "\" + ORGTAGFILE(R)
-'Next
-
-'
-'Shell "Explorer.exe /select, """ + FILE31 + "\" + ORGTAGFILE(2) + """", vbNormalFocus
-'Shell "Explorer.exe /select, " + FFILEAR(2), vbNormalFocus
-
-
-'If OBJECTIVE_BRIEF <> "ALL DRIVE" And IRFAR_TO_DO_FROM_SEND_TO = False Then
+    Open FILE22 For Output As #FF02
+    FF03 = FreeFile
+    Open FILE23 For Output As #FF03
+    FF04 = FreeFile
+    Open FILE24 For Output As #FF04
+    
+    Dim FFAR(4)
+    FFAR(1) = FF01
+    FFAR(2) = FF02
+    FFAR(3) = FF03
+    FFAR(4) = FF04
+    
+    ' -------------------------------------- DC SET
+    ' -------------------------------------- DC SET
+    ' -------------------------------------- DC SET
+    DC = 19
+    For R = 1 To 4
+        Print #FFAR(R), "---------------------------------------------------------------------------"
+        Print #FFAR(R), "SOURCE -- SOLUTION -- SOLVABILITY -- Drive SiteMap"
+        Print #FFAR(R), "---------------------------------------------------------------------------"
+        Print #FFAR(R), "PATH :-:" + TDIR
+        Print #FFAR(R), "FILE :-:" + ORGTAGFILE(R)
+        Print #FFAR(R), "---------------------------------------------------------------------------"
+        Print #FFAR(R), "FOLDER DIRECTORY OBJECTIVE SCAN -- "
+        Print #FFAR(R), "## " + AT$
+        Print #FFAR(R), "---------------------------------------------------------------------------"
+        
+        For R1 = 0 To DC
+            Print #FFAR(R), String(140, "#")
+        Next
+        Print #FFAR(R), "---------------------------------------------------------------------------"
+        Print #FFAR(R), "<-------------------->"
+    
+    Next
+    
+    PROCESSTIMEDIFF = Now
+    
+    ' ---------------------------------------------------------------
+    ' ----------- EXECUTE BEGIN ------------------------
+    ' ---------------------------------------------------------------
+    
+    
+    'ScanPath.Show
+    
+    ScanPath.cmdScan_Click
+    
+    
+    For R = 1 To 4
+        Close FFAR(R)
+    Next
+    
+    Select Case F.DriveType
+        Case 0: TDriveType = "Unknown"
+        Case 1: TDriveType = "Removable"
+        Case 2: TDriveType = "Fixed"
+        Case 3: TDriveType = "Network"
+        Case 4: TDriveType = "CD-ROM"
+        Case 5: TDriveType = "RAM Disk"
+    End Select
+    
+    'Set F1 = FS.GetDrive(Mid(AT$, 1)) '+ ":\")
+    
+    Set F = FS.GetDrive(FS.GetDriveName(AT$))
+    
+    i1 = Format(mDIRCount2, "000,000,000,000,000")
+    i2 = Format(mFILECount2, "000,000,000,000,000")
+    i3 = Format(COUNTPROCES2, "000,000,000,000,000")
+    
+    'THIS DOES FORMATING TO THE NUMBER VAR WITH 1000 SEPERATOR
+    'LIKE 000,000,000,000,023
+    'LIKE ___,___,___,___,023
+    
+    Call NAUGHT_NULL(i1, 0, 0)
+    Call NAUGHT_NULL(i2, 0, 0)
+    Call NAUGHT_NULL(i3, 0, 0)
+    
+    
+    '  --  ___,___,___,___,__1  - 3-3-3-3 = 12 DIGITS = AROUND 20 GIGBYTE
+    'DC IS FIXED ABOVE --- DC = 20
+    ReDim DAT1(40)
+    DC = -1
+    DC = DC + 1: DAT1(DC) = "DIR:                  " + i1
+    DC = DC + 1: DAT1(DC) = "FILE:                 " + i2
+    DC = DC + 1: DAT1(DC) = "PROCESS:              " + i3
+    
+    DC = DC + 1: DAT1(DC) = "---------------------------------------------------------------------------"
+    DC = DC + 1: DAT1(DC) = "Volume Name:          " + F.VolumeName
+    DC = DC + 1: DAT1(DC) = "Drive Type:           " & UCase(F.DriveType)
+    DC = DC + 1: DAT1(DC) = "Drive Type:           " & UCase(TDriveType)  ' --- ABOVE
+    DC = DC + 1: DAT1(DC) = "File System:          " & F.FileSystem
+    DC = DC + 1: DAT1(DC) = "Serial Number:        " & F.serialnumber
+    i1 = Hex$(F.serialnumber)
+    i1 = Mid(i1, 1, 2) + "," + Mid(i1, 3, 2) + "," + Mid(i1, 5, 2) + "," + Mid(i1, 7, 2)
+    DC = DC + 1: DAT1(DC) = "Serial Number &H:     " & i1
+    
+    i1 = F.ShareName
+    If i1 = "" Then i1 = "LOCAL SYSTEM DRIVE"
+    DC = DC + 1: DAT1(DC) = "Share Name:           " & i1
+    
+    i1 = Format(F.TotalSize, "000,000,000,000,000")
+    Call NAUGHT_NULL(i1, F.TotalSize, i2)
+    DC = DC + 1: DAT1(DC) = "Total Size:           " & i1 + " - " + i2
+    
+    i1 = Format(F.AvailableSpace, "000,000,000,000,000")
+    Call NAUGHT_NULL(i1, F.AvailableSpace, i2)
+    DC = DC + 1: DAT1(DC) = "Available:            " & i1 + " - " + i2
+    
+    i1 = Format(F.FreeSpace, "000,000,000,000,000")
+    Call NAUGHT_NULL(i1, F.FreeSpace, i2)
+    DC = DC + 1: DAT1(DC) = "Free Space:           " & i1 + " - " + i2
+    
+    INOW = Now
+    i = Format(DateDiff("s", PROCESSTIMEDIFF, INOW) / 60, "0.0##")
+    DC = DC + 1: DAT1(DC) = "Process Lenght Time:  " + i + " Minute Divide Clock"
+    i = Trim(Str(DateDiff("s", PROCESSTIMEDIFF, INOW)))
+    DC = DC + 1: DAT1(DC) = "Process Lenght Time:  " + i + " -- Seconds"
+    DC = DC + 1: DAT1(DC) = "BEGIN TIME:           " + Format(PROCESSTIMEDIFF, "DD MMM YYYY HH:MM:SS") + "h"
+    DC = DC + 1: DAT1(DC) = "AFTER TIME:           " + Format(INOW, "DD MMM YYYY HH:MM:SS") + "h" + " -" + Str(i) + " Sec"
+    DC = DC + 1: DAT1(DC) = "FORMAT BEGIN TIME:    " + Format(PROCESSTIMEDIFF, "DDD DD MMM YYYY HH:MM:SSa/p")
+    If OBJECTIVE_BRIEF = "" Then OBJECTIVE_BRIEF = "NORMAL"
+    DC = DC + 1: DAT1(DC) = "OBJECTIVE MODE BRIEF: " + OBJECTIVE_BRIEF
+    
+    
+    'MsgBox DC
+    
+    ReDim Preserve DAT1(DC)
+    
+    For R1 = 1 To 4
+        Dim CHUNK As String
+        FF01 = FreeFile
+        Open FFILEAR(R1) For Binary As #FF01
+            CHUNK = Space(8000)
+            If CHUNK > Len(FF01) Then
+                CHUNK = Space(Len(FF01) - 2)
+            End If
+            
+            Get #FF01, 1, CHUNK
+            For R = 0 To UBound(DAT1)
+                STRING1 = DAT1(R)
+                UU0 = String$(140, "#")
+                UU1 = String$(140, "#")
+                Mid(UU1, 1, Len(STRING1)) = STRING1
+                
+                UU1 = Replace(UU1, "#", " ")
+                CHUNK = Replace(CHUNK, UU0, UU1, , 1)
+            Next
+            Put #FF01, 1, CHUNK
+        Close #FF01
+    Next
+    
+    For R1 = 1 To 4
+        FF01 = FreeFile
+        Open FFILEAR(R1) + ".TMP" For Output As #FF01
+        FF02 = FreeFile
+        Open FFILEAR(R1) For Input As #FF02
+        Do
+            Line Input #FF02, LINE_STRING
+            LINE_STRING = Trim(LINE_STRING)
+            Print #FF01, LINE_STRING
+        Loop Until EOF(FF02)
+        Close #FF01
+        Close #FF02
+        Kill FFILEAR(R1)
+        Name FFILEAR(R1) + ".TMP" As FFILEAR(R1)
+    Next
+    
+    If TDIR_2 <> "" Then
+        For R1 = 1 To 4
+            FILENAME_STRIPPER = Mid(FFILEAR(R1), InStrRev(FFILEAR(R1), "\") + 1)
+            DIR_NAME_STRIPPER = Mid(FFILEAR(R1), 1, InStrRev(FFILEAR(R1), "\"))
+        
+            FSO.COPYFILE FFILEAR(R1), TDIR_2 + FILENAME_STRIPPER
+        Next
+    End If
+    
+    'FILE32 = "D:\0 00 LOGGERS TEXT"
+    'FILE31 = "D:\0 00 LOGGERS TEXT\ARCHIVE OF DIRECTORY SCRIPT"
+    '
+    'If Dir(FILE31, vbDirectory) = "" Then
+    '    MkDir FILE32
+    '    MkDir FILE31
+    'End If
+    '
+    '
+    'For R = 1 To 4
+    '    'EVEN ARE ' " -- COMPLEX ---- "
+    '    'ODD ARE ' " -- NORMAL ---- "
+    '    Set F = FS.GETFILE(FFILEAR(R))
+    '    F.Copy FILE31 + "\" + ORGTAGFILE(R)
+    'Next
+    
+    '
+    'Shell "Explorer.exe /select, """ + FILE31 + "\" + ORGTAGFILE(2) + """", vbNormalFocus
+    'Shell "Explorer.exe /select, " + FFILEAR(2), vbNormalFocus
+    
+    
+    'If OBJECTIVE_BRIEF <> "ALL DRIVE" And IRFAR_TO_DO_FROM_SEND_TO = False Then
+        
+    '    If mCancelScan2 = True Then Exit Sub
+    
+    
+        ' Shell "C:\Program Files\TextView\Textview.exe     """ + FFILEAR(4) + """", vbNormalFocus
+    '    Me.WindowState = vbNormal
+    '    Beep
+        
+        'End
+    'End If
     
     If mCancelScan2 = True Then Exit Sub
-    
-    
-    ' Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FFILEAR(4) + """", vbNormalFocus
+       
     Me.WindowState = vbNormal
     Beep
     
-    'End
-'End If
-
 End Sub
 
 Private Sub Label10_Click()
-IRFAR_TO_DO_FROM_SEND_TO = True
-Label5_Click
+    IRFAR_TO_DO_FROM_SEND_TO = True
+    Label5_Click
 End Sub
 
 Private Sub Label2_Click()
-'Label2
-ScanPath.Timer1.Enabled = True
-Call Label1_Click
-ScanPath.Timer1.Enabled = False
-ScanPath.lblCount4 = "WORK COMPLETE"
+    'Label2
+    ScanPath.Timer1.Enabled = True
+    Call Label1_Click
+    ScanPath.Timer1.Enabled = False
+    ScanPath.lblCount4 = "WORK COMPLETE"
 End Sub
 
 Private Sub Label3_Click()
@@ -2434,31 +2522,58 @@ MsgBox "NOT A OPTION HERE MENU UPDATE WITH MEDIA OBJECTIVE" + vbCrLf + "WHOLE DR
 End Sub
 
 
-
 Private Sub MNU_01_Click()
-    
-Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FFILEAR(1) + """", vbNormalFocus
-
+    If TDIR_1 <> "" Then
+    If Dir(TDIR_1) = "" Then
+        Beep
+        MsgBox "NONE TO DO - FILE NOT FOUND"
+        Exit Sub
+    End If
+    End If
+    If TDIR_1 = "" Then
+        Beep
+        MsgBox "NONE TO DO"
+        Exit Sub
+    End If
+    Me.WindowState = vbMinimized
+    Shell "Explorer.exe " + TDIR_1, vbMaximizedFocus
 End Sub
 Private Sub MNU_02_Click()
-
-Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FFILEAR(2) + """", vbNormalFocus
-
+    If TDIR_2 <> "" Then
+    If Dir(TDIR_2) = "" Then
+        Beep
+        MsgBox "NONE TO DO - FILE NOT FOUND"
+        Exit Sub
+    End If
+    End If
+    If TDIR_2 = "" Then
+        Beep
+        MsgBox "NONE TO DO"
+        Exit Sub
+    End If
+    Me.WindowState = vbMinimized
+    Shell "Explorer.exe " + TDIR_2, vbMaximizedFocus
 End Sub
 Private Sub MNU_03_Click()
-
-Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FFILEAR(3) + """", vbNormalFocus
-
+    ' FIND MENU USE -- SEARCH MNU_0
+    ' IS IN CONTROL ARRAY SET
+    ' C:\Program Files\TextView\Textview.exe
+    Shell "C:\Program Files\TextView\Textview.exe     """ + FFILEAR(1) + """", vbNormalFocus
 End Sub
 Private Sub MNU_04_Click()
-
-Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FFILEAR(4) + """", vbNormalFocus
-
+    Shell "C:\Program Files\TextView\Textview.exe     """ + FFILEAR(2) + """", vbNormalFocus
+End Sub
+Private Sub MNU_05_Click()
+    Shell "C:\Program Files\TextView\Textview.exe     """ + FFILEAR(3) + """", vbNormalFocus
+End Sub
+Private Sub MNU_06_Click()
+    Shell "C:\Program Files\TextView\Textview.exe     """ + FFILEAR(4) + """", vbNormalFocus
 End Sub
 
 
 Private Sub MNU_ESCAPE_Click()
 Beep
+End
 End Sub
 
 Private Sub MNU_EXIT_Click()
@@ -2466,17 +2581,11 @@ Beep
 Unload Me
 End Sub
 
-Private Sub MNU_EXPLORER_Click()
-Beep
-Shell "Explorer.exe " + LOGGFOLDER, vbNormalFocus
-
-End Sub
-
 Private Sub MNU_IRFAR_03_NOTEPAD_Click()
 
 FILE13 = "C:\TEMP\IRFAN_SLIDESHOW.txt"
 
-Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FILE13 + """", vbNormalNoFocus
+Shell "C:\Program Files\TextView\Textview.exe     """ + FILE13 + """", vbNormalNoFocus
 
 Shell "C:\PROGRAM FILES\NOTEPAD++\NOTEPAD++.EXE " + FILE13, vbNormalNoFocus
 
@@ -2493,6 +2602,8 @@ Shell "NOTEPAD ""C:\TEMP\IRFAN_SLIDESHOW_X_SCRIPT.TXT""", vbNormalFocus
 
 End Sub
 
+
+
 Private Sub MNU_VB_Click()
     
     Dim FILESPEC, TT As Long
@@ -2501,10 +2612,10 @@ Private Sub MNU_VB_Click()
     If IsIDE = False And Dir(FILESPEC) <> "" Then
         On Error Resume Next
         If Dir("C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE") <> "" Then
-            TT = Shell("C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE  """ + FILESPEC + """", vbMinimizedNoFocus)
+            TT = Shell("C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE  """ + FILESPEC + """", vbMaximizedFocus)
         End If
         If Dir("C:\Program Files (X86)\Microsoft Visual Studio\VB98\VB6.EXE") <> "" Then
-            TT = Shell("C:\Program Files (X86)\Microsoft Visual Studio\VB98\VB6.EXE  """ + FILESPEC + """", vbMinimizedNoFocus)
+            TT = Shell("C:\Program Files (X86)\Microsoft Visual Studio\VB98\VB6.EXE  """ + FILESPEC + """", vbMaximizedFocus)
         End If
         
         If TT = 0 Then MsgBox "None Process PID Number Returned" + vbCrLf + "Must Mean Not in Admin Mode to Run Shell Command"
@@ -2518,80 +2629,23 @@ End Sub
 
 Function GET_DRIVES()
 
-Dim DC
-Set DC = FS.Drives
-For Each D In DC
-  s = s & D.DriveLetter
-  If D.DriveType = 3 Then
-    Stop
-    'n = d.ShareName
-  ElseIf D.IsReady Then
-    N = N + D.DriveLetter 'd.VolumeName
-  End If
-  's = s & n & "<BR>"
-Next
-
-GET_DRIVES = N
+    Dim DC
+    Set DC = FS.Drives
+    For Each D In DC
+      s = s & D.DriveLetter
+      If D.DriveType = 3 Then
+        Stop
+        'n = d.ShareName
+      ElseIf D.IsReady Then
+        N = N + D.DriveLetter 'd.VolumeName
+      End If
+      's = s & n & "<BR>"
+    Next
+    
+    GET_DRIVES = N
 
 End Function
 
-
-Sub A12()
-
-On Error Resume Next
-
-XC = 64
-For Each Control In LabDR
-    XC = XC + 1
-    'Control.Visible = FALSE
-    Control.AutoSize = False
-    Control.Caption = "-" + Chr(XC) + "-"
-    Control.AutoSize = True
-    Control.Refresh
-    Control.AutoSize = False
-Next
-
-DoEvents
-
-
-
-For Each Control In LabDR
-    
-    If Control.Index Mod 2 = 0 Then
-        Control.BackColor = &HC0FFC0
-    End If
-    
-    MCHAR = Mid(Control.Caption, 2, 1) + ":\"
-    Err.Clear
-    
-    'Set F = FS.GetDrive(MCHAR)
-            
-    If InStr("*" + LCase(GET_DRIVES), LCase(Mid(Control.Caption, 2, 1))) = 0 Then
-        Control.BackColor = Label4.BackColor
-    End If
-
-
-
-'    If F.IsReady = False Or Err.Number > 0 Then
-'        Control.BackColor = Label4.BackColor
-'    End If
-    
-    If Control.Width > XT Then XT = Control.Width
-Next
-
-XT = (Me.Width - 100) / 26
-XD = 0
-For Each Control In LabDR
-    Control.Top = 0
-    Control.Left = XD
-    Control.Width = XT
-    XD = XD + XT
-    'Control.Height = 500
-    Control.Visible = True
-Next
-
-
-End Sub
 
 Private Sub MNU_IRFAR_01_Click()
     
@@ -2755,12 +2809,12 @@ ScanPath.cboMask.Text = "*.JPG;*.JPEG"
     Close FF01, FF02
     
     FILE13 = "C:\TEMP\IRFAN_SLIDESHOW.txt"
-    FS.CopyFile FILE12, FILE13
+    FS.COPYFILE FILE12, FILE13
     FILE14 = "C:\TEMP\IRFAN_SLIDESHOW_BACKUP.txt"
-    FS.CopyFile FILE12, FILE13
+    FS.COPYFILE FILE12, FILE13
 
     If IRFAR_TO_DO_FROM_SEND_TO = False Then
-        Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FILE13 + """", vbNormalFocus
+        Shell "C:\Program Files\TextView\Textview.exe     """ + FILE13 + """", vbNormalFocus
     End If
     
 '    Call Label6_Click
@@ -2782,7 +2836,7 @@ Sub XSCRIPT_CHUNK_AND_PROCESS()
     FILE17 = "C:\TEMP\IRFAN_SLIDESHOW-A-Z.TXT"
     FILE18 = "C:\TEMP\IRFAN_SLIDESHOW.TXT"
     
-    FS.CopyFile FILE18, FILE17
+    FS.COPYFILE FILE18, FILE17
     
     FF01 = FreeFile
     Open FILE17 For Binary As #FF01
@@ -2910,7 +2964,7 @@ Private Sub MNU_IRFAR_02_Click()
 '    Call XSCRIPTCHUNK
     
     
-'    Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FILE13 + """", vbNormalFocus
+'    Shell "C:\Program Files\TextView\Textview.exe     """ + FILE13 + """", vbNormalFocus
     
     Shell "C:\Program Files\IrfanView\i_view32.exe /killmesoftly"
     Shell "C:\Program Files\IrfanView\i_view32.exe ""/slideshow=" + FILE13 + " /ONE /bf /silent /RELOADONLOOP /QUITE""", vbMinimizedNoFocus
@@ -2968,3 +3022,153 @@ COUNTPROCES9 = COUNTPROCES8
 COUNTPROCES8 = 0
 
 End Sub
+
+
+' --------------------------------------------------------------------
+' ALL IN ONE FUNCTION LESS API LESS DEMAND JOB WORKER
+' --------------------------------------------------------------------
+Private Function CreateFolderTree(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+
+    On Error GoTo CreateFolderTreeError
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        If nPos - 1 > 3 Then
+            If Dir(Left$(sPath, nPos - 1), vbDirectory) = "" Then
+                MkDir Left$(sPath, nPos - 1)
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+    If Dir(sPath, vbDirectory) = "" Then MkDir sPath
+    
+    CreateFolderTree = True
+    If Dir(sPath, vbDirectory) = "" Then
+        CreateFolderTree = False
+    End If
+
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
+
+
+' --------------------------------------------------------------------
+' WORK BUT EASIER ALL IN ONE FUNCTION NOT WITH API THOUGH
+' MORE TRANSPORTBALE TO OTHER CODE MAYBE IN ONE FUNCTION LESS DELCLARE
+' --------------------------------------------------------------------
+Private Function CreateFolderTree_API(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+
+    On Error GoTo CreateFolderTreeError
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        If nPos - 1 > 3 Then ' NOT CHECK ROOT
+            If Not FolderExists(Left$(sPath, nPos - 1)) Then
+                MkDir Left$(sPath, nPos - 1)
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+    If Not FolderExists(sPath) Then MkDir sPath
+    
+    If Not FolderExists(sPath) Then
+        CreateFolderTree_API = False
+        Exit Function
+    End If
+    CreateFolderTree_API = True
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
+
+'Private Function FolderExists(sFolder As String) As Boolean
+'    '##############################################################################################
+'    'Returns True if the specified folder exists
+'    '##############################################################################################
+'
+'    Dim WFD As WIN32_FIND_DATA
+'    Dim lResult As Long
+'
+'    lResult = FindFirstFile(sFolder, WFD)
+'    If lResult <> INVALID_HANDLE_VALUE Then
+'        If (WFD.dwFileAttributes And FILE_ATTRIBUTE_DIRECTORY) = FILE_ATTRIBUTE_DIRECTORY Then
+'            FolderExists = True
+'        Else
+'            FolderExists = False
+'        End If
+'    End If
+'End Function
+'
+
+
+
+Sub MATH_PLAY()
+
+    End
+    
+    'Call Test2
+    Call Test1
+    
+    End
+    
+    '1 pound = 0.0714285714 stone
+    '    More about calculator.
+    
+    '1 pound = 0.0714285714 stone
+    
+    stone = 112 * 0.0714285714
+    stone = 212 * 0.0714285714
+    Debug.Print stone
+    '= 7.9999999968
+    '= 15.1428571368
+    
+    'More than a year ago, in July 2007, International Space Station astronauts threw
+    'an obsolete, refrigerator-sized ammonia reservoir overboard. Ever since,
+    'the 1400-lb piece of space junk has been circling Earth in a decaying orbit--and now
+    'it is about to reenter.
+    
+    stone = 1400 * 0.0714285714
+    Debug.Print stone
+    
+    ' That 's cheating! You still don't know HOW it's done.
+    
+    '256 ^ 0 = 1
+    '256 ^ 1 = 256
+    '256 ^ 2 = 65,536
+    '256 ^ 3 = 16,777,216
+    
+    'So, 194.247.44.146 is ...
+    
+    '146 * 256^0 = 146
+    '44 * 256^1 = 11,264
+    '247*256^2 = 16,187,392
+    '194*256^3 = 3,254,779,904
+    '
+    'Add those up, and ...
+    
+    '146 + 11,264 + 16,187,392 + 3,254,779,904 = 3270978706
+    '
+    '3410960384  3410964479  UK  UNITED KINGDOM
+    
+    Dim a0
+    Dim A1
+    a0 = 3270978706#
+    A1 = a0 / (256 ^ 3)
+    a2 = A1 - Int(A1) / 256 ^ 2
+    a3 = 3270978706# / 256 ^ 1
+    a4 = 3270978706# / 256 ^ 0
+    '203.79.32.0
+    '203.79.47.255
+ 
+End Sub
+
+
