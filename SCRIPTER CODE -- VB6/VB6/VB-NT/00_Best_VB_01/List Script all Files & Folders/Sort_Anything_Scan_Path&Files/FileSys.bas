@@ -1,6 +1,10 @@
 Attribute VB_Name = "mdlFileSys"
 Option Explicit
 
+Public SUBTEXTFOLDER_1
+Public SUBTEXTFOLDER_2
+Public LOGGFOLDER
+
 Public mCancelScan2
 Public LastDriveTime
 Public PROCESSBEGIN, PROCESSBEGIN2

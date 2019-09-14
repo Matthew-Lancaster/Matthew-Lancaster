@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    BackColor       =   &H00808080&
@@ -543,7 +543,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   82182145
+      Format          =   142606337
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -557,7 +557,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   82182145
+      Format          =   142606337
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -570,7 +570,7 @@ Begin VB.Form ScanPath
       _ExtentX        =   1969
       _ExtentY        =   550
       _Version        =   393216
-      Format          =   82182146
+      Format          =   142606338
       CurrentDate     =   37299
    End
    Begin VB.Label Label16 
@@ -1584,9 +1584,6 @@ Private Declare Function DeleteFile Lib "kernel32" Alias "DeleteFileA" (ByVal lp
 
 'Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
 
-
-
-
 'Private Type WIN32_FIND_DATA
 '    dwFileAttributes  As Long
 '    ftCreationTime    As FILETIME
@@ -1614,7 +1611,6 @@ Public A1, B1, G1$, FF$
 'm_CRC.Algorithm = CRC32
 'WxHex$ = Hex(m_CRC.CalculateString(Form3.Text1.Text))
 'WxHex$ = Hex(m_CRC.CalculateFile(Filename))
-
 
 'Option Explicit
 
@@ -1662,11 +1658,8 @@ Private Type WIN32_FIND_DATA
 End Type
 Private Const MAXDWORD = &HFFFF
 
-
-
 Private WithEvents SP As cScanPath
 Attribute SP.VB_VarHelpID = -1
-
 
 
 Private Sub SP_FileMatch(Filename As String, DFilename As String, Path As String, dtFileDate1 As Date, dtFileDate2 As Date, dtFileDate3 As Date, dtFSize As Long)
@@ -1682,6 +1675,19 @@ Private Sub SP_FileMatch(Filename As String, DFilename As String, Path As String
     '####################################################################################################
     'This Event fires for each File found
     '####################################################################################################
+
+    If LOGGFOLDER <> "" Then
+        If InStr(Path, LOGGFOLDER) Then
+            Exit Sub
+        End If
+    End If
+    If SUBTEXTFOLDER_2 <> "" Then
+        If InStr(Path, SUBTEXTFOLDER_2) Then
+            Exit Sub
+        End If
+    End If
+
+    
     
     'On Local Error GoTo GetFileError
     
@@ -1807,6 +1813,23 @@ Private Sub SP_DirMatch(Directory As String, DDirectory As String, Path As Strin
     
     'Set F = FS.GetFolder(Path + DDirectory)
     
+    ' -------------------------------------------------
+    ' HERE --------------------------------------------
+    ' DON'T REQUIRE CHECK HERE AS THE NEXT ONE OPERATOR
+    ' SUBTEXTFOLDER_1
+    ' HERE --------------------------------------------
+    ' LOGGFOLDER
+    ' -------------------------------------------------
+    If LOGGFOLDER <> "" Then
+        If InStr(Path + Directory, LOGGFOLDER) Then
+            Exit Sub
+        End If
+    End If
+    If SUBTEXTFOLDER_2 <> "" Then
+        If InStr(Path + Directory, SUBTEXTFOLDER_2) Then
+            Exit Sub
+        End If
+    End If
     
     STRING2 = "Date Created:-"
     DAT1 = STRING2 + Format(dtFileDate1, "YYYY-MM-DD HH-MM-SS")
@@ -3643,7 +3666,7 @@ cmdScan.Caption = "Scan Files"
 
 
 
-'We always use direct scan as is better to sort after job then during thats all we need
+' We always use direct scan as is better to sort after job then during thats all we need
 
 Sorti = 0
 
@@ -4122,7 +4145,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
             Err.Clear
         End If
         
-        FS.CopyFile A1 + B1, D3 + B1, True
+        FS.COPYFILE A1 + B1, D3 + B1, True
         
         'Err.Clear
         'DEL FROM OUR SWAP DRIVE
@@ -4131,7 +4154,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
         
         On Error Resume Next
         'COPY TO DESTINATION'S -D-
-        If Err.Number = 0 Then FS.CopyFile A1 + B1, D2 + B1
+        If Err.Number = 0 Then FS.COPYFILE A1 + B1, D2 + B1
         
         'DEL FROM DESTINATION SWAP DRIVE
         If Err.Number = 0 Then FS.DeleteFile D1 + B1, True
@@ -4540,18 +4563,17 @@ Set FS = CreateObject("Scripting.FileSystemObject")
 End Sub
 Private Sub Form_Unload(Cancel As Integer)
 
-SP.StopScan
-
-
-'UNLOAD
-
-Exit Sub
-
-Dim Form As Form
-For Each Form In Forms
-    If Form.Enabled = True Then Unload Form
-Next
-
+    ' ---------------------------------------
+    On Error Resume Next
+    SP.StopScan
+    ' ---------------------------------------
+    
+    Exit Sub
+    
+    Dim Form As Form
+    For Each Form In Forms
+        If Form.Enabled = True Then Unload Form
+    Next
 
 End Sub
 
