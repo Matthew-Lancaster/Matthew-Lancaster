@@ -1098,7 +1098,7 @@ Begin VB.Form Form1
       Height          =   204
       Left            =   7896
       TabIndex        =   110
-      Top             =   2688
+      Top             =   2676
       Width           =   1260
    End
    Begin VB.Label Label_KILL_HUBIC 
@@ -2236,6 +2236,8 @@ Option Explicit
 ' UNABLE USE ShowWindow AS ANOTHER FUNCTION USER
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 
+Dim FindWindow_Get_All_Explorer_HWND_COUNT
+
 Dim NOT_FORM_LOAD_MNU_TASK_KILLER_EXPLORER
 
 Dim FindWindow_Get_All_Explorer_VAR_STRING
@@ -3305,6 +3307,7 @@ Private Sub Form_Load()
         End If
     End If
 
+    ' Dim FSO
     Set FSO = CreateObject("Scripting.FileSystemObject")
     
     Call Form2_Check_Project_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
@@ -5095,7 +5098,9 @@ Me.WindowState = vbMinimized
 End Sub
 
 Private Sub TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD_Timer()
-    MsgBox FindWindow_Get_All_Explorer_VAR_STRING, vbMsgBoxSetForeground
+    If FindWindow_Get_All_Explorer_HWND_COUNT > 0 Then
+        MsgBox FindWindow_Get_All_Explorer_VAR_STRING, vbMsgBoxSetForeground
+    End If
     TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD.Enabled = False
 End Sub
 
@@ -5122,7 +5127,9 @@ Private Sub MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click()
     
 Me.WindowState = vbMinimized
 
-'PASTE THE CURRENT SESSION TO CLIPBOARD __ QUITELY WITHOUT MSGBOX REPSONCE REQUIRING
+'----------------------------------------------------
+' PASTE THE CURRENT SESSION TO CLIPBOARD __ QUITELY
+' WITHOUT MSGBOX REPSONCE REQUIRING
 '----------------------------------------------------
 Call FindWindow_Get_All_Explorer("QUITE MSGBOX=TRUE")
 '----------------------------------------------------
@@ -5131,12 +5138,17 @@ TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD.Enabled = True
 
 Label23.BackColor = Label11.BackColor
 
-
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
 objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 81-RESTART EXPLORER.ahk""", DontShowWindow, DontWaitUntilFinished
 Set objShell = Nothing
+
 Exit Sub
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
 
 
 'PROCESS_TO_KILLER_TO_GO = "/F /IM EXPLORER* /T"
@@ -5175,53 +5187,58 @@ End Sub
 
 
 Function FindWindow_Get_All_Explorer(QUITE_MSGBOX) As String
-
-FindWindow_Get_All_Explorer = ""
-
-Dim Huge, VAR_STRING
-Dim WINDOW_TITLE
-Dim test_hWnd As Long, _
-    test_pid As Long, _
-    test_thread_id As Long
-
-Dim cText As String
-Huge = 0
-
-test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
-VAR_STRING = ""
-Do While test_hWnd <> 0
     
-    WINDOW_TITLE = GetWindowTitle(test_hWnd)
+    FindWindow_Get_All_Explorer_VAR_STRING = ""
+    FindWindow_Get_All_Explorer_HWND_COUNT = 0
     
-    '--------------------------------------------------
-    'C:\Windows\explorer.exe
-    '--------------------------------------------------
-    If GetWindowClass(test_hWnd) = "CabinetWClass" Then
-        Huge = Huge + 1
-        VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf
-    End If
+    Dim Huge, VAR_STRING
+    Dim WINDOW_TITLE
+    Dim test_hWnd As Long, _
+        test_pid As Long, _
+        test_thread_id As Long
+    
+    Dim cText As String
+    Huge = 0
+    
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    VAR_STRING = ""
+    Do While test_hWnd <> 0
         
-    'retrieve the next window
-    test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
-
-Loop
-
-Dim I_1 As String
-
-I_1 = Trim(Str(Huge)) + " __ COUNT __" + vbCrLf
-I_1 = I_1 + "C:\Windows\explorer.exe" + vbCrLf
-I_1 = I_1 + "FIND ON CLASS NAME __CabinetWClass__" + vbCrLf + vbCrLf
-I_1 = I_1 + "EXPLORER SESSION CURRENTLY WORKING ON MAYBE REBOOT OR TASKKILL" + vbCrLf
-I_1 = I_1 + "EXPLORER Window SET FOUND PASTE CLIPBOARD" + vbCrLf
-I_1 = I_1 + "-----------------------------------------" + vbCrLf + vbCrLf
-I_1 = I_1 + VAR_STRING
-
-Clipboard.Clear
-Clipboard.SetText VAR_STRING
-FindWindow_Get_All_Explorer = I_1
-FindWindow_Get_All_Explorer_VAR_STRING = I_1
-If QUITE_MSGBOX = "QUITE MSGBOX=FALSE" And Huge > 0 Then MsgBox I_1
-
+        WINDOW_TITLE = GetWindowTitle(test_hWnd)
+        
+        '--------------------------------------------------
+        'C:\Windows\explorer.exe
+        '--------------------------------------------------
+        If GetWindowClass(test_hWnd) = "CabinetWClass" Then
+            If WINDOW_TITLE <> "" Then
+                Huge = Huge + 1
+            End If
+            VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf
+        End If
+            
+        'retrieve the next window
+        test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    
+    Loop
+    
+    Dim I_1 As String
+    
+    I_1 = Trim(Str(Huge)) + " __ COUNT __" + vbCrLf
+    I_1 = I_1 + "C:\Windows\explorer.exe" + vbCrLf
+    I_1 = I_1 + "FIND ON CLASS NAME __CabinetWClass__" + vbCrLf + vbCrLf
+    I_1 = I_1 + "EXPLORER SESSION CURRENTLY WORKING ON MAYBE REBOOT OR TASKKILL" + vbCrLf
+    I_1 = I_1 + "EXPLORER Window SET FOUND PASTE CLIPBOARD" + vbCrLf
+    I_1 = I_1 + "-----------------------------------------" + vbCrLf + vbCrLf
+    I_1 = I_1 + VAR_STRING
+    
+    Clipboard.Clear
+    Clipboard.SetText VAR_STRING
+    FindWindow_Get_All_Explorer_VAR_STRING = I_1
+    FindWindow_Get_All_Explorer_HWND_COUNT = Huge
+    
+    If QUITE_MSGBOX = "QUITE MSGBOX=FALSE" And Huge > 0 Then
+        MsgBox I_1
+    End If
 End Function
 
 
@@ -9350,13 +9367,17 @@ If O_DAY_NOW_MIDNIGHT_1 <> Day(Now) Then
     O_DAY_NOW_MIDNIGHT_1 = Day(Now)
     Call Timer_DIR_FOR_FACEBOOK_VIDEO_Timer
     
+    ' DONT LOAD WHEN FORM START
+    ' ---------------------------------------------------
     If NOT_FORM_LOAD_MNU_TASK_KILLER_EXPLORER = True Then
         Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_MIDNIGHT
     End If
     NOT_FORM_LOAD_MNU_TASK_KILLER_EXPLORER = True
+    ' ---------------------------------------------------
 End If
 
 Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
+
 If Second(Now) Mod 4 = 0 Then
     Call Timer_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER
 End If
@@ -10978,7 +10999,7 @@ End Function
 
 
 ' --------------------------------------------------------------------
-' ALL IN ONE FUNCTION LESS API LESS DEMAN JOB WORKER
+' ALL IN ONE FUNCTION LESS API LESS DEMAND JOB WORKER
 ' --------------------------------------------------------------------
 Private Function CreateFolderTree(ByVal sPath As String) As Boolean
     Dim nPos As Integer

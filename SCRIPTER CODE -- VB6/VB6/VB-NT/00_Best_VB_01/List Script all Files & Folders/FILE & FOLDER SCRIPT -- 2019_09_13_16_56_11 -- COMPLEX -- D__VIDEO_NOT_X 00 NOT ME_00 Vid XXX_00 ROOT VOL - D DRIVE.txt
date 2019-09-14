@@ -1,0 +1,1327 @@
+---------------------------------------------------------------------------
+SOURCE -- SOLUTION -- SOLVABILITY -- Drive SiteMap
+---------------------------------------------------------------------------
+PATH :-:
+FILE :-:FILE & FOLDER SCRIPT -- 2019_09_13_16_56_11 -- COMPLEX -- D__VIDEO_NOT_X 00 NOT ME_00 Vid XXX_00 ROOT VOL - D DRIVE.txt
+---------------------------------------------------------------------------
+FOLDER DIRECTORY OBJECTIVE SCAN --
+## D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT
+---------------------------------------------------------------------------
+DIR:                  ___,___,___,___,_24
+FILE:                 ___,___,___,___,240
+PROCESS:              ___,___,___,___,264
+---------------------------------------------------------------------------
+Volume Name:          D DRIVE
+Drive Type:           2
+Drive Type:           FIXED
+File System:          NTFS
+Serial Number:        -356263520
+Serial Number &H:     EA,C3,D9,A0
+Share Name:           LOCAL SYSTEM DRIVE
+Total Size:           002,___,397,791,232 - TERA - TETRA - TERRORIZOR - RANGE
+Available:            ___,_56,029,208,576 - GIGA RANGE
+Free Space:           ___,_56,029,208,576 - GIGA RANGE
+Process Lenght Time:  0.0 Minute Divide Clock
+Process Lenght Time:  0 -- Seconds
+BEGIN TIME:           13 Sep 2019 16:56:11h
+AFTER TIME:           13 Sep 2019 16:56:11h - 0 Sec
+FORMAT BEGIN TIME:    Fri 13 Sep 2019 04:56:11p
+OBJECTIVE MODE BRIEF: SEND TO CONTEXT MENU MODE FOLDER
+---------------------------------------------------------------------------
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999
+Alternative Name :- 01KINK~1     -- Directory
+Date Created:-2019-09-13 10-27-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 10-27-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998
+Alternative Name :- 02FEMA~1     -- Directory
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998
+Alternative Name :- 03VEJE~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998
+Alternative Name :- 04VNAS~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995
+Alternative Name :- 05DIRT~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995
+Alternative Name :- 06GERM~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995
+Alternative Name :- 07HOLL~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995
+Alternative Name :- 08URAN~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995
+Alternative Name :- 09REDH~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\10 ERA -- 1995
+Alternative Name :- 10ERA-~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984
+Alternative Name :- 11NURS~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984
+Alternative Name :- 12SEKA~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985
+Alternative Name :- 13EARL~1     -- Directory
+Date Created:-2019-09-13 14-43-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 14-43-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993
+Alternative Name :- 14LIRA~1     -- Directory
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993
+Alternative Name :- 15SQUE~1     -- Directory
+Date Created:-2019-09-13 14-13-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993
+Alternative Name :- 16STUD~1     -- Directory
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993
+Alternative Name :- 17OLD-~1     -- Directory
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995
+Alternative Name :- 18TOOL~1     -- Directory
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\# TEXT_DATER_01_KINKY.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,__1,783 :-- 1783
+Date Created:-2019-09-13 15-21-00  Date Last Modified:-2019-09-13 09-45-00  Date Last Accessed:-2019-09-13 09-45-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 01.mpg
+Alternative Name :- 10SX-K~1.MPG -- File
+Size:-___,___,_31,158,272 :-- 31158272
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 11-57-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 01.mpg.FFmpeg-Verify.txt
+Alternative Name :- 10SX-K~1.TXT -- File
+Size:-___,___,___,__1,225 :-- 1225
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2015-07-06 15-28-00  Date Last Accessed:-2018-10-25 11-58-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 02.mpg
+Alternative Name :- 10SX-K~2.MPG -- File
+Size:-___,___,_72,394,752 :-- 72394752
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 11-58-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 02.mpg.FFmpeg-Verify.txt
+Alternative Name :- 10SX-K~2.TXT -- File
+Size:-___,___,___,__3,780 :-- 3780
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2015-07-06 15-28-00  Date Last Accessed:-2018-10-25 11-58-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 03.mpg
+Alternative Name :- 10SX-K~4.MPG -- File
+Size:-___,___,_41,639,936 :-- 41639936
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 11-58-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 03.mpg.FFmpeg-Verify.txt
+Alternative Name :- 10SX-K~3.TXT -- File
+Size:-___,___,___,__4,219 :-- 4219
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2015-07-06 15-29-00  Date Last Accessed:-2018-10-25 11-58-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 04.mpg
+Alternative Name :- 10SX-K~3.MPG -- File
+Size:-___,___,_30,902,272 :-- 30902272
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 11-58-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 04.mpg.FFmpeg-Verify.txt
+Alternative Name :- 10SX-K~4.TXT -- File
+Size:-___,___,___,__4,130 :-- 4130
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2015-07-06 15-29-00  Date Last Accessed:-2018-10-25 11-59-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 05.mpg
+Alternative Name :- 10278F~1.MPG -- File
+Size:-___,___,_72,642,560 :-- 72642560
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 11-59-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 05.mpg.FFmpeg-Verify.txt
+Alternative Name :- 104E55~1.TXT -- File
+Size:-___,___,___,__1,898 :-- 1898
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2015-07-06 15-29-00  Date Last Accessed:-2018-10-25 11-59-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 06.mpg
+Alternative Name :- 107CB3~1.MPG -- File
+Size:-___,___,_72,654,848 :-- 72654848
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 11-59-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 06.mpg.FFmpeg-Verify.txt
+Alternative Name :- 1009B7~1.TXT -- File
+Size:-___,___,___,__1,140 :-- 1140
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2015-07-06 15-29-00  Date Last Accessed:-2018-10-25 11-59-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 07.mpg
+Alternative Name :- 10C1F7~1.MPG -- File
+Size:-___,___,_43,550,720 :-- 43550720
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 11-59-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\01 KINKY -- 1999\10Sx - Kinkyc 07.mpg.FFmpeg-Verify.txt
+Alternative Name :- 106BAC~1.TXT -- File
+Size:-___,___,___,___,919 :-- 919
+Date Created:-2009-03-23 02-00-00  Date Last Modified:-2015-07-06 15-29-00  Date Last Accessed:-2018-10-25 11-59-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY
+Alternative Name :- 02CONT~1     -- Directory
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE
+Alternative Name :- 02CONT~2     -- Directory
+Date Created:-2019-09-13 14-39-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-39-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\# TEXT_DATER_03_VEJECT.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,111 :-- 111
+Date Created:-2019-09-13 15-21-00  Date Last Modified:-2019-09-13 09-47-00  Date Last Accessed:-2019-09-13 09-47-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 01.mpg
+Alternative Name :- 10SX-V~1.MPG -- File
+Size:-___,___,__6,543,360 :-- 6543360
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 01.rar
+Alternative Name :- 10SX-V~1.RAR -- File
+Size:-___,___,__6,740,597 :-- 6740597
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2019-08-12 22-30-00  Date Last Accessed:-2019-08-12 22-30-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 02.mpg
+Alternative Name :- 10SX-V~2.MPG -- File
+Size:-___,___,__6,815,744 :-- 6815744
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 03.mpg
+Alternative Name :- 10SX-V~3.MPG -- File
+Size:-___,___,__8,550,400 :-- 8550400
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 04.mpg
+Alternative Name :- 10SX-V~4.MPG -- File
+Size:-___,___,__4,632,576 :-- 4632576
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 05.mpg
+Alternative Name :- 102C1A~1.MPG -- File
+Size:-___,___,__4,108,288 :-- 4108288
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 06.mpg
+Alternative Name :- 10D6E5~1.MPG -- File
+Size:-___,___,_10,997,760 :-- 10997760
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 07 - Chewing Gum.mpg
+Alternative Name :- 101042~1.MPG -- File
+Size:-___,___,__5,070,848 :-- 5070848
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 08.mpg
+Alternative Name :- 10AC1A~1.MPG -- File
+Size:-___,___,__8,560,640 :-- 8560640
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 09.mpg
+Alternative Name :- 1057E5~1.MPG -- File
+Size:-___,___,__7,856,128 :-- 7856128
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 10.mpg
+Alternative Name :- 109210~1.MPG -- File
+Size:-___,___,__5,152,768 :-- 5152768
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\03 VEJECT -- 1998\10Sx - Vcum 11.mpg
+Alternative Name :- 104DDB~1.MPG -- File
+Size:-___,___,__4,497,408 :-- 4497408
+Date Created:-2009-03-23 02-08-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998\# TEXT_DATER_04_VNASTY.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,111 :-- 111
+Date Created:-2019-09-13 15-21-00  Date Last Modified:-2019-09-13 09-47-00  Date Last Accessed:-2019-09-13 09-47-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998\10Sx - Vnasty_01.mpg
+Alternative Name :- 10SX-V~1.MPG -- File
+Size:-___,___,__6,649,856 :-- 6649856
+Date Created:-2009-03-24 23-36-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998\10Sx - Vnasty_02.mpg
+Alternative Name :- 10SX-V~2.MPG -- File
+Size:-___,___,__8,691,712 :-- 8691712
+Date Created:-2009-03-24 23-36-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998\10Sx - Vnasty_03.mpg
+Alternative Name :- 10SX-V~3.MPG -- File
+Size:-___,___,__5,386,240 :-- 5386240
+Date Created:-2009-03-24 23-36-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998\10Sx - Vnasty_04.mpg
+Alternative Name :- 10SX-V~4.MPG -- File
+Size:-___,___,__2,762,752 :-- 2762752
+Date Created:-2009-03-24 23-36-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-00-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\04 VNASTY -- 1998\10Sx - Vnasty_05.mpg
+Alternative Name :- 10C07F~1.MPG -- File
+Size:-___,___,__3,549,184 :-- 3549184
+Date Created:-2009-03-24 23-36-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\# TEXT_DATER_05_DIRTY DRINKER.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,140 :-- 140
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-47-00  Date Last Accessed:-2019-09-13 09-47-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_01.mpg
+Alternative Name :- 20SX-D~2.MPG -- File
+Size:-___,___,_35,919,872 :-- 35919872
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_02.mpg
+Alternative Name :- 20SX-D~1.MPG -- File
+Size:-___,___,_22,792,192 :-- 22792192
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_03.mpg
+Alternative Name :- 2095A5~1.MPG -- File
+Size:-___,___,_54,495,232 :-- 54495232
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_04.mpg
+Alternative Name :- 20SX-D~3.MPG -- File
+Size:-___,___,__9,783,296 :-- 9783296
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_05.mpg
+Alternative Name :- 20SX-D~4.MPG -- File
+Size:-___,___,_34,873,344 :-- 34873344
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_06.mpg
+Alternative Name :- 208542~1.MPG -- File
+Size:-___,___,_28,669,952 :-- 28669952
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_07.mpg
+Alternative Name :- 20DA76~1.MPG -- File
+Size:-___,___,_50,589,696 :-- 50589696
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_08.mpg
+Alternative Name :- 200F0C~1.MPG -- File
+Size:-___,___,_27,592,704 :-- 27592704
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_09.mpg
+Alternative Name :- 20493B~1.MPG -- File
+Size:-___,___,_20,365,312 :-- 20365312
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_10.mpg
+Alternative Name :- 203AB4~1.MPG -- File
+Size:-___,___,__6,903,808 :-- 6903808
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_10.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-D~1.TXT -- File
+Size:-___,___,___,___,_96 :-- 96
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2015-07-06 15-31-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_11.mpg
+Alternative Name :- 208FE8~1.MPG -- File
+Size:-___,___,_19,687,424 :-- 19687424
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_12.mpg
+Alternative Name :- 20E9FC~1.MPG -- File
+Size:-___,___,_14,428,160 :-- 14428160
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\05 DIRTY DRINKING -- 1995\20Sx - Dirty Drinking_13.mpg
+Alternative Name :- 200565~1.MPG -- File
+Size:-___,___,_12,451,840 :-- 12451840
+Date Created:-2009-03-24 23-32-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\# TEXT_DATER_06 GERMAN BIZARR.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,139 :-- 139
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-47-00  Date Last Accessed:-2019-09-13 09-47-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 01.mpg
+Alternative Name :- 202BBE~1.MPG -- File
+Size:-___,___,130,177,024 :-- 130177024
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 02.mpg
+Alternative Name :- 20SX-G~1.MPG -- File
+Size:-___,___,156,983,296 :-- 156983296
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 03.mpg
+Alternative Name :- 20SX-G~4.MPG -- File
+Size:-___,___,213,583,872 :-- 213583872
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-01-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 03.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-G~1.TXT -- File
+Size:-___,___,___,___,107 :-- 107
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2015-07-06 15-32-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 04.mpg
+Alternative Name :- 20SX-G~3.MPG -- File
+Size:-___,___,175,876,096 :-- 175876096
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2017-02-18 05-28-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 05.mpg
+Alternative Name :- 203FC3~1.MPG -- File
+Size:-___,___,_94,529,536 :-- 94529536
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 06.mpg
+Alternative Name :- 20SX-G~2.MPG -- File
+Size:-___,___,189,771,776 :-- 189771776
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\06 GERMAN BIZARR -- 1995\20Sx - German Bizarr 09 06.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-G~2.TXT -- File
+Size:-___,___,___,___,309 :-- 309
+Date Created:-2009-03-23 01-49-00  Date Last Modified:-2015-07-06 15-33-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\# TEXT_DATER_07_HOLLYWOOD.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,135 :-- 135
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_01 - Title and Other.mpg
+Alternative Name :- 20SX-H~4.MPG -- File
+Size:-___,___,_53,870,592 :-- 53870592
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_02.mpg
+Alternative Name :- 20SX-H~2.MPG -- File
+Size:-___,___,111,575,040 :-- 111575040
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_02.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-H~1.TXT -- File
+Size:-___,___,___,___,110 :-- 110
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2015-07-06 15-34-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_03 - BathRoom.mpg
+Alternative Name :- 20SX-H~1.MPG -- File
+Size:-___,___,104,333,312 :-- 104333312
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_04_Lez.mpg
+Alternative Name :- 20SX-H~3.MPG -- File
+Size:-___,___,118,108,160 :-- 118108160
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_05 - Neck.mpg
+Alternative Name :- 20D374~1.MPG -- File
+Size:-___,___,131,477,504 :-- 131477504
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_05 - Neck.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-H~2.TXT -- File
+Size:-___,___,___,___,_96 :-- 96
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2015-07-06 15-35-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_06.mpg
+Alternative Name :- 207E48~1.MPG -- File
+Size:-___,___,133,466,112 :-- 133466112
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\07 HOLLYWOOD -- 1995\20Sx - Hollywood_06.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-H~3.TXT -- File
+Size:-___,___,___,___,_91 :-- 91
+Date Created:-2009-03-24 23-37-00  Date Last Modified:-2015-07-06 15-36-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\# TEXT_DATER_08_URANUS.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,130 :-- 130
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_01 - TITLE.mpg
+Alternative Name :- 20SX-U~2.MPG -- File
+Size:-___,___,__7,745,536 :-- 7745536
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_02_01.mpg
+Alternative Name :- 20SX-U~1.MPG -- File
+Size:-___,___,__6,238,208 :-- 6238208
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_02_02.mpg
+Alternative Name :- 20069E~1.MPG -- File
+Size:-___,___,_31,217,664 :-- 31217664
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_03_01.mpg
+Alternative Name :- 20SX-U~4.MPG -- File
+Size:-___,___,__8,902,656 :-- 8902656
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_03_02.mpg
+Alternative Name :- 20F3D8~1.MPG -- File
+Size:-___,___,_33,812,480 :-- 33812480
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_03_02.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-U~1.TXT -- File
+Size:-___,___,___,___,112 :-- 112
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2015-07-06 15-37-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_04_01.mpg
+Alternative Name :- 20SX-U~3.MPG -- File
+Size:-___,___,__4,501,504 :-- 4501504
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_04_02.mpg
+Alternative Name :- 207D93~1.MPG -- File
+Size:-___,___,_45,510,656 :-- 45510656
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_05_01 - Cuni.mpg
+Alternative Name :- 2078F3~1.MPG -- File
+Size:-___,___,_10,151,936 :-- 10151936
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_05_02 - Start.mpg
+Alternative Name :- 20E1B6~1.MPG -- File
+Size:-___,___,__6,596,608 :-- 6596608
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_05_02 - Start.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-U~2.TXT -- File
+Size:-___,___,___,___,106 :-- 106
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2015-07-06 15-37-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_05_03 - Shelia Summerton.mpg
+Alternative Name :- 20D5FA~1.MPG -- File
+Size:-___,___,103,954,432 :-- 103954432
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_06_01.mpg
+Alternative Name :- 208810~1.MPG -- File
+Size:-___,___,__5,507,072 :-- 5507072
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_06_02.mpg
+Alternative Name :- 204EE0~1.MPG -- File
+Size:-___,___,_14,573,568 :-- 14573568
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_06_02.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-U~3.TXT -- File
+Size:-___,___,___,___,417 :-- 417
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2015-07-06 15-38-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_07_01.mpg
+Alternative Name :- 2001BA~1.MPG -- File
+Size:-___,___,__2,455,552 :-- 2455552
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_07_02.mpg
+Alternative Name :- 205489~1.MPG -- File
+Size:-___,___,_15,794,176 :-- 15794176
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_08_01.mpg
+Alternative Name :- 201AD8~1.MPG -- File
+Size:-___,___,__8,591,360 :-- 8591360
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-02-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_08_02.mpg
+Alternative Name :- 203541~1.MPG -- File
+Size:-___,___,_17,762,304 :-- 17762304
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_09_01.mpg
+Alternative Name :- 20BAD9~1.MPG -- File
+Size:-___,___,__4,810,752 :-- 4810752
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_09_02.mpg
+Alternative Name :- 202FA8~1.MPG -- File
+Size:-___,___,_23,912,448 :-- 23912448
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_10_01.mpg
+Alternative Name :- 20E4E6~1.MPG -- File
+Size:-___,___,__8,359,936 :-- 8359936
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_10_02.mpg
+Alternative Name :- 203A1B~1.MPG -- File
+Size:-___,___,168,284,160 :-- 168284160
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_10_02.mpg.FFmpeg-Verify.txt
+Alternative Name :- 20SX-U~4.TXT -- File
+Size:-___,___,___,___,_99 :-- 99
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2015-07-06 15-38-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_12_01.mpg
+Alternative Name :- 209E4B~1.MPG -- File
+Size:-___,___,___,765,952 :-- 765952
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_12_02 - Shelly.mpg
+Alternative Name :- 20BC84~1.MPG -- File
+Size:-___,___,_69,052,416 :-- 69052416
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_13_01.mpg
+Alternative Name :- 20A604~1.MPG -- File
+Size:-___,___,__4,835,328 :-- 4835328
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_13_02.mpg
+Alternative Name :- 20C2E1~1.MPG -- File
+Size:-___,___,_56,995,840 :-- 56995840
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_14_01.mpg
+Alternative Name :- 20BC9C~1.MPG -- File
+Size:-___,___,_19,824,640 :-- 19824640
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_14_01.mpg.FFmpeg-Verify.txt
+Alternative Name :- 206C2F~1.TXT -- File
+Size:-___,___,___,___,613 :-- 613
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2015-07-06 15-42-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_14_02 - A Hot and A Cold One.mpg
+Alternative Name :- 20C14C~1.MPG -- File
+Size:-___,___,_87,617,536 :-- 87617536
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_15.mpg
+Alternative Name :- 20F1F0~1.MPG -- File
+Size:-___,___,_16,097,280 :-- 16097280
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\08 URANUS -1995\20Sx - Uranus_16 - END TITLE.mpg
+Alternative Name :- 20B8FB~1.MPG -- File
+Size:-___,___,__1,458,176 :-- 1458176
+Date Created:-2009-03-24 23-51-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\# TEXT_DATER_09_REDHOT.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,132 :-- 132
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_01 01 - FEME MALE.mpg
+Alternative Name :- 40VCD-~1.MPG -- File
+Size:-___,___,__1,224,704 :-- 1224704
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_01 02.mpg
+Alternative Name :- 40VCD-~2.MPG -- File
+Size:-___,___,__1,542,144 :-- 1542144
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_01 03 - FEME MALE.mpg
+Alternative Name :- 40VCD-~3.MPG -- File
+Size:-___,___,__8,957,952 :-- 8957952
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_01 04.mpg
+Alternative Name :- 40VCD-~4.MPG -- File
+Size:-___,___,__4,810,752 :-- 4810752
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_01 05 - FEME WHACK'S OFF MALE.mpg
+Alternative Name :- 40E89E~1.MPG -- File
+Size:-___,___,_14,794,752 :-- 14794752
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_02.mpg
+Alternative Name :- 40B9EA~1.MPG -- File
+Size:-___,___,__7,458,816 :-- 7458816
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_03 - Hot Tub.mpg
+Alternative Name :- 4014CA~1.MPG -- File
+Size:-___,___,100,982,784 :-- 100982784
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_04 01 MMF.mpg
+Alternative Name :- 40F290~1.MPG -- File
+Size:-___,___,_10,442,752 :-- 10442752
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_04 02 MMF.mpg
+Alternative Name :- 40FC70~1.MPG -- File
+Size:-___,___,_91,908,096 :-- 91908096
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_05.mpg
+Alternative Name :- 4039EA~1.MPG -- File
+Size:-___,___,__1,306,624 :-- 1306624
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_06 - By The Pool.mpg
+Alternative Name :- 400324~1.MPG -- File
+Size:-___,___,_86,994,944 :-- 86994944
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_07.mpg
+Alternative Name :- 40D353~1.MPG -- File
+Size:-___,___,__5,994,496 :-- 5994496
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_08.mpg
+Alternative Name :- 409592~1.MPG -- File
+Size:-___,___,_64,532,480 :-- 64532480
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_09 - Piano.mpg
+Alternative Name :- 40A1D3~1.MPG -- File
+Size:-___,___,_64,280,576 :-- 64280576
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\09 REDHOT -- 1995\40Vcd - Redhot_10.mpg
+Alternative Name :- 403391~1.MPG -- File
+Size:-___,___,_14,774,272 :-- 14774272
+Date Created:-2009-03-25 00-57-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\10 ERA -- 1995\# TEXT_DATER_10_ERA.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,129 :-- 129
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 12-31-00  Date Last Accessed:-2019-09-13 12-31-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\10 ERA -- 1995\05 Boiler Raper.mpg
+Alternative Name :- 05BOIL~1.MPG -- File
+Size:-___,___,276,162,564 :-- 276162564
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 12-12-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\10 ERA -- 1995\05 Boiler Raper.mpg.FFmpeg-Verify.txt
+Alternative Name :- 05BOIL~1.TXT -- File
+Size:-___,___,___,___,_92 :-- 92
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 12-12-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\10 ERA -- 1995\05 Headmaster.mpg
+Alternative Name :- 05HEAD~1.MPG -- File
+Size:-___,___,258,435,076 :-- 258435076
+Date Created:-2006-12-03 21-41-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 12-12-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\# TEXT_DATER_11_NURSE.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,131 :-- 131
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_01.mpg
+Alternative Name :- 40VCD-~3.MPG -- File
+Size:-___,___,_67,508,224 :-- 67508224
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_01.mpg.FFmpeg-Verify.txt
+Alternative Name :- 40VCD-~1.TXT -- File
+Size:-___,___,___,___,110 :-- 110
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2015-07-06 15-42-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_02 - Biker BJ.mpg
+Alternative Name :- 40VCD-~1.MPG -- File
+Size:-___,___,_58,556,416 :-- 58556416
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_03 - J Holmes.mpg
+Alternative Name :- 40VCD-~4.MPG -- File
+Size:-___,___,_53,157,888 :-- 53157888
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_03 - J Holmes.mpg.FFmpeg-Verify.txt
+Alternative Name :- 40VCD-~2.TXT -- File
+Size:-___,___,___,___,211 :-- 211
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2015-07-06 15-43-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_04 - Bed Linin Room.mpg
+Alternative Name :- 40VCD-~2.MPG -- File
+Size:-___,___,_54,048,768 :-- 54048768
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_05.mpg
+Alternative Name :- 40F6E3~1.MPG -- File
+Size:-___,___,_69,521,408 :-- 69521408
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_05.mpg.FFmpeg-Verify.txt
+Alternative Name :- 40VCD-~3.TXT -- File
+Size:-___,___,___,___,106 :-- 106
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2015-07-06 15-43-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\11 NURSE -- 1984\40Vcd - Nurse_06.mpg
+Alternative Name :- 40BCB4~1.MPG -- File
+Size:-___,___,_68,222,976 :-- 68222976
+Date Created:-2009-03-25 01-27-00  Date Last Modified:-2017-02-18 05-29-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\# TEXT_DATER_12_SEKA.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,130 :-- 130
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_01.mpg
+Alternative Name :- 40VCD-~4.MPG -- File
+Size:-___,___,_50,315,264 :-- 50315264
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_02.mpg
+Alternative Name :- 40VCD-~3.MPG -- File
+Size:-___,___,129,937,408 :-- 129937408
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_03.mpg
+Alternative Name :- 40VCD-~1.MPG -- File
+Size:-___,___,_99,932,160 :-- 99932160
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_04.mpg
+Alternative Name :- 400EC2~1.MPG -- File
+Size:-___,___,_56,289,280 :-- 56289280
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_05 J Holmes.mpg
+Alternative Name :- 40VCD-~2.MPG -- File
+Size:-___,___,_99,489,792 :-- 99489792
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_06 Hurt Ankle Skating.mpg
+Alternative Name :- 40D3DB~1.MPG -- File
+Size:-___,___,115,841,024 :-- 115841024
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-03-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_07.mpg
+Alternative Name :- 40C0BA~1.MPG -- File
+Size:-___,___,145,571,840 :-- 145571840
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_07.mpg.FFmpeg-Verify.txt
+Alternative Name :- 40VCD-~1.TXT -- File
+Size:-___,___,___,___,_92 :-- 92
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2015-07-06 15-51-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_08.mpg
+Alternative Name :- 4043A3~1.MPG -- File
+Size:-___,___,119,582,720 :-- 119582720
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\12 SEKA -- 1984\40Vcd - Seka_09.mpg
+Alternative Name :- 4096EE~1.MPG -- File
+Size:-___,___,_11,442,176 :-- 11442176
+Date Created:-2009-03-25 01-25-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\# TEXT_DATER_13_EARLIER_LATE.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,138 :-- 138
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 12-32-00  Date Last Accessed:-2019-09-13 12-32-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\01 When It Went In It Hurt.mpg
+Alternative Name :- 01WHEN~1.MPG -- File
+Size:-___,___,129,693,700 :-- 129693700
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 12-12-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Dr Jermy.mpg
+Alternative Name :- 02DRJE~1.MPG -- File
+Size:-___,___,182,206,468 :-- 182206468
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-12-00  Date Last Accessed:-2019-09-13 12-12-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Female 2 male 1.mpg
+Alternative Name :- 02FEMA~1.MPG -- File
+Size:-___,___,101,343,236 :-- 101343236
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Lez 01.mpg
+Alternative Name :- 02LEZ0~1.MPG -- File
+Size:-___,___,_98,232,320 :-- 98232320
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Lez 01.mpg.FFmpeg-Verify.txt
+Alternative Name :- 02LEZ0~1.TXT -- File
+Size:-___,___,___,___,161 :-- 161
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Lez 02 An Man.mpg
+Alternative Name :- 02LEZ0~2.MPG -- File
+Size:-___,___,103,714,820 :-- 103714820
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Lez 02 An Man.mpg.FFmpeg-Verify.txt
+Alternative Name :- 02LEZ0~2.TXT -- File
+Size:-___,___,___,___,111 :-- 111
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Taste In Lingerie.mpg
+Alternative Name :- 02TAST~1.MPG -- File
+Size:-___,___,_98,836,484 :-- 98836484
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\13 EARLIER LATE  -- 1985\02 Taste In Lingerie.mpg.FFmpeg-Verify.txt
+Alternative Name :- 02TAST~1.TXT -- File
+Size:-___,___,___,___,_97 :-- 97
+Date Created:-2006-12-04 17-23-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993\# TEXT_DATER_14_LIRA.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,130 :-- 130
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 12-32-00  Date Last Accessed:-2019-09-13 12-32-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993\02 PIANO QUARTET CUT SHORT NOT COMPLETE FROM VIDEO FILM.mpg
+Alternative Name :- 02PIAN~1.MPG -- File
+Size:-___,___,120,209,412 :-- 120209412
+Date Created:-2006-12-03 21-41-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993\03 Car.mpg
+Alternative Name :- 03CAR~1.MPG  -- File
+Size:-___,___,_79,706,116 :-- 79706116
+Date Created:-2006-12-03 21-41-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993\03 Glasses.mpg
+Alternative Name :- 03GLAS~1.MPG -- File
+Size:-___,___,_66,691,076 :-- 66691076
+Date Created:-2006-12-03 21-41-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993\04 Batman.mpg
+Alternative Name :- 04BATM~1.MPG -- File
+Size:-___,___,_51,714,052 :-- 51714052
+Date Created:-2006-12-03 21-41-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\14 LIRA -- 1993\04 Stangler.mpg
+Alternative Name :- 04STAN~1.MPG -- File
+Size:-___,___,_18,571,268 :-- 18571268
+Date Created:-2006-12-03 21-41-00  Date Last Modified:-2019-09-13 12-13-00  Date Last Accessed:-2019-09-13 12-13-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01
+Alternative Name :- 15SQUE~2     -- Directory
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER
+Alternative Name :- 15SQUE~1     -- Directory
+Date Created:-2019-09-13 14-44-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-09-13 14-44-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\# TEXT_DATER_16_STUDIO.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,132 :-- 132
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_01.mpg
+Alternative Name :- 49VCD-~1.MPG -- File
+Size:-___,___,_28,495,872 :-- 28495872
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_01.mpg.FFmpeg-Verify.txt
+Alternative Name :- 49VCD-~1.TXT -- File
+Size:-___,___,___,___,104 :-- 104
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2015-07-06 15-59-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_02.mpg
+Alternative Name :- 49VCD-~2.MPG -- File
+Size:-___,___,_32,917,504 :-- 32917504
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_03.mpg
+Alternative Name :- 493CA2~1.MPG -- File
+Size:-___,___,_45,832,192 :-- 45832192
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_04.mpg
+Alternative Name :- 49VCD-~3.MPG -- File
+Size:-___,___,_77,692,928 :-- 77692928
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_05.mpg
+Alternative Name :- 49C848~1.MPG -- File
+Size:-___,___,198,862,848 :-- 198862848
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_05.mpg.FFmpeg-Verify.txt
+Alternative Name :- 49VCD-~2.TXT -- File
+Size:-___,___,___,___,_99 :-- 99
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2015-07-06 16-00-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_06.mpg
+Alternative Name :- 49BBA2~1.MPG -- File
+Size:-___,___,171,606,016 :-- 171606016
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_07.mpg
+Alternative Name :- 49VCD-~4.MPG -- File
+Size:-___,___,_99,448,832 :-- 99448832
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\16 STUDIO -- 1993\49Vcd - Studio_07.mpg.FFmpeg-Verify.txt
+Alternative Name :- 49VCD-~3.TXT -- File
+Size:-___,___,___,___,_92 :-- 92
+Date Created:-2010-06-30 12-13-00  Date Last Modified:-2015-07-06 16-03-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\# TEXT_DATER_17_OLD.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,129 :-- 129
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_01.mpg
+Alternative Name :- 50VCD-~1.MPG -- File
+Size:-___,___,_82,462,720 :-- 82462720
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_02 - Anal School Girl.mpg
+Alternative Name :- 509241~1.MPG -- File
+Size:-___,___,_87,392,256 :-- 87392256
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50vcd - Old_03.mpg
+Alternative Name :- 50VCD-~2.MPG -- File
+Size:-___,___,__9,175,040 :-- 9175040
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_04 - Uncle Fucker.mpg
+Alternative Name :- 50C800~1.MPG -- File
+Size:-___,___,_72,822,784 :-- 72822784
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_06 - Wild Weekend.mpg
+Alternative Name :- 50VCD-~3.MPG -- File
+Size:-___,___,_83,181,568 :-- 83181568
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_06 - Wild Weekend.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~1.TXT -- File
+Size:-___,___,___,___,111 :-- 111
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2015-07-06 16-17-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_07 - SchoolGirl Screw.mpg
+Alternative Name :- 50VCD-~4.MPG -- File
+Size:-___,___,_65,857,536 :-- 65857536
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2017-02-18 05-32-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_07 - SchoolGirl Screw.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~2.TXT -- File
+Size:-___,___,___,___,100 :-- 100
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2015-07-06 16-18-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\17 OLD -- 1993\50Vcd - Old_08 - Index.mpg
+Alternative Name :- 505C1C~1.MPG -- File
+Size:-___,___,_10,592,256 :-- 10592256
+Date Created:-2009-03-25 00-40-00  Date Last Modified:-2017-02-18 05-32-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\# TEXT_DATER_18_TOOLMAN.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,133 :-- 133
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-48-00  Date Last Accessed:-2019-09-13 09-48-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 01 By the Pool.mpg
+Alternative Name :- 50VCD-~1.MPG -- File
+Size:-___,___,_77,297,668 :-- 77297668
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 02 By Pool 2 Feme 1 Male.mpg
+Alternative Name :- 50VCD-~2.MPG -- File
+Size:-___,___,179,159,044 :-- 179159044
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 02 By Pool 2 Feme 1 Male.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~1.TXT -- File
+Size:-___,___,___,___,_92 :-- 92
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2015-07-06 16-04-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 03 Lez.mpg
+Alternative Name :- 50VCD-~4.MPG -- File
+Size:-___,___,149,895,172 :-- 149895172
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 04 2 Feme 1 Male.mpg
+Alternative Name :- 50VCD-~3.MPG -- File
+Size:-___,___,263,690,244 :-- 263690244
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 05 2 in One.mpg
+Alternative Name :- 50E842~1.MPG -- File
+Size:-___,___,348,690,436 :-- 348690436
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 05 2 in One.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~2.TXT -- File
+Size:-___,___,___,___,_98 :-- 98
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2015-07-06 16-09-00  Date Last Accessed:-2018-10-25 12-05-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\18 TOOLMAN -- 1995\50Vcd - TOOLMAN 06 MF.mpg
+Alternative Name :- 5066E2~1.MPG -- File
+Size:-___,___,170,139,652 :-- 170139652
+Date Created:-2006-12-05 22-36-00  Date Last Modified:-2017-02-18 05-31-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\FFMPEG DOC
+Alternative Name :- FFMPEG~1     -- Directory
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\Lindsey Dawn Mckenzie.mpeg
+Alternative Name :- LINDSE~1.MPE -- File
+Size:-___,___,___,446,464 :-- 446464
+Date Created:-1999-06-10 12-18-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\Madonna Shagging.mpeg
+Alternative Name :- MADONN~1.MPE -- File
+Size:-___,___,___,342,344 :-- 342344
+Date Created:-1999-10-06 09-30-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\Pam And Tommy In Car.mpg
+Alternative Name :- PAMAND~1.MPG -- File
+Size:-___,___,___,598,032 :-- 598032
+Date Created:-1998-02-24 01-21-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\Pam And Tommy Sucking.mpeg
+Alternative Name :- PAMAND~1.MPE -- File
+Size:-___,___,___,811,269 :-- 811269
+Date Created:-1998-02-24 01-21-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\Teri Hatcher Topless.mpeg
+Alternative Name :- TERIHA~1.MPE -- File
+Size:-___,___,___,375,560 :-- 375560
+Date Created:-1999-10-06 09-28-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\01 Bouncing Breasts.mpg
+Alternative Name :- 01BOUN~1.MPG -- File
+Size:-___,___,___,220,751 :-- 220751
+Date Created:-1999-11-18 14-54-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\02 Breast Avalanche.mpg
+Alternative Name :- 02BREA~1.MPG -- File
+Size:-___,___,___,583,332 :-- 583332
+Date Created:-1999-11-18 14-54-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\03 Carwash.mpg
+Alternative Name :- 03CARW~1.MPG -- File
+Size:-___,___,___,751,620 :-- 751620
+Date Created:-1999-11-18 14-54-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\04 Coke.mpg
+Alternative Name :- 04COKE~1.MPG -- File
+Size:-___,___,___,648,453 :-- 648453
+Date Created:-1999-11-18 14-54-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\FFMPEG DOC
+Alternative Name :- FFMPEG~1     -- Directory
+Date Created:-2019-09-13 14-35-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\Strangley Large Guy - King Dong.MP4
+Alternative Name :- STRANG~1.MP4 -- File
+Size:-___,___,___,940,760 :-- 940760
+Date Created:-1999-11-18 14-54-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\# TEXT_DATER_15_SQUELCH_01.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,141 :-- 141
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-50-00  Date Last Accessed:-2019-09-13 09-50-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 01 Office.mpg
+Alternative Name :- 50VCD-~1.MPG -- File
+Size:-___,___,_15,710,693 :-- 15710693
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 01 Office.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~1.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-53-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 02 Cafe.avi
+Alternative Name :- 50VCD-~1.AVI -- File
+Size:-___,___,___,___,___ :-- 0
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2019-08-20 15-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 02 Cafe.avi.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~2.TXT -- File
+Size:-___,___,___,___,119 :-- 119
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-53-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 02 Cafe.mpg
+Alternative Name :- 50VCD-~3.MPG -- File
+Size:-___,___,_48,490,496 :-- 48490496
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 02 Cafe.wmv.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~3.TXT -- File
+Size:-___,___,___,___,119 :-- 119
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-53-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 04 Feme WhiteCoats.mpg
+Alternative Name :- 50VCD-~4.MPG -- File
+Size:-___,___,_63,142,434 :-- 63142434
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 04 Feme WhiteCoats.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~4.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-53-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 05 Jennys_1.mpg
+Alternative Name :- 50VCD-~2.MPG -- File
+Size:-___,___,_27,918,336 :-- 27918336
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 05 Jennys_4.mpg
+Alternative Name :- 504C05~1.MPG -- File
+Size:-___,___,_25,359,241 :-- 25359241
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 05 Jennys_4.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50170E~1.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-54-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 06 Die Orgy.mpg
+Alternative Name :- 508190~1.MPG -- File
+Size:-___,___,191,598,596 :-- 191598596
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 06 Die Orgy.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50EAFD~1.TXT -- File
+Size:-___,___,___,___,408 :-- 408
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-54-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 09 Quick.mpg
+Alternative Name :- 505CD8~1.MPG -- File
+Size:-___,___,_15,828,996 :-- 15828996
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 10 Linecoke.mpg
+Alternative Name :- 507D8A~1.MPG -- File
+Size:-___,___,_70,905,856 :-- 70905856
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 10 Linecoke.mpg.FFmpeg-Verify.txt
+Alternative Name :- 508559~1.TXT -- File
+Size:-___,___,___,___,109 :-- 109
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-56-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 12 Fav.mpg
+Alternative Name :- 503A10~1.MPG -- File
+Size:-___,___,_31,284,643 :-- 31284643
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 12 Fav.mpg.FFmpeg-Verify.txt
+Alternative Name :- 503A97~1.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-56-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 13 Roughw.mpg
+Alternative Name :- 500242~1.MPG -- File
+Size:-___,___,_44,377,703 :-- 44377703
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- 01\50Vcd - SQUELCH 13 Roughw.mpg.FFmpeg-Verify.txt
+Alternative Name :- 509C58~1.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2006-12-05 11-05-00  Date Last Modified:-2015-07-06 15-56-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\# TEXT_DATER_15_SQUELCH_02.txt
+Alternative Name :- #TEXT_~1.TXT -- File
+Size:-___,___,___,___,141 :-- 141
+Date Created:-2019-09-13 14-42-00  Date Last Modified:-2019-09-13 09-50-00  Date Last Accessed:-2019-09-13 09-50-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  03 Car.mpg
+Alternative Name :- 50VCD-~1.MPG -- File
+Size:-___,___,_14,784,694 :-- 14784694
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  03 Car.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~1.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2015-07-06 15-57-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  05 Jennys_1-2.mpg
+Alternative Name :- 50VCD-~4.MPG -- File
+Size:-___,___,_31,227,148 :-- 31227148
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  05 Jennys_1-2.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~2.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2015-07-06 15-57-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  05 Jennys_2-2.mpg
+Alternative Name :- 50VCD-~3.MPG -- File
+Size:-___,___,__1,420,672 :-- 1420672
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  05 Jennys_2-2.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~3.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2015-07-06 15-57-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  05 Jennys_2.mpg
+Alternative Name :- 505CF6~1.MPG -- File
+Size:-___,___,__1,511,424 :-- 1511424
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  05 Jennys_3.mpg
+Alternative Name :- 50VCD-~2.MPG -- File
+Size:-___,___,_10,649,157 :-- 10649157
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  05 Jennys_3.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50VCD-~4.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2015-07-06 15-57-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  07 Index.mpg
+Alternative Name :- 50D72B~1.MPG -- File
+Size:-___,___,_69,274,188 :-- 69274188
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  07 Index.mpg.FFmpeg-Verify.txt
+Alternative Name :- 509747~1.TXT -- File
+Size:-___,___,___,___,242 :-- 242
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2015-07-06 15-57-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  08 Index.mpg
+Alternative Name :- 503362~1.MPG -- File
+Size:-___,___,_59,530,682 :-- 59530682
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2017-02-18 05-30-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\15 SQUELCH -- 1993\15 SQUELCH -- 1993 -- OTHER\50Vcd - SQUELCH  08 Index.mpg.FFmpeg-Verify.txt
+Alternative Name :- 50EE0A~1.TXT -- File
+Size:-___,___,___,___,142 :-- 142
+Date Created:-2007-04-15 04-35-00  Date Last Modified:-2015-07-06 15-58-00  Date Last Accessed:-2018-10-25 12-04-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\FFMPEG DOC\Lindsey Dawn Mckenzie.mpeg.FFmpeg-Verify.txt
+Alternative Name :- LINDSE~1.TXT -- File
+Size:-___,___,___,___,_98 :-- 98
+Date Created:-2015-07-06 21-04-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\FFMPEG DOC\Madonna Shagging.mpeg.FFmpeg-Verify.txt
+Alternative Name :- MADONN~1.TXT -- File
+Size:-___,___,___,___,___ :-- 0
+Date Created:-2015-07-06 21-04-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\FFMPEG DOC\Pam And Tommy In Car.mpg.FFmpeg-Verify.txt
+Alternative Name :- PAMAND~1.TXT -- File
+Size:-___,___,___,___,121 :-- 121
+Date Created:-2015-07-06 21-04-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\FFMPEG DOC\Pam And Tommy Sucking.mpeg.FFmpeg-Verify.txt
+Alternative Name :- PAMAND~2.TXT -- File
+Size:-___,___,___,___,282 :-- 282
+Date Created:-2015-07-06 21-04-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- CELEBRITY\FFMPEG DOC\Teri Hatcher Topless.mpeg.FFmpeg-Verify.txt
+Alternative Name :- TERIHA~1.TXT -- File
+Size:-___,___,___,___,___ :-- 0
+Date Created:-2015-07-06 21-05-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
+D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT\02 FEMALE CONTACT -- 1998\02 CONTACT -- 1998 -- LITTLE\FFMPEG DOC\Strangley Large Guy - King Dong.mpeg.FFmpeg-Verify.txt
+Alternative Name :- STRANG~1.TXT -- File
+Size:-___,___,___,___,478 :-- 478
+Date Created:-2015-07-06 16-39-00  Date Last Modified:-2019-09-13 14-35-00  Date Last Accessed:-2019-09-13 14-35-00
+<-------------------->
