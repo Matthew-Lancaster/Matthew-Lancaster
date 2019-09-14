@@ -300,6 +300,8 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	Reg.exe add "HKCR\Folder\shell\MenuText\Command" /ve /t REG_SZ /d "cmd.exe /K chdir /D \"%%1\"" /f
 	
 
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
 	@REM __ TO SET MY PERSONAL PROGRAM COMMAND IN THE CONTEXT MENU FOR 
 	@REM _________________________________________________________________
 	@REM __ OPEN A FILE IN EXPLORER
@@ -308,44 +310,63 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	@REM __ DELETE AND RECREATE
 	@REM _________________________________________________________________
 	
-	@REM reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\Multi ----" /f
-	@REM reg.exe DELETE "HKLM\Software\Classes\Folder\shell\Multi ---- Foldering" /f
-	@REM reg.exe DELETE "HKLM\Software\Classes\Directory\shell\Multi ---- Directory" /f
-	@REM reg.exe DELETE "HKLM\Software\Classes\Drive\shell\Multi ---- Drive" /f
+	reg.exe DELETE "HKLM\Software\Classes\Drive\shell\Multi -------- Drive XXXXXXXXXXXXXXXXXXXXX" /f
+	reg.exe DELETE "HKLM\Software\Classes\Directory\shell\Multi -------- Directory XXXXXXXXXXXXX" /f
+	Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi -------- XXXXXXXXXXXX" /f
 
-	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\Multi --------" /f
-	reg.exe DELETE "HKLM\Software\Classes\Directory\shell\Multi -------- Directory" /f
-	reg.exe DELETE "HKLM\Software\Classes\Drive\shell\Multi -------- Drive" /f
-	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\Multi -------- Foldering" /f
-	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\Multi -------- Folder" /f
-	rem reg.exe DELETE "HKEY_CLASSES_ROOT\Directory\Background\shell\Multi -------- BackGround Directory" /f
-	REM reg.exe DELETE "HKLM\Directory\Background\shell\Multi -------- BackGround Directory" /f
+	SET NAME_V1=DATE MODIFY ____
+	SET NAME_V2=%NAME_V1% FOLDER
+	SET NAME_V3=D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe
+	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /f
+	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /ve /t REG_SZ /d "%NAME_V2%" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
 	
-	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\Multi ----" /ve /t REG_SZ /d "Multi ----" /f
-	
-	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\Multi ----" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
-	
-	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\Multi ----\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
-	
-	@REM __ OPEN IN
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
+	SET NAME_V1=DATE MODIFY ____
+	SET NAME_V2=%NAME_V1% FOLDER
+	SET NAME_V3=D:\VB6\VB-NT\00_Send_To\Send To TouchDate\#Send To TouchDate.exe
+	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /f
+	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder" /ve /t REG_SZ /d "%NAME_V2%" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
 
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Folder" /ve /t REG_SZ /d "Multi ---- Folder" /f
-	
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Folder" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
 
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\Multi ---- Folder\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
-	
-	Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi -------- BackGround Directory" /f
-	Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi --------" /f
-	rem Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /f
-	rem Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /f
-	
-	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /ve /t REG_SZ /d "Multi ----" /f
-	
-	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\Multi ----" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
 
-	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\Multi ----\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
-	
+
+	REM --------------------------------------------------------------
+	REM --------------------------------------------------------------
 	REM ONE MORE FOR GOOD MEASURE
 	REM NOT SURE WHAT ONE IS PUTTING IN ENTRY FOR CMD.COM BUT FORGETTING ICON
 	REM WHEN ICON IS PUT IN FROM SYSTEM32 IT CHANGES IT TO THIS ONE C:\Windows\SysWow64\cmd.exe

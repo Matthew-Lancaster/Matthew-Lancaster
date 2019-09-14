@@ -2,12 +2,12 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00808080&
    Caption         =   "FormMODIFY DATE AS CREATED DATE1"
-   ClientHeight    =   6132
+   ClientHeight    =   7284
    ClientLeft      =   60
    ClientTop       =   648
    ClientWidth     =   15720
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6132
+   ScaleHeight     =   7284
    ScaleWidth      =   15720
    StartUpPosition =   2  'CenterScreen
    Begin VB.Label LABEL_SET 
@@ -26,7 +26,7 @@ Begin VB.Form Form1
       Left            =   108
       TabIndex        =   2
       Top             =   1152
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "FILE - CREATED DATE TO MODIFY DATE"
@@ -44,7 +44,7 @@ Begin VB.Form Form1
       Left            =   120
       TabIndex        =   10
       Top             =   3468
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "BATCH - CREATED DATE TO MODIFY DATE"
@@ -62,7 +62,7 @@ Begin VB.Form Form1
       Left            =   108
       TabIndex        =   8
       Top             =   2916
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "SET ONE DATE HARDCODER"
@@ -80,7 +80,7 @@ Begin VB.Form Form1
       Left            =   108
       TabIndex        =   7
       Top             =   4080
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "MODIFY DATE TO CREATED DATE - NOT WORKING"
@@ -98,7 +98,7 @@ Begin VB.Form Form1
       Left            =   96
       TabIndex        =   1
       Top             =   2340
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "NOW DATE"
@@ -116,7 +116,7 @@ Begin VB.Form Form1
       Left            =   108
       TabIndex        =   0
       Top             =   1800
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "SET OLDER 1ST DATE TO OTHER IN FOLDER"
@@ -131,12 +131,13 @@ Begin VB.Form Form1
       EndProperty
       Height          =   588
       Index           =   10
-      Left            =   120
+      Left            =   132
       TabIndex        =   11
       Top             =   4692
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
+      Caption         =   "SET ALL DATE FOLDER THE TEXTFILE HOLD DATE WITHIN"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   18
@@ -148,10 +149,10 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   11
-      Left            =   13656
+      Left            =   288
       TabIndex        =   12
-      Top             =   360
-      Width           =   396
+      Top             =   5376
+      Width           =   10812
    End
    Begin VB.Label LABEL_SET 
       BeginProperty Font 
@@ -165,9 +166,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   12
-      Left            =   13968
+      Left            =   14352
       TabIndex        =   13
-      Top             =   348
+      Top             =   1704
       Width           =   396
    End
    Begin VB.Label LABEL_SET 
@@ -182,9 +183,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   13
-      Left            =   13968
+      Left            =   13872
       TabIndex        =   14
-      Top             =   348
+      Top             =   1008
       Width           =   396
    End
    Begin VB.Label LABEL_SET 
@@ -389,10 +390,10 @@ Begin VB.Form Form1
       EndProperty
       Height          =   588
       Index           =   1
-      Left            =   108
+      Left            =   12768
       TabIndex        =   4
-      Top             =   5376
-      Width           =   10500
+      Top             =   5028
+      Width           =   1632
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "FILE LABEL"
@@ -410,7 +411,7 @@ Begin VB.Form Form1
       Left            =   108
       TabIndex        =   9
       Top             =   612
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label LABEL_SET 
       Caption         =   "FOLDER LABEL"
@@ -428,7 +429,7 @@ Begin VB.Form Form1
       Left            =   120
       TabIndex        =   3
       Top             =   48
-      Width           =   10500
+      Width           =   11100
    End
    Begin VB.Label Label_COLOR_GREEN 
       BackColor       =   &H00C0FFC0&
@@ -602,60 +603,6 @@ SetFileDateTime = lRet > 0
 End Function
 
 
-
-
-
-Private Sub LABEL_SET_Click(index As Integer)
-
-LABEL_SET(index).BackColor = Label_COLOR_YELLOW.BackColor
-If M(index) <> "GO" Then
-    WORK = M(index)
-End If
-
-Select Case M(index)
-
-Case 2
-    ' FOLDER BUTTON
-    ' LABEL_SET(2)
-Case 3
-    ' FILE BUTTON
-    ' LABEL_SET(3)
-
-Case "PERFORM ON ALL FILES IN FOLDER OR FILE"
-    ' Call Label3_Click
-    
-Case "NOW DATE"
-    Call Label1_Click
-    
-Case "MODIFY DATE TO CREATED DATE - NOT WORKING"
-    Call Label2_Click
-    
-Case "BATCH - CREATED DATE TO MODIFY DATE"
-    Call Label9_Click
-    
-Case "FILE  - CREATED DATE TO MODIFY DATE"
-    Call Label11_Click
-    
-Case "SET_ONE_DATE_HARDCODER"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    
-Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-
-Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    
-Case "GO"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    Call Label_GO_AH_Click
-    
-End Select
-
-End Sub
-
-
-
-
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 
 If KeyCode = 27 Then End
@@ -730,7 +677,6 @@ If Command$ = "" And W$ = "" Then
     End If
 End If
 
-
 If Mid(W$, 1, 1) = """" Then
     W$ = Mid(W$, 2): W$ = Mid(W$, 1, Len(W$) - 1)
 End If
@@ -763,9 +709,13 @@ End If
 
 'FOLDER LABEL
 LABEL_SET(2).Caption = W$
+If W$ = "" Then LABEL_SET(2).Caption = "NOT FOLDER GIVEN"
 
 'FILE LABEL
 LABEL_SET(3).Caption = FULL_PATH_AND_FILENAME
+If FULL_PATH_AND_FILENAME = "" Then LABEL_SET(3).Caption = "NOT FILE GIVEN"
+
+LABEL_SET(1).BackColor = Label_COLOR_YELLOW.BackColor
 
 End Sub
 
@@ -790,6 +740,8 @@ i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
 i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "SET ALL DATE FOLDER TO THE TEXTFILE HOLD DATE WITHIN AH"
 
 For r = 1 To LABEL_SET.Count
     If M(r) <> "Folder Label" Then
@@ -848,12 +800,68 @@ Me.Top = 0
 End Sub
 
 
+Private Sub LABEL_SET_Click(index As Integer)
+
+If M(index) <> "GO" Then
+    WORK = M(index)
+End If
+
+Select Case M(index)
+
+Case 2
+    ' FOLDER BUTTON
+    ' LABEL_SET(2)
+Case 3
+    ' FILE BUTTON
+    ' LABEL_SET(3)
+
+Case "PERFORM ON ALL FILES IN FOLDER OR FILE"
+    ' Call Label3_Click
+    
+Case "NOW DATE"
+    Call Label1_Click
+    
+Case "MODIFY DATE TO CREATED DATE - NOT WORKING"
+    Call Label2_Click
+    
+Case "BATCH - CREATED DATE TO MODIFY DATE"
+    Call Label9_Click
+    
+Case "FILE  - CREATED DATE TO MODIFY DATE"
+    Call Label11_Click
+    
+Case "SET_ONE_DATE_HARDCODER"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    
+Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
+Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    
+Case "SET ALL DATE FOLDER TO THE TEXTFILE HOLD DATE WITHIN AH"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    
+    
+Case "GO"
+    If LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor Then
+        LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor + 30
+        LABEL_SET(1).Refresh
+        DoEvents
+        Call Label_GO_AH_Click
+    End If
+    
+End Select
+
+End Sub
+
+
+
 
 Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
-
     
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
-    ScanPath.txtPath.Text = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy"
+    ' ScanPath.txtPath.Text = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy"
     
     If Len(ScanPath.txtPath.Text) < 5 Then
         MsgBox "PATH TO SHORT -- EXIT"
@@ -907,7 +915,6 @@ End Sub
 Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
-    ScanPath.txtPath.Text = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy"
     
     If Len(ScanPath.txtPath.Text) < 5 Then
         MsgBox "PATH TO SHORT -- EXIT"
@@ -957,7 +964,84 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     End
 End Sub
     
+Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
 
+    
+    ScanPath.txtPath.Text = LABEL_SET(2).Caption
+'    ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT_02_(DATE-ALPHABETICAL)\1984 a11 -- NURSE -- 1984"
+    
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        
+        Set F = FSO.GetFile(A1$ + B1$)
+        DT2 = F.DateCreated
+        DT1 = F.datelastmodified
+        
+        If DT4 = 0 Then DT4 = DT1
+        If DT1 < DT4 Then DT4 = DT1
+        
+        Set F = Nothing
+        
+    Next
+    
+    XX = Dir(ScanPath.txtPath.Text + "\# TEXT_DATER*.txt")
+    If XX = "" Then
+        MsgBox "NONE DATE WITHIN TEXT FILE FOUND HERE" + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\# TEXT_DATER*.txt" + vbCrLf + vbCrLf + "-- EXIT"
+        End
+    End If
+        
+    fr1 = FreeFile
+    Open ScanPath.txtPath.Text + "\" + XX For Input As #fr1
+        Line Input #fr1, TIME_STRING
+    Close fr1
+    
+    DT4 = DateValue(TIME_STRING) + TimeValue(TIME_STRING)
+    If IsDate(DT4) = False Then
+        MsgBox "DATE FOUND WITHIN TEXT FILE FOUND HERE" + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+        End
+    End If
+    
+    If DT4 = 0 Then
+        MsgBox "NAUGHT DATE FOUND IN FILE GATHER -- EXIT"
+        End
+    End If
+    
+    If TimeValue(TIME_STRING) = 0 Then
+        ' ADD A BIT ON DATE FOR DAYLIGHT SAVING AND NTFS AT EXACT MIDNIGHT
+        ' ----------------------------------------------------------------
+        DT4 = DT4 + TimeSerial(2, 0, 0)
+    End If
+    MM_1 = Format(DT4, "DD-MM-YYYY  HH:MM:SS  DDDD")
+    MM_1 = MM_1 + vbCrLf
+    MM_1 = MM_1 + ScanPath.ListView1.ListItems.Item(1).SubItems(1) + vbCrLf
+    MM_1 = MM_1 + vbCrLf
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        TT = SetFileDateTime(A1$ + B1$, DT4)
+        XC = XC + 1
+        MM_1 = MM_1 + B1$ + vbCrLf
+    Next
+    
+    MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End
+
+End Sub
 
 
 Sub BATCH_MODIFIED_TO_CREATED_TIME()
@@ -1351,15 +1435,23 @@ If WORK = "FILE_CREATED_TO_MODIFIED_TIME" = True Then
     Exit Sub
 End If
 
-If WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER" Then
-    Call SET_OLDER_DATE_TO_OTHER_IN_FOLDER
-    Exit Sub
-End If
 
 If WORK = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER" Then
     Call SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER
     Exit Sub
 End If
+
+If WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER" Then
+    Call SET_OLDER_DATE_TO_OTHER_IN_FOLDER
+    Exit Sub
+End If
+
+If WORK = "SET ALL DATE FOLDER TO THE TEXTFILE HOLD DATE WITHIN AH" Then
+    Call SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH
+    Exit Sub
+End If
+
+
 
 If WORK = "SET_ONE_DATE_HARDCODER" = True Then
     
