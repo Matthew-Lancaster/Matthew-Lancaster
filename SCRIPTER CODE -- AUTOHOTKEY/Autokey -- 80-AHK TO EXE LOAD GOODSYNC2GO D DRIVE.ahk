@@ -44,10 +44,32 @@ GO_ROUTINE:
 	SoundBeep , 1500 , 400
 	; IF (A_ComputerName="4-ASUS-GL522VW") 	
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-
+	
+	; ---------------------------------------------------------------
+	FN_VAR_TMP_FILE=C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\
+	PATH_NAME_2=%FN_VAR_TMP_FILE%*.TXT
+	
+	LOOP, %PATH_NAME_2%
+	{
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		NUMBER := A_INDEX
+	}
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	IF NUMBER>0 THEN 
+	{
+		T1=VB_KEEP_RUNNER AND AHK
+		T2=Autokey -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.ahk
+		T3=DETECT D_HDD_GOODSYNC2GO IS RUNNER
+		T4=NOT TO RUN TWO
+		MSGBOX % T1 "`n`n" T2 "`n`n" T3 "`n`n" T4
+		EXITAPP
+	}
+	; ---------------------------------------------------------------
+	
 	DRIVE_LETTER=
 	DL=D
-	
+
 	IF DL=D
 		ICON_GOT=GoodSync-inst_155.ico
 	IF DL=C
