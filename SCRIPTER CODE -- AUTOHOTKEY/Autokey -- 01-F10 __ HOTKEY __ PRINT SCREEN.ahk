@@ -131,6 +131,16 @@ WSCRIPT_FOCUS_SET_FLAG_02=
 SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
 
 
+
+; ClipBoard_VIEWER - Microsoft Visual Basic [design] - [FRM_ClipTest (Code)]
+
+
+
+#IfWinActive, Microsoft Visual Basic [design]
+F5::SEND ^{f5}
+
+
+
 RETURN
 
 WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
@@ -390,6 +400,8 @@ TIMER_HOTKEY:
 		ControlSetText,Button1,&Yes  %Secs_MSGBOX_04%, %VAR_IN_NAME%
 	}
 RETURN
+
+
 
 *~ESC::
 	GOSUB CHECK_ESC_KEY

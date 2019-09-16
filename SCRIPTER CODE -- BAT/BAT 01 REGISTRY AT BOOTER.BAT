@@ -316,52 +316,75 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 
 	SET NAME_V1=DATE MODIFY ____
 	SET NAME_V2=%NAME_V1% FOLDER
-	SET NAME_V3=D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe
+	SET NAME_V3=%NAME_V1% DRIVE
+	SET NAME_V4=D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe
 	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /f
 	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
-	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
-	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V4%" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V4%\" \"%%1\"" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /ve /t REG_SZ /d "%NAME_V2%" /f
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /v "icon" /t REG_SZ /d "%NAME_V4%" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2%\Command" /ve /t REG_SZ /d "\"%NAME_V4%\" \"%%1\"" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
-	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
-	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V4%" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V4%\" \"%%1\"" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
+	Reg.exe add "HKLM\Software\Classes\Drive\shell\%NAME_V3%" /ve /t REG_SZ /d "%NAME_V3%" /f
+	Reg.exe add "HKLM\Software\Classes\Drive\shell\%NAME_V3%" /v "icon" /t REG_SZ /d "%NAME_V4%" /f
+	Reg.exe add "HKLM\Software\Classes\Drive\shell\%NAME_V3%\Command" /ve /t REG_SZ /d "\"%NAME_V4%\" \"%%1\"" /f
+
 	
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 	SET NAME_V1=DATE MODIFY ____
 	SET NAME_V2=%NAME_V1% FOLDER
-	SET NAME_V3=D:\VB6\VB-NT\00_Send_To\Send To TouchDate\#Send To TouchDate.exe
+	SET NAME_V4=D:\VB6\VB-NT\00_Send_To\Send To TouchDate\#Send To TouchDate.exe
 	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /f
 	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
-	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
-	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V4%" /f
+	Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V4%\" \"%%1\"" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder" /ve /t REG_SZ /d "%NAME_V2%" /f
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
-	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder" /v "icon" /t REG_SZ /d "%NAME_V4%" /f
+	Reg.exe add "HKLM\Software\Classes\Folder\shell\%NAME_V2% Folder\Command" /ve /t REG_SZ /d "\"%NAME_V4%\" \"%%1\"" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /ve /t REG_SZ /d "%NAME_V1%" /f
-	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V3%" /f
-	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V3%\" \"%%1\"" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%" /v "icon" /t REG_SZ /d "%NAME_V4%" /f
+	Reg.exe add "HKLM\Software\Classes\Directory\Background\shell\%NAME_V1%\Command" /ve /t REG_SZ /d "\"%NAME_V4%\" \"%%1\"" /f
 	REM --------------------------------------------------------------
 	REM --------------------------------------------------------------
 
+	@REM ______________________________________________________________________
+	@REM __ OPEN IN ____ Directory and FOLDER APPEAR TO BE SLIGHTLY THE SAME AT FIRST LOOK
+	@REM ______________________________________________________________________
+	@REM __ IS NOT MUCH LEARN FOR FOLDER SO MIGHT BE BETTER LEARN DIRECTORY
+	@REM __ MOSTLY HOW EXPLORER USE HER GUESS
+	@REM ______________________________________________________________________
+	@REM __ THE DIRECTORY HAPPEN WHEN FILE OF /SELECT EXPLORER LIKE RIGHT HAND PANE
+	@REM __ AND NOT ON ROOT  THINKER SORTING
+	@REM __ WHEN QUOTE AROUND LONG STRING WITH OTHER QUOTER USE SLASH IN FRONT OF
+	@REM __ THE ONE INSIDE LIKE HERE (" /" ")
+	@REM __ AND THE % IN BATCH FILE HAS TO BE DOUBLE TO MAKE SHOW AS ONE
+	@REM ______________________________________________________________________
+
+	@REM __ HKLM\SOFTWARE\Classes\*
+	@REM __ HKLM\Software\Classes\Folder\shell\yourappname\command
+	@REM __ HKLM\Software\Classes\Directory\shell\yourappname\command
+	@REM __ HKLM\Software\Classes\Drive\shell\yourappname\command
+	
 
 
 
@@ -397,35 +420,9 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	REM HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\explore
 	REM -------------------------------------------------------------
 	REM THAT MUCKED UP MY DESKTOP ICONS NOW GONE BLACK _ TRY REBOOT
-	EM DESKTOP CAME BACK AFTER WORKING ON SOMETHING OTHER
+	REM DESKTOP CAME BACK AFTER WORKING ON SOMETHING OTHER
 	REM -------------------------------------------------------------
 	
-	
-	@REM ______________________________________________________________________
-	@REM __ OPEN IN ____ Directory and FOLDER APPEAR TO BE SLIGHTLY THE SAME AT FIRST LOOK
-	@REM ______________________________________________________________________
-	@REM __ IS NOT MUCH LEARN FOR FOLDER SO MIGHT BE BETTER LEARN DIRECTORY
-	@REM __ MOSTLY HOW EXPLORER USE HER GUESS
-	@REM ______________________________________________________________________
-	@REM __ THE DIRECTORY HAPPEN WHEN FILE OF /SELECT EXPLORER LIKE RIGHT HAND PANE
-	@REM __ AND NOT ON ROOT  THINKER SORTING
-	@REM __ WHEN QUOTE AROUND LONG STRING WITH OTHER QUOTER USE SLASH IN FRONT OF
-	@REM __ THE ONE INSIDE LIKE HERE (" /" ")
-	@REM __ AND THE % IN BATCH FILE HAS TO BE DOUBLE TO MAKE SHOW AS ONE
-	@REM ______________________________________________________________________
-
-	Reg.exe add "HKLM\Software\Classes\Directory\shell\Multi ---- Directory" /ve /t REG_SZ /d "Multi ---- Directory" /f
-	Reg.exe add "HKLM\Software\Classes\Directory\shell\Multi ---- Directory" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
-	Reg.exe add "HKLM\Software\Classes\Directory\shell\Multi ---- Directory\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
-
-	Reg.exe add "HKLM\Software\Classes\Drive\shell\Multi ---- Drive" /ve /t REG_SZ /d "Multi ---- Drive" /f
-	Reg.exe add "HKLM\Software\Classes\Drive\shell\Multi ---- Drive" /v "icon" /t REG_SZ /d "D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe" /f
-	Reg.exe add "HKLM\Software\Classes\Drive\shell\Multi ---- Drive\Command" /ve /t REG_SZ /d "\"D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe\" \"%%1\"" /f
-
-	@REM __ HKLM\SOFTWARE\Classes\*
-	@REM __ HKLM\Software\Classes\Folder\shell\yourappname\command
-	@REM __ HKLM\Software\Classes\Directory\shell\yourappname\command
-	@REM __ HKLM\Software\Classes\Drive\shell\yourappname\command
 	
 	
 	
