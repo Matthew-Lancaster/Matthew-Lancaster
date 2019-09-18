@@ -3297,8 +3297,11 @@ Private Sub Form_Load()
     App.title = "VB_KEEP_RUNNER"
     Me.Caption = "VB_KEEP_RUNNER"
 
+    ' i = FindWinPart_IS_IN_VB_IDE(Me.Caption)
+
+
     If App.PrevInstance = True And IsIDE = False Then
-        i = FindWinPart_SEARCHER_NOT_ME("VB_KEEP_RUNNER")
+        i = FindWinPart_SEARCHER_NOT_ME(Me.Caption)
         ' MsgBox i
         If i > 0 Then
             ShowWindow i, SW_SHOW
@@ -3311,7 +3314,7 @@ Private Sub Form_Load()
     
     If App.PrevInstance = True And IsIDE = True Then
         'i = FindWindow(vbNullString, Me.Caption)
-        i = FindWinPart_SEARCHER_NOT_ME("VB_KEEP_RUNNER")
+        i = FindWinPart_SEARCHER_NOT_ME(Me.Caption)
         ShowWindow i, SW_NORMAL
     '        On Error Resume Next
         SetWindowPos i, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
@@ -5325,7 +5328,6 @@ Dim i, R
 Dim SET_COMPUTER_TO_RUN_2
 Dim GET_COMPUTER_NAME
 
-
 Dim AR_1(8)
 i = 0
 i = 1: AR_1(i) = "1-ASUS-X5DIJ"
@@ -5382,7 +5384,10 @@ Err.Clear
 FR1 = FreeFile
 On Error Resume Next
 Open SET_COMPUTER_TO_RUN_2 For Output As #FR1
-    Print #FR1, "Kill__ CMD.EXE";
+    Print #FR1, "#KILLER__"
+    Print #FR1, "CMD.EXE"
+    Print #FR1, "CONHOST.EXE"
+    ' C:\Windows\System32\icacls.exe
 Close #FR1
 
 Debug.Print SET_COMPUTER_TO_RUN_2
@@ -5405,9 +5410,10 @@ Label_1X.BackColor = RGB(255, 255, 255)
 SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+        
+' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
 
 Call MAKE_COMPUTER_PATH_WORKING
-
 End Sub
 
 Private Sub Label_2E_Click()
@@ -5422,6 +5428,8 @@ Label_2E.BackColor = RGB(255, 255, 255)
 SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
 
 Call MAKE_COMPUTER_PATH_WORKING
 
@@ -5439,6 +5447,8 @@ SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
 
+' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
+
 Call MAKE_COMPUTER_PATH_WORKING
 
 End Sub
@@ -5454,6 +5464,8 @@ Label_4G.BackColor = RGB(255, 255, 255)
 SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
 
 Call MAKE_COMPUTER_PATH_WORKING
 
@@ -5471,6 +5483,8 @@ SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
 
+' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
+
 Call MAKE_COMPUTER_PATH_WORKING
 
 End Sub
@@ -5487,6 +5501,8 @@ SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
 
+' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
+
 Call MAKE_COMPUTER_PATH_WORKING
 
 End Sub
@@ -5502,6 +5518,8 @@ Label_8M.BackColor = RGB(255, 255, 255)
 SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
 
 'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
 
 Call MAKE_COMPUTER_PATH_WORKING
 
@@ -8319,6 +8337,24 @@ Me.WindowState = vbMinimized
 End Sub
 
 Private Sub MNU_VB_ME_Click()
+    
+    Dim HWND_REULT
+    Dim MSGBOXi
+    HWND_REULT = FindWinPart_IS_IN_VB_IDE(Me.Caption)
+    If HWND_REULT > 0 Then
+        
+        ShowWindow HWND_REULT, SW_MAXIMIZE
+        Me.WindowState = vbMinimized
+        
+        MSGBOXi = "ALREADY RUNNER IN VB IDE" + vbCrLf + vbCrLf + Me.Caption + vbCrLf + vbCrLf
+        MSGBOXi = MSGBOXi + "SHOVE IT ON" + vbCrLf + vbCrLf
+        MSGBOXi = MSGBOXi + "HERE WE ARE" + vbCrLf + vbCrLf
+        MSGBOXi = MSGBOXi + "BRING TO FRONT" + vbCrLf + vbCrLf
+        MSGBOXi = MSGBOXi + "EXIT CODE" ' + vbCrLf + vbCrLf
+        MsgBox MSGBOXi, vbMsgBoxSetForeground
+        End
+        Exit Sub
+    End If
     
     Dim CODER_VBP_FILE_NAME_2
     Dim VB_1, VB_2, VB_3
@@ -14293,6 +14329,43 @@ Function FindWinPart_SEARCHER_hWnd_TO_EXE(SEARCH_STRING) As Long
     Loop
 End Function
 
+Function FindWinPart_IS_IN_VB_IDE(SEARCH_STRING_1) As Long
+    FindWinPart_IS_IN_VB_IDE = False
+    Dim test_hWnd As Long, _
+        test_pid As Long, _
+        test_thread_id As Long
+    Dim cText As String
+    Dim CLASS_NAME As String
+    Dim XGO_1, XGO_2
+    Dim WT
+    Dim SEARCH_STRING_2
+    Dim CLASS_NAME_______________
+    'Find the first window
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    SEARCH_STRING_2 = Replace(SEARCH_STRING_1, "_", " ") ' LIKE VBKEEPRUNNER HAS TO DO
+    Do While test_hWnd <> 0
+        XGO_1 = False
+        XGO_2 = False
+        WT = UCase(GetWindowTitle(test_hWnd))
+        Debug.Print WT
+        If InStr(WT, UCase("Microsoft Visual Basic [")) > 0 Then
+            XGO_1 = True
+        End If
+        If InStr(WT, UCase(SEARCH_STRING_1)) > 0 Then
+            XGO_2 = True
+        End If
+        If InStr(WT, UCase(SEARCH_STRING_2)) > 0 Then
+            XGO_2 = True
+        End If
+        
+        If XGO_1 = True And XGO_2 = True Then
+            FindWinPart_IS_IN_VB_IDE = test_hWnd
+            Exit Function
+        End If
+        'retrieve the next window
+        test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    Loop
+End Function
 
 Function FindWinPart_SEARCHER_NOT_ME(SEARCH_STRING) As Long
     FindWinPart_SEARCHER_NOT_ME = False
