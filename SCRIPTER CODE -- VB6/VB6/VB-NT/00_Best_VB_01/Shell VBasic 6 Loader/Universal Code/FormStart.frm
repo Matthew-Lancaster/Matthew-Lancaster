@@ -334,7 +334,15 @@ B1$ = ScanPath.ListView1.ListItems.Item(Index)
 ChDrive Mid$(A1$, 1, 2)
 ChDir A1$
 
-If LoadFolder = True Then Shell "Explorer.exe /select, " + A1$ + B1$, vbNormalFocus: Unload Form1: Exit Sub ': End
+If LoadFolder = True Then
+    Shell "Explorer.exe /select, " + A1$ + B1$, vbNormalFocus: Unload Form1
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+
+    Exit Sub ': End
+
+End If
+
 
 'Load File From Link
 LINK_DATA = A1$ + B1$
@@ -355,7 +363,11 @@ If InStr(LCase(B1$), ".lnk") > 0 Then
         i = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
         If i = vbYes Then
             Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
+                
+            If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+            
             Unload Form1
+
             Exit Sub
         End If
         Exit Sub
@@ -384,6 +396,9 @@ End If
 
 If LoadFolderFile = True Then
     Shell "explorer /e, /select, " + LINK_DATA, vbNormalFocus
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+    
     Unload Form1
     Exit Sub
 End If
@@ -445,6 +460,9 @@ If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then
     
     
     Shell VBPATH + " """ + A1$ + B1$ + """", vbNormalFocus
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+    
     End
 End If
 
@@ -452,7 +470,11 @@ End If
 
 
 vLaunch A1$ + B1$, vbNullString
+
+If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+
 Unload Form1
+
 
 Exit Sub
 End
@@ -509,6 +531,3 @@ End
 
 End Sub
 
-Private Sub Form_Load()
-
-End Sub

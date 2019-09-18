@@ -13,6 +13,8 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 
+Public ACCU
+
 ' Example
 ' Form or Module
 ' Public cProcesses As New clsCnProc
@@ -508,6 +510,16 @@ Public Sub CloseProcesses()
         '#### Reset the class
     Call Class_Terminate
     Call Class_Initialize
+    
+    ' --------------------------------------------------
+    ' NASTY ERROR HERE
+    ' --------------------------------------------------
+    ' WHY INIT AGAIN - YES CORRECTOR
+    ' --------------------------------------------------
+    ' ONLY PASS VAIRBALE STRING AS PARAMAMETER THE CLASS
+    ' NOT FIXED TYPE LIKE APP.PATH
+    ' --------------------------------------------------
+    
 End Sub
 
 
@@ -891,6 +903,81 @@ GetEXEID_Close:
     'If sRunningEXE = "" Then sRunningEXE = sRunningEXE_ENTRY
 
 End Function
+
+
+
+'#####################################################################################
+'# Private subs/functions
+'#####################################################################################
+'#########################################################
+'#########################################################
+Public Function GetEXEID_KILL_ALL_INSTANCE(ByRef sRunningEXE As String) As Long
+        '#### Default the return value
+        '#### If we're able to successfully open the processes
+    Dim VAR
+    
+    ' MUST GIVE THE VARIABLE A VALUE OR ERROR EVENT AS EXIT
+    ' -----------------------------------------------------
+    GetEXEID_KILL_ALL_INSTANCE = -1
+    
+    If (OpenProcesses()) Then
+            '#### Get the name of the EXE
+        sRunningEXE = UCase(GetFileName(sRunningEXE))
+            '#### Do while we still have processes
+        Do
+            If (InStr(1, UCase(sEXEName), UCase(sRunningEXE), vbBinaryCompare) > 0) Then
+                VAR = cProcesses.Process_Kill(lProcessID)
+                If GetEXEID_KILL_ALL_INSTANCE = -1 Then GetEXEID_KILL_ALL_INSTANCE = 0
+                GetEXEID_KILL_ALL_INSTANCE = GetEXEID_KILL_ALL_INSTANCE + 1
+            End If
+        Loop While (NextProcess())
+    End If
+
+    '#### Close the class
+    Call CloseProcesses
+
+    ' --------------------------------------------------
+    ' NASTY ERROR HERE
+    ' --------------------------------------------------
+    ' WHY INIT AGAIN - YES CORRECTOR
+    ' --------------------------------------------------
+    ' ONLY PASS VAIRBALE STRING AS PARAMAMETER THE CLASS
+    ' NOT FIXED TYPE LIKE APP.PATH
+    ' --------------------------------------------------
+
+End Function
+
+
+'#####################################################################################
+'# Private subs/functions
+'#####################################################################################
+'#########################################################
+'# Returns a windows EXE and Process_COUNT from the passed EXE
+'#########################################################
+Public Function GetEXEID_COUNT(ByRef sRunningEXE As String) As Long
+        '#### Default the return value
+    GetEXEID_COUNT = -1
+        '#### If we're able to successfully open the processes
+    If (OpenProcesses()) Then
+            '#### Get the name of the EXE
+        sRunningEXE = UCase(GetFileName(sRunningEXE))
+
+            '#### Do while we still have processes
+        Do
+            If (InStr(1, UCase(sEXEName), UCase(sRunningEXE), vbBinaryCompare) > 0) Then
+                ' lProcessID
+                If GetEXEID_COUNT = -1 Then GetEXEID_COUNT = 0
+                GetEXEID_COUNT = GetEXEID_COUNT + 1
+                sRunningEXE = TrimNull(sEXEName)
+            End If
+        Loop While (NextProcess())
+    End If
+
+    '#### Close the class
+    Call CloseProcesses
+
+End Function
+
 
 
 

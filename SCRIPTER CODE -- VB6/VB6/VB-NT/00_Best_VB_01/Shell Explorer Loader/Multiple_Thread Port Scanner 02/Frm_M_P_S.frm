@@ -678,6 +678,9 @@ If IsIDE = False Then
     FSO.GetStandardStream(StdOut).WriteLine ""
     RUN_TIME = "Run Time =" + Str((Int(Now) + Timer) - RUN_TIME_X) + " Seconds"
     FSO.GetStandardStream(StdOut).WriteLine RUN_TIME
+    
+    FSO.CopyFile Filename_VAR, "C:\"
+    
     End
 
 

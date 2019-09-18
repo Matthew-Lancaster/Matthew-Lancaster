@@ -278,15 +278,21 @@ SET TITLE_VAR=%~f0
 TITLE !TITLE_VAR!
 ECHO.
 
+
+
+
 REM ---------------------------------------------------------------- 
 SET LDA=0
+
+REM GOTO JUMP_TO_WHOLE_DRIVE
+
 REM ---------------------------------------------------------------- 
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="K:\VI_ DSC ME"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="D:\0 CLOUD\GD-INSYNC"
-SET /A LDA=LDA+1
-SET Sources[!LDA!]="D:\VB6-ARC"
+REM SET /A LDA=LDA+1
+REM SET Sources[!LDA!]="K:\VI_ DSC ME"
+REM SET /A LDA=LDA+1
+REM SET Sources[!LDA!]="D:\0 CLOUD\GD-INSYNC"
+REM SET /A LDA=LDA+1
+REM SET Sources[!LDA!]="D:\VB6-ARC"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="D:\VB6"
 SET /A LDA=LDA+1
@@ -516,6 +522,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		REM ----
 	)
 )
+
+
 
 
 SET GET_SIZE_OF_WORK_COUNTER_VALUE=FALSE
