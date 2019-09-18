@@ -12,7 +12,61 @@
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-;
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 001
+; ---------------------------------------------------------------
+; CREATION 
+; ---------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 002
+; ---------------------------------------------------------------
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; 01. INTRO SETUP MENU
+; 02. THE MENU ROUTINE
+; 03. ANY ROUTINE THE MENU USE
+; ---------------------------------------------------------------
+; SAVER OF RSI INJURY AND MORE ACCURATE
+; THE INCLUDE FILE ARE SAME FOLDER
+; ---------------------------------------------------------------
+; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
+; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
+; ---------------------------------------------------------------
+; Create the popup menu by adding some items to it.
+; MenuHandler:
+; ---------------------------------------------------------------
+; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
+; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
+; ---------------------------------------------------------------
+; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 003
+; -------------------------------------------------------------------
+; GOSUB CHECK_ESC_KEY
+; -------------------------------------------------------------------
+; ONLY USER UP NOT DOWN
+; UP ON OWN NOT WORK -- REQUIRE A HOTKEY DOWN STATE ALSO
+; BEEN THROUGH BEFORE -- *~ESC UP::
+; RESULT AT LAST USE GetKeyState, state, ESC  -- UP THING A ME JIG
+; NOT DOUBEL HITT
+; HARD THINK ANOTHER WAY TO DO THAT THING
+; SURE REPEATER KEY NOT WORK IF LOOK LAST KEY
+; -------------------------------------------------------------------
+; A TREAT CODER TO DO AFTER EVERY THING ELSE TODAY WAS ADD ROUTINE TO 
+; ADD AN OPTION TO TOGGLE THE "SEARCH RESULTS WINDOW NOTEPAD-PLUS-PLUS
+; TOOK A SEARCH TO FINDER -- CREDIT LINK BELOW
+; -------------------------------------------------------------------
+; Tue 17-Sep-2019 15:25:01
+; Tue 17-Sep-2019 18:05:00 -- 2 HOUR
+; -------------------------------------------------------------------
+
+
 
 ; -------------------------------------------------------------------
 ;WANT SELECT ALL LINE AND PASTE ONTO IT
@@ -32,11 +86,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;# ------------------------------------------------------------------
 
 
-;
 ; -------------------------------------------------------------------
 #SingleInstance force
 ; -------------------------------------------------------------------
-
 
 
 ; -------------------------------------------------------------------
@@ -74,12 +126,10 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 SoundBeep , 1500 , 400
 SetStoreCapslockMode, off
-
-SETTIMER TIMER_PREVIOUS_INSTANCE,1
-
-SETTIMER TIMER_ENTER,OFF
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
+
+SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 GLOBAL VAR_COUNTER
 
@@ -109,9 +159,12 @@ OLD_STATE_XYPOSCOUNTER=0
 
 OLD_HWND_4=0
 
+SETTIMER TIMER_ENTER,OFF
+
 ; HERE THE FUNCTION ROUTINE FOR GOODSYNC
 ; --------------------------------------
 GOSUB F5_ROUTINE
+; --------------------------------------
 
 SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,100
 
@@ -119,29 +172,147 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 
 MESSENGER_KEY=
 
+; -------------------------------------------------------------------
 O_ID=0
 OLD_id=0
 OLD_Title_VAR=0
 OLD_STATE_CAP=0
 OutputVar_4=0
+; -------------------------------------------------------------------
 SETTIMER WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON,100
 
+; -------------------------------------------------------------------
 WSCRIPT_FOCUS_SET_FLAG_01=
 WSCRIPT_FOCUS_SET_FLAG_02=
+; -------------------------------------------------------------------
 SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
 
+ESCAPE_KEY_COUNT=0
 
 
-; ClipBoard_VIEWER - Microsoft Visual Basic [design] - [FRM_ClipTest (Code)]
+
+
+
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; THE CODE START TO ENTER ROUTINE FUNCTION THAT USE RETURN ON FROM 
+; HERE
+; NOT FOR SURE TRUE THAT INITIAL CODE END AS 
+; FUNCTION SET WITH RETURN AFTER 
+; THE MAIN RETURN COULD COME HERE
+; MAYBE A TIDIER -- CHECK OUT LATER
+; Tue 17-Sep-2019 18:15:00
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
 
 
 
 #IfWinActive, Microsoft Visual Basic [design]
 F5::SEND ^{f5}
+RETURN
+
+; #IfWinActive, ahk_class Notepad++
+; f2::tooltip hi
+; RETURN
 
 
+#ifwinactive
+; -------------------------------------------------------------------
+; Difference between IfWinActive and #IfWinActive - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/78534-difference-between-ifwinactive-and-ifwinactive/
+; ----
+; -------------------------------------------------------------------
+; WHAT HAPPEN HERE
+; -------------------------------------------------------------------
+; ANYCODE WANT HOTKEY AND TH LINE IS AFTER ONE ABOVE
+; WONT WORK
+; UNLESS BETWEEN THERE IS HERE LINE #ifwinactive
+; WHEN THE LINE HERE IT NOT STOP THE HOTKEY BEFORE
+; AND THEN POSITION YOUR HOTKEY IN FRONT OF ROUTINE WANT USER
+; 
+; -------------------------------------------------------------------
+; Tue 17-Sep-2019 16:02:42
+; -------------------------------------------------------------------
+
+; *~ESC::
+	; GOSUB CHECK_ESC_KEY
+
+	
+	
+; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
+; must type an ending character after typing btw, such as Space, ., or Enter).
+
+; MESSENGER_KEY=Hi Marianne and Eddie 
+; THIS ONE ENDED -- Mon 26-Aug-2019 11:01:30
+
+
+:*:hima::
+MESSENGER_KEY=Hi Marianne Eddie
+GOSUB STRING_INVERT_MESSENGER
+SENDINPUT %MESSENGER_KEY%
+RETURN
+
+
+; ADDITIONAL NOTE ABOUT BUG
+; THIS CODE GOOD FOR THE N ; ' T -- WOUDLN'T BUT BUG 
+; THE METHOD HAS TYPE WHILE YOU TYPE SO NEXT THING
+; IT NOT SMOOTH 
+; THERE IS A CODE I SAW THAT PREVENT TYPE HAPPEN WHILE 
+; THE SENDINPUT FOR HOTSTRING HAPPEN
+; AND I WILL GET ONTO THAT SHORTER
+; [ Thursday 04:38:00 Pm_13 June 2019 ]
+
+; -------------------------------------------------------------------
+; Setting a Semicolon as a Hotkey? - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/3423-setting-a-semicolon-as-a-hotkey/
+; ----
+; SEMICOLON
+; You can also escape it with an accent:
+; -------------------------------------------------------------------
+; I KEEP SPELLER __ DON;T AND WOULDN;T __ RATHER THAN
+;                __ DON'T AND WOULDN'T __
+; -------------------------------------------------------------------
+; LAZY KEYBOARD
+; -------------------------------------------------------------------
+; [ Tuesday 07:21:30 Am_11 June 2019 ]
+; [ Tuesday 07:38:00 Am_11 June 2019 ]
+; [ Tuesday 08:17:00 Am_11 June 2019 ]
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; THIS METHOD DO THE CASE INSENSITIVE PROPER
+; ADD THEN ASTERISK AND NONE REQUIRE SPACE BEFORE OR AFTER 
+; ASTERISK STILL REQUIRE SPACE BEFORE
+; TRY ?
+; USE BOTH LIKE HERE
+; -------------------------------------------------------------------
+:*?:n`;t::
+	SENDINPUT n't
+RETURN
+
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; NOT TOTAL OF TRUE THAT INITIAL CODE END AS 
+; FUNCTION SET WITH RETURN BEFORE
+; MAYBE A TIDIER
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+	
 
 RETURN
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; CODE START -- ROUTINE SET
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 
@@ -212,8 +383,7 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 			SetCapsLockState ,ON
 		}
 		
-		
-		
+				
 		STATE_CAP := GetKeyState("CapsLock", "T") ; True if CapsLock is ON, false otherwise.
 		IF OLD_STATE_CAP<>%STATE_CAP%
 		{
@@ -233,56 +403,6 @@ RETURN
 
 
 
-
-; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
-; must type an ending character after typing btw, such as Space, ., or Enter).
-
-; MESSENGER_KEY=Hi Marianne and Eddie 
-; THIS ONE ENDED -- Mon 26-Aug-2019 11:01:30
-
-
-:*:hima::
-MESSENGER_KEY=Hi Marianne Eddie
-GOSUB STRING_INVERT_MESSENGER
-SENDINPUT %MESSENGER_KEY%
-RETURN
-
-; ADDITIONAL NOTE ABOUT BUG
-; THIS CODE GOOD FOR THE N ; ' T -- WOUDLN'T BUT BUG 
-; THE METHOD HAS TYPE WHILE YOU TYPE SO NEXT THING
-; IT NOT SMOOTH 
-; THERE IS A CODE I SAW THAT PREVENT TYPE HAPPEN WHILE 
-; THE SENDINPUT FOR HOTSTRING HAPPEN
-; AND I WILL GET ONTO THAT SHORTER
-; [ Thursday 04:38:00 Pm_13 June 2019 ]
-
-; -------------------------------------------------------------------
-; Setting a Semicolon as a Hotkey? - Ask for Help - AutoHotkey Community
-; https://autohotkey.com/board/topic/3423-setting-a-semicolon-as-a-hotkey/
-; ----
-; SEMICOLON
-; You can also escape it with an accent:
-; -------------------------------------------------------------------
-; I KEEP SPELLER __ DON;T AND WOULDN;T __ RATHER THAN
-;                __ DON'T AND WOULDN'T __
-; -------------------------------------------------------------------
-; LAZY KEYBOARD
-; -------------------------------------------------------------------
-; [ Tuesday 07:21:30 Am_11 June 2019 ]
-; [ Tuesday 07:38:00 Am_11 June 2019 ]
-; [ Tuesday 08:17:00 Am_11 June 2019 ]
-; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; THIS METHOD DO THE CASE INSENSITIVE PROPER
-; ADD THEN ASTERISK AND NONE REQUIRE SPACE BEFORE OR AFTER 
-; ASTERISK STILL REQUIRE SPACE BEFORE
-; TRY ?
-; USE BOTH LIKE HERE
-; -------------------------------------------------------------------
-:*?:n`;t::
-	SENDINPUT n't
-RETURN
 
 
 ; -------------------------------------------------------------------
@@ -346,7 +466,7 @@ RETURN
 STRING_INVERT_MESSENGER:
 	IF GetKeyState("Capslock", "T")
 	{
-		TOOLTIP % YES ON
+		; TOOLTIP % "YES ON"
 		 Lab_Invert_Char_Out:= ""
 		 Loop % Strlen(MESSENGER_KEY) {
 			Lab_Invert_Char:= Substr(MESSENGER_KEY, A_Index, 1)
@@ -402,11 +522,6 @@ TIMER_HOTKEY:
 RETURN
 
 
-
-*~ESC::
-	GOSUB CHECK_ESC_KEY
-RETURN 
-
 ; F4::
 	; SEND ^{V}
 	; SEND {ENTER}
@@ -447,14 +562,38 @@ TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 	}
 RETURN
 
-
-
+; -------------------------------------------------------------------
+; SESSION 00
+; -------------------------------------------------------------------
+; GOSUB CHECK_ESC_KEY
+; -------------------------------------------------------------------
+; ONLY USER UP NOT DOWN
+; UP ON OWN NOT WORK -- REQUIRE A HOTKEY DOWN STATE ALSO
+; BEEN THROUGH BEFORE -- *~ESC UP::
+; RESULT AT LAST USE GetKeyState, state, ESC  -- UP THING A ME JIG
+; NOT DOUBEL HITT
+; HARD THINK ANOTHER WAY TO DO THAT THING
+; SURE REPEATER KEY NOT WORK IF LOOK LAST KEY
+; -------------------------------------------------------------------
+; A TREAT CODER TO DO AFTER EVERY THING ELSE TODAY WAS ADD ROUTINE TO 
+; ADD AN OPTION TO TOGGLE THE "SEARCH RESULTS WINDOW NOTEPAD-PLUS-PLUS
+; TOOK A SEARCH TO FINDER -- CREDIT LINK BELOW
+; -------------------------------------------------------------------
+; Tue 17-Sep-2019 15:25:01
+; Tue 17-Sep-2019 18:05:00 -- 2 HOUR
+; -------------------------------------------------------------------
+*~ESC::
+	GOSUB CHECK_ESC_KEY
 
 CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path
 
-	VAR_DONE_ESCAPE_KEY=FALSE
+	GetKeyState, state, ESC  
+	if (state = "U")
+		RETURN
 	
+	VAR_DONE_ESCAPE_KEY=FALSE
+
 	IfWinActive ahk_class ConsoleWindowClass
 	{
 		WinClose, ahk_class ConsoleWindowClass
@@ -704,6 +843,89 @@ CHECK_ESC_KEY:
 	; ---------------------------------------------------------------
 	; WINAMP VISUALIZATION CONTROL KEY WINDOW
 	; ---------------------------------------------------------------
+
+	ESCAPE_KEY_COUNT+=1
+ 
+	VAR_DONE_ESCAPE_NOTEPAD=
+	; ---------------------------------------------------------------
+	DetectHiddenWindows, OFF
+	SetTitleMatchMode 2
+	IfWinActive ahk_class Notepad++
+	IfWinActive ahk_exe notepad++.exe
+	{	
+		; -------------------------------------------------------
+		; IF THE RESULTS PANE IS OPEN, CLOSE IT
+		; BUTTON1 IS THE CLASS NAME FOR THE TITLE BAR AND 
+		; CLOSE BUTTON OF THE RESULTS PANE WHEN DOCKED
+		; -------------------------------------------------------
+		ControlGet, OutputVar, Visible,, Button1, Notepad++
+		if ErrorLevel = 0
+			If OutputVar=1
+			{
+				; FOUND IT DOCKED
+				; GET THE SIZE AND COORDINATES OF THE TITLE BAR AND BUTTON
+				ControlGetPos, X, Y, Width, Height, Button1
+				; SET THE COORDINATES OF THE CLOSE BUTTON
+				X := WIDTH - 9
+				Y := 5
+				; SEND A CLICK
+				ControlClick, Button1,,,,, NA x%X% y%Y%
+				SoundBeep , 4000 , 50
+				VAR_DONE_ESCAPE_KEY=TRUE
+				VAR_DONE_ESCAPE_NOTEPAD=TRUE
+				LOOP, 10000
+				{
+					ControlGet, OutputVar, Visible,, Button1, Notepad++
+					If OutputVar=0
+						BREAK
+					SLEEP 100
+				}
+				SLEEP 100
+			}
+			IF !VAR_DONE_ESCAPE_NOTEPAD
+			{
+				ControlGet, OutputVar, Visible,, Button1, Notepad++
+				If OutputVar=0
+				{
+					SendInput {F7}
+					SoundBeep , 2000 , 100
+					VAR_DONE_ESCAPE_KEY=TRUE
+				}
+				LOOP, 10000
+				{
+					ControlGet, OutputVar, Visible,, Button1, Notepad++
+					If OutputVar=1
+						BREAK
+					SLEEP 100
+				}
+				SLEEP 100
+			}
+			; ---------------------------------------------------
+			; ESCAPE KEY FOR RUN AWAY
+			; ---------------------------------------------------
+	}
+	
+
+	; ---------------------------------------------------------------
+	; 003
+	; ----
+	; CREATE A HOTKEY /KEYBOARD SHORTCUT TO CLOSE THE NOTEPAD++ FIND RESULTS WINDOW - SUPER USER
+	; https://superuser.com/questions/700357/create-a-hotkey-keyboard-shortcut-to-close-the-notepad-find-results-window
+	; ----
+	; ---------------------------------------------------------------
+	; 002
+	; ----
+	; ADD AN OPTION TO TOGGLE THE "SEARCH RESULTS WINDOW" · ISSUE #2946 · NOTEPAD-PLUS-PLUS/NOTEPAD-PLUS-PLUS · GITHUB
+	; https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2946
+	; ----
+	; ---------------------------------------------------------------
+	; 001
+	; ----
+	; AHK CLOSE NOTEPAD++ SEARC BOX - GOOGLE SEARCH
+	; https://www.google.com/search?q=AHK+CLOSE+NOTEPAD%2B%2B+SEARC+BOX&oq=AHK+CLOSE+NOTEPAD%2B%2B+SEARC+BOX&aqs=chrome..69i57.10623j1j7&sourceid=chrome&ie=UTF-8
+	; ----
+
+
 	
 	; ; 
 	; ; ---------------------------------------------------------------

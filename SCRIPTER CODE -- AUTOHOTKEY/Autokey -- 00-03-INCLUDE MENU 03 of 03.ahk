@@ -433,6 +433,8 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 			Allitem:=A_Index
 	}	
 
+	GOSUB KILL_ALL_PROCESS_BY_NAME
+	
 	
 	
 	; FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
@@ -449,6 +451,36 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 		
 	Process, Close, %SCRIPTOR_OWN_PID%
 RETURN
+
+
+
+
+
+
+
+KILL_ALL_PROCESS_BY_NAME:
+	WinGet, List, List, ahk_exe cmd.exe
+	Loop %List%  
+	{ 
+		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		IF PID_8
+		{
+			Process, Close, %PID_8% 
+			SOUNDBEEP 1200,40
+		}
+	}
+	WinGet, List, List, ahk_exe conhost.exe
+	Loop %List%  
+	{ 
+		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		IF PID_8
+		{
+			Process, Close, %PID_8% 
+			SOUNDBEEP 1200,40
+		}
+	}
+RETURN
+
 
 
 TIMER_SUB_AUTOHOTKEY_RELOAD_03:
