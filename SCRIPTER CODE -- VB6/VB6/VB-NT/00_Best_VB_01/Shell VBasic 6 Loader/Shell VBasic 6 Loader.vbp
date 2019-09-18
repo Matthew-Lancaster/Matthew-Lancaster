@@ -1,5 +1,5 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\SysWow64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Form=Shell Loader.frm
 Form=Sort_Anything\ScanPathDemo.frm
 Module=Module1; Module1.bas
@@ -7,7 +7,7 @@ Class=clsCnProc; ClsCnProc.cls
 Module=mdlErrorHandle; MdlProcess\MdlErrorHandle.bas
 Module=mdlMisc; MdlProcess\MdlMisc.bas
 Module=mdlProcess; MdlProcess\mdlProcessCentral.bas
-Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; mscomctl.OCX
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0; MSCOMCTL.OCX
 Module=Shell32Win; Shell.bas
 Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; mscomct2.ocx
 Class=clsCRC; Sort_Anything\ClsCRC.cls
@@ -27,7 +27,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=61
+RevisionVer=63
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Wed 30-May-2018 05-45-38a"

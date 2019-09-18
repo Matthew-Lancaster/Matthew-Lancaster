@@ -5865,6 +5865,9 @@ Begin VB.Form Form1
    Begin VB.Menu Mnu_LoadFolder 
       Caption         =   "LOAD FOLDER LINK"
    End
+   Begin VB.Menu MNU_NETWORK_WITH_CLIPBOARDER 
+      Caption         =   "NETWORK PATH WITH CLIPBOARDER CONTENT"
+   End
    Begin VB.Menu MNU_CLIPBOARDOR 
       Caption         =   "CLIPBOARD ITEM TEXT"
    End
@@ -6057,7 +6060,7 @@ If Combo1.ListIndex = Combo1.ListCount - 1 Then
     End If
 End If
 If Combo1.ListIndex = 0 Then
-    If KeyCode = 38 Then
+    If KeyCode = 140 Then
 '        REM AWAY FOR BOTH DIRECTION LOOP COMBO
 '        Combo_KEYCODE_NOT_EVENT = Combo1.ListCount - 1
 '        Combo1.ListIndex = Combo1.ListCount - 1
@@ -6488,7 +6491,7 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
             i = i + 1: M(i) = CK2 + "\GoodSync\Profile\jobs-groups-options.tic"
             ' -----------------------------------------------------------------
             For R5 = 1 To 5
-                GS_1 = CK2 + "\Users\MATT " + Format(R5, "00") + "\AppData\Roaming\GoodSync\jobs-groups-options.tic"
+                GS_1 = CK2 + "\Users\MATT " + Format(R5, "00") + "\AppData\Local\GoodSync\jobs-groups-options.tic"
                 If Dir(GS_1) <> "" Then
                     i = i + 1: M(i) = GS_1
                 End If
@@ -6558,6 +6561,23 @@ Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Caption = "NETWORK DRIVE SELECT - " + Fo
 ' JUST SELECT TWO NETOWRK AND LOCAL PATH
 
 Beep
+
+End Sub
+
+Private Sub MNU_NETWORK_WITH_CLIPBOARDER_Click()
+
+'On Error Resume Next
+'PATH1 = Clipboard.GetText
+'PATH2 = InStrRev(PATH1, ":\")
+'If PATH2 = 0 Then Exit Sub
+'PATH2 = InStrRev(PATH1, ":\")
+'
+'PATH3 = Mid(PATH1, PATH2)
+'
+
+
+
+
 
 End Sub
 

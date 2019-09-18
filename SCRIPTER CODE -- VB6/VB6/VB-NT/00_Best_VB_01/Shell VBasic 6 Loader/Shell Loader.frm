@@ -16910,6 +16910,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_VB_FOLDER 
       Caption         =   "VB FOLDER"
    End
+   Begin VB.Menu MNU_STAY_OPEN_WHEN_EXECUTE 
+      Caption         =   "STAY OPEN WHEN EXECUTE"
+   End
    Begin VB.Menu Mnu_LoadFolder 
       Caption         =   "Load Folder"
    End
@@ -16933,6 +16936,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 'USE OPTION CLIP EXE NAME AND MOVE TO FOLDER
+
 
 Public LINK_DATA
 
@@ -17155,6 +17159,12 @@ Form1.Left = Screen.Width / 2 - Form1.Width / 2
 
 If Form1.Width = Form1_Width And Form1.Height = Form1_Height Then X_Y_DONE_ONCE = True
 
+
+End Sub
+
+Private Sub MNU_STAY_OPEN_WHEN_EXECUTE_Click()
+
+MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True
 
 End Sub
 
@@ -17410,13 +17420,13 @@ Private Sub Form_Unload(Cancel As Integer)
 
 TERMINATE_FORMS = True
 On Error Resume Next
-    For I = 0 To Forms.Count - 1
-        For Each Control In Forms(I).Controls
+    For i = 0 To Forms.Count - 1
+        For Each Control In Forms(i).Controls
             'If InStr(UCase(Control.Name), "TIMER") > 0 Then
                 Control.Enabled = False
             'End If
         Next
-    Next I
+    Next i
 On Error GoTo 0
    
 Dim Form As Form
@@ -17432,7 +17442,9 @@ End Sub
 
 Private Sub Label1_Click(Index As Integer)
 
+If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = False Then
 Form1.Visible = False
+End If
 
 If SetTrueToLoadLast = False Then
     A1$ = ScanPath.ListView1.ListItems.Item(Index).SubItems(1)
@@ -17459,19 +17471,21 @@ If LoadFolder = True Then
     If Err.Number > 0 Then
         MsgBox "Error Run Check With Administrator" + vbCrLf + vbCrLf + "explorer /e, /select, " + A1$ + B1$, vbMsgBoxSetForeground
     End If
-
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
     End
 End If
 
 If ClipEXE = True Then
     Clipboard.Clear
     Clipboard.SetText A1$ + B1$
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
     End
 End If
 
 Call SaveLoggs
 
 Call FormStart.LabelClick(Index)
+
 
 End Sub
 
@@ -17533,8 +17547,8 @@ Call LV_AutoSizeColumn(ScanPath.ListView3, ScanPath.ListView3.ColumnHeaders.Item
 Call LV_AutoSizeColumn(ScanPath.ListView3, ScanPath.ListView3.ColumnHeaders.Item(4))
 Call LV_AutoSizeColumn(ScanPath.ListView3, ScanPath.ListView3.ColumnHeaders.Item(5))
 
-For I = 1 To ScanPath.ListView3.ListItems.Count
-    ScanPath.ListView3.SelectedItem = ScanPath.ListView3.ListItems(I)
+For i = 1 To ScanPath.ListView3.ListItems.Count
+    ScanPath.ListView3.SelectedItem = ScanPath.ListView3.ListItems(i)
     ScanPath.ListView3.SelectedItem.EnsureVisible
     DoEvents
 Next
@@ -17636,10 +17650,10 @@ If InStr(LCase(B1$), ".lnk") > 0 Then
     Close #1
     If InStr(rr$, ":\") = 0 Then
         
-        I = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
+        i = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
         
-        I = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
-        If I = vbYes Then
+        i = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
+        If i = vbYes Then
             Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
     
     

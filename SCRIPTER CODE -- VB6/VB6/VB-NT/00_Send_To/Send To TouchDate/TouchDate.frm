@@ -151,7 +151,7 @@ Begin VB.Form Form1
       Index           =   11
       Left            =   288
       TabIndex        =   12
-      Top             =   5376
+      Top             =   5364
       Width           =   10812
    End
    Begin VB.Label LABEL_SET 
@@ -475,6 +475,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_VB_FOLDER 
       Caption         =   "VB_FOLDER"
    End
+   Begin VB.Menu MNU_QUICK_MODE 
+      Caption         =   "QUICK MODE -- OFF -- GIVE MESSENGER"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -482,6 +485,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim M()
+Dim M_2()
+Dim FR1
 
 Dim FIRST_RUN
 Dim a
@@ -617,6 +622,33 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 
 'If IsIDE = True Then GoTo Start2
 
+On Error Resume Next
+If Dir(App.Path + "\# DATA\", vbDirectory) = "" Then
+    MkDir App.Path + "\# DATA"
+End If
+
+I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+On Error Resume Next
+Err.Clear
+FR1 = FreeFile
+If Dir(App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT") <> "" Then
+    Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Input As #FR1
+        Line Input #FR1, I_1
+        Line Input #FR1, I_2
+    Close FR1
+End If
+I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+I_3 = "QUICK MODE -- ON -- GIVE MESSENGER"
+If I_1 = I_3 Then
+    If DateValue(I_2) + TimeValue(I_2) < Now Then
+        FR1 = FreeFile
+        Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Output As #FR1
+            Print #FR1, I_1
+        Close FR1
+    End If
+End If
+MNU_QUICK_MODE.Caption = I_1
+
 W$ = "D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe"
 W$ = "D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe"
 
@@ -724,6 +756,7 @@ Private Sub Form_Resize()
 Dim r
 
 ReDim M(LABEL_SET.Count)
+ReDim M_2(LABEL_SET.Count)
 i = 0
 
 i = i + 1: M(i) = "GO"
@@ -741,13 +774,17 @@ i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
 i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET ALL DATE FOLDER TO THE TEXTFILE HOLD DATE WITHIN AH"
+i = i + 1: M(i) = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
+
+For r = 0 To i
+    M_2(r) = Replace(M(r), "_", " ")
+Next
 
 For r = 1 To LABEL_SET.Count
-    If M(r) <> "Folder Label" Then
-        If M(r) <> "File Label" Then
-            If LABEL_SET(r).Caption <> M(r) Then
-                LABEL_SET(r).Caption = M(r)
+    If M_2(r) <> "Folder Label" Then
+        If M_2(r) <> "File Label" Then
+            If LABEL_SET(r).Caption <> M_2(r) Then
+                LABEL_SET(r).Caption = M_2(r)
             End If
         End If
     End If
@@ -796,7 +833,6 @@ STEP_H = STEP_H + 40 + HL
 Me.Height = STEP_H + 1000
 Me.Top = 0
 
-
 End Sub
 
 
@@ -839,7 +875,7 @@ Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
-Case "SET ALL DATE FOLDER TO THE TEXTFILE HOLD DATE WITHIN AH"
+Case "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
     
@@ -965,7 +1001,6 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
 End Sub
     
 Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
-
     
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
 '    ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT_02_(DATE-ALPHABETICAL)\1984 a11 -- NURSE -- 1984"
@@ -1001,30 +1036,34 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     
     XX = Dir(ScanPath.txtPath.Text + "\# TEXT_DATER*.txt")
     If XX = "" Then
-        MsgBox "NONE DATE WITHIN TEXT FILE FOUND HERE" + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\# TEXT_DATER*.txt" + vbCrLf + vbCrLf + "-- EXIT"
+        MsgBox "NONE (DATE WITHIN TEXT FILE) FOUND HERE" + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\# TEXT_DATER*.txt" + vbCrLf + vbCrLf + "-- EXIT"
         End
     End If
         
-    fr1 = FreeFile
-    Open ScanPath.txtPath.Text + "\" + XX For Input As #fr1
-        Line Input #fr1, TIME_STRING
-    Close fr1
+    FR1 = FreeFile
+    Open ScanPath.txtPath.Text + "\" + XX For Input As #FR1
+        Line Input #FR1, TIME_STRING
+    Close FR1
     
     DT4 = DateValue(TIME_STRING) + TimeValue(TIME_STRING)
     If IsDate(DT4) = False Then
-        MsgBox "DATE FOUND WITHIN TEXT FILE FOUND HERE" + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+        ' FALSE DATE
+        ' ----------
+        MsgBox "DATE FOUND WITHIN TEXT FILE FOUND HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
         End
     End If
     
     If DT4 = 0 Then
-        MsgBox "NAUGHT DATE FOUND IN FILE GATHER -- EXIT"
+        MsgBox "NAUGHT DATE FOUND OVERALL IN FILE GATHER -- EXIT"
         End
     End If
     
     If TimeValue(TIME_STRING) = 0 Then
         ' ADD A BIT ON DATE FOR DAYLIGHT SAVING AND NTFS AT EXACT MIDNIGHT
+        ' CLOUD SYSTEM REQUIRING A BIT MORE ALSO OR DAY BEFORE
         ' ----------------------------------------------------------------
-        DT4 = DT4 + TimeSerial(2, 0, 0)
+        DT4 = DT4 + TimeSerial(4, 0, 0)
+        ' ----------------------------------------------------------------
     End If
     MM_1 = Format(DT4, "DD-MM-YYYY  HH:MM:SS  DDDD")
     MM_1 = MM_1 + vbCrLf
@@ -1038,9 +1077,19 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         MM_1 = MM_1 + B1$ + vbCrLf
     Next
     
-    MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    On Error Resume Next
+    FR1 = FreeFile
+    Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Input As #FR1
+        Line Input #FR1, I_1
+    Close FR1
+    MNU_QUICK_MODE.Caption = I_1
+    I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+    I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
     End
-
 End Sub
 
 
@@ -1446,7 +1495,7 @@ If WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER" Then
     Exit Sub
 End If
 
-If WORK = "SET ALL DATE FOLDER TO THE TEXTFILE HOLD DATE WITHIN AH" Then
+If WORK = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH" Then
     Call SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH
     Exit Sub
 End If
@@ -1559,6 +1608,44 @@ Private Sub SET_ONE_DATE_HARDCODER()
     Call Label_GO_AH_Click
 
 End Sub
+
+
+Private Sub MNU_QUICK_MODE_Click()
+
+'QUICK MODE -- ON -- GIVE MESSENGER
+
+I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+If InStr(MNU_QUICK_MODE.Caption, I_1) Then
+    MNU_QUICK_MODE.Caption = I_2
+    Else
+    MNU_QUICK_MODE.Caption = I_1
+End If
+
+
+Dim VAR_DATE As Date
+
+On Error Resume Next
+Err.Clear
+FR1 = FreeFile
+Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Output As #FR1
+    Print #FR1, MNU_QUICK_MODE.Caption
+    VAR_DATE = Now + TimeSerial(24, 0, 0)
+    Print #FR1, VAR_DATE
+Close FR1
+
+If Err.Number = 0 Then
+    I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+    I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+    If InStr(MNU_QUICK_MODE.Caption, I_1) Then
+        MsgBox "ENJOY GLOBAL FOR ALL INSTANCE RUNNER" + vbCrLf + vbCrLf + "REMEMEBER FOR 1 DAY DEFAULT OFF", vbMsgBoxSetForeground
+    End If
+Else
+    MsgBox "ERROR -- FILE NOT WRITEN -- TRY AGAIN" + vbCrLf + vbCrLf + App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT", vbMsgBoxSetForeground
+End If
+
+End Sub
+
 
 
 Private Sub MNU_VB_FOLDER_Click()

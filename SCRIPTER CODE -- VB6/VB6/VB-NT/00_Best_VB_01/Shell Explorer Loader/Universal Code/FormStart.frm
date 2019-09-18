@@ -85,11 +85,11 @@ For R = 3 To 25
         'RD$(tg) = tt$
         tg = tg + 1
         Y1$ = Y1$ + tt$
-        FileName = z.DriveLetter + ":\ __ " + z.VolumeName
+        Filename = z.DriveLetter + ":\ __ " + z.VolumeName
         Path = "--Drive"
         
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , FileName)
+            Set LV = .ListItems.Add(, , Filename)
             LV.SubItems(1) = Path
         End With
     
@@ -144,10 +144,10 @@ Do
     End If
     
     If HERE_GO = False And LINE_STINGER = "BTHUB" Then
-        FileName = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
+        Filename = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
         'Path = "--Drive"
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , FileName)
+            Set LV = .ListItems.Add(, , Filename)
             LV.SubItems(1) = Path
         End With
         HERE_GO = True
@@ -251,6 +251,7 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
         
         CK1 = NET_PATH_ALL_R(R3)
         CK3 = CK1 + "\USERS\MATT " + Format(R5, "00")
+        If 1 = 2 Then
         If Dir(CK1 + "\USERS\MATT " + Format(R5, "00") + "\Desktop", vbDirectory) <> "" Then
             
             Path = "--DriveRemote_USER"
@@ -276,6 +277,7 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
                 LV.SubItems(1) = Path
                 LV.SubItems(2) = CK3
             End With
+        End If
         End If
         Next
     End If
@@ -340,13 +342,13 @@ Next
 GetSpecialfolder_VAR = Mid(GetSpecialfolder_VAR, 1, Len(GetSpecialfolder_VAR) - 1)
 For R_L = 1 To 9
     GET_USER_NAME_VAR_NAME = GetSpecialfolder_VAR + Format(R_L, "0")
-    FileName = GET_USER_NAME_VAR_NAME
-    If Dir(FileName, vbDirectory) <> "" Then
+    Filename = GET_USER_NAME_VAR_NAME
+    If Dir(Filename, vbDirectory) <> "" Then
     
         Path = "--Drive"
         
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , FileName)
+            Set LV = .ListItems.Add(, , Filename)
             LV.SubItems(1) = Path
         End With
         
@@ -404,12 +406,12 @@ For R = 0 To 255
     End If
     
     If GetSpecialfolder(R) <> "" And q = 0 Then
-        FileName = GetSpecialfolder(R)
+        Filename = GetSpecialfolder(R)
         'Filename = GetSpecialfolder(R)
         Path = "--SPECIAL"
         
         SET_GO = True
-        F1 = UCase(FileName)
+        F1 = UCase(Filename)
         If InStr(F1, "DOCUMENTS AND") > 0 And InStr(F1, "ADMINISTRATIVE") > 0 Then
             SET_GO = False
         End If
@@ -427,17 +429,17 @@ For R = 0 To 255
         
         
         
-        If InStr(DUPE_CHECK, "__" + FileName + "__") > 0 Then
+        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
             SET_GO = False
         End If
-        DUPE_CHECK = DUPE_CHECK + "__" + FileName + "__"
+        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
         
         
         
         If SET_GO = True Then
             With ScanPath.ListView2
-                XF_1 = FileName
-                XF_2 = FileName
+                XF_1 = Filename
+                XF_2 = Filename
                 If InStr(UCase(XF_1), "TOOLS") > 0 Then
                     XF_1 = Replace(XF_1, "Tools", "Tool")
                 End If
@@ -449,14 +451,14 @@ For R = 0 To 255
             End With
         End If
         
-        If InStr(FileName + "--", "Program Files (x86)" + "--") > 0 Then
-        If InStr(DUPE_CHECK, "__" + FileName + "__") > 0 Then
+        If InStr(Filename + "--", "Program Files (x86)" + "--") > 0 Then
+        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
             SET_GO = False
         End If
-        DUPE_CHECK = DUPE_CHECK + "__" + FileName + "__"
+        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
             With ScanPath.ListView2
-                FileName = Replace(FileName, " (x86)", "")
-                Set LV = .ListItems.Add(, , Format(R, "00 ") + FileName)
+                Filename = Replace(Filename, " (x86)", "")
+                Set LV = .ListItems.Add(, , Format(R, "00 ") + Filename)
                 LV.SubItems(1) = Path
             End With
         End If
@@ -920,8 +922,11 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
         If InStr(CK1, "C_DRIVE") > 0 Then
             i = i + 1: M(i) = CK2 + "\GoodSync\Profile\jobs-groups-options.tic"
             ' -----------------------------------------------------------------
+            ' GOODSYNC -- CHANGED THEIR PATH OTHER DAY FROM
+            ' \ROAMING TO C:\Users\MATT 00\AppData\Local\GoodSync
+            ' -----------------------------------------------------------------
             For R5 = 1 To 5
-                GS_1 = CK2 + "\Users\MATT " + Format(R5, "00") + "\AppData\Roaming\GoodSync\jobs-groups-options.tic"
+                GS_1 = CK2 + "\Users\MATT " + Format(R5, "00") + "\AppData\Local\GoodSync\jobs-groups-options.tic"
                 If Dir(GS_1) <> "" Then
                     i = i + 1: M(i) = GS_1
                 End If

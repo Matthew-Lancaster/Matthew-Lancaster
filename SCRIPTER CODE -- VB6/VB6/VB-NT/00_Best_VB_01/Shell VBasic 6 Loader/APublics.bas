@@ -1,4 +1,6 @@
 Attribute VB_Name = "APublics"
+Public MNU_STAY_OPEN_WHEN_EXECUTE_VAR
+
 Public TEXT_PATH_1
 Public TEXT_PATH_2
 

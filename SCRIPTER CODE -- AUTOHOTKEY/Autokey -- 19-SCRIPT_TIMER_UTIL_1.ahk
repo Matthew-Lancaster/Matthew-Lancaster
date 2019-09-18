@@ -410,6 +410,9 @@ SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_02,500
 ; SETTIMER CHECK_TEAMVIEWER_NOT_RUN_ALL_MACHINER,60000
 SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
 
+
+SETTIMER KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION,500
+
 RETURN
 
 
@@ -445,6 +448,32 @@ ONE_SECOND:
 
 RETURN
 
+KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION:
+	Loop, Files, C:\SCRIPTOR DATA\KILL PROCESS REMOTE\*.TXT, R
+	{
+		IF INSTR(A_LoopFileFullPath,A_ComputerName)>0
+		{
+			FileRead, OutputVar, %A_LoopFileFullPath%
+			Loop, parse, OutputVar, " "
+				TTAH:=A_LoopField
+				
+			; TOOLTIP % OutputVar
+				
+			IF INSTR(OutputVar,"Kill__")>0  
+				WinGet, List, List, % "ahk_exe " TTAH
+				Loop %List%
+				{ 
+					WinGet, KILL_PID, PID, % "ahk_id " List%A_Index% 
+					IF KILL_PID>0 
+					{
+						Process, Close, %KILL_PID%
+						SOUNDBEEP 1200,40
+					}
+				}
+				FileDelete, %A_LoopFileFullPath%
+		}
+	}
+RETURN
 
 
 CLEAN_UP_HDD_SPACE_ONE_A_DAY:
@@ -518,133 +547,6 @@ IF (OSVER_N_VAR=5)
 
 	; MSGBOX DONE
 	; 23
-	
-RETURN
-
-
-MIDNIGHT_TIMER:
-
-
-
-RETURN
-
-
-GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
-
-	IF (A_ComputerName<>"7-ASUS-GL522VW")
-	{
-		SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
-		RETURN
-	}
-
-	; ---------------------------------------------------------------
-	; 1 = DAY TIMER 
-	; 2 = HOUR TIMER
-	; 3 = MINUTE TIMER
-	; ---------------------------------------------------------------
-	VALUE_TIMER_DY_HR_MI=2
-	
-	IF VALUE_TIMER_DY_HR_MI=1
-	{
-		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
-		Midnight += 1, days
-	}
-	IF VALUE_TIMER_DY_HR_MI=2
-	{
-		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
-		Midnight += 1, hours
-	}
-	IF VALUE_TIMER_DY_HR_MI=3
-	{
-		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
-		Midnight += 1, MINUTES
-	}
-
-	Midnight -= A_Now, seconds
-
-	EnvMult, Midnight, 1000
-	GITHUB_SET_GO=FALSE
-	GOODSYNC_SET_GO=FALSE
-	
-	IF !GITHUB_HOUR_NOW
-	{
-		GITHUB_HOUR_NOW=%A_Hour%
-	}
-	IF !GOODSYNC_HOUR_NOW
-	{
-		GOODSYNC_HOUR_NOW=%A_Hour%
-	}
-	
-	; MSGBOX % "-- " GITHUB_HOUR_NOW
-	
-	IF A_Hour<>%GITHUB_HOUR_NOW%
-	{
-		GITHUB_SET_GO=TRUE
-	}	
-	IF A_Hour<>%GOODSYNC_HOUR_NOW%
-	{
-		; EVERY HOUR
-		GOODSYNC_SET_GO=TRUE
-	}
-
-	GITHUB_HOUR_NOW=%A_Hour%
-	GOODSYNC_HOUR_NOW=%A_Hour%
-	
-	IF (GITHUB_SET_GO=FALSE and GOODSYNC_SET_GO=FALSE)
-		RETURN
-
-	; INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe") ---- \BAT 45-SCRIPT RUN GITHUB.exe
-
-	WinGet, Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-	IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
-		GITHUB_SET_GO=FALSE
-		; MSGBOX INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
-	
-	; ---------------------------------------------------------------
-	; IF BOTH C DRIVE GOOD SYNC AND WITH GS2GO NOT RUN 
-	; THEN DON'T RUN THESE SCRIPT
-	; AS I PROBABLY RUN LONG TASK IN WHOLE D-DRIVE BACK UP 
-	; WITH ANOTHER GS2GO ON DRIVE FROM ANOTHER
-	; 
-	; IF D DRIVE GS2GO WAS HAPPEN THAT WOULDN'T ALLOW LOGIC EITHER
-	; ---------------------------------------------------------------
-	WinGet, Path_1, ProcessPath, ahk_exe GoodSync2Go.exe
-	WinGet, Path_2, ProcessPath, ahk_exe GoodSync-v10.exe
-	IF INSTR(Path_1,"\GoodSync2Go.exe")=0
-	IF INSTR(Path_2,"\GoodSync-v10.exe")=0
-		GITHUB_SET_GO=FALSE
-
-	IF GITHUB_SET_GO=TRUE
-	{
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
-		IfExist, %FN_VAR%
-		{
-			Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
-			; -------------------------------------------------------
-			; HERE WILL EVENTUALLY RUN 
-			; BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
-			; -------------------------------------------------------
-			; AND IT WILL RUN JOB FOR GOODSYNC 
-			; NOT GOODSYNC2GO
-			; -------------------------------------------------------
-			; APPLY TO ONLY -- A_ComputerName="7-ASUS-GL522VW"
-			; LOOKER TOP OF ROUTINE
-			; -------------------------------------------------------
-		}
-	}
-	
-	; ---------------------------------------------------------------
-	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
-	; LATE BY TIME GET THERE
-	; BETTER FOR SHORT TIMING
-	; ---------------------------------------------------------------
-	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
-	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, %Midnight%
-	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, ON
-	; ----
-	; Test Timer Status - Ask for Help - AutoHotkey Community
-	; https://autohotkey.com/board/topic/55321-test-timer-status/
-	; ----
 	
 RETURN
 
@@ -772,6 +674,89 @@ HANDBRAKE_COPY_THE_DLL_FILE:
 RETURN
 
 
+VB_NT_00_Best_VB_01_SYNCRONIZER:
+	; ---------------------------------------------------------------
+	; RISKER TO GET -- SYNCRONIZER
+	; HARDLY EVER BEEN A PRODUCT
+	; ---------------------------------------------------------------
+	Element_1:="D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.EXE"
+	IfExist, %Element_1%
+		Run, "%Element_1%" QUIETLY , , MIN ; HIDE
+	; ---------------------------------------------------------------
+RETURN
+
+SET_OWNER_RUN_BATCH_FILER:
+
+	; ---------------------------------------------------------------
+	; ERROR FOR ADD COMMAND LINE ADMIN 
+	; QUIETLY
+	; ---------------------------------------------------------------
+	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT"
+	IfExist, %Element_1%
+		Run, "%Element_1%"  /QUITE , , MIN ; HIDE
+	; ---------------------------------------------------------------
+
+RETURN
+	
+	
+
+; ----
+; display PID list - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/36888-display-pid-list/
+; ----
+
+RAM_EMPTY_MAIN:
+
+	VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
+	success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
+	stats1 := ReadInteger(&memorystatus,4,4, false)                          
+	stats2 := Round(ReadInteger(&memorystatus,12,4, false)/1024) 
+
+	GOSUB, RAM_EMPTY
+
+	VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
+	success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
+	stats1A := ReadInteger(&memorystatus,4,4, false) 
+	stats2A := Round(ReadInteger(&memorystatus,12,4, false)/1024)  
+
+	dif1 := stats1 - stats1A
+	dif2 := stats2 - stats2A
+
+	MSGBOX,,,% "EMPTY " dif1 "% OF RAM " dif2 "K", 50
+
+RETURN
+RAM_EMPTY:
+DetectHiddenWindows, On
+WinGet,processes_,List
+Loop %processes_%
+{
+	WinGet, PID, PID,% "ahk_id " processes_%A_Index%
+	Process, Exist, %PID%
+	procid :=ErrorLevel
+	IfNotEqual, procid
+	{
+		hash:=DllCall("OpenProcess","UInt",0x001F0FFF,"Int",0,"Int",procid)
+		DllCall("SetProcessWorkingSetSize", "UInt", hash, "Int", -1, "Int", -1)
+		DllCall("CloseHandle", "Int", hash)
+	}
+}
+RETURN	
+ReadInteger( p_address, p_offset, p_size, p_hex=true )
+{
+  value = 0
+  old_FormatInteger := a_FormatInteger
+  if ( p_hex )
+    SetFormat, integer, hex
+  else
+    SetFormat, integer, dec
+  loop, %p_size%
+    value := value+( *( ( p_address+p_offset )+( a_Index-1 ) ) << ( 8* ( a_Index-1 ) ) )
+  SetFormat, integer, %old_FormatInteger%
+  return, value
+}
+
+	
+	
 MIDNIGHT_AND_HOUR_TIMER:
 
 	; ---------------------------------------------------------------
@@ -787,8 +772,13 @@ MIDNIGHT_AND_HOUR_TIMER:
 			GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
 			GOSUB VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS
 			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+			GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
+			GOSUB SET_OWNER_RUN_BATCH_FILER
+			GOSUB RAM_EMPTY_MAIN
 		}
 		
+
 		GOSUB HANDBRAKE_COPY_THE_DLL_FILE
 		OL_Day_Get__01=%Midnight_Get_01%
 	}
@@ -877,6 +867,129 @@ MIDNIGHT_AND_HOUR_TIMER:
 
 	
 RETURN
+
+
+
+
+GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
+
+	IF (A_ComputerName<>"7-ASUS-GL522VW")
+	{
+		SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
+		RETURN
+	}
+
+	; ---------------------------------------------------------------
+	; 1 = DAY TIMER 
+	; 2 = HOUR TIMER
+	; 3 = MINUTE TIMER
+	; ---------------------------------------------------------------
+	VALUE_TIMER_DY_HR_MI=2
+	
+	IF VALUE_TIMER_DY_HR_MI=1
+	{
+		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
+		Midnight += 1, days
+	}
+	IF VALUE_TIMER_DY_HR_MI=2
+	{
+		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
+		Midnight += 1, hours
+	}
+	IF VALUE_TIMER_DY_HR_MI=3
+	{
+		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
+		Midnight += 1, MINUTES
+	}
+
+	Midnight -= A_Now, seconds
+
+	EnvMult, Midnight, 1000
+	GITHUB_SET_GO=FALSE
+	GOODSYNC_SET_GO=FALSE
+	
+	IF !GITHUB_HOUR_NOW
+	{
+		GITHUB_HOUR_NOW=%A_Hour%
+	}
+	IF !GOODSYNC_HOUR_NOW
+	{
+		GOODSYNC_HOUR_NOW=%A_Hour%
+	}
+	
+	; MSGBOX % "-- " GITHUB_HOUR_NOW
+	
+	IF A_Hour<>%GITHUB_HOUR_NOW%
+	{
+		GITHUB_SET_GO=TRUE
+	}	
+	IF A_Hour<>%GOODSYNC_HOUR_NOW%
+	{
+		; EVERY HOUR
+		GOODSYNC_SET_GO=TRUE
+	}
+
+	GITHUB_HOUR_NOW=%A_Hour%
+	GOODSYNC_HOUR_NOW=%A_Hour%
+	
+	IF (GITHUB_SET_GO=FALSE and GOODSYNC_SET_GO=FALSE)
+		RETURN
+
+	; INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe") ---- \BAT 45-SCRIPT RUN GITHUB.exe
+
+	WinGet, Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+		GITHUB_SET_GO=FALSE
+		; MSGBOX INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+	
+	; ---------------------------------------------------------------
+	; IF BOTH C DRIVE GOOD SYNC AND WITH GS2GO NOT RUN 
+	; THEN DON'T RUN THESE SCRIPT
+	; AS I PROBABLY RUN LONG TASK IN WHOLE D-DRIVE BACK UP 
+	; WITH ANOTHER GS2GO ON DRIVE FROM ANOTHER
+	; 
+	; IF D DRIVE GS2GO WAS HAPPEN THAT WOULDN'T ALLOW LOGIC EITHER
+	; ---------------------------------------------------------------
+	WinGet, Path_1, ProcessPath, ahk_exe GoodSync2Go.exe
+	WinGet, Path_2, ProcessPath, ahk_exe GoodSync-v10.exe
+	IF INSTR(Path_1,"\GoodSync2Go.exe")=0
+	IF INSTR(Path_2,"\GoodSync-v10.exe")=0
+		GITHUB_SET_GO=FALSE
+
+	IF GITHUB_SET_GO=TRUE
+	{
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
+		IfExist, %FN_VAR%
+		{
+			Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
+			; -------------------------------------------------------
+			; HERE WILL EVENTUALLY RUN 
+			; BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
+			; -------------------------------------------------------
+			; AND IT WILL RUN JOB FOR GOODSYNC 
+			; NOT GOODSYNC2GO
+			; -------------------------------------------------------
+			; APPLY TO ONLY -- A_ComputerName="7-ASUS-GL522VW"
+			; LOOKER TOP OF ROUTINE
+			; -------------------------------------------------------
+		}
+	}
+	
+	; ---------------------------------------------------------------
+	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
+	; LATE BY TIME GET THERE
+	; BETTER FOR SHORT TIMING
+	; ---------------------------------------------------------------
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, OFF
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, %Midnight%
+	; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, ON
+	; ----
+	; Test Timer Status - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/55321-test-timer-status/
+	; ----
+	
+RETURN
+
 
 
 TIMER_Check_Any_PID_Suspended_Warning:
@@ -2856,31 +2969,31 @@ Process_Suspend_esif_assist_64(PID){
 	}
 }
 Process_Suspend(PID_or_Name){
-    PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    PID_FN_Suspend := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_FN_Suspend)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtSuspendProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)
 }
 Process_Resume(PID_or_Name){
-    PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+    PID_FN_Resume := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_FN_Resume)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtResumeProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)
 }
 
-Process_Suspend_PID(PID){
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+Process_Suspend_PID(PID_FN_Suspend){
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_FN_Suspend)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtSuspendProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)
 }
-Process_Resume_PID(PID){
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+Process_Resume_PID(PID_FN_Resume){
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_FN_Resume)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtResumeProcess", "Int", h_1)
