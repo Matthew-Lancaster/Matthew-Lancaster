@@ -1,3 +1,56 @@
+REM ---------------------------------------------------------------- 
+REM I LIKE THIS CODE GIVE ACCESS TO ALL FOLDER QUICKER
+REM HAVE A READER READ
+REM NOT SET OWNERSHIP ON IMPORTANT FOLDER
+REM SO NOT CORRUPT RECLEBIN OR ANY
+REM IT DO ALL DRIVE NOT ONLY C -- BUTTY C WAS BASTARD
+REM EASY LOOP SET WHICH ONE OR ALL - DO TICKET
+REM ---------------------------------------------------------------- 
+REM [ Tuesday 22:44:50 Pm_17 September 2019 ]
+REM ---------------------------------------------------------------- 
+
+
+@CD\
+
+REM ---------------------------------------------------------------- 
+REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE
+REM __ IF CAN'T GET IT TO GO ADMIN DOESN'T RSI INJURY ITSELF AND YOU
+REM ---------------------------------------------------------------- 
+
+IF '%1%'=='/ADMIN' (
+	REM :: Check for ADMIN Privileges Again
+	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+	@IF '%errorlevel%' GTR '2' SET NOT_GOT_ADMIN=TRUE
+)
+
+@IF "%NOT_GOT_ADMIN%"=="TRUE" (
+	ECHO AN ATTEMPT WAS MADE TO SET ADMIN BUT NOT SUCCESSFUL
+	ECHO YOUR USER MUST BE A STANDARD USER OR SOMETHING LIKE HER
+	ECHO SAVES GET STUCK IN A LOOP ASKING OR ALSO DELAY REQUIRING
+	ECHO END
+	PAUSE
+	GOTO ENDE
+	EXIT /B 1
+)
+
+REM :: Check for ADMIN Privileges
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+@IF '%errorlevel%' GTR '2' (
+	REM Get ADMIN Privileges
+	@ECHO Set UAC = CreateObject^("Shell.Application"^) >> "%temp%\getadmin.vbs"
+	@ECHO UAC.ShellExecute "%~s0", "/ADMIN", "", "runas", 1 >> "%temp%\getadmin.vbs"
+
+	"%temp%\getadmin.vbs"
+	@DEL "%temp%\getadmin.vbs"
+	GOTO ENDE
+	@EXIT /B
+)
+
+@ECHO Got ADMIN Privileges
+
+
+
+
 @ECHO.
 @ECHO ---------------------------------------
 @ECHO ---------------------------------------
@@ -116,7 +169,7 @@ REM ----------------------------------------------------------------------------
 :JUMP_PART2
 
 
-PAUSE
+REM PAUSE
 
 
 
