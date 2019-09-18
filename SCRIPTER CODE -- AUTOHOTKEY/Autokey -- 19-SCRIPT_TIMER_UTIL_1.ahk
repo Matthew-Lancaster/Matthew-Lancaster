@@ -453,18 +453,12 @@ KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION:
 	{
 		IF INSTR(A_LoopFileFullPath,A_ComputerName)>0
 		{
-			FileRead, OutputVar, %A_LoopFileFullPath%
-			OutputVar=`n%OutputVar%`n
-			OutputVar := StrReplace(OutputVar, " ", "`n")
-			MSGBOX % OutputVar
-			Loop, parse, OutputVar, `n, `r
-				TTAH:=A_LoopField
+			Loop, read, %A_LoopFileFullPath%
+			; OutputVar := StrReplace(OutputVar, "`r", "")
+			Loop, parse, A_LoopReadLine, 'n'r
+				TTAH=%A_LoopField%
 
-			
-			; CMD.EXE
-
-			; IF INSTR(TTAH,"__")>0  
-				; MSGBOX % TTAH
+				; MsgBox, 4, , Field %LineNumber%-%A_Index% is:`n%A_LoopField%`n`nContinue?
 
 				MSGBOX % TTAH
 
