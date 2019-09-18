@@ -454,12 +454,24 @@ KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION:
 		IF INSTR(A_LoopFileFullPath,A_ComputerName)>0
 		{
 			FileRead, OutputVar, %A_LoopFileFullPath%
-			Loop, parse, OutputVar, " "
+			OutputVar=`n%OutputVar%`n
+			OutputVar := StrReplace(OutputVar, " ", "`n")
+			MSGBOX % OutputVar
+			Loop, parse, OutputVar, `n, `r
 				TTAH:=A_LoopField
-				
-			; TOOLTIP % OutputVar
-				
-			IF INSTR(OutputVar,"Kill__")>0  
+
+			
+			; CMD.EXE
+
+			; IF INSTR(TTAH,"__")>0  
+				; MSGBOX % TTAH
+
+				MSGBOX % TTAH
+
+			IF TTAH="FF"
+			{
+				MSGBOX % TTAH
+				IF INSTR(OutputVar,"Kill__")>0  
 				WinGet, List, List, % "ahk_exe " TTAH
 				Loop %List%
 				{ 
@@ -471,6 +483,7 @@ KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION:
 					}
 				}
 				FileDelete, %A_LoopFileFullPath%
+			}
 		}
 	}
 RETURN
@@ -776,6 +789,7 @@ MIDNIGHT_AND_HOUR_TIMER:
 			GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
 			GOSUB SET_OWNER_RUN_BATCH_FILER
 			GOSUB RAM_EMPTY_MAIN
+			GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER
 		}
 		
 
