@@ -51,7 +51,7 @@ Attribute VB_Exposed = False
 
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 
 Public EXIT_TRUE
@@ -61,8 +61,8 @@ Dim XVB_DATE
 Dim XVB_DATE_2
 Dim FSO
 
-Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -96,8 +96,7 @@ Private Const conSwNormal = 1
 
 
 '-----------------------------------------------------------------
-Private Declare Function GetVersionExA Lib "kernel32" _
-(lpVersionInformation As OSVERSIONINFO) As Integer
+Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
 
 Private Type OSVERSIONINFO
     dwOSVersionInfoSize As Long
@@ -113,16 +112,24 @@ Dim osinfo As OSVERSIONINFO
 Dim retvalue As Integer
     osinfo.dwOSVersionInfoSize = 148
     osinfo.szCSDVersion = Space$(128)
-    retvalue = GetVersionExA(osinfo)
+    retvalue = GetVersionEx(osinfo)
     sngWindowsVersion = CSng((CStr(osinfo.dwMajorVersion) & "." & CStr(osinfo.dwMinorVersion)))
     strWindowsVersion = CStr(osinfo.dwMajorVersion) & "." & CStr(osinfo.dwMinorVersion) & "." & CStr(osinfo.dwBuildNumber)
     GetWindowsVersion = osinfo.dwMajorVersion
     GetWindowsVersion = CSng((CStr(osinfo.dwMajorVersion) & "." & CStr(osinfo.dwMinorVersion)))
-    
+  
+    '----------------------------------------------------
+    'WINDOWS XP PROBLEM _ CHANGE THE SCRIPT HERE
+    'NOT TO RUN AS ADMIN OR BRING THE RUNAS DIALOG BOX UP
+    'WIN XP = 5.1 _ WINDOWS 10 = 6.2
+    '----------------------------------------------------
+
 End Function
 '-----------------------------------------------------------------
 
 Private Sub Form_Load()
+    
+    'Form2_Check_Project_Date
     
     Set FSO = CreateObject("Scripting.FileSystemObject")
     
@@ -134,6 +141,8 @@ Private Sub Timer_VB_PROJECT_CHECKDATE_Timer()
         Timer_VB_PROJECT_CHECKDATE.Interval = 1000
     End If
     
+    ' Exit Sub ' FOR NOW
+    
     Call VB_PROJECT_CHECKDATE("")
 
 End Sub
@@ -142,7 +151,7 @@ End Sub
 Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
 
 '-------------------------------------------------
-'TOP DELCLARE ------------------------------------
+'TOP DELCLARE ---------------------------
 '-------------------------------------------------
 'Dim XVB_DATE
 'Dim XVB_DATE_2
@@ -281,7 +290,7 @@ If XVB_DATE > VB_DATE And XVB_DATE > 0 And VB_DATE > 0 Then
     FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
 End If
 
-VBS_LAUNCHER_NAME = App.Path + "\VBS - RELOAD AND COPY_" + GetComputerName + ".VBS"
+VBS_LAUNCHER_NAME = App.Path + "\# DATA\VBS - RELOAD AND COPY_" + GetComputerName + ".VBS"
 READY_TO_GO = False
 
 '----------------------------------
@@ -355,9 +364,9 @@ If XVB_DATE < VB_DATE And XVB_DATE > 0 Then
     'WIN XP = 5.1 _ WINDOWS 10 = 6.2
     '----------------------------------------------------
     If GetWindowsVersion > 5.1 Then
-        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1, """", """", ""RUNAS"", 1" + vbCrLf
+        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1, ""/MINIMAL"", """", ""RUNAS"", 1" + vbCrLf
     Else
-        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1" + vbCrLf
+        I_TEXT = I_TEXT + "UAC.ShellExecute FC_1, ""/MINIMAL""" + vbCrLf
     End If
     I_TEXT = I_TEXT + "If Err.Number > 0 Then" + vbCrLf
     I_TEXT = I_TEXT + "    MsgBox ""ERROR LAUNCH VB PROGRAM FROM UPDATE"" + vbCrLf + FC_1 + vbCrLf + Err.Description" + vbCrLf
@@ -399,7 +408,7 @@ If READY_TO_GO = True Then
         ' Shell VBS_LAUNCHER_NAME ____ NOT WORKING
         ' -------------------------------------------------------------------------------
         ' Eample of using ShellExecute
-        ' ShellExecute hwnd, "open", pathandfile, vbNullString, vbNullString, conSwNormal
+        ' ShellExecute hWnd, "open", pathandfile, vbNullString, vbNullString, conSwNormal
         ' -------------------------------------------------------------------------------
         'ShellExecute Me.hWnd, "open", VBS_LAUNCHER_NAME, vbNullString, vbNullString, conSwNormal
         
@@ -423,7 +432,12 @@ If READY_TO_GO = True Then
     If IsIDE = True Then Exit Sub
     
     
-    If FORM_LOAD_VAR = "FORM LOAD" Then End
+    On Error Resume Next
+    Dim A_RESULT As Long
+    If FORM_LOAD_VAR = "FORM LOAD" Then
+        A_RESULT = cProcesses.GetEXEID_KILL_ALL_INSTANCE(App.Path + "\" + App.EXEName + ".exe")
+        End
+    End If
     
     EXIT_TRUE = True
 
@@ -432,6 +446,8 @@ If READY_TO_GO = True Then
         Set Form = Nothing
     Next Form
     Unload Me
+    
+
     
 End If
 

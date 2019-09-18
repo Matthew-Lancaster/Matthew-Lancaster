@@ -218,6 +218,7 @@ GLOBAL TIMER_NOT_RESPONDING
 TIMER_NOT_RESPONDING=0
 
 SET_ACTIVATION__HWND=0
+SET_ACTIVATION__HWND_02=0
 ACTIVATION_GS_FILENAME_CONTENT=
 O_WNDCLASS_DESKED_GSK_MATCH=
 
@@ -320,6 +321,10 @@ RETURN
 ; -------------------------------------------------------------------
 SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE:
 
+	GOSUB TIMER_SET_GOODSYNC_ACCOUNT_SET_UP_ACTIVATION_BOX
+
+	; GOODSYNC ACCOUNT BOX
+
 	FN_Array_1 := []
 	ArrayCount := 1
 	File_NAME := "C:\RF\7-ASUS-GL522VW\SAFE NOTE\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
@@ -346,6 +351,135 @@ SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE:
 
 	
 RETURN
+
+
+
+TIMER_SET_GOODSYNC_ACCOUNT_SET_UP_ACTIVATION_BOX:
+{
+
+	File_NAME := "C:\RF\7-ASUS-GL522VW\SAFE NOTE\Autokey -- 75-GOODSYNC OPTIONS SET_GOODSYNC KEY.txt"
+	IfExist, %File_NAME%
+	{
+		FileGetTime, OutputVar, %File_NAME%, M
+		IF FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT<>%OutputVar%
+		{
+			FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT = %OutputVar%
+			GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
+			; HERE IT READER FILE GET IN ARRAY
+		}
+	}
+	
+	FIND_WINDOW_02=GoodSync Account Setup ahk_class #32770
+	
+		
+	WinGet, HWND_ACTIVATION, ID, %FIND_WINDOW_02%
+	WinGet, HWND_ACTIVE_WINDOW, ID, A
+	MouseGetPos,,,WIN_ID_UNDER_MOUSE_CURSOR
+	IF HWND_ACTIVATION<>%WIN_ID_UNDER_MOUSE_CURSOR%
+		SET_ACTIVATION__HWND_02=0
+	IF HWND_ACTIVATION<>%HWND_ACTIVE_WINDOW%
+		SET_ACTIVATION__HWND_02=0
+
+	; TOOLTIP % HWND_ACTIVATION "`n" WIN_ID_UNDER_MOUSE_CURSOR "`n" SET_ACTIVATION__HWND_02
+	
+	; [ Monday 19:28:20 Pm_09 September 2019 ]
+	; [ Tuesday 02:02:10 Am_17 September 2019 ]
+	; LARGER LARGER LOUDER BEER
+	
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 3
+	IfWinExist %FIND_WINDOW_02%
+	HWND_ACTIVATION=
+	WinGet, HWND_ACTIVATION, ID, %FIND_WINDOW_02%
+	IF SET_ACTIVATION__HWND_02<>%HWND_ACTIVATION%
+	IF HWND_ACTIVATION>0
+	{
+		; SET_ACTIVATION__HWND_02=%HWND_ACTIVATION%  ; ---- DO LATER
+		IDX_MAX:=FN_Array_1.MaxIndex()
+		IDX_MAX-=3
+		IDX_1=-2
+		Loop 200
+		{
+			IF IDX_1>%IDX_MAX%
+				BREAK
+			IDX_1+=3
+			IDX_2=%IDX_1%
+			IDX_2+=1
+			IDX_3=%IDX_1%
+			IDX_3+=2
+			
+			Element_1 := FN_Array_1[IDX_1]
+			Element_2 := FN_Array_1[IDX_2]
+			Element_3 := FN_Array_1[IDX_3]
+
+			; TOOLTIP % Element_1 "`n" Element_2 "`n" Element_3 "`n" 
+			
+			OK_COMPUTER_NAME=
+			IF Element_1=*
+				OK_COMPUTER_NAME=TRUE
+			IF A_ComputerName=%Element_1%
+				OK_COMPUTER_NAME=TRUE
+
+			; TOOLTIP % Element_1 "`n" OK_COMPUTER_NAME
+			
+			; GET AGAIN SPEED REQUIRE MAYBE
+			WinGet, HWND_ACTIVATION, ID, %FIND_WINDOW_02%
+			WinGet Path, ProcessPath, ahk_id %HWND_ACTIVATION%
+
+			IF OK_COMPUTER_NAME
+			IF HWND_ACTIVATION>0
+			IF INSTR(Path,Element_2)
+			{
+				; TOOLTIP % PATH "`n" Element_2
+				ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_ACTIVATION%
+				IF OutputVar_2<>%Element_3%
+				{
+					ControlSetText, Edit1,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, MATTHEW LANCASTER, Edit1, ahk_id %HWND_ACTIVATION%
+					ControlSetText, Edit2,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, %Element_3%, Edit2, ahk_id %HWND_ACTIVATION%
+					SoundBeep , 4000 , 100
+				}
+					
+				; THERE TO TYPE OF ACTIVATION FORM
+				; ONE IS PULL DOWN MENU ASK
+				; ANOTHER COME AS GO TO DO ANYTHING REQUIRE THEM
+				; WHEN 2ND ONE COME 
+				; IT IS EDIT BOX 4 AND 5
+				; I FILL BOTH SO LAZY TO CODE PROPERLY
+					
+				ControlGettext, OutputVar_2, Edit5, ahk_id %HWND_ACTIVATION%
+				IF OutputVar_2<>%Element_3%
+				{
+					ControlSetText, Edit4,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, MATTHEW LANCASTER, Edit4, ahk_id %HWND_ACTIVATION%
+					ControlSetText, Edit5,, ahk_id %HWND_ACTIVATION%
+					Control, EditPaste, %Element_3%, Edit5, ahk_id %HWND_ACTIVATION%
+					SoundBeep , 4000 , 100
+				}
+			}
+		}
+		
+		IF SET_ACTIVATION__HWND_02<>%HWND_ACTIVATION%
+		{
+			ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_ACTIVATION%
+			IF OutputVar_2=%Element_3%
+			{
+				SET_ACTIVATION__HWND_02=%HWND_ACTIVATION%
+				RETURN
+			}
+			ControlGettext, OutputVar_2, Edit5, ahk_id %HWND_ACTIVATION%
+			IF OutputVar_2=%Element_3%
+			{
+				SET_ACTIVATION__HWND_02=%HWND_ACTIVATION%
+				RETURN
+			}
+		}
+	}
+}
+RETURN
+
+
 
 TIMER_SET_ACTIVATION_BOX:
 {
