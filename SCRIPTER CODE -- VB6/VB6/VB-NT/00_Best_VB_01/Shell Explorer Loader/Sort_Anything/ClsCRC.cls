@@ -11,26 +11,52 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
-'CRC Checksum Class
-'------------------------------------
+'VERSION 1.0 CLASS
+'BEGIN
+'  MultiUse = -1  'True
+'  Persistable = 0  'NotPersistable
+'  DataBindingBehavior = 0  'vbNone
+'  DataSourceBehavior = 0   'vbNone
+'  MTSTransactionMode = 0   'NotAnMTSObject
+'End
+' ------------------------------------
+' CRC Checksum Class
+' ------------------------------------
 '
-'A very fast solution to calculate the
-'CRC Checksum (at the moment CRC16 and
-'CRC32 values) with the help of some
-'pre-compiled assembler code
+' A very quick solver to calculate the
+' CRC Checksum at the moment
+' CRC16 and CRC32 values
+' with the help of some
+' pre-compiled assembler code
 '
-'(c) 2000, Fredrik Qvarfort
-'
+' (c) 2000, Fredrik Qvarfort
+' ------------------------------------
 
-'Put This in a Bas Mobule
-'Public m_CRC As clsCRC
-'Public WxHex$
+' ----------------------------------------------------
+' Put This in a Bas Mobule
+' ----------------------------------------------------
+' Public m_CRC As clsCRC
+' Public WxHex$
+' ----------------------------------------------------
 
-'Put in Sub Of Code
-'Set m_CRC = New clsCRC
-'m_CRC.Algorithm = CRC32
-'WxHex$ = Hex(m_CRC.CalculateString(Form3.Text1.Text))
-'WxHex$ = Hex(m_CRC.CalculateFile(Filename))
+' ----------------------------------------------------
+' Put in Sub Of Code
+' ----------------------------------------------------
+' Set m_CRC = New clsCRC
+' m_CRC.Algorithm = CRC32
+' WxHex$ = Hex(m_CRC.CalculateString(STRING))
+' WxHex$ = Hex(m_CRC.CalculateFile(FILENAME))
+' ----------------------------------------------------
+
+' ----------------------------------------------------
+' DATE WORK DO
+' ADD TO MY SYNCHRONISM PROJECT FILE
+' IS A LOT OF THIS ONE AROUND ABOUT 24
+' MATT.LAN@BTINTERNET.COM
+' ----------------------------------------------------
+' [ Tuesday 19:40:00 Pm_17 September 2019 ]
+' ----------------------------------------------------
+
 
 
 Option Explicit
@@ -157,11 +183,16 @@ CalcErrHandler:
   CalculateFile = "00000000"
 End Function
 Public Function CalculateString(Text As String)
-
-  'Convert the string into a bytearray
-  'and send it to the function that
-  'calculates the CRC from a bytearray
-  CalculateString = CalculateBytes(StrConv(Text, vbFromUnicode))
+    
+    If Text = "" Then
+        CalculateString = "00000000"
+        Exit Function
+    End If
+    
+    'Convert the string into a bytearray
+    'and send it to the function that
+    'calculates the CRC from a bytearray
+    CalculateString = CalculateBytes(StrConv(Text, vbFromUnicode))
   
 End Function
 Public Property Get Value() As Variant
@@ -515,6 +546,7 @@ Private Sub Class_Initialize()
   Algorithm = CRC32
   
 End Sub
+
 
 
 

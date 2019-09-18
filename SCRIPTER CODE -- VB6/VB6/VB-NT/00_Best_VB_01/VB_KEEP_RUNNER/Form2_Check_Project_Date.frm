@@ -432,7 +432,12 @@ If READY_TO_GO = True Then
     If IsIDE = True Then Exit Sub
     
     
-    If FORM_LOAD_VAR = "FORM LOAD" Then End
+    On Error Resume Next
+    Dim A_RESULT As Long
+    If FORM_LOAD_VAR = "FORM LOAD" Then
+        A_RESULT = cProcesses.GetEXEID_KILL_ALL_INSTANCE(App.Path + "\" + App.EXEName + ".exe")
+        End
+    End If
     
     EXIT_TRUE = True
 
@@ -441,6 +446,8 @@ If READY_TO_GO = True Then
         Set Form = Nothing
     Next Form
     Unload Me
+    
+
     
 End If
 

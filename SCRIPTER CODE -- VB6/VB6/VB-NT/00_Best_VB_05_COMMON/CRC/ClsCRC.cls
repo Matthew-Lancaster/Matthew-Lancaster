@@ -11,26 +11,36 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
-'CRC Checksum Class
-'------------------------------------
+' ------------------------------------
+' CRC Checksum Class
+' ------------------------------------
 '
-'A very fast solution to calculate the
-'CRC Checksum (at the moment CRC16 and
-'CRC32 values) with the help of some
-'pre-compiled assembler code
+' A very quick solver to calculate the
+' CRC Checksum at the moment
+' CRC16 and CRC32 values
+' with the help of some
+' pre-compiled assembler code
 '
-'(c) 2000, Fredrik Qvarfort
-'
+' (c) 2000, Fredrik Qvarfort
+' ------------------------------------
 
-'Put This in a Bas Mobule
-'Public m_CRC As clsCRC
-'Public WxHex$
 
-'Put in Sub Of Code
-'Set m_CRC = New clsCRC
-'m_CRC.Algorithm = CRC32
-'WxHex$ = Hex(m_CRC.CalculateString(Form3.Text1.Text))
-'WxHex$ = Hex(m_CRC.CalculateFile(Filename))
+' ----------------------------------------------------
+' Put This in a Bas Mobule
+' ----------------------------------------------------
+' Public m_CRC As clsCRC
+' Public WxHex$
+' ----------------------------------------------------
+
+' ----------------------------------------------------
+' Put in Sub Of Code
+' ----------------------------------------------------
+' Set m_CRC = New clsCRC
+' m_CRC.Algorithm = CRC32
+' WxHex$ = Hex(m_CRC.CalculateString(STRING))
+' WxHex$ = Hex(m_CRC.CalculateFile(FILENAME))
+' ----------------------------------------------------
+
 
 
 Option Explicit
