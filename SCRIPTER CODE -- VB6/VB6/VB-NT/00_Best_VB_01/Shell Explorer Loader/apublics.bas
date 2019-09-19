@@ -1,4 +1,5 @@
 Attribute VB_Name = "APublics"
+
 Public NET_C_PATH
 Public NET_D_PATH
 Public NET_E_PATH
