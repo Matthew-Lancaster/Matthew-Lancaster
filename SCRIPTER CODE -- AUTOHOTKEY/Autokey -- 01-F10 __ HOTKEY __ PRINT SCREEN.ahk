@@ -190,11 +190,6 @@ SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
 ESCAPE_KEY_COUNT=0
 
 
-
-
-
-
-
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; THE CODE START TO ENTER ROUTINE FUNCTION THAT USE RETURN ON FROM 
@@ -207,19 +202,11 @@ ESCAPE_KEY_COUNT=0
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-
-
-
 #IfWinActive, Microsoft Visual Basic [design]
 F5::SEND ^{f5}
 RETURN
-
-; #IfWinActive, ahk_class Notepad++
-; f2::tooltip hi
-; RETURN
-
-
 #ifwinactive
+
 ; -------------------------------------------------------------------
 ; Difference between IfWinActive and #IfWinActive - Ask for Help - AutoHotkey Community
 ; https://autohotkey.com/board/topic/78534-difference-between-ifwinactive-and-ifwinactive/
@@ -232,15 +219,18 @@ RETURN
 ; UNLESS BETWEEN THERE IS HERE LINE #ifwinactive
 ; WHEN THE LINE HERE IT NOT STOP THE HOTKEY BEFORE
 ; AND THEN POSITION YOUR HOTKEY IN FRONT OF ROUTINE WANT USER
-; 
 ; -------------------------------------------------------------------
 ; Tue 17-Sep-2019 16:02:42
 ; -------------------------------------------------------------------
-
-; *~ESC::
-	; GOSUB CHECK_ESC_KEY
-
+; IGNORE ABOVE THIS LINE IS NOT LOCATABLE ANYWHERE IN CODE 
+; MUST BE RUN OVER LIKE DECLARE
+; -------------------------------------------------------------------
+; Wed 18-Sep-2019 23:01:31
+; -------------------------------------------------------------------
 	
+*~ESC::
+	GOSUB CHECK_ESC_KEY
+RETURN	
 	
 ; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
 ; must type an ending character after typing btw, such as Space, ., or Enter).
@@ -294,7 +284,6 @@ RETURN
 RETURN
 
 
-
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; NOT TOTAL OF TRUE THAT INITIAL CODE END AS 
@@ -302,8 +291,6 @@ RETURN
 ; MAYBE A TIDIER
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-
-	
 
 RETURN
 
@@ -582,8 +569,8 @@ RETURN
 ; Tue 17-Sep-2019 15:25:01
 ; Tue 17-Sep-2019 18:05:00 -- 2 HOUR
 ; -------------------------------------------------------------------
-*~ESC::
-	GOSUB CHECK_ESC_KEY
+; *~ESC::
+	; GOSUB CHECK_ESC_KEY
 
 CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path

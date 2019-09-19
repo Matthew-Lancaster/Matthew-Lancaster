@@ -449,35 +449,46 @@ ONE_SECOND:
 RETURN
 
 KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION:
+	MODEKILLER=
 	Loop, Files, C:\SCRIPTOR DATA\KILL PROCESS REMOTE\*.TXT, R
 	{
 		IF INSTR(A_LoopFileFullPath,A_ComputerName)>0
 		{
+			FILE_NAME_WITH_COMPUTER_NAME=%A_LoopFileFullPath%
 			Loop, read, %A_LoopFileFullPath%
-			; OutputVar := StrReplace(OutputVar, "`r", "")
-			Loop, parse, A_LoopReadLine, 'n'r
+			Loop, parse, A_LoopReadLine, `,
+			{
 				TTAH=%A_LoopField%
 
-				; MsgBox, 4, , Field %LineNumber%-%A_Index% is:`n%A_LoopField%`n`nContinue?
+				HASH:="#"
+				CHECK_ATION:=SubStr(TTAH, 1,1)
+				IF CHECK_ATION=%HASH%
+					MODEKILLER=TRUE
 
-				MSGBOX % TTAH
+				IF INSTR(TTAH,"#KILL")
+					MODEKILLER=TRUE
 
-			IF TTAH="FF"
-			{
-				MSGBOX % TTAH
-				IF INSTR(OutputVar,"Kill__")>0  
-				WinGet, List, List, % "ahk_exe " TTAH
-				Loop %List%
-				{ 
-					WinGet, KILL_PID, PID, % "ahk_id " List%A_Index% 
-					IF KILL_PID>0 
-					{
-						Process, Close, %KILL_PID%
-						SOUNDBEEP 1200,40
+				IF TTAH
+				IF CHECK_ATION<>%HASH%
+				IF MODEKILLER=TRUE
+				{
+					TOOLTIP % TTAH
+					WinGet, List, List, % "ahk_exe " TTAH
+					Loop %List%
+					{ 
+						WinGet, KILL_PID, PID, % "ahk_id " List%A_Index% 
+						IF KILL_PID>0 
+						{
+							Process, Close, %KILL_PID%
+							SOUNDBEEP 1200,40
+						}
 					}
 				}
-				FileDelete, %A_LoopFileFullPath%
 			}
+			
+			; MSGBOX %FILE_NAME_WITH_COMPUTER_NAME%
+			FileDelete, %FILE_NAME_WITH_COMPUTER_NAME%
+			TOOLTIP
 		}
 	}
 RETURN

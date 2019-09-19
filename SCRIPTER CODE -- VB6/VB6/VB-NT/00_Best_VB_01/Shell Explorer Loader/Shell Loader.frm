@@ -5862,6 +5862,9 @@ Begin VB.Form Form1
          Caption         =   "Sync"
       End
    End
+   Begin VB.Menu MNU_TREESIZE 
+      Caption         =   "TREESIZE"
+   End
    Begin VB.Menu Mnu_LoadFolder 
       Caption         =   "LOAD FOLDER LINK"
    End
@@ -5926,6 +5929,42 @@ Attribute VB_Exposed = False
 ' Wed 04-Sep-2019 01:45:10
 ' ------------------------------------------------------------------------------
 
+' ------------------------------------------------------------------------------
+' SESSION COUNT NUMBER MASSIVE
+' 003 SESSION
+' 01.. -------------------------------------------------------------------------
+' WORK TODAY LONG
+' MAKE THE LAUNCHER WHEN GET TO EXPLORER
+' THEY MANY WAY TO LOAD EXPLORER
+' NOW BEEN REDUCED
+' TO WHEN EXPLORER WANT TO LOAD IT NOW DO BY ONE ROUTINE CALL
+' AND ANOTHER ONE FOR CMD SHELL WHICH USE LESS DEMANDER
+' AND ADD NEW OPTION IN MENU
+' TO LOAD TREESIZE FOR ANY FOLDER GIVEN
+' AND THAT VICIOUS BIT
+' WAS HARD WORKER
+' FOND SOMETHING OUT FIST TIME
+' AND A LEARN GAP BETWEEN US NOIVCE AND GET STARTED ON SOMETHING
+' SEEM IN THE DAY THAT WERE SOME SOURCE OF FIND TETX COMPUTER CODE
+' NOW A DAY  IS THE INTERNET
+' VERY FEW EXAMPLE AROUND ACAULLY SHOW
+' WHEN DO THING TO A BIT EXTRA DEPTH
+' TREESIZE DOES NOT LIKE TO LOAD FROM VB6
+' IT CRASHES
+' SO I MAKE A LAUCHER
+' AND THE ARGMENT REQUIRE SEND OVER
+' AND THAT WHRE THAT MAGIC HAPPEN
+' Public Sub EXPLORER_WITH_SHELL(SELECT_OPTION, FOLDER_NAME)
+' THAT IS A VARIABEL THAT HOLD LENGHT OF ITEM FOR COMBO BOX ISTOAY
+' AND INCREASE LENGHT THAT
+' THAT ITEM ARE HIGHTLIGHT DARK BULLET ON
+' ------------------------------------------------------------------------------
+' WORK TODAY
+' Wed 18-Sep-2019 20:08:55
+' Wed 18-Sep-2019 22:55:17
+' ------------------------------------------------------------------------------
+
+
 
 
 ' -------------------------------------
@@ -5933,6 +5972,7 @@ Attribute VB_Exposed = False
 ' SO CALL ShowWindow_2
 ' -------------------------------------
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
 
 Dim CLIPBOARDOR
 Dim FontSizez
@@ -6192,6 +6232,8 @@ End Sub
 
 Private Sub Form_Load()
 
+'FormStart.MNU_TREESIZE_GO = True
+
 ReDim A4$(500), B4$(500), C4$(500)
 
 Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = False
@@ -6222,7 +6264,7 @@ If GetComputerName = "5-ASUS-P2520LA" Then
 End If
 
 If GetComputerName = "7-ASUS-GL522VW" Then
-    FontSizez = 6.9
+    FontSizez = 7.2
     FontSizez_2 = FontSizez '     -- THE SPECIAL FOLDERIN GET HERE
 End If
 
@@ -6578,6 +6620,12 @@ Private Sub MNU_NETWORK_WITH_CLIPBOARDER_Click()
 
 
 
+
+End Sub
+
+Private Sub MNU_TREESIZE_Click()
+
+FormStart.MNU_TREESIZE_GO = True
 
 End Sub
 
@@ -7283,12 +7331,8 @@ If LoadFolder = True And InStr(C1$, "NETWORK COMPUTER NAME") > 0 Then
 
     Call SaveLoggs
 
-    If CLIPBOARDOR_PATH_NAME = True Then
-        Call Form1.CLIP_PATH_NAME("explorer shell:NetworkPlacesFolder")
-    End If
-
-    Shell "explorer shell:NetworkPlacesFolder", vbNormalFocus
-    End
+    Call FormStart.EXPLORER_WITH_SHELL("", "explorer shell:NetworkPlacesFolder")
+    
 End If
 
 ' ------------------
@@ -7296,19 +7340,16 @@ End If
 ' SEE BELOW
 ' ------------------
 If LoadFolder = True Then
-
-    Call SaveLoggs
     
-    If CLIPBOARDOR_PATH_NAME = True Then
-        Call Form1.CLIP_PATH_NAME(A1$)
-    End If
-    Shell "explorer /e, " + A1$, vbNormalFocus
-    End
+    Call SaveLoggs
+    Call FormStart.EXPLORER_WITH_SHELL("/e,", A1$)
+
 End If
 
 Call SaveLoggs
 
 Call FormStart.LabelClick(Index)
+' ------------------------------
 
 End Sub
 

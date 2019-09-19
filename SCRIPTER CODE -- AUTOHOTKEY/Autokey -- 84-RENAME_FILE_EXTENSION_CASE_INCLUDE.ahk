@@ -308,8 +308,12 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 			SET_SHOW_TOOLTIP=TRUE
 	}
 	
+	; ---------------------------------------------------
+	; WONT DO IF ARRAY NOT BEEN SET TO LEVEL 
+	; SET TO 10 STOP ERROR MESSAGE AT 7
 	; FIND THE NUMBER OF HOW MANY ROW TO THE ARRAY 1 TO 5
-	Loop, 10
+	; ---------------------------------------------------
+	Loop, 3
 	{
 	 IF SET_ARRAY_%A_Index%
 		NEST_2ND_LOOP_MAXIMUM_NUMBER_ROW_ARRAY=%A_Index%
