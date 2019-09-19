@@ -16,14 +16,21 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
-
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
-'
-Dim R As Long
 
+Dim R As Long
+Public MNU_TREESIZE_GO
 Dim NET_PATH_AND_DRIVE
 Dim F1$
 Dim D1$
+
+' -------------------------------------
+' NOTE FORM VBS COMMON LABEL NAME CLASH
+' SO CALL ShowWindow_2
+' -------------------------------------
+Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+
 '-----------------------------------------------------------------
 Private Declare Function GetVersionExA Lib "kernel32" _
 (lpVersionInformation As OSVERSIONINFO) As Integer
@@ -1064,19 +1071,11 @@ If A1$ = "CONTROL_PANEL_SHELL" Then
     End If
     If SET_GO = 0 Then Shell B1$, vbMaximizedFocus
     If SET_GO = 1 Then
-        If CLIPBOARDOR_PATH_NAME = True Then
-            Call Form1.CLIP_PATH_NAME(B1$)
-        End If
-
-        Shell "CMD /C """ + B1$ + """", vbMaximizedFocus
-'        vLaunch "CMD /C ""start ms-settings:""", vbMaximizedFocus
-'        Dim objShell
-'        Set objShell = CreateObject("Wscript.Shell")
-'        objShell.Run "CMD /K " + B1$, 0, True
-'        Set objShell = Nothing
-
+    
+        
+        Call EXPLORER_WITH_SHELL("/Select,", PATH_WANTER)
+        Call SHELL_CMD(B1$, "CMD /C """ + B1$ + """")
     End If
-    End
 End If
 
 
@@ -1084,9 +1083,9 @@ If A1$ = "EXPLORER_SHELL" Then
     If CLIPBOARDOR_PATH_NAME = True Then
         Call Form1.CLIP_PATH_NAME(B1$)
     End If
-    Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
-    Beep
-    End
+    
+    Call EXPLORER_WITH_SHELL("", B1$)
+
 End If
 
 
@@ -1130,8 +1129,7 @@ If SetTrueToLoadLast = True Then
         ' ------------------------------------------------------------
     End If
     
-    Shell "Explorer.exe /Select," + PATH_WANT, vbMaximizedFocus
-    End
+    Call EXPLORER_WITH_SHELL("/Select,", PATH_WANT)
 End If
 
 
@@ -1144,8 +1142,9 @@ If Mid(A1$, 1, 2) = "--" Then
         If CLIPBOARDOR_PATH_NAME = True Then
             Call Form1.CLIP_PATH_NAME(B1$)
         End If
-        Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
-        End
+        
+        Call EXPLORER_WITH_SHELL("", B1$)
+        Exit Sub
     End If
     
     If A1$ = "--DriveRemote_USER" And Mid(B1, 1, 2) = "\\" Then
@@ -1160,8 +1159,8 @@ If Mid(A1$, 1, 2) = "--" Then
 '                COMPUTER_NAME_PUT = D1$
 '            End If
             
-            Shell "Explorer.exe " + COMPUTER_NAME_PUT, vbNormalFocus
-            End
+            Call EXPLORER_WITH_SHELL("", COMPUTER_NAME_PUT)
+
     End If
     
     If A1$ = "--DriveRemote_GS" Then 'And Mid(B1, 1, 2) = "\\" Then
@@ -1176,8 +1175,7 @@ If Mid(A1$, 1, 2) = "--" Then
 '                COMPUTER_NAME_PUT = D1$
 '            End If
             
-            Shell "Explorer.exe " + COMPUTER_NAME_PUT, vbNormalFocus
-            End
+            Call EXPLORER_WITH_SHELL("", COMPUTER_NAME_PUT)
     End If
     
     If A1$ = "--DriveRemote" And Mid(B1, 1, 2) = "\\" Then
@@ -1234,15 +1232,14 @@ If Mid(A1$, 1, 2) = "--" Then
                 COMPUTER_NAME_PUT = D1$
             End If
             
-            Shell "Explorer.exe " + COMPUTER_NAME_PUT, vbNormalFocus
-            End
+            Call EXPLORER_WITH_SHELL("", COMPUTER_NAME_PUT)
             
         Else
             If CLIPBOARDOR_PATH_NAME = True Then
                 Call Form1.CLIP_PATH_NAME(B1$)
             End If
-            Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
-            End
+            
+            Call EXPLORER_WITH_SHELL("", B1$)
         End If
     End If
     
@@ -1252,8 +1249,8 @@ If Mid(A1$, 1, 2) = "--" Then
             If CLIPBOARDOR_PATH_NAME = True Then
                 Call Form1.CLIP_PATH_NAME(B1$)
             End If
-        Shell "Explorer.exe " + B1$, vbMaximizedFocus ', vbNormalFocus
-        End
+        
+        Call EXPLORER_WITH_SHELL("", B1$)
     End If
 End If
 
@@ -1264,7 +1261,8 @@ If TARGET_PATH_ALREADY_GOT = True Then
     If CLIPBOARDOR_PATH_NAME = True Then
         Call Form1.CLIP_PATH_NAME(PATH_WANTER)
     End If
-    Shell "Explorer.exe /Select," + PATH_WANTER, vbNormalFocus
+    
+    Call EXPLORER_WITH_SHELL("/Select,", PATH_WANTER)
 
 End If
 
@@ -1297,9 +1295,6 @@ If SetTrueToLoadLast = False Then
         Exit Sub
     End If
     
-
-    
-    
     If Trim(D1$) = "" Then
         If CLIPBOARDOR_PATH_NAME = True Then
             Call Form1.CLIP_PATH_NAME(A1$ + B1$)
@@ -1319,11 +1314,25 @@ If SetTrueToLoadLast = True Then
         PATH_WANTER = Form1.File1.Path + "\" + Form1.File1.List(0)
     End If
 
-    ' MsgBox PATH_WANTER
+    ' -------------------------------------------------
+    ' IF ASK FOR THIS HERE CLIPBOARDOR_PATH_NAME
+    ' AND THEN GET DOUBLE OFFERING
+    ' AND CLIPBOARD TWICE
+    ' AND THE 1ST TIME AROUND
+    ' WHEN DOUBLE STEP BUILD PATH UP NETOWRKER
+    ' AND 2ND TIME
+    ' WHEN SECOND TIME MIGHT BE TWO HITTER QUICKER DONE
+    ' UNLESS CODE IN - MORE OFTEN
+    ' -------------------------------------------------
+    ' I HAVE TO FIND OUT BY TRACE DEBUGGER
+    ' WHAT THE 2 STEP VALUE CHANGE IS LIKE
+    ' -------------------------------------------------
+    ' HA HA
+    ' -------------------------------------------------
+
     If CLIPBOARDOR_PATH_NAME = True Then
         Call Form1.CLIP_PATH_NAME(PATH_WANTER)
     End If
-    
         
     If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
         If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then
@@ -1356,9 +1365,7 @@ If SetTrueToLoadLast = True Then
         PATH_WANTER = D1$
     End If
     
-    
-    Shell "Explorer.exe /Select," + PATH_WANTER, vbNormalFocus
-    End
+    Call EXPLORER_WITH_SHELL("/Select,", PATH_WANTER)
 End If
 
 
@@ -1405,16 +1412,97 @@ If D1$ <> "" Then
         Call LOAD_NETWORK_PATH_TO_EXPLORER
     End If
 
-    If CLIPBOARDOR_PATH_NAME = True Then
-        Call Form1.CLIP_PATH_NAME(D1$)
-    End If
+    Call EXPLORER_WITH_SHELL("", D1$)
         
-    Shell "Explorer.exe " + D1$, vbMaximizedFocus
 End If
-End
 
 End Sub
 
+Public Sub SHELL_CMD(FOLDER_NAME, FULL_COMMAND)
+
+    If MNU_TREESIZE_GO = True Then
+        Exit Sub
+    End If
+    If MNU_TREESIZE_GO = True Then
+        TREESIZE_EXE = "C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
+        Shell TREESIZE_EXE + " " + FOLDER_NAME, vbMaximizedFocus
+        Stop
+        End
+    End If
+
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME(FOLDER_NAME)
+    End If
+
+    Shell FULL_COMMAND, vbMaximizedFocus
+
+'    vLaunch "CMD /C ""start ms-settings:""", vbMaximizedFocus
+'    Dim objShell
+'    Set objShell = CreateObject("Wscript.Shell")
+'    objShell.Run "CMD /K " + B1$, 0, True
+'    Set objShell = Nothing
+
+End Sub
+
+Private Sub Form_Load()
+
+' HERE ROUTINE GET CALL FOR FORM_LOAD
+' Public Sub FormStartLoader()
+' NOT HERE FORM_LOAD
+    
+Call SET_UP_PULIC_FSO
+
+End Sub
+
+
+Public Sub EXPLORER_WITH_SHELL(SELECT_OPTION, FOLDER_NAME)
+
+    If MNU_TREESIZE_GO = True Then
+        If Mid$(FOLDER_NAME, Len(FOLDER_NAME), 1) = ":" Then
+            FOLDER_NAME = FOLDER_NAME + "\"
+        End If
+    End If
+    
+    If FormStart.MNU_TREESIZE_GO = True Then
+        TREESIZE_EXE = "C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
+        SCRIPT_PATH_LOADER = "D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
+        ' ----------------------------------------------------
+        ' ENCODE -- WELL DONE IT AT LONG LAST NEW IDEA IN HEAD
+        ' [ Wednesday 21:09:50 Pm_18 September 2019 ]
+        ' ----------------------------------------------------
+        ' ----
+        ' Percent -encoding - Wikipedia
+        ' https://en.wikipedia.org/wiki/Percent-encoding
+        ' ----
+        ' ----------------------------------------------------
+        If Dir(SCRIPT_PATH_LOADER) = "" Then MsgBox "FILE NOT FIND" + vbCrLf + SCRIPT_PATH_LOADER: Stop
+        
+        TREESIZE_EXE = Replace(TREESIZE_EXE, " ", "*")
+        ' TREESIZE_EXE = "MM"
+        FOLDER_NAME = Replace(FOLDER_NAME, " ", "*")
+    
+        Dim WSHShell
+        Set WSHShell = CreateObject("WScript.Shell")
+            l = """" + SCRIPT_PATH_LOADER + """" + " " + TREESIZE_EXE + " " + FOLDER_NAME
+            Debug.Print l
+            WSHShell.Run l, ShowWindow_2, DontWaitUntilFinished
+        Set WSHShell = Nothing
+        
+        ' SHELL WONT RUN VBS
+        ' Shell SCRIPT_PATH_LOADER
+        End
+        
+    End If
+    
+    If CLIPBOARDOR_PATH_NAME = True Then
+        Call Form1.CLIP_PATH_NAME(FOLDER_NAME)
+    End If
+    SELECT_OPTION = Trim(SELECT_OPTION) + " "
+    If Trim(SELECT_OPTION) = "" Then SELECT_OPTION = ""
+    Shell "Explorer.exe " + SELECT_OPTION + FOLDER_NAME, vbMaximizedFocus
+    End
+
+End Sub
 
 Sub LOAD_NETWORK_PATH_TO_EXPLORER()
     
@@ -1481,14 +1569,4 @@ Sub LOAD_NETWORK_PATH_TO_EXPLORER()
 End Sub
 
 
-
-Private Sub Form_Load()
-
-' HERE ROUTINE GET CALL FOR FORM_LOAD
-' Public Sub FormStartLoader()
-' NOT HERE FORM_LOAD
-    
-Call SET_UP_PULIC_FSO
-
-End Sub
 
