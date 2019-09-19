@@ -2182,6 +2182,7 @@ Option Explicit
 ' TO     ---- Tue 01-May-2018 14:32:54 30 MINUTE __ HALF AN HOUR
 '-------------------------------------------------------------------
 
+'-------------------------------------------------------------------
 ' SORTED THE UPDATER AND EXIT UNLOAD FROM MAIN FORM
 ' HEAD-ACHE TOOK LONG
 ' THIS UPDATER CODE IS IN THESE ONE
@@ -2230,6 +2231,80 @@ Option Explicit
 ' Count = 1123 -- Wed 20-Mar-2019 01:54:15
 ' Count = 1221 -- Wed 20-Mar-2019 03:08:18
 ' -------------------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------------------
+' SESSION AT [__ Ver_2019_1.0.489 __] ---- Thu 19-Sep-2019 00:23:00
+' FOR ROUTINE ---- Private Sub Label_GOODSYNC_01_Click()
+' -------------------------------------------------------------------------------
+' ALMOST DONE
+' NEW WORK
+' THE PROJECT UPDATER HAS WORK DO
+' SOON TO ARRVE WILL BE CC CHECK FOR FILE COPY OKAY
+' COPY THE CRC CODE TO EVERY PROJECT THAT REQUIRE
+' AND DO THE SYNC FOR CODE MOUDLE CLASS FORM
+' IS SYNCER DONE
+'
+' THE REMOTE LAUNCH CODE HAS FINSISHED DO
+' STILL PRENETAITON OF BUTTON TO DO
+' FIRST OFF TO KILL PROGRAM
+' OF MULTIPLE VARY
+' AT REMOTE LOCATION
+' ATER EVENT CMD.EXE RAN FEW HUNDRED EVERY MACHINE
+' USE REMOTE TO SHUT THEM
+' THERE WAS ONE APP THAT SEE IF SUDDEN HUNDFRED BUILD KILL ALL ANYWAY
+'
+' DETECT PROJECT IS IN IDE BEFOE TRY RUN THE MENU TO VB IDE GO
+'
+' PRCOCES HANDLE OF MULTI FIND
+' AND KILL
+' AND KILL ALL BUT NOT OWN SOFTLY
+' NOW WORK GOOD ROUINE
+'
+' ALSO LINE PICKET GONE IN
+' MAYNE FINISH MORE
+'
+' ALSO ANOTHER POJECT OR THIS ONE
+' GOT EXE PICKER
+' WHICH IS NEW TO PROCESS MANAGER
+'
+' AS PREVIOUS ABLE TO TELL IF MOR LESS PROCESS
+' BUT WHAT NEW LEFT OR CAME -- IS NEAR HERE
+' LAST BIT CODER TO DO FOR THAT
+' AND THEN QUICK LAUNCHER
+' -------------------------------------------------------------------
+' WORK OVER DAY AND MORE
+' -------------------------------------------------------------------
+' LOOK LOGG
+' LAST 3 WORK
+' JUNE
+' AUGUST
+' SEPTEMNER 10TH
+' UNTIL NOW 19TH
+' -------------------------------------------------------------------
+' Sun 09-Jun-2019 10:41:18 -- BEGINNER
+' -------------------------------------------------------------------
+' Tue 10-Sep-2019 14:28:49 -- BEGINNER
+' Mon 16-Sep-2019 15:16:07 -- END TIME
+' -------------------------------------------------------------------
+' Wed 18-Sep-2019 00:06:34 -- BEGINNER
+' Wed 18-Sep-2019 04:30:47 -- ENDER
+' -------------------------------------------------------------------
+' Wed 18-Sep-2019 17:18:59 -- BEGINNER
+' Wed 18-Sep-2019 20:58:30 -- ENDER    -- JOB HOPPING
+' -------------------------------------------------------------------
+' Thu 19-Sep-2019 00:22:37 -- BEGINNER
+' Thu 19-Sep-2019 00:33:12 -- ENDER
+' -------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 ' ------------------------------------------------------------------
 ' ------------------------------------------------------------------
@@ -5322,6 +5397,118 @@ End Sub
 
 
 
+Private Sub Label_1X_Click()
+'Me.WindowState = vbMinimized
+
+VAR_LAB_TEXT = Label_1X.Caption
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_1X.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
+
+'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+Call MAKE_COMPUTER_PATH_WORKING
+End Sub
+
+Private Sub Label_2E_Click()
+'Me.WindowState = vbMinimized
+
+VAR_LAB_TEXT = Label_2E.Caption
+
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_2E.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
+
+'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+Call MAKE_COMPUTER_PATH_WORKING
+
+End Sub
+
+Private Sub Label_3L_Click()
+'Me.WindowState = vbMinimized
+
+VAR_LAB_TEXT = Label_3L.Caption
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_3L.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
+
+'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+Call MAKE_COMPUTER_PATH_WORKING
+
+End Sub
+
+Private Sub Label_4G_Click()
+'Me.WindowState = vbMinimized
+
+VAR_LAB_TEXT = Label_4G.Caption
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_4G.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
+
+'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+Call MAKE_COMPUTER_PATH_WORKING
+
+End Sub
+
+Private Sub Label_5P_Click()
+'Me.WindowState = vbMinimized
+
+VAR_LAB_TEXT = Label_5P.Caption
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_5P.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
+
+'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+Call MAKE_COMPUTER_PATH_WORKING
+
+End Sub
+
+Private Sub Label_7G_Click()
+'Me.WindowState = vbMinimized
+
+VAR_LAB_TEXT = Label_7G.Caption
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_7G.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
+
+'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+Call MAKE_COMPUTER_PATH_WORKING
+
+End Sub
+
+Private Sub Label_8M_Click()
+'Me.WindowState = vbMinimized
+
+VAR_LAB_TEXT = Label_8M.Caption
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_8M.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
+
+'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+
+Call MAKE_COMPUTER_PATH_WORKING
+
+End Sub
+
 Sub MAKE_COMPUTER_PATH_WORKING()
 
 Dim i, R
@@ -5381,13 +5568,21 @@ End If
 SET_COMPUTER_TO_RUN_2 = UCase(SET_COMPUTER_TO_RUN_2)
 
 Err.Clear
+Dim i2
+Dim STRING_OPERATION
 FR1 = FreeFile
 On Error Resume Next
 Open SET_COMPUTER_TO_RUN_2 For Output As #FR1
-    Print #FR1, "#KILLER__"
-    Print #FR1, "CMD.EXE"
-    Print #FR1, "CONHOST.EXE"
-    ' C:\Windows\System32\icacls.exe
+    i = ""
+    i2 = ","
+    i = i + "#KILLER__" + i2
+    i = i + "CMD.EXE" + i2
+    i = i + "CONHOST.EXE" + i2
+    i = i + "icacls.exe" + i2
+    i = i + "" + i2
+    i = i + "" + i2
+    STRING_OPERATION = UCase(i)
+    Print #FR1, STRING_OPERATION;
 Close #FR1
 
 Debug.Print SET_COMPUTER_TO_RUN_2
@@ -5397,133 +5592,8 @@ Else
     Debug.Print "NONE ERROR"
 End If
 
-
-End Sub
-Private Sub Label_1X_Click()
-'Me.WindowState = vbMinimized
-
-VAR_LAB_TEXT = Label_1X.Caption
-
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_1X.BackColor = RGB(255, 255, 255)
-
-SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
-
-'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-        
-' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
-
-Call MAKE_COMPUTER_PATH_WORKING
 End Sub
 
-Private Sub Label_2E_Click()
-'Me.WindowState = vbMinimized
-
-VAR_LAB_TEXT = Label_2E.Caption
-
-
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_2E.BackColor = RGB(255, 255, 255)
-
-SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
-
-'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-
-' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
-
-Call MAKE_COMPUTER_PATH_WORKING
-
-End Sub
-
-Private Sub Label_3L_Click()
-'Me.WindowState = vbMinimized
-
-VAR_LAB_TEXT = Label_3L.Caption
-
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_3L.BackColor = RGB(255, 255, 255)
-
-SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
-
-'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-
-' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
-
-Call MAKE_COMPUTER_PATH_WORKING
-
-End Sub
-
-Private Sub Label_4G_Click()
-'Me.WindowState = vbMinimized
-
-VAR_LAB_TEXT = Label_4G.Caption
-
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_4G.BackColor = RGB(255, 255, 255)
-
-SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
-
-'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-
-' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
-
-Call MAKE_COMPUTER_PATH_WORKING
-
-End Sub
-
-Private Sub Label_5P_Click()
-'Me.WindowState = vbMinimized
-
-VAR_LAB_TEXT = Label_5P.Caption
-
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_5P.BackColor = RGB(255, 255, 255)
-
-SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
-
-'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-
-' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
-
-Call MAKE_COMPUTER_PATH_WORKING
-
-End Sub
-
-Private Sub Label_7G_Click()
-'Me.WindowState = vbMinimized
-
-VAR_LAB_TEXT = Label_7G.Caption
-
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_7G.BackColor = RGB(255, 255, 255)
-
-SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
-
-'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-
-' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
-
-Call MAKE_COMPUTER_PATH_WORKING
-
-End Sub
-
-Private Sub Label_8M_Click()
-'Me.WindowState = vbMinimized
-
-VAR_LAB_TEXT = Label_8M.Caption
-
-Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-Label_8M.BackColor = RGB(255, 255, 255)
-
-SET_COMPUTER_TO_RUN = FIND_COMPUTER_TO_RUN(VAR_LAB_TEXT)
-
-'Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-
-' SEARCH STRING -- MAKE_COMPUTER_PATH_WORKING()
-
-Call MAKE_COMPUTER_PATH_WORKING
-
-End Sub
 
 Private Sub Label_CHROME_PAGE_AUTO_ON_Click()
 
