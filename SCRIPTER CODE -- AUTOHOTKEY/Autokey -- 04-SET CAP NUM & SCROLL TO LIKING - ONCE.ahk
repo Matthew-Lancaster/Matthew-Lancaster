@@ -26,3 +26,8 @@ SetStoreCapslockMode, off
 SetCapsLockState , On
 SetNumLockState , Off
 SetScrollLockState , Off
+
+; MY TIDAL CODE DONE A KEYBOARD HOOK SHIFT DOWN AND WAS LIKE GLOBAL REMAIN ER
+; IN THE DEBUGGER IDE
+; -----------------------------------------------------------
+Send {shift up}

@@ -365,6 +365,7 @@ Sub DisplayFindings_5()
 				TT_EDITOR = File_1.ReadAll
 				Set File_1 = NOTHING
 				IF InStr(UCASE(TT_EDITOR), "#2.2#0; MSCOMCTL.OCX")>0 THEN 
+					MSGBOX VAR_PATH_SCANNER,
 					CALL USUAL_MAIN
 					Set File_2 = fso.OpenTextFile(VAR_PATH_SCANNER, ForWriting)
 					File_2.Write TT_EDITOR
