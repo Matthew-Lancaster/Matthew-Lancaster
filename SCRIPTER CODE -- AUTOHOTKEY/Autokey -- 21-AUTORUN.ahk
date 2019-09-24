@@ -1951,7 +1951,9 @@ IF SET_GO=TRUE
 		IfExist, %FN_VAR%
 		{
 			SoundBeep , 2500 , 100
-			Run, "%FN_VAR%" /TRAY
+			; TEMP OUT ----------------------------------------------
+			'Run, "%FN_VAR%" /TRAY
+			; -------------------------------------------------------
 			;WinWait, System Explorer, , 40
 			;SLEEP 800
 			;WINCLOSE
