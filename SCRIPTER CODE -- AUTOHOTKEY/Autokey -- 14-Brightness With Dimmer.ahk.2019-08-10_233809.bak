@@ -532,7 +532,7 @@ RS232_LOGGER_TIMER_CHANGE:
 	; BUT WITH MOUSE WE WANT OPPOSITE THAT SIMULATED MOUSE MOUSE IS ABLE BRING 
 	; OUT OF SCREEN SAVER
 	; GET MY DRIFTER
-	; HAD TO GO TO BED FALLER ASLEEP ON THIS ONE AND WAKE TO THE GO
+	; HAD TO GO TO BED FALLER ALSLEEP ON THIS ONE AND WAKE TO THE GO
 	; [ Tuesday 10:12:30 Am_14 May 2019 ]
 	; -------------------------------------------------------------------
 
@@ -625,7 +625,7 @@ DetectHiddenWindows, on
 ALLOW_DIMMER := "True"
 
 WinGetCLASS, CLASS, A
-WinGetTITLE, TITLE_VAR_2, A
+WinGetTITLE, TITLE_VAR, A
 
 IF INSTR(CLASS,"MediaPlayerClassicW")
 	ALLOW_DIMMER := "False"
@@ -633,16 +633,19 @@ IF INSTR(CLASS,"MediaPlayerClassicW")
 ; IF INSTR(CLASS,"Notepad++")
 ; ALLOW_DIMMER := "False"
 
-IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
+IF INSTR(TITLE_VAR,"tube - Google Chrome")
 	ALLOW_DIMMER := "False"
 	
-IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
+IF INSTR(TITLE_VAR,"YouTube - Google Chrome")
 	ALLOW_DIMMER := "False"
 
-IF INSTR(TITLE_VAR_2,"bunker.com")
+IF INSTR(TITLE_VAR,"bunker.com")
 	ALLOW_DIMMER := "False"
 	
-
+----
+amateur has sex audition in forest for money : xxxbunker.com porn tube
+http://xxxbunker.com/9775899
+----	
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
 	ALLOW_DIMMER := "False"
@@ -978,10 +981,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		POWER_SCREEN_SAVE_OFF := "False"
 		; IF (A_ComputerName="7-ASUS-GL522VW")
 			; POWER_SCREEN_SAVE_OFF := "True"
-			
-		; TEMP REM OUT -- SEE
-		; IF (A_ComputerName="8-MSI-GP62M-7RD")
-			; POWER_SCREEN_SAVE_OFF := "True"
+		IF (A_ComputerName="8-MSI-GP62M-7RD")
+			POWER_SCREEN_SAVE_OFF := "True"
 
 		; POWER_SCREEN_SAVE_OFF := "False"
 		

@@ -348,14 +348,24 @@ ALLOW_DIMMER := "True"
 O_IN_DAY_1=FALSE
 BLANK_DIMMER_VAR=FALSE
 
+; -------------------------------------------------------------------
 BLANK_DIMMER_TIME=60*2
-
 BLANK_DIMMER_TIME=40
 IF (A_ComputerName="4-ASUS-GL522VW")
 	BLANK_DIMMER_TIME=60*5
 IF (A_ComputerName="8-MSI-GP62M-7RD")
 	BLANK_DIMMER_TIME=60*1
 
+IN_DAY=TRUE
+FormatTime, T,, HHmm
+If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+	IN_DAY=FALSE
+IF IN_DAY=TRUE
+{
+IF (A_ComputerName="7-ASUS-GL522VW")
+	BLANK_DIMMER_TIME=120*1
+}
+; -------------------------------------------------------------------
 	
 BLANK_DIMMER=%A_Now%
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
@@ -487,6 +497,12 @@ RS232_LOGGER_TIMER_RUN_EXE:
 
 RETURN
 
+~LButton::
+	VAR_A__TimeIdle_2_OF_4=0
+~RButton::
+	VAR_A__TimeIdle_2_OF_4=0
+return
+
 RS232_SUB:
 RS232_LOGGER_TIMER_CHANGE:
 
@@ -541,9 +557,20 @@ RS232_LOGGER_TIMER_CHANGE:
 	ELSE
 	{
 		VAR_A__TimeIdle_2_OF_4=%A_TimeIdlePhysical%
-		IF A_TimeIdleMouse<%VAR_A__TimeIdle_2_OF_4% 
-			VAR_A__TimeIdle_2_OF_4=%A_TimeIdleMouse%
+		
+		IN_DAY=TRUE
+		FormatTime, T,, HHmm
+		If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+			IN_DAY=FALSE
+		IF IN_DAY=TRUE
+		{
+			IF A_TimeIdleMouse<%VAR_A__TimeIdle_2_OF_4% 
+				VAR_A__TimeIdle_2_OF_4=%A_TimeIdleMouse%
+		}	
+		
 	}
+	
+;	TOOLTIP % " --" VAR_A__TimeIdle_2_OF_4
 	
 	QUICKER_OFF=FALSE
 	
@@ -610,6 +637,26 @@ ARTIFICIAL_F5_A_Now:=A_Now
 }
 RETURN
 
+ALLOW_DIMMER_CHECKER:
+
+WinGetCLASS, CLASS, A
+WinGetTITLE, TITLE_VAR_2, A
+
+IF INSTR(CLASS,"MediaPlayerClassicW")
+	ALLOW_DIMMER := "False"
+
+IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
+	ALLOW_DIMMER := "False"
+	
+IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
+	ALLOW_DIMMER := "False"
+
+IF INSTR(TITLE_VAR_2,"bunker.com")
+	ALLOW_DIMMER := "False"
+
+RETURN
+
+
 ; ------------------------------------
 Mouse_Idle_Timer:
 
@@ -624,25 +671,10 @@ GOSUB, MONITOR_BRIGHTNESS_DIMMER_PER_DAY
 DetectHiddenWindows, on
 ALLOW_DIMMER := "True"
 
-WinGetCLASS, CLASS, A
-WinGetTITLE, TITLE_VAR_2, A
+GOSUB ALLOW_DIMMER_CHECKER
 
-IF INSTR(CLASS,"MediaPlayerClassicW")
-	ALLOW_DIMMER := "False"
-
-; IF INSTR(CLASS,"Notepad++")
-; ALLOW_DIMMER := "False"
-
-IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
-	ALLOW_DIMMER := "False"
-	
-IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
-	ALLOW_DIMMER := "False"
-
-IF INSTR(TITLE_VAR_2,"bunker.com")
-	ALLOW_DIMMER := "False"
-	
-
+IF ALLOW_DIMMER := "False" 
+	RETURN
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
 	ALLOW_DIMMER := "False"
@@ -770,10 +802,6 @@ if state = D
 	; MOUSE BUTTON LEFT HELD DOWN WHEN DRAGGER FOR LONG NOT DETECT BY IDLE ACTIVE UNLESS SWITCH
 
 
-
-
-
-	
 ;#-------------------------------
 SET_GO=TRUE
 IF (ALLOW_DIMMER = "False")
@@ -804,11 +832,23 @@ IF USE_A_TimeIdlePhysical=FALSE
 ELSE
 {
 	VAR_A__TimeIdle_3_OF_4=%A_TimeIdlePhysical%
-	IF A_TimeIdleMouse<%VAR_A__TimeIdle_3_OF_4% 
-		VAR_A__TimeIdle_3_OF_4=%A_TimeIdleMouse%
-}	
 
+
+
+	IN_DAY=TRUE
+	FormatTime, T,, HHmm
+	If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+		IN_DAY=FALSE
+	IF IN_DAY=TRUE
+	{
+		IF A_TimeIdleMouse<%VAR_A__TimeIdle_3_OF_4% 
+			VAR_A__TimeIdle_3_OF_4=%A_TimeIdleMouse%
+	}	
 	
+	
+}	
+	; TOOLTIP % " --" IN_DAY " -- " VAR_A__TimeIdle_3_OF_4
+
 If VAR_A__TimeIdle_3_OF_4 < %VAR_Z__TimeIdle%
 	SET_GO=FALSE
 	
@@ -852,8 +892,17 @@ IF USE_A_TimeIdlePhysical=FALSE
 ELSE
 {
 	VAR_A__TimeIdle_4_OF_4=%A_TimeIdlePhysical%
-	IF A_TimeIdleMouse<%VAR_A__TimeIdle_4_OF_4% 
-		VAR_A__TimeIdle_4_OF_4=%A_TimeIdleMouse%
+
+	IN_DAY=TRUE
+	FormatTime, T,, HHmm
+	If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
+		IN_DAY=FALSE
+	IF IN_DAY=TRUE
+	{
+		IF A_TimeIdleMouse<%VAR_A__TimeIdle_4_OF_4% 
+			VAR_A__TimeIdle_4_OF_4=%A_TimeIdleMouse%
+	}	
+	
 }
 	
 IF VAR_A__TimeIdle_4_OF_4 < %VAR_A__TimeIdle_1_OF_4%
@@ -879,6 +928,10 @@ RETURN
 ; ------------------------------------------------------------------
 MONITOR_BRIGHTNESS_DIM:
 
+GOSUB ALLOW_DIMMER_CHECKER
+
+IF ALLOW_DIMMER="False" 
+	RETURN
 IF ALLOW_DIMMER=FALSE
 	RETURN
 	
@@ -922,6 +975,13 @@ MONITOR_BRIGHTNESS_UP:
 RETURN
 
 MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
+
+GOSUB ALLOW_DIMMER_CHECKER
+IF ALLOW_DIMMER="False" 
+	RETURN
+IF ALLOW_DIMMER=FALSE
+	RETURN
+
 	
 	SET_GO=FALSE
 	IF (A_ComputerName="1-ASUS-X5DIJ")
@@ -978,10 +1038,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		POWER_SCREEN_SAVE_OFF := "False"
 		; IF (A_ComputerName="7-ASUS-GL522VW")
 			; POWER_SCREEN_SAVE_OFF := "True"
-			
-		; TEMP REM OUT -- SEE
-		; IF (A_ComputerName="8-MSI-GP62M-7RD")
-			; POWER_SCREEN_SAVE_OFF := "True"
+		IF (A_ComputerName="8-MSI-GP62M-7RD")
+			POWER_SCREEN_SAVE_OFF := "True"
 
 		; POWER_SCREEN_SAVE_OFF := "False"
 		
@@ -1005,11 +1063,27 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 				;DEBUGGER LITTLE SQUARE FOR BLANK SCREEN
 				;---------------------------------------
 				; Gui, Show, x0 y0 w100 h100	
+
+
+
+				WinGetCLASS, CLASS, A
+				WinGetTITLE, TITLE_VAR_2, A
+				ALLOW_BLANK := "True"
+				IF INSTR(CLASS,"MediaPlayerClassicW")
+					ALLOW_BLANK := "False"
+				IF INSTR(TITLE_VAR_2,"tube - Google Chrome")
+					ALLOW_BLANK := "False"
+				IF INSTR(TITLE_VAR_2,"YouTube - Google Chrome")
+					ALLOW_BLANK := "False"
+				IF INSTR(TITLE_VAR_2,"bunker.com")
+					ALLOW_BLANK := "False"
+
 				
 				;--------------------------------------------------------
 				; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
 				; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
 				;--------------------------------------------------------
+				IF ALLOW_BLANK=TRUE
 				IF (POWER_SCREEN_SAVE_OFF="False")
 					SendMessage, 0x112, 0xF170, 2,, Program Manager
 				;--------------------------------------------------------
