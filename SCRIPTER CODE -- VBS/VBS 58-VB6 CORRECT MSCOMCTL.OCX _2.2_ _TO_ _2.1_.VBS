@@ -365,14 +365,14 @@ Sub DisplayFindings_5()
 				TT_EDITOR = File_1.ReadAll
 				Set File_1 = NOTHING
 				IF InStr(UCASE(TT_EDITOR), "#2.2#0; MSCOMCTL.OCX")>0 THEN 
-					MSGBOX VAR_PATH_SCANNER,
+					' MSGBOX VAR_PATH_SCANNER
 					CALL USUAL_MAIN
 					Set File_2 = fso.OpenTextFile(VAR_PATH_SCANNER, ForWriting)
 					File_2.Write TT_EDITOR
 					Set File_2 = NOTHING
 					' --------------------------------------------------
 					STR_PATH = "EXPLORER.EXE /SELECT," & VAR_PATH_SCANNER
-					WSHShell.Run STR_PATH
+					' WSHShell.Run STR_PATH
 					' --------------------------------------------------
 					' MSGBOX VAR_PATH_SCANNER
 					I_COUNT_1=I_COUNT_1+1
