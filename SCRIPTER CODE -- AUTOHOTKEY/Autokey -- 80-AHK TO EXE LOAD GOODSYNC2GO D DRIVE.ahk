@@ -49,10 +49,13 @@ GO_ROUTINE:
 	FN_VAR_TMP_FILE=C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\
 	PATH_NAME_2=%FN_VAR_TMP_FILE%*.TXT
 	
+	PATH := % PATH_NAME_2 "`n`n"
 	LOOP, %PATH_NAME_2%
 	{
 		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		NUMBER := A_INDEX
+		; PATH := A_LoopFileName
+		PATH := % PATH A_LoopFileName "`n"
 	}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
@@ -61,8 +64,10 @@ GO_ROUTINE:
 		T1=VB_KEEP_RUNNER AND AHK
 		T2=Autokey -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.ahk
 		T3=DETECT D_HDD_GOODSYNC2GO IS RUNNER
-		T4=NOT TO RUN TWO
-		MSGBOX % T1 "`n`n" T2 "`n`n" T3 "`n`n" T4
+		T4=%PATH%
+		T5=NOT TO RUN TWO
+		T20=% T1 "`n`n" T2 "`n`n" T3 "`n`n" T4 "`n" T5
+		MSGBOX % T20
 		EXITAPP
 	}
 	; ---------------------------------------------------------------

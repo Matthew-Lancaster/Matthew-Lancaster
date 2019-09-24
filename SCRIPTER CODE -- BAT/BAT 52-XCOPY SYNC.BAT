@@ -42,7 +42,7 @@
 @REM -- D:\DSC\2018 GoPro 01\INFO _ HD DV CAM YELLOW\*.*
 @REM ----------------------------------------------------------------
 @REM -- D:\DSC\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\*.*
-@REM -- D:\VI_ DSC ME\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\*.*
+@REM -- D:\VI_ DSC ME 01\2018 Double Screen Cam\INFO _ DOUBLE SCREEN CAMERA\*.*
 @REM -- *:\INFO _ DOUBLE SCREEN CAMERA\*.* 
 @REM ----------------------------------------------------------------
 @REM -- IS A SYNCER _ SYNCED BY HERE :) 
