@@ -1062,7 +1062,7 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         ' ADD A BIT ON DATE FOR DAYLIGHT SAVING AND NTFS AT EXACT MIDNIGHT
         ' CLOUD SYSTEM REQUIRING A BIT MORE ALSO OR DAY BEFORE
         ' ----------------------------------------------------------------
-        DT4 = DT4 + TimeSerial(4, 0, 0)
+        DT4 = DT4 + TimeSerial(11, 0, 0)
         ' ----------------------------------------------------------------
     End If
     MM_1 = Format(DT4, "DD-MM-YYYY  HH:MM:SS  DDDD")

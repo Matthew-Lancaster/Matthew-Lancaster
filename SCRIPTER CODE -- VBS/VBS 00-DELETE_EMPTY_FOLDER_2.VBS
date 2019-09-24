@@ -1,109 +1,82 @@
 Option Explicit
 
-' If (WScript.Arguments.Count <> 1) Then
-
-    ' WScript.Echo("Usage: cscript DeleteEmptyFolders.vbs {path}")
-
-    ' WScript.Quit(1)
-
-' End If
-
-Dim strPath
-
-' strPath = WScript.Arguments(0)
-strPath = "G:\"
-strPath = "D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
-
-DIM FILE_NAME , PARAM
-
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
-FILE_NAME="CMD"
-PARAM="/C DEL """+strPath+"\THUMBS.DB"" /S /AH"
-'--------------------------------------------------------------
-WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , DontShowWindow, WaitUntilFinished
-'--------------------------------------------------------------
-
-
-' WScript.Quit(0)
-
-
-
+DIM FILE_NAME , PARAM
+Dim STRPATH
 DIM ERR_COUNTER
 DIM TEST_COUNTER
 DIM EXECUTE_LANUCHED
 DIM ERROR_WITH_SOME
 
-Dim fso
+DIM READY_01
+DIM READY_02
 
-Set fso = CreateObject("Scripting.FileSystemObject")
+Dim FSO
+Set FSO = CreateObject("Scripting.FileSystemObject")
 
+' If (WScript.Arguments.Count <> 1) Then
+    ' WScript.Echo("Usage: cscript DeleteEmptyFolders.vbs {path}")
+    ' WScript.Quit(1)
+' End If
+' STRPATH = WScript.Arguments(0)
+
+
+STRPATH="G:\"
+STRPATH="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
+STRPATH="T:\VI_ DSC 01 V0 01 MM"
+STRPATH="T:\VI_ DSC 01 V0 01 MM22"
+'STRPATH=""
+'STRPATH=""
+'STRPATH=""
 
 Dim objFolder
 DIM objFolderERR
 
-IF LEN(strPath) = 2 AND MID(strPath,2,1) = ":" THEN strPath = strPath + "\"
+IF LEN(STRPATH) = 2 AND MID(STRPATH,2,1) = ":" THEN STRPATH = STRPATH + "\"
 
-
-IF fso.FOLDEREXISTS(strPath) = TRUE THEN 
-
-	Set objFolder = fso.GetFolder(strPath)
-	WScript.Echo strPath & VBCRLF & "TO GO _ KILL PROCESS IF NOT SURE ____"
-	DeleteEmptyFolders objFolder
-	EXECUTE_LANUCHED = TRUE
+IF FSO.FOLDEREXISTS(STRPATH) = TRUE THEN 
+		Set objFolder = FSO.GetFolder(STRPATH)
+		WScript.Echo STRPATH & VBCRLF & "TO GO _ KILL PROCESS IF NOT SURE ____"
+		DeleteEmptyFolders objFolder
+		EXECUTE_LANUCHED = TRUE
 	ELSE
-	
-	WScript.Echo strPath & VBCRLF & "__ NOT A VAILD FOLDER GIVEN __ EXIT END __"
-	
+		WScript.Echo STRPATH & VBCRLF & "__ NOT A VAILD FOLDER GIVEN __ EXIT END __"
 END IF
 
-
-
-
 Sub DeleteEmptyFolders(folder)
-
     Dim subfolder
-
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
-	
     For Each subfolder in folder.SubFolders
 			DeleteEmptyFolders subfolder
     Next
-
-
-    If folder.SubFolders.Count = 0 And folder.Files.Count = 0 Then
-
-         'WScript.Echo folder.Path & " is empty"
-
+	' ---------------------------------------------------------------
+	' MORE ERROR SAFE METHOD
+	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
+	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAPP IT
+	' ---------------------------------------------------------------
+	READY_01=-1
+	READY_02=-1
+	ERR.CLEAR
+	READY_01=folder.SubFolders.Count
+	READY_02=folder.Files.Count
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+    If READY_01 = 0 And READY_02 = 0 AND ERR.NUMBER=0 Then
+		ON ERROR GOTO 0
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		'IF DIR(folder.Path,VBDIRECTORY) <> "" THEN
-		'	IF fso.FOLDEREXISTS(folder.Path) = TRUE THEN
-		'		IF fso.ISFOLDER(folder.Path) = TRUE THEN
-		'			IF fso.ISFILE(folder.Path) = FALSE THEN
-		'				ERR.CLEAR
-						fso.DeleteFolder folder.Path, TRUE
-						IF ERR.NUMBER>0 THEN 
-							ERR_COUNTER = ERR_COUNTER +1
-							ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
-							ERR.CLEAR
-							objFolder.DELETE, TRUE
-							IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
-						END IF
-						
-		'			END IF
-		'		END IF
-		'	END IF
-		'END IF
-		
-    End If
-
-
-	
+		FSO.DeleteFolder folder.Path, TRUE
+		IF ERR.NUMBER>0 THEN 
+			ERR_COUNTER = ERR_COUNTER +1
+			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+			ERR.CLEAR
+			objFolder.DELETE, TRUE
+			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
+		END IF
+	End If
 End Sub
 
 IF EXECUTE_LANUCHED = TRUE THEN 
@@ -113,16 +86,19 @@ END IF
 
 IF ERROR_WITH_SOME <> "" THEN 
 	DIM objShell
-	' DIM strPath
-	Set objShell = CreateObject("Wscript.Shell")
-	' strPath = Wscript.Arguments(0)
-	strPath = "explorer.exe /e," & ERROR_WITH_SOME
-	objShell.Run strPath
+	SET objShell = CreateObject("Wscript.Shell")
+	' STRPATH = Wscript.Arguments(0)
+	' STRPATH = "explorer.exe /e," & ERROR_WITH_SOME
+	' objShell.Run STRPATH
 
 	WScript.Echo "ERROR WITH SOME OF THEM HERE _ " & VBCRLF & ERROR_WITH_SOME & VBCRLF & CSTR(ERR_COUNTER) & VBCRLF & "TAKE YOU THERE"
-	
-	
 END IF
+
+'IF DIR(folder.Path,VBDIRECTORY) <> "" THEN
+'	IF FSO.FOLDEREXISTS(folder.Path) = TRUE THEN
+'		IF FSO.ISFOLDER(folder.Path) = TRUE THEN
+'			IF FSO.ISFILE(folder.Path) = FALSE THEN
+
 
 ' ---------------------
 ' Count = 011 -- Tue 05-Sep-2017 07:21:53

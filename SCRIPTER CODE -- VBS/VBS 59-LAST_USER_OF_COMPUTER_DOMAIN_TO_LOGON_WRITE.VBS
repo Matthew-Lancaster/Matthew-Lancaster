@@ -56,8 +56,6 @@
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
-
-
 '--------------------------------------------------------------------
 DIM Version_OS
 CALL GET_WINDOWS_VERSION
@@ -1000,3 +998,36 @@ END SUB
 ' vbscript - Read files in subfolders - Stack Overflow
 ' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
 ' ----	
+
+
+
+Function ClipBoard(input)
+'@description: A quick way to set and get your clipboard.
+'@author: Jeremy England (SimplyCoded)
+  If IsNull(input) Then
+    ClipBoard = CreateObject("HTMLFile").parentWindow.clipboardData.getData("Text")
+    If IsNull(ClipBoard) Then ClipBoard = ""
+  Else
+    CreateObject("WScript.Shell").Run _
+      "mshta.exe javascript:eval(""document.parentWindow.clipboardData.setData('text','" _
+      & Replace(Replace(Replace(input, "'", "\\u0027"), """","\\u0022"),Chr(13),"\\r\\n") & "');window.close()"")", _
+      0,True
+  End If
+End Function
+
+
+
+' Get clipboard text
+Set objHTML = CreateObject("htmlfile")
+text = objHTML.ParentWindow.ClipboardData.GetData("text")
+
+' EDIT: I use this snippet to put text back on the clipboard, but it needs third party software; a standalone executable 'clip.exe' which can be found on Windows 2003 Server or just on the internet:
+
+' Put it back to the clipboard
+Set WshShell = CreateObject("WScript.Shell")
+Set oExec = WshShell.Exec("clip")
+
+Set oIn = oExec.stdIn
+
+oIn.WriteLine text
+oIn.Close
