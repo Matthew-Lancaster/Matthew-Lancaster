@@ -100,11 +100,15 @@ FOR R_T=10 TO 0 STEP -1
 				FILE_1=objFile.PATH
 				FILE_NAME=objFile.NAME
 				IF MID(FILE_NAME,1,4)="DVR_" THEN 
-				
+					
+					' INPUT PAST END OF FILE HAPPEN ERROR MESSENGER
+					ON ERROR RESUME NEXT
+					readBinary=""
 					With oFile.OpenAsTextStream()
 						readBinary = .Read(119+4)
 						.Close
 					End With
+					ON ERROR GOTO 0
 							
 					IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
 						

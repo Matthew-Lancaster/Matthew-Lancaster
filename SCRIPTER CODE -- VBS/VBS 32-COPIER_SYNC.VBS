@@ -859,11 +859,11 @@ FOLDER_PATH_VAR(7)="\Android\SDCard2_Sync\DCIM\"
 FOLDER_PATH_VAR(8)="\"
 
 FOLDER_PATH_DEST(1)="D:\DSC\2015+Sony\" + CSTR(Year(Now)) + " CyberShot HX60V"
-FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+Sony\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+FOLDER_PATH_DEST(2)="D:\VI_ DSC ME 01\2010+Sony\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
 FOLDER_PATH_DEST(3)="D:\DSC\" + CSTR(Year(Now)) + " FUJI FinePix XP90"
 FOLDER_PATH_DEST(4)="D:\DSC\" + CSTR(Year(Now)) + " GoPro 01"
 FOLDER_PATH_DEST(5)="D:\DSC\" + CSTR(Year(Now)) + " Double Screen Cam"
-FOLDER_PATH_DEST(6)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " Double Screen Cam"
+FOLDER_PATH_DEST(6)="D:\VI_ DSC ME 01\" + CSTR(Year(Now)) + " Double Screen Cam"
 FOLDER_PATH_DEST(7)="D:\DSC\" + CSTR(Year(Now)) + " Samsung Mini S5\DCIM"
 FOLDER_PATH_DEST(8)="D:\DSC\" + CSTR(Year(Now)) + "+4K ULTRA HD"
 
@@ -912,7 +912,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		' DON'T SHOW EXPLORER ON D DRIVE IF ONLY PICTURE IS NONE
 		'---------------------------------------------------------------------------------
 		SHOW_EXPLORER_FLAG=TRUE
-		IF INSTR(FOLDER_PATH_DEST_VAR,"D:\VI_ DSC ME\") > 0 THEN 
+		IF INSTR(FOLDER_PATH_DEST_VAR,"D:\VI_ DSC ME 01\") > 0 THEN 
 			IF ComputerName="1-ASUS-X5DIJ" THEN SHOW_EXPLORER_FLAG=FALSE
 			IF ComputerName="2-ASUS-EEE" THEN SHOW_EXPLORER_FLAG=FALSE
 			IF ComputerName="3-LINDA-PC" THEN SHOW_EXPLORER_FLAG=FALSE

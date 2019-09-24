@@ -595,7 +595,10 @@ RUN_THE_APP:
 		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
 		IF PID_1>0 
 		{
+			
 			Process, Close,% PID_1
+			MSGBOX %Element_3% ahk_class AutoHotkey 
+			MSGBOX % PID_1
 		}
 		Run, %Element_1%
 		SOUNDBEEP, 1500,100
@@ -626,6 +629,8 @@ RUN_THE_APP:
 	SoundBeep , 2000 , 20
 	Run, %Element_1%
 
+	
+	; TOOLTIP % Element_1
 
 RETURN
 
