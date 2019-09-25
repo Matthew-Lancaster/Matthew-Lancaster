@@ -148,8 +148,8 @@ Private mFilters() As String
 Public Event DirMatchxx(Directory As String, DDirectory As String, Path As String)
 Public Event DirMatchFAST(Directory As String, DDirectory As String, Path As String, DDate As Date)
 Public Event DirMatch(Directory As String, DDirectory As String, Path As String)
-Public Event FileMatch(fileName As String, DFilename As String, Path As String)
-Public Event FileMatchFast(fileName As String, DFilename As String, Path As String, DDate As Date)
+Public Event FileMatch(Filename As String, DFilename As String, Path As String)
+Public Event FileMatchFast(Filename As String, DFilename As String, Path As String, DDate As Date)
 
 
 Public Property Get DirCount() As Long
@@ -594,7 +594,7 @@ Private Function DirectScan_USE_NO_LIST_FAST_FORM_CAPTURE(Path As String, SubFol
                         'TimeValue(mWFD.ftLastWriteTime)
                         'sDate = sDate + TimeValue(mWFD.ftLastWriteTime, InStr(mWFD.cFileName, Chr$(NULL_CHAR)) - 1)
                         
-                        Set F = FS.GetFile(sDir + dFile)
+                        Set F = FSO.GetFile(sDir + dFile)
                         sDate = F.DateLastModified
 
                         
