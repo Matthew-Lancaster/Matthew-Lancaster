@@ -2815,10 +2815,10 @@ TIMER_SUB__SendSMTP__0__LOG_BAT:
 
 setTimer TIMER_SUB__SendSMTP__0__LOG_BAT, % -1 * 1000 * 60 * 60 ; 1 HOUR
 
-FN_VAR:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP__0__LOG.BAT"
-IfExist, %FN_VAR%
+FN_VAR_3:="C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP__0__LOG.BAT"
+IfExist, %FN_VAR_3%
 	{
-		Run, %FN_VAR%, , MIN
+		Run, %FN_VAR_3%, , MIN
 	}
 
 RETURN
