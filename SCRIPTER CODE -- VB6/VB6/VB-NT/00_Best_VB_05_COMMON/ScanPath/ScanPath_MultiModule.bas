@@ -129,7 +129,7 @@ End Sub
 '## END
 
 
-Public Sub m_CreateShortcut(fileName As Variant, _
+Public Sub m_CreateShortcut(Filename As Variant, _
     TargetPath As String, Optional ScParam As String, _
    Optional StartFolder As String, Optional IcoNum As Integer, _
    Optional IcoPath As String, Optional WindowMode As Integer)
@@ -162,7 +162,7 @@ Dim l1 As Long          'Lenth of the Shortcut1 file
 
 Dim t As Double
 Dim P As Long
-Dim I As Integer
+Dim i As Integer
 Dim x As String
 Dim y0 As String * 2
 
@@ -209,9 +209,9 @@ If api_SHAddToRecentDocs(2, TargetPath) > 0 Then
 
     'Open the shortcut file to create
     'Shortcut1 = ScFolder & "\" & ScCaption & ".lnk"
-    If Dir(fileName) <> "" Then Kill fileName
+    If Dir(Filename) <> "" Then Kill Filename
     n1 = FreeFile()
-    Open fileName For Binary Access Write As #n1
+    Open Filename For Binary Access Write As #n1
 
     'Look for the last byte to get
     P = (l0 - 4)
@@ -229,17 +229,17 @@ If api_SHAddToRecentDocs(2, TargetPath) > 0 Then
 
         Select Case P
         Case 21 'path for icon, startup, parameters
-            I = 3
+            i = 3
             If StartFolder <> "" Then
-                I = I + 16
+                i = i + 16
             End If
             If ScParam <> "" Then
-                I = I + 32
+                i = i + 32
             End If
             If (IcoPath <> "") Or (IcoNum > 0) Then
-                I = I + 64
+                i = i + 64
             End If
-            x1 = Chr$(I)
+            x1 = Chr$(i)
         Case 57 'Icon index
             x1 = Chr$(IcoNum)
         Case 61 'Window mode
@@ -313,16 +313,16 @@ End Function
 Private Function p_File_Folder(FullPath As String) As String
 'Returns the name of the file alone.
 
-Dim I As Integer
+Dim i As Integer
 
 p_File_Folder = FullPath
-I = Len(FullPath)
-Do Until I = 0
-    If Mid$(FullPath, I, 1) = "\" Then
-        p_File_Folder = Mid$(FullPath, I + 1)
-        I = 0
+i = Len(FullPath)
+Do Until i = 0
+    If Mid$(FullPath, i, 1) = "\" Then
+        p_File_Folder = Mid$(FullPath, i + 1)
+        i = 0
     Else
-        I = I - 1
+        i = i - 1
     End If
 Loop
 
@@ -526,9 +526,9 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     Do
         RXRIME = Format(DateValue(Mid(B1, 8, 10)), "YYYY-MM-MMM")
         FN = ScanPath.TxtPath.Text + "HTTP's From Email's -- " + RXRIME + ".txt"
-        If FS.FileExists(FN) = True Then WE = WE + 1
+        If FSO.FileExists(FN) = True Then WE = WE + 1
         If WE >= ScanPath.ListView1.ListItems.Count Then End
-    Loop Until FS.FileExists(FN) = False
+    Loop Until FSO.FileExists(FN) = False
     
     End If
     
@@ -777,9 +777,9 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     On Error Resume Next
     Err.Clear
     'Kill A1 + G1
-    FS.DeleteFile A1 + G1
+    FSO.DeleteFile A1 + G1
     
-    'Fs.deletefolder A1
+    'FsO.deletefolder A1
     
     
     If Err.Number > 0 Then AG = AG + 1
@@ -829,7 +829,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     On Error Resume Next
     Err.Clear
     
-    Set F = FS.GetFolder(A1 + B1)
+    Set F = FSO.GetFolder(A1 + B1)
     If F.Size = 0 Then
         F.DELETE
     End If
@@ -851,7 +851,7 @@ Sub MOVE_ANY_WHERE()
 
 ScanPath.TxtPath = "M:\0 00 Art\00 My Pictures\z3 75000 Photos\PHOTOS\"
 destipath = "M:\0 00 Art\00 My Pictures\z3 75000 Photos\PHOTOS2\"
-If FS.FolderExists(destipath) = False Then MkDir destipath
+If FSO.FolderExists(destipath) = False Then MkDir destipath
 
 ScanPath.cboMask.Text = "*.JPG"
 
@@ -878,7 +878,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     
     D1 = destipath + Mid(A1, Len(ScanPath.TxtPath) + 1)
-    If FS.FolderExists(D1) = False Then
+    If FSO.FolderExists(D1) = False Then
         Err.Clear
         MkDir D1
         If Err.Number > 0 Then 'Stop
@@ -897,7 +897,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     End If
     
-    FS.MoveFile A1 + B1, D1 + B1
+    FSO.MoveFile A1 + B1, D1 + B1
     
     
     On Error Resume Next
@@ -926,7 +926,7 @@ destipath = ScanPath.txtPath02
 
 
 
-If FS.FolderExists(destipath) = False Then MkDir destipath
+If FSO.FolderExists(destipath) = False Then MkDir destipath
 
 ScanPath.cboMask.Text = "*.*"
 
@@ -953,7 +953,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     
     D1 = destipath + Mid(A1, Len(ScanPath.TxtPath) + 1)
-    If FS.FolderExists(D1) = False Then
+    If FSO.FolderExists(D1) = False Then
         Err.Clear
         MkDir D1
         If Err.Number > 0 Then 'Stop
@@ -972,7 +972,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     End If
     
-    FS.MoveFile A1 + B1, D1 + B1
+    FSO.MoveFile A1 + B1, D1 + B1
     
     
     On Error Resume Next
@@ -1098,7 +1098,7 @@ ScanPath.txtSize(0) = 1
 
 
 
-If FS.FolderExists(ScanPath.TxtPath) = False Then Exit Sub
+If FSO.FolderExists(ScanPath.TxtPath) = False Then Exit Sub
 
 'ScanPath.lblCount1 = Trim(Str(ScanPath.ListView1.ListItems.Count))
 
@@ -1219,7 +1219,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     'ScanPath.lblCount5 = Trim(Str(we8)) + " Del as Too Small <70 Bytes"
     
     If ScanPath.Label5.BackColor <> ScanPath.Label6.BackColor Then
-        FS.DeleteFile A1$ + G1$, True
+        FSO.DeleteFile A1$ + G1$, True
     End If
     
     ScanPath.ListView1.ListItems.Remove (WE)
@@ -1308,12 +1308,12 @@ Do
         If InStr(YY, WXHEX$) > 0 And Err.Number = 0 Then
             we3 = we3 + 1
             ScanPath.lblCount4 = Trim(Str(we3)) + " Del - Dupes = " + Format((we3 / we4) * 100, "0.00") + "%"
-            If ScanPath.Label5.BackColor <> ScanPath.Label6.BackColor Then FS.DeleteFile A1$ + G1$
+            If ScanPath.Label5.BackColor <> ScanPath.Label6.BackColor Then FSO.DeleteFile A1$ + G1$
         End If
     Else
         Err.Clear
         'WxHex$ = Hex(m_CRC.CalculateFile(A1$ + G1$))
-        Set F = FS.getfile(A1 + G1)
+        Set F = FSO.GetFile(A1 + G1)
         A22 = Space(F.Size - &H410)
         
         fr5 = FreeFile
@@ -1331,7 +1331,7 @@ Do
             If ScanPath.Label5.BackColor <> ScanPath.Label6.BackColor Then
                 
                 
-                'Fs.DeleteFile A1$ + G1$
+                'FsO.DeleteFile A1$ + G1$
                 Call ShellFileDelete(A1$ + G1$, True)
             End If
         End If
@@ -1386,7 +1386,7 @@ ScanPath.cboSizeType(0).ListIndex = 0
 ScanPath.txtSize(0) = 1
 
 
-If FS.FolderExists(ScanPath.TxtPath) = False Then Exit Sub
+If FSO.FolderExists(ScanPath.TxtPath) = False Then Exit Sub
 
 
 'ScanPath.lblCount1 = Trim(Str(ScanPath.ListView1.ListItems.Count))

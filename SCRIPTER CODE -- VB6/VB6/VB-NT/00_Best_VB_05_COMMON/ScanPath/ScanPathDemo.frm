@@ -529,7 +529,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   36175873
+      Format          =   148897793
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -543,7 +543,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   36175873
+      Format          =   148897793
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -556,7 +556,7 @@ Begin VB.Form ScanPath
       _ExtentX        =   1969
       _ExtentY        =   572
       _Version        =   393216
-      Format          =   36175874
+      Format          =   148897794
       CurrentDate     =   37299
    End
    Begin VB.Label lblCount7 
@@ -1205,11 +1205,11 @@ Dim LV As ListItem
                 
             'Remember Public FS
             If Directory <> "" Then
-                Set F = FS.GetFolder(Path + DDirectory)
+                Set F = FSO.GetFolder(Path + DDirectory)
                 ADATE1 = F.DateLastModified
 '                ASIZE1 = Trim(Str(F.Size))
 '            Else
-'                Set F = FS.GetFolder(Path)
+'                Set F = FSO.GetFolder(Path)
 '                If Len(Path) > 3 Then
 '                    ADATE1 = F.datelastmodified
 '                    'We May want this later Slow Down is Massive
@@ -1312,7 +1312,7 @@ Private Sub SP_FileMatch(Filename As String, DFilename As String, Path As String
         'FindFilesAPI = FindFilesAPI + (WFD.nFileSizeHigh * MAXDWORD) + WFD.nFileSizeLow
                     'Remember Public FS
             If Filename <> "" Then
-                Set F = FS.GetFile(Path + DFilename)
+                Set F = FSO.GetFile(Path + DFilename)
                 ADATE1 = F.DateLastModified
                 ASIZE1 = F.Size
 '                If Val(ASIZE1) = 647732 Then Stop
@@ -1320,7 +1320,7 @@ Private Sub SP_FileMatch(Filename As String, DFilename As String, Path As String
                 
                 
                 
-'                Set F = FS.GetFolder(Path)
+'                Set F = FSO.GetFolder(Path)
 '                ADATE1 = F.datelastmodified
 '
 '                'FOLDER SIZE BUT NOT IF REQUEST AND WHEN MULTI SAME SIZE
@@ -1484,7 +1484,7 @@ End Sub
 '    A1 = ScanPath.ListView1.ListItems.Item(WE).SubItems(1)
 '    A1 = A1 + ScanPath.ListView1.ListItems.Item(WE)
 '    A2 = A1
-'    Set F = FS.getfile(A2)
+'    Set F = FSO.getfile(A2)
 '    VC = VC + F.Size
 '    a3 = Mid(A1, 3)
 '    H1 = Hex$(m_CRC.CalculateFile(A2))
@@ -1500,7 +1500,7 @@ End Sub
 'Next
 '
 'Close #FR1
-'Set F = FS.GETDrive(ScanPath.TxtPath)
+'Set F = FSO.GETDrive(ScanPath.TxtPath)
 '
 'FR1 = FreeFile
 'Open "D:\03 MICROSOFT\# VB 6\CRC CHECK LIST OF VS6 TOTAL DISK.txt" For Append As #FR1
@@ -1548,7 +1548,7 @@ For WE = ScanPath.ListView1.ListItems.Count To 1 Step -1
     If outff = 1 Then
         'ScanPath.ListView1.ListItems.Remove (we)
         On Error Resume Next
-        FS.DeleteFolder A1, True
+        FSO.DeleteFolder A1, True
         If Err.Number > 0 Then Stop
         'err.description
         On Error GoTo 0
@@ -1612,7 +1612,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     A1 = ListView1.ListItems.Item(WE).SubItems(1)
     B1 = ListView1.ListItems.Item(WE)
     
-    Set F = FS.GetFile(A1 + G1$)
+    Set F = FSO.GetFile(A1 + G1$)
     Tdate = F.DateLastModified
     If Tdate > Xdate Then Xdate = Tdate
     
@@ -1626,15 +1626,15 @@ For WE = ListView1.ListItems.Count To 1 Step -1
         GeText = LCase(Mid$(B1, Len(B1) - 2, 3)) + "\"
         If GeText = "jpg\" Then GeText = ""
         secext = "M:\0 00 Art\Temp Inet Files JPGs\" + hole + GeText + B1
-        If FS.FileExists(secext) = True Then
+        If FSO.FileExists(secext) = True Then
             ListView1.ListItems.Remove (WE)
         End If
         secext = OutPutPath + hole + GeText + Mid$(B1, 1, Len(B1) - 4) + ".zip"
-        If FS.FileExists(secext) = True Then
+        If FSO.FileExists(secext) = True Then
             ListView1.ListItems.Remove (WE)
         End If
         secext = OutPutPath + hole + GeText + Mid$(B1, 1, Len(B1) - 4) + ".rar"
-        If FS.FileExists(secext) = True Then
+        If FSO.FileExists(secext) = True Then
             ListView1.ListItems.Remove (WE)
         End If
     End If
@@ -1659,7 +1659,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     A1 = ListView1.ListItems.Item(WE).SubItems(1)
     B1 = ListView1.ListItems.Item(WE)
     
-    Set F = FS.GetFile(A1 + G1$)
+    Set F = FSO.GetFile(A1 + G1$)
     
     
     GeText = LCase(Mid$(B1, Len(B1) - 2, 3)) + "\"
@@ -1669,7 +1669,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     MkDir OutPutPath + hole + GeText
     On Error GoTo 0
     
-    F.Copy OutPutPath + hole + GeText
+    F.COPY OutPutPath + hole + GeText
 
 Next
 
@@ -1692,7 +1692,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     G1$ = ListView1.ListItems.Item(WE).SubItems(2)
     A1 = ListView1.ListItems.Item(WE).SubItems(1)
     B1 = ListView1.ListItems.Item(WE)
-    Set F = FS.GetFile(A1 + G1$)
+    Set F = FSO.GetFile(A1 + G1$)
     Tdate = F.DateLastModified
     If Tdate > Xdate Then Xdate = Tdate
     remo = 0
@@ -1702,7 +1702,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     End If
     If remo = 0 Then
         GeText = "#" + LCase(Mid$(B1, Len(B1) - 2, 3)) + "\"
-        If FS.FileExists(OutPutPath + GeText + B1) = True Then
+        If FSO.FileExists(OutPutPath + GeText + B1) = True Then
         ListView1.ListItems.Remove (WE)
         End If
     End If
@@ -1722,10 +1722,10 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     A1 = ListView1.ListItems.Item(WE).SubItems(1)
     B1 = ListView1.ListItems.Item(WE)
     
-    Set F = FS.GetFile(A1 + G1$)
+    Set F = FSO.GetFile(A1 + G1$)
 
     GeText = "#" + LCase(Mid$(B1, Len(B1) - 2, 3)) + "\"
-    F.Copy OutPutPath + GeText
+    F.COPY OutPutPath + GeText
 Next
 
 ListView1.ListItems.Clear
@@ -1818,7 +1818,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     A1 = A1 + B1 + "\"
   
     
-    Set F = FS.GetFolder(A1)
+    Set F = FSO.GetFolder(A1)
     
     If F.Size = 0 Then
         ListView1.ListItems.Remove (WE)
@@ -2575,7 +2575,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     TT = TT + "-*/" + B1 + vbCrLf
     
-    'Set F = Fs.getfile(A1 + B1)
+    'Set F = FsO.getfile(A1 + B1)
     'ADATE1 = F.datelastmodified
     
     Open A1 + G1 For Binary As #1
@@ -2661,17 +2661,17 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     'Name A1 + G1 As A1 + YY
     
     'MOVE INTO FOLDER
-    If FS.FolderExists(ScanPath.TxtPath + yy2) = False Then MkDir ScanPath.TxtPath + yy2
-    'If Fs.FileExists(ScanPath.txtPath + yy + "\" + yy2) = False Then
+    If FSO.FolderExists(ScanPath.TxtPath + yy2) = False Then MkDir ScanPath.TxtPath + yy2
+    'If FsO.FileExists(ScanPath.txtPath + yy + "\" + yy2) = False Then
         
         LONGLOOP = 0
         Do
         LONGLOOP = LONGLOOP + 1
         If LONGLOOP > 50 Then Stop
         On Error Resume Next
-        Set F = FS.GetFile(A1 + G1)
+        Set F = FSO.GetFile(A1 + G1)
         Err.Clear
-        If FS.FileExists(ScanPath.TxtPath + "\" + yy2 + "\" + YY) = True Then Exit Do
+        If FSO.FileExists(ScanPath.TxtPath + "\" + yy2 + "\" + YY) = True Then Exit Do
         F.Move ScanPath.TxtPath + "\" + yy2 + "\" + YY
         
         'ERR.DESCRIPTION
@@ -2688,7 +2688,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     'End If
     
     'MOVE WHERE IS
-    'If Fs.FileExists(A1 + YY2) = False Then
+    'If FsO.FileExists(A1 + YY2) = False Then
         'F.Move A1 + YY2
     'End If
     
@@ -3429,7 +3429,7 @@ End If
 'Debug.Print G1
 'Debug.Print D5
 
-If FS.FileExists(D4) = True Or FS.FolderExists(D4) = True Then
+If FSO.FileExists(D4) = True Or FSO.FolderExists(D4) = True Then
 
         CNT3 = CNT3 + 1
         ScanPath.lblCount3 = Trim(Str(CNT3)) + " DEALT WITH"
@@ -3568,9 +3568,9 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     
     
-    If FS.FileExists(A1 + B1) = True And FS.FileExists(D1 + B1) = True Then
+    If FSO.FileExists(A1 + B1) = True And FSO.FileExists(D1 + B1) = True Then
         
-        Set F = FS.GetFile(D1 + B1)
+        Set F = FSO.GetFile(D1 + B1)
         ADATE1 = F.DateLastModified
         If ADATE1 < DateSerial(2010, 2, 1) Then
         
@@ -3578,7 +3578,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
         Err.Clear
         
         'DEL FROM OUR SWAP DRIVE
-        FS.DeleteFile A1 + B1, True
+        FSO.DeleteFile A1 + B1, True
             
         TTD2 = TTD2 + 1
         ScanPath.lblCount3 = Trim(Str(TTD2)) + " Del-ed Files"
@@ -3648,7 +3648,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     
     
-    If FS.FileExists(A1 + B1) = True And FS.FileExists(D1 + B1) = True Then
+    If FSO.FileExists(A1 + B1) = True And FSO.FileExists(D1 + B1) = True Then
         
         If m_CRC.CalculateFile(A1 + B1) = m_CRC.CalculateFile(D1 + B1) Then
         
@@ -3657,26 +3657,26 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
         'Debug.Print A1
         'Debug.Print D3
         
-        If FS.FolderExists(D3) = False Then
+        If FSO.FolderExists(D3) = False Then
             'MkDir Mid(D3, 1, InStrRev(D3, "\", Len(D3) - 1))
             MkDir D3
             Stop
             Err.Clear
         End If
         
-        FS.CopyFile A1 + B1, D3 + B1, True
+        FSO.CopyFile A1 + B1, D3 + B1, True
         
         'Err.Clear
         'DEL FROM OUR SWAP DRIVE
-        If Err.Number = 0 Then FS.DeleteFile A1 + B1, True
+        If Err.Number = 0 Then FSO.DeleteFile A1 + B1, True
         
         
         On Error Resume Next
         'COPY TO DESTINATION'S -D-
-        If Err.Number = 0 Then FS.CopyFile A1 + B1, D2 + B1
+        If Err.Number = 0 Then FSO.CopyFile A1 + B1, D2 + B1
         
         'DEL FROM DESTINATION SWAP DRIVE
-        If Err.Number = 0 Then FS.DeleteFile D1 + B1, True
+        If Err.Number = 0 Then FSO.DeleteFile D1 + B1, True
         On Error GoTo 0
         
             
@@ -3739,7 +3739,7 @@ Call ScanPath.cmdScan_Click
 
 DXDIR = ScanPath.TxtPath
 
-Set F = FS.GetDrive("M")
+Set F = FSO.GetDrive("M")
 If F.IsReady = True Then
     Mid(DXDIR, 1, 1) = "M"
 Else
@@ -3792,7 +3792,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     TT = TT + "-*/" + B1 + vbCrLf
     
-    Set F = FS.GetFile(A1 + B1)
+    Set F = FSO.GetFile(A1 + B1)
     ADATE1 = F.DateLastModified
     
     
@@ -3859,8 +3859,8 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
         
     
-    If FS.FolderExists(DXDIR + YY) = False Then MkDir DXDIR + YY
-    If FS.FileExists(DXDIR + YY + "\" + yy2) = False Then
+    If FSO.FolderExists(DXDIR + YY) = False Then MkDir DXDIR + YY
+    If FSO.FileExists(DXDIR + YY + "\" + yy2) = False Then
         'Call ShellFileMove(A1 + B1, DXDIR + yy + "\" + yy2)
         'Name A1 + B1 As DXDIR + yy + "\" + yy2
     Else
@@ -3869,7 +3869,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     End If
     
     'MOVE WHERE IS
-    If FS.FileExists(A1 + yy2) = False Then
+    If FSO.FileExists(A1 + yy2) = False Then
         'F.Move A1 + YY2
     End If
     
@@ -3970,7 +3970,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     TT = TT + "-*/" + B1 + vbCrLf
     
-    Set F = FS.GetFile(A1 + B1)
+    Set F = FSO.GetFile(A1 + B1)
     ADATE1 = F.DateLastModified
     
     'C1 = YY + B1
@@ -4038,14 +4038,14 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     'MOVE INTO FOLDER
     
     If DXDIR = "" Then
-        If FS.FolderExists(ScanPath.TxtPath + YY) = False Then MkDir ScanPath.TxtPath + YY
-        If FS.FileExists(ScanPath.TxtPath + YY + "\" + yy2) = False Then
+        If FSO.FolderExists(ScanPath.TxtPath + YY) = False Then MkDir ScanPath.TxtPath + YY
+        If FSO.FileExists(ScanPath.TxtPath + YY + "\" + yy2) = False Then
             'F.Move ScanPath.txtPath + YY + "\" + YY2
             'Call ShellFileMove(A1 + B1, ScanPath.TxtPath + yy + "\" + yy2)
         End If
     Else
-        If FS.FolderExists(DXDIR + YY) = False Then MkDir DXDIR + YY
-        If FS.FileExists(DXDIR + YY + "\" + yy2) = False Then
+        If FSO.FolderExists(DXDIR + YY) = False Then MkDir DXDIR + YY
+        If FSO.FileExists(DXDIR + YY + "\" + yy2) = False Then
             'Call ShellFileMove(A1 + B1, DXDIR + yy + "\" + yy2)
         End If
     End If
@@ -4053,7 +4053,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     
     'MOVE WHERE IS
-    If FS.FileExists(A1 + yy2) = False Then
+    If FSO.FileExists(A1 + yy2) = False Then
         'F.Move A1 + YY2
     End If
     
@@ -4250,9 +4250,9 @@ c1$ = Mid$(B1, InStrRev(B1, "\") + 1)
 List1.RemoveItem (List1.ListIndex)
 'Name B1 As c1$
 
-'fs.copyFile B1, tpath3$ + c1$
+'fsO.copyFile B1, tpath3$ + c1$
 If Dir$(tpath3$ + c1$) <> "" Then Kill tpath3$ + c1$
-FS.MoveFile B1, tpath3$ + c1$
+FSO.MoveFile B1, tpath3$ + c1$
 
 
 
@@ -4311,7 +4311,7 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2)
 
-        If InStr(F1$, D2$) = 0 Then
+        If InStr(f1$, D2$) = 0 Then
             On Local Error GoTo jeep
             MkDir D2$
             If errs2 <> 75 And errs2 > 0 Then
@@ -4322,11 +4322,11 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    F1$ = D2$
+    f1$ = D2$
 
     errs2 = 0
     On Local Error GoTo jeep
-    FS.MoveFile A1 + B1, c1$ + B1
+    FSO.MoveFile A1 + B1, c1$ + B1
     On Local Error GoTo 0
 
     If errs2 <> 0 Then
@@ -4338,13 +4338,13 @@ For WE = 1 To ListView1.ListItems.Count
     List1.ListIndex = List1.ListCount - 1
     List1.Refresh
 
-    'Fs.DeleteFolder comrad$ + "\" + WFD$
+    'FsO.DeleteFolder comrad$ + "\" + WFD$
 
 Next
 
 Err.Clear
 On Local Error Resume Next
-FS.DeleteFolder TxtPath.Text, True
+FSO.DeleteFolder TxtPath.Text, True
 If Err.Number > 0 Then Call HardDel
 On Local Error GoTo 0
 
@@ -4359,7 +4359,7 @@ V2$ = Mid$(TxtPath.Text, 1, InStrRev(TxtPath.Text, "\"))
 
 Err.Clear
 On Local Error Resume Next
-FS.MoveFolder Drived2$ + "Temp\Anything\*", V2$
+FSO.MoveFolder Drived2$ + "Temp\Anything\*", V2$
 If Err.Number > 0 Then Call HardMove
 On Local Error GoTo 0
 
@@ -4409,11 +4409,11 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2 - 1)
 
-        If InStr(F1$, D2$) = 0 Then
+        If InStr(f1$, D2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             'MkDir d2$
-            FS.DeleteFolder D2$, True
+            FSO.DeleteFolder D2$, True
             If Err.Number <> 75 And Err.Number > 0 Then
                 'MsgBox ("Error Making Temp Directory",vbMsgBoxSetForeground)
                 '
@@ -4422,11 +4422,11 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    F1$ = D2$
+    f1$ = D2$
 
     errs2 = 0
     On Local Error Resume Next
-'    fs.DeleteFile A1 + B1, True
+'    fsO.DeleteFile A1 + B1, True
     On Local Error GoTo 0
 
     'If errs2 <> 0 Then
@@ -4438,7 +4438,7 @@ For WE = 1 To ListView1.ListItems.Count
     List1.ListIndex = List1.ListCount - 1
     List1.Refresh
 
-    'fs.DeleteFolder comrad$ + "\" + WFD$
+    'fsO.DeleteFolder comrad$ + "\" + WFD$
 
 Next
 
@@ -4477,11 +4477,11 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2 - 1)
 
-        If InStr(F1$, D2$) = 0 Then
+        If InStr(f1$, D2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             MkDir D2$
-   '         fs.deletefolder d2$, True
+   '         fsO.deletefolder d2$, True
             If Err.Number <> 75 And Err.Number > 0 Then
                 'MsgBox ("Error Making Temp Directory",vbMsgBoxSetForeground)
                 'T
@@ -4490,12 +4490,12 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    F1$ = D2$
+    f1$ = D2$
     Err.Clear
     errs2 = 0
     On Local Error Resume Next
     
-    FS.MoveFile c2$ + B1, A1 + B1
+    FSO.MoveFile c2$ + B1, A1 + B1
     'err.number
     'err.description
     On Local Error GoTo 0
@@ -4509,7 +4509,7 @@ For WE = 1 To ListView1.ListItems.Count
     List1.ListIndex = List1.ListCount - 1
     List1.Refresh
 
-    'fs.DeleteFolder comrad$ + "\" + WFD$
+    'fsO.DeleteFolder comrad$ + "\" + WFD$
 
 Next
     
@@ -4517,9 +4517,9 @@ Next
     Err.Clear
     On Local Error Resume Next
     
-    FS.CopyFolder Drived2$ + "Temp\Anything", V1$, True
+    FSO.CopyFolder Drived2$ + "Temp\Anything", V1$, True
     
-    FS.DeleteFolder Drived2$ + "Temp\Anything", True
+    FSO.DeleteFolder Drived2$ + "Temp\Anything", True
 
 
 jeep:
