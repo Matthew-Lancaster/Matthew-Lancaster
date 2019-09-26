@@ -1,115 +1,47 @@
 @namespace url(http://www.w3.org/1999/xhtml);
-@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login") 
-{
+@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login/IdentifyCustomerForLogin") {
 /* Declutter Nationwide Bank Logon Screen */
 /* DECLUTTER NATIONWIDE BANK LOGON SCREEN */
-
 
 /* 
 --------------------------------------------------------------------- 
 Description 
 --------------------------------------------------------------------- 
-To Keep-Whole Thing on One Page Rather Than Scroll Up and Down
-And Stop People Look at Customer Number _ If You Got to Pay Her
-It Was Only One Page But Bank Want Stronger And Put Memorable Data Back
-Made a Lot Smaller -- If Could Change Zoom Size Would Try That
+SECOND VERSION
+DO OPERATE COMPACT WHOLE THING
 --------------------------------------------------------------------- 
 */
 
-/*
+/* 
 --------------------------------------------------------------------- 
-THE LOGON SCREEN HERE IS ABLE DO WITH A CASE OF DE-CLUTTERING 
-I USED ORIGIN UBLOCK TO PICK THE ELEMENTS AND WENT SEE WHAT   
-CREATED FOR FILTER AND WAS EASY AS PASTE IN MOST OF THEM
-EXCEPT OF SOME THING MOVE WHEN CLICK THE SCREEN EXTRA 
-WORK TO BE DONE                                               
-DON'T LEARN WHAT I WOULD OF DO WITHOUT ARH                     
---------------------------------------------------------------------- 
-
---------------------------------------------------------------------- 
-SAVES USING THE MOUSE WHEEL ON THE WEB PAGE SCREEN GETTING 
-FROM TOP TO BOTTOM                                           
-NOW IS ALL COMPACT WITHOUT ANY SCROLL-ER _ IF YOU WANT TO    
-LOGON CHECK YOUR _ MONEY EASIER                              
-GUESS THE BANK WILL HAVE A MOAN IF YOU DON'T SEE THE         
-BANK WEBSITE YOU RECOGNIZE NORMALLY                          
---------------------------------------------------------------------- 
-*/
-
-/*
----------------------------------------------------------------
-CHANGE ON 25 JAN 2019                                          
----------------------------------------------------------------
-I KIND OF NEW TO THIS AND WANTED TO USE MORE DIRECT WORKING    
-WITH THIS URL ONLY                      
-IF WANT TO UNDO HERE IS WHAT USED BEFORE
-@-moz-document domain("onlinebanking.nationwide.co.uk")
-THIS IS WHAT USER NOW
-HERE IT WILL ONLY USE URL THAT START WITH HERE 
-RATHER THAN MAYBE ERROR WITH WHOLE DOMAIN AND KEEP WATCHER 
-AND MAYBE CROP UP SOME OTHER INFO TEXT AREA AND HIDDEN AS 
-SIDE-EFFECT THIS ONE 
-IS ONLY LOGIN SCREEN THAT HAS TO CHANGE 
-@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login")
-HELP GIVEN FROM THIS PAGE
-IT DOES MEAN url-prefix WON'T RECOGNIZE WHOLE DOMAIN IN VARYING WAY
-LIKE THESE WONT WORK _  BUT YOU WON'T USE THEM ANYWAY NATIONWIDE 
-HAS ONLY ONE HTTPS _ THIS WAY WORK BUT HAS MORE TO ERROR STOP WORKER
-IF NATIONWIDE CHANGED THE FORMAT OF URL _ THAT WHEN USE THE ORIGINAL ONE FOR WHOLE DOMAIN
-
 WWW.onlinebanking.nationwide.co.uk
 ----
 Applying styles to specific sites · stylish-userstyles/stylish Wiki
 https://github.com/stylish-userstyles/stylish/wiki/Applying-styles-to-specific-sites
-----
 --------------------------------------------------------------------- 
 */
 
 /*
 ---------------------------------------------------------------------
-Source Me Userstyles.org
+Source Userstyles.org
 ----
 Declutter Nationwide Bank Logon Screen | Userstyles.org
 https://userstyles.org/styles/168144/declutter-nationwide-bank-logon-screen
-----
 ---------------------------------------------------------------------
 
 ---------------------------------------------------------------------
-Source MY GitHub
+Source GitHub
 ----
 Stylus_Declutter Nationwide Bank Logon Screen
 https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Declutter%20Nationwide%20Bank%20Logon%20Screen.txt
-----
 ---------------------------------------------------------------------
 */
 
 /*
 WRITE CODE TIME
 ---------------------------------------------------------------------
-1ST Editor
----------------------------------------------------------------------
-All Been Rem-med Remark On
-2 Hour to Write Code and Publisher
----------------------------------------------------------------------
-Wed 23-Jan-2019 21:37:37
-Wed 23-Jan-2019 23:40:00
----------------------------------------------------------------------
-2ND Editor
----------------------------------------------------------------------
-Change To Use All URL Starting With Prefix Unless Error Same Code On Another Page Is Only One URL Login Screen _ Slight Problem is if Nationwide Change the Name of URL for Login Page Or Else Whole Domain Name Would of Been Better _ What Efficiency Is Better in Long Run Who Know _ Look at Remark Line In Code Scriptor
----------------------------------------------------------------------
-Fri 25-Jan-2019 22:08:19
-Fri 25-Jan-2019 23:00:00
----------------------------------------------------------------------
-3RD Editor
----------------------------------------------------------------------
-Had To Bring Back An Element Of Memorable Data Line
-New Stronger Banker Make Enter This Info Now
-But If Not Reset Cookie It Won't Be Notice Yet
-Rem Line In Code About It
----------------------------------------------------------------------
-Sat 04-May-2019 03:54:52
-Sat 04-May-2019 04:48:00
+Thu 26-Sep-2019 21:02:11
+Thu 26-Sep-2019 22:08:30
 ---------------------------------------------------------------------
 /*
 
@@ -120,108 +52,68 @@ Sat 04-May-2019 04:48:00
 /* --------------------------------------------------------------- */
 
 
-/* TOP LINE HELP LOGING IN */
-.link-bar {
-    display: none;
+/* WHOLE PAGE */
+.process.app--process.app
+{
+    transform: scaleY(.8) !important; 
 }
 
-/* TOP LINE PLEASE LOGIN */
+/* TOP LINE */
+.page-header {
+    display: none !important;
+}
+
+/* LOGIN TO THE INTERNET BANK */
 .stage__header {
-    display: none;
+    display: none !important;
 }
 
-/* CUSTOMER NUMBER WHOLE FRAME AREA */
-.service-availability-login-section-expansion.service-availability-login-container > .section--no-title.section > .section__inner {
-    display: none;
+.section--no-title.section
+{
+    display: none !important;
 }
 
-/* TEXT HOW WOULD YOU LIKE TO LOGIN */
-.choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__title {
-    display: none;
+.mem-data-section-holder>.media-group>.nopadding.media-group__main>.section__title
+{
+    display: none !important;
 }
 
-/* I'VE FORGOTTEN MY MEMORABLE DATA */
-.control-group > .text-input-control.control--simple.control > .control__help {
-    display: none;
+.mem-data-section-holder>.media-group>.nopadding.media-group__main>.message
+{
+    display: none !important;
 }
 
-
-/* HERE LINE NOT INCLUDED ANYMORE AS NEW TOUGH BANKER MAKE ENTER THIS INFO NOW    */
-/* NOT ALL BROWSER UPDATE TO IT NEW I STILL HAVE SOME SET OLDER WAY               */
-/* [ Saturday 04:38:40 Am_04 May 2019 ]                                           */
-
-/* MEMORABLE DATA BLOCK 01 TO 03 */
-.control-group > .text-input-control.control--simple.control > .control__label > .control__label__title {
-    display: none;
+/* FORGOTEN MEMORABLE DATA */
+.mem-data-section-holder>.media-group>.nopadding.media-group__main>.text-input-control.control--simple.control--no-description.control>.control__help
+{
+    display: none !important;
 }
 
-/* HERE LINE NOT INCLUDED ANYMORE AS NEW TOUGH BANKER MAKE ENTER THIS INFO NOW    */
-/* NOT ALL BROWSER UPDATE TO IT NEW I STILL HAVE SOME SET OLDER WAY               */
-
-/* TEXT AREA INFO __ Enter one of your three items of memorable data. 
-.control-group > .text-input-control.control--simple.control > .control__label > .control__label__description {
-    display: none;
-}
-*/
-
-/* PASS OF MEMORABLE DATA ENTRY BOX STARED OUT USUAL 
-.control-group > .text-input-control.control--simple.control > .control__input {
-    display: none;
-}
-*/
-
-/* TEXT INFO __ We recommend using a card reader, if you have one. 
-   If you don’t, you can borrow someone else’s or log in using your 
-   memorable data and passnumber. */
-.choice-list-control.control--simple.control--no-help.control.control-group > .control__label > .control__label__description {
-    display: none;
+/* ENTER PASS */
+.control--loaded.control--enabled.passnumber-partial-entry--selector-first.passnumber-partial-entry.control--complex.control--no-description.control>.control__label>.control__label__title>h3
+{
+    display: none !important;
 }
 
-/* ENTER THESE DIGITS FROM YOUR 6 DIGIT PASS NUMBER */
-.control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__label > .control__label__description {
-    display: none;
+/* FORGOTEN PASS DATA */
+.control--loaded.control--enabled.passnumber-partial-entry--selector-first.passnumber-partial-entry.control--complex.control--no-description.control>.control__help
+{
+    display: none !important;
 }
 
-/* PASS NUMBER _ TEXT TITLE */
-.passnumber-partial-entry.control--complex.control > .control__label > .control__label__title {
-    display: none;
+.message-list--noicon.message-list--notice.message-list--no-subtitle.message-list--no-title.message-list
+{
+    display: none !important;
 }
 
-/* I'VE FORGOTTEN MY PASS NUMBER #1 BEFORE YOU CLICK THE SCREEN*/
-.control__help__trigger{
-    display: none;
-}
-
-/* I'VE FORGOTTEN MY PASS NUMBER #2 AFTER CLICK SCREEN*/
-.control--loaded.control--enabled.passnumber-partial-entry.control--complex.control > .control__help {
-    display: none;
-}
-
-/* MESSENGER BOX __ Protect yourself from fraud */
-.section:nth-of-type(6) {
-    display: none;
+.stage__footer
+{
+    display: none !important;
 }
 
 .page-footer {
-    display: none;
+    display: none !important;
 }
 
-/*
----------------------------------------------------------------------
-__ Page-footer INFO
----------------------------------------------------------------------
-Register
-Order a new card reader
-Security centre 
-Accessibility 
- 
-Service status 
-Mobile Banking app 
-Internet Bank Terms and Conditions 
-Contact us 
-Follow us: Twitter (This link will open in a new window) Facebook (This link will open in a new window) Youtube (This link will open in a new window) LinkedIn (This link will open in a new window)
-© 2019 Nationwide Building Society
-Nationwide Building Society is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority under registration number 106078. You can confirm our registration on the FCA’s website www.fca.gov.uk Opens in a new window. Nationwide is not responsible for the content of external websites.
----------------------------------------------------------------------
-*/
+
 }
