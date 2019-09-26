@@ -129,6 +129,9 @@ SetStoreCapslockMode, off
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 
+Send {shift up}
+
+
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 GLOBAL VAR_COUNTER
