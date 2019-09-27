@@ -103,32 +103,32 @@ ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 Dim objFolder
 
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
+FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
+FOLDER_STRING_3="C:\Users\MATT 04\Insync\rub.rim@gmail.com\Google Drive\snapshot ("
 
-FOR RV=1 TO 2
+ON ERROR RESUME NEXT
+FOR RV=1 TO 3
 	FOR RO=2 TO 20
 		XXC=CSTR(RO)
 		IF RV=1 THEN FOLDER_STRING=FOLDER_STRING_1+XXC+")"
 		IF RV=2 THEN FOLDER_STRING=FOLDER_STRING_2+XXC+")"
+		IF RV=3 THEN FOLDER_STRING=FOLDER_STRING_3+XXC+")"
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-			'MSGBOX FOLDER_STRING
-
+			I1=-1
+			I2=-1
+			ERR.CLEAR 
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
-
-			'MSGBOX objFolder.SubFolders.Count
-			'MSGBOX objFolder.Files.Count
+			I1=objFolder.SubFolders.Count
+			I2=objFolder.Files.Count
 			
-			If objFolder.SubFolders.Count = 0 Then 
-				IF objFolder.Files.Count = 0 Then
-					' MSGBOX FOLDER_STRING
-					fso.DeleteFolder objFolder.Path
-					IF FSO.FOLDERExists(FOLDER_STRING) THEN
-						fso.DeleteFolder FOLDER_STRING
-					END IF
+			If I1=0 AND I2=0 AND ERR.NUMBER=0 THEN  
+				MSGBOX "HJ"
+				fso.DeleteFolder objFolder.Path
+				IF FSO.FOLDERExists(FOLDER_STRING) THEN
+					fso.DeleteFolder FOLDER_STRING
 				END IF
 			END IF
-			' objFolder=NOTHING
 		END IF
 	NEXT
 NEXT
@@ -139,8 +139,6 @@ FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC 
 '--------------------------------------------------------------
 WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 '--------------------------------------------------------------
-
-
 
 
 WScript.Quit(0)
