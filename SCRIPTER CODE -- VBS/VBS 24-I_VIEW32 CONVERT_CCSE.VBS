@@ -109,11 +109,12 @@ i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
 FOLDER="D:\0 00 VIDEO SNAPSHOT"
 obj_SOURCE_Folder = FOLDER
 
-Set objBASEFolder = objFSO.GetFolder(FOLDER)
-Call ShowSubfolders (objBASEFolder)
+objBASEFolder = FOLDER
+Call ShowSubfolders (objFSO.GetFolder(FOLDER))
+NEW_BASE_FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"
+Call ShowSubfolders_FOLDER (objFSO.GetFolder(NEW_BASE_FOLDER))
 
 MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
-
 
 
 ' -------------------------------------------------------------------
@@ -125,6 +126,23 @@ MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
 Set WSHShell = Nothing
 WScript.Quit(0)
 
+
+SUB SUB_DO_WITH_FOLDER(FOLDER_PATH)
+
+	FILE_NAME=FOLDER_PATH+"\desktop.ini"
+	IF FSO.FILEEXISTS(FILE_NAME)=TRUE THEN 
+		MSGBOX FILE_NAME
+		FSO.DELETEFILE(FILE_NAME)
+	END IF
+	FILE_NAME=FOLDER_PATH+"\thumbs.db"
+	IF FSO.FILEEXISTS(FILE_NAME)=TRUE THEN 
+		MSGBOX FILE_NAME
+		FSO.DELETEFILE(FILE_NAME)
+	END IF
+	
+	MSGBOX FOLDER_PATH
+	
+END SUB
 
 
 ' -------------------------------------------------------------------
@@ -145,7 +163,6 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 		.Close
 	End With
 	ON ERROR GOTO 0
-			
 	Set objFILE = NOTHING
 			
 	IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
@@ -181,27 +198,37 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 	End If
 	ON ERROR GOTO 0
 
-	MSGBOX "HH "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
+	ERR.CLEAR
+	' IF ERROR OF CODE HERE IT HAS JUMP OVER CODE OUT OF SUBROUTINE
+	' HEAVIER DEBUG THAN THINK
+	' ---------------------------------------------------------------
+	IF FSO.FILEEXISTS(NEW_FILENAME)=FALSE THEN 
+		FSO.MoveFILE FILE_PATH, NEW_FILENAME
+	END IF
 	
 	ERR.CLEAR
-	FSO.MoveFile FILE_PATH, NEW_FILENAME
 	IF FSO.FILEEXISTS(NEW_FILENAME)=FALSE THEN 
-	IF ERR.NUMBER=0 THEN
-		MSGBOX "COPY "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
-		FSO.COPYFile FILE_PATH, NEW_FILENAME
+		MSGBOX "MOVE 2ND METHOD "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
+		Set objFILE = objFSO.GetFILE(FILE_PATH)
+		objFILE.Move NEW_BASE_FOLDER_2
 	END IF
+	
+	IF FSO.FILEEXISTS(NEW_FILENAME)=FALSE THEN 
+		IF ERR.NUMBER=0 THEN
+			MSGBOX "COPY METHOD "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
+			FSO.COPYFile FILE_PATH, NEW_BASE_FOLDER_2
+		END IF
 	END IF
+	
+	' DELETE SOURCE IF BOTH EXIST
 	IF FSO.FILEEXISTS(NEW_FILENAME)=TRUE THEN 
-		MSGBOX FILE_PATH+VBCRLF+NEW_FILENAME
-		FSO.DELETEFILE(NEW_FILENAME)
+		IF FSO.FILEEXISTS(FILE_PATH)=TRUE THEN 
+			FSO.DELETEFILE(NEW_FILENAME)
+		END IF
 	END IF
-
 	
 END SUB
 				
-
-
-
 				
 				
 
@@ -265,6 +292,21 @@ Sub ShowSubFolders(fFolder)
 	
     For Each Subfolder in fFolder.SubFolders
         ShowSubFolders(Subfolder)
+    Next
+End Sub
+
+
+'-------------------------------------
+Sub ShowSubFolders_FOLDER(fFolder)
+'-------------------------------------
+    Set objFolder = objFSO.GetFolder(fFolder.PATH)
+    Set colFiles = objFolder.Files
+	ON ERROR RESUME NEXT
+	
+	CALL SUB_DO_WITH_FOLDER(objFolder)
+	
+    For Each Subfolder in fFolder.SubFolders
+        ShowSubFolders_FOLDER(Subfolder)
     Next
 End Sub
 
