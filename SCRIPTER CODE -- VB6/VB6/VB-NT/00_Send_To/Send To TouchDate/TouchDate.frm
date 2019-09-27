@@ -970,13 +970,17 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
         A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
         B1$ = ScanPath.ListView1.ListItems.Item(rr)
         
+        FLAG_OPER = True
+        If UCase(B1$) = UCase("thumbs.db") Then FLAG_OPER = False
+        If UCase(B1$) = UCase("DESKTOP.INI") Then FLAG_OPER = False
+        
         Set F = FSO.GetFile(A1$ + B1$)
         DT2 = F.DateCreated
         DT1 = F.datelastmodified
-        
-        If DT4 = 0 Then DT4 = DT1
-        If DT1 < DT4 Then DT4 = DT1
-        
+        If FLAG_OPER = True Then
+            If DT4 = 0 Then DT4 = DT1
+            If DT1 < DT4 Then DT4 = DT1
+        End If
         Set F = Nothing
         
     Next
