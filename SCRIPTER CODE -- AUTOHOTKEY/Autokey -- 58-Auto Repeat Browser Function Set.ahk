@@ -567,6 +567,8 @@ SET_ARRAY_BROWSER_TAB_CLOSE() {
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="BT Smart Hub Manager"
 	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="BT Home - your gateway into BT"
+	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="404 Page Not Found | CPC"
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Blocked Access - Google Chrome"
