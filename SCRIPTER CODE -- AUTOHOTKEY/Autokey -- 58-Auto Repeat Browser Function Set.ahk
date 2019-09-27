@@ -574,6 +574,13 @@ SET_ARRAY_BROWSER_TAB_CLOSE() {
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Blocked Access - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Google Chrome Help"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Connect to network"
+	; ---------------------------------------------------------------
+	; THE NETWORK YOU ARE USE MAY REQUIRE YOU TO 
+	; VISIT WWW.GSTATIC.COM
+	; XP CHROME
+	; ---------------------------------------------------------------
 	
 	; ArrayCount += 1
 	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Home"
