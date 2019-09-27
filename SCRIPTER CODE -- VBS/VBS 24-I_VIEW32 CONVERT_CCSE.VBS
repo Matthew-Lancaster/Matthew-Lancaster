@@ -88,13 +88,13 @@ FOR EACH objProcess IN colProcesses
     END IF
 NEXT
 
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
 
 Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set OBJFSO = CreateObject("Scripting.FileSystemObject")
 
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
 Dim oFile
 Dim oFSO
 DIM COUNT_1
@@ -115,20 +115,27 @@ Call ShowSubfolders (objBASEFolder)
 MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
 
 
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' END OF CODE MAIN ROUTINE
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
 Set WSHShell = Nothing
 WScript.Quit(0)
 
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
 
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 SUB SUB_DO_WITH_FILE(FILE_PATH)
 
 	Dim objFILE
 	Set objFILE = objFSO.GetFILE(FILE_PATH)
-	
 	
 	' INPUT PAST END OF FILE HAPPEN ERROR MESSENGER
 	ON ERROR RESUME NEXT
@@ -138,6 +145,8 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 		.Close
 	End With
 	ON ERROR GOTO 0
+			
+	Set objFILE = NOTHING
 			
 	IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
 		' -------------------------------------------
@@ -150,9 +159,6 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 		COUNT_1=COUNT_1+1
 	END IF
 	COUNT_2=COUNT_2+1
-
-
-
 	
 	PATH_VAR_2=MID(FILE_PATH,1,INSTRREV(FILE_PATH,"\"))
 	STRIP_BASE_FOLDER=REPLACE(PATH_VAR_2,objBASEFolder,"")
@@ -170,93 +176,35 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 	STRIP_FOLDER_FROM_FILE=MID(FILE_PATH,INSTRREV(FILE_PATH,"\")+1)
 	NEW_FILENAME=NEW_BASE_FOLDER_2+STRIP_FOLDER_FROM_FILE
 
-	IF NEW_BASE_FOLDER_1<>NEW_BASE_FOLDER_2 THEN 
-		If Not FSO.FolderExists(NEW_BASE_FOLDER_2) Then
-			CreateFolderTree(NEW_BASE_FOLDER_2)
-		End If
-		
-		MSGBOX FILE_PATH+VBCRLF+NEW_FILENAME
-		
-		FSO.MoveFile FILE_PATH, NEW_FILENAME
+	If Not FSO.FolderExists(NEW_BASE_FOLDER_2) Then
+		CreateFolderTree(NEW_BASE_FOLDER_2)
+	End If
+	ON ERROR GOTO 0
 
+	MSGBOX "HH "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
+	
+	ERR.CLEAR
+	FSO.MoveFile FILE_PATH, NEW_FILENAME
+	IF FSO.FILEEXISTS(NEW_FILENAME)=FALSE THEN 
+	IF ERR.NUMBER=0 THEN
+		MSGBOX "COPY "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
+		FSO.COPYFile FILE_PATH, NEW_FILENAME
 	END IF
-	
-	
-	' MSGBOX NEW_FILENAME
+	END IF
+	IF FSO.FILEEXISTS(NEW_FILENAME)=TRUE THEN 
+		MSGBOX FILE_PATH+VBCRLF+NEW_FILENAME
+		FSO.DELETEFILE(NEW_FILENAME)
+	END IF
 
 	
 END SUB
 				
 
+
+
 				
 				
 
-' -------------------------------------------------------------------
-' FOR R_T=0 TO 30
-' R_T --  0 = NOW TODAY
-' R_T -- 30 = DAYS BEFORE
-' R_T -- 10 = DAYS BEFORE
-' R_T -- 20 = DAYS BEFORE
-' -------------------------------------------------------------------
-
-FOR R_T=10 TO 0 STEP -1
-
-	i_TIME=""
-	i_TIME=i_TIME+LPad(Year(Now-R_T), "0", 4)
-	i_TIME=i_TIME+LPad(Month(Now-R_T), "0", 2)
-	i_TIME=i_TIME+LPad(Day(Now-R_T), "0", 2)
-
-	' IF DONE_ONCE=FLSE THEN 
-		' DONE_ONCE=TRUE
-		' MSGBOX i_TIME
-	' END IF
-	
-	FOR R_I=1 TO 2
-		' FOLDER_1="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"+i_TIME+"\"+ARRAY(R_I)
-		FOLDER_1="D:\0 00 VIDEO SNAPSHOT\snapshot\"+i_TIME+"\"+ARRAY(R_I)
-		If fso.FolderExists(FOLDER_1) Then
-
-			Set objFolder = objFSO.GetFolder(FOLDER_1)
-			Set colFiles = objFolder.Files
-			For Each objFile in colFiles
-
-				Set oFSO = CreateObject("Scripting.FileSystemObject")
-				Set oFile = oFSO.GetFile(objFile.PATH)
-
-				FILE_1=objFile.PATH
-				FILE_NAME=objFile.NAME
-				IF MID(FILE_NAME,1,4)="DVR_" THEN 
-					
-					' INPUT PAST END OF FILE HAPPEN ERROR MESSENGER
-					ON ERROR RESUME NEXT
-					readBinary=""
-					With oFile.OpenAsTextStream()
-						readBinary = .Read(119+4)
-						.Close
-					End With
-					ON ERROR GOTO 0
-							
-					IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
-						
-						' -------------------------------------------
-						' jpgq=88 __ UP UNTIL 02 MAR 2019
-						' jpgq=92 __       ON 02 MAR 2019
-						' QUALITY JPEG CONVERSION LEVEL 0 TO 100%
-						' -------------------------------------------
-						
-						WSHShell.Run i_view32 + " """+FILE_1+""" /jpgq=92 /convert=$D$F" , DontShowWindow, WaitUntilFinished
-						
-						COUNT_1=COUNT_1+1
-						
-					END IF
-					COUNT_2=COUNT_2+1
-				END IF
-			Next
-		END IF
-	Next
-Next
-
-' MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
 
 IF COUNT_1>0 THEN 
 
