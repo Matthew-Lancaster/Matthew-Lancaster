@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11916
-   ScaleWidth      =   22944
+   ScaleHeight     =   10116
+   ScaleWidth      =   12864
    Begin VB.Timer TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD 
       Enabled         =   0   'False
       Interval        =   1
@@ -3350,11 +3350,26 @@ Private Sub Form_Load()
 
 ' ------------------------------------------------------------------------------
 
+
+    ' WHAT TIMER ARE ENABLER
+    ' ----------------------
+    Dim ARRAY_TIMER_CONTROL(100)
+    Dim CONTROL As CONTROL
+    Dim i
+    i = 0
+    For Each CONTROL In Controls
+        If InStr(UCase(CONTROL.Name), "TIMER") > 0 Then
+            i = i + 1
+            ARRAY_TIMER_CONTROL(i) = CONTROL.Enabled
+            CONTROL.Enabled = False
+        End If
+    Next
+    
+
+
     IS_AUTOHOTKEY_RUN_2 = True
     
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
-    
-    Dim i As String
 
     FORM_LOAD_TRUE = False
     SET_VB_EXE_ARRAY_FIRST_TIME = True
@@ -3423,11 +3438,10 @@ Private Sub Form_Load()
     Call Project_Check_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
     
     Dim XX
-    Dim Control As Control
     XX = Label_Goto_File_Name.Left
     On Error Resume Next
-    For Each Control In Me.Controls
-    Control.Left = Control.Left - XX + 20
+    For Each CONTROL In Me.Controls
+    CONTROL.Left = CONTROL.Left - XX + 20
     Next
     On Error GoTo 0
 
@@ -3572,7 +3586,15 @@ If IsIDE = True Then
     CLEAR_DEBUG_AREA.ClearInmediateWindow
 End If
 
-
+i = 0
+For Each CONTROL In Controls
+    If InStr(UCase(CONTROL.Name), "TIMER") > 0 Then
+        i = i + 1
+        If ARRAY_TIMER_CONTROL(i) = True Then
+            CONTROL.Enabled = True
+        End If
+    End If
+Next
 
 End Sub
 
@@ -3809,17 +3831,17 @@ Next
 
 ReDim Preserve ARRAY_CB(R_COUNTER - 1)
 
-Dim Control As Control
-For Each Control In Me.Controls
+Dim CONTROL As CONTROL
+For Each CONTROL In Me.Controls
     For R_COUNTER = 1 To UBound(ARRAY_CB)
-        If Control.Name = ARRAY_CB(R_COUNTER) Then
-            If InStr(Test, Control.Name) > 0 Then
+        If CONTROL.Name = ARRAY_CB(R_COUNTER) Then
+            If InStr(Test, CONTROL.Name) > 0 Then
                 COLOUR_VAR = &HE2FEEA
             Else
                 COLOUR_VAR = Label59.BackColor
             End If
-            Control.BackColor = COLOUR_VAR
-            Control.ForeColor = RGB(0, 0, 0)
+            CONTROL.BackColor = COLOUR_VAR
+            CONTROL.ForeColor = RGB(0, 0, 0)
         End If
     Next
 Next
@@ -5043,7 +5065,7 @@ Sub SET_MENU_PADD_WORK()
 Dim i_Menu_Count, i_Form_Counter
 Dim i_Menu_Not_Visa_Count
 
-Dim Control As Control, Label_44, LABEL_48
+Dim CONTROL As CONTROL, Label_44, LABEL_48
 
 Dim R_NEXT
 
@@ -5054,9 +5076,9 @@ Dim i
 
 For i = 0 To Forms.Count - 1
     
-    For Each Control In Forms(i).Controls
-        If InStr(UCase(Control.Name), "MNU_") > 0 Then
-            If Control.Visible = True Then
+    For Each CONTROL In Forms(i).Controls
+        If InStr(UCase(CONTROL.Name), "MNU_") > 0 Then
+            If CONTROL.Visible = True Then
                 i_Menu_Count = i_Menu_Count + 1
             End If
             i_Menu_Not_Visa_Count = i_Menu_Not_Visa_Count + 1
@@ -5079,16 +5101,16 @@ For i = 0 To Forms.Count - 1
     Text_Checker_Form_Menu = ""
     frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(i).hwnd), 0, "", Text_Checker_Form_Menu
     Text_Checker_Form_Menu = UCase(Text_Checker_Form_Menu)
-    For Each Control In Forms(i).Controls
-        If InStr(UCase(Control.Name), "MNU_") > 0 Then
-            MENU_ITEM_VAR = Replace(Control.Caption, "[__ ", "")
+    For Each CONTROL In Forms(i).Controls
+        If InStr(UCase(CONTROL.Name), "MNU_") > 0 Then
+            MENU_ITEM_VAR = Replace(CONTROL.Caption, "[__ ", "")
             MENU_ITEM_VAR = Replace(MENU_ITEM_VAR, " __]", "")
             MENU_ITEM_VAR = UCase(Trim(MENU_ITEM_VAR))
             If InStr(Text_Checker_Form_Menu, "SUB MENU ----" + MENU_ITEM_VAR) = 0 Then
                 
                 'i_Menu_Count = i_Menu_Count + 1
-                If InStr(Trim(Control.Caption), "[__ ") = 0 Then
-                    Label_44 = Trim(Control.Caption)
+                If InStr(Trim(CONTROL.Caption), "[__ ") = 0 Then
+                    Label_44 = Trim(CONTROL.Caption)
                     'LABEL_48 = Replace(LABEL_44, " ", "_")
                     LABEL_48 = Label_44
                     LABEL_48 = Replace(LABEL_48, "___", "__")
@@ -5096,7 +5118,7 @@ For i = 0 To Forms.Count - 1
                     LABEL_48 = Replace(LABEL_48, "[__ [__ ", "[__ ")
                     LABEL_48 = Replace(LABEL_48, " __] __]", " __]")
                     If LABEL_48 <> Label_44 Then
-                        Control.Caption = LABEL_48
+                        CONTROL.Caption = LABEL_48
                     End If
                 End If
             End If
@@ -5141,7 +5163,7 @@ End Sub
 
 Sub SET_CONTROLS_COUNT()
 
-Dim Control As Control, Label_44, LABEL_48
+Dim CONTROL As CONTROL, Label_44, LABEL_48
 
 Dim R_NEXT
 
@@ -5168,9 +5190,9 @@ Dim XXER
 On Error Resume Next
 
 For Each Form In Forms
-    For Each Control In Form.Controls
+    For Each CONTROL In Form.Controls
         Err.Clear
-        XXER = Control.Visible
+        XXER = CONTROL.Visible
         If Err.Number > 0 Then XXER = False
         If XXER = True Then
             If Form.hwnd = Me.hwnd Then
@@ -5198,15 +5220,15 @@ End Sub
 
 Sub SET_LABEL_PADD_WORK()
 
-Dim Control As Control
+Dim CONTROL As CONTROL
 Dim i
 
 On Error Resume Next
 
 For i = 0 To Forms.Count - 1
-    For Each Control In Forms(i).Controls
-        If InStr(Trim(Control.Caption), "/n") > 0 Then
-            Control.Caption = Replace(Control.Caption, "/n", vbCrLf)
+    For Each CONTROL In Forms(i).Controls
+        If InStr(Trim(CONTROL.Caption), "/n") > 0 Then
+            CONTROL.Caption = Replace(CONTROL.Caption, "/n", vbCrLf)
         End If
     Next
 Next
@@ -7169,11 +7191,11 @@ Dim II22, II23
 Dim XYZ
 On Local Error Resume Next
 
-Dim Control As Control
-For Each Control In Me.Controls
+Dim CONTROL As CONTROL
+For Each CONTROL In Me.Controls
     Err.Clear
     II22 = False
-    II23 = Control.width
+    II23 = CONTROL.width
     'If Control.Name = "chkOnTop" Then Stop
     
     'Debug.Print Err.Description
@@ -7184,28 +7206,28 @@ For Each Control In Me.Controls
     '----------------------------
     'II22 = CONTROL.Enabled
     If Err.Number = 0 Then
-        II22 = Control.Visible
+        II22 = CONTROL.Visible
     End If
     
     If Err.Number = 0 And II22 = False Then
-        If Control.Name = "chkOnTop" Then II22 = Control.Enabled
+        If CONTROL.Name = "chkOnTop" Then II22 = CONTROL.Enabled
     End If
     'Control.Name
     
     If (II22 = True) And Err.Number = 0 Then
 '        Debug.Print Control.Caption
     
-        If Control.Left + Control.width > WX Then
-            WX = Control.Left + Control.width
+        If CONTROL.Left + CONTROL.width > WX Then
+            WX = CONTROL.Left + CONTROL.width
         End If
     
-        If Control.Top + Control.height > HY Then
-            HY = Control.Top + Control.height
+        If CONTROL.Top + CONTROL.height > HY Then
+            HY = CONTROL.Top + CONTROL.height
 '            Debug.Print Control.Name + " -- " + Str(HY)
-            TT = Control.Name
-            TTHY1 = Str(Val(Control.Top + Control.height))
-            TTHY2 = Str(Val(Control.Top))
-            TTHY3 = Str(Val(Control.height))
+            TT = CONTROL.Name
+            TTHY1 = Str(Val(CONTROL.Top + CONTROL.height))
+            TTHY2 = Str(Val(CONTROL.Top))
+            TTHY3 = Str(Val(CONTROL.height))
         End If
     End If
 Next
@@ -7305,15 +7327,15 @@ If IsIDE = False Then
     End If
 End If
 
-Dim i, Control
+Dim i, CONTROL
 
 'SET ALL TIMERS IN ALL FORMS ENABLED TO =FALSE
 On Error Resume Next
     For i = 0 To Forms.Count - 1
-        For Each Control In Forms(i).Controls
-            If InStr(UCase(Control.Name), "TIMER") > 0 Then
+        For Each CONTROL In Forms(i).Controls
+            If InStr(UCase(CONTROL.Name), "TIMER") > 0 Then
                 'Debug.Print Control.Name
-                Control.Enabled = False
+                CONTROL.Enabled = False
             End If
         Next
     Next i
@@ -9651,15 +9673,15 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
         If Dir(PATH_1 + FILE_1) = "" Then
             PID_MARK = 0
             Success_Result = cProcesses.Get_PID_From_hWnd(GOODSYNC_WINDOW_hWnd, PID_MARK)
-            TxtEXE.Text = GetFileFromProc(Val(PID_MARK))
-            If TxtEXE.Text = "" And PID_MARK > 0 Then
+            TxtEXE_Text = GetFileFromProc(Val(PID_MARK))
+            If TxtEXE_Text = "" And PID_MARK > 0 Then
                 'i = cProcesses.GetEXEID(PID_INPUT, NAME_EXE)
                 'TxtEXE.Text = NAME_EXE
-                TxtEXE.Text = cProcesses.GetEXE_Path_From_ProcessID(PID_MARK)
+                TxtEXE_Text = cProcesses.GetEXE_Path_From_ProcessID(PID_MARK)
             End If
         End If
     End If
-    If Mid(TxtEXE.Text, 1, 1) = "D" Then
+    If Mid(TxtEXE_Text, 1, 1) = "D" Then
         If Dir(PATH_1 + FILE_1) = "" Then
             FR1 = FreeFile
             Open PATH_1 + FILE_1 For Output As #FR1
@@ -10770,10 +10792,12 @@ For R_I = 0 To lstProcess.ListCount - 1
 '    frmMain.lstProcess_3_SORTER_ListView.ListItems.Add , , ITEM_ADD_10 + " " + ITEM_ADD_22
 
 
-    '----------------------------------------------------
-    'IF ERROR HERE ABOUT TYPE MISMATCH _ AS ABOVE LEARNER
-    'THEN MAYBE ALREADY LEARN THE REFERENCE LIST VIEW
-    '----------------------------------------------------
+    '-----------------------------------------------------
+    ' IF ERROR HERE ABOUT TYPE MISMATCH _ AS ABOVE LEARNER
+    ' THEN MAYBE ALREADY LEARN THE REFERENCE LIST VIEW
+    ' & SET THE HEADER UP BEFORE CALL THIS ROUTINE
+    ' DOUBLE CHECKER
+    '-----------------------------------------------------
     With lstProcess_2_ListView
         Set LV2 = .ListItems.Add(, , ITEM_ADD_10)
         LV2.SubItems(1) = ITEM_ADD_21
