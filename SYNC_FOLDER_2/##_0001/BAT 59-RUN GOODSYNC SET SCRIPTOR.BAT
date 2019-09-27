@@ -276,7 +276,7 @@ SET FILENAME_ER_4="%~n0_GOODSYNC_OUTPUT.TXT"
 @REM ------------------------------------------------------------
 @REM EXAMPLE WITHOUT VARIABLE
 @REM ------------------------------------------------------------
-@REM CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB"      >!FILENAME_ER!"
+@REM CMD /A /C "%GoodSync_GSync% sync "C SCRIPTOR __ y _ 7G __ GITHUB"      >! !"
 
 SET LDA=0
 
@@ -362,7 +362,11 @@ REM GOTO NEXT_CONTINUE
 
 :GITHUB___SET_ARRRAY
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT 0 COMP_NAMER"
+SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G INCL"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G_"
+SET /A LDA=LDA+1
+SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00 VB6 VB-NT -- ROOT 0 COMP_NAMER"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ 00_Best_VB_01 -- ROOT 1"
 SET /A LDA=LDA+1
