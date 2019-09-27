@@ -12,6 +12,8 @@
 '-----------------------------------------------------------------
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
+Const ForReading = 1, ForWriting = 2, ForAppending = 8
+
 ' -------------------------------------------------------------------
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
 ' SOURCE GIVEN
@@ -22,6 +24,31 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 ' [ Wednesday 13:08:00 Pm_20 March 2019 ]
 ' -------------------------------------------------------------------
 
+' -------------------------------------------------------------------
+DIM CUR_USER
+DIM ComputerName
+
+CUR_USER = CreateObject("WScript.Network").UserName
+Set objShell = Wscript.CreateObject("WScript.Shell")
+ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT WAR IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID : iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+On Error Goto 0
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+' -------------------------------------------------------------------
+
+DIM VBV
+VBV=VBCRLF
+
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 
@@ -30,19 +57,35 @@ i2 = 0 ' MY  PROGRAM WSCRIPT
 FOR EACH objProcess IN colProcesses
     IF NOT (IsNull(objProcess.CommandLine )) THEN
 		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
 		IF strScriptName = Wscript.ScriptName THEN
 			i2=i2+1
-		else
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
 			i1=i1+1
 		END IF
-		IF i1 > 0 THEN 
-				' Wscript.Quit
-		END IF  
-		IF i2 > 1 THEN 
-				Wscript.Quit
-		END IF  
-    END IF  
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		IF i2 > 0 THEN ' MY  PROGRAM WSCRIPT 
+			' -------------------------------------------------------
+			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
+			' HERE SCRIPT WHEN START
+			' -------------------------------------------------------
+			' IF lngMyProcessId<>iMyPID THEN 
+				' I= "ERROR MISMATCH TRUE MYPID RESULT "
+				' MSGBOX I +VBV+ CSTR(iMyPID) +VBV+ CSTR(lngMyProcessId)
+			' -------------------------------------------------------
+			IF iMyPID<>PID_Script THEN 
+				objProcess.Terminate() 
+				objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+				' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
+			END IF
+		END IF
+    END IF
 NEXT
 
 
@@ -54,16 +97,80 @@ Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
 Dim oFile
 Dim oFSO
-
-DIM ARRAY(2)
-
-ARRAY(1)="A3"
-ARRAY(2)="A4"
+DIM COUNT_1
+DIM COUNT_2
+DIM objBASEFolder
 
 COUNT_1=0
 COUNT_2=0
 
 i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
+
+FOLDER="D:\0 00 VIDEO SNAPSHOT"
+obj_SOURCE_Folder = FOLDER
+
+Set objBASEFolder = objFSO.GetFolder(FOLDER)
+Call ShowSubfolders (objBASEFolder)
+
+MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
+
+
+
+Set WSHShell = Nothing
+WScript.Quit(0)
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
+SUB SUB_DO_WITH_FILE(FILE_PATH)
+
+	Dim objFILE
+	Set objFILE = objFSO.GetFILE(FILE_PATH)
+	
+	' INPUT PAST END OF FILE HAPPEN ERROR MESSENGER
+	ON ERROR RESUME NEXT
+	readBinary=""
+	With objFILE.OpenAsTextStream()
+		readBinary = .Read(119+4)
+		.Close
+	End With
+	ON ERROR GOTO 0
+			
+	IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
+		' -------------------------------------------
+		' jpgq=88 __ UP UNTIL 02 MAR 2019
+		' jpgq=92 __       ON 02 MAR 2019
+		' QUALITY JPEG CONVERSION LEVEL 0 TO 100%
+		' -------------------------------------------
+		WSHShell.Run i_view32 + " """+FILE_PATH+""" /jpgq=92 /convert=$D$F" , DontShowWindow, WaitUntilFinished
+		
+		COUNT_1=COUNT_1+1
+	END IF
+	COUNT_2=COUNT_2+1
+
+	' Fso.MoveFile FILE_PATH, NewFilename
+	
+	PATH_VAR_2=MID(FILE_PATH,1,INSTRREV(FILE_PATH,"\"))
+	STRIP_BASE_FOLDER=REPLACE(PATH_VAR_2,objBASEFolder,"")
+	NEW_BASE_FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"+STRIP_BASE_FOLDER
+	
+	NewFilename=REPLACE(FILE_PATH,"\\","\")
+
+	MSGBOX NEW_BASE_FOLDER
+	
+	' If Not FSO.FolderExists(PATH_VAR_2) Then
+		' MSGBOX "PATH NOT EXIST ERROR"+VBCRLF+VBCRLF+PATH_VAR_2,vbMsgBoxSetForeground 
+		' ' BuildFullPath PATH_VAR_2
+		' ' CreateFolderTree(NewPATH)
+	' End If
+	
+
+	
+END SUB
+				
 
 
 ' -------------------------------------------------------------------
@@ -87,7 +194,8 @@ FOR R_T=10 TO 0 STEP -1
 	' END IF
 	
 	FOR R_I=1 TO 2
-		FOLDER_1="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"+i_TIME+"\"+ARRAY(R_I)
+		' FOLDER_1="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"+i_TIME+"\"+ARRAY(R_I)
+		FOLDER_1="D:\0 00 VIDEO SNAPSHOT\snapshot\"+i_TIME+"\"+ARRAY(R_I)
 		If fso.FolderExists(FOLDER_1) Then
 
 			Set objFolder = objFSO.GetFolder(FOLDER_1)
@@ -123,9 +231,7 @@ FOR R_T=10 TO 0 STEP -1
 						COUNT_1=COUNT_1+1
 						
 					END IF
-					
 					COUNT_2=COUNT_2+1
-					
 				END IF
 			Next
 		END IF
@@ -143,7 +249,6 @@ IF COUNT_1>0 THEN
 	'--------------------------------------------------------------
 
 END IF 
-
 
 
 
@@ -165,19 +270,37 @@ FUNCTION FOLDER_SCAN_COUNTER(fFolder,FOLDER_SCAN_COUNTER_VAR)
 	FILE_SCAN_COUNTER_VAR=0
 	Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
-	Dim oFile
+	Dim objFile
 	For Each objFile in colFiles
-
 		FILE_NAME=objFile.NAME
 		IF MID(FILE_NAME,1,4)="DVR_" THEN 
-		
 			'Set oFile = oFSO.GetFile(objFile.PATH)
 			FOLDER_SCAN_COUNTER_VAR=FOLDER_SCAN_COUNTER_VAR+objFile.SIZE
-
 		END IF
-		
 	Next
 End FUNCTION
+
+
+
+'-------------------------------------
+Sub ShowSubFolders(fFolder)
+'-------------------------------------
+    Set objFolder = objFSO.GetFolder(fFolder.Path)
+    Set colFiles = objFolder.Files
+	ON ERROR RESUME NEXT
+	Dim objFile
+	For Each objFile in colFiles
+	
+		EXTENSION_T = UCASE(objFSO.getextensionname(objFile.path))
+		IF EXTENSION_T = "JPG" THEN 
+			CALL SUB_DO_WITH_FILE(objFile)
+		END IF
+	NEXT 
+	
+    For Each Subfolder in fFolder.SubFolders
+        ShowSubFolders(Subfolder)
+    Next
+End Sub
 
 
 '--------------------------------------------------------------------
@@ -197,7 +320,6 @@ End FUNCTION
 
 'MSGBOX FOLDER_SCAN_COUNTER_1 & VBCRLF & FOLDER_SCAN_COUNTER_2
 '--------------------------------------------------------------------
-
 
 
 '--------------------------------------------------------------------
