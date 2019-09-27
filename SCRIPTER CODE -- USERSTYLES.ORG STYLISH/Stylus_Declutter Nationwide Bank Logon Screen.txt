@@ -12,15 +12,6 @@ DO OPERATE COMPACT WHOLE THING
 --------------------------------------------------------------------- 
 */
 
-/* 
---------------------------------------------------------------------- 
-WWW.onlinebanking.nationwide.co.uk
-----
-Applying styles to specific sites · stylish-userstyles/stylish Wiki
-https://github.com/stylish-userstyles/stylish/wiki/Applying-styles-to-specific-sites
---------------------------------------------------------------------- 
-*/
-
 /*
 ---------------------------------------------------------------------
 Source Userstyles.org
