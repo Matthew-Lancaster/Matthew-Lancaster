@@ -446,6 +446,9 @@ SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file belo
 
 FN_SET_ARRAY_BROWSER_TAB_CLOSE := SET_ARRAY_BROWSER_TAB_CLOSE()
 
+FN_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN := SET_ARRAY_BROWSER_TAB_RELOAD_MAIN()
+
+
 SET_GO=FALSE
 IF A_ComputerName=1-ASUS-X5DIJ
 	SET_GO=TRUE
@@ -574,19 +577,30 @@ SET_ARRAY_BROWSER_TAB_CLOSE() {
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Blocked Access - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Google Chrome Help"
-	ArrayCount += 1
-	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Connect to network"
-	; ---------------------------------------------------------------
-	; THE NETWORK YOU ARE USE MAY REQUIRE YOU TO 
-	; VISIT WWW.GSTATIC.COM
-	; XP CHROME
-	; ---------------------------------------------------------------
 	
 	; ArrayCount += 1
 	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Home"
 	
 RETURN SET_ARRAY_BROWSER_TAB_CLOSE
 }
+
+SET_ARRAY_BROWSER_TAB_RELOAD_MAIN() {
+	SET_ARRAY_BROWSER_TAB_RELOAD_MAIN := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_RELOAD_MAIN[ArrayCount]:="Connect to network"
+	; ---------------------------------------------------------------
+	; THE NETWORK YOU ARE USE MAY REQUIRE YOU TO 
+	; VISIT WWW.GSTATIC.COM
+	; XP CHROME
+	; THIS ONE OUGHT TO BE RELOAD RAINALARM.COM PAGE
+	; ---------------------------------------------------------------
+	
+	
+RETURN SET_ARRAY_BROWSER_TAB_RELOAD_MAIN
+}
+
+
 
 ; BT Smart Hub Manager
 ; ----
@@ -1107,6 +1121,76 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+TIMER_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN:
+	WinGetCLASS, CLASS_FOCUS, A
+	WinGetTITLE, TITLE_VAR_FOCUS, A
+	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
+	WinGetTITLE, TITLE_MOZILLA, ahk_class MozillaWindowClass
+
+	ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO=
+	Loop % FN_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN.MaxIndex()
+	{
+		Element := FN_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN[A_Index]
+		IF INSTR(TITLE_VAR,Element)
+			ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO=%Element%
+		IF INSTR(TITLE_CHROME,Element)
+		{
+			BROWSER_APP=1
+			ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO=%Element%
+		}
+		IF INSTR(TITLE_MOZILLA,Element)
+		{
+			BROWSER_APP=2
+			ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO=%Element%
+		}
+	}
+
+	If ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO
+	{
+		IF BROWSER_APP=1
+		{
+			WinActivate, ahk_class Chrome_WidgetWin_1
+			WinWaitActive, ahk_class Chrome_WidgetWin_1
+		}
+		; IF BROWSER_APP=2
+		; {
+			; WinActivate, ahk_class MozillaWindowClass
+			; WinWaitActive, ahk_class MozillaWindowClass
+		; }
+		
+		WinGetTITLE, TITLE_VAR_2, A
+		IF INSTR(TITLE_VAR_2,ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO)
+		{
+			WinGet, HWND_3, ID, %ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO%
+			IF HWND_3
+			{
+				Send,,^{w}
+				SOUNDBEEP 1000,50
+				SLEEP 100
+			}
+			
+			LOOP, 14
+			{
+				HWND_3=
+				WinGet, HWND_3, ID, ahk_class Chrome_WidgetWin_1
+
+				IF !HWND_3
+					BREAK
+
+				SLEEP 1000
+			}
+			IF !HWND_3
+			{
+				FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-LOAD URL AT BOOT CHROME.ahk"
+				IfExist, %FN_VAR%
+					Run, "%FN_VAR%"
+			}
+
+		}
+	}
+
+RETURN
 
 
 TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
