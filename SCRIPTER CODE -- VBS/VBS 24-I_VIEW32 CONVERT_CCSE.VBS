@@ -115,7 +115,6 @@ Call ShowSubfolders (objBASEFolder)
 MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
 
 
-
 Set WSHShell = Nothing
 WScript.Quit(0)
 
@@ -129,6 +128,7 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 
 	Dim objFILE
 	Set objFILE = objFSO.GetFILE(FILE_PATH)
+	
 	
 	' INPUT PAST END OF FILE HAPPEN ERROR MESSENGER
 	ON ERROR RESUME NEXT
@@ -151,27 +151,45 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 	END IF
 	COUNT_2=COUNT_2+1
 
-	' Fso.MoveFile FILE_PATH, NewFilename
+
+
 	
 	PATH_VAR_2=MID(FILE_PATH,1,INSTRREV(FILE_PATH,"\"))
 	STRIP_BASE_FOLDER=REPLACE(PATH_VAR_2,objBASEFolder,"")
-	NEW_BASE_FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"+STRIP_BASE_FOLDER
-	
-	NewFilename=REPLACE(FILE_PATH,"\\","\")
+	NEW_BASE_FOLDER_1="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"+STRIP_BASE_FOLDER
+	STRIP_FOLDER_FROM_FILE=MID(FILE_PATH,INSTRREV(FILE_PATH,"\")+1)
+	NEW_BASE_FOLDER_2=NEW_BASE_FOLDER_1
 
-	MSGBOX NEW_BASE_FOLDER
+	IF INSTRREV(NEW_BASE_FOLDER_1," (")>0 THEN 
+		NEW_BASE_FOLDER_2=NEW_BASE_FOLDER_1
+		FOR R2=1 TO 100
+			NEW_BASE_FOLDER_2=REPLACE(NEW_BASE_FOLDER_2," ("+TRIM(CSTR(R2))+")","")
+		NEXT
+	END IF
 	
-	' If Not FSO.FolderExists(PATH_VAR_2) Then
-		' MSGBOX "PATH NOT EXIST ERROR"+VBCRLF+VBCRLF+PATH_VAR_2,vbMsgBoxSetForeground 
-		' ' BuildFullPath PATH_VAR_2
-		' ' CreateFolderTree(NewPATH)
-	' End If
+	STRIP_FOLDER_FROM_FILE=MID(FILE_PATH,INSTRREV(FILE_PATH,"\")+1)
+	NEW_FILENAME=NEW_BASE_FOLDER_2+STRIP_FOLDER_FROM_FILE
+
+	IF NEW_BASE_FOLDER_1<>NEW_BASE_FOLDER_2 THEN 
+		If Not FSO.FolderExists(NEW_BASE_FOLDER_2) Then
+			CreateFolderTree(NEW_BASE_FOLDER_2)
+		End If
+		
+		MSGBOX FILE_PATH+VBCRLF+NEW_FILENAME
+		
+		FSO.MoveFile FILE_PATH, NEW_FILENAME
+
+	END IF
 	
+	
+	' MSGBOX NEW_FILENAME
 
 	
 END SUB
 				
 
+				
+				
 
 ' -------------------------------------------------------------------
 ' FOR R_T=0 TO 30
@@ -301,6 +319,37 @@ Sub ShowSubFolders(fFolder)
         ShowSubFolders(Subfolder)
     Next
 End Sub
+
+
+Function CreateFolderTree(sPath)
+    Dim nPos
+    On Error RESUME NEXT
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        If nPos - 1 > 3 Then
+            If Dir(Left(sPath, nPos - 1), vbDirectory) = "" Then
+				newfolderpath=Left(sPath, nPos - 1)
+                If Not FSO.FolderExists(newfolderpath) Then 
+					Set newfolder = FSO.CreateFolder(newfolderpath) 
+				END IF
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+	newfolderpath=sPath
+	If Not FSO.FolderExists(newfolderpath) Then 
+		Set newfolder = FSO.CreateFolder(newfolderpath) 
+	END IF
+    CreateFolderTree = True
+	If Not FSO.FolderExists(newfolderpath) Then 
+        CreateFolderTree = False
+    End If
+
+End Function
+
 
 
 '--------------------------------------------------------------------
