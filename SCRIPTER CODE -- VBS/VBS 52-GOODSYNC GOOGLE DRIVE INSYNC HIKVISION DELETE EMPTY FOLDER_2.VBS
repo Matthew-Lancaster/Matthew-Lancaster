@@ -32,7 +32,6 @@ Option Explicit
 
 Dim strPath(2)
 
-
 strPath(1) = "D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"
 strPath(2) = "D:\0 00 VIDEO SNAPSHOT"
 
@@ -62,7 +61,6 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 Dim objFolder
 DIM objFolderERR
 
-
 FOR R1=1 TO 2
 	IF LEN(strPath(R1)) = 2 AND MID(strPath(R1),2,1) = ":" THEN strPath(R1) = strPath(R1) + "\"
 	IF fso.FOLDEREXISTS(strPath(R1)) = TRUE THEN 
@@ -77,15 +75,11 @@ FOR R1=1 TO 2
 NEXT 
 
 Sub DeleteEmptyFolders(folder)
-
     Dim subfolder
 	ON ERROR RESUME NEXT
-	ERR.CLEAR
-	
     For Each subfolder in folder.SubFolders
 		DeleteEmptyFolders subfolder
     Next
-
 	TEST_COUNTER=TEST_COUNTER+1
 	I1=-1
 	I2=-1
@@ -97,8 +91,11 @@ Sub DeleteEmptyFolders(folder)
 		fso.DeleteFolder folder.Path, TRUE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
-			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+			ERROR_WITH_SOME_1 = folder.Path & VBCRLF & ERR.DESCRIPTION
+			ERROR_WITH_SOME_2 = folder.Path
 			ERR.CLEAR
+			MSGBOX "HJ"
+
 			objFolder.DELETE, TRUE
 			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
 		END IF
@@ -112,11 +109,9 @@ END IF
 
 IF ERROR_WITH_SOME <> "" THEN 
 	DIM objShell
-	' DIM strPath
 	Set objShell = CreateObject("Wscript.Shell")
-	' strPath = Wscript.Arguments(0)
-	strPath = "explorer.exe /e," & ERROR_WITH_SOME
-	objShell.Run strPath
+	strPath = "explorer.exe /e," & ERROR_WITH_SOME_1
+	objShell.Run ERROR_WITH_SOME_2
 
 	' WScript.Echo "ERROR WITH SOME OF THEM HERE _ " & VBCRLF & ERROR_WITH_SOME & VBCRLF & CSTR(ERR_COUNTER) & VBCRLF & "TAKE YOU THERE"
 END IF
