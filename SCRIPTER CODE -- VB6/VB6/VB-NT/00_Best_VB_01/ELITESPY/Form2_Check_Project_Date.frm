@@ -243,7 +243,7 @@ Private Sub Form_Load()
     ' Dim FrmxName() As String
     ' ReDim Preserve FrmxName(10)
     ' i = 0
-    ' i = i + 1: FrmxName(i) = "Form2_Check_Project_Date"  ' PREVIOUS  NAME USER
+    ' i = i + 1: FrmxName(i) = "Project_Check_Date"  ' PREVIOUS  NAME USER
     ' i = i + 1: FrmxName(i) = "Frm_Project_Check_Date"    ' ATTEMPTED NAME USER
     ' i = i + 1: FrmxName(i) = "Project_Check_Date"        ' STANDARDISE
     ' ReDim Preserve FrmxName(i)
@@ -277,7 +277,7 @@ Private Sub Form_Load()
     '    ' NONE FORM BEEN LOADER YET SO NOT SHOW HERE
     '    ' HOW CHECK FORM EXIST WITHOUT LOADER
     '    ' ------------------------------------------
-    '    'If InStr(Form.Name, "Form2_Check_Project_Date") Then
+    '    'If InStr(Form.Name, "Project_Check_Date") Then
     '        Call Form.VB_PROJECT_CHECKDATE("FORM LOAD")
     '    'End If
     '    'If InStr(Form.Name, "Frm_Project_Check_Date") Then
@@ -293,7 +293,7 @@ Private Sub Form_Load()
     ' Dim projectIndex As Integer
     ' Dim formName As String
     ' projectIndex = 2
-    ' formName = "Form2_Check_Project_Date"
+    ' formName = "Project_Check_Date"
     ' UserFormExists = (Application.VBE.vbProjects(projectIndex).VBComponents(formName).Name = formName)
     ' On Error GoTo 0
     
@@ -351,7 +351,7 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
     ' -------------------------------------------------
     ' USE THIS LINE IN FORM_LOAD OF MAIN START PROJECT
     ' AT THE BEGINNING
-    ' Call Form2_Check_Project_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
+    ' Call Project_Check_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
     ' -------------------------------------------------
     
     Dim PATH_FILE_NAME1
