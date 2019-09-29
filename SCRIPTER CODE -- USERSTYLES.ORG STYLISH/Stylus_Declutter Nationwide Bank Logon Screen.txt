@@ -1,6 +1,4 @@
-@namespace url(http://www.w3.org/1999/xhtml);
-@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement/Login/IdentifyCustomerForLogin") {
-@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement") {
 /* Declutter Nationwide Bank Logon Screen */
 /* DECLUTTER NATIONWIDE BANK LOGON SCREEN */
 
@@ -65,52 +63,37 @@ Thu 26-Sep-2019 22:08:30
 }
 
 /* LOGIN TO THE INTERNET BANK */
-.stage__header
-{
+.stage__header {
     display: none !important;
 }
 
-/* YOU COULD LOGIN WITH TEXT PHONE */
-.section--conditional--1-of-3.section--conditional--depends-on-above.section--conditional.section--conditional--visibly-dependent.section
-{
-    display: none !important;
-}
-
-/* LET THM WHO YOUR ARE */
-.section--no-title.section:nth-of-type(4)
-{
-    display: none !important;
-}
-
-
-/* WE IT REALLY YOU */
-.section--no-title.section:nth-of-type(5)>.section__title
-{
-    display: none !important;
-}
-
-/* THE WAY YOU LOG IN TO THE INTERNET BANK IS CHANGER */
-.section__inner>.message-list--notice.message-list--no-subtitle.message-list--no-title.message-list
-{
-    display: none !important;
-}
-
-
-
-
-/* 
 .section--no-title.section
 {
     display: none !important;
 }
- */
+
 .mem-data-section-holder>.media-group>.nopadding.media-group__main>.section__title
 {
     display: none !important;
 }
 
-
 .mem-data-section-holder>.media-group>.nopadding.media-group__main>.message
+{
+    display: none !important;
+}
+
+/* DATE OF BIRTH */
+.text-input-control___8f924ab9-0c00-4e04-8f5b-0274bae0bf0d
+{
+    display: none !important;
+}
+/* DATE OF BIRTH */
+.date-of-birth.control--complex.control--no-help.control--no-description.control.control-group>.control__input
+{
+    display: none !important;
+}
+/* DATE OF BIRTH */
+.date-of-birth.control--complex.control--no-help.control--no-description.control.control-group
 {
     display: none !important;
 }
