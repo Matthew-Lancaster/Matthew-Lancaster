@@ -108,17 +108,24 @@ i_view32="""C:\Program Files (x86)\IrfanView\i_view32.exe"""
 
 FOLDER="D:\0 00 VIDEO SNAPSHOT"
 objBASEFolder = FOLDER
-Call ShowSubfolders (objFSO.GetFolder(FOLDER))
+IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
+	Call ShowSubfolders (objFSO.GetFolder(FOLDER))
+END IF
 
 FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"
 objBASEFolder = FOLDER
-Call ShowSubfolders (objFSO.GetFolder(FOLDER))
-
+IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
+	Call ShowSubfolders (objFSO.GetFolder(FOLDER))
+END IF
 
 FOLDER="D:\0 00 VIDEO SNAPSHOT"
-Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
+IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
+	Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
+END IF
 FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"
-Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
+IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
+	Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
+END IF
 
 
 
