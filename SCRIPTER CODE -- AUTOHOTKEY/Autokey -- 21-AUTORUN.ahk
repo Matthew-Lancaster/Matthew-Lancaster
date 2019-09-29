@@ -1947,12 +1947,13 @@ IF SET_GO=TRUE
 {	
 	Process, Exist, SystemExplorer.exe
 	If Not ErrorLevel
-		{	FN_VAR:="C:\PStart\Progs\#_PortableApps\PortableApps\SystemExplorerPortable\App\SystemExplorer\SystemExplorer.exe"
-		IfExist, %FN_VAR%
+		{	
+		FN_VAR_2:="C:\PStart\Progs\#_PortableApps\PortableApps\SystemExplorerPortable\App\SystemExplorer\SystemExplorer.exe"
+		IfExist, %FN_VAR_2%
 		{
 			SoundBeep , 2500 , 100
 			; TEMP OUT ----------------------------------------------
-			'Run, "%FN_VAR%" /TRAY
+			; Run, "%FN_VAR_2%" /TRAY
 			; -------------------------------------------------------
 			;WinWait, System Explorer, , 40
 			;SLEEP 800
