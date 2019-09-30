@@ -43,7 +43,7 @@ FOLDER_PATH="D:\DSC"
 ' FOLDER_PATH="D:\VI_ DSC ME"
 ' FOLDER_PATH="D:\VI_ DSC ME 02"
 FOLDER_PATH="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC ARC 01"
-REM FOLDER_PATH=""
+FOLDER_PATH="D:\0 00 MUSIC ---"
 REM FOLDER_PATH=""
 REM FOLDER_PATH=""
 REM FOLDER_PATH=""
@@ -60,7 +60,21 @@ Search_EXTENSION objFSO.GetFolder(FOLDER_PATH)
 MSGBOX "FILE COUNT & EXTENSION ON _ " + VBCRLF + Search_EXTENSION_VAR,vbMsgBoxSetForeground 
 
 
+' PUT IT TO THE CLIPBOARD
+' -----------------------
+Set WshShell = CreateObject("WScript.Shell")
+Set oExec = WshShell.Exec("clip")
+
+Set oIn = oExec.stdIn
+
+oIn.WriteLine Search_EXTENSION_VAR
+oIn.Close
+
 Wscript.QUIT
+
+
+
+
 
 
 ' ' FOLDER_PATH="D:\VI_ DSC ME"
@@ -76,6 +90,8 @@ END IF
 Search objFSO.GetFolder(FOLDER_PATH)
 
 MSGBOX "FILE COUNT FILTERING _ " & CSTR(I_COUNT) ,vbMsgBoxSetForeground 
+
+
 
 SET objFSO = NOTHING
 Wscript.QUIT
