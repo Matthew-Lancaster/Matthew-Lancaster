@@ -1,7 +1,7 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Reference=*\G{420B2830-E718-11CF-893D-00A0C9054228}#1.0#0#C:\Windows\SysWOW64\scrrun.dll#Microsoft Scripting Runtime
-Reference=*\G{E503D000-5C7F-11D2-8B74-00104B2AFB41}#1.0#0#..\ProcServ_02\wbemads.tlb#WMI Extension to DS 1.0 Type Library
+Reference=*\G{E503D000-5C7F-11D2-8B74-00104B2AFB41}#1.0#0#wbemads.tlb#WMI Extension to DS 1.0 Type Library
 Reference=*\G{565783C6-CB41-11D1-8B02-00600806D9B6}#1.1#0#C:\Windows\SysWOW64\wbem\wbemdisp.TLB#Microsoft WMI Scripting V1.1 Library
 Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; mscomctl.OCX
 Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; mscomct2.ocx

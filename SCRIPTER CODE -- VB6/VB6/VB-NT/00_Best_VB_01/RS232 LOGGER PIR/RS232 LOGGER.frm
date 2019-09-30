@@ -301,11 +301,13 @@ AR(1) = "\\1-asus-x5dij\1_asus_x5dij_01_c_drive"
 AR(2) = "\\2-asus-eee\2_asus_eee_01_c_drive"
 AR(3) = "\\4-asus-gl522vw\4_asus_gl522vw_01_c_drive"
 
+FILE_NAME_PIR = "Autokey -- 14-Brightness With Dimmer #NFS.txt"
+
 On Error Resume Next
 If VAR_DSR_3 = True Then
     For R = 1 To UBound(AR)
         FOLDER_NAME = AR(R) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
-        FILE_NAME = FOLDER_NAME + "\Autokey -- 14-Brightness With Dimmer.txt"
+        FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_PIR
         If FSO.FILEExists(FILE_NAME) = False Then
             If FSO.FOLDERExists(FOLDER_NAME) = False Then
                 RESULT = CreateFolderTree(FOLDER_NAME)
@@ -317,7 +319,7 @@ If VAR_DSR_3 = True Then
     Next
 Else
     For R = 1 To UBound(AR)
-        FILE_NAME = AR(R) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer.txt"
+        FILE_NAME = AR(R) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\" + FILE_NAME_PIR
         Kill FILE_NAME
     Next
 End If
