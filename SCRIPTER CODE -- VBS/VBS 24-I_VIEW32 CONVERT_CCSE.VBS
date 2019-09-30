@@ -322,13 +322,16 @@ Sub ShowSubFolders(fFolder)
     Set colFiles = objFolder.Files
 	ON ERROR RESUME NEXT
 	Dim objFile
-	For Each objFile in colFiles
 	
-		EXTENSION_T = UCASE(objFSO.getextensionname(objFile.path))
-		IF EXTENSION_T = "JPG" THEN 
-			CALL SUB_DO_WITH_FILE(objFile)
-		END IF
-	NEXT 
+	IF INSTR(objFolder.PATH,"\_gsdata_")=0 then 
+		For Each objFile in colFiles
+		
+			EXTENSION_T = UCASE(objFSO.getextensionname(objFile.path))
+			IF EXTENSION_T = "JPG" THEN 
+				CALL SUB_DO_WITH_FILE(objFile)
+			END IF
+		NEXT 
+	END IF
 	
     For Each Subfolder in fFolder.SubFolders
         ShowSubFolders(Subfolder)
