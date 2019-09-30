@@ -131,7 +131,8 @@ END IF
 
 ' =C DRIVE:\Users\MATT 04\Insync\rub.rim@gmail.com\Google Drive
 
-MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
+
+' MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
 
 
 ' -------------------------------------------------------------------
