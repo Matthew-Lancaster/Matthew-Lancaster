@@ -2,7 +2,6 @@
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
-
 ' -------------------------------------------------------------------
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
 ' SOURCE GIVEN
@@ -112,6 +111,8 @@ DIM objFolderERR
 
 DIM T
 DIM I
+DIM DELETE_COUNTER
+DELETE_COUNTER=0
 
 IF FSO.FOLDEREXISTS(STRPATH) = TRUE THEN 
 		CALL DeleteEmptyFolders (FSO.GetFolder(STRPATH))
@@ -119,7 +120,7 @@ IF FSO.FOLDEREXISTS(STRPATH) = TRUE THEN
 		WScript.Echo STRPATH & VBCRLF & "__ NOT A VALID FOLDER GIVEN __ EXIT END __"
 END IF
 
-MSGBOX T
+MSGBOX "DELETE_COUNTER"+VBCRLF+CSTR(DELETE_COUNTER)
 
 
 Wscript.QUIT
@@ -145,12 +146,96 @@ Sub DeleteEmptyFolders(folder)
 	DONE_H_2=FALSE
 	FOR EACH file in folder.Files
 		IF DONE_H_1=TRUE AND MID(FILE.NAME,1,3)<>"0#0" THEN 
-			EXTENSION_T = UCASE(FSO.getextensionname(file.path))
-			IF EXTENSION_T="MP3" THEN 
+			EXTENSION_T = UCASE(FSO.getextensionname(file.path))+" "
+			EXTENSION_V = "MP3 MOD MID MIDI AMR SRF WAV MP4 MID M3U M3U8 WMV FLV WMA AVI M4A OGG RMI KAR MMF MOD SFV PAR2 QP2 "
+			IF INSTR(EXTENSION_V,EXTENSION_T)>0 THEN 
 				DONE_H_2=TRUE
 			END IF
 		END IF
 	NEXT
+	
+	' FILE TYPE IN FOLDER MUSIC
+	' -------------------------
+	' 1 -- .TXT
+	' 2 -- .MP3
+	' 3 -- .RAR
+	' 4 -- .SRF
+	' 5 -- .LNK
+	' 6 -- .JPG
+	' 7 -- .AMR
+	' 8 -- .WAV
+	' 9 -- .MP4
+	' 10 -- .BMP
+	' 11 -- .URL
+	' 12 -- .NVC
+	' 13 -- .XLS
+	' 14 -- .MID
+	' 15 -- .M3U
+	' 16 -- .CRDOWNLOAD
+	' 17 -- .ZIP
+	' 18 -- .BAT
+	' 19 -- .HTM
+	' 20 -- .PNG
+	' 21 -- .M3U8
+	' 22 -- .HTML
+	' 23 -- .GIF
+	' 24 -- .08 SHOW ON DEVIANTAUDIO - DEVIANT AUDIO
+	' 25 -- . LENGTH - 32
+	' 26 -- .07 - STYLE
+	' 27 -- . 11
+	' 28 -- .LOG
+	' 29 -- ._GS
+	' 30 -- .GSL
+	' 31 -- .WMV
+	' 32 -- .FLV
+	' 33 -- .WMA
+	' 34 -- .DLL
+	' 35 -- .EXE
+	' 36 -- .MAP
+	' 37 -- .TAB
+	' 38 -- .INI
+	' 39 -- .AVI
+	' 40 -- .DOC
+	' 41 -- .WHTT
+	' 42 -- .LOCK
+	' 43 -- .LST
+	' 44 -- .REF
+	' 45 -- .HTACCESS
+	' 46 -- .TMP
+	' 47 -- .M4A
+	' 48 -- .BZ2
+	' 49 -- .GZ
+	' 50 -- .ICO
+	' 51 -- .OGG
+	' 52 -- .LZX
+	' 53 -- .INF
+	' 54 -- .VQF
+	' 55 -- .LHA
+	' 56 -- .CF
+	' 57 -- .PIC
+	' 58 -- .PL
+	' 59 -- .Q1
+	' 60 -- .RMI
+	' 61 -- .KAR
+	' 62 -- .MMF
+	' 63 -- .MOD
+	' 64 -- .PAR
+	' 65 -- .NFO
+	' 66 -- .MHT
+	' 67 -- .RTF
+	' 68 -- .BAS
+	' 69 -- .VBP
+	' 70 -- .PDF
+	' 71 -- .SFV
+	' 72 -- .PAR2
+	' 73 -- .QP2
+	' 74 -- .PK
+	' 75 -- .DAT
+	' 76 -- .AIFF
+	' 77 -- .FRM
+	' 78 -- .CSS
+	' 79 -- .JS
+
 
 	FLAG_ONE=FALSE
 	IF DONE_H_1=TRUE THEN 
@@ -169,17 +254,23 @@ Sub DeleteEmptyFolders(folder)
 	IF DONE_H_2=FALSE THEN 
 		FOR EACH file in folder.Files
 			IF MID(FILE.NAME,1,3)="0#0"  THEN 
-				WSHShell.Run """"+"EXPLORER.EXE"+"""" + " /SELECT, " + ""+FILE.PATH+"" , ShowWindow, WaitUntilFinished
+
+				TTI=FILE.PATH
 				FSO.DELETEFILE FILE.PATH
+				DELETE_COUNTER=DELETE_COUNTER+1
+				' MSGBOX TTI
 
 			END IF
 		NEXT
 	END IF
 	END IF
-
-
 	
-	IF I>20 THEN MSGBOX T:I=0:T=""
+	IF I>20 THEN 
+		WSHShell.Run """"+"EXPLORER.EXE"+"""" + " /SELECT, " + ""+FOLDER.PATH+"" , ShowWindow, WaitUntilFinished
+		MSGBOX T
+		I=0
+		T=""
+	END IF 
 	
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
