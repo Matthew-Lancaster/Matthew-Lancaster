@@ -1,4 +1,4 @@
-Option Explicit
+' Option Explicit
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
@@ -24,6 +24,11 @@ DIM i2
 DIM objProcess
 DIM VBV
 VBV=VBCRLF
+DIM strScriptName
+DIM PID_Script
+
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
 
 
 CUR_USER = CreateObject("WScript.Network").UserName
@@ -102,49 +107,79 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 
 STRPATH="D:\0 00 MUSIC ---"
 
-'STRPATH=""
-'STRPATH=""
-'STRPATH=""
-'STRPATH=""
-
 Dim objFolder
 DIM objFolderERR
 
-IF LEN(STRPATH) = 2 AND MID(STRPATH,2,1) = ":" THEN STRPATH = STRPATH + "\"
+DIM T
+DIM I
 
 IF FSO.FOLDEREXISTS(STRPATH) = TRUE THEN 
-		WScript.Echo STRPATH & VBCRLF & "TO GO _ KILL PROCESS IF NOT SURE ____"
 		CALL DeleteEmptyFolders (FSO.GetFolder(STRPATH))
-		EXECUTE_LANUCHED = TRUE
 	ELSE
 		WScript.Echo STRPATH & VBCRLF & "__ NOT A VALID FOLDER GIVEN __ EXIT END __"
 END IF
 
+MSGBOX T
 
 
 Wscript.QUIT
 
 Sub DeleteEmptyFolders(folder)
     Dim subfolder
-	ON ERROR RESUME NEXT
-	ERR.CLEAR
+	Dim file
+	DIM DONE_H_1
+	DIM DONE_H_2
+	DIM EXTENSION_T
+	
     For Each subfolder in folder.SubFolders
 		DeleteEmptyFolders subfolder
     Next
+
+	DONE_H_1=FALSE
+	FOR EACH file in folder.Files
+		IF MID(FILE.NAME,1,3)="0#0" THEN 
+			DONE_H_1=TRUE
+		END IF 
+	NEXT
 	
-	DONE_HERE_2=FALSE
-	FOR EACH file in subfolder.Files
-		DONE_HERE=FALSE
-		IF MID(FILE.PATH,1,3)="0#0" THEN DONE_HERE=TRUE
-		IF DONE_HERE=FALSE THEN 
+	DONE_H_2=FALSE
+	FOR EACH file in folder.Files
+		IF DONE_H_1=TRUE AND MID(FILE.NAME,1,3)<>"0#0" THEN 
 			EXTENSION_T = UCASE(FSO.getextensionname(file.path))
-			MSGBOX FILE.PATH
-			IF EXTENSION_T<>"MP3" THEN 
-				MSGBOX FILE.PATH
+			IF EXTENSION_T="MP3" THEN 
+				DONE_H_2=TRUE
 			END IF
 		END IF
 	NEXT
 
+	FLAG_ONE=FALSE
+	IF DONE_H_1=TRUE THEN 
+	IF DONE_H_2=FALSE THEN 
+		FOR EACH file in folder.Files
+			IF MID(FILE.NAME,1,3)="0#0" AND FLAG_ONE=FALSE THEN 
+				FLAG_ONE=TRUE
+				T=T+FOLDER+VBCRLF
+				I=I+1
+			END IF
+		NEXT
+	END IF
+	END IF
+	
+	IF DONE_H_1=TRUE THEN 
+	IF DONE_H_2=FALSE THEN 
+		FOR EACH file in folder.Files
+			IF MID(FILE.NAME,1,3)="0#0"  THEN 
+				WSHShell.Run """"+"EXPLORER.EXE"+"""" + " /SELECT, " + ""+FILE.PATH+"" , ShowWindow, WaitUntilFinished
+				FSO.DELETEFILE FILE.PATH
+
+			END IF
+		NEXT
+	END IF
+	END IF
+
+
+	
+	IF I>20 THEN MSGBOX T:I=0:T=""
 	
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
@@ -161,8 +196,8 @@ Sub DeleteEmptyFolders(folder)
     If READY_01 = 0 And READY_02 = 0 AND ERR.NUMBER=0 Then
 		ON ERROR GOTO 0
 		TEST_COUNTER=TEST_COUNTER+1
-		ON ERROR RESUME NEXT
-		ERR.CLEAR
+		' ON ERROR RESUME NEXT
+		' ERR.CLEAR
 		' FSO.DeleteFolder folder.Path, TRUE
 	End If
 End Sub
