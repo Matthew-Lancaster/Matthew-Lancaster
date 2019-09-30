@@ -205,8 +205,9 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 		' jpgq=88 __ UP UNTIL 02 MAR 2019
 		' jpgq=92 __       ON 02 MAR 2019
 		' QUALITY JPEG CONVERSION LEVEL 0 TO 100%
+		' jpgq=94 __       ON 20 SEP 2019
 		' -------------------------------------------
-		WSHShell.Run i_view32 + " """+FILE_PATH+""" /jpgq=92 /convert=$D$F" , DontShowWindow, WaitUntilFinished
+		WSHShell.Run i_view32 + " """+FILE_PATH+""" /jpgq=94 /convert=$D$F" , DontShowWindow, WaitUntilFinished
 		
 		COUNT_1=COUNT_1+1
 	END IF
