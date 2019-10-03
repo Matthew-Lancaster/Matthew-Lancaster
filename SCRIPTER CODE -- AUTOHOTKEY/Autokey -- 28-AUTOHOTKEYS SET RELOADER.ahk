@@ -137,17 +137,22 @@
 ; SCRIPT BEGINNER ===================================================
 #Warn
 #NoEnv
-#SingleInstance Force
-; #Persistent
+#Persistent
+
+
+; -------------------------------------------------------------------
+; THE EXIT ROUTINE HERE THE CODE
+; WON'T ALLOW TERMINATE 
+; UNLESS BOOT DOWN 
+; TOO MANY PROBLEM WITH IT SHUT ITSELF GONE
+; IT HAS RELAUNCH IN MENU
+; -------------------------------------------------------------------
+
 ; -------------------------------------------------------------------
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
 ; Exitapp CALLS ONTO ExitFunc
 ; -------------------------------------------------------------------
-
-
-#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
-
 
 ; -------------------------------------------------------------------
 ; Register a function to be called on exit:
@@ -176,6 +181,13 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
+
+
+; -------------------------------------------------------------------
+#SingleInstance force
+; -------------------------------------------------------------------
+
+#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
 
 SetStoreCapslockMode, off
 DetectHiddenWindows, ON
@@ -456,99 +468,75 @@ RETURN
 
 TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 
-SET_TIMER=FALSE
-
-Loop % ArrayCount
-{
-
-	TT_1_LESS=%A_Index%
-	TT_1_LESS-=1
-	Element_1 := FN_Array_1[A_Index]
-	Element_7 := FN_Array_1[TT_1_LESS]  ; -- LESS 
-	Element_2 := DATE_MOD_Array[A_Index]
-	Element_3 := FN_Array_2[A_Index]
-	Element_5 := FN_Array_2[TT_1_LESS]  ; -- LESS 	
-	Element_4 := FN_Array_4[A_Index]
-	Element_4 = %Element_4% ahk_class #32770
-
-	RUN_APP_GO=TRUE
-	IF WinExist(Element_4)
+	Loop % ArrayCount
 	{
-		; MSGBOX % Element_4
-		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,40000
-		Element_8=%Element_2%
-		Element_8+= -1, Days
-		DATE_MOD_Array.InsertAt(A_Index,Element_8)
-		; MSGBOX % Element_2 " -- " DATE_MOD_Array[A_Index]
-		SET_TIMER=TRUE
-		RUN_APP_GO=FALSE
+		TT_1_LESS=%A_Index%
+		TT_1_LESS-=1
+		Element_1 := FN_Array_1[A_Index]
+		Element_2 := DATE_MOD_Array[A_Index]
+		Element_3 := FN_Array_2[A_Index]          ; THE INCLUDE AND ONE LESS THAN SAME
+		Element_5 := FN_Array_2[TT_1_LESS]        ; -- LESS 	
+		Element_4 := FN_Array_4[A_Index]
+		Element_4 = %Element_4% ahk_class #32770
+
+		RUN_APP_GO=TRUE
+		IF WinExist(Element_4)
+		{
+			Element_8=%Element_2%
+			Element_8+= -1, Days
+			DATE_MOD_Array.InsertAt(A_Index,Element_8)
+			RUN_APP_GO=FALSE
+		}
+
+		IfExist, %Element_1%
+			FileGetTime, OutputVar, %Element_1%, M
+		
+		IF FIRST_RUN=TRUE
+			DATE_MOD_Array[A_Index] := OutputVar		
+		
+		RUN_APP_HAPPEN_FLAG=FALSE
+
+		IF FIRST_RUN=FALSE
+			IfExist, %Element_1%
+				IF INSTR(Element_3,"_INCLUDE.ahk")=0
+				IF (!WinExist(Element_3))
+					IF RUN_APP_GO=TRUE
+					{
+						DATE_MOD_Array[A_Index] := OutputVar
+						GOSUB RUN_THE_APP
+						RUN_APP_HAPPEN_FLAG=TRUE
+					}
+
+		; ---------------------------------------------------------------
+		; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
+		; INCLUDER
+		; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
+		; Thu 29-Aug-2019 00:35:10
+		; ---------------------------------------------------------------
+		IF FIRST_RUN=FALSE
+			IfExist, %Element_1%
+				IF INSTR(Element_3,"_INCLUDE.ahk")>0
+				IF (!WinExist(Element_5))
+					IF RUN_APP_GO=TRUE
+					{
+						DATE_MOD_Array[A_Index] := OutputVar
+						GOSUB RUN_THE_APP
+						RUN_APP_HAPPEN_FLAG=TRUE
+					}
 	}
-	IF SET_TIMER=FALSE
-		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
-	
-	IfExist, %Element_1%
-		FileGetTime, OutputVar, %Element_1%, M
-	
-	IF (A_TimeIdlePhysical < 2000 or FIRST_RUN=TRUE)
-		RETURN
-	
-	RUN_APP_HAPPEN_FLAG=FALSE
 
-	IfExist, %Element_1%
-		IF INSTR(Element_3,"_INCLUDE.ahk")=0
-		IF (!WinExist(Element_3))
-			IF RUN_APP_GO=TRUE
-			{
-				DATE_MOD_Array[A_Index] := OutputVar
-				GOSUB RUN_THE_APP
-				RUN_APP_HAPPEN_FLAG=TRUE
-			}
-	; ---------------------------------------------------------------
-	; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
-	; INCLUDER
-	; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
-	; Thu 29-Aug-2019 00:35:10
-	; ---------------------------------------------------------------
-	IfExist, %Element_1%
-		IF INSTR(Element_3,"_INCLUDE.ahk")>0
-		IF (!WinExist(Element_5))
-			IF RUN_APP_GO=TRUE
-			{
-				DATE_MOD_Array[A_Index] := OutputVar
-				GOSUB RUN_THE_APP
-				RUN_APP_HAPPEN_FLAG=TRUE
-			}
-
-
-			
-	; IF RUN_APP_HAPPEN_FLAG=FALSE
-		; IF OutputVar<>%Element_2%
-			; IF RUN_APP_GO=TRUE
-			; {
-				; ; -----------------------------------------------------------
-				; ; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
-				; ; IMMEDIATELY AGAIN
-				; ; -----------------------------------------------------------
-				; ; IF (A_TimeIdle > 1000)
-				; IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
-				; {
-					; DATE_MOD_Array[A_Index] := OutputVar
-					; GOSUB RUN_THE_APP
-				; }
-			; }
-}
-
-FIRST_RUN=FALSE
+	FIRST_RUN=FALSE
 
 RETURN
 
+; -------------------------------------------------------------------
 RUN_THE_APP:
 
-	
-	; ----------------------------------------------------------
+
+	; ---------------------------------------------------------------
 	; NEW CODE FOR INCLUDE FILE -- DON'T RUN THE INCLUDE BUT 
 	; RUN THE ALTERNATIVE PROGRAM THAT INCLUDE IS WITH OR MANY
-	; ----------------------------------------------------------
+	; ---------------------------------------------------------------
 	if INSTR(Element_3,"_INCLUDE.ahk")
 	{
 	
@@ -562,12 +550,11 @@ RUN_THE_APP:
 		SOUNDBEEP, 1500,100
 		RETURN	
 	}
-
 	
-	; ----------------------------------------------------------
+	; ---------------------------------------------------------------
 	; FOUND ANSWER LOOK AT CODE HERE
 	; REQUIRE SOME SORT OF HOT SWAP LAUNCHER FOR ITSELF OWN CODE
-	; ----------------------------------------------------------
+	; ---------------------------------------------------------------
 	if INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
 	{
 		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
@@ -576,8 +563,9 @@ RUN_THE_APP:
 		RETURN
 	}
 	
+	; ---------------------------------------------------------------
 	; FIND WINDOW -- Element_3
-	; ------------------------
+	; ---------------------------------------------------------------
 	IF INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
 		LOOP
@@ -592,40 +580,18 @@ RUN_THE_APP:
 			IF !PID_1
 				BREAK
 		}
+
+		; -----------------------------------------------------------
 		; FIND WINDOW -- Element_3
-		; ------------------------
-		
+		; -----------------------------------------------------------
 		Run, %Element_1%
 		SOUNDBEEP, 1500,100
 		RETURN
 	}
 
-	; Loop % 500
-	; {
-		; PID_1=
-		; PID_2=
-		; WinGet, PID_1, PID, %Element_4% ahk_class #32770
-		; IF PID_1>0 
-		; {
-			; ; MSGBOX %PID_1% " -- " %Element_4%
-			; ; Process, Close,% PID_1
-			; PID_1=
-		; }
-		; WinGet, PID_2, PID, %Element_3% ahk_class AutoHotkey
-		; IF PID_1>0 
-		; {
-			; Process, Close,% PID_2
-			; ; MSGBOX % PID_1 " -- " PID_2
-		; }
-		; if (!PID_1 and !PID_2)
-			; BREAK
-	; }
-		
 	SoundBeep , 2000 , 20
 	Run, %Element_1%
 
-	
-	; TOOLTIP % Element_1
 
 RETURN
 

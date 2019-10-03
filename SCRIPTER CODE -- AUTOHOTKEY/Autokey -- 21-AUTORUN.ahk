@@ -1193,7 +1193,7 @@ IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	SET_GO_1=1
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
-	SET_GO_1=1	
+	SET_GO_1=0
 
 
 IF SET_GO_1=1
