@@ -189,9 +189,11 @@ GLOBAL O_HWND_1
 TEMPORARY_FILE_HWND=
 PERIODICALLY_SET_VALUE_HWND=
 UNCHECK_PERIODIC_TIMER_HWND=
+RIGHT_SIDE_HWND=
 CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=
 HDD_HUBIC_HWND=
 DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=
+SAVE_DELETED_REPLACED_FILES_TO_HISTORY_HWND=
 WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND=
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -806,9 +808,13 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			IF OutputVar_1=5
 				SET_GO=TRUE
 		}
+		
+		DONT_APPPY_PERIODICALLY_TIMER_OPTION="YES"
+		
 		; -----------------------------------------------------------
 		; APPLY TO  -- GoodSync-v10.exe
 		; -----------------------------------------------------------
+		IF !DONT_APPPY_PERIODICALLY_TIMER_OPTION
 		IF PERIODICALLY_SET_VALUE_HWND<>%HWND_1%
 		IF SET_GO=TRUE
 		IF HWND_1_EXENAME=GoodSync-v10.exe
@@ -909,7 +915,10 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		; SET THE PERIODICALLY WHEN COME STRAIGHT IN ON AUTO FORM 
 		; WITH A ONE HITTER
 		; -----------------------------------------------------------
+		; APPLY ALL EXCEPT NOT GOODSYNC2GO_D
+		; -----------------------------------------------------------
 		IF !NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D
+		IF !DONT_APPPY_PERIODICALLY_TIMER_OPTION
 		IF UNCHECK_PERIODIC_TIMER_HWND<>%HWND_1%
 		IF (OutputVar_2="Periodically (On Timer), every")
 		{
@@ -932,7 +941,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			IF OutputVar_4=1
 			{
 				SoundBeep , 4000 , 100
-				; TOOLTIP
+				TOOLTIP
 			}
 		}
 		
@@ -954,10 +963,58 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			If Status=0
 			{
 				UNCHECK_PERIODIC_TIMER_HWND=%HWND_1%
-				; TOOLTIP
+				TOOLTIP
 			}
 		}
 
+		
+		;' [D 0 00 MUSIC -- ONE DRIVE _ WINAMP PLAYLIST SCRIPT SET] Options
+		WinGetTITLE, TITLE_NAME, A
+
+		SET_GO_3=FALSE
+		IF INSTR(TITLE_NAME,"ONE DRIVE")
+			SET_GO_3=TRUE
+		IF INSTR(TITLE_NAME,"GOOGLE")
+			SET_GO_3=TRUE
+		IF INSTR(TITLE_NAME,"-- GD")
+			SET_GO_3=TRUE
+		IF INSTR(TITLE_NAME,"-- QNAP")
+			SET_GO_3=TRUE
+		
+		IF SET_GO_3=TRUE
+		{
+			; -----------------------------------------------------------
+			; RIGHT SIDE -- NONE _GSDATA_ FOLDER HERE
+			; WHEN CLOUD SYSTEM
+			; -----------------------------------------------------------
+			IF RIGHT_SIDE_HWND<>%HWND_1%
+			{
+				; UNCHECKER -- IS Status=0
+				; ------------------------
+				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+				If Status=0
+				{
+					Control, Check,, Button57, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+					TOOLTIP RIGHT SIDE -- NONE _GSDATA_ FOLDER HERE
+					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+					TT_1:=% TT_1 "_RIGHT_SIDE_`n"
+				}
+				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+				If Status=1
+				{
+					RIGHT_SIDE_HWND=%HWND_1%
+				}
+				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+				If Status=1
+				{
+					TOOLTIP
+				}
+			}
+		}
+
+		
 		
 		; -----------------------------------------------------------
 		; FILTERS - TEMPORARY_FILE
@@ -981,7 +1038,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			If Status=0
 			{
 				TEMPORARY_FILE_HWND=%HWND_1%
-				; TOOLTIP
+				TOOLTIP
 			}
 		}
 
@@ -1004,7 +1061,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 				If Status=1
 				{
 					CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=%HWND_1%
-					; TOOLTIP
+					TOOLTIP
 				}
 			}
 		}
@@ -1064,7 +1121,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			IF OutputVar_3=%VALUE_PASTE_IN%
 			{
 				DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=%HWND_1%
-				; TOOLTIP
+				TOOLTIP
 			}	
 		}
 		
@@ -1111,14 +1168,25 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		; Button6 ---- Cleanup _history_ folder after this many (...)
 		; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
 		;------------------------------------------------------------
-		ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
-		If Status = 1
+		IF SAVE_DELETED_REPLACED_FILES_TO_HISTORY_HWND<>%HWND_1%
 		{
-			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-			If Status = 0
+			ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
+			If Status = 1
 			{
-				Control, Check,, Button6, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
+				ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+				If Status = 0
+				{
+					Control, Check,, Button6, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				
+				ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+				If Status=1
+				{
+					SAVE_DELETED_REPLACED_FILES_TO_HISTORY_HWND=%HWND_1%
+					TOOLTIP
+				}	
+
 			}
 		}
 		

@@ -990,13 +990,22 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
         End
     End If
     
+    DT4 = DT4 + TimeSerial(0, 1, 0)
     For rr = 1 To ScanPath.ListView1.ListItems.Count
         A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
         B1$ = ScanPath.ListView1.ListItems.Item(rr)
         
         TT = SetFileDateTime(A1$ + B1$, DT4)
-        
         XC = XC + 1
+        
+        If ScanPath.ListView1.ListItems.Count > 2 Then
+        FI = UCase(B1$)
+        FI = Mid(FI, InStrRev(FI, ".") + 1) + " "
+        If InStr("MPG MPEG MP4 JPG AVI ", FI) > 0 Then
+            DT4 = DT4 + TimeSerial(0, 1, 0)
+        End If
+        End If
+        
         
     Next
     
@@ -1035,7 +1044,6 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         If DT1 < DT4 Then DT4 = DT1
         
         Set F = Nothing
-        
     Next
     
     XX = Dir(ScanPath.txtPath.Text + "\# TEXT_DATER*.txt")
@@ -1073,12 +1081,18 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     MM_1 = MM_1 + vbCrLf
     MM_1 = MM_1 + ScanPath.ListView1.ListItems.Item(1).SubItems(1) + vbCrLf
     MM_1 = MM_1 + vbCrLf
+    DT4 = DT4 + TimeSerial(0, 1, 0)
     For rr = 1 To ScanPath.ListView1.ListItems.Count
         A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
         B1$ = ScanPath.ListView1.ListItems.Item(rr)
         TT = SetFileDateTime(A1$ + B1$, DT4)
         XC = XC + 1
         MM_1 = MM_1 + B1$ + vbCrLf
+        FI = UCase(B1$)
+        FI = Mid(FI, InStrRev(FI, ".") + 1) + " "
+        If InStr("MPG MPEG MP4 JPG AVI ", FI) > 0 Then
+            DT4 = DT4 + TimeSerial(0, 1, 0)
+        End If
     Next
     
     On Error Resume Next

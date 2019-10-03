@@ -87,7 +87,7 @@ Const SPI_SCREENSAVERRUNNING = 97
 Const SWP_NOACTIVATE = &H10
 Const SWP_SHOWWINDOW = &H40
 
-Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
 Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -131,7 +131,7 @@ Private Const FILE_ATTRIBUTE_READONLY = &H1
 Private Const FILE_ATTRIBUTE_SYSTEM = &H4
 Private Const FILE_ATTRIBUTE_TEMPORARY = &H100
 
-Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
 Private Const conSwNormal = 1
 
 
@@ -169,6 +169,8 @@ End Function
 '-----------------------------------------------------------------
 
 Private Sub Form_Load()
+    
+    'ME.Icon
     
     Set FSO = CreateObject("Scripting.FileSystemObject")
     
@@ -496,7 +498,7 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
                                 Exit For
                             Next
                             Project_Check_Date.Refresh
-                            RESULT_API = AlwaysOnTop(Project_Check_Date.hwnd)
+                            RESULT_API = AlwaysOnTop(Project_Check_Date.hWnd)
                             Project_Check_Date.Refresh
                             ' DoEvents
                         End If
@@ -850,12 +852,12 @@ End Function
 '***********************************************
 
 
-Private Function AlwaysOnTop(ByVal hwnd As Long)  'Makes a form always on top
-    SetWindowPos hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
+    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 End Function
-Private Function NotAlwaysOnTop(ByVal hwnd As Long)
+Private Function NotAlwaysOnTop(ByVal hWnd As Long)
     Dim flags
-    SetWindowPos hwnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
+    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
 End Function
 
 
