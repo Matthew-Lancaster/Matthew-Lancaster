@@ -5249,6 +5249,10 @@ Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click
 
 End Sub
 
+Private Sub MNU_GOODSYNC2GO_DRIVE_LETTER_Click()
+' MNU_GOODSYNC2GO_DRIVE_LETTER
+End Sub
+
 Private Sub MNU_LINE_PICKER_EXE_Click()
 
     Load LINE_EXE_PICKER_COMMON
@@ -9674,7 +9678,6 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
     End If
     If GOODSYNC_WINDOW_hWnd > 0 Then
         If Dir(PATH_1 + FILE_1) = "" Then
-            PID_MARK = 0
             Success_Result = cProcesses.Get_PID_From_hWnd(GOODSYNC_WINDOW_hWnd, PID_MARK)
             TxtEXE_Text = GetFileFromProc(Val(PID_MARK))
             If TxtEXE_Text = "" And PID_MARK > 0 Then
@@ -9685,7 +9688,6 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
         End If
     End If
     If Mid(TxtEXE_Text, 1, 1) = "D" Then
-        MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "D DRIVE GOODSYNC2GO"
         If Dir(PATH_1 + FILE_1) = "" Then
             FR1 = FreeFile
             Open PATH_1 + FILE_1 For Output As #FR1
@@ -9695,8 +9697,14 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
             Exit Sub
         End If
     End If
-    If Mid(TxtEXE_Text, 1, 1) = "C" Then
-        MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "C DRIVE GOODSYNC2GO"
+    If TxtEXE_Text = "" Then
+        Success_Result = cProcesses.Get_PID_From_hWnd(GOODSYNC_WINDOW_hWnd, PID_MARK)
+        TxtEXE_Text = GetFileFromProc(Val(PID_MARK))
+    End If
+    If TxtEXE_Text <> "" Then
+    If InStr("CDE", Mid(TxtEXE_Text, 1, 1)) > 0 Then
+        MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ " + Mid(TxtEXE_Text, 1, 1) + " DRIVE __ GOODSYNC2GO __]"
+    End If
     End If
 Exit Sub
     

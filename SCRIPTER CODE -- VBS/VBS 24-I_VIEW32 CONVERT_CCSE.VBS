@@ -11,6 +11,15 @@
 ' CONVERT WITH IrfanView TO MAKE GOOGLE ABLE TO DISPLAY
 '-----------------------------------------------------------------
 
+' -------------------------------------------
+' GOOGLE DRIVE HAS THE ABILITY TO SHOW THESE FILE NOW
+' SO THIS PART OF PROJECT IS OVER REGARD TO I_VIEW32
+' Thu 03-Oct-2019 11:22:32
+' -------------------------------------------
+WScript.Quit(0)
+
+
+
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
@@ -207,8 +216,18 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 		' jpgq=92 __       ON 02 MAR 2019
 		' QUALITY JPEG CONVERSION LEVEL 0 TO 100%
 		' jpgq=94 __       ON 20 SEP 2019
+		' AT 94 TYPICAL ONE CHECK
+		' TPath: /snapshot/20190813/D1/DVR_D01_Motion_Detected_20190813172414_3.jpg
+		' Lnew: [file] size=62,091
+		' Rnew: [file] size=36,214
+		' SO IS A LOT BIGGER
+		' GOT TO TRY DO CONVERSION AND KEEP SAME
 		' -------------------------------------------
-		WSHShell.Run i_view32 + " """+FILE_PATH+""" /jpgq=94 /convert=$D$F" , DontShowWindow, WaitUntilFinished
+		' GOOGLE DRIVE HAS THE ABILITY TO SHOW THESE FILE NOW
+		' SO THIS PART OF PROJECT IS OVER REGARD TO I_VIEW32
+		' Thu 03-Oct-2019 11:22:32
+		' -------------------------------------------
+		WSHShell.Run i_view32 + " """+FILE_PATH+""" /jpgq=98 /convert=$D$F" , DontShowWindow, WaitUntilFinished
 		
 		COUNT_1=COUNT_1+1
 	END IF
