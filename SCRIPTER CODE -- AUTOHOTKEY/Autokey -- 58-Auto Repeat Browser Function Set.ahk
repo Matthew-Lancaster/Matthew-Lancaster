@@ -2079,8 +2079,12 @@ AUTO_RELOAD_FACEBOOK:
 		IF INSTR(TITLE_VAR_FB_F5,ELEMENT_ARRAY_FB_F5)>0
 		{
 			IF INSTR(TITLE_VAR_FB_F5,"(")=1
-			NEW_NOTIFY_UPDATE=TRUE
-			BREAK
+			{
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\complete.mp3
+
+				NEW_NOTIFY_UPDATE=TRUE
+				BREAK
+			}
 		}
 	}
 
