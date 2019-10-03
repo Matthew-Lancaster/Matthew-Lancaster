@@ -392,11 +392,8 @@ Loop % ArrayCount
 	TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
 	TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
 	TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
-	; TEMP_VAR_4 -- PATH
 	TEMP_VAR_4:=SUBSTR(TEMP_VAR_1,INSTR(TEMP_VAR_1,"\",,0)+1)
-
 	FN_Array_2.InsertAt(A_Index,TEMP_VAR_3)
-
 	FN_Array_4.InsertAt(A_Index,TEMP_VAR_4)
 	
 	; ---------------------------------------------------------------
@@ -429,7 +426,6 @@ Loop % ArrayCount
 		MSGBOX EMPTY ARRAY VALUE AT HERE CODER`n`nAutokey -- 28-AUTOHOTKEYS SET RELOADER.ahk`n`nQUITER
 		Process, Close,% DllCall("GetCurrentProcessId")
 	}
-
 }
   
 Loop % ArrayCount
@@ -442,7 +438,6 @@ Loop % ArrayCount
 		; MSGBOX % DATE_MOD_Array[A_Index]
 	}
 }
-
 
 IF (A_ComputerName = "7-ASUS-GL522VW") 
 	SETTIMER TIMER_SUB_FileZilla_Server,10000
@@ -476,53 +471,61 @@ TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 		Element_2 := DATE_MOD_Array[A_Index]
 		Element_3 := FN_Array_2[A_Index]          ; THE INCLUDE AND ONE LESS THAN SAME
 		Element_5 := FN_Array_2[TT_1_LESS]        ; -- LESS 	
-		Element_4 := FN_Array_4[A_Index]
+		Element_4 := FN_Array_4[A_Index]		  ; THE PATH AFTER THE BACKSLASH \ FILENAME
 		Element_4 = %Element_4% ahk_class #32770
 
-		RUN_APP_GO=TRUE
-		IF WinExist(Element_4)
-		{
-			Element_8=%Element_2%
-			Element_8+= -1, Days
-			DATE_MOD_Array.InsertAt(A_Index,Element_8)
-			RUN_APP_GO=FALSE
-		}
+	
 
 		IfExist, %Element_1%
 			FileGetTime, OutputVar, %Element_1%, M
+
+		RUN_APP_GO=FALSE
+		IF OutputVar>%Element_2%
+			RUN_APP_GO=TRUE
+		
 		
 		IF FIRST_RUN=TRUE
-			DATE_MOD_Array[A_Index] := OutputVar		
-		
-		RUN_APP_HAPPEN_FLAG=FALSE
+			DATE_MOD_Array[A_Index] := OutputVar	
 
+		; IF (A_TimeIdlePhysical < 2000 
+			; RETURN			
+		
+		IF A_Index=14
 		IF FIRST_RUN=FALSE
 			IfExist, %Element_1%
 				IF INSTR(Element_3,"_INCLUDE.ahk")=0
-				IF (!WinExist(Element_3))
-					IF RUN_APP_GO=TRUE
+				TOOLTIP % OutputVar "`n" Element_2 "`n" RUN_APP_GO "`n" Element_1
+		
+		IF RUN_APP_GO=TRUE
+		{
+			IF FIRST_RUN=FALSE
+				IfExist, %Element_1%
+					IF INSTR(Element_3,"_INCLUDE.ahk")=0
+					IF (!WinExist(Element_3))
 					{
 						DATE_MOD_Array[A_Index] := OutputVar
 						GOSUB RUN_THE_APP
-						RUN_APP_HAPPEN_FLAG=TRUE
 					}
 
-		; ---------------------------------------------------------------
-		; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
-		; INCLUDER
-		; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
-		; Thu 29-Aug-2019 00:35:10
-		; ---------------------------------------------------------------
-		IF FIRST_RUN=FALSE
-			IfExist, %Element_1%
-				IF INSTR(Element_3,"_INCLUDE.ahk")>0
-				IF (!WinExist(Element_5))
-					IF RUN_APP_GO=TRUE
-					{
-						DATE_MOD_Array[A_Index] := OutputVar
-						GOSUB RUN_THE_APP
-						RUN_APP_HAPPEN_FLAG=TRUE
-					}
+			; ---------------------------------------------------------------
+			; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
+			; INCLUDER
+			; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
+			; Thu 29-Aug-2019 00:35:10
+			; ---------------------------------------------------------------
+			IF FIRST_RUN=FALSE
+				IfExist, %Element_1%
+					IF INSTR(Element_3,"_INCLUDE.ahk")>0
+					IF (!WinExist(Element_5))
+						IF RUN_APP_GO=TRUE
+						{
+							DATE_MOD_Array[A_Index] := OutputVar
+							GOSUB RUN_THE_APP
+						}
+		}
+
+
+
 	}
 
 	FIRST_RUN=FALSE
@@ -539,8 +542,6 @@ RUN_THE_APP:
 	; ---------------------------------------------------------------
 	if INSTR(Element_3,"_INCLUDE.ahk")
 	{
-	
-		; MSGBOX %Element_5%
 		WinGet, PID_1, PID, %Element_5% ahk_class AutoHotkey
 		IF PID_1>0 
 		{
@@ -643,7 +644,7 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 	LINE_CHECKER_2=Keep waiting?
 
 	DetectHiddenWindows, ON
-	SetTitleMatchMode 2  ; Specify PARTIAL path
+	SetTitleMatchMode 2      ; Specify PARTIAL path
 	VAR_GET:=WINEXIST("Autokey ahk_class #32770")
 	IF !VAR_GET
 		RETURN 
@@ -709,7 +710,6 @@ IfWinNotExist, AHK_CLASS FileZilla Server Main Window
 	{
 		SoundBeep , 2500 , 20
 		RunWait,sc start "FileZilla Server" ; CHECK THE SERVICE IS RUNNING AND RUN IT
-
 	}
 	Process, Exist, FileZilla Server Interface.exe
 	If Not ErrorLevel
@@ -766,6 +766,21 @@ ExitApp
 ExitFunc(ExitReason, ExitCode)
 {
 
+	; ---------------------------------------------------------------
+	; IS ALLOW EXIT WHEN EDITOR IN NOTEPAD++
+	; SINGLE INSTANCE FORCE MOVES IT AROUND HERE
+	; ---------------------------------------------------------------
+	; FIND IF WINDOW ACTIVE FOR NOTEPAD++ AND HERE SCRIPT NAME
+	; AND THEN IF SHOULD SHOW TOOLTIP
+	; ---------------------------------------------------------------
+
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 2            ; Specify PARTIAL
+	FILE_ScriptName=%A_ScriptName%
+	IfWinActive, %FILE_ScriptName% ahk_class Notepad++
+		RETURN 0       ; OnExit functions must return non-zero to prevent exit.
+
+		
     if ExitReason not in Logoff,Shutdown
     {
         ;MsgBox, 4, , Are you sure you want to exit?
@@ -826,8 +841,6 @@ ExitFunc(ExitReason, ExitCode)
 	; ---------------------------------------------------------------
 
 	RETURN 1
-
-
 	
 	; Do not call ExitApp -- that would prevent other OnExit functions from being called.
 }
