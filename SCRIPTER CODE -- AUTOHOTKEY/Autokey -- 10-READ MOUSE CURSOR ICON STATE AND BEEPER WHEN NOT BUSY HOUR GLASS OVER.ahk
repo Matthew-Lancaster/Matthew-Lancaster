@@ -215,7 +215,7 @@ TIMER_I_VIEW32=
 IF !(A_ComputerName = "7-ASUS-GL522VW") 
 {
 	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
-		TOOLTIP "Hour Glass 1.wav"
+		; TOOLTIP "Hour Glass 1.wav"
 		; I_view32.exe
 
 }
@@ -392,7 +392,7 @@ if SET_GO=1
 
 		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
 		;-----------------------------------
-		TOOLTIP "Hour Glass 2.wav"
+		; TOOLTIP "Hour Glass 2.wav"
 		; I_view32.exe
 
 		
@@ -419,41 +419,35 @@ if SET_GO=1
 		; SHORTER BLIPER FOR LOAD APPLICATION SYMBOL MOUSE CURSOR IS ARROW AND HOUR GLASS
 		; HOUR OUCH HURT TICKER __ GLASS METAL SAND WATER FLAME __
 		; -----------------------------------------------------------
-		
-		; AppStarting
 
-		;SoundBeep , 2000 , 100
 
-		;TIMER_DURATION_VAR=500
-		;setTimer,, 500
-
-		;SoundBeep , 1800 , 400
-
-		TOOLTIP % TIMER_I_VIEW32
-		
+		; -----------------------------------------------------------
+		; YOU COULD GET AWAY WITH HAVE THIS ONCE IN THERE
+		; AS BELOW
+		; I GOT AN OPERATION THAT USE THIS APP I_view32.exe
+		; TO CONVERT IMAGE
+		; AND IT BRING UP AND HOUR GLASS CHANGES
+		; SO SILENCER -- FOR ANY APP DETECTION
+		; -----------------------------------------------------------
 		IF TIMER_I_VIEW32<%A_NOW%
 		IfWinExist ahk_exe I_view32.exe
 		{
 			I_VIEW32_EXIST=TRUE
 			TIMER_I_VIEW32=%A_NOW%
 			TIMER_I_VIEW32+=10,Seconds
-		MSGBOX  % TIMER_I_VIEW32
 		}
 		ELSE
 		{
 			I_VIEW32_EXIST=
 		}
 		
-		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
 		;-----------------------------------
 		IF !I_VIEW32_EXIST
+		{
 			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ App Starting.wav
-		TOOLTIP "App Starting.wav"
-		; I_view32.exe
-		
-
-		SOUND_PLAY_TRUE=1
-		SOUND_PLAYED=1
+			SOUND_PLAY_TRUE=1
+			SOUND_PLAYED=1
+		}
 	}
 
 	;Saved_MOUSE_CURSOR_Title:=Current_MOUSE_CURSOR_Title
@@ -505,20 +499,32 @@ if SET_GO=1
 	if SOUND_PLAY_TRUE=0
         {
 
-		;TIMER_DURATION_VAR=40
-		;SoundBeep , 5000 , TIMER_DURATION_VAR
+		; -----------------------------------------------------------
+		; YOU COULD GET AWAY WITH HAVE THIS ONCE IN THERE
+		; AS ABOVE 
+		; I GOT AN OPERATION THAT USE THIS APP I_view32.exe
+		; TO CONVERT IMAGE
+		; AND IT BRING UP AND HOUR GLASS CHANGES
+		; SO SILENCER -- FOR ANY APP DETECTION
+		; -----------------------------------------------------------
+		IF TIMER_I_VIEW32<%A_NOW%
+		IfWinExist ahk_exe I_view32.exe
+		{
+			I_VIEW32_EXIST=TRUE
+			TIMER_I_VIEW32=%A_NOW%
+			TIMER_I_VIEW32+=10,Seconds
+		}
+		ELSE
+		{
+			I_VIEW32_EXIST=
+		}
 		
-		;SoundBeep , 2000 , 400
-		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
-
 		;-----------------------------------
-		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer Normal.wav
-		SOUND_PLAYED=1
-		TOOLTIP "Normal.wav"
-		; I_view32.exe
-		
-		;SoundBeep , 3000 , 40
-
+		IF !I_VIEW32_EXIST
+		{
+			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer Normal.wav
+			SOUND_PLAYED=1
+		}
 		;setTimer,, 20
         }
 		
