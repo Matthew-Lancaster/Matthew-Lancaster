@@ -1235,6 +1235,8 @@ IF SET_GO_1=1
 		}
 	}
 }
+
+
 	
 	
 Process, Exist, gs-server.exe
