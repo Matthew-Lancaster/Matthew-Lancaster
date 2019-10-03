@@ -56,7 +56,6 @@
 ' -----------------------------------------------------------------
 ' ----------------------------------------------------------------
 
-DIM DELETE_AFTER
 DIM objFSO
 Dim objShell
 DIM ComputerName
@@ -135,6 +134,8 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
+
+
 '--------------------------------------------------------
 ' AFTER THE EFFORT 
 ' VBSCRIPT SEEMS TO READER IN UNICODE MANIPULATE AND SAVE
@@ -147,6 +148,7 @@ Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 Dim objFolder
+DIM DELETE_AFTER
 
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 TARGET_FOLDER_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot"

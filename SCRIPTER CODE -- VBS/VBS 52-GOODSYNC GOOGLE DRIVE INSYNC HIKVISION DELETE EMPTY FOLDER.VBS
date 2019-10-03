@@ -30,14 +30,12 @@
 ' [ Wednesday 13:08:00 Pm_20 March 2019 ]
 ' -------------------------------------------------------------------
 
-
 ' -------------------------------------------------------------------
 ' NEW CODE INCORPORATE BOTH SET CODE NOW
 ' TEMPORARY RUNNER BY THIS SCRIPT LEARN ASSHOLE MODIFY GOODSYNC
 ' NEW SCRIPT MOVE FOLDER INTO CORRECT AREA ALSO AS WELL
 ' HERE DO THE DELETE EMPTY
 ' -------------------------------------------------------------------
-
 
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
@@ -146,9 +144,6 @@ WScript.Quit(0)
 '--------------------------------------------------------------------
 'END STOP -----------------------------------------------------------
 '--------------------------------------------------------------------
-
-
-
 
 
 Function LPad (str, pad, length)
