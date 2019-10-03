@@ -91,12 +91,12 @@ Public ACCU
 '# General definitions
 '#########################################################
 Private Declare Function TerminateProcess _
-        Lib "Kernel32" _
+        Lib "kernel32" _
         (ByVal hProcess As Long, _
         ByVal uExitCode As Long) As Long
 
 
-Private Declare Sub CloseHandle Lib "Kernel32" (ByVal hPass As Long)
+Private Declare Sub CloseHandle Lib "kernel32" (ByVal hPass As Long)
 Private Const MAX_PATH = 260
 
 Private sEXEName As String
@@ -115,7 +115,7 @@ Private Declare Function FindWindowDLL _
 '#########################################################
 '# Functions/Consts/Types used for GetVersionEx()
 '#########################################################
-Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
+Private Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
 'Private Const VER_PLATFORM_WIN32s = 0
 'Private Const VER_PLATFORM_WIN32_WINDOWS = 1
 Private Const VER_PLATFORM_WIN32_NT = 2
@@ -132,9 +132,9 @@ End Type
 '#########################################################
 '# Win32 (non-NT4) specific definitions
 '#########################################################
-Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal lFlags As Long, lProcessID As Long) As Long
-Private Declare Function ProcessFirst Lib "Kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
-Private Declare Function ProcessNext Lib "Kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal lFlags As Long, lProcessID As Long) As Long
+Private Declare Function ProcessFirst Lib "kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function ProcessNext Lib "kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
 Private Const TH32CS_SNAPPROCESS As Long = 2&
 Private Type PROCESSENTRY32
     dwSize As Long
@@ -158,7 +158,7 @@ Private hSnapShot As Long
 '# Windows NT4 specific definitions
 '#    NOTE: Remember to distribute the PSAPI.DLL file.
 '#########################################################
-Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
+Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
 Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
@@ -530,6 +530,7 @@ Public Function Get_PID_From_hWnd(ByRef InputData, ByRef OutputData) As Boolean
     Dim sEXE As String
     Dim LhWnd As Long
     Dim lProcessID As Long
+    OutputData = 0
 
         '#### Init the vars to invalid values for an hWnd/ProcessID
     LhWnd = -1
@@ -547,6 +548,7 @@ Public Function Get_PID_From_hWnd(ByRef InputData, ByRef OutputData) As Boolean
     If (lProcessID = -1) Then
         If (Not GethWnd(lProcessID, LhWnd, sTitle, sClass)) Then GoTo Convert_Error
         End If
+        
     OutputData = lProcessID
     
     '#### If we got here, all is well
