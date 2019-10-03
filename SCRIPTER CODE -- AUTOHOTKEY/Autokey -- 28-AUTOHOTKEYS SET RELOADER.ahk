@@ -138,7 +138,7 @@
 #Warn
 #NoEnv
 #SingleInstance Force
-#Persistent
+; #Persistent
 ; -------------------------------------------------------------------
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
@@ -327,15 +327,15 @@ IF SET_GO=TRUE
 ; Wed 28-Aug-2019 23:24:50
 ; -------------------------------------------------------------------
  
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk"
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk"
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
 
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_02.ahk"
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_02.ahk"
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
 
 
 
@@ -460,23 +460,18 @@ SET_TIMER=FALSE
 
 Loop % ArrayCount
 {
+
 	TT_1_LESS=%A_Index%
 	TT_1_LESS-=1
 	Element_1 := FN_Array_1[A_Index]
-	
 	Element_7 := FN_Array_1[TT_1_LESS]  ; -- LESS 
-
 	Element_2 := DATE_MOD_Array[A_Index]
-
 	Element_3 := FN_Array_2[A_Index]
-	
-	Element_5 := FN_Array_2[TT_1_LESS]  ; -- LESS 
-	
+	Element_5 := FN_Array_2[TT_1_LESS]  ; -- LESS 	
 	Element_4 := FN_Array_4[A_Index]
 	Element_4 = %Element_4% ahk_class #32770
 
 	RUN_APP_GO=TRUE
-
 	IF WinExist(Element_4)
 	{
 		; MSGBOX % Element_4
@@ -489,14 +484,16 @@ Loop % ArrayCount
 		RUN_APP_GO=FALSE
 	}
 	IF SET_TIMER=FALSE
-	{	
 		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
-	}
 	
 	IfExist, %Element_1%
 		FileGetTime, OutputVar, %Element_1%, M
 	
+	IF (A_TimeIdlePhysical < 2000 or FIRST_RUN=TRUE)
+		RETURN
+	
 	RUN_APP_HAPPEN_FLAG=FALSE
+
 	IfExist, %Element_1%
 		IF INSTR(Element_3,"_INCLUDE.ahk")=0
 		IF (!WinExist(Element_3))
@@ -521,22 +518,24 @@ Loop % ArrayCount
 				GOSUB RUN_THE_APP
 				RUN_APP_HAPPEN_FLAG=TRUE
 			}
-	
-	IF RUN_APP_HAPPEN_FLAG=FALSE
-		IF OutputVar<>%Element_2%
-			IF RUN_APP_GO=TRUE
-			{
-				; -----------------------------------------------------------
-				; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
-				; IMMEDIATELY AGAIN
-				; -----------------------------------------------------------
-				; IF (A_TimeIdle > 1000)
-				IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
-				{
-					DATE_MOD_Array[A_Index] := OutputVar
-					GOSUB RUN_THE_APP
-				}
-			}
+
+
+			
+	; IF RUN_APP_HAPPEN_FLAG=FALSE
+		; IF OutputVar<>%Element_2%
+			; IF RUN_APP_GO=TRUE
+			; {
+				; ; -----------------------------------------------------------
+				; ; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
+				; ; IMMEDIATELY AGAIN
+				; ; -----------------------------------------------------------
+				; ; IF (A_TimeIdle > 1000)
+				; IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
+				; {
+					; DATE_MOD_Array[A_Index] := OutputVar
+					; GOSUB RUN_THE_APP
+				; }
+			; }
 }
 
 FIRST_RUN=FALSE
@@ -544,20 +543,6 @@ FIRST_RUN=FALSE
 RETURN
 
 RUN_THE_APP:
-
-	SET_GO=TRUE
-	
-	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
-	{
-		IF (A_ComputerName = "1-ASUS-X5DIJ") 
-			SET_GO=FALSE
-		IF (A_ComputerName = "2-ASUS-EEE") 
-			SET_GO=FALSE
-		IF (A_ComputerName = "3-LINDA-PC") 
-			SET_GO=FALSE
-		IF (A_ComputerName = "5-ASUS-P2520LA") 
-			SET_GO=FALSE
-	}
 
 	
 	; ----------------------------------------------------------
@@ -590,16 +575,26 @@ RUN_THE_APP:
 		SOUNDBEEP, 1500,100
 		RETURN
 	}
-	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	
+	; FIND WINDOW -- Element_3
+	; ------------------------
+	IF INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
-		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
-		IF PID_1>0 
+		LOOP
 		{
-			
-			Process, Close,% PID_1
-			MSGBOX %Element_3% ahk_class AutoHotkey 
-			MSGBOX % PID_1
+			WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
+			IF PID_1>0 
+			{
+				Process, Close,% PID_1
+				; MSGBOX %Element_3% ahk_class AutoHotkey 
+				; MSGBOX % PID_1
+			}
+			IF !PID_1
+				BREAK
 		}
+		; FIND WINDOW -- Element_3
+		; ------------------------
+		
 		Run, %Element_1%
 		SOUNDBEEP, 1500,100
 		RETURN

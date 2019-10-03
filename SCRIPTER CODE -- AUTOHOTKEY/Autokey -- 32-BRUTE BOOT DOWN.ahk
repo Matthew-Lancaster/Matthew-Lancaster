@@ -10,7 +10,7 @@
 ;# EXTRA TIME [ Thu 16:04:00 Pm_29 Nov 2018 ] MAKE ROBUST DOES NOT ALLOW TO BE CLOSED UNLESS FORCE
 ;# __ 
 ;====================================================================
-
+ 
 
 ;# ------------------------------------------------------------------
 ; DESCRIPTION 
@@ -94,7 +94,7 @@ OnExit("ExitFunc")
 ; Register an object to be called on exit:
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
-
+   
 SetStoreCapslockMode, off
 
 ; ---------------------------------------------------------------
