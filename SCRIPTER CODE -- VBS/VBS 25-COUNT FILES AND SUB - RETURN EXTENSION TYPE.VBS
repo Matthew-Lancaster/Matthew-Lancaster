@@ -28,6 +28,88 @@
 '#-------------------------------------------------------------------
 
 
+' -------------------------------------------------------------------
+' KILL OTHER PROCESS APP PREVIOUS INSTANCE KILL SOFTER
+' ON EACH RUN
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
+' SOURCE GIVEN
+' -------------------------------------------------------------------
+' vbscript - how to check vbs script in windows is running or not? - Stack Overflow
+' https://stackoverflow.com/questions/7849699/how-to-check-vbs-script-in-windows-is-running-or-not
+' -------------------------------------------------------------------
+' [ Wednesday 13:08:00 Pm_20 March 2019 ]
+' -------------------------------------------------------------------
+'
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+DIM CUR_USER
+DIM ComputerName
+
+CUR_USER = CreateObject("WScript.Network").UserName
+Set objShell = Wscript.CreateObject("WScript.Shell")
+ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT WAR IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID : iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+On Error Goto 0
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+' -------------------------------------------------------------------
+
+DIM VBV
+VBV=VBCRLF
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
+			i1=i1+1
+		END IF
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		IF i2 > 0 THEN ' MY  PROGRAM WSCRIPT 
+			' -------------------------------------------------------
+			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
+			' HERE SCRIPT WHEN START
+			' -------------------------------------------------------
+			' IF lngMyProcessId<>iMyPID THEN 
+				' I= "ERROR MISMATCH TRUE MYPID RESULT "
+				' MSGBOX I +VBV+ CSTR(iMyPID) +VBV+ CSTR(lngMyProcessId)
+			' -------------------------------------------------------
+			IF iMyPID<>PID_Script THEN 
+				objProcess.Terminate() 
+				objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+				' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
+			END IF
+		END IF
+    END IF
+NEXT
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
 DIM objStartFolder
 DIM objFolder
 DIM I_COUNT
@@ -37,20 +119,37 @@ Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-FOLDER_PATH="D:\DSC"
-' FOLDER_PATH="D:\VI_ DSC ME"
-' FOLDER_PATH="K:\VI_ DSC ME"
-' FOLDER_PATH="D:\VI_ DSC ME"
-' FOLDER_PATH="D:\VI_ DSC ME 02"
-FOLDER_PATH="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC ARC 01"
-FOLDER_PATH="D:\0 00 MUSIC ---"
-REM FOLDER_PATH=""
-REM FOLDER_PATH=""
-REM FOLDER_PATH=""
-REM FOLDER_PATH=""
-REM FOLDER_PATH=""
-REM FOLDER_PATH=""
-REM FOLDER_PATH=""
+WSCRIPT_ARGUMENTS=""
+SET ARGS = WSCRIPT.ARGUMENTS
+FOR EACH ARG IN ARGS
+	WSCRIPT_ARGUMENTS = WSCRIPT_ARGUMENTS + ARG + " "
+NEXT
+WSCRIPT_ARGUMENTS = TRIM(WSCRIPT_ARGUMENTS)
+' -------------------------------------------------------------------
+' HARD TO CALL FROM VB WHEN QUOTE REQUIRE SO EASY DO 
+' CONVERT SPACE TO STAR AND BACK
+' AND STILL COMPATIBLE WITH PASS STING SEND TO METHOD
+' -------------------------------------------------------------------
+WSCRIPT_ARGUMENTS = REPLACE(WSCRIPT_ARGUMENTS,"*" ," ")
+FOLDER_PATH = WSCRIPT_ARGUMENTS
+
+
+IF WSCRIPT_ARGUMENTS="" THEN 
+	FOLDER_PATH="D:\DSC"
+	' FOLDER_PATH="D:\VI_ DSC ME"
+	' FOLDER_PATH="K:\VI_ DSC ME"
+	' FOLDER_PATH="D:\VI_ DSC ME"
+	' FOLDER_PATH="D:\VI_ DSC ME 02"
+	FOLDER_PATH="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC ARC 01"
+	FOLDER_PATH="D:\0 00 MUSIC ---"
+	REM FOLDER_PATH=""
+	REM FOLDER_PATH=""
+	REM FOLDER_PATH=""
+	REM FOLDER_PATH=""
+	REM FOLDER_PATH=""
+	REM FOLDER_PATH=""
+END IF
+
 
 Dim Search_EXTENSION_VAR
 
