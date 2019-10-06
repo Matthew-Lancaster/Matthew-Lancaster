@@ -16,7 +16,7 @@
 ' SO THIS PART OF PROJECT IS OVER REGARD TO I_VIEW32
 ' Thu 03-Oct-2019 11:22:32
 ' -------------------------------------------
-WScript.Quit(0)
+' WScript.Quit(0)
 
 
 
@@ -121,27 +121,41 @@ IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
 	Call ShowSubfolders (objFSO.GetFolder(FOLDER))
 END IF
 
+
 FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"
 objBASEFolder = FOLDER
 IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
-	Call ShowSubfolders (objFSO.GetFolder(FOLDER))
+	' Call ShowSubfolders (objFSO.GetFolder(FOLDER))
 END IF
 
-FOLDER="D:\0 00 VIDEO SNAPSHOT"
-IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
-	Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
-END IF
-FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"
-IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
-	Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
-END IF
+
+FOR RF1=1 TO 4
+	DeleteFolder_HAPPEN=0
+	FOLDER="D:\0 00 VIDEO SNAPSHOT"
+	IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
+		Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
+	END IF
+
+	FOLDER="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION"
+	IF FSO.FOLDEREXISTS(FOLDER) = TRUE THEN
+		Call ShowSubfolders_FOLDER (objFSO.GetFolder(FOLDER))
+	END IF
+
+	IF DeleteFolder_HAPPEN=0 THEN 
+		EXIT FOR
+	END IF
+NEXT
 
 
 
 ' =C DRIVE:\Users\MATT 04\Insync\rub.rim@gmail.com\Google Drive
 
+' MSGBOX "DONE __ " ' & COUNT_1 & " _OF_ " & COUNT_2
 
-' MSGBOX "DONE __ " & COUNT_1 & " _OF_ " & COUNT_2
+
+Set WSHShell = Nothing
+WScript.Quit(0)
+
 
 
 ' -------------------------------------------------------------------
@@ -149,9 +163,6 @@ END IF
 ' END OF CODE MAIN ROUTINE
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-
-Set WSHShell = Nothing
-WScript.Quit(0)
 
 
 SUB SUB_DO_WITH_FOLDER(FOLDER_PATH)
@@ -179,7 +190,9 @@ SUB SUB_DO_WITH_FOLDER(FOLDER_PATH)
 		I2=objFolder.Files.Count
 		FILENAME_TO_DEL=objFolder.Path
 		If I1=0 AND I2=0 AND ERR.NUMBER=0 THEN  
+			' MSGBOX "FOLDER DEL"+VBCRLF+FILENAME_TO_DEL
 			FSO.DeleteFolder FILENAME_TO_DEL,TRUE
+			DeleteFolder_HAPPEN=TRUE
 			If FSO.FolderExists(FILENAME_TO_DEL) Then
 				MSGBOX "FOLDER EXIST STILL"+VBCRLF+FILENAME_TO_DEL
 			END IF
@@ -200,37 +213,40 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 	Dim objFILE
 	Set objFILE = objFSO.GetFILE(FILE_PATH)
 	
-	' INPUT PAST END OF FILE HAPPEN ERROR MESSENGER
-	ON ERROR RESUME NEXT
-	readBinary=""
-	With objFILE.OpenAsTextStream()
-		readBinary = .Read(119+4)
-		.Close
-	End With
-	ON ERROR GOTO 0
-	Set objFILE = NOTHING
+	IF NOT_REQUIRE_ANYMORE=22 THEN
+		' INPUT PAST END OF FILE HAPPEN ERROR MESSENGER
+		ON ERROR RESUME NEXT
+		readBinary=""
+		With objFILE.OpenAsTextStream()
+			readBinary = .Read(119+4)
+			.Close
+		End With
+		ON ERROR GOTO 0
+		Set objFILE = NOTHING
 
-	IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
-		' -------------------------------------------
-		' jpgq=88 __ UP UNTIL 02 MAR 2019
-		' jpgq=92 __       ON 02 MAR 2019
-		' QUALITY JPEG CONVERSION LEVEL 0 TO 100%
-		' jpgq=94 __       ON 20 SEP 2019
-		' AT 94 TYPICAL ONE CHECK
-		' TPath: /snapshot/20190813/D1/DVR_D01_Motion_Detected_20190813172414_3.jpg
-		' Lnew: [file] size=62,091
-		' Rnew: [file] size=36,214
-		' SO IS A LOT BIGGER
-		' GOT TO TRY DO CONVERSION AND KEEP SAME
-		' -------------------------------------------
-		' GOOGLE DRIVE HAS THE ABILITY TO SHOW THESE FILE NOW
-		' SO THIS PART OF PROJECT IS OVER REGARD TO I_VIEW32
-		' Thu 03-Oct-2019 11:22:32
-		' -------------------------------------------
-		WSHShell.Run i_view32 + " """+FILE_PATH+""" /jpgq=98 /convert=$D$F" , DontShowWindow, WaitUntilFinished
-		
-		COUNT_1=COUNT_1+1
-	END IF
+		IF MID(readBinary,119,4)=STRING(4,CHR(&H1E)) THEN 
+			' -------------------------------------------
+			' jpgq=88 __ UP UNTIL 02 MAR 2019
+			' jpgq=92 __       ON 02 MAR 2019
+			' QUALITY JPEG CONVERSION LEVEL 0 TO 100%
+			' jpgq=94 __       ON 20 SEP 2019
+			' AT 94 TYPICAL ONE CHECK
+			' TPath: /snapshot/20190813/D1/DVR_D01_Motion_Detected_20190813172414_3.jpg
+			' Lnew: [file] size=62,091
+			' Rnew: [file] size=36,214
+			' SO IS A LOT BIGGER
+			' GOT TO TRY DO CONVERSION AND KEEP SAME
+			' -------------------------------------------
+			' GOOGLE DRIVE HAS THE ABILITY TO SHOW THESE FILE NOW
+			' SO THIS PART OF PROJECT IS OVER REGARD TO I_VIEW32
+			' Thu 03-Oct-2019 11:22:32
+			' -------------------------------------------
+			
+			' WSHShell.Run i_view32 + " """+FILE_PATH+""" /jpgq=98 /convert=$D$F" , DontShowWindow, WaitUntilFinished
+			
+			' COUNT_1=COUNT_1+1
+		END IF
+	END IF 
 	COUNT_2=COUNT_2+1
 	
 	PATH_VAR_2=MID(FILE_PATH,1,INSTRREV(FILE_PATH,"\"))
@@ -271,20 +287,23 @@ SUB SUB_DO_WITH_FILE(FILE_PATH)
 	IF FSO.FILEEXISTS(NEW_FILENAME)=FALSE THEN 
 		MSGBOX "MOVE 2ND METHOD "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
 		Set objFILE = objFSO.GetFILE(FILE_PATH)
-		objFILE.Move NEW_BASE_FOLDER_2
+		objFILE.Move NEW_FILENAME ' NEW_BASE_FOLDER_2
 	END IF
 	
 	IF FSO.FILEEXISTS(NEW_FILENAME)=FALSE THEN 
 		IF ERR.NUMBER=0 THEN
 			MSGBOX "COPY METHOD "+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
-			FSO.COPYFile FILE_PATH, NEW_BASE_FOLDER_2
+			FSO.COPYFile FILE_PATH, NEW_FILENAME ' NEW_BASE_FOLDER_2
 		END IF
 	END IF
 	
 	' DELETE SOURCE IF BOTH EXIST
-	IF FSO.FILEEXISTS(NEW_FILENAME)=TRUE THEN 
-		IF FSO.FILEEXISTS(FILE_PATH)=TRUE THEN 
-			FSO.DELETEFILE(NEW_FILENAME)
+	IF NEW_FILENAME<>FILE_PATH THEN 
+		IF FSO.FILEEXISTS(NEW_FILENAME)=TRUE THEN 
+			IF FSO.FILEEXISTS(FILE_PATH)=TRUE THEN 
+				' MSGBOX "DELETE SOURCE BOTH EXIST"+VBCRLF+FILE_PATH+VBCRLF+NEW_FILENAME
+				FSO.DELETEFILE(FILE_PATH)
+			END IF
 		END IF
 	END IF
 	
@@ -294,15 +313,18 @@ END SUB
 				
 
 
-IF COUNT_1>0 THEN 
+' PRETTY SURE THIS CODE SCRIPT DOES THIS BIT NOW
+' Sat 05-Oct-2019 10:52:22
+				
+' IF COUNT_1>0 THEN 
 
-	FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER.VBS"
-	PARAM=""
-	'--------------------------------------------------------------
-	WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
-	'--------------------------------------------------------------
+	' FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER.VBS"
+	' PARAM=""
+	' '--------------------------------------------------------------
+	' WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+	' '--------------------------------------------------------------
 
-END IF 
+' END IF 
 
 
 
