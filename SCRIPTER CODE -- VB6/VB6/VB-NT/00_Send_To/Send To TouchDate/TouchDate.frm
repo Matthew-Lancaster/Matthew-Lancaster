@@ -619,7 +619,6 @@ End Sub
 Private Sub Form_Load()
 Set FSO = CreateObject("Scripting.FileSystemObject")
 
-
 'If IsIDE = True Then GoTo Start2
 
 On Error Resume Next
@@ -702,12 +701,16 @@ End If
 
 If Command$ = "" And W$ = "" Then
     If Clipboard.GetFormat(vbCFText) Then
-        W$ = Clipboard.GetText(vbCFText) ' Get Clipboard text.
-        If FSO.FolderExists(W$) = False Then
-            W$ = ""
+        W1$ = Clipboard.GetText(vbCFText) ' Get Clipboard text.
+        If FSO.FolderExists(W1$) = True Then
+            W$ = W1$
+        End If
+        If FSO.FileExists(W1$) = True Then
+            W$ = W1$
         End If
     End If
 End If
+
 
 If Mid(W$, 1, 1) = """" Then
     W$ = Mid(W$, 2): W$ = Mid(W$, 1, Len(W$) - 1)
@@ -1524,8 +1527,10 @@ If WORK = "SET_ONE_DATE_HARDCODER" = True Then
     
 '   SIMPLE
 '   -------------------------------
-    a = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy\2012 07 GALAXY SAMSUNG GT-P1000_ VIDEO.MP4"
+    ' a = "D:\UTILS\2011 GALAXY SAMSUNG GT-P1000 - Copy\2012 07 GALAXY SAMSUNG GT-P1000_ VIDEO.MP4"
+    a = LABEL_SET(3).Caption
     DATEVAR = "2012/07/01 18:00:00"
+    DATEVAR = "2017/04/04 23:35:44"
     DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
     TT = SetFileDateTime(a, DateSet)
     MsgBox "Done " + vbCrLf + vbCrLf + a + vbCrLf + vbCrLf + DATEVAR, vbMsgBoxSetForeground
