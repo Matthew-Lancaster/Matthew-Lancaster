@@ -5,7 +5,7 @@ Begin VB.Form Form1
    Caption         =   "EXPLORER LOADER"
    ClientHeight    =   5928
    ClientLeft      =   132
-   ClientTop       =   1380
+   ClientTop       =   1680
    ClientWidth     =   12312
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
@@ -5889,6 +5889,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_CLIPBOARD_ALL_NET_PATH_REVERSE 
       Caption         =   "CLIPBOARD ALL NET PATH REVERSE"
    End
+   Begin VB.Menu MNU_CLIPBOARD_ALL_NET_PATH_ARRAY_BUILDER 
+      Caption         =   "CLIPBOARD ALL NET PATH AS ARRAY BUILDER"
+   End
    Begin VB.Menu MNU_LOAD_ALL_GOODSYNC_PROFILE_TIC_NOTEPAD 
       Caption         =   "LOAD ALL GOODSYNC PROFILE IN NOTEPAD"
    End
@@ -6446,6 +6449,14 @@ End Sub
 
 Private Sub Lbl_COMBO_NUMBER_Click()
 'Lbl_COMBO_NUMBER.CAPTION
+End Sub
+
+Private Sub MNU_CLIPBOARD_ALL_NET_PATH_ARRAY_BUILDER_Click()
+    
+    Clipboard.Clear
+    Clipboard.SetText NET_PATH_ALL_ARRAY + vbCrLf
+    End
+
 End Sub
 
 Private Sub MNU_CLIPBOARD_ALL_NET_PATH_Click()

@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    BackColor       =   &H8000000A&
@@ -24,7 +24,7 @@ Begin VB.Form ScanPath
       Default         =   -1  'True
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -48,7 +48,7 @@ Begin VB.Form ScanPath
       Caption         =   "Also Do What Already Modified"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -71,7 +71,7 @@ Begin VB.Form ScanPath
       Caption         =   "WHEN READY TO GO"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -344,7 +344,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   136445953
+      Format          =   100597761
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -358,7 +358,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   136445953
+      Format          =   100597761
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -433,7 +433,7 @@ Begin VB.Form ScanPath
       Caption         =   "-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -601,7 +601,7 @@ Begin VB.Form ScanPath
       Caption         =   "-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   12
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -873,14 +873,14 @@ X_YEAR = Format(Now, "YYYY")
 
 
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2015+Sony\" + X_YEAR + " CyberShot HX60V\DCIM"
-IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\2010+Sony\" + X_YEAR + " CyberShot HX60V_#\DCIM"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME 01\2010+Sony\" + X_YEAR + " CyberShot HX60V_#\DCIM"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2012+Nokia E72"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2017+FUJI XP90"
 ' 4.
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2018 Double Screen Cam"
-IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\2018 Double Screen Cam"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME 01\2018 Double Screen Cam"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2019+4K ULTRA HD\2019 4K ULTRA\DCIMA"
-IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME\2019+4K ULTRA HD\DCIMA"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME 01\2019+4K ULTRA HD\DCIMA"
 
 IP1 = 0
 
@@ -1199,6 +1199,10 @@ Private Sub FORM_LOAD_Timer_Timer()
 FORM_LOAD_Timer.Enabled = False
 Call AutoPix
 
+End Sub
+
+Private Sub lblCount_Click()
+' lblCount.F
 End Sub
 
 Private Sub SPECIAL_RENAME_Command_BUTTON_Click()
@@ -3613,7 +3617,11 @@ End Function
 
 
 Private Sub TIMER_COUNTDOWN_COMMAND_BUTTON_AUTO_GO_AH_Timer()
-    
+    If Command1.BackColor <> RGB(127, 200, 127) Then Exit Sub
+    ' -------------------------------------
+    ' GREEN READY TO GO
+    ' -------------------------------------
+
     Command1.Caption = "WHEN READY TO GO _" + Str(COUNT_DOWN_TIMER_COMMAND_BUTTON)
     COUNT_DOWN_TIMER_COMMAND_BUTTON = COUNT_DOWN_TIMER_COMMAND_BUTTON - 1
     If COUNT_DOWN_TIMER_COMMAND_BUTTON = 0 Then

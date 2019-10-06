@@ -122,6 +122,22 @@
 ; Thu 29-Aug-2019 00:35:10 -- HOW LONG SMALL CODE WANT BEFORE BEDTIME
 ; ----------------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; 010 ---------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; THE CODE BEEN MADE GOOD -- SMALLER 
+; EASIER DEBUGGER
+; OPTION TO RELOADED WHILE IN NOTEPAD++ RATHER THAN RELAUNCH BUTTON MENU
+; MAKE A LOT EASIER CODING
+; TOOK A BIT TOO LONG
+; TO NIGHTFALL LATE WITHOUT MEAL MEANT TO HAVE
+; BEEN CAUGHT IN BUGGY MODE FOR DAY LONG BEEN MEAN TO DO
+; -------------------------------------------------------------------
+; Thu 03-Oct-2019 20:56:29
+; Thu 03-Oct-2019 23:11:48
+; ----------------------------------------------------------------------------
+
 
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
@@ -133,12 +149,10 @@
 ; ----
 ;# ------------------------------------------------------------------
 
-
 ; SCRIPT BEGINNER ===================================================
 #Warn
 #NoEnv
 #Persistent
-
 
 ; -------------------------------------------------------------------
 ; THE EXIT ROUTINE HERE THE CODE
@@ -182,7 +196,6 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; ---------------------------------------------------------------
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
 
-
 ; -------------------------------------------------------------------
 #SingleInstance force
 ; -------------------------------------------------------------------
@@ -195,10 +208,9 @@ SetTitleMatchMode 3  ; EXACTLY
 
 SoundBeep , 2000 , 20
 
-;--------------------------------------------------------------------
-;AUTOHOTKEYS
-;--------------------------------------------------------------------
-
+; --------------------------------------------------------------------
+; AUTOHOTKEYS
+; --------------------------------------------------------------------
 
 GLOBAL SIGNAL_TO_RESTART_HAPPEN
 GLOBAL I_COUNT
@@ -206,13 +218,15 @@ GLOBAL I_COUNT
 SIGNAL_TO_RESTART_HAPPEN=FALSE
 I_COUNT=0
 
-
 GLOBAL VAR_A__TimeIdle
 GLOBAL OutputVar
 
 VAR_A__TimeIdle=0
+TIMER_DELAY=
+
 
 ; Each array must be initialized before use:
+; -------------------------------------------------------------------
 FN_Array_1 := [] 
 FN_Array_2 := []
 FN_Array_3 := []
@@ -269,44 +283,16 @@ IF OSVER_N_VAR>=10
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 50-Check The Capital Lock State.ahk"
 
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
-
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := 
-
-; WIN XP IS 5
+; WIN XP HAVE 05
+; --------------
 IF OSVER_N_VAR>5
 {
 	ArrayCount += 1
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 02-SAVE AS KEY ENTER.ahk"
 }
 
-
-
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
-; FN_Array_3[ArrayCount] := "FileZilla Server Main Window"
-
-
-; ; WIN XP IS 5
-; IF OSVER_N_VAR>5
-; {
-	; ArrayCount += 1
-	; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
-; }
-
-; SET_GO=TRUE
-; IF (A_ComputerName = "2-ASUS-EEE") 
-	; SET_GO=FALSE
-; IF (A_ComputerName = "8-MSI-GP62M-7RD")
-	; SET_GO=FALSE
-; IF SET_GO=TRUE
-; {
-	ArrayCount += 1
-	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-AUTO REPEAT BROWSER FUNCTION SET.ahk"
-; }
-
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-AUTO REPEAT BROWSER FUNCTION SET.ahk"
 
 
 SET_GO=TRUE
@@ -325,11 +311,6 @@ IF SET_GO=TRUE
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
 }
 
-
-
-; IF (A_ComputerName = "7-ASUS-GL522VW") 
-
-
 ; -------------------------------------------------------------------
 ; HERE THE INCLUDE SET PAIR IN THIS EXAMPLE
 ; WHEN THE INCLUDE DETECT CHANGE DATE FILE
@@ -339,21 +320,35 @@ IF SET_GO=TRUE
 ; Wed 28-Aug-2019 23:24:50
 ; -------------------------------------------------------------------
  
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk"
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY.ahk"
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
 
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_02.ahk"
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
-
-
-
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_02.ahk"
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
 
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER.ahk"
+
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
+; FN_Array_3[ArrayCount] := "FileZilla Server Main Window"
+
+; ; WIN XP IS 5
+; IF OSVER_N_VAR>5
+; {
+	; ArrayCount += 1
+	; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
+; }
+
+
+
 
 
 
@@ -435,7 +430,6 @@ Loop % ArrayCount
 	{
 		FileGetTime, OutputVar, %Element%, M
 		DATE_MOD_Array[A_Index] := OutputVar
-		; MSGBOX % DATE_MOD_Array[A_Index]
 	}
 }
 
@@ -446,6 +440,7 @@ IF (A_ComputerName = "7-ASUS-GL522VW")
 	SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,1000 ; 1 SECOND
 	;SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,600000 ; 10 MINUTER
 
+; MUST_EXIT=FALSE
 	
 FIRST_RUN=TRUE
 
@@ -463,6 +458,11 @@ RETURN
 
 TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 
+	GLOBAL MUST_EXIT
+
+	; DetectHiddenWindows, ON
+	; SetTitleMatchMode 2      ; Specify PARTIAL path
+
 	Loop % ArrayCount
 	{
 		TT_1_LESS=%A_Index%
@@ -473,8 +473,10 @@ TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 		Element_5 := FN_Array_2[TT_1_LESS]        ; -- LESS 	
 		Element_4 := FN_Array_4[A_Index]		  ; THE PATH AFTER THE BACKSLASH \ FILENAME
 		Element_4 = %Element_4% ahk_class #32770
-
 	
+		; IF FIRST_RUN=FALSE
+			; IF A_TimeIdlePhysical < 2000
+				; RETURN			
 
 		IfExist, %Element_1%
 			FileGetTime, OutputVar, %Element_1%, M
@@ -482,29 +484,66 @@ TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 		RUN_APP_GO=FALSE
 		IF OutputVar>%Element_2%
 			RUN_APP_GO=TRUE
-		
-		
-		IF FIRST_RUN=TRUE
-			DATE_MOD_Array[A_Index] := OutputVar	
+		IF !Element_2
+			RUN_APP_GO=TRUE
 
-		; IF (A_TimeIdlePhysical < 2000 
-			; RETURN			
-		
-		IF A_Index=14
+		IF INSTR(Element_3,"_INCLUDE.ahk")=0
+		IF (!WinExist(Element_3))
+			RUN_APP_GO=TRUE
+
+		; -----------------------------------------------------------
+		; PUT THE DELAY HERE 
+		; LIKE DOUBLE TIMER AS USE ELSEWHERE
+		; AND PREVENT 
+		; WHEN ASK CLOSE ALL DOWN 
+		; NOT SOME COME BACK UP
+		; WITH SPEED
+		; OR ELSE HAVE TO MAKE WHEN WILD-CARD KILL EM ALL
+		; IT THE HAS TO KILL THIS SCRIPT 1ST
+		; PLUS STOP REPEATER OFF THE END WHEN CODE SOMETHING
+		; DRAFT COPY
+		; -----------------------------------------------------------
+		; Sat 05-Oct-2019 08:55:07
+		; -----------------------------------------------------------
 		IF FIRST_RUN=FALSE
-			IfExist, %Element_1%
-				IF INSTR(Element_3,"_INCLUDE.ahk")=0
-				TOOLTIP % OutputVar "`n" Element_2 "`n" RUN_APP_GO "`n" Element_1
+			IF RUN_APP_GO=TRUE
+			{
+				IF !TIMER_DELAY
+				{
+					TIMER_DELAY = % A_Now
+					TIMER_DELAY += 2, SECONDS
+					RETURN
+				}
+				
+				IF TIMER_DELAY>%A_Now%
+					RETURN
+				
+				TIMER_DELAY=
+			}
+
+		; -----------------------------------------------------------
+		; DEBUG WORKER
+		; -----------------------------------------------------------
+		;IF A_Index=14
+		; IF FIRST_RUN=FALSE
+			; IfExist, %Element_1%
+				; TOOLTIP % A_INDEX "`n" OutputVar "`n" Element_2 "`n" RUN_APP_GO "`n" Element_1
+		
+		; IF RUN_APP_GO=TRUE
+				; MSGBOX % OutputVar "`n" Element_2 "`n" RUN_APP_GO "`n" Element_1
+		
 		
 		IF RUN_APP_GO=TRUE
 		{
-			IF FIRST_RUN=FALSE
+			; IF FIRST_RUN=FALSE
 				IfExist, %Element_1%
 					IF INSTR(Element_3,"_INCLUDE.ahk")=0
-					IF (!WinExist(Element_3))
+					IF (!WinExist(Element_3))      ; THIS TO DO WITH INCLUDE CHUNK Element_3
 					{
 						DATE_MOD_Array[A_Index] := OutputVar
 						GOSUB RUN_THE_APP
+						RUN_APP_GO=FALSE
+						RETURN
 					}
 
 			; ---------------------------------------------------------------
@@ -513,7 +552,7 @@ TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 			; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
 			; Thu 29-Aug-2019 00:35:10
 			; ---------------------------------------------------------------
-			IF FIRST_RUN=FALSE
+			; IF FIRST_RUN=FALSE
 				IfExist, %Element_1%
 					IF INSTR(Element_3,"_INCLUDE.ahk")>0
 					IF (!WinExist(Element_5))
@@ -521,20 +560,45 @@ TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 						{
 							DATE_MOD_Array[A_Index] := OutputVar
 							GOSUB RUN_THE_APP
+							RUN_APP_GO=FALSE
+							RETURN
 						}
 		}
 
-
-
+		IF RUN_APP_GO=TRUE
+			; IF FIRST_RUN=FALSE
+				{
+					DATE_MOD_Array[A_Index] := OutputVar
+					GOSUB RUN_THE_APP
+				}
 	}
 
 	FIRST_RUN=FALSE
+	
+	IF (A_ComputerName="1-ASUS-X5DIJ")
+	{
+		MUST_EXIT=TRUE
+		EXITAPP
+		RETURN
+	}
+	IF (A_ComputerName="2-ASUS-EEE")
+	{
+		MUST_EXIT=TRUE
+		EXITAPP
+		RETURN
+	}
+	
 
 RETURN
 
 ; -------------------------------------------------------------------
 RUN_THE_APP:
 
+	; -----------------------------------------------------------
+	; DEBUG WORKER
+	; -----------------------------------------------------------
+	; TOOLTIP % A_INDEX "`n" OutputVar "`n" Element_3 "`n" Element_5
+	DONE_APP_RUN=
 
 	; ---------------------------------------------------------------
 	; NEW CODE FOR INCLUDE FILE -- DON'T RUN THE INCLUDE BUT 
@@ -549,7 +613,7 @@ RUN_THE_APP:
 		}
 		Run, %Element_5%
 		SOUNDBEEP, 1500,100
-		RETURN	
+		DONE_APP_RUN=TRUE
 	}
 	
 	; ---------------------------------------------------------------
@@ -587,12 +651,41 @@ RUN_THE_APP:
 		; -----------------------------------------------------------
 		Run, %Element_1%
 		SOUNDBEEP, 1500,100
-		RETURN
+		DONE_APP_RUN=TRUE
 	}
 
-	SoundBeep , 2000 , 20
-	Run, %Element_1%
 
+	; ---------------------------------------------------------------
+	; SOMETIME THE APP TAKE LITTLE WHILE TO LOAD BEFORE SHOW 
+	; TITLE WINDOW
+	; LOW END COMPUTER MAKE OBVIOUS REQUIRE DELAY
+	; MAKE A SEARCH DELAY OR DELAY PLAIN
+	; LOAD THEM IN AT SPEED OR
+	; ---------------------------------------------------------------
+	IF !DONE_APP_RUN
+	{
+		SoundBeep , 2000 , 20
+		Run, %Element_1%
+		DONE_APP_RUN=TRUE
+	}
+
+	
+	TIMER_CLOSE_4 = % A_Now
+	TIMER_CLOSE_4 += 10, SECONDS
+	LOOP
+	{
+		HWND_4 := WinExist("%Element_3% ahk_class AutoHotkey")
+		IF HWND_4
+			BREAK
+		IfExist, %Element_1%
+			BREAK
+		IF TIMER_CLOSE_4<%A_Now%
+			BREAK
+	}
+	
+	; TOOLTIP % TIMER_CLOSE_4
+	; SLEEP 200
+		
 
 RETURN
 
@@ -780,6 +873,9 @@ ExitFunc(ExitReason, ExitCode)
 	IfWinActive, %FILE_ScriptName% ahk_class Notepad++
 		RETURN 0       ; OnExit functions must return non-zero to prevent exit.
 
+	IF MUST_EXIT=TRUE
+		RETURN 0       ; OnExit functions must return non-zero to prevent exit.
+		
 		
     if ExitReason not in Logoff,Shutdown
     {
