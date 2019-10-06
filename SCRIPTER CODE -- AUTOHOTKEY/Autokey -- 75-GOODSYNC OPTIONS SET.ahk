@@ -237,6 +237,8 @@ SETTIMER TIMER_SET_ACTIVATION_BOX,1000
 SET_GOODSYNC_CONNECT_BOX_HWND=0
 SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
 SETTIMER TOOLTIP_REMOVER,1000
+SETTIMER SET_PRESS_OKAY_BOX_BUTTON,500
+
 
 ; -------------------------------------------------------------------
 RETURN
@@ -605,6 +607,29 @@ TIMER_SET_ACTIVATION_BOX:
 }
 RETURN
 
+SET_PRESS_OKAY_BOX_BUTTON:
+{
+	
+	ELEMENT=GoodSync2Go ahk_class #32770
+	IfWinExist %ELEMENT%
+		ControlGettext, OutputVar_4, Edit1, %ELEMENT%
+		; Changed portable disk letter to %GSDISK% (disk from which GoodSync started), so that it works in another computer
+	IF INSTR(OutputVar_4,"Changed portable disk letter to")
+	{
+		WinActivate, %ELEMENT%
+		IfWinActive %ELEMENT%
+		{	
+			; ControlGetPos, x, y, , , OK, %ELEMENT%
+			; MouseMove, X+10, Y+10
+			ControlClick, OK, %ELEMENT%
+			SoundBeep , 3000 , 400
+		}	
+	}	
+}
+RETURN
+
+
+
 ; OPTIONAL SUB ROUTINE
 ; SET OKAY BOX AFTER MADE SELECTION
 SET_OK_BOX:
@@ -655,69 +680,68 @@ SET_OK_BOX:
 		SoundBeep , 3000 , 400
 	}	
 
-
 	
-	DetectHiddenWindows, ON
-	SetTitleMatchMode 2
-	IfWinExist Options ahk_class #32770
-	WinActivate, Options ahk_class #32770
+	; DetectHiddenWindows, ON
+	; SetTitleMatchMode 2
+	; IfWinExist Options ahk_class #32770
+	; WinActivate, Options ahk_class #32770
 
-	IfWinActive ] Options ahk_class #32770
-	{	
-		ControlGettext, OutputVar_2, Button17, ] Options ahk_class #32770
-		ControlGet, OutputVar_1, Line, 1, Edit9, ] Options ahk_class #32770
-		; -----------------------------------------------------------
-		Periodic_TIMER_VALUE=5
-		; -----------------------------------------------------------
-		IF (OutputVar_2="Periodically (On Timer), every")
-		IF OutputVar_1<>%Periodic_TIMER_VALUE%
-		{
-			ControlSetText, Edit9,, ] Options ahk_class #32770
-			Control, EditPaste, %Periodic_TIMER_VALUE%, Edit9, ] Options ahk_class #32770
-			SoundBeep , 4000 , 100
-		}
+	; IfWinActive ] Options ahk_class #32770
+	; {	
+		; ControlGettext, OutputVar_2, Button17, ] Options ahk_class #32770
+		; ControlGet, OutputVar_1, Line, 1, Edit9, ] Options ahk_class #32770
+		; ; -----------------------------------------------------------
+		; Periodic_TIMER_VALUE=5
+		; ; -----------------------------------------------------------
+		; IF (OutputVar_2="Periodically (On Timer), every")
+		; IF OutputVar_1<>%Periodic_TIMER_VALUE%
+		; {
+			; ControlSetText, Edit9,, ] Options ahk_class #32770
+			; Control, EditPaste, %Periodic_TIMER_VALUE%, Edit9, ] Options ahk_class #32770
+			; SoundBeep , 4000 , 100
+		; }
 		
-		; ClassNN:	Button17
-		; Text:	Periodically (On Timer), every
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			ControlGet, Status, Checked,, Button17, ] Options ahk_class #32770
-			If Status=0
-			{
-				Control, Check,, Button17, ] Options ahk_class #32770
-				SoundBeep , 4000 , 100
-			}
-		}
+		; ; ClassNN:	Button17
+		; ; Text:	Periodically (On Timer), every
+		; IF (OutputVar_2="Periodically (On Timer), every")
+		; {
+			; ControlGet, Status, Checked,, Button17, ] Options ahk_class #32770
+			; If Status=0
+			; {
+				; Control, Check,, Button17, ] Options ahk_class #32770
+				; SoundBeep , 4000 , 100
+			; }
+		; }
 
-		; MSGBOX % OutputVar_2
+		; ; MSGBOX % OutputVar_2
 
-		IF OutputVar_2
-		IF (OutputVar_2<>"Periodically (On Timer), every")
-			MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
+		; IF OutputVar_2
+		; IF (OutputVar_2<>"Periodically (On Timer), every")
+			; MSGBOX Button17 NOT ANY LONGER ASSOCIATED WITH`nPeriodically (On Timer), every
 
 		
-		If Status=1
-		IF OutputVar_1=%Periodic_TIMER_VALUE%
-		IfWinActive ] Options ahk_class #32770
-		{	
-			OutputVar_2=
-			ControlGettext, OutputVar_2, Button61, ] Options ahk_class #32770
-			IF (OutputVar_2="Save")
-				ControlClick, Button61, Options ahk_class #32770,,,, NA x10 y10
+		; If Status=1
+		; IF OutputVar_1=%Periodic_TIMER_VALUE%
+		; IfWinActive ] Options ahk_class #32770
+		; {	
+			; OutputVar_2=
+			; ControlGettext, OutputVar_2, Button61, ] Options ahk_class #32770
+			; IF (OutputVar_2="Save")
+				; ControlClick, Button61, Options ahk_class #32770,,,, NA x10 y10
 				
-			OutputVar_2=
-			ControlGettext, OutputVar_2, Button62, ] Options ahk_class #32770
-			IF (OutputVar_2="Save")
-				ControlClick, Button62, Options ahk_class #32770,,,, NA x10 y10
+			; OutputVar_2=
+			; ControlGettext, OutputVar_2, Button62, ] Options ahk_class #32770
+			; IF (OutputVar_2="Save")
+				; ControlClick, Button62, Options ahk_class #32770,,,, NA x10 y10
 			
-			OutputVar_2=
-			ControlGettext, OutputVar_2, Button63, ] Options ahk_class #32770
-			IF (OutputVar_2="Save")
-				ControlClick, Button63, Options ahk_class #32770,,,, NA x10 y10
+			; OutputVar_2=
+			; ControlGettext, OutputVar_2, Button63, ] Options ahk_class #32770
+			; IF (OutputVar_2="Save")
+				; ControlClick, Button63, Options ahk_class #32770,,,, NA x10 y10
 			
-			SoundBeep , 5000 , 400
-		}	
-	}
+			; SoundBeep , 5000 , 400
+		; }	
+	; }
 		
 	
 }

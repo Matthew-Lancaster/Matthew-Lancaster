@@ -2080,7 +2080,8 @@ AUTO_RELOAD_FACEBOOK:
 		{
 			IF INSTR(TITLE_VAR_FB_F5,"(")=1
 			{
-				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\complete.mp3
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
 
 				NEW_NOTIFY_UPDATE=TRUE
 				BREAK

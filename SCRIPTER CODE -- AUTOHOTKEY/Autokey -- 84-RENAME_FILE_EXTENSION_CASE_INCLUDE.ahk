@@ -263,6 +263,10 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_2[ArrayCount]:="vbp"
 	SET_ARRAY_3[ArrayCount]:="NOT TALK"
 
+	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="C:\SCRIPTER\"
+	SET_ARRAY_2[ArrayCount]:="MP3 WAV"
+
 	; SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\"
 	; SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC\"
 
@@ -283,8 +287,8 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	
 
 	IF !RENAME_EXTENSION_QUIET_WITH_AUDIO
-	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav, 1 ; WAIT
+	SoundPlay, Nonexistent.WAV
 	StringCaseSense, On
 	
 	NEST_2ND_LOOP_MAXIMUM=% SET_ARRAY_2.MaxIndex()
@@ -424,7 +428,8 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 						
 						; StringReplace, PATH_NAME_4_REPLACE, PATH_NAME_4_REPLACE,MMPEG,MPEG
 
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav, 1 ; WAIT
+						SoundPlay, Nonexistent.WAV
 						
 						; -----------------------------------------------
 						; 4096 BRING TO FOREGROUND
