@@ -240,7 +240,6 @@ With ScanPath.ListView1
 End With
 
 NET_PATH_ALL_R = Split(NET_PATH_ALL, vbCrLf)
-
 Dim M()
 ReDim M(UBound(NET_PATH_ALL_R) + 10)
 Dim R3
@@ -289,6 +288,18 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
         Next
     End If
 Next
+
+
+
+
+NET_PATH_ALL_ARRAY = ""
+NET_PATH_ALL_ARRAY_02 = Split(NET_PATH_ALL, vbCrLf)
+For R3 = 0 To UBound(NET_PATH_ALL_ARRAY_02)
+    If NET_PATH_ALL_ARRAY_02(R3) <> "" Then
+        NET_PATH_ALL_ARRAY = NET_PATH_ALL_ARRAY + "i = i + 1: M(i) = """ + NET_PATH_ALL_ARRAY_02(R3) + """" + vbCrLf
+    End If
+Next
+
 
 
 '-------------------------------
