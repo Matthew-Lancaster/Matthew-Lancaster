@@ -168,6 +168,8 @@
 ; Exitapp CALLS ONTO ExitFunc
 ; -------------------------------------------------------------------
 
+MUST_EXIT=
+
 ; -------------------------------------------------------------------
 ; Register a function to be called on exit:
 OnExit("ExitFunc")
@@ -575,18 +577,18 @@ TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 
 	FIRST_RUN=FALSE
 	
-	IF (A_ComputerName="1-ASUS-X5DIJ")
-	{
-		MUST_EXIT=TRUE
-		EXITAPP
-		RETURN
-	}
-	IF (A_ComputerName="2-ASUS-EEE")
-	{
-		MUST_EXIT=TRUE
-		EXITAPP
-		RETURN
-	}
+	; IF (A_ComputerName="1-ASUS-X5DIJ")
+	; {
+		; MUST_EXIT=TRUE
+		; EXITAPP
+		; RETURN
+	; }
+	; IF (A_ComputerName="2-ASUS-EEE")
+	; {
+		; MUST_EXIT=TRUE
+		; EXITAPP
+		; RETURN
+	; }
 	
 
 RETURN
