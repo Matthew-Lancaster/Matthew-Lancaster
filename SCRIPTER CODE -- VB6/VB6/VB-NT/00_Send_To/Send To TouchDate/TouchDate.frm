@@ -766,7 +766,7 @@ i = i + 1: M(i) = "GO"
 i = i + 1: M(i) = "Folder Label"
 i = i + 1: M(i) = "File Label"
 'i = i + 1: M(i) = "PERFORM ON ALL FILES IN FOLDER OR FILE"
-i = i + 1: M(i) = "NOW DATE"
+i = i + 1: M(i) = "NOW_DATE"
 i = i + 1: M(i) = "MODIFY DATE TO CREATED DATE - NOT WORKING"
 i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
@@ -857,9 +857,10 @@ Case 3
 Case "PERFORM ON ALL FILES IN FOLDER OR FILE"
     ' Call Label3_Click
     
-Case "NOW DATE"
-    Call Label1_Click
-    
+Case "NOW_DATE"
+    'WORK = "MOD_TO_NOW_DATE"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
 Case "MODIFY DATE TO CREATED DATE - NOT WORKING"
     Call Label2_Click
     
@@ -880,7 +881,6 @@ Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     
 Case "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    
     
 Case "GO"
     If LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor Then
@@ -1265,7 +1265,7 @@ End Sub
 
 Sub CODE_RUN()
 
-
+Exit Sub
 
 If Mid(W$, 1, 1) = """" Then
     W$ = Mid(W$, 2): W$ = Mid(W$, 1, Len(W$) - 1)
@@ -1279,22 +1279,10 @@ If Mid$(W$, Len(W$), 1) <> "\" Then
     W$ = W$ + "\"
 End If
     
-    
 On Error Resume Next
 XX = FSO.FolderExists(W$)
 
 Dim DateSet As Date
-
-If XX = False Then
-'time2$ = "2011-11-01 10:00:00"
-'DateSet = DateValue(time2$) + TimeValue(time2$)
-'DateSet = Now
-'
-'tt = SetFileDateTime(W$, DateSet)
-
-'tt = LastModifiedToCurrent(W$)
-End
-End If
 
 If DIRW$ <> "" Then W$ = DIRW$
 
@@ -1419,20 +1407,6 @@ End Function
 'Resume ExitHandler
 'End Function
 
-Private Sub Label1_Click()
-
-If Label1.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label2.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label9.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-If Label11.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
-
-Label1.BackColor = Label_COLOR_YELLOW.BackColor
-Label_GO_AH.BackColor = Label_COLOR_GREEN.BackColor
-
-WORK = "MOD_TO_NOW_DATE"
-
-End Sub
-
 Private Sub Label11_Click()
 
 If Label1.BackColor = Label_COLOR_YELLOW.BackColor Then Exit Sub
@@ -1485,8 +1459,15 @@ End Sub
 
 Private Sub Label_GO_AH_Click()
 
-If WORK = "MOD_TO_NOW_DATE" = True Then
-    Call CODE_RUN
+If WORK = "NOW_DATE" = True Then
+    ' -------------------------------
+    a = LABEL_SET(3).Caption           ' GET FILE
+    DateSet = Now
+    TT = SetFileDateTime(a, DateSet)
+    MsgBox "Done " + vbCrLf + vbCrLf + a + vbCrLf + vbCrLf + DATEVAR, vbMsgBoxSetForeground
+    End
+
+    ' Call CODE_RUN
     Exit Sub
 End If
 
