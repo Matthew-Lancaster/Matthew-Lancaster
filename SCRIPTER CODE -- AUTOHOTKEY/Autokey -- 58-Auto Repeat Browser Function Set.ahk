@@ -325,6 +325,8 @@ SETTIMER TIMER_PREVIOUS_INSTANCE,1
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 
+TIMER_CPC_MODE=
+
 GLOBAL XPOS
 GLOBAL YPOS
 
@@ -573,6 +575,12 @@ SET_ARRAY_BROWSER_TAB_CLOSE() {
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="BT Home - your gateway into BT"
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="404 Page Not Found | CPC"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="CPC - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="New Tab - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="| CPC UK - Google Chrome"  ; THIS WONT DELETE TAB BUT 404 TRIGGER FOR THEM
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Blocked Access - Google Chrome"
 	ArrayCount += 1
@@ -1195,6 +1203,7 @@ RETURN
 
 TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 
+	A:=TIMER_SET_ARRAY_BROWSER_TAB_CLOSE__
 	WinGetCLASS, CLASS_FOCUS, A
 	WinGetTITLE, TITLE_VAR_FOCUS, A
 	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
@@ -1204,7 +1213,7 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE.MaxIndex()
 	{
 		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE[A_Index]
-		IF INSTR(TITLE_VAR,Element)
+		IF INSTR(TITLE_VAR_FOCUS,Element)
 			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
 		IF INSTR(TITLE_CHROME,Element)
 		{
@@ -1220,31 +1229,52 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 
 	If ARRAY_BROWSER_TAB_CLOSE_SET_GO
 	{
+
+
+		WinGetTITLE, TITLE_VAR_2, A
+		
+		SET_GO_11=0
+		IF INSTR(TITLE_VAR_2,"New Tab - Google Chrome")
+			SET_GO_11=1
+		IF INSTR(TITLE_VAR_2,"CPC - Google Chrome")=1
+			SET_GO_11=1
+		; IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+		;	SET_GO_11=1
+
+		
+		IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
 		IF BROWSER_APP=1
 		{
 			WinActivate, ahk_class Chrome_WidgetWin_1
 			WinWaitActive, ahk_class Chrome_WidgetWin_1
 		}
+		IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
 		IF BROWSER_APP=2
 		{
 			WinActivate, ahk_class MozillaWindowClass
 			WinWaitActive, ahk_class MozillaWindowClass
 		}
 		
-		WinGetTITLE, TITLE_VAR_2, A
+
+		IF SET_GO_11=0
 		IF INSTR(TITLE_VAR_2,ARRAY_BROWSER_TAB_CLOSE_SET_GO)
 		{
 			WinGet, HWND_2, ID, %ARRAY_BROWSER_TAB_CLOSE_SET_GO%
 			IF HWND_2
 			{
-				Send,,^{w}
-				SOUNDBEEP 1000,50
-				SLEEP 100
+				IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+				{
+					Send,,^{w}
+					SOUNDBEEP 1000,50
+					SLEEP 100
+				}
 			}
 			
+			IF HWND_2
 			IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+			{
 			DONE_ONE_COUNTER=10
-			LOOP, 100
+			LOOP, 500
 			{
 				WinGetCLASS, CLASS_FOCUS, A
 				BROWSER_APP=
@@ -1253,52 +1283,75 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 				IF INSTR(CLASS_FOCUS,"MozillaWindowClass")
 					BROWSER_APP=2
 
-				HWND_2=
 				TITLE_VAR=
 				IF BROWSER_APP=1
 				{
-					WinGetTITLE, TITLE_VAR, ahk_class Chrome_WidgetWin_1
+					WinGetTITLE, TITLE_VAR_2, ahk_class Chrome_WidgetWin_1
 					WinGet, HWND_2, ID, ahk_class Chrome_WidgetWin_1
 				}
 				IF BROWSER_APP=2
 				{
-					WinGetTITLE, TITLE_VAR, ahk_class MozillaWindowClass
+					WinGetTITLE, TITLE_VAR_2, ahk_class MozillaWindowClass
 					WinGet, HWND_2, ID, ahk_class MozillaWindowClass
 				}
 
 				DONE_ONE=0
-				IF HWND_2
-				IF INSTR(TITLE_VAR,"CPC - Google Chrome")
+				; IF TIMER_CPC_MODE>%A_NOW%
+				IF DONE_ONE=0
+				IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
 				{
+					; MSGBOX % TITLE_VAR
+					Send,,^{w}	
+					SLEEP 500
+					TIMER_CPC_MODE=%A_NOW%
+					TIMER_CPC_MODE+=8, SECOND
+					DONE_ONE=1
+					DONE_ONE_COUNTER+=1
+				}
+
+				IF DONE_ONE=0
+				IF INSTR(TITLE_VAR_2,"CPC - Google Chrome")=1
+				{
+					; MSGBOX % TITLE_VAR " -- " INSTR(TITLE_VAR,"CPC - Google Chrome")
 					Send,,^{w}
-					SLEEP 100
+					SLEEP 500
 					DONE_ONE=1
 					DONE_ONE_COUNTER+=1
 				}
 				
+				;IF TIMER_CPC_MODE>%A_NOW%
 				IF DONE_ONE=0
-				IF INSTR(TITLE_VAR,"New Tab - Google Chrome")
+				IF INSTR(TITLE_VAR_2,"New Tab - Google Chrome")
 				{
+					; MSGBOX % TITLE_VAR
 					Send,,^{w}
-					SLEEP 100
+					SLEEP 500
 					DONE_ONE=1
 					DONE_ONE_COUNTER+=1
 				}
+
 				IF DONE_ONE=0
-				IF INSTR(TITLE_VAR,"404 Page Not Found | CPC")
 				{
-					Send,,^{w}
-					SLEEP 100
-					DONE_ONE=1
-					DONE_ONE_COUNTER+=1
+					Send,,^+{Tab}
+					SLEEP 1200
 				}
+				
 				
 				DONE_ONE_COUNTER-=1
 				IF DONE_ONE_COUNTER<0
 					BREAK
+
+				IF INSTR(TITLE_VAR_2,"- Notepad++")
+					BREAK
+
+				IF INSTR(TITLE_VAR_2,"ClipBoard Logger")
+					BREAK
+				
+				if GetKeyState("RButton", "P") or GetKeyState("LButton", "P") 
+						BREAK
 				
 				; SLEEP 100
-
+				}
 			}
 		}
 	}
@@ -1438,6 +1491,9 @@ RETURN
 
 AUTO_RELOAD_RAIN_ALARM:
 	
+	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		SETTIMER AUTO_RELOAD_RAIN_ALARM, OFF
+
 	IF RAIN_ALARM_DO_ONCE
 	{
 		GOSUB SET_RAIN_ALARM_WINDOW_DIMENSION
@@ -1457,19 +1513,19 @@ AUTO_RELOAD_RAIN_ALARM:
 
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"  ; ---- COMPUTER NAME
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=                ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20              ; ---- TIMER INTERVAL ACTIVATE
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10              ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"     ; ---- MAKE AUDIO HITTER
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=40              ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
 	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
 	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=40
-	ArrayCount += 1
-	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
-	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=
-	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=
-	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
-	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=
 	ArrayCount += 1 
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="3-LINDA-PC"
 	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
@@ -1578,6 +1634,7 @@ AUTO_RELOAD_RAIN_ALARM:
 		CHANGE_HWND_GO_RAIN=TRUE
 
 	}
+	
 	; TOOLTIP % O_RELO_RAIN "`n" HWND_AUTO_RELO_RAIN_3 "`n" CHANGE_HWND_GO_RAIN
 	
 	; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
@@ -1802,6 +1859,8 @@ AUTO_RELOAD_FACEBOOK:
 	; QUICK TO ACTIVATE -- DONE
 	; TIMER AFTER VALUE
 
+	A:=AUTO_RELOAD_FACEBOOK__
+	
 	SET_ARRAY_FB_HITT_CN_1 := []  ; ---- COMPUTER NAME
 	SET_ARRAY_FB_HITT_CN_2 := []  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE
 	SET_ARRAY_FB_HITT_CN_3 := []  ; ---- TIMER INTERVAL ACTIVATE
@@ -1815,12 +1874,12 @@ AUTO_RELOAD_FACEBOOK:
 
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"
-	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=
+	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"    ; ---- COMPUTER NAME
+	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=                  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE   
+	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20                ; ---- TIMER INTERVAL ACTIVATE
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2                 ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"       ; ---- MAKE AUDIO HITTER
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50                ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
@@ -1920,7 +1979,6 @@ AUTO_RELOAD_FACEBOOK:
 	IF !COMPUTER_NAME_FOUND
 		MSGBOX "COMPUTER NAME NOT FOUND"
 	
-	
 	WinGet, HWND_AUTO_RELO_FB_1, ID, A    ; Get Active Window
 	WinGetTITLE, HWND_AUTO_RELO_FB_2, A   ; Get Active Window TITLE
 	HWND_AUTO_RELO_FB_3=% HWND_AUTO_RELO_FB_1 "`n" HWND_AUTO_RELO_FB_2
@@ -1944,11 +2002,23 @@ AUTO_RELOAD_FACEBOOK:
 		CHANGE_HWND_GO_FB=TRUE
 	}
 
-	; If (A_TimeIdle < 8000)
-		; RETURN
+	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		TOOLTIP % O_RELO_FB "`n" HWND_AUTO_RELO_FB_3 "`n" CHANGE_HWND_GO_FB
+	IF (A_ComputerName = "4-ASUS-GL522VW") 
+		; TOOLTIP % O_RELO_FB "`n" HWND_AUTO_RELO_FB_3 "`n" CHANGE_HWND_GO_FB
+
 	
 	; ---------------------------------------------------------------
-	; SetTitleMatchMode 2 
+	; INTRO HERE BACK IN
+	; PAGE RELOAD WHILE WORKER NOT WORK GOOD
+	; Fri 11-Oct-2019 19:33:29
+	; ---------------------------------------------------------------
+	IF !CHANGE_HWND_GO_FB
+	If (A_TimeIdle < 8000)
+		RETURN
+	
+	; ---------------------------------------------------------------
+	; SetTitleMatchMode 2
 	; ---------------------------------------------------------------
 	; PARTIAL THIS ONE AS FACEBOOK 
 	; SOMETIME GETT AH (1) OR (2) NUMBER IN FRONT
@@ -1959,7 +2029,7 @@ AUTO_RELOAD_FACEBOOK:
 	SetTitleMatchMode 2                ; PARTIAL FIND
 	; ---------------------------------------------------------------
 	; ACTIVATE CODE BLOCK ROUTINE
-	; Element2 -- ACTIVATE ARE GO IS TIMER READY 
+	; Element2 -- ACTIVATE ARE GO IS TIMER READY
 	; ---------------------------------------------------------------
 	SET_GO_10_RAIN=
 	IF !Element2
@@ -2091,7 +2161,7 @@ AUTO_RELOAD_FACEBOOK:
 
 	; ---------------------------------------------------------------
 	; THE NEW NOTIFICATION INDICATE BY A 
-	; ENCLOSED BRACKET AND NUMBER (1)
+	; ENCLOSED BRACKET AND NUMBER EXAMPLE -- YOUR NOTIFICATIONS (1)
 	; INITIAL PLAN WAS ABANDON 
 	; AS ONE COMPUTE WOULD TAKE THE NOTIFY GONE AND LEFT OTHER SIT THERE
 	; BUTTY IF INTRODUCE DELAY -- MIGHT WORKER
@@ -2112,6 +2182,11 @@ AUTO_RELOAD_FACEBOOK:
 	{
 		NEW_NOTIFY_UPDATE_TIMER_DELAY=
 		NEW_NOTIFY_UPDATE_FLAGER=TRUE
+	}
+	IF NEW_NOTIFY_UPDATE_TIMER_DELAY
+	IF NEW_NOTIFY_UPDATE_TIMER_DELAY>%A_NOW%
+	{
+		RETURN
 	}
 
 	IF !CHECKER_FB
@@ -2145,9 +2220,16 @@ AUTO_RELOAD_FACEBOOK:
 	IF NEW_NOTIFY_UPDATE_FLAGER=TRUE
 		SET_GO_FB=TRUE
 
-		
+	
 	IF SET_GO_FB=TRUE
 	{
+		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		{
+			TOOLTIP 
+			SLEEP 400
+		}
+		IF (A_ComputerName = "4-ASUS-GL522VW") 
+			TOOLTIP 
 		SLEEP 100
 		SENDINPUT {Up}
 		SENDINPUT {F5}

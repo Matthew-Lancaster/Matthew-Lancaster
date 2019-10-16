@@ -77,14 +77,13 @@ CHROME_RUN_AND_MIN:
 			RETURN
 		}	
 		
-		; IF (A_ComputerName = "2-ASUS-EEE") 
-		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		IF (A_ComputerName = "1-ASUS-X5DIJ")
+		CHROME_PAGE=https://www.facebook.com/notifications
+		IF (A_ComputerName = "2-ASUS-EEE")
 		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
-		IF (A_ComputerName = "2-ASUS-EEE") 
+		IF (A_ComputerName = "3-LINDA-PC")
 		CHROME_PAGE=https://www.facebook.com/notifications
-		IF (A_ComputerName = "3-LINDA-PC") 
-		CHROME_PAGE=https://www.facebook.com/notifications
-		IF (A_ComputerName = "4-ASUS-GL522VW") 
+		IF (A_ComputerName = "4-ASUS-GL522VW")
 		CHROME_PAGE=https://www.facebook.com/notifications
 		IF (A_ComputerName = "4-LINDA-PC") 
 		CHROME_PAGE=https://www.facebook.com/notifications
