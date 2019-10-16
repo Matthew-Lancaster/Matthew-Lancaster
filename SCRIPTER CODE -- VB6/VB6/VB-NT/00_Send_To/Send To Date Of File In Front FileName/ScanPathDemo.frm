@@ -344,7 +344,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   100597761
+      Format          =   101842945
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -358,7 +358,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   100597761
+      Format          =   101842945
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -873,7 +873,7 @@ X_YEAR = Format(Now, "YYYY")
 
 
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2015+Sony\" + X_YEAR + " CyberShot HX60V\DCIM"
-IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME 01\2010+Sony\" + X_YEAR + " CyberShot HX60V_#\DCIM"
+IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\VI_ DSC ME 01\2010+Sony\" ' + X_YEAR + " CyberShot HX60V_#\DCIM"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2012+Nokia E72"
 IP1 = IP1 + 1: ARRAY_I(IP1) = "D:\DSC\2017+FUJI XP90"
 ' 4.
@@ -2626,33 +2626,35 @@ For WE = 1 To ListView1.ListItems.Count
         'NORMAL IMPORT FROM SDCARD CAMERA WHEN FIRMWARE BEEN UPDATED
         If InStr(LastPath, "MSDCF") Then
             DIR_FILE = Dir(FrontofLastPath + LastPath + "\*.JPG")
-            Set F = fs.GetFile(FrontofLastPath + LastPath + "\" + DIR_FILE)
-            DATE_FILE_NAME = F.DateLastModified
-            LastPath = Format(DATE_FILE_NAME, "YYYY MM DD")
-'            LastPath = Mid(LastPath, 1, 8)
-            'LastPath = "201" + Mid(LastPath, 4)
-            'If Mid(LastPath, 5, 1) <> " " Then LastPath = Mid(LastPath, 1, 4) + " " + Mid(LastPath, 5, 2) + " " + Mid(LastPath, 7, 2)
-            If Dir(FrontofLastPath + LastPath, vbDirectory) = "" And FrontofLastPath + LastPath + "\" <> A1$ Then
-                Name A1$ As FrontofLastPath + LastPath
-                WX = 0
-            Else
-                
-                WX = WX + 1
-                '------------------------------------------------------------------
-                'IF WE PUT THE DASH IN BEFORE NUMERIC ADD END
-                '------------------------------------------------------------------
-                'AND THEN THAT WORK SORT THE NEW FOLDER BETTER ALONGSIDE EACH OTHER
-                'RATHER THAN WITHOUT THE EXTRA CHAR NUMERIC MAKE SORT AT END
-                '------------------------------------------------------------------
-                Do
-                    TEST_DONE = False
-                    If Dir(FrontofLastPath + LastPath + "-" + Trim(Str(WX)), vbDirectory) <> "" Then
-                        WX = WX + 1
-                        TEST_DONE = True
-                    End If
-                Loop Until TEST_DONE = False
-                
-                Name A1$ As FrontofLastPath + LastPath + " _ " + Trim(Str(WX))
+            If DIR_FILE <> "" Then
+                Set F = fs.GetFile(FrontofLastPath + LastPath + "\" + DIR_FILE)
+                DATE_FILE_NAME = F.DateLastModified
+                LastPath = Format(DATE_FILE_NAME, "YYYY MM DD")
+    '            LastPath = Mid(LastPath, 1, 8)
+                'LastPath = "201" + Mid(LastPath, 4)
+                'If Mid(LastPath, 5, 1) <> " " Then LastPath = Mid(LastPath, 1, 4) + " " + Mid(LastPath, 5, 2) + " " + Mid(LastPath, 7, 2)
+                If Dir(FrontofLastPath + LastPath, vbDirectory) = "" And FrontofLastPath + LastPath + "\" <> A1$ Then
+                    Name A1$ As FrontofLastPath + LastPath
+                    WX = 0
+                Else
+                    
+                    WX = WX + 1
+                    '------------------------------------------------------------------
+                    'IF WE PUT THE DASH IN BEFORE NUMERIC ADD END
+                    '------------------------------------------------------------------
+                    'AND THEN THAT WORK SORT THE NEW FOLDER BETTER ALONGSIDE EACH OTHER
+                    'RATHER THAN WITHOUT THE EXTRA CHAR NUMERIC MAKE SORT AT END
+                    '------------------------------------------------------------------
+                    Do
+                        TEST_DONE = False
+                        If Dir(FrontofLastPath + LastPath + "-" + Trim(Str(WX)), vbDirectory) <> "" Then
+                            WX = WX + 1
+                            TEST_DONE = True
+                        End If
+                    Loop Until TEST_DONE = False
+                    
+                    Name A1$ As FrontofLastPath + LastPath + " _ " + Trim(Str(WX))
+                End If
             End If
         End If
         

@@ -1015,22 +1015,22 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			{
 				; UNCHECKER -- IS Status=0
 				; ------------------------
-				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+				ControlGet, Status, Checked,, Button54, ahk_id %HWND_1%
 				If Status=0
 				{
-					Control, Check,, Button57, ahk_id %HWND_1%
+					Control, Check,, Button54, ahk_id %HWND_1%
 					SoundBeep , 4000 , 100
 					TOOLTIP RIGHT SIDE -- NONE _GSDATA_ FOLDER HERE
 					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
 					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
 					TT_1:=% TT_1 "_RIGHT_SIDE_`n"
 				}
-				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+				ControlGet, Status, Checked,, Button54, ahk_id %HWND_1%
 				If Status=1
 				{
 					RIGHT_SIDE_HWND=%HWND_1%
 				}
-				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+				ControlGet, Status, Checked,, Button54, ahk_id %HWND_1%
 				If Status=1
 				{
 					TOOLTIP
