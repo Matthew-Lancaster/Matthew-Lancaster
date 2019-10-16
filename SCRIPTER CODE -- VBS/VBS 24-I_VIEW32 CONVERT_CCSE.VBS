@@ -89,7 +89,9 @@ FOR EACH objProcess IN colProcesses
 				' MSGBOX I +VBV+ CSTR(iMyPID) +VBV+ CSTR(lngMyProcessId)
 			' -------------------------------------------------------
 			IF iMyPID<>PID_Script THEN 
+				ON ERROR RESUME NEXT
 				objProcess.Terminate() 
+				ON ERROR GOTO 0
 				objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
 				' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
 			END IF
