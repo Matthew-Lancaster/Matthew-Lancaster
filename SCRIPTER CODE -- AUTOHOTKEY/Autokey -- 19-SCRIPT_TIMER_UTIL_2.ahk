@@ -350,6 +350,12 @@ SETTIMER TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP,1000
 
 ;SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 
+
+WINNOTEXIST_AHK_CLASS_WINAMP_V1=
+SETTIMER RUN_AND_STOP_HUBIC_WHEN_WINAMP,2000
+
+
+
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
@@ -366,6 +372,41 @@ RETURN
 ; TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 ; -------------------------------------------------------------------
 
+
+RUN_AND_STOP_HUBIC_WHEN_WINAMP:
+
+IF !WINNOTEXIST_AHK_CLASS_WINAMP_V1
+IfWinNOTExist ahk_class Winamp v1.x
+	{
+		WINNOTEXIST_AHK_CLASS_WINAMP_V1=TRUE
+		Process, Exist, hubiC.exe
+		If Not ErrorLevel ; errorlevel = 0 if process doesn't exist
+		{
+			IfWinNotExist , hubiC
+			{
+				FN_VAR:="C:\Program Files\OVH\hubiC\hubiC.exe"
+				IfExist, %FN_VAR%
+				{
+					Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE.VBS" "%FN_VAR%"
+					SoundBeep , 2500 , 100
+				}
+			}
+		}
+	}
+
+	IfWinExist ahk_class Winamp v1.x
+	{
+		WINNOTEXIST_AHK_CLASS_WINAMP_V1=
+		RunWAIT, TASKKILL.EXE /F /IM HubiC.exe,,HIDE
+		
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
+		IfExist, %FN_VAR%
+		{
+			Run, "%FN_VAR%"
+		}
+	}
+	
+RETURN
 
 
 TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP:
