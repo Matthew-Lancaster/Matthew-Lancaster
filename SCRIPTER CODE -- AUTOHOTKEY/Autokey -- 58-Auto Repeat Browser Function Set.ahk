@@ -87,7 +87,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; SESSION 005
 ; ----------------------------------------------------
 ; TODAY WORK HERE AND ADD NEW ROUTINE WITH AN ARRAY
-; TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+; TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC:
 ; THAT HAS TWO FUNCTION
 ; ONE IT SOLE WORK IT TO DELETE ANY UN-WANTER TAB THAT COME UP
 ; LIKE THE HOME HUB TELL CONNECTION NOT PROPER
@@ -415,6 +415,8 @@ TIMER_FOR_MOMENT_WAIT_EVENT_HAPPEN_ACTIVATE_VAR=
 SET_ARRAY_FB_HITT_CN_33=  ; ---- VARIABLE HOLD TIMER_1 - ACTIVATE SECOND LONG
 SET_ARRAY_FB_HITT_CN_44=  ; ---- VARIABLE HOLD TIMER_2 - F5 REFRESH MINUTE
 SET_ARRAY_FB_HITT_CN_3_DO_ONCE=SOME_TO_DO
+SOUND_PLAYER_FB_DO=
+
 
 SET_ARRAY_RAIN_HITT_CN_33=      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
 SET_ARRAY_RAIN_HITT_CN_44=      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
@@ -446,6 +448,7 @@ IF OSVER_N_VAR>5
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
+FN_SET_ARRAY_BROWSER_TAB_CLOSE_CPC := SET_ARRAY_BROWSER_TAB_CLOSE_CPC()
 FN_SET_ARRAY_BROWSER_TAB_CLOSE := SET_ARRAY_BROWSER_TAB_CLOSE()
 
 FN_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN := SET_ARRAY_BROWSER_TAB_RELOAD_MAIN()
@@ -460,10 +463,13 @@ IF A_ComputerName=3-LINDA-PC
 	SET_GO=TRUE
 	
 SET_GO=TRUE
+SET_GO=TRUE
+SET_GO=TRUE
 
 ; 03 OF 04
 IF SET_GO=TRUE 
 {
+	SETTIMER TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC,1000
 	SETTIMER TIMER_SET_ARRAY_BROWSER_TAB_CLOSE,1000
 }
 
@@ -517,6 +523,8 @@ SET_ARRAY_RAINER_F5() {
 	ArrayCount += 1
 	SET_ARRAY_RAINER_F5[ArrayCount]:="502 Bad Gateway"
 	ArrayCount += 1
+	SET_ARRAY_RAINER_F5[ArrayCount]:="Privacy error - Google Chrome"
+	ArrayCount += 1
 	SET_ARRAY_RAINER_F5[ArrayCount]:="Rain Alarm - Mozilla Firefox"
 	ArrayCount += 1
 	SET_ARRAY_RAINER_F5[ArrayCount]:="Rain Alarm - Google Chrome"
@@ -566,6 +574,32 @@ SET_ARRAY_AUTO_KEY() {
 RETURN SET_ARRAY_AUTO_KEY
 }
 
+SET_ARRAY_BROWSER_TAB_CLOSE_CPC() {
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="BT Smart Hub Manager"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="BT Home - your gateway into BT"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="404 Page Not Found | CPC"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="CPC - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="New Tab - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="| CPC UK - Google Chrome"  ; THIS WONT DELETE TAB BUT 404 TRIGGER FOR THEM
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="Blocked Access - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="Google Chrome Help"
+	
+	; ArrayCount += 1
+	; SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="Home"
+	
+RETURN SET_ARRAY_BROWSER_TAB_CLOSE_CPC
+}
+
 SET_ARRAY_BROWSER_TAB_CLOSE() {
 	SET_ARRAY_BROWSER_TAB_CLOSE := []
 	ArrayCount := 0
@@ -574,23 +608,16 @@ SET_ARRAY_BROWSER_TAB_CLOSE() {
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="BT Home - your gateway into BT"
 	ArrayCount += 1
-	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="404 Page Not Found | CPC"
-	ArrayCount += 1
-	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="CPC - Google Chrome"
-	ArrayCount += 1
-	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="New Tab - Google Chrome"
-	ArrayCount += 1
-	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="| CPC UK - Google Chrome"  ; THIS WONT DELETE TAB BUT 404 TRIGGER FOR THEM
-	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Blocked Access - Google Chrome"
-	ArrayCount += 1
-	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Google Chrome Help"
-	
+
+	; ArrayCount += 1
+	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Google Chrome Help"
 	; ArrayCount += 1
 	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Home"
 	
 RETURN SET_ARRAY_BROWSER_TAB_CLOSE
 }
+
 
 SET_ARRAY_BROWSER_TAB_RELOAD_MAIN() {
 	SET_ARRAY_BROWSER_TAB_RELOAD_MAIN := []
@@ -1201,18 +1228,18 @@ TIMER_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN:
 RETURN
 
 
-TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC:
 
-	A:=TIMER_SET_ARRAY_BROWSER_TAB_CLOSE__
+	A:=TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC__
 	WinGetCLASS, CLASS_FOCUS, A
 	WinGetTITLE, TITLE_VAR_FOCUS, A
 	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
 	WinGetTITLE, TITLE_MOZILLA, ahk_class MozillaWindowClass
 
 	ARRAY_BROWSER_TAB_CLOSE_SET_GO=
-	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE.MaxIndex()
+	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE_CPC.MaxIndex()
 	{
-		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE[A_Index]
+		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE_CPC[A_Index]
 		IF INSTR(TITLE_VAR_FOCUS,Element)
 			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
 		IF INSTR(TITLE_CHROME,Element)
@@ -1229,8 +1256,6 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 
 	If ARRAY_BROWSER_TAB_CLOSE_SET_GO
 	{
-
-
 		WinGetTITLE, TITLE_VAR_2, A
 		
 		SET_GO_11=0
@@ -1358,6 +1383,49 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 
 RETURN
 
+TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+
+	A:=TIMER_SET_ARRAY_BROWSER_TAB_CLOSE__
+	WinGetCLASS, CLASS_FOCUS, A
+	WinGetTITLE, TITLE_VAR_FOCUS, A
+	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
+	WinGetTITLE, TITLE_MOZILLA, ahk_class MozillaWindowClass
+
+	ARRAY_BROWSER_TAB_CLOSE_SET_GO=
+	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE.MaxIndex()
+	{
+		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE[A_Index]
+		IF INSTR(TITLE_VAR_FOCUS,Element)
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		IF INSTR(TITLE_CHROME,Element)
+		{
+			BROWSER_APP=1
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		}
+		IF INSTR(TITLE_MOZILLA,Element)
+		{
+			BROWSER_APP=2
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		}
+	}
+
+	If ARRAY_BROWSER_TAB_CLOSE_SET_GO
+	{
+		WinGetTITLE, TITLE_VAR_2, A
+		
+		IF INSTR(TITLE_VAR_2,ARRAY_BROWSER_TAB_CLOSE_SET_GO)
+		{
+			WinGet, HWND_2, ID, %ARRAY_BROWSER_TAB_CLOSE_SET_GO%
+			IF HWND_2
+			{
+				Send,,^{w}
+				SOUNDBEEP 1000,50
+				SLEEP 100
+			}
+		}
+	}
+
+RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -2002,9 +2070,9 @@ AUTO_RELOAD_FACEBOOK:
 		CHANGE_HWND_GO_FB=TRUE
 	}
 
-	IF (A_ComputerName = "1-ASUS-X5DIJ") 
-		TOOLTIP % O_RELO_FB "`n" HWND_AUTO_RELO_FB_3 "`n" CHANGE_HWND_GO_FB
-	IF (A_ComputerName = "4-ASUS-GL522VW") 
+	; IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		; TOOLTIP % O_RELO_FB "`n" HWND_AUTO_RELO_FB_3 "`n" CHANGE_HWND_GO_FB
+	; IF (A_ComputerName = "4-ASUS-GL522VW") 
 		; TOOLTIP % O_RELO_FB "`n" HWND_AUTO_RELO_FB_3 "`n" CHANGE_HWND_GO_FB
 
 	
@@ -2140,6 +2208,7 @@ AUTO_RELOAD_FACEBOOK:
 		CHANGE_HWND_GO_FB=
 	}
 
+	
 
 	NEW_NOTIFY_UPDATE=
 	WinGetTITLE, TITLE_VAR_FB_F5, A
@@ -2150,8 +2219,14 @@ AUTO_RELOAD_FACEBOOK:
 		{
 			IF INSTR(TITLE_VAR_FB_F5,"(")=1
 			{
-				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
-				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
+				IF SOUND_PLAYER_FB_DO<%A_NOW%
+				{
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
+					SOUND_PLAYER_FB_DO=%A_NOW%
+					SOUND_PLAYER_FB_DO+= 2, seconds
+				}
+				
 
 				NEW_NOTIFY_UPDATE=TRUE
 				BREAK
