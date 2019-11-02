@@ -478,6 +478,12 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_QUICK_MODE 
       Caption         =   "QUICK MODE -- OFF -- GIVE MESSENGER"
    End
+   Begin VB.Menu MNU_CREATE_TEXT_FILE_FOR_DATE 
+      Caption         =   "CREATE TEXT FILE FOR DATE"
+   End
+   Begin VB.Menu MNU_CREATE_FOLDER_DATE_OF_FILE 
+      Caption         =   "CREATE FOLDER DATE OF FILE"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -486,6 +492,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim M()
 Dim M_2()
+Dim M_3()
 Dim FR1
 
 Dim FIRST_RUN
@@ -760,6 +767,7 @@ Dim r
 
 ReDim M(LABEL_SET.Count)
 ReDim M_2(LABEL_SET.Count)
+ReDim M_3(LABEL_SET.Count)
 i = 0
 
 i = i + 1: M(i) = "GO"
@@ -777,7 +785,8 @@ i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
 i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
+i = i + 1: M(i) = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH_--_\#_TEXT_DATER*.TXT"
+i = i + 0: M_3(i) = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
 
 For r = 0 To i
     M_2(r) = Replace(M(r), "_", " ")
@@ -802,6 +811,10 @@ Next
 
 LABEL_SET(2).FontSize = 12
 LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
+
+On Error Resume Next
+Me.Width = 17000
+On Error GoTo 0
 
 ' TOP LABEL
 ' HEIGHT LABEL
@@ -832,7 +845,7 @@ LABEL_SET(r).Height = HL
 LABEL_SET(r).Top = STEP_H
 STEP_H = STEP_H + 40 + HL
 
-
+On Error Resume Next
 Me.Height = STEP_H + 1000
 Me.Top = 0
 
@@ -841,11 +854,17 @@ End Sub
 
 Private Sub LABEL_SET_Click(index As Integer)
 
-If M(index) <> "GO" Then
-    WORK = M(index)
+DISPLAY_NAMER = M(index)
+If M_3(index) <> "" Then
+    DISPLAY_NAMER = M_3(index)
 End If
 
-Select Case M(index)
+If DISPLAY_NAMER <> "GO" Then
+    WORK = DISPLAY_NAMER
+End If
+
+
+Select Case DISPLAY_NAMER
 
 Case 2
     ' FOLDER BUTTON
@@ -1011,12 +1030,25 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
         
         
     Next
+    On Error Resume Next
+    FR1 = FreeFile
+    Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Input As #FR1
+        Line Input #FR1, I_1
+    Close FR1
+    MNU_QUICK_MODE.Caption = I_1
+    I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+    I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC)
+    End If
     
-    MsgBox "Done = " + vbCrLf + str(XC)
     End
 End Sub
     
 Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
+    
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
     
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
 '    ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\00 ROOT_02_(DATE-ALPHABETICAL)\1984 a11 -- NURSE -- 1984"
@@ -1026,8 +1058,6 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         End
     End If
     
-    ScanPath.chkSubFolders = vbChecked
-    ScanPath.cboMask.Text = "*.*"
     
     'ScanPath.Show
     Dim DT1 As Date
@@ -1049,7 +1079,13 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         Set F = Nothing
     Next
     
-    XX = Dir(ScanPath.txtPath.Text + "\# TEXT_DATER*.txt")
+    XX = Dir(ScanPath.txtPath.Text + "\# TEXT_DATER*.TXT")
+    If XX = "" Then
+        XX = Dir(ScanPath.txtPath.Text + "\#_TEXT_DATER*.TXT")
+    End If
+    If XX = "" Then
+        XX = Dir(ScanPath.txtPath.Text + "\# TEXT DATER*.TXT")
+    End If
     If XX = "" Then
         MsgBox "NONE (DATE WITHIN TEXT FILE) FOUND HERE" + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\# TEXT_DATER*.txt" + vbCrLf + vbCrLf + "-- EXIT"
         End
@@ -1059,6 +1095,10 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     Open ScanPath.txtPath.Text + "\" + XX For Input As #FR1
         Line Input #FR1, TIME_STRING
     Close FR1
+    
+    TIME_STRING = Replace(TIME_STRING, "\", "/")
+    TIME_STRING = Replace(TIME_STRING, "_", ":")
+    
     
     DT4 = DateValue(TIME_STRING) + TimeValue(TIME_STRING)
     If IsDate(DT4) = False Then
@@ -1456,6 +1496,46 @@ WORK = "CREATED_TO_MOD_DATE"
 
 End Sub
 
+Sub SET_BATCH_DATE_CAMERA_VIDEO_FILENAME_TO_DATE_FILE()
+
+    a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_10_31 Oct_Wed 11_55_50__MAQ01836 (2).mp4"
+
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
+    ScanPath.txtPath.Text = "\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\VI_ DSC ME 01\2010+SONY\2017 CyberShot HX60V_#\New folder"
+    'ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        a = B1$
+        
+        XX = InStr(a, "\201_")
+        DATEVAR = Replace(Mid(a, XX + 1, 10) + " " + Mid(a, XX + 20, 8), "_", "-")
+        
+        For r = 1 To 10
+            If Mid(DATEVAR, r, 1) = "-" Then Mid(DATEVAR, r, 1) = "/"
+        Next
+        For r = 10 To Len(DATEVAR)
+            If Mid(DATEVAR, r, 1) = "-" Then Mid(DATEVAR, r, 1) = ":"
+        Next
+        DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
+        
+    '    Ds1 = DateValue(Mid(xb1$, 9, 2) + "-" + Mid(xb1$, 6, 2) + "-" + Mid(xb1$, 1, 4))
+    '    Ds2 = TimeValue(Replace(Mid(xb1$, 12, 8), "-", ":"))
+    '    DateSet = DateValue(Ds1) + TimeValue(Ds1)
+    '    DateSet = Ds1 + Ds2
+    '    DateSet = GetExif(a1$ + B1$)
+                
+        TT = SetFileDateTime(a, DateSet)
+        XC = XC + 1
+    Next
+    
+    MsgBox "Done = " + str(XC)
+    End
+
+End Sub
+
 
 Private Sub Label_GO_AH_Click()
 
@@ -1505,6 +1585,9 @@ End If
 
 
 If WORK = "SET_ONE_DATE_HARDCODER" = True Then
+    
+    Call SET_BATCH_DATE_CAMERA_VIDEO_FILENAME_TO_DATE_FILE
+    End
     
 '   SIMPLE
 '   -------------------------------
@@ -1613,6 +1696,50 @@ Private Sub SET_ONE_DATE_HARDCODER()
 
 End Sub
 
+
+Private Sub MNU_CREATE_FOLDER_DATE_OF_FILE_Click()
+
+    Set F = FSO.GetFile(LABEL_SET(3).Caption)
+    DT1 = F.datelastmodified
+
+    OUT_FOLDER = LABEL_SET(2).Caption + "\" + Format(DT1, "YYYY-MM-DD")
+    If InStr(LABEL_SET(3).Caption, "REC") > 0 And InStr(LABEL_SET(3).Caption, ".WAV") > 0 Then
+        OUT_FOLDER = LABEL_SET(2).Caption + "\RECORD " + Format(DT1, "YYYY-MM-DD")
+    End If
+    
+    
+    MkDir OUT_FOLDER
+
+    End
+
+
+End Sub
+
+Private Sub MNU_CREATE_TEXT_FILE_FOR_DATE_Click()
+    
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
+    ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    
+    For rr = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        Exit For
+    Next
+    
+    XX = ScanPath.txtPath.Text + "\# TEXT_DATER.TXT"
+    FR1 = FreeFile
+    Open XX For Output As #FR1
+        Print #FR1, A1$
+        Print #FR1, B1$
+    Close FR1
+    
+    Me.WindowState = vbMinimized
+    Shell "C:\Program Files (x86)\Notepad++\notepad++.exe """ + XX + """", vbMaximizedFocus
+
+    End
+
+End Sub
 
 Private Sub MNU_QUICK_MODE_Click()
 
