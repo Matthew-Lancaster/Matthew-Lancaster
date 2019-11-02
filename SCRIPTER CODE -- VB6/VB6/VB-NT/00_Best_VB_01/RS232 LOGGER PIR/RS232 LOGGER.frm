@@ -17,6 +17,11 @@ Begin VB.Form DIALER
    Visible         =   0   'False
    WhatsThisHelp   =   -1  'True
    WindowState     =   1  'Minimized
+   Begin VB.Timer Timer_ERROR 
+      Interval        =   1000
+      Left            =   2796
+      Top             =   1320
+   End
    Begin VB.Timer TIMER_FRONT_DOOR 
       Interval        =   1000
       Left            =   2604
@@ -125,6 +130,9 @@ Attribute VB_Exposed = False
 ' BE NICER IF START MINIMIZED
 ' ------------------------------------------------------------------------
 
+Dim COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR
+Dim COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR
+
 Dim DOOR_OPEN_HAPPEN
 Dim FOLDER_NAME, FILE_NAME_4
 Dim FILE_NAME, X1, X2, A_NOW
@@ -164,6 +172,8 @@ Private Const WM_CLOSE = &H10
 Private Const WM_USER = &H400
 Private Const WM_COMMAND = &H111
 Private Const GW_HWNDNEXT = 2
+
+Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
 
 
 Private Sub Form_Load()
@@ -269,6 +279,28 @@ End If
 End Sub
 
 
+
+
+Private Sub Timer_ERROR_Timer()
+
+    MSG_1 = ""
+    
+    If COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR > 100 Then
+        MSG_1 = "COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR > 100 NOT OPEN PORT" + vbCrLf
+        MSG_1 = MSG_1 + Str(COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR) + vbCrLf + vbCrLf
+    End If
+    
+    If COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR > 100 Then
+        MSG_1 = MSG_1 + "COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR > 100 NOT OPEN PORT" + vbCrLf
+        MSG_1 = MSG_1 + Str(COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR) + vbCrLf + vbCrLf
+    End If
+    
+    If MSG_1 <> "" Then
+        MsgBox MSG_1, vbMsgBoxSetForeground
+    End If
+    
+End Sub
+
 Private Sub Timer_PIR_Timer()
         
 Dim FSO
@@ -276,6 +308,7 @@ On Error Resume Next
 TTITTY = " __ Port " + Format(Me.MSComm3.CommPort, "00") + " ___ PIR"
 If Me.MSComm3.PortOpen = False Then
     Debug.Print "PIR ____ " + Time$ + " Me.MSComm3.PortOpen = False" + TTITTY
+    COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR = COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR + 1
     Exit Sub
 End If
 
@@ -335,6 +368,7 @@ TTITTY = " __ Port " + Format(Me.MSComm4.CommPort, "00") + " ___ DOOR"
 
 If Me.MSComm4.PortOpen = False Then
     Debug.Print "DOOR ___ " + Time$ + " Me.MSComm4.PortOpen = False" + TTITTY
+    COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR = COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR + 1
     Exit Sub
 End If
 
@@ -405,6 +439,12 @@ If VAR_DSR_4 = True Then
             End If
             If PROGRAM_LOAD = False And NEXT_AFTER_PROGRAM_LOAD = False Then
                Call WRITE_LOGGER_OPEN_INFO
+            End If
+            
+            If FindWindow("", "Tidal Information...") = 0 Then
+                Shell "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe", vbMinimizedNoFocus
+                ' Debug.Print Str(Now)
+                ' TRY MAKE SURE ONLY RUN ONCE TO STARTER -- SEEM OKAY
             End If
         End If
     Next

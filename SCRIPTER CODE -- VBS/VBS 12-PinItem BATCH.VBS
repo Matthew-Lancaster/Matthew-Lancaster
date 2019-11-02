@@ -693,8 +693,14 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Office\Office12\OUTLOOK.EXE"
 END IF
 
-
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe"
+
+
+IF Version_OS=10 THEN
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MP4Tools\bin\MP4Joiner.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MP4Tools\bin\MP4Splitter.exe"
+END IF
+
 
 
 I=I+1:ARRAY_1(I)=""
