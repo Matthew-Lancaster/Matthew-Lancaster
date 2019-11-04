@@ -2321,6 +2321,7 @@ Option Explicit
 
 Public cProcesses As New clsCnProc
 
+Dim O_TxtEXE_Text
 
 ' TO DO ITH DETECT NEW PROCESS
 Dim OI_3
@@ -9666,27 +9667,49 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
     GOODSYNC_WINDOW_hWnd = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F00A}", vbNullString)
     PATH_1 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\"
     FILE_1 = "D_HDD_GOODSYNC2GO_RUNNER_" + GetComputerName + ".TXT"
-    ' TxtEXE.Text = ""
-    
+    TxtEXE_Text = ""
     On Error GoTo EXIT_SUB
     
     If GOODSYNC_WINDOW_hWnd = 0 Then
         If Dir(PATH_1 + FILE_1) <> "" Then
             Kill PATH_1 + FILE_1
-            Exit Sub
+            ' Exit Sub
         End If
     End If
+    
     If GOODSYNC_WINDOW_hWnd > 0 Then
         If Dir(PATH_1 + FILE_1) = "" Then
             Success_Result = cProcesses.Get_PID_From_hWnd(GOODSYNC_WINDOW_hWnd, PID_MARK)
             TxtEXE_Text = GetFileFromProc(Val(PID_MARK))
             If TxtEXE_Text = "" And PID_MARK > 0 Then
                 'i = cProcesses.GetEXEID(PID_INPUT, NAME_EXE)
-                'TxtEXE.Text = NAME_EXE
                 TxtEXE_Text = cProcesses.GetEXE_Path_From_ProcessID(PID_MARK)
             End If
         End If
     End If
+    If GOODSYNC_WINDOW_hWnd > 0 Then
+        If O_TxtEXE_Text = "" Then
+            If Dir(PATH_1 + FILE_1) <> "" Then
+                If TxtEXE_Text = "" Then
+                    TxtEXE_Text = Mid(FILE_1, 1, 1)
+                End If
+            End If
+        End If
+    End If
+    If GOODSYNC_WINDOW_hWnd > 0 Then
+        If O_TxtEXE_Text <> "" Then
+        If TxtEXE_Text = "" Then
+            If Dir(PATH_1 + FILE_1) <> "" Then
+                    TxtEXE_Text = O_TxtEXE_Text
+                End If
+            End If
+        End If
+    End If
+    
+    If TxtEXE_Text <> "" Then
+        O_TxtEXE_Text = TxtEXE_Text
+    End If
+    
     If Mid(TxtEXE_Text, 1, 1) = "D" Then
         If Dir(PATH_1 + FILE_1) = "" Then
             FR1 = FreeFile
@@ -9697,14 +9720,15 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
             Exit Sub
         End If
     End If
+    
     If TxtEXE_Text = "" Then
-        Success_Result = cProcesses.Get_PID_From_hWnd(GOODSYNC_WINDOW_hWnd, PID_MARK)
-        TxtEXE_Text = GetFileFromProc(Val(PID_MARK))
+        MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ NONE -- DRIVE __ GOODSYNC2GO __]"
     End If
+    
     If TxtEXE_Text <> "" Then
-    If InStr("CDE", Mid(TxtEXE_Text, 1, 1)) > 0 Then
-        MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ " + Mid(TxtEXE_Text, 1, 1) + " DRIVE __ GOODSYNC2GO __]"
-    End If
+        If InStr("CDE", Mid(TxtEXE_Text, 1, 1)) > 0 Then
+            MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ " + Mid(TxtEXE_Text, 1, 1) + " DRIVE __ GOODSYNC2GO __]"
+        End If
     End If
 Exit Sub
     
@@ -9772,7 +9796,7 @@ If O_DAY_NOW_MIDNIGHT_1 <> Day(Now) Then
     ' ---------------------------------------------------
 End If
 Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
-If Second(Now) Mod 4 = 0 Then
+If Second(Now) Mod 2 = 0 Then
     Call Timer_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER
     Call TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer
 End If
