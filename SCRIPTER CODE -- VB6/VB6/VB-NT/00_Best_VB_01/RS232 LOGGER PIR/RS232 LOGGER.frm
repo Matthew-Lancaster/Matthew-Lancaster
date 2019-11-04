@@ -297,6 +297,7 @@ Private Sub Timer_ERROR_Timer()
     
     If MSG_1 <> "" Then
         MsgBox MSG_1, vbMsgBoxSetForeground
+        End
     End If
     
 End Sub
