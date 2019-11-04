@@ -196,6 +196,11 @@ if "%Sync_Runner%"=="TRUE" (
 	START "" "C:\WINDOWS\EXPLORER.EXE " D:\DSC\2017+FUJI XP90\FUJI XP90 IMPORT\DCIM
 
 	START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk"
+	REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk"
+	
+	REM OLD NAME IN SCRIPT OF GOODSYNC RUNNER
+	REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk
+	
 )
 
 
