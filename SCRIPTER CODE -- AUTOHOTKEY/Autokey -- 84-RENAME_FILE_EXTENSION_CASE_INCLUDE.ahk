@@ -310,6 +310,9 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="C:\SCRIPTER\"
 	SET_ARRAY_2[ArrayCount]:="MP3 WAV"
+	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="D:\VB6\VB-NT\"
+	SET_ARRAY_2[ArrayCount]:="MP3 WAV"
 
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6\VB-NT\00_Best_VB_01\"
