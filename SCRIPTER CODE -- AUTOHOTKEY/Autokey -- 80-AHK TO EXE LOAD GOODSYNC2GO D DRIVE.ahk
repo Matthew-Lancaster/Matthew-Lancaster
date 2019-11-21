@@ -46,6 +46,8 @@ GO_ROUTINE:
 	
 	DELETE_AND_RECREATE_COMPILED_EXE_FOR_AUTOSCRIPT=
 	
+	; REQUIRE TO FIND IF SCRIPT WANT RECOMPILE TO EXE
+	; ---------------------------------------------------------------
 	FileGetTime, MOD_DATE_SCRIPT_1, %a_scriptNAME%, M
 	IfExist, %a_scriptDir%\DATE_OF_AHK_SCRIPT.txt
 		FileRead, MOD_DATE_SCRIPT_2, %a_scriptDir%\DATE_OF_AHK_SCRIPT.txt
@@ -57,20 +59,31 @@ GO_ROUTINE:
 		DELETE_AND_RECREATE_COMPILED_EXE_FOR_AUTOSCRIPT=TRUE
 		; MSgBOX % MOD_DATE_SCRIPT_2 "`n" MOD_DATE_SCRIPT_1
 	}
+	; ---------------------------------------------------------------
 	
 	SoundBeep , 1500 , 400
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	
 	; ---------------------------------------------------------------
-	FN_VAR_TMP_FILE=C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\
+	FN_VAR_TMP_FILE=C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_GOODSYNC2GO_RUNNER\
 	PATH_NAME_2=%FN_VAR_TMP_FILE%*.TXT
 	
 	PATH := % PATH_NAME_2 "`n`n"
 	LOOP, %PATH_NAME_2%
 	{
 		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		NUMBER_V := A_INDEX
 		PATH := % PATH A_LoopFileName "`n"
+		; -----------------------------------------------------------
+		; IF DL=C AND THEN ONLY INTEREST IS C AND NOT D BOTH 
+		; SAME COMPUTER
+		; OTHERWISE IS D AND D NOT ANY COMPUTER
+		; -----------------------------------------------------------
+		IF DL=C
+			IF INSTR(A_LoopFileName,A_ComputerName)>0
+			IF INSTR(A_LoopFileName,"D_HDD_GOODSYNC2GO_RUNNER")>0
+			NUMBER_V +=1
+		IF DL=D
+			NUMBER_V +=1
 	}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------

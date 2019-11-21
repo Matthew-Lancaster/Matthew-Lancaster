@@ -243,7 +243,7 @@ RETURN
 
 
 :*:hima::
-MESSENGER_KEY=Hi Marianne Eddie
+MESSENGER_KEY=HI MARIANNE EDDIE
 GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
 RETURN
@@ -321,7 +321,7 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		SetTitleMatchMode 3  ; Specify Full path
 		IfWinActive mysms - Google Chrome ahk_class Chrome_WidgetWin_1
 		{
-			SetCapsLockState ,OFF
+			SetCapsLockState ,ON
 		}
 		IfWinActive ahk_class Notepad++
 		{
