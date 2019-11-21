@@ -1,5 +1,6 @@
 VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSComm32.Ocx"
+Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.Ocx"
 Begin VB.Form DIALER 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "RS232_LOGGER"
@@ -17,6 +18,18 @@ Begin VB.Form DIALER
    Visible         =   0   'False
    WhatsThisHelp   =   -1  'True
    WindowState     =   1  'Minimized
+   Begin MCI.MMControl MMControl9 
+      Height          =   660
+      Left            =   2016
+      TabIndex        =   5
+      Top             =   1872
+      Width           =   2832
+      _ExtentX        =   4995
+      _ExtentY        =   1164
+      _Version        =   393216
+      DeviceType      =   ""
+      FileName        =   ""
+   End
    Begin VB.Timer Timer_ERROR 
       Interval        =   1000
       Left            =   2796
@@ -41,9 +54,9 @@ Begin VB.Form DIALER
       Top             =   684
    End
    Begin VB.PictureBox RichTextBox1 
-      Height          =   735
-      Left            =   4944
-      ScaleHeight     =   684
+      Height          =   648
+      Left            =   5160
+      ScaleHeight     =   600
       ScaleWidth      =   1404
       TabIndex        =   4
       Top             =   180
@@ -81,9 +94,9 @@ Begin VB.Form DIALER
       Top             =   1044
    End
    Begin VB.PictureBox MMControl1 
-      Height          =   1170
-      Left            =   4932
-      ScaleHeight     =   1128
+      Height          =   684
+      Left            =   5148
+      ScaleHeight     =   636
       ScaleWidth      =   2160
       TabIndex        =   2
       Top             =   1092
@@ -203,6 +216,25 @@ I_N_TAIL = "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe"
 'End If
 
 
+If Dir(App.Path + "\#Wave Sounds\DobFig22 01.WAV") <> "" Then
+    
+    Me.MMControl9.Notify = True
+    Me.MMControl9.Wait = True
+    Me.MMControl9.Shareable = False
+    Me.MMControl9.DeviceType = "waveaudio"
+    'ME.MMControl9.FileName = App.Path + "\SG_02_04.WAV"
+    Me.MMControl9.FileName = App.Path + "\#Wave Sounds\DobFig22 01.WAV"
+    Me.MMControl9.Command = "Open"
+    
+    Me.MMControl9.Command = "prev"
+'    Me.MMControl9.Command = "Play"
+'    Do
+'    Loop Until MMControl9.Mode = 525
+'    Me.MMControl9.Command = "prev"
+'    Me.MMControl9.Command = "Play"
+End If
+
+
 PROGRAM_LOAD = True
 
 OLD_VAR_DSR_3 = -10
@@ -224,6 +256,12 @@ End If
 
 End Sub
 
+
+Private Sub Form_Unload(Cancel As Integer)
+
+    Me.MMControl9.Command = "Close"
+
+End Sub
 
 Sub TIMER_1_TIMER()
 
@@ -443,6 +481,18 @@ If VAR_DSR_4 = True Then
             End If
             
             If FindWindow("", "Tidal Information...") = 0 Then
+                
+                Me.MMControl9.Command = "prev"
+                Me.MMControl9.Command = "Play"
+                Do
+                Loop Until MMControl9.Mode = 525
+                Me.MMControl9.Command = "prev"
+                Me.MMControl9.Command = "Play"
+                Do
+                Loop Until MMControl9.Mode = 525
+                Me.MMControl9.Command = "prev"
+                Me.MMControl9.Command = "Play"
+            
                 Shell "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe", vbMinimizedNoFocus
                 ' Debug.Print Str(Now)
                 ' TRY MAKE SURE ONLY RUN ONCE TO STARTER -- SEEM OKAY
