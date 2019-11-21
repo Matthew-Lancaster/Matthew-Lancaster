@@ -299,6 +299,10 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 
 	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="C:\CCTV"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+
+	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\VB6\VB-NT\"
 	SET_ARRAY_2[ArrayCount]:="vbp"                    ; THESE ARE CASE WANTING END RESULT WILL BE AS HERE
 	SET_ARRAY_3[ArrayCount]:="NOT TALK"
