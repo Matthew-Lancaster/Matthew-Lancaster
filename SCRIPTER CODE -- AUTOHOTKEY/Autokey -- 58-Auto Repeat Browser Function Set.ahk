@@ -2221,10 +2221,13 @@ AUTO_RELOAD_FACEBOOK:
 			{
 				IF SOUND_PLAYER_FB_DO<%A_NOW%
 				{
+					; -----------------------------------------------
+					; FACEBOOK RINGER RINGTONE RING TONE NOTIFY
+					; -----------------------------------------------
 					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
 					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
 					SOUND_PLAYER_FB_DO=%A_NOW%
-					SOUND_PLAYER_FB_DO+= 2, seconds
+					SOUND_PLAYER_FB_DO+= 8, seconds  ; -- SET TIME OR RING REPEAT LOOP UNTIL PAGE REFRESH
 				}
 				
 
