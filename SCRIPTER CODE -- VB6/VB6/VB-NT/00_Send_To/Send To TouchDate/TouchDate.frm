@@ -484,6 +484,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_CREATE_FOLDER_DATE_OF_FILE 
       Caption         =   "CREATE FOLDER DATE OF FILE"
    End
+   Begin VB.Menu MNU_CREATE_FOLDER_DATE_MONTH 
+      Caption         =   "CREATE FOLDER DATE MONTH"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -709,6 +712,9 @@ End If
 If Command$ = "" And W$ = "" Then
     If Clipboard.GetFormat(vbCFText) Then
         W1$ = Clipboard.GetText(vbCFText) ' Get Clipboard text.
+        If Mid(W1$, 1, 1) = """" Then
+            W1$ = Mid(W1$, 2): W1$ = Mid(W1$, 1, Len(W1$) - 1)
+        End If
         If FSO.FolderExists(W1$) = True Then
             W$ = W1$
         End If
@@ -987,6 +993,16 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     Dim DS2 As Date
     Dim DS4 As Date ' OLDER COMPARE
     Dim TT
+    'D:\VIDEO\NOT\X 01 ME\2017 SONY MP4\DOC\2017 05 31
+    
+    For rr = ScanPath.ListView1.ListItems.Count To 1 Step -1
+        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+        If InStr(UCase(B1$), ".TXT") > 0 Then
+            ScanPath.ListView1.ListItems.Remove (rr)
+        End If
+    Next
+    
     
     For rr = 1 To ScanPath.ListView1.ListItems.Count
         A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
@@ -1098,6 +1114,7 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     
     TIME_STRING = Replace(TIME_STRING, "\", "/")
     TIME_STRING = Replace(TIME_STRING, "_", ":")
+    TIME_STRING = Replace(TIME_STRING, "-", ":")
     
     
     DT4 = DateValue(TIME_STRING) + TimeValue(TIME_STRING)
@@ -1124,7 +1141,10 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     MM_1 = MM_1 + vbCrLf
     MM_1 = MM_1 + ScanPath.ListView1.ListItems.Item(1).SubItems(1) + vbCrLf
     MM_1 = MM_1 + vbCrLf
-    DT4 = DT4 + TimeSerial(0, 1, 0)
+    COUNT_FILE = COUNT_FILE + 1
+    If COUNT_FILE > 1 Then
+        DT4 = DT4 + TimeSerial(0, 1, 0)
+    End If
     For rr = 1 To ScanPath.ListView1.ListItems.Count
         A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
         B1$ = ScanPath.ListView1.ListItems.Item(rr)
@@ -1696,6 +1716,20 @@ Private Sub SET_ONE_DATE_HARDCODER()
 
 End Sub
 
+
+Private Sub MNU_CREATE_FOLDER_DATE_MONTH_Click()
+
+    Set F = FSO.GetFile(LABEL_SET(3).Caption)
+    DT1 = F.datelastmodified
+
+    OUT_FOLDER = LABEL_SET(2).Caption + "\" + Format(DT1, "YYYY-MM MMM")
+    
+    MkDir OUT_FOLDER
+
+    End
+
+
+End Sub
 
 Private Sub MNU_CREATE_FOLDER_DATE_OF_FILE_Click()
 
