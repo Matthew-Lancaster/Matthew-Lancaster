@@ -2,13 +2,13 @@ VERSION 5.00
 Begin VB.Form Frm_StrToNum 
    BackColor       =   &H80000007&
    Caption         =   "StringToNum"
-   ClientHeight    =   4530
+   ClientHeight    =   4536
    ClientLeft      =   60
-   ClientTop       =   375
-   ClientWidth     =   13815
+   ClientTop       =   372
+   ClientWidth     =   13812
    LinkTopic       =   "Form1"
-   ScaleHeight     =   4530
-   ScaleWidth      =   13815
+   ScaleHeight     =   4536
+   ScaleWidth      =   13812
    StartUpPosition =   2  'CenterScreen
    Begin VB.Label Label2 
       Alignment       =   2  'Center
@@ -16,7 +16,7 @@ Begin VB.Form Frm_StrToNum
       Caption         =   "Label1"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -428,3 +428,6 @@ Private Function TestIDE(Test As Boolean) As Boolean
 End Function
 '***********************************************
 
+Private Sub Label1_Click()
+
+End Sub
