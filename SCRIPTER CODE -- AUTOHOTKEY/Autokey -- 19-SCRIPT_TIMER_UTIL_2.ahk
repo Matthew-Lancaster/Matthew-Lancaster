@@ -369,6 +369,9 @@ WINNOTEXIST_AHK_CLASS_WINAMP_V1=
 SETTIMER RUN_AND_STOP_HUBIC_WHEN_WINAMP,2000
 
 
+SETTIMER TEAMVIEWER_AR_RUN_ON_CUE,1000
+
+
 
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
@@ -378,6 +381,20 @@ SETTIMER RUN_AND_STOP_HUBIC_WHEN_WINAMP,2000
 RETURN
 
 
+
+
+; TEAMVIEWER_AR_RUN_ON_CUE:
+
+; IfWinExist ahk_class #32770 TeamViewer
+; {
+; WRITE FILE
+; C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2\TEAMVIEWER_RUNNING.TXT
+
+
+; }
+
+
+RETURN
 
 
 ; -------------------------------------------------------------------
