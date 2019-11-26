@@ -2136,6 +2136,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_GOODSYNC2GO_DRIVE_LETTER 
       Caption         =   "GOODSYNC2GO_DRIVE_LETTER"
    End
+   Begin VB.Menu MNU_TEAMVIEWER 
+      Caption         =   "TEAMVIEWER"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -2147,6 +2150,9 @@ Option Explicit
 ' HERE IS ALL REM OUT OF WORK IN PROGRESS
 ' --------------------------------------------------------------
 
+Dim TEAMVIEWER_FILE_PRESENT_OLD
+Dim TEAMVIEWER_GONE_TIMER
+Dim TEAMVIEWER_FIND_OLD
 
 '  =============================================================
 '# __ D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.vbp
@@ -9716,6 +9722,9 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
             Open PATH_1 + FILE_1 For Output As #FR1
             Print #FR1, "REQUIRE FILE TO SHOW IF GS2GO IS RUNNER ON TWO MACHINE WHICH "
             Print #FR1, "IS NOT ALLOW AS THEY SHARE AND WARN IT TO BE DONE"
+            Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
+            Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
+            Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
             Close #FR1
             Exit Sub
         End If
@@ -9737,6 +9746,204 @@ EXIT_SUB:
     
     
 End Sub
+
+
+Sub TIMER_IS_TEAMVIEWER_RUNNER_Timer()
+
+    Dim TEAMVIEWER_FIND
+    Dim R
+    Dim A1
+    Dim TEAMVIEWER_PID As Long
+    Dim TEAMVIEWER_KILL_REMOTE
+    Dim PATH_1, PATH_2, PATH_3, PATH_4, PATH_5, PATH_6
+    Dim FILE_1, FILE_2, FILE_3, FILE_4, FILE_5, FILE_6
+    Dim TEAMVIEWER_FILE_PRESENT
+    Dim i
+    
+    TEAMVIEWER_FIND = False
+    
+    For R = lstProcess_3_SORTER_ListView.ListItems.Count To 1 Step -1
+        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+        If InStr(UCase(A1), "TEAMVIEWER.EXE") > 0 Then
+            TEAMVIEWER_PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+'            i = cProcesses.Process_Kill(TEAMVIEWER_PID)
+            TEAMVIEWER_FIND = True
+            Exit For
+        End If
+    Next
+    
+    If TEAMVIEWER_FIND_OLD = True And TEAMVIEWER_FIND = False Then
+        TEAMVIEWER_GONE_TIMER = Now + TimeSerial(0, 1, 0)
+    End If
+    
+    If TEAMVIEWER_GONE_TIMER > 0 And TEAMVIEWER_GONE_TIMER < Now Then
+        TEAMVIEWER_KILL_REMOTE = True
+        TEAMVIEWER_GONE_TIMER = 0
+    End If
+    
+    If TEAMVIEWER_FIND_OLD = False And TEAMVIEWER_FIND = True Then
+        ' TEAMVIEWER_EXIST
+        TEAMVIEWER_GONE_TIMER = 0
+        PATH_1 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_1 = "TEAMVIEWER_RUNNER_" + GetComputerName + ".TXT"
+        PATH_2 = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_2 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
+        PATH_3 = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_3 = "TEAMVIEWER_RUNNER_7-ASUS-GL522VW.TXT"
+        PATH_4 = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_4 = "TEAMVIEWER_RUNNER_8-MSI-GP62M-7RD.TXT"
+        PATH_5 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_5 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
+        PATH_6 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_6 = "TEAMVIEWER_RUNNER_8-MSI-GP62M-7RD.TXT"
+        
+        On Error Resume Next
+        If FSO.FolderExists(PATH_1) = False Then CreateFolderTree (PATH_1)
+        Err.Clear
+        If FSO.FolderExists(PATH_2) = False Then CreateFolderTree (PATH_2)
+        If FSO.FolderExists(PATH_2) = False Then PATH_2 = ""
+        If Err.Number > 0 Then PATH_2 = ""
+        Err.Clear
+        If FSO.FolderExists(PATH_3) = False Then CreateFolderTree (PATH_3)
+        If FSO.FolderExists(PATH_3) = False Then PATH_3 = ""
+        If Err.Number > 0 Then PATH_3 = ""
+        Err.Clear
+        If FSO.FolderExists(PATH_4) = False Then CreateFolderTree (PATH_4)
+        If FSO.FolderExists(PATH_4) = False Then PATH_4 = ""
+        If Err.Number > 0 Then PATH_4 = ""
+        If FSO.FolderExists(PATH_5) = False Then CreateFolderTree (PATH_5)
+        If FSO.FolderExists(PATH_6) = False Then CreateFolderTree (PATH_6)
+        On Error GoTo 0
+        
+        FR1 = FreeFile
+        Open PATH_1 + FILE_1 For Output As #FR1
+            Print #FR1, "REQUIRE FILE TO SHOW IF TEAMVIEWER IS RUNNER ON TWO MACHINE"
+            Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
+            Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
+            Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
+        Close #FR1
+        If PATH_2 <> "" Then
+            FR1 = FreeFile
+            Open PATH_2 + FILE_2 For Output As #FR1
+                Print #FR1, "REQUIRE FILE TO SHOW IF TEAMVIEWER IS RUNNER ON TWO MACHINE"
+                Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
+                Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
+                Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
+            Close #FR1
+        End If
+        If PATH_3 <> "" Then
+            FR1 = FreeFile
+            Open PATH_3 + FILE_3 For Output As #FR1
+                Print #FR1, "REQUIRE FILE TO SHOW IF TEAMVIEWER IS RUNNER ON TWO MACHINE"
+                Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
+                Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
+                Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
+            Close #FR1
+        End If
+        FR1 = FreeFile
+        Open PATH_4 + FILE_4 For Output As #FR1
+            Print #FR1, "REQUIRE FILE TO SHOW IF TEAMVIEWER IS RUNNER ON TWO MACHINE"
+            Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
+            Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
+            Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
+        Close #FR1
+        FR1 = FreeFile
+        Open PATH_5 + FILE_5 For Output As #FR1
+            Print #FR1, "REQUIRE FILE TO SHOW IF TEAMVIEWER IS RUNNER ON TWO MACHINE"
+            Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
+            Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
+            Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
+        Close #FR1
+        FR1 = FreeFile
+        Open PATH_6 + FILE_6 For Output As #FR1
+            Print #FR1, "REQUIRE FILE TO SHOW IF TEAMVIEWER IS RUNNER ON TWO MACHINE"
+            Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
+            Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
+            Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
+        Close #FR1
+    End If
+    TEAMVIEWER_FIND_OLD = TEAMVIEWER_FIND
+    
+    If TEAMVIEWER_KILL_REMOTE = True Then
+        PATH_1 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_1 = "TEAMVIEWER_RUNNER_" + GetComputerName + ".TXT"
+        PATH_2 = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_2 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
+        PATH_3 = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_3 = "TEAMVIEWER_RUNNER_7-ASUS-GL522VW.TXT"
+        PATH_4 = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_4 = "TEAMVIEWER_RUNNER_8-MSI-GP62M-7RD.TXT"
+        PATH_5 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_5 = "TEAMVIEWER_RUNNER_4-ASUS-GL522VW.TXT"
+        PATH_6 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+        FILE_6 = "TEAMVIEWER_RUNNER_8-MSI-GP62M-7RD.TXT"
+        On Error GoTo 0
+        
+        If FSO.FolderExists(PATH_1) = True Then
+            If FSO.FileExists(PATH_1 + FILE_1) = True Then
+                Kill PATH_1 + FILE_1
+            End If
+        End If
+        If FSO.FolderExists(PATH_2) = True Then
+            If FSO.FileExists(PATH_2 + FILE_2) = True Then
+                Kill PATH_2 + FILE_2
+            End If
+        End If
+        If FSO.FolderExists(PATH_3) = True Then
+            If FSO.FileExists(PATH_3 + FILE_3) = True Then
+                Kill PATH_3 + FILE_3
+            End If
+        End If
+        If FSO.FolderExists(PATH_4) = True Then
+            If FSO.FileExists(PATH_4 + FILE_4) = True Then
+                Kill PATH_4 + FILE_4
+            End If
+        End If
+        If FSO.FolderExists(PATH_5) = True Then
+            If FSO.FileExists(PATH_5 + FILE_5) = True Then
+                Kill PATH_5 + FILE_5
+            End If
+        End If
+        If FSO.FolderExists(PATH_6) = True Then
+            If FSO.FileExists(PATH_6 + FILE_6) = True Then
+                Kill PATH_6 + FILE_6
+            End If
+        End If
+    End If
+    
+    PATH_1 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_TEAMVIEWER_RUNNER\"
+    FILE_1 = "TEAMVIEWER_RUNNER_" + GetComputerName + ".TXT"
+    TEAMVIEWER_FILE_PRESENT = False
+    If Dir(PATH_1 + FILE_1) <> "" Then
+        TEAMVIEWER_FILE_PRESENT = True
+        If TEAMVIEWER_FIND = False Then
+            If TEAMVIEWER_GONE_TIMER = 0 Then
+                Shell "C:\Program Files (x86)\TeamViewer\TeamViewer.exe", vbMaximizedFocus
+            End If
+        End If
+        
+    End If
+    If TEAMVIEWER_FILE_PRESENT_OLD = True And TEAMVIEWER_FILE_PRESENT = False Then
+        i = cProcesses.Process_Kill(TEAMVIEWER_PID)
+    End If
+    
+    TEAMVIEWER_FILE_PRESENT_OLD = TEAMVIEWER_FILE_PRESENT
+    
+    If TEAMVIEWER_FIND = False Then
+    If InStr(MNU_TEAMVIEWER.Caption, "NONE __ TEAMVIEWER") = 0 Then
+        MNU_TEAMVIEWER.Caption = "[__ NONE __ TEAMVIEWER __]"
+    End If
+    End If
+    
+    If TEAMVIEWER_FIND = True Then
+    If InStr(MNU_TEAMVIEWER.Caption, "EXIST TEAMVIEWER") = 0 Then
+        MNU_TEAMVIEWER.Caption = "[__ EXIST TEAMVIEWER __]"
+    End If
+    End If
+    
+    
+End Sub
+
 
 
 
@@ -9799,6 +10006,7 @@ Call TIMER_POLL_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST_Timer
 If Second(Now) Mod 2 = 0 Then
     Call Timer_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER
     Call TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer
+    Call TIMER_IS_TEAMVIEWER_RUNNER_Timer
 End If
 
 
@@ -11506,6 +11714,8 @@ End Function
 
 ' --------------------------------------------------------------------
 ' ALL IN ONE FUNCTION LESS API LESS DEMAND JOB WORKER
+' --------------------------------------------------------------------
+' CreateFolderTree CreatePATH Create_PATH
 ' --------------------------------------------------------------------
 Private Function CreateFolderTree(ByVal sPath As String) As Boolean
     Dim nPos As Integer
