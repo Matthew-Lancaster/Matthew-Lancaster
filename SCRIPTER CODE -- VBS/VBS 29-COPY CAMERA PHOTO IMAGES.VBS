@@ -537,7 +537,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			IF ComputerName="1-ASUS-X5DIJ" THEN SHOW_EXPLORER_FLAG=FALSE
 			IF ComputerName="2-ASUS-EEE" THEN SHOW_EXPLORER_FLAG=FALSE
 			IF ComputerName="3-LINDA-PC" THEN SHOW_EXPLORER_FLAG=FALSE
-			IF ComputerName="4-ASUS-GL522VW" THEN SHOW_EXPLORER_FLAG=FALSE
+			' IF ComputerName="4-ASUS-GL522VW" THEN SHOW_EXPLORER_FLAG=FALSE
 		END IF
 		
 		IF FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(R_COUNT)=TRUE THEN
@@ -641,6 +641,22 @@ IF INSTR(WORK_DOER,"KEY_FOB")>0 THEN
 
 END IF
 
+' ---------------------------------------------------------------	
+VAR_FORCE_GOODSYNC_GO=TRUE
+' ---------------------------------------------------------------	
+IF VAR_FORCE_GOODSYNC_GO=TRUE THEN
+	CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=TRUE
+END IF
+
+IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=TRUE THEN
+
+	' ---------------------------------------
+	FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+	PARAM="CAMERA_BACKUP_MODE"
+	' ---------------------------------------
+	WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+
+END IF
 
 SET objFSO = NOTHING
 Wscript.QUIT
@@ -712,17 +728,12 @@ Sub Main
 	' ---------------------------------------------------------------	
 
 
-
 	IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR=TRUE THEN 
 		IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=FALSE THEN 
 			IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE OR MP4_BEEN_DONE=TRUE) THEN 
 
 				CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=TRUE
-				' ---------------------------------------
-				FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
-				PARAM="CAMERA_BACKUP_MODE"
-				' ---------------------------------------
-				WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+
 			END IF
 		END IF
 	END IF
