@@ -530,6 +530,16 @@ Else
             Call WRITE_LOGGER_CLOSE_INFO
         End If
         
+        Me.MMControl9.Command = "prev"
+        Me.MMControl9.Command = "Play"
+        Do
+        Loop Until MMControl9.Mode = 525
+        Me.MMControl9.Command = "prev"
+        Me.MMControl9.Command = "Play"
+        Do
+        Loop Until MMControl9.Mode = 525
+        Me.MMControl9.Command = "prev"
+        Me.MMControl9.Command = "Play"
         
     Next
 End If
