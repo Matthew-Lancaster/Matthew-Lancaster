@@ -160,7 +160,7 @@ Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURS
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\2019 10 24
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\2019 12 09
 ; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 ; -------------------------------------------------------------------
@@ -205,7 +205,15 @@ FACEBOOK_TIMER_DELAY_NORMAL=500
 FACEBOOK_TIMER_DELAY_IN_EDITOR=14000
 
 
+; -------------------------------------------------------------------
+; WHEN HERE IS GENERATE THE WHOLE TEXT THAT WOULD BE ENTER AND ONLY PASTE TO CLIPBOARD
+; NOT THE USUAL RUN
+; -------------------------------------------------------------------
+; DEFAULT 
+; RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=
+; -------------------------------------------------------------------
 RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=TRUE
+RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=
 
 IF RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 	FACEBOOK_TIMER_DELAY_NORMAL=1
@@ -471,6 +479,7 @@ PLUG_FLAG=FALSE
 ; JUST IN CASE MOVE
 FACEBOOK_URL_TITLE_1_VAR_SET=FALSE
 FACEBOOK_URL_TITLE_2_VAR_SET=FALSE
+
 
 IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 IfWinExist, %SET_String%
