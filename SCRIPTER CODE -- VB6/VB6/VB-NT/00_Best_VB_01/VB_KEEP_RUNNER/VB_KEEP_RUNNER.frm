@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10116
-   ScaleWidth      =   12864
+   ScaleHeight     =   11916
+   ScaleWidth      =   22944
    Begin VB.Timer TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD 
       Enabled         =   0   'False
       Interval        =   1
@@ -641,6 +641,15 @@ Begin VB.Form Form1
       EndProperty
       NumItems        =   0
    End
+   Begin VB.Label Label_NOT_ON_TOP 
+      BackColor       =   &H00DFFFFF&
+      Caption         =   "NOT ON TOP"
+      Height          =   216
+      Left            =   6864
+      TabIndex        =   156
+      Top             =   768
+      Width           =   1440
+   End
    Begin VB.Label Label_DE_DUPE_EXPLORER 
       Alignment       =   1  'Right Justify
       BackColor       =   &H00DFFFFF&
@@ -705,7 +714,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6288
       TabIndex        =   149
-      Top             =   1020
+      Top             =   1272
       Width           =   2160
    End
    Begin VB.Label Label_MAXIMIZE_CLIPBOARD_LOGGER 
@@ -1034,11 +1043,11 @@ Begin VB.Form Form1
       BackColor       =   &H00808080&
       Caption         =   "RUN AUTOHOTKEY NETWORK"
       ForeColor       =   &H00C0FFFF&
-      Height          =   216
-      Left            =   6276
+      Height          =   672
+      Left            =   11544
       TabIndex        =   116
-      Top             =   1272
-      Width           =   2568
+      Top             =   2664
+      Width           =   1368
    End
    Begin VB.Image Image1 
       Height          =   384
@@ -1183,7 +1192,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   8232
       TabIndex        =   101
-      Top             =   792
+      Top             =   1044
       Width           =   936
    End
    Begin VB.Label Label_KILL_AUTOHOTKEY 
@@ -1193,7 +1202,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6288
       TabIndex        =   100
-      Top             =   792
+      Top             =   1044
       Width           =   1920
    End
    Begin VB.Label Label64 
@@ -3497,6 +3506,9 @@ Private Sub Form_Load()
     ListView_VB_MODIFIED_ERROR.Appearance = ccFlat
     ListView_VB_MODIFIED_ERROR.HideColumnHeaders = True
 
+    ' PROBLEM WITH FORM UNLOAD
+    ' KEY NOT IN A UNIQUE COLLECTION ERROR
+    On Error Resume Next
     With LINE_EXE_PICKER_COMMON.LISTVIEW1
         .ColumnHeaders.Add , "PID", "PID", 700 - 50, lvwColumnLeft
         .ColumnHeaders.Add , "EXE", "EXE", 9000, lvwColumnLeft
@@ -3504,6 +3516,11 @@ Private Sub Form_Load()
         .height = 7000
         .FullRowSelect = True
     End With
+    If Err.Number > 0 Then
+        End
+        Exit Sub
+    End If
+    On Error GoTo 0
 
     
    Call LINE_EXE_PICKER_COMMON.LOAD_INITAL_FORM_VALUE
@@ -3822,7 +3839,7 @@ ARRAY_CB(LDAC) = "Label_CLOSE_EXPLORER"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = "Label_DE_DUPE_EXPLORER"
 LDAC = LDAC + 1
-ARRAY_CB(LDAC) = ""
+ARRAY_CB(LDAC) = "Label_NOT_ON_TOP"
 LDAC = LDAC + 1
 ARRAY_CB(LDAC) = ""
 LDAC = LDAC + 1
@@ -5253,6 +5270,20 @@ Private Sub Lab_KILL_EXPLORER_Click()
 Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click
 
 'Me.WindowState = vbMinimized
+
+End Sub
+
+Private Sub Label_NOT_ON_TOP_Click()
+
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Label_NOT_ON_TOP.BackColor = RGB(255, 255, 255)
+
+If txthWnd > 0 Then
+    Me.WindowState = vbMinimized
+    SetWindowPos txthWnd.Text, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+    Beep
+End If
+
 
 End Sub
 
@@ -7362,7 +7393,7 @@ For Each Form In Forms
     Set Form = Nothing
 Next Form
 
-'End
+End
 
 End Sub
 
