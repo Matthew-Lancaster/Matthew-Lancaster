@@ -37,8 +37,8 @@ Begin VB.Form DIALER
    End
    Begin VB.Timer TIMER_FRONT_DOOR 
       Interval        =   1000
-      Left            =   2604
-      Top             =   708
+      Left            =   2556
+      Top             =   816
    End
    Begin MSCommLib.MSComm MSComm4 
       Left            =   1764
@@ -48,10 +48,10 @@ Begin VB.Form DIALER
       _Version        =   393216
       DTREnable       =   0   'False
    End
-   Begin VB.Timer Timer_PIR 
+   Begin VB.Timer TIMER_PIR 
       Interval        =   1000
-      Left            =   2268
-      Top             =   684
+      Left            =   2208
+      Top             =   816
    End
    Begin VB.PictureBox RichTextBox1 
       Height          =   648
@@ -85,7 +85,7 @@ Begin VB.Form DIALER
    Begin VB.Timer TIMER_1 
       Interval        =   1000
       Left            =   1860
-      Top             =   720
+      Top             =   816
    End
    Begin VB.Timer TimerComm4 
       Enabled         =   0   'False
@@ -142,6 +142,9 @@ Attribute VB_Exposed = False
 ' [ Friday 09:50:50 Am_26 July 2019 ]
 ' BE NICER IF START MINIMIZED
 ' ------------------------------------------------------------------------
+
+Dim FSO
+Dim TIMER_1_TIMER_RUN_ONCE
 
 Dim COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR
 Dim COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR
@@ -234,6 +237,7 @@ If Dir(App.Path + "\#Wave Sounds\DobFig22 01.WAV") <> "" Then
 '    Me.MMControl9.Command = "Play"
 End If
 
+Set FSO = CreateObject("Scripting.FileSystemObject")
 
 PROGRAM_LOAD = True
 
@@ -253,6 +257,13 @@ End If
 '    Me.WindowState = vbMinimized
 'End If
 
+If IsIDE = True Then
+    TIMER_PIR.Interval = 3000
+    TIMER_FRONT_DOOR.Interval = 3000
+End If
+
+TIMER_PIR.Enabled = True
+TIMER_FRONT_DOOR.Enabled = True
 
 End Sub
 
@@ -313,6 +324,8 @@ If Me.MSComm3.PortOpen = False Then
     VAR_DSR_3 = True
 End If
 
+TIMER_1_TIMER_RUN_ONCE = True
+
 
 End Sub
 
@@ -340,11 +353,15 @@ Private Sub Timer_ERROR_Timer()
     
 End Sub
 
-Private Sub Timer_PIR_Timer()
+Private Sub TIMER_PIR_Timer()
         
-Dim FSO
+Dim STATE_PIR
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+If TIMER_1_TIMER_RUN_ONCE = False Then Exit Sub
+        
 On Error Resume Next
-TTITTY = " __ Port " + Format(Me.MSComm3.CommPort, "00") + " ___ PIR"
+TTITTY = "Port " + Format(Me.MSComm3.CommPort, "00") + " ___ PIR"
 If Me.MSComm3.PortOpen = False Then
     Debug.Print "PIR ____ " + Time$ + " Me.MSComm3.PortOpen = False" + TTITTY
     COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR = COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR + 1
@@ -352,18 +369,20 @@ If Me.MSComm3.PortOpen = False Then
 End If
 
 VAR_DSR_3 = Me.MSComm3.DSRHolding
-Debug.Print "PIR ____ " + Time$ + " " + Str(VAR_DSR_3) + TTITTY
+If VAR_DSR_3 = False Then STATE_PIR = " = Not Active _ " Else STATE_PIR = " = Active ____ "
+Debug.Print "PIR ____ " + Time$ + " " + Str(VAR_DSR_3) + STATE_PIR + TTITTY
 If Err.Number > 0 Or Err.Number = 8002 Then
     TIMER_1.Enabled = True
     VAR_DSR_3 = True
 End If
 
+' NOT WORK HARDWARE ERROR
+VAR_DSR_3 = True
+' -----------------------
+
 If OLD_VAR_DSR_3 = VAR_DSR_3 Then Exit Sub
 
 OLD_VAR_DSR_3 = VAR_DSR_3
-
-Set FSO = CreateObject("Scripting.FileSystemObject")
-
 
 ' MsgBox Str(R) + " -- " + Str(VAR_DSR_3)
 ' Debug.Print Str(R) + " -- " + Str(VAR_DSR_3)
@@ -402,8 +421,11 @@ End Sub
 Sub TIMER_FRONT_DOOR_TIMER()
 
 Dim STRING_VAR As String
+Dim STATE_DOOR
 
-TTITTY = " __ Port " + Format(Me.MSComm4.CommPort, "00") + " ___ DOOR"
+If TIMER_1_TIMER_RUN_ONCE = False Then Exit Sub
+
+TTITTY = " Port " + Format(Me.MSComm4.CommPort, "00") + " ___ DOOR"
 
 If Me.MSComm4.PortOpen = False Then
     Debug.Print "DOOR ___ " + Time$ + " Me.MSComm4.PortOpen = False" + TTITTY
@@ -412,7 +434,8 @@ If Me.MSComm4.PortOpen = False Then
 End If
 
 VAR_DSR_4 = Me.MSComm4.DSRHolding
-Debug.Print "DOOR ___ " + Time$ + " " + Str(VAR_DSR_3) + TTITTY
+If VAR_DSR_3 = False Then STATE_DOOR = " = Close ______" Else STATE_DOOR = " = Open _______"
+Debug.Print "DOOR ___ " + Time$ + " " + Str(VAR_DSR_3) + STATE_DOOR + TTITTY
 On Error Resume Next
 If Me.MSComm4.PortOpen = False Then
     VAR_DSR_4 = False
@@ -426,9 +449,6 @@ End If
 If OLD_VAR_DSR_4 = VAR_DSR_4 Then Exit Sub
 
 OLD_VAR_DSR_4 = VAR_DSR_4
-
-Set FSO = CreateObject("Scripting.FileSystemObject")
-
 
 ' MsgBox Str(R) + " -- " + Str(VAR_DSR_3)
 ' Debug.Print Str(R) + " -- " + Str(VAR_DSR_3)
