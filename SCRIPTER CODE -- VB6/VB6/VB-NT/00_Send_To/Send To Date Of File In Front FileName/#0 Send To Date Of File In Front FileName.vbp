@@ -1,7 +1,7 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Reference=*\G{420B2830-E718-11CF-893D-00A0C9054228}#1.0#0#C:\Windows\SysWOW64\scrrun.dll#Microsoft Scripting Runtime
-Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; MSCOMCTL.OCX
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; mscomctl.OCX
 Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; mscomct2.ocx
 Form=ScanPathDemo.frm
 Module=mdlFileSys; FileSys.bas
@@ -20,7 +20,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=51
+RevisionVer=52
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Thu 04-Mar-2010 09-08-52p"

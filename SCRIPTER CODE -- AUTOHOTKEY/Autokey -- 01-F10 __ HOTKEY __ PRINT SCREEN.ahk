@@ -217,7 +217,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; WHAT HAPPEN HERE
 ; -------------------------------------------------------------------
-; ANYCODE WANT HOTKEY AND TH LINE IS AFTER ONE ABOVE
+; ANYCODE WANT HOTKEY AND THE LINE IS AFTER ONE ABOVE
 ; WONT WORK
 ; UNLESS BETWEEN THERE IS HERE LINE #ifwinactive
 ; WHEN THE LINE HERE IT NOT STOP THE HOTKEY BEFORE
@@ -234,6 +234,26 @@ RETURN
 *~ESC::
 	GOSUB CHECK_ESC_KEY
 RETURN	
+#ifwinactive
+
+
+; ----
+; How do I make a mute button - Ask for Help - AutoHotkey Community 
+; https://autohotkey.com/board/topic/85600-how-do-i-make-a-mute-button/
+; ----
+
+$F1::Send {VOLUME_MUTE}	
+RETURN
+#ifwinactive
+	
+; -------------------------------------------------------------------
+; ANYCODE WANT HOTKEY AND THE LINE IS AFTER ONE ABOVE
+; WONT WORK
+; UNLESS BETWEEN THERE IS HERE LINE #ifwinactive
+; -------------------------------------------------------------------
+
+
+	
 	
 ; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
 ; must type an ending character after typing btw, such as Space, ., or Enter).
