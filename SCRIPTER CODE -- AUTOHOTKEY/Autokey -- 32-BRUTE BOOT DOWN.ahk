@@ -98,17 +98,6 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 SetStoreCapslockMode, off
 
 
-	WinGet, List, List, ahk_class ThunderRT6FormDC
-	Loop %List%  
-	{ 
-		WinClose, % "ahk_id " List%A_Index% 
-		SOUNDBEEP 1200,40
-	}
-
-	
-	
-	PAUSE
-
 ; ---------------------------------------------------------------
 ; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
 ; 01. INTRO SETUP MENU
