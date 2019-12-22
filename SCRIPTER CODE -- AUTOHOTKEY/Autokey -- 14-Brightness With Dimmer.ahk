@@ -428,6 +428,9 @@ RETURN
 ; 1ST SUBROUTINE / FUNCTION
 ; -------------------------------------------------------------------
 
+
+
+
 ; Loop % FN_Array_1.MaxIndex()
 ; {
 	; Element := FN_Array_1[A_Index]
@@ -971,6 +974,19 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	ALLOW_DIMMER := "True"
 	isFullScreen := isWindowFullScreen( "A" ) ; ActiveWindow
 	if isFullScreen 
+	{
+		ALLOW_DIMMER := "False"
+	}
+	
+	
+	IF ADD_30_MINUTE_BEFORE_SCREEN_SAVER
+	{
+		ADD_30_MINUTE_BEFORE_SCREEN_SAVER=
+		ADD_MINUTE_SCREEN_SAVER=%A_Now%
+		ADD_MINUTE_SCREEN_SAVER+=20 , Minutes
+	}
+
+	IF A_NOW<%ADD_MINUTE_SCREEN_SAVER%
 	{
 		ALLOW_DIMMER := "False"
 	}
