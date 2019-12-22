@@ -131,3 +131,9 @@ if A_ThisMenuItem=Pause __ Debby Hall
 		SOUNDBEEP 1000,200
 	}
 }
+
+if A_ThisMenuItem=ADD 20 MINUTE BEFORE SCREEN SAVER
+{
+	ADD_30_MINUTE_BEFORE_SCREEN_SAVER=TRUE
+}
+
