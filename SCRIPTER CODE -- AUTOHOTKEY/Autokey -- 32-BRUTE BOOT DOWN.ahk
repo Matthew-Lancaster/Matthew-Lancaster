@@ -1,4 +1,4 @@
-	;====================================================================
+;====================================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk
 ;# __ 
 ;# __ Autokey -- 32-BRUTE BOOT DOWN.ahk
@@ -96,6 +96,18 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
    
 SetStoreCapslockMode, off
+
+
+	WinGet, List, List, ahk_class ThunderRT6FormDC
+	Loop %List%  
+	{ 
+		WinClose, % "ahk_id " List%A_Index% 
+		SOUNDBEEP 1200,40
+	}
+
+	
+	
+	PAUSE
 
 ; ---------------------------------------------------------------
 ; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
@@ -358,6 +370,8 @@ ExitFunc(ExitReason, ExitCode)
 		
 		SIGNAL_TO_RESTART_HAPPEN=TRUE
 	
+		GOSUB KILL_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
+	
         ;MsgBox, 4, , Are you sure you want to exit?
         ;IfMsgBox, No
         ;    return 1  ; OnExit functions must return non-zero to prevent exit.
@@ -432,3 +446,190 @@ class MyObject
 
 ; -----------------------------------------------------------------
 ; exit the app
+
+
+
+KILL_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
+	DetectHiddenWindows, ON
+	SOUNDBEEP 1000,100
+	; ---------------------------------------------------------------
+	; IN MY CODE THERE IS A PROBLEM 
+	; Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
+	; THE CODE ABOVE HAS A RELOAD SYSTEM
+	; UNLESS IT KILL QUICKER AND WITH REOCCUR
+	; IT PRODUCE RELOAD SOME CODE
+	; QUICKER AND WITH REOCCUR IS ANSWER SHOVE IN EXTRA CODE
+	; ---------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+	; 01. INTRO SETUP MENU
+	; 02. THE MENU ROUTINE
+	; 03. ANY ROUTINE THE MENU USE
+	; ---------------------------------------------------------------
+	; SAVER OF RSI INJURY AND MORE ACCURATE
+	; THE INCLUDE FILE ARE SAME FOLDER
+	; ---------------------------------------------------------------
+	; FROM __ Sun 09-Jun-2019 07:03:00 __ Clipboard Count = 024
+	; TO   __ Sun 09-Jun-2019 09:50:00 __ Clipboard Count = 139 __ NEAR 3 HOUR
+	; ---------------------------------------------------------------
+	
+
+	Allitem=2
+	WHILE Allitem>1
+	{
+		SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
+		; WinGet, List, List, ahk_exe AutoHotkey.EXE
+		WinGet, List, List, ahk_class AutoHotkey 
+		Loop %List%  
+		{ 
+			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+			IF PID_8
+			If PID_8 <> %SCRIPTOR_OWN_PID%
+			{
+				; MSGBOX % PID_8 " -- " SCRIPTOR_OWN_PID
+				; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
+				Process, Close, %PID_8% 
+				SOUNDBEEP 1200,40
+			}
+		}
+		Allitem=0
+		WinGet, List, List, ahk_class AutoHotkey 
+		Loop %List%  
+			Allitem:=A_Index
+	}	
+	
+	; ---------------------------------------------------------------
+	; SOMETIME AUTOHOTKEY IS LEFT BEHIND WHEN LOOK FOR CLASS
+	; AS SOME MSGBOX-ER ARE DIFFERENT CLASS NAME
+	; ---------------------------------------------------------------
+	Allitem=2
+	WHILE Allitem>1
+	{
+		SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
+		WinGet, List, List, ahk_exe AutoHotkey.EXE
+		Loop %List%  
+		{ 
+			; -------------------------------------------------------
+			; MSGBOX % List%A_Index% -- HWND NUMBER IS HERE
+			; BUT I WAS THINKER -- THAT STAY WITH HWND NUMBER WOULD OF BEEN BETTER QUICKER
+			; WHEN MACHINE UNDER LOAD ABLE TO SEE STRESS MAKE
+			; LESS SPEED BETWEEN EACH KILL
+			; OH GUESS REQUIRING PROCESS NUMBER AT END ANYHOW
+			; WAS THINKER COULD JUST KILL ALL AHK
+			; WHICH WOULD NOT BE SUCH A BAD IDEA
+			; SOMEBODY ONCE TALKER THE SCRIPT REQUEST LIST LEAVES ITSELF TO LAST ANYWAY
+			; WHAT A KNOBBER LOSER IT CHECK PID FOR OWN EACH TIME GET A NEW NUMBER
+			; DONE THAT
+			; IT NOT THIS BIT THAT LESS QUICKER
+			; IT THE REMOVE ICON
+			; -------------------------------------------------------
+			IF PID_8
+			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+			If PID_8 <> %SCRIPTOR_OWN_PID%
+			{
+				; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
+				Process, Close, %PID_8% 
+				SOUNDBEEP 1200,40
+			}
+		}
+		Allitem=0
+		WinGet, List, List, ahk_class AutoHotkey 
+		Loop %List%  
+			Allitem:=A_Index
+	}	
+
+	GOSUB KILL_ALL_PROCESS_BY_NAME_2
+	
+	
+	
+	; FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
+	; IfExist, %FN_VAR_1%
+	    ; Run, %FN_VAR_1%,,HIDE
+	
+	FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk"
+	IfExist, %FN_VAR_1%
+		RunWAIT, %FN_VAR_1%
+
+	; Run, %FN_VAR_1%,,HIDE -- HIDE NOT WORKER FOR AHK
+	; USE
+	; #NoTrayIcon
+		
+	; ----------------------------------
+	; Process, Close, %SCRIPTOR_OWN_PID%
+RETURN
+
+
+KILL_ALL_PROCESS_BY_NAME_2:
+	WinGet, List, List, ahk_exe cmd.exe
+	Loop %List%  
+	{ 
+		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		IF PID_8
+		{
+			Process, Close, %PID_8% 
+			SOUNDBEEP 1200,40
+		}
+	}
+	WinGet, List, List, ahk_exe conhost.exe
+	Loop %List%  
+	{ 
+		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		IF PID_8
+		{
+			Process, Close, %PID_8% 
+			SOUNDBEEP 1200,40
+		}
+	}
+	WinGet, List, List, ahk_class ThunderRT6FormDC
+	Loop %List%  
+	{ 
+		WinClose, % "ahk_id " List%A_Index% 
+		SOUNDBEEP 1200,40
+	}
+	
+	; WinGet, List, List, ahk_class BluetoothLogView
+	; Loop %List%  
+	; { 
+		; WinClose, % "ahk_id " List%A_Index% 
+		; SOUNDBEEP 1200,40
+	; }
+	
+	; WinGet, List, List, ahk_class BluetoothView
+	; Loop %List%  
+	; { 
+		; WinClose, % "ahk_id " List%A_Index% 
+		; SOUNDBEEP 1200,40
+	
+	; WinGet, List, List, ahk_class Notepad++
+	; Loop %List%  
+	; { 
+		; WinClose, % "ahk_id " List%A_Index% 
+		; SOUNDBEEP 1200,40
+	; }
+
+	WinGet, List, List, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	Loop %List%  
+	{ 
+		WinClose, % "ahk_id " List%A_Index% 
+		SOUNDBEEP 1200,40
+	}
+
+	WinGet, List, List, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	Loop %List%  
+	{ 
+		WinClose, % "ahk_id " List%A_Index% 
+		SOUNDBEEP 1200,40
+	}
+	
+	WinGet, List, List, ahk_class CabinetWClass
+	Loop %List%  
+	{ 
+		WinClose, % "ahk_id " List%A_Index% 
+		SOUNDBEEP 1200,40
+	}
+	
+	
+RETURN
+
+
