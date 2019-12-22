@@ -160,7 +160,7 @@ Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURS
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\2019 12 09
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\WORK\New folder
 ; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 ; -------------------------------------------------------------------
