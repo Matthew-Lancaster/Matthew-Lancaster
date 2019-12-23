@@ -9,8 +9,8 @@ Begin VB.Form Form1
    ClientWidth     =   12864
    Icon            =   "VB_KEEP_RUNNER.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   11916
-   ScaleWidth      =   22944
+   ScaleHeight     =   10116
+   ScaleWidth      =   12864
    Begin VB.Timer TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD 
       Enabled         =   0   'False
       Interval        =   1
@@ -2057,6 +2057,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_TASK_KILLER_AUTOHOTKEYS 
       Caption         =   "KILL AUTOHOTKEY"
    End
+   Begin VB.Menu MNU_LAUNCH_AUTORUNS_SET_BOOT 
+      Caption         =   "AUTOHOTKEY BOOT"
+   End
    Begin VB.Menu MNU_AUTOHOTKEYS_SET 
       Caption         =   "RUN AUTOHOTKEY SET"
    End
@@ -2119,9 +2122,6 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_GIVER_ME_UPTIME 
       Caption         =   "GIVE ME UPTIME"
       Visible         =   0   'False
-   End
-   Begin VB.Menu MNU_LAUNCH_AUTORUNS_SET_BOOT 
-      Caption         =   "AUTOHOTKEY BOOT"
    End
    Begin VB.Menu MNU_CLIPBOARDER_REPLACE_ER_AND 
       Caption         =   "CLIPBOARD REPLACE ""AND"""
