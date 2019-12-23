@@ -822,6 +822,17 @@ ONE_MOMENT_CLOSE_CMD:
 
 RETURN
 
+ONE_MOMENT_CLOSE_BAT_01_BOOT_KILLER_BAT:
+
+	IfWinExist Administrator:  C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 BOOT KILLER.BAT
+	{
+		SOUNDBEEP 1000,200
+		WINCLOSE
+	}
+	SETTIMER ONE_MOMENT_CLOSE_BAT_01_BOOT_KILLER_BAT,OFF
+
+RETURN
+
 ONE_SECOND:
 
 	; STAY SHOWING MOSTLY ON 8-MSI COMPUTER
@@ -835,8 +846,16 @@ ONE_SECOND:
 			SOUNDBEEP 1000,200
 		}
 	}
-
 	
+	; ---------------------------------------------------------------
+	; HERE AT BOOT UP ALWAYS REMAIN -- WAIT LONGER TEN MINUTE 
+	; AND THEN REMOVE THAT WAY
+	; ---------------------------------------------------------------
+	IfWinExist Administrator:  C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 BOOT KILLER.BAT
+	{
+		SETTIMER ONE_MOMENT_CLOSE_BAT_01_BOOT_KILLER_BAT, 600000 ; 10 MINUTE
+		SOUNDBEEP 1000,200
+	}
 
 	IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770
 	{
