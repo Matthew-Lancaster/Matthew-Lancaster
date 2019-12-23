@@ -363,21 +363,22 @@ If TIMER_1_TIMER_RUN_ONCE = False Then Exit Sub
 On Error Resume Next
 TTITTY = "Port " + Format(Me.MSComm3.CommPort, "00") + " ___ PIR"
 If Me.MSComm3.PortOpen = False Then
-    Debug.Print "PIR ____ " + Time$ + " Me.MSComm3.PortOpen = False" + TTITTY
+    Debug.Print "PIR ____ " + Time$ + " Me.MSComm3.PortOpen = False " + TTITTY
     COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR = COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR + 1
     Exit Sub
 End If
 
 VAR_DSR_3 = Me.MSComm3.DSRHolding
-If VAR_DSR_3 = False Then STATE_PIR = " = Not Active _ " Else STATE_PIR = " = Active ____ "
-Debug.Print "PIR ____ " + Time$ + " " + Str(VAR_DSR_3) + STATE_PIR + TTITTY
+If VAR_DSR_3 = False Then STATE_PIR = " Not Active _ " Else STATE_PIR = " Active _____ "
+If VAR_DSR_3 = 0 Then VAR_DSR_4 = "FALSE =" Else VAR_DSR_4 = "TRUE  ="
+Debug.Print "PIR ____ " + Time$ + " " + VAR_DSR_4 + STATE_PIR + TTITTY
 If Err.Number > 0 Or Err.Number = 8002 Then
     TIMER_1.Enabled = True
     VAR_DSR_3 = True
 End If
 
 ' NOT WORK HARDWARE ERROR
-VAR_DSR_3 = True
+' VAR_DSR_3 = True
 ' -----------------------
 
 If OLD_VAR_DSR_3 = VAR_DSR_3 Then Exit Sub
@@ -425,17 +426,18 @@ Dim STATE_DOOR
 
 If TIMER_1_TIMER_RUN_ONCE = False Then Exit Sub
 
-TTITTY = " Port " + Format(Me.MSComm4.CommPort, "00") + " ___ DOOR"
+TTITTY = "Port " + Format(Me.MSComm4.CommPort, "00") + " ___ DOOR"
 
 If Me.MSComm4.PortOpen = False Then
-    Debug.Print "DOOR ___ " + Time$ + " Me.MSComm4.PortOpen = False" + TTITTY
+    Debug.Print "DOOR ___ " + Time$ + " Me.MSComm4.PortOpen = False " + TTITTY
     COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR = COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR + 1
     Exit Sub
 End If
 
 VAR_DSR_4 = Me.MSComm4.DSRHolding
-If VAR_DSR_3 = False Then STATE_DOOR = " = Close ______" Else STATE_DOOR = " = Open _______"
-Debug.Print "DOOR ___ " + Time$ + " " + Str(VAR_DSR_3) + STATE_DOOR + TTITTY
+If VAR_DSR_4 = False Then STATE_DOOR = " Close ______" Else STATE_DOOR = " Open _______"
+If VAR_DSR_4 = 0 Then VAR_DSR_5 = "FALSE =" Else VAR_DSR_5 = "TRUE  ="
+Debug.Print "DOOR ___ " + Time$ + " " + VAR_DSR_5 + STATE_DOOR + " " + TTITTY
 On Error Resume Next
 If Me.MSComm4.PortOpen = False Then
     VAR_DSR_4 = False
