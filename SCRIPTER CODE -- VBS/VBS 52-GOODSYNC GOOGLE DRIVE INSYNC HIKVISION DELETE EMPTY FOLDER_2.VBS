@@ -61,6 +61,8 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 Dim objFolder
 DIM objFolderERR
 
+DIM ERROR_WITH_SOME_2
+
 FOR R1=1 TO 2
 	IF LEN(strPath(R1)) = 2 AND MID(strPath(R1),2,1) = ":" THEN strPath(R1) = strPath(R1) + "\"
 	IF fso.FOLDEREXISTS(strPath(R1)) = TRUE THEN 
@@ -74,6 +76,25 @@ FOR R1=1 TO 2
 	END IF
 NEXT 
 
+
+IF EXECUTE_LANUCHED = TRUE THEN 
+	IF TEST_COUNTER="" THEN TEST_COUNTER=0
+	' WScript.Echo "DELETE DONE ON _ " & CSTR(TEST_COUNTER) & " _ EMPTY FOLDER"
+END IF
+
+IF ERROR_WITH_SOME_2 <> "" THEN 
+	MSGBOX ERROR_WITH_SOME_2
+	DIM objShell
+	Set objShell = CreateObject("Wscript.Shell")
+	strPath = "explorer.exe /e," + ERROR_WITH_SOME_2
+	objShell.Run strPath
+
+	' WScript.Echo "ERROR WITH SOME OF THEM HERE _ " & VBCRLF & ERROR_WITH_SOME & VBCRLF & CSTR(ERR_COUNTER) & VBCRLF & "TAKE YOU THERE"
+END IF
+
+WScript.Quit(0)
+
+
 Sub DeleteEmptyFolders(folder)
     Dim subfolder
 	ON ERROR RESUME NEXT
@@ -84,39 +105,25 @@ Sub DeleteEmptyFolders(folder)
 	I1=-1
 	I2=-1
 	ERR.CLEAR
-	Set objFolder = FSO.GetFolder(FOLDER_STRING)
+	Set objFolder = FSO.GetFolder(folder.Path)
 	I1=objFolder.SubFolders.Count
 	I2=objFolder.Files.Count
 	If I1=0 AND I2=0 AND ERR.NUMBER=0 THEN 
-		fso.DeleteFolder folder.Path, TRUE
+		fso.DeleteFolder folder.Path ' , TRUE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
 			ERROR_WITH_SOME_1 = folder.Path & VBCRLF & ERR.DESCRIPTION
 			ERROR_WITH_SOME_2 = folder.Path
-			ERR.CLEAR
-			MSGBOX "ERROR_WITH_SOME_1 = folder.Path & VBCRLF & ERR.DESCRIPTION"+ERROR_WITH_SOME_1
 
-			objFolder.DELETE, TRUE
-			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
+			MSGBOX "ERROR_WITH_SOME_1 = folder.Path & VBCRLF & ERR.DESCRIPTION"+VBCRLF+ERROR_WITH_SOME_1
+
+			' ERR.CLEAR
+			' objFolder.DELETE, TRUE
+			' IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
 		END IF
 	END IF
 End Sub
 
-IF EXECUTE_LANUCHED = TRUE THEN 
-	IF TEST_COUNTER="" THEN TEST_COUNTER=0
-	' WScript.Echo "DELETE DONE ON _ " & CSTR(TEST_COUNTER) & " _ EMPTY FOLDER"
-END IF
-
-IF ERROR_WITH_SOME <> "" THEN 
-	DIM objShell
-	Set objShell = CreateObject("Wscript.Shell")
-	strPath = "explorer.exe /e," & ERROR_WITH_SOME_1
-	objShell.Run ERROR_WITH_SOME_2
-
-	' WScript.Echo "ERROR WITH SOME OF THEM HERE _ " & VBCRLF & ERROR_WITH_SOME & VBCRLF & CSTR(ERR_COUNTER) & VBCRLF & "TAKE YOU THERE"
-END IF
-
-WScript.Quit(0)
 
 ' ---------------------
 ' Count = 011 -- Tue 05-Sep-2017 07:21:53
