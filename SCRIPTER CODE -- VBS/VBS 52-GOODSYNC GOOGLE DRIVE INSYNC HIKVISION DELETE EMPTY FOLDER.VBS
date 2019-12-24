@@ -101,7 +101,7 @@ ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 Dim objFolder
 
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
+' FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 FOLDER_STRING_3="C:\Users\MATT 04\Insync\rub.rim@gmail.com\Google Drive\snapshot ("
 FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT\snapshot ("
 
@@ -109,11 +109,13 @@ ON ERROR RESUME NEXT
 FOR RV=1 TO 4
 	FOR RO=2 TO 80
 		XXC=CSTR(RO)
+		FOLDER_STRING=""
 		IF RV=1 THEN FOLDER_STRING=FOLDER_STRING_1+XXC+")"
 		IF RV=2 THEN FOLDER_STRING=FOLDER_STRING_2+XXC+")"
 		IF RV=3 THEN FOLDER_STRING=FOLDER_STRING_3+XXC+")"
 		IF RV=4 THEN FOLDER_STRING=FOLDER_STRING_4+XXC+")"
 
+		IF FOLDER_STRING<>""  THEN
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 			I1=-1
 			I2=-1
@@ -129,6 +131,7 @@ FOR RV=1 TO 4
 					fso.DeleteFolder FOLDER_STRING
 				END IF
 			END IF
+		END IF
 		END IF
 	NEXT
 NEXT
