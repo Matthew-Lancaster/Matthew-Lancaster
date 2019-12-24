@@ -119,17 +119,18 @@ FOR RV=1 TO 4
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 			I1=-1
 			I2=-1
-			ERR.CLEAR 
+			ERR.CLEAR
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
 			I1=objFolder.SubFolders.Count
 			I2=objFolder.Files.Count
 			
-			If I1=0 AND I2=0 AND ERR.NUMBER=0 THEN  
+			IF ERR.NUMBER=0 THEN  
+			If I1=0 AND I2=0 THEN
 				' MSGBOX "HJ"
-				fso.DeleteFolder objFolder.Path
 				IF FSO.FOLDERExists(FOLDER_STRING) THEN
 					fso.DeleteFolder FOLDER_STRING
 				END IF
+			END IF
 			END IF
 		END IF
 		END IF
