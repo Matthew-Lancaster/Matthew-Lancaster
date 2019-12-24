@@ -250,7 +250,6 @@ FOR RV=1 TO 3
 				' AND NEXT ROUTINE IS SPECIAL DESIGN FOR THAT
 				' ALL DELETE EMPTY WILL BE GONE
 				' -------------------------------------------
-				fso.DeleteFolder objFolder.Path
 				IF FSO.FOLDERExists(FOLDER_STRING) THEN
 					fso.DeleteFolder FOLDER_STRING
 				END IF
