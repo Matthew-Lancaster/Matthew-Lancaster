@@ -103,14 +103,16 @@ Dim objFolder
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 FOLDER_STRING_3="C:\Users\MATT 04\Insync\rub.rim@gmail.com\Google Drive\snapshot ("
+FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT\snapshot ("
 
 ON ERROR RESUME NEXT
-FOR RV=1 TO 3
-	FOR RO=2 TO 20
+FOR RV=1 TO 4
+	FOR RO=2 TO 80
 		XXC=CSTR(RO)
 		IF RV=1 THEN FOLDER_STRING=FOLDER_STRING_1+XXC+")"
 		IF RV=2 THEN FOLDER_STRING=FOLDER_STRING_2+XXC+")"
 		IF RV=3 THEN FOLDER_STRING=FOLDER_STRING_3+XXC+")"
+		IF RV=4 THEN FOLDER_STRING=FOLDER_STRING_4+XXC+")"
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 			I1=-1
@@ -121,7 +123,7 @@ FOR RV=1 TO 3
 			I2=objFolder.Files.Count
 			
 			If I1=0 AND I2=0 AND ERR.NUMBER=0 THEN  
-				MSGBOX "HJ"
+				' MSGBOX "HJ"
 				fso.DeleteFolder objFolder.Path
 				IF FSO.FOLDERExists(FOLDER_STRING) THEN
 					fso.DeleteFolder FOLDER_STRING
