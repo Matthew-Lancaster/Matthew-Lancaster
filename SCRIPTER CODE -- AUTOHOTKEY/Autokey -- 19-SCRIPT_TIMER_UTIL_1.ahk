@@ -1087,8 +1087,6 @@ SetTitleMatchMode 2
 
 WinGet, HID, ID,ahk_class ConsoleWindowClass
 
-; Administrator:  C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 BOOT KILLER.BAT
-
 IF ID_OLD_ConsoleWindowClass<>%HID%
 {
 	ID_ConsoleWindowClass_TIMER=%A_Now%
