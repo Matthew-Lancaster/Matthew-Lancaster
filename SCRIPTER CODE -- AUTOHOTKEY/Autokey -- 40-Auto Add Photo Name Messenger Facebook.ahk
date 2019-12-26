@@ -160,7 +160,8 @@ Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURS
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\WORK\New folder
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\WORK\23-25
+; FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\WORK\20-22
 ; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 ; -------------------------------------------------------------------
@@ -177,20 +178,13 @@ FILE_PATH_WILDPATH_JPG=%FILE_PATH_WILDPATH_JPG%\*.JPG
 ; NORM WOULD BE 1 FOR 1ST
 ; VAR_COUNTER_START_AT_VALUE
 ; -------------------------------------------------------------------
-VAR_COUNTER_START_AT_VALUE=1
+VAR_COUNTER_START_AT_VALUE=73
 
 ; -------------------------------------------------------------------
 ; 0=NEW ALBUM
 ; 1=EDITOR
 NEW_ALBUM_OR_EDITOR_PAGE=0
 ; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-
-	
 
 ; SET DELAY SPEED 
 ; LESS IMAGE QUICKER SPEED ALLOW
