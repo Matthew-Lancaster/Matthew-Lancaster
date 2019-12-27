@@ -58,7 +58,7 @@ Menu, Tray, Add, Pause __ Debby Hall, MenuHandler
 if A_ScriptName=Autokey -- 14-Brightness With Dimmer.ahk
 {
 Menu, Tray, Add
-Menu, Tray, Add, ADD 20 MINUTE BEFORE SCREEN SAVER, MenuHandler 
+Menu, Tray, Add, ADD 1 HOUR BEFORE SCREEN SAVER, MenuHandler 
 }
 
 Menu, Tray, Add  
