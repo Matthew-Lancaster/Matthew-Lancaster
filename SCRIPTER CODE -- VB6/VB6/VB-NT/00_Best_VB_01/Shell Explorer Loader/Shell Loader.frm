@@ -6545,7 +6545,12 @@ For R3 = 0 To UBound(NET_PATH_ALL_R)
             ' -----------------------------------------------------------------
             For R5 = 1 To 5
                 GS_1 = CK2 + "\Users\MATT " + Format(R5, "00") + "\AppData\Local\GoodSync\jobs-groups-options.tic"
-                If Dir(GS_1) <> "" Then
+                On Error Resume Next
+                ' COMPUTER_CODE_VB_GENERATED_TEXT
+                XX = ""
+                XX = Dir(GS_1)
+                On Error GoTo 0
+                If XX <> "" Then
                     i = i + 1: M(i) = GS_1
                 End If
             Next
@@ -6573,7 +6578,12 @@ If NP = "" Then
     MsgBox "NOTEPAD++ NOT FOUND -- HERE " + vbCrLf + vbCrLf + NP1 + vbCrLf + vbCrLf + NP2
 End If
 For R3 = 0 To UBound(M)
-    If Dir(M(R3)) <> "" Then
+    On Error Resume Next
+    ' COMPUTER_CODE_VB_GENERATED_TEXT
+    XX = ""
+    XX = Dir(M(R3))
+    On Error GoTo 0
+    If XX <> "" Then
         Dim objShell
         Set objShell = CreateObject("Wscript.Shell")
         objShell.Run NP + " """ + M(R3) + """", ShowWindow_2, DontWaitUntilFinished
