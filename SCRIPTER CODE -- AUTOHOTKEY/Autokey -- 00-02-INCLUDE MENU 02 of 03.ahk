@@ -132,7 +132,7 @@ if A_ThisMenuItem=Pause __ Debby Hall
 	}
 }
 
-if A_ThisMenuItem=ADD 20 MINUTE BEFORE SCREEN SAVER
+if A_ThisMenuItem=ADD 1 HOUR BEFORE SCREEN SAVER
 {
 	ADD_MINUTE_BEFORE_SCREEN_SAVER=TRUE
 }
