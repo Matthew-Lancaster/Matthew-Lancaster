@@ -92,22 +92,24 @@ Sub Main()
     
     GITHUB_MODE_VAR = "GITHUB_MODE"
     
+    ' ----------------------------------------
+    ' IF OPTION RUN HERE
+    ' BUT MOST TIME RUN 2ND OPTION BELOW AGAIN
+    ' ----------------------------------------
+    
     If InStr(Command$, "GITHUB_MODE_ONLY") > 0 Then
         GITHUB_MODE_VAR = "GITHUB_MODE_ONLY"
         FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.BAT"
     End If
     
-    ' GITHUB_MODE_ONLY ---- OVERRIDE
-    
+    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + GITHUB_MODE_VAR + " " + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
+
+'    GITHUB_MODE_ONLY ----OVERRIDE
+'
 '    MsgBox FILE_EXE_RUNNER
 '    MsgBox GITHUB_MODE_VAR
 '    MsgBox FROM_EXE_GITHUB
 '    MsgBox Command$
-    
-    Shell CMD + " /C " + """" + FILE_EXE_RUNNER + """" + " " + GITHUB_MODE_VAR + " " + FROM_EXE_GITHUB + " " + Command$, SHOWWINDOW_X
-
-    
-
     
     End
     
