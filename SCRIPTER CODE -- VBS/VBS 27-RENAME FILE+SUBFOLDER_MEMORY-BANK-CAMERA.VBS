@@ -1,11 +1,15 @@
-' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_MEMORY-BANK-CAMERA.VBS
 ' --------------------------------------------------------------------
+' VBS 27-RENAME FILE+SUBFOLDER_MEMORY-BANK-CAMERA.VBS
+' --------------------------------------------------------------------
+' CREATE 01 OF 02....
 ' VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS
-' --------------------------------------------------------------------
 ' [ Saturday 22:44:00 Pm_23 Novemeber 2019 ]
 ' --------------------------------------------------------------------
-
-
+' CREATE 02 OF 02....
+' VBS 27-RENAME FILE+SUBFOLDER_MEMORY-BANK-CAMERA.VBS
+' [ Monday 15:28:00 Pm_30 December 2019 ]
+' --------------------------------------------------------------------
 
 DIM objStartFolder
 DIM objFolder
@@ -21,8 +25,7 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 Dim arr1
 Dim oDict ' Key: Full filename, Item: Filename
 
-FOLDER_PATH="D:\DSC\2019+KEY_FOB\2019 KEY_FOB"
-
+FOLDER_PATH="D:\DSC\2019+MEM-BANK-AR\" + CSTR(Year(Now)) + " MEMORY-BANK-CAMERA\VIDEO"
 
 I_COUNT=0
 
@@ -110,7 +113,7 @@ SUB PATH_SCANNER_RENAME
 	' i_TIME=i_TIME+" "
 	' i_TIME=i_TIME+MonthName(MONTH(FileModDate_1),TRUE)+" "
 	' i_TIME=i_TIME+WeekdayName(Weekday(VAR_NOW),TRUE)	
-	i_TIME=i_TIME+" - KEY_FOB - "
+	i_TIME=i_TIME+" - MEMORY-BANK-CAMERA - "
 
 	F_TIME=""
 	F_TIME=F_TIME+LPad(Year(FileModDate_1), "0", 4)+"-"
@@ -118,8 +121,15 @@ SUB PATH_SCANNER_RENAME
 	F_TIME=F_TIME+LPad(Day(FileModDate_1), "0", 2)
 	
 	NewFilename=i_TIME+FILE_VAR
+
+	
 	PATH_VAR=PATH_VAR+F_TIME
-	IF LEN(PATH_VAR)<60 THEN 
+	' MSGBOX LEN(PATH_VAR)
+	' ---------------------------------------------------------------
+	' CHECK PATH LEN AS MIGHT VARY BETWEEN USE OTHER DIRECTORY 
+	' AND OTHER CAMERA SHIT
+	' ---------------------------------------------------------------
+	IF LEN(PATH_VAR)<65 THEN 
 		' MSGBOX PATH_VAR+VBCRLF+CSTR(LEN(PATH_VAR))
 		' Wscript.QUIT
 		BuildFullPath PATH_VAR
@@ -138,7 +148,7 @@ SUB PATH_SCANNER_RENAME
 		
 		IF SET_GO=TRUE THEN 
 			
-			' MSGBOX VAR_PATH_SCANNER+VBCRLF+ NewFilename,vbMsgBoxSetForeground 
+			MSGBOX VAR_PATH_SCANNER+VBCRLF+ NewFilename,vbMsgBoxSetForeground 
 			
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT=I_COUNT+1
