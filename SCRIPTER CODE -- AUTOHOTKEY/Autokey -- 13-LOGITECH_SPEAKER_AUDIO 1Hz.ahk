@@ -33,6 +33,9 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ;---------------------------------------------------------
 ; CODE INITIALIZE SOUND EFFECT LEARN
 ;---------------------------------------------------------
+GLOBAL TX
+TX=
+
 SoundBeep , 1500 , 400
 ;soundSetWaveVolume, 100 
 
