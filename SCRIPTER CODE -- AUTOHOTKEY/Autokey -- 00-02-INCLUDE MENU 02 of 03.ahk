@@ -135,5 +135,61 @@ if A_ThisMenuItem=Pause __ Debby Hall
 if A_ThisMenuItem=ADD 1 HOUR BEFORE SCREEN SAVER
 {
 	ADD_MINUTE_BEFORE_SCREEN_SAVER=TRUE
+	
+	GOSUB WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR
+	
+	
 }
+
+
+WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
+		
+		FileName_2=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__
+		ArrayCount = 0
+		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
+		{
+			NET_PATH:=A_LoopReadLine
+			
+			SET_GO=TRUE
+			IF INSTR(NET_PATH,"BTHUB")
+				SET_GO=FALSE
+			IF INSTR(NET_PATH,"NAS-QNAP-ML")
+				SET_GO=FALSE
+			IF SET_GO=TRUE
+			{
+				ArrayCount += 1
+				Array_NETPATH_01%ArrayCount% = %NET_PATH%
+				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
+				ELEMENT1=\\
+				ELEMENT2:=Array_NETPATH_01%ArrayCount%
+				ELEMENT3=\
+				ELEMENT4:=Array_NETPATH_02%ArrayCount%
+				ELEMENT5=%FileName_2%
+				NET_PATH:=A_LoopReadLine
+				ELEMENT7=_%NET_PATH%.TXT
+
+				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
+			}
+		}
+
+		Loop %ArrayCount%
+		{
+			file := FileOpen(Array_FileName%A_Index%, "w")
+			if IsObject(file)
+			{
+				; if !IsObject(file)
+				; MsgBox Can't open "%FileName%" for writing.
+				; return
+
+				TestString := "This is a test string.`r`n"  
+				file.Write(TestString)
+				file.Close()
+				SOUNDBEEP 1000,100
+			}
+		}
+		SOUNDBEEP 2000,100
+
+RETURN
+
+
 
