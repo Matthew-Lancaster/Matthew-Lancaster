@@ -366,12 +366,24 @@ IF (A_ComputerName="8-MSI-GP62M-7RD")
 BLANK_DIMMER=%A_Now%
 BLANK_DIMMER+= %BLANK_DIMMER_TIME%, Seconds
 
-
-
+; WIN_XP 5 WIN_7 6 WIN_10 10  
+; --------------------------
+OSVER_N_VAR:=a_osversion
+IF INSTR(a_osversion,".")>0
+	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
+IF OSVER_N_VAR=WIN_XP
+	OSVER_N_VAR=5
+IF OSVER_N_VAR=WIN_7
+	OSVER_N_VAR=6
 
 SoundBeep , 1000 , 100
 SoundBeep , 3000 , 100
 
+IF OSVER_N_VAR=5 ; XP
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
+	
+	
 ; IF (A_ComputerName="1-ASUS-X5DIJ")
 	; PAUSE
 ; IF (A_ComputerName="2-ASUS-EEE")
@@ -391,6 +403,7 @@ SendMessage, 0x112, 0xF170, 0,, Program Manager
 GOSUB, MONITOR_BRIGHTNESS_UP
 
 SetTimer,Mouse_Idle_Timer, 1000     ; Check Every Second
+SetTimer,CHECK_FILENAME_1_HOUR,1000
 setTimer TIMER_PREVIOUS_INSTANCE,1
 
 ; -------------------------------------------------------------------
@@ -625,6 +638,45 @@ ARTIFICIAL_F5_A_Now:=A_Now
 }
 RETURN
 
+
+CHECK_FILENAME_1_HOUR:
+
+IF ADD_MINUTE_BEFORE_SCREEN_SAVER
+{
+	ADD_MINUTE_BEFORE_SCREEN_SAVER=
+	ADD_MINUTE_SCREEN_SAVER=%A_Now%
+	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+}
+
+FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__%A_ComputerName%.TXT
+if FileExist(FileName_VB)
+{
+	ADD_MINUTE_BEFORE_SCREEN_SAVER=
+	ADD_MINUTE_SCREEN_SAVER=%A_Now%
+	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+	FileDelete, % FileName_VB
+	SOUNDBEEP 1000,100
+	IF OSVER_N_VAR=5 ; XP
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	 ShowOnOff()
+}
+Return
+
+ShowOnOff() {
+    Static TX
+	TX := "On"
+	Gui Color, White
+	Gui -caption +toolwindow +AlwaysOnTop
+	Gui font, s30 bold, Arial
+	Gui add, text, vTX cRed TransColor, On
+	Gui Show, % "x" A_ScreenWidth-300 " y" A_ScreenHeight-130, TRANS-WIN
+	WinSet TransColor, White, TRANS-WIN
+	GuiControl % "Show", TX
+	SLEEP 4000
+	GuiControl % "Hide", TX
+}
+	
+RETURN
 ; ------------------------------------
 Mouse_Idle_Timer:
 
@@ -633,15 +685,8 @@ COUNT_TICK_TIME=% 1000*60*24
 
 IF A_TICKCOUNT< %COUNT_TICK_TIME%
 	RETURN
+
 	
-IF ADD_MINUTE_BEFORE_SCREEN_SAVER
-{
-	ADD_MINUTE_BEFORE_SCREEN_SAVER=
-	ADD_MINUTE_SCREEN_SAVER=%A_Now%
-	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
-}
-
-
 GOSUB, MONITOR_BRIGHTNESS_DIMMER_PER_DAY
 
 DetectHiddenWindows, on
