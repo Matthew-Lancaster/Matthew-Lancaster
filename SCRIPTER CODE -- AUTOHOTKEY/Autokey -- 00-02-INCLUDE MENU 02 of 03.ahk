@@ -144,7 +144,7 @@ if A_ThisMenuItem=ADD 1 HOUR BEFORE SCREEN SAVER
 
 WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 		
-		FileName_2=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__
+		FileName_2=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS_
 		ArrayCount = 0
 		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
 		{
@@ -184,7 +184,9 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 				TestString := "This is a test string.`r`n"  
 				file.Write(TestString)
 				file.Close()
-				SOUNDBEEP 1000,100
+				; SOUNDBEEP 1000,100
+				; IF OSVER_N_VAR=5 ; XP
+					; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 		}
 		SOUNDBEEP 2000,100
