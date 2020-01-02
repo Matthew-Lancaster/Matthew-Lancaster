@@ -137,9 +137,8 @@ if A_ThisMenuItem=ADD 1 HOUR BEFORE SCREEN SAVER
 	ADD_MINUTE_BEFORE_SCREEN_SAVER=TRUE
 	
 	GOSUB WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR
-	
-	
 }
+
 
 
 WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
@@ -174,6 +173,8 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 
 		Loop %ArrayCount%
 		{
+			FileDelete, % Array_FileName%A_Index%
+
 			file := FileOpen(Array_FileName%A_Index%, "w")
 			if IsObject(file)
 			{
@@ -184,9 +185,6 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 				TestString := "This is a test string.`r`n"  
 				file.Write(TestString)
 				file.Close()
-				; SOUNDBEEP 1000,100
-				; IF OSVER_N_VAR=5 ; XP
-					; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 		}
 		SOUNDBEEP 2000,100
