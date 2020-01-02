@@ -651,32 +651,27 @@ IF ADD_MINUTE_BEFORE_SCREEN_SAVER
 FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__%A_ComputerName%.TXT
 if FileExist(FileName_VB)
 {
+	FileDelete, % FileName_VB
 	ADD_MINUTE_BEFORE_SCREEN_SAVER=
 	ADD_MINUTE_SCREEN_SAVER=%A_Now%
 	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
-	FileDelete, % FileName_VB
 	SOUNDBEEP 1000,100
 	IF OSVER_N_VAR=5 ; XP
+	{
 		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	 ShowOnOff()
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+	Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoids a taskbar button.
+	Gui Color, White
+	Gui font, s30 bold, Arial
+	Gui, Add, Text,, Screen Saver Set On
+	Gui, Show, NoActivate, Title of Window  ; NoActivate avoids deactivating the currently active window.
+	SLEEP 4000
+	Gui, Hide
 }
 Return
 
-ShowOnOff() {
-    Static TX
-	TX := "On"
-	Gui Color, White
-	Gui -caption +toolwindow +AlwaysOnTop
-	Gui font, s30 bold, Arial
-	Gui add, text, vTX cRed TransColor, On
-	Gui Show, % "x" A_ScreenWidth-300 " y" A_ScreenHeight-130, TRANS-WIN
-	WinSet TransColor, White, TRANS-WIN
-	GuiControl % "Show", TX
-	SLEEP 4000
-	GuiControl % "Hide", TX
-}
-	
-RETURN
+
 ; ------------------------------------
 Mouse_Idle_Timer:
 
