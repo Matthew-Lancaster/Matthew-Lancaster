@@ -52,6 +52,9 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ADD_MINUTE_BEFORE_SCREEN_SAVER=
 ; CARRY ON THE TIMER SET
 ADD_MINUTE_SCREEN_SAVER=
+; 
+SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
 
@@ -646,16 +649,32 @@ IF ADD_MINUTE_BEFORE_SCREEN_SAVER
 	ADD_MINUTE_BEFORE_SCREEN_SAVER=
 	ADD_MINUTE_SCREEN_SAVER=%A_Now%
 	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+	SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
+	GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
 }
 
 FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__%A_ComputerName%.TXT
 if FileExist(FileName_VB)
 {
-	FileDelete, % FileName_VB
+	LOOP, 10000
+	{
+		FileDelete, % FileName_VB
+		AttributeString := FileExist(FileName_VB)
+		IF AttributeString
+		FileDelete, %FN_VAR_LNK%
+		AttributeString := FileExist(FileName_VB)
+		IF !AttributeString
+		{
+			MSGBOX "HH"
+			BREAK
+		}
+	}
 	ADD_MINUTE_BEFORE_SCREEN_SAVER=
 	ADD_MINUTE_SCREEN_SAVER=%A_Now%
 	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+	SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
 	SOUNDBEEP 1000,100
+	GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
 	IF OSVER_N_VAR=5 ; XP
 	{
 		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
@@ -1147,6 +1166,46 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	O_IN_DAY_1:=%IN_DAY%
 
 RETURN
+
+SCREEN_SAVER_TO_SHOW_SCREEN:
+
+	Gui, HIDE
+	;--------------------------------------------------------
+	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
+	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
+	;--------------------------------------------------------
+	SendMessage, 0x112, 0xF170, -1,, Program Manager
+	; ---------------------------------------------------
+	; POWER UP THE SCREEN AND WILL FLASH ON FOR SECOND THEN BACK TO POWERSAVE
+	; SO ANSWER IS MOVE THE MOUSE TO BRING OUT OF SCREENSAVER
+	; WORKER YES
+	; ---------------------------------------------------
+	; ACTIVATING THE SCREEN AGAIN WITH THIS COMMAND IS NOT ACTUALLY
+	; REQUIRED _ IT IS SOME SYSTEM SCREEN SAVER AND MOUSE OR KEY IDLE
+	; ACTIVATES IT THAT WAY
+	; ---------------------------------------------------
+	
+	MouseGetPos, xpos, ypos
+	XPOS+=1
+	YPOS+=1
+	MouseMove, xpos, ypos
+	XPOS-=1
+	YPOS-=1
+	MouseMove, xpos, ypos
+
+	Monitor.SetBrightness(127, 127, 127)
+	
+	SetTimer,Mouse_Idle_Timer, 1000 
+	; ---------------------------------------------------------------
+	; RAPID RESPONSE BRING OUT OF DIM
+	; SET TIMER TO THE SECOND 1000MS FOR EASIER COUNTER TIME_OUT
+	; ---------------------------------------------------------------
+	Mouse_Idle_Flip_Flop_Toggle := "False"
+
+
+RETURN
+
+
 
 IS_IN_DAY:
 
