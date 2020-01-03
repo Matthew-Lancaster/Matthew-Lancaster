@@ -642,52 +642,62 @@ ARTIFICIAL_F5_A_Now:=A_Now
 RETURN
 
 
+
+; -------------------------------------------------------------------
+; WORK CODER TO COMPLETE HERE
+; FINALLY AT 
+; Fri 03-Jan-2020 03:19:44
+; FROM 
+; Fri 03-Jan-2020 02:37:19
+; -------------------------------------------------------------------
+; FEW THING FINDER
+; THE MENU CODE SET FILE 02 OF 03
+; HOLD THE VARIABLE FOR MENU SELECT
+; AND UNABLE HAVE CODE IN THERE AS REACH END NOT A RETURN
+; SO CODE FOR SUBROUTINE GO IN MENU FILE 03 OF 03
+; IF CODE ARE LOCATE ON 02 OF 03
+; THEY RUN TWICE
+; -------------------------------------------------------------------
+; AND CODER ADD
+; THAT WHEN THE TIMER VARIABLE DO 
+; IT ALSO TRIGGER THAT SCREEN SAVER SWITCH IS SHOW VISIBLE
+; -------------------------------------------------------------------
+
 CHECK_FILENAME_1_HOUR:
 
-IF ADD_MINUTE_BEFORE_SCREEN_SAVER
-{
-	ADD_MINUTE_BEFORE_SCREEN_SAVER=
-	ADD_MINUTE_SCREEN_SAVER=%A_Now%
-	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
-	SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
-	GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
-}
+	IF ADD_MINUTE_BEFORE_SCREEN_SAVER
+	{
+		ADD_MINUTE_BEFORE_SCREEN_SAVER=
+		ADD_MINUTE_SCREEN_SAVER=%A_Now%
+		ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+		SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
+		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
+	}
 
-FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__%A_ComputerName%.TXT
-if FileExist(FileName_VB)
-{
-	LOOP, 10000
+	FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__%A_ComputerName%.TXT
+	if FileExist(FileName_VB)
 	{
 		FileDelete, % FileName_VB
-		AttributeString := FileExist(FileName_VB)
-		IF AttributeString
-		FileDelete, %FN_VAR_LNK%
-		AttributeString := FileExist(FileName_VB)
-		IF !AttributeString
+
+		ADD_MINUTE_BEFORE_SCREEN_SAVER=
+		ADD_MINUTE_SCREEN_SAVER=%A_Now%
+		ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+		SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
+		SOUNDBEEP 1000,100
+		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
+		IF OSVER_N_VAR=5 ; XP
 		{
-			MSGBOX "HH"
-			BREAK
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
+		Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoids a taskbar button.
+		Gui Color, White
+		Gui font, s30 bold, Arial
+		Gui, Add, Text,, Screen Saver Set On
+		Gui, Show, NoActivate, Title of Window  ; NoActivate avoids deactivating the currently active window.
+		SLEEP 4000
+		Gui, Hide
 	}
-	ADD_MINUTE_BEFORE_SCREEN_SAVER=
-	ADD_MINUTE_SCREEN_SAVER=%A_Now%
-	ADD_MINUTE_SCREEN_SAVER+=1 , Hours
-	SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
-	SOUNDBEEP 1000,100
-	GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
-	IF OSVER_N_VAR=5 ; XP
-	{
-		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	}
-	Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoids a taskbar button.
-	Gui Color, White
-	Gui font, s30 bold, Arial
-	Gui, Add, Text,, Screen Saver Set On
-	Gui, Show, NoActivate, Title of Window  ; NoActivate avoids deactivating the currently active window.
-	SLEEP 4000
-	Gui, Hide
-}
 Return
 
 
