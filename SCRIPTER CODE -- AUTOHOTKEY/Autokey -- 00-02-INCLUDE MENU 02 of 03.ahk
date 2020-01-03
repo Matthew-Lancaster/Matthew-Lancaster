@@ -135,7 +135,6 @@ if A_ThisMenuItem=Pause __ Debby Hall
 if A_ThisMenuItem=ADD 1 HOUR BEFORE SCREEN SAVER
 {
 	ADD_MINUTE_BEFORE_SCREEN_SAVER=TRUE
-	
 	GOSUB WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR
 }
 
@@ -173,11 +172,13 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 
 		Loop %ArrayCount%
 		{
-			FileDelete, % Array_FileName%A_Index%
+			; FileDelete, % Array_FileName%A_Index%
 
 			file := FileOpen(Array_FileName%A_Index%, "w")
 			if IsObject(file)
 			{
+				MSGBOX % file
+
 				; if !IsObject(file)
 				; MsgBox Can't open "%FileName%" for writing.
 				; return
