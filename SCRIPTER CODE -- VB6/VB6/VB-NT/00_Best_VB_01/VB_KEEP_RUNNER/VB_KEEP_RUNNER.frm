@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -2158,6 +2158,8 @@ Option Explicit
 ' --------------------------------------------------------------
 ' HERE IS ALL REM OUT OF WORK IN PROGRESS
 ' --------------------------------------------------------------
+
+Dim OLD_TxtEXE_Text_INFO
 
 Dim TEAMVIEWER_FILE_PRESENT_OLD
 Dim TEAMVIEWER_GONE_TIMER
@@ -9699,10 +9701,13 @@ End Sub
 
 Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
 
+
+    Dim FILE_NAME, PARAM, TxtEXE_Text_CHECK
     Dim PATH_1, FILE_1, PID_MARK As Long
     Dim GOODSYNC_WINDOW_hWnd, Success_Result
     GOODSYNC_WINDOW_hWnd = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F00A}", vbNullString)
     PATH_1 = "C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\"
+    If FSO.FolderExists(PATH_1) = False Then CreateFolderTree (PATH_1)
     FILE_1 = "D_HDD_GOODSYNC2GO_RUNNER_" + GetComputerName + ".TXT"
     TxtEXE_Text = ""
     On Error GoTo EXIT_SUB
@@ -9749,15 +9754,20 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
     
     If Mid(TxtEXE_Text, 1, 1) = "D" Then
         If Dir(PATH_1 + FILE_1) = "" Then
+            On Error Resume Next
+            Err.Clear
             FR1 = FreeFile
             Open PATH_1 + FILE_1 For Output As #FR1
+            If Err.Number > 0 Then
+                MsgBox "NOT ABLE MAKE PATH FROM VB_K_RUNNER" + vbCrLf + PATH_1 + FILE_1 + vbCrLf + Err.Description, vbMsgBoxSetForeground
+            End If
             Print #FR1, "REQUIRE FILE TO SHOW IF GS2GO IS RUNNER ON TWO MACHINE WHICH "
             Print #FR1, "IS NOT ALLOW AS THEY SHARE AND WARN IT TO BE DONE"
             Print #FR1, "HERE FILE CONTROL BY VBKEEPRUNNER.EXE"
             Print #FR1, "AND SYNC BY GOODSYNC JOB NAME C SCRIPTOR DATA"
             Print #FR1, "THAT OPERATION -- 4G GS2GO -- 7G GS2GO"
             Close #FR1
-            Exit Sub
+            ' Exit Sub
         End If
     End If
     
@@ -9770,6 +9780,22 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
             MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ " + Mid(TxtEXE_Text, 1, 1) + " DRIVE __ GOODSYNC2GO __]"
         End If
     End If
+    
+    
+    TxtEXE_Text_CHECK = ""
+    If TxtEXE_Text <> "" Then TxtEXE_Text_CHECK = Mid(TxtEXE_Text_CHECK, 1, 1)
+    If OLD_TxtEXE_Text_INFO = "D" And TxtEXE_Text <> "D" Then
+        ' ---------------------------------------
+        FILE_NAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+        PARAM = "D_DRIVE_GOODSYNC_JOB_SET"
+        ' ---------------------------------------
+        Dim WSHShell
+        Set WSHShell = CreateObject("WScript.Shell")
+            WSHShell.Run """" + FILE_NAME + """" + " " + "" + PARAM + "", ShowWindow_2, DontWaitUntilFinished
+        Set WSHShell = Nothing
+    End If
+    OLD_TxtEXE_Text_INFO = TxtEXE_Text_CHECK
+    
 Exit Sub
     
 EXIT_SUB:
