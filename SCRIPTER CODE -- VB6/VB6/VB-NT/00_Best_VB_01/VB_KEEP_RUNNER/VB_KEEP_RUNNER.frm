@@ -9783,8 +9783,8 @@ Sub TIMER_IS_D_DRIVE_GOODSYNC2GO_RUNNER_Timer()
     
     
     TxtEXE_Text_CHECK = ""
-    If TxtEXE_Text <> "" Then TxtEXE_Text_CHECK = Mid(TxtEXE_Text_CHECK, 1, 1)
-    If OLD_TxtEXE_Text_INFO = "D" And TxtEXE_Text <> "D" Then
+    If TxtEXE_Text <> "" Then TxtEXE_Text_CHECK = Mid(TxtEXE_Text, 1, 1)
+    If OLD_TxtEXE_Text_INFO = "D" And TxtEXE_Text_CHECK <> "D" Then
         ' ---------------------------------------
         FILE_NAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
         PARAM = "D_DRIVE_GOODSYNC_JOB_SET"
@@ -9800,7 +9800,47 @@ Exit Sub
     
 EXIT_SUB:
     
-    
+Rem -----------------------------------------------------------------
+Rem ---- HERE IS INITIATE BY
+Rem ---- D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
+Rem -----------------------------------------------------------------
+Rem ---- HERE OF
+Rem ---- C:\SCRIPTER\SCRIPTER CODE -- BAT\
+Rem ---- BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
+Rem -----------------------------------------------------------------
+Rem ---- IT DO -- D DRIVE GOOD IS SYNC WITH OTHER COMPUTER D DRIVE
+Rem ---- HER IS PORTABLE VERSION
+Rem ---- AND THE OPTION_JOB_SCRIPT IS WHAT REQUIRE SYNC
+Rem ---- HERE IS A SHARE GOOD SYNC PORTABLE
+Rem ---- ONLY OPTION BEFORE WAS EITHER DO DURING LOG OFF
+Rem ---- WHICH IS A MAIN EVENT FOR SYSTEM NOT ONLY GOODSYNC SO LOUSY
+Rem ---- AND OPTION TO DO AT START UP WITH DELAY
+Rem ---- SEEM OKAY AT FIRST BUTT ERROR MIGHT HAPPEN IF
+Rem -----------------------------------------------------------------
+Rem ---- BEST WAY IS WHEN CLOSE DOWN GOODSYNC
+Rem ---- THE SCRIPT ABOVE CHECK IT IF CLOSE DOWN EVERY COMPUTER
+Rem ---- NOT ABLE RUN GOODSYNC PORTABLE ON MULTIPLE INSTANCE OVER DRIVE LETTER
+Rem ---- ONLY ONE GETT AR
+Rem -----------------------------------------------------------------
+Rem ---- IF RUN TWO PORTABLE VERSION AND INTEND TO SYNC OPTION JOB SET
+Rem ---- AND THEN THAT MEAN SAME NOT RUN BETWEEN ANY COMPUTER
+Rem ---- VB_KEEP_RUNNER.exe TAKE CARE OF THAT AND NOT ALLOW BETWEEN NETWORK
+Rem ---- AND ANY FOUND TO START WHEN ONE ALREADY RUN SOMEWHERE
+Rem ---- IT IMMEDIATELY SHUTDOWN WITH KILL PROCESS
+Rem -----------------------------------------------------------------
+Rem ---- GOODSYNC ITSELF WON'T LET TWO PORTABLE RUN
+Rem -----------------------------------------------------------------
+Rem ---- IT MEAN YOU HAVE TO FIND FULL LENGTH PROCESS PATH C OR D OR E
+Rem ---- THAT ABOUT THE LIMIT AS IT GO
+Rem ---- ONLY RUN 2 GOODSYNC PER COMPUTER -- PORTABLE AND DESKTOP
+Rem ---- SAVE A LOT OF WINDOW CONTROL HANDLE WORK WITH PROCESS NAME
+Rem ---- LATER MAYBE COULD
+Rem -----------------------------------------------------------------
+Rem ---- WORK TIME
+Rem ---- Sat 04-Jan-2020 12:20:28
+Rem ---- Sat 04-Jan-2020 13:30:00
+Rem -----------------------------------------------------------------
+   
     
 End Sub
 
