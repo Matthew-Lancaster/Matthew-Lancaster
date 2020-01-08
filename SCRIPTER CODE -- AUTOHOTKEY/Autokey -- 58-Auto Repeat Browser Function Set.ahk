@@ -131,6 +131,22 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; TO     __ Wed 04-Sep-2019 15:34:00 -- 7 HOUR-AH
 ; ----------------------------------------------------
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 07
+; ----------------------------------------------------
+; -------------------------------------------------------------------
+; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT 
+; WHEN NEW MAIL ARRIVE YAHOO
+; -------------------------------------------------------------------
+; SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+; -------------------------------------------------------------------
+; Wed 08-Jan-2020 10:20:00
+; Wed 08-Jan-2020 11:02:00
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
 
 ; -------------------------------------------------------------------
 ; MONITOR OF VIDEO FACEBOOK REPEAT HITT PUMP HER COUNTER 
@@ -373,6 +389,7 @@ GLOBAL OSVER_N_VAR
 
 FN_Array_1 := SET_ARRAY_1()
 FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
+; FN_ARRAY_BT_MAIL := SET_ARRAY_BT_MAIL() ; NOT USER
 FN_ARRAY_RAINER_F5 := SET_ARRAY_RAINER_F5()
 
 	
@@ -417,6 +434,8 @@ SET_ARRAY_FB_HITT_CN_44=  ; ---- VARIABLE HOLD TIMER_2 - F5 REFRESH MINUTE
 SET_ARRAY_FB_HITT_CN_3_DO_ONCE=SOME_TO_DO
 SOUND_PLAYER_FB_DO=
 
+SOUND_PLAYER_BT_MAIL_DO=
+OLD_TITLE_VAR_BT_MAIL=
 
 SET_ARRAY_RAIN_HITT_CN_33=      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
 SET_ARRAY_RAIN_HITT_CN_44=      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
@@ -473,7 +492,25 @@ IF SET_GO=TRUE
 	SETTIMER TIMER_SET_ARRAY_BROWSER_TAB_CLOSE,1000
 }
 
+
+; -------------------------------------------------------------------
+; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT 
+; WHEN NEW MAIL ARRIVE YAHOO
+; -------------------------------------------------------------------
+; Wed 08-Jan-2020 10:20:00
+; Wed 08-Jan-2020 11:02:00
+; -------------------------------------------------------------------
+
+SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+
+
 RETURN
+
+
+; -------------------------------------------------------------------
+; END OF INIT DECLARE VARIABLE
+; NOW ROUTINE AND FUNCTION
+; -------------------------------------------------------------------
 
 
 
@@ -498,6 +535,17 @@ SET_ARRAY_1() {
 	FN_Array_1[ArrayCount]:="Hallelujah - YouTube - Google Chrome"
 RETURN FN_Array_1
 }
+
+
+; NOT USER
+FN_ARRAY_BT_MAIL() {
+	SET_ARRAY_BT_MAIL := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_BT_MAIL[ArrayCount]:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Google Chrome"
+RETURN FN_ARRAY_BT_MAIL
+}
+
 
 ; FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
 SET_ARRAY_FB_F5() {
@@ -1579,6 +1627,21 @@ AUTO_RELOAD_RAIN_ALARM:
 	; SET_ARRAY_RAIN_HITT_CN_33      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
 	; SET_ARRAY_RAIN_HITT_CN_44      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
 
+	; ---------------------------------------------------------------
+	; AFTER FIND HERE EXTENSION CHROME
+	; ----
+	; Staying Alive for Google Chrome™ - Chrome Web Store 
+	; https://chrome.google.com/webstore/detail/staying-alive-for-google/lhobbakbeomfcgjallalccfhfcgleinm
+	; ----
+	; I GO TO TURN OFF PAGE RELOAD 
+	; WITH KEEP THE STAY FOCUS WHEN OPTION THERE
+	; SET_ARRAY_RAIN_HITT_CN_2 := []  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE
+	;
+	; SEE HERE VARIABLE
+	; NOT_WANT_TEMP_REMOVE
+	; ---------------------------------------------------------------
+	; Tue 07-Jan-2020 23:41:40
+	; ---------------------------------------------------------------
 	ArrayCount := 0
 	ArrayCount += 1
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"  ; ---- COMPUTER NAME
@@ -1603,7 +1666,7 @@ AUTO_RELOAD_RAIN_ALARM:
 	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=
 	ArrayCount += 1
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
-	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE" ; TRY HERE -- IF DETECT IDLE NOT ACTIVE
 	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
 	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
@@ -1869,16 +1932,31 @@ AUTO_RELOAD_RAIN_ALARM:
 	IF CHANGE_HWND_GO_RAIN=TRUE
 		SET_GO_RAIN=TRUE
 	
+	; ---------------------------------------------------------------
+	; SEE HERE
+	; ---------------------------------------------------------------
+	; AFTER FIND HERE EXTENSION CHROME
+	; ----
+	; Staying Alive for Google Chrome™ - Chrome Web Store 
+	; ---------------------------------------------------------------
+	; NOT_WANT_TEMP_REMOVE=
+	; ---------------------------------------------------------------
+	; Tue 07-Jan-2020 23:41:40
+	; ---------------------------------------------------------------
 
+	NOT_WANT_TEMP_REMOVE=
 	
 	IF SET_GO_RAIN=TRUE
 	{
-		SLEEP 100
-		SENDINPUT {F5}
+		IF NOT_WANT_TEMP_REMOVE=20
+		{
+			SLEEP 100
+			SENDINPUT {F5}
 
-		SLEEP 100
-		IF Element5_RAIN
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			SLEEP 100
+			IF Element5_RAIN
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
 		
 		; ------------------------------------
 		; TOP UP THE TIMER PAIR AFTER ACTIVATE
@@ -1893,7 +1971,6 @@ AUTO_RELOAD_RAIN_ALARM:
 		; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
 		AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR=%A_Now%
 		AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR+= %Element6_RAIN%, seconds
-		
 	}
 	SLEEP 100
 		
@@ -2102,15 +2179,15 @@ AUTO_RELOAD_FACEBOOK:
 	SET_GO_10_RAIN=
 	IF !Element2
 	IF ACTIVATE_TIMER_READY_INTERVAL
-		SET_GO_10_RAIN=TRUE           ; DO WHEN ACTIVATE TIMER INTERVAL
-								 ; IF NOT ACTIVATE RELOAD F5 PAGE AFTER
+		SET_GO_10_RAIN=TRUE         ; DO WHEN ACTIVATE TIMER INTERVAL
+								    ; IF NOT ACTIVATE RELOAD F5 PAGE AFTER
 	IF !Element2
 	IF READY_TO_GO_TIMER_INTERVAL
-		SET_GO_10_RAIN=TRUE           ; DO WHEN TIMER INTERVAL
-								 ; DON'T ACTIVATE WHEN REQUEST READY INTERVAL IF 
-								 ; ACTIVATE NOT ON
-								 ; FOR COMPUTER THAT DON'T HASSLE SWAPPER 
-								 ; SCREEN ALL THE TIME
+		SET_GO_10_RAIN=TRUE         ; DO WHEN TIMER INTERVAL
+									; DON'T ACTIVATE WHEN REQUEST READY INTERVAL IF 
+									; ACTIVATE NOT ON
+									; FOR COMPUTER THAT DON'T HASSLE SWAPPER 
+									; SCREEN ALL THE TIME
 
 	IS_ANYTHING_DO_AS_CHECK_REQUIRE_ACTIVATE=
 								 
@@ -2228,7 +2305,16 @@ AUTO_RELOAD_FACEBOOK:
 					; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
 					SOUND_PLAYER_FB_DO=%A_NOW%
 					SOUND_PLAYER_FB_DO+= 8, seconds  ; -- SET TIME OR RING REPEAT LOOP UNTIL PAGE REFRESH
-				}
+				}									 ; WHEN NEW NOTIFY ARRIVE FACEBOOK 
+													 ; DETECT BY "(" WINTITLE
+													 ; IF REFRESH PAGE QUICKER OTHER COMPUTER WILL 
+													 ; LOSE THAT SYMBOL THERE
+													 ; IN ORDER MAKE ALL COMPUTER RING FOR NOTIFY
+													 ; MUST WAIT TIME ALLOW 
+													 ; DETECT QUICK HAPPEN AND RING BUTT WOULD REPEAT IN
+													 ; TIMER DELAY EXTEND LONGER SO
+													 ; MAYBE RING TIMER AND ANOTHER FOR PAGE REFRESH
+													 
 				
 
 				NEW_NOTIFY_UPDATE=TRUE
@@ -2335,6 +2421,48 @@ AUTO_RELOAD_FACEBOOK:
 	SLEEP 100
 		
 RETURN
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; DECLARE VAR
+; OLD_TITLE_VAR_BT_MAIL=
+; -------------------------------------------------------------------
+; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT 
+; WHEN NEW MAIL ARRIVE YAHOO
+; -------------------------------------------------------------------
+; Wed 08-Jan-2020 10:20:00
+; Wed 08-Jan-2020 11:02:00
+; -------------------------------------------------------------------
+
+SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
+
+	TITLE_VAR_BT_MAIL=
+	WinGetTITLE, TITLE_VAR_BT_MAIL, A
+	
+	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Google Chrome"
+	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL)>0
+	{
+		IF TITLE_VAR_BT_MAIL
+		IF OLD_TITLE_VAR_BT_MAIL<>%TITLE_VAR_BT_MAIL%
+		{
+			; -----------------------------------------------
+			; BT MAIL RINGER RINGTONE RING TONE NOTIFY
+			; -----------------------------------------------
+			Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+		}
+		
+		IF TITLE_VAR_BT_MAIL
+			OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL%
+		
+	}
+
+RETURN
+	
 		
 
 
