@@ -138,11 +138,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 ; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT 
 ; WHEN NEW MAIL ARRIVE YAHOO
+; TAKE ANOTHER 20 MINUTE TO ADD SEGMENT WHERE LOOP ARE
+; 001 IT CHECK THE ACTIVE WINDOW QUICKER KEEP ROUTINE BEFORE
+; 002 IT LOOP ALL WINDOW -- CHROME ONLY HAS ONE TITLE BAR WHERE URL TITLE 
+; IT HIDE ANY THAT NOT FOCUS EVEN DIFFERENT USER ACCOUNT NEW BROWSER WINDOW
+; THIS WAY ABLE USE WITH FIREFOX ANY BROWSER
+; THE LOOP TAKE EXTRA PROCESS IF NOT FOUND INSTANT ACTIVE WINDOW
 ; -------------------------------------------------------------------
 ; SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
 ; -------------------------------------------------------------------
+; 001 OF 002
 ; Wed 08-Jan-2020 10:20:00
 ; Wed 08-Jan-2020 11:02:00
+; 002 OF 002
+; Wed 08-Jan-2020 11:48:06
+; Wed 08-Jan-2020 11:08:00
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -496,9 +506,22 @@ IF SET_GO=TRUE
 ; -------------------------------------------------------------------
 ; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT 
 ; WHEN NEW MAIL ARRIVE YAHOO
+; TAKE ANOTHER 20 MINUTE TO ADD SEGMENT WHERE LOOP ARE
+; 001 IT CHECK THE ACTIVE WINDOW QUICKER KEEP ROUTINE BEFORE
+; 002 IT LOOP ALL WINDOW -- CHROME ONLY HAS ONE TITLE BAR WHERE URL TITLE 
+; IT HIDE ANY THAT NOT FOCUS EVEN DIFFERENT USER ACCOUNT NEW BROWSER WINDOW
+; THIS WAY ABLE USE WITH FIREFOX ANY BROWSER
+; THE LOOP TAKE EXTRA PROCESS IF NOT FOUND INSTANT ACTIVE WINDOW
 ; -------------------------------------------------------------------
+; SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+; -------------------------------------------------------------------
+; 001 OF 002
 ; Wed 08-Jan-2020 10:20:00
 ; Wed 08-Jan-2020 11:02:00
+; 002 OF 002
+; Wed 08-Jan-2020 11:48:06
+; Wed 08-Jan-2020 11:08:00
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
 SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
@@ -2434,9 +2457,21 @@ RETURN
 ; -------------------------------------------------------------------
 ; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT 
 ; WHEN NEW MAIL ARRIVE YAHOO
+; TAKE ANOTHER 20 MINUTE TO ADD SEGMENT WHERE LOOP ARE
+; 001 IT CHECK THE ACTIVE WINDOW QUICKER KEEP ROUTINE BEFORE
+; 002 IT LOOP ALL WINDOW -- CHROME ONLY HAS ONE TITLE BAR WHERE URL TITLE 
+; IT HIDE ANY THAT NOT FOCUS EVEN DIFFERENT USER ACCOUNT NEW BROWSER WINDOW
+; THIS WAY ABLE USE WITH FIREFOX ANY BROWSER
+; THE LOOP TAKE EXTRA PROCESS IF NOT FOUND INSTANT ACTIVE WINDOW
 ; -------------------------------------------------------------------
+; SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+; -------------------------------------------------------------------
+; 001 OF 002
 ; Wed 08-Jan-2020 10:20:00
 ; Wed 08-Jan-2020 11:02:00
+; 002 OF 002
+; Wed 08-Jan-2020 11:48:06
+; Wed 08-Jan-2020 11:08:00
 ; -------------------------------------------------------------------
 
 SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
@@ -2445,6 +2480,8 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 	WinGetTITLE, TITLE_VAR_BT_MAIL, A
 	
 	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Google Chrome"
+	TRAVEL_HERE=
+	
 	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL)>0
 	{
 		IF TITLE_VAR_BT_MAIL
@@ -2458,9 +2495,37 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 		
 		IF TITLE_VAR_BT_MAIL
 			OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL%
-		
+			
+		TRAVEL_HERE=TRUE
 	}
 
+	IF TRAVEL_HERE
+		RETURN
+	
+	TITLE_VAR_BT_MAIL=
+	WinGet, List, List, %ELEMENT_ARRAY_BT_MAIL%
+	Loop %List%  
+	{ 
+		; WinClose, % "ahk_id " List%A_Index% 
+		HWND_ID := List%A_Index%
+		WinGetTitle, TITLE_VAR_BT_MAIL, ahk_id %HWND_ID%
+		{
+			IF TITLE_VAR_BT_MAIL
+			IF OLD_TITLE_VAR_BT_MAIL<>%TITLE_VAR_BT_MAIL%
+			{
+				; -----------------------------------------------
+				; BT MAIL RINGER RINGTONE RING TONE NOTIFY
+				; -----------------------------------------------
+				Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+			}
+			
+			IF TITLE_VAR_BT_MAIL
+				OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL%
+				
+			TRAVEL_HERE=TRUE
+		}
+	}
+	
 RETURN
 	
 		
@@ -2526,4 +2591,19 @@ class MyObject
 ;# ------------------------------------------------------------------
 ; exit the app
 
+
+
+; The WinTitle Parameter & the Last Found Window
+
+; Many commands and a few functions have a WinTitle parameter, used to identify which window (or windows) to operate on. This parameter can be the title or partial title of the window, and/or any other criteria described on this page.
+; Quick Reference: 
+; Title Matching Behaviour 
+; A The Active Window 
+; ahk_class Window Class 
+; ahk_id Unique ID/HWND 
+; ahk_pid Process ID 
+; ahk_exe Process Name/Path 
+; ahk_group Window Group 
+; Multiple Criteria 
+; (All empty) Last Found Window 
 
