@@ -344,7 +344,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   145817601
+      Format          =   147521537
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -358,7 +358,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   145817601
+      Format          =   147521537
       CurrentDate     =   37296
    End
    Begin VB.Label Label21 
@@ -2564,7 +2564,6 @@ For WE = 1 To ListView1.ListItems.Count
             LastPath = Mid(A1$, InStrRev(A1$, "\", Len(A1$) - 1))
             LastPath = Replace(LastPath, "\", "")
             
-            
             SET_GO = False
             'THE NEW FIRMWARE CAMERA UPDATE HAS FOLDER NAME LIKE 419MSDCF ONLY IF SETTING IN CAMERA NOT SET TO DATE FOLDER
             'THE FOLDER NAME LIKE                                45581020 EXAMPLE 2018 OCT 20
@@ -2591,7 +2590,6 @@ End Function
 
 Sub Rename_Image_Folder_Proper()
 
-
 'W$ = "D:\DSC\DCIM\"
 'AT$ = W$
 
@@ -2610,8 +2608,6 @@ ListView1.ListItems.Clear
 chkSubFolders.Value = vbChecked
 Call cmdScan_Click
 Dim LastPath, OldPath
-
-
 
 For WE = 1 To ListView1.ListItems.Count
     
@@ -2635,7 +2631,7 @@ For WE = 1 To ListView1.ListItems.Count
                 DATE_FILE_NAME = F.DateLastModified
                 LastPath = Format(DATE_FILE_NAME, "YYYY MM DD")
     '            LastPath = Mid(LastPath, 1, 8)
-                'LastPath = "201" + Mid(LastPath, 4)
+                'LastPath = Mid(Trim(Str(Year(Now))), 1, 3) + Mid(LastPath, 4)
                 'If Mid(LastPath, 5, 1) <> " " Then LastPath = Mid(LastPath, 1, 4) + " " + Mid(LastPath, 5, 2) + " " + Mid(LastPath, 7, 2)
                 If Dir(FrontofLastPath + LastPath, vbDirectory) = "" And FrontofLastPath + LastPath + "\" <> A1$ Then
                     Name A1$ As FrontofLastPath + LastPath
@@ -2662,10 +2658,10 @@ For WE = 1 To ListView1.ListItems.Count
             End If
         End If
         
-        'NORMAL IMPORT FROM SDCARD CAMERA
-        If IsNumeric(LastPath) = True And Mid(LastPath, 1, 3) <> "201" Then 'And Len(LastPath) <> 8 Then
+        ' NORMAL IMPORT FROM SDCARD CAMERA
+        If IsNumeric(LastPath) = True And Mid(LastPath, 1, 3) <> Mid(Trim(Str(Year(Now))), 1, 3) Then 'And Len(LastPath) <> 8 Then
 '            LastPath = Mid(LastPath, 1, 8)
-            LastPath = "201" + Mid(LastPath, 4)
+            LastPath = Mid(Trim(Str(Year(Now))), 1, 3) + Mid(LastPath, 4)
             If Mid(LastPath, 5, 1) <> " " Then LastPath = Mid(LastPath, 1, 4) + " " + Mid(LastPath, 5, 2) + " " + Mid(LastPath, 7, 2)
             If Dir(FrontofLastPath + LastPath, vbDirectory) = "" And FrontofLastPath + LastPath + "\" <> A1$ Then
                 Name A1$ As FrontofLastPath + LastPath
@@ -2692,7 +2688,7 @@ For WE = 1 To ListView1.ListItems.Count
         End If
         
         'BEEN IMPORTED BY WIFI
-        If Mid(LastPath, 7, 3) = "201" Then
+        If Mid(LastPath, 7, 3) = Mid(Trim(Str(Year(Now))), 1, 3) Then
 '            LastPath = Mid(LastPath, 1, 8)
             LastPath = Mid(LastPath, 7, 4) + Mid(LastPath, 4, 2) + Mid(LastPath, 1, 2)
             If Dir(FrontofLastPath + LastPath, vbDirectory) = "" And FrontofLastPath + LastPath + "\" <> A1$ Then
@@ -2713,7 +2709,7 @@ For WE = 1 To ListView1.ListItems.Count
         
         
         'IS IT THE INFO LINE
-        'If Mid(LastPath, 7, 3) = "201" Then
+        'If Mid(LastPath, 7, 3) = Mid(Trim(Str(Year(Now))), 1, 3) Then
             
         If InStr(A1$, " -- GOT TO HERE -- ") > 0 Then
             'NOT EQUAL TO THIS DECADE

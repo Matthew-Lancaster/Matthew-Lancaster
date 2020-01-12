@@ -369,6 +369,37 @@ WINNOTEXIST_AHK_CLASS_WINAMP_V1=
 SETTIMER RUN_AND_STOP_HUBIC_WHEN_WINAMP,2000
 
 
+; -------------------------------------------------------------------
+; WRITE CODER TIME
+; -------------------------------------------------------------------
+; Sat 11-Jan-2020 12:18:21
+; Sat 11-Jan-2020 15:30:00 -- 3 HOUR 15 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+WANT_GO=
+IF (A_ComputerName<>"7-ASUS-GL522VW")
+	WANT_GO=TRUE
+IF (A_ComputerName<>"4-ASUS-GL522VW")
+	WANT_GO=TRUE
+
+MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=
+OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=
+	
+; MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD := SubStr( A_Now, 1, 8 ) . "000000"
+; MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD += 1, days
+
+MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD= %A_Now%
+
+	
+IF WANT_GO=TRUE
+	SETTIMER RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE,1000
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+	
+	
+
+
 ; SETTIMER TEAMVIEWER_AR_RUN_ON_CUE,1000
 
 
@@ -377,23 +408,66 @@ SETTIMER RUN_AND_STOP_HUBIC_WHEN_WINAMP,2000
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
-
 RETURN
 
 
-
-
 ; TEAMVIEWER_AR_RUN_ON_CUE:
-
 ; IfWinExist ahk_class #32770 TeamViewer
 ; {
 ; WRITE FILE
 ; C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2\TEAMVIEWER_RUNNING.TXT
-
-
 ; }
+RETURN
 
 
+
+; -------------------------------------------------------------------
+; WRITE CODER TIME
+; -------------------------------------------------------------------
+; Sat 11-Jan-2020 12:18:21
+; Sat 11-Jan-2020 15:30:00 -- 3 HOUR 15 MINUTE
+; -------------------------------------------------------------------
+RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
+
+	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK:=SubStr(A_ScriptName, 1, -4)
+	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%A_ScriptDir%\%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%_TIMER_#NFS_%A_ComputerName%.txt
+
+	IF !MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD
+	{
+		OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=-2
+
+		If FileExist(SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK)
+		{
+			FileReadLine, OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%, 1
+		}
+	}
+
+	IF MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%
+		RETURN
+
+	MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD += 1, days
+	OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%
+	
+	If !FileExist(SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK)
+	{
+		FileDELETE, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
+		FileAppend, %MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%,%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
+	}
+	
+	; ---------------------------------------------------------------
+	; INSTRUCTION FOR BATCH FILE SET
+	; ---------------------------------------------------------------
+	SCRIPT_NAME_VAR_CHKDSK:=SubStr(A_ScriptName, 1, -4)
+	SCRIPT_NAME_VAR_CHKDSK=%A_ScriptDir%\%SCRIPT_NAME_VAR_CHKDSK%_BAT_#NFS.BAT
+	; ---------------------------------------------------------------
+	MIDNIGHT_CHKDSK_MC_V:="`nTITLE Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`nVOL V:`nCHKDSK.EXE V: /F`n"
+	; ---------------------------------------------------------------
+	
+	FileDELETE, %SCRIPT_NAME_VAR_CHKDSK%
+	FileAppend,%MIDNIGHT_CHKDSK_MC_V%,%SCRIPT_NAME_VAR_CHKDSK%
+
+	Run, %SCRIPT_NAME_VAR_CHKDSK% ; ,,HIDE
+	
 RETURN
 
 
