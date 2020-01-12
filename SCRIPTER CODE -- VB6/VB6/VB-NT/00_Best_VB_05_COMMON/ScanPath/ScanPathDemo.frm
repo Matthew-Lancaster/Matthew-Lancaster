@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form ScanPath 
    BackColor       =   &H00808080&
    Caption         =   "ScanPath 2.0 - Sort  Anything -"
@@ -529,7 +529,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   148897793
+      Format          =   152305665
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -543,7 +543,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   148897793
+      Format          =   152305665
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -556,7 +556,7 @@ Begin VB.Form ScanPath
       _ExtentX        =   1969
       _ExtentY        =   572
       _Version        =   393216
-      Format          =   148897794
+      Format          =   152371202
       CurrentDate     =   37299
    End
    Begin VB.Label lblCount7 
@@ -1669,7 +1669,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     MkDir OutPutPath + hole + GeText
     On Error GoTo 0
     
-    F.COPY OutPutPath + hole + GeText
+    F.Copy OutPutPath + hole + GeText
 
 Next
 
@@ -1725,7 +1725,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     Set F = FSO.GetFile(A1 + G1$)
 
     GeText = "#" + LCase(Mid$(B1, Len(B1) - 2, 3)) + "\"
-    F.COPY OutPutPath + GeText
+    F.Copy OutPutPath + GeText
 Next
 
 ListView1.ListItems.Clear
@@ -2334,7 +2334,7 @@ Public Sub cmdScanDir_FAST_Click()
             .StartScanDir_FAST TxtPath, chkSubFolders.Value, chkSort.Value And chkSort.Enabled, chkPatternMatching
         
             
-            'Correct Yes 1st one column sort keeps sort then another
+            'Correct Yes 1st one COLUMN sort keeps sort then another
 '            ListView1.SortOrder = lvwAscending
 '            ListView1.SortKey = 0
 '            ListView1.Sorted = True
@@ -2462,7 +2462,7 @@ Public Sub cmdScanDir_Click()
             .StartScanDir TxtPath, chkSubFolders.Value, chkSort.Value And chkSort.Enabled, chkPatternMatching
         
             
-            'Correct Yes 1st one column sort keeps sort then another
+            'Correct Yes 1st one COLUMN sort keeps sort then another
             ListView1.SortOrder = lvwAscending
             ListView1.SortKey = 0
             ListView1.Sorted = True
@@ -3797,20 +3797,20 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     
     
-    ii = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
-    ii = InStr(OO, Trim(Str(Year(Now))))
-    If ii = 0 Then
+    II = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
+    II = InStr(OO, Trim(Str(Year(Now))))
+    If II = 0 Then
     II1 = InStr(OO, Trim(Str(Year(Now) - 1)))
     II3 = InStr(OO, Trim(Str(Year(Now) + 1)))
-    If II1 > 0 Then ii = II1
-    If II2 > 0 Then ii = II2
-    If II3 > 0 Then ii = II2
+    If II1 > 0 Then II = II1
+    If II2 > 0 Then II = II2
+    If II3 > 0 Then II = II2
     End If
     
     IIRIME = ""
-    If ii > 0 Then
+    If II > 0 Then
         For r = 1 To 19
-            IIRIME = IIRIME + Chr(Asc(Mid(OO, ii + r - 1, 1)))
+            IIRIME = IIRIME + Chr(Asc(Mid(OO, II + r - 1, 1)))
             '&HFA
         Next
     End If
@@ -3990,20 +3990,20 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
         cam = "JFIF"
     End If
     
-    ii = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
-    ii = InStr(OO, Trim(Str(Year(Now))))
-    If ii = 0 Then
+    II = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
+    II = InStr(OO, Trim(Str(Year(Now))))
+    If II = 0 Then
     II1 = InStr(OO, Trim(Str(Year(Now) - 1)))
     II3 = InStr(OO, Trim(Str(Year(Now) + 1)))
-    If II1 > 0 Then ii = II1
-    If II2 > 0 Then ii = II2
-    If II3 > 0 Then ii = II2
+    If II1 > 0 Then II = II1
+    If II2 > 0 Then II = II2
+    If II3 > 0 Then II = II2
     End If
     
     IIRIME = ""
-    If ii > 0 Then
+    If II > 0 Then
         For r = 1 To 19
-            IIRIME = IIRIME + Chr(Asc(Mid(OO, ii + r - 1, 1)))
+            IIRIME = IIRIME + Chr(Asc(Mid(OO, II + r - 1, 1)))
             '&HFA
         Next
     End If
@@ -4097,7 +4097,7 @@ Me.BackColor = &HC0C0C0
 ScanPath.Hide
 
 '--------
-'If you use ChkMem Size Files then Know G1$ Alternate Data uses same column(2) for its data
+'If you use ChkMem Size Files then Know G1$ Alternate Data uses same COLUMN(2) for its data
 '-
 'Seem to have a problem with some program an not other when use chkmem file size and date
 'Work Around done that
@@ -4311,7 +4311,7 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2)
 
-        If InStr(f1$, D2$) = 0 Then
+        If InStr(F1$, D2$) = 0 Then
             On Local Error GoTo jeep
             MkDir D2$
             If errs2 <> 75 And errs2 > 0 Then
@@ -4322,7 +4322,7 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = D2$
+    F1$ = D2$
 
     errs2 = 0
     On Local Error GoTo jeep
@@ -4409,7 +4409,7 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2 - 1)
 
-        If InStr(f1$, D2$) = 0 Then
+        If InStr(F1$, D2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             'MkDir d2$
@@ -4422,7 +4422,7 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = D2$
+    F1$ = D2$
 
     errs2 = 0
     On Local Error Resume Next
@@ -4477,7 +4477,7 @@ For WE = 1 To ListView1.ListItems.Count
 
         D2$ = Mid$(c1$, 1, ets2 - 1)
 
-        If InStr(f1$, D2$) = 0 Then
+        If InStr(F1$, D2$) = 0 Then
             Err.Clear
             On Local Error Resume Next
             MkDir D2$
@@ -4490,7 +4490,7 @@ For WE = 1 To ListView1.ListItems.Count
         End If
     Loop Until ets2 = 0
 
-    f1$ = D2$
+    F1$ = D2$
     Err.Clear
     errs2 = 0
     On Local Error Resume Next
