@@ -88,7 +88,7 @@ For Each strArg In objArgs
 
 	PARAM = PARAM + """"+REPLACE(strArg,"*"," ")+"""" +" "
 	
-	MSGBOX PARAM
+	' MSGBOX PARAM
 Next
 
 Dim WSHShell
