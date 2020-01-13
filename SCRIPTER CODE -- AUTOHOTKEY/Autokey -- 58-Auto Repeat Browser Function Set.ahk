@@ -2506,7 +2506,7 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 	TITLE_VAR_BT_MAIL=
 	WinGetTITLE, TITLE_VAR_BT_MAIL, A
 	
-	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Google Chrome"
+	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail"
 	TRAVEL_HERE=
 	
 	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL)>0
