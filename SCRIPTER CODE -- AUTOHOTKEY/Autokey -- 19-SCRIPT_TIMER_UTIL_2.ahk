@@ -411,6 +411,37 @@ IF WANT_GO=TRUE
 RETURN
 
 
+
+; Reload site?
+; ahk_class Chrome_WidgetWin_1
+; ahk_exe chrome.exe
+
+
+; -------------------------------------------------------------------
+; WAS GO TO MAKE
+; GRAB TITLE OF CHROME
+; AND IF ONE BEFORE WERE SOMETHING OF WANT
+; AND WINDOW GOT 
+; Reload site?
+; WANT PRESS YES
+; DO THAT THING AS LONG AS ONE BEFORE MATCH
+; AND NOT REAL REQUIRE IT AS IF NOT FOCUS WON'T WORK
+; Mon 13-Jan-2020 00:39:25
+; WRITE IN OWN CHROME LANGUAGE
+; USE SCRIPT CHROME EXTENSION -- 
+; ----
+; Staying Alive Settings 
+; chrome-extension://lhobbakbeomfcgjallalccfhfcgleinm/settings.html
+; ----
+; SEEM WORK AT STAY ALIVE WITH BANK
+; -------------------------------------------------------------------
+
+
+
+
+
+
+
 ; TEAMVIEWER_AR_RUN_ON_CUE:
 ; IfWinExist ahk_class #32770 TeamViewer
 ; {
