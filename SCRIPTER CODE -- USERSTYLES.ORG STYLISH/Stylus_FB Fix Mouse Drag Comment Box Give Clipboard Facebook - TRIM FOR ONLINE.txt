@@ -9,25 +9,20 @@ Fix Mouse Drag Comment Box Give Clipboard Facebook | Userstyles.org
 https://userstyles.org/styles/167266/fix-mouse-drag-comment-box-give-clipboard-facebook
 ----
 
-Source Me GitHub
+Source My GitHub
 ----
-Stylus_Fix Mouse Drag Comment Box Give Clipboard Facebook
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20Mouse%20Drag%20Comment%20Box%20Give%20Clipboard%20Facebook.txt
+Stylus_FB Fix Mouse Drag Comment Box Give Clipboard Facebook.txt
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_FB%20Fix%20Mouse%20Drag%20Comment%20Box%20Give%20Clipboard%20Facebook.txt
+----
+
+Stylus ON-LINE MAIN 
+----
+Stylus_FB Fix Mouse Drag Comment Box Give Clipboard Facebook - TRIM FOR ONLINE.txt
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_FB%20Fix%20Mouse%20Drag%20Comment%20Box%20Give%20Clipboard%20Facebook%20-%20TRIM%20FOR%20ONLINE.txt
 ----
 
 ----
-Stylus_FB Fix Mouse Drag Comment Box Give Clipboard Facebook - TRIM FOR ONLINE
-https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20Mouse%20Drag%20Comment%20Box%20Give%20Clipboard%20Facebook.txt
-----
-
-*/
-
-/*
-NOTE LOGG AT ENDER FOR WORK INFO
-*/
-
-/*
-Copied From Source Original Credit
+Copy From Source Original Credit
 ----
 Fix The Missing Cursor In Facebook Comment Boxes | Userstyles.org
 https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-boxes
@@ -390,13 +385,13 @@ SESSION 009 __ TIDY ALL REM THAT NOT USE DUPLICATE PROJECT AND ONLINE
 			__ WHEN GOT OWN ACCOUNT OF FAN PAGE IT SHOW AND IN THE WAY
 FROM __ TO
 Mon 13-Jan-2020 09:48:17
-Mon 13-Jan-2020 10:20:00
+Mon 13-Jan-2020 11:14:00
 ---------------------------------------------------------------------
 
 ---------------------------------------------------------------------
 Creation-or __ LAST EDITOR
 [ Wednesday 05:20:00 Am_26 December 2018 ]
-[ Monday    10:32:00 Am_13 January 2020 ]
+[ Monday    11:14:00 Am_13 January 2020 ]
 --------------------------------------------------------------------- */
 
 
