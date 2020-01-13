@@ -2506,8 +2506,16 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 	TITLE_VAR_BT_MAIL=
 	WinGetTITLE, TITLE_VAR_BT_MAIL, A
 	
-	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail"
 	TRAVEL_HERE=
+
+	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail"
+	ELEMENT_ARRAY_BT_MAIL_2:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Mozilla Firefox"
+	
+	; ---------------------------------------------------------------
+	; IF Mozilla Firefox TAKE PRIORITY
+	; ---------------------------------------------------------------
+	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL_2)>0
+		ELEMENT_ARRAY_BT_MAIL=%ELEMENT_ARRAY_BT_MAIL_2%
 	
 	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL)>0
 	{
