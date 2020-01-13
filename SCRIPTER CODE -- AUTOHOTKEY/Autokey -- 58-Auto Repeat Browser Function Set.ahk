@@ -2488,6 +2488,19 @@ RETURN
 ; Wed 08-Jan-2020 11:08:00
 ; -------------------------------------------------------------------
 
+; --------------------------------------------------------------------
+; NEW CODE TO ONLY SOUND WHEN OUT NUMBER GO UP
+; A BIT ANNOY WHEN READ MAIL COUNT DOWN
+; --------------------------------------------------------------------
+; MAYBE WRITE TO DRIVE INFO COUNTER
+; IF EDIT CODE HERE A LOT AND KEEP GO WHATEVER
+; --------------------------------------------------------------------
+; AND ALSO NOT PLAY ON FIRST ONE OR FIRST FIND WINDOW SOUND
+; --------------------------------------------------------------------
+; FROM   Mon 13-Jan-2020 03:54:02
+; TO     Mon 13-Jan-2020 04:04:00
+; --------------------------------------------------------------------
+
 SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 
 	TITLE_VAR_BT_MAIL=
@@ -2500,15 +2513,11 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 	{
 		IF TITLE_VAR_BT_MAIL
 		{
-			Variable = %TITLE_VAR_BT_MAIL%
-			Loop, Parse, Variable
-			{
-			  If A_LoopField is Number
-				TITLE_VAR_BT_MAIL_NUMERIC .= A_LoopField
-			}
+			TITLE_VAR_BT_MAIL_NUMERIC := RegExReplace(TITLE_VAR_BT_MAIL, "\D")
 			
-			TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n %OLD_TITLE_VAR_BT_MAIL%
+			; TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n%OLD_TITLE_VAR_BT_MAIL%
 			
+			IF OLD_TITLE_VAR_BT_MAIL
 			IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
 			{
 					
@@ -2538,21 +2547,20 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 		WinGetTitle, TITLE_VAR_BT_MAIL, ahk_id %HWND_ID%
 		{
 			IF TITLE_VAR_BT_MAIL
-			Variable = %TITLE_VAR_BT_MAIL%
-			Loop, Parse, Variable
 			{
-			  If A_LoopField is Number
-				TITLE_VAR_BT_MAIL_NUMERIC .= A_LoopField
-			}
+				
+				TITLE_VAR_BT_MAIL_NUMERIC := RegExReplace(TITLE_VAR_BT_MAIL, "\D")
 			
-			TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n %OLD_TITLE_VAR_BT_MAIL%
+				; TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n%OLD_TITLE_VAR_BT_MAIL%
 			
-			IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
-			{
-				; -----------------------------------------------
-				; BT MAIL RINGER RINGTONE RING TONE NOTIFY
-				; -----------------------------------------------
-				Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+				IF OLD_TITLE_VAR_BT_MAIL
+				IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
+				{
+					; -----------------------------------------------
+					; BT MAIL RINGER RINGTONE RING TONE NOTIFY
+					; -----------------------------------------------
+					Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+				}
 			}
 			
 			IF TITLE_VAR_BT_MAIL
@@ -2561,6 +2569,13 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 			TRAVEL_HERE=TRUE
 		}
 	}
+
+; --------------------------------------------------------------------
+; SEARCH ROUTINE USE THE CODE HERE
+; --------------------------------------------------------------------
+; Get only the numbers from a string - Ask for Help - AutoHotkey Community 
+; https://autohotkey.com/board/topic/84192-get-only-the-numbers-from-a-string/
+; --------------------------------------------------------------------
 	
 RETURN
 	
