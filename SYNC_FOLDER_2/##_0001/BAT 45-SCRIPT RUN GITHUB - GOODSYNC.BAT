@@ -208,14 +208,11 @@ IF %errorlevel% EQU 0 (
 	GOTO START
 )
 
-
 @REM -- COMMAND LINE DEMO
 @REM -- C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT CAMERA_BACKUP_MODE
 
-
 REM SET MODE_RUN=CAMERA_BACKUP
 REM GOTO START
-
 
 ECHO %* | FIND "CAMERA_BACKUP_MODE" >NUL
 IF %errorlevel% EQU 0 (
@@ -223,25 +220,95 @@ IF %errorlevel% EQU 0 (
 	GOTO START
 )
 
-IF "!MODE_RUN!"=="" (
+REM -----------------------------------------------------------------
+REM ---- C:\SCRIPTER\SCRIPTER CODE -- BAT
+REM ---- BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
+REM ---- HERE IS INITIATE BY 
+REM ---- D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
+REM ---- AT GITHUB
+REM -----------------------------------------------------------------
+REM ---- HERE OF
+REM ---- C:\SCRIPTER\SCRIPTER CODE -- BAT\
+REM ---- BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
+REM -----------------------------------------------------------------
+REM ---- IT DO -- D DRIVE GOOD IS SYNC WITH OTHER COMPUTER D DRIVE
+REM ---- HERE IS PORTABLE VERSION
+REM ---- AND THE OPTION_JOB_SCRIPT IS WHAT REQUIRE SYNC
+REM ---- HERE IS A D-DRIVE SHARE GOODSYNC PORTABLE
+REM ---- ONLY OPTION BEFORE WAS EITHER DO DURING LOG OFF 
+REM ---- WHICH IS A MAIN EVENT FOR SYSTEM NOT ONLY GOODSYNC CLOSE SO LOUSY
+REM ---- AND OPTION TO DO AT START-UP OF GOODSYNC WITH OPTION DELAY
+REM ---- SEEM OKAY AT FIRST BUTT ERROR MIGHT HAPPEN IF
+REM -----------------------------------------------------------------
+REM ---- BEST WAY IS WHEN CLOSE DOWN GOODSYNC 
+REM ---- THE SCRIPT ABOVE CHECK IT IF CLOSE DOWN EVERY COMPUTER
+REM ---- NOT ABLE RUN GOODSYNC PORTABLE ON MULTIPLE INSTANCE OVER DRIVE LETTER 
+REM ---- ONLY ONE GETT AR
+REM -----------------------------------------------------------------
+REM ---- IF RUN TWO OF DRIVE PORTABLE VERSION AND INTEND TO SYNC OPTION-JOB-SET
+REM ---- AND THEN THAT MEAN SAME NOT RUN BETWEEN ANY COMPUTER
+REM ---- VB_KEEP_RUNNER.exe TAKE CARE OF THAT AND NOT ALLOW BETWEEN NETWORK
+REM ---- AND ANY FOUND TO START WHEN ONE ALREADY RUN SOMEWHERE 
+REM ---- IT IMMEDIATELY SHUTDOWN WITH KILL PROCESS
+REM -----------------------------------------------------------------
+REM ---- GOODSYNC ITSELF WON'T LET TWO PORTABLE RUN IF EXAMPLE C AND D DRIVE
+REM -----------------------------------------------------------------
+REM ---- IT MEAN YOU HAVE TO FIND FULL LENGTH PROCESS PATH C OR D OR E
+REM ---- THAT ABOUT THE LIMIT AS IT GO
+REM ---- ONLY RUN 2 GOODSYNC PER COMPUTER -- PORTABLE AND DESKTOP
+REM ---- SAVE A LOT OF WINDOW CONTROL HANDLE WORK WITH PROCESS NAME 
+REM ---- LATER MAYBE COULD
+REM -----------------------------------------------------------------
+REM ---- WORK TIME
+REM ---- Sat 04-Jan-2020 12:20:28
+REM ---- Sat 04-Jan-2020 13:30:00
+REM -----------------------------------------------------------------
 
+ECHO %* | FIND "D_DRIVE_GOODSYNC_JOB_SET" >NUL
+IF %errorlevel% EQU 0 (
+	SET MODE_RUN=D_DRIVE_GOODSYNC_JOB_SET
+	GOTO START
+)
+
+IF "!MODE_RUN!"=="" (
 	SET MODE_RUN=GITHUB
+	SET MODE_RUN_DEFAULT=GITHUB_DEFAULT
 	REM @CD /D "C:\SCRIPTER"
 	GOTO START
 )
 
+IF !MODE_RUN!==MODE_RUN_DEFAULT (
+	ECHO RUN MODE -- !MODE_RUN! -- BY DEFAULT EMPTY COMMAND LINE PARAMETER
+)
 
-:START
-
+IF "!MODE_RUN!"=="" (
+	SET MODE_RUN=GITHUB
+	ECHO RUN MODE -- !MODE_RUN! -- BY DEFAULT EMPTY COMMAND LINE PARAMETER
+	REM @CD /D "C:\SCRIPTER"
+	GOTO START
+)
 
 ECHO %* | FIND "WITH_GITHUB_MODE" >NUL
 IF %errorlevel% EQU 0 SET MODE_RUN_WITH_GITHUB=TRUE
 
+
+
+:START
+
+@ECHO ----------------------------------------------------------------
+ECHO RUN MODE -- !MODE_RUN!
+@ECHO ----------------------------------------------------------------
+
+ECHO COMMAND_LINE_____
+@ECHO ----------------------------------------------------------------
+ECHO %*
+@ECHO ----------------------------------------------------------------
+
+
+
 REM SET TITLE_RUN_MODE=BAT 45-SCRIPT RUN GITHUB - GOODSYNC
 REM SET MODE_RUN=GITHUB
 
-ECHO RUN MODE -- !MODE_RUN!
-REM ECHO !TITLE_RUN_MODE!
 
 @SET PATH_GIT="C:\Program Files\Git\bin"
 @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
@@ -263,10 +330,6 @@ REM ECHO !TITLE_RUN_MODE!
 @ECHO OFF
 
 
-
-
-
-
 @IF NOT EXIST "%~dp0#NFS-%COMPUTERNAME%\" MKDIR "%~dp0#NFS-%COMPUTERNAME%\"
 
 REM Write %~n0 to get the filename without the extension.
@@ -280,17 +343,31 @@ SET FILENAME_ER_4="%~n0_GOODSYNC_OUTPUT.TXT"
 
 SET LDA=0
 
-REM GOTO CAMERA___SET_ARRRAY
+REM -----------------------------------------------------------------
+REM __ TESTER
+REM -----------------------------------------------------------------
+REM GOTO CAMERA______SET_ARRRAY
+REM -----------------------------------------------------------------
+REM GOTO D_GOODSYNC__SET_ARRRAY
+REM -----------------------------------------------------------------
 
-IF !MODE_RUN!==GOODSYNC       GOTO GOODSYNC_SET_ARRRAY
-IF !MODE_RUN!==GITHUB         GOTO GITHUB___SET_ARRRAY
-IF !MODE_RUN!==CAMERA_BACKUP  GOTO CAMERA___SET_ARRRAY
+IF !MODE_RUN!==GOODSYNC                  GOTO GOODSYNC____SET_ARRRAY
+IF !MODE_RUN!==GITHUB                    GOTO GITHUB______SET_ARRRAY
+IF !MODE_RUN!==CAMERA_BACKUP             GOTO CAMERA______SET_ARRRAY
+IF !MODE_RUN!==D_DRIVE_GOODSYNC_JOB_SET  GOTO D_GOODSYNC__SET_ARRRAY
+
+
+ECHO ----------------------------------------------------------------
+ECHO !MODE_RUN! __ VARIABLE CONTAIN
+ECHO ----------------------------------------------------------------
+ECHO !MODE_RUN!
+ECHO ----------------------------------------------------------------
 
 ECHO MUST BE AN ERROR ESCAPE FROM RUN PRESS CLOSE WINDOW -- CONTROL C
 PAUSE
 GOTO ENDE
 
-:GOODSYNC_SET_ARRRAY
+:GOODSYNC____SET_ARRRAY
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ x _ 7G TO 1X"
 SET /A LDA=LDA+1
@@ -362,7 +439,7 @@ SET Sources[!LDA!]=""
 
 REM GOTO NEXT_CONTINUE
 
-:GITHUB___SET_ARRRAY
+:GITHUB______SET_ARRRAY
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G INCL"
 SET /A LDA=LDA+1
@@ -423,7 +500,7 @@ GOTO NEXT_CONTINUE
 :NEXT_CONTINUE
 GOTO NEXT_CONTINUE
 
-:CAMERA___SET_ARRRAY
+:CAMERA______SET_ARRRAY
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V1"
 	SET /A LDA=LDA+1
@@ -432,11 +509,24 @@ GOTO NEXT_CONTINUE
 	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE 2"
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #5 7G 4G __ 2019 CyberShot HX60V"
-	
-	
 	SET GoodSync_GSync="C:\GoodSync\x64\gsync.exe"
 
 :NEXT_CONTINUE
+GOTO NEXT_CONTINUE
+
+:D_GOODSYNC__SET_ARRRAY
+	ECHO D_GOODSYNC__SET_ARRRAY
+	SET /A LDA=LDA+1
+	SET Sources[!LDA!]="0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G GSD"
+	SET GoodSync_GSync="D:\GoodSync\x64\gsync.exe"
+	REM D:\GoodSync\x64\GoodSync2Go.exe
+
+GOTO NEXT_CONTINUE
+:NEXT_CONTINUE
+GOTO NEXT_CONTINUE
+:NEXT_CONTINUE
+
+
 
 
 
