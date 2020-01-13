@@ -446,6 +446,7 @@ SOUND_PLAYER_FB_DO=
 
 SOUND_PLAYER_BT_MAIL_DO=
 OLD_TITLE_VAR_BT_MAIL=
+TITLE_VAR_BT_MAIL_NUMERIC=
 
 SET_ARRAY_RAIN_HITT_CN_33=      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
 SET_ARRAY_RAIN_HITT_CN_44=      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
@@ -2498,16 +2499,29 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL)>0
 	{
 		IF TITLE_VAR_BT_MAIL
-		IF OLD_TITLE_VAR_BT_MAIL<>%TITLE_VAR_BT_MAIL%
 		{
-			; -----------------------------------------------
-			; BT MAIL RINGER RINGTONE RING TONE NOTIFY
-			; -----------------------------------------------
-			Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+			Variable = %TITLE_VAR_BT_MAIL%
+			Loop, Parse, Variable
+			{
+			  If A_LoopField is Number
+				TITLE_VAR_BT_MAIL_NUMERIC .= A_LoopField
+			}
+			
+			TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n %OLD_TITLE_VAR_BT_MAIL%
+			
+			IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
+			{
+					
+			
+				; -----------------------------------------------
+				; BT MAIL RINGER RINGTONE RING TONE NOTIFY
+				; -----------------------------------------------
+				Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+			}
 		}
 		
 		IF TITLE_VAR_BT_MAIL
-			OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL%
+			OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL_NUMERIC%
 			
 		TRAVEL_HERE=TRUE
 	}
@@ -2524,7 +2538,16 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 		WinGetTitle, TITLE_VAR_BT_MAIL, ahk_id %HWND_ID%
 		{
 			IF TITLE_VAR_BT_MAIL
-			IF OLD_TITLE_VAR_BT_MAIL<>%TITLE_VAR_BT_MAIL%
+			Variable = %TITLE_VAR_BT_MAIL%
+			Loop, Parse, Variable
+			{
+			  If A_LoopField is Number
+				TITLE_VAR_BT_MAIL_NUMERIC .= A_LoopField
+			}
+			
+			TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n %OLD_TITLE_VAR_BT_MAIL%
+			
+			IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
 			{
 				; -----------------------------------------------
 				; BT MAIL RINGER RINGTONE RING TONE NOTIFY
@@ -2533,7 +2556,7 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 			}
 			
 			IF TITLE_VAR_BT_MAIL
-				OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL%
+				OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL_NUMERIC%
 				
 			TRAVEL_HERE=TRUE
 		}
