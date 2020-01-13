@@ -2503,88 +2503,86 @@ RETURN
 
 SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 
-	TITLE_VAR_BT_MAIL=
-	WinGetTITLE, TITLE_VAR_BT_MAIL, A
-	
-	TRAVEL_HERE=
+	TITLE_VAR_BT_MAIL_A=
+	WinGetTITLE, TITLE_VAR_BT_MAIL_A, A
 
 	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail"
 	ELEMENT_ARRAY_BT_MAIL_2:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Mozilla Firefox"
 	
+	TRAVEL_HERE=
 	; ---------------------------------------------------------------
-	; IF Mozilla Firefox TAKE PRIORITY
+	; MOZILLA FIREFOX TAKE PRIORITY
+	; OR 
+	; ACTIVE WINDOW PRIORITY WHEN MATCH URL
 	; ---------------------------------------------------------------
-	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL_2)>0
-		ELEMENT_ARRAY_BT_MAIL=%ELEMENT_ARRAY_BT_MAIL_2%
-	
-	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL)>0
-	{
-		IF TITLE_VAR_BT_MAIL
+	IF INSTR(TITLE_VAR_BT_MAIL_A,ELEMENT_ARRAY_BT_MAIL_2)>0
 		{
-			TITLE_VAR_BT_MAIL_NUMERIC := RegExReplace(TITLE_VAR_BT_MAIL, "\D")
-			
-			; TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n%OLD_TITLE_VAR_BT_MAIL%
-			
-			IF OLD_TITLE_VAR_BT_MAIL
-			IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
-			{
-					
-			
-				; -----------------------------------------------
-				; BT MAIL RINGER RINGTONE RING TONE NOTIFY
-				; -----------------------------------------------
-				Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
-			}
-		}
-		
-		IF TITLE_VAR_BT_MAIL
-			OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL_NUMERIC%
-			
-		TRAVEL_HERE=TRUE
-	}
-
-	IF TRAVEL_HERE
-		RETURN
-	
-	TITLE_VAR_BT_MAIL=
-	WinGet, List, List, %ELEMENT_ARRAY_BT_MAIL%
-	Loop %List%  
-	{ 
-		; WinClose, % "ahk_id " List%A_Index% 
-		HWND_ID := List%A_Index%
-		WinGetTitle, TITLE_VAR_BT_MAIL, ahk_id %HWND_ID%
-		{
-			IF TITLE_VAR_BT_MAIL
-			{
-				
-				TITLE_VAR_BT_MAIL_NUMERIC := RegExReplace(TITLE_VAR_BT_MAIL, "\D")
-			
-				; TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n%OLD_TITLE_VAR_BT_MAIL%
-			
-				IF OLD_TITLE_VAR_BT_MAIL
-				IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
-				{
-					; -----------------------------------------------
-					; BT MAIL RINGER RINGTONE RING TONE NOTIFY
-					; -----------------------------------------------
-					Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
-				}
-			}
-			
-			IF TITLE_VAR_BT_MAIL
-				OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL_NUMERIC%
-				
+			ELEMENT_ARRAY_BT_MAIL=%ELEMENT_ARRAY_BT_MAIL_2%
 			TRAVEL_HERE=TRUE
 		}
-	}
 
-; --------------------------------------------------------------------
-; SEARCH ROUTINE USE THE CODE HERE
-; --------------------------------------------------------------------
-; Get only the numbers from a string - Ask for Help - AutoHotkey Community 
-; https://autohotkey.com/board/topic/84192-get-only-the-numbers-from-a-string/
-; --------------------------------------------------------------------
+	IF !TRAVEL_HERE
+	IF INSTR(TITLE_VAR_BT_MAIL_A,ELEMENT_ARRAY_BT_MAIL)>0
+		{
+			ELEMENT_ARRAY_BT_MAIL=%ELEMENT_ARRAY_BT_MAIL%
+			TRAVEL_HERE=TRUE
+		}
+	TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL_A%
+		
+	IF !TRAVEL_HERE
+	{
+		TITLE_VAR_BT_MAIL_FIND=
+		WinGet, List, List, %TITLE_VAR_BT_MAIL_FIND%
+		Loop %List%  
+		{ 
+			HWND_ID := List%A_Index%
+			WinGetTitle, TITLE_VAR_BT_MAIL_FIND, ahk_id %HWND_ID%
+			IF INSTR(TITLE_VAR_BT_MAIL_FIND,ELEMENT_ARRAY_BT_MAIL_2)>0
+			{
+				ELEMENT_ARRAY_BT_MAIL=%ELEMENT_ARRAY_BT_MAIL_2%
+				TRAVEL_HERE=TRUE
+			}
+
+			IF !TRAVEL_HERE
+			IF INSTR(TITLE_VAR_BT_MAIL_FIND,ELEMENT_ARRAY_BT_MAIL)>0
+			{
+				ELEMENT_ARRAY_BT_MAIL=%ELEMENT_ARRAY_BT_MAIL%
+				TRAVEL_HERE=TRUE
+			}
+			
+			IF TRAVEL_HERE
+				BREAK
+		}
+	}
 	
+	IF !TRAVEL_HERE
+		RETURN 
+
+	TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL_FIND%
+		
+	TITLE_VAR_BT_MAIL_NUMERIC := RegExReplace(TITLE_VAR_BT_MAIL, "\D")
+	
+	; TOOLTIP %TITLE_VAR_BT_MAIL_NUMERIC% `n%OLD_TITLE_VAR_BT_MAIL%
+	
+	IF OLD_TITLE_VAR_BT_MAIL
+	IF TITLE_VAR_BT_MAIL_NUMERIC>%OLD_TITLE_VAR_BT_MAIL%
+	{
+			
+	
+		; -----------------------------------------------
+		; BT MAIL RINGER RINGTONE RING TONE NOTIFY
+		; -----------------------------------------------
+		Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+	}
+	
+	OLD_TITLE_VAR_BT_MAIL=%TITLE_VAR_BT_MAIL_NUMERIC%
+
+	; ---------------------------------------------------------------
+	; SEARCH ROUTINE USE THE CODE HERE
+	; ---------------------------------------------------------------
+	; Get only the numbers from a string - Ask for Help - AutoHotkey Community 
+	; https://autohotkey.com/board/topic/84192-get-only-the-numbers-from-a-string/
+	; ---------------------------------------------------------------
 RETURN
 	
 		
