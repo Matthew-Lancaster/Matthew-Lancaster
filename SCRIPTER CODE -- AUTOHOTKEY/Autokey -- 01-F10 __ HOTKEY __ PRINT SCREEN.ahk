@@ -576,25 +576,27 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 +^k:: ; SHIFT+CTRL+K converts text to capitalized
-  Clipboard := ""
-  SendInput, ^c ;copies selected text
-  ClipWait
+  ; Clipboard := ""
+  ; SendInput, ^c ;copies selected text
+  ; clipboard = %clipboard%  
+  ; ClipWait
   StringUpper Clipboard, Clipboard, T ; Title mode conversion
+  
   ; SendInput %Clipboard%
 Return
 
 ^l:: ; CTRL+L converts text to lower
-  Clipboard := ""
-  SendInput, ^c ;copies selected text
-  ClipWait
+  ; Clipboard := ""
+  ; SendInput, ^c ;copies selected text
+  ; ClipWait
   StringLower Clipboard, Clipboard
   ; SendInput %Clipboard%
 Return
 
 ^u:: ; CTRL+U converts text to upper
-  Clipboard := ""
-  SendInput, ^c ;copies selected text
-  ClipWait
+  ; Clipboard := ""
+  ; SendInput, ^c ;copies selected text
+  ; ClipWait
   StringUpper Clipboard, Clipboard
   ; SendInput %Clipboard%
 Return
