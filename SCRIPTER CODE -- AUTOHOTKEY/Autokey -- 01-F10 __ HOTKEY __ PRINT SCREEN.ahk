@@ -572,6 +572,39 @@ TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 	}
 RETURN
 
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
++^k:: ; SHIFT+CTRL+K converts text to capitalized
+  Clipboard := ""
+  SendInput, ^c ;copies selected text
+  ClipWait
+  StringUpper Clipboard, Clipboard, T ; Title mode conversion
+  ; SendInput %Clipboard%
+Return
+
+^l:: ; CTRL+L converts text to lower
+  Clipboard := ""
+  SendInput, ^c ;copies selected text
+  ClipWait
+  StringLower Clipboard, Clipboard
+  ; SendInput %Clipboard%
+Return
+
+^u:: ; CTRL+U converts text to upper
+  Clipboard := ""
+  SendInput, ^c ;copies selected text
+  ClipWait
+  StringUpper Clipboard, Clipboard
+  ; SendInput %Clipboard%
+Return
+; -------------------------------------------------------------------
+; AutoHotkey Tip of the Week: Instant Upper Case, Lower Case, and Initial Cap Text—September 2, 2019 | Jack's AutoHotkey Blog 
+; https://jacksautohotkeyblog.wordpress.com/2019/09/02/autohotkey-tip-of-the-week-instant-upper-case-lower-case-and-initial-cap-text-september-2-2019/
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
 ; -------------------------------------------------------------------
 ; SESSION 00
 ; -------------------------------------------------------------------
