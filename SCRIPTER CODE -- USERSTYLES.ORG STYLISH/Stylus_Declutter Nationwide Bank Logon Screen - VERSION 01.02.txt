@@ -1,12 +1,13 @@
 @-moz-document url-prefix("https://onlinebanking.nationwide.co.uk/AccessManagement") {
 /* Declutter Nationwide Bank Logon Screen */
+/* DECLUTTER NATIONWIDE BANK LOGON SCREEN */
 
 /* 
 --------------------------------------------------------------------- 
 Description 
 --------------------------------------------------------------------- 
-ABOUT THAT -- REM LINE TALK
-LOGON SCREEN LESS SCROLL UP & DOWN
+SECOND VERSION
+DO OPERATE COMPACT WHOLE THING
 --------------------------------------------------------------------- 
 */
 
@@ -17,7 +18,9 @@ WWW.onlinebanking.nationwide.co.uk
 Applying styles to specific sites · stylish-userstyles/stylish Wiki
 https://github.com/stylish-userstyles/stylish/wiki/Applying-styles-to-specific-sites
 --------------------------------------------------------------------- 
+*/
 
+/*
 ---------------------------------------------------------------------
 Source Userstyles.org
 ----
@@ -38,13 +41,8 @@ WRITE CODE TIME
 ---------------------------------------------------------------------
 Thu 26-Sep-2019 21:02:11
 Thu 26-Sep-2019 22:08:30
-
-NEW BANK LOGON CHANGE -- UPDATE -- TO DO WITH CRC READER 2020
-Tue 14-Jan-2020 10:06:25
-Tue 14-Jan-2020 11:40:00
 ---------------------------------------------------------------------
 /*
-
 
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
@@ -52,22 +50,11 @@ Tue 14-Jan-2020 11:40:00
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 
-/* WHOLE PAGE */
-/* TEXT CAPITAL */
-/* SCALE ZOOM WHOLE PAGE TRANSFORM: SCALEY(.) */
-.process.app--process.app
-{
-    transform: scaleY(.5) !important; 
-    text-transform: uppercase
-}
 
-/* IF transform: scaleY(.6) THEN  >---- margin: -220px;    */
-/* IF transform: scaleY(.5) THEN  >---- margin: -300px;    */
-/* ------------------------------------------------------- */
-/* SET THE CENTRAL FRAME SO IT NEAR TOP                    */
+/* WHOLE PAGE */
 .process.app--process.app
 {
- margin: -300px;
+    transform: scaleY(.8) !important; 
 }
 
 /* TOP LINE */
@@ -80,58 +67,59 @@ Tue 14-Jan-2020 11:40:00
     display: none !important;
 }
 
-/* LET US K___ WHO YOU A */
-.section__title
+.section--no-title.section
 {
     display: none !important;
 }
 
-/* OPTIONAL IF YOU WANT IT ON   */
-/* NOT YOU -- 2ND LOGON PAGE    */
-.action--link.action.link-action
+.mem-data-section-holder>.media-group>.nopadding.media-group__main>.section__title
 {
     display: none !important;
 }
 
-/* FORGOTTEN YOUR CUSTOMER NUMBER?  */
-.control__help
+.mem-data-section-holder>.media-group>.nopadding.media-group__main>.message
 {
     display: none !important;
 }
 
-/* YOUR UNIQUE NUMBER FOR ONLINE BANK -- 1ST LOGON PAGE */
-.control__label__description
+/* DATE OF BIRTH */
+.text-input-control___8f924ab9-0c00-4e04-8f5b-0274bae0bf0d
+{
+    display: none !important;
+}
+/* DATE OF BIRTH */
+.date-of-birth.control--complex.control--no-help.control--no-description.control.control-group>.control__input
+{
+    display: none !important;
+}
+/* DATE OF BIRTH */
+.date-of-birth.control--complex.control--no-help.control--no-description.control.control-group
 {
     display: none !important;
 }
 
-/* THE WAY YOU LOG IN TO THE INTERNET BANK IS CHANGING -- 2ND LOGON PAGE */
-.message-list--no-subtitle.message-list--no-title.message-list
+/* FORGOTEN MEMORABLE DATA */
+.mem-data-section-holder>.media-group>.nopadding.media-group__main>.text-input-control.control--simple.control--no-description.control>.control__help
 {
     display: none !important;
 }
 
-/* CHOOSE HOW YOU'D LIKE US TO VERIFY YOU: -- 2ND LOGON PAGE */
-.choice-list-control.control--simple.control--no-help.control--no-description.control.control-group
+/* ENTER PASS */
+.control--loaded.control--enabled.passnumber-partial-entry--selector-first.passnumber-partial-entry.control--complex.control--no-description.control>.control__label>.control__label__title>h3
 {
     display: none !important;
 }
 
-/* -------------------------------------------------------     */
-/* NOT ABLE REMOVE CUSTOMER NUMBER ONE AS NEXT PAGE 2ND LOGON  */
-/* HAS SAME FIELD LABEL AND USER REQUIRE FILL THEM             */
-/* CUSTOMER NUMBER STAY ON                                     */
-/* CUSTOMER NUMBER:	XXXXXXXXXX -- 1ST LOGON PAGE               */
-/* UNLESS THE STRING HERE WORK ONLY END PART DO                */
-/* ---- .text-input-control___40a78235-ba0f-44b8-9dff-87c53c534373.text-input--numeric.text-input   ---- */
-/* -----------------------------------------------             */
-/* 
-.XXXXtext-input--numeric.text-input
+/* FORGOTEN PASS DATA */
+.control--loaded.control--enabled.passnumber-partial-entry--selector-first.passnumber-partial-entry.control--complex.control--no-description.control>.control__help
 {
     display: none !important;
 }
-*/
-/* -------------------------------------------------------     */
+
+.message-list--noicon.message-list--notice.message-list--no-subtitle.message-list--no-title.message-list
+{
+    display: none !important;
+}
 
 .stage__footer
 {
