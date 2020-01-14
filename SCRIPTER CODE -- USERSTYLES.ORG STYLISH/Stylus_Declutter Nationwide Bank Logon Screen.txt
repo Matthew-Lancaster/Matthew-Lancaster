@@ -5,18 +5,34 @@
 --------------------------------------------------------------------- 
 Description 
 --------------------------------------------------------------------- 
-ABOUT THAT -- REM LINE TALK
+ABOUT THAT -- REM LINE TALKER
 LOGON SCREEN LESS SCROLL UP & DOWN
+
+----
+IT HAS URL START WITH -- IT ONLY TWO PAGE THIS AREA #01 LOGON AND #02
+https://onlinebanking.nationwide.co.uk/AccessManagement
+
+----
+AND URL OF HERE -- FOR ZOOM DOWN A BIT -- TRANSFORM: SCALEY(.0)
+https://onlinebanking.nationwide.co.uk/AccessManagement/Login/IdentifyCustomerForLogin
 --------------------------------------------------------------------- 
 */
 
 /* 
 --------------------------------------------------------------------- 
 WWW.onlinebanking.nationwide.co.uk
-----
+---- HELP APPLY TOP LINE URL FOR STYLUS
 Applying styles to specific sites · stylish-userstyles/stylish Wiki
 https://github.com/stylish-userstyles/stylish/wiki/Applying-styles-to-specific-sites
---------------------------------------------------------------------- 
+
+---- HELP APPLY TOP LINE URL FOR STYLUS -- MORE INDEPTH
+Writing styles · openstyles/stylus Wiki 
+https://github.com/openstyles/stylus/wiki/Writing-styles
+
+---- LARGE HELP FILE FOR STYLUS
+Expressive, dynamic, robust CSS — expressive, robust, feature-rich CSS preprocessor 
+http://stylus-lang.com/
+----
 
 ---------------------------------------------------------------------
 Source Userstyles.org
@@ -26,7 +42,7 @@ https://userstyles.org/styles/168144/declutter-nationwide-bank-logon-screen
 ---------------------------------------------------------------------
 
 ---------------------------------------------------------------------
-Source GitHub
+MY Source GitHub
 ----
 Stylus_Declutter Nationwide Bank Logon Screen
 https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Declutter%20Nationwide%20Bank%20Logon%20Screen.txt
@@ -40,8 +56,16 @@ Thu 26-Sep-2019 21:02:11
 Thu 26-Sep-2019 22:08:30
 
 NEW BANK LOGON CHANGE -- UPDATE -- TO DO WITH CRC READER 2020
+---------------------------------------------------------------------
+---- TOTAL TOGETHER ------- 2 HOUR 48
 Tue 14-Jan-2020 10:06:25
+Tue 14-Jan-2020 11:40:00 -- 1 HOUR 34
+
+FIND HOW TO HAVE TWO CODE SET URL WANT ZOOM 2ND PAGE OF LOGON
+---- FOR ZOOM DOWN A BIT -- TRANSFORM: SCALEY(.0)
 Tue 14-Jan-2020 11:40:00
+Tue 14-Jan-2020 13:00:00 -- 1 HOUR 20 -- 
+---- TOTAL TOGETHER ------- 2 HOUR 54
 ---------------------------------------------------------------------
 /*
 
@@ -52,22 +76,11 @@ Tue 14-Jan-2020 11:40:00
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 
-/* WHOLE PAGE */
+/* WHOLE PAGE                                              */
 /* TEXT CAPITAL */
-/* SCALE ZOOM WHOLE PAGE TRANSFORM: SCALEY(.) */
 .process.app--process.app
 {
-    transform: scaleY(.5) !important; 
     text-transform: uppercase
-}
-
-/* IF transform: scaleY(.6) THEN  >---- margin: -220px;    */
-/* IF transform: scaleY(.5) THEN  >---- margin: -300px;    */
-/* ------------------------------------------------------- */
-/* SET THE CENTRAL FRAME SO IT NEAR TOP                    */
-.process.app--process.app
-{
- margin: -300px;
 }
 
 /* TOP LINE */
@@ -140,5 +153,28 @@ Tue 14-Jan-2020 11:40:00
 
 .page-footer {
     display: none !important;
+}
+}
+
+@-moz-document url("https://onlinebanking.nationwide.co.uk/AccessManagement/Login/IdentifyCustomerForLogin") {
+/* Declutter Nationwide Bank Logon Screen */
+
+/* PART 02 OF 02 */
+
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* LETS HARDCORE __ CODER                                          */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+
+/* WHOLE PAGE                                              */
+/* SET THE CENTRAL FRAME SO IT NEAR TOP                    */
+/* IF transform: scaleY(.6) THEN  >---- margin: -220px;    */
+/* IF transform: scaleY(.5) THEN  >---- margin: -300px;    */
+/* TEXT CAPITAL */
+.process.app--process.app
+{
+    margin: -220px;
+    transform: scaleY(.6) !important; 
 }
 }
