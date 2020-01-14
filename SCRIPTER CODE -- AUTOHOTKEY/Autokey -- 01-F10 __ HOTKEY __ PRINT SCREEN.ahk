@@ -575,31 +575,85 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-+^k:: ; SHIFT+CTRL+K converts text to capitalized
-  ; Clipboard := ""
-  ; SendInput, ^c ;copies selected text
-  ; clipboard = %clipboard%  
-  ; ClipWait
-  StringUpper Clipboard, Clipboard, T ; Title mode conversion
-  
-  ; SendInput %Clipboard%
++^k:: ; SHIFT+CTRL+K Converts Text To Capitalized
+	AutoTrim, Off
+	Clipper_GET:=Clipboard
+	IF !Clipper_GET
+	{
+		AutoTrim, On ; ---- DEFAULT
+		RETURN
+	}
+	Clipper_1_GET=%Clipper_GET%
+	IF INSTR(Clipper_GET,"~")
+	{
+		Clipper_1_GET:=substr(Clipper_GET, 1, INSTR(Clipper_GET,"~")-1)
+		Clipper_2_GET:=substr(Clipper_GET, INSTR(Clipper_GET,"~"))
+	}
+	StringUpper Clipper_1_GET, Clipper_1_GET, T ; Title mode conversion
+	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
+	Clipboard=%Clipper_GET%
+	ClipWait
+	; StringUpper Clipper_1_GET, Clipper_1_GET, T ; Title mode conversion
+Return
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+^l:: ; CTRL+L converts text to loweR
+	AutoTrim, Off
+	Clipper_GET:=Clipboard
+	IF !Clipper_GET
+	{
+		AutoTrim, On ; ---- DEFAULT
+		RETURN
+	}
+	Clipper_1_GET=%Clipper_GET%
+	IF INSTR(Clipper_GET,"~")
+	{
+		Clipper_1_GET:=substr(Clipper_GET, 1, INSTR(Clipper_GET,"~")-1)
+		Clipper_2_GET:=substr(Clipper_GET, INSTR(Clipper_GET,"~"))
+	}
+	StringLower Clipper_1_GET, Clipper_1_GET
+	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
+	Clipboard=%Clipper_GET%
+	ClipWait
+  ; StringLower Clipper_1_GET, Clipper_1_GET
 Return
 
-^l:: ; CTRL+L converts text to lower
-  ; Clipboard := ""
-  ; SendInput, ^c ;copies selected text
-  ; ClipWait
-  StringLower Clipboard, Clipboard
-  ; SendInput %Clipboard%
-Return
-
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ^u:: ; CTRL+U converts text to upper
-  ; Clipboard := ""
-  ; SendInput, ^c ;copies selected text
-  ; ClipWait
-  StringUpper Clipboard, Clipboard
-  ; SendInput %Clipboard%
+	AutoTrim, Off
+	Clipper_GET:=Clipboard
+	IF !Clipper_GET
+	{
+		AutoTrim, On ; ---- DEFAULT
+		RETURN
+	}
+	Clipper_1_GET=%Clipper_GET%
+	IF INSTR(Clipper_GET,"~")
+	{
+		Clipper_1_GET:=substr(Clipper_GET, 1, INSTR(Clipper_GET,"~")-1)
+		Clipper_2_GET:=substr(Clipper_GET, INSTR(Clipper_GET,"~"))
+	}
+	StringUpper Clipper_1_GET, Clipper_1_GET
+	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
+	Clipboard=%Clipper_GET%
+	ClipWait
+  ; StringUpper Clipper_1_GET, Clipper_1_GET
 Return
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; NOTE 
+; ----
+; AHK GET CLIPBOARD STRIP LEAD SPACE - Google Search 
+; https://www.google.com/search?q=AHK+GET+CLIPBOARD+STRIP+LEAD+SPACE
+; --------
+; AHK is Removing Leading Spaces before sending text to Clipboard - AutoHotkey Community 
+; https://www.autohotkey.com/boards/viewtopic.php?t=37625
+; ----
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
 ; -------------------------------------------------------------------
 ; AutoHotkey Tip of the Week: Instant Upper Case, Lower Case, and Initial Cap Text—September 2, 2019 | Jack's AutoHotkey Blog 
 ; https://jacksautohotkeyblog.wordpress.com/2019/09/02/autohotkey-tip-of-the-week-instant-upper-case-lower-case-and-initial-cap-text-september-2-2019/
