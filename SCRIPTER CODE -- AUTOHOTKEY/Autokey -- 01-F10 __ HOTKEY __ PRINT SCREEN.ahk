@@ -65,9 +65,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Tue 17-Sep-2019 15:25:01
 ; Tue 17-Sep-2019 18:05:00 -- 2 HOUR
 ; -------------------------------------------------------------------
-
-
-
 ; -------------------------------------------------------------------
 ;WANT SELECT ALL LINE AND PASTE ONTO IT
 ;WANT COPY ON IT OWN
@@ -75,14 +72,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 ;WANT COPY TEXT AND REPEAT PASTE IT DOWN A LINE HOME DOWN PASTE PUT REMARK IN
 ; -------------------------------------------------------------------
-
 ;# ------------------------------------------------------------------
 ; Location Internet
 ;--------------------------------------------------------------------
-; ----
-; Matthew-Lancaster/Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOKEY/Autokey%20--%2001-F10%20__%20HOTKEY%20__%20PRINT%20SCREEN.ahk
-; ----
+; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk 
+; HTTP://TINYURL.COM/R9OEH4F
 ;# ------------------------------------------------------------------
 
 
@@ -573,9 +567,39 @@ TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 RETURN
 
 
+
+; WORK TIME 
 ; -------------------------------------------------------------------
+; Tue 14-Jan-2020 08:32:29 -- FIRST FIND IDEA
+; Tue 14-Jan-2020 09:13:43 -- 45 MINUTE
+
+; Tue 14-Jan-2020 13:17:56 -- PUBLISH ON-LINE
+; Tue 14-Jan-2020 13:23:59 -- 10 MINUTE +- BIT
+
+; LAST SESSION
+; Tue 14-Jan-2020 14:34:19 -- 55 MINUTE -- TOTAL 3 SESSION 2 HOUR
+; Tue 14-Jan-2020 15:30:00 -- STUCK ON A LITTLE BIT 
+;                          -- AND FIRST INSTANCE 
+;                          -- IMPROVE WANT NOT INCLUDE SIG LINE
+;                          -- DON'T FORGET THE OBVIOUS 
+;                          -- SIG LINE REQUIRE REVERSE SEARCH WAY
 ; -------------------------------------------------------------------
-+^k:: ; SHIFT+CTRL+K Converts Text To Capitalized
++^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
+	VAR_INDEX=1
+	GOSUB HOT_KEY_CONVERT_TExT 
+Return
+; --
+^l:: ; CTRL+L ---- Converts Text To Lower
+	VAR_INDEX=2
+	GOSUB HOT_KEY_CONVERT_TEXT 
+Return
+; --
+^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER
+	VAR_INDEX=3
+	GOSUB HOT_KEY_CONVERT_TEXT
+Return
+; -------------------------------------------------------------------
+HOT_KEY_CONVERT_TExT:
 	AutoTrim, Off
 	Clipper_GET:=Clipboard
 	IF !Clipper_GET
@@ -584,72 +608,38 @@ RETURN
 		RETURN
 	}
 	Clipper_1_GET=%Clipper_GET%
-	IF INSTR(Clipper_GET,"~")
+	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R , 9
+	IF StrGetPos_Clipper
 	{
-		Clipper_1_GET:=substr(Clipper_GET, 1, INSTR(Clipper_GET,"~")-1)
-		Clipper_2_GET:=substr(Clipper_GET, INSTR(Clipper_GET,"~"))
+		Clipper_1_GET:=substr(Clipper_GET, 1, StrGetPos_Clipper-1)
+		Clipper_2_GET:=substr(Clipper_GET, StrGetPos_Clipper)
 	}
-	StringUpper Clipper_1_GET, Clipper_1_GET, T ; Title mode conversion
+	IF VAR_INDEX=1
+		StringUpper Clipper_1_GET, Clipper_1_GET, T ; Title mode conversion
+	IF VAR_INDEX=2
+		StringLower Clipper_1_GET, Clipper_1_GET
+	IF VAR_INDEX=3
+		StringUpper Clipper_1_GET, Clipper_1_GET
 	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
 	Clipboard=%Clipper_GET%
 	ClipWait
-	; StringUpper Clipper_1_GET, Clipper_1_GET, T ; Title mode conversion
-Return
+RETURN
 ; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-^l:: ; CTRL+L converts text to loweR
-	AutoTrim, Off
-	Clipper_GET:=Clipboard
-	IF !Clipper_GET
-	{
-		AutoTrim, On ; ---- DEFAULT
-		RETURN
-	}
-	Clipper_1_GET=%Clipper_GET%
-	IF INSTR(Clipper_GET,"~")
-	{
-		Clipper_1_GET:=substr(Clipper_GET, 1, INSTR(Clipper_GET,"~")-1)
-		Clipper_2_GET:=substr(Clipper_GET, INSTR(Clipper_GET,"~"))
-	}
-	StringLower Clipper_1_GET, Clipper_1_GET
-	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
-	Clipboard=%Clipper_GET%
-	ClipWait
-  ; StringLower Clipper_1_GET, Clipper_1_GET
-Return
 
 ; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-^u:: ; CTRL+U converts text to upper
-	AutoTrim, Off
-	Clipper_GET:=Clipboard
-	IF !Clipper_GET
-	{
-		AutoTrim, On ; ---- DEFAULT
-		RETURN
-	}
-	Clipper_1_GET=%Clipper_GET%
-	IF INSTR(Clipper_GET,"~")
-	{
-		Clipper_1_GET:=substr(Clipper_GET, 1, INSTR(Clipper_GET,"~")-1)
-		Clipper_2_GET:=substr(Clipper_GET, INSTR(Clipper_GET,"~"))
-	}
-	StringUpper Clipper_1_GET, Clipper_1_GET
-	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
-	Clipboard=%Clipper_GET%
-	ClipWait
-  ; StringUpper Clipper_1_GET, Clipper_1_GET
-Return
+; Location On-Line
+;--------------------------------------------------------------------
+; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk 
+; HTTP://TINYURL.COM/R9OEH4F
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; NOTE 
+; NOTE INFO 
 ; ----
 ; AHK GET CLIPBOARD STRIP LEAD SPACE - Google Search 
 ; https://www.google.com/search?q=AHK+GET+CLIPBOARD+STRIP+LEAD+SPACE
-; --------
+; ----
 ; AHK is Removing Leading Spaces before sending text to Clipboard - AutoHotkey Community 
 ; https://www.autohotkey.com/boards/viewtopic.php?t=37625
-; ----
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
