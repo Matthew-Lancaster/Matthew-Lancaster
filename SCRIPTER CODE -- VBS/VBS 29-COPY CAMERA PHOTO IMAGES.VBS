@@ -584,7 +584,9 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		
 		IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE THEN 
 			EXPLORER_LOADED=TRUE
-			WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+			; WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+			WSHShell.Run "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+
 		END IF
 		
 		IMAGE_POINTER_FOLDER_1=MID(Wscript.ScriptFullName,1,INSTRREV(Wscript.ScriptFullName,"\"))+"VBS 29-COPY CAMERA\"
@@ -760,10 +762,13 @@ Sub Main
 	' ---------------------------------------------------------------
 	
 	IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE AND I_COUNT_1>0 THEN 
-		WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+		' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+		WSHShell.Run "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 	END IF
 	
 	I=""
+	I=I+ Wscript.ScriptName + VBCRLF
+	I=I+ VBCRLF
 	I=I+"DONE COPY COUNT: " 
 	I=I+CSTR(I_COUNT_1)
 	I=I+" of " + CSTR(I_COUNT_2) + VBCRLF
