@@ -389,12 +389,34 @@ OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=
 ; MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD += 1, days
 
 MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD= %A_Now%
-
 	
 IF WANT_GO=TRUE
 	SETTIMER RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE,1000
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+
+; -------------------------------------------------------------------
+; WRITE CODER TIME
+; -------------------------------------------------------------------
+; Wed 15-Jan-2020 00:52:27
+; Wed 15-Jan-2020 01:38:00 -- 45 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT_VAR_1 := SubStr( A_Now, 1, 8 ) . "000000"
+RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT_VAR_1 += 1, days
+
+NORTON_ONCE_AT_BOOT=%A_ScriptDir%\Autokey -- 19-SCRIPT_TIMER_UTIL_2_RUN_NORTON_ONCE_AT_BOOT_AR_#NFS_%A_ComputerName%.TXT
+
+If FileExist(NORTON_ONCE_AT_BOOT)
+{
+	SETTIMER RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT,1000
+}
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
 
 	
 	
@@ -500,6 +522,35 @@ RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
 	Run, %SCRIPT_NAME_VAR_CHKDSK% ; ,,HIDE
 	
 RETURN
+
+
+
+; -------------------------------------------------------------------
+; WRITE CODER TIME
+; -------------------------------------------------------------------
+; Sat 11-Jan-2020 12:18:21
+; Sat 11-Jan-2020 15:30:00 -- 3 HOUR 15 MINUTE
+; -------------------------------------------------------------------
+RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT:
+
+	; RERUN -- RETURN -- RETRUN
+
+	IF RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT_VAR_1<%A_NOW%
+		RETURN
+	
+	SETTIMER RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT,OFF
+
+	If FileExist(NORTON_DEL_FILE)
+		FileDELETE, %NORTON_DEL_FILE%
+		
+	SCRIPT_NAME_RUN_NORTON_ONCE:=SubStr(A_ScriptName, 1, -4)
+	SCRIPT_NAME_RUN_NORTON_ONCE=%A_ScriptDir%\Autokey -- 18-NORTON CONTROL BOOTER.ahk
+	
+	Run, %SCRIPT_NAME_VAR_CHKDSK% ; ,,HIDE
+	
+RETURN
+
+
 
 
 ; -------------------------------------------------------------------
