@@ -571,21 +571,21 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			SHOW_EXPLORER_FLAG=FALSE
 		END IF
 		
-		IF EXPLORER_COUNTING=>2 THEN 
-			IF SHOW_EXPLORER_QUESTION=FALSE THEN 
-				A=MSGBOX ("MORE THAN 2 EXPLORER LOADER -- WANT ANOTHER ONE",1 + vbMsgBoxSetForeground)
-				IF A<>VBOK THEN 
-					SHOW_EXPLORER_FLAG=FALSE
-					EXPLORER_LOADED=TRUE
-				END IF
-				SHOW_EXPLORER_QUESTION=TRUE
-			END IF
-		END IF
+		' IF EXPLORER_COUNTING=>2 THEN 
+			' IF SHOW_EXPLORER_QUESTION=FALSE THEN 
+				' A=MSGBOX ("MORE THAN 2 EXPLORER LOADER -- WANT ANOTHER ONE",1 + vbMsgBoxSetForeground)
+				' IF A<>VBOK THEN 
+					' SHOW_EXPLORER_FLAG=FALSE
+					' EXPLORER_LOADED=TRUE
+				' END IF
+				' SHOW_EXPLORER_QUESTION=TRUE
+			' END IF
+		' END IF
 		
 		IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE THEN 
 			EXPLORER_LOADED=TRUE
-			; WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
-			WSHShell.Run "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+			' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ "/F /R """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 
 		END IF
 		
@@ -740,6 +740,20 @@ IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=TRUE THEN
 
 END IF
 
+
+I=""
+I=I+ Wscript.ScriptName + VBCRLF
+I=I+ VBCRLF
+I=I+"DONE COPY COUNT: " 
+I=I+CSTR(I_COUNT_1)
+I=I+" of " + CSTR(I_COUNT_2) + VBCRLF
+I=I+DRIVE_SPACE_INFO
+
+IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
+	MSGBOX I,vbMsgBoxSetForeground 
+END IF
+
+
 SET objFSO = NOTHING
 Wscript.QUIT
 '-------------------------------------------------------------------
@@ -763,19 +777,7 @@ Sub Main
 	
 	IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE AND I_COUNT_1>0 THEN 
 		' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
-		WSHShell.Run "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
-	END IF
-	
-	I=""
-	I=I+ Wscript.ScriptName + VBCRLF
-	I=I+ VBCRLF
-	I=I+"DONE COPY COUNT: " 
-	I=I+CSTR(I_COUNT_1)
-	I=I+" of " + CSTR(I_COUNT_2) + VBCRLF
-	I=I+DRIVE_SPACE_INFO
-	
-	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
-		MSGBOX I,vbMsgBoxSetForeground 
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ "/F /R """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 	END IF
 	
 	' ---------------------------------------------------------------
@@ -868,6 +870,8 @@ Sub Main
 	' ---------------------------------------------------------------	
 
     Set oDict = Nothing
+
+	
 End Sub
 
 ' -------------------------------------------------------------------
