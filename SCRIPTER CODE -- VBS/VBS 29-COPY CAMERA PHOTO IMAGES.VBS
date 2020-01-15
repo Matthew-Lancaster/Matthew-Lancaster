@@ -720,8 +720,11 @@ IF INSTR(WORK_DOER,"OUTDOOR JACKET")>0 THEN
 END IF
 
 
-VAR_FORCE_GOODSYNC_GO=TRUE
-IF INSTR(WORK_DOER,"MC - HX60V")=0 THEN 
+' -------------------------------------------------------------------
+' ---- I=I+"DONE COPY COUNT: "  ---- I=I+CSTR(I_COUNT_1)
+' ---- VAR_FORCE_GOODSYNC_GO=TRUE
+' -------------------------------------------------------------------
+IF INSTR(WORK_DOER,"MC - HX60V")=0 OR I_COUNT_1=0 THEN 
 	VAR_FORCE_GOODSYNC_GO=FALSE
 END IF
 ' ---------------------------------------------------------------	

@@ -2133,13 +2133,32 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 ; NORTON WANTS TO RUN AT END IT'S ENGINE HASN'T STARTED UP PROPER	
 ; CALL TOO QUICK AND BE HASN'T RUN
 ;----------------------------------------------------------------
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 18-NORTON CONTROL BOOTER.ahk"
-IfExist, %FN_VAR%
-{
-	SoundBeep , 2500 , 100
-	Run, "%FN_VAR%"
-}
 
+SET_GO_9=
+IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	SET_GO_9=100
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO_9=100
+IF (A_ComputerName = "3-LINDA-PC") 
+	SET_GO_9=100
+IF (A_ComputerName = "4-ASUS-GL522VW") 
+	SET_GO_9=100
+IF (A_ComputerName = "5-ASUS-P2520LA") 
+	SET_GO_9=100
+IF (A_ComputerName = "7-ASUS-GL522VW") 
+	SET_GO_9=100
+IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+	SET_GO_9=100
+
+IF !SET_GO_9
+{
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 18-NORTON CONTROL BOOTER.ahk"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%"
+	}
+}
 
 ;--------------------------------------------------------------------
 ; ONLY SOMETIMES ASUS WEBSTORAGE DOESN'T OPEN QUIETLY
