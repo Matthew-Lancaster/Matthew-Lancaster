@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00400000&
    Caption         =   "VB_KEEP_RUNNER"
@@ -714,8 +714,8 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6288
       TabIndex        =   149
-      Top             =   1272
-      Width           =   2160
+      Top             =   1236
+      Width           =   2880
    End
    Begin VB.Label Label_MAXIMIZE_CLIPBOARD_LOGGER 
       Alignment       =   1  'Right Justify
@@ -1192,7 +1192,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   8232
       TabIndex        =   101
-      Top             =   1044
+      Top             =   1008
       Width           =   936
    End
    Begin VB.Label Label_KILL_AUTOHOTKEY 
@@ -1202,7 +1202,7 @@ Begin VB.Form Form1
       Height          =   216
       Left            =   6288
       TabIndex        =   100
-      Top             =   1044
+      Top             =   1008
       Width           =   1920
    End
    Begin VB.Label Label64 
