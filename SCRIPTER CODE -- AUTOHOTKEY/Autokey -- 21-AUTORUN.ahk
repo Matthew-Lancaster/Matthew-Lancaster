@@ -542,6 +542,7 @@ Loop, %id%
 	table := id%A_Index%
 	WinMinimize  ahk_id %table%
 } 
+
 ; GOODSYNC2GO
 WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 Loop, %id%
@@ -2107,6 +2108,14 @@ GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 GOSUB MINIMIZE_ALL_BLUETOOTH
 GOSUB MINIMIZE_GOODSYNC_AT_BOOT
 
+; -------------------------------------------------------------------
+; HERE MOST LIKELY DONE BY 
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-LOAD URL AT BOOT CHROME.ahk
+; ABOVE LINE IS RUN BY
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk
+; HERE IS ONLY FOR 5P COMPUTER
+; Fri 17-Jan-2020 07:35:50
+; -------------------------------------------------------------------
 IF (A_ComputerName = "5-ASUS-P2520LA") 
 {
 	IfWinExist Rain Alarm - Google Chrome
