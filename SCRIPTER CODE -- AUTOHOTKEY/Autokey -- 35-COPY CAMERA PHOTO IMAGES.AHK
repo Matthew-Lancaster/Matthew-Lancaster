@@ -111,7 +111,82 @@ setTimer TIMER_PREVIOUS_INSTANCE,1
 	
 SETTIMER TIMER_DRIVE_GET_CAMERA,5000
 
+SETTIMER TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM,5000
+
+SETTIMER TIMER_DELETE_EMPTY_2020_CyberShot_HX60V_MP_ROOT,10000
+
 RETURN
+
+; ---------------------------------------------------------------
+; MODIFY MIDNIGHT TO 3 HOUR
+; ---------------------------------------------------------------
+; ROUTINE ADDITION HERE 
+; DELETE CHKDSK FRAGMENT
+; HERE CODE HALF HOUR
+; TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM:
+; Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
+; TWO CODE LINKER
+; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
+; Fri 17-Jan-2020 14:40:00
+; ---------------------------------------------------------------
+
+TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM:
+
+	SETTIMER TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM,300000
+
+	VOLUME_LETTER:="V:\"
+	
+	DriveGet, Label_CAMERA, label, %VOLUME_LETTER%
+
+	IF Label_CAMERA=MC - HX60V1
+	{
+		FN_VAR_DELETE:="V:\FOUND.*"    ; EXAMPLE FOUND.004
+		IfExist, %FN_VAR_DELETE%
+		{
+			Loop, Files, %FN_VAR_DELETE% , D      ; 2 = DIRECTORY
+			{
+				FOLDER_NAME_CHKDSK = %A_LoopFileFullPath%
+			}
+			
+			FileRemoveDir %FOLDER_NAME_CHKDSK%, 1
+		}
+	}
+
+RETURN
+
+; --------------------------------------------------------------------
+; ---- CODE TIME WRITE -- Fri 17-Jan-2020 15:00:00
+; ---- CODE TIME WRITE -- Fri 17-Jan-2020 15:20:00
+; ---- CHECKER EVERY POSSIBILITY
+; ---- MOST SUITABLE WRITE STYLE
+; --------------------------------------------------------------------
+TIMER_DELETE_EMPTY_2020_CyberShot_HX60V_MP_ROOT:
+
+	SETTIMER TIMER_DELETE_EMPTY_2020_CyberShot_HX60V_MP_ROOT,10000 ; 10 SEC
+
+	FILE_NAME_COUNTER=
+	FILE_NAME_COUNT=
+	
+	FN_VAR_FILE_EXIST_AR_1:="D:\DSC\2015+SONY\2020 CyberShot HX60V\MP_ROOT"
+	FN_VAR_FILE_EXIST_AR_2=%FN_VAR_FILE_EXIST_AR_1%\*.*
+	IfExist, %FN_VAR_FILE_EXIST_AR_2%
+	{
+		Loop, Files, %FN_VAR_FILE_EXIST_AR_2%
+		{
+			FILE_NAME_COUNTER = %A_LoopFileFullPath%
+			FILE_NAME_COUNT+=1
+		}
+	
+		IF !FILE_NAME_COUNT
+		{
+			FileRemoveDir %FN_VAR_FILE_EXIST_AR_1% ,1
+		}
+	}
+
+RETURN
+
+
 
 TIMER_DRIVE_GET_CAMERA:
 DriveGet, list, list
@@ -158,8 +233,6 @@ LOOP
 		SET_GO=TRUE
 	IF Label_CAMERA=HI-LOOK           ; WHITE 4 PORT
 		SET_GO=TRUE
-	
-
 	
 		
 	IF SET_GO=TRUE
@@ -218,6 +291,8 @@ O_HWND_ID_1=%HWND_ID_1%
 
 
 RETURN
+
+
 
 MSGBOX_CAMERA_CountDown_Generate_Line:
 MSGBOX_CAMERA_CountDown_Generate_VAR=Would you like to Copy Camera Media Card`n%Label_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds

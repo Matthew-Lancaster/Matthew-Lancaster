@@ -92,11 +92,11 @@ For R = 3 To 25
         'RD$(tg) = tt$
         tg = tg + 1
         Y1$ = Y1$ + tt$
-        Filename = z.DriveLetter + ":\ __ " + z.VolumeName
+        FileName = z.DriveLetter + ":\ __ " + z.VolumeName
         Path = "--Drive"
         
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename)
+            Set LV = .ListItems.Add(, , FileName)
             LV.SubItems(1) = Path
         End With
     
@@ -151,10 +151,10 @@ Do
     End If
     
     If HERE_GO = False And LINE_STINGER = "BTHUB" Then
-        Filename = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
+        FileName = "HTTPS:" + Filename_VAR(R_L) '+ "\BTHUB"
         'Path = "--Drive"
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename)
+            Set LV = .ListItems.Add(, , FileName)
             LV.SubItems(1) = Path
         End With
         HERE_GO = True
@@ -360,13 +360,13 @@ Next
 GetSpecialfolder_VAR = Mid(GetSpecialfolder_VAR, 1, Len(GetSpecialfolder_VAR) - 1)
 For R_L = 1 To 9
     GET_USER_NAME_VAR_NAME = GetSpecialfolder_VAR + Format(R_L, "0")
-    Filename = GET_USER_NAME_VAR_NAME
-    If Dir(Filename, vbDirectory) <> "" Then
+    FileName = GET_USER_NAME_VAR_NAME
+    If Dir(FileName, vbDirectory) <> "" Then
     
         Path = "--Drive"
         
         With ScanPath.ListView1
-            Set LV = .ListItems.Add(, , Filename)
+            Set LV = .ListItems.Add(, , FileName)
             LV.SubItems(1) = Path
         End With
         
@@ -424,12 +424,12 @@ For R = 0 To 255
     End If
     
     If GetSpecialfolder(R) <> "" And q = 0 Then
-        Filename = GetSpecialfolder(R)
+        FileName = GetSpecialfolder(R)
         'Filename = GetSpecialfolder(R)
         Path = "--SPECIAL"
         
         SET_GO = True
-        F1 = UCase(Filename)
+        F1 = UCase(FileName)
         If InStr(F1, "DOCUMENTS AND") > 0 And InStr(F1, "ADMINISTRATIVE") > 0 Then
             SET_GO = False
         End If
@@ -447,17 +447,17 @@ For R = 0 To 255
         
         
         
-        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
+        If InStr(DUPE_CHECK, "__" + FileName + "__") > 0 Then
             SET_GO = False
         End If
-        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
+        DUPE_CHECK = DUPE_CHECK + "__" + FileName + "__"
         
         
         
         If SET_GO = True Then
             With ScanPath.ListView2
-                XF_1 = Filename
-                XF_2 = Filename
+                XF_1 = FileName
+                XF_2 = FileName
                 If InStr(UCase(XF_1), "TOOLS") > 0 Then
                     XF_1 = Replace(XF_1, "Tools", "Tool")
                 End If
@@ -469,14 +469,14 @@ For R = 0 To 255
             End With
         End If
         
-        If InStr(Filename + "--", "Program Files (x86)" + "--") > 0 Then
-        If InStr(DUPE_CHECK, "__" + Filename + "__") > 0 Then
+        If InStr(FileName + "--", "Program Files (x86)" + "--") > 0 Then
+        If InStr(DUPE_CHECK, "__" + FileName + "__") > 0 Then
             SET_GO = False
         End If
-        DUPE_CHECK = DUPE_CHECK + "__" + Filename + "__"
+        DUPE_CHECK = DUPE_CHECK + "__" + FileName + "__"
             With ScanPath.ListView2
-                Filename = Replace(Filename, " (x86)", "")
-                Set LV = .ListItems.Add(, , Format(R, "00 ") + Filename)
+                FileName = Replace(FileName, " (x86)", "")
+                Set LV = .ListItems.Add(, , Format(R, "00 ") + FileName)
                 LV.SubItems(1) = Path
             End With
         End If
@@ -1477,6 +1477,7 @@ Public Sub EXPLORER_WITH_SHELL(SELECT_OPTION, FOLDER_NAME)
     If FormStart.MNU_TREESIZE_GO = True Then
         TREESIZE_EXE = "C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
         SCRIPT_PATH_LOADER = "D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
+        SCRIPT_PATH_LOADER = App.Path + "\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
         ' ----------------------------------------------------
         ' ENCODE -- WELL DONE IT AT LONG LAST NEW IDEA IN HEAD
         ' [ Wednesday 21:09:50 Pm_18 September 2019 ]
