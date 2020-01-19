@@ -2687,6 +2687,14 @@ Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect 
 
 Private Declare Function WindowFromPoint Lib "user32" (ByVal xPoint As Long, ByVal yPoint As Long) As Long
 
+' PRIVATE constants for ShowWindow API declaration
+'Private Const SW_HIDE = 0
+'Private Const SW_MAXIMIZE = 3
+'Private Const SW_MINIMIZE = 6
+'Private Const SW_NORMAL = 1
+'Private Const SW_RESTORE = 9
+'Private Const SW_SHOW = 5
+
 Private Declare Function ShowWindow Lib "user32" (ByVal hWnd As Long, ByVal nCmdShow As Long) As Long
 
 Private Declare Function CreateCaret Lib "user32" (ByVal hWnd As Long, _
