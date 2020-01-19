@@ -88,7 +88,14 @@ For Each strArg In objArgs
 
 	PARAM = PARAM + """"+REPLACE(strArg,"*"," ")+"""" +" "
 	
-	MSGBOX PARAM
+	NOT_WANT=1
+	IF INSTR(PARAM,"TREESIZE")=0 THEN 
+		NOT_WANT=0
+	END IF
+	IF NOT_WANT=1 THEN 
+		MSGBOX PARAM
+	END IF
+	
 Next
 
 Dim WSHShell
