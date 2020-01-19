@@ -384,14 +384,14 @@ IF (A_ComputerName<>"4-ASUS-GL522VW")
 
 MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=
 OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=
-	
-; MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD := SubStr( A_Now, 1, 8 ) . "000000"
-; MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD += 1, days
 
-MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD= %A_Now%
+MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%A_Now%
 	
 IF WANT_GO=TRUE
+{
 	SETTIMER RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE,1000
+	SETTIMER RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE_TIMER,1000
+}
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -460,10 +460,6 @@ RETURN
 
 
 
-
-
-
-
 ; TEAMVIEWER_AR_RUN_ON_CUE:
 ; IfWinExist ahk_class #32770 TeamViewer
 ; {
@@ -474,16 +470,31 @@ RETURN
 
 
 
+
+
 ; -------------------------------------------------------------------
 ; WRITE CODER TIME
 ; -------------------------------------------------------------------
 ; Sat 11-Jan-2020 12:18:21
 ; Sat 11-Jan-2020 15:30:00 -- 3 HOUR 15 MINUTE
+; ROUTINE HAD TO SEPARATE NEW FILE SET ABLE CALL MANUAL
+; SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%A_ScriptDir%\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD.ahk
+; Fri 17-Jan-2020 16:13:39
+;
+; -------------------------------------------------------------------
+; WORK TIME
+; -------------------------------------------------------------------
+; MAKE REMOTE COMPUTER RUN CHKDSK WHEN ASK DEMAND
+; Fri 17-Jan-2020 16:02:30
+; Fri 17-Jan-2020 18:44:00
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
 
-	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK:=SubStr(A_ScriptName, 1, -4)
-	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%A_ScriptDir%\%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%_TIMER_#NFS_%A_ComputerName%.txt
+	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK:=SubStr(A_ScriptFullPath, 1, -4)
+	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%\_TIMER_#NFS_%A_ComputerName%.txt
 
 	IF !MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD
 	{
@@ -498,30 +509,59 @@ RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
 	IF MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%
 		RETURN
 
-	MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD += 1, days
+	; ---------------------------------------------------------------
+	; MODIFY MIDNIGHT TO 3 HOUR
+	; MODIFY MIDNIGHT TO 9 HOUR
+	; ---------------------------------------------------------------
+	; ROUTINE ADDITION HERE 
+	; DELETE CHKDSK FRAGMENT
+	; TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM:
+	; Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
+	; TWO CODE LINK HERE
+	; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+	; RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
+	; Fri 17-Jan-2020 14:40:00
+	; ---------------------------------------------------------------
+	MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD += 9, Hours
 	OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%
+	FileDELETE, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
+	FileAppend, %MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%,%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
 	
-	If !FileExist(SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK)
+	SetTitleMatchMode 2  ; Specify PARTIAL path
+	IFWINNOTEXIST Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk ahk_class ConsoleWindowClass
 	{
-		FileDELETE, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
-		FileAppend, %MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%,%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
+		SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%A_ScriptDir%\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD.ahk
+		; RUN THE AHK SCRIPT
+		RunWAIT, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK% ; ,,HIDE
 	}
-	
-	; ---------------------------------------------------------------
-	; INSTRUCTION FOR BATCH FILE SET
-	; ---------------------------------------------------------------
-	SCRIPT_NAME_VAR_CHKDSK:=SubStr(A_ScriptName, 1, -4)
-	SCRIPT_NAME_VAR_CHKDSK=%A_ScriptDir%\%SCRIPT_NAME_VAR_CHKDSK%_BAT_#NFS.BAT
-	; ---------------------------------------------------------------
-	MIDNIGHT_CHKDSK_MC_V:="`nTITLE Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`nVOL V:`nCHKDSK.EXE V: /F`n"
-	; ---------------------------------------------------------------
-	
-	FileDELETE, %SCRIPT_NAME_VAR_CHKDSK%
-	FileAppend,%MIDNIGHT_CHKDSK_MC_V%,%SCRIPT_NAME_VAR_CHKDSK%
-
-	Run, %SCRIPT_NAME_VAR_CHKDSK% ; ,,HIDE
-	
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE_TIMER:
+
+	SCRIPT_NAME_VAR_CHKDSK_1:=SubStr(A_ScriptName, 1, -4)
+	SCRIPT_NAME_VAR_CHKDSK_1=%A_ScriptDir%\%SCRIPT_NAME_VAR_CHKDSK_1%_BAT_#NFS.BAT
+
+	; If FileExist(SCRIPT_NAME_VAR_CHKDSK_1)
+		; BOTH_WORK=TRUE
+	
+	; IfExist %SCRIPT_NAME_VAR_CHKDSK_1%
+		; BOTH_WORK=TRUE
+	
+	IfExist %SCRIPT_NAME_VAR_CHKDSK_1%
+	{
+	
+		SetTitleMatchMode 2  ; Specify PARTIAL path
+		IFWINNOTEXIST Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk ahk_class ConsoleWindowClass
+		{
+			RunWAIT, %SCRIPT_NAME_VAR_CHKDSK_1% ; ,,HIDE
+		}
+		FileDELETE, %SCRIPT_NAME_VAR_CHKDSK_1%
+	}
+
+RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
 
@@ -799,7 +839,8 @@ RETURN
 
 
 
-
+; HERE MAXIMIZE THE WINDOWS CabinetWClass -- WHEN THEY LOAD IN WITH STRING SHIFT
+; -------------------------------------------------------------------
 HIGHER_SPEED:
 	; ---------------------------------------------------------------
 	; NEW CODE BLOCK
@@ -897,7 +938,10 @@ HIGHER_SPEED:
 			ID_STRING= -- %id%
 			IF INSTR(OLD_EXPLORER_ID_STR,ID_STRING)=0
 			{
+				; WinGet, PROCESS_PID, PID [, WinTitle, WinText, ExcludeTitle, ExcludeText]
+				; Process, Priority, %PROCESS_PID%, High
 				WinMaximize, AHK_ID %id%
+				
 				OLD_EXPLORER_ID_STR=%OLD_EXPLORER_ID_STR% -- %id%
 				Length := StrLen(OLD_EXPLORER_ID_STR)
 				; ---------------------------------------------------
