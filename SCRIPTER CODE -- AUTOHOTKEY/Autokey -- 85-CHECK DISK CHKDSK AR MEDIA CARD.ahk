@@ -251,7 +251,11 @@ RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
 			; THAT THE DELAY FOR
 			; -------------------------------------------------------
 
-		
+			; -------------------------------------------------------
+			; CMD  -- /C OR /K -- /C WILL EXIT OUT -- BATCH FILE REQUIRE EXIT COMMAND ENDER
+			; START - /B WILL RUN IN SAME DOS SHELL PROMPT WINDOW -- ALL IN ONES
+			; -------------------------------------------------------
+			
 			RunWAIT, %comspec% /C "START /B "Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk" "%SCRIPT_NAME_VAR_CHKDSK_1%""
 			
 			; -------------------------------------------------------
@@ -262,7 +266,7 @@ RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
 			; -------------------------------------------------------
 			
 			; -------------------------------------------------------
-			; EXAMPLE AHK CODE -- %COMSPEC% ONLY
+			; EXAMPLE AHK CODE -- %COMSPEC% ONLY AND PIPE _ > _ COMMAND AFTER
 			; -------------------------------------------------------
 			; Run %comspec% /c ""%FN_VAR%" "/ALL" "" >"%A_TEMP%\IPTEST.TXT , , MIN
 			; -------------------------------------------------------
