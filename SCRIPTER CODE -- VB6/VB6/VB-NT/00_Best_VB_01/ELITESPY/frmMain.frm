@@ -22,6 +22,17 @@ Begin VB.Form frmMain
    LinkTopic       =   "Form1"
    ScaleHeight     =   7116
    ScaleWidth      =   15972
+   Begin VB.Timer TIMER_CLIPBOARD_TIMER_RETRY 
+      Enabled         =   0   'False
+      Interval        =   10
+      Left            =   11088
+      Top             =   1920
+   End
+   Begin VB.Timer Timer_PROJECT_CHECK_DATE 
+      Interval        =   5000
+      Left            =   11172
+      Top             =   1356
+   End
    Begin VB.Timer FOREGROUND_WINDOW_CHANGE_DELAY_1_EXTRA_TO_DO 
       Enabled         =   0   'False
       Interval        =   100
@@ -2178,23 +2189,25 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'----
-'Andrea Batina - Google Search
-'https://www.google.co.uk/search?q=Andrea+Batina&num=50&safe=active&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjinr3s0pzeAhVpJsAKHXzUAs8Q_AUIDigB&biw=1536&bih=600#imgrc=YmIjX_nZl_QuEM:
-'--------
-'EliteSpy+ (with Code Generator) by Andrea Batina[Revelatek] (from psc cd)
-'http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=28563&lngWId=1
-'--------
-'batinanet (Andrea Batina)
-'https://github.com/batinanet
-'--------
-'Andrea Batina | LinkedIn
-'https://www.linkedin.com/in/andrea-batina-08a28b44/?originalSubdomain=rs
-'----
+' --------------------------------------------------------------
+' --------------------------------------------------------------
+' Andrea Batina - Google Search
+' https://www.google.co.uk/search?q=Andrea+Batina&num=50&safe=active&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjinr3s0pzeAhVpJsAKHXzUAs8Q_AUIDigB&biw=1536&bih=600#imgrc=YmIjX_nZl_QuEM:
+' --------
+' EliteSpy+ (with Code Generator) by Andrea Batina[Revelatek] (from psc cd)
+' http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=28563&lngWId=1
+' --------
+' batinanet (Andrea Batina)
+' https://github.com/batinanet
+' --------
+' Andrea Batina | LinkedIn
+' https://www.linkedin.com/in/andrea-batina-08a28b44/?originalSubdomain=rs
+' --------------------------------------------------------------
+' --------------------------------------------------------------
 
-
+' --------------------------------------------------------------
 ' -------------------------------------------------------------------------------------
-' SESSION AGAIN
+' SESSION 010
 ' FEW IMPROVEMNT ON
 ' IMPROVEMNTS ARE
 ' 1..
@@ -2211,14 +2224,56 @@ Attribute VB_Exposed = False
 ' 20 SEC TIMER WAS DISPLAY WRONG - FIXER
 ' 6..
 ' FINALLY MOVE MENU BUTTON AROUND SOME REMOVED DISABLED OLDER THING
-' -------------------------------------------------------------------------------------
+' --------------------------------------------------------------
 ' Tue 23-Oct-2018 10:52:04
-' Tue 23-Oct-2018 14:40:00 _ 4 HOUR WORK
-' -------------------------------------------------------------------------------------
+' Tue 23-Oct-2018 14:40:00 _ 4 HOUR 48 MINUTE
+' --------------------------------------------------------------
+' --------------------------------------------------------------
+
+' --------------------------------------------------------------
+' --------------------------------------------------------------
+' SESSION 012 --
+' --------------------------------------------------------------
+' --------------------------------------------------------------
+' FIRST THING OF ALL
+' MAKE TIMER SO UPDATE LISTVIEW BOX NOT AS QUICK
+' COUNTER ARE QUICKER
+' A DOUBLE LOOP 4 SECOND AND 4 SECOND AGAIN
+' WAS WORK FROM VB_KEEP_RUNNER
+' AND DO COMPARE ROUTINE MAKE SAME
+'
+' NEW CLIPBOARD ROUTINE
+'
+' WORK MULTI PROJECT
+' --------------------------------------------------------------
+' FROM ----------- Thu 23-Jan-2020 18:59:37
+' TO ------------- Thu 23-Jan-2020 22:26:26 -- 3 HOUR 27 MINUTE
+' LAST EDITOR ---- Thu 24-Jan-2020 06:10:00
+' --------------------------------------------------------------
+
+
 
 Option Explicit
 
 Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
+
+Dim LISTVIEW_2_OR_3_HITT_FOCUS
+
+Dim VAR_TIMER_CLIPBOARD_TIMER_RETRY
+
+Dim PROCESS_PID_STORE_LST_03
+Dim PROCESS_PID_STORE_LST_02
+
+Dim X_STRESS_LEVEL
+Dim OLD_NOW_STRESS
+Dim X_ONE_SECOND_NOT_RESPOND
+
+Dim O_NOW_LV_AUTOSIZE_1
+Dim O_NOW_LV_AUTOSIZE_2
+Dim O_LV_AUTOSIZE_COUNTER
+
+
+Dim OLD_TxtEXE_Text_INFO
 
 Dim FROM_picCrossHair_MouseUP
 
@@ -2346,10 +2401,10 @@ Dim NOTEPAD_PLUSPLUS_OR_NOTEPAD_NORMAL_RUN_WHEN_ERROR_LOAD_TIME_ONE_MSGBOX
 Dim FILENAME_PATH_EXE_MENU
 
 
-Dim hWnd_From_ListView
+Dim HWND_From_ListView
 Dim From_ListView
 Dim OLD_TxtEXE_Text
-Dim lHwnd_Function_Button_Set_MIN_MAX
+Dim LHWND_Function_Button_Set_MIN_MAX
 
 Dim ARCHIVE_Menu_Height
 
@@ -3144,38 +3199,8 @@ If IsIDE = True Then
     End If
 End If
 
-' -------------------------------------------------
-' IF WANT RENAME FORM FOR DIFFERENT PROJECT
-' & ALSO KEEP UNIVERSAL FOR SYNC PURPOSE
-' UNABLE TO RENAME FORM IN ANYWAY AND SYNC
-' ANSWER CHANGE NAME WITHOUT FRM_ PRECEDE
-' SO LAND AT TOP OF FORM LISTER NOT IN THE WAY
-' SOME PROJECT HAVE FRM_ OR FORM_ SORT ORDER
-' -------------------------------------------------
-' 03 OF 03
-' -------------------------------------------------
-' DETECT PRESENCE OF FORM
-' REQUEST ANSWER WILL LOAD THE FORM ALSO
-' -------------------------------------------------
-On Error Resume Next
-Dim FRMX As Form, FRMXNAME_T As String
-Dim FRMXNAME() As String
-ReDim Preserve FRMXNAME(10)
-Dim INDX
-INDX = 0
-INDX = INDX + 1: FRMXNAME(INDX) = "Form2_Check_Project_Date"  ' PREVIOUS  NAME USER
-INDX = INDX + 1: FRMXNAME(INDX) = "Frm_Project_Check_Date"    ' ATTEMPTED NAME USER
-INDX = INDX + 1: FRMXNAME(INDX) = "Project_Check_Date"        ' STANDARDISE
-ReDim Preserve FRMXNAME(INDX)
-For INDX = 1 To UBound(FRMXNAME)
-    Err.Clear
-    Set FRMX = Forms.Add(FRMXNAME(INDX))
-    If Err.Number = 0 Then
-        FRMXNAME_T = FRMXNAME(INDX)
-        Exit For
-    End If
-Next
-' -------------------------------------------------
+     
+     
      
 
 'THIS FEATURE WINDOWS 10 PRO
@@ -4431,6 +4456,56 @@ End Sub
 
 
 
+Private Sub Timer_PROJECT_CHECK_DATE_Timer()
+
+Timer_PROJECT_CHECK_DATE.Enabled = False
+' -------------------------------------------------
+' IF WANT RENAME FORM FOR DIFFERENT PROJECT
+' & ALSO KEEP UNIVERSAL FOR SYNC PURPOSE
+' UNABLE TO RENAME FORM IN ANYWAY AND SYNC
+' ANSWER CHANGE NAME WITHOUT FRM_ PRECEDE
+' SO LAND AT TOP OF FORM LISTER NOT IN THE WAY
+' SOME PROJECT HAVE FRM_ OR FORM_ SORT ORDER
+' -------------------------------------------------
+' 03 OF 03
+' -------------------------------------------------
+' DETECT PRESENCE OF FORM
+' REQUEST ANSWER WILL LOAD THE FORM ALSO
+' -------------------------------------------------
+' BEFORE FIND HERE
+' CallByName Form, SUBNAME, VbMethod
+' NOT WORK FOR ANYTHING SPECIAL
+' MAYBE GOT SOMETHING - LOOK OVER WITH THAT FIND
+' -------------------------------------------------
+' DOUBLE CHECK --------
+' DOUBLE BONUS MONEY --
+' DOUBLE VERIFY -------
+' -------------------------------------------------
+' LAST MUCK AROUND PLAY
+' Thu 23-Jan-2020 20:28:41
+' -------------------------------------------------
+On Error Resume Next
+Dim FRMX As Form, FRMXNAME_T As String
+Dim FRMXNAME() As String
+ReDim Preserve FRMXNAME(10)
+Dim INDX
+INDX = 0
+INDX = INDX + 1: FRMXNAME(INDX) = "Form2_Check_Project_Date"  ' PREVIOUS  NAME USER
+INDX = INDX + 1: FRMXNAME(INDX) = "Frm_Project_Check_Date"    ' ATTEMPTED NAME USER
+INDX = INDX + 1: FRMXNAME(INDX) = "Project_Check_Date"        ' STANDARDISE
+ReDim Preserve FRMXNAME(INDX)
+For INDX = 1 To UBound(FRMXNAME)
+    Err.Clear
+    Set FRMX = Forms.Add(FRMXNAME(INDX))
+    If Err.Number = 0 Then
+        FRMXNAME_T = FRMXNAME(INDX)
+        Exit For
+    End If
+Next
+' -------------------------------------------------
+
+End Sub
+
 Private Sub TIMER_TO_RESIZE_Timer()
     TIMER_TO_RESIZE.Enabled = False
     'NOT_RESIZE_EVENTER = False
@@ -4604,7 +4679,7 @@ Private Sub cmdMoveMax_SIMPLE(txtMhWnd_SIMPLE)
     
     MoveWindow txtMhWnd_SIMPLE, HX, HY, HW, HH, True
     
-    ' lhWnd_Function_Button_Set_MIN_MAX = Val(txtMhWnd_SIMPLE)
+    ' LHWND_Function_Button_Set_MIN_MAX = Val(txtMhWnd_SIMPLE)
     ' Call ChunkCodeOnMouse
 
 End Sub
@@ -4634,13 +4709,13 @@ Private Sub cmdMoveMax_Click()
         GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
         txthWnd.Text = GOODSYNC_WINDOW_HWND
         If GOODSYNC_WINDOW_HWND = 0 Then
-            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            ' MsgBox "GIVE txtHWND.Text SOME INPUT IS EMPTY"
+            MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
             txtMhWnd.Text = Me.hWnd
 
         Else
             If Val(txthWnd.Text) = 0 Then
-                MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+                MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
             End If
         End If
     End If
@@ -4662,7 +4737,7 @@ Private Sub cmdMoveMax_Click()
     ShowWindow txthWnd.Text, SW_NORMAL
     
     MoveWindow txthWnd.Text, HX, HY, HW, HH, True
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4674,17 +4749,17 @@ Private Sub cmdMaximize_Click()
         GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
         txthWnd.Text = GOODSYNC_WINDOW_HWND
         If GOODSYNC_WINDOW_HWND = 0 Then
-            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            ' MsgBox "GIVE txtHWND.Text SOME INPUT IS EMPTY"
+            MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
             txtMhWnd.Text = Me.hWnd
         Else
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+            MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
         End If
     End If
     
     ShowWindow txtMhWnd.Text, SW_MAXIMIZE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4697,11 +4772,11 @@ Private Sub cmdMinimize_Click()
         GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
         txthWnd.Text = GOODSYNC_WINDOW_HWND
         If GOODSYNC_WINDOW_HWND = 0 Then
-            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            ' MsgBox "GIVE txtHWND.Text SOME INPUT IS EMPTY"
+            MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
             txtMhWnd.Text = Me.hWnd
         Else
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+            MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
         End If
     End If
     
@@ -4717,7 +4792,7 @@ Private Sub cmdMinimize_Click()
     'ShowWindow txtParent.Text, SW_RESTORE
     'txtParent
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4725,26 +4800,26 @@ Private Sub cmdNormal_Click()
     ' Show window
     Beep
     
-    Dim lhWndParentX
+    Dim LHWNDParentX
     
     If Val(txthWnd.Text) = 0 Then
         Dim GOODSYNC_WINDOW_HWND
         GOODSYNC_WINDOW_HWND = FindWindow("{B26B00DA-2E5D-4CF2-83C5-911198C0F009}", vbNullString)
         txthWnd.Text = GOODSYNC_WINDOW_HWND
         If GOODSYNC_WINDOW_HWND = 0 Then
-            ' MsgBox "GIVE txthWnd.Text SOME INPUT IS EMPTY"
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
+            ' MsgBox "GIVE txtHWND.Text SOME INPUT IS EMPTY"
+            MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT ME.HWND " + Str(Me.hWnd)
             txtMhWnd.Text = Me.hWnd
         Else
-            MsgBox "TxthWnd.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
+            MsgBox "txtHWND.Text IS EMPTY" + vbCrLf + "COMPUTER WILL GIVE IT GOODSYNC " + txthWnd.Text
         End If
     End If
    
    
     ' txtMhWnd.Text = GetParent(Val(txtMhWnd.Text))
-    ' txtMhWnd.Text = GetParentHwnd(Val(txtMhWnd.Text))
-    ' lhWndParentX = GetParentHwnd(Val(txtMhWnd.Text))
-    ' txtMhWnd.Text = GetParentHwnd(Val(txtMhWnd.Text))
+    ' txtMhWnd.Text = GetParentHWND(Val(txtMhWnd.Text))
+    ' LHWNDParentX = GetParentHWND(Val(txtMhWnd.Text))
+    ' txtMhWnd.Text = GetParentHWND(Val(txtMhWnd.Text))
 
     ' txtMhWnd.Text = GetAncestor(Val(txtMhWnd.Text), GA_ROOT)
 
@@ -4755,7 +4830,7 @@ Private Sub cmdNormal_Click()
     
     ShowWindow SET_HWND, SW_NORMAL
         
-    lHwnd_Function_Button_Set_MIN_MAX = SET_HWND
+    LHWND_Function_Button_Set_MIN_MAX = SET_HWND
     Call ChunkCodeOnMouse
     
 End Sub
@@ -4767,7 +4842,7 @@ Private Sub cmdFlash_Click()
     
     FlashWindow txtMhWnd.Text, 3
     
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4779,7 +4854,7 @@ Private Sub cmdEnable_Click()
     If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     EnableWindow txtMhWnd.Text, 1
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4791,7 +4866,7 @@ Private Sub cmdDisable_Click()
     If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd: Exit Sub
     EnableWindow txtMhWnd.Text, 0
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4816,7 +4891,7 @@ Private Sub cmdSetTitle_Click()
     Beep
     SetWindowText txtMhWnd.Text, sTitle
     
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4832,7 +4907,7 @@ Private Sub cmdOnTop_Click()
     ' Put window on top of all others
     SetWindowPos txtMhWnd.Text, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4843,7 +4918,7 @@ Private Sub cmdNotOnTop_Click()
     ' Remove window from top
     SetWindowPos txtMhWnd.Text, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4861,7 +4936,7 @@ Private Sub cmdHide_Click()
     
     ShowWindow txtMhWnd.Text, SW_HIDE
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -4871,7 +4946,7 @@ Private Sub cmdShow_Click()
     If txtMhWnd.Text = "" Then txtMhWnd.Text = Me.hWnd
     ShowWindow txtMhWnd.Text, SW_SHOW
 
-    lHwnd_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
+    LHWND_Function_Button_Set_MIN_MAX = Val(txthWnd.Text)
     Call ChunkCodeOnMouse
 
 End Sub
@@ -5936,7 +6011,7 @@ Sub GOOD_SYNC_MSGBOX_AT_END()
         'NORMAL ROUTINE BUT ADD THE cProcesses. BECUASE IT IS IN A CLASS
         'AND CLASS MUST BE INITALISED -- AS IT IS DONE
         '---------------------------------------------------------------
-        EXE_STRING = cProcesses.GetFileFromHwnd(I3)
+        EXE_STRING = cProcesses.GetFileFromHWND(I3)
         'Stop
         PID = -1
         VAR = cProcesses.Convert(I3, PID, cnFromhWnd Or cnToProcessID)
@@ -7360,6 +7435,7 @@ Private Sub lstProcess_2_ListView_Click()
 
 'Stop
 LISTVIEW_2_OR_3_HITT = 2
+LISTVIEW_2_OR_3_HITT_FOCUS = 3
 
 PROCESS_TO_KILLER = lstProcess_2_ListView.ListItems(lstProcess_2_ListView.SelectedItem.Index).SubItems(1)
 PROCESS_TO_KILLER_PID = lstProcess_2_ListView.ListItems(lstProcess_2_ListView.SelectedItem.Index)
@@ -7413,6 +7489,8 @@ Private Sub lstProcess_3_SORTER_ListView_Click()
 'Stop
 
 LISTVIEW_2_OR_3_HITT = 3
+
+LISTVIEW_2_OR_3_HITT_FOCUS = 3
 
 PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
 PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
@@ -7493,9 +7571,9 @@ Dim hWnd_Parent As Long
 PID_INPUT = Val(PROCESS_TO_KILLER_PID)
 
 hWnd_Parent = cProcesses.GetHwnd_From_PID(PID_INPUT)
-' txthWnd.Text = hWnd_Parent
+' txtHWND.Text = hWnd_Parent
 If hWnd_Parent > 0 Then
-    hWnd_From_ListView = hWnd_Parent
+    HWND_From_ListView = hWnd_Parent
 End If
 
 From_ListView = True
@@ -7527,9 +7605,9 @@ Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
 ' PID_INPUT = Val(PROCESS_TO_KILLER_PID)
 
 ' hWnd_Parent = cProcesses.GetHwnd_From_PID(PID_INPUT)
-' txthWnd.Text = hWnd_Parent
+' txtHWND.Text = hWnd_Parent
 
-' hWnd_From_ListView = hWnd_Parent
+' HWND_From_ListView = hWnd_Parent
 ' Call ChunkCodeOnMouse
 
 End Sub
@@ -8757,7 +8835,7 @@ Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, x As Singl
 
         'FORM WHEN BEHIND ANOTHER
         'WORK TO DO
-        'Call SCREEN_SHOT_HERE_2(txthWnd.Text)
+        'Call SCREEN_SHOT_HERE_2(txtHWND.Text)
         
         
     End If
@@ -8767,18 +8845,18 @@ Sub ChunkCodeOnMouse()
         
         Dim tRC2 As RECT
         Dim tPA As POINTAPI
-        Dim lHwnd As Long
+        Dim LHWND As Long
         Dim sTitle As String * 255
         Dim sClass As String * 255
         Dim sParentTitle As String * 255
         Dim sParentClass As String * 255
         Dim sParentTitleX As String * 255
         Dim sParentClassX As String * 255
-        Dim lhWndParent As Long
-        Dim lhWndParentX As Long
+        Dim LHWNDParent As Long
+        Dim LHWNDParentX As Long
         Dim sStyle As String
         Dim lRetVal As Long
-        Dim O_lhWndParent As Long
+        Dim O_LHWNDParent As Long
         Dim Set_Collect_More_Info
         Dim PID_MARK
         Dim Success_Result
@@ -8786,27 +8864,26 @@ Sub ChunkCodeOnMouse()
         ' Get window rectCLEAR
         
         If From_ListView = False Then
-            If hWnd_From_ListView = 0 And lHwnd_Function_Button_Set_MIN_MAX = 0 Then
+            If HWND_From_ListView = 0 And LHWND_Function_Button_Set_MIN_MAX = 0 Then
                 ' Get cursor position
                 GetCursorPos tPA
                 ' Get window handle from point
-                lHwnd = WindowFromPoint(tPA.x, tPA.y)
+                LHWND = WindowFromPoint(tPA.x, tPA.y)
                 ' Get window caption
             End If
         End If
         If FROM_picCrossHair_MouseUP = True Then
             FROM_picCrossHair_MouseUP = False
-            If lHwnd > 0 Then
-                O_lhWndParent = lHwnd
-                lhWndParent = GetParent(lHwnd)
-                If lhWndParent = 0 Then lhWndParent = O_lhWndParent
-                lhWndParentX = GetParentHwnd(lHwnd)
+            If LHWND > 0 Then
+                O_LHWNDParent = LHWND
+                LHWNDParent = GetParent(LHWND)
+                If LHWNDParent = 0 Then LHWNDParent = O_LHWNDParent
+                LHWNDParentX = GetParentHWND(LHWND)
 
-                Success_Result = cProcesses.Get_PID_From_HWND(lhWndParentX, PID_MARK)
+                Success_Result = cProcesses.Get_PID_From_HWND(LHWNDParentX, PID_MARK)
                 TxtPID.Text = PID_MARK
             End If
         End If
-
         
         ' ---------------------------------------------------
         ' USED BY
@@ -8816,71 +8893,72 @@ Sub ChunkCodeOnMouse()
         ' ---------------------------------------------------
         If From_ListView = True Then
             Set_Collect_More_Info = True
-            If hWnd_From_ListView > 0 Then
-                lHwnd = hWnd_From_ListView
+            If HWND_From_ListView > 0 Then
+                LHWND = HWND_From_ListView
                 TxtPID.Text = Val(PROCESS_TO_KILLER_PID)
-                hWnd_From_ListView = 0
+                PROCESS_PID_STORE_LST_02 = String(6 - Len(TxtPID.Text), "0") + Trim(Str(TxtPID.Text))
+                PROCESS_PID_STORE_LST_03 = PROCESS_PID_STORE_LST_02
+                HWND_From_ListView = 0
                 Set_Collect_More_Info = False
             End If
         End If
-        If From_ListView = True And hWnd_From_ListView = 0 Then
+        If From_ListView = True And HWND_From_ListView = 0 Then
             Set_Collect_More_Info = False
         End If
         
         
-        If lHwnd_Function_Button_Set_MIN_MAX > 0 Then
-            ' txthWnd.Text = lHwnd
-            lHwnd = lHwnd_Function_Button_Set_MIN_MAX
-            lHwnd_Function_Button_Set_MIN_MAX = 0
+        If LHWND_Function_Button_Set_MIN_MAX > 0 Then
+            ' txthWnd.Text = LHWND
+            LHWND = LHWND_Function_Button_Set_MIN_MAX
+            LHWND_Function_Button_Set_MIN_MAX = 0
             ' Set_Collect_More_Info = false
         End If
         
+       
+        GetWindowRect LHWND, tRC2
         
-        
-        
-        GetWindowRect lHwnd, tRC2
-        
-        lRetVal = GetWindowText(lHwnd, sTitle, 255)
+        lRetVal = GetWindowText(LHWND, sTitle, 255)
         ' Get window class name
-        lRetVal = GetClassName(lHwnd, sClass, 255)
+        lRetVal = GetClassName(LHWND, sClass, 255)
         ' Get window style
-        sStyle = GetWindowStyle(lHwnd)
+        sStyle = GetWindowStyle(LHWND)
         ' Get window parent
         
-        O_lhWndParent = lHwnd
-        lhWndParent = GetParent(lHwnd)
-        If lhWndParent = 0 Then lhWndParent = O_lhWndParent
-        lhWndParentX = GetParentHwnd(lHwnd)
+        O_LHWNDParent = LHWND
+        LHWNDParent = GetParent(LHWND)
+        If LHWNDParent = 0 Then LHWNDParent = O_LHWNDParent
+        LHWNDParentX = GetParentHWND(LHWND)
         
         
         If Set_Collect_More_Info = True Then
-            Success_Result = cProcesses.Get_PID_From_HWND(lhWndParentX, PID_MARK)
+            Success_Result = cProcesses.Get_PID_From_HWND(LHWNDParentX, PID_MARK)
             
             TxtPID.Text = PID_MARK
+            PROCESS_PID_STORE_LST_02 = String(6 - Len(TxtPID.Text), "0") + Trim(Str(TxtPID.Text))
+            PROCESS_PID_STORE_LST_03 = PROCESS_PID_STORE_LST_02
+
         End If
-
-
-        
         
         ' Get parent window caption
-        lRetVal = GetWindowText(lhWndParent, sParentTitle, 255)
+        lRetVal = GetWindowText(LHWNDParent, sParentTitle, 255)
         ' Get parent window class name
-        lRetVal = GetClassName(lhWndParent, sParentClass, 255)
+        lRetVal = GetClassName(LHWNDParent, sParentClass, 255)
         
         ' Get parentX window caption
-        lRetVal = GetWindowText(lhWndParentX, sParentTitleX, 255)
+        lRetVal = GetWindowText(LHWNDParentX, sParentTitleX, 255)
         ' Get parentX window class name
-        lRetVal = GetClassName(lhWndParentX, sParentClassX, 255)
+        lRetVal = GetClassName(LHWNDParentX, sParentClassX, 255)
         
         ' Set values to textboxes
         If From_ListView = False Then
         
-            TxtEXE.Text = GetFileFromHwnd(lHwnd)
-            
+            TxtEXE.Text = GetFileFromHWND(LHWND)
             
             PROCESS_TO_KILLER = Mid(TxtEXE.Text, InStrRev(TxtEXE.Text, "\") + 1)
             PROCESS_TO_KILLER_PID = TxtPID.Text
-        
+            PROCESS_PID_STORE_LST_02 = String(6 - Len(TxtPID.Text), "0") + Trim(Str(TxtPID.Text))
+            PROCESS_PID_STORE_LST_03 = PROCESS_PID_STORE_LST_02
+
             Call MOUSE_HOOVER_SLECTION_CLICKER
         
         End If
@@ -8888,57 +8966,120 @@ Sub ChunkCodeOnMouse()
         From_ListView = False
         
         
-        txthWnd.Text = lHwnd
-        txthWndHX.Text = Hex(lHwnd)
+        txthWnd.Text = LHWND
+        txthWndHX.Text = Hex(LHWND)
         txtTitle.Text = sTitle
         txtClass.Text = sClass
         txtStyle.Text = sStyle
         txtRect.Text = "(" & tRC2.Left & ", " & tRC2.Top & ") - (" & tRC2.Right & ", " & tRC2.Bottom & ")"
         
-        'lhWndParent = GetParent(lhWndParent)
-        'lhWndParentHX = Hex(GetParent(lhWndParent))
-        If lHwnd <> lhWndParent Then
-            txtParent.Text = lhWndParent
-            txtParentHX.Text = Hex(lhWndParent)
+        'LHWNDParent = GetParent(LHWNDParent)
+        'LHWNDParentHX = Hex(GetParent(LHWNDParent))
+        If LHWND <> LHWNDParent Then
+            txtParent.Text = LHWNDParent
+            txtParentHX.Text = Hex(LHWNDParent)
             txtParentText.Text = sParentTitle
             txtParentClass.Text = sParentClass
         Else
-            txtParent.Text = lhWndParent
-            txtParentHX.Text = Hex(lhWndParent)
+            txtParent.Text = LHWNDParent
+            txtParentHX.Text = Hex(LHWNDParent)
             txtParentText.Text = ""
             txtParentClass.Text = ""
         End If
         
-        If lHwnd <> lhWndParentX And lhWndParentX <> lhWndParent Then
-            txtParentX.Text = lhWndParentX
+        If LHWND <> LHWNDParentX And LHWNDParentX <> LHWNDParent Then
+            txtParentX.Text = LHWNDParentX
             txtParentTextX.Text = sParentTitleX
             txtParentClassX.Text = sParentClassX
         Else
-            txtParentX.Text = lhWndParentX
+            txtParentX.Text = LHWNDParentX
             txtParentTextX.Text = ""
             txtParentClassX.Text = ""
         End If
         
-        
-        txtMhWnd.Text = lHwnd
+        txtMhWnd.Text = LHWND
         
         If TxtEXE.Text <> OLD_TxtEXE_Text Then
             Call TxtEXE_CLICK
         End If
         OLD_TxtEXE_Text = TxtEXE.Text
-
+        
+        Call PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY
 
 End Sub
+
+
+Sub PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY()
+    Dim CHK_VAR_OBTAIN_2
+    Dim CHK_VAR_OBTAIN_3
+    Dim R_I
+    Dim SET_DOWN
+    If PROCESS_PID_STORE_LST_02 <> 0 Then
+        CHK_VAR_OBTAIN_2 = 0
+        For R_I = 1 To lstProcess_2_ListView.ListItems.Count - 1
+            If lstProcess_2_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_02 Then
+                lstProcess_2_ListView.ListItems.Item(lstProcess_2_ListView.ListItems.Count - 1).EnsureVisible
+                lstProcess_2_ListView.ListItems.Item(R_I).EnsureVisible
+                SET_DOWN = R_I - 4
+                If SET_DOWN < 1 Then SET_DOWN = 1
+                lstProcess_2_ListView.Refresh
+                lstProcess_2_ListView.ListItems.Item(SET_DOWN).EnsureVisible
+                lstProcess_2_ListView.ListItems.Item(R_I).EnsureVisible
+                lstProcess_2_ListView.ListItems.Item(R_I).Selected = True
+                If LISTVIEW_2_OR_3_HITT_FOCUS = 2 Then
+                    lstProcess_2_ListView.SetFocus
+                End If
+                CHK_VAR_OBTAIN_2 = 1
+                Exit For
+            End If
+        Next
+    End If
+    If PROCESS_PID_STORE_LST_03 <> 0 Then
+        CHK_VAR_OBTAIN_3 = 0
+        For R_I = 1 To lstProcess_3_SORTER_ListView.ListItems.Count - 1
+            If lstProcess_3_SORTER_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_03 Then
+                lstProcess_3_SORTER_ListView.ListItems.Item(lstProcess_3_SORTER_ListView.ListItems.Count - 1).EnsureVisible
+                lstProcess_3_SORTER_ListView.ListItems.Item(R_I).EnsureVisible
+                SET_DOWN = R_I - 4
+                If SET_DOWN < 1 Then SET_DOWN = 1
+                lstProcess_3_SORTER_ListView.Refresh
+                lstProcess_3_SORTER_ListView.ListItems.Item(SET_DOWN).EnsureVisible
+                lstProcess_3_SORTER_ListView.ListItems.Item(R_I).EnsureVisible
+                lstProcess_3_SORTER_ListView.ListItems.Item(R_I).Selected = True
+                ' lstProcess_3_SORTER_ListView.SetFocus
+                If LISTVIEW_2_OR_3_HITT_FOCUS = 3 Then
+                    lstProcess_3_SORTER_ListView.SetFocus
+                End If
+                CHK_VAR_OBTAIN_3 = 1
+                Exit For
+            End If
+        Next
+    End If
+    If CHK_VAR_OBTAIN_2 = 0 Then
+        PROCESS_PID_STORE_LST_02 = 0
+    End If
+    If CHK_VAR_OBTAIN_3 = 0 Then
+        PROCESS_PID_STORE_LST_03 = 0
+    End If
+    If PROCESS_PID_STORE_LST_02 <> 0 And CHK_VAR_OBTAIN_2 = 1 Then
+        PROCESS_PID_STORE_LST_02 = 0
+    End If
+    If PROCESS_PID_STORE_LST_03 <> 0 And CHK_VAR_OBTAIN_2 = 1 Then
+        PROCESS_PID_STORE_LST_03 = 0
+    End If
+End Sub
+
+
 
 '////////////////////////////////////////////////////////////////////
 '//// PRIVATE FUNCTIONS
 '////////////////////////////////////////////////////////////////////
 ' Get window styles
-Private Function GetWindowStyle(ByVal lHwnd As Long) As String
+Private Function GetWindowStyle(ByVal LHWND As Long) As String
     Dim lStyle As Long
         
     ' Get window styles
-    lStyle = GetWindowLong(lHwnd, GWL_STYLE)
+    lStyle = GetWindowLong(LHWND, GWL_STYLE)
     
     ' Get window styles
     If lStyle And WS_BORDER Then GetWindowStyle = GetWindowStyle & "WS_BORDER "
@@ -8961,28 +9102,28 @@ Private Function GetWindowStyle(ByVal lHwnd As Long) As String
 End Function
 
 ' Make textboxes flat
-Private Sub MakeFlat(lHwnd As Long)
+Private Sub MakeFlat(LHWND As Long)
     Dim lStyle As Long
     
     ' Get window style
-    lStyle = GetWindowLong(lHwnd, GWL_EXSTYLE)
+    lStyle = GetWindowLong(LHWND, GWL_EXSTYLE)
     ' Setup window styles
     lStyle = lStyle And Not WS_EX_CLIENTEDGE Or WS_EX_STATICEDGE
     ' Set window style
-    SetWindowLong lHwnd, GWL_EXSTYLE, lStyle
-    RemoveBorder lHwnd
+    SetWindowLong LHWND, GWL_EXSTYLE, lStyle
+    RemoveBorder LHWND
 End Sub
-Private Sub RemoveBorder(lHwnd As Long)
+Private Sub RemoveBorder(LHWND As Long)
     Dim lStyle As Long
     
     ' Get window style
-    lStyle = GetWindowLong(lHwnd, GWL_STYLE)
+    lStyle = GetWindowLong(LHWND, GWL_STYLE)
     ' Setup window styles
     lStyle = lStyle And Not (WS_BORDER Or WS_DLGFRAME Or WS_CAPTION Or WS_BORDER Or WS_SIZEBOX Or WS_THICKFRAME)
     ' Set window style
-    SetWindowLong lHwnd, GWL_STYLE, lStyle
+    SetWindowLong LHWND, GWL_STYLE, lStyle
     ' Update window
-    SetWindowPos lHwnd, 0, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_NOZORDER Or SWP_FRAMECHANGED Or SWP_NOSIZE Or SWP_NOMOVE
+    SetWindowPos LHWND, 0, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_NOZORDER Or SWP_FRAMECHANGED Or SWP_NOSIZE Or SWP_NOMOVE
 End Sub
 
 Sub PROCESS_RELOADER_WATCHER_VAR_SET_CHECK_CONDICTION(VAR_IN, VAR_OUT)
@@ -9602,22 +9743,22 @@ Private Sub Timer_GET_KEY_ASYNC_STATE_Timer()
 
 If IsIDE = True And IsIDE_TEST = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 1000
 
-Dim tPA As POINTAPI, lHwnd As Long, O_lhWndParent, lhWndParent, lhWndParentX
+Dim tPA As POINTAPI, LHWND As Long, O_LHWNDParent, LHWNDParent, LHWNDParentX
 GetCursorPos tPA
-lHwnd = WindowFromPoint(tPA.x, tPA.y)
-O_lhWndParent = lHwnd
-lhWndParent = GetParent(lHwnd)
-If lhWndParent = 0 Then lhWndParent = O_lhWndParent
-lhWndParentX = GetParentHwnd(lHwnd)
+LHWND = WindowFromPoint(tPA.x, tPA.y)
+O_LHWNDParent = LHWND
+LHWNDParent = GetParent(LHWND)
+If LHWNDParent = 0 Then LHWNDParent = O_LHWNDParent
+LHWNDParentX = GetParentHWND(LHWND)
 
 
 If GetAsyncKeyState(27) < 0 Then
     If IsIDE = True Then
-        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
+        If GetForegroundWindow = Me.hWnd Or LHWNDParent = Me.hWnd Or LHWNDParentX = Me.hWnd Then
         Unload Me
         End If
     Else
-        If GetForegroundWindow = Me.hWnd Or lhWndParent = Me.hWnd Or lhWndParentX = Me.hWnd Then
+        If GetForegroundWindow = Me.hWnd Or LHWNDParent = Me.hWnd Or LHWNDParentX = Me.hWnd Then
             Me.WindowState = vbMinimized
         End If
     End If
@@ -9810,7 +9951,7 @@ End Sub
 Private Sub Timer_PROCESS_RELOADER_WATCHER_04_Timer()
     'GoodSync2Go
     
-    'TxtEXE.Text = GetFileFromHwnd(lhWnd)
+    'TxtEXE.Text = GetFileFromHWND(LHWND)
     If FindWinPart_SEARCHER("GoodSync2Go -") > 0 Then
         'APP_NAME_RELOAD_IT_ER____ = ""
         Exit Sub
@@ -10155,7 +10296,6 @@ If LISTVIEW_2_OR_3_HITT = 2 Then
         End If
     End If
 End If
-
 
 lstProcess_2_ListView.ListItems.Clear
 lstProcess_3_SORTER_ListView.ListItems.Clear
@@ -10593,7 +10733,7 @@ Me.WindowState = vbMinimized
 
 End Sub
 
-Function GetParentHwnd(ByVal ReturnParent As Long) As String
+Function GetParentHWND(ByVal ReturnParent As Long) As String
    Dim i As Long
    Dim j As Long
    Dim k As Long
@@ -10606,7 +10746,7 @@ Function GetParentHwnd(ByVal ReturnParent As Long) As String
       Loop
     i = j
     End If
-    GetParentHwnd = i
+    GetParentHWND = i
 End Function
 
 
@@ -11295,7 +11435,7 @@ If MNU_PAUSE_VIRTUA_COP_2.Checked = True Then Exit Sub
 
 If Timer_VIRCOP.Interval <> 10000 Then Timer_VIRCOP.Interval = 10000
 
-'Dim lhWndParent
+'Dim LHWNDParent
 Dim Hwnd_Var As Long, i As Long
 
 If FindWindow(vbNullString, "VirtuaCop 2") > 0 Then
@@ -11307,8 +11447,8 @@ If FindWindow(vbNullString, "VirtuaCop 2") > 0 Then
     
 '    Putfocus FindWindow(vbNullString, "VirtuaCop 2")
 '    --
-'    lhWndParent = GetParent(FindWindow(vbNullString, "VirtuaCop 2"))
-'    Putfocus lhWndParent
+'    LHWNDParent = GetParent(FindWindow(vbNullString, "VirtuaCop 2"))
+'    Putfocus LHWNDParent
 
     Hwnd_Var = FindWindow(vbNullString, "VirtuaCop 2")
     If Hwnd_Var > 0 Then
@@ -12459,7 +12599,7 @@ ENDER:
     Resume
 End Sub
 
-Private Sub txthWndHX_CLICK()
+Private Sub TXTHWNDHX_CLICK()
     On Error GoTo ENDER
     Clipboard.Clear
     Clipboard.SetText txthWndHX
@@ -12469,7 +12609,7 @@ ENDER:
     Sleep 100
     Resume
 End Sub
-Private Sub txthWnd_CLICK()
+Private Sub txtHWND_CLICK()
     On Error GoTo ENDER
     Clipboard.Clear
     Clipboard.SetText txthWnd
@@ -12492,17 +12632,36 @@ End Sub
 
 Private Sub TxtEXE_CLICK()
     ' MNU_HOOVER_20_SECOND
-    If TIMER2_TIMER_BEGAN > 0 Then Exit Sub
+    ' TxtEXE.Text
     
-    On Error GoTo ENDER
+    ' CLICK COME HERE -- BUT NOT WANT HOOVER UNTIL DONE
+    ' -------------------------------------------------
+    If TIMER2_TIMER_BEGAN > 0 Then Exit Sub
+    On Error Resume Next
     Clipboard.Clear
     Clipboard.SetText TxtEXE
-    Exit Sub
-ENDER:
-    DoEvents
-    Sleep 100
-    Resume
+    If Err.Number > 0 Then
+        VAR_TIMER_CLIPBOARD_TIMER_RETRY = "TxtEXE_CLICK"
+        TIMER_CLIPBOARD_TIMER_RETRY.Enabled = True
+        Exit Sub
+    End If
+        
+    Call PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY
 End Sub
+
+Private Sub TIMER_CLIPBOARD_TIMER_RETRY_Timer()
+    ' ---------------------------------------
+    ' CLIPBOARD_TIMER
+    ' ---------------------------------------
+    Dim Form As Form
+    For Each Form In Forms
+        If Form.Name = Me.Name Then
+            CallByName Form, VAR_TIMER_CLIPBOARD_TIMER_RETRY, VbMethod
+        End If
+    Next
+    TIMER_CLIPBOARD_TIMER_RETRY.Enabled = False
+End Sub
+
 
 Private Sub txtParentClass_CLICK()
     On Error GoTo ENDER

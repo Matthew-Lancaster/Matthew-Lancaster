@@ -789,6 +789,9 @@ i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
 i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
 i = i + 1: M(i) = "----"
+i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA -- BATCH"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
+i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
 i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
@@ -819,16 +822,16 @@ Me.Width = 17000
 On Error GoTo 0
 
 For r = 1 To LABEL_SET.Count
-    LABEL_SET(r).FontSize = 17
-    LABEL_SET(r).fontname = "ARIEAL"
+    LABEL_SET(r).FontSize = 16
+    LABEL_SET(r).fontname = "ARIAL"
 Next
-LABEL_SET(2).FontSize = 11
-LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
+LABEL_SET(2).FontSize = LABEL_SET(2).FontSize - 4
+LABEL_SET(3).FontSize = LABEL_SET(3).FontSize - 4
 
 ' TOP LABEL
 ' HEIGHT LABEL
 HL = LABEL_SET(2).Height
-HL = 350
+HL = 370
 
 LENGHT_LABEL = 380
 
@@ -907,6 +910,9 @@ Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
+Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+    
 Case "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
@@ -944,9 +950,9 @@ Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
     Dim DS4 As Date ' OLDER COMPARE
     Dim TT
     
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         
         Set F = FSO.GetFile(A1$ + B1$)
         DT2 = F.DateCreated
@@ -964,9 +970,9 @@ Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
         End
     End If
     
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         
         TT = SetFileDateTime(A1$ + B1$, DT4)
         
@@ -998,18 +1004,18 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     Dim TT
     'D:\VIDEO\NOT\X 01 ME\2017 SONY MP4\DOC\2017 05 31
     
-    For rr = ScanPath.ListView1.ListItems.Count To 1 Step -1
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = ScanPath.ListView1.ListItems.Count To 1 Step -1
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         If InStr(UCase(B1$), ".TXT") > 0 Then
-            ScanPath.ListView1.ListItems.Remove (rr)
+            ScanPath.ListView1.ListItems.Remove (RR)
         End If
     Next
     
     
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         
         FLAG_OPER = True
         If UCase(B1$) = UCase("thumbs.db") Then FLAG_OPER = False
@@ -1032,9 +1038,9 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     End If
     
     DT4 = DT4 + TimeSerial(0, 1, 0)
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         
         TT = SetFileDateTime(A1$ + B1$, DT4)
         XC = XC + 1
@@ -1064,6 +1070,74 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     End
 End Sub
     
+Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH()
+
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
+    
+    ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    ScanPath.txtPath.Text = "D:\VI_ DSC ME\2010+NOKIA\2017 NOKIA E72 _ 007 JULY_ MP4____x003 _ Mill View Room"
+    
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        
+        DATE_FILENAME_D_1 = Mid(B1$, 1, 10)
+        DATE_FILENAME_T_2 = Mid(B1$, 12, 8)
+        i2 = DATE_FILENAME_D_1
+        i4 = DATE_FILENAME_T_2
+        DATE_FILENAME_D_1 = Mid(i2, 1, 4) + "/" + Mid(i2, 6, 2) + "/" + Mid(i2, 9, 2)
+        DATE_FILENAME_T_2 = Mid(i4, 1, 2) + ":" + Mid(i4, 4, 2) + ":" + Mid(i4, 7, 2)
+        
+        DATE_FILENAME_SUCCESS = DateValue(DATE_FILENAME_D_1) + TimeValue(DATE_FILENAME_T_2)
+        
+        DT4 = DATE_FILENAME_SUCCESS
+        If IsDate(DT4) = False Then
+            ' FALSE DATE
+            ' ----------
+            MsgBox "DATE FOUND WITHIN TEXT FILE FOUND HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+            End
+        End If
+        
+        If DT4 = 0 Then
+            MsgBox "NAUGHT DATE FOUND OVERALL IN FILE GATHER -- EXIT"
+            End
+        End If
+    
+        TT = SetFileDateTime(A1$ + B1$, DT4)
+        XC = XC + 1
+        MM_1 = MM_1 + B1$ + vbCrLf
+    Next
+    
+    ' SET QUICK MODE RESULT
+    ' ---------------------
+    On Error Resume Next
+    FR1 = FreeFile
+    Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Input As #FR1
+        Line Input #FR1, I_1
+    Close FR1
+    MNU_QUICK_MODE.Caption = I_1
+    I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+    I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+End Sub
+    
 Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     
     ScanPath.chkSubFolders = vbChecked
@@ -1084,9 +1158,9 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     Dim DS4 As Date ' OLDER COMPARE
     Dim TT
     
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         
         Set F = FSO.GetFile(A1$ + B1$)
         DT2 = F.DateCreated
@@ -1148,9 +1222,9 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     If COUNT_FILE > 1 Then
         DT4 = DT4 + TimeSerial(0, 1, 0)
     End If
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         TT = SetFileDateTime(A1$ + B1$, DT4)
         XC = XC + 1
         MM_1 = MM_1 + B1$ + vbCrLf
@@ -1528,9 +1602,9 @@ Sub SET_BATCH_DATE_CAMERA_VIDEO_FILENAME_TO_DATE_FILE()
     ScanPath.txtPath.Text = "\\7-asus-gl522vw\7_ASUS_GL522VW_02_D_DRIVE\VI_ DSC ME 01\2010+SONY\2017 CyberShot HX60V_#\New folder"
     'ScanPath.txtPath.Text = LABEL_SET(2).Caption
     
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         a = B1$
         
         XX = InStr(a, "\201_")
@@ -1602,6 +1676,11 @@ End If
 
 If WORK = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH" Then
     Call SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH
+    Exit Sub
+End If
+
+If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH" Then
+    Call SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH
     Exit Sub
 End If
 
@@ -1758,9 +1837,9 @@ Private Sub MNU_CREATE_TEXT_FILE_FOR_DATE_Click()
     ScanPath.cboMask.Text = "*.*"
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
     
-    For rr = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(rr).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(rr)
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
         Exit For
     Next
     
