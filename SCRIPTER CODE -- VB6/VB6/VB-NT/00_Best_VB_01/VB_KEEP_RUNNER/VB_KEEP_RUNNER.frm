@@ -11,6 +11,11 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    ScaleHeight     =   10116
    ScaleWidth      =   12864
+   Begin VB.Timer Timer_PROJECT_CHECK_DATE 
+      Interval        =   4000
+      Left            =   12240
+      Top             =   2124
+   End
    Begin VB.Timer TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD 
       Enabled         =   0   'False
       Interval        =   1
@@ -2159,6 +2164,19 @@ Option Explicit
 ' HERE IS ALL REM OUT OF WORK IN PROGRESS
 ' --------------------------------------------------------------
 
+Dim PROCESS_PID_STORE_LST_03, PROCESS_PID_STORE_LST_02
+
+Dim X_STRESS_LEVEL
+
+Dim OLD_NOW_STRESS
+
+Dim X_ONE_SECOND_NOT_RESPOND
+
+Dim O_NOW_LV_AUTOSIZE_1
+Dim O_NOW_LV_AUTOSIZE_2
+Dim O_LV_AUTOSIZE_COUNTER
+
+
 Dim OLD_TxtEXE_Text_INFO
 
 Dim TEAMVIEWER_FILE_PRESENT_OLD
@@ -2515,7 +2533,7 @@ Public PROCESS_TO_KILLER_TO_GO
 Dim EnumProcess_COUNTER
 
 Dim DELAY_TICKER
-Dim pid As Long, APP_NAME_EXE_PASS_FOR_CALL_BACK As String
+Dim PID As Long, APP_NAME_EXE_PASS_FOR_CALL_BACK As String
 
 Dim VAR_IN, VAR_OUT
 
@@ -2781,13 +2799,13 @@ Private Enum Priorities
   p_Idle = &H40
 End Enum
 
-Private Declare Function Process32First Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function Process32Next Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
 Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadId As Long) As Long
 Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
-Private Declare Function TerminateProcess Lib "kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
@@ -2797,9 +2815,9 @@ Private Declare Function GetExitCodeThread Lib "kernel32.dll" (ByVal hThread As 
 Private Declare Function TerminateThread Lib "kernel32.dll" (ByVal hThread As Long, ByVal dwExitCode As Long) As Long
 Private Declare Function SetPriorityClass Lib "kernel32.dll" (ByVal hProcess As Long, ByVal dwPriorityClass As Long) As Boolean
 
-Private Declare Function CloseHandle Lib "kernel32" _
+Private Declare Function CloseHandle Lib "Kernel32" _
         (ByVal hObject As Long) As Long
-Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
 Private Const TH32CS_SNAPPROCESS = &H2&
 
 Private Type MENUBARINFO
@@ -2831,7 +2849,7 @@ Private Const SW_SHOW = 5
 'Private Const hWnd_NOTOPMOST = -2
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Private Type SHITEMID
     cb As Long
@@ -2849,7 +2867,7 @@ Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 
 Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
-Private Declare Function GetShortPathName Lib "kernel32" _
+Private Declare Function GetShortPathName Lib "Kernel32" _
       Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
       ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
 
@@ -2861,8 +2879,8 @@ Private Const GW_hWndNEXT = 2
 Private Const WM_CLOSE = &H10
 
 
-Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -2891,7 +2909,7 @@ Private Declare Function MoveWindow _
          ByVal nHeight As Long, _
          ByVal bRepaint As Long) As Long
 
-Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+Private Declare Sub Sleep Lib "Kernel32" (ByVal dwMilliseconds As Long)
 
 Private Declare Function Putfocus _
         Lib "user32" _
@@ -2919,7 +2937,7 @@ Private Const FILE_SHARE_READ = &H1
 Private Const FILE_SHARE_WRITE = &H2
 Private Const GENERIC_WRITE = &H40000000
  
-Private Declare Function CreateFile Lib "kernel32" Alias _
+Private Declare Function CreateFile Lib "Kernel32" Alias _
   "CreateFileA" (ByVal lpFileName As String, _
   ByVal dwDesiredAccess As Long, _
   ByVal dwShareMode As Long, _
@@ -2930,16 +2948,16 @@ Private Declare Function CreateFile Lib "kernel32" Alias _
   As Long
 
 Private Declare Function LocalFileTimeToFileTime Lib _
-    "kernel32" (lpLocalFileTime As FILETIME, _
+    "Kernel32" (lpLocalFileTime As FILETIME, _
      lpFileTime As FILETIME) As Long
 
-Private Declare Function SetFileTime Lib "kernel32" _
+Private Declare Function SetFileTime Lib "Kernel32" _
   (ByVal hFile As Long, ByVal MullP As Long, _
    ByVal NullP2 As Long, lpLastWriteTime _
    As FILETIME) As Long
 
 Private Declare Function SystemTimeToFileTime Lib _
-   "kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
+   "Kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
    As FILETIME) As Long
 
 
@@ -2969,11 +2987,11 @@ Private Declare Function SystemTimeToFileTime Lib _
 '    wMilliseconds As Integer
 'End Type
 
-Private Declare Function CreateDirectory Lib "kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
-Private Declare Function GetFileTime Lib "kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
-Private Declare Function FileTimeToSystemTime Lib "kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
-Private Declare Function FileTimeToLocalFileTime Lib "kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
-Private Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
+Private Declare Function CreateDirectory Lib "Kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As Long) As Long
+Private Declare Function GetFileTime Lib "Kernel32" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
+Private Declare Function FileTimeToSystemTime Lib "Kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME) As Long
+Private Declare Function FileTimeToLocalFileTime Lib "Kernel32" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
+Private Declare Function GetFileAttributes Lib "Kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
 'Private Declare Function CloseHandle Lib "Kernel32" (ByVal hObject As Long) As Long
 
@@ -3105,7 +3123,7 @@ Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
 'Private Declare Function BeginPaint Lib "user32" (ByVal hWnd As Long, lpPaint As PAINTSTRUCT) As Long
 Private Declare Function GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function DPtoLP Lib "gdi32" (ByVal HDC As Long, lpPoint As POINTAPI, ByVal nCount As Long) As Long
-Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
+Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal C As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
 Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObject As Long) As Long
 'Private Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal HDC As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As Size) As Long
 Private Declare Function SetBkMode Lib "gdi32" (ByVal HDC As Long, ByVal nBkMode As Long) As Long
@@ -3146,7 +3164,7 @@ Private Const PRF_OWNED = &H20&    ' Draw all owned windows
 '-----------------------
 'THE UNIVERSAL TIME DOWN
 '-----------------------
-Private Declare Function GetTimeZoneInformation Lib "kernel32" (lpTimeZoneInformation As TIME_ZONE_INFORMATION) As Long
+Private Declare Function GetTimeZoneInformation Lib "Kernel32" (lpTimeZoneInformation As TIME_ZONE_INFORMATION) As Long
 Public MoonPhaseDate
 
 Private Const TIME_ZONE_ID_INVALID = -1
@@ -3251,6 +3269,18 @@ Private Const GW_CHILD = 5
 'Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function BringWindowToTop Lib "user32" (ByVal hWnd As Long) As Long
 
+Private Declare Function GetVersionExA Lib "Kernel32" _
+(lpVersionInformation As OSVERSIONINFO) As Integer
+
+Private Type OSVERSIONINFO
+    dwOSVersionInfoSize As Long
+    dwMajorVersion As Long
+    dwMinorVersion As Long
+    dwBuildNumber As Long
+    dwPlatformId As Long
+    szCSDVersion As String * 128
+End Type
+
 
 'Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
 'Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -3337,7 +3367,7 @@ Private Sub Form_Load()
 '    X4 = Len(X1) - Len(Replace(X1, "\", ""))
 '    X5 = Len(X2) - Len(Replace(X2, "\", ""))
 '    a = a
-'
+
 '    End
     
 ' ------------------------------------------------------------------------------
@@ -3376,10 +3406,9 @@ Private Sub Form_Load()
 ''    Clipboard.SetText VAR_STRING
 '
 '    End
-
 ' ------------------------------------------------------------------------------
 
-
+    ' ----------------------
     ' WHAT TIMER ARE ENABLER
     ' ----------------------
     Dim ARRAY_TIMER_CONTROL(100)
@@ -3394,8 +3423,8 @@ Private Sub Form_Load()
         End If
     Next
     
-
-
+    O_NOW_LV_AUTOSIZE_2 = -2
+    
     IS_AUTOHOTKEY_RUN_2 = True
     
     ' Call MNU_CLIPBOARDER_REPLACE_ER_AND_Click
@@ -3464,7 +3493,7 @@ Private Sub Form_Load()
     ' Dim FSO
     Set FSO = CreateObject("Scripting.FileSystemObject")
     
-    Call Project_Check_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
+    ' Call Project_Check_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
     
     Dim XX
     XX = Label_Goto_File_Name.Left
@@ -3544,7 +3573,10 @@ Private Sub Form_Load()
 
     MNU_VERSION.Caption = "Ver_2019_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision)) ' + " _ Matt.Lan@btinternet.com"
 
-    If Project_Check_Date.GetWindowsVersion = 5.1 Then
+    ' ----------------------------------------
+    ' 5.1 IS WINDOWS 10
+    ' ----------------------------------------
+    If GetWindowsVersion = 5.1 Then
         MNU_PIN_ITEM_BATCH_VBS.Visible = False
     End If
 
@@ -3632,6 +3664,8 @@ For Each CONTROL In Controls
         End If
     End If
 Next
+
+Call SET_FONT_BOLD_TEXT_SYSTEM_START_TIME_OS_INSTALL_DATE
 
 End Sub
 
@@ -5299,6 +5333,14 @@ End Sub
 
 Private Sub MNU_GOODSYNC2GO_DRIVE_LETTER_Click()
 ' MNU_GOODSYNC2GO_DRIVE_LETTER
+' MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ NONE -- DRIVE __ GOODSYNC2GO __]"
+' MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ C DRIVE __ GOODSYNC2GO __]"
+' MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ D DRIVE __ GOODSYNC2GO __]"
+If TxtEXE_Text <> "" Then
+    If InStr("CDE", Mid(TxtEXE_Text, 1, 1)) > 0 Then
+        MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ " + Mid(TxtEXE_Text, 1, 1) + " DRIVE __ GOODSYNC2GO __]"
+    End If
+End If
 End Sub
 
 Private Sub MNU_LINE_PICKER_EXE_Click()
@@ -5719,6 +5761,11 @@ Beep
 End Sub
 
 Private Sub Label_GOODSYNC_01_Click()
+
+' -------------------------------------------------------------------------------
+' GIVE INFO WHEN LAST TIME OF LOGG WERE
+' -------------------------------------------------------------------------------
+
 ' -------------------------------------------------------------------------------
 ' SESSION AT [__ Ver_2019_1.0.279 __]
 ' FOR ROUTINE ---- Private Sub Label_GOODSYNC_01_Click()
@@ -5859,8 +5906,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -5869,8 +5916,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -5879,8 +5926,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -5905,8 +5952,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -5914,8 +5961,8 @@ SET_COMPUTER_TO_RUN_PID_EXE = "Conhost.exe"
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -5964,6 +6011,10 @@ Dim SET_GO, RT, RB, RR, RL
 Dim RR_EYE
 Dim I_R
 
+
+
+
+
 WINDOW_hWnd(1) = FindWindowPart("EliteSpy+ 2001 __ www.PlanetSourceCode.com __ Version")
 WINDOW_hWnd(2) = FindWindow(vbNullString, "VB_KEEP_RUNNER")
 WINDOW_hWnd(3) = FindWindow(vbNullString, "ClipBoard Logger")
@@ -5991,6 +6042,56 @@ For RR_EYE = 1 To 10
         End If
     End If
 Next
+
+End Sub
+
+Private Sub Timer_PROJECT_CHECK_DATE_Timer()
+
+Timer_PROJECT_CHECK_DATE.Enabled = False
+' -------------------------------------------------
+' IF WANT RENAME FORM FOR DIFFERENT PROJECT
+' & ALSO KEEP UNIVERSAL FOR SYNC PURPOSE
+' UNABLE TO RENAME FORM IN ANYWAY AND SYNC
+' ANSWER CHANGE NAME WITHOUT FRM_ PRECEDE
+' SO LAND AT TOP OF FORM LISTER NOT IN THE WAY
+' SOME PROJECT HAVE FRM_ OR FORM_ SORT ORDER
+' -------------------------------------------------
+' 03 OF 03
+' -------------------------------------------------
+' DETECT PRESENCE OF FORM
+' REQUEST ANSWER WILL LOAD THE FORM ALSO
+' -------------------------------------------------
+' BEFORE FIND HERE
+' CallByName Form, SUBNAME, VbMethod
+' NOT WORK FOR ANYTHING SPECIAL
+' MAYBE GOT SOMETHING - LOOK OVER WITH THAT FIND
+' -------------------------------------------------
+' DOUBLE CHECK --------
+' DOUBLE BONUS MONEY --
+' DOUBLE VERIFY -------
+' -------------------------------------------------
+' LAST MUCK AROUND PLAY
+' Thu 23-Jan-2020 20:28:41
+' -------------------------------------------------
+On Error Resume Next
+Dim FRMX As Form, FRMXNAME_T As String
+Dim FRMXNAME() As String
+ReDim Preserve FRMXNAME(10)
+Dim INDX
+INDX = 0
+INDX = INDX + 1: FRMXNAME(INDX) = "Form2_Check_Project_Date"  ' PREVIOUS  NAME USER
+INDX = INDX + 1: FRMXNAME(INDX) = "Frm_Project_Check_Date"    ' ATTEMPTED NAME USER
+INDX = INDX + 1: FRMXNAME(INDX) = "Project_Check_Date"        ' STANDARDISE
+ReDim Preserve FRMXNAME(INDX)
+For INDX = 1 To UBound(FRMXNAME)
+    Err.Clear
+    Set FRMX = Forms.Add(FRMXNAME(INDX))
+    If Err.Number = 0 Then
+        FRMXNAME_T = FRMXNAME(INDX)
+        Exit For
+    End If
+Next
+' -------------------------------------------------
 
 End Sub
 
@@ -6062,10 +6163,10 @@ If I_R = 0 Then
     If XX_hWnd > 0 Then
         
         'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
-        pid = -1
-        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
-        If pid > 0 Then
-            Result = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.Convert(XX_hWnd, PID, cnFromhWnd Or cnToProcessID)
+        If PID > 0 Then
+            Result = cProcesses.Process_Kill(PID)
             Exit Sub
         End If
     End If
@@ -6275,10 +6376,10 @@ Sub TIMER_SUB_AUTOHOTKEY_RELOAD()
     If XX_hWnd > 0 Then
         
         'WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
-        pid = -1
-        VAR = cProcesses.Convert(XX_hWnd, pid, cnFromhWnd Or cnToProcessID)
-        If pid > 0 Then
-            Result = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.Convert(XX_hWnd, PID, cnFromhWnd Or cnToProcessID)
+        If PID > 0 Then
+            Result = cProcesses.Process_Kill(PID)
             Exit Sub
         End If
     End If
@@ -6433,8 +6534,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -6579,8 +6680,8 @@ Private Sub Label53_Click()
 'Label53.left
 'Label53.caption
 'Label53.font
-
 'Label53_Here
+
 Call EnumProcess
 
 Timer_Pause_Update.Interval = 60000
@@ -6629,79 +6730,67 @@ Private Sub ListView_CPU_INFO_BeforeLabelEdit(Cancel As Integer)
 'ListView_CPU_INFO.
 End Sub
 
-Private Sub lstProcess_2_ListView_DblClick()
+'Private Sub lstProcess_3_SORTER_ListView_BeforeLabelEdit_NULL(Cancel As Integer)
+'If IsIDE = True Then End
+''If IsIDE = True And KeyCode = (27) Then End
+'End Sub
 
-
-PROCESS_TO_KILLER = lstProcess_2_ListView.ListItems(lstProcess_2_ListView.SelectedItem.Index).SubItems(1)
-PROCESS_TO_KILLER_PID = lstProcess_2_ListView.ListItems(lstProcess_2_ListView.SelectedItem.Index)
-
-Label22.Caption = "TASKKILLER BY PID NUMBER __ # " + PROCESS_TO_KILLER_PID
-Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
-
-'PROCESS_TO_KILLER PID
-Label29_Click
-
-'PROCESS_TO_KILLER PID
-'Label22_Click
-
-'PROCESS_TO_KILLER /F * /T
-Label57.Caption = "COMMAND LINE STATUS__ " + "TASKKILL /F /IM """ + Replace(UCase(PROCESS_TO_KILLER), ".EXE", "") + "*"" /T"
-
-Label23_Click
-
+Private Sub lstProcess_2_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
+    LISTVIEW_2_OR_3_HITT = 2
+    If IsIDE = True And KeyCode = (27) Then End
 End Sub
-
 Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
-LISTVIEW_2_OR_3_HITT = 2
+    LISTVIEW_2_OR_3_HITT = 2
 End Sub
-
+Private Sub lstProcess_3_SORTER_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
+    LISTVIEW_2_OR_3_HITT = 3
+    If IsIDE = True And KeyCode = (27) Then End
+End Sub
+Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+    LISTVIEW_2_OR_3_HITT = 3
+End Sub
 Private Sub lstProcess_2_ListView_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
-
-Timer_Pause_Update.Interval = 4000
-Timer_Pause_Update.Enabled = True
-Label53.BackColor = Label59.BackColor
-
+    Timer_Pause_Update.Interval = 4000
+    Timer_Pause_Update.Enabled = True
+    Label53.BackColor = Label59.BackColor
+End Sub
+Private Sub lstProcess_3_SORTER_ListView_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
+    Timer_Pause_Update.Interval = 4000
+    Timer_Pause_Update.Enabled = True
+    Label53.BackColor = Label59.BackColor
 End Sub
 
 Private Sub lstProcess_3_SORTER_ListView_DblClick()
-PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
-PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
-
-Label22.Caption = "TASKKILLER BY PID NUMBER __ # " + PROCESS_TO_KILLER_PID
-Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
-
-'PROCESS_TO_KILLER PID
-Label29_Click
-
-'PROCESS_TO_KILLER PID
-'Label22_Click
-
-'PROCESS_TO_KILLER /F * /T
-Label57.Caption = "COMMAND LINE STATUS__ " + "TASKKILL /F /IM """ + Replace(UCase(PROCESS_TO_KILLER), ".EXE", "") + "*"" /T"
-
-Label23_Click
-
+    PROCESS_TO_KILLER = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index).SubItems(1)
+    PROCESS_TO_KILLER_PID = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
+    Label22.Caption = "TASKKILLER BY PID NUMBER __ # " + PROCESS_TO_KILLER_PID
+    Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
+    'PROCESS_TO_KILLER PID
+    Label29_Click
+    'PROCESS_TO_KILLER PID
+    'Label22_Click
+    ' --------------------
+    'PROCESS_TO_KILLER /F * /T
+    Label57.Caption = "COMMAND LINE STATUS__ " + "TASKKILL /F /IM """ + Replace(UCase(PROCESS_TO_KILLER), ".EXE", "") + "*"" /T"
+    Label23_Click
 End Sub
-
-Private Sub lstProcess_3_SORTER_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
-LISTVIEW_2_OR_3_HITT = 3
-End Sub
-
-Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
-LISTVIEW_2_OR_3_HITT = 3
-End Sub
-
-Private Sub lstProcess_3_SORTER_ListView_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
-
-Timer_Pause_Update.Interval = 4000
-Timer_Pause_Update.Enabled = True
-Label53.BackColor = Label59.BackColor
-
+Private Sub lstProcess_2_ListView_DblClick()
+    PROCESS_TO_KILLER = lstProcess_2_ListView.ListItems(lstProcess_2_ListView.SelectedItem.Index).SubItems(1)
+    PROCESS_TO_KILLER_PID = lstProcess_2_ListView.ListItems(lstProcess_2_ListView.SelectedItem.Index)
+    Label22.Caption = "TASKKILLER BY PID NUMBER __ # " + PROCESS_TO_KILLER_PID
+    Label30.Caption = "TASKKILLER NAME ___________ " + PROCESS_TO_KILLER
+    'PROCESS_TO_KILLER PID
+    Label29_Click
+    'PROCESS_TO_KILLER PID
+    'Label22_Click
+    ' --------------------
+    'PROCESS_TO_KILLER /F * /T
+    Label57.Caption = "COMMAND LINE STATUS__ " + "TASKKILL /F /IM """ + Replace(UCase(PROCESS_TO_KILLER), ".EXE", "") + "*"" /T"
+    Label23_Click
 End Sub
 
 Private Sub MNU_CLIPBOARDER_REPLACE_ER_AND_Click()
 ' CLIPBOARD REPLACE "AND"
-
 
 Dim VAR_ST_1
 Dim VAR_ST_2
@@ -6777,16 +6866,13 @@ Private Sub MNU_GOOGLE_SYNC_Click()
 
 Me.WindowState = vbMinimized
 
-'Call CLOSE_G_CLOUD_DRIVE_SYNCER_AND_RESTART_AGAIN
-'
-'Exit Sub
-
+' Call CLOSE_G_CLOUD_DRIVE_SYNCER_AND_RESTART_AGAIN
+' Exit Sub
 ' NOT FINISHED BIT ABOVE
 ' ------------------------------------------------
 
-'
-'Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
-'Label_CHROME_PAGE_AUTO_ON.BackColor = RGB(255, 255, 255)
+' Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+' Label_CHROME_PAGE_AUTO_ON.BackColor = RGB(255, 255, 255)
 
 ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
 Dim objShell
@@ -6906,9 +6992,9 @@ End If
 ' ---------------------------------------------------------------------
 
 Dim VAR, EXE_STRING As String
-pid = -1
-VAR = cProcesses.Convert(hWnd_RESULT, pid, cnFromhWnd Or cnToProcessID)
-VAR = cProcesses.Convert(pid, EXE_STRING, cnFromProcessID Or cnToEXE)
+PID = -1
+VAR = cProcesses.Convert(hWnd_RESULT, PID, cnFromhWnd Or cnToProcessID)
+VAR = cProcesses.Convert(PID, EXE_STRING, cnFromProcessID Or cnToEXE)
 
 
 ' -------------------------------------------------------------------
@@ -6919,11 +7005,11 @@ VAR = cProcesses.Convert(pid, EXE_STRING, cnFromProcessID Or cnToEXE)
 'PID = -1
 'VAR = cProcesses.GetEXEID(PID, EXE_STRING)
 EXE_STRING = "HubiC.exe"
-pid = -1
-VAR = cProcesses.Convert(EXE_STRING, pid, cnFromEXE Or cnToProcessID)
+PID = -1
+VAR = cProcesses.Convert(EXE_STRING, PID, cnFromEXE Or cnToProcessID)
 
 PROCESS_TO_KILLER = EXE_STRING
-PROCESS_TO_KILLER_PID = pid
+PROCESS_TO_KILLER_PID = PID
 Call LISTVIEW_CLICKER
 
 'PROCESS_TO_KILLER PID
@@ -7515,7 +7601,7 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
         ' -----------------------------------------
         ' WHEN REQUEST BY OWN COMPUTER APP ARE KILL AHK
         ' AND THEN DON'T ACT TO CLOSE MINE APP
@@ -7523,7 +7609,7 @@ For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         ' SET HERE IS_AUTOHOTKEY_RUN = FALSE
         ' -----------------------------------------
         IS_AUTOHOTKEY_RUN_2 = False
-        cProcesses.Process_Kill (pid)
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -7540,7 +7626,7 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
             ' -----------------------------------------
             ' WHEN REQUEST BY OWN COMPUTER APP ARE KILL AHK
             ' AND THEN DON'T ACT TO CLOSE MINE APP
@@ -7548,7 +7634,7 @@ Do
             ' SET HERE IS_AUTOHOTKEY_RUN = FALSE
             ' -----------------------------------------
             IS_AUTOHOTKEY_RUN_2 = False
-            cProcesses.Process_Kill (pid)
+            cProcesses.Process_Kill (PID)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
         End If
@@ -7590,8 +7676,8 @@ Dim R, A1, A2
 For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
     A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
     If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-        pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-        cProcesses.Process_Kill (pid)
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        cProcesses.Process_Kill (PID)
     End If
 Next
 
@@ -7606,8 +7692,8 @@ Do
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            cProcesses.Process_Kill (pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            cProcesses.Process_Kill (PID)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
         End If
@@ -8190,8 +8276,8 @@ Do
     For R = lstProcess_3_SORTER_ListView.ListItems.Count To 1 Step -1
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
         If InStr(UCase(A1), SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-            i = cProcesses.Process_Kill(pid)
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            i = cProcesses.Process_Kill(PID)
             ALL_DONE = False
         End If
     Next
@@ -8213,7 +8299,7 @@ Dim ALL_DONE
 Dim NAME_EXE As String
 Dim PID_INPUT As Long
 Dim i
-Dim pid As Long
+Dim PID As Long
 Dim hWnd_LINE As Long
 Dim HWND_STR As String
 Dim strarray As Variant
@@ -8249,7 +8335,7 @@ Dim ALL_DONE
 Dim NAME_EXE As String
 Dim PID_INPUT As Long
 Dim i
-Dim pid As Long
+Dim PID As Long
 Dim hWnd_LINE As Long
 Dim HWND_STR As String
 Dim strarray As Variant
@@ -8726,15 +8812,6 @@ End If
 End Sub
 
 
-Private Sub lstProcess_2_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
-LISTVIEW_2_OR_3_HITT = 2
-If IsIDE = True And KeyCode = (27) Then End
-End Sub
-
-Private Sub lstProcess_3_SORTER_ListView_BeforeLabelEdit_NULL(Cancel As Integer)
-If IsIDE = True Then End
-'If IsIDE = True And KeyCode = (27) Then End
-End Sub
 
 Private Function Menu_Height()
  
@@ -8796,14 +8873,13 @@ Beep
 End Sub
 
 Private Sub MNU_TASK_KILLER_NOT_RESPONDER_GENTAL_Click()
-
-'FORM1.MNU_BOOT_KILLER_Click
-Beep
-Me.WindowState = vbMinimized
-'Shell "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-BOOT KILLER.BAT", vbMaximizedFocus
-'Shell "CMD /C START """" /REALTIME /MAX ""C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-BOOT KILLER.BAT""", vbMaximizedFocus
-Shell "CMD /C START """" /REALTIME /MAX ""C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT""", vbMinimizedNoFocus
-Beep
+    Dim COMMAND_LINE_01
+    Dim COMMAND_LINE_02
+    Me.WindowState = vbMinimized
+    COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE_WAIT.BAT"
+    COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT"
+    COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE_WAIT.BAT"
+    Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_01+""", vbNormalFocus
 End Sub
 
 Private Sub MNU_KILL_NOT_RESPOND_TOP_Click()
@@ -9021,6 +9097,8 @@ Sub ChunkCodeOnMouse()
             If hWnd_From_ListView > 0 Then
                 LhWnd = hWnd_From_ListView
                 TxtPID.Text = Val(PROCESS_TO_KILLER_PID)
+                PROCESS_PID_STORE_LST_02 = String(6 - Len(TxtPID.Text), "0") + Trim(Str(TxtPID.Text))
+                PROCESS_PID_STORE_LST_03 = PROCESS_PID_STORE_LST_02
                 hWnd_From_ListView = 0
                 Set_Collect_More_Info = False
             End If
@@ -9037,13 +9115,7 @@ Sub ChunkCodeOnMouse()
             ' Set_Collect_More_Info = false
         End If
         
-        
-        
-        
-        
-        
         GetWindowRect LhWnd, tRC2
-        
         lRetVal = GetWindowText(LhWnd, sTitle, 255)
         ' Get window class name
         lRetVal = GetClassName(LhWnd, sClass, 255)
@@ -9061,6 +9133,9 @@ Sub ChunkCodeOnMouse()
             Success_Result = cProcesses.Get_PID_From_hWnd(lhWndParentX, PID_MARK)
             
             TxtPID.Text = PID_MARK
+            PROCESS_PID_STORE_LST_02 = String(6 - Len(TxtPID.Text), "0") + Trim(Str(TxtPID.Text))
+            PROCESS_PID_STORE_LST_03 = PROCESS_PID_STORE_LST_02
+
         End If
 
 
@@ -9081,10 +9156,11 @@ Sub ChunkCodeOnMouse()
         
             TxtEXE.Text = GetFileFromhWnd(LhWnd)
             
-            
             PROCESS_TO_KILLER = Mid(TxtEXE.Text, InStrRev(TxtEXE.Text, "\") + 1)
             PROCESS_TO_KILLER_PID = TxtPID.Text
-        
+            PROCESS_PID_STORE_LST_02 = String(6 - Len(TxtPID.Text), "0") + Trim(Str(TxtPID.Text))
+            PROCESS_PID_STORE_LST_03 = PROCESS_PID_STORE_LST_02
+
             Call MOUSE_HOOVER_SLECTION_CLICKER
         
         End If
@@ -9123,14 +9199,14 @@ Sub ChunkCodeOnMouse()
             txtParentClassX.Text = ""
         End If
         
-        
         txtMhWnd.Text = LhWnd
         
         If TxtEXE.Text <> OLD_TxtEXE_Text Then
             Call TxtEXE_CLICK
         End If
         OLD_TxtEXE_Text = TxtEXE.Text
-
+        
+        Call PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY
 
 End Sub
 
@@ -9635,7 +9711,7 @@ End Sub
 
 Sub Timer_IF_AUTO_HOT_KEY_RUNNER_AND_STOP_THEN_QUIT_HERE_TIMER()
 
-Dim VAR, pid As Long
+Dim VAR, PID As Long
 
 If IS_AUTOHOTKEY_RUN = True Then
     AUTOHOTKEY_RUN_FIND = True
@@ -9653,28 +9729,28 @@ If AUTOHOTKEY_RUN_FIND = True Then
 '            VAR = cProcesses.Process_Kill(pid)
 '            Beep
 '        End If
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe")
-        If pid <> -1 Then
-            VAR = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
             Beep
         End If
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe")
-        If pid <> -1 Then
-            VAR = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
             Beep
         End If
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe")
-        If pid <> -1 Then
-            VAR = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
             Beep
         End If
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, "C:\Program Files (x86)\Winamp\winamp.exe")
-        If pid <> -1 Then
-            VAR = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "C:\Program Files (x86)\Winamp\winamp.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
             Beep
         End If
 '        pid = -1
@@ -9683,26 +9759,18 @@ If AUTOHOTKEY_RUN_FIND = True Then
 '            VAR = cProcesses.Process_Kill(pid)
 '            Beep
 '        End If
-        pid = -1
-        VAR = cProcesses.GetEXEID(pid, "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe")
-        If pid <> -1 Then
-            VAR = cProcesses.Process_Kill(pid)
+        PID = -1
+        VAR = cProcesses.GetEXEID(PID, "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe")
+        If PID <> -1 Then
+            VAR = cProcesses.Process_Kill(PID)
             Beep
         End If
     
-    
         Exit Sub
-    
         EXIT_TRUE = True
         Unload Me
-        
     End If
 End If
-
-
-
-
-
 
 End Sub
 
@@ -10058,7 +10126,7 @@ Sub CLOSE_G_CLOUD_DRIVE_SYNCER_AND_RESTART_AGAIN()
     Dim ALL_DONE
     Dim NAME_EXE As String
     Dim PID_INPUT As Long
-    Dim i, pid As Long
+    Dim i, PID As Long
     Dim SET_TO_KILL_PID_EXE
     Do
         ALL_DONE = True
@@ -10066,8 +10134,8 @@ Sub CLOSE_G_CLOUD_DRIVE_SYNCER_AND_RESTART_AGAIN()
         For R = lstProcess_3_SORTER_ListView.ListItems.Count To 1 Step -1
             A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
             If InStr(UCase(A1), SET_TO_KILL_PID_EXE) > 0 Then
-                pid = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
-                i = cProcesses.Process_Kill(pid)
+                PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+                i = cProcesses.Process_Kill(PID)
                 ALL_DONE = False
             End If
         Next
@@ -10089,11 +10157,27 @@ End Sub
 
 Private Sub Timer_1_SECOND_Timer()
 
+Dim COMMAND_LINE_01
+Dim COMMAND_LINE_02
+Dim ISHELL
+Dim ISHELL_PARAM
+Dim NOW_STRESS
+Dim STRESS_LEVEL
+Dim ARRAY_KILL_AR
+Dim PID As Long
+Dim VAR
+
 Call Timer_DIR_FOR_XXX_BUNKER_COM_Timer
 Call Timer_DIR_FOR_HARDWARE_Timer
 Call Timer_DIR_FOR_VIDEO_KILLSOMETIME_Timer
 Call Timer_DIR_FOR_VIDEO_ME_YOU_TUBE_Timer
 Call Timer_DIR_FOR_ARGUS_VIDEO_Timer
+
+If Second(Now) Mod 2 = 0 Then
+    Call Label_GOODSYNC_01_Click
+    Call VB_EXE_SYNC
+End If
+
 If O_DAY_NOW_MIDNIGHT_1 <> Day(Now) Then
     O_DAY_NOW_MIDNIGHT_1 = Day(Now)
     Call Timer_DIR_FOR_FACEBOOK_VIDEO_Timer
@@ -10115,8 +10199,6 @@ If Second(Now) Mod 2 = 0 Then
 End If
 
 
-
-
 ' Call Timer_RELOAD_AUTOHOTKEY_APP_Timer
 
 If FindHandle_hWnd_COUNT_CHANGE = True Then
@@ -10132,22 +10214,11 @@ If MDIProcServ.TT_1VDT > 0 Or MDIProcServ.TT_2VDT > 0 Then
     Form1.Text_SYSTEM_START_TIME_02.FontSize = 10
     Form1.Text_OS_INSTALL_DATE_02.Text = Str(DateDiff("d", MDIProcServ.TT_2VDT, Now)) + " DAY"
     Form1.Text_OS_INSTALL_DATE_02.FontSize = 10
+    Call SET_FONT_BOLD_TEXT_SYSTEM_START_TIME_OS_INSTALL_DATE
+
 Else
     Form1.Text_SYSTEM_START_TIME_02.Text = "SYSTEM START _ " + Str(TIMER_GO_COMPUTER_START)
 End If
-
-
-
-'For Each Form In Forms
-'    If Form.EXIT_TRUE = True Then
-'        EXIT_TRUE = True
-'        Exit For
-'    End If
-'Next Form
-'
-'If EXIT_TRUE = True Then
-'    Exit Sub
-'End If
 
 On Error Resume Next
 Err.Clear
@@ -10175,39 +10246,118 @@ If TIMER_GO_COMPUTER_START < -10 Then TIMER_GO_COMPUTER_START = -10
 ' Call Processor_GET_INFO
 ' ----------------------------------------
 
-'ERR.DESCRIPTION
-
-X_ONE_SECOND = X_ONE_SECOND + 1
-' EVERY 4 SECOND
-If X_ONE_SECOND Mod 4 = 0 Then
-    X_ONE_SECOND = 0
-    If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
-        Call Label53_Click
-        Call Label_CLOSE_GOODSYNC_Click
-        Call KILL_WSCRIPT_GLOBAL
-        If Me.WindowState <> vbNormal Then
-            Me.WindowState = vbNormal
+' EVERY ONE SECOND
+If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") = 0 Then
+    X_ONE_SECOND_NOT_RESPOND = 0
+End If
+If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
+    X_ONE_SECOND_NOT_RESPOND = X_ONE_SECOND_NOT_RESPOND + 1
+    If X_ONE_SECOND_NOT_RESPOND > 120 Then       ' ---- 2 MINUTE
+        X_ONE_SECOND_NOT_RESPOND = 0
+        Call Label53_Click                       ' Call EnumProcess
+        If InStr(UCase(GetComputerName), "7-ASUS") > 0 Then
+            Call Label_CLOSE_GOODSYNC_Click
         End If
+        Call KILL_WSCRIPT_GLOBAL
+        Call Label_KILL_CMD_Click
+        
+        ' -----------------------------------------------
+        ' ANOTHER SUB ROUTINE THE SAME ONE
+        ' -----------------------------------------------
+        ' Call MNU_TASK_KILLER_NOT_RESPONDER_GENTAL_Click
+        ' -----------------------------------------------
+        COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE_WAIT.BAT"
+        COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE_WAIT.BAT"
+        Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_01+""", vbNormalFocus
+        Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_02+""", vbNormalFocus
+        
+        ISHELL = "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER_OPERATION_KILL_EVENT.exe"
+        ISHELL_PARAM = " 001"
+        ISHELL = ISHELL + ISHELL_PARAM
+        Shell ISHELL, vbNormalFocus
+    End If
+End If
+
+' -----------------------------------------
+' TICKER MISSING PULSE STRESS SYTEM TRIGGER
+' -----------------------------------------
+NOW_STRESS = Now
+If OLD_NOW_STRESS = 0 Then OLD_NOW_STRESS = NOW_STRESS
+STRESS_LEVEL = DateDiff("S", NOW_STRESS, OLD_NOW_STRESS)
+OLD_NOW_STRESS = NOW_STRESS
+
+If STRESS_LEVEL = 0 Then
+    X_STRESS_LEVEL = 0
+End If
+
+If STRESS_LEVEL > 4 Then
+    X_STRESS_LEVEL = X_STRESS_LEVEL + 1
+    If X_STRESS_LEVEL > 4 Then
+        X_STRESS_LEVEL = 0
+        Call Label53_Click                       ' Call EnumProcess
+        
+        Call Label_CLOSE_GOODSYNC_Click
+        If MNU_GOODSYNC2GO_DRIVE_LETTER.Caption = "[__ C DRIVE __ GOODSYNC2GO __]" Then
+            Call Label_CLOSE_GOODSYNC2GO_Click
+        End If
+
+        Call KILL_WSCRIPT_GLOBAL
+        Call Label_KILL_CMD_Click
+                    
+        ' -----------------------------------------------
+        ' ANOTHER SUB ROUTINE LIKE THE SAME IN HERE
+        ' -----------------------------------------------
+        COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE_WAIT.BAT"
+        COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE_WAIT.BAT"
+        Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_01+""", vbNormalFocus
+        Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_02+""", vbNormalFocus
+        
+        Dim ARRAY_KILL(10) As String
+        ARRAY_KILL(1) = "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+        ARRAY_KILL(2) = "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
+        ARRAY_KILL(3) = "D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
+        ARRAY_KILL(4) = "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
+        ARRAY_KILL(5) = "C:\PStart\# NOT INSTALL REQUIRED\Tail\Tail.exe"
+        ARRAY_KILL(6) = "C:\Program Files\Mozilla Firefox\firefox.exe"
+        ARRAY_KILL(7) = "D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
+        ARRAY_KILL(8) = "" ' "C:\Program Files (x86)\Winamp\winamp.exe"
+        ARRAY_KILL(9) = "" ' "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
+        
+        For ARRAY_KILL_AR = 1 To UBound(ARRAY_KILL)
+            If ARRAY_KILL(ARRAY_KILL_AR) <> "" Then
+                PID = -1
+                VAR = cProcesses.GetEXEID(PID, ARRAY_KILL(ARRAY_KILL_AR))
+                If PID <> -1 Then
+                    VAR = cProcesses.Process_Kill(PID)
+                    Beep
+                End If
+            End If
+        Next
+        
+        ISHELL = "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER_OPERATION_KILL_EVENT.exe"
+        ISHELL_PARAM = " 001"
+        ISHELL = ISHELL + ISHELL_PARAM
+        Shell ISHELL, vbNormalFocus
+        
+        
     End If
 End If
 
 
 
-If Err.Number > 0 Then
-    ' Timer_1_SECOND.Enabled = False
-    Exit Sub
-End If
+End Sub
 
-
-Call Label_GOODSYNC_01_Click
-
-Call VB_EXE_SYNC
-
+Sub SET_FONT_BOLD_TEXT_SYSTEM_START_TIME_OS_INSTALL_DATE()
+    Form1.Text_SYSTEM_START_TIME_02.FontBold = True
+    Form1.Text_OS_INSTALL_DATE_02.FontBold = True
 End Sub
 
 
-
 Private Sub Timer_DIR_FOR_HARDWARE_Timer()
+
+If FindWindow("CabinetWClass", vbNullString) = 0 Then
+    Exit Sub
+End If
 
 On Error Resume Next
 
@@ -10916,6 +11066,8 @@ End Sub
 ' Enumerate open processes
 Private Sub EnumProcess(Optional ByVal sEXEName As String = "")
 
+    Dim UPDATE_O_NOW_LV_AUTOSIZE_1
+
     Dim lSnapShot As Long
     Dim lNextProcess As Long
     Dim tPE As PROCESSENTRY32
@@ -11087,15 +11239,7 @@ End If
 ENUMPROCESS_NOT_RUN_YET = True
 ENUMPROCESS_MUST_RUNNER = False
 
-Dim PROCESS_PID_STORE_LST_01, PROCESS_PID_STORE_LST_02
 
-If LISTVIEW_2_OR_3_HITT = 3 Then
-    If lstProcess_3_SORTER_ListView.ListItems.Count > 0 Then
-        If lstProcess_3_SORTER_ListView.SelectedItem.Index <> 0 Then
-            PROCESS_PID_STORE_LST_01 = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
-        End If
-    End If
-End If
 If LISTVIEW_2_OR_3_HITT = 2 Then
     If lstProcess_2_ListView.ListItems.Count > 0 Then
         If lstProcess_2_ListView.SelectedItem.Index <> 0 Then
@@ -11103,73 +11247,115 @@ If LISTVIEW_2_OR_3_HITT = 2 Then
         End If
     End If
 End If
+If LISTVIEW_2_OR_3_HITT = 3 Then
+    If lstProcess_3_SORTER_ListView.ListItems.Count > 0 Then
+        If lstProcess_3_SORTER_ListView.SelectedItem.Index <> 0 Then
+            PROCESS_PID_STORE_LST_03 = lstProcess_3_SORTER_ListView.ListItems(lstProcess_3_SORTER_ListView.SelectedItem.Index)
+        End If
+    End If
+End If
+
+UPDATE_O_NOW_LV_AUTOSIZE_1 = False
+If O_NOW_LV_AUTOSIZE_2 = -2 Then
+    O_NOW_LV_AUTOSIZE_2 = 0
+    UPDATE_O_NOW_LV_AUTOSIZE_1 = True
+End If
+If O_NOW_LV_AUTOSIZE_2 < Now And O_NOW_LV_AUTOSIZE_2 > 0 Then
+    O_NOW_LV_AUTOSIZE_2 = 0
+    UPDATE_O_NOW_LV_AUTOSIZE_1 = True
+End If
+If O_NOW_LV_AUTOSIZE_1 < Now Then
+    O_NOW_LV_AUTOSIZE_1 = 0
+End If
+If O_LV_AUTOSIZE_COUNTER <> lstProcess.ListCount Then
+    O_NOW_LV_AUTOSIZE_1 = Now + TimeSerial(0, 0, 2)
+    O_LV_AUTOSIZE_COUNTER = lstProcess.ListCount
+End If
+If O_NOW_LV_AUTOSIZE_1 = 0 Then
+    ' -------------------------------------------------------------
+    ' HERE A NOW TIMER
+    ' ONE GET TOPUP WHEN NEW INFO PROCESS SCRIPTOR
+    ' 2ND HAS SAEFTY IF TOP UP CONSTANT IT STILL GO AFTER 4 SECOND
+    ' -------------------------------------------------------------
+    O_NOW_LV_AUTOSIZE_1 = Now + TimeSerial(0, 0, 4)
+    O_NOW_LV_AUTOSIZE_2 = Now + TimeSerial(0, 0, 4)
+    O_LV_AUTOSIZE_COUNTER = lstProcess.ListCount
+    UPDATE_O_NOW_LV_AUTOSIZE_1 = True
+End If
 
 
-lstProcess_2_ListView.ListItems.Clear
-lstProcess_3_SORTER_ListView.ListItems.Clear
 
-For R_I = 0 To lstProcess.ListCount - 1
 
-    ITEM_ADD_10 = Mid(lstProcess.List(R_I), 1, 7 - 1)
-    ITEM_ADD_21 = Mid(lstProcess.List(R_I), 8)
-    ITEM_ADD_22 = UCase(Mid(lstProcess.List(R_I), 8, 1)) + Mid(lstProcess.List(R_I), 9)
-
-    'IF ERROR HERE ABOUT METHOD OR DATA MEMBER NOT FOUND
-    'THEN MAYBE ALREADY LEARN THE REFERENCE LIST VIEW
-    'IN ORDER TO USE Dim LV2 As ListItem
-    'THE ListItem
-    'MUST HAVE A SPECIAL REFERENCE FIND THAT ONE
-    'HERE
-    '----
-    'WHAT IS THE VB6 REFERENCE TO USE LIST ITEM - Google Search
-    'https://www.google.co.uk/search?num=50&rlz=1C1CHBD_en-GBGB744GB744&q=WHAT+IS+THE+VB6+REFERENCE+TO+USE+LIST+ITEM&spell=1&sa=X&ved=0ahUKEwjFltmnn4LWAhVDKlAKHfArAFwQvwUIJSgA&biw=1536&bih=694
-    '--------
-    'ListItem Object, ListItems Collection
-    'https://msdn.microsoft.com/en-us/library/aa443480(v=vs.60).aspx
-    '--------
-    'Add Method (ListItems, ColumnHeaders), SubItems Property Example
-    'https://msdn.microsoft.com/en-us/library/aa443210(v=vs.60).aspx
-    '----
-    '-------------------------------------------------------------
-    'CORRECT AND AFTER HERE EXIT THE CODE AN BACK IN AGAIN
-    '-------------------------------------------------------------
-    'DON'T FORGET AFTER AND LOSE OF LISTVIEW CONTROL TO PICTUREBOX
-    'REPLACE GUESS HERE ALSO
-    '-------------------------------------------------------------
+If UPDATE_O_NOW_LV_AUTOSIZE_1 = True Then
+    UPDATE_O_NOW_LV_AUTOSIZE_1 = False
+    
+    lstProcess_2_ListView.ListItems.Clear
+    lstProcess_3_SORTER_ListView.ListItems.Clear
+    
+    For R_I = 0 To lstProcess.ListCount - 1
+    
+        ITEM_ADD_10 = Mid(lstProcess.List(R_I), 1, 7 - 1)
+        ITEM_ADD_21 = Mid(lstProcess.List(R_I), 8)
+        ITEM_ADD_22 = UCase(Mid(lstProcess.List(R_I), 8, 1)) + Mid(lstProcess.List(R_I), 9)
+    
+        'IF ERROR HERE ABOUT METHOD OR DATA MEMBER NOT FOUND
+        'THEN MAYBE ALREADY LEARN THE REFERENCE LIST VIEW
+        'IN ORDER TO USE Dim LV2 As ListItem
+        'THE ListItem
+        'MUST HAVE A SPECIAL REFERENCE FIND THAT ONE
+        'HERE
+        '----
+        'WHAT IS THE VB6 REFERENCE TO USE LIST ITEM - Google Search
+        'https://www.google.co.uk/search?num=50&rlz=1C1CHBD_en-GBGB744GB744&q=WHAT+IS+THE+VB6+REFERENCE+TO+USE+LIST+ITEM&spell=1&sa=X&ved=0ahUKEwjFltmnn4LWAhVDKlAKHfArAFwQvwUIJSgA&biw=1536&bih=694
+        '--------
+        'ListItem Object, ListItems Collection
+        'https://msdn.microsoft.com/en-us/library/aa443480(v=vs.60).aspx
+        '--------
+        'Add Method (ListItems, ColumnHeaders), SubItems Property Example
+        'https://msdn.microsoft.com/en-us/library/aa443210(v=vs.60).aspx
+        '----
+        '-------------------------------------------------------------
+        'CORRECT AND AFTER HERE EXIT THE CODE AN BACK IN AGAIN
+        '-------------------------------------------------------------
+        'DON'T FORGET AFTER AND LOSE OF LISTVIEW CONTROL TO PICTUREBOX
+        'REPLACE GUESS HERE ALSO
+        '-------------------------------------------------------------
+        
+        
+        '------------------------------------------------
+    '    frmMain.lstProcess_2_ListView.ListItems.Add , , lstProcess.List(R_I)
+    '    frmMain.lstProcess_3_SORTER_ListView.ListItems.Add , , ITEM_ADD_10 + " " + ITEM_ADD_22
     
     
-    '------------------------------------------------
-'    frmMain.lstProcess_2_ListView.ListItems.Add , , lstProcess.List(R_I)
-'    frmMain.lstProcess_3_SORTER_ListView.ListItems.Add , , ITEM_ADD_10 + " " + ITEM_ADD_22
-
-
-    '-----------------------------------------------------
-    ' IF ERROR HERE ABOUT TYPE MISMATCH _ AS ABOVE LEARNER
-    ' THEN MAYBE ALREADY LEARN THE REFERENCE LIST VIEW
-    ' & SET THE HEADER UP BEFORE CALL THIS ROUTINE
-    ' DOUBLE CHECKER
-    '-----------------------------------------------------
-    With lstProcess_2_ListView
-        Set LV2 = .ListItems.Add(, , ITEM_ADD_10)
-        LV2.SubItems(1) = ITEM_ADD_21
-        '------------------------
-        'PAIN TO GET THE FORMULAR
-        'EVEN THEN FAR OUT AGAIN
-        '------------------------
-    End With
-
-    'ADDITEM
-    'lstProcess_3_SORTER_ListView.ListItems.Add
-    With lstProcess_3_SORTER_ListView
-        Set LV3 = .ListItems.Add(, , ITEM_ADD_10)
-        LV3.SubItems(1) = ITEM_ADD_22
-        '------------------------
-        'PAIN TO GET THE FORMULAR
-        'EVEN THEN FAR OUT AGAIN
-        '------------------------
-    End With
+        '-----------------------------------------------------
+        ' IF ERROR HERE ABOUT TYPE MISMATCH _ AS ABOVE LEARNER
+        ' THEN MAYBE ALREADY LEARN THE REFERENCE LIST VIEW
+        ' & SET THE HEADER UP BEFORE CALL THIS ROUTINE
+        ' DOUBLE CHECKER
+        '-----------------------------------------------------
+        With lstProcess_2_ListView
+            Set LV2 = .ListItems.Add(, , ITEM_ADD_10)
+            LV2.SubItems(1) = ITEM_ADD_21
+            '------------------------
+            'PAIN TO GET THE FORMULAR
+            'EVEN THEN FAR OUT AGAIN
+            '------------------------
+        End With
     
-Next
+        'ADDITEM
+        'lstProcess_3_SORTER_ListView.ListItems.Add
+        With lstProcess_3_SORTER_ListView
+            Set LV3 = .ListItems.Add(, , ITEM_ADD_10)
+            LV3.SubItems(1) = ITEM_ADD_22
+            '------------------------
+            'PAIN TO GET THE FORMULAR
+            'EVEN THEN FAR OUT AGAIN
+            '------------------------
+        End With
+        
+    Next
+End If
+
 
 Set LV2 = Nothing
 Set LV3 = Nothing
@@ -11273,7 +11459,7 @@ Label52.Top = Label52.Top
 Label51.FontSize = 18
 
 Label51.width = 400
-If O_lstProcess_ListCount > lstProcess.ListCount Or 1 = 1 Then
+If O_lstProcess_ListCount > lstProcess.ListCount Then
     'DOWN
     TAG_VAR_2 = Chr(75)
     'Label51_Here
@@ -11363,68 +11549,98 @@ End If
 'Wingdings 3 character set and equivalent Unicode characters
 'http://www.alanwood.net/demos/wingdings-3.html
 '----
-
 Label50.Caption = Str(lstProcess.ListCount - 2) + TAG_VAR ' + "_Timer 1 Min"
-
 O_lstProcess_ListCount = lstProcess.ListCount
 
-Call LV_AutoSizeColumn(lstProcess_2_ListView, lstProcess_2_ListView.ColumnHeaders.Item(1))
-Call LV_AutoSizeColumn(lstProcess_2_ListView, lstProcess_2_ListView.ColumnHeaders.Item(2))
-Call LV_AutoSizeColumn(lstProcess_3_SORTER_ListView, lstProcess_3_SORTER_ListView.ColumnHeaders.Item(1))
-Call LV_AutoSizeColumn(lstProcess_3_SORTER_ListView, lstProcess_3_SORTER_ListView.ColumnHeaders.Item(2))
 
-'------------------------
-'SORT ON COLUMN TWO LABEL
-'------------------------
-Dim GO_X
-GO_X = 0
-If lstProcess_3_SORTER_ListView.SortKey <> 1 Then GO_X = 1
-If lstProcess_3_SORTER_ListView.SortOrder <> lvwAscending Then GO_X = 1
-If lstProcess_3_SORTER_ListView.Sorted = True <> True Then GO_X = 1
+If UPDATE_O_NOW_LV_AUTOSIZE_1 = True Then
+    UPDATE_O_NOW_LV_AUTOSIZE_1 = False
 
-If GO_X <> 0 Then
-    lstProcess_3_SORTER_ListView.SortOrder = lvwAscending
-    lstProcess_3_SORTER_ListView.SortKey = 1
-    lstProcess_3_SORTER_ListView.Sorted = True
-    'lstProcess_3_SORTER_ListView.Sorted = False
+    Call LV_AutoSizeColumn(lstProcess_2_ListView, lstProcess_2_ListView.ColumnHeaders.Item(1))
+    Call LV_AutoSizeColumn(lstProcess_2_ListView, lstProcess_2_ListView.ColumnHeaders.Item(2))
+    Call LV_AutoSizeColumn(lstProcess_3_SORTER_ListView, lstProcess_3_SORTER_ListView.ColumnHeaders.Item(1))
+    Call LV_AutoSizeColumn(lstProcess_3_SORTER_ListView, lstProcess_3_SORTER_ListView.ColumnHeaders.Item(2))
+
+    '------------------------
+    'SORT ON COLUMN TWO LABEL
+    '------------------------
+    Dim GO_X
+    GO_X = 0
+    If lstProcess_3_SORTER_ListView.SortKey <> 1 Then GO_X = 1
+    If lstProcess_3_SORTER_ListView.SortOrder <> lvwAscending Then GO_X = 1
+    If lstProcess_3_SORTER_ListView.Sorted = True <> True Then GO_X = 1
+    
+    If GO_X <> 0 Then
+        lstProcess_3_SORTER_ListView.SortOrder = lvwAscending
+        lstProcess_3_SORTER_ListView.SortKey = 1
+        lstProcess_3_SORTER_ListView.Sorted = True
+        'lstProcess_3_SORTER_ListView.Sorted = False
+    End If
+
+    Call PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY
+
 End If
 
 Call KILL_ON_MAXIMUM_PROCESS_LIMIT_COUNT_AUTOHOTKEY
 Call KILL_ON_MAXIMUM_PROCESS_LIMIT_COUNT_CMD
-
-Dim SET_DOWN
-If PROCESS_PID_STORE_LST_01 <> 0 Then
-    For R_I = 1 To lstProcess_3_SORTER_ListView.ListItems.Count - 1
-        If lstProcess_3_SORTER_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_01 Then
-            lstProcess_3_SORTER_ListView.ListItems.Item(lstProcess_3_SORTER_ListView.ListItems.Count - 1).EnsureVisible
-            lstProcess_3_SORTER_ListView.ListItems.Item(R_I).EnsureVisible
-            SET_DOWN = R_I - 4
-            If SET_DOWN < 1 Then SET_DOWN = 1
-            lstProcess_3_SORTER_ListView.ListItems.Item(SET_DOWN).EnsureVisible
-            lstProcess_3_SORTER_ListView.ListItems.Item(R_I).EnsureVisible
-            lstProcess_3_SORTER_ListView.ListItems.Item(R_I).Selected = True
-            ' lstProcess_3_SORTER_ListView.SetFocus
-            Exit For
-        End If
-    Next
-End If
-If PROCESS_PID_STORE_LST_02 <> 0 Then
-    For R_I = 1 To lstProcess_2_ListView.ListItems.Count - 1
-        If lstProcess_2_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_02 Then
-            lstProcess_2_ListView.ListItems.Item(lstProcess_2_ListView.ListItems.Count - 1).EnsureVisible
-            lstProcess_2_ListView.ListItems.Item(R_I).EnsureVisible
-            SET_DOWN = R_I - 4
-            If SET_DOWN < 1 Then SET_DOWN = 1
-            lstProcess_2_ListView.ListItems.Item(SET_DOWN).EnsureVisible
-            lstProcess_2_ListView.ListItems.Item(R_I).EnsureVisible
-            lstProcess_2_ListView.ListItems.Item(R_I).Selected = True
-            ' lstProcess_2_ListView.SetFocus
-            Exit For
-        End If
-    Next
-End If
     
 End Sub
+
+Sub PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY()
+    Dim CHK_VAR_OBTAIN_2
+    Dim CHK_VAR_OBTAIN_3
+    Dim R_I
+    Dim SET_DOWN
+    If PROCESS_PID_STORE_LST_02 <> 0 Then
+        CHK_VAR_OBTAIN_2 = 0
+        For R_I = 1 To lstProcess_2_ListView.ListItems.Count - 1
+            If lstProcess_2_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_02 Then
+                lstProcess_2_ListView.ListItems.Item(lstProcess_2_ListView.ListItems.Count - 1).EnsureVisible
+                lstProcess_2_ListView.ListItems.Item(R_I).EnsureVisible
+                SET_DOWN = R_I - 4
+                If SET_DOWN < 1 Then SET_DOWN = 1
+                lstProcess_2_ListView.Refresh
+                lstProcess_2_ListView.ListItems.Item(SET_DOWN).EnsureVisible
+                lstProcess_2_ListView.ListItems.Item(R_I).EnsureVisible
+                lstProcess_2_ListView.ListItems.Item(R_I).Selected = True
+                lstProcess_2_ListView.SetFocus
+                CHK_VAR_OBTAIN_2 = 1
+                Exit For
+            End If
+        Next
+    End If
+    If PROCESS_PID_STORE_LST_03 <> 0 Then
+        CHK_VAR_OBTAIN_3 = 0
+        For R_I = 1 To lstProcess_3_SORTER_ListView.ListItems.Count - 1
+            If lstProcess_3_SORTER_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_03 Then
+                lstProcess_3_SORTER_ListView.ListItems.Item(lstProcess_3_SORTER_ListView.ListItems.Count - 1).EnsureVisible
+                lstProcess_3_SORTER_ListView.ListItems.Item(R_I).EnsureVisible
+                SET_DOWN = R_I - 4
+                If SET_DOWN < 1 Then SET_DOWN = 1
+                lstProcess_3_SORTER_ListView.Refresh
+                lstProcess_3_SORTER_ListView.ListItems.Item(SET_DOWN).EnsureVisible
+                lstProcess_3_SORTER_ListView.ListItems.Item(R_I).EnsureVisible
+                lstProcess_3_SORTER_ListView.ListItems.Item(R_I).Selected = True
+                ' lstProcess_3_SORTER_ListView.SetFocus
+                CHK_VAR_OBTAIN_3 = 1
+                Exit For
+            End If
+        Next
+    End If
+    If CHK_VAR_OBTAIN_2 = 0 Then
+        PROCESS_PID_STORE_LST_02 = 0
+    End If
+    If CHK_VAR_OBTAIN_3 = 0 Then
+        PROCESS_PID_STORE_LST_03 = 0
+    End If
+    If PROCESS_PID_STORE_LST_02 <> 0 And CHK_VAR_OBTAIN_2 = 1 Then
+        PROCESS_PID_STORE_LST_02 = 0
+    End If
+    If PROCESS_PID_STORE_LST_03 <> 0 And CHK_VAR_OBTAIN_2 = 1 Then
+        PROCESS_PID_STORE_LST_03 = 0
+    End If
+End Sub
+
 
 Private Sub Timer_Pause_Update_Timer()
 Timer_Pause_Update.Enabled = False
@@ -11450,8 +11666,8 @@ For R_I = 0 To lstProcess_2_ListView.ListItems.Count - 1
             T_COUNTER = T_COUNTER + 1
         End If
         If T_COUNTER > 20 Then
-            pid = Val(lstProcess_2_ListView.ListItems.Item(R_I))
-            cProcesses.Process_Kill (pid)
+            PID = Val(lstProcess_2_ListView.ListItems.Item(R_I))
+            cProcesses.Process_Kill (PID)
         End If
     End If
 Next
@@ -11605,11 +11821,11 @@ Do
                 ' closewindow (FINDER_LINE_hWnd_2)
                 
                 If FINDER_LINE_hWnd > 0 Then
-                    pid = -1
-                    VAR = cProcesses.Convert(FINDER_LINE_hWnd, pid, cnFromhWnd Or cnToProcessID)
+                    PID = -1
+                    VAR = cProcesses.Convert(FINDER_LINE_hWnd, PID, cnFromhWnd Or cnToProcessID)
                 End If
-                If pid > 0 Then
-                    Result = cProcesses.Process_Kill(pid)
+                If PID > 0 Then
+                    Result = cProcesses.Process_Kill(PID)
                 End If
             
             End If
@@ -11656,10 +11872,10 @@ End Function
 
 
 Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column As ColumnHeader = Nothing)
-    Dim c As ColumnHeader
+    Dim C As ColumnHeader
     If Column Is Nothing Then
-    For Each c In LV.ColumnHeaders
-        SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
+    For Each C In LV.ColumnHeaders
+        SendMessage LV.hWnd, LVM_FIRST + 30, C.Index - 1, -1
     Next
     Else
         SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
@@ -13608,16 +13824,16 @@ Public Function GetFileFromhWnd(lnghWnd) As String
 
 'MsgBox getfilefromhWnd(Me.hWnd)
 
-Dim lngProcess&, hProcess&, bla&, c&
+Dim lngProcess&, hProcess&, bla&, C&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
-c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromhWnd = Left(strFile, c)
+x = EnumProcessModules(hProcess, bla, 4&, C)
+C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromhWnd = Left(strFile, C)
 
 End Function
 
@@ -13626,16 +13842,16 @@ Public Function GetFileFromProc(lngProcess) As String
 
 'MsgBox getfilefromhWnd(Me.hWnd)
 'Dim lngProcess&, hProcess&, bla&, C&
-Dim hProcess&, bla&, c&
+Dim hProcess&, bla&, C&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 'x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
-c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromProc = Left(strFile, c)
+x = EnumProcessModules(hProcess, bla, 4&, C)
+C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromProc = Left(strFile, C)
 
 End Function
 
@@ -14363,7 +14579,6 @@ PROCESS_TO_KILLER_PID = lstProcess_2_ListView.ListItems(lstProcess_2_ListView.Se
 'Stop
 
 'PROCESS_TO_KILLER_PID = lstProcess_2_ListView1.ListItems.Item(lstProcess_2_ListView1.SelectedItem.Index)
-
 
 'PROCESS_TO_KILLER = lstProcess_2_ListView.SelectedItem.SubItems(1)
 
@@ -15168,4 +15383,39 @@ ENDER:
     Resume
 End Sub
 
+
+'-----------------------------------------------------------------
+'Private Declare Function GetVersionExA Lib "Kernel32" _
+'(lpVersionInformation As OSVERSIONINFO) As Integer
+'
+'Private Type OSVERSIONINFO
+'    dwOSVersionInfoSize As Long
+'    dwMajorVersion As Long
+'    dwMinorVersion As Long
+'    dwBuildNumber As Long
+'    dwPlatformId As Long
+'    szCSDVersion As String * 128
+'End Type
+
+Function GetWindowsVersion()
+Dim osinfo As OSVERSIONINFO
+Dim sngWindowsVersion
+Dim strWindowsVersion
+Dim retvalue As Integer
+    osinfo.dwOSVersionInfoSize = 148
+    osinfo.szCSDVersion = Space$(128)
+    retvalue = GetVersionExA(osinfo)
+    sngWindowsVersion = CSng((CStr(osinfo.dwMajorVersion) & "." & CStr(osinfo.dwMinorVersion)))
+    strWindowsVersion = CStr(osinfo.dwMajorVersion) & "." & CStr(osinfo.dwMinorVersion) & "." & CStr(osinfo.dwBuildNumber)
+    GetWindowsVersion = osinfo.dwMajorVersion
+    GetWindowsVersion = CSng((CStr(osinfo.dwMajorVersion) & "." & CStr(osinfo.dwMinorVersion)))
+  
+    '----------------------------------------------------
+    'WINDOWS XP PROBLEM _ CHANGE THE SCRIPT HERE
+    'NOT TO RUN AS ADMIN OR BRING THE RUNAS DIALOG BOX UP
+    'WIN XP = 5.1 _ WINDOWS 10 = 6.2
+    '----------------------------------------------------
+
+End Function
+'-----------------------------------------------------------------
 

@@ -99,7 +99,7 @@
 ; AND USE OS VERSION NUMBER _ TUINED UP FOR __ WIN XP WIN 07 WIN 10
 ; AND IN PROCESS CLEARED UP FAULT WITH WINDOWS XP DETECT DESKTOP 
 ; AS NAME PROGRAM MANAGER _ HELPER WITH FAULT IN THAT WHERE LEACHED FROM
-; Autokey -- 14-Brightness With Dimmer.ahk
+; Autokey -- 14-BRIGHTNESS WITH DIMMER.ahk
 ; -------------------------------------------------------------------
 ; FROM Tue 26-Feb-2019 12:13:29
 ; TO   Tue 26-Feb-2019 12:13:29

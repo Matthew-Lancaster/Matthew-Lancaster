@@ -160,8 +160,7 @@ Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURS
 ; -------------------------------------------------------------------
 ; 01 _ MAKE SIMPLE ADD THE PATH GOING TO USE WITH OR NOT THE END BACKSLASH
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DD
-; FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\WORK\20-22
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2019 CyberShot HX60V\DCIM\WORK\1
 ; -------------------------------------------------------------------
 ; 02 _ STRIP THE END SLASH OFF IF THERE IS ONE
 ; -------------------------------------------------------------------
@@ -175,7 +174,7 @@ FILE_PATH_WILDPATH_JPG=%FILE_PATH_WILDPATH_JPG%\*.JPG
 ; ENTER THE COUNTER BEGIN NUMBER FOR FACEBOOK PHOTO DESCRIPTION 
 ; -------------------------------------------------------------------
 ; START AT VALUE
-; NORMAL WOULD BE 1 FOR 1ST
+; NORM WOULD BE 1 FOR 1ST
 ; VAR_COUNTER_START_AT_VALUE
 ; -------------------------------------------------------------------
 VAR_COUNTER_START_AT_VALUE=1
@@ -185,6 +184,13 @@ VAR_COUNTER_START_AT_VALUE=1
 ; 1=EDITOR
 NEW_ALBUM_OR_EDITOR_PAGE=0
 ; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+	
 
 ; SET DELAY SPEED 
 ; LESS IMAGE QUICKER SPEED ALLOW
@@ -199,18 +205,6 @@ FACEBOOK_TIMER_DELAY_NORMAL=500
 FACEBOOK_TIMER_DELAY_IN_EDITOR=14000
 
 
-; -------------------------------------------------------------------
-; WHEN HERE IS GENERATE THE WHOLE TEXT THAT WOULD BE ENTER AND ONLY PASTE TO CLIPBOARD
-; NOT THE USUAL RUN
-; -------------------------------------------------------------------
-; DEFAULT 
-; RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=
-; -------------------------------------------------------------------
-RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=TRUE
-RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=
-
-IF RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
-	FACEBOOK_TIMER_DELAY_NORMAL=1
 
 
 
@@ -254,9 +248,6 @@ VAR_COUNTER_STOP_AFTER_COUNT=
 ; USUAL WHEN START A BATCH SET THIS FALSE
 ; WHEN LOADING BATCHES OF 200 AT A TIME WHEN BIGGER
 HAS_FIRST_BATCH_BEEN_DONE_AND_NEXT_SUBSEQUENT_BATCH_DOARH=FALSE
-
-
-
 
 
 ; -------------------------------------------------------------------
@@ -368,7 +359,6 @@ IfWinExist, %SET_String%
 		SET_GO=TRUE
 		FACEBOOK_TIMER_DELAY=%FACEBOOK_TIMER_DELAY_NORMAL%
 		SETTIMER F4,%FACEBOOK_TIMER_DELAY%
-		; MSGBOX %FACEBOOK_TIMER_DELAY%
 	}
 	
 	IF SET_GO=FALSE
@@ -386,8 +376,7 @@ IfWinExist, %SET_String%
 	}
 	IF SET_GO=TRUE
 	{
-		IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
-			WinActivate ; use the window found above
+		WinActivate ; use the window found above
 	}
 }
 
@@ -433,13 +422,9 @@ Return
 
 F4::
 {
-; F4 -- HERE IS LOAD FROM TIMER AND SHUT OFF AT ENDER
-; -------------------------------------------------------------------
-
 
 FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
 OF_COUNT=of
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 IF GetKeyState("Capslock", "T")
 {
 	StringLower, FILE_NAME, FILE_NAME
@@ -473,9 +458,6 @@ PLUG_FLAG=FALSE
 ; JUST IN CASE MOVE
 FACEBOOK_URL_TITLE_1_VAR_SET=FALSE
 FACEBOOK_URL_TITLE_2_VAR_SET=FALSE
-
-
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 IfWinExist, %SET_String%
 {
 	IfWinExist, %FACEBOOK_URL_TITLE_1%
@@ -494,7 +476,6 @@ IfWinExist, %SET_String%
 
 END_MESSENGER=Hitt Push the Back Link for Whole Album Top Left
 
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 IF GetKeyState("Capslock", "T")
 {
 	 Lab_Invert_Char_Out:= ""
@@ -516,29 +497,13 @@ IF GetKeyState("Capslock", "T")
 ; ----
 
 
+Sendinput ^a{delete}
+Sendinput %VAR_COUNTER% %OF_COUNT% %FILE_SCRIPT_COUNT%`n
+Sendinput %OutputVar_1%`n
 
-
-
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
-{
-	Sendinput ^a{delete}
-	Sendinput %VAR_COUNTER% %OF_COUNT% %FILE_SCRIPT_COUNT%`n
-	Sendinput %OutputVar_1%`n
-}
-
-IF RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
-{
-	VAR_CLIPBOARD=%VAR_CLIPBOARD%%VAR_COUNTER% %OF_COUNT% %FILE_SCRIPT_COUNT%`n%OutputVar_1%`n
-}
-
-
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 if POS_VAR>0 
 	Sendinput %OutputVar_2%`n
 
-
-	
-	
 ; Sendinput %END_MESSENGER%`n
 
 	
@@ -553,8 +518,6 @@ if POS_VAR>0
 ; %FACEBOOK_URL_TITLE_1% = CREATE ALBUM MODE
 ; -------------------------------------------------------------------
 
-
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 IF FACEBOOK_URL_TITLE_2_VAR_SET=TRUE
 {
 	Sendinput ^{home}
@@ -570,8 +533,6 @@ IF FACEBOOK_URL_TITLE_2_VAR_SET=TRUE
 	PLUG_FLAG=TRUE
 }
 	
-
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 IF FACEBOOK_URL_TITLE_1_VAR_SET=TRUE
 {
 	Sendinput ^{home}
@@ -588,13 +549,11 @@ IF !(A_ComputerName = "4-ASUS-GL522VW")
 ; RESET TIMER DUE TO ANY DELAY
 ; LIKE ACTIVATE WINDOW & MORE SLEEP TIMER
 ; -----------------------------------------------------------------------
-IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
-{
-	SETTIMER F4,off
-	; SLEEP 200
-	SLEEP 100
-	SETTIMER F4,%FACEBOOK_TIMER_DELAY%
-}
+SETTIMER F4,off
+; SLEEP 200
+SLEEP 100
+SETTIMER F4,%FACEBOOK_TIMER_DELAY%
+
 
 VAR_COUNTER+=1
 VAR_COUNTER_STOP_AFTER_COUNT+=1
@@ -614,11 +573,6 @@ IF VAR_COUNTER_STOP_AFTER
 		
 IF STOP_HERE=TRUE
 {
-	IF RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
-	{
-	clipboard = %VAR_CLIPBOARD%
-	}
-
 	SETTIMER F4,off
 	SoundBeep , 1000 , 150
 	SoundBeep , 2000 , 200
