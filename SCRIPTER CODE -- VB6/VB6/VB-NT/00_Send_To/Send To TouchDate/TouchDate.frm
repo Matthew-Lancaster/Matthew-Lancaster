@@ -789,7 +789,10 @@ i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
 i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
 i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA -- BATCH"
+
+i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
+i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA__.MP4 -- BATCH"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
 i = i + 1: M(i) = "----"
 i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
@@ -910,9 +913,12 @@ Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
+Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    
+  
 Case "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
@@ -1069,14 +1075,111 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     
     End
 End Sub
+
+Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
+
+    ScanPath.chkSubFolders = vbChecked
+    ScanPath.cboMask.Text = "*.*"
     
+    ' SCAN DO ON TEXTPATH CHANGE
+    If LABEL_SET(2).Caption <> "NOT FOLDER GIVEN" Then
+        ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    End If
+    If IsIDE Then
+        ScanPath.txtPath.Text = "D:\DD"
+    End If
+    
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+    If ScanPath.ListView1.ListItems.Count > 500 Then
+        MsgBox "LOOK LIKE GOT TOO MANY FILE TO DO OVER 500" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+        End
+    End If
+    
+    If ScanPath.ListView1.ListItems.Count > 0 Then
+        MsgBox "FILE COUNTER -- BEFORE FILTER ON" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+        End
+    End If
+    
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    
+    
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        EXT_STR = UCase(Mid(B1$, Len(B1$) - 2))
+        If InStr("MP4 TXT", EXT_STR) And InStr(A1$, "_gsdata_") = 0 Then
+            DATE_FILENAME_D_1 = Mid(B1$, 1, 10)
+            DATE_FILENAME_T_2 = Mid(B1$, 20, 8)
+            i2 = DATE_FILENAME_D_1
+            i4 = DATE_FILENAME_T_2
+            DATE_FILENAME_D_1 = Mid(i2, 1, 4) + "/" + Mid(i2, 6, 2) + "/" + Mid(i2, 9, 2)
+            DATE_FILENAME_T_2 = Mid(i4, 1, 2) + ":" + Mid(i4, 4, 2) + ":" + Mid(i4, 7, 2)
+            
+            DATE_FILENAME_SUCCESS = DateValue(DATE_FILENAME_D_1) + TimeValue(DATE_FILENAME_T_2)
+            
+            DT4 = DATE_FILENAME_SUCCESS
+            If IsDate(DT4) = False Then
+                ' FALSE DATE
+                ' ----------
+                MsgBox "DATE HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+                End
+            End If
+            
+            If DT4 = 0 Then
+                MsgBox "NAUGHT DATE FINDER -- EXIT"
+                End
+            End If
+        
+            TT = SetFileDateTime(A1$ + B1$, DT4)
+            
+            EXT_ORG = Mid(B1$, Len(B1$) - 2)
+            EXT_STR = UCase(Mid(B1$, Len(B1$) - 2))
+            If EXT_ORG <> EXT_STR Then
+                'RENAME EXTENSION CAPITAL
+                FILE_RENAME1 = Mid(B1$, 1, Len(B1$) - 4) + "." + EXT_STR
+                Name A1$ + B1$ As A1$ + FILE_RENAME1
+            End If
+            
+            XC = XC + 1
+            MM_1 = MM_1 + B1$ + vbCrLf
+        End If
+    Next
+    
+    ' SET QUICK MODE RESULT
+    ' ---------------------
+    On Error Resume Next
+    FR1 = FreeFile
+    Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Input As #FR1
+        Line Input #FR1, I_1
+    Close FR1
+    MNU_QUICK_MODE.Caption = I_1
+    I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+    I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+End Sub
+
 Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH()
 
     ScanPath.chkSubFolders = vbChecked
     ScanPath.cboMask.Text = "*.*"
     
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
-    ScanPath.txtPath.Text = "D:\VI_ DSC ME\2010+NOKIA\2017 NOKIA E72 _ 007 JULY_ MP4____x003 _ Mill View Room"
+'   ScanPath.txtPath.Text = "D:\VI_ DSC ME\2010+NOKIA\2017 NOKIA E72 _ 007 JULY_ MP4____x003 _ Mill View Room"
     
     If Len(ScanPath.txtPath.Text) < 5 Then
         MsgBox "PATH TO SHORT -- EXIT"
@@ -1107,12 +1210,12 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH()
         If IsDate(DT4) = False Then
             ' FALSE DATE
             ' ----------
-            MsgBox "DATE FOUND WITHIN TEXT FILE FOUND HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+            MsgBox "DATE HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
             End
         End If
         
         If DT4 = 0 Then
-            MsgBox "NAUGHT DATE FOUND OVERALL IN FILE GATHER -- EXIT"
+            MsgBox "NAUGHT DATE FINDER -- EXIT"
             End
         End If
     
@@ -1684,6 +1787,11 @@ If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH" Then
     Exit Sub
 End If
 
+
+If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA" Then
+    Call SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA
+    Exit Sub
+End If
 
 
 If WORK = "SET_ONE_DATE_HARDCODER" = True Then
