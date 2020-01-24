@@ -542,7 +542,6 @@ Loop, %id%
 	table := id%A_Index%
 	WinMinimize  ahk_id %table%
 } 
-
 ; GOODSYNC2GO
 WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 Loop, %id%
@@ -757,8 +756,6 @@ IF (A_ComputerName = "7-ASUS-GL522VW")
 	SET_GO=FALSE
 If (OSVER_N_VAR<10)
 	SET_GO=FALSE
-
-SET_GO=FALSE
 	
 IF SET_GO=TRUE
 	{
@@ -1196,7 +1193,7 @@ IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	SET_GO_1=1
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
-	SET_GO_1=0
+	SET_GO_1=1	
 
 
 IF SET_GO_1=1
@@ -1238,8 +1235,6 @@ IF SET_GO_1=1
 		}
 	}
 }
-
-
 	
 	
 Process, Exist, gs-server.exe
@@ -1366,9 +1361,17 @@ IF SET_GO=FALSE
 	}
 
 	
-	
-	IF SET_GO_1=0
-	IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+		
+	SET_GO_GOOGLEDRIVESYNC=0
+	; --------------------------
+	; WIN_XP 5 WIN_7 6 WIN_10 10  
+	; --------------------------
+	If OSVER_N_VAR=10
+		SET_GO_GOOGLEDRIVESYNC=1
+	IF (A_ComputerName = "5-ASUS-P2520LA") 
+		SET_GO_GOOGLEDRIVESYNC=1
+		
+	IF SET_GO_GOOGLEDRIVESYNC=1=1
 	{
 	Process, Exist, googledrivesync.exe
 	If Not ErrorLevel
@@ -2108,14 +2111,6 @@ GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 GOSUB MINIMIZE_ALL_BLUETOOTH
 GOSUB MINIMIZE_GOODSYNC_AT_BOOT
 
-; -------------------------------------------------------------------
-; HERE MOST LIKELY DONE BY 
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-LOAD URL AT BOOT CHROME.ahk
-; ABOVE LINE IS RUN BY
-; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AUTORUN.ahk
-; HERE IS ONLY FOR 5P COMPUTER
-; Fri 17-Jan-2020 07:35:50
-; -------------------------------------------------------------------
 IF (A_ComputerName = "5-ASUS-P2520LA") 
 {
 	IfWinExist Rain Alarm - Google Chrome
@@ -2123,7 +2118,7 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 		#WinActivateForce, Rain Alarm - Google Chrome
 		WinMaximize  Rain Alarm - Google Chrome
 		SoundBeep , 2500 , 100
-		}
+	}
 
 	IfWinNotExist Rain Alarm - Google Chrome
 	{
@@ -2137,37 +2132,36 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 		; Run, chrome.exe "https://www.rain-alarm.com"
 	}
 }
+
+IF (A_ComputerName = "4-ASUS-GL522VW") 
+{
 	
+	IfWinNotExist matt.lan@btinternet.com - BT Yahoo Mail - Mozilla Firefox
+	{
+		RunWait, C:\Program Files\Mozilla Firefox\firefox.exe "https://mail.yahoo.com/d/folders/1" , , MIN
+		; #WinActivateForce, Rain Alarm - Google Chrome
+		; WinMaximize  Rain Alarm - Google Chrome
+		SoundBeep , 2500 , 100
+		
+		; IF NOT EXTENSION INSTALLED
+		; Run, chrome.exe "https://www.rain-alarm.com"
+	}
+}
+
+
+;----------------------------------------------------------------
+; HERE LOAD AT MIDNIGHT SOOTHER CODE	
 ;----------------------------------------------------------------
 ; NORTON WANTS TO RUN AT END IT'S ENGINE HASN'T STARTED UP PROPER	
 ; CALL TOO QUICK AND BE HASN'T RUN
 ;----------------------------------------------------------------
+; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 18-NORTON CONTROL BOOTER.ahk"
+; IfExist, %FN_VAR%
+; {
+	; SoundBeep , 2500 , 100
+	; Run, "%FN_VAR%"
+; }
 
-SET_GO_9=
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO_9=100
-IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO_9=100
-IF (A_ComputerName = "3-LINDA-PC") 
-	SET_GO_9=100
-IF (A_ComputerName = "4-ASUS-GL522VW") 
-	SET_GO_9=100
-IF (A_ComputerName = "5-ASUS-P2520LA") 
-	SET_GO_9=100
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO_9=100
-IF (A_ComputerName = "8-MSI-GP62M-7RD") 
-	SET_GO_9=100
-
-IF !SET_GO_9
-{
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 18-NORTON CONTROL BOOTER.ahk"
-	IfExist, %FN_VAR%
-	{
-		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%"
-	}
-}
 
 ;--------------------------------------------------------------------
 ; ONLY SOMETIMES ASUS WEBSTORAGE DOESN'T OPEN QUIETLY
@@ -2296,7 +2290,7 @@ IF AttributeString
 ; -------------------------------------------------------------------
 
 
-GOSUB TEAMVIWER_LOAD
+; GOSUB TEAMVIWER_LOAD
 
 	
 	
@@ -2313,6 +2307,7 @@ RETURN
 ; -------------------------------------------------------------------
 
 TEAMVIWER_LOAD:
+RETURN
 
 ; "C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe"
 SET_GO_4=0

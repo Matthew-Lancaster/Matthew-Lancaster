@@ -114,8 +114,6 @@ DIM FOLDER_PATH_AVOID_ITEM()
 REDIM PRESERVE FOLDER_PATH_AVOID_ITEM(100)
 NUMBER_COUNTER = 0
 I=NUMBER_COUNTER
-' FOLDER_PATH_AVOID_ITEM
-' -------------------------------------------------------------------
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="_gsdata_"
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="System Volume Information"
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\F.A"                      ' DASH CAMERA

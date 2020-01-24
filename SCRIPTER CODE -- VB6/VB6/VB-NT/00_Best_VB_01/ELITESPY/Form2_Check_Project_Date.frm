@@ -331,6 +331,10 @@ Private Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 End Sub
 
 
+Public Sub VB_PROJECT_CHECKDATE_FORM_LOAD()
+    Call VB_PROJECT_CHECKDATE("FORM LOAD")
+End Sub
+
 Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
             
     Dim CONTROL_NAME As String
@@ -338,7 +342,6 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
     CONTROL_NAME = "Timer_CHECK_PROJECT_DATE_IN_PROCESS"
     Call ControlCall_Find(CONTROL_NAME)
     DoEvents
-    
 
     Timer_HIDE.Enabled = True
 
@@ -376,7 +379,6 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
         XVB_DATE_2 = F.DateLastModified
     End If
     
-    
     If XVB_DATE_SYNC_VB_PROJECT = 0 Then
         FILE_NAME = App.Path + "\# DATA\VB Project EXE Date__" + GetComputerName + "_" + GetUserName + ".txt"
         FILE_NAME_PATH = App.Path + "\# DATA"
@@ -408,7 +410,6 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
             COPY_OVER_NEW_EXE = True
         End If
     End If
-    
     
     PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
     PATH_FILE_NAME2 = Replace(PATH_FILE_NAME1, "D:\VB6\", "D:\VB6-EXE\")
@@ -451,7 +452,6 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
             Call ControlCall_Find(CONTROL_NAME)
             Exit Sub
         End If
-    
         
         FILE_NAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
         'If Dir(FILE_NAME) = "" Then MsgBox "FILE NOT FOUND" + vbCrLf + vbCrLf + FILE_NAME
@@ -749,6 +749,7 @@ On Error Resume Next
             ' ---------------------------------------------
             SUBNAME = ControlName + "_" + Mid(ControlName, 1, InStr(ControlName, "_") - 1)
             CallByName FormCheck, SUBNAME, VbMethod
+            'CallByName FormCheck(ControlName).Name, ControlName, VbLet
         End If
         
         ' ----

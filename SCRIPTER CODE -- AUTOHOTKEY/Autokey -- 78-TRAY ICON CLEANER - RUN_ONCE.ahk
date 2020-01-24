@@ -29,9 +29,6 @@
 ; TO   __ Sun 09-Jun-2019 11:28:00
 ; -------------------------------------------------------------------
 
-; USE EXAMPLE
-; -------------------------------------------------------------------
-
 ; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
 ; IfExist, %FN_VAR%
 ; {

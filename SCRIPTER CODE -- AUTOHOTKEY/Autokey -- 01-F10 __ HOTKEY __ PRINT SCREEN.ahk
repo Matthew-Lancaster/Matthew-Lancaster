@@ -598,6 +598,7 @@ Return
 	VAR_INDEX=3
 	GOSUB HOT_KEY_CONVERT_TEXT
 Return
+
 ; -------------------------------------------------------------------
 HOT_KEY_CONVERT_TExT:
 	AutoTrim, Off
@@ -608,8 +609,12 @@ HOT_KEY_CONVERT_TExT:
 		RETURN
 	}
 	Clipper_1_GET=%Clipper_GET%
-	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R , 9
-	IF StrGetPos_Clipper
+	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R 
+	; ---------------------------------------------------------------
+	; TALK -1 IF NONE ---- StrGetPos_Clipper>0
+	; Wed 22-Jan-2020 01:48:54
+	; ---------------------------------------------------------------
+	IF StrGetPos_Clipper>0
 	{
 		Clipper_1_GET:=substr(Clipper_GET, 1, StrGetPos_Clipper-1)
 		Clipper_2_GET:=substr(Clipper_GET, StrGetPos_Clipper)
@@ -620,7 +625,10 @@ HOT_KEY_CONVERT_TExT:
 		StringLower Clipper_1_GET, Clipper_1_GET
 	IF VAR_INDEX=3
 		StringUpper Clipper_1_GET, Clipper_1_GET
+		
+	
 	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
+	; MSGBOX %Clipper_GET%
 	Clipboard=%Clipper_GET%
 	ClipWait
 RETURN

@@ -388,10 +388,11 @@ OLD_VAR_DSR_3 = VAR_DSR_3
 ' MsgBox Str(R) + " -- " + Str(VAR_DSR_3)
 ' Debug.Print Str(R) + " -- " + Str(VAR_DSR_3)
 
-Dim AR(3)
-AR(1) = "\\1-asus-x5dij\1_asus_x5dij_01_c_drive"
-AR(2) = "\\2-asus-eee\2_asus_eee_01_c_drive"
-AR(3) = "\\4-asus-gl522vw\4_asus_gl522vw_01_c_drive"
+Dim AR(4)
+AR(1) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
+AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
+AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
 
 FILE_NAME_PIR = "Autokey -- 14-Brightness With Dimmer #NFS.txt"
 
@@ -408,6 +409,11 @@ If VAR_DSR_3 = True Then
             Open FILE_NAME For Output As #FR1
             Close #FR1
         End If
+        'Debug.Print FILE_NAME
+        ' -----------------------------------------------------
+        ' EXAMPLE FILENAME
+        ' \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS.txt
+        ' -----------------------------------------------------
     Next
 Else
     For R = 1 To UBound(AR)
