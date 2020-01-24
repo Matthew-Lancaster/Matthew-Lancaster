@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form LINE_EXE_PICKER_COMMON 
    BackColor       =   &H00808080&
    Caption         =   "Form1"
@@ -84,7 +84,7 @@ Private Const LVM_GETEXTENDEDLISTVIEWSTYLE = LVM_FIRST + 55
 Private Const LVS_EX_FULLROWSELECT = &H20
 
 
-Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 
 Private Sub Form_Resize()
@@ -170,23 +170,23 @@ Public Sub LOAD_INITAL_FORM_VALUE()
 
 Dim M()
 ReDim M(100)
-i = 0
-i = i + 1: M(i) = App.Path + "\" + App.EXEName + ".exe"
-i = i + 1: M(i) = "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
-i = i + 1: M(i) = "D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
-i = i + 1: M(i) = "C:\Program Files (x86)\Notepad++\notepad++.exe"
-i = i + 1: M(i) = "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
-i = i + 1: M(i) = "C:\Program Files (x86)\Siber Systems\AI RoboForm\identities.exe"
-i = i + 1: M(i) = "C:\Program Files\Process Lasso\ProcessLasso.exe"
-i = i + 1: M(i) = "C:\Windows\explorer.exe"
-i = i + 1: M(i) = "C:\Program Files (x86)\Microsoft Visual Studio\VB98\vb6.exe"
-i = i + 1: M(i) = "D:\GoodSync\x64\GoodSync2Go.exe"
-i = i + 1: M(i) = "C:\Program Files\Norton Security\Engine\22.18.0.213\NortonSecurity.exe"
-i = i + 1: M(i) = "C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
-i = i + 1: M(i) = ""
-i = i + 1: M(i) = ""
-i = i + 1: M(i) = ""
-i = i + 1: M(i) = ""
+I = 0
+I = I + 1: M(I) = App.Path + "\" + App.EXEName + ".exe"
+I = I + 1: M(I) = "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+I = I + 1: M(I) = "D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
+I = I + 1: M(I) = "C:\Program Files (x86)\Notepad++\notepad++.exe"
+I = I + 1: M(I) = "D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
+I = I + 1: M(I) = "C:\Program Files (x86)\Siber Systems\AI RoboForm\identities.exe"
+I = I + 1: M(I) = "C:\Program Files\Process Lasso\ProcessLasso.exe"
+I = I + 1: M(I) = "C:\Windows\explorer.exe"
+I = I + 1: M(I) = "C:\Program Files (x86)\Microsoft Visual Studio\VB98\vb6.exe"
+I = I + 1: M(I) = "D:\GoodSync\x64\GoodSync2Go.exe"
+I = I + 1: M(I) = "C:\Program Files\Norton Security\Engine\22.18.0.213\NortonSecurity.exe"
+I = I + 1: M(I) = "C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
+I = I + 1: M(I) = ""
+I = I + 1: M(I) = ""
+I = I + 1: M(I) = ""
+I = I + 1: M(I) = ""
 
 Dim LV1
 
@@ -224,7 +224,7 @@ Private Sub Form_Unload(Cancel As Integer)
     RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = True
     
     LINE_EXE_PICKER_COMMON.WindowState = vbMinimized
-    RESULT_API = NotAlwaysOnTop(Me.hWnd)
+    RESULT_API = NotAlwaysOnTop(Me.hwnd)
     Form1.WindowState = vbMinimized
 
     LINE_EXE_PICKER_COMMON.Visible = False
@@ -276,7 +276,7 @@ Private Sub LISTVIEW1_Click()
 End Sub
 
 Private Sub MNU_ALWAYS_ON_TOP_Click()
-    RESULT_API = AlwaysOnTop(Me.hWnd)
+    RESULT_API = AlwaysOnTop(Me.hwnd)
     AlwaysOnTop_MODE = True
 End Sub
 
@@ -298,12 +298,12 @@ Public Sub Timer_SET_FOCUS_Timer()
 End Sub
 
 
-Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
-    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+Private Function AlwaysOnTop(ByVal hwnd As Long)  'Makes a form always on top
+    SetWindowPos hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 End Function
-Private Function NotAlwaysOnTop(ByVal hWnd As Long)
+Private Function NotAlwaysOnTop(ByVal hwnd As Long)
     Dim flags
-    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
+    SetWindowPos hwnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
 End Function
 
 
@@ -311,10 +311,10 @@ Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column As ColumnHeader = N
     Dim c As ColumnHeader
     If Column Is Nothing Then
     For Each c In LV.ColumnHeaders
-        SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
+        SendMessage LV.hwnd, LVM_FIRST + 30, c.Index - 1, -1
     Next
     Else
-        SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
+        SendMessage LV.hwnd, LVM_FIRST + 30, Column.Index - 1, -1
     End If
     LV.Refresh
 End Sub
