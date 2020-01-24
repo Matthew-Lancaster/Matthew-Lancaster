@@ -1,19 +1,24 @@
 @ECHO OFF
-ECHO ______________________________
-ECHO __ MATTHEW LANCASTER
+REM ______________________________
+REM __ MATTHEW LANCASTER
+REM ______________________________
 REM ECHO __ MATT.LAN@BTINTERNET.COM
 REM ECHO __ Tue 21 February 2017 10:50:00 -- ALL-NIGHTER PREP THIS LEVEL ALL DEBUG WORKING
-REM ECHO __ ONE ROUNTINE FINISH DO I'M KNACKERING
-ECHO ______________________________
+REM ECHO __ ONE ROUTINE FINISH DO I'M KNACKERING
+REM -----------------------------------------------------------------
+REM SESSION 002
+REM -----------------------------------------------------------------
+REM WORK DO FROM -- Thu 23-Jan-2020 11:33:43
+REM WORK DO TO   -- Thu 23-Jan-2020 14:02:00 -- 2 HOUR 28 MINUTE
+REM -----------------------------------------------------------------
+REM "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE WAIT.BAT"
+REM "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE.BAT"
+REM "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE WAIT.BAT"
+REM "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT"
+REM -----------------------------------------------------------------
 
-@ECHO CD /D D:\
-@CD /D D:\
-@ECHO OFF
-@REM ------------------------------------------------
-TITLE ____ BOOT_KILLER ____
-@REM ------------------------------------------------
-
-@ECHO OFF
+ECHO CD /D D:\
+CD /D D:\
 
 REM ---------------------------------------------------------------
 ver | find "10.0." > nul
@@ -30,124 +35,88 @@ IF "%WIN7__%"=="YES" ECHO WINDOWS 7
 IF "%WIN10_%"=="YES" ECHO WINDOWS 10
 REM ---------------------------------------------------------------
 
-@ECHO.
+SETLOCAL ENABLEEXTENSIONS
 
-@REM setlocal EnableDelayedExtensions ____ THIS LINE HAS ERROR SETTER
-setlocal EnableExtensions
+SET DESCRIPTION=TASK KILLER NOT RESPOND FORCE AND WAIT
+TITLE ____ %DESCRIPTION% ____
+ECHO.
+ECHO %DESCRIPTION%
 
-@ECHO OFF
+SET CMD_GIVE=/F /FI "STATUS EQ NOT RESPONDING"
+ECHO.
+ECHO TASKILL %CMD_GIVE% _______ WILD CARD ALL NOT RESPONDING
+ECHO ----------------------------------------------------------------
 
-REM ECHO -----------------------------------------------------------------------------------------------------------------------------------
-REM ECHO -- FOR EVENT NOT RESPONDER NEED CRASHER
-REM ECHO -----------------------------------------------------------------------------------------------------------------------------------
 REM ------------------------------------------------------------------------------------------------
-ECHO 1.. TASKKILL /F /FI "STATUS EQ NOT RESPONDING" _______ WILD CARD ALL NOT RESPONDING
-REM ECHO 1.. TASKKILL /FI "STATUS EQ NOT RESPONDING" _______ WILD CARD ALL NOT RESPONDING
-REM ECHO -----------------------------------------------------------------------------------------------------------------------------------
 REM __ ECHO 2.. TASKKILL /FI "IMAGENAME NE Z" /IM * /T     _______ WILD CARD EVERYTHING __ AND __ NOT FORCE 
 REM __ ECHO 3.. TASKKILL /F /FI "IMAGENAME NE Z" /IM * /T  _______ WILD CARD EVERYTHING __ YES FORCE BSD BSD XBOX
 REM __ ECHO 4.. TASKKILL /FI "WINDOWTITLE NE Z" /IM * /T      ____ WILD CARD EVERYTHING ALL WINDOWTITLE NOT FORCE
 REM __ ECHO 5.. TASKKILL /F /FI "WINDOWTITLE NE Z" /IM * /T ______ WILD CARD EVER ALL WINDOWTITLE YES FORCE BSD
 REM ------------------------------------------------------------------------------------------------
-@SET VAR_COUNTER=21
-@SET ACCUMULATOR =0
 
-REM ECHO.
-REM ECHO -----------------------------------------------------------------------------------------------------------------------------------
-REM ECHO -----------------------------------------------------------------------------------------------------------------------------------
-REM ECHO.
-
-
-REM CALL :WILD_CARD__01_OF_05
-@SET ACCUMULATOR =0
-REM ECHO ON
-REM ------------------------------------------------------------------------------------------------
-
-CALL :WILD_CARD__01_OF_05
-GOTO JUMPER_ROUTINE_WILD_CARD__01_OF_05
-::
-:WILD_CARD__01_OF_05
-@REM setlocal
-@ECHO OFF
-REM -----------------------------------------------------------------------------------------------
-REM ECHO ------------------------------------------------------------------------------------------------
-REM ECHO.
-REM ECHO -- WILD CARD __ 01 OF 05
-REM ------------------------------------------------------------------------------------------------
-REM -- NOT RESPONDER -------------------------------------------------------------------
-REM -- NOT REQUIRE A DOUBLE QUESTION EXAMPLE SHOWN GIVE
-REM -------------------------------------------------------------------------------------------------
-SET /A ACCUMULATOR=ACCUMULATOR+1
-SET IX1=%ACCUMULATOR% of %VAR_COUNTER%
 ECHO -----------------------------------------------------------------------------------------------
 ECHO.
-ECHO %IX1%
-ECHO ON
-TASKLIST /FI "STATUS EQ NOT RESPONDING"
-@ECHO OFF
-TASKLIST /FI "STATUS EQ NOT RESPONDING"  | find "INFO: No tasks are running" > nul
-IF %errorlevel% EQU 0 GOTO NOT
+ECHO TASKLIST %CMD_GIVE% _______ WILD CARD ALL NOT RESPONDING
+ECHO.
+SET FILENAME_ER="%~dp0BAT 01-NOT RESPONDER KILLER NOT FORCE WAIT_OUT.TXT"
+TASKLIST %CMD_GIVE% >%FILENAME_ER% 2>>&1
+TYPE %FILENAME_ER%
+find "INFO: No tasks are running" %FILENAME_ER%>NUL
+find "Session Name" %FILENAME_ER%>NUL
+SET ERR_1=%ERRORLEVEL%
+ECHO.
+IF "%ERR_1%"=="0"      ECHO ---- ERRORLEVEL FROM FIND GIVER RESULT ^> 0
+IF NOT "%ERR_1%"=="0"  ECHO ---- ERRORLEVEL FROM FIND RESULT NOTHING 0
+IF "%ERR_1%"=="0"      SET TIMER_DELAY=20
+IF NOT "%ERR_1%"=="0"  SET TIMER_DELAY=4
+IF NOT "%ERR_1%"=="0"  GOTO NOT
 
 ECHO.
 ECHO __ Do You Want Kill ---- ALL NOT RESPONDING SERVICE SET AS SHOWN AND OR PROCESS SET 
 ECHO __ WILL MAYBE KILLER CMD.COM THIS BAT SCRIPT LEARN 
 ECHO __ ITSELF ONLY __ IF SLACKING INTO NOT RESPONDING
 ECHO.
-
-ECHO 20 SECOND AND NOT RESPONDING PROCESS ABOVE WILL BE KILLER GENITALLY __ EXIT IF WANT TO
+ECHO __ 20 SECOND AND NOT RESPONDING PROCESS ABOVE WILL BE KILLER FORCE __ EXIT IF WANT TO
 ECHO.
 
-@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
-@FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
-@FOR /L %%# IN (5,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
-	PING -n 2 127.0.0.1 >NUL:)
-@ECHO.
+IF "%WINXP_%"=="YES" (
+	@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+	@FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
+	@FOR /L %%# IN (%TIMER_DELAY%,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
+		PING -n 2 127.0.0.1 >NUL:)
+)
+IF NOT "%WINXP__%"=="YES" GOTO NOT_WINDOWS_XP
+	GOTO NOT_WINDOWS_XP_JUMP
+:NOT_WINDOWS_XP
+	TIMEOUT /T %TIMER_DELAY%
+:NOT_WINDOWS_XP_JUMP
+ECHO.
 
-Set INPUT=Y
+SET INPUT=Y
 IF "%INPUT%" == "y" GOTO YES
 IF "%INPUT%" == "Y" GOTO YES
 GOTO NOT
 :YES
 ECHO.
 ECHO ON
-TASKKILL /F /FI "STATUS EQ NOT RESPONDING"
-REM TASKKILL /FI "STATUS EQ NOT RESPONDING"
+TASKKILL %CMD_GIVE%
 @ECHO OFF
 :NOT
-ECHO.
-endlocal & goto :EOF
-@REM REMMER --------------------------------------------------------------------------------
-:JUMPER_ROUTINE_WILD_CARD__01_OF_05
-
-
-ECHO -----------------------------------------------------------------------------------------------
-ECHO.
-REM ------------------------------------------------------------------------------------------------
-REM -- FINALLY EDITOR NOTEPAD LEARN 
-REM ------------------------------------------------------------------------------------------------
-SET /A ACCUMULATOR=ACCUMULATOR+1
-ECHO -----------------------------------------------------------------------------------------------
-ECHO.
-REM ECHO %ACCUMULATOR% OF %VAR_COUNTER%  -- DO YOU WANT EDIT HERE NOTEPAD++ C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-BOOT KILLER.BAT 
-REM ECHO ____________________ ?(Y/N)
-REM SET INPUT=
-REM SET /P INPUT=Type input: %=%
-REM IF "%INPUT%" == "y" GOTO YES
-REM IF "%INPUT%" == "Y" GOTO YES
-REM GOTO NOT
-REM :YES
-REM START "" /MAX /HIGH "C:\Program Files (x86)\Notepad++\notepad++.exe" "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-BOOT KILLER.BAT"
-REM GOTO ENDING
-REM :NOT
-REM ECHO.
 
 ECHO.
 ECHO -----------------------------------------------------------------------------------------------
 
-@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
-@FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
-@FOR /L %%# IN (20,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
-	PING -n 2 127.0.0.1 >NUL:)
-@ECHO.
+IF "%WINXP_%"=="YES" (
+	@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
+	@FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
+	@FOR /L %%# IN (%TIMER_DELAY%,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
+		PING -n 2 127.0.0.1 >NUL:)
+)
+IF NOT "%WINXP__%"=="YES" GOTO NOT_WINDOWS_XP
+	GOTO NOT_WINDOWS_XP_JUMP
+:NOT_WINDOWS_XP
+	TIMEOUT /T %TIMER_DELAY%
+:NOT_WINDOWS_XP_JUMP
+ECHO.
 	
 REM EXIT

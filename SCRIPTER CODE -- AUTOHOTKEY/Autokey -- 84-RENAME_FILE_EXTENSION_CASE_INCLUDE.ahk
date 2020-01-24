@@ -1,3 +1,6 @@
+
+
+
 ; -------------------------------------------------------------------
 ; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\
 ; Autokey -- 78-RENAME_FILE_EXTENSION_CASE_INCLUDE.ahk
@@ -5,13 +8,11 @@
 ; THE INCLUDE FILE TO SHARE BETWEEN OTHER CODE
 ; HERE 
 ; 1.. Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
-; 2.. Autokey -- 84-RENAME_FILE_EXTENSION_CASE_02.ahk
+; 2.. Autokey -- 78-RENAME_FILE_EXTENSION_CASE_02.ahk
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; [ Monday 22:08:00 Pm_16 September 2019 ]
 ; -------------------------------------------------------------------
-
-
 
 ; -------------------------------------------------------------------
 ; IF USE AS INCLUDE RATHER THAN RUN IT
@@ -58,31 +59,6 @@
 ; Tue 17-Sep-2019 14:32:28
 ; Tue 17-Sep-2019 15:18:00 
 ; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; SESSION 002
-; -------------------------------------------------------------------
-; DO SOME MOD HERE TODAY ALLOW OTHER WINDOW FIND TO ACTIVATE 
-; RUN PROCEDURE
-; AND TIME SPENDER TOOK LONGER
-; AS ALL AHK PROJECT SCRIPT HAD OT SHUTDOWN AND REDO ON
-; AS VARIABLE NOT BEHAVE PROPER
-; TOOK LONG TIME SHOULD OF DON IN A SECOND
-;
-; THAT IS NOTHING 
-; THE OTHER DAY 
-; I WENT TO GRAB 3 CLIPBOARD MOVEMENT
-; AND THE FIRST TOOK 20 MINUTE JUST TO HOLD THE CLIPBOARD IN THE AIR
-; AND THEN 5 MINUTE FOR NEXT STEP
-; AND ANOTHER 10 MINUTE FOR NEXT ONE
-; TOTALING 25 MINUTE TO MOVE THERE STEPPER OF CLIPBOARD
-; SHOULD OF BEEN DONE IN 1 SECOND
-; GOD I'M HURT PROGRAMMING AND OTHER USELESS LAMERS 
-; AROUND COMMITTING NONSENSE TALK ABOUT CONTAGIOUS
-; -------------------------------------------------------------------
-
-; Sat 26-Oct-2019 15:24:55
-; Sat 26-Oct-2019 17:18:00 -- NIGHTMARE ON
 
 
 ; -------------------------------------------------------------------
@@ -131,12 +107,11 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	; ---------------------------------------------------------------
 	WinGet, TIMER_RENAME_EXT_MP4_HWND, ID, A
 	WinGetCLASS, TIMER_RENAME_EXT_MP4_HWND_CLASS, A
-	WinGetTITLE, TIMER_RENAME_EXT_MP4_HWND_TITLE, A
 	; ---------------------------------------------------------------
 	; CLASS AND HWND TOGETHER
 	; GOING TO BE SPLIT INTO AN ARRAY
 	; ---------------------------------------------------------------
-	TIMER_RENAME_EXT_MP4=% TIMER_RENAME_EXT_MP4_HWND "`n" TIMER_RENAME_EXT_MP4_HWND_CLASS "--" TIMER_RENAME_EXT_MP4_HWND_TITLE
+	TIMER_RENAME_EXT_MP4=% TIMER_RENAME_EXT_MP4_HWND "`n" TIMER_RENAME_EXT_MP4_HWND_CLASS
 
 	; WILL SET RUN WHENEVER THESE WINDOW
 	; GO TO EXIT GONE
@@ -146,16 +121,6 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_THE_WINDOW_CLASSER=TRUE
 	IF INSTR(TIMER_RENAME_EXT_MP4,"wndclass_desked_gsk")>0    ; VB6 IDE CLASS
 	SET_THE_WINDOW_CLASSER=TRUE
-	IF INSTR(TIMER_RENAME_EXT_MP4,"Freemake Video Converter")>0 
-	SET_THE_WINDOW_CLASSER=TRUE
-	IF INSTR(TIMER_RENAME_EXT_MP4,"Explorer Auto Loader")>0 
-	SET_THE_WINDOW_CLASSER=TRUE
-	
-	; TOOLTIP % TIMER_RENAME_EXT_MP4
-	; TOOLTIP % A_NOW
-	; TOOLTIP % TIMER_RENAME_EXT_MP4_HWND_TITLE
-	; MSGBOX "HH"
-	
 	; ---------------------------------------------------------------
 	
 	IF SET_THE_WINDOW_CLASSER=TRUE
@@ -168,16 +133,10 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	{
 		SET_GO_HWNC_CLASS_COMPARE=FALSE
 		IF A_LoopField
-		{
-			IF INSTR(A_LoopField,"CabinetWClass")>0   ; USED TO BE BEFORE IF NOT EQUAL CLASS NAME WHEN ONE NOW PAIR
-				SET_GO_HWNC_CLASS_COMPARE=
-			IF INSTR(A_LoopField,"wndclass_desked_gsk")>0
-				SET_GO_HWNC_CLASS_COMPARE=
-			IF INSTR(A_LoopField,"Freemake Video Converter")>0
-				SET_GO_HWNC_CLASS_COMPARE=
-			IF INSTR(A_LoopField,"Explorer Auto Loader")>0
-				SET_GO_HWNC_CLASS_COMPARE=
-		}
+		IF A_LoopField=CabinetWClass   ; USED TO BE BEFORE IF NOT EQUAL CLASS NAME WHEN ONE NOW PAIR
+			SET_GO_HWNC_CLASS_COMPARE=
+		IF A_LoopField=wndclass_desked_gsk
+			SET_GO_HWNC_CLASS_COMPARE=
 		
 		IF SET_GO_HWNC_CLASS_COMPARE
 		{
@@ -222,51 +181,43 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	ArrayCount:=0
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\DSC"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"        ; THESE ARE CASE WANTING END RESULT WILL BE AS HERE
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"           ; THESE ARE CASE WANTING END RESULT WILL BE AS HERE
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\VI_ DSC ME 01\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
-	SET_ARRAY_3[ArrayCount]:=
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\DD\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
-	SET_ARRAY_3[ArrayCount]:=
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\DD\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:VI_ DSC ME 02\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\VIDEO\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\NOKIA E72\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO 01\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO 03 DOWNLOAD\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO CCSS\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO CCSS 02\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO DOWNLOAD\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 MOBILE-1\"
@@ -274,41 +225,34 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\0 00 MOBILE-2\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 02 ROOT\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 02 V0 01 HC"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 02 ROOT"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 03 ROOT"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 04 AUTO"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 03 V0 05 LITT"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 04 V0 01 HC"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\DD"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
-
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="C:\CCTV"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG AVI"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\VB6\VB-NT\"
@@ -318,22 +262,6 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_1[ArrayCount]:="C:\SCRIPTER\"
 	SET_ARRAY_2[ArrayCount]:="vbp"
 	SET_ARRAY_3[ArrayCount]:="NOT TALK"
-
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="C:\SCRIPTER\"
-	SET_ARRAY_2[ArrayCount]:="MP3 WAV"
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\VB6\VB-NT\"
-	SET_ARRAY_2[ArrayCount]:="MP3 WAV"
-
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6\VB-NT\00_Best_VB_01\"
-	SET_ARRAY_2[ArrayCount]:="MP3 WAV"
-	
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\DSC\2019+KEY_FOB\"
-	SET_ARRAY_2[ArrayCount]:="AVI WAV JPG"
-	
 
 	; SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\"
 	; SET_ARRAY_1[ArrayCount]:="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC\"
@@ -355,8 +283,8 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	
 
 	IF !RENAME_EXTENSION_QUIET_WITH_AUDIO
-	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav, 1 ; WAIT
-	SoundPlay, Nonexistent.WAV
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	
 	StringCaseSense, On
 	
 	NEST_2ND_LOOP_MAXIMUM=% SET_ARRAY_2.MaxIndex()
@@ -458,8 +386,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 			{
 				PATH_NAME_2=% PATH_1 "*." EXT_COMP_GET
 				; *C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 84-RENAME_FILE_EXTENSION_CASE_INCLUDE.ahk - Notepad++ [Administrator]
-				
-				FILE_COUNTER_MAX=
+
 				Loop, Files, %PATH_NAME_2% ,R
 					FILE_COUNTER_MAX=%A_INDEX%
 				IF !FILE_COUNTER_MAX
@@ -496,8 +423,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 						
 						; StringReplace, PATH_NAME_4_REPLACE, PATH_NAME_4_REPLACE,MMPEG,MPEG
 
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav, 1 ; WAIT
-						SoundPlay, Nonexistent.WAV
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						
 						; -----------------------------------------------
 						; 4096 BRING TO FOREGROUND

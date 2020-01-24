@@ -30,12 +30,14 @@
 ' [ Wednesday 13:08:00 Pm_20 March 2019 ]
 ' -------------------------------------------------------------------
 
+
 ' -------------------------------------------------------------------
 ' NEW CODE INCORPORATE BOTH SET CODE NOW
 ' TEMPORARY RUNNER BY THIS SCRIPT LEARN ASSHOLE MODIFY GOODSYNC
 ' NEW SCRIPT MOVE FOLDER INTO CORRECT AREA ALSO AS WELL
 ' HERE DO THE DELETE EMPTY
 ' -------------------------------------------------------------------
+
 
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
@@ -101,38 +103,32 @@ ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 Dim objFolder
 
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-' FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
+FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 FOLDER_STRING_3="C:\Users\MATT 04\Insync\rub.rim@gmail.com\Google Drive\snapshot ("
-FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT\snapshot ("
 
 ON ERROR RESUME NEXT
-FOR RV=1 TO 4
-	FOR RO=2 TO 80
+FOR RV=1 TO 3
+	FOR RO=2 TO 20
 		XXC=CSTR(RO)
-		FOLDER_STRING=""
 		IF RV=1 THEN FOLDER_STRING=FOLDER_STRING_1+XXC+")"
 		IF RV=2 THEN FOLDER_STRING=FOLDER_STRING_2+XXC+")"
 		IF RV=3 THEN FOLDER_STRING=FOLDER_STRING_3+XXC+")"
-		IF RV=4 THEN FOLDER_STRING=FOLDER_STRING_4+XXC+")"
 
-		IF FOLDER_STRING<>""  THEN
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 			I1=-1
 			I2=-1
-			ERR.CLEAR
+			ERR.CLEAR 
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
 			I1=objFolder.SubFolders.Count
 			I2=objFolder.Files.Count
 			
-			IF ERR.NUMBER=0 THEN  
-			If I1=0 AND I2=0 THEN
-				' MSGBOX "HJ"
+			If I1=0 AND I2=0 AND ERR.NUMBER=0 THEN  
+				MSGBOX "HJ"
+				fso.DeleteFolder objFolder.Path
 				IF FSO.FOLDERExists(FOLDER_STRING) THEN
 					fso.DeleteFolder FOLDER_STRING
 				END IF
 			END IF
-			END IF
-		END IF
 		END IF
 	NEXT
 NEXT
@@ -150,6 +146,9 @@ WScript.Quit(0)
 '--------------------------------------------------------------------
 'END STOP -----------------------------------------------------------
 '--------------------------------------------------------------------
+
+
+
 
 
 Function LPad (str, pad, length)

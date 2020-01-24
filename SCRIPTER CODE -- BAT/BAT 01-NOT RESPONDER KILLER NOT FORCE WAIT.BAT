@@ -19,7 +19,6 @@ REM -----------------------------------------------------------------
 
 ECHO CD /D D:\
 CD /D D:\
-ECHO OFF
 
 REM ---------------------------------------------------------------
 ver | find "10.0." > nul
@@ -38,17 +37,16 @@ REM ---------------------------------------------------------------
 
 SETLOCAL ENABLEEXTENSIONS
 
-SET DESCRIPTION=TASK KILLER NOT RESPOND NOT-FORCE
+SET DESCRIPTION=TASK KILLER NOT RESPOND NOT-FORCE AND WAIT
 TITLE ____ %DESCRIPTION% ____
 ECHO.
 ECHO %DESCRIPTION%
 
 SET CMD_GIVE=/FI "STATUS EQ NOT RESPONDING"
 ECHO.
-ECHO TASKILL %CMD_GIVE% _______ WILD CARD ALL NOT RESPONDING
+ECHO TASKKILL %CMD_GIVE% _______ WILD CARD ALL NOT RESPONDING
 ECHO ----------------------------------------------------------------
 
-REM ------------------------------------------------------------------------------------------------
 REM __ ECHO 2.. TASKKILL /FI "IMAGENAME NE Z" /IM * /T     _______ WILD CARD EVERYTHING __ AND __ NOT FORCE 
 REM __ ECHO 3.. TASKKILL /F /FI "IMAGENAME NE Z" /IM * /T  _______ WILD CARD EVERYTHING __ YES FORCE BSD BSD XBOX
 REM __ ECHO 4.. TASKKILL /FI "WINDOWTITLE NE Z" /IM * /T      ____ WILD CARD EVERYTHING ALL WINDOWTITLE NOT FORCE
@@ -72,26 +70,21 @@ IF "%ERR_1%"=="0"      SET TIMER_DELAY=20
 IF NOT "%ERR_1%"=="0"  SET TIMER_DELAY=4
 IF NOT "%ERR_1%"=="0"  GOTO NOT
 
+
+REM ------------- 1200 UCS-2 (UTF-16 Little Endian Byte Order) -----------------
+REM SET ConvertCP="C:\SCRIPTER\SCRIPTER -- APP TOOL SET\ConvertCP\convertcp.exe"
+REM %ConvertCP% 1200 0 /i %FILENAME_ER%
+REM ----------------------------------------------------------------------------
+REM if %errorlevel%==0 GOTO NOT
+
 ECHO.
 ECHO __ Do You Want Kill ---- ALL NOT RESPONDING SERVICE SET AS SHOWN AND OR PROCESS SET 
 ECHO __ WILL MAYBE KILLER CMD.COM THIS BAT SCRIPT LEARN 
 ECHO __ ITSELF ONLY __ IF SLACKING INTO NOT RESPONDING
 ECHO.
-ECHO __ 20 SECOND AND NOT RESPONDING PROCESS ABOVE WILL BE KILLER GENITALLY __ EXIT IF WANT TO
+ECHO __ NOT RESPONDING PROCESS ABOVE WILL BE KILLER GENITALLY __ EXIT IF WANT TO
 ECHO.
-
-IF "%WINXP_%"=="YES" (
-	@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
-	@FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
-	@FOR /L %%# IN (%TIMER_DELAY%,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
-		PING -n 2 127.0.0.1 >NUL:)
-)
-IF NOT "%WINXP__%"=="YES" GOTO NOT_WINDOWS_XP
-	GOTO NOT_WINDOWS_XP_JUMP
-:NOT_WINDOWS_XP
-	TIMEOUT /T %TIMER_DELAY%
-:NOT_WINDOWS_XP_JUMP
-ECHO.
+PAUSE
 
 SET INPUT=Y
 IF "%INPUT%" == "y" GOTO YES

@@ -2420,8 +2420,8 @@ End Type
 
 Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Type POINTAPI
-    X As Long
-    Y As Long
+    x As Long
+    y As Long
 End Type
 
 Private Type RECT
@@ -2545,7 +2545,7 @@ Private Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (
 Private Declare Function Escape Lib "gdi32" (ByVal HDC As Long, ByVal nEscape As Long, ByVal nCount As Long, ByVal lpInData As String, lpOutData As Any) As Long
 Private Declare Function CreateCompatibleDC Lib "gdi32" (ByVal HDC As Long) As Long
 Private Declare Function CreateCompatibleBitmap Lib "gdi32" (ByVal HDC As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
-Private Declare Function StretchBlt Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long
+Private Declare Function StretchBlt Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal nSrcWidth As Long, ByVal nSrcHeight As Long, ByVal dwRop As Long) As Long
 Private Declare Function DeleteDC Lib "gdi32" (ByVal HDC As Long) As Long
      
 'HDC SET 2
@@ -2557,11 +2557,11 @@ Private Declare Function SelectObject Lib "gdi32" (ByVal HDC As Long, ByVal hObj
 'Private Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal HDC As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As Size) As Long
 Private Declare Function SetBkMode Lib "gdi32" (ByVal HDC As Long, ByVal nBkMode As Long) As Long
 Private Declare Function BeginPath Lib "gdi32" (ByVal HDC As Long) As Long
-Private Declare Function TextOut Lib "gdi32" Alias "TextOutA" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long, ByVal lpString As String, ByVal nCount As Long) As Long
+Private Declare Function TextOut Lib "gdi32" Alias "TextOutA" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, ByVal lpString As String, ByVal nCount As Long) As Long
 Private Declare Function EndPath Lib "gdi32" (ByVal HDC As Long) As Long
 Private Declare Function SelectClipPath Lib "gdi32" (ByVal HDC As Long, ByVal iMode As Long) As Long
-Private Declare Function MoveToEx Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long, lpPoint As POINTAPI) As Long
-Private Declare Function LineTo Lib "gdi32" (ByVal HDC As Long, ByVal X As Long, ByVal Y As Long) As Long
+Private Declare Function MoveToEx Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long, lpPoint As POINTAPI) As Long
+Private Declare Function LineTo Lib "gdi32" (ByVal HDC As Long, ByVal x As Long, ByVal y As Long) As Long
      
 'HDC SET 3
 'Private Declare Function CreateCompatibleBitmap Lib "gdi32" (ByVal HDC As Long, ByVal nWidth As Long, ByVal nHeight As Long) As Long
@@ -2570,7 +2570,7 @@ Private Declare Function GetSystemPaletteEntries Lib "gdi32" (ByVal HDC As Long,
 Private Declare Function CreatePalette Lib "gdi32" (lpLogPalette As LOGPALETTE) As Long
 Private Declare Function SelectPalette Lib "gdi32" (ByVal HDC As Long, ByVal hPalette As Long, ByVal bForceBackground As Long) As Long
 Private Declare Function RealizePalette Lib "gdi32" (ByVal HDC As Long) As Long
-Private Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
+Private Declare Function BitBlt Lib "gdi32" (ByVal hDestDC As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal hSrcDC As Long, ByVal xSrc As Long, ByVal ySrc As Long, ByVal dwRop As Long) As Long
  
 'HCD SET 4
 Private Declare Function OleCreatePictureIndirect Lib "olepro32.dll" (PicDesc As PicBmp, RefIID As GUID, ByVal fPictureOwnsHandle As Long, IPic As IPicture) As Long
@@ -3100,6 +3100,8 @@ End Sub
 '////////////////////////////////////////////////////////////////////
 Private Sub Form_Load()
 
+Dim IRESULT
+
 Dim Label50_Width_VAR
 Dim SETTING_WIDTH_LISTVIEW
 
@@ -3142,10 +3144,39 @@ If IsIDE = True Then
     End If
 End If
 
-
-
-Call Form2_Check_Project_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
-
+' -------------------------------------------------
+' IF WANT RENAME FORM FOR DIFFERENT PROJECT
+' & ALSO KEEP UNIVERSAL FOR SYNC PURPOSE
+' UNABLE TO RENAME FORM IN ANYWAY AND SYNC
+' ANSWER CHANGE NAME WITHOUT FRM_ PRECEDE
+' SO LAND AT TOP OF FORM LISTER NOT IN THE WAY
+' SOME PROJECT HAVE FRM_ OR FORM_ SORT ORDER
+' -------------------------------------------------
+' 03 OF 03
+' -------------------------------------------------
+' DETECT PRESENCE OF FORM
+' REQUEST ANSWER WILL LOAD THE FORM ALSO
+' -------------------------------------------------
+On Error Resume Next
+Dim FRMX As Form, FRMXNAME_T As String
+Dim FRMXNAME() As String
+ReDim Preserve FRMXNAME(10)
+Dim INDX
+INDX = 0
+INDX = INDX + 1: FRMXNAME(INDX) = "Form2_Check_Project_Date"  ' PREVIOUS  NAME USER
+INDX = INDX + 1: FRMXNAME(INDX) = "Frm_Project_Check_Date"    ' ATTEMPTED NAME USER
+INDX = INDX + 1: FRMXNAME(INDX) = "Project_Check_Date"        ' STANDARDISE
+ReDim Preserve FRMXNAME(INDX)
+For INDX = 1 To UBound(FRMXNAME)
+    Err.Clear
+    Set FRMX = Forms.Add(FRMXNAME(INDX))
+    If Err.Number = 0 Then
+        FRMXNAME_T = FRMXNAME(INDX)
+        Exit For
+    End If
+Next
+' -------------------------------------------------
+     
 
 'THIS FEATURE WINDOWS 10 PRO
 'HAS ACHIVED WORK OF MAKE EVERYTHING ADMIN
@@ -3198,7 +3229,7 @@ INFO_NOTE_1 = "EliteSpy+ by Andrea Batina 2001 __ www.PlanetSourceCode.com_ & Ma
 INFO_NOTE_1 = "EliteSpy+ by Andrea B 2001 __ www.PlanetSourceCode.com_ & Big Timer Worker By Matthew Lancaster __ 07722224555"
 INFO_NOTE_1 = "EliteSpy+ 2001 __ www.PlanetSourceCode.com" '_ & Big Timer Worker By Me"
 
-INFO_NOTE_2 = " __ Version " + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision))
+' INFO_NOTE_2 = " __ Version " + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision))
 INFO_NOTE = INFO_NOTE_1 + INFO_NOTE_2
 
 Me.Caption = INFO_NOTE
@@ -3772,6 +3803,30 @@ Label53.ToolTipText = "Pause Update for 1 Minute"
 
 End Sub
 
+Sub ControlCall_Find(ControlName As String)
+
+Dim strTest
+Dim ControlExistsAnswer
+
+On Error Resume Next
+Dim SUBNAME As String
+Dim Form As Form
+For Each Form In Forms
+    Err.Clear
+    strTest = Form(ControlName).Name
+    ControlExistsAnswer = (Err.Number = 0)
+    
+    If ControlExistsAnswer = True Then
+        ' Form.CHECK_PROJECT_DATE_IN_PROCESS = Me.CHECK_PROJECT_DATE_IN_PROCESS
+        SUBNAME = ControlName + "_" + Mid(ControlName, 1, InStr(ControlName, "_") - 1)
+        CallByName Form, SUBNAME, VbMethod
+    End If
+Next
+On Error GoTo 0
+
+End Sub
+
+
 
 Private Sub Form_Click()
 If IsIDE = True Then
@@ -3800,7 +3855,7 @@ Private Sub Form_LostFocus()
 'Me.SetFocus
 End Sub
 
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
 'Me.AutoRedraw = False
 'Me.SetFocus
 End Sub
@@ -4346,7 +4401,7 @@ Private Sub lstProcess_2_ListView_KeyDown(KeyCode As Integer, Shift As Integer)
 LISTVIEW_2_OR_3_HITT = 2
 End Sub
 
-Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub lstProcess_2_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 LISTVIEW_2_OR_3_HITT = 2
 End Sub
 
@@ -4355,7 +4410,7 @@ LISTVIEW_2_OR_3_HITT = 3
 
 End Sub
 
-Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub lstProcess_3_SORTER_ListView_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
 LISTVIEW_2_OR_3_HITT = 3
 
 End Sub
@@ -8593,7 +8648,7 @@ End Sub
 '////////////////////////////////////////////////////////////////////
 '//// CROSSHAIR EVENTS
 '////////////////////////////////////////////////////////////////////
-Private Sub picCrossHair_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picCrossHair_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
     ' If user pressed left mouse button and we are not dragging
     If Button = vbLeftButton And Not m_bDragging Then
         picCrossHair_MouseMove_Dragging_VAR = True
@@ -8626,7 +8681,7 @@ Private Sub picCrossHair_MouseMove_02()
     ' Set label caption to cursor cordinates
     'lblCordi.Caption = "X: " & tPA.X & "  Y: " & tPA.Y
     
-    If tPA.Y = 0 Or tPA.Y < (Me.Top / Screen.TwipsPerPixelY) Then
+    If tPA.y = 0 Or tPA.y < (Me.Top / Screen.TwipsPerPixelY) Then
         NOT_RESIZE_EVENTER = True
         Me.WindowState = vbNormal
         'Me.Hide
@@ -8650,7 +8705,7 @@ Private Sub picCrossHair_MouseMove_02()
 End Sub
 
 
-Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
     
     picCrossHair_MouseMove_02
     
@@ -8662,7 +8717,7 @@ Private Sub picCrossHair_MouseMove(Button As Integer, Shift As Integer, X As Sin
 
 End Sub
 
-Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Private Sub picCrossHair_MouseUp(Button As Integer, Shift As Integer, x As Single, y As Single)
     ' If user pressed left mouse button and we are dragging
     If Button = vbLeftButton And m_bDragging Then
         ' Set dragging flag to true
@@ -8735,7 +8790,7 @@ Sub ChunkCodeOnMouse()
                 ' Get cursor position
                 GetCursorPos tPA
                 ' Get window handle from point
-                lHwnd = WindowFromPoint(tPA.X, tPA.Y)
+                lHwnd = WindowFromPoint(tPA.x, tPA.y)
                 ' Get window caption
             End If
         End If
@@ -9047,15 +9102,15 @@ End If
 
 End Sub
 
-Public Sub FindCursor(X, Y)
+Public Sub FindCursor(x, y)
 
 Dim P As POINTAPI
 
 GetCursorPos P
 '   return x and y co-ordinate
-X = P.X ' / GetSystemMetrics(0) * Screen.Width
+x = P.x ' / GetSystemMetrics(0) * Screen.Width
 '   for current cursor position
-Y = P.Y '/ GetSystemMetrics(1) * Screen.Height
+y = P.y '/ GetSystemMetrics(1) * Screen.Height
 
 End Sub
 
@@ -9549,7 +9604,7 @@ If IsIDE = True And IsIDE_TEST = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 
 
 Dim tPA As POINTAPI, lHwnd As Long, O_lhWndParent, lhWndParent, lhWndParentX
 GetCursorPos tPA
-lHwnd = WindowFromPoint(tPA.X, tPA.Y)
+lHwnd = WindowFromPoint(tPA.x, tPA.y)
 O_lhWndParent = lHwnd
 lhWndParent = GetParent(lHwnd)
 If lhWndParent = 0 Then lhWndParent = O_lhWndParent
@@ -9897,7 +9952,7 @@ Private Sub Timer_MOUSE_CORD_Timer()
     ' Get cursor cordinates
     GetCursorPos tPA
     ' Set label caption to cursor cordinates
-    lblCordi.Caption = "X: " & tPA.X & "  Y: " & tPA.Y
+    lblCordi.Caption = "X: " & tPA.x & "  Y: " & tPA.y
     
     If TIMER2_TIMER_BEGAN > Now Then
     
@@ -9911,7 +9966,7 @@ Private Sub Timer_MOUSE_CORD_Timer()
         
         i_string = "USE " + Format(DateDiff("s", Now, TIMER2_TIMER_BEGAN, "00")) + " SECOND HOOVER"
         If i_string <> MNU_HOOVER_20_SECOND.Caption Then MNU_HOOVER_20_SECOND.Caption = i_string
-            mWnd = WindowFromPoint(tPA.X, tPA.Y)
+            mWnd = WindowFromPoint(tPA.x, tPA.y)
             Call ChunkCodeOnMouse
         Else
             
@@ -12032,7 +12087,7 @@ End Sub
 'Private Declare Function CloseHandle Lib "kernel32" _
 '   (ByVal hObject As Long) As Long
 
-Public Function SetFileDateTime(ByVal FileName As String, _
+Public Function SetFileDateTime(ByVal Filename As String, _
   ByVal TheDate As String) As Boolean
 '************************************************
 'PURPOSE:    Set File Date (and optionally time)
@@ -12043,7 +12098,7 @@ Public Function SetFileDateTime(ByVal FileName As String, _
 
 'Returns:    True if successful, false otherwise
 '************************************************
-If Dir(FileName) = "" Then Exit Function
+If Dir(Filename) = "" Then Exit Function
 If Not IsDate(TheDate) Then Exit Function
 
 Dim lFileHnd As Long
@@ -12066,7 +12121,7 @@ End With
 lRet = SystemTimeToFileTime(typSystemTime, typLocalTime)
 lRet = LocalFileTimeToFileTime(typLocalTime, typFileTime)
 
-lFileHnd = CreateFile(FileName, GENERIC_WRITE, _
+lFileHnd = CreateFile(Filename, GENERIC_WRITE, _
     FILE_SHARE_READ Or FILE_SHARE_WRITE, ByVal 0&, _
     OPEN_EXISTING, 0, 0)
     
@@ -12084,7 +12139,7 @@ End Function
 
 
 
-Public Function SetFOLDERDateTime(ByVal FileName As String, Folder_Part_Path, _
+Public Function SetFOLDERDateTime(ByVal Filename As String, Folder_Part_Path, _
   ByVal TheDate As String) As Boolean
 
     
@@ -12099,7 +12154,7 @@ Public Function SetFOLDERDateTime(ByVal FileName As String, Folder_Part_Path, _
 'ModFileDT FileName, Folder_Part_Path, TheDate '"1/05/2017 1:0:00"
 
 
-ModFileDT FileName, Folder_Part_Path, TheDate
+ModFileDT Filename, Folder_Part_Path, TheDate
 
 
 End Function
@@ -12157,7 +12212,7 @@ Next
 End Function
 
 
-Public Function Set2244FOLDERDateTime(ByVal FileName As String, _
+Public Function Set2244FOLDERDateTime(ByVal Filename As String, _
   ByVal TheDate As String) As Boolean
 '************************************************
 'PURPOSE:    Set File Date (and optionally time)
@@ -12171,7 +12226,7 @@ Public Function Set2244FOLDERDateTime(ByVal FileName As String, _
 
 Dim FT1, FT2
 
-If Dir(FileName, vbDirectory) = "" Then Exit Function
+If Dir(Filename, vbDirectory) = "" Then Exit Function
 If Not IsDate(TheDate) Then Exit Function
 
 Dim lFileHnd As Long
@@ -12196,7 +12251,7 @@ lRet = LocalFileTimeToFileTime(typLocalTime, typFileTime)
 
 'CreateDirectory "C:\Test", ByVal &H0
 
-lFileHnd = CreateDirectory(FileName, ByVal &H0)
+lFileHnd = CreateDirectory(Filename, ByVal &H0)
 
 'lFileHnd = CreateDirectory(FileName, GENERIC_WRITE, _
     FILE_SHARE_READ Or FILE_SHARE_WRITE, ByVal 0&, _
@@ -12253,7 +12308,7 @@ End Function
 'Private Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
 
 
-Private Function Set2222FOLDERDateTime(ByVal FileName As String, ByVal TheDate As String) As Boolean
+Private Function Set2222FOLDERDateTime(ByVal Filename As String, ByVal TheDate As String) As Boolean
 Dim lngHandle As Long
 Dim FT1 As FILETIME, FT2 As FILETIME, SysTime As SYSTEMTIME
 
@@ -12271,9 +12326,9 @@ With typSystemTime
     .wSecond = Second(TheDate)
 End With
 
-CreateDirectory FileName, ByVal &H0
+CreateDirectory Filename, ByVal &H0
 
-lngHandle = GetFileAttributes(FileName)
+lngHandle = GetFileAttributes(Filename)
 'MsgBox lngHandle
 GetFileTime lngHandle, FT1, FT1, FT2
 

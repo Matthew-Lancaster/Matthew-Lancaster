@@ -15,6 +15,21 @@
 ' [ Monday 21:28:00 Pm_30 December 2019 ]
 ' --------------------------------------------------------------------
 
+' --------------------------------------------------------------------
+' IS RUN FROM
+' --------------------------------------------------------------------
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
+' --------------------------------------------------------------------
+' HERE ROUTINE HANDLE
+' --------------------------------------------------------------------
+' "BLUE_1_FRONTDOOR"
+' "OUTDOOR_JACKET"
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+' Sun 19-Jan-2020 18:24:11
+' --------------------------------------------------------------------
+
+
 DIM objStartFolder
 DIM objFolder
 DIM I_COUNT
@@ -52,12 +67,39 @@ Dim oDict ' Key: Full filename, Item: Filename
 ' D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 1 _ FRONT DOOR\RECORD 2019
 ' -------------------------------------------------------------------
 
-FOLDER_PATH="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 1 _ FRONT DOOR\RECORD " + CSTR(Year(Now))+"\RECORD"
+Set args = Wscript.Arguments
+For Each arg In args
+	XF0 = XF0 +""""+ arg + """ "
+	XF0 = Arg 
+	EXIT FOR
+Next
+'--------------------------------------------------------------
+'If Sent-to is Used Sometime Additional Quote Surround are User
+'--------------------------------------------------------------
+XF0 = UCASE(Replace(XF0,"""""",""""))
+XF0 = "BLUE_1_FRONTDOOR"
+
+IF INSTR(XF0,"BLUE_1_FRONTDOOR") THEN 
+	FOLDER_PATH="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 1 _ FRONT DOOR\RECORD " + CSTR(Year(Now))+"\RECORD"
+END IF
+IF INSTR(XF0,"OUTDOOR_JACKET") THEN 
+	FOLDER_PATH="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 7 _ OUTDOOR JACKET\RECORD " + CSTR(Year(Now))+"\RECORD"
+END IF
 
 I_COUNT=0
 
+IF FOLDER_PATH="" THEN 
+	MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"PARAM NOT GIVE INFO WANT TO MAKE FOLDER PATH"+VBCRLF+VBCRLF+"XF0="+VBCRLF+XF0+VBCRLF+VBCRLF+"FOLDER PATH="+VBCRLF+XF0,vbMsgBoxSetForeground 
+	Wscript.QUIT
+END IF
+
+IF XF0="" THEN 
+	MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"PARAM NOT PASS INTO CODE"+VBCRLF+VBCRLF+"XF0="+VBCRLF+XF0,vbMsgBoxSetForeground 
+	Wscript.QUIT
+END IF
+
 IF FSO.FolderExists(FOLDER_PATH)=FALSE THEN 
-	MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"FOLDER NOT EXIST"+VBCRLF+VBCRLF+FOLDER_PATH,vbMsgBoxSetForeground 
+	MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"FOLDER NOT EXIST"+VBCRLF+VBCRLF+"FOLDER PATH="+VBCRLF+FOLDER_PATH,vbMsgBoxSetForeground 
 	Wscript.QUIT
 END IF
 
@@ -135,7 +177,8 @@ SUB PATH_SCANNER_RENAME
 	' NONE REQUIRE TO CHANGE DATE FILENAME THIS DEVICE
 	' ---------------------------------------------------------------
 	
-	IF LEN(FILE_VAR)= 23 THEN SET_GO=TRUE 
+	IF LEN(FILE_VAR)= 23 THEN         SET_GO=TRUE 
+	IF MID(FILE_VAR,1,3)="REC" THEN   SET_GO=TRUE    ' -- REC001.WAV
 	
 	IF LEN(FILE_VAR)<> 23 THEN
 		i_TIME=""
@@ -162,29 +205,15 @@ SUB PATH_SCANNER_RENAME
 	PATH_VAR_2=REPLACE(PATH_VAR,"\RECORD " + CSTR(Year(Now))+"\RECORD","\RECORD " + CSTR(Year(Now)))
 	
 	' ---------------------------------------------------------------
-	' IF PATH_VAR_2<>PATH_VAR THEN 
-		' MSGBOX PATH_VAR+VBCRLF+CSTR(LEN(PATH_VAR))
-	' END IF
-	' ---------------------------------------------------------------
-	' MSGBOX LEN(PATH_VAR)
-	' ---------------------------------------------------------------
-	' CHECK PATH LEN AS MIGHT VARY BETWEEN USE OTHER DIRECTORY 
-	' AND OTHER CAMERA SHIT
-	' ---------------------------------------------------------------
 	' EXAMPLE 
 	' D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 1 _ FRONT DOOR\RECORD 2019
 	' ---------------------------------------------------------------
-	' MSGBOX PATH_VAR+VBCRLF+CSTR(LEN(PATH_VAR))
-	' ---------------------------------------------------------------
 	
- 	IF LEN(PATH_VAR)<=68 THEN 
-		MSGBOX PATH_VAR+VBCRLF+CSTR(LEN(PATH_VAR))
-		SET_GO=FALSE
-	END IF
-	IF LEN(PATH_VAR)>68 THEN
-		PATH_VAR=PATH_VAR_2
-		BuildFullPath PATH_VAR
-	END IF
+	' WAS GOING TO SET NOT MAKE PATH IF ROOT LEVEL TO VARIABLE
+	' IF LEN(PATH_VAR)>68 THEN
+
+	PATH_VAR=PATH_VAR_2
+	BuildFullPath PATH_VAR
 
 	ON ERROR RESUME NEXT
 	
@@ -196,7 +225,7 @@ SUB PATH_SCANNER_RENAME
 		
 		NewFilename=PATH_VAR+"\"+NewFilename
 		IF SET_GO=TRUE THEN
-			' MSGBOX VAR_PATH_SCANNER+VBCRLF+ NewFilename,vbMsgBoxSetForeground
+			' MSGBOX VAR_PATH_SCANNER+VBCRLF+NewFilename,vbMsgBoxSetForeground
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT=I_COUNT+1
 		END IF

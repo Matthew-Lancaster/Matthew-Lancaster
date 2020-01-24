@@ -122,22 +122,6 @@
 ; Thu 29-Aug-2019 00:35:10 -- HOW LONG SMALL CODE WANT BEFORE BEDTIME
 ; ----------------------------------------------------------------------------
 
-; -------------------------------------------------------------------
-; 010 ---------------------------------------------------------------
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-; THE CODE BEEN MADE GOOD -- SMALLER 
-; EASIER DEBUGGER
-; OPTION TO RELOADED WHILE IN NOTEPAD++ RATHER THAN RELAUNCH BUTTON MENU
-; MAKE A LOT EASIER CODING
-; TOOK A BIT TOO LONG
-; TO NIGHTFALL LATE WITHOUT MEAL MEANT TO HAVE
-; BEEN CAUGHT IN BUGGY MODE FOR DAY LONG BEEN MEAN TO DO
-; -------------------------------------------------------------------
-; Thu 03-Oct-2019 20:56:29
-; Thu 03-Oct-2019 23:11:48
-; ----------------------------------------------------------------------------
-
 
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
@@ -149,26 +133,21 @@
 ; ----
 ;# ------------------------------------------------------------------
 
+
 ; SCRIPT BEGINNER ===================================================
 #Warn
 #NoEnv
+#SingleInstance Force
 #Persistent
-
-; -------------------------------------------------------------------
-; THE EXIT ROUTINE HERE THE CODE
-; WON'T ALLOW TERMINATE 
-; UNLESS BOOT DOWN 
-; TOO MANY PROBLEM WITH IT SHUT ITSELF GONE
-; IT HAS RELAUNCH IN MENU
-; -------------------------------------------------------------------
-
 ; -------------------------------------------------------------------
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
 ; Exitapp CALLS ONTO ExitFunc
 ; -------------------------------------------------------------------
 
-MUST_EXIT=
+
+#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
+
 
 ; -------------------------------------------------------------------
 ; Register a function to be called on exit:
@@ -198,21 +177,16 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; ---------------------------------------------------------------
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
 
-; -------------------------------------------------------------------
-#SingleInstance force
-; -------------------------------------------------------------------
-
-#InstallKeybdHook  ;A_TimeIdlePhysical ignores mouse clicks/mouse moves
-
 SetStoreCapslockMode, off
 DetectHiddenWindows, ON
 SetTitleMatchMode 3  ; EXACTLY
 
 SoundBeep , 2000 , 20
 
-; --------------------------------------------------------------------
-; AUTOHOTKEYS
-; --------------------------------------------------------------------
+;--------------------------------------------------------------------
+;AUTOHOTKEYS
+;--------------------------------------------------------------------
+
 
 GLOBAL SIGNAL_TO_RESTART_HAPPEN
 GLOBAL I_COUNT
@@ -220,15 +194,13 @@ GLOBAL I_COUNT
 SIGNAL_TO_RESTART_HAPPEN=FALSE
 I_COUNT=0
 
+
 GLOBAL VAR_A__TimeIdle
 GLOBAL OutputVar
 
 VAR_A__TimeIdle=0
-TIMER_DELAY=
-
 
 ; Each array must be initialized before use:
-; -------------------------------------------------------------------
 FN_Array_1 := [] 
 FN_Array_2 := []
 FN_Array_3 := []
@@ -260,7 +232,7 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk"	
 ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer.ahk"
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER.ahk"
 IF OSVER_N_VAR>5
 {
 	ArrayCount += 1
@@ -285,16 +257,44 @@ IF OSVER_N_VAR>=10
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 50-Check The Capital Lock State.ahk"
 
-; WIN XP HAVE 05
-; --------------
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
+
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := 
+
+; WIN XP IS 5
 IF OSVER_N_VAR>5
 {
 	ArrayCount += 1
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 02-SAVE AS KEY ENTER.ahk"
 }
 
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-AUTO REPEAT BROWSER FUNCTION SET.ahk"
+
+
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
+; FN_Array_3[ArrayCount] := "FileZilla Server Main Window"
+
+
+; ; WIN XP IS 5
+; IF OSVER_N_VAR>5
+; {
+	; ArrayCount += 1
+	; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
+; }
+
+; SET_GO=TRUE
+; IF (A_ComputerName = "2-ASUS-EEE") 
+	; SET_GO=FALSE
+; IF (A_ComputerName = "8-MSI-GP62M-7RD")
+	; SET_GO=FALSE
+; IF SET_GO=TRUE
+; {
+	ArrayCount += 1
+	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-AUTO REPEAT BROWSER FUNCTION SET.ahk"
+; }
+
 
 
 SET_GO=TRUE
@@ -312,6 +312,11 @@ IF SET_GO=TRUE
 	ArrayCount += 1
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
 }
+
+
+
+; IF (A_ComputerName = "7-ASUS-GL522VW") 
+
 
 ; -------------------------------------------------------------------
 ; HERE THE INCLUDE SET PAIR IN THIS EXAMPLE
@@ -332,25 +337,11 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
 
+
+
+
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER.ahk"
-
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
-
-; ArrayCount += 1
-; FN_Array_1[ArrayCount] := "C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
-; FN_Array_3[ArrayCount] := "FileZilla Server Main Window"
-
-; ; WIN XP IS 5
-; IF OSVER_N_VAR>5
-; {
-	; ArrayCount += 1
-	; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
-; }
-
-
-
 
 
 
@@ -389,8 +380,11 @@ Loop % ArrayCount
 	TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
 	TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
 	TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+	; TEMP_VAR_4 -- PATH
 	TEMP_VAR_4:=SUBSTR(TEMP_VAR_1,INSTR(TEMP_VAR_1,"\",,0)+1)
+
 	FN_Array_2.InsertAt(A_Index,TEMP_VAR_3)
+
 	FN_Array_4.InsertAt(A_Index,TEMP_VAR_4)
 	
 	; ---------------------------------------------------------------
@@ -423,6 +417,7 @@ Loop % ArrayCount
 		MSGBOX EMPTY ARRAY VALUE AT HERE CODER`n`nAutokey -- 28-AUTOHOTKEYS SET RELOADER.ahk`n`nQUITER
 		Process, Close,% DllCall("GetCurrentProcessId")
 	}
+
 }
   
 Loop % ArrayCount
@@ -432,8 +427,10 @@ Loop % ArrayCount
 	{
 		FileGetTime, OutputVar, %Element%, M
 		DATE_MOD_Array[A_Index] := OutputVar
+		; MSGBOX % DATE_MOD_Array[A_Index]
 	}
 }
+
 
 IF (A_ComputerName = "7-ASUS-GL522VW") 
 	SETTIMER TIMER_SUB_FileZilla_Server,10000
@@ -442,7 +439,6 @@ IF (A_ComputerName = "7-ASUS-GL522VW")
 	SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,1000 ; 1 SECOND
 	;SETTIMER TIMER_SUB_HUBIC_LAUNCHER_DELETER,600000 ; 10 MINUTER
 
-; MUST_EXIT=FALSE
 	
 FIRST_RUN=TRUE
 
@@ -460,154 +456,118 @@ RETURN
 
 TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 
-	GLOBAL MUST_EXIT
+SET_TIMER=FALSE
 
-	; DetectHiddenWindows, ON
-	; SetTitleMatchMode 2      ; Specify PARTIAL path
-
-	Loop % ArrayCount
-	{
-		TT_1_LESS=%A_Index%
-		TT_1_LESS-=1
-		Element_1 := FN_Array_1[A_Index]
-		Element_2 := DATE_MOD_Array[A_Index]
-		Element_3 := FN_Array_2[A_Index]          ; THE INCLUDE AND ONE LESS THAN SAME
-		Element_5 := FN_Array_2[TT_1_LESS]        ; -- LESS 	
-		Element_4 := FN_Array_4[A_Index]		  ; THE PATH AFTER THE BACKSLASH \ FILENAME
-		Element_4 = %Element_4% ahk_class #32770
+Loop % ArrayCount
+{
+	TT_1_LESS=%A_Index%
+	TT_1_LESS-=1
+	Element_1 := FN_Array_1[A_Index]
 	
-		; IF FIRST_RUN=FALSE
-			; IF A_TimeIdlePhysical < 2000
-				; RETURN			
+	Element_7 := FN_Array_1[TT_1_LESS]  ; -- LESS 
 
-		IfExist, %Element_1%
-			FileGetTime, OutputVar, %Element_1%, M
+	Element_2 := DATE_MOD_Array[A_Index]
 
+	Element_3 := FN_Array_2[A_Index]
+	
+	Element_5 := FN_Array_2[TT_1_LESS]  ; -- LESS 
+	
+	Element_4 := FN_Array_4[A_Index]
+	Element_4 = %Element_4% ahk_class #32770
+
+	RUN_APP_GO=TRUE
+
+	IF WinExist(Element_4)
+	{
+		; MSGBOX % Element_4
+		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,40000
+		Element_8=%Element_2%
+		Element_8+= -1, Days
+		DATE_MOD_Array.InsertAt(A_Index,Element_8)
+		; MSGBOX % Element_2 " -- " DATE_MOD_Array[A_Index]
+		SET_TIMER=TRUE
 		RUN_APP_GO=FALSE
-		IF OutputVar>%Element_2%
-			RUN_APP_GO=TRUE
-		IF !Element_2
-			RUN_APP_GO=TRUE
-
+	}
+	IF SET_TIMER=FALSE
+	{	
+		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
+	}
+	
+	IfExist, %Element_1%
+		FileGetTime, OutputVar, %Element_1%, M
+	
+	RUN_APP_HAPPEN_FLAG=FALSE
+	IfExist, %Element_1%
 		IF INSTR(Element_3,"_INCLUDE.ahk")=0
 		IF (!WinExist(Element_3))
-			RUN_APP_GO=TRUE
-
-		; -----------------------------------------------------------
-		; PUT THE DELAY HERE 
-		; LIKE DOUBLE TIMER AS USE ELSEWHERE
-		; AND PREVENT 
-		; WHEN ASK CLOSE ALL DOWN 
-		; NOT SOME COME BACK UP
-		; WITH SPEED
-		; OR ELSE HAVE TO MAKE WHEN WILD-CARD KILL EM ALL
-		; IT THE HAS TO KILL THIS SCRIPT 1ST
-		; PLUS STOP REPEATER OFF THE END WHEN CODE SOMETHING
-		; DRAFT COPY
-		; -----------------------------------------------------------
-		; Sat 05-Oct-2019 08:55:07
-		; -----------------------------------------------------------
-		IF FIRST_RUN=FALSE
 			IF RUN_APP_GO=TRUE
 			{
-				IF !TIMER_DELAY
-				{
-					TIMER_DELAY = % A_Now
-					TIMER_DELAY += 2, SECONDS
-					RETURN
-				}
-				
-				IF TIMER_DELAY>%A_Now%
-					RETURN
-				
-				TIMER_DELAY=
+				DATE_MOD_Array[A_Index] := OutputVar
+				GOSUB RUN_THE_APP
+				RUN_APP_HAPPEN_FLAG=TRUE
 			}
-
-		; -----------------------------------------------------------
-		; DEBUG WORKER
-		; -----------------------------------------------------------
-		;IF A_Index=14
-		; IF FIRST_RUN=FALSE
-			; IfExist, %Element_1%
-				; TOOLTIP % A_INDEX "`n" OutputVar "`n" Element_2 "`n" RUN_APP_GO "`n" Element_1
-		
-		; IF RUN_APP_GO=TRUE
-				; MSGBOX % OutputVar "`n" Element_2 "`n" RUN_APP_GO "`n" Element_1
-		
-		
-		IF RUN_APP_GO=TRUE
-		{
-			; IF FIRST_RUN=FALSE
-				IfExist, %Element_1%
-					IF INSTR(Element_3,"_INCLUDE.ahk")=0
-					IF (!WinExist(Element_3))      ; THIS TO DO WITH INCLUDE CHUNK Element_3
-					{
-						DATE_MOD_Array[A_Index] := OutputVar
-						GOSUB RUN_THE_APP
-						RUN_APP_GO=FALSE
-						RETURN
-					}
-
-			; ---------------------------------------------------------------
-			; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
-			; INCLUDER
-			; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
-			; Thu 29-Aug-2019 00:35:10
-			; ---------------------------------------------------------------
-			; IF FIRST_RUN=FALSE
-				IfExist, %Element_1%
-					IF INSTR(Element_3,"_INCLUDE.ahk")>0
-					IF (!WinExist(Element_5))
-						IF RUN_APP_GO=TRUE
-						{
-							DATE_MOD_Array[A_Index] := OutputVar
-							GOSUB RUN_THE_APP
-							RUN_APP_GO=FALSE
-							RETURN
-						}
-		}
-
-		IF RUN_APP_GO=TRUE
-			; IF FIRST_RUN=FALSE
+	; ---------------------------------------------------------------
+	; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
+	; INCLUDER
+	; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
+	; Thu 29-Aug-2019 00:35:10
+	; ---------------------------------------------------------------
+	IfExist, %Element_1%
+		IF INSTR(Element_3,"_INCLUDE.ahk")>0
+		IF (!WinExist(Element_5))
+			IF RUN_APP_GO=TRUE
+			{
+				DATE_MOD_Array[A_Index] := OutputVar
+				GOSUB RUN_THE_APP
+				RUN_APP_HAPPEN_FLAG=TRUE
+			}
+	
+	IF RUN_APP_HAPPEN_FLAG=FALSE
+		IF OutputVar<>%Element_2%
+			IF RUN_APP_GO=TRUE
+			{
+				; -----------------------------------------------------------
+				; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
+				; IMMEDIATELY AGAIN
+				; -----------------------------------------------------------
+				; IF (A_TimeIdle > 1000)
+				IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
 				{
 					DATE_MOD_Array[A_Index] := OutputVar
 					GOSUB RUN_THE_APP
 				}
-	}
+			}
+}
 
-	FIRST_RUN=FALSE
-	
-	; IF (A_ComputerName="1-ASUS-X5DIJ")
-	; {
-		; MUST_EXIT=TRUE
-		; EXITAPP
-		; RETURN
-	; }
-	; IF (A_ComputerName="2-ASUS-EEE")
-	; {
-		; MUST_EXIT=TRUE
-		; EXITAPP
-		; RETURN
-	; }
-	
+FIRST_RUN=FALSE
 
 RETURN
 
-; -------------------------------------------------------------------
 RUN_THE_APP:
 
-	; -----------------------------------------------------------
-	; DEBUG WORKER
-	; -----------------------------------------------------------
-	; TOOLTIP % A_INDEX "`n" OutputVar "`n" Element_3 "`n" Element_5
-	DONE_APP_RUN=
+	SET_GO=TRUE
+	
+	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	{
+		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "2-ASUS-EEE") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "3-LINDA-PC") 
+			SET_GO=FALSE
+		IF (A_ComputerName = "5-ASUS-P2520LA") 
+			SET_GO=FALSE
+	}
 
-	; ---------------------------------------------------------------
+	
+	; ----------------------------------------------------------
 	; NEW CODE FOR INCLUDE FILE -- DON'T RUN THE INCLUDE BUT 
 	; RUN THE ALTERNATIVE PROGRAM THAT INCLUDE IS WITH OR MANY
-	; ---------------------------------------------------------------
+	; ----------------------------------------------------------
 	if INSTR(Element_3,"_INCLUDE.ahk")
 	{
+	
+		; MSGBOX %Element_5%
 		WinGet, PID_1, PID, %Element_5% ahk_class AutoHotkey
 		IF PID_1>0 
 		{
@@ -615,13 +575,14 @@ RUN_THE_APP:
 		}
 		Run, %Element_5%
 		SOUNDBEEP, 1500,100
-		DONE_APP_RUN=TRUE
+		RETURN	
 	}
+
 	
-	; ---------------------------------------------------------------
+	; ----------------------------------------------------------
 	; FOUND ANSWER LOOK AT CODE HERE
 	; REQUIRE SOME SORT OF HOT SWAP LAUNCHER FOR ITSELF OWN CODE
-	; ---------------------------------------------------------------
+	; ----------------------------------------------------------
 	if INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
 	{
 		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
@@ -629,65 +590,47 @@ RUN_THE_APP:
 		SOUNDBEEP, 1500,100
 		RETURN
 	}
-	
-	; ---------------------------------------------------------------
-	; FIND WINDOW -- Element_3
-	; ---------------------------------------------------------------
-	IF INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
-		LOOP
+		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
+		IF PID_1>0 
 		{
-			WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
-			IF PID_1>0 
-			{
-				Process, Close,% PID_1
-				; MSGBOX %Element_3% ahk_class AutoHotkey 
-				; MSGBOX % PID_1
-			}
-			IF !PID_1
-				BREAK
+			Process, Close,% PID_1
+			
+			; MSGBOX %Element_3% ahk_class AutoHotkey 
+			; MSGBOX % PID_1
 		}
-
-		; -----------------------------------------------------------
-		; FIND WINDOW -- Element_3
-		; -----------------------------------------------------------
 		Run, %Element_1%
 		SOUNDBEEP, 1500,100
-		DONE_APP_RUN=TRUE
+		RETURN
 	}
 
-
-	; ---------------------------------------------------------------
-	; SOMETIME THE APP TAKE LITTLE WHILE TO LOAD BEFORE SHOW 
-	; TITLE WINDOW
-	; LOW END COMPUTER MAKE OBVIOUS REQUIRE DELAY
-	; MAKE A SEARCH DELAY OR DELAY PLAIN
-	; LOAD THEM IN AT SPEED OR
-	; ---------------------------------------------------------------
-	IF !DONE_APP_RUN
-	{
-		SoundBeep , 2000 , 20
-		Run, %Element_1%
-		DONE_APP_RUN=TRUE
-	}
-
-	
-	TIMER_CLOSE_4 = % A_Now
-	TIMER_CLOSE_4 += 10, SECONDS
-	LOOP
-	{
-		HWND_4 := WinExist("%Element_3% ahk_class AutoHotkey")
-		IF HWND_4
-			BREAK
-		IfExist, %Element_1%
-			BREAK
-		IF TIMER_CLOSE_4<%A_Now%
-			BREAK
-	}
-	
-	; TOOLTIP % TIMER_CLOSE_4
-	; SLEEP 200
+	; Loop % 500
+	; {
+		; PID_1=
+		; PID_2=
+		; WinGet, PID_1, PID, %Element_4% ahk_class #32770
+		; IF PID_1>0 
+		; {
+			; ; MSGBOX %PID_1% " -- " %Element_4%
+			; ; Process, Close,% PID_1
+			; PID_1=
+		; }
+		; WinGet, PID_2, PID, %Element_3% ahk_class AutoHotkey
+		; IF PID_1>0 
+		; {
+			; Process, Close,% PID_2
+			; ; MSGBOX % PID_1 " -- " PID_2
+		; }
+		; if (!PID_1 and !PID_2)
+			; BREAK
+	; }
 		
+	SoundBeep , 2000 , 20
+	Run, %Element_1%
+
+	
+	; TOOLTIP % Element_1
 
 RETURN
 
@@ -739,7 +682,7 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 	LINE_CHECKER_2=Keep waiting?
 
 	DetectHiddenWindows, ON
-	SetTitleMatchMode 2      ; Specify PARTIAL path
+	SetTitleMatchMode 2  ; Specify PARTIAL path
 	VAR_GET:=WINEXIST("Autokey ahk_class #32770")
 	IF !VAR_GET
 		RETURN 
@@ -805,6 +748,7 @@ IfWinNotExist, AHK_CLASS FileZilla Server Main Window
 	{
 		SoundBeep , 2500 , 20
 		RunWait,sc start "FileZilla Server" ; CHECK THE SERVICE IS RUNNING AND RUN IT
+
 	}
 	Process, Exist, FileZilla Server Interface.exe
 	If Not ErrorLevel
@@ -861,24 +805,6 @@ ExitApp
 ExitFunc(ExitReason, ExitCode)
 {
 
-	; ---------------------------------------------------------------
-	; IS ALLOW EXIT WHEN EDITOR IN NOTEPAD++
-	; SINGLE INSTANCE FORCE MOVES IT AROUND HERE
-	; ---------------------------------------------------------------
-	; FIND IF WINDOW ACTIVE FOR NOTEPAD++ AND HERE SCRIPT NAME
-	; AND THEN IF SHOULD SHOW TOOLTIP
-	; ---------------------------------------------------------------
-
-	DetectHiddenWindows, ON
-	SetTitleMatchMode 2            ; Specify PARTIAL
-	FILE_ScriptName=%A_ScriptName%
-	IfWinActive, %FILE_ScriptName% ahk_class Notepad++
-		RETURN 0       ; OnExit functions must return non-zero to prevent exit.
-
-	IF MUST_EXIT=TRUE
-		RETURN 0       ; OnExit functions must return non-zero to prevent exit.
-		
-		
     if ExitReason not in Logoff,Shutdown
     {
         ;MsgBox, 4, , Are you sure you want to exit?
@@ -939,6 +865,8 @@ ExitFunc(ExitReason, ExitCode)
 	; ---------------------------------------------------------------
 
 	RETURN 1
+
+
 	
 	; Do not call ExitApp -- that would prevent other OnExit functions from being called.
 }

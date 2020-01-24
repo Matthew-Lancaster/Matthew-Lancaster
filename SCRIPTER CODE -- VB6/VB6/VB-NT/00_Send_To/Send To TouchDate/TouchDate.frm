@@ -469,6 +469,9 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   3072
    End
+   Begin VB.Menu MNU_EXIT 
+      Caption         =   "EXIT"
+   End
    Begin VB.Menu MNU_VB_ME 
       Caption         =   "VB ME"
    End
@@ -811,21 +814,21 @@ For r = 1 To LABEL_SET.Count
     End If
 Next
 
-'For r = 1 To LABEL_SET.Count
-'    LABEL_SET(r).Caption = Replace(LABEL_SET(r).Caption, "_", " ")
-'Next
-
-LABEL_SET(2).FontSize = 12
-LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
-
 On Error Resume Next
 Me.Width = 17000
 On Error GoTo 0
 
+For r = 1 To LABEL_SET.Count
+    LABEL_SET(r).FontSize = 17
+    LABEL_SET(r).fontname = "ARIEAL"
+Next
+LABEL_SET(2).FontSize = 11
+LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
+
 ' TOP LABEL
 ' HEIGHT LABEL
 HL = LABEL_SET(2).Height
-HL = 500
+HL = 350
 
 LENGHT_LABEL = 380
 
@@ -1773,6 +1776,10 @@ Private Sub MNU_CREATE_TEXT_FILE_FOR_DATE_Click()
 
     End
 
+End Sub
+
+Private Sub MNU_EXIT_Click()
+End
 End Sub
 
 Private Sub MNU_QUICK_MODE_Click()

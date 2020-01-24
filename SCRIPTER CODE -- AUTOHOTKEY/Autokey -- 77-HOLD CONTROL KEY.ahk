@@ -23,8 +23,11 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SoundBeep , 1500 , 400
 ;---------------------------------------------------------
 
-Send,{ctrl down}
+; Send,{ctrl down}
+
 Send,{ctrl up}
+Send,{alt up}
+Send,{shift up}
 
 RETURN
 
