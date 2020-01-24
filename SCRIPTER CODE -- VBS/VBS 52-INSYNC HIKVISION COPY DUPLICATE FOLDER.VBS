@@ -56,6 +56,7 @@
 ' -----------------------------------------------------------------
 ' ----------------------------------------------------------------
 
+DIM DELETE_AFTER
 DIM objFSO
 Dim objShell
 DIM ComputerName
@@ -134,8 +135,6 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
-
-
 '--------------------------------------------------------
 ' AFTER THE EFFORT 
 ' VBSCRIPT SEEMS TO READER IN UNICODE MANIPULATE AND SAVE
@@ -148,16 +147,12 @@ Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 Dim objFolder
-DIM DELETE_AFTER
 
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 TARGET_FOLDER_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot"
 
 FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
 TARGET_FOLDER_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
-
-FOLDER_STRING_3="D:\0 00 VIDEO SNAPSHOT\snapshot ("
-TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT\snapshot"
 
 
 ' -------------------------------------------------------------------
@@ -178,11 +173,12 @@ TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT\snapshot"
 ' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 ' -------------------------------------------------------------------
 
-FOLDER_STRING_4="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-TARGET_FOLDER_4="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
+FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
+TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 
-FOR RV=1 TO 4
-	FOR RO=2 TO 80
+
+FOR RV=1 TO 3
+	FOR RO=2 TO 20
 		XXC=CSTR(RO)
 		IF RV=1 THEN 
 			FOLDER_STRING=FOLDER_STRING_1+XXC+")"
@@ -195,12 +191,17 @@ FOR RV=1 TO 4
 		IF RV=3 THEN 
 			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
 			TARGET_STRING=TARGET_FOLDER_3
+			IF FSO.FOLDERExists(FOLDER_STRING) THEN
+				' ---------------------------------
+				' WHY WANT HERE
+				' LATER ON SHOWED UP
+				' PROVE WORKER
+				' ---------------------------------
+				' MSGBOX FOLDER_STRING
+			END IF
+			
 		END IF
-		IF RV=4 THEN 
-			FOLDER_STRING=FOLDER_STRING_4+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_4
-		END IF
-		
+
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
 				' MSGBOX "--"+FOLDER_STRING
@@ -212,12 +213,14 @@ FOR RV=1 TO 4
 	NEXT
 NEXT
 
+
+
+
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
-FOLDER_STRING_3="D:\0 00 VIDEO SNAPSHOT\snapshot ("
 
-FOR RV=1 TO 3
-	FOR RO=2 TO 80
+FOR RV=1 TO 2
+	FOR RO=2 TO 20
 		XXC=CSTR(RO)
 		IF RV=1 THEN 
 			FOLDER_STRING=FOLDER_STRING_1+XXC+")"
@@ -227,37 +230,30 @@ FOR RV=1 TO 3
 			FOLDER_STRING=FOLDER_STRING_2+XXC+")"
 			TARGET_STRING=TARGET_FOLDER_2
 		END IF
-		IF RV=3 THEN 
-			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_3
-		END IF
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 
-			ON ERROR RESUME NEXT
-			ERR.CLEAR
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
+
+			'MSGBOX objFolder.SubFolders.Count
+			'MSGBOX objFolder.Files.Count
 			
-			I1=-1
-			I2=-1
-			
-			I1=objFolder.SubFolders.Count
-			I2=objFolder.Files.Count
-			
-			If I1 = 0 AND I2=0 AND ERR.NUMBER=0 Then 
-				' -------------------------------------------
-				' THE ROOT FOLDER IS NOT EVER DELETE HERE 
-				' AND NEXT ROUTINE IS SPECIAL DESIGN FOR THAT
-				' ALL DELETE EMPTY WILL BE GONE
-				' -------------------------------------------
-				IF FSO.FOLDERExists(FOLDER_STRING) THEN
-					fso.DeleteFolder FOLDER_STRING
+			If objFolder.SubFolders.Count = 0 Then 
+				IF objFolder.Files.Count = 0 Then
+					' -------------------------------------------
+					' THE ROOT FOLDER IS NOT EVER DELETE HERE 
+					' AND NEXT ROUTINE IS SPECIAL DESIGN FOR THAT
+					' ALL DELETE EMPTY WILL BE GONE
+					' -------------------------------------------
+					fso.DeleteFolder objFolder.Path
+					IF FSO.FOLDERExists(FOLDER_STRING) THEN
+						fso.DeleteFolder FOLDER_STRING
+					END IF
 				END IF
 			END IF
 		END IF
 	NEXT
 NEXT
-ON ERROR GOTO 0
 
 ' Wscript.Echo "ENDER"
 

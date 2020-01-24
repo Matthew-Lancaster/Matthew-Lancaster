@@ -348,246 +348,54 @@ SETTIMER TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER,1000
 SETTIMER TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP,1000
 
 
+SETTIMER TIMER_PROCESS_KILLER,10000
+
+
+WIN_COMPARE_HWND_1=
+CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE_HWND=
+SETTIMER TIMER_SET_CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE,1000
+
+
 ;SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
-
-
-GLOBAL OSVER_N_VAR
-
-; WIN_XP 5 WIN_7 6 WIN_10 10
-; IF OSVER_N_VAR=10
-; --------------------------
-OSVER_N_VAR:=a_osversion
-IF INSTR(a_osversion,".")>0
-	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
-IF OSVER_N_VAR=WIN_XP
-	OSVER_N_VAR=5
-IF OSVER_N_VAR=WIN_7
-	OSVER_N_VAR=6
-
-
-WINNOTEXIST_AHK_CLASS_WINAMP_V1=
-SETTIMER RUN_AND_STOP_HUBIC_WHEN_WINAMP,2000
-
-
-; -------------------------------------------------------------------
-; WRITE CODER TIME
-; -------------------------------------------------------------------
-; Sat 11-Jan-2020 12:18:21
-; Sat 11-Jan-2020 15:30:00 -- 3 HOUR 15 MINUTE
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-WANT_GO=
-IF (A_ComputerName<>"7-ASUS-GL522VW")
-	WANT_GO=TRUE
-IF (A_ComputerName<>"4-ASUS-GL522VW")
-	WANT_GO=TRUE
-
-MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=
-OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=
-
-MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%A_Now%
-	
-IF WANT_GO=TRUE
-{
-	SETTIMER RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE,1000
-	SETTIMER RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE_TIMER,1000
-}
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-
-
-
-; -------------------------------------------------------------------
-; WRITE CODER TIME
-; -------------------------------------------------------------------
-; Wed 15-Jan-2020 00:52:27
-; Wed 15-Jan-2020 01:38:00 -- 45 MINUTE
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT_VAR_1 := SubStr( A_Now, 1, 8 ) . "000000"
-RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT_VAR_1 += 1, days
-
-NORTON_ONCE_AT_BOOT=%A_ScriptDir%\Autokey -- 19-SCRIPT_TIMER_UTIL_2_RUN_NORTON_ONCE_AT_BOOT_AR_#NFS_%A_ComputerName%.TXT
-
-If FileExist(NORTON_ONCE_AT_BOOT)
-{
-	SETTIMER RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT,1000
-}
-
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-
-
-	
-	
-
-
-; SETTIMER TEAMVIEWER_AR_RUN_ON_CUE,1000
-
-
 
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
-RETURN
-
-
-
-; Reload site?
-; ahk_class Chrome_WidgetWin_1
-; ahk_exe chrome.exe
-
-
-; -------------------------------------------------------------------
-; WAS GO TO MAKE
-; GRAB TITLE OF CHROME
-; AND IF ONE BEFORE WERE SOMETHING OF WANT
-; AND WINDOW GOT 
-; Reload site?
-; WANT PRESS YES
-; DO THAT THING AS LONG AS ONE BEFORE MATCH
-; AND NOT REAL REQUIRE IT AS IF NOT FOCUS WON'T WORK
-; Mon 13-Jan-2020 00:39:25
-; WRITE IN OWN CHROME LANGUAGE
-; USE SCRIPT CHROME EXTENSION -- 
-; ----
-; Staying Alive Settings 
-; chrome-extension://lhobbakbeomfcgjallalccfhfcgleinm/settings.html
-; ----
-; SEEM WORK AT STAY ALIVE WITH BANK
-; -------------------------------------------------------------------
-
-
-
-; TEAMVIEWER_AR_RUN_ON_CUE:
-; IfWinExist ahk_class #32770 TeamViewer
-; {
-; WRITE FILE
-; C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2\TEAMVIEWER_RUNNING.TXT
-; }
-RETURN
-
-
-
-
-
-; -------------------------------------------------------------------
-; WRITE CODER TIME
-; -------------------------------------------------------------------
-; Sat 11-Jan-2020 12:18:21
-; Sat 11-Jan-2020 15:30:00 -- 3 HOUR 15 MINUTE
-; ROUTINE HAD TO SEPARATE NEW FILE SET ABLE CALL MANUAL
-; SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%A_ScriptDir%\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD.ahk
-; Fri 17-Jan-2020 16:13:39
-;
-; -------------------------------------------------------------------
-; WORK TIME
-; -------------------------------------------------------------------
-; MAKE REMOTE COMPUTER RUN CHKDSK WHEN ASK DEMAND
-; Fri 17-Jan-2020 16:02:30
-; Fri 17-Jan-2020 18:44:00
-; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
-
-	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK:=SubStr(A_ScriptFullPath, 1, -4)
-	SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%\_TIMER_#NFS_%A_ComputerName%.txt
-
-	IF !MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD
-	{
-		OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=-2
-
-		If FileExist(SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK)
-		{
-			FileReadLine, OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%, 1
-		}
-	}
-
-	IF MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%
-		RETURN
-
-	; ---------------------------------------------------------------
-	; MODIFY MIDNIGHT TO 3 HOUR
-	; MODIFY MIDNIGHT TO 9 HOUR
-	; ---------------------------------------------------------------
-	; ROUTINE ADDITION HERE 
-	; DELETE CHKDSK FRAGMENT
-	; TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM:
-	; Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK
-	; TWO CODE LINK HERE
-	; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
-	; RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE:
-	; Fri 17-Jan-2020 14:40:00
-	; ---------------------------------------------------------------
-	MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD += 9, Hours
-	OLD_MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD=%MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%
-	FileDELETE, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
-	FileAppend, %MIDNIGHT_CHKDSK_MEDIA_CARD_V_HDD%,%SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK%
-	
-	SetTitleMatchMode 2  ; Specify PARTIAL path
-	IFWINNOTEXIST Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk ahk_class ConsoleWindowClass
-	{
-		SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK=%A_ScriptDir%\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD.ahk
-		; RUN THE AHK SCRIPT
-		RunWAIT, %SCRIPT_NAME_VAR_MIDNIGHT_CHKDSK% ; ,,HIDE
-	}
-RETURN
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-RUN_CHKDSK_FOR_MEDIA_CAR_V_DRIVE_TIMER:
-
-	SCRIPT_NAME_VAR_CHKDSK_1:=SubStr(A_ScriptName, 1, -4)
-	SCRIPT_NAME_VAR_CHKDSK_1=%A_ScriptDir%\%SCRIPT_NAME_VAR_CHKDSK_1%_BAT_#NFS.BAT
-
-	; If FileExist(SCRIPT_NAME_VAR_CHKDSK_1)
-		; BOTH_WORK=TRUE
-	
-	; IfExist %SCRIPT_NAME_VAR_CHKDSK_1%
-		; BOTH_WORK=TRUE
-	
-	IfExist %SCRIPT_NAME_VAR_CHKDSK_1%
-	{
-	
-		SetTitleMatchMode 2  ; Specify PARTIAL path
-		IFWINNOTEXIST Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk ahk_class ConsoleWindowClass
-		{
-			RunWAIT, %SCRIPT_NAME_VAR_CHKDSK_1% ; ,,HIDE
-		}
-		FileDELETE, %SCRIPT_NAME_VAR_CHKDSK_1%
-	}
 
 RETURN
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
 
 
+TIMER_PROCESS_KILLER:
+	SETTIMER TIMER_PROCESS_KILLER,60000
 
-; -------------------------------------------------------------------
-; WRITE CODER TIME
-; -------------------------------------------------------------------
-; Sat 11-Jan-2020 12:18:21
-; Sat 11-Jan-2020 15:30:00 -- 3 HOUR 15 MINUTE
-; -------------------------------------------------------------------
-RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT:
+	; ----------------------------------------------------------------
+	; C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe
+	; WINDOWS 10
+	; ARRIVE AT BOOTER IN CMD.COM SCREEN
+	; Wednesday 13:34:20 Pm_22 January 2020
+	; ----------------------------------------------------------------
+	; C:\Windows\System32>TASKKILL /F /IM laclient.exe /T
+	; SUCCESS: The process with PID 7116 (child process of PID 7052) has been terminated.
+	; SUCCESS: The process with PID 7052 (child process of PID 5532) has been terminated.
+	; ----------------------------------------------------------------
+	; WHEN TASKKILL NOT SURE 2 PROCESS SUPPOSED TO KILL THEM -- ONLY CLOSE DOS CMD.COM APP
+	; ----------------------------------------------------------------
+	; TASKKILL /F /IM laclient.exe /T
+	; ----------------------------------------------------------------
+	Process, Exist, laclient.exe
+	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
+	If NewPID > 0
+		Process, Close, laclient.exe
+	; ----------------------------------------------------------------
 
-	; RERUN -- RETURN -- RETRUN
-
-	IF RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT_VAR_1<%A_NOW%
-		RETURN
-	
-	SETTIMER RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT,OFF
-
-	If FileExist(NORTON_DEL_FILE)
-		FileDELETE, %NORTON_DEL_FILE%
-		
-	SCRIPT_NAME_RUN_NORTON_ONCE:=SubStr(A_ScriptName, 1, -4)
-	SCRIPT_NAME_RUN_NORTON_ONCE=%A_ScriptDir%\Autokey -- 18-NORTON CONTROL BOOTER.ahk
-	
-	Run, %SCRIPT_NAME_VAR_CHKDSK% ; ,,HIDE
-	
+	; ----------------------------------------------------------------
+	; Process, Close, C:\Program Files\Logitech\SetPointP\Campaign\LogiCampaignNotifier.exe
+	Process, Exist, LogiCampaignNotifier.exe
+	NewPID = %ErrorLevel%
+	If NewPID > 0
+	Process, Close, LogiCampaignNotifier.exe
+	; ----------------------------------------------------------------
 RETURN
 
 
@@ -599,47 +407,6 @@ RETURN
 ; TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 ; -------------------------------------------------------------------
 
-
-RUN_AND_STOP_HUBIC_WHEN_WINAMP:
-
-IF OSVER_N_VAR<>10
-{
-	SETTIMER RUN_AND_STOP_HUBIC_WHEN_WINAMP,OFF
-	RETURN
-}
-	
-IF !WINNOTEXIST_AHK_CLASS_WINAMP_V1
-IfWinNOTExist ahk_class Winamp v1.x
-	{
-		WINNOTEXIST_AHK_CLASS_WINAMP_V1=TRUE
-		Process, Exist, hubiC.exe
-		If Not ErrorLevel ; errorlevel = 0 if process doesn't exist
-		{
-			IfWinNotExist , hubiC
-			{
-				FN_VAR:="C:\Program Files\OVH\hubiC\hubiC.exe"
-				IfExist, %FN_VAR%
-				{
-					Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE.VBS" "%FN_VAR%"
-					SoundBeep , 2500 , 100
-				}
-			}
-		}
-	}
-
-	IfWinExist ahk_class Winamp v1.x
-	{
-		WINNOTEXIST_AHK_CLASS_WINAMP_V1=
-		RunWAIT, TASKKILL.EXE /F /IM HubiC.exe,,HIDE
-		
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
-		IfExist, %FN_VAR%
-		{
-			Run, "%FN_VAR%"
-		}
-	}
-	
-RETURN
 
 
 TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP:
@@ -654,9 +421,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP:
 	
 RETURN
 
-
 ; TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP:
-; TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 84-RENAME_FILE_EXTENSION_CASE_INCLUDE.ahk
 
 
@@ -717,6 +482,38 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 			}
 		}
 	}
+RETURN
+
+TIMER_SET_CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE:
+
+		WinGet, WIN_COMPARE_HWND_1, ID, Replace ahk_class #32770
+		IF !WIN_COMPARE_HWND_1
+			RETURN
+		WinGet, WIN_COMPARE_HWND_1, ID, Replace ahk_exe WinMergeU.exe
+		IF !WIN_COMPARE_HWND_1
+			RETURN
+			
+
+		IF CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE_HWND<>%WIN_COMPARE_HWND_1%
+		{
+			ControlGettext, OutputVar_2, Button7, ahk_id %WIN_COMPARE_HWND_1%
+			
+			IF OutputVar_2=Wh&ole file
+			{
+				ControlGet, Status, Checked,, Button7, ahk_id %WIN_COMPARE_HWND_1%
+				If Status=0
+				{
+					Control, Check,, Button7, ahk_id %WIN_COMPARE_HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				ControlGet, Status, Checked,, Button7, ahk_id %WIN_COMPARE_HWND_1%
+				If Status=1
+				{
+					CONTROLFOCUS Edit2, ahk_id %WIN_COMPARE_HWND_1%
+					CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE_HWND=%WIN_COMPARE_HWND_1%
+				}
+			} ;  
+		}
 RETURN
 
 
@@ -839,8 +636,7 @@ RETURN
 
 
 
-; HERE MAXIMIZE THE WINDOWS CabinetWClass -- WHEN THEY LOAD IN WITH STRING SHIFT
-; -------------------------------------------------------------------
+
 HIGHER_SPEED:
 	; ---------------------------------------------------------------
 	; NEW CODE BLOCK
@@ -938,10 +734,7 @@ HIGHER_SPEED:
 			ID_STRING= -- %id%
 			IF INSTR(OLD_EXPLORER_ID_STR,ID_STRING)=0
 			{
-				; WinGet, PROCESS_PID, PID [, WinTitle, WinText, ExcludeTitle, ExcludeText]
-				; Process, Priority, %PROCESS_PID%, High
 				WinMaximize, AHK_ID %id%
-				
 				OLD_EXPLORER_ID_STR=%OLD_EXPLORER_ID_STR% -- %id%
 				Length := StrLen(OLD_EXPLORER_ID_STR)
 				; ---------------------------------------------------
@@ -1022,17 +815,6 @@ ONE_MOMENT_CLOSE_CMD:
 
 RETURN
 
-ONE_MOMENT_CLOSE_BAT_01_BOOT_KILLER_BAT:
-
-	IfWinExist C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 BOOT KILLER.BAT
-	{
-		SOUNDBEEP 1000,200
-		WINCLOSE
-	}
-	SETTIMER ONE_MOMENT_CLOSE_BAT_01_BOOT_KILLER_BAT,OFF
-
-RETURN
-
 ONE_SECOND:
 
 	; STAY SHOWING MOSTLY ON 8-MSI COMPUTER
@@ -1046,16 +828,8 @@ ONE_SECOND:
 			SOUNDBEEP 1000,200
 		}
 	}
+
 	
-	; ---------------------------------------------------------------
-	; HERE AT BOOT UP ALWAYS REMAIN -- WAIT LONGER TEN MINUTE 
-	; AND THEN REMOVE THAT WAY
-	; ---------------------------------------------------------------
-	IfWinExist C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 BOOT KILLER.BAT
-	{
-		SETTIMER ONE_MOMENT_CLOSE_BAT_01_BOOT_KILLER_BAT, 600000 ; 10 MINUTE
-		SOUNDBEEP 1000,200
-	}
 
 	IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770
 	{
