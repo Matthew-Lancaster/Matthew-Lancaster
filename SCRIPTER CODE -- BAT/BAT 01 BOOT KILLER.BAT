@@ -2414,6 +2414,19 @@ GOTO JUMPER_TEXT_ABOUT_WINDOW_UPDATE
 
 
 
+@REM ----------------------------------------------------------------
+@REM C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe
+@REM WINDOWS 10
+@REM ARRIVE AT BOOTER IN CMD.COM SCREEN
+@REM Wednesday 13:34:20 Pm_22 January 2020
+@REM ----------------------------------------------------------------
+@REM C:\Windows\System32>TASKKILL /F /IM laclient.exe /T
+@REM SUCCESS: The process with PID 7116 (child process of PID 7052) has been terminated.
+@REM SUCCESS: The process with PID 7052 (child process of PID 5532) has been terminated.
+@REM ----------------------------------------------------------------
+@REM NOT SURE 2 PROCESS SUPPOSED TO KILL THEM -- ONLY CLOSE DOS CMD.COM APP
+@REM ----------------------------------------------------------------
+TASKKILL /F /IM laclient.exe /T
 
 
 
