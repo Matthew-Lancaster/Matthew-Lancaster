@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form Form7_Enum_Child 
    Caption         =   "Enumeration Goes On"
    ClientHeight    =   5340
@@ -207,11 +207,11 @@ End Sub
 
 Private Sub Close_Click()
     'close window code goes here:
-    Dim LhWnd As Long
+    Dim LHWND As Long
     
     On Error Resume Next
-    LhWnd = Val(View1.SelectedItem)
-    SendMessage LhWnd, WM_CLOSE, 0, 0
+    LHWND = Val(View1.SelectedItem)
+    SendMessage LHWND, WM_CLOSE, 0, 0
 
 End Sub
 
@@ -321,12 +321,12 @@ Private Sub Restore_Click()
 End Sub
 
 Private Sub Show_BWTT_Click()
-    Dim LhWnd As Long
+    Dim LHWND As Long
     
     On Error GoTo bugging
-    LhWnd = Val(View1.SelectedItem)
-    'ShowWindow lhWnd, SW_SHOW
-    BringWindowToTop LhWnd
+    LHWND = Val(View1.SelectedItem)
+    'ShowWindow LHWND, SW_SHOW
+    BringWindowToTop LHWND
     
     Exit Sub
 bugging:
@@ -336,11 +336,11 @@ End Sub
 
 Private Sub Show_Click()
     'show window code goes here:
-    Dim LhWnd As Long
+    Dim LHWND As Long
     On Error Resume Next
 
-    LhWnd = Val(View1.SelectedItem)
-    ShowWindow LhWnd, SW_SHOW
+    LHWND = Val(View1.SelectedItem)
+    ShowWindow LHWND, SW_SHOW
 End Sub
 
 Private Sub SpyMenu_Click()
