@@ -87,7 +87,7 @@ Const SPI_SCREENSAVERRUNNING = 97
 Const SWP_NOACTIVATE = &H10
 Const SWP_SHOWWINDOW = &H40
 
-Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
 Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -131,7 +131,7 @@ Private Const FILE_ATTRIBUTE_READONLY = &H1
 Private Const FILE_ATTRIBUTE_SYSTEM = &H4
 Private Const FILE_ATTRIBUTE_TEMPORARY = &H100
 
-Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
 Private Const conSwNormal = 1
 
 
@@ -144,9 +144,90 @@ Private Type OSVERSIONINFO
     dwMajorVersion As Long
     dwMinorVersion As Long
     dwBuildNumber As Long
-    dwPlatformId As Long
+    dwPlatformID As Long
     szCSDVersion As String * 128
 End Type
+
+Private Const PROCESS_CREATE_PROCESS = &H80
+Private Const PROCESS_CREATE_THREAD = &H2
+Private Const PROCESS_DUP_HANDLE = &H40
+Private Const PROCESS_QUERY_INFORMATION = &H400
+Private Const PROCESS_SET_QUOTA = &H100
+Private Const PROCESS_SET_INFORMATION = &H200
+Private Const PROCESS_TERMINATE = &H1
+Private Const PROCESS_VM_OPERATION = &H8
+Private Const PROCESS_VM_READ = &H10
+Private Const PROCESS_VM_WRITE = &H20
+
+Private Type PROCESSENTRY32
+    dwSize As Long
+    cntUsage As Long
+    th32ProcessID As Long
+    th32DefaultHeapID As Long
+    th32ModuleID As Long
+    cntThreads As Long
+    th32ParentProcessID As Long
+    pcPriClassBase As Long
+    dwFlags As Long
+    szExeFile As String * 260
+End Type
+
+Private Type PROCESS_INFORMATION
+  hProcess    As Long
+  hThread     As Long
+  dwProcessId As Long
+  dwThreadId  As Long
+End Type
+
+Private Type STARTUPINFO
+  cb              As Long
+  lpReserved      As String
+  lpDesktop       As String
+  lpTitle         As String
+  dwX             As Long
+  dwY             As Long
+  dwXSize         As Long
+  dwYSize         As Long
+  dwXCountChars   As Long
+  dwYCountChars   As Long
+  dwFillAttribute As Long
+  dwFlags         As Long
+  wShowWindow     As Integer
+  cbReserved2     As Integer
+  lpReserved2     As Long
+  hStdInput       As Long
+  hStdOutput      As Long
+  hStdError       As Long
+End Type
+
+Private Enum Priorities
+  p_RealTime = &H100
+  p_Hight = &H80
+  p_Normal = &H20
+  p_Idle = &H40
+End Enum
+
+Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadId As Long) As Long
+Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
+Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
+Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
+Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
+Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
+Private Declare Function CreateProcess Lib "kernel32.dll" Alias "CreateProcessA" (ByVal lpApplicationName As String, ByVal lpCommandLine As String, ByVal lpProcessAttributes As Long, ByVal lpThreadAttributes As Long, ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, ByRef lpEnvironment As Any, ByVal lpCurrentDirectory As String, ByRef lpStartupInfo As STARTUPINFO, ByRef lpProcessInformation As PROCESS_INFORMATION) As Long
+Private Declare Function GetExitCodeProcess Lib "kernel32.dll" (ByVal hProcess As Long, ByRef lpExitCode As Long) As Long
+Private Declare Function GetExitCodeThread Lib "kernel32.dll" (ByVal hThread As Long, ByRef lpExitCode As Long) As Long
+Private Declare Function TerminateThread Lib "kernel32.dll" (ByVal hThread As Long, ByVal dwExitCode As Long) As Long
+Private Declare Function SetPriorityClass Lib "kernel32.dll" (ByVal hProcess As Long, ByVal dwPriorityClass As Long) As Boolean
+
+Private Declare Function CloseHandle Lib "Kernel32" _
+        (ByVal hObject As Long) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+Private Const TH32CS_SNAPPROCESS = &H2&
+
 
 Function GetWindowsVersion()
 Dim osinfo As OSVERSIONINFO
@@ -317,8 +398,8 @@ End Sub
 
 Private Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 
-    If Timer_VB_PROJECT_CHECKDATE.Interval <> 1000 Then
-        Timer_VB_PROJECT_CHECKDATE.Interval = 1000
+    If Timer_VB_PROJECT_CHECKDATE.Interval <> 10000 Then
+        Timer_VB_PROJECT_CHECKDATE.Interval = 10000
     End If
     
     Call VB_PROJECT_CHECKDATE("")
@@ -372,7 +453,7 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
     End If
     
     If XVB_DATE_2 = 0 Then
-        Timer_VB_PROJECT_CHECKDATE.Interval = 1000
+        Timer_VB_PROJECT_CHECKDATE.Interval = 10000
         PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
         Set FSO = CreateObject("Scripting.FileSystemObject")
         Set F = FSO.GetFile(PATH_FILE_NAME1)
@@ -498,7 +579,7 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
                                 Exit For
                             Next
                             Project_Check_Date.Refresh
-                            RESULT_API = AlwaysOnTop(Project_Check_Date.hwnd)
+                            RESULT_API = AlwaysOnTop(Project_Check_Date.hWnd)
                             Project_Check_Date.Refresh
                             ' DoEvents
                         End If
@@ -638,6 +719,7 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
         If GetWindowsVersion > 5.1 Or 1 = 1 Then
             'MsgBox "10"
             
+            Call WSCRIPT_SCRIPTNAME_RELOAD_KILLER
             Dim WSHShell
             Set WSHShell = CreateObject("WScript.Shell")
                 WSHShell.Run """" + VBS_LAUNCHER_NAME + """", 1, False
@@ -853,13 +935,126 @@ End Function
 '***********************************************
 
 
-Private Function AlwaysOnTop(ByVal hwnd As Long)  'Makes a form always on top
-    SetWindowPos hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
+    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 End Function
-Private Function NotAlwaysOnTop(ByVal hwnd As Long)
+Private Function NotAlwaysOnTop(ByVal hWnd As Long)
     Dim flags
-    SetWindowPos hwnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
+    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
 End Function
 
+
+
+Sub WSCRIPT_SCRIPTNAME_RELOAD_KILLER()
+
+Dim objWMIService
+Dim colProcesses
+Dim i1
+Dim i2
+Dim objProcess
+Dim strScriptName
+Dim PID_Script As Long
+Dim FIND_SCRIPTNAME
+FIND_SCRIPTNAME = "\VBS - RELOAD AND COPY_"
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("Select * from Win32_Process")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT
+i2 = 0 ' MY  PROGRAM WSCRIPT
+For Each objProcess In colProcesses
+    If Not (IsNull(objProcess.CommandLine)) Then
+        strScriptName = objProcess.CommandLine
+        If InStr(strScriptName, FIND_SCRIPTNAME) > 0 Then
+            PID_Script = objProcess.ProcessID
+            If PID_Script > 0 Then
+                Result = cProcesses.Process_Kill(PID_Script)
+            End If
+        End If
+    End If
+Next
+End Sub
+
+Public Sub Process_Kill(P_ID As Long)
+    '// Kill the wanted process
+    
+    Dim hProcess As Long
+    Dim lExitCode As Long
+    'NORMAL_PRIORITY_CLASS
+    hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_TERMINATE, False, P_ID)
+    'If hProcess = 0 Then Call Err_Dll(Err.LastDllError, "OpenProcess failed", sLocation, "Kill_Process")
+    
+    If GetExitCodeProcess(hProcess, lExitCode) = False Then
+    'Call Err_Dll(Err.LastDllError, "GetExitCodeProcess failed", sLocation, "Kill_Process")
+    End If
+    If TerminateProcess(hProcess, lExitCode) = False Then
+    'Call Err_Dll(Err.LastDllError, "TerminateProcess failed", sLocation, "Kill_Process")
+    End If
+    If CloseHandle(hProcess) = False Then
+    'Call Err_Dll(Err.LastDllError, "CloseHandle failed", sLocation, "Kill_Process")
+    End If
+End Sub
+
+
+Function FIND_SCRIPTNAME(PID_TEST)
+
+Dim objWMIService
+Dim colProcesses
+Dim i1
+Dim i2
+Dim objProcess
+Dim strScriptName
+Dim PID_Script
+FIND_SCRIPTNAME = ""
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("Select * from Win32_Process")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT
+i2 = 0 ' MY  PROGRAM WSCRIPT
+For Each objProcess In colProcesses
+    If Not (IsNull(objProcess.CommandLine)) Then
+        'strScriptName = Trim(Right(objProcess.CommandLine, Len(objProcess.CommandLine) - InStrRev(objProcess.CommandLine, "\")))
+        ' strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+        strScriptName = objProcess.CommandLine
+        strScriptName = Replace(strScriptName, """", "")
+        PID_Script = objProcess.ProcessID
+        If Val(PID_Script) = Val(PID_TEST) Then
+            FIND_SCRIPTNAME = strScriptName
+            Exit Function
+        End If
+    End If
+Next
+
+End Function
+Function WSCRIPT_SCRIPTNAME(PID_TEST)
+
+Dim objWMIService
+Dim colProcesses
+Dim i1
+Dim i2
+Dim objProcess
+Dim strScriptName
+Dim PID_Script
+WSCRIPT_SCRIPTNAME = ""
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT
+i2 = 0 ' MY  PROGRAM WSCRIPT
+For Each objProcess In colProcesses
+    If Not (IsNull(objProcess.CommandLine)) Then
+        strScriptName = Trim(Right(objProcess.CommandLine, Len(objProcess.CommandLine) - InStrRev(objProcess.CommandLine, "\")))
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+        PID_Script = objProcess.ProcessID
+        If Val(PID_Script) = Val(PID_TEST) Then
+            WSCRIPT_SCRIPTNAME = strScriptName
+            Exit Function
+        End If
+    End If
+Next
+
+End Function
 
 
