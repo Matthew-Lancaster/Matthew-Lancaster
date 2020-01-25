@@ -1079,7 +1079,7 @@ End Sub
 Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
 
     ScanPath.chkSubFolders = vbChecked
-    ScanPath.cboMask.Text = "*.*"
+    ScanPath.cboMask.Text = "*.MP4"
     
     ' SCAN DO ON TEXTPATH CHANGE
     If LABEL_SET(2).Caption <> "NOT FOLDER GIVEN" Then
@@ -1101,7 +1101,6 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
     
     If ScanPath.ListView1.ListItems.Count > 0 Then
         MsgBox "FILE COUNTER -- BEFORE FILTER ON" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
-        End
     End If
     
     
