@@ -309,14 +309,113 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+
+
 RETURN
 
 
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; CODE START -- ROUTINE SET
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; WORK TIME 
+; -------------------------------------------------------------------
+; Tue 14-Jan-2020 08:32:29 -- FIRST FIND IDEA
+; Tue 14-Jan-2020 09:13:43 -- 45 MINUTE
+
+; Tue 14-Jan-2020 13:17:56 -- PUBLISH ON-LINE
+; Tue 14-Jan-2020 13:23:59 -- 10 MINUTE +- BIT
+
+; LAST SESSION
+; Tue 14-Jan-2020 14:34:19 -- 55 MINUTE -- TOTAL 3 SESSION 2 HOUR
+; Tue 14-Jan-2020 15:30:00 -- STUCK ON A LITTLE BIT 
+;                          -- AND FIRST INSTANCE 
+;                          -- IMPROVE WANT NOT INCLUDE SIG LINE
+;                          -- DON'T FORGET THE OBVIOUS 
+;                          -- SIG LINE REQUIRE REVERSE SEARCH WAY
+; -------------------------------------------------------------------
++^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
+	VAR_INDEX=1
+	GOSUB HOT_KEY_CONVERT_TExT 
+Return
+; --
+^l:: ; CTRL+L ---- Converts Text To Lower
+	VAR_INDEX=2
+	GOSUB HOT_KEY_CONVERT_TEXT 
+Return
+; --
++u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
+                                              ; HAS OPEN SOURCE OF PAGE 
+											  ; IN A NEW TAB IN BROWSER
+	VAR_INDEX=3
+	GOSUB HOT_KEY_CONVERT_TEXT
+Return
+
+; -------------------------------------------------------------------
+HOT_KEY_CONVERT_TExT:
+	AutoTrim, Off
+	Clipper_GET:=Clipboard
+	IF !Clipper_GET
+	{
+		AutoTrim, On ; ---- DEFAULT
+		RETURN
+	}
+	Clipper_1_GET=%Clipper_GET%
+	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R 
+	; ---------------------------------------------------------------
+	; TALK -1 IF NONE ---- StrGetPos_Clipper>0
+	; Wed 22-Jan-2020 01:48:54
+	; ---------------------------------------------------------------
+	IF StrGetPos_Clipper>0
+	{
+		Clipper_1_GET:=substr(Clipper_GET, 1, StrGetPos_Clipper-1)
+		Clipper_2_GET:=substr(Clipper_GET, StrGetPos_Clipper)
+	}
+	IF VAR_INDEX=1
+		StringUpper Clipper_1_GET, Clipper_1_GET, T ; Title mode conversion
+	IF VAR_INDEX=2
+		StringLower Clipper_1_GET, Clipper_1_GET
+	IF VAR_INDEX=3
+		StringUpper Clipper_1_GET, Clipper_1_GET
+		
+	
+	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
+	; MSGBOX %Clipper_GET%
+	Clipboard=%Clipper_GET%
+	ClipWait
+RETURN
+; -------------------------------------------------------------------
+; NOTE INFO 
+; ----
+; AHK GET CLIPBOARD STRIP LEAD SPACE - Google Search 
+; https://www.google.com/search?q=AHK+GET+CLIPBOARD+STRIP+LEAD+SPACE
+; ----
+; AHK is Removing Leading Spaces before sending text to Clipboard - AutoHotkey Community 
+; https://www.autohotkey.com/boards/viewtopic.php?t=37625
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; AutoHotkey Tip of the Week: Instant Upper Case, Lower Case, and Initial Cap Text—September 2, 2019 | Jack's AutoHotkey Blog 
+; https://jacksautohotkeyblog.wordpress.com/2019/09/02/autohotkey-tip-of-the-week-instant-upper-case-lower-case-and-initial-cap-text-september-2-2019/
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; Location On-Line
+;--------------------------------------------------------------------
+; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk 
+; HTTP://TINYURL.COM/R9OEH4F
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
 
 WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 
@@ -465,8 +564,6 @@ RETURN
 
 
 
-
-
 STRING_INVERT_MESSENGER:
 	IF GetKeyState("Capslock", "T")
 	{
@@ -568,95 +665,7 @@ RETURN
 
 
 
-; WORK TIME 
-; -------------------------------------------------------------------
-; Tue 14-Jan-2020 08:32:29 -- FIRST FIND IDEA
-; Tue 14-Jan-2020 09:13:43 -- 45 MINUTE
 
-; Tue 14-Jan-2020 13:17:56 -- PUBLISH ON-LINE
-; Tue 14-Jan-2020 13:23:59 -- 10 MINUTE +- BIT
-
-; LAST SESSION
-; Tue 14-Jan-2020 14:34:19 -- 55 MINUTE -- TOTAL 3 SESSION 2 HOUR
-; Tue 14-Jan-2020 15:30:00 -- STUCK ON A LITTLE BIT 
-;                          -- AND FIRST INSTANCE 
-;                          -- IMPROVE WANT NOT INCLUDE SIG LINE
-;                          -- DON'T FORGET THE OBVIOUS 
-;                          -- SIG LINE REQUIRE REVERSE SEARCH WAY
-; -------------------------------------------------------------------
-+^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
-	VAR_INDEX=1
-	GOSUB HOT_KEY_CONVERT_TExT 
-Return
-; --
-^l:: ; CTRL+L ---- Converts Text To Lower
-	VAR_INDEX=2
-	GOSUB HOT_KEY_CONVERT_TEXT 
-Return
-; --
-^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER
-	VAR_INDEX=3
-	GOSUB HOT_KEY_CONVERT_TEXT
-Return
-
-; -------------------------------------------------------------------
-HOT_KEY_CONVERT_TExT:
-	AutoTrim, Off
-	Clipper_GET:=Clipboard
-	IF !Clipper_GET
-	{
-		AutoTrim, On ; ---- DEFAULT
-		RETURN
-	}
-	Clipper_1_GET=%Clipper_GET%
-	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R 
-	; ---------------------------------------------------------------
-	; TALK -1 IF NONE ---- StrGetPos_Clipper>0
-	; Wed 22-Jan-2020 01:48:54
-	; ---------------------------------------------------------------
-	IF StrGetPos_Clipper>0
-	{
-		Clipper_1_GET:=substr(Clipper_GET, 1, StrGetPos_Clipper-1)
-		Clipper_2_GET:=substr(Clipper_GET, StrGetPos_Clipper)
-	}
-	IF VAR_INDEX=1
-		StringUpper Clipper_1_GET, Clipper_1_GET, T ; Title mode conversion
-	IF VAR_INDEX=2
-		StringLower Clipper_1_GET, Clipper_1_GET
-	IF VAR_INDEX=3
-		StringUpper Clipper_1_GET, Clipper_1_GET
-		
-	
-	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
-	; MSGBOX %Clipper_GET%
-	Clipboard=%Clipper_GET%
-	ClipWait
-RETURN
-; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-; Location On-Line
-;--------------------------------------------------------------------
-; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk 
-; HTTP://TINYURL.COM/R9OEH4F
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-; NOTE INFO 
-; ----
-; AHK GET CLIPBOARD STRIP LEAD SPACE - Google Search 
-; https://www.google.com/search?q=AHK+GET+CLIPBOARD+STRIP+LEAD+SPACE
-; ----
-; AHK is Removing Leading Spaces before sending text to Clipboard - AutoHotkey Community 
-; https://www.autohotkey.com/boards/viewtopic.php?t=37625
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-
-
-; -------------------------------------------------------------------
-; AutoHotkey Tip of the Week: Instant Upper Case, Lower Case, and Initial Cap Text—September 2, 2019 | Jack's AutoHotkey Blog 
-; https://jacksautohotkeyblog.wordpress.com/2019/09/02/autohotkey-tip-of-the-week-instant-upper-case-lower-case-and-initial-cap-text-september-2-2019/
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
 
 
 ; -------------------------------------------------------------------
