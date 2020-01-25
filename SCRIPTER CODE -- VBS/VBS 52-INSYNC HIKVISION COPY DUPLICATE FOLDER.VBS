@@ -72,6 +72,12 @@ ComputerName=objShell.ExpandEnvironmentStrings("%COMPUTERNAME%")
 
 CALL GET_WINDOWS_VERSION
 
+
+Set objShell = CreateObject("WScript.Shell")
+X = objShell.Popup("WORK TO DO -- VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS -- QUIT GONE"+VBCR+"4 SECOND GONE MESSENGER", 4,, vbOKOnly+ vbMsgBoxSetForeground)
+
+WScript.Quit
+
 IF Version_OS=<5 THEN 
 	'Wscript.Echo "begin."
 	'Wscript.Echo "end."
