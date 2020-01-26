@@ -2233,7 +2233,22 @@ Option Explicit
 ' TO ---- Fri 24-Jan-2020 05:59:00 -- 19 HOUR 58 MINUTE
 ' --------------------------------------------------------------
 
+' --------------------------------------------------------------
+' SESSION 014 -- WORK
+' --------------------------------------------------------------
+' SORT LISTVIEW OTHER DAY NOT SORTER WORK RESTORE
+' USE A MSGBOX WHEN SHUTDOWN ITEM THAT TIME DELAY GONE
+' LISTVIEW NOT REACH TOP ITEM FOR NEXT LOOP NOT PROPER
+' WITCH WERE LOWER ITEM
+' --------------------------------------------------------------
 
+
+
+
+Dim GetWindowsVersion_VAR
+
+
+Dim objShell
 
 
 Dim LSTPROCESS_2_ENSUREVISIBLE_INDEX
@@ -3528,7 +3543,6 @@ End Sub
 Private Sub Form_Load()
     
     
-    
     ' CODE MOD
     ' COUNT BACKSLASHER
     ' --------------------------------------------------------------------
@@ -3579,6 +3593,8 @@ Private Sub Form_Load()
 '    End
 ' ------------------------------------------------------------------------------
 
+    GetWindowsVersion_VAR = GetWindowsVersion
+    
     ' ----------------------
     ' WHAT TIMER ARE ENABLER
     ' ----------------------
@@ -3680,10 +3696,14 @@ Private Sub Form_Load()
 
     Call GO_DO_IT_WITH_LOW_END_COMPUTER
 
+    Dim COLUMN_01_WIDTH
+    Dim COLUMN_02_WIDTH
 
+    COLUMN_01_WIDTH = 0
+    COLUMN_02_WIDTH = 180
     With lstProcess_2_ListView
         .ColumnHeaders.Add , "PID", "PID", 700 - 50, lvwColumnLeft
-        .ColumnHeaders.Add , "", "", 150, lvwColumnLeft
+        .ColumnHeaders.Add , "", "", COLUMN_02_WIDTH, lvwColumnLeft
         .ColumnHeaders.Add , "EXE", "EXE", 9000, lvwColumnLeft
         .View = lvwReport
         .height = 7000
@@ -3691,7 +3711,7 @@ Private Sub Form_Load()
     End With
     With lstProcess_3_SORTER_ListView
         .ColumnHeaders.Add , "PID", "PID", 700 - 50, lvwColumnLeft
-        .ColumnHeaders.Add , "", "", 150, lvwColumnLeft
+        .ColumnHeaders.Add , "", "", COLUMN_02_WIDTH, lvwColumnLeft
         .ColumnHeaders.Add , "EXE SORTED", "EXE SORTED", 9000, lvwColumnLeft
         .View = lvwReport
         .height = lstProcess_2_ListView.height
@@ -3749,7 +3769,7 @@ Private Sub Form_Load()
     ' ----------------------------------------
     ' 5.1 IS WINDOWS 10
     ' ----------------------------------------
-    If GetWindowsVersion = 5.1 Then
+    If GetWindowsVersion_VAR = 5.1 Then
         MNU_PIN_ITEM_BATCH_VBS.Visible = False
     End If
 
@@ -7798,6 +7818,8 @@ End Sub
 
 Sub KILL_AUTOHOTKEY_GLOBAL()
 
+Dim MSGBOX_STRING
+
 SET_COMPUTER_TO_RUN_PID_EXE = "AutoHotkey.exe"
 If SET_COMPUTER_TO_RUN <> "" Then
     Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
@@ -7827,16 +7849,23 @@ Next
 Dim EXECUTE_KILL_1
 Dim EXECUTE_KILL_2
 Dim EXECUTE_KILL_COUNTER
+Dim RETRY_COUNTER
+Dim ITEM_COUNT_SCRIPTER_NAME
 EXECUTE_KILL_COUNTER = 0
+RETRY_COUNTER = 400
 Do
     ' DO EXTRA FOR A GOOD MESSURE
     ENUMPROCESS_MUST_RUNNER = True
     Call EnumProcess
     EXECUTE_KILL_1 = False
     EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
+    ITEM_COUNT_SCRIPTER_NAME = 0
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(2)
+        ' LOOK FOR ALL ITEM WITH THE NAME HERE
+        ' SET_COMPUTER_TO_RUN_PID_EXE
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
+            ITEM_COUNT_SCRIPTER_NAME = ITEM_COUNT_SCRIPTER_NAME + 1
             PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
             ' -----------------------------------------
             ' WHEN REQUEST BY OWN COMPUTER APP ARE KILL AHK
@@ -7850,16 +7879,19 @@ Do
             EXECUTE_KILL_2 = True
         End If
     Next
+Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > RETRY_COUNTER
 
-Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > 400
+If EXECUTE_KILL_COUNTER > RETRY_COUNTER Then
+    MSGBOX_STRING = "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST --" + Str(ITEM_COUNT_SCRIPTER_NAME) + " ITEM_COUNT_SCRIPTER_NAME -- AFTER" + Str(EXECUTE_KILL_COUNTER) + " EXECUTE_KILL_COUNTER --" + Str(RETRY_COUNTER) + " RETRY_COUNTER"
+    
+    Set objShell = CreateObject("WScript.Shell")
+    objShell.Popup MSGBOX_STRING, 20, , vbOKOnly + vbMsgBoxSetForeground
+    Set objShell = Nothing
 
-If EXECUTE_KILL_COUNTER > 400 Then
-    MsgBox "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST AFTER" + Str(EXECUTE_KILL_COUNTER) + " RETRY", vbMsgBoxSetForeground
 End If
 
 If EXECUTE_KILL_2 = True Or 1 = 1 Then
     ' Const ShowWindow_2 = 1, DontShowWindow = 0, DontWaitUntilFinished = False, WaitUntilFinished = True
-    Dim objShell
     Set objShell = CreateObject("Wscript.Shell")
     objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk""", DontShowWindow, DontWaitUntilFinished
     Set objShell = Nothing
@@ -7895,14 +7927,22 @@ Next
 Dim EXECUTE_KILL_1
 Dim EXECUTE_KILL_2
 Dim EXECUTE_KILL_COUNTER
+Dim RETRY_COUNTER
+Dim ITEM_COUNT_SCRIPTER_NAME
+Dim MSGBOX_STRING
+RETRY_COUNTER = 100
 Do
     ' DO EXTRA FOR A GOOD MESSURE
     Call EnumProcess
     EXECUTE_KILL_1 = False
     EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
+    ITEM_COUNT_SCRIPTER_NAME = 0
     For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
         A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(2)
+        ' LOOK FOR ALL ITEM WITH THE NAME HERE
+        ' SET_COMPUTER_TO_RUN_PID_EXE
         If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
+            ITEM_COUNT_SCRIPTER_NAME = ITEM_COUNT_SCRIPTER_NAME + 1
             PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
             cProcesses.Process_Kill (PID)
             EXECUTE_KILL_1 = True
@@ -7910,10 +7950,13 @@ Do
         End If
     Next
 
-Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > 100
+Loop Until EXECUTE_KILL_1 = False Or EXECUTE_KILL_COUNTER > RETRY_COUNTER
 
-If EXECUTE_KILL_COUNTER > 100 Then
-    MsgBox "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST AFTER 1-0 RETRY", vbMsgBoxSetForeground
+If EXECUTE_KILL_COUNTER > RETRY_COUNTER Then
+    MSGBOX_STRING = "TRY TO KILL-AH ALL " + vbCrLf + SET_COMPUTER_TO_RUN_PID_EXE + vbCrLf + "BUT WAS PROBLEM SOME EXIST --" + Str(ITEM_COUNT_SCRIPTER_NAME) + " ITEM_COUNT_SCRIPTER_NAME -- AFTER" + Str(EXECUTE_KILL_COUNTER) + " EXECUTE_KILL_COUNTER --" + Str(RETRY_COUNTER) + " RETRY_COUNTER"
+    Set objShell = CreateObject("WScript.Shell")
+    objShell.Popup MSGBOX_STRING, 20, , vbOKOnly + vbMsgBoxSetForeground
+    Set objShell = Nothing
 End If
 
 'If EXECUTE_KILL_2 = True Or 1 = 1 Then
@@ -10546,13 +10589,14 @@ If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
     
         '----------------------------------------------------
         ' WINDOWS XP
-        ' WIN XP = 5.1 _ WINDOWS 10 = 6.2
+        ' WIN XP = 5.1
+        ' WINDOWS 10 = 6.2
         ' WINDOWS 10 = 5.1
         '----------------------------------------------------
-        If GetWindowsVersion < 5.1 Then
+        If GetWindowsVersion_VAR <= 5.1 Then
             DELAY_TIME_NOT_RESPOND = 120 * 20
         End If
-        If GetWindowsVersion >= 5.1 Then
+        If GetWindowsVersion_VAR > 5.1 Then
             DELAY_TIME_NOT_RESPOND = 120 * 2
         End If
     
@@ -11602,7 +11646,6 @@ End If
 
 
 
-
 If UPDATE_O_NOW_LV_AUTOSIZE_1 = True Then
     UPDATE_O_NOW_LV_AUTOSIZE_1 = False
     
@@ -11879,9 +11922,22 @@ If UPDATE_O_NOW_LV_AUTOSIZE_1 = True Then
 
 End If
     
-'------------------------
-'SORT ON COLUMN TWO LABEL
-'------------------------
+' ------------------------------------------------
+' SORT ON COLUMN TWO LABEL -- HAS MOVE COLUMN THREE
+' -------------------------------------------------
+
+' -------------------------------------------------
+' LSTPROCESS_3_SORTER_LISTVIEW.SORTORDER
+' -------------------------------------------------
+' LSTPROCESS_2 -- NOT HAVE SORT
+' AND ITEM ARE LAST DISPLAY WHAT COME IN
+' NOT ORDER OF PROCESS ID
+' HELPFUL MAYBE -- OR SORT PID
+' OR NEW BOX WHAT ORDER ARRIVE
+' -------------------------------------------------
+' Sat 25-Jan-2020 23:48:00
+' -------------------------------------------------
+
 Dim GO_X
 GO_X = 0
 If lstProcess_3_SORTER_ListView.SortKey <> 1 Then GO_X = 1
@@ -11890,7 +11946,7 @@ If lstProcess_3_SORTER_ListView.Sorted = True <> True Then GO_X = 1
 
 If GO_X <> 0 Then
     lstProcess_3_SORTER_ListView.SortOrder = lvwAscending
-    lstProcess_3_SORTER_ListView.SortKey = 1
+    lstProcess_3_SORTER_ListView.SortKey = 2
     lstProcess_3_SORTER_ListView.Sorted = True
     'lstProcess_3_SORTER_ListView.Sorted = False
 End If
@@ -11908,10 +11964,13 @@ Sub PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY()
     Dim R_I
     Dim SET_DOWN
     Dim TINDEX
+    Dim CHAR_INDICATE
+    
+    CHAR_INDICATE = "O"
     
     If PROCESS_PID_STORE_LST_02 > -1 Then
         CHK_VAR_OBTAIN_2 = 0
-        For R_I = 1 To lstProcess_2_ListView.ListItems.Count - 1
+        For R_I = 1 To lstProcess_2_ListView.ListItems.Count ' - 1
             If lstProcess_2_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_02 Then
                 lstProcess_2_ListView.ListItems.Item(lstProcess_2_ListView.ListItems.Count - 1).EnsureVisible
                 lstProcess_2_ListView.ListItems.Item(R_I).EnsureVisible
@@ -11930,18 +11989,20 @@ Sub PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY()
                     lstProcess_2_ListView.ListItems(TINDEX).SubItems(1) = ""
                 End If
                 End If
-                End If
-                LSTPROCESS_2_ENSUREVISIBLE_INDEX = R_I
+                End If 'ASC
+                lstProcess_2_ListView.ListItems(R_I).SubItems(1) = CHAR_INDICATE
                 LSTPROCESS_2_ENSUREVISIBLE_VALUE = PROCESS_PID_STORE_LST_02
-                lstProcess_2_ListView.ListItems(R_I).SubItems(1) = ">>"
+                LSTPROCESS_2_ENSUREVISIBLE_INDEX = R_I
 
-                Exit For
+                
+                ' Exit For
             End If
         Next
     End If
+    ' -----------------------------------------------------------------
     If PROCESS_PID_STORE_LST_03 > -1 Then
         CHK_VAR_OBTAIN_3 = 0
-        For R_I = 1 To lstProcess_3_SORTER_ListView.ListItems.Count - 1
+        For R_I = 1 To lstProcess_3_SORTER_ListView.ListItems.Count '  - 1
             If lstProcess_3_SORTER_ListView.ListItems(R_I) = PROCESS_PID_STORE_LST_03 Then
                 lstProcess_3_SORTER_ListView.ListItems.Item(lstProcess_3_SORTER_ListView.ListItems.Count - 1).EnsureVisible
                 lstProcess_3_SORTER_ListView.ListItems.Item(R_I).EnsureVisible
@@ -11962,10 +12023,12 @@ Sub PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY()
                 End If
                 End If
                 End If
-                LSTPROCESS_3_ENSUREVISIBLE_INDEX = R_I
+                
+                lstProcess_3_SORTER_ListView.ListItems(R_I).SubItems(1) = CHAR_INDICATE
                 LSTPROCESS_3_ENSUREVISIBLE_VALUE = PROCESS_PID_STORE_LST_03
-                lstProcess_3_SORTER_ListView.ListItems(R_I).SubItems(1) = ">>"
-                Exit For
+                LSTPROCESS_3_ENSUREVISIBLE_INDEX = R_I
+
+                ' Exit For
             End If
         Next
     End If
