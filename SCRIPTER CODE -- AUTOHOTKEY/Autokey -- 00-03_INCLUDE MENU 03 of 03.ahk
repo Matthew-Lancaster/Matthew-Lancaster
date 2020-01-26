@@ -60,27 +60,14 @@ IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 		TEMP_VAR_3=%TEMP_VAR_1_INCLUDE%%TEMP_VAR_2_INCLUDE%
 		TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
 		ELEMENT=%TEMP_VAR_3%
-		
-		; DEBUG CLUE
-		; -----------------------------------------------------------
-		; IFWINEXIST %ELEMENT%
-		; WinGetTitle CurrentTitle 
-		; -----------------------------------------------------------
 
 		IFWINEXIST %ELEMENT%
 			ELEMENT_2 = %ELEMENT_2%`n%ELEMENT%
-	
-		FILELIST=%ELEMENT_2%
-		Loop, parse, FILELIST, `n
-		{
-			if A_LoopField =  ; Ignore the blank item at the end of the list.
-				continue
-			WinGet, PID_01, PID, %A_LoopField%
-			Process, Close,% PID_01
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
-		}	
+		IFWINEXIST %ELEMENT%
+			MSGBOX "IFWINEXIST %ELEMENT%"
 	}
+	GOSUB PROCESS_KILL_AUTOHOTKEY
+	GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
 		
 	Loop, parse, FILELIST, `n
 	{
@@ -89,16 +76,24 @@ IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 		
 		REPLACE_2:="- AutoHotkey v"A_AhkVersion
 		StringReplace, FILE_NAME_PATH, A_LoopField,%REPLACE_2%,,
+
+		TEMP_VAR_1_FUNCTION=%A_LoopFileName% - AutoHotkey v%A_AhkVersion%
+		TEMP_VAR_2_FUNCTION:=StrReplace(TEMP_VAR_1_FUNCTION, """" , "")
+		ELEMENT_22=%A_ScriptDir%\%TEMP_VAR_2_FUNCTION%
+		MSGBOX % "TO FIND" ELEMENT_22
+		IFWINEXIST %ELEMENT_22%
+		MSGBOX %ELEMENT_22%
 		
 		ifExist %FILE_NAME_PATH%
 		{
 			Run, %FILE_NAME_PATH%
-			WINWAIT %A_LoopField%
+			WINWAIT %ELEMENT_22%
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			MSGBOX "WAIT"
 		}
 	}	
 
-	GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP		
+	GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
 	
 	MSGBOX "DONE"
 
@@ -107,47 +102,77 @@ EXITAPP
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+PROCESS_KILL_AUTOHOTKEY:
+	SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
+
+	WinGet, List, List, ahk_exe AutoHotkey.EXE
+	PROCESS_COUNT=0
+	Loop %List%  
+	{
+		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		If PID_8 <> %SCRIPTOR_OWN_PID%
+			PROCESS_COUNT +=1
+	}	
+	WHILE PROCESS_COUNT>0
+	{
+			
+		Loop %List%  
+		{ 
+			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+			If PID_8 <> %SCRIPTOR_OWN_PID%
+			{
+				Process, Close, %PID_8% 
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			}
+		}
+		WinGet, List, List, ahk_exe AutoHotkey.EXE
+		PROCESS_COUNT=0
+		Loop %List%  
+		{
+			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+			If PID_8 <> %SCRIPTOR_OWN_PID%
+				PROCESS_COUNT +=1
+		}	
+	}	
+RETURN
+
+
 ARRAY_INCLUDE_SCRIPT_NAME() {
 	ARRAY_INCLUDE_SCRIPT_NAME := []
 	ArrCnt := 0
-	
 	Loop, Files, %A_ScriptDir%\*.AHK    ; , D
-	Loop, read, %A_LoopFileName%
 	{
-		; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
-		; -------------------------------------------------------------------------------------------
 		StringUpper LoopFileName_UPPER, A_LoopFileName
-		IF InStr(A_LoopReadLine, "#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY")=1
-		IF InStr(A_LoopReadLine, "\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk")
 		IF InStr(LoopFileName_UPPER, "_INCLUDE")=0
 		{
-		TEMP_VAR_1_FUNCTION=%A_LoopFileName%" - AutoHotkey v"A_AhkVersion
-		TEMP_VAR_2_FUNCTION:=StrReplace(TEMP_VAR_1_FUNCTION, """" , "")
-		ELEMENT_22=%TEMP_VAR_2_FUNCTION%
-		
-		; DEBUG CLUE
-		; -----------------------------------------------------------
-		IFWINEXIST %A_ScriptDir%\%ELEMENT_22%
-		WinGetTitle CurrentTitle
-		IF CurrentTitle 
-		MSGBOX % CurrentTitle 
-		; -----------------------------------------------------------
+			TEMP_VAR_1_FUNCTION=%A_LoopFileName% - AutoHotkey v%A_AhkVersion%
+			TEMP_VAR_2_FUNCTION:=StrReplace(TEMP_VAR_1_FUNCTION, """" , "")
+			ELEMENT_22=%A_ScriptDir%\%TEMP_VAR_2_FUNCTION%
+			
+			IFWINEXIST %ELEMENT_22%
+			{
+				Loop, read, %A_LoopFileName%
+				{
+					; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+					; -------------------------------------------------------------------------------------------
+					IF InStr(A_LoopReadLine, "#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY")=1
+					IF InStr(A_LoopReadLine, "\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk")
 
-		IFWINEXIST %ELEMENT_22%
-
-		FILE_SCRIPT_PATH=%A_ScriptDir%\%A_LoopFileName%
-			ArrCnt += 1
-			ARRAY_INCLUDE_SCRIPT_NAME[ArrCnt]:=FILE_SCRIPT_PATH
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			BREAK
+						IFWINEXIST %ELEMENT_22%
+						{
+						FILE_SCRIPT_PATH=%A_ScriptDir%\%A_LoopFileName%
+						ArrCnt += 1
+						ARRAY_INCLUDE_SCRIPT_NAME[ArrCnt]:=FILE_SCRIPT_PATH
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						BREAK
+					}
+					IF InStr(LoopFileName_UPPER, "_INCLUDE")>0
+						BREAK 
+				}
+			}
 		}
-		IF InStr(LoopFileName_UPPER, "_INCLUDE")>0
-			BREAK 
 	}
-	
-	MSGBOX "HH"
-
-RETURN ARRAY_INCLUDE_SCRIPT_NAME
+	RETURN ARRAY_INCLUDE_SCRIPT_NAME
 }
 
 
@@ -513,7 +538,6 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	Allitem=2
 	WHILE Allitem>1
 	{
-		; WinGet, List, List, ahk_exe AutoHotkey.EXE
 		WinGet, List, List, ahk_class AutoHotkey 
 		Loop %List%  
 		{ 
@@ -557,7 +581,6 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 			; IT NOT THIS BIT THAT LESS QUICKER
 			; IT THE REMOVE ICON
 			; -------------------------------------------------------
-			IF PID_8
 			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
 			If PID_8 <> %SCRIPTOR_OWN_PID%
 			{
@@ -567,7 +590,7 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 			}
 		}
 		Allitem=0
-		WinGet, List, List, ahk_class AutoHotkey 
+		WinGet, List, List, ahk_exe AutoHotkey.EXE
 		Loop %List%  
 			Allitem:=A_Index
 	}	
@@ -1288,37 +1311,6 @@ RETURN
 
 
 
-RUN_TIMER_TRAY_ICON_CLEAN_UP:
-
-	Array_Icon_GetInfo := TrayIcon_GetInfo()
-	Loop % Array_Icon_GetInfo.MaxIndex()
-	{
-
-		IF Array_Icon_GetInfo[A_Index].process<1
-		{
-			TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
-			SoundBeep , 2000 , 20
-		}
-	}
-	
-	; ---------------------------------------------------------------
-	; THIS THE SOFTWARE TO DEVICE DRIVER THE CSR BLUETOOTH 4.0 BY STAR-TECH
-	; I GOT TWO COMPUTER SAME BUT ONE DOES NOT RUN UPDATES FOR WINDOWS 10
-	; AND SO THE SOFTWARE HAS BE INSTALLED AGAINST ADVISE AS WINDOWS 10 NORMAL 
-	; INSTALL DEVICE WON'T WORK
-	; GOT EVERYTHING GOING NORMAL AS RESULT THIS
-	; BUT LEAVE BEHIND AN ICON IN TASK TRAY UNABLE REMOVE ANY OTHER WAY
-	; ---------------------------------------------------------------
-	; C:\Program Files\CSR\CSR Harmony Wireless Software Stack\TrayApplication.exe
-	; ---------------------------------------------------------------
-	; Loop % Array_Icon_GetInfo.MaxIndex()
-	; {
-		; IF Array_Icon_GetInfo[A_Index].process="TrayApplication.exe"
-			; TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
-	; }
-	
-RETURN
-	
 
 
 RUN_TIMER_TRAY_ICON_CLEAN_UP:
@@ -1333,6 +1325,8 @@ RUN_TIMER_TRAY_ICON_CLEAN_UP:
 			SoundBeep , 2000 , 20
 		}
 	}
+	
+	MSGBOX "IC"
 	
 	; ---------------------------------------------------------------
 	; THIS THE SOFTWARE TO DEVICE DRIVER THE CSR BLUETOOTH 4.0 BY STAR-TECH
@@ -1429,17 +1423,17 @@ TrayIcon_GetInfo(sExeName := "")
 			msgID := NumGet(nfo, (A_Is64bitOS ? 12 : 8))
 			hIcon := NumGet(nfo, (A_Is64bitOS ? 24 : 20), "Ptr")
 
-			WinGet, pID, PID, ahk_id %hWnd_I%
+			WinGet, pID_TrayIcon, PID, ahk_id %hWnd_I%
 			WinGet, sProcess, ProcessName, ahk_id %hWnd_I%
 			WinGetClass, sClass, ahk_id %hWnd_I%
 
-			If !sExeName || (sExeName = sProcess) || (sExeName = pID)
+			If !sExeName || (sExeName = sProcess) || (sExeName = pID_TrayIcon)
 			{
 				DllCall("ReadProcessMemory", Ptr, hProc, Ptr, iString, Ptr, &tip, UPtr, szTip, UPtr, 0)
 				Index := (oTrayIcon_GetInfo.MaxIndex()>0 ? oTrayIcon_GetInfo.MaxIndex()+1 : 1)
 				oTrayIcon_GetInfo[Index,"idx"]     := A_Index - 1
 				oTrayIcon_GetInfo[Index,"IDcmd"]   := IDcmd
-				oTrayIcon_GetInfo[Index,"pID"]     := pID
+				oTrayIcon_GetInfo[Index,"pID"]     := pID_TrayIcon
 				oTrayIcon_GetInfo[Index,"uID"]     := uID
 				oTrayIcon_GetInfo[Index,"msgID"]   := msgID
 				oTrayIcon_GetInfo[Index,"hIcon"]   := hIcon
