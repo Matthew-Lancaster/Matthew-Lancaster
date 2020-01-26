@@ -293,8 +293,8 @@ SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=
 ; TO   TIME __ Sat 08-Jun-2019 23:09:10 _ CLIPBOARD COUNT _ 557
 ; TO   TIME __ Sat 08-Jun-2019 23:09:10 _ Result: 2 hours, 28 minutes and 27 seconds
 ; -------------------------------------------------------------------
-Count = 577 -- Sat 08-Jun-2019 23:09:10
-Count = 384 -- Sat 08-Jun-2019 18:40:43
+; Sat 08-Jun-2019 23:09:10
+; Sat 08-Jun-2019 18:40:43
 
 ;# ------------------------------------------------------------------
 ; Location Internet
@@ -310,6 +310,9 @@ Count = 384 -- Sat 08-Jun-2019 18:40:43
 ; Link to This File On DropBox With Most Up to Date
 ; https://www.dropbox.com/s/qezyk9thq0boir2/Autokey%20--%2014-Brightness%20With%20Dimmer.ahk?dl=0
 ; ------------------------------------------------------------------
+
+
+PAUSE
 
 
 #InstallKeybdHook
