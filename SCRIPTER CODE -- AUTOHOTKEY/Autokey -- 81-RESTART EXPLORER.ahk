@@ -59,17 +59,30 @@ GO_ROUTINE:
 	
 	SoundBeep , 1500 , 400
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	M2=4
-	M2+=4096
-	M2=4100    ; DISPLAY ALWAYS ON TOP AND ASK QUESTION YES NOT
-	LINE_STRING=RESTART EXPLORER FOR MIDNIGHT`n`n10 SECOND TO ANSWER NOT`n`nDEFAULT YES
-	
-	MSGBOX ,4100,,%LINE_STRING%,10
-	IFMSGBOX NO
-		EXITAPP
+	Process, Exist, explorer.exe
+	If ErrorLevel > 0
+	{
+		M2=4
+		M2+=4096
+		M2=4100    ; DISPLAY ALWAYS ON TOP AND ASK QUESTION YES NOT
+		FormatTime, TimeString, HH:mm, HH:mm
+		FormatTime, TimeString, HH, HH
+		IF TimeString=00
+		LINE_STRING=RESTART EXPLORER FOR MIDNIGHT`n`n10 SECOND TO ANSWER NOT`n`nDEFAULT YES
+		IF TimeString<>00
+		LINE_STRING=RESTART EXPLORER`n`n10 SECOND TO ANSWER NOT`n`nDEFAULT YES
+		
+		MSGBOX ,4100,,%LINE_STRING%,10
+		IFMSGBOX NO
+			EXITAPP
 
-	Process,close,explorer.exe
-	; sleep, 5000 ;This sleep 5000 is to let you see what actually happens.
+		Process,close,explorer.exe
+	}
+	
+	; ---------------------------------------------------------------
+	; REQUEST KILL EXPLORER IF NONE EXIST ABOVE 
+	; AND THEN START IT GOING AGAIN
+	; ---------------------------------------------------------------
 	RUN, explorer.exe
 	
 	WinWait, ahk_class CabinetWClass
