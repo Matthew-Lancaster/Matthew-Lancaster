@@ -311,8 +311,7 @@ SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=
 ; https://www.dropbox.com/s/qezyk9thq0boir2/Autokey%20--%2014-Brightness%20With%20Dimmer.ahk?dl=0
 ; ------------------------------------------------------------------
 
-
-PAUSE
+ 
 
 
 #InstallKeybdHook
@@ -334,6 +333,10 @@ Display := New Monitor()            ; initialize / start the class
 ; SCRIPT ============================================================
 
 DetectHiddenWindows, on
+
+PAUSE
+
+
 
 CoordMode, Mouse, Screen
 Mouse_Idle = 0 
