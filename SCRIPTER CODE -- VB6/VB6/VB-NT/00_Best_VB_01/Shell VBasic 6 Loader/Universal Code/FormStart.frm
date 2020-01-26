@@ -15,6 +15,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+
+
 Public TXmsg
 Dim ExeName
 Dim ExeFullPath
@@ -37,6 +39,8 @@ ScanPath.cboMask.Text = "*.*"
 ScanPath.chkSubFolders = vbChecked
 ScanPath.txtPath.Text = "E:\01 VB Shell Folders\00 Shell " + OIP2$ + " Loader"
 Call ScanPath.cmdScan_Click
+
+
 AStart = ScanPath.ListView1.ListItems.Count
 
 'ScanPath.ListView1.SortOrder = lvwAscending
@@ -93,6 +97,43 @@ ScanPath.DTPicker1(0) = Now - (DaysToScan)  'All in Last Ten Days
 ScanPath.txtPath.Text = "D:\VB6\VB-NT"
 Call ScanPath.cmdScan_Click
 
+' OBVIOUS IS THIS SHIT
+' ScanPath.chkSubFolders = vbChecked
+' ----------------------------------
+
+
+ScanPath.cboMask.Text = "*.BAS;*.VBS;*.AHK;*.BAT;*.PS1;*.TXT;*.LST"
+ScanPath.cboDate.ListIndex = 0
+DaysToScanYears = 18
+DaysToScan = 365 * DaysToScanYears
+DaysToScan = 500
+ScanPath.DTPicker1(0) = Now - (DaysToScan)  'All in Last Ten Days
+
+X_TAGG_LINKER_ = ScanPath.ListView1.ListItems.Count
+ScanPath.txtPath.Text = "C:\SCRIPTER"
+Call ScanPath.cmdScan_Click
+
+For we = ScanPath.ListView1.ListItems.Count To 1 Step -1
+    A1$ = UCase(ScanPath.ListView1.ListItems.Item(we).SubItems(1))
+    B1$ = UCase(ScanPath.ListView1.ListItems.Item(we))
+    XZAG = 0
+    If InStr(A1$, "_GSDATA_") > 0 Then XZAG = 2
+    If InStr(A1$, "\SCRIPTER CODE -- VB6") > 0 Then XZAG = 2
+    If InStr(A1$, "\SCRIPTER\SYNC_FOLDER") > 0 Then XZAG = 2
+    
+    If InStr(B1$, ".TXT") > 0 Then
+        If InStr(B1$, "JAVA") = 0 Then XZAG = 2
+        If InStr(B1$, "STYLUS") = 0 Then XZAG = 2
+        If InStr(B1$, ".LNK") > 0 Then XZAG = 2
+    End If
+    If XZAG = 2 Then
+        ScanPath.ListView1.ListItems.Remove (we)
+    End If
+Next
+
+
+
+
 'ScanPath.txtPath.Text = "X:\00 Lists-Common-Words\Acronyms Code"
 'Call ScanPath.cmdScan_Click
 'ScanPath.txtPath.Text = "X:\00 Lists-Common-Words\Double Word Code"
@@ -135,7 +176,6 @@ ScanPath.ListView3.Sorted = True
 ScanPath.ListView3.Sorted = False
 DoEvents
 
-
 'Exit Sub
 
 SCRIPT_TOTAL_PROJECTS = 50
@@ -146,7 +186,6 @@ SCRIPT_TOTAL_PROJECTS = 50
 '        ScanPath.ListView1.ListItems.Remove (ScanPath.ListView1.ListItems.Count)
 '    Loop Until ScanPath.ListView1.ListItems.Count <= SCRIPT_TOTAL_PROJECTS
 'End If
-
 'Exit Sub
 
 DoEvents
@@ -196,7 +235,6 @@ End If
 'Next
 
 ProProjects2 = 0
-
 For we = 1 To ScanPath.ListView1.ListItems.Count
     A1$ = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
     B1$ = ScanPath.ListView1.ListItems.Item(we)
@@ -210,14 +248,9 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
         LV.SubItems(1) = A1$
         'LV.SubItems(2) = DDirectory
     End With
-
 Next
 
-
-
 ScanPath.ListView1.ListItems.Clear
-
-
 
 End Sub
 
@@ -333,6 +366,16 @@ B1$ = ScanPath.ListView1.ListItems.Item(Index)
 
 ChDrive Mid$(A1$, 1, 2)
 ChDir A1$
+
+If InStr("*.BAS;*.VBS;*.AHK;*.BAT;*.PS1;*.TXT;*.LST", UCase(Mid(B1$, Len(B1$) - 3))) > 0 Then
+
+    Shell "C:\Program Files (x86)\Notepad++\notepad++.exe """ + A1$ + B1$ + """", vbMaximizedFocus
+    Unload Form1
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+    Exit Sub ': End
+
+End If
 
 If LoadFolder = True Then
     Shell "Explorer.exe /select, " + A1$ + B1$, vbNormalFocus: Unload Form1

@@ -11,6 +11,24 @@
 
 ; GLOBAL SETTINGS ===================================================
 
+; -------------------------------------------------------------------
+; SESSION PLENTY
+; -------------------------------------------------------------------
+; Sun 26-Jan-2020 01:40:28
+; Sun 26-Jan-2020 02:50:14 -- 1 HOUR 10 MINUTE
+; -------------------------------------------------------------------
+;
+; -------------------------------------------------------------------
+; HAD TO REDO WORK OTHER DAY -- TIMNER AND HOUR STAY AWAKE 
+; DURING NIGHT TIME ADDITION SCREEN SAVER AFTER 10 PM O'CLOCK
+;
+; AND THEN MERGE COMPARE
+; SOME DID AR SYNC LOST IT
+; WORK WAS MOVE ADD HOUR ON FILE TO DATA FOLDER RATHER THAN HERE
+; NEXT TO SCRIPTOR FOLDER
+; -------------------------------------------------------------------
+
+
 #Warn
 #NoEnv
 #SingleInstance Force
@@ -28,6 +46,11 @@ OnExit("ExitFunc")
 ; Register an object to be called on exit:
 OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
+
+;		IF (A_ComputerName="8-MSI-GP62M-7RD")
+;			DIMMER_ONLY_NOT_BLANK := "True"
+;       CEHCKER FIND LINE ABOVE IS REQUIRE
+; Sun 26-Jan-2020 02:49:24
 
 ; ---------------------------------------------------------------
 ; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
@@ -47,6 +70,20 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
+
+
+; ---------------------------------------------------------------
+; REQUIRE GIVE BEFORE INCLUDE
+; ---------------------------------------------------------------
+; SET THE FLAG TO BEGIN TIMER
+; ---------------------------------------------------------------
+ADD_MINUTE_BEFORE_SCREEN_SAVER=
+; CARRY ON THE TIMER SET
+ADD_MINUTE_SCREEN_SAVER=
+SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=
+; ---------------------------------------------------------------
+
+
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01-INCLUDE MENU 01 of 03.ahk
 
 
@@ -180,6 +217,18 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; JITTER BUG
 ; TWO SESSION EARLY HOUR FROM 1 AM TO 5 AM AND THEN MORNING AFTER WAKE AGAIN
 ; EARLIER TO POST DELIVERY
+; PIR FILENAME AND (COMPUTERNAME) FILE PROVIDE FROM RS232
+; -------------------------------------------------------------------
+; THE PIR CONTROL SIGNAL NOT IN HERE CODE -- OVER THERE
+; EXAMPLE FILENAME
+; \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS.txt
+; D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR.exe
+; WHEN MY MSI COMPUTER DOWNSTAIR_S IS DONE HERE
+; Mon 20-Jan-2020 18:04:40
+; -------------------------------------------------------------------
+
+
+
 ; -------------------------------------------------------------------
 ; FROM TIME __ Sat 13-Apr-2019 01:16:44
 ; TO   TIME __ Sat 13-Apr-2019 05:14:58 _ 5 HOUR
@@ -370,6 +419,25 @@ SoundBeep , 3000 , 100
 ; IF (A_ComputerName="4-ASUS-GL522VW")
 	; PAUSE
 	
+
+; WIN_XP 5 WIN_7 6 WIN_10 10  
+; --------------------------
+OSVER_N_VAR:=a_osversion
+IF INSTR(a_osversion,".")>0
+	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
+IF OSVER_N_VAR=WIN_XP
+	OSVER_N_VAR=5
+IF OSVER_N_VAR=WIN_7
+	OSVER_N_VAR=6
+
+SoundBeep , 1000 , 100
+SoundBeep , 3000 , 100
+
+IF OSVER_N_VAR=5 ; XP
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	
+	
+	
 Gui, Color, black
 Gui +AlwaysOnTop
 Gui -Caption
@@ -381,8 +449,9 @@ SendMessage, 0x112, 0xF170, 0,, Program Manager
 
 GOSUB, MONITOR_BRIGHTNESS_UP
 
-SetTimer,Mouse_Idle_Timer, 1000     ; Check Every Second
-setTimer TIMER_PREVIOUS_INSTANCE,1
+SETTIMER,MOUSE_IDLE_TIMER, 1000     ; CHECK EVERY SECOND
+SETTIMER TIMER_PREVIOUS_INSTANCE,1
+SETTIMER,CHECK_FILENAME_1_HOUR,1000
 
 ; -------------------------------------------------------------------
 FN_ARRAY_AUTO_KEY := SET_ARRAY_AUTO_KEY()
@@ -484,18 +553,25 @@ RS232_LOGGER_TIMER_RUN_EXE:
 	{
 		MSGBOX NOT EXIST`n%FN_VAR_RS232_EXE%
 	}
-RETURN
+RETURN 
 
 RS232_SUB:
 RS232_LOGGER_TIMER_CHANGE:
 
-	FN_VAR_TXT:="C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER.txt"
+	; HERE COME FROM
+	; "D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.vbp"
+	; ---------------------------------------------------------------
+	FN_VAR_TXT=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER #NFS__%A_ComputerName%.txt
+
+	; \\2-ASUS-EEE\2_ASUS_EEE_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER #NFS__2-ASUS-EEE.TXT
+
 	IFNOTEXIST, %FN_VAR_TXT%
 	{
 		RS232_LOGGER_PIR_VAR=0
 	}
 	ELSE
 	{
+		; WANT ON -------------------------------------------------------
 		RS232_LOGGER_PIR_VAR=1
 	}
 
@@ -608,6 +684,70 @@ ARTIFICIAL_F5:=GetKeyState("F5","P")
 ARTIFICIAL_F5_A_Now:=A_Now
 }
 RETURN
+
+
+
+; -------------------------------------------------------------------
+; WORK CODER TO COMPLETE HERE
+; FINALLY AT 
+; Fri 03-Jan-2020 03:19:44
+; FROM 
+; Fri 03-Jan-2020 02:37:19
+; -------------------------------------------------------------------
+; FEW THING FINDER
+; THE MENU CODE SET FILE 02 OF 03
+; HOLD THE VARIABLE FOR MENU SELECT
+; AND UNABLE HAVE CODE IN THERE AS REACH END NOT A RETURN
+; SO CODE FOR SUBROUTINE GO IN MENU FILE 03 OF 03
+; IF CODE ARE LOCATE ON 02 OF 03
+; THEY RUN TWICE
+; -------------------------------------------------------------------
+; AND CODER ADD
+; THAT WHEN THE TIMER VARIABLE DO 
+; IT ALSO TRIGGER THAT SCREEN SAVER SWITCH IS SHOW VISIBLE
+; -------------------------------------------------------------------
+
+CHECK_FILENAME_1_HOUR:
+
+	IF ADD_MINUTE_BEFORE_SCREEN_SAVER
+	{
+		ADD_MINUTE_BEFORE_SCREEN_SAVER=
+		ADD_MINUTE_SCREEN_SAVER=%A_Now%
+		ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+		SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
+		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
+	}
+
+	FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__%A_ComputerName%.TXT
+	if FileExist(FileName_VB)
+	{
+		FileDelete, % FileName_VB
+		
+		ADD_MINUTE_BEFORE_SCREEN_SAVER=
+		ADD_MINUTE_SCREEN_SAVER=%A_Now%
+		ADD_MINUTE_SCREEN_SAVER+=1 , Hours
+		SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
+		SOUNDBEEP 1000,100
+		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
+		IF OSVER_N_VAR=5 ; XP
+		{
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+		Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoids a taskbar button.
+		Gui Color, White
+		Gui font, s30 bold, Arial
+		Gui, Add, Text,, Screen Saver Set On
+		; Gui, Show, , Title of Window 
+		Gui, Show, NoActivate, Title of Window  ; NoActivate avoids deactivating the currently active window.
+		SLEEP 4000
+		Gui, Hide
+	}
+Return
+
+
+
+
 
 ; ------------------------------------
 Mouse_Idle_Timer:
@@ -878,7 +1018,14 @@ RETURN
 ; ------------------------------------------------------------------
 MONITOR_BRIGHTNESS_DIM:
 
-IF ALLOW_DIMMER=FALSE
+
+IF ADD_MINUTE_SCREEN_SAVER
+IF A_NOW<%ADD_MINUTE_SCREEN_SAVER%
+{
+	ALLOW_DIMMER := "False"
+}
+
+IF (ALLOW_DIMMER = "False")
 	RETURN
 	
 If (Mouse_Idle_Flip_Flop_Toggle = "False")
@@ -971,6 +1118,13 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		ALLOW_DIMMER := "False"
 	}
 	
+
+	IF ADD_MINUTE_SCREEN_SAVER
+	IF A_NOW<%ADD_MINUTE_SCREEN_SAVER%
+	{
+		ALLOW_DIMMER := "False"
+	}
+	
 	IF (O_IN_DAY_1<>%IN_DAY% or SET_GO="TRUE")
 	{
 	
@@ -985,8 +1139,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		; POWER_SCREEN_SAVE_OFF := "False"
 		
 		DIMMER_ONLY_NOT_BLANK := "False"
-		;IF (A_ComputerName="8-MSI-GP62M-7RD")
-		;	DIMMER_ONLY_NOT_BLANK := "True"
+		IF (A_ComputerName="8-MSI-GP62M-7RD")
+			DIMMER_ONLY_NOT_BLANK := "True"
 	
 		IF (IN_DAY="FALSE" or SET_GO="TRUE")
 			IF (ALLOW_DIMMER="True")
@@ -1069,6 +1223,46 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	O_IN_DAY_1:=%IN_DAY%
 
 RETURN
+
+
+SCREEN_SAVER_TO_SHOW_SCREEN:
+
+	Gui, HIDE
+	;--------------------------------------------------------
+	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER,  2 = Monitor Off
+	; 0x112 = WM_SYSCOMMAND, 0xF170 = SC_MONITORPOWER, -1 = Monitor Power
+	;--------------------------------------------------------
+	SendMessage, 0x112, 0xF170, -1,, Program Manager
+	; ---------------------------------------------------
+	; POWER UP THE SCREEN AND WILL FLASH ON FOR SECOND THEN BACK TO POWERSAVE
+	; SO ANSWER IS MOVE THE MOUSE TO BRING OUT OF SCREENSAVER
+	; WORKER YES
+	; ---------------------------------------------------
+	; ACTIVATING THE SCREEN AGAIN WITH THIS COMMAND IS NOT ACTUALLY
+	; REQUIRED _ IT IS SOME SYSTEM SCREEN SAVER AND MOUSE OR KEY IDLE
+	; ACTIVATES IT THAT WAY
+	; ---------------------------------------------------
+	
+	MouseGetPos, xpos, ypos
+	XPOS+=1
+	YPOS+=1
+	MouseMove, xpos, ypos
+	XPOS-=1
+	YPOS-=1
+	MouseMove, xpos, ypos
+
+	Monitor.SetBrightness(127, 127, 127)
+	
+	SetTimer,Mouse_Idle_Timer, 1000 
+	; ---------------------------------------------------------------
+	; RAPID RESPONSE BRING OUT OF DIM
+	; SET TIMER TO THE SECOND 1000MS FOR EASIER COUNTER TIME_OUT
+	; ---------------------------------------------------------------
+	Mouse_Idle_Flip_Flop_Toggle := "False"
+
+
+RETURN
+
 
 IS_IN_DAY:
 

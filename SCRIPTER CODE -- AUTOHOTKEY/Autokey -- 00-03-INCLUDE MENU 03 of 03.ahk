@@ -1093,7 +1093,7 @@ IfWinNotExist INDIVIDUAL PROCESS
 DetectHiddenWindows, % dhw
 Return
 
-
+ 
 
 
 WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
