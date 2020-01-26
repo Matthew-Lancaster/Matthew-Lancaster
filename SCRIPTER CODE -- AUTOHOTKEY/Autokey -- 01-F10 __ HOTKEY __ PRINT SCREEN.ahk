@@ -236,6 +236,7 @@ RETURN
 ; https://autohotkey.com/board/topic/85600-how-do-i-make-a-mute-button/
 ; ----
 
+#IFWINNOTACTIVE ahk_class wndclass_desked_gsk
 $F1::Send {VOLUME_MUTE}	
 RETURN
 #ifwinactive
@@ -296,8 +297,7 @@ RETURN
 ; TRY ?
 ; USE BOTH LIKE HERE
 ; -------------------------------------------------------------------
-:*?:n`;t::
-	SENDINPUT n't
+:*?:n`;t::SENDINPUT n't
 RETURN
 
 
@@ -309,6 +309,48 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+
+
+; -------------------------------------------------------------------
+; WHEN REQUIRE A PROGRAM LEFT IN DEBUGGAR IDE MODE
+; HERE IS WAY TO BLOCK CTRLBREAK
+; THE $ AND LATER * MEAN DO ALLOW PASS THROUGH
+; Sun 26-Jan-2020 04:11:00
+; -------------------------------------------------------------------
+#IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+$*CtrlBreak::RETURN
+#ifwinactive
+
+; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+; $*^C::RETURN
+; #ifwinactive
+
+; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+; $*+F5::RETURN
+; #ifwinactive
+
+; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+; CtrlBreak::RETURN
+; #ifwinactive
+
+; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+; Ctrl::RETURN
+; #ifwinactive
+
+; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+; Ctrl::MSGBOX "HH"
+; #ifwinactive
+
+; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+; ^C::RETURN
+; #ifwinactive
+	
+; CtrlBreak::
+; IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+    ; return  ; i.e. do nothing, which causes Control-P to do nothing in Notepad.
+; Send CtrlBreak
+; return
 
 
 
@@ -344,9 +386,15 @@ RETURN
 ;                          -- DON'T FORGET THE OBVIOUS 
 ;                          -- SIG LINE REQUIRE REVERSE SEARCH WAY
 ; -------------------------------------------------------------------
+#IfWinNOTActive ahk_class Notepad++
+{
 +^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
 	VAR_INDEX=1
 	GOSUB HOT_KEY_CONVERT_TExT 
+}
+#ifwinactive
+
+
 Return
 ; --
 ^l:: ; CTRL+L ---- Converts Text To Lower
@@ -354,9 +402,20 @@ Return
 	GOSUB HOT_KEY_CONVERT_TEXT 
 Return
 ; --
-+u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
-                                              ; HAS OPEN SOURCE OF PAGE 
-											  ; IN A NEW TAB IN BROWSER
+#IfWinActive ahk_class Chrome_WidgetWin_1
++u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
+                                               ; HAS OPEN SOURCE OF PAGE 
+											   ; IN A NEW TAB OF BROWSER
+#ifwinactive
+
+#IfWinNOTActive ahk_class Chrome_WidgetWin_1
+^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
+                                               ; CONTROL 
+											   ; IF BROWSER PAGE CHROME
+											   ; SO NOT OPEN SOURCE CONTROL U 
+											   ; IN A NEW TAB OF BROWSER
+#ifwinactive
+
 	VAR_INDEX=3
 	GOSUB HOT_KEY_CONVERT_TEXT
 Return
