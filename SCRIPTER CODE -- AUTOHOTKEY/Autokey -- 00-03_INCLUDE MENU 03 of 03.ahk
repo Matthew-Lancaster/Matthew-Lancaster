@@ -41,11 +41,24 @@ IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 		IFWINEXIST %ELEMENT%
 			ELEMENT_2 = %ELEMENT_2%`n%ELEMENT%
 	
-		; IF INSTR(TITLE_VAR,ELEMENT)
-		; {
-			; RAINER_F5_SET_GO=%ELEMENT%
-			; XX_OVER=TRUE
-		; }
+		FILELIST=%ELEMENT_2%
+		Loop, parse, FILELIST, `n
+		{
+		if A_LoopField =  ; Ignore the blank item at the end of the list.
+			continue
+		
+		REPLACE_2:="- AutoHotkey v"A_AhkVersion
+		StringReplace, FILE_NAME_PATH, A_LoopField,%REPLACE_2%,,
+		MSGBOX %FILE_NAME_PATH%
+		PAUSE
+			
+		WinGet, PID_01, PID, %A_LoopField%
+		Process, Close,% PID_01
+
+		
+	}	
+	
+	
 	}
 
 	MSGBOX %ELEMENT_2%
