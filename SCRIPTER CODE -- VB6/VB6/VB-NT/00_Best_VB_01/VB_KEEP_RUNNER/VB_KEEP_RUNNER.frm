@@ -23,8 +23,8 @@ Begin VB.Form Form1
    Begin VB.Timer Timer_clear_imediate 
       Enabled         =   0   'False
       Interval        =   1
-      Left            =   6420
-      Top             =   1104
+      Left            =   6444
+      Top             =   888
    End
    Begin VB.Timer TIMER_CLIPBOARD_TIMER_RETRY 
       Enabled         =   0   'False
@@ -5506,6 +5506,9 @@ End Sub
 
 Private Sub Lab_KILL_EXPLORER_Click()
 
+Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
+Lab_KILL_EXPLORER.BackColor = RGB(255, 255, 255)
+
 Call MNU_TASK_KILLER_EXPLORER_CLIPBOARD_Click
 
 'Me.WindowState = vbMinimized
@@ -5626,8 +5629,22 @@ Call FindWindow_Get_All_Explorer("QUITE MSGBOX=TRUE")
 TIMER_MSGBOX_KILL_EXPLORER_CLIPBOARD.Enabled = True
 '----------------------------------------------------
 
-Label23.BackColor = Label11.BackColor
+' Label23.BackColor = Label11.BackColor
 
+SET_COMPUTER_TO_RUN_PID_EXE = "EXPLORER.EXE"
+If SET_COMPUTER_TO_RUN <> "" Then
+    Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+    SET_COMPUTER_TO_RUN = ""
+    Exit Sub
+End If
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+ENUMPROCESS_MUST_RUNNER = True
+Call EnumProcess
+
+' -----------------------------------------
+' AHK CODE WILL KILL EXPLORER AND RESTARTER
+' -----------------------------------------
 Dim objShell
 Set objShell = CreateObject("Wscript.Shell")
 objShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 81-RESTART EXPLORER.ahk""", DontShowWindow, DontWaitUntilFinished
@@ -6122,12 +6139,40 @@ Private Sub Label_KILL_CMD_AND_AHK_Click()
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_CMD_AND_AHK.BackColor = RGB(255, 255, 255)
 
+Me.WindowState = vbMinimized
+
 SET_COMPUTER_TO_RUN_PID_EXE = "Cmd.exe"
 If SET_COMPUTER_TO_RUN <> "" Then
     Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
     SET_COMPUTER_TO_RUN = ""
     Exit Sub
 End If
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+SET_COMPUTER_TO_RUN_PID_EXE = "Conhost.exe"
+If SET_COMPUTER_TO_RUN <> "" Then
+    Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+    SET_COMPUTER_TO_RUN = ""
+    Exit Sub
+End If
+Me.WindowState = vbMinimized
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+SET_COMPUTER_TO_RUN_PID_EXE = "AutoHotkey.exe"
+If SET_COMPUTER_TO_RUN <> "" Then
+    Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+    SET_COMPUTER_TO_RUN = ""
+    Exit Sub
+End If
+Me.WindowState = vbMinimized
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+
+
+ENUMPROCESS_MUST_RUNNER = True
+Call EnumProcess
+
+Exit Sub
 
 Dim R, A1, A2
 Dim ALL_DONE
@@ -6173,6 +6218,23 @@ Private Sub Label_KILL_CMD_Click()
 
 Call COLOUR_BOX_SELECTOR_RESTORE_DEFAULT
 Label_KILL_CMD.BackColor = RGB(255, 255, 255)
+
+SET_COMPUTER_TO_RUN_PID_EXE = "Cmd.exe"
+If SET_COMPUTER_TO_RUN <> "" Then
+    Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+    SET_COMPUTER_TO_RUN = ""
+    Exit Sub
+End If
+
+Me.WindowState = vbMinimized
+
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+ENUMPROCESS_MUST_RUNNER = True
+Call EnumProcess
+
+Exit Sub
+
 
 SET_COMPUTER_TO_RUN_PID_EXE = "Cmd.exe"
 If SET_COMPUTER_TO_RUN <> "" Then
@@ -7818,14 +7880,31 @@ End Sub
 
 Sub KILL_AUTOHOTKEY_GLOBAL()
 
+    SET_COMPUTER_TO_RUN_PID_EXE = "AutoHotkey.exe"
+    If SET_COMPUTER_TO_RUN <> "" Then
+        Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
+        SET_COMPUTER_TO_RUN = ""
+        Exit Sub
+    End If
+    
+    Me.WindowState = vbMinimized
+    
+    Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+    
+    ENUMPROCESS_MUST_RUNNER = True
+    Call EnumProcess
+    
+    Dim SHELL_AHK
+    SHELL_AHK = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
+    Set objShell = CreateObject("Wscript.Shell")
+    objShell.Run """" + SHELL_AHK + """", DontShowWindow, DontWaitUntilFinished
+    Set objShell = Nothing
+    
+
+Exit Sub
+
 Dim MSGBOX_STRING
 
-SET_COMPUTER_TO_RUN_PID_EXE = "AutoHotkey.exe"
-If SET_COMPUTER_TO_RUN <> "" Then
-    Call CREATE_PATH_ARRAY_SET_NETWORK_ALL_SPEICAL_REQUEST
-    SET_COMPUTER_TO_RUN = ""
-    Exit Sub
-End If
 
 Dim R, A1, A2
 
@@ -7911,6 +7990,16 @@ If SET_COMPUTER_TO_RUN <> "" Then
     SET_COMPUTER_TO_RUN = ""
     Exit Sub
 End If
+
+Me.WindowState = vbMinimized
+
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+ENUMPROCESS_MUST_RUNNER = True
+Call EnumProcess
+
+Exit Sub
+
 
 Dim R, A1, A2
 
@@ -9478,6 +9567,30 @@ Sub ChunkCodeOnMouse()
         Call PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY
 
 End Sub
+
+Function FIND_SCRIPTNAME_AND_KILL(PROCESS_NAME)
+
+Dim objWMIService
+Dim colProcesses
+Dim i1
+Dim i2
+Dim objProcess
+Dim strScriptName
+Dim PID_Script As Long
+Dim VAR
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+' Set colProcesses = objWMIService.ExecQuery("Select * from Win32_Process")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = '" + LCase(PROCESS_NAME) + "'")
+
+For Each objProcess In colProcesses
+    If Not (IsNull(objProcess.CommandLine)) Then
+        objProcess.Terminate
+    End If
+Next
+
+End Function
+
 
 Function FIND_SCRIPTNAME(PID_TEST)
 
