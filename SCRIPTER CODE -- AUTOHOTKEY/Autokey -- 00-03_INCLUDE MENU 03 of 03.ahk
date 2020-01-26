@@ -13,6 +13,81 @@
 ; TO   __ Sun 09-Jun-2019 17:48:00 __ Clipboard Count = 452 __ 10 HOURING 45 MINUTE
 ; ---------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; I DO THIS TO RUN THE AHK OF MY CHOICE WHEN WANT RUN THIS INCLUDE
+; -------------------------------------------------------------------
+FILE_ScriptName=%A_ScriptName%
+IF INSTR(FILE_ScriptName,"_INCLUDE")>0
+{
+	DetectHiddenWindows, ON
+	#SingleInstance force
+	
+	; Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+	FN_ARRAY_INCLUDE_SCRIPT_NAME := ARRAY_INCLUDE_SCRIPT_NAME()
+	 
+	ELEMENT=
+	Loop % FN_ARRAY_INCLUDE_SCRIPT_NAME.MaxIndex()
+	{
+		ELEMENT := FN_ARRAY_INCLUDE_SCRIPT_NAME[A_Index]
+		AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+		TEMP_VAR_1=%ELEMENT%
+		TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
+		TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+		TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+		ELEMENT=%TEMP_VAR_3%
+		; IFWINEXIST %ELEMENT%
+		; WinGetTitle CurrentTitle 
+
+		IFWINEXIST %ELEMENT%
+			ELEMENT_2 = %ELEMENT_2%`n%ELEMENT%
+	
+		; IF INSTR(TITLE_VAR,ELEMENT)
+		; {
+			; RAINER_F5_SET_GO=%ELEMENT%
+			; XX_OVER=TRUE
+		; }
+	}
+
+	MSGBOX %ELEMENT_2%
+	EXITAPP
+	
+	
+	FILE_ScriptName:=StrReplace(FILE_ScriptName, "_INCLUDE" , "_00")
+	FILE_ScriptName=%A_ScriptDir%\%FILE_ScriptName%
+	ifExist %FILE_ScriptName%
+	{
+		Run, %FILE_ScriptName%
+		EXITAPP
+	}
+}
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+ARRAY_INCLUDE_SCRIPT_NAME() {
+	ARRAY_INCLUDE_SCRIPT_NAME := []
+	ArrCnt := 0
+	
+	Loop, Files, %A_ScriptDir%\*.AHK    ; , D
+	Loop, read, %A_LoopFileName%
+	{
+		; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+		; -------------------------------------------------------------------------------------------
+		StringUpper LoopFileName_UPPER, A_LoopFileName
+		IF InStr(A_LoopReadLine, "#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY")=1
+		IF InStr(A_LoopReadLine, "\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk")
+		IF InStr(LoopFileName_UPPER, "_INCLUDE")=0
+		{
+			FILE_SCRIPT_PATH=%A_ScriptDir%\%A_LoopFileName%
+			ArrCnt += 1
+			ARRAY_INCLUDE_SCRIPT_NAME[ArrCnt]:=FILE_SCRIPT_PATH
+		}
+	}
+
+RETURN ARRAY_INCLUDE_SCRIPT_NAME
+}
+
+
+
 ~<^#ESC:: GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
 
 ~>^F1::
