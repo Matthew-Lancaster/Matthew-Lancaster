@@ -16937,6 +16937,29 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 'USE OPTION CLIP EXE NAME AND MOVE TO FOLDER
 
+' -----------------------------
+' SESSION 002
+' -----------------------------
+' WHILE MULTI PROJECT
+' THIS THE LAST ONE FOR TONIGHT
+' -----------------------------
+' .VBS _ INCORP ON VBS VBSCRIPT
+' .VBS
+' .BAT
+' .AHK AUTOHOTKEY
+' -----------------------------
+' Sun 26-Jan-2020 00:46:10
+' Sun 26-Jan-2020 04:58:00 -- 4 HOUR 12 MINUTE
+' -----------------------------
+' ANOTHER ADDTION SAME TIME
+' Sun 26-Jan-2020 04:58:00
+' Sun 26-Jan-2020 05:28:00 -- 1 HOUR 30 MINUTE
+' TOTAL
+' Sun 26-Jan-2020 00:46:10
+' Sun 26-Jan-2020 05:28:00 -- 5 HOUR 42 MINUTE
+' -----------------------------
+
+
 
 Public LINK_DATA
 
@@ -17184,7 +17207,7 @@ Sub SubCode()
 
 
 rg = 0
-FontSizez = 10
+FontSizez = 8
 LABEL_GAP = 12
 
 For Each Control In Controls
@@ -17265,6 +17288,7 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
     End If
     If oseedy$ <> seedy$ Then txr = Not txr
     oseedy$ = seedy$
+    ' FLIP FLOPPER
     If txr = -1 Then Label1(R).BackColor = Label1(836).BackColor
     If txr = 0 Then Label1(R).BackColor = Label1(837).BackColor
     If R > AStart Then
@@ -17273,12 +17297,30 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
         If txr = -1 Then Label1(R).BackColor = Label1(175).BackColor
         If txr = 0 Then Label1(R).BackColor = Label1(208).BackColor
     End If
-    ttg$ = ScanPath.ListView1.ListItems.Item(R)
-    If InStr(ttg$, "_gsdata_") = 0 Then
-        Mid$(ttg$, 1, 1) = UCase$(Mid$(ttg$, 1, 1))
-        If InStr(ttg$, ".lnk") > 0 Then ttg$ = Mid$(ttg$, 1, InStrRev(ttg$, ".") - 1)
+    
+    If InStr(UCase(B1$), ".VBS") > 0 Then
+        Label1(R).BackColor = RGB(100, 180, 100)
+    End If
+    If InStr(UCase(B1$), ".AHK") > 0 Then
+        Label1(R).BackColor = RGB(100, 150, 180)
+    End If
+    If InStr(UCase(B1$), ".BAT") > 0 Then
+        Label1(R).BackColor = RGB(50, 240, 150)
+    End If
+    
+    LABEL_FILENAME = ScanPath.ListView1.ListItems.Item(R)
+    If InStr(LABEL_FILENAME, "_gsdata_") = 0 Then
+        Mid$(LABEL_FILENAME, 1, 1) = UCase$(Mid$(LABEL_FILENAME, 1, 1))
+        If InStr(LABEL_FILENAME, ".lnk") > 0 Then LABEL_FILENAME = Mid$(LABEL_FILENAME, 1, InStrRev(LABEL_FILENAME, ".") - 1)
         
-        Label1(R).Caption = Format$(R, "00") + ". " + ttg$
+        If InStrRev(LABEL_FILENAME, ".") > 0 Then
+            TTG_1 = Mid$(LABEL_FILENAME, 1, InStrRev(LABEL_FILENAME, ".") - 1)
+            TTG_2 = UCase(Mid$(LABEL_FILENAME, InStrRev(LABEL_FILENAME, "."))) ' EXTENSION OF CAP HIGH
+        Else
+            TTG_1 = LABEL_FILENAME: TTG_2 = ""
+        End If
+        LABEL_FILENAME = TTG_1 + TTG_2
+        Label1(R).Caption = Format$(R, "00") + ". " + LABEL_FILENAME
         x = x + Label1(R).Height + LABEL_GAP
         fheight = Label1(R).Top + Label1(R).Height + 420
         If fheight > fheightx Then fheightx = fheight
@@ -17618,6 +17660,7 @@ If Form1.Label1(XXT2).BackColor = Label1(208).BackColor Then
     EXIT_TIMER_2_NOW = True
 End If
 
+
 If EXIT_TIMER_2_NOW = True Then
     TitleLbl.BackColor = Label1(836).BackColor
     'TitleLbl.Caption = TitleLbl.Caption + " ____ DONE \/\/"
@@ -17632,53 +17675,61 @@ A1$ = ScanPath.ListView1.ListItems.Item(XXT2).SubItems(1)
 B1$ = ScanPath.ListView1.ListItems.Item(XXT2)
 C1$ = Form1.Label1(XXT2).Caption
 
-X_COLOR = Form1.Label1(XXT2).BackColor
-Form1.Label1(XXT2).BackColor = &HFFFFFF
-Form1.Label1(XXT2).Refresh
-DoEvents
-Sleep 10
+STOP_COLOUR_CHANGE_HERE = 0
+If InStr(UCase(B1$), ".VBS") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+If InStr(UCase(B1$), ".AHK") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+If InStr(UCase(B1$), ".BAT") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+
+If STOP_COLOUR_CHANGE_HERE = 0 Then
+    X_COLOR = Form1.Label1(XXT2).BackColor
+    Form1.Label1(XXT2).BackColor = &HFFFFFF
+    Form1.Label1(XXT2).Refresh
+    DoEvents
+    Sleep 10
+End If
 
 On Local Error GoTo 0
 On Error GoTo 0
 
-'GoTo skip:
-LINK_DATA = A1$ + B1$
-If InStr(LCase(B1$), ".lnk") > 0 Then
-    Open A1$ + B1$ For Binary As #1
-    rr$ = Space$(LOF(1))
-    Get #1, 1, rr$
-    Close #1
-    If InStr(rr$, ":\") = 0 Then
+If STOP_COLOUR_CHANGE_HERE = 0 Then
+    'GoTo skip:
+    LINK_DATA = A1$ + B1$
+    If InStr(LCase(B1$), ".lnk") > 0 Then
+        Open A1$ + B1$ For Binary As #1
+        rr$ = Space$(LOF(1))
+        Get #1, 1, rr$
+        Close #1
+        If InStr(rr$, ":\") = 0 Then
+            
+            i = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
+            
+            i = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
+            If i = vbYes Then
+                Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
         
-        i = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
         
-        i = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
-        If i = vbYes Then
-            Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
-    
-    
+            End If
+            Form1.Label1(XXT2).BackColor = X_COLOR
+            Exit Sub
         End If
-        Form1.Label1(XXT2).BackColor = X_COLOR
-        Exit Sub
+        tt$ = Mid$(rr$, InStr(105, rr$, ":\") - 1)
+        LINK_DATA = Mid$(tt$, 1, InStr(tt$, Chr$(0)) - 1)
     End If
-    tt$ = Mid$(rr$, InStr(105, rr$, ":\") - 1)
-    LINK_DATA = Mid$(tt$, 1, InStr(tt$, Chr$(0)) - 1)
 End If
 
-ALLOW_OKAY_PASS_VALID_LINK = False
-If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
-    
-    'GetOsBitness_2
-    Call TEST_LINK_MODIFY
-    
+
+If STOP_COLOUR_CHANGE_HERE = 0 Then
+    ALLOW_OKAY_PASS_VALID_LINK = False
+    If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
+        'GetOsBitness_2
+        Call TEST_LINK_MODIFY
+    End If
+    Form1.Label1(XXT2).BackColor = X_COLOR
+
+    If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
+        Label1(XXT2).BackColor = RGB(250, 127, 127) + QBColor(12)
+    End If
 End If
-
-Form1.Label1(XXT2).BackColor = X_COLOR
-
-If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
-    Label1(XXT2).BackColor = RGB(250, 127, 127) + QBColor(12)
-End If
-
 
 
 

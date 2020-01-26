@@ -626,9 +626,12 @@ RUN_THE_APP:
 			; BREAK
 	; }
 		
-	SoundBeep , 2000 , 20
-	Run, %Element_1%
-
+	IfExist, %Element_1%
+	{
+		SoundBeep , 2000 , 20
+		Run, %Element_1%
+	}
+	
 	
 	; TOOLTIP % Element_1
 

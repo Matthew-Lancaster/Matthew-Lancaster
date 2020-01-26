@@ -388,7 +388,7 @@ TIMER_PROCESS_KILLER:
 	If NewPID > 0
 		Process, Close, laclient.exe
 	; ----------------------------------------------------------------
-
+ 
 	; ----------------------------------------------------------------
 	; Process, Close, C:\Program Files\Logitech\SetPointP\Campaign\LogiCampaignNotifier.exe
 	Process, Exist, LogiCampaignNotifier.exe
