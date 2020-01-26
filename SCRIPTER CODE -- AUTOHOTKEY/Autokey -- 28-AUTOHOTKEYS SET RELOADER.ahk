@@ -183,6 +183,8 @@ SetTitleMatchMode 3  ; EXACTLY
 
 SoundBeep , 2000 , 20
 
+
+
 ;--------------------------------------------------------------------
 ;AUTOHOTKEYS
 ;--------------------------------------------------------------------
@@ -366,22 +368,22 @@ FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78
 
 Loop % ArrayCount
 {
-	AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
 	
 	; WORKING CODE FOR A REFERENCE IF EVER REMOVE AND INSERT
-	; TEMP_VAR_1:=FN_Array_1[A_Index]
+	; TEMP_VAR_1_AHK_28:=FN_Array_1[A_Index]
 	; FN_Array_1.RemoveAt(A_Index)
 	; TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
-	; TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+	; TEMP_VAR_3=%TEMP_VAR_1_AHK_28%%TEMP_VAR_2%
 	; TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
 	; FN_Array_1.InsertAt(A_Index,TEMP_VAR_3)
 
-	TEMP_VAR_1:=FN_Array_1[A_Index]
+	AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+	TEMP_VAR_1_AHK_28:=FN_Array_1[A_Index]
 	TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
-	TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+	TEMP_VAR_3=%TEMP_VAR_1_AHK_28%%TEMP_VAR_2%
 	TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
 	; TEMP_VAR_4 -- PATH
-	TEMP_VAR_4:=SUBSTR(TEMP_VAR_1,INSTR(TEMP_VAR_1,"\",,0)+1)
+	TEMP_VAR_4:=SUBSTR(TEMP_VAR_1_AHK_28,INSTR(TEMP_VAR_1_AHK_28,"\",,0)+1)
 
 	FN_Array_2.InsertAt(A_Index,TEMP_VAR_3)
 
