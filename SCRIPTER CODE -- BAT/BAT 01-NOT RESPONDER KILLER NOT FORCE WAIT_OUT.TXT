@@ -1,1 +1,4 @@
-INFO: No tasks are running which match the specified criteria.
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+firefox.exe                  27256 Console                    1     31,136 K
