@@ -14,14 +14,33 @@
 ; ---------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; I DO THIS TO RUN THE AHK OF MY CHOICE WHEN WANT RUN THIS INCLUDE
+; I DO THIS 
+; CHECK ALL SCRIPT THAT HAS LINE IN FILENAME CONTENT OF THE INCLUDE
+; CLOSE THEM ALL AND RUN UP AR 
+; AND FILTER A FEW OFF
+; -------------------------------------------------------------------
+; CODER TIME INCLUDE MAKE COOK DINNER LAST BIT ON ABOUT 
+; FILENAME EXTRACT STRING WHEN USE SEARCH WINDOW BEFORE
+; -------------------------------------------------------------------
+; IT CHECK ONLY FOLDER ONE SCRIPT ARE
+; AND INCLUDE SUB-FOLDER IF WANT AR
+; Loop, Files, %A_ScriptDir%\*.AHK    ; , D
+; OR MULTI
+; -------------------------------------------------------------------
+; I AM IN THE HABIT OF MAKE ARRAY IN A FUNCTION AND PASS THE INFO OVER
+; THAT HELP TO MAKE AN ARRAY GLOBAL USE ANYWHERE
+; -------------------------------------------------------------------
+; SUPER SCRIPT -- INDUSTRIAL SCRIPT AR
+; -------------------------------------------------------------------
+; Sun 26-Jan-2020 12:00:44
+; Sun 26-Jan-2020 13:58:00 -- 1 HOUR 57 MINUTE
 ; -------------------------------------------------------------------
 FILE_ScriptName=%A_ScriptName%
 IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 {
 	DetectHiddenWindows, ON
 	#SingleInstance force
-	
+
 	; Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 	FN_ARRAY_INCLUDE_SCRIPT_NAME := ARRAY_INCLUDE_SCRIPT_NAME()
 	 
@@ -35,8 +54,12 @@ IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 		TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
 		TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
 		ELEMENT=%TEMP_VAR_3%
+		
+		; DEBUG CLUE
+		; -----------------------------------------------------------
 		; IFWINEXIST %ELEMENT%
 		; WinGetTitle CurrentTitle 
+		; -----------------------------------------------------------
 
 		IFWINEXIST %ELEMENT%
 			ELEMENT_2 = %ELEMENT_2%`n%ELEMENT%
@@ -44,34 +67,33 @@ IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 		FILELIST=%ELEMENT_2%
 		Loop, parse, FILELIST, `n
 		{
-		if A_LoopField =  ; Ignore the blank item at the end of the list.
-			continue
-		
-		REPLACE_2:="- AutoHotkey v"A_AhkVersion
-		StringReplace, FILE_NAME_PATH, A_LoopField,%REPLACE_2%,,
-		MSGBOX %FILE_NAME_PATH%
-		PAUSE
+			if A_LoopField =  ; Ignore the blank item at the end of the list.
+				continue
 			
-		WinGet, PID_01, PID, %A_LoopField%
-		Process, Close,% PID_01
+			WinGet, PID_01, PID, %A_LoopField%
+			Process, Close,% PID_01
+		}	
 
+		file_name_path_icon_clean=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk
 		
-	}	
-	
-	
-	}
+		ifExist %file_name_path_icon_clea%
+			Run, %file_name_path_icon_clea%
 
-	MSGBOX %ELEMENT_2%
-	EXITAPP
-	
-	
-	FILE_ScriptName:=StrReplace(FILE_ScriptName, "_INCLUDE" , "_00")
-	FILE_ScriptName=%A_ScriptDir%\%FILE_ScriptName%
-	ifExist %FILE_ScriptName%
-	{
-		Run, %FILE_ScriptName%
-		EXITAPP
+		Loop, parse, FILELIST, `n
+		{
+			if A_LoopField =  ; Ignore the blank item at the end of the list.
+				continue
+			
+			REPLACE_2:="- AutoHotkey v"A_AhkVersion
+			StringReplace, FILE_NAME_PATH, A_LoopField,%REPLACE_2%,,
+			
+			ifExist %FILE_NAME_PATH%
+				Run, %FILE_NAME_PATH%
+		}	
+
 	}
+MSGBOX "2"
+EXITAPP
 }
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -93,7 +115,10 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 			FILE_SCRIPT_PATH=%A_ScriptDir%\%A_LoopFileName%
 			ArrCnt += 1
 			ARRAY_INCLUDE_SCRIPT_NAME[ArrCnt]:=FILE_SCRIPT_PATH
+			BREAK
 		}
+		IF InStr(LoopFileName_UPPER, "_INCLUDE")>0
+			BREAK 
 	}
 
 RETURN ARRAY_INCLUDE_SCRIPT_NAME
