@@ -73,26 +73,24 @@ IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 			WinGet, PID_01, PID, %A_LoopField%
 			Process, Close,% PID_01
 		}	
-
-		file_name_path_icon_clean=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk
-		
-		ifExist %file_name_path_icon_clea%
-			Run, %file_name_path_icon_clea%
-
-		Loop, parse, FILELIST, `n
-		{
-			if A_LoopField =  ; Ignore the blank item at the end of the list.
-				continue
-			
-			REPLACE_2:="- AutoHotkey v"A_AhkVersion
-			StringReplace, FILE_NAME_PATH, A_LoopField,%REPLACE_2%,,
-			
-			ifExist %FILE_NAME_PATH%
-				Run, %FILE_NAME_PATH%
-		}	
-
 	}
-MSGBOX "2"
+	file_name_path_icon_clean=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk
+	
+	ifExist %file_name_path_icon_clea%
+		RunWAIT, %file_name_path_icon_clea%
+		
+	Loop, parse, FILELIST, `n
+	{
+		if A_LoopField =  ; Ignore the blank item at the end of the list.
+			continue
+		
+		REPLACE_2:="- AutoHotkey v"A_AhkVersion
+		StringReplace, FILE_NAME_PATH, A_LoopField,%REPLACE_2%,,
+		
+		ifExist %FILE_NAME_PATH%
+			Run, %FILE_NAME_PATH%
+	}	
+
 EXITAPP
 }
 ; -------------------------------------------------------------------

@@ -43,9 +43,11 @@ TITLE ____ %DESCRIPTION% ____
 ECHO.
 ECHO %DESCRIPTION%
 
-SET CMD_GIVE=/FI "STATUS EQ NOT RESPONDING"
+SET CMD_TASKKILLER=/FI "STATUS EQ NOT RESPONDING"
+SET CMD_TASKLIST__=/FI "STATUS EQ NOT RESPONDING"
+
 ECHO.
-ECHO TASKILL %CMD_GIVE% _______ WILD CARD ALL NOT RESPONDING
+ECHO TASKILL %CMD_TASKKILLER% _______ WILD CARD ALL NOT RESPONDING
 ECHO ----------------------------------------------------------------
 
 REM ------------------------------------------------------------------------------------------------
@@ -57,10 +59,10 @@ REM ----------------------------------------------------------------------------
 
 ECHO -----------------------------------------------------------------------------------------------
 ECHO.
-ECHO TASKLIST %CMD_GIVE% _______ WILD CARD ALL NOT RESPONDING
+ECHO TASKLIST %CMD_TASKLIST__% _______ WILD CARD ALL NOT RESPONDING
 ECHO.
 SET FILENAME_ER="%~dp0BAT 01-NOT RESPONDER KILLER NOT FORCE WAIT_OUT.TXT"
-TASKLIST %CMD_GIVE% >%FILENAME_ER% 2>>&1
+TASKLIST %CMD_TASKLIST__% >%FILENAME_ER% 2>>&1
 TYPE %FILENAME_ER%
 find "INFO: No tasks are running" %FILENAME_ER%>NUL
 find "Session Name" %FILENAME_ER%>NUL
@@ -100,7 +102,7 @@ GOTO NOT
 :YES
 ECHO.
 ECHO ON
-TASKKILL %CMD_GIVE%
+TASKKILL %CMD_TASKKILLER%
 @ECHO OFF
 :NOT
 
