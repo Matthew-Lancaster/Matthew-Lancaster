@@ -60,7 +60,6 @@ setWorkingDir %a_scriptDir%
 SoundBeep , 1500 , 400
 ; SetStoreCapslockMode, off
 
-; SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 
 ; ; -------------------------------------------------------------------
@@ -89,7 +88,13 @@ SoundBeep , 1500 , 400
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+
+GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
+EXITAPP
+	
+RETURN
+
 
 RUN_TIMER_TRAY_ICON_CLEAN_UP:
 
@@ -119,8 +124,6 @@ RUN_TIMER_TRAY_ICON_CLEAN_UP:
 		; IF Array_Icon_GetInfo[A_Index].process="TrayApplication.exe"
 			; TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
 	; }
-
-	EXITAPP
 	
 RETURN
 	
@@ -406,63 +409,54 @@ TrayIcon_Button(sExeName, sButton := "L", bDouble := false, index := 1)
 
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+; MenuHandler:
+; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
+; return
 
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
-
-
+; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 
 
-;# ------------------------------------------------------------------
-TIMER_PREVIOUS_INSTANCE:
-SETTIMER TIMER_PREVIOUS_INSTANCE,10000
 
-if ScriptInstanceExist()
-{
-	Exitapp
-}
-return
 
-ScriptInstanceExist() {
-	static title := " - AutoHotkey v" A_AhkVersion
-	DHW_2 := A_DetectHiddenWindows
-	DetectHiddenWindows, On
-	WinGet, match, List, % A_ScriptFullPath . title
-	DetectHiddenWindows, % DHW_2
-	return (match > 1)
-	}
-Return
 
-;# ------------------------------------------------------------------
-EOF:                           ; on exit
-ExitApp     
-;# ------------------------------------------------------------------
+; ScriptInstanceExist() {
+	; static title := " - AutoHotkey v" A_AhkVersion
+	; DHW_2 := A_DetectHiddenWindows
+	; DetectHiddenWindows, On
+	; WinGet, match, List, % A_ScriptFullPath . title
+	; DetectHiddenWindows, % DHW_2
+	; return (match > 1)
+	; }
+; Return
 
-;# ------------------------------------------------------------------
-ExitFunc(ExitReason, ExitCode)
-{
-    if ExitReason not in Logoff,Shutdown
-    {
-        ;MsgBox, 4, , Are you sure you want to exit?
-        ;IfMsgBox, No
-        ;    return 1  ; OnExit functions must return non-zero to prevent exit.
-    }
-    ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
-}
+; ;# ------------------------------------------------------------------
+; EOF:                           ; on exit
+; ExitApp     
+; ;# ------------------------------------------------------------------
 
-class MyObject
-{
-    Exiting()
-    {
-        ;
-        ;MsgBox, MyObject is cleaning up prior to exiting...
-        /*
-        this.SayGoodbye()
-        this.CloseNetworkConnections()
-        */
-    }
-}
-;# ------------------------------------------------------------------
-; exit the app
+; ;# ------------------------------------------------------------------
+; ExitFunc(ExitReason, ExitCode)
+; {
+    ; if ExitReason not in Logoff,Shutdown
+    ; {
+        ; ;MsgBox, 4, , Are you sure you want to exit?
+        ; ;IfMsgBox, No
+        ; ;    return 1  ; OnExit functions must return non-zero to prevent exit.
+    ; }
+    ; ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
+; }
+
+; class MyObject
+; {
+    ; Exiting()
+    ; {
+        ; ;
+        ; ;MsgBox, MyObject is cleaning up prior to exiting...
+        ; /*
+        ; this.SayGoodbye()
+        ; this.CloseNetworkConnections()
+        ; */
+    ; }
+; }
+; ;# ------------------------------------------------------------------
+; ; exit the app
