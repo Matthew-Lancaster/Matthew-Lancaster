@@ -377,16 +377,9 @@ If Err.Number > 0 Or Err.Number = 8002 Then
     VAR_DSR_3 = True
 End If
 
-' NOT WORK HARDWARE ERROR
-' VAR_DSR_3 = True
-' -----------------------
-
 If OLD_VAR_DSR_3 = VAR_DSR_3 Then Exit Sub
 
 OLD_VAR_DSR_3 = VAR_DSR_3
-
-' MsgBox Str(R) + " -- " + Str(VAR_DSR_3)
-' Debug.Print Str(R) + " -- " + Str(VAR_DSR_3)
 
 Dim AR(4)
 AR(1) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
@@ -394,22 +387,18 @@ AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
 AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
 AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
 
-FILE_NAME_PIR = "Autokey -- 14-Brightness With Dimmer #NFS.txt"
-
 On Error Resume Next
 If VAR_DSR_3 = True Then
     For R = 1 To UBound(AR)
-        FOLDER_NAME = AR(R) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
-        FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_PIR
-        If FSO.FILEExists(FILE_NAME) = False Then
-            If FSO.FOLDERExists(FOLDER_NAME) = False Then
-                RESULT = CreateFolderTree(FOLDER_NAME)
+        If FSO.FILEExists(FILE_NAME_PIR(R)) = False Then
+            If FSO.FOLDERExists(FOLDER_NAME_PIR(R)) = False Then
+                RESULT = CreateFolderTree(FOLDER_NAME_PIR(R))
             End If
             FR1 = FreeFile
-            Open FILE_NAME For Output As #FR1
+            Open FILE_NAME_PIR(R) For Output As #FR1
             Close #FR1
         End If
-        'Debug.Print FILE_NAME
+        Debug.Print FILE_NAME_PIR(R)
         ' -----------------------------------------------------
         ' EXAMPLE FILENAME
         ' \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS.txt
@@ -417,12 +406,32 @@ If VAR_DSR_3 = True Then
     Next
 Else
     For R = 1 To UBound(AR)
-        FILE_NAME = AR(R) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\" + FILE_NAME_PIR
-        Kill FILE_NAME
+        Kill FILE_NAME_PIR(R)
     Next
 End If
 
 End Sub
+
+Function FILE_NAME_PIR(INDEX)
+    Dim AR(4)
+    AR(1) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
+    AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
+    AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+    AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
+    FILE_NAME_PIR = "Autokey -- 14-Brightness With Dimmer #NFS__" + Mid(AR(R), 3, InStr(4, AR(INDEX), "\") - 3) + ".txt"
+    FOLDER_NAME = AR(INDEX) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
+    FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_PIR
+    FILE_NAME_PIR = FILE_NAME
+End Function
+
+Function FOLDER_NAME_PIR(INDEX)
+    Dim AR(4)
+    AR(1) = "\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE"
+    AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
+    AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
+    AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
+    FOLDER_NAME_PIR = AR(INDEX) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
+End Function
 
 
 Sub TIMER_FRONT_DOOR_TIMER()
