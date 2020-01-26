@@ -38,9 +38,13 @@
 ; Sun 26-Jan-2020 13:58:00 -- COOKER
 ; Sun 26-Jan-2020 16:00:00 -- 2 HOUR 2 MINUTE
 ; -------------------------------------------------------------------
-; Sun 26-Jan-2020 12:00:44 -- TOTAL TODAY
-; Sun 26-Jan-2020 16:00:00 -- 3 HOUR 59 MINUTE
+; Sun 26-Jan-2020 16:00:00 -- ANOTHER BURST CODE -- SORT ICON AHK REMOVE AND RESTORE
+; Sun 26-Jan-2020 18:40:00 -- 2 HOUR 40 MINUTE
 ; -------------------------------------------------------------------
+; Sun 26-Jan-2020 12:00:44 -- TOTAL TODAY
+; Sun 26-Jan-2020 18:40:00 -- 6 HOUR 39 MINUTE
+; -------------------------------------------------------------------
+
 FILE_ScriptName=%A_ScriptName%
 IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 {
@@ -50,53 +54,36 @@ IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 	; Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 	FN_ARRAY_INCLUDE_SCRIPT_NAME := ARRAY_INCLUDE_SCRIPT_NAME()
 	 
-	ELEMENT=
+	FILELIST=
 	Loop % FN_ARRAY_INCLUDE_SCRIPT_NAME.MaxIndex()
 	{
-		ELEMENT := FN_ARRAY_INCLUDE_SCRIPT_NAME[A_Index]
-		AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
-		TEMP_VAR_1_INCLUDE=%ELEMENT%
-		TEMP_VAR_2_INCLUDE="%AHK_TERMINATOR_VERSION%"
-		TEMP_VAR_3=%TEMP_VAR_1_INCLUDE%%TEMP_VAR_2_INCLUDE%
-		TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
-		ELEMENT=%TEMP_VAR_3%
-
-		IFWINEXIST %ELEMENT%
-			ELEMENT_2 = %ELEMENT_2%`n%ELEMENT%
-		IFWINEXIST %ELEMENT%
-			MSGBOX "IFWINEXIST %ELEMENT%"
+		ELEMENT_22 := FN_ARRAY_INCLUDE_SCRIPT_NAME[A_Index]
+		TEMP_VAR_1=%ELEMENT_22% - AutoHotkey v%A_AhkVersion%
+		TEMP_VAR_2:=StrReplace(TEMP_VAR_1, """" , "")
+		ELEMENT_22=%TEMP_VAR_2%
+		IFWINEXIST %ELEMENT_22%
+			IF !FILELIST
+				FILELIST = %ELEMENT_22%   ; AVOID A BLANK 1ST LINE
+			ELSE
+				FILELIST = %FILELIST%`n%ELEMENT_22%
 	}
 	GOSUB PROCESS_KILL_AUTOHOTKEY
 	GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
-		
+
 	Loop, parse, FILELIST, `n
 	{
-		if A_LoopField =  ; Ignore the blank item at the end of the list.
-			continue
-		
-		REPLACE_2:="- AutoHotkey v"A_AhkVersion
-		StringReplace, FILE_NAME_PATH, A_LoopField,%REPLACE_2%,,
-
-		TEMP_VAR_1_FUNCTION=%A_LoopFileName% - AutoHotkey v%A_AhkVersion%
-		TEMP_VAR_2_FUNCTION:=StrReplace(TEMP_VAR_1_FUNCTION, """" , "")
-		ELEMENT_22=%A_ScriptDir%\%TEMP_VAR_2_FUNCTION%
-		MSGBOX % "TO FIND" ELEMENT_22
-		IFWINEXIST %ELEMENT_22%
-		MSGBOX %ELEMENT_22%
-		
-		ifExist %FILE_NAME_PATH%
+		REPLACE_STR_FNAME__=- AutoHotkey v%A_AhkVersion%
+		FILE_NAME_PATH_____:=StrReplace(A_LoopField,REPLACE_STR_FNAME__,"")
+		ifExist %FILE_NAME_PATH_____%
 		{
-			Run, %FILE_NAME_PATH%
-			WINWAIT %ELEMENT_22%
+			Run, %FILE_NAME_PATH_____%
+			WINWAIT %A_LoopField%
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			MSGBOX "WAIT"
 		}
 	}	
 
 	GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
 	
-	MSGBOX "DONE"
-
 EXITAPP
 }
 ; -------------------------------------------------------------------
@@ -147,9 +134,9 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 		{
 			TEMP_VAR_1_FUNCTION=%A_LoopFileName% - AutoHotkey v%A_AhkVersion%
 			TEMP_VAR_2_FUNCTION:=StrReplace(TEMP_VAR_1_FUNCTION, """" , "")
-			ELEMENT_22=%A_ScriptDir%\%TEMP_VAR_2_FUNCTION%
+			ELEMENT_24=%A_ScriptDir%\%TEMP_VAR_2_FUNCTION%
 			
-			IFWINEXIST %ELEMENT_22%
+			IFWINEXIST %ELEMENT_24%
 			{
 				Loop, read, %A_LoopFileName%
 				{
@@ -158,7 +145,7 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 					IF InStr(A_LoopReadLine, "#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY")=1
 					IF InStr(A_LoopReadLine, "\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk")
 
-						IFWINEXIST %ELEMENT_22%
+						IFWINEXIST %ELEMENT_24%
 						{
 						FILE_SCRIPT_PATH=%A_ScriptDir%\%A_LoopFileName%
 						ArrCnt += 1
@@ -1322,11 +1309,9 @@ RUN_TIMER_TRAY_ICON_CLEAN_UP:
 		IF Array_Icon_GetInfo[A_Index].process<1
 		{
 			TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
-			SoundBeep , 2000 , 20
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
-	
-	MSGBOX "IC"
 	
 	; ---------------------------------------------------------------
 	; THIS THE SOFTWARE TO DEVICE DRIVER THE CSR BLUETOOTH 4.0 BY STAR-TECH
