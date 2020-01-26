@@ -1123,18 +1123,16 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 				ELEMENT7=_%NET_PATH%.TXT
 
 				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-				; MSGBOX % Array_FileName%A_Index%
+				MSGBOX % Array_FileName%A_Index%
 			}
 		}
 
 		Loop %ArrayCount%
 		{
-			; FileDelete, % Array_FileName%A_Index%
-
 			file := FileOpen(Array_FileName%A_Index%, "w")
 			if IsObject(file)
 			{
-				; MSGBOX % Array_FileName%A_Index%
+				MSGBOX % Array_FileName%A_Index%
 
 				; if !IsObject(file)
 				; MsgBox Can't open "%FileName%" for writing.

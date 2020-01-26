@@ -1,6 +1,3 @@
-
-
-
 ; -------------------------------------------------------------------
 ; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\
 ; Autokey -- 78-RENAME_FILE_EXTENSION_CASE_INCLUDE.ahk
