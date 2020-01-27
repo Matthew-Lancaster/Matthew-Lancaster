@@ -656,8 +656,6 @@ IF SET_GO_8=TRUE
 ; --------------------------
 If (OSVER_N_VAR=10)
 {
-
-
 	; MSGBOX HERE1
 	If ProcessExist("ClipBoard Viewer.exe", A_UserName)=0
 	{
@@ -702,6 +700,7 @@ IF (A_ComputerName = "2-ASUS-EEE")
 IF (A_ComputerName = "3-LINDA-PC") 
 	SET_GO=FALSE
 
+SET_GO=FALSE
 IF SET_GO=TRUE
 {
 
@@ -728,6 +727,7 @@ IF SET_GO=TRUE
 	IF (A_ComputerName = "7-ASUS-GL522VW") 
 		SET_GO=FALSE
 
+	SET_GO=FALSE
 	IF SET_GO=TRUE
 	{
 		If ProcessExist("Tidal.exe", A_UserName)=0
@@ -757,6 +757,7 @@ IF (A_ComputerName = "7-ASUS-GL522VW")
 If (OSVER_N_VAR<10)
 	SET_GO=FALSE
 	
+SET_GO=FALSE
 IF SET_GO=TRUE
 	{
 	If ProcessExist("CPU % INDIVIDUAL PROCESS.exe", A_UserName)=0

@@ -31,6 +31,7 @@
 ; THAT HELP TO MAKE AN ARRAY GLOBAL USE ANYWHERE
 ; -------------------------------------------------------------------
 ; SUPER SCRIPT -- INDUSTRIAL SCRIPT AR
+; TAKE FOR GRANTER ONCE DONE -- USEFUL TOOL
 ; -------------------------------------------------------------------
 ; Sun 26-Jan-2020 12:00:44
 ; Sun 26-Jan-2020 13:58:00 -- 1 HOUR 57 MINUTE
