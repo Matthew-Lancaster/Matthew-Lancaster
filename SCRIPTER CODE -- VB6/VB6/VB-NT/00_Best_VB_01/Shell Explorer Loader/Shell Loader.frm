@@ -5883,6 +5883,12 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_CLIP_PATH_NAME_SHORT 
       Caption         =   "CLIPBOARD ITEM PATH SHORT"
    End
+   Begin VB.Menu MNU_CLIPBOARD_COMPUTER_NAME_SET 
+      Caption         =   "CLIPBOARD COMPUTER NAME SET"
+   End
+   Begin VB.Menu MNU_CLIPBOARD_COMPUTER_NAME_SET_VB6 
+      Caption         =   "&& CLIPPER VB6 "
+   End
    Begin VB.Menu MNU_CLIPBOARD_ALL_NET_PATH 
       Caption         =   "CLIPBOARD ALL NET PATH"
    End
@@ -6453,16 +6459,24 @@ End Sub
 
 Private Sub MNU_CLIPBOARD_ALL_NET_PATH_ARRAY_BUILDER_Click()
     
+    On Error Resume Next
     Clipboard.Clear
     Clipboard.SetText NET_PATH_ALL_ARRAY + vbCrLf
+    If Err.Number = 0 Then
+        Exit Sub
+    End If
     End
 
 End Sub
 
 Private Sub MNU_CLIPBOARD_ALL_NET_PATH_Click()
 
+    On Error Resume Next
     Clipboard.Clear
     Clipboard.SetText NET_PATH_ALL + vbCrLf
+    If Err.Number = 0 Then
+        Exit Sub
+    End If
     End
 
 End Sub
@@ -6474,10 +6488,34 @@ Private Sub MNU_CLIPBOARD_ALL_NET_PATH_REVERSE_Click()
     For R3 = UBound(NET_PATH_ALL_R) To 0 Step -1
         NET_PATH_ALL_REVERSE = NET_PATH_ALL_REVERSE + NET_PATH_ALL_R(R3) + vbCrLf
     Next
+    On Error Resume Next
     Clipboard.Clear
     Clipboard.SetText NET_PATH_ALL_REVERSE + vbCrLf
+    If Err.Number = 0 Then
+        Exit Sub
+    End If
     End
 
+End Sub
+
+Private Sub MNU_CLIPBOARD_COMPUTER_NAME_SET_Click()
+    On Error Resume Next
+    Clipboard.Clear
+    Clipboard.SetText COMPUTER_NAME_SET
+    If Err.Number > 0 Then
+        Exit Sub
+    End If
+    End
+End Sub
+
+Private Sub MNU_CLIPBOARD_COMPUTER_NAME_SET_VB6_Click()
+    On Error Resume Next
+    Clipboard.Clear
+    Clipboard.SetText COMPUTER_NAME_SET_VB6
+    If Err.Number > 0 Then
+        Exit Sub
+    End If
+    End
 End Sub
 
 Private Sub MNU_CLIPBOARDOR_Click()
@@ -7292,8 +7330,14 @@ End
 End Sub
 
 Sub CLIP_PATH_LINK(TTIT)
+    On Error Resume Next
     Clipboard.Clear
     Clipboard.SetText TTIT
+    On Error Resume Next
+    If Err.Number = 0 Then
+        Exit Sub
+    End If
+
     End
 End Sub
 
@@ -7316,8 +7360,13 @@ Private Sub Label1_Click(Index As Integer)
 'Beep
 
 If CLIPBOARDOR = True Then
+    On Error Resume Next
     Clipboard.Clear
     Clipboard.SetText Mid(Label1(Index).Caption, InStr(Label1(Index).Caption, " ") + 1)
+    If Err.Number = 0 Then
+        Exit Sub
+    End If
+
     End
 End If
 

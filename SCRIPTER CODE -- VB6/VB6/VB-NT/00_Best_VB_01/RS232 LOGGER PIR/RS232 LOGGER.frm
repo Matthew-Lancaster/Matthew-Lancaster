@@ -398,10 +398,10 @@ If VAR_DSR_3 = True Then
             Open FILE_NAME_PIR(R) For Output As #FR1
             Close #FR1
         End If
-        Debug.Print FILE_NAME_PIR(R)
+        ' Debug.Print FILE_NAME_PIR(R)
         ' -----------------------------------------------------
         ' EXAMPLE FILENAME
-        ' \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS.txt
+        ' \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__.txt\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__1-ASUS-X5DIJ.txt
         ' -----------------------------------------------------
     Next
 Else
@@ -418,7 +418,7 @@ Function FILE_NAME_PIR(INDEX)
     AR(2) = "\\2-ASUS-EEE\2_ASUS_EEE_01_C_DRIVE"
     AR(3) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_01_C_DRIVE"
     AR(4) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_01_C_DRIVE"
-    FILE_NAME_PIR = "Autokey -- 14-Brightness With Dimmer #NFS__" + Mid(AR(R), 3, InStr(4, AR(INDEX), "\") - 3) + ".txt"
+    FILE_NAME_PIR = "Autokey -- 14-Brightness With Dimmer #NFS__" + Mid(AR(INDEX), 3, InStr(4, AR(INDEX), "\") - 3) + ".txt"
     FOLDER_NAME = AR(INDEX) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
     FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_PIR
     FILE_NAME_PIR = FILE_NAME
