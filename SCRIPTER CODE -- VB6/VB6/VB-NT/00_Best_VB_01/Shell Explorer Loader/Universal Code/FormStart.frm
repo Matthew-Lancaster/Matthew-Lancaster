@@ -183,6 +183,8 @@ FR_1 = FreeFile
 NET_FILENAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
 Open NET_FILENAME For Input As #FR_1
 Path = "--DriveRemote"
+COMPUTER_NAME_SET = ""
+COMPUTER_NAME_SET_VB6 = ""
 Do
 
     HERE_GO = False
@@ -191,6 +193,9 @@ Do
         R_L = R_L + 1
         R_L_X = R_L_X + 1
         Filename_VAR(R_L) = "\\" + LINE_STINGER
+        COMPUTER_NAME_SET = COMPUTER_NAME_SET + Filename_VAR(R_L) + vbCrLf
+        STR_VB6 = "If GetComputerName = """ + Filename_VAR(R_L) + """ Then a = a"
+        COMPUTER_NAME_SET_VB6 = COMPUTER_NAME_SET_VB6 + STR_VB6 + vbCrLf
         HERE_GO = True
     End If
 
