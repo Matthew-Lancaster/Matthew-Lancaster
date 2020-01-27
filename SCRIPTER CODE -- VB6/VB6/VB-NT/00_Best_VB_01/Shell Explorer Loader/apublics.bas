@@ -1,5 +1,6 @@
 Attribute VB_Name = "APublics"
-
+Public COMPUTER_NAME_SET
+Public COMPUTER_NAME_SET_VB6
 Public NET_C_PATH
 Public NET_D_PATH
 Public NET_E_PATH
