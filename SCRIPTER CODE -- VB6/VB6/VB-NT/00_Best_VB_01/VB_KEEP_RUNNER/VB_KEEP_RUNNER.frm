@@ -2097,6 +2097,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_OS_RESTART 
       Caption         =   "OS RESTART"
    End
+   Begin VB.Menu MNU_OS_RESTARTER_ABORT 
+      Caption         =   "OS RESTART ABORT"
+   End
    Begin VB.Menu MNU_ME_ON_TOP 
       Caption         =   "ME ON TOP"
    End
@@ -2242,6 +2245,8 @@ Option Explicit
 ' WITCH WERE LOWER ITEM
 ' --------------------------------------------------------------
 
+
+Dim DAY_CODE_SHUTDOWN
 
 
 
@@ -3542,6 +3547,7 @@ End Sub
 
 Private Sub Form_Load()
     
+Dim WIN_STATE_VAR
     
     ' CODE MOD
     ' COUNT BACKSLASHER
@@ -3551,8 +3557,6 @@ Private Sub Form_Load()
 '    X3 = "D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (3)\20190611\A3"
 '    X4 = Len(X1) - Len(Replace(X1, "\", ""))
 '    X5 = Len(X2) - Len(Replace(X2, "\", ""))
-'    a = a
-
 '    End
     
 ' ------------------------------------------------------------------------------
@@ -3817,26 +3821,28 @@ If InStr(Command$, "MINIMAL") > 0 Then OR_LOGIC = 2
 If InStr(Command$, "MIN") > 0 Then OR_LOGIC = 2
 If InStr(Command$, "MAXIMUM") > 0 Then OR_LOGIC = 1
 If InStr(Command$, "TASKBAR") > 0 Then OR_LOGIC = 1
-If InStr(Command$, "T") > 0 Then OR_LOGIC = 1
+If InStr(Command$, "T") > 0 Then OR_LOGIC = 1        ' WHEN CALL BY TASKBAR ALLOW OPERATE VBNORMAL
 If IsIDE = True Then OR_LOGIC = 1
-' Me.Visible = True
-' DoEvents
 If OR_LOGIC = 1 Then
 '    Me.WindowState = vbNormal
-    
-    ' MsgBox "HH"
-    
-    ' Exit Sub
+'    Exit Sub
 End If
-
 If OR_LOGIC = 1 Then
     ' Me.WindowState = vbNormal
     'Exit Sub
 End If
-
 If OR_LOGIC = 2 Then
      Me.WindowState = vbMinimized
 End If
+
+
+WIN_STATE_VAR = 0
+If InStr(Command$, "T") > 0 Then WIN_STATE_VAR = 1
+If IsIDE = True Then WIN_STATE_VAR = 1
+
+If WIN_STATE_VAR = 0 Then Me.WindowState = vbMinimized
+If WIN_STATE_VAR = 1 Then Me.WindowState = vbNormal
+
 
 
 Timer_Pause_Update.Interval = 60000
@@ -3856,12 +3862,15 @@ Next
 
 Call SET_FONT_BOLD_TEXT_SYSTEM_START_TIME_OS_INSTALL_DATE
 
-
 If IsIDE = True Then
     Timer_clear_imediate.Enabled = True
     ' CLEAR_DEBUG_AREA.ClearInmediateWindow
 End If
 
+Dim RUN_FROM_OWN_PROJECT_UPDATE
+If RUN_FROM_OWN_PROJECT_UPDATE = False Then
+    If Command$ = "R" Then Me.WindowState = vbMinimized
+End If
 End Sub
 
 Private Sub Form_Activate_2()
@@ -5540,6 +5549,63 @@ Public Sub Label_EXE_FILENAME_Click()
     End If
         
     Call PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY
+
+End Sub
+
+Private Sub MNU_OS_RESTARTER_ABORT_Click()
+
+'Dim WSHShell
+'Set WSHShell = CreateObject("WScript.Shell")
+'    WSHShell.Run "cmd.exe /k C:\WINDOWS\system32\shutdown.exe /a", -1, True
+'Set WSHShell = Nothing
+
+Dim VAR_B
+Dim PATH_B
+Dim CMD_STR
+
+VAR_B = "ECHO ON&C:\WINDOWS\SYSTEM32\SHUTDOWN.EXE /A&PAUSE"
+VAR_B = "PAUSE&PAUSE"
+VAR_B = "C:\WINDOWS\SYSTEM32\SHUTDOWN.EXE /A" + vbCrLf + "PAUSE" + vbCrLf
+PATH_B = App.Path + "\BATCH_ABORT_REBOOT.BAT"
+FR1 = FreeFile
+Open PATH_B For Output As #FR1
+    Print FR1, VAR_B
+Close FR1
+
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+    If IsIDE = False Then WSHShell.Run "C:\WINDOWS\SYSTEM32\SHUTDOWN.EXE /A", 0, True
+Set WSHShell = Nothing
+
+
+' Shell "CMD /K ""C:\WINDOWS\SYSTEM32\SHUTDOWN.EXE /A""", vbNormalFocus
+
+'Dim shell
+'Set shell = CreateObject("WScript.Shell")
+'shell.Run "C:\Users\js\Desktop\createIndex\createindex.bat"
+'Shell "CMD.EXE /K """ + PATH_B + """", vbNormalFocus
+
+Exit Sub
+'
+'If Dir(PATH_B) <> "" Then
+'Stop
+'Dim WSHShell
+'Set WSHShell = CreateObject("WScript.Shell")
+'    WSHShell.Run """" + PATH_B + """", 0, True
+'Set WSHShell = Nothing
+'
+'End If
+'
+'CMD_STR = "CMD.EXE /K ""START """" /B /WAIT """ + PATH_B + """"
+'CMD_STR = "CMD.EXE /K ""START /B """ + PATH_B + """"
+'Shell CMD_STR
+
+Debug.Print CMD_STR
+
+'Dim WSHShell
+'Set WSHShell = CreateObject("WScript.Shell")
+'    WSHShell.Run """" + PATH_B + """", 0, True
+'Set WSHShell = Nothing
 
 End Sub
 
@@ -8826,33 +8892,38 @@ End Sub
 
 Private Sub MNU_OS_RESTART_Click()
 Dim ihWnd
+Dim MSGBOX_STRING
+
 ihWnd = FindWindow("wndclass_desked_gsk", vbNullString)
 ShowWindow ihWnd, SW_MINIMIZE
 
-
 Me.WindowState = vbMinimized
 
+' -------------------------------------------------
+' THE TIMEOUT NOT WORK HERE
+' EVEN SO AUTOHOTKEY IS ABLE WHEN TITLE OF HERE APP
+' VBKEEPRUNNER.EXE
+' Sun 26-Jan-2020 21:08:00
+' -------------------------------------------------
+Dim I_RES
+MSGBOX_STRING = "READY FOR OS RESTART __ REBOOT" + vbCrLf + "YES COUNTDOWN" + vbCrLf + "WITH A SETTER OF 20 SECOND" + vbCrLf + "IF THE TIMEOUT PERIOD IS" + vbCrLf + "SET GREATER THAN 0 THE /F FORCE PARAMETER IS IMPLIED."
+Set objShell = CreateObject("WScript.Shell")
+I_RES = objShell.Popup(MSGBOX_STRING, 2, App.EXEName + ".EXE", vbOK + vbMsgBoxSetForeground)
+Set objShell = Nothing
+If I_RES <> vbOK Then Exit Sub
 
-
-Dim lRet
-lRet = MsgBox("READY FOR OS RESTART" + vbCrLf + "YES COUNTDOWN" + vbCrLf + "With a default of 30" + vbCrLf + "If the timeout period is" + vbCrLf + "Set greater than 0 The /f Force parameter is implied.", vbYesNo + vbMsgBoxSetForeground)
-If lRet = vbNo Then
-    Beep
-    Exit Sub
-End If
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + "C:\WINDOWS\system32\shutdown.exe" + """ -r /t 4", 0, True
+    If IsIDE = False Then WSHShell.Run "C:\WINDOWS\SYSTEM32\SHUTDOWN.EXE /R /T 20", 0, True
 Set WSHShell = Nothing
 Beep
 Me.WindowState = vbMinimized
-End
+' End
 
 ' lRet = MessageBoxTimeout(0&, "READY FOR OS RESTART", _
 "Timeout MessageBox Test", MB_SETFOREGROUND Or MB_YESNO Or MB_ICONASTERISK, _
 0&, 90000)
-
 
 End Sub
 
@@ -9961,7 +10032,7 @@ With oRunas
         .sUserName = GetUserName
         .sPassword = " "
         .sCOMMAND = App.Path + "\" + App.EXEName + ".EXE"
-        .RunAs 'Call the Run As method
+        .runas 'Call the Run As method
 End With
 Set oRunas = Nothing
 
@@ -10612,6 +10683,9 @@ Dim PID As Long
 Dim VAR
 Dim DELAY_TIME_NOT_RESPOND
 
+Dim DAY_CODE
+Dim DAY_CODE_SHUTDOWN
+Dim REBOOT
 
 Call Timer_DIR_FOR_XXX_BUNKER_COM_Timer
 Call Timer_DIR_FOR_HARDWARE_Timer
@@ -10652,9 +10726,11 @@ If FindHandle_hWnd_COUNT_CHANGE = True Then
 End If
 If MDIProcServ.TT_1VDT > 0 Or MDIProcServ.TT_2VDT > 0 Then
     Dim XI_STRING
+    DAY_CODE = Format(Int((DateDiff("h", MDIProcServ.TT_1VDT, Now) / 24)), "0")
+    DAY_CODE_SHUTDOWN = Val(DAY_CODE)
     XI_STRING = ""
     XI_STRING = XI_STRING + Str(DateDiff("h", MDIProcServ.TT_1VDT, Now)) + " hr -- "
-    XI_STRING = XI_STRING + Format(Int((DateDiff("h", MDIProcServ.TT_1VDT, Now) / 24)), "0") + " d "
+    XI_STRING = XI_STRING + DAY_CODE + " d "
     XI_STRING = XI_STRING + Format((DateDiff("h", MDIProcServ.TT_1VDT, Now) Mod 24), "0") + " hr "
     Form1.Text_SYSTEM_START_TIME_02.Text = XI_STRING
     Form1.Text_SYSTEM_START_TIME_02.FontSize = 10
@@ -10664,6 +10740,26 @@ If MDIProcServ.TT_1VDT > 0 Or MDIProcServ.TT_2VDT > 0 Then
 
 Else
     Form1.Text_SYSTEM_START_TIME_02.Text = "SYSTEM START _ " + Str(TIMER_GO_COMPUTER_START)
+End If
+
+
+
+If DAY_CODE_SHUTDOWN >= 3 And Hour(Now) = 0 Then
+    REBOOT = 0
+    If GetComputerName = "\\1-ASUS-X5DIJ" Then REBOOT = 1
+    If GetComputerName = "\\2-ASUS-EEE" Then REBOOT = 1
+    If GetComputerName = "\\3-LINDA-PC" Then REBOOT = 1
+'    If GetComputerName = "\\4-ASUS-GL522VW" Then a = a
+    If GetComputerName = "\\5-ASUS-P2520LA" Then REBOOT = 1
+'    If GetComputerName = "\\7-ASUS-GL522VW" Then a = a
+'    If GetComputerName = "\\8-MSI-GP62M-7RD" Then a = a
+    If REBOOT = 1 Then
+        Call REBOOT_ROUTINE
+        ' LET CONTINUE MIGHT HAVE SHUTDOWN THING PROCESS KILLER
+        ' -----------------------------------------------------
+        ' Sun 26-Jan-2020 20:34:00
+        ' -----------------------------------------------------
+    End If
 End If
 
 On Error Resume Next
@@ -10807,6 +10903,33 @@ End If
 
 
 End Sub
+Sub REBOOT_ROUTINE()
+    Dim MSGBOX_STRING
+    Dim I_RET
+    
+    MSGBOX_STRING = "READY FOR OS RESTART __ OVER 3 DAY MIDNIGHT REBOOT" + vbCrLf + "YES COUNTDOWN" + vbCrLf + "WITH A SETTER OF 2 MINUTE" + vbCrLf + "IF THE TIMEOUT PERIOD IS" + vbCrLf + "SET GREATER THAN 0 THE /F FORCE PARAMETER IS IMPLIED."
+    Set objShell = CreateObject("WScript.Shell")
+    I_RET = objShell.Popup(MSGBOX_STRING, 2, App.EXEName + ".EXE", vbOK + vbMsgBoxSetForeground)
+    Set objShell = Nothing
+    If I_RET <> vbOK Then Exit Sub
+    
+    Dim WSHShell
+    Set WSHShell = CreateObject("WScript.Shell")
+        WSHShell.Run "C:\WINDOWS\SYSTEM32\SHUTDOWN.EXE /R /T 40", 0, True
+    Set WSHShell = Nothing
+'    Set WSHShell = CreateObject("WScript.Shell")
+'        WSHShell.Run "C:\WINDOWS\SYSTEM32\SHUTDOWN.EXE /A", 0, True
+'    Set WSHShell = Nothing
+    Beep
+    Me.WindowState = vbMinimized
+    
+    ' lRet = MessageBoxTimeout(0&, "READY FOR OS RESTART", _
+    "Timeout MessageBox Test", MB_SETFOREGROUND Or MB_YESNO Or MB_ICONASTERISK, _
+    0&, 90000)
+
+End Sub
+
+
 
 Sub SET_FONT_BOLD_TEXT_SYSTEM_START_TIME_OS_INSTALL_DATE()
     Form1.Text_SYSTEM_START_TIME_02.FontBold = True
