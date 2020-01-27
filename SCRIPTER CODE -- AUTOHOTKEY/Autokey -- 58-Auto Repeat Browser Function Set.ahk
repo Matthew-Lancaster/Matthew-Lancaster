@@ -1817,10 +1817,10 @@ AUTO_RELOAD_FACEBOOK:
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=
+	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
