@@ -297,7 +297,7 @@ RETURN
 ; TRY ?
 ; USE BOTH LIKE HERE
 ; -------------------------------------------------------------------
-:*?:n`;t::SENDINPUT n't
+:*?:n`t::SENDINPUT n't
 RETURN
 
 
