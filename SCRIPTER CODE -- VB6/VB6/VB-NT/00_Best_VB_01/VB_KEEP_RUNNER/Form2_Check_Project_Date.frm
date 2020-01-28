@@ -144,7 +144,7 @@ Private Type OSVERSIONINFO
     dwMajorVersion As Long
     dwMinorVersion As Long
     dwBuildNumber As Long
-    dwPlatformID As Long
+    dwPlatformId As Long
     szCSDVersion As String * 128
 End Type
 
@@ -699,6 +699,16 @@ Public Sub VB_PROJECT_CHECKDATE(FORM_LOAD_VAR)
         I_TEXT = I_TEXT + "    MsgBox ""ERROR LAUNCH VB PROGRAM FROM UPDATE"" + vbCrLf + FC_1 + vbCrLf + Err.Description" + vbCrLf
         I_TEXT = I_TEXT + "End If" + vbCrLf
         I_TEXT = I_TEXT + "WScript.Quit 0" + vbCrLf
+        
+'        Syntax
+'        .ShellExecute "application", "parameters", "dir", "verb", window
+'        .ShellExecute 'some program.exe', '"some parameters with spaces"', , "runas", 1
+'        Run a batch script with elevated permissions, flag=runas:
+'        Set objShell = CreateObject("Shell.Application")
+'        objShell.ShellExecute "E:\demo\batchScript.cmd", "", "", "runas", 1
+'        Run a VBScript with elevated permissions, flag=runas:
+'        Set objShell = CreateObject("Shell.Application")
+'        objShell.ShellExecute "cscript", "E:\demo\vbscript.vbs", "", "runas", 1
                 
         If Dir(VBS_LAUNCHER_NAME) <> "" Then Kill VBS_LAUNCHER_NAME
         FR1 = FreeFile
