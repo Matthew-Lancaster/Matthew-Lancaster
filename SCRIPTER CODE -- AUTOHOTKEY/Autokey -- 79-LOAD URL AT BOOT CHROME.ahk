@@ -50,6 +50,13 @@ CHROME_RUN_AND_MIN:
 
 	AUTO_RELOAD_FACEBOOK_VAR=0
 	AUTO_RELOAD_FIREFOX_VAR_2=0
+	AUTO_RELOAD_RAIN_ALARM_VAR=0
+	
+	Element=matt.lan@btinternet.com - BT Yahoo Mail - Mozilla Firefox
+	WinGetTITLE, TITLE_VAR, %Element% ahk_class MozillaWindowClass
+	IF INSTR(TITLE_VAR,Element)
+		AUTO_RELOAD_FIREFOX_VAR_2=1
+
 	Element:=Your Notifications - Google Chrome
 	WinGetTITLE, TITLE_VAR, %Element% ahk_class Chrome_WidgetWin_1
 	IF INSTR(TITLE_VAR,Element)
@@ -58,7 +65,7 @@ CHROME_RUN_AND_MIN:
 	Element:=Rain Alarm - Google Chrome
 	WinGetTITLE, TITLE_VAR, %Element% ahk_class Chrome_WidgetWin_1
 	IF INSTR(TITLE_VAR,Element)
-		AUTO_RELOAD_FACEBOOK_VAR=1
+		AUTO_RELOAD_RAIN_ALARM_VAR=1
 	
 	; ---------------------------------------------------------------
 	; USE COLON WITH VARIABLE -- BUT NOT IF GOT @ SIGN
@@ -66,10 +73,6 @@ CHROME_RUN_AND_MIN:
 	; AND OKAY HERE
 	; ---------------------------------------------------------------
 	
-	Element=matt.lan@btinternet.com - BT Yahoo Mail - Mozilla Firefox
-	WinGetTITLE, TITLE_VAR, %Element% ahk_class MozillaWindowClass
-	IF INSTR(TITLE_VAR,Element)
-		AUTO_RELOAD_FIREFOX_VAR_2=1
 		
 	SET_DONE=FALSE
 	IF AUTO_RELOAD_FACEBOOK_VAR=0

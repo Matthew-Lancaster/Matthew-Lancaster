@@ -177,50 +177,99 @@
 
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
 ' -------------------------------------------------------------------
+
+DIM ORIGINAL_PATH
+DIM EXPLORER_COUNTING
+
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+' -------------------------------------------------------------------
+' HERE WAS WORK FOR A BIT 
+' AND BELOW A BETTER CODE
+' -------------------------------------------------------------------
+Dim iMyPID
+' -------------------------------------------------------------------
+' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+' -------------------------------------------------------------------
+' MSGBOX iMyPID
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+FOR EACH objProcess IN colProcesses
+	IF NOT (IsNull(objProcess.ProcessID )) THEN
+		iMyPID = objProcess.ProcessID
+	END IF
+NEXT
+' -------------------------------------------------------------------
+' MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(iMyPID),vbMsgBoxSetForeground 
+' -------------------------------------------------------------------
+
+
+
+Set args = Wscript.Arguments
+For Each arg In args
+	Wscript_Arguments = Wscript_Arguments + arg
+Next
+
+DIM MSGBOX_SHOW
+
+IF INSTR(Wscript_Arguments,"RUN_FROM_GOODSYNC")>0 THEN 
+	MSGBOX_SHOW=TRUE
+END IF
+
+IF INSTR(Wscript_Arguments,"NOT_SHOW")>0 THEN ' ---- "RUN_FROM_GOODSYNC"
+	MSGBOX_SHOW=TRUE
+END IF
+
+
+
+
+Dim strScriptName
+Dim objProcess
+
 
 i1 = 0 ' ANY PROGRAM WSCRIPT 
 i2 = 0 ' MY  PROGRAM WSCRIPT 
 FOR EACH objProcess IN colProcesses
     IF NOT (IsNull(objProcess.CommandLine )) THEN
 		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
 		IF strScriptName = Wscript.ScriptName THEN
 			i2=i2+1
-		else
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
 			i1=i1+1
 		END IF
-		IF i1 > 0 THEN 
-				' Wscript.Quit
-		END IF  
-		IF i2 > 1 THEN 
-				Wscript.Quit
-		END IF  
-    END IF  
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		IF strScriptName = Wscript.ScriptName THEN ' MY PROGRAM WSCRIPT 
+			' -------------------------------------------------------
+			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
+			' HERE SCRIPT WHEN START
+			' -------------------------------------------------------
+			
+			IF iMyPID<>PID_Script AND PID_Script>0 THEN 
+			    ' MSGBOX CSTR(iMyPID) + VBCRLF + CSTR(PID_Script)
+				objProcess.Terminate() 
+
+			END IF
+		END IF
+    END IF
 NEXT
-
-DIM EXPLORER_COUNTING
-
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'explorer.exe'")
-' KNOCK UP THIS FOR USE IN MY OUTLOOK SCRIPT CODING
-For Each objProcess In colProcesses
-    If Not (IsNull(objProcess.ProcessID)) Then
-        strScriptProcessID = objProcess.ProcessID
-		EXPLORER_COUNTING=EXPLORER_COUNTING+1
-        ' MsgBox "MY PROCESS NUMBER PID IS -- " + CStr(strScriptProcessID)
-    End If
-Next
                              
-' Wscript.QUIT
-
-
+							 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
 DIM CUR_USER
 DIM ComputerName
+
+DIM FOLDER_PATH_MP4__VAR_2
 
 CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
@@ -254,7 +303,7 @@ Set WSHShell = CreateObject("WScript.Shell")
 
 
 Dim arr1
-Dim oDict ' Key: Full filename, Item: Filename
+Dim oDict     ' Key: Full filename, Item: Filename
 Dim oDict_4
 
 Dim FileModDate
@@ -269,13 +318,12 @@ DIM FileModDate_3
 	' Wscript.QUIT
 ' END IF
 
-
 'Call the Search subroutine to start the recursive search.
 'Search objFSO.GetFolder(FOLDER_PATH_VAR)
-'---------------------------------------------------------
+' -------------------------------------------------------------------
 'FindWantedFiles objFSO.GetFolder(FOLDER_PATH_VAR)
 'DisplayFindings
-'---------------------------------------------------------
+' -------------------------------------------------------------------
 
 DIM R_COUNT
 DIM CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE
@@ -291,15 +339,24 @@ DIM FOLDER_PATH_DO_ALL_FILE()
 DIM FOLDER_PATH_MOVE_MODE_FILE()
 DIM FOLDER_PATH_IGNOR_DATE_INDEX()
 DIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY()
-
+DIM WORK_DOER
+DIM FOLDER_PATH_HOLD
 
 REDIM FOLDER_PATH(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_DEST(NUMBER_OF_ITEM)
+REDIM FOLDER_PATH__MP4(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_VAR(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_DO_ALL_FILE(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_MOVE_MODE_FILE(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_IGNOR_DATE_INDEX(NUMBER_OF_ITEM)
 REDIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(NUMBER_OF_ITEM)
+
+' -------------------------------------------------------------------
+' SUB PATH_SCANNER_COPY_CAMERA
+' CHECK TOP OF ROUTINE HERE 
+' FOR FOLDER INCLUDE
+' COULD ARRAY LATER
+' -------------------------------------------------------------------
 
 DIM FOLDER_PATH_AVOID_ITEM()
 REDIM PRESERVE FOLDER_PATH_AVOID_ITEM(100)
@@ -307,13 +364,24 @@ NUMBER_COUNTER = 0
 I=NUMBER_COUNTER
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="_gsdata_"
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)="System Volume Information"
-I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\F.A"                      ' DASH CAMERA
-I=I+1:FOLDER_PATH_AVOID_ITEM(I)=".THM"                      ' SONY
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\F.A"                          ' DASH CAMERA
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=".THM"                          ' SONY
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=".AmazonDriveConfig"
-I=I+1:FOLDER_PATH_AVOID_ITEM(I)="CAPTURE.TXT"               ' 4K ULTRA ACTION CAM
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="CAPTURE.TXT"                   ' 4K ULTRA ACTION CAM
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="TIME.TXT"                      ' KEY_FOB
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="VIDEO.LST"                     ' KEY_FOB
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="Settime"                       ' BLUE AUDIO FRONT DOOR
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="Baby One More Time.mp3"        ' BLUE AUDIO FRONT DOOR
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\SetDigitRecorderTm.exe.lnk"   ' BLUE AUDIO FRONT DOOR
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\SetTime.txt"                  ' BLUE AUDIO FRONT DOOR
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="#Send To ModifyDate.exe"
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="MAGICMINDR7--JACKET USB.txt"   ' BLUE AUDIO FRONT DOOR
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)="\Settime - BACKER"             ' BLUE AUDIO FRONT DOOR
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
 I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
+I=I+1:FOLDER_PATH_AVOID_ITEM(I)=""
+
 ' I=I+1:FOLDER_PATH_AVOID_ITEM(I)="AVF_INFO"
 FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_AVOID_ITEM)
 	IF FOLDER_PATH_AVOID_ITEM(R_COUNT_2)<>"" THEN NUMBER_COUNTER=R_COUNT_2
@@ -325,15 +393,20 @@ REDIM PRESERVE FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(100)
 NUMBER_COUNTER = 0
 NUMBER_COUNTER = NUMBER_COUNTER + 1
 I=NUMBER_COUNTER
+' NOT USE HERE
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".JPG"
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".AVI"
-I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MOV"                      ' DASH CAMERA
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MOV"      ' DASH CAMERA
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".WAV"      ' KEY_FOB - AUDIO BLUE RECORDER
+I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=".MP4"      ' HIKVISION WHITE 4 PORT
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 I=I+1:FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(I)=""
 FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
-	IF FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2)<>"" THEN NUMBER_COUNTER=R_COUNT_2
+	IF FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2)<>"" THEN 
+		NUMBER_COUNTER=R_COUNT_2
+	END IF 
 NEXT
 REDIM PRESERVE FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(NUMBER_COUNTER)
 	
@@ -342,67 +415,89 @@ DIM FOLDER_PATH_VAR_3
 
 DIM EXPLORER_LOADED
 DIM SHOW_EXPLORER_FLAG
+DIM SHOW_EXPLORER_QUESTION
 
 DIM FOLDER_PATH_MAIN_4
 
 FOLDER_PATH(1)="MC - HX60V"
-FOLDER_PATH(2)="MC - HX60V0"
+FOLDER_PATH(2)="MC - HX60V0"      ' VIDEO
 FOLDER_PATH(3)="FUJI XP90"
 FOLDER_PATH(4)="GOPRO"
 FOLDER_PATH(5)="GOPRO"
-FOLDER_PATH(6)="DUAL SCRN" ' __ COPY FIRST TO END PLACE
-FOLDER_PATH(7)="DUAL SCRN" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
+FOLDER_PATH(6)="DUAL SCRN"        ' __ COPY FIRST TO END PLACE
+FOLDER_PATH(7)="DUAL SCRN"        ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
 FOLDER_PATH(8)="D DRIVE"
-FOLDER_PATH(9)="DASH_CAMERA" ' __ COPY FIRST TO END PLACE
-FOLDER_PATH(10)="DASH_CAMERA" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
-FOLDER_PATH(11)="4K-ULTRA-HD" ' __ COPY FIRST TO END PLACE
-FOLDER_PATH(12)="4K-ULTRA-HD" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
-FOLDER_PATH(13)="4K-ULTRA-02" ' __ COPY FIRST TO END PLACE
-FOLDER_PATH(14)="4K-ULTRA-02" ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
+FOLDER_PATH(9)="DASH_CAMERA"      ' __ COPY FIRST TO END PLACE
+FOLDER_PATH(10)="DASH_CAMERA"     ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
+FOLDER_PATH(11)="4K-ULTRA-HD"     ' __ COPY FIRST TO END PLACE
+FOLDER_PATH(12)="4K-ULTRA-HD"     ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
+FOLDER_PATH(13)="4K-ULTRA-02"     ' __ COPY FIRST TO END PLACE
+FOLDER_PATH(14)="4K-ULTRA-02"     ' __ ON SECOND RUN MOVE NEXT TO ANOTHER
+FOLDER_PATH(15)="KEY_FOB"         ' __ DATE ARRIVE 23-NOV-2019
+FOLDER_PATH(16)="MEM-BANK-CAMERA" ' __ DATE ARRIVE 30-DEC-2019
+FOLDER_PATH(17)="FRONT DOOR"      ' __ AUDIO DEVICE FRONT DOOR
+FOLDER_PATH(18)="HIKVISION#1"     ' __ 128 SAMSUNG PEN DRIVE
+FOLDER_PATH(19)="MAGICMINDR7"     ' __ AUDIO DEVICE JACKET CAMERA
+FOLDER_PATH(20)="HI-LOOK"         ' __ HIK-VISION WHITE 4 PORT
 
+
+
+' -----------------
 ' NOKIA TO DO 1 2 3
 
 FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(8)=TRUE
 
-FOLDER_PATH_VAR(1)="\"
-FOLDER_PATH_VAR(2)="\"
-FOLDER_PATH_VAR(3)="\"
-FOLDER_PATH_VAR(4)="\"
-FOLDER_PATH_VAR(5)="\"
-FOLDER_PATH_VAR(6)="\"
-FOLDER_PATH_VAR(7)="\"
+FOR R=1 TO 40
+	FOLDER_PATH_VAR(R)="\"
+NEXT 
 FOLDER_PATH_VAR(8)="\Android\SDCard2_Sync\DCIM\"
-FOLDER_PATH_VAR(9)="\"
-FOLDER_PATH_VAR(10)="\"
-FOLDER_PATH_VAR(11)="\"
-FOLDER_PATH_VAR(12)="\"
-FOLDER_PATH_VAR(13)="\"
-FOLDER_PATH_VAR(14)="\"
 
-FOLDER_PATH_DEST(1)="D:\DSC\2015+Sony\" + CSTR(Year(Now)) + " CyberShot HX60V"
-FOLDER_PATH_DEST(2)="D:\VI_ DSC ME 01\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+' ------------------------
+FOLDER_PATH_DEST(1)="D:\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
+' ------------------------
+FOLDER_PATH__MP4(1)="\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
+' ------------------------
+' ------------------------
+'FOLDER_PATH_DEST(2)="D:\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+' ------------------------
+FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+' ------------------------
+' FOLDER_PATH__MP4(2)="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+' ------------------------
+
 FOLDER_PATH_DEST(3)="D:\DSC\2017+FUJI XP90\" + CSTR(Year(Now)) + " FinePix XP90"
 FOLDER_PATH_DEST(4)="D:\DSC\" + CSTR(Year(Now)) + " GoPro 01"
-FOLDER_PATH_DEST(5)="D:\VI_ DSC ME 01\" + CSTR(Year(Now)) + " GoPro 01"
+FOLDER_PATH_DEST(5)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " GoPro 01"
 FOLDER_PATH_DEST(6)="D:\DSC\" + CSTR(Year(Now)) + " Double Screen Cam"
-FOLDER_PATH_DEST(7)="D:\VI_ DSC ME 01\" + CSTR(Year(Now)) + " Double Screen Cam"
+FOLDER_PATH_DEST(7)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " Double Screen Cam"
 FOLDER_PATH_DEST(8)="D:\DSC\" + CSTR(Year(Now)) + " Samsung Mini S5\DCIM"
 FOLDER_PATH_DEST(9)="D:\DSC\" + CSTR(Year(Now)) + " DASH CAMERA"
-FOLDER_PATH_DEST(10)="D:\VI_ DSC ME 01\" + CSTR(Year(Now)) + " DASH CAMERA"
+FOLDER_PATH_DEST(10)="D:\VI_ DSC ME\" + CSTR(Year(Now)) + " DASH CAMERA"
 FOLDER_PATH_DEST(11)="D:\DSC\2019+4K ULTRA HD\" + CSTR(Year(Now)) + " 4K ULTRA HD"
-FOLDER_PATH_DEST(12)="D:\VI_ DSC ME 01\2019+4K ULTRA HD\" + CSTR(Year(Now)) + " 4K ULTRA HD"
+FOLDER_PATH_DEST(12)="D:\VI_ DSC ME\2019+4K ULTRA HD\" + CSTR(Year(Now)) + " 4K ULTRA HD"
 FOLDER_PATH_DEST(13)="D:\DSC\2019+4K ULTRA 02\" + CSTR(Year(Now)) + " 4K ULTRA 02"
-FOLDER_PATH_DEST(14)="D:\VI_ DSC ME 01\2019+4K ULTRA 02\" + CSTR(Year(Now)) + " 4K ULTRA 02"
+' FOLDER_PATH_DEST(14)="D:\VI_ DSC ME\2019+4K ULTRA 02\" + CSTR(Year(Now)) + " 4K ULTRA 02"
 
-'THINKER WE WANT MOVE MODE FOR FUJI
+FOLDER_PATH_DEST(15)="D:\DSC\2019+KEY_FOB\" + CSTR(Year(Now)) + " KEY_FOB"
+FOLDER_PATH_DEST(16)="D:\DSC\2019+MEM-BANK-AR\" + CSTR(Year(Now)) + " MEMORY-BANK-CAMERA"
+FOLDER_PATH_DEST(16)="D:\DSC\2019+MEM-BANK-AR\" + CSTR(Year(Now)) + " MEMORY-BANK-CAMERA"
+FOLDER_PATH_DEST(17)="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 1 _ FRONT DOOR\RECORD " + CSTR(Year(Now)) 
+FOLDER_PATH_DEST(18)="F:\DSC--2018+CCTV HIKVISION\" + CSTR(Year(Now)) + " CCTV HIKVISION"
+' F: -- MSI_1TB_DRIVE -- \\4-ASUS-GL522VW__D
+FOLDER_PATH_DEST(19)="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 7 _ OUTDOOR JACKET\RECORD " + CSTR(Year(Now))
+FOLDER_PATH_DEST(20)="F:\DSC--2019+CCTV_HI-LOOK_HIKVISION_4CH\" + CSTR(Year(Now)) + " HI-LOOK_HIKVISION_4CH"
+
+
+' WANT MOVE MODE FOR FUJI
 
 ' THIS IS THE GOPRO DRIVE AND WILL WANT ALL COPY WITH MOVE AND IGNOR_DATE_INDEX
 FOLDER_PATH_MOVE_MODE_FILE(2)=TRUE
+FOLDER_PATH_DO_ALL_FILE(2)=TRUE
 FOLDER_PATH_DO_ALL_FILE(4)=TRUE
 FOLDER_PATH_DO_ALL_FILE(5)=TRUE
 FOLDER_PATH_MOVE_MODE_FILE(5)=TRUE
-'FOLDER_PATH_IGNOR_DATE_INDEX(4)=TRUE
-'FOLDER_PATH_IGNOR_DATE_INDEX(5)=TRUE
+' FOLDER_PATH_IGNOR_DATE_INDEX(4)=TRUE
+' FOLDER_PATH_IGNOR_DATE_INDEX(5)=TRUE
 ' THIS IS THE DUAL SCREEN DRIVE AND WILL WANT ALL COPY BUT MOVE_MODE VIDEO & IMAGE
 ' THIS IS THE DUAL SCREEN DRIVE & DO HERE IS 2 STEP 1ST COPY TO ONE FOLDER 2ND MOVE ANOTHER FOLDER
 ' AND IGNORE DATE INDEX REQUIRED WILL BE OKAY AS MOVE MODE IS AFTER THAT ALSO IGNORE DATE INDEX
@@ -425,16 +520,32 @@ FOLDER_PATH_MOVE_MODE_FILE(12)=TRUE
 ' DO ALL THE FILE FROM SD CARD FIRST
 ' AND THEN DO AGAIN FROM SD CARD AND ERASE THEM AFTER
 FOLDER_PATH_DO_ALL_FILE(13)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(13)=TRUE
 FOLDER_PATH_DO_ALL_FILE(14)=TRUE
 FOLDER_PATH_MOVE_MODE_FILE(14)=TRUE
+FOLDER_PATH_DO_ALL_FILE(15)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(15)=TRUE
+FOLDER_PATH_DO_ALL_FILE(16)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(16)=TRUE
+FOLDER_PATH_DO_ALL_FILE(17)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(17)=TRUE
+FOLDER_PATH_DO_ALL_FILE(19)=TRUE
+FOLDER_PATH_MOVE_MODE_FILE(19)=TRUE
 
+' FOLDER_PATH_DO_ALL_FILE(20)=TRUE
+' FOLDER_PATH_MOVE_MODE_FILE(20)=TRUE
 
+FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_DEST)
+	If Not FSO.FolderExists(FOLDER_PATH_DEST(R_COUNT)) Then
+		BuildFullPath FOLDER_PATH_DEST(R_COUNT)
+	End If
+NEXT
 
-' FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_DEST)
-	' If Not FSO.FolderExists(FOLDER_PATH_DEST(R_COUNT)) Then
-		' BuildFullPath FOLDER_PATH_DEST(R_COUNT)
-	' End If
-' NEXT
+FOR R_COUNT=1 TO UBOUND(FOLDER_PATH_DEST)
+	If Not FSO.FolderExists(FOLDER_PATH__MP4(R_COUNT)) Then
+		BuildFullPath FOLDER_PATH__MP4(R_COUNT)
+	End If
+NEXT
 
 FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_DEST)
 	IF FOLDER_PATH_DEST(R_COUNT_2)<>"" THEN NUMBER_COUNTER=R_COUNT_2
@@ -442,6 +553,7 @@ NEXT
 
 REDIM PRESERVE FOLDER_PATH(NUMBER_COUNTER)
 REDIM PRESERVE FOLDER_PATH_DEST(NUMBER_COUNTER)
+REDIM PRESERVE FOLDER_PATH__MP4(NUMBER_COUNTER)
 REDIM PRESERVE FOLDER_PATH_VAR(NUMBER_COUNTER)
 REDIM PRESERVE FOLDER_PATH_DO_ALL_FILE(NUMBER_COUNTER)
 REDIM PRESERVE FOLDER_PATH_MOVE_MODE_FILE(NUMBER_COUNTER)
@@ -452,19 +564,49 @@ DIM CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR
 CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR=FALSE
 
 DIM FOLDER_PATH_R_COUNT
+OLD_FOLDER_PATH_VAR_2=""
 
+
+
+
+' -------------------------------------------------------------------
+' GENERAL ONLY ONE USB AT A TIME BUTT MAYBE FEW END RESULT NOT SAME 
+' ONLY WHAT IN FOR NEXT LOOP 
+' -------------------------------------------------------------------
 FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 
 	I_COUNT_1=0
 	I_COUNT_2=0
 
+	FOLDER_PATH_VAR_2=""
 	FOLDER_PATH_INDEX=CSTR(R_COUNT)+" "+FOLDER_PATH(R_COUNT)
+	' ---------------------------------------------------------------
+	' TRY GET VOLUME LETTER LABEL FROM VOLUME_NAME OF PROVIDER
+	' IF EXIST GOT A DRIVE LETTER OR EMPTY 
+	' ---------------------------------------------------------------
 	FOLDER_PATH_VAR_2=getDriveLetterFromVolumeName(FOLDER_PATH(R_COUNT))
 	FOLDER_PATH_DEST_VAR=FOLDER_PATH_DEST(R_COUNT)
+	FOLDER_PATH__MP4_VAR=FOLDER_PATH__MP4(R_COUNT)
+	
+	' ---------------------------------------------------------------
+	' HERE GIVE THE VOLUME LABEL REFERENCE ALL PROCESS OF CODE
+	' ---------------------------------------------------------------
+	IF FOLDER_PATH_VAR_2<>"" THEN 
+		FOLDER_PATH_HOLD_2=FOLDER_PATH(R_COUNT)
+		' MSGBOX FOLDER_PATH_VAR_2+VBCRLF+FOLDER_PATH_HOLD_2
+	END IF
+	
+	
+	IF INSTR(OLD_FOLDER_PATH_VAR_2,FOLDER_PATH_VAR_2+"--")=0  THEN 
+		EXPLORER_LOADED=FALSE
+	END IF
+	OLD_FOLDER_PATH_VAR_2=OLD_FOLDER_PATH_VAR_2+"--"+FOLDER_PATH_VAR_2
 	
 	FOLDER_PATH_VAR_3=FOLDER_PATH_VAR(R_COUNT)
 	FOLDER_PATH_R_COUNT=FOLDER_PATH(R_COUNT)
 	
+	FOLDER_PATH_HOLD=FOLDER_PATH(R_COUNT)
+
 	IF FOLDER_PATH(1)="MC - HX60V" THEN 
 		IF FOLDER_PATH(1)=FOLDER_PATH(R_COUNT) THEN 
 			IF FOLDER_PATH_VAR_2<>"" THEN 
@@ -494,19 +636,26 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 
 		END IF
 	END IF
-	
-	
-	
 
-	
-
-	
-	
-	
 	IF FOLDER_PATH_VAR_2<>"" THEN 
-		
-		WORK_GO_ER=TRUE
-		
+		IF R_COUNT<>8 THEN 
+			' -------------------------------------------------------
+			' SHOW FIND-PATH AND DESTINATION-PATH
+			' -------------------------------------------------------
+			' MSGBOX "1.."+FOLDER_PATH_VAR_2 + VBCRLF +"2.."+ FOLDER_PATH_DEST_VAR
+			' -------------------------------------------------------
+		END IF
+
+		' CHECK HERE AND ANOTHER IN FILE OPERATION
+		IF FOLDER_PATH_VAR_2<>"D:" THEN 
+			HDD_WAS_HERE=FOLDER_PATH_VAR_2
+			' WORK_GO_ER=TRUE
+			' MSGBOX FOLDER_PATH_VAR_2
+		END IF
+
+		' -----------------------------------------------------------
+		' NOW GOT THE DRIVE LETTER ADD PATH GOING TO USER
+		' -----------------------------------------------------------
 		FOLDER_PATH_VAR_2=FOLDER_PATH_VAR_2+FOLDER_PATH_VAR(R_COUNT)
 
 		' MSGBOX FOLDER_PATH_VAR_2
@@ -521,11 +670,11 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		' DON'T SHOW EXPLORER ON D DRIVE IF ONLY PICTURE IS NONE
 		'------------------------------------------------------------
 		SHOW_EXPLORER_FLAG=TRUE
-		IF INSTR(FOLDER_PATH_DEST_VAR,"D:\VI_ DSC ME 01\") > 0 THEN 
+		IF INSTR(FOLDER_PATH_DEST_VAR,"D:\VI_ DSC ME\") > 0 THEN 
 			IF ComputerName="1-ASUS-X5DIJ" THEN SHOW_EXPLORER_FLAG=FALSE
 			IF ComputerName="2-ASUS-EEE" THEN SHOW_EXPLORER_FLAG=FALSE
 			IF ComputerName="3-LINDA-PC" THEN SHOW_EXPLORER_FLAG=FALSE
-			IF ComputerName="4-ASUS-GL522VW" THEN SHOW_EXPLORER_FLAG=FALSE
+			'IF ComputerName="4-ASUS-GL522VW" THEN SHOW_EXPLORER_FLAG=FALSE
 		END IF
 		
 		IF FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY(R_COUNT)=TRUE THEN
@@ -536,17 +685,15 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			SHOW_EXPLORER_FLAG=FALSE
 		END IF
 		
-		EXPLORER_LOADED=FALSE
-		IF SHOW_EXPLORER_FLAG=TRUE THEN 
+		IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE THEN 
 			EXPLORER_LOADED=TRUE
-			WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+			' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ "/F /R """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 		END IF
 		
 		IMAGE_POINTER_FOLDER_1=MID(Wscript.ScriptFullName,1,INSTRREV(Wscript.ScriptFullName,"\"))+"VBS 29-COPY CAMERA\"
-		
 		IMAGE_POINTER_NAME=IMAGE_POINTER_FOLDER_1+"COPY_CAMERA_PHOTO_IMAGE_POINTER_"+FOLDER_PATH(R_COUNT)+".TXT"
 		IMAGE_POINTER_NAME=REPLACE(IMAGE_POINTER_NAME,"\SCRIPTER\","\SCRIPTOR DATA\")
-		' MSGBOX IMAGE_POINTER_NAME
 		
 		If Not FSO.FolderExists(IMAGE_POINTER_FOLDER_1) Then
 			BuildFullPath IMAGE_POINTER_FOLDER_1
@@ -561,14 +708,6 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		DIM FileModDate_2
 		FileModDate_2=CDate(TT_DATE_POINTER)
 		FileModDate_3=FileModDate_2
-		
-		'TEST ---------------------------------------------
-		'FileModDate_2=CDate("14/06/2018")
-		'FileModDate_2=NOW
-		'Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
-		'objFile.Write FileModDate_2
-		'SET objFile=NOTHING
-		' --------------------------------------------------
 
 		MAIN
 
@@ -576,29 +715,62 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			FSO.DeleteFile IMAGE_POINTER_NAME
 		END IF
 
+		' -----------------------------------------------------------
+		' BOTH VIDEO AND DSC FOLDER MC - HX60V0 & MC - HX60V 
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		' -----------------------------------------------------------
+		X_FIND=MID(FOLDER_PATH(R_COUNT),1,10)
+		IF X_FIND="MC - HX60V" THEN 
+			DeleteFolder__=FOLDER_PATH_VAR_2
+			Set objFolder = FSO.GetFolder(DeleteFolder__)
+			Set oDict = CreateObject("Scripting.Dictionary")
+			CALL FindWantedFiles_THUMB_OFF_CAMERA_HX60(objFolder)
+			CALL DisplayFinder_THUMB_OFF_CAMERA_HX60
+
+			DeleteFolder__=FOLDER_PATH_VAR_2
+			Set objFolder = FSO.GetFolder(DeleteFolder__)
+			Set oDict = CreateObject("Scripting.Dictionary")
+			CALL FindWantedFiles_THUMB_OFF_CAMERA_HX60(objFolder)
+			CALL DisplayFinder_THUMB_OFF_CAMERA_HX60
+
+			DeleteFolder__=FOLDER_PATH_VAR_2+"DCIM"
+			Set objFolder = FSO.GetFolder(DeleteFolder__)
+			ORIGINAL_PATH=UCASE(objFolder.PATH)
+			DeleteEmptyFolders objFolder
+
+			DeleteFolder__=FOLDER_PATH_VAR_2+"MP_ROOT"
+			Set objFolder = FSO.GetFolder(DeleteFolder__)
+			ORIGINAL_PATH=UCASE(objFolder.PATH)
+			DeleteEmptyFolders objFolder
+		END IF
+		
 		Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
 		objFile.Write FileModDate_3
 		SET objFile=NOTHING
+
+		IF I_COUNT_1>0 THEN 
+			WORK_GO_ER=TRUE
+		END IF
 		
+		IF WORK_GO_ER=TRUE THEN
+			WORK_DOER=WORK_DOER+FOLDER_PATH(R_COUNT)+VBCRLF
+		END IF
+		
+		IF FOLDER_PATH_HOLD_2<>"D DRIVE" THEN 
+			WORK_DOER_2=FOLDER_PATH_HOLD_2
+		END IF
 		
 	END IF
-	
-
 NEXT
-
-IF WORK_GO_ER=FALSE THEN
-
-	I=""
-	I=I+"CAMERA COPY _ NOTHING DONE " + VBCRLF
-	I=I+"CHECKED VOLUME NAME" + VBCRLF
-	I=I+"--------------------------" + VBCRLF
-	FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
-		I=I+FOLDER_PATH(R_COUNT) + VBCRLF
-	NEXT
-	MSGBOX I,vbMsgBoxSetForeground 
-
-END IF
-
 
 ' -------------------------------------------------------------------
 ' THIS PROCESS NOT TOO GOOD AS THESE SCRIPT IN BAT WAKE ALL THE DRIVE WHEN SCAN THEM FOR FOLDER
@@ -612,17 +784,152 @@ END IF
 ' -------------------------------------------------------------------
 
 ' DIM RUN_COPY(1)
-
 ' RUN_COPY(1)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-XCOPY SYNC.BAT"
-
 ' FOR R_COUNT=1 TO UBOUND(RUN_COPY)
-
 	' IF FSO.FileExists(RUN_COPY(R_COUNT)) THEN 
 		' WSHShell.Run """"+RUN_COPY(R_COUNT)+"""", DontShowWindow, DontWaitUntilFinished
 	' END IF
-	
 ' NEXT
 
+IF INSTR(WORK_DOER,"MC - HX60V")>0 THEN 
+	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_MC_HX60V.VBS"
+	IF FSO.FileExists(RENAME_VAR) THEN 
+		' WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+
+IF INSTR(WORK_DOER,"MC - HX60V")>0 THEN 
+	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS"
+	PARAM="MC_HX60V"  
+	IF FSO.FileExists(RENAME_VAR) THEN
+		' WSHShell.Run """"+RENAME_VAR+"""" + " " + PARAM, DontShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+IF INSTR(WORK_DOER,"MC - HX60V1")>0 THEN 
+	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS"
+	PARAM="MC_HX60V1"  
+	IF FSO.FileExists(RENAME_VAR) THEN
+		' WSHShell.Run """"+RENAME_VAR+"""" + " " + PARAM, DontShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+
+IF INSTR(WORK_DOER,"KEY_FOB")>0 THEN 
+	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS"
+	IF FSO.FileExists(RENAME_VAR) THEN 
+		WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+
+IF INSTR(WORK_DOER,"MEM-BANK-CAMERA")>0 THEN 
+	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_MEMORY-BANK-CAMERA.VBS"
+	IF FSO.FileExists(RENAME_VAR) THEN 
+		WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+
+IF INSTR(WORK_DOER,"FRONT DOOR")>0 THEN
+	' ALWAYS SAME
+	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS"
+	PARAM="BLUE_1_FRONTDOOR"  
+	IF FSO.FileExists(RENAME_VAR) THEN
+		WSHShell.Run """"+RENAME_VAR+"""" + " " + PARAM, DontShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+
+IF INSTR(WORK_DOER,"OUTDOOR JACKET")>0 THEN
+	' ALWAYS SAME
+	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS"
+	PARAM="OUTDOOR_JACKET"
+	IF FSO.FileExists(RENAME_VAR) THEN
+		WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+
+' -----------------------------------------------------------
+' GOT THE DRIVE WHERE VOLUME SEARCH ARE -- FOLDER_PATH_HOLD_2
+' -----------------------------------------------------------
+DO_THE_CLOCK=FALSE
+IF INSTR(FOLDER_PATH_HOLD_2,"FRONT DOOR")   THEN DO_THE_CLOCK=TRUE
+IF INSTR(FOLDER_PATH_HOLD_2,"MAGICMINDR7")  THEN DO_THE_CLOCK=TRUE  ' "OUTDOOR JACKET"
+
+IF DO_THE_CLOCK=TRUE THEN 
+	EXE_VAR="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 7 _ OUTDOOR JACKET\Settime\SetDigitRecorderTm.exe"
+	IF FSO.FileExists(EXE_VAR) THEN
+		WSHShell.Run """"+EXE_VAR+"""", ShowWindow, DontWaitUntilFinished
+	END IF
+END IF
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
+' ---- I=I+"DONE COPY COUNT: "  ---- I=I+CSTR(I_COUNT_1)
+' ---- VAR_FORCE_GOODSYNC_GO=TRUE
+' -------------------------------------------------------------------
+IF INSTR(WORK_DOER,"MC - HX60V")=0 OR I_COUNT_1=0 THEN 
+	VAR_FORCE_GOODSYNC_GO=FALSE
+END IF
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+IF VAR_FORCE_GOODSYNC_GO=TRUE THEN
+	CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=TRUE
+END IF
+
+IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=TRUE THEN
+	' ---------------------------------------
+	FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+	PARAM="CAMERA_BACKUP_MODE"
+	' ---------------------------------------
+	WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+END IF
+
+
+INF=""
+FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
+	IF INSTR(INF,FOLDER_PATH(R_COUNT)+"  ")=0 THEN 
+		INF=INF+FOLDER_PATH(R_COUNT)+"  " + VBCRLF
+		IX=IX+1
+	END IF
+NEXT
+
+IF WORK_GO_ER=FALSE THEN
+	I=""
+	I=I+ Wscript.ScriptName + VBCRLF
+	I=I+ VBCRLF
+	I=I+"CAMERA COPY _ NOTHING DONE " + VBCRLF
+	IF HDD_WAS_HERE<>"" THEN 
+		I=I+ VBCRLF
+		I=I+"HDD IS HERE -- " + HDD_WAS_HERE + " -- "+ WORK_DOER_2 + VBCRLF
+	END IF
+	I=I+ VBCRLF
+	I=I+"CHECKER VOLUME NAME OF -- "+CSTR(IX)+" TOTAL DUPE FILTER" + VBCRLF
+	I=I+"--------------------------------------------------------" + VBCRLF
+	I=I+INF
+	I=I+"" + VBCRLF
+	IF MSGBOX_SHOW=TRUE THEN 
+		MSGBOX I,vbMsgBoxSetForeground 
+	END IF
+END IF
+
+
+IF WORK_GO_ER=TRUE OR 1=1 THEN
+	I=""
+	I=I+ Wscript.ScriptName + VBCRLF
+	I=I+ VBCRLF
+	I=I+ "DONE COPY COUNT: " + CSTR(I_COUNT_1)
+	I=I+ " of " + CSTR(I_COUNT_2) + VBCRLF
+	I=I+"HDD IS HERE -- " + HDD_WAS_HERE + " -- "+ WORK_DOER_2 + VBCRLF
+	I=I+ VBCRLF
+	I=I+ DRIVE_SPACE_INFO
+	I=I+ VBCRLF
+	I=I+ VBCRLF
+	I=I+"CHECKER VOLUME NAME OF -- "+CSTR(IX)+" TOTAL DUPE FILTER" + VBCRLF
+	I=I+"--------------------------------------------------------" + VBCRLF
+	I=I+INF
+	'IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
+	IF MSGBOX_SHOW=TRUE THEN 
+		MSGBOX I,vbMsgBoxSetForeground 
+	END IF
+END IF
 
 
 SET objFSO = NOTHING
@@ -637,8 +944,10 @@ Sub Main
     ' Display All Findings from Dictionary object
     DisplayFindings
 
-	ShowDriveInfo(MID(FOLDER_PATH_VAR_2,1,2))
-
+	IF MID(FOLDER_PATH_VAR_2,1,2)<>"D:" THEN 
+		ShowDriveInfo(MID(FOLDER_PATH_VAR_2,1,2))
+	END IF
+	
 	' ---------------------------------------------------------------
 	' CHECK EXPLORER BEEN LOADED BEFORE _ IF NOT
 	' NOW IS TIME TO MAKE SURE _ AND DECIDE IF THE COUNTER HAS GONE UP FOR ANY COPY FILE
@@ -647,17 +956,8 @@ Sub Main
 	' ---------------------------------------------------------------
 	
 	IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE AND I_COUNT_1>0 THEN 
-		WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
-	END IF
-	
-	I=""
-	I=I+"DONE COPY COUNT: " 
-	I=I+CSTR(I_COUNT_1)
-	I=I+" of " + CSTR(I_COUNT_2) + VBCRLF
-	I=I+DRIVE_SPACE_INFO
-	
-	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
-		MSGBOX I,vbMsgBoxSetForeground 
+		' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
+		WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ "/F /R """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 	END IF
 	
 	' ---------------------------------------------------------------
@@ -693,8 +993,6 @@ Sub Main
 	' ---------------------------------------------------------------	
 	' ONLY THE SONY CYBERSHOT RUN HERE TO MAKE DUPE MC-CARD
 	' ---------------------------------------------------------------	
-
-
 
 	IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR=TRUE THEN 
 		IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=FALSE THEN 
@@ -733,20 +1031,21 @@ Sub Main
 	IF SET_GO=TRUE THEN
 		IF INSTR(FOLDER_PATH_DEST(1),"\MP4")=0 THEN 
 			FOLDER_PATH_DEST(1)=FOLDER_PATH_DEST(1)+"\MP4"
+			IF FOLDER_PATH__MP4(1)<>"" THEN 
+				FOLDER_PATH__MP4(1)=FOLDER_PATH__MP4(1)+"\MP4"
+			END IF
 		END IF
 		IF INSTR(FOLDER_PATH_DEST(2),"\MP4")=0 THEN 
 			FOLDER_PATH_DEST(2)=FOLDER_PATH_DEST(2)+"\MP4"
+			IF FOLDER_PATH__MP4(2)<>"" THEN 
+				FOLDER_PATH__MP4(2)=FOLDER_PATH__MP4(2)+"\MP4"
+			END IF
 		END IF
 		
-		' MSGBOX FOLDER_PATH_DEST_VAR_2
-		' MSGBOX FOLDER_PATH_DEST(R_COUNT)
-		
 		FOLDER_PATH_DEST_VAR_2=FOLDER_PATH_DEST(R_COUNT)
-		' DO SOME WORK TO RENAME FILE
-		FOLDER_PATH_MAIN_4=FOLDER_PATH_DEST_VAR_2
-		
+		FOLDER_PATH_MP4__VAR_2=FOLDER_PATH__MP4(R_COUNT)
+
 		CALL MAIN_4
-		
 	END IF
 	
 	' ---------------------------------------------------------------	
@@ -756,10 +1055,7 @@ Sub Main
 
     Set oDict = Nothing
 End Sub
-
 ' -------------------------------------------------------------------
-
-
 
 
 function ShowDriveInfo(drvPath)
@@ -810,7 +1106,6 @@ Sub DisplayFindings()
     oKeys = oDict.Keys
     For Each oKey In oKeys
 		VAR_PATH_SCANNER=oKey
-		' MSGBOX VAR_PATH_SCANNER
 		IF FSO.FILEExists(VAR_PATH_SCANNER)=TRUE THEN 
 			CALL PATH_SCANNER_COPY_CAMERA
 		END IF
@@ -822,6 +1117,17 @@ SUB PATH_SCANNER_COPY_CAMERA
 	IF mid(ucase(VAR_PATH_SCANNER),3,5)="\DCIM"    then SET_GO_FILE=TRUE
 	IF mid(ucase(VAR_PATH_SCANNER),3,8)="\MP_ROOT" then SET_GO_FILE=TRUE
 	IF mid(ucase(VAR_PATH_SCANNER),3,6)="\DCIMA"   then SET_GO_FILE=TRUE
+	IF mid(ucase(VAR_PATH_SCANNER),3,6)="\AUDIO"   then SET_GO_FILE=TRUE  ' KEY_FOB
+	IF mid(ucase(VAR_PATH_SCANNER),3,6)="\PHOTO"   then SET_GO_FILE=TRUE  ' KEY_FOB
+	IF mid(ucase(VAR_PATH_SCANNER),3,6)="\VIDEO"   then SET_GO_FILE=TRUE  ' KEY_FOB
+	IF mid(ucase(VAR_PATH_SCANNER),3,7)="\RECORD"  then SET_GO_FILE=TRUE  ' BLUE AUDIO
+
+	IF INSTR(FOLDER_PATH_HOLD,"HIKVISION#1")>0 THEN
+		SET_GO_FILE=TRUE  ' ----------------------- WANT ALL FROM ROOT
+	END IF
+	IF INSTR(FOLDER_PATH_HOLD,"HI-LOOK")>0 THEN
+		SET_GO_FILE=TRUE  ' ----------------------- WANT ALL FROM ROOT
+	END IF
 	
 	DO_ALL_FILE=FALSE
 	MOVE_MODE_FILE=FALSE
@@ -829,6 +1135,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 
 	IF FOLDER_PATH_DO_ALL_FILE(R_COUNT)=TRUE THEN
 		DO_ALL_FILE=TRUE
+		IGNOR_DATE_INDEX=TRUE
 	END IF
 	IF FOLDER_PATH_MOVE_MODE_FILE(R_COUNT)=TRUE THEN
 		MOVE_MODE_FILE=TRUE
@@ -862,41 +1169,115 @@ SUB PATH_SCANNER_COPY_CAMERA
 	IF IGNOR_DATE_INDEX=FALSE THEN 
 		IF FileModDate<=FileModDate_2 THEN EXIT SUB
 	END IF 
-
-	' ONLY JPG IS REALLY CHECK FOR ANYTHING AT THE MOMENT
+	IF FileModDate>FileModDate_3 THEN FileModDate_3=FileModDate
+	
 	' ---------------------------------------------------
 	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".JPG" then JPG_BEEN_DONE=TRUE
 	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".MP4" then MP4_BEEN_DONE=TRUE
 	If RIGHT(ucase(VAR_PATH_SCANNER),4)=".AVI" then AVI_BEEN_DONE=TRUE
 	
+	' ---------------------------------------------------------------
 	' ".JPG"
 	' ".AVI"
 	' ".MOV"  ' DASH CAMERA
-	MOVE_MODE_FLAG=FALSE
+	'   MOVE_MODE_FILE=FALSE
+	' ---------------------------------------------------------------
 	FOR R_COUNT_2=1 TO UBOUND(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE)
 		I_X__=LEN(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
 		I_TXT=UCASE(FOLDER_PATH_EXT_ONLY_TO_USE_WITH_MOVE(R_COUNT_2))
 		IF RIGHT(UCASE(VAR_PATH_SCANNER),I_X__)=I_TXT then 
-			MOVE_MODE_FLAG=TRUE
+			MOVE_MODE_FILE=TRUE
 		END IF
 	NEXT
 
-	IF FileModDate>FileModDate_3 THEN FileModDate_3=FileModDate
-	
 	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
 	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
 	
 	' PATH_VAR="D:\DSC\2015-2018\2018 CyberShot HX60V"+MID(PATH_VAR,3)
 	PATH_VAR=FOLDER_PATH_DEST_VAR+MID(PATH_VAR,3)
 	PATH_VAR=REPLACE(PATH_VAR,MID(FOLDER_PATH_VAR_3,2),"")
-	
-	' TRICKY BUT WILL IT RUN
-	
-	' MSGBOX "PATH_VAR  "+PATH_VAR
-	' Wscript.QUIT
-	
+
+	IF INSTR(UCASE(PATH_VAR),"CYBERSHOT HX60V")>0 THEN 
+	IF INSTR(UCASE(FOLDER_PATH_DEST_VAR),"D:\DSC\2015+SONY")>0 THEN 
+	IF INSTR(UCASE(FILE_VAR),".MP4")>0 THEN 
+		PATH_VAR=FOLDER_PATH_MP4__VAR_2
+	END IF
+	END IF
+	END IF
+	IF INSTR(UCASE(PATH_VAR),"CYBERSHOT HX60V")>0 THEN 
+	IF INSTR(UCASE(FOLDER_PATH_DEST_VAR),"D:\VI_ DSC ME\")>0 THEN 
+	IF INSTR(UCASE(FILE_VAR),".MP4")>0 THEN 
+		PATH_VAR=FOLDER_PATH_MP4__VAR_2
+	END IF
+	END IF
+	END IF
+
 	PATH_FILE_VAR=PATH_VAR+"\"+FILE_VAR
-	PATH_FILE_VAR=REPLACE(PATH_FILE_VAR,"\\","\")
+	
+	FileModDate_1=0
+	IF FSO.FileExists(VAR_PATH_SCANNER) THEN 
+		Set F1 = fso.GetFile(VAR_PATH_SCANNER)
+		FileModDate_1 = F1.DateLastModified
+	END IF
+
+	IF INSTR(UCASE(PATH_VAR),"CYBERSHOT HX60V")>0 THEN 
+	IF INSTR(UCASE(FILE_VAR),"MP4")>0 THEN 
+	IF LEN(FILE_VAR)<41 THEN 
+		' 41
+		' 2020_01_03 Jan_Fri 22_47_16__MAH00824.MP4
+		IF LEN(FILE_VAR)< 41 THEN
+			i_TIME=""
+			i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"_"
+			i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Day(FileModDate_1), "0", 2)+" "
+			i_TIME=i_TIME+WeekdayName(Weekday(FileModDate_1),TRUE)+"_"
+			i_TIME=i_TIME+MonthName(MONTH(FileModDate_1),TRUE)+" "
+			i_TIME=i_TIME+""
+			i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Second(FileModDate_1), "0", 2)+"__"
+			NewFilename=i_TIME + UCASE(FILE_VAR)
+		END IF
+		STRIP_PART="\MP_ROOT\100ANV01"
+		STRIP_PART="\MP_ROOT\"
+		X_SP_1=INSTRREV(PATH_VAR,STRIP_PART)
+		IF X_SP_1>0 THEN 
+			X_SP_2=INSTRREV(PATH_VAR,"\")
+			X_SP_4=MID(PATH_VAR,X_SP_1,X_SP_2-X_SP_1)
+			PATH_VAR=REPLACE(PATH_VAR,X_SP_4,"")
+			PATH_FILE_VAR=PATH_VAR+NewFilename
+		END IF
+	END IF
+	END IF
+	END IF
+	
+	' MSGBOX "2" + VBCR+FOLDER_PATH_DEST_VAR+VBCRLF+VBCRLF+PATH_VAR+VBCRLF+VBCRLF+PATH_FILE_VAR
+	
+	IF INSTR(FOLDER_PATH_HOLD,"HIKVISION#1")>0 THEN
+		IF INSTR(UCASE(FILE_VAR),".MP4")>0 THEN 
+			' -----------------------------------------------------------
+			' EXAMPLE ---- ch01_20190808094856.mp4
+			' EXAMPLE ---- CH01_20190808--094856.MP4
+			' -----------------------------------------------------------
+			PATH_FILE_VAR=UCASE(PATH_VAR+MID(FILE_VAR,1,13)+"--"+MID(FILE_VAR,14))
+		END IF
+		IF INSTR(UCASE(FILE_VAR),".TXT")>0 THEN 
+			EXIT SUB
+		END IF
+	END IF
+
+	IF INSTR(FOLDER_PATH_HOLD,"HI-LOOK")>0 THEN
+		IF INSTR(UCASE(FILE_VAR),".MP4")>0 THEN 
+			' -----------------------------------------------------------
+			' EXAMPLE ---- ch01_20190808094856.mp4
+			' EXAMPLE ---- CH01_20190808--094856.MP4
+			' -----------------------------------------------------------
+			PATH_FILE_VAR=UCASE(PATH_VAR+MID(FILE_VAR,1,13)+"--"+MID(FILE_VAR,14))
+		END IF
+		IF INSTR(UCASE(FILE_VAR),".TXT")>0 THEN 
+			EXIT SUB
+		END IF
+	END IF
 
 	If Not FSO.FolderExists(PATH_VAR) Then
 		BuildFullPath PATH_VAR
@@ -905,25 +1286,27 @@ SUB PATH_SCANNER_COPY_CAMERA
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
 	
-
-	If Not FSO.FileExists(PATH_FILE_VAR) OR DO_ALL_FILE=TRUE Then
+	If Not FSO.FileExists(PATH_FILE_VAR) THEN ' OR DO_ALL_FILE=TRUE Then
 		IF MOVE_MODE_FILE=FALSE THEN 
-			' MSGBOX "1.. COPY "+VAR_PATH_SCANNER+" -- "+PATH_FILE_VAR
 			Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR
+			I_COUNT_1=I_COUNT_1+1
+			' MSGBOX CSTR(I_COUNT_1)
+
 		END IF
 		IF MOVE_MODE_FILE=TRUE THEN 
-			IF MOVE_MODE_FLAG=TRUE THEN
-				' MSGBOX "2.. MOVE "+VAR_PATH_SCANNER+" -- "+PATH_FILE_VAR
-				Fso.MoveFile VAR_PATH_SCANNER, PATH_FILE_VAR
+			Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR
+			I_COUNT_1=I_COUNT_1+1
+			' MSGBOX CSTR(I_COUNT_1)
+			If FSO.FileExists(PATH_FILE_VAR) Then
+				' MSGBOX "DEL " + VAR_PATH_SCANNER + " SOURCE -- DESTINATION "+PATH_FILE_VAR
+				FSO.DeleteFile(VAR_PATH_SCANNER) 
 			END IF
-			IF MOVE_MODE_FLAG=FALSE THEN
-				' MSGBOX "3.. COPY "+VAR_PATH_SCANNER+" -- "+PATH_FILE_VAR
-				Fso.CopyFile VAR_PATH_SCANNER, PATH_FILE_VAR
-			END IF
-		END IF
 			
-		I_COUNT_1=I_COUNT_1+1
+		END IF
 	END IF
+	
+	' COPY ROUTINE ABOVE --------------------------------------------
+	
 	IF ERR.NUMBER>0 THEN
 		IX=""+VBCRLF
 		IX=IX+"ERROR COPY FILE _ TRY REDO ANOTHER"+VBCRLF+VBCRLF
@@ -931,16 +1314,19 @@ SUB PATH_SCANNER_COPY_CAMERA
 		IX=IX+PATH_FILE_VAR    +VBCRLF+VBCRLF
 		IX=IX+ERR.DESCRIPTION  +VBCRLF+VBCRLF
 		IX_ERROR_MESSENGER=IX
-		STOP_PROGRESS=TRUE
-		EXIT SUB
+		IF IGNOR_DATE_INDEX=FALSE THEN 
+			STOP_PROGRESS=TRUE
+			EXIT SUB
+		END IF
 	END IF
-	
 END SUB
 
 Sub BuildFullPath(ByVal FullPath)
 	If Not fso.FolderExists(FullPath) Then
+		ON ERROR RESUME NEXT
 		BuildFullPath fso.GetParentFolderName(FullPath)
 		fso.CreateFolder FullPath
+		ON ERROR GOTO 0
 	End If
 End Sub
 
@@ -982,7 +1368,6 @@ Sub Main_4
 		EXIT SUB
 	END IF
 	
-
     Set oDict_4 = CreateObject("Scripting.Dictionary")
     ' Call Recursive Sub
     FindWantedFiles_4(objFSO.GetFolder(FOLDER_PATH_MAIN_4))
@@ -994,6 +1379,55 @@ Sub Main_4
 	
     Set oDict_4 = Nothing
 End Sub
+
+' -------------------------------------------------------------------
+' MAH00004.THM
+' &
+' THUMBS.DB -- Thumbs.db
+' -------------------------------------------------------------------
+Sub FindWantedFiles_THUMB_OFF_CAMERA_HX60(sFolder)
+    On Error Resume Next
+    Dim oFDR, oItem, file
+    ' CHECK IF WANTED FILES ARE IN THIS FOLDER
+    For Each file In sFolder.Files
+		IF INSTR(UCASE(FILE.path),".THM") THEN
+			oDict.Add FILE.path, file
+		END IF
+		IF UCASE(FILE.path)="THUMBS.DB" THEN
+			oDict.Add FILE.path, file
+		END IF
+    Next
+    ' RECURSE INTO IT'S SUB FOLDERS
+    For Each oFDR In sFolder.SubFolders
+        FindWantedFiles_THUMB_OFF_CAMERA_HX60 objFSO.GetFolder(oFDR.Path)
+    Next
+End Sub
+Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
+    Dim oKeys, oKey
+    oKeys = oDict.Keys
+    For Each oKey In oKeys
+		GOGO=0
+		XX=MID(oKey,1,INSTRREV(oKey,"."))+"MP4"
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		IF FSO.FILEEXISTS(XX)=FALSE THEN GOGO=1
+		IF ERR.NUMBER>0 THEN GOGO=0
+		ON ERROR RESUME NEXT
+		IF GOGO=1 THEN 
+			' THE THUMB _.THM BEEN DELETE THAT NOT WITHER _.MP4
+			FSO.DeleteFile(oKey) 
+		END IF
+		' -----------------------------------------------------------
+		IF INSTR(UCASE(oKey),"THUMBS.DB") THEN XX=oKey
+		IF FSO.FILEEXISTS(oKey)=TRUE THEN
+			' THE -- THUMBS.DB -- Thumbs.db -- BEEN DELETE
+			FSO.DeleteFile(oKey) 
+		END IF
+    Next
+End Sub
+' -------------------------------------------------------------------
+
+
 
 Sub FindWantedFiles_4(sFolder)
     On Error Resume Next
@@ -1220,87 +1654,6 @@ Function CreateFolderTree(sPath)
 End Function
 
 
-
-
-SUB PATH_SCANNER_RENAME_3
-
-	NewFilename=REPLACE(VAR_PATH_SCANNER,".JPG",".jpg")
-	
-	if VAR_PATH_SCANNER <> NewFilename then 
-		I_COUNT_1=I_COUNT_1+1
-		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
-		'msgbox NewFilename
-		'Wscript.QUIT
-	end if
-
-END SUB
-
-SUB PATH_SCANNER_RENAME_2
-
-	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
-	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
-
-	SET_GO=TRUE 
-	IF INSTR(UCASE(VAR_PATH_SCANNER),".JPG")=0 THEN SET_GO=FALSE
-	'IF MID(FILE_VAR,1,4)<>"2010" THEN  SET_GO=FALSE
-
-	NewFilename=FILE_VAR
-
-	IF LEN(FILE_VAR)>= 12 AND SET_GO=TRUE THEN SET_GO=FALSE
-	
-	ON ERROR RESUME NEXT
-	if SET_GO=TRUE then
-		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
-		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
-		END IF
-	END IF
-
-	'IF NewFilename_COUNTER>= 761 THEN SET_GO=FALSE
-	
-	IF SET_GO=TRUE THEN
-		'MSGBOX VAR_PATH_SCANNER
-		NewFilename=FILE_VAR
-
-		if FSO.FileExists(PATH_VAR+NewFilename)=TRUE THEN 
-			'msgbox "FILE ALREADY EXISTS "+VBCRLF+VBCRLF+NewFilename
-			'Wscript.QUIT
-			X_D=0
-			DO
-				FOR R=1 TO 500
-					X_D=X_D+1
-					NewFilename="DSC"+CSTR(X_D)+".jpg"
-					NewFilename_VAR_2=MID(NewFilename,4)
-					 
-					IF LEN(NewFilename)<12 THEN 
-						X_C=1
-						DO
-							IF LEN(NewFilename)<12 THEN 
-								NewFilename="DSC"+STRING(X_C,"0")+NewFilename_VAR_2
-								X_C=X_C+1
-							END IF
-						LOOP UNTIL LEN(NewFilename)=12
-					end if
-					if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
-				NEXT
-			LOOP UNTIL FSO.FileExists(PATH_VAR+NewFilename)=FALSE
-
-		END IF
-
-		NewFilename=PATH_VAR+NewFilename
-
-		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename,vbMsgBoxSetForeground 
-			Wscript.QUIT
-			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
-
-			I_COUNT_1=I_COUNT_1+1
-		END IF
-	END IF
-	
-	
-END SUB
-
 SUB PATH_SCANNER_RENAME
 
 	SET_GO=FALSE
@@ -1348,8 +1701,6 @@ SUB PATH_SCANNER_RENAME
 				END IF
 			LOOP UNTIL LEN(NewFilename)=12
 		end if
-
-
 		
 		' IF LEN(FILE_VAR)<12 THEN 
 			' X_C=1
@@ -1399,13 +1750,12 @@ SUB PATH_SCANNER_RENAME
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT_1=I_COUNT_1+1
+			' MSGBOX CSTR(I_COUNT_1)
+
 		END IF
 	END IF
 
 END SUB
-
-
-
 
 
 '------------------------------------------------
@@ -1428,7 +1778,45 @@ Sub Search(Folder)
 	Next
 
 End Sub
-		
+
+
+Sub DeleteEmptyFolders(folder)
+    Dim subfolder
+	ON ERROR RESUME NEXT
+	ERR.CLEAR
+    For Each subfolder in folder.SubFolders
+			DeleteEmptyFolders subfolder
+    Next
+	
+	' ---------------------------------------------------------------
+	' MORE ERROR SAFE METHOD
+	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
+	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAPP IT
+	' ---------------------------------------------------------------
+	READY_01=-1
+	READY_02=-1
+	READY_03=-1
+	ERR.CLEAR
+	READY_01=folder.SubFolders.Count
+	READY_02=folder.Files.Count
+	IF UCASE(ORIGINAL_PATH)<>UCASE(folder.Path) THEN READY_03=0
+	' ---------------------------------------------------------------
+    If READY_01 = 0 And READY_02 = 0 And READY_03 = 0 AND ERR.NUMBER=0 Then
+		ON ERROR GOTO 0
+		TEST_COUNTER=TEST_COUNTER+1
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		FSO.DeleteFolder folder.Path, TRUE
+		IF ERR.NUMBER>0 THEN 
+			ERR_COUNTER = ERR_COUNTER +1
+			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+			ERR.CLEAR
+			objFolder.DELETE, TRUE
+			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
+		END IF
+	End If
+End Sub
+
 		
 
 

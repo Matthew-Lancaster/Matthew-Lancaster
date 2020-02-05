@@ -74,7 +74,7 @@ CALL GET_WINDOWS_VERSION
 
 
 Set objShell = CreateObject("WScript.Shell")
-X = objShell.Popup("WORK TO DO -- VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS -- QUIT GONE"+VBCR+"4 SECOND GONE MESSENGER", 4,, vbOKOnly+ vbMsgBoxSetForeground)
+X = objShell.Popup("WORK TO DO -- VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS -- QUIT GONE"+VBCR+VBCR+"4 SECOND GONE MESSENGER", 4,, vbOKOnly+ vbMsgBoxSetForeground)
 
 WScript.Quit
 
@@ -110,7 +110,7 @@ FOR EACH objProcess IN colProcesses
 		END IF
     END IF
 NEXT
-
+ 
 ' Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 ' Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 ' KNOCK UP THIS FOR USE IN MY OUTLOOK SCRIPT CODING
