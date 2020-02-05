@@ -334,7 +334,7 @@ Display := New Monitor()            ; initialize / start the class
 
 DetectHiddenWindows, on
 
-PAUSE
+; PAUSE
 
 
 
@@ -468,7 +468,7 @@ ARTIFICIAL_F5_A_Now-=40
 RS232_LOGGER_PIR_VAR=0
 OLD_RS232_LOGGER_PIR_VAR=-1
 IF (A_ComputerName="4-ASUS-GL522VW")
-	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 10000
+	SetTimer,RS232_LOGGER_TIMER_RUN_EXE, 4000
 
 IF (A_ComputerName="1-ASUS-X5DIJ")
 {
@@ -550,15 +550,15 @@ RS232_LOGGER_TIMER_RUN_EXE:
 	FN_VAR_RS232_EXE:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR.exe"
 	IfWinNotActive RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
 	IFWINNOTEXIST RS232_LOGGER ahk_class ThunderFormDC
-	IFWINNOTEXIST RS232_LOGGER ahk_exe RS232 LOGGER PIR.exe
+	IFWINNOTEXIST RS232_LOGGER  ahk_exe RS232 LOGGER PIR.exe
 	IFEXIST, %FN_VAR_RS232_EXE%
 	{
 		Run, %FN_VAR_RS232_EXE%,,HIDE
 	}
-	IFNOTEXIST, %FN_VAR_RS232_EXE%
-	{
-		MSGBOX NOT EXIST`n%FN_VAR_RS232_EXE%
-	}
+	; IFNOTEXIST, %FN_VAR_RS232_EXE%
+	; {
+		; MSGBOX NOT EXIST`n%FN_VAR_RS232_EXE%
+	; }
 RETURN 
 
 RS232_SUB:
@@ -580,6 +580,7 @@ RS232_LOGGER_TIMER_CHANGE:
 		; WANT ON -------------------------------------------------------
 		RS232_LOGGER_PIR_VAR=1
 	}
+	
 
 	; TOOLTIP % RS232_LOGGER_PIR_VAR
 	; TOOLTIP %A_TimeIdle% " -- " %RS232_IDLE_SET_DELAY_1%
@@ -724,7 +725,7 @@ CHECK_FILENAME_1_HOUR:
 		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
 	}
 
-	FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__%A_ComputerName%.TXT
+	FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer ADD_SOME_#NFS__%A_ComputerName%.TXT
 	if FileExist(FileName_VB)
 	{
 		FileDelete, % FileName_VB
