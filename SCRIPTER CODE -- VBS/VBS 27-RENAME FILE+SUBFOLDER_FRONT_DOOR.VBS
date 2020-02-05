@@ -1,16 +1,20 @@
-' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_AUDIO_DEVICE.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS
 ' --------------------------------------------------------------------
-' VBS 27-RENAME FILE+SUBFOLDER_AUDIO_DEVICE.VBS
+' VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS
 ' --------------------------------------------------------------------
-' CREATE 01 OF 02....
+' --------------------------------------------------------------------
+' CREATE 01 OF 03....
+' --------------------------------------------------------------------
 ' VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS
 ' [ Saturday 22:44:00 Pm_23 Novemeber 2019 ]
 ' --------------------------------------------------------------------
-' CREATE 02 OF 02....
+' CREATE 02 OF 03....
+' --------------------------------------------------------------------
 ' VBS 27-RENAME FILE+SUBFOLDER_MEMORY-BANK-CAMERA.VBS
 ' [ Monday 15:28:00 Pm_30 December 2019 ]
 ' --------------------------------------------------------------------
-' CREATE 02 OF 02....
+' CREATE 02 OF 03....
+' --------------------------------------------------------------------
 ' VBS 27-RENAME FILE+SUBFOLDER_AUDIO_DEVICE.VBS
 ' [ Monday 21:28:00 Pm_30 December 2019 ]
 ' --------------------------------------------------------------------
@@ -24,6 +28,8 @@
 ' --------------------------------------------------------------------
 ' "BLUE_1_FRONTDOOR"
 ' "OUTDOOR_JACKET"
+' "MC_HX60V"
+' "MC_HX60V1"
 ' --------------------------------------------------------------------
 ' --------------------------------------------------------------------
 ' Sun 19-Jan-2020 18:24:11
@@ -32,17 +38,21 @@
 
 DIM objStartFolder
 DIM objFolder
+DIM X_COUNT
 DIM I_COUNT
+
 DIM VAR_PATH_SCANNER
 DIM objSuperFolder
 
-Dim FSO
-Set FSO = CreateObject("Scripting.FileSystemObject")
+DIM FSO
+SET FSO = CreateObject("Scripting.FileSystemObject")
+
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 
 Dim arr1
 Dim oDict ' Key: Full filename, Item: Filename
+
 
 ' ---------------------------------------------------------------
 ' NONE REQUIRE TO CHANGE DATE FILENAME THIS DEVICE -- YET
@@ -73,45 +83,97 @@ For Each arg In args
 	XF0 = Arg 
 	EXIT FOR
 Next
-'--------------------------------------------------------------
-'If Sent-to is Used Sometime Additional Quote Surround are User
-'--------------------------------------------------------------
+' --------------------------------------------------------------
+' If Sent-to is Used Sometime Additional Quote Surround are User
+' --------------------------------------------------------------
 XF0 = UCASE(Replace(XF0,"""""",""""))
-XF0 = "BLUE_1_FRONTDOOR"
+
+FOLDER_PATH="NONE FOLDER PATH GIVEN"
+DIM FOLDER_PATH_AR()
+
+REDIM PRESERVE FOLDER_PATH_AR(20)
+
+I=0
+I=I+1
+FOLDER_PATH_AR(I)="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 1 _ FRONT DOOR\RECORD " + CSTR(Year(Now))+"\RECORD"
+I=I+1
+FOLDER_PATH_AR(I)="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 7 _ OUTDOOR JACKET\RECORD " + CSTR(Year(Now))+"\RECORD"
+I=I+1
+FOLDER_PATH_AR(I)="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 7 _ OUTDOOR JACKET\RECORD " + CSTR(Year(Now))+"\RECORD"
+I=I+1
+FOLDER_PATH_AR(I)="D:\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+I=I+1
+FOLDER_PATH_AR(I)="D:\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+I=I+1
+FOLDER_PATH_AR(I)="\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY\2020 CyberShot HX60V"
+
+REDIM PRESERVE FOLDER_PATH_AR(I)
 
 IF INSTR(XF0,"BLUE_1_FRONTDOOR") THEN 
-	FOLDER_PATH="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 1 _ FRONT DOOR\RECORD " + CSTR(Year(Now))+"\RECORD"
+	FOLDER_PATH=FOLDER_PATH_AR(1)
 END IF
 IF INSTR(XF0,"OUTDOOR_JACKET") THEN 
-	FOLDER_PATH="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 7 _ OUTDOOR JACKET\RECORD " + CSTR(Year(Now))+"\RECORD"
+	FOLDER_PATH=FOLDER_PATH_AR(2)
 END IF
+IF INSTR(XF0,"OUTDOOR_JACKET") THEN 
+	FOLDER_PATH=FOLDER_PATH_AR(3)
+END IF
+IF INSTR(XF0,"MC_HX60V1") THEN 
+	FOLDER_PATH=FOLDER_PATH_AR(4)
+END IF
+IF INSTR(XF0,"MC_HX60V") THEN 
+	FOLDER_PATH=FOLDER_PATH_AR(5)
+END IF
+
+FOLDER_PATH_NAME=FOLDER_PATH
 
 I_COUNT=0
+X_COUNT=0
 
-IF FOLDER_PATH="" THEN 
-	MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"PARAM NOT GIVE INFO WANT TO MAKE FOLDER PATH"+VBCRLF+VBCRLF+"XF0="+VBCRLF+XF0+VBCRLF+VBCRLF+"FOLDER PATH="+VBCRLF+XF0,vbMsgBoxSetForeground 
-	Wscript.QUIT
-END IF
-
-IF XF0="" THEN 
-	MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"PARAM NOT PASS INTO CODE"+VBCRLF+VBCRLF+"XF0="+VBCRLF+XF0,vbMsgBoxSetForeground 
-	Wscript.QUIT
-END IF
-
+IF XF0<>"" THEN 
+IF FOLDER_PATH<>"" THEN 
 IF FSO.FolderExists(FOLDER_PATH)=FALSE THEN 
 	MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"FOLDER NOT EXIST"+VBCRLF+VBCRLF+"FOLDER PATH="+VBCRLF+FOLDER_PATH,vbMsgBoxSetForeground 
 	Wscript.QUIT
 END IF
+END IF
+END IF
 
 ' ---------------------------------------------------------------
 ' Call the Search subroutine to start the recursive search.
-' Search objFSO.GetFolder(FOLDER_PATH)
-' ---------------------------------------------------------------
-' FindWantedFiles objFSO.GetFolder(FOLDER_PATH)
-' DisplayFindings
 ' ---------------------------------------------------------------
 
-MAIN
+IF FSO.FolderExists(FOLDER_PATH)=TRUE THEN 
+	MAIN
+END IF
+
+ON ERROR RESUME NEXT
+IF FSO.FolderExists(FOLDER_PATH)=FALSE THEN 
+	IF ERR.NUMBER=0 THEN 
+		FOLDER_PATH_NAME="COUNT OF WOULD BE CHECKER __ "+CSTR(UBOUND(FOLDER_PATH_AR))+" __ ITEMS"+VBCRLF+VBCRLF
+		FOR R=1 TO UBOUND(FOLDER_PATH_AR)
+			FOLDER_PATH_NAME=FOLDER_PATH_NAME+FOLDER_PATH_AR(R)+VBCRLF+VBCRLF
+		NEXT
+	END IF
+END IF
+ON ERROR GOTO 0
+
+IF I_COUNT>0 THEN ' I_COUNT THEN 
+	MSGBOX_I=""
+	I=""
+	I=I+Wscript.ScriptName + VBCRLF + VBCRLF
+	I=I+FOLDER_PATH_NAME + VBCRLF + VBCRLF
+	I=I+"DONE RENAME COUNT _ " + VBCRLF + VBCRLF + CSTR(I_COUNT)
+	I=I+" of "
+	I=I+CSTR(X_COUNT)
+	I=REPLACE(I, VBCRLF + VBCRLF+ VBCRLF, VBCRLF+ VBCRLF)
+	MSGBOX_I=I
+	
+	MSGBOX MSGBOX_I,vbMsgBoxSetForeground 
+END IF
+
+Wscript.QUIT
+
 
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
@@ -123,10 +185,8 @@ Sub Main
     FindWantedFiles(objFSO.GetFolder(FOLDER_PATH))
     ' Display All Findings from Dictionary object
     DisplayFindings
-
-	IF I_COUNT>0 THEN 
-		MSGBOX Wscript.ScriptName+VBCRLF+VBCRLF+"DONE RENAME COUNT _ " & CSTR(I_COUNT) & " of " & CSTR(oDict.count),vbMsgBoxSetForeground 
-	END IF
+	
+	X_COUNT=oDict.count
 	
     Set fso = Nothing
     Set oDict = Nothing
@@ -151,8 +211,186 @@ Sub DisplayFindings()
     oKeys = oDict.Keys
     For Each oKey In oKeys
 		VAR_PATH_SCANNER=oKey
-		CALL PATH_SCANNER_RENAME
+		SET_DO=0
+		IF INSTR(XF0,"MC_HX60V1") THEN 
+			CALL PATH_SCANNER_RENAME_MC_HX60V1
+			SET_DO=1
+		END IF
+		IF INSTR(XF0,"MC_HX60V") THEN 
+			CALL PATH_SCANNER_RENAME_MC_HX60V
+			SET_DO=1
+		END IF
+
+		IF SET_DO=0 THEN CALL PATH_SCANNER_RENAME
     Next
+End Sub
+
+
+
+SUB PATH_SCANNER_RENAME_MC_HX60V
+
+	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
+	NewFilename=FILE_VAR
+	
+	FileModDate_1=0
+	IF FSO.FileExists(VAR_PATH_SCANNER) THEN 
+		Set F1 = fso.GetFile(VAR_PATH_SCANNER)
+		FileModDate_1 = F1.DateLastModified
+	END IF
+	SET_GO=FALSE
+	
+	' ---------------------------------------------------------------
+	' EXAMPLE
+	' ---------------------------------------------------------------
+	' 2019-12-09-13-02-18.WAV
+	' ---------------------------------------------------------------
+	' NONE REQUIRE TO CHANGE DATE FILENAME THIS DEVICE
+	' ---------------------------------------------------------------
+	
+	IF INSTR(UCASE(FILE_VAR),"MP4")>0 THEN 
+	IF LEN(FILE_VAR)<41 THEN 
+		SET_GO=TRUE 
+	END IF
+	END IF
+	
+	' 41
+	' 2020_01_03 Jan_Fri 22_47_16__MAH00824.MP4
+
+	
+	IF LEN(FILE_VAR)< 41 THEN
+		i_TIME=""
+		i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"_"
+		i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"_"
+		i_TIME=i_TIME+LPad(Day(FileModDate_1), "0", 2)+" "
+		i_TIME=i_TIME+WeekdayName(Weekday(FileModDate_1),TRUE)+"_"
+		i_TIME=i_TIME+MonthName(MONTH(FileModDate_1),TRUE)+" "
+		i_TIME=i_TIME+""
+		i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"_"
+		i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"_"
+		i_TIME=i_TIME+LPad(Second(FileModDate_1), "0", 2)+"__"
+	
+		NewFilename=i_TIME + UCASE(FILE_VAR)
+	END IF
+	
+	' D:\VI_ DSC ME\2010+SONY\2020 CyberShot HX60V_#\MP_ROOT\100ANV01\MAH00002.MP4
+	
+	PATH_VAR_2=PATH_VAR ' STAY SAME IF NOT HAVE CHANGE
+	
+	STRIP_PART="\MP_ROOT\100ANV01"
+	STRIP_PART="\MP_ROOT\"
+	X_SP_1=INSTRREV(PATH_VAR,STRIP_PART)
+	IF SET_GO=TRUE THEN
+	IF X_SP_1>0 THEN 
+		X_SP_2=INSTRREV(PATH_VAR,"\")
+		X_SP_4=MID(PATH_VAR,X_SP_1,X_SP_2-X_SP_1)
+		PATH_VAR_2=REPLACE(PATH_VAR,X_SP_4,"")
+	END IF
+	END IF
+	
+	ON ERROR RESUME NEXT
+
+	IF SET_GO=TRUE THEN
+		IF FSO.FileExists(PATH_VAR_2+NewFilename)=TRUE THEN
+			MSGBOX "FILE ALREADY EXISTS "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground
+			Wscript.QUIT
+		END IF
+		
+		NewFilename=PATH_VAR_2+NewFilename
+		IF SET_GO=TRUE THEN
+			MSGBOX VAR_PATH_SCANNER+VBCRLF+NewFilename,vbMsgBoxSetForeground
+			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
+			I_COUNT=I_COUNT+1
+		END IF
+	END IF
+
+
+End Sub
+
+
+SUB PATH_SCANNER_RENAME_MC_HX60V1
+
+	PATH_VAR=MID(VAR_PATH_SCANNER,1,INSTRREV(VAR_PATH_SCANNER,"\"))
+	FILE_VAR=MID(VAR_PATH_SCANNER,INSTRREV(VAR_PATH_SCANNER,"\")+1)
+	NewFilename=FILE_VAR
+	
+	FileModDate_1=0
+	IF FSO.FileExists(VAR_PATH_SCANNER) THEN 
+		Set F1 = fso.GetFile(VAR_PATH_SCANNER)
+		FileModDate_1 = F1.DateLastModified
+	END IF
+	SET_GO=FALSE
+	
+	' ---------------------------------------------------------------
+	' EXAMPLE
+	' ---------------------------------------------------------------
+	' 2019-12-09-13-02-18.WAV
+	' ---------------------------------------------------------------
+	' NONE REQUIRE TO CHANGE DATE FILENAME THIS DEVICE
+	' ---------------------------------------------------------------
+	
+	IF INSTR(UCASE(FILE_VAR),"MP4")>0 THEN 
+	IF LEN(FILE_VAR)<41 THEN 
+		SET_GO=TRUE 
+	END IF
+	END IF
+	
+	IF LEN(FILE_VAR)<41 THEN
+		' MSGBOX CSTR(LEN(FILE_VAR)) +VBCRLF + FILE_VAR
+	END IF
+	
+	' 41
+	' 2020_01_03 Jan_Fri 22_47_16__MAH00824.MP4
+
+	
+	IF LEN(FILE_VAR)< 41 THEN
+		i_TIME=""
+		i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"_"
+		i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"_"
+		i_TIME=i_TIME+LPad(Day(FileModDate_1), "0", 2)+" "
+		i_TIME=i_TIME+WeekdayName(Weekday(FileModDate_1),TRUE)+"_"
+		i_TIME=i_TIME+MonthName(MONTH(FileModDate_1),TRUE)+" "
+		i_TIME=i_TIME+""
+		i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"_"
+		i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"_"
+		i_TIME=i_TIME+LPad(Second(FileModDate_1), "0", 2)+"__"
+	
+		NewFilename=i_TIME + UCASE(FILE_VAR)
+	END IF
+	
+	' D:\VI_ DSC ME\2010+SONY\2020 CyberShot HX60V_#\MP_ROOT\100ANV01\MAH00002.MP4
+	
+	
+	PATH_VAR_2=PATH_VAR ' STAY SAME IF NOT HAVE CHANGE
+	
+	STRIP_PART="\MP_ROOT\100ANV01"
+	STRIP_PART="\MP_ROOT\"
+	X_SP_1=INSTRREV(PATH_VAR,STRIP_PART)
+	IF SET_GO=TRUE THEN
+	IF X_SP_1>0 THEN 
+		X_SP_2=INSTRREV(PATH_VAR,"\")
+		X_SP_4=MID(PATH_VAR,X_SP_1,X_SP_2-X_SP_1)
+		PATH_VAR_2=REPLACE(PATH_VAR,X_SP_4,"")
+	END IF
+	END IF
+	
+	ON ERROR RESUME NEXT
+
+	IF SET_GO=TRUE THEN
+		IF FSO.FileExists(PATH_VAR_2+NewFilename)=TRUE THEN
+			MSGBOX "FILE ALREADY EXISTS "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground
+			Wscript.QUIT
+		END IF
+		
+		NewFilename=PATH_VAR_2+NewFilename
+		IF SET_GO=TRUE THEN
+			' MSGBOX VAR_PATH_SCANNER+VBCRLF+NewFilename,vbMsgBoxSetForeground
+			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
+			I_COUNT=I_COUNT+1
+		END IF
+	END IF
+
+
 End Sub
 
 SUB PATH_SCANNER_RENAME
@@ -201,6 +439,7 @@ SUB PATH_SCANNER_RENAME
 	
 		NewFilename=i_TIME+FILE_VAR
 	END IF
+	
 
 	PATH_VAR_2=REPLACE(PATH_VAR,"\RECORD " + CSTR(Year(Now))+"\RECORD","\RECORD " + CSTR(Year(Now)))
 	

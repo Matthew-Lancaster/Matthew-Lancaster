@@ -9298,7 +9298,7 @@ Private Sub MNU_TASK_KILLER_NOT_RESPONDER_GENTAL_Click()
     COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE_WAIT.BAT"
     COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT"
     COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE_WAIT.BAT"
-    Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_01+""", vbNormalFocus
+    Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_01 + """", vbNormalFocus
 End Sub
 
 Private Sub MNU_KILL_NOT_RESPOND_TOP_Click()
@@ -10658,7 +10658,6 @@ Sub CLOSE_G_CLOUD_DRIVE_SYNCER_AND_RESTART_AGAIN()
         ENUMPROCESS_MUST_RUNNER = True
         Call EnumProcess
     Loop Until ALL_DONE = True
-    
 
 Exit Sub
     
@@ -10825,8 +10824,8 @@ If InStr(UCase(GetWindowTitle(Me.hWnd)), "NOT RESPONDING") > 0 Then
         ' -----------------------------------------------
         COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE_WAIT.BAT"
         COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE_WAIT.BAT"
-        Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_01 + """", vbNormalFocus
-        Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_02 + """", vbNormalFocus
+        Shell "CMD /C START """" /REALTIME /MAX """" + COMMAND_LINE_01 + """, vbNormalFocus
+        Shell "CMD /C START """" /REALTIME /MAX """" + COMMAND_LINE_02 + """, vbNormalFocus
         
         ISHELL = "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER_OPERATION_KILL_EVENT.exe"
         ISHELL_PARAM = " 001"
@@ -10866,8 +10865,8 @@ If STRESS_LEVEL > 4 Then
         ' -----------------------------------------------
         COMMAND_LINE_01 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE_WAIT.BAT"
         COMMAND_LINE_02 = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE_WAIT.BAT"
-        Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_01+""", vbNormalFocus
-        Shell "CMD /C START """" /REALTIME /MAX ""+COMMAND_LINE_02+""", vbNormalFocus
+        Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_01 + """", vbNormalFocus
+        Shell "CMD /C START """" /REALTIME /MAX """ + COMMAND_LINE_02 + """", vbNormalFocus
         
         Dim ARRAY_KILL(10) As String
         ARRAY_KILL(1) = "D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"

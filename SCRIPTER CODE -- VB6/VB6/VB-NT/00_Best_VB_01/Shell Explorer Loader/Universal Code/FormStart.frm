@@ -1335,7 +1335,7 @@ If SetTrueToLoadLast = True Then
     ' AND THEN GET DOUBLE OFFERING
     ' AND CLIPBOARD TWICE
     ' AND THE 1ST TIME AROUND
-    ' WHEN DOUBLE STEP BUILD PATH UP NETOWRKER
+    ' WHEN DOUBLE STEP BUILD PATH UP NETWORKER
     ' AND 2ND TIME
     ' WHEN SECOND TIME MIGHT BE TWO HITTER QUICKER DONE
     ' UNLESS CODE IN - MORE OFTEN
@@ -1363,6 +1363,21 @@ If SetTrueToLoadLast = True Then
     If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then SET_GO = False
     If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then SET_GO = False
     
+    I41 = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01
+    I42 = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02
+    I45 = I41 + I42
+
+    If I45 <> "" Then
+    If InStr(I45, "D:\VIDEO") > 0 Then
+        POSITION_MOUSE_OR_SELECT = ""
+        MsgBox "COMPUTER 7G", vbOK + vbExclamation + vbMsgBoxSetForeground
+        If GetComputerName = "4-ASUS-GL522VW" Then
+            MI = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
+            COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = MI
+        End If
+    End If
+    End If
+    
     If SET_GO = False Then
         If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
             Exit Sub
@@ -1376,7 +1391,6 @@ If SetTrueToLoadLast = True Then
         Call LOAD_NETWORK_PATH_TO_EXPLORER
     End If
 
-    
     If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
         PATH_WANTER = D1$
     End If
@@ -1411,6 +1425,22 @@ If D1$ <> "" Then
     SET_GO = True
     If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = "" Then SET_GO = False
     If COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02 = "" Then SET_GO = False
+    I41 = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01
+    I42 = COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02
+    I45 = I41 + I42
+
+    If I45 <> "" Then
+    If InStr(I45, "D:\VIDEO") > 0 Then
+        POSITION_MOUSE_OR_SELECT = ""
+        RESULTI = MsgBox("COMPUTER 7G", vbOK + vbExclamation + vbMsgBoxSetForeground)
+        If RESULTI = 1 Then
+            MI = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE"
+            COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01 = MI
+            SET_GO = True
+        End If
+    End If
+    End If
+    
     
     If SET_GO = False Then
         If Form1.MNU_NETWORK_2_STEP_DRIVE_SELECTOR.Visible = True Then
