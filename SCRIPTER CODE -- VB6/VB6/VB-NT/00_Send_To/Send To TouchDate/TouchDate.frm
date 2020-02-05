@@ -496,6 +496,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+
+Dim FORM_ME As New Form1
+
+Dim I_1 ' QUICK MODE RESULT
+Dim I_2 ' QUICK MODE RESULT
+
 Dim M()
 Dim M_2()
 Dim M_3()
@@ -763,7 +769,7 @@ LABEL_SET(2).Caption = W$
 If W$ = "" Then LABEL_SET(2).Caption = "NOT FOLDER GIVEN"
 
 'FILE LABEL
-LABEL_SET(3).Caption = FULL_PATH_AND_FILENAME
+LABEL_SET(3).Caption = FULL_PATH_AND_FILENAME  ' -- FULL_PATH_AND_FILENAME
 If FULL_PATH_AND_FILENAME = "" Then LABEL_SET(3).Caption = "NOT FILE GIVEN"
 
 LABEL_SET(1).BackColor = Label_COLOR_YELLOW.BackColor
@@ -790,7 +796,9 @@ i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
 i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
 i = i + 1: M(i) = "----"
 
-i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4"
+i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- SINGLE"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
+i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- BATCH"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
 i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA__.MP4 -- BATCH"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
@@ -915,6 +923,8 @@ Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
@@ -957,10 +967,10 @@ Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
     Dim TT
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
         
-        Set F = FSO.GetFile(A1$ + B1$)
+        Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
         DT1 = F.datelastmodified
         
@@ -977,10 +987,10 @@ Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
     End If
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
         
-        TT = SetFileDateTime(A1$ + B1$, DT4)
+        TT = SetFileDateTime(A11 + B11, DT4)
         
         XC = XC + 1
         
@@ -1011,23 +1021,23 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     'D:\VIDEO\NOT\X 01 ME\2017 SONY MP4\DOC\2017 05 31
     
     For RR = ScanPath.ListView1.ListItems.Count To 1 Step -1
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
-        If InStr(UCase(B1$), ".TXT") > 0 Then
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        If InStr(UCase(B11), ".TXT") > 0 Then
             ScanPath.ListView1.ListItems.Remove (RR)
         End If
     Next
     
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
         
         FLAG_OPER = True
-        If UCase(B1$) = UCase("thumbs.db") Then FLAG_OPER = False
-        If UCase(B1$) = UCase("DESKTOP.INI") Then FLAG_OPER = False
+        If UCase(B11) = UCase("thumbs.db") Then FLAG_OPER = False
+        If UCase(B11) = UCase("DESKTOP.INI") Then FLAG_OPER = False
         
-        Set F = FSO.GetFile(A1$ + B1$)
+        Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
         DT1 = F.datelastmodified
         If FLAG_OPER = True Then
@@ -1045,14 +1055,14 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     
     DT4 = DT4 + TimeSerial(0, 1, 0)
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
         
-        TT = SetFileDateTime(A1$ + B1$, DT4)
+        TT = SetFileDateTime(A11 + B11, DT4)
         XC = XC + 1
         
         If ScanPath.ListView1.ListItems.Count > 2 Then
-        FI = UCase(B1$)
+        FI = UCase(B11)
         FI = Mid(FI, InStrRev(FI, ".") + 1) + " "
         If InStr("MPG MPEG MP4 JPG AVI ", FI) > 0 Then
             DT4 = DT4 + TimeSerial(0, 1, 0)
@@ -1074,6 +1084,96 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     End If
     
     End
+End Sub
+
+Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE()
+    ' ---------------------------------------------------------------------
+    ' ANOTHER SUB ROUTINE
+    ' LEECH AND MODIFY FROM BATCH CODE SET
+    ' Wed 29-Jan-2020 06:38:17
+    ' ---------------------------------------------------------------------
+    ' LABEL_SET(3).Caption ' -- FULL_PATH_AND_FILENAME
+    ' ---------------------------------------------------------------------
+    
+    A11 = LABEL_SET(3).Caption
+    A11 = "\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY\2020 CyberShot HX60V\MP4\2020_01_20 Jan_Mon 12_25_38__MAH01294_HOVE GRAND AVENUE DEMOLITION__.MP4"
+    D11 = A11
+    If A11 <> "NOT FILE GIVEN" Then
+        A11 = Mid(D11, 1, InStrRev(A11, "\"))
+        B11 = Mid(D11, InStrRev(A11, "\") + 1)
+    End If
+    
+    If Len(D11) < 5 Or D11 = "NOT FILE GIVEN" Then
+        MsgBox "FULL PATH AND FILE NOT GOOD -- EXIT" + vbCrLf + vbCrLf + D11
+        End
+    End If
+    
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+    If InStr("MP4 TXT", EXT_STR) Then
+        DATE_FILENAME_D_1 = Mid(B11, 1, 10)
+        DATE_FILENAME_T_2 = Mid(B11, 20, 8)
+        i2 = DATE_FILENAME_D_1
+        i4 = DATE_FILENAME_T_2
+        DATE_FILENAME_D_1 = Mid(i2, 1, 4) + "/" + Mid(i2, 6, 2) + "/" + Mid(i2, 9, 2)
+        DATE_FILENAME_T_2 = Mid(i4, 1, 2) + ":" + Mid(i4, 4, 2) + ":" + Mid(i4, 7, 2)
+        
+        DATE_FILENAME_SUCCESS = DateValue(DATE_FILENAME_D_1) + TimeValue(DATE_FILENAME_T_2)
+        
+        DT4 = DATE_FILENAME_SUCCESS
+        If IsDate(DT4) = False Then
+            ' FALSE DATE
+            ' ----------
+            MsgBox "DATE HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+            End
+        End If
+        
+        If DT4 = 0 Then
+            MsgBox "NAUGHT DATE FINDER -- EXIT"
+            End
+        End If
+    
+        TT = SetFileDateTime(A11 + B11, DT4)
+        
+        EXT_ORG = Mid(B11, Len(B11) - 2)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        If EXT_ORG <> EXT_STR Then
+            'RENAME EXTENSION CAPITAL
+            FILE_RENAME1 = Mid(B11, 1, Len(B11) - 4) + "." + EXT_STR
+            Name A11 + B11 As A11 + FILE_RENAME1
+        End If
+        
+        XC = XC + 1
+        MM_1 = MM_1 + B11 + vbCrLf
+    End If
+    
+    Call SET_QUICK_MODE_RESULT
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+
+End Sub
+
+Sub SET_QUICK_MODE_RESULT()
+
+    ' SET QUICK MODE RESULT
+    ' ---------------------
+    On Error Resume Next
+    FR1 = FreeFile
+    Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Input As #FR1
+        Line Input #FR1, I_1
+    Close FR1
+    MNU_QUICK_MODE.Caption = I_1
+    I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
+    I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+
 End Sub
 
 Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
@@ -1111,15 +1211,13 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
     Dim TT
     Dim RR
     
-    
-    
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
-        EXT_STR = UCase(Mid(B1$, Len(B1$) - 2))
-        If InStr("MP4 TXT", EXT_STR) And InStr(A1$, "_gsdata_") = 0 Then
-            DATE_FILENAME_D_1 = Mid(B1$, 1, 10)
-            DATE_FILENAME_T_2 = Mid(B1$, 20, 8)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        If InStr("MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
+            DATE_FILENAME_D_1 = Mid(B11, 1, 10)
+            DATE_FILENAME_T_2 = Mid(B11, 20, 8)
             i2 = DATE_FILENAME_D_1
             i4 = DATE_FILENAME_T_2
             DATE_FILENAME_D_1 = Mid(i2, 1, 4) + "/" + Mid(i2, 6, 2) + "/" + Mid(i2, 9, 2)
@@ -1140,31 +1238,22 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
                 End
             End If
         
-            TT = SetFileDateTime(A1$ + B1$, DT4)
+            TT = SetFileDateTime(A11 + B11, DT4)
             
-            EXT_ORG = Mid(B1$, Len(B1$) - 2)
-            EXT_STR = UCase(Mid(B1$, Len(B1$) - 2))
+            EXT_ORG = Mid(B11, Len(B11) - 2)
+            EXT_STR = UCase(Mid(B11, Len(B11) - 2))
             If EXT_ORG <> EXT_STR Then
                 'RENAME EXTENSION CAPITAL
-                FILE_RENAME1 = Mid(B1$, 1, Len(B1$) - 4) + "." + EXT_STR
-                Name A1$ + B1$ As A1$ + FILE_RENAME1
+                FILE_RENAME1 = Mid(B11, 1, Len(B11) - 4) + "." + EXT_STR
+                Name A11 + B11 As A11 + FILE_RENAME1
             End If
             
             XC = XC + 1
-            MM_1 = MM_1 + B1$ + vbCrLf
+            MM_1 = MM_1 + B11 + vbCrLf
         End If
     Next
     
-    ' SET QUICK MODE RESULT
-    ' ---------------------
-    On Error Resume Next
-    FR1 = FreeFile
-    Open App.Path + "\# DATA\QUICK_MODE_SET #NFS " + GetComputerName + ".TXT" For Input As #FR1
-        Line Input #FR1, I_1
-    Close FR1
-    MNU_QUICK_MODE.Caption = I_1
-    I_1 = "QUICK MODE -- ON -- NONE MESSENGER"
-    I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
+    Call SET_QUICK_MODE_RESULT
     If InStr(MNU_QUICK_MODE.Caption, I_2) Then
         MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
     End If
@@ -1193,11 +1282,11 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH()
     Dim RR
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
         
-        DATE_FILENAME_D_1 = Mid(B1$, 1, 10)
-        DATE_FILENAME_T_2 = Mid(B1$, 12, 8)
+        DATE_FILENAME_D_1 = Mid(B11, 1, 10)
+        DATE_FILENAME_T_2 = Mid(B11, 12, 8)
         i2 = DATE_FILENAME_D_1
         i4 = DATE_FILENAME_T_2
         DATE_FILENAME_D_1 = Mid(i2, 1, 4) + "/" + Mid(i2, 6, 2) + "/" + Mid(i2, 9, 2)
@@ -1218,9 +1307,9 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH()
             End
         End If
     
-        TT = SetFileDateTime(A1$ + B1$, DT4)
+        TT = SetFileDateTime(A11 + B11, DT4)
         XC = XC + 1
-        MM_1 = MM_1 + B1$ + vbCrLf
+        MM_1 = MM_1 + B11 + vbCrLf
     Next
     
     ' SET QUICK MODE RESULT
@@ -1261,10 +1350,10 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     Dim TT
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
         
-        Set F = FSO.GetFile(A1$ + B1$)
+        Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
         DT1 = F.datelastmodified
         
@@ -1325,12 +1414,12 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         DT4 = DT4 + TimeSerial(0, 1, 0)
     End If
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
-        TT = SetFileDateTime(A1$ + B1$, DT4)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        TT = SetFileDateTime(A11 + B11, DT4)
         XC = XC + 1
-        MM_1 = MM_1 + B1$ + vbCrLf
-        FI = UCase(B1$)
+        MM_1 = MM_1 + B11 + vbCrLf
+        FI = UCase(B11)
         FI = Mid(FI, InStrRev(FI, ".") + 1) + " "
         If InStr("MPG MPEG MP4 JPG AVI ", FI) > 0 Then
             DT4 = DT4 + TimeSerial(0, 1, 0)
@@ -1395,10 +1484,10 @@ Dim DT1 As Date
 Dim DS2 As Date
 'Dim DateSet As Date
 For we = 1 To ScanPath.ListView1.ListItems.Count
-    A1$ = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(we)
+    A11 = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
+    B11 = ScanPath.ListView1.ListItems.Item(we)
     
-    Set F = FSO.GetFile(A1$ + B1$)
+    Set F = FSO.GetFile(A11 + B11)
     DT3 = F.DateCreated
     DT1 = F.datelastmodified
     
@@ -1406,7 +1495,7 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
     
     Set F = Nothing
     
-    TT = SetFileDateTime(A1$ + B1$, DateSet)
+    TT = SetFileDateTime(A11 + B11, DateSet)
     XC = XC + 1
     
 Next
@@ -1452,18 +1541,18 @@ Dim DT1 As Date
 Dim DS2 As Date
 I_MSG = ""
 For we = 1 To ScanPath.ListView1.ListItems.Count
-    A1$ = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(we)
+    A11 = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
+    B11 = ScanPath.ListView1.ListItems.Item(we)
     
-    Set F = FSO.GetFile(A1$ + B1$)
+    Set F = FSO.GetFile(A11 + B11)
     DT3 = F.DateCreated
     DT1 = F.datelastmodified
     Set F = Nothing
     
-    TT = SetFileDateTime(A1$ + B1$, DT3)
+    TT = SetFileDateTime(A11 + B11, DT3)
     XC = XC + 1
     
-    I_MSG = I_MSG + B1$ + vbCrLf
+    I_MSG = I_MSG + B11 + vbCrLf
     
 Next
 
@@ -1547,38 +1636,38 @@ Dim DT1 As Date
 Dim DS2 As Date
 'Dim DateSet As Date
 For we = 1 To ScanPath.ListView1.ListItems.Count
-    A1$ = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(we)
+    A11 = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
+    B11 = ScanPath.ListView1.ListItems.Item(we)
     
-    Set F = FSO.GetFile(A1$ + B1$)
+    Set F = FSO.GetFile(A11 + B11)
     DT1 = F.datelastmodified
     
     DateSet = DT1 - TimeSerial(1, 0, 0)
     
     Set F = Nothing
     
-    'Ds1 = Mid(B1$, 1, 20)
+    'Ds1 = Mid(B11, 1, 20)
 '    Ds1 = Replace(Ds1, "+", ":") + ":00"
-'    If InStr(B1$, "2008 011(Nov) 29 Sat 08-04-10") > 0 Then
+'    If InStr(B11, "2008 011(Nov) 29 Sat 08-04-10") > 0 Then
     'If Year(DT1) = 2009 Then
         '2008 012(Dec) 04 Thu 18-22-52 - W880I - DSC00331.JPG
       '  Ds1 = DateValue("04-Dec-2008") + TimeValue("18:22:52")
         
-'        xb1$ = B1$
-'        xb1$ = Replace(xb1$, "MILL VIEW HOSPITAL-", "")
+'        xB11 = B11
+'        xB11 = Replace(xB11, "MILL VIEW HOSPITAL-", "")
 '
-        If A1$ + B1$ = "D:\0 00 ART LOGGERS - WEBCAM\VIDEO\Web_Video_Capture- 2015-10-03 14-28-59 Sat -- Microsoft WDM Image Capture (Win32)2.avi" Then
-'            Ds1 = DateValue(Mid(xb1$, 9, 2) + "-" + Mid(xb1$, 6, 2) + "-" + Mid(xb1$, 1, 4))
-'            Ds2 = TimeValue(Replace(Mid(xb1$, 12, 8), "-", ":"))
+        If A11 + B11 = "D:\0 00 ART LOGGERS - WEBCAM\VIDEO\Web_Video_Capture- 2015-10-03 14-28-59 Sat -- Microsoft WDM Image Capture (Win32)2.avi" Then
+'            Ds1 = DateValue(Mid(xB11, 9, 2) + "-" + Mid(xB11, 6, 2) + "-" + Mid(xB11, 1, 4))
+'            Ds2 = TimeValue(Replace(Mid(xB11, 12, 8), "-", ":"))
         '    DateSet = DateValue(Ds1) + TimeValue(Ds1)
 '            DateSet = Ds1 + Ds2
-    '        DateSet = GetExif(a1$ + B1$)
+    '        DateSet = GetExif(A11 + B11)
             DateSet = DateValue("2015-10-03") + TimeValue("14:28:59")
                   
             '
-            TT = SetFileDateTime(A1$ + B1$, DateSet)
+            TT = SetFileDateTime(A11 + B11, DateSet)
             XC = XC + 1
-            'tt = LastModifiedToCurrent(a1$ + B1$)
+            'tt = LastModifiedToCurrent(A11 + B11)
         End If
 '        Stop
         'End
@@ -1705,9 +1794,9 @@ Sub SET_BATCH_DATE_CAMERA_VIDEO_FILENAME_TO_DATE_FILE()
     'ScanPath.txtPath.Text = LABEL_SET(2).Caption
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
-        a = B1$
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        a = B11
         
         XX = InStr(a, "\201_")
         DATEVAR = Replace(Mid(a, XX + 1, 10) + " " + Mid(a, XX + 20, 8), "_", "-")
@@ -1720,11 +1809,11 @@ Sub SET_BATCH_DATE_CAMERA_VIDEO_FILENAME_TO_DATE_FILE()
         Next
         DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
         
-    '    Ds1 = DateValue(Mid(xb1$, 9, 2) + "-" + Mid(xb1$, 6, 2) + "-" + Mid(xb1$, 1, 4))
-    '    Ds2 = TimeValue(Replace(Mid(xb1$, 12, 8), "-", ":"))
+    '    Ds1 = DateValue(Mid(xB11, 9, 2) + "-" + Mid(xB11, 6, 2) + "-" + Mid(xB11, 1, 4))
+    '    Ds2 = TimeValue(Replace(Mid(xB11, 12, 8), "-", ":"))
     '    DateSet = DateValue(Ds1) + TimeValue(Ds1)
     '    DateSet = Ds1 + Ds2
-    '    DateSet = GetExif(a1$ + B1$)
+    '    DateSet = GetExif(A11 + B11)
                 
         TT = SetFileDateTime(a, DateSet)
         XC = XC + 1
@@ -1761,37 +1850,38 @@ If WORK = "CREATED_TO_MOD_DATE" = True Then
 End If
 
 If WORK = "FILE_CREATED_TO_MODIFIED_TIME" = True Then
-    Call FILE_CREATED_TO_MODIFIED_TIME
+    CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
 
-
 If WORK = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER" Then
-    Call SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER
+    CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
 
 If WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER" Then
-    Call SET_OLDER_DATE_TO_OTHER_IN_FOLDER
+    CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
 
 If WORK = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH" Then
-    Call SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH
+    CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
 
 If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH" Then
-    Call SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH
+    CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
-
 
 If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA" Then
-    Call SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA
+    CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
-
+If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
 
 If WORK = "SET_ONE_DATE_HARDCODER" = True Then
     
@@ -1810,7 +1900,6 @@ If WORK = "SET_ONE_DATE_HARDCODER" = True Then
     End
 
 End If
-
 
 
 If WORK = "SET_ONE_DATE" = True Then
@@ -1833,7 +1922,6 @@ If WORK = "SET_ONE_DATE" = True Then
     a = "D:\DSC\2015+Sony\2019 CyberShot HX60V\MP4\2019_02_27 Feb_Wed 08_04_38__MAQ04106 VIDEO OF DEVICE THAT DOESN'T WORK GOT FROM EBAY ALARM AT POWER FAILURE ALERT.MP4"
     XX = InStr(a, "\2019_")
     DATEVAR = Replace(Mid(a, XX + 1, 10) + " " + Mid(a, XX + 20, 8), "_", "-")
-    
     
     
     a = "D:\DSC\2015+Sony\2018 CyberShot HX60V\MP_ROOT\2018_02_27 Feb_Tue 15_27_03__MAQ08676 _ Down at the Docks, Shoreham Port The Digger Weighs How Much Hardcore In The Spade_2.mp4"
@@ -1876,11 +1964,11 @@ If WORK = "SET_ONE_DATE" = True Then
     Next
     DateSet = DateValue(DATEVAR) + TimeValue(DATEVAR)
     
-'    Ds1 = DateValue(Mid(xb1$, 9, 2) + "-" + Mid(xb1$, 6, 2) + "-" + Mid(xb1$, 1, 4))
-'    Ds2 = TimeValue(Replace(Mid(xb1$, 12, 8), "-", ":"))
+'    Ds1 = DateValue(Mid(xB11, 9, 2) + "-" + Mid(xB11, 6, 2) + "-" + Mid(xB11, 1, 4))
+'    Ds2 = TimeValue(Replace(Mid(xB11, 12, 8), "-", ":"))
 '    DateSet = DateValue(Ds1) + TimeValue(Ds1)
 '    DateSet = Ds1 + Ds2
-'    DateSet = GetExif(a1$ + B1$)
+'    DateSet = GetExif(A11 + B11)
             
     TT = SetFileDateTime(a, DateSet)
     XC = XC + 1
@@ -1945,16 +2033,16 @@ Private Sub MNU_CREATE_TEXT_FILE_FOR_DATE_Click()
     ScanPath.txtPath.Text = LABEL_SET(2).Caption
     
     For RR = 1 To ScanPath.ListView1.ListItems.Count
-        A1$ = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
-        B1$ = ScanPath.ListView1.ListItems.Item(RR)
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
         Exit For
     Next
     
     XX = ScanPath.txtPath.Text + "\# TEXT_DATER.TXT"
     FR1 = FreeFile
     Open XX For Output As #FR1
-        Print #FR1, A1$
-        Print #FR1, B1$
+        Print #FR1, A11
+        Print #FR1, B11
     Close FR1
     
     Me.WindowState = vbMinimized

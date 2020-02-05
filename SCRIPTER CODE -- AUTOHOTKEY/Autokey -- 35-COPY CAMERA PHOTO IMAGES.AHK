@@ -104,6 +104,22 @@ IF OSVER_N_VAR<10
 	Exitapp
 }
 
+
+SetTitleMatchMode 2 
+DetectHiddenText, Off
+
+
+; -------------------------------------------------------------------
+; IF DOS SHELL BATCH RUN SWERVE THAT ONE
+; AS TRIGGER FROM CERTAIN SYNC JOB
+; Fri 31-Jan-2020 04:25:06
+; -------------------------------------------------------------------
+WINFIND_VAR:="BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+IFWINEXIST %WINFIND_VAR% ahk_class ConsoleWindowClass
+	Exitapp
+; -------------------------------------------------------------------
+
+
 GLOBAL O_HWND_ID_1
 GLOBAL MSGBOX_CAMERA_CountDown_Generate_VAR
 

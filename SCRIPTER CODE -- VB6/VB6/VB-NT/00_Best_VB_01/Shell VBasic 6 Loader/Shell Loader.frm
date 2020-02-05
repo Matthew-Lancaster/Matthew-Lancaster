@@ -17207,7 +17207,7 @@ Sub SubCode()
 
 
 rg = 0
-FontSizez = 8
+FontSizez = 7
 LABEL_GAP = 12
 
 For Each Control In Controls

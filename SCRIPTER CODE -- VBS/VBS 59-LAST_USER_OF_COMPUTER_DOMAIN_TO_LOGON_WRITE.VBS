@@ -65,7 +65,6 @@ CALL GET_WINDOWS_VERSION
 ' END IF
 '--------------------------------------------------------------------
 
-
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 

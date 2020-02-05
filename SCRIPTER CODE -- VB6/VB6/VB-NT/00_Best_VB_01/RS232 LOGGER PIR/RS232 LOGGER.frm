@@ -2,27 +2,30 @@ VERSION 5.00
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSComm32.Ocx"
 Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.Ocx"
 Begin VB.Form DIALER 
-   BorderStyle     =   1  'Fixed Single
    Caption         =   "RS232_LOGGER"
    ClientHeight    =   3228
-   ClientLeft      =   10056
-   ClientTop       =   300
-   ClientWidth     =   11352
+   ClientLeft      =   10068
+   ClientTop       =   312
+   ClientWidth     =   17412
    LinkTopic       =   "Form2"
-   MaxButton       =   0   'False
-   MinButton       =   0   'False
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   3228
-   ScaleWidth      =   11352
-   StartUpPosition =   2  'CenterScreen
+   ScaleWidth      =   17412
    Visible         =   0   'False
    WhatsThisHelp   =   -1  'True
    WindowState     =   1  'Minimized
+   Begin VB.Timer Timer20 
+      Enabled         =   0   'False
+      Interval        =   20000
+      Left            =   10656
+      Top             =   552
+   End
    Begin MCI.MMControl MMControl9 
       Height          =   660
-      Left            =   2016
+      Left            =   11568
       TabIndex        =   5
-      Top             =   1872
+      Top             =   1932
+      Visible         =   0   'False
       Width           =   2832
       _ExtentX        =   4995
       _ExtentY        =   1164
@@ -32,17 +35,17 @@ Begin VB.Form DIALER
    End
    Begin VB.Timer Timer_ERROR 
       Interval        =   1000
-      Left            =   2796
-      Top             =   1320
+      Left            =   12240
+      Top             =   984
    End
    Begin VB.Timer TIMER_FRONT_DOOR 
       Interval        =   1000
-      Left            =   2556
-      Top             =   816
+      Left            =   11892
+      Top             =   984
    End
-   Begin MSCommLib.MSComm MSComm4 
-      Left            =   1764
-      Top             =   204
+   Begin MSCommLib.MSComm MSComm_DOOR 
+      Left            =   12360
+      Top             =   132
       _ExtentX        =   974
       _ExtentY        =   974
       _Version        =   393216
@@ -50,16 +53,16 @@ Begin VB.Form DIALER
    End
    Begin VB.Timer TIMER_PIR 
       Interval        =   1000
-      Left            =   2208
-      Top             =   816
+      Left            =   11544
+      Top             =   984
    End
    Begin VB.PictureBox RichTextBox1 
       Height          =   648
-      Left            =   5160
+      Left            =   14532
       ScaleHeight     =   600
       ScaleWidth      =   1404
       TabIndex        =   4
-      Top             =   180
+      Top             =   168
       Visible         =   0   'False
       Width           =   1455
    End
@@ -76,30 +79,31 @@ Begin VB.Form DIALER
       EndProperty
       ForeColor       =   &H00FFFFFF&
       Height          =   1668
-      Left            =   444
+      Left            =   12996
       MultiSelect     =   2  'Extended
       TabIndex        =   3
-      Top             =   900
+      Top             =   156
+      Visible         =   0   'False
       Width           =   1428
    End
    Begin VB.Timer TIMER_1 
       Interval        =   1000
-      Left            =   1860
-      Top             =   816
+      Left            =   11196
+      Top             =   984
    End
    Begin VB.Timer TimerComm4 
       Enabled         =   0   'False
       Interval        =   2000
-      Left            =   3516
-      Top             =   1044
+      Left            =   12588
+      Top             =   984
    End
    Begin VB.PictureBox MMControl1 
       Height          =   684
-      Left            =   5148
+      Left            =   14520
       ScaleHeight     =   636
       ScaleWidth      =   2160
       TabIndex        =   2
-      Top             =   1092
+      Top             =   1080
       Visible         =   0   'False
       Width           =   2208
    End
@@ -118,13 +122,121 @@ Begin VB.Form DIALER
       Top             =   5400
       Width           =   4695
    End
-   Begin MSCommLib.MSComm MSComm3 
-      Left            =   1164
-      Top             =   192
+   Begin MSCommLib.MSComm MSComm_PIR 
+      Left            =   11760
+      Top             =   120
       _ExtentX        =   995
       _ExtentY        =   995
       _Version        =   393216
       DTREnable       =   0   'False
+   End
+   Begin VB.Label Label6 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "DOOR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   96
+      TabIndex        =   11
+      Top             =   2616
+      Width           =   7416
+   End
+   Begin VB.Label Label5 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "DOOR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   96
+      TabIndex        =   10
+      Top             =   2112
+      Width           =   7416
+   End
+   Begin VB.Label Label4 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "DOOR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   96
+      TabIndex        =   9
+      Top             =   1620
+      Width           =   7416
+   End
+   Begin VB.Label Label3 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "PIR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   96
+      TabIndex        =   8
+      Top             =   1116
+      Width           =   7416
+   End
+   Begin VB.Label Label2 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "PIR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   96
+      TabIndex        =   7
+      Top             =   624
+      Width           =   7416
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00FFFFFF&
+      Caption         =   "PIR"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   420
+      Left            =   96
+      TabIndex        =   6
+      Top             =   132
+      Width           =   7416
    End
 End
 Attribute VB_Name = "DIALER"
@@ -134,7 +246,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 ' ------------------------------------------------------------------------
 ' IF WANT TO DISPLAY TAIL.EXE AT BEGINNER THEN RESTORE THIS LINE BACK INNER
-' FILE_NAME_4 = "RS232 FRONT DOOR LOGGER.txt"
+' FILE_NAME_4 = "ZZ RS232 FRONT DOOR LOGGER.txt"
 ' ------------------------------------------------------------------------
 ' Shell I_N_TAIL + " """ + Path_And_FileName + """", vbMinimized
 ' ------------------------------------------------------------------------
@@ -143,11 +255,13 @@ Attribute VB_Exposed = False
 ' BE NICER IF START MINIMIZED
 ' ------------------------------------------------------------------------
 
+Dim FIRST_BOOT_CODE
+
 Dim FSO
 Dim TIMER_1_TIMER_RUN_ONCE
 
-Dim COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR
-Dim COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR
+Dim COUNT_ERROR_ME_MSComm_PIR_PORTOPEN_PIR
+Dim COUNT_ERROR_ME_MSComm_DOOR_PORTOPEN_DOOR
 
 Dim DOOR_OPEN_HAPPEN
 Dim FOLDER_NAME, FILE_NAME_4
@@ -192,9 +306,25 @@ Private Const GW_HWNDNEXT = 2
 Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
 
 
-Private Sub Form_Load()
+Private Sub Form_Click()
+'If Me.WindowState <> vbNormal Then End
+'
+'End
+
+End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+'If Me.WindowState <> vbNormal Then End
+'
+'If KeyAscii = 27 Then End
+
+End Sub
+
+Public Sub Form_Load()
 
 If App.PrevInstance = True Then End
+
+FIRST_BOOT_CODE = True
 
 'KILL ITSELF IN __.EXE KILL SOFTLY
 'WHILE ISIDE LEARN
@@ -247,7 +377,7 @@ OLD_VAR_DSR_4 = -10
 Call TIMER_1_TIMER
 
 If IsIDE = True Then
-    Me.Visible = True
+'    Me.Visible = True
     ' Me.ShowInTaskbar = True
 End If
 
@@ -258,15 +388,43 @@ End If
 'End If
 
 If IsIDE = True Then
-    TIMER_PIR.Interval = 3000
-    TIMER_FRONT_DOOR.Interval = 3000
+    TIMER_PIR.Interval = 1000
+    TIMER_FRONT_DOOR.Interval = 1000
 End If
 
 TIMER_PIR.Enabled = True
 TIMER_FRONT_DOOR.Enabled = True
 
+'Me.Hide
+Me.Show
+'Exit Sub
+
+If ME_WINDOWSTATE_2 = 2 Then
+    Me.WindowState = ME_WINDOWSTATE_1
+End If
+
+If ME_WINDOWSTATE_2 = 0 Then
+    ME_WINDOWSTATE_2 = 2
+    If IsIDE = True Then
+        Me.WindowState = vbNormal
+    End If
+End If
+Me.Width = Label1.Width + 400
+
 End Sub
 
+
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+'If Me.WindowState <> vbNormal Then End
+'
+'If KeyCode = 27 Then End
+End Sub
+
+Private Sub Form_Resize()
+
+ME_WINDOWSTATE = Me.WindowState
+
+End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
 
@@ -276,43 +434,57 @@ End Sub
 
 Sub TIMER_1_TIMER()
 
-TIMER_1.Interval = 10000
+' -------------------------------------
+' IF CHANGE ANY PORT
+' DON'T FORGET THE OBVIOUS
+' USB PORT HAS TO BE SET POWER SAVE OFF
+' USB SETTER NOT RS232 PORT
+' Thu 30-Jan-2020 19:28:00
+' -------------------------------------
 
+VAR_DSR_3 = -4
+' PIR ------------------ AND NEXT DOOR
 On Error Resume Next
 For R = 1 To 9
     Err.Clear
-    Me.MSComm3.CommPort = R
-    Me.MSComm3.PortOpen = False
-    Me.MSComm3.Settings = "1200,N,8,1"
-    Me.MSComm3.PortOpen = True
-    Me.MSComm3.DTREnable = True
+    Me.MSComm_PIR.CommPort = R
+    Me.MSComm_PIR.PortOpen = False
+    Me.MSComm_PIR.Settings = "1200,N,8,1"
+    Me.MSComm_PIR.PortOpen = True
 
-    
 '    If Err.Number <> 8002 Then
 '        Exit For
 '    End If
-    If Me.MSComm3.PortOpen = True Then
-        VAR_DSR_3 = Me.MSComm3.DSRHolding
+    If Me.MSComm_PIR.PortOpen = True Then
+        Me.MSComm_PIR.DTREnable = True
+        VAR_DSR_3 = Me.MSComm_PIR.DSRHolding
         Exit For
     End If
-    
+    PIR_INDEX = R
 Next
 
+
+VAR_DSR_4 = -4
 ' NEXT PORT IS MY FRONT DOOR OPEN LOGGER
 ' 1ST PORT DETECTED WILL BE FOR PIR 2ND DOOR
-For R = 10 To 16
+For R2 = 1 To 2
+If R2 = 1 Then INDEX = 10
+If R2 = 2 Then INDEX = PIR_INDEX + 1
+For R = INDEX To 16
     Err.Clear
-    Me.MSComm4.CommPort = R
-    Me.MSComm4.PortOpen = False
+    Me.MSComm_DOOR.CommPort = R
+    Me.MSComm_DOOR.PortOpen = False
     DoEvents
-    Me.MSComm4.Settings = "1200,N,8,1"
-    Me.MSComm4.PortOpen = True
-    Me.MSComm4.DTREnable = True
+    Me.MSComm_DOOR.Settings = "1200,N,8,1"
+    Me.MSComm_DOOR.PortOpen = True
     
-    If Me.MSComm4.PortOpen = True Then
-        VAR_DSR_4 = Me.MSComm4.DSRHolding
+    If Me.MSComm_DOOR.PortOpen = True Then
+        Me.MSComm_DOOR.DTREnable = True
+        MSComm_DOOR_PortOpen = True
+        VAR_DSR_4 = Me.MSComm_DOOR.DSRHolding
         Exit For
     End If
+Next
 Next
 
 ' --------------------------------------
@@ -320,58 +492,92 @@ Next
 ' LEAVE HIGH TO KEEP LIGHT FOR SCREEN ON
 ' --------------------------------------
 If R = 17 Then VAR_DSR_3 = 0
-If Me.MSComm3.PortOpen = False Then
+If Me.MSComm_PIR.PortOpen = False Then
     VAR_DSR_3 = True
+End If
+
+If Me.MSComm_PIR.PortOpen = False Or MSComm_DOOR_PortOpen = False Then
+    TIMER_1.Interval = 20000
+    
 End If
 
 TIMER_1_TIMER_RUN_ONCE = True
 
-
 End Sub
 
-
+Private Sub MNU_RESET_FORM_Click()
+EXIT_TRUE = True
+Unload Me
+DoEvents
+Reset
+EXIT_TRUE = False
+Load Form2
+End Sub
 
 
 Private Sub Timer_ERROR_Timer()
 
     MSG_1 = ""
     
-    If COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR > 100 Then
-        MSG_1 = "COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR > 100 NOT OPEN PORT" + vbCrLf
-        MSG_1 = MSG_1 + Str(COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR) + vbCrLf + vbCrLf
+    If COUNT_ERROR_ME_MSComm_PIR_PORTOPEN_PIR > 100 Then
+        MSG_1 = "COUNT_ERROR_ME_MSComm_PIR_PORTOPEN_PIR > 100 NOT OPEN PORT" + vbCrLf
+        MSG_1 = MSG_1 + Str(COUNT_ERROR_ME_MSComm_PIR_PORTOPEN_PIR) + vbCrLf + vbCrLf
     End If
     
-    If COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR > 100 Then
-        MSG_1 = MSG_1 + "COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR > 100 NOT OPEN PORT" + vbCrLf
-        MSG_1 = MSG_1 + Str(COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR) + vbCrLf + vbCrLf
+    If COUNT_ERROR_ME_MSComm_DOOR_PORTOPEN_DOOR > 100 Then
+        MSG_1 = MSG_1 + "COUNT_ERROR_ME_MSComm_DOOR_PORTOPEN_DOOR > 100 NOT OPEN PORT" + vbCrLf
+        MSG_1 = MSG_1 + Str(COUNT_ERROR_ME_MSComm_DOOR_PORTOPEN_DOOR) + vbCrLf + vbCrLf
     End If
     
     If MSG_1 <> "" Then
-        MsgBox MSG_1, vbMsgBoxSetForeground
-        End
+'        Me.WindowState = vbNormal
+        ' MsgBox MSG_1, vbMsgBoxSetForeground
+        ' End
+'        Form2.Timer1.Enabled = True
     End If
     
 End Sub
 
 Private Sub TIMER_PIR_Timer()
-        
 Dim STATE_PIR
 Set FSO = CreateObject("Scripting.FileSystemObject")
 
 If TIMER_1_TIMER_RUN_ONCE = False Then Exit Sub
         
 On Error Resume Next
-TTITTY = "Port " + Format(Me.MSComm3.CommPort, "00") + " ___ PIR"
-If Me.MSComm3.PortOpen = False Then
-    Debug.Print "PIR ____ " + Time$ + " Me.MSComm3.PortOpen = False " + TTITTY
-    COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR = COUNT_ERROR_ME_MSCOMM3_PORTOPEN_PIR + 1
-    Exit Sub
+TTITTY = "Port " + Format(Me.MSComm_PIR.CommPort, "00") + " ___ PIR"
+
+If Me.MSComm_PIR.PortOpen = False Then
+    ' Debug.Print "PIR ____ " + Time$ + " Me.MSComm_PIR.PortOpen = False " + TTITTY
+    Label1.Caption = "PIR ____ " + Time$ + " -- " + TTITTY
+    Label3.Caption = "PIR ____ " + Time$ + " -- Me.MSComm_PIR.PortOpen = False"
+'    COUNT_ERROR_ME_MSComm_PIR_PORTOPEN_PIR = COUNT_ERROR_ME_MSComm_PIR_PORTOPEN_PIR + 1
+'    Exit Sub
 End If
 
-VAR_DSR_3 = Me.MSComm3.DSRHolding
-If VAR_DSR_3 = False Then STATE_PIR = " Not Active _ " Else STATE_PIR = " Active _____ "
-If VAR_DSR_3 = 0 Then VAR_DSR_4 = "FALSE =" Else VAR_DSR_4 = "TRUE  ="
-Debug.Print "PIR ____ " + Time$ + " " + VAR_DSR_4 + STATE_PIR + TTITTY
+VAR_DSR_3 = Me.MSComm_PIR.DSRHolding
+
+K = ""
+If Me.MSComm_PIR.PortOpen = False Then
+    ' --------------------------------------
+    ' NONE COMM PORT ALL 16 TESTER
+    ' LEAVE HIGH TO KEEP LIGHT FOR SCREEN ON
+    ' --------------------------------------
+    VAR_DSR_3 = True
+    K = " ARTIFICAL"
+End If
+If VAR_DSR_3 = False Then
+    STATE_PIR = " Not Active"
+Else
+    STATE_PIR = " Active _____ "
+End If
+If VAR_DSR_3 = 0 Then VAR_DSR_4 = "FALSE" Else VAR_DSR_4 = "TRUE"
+If Me.MSComm_PIR.DSRHolding Then VAR_DSR_5 = "FALSE" Else VAR_DSR_5 = "TRUE"
+' Debug.Print "PIR ____ " + Time$ + " " + VAR_DSR_4 + STATE_PIR + TTITTY
+Label1.Caption = "PIR _____ " + Time$ + " -- " + TTITTY
+Label2.Caption = "PIR _____ " + Time$ + " -- " + VAR_DSR_5 + K
+Label3.Caption = "PIR _____ " + Time$ + " -- " + STATE_PIR
+
 If Err.Number > 0 Or Err.Number = 8002 Then
     TIMER_1.Enabled = True
     VAR_DSR_3 = True
@@ -396,17 +602,20 @@ If VAR_DSR_3 = True Then
             End If
             FR1 = FreeFile
             Open FILE_NAME_PIR(R) For Output As #FR1
+            Debug.Print "WRITE " + FILE_NAME_PIR(R)
             Close #FR1
         End If
         ' Debug.Print FILE_NAME_PIR(R)
         ' -----------------------------------------------------
         ' EXAMPLE FILENAME
-        ' \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__.txt\\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__1-ASUS-X5DIJ.txt
+        ' \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__.txt"
+        ' \\1-ASUS-X5DIJ\1_ASUS_X5DIJ_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer #NFS__1-ASUS-X5DIJ.txt
         ' -----------------------------------------------------
     Next
 Else
     For R = 1 To UBound(AR)
         Kill FILE_NAME_PIR(R)
+            Debug.Print "DELETE " + FILE_NAME_PIR(R)
     Next
 End If
 
@@ -433,6 +642,22 @@ Function FOLDER_NAME_PIR(INDEX)
     FOLDER_NAME_PIR = AR(INDEX) + "\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY"
 End Function
 
+'                FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_2
+'                FR1 = FreeFile
+'                Open FILE_NAME For Output As #FR1
+'                Close #FR1
+'                Debug.Print "WRITE FILE_NAME " + FILE_NAME
+'                FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_8
+'                FR1 = FreeFile
+'                Open FILE_NAME For Output As #FR1
+'                Debug.Print "WRITE FILE_NAME " + FILE_NAME
+'                Close #FR1
+'
+'FILE_NAME_2 = "RS232 FRONT DOOR.txt"
+'FILE_NAME_8 = "RS232 FRONT DOOR OPEN.txt"
+'FILE_NAME_9 = "RS232 FRONT DOOR CLOSE.txt"
+'FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_2
+
 
 Sub TIMER_FRONT_DOOR_TIMER()
 
@@ -441,20 +666,42 @@ Dim STATE_DOOR
 
 If TIMER_1_TIMER_RUN_ONCE = False Then Exit Sub
 
-TTITTY = "Port " + Format(Me.MSComm4.CommPort, "00") + " ___ DOOR"
+TTITTY = "Port " + Format(Me.MSComm_DOOR.CommPort, "00") + " ___ DOOR"
 
-If Me.MSComm4.PortOpen = False Then
-    Debug.Print "DOOR ___ " + Time$ + " Me.MSComm4.PortOpen = False " + TTITTY
-    COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR = COUNT_ERROR_ME_MSCOMM4_PORTOPEN_DOOR + 1
+If Me.MSComm_DOOR.PortOpen = False Then
+'    Label4.Caption = "DOOR ___ " + Time$ + " -- " + TTITTY
+'    Label6.Caption = "DOOR ___ " + Time$ + " -- Me.MSComm_DOOR.PortOpen = False "
+    COUNT_ERROR_ME_MSComm_DOOR_PORTOPEN_DOOR = COUNT_ERROR_ME_MSComm_DOOR_PORTOPEN_DOOR + 1
+    ' Exit Sub
+    
+End If
+
+VAR_DSR_4 = Me.MSComm_DOOR.DSRHolding
+If VAR_DSR_4 = False Then
+    VAR_DSR_5 = "FALSE"
+Else
+    VAR_DSR_5 = "TRUE"
+End If
+If VAR_DSR_4 = False Then
+    STATE_DOOR = "Open _______"
+Else
+    STATE_DOOR = "Close ______"
+End If
+
+' Debug.Print VAR_DSR_4
+
+Label4.Caption = "DOOR ___ " + Time$ + " -- " + TTITTY
+Label5.Caption = "DOOR ___ " + Time$ + " -- " + VAR_DSR_5
+Label6.Caption = "DOOR ___ " + Time$ + " -- " + STATE_DOOR
+
+If Me.MSComm_DOOR.PortOpen = False Then
     Exit Sub
 End If
 
-VAR_DSR_4 = Me.MSComm4.DSRHolding
-If VAR_DSR_4 = False Then STATE_DOOR = " Close ______" Else STATE_DOOR = " Open _______"
-If VAR_DSR_4 = 0 Then VAR_DSR_5 = "FALSE =" Else VAR_DSR_5 = "TRUE  ="
-Debug.Print "DOOR ___ " + Time$ + " " + VAR_DSR_5 + STATE_DOOR + " " + TTITTY
+
+
 On Error Resume Next
-If Me.MSComm4.PortOpen = False Then
+If Me.MSComm_DOOR.PortOpen = False Then
     VAR_DSR_4 = False
     TIMER_1.Enabled = True
 End If
@@ -479,7 +726,7 @@ AR(1) = "C:"
 FILE_NAME_2 = "RS232 FRONT DOOR.txt"
 FILE_NAME_8 = "RS232 FRONT DOOR OPEN.txt"
 FILE_NAME_9 = "RS232 FRONT DOOR CLOSE.txt"
-FILE_NAME_4 = "RS232 FRONT DOOR LOGGER.txt"
+FILE_NAME_4 = "ZZ RS232 FRONT DOOR LOGGER.txt"
 PATH_2 = "VB6\VB-NT\00_Best_VB_01\Tidal_Info"
 
 
@@ -490,49 +737,66 @@ If VAR_DSR_4 = True Then
         DOOR_OPEN_HAPPEN = True
         FOLDER_NAME = AR(1) + "\SCRIPTOR DATA\" + PATH_2
         FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_2
-        If FSO.FILEExists(FILE_NAME) = False Then
-            If FSO.FOLDERExists(FOLDER_NAME) = False Then
-                RESULT = CreateFolderTree(FOLDER_NAME)
-            End If
-            FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_2
-            FR1 = FreeFile
-            Open FILE_NAME For Output As #FR1
-            Close #FR1
-            FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_8
-            FR1 = FreeFile
-            Open FILE_NAME For Output As #FR1
-            Close #FR1
-            FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_4
-            A_NOW = Now
-            If PROGRAM_LOAD = True Then
-                Call CHECK_ARCHIVE_LOGGER
-                PROGRAM_LOAD = False
-                If X1 > X2 Then
-                    Call WRITE_LOGGER_BEGIN
-                    Call WRITE_LOGGER_OPEN_INFO
+        If FSO.FOLDERExists(FOLDER_NAME) = False Then
+            RESULT = CreateFolderTree(FOLDER_NAME)
+        End If
+        'If DOOR_OPEN_HAPPEN = True Then
+        KILL_DONE = True
+        If InStr(UCase(STATE_DOOR), "OPEN") > 0 Then
+            If FIRST_BOOT_CODE = True Then
+                FIRST_BOOT_CODE = False
+                If FSO.FILEExists(FILE_NAME) = True Then
+                    Me.WindowState = vbNormal
+                    IR = MsgBox("FILE EXIST FOR FIRST RUN CODE" + vbCrLf + "CONFIRM OTHER CODE NOT LEFT BY ACCIDENT" + vbCrLf + "MIGHT NOT RUN CORRECT" + vbCrLf + "REMAIN OR LEAVE DELETE -- YES OR NOT", vbYesNo + vbMsgBoxSetForeground)
+                    If IR = vbNo Then
+                        Kill FileName
+                        KILL_DONE = True
+                    End If
                 End If
-                NEXT_AFTER_PROGRAM_LOAD = True
             End If
-            If PROGRAM_LOAD = False And NEXT_AFTER_PROGRAM_LOAD = False Then
-               Call WRITE_LOGGER_OPEN_INFO
-            End If
-            
-            If FindWindow("", "Tidal Information...") = 0 Then
+            If InStr(UCase(STATE_DOOR), "OPEN") > 0 And KILL_DONE = False Then
+                FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_2
+                FR1 = FreeFile
+                Open FILE_NAME For Output As #FR1
+                Close #FR1
+                Debug.Print "WRITE FILE_NAME " + FILE_NAME
+                FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_8
+                FR1 = FreeFile
+                Open FILE_NAME For Output As #FR1
+                Debug.Print "WRITE FILE_NAME " + FILE_NAME
+                Close #FR1
+                FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_4
+                A_NOW = Now
+                If PROGRAM_LOAD = True Then
+                    Call CHECK_ARCHIVE_LOGGER
+                    PROGRAM_LOAD = False
+                    If X1 > X2 Then
+                        Call WRITE_LOGGER_BEGIN
+                        Call WRITE_LOGGER_OPEN_INFO
+                    End If
+                    NEXT_AFTER_PROGRAM_LOAD = True
+                End If
+                If PROGRAM_LOAD = False And NEXT_AFTER_PROGRAM_LOAD = False Then
+                   Call WRITE_LOGGER_OPEN_INFO
+                End If
                 
-                Me.MMControl9.Command = "prev"
-                Me.MMControl9.Command = "Play"
-                Do
-                Loop Until MMControl9.Mode = 525
-                Me.MMControl9.Command = "prev"
-                Me.MMControl9.Command = "Play"
-                Do
-                Loop Until MMControl9.Mode = 525
-                Me.MMControl9.Command = "prev"
-                Me.MMControl9.Command = "Play"
-            
-                Shell "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe", vbMinimizedNoFocus
-                ' Debug.Print Str(Now)
-                ' TRY MAKE SURE ONLY RUN ONCE TO STARTER -- SEEM OKAY
+                If FindWindow("", "Tidal Information...") = 0 Then
+                    
+                    Me.MMControl9.Command = "prev"
+                    Me.MMControl9.Command = "Play"
+                    Do
+                    Loop Until MMControl9.Mode = 525
+                    Me.MMControl9.Command = "prev"
+                    Me.MMControl9.Command = "Play"
+                    Do
+                    Loop Until MMControl9.Mode = 525
+                    Me.MMControl9.Command = "prev"
+                    Me.MMControl9.Command = "Play"
+                
+                    Shell "D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe", vbMinimizedNoFocus
+                    ' Debug.Print Str(Now)
+                    ' TRY MAKE SURE ONLY RUN ONCE TO STARTER -- SEEM OKAY
+                End If
             End If
         End If
     Next
@@ -548,6 +812,7 @@ Else
             FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_9
             FR1 = FreeFile
             Open FILE_NAME For Output As #FR1
+            Debug.Print "WRITE FILE_NAME " + FILE_NAME
             Close #FR1
         End If
         
@@ -592,7 +857,7 @@ If NEXT_AFTER_PROGRAM_LOAD = True Then
             
             ' ------------------------------------------------------------------------
             ' IF WANT TO DISPLAY TAIL.EXE AT BEGINNER THEN RESTORE THIS LINE BACK INNER
-            ' FILE_NAME_4 = "RS232 FRONT DOOR LOGGER.txt"
+            ' FILE_NAME_4 = "ZZ RS232 FRONT DOOR LOGGER.txt"
             ' ------------------------------------------------------------------------
             'Shell I_N_TAIL + " """ + Path_And_FileName + """", vbMinimized
         End If
@@ -602,10 +867,24 @@ End If
 
 End Sub
 
+'FOLDER_NAME = AR(1) + "\SCRIPTOR DATA\" + PATH_2
+'FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_4
+'A_NOW = Now
+'If PROGRAM_LOAD = True Then
+'    Call CHECK_ARCHIVE_LOGGER
+'    PROGRAM_LOAD = False
+'    If X1 > X2 Then
+'        Call WRITE_LOGGER_BEGIN
+'        Call WRITE_LOGGER_OPEN_INFO
+'    End If
+'    NEXT_AFTER_PROGRAM_LOAD = True
+'End If
+
 Sub WRITE_LOGGER_OPEN_INFO()
     FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_4
     FR1 = FreeFile
     Open FILE_NAME For Append As #FR1
+    Debug.Print "WRITE FILE_NAME " + FILE_NAME
     Print #FR1, Format(A_NOW, "YYYY-MM-DD -- HH:MM:SS -- HH:MM:SS AM/PM -- DDD") + " -- DOOR OPEN"
     Close #FR1
 End Sub
@@ -614,15 +893,18 @@ Sub WRITE_LOGGER_CLOSE_INFO()
     FILE_NAME = FOLDER_NAME + "\" + FILE_NAME_4
     FR1 = FreeFile
     Open FILE_NAME For Append As #FR1
+    Debug.Print "WRITE FILE_NAME " + FILE_NAME
     Print #FR1, Format(A_NOW, "YYYY-MM-DD -- HH:MM:SS -- HH:MM:SS AM/PM -- DDD") + " -- DOOR CLOSE"
     Close #FR1
 End Sub
+
 
 Sub WRITE_LOGGER_BEGIN()
     A1 = " -----------------------------------------"
     A2 = " -- RS232 LOGGER FRONT DOOR BEGIN"
     FR1 = FreeFile
     Open FILE_NAME For Append As #FR1
+    Debug.Print "WRITE FILE_NAME " + FILE_NAME
     Print #FR1, Format(A_NOW, "YYYY-MM-DD -- HH:MM:SS") + " - -" + Format(A_NOW, "HH:MM:SS AMPM -- DDD") + A1
     Print #FR1, Format(A_NOW, "YYYY-MM-DD -- HH:MM:SS") + " - -" + Format(A_NOW, "HH:MM:SS AMPM -- DDD") + A2
     Print #FR1, Format(A_NOW, "YYYY-MM-DD -- HH:MM:SS") + " - -" + Format(A_NOW, "HH:MM:SS AMPM -- DDD") + A1
@@ -815,3 +1097,7 @@ End Function
 
 
 
+Private Sub Timer20_Timer()
+    Exit Sub
+    Call MNU_RESET_FORM_Click
+End Sub

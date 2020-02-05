@@ -81,6 +81,21 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ; -------------------------------------------------------------------
+; SESSION 004
+; -------------------------------------------------------------------
+; SUB -- KILL_ALL_MPC_EXE_NAME:
+; WORKER AND ROUTINE THAT CALL BOTH THEM
+; ESC KEY AND MOUSE LEFT TO CORNER COUPLE TIME TO TRIG
+; NOW DO KILL ALL MPC PROCESS
+; -------------------------------------------------------------------
+; 
+; Thu 30-Jan-2020 23:03:29
+; Thu 30-Jan-2020 23:38:00 -- 35 MINUTE
+; -------------------------------------------------------------------
+
+
+
+; -------------------------------------------------------------------
 #SingleInstance force
 ; -------------------------------------------------------------------
 
@@ -256,9 +271,11 @@ RETURN
 ; MESSENGER_KEY=Hi Marianne and Eddie 
 ; THIS ONE ENDED -- Mon 26-Aug-2019 11:01:30
 
+; MESSENGER_KEY=HI MARIANNE;  & EDDIE
+
 
 :*:hima::
-MESSENGER_KEY=HI MARIANNE & EDDIE
+MESSENGER_KEY=HI MARIANNE
 GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
 RETURN
@@ -773,30 +790,19 @@ CHECK_ESC_KEY:
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 	
+	SET_GO_12=
 	IfWinActive ahk_class MediaPlayerClassicW
-	{
-		Process, Close, mpc-hc64.exe
-		SoundBeep , 1500 , 400
-		VAR_DONE_ESCAPE_KEY=TRUE
-	}
-
+		SET_GO_12=11
 	IfWinActive ahk_class Afx:00007FF6A22C0000:b:0000000000010003:0000000000000006:0000000000000000
-	{
-		Process, Close, mpc-hc64.exe
-		SoundBeep , 1500 , 400
-		VAR_DONE_ESCAPE_KEY=TRUE
-	}
-
+		SET_GO_12=11
 	IfWinActive ahk_class AfxControlBar140su
-	{
-		Process, Close, mpc-hc64.exe
-		SoundBeep , 1500 , 400
-		VAR_DONE_ESCAPE_KEY=TRUE
-	}
-
+		SET_GO_12=11
 	IfWinActive ahk_class FullScreenClass
+		SET_GO_12=11
+	
+	IF SET_GO_12
 	{
-		Process, Close, mpc-hc64.exe
+		GOSUB KILL_ALL_MPC_EXE_NAME
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
@@ -828,6 +834,7 @@ CHECK_ESC_KEY:
 		SoundBeep , 1500 , 400
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
+
 	; Find ahk_class #32770 ahk_exe vb6.exe
 	IfWinActive Replace ahk_exe vb6.exe
 	{	WinClose
@@ -1090,7 +1097,6 @@ CHECK_ESC_KEY:
 	; https://www.google.com/search?q=AHK+CLOSE+NOTEPAD%2B%2B+SEARC+BOX&oq=AHK+CLOSE+NOTEPAD%2B%2B+SEARC+BOX&aqs=chrome..69i57.10623j1j7&sourceid=chrome&ie=UTF-8
 	; ----
 
-
 	
 	; ; 
 	; ; ---------------------------------------------------------------
@@ -1301,15 +1307,15 @@ CHECK_ESC_KEY:
 	; ; & An ampersand 
 	; ; ---------------------------------------------------------------
 	
-	
 	IF VAR_DONE_ESCAPE_KEY=FALSE
 	{
 		SOUNDBEEP 4000,50
 		SOUNDBEEP 5000,40
 	}
 	
-	
-Return
+RETURN
+
+
 
 
 ; ------------------------------------------------------------------
@@ -1767,7 +1773,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 	IF INSTR(CLASS,"IrfanView")
 		XR=5
 
-	; TOOLTIP % STATE_XYPOSCOUNTER ", " OLD_STATE_XYPOSCOUNTER
+	; TOOLTIP % STATE_XYPOSCOUNTER "`n" OLD_STATE_XYPOSCOUNTER "`n" CLASS
 
 	; RETURN
 	
@@ -1798,7 +1804,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 			; TOOLTIP % HWND_X "," HWND_ACTIVE "," SET_GO
 			IF XR<4
 			{
-				Process, Close, mpc-hc64.exe
+				GOSUB KILL_ALL_MPC_EXE_NAME
 				Soundbeep 2000,200
 				XR=0
 			}
@@ -1820,8 +1826,6 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 				; ---------------------------------------------------
 				PostMessage, 0x112, 0xF060,,, IrfanView ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 				WinClose, IrfanView
-				; MSGBOX HH
-				
 				Soundbeep 2000,200
 			}
 		}	
@@ -1829,6 +1833,33 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 }
 RETURN
 
+KILL_ALL_MPC_EXE_NAME:
+
+	; ---------------------------------------------------------------
+	; WORKER AND ROUTINE THAT CALL BOTH THEM
+	; ESC KEY AND MOUSE LEFT TO CORNER COUPLE TIME TO TRIG
+	; NOW DO KILL ALL MPC PROCESS
+	; ---------------------------------------------------------------
+	; 
+	; Thu 30-Jan-2020 23:03:29
+	; Thu 30-Jan-2020 23:33:30 -- 30 MINUTE
+	; ---------------------------------------------------------------
+	
+	SOUNDBEEP 1000,100
+	WINGET, LIST, LIST, AHK_EXE mpc-hc64.exe
+	LOOP %LIST%
+	{ 
+		WINGET, PID_8, PID, % "AHK_ID " LIST%A_INDEX%
+		IF PID_8
+			PROCESS, CLOSE, %PID_8%
+
+		SOUNDBEEP 1200,40
+	}
+RETURN
+; -------------------------------------------------------------------
+	
+
+; -------------------------------------------------------------------
 ; SET OKAY BOX AFTER MADE SELECTION
 SET_OK_BOX:
 {
