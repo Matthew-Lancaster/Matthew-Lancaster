@@ -1248,7 +1248,7 @@ Return
 
 WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 		
-		FILENAME_2__=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER #NFS_
+		FILENAME_2__=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER ADD_SOME_#NFS_
 		ArrayCount = 0
 		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
 		{
@@ -1273,7 +1273,7 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 				ELEMENT7=_%NET_PATH%.TXT
 
 				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-				MSGBOX % Array_FileName%A_Index%
+				; MSGBOX % Array_FileName%A_Index%
 			}
 		}
 
@@ -1282,7 +1282,7 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 			file := FileOpen(Array_FileName%A_Index%, "w")
 			if IsObject(file)
 			{
-				MSGBOX % Array_FileName%A_Index%
+				; MSGBOX % Array_FileName%A_Index%
 
 				; if !IsObject(file)
 				; MsgBox Can't open "%FileName%" for writing.
