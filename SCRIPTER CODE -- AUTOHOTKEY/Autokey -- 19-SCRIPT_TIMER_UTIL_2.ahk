@@ -60,7 +60,6 @@
 ; OF THE EXTENSION CASE BE AND THEN RESULT WILL DETERMINE IF 
 ; REQUIRE OPERATION
 ; -------------------------------------------------------------------
-;
 ; -------------------------------------------------------------------
 ; FROM  -- Tue 10-Sep-2019 20:21:27
 ; TO    -- Tue 10-Sep-2019 23:49:40
@@ -69,6 +68,22 @@
 ; TO    -- Wed 11-Sep-2019 02:29:10
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; SESSION 004
+; -------------------------------------------------------------------
+; USB_OPTION_SETTER_HUMAN_INTERFACE_DEVICE_USB_POWER_MANAGE_OFF_QUICK_SETTER:
+; -------------------------------------------------------------------
+; CODE KNOCK AR TIME
+; -------------------------------------------------------------------
+; Thu 30-Jan-2020 19:36:57
+; Thu 30-Jan-2020 21:48:00 -- 2 HOUR 11 MINUTE
+; -------------------------------------------------------------------
+; WHEN YOU GOT TO SET ALL USB DEVICE THAT 
+; POWER MANAGEMENT IF OFF
+; BY DEFAULT ON
+; AND NICELY IF OPPOSITE
+; FREQUENT TASK WHEN LOT THEM ALSO
+; -------------------------------------------------------------------
 
 #Warn
 #NoEnv
@@ -336,6 +351,7 @@ SETTIMER HIGHER_SPEED,100
 ; SET OKAY BOX AFTER MADE SELECTION
 ; -------------------------------------------------------------------
 SETTIMER NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT,1000
+SETTIMER VISUAL_BASIC_IDE_RUN_TIME_ERROR_PRESS_CLICKER,1000
 
 SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 
@@ -355,14 +371,273 @@ WIN_COMPARE_HWND_1=
 CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE_HWND=
 SETTIMER TIMER_SET_CHECK_BOX_WIN_COMPARE_CTRL_H_SEARCH_REPLACE,1000
 
+TIMER_SET_GO_GOOGLEDRIVESYNC_VAR=0
+SETTIMER TIMER_SET_GO_GOOGLEDRIVESYNC,1000
+
 
 ;SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 
+OLD_USB_OPTION_SETTER_HUMAN_INTERFACE_DEVICE_USB_POWER_MANAGE=
+SETTIMER USB_OPTION_SETTER_HUMAN_INTERFACE_DEVICE_USB_POWER_MANAGE_OFF_QUICK_SETTER,400
+
+
+TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR=-10
+SETTIMER NOT_RESPONDING_CLIPBOARD_VIEWER, 1000
+
+
+TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01=-10
+TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02=-10
+SETTIMER NOT_RESPONDING_CLIPBOARD_LOGGER_01, 1000
+SETTIMER NOT_RESPONDING_CLIPBOARD_LOGGER_02, 1000
+
+
+
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+RETURN
 
+
+
+
+
+
+NOT_RESPONDING_CLIPBOARD_LOGGER_01:
+	IfWinNotExist ClipBoard Logger (Not Responding)
+		TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01=-10
+	IfWinExist ClipBoard Logger (Not Responding)
+	{
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01>%A_NOW%
+			RETURN
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01=-10
+		{	
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01=%A_NOW%
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01+= 30, Seconds
+			RETURN
+		}
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01<%A_NOW%
+		{
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01=%A_NOW%
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_01+= 30, Seconds
+		}
+		IfWinExist ClipBoard Logger (Not Responding)
+		{
+			WINCLOSE, ClipBoard Logger (Not Responding)
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+		IfWinExist ClipBoard Logger (Not Responding)
+		{
+			WINCLOSE, ClipBoard Logger
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+	}
+	IfWinNotExist ahk_class wndclass_desked_gsk
+	IfWinNotExist ClipBoard Logger
+	{
+		PROCESS, EXIST, ClipBoard Logger.exe
+		If Not ErrorLevel
+			RUN D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+RETURN
+
+NOT_RESPONDING_CLIPBOARD_LOGGER_02:
+	IfWinNotExist ClipBoard Logger (Not Responding)
+		TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02=-10
+	IfWinExist ClipBoard Logger (Not Responding)
+	{
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02>%A_NOW%
+			RETURN
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02=-10
+		{	
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02=%A_NOW%
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02+= 50, Seconds
+			RETURN
+		}
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02<%A_NOW%
+		{
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02=%A_NOW%
+			TIMER_NOT_RESPONDING_CLIPBOARD_LOGGER_VAR_02+= 50, Seconds
+		}
+		PROCESS, CLOSE, ClipBoard Logger.exe
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+
+	IfWinNotExist ahk_class wndclass_desked_gsk
+	IfWinNotExist ClipBoard Logger
+	{
+		PROCESS, EXIST, ClipBoard Logger.exe
+		If Not ErrorLevel
+		{
+			RUN "D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe" 
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+	}
+RETURN
+
+
+NOT_RESPONDING_CLIPBOARD_VIEWER:
+	IfWinNotExist Clipboard Viewer (Not Responding)
+		TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR=-10
+	
+	IfWinExist Clipboard Viewer (Not Responding)
+	{
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR>%A_NOW%
+			RETURN
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR=-10
+		{	
+			TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR=%A_NOW%
+			TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR+= 20, Seconds
+			RETURN
+		}
+		IF TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR<%A_NOW%
+		{
+			TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR=%A_NOW%
+			TIMER_NOT_RESPONDING_CLIPBOARD_VIEWER_VAR+= 20, Seconds
+		}
+		PROCESS, CLOSE, clipboard viewer.exe
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+
+	IfWinNotExist ahk_class wndclass_desked_gsk
+	IfWinNotExist Clipboard Viewer
+	{
+		PROCESS, EXIST, clipboard viewer.exe
+		If Not ErrorLevel
+		{
+			RUN, "D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\CLIPBOARD VIEWER.EXE" MINIMAL____START_22
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			WINWAIT, Clipboard Viewer,,4000
+			RETURN
+		}
+	}
+
+	DetectHiddenWindows, OFF
+	Title=
+	XXA=0
+	IfWinExist Clipboard Viewer
+	XXA=1
+	IfWinExist Clipboard Viewer (Not Responding)
+	XXA=1
+	IF XXA=1
+	{
+		WinGetTitle, Title, Clipboard Viewer
+		IF !Title
+		{
+			PROCESS, CLOSE, clipboard viewer.exe
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+	}
+RETURN
+
+USB_OPTION_SETTER_HUMAN_INTERFACE_DEVICE_USB_POWER_MANAGE_OFF_QUICK_SETTER:
+	; ---------------------------------------------------------------
+	; CODE KNOCK AR TIME
+	; ---------------------------------------------------------------
+	; Thu 30-Jan-2020 19:36:57
+	; Thu 30-Jan-2020 21:48:00 -- 2 HOUR 11 MINUTE
+	; ---------------------------------------------------------------
+	; WHEN YOU GOT TO SET ALL USB DEVICE THAT 
+	; POWER MANAGEMENT IF OFF
+	; BY DEFAULT ON
+	; AND NICELY IF OPPOSITE
+	; FREQUENT TASK WHEN LOT THEM ALSO
+	; ---------------------------------------------------------------
+	
+	WIN_LINE_____1=Device Properties ahk_class #32770
+	LINE_CHECKER_1=Allow the computer to turn off this device
+	SET_ATTEMPT=
+
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
+	
+	VAR_GET=
+	IfWinActive Properties ahk_class #32770
+	IfWinExist Properties ahk_exe mmc.exe
+		WinGet,VAR_GET, ID, Properties ahk_class #32770
+	IF !VAR_GET
+		RETURN
+		
+	WinGet, list, List, Properties ahk_class #32770
+	Loop %list% 
+	{
+		USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1 := list%A_Index%
+		ControlGettext, OutVar_2, Button1, ahk_id %USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1%
+		
+		IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		{
+			ControlGet, Status, Checked,, Button1, ahk_id %USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1%
+			If Status=1 
+			{
+				Control, UNCheck,, Button1, ahk_id %USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1%
+				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				SET_ATTEMPT=TRUE
+			}
+			; ASK FOR IT SET
+			; CHECKER IF GOT THAT
+			ControlGet, Status, Checked,, Button1, ahk_id %USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1%
+			If Status=0
+				BREAK
+		}
+	}
+
+	IF SET_ATTEMPT
+	LOOP
+	{
+		WinGet,VAR_GET, ID, Properties ahk_class #32770
+		IF !VAR_GET
+			BREAK
+		SOUNDBEEP 4000,100
+		; PRESS OKAY EXIT -- COUPLE OF HITT BEFORE GET IT 
+		ControlClick, Button4, ahk_id %VAR_GET%
+		ControlClick, OK, ahk_id %VAR_GET%
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+RETURN
+
+
+
+
+
+TIMER_SET_GO_GOOGLEDRIVESYNC:
+
+	IF TIMER_SET_GO_GOOGLEDRIVESYNC_VAR>%A_NOW%
+	{	
+		RETURN
+	}
+	IF TIMER_SET_GO_GOOGLEDRIVESYNC_VAR<%A_NOW%
+	{	
+		TIMER_SET_GO_GOOGLEDRIVESYNC_VAR=%A_NOW%
+		TIMER_SET_GO_GOOGLEDRIVESYNC_VAR+= 1, Hours
+	}
+
+	SET_GO_GOOGLEDRIVESYNC=0
+	; --------------------------
+	; WIN_XP 5 WIN_7 6 WIN_10 10  
+	; --------------------------
+	If OSVER_N_VAR=10
+		SET_GO_GOOGLEDRIVESYNC=1
+	IF (A_ComputerName = "5-ASUS-P2520LA") 
+		SET_GO_GOOGLEDRIVESYNC=1
+		
+	; ALL 3 HIGH END COMPUTER AND ASUS-5P
+	; -----------------------------------
+	
+	IF SET_GO_GOOGLEDRIVESYNC=1
+	{
+	Process, Exist, googledrivesync.exe
+	If Not ErrorLevel
+		{
+			FN_VAR:="C:\Program Files\Google\Drive\googledrivesync.exe"
+			IfExist, %FN_VAR%
+			{
+				SoundBeep , 2500 , 100
+				Run, "%FN_VAR%" /autostart
+			}
+		}
+	}
 RETURN
 
 
@@ -423,6 +698,9 @@ RETURN
 
 ; TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP:
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 84-RENAME_FILE_EXTENSION_CASE_INCLUDE.ahk
+
+
+
 
 
 
@@ -1294,9 +1572,9 @@ CHECK_SET_OF_APP_NOT_RESPONDING_MAIN:
 		IF TIMER_SET_NOT_RESPONDING=0
 		{
 			TIMER_SET_NOT_RESPONDING = % A_Now
-			TIMER_SET_NOT_RESPONDING += 20, MINUTES
-			IF A_ComputerName=8-MSI-GP62M-7RD
-			TIMER_SET_NOT_RESPONDING += 10, MINUTES
+			TIMER_SET_NOT_RESPONDING += 50, MINUTES
+			; IF A_ComputerName=8-MSI-GP62M-7RD
+			; TIMER_SET_NOT_RESPONDING += 40, MINUTES
 
 			; TIMER_SET_NOT_RESPONDING += 30, SECONDS
 			; TIMER_SET_NOT_RESPONDING += 4, SECONDS
@@ -1370,16 +1648,16 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 	ArrayCount := 0
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="DropboxUpdate.exe"
-	ArrayCount += 1
-	FN_Array_2[ArrayCount]:="notepad++.exe"
+	; ArrayCount += 1
+	; FN_Array_2[ArrayCount]:="notepad++.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="EliteSpy.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="ClipBoard Viewer.exe"
-	ArrayCount += 1
-	FN_Array_2[ArrayCount]:="URL Logger.exe"
+	; ArrayCount += 1
+	; FN_Array_2[ArrayCount]:="URL Logger.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="CPU % INDIVIDUAL PROCESS.exe"
 	ArrayCount += 1
@@ -1765,6 +2043,49 @@ NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT:
 
 RETURN
 
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+VISUAL_BASIC_IDE_RUN_TIME_ERROR_PRESS_CLICKER:
+
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 3
+	
+	OutVar_2=
+	
+	HWND_2=0
+	IfWinExist ClipBoard Viewer ahk_class #32770
+		WinGet, HWND_2, ID, ClipBoard Viewer ahk_class #32770
+	IfWinExist ClipBoard Viewer ahk_class #32770
+		WinActivate,  ClipBoard Viewer ahk_class #32770
+	IfWinNOTExist ClipBoard Viewer ahk_class #32770
+		RETURN
+
+	LINE_CHECKER_1=Run-time error
+	; CAN'T DO THIS ONE VARIABLE WAY BECAUSE THE RETURN NEW LINE `n
+	; ---------------------------------------------------------------
+	LINE_CHECKER_2=
+	; ControlGettext, OutVar_2, Static2, ClipBoard Viewer ahk_class #32770
+	; TOOLTIP %OutVar_2%`n%LINE_CHECKER_1%
+	
+	IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	
+	ControlGettext, OutVar_2, Static2, ClipBoard Viewer ahk_class #32770
+	IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		SOUNDBEEP 4000,100
+		
+	ControlGettext, OutVar_2, Static2, ClipBoard Viewer ahk_class #32770
+	IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		ControlClick, OK, ClipBoard Viewer ahk_class #32770,,,, NA x10 y10
+
+	ControlGettext, OutVar_2, Static2, ClipBoard Viewer ahk_class #32770
+	IF INSTR(OutVar_2,LINE_CHECKER_1)>0
+		ControlClick, Button1, ClipBoard Viewer ahk_class #32770
+
+
+RETURN
 
 
 TIMER_SUB_1_OLD:

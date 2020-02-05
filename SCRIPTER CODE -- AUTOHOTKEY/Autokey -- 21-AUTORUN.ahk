@@ -1372,7 +1372,7 @@ IF SET_GO=FALSE
 	IF (A_ComputerName = "5-ASUS-P2520LA") 
 		SET_GO_GOOGLEDRIVESYNC=1
 		
-	IF SET_GO_GOOGLEDRIVESYNC=1=1
+	IF SET_GO_GOOGLEDRIVESYNC=1
 	{
 	Process, Exist, googledrivesync.exe
 	If Not ErrorLevel
@@ -1385,6 +1385,7 @@ IF SET_GO=FALSE
 			}
 		}
 	}
+
 	
 	; WIN_XP 5 WIN_7 6 WIN_10 10  
 	; --------------------------
