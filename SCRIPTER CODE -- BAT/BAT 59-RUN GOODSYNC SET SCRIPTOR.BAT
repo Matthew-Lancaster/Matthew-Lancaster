@@ -1160,6 +1160,10 @@ IF !ERROR_COUNT!==0 (
 	ECHO END RUNNER                                ---- *****************
 	ECHO SYNC COMPLETE SUCCESSFUL                  ---- *****************
 	ECHO ----------------------------------------------------------------
+	IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
+		CALL C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT
+	:JUMP_OVER_GITHUB
+	
 	REM TIMEOUT /T 8
 	REM ECHO ------------------------------------------------------------
 	REM ECHO RUN COMMAND 
@@ -1175,13 +1179,7 @@ IF !ERROR_COUNT!==0 (
 
 
 IF NOT !ERROR_COUNT!==0   PAUSE
-
 :ENDER
-IF NOT "!MODE_RUN!"=="GITHUB_ONLY"    TIMEOUT /T 90
-IF NOT !MODE_RUN!==GITHUB     GOTO ENDE
-
-CALL C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT
-
 
 
 @REM ----------------------------------------------------------------
