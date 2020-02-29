@@ -457,8 +457,6 @@ REM GOTO NEXT_CONTINUE
 :GITHUB__________________SET_ARRRAY
 
 SET /A LDA=LDA+1
-SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
-SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G INCL"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G_"
@@ -482,6 +480,23 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
+
+REM -----------------------------------------------------------------
+REM -- VAR LINE HERE GO AT END AS GOT SCRIPT WITHIN 
+REM -- GOODSYNC TO RUN WHEN DONE
+
+REM -----------------------------------------------------------------
+REM -- ALSO HERE IS REM OUT -- ONLY TO SHOW
+REM -- BUTTY GITHUB HAS ABILITY RUN ON OWN WITH ONE FOLDER NONE MULTIPLE
+REM -- AND THAT WILL BE AT THE END -- SEARCH IF WANTED TO
+REM -----------------------------------------------------------------
+REM -- Sat 29-Feb-2020 11:58:00
+REM -----------------------------------------------------------------
+REM -- SET /A LDA=LDA+1
+REM -- SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB"
+REM -----------------------------------------------------------------
+
+
 REM SET /A LDA=LDA+1
 REM SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ SYNC_FOLDER_#_1_2"
 REM GOTO JUMP
