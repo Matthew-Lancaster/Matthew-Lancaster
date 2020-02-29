@@ -78,7 +78,7 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		{
 			SetCapsLockState ,ON
 		}
-		IfWinActive Your Notifications
+		IfWinActive Your notifications
 		IfWinActive  - Google Chrome
 		{
 			SetCapsLockState ,OFF

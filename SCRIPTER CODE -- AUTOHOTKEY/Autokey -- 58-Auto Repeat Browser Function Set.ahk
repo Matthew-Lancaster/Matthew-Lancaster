@@ -87,7 +87,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; SESSION 005
 ; ----------------------------------------------------
 ; TODAY WORK HERE AND ADD NEW ROUTINE WITH AN ARRAY
-; TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+; TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC:
 ; THAT HAS TWO FUNCTION
 ; ONE IT SOLE WORK IT TO DELETE ANY UN-WANTER TAB THAT COME UP
 ; LIKE THE HOME HUB TELL CONNECTION NOT PROPER
@@ -130,6 +130,54 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; FROM   __ Wed 04-Sep-2019 08:49:53
 ; TO     __ Wed 04-Sep-2019 15:34:00 -- 7 HOUR-AH
 ; ----------------------------------------------------
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 07
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT
+; WHEN NEW MAIL ARRIVE YAHOO
+; TAKE ANOTHER 20 MINUTE TO ADD SEGMENT WHERE LOOP ARE
+; 001 IT CHECK THE ACTIVE WINDOW QUICKER KEEP ROUTINE BEFORE
+; 002 IT LOOP ALL WINDOW -- CHROME ONLY HAS ONE TITLE BAR WHERE URL TITLE
+; IT HIDE ANY THAT NOT FOCUS EVEN DIFFERENT USER ACCOUNT NEW BROWSER WINDOW
+; THIS WAY ABLE USE WITH FIREFOX AND ANY BROWSER AT THE SAME TIME
+; THE LOOP TAKE EXTRA PROCESS IF NOT FOUND INSTANT ACTIVE WINDOW
+; -------------------------------------------------------------------
+; SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+; -------------------------------------------------------------------
+; 001 OF 002
+; Wed 08-Jan-2020 10:20:00
+; Wed 08-Jan-2020 11:02:00
+; 002 OF 002
+; Wed 08-Jan-2020 11:48:06
+; Wed 08-Jan-2020 11:08:00
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; SESSION 08
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; CODE GOT SYNC DELETE OVERWRITE WITH OLDER VERSION
+; DO A PATCH WORK COMPARE LAST PREVIOUS VERSION THAT HAD NEW ROUTINE 
+; LIKE SOUND EFFECT NEW MAIL ARRIVE
+; HOPE BUGG CLEAN
+; DEBUG DONE -- HAD IT CORRECTOR WHERE SOUND EFFECT ONLY 
+; NEW MAIL ARRIVE 
+; BY COUNT THE NUMBER IN THE STRING AND NOT WHEN START
+; OUT BEFORE MIDDAY
+; THE SUN OF MICROSOFT WINDOWS INDOOR
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; Wed 12-Feb-2020 09:50:56
+; Wed 12-Feb-2020 10:49:00 -- 58 MINUTE
+; Wed 12-Feb-2020 11:29:00 -- 1 HOUR 38 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
 ; -------------------------------------------------------------------
@@ -325,6 +373,8 @@ SETTIMER TIMER_PREVIOUS_INSTANCE,1
 DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 
+TIMER_CPC_MODE=
+
 GLOBAL XPOS
 GLOBAL YPOS
 
@@ -371,6 +421,7 @@ GLOBAL OSVER_N_VAR
 
 FN_Array_1 := SET_ARRAY_1()
 FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
+; FN_ARRAY_BT_MAIL := SET_ARRAY_BT_MAIL() ; NOT USER
 FN_ARRAY_RAINER_F5 := SET_ARRAY_RAINER_F5()
 
 	
@@ -413,6 +464,10 @@ TIMER_FOR_MOMENT_WAIT_EVENT_HAPPEN_ACTIVATE_VAR=
 SET_ARRAY_FB_HITT_CN_33=  ; ---- VARIABLE HOLD TIMER_1 - ACTIVATE SECOND LONG
 SET_ARRAY_FB_HITT_CN_44=  ; ---- VARIABLE HOLD TIMER_2 - F5 REFRESH MINUTE
 SET_ARRAY_FB_HITT_CN_3_DO_ONCE=SOME_TO_DO
+SOUND_PLAYER_FB_DO=
+
+SOUND_PLAYER_BT_MAIL_DO=
+OLD_TITLE_VAR_BT_MAIL=-2
 
 SET_ARRAY_RAIN_HITT_CN_33=      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
 SET_ARRAY_RAIN_HITT_CN_44=      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
@@ -444,6 +499,7 @@ IF OSVER_N_VAR>5
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
+FN_SET_ARRAY_BROWSER_TAB_CLOSE_CPC := SET_ARRAY_BROWSER_TAB_CLOSE_CPC()
 FN_SET_ARRAY_BROWSER_TAB_CLOSE := SET_ARRAY_BROWSER_TAB_CLOSE()
 
 FN_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN := SET_ARRAY_BROWSER_TAB_RELOAD_MAIN()
@@ -462,10 +518,49 @@ SET_GO=TRUE
 ; 03 OF 04
 IF SET_GO=TRUE 
 {
+	SETTIMER TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC,1000
 	SETTIMER TIMER_SET_ARRAY_BROWSER_TAB_CLOSE,1000
 }
 
+
+; DECLARE VAR
+; OLD_TITLE_VAR_BT_MAIL=
+; -------------------------------------------------------------------
+; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT
+; WHEN NEW MAIL ARRIVE YAHOO
+; TAKE ANOTHER 20 MINUTE TO ADD SEGMENT WHERE LOOP ARE
+; 001 IT CHECK THE ACTIVE WINDOW QUICKER KEEP ROUTINE BEFORE
+; 002 IT LOOP ALL WINDOW -- CHROME ONLY HAS ONE TITLE BAR WHERE URL TITLE
+; IT HIDE ANY THAT NOT FOCUS EVEN DIFFERENT USER ACCOUNT NEW BROWSER WINDOW
+; THIS WAY ABLE USE WITH FIREFOX AND ANY BROWSER AT THE SAME TIME
+; THE LOOP TAKE EXTRA PROCESS IF NOT FOUND INSTANT ACTIVE WINDOW
+; -------------------------------------------------------------------
+; SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+; -------------------------------------------------------------------
+; 001 OF 002
+; Wed 08-Jan-2020 10:20:00
+; Wed 08-Jan-2020 11:02:00
+; 002 OF 002
+; Wed 08-Jan-2020 11:48:06
+; Wed 08-Jan-2020 11:08:00
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+SET_GO=
+IF A_ComputerName=1-ASUS-X5DIJ
+	SET_GO=FALSE
+IF !SET_GO
+	SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+
+
 RETURN
+
+
+; -------------------------------------------------------------------
+; END OF INIT DECLARE VARIABLE
+; NOW ROUTINE AND FUNCTION
+; -------------------------------------------------------------------
 
 
 
@@ -491,12 +586,26 @@ SET_ARRAY_1() {
 RETURN FN_Array_1
 }
 
+
+; NOT USER
+FN_ARRAY_BT_MAIL() {
+	SET_ARRAY_BT_MAIL := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_BT_MAIL[ArrayCount]:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Google Chrome"
+RETURN FN_ARRAY_BT_MAIL
+}
+
+
 ; FN_ARRAY_FB_F5 := SET_ARRAY_FB_F5()
 SET_ARRAY_FB_F5() {
 	SET_ARRAY_FB_F5 := []
 	ArrayCount := 0
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Your Notifications - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Your notifications - Google Chrome"  ; A CHANGE FB CASE LOWER
+	                                                                   ; Mon 10-Feb-2020 18:59:00
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
@@ -514,6 +623,8 @@ SET_ARRAY_RAINER_F5() {
 	ArrayCount := 0
 	ArrayCount += 1
 	SET_ARRAY_RAINER_F5[ArrayCount]:="502 Bad Gateway"
+	ArrayCount += 1
+	SET_ARRAY_RAINER_F5[ArrayCount]:="Privacy error - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_RAINER_F5[ArrayCount]:="Rain Alarm - Mozilla Firefox"
 	ArrayCount += 1
@@ -538,7 +649,7 @@ SET_ARRAY_AUTO_KEY() {
 	SET_ARRAY_AUTO_KEY := []
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_AUTO_KEY[ArrayCount]:="Your Notifications - Google Chrome"
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Your notifications - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
@@ -564,6 +675,32 @@ SET_ARRAY_AUTO_KEY() {
 RETURN SET_ARRAY_AUTO_KEY
 }
 
+SET_ARRAY_BROWSER_TAB_CLOSE_CPC() {
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC := []
+	ArrayCount := 0
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="BT Smart Hub Manager"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="BT Home - your gateway into BT"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="404 Page Not Found | CPC"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="CPC - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="New Tab - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="| CPC UK - Google Chrome"  ; THIS WONT DELETE TAB BUT 404 TRIGGER FOR THEM
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="Blocked Access - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="Google Chrome Help"
+	
+	; ArrayCount += 1
+	; SET_ARRAY_BROWSER_TAB_CLOSE_CPC[ArrayCount]:="Home"
+	
+RETURN SET_ARRAY_BROWSER_TAB_CLOSE_CPC
+}
+
 SET_ARRAY_BROWSER_TAB_CLOSE() {
 	SET_ARRAY_BROWSER_TAB_CLOSE := []
 	ArrayCount := 0
@@ -575,14 +712,15 @@ SET_ARRAY_BROWSER_TAB_CLOSE() {
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="404 Page Not Found | CPC"
 	ArrayCount += 1
 	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Blocked Access - Google Chrome"
-	ArrayCount += 1
-	SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Google Chrome Help"
-	
+
+	; ArrayCount += 1
+	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Google Chrome Help"
 	; ArrayCount += 1
 	; SET_ARRAY_BROWSER_TAB_CLOSE[ArrayCount]:="Home"
 	
 RETURN SET_ARRAY_BROWSER_TAB_CLOSE
 }
+
 
 SET_ARRAY_BROWSER_TAB_RELOAD_MAIN() {
 	SET_ARRAY_BROWSER_TAB_RELOAD_MAIN := []
@@ -1123,6 +1261,17 @@ RETURN
 ; -------------------------------------------------------------------
 
 TIMER_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN:
+
+	XX_OVER=
+	Loop % FN_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN.MaxIndex()
+	{
+		Element := FN_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN[A_Index]
+		IFWinEXIST, %Element%
+			XX_OVER=TRUE
+	}
+	IF !XX_OVER
+		RETURN
+
 	WinGetCLASS, CLASS_FOCUS, A
 	WinGetTITLE, TITLE_VAR_FOCUS, A
 	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
@@ -1182,7 +1331,7 @@ TIMER_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN:
 			}
 			IF !HWND_3
 			{
-				FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-LOAD URL AT BOOT CHROME.ahk"
+				FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-BROWSER LOAD URL BOOT CHROME.ahk"
 				IfExist, %FN_VAR%
 					Run, "%FN_VAR%"
 			}
@@ -1193,18 +1342,38 @@ TIMER_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN:
 RETURN
 
 
-TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC:
 
+	A:=TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC__
 	WinGetCLASS, CLASS_FOCUS, A
 	WinGetTITLE, TITLE_VAR_FOCUS, A
 	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
 	WinGetTITLE, TITLE_MOZILLA, ahk_class MozillaWindowClass
-
-	ARRAY_BROWSER_TAB_CLOSE_SET_GO=
+	TITLE_C_M_1=%TITLE_CHROME%
+	TITLE_C_M_2=%TITLE_MOZILLA%
+	TITLE_C_M_3=404 Page Not Found | CPC -- CPC - Google Chrome -- New Tab - Google Chrome
+	XX_OVER=
+	IF INSTR(TITLE_C_M_3,TITLE_C_M_1)
+		XX_OVER=TRUE
+	IF INSTR(TITLE_C_M_3,TITLE_C_M_2)
+		XX_OVER=TRUE
+	IF !XX_OVER
+		RETURN
 	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE.MaxIndex()
 	{
 		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE[A_Index]
-		IF INSTR(TITLE_VAR,Element)
+		IFWinEXIST, %Element%
+			XX_OVER=TRUE
+	}
+	IF !XX_OVER
+		RETURN
+		
+	
+	ARRAY_BROWSER_TAB_CLOSE_SET_GO=
+	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE_CPC.MaxIndex()
+	{
+		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE_CPC[A_Index]
+		IF INSTR(TITLE_VAR_FOCUS,Element)
 			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
 		IF INSTR(TITLE_CHROME,Element)
 		{
@@ -1220,18 +1389,163 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 
 	If ARRAY_BROWSER_TAB_CLOSE_SET_GO
 	{
+		WinGetTITLE, TITLE_VAR_2, A
+		
+		SET_GO_11=0
+		IF INSTR(TITLE_VAR_2,"New Tab - Google Chrome")
+			SET_GO_11=1
+		IF INSTR(TITLE_VAR_2,"CPC - Google Chrome")=1
+			SET_GO_11=1
+		; IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+		;	SET_GO_11=1
+
+		
+		IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
 		IF BROWSER_APP=1
 		{
 			WinActivate, ahk_class Chrome_WidgetWin_1
 			WinWaitActive, ahk_class Chrome_WidgetWin_1
 		}
+		IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
 		IF BROWSER_APP=2
 		{
 			WinActivate, ahk_class MozillaWindowClass
 			WinWaitActive, ahk_class MozillaWindowClass
 		}
 		
+
+		IF SET_GO_11=0
+		IF INSTR(TITLE_VAR_2,ARRAY_BROWSER_TAB_CLOSE_SET_GO)
+		{
+			WinGet, HWND_2, ID, %ARRAY_BROWSER_TAB_CLOSE_SET_GO%
+			IF HWND_2
+			{
+				IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+				{
+					Send,,^{w}
+					SOUNDBEEP 1000,50
+					SLEEP 100
+				}
+			}
+			
+			IF HWND_2
+			IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+			{
+			DONE_ONE_COUNTER=10
+			LOOP, 500
+			{
+				WinGetCLASS, CLASS_FOCUS, A
+				BROWSER_APP=
+				IF INSTR(CLASS_FOCUS,"Chrome_WidgetWin_1")
+					BROWSER_APP=1
+				IF INSTR(CLASS_FOCUS,"MozillaWindowClass")
+					BROWSER_APP=2
+
+				TITLE_VAR=
+				IF BROWSER_APP=1
+				{
+					WinGetTITLE, TITLE_VAR_2, ahk_class Chrome_WidgetWin_1
+					WinGet, HWND_2, ID, ahk_class Chrome_WidgetWin_1
+				}
+				IF BROWSER_APP=2
+				{
+					WinGetTITLE, TITLE_VAR_2, ahk_class MozillaWindowClass
+					WinGet, HWND_2, ID, ahk_class MozillaWindowClass
+				}
+
+				DONE_ONE=0
+				; IF TIMER_CPC_MODE>%A_NOW%
+				IF DONE_ONE=0
+				IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
+				{
+					; MSGBOX % TITLE_VAR
+					Send,,^{w}	
+					SLEEP 500
+					TIMER_CPC_MODE=%A_NOW%
+					TIMER_CPC_MODE+=8, SECOND
+					DONE_ONE=1
+					DONE_ONE_COUNTER+=1
+				}
+
+				IF DONE_ONE=0
+				IF INSTR(TITLE_VAR_2,"CPC - Google Chrome")=1
+				{
+					; MSGBOX % TITLE_VAR " -- " INSTR(TITLE_VAR,"CPC - Google Chrome")
+					Send,,^{w}
+					SLEEP 500
+					DONE_ONE=1
+					DONE_ONE_COUNTER+=1
+				}
+				
+				;IF TIMER_CPC_MODE>%A_NOW%
+				IF DONE_ONE=0
+				IF INSTR(TITLE_VAR_2,"New Tab - Google Chrome")
+				{
+					; MSGBOX % TITLE_VAR
+					Send,,^{w}
+					SLEEP 500
+					DONE_ONE=1
+					DONE_ONE_COUNTER+=1
+				}
+
+				IF DONE_ONE=0
+				{
+					Send,,^+{Tab}
+					SLEEP 1200
+				}
+				
+				
+				DONE_ONE_COUNTER-=1
+				IF DONE_ONE_COUNTER<0
+					BREAK
+
+				IF INSTR(TITLE_VAR_2,"- Notepad++")
+					BREAK
+
+				IF INSTR(TITLE_VAR_2,"ClipBoard Logger")
+					BREAK
+				
+				if GetKeyState("RButton", "P") or GetKeyState("LButton", "P") 
+						BREAK
+				
+				; SLEEP 100
+				}
+			}
+		}
+	}
+
+RETURN
+
+TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
+
+	A:=TIMER_SET_ARRAY_BROWSER_TAB_CLOSE__
+	WinGetCLASS, CLASS_FOCUS, A
+	WinGetTITLE, TITLE_VAR_FOCUS, A
+	WinGetTITLE, TITLE_CHROME, ahk_class Chrome_WidgetWin_1
+	WinGetTITLE, TITLE_MOZILLA, ahk_class MozillaWindowClass
+
+	ARRAY_BROWSER_TAB_CLOSE_SET_GO=
+	Loop % FN_SET_ARRAY_BROWSER_TAB_CLOSE.MaxIndex()
+	{
+		Element := FN_SET_ARRAY_BROWSER_TAB_CLOSE[A_Index]
+		IF INSTR(TITLE_VAR_FOCUS,Element)
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		IF INSTR(TITLE_CHROME,Element)
+		{
+			BROWSER_APP=1
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		}
+		IF INSTR(TITLE_MOZILLA,Element)
+		{
+			BROWSER_APP=2
+			ARRAY_BROWSER_TAB_CLOSE_SET_GO=%Element%
+		}
+	}
+
+	If ARRAY_BROWSER_TAB_CLOSE_SET_GO
+	{
 		WinGetTITLE, TITLE_VAR_2, A
+		
 		IF INSTR(TITLE_VAR_2,ARRAY_BROWSER_TAB_CLOSE_SET_GO)
 		{
 			WinGet, HWND_2, ID, %ARRAY_BROWSER_TAB_CLOSE_SET_GO%
@@ -1241,70 +1555,10 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 				SOUNDBEEP 1000,50
 				SLEEP 100
 			}
-			
-			IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
-			DONE_ONE_COUNTER=10
-			LOOP, 100
-			{
-				WinGetCLASS, CLASS_FOCUS, A
-				BROWSER_APP=
-				IF INSTR(CLASS_FOCUS,"Chrome_WidgetWin_1")
-					BROWSER_APP=1
-				IF INSTR(CLASS_FOCUS,"MozillaWindowClass")
-					BROWSER_APP=2
-
-				HWND_2=
-				TITLE_VAR=
-				IF BROWSER_APP=1
-				{
-					WinGetTITLE, TITLE_VAR, ahk_class Chrome_WidgetWin_1
-					WinGet, HWND_2, ID, ahk_class Chrome_WidgetWin_1
-				}
-				IF BROWSER_APP=2
-				{
-					WinGetTITLE, TITLE_VAR, ahk_class MozillaWindowClass
-					WinGet, HWND_2, ID, ahk_class MozillaWindowClass
-				}
-
-				DONE_ONE=0
-				IF HWND_2
-				IF INSTR(TITLE_VAR,"CPC - Google Chrome")
-				{
-					Send,,^{w}
-					SLEEP 100
-					DONE_ONE=1
-					DONE_ONE_COUNTER+=1
-				}
-				
-				IF DONE_ONE=0
-				IF INSTR(TITLE_VAR,"New Tab - Google Chrome")
-				{
-					Send,,^{w}
-					SLEEP 100
-					DONE_ONE=1
-					DONE_ONE_COUNTER+=1
-				}
-				IF DONE_ONE=0
-				IF INSTR(TITLE_VAR,"404 Page Not Found | CPC")
-				{
-					Send,,^{w}
-					SLEEP 100
-					DONE_ONE=1
-					DONE_ONE_COUNTER+=1
-				}
-				
-				DONE_ONE_COUNTER-=1
-				IF DONE_ONE_COUNTER<0
-					BREAK
-				
-				; SLEEP 100
-
-			}
 		}
 	}
 
 RETURN
-
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -1314,6 +1568,18 @@ RETURN
 
 
 SET_RAIN_ALARM_WINDOW_DIMENSION:
+
+		XX_OVER=
+		Loop % FN_ARRAY_RAINER_F5.MaxIndex()
+		{
+			Element := FN_ARRAY_RAINER_F5[A_Index]
+			IFWinEXIST, %Element%
+				XX_OVER=TRUE
+		}
+		IF !XX_OVER
+			RETURN
+			
+
 		
 		; -----------------------------------------------------------
 		; BOTH SAME
@@ -1438,6 +1704,16 @@ RETURN
 
 AUTO_RELOAD_RAIN_ALARM:
 	
+	XX_OVER=
+	Loop % FN_ARRAY_RAINER_F5.MaxIndex()
+	{
+		Element := FN_ARRAY_RAINER_F5[A_Index]
+		IFWinEXIST, %Element%
+			XX_OVER=TRUE
+	}
+	IF !XX_OVER
+		RETURN
+
 	IF RAIN_ALARM_DO_ONCE
 	{
 		GOSUB SET_RAIN_ALARM_WINDOW_DIMENSION
@@ -1455,14 +1731,29 @@ AUTO_RELOAD_RAIN_ALARM:
 	; SET_ARRAY_RAIN_HITT_CN_33      ; ---- VARIABLE HOLD TIMER_1 - SECOND TIME
 	; SET_ARRAY_RAIN_HITT_CN_44      ; ---- VARIABLE HOLD TIMER_2 - MINUTE TIME
 
+	; ---------------------------------------------------------------
+	; AFTER FIND HERE EXTENSION CHROME
+	; ----
+	; Staying Alive for Google Chrome™ - Chrome Web Store 
+	; https://chrome.google.com/webstore/detail/staying-alive-for-google/lhobbakbeomfcgjallalccfhfcgleinm
+	; ----
+	; I GO TO TURN OFF PAGE RELOAD 
+	; WITH KEEP THE STAY FOCUS WHEN OPTION THERE
+	; SET_ARRAY_RAIN_HITT_CN_2 := []  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE
+	;
+	; SEE HERE VARIABLE
+	; NOT_WANT_TEMP_REMOVE
+	; ---------------------------------------------------------------
+	; Tue 07-Jan-2020 23:41:40
+	; ---------------------------------------------------------------
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"
-	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
-	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
-	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=40
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"  ; ---- COMPUTER NAME
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=                ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20              ; ---- TIMER INTERVAL ACTIVATE
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10              ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"     ; ---- MAKE AUDIO HITTER
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=40              ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
 	ArrayCount += 1
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
@@ -1479,7 +1770,7 @@ AUTO_RELOAD_RAIN_ALARM:
 	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=
 	ArrayCount += 1
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
-	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE" ; TRY HERE -- IF DETECT IDLE NOT ACTIVE
 	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
 	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
@@ -1578,6 +1869,7 @@ AUTO_RELOAD_RAIN_ALARM:
 		CHANGE_HWND_GO_RAIN=TRUE
 
 	}
+	
 	; TOOLTIP % O_RELO_RAIN "`n" HWND_AUTO_RELO_RAIN_3 "`n" CHANGE_HWND_GO_RAIN
 	
 	; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
@@ -1744,16 +2036,37 @@ AUTO_RELOAD_RAIN_ALARM:
 	IF CHANGE_HWND_GO_RAIN=TRUE
 		SET_GO_RAIN=TRUE
 	
+	; ---------------------------------------------------------------
+	; SEE HERE
+	; ---------------------------------------------------------------
+	; AFTER FIND HERE EXTENSION CHROME
+	; ----
+	; Staying Alive for Google Chrome™ - Chrome Web Store 
+	; ---------------------------------------------------------------
+	; NOT_WANT_TEMP_REMOVE=
+	; ---------------------------------------------------------------
+	; Tue 07-Jan-2020 23:41:40
+	; ---------------------------------------------------------------
 
+	; ---------------------------------------------------------------
+	; TEMPORARY PUT HERE AS EXTENSION ABOVE WOULD DO 
+	; BUTT NOW FAIL TASK AFTER FIRST RUN
+	; ---------------------------------------------------------------
+
+	NOT_WANT_TEMP_REMOVE=
+	NOT_WANT_TEMP_REMOVE=20
 	
 	IF SET_GO_RAIN=TRUE
 	{
-		SLEEP 100
-		SENDINPUT {F5}
+		IF NOT_WANT_TEMP_REMOVE=20
+		{
+			SLEEP 100
+			SENDINPUT {F5}
 
-		SLEEP 100
-		IF Element5_RAIN
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			SLEEP 100
+			IF Element5_RAIN
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
 		
 		; ------------------------------------
 		; TOP UP THE TIMER PAIR AFTER ACTIVATE
@@ -1768,7 +2081,6 @@ AUTO_RELOAD_RAIN_ALARM:
 		; USER TIMER HERE NOT RELOAD WHEN HWND SWAP TOO QUICKER
 		AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR=%A_Now%
 		AUTO_RELOAD_RAIN_QUICK_SUB_TIMER_VAR+= %Element6_RAIN%, seconds
-		
 	}
 	SLEEP 100
 		
@@ -1802,6 +2114,20 @@ AUTO_RELOAD_FACEBOOK:
 	; QUICK TO ACTIVATE -- DONE
 	; TIMER AFTER VALUE
 
+	SetTitleMatchMode 2                ; PARTIAL FIND
+	XX_OVER=
+	Loop % FN_ARRAY_FB_F5.MaxIndex()
+	{
+		Element := FN_ARRAY_FB_F5[A_Index]
+		IFWinEXIST, %Element%
+		{
+			XX_OVER=TRUE
+			BREAK
+		}
+	}
+	IF !XX_OVER
+		RETURN
+	
 	SET_ARRAY_FB_HITT_CN_1 := []  ; ---- COMPUTER NAME
 	SET_ARRAY_FB_HITT_CN_2 := []  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE
 	SET_ARRAY_FB_HITT_CN_3 := []  ; ---- TIMER INTERVAL ACTIVATE
@@ -1815,12 +2141,12 @@ AUTO_RELOAD_FACEBOOK:
 
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"
-	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50
+	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"    ; ---- COMPUTER NAME
+	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=                  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE   
+	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20                ; ---- TIMER INTERVAL ACTIVATE
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2                 ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"       ; ---- MAKE AUDIO HITTER
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50                ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
@@ -1837,7 +2163,7 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
-	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=1
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
@@ -1920,7 +2246,6 @@ AUTO_RELOAD_FACEBOOK:
 	IF !COMPUTER_NAME_FOUND
 		MSGBOX "COMPUTER NAME NOT FOUND"
 	
-	
 	WinGet, HWND_AUTO_RELO_FB_1, ID, A    ; Get Active Window
 	WinGetTITLE, HWND_AUTO_RELO_FB_2, A   ; Get Active Window TITLE
 	HWND_AUTO_RELO_FB_3=% HWND_AUTO_RELO_FB_1 "`n" HWND_AUTO_RELO_FB_2
@@ -1944,11 +2269,23 @@ AUTO_RELOAD_FACEBOOK:
 		CHANGE_HWND_GO_FB=TRUE
 	}
 
-	; If (A_TimeIdle < 8000)
-		; RETURN
+	; IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		; TOOLTIP % O_RELO_FB "`n" HWND_AUTO_RELO_FB_3 "`n" CHANGE_HWND_GO_FB
+	; IF (A_ComputerName = "4-ASUS-GL522VW") 
+		; TOOLTIP % O_RELO_FB "`n" HWND_AUTO_RELO_FB_3 "`n" CHANGE_HWND_GO_FB
+
 	
 	; ---------------------------------------------------------------
-	; SetTitleMatchMode 2 
+	; INTRO HERE BACK IN
+	; PAGE RELOAD WHILE WORKER NOT WORK GOOD
+	; Fri 11-Oct-2019 19:33:29
+	; ---------------------------------------------------------------
+	IF !CHANGE_HWND_GO_FB
+	If (A_TimeIdle < 8000)
+		RETURN
+	
+	; ---------------------------------------------------------------
+	; SetTitleMatchMode 2
 	; ---------------------------------------------------------------
 	; PARTIAL THIS ONE AS FACEBOOK 
 	; SOMETIME GETT AH (1) OR (2) NUMBER IN FRONT
@@ -1959,20 +2296,20 @@ AUTO_RELOAD_FACEBOOK:
 	SetTitleMatchMode 2                ; PARTIAL FIND
 	; ---------------------------------------------------------------
 	; ACTIVATE CODE BLOCK ROUTINE
-	; Element2 -- ACTIVATE ARE GO IS TIMER READY 
+	; Element2 -- ACTIVATE ARE GO IS TIMER READY
 	; ---------------------------------------------------------------
 	SET_GO_10_RAIN=
 	IF !Element2
 	IF ACTIVATE_TIMER_READY_INTERVAL
-		SET_GO_10_RAIN=TRUE           ; DO WHEN ACTIVATE TIMER INTERVAL
-								 ; IF NOT ACTIVATE RELOAD F5 PAGE AFTER
+		SET_GO_10_RAIN=TRUE         ; DO WHEN ACTIVATE TIMER INTERVAL
+								    ; IF NOT ACTIVATE RELOAD F5 PAGE AFTER
 	IF !Element2
 	IF READY_TO_GO_TIMER_INTERVAL
-		SET_GO_10_RAIN=TRUE           ; DO WHEN TIMER INTERVAL
-								 ; DON'T ACTIVATE WHEN REQUEST READY INTERVAL IF 
-								 ; ACTIVATE NOT ON
-								 ; FOR COMPUTER THAT DON'T HASSLE SWAPPER 
-								 ; SCREEN ALL THE TIME
+		SET_GO_10_RAIN=TRUE         ; DO WHEN TIMER INTERVAL
+									; DON'T ACTIVATE WHEN REQUEST READY INTERVAL IF 
+									; ACTIVATE NOT ON
+									; FOR COMPUTER THAT DON'T HASSLE SWAPPER 
+									; SCREEN ALL THE TIME
 
 	IS_ANYTHING_DO_AS_CHECK_REQUIRE_ACTIVATE=
 								 
@@ -2070,6 +2407,7 @@ AUTO_RELOAD_FACEBOOK:
 		CHANGE_HWND_GO_FB=
 	}
 
+	
 
 	NEW_NOTIFY_UPDATE=
 	WinGetTITLE, TITLE_VAR_FB_F5, A
@@ -2079,14 +2417,37 @@ AUTO_RELOAD_FACEBOOK:
 		IF INSTR(TITLE_VAR_FB_F5,ELEMENT_ARRAY_FB_F5)>0
 		{
 			IF INSTR(TITLE_VAR_FB_F5,"(")=1
-			NEW_NOTIFY_UPDATE=TRUE
-			BREAK
+			{
+				IF SOUND_PLAYER_FB_DO<%A_NOW%
+				{
+					; -----------------------------------------------
+					; FACEBOOK RINGER RINGTONE RING TONE NOTIFY
+					; -----------------------------------------------
+					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
+					; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
+					SOUND_PLAYER_FB_DO=%A_NOW%
+					SOUND_PLAYER_FB_DO+= 8, seconds  ; -- SET TIME OR RING REPEAT LOOP UNTIL PAGE REFRESH
+				}									 ; WHEN NEW NOTIFY ARRIVE FACEBOOK 
+													 ; DETECT BY "(" WINTITLE
+													 ; IF REFRESH PAGE QUICKER OTHER COMPUTER WILL 
+													 ; LOSE THAT SYMBOL THERE
+													 ; IN ORDER MAKE ALL COMPUTER RING FOR NOTIFY
+													 ; MUST WAIT TIME ALLOW 
+													 ; DETECT QUICK HAPPEN AND RING BUTT WOULD REPEAT IN
+													 ; TIMER DELAY EXTEND LONGER SO
+													 ; MAYBE RING TIMER AND ANOTHER FOR PAGE REFRESH
+													 
+				
+
+				NEW_NOTIFY_UPDATE=TRUE
+				BREAK
+			}
 		}
 	}
 
 	; ---------------------------------------------------------------
 	; THE NEW NOTIFICATION INDICATE BY A 
-	; ENCLOSED BRACKET AND NUMBER (1)
+	; ENCLOSED BRACKET AND NUMBER EXAMPLE -- YOUR NOTIFICATIONS (1)
 	; INITIAL PLAN WAS ABANDON 
 	; AS ONE COMPUTE WOULD TAKE THE NOTIFY GONE AND LEFT OTHER SIT THERE
 	; BUTTY IF INTRODUCE DELAY -- MIGHT WORKER
@@ -2107,6 +2468,11 @@ AUTO_RELOAD_FACEBOOK:
 	{
 		NEW_NOTIFY_UPDATE_TIMER_DELAY=
 		NEW_NOTIFY_UPDATE_FLAGER=TRUE
+	}
+	IF NEW_NOTIFY_UPDATE_TIMER_DELAY
+	IF NEW_NOTIFY_UPDATE_TIMER_DELAY>%A_NOW%
+	{
+		RETURN
 	}
 
 	IF !CHECKER_FB
@@ -2140,9 +2506,16 @@ AUTO_RELOAD_FACEBOOK:
 	IF NEW_NOTIFY_UPDATE_FLAGER=TRUE
 		SET_GO_FB=TRUE
 
-		
+	
 	IF SET_GO_FB=TRUE
 	{
+		IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		{
+			TOOLTIP 
+			SLEEP 400
+		}
+		IF (A_ComputerName = "4-ASUS-GL522VW") 
+			TOOLTIP 
 		SLEEP 100
 		SENDINPUT {Up}
 		SENDINPUT {F5}
@@ -2170,13 +2543,88 @@ AUTO_RELOAD_FACEBOOK:
 	SLEEP 100
 		
 RETURN
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; DECLARE VAR
+; OLD_TITLE_VAR_BT_MAIL=
+; -------------------------------------------------------------------
+; TAKE 40 MINUTE TO ADD ONE ROUTINE THAT SOUND EFFECT
+; WHEN NEW MAIL ARRIVE YAHOO
+; TAKE ANOTHER 20 MINUTE TO ADD SEGMENT WHERE LOOP ARE
+; 001 IT CHECK THE ACTIVE WINDOW QUICKER KEEP ROUTINE BEFORE
+; 002 IT LOOP ALL WINDOW -- CHROME ONLY HAS ONE TITLE BAR WHERE URL TITLE
+; IT HIDE ANY THAT NOT FOCUS EVEN DIFFERENT USER ACCOUNT NEW BROWSER WINDOW
+; THIS WAY ABLE USE WITH FIREFOX AND ANY BROWSER AT THE SAME TIME
+; THE LOOP TAKE EXTRA PROCESS IF NOT FOUND INSTANT ACTIVE WINDOW
+; -------------------------------------------------------------------
+; SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
+; -------------------------------------------------------------------
+; 001 OF 002
+; Wed 08-Jan-2020 10:20:00
+; Wed 08-Jan-2020 11:02:00
+; 002 OF 002
+; Wed 08-Jan-2020 11:48:06
+; Wed 08-Jan-2020 11:08:00
+; -------------------------------------------------------------------
+
+SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
+
+	TITLE_VAR_BT_MAIL=
+	WinGetTITLE, TITLE_VAR_BT_MAIL, A
+	
+	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Google Chrome"
+	ELEMENT_ARRAY_BT_MAIL:="unread) - matt.lan@btinternet.com - BT Yahoo Mail"
+	IF INSTR(TITLE_VAR_BT_MAIL,ELEMENT_ARRAY_BT_MAIL)>0
+	{
+		NewVar := RegExReplace(TITLE_VAR_BT_MAIL, "\D")
+		IF NewVar>0
+		IF OLD_TITLE_VAR_BT_MAIL<%NewVar%
+		{
+			; -----------------------------------------------
+			; BT MAIL RINGER RINGTONE RING TONE NOTIFY
+			; -----------------------------------------------
+			IF OLD_TITLE_VAR_BT_MAIL<>-2
+				Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+			OLD_TITLE_VAR_BT_MAIL=%NewVar%
+			RETURN
+		}
+	}
+	
+	TITLE_VAR_BT_MAIL=
+	WinGet, List, List, %ELEMENT_ARRAY_BT_MAIL%
+	Loop %List%  
+	{ 
+		HWND_ID := List%A_Index%
+		WinGetTitle, TITLE_VAR_BT_MAIL, ahk_id %HWND_ID%
+		{
+			NewVar := RegExReplace(TITLE_VAR_BT_MAIL, "\D")
+			IF NewVar>0
+			IF OLD_TITLE_VAR_BT_MAIL<%NewVar%
+			{
+				; -----------------------------------------------
+				; BT MAIL RINGER RINGTONE RING TONE NOTIFY
+				; -----------------------------------------------
+				IF OLD_TITLE_VAR_BT_MAIL<>-2
+					Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+				OLD_TITLE_VAR_BT_MAIL=%NewVar%
+			}
+		}
+	}
+	
+RETURN
+	
 		
 
 
+		
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 
@@ -2233,4 +2681,19 @@ class MyObject
 ;# ------------------------------------------------------------------
 ; exit the app
 
+
+
+; The WinTitle Parameter & the Last Found Window
+
+; Many commands and a few functions have a WinTitle parameter, used to identify which window (or windows) to operate on. This parameter can be the title or partial title of the window, and/or any other criteria described on this page.
+; Quick Reference: 
+; Title Matching Behaviour 
+; A The Active Window 
+; ahk_class Window Class 
+; ahk_id Unique ID/HWND 
+; ahk_pid Process ID 
+; ahk_exe Process Name/Path 
+; ahk_group Window Group 
+; Multiple Criteria 
+; (All empty) Last Found Window 
 

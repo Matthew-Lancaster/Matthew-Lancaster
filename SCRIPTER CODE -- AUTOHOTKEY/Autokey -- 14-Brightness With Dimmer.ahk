@@ -517,7 +517,7 @@ SET_ARRAY_AUTO_KEY() {
 	GLOBAL ArrayCount
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_AUTO_KEY[ArrayCount]:="Your Notifications - Google Chrome"
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Your notifications - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
@@ -547,10 +547,30 @@ RETURN SET_ARRAY_AUTO_KEY
 
 RS232_LOGGER_TIMER_RUN_EXE:
 	
+	FN_VAR_RS232_FILENAME:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR_APP_RUNNER_TICKER_#NFS_EX.TXT"
+	IFEXIST, %FN_VAR_RS232_FILENAME%
+	{
+		FileGetTime, A_Script_MODIIFED_DATE , %FN_VAR_RS232_FILENAME% 
+		; DIFFICULT IF FILENAME NOT GIVEN CORRECT %VAR% OR 
+		; WITHOUT QUOTE -- RETURN CURRENT TIME
+		; -----------------------------------------------------------
+		A_Script_MODIIFED_DATE+= 15, Seconds
+		IF A_Script_MODIIFED_DATE>%A_NOW%
+			RETURN
+	}
+	
+	; ---------------------------------------------------------------
+	; AS HIDDEN WINDOW HARD TO FIND -- NOW MAKE CHAIN DOG TRIGGER
+	; ---------------------------------------------------------------
+	; NOT WITH GOOD FIND REPEAT LOAD THIS CODE BEEN GO LONG TIME 
+	; UNTIL FAULT FINDER NOW
+	; Sun 09-Feb-2020 20:05:33
+	; Sun 09-Feb-2020 20:51:04 -- 46 MINUTE
+	; ---------------------------------------------------------------
 	FN_VAR_RS232_EXE:="D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR.exe"
 	IfWinNotActive RS232_LOGGER - Microsoft Visual Basic [ ahk_class wndclass_desked_gsk
 	IFWINNOTEXIST RS232_LOGGER ahk_class ThunderFormDC
-	IFWINNOTEXIST RS232_LOGGER  ahk_exe RS232 LOGGER PIR.exe
+	IFWINNOTEXIST RS232_LOGGER ahk_exe RS232 LOGGER PIR.exe
 	IFEXIST, %FN_VAR_RS232_EXE%
 	{
 		Run, %FN_VAR_RS232_EXE%,,HIDE
@@ -725,7 +745,7 @@ CHECK_FILENAME_1_HOUR:
 		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
 	}
 
-	FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer ADD_SOME_#NFS__%A_ComputerName%.TXT
+	FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer ADD_SOME_#NFS_EX_%A_ComputerName%.TXT
 	if FileExist(FileName_VB)
 	{
 		FileDelete, % FileName_VB
@@ -741,6 +761,7 @@ CHECK_FILENAME_1_HOUR:
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
+		
 		Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoids a taskbar button.
 		Gui Color, White
 		Gui font, s30 bold, Arial
@@ -1362,9 +1383,8 @@ or winW < A_ScreenWidth) ? false : true
 }
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 

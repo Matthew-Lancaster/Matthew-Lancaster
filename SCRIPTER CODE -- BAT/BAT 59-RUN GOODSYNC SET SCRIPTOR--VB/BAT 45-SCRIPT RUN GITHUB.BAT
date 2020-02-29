@@ -193,7 +193,7 @@ REM -----------------------------------------------------------------
 REM -- GET CONTENT OF FILE AND PUT IN VARIABLE
 for /f "delims=" %%x in (%GITHUB_NUMBER_PATH%) do set GITHUB_NUMBER=%%x
 REM -----------------------------------------------------------------
-
+ 
 %PATH_GIT%\git init
 %PATH_GIT%\git add .
 %PATH_GIT%\git commit -m "%DATE_TIME_FORMATER%"

@@ -45,7 +45,7 @@
 #singleInstance force
 detectHiddenWindows, on
 setWorkingDir %a_scriptDir%
-#NoTrayIcon
+; #NoTrayIcon                   ; WOULD NOT FINDER -- WHEN AUTOHOTKEY TRY LOOK EVEN IF HIDDEN -- WINGET
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
@@ -89,8 +89,12 @@ SoundBeep , 1500 , 400
 REMOVER_ONE=0
 REMOVER_COUNT=0
 
+REMOVER_ONE_NOW=
+REMOVER_ONE_NOW+= 40, Seconds
+
 WHILE REMOVER_ONE=0
 {
+	REMOVER_ONE=0
 	Array_Icon_GetInfo := TrayIcon_GetInfo()
 	Loop % Array_Icon_GetInfo.MaxIndex()
 	{
@@ -99,19 +103,29 @@ WHILE REMOVER_ONE=0
 			TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
 			SoundBeep , 2000 , 20
 			; SoundBeep REDUCTION IN LENGTH BEEP MAKE QUICKER
-			REMOVER_ONE=1
+			REMOVER_ONE_NOW=%A_Now%
+			REMOVER_ONE_NOW+= 4, Seconds
 		}
 	}
-	
-	IF REMOVER_ONE=1
+
+	WinGet, List, List, ahk_class AutoHotkey
+	Loop %List%
+	I_COUNT=%A_Index%
+	IF I_COUNT<2
 		BREAK
+	
+	IF REMOVER_ONE_NOW<%A_NOW%
+		BREAK
+
+	; IF REMOVER_ONE=1
+		; BREAK
 	
 	; TOOLTIP % REMOVER_COUNT
-	REMOVER_COUNT+=1
-	IF REMOVER_COUNT>40
-		BREAK
+	; REMOVER_COUNT+=1
+	; IF REMOVER_COUNT>400
+		; BREAK
 	IF REMOVER_ONE=0
-		SLEEP 40
+		SLEEP 20
 }
 
 EXITAPP
@@ -400,9 +414,8 @@ TrayIcon_Button(sExeName, sButton := "L", bDouble := false, index := 1)
 
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 

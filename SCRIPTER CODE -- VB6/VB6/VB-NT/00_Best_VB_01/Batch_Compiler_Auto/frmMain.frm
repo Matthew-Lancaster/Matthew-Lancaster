@@ -33,6 +33,7 @@ Begin VB.Form frmMain
       _ExtentY        =   508
       _Version        =   393217
       BackColor       =   16777215
+      Enabled         =   -1  'True
       HideSelection   =   0   'False
       ScrollBars      =   2
       Appearance      =   0
@@ -1737,14 +1738,23 @@ End Sub
 
 Private Sub lstProj_DblClick()
 Dim MM
+Dim STRING_VB_8
+Dim STRING_VB_R
+Dim ST
+
 MM = lstProj.SelectedItem.Text
 
 For We = 1 To ScanPath.ListView1.ListItems.Count
     A1$ = ScanPath.ListView1.ListItems.Item(We).SubItems(1)
     B1$ = ScanPath.ListView1.ListItems.Item(We)
         If InStr(A1$ + B1$, MM) > 0 Then
-            Shell "C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE """ + A1$ + B1$ + """", vbNormalFocus
-            End
+            STRING_VB_8 = "C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"
+            STRING_VB_R = Replace(STRING_VB_8, "C:\Program Files", "C:\Program Files (X86)")
+            ST = " """ + A1$ + B1$ + """"
+            If Dir(STRING_VB_8) <> "" Then Shell STRING_VB_8 + ST, vbNormalFocus: End
+            If Dir(STRING_VB_R) <> "" Then Shell STRING_VB_R + ST, vbNormalFocus: End
+            MsgBox "NOT EXIST -- STOP IN IDE" + vbCrLf + vbCrLf + STRING_VB_8 + vbCrLf + vbCrLf + STRING_VB_R
+            If IsIDE = True Then Stop
         End If
 Next
 

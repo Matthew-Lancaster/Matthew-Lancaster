@@ -232,12 +232,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; ---------------------------------------------------------------
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
-
-
-
 DetectHiddenWindows, on
 SetStoreCapslockMode, off
-
 
 SoundBeep , 2000 , 100
 SoundBeep , 2500 , 100
@@ -262,7 +258,6 @@ IF OSVER_N_VAR=WIN_XP
 	OSVER_N_VAR=5
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
-	
 	
 
 GOSUB TEST_STARTER_RUN_IN
@@ -572,6 +567,20 @@ Process_Suspend_esif_assist_64(PID){
 ; -------------------------------------------------------------------
 MAIN_ROUTINE_2:
 
+
+Element_1 := "D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe"
+IfExist, %Element_1%
+{
+	SoundBeep , 2000 , 100
+	Run, %Element_1%
+}
+
+
+
+
+
+
+
 ; Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
 ; IfExist, %Element_1%
 ; {
@@ -635,6 +644,10 @@ IF SET_GO_1=TRUE
 ; PAUSE
 
 SET_GO_8=TRUE
+IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	SET_GO_8=FALSE
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO_8=FALSE
 IF (A_ComputerName = "3-LINDA-PC") 
 	SET_GO_8=FALSE
 
@@ -663,7 +676,7 @@ If (OSVER_N_VAR=10)
 		IfExist, %FN_VAR%
 		{
 				SoundBeep , 2000 , 100
-				Run, "%FN_VAR%" MINIMAL____START_22
+				Run, "%FN_VAR%" MINIMAL____START_22,MIN
 		}
 	}
 }
@@ -1363,16 +1376,17 @@ IF SET_GO=FALSE
 
 	
 		
-	SET_GO_GOOGLEDRIVESYNC=0
-	; --------------------------
-	; WIN_XP 5 WIN_7 6 WIN_10 10  
-	; --------------------------
-	If OSVER_N_VAR=10
-		SET_GO_GOOGLEDRIVESYNC=1
+	SET_GO_GOOGLEDRIVESYNC=
 	IF (A_ComputerName = "5-ASUS-P2520LA") 
-		SET_GO_GOOGLEDRIVESYNC=1
+		SET_GO_GOOGLEDRIVESYNC=TRUE
+	IF (A_ComputerName = "4-ASUS-GL522VW") 
+		SET_GO_GOOGLEDRIVESYNC=TRUE
+	IF (A_ComputerName = "7-ASUS-GL522VW") 
+		SET_GO_GOOGLEDRIVESYNC=FALSE
+	; IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+		; SET_GO_GOOGLEDRIVESYNC=TRUE
 		
-	IF SET_GO_GOOGLEDRIVESYNC=1
+	IF SET_GO_GOOGLEDRIVESYNC
 	{
 	Process, Exist, googledrivesync.exe
 	If Not ErrorLevel
@@ -1590,11 +1604,11 @@ IfWinNotExist SendSMTP_REBOOT_BATCH
 ; 2018-05-21 02:12
 
 	
-SET_GO=FALSE
+SET_GO=
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO=FALSE
+	SET_GO=TRUE
 IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO=FALSE
+	SET_GO=
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=TRUE
 IF (A_ComputerName = "7-ASUS-GL522VW") 
@@ -2378,7 +2392,7 @@ RETURN
 
 CHROME_RUN_AND_MIN:
 
-	FN_VAR_AHK:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-LOAD URL AT BOOT CHROME.ahk"
+	FN_VAR_AHK:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-BROWSER LOAD URL BOOT CHROME.ahk"
 
 	IfExist, %FN_VAR_AHK%
 	{
@@ -2520,9 +2534,9 @@ TEST_STARTER_RUN_IN:
 
 RETURN
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
+
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 
