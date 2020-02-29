@@ -29,14 +29,18 @@
 ; -------------------------------------------------------------------
 
 ; ------------------------------------------------------------------
-; Location Internet
+; Location SOURCE
 ;---------------------------------------------------------------------
+; ---------------------
 ; Matthew-Lancaster/Autokey -- 94-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk
-; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOHOTKEY/Autokey%20--%2019-SCRIPT_TIMER_UTIL_2.ahk
-; -------------------------------------------------------------------
+; ---------------------
+; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOHOTKEY/Autokey%20--%2094-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk 
+; ---------------------
+; HTTPS://TINYURL.COM/SRZ69YL
+; ---------------------
 
 ; -------------------------------------------------------------------
-; CREDIT TO 
+; ADDITIONAL CREDIT TO 
 ; -------------------------------------------------------------------
 ; PhiLho 
 ; Moderator 
@@ -61,8 +65,6 @@
 #Warn
 #NoEnv
 #SingleInstance Force
-
-; #NoTrayIcon
 
 ; -------------------------------------------------------------------
 #Persistent
