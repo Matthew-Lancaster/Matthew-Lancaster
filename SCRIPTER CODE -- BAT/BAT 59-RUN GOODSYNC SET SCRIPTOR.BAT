@@ -802,7 +802,6 @@ REM -----------------------------------------------------------------
 REM "%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!  /QUICK_INTRO_DUMMY_RUN
 REM -----------------------------------------------------------------
 ECHO ----------------------------------------------------------------
-ECHO.
 
 @ECHO OFF
 @ECHO ON
@@ -813,9 +812,11 @@ SET LDR=0
 
 FOR /L %%a in (1,1,!LDA!) DO (
 
+	ECHO.
+	ECHO.
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
-	ECHO %%a of !LDA!
+	ECHO %%a of !LDA! -- START
 	ECHO ----------------------------------------------------------------
 
 	REM STRIP QUOTES THIS BIT BEFORE END :"=
@@ -982,7 +983,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM ACCUMULATOR
 	SET L=
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
-	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=%%a of !LDA!
+	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=%%a of !LDA! -- COMPLETE
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=!Sources_02[%%a]:"=!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
