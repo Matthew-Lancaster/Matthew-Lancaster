@@ -16959,7 +16959,8 @@ Attribute VB_Exposed = False
 ' Sun 26-Jan-2020 05:28:00 -- 5 HOUR 42 MINUTE
 ' -----------------------------
 
-
+Dim FIND_IF_LEFT_HAS_FIRST_CHANGE
+Dim O_FIRST_LEFT
 
 Public LINK_DATA
 
@@ -17384,7 +17385,33 @@ If Label1(R - 1).Top > SH Then
 End If
 
 Label1(R).Width = xy(xgax2 + 1) - 20
+' -----------------------------------
+' HERE THE 1ST LEFT
+' -----------------------------------
+' WORK HERE TODAY
+' FILL FIRST COLUMN WITH BLANK AT END
+' SO VB PROJECT STUFF START NEW ONE
+' Sun 09-Feb-2020 18:53:30
+' NOT REQUIRE WANT
+' IF TAKE AWAY MORE
+' MAKE COLUMN LOOK IN-LINE BETTER
+' WAS ONLY COUPLE AT BOTTOM FOR
+' BEGIN VB CODE PROJECT LOADER
+' -----------------------------------
+AA = Label1(R).Caption
+
 Label1(R).Left = xgag
+FIRST_LEFT = Label1(R).Left
+' FIND IF LEFT HAS FIRST CHANGE
+' -----------------------------------
+If O_FIRST_LEFT = 0 Then
+    O_FIRST_LEFT = FIRST_LEFT   ' FIRST_LEFT WILL ONLY BE 1
+End If
+If O_FIRST_LEFT <> FIRST_LEFT Then
+    FIND_IF_LEFT_HAS_FIRST_CHANGE = True
+End If
+
+O_FIRST_LEFT = FIRST_LEFT
 'Tolerance
 If Label1(R).Left + Label1(R).Width > Screen.Width + 1500 Then
     Label1(R).Visible = False

@@ -66,7 +66,7 @@ Begin VB.Form frmMain
       Top             =   432
       Width           =   1044
    End
-   Begin VB.CommandButton cmdMoveMax 
+   Begin VB.CommandButton cmdMoveMax_AND_NORMAL 
       Caption         =   "Move Window Maximum"
       BeginProperty Font 
          Name            =   "Arial"
@@ -4689,7 +4689,7 @@ End Sub
 '////////////////////////////////////////////////////////////////////
 '//// BUTTON EVENTS
 '////////////////////////////////////////////////////////////////////
-Private Sub cmdMoveMax_Click()
+Private Sub cmdMoveMax_AND_NORMAL_Click()
     
     ' Make Sure there is a space between the Eye _ i _ I _ iResult I_Result I Borg Kim
     ' --------------------------------------------------------------------------------
@@ -11099,14 +11099,14 @@ SET_COMPUTER_TO_RUN_PID_EXE = "AutoHotkey.exe"
 ' NOT YET IN THIS CODE _ IS ORIGINALLY FROM VB_KEEP_RUNNER ME
 ' -----------------------------------------------------
 
-Dim R, A1, A2
+Dim r, A1, A2
 
 ' DO 1ST FOR SPEEDER
 
-For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
-    A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+For r = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+    A1 = lstProcess_3_SORTER_ListView.ListItems.Item(r).SubItems(1)
     If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(r))
         cProcesses.Process_Kill (PID)
     End If
 Next
@@ -11119,10 +11119,10 @@ Do
     Call EnumProcess
     EXECUTE_KILL_1 = False
     EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
-    For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
-        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+    For r = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(r).SubItems(1)
         If InStr(A1, SET_COMPUTER_TO_RUN_PID_EXE) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(r))
             cProcesses.Process_Kill (PID)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
@@ -11164,14 +11164,14 @@ SET_COMPUTER_TO_RUN_PID_EXE = "WSCRIPT.exe"
 ' NOT YET IN THIS CODE _ IS ORIGINALLY FROM VB_KEEP_RUNNER ME
 ' -----------------------------------------------------
 
-Dim R, A1, A2
+Dim r, A1, A2
 
 ' DO 1ST FOR SPEEDER
 
-For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
-    A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+For r = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+    A1 = lstProcess_3_SORTER_ListView.ListItems.Item(r).SubItems(1)
     If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+        PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(r))
         cProcesses.Process_Kill (PID)
     End If
 Next
@@ -11184,10 +11184,10 @@ Do
     Call EnumProcess
     EXECUTE_KILL_1 = False
     EXECUTE_KILL_COUNTER = EXECUTE_KILL_COUNTER + 1
-    For R = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
-        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(R).SubItems(1)
+    For r = 1 To lstProcess_3_SORTER_ListView.ListItems.Count
+        A1 = lstProcess_3_SORTER_ListView.ListItems.Item(r).SubItems(1)
         If InStr(UCase(A1), UCase(SET_COMPUTER_TO_RUN_PID_EXE)) > 0 Then
-            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(R))
+            PID = Val(lstProcess_3_SORTER_ListView.ListItems.Item(r))
             cProcesses.Process_Kill (PID)
             EXECUTE_KILL_1 = True
             EXECUTE_KILL_2 = True
@@ -11287,7 +11287,7 @@ End Sub
 
 
 Function CreateBitmapPicture(ByVal hBmp As Long, ByVal hPal As Long) As Picture
-    Dim R As Long, Pic As PicBmp, IPic As IPicture, IID_IDispatch As GUID
+    Dim r As Long, Pic As PicBmp, IPic As IPicture, IID_IDispatch As GUID
     With IID_IDispatch
         .Data1 = &H20400
         .Data4(0) = &HC0
@@ -11300,11 +11300,11 @@ Function CreateBitmapPicture(ByVal hBmp As Long, ByVal hPal As Long) As Picture
         .hBmp = hBmp
         .hPal = hPal
     End With
-    R = OleCreatePictureIndirect(Pic, IID_IDispatch, 1, IPic)
+    r = OleCreatePictureIndirect(Pic, IID_IDispatch, 1, IPic)
     Set CreateBitmapPicture = IPic
 End Function
 Function hDCToPicture(ByVal hDCSrc As Long, ByVal LeftSrc As Long, ByVal TopSrc As Long, ByVal WidthSrc As Long, ByVal HeightSrc As Long) As Picture
-    Dim hDCMemory As Long, hBmp As Long, hBmpPrev As Long, R As Long
+    Dim hDCMemory As Long, hBmp As Long, hBmpPrev As Long, r As Long
     Dim hPal As Long, hPalPrev As Long, RasterCapsScrn As Long, HasPaletteScrn As Long
     Dim PaletteSizeScrn As Long, LogPal As LOGPALETTE
 
@@ -11318,17 +11318,17 @@ Function hDCToPicture(ByVal hDCSrc As Long, ByVal LeftSrc As Long, ByVal TopSrc 
     If HasPaletteScrn And (PaletteSizeScrn = 256) Then
         LogPal.palVersion = &H300
         LogPal.palNumEntries = 256
-        R = GetSystemPaletteEntries(hDCSrc, 0, 256, LogPal.palPalEntry(0))
+        r = GetSystemPaletteEntries(hDCSrc, 0, 256, LogPal.palPalEntry(0))
         hPal = CreatePalette(LogPal)
         hPalPrev = SelectPalette(hDCMemory, hPal, 0)
-        R = RealizePalette(hDCMemory)
+        r = RealizePalette(hDCMemory)
     End If
-    R = BitBlt(hDCMemory, 0, 0, WidthSrc, HeightSrc, hDCSrc, LeftSrc, TopSrc, vbSrcCopy)
+    r = BitBlt(hDCMemory, 0, 0, WidthSrc, HeightSrc, hDCSrc, LeftSrc, TopSrc, vbSrcCopy)
     hBmp = SelectObject(hDCMemory, hBmpPrev)
     If HasPaletteScrn And (PaletteSizeScrn = 256) Then
         hPal = SelectPalette(hDCMemory, hPalPrev, 0)
     End If
-    R = DeleteDC(hDCMemory)
+    r = DeleteDC(hDCMemory)
     Set hDCToPicture = CreateBitmapPicture(hBmp, hPal)
 End Function
 Function PrintScreenOntoForm(ByVal Form As Form)
@@ -11336,11 +11336,11 @@ Function PrintScreenOntoForm(ByVal Form As Form)
 End Function
 
 Function PrintCurrentFormOntoForm(ByVal Form As Form)
-    Dim R As RECT
+    Dim r As RECT
     Dim HWndx, LEFT_RIGHT_INSET___________, i1, i2
     HWndx = GetForegroundWindow
     
-    GetWindowRect HWndx, R
+    GetWindowRect HWndx, r
     
     'WINDOW 10 OR ADJUST
     Dim i, LEFT_RIGHT_INSET_AND_OFFSET
@@ -11353,37 +11353,37 @@ Function PrintCurrentFormOntoForm(ByVal Form As Form)
     i1 = LEFT_RIGHT_INSET_AND_OFFSET
     i2 = LEFT_RIGHT_INSET___________
     
-    Set Form.Picture = hDCToPicture(GetDC(0), R.Left + i1, R.Top, (R.Right - R.Left) - i2, R.Bottom - R.Top)
+    Set Form.Picture = hDCToPicture(GetDC(0), r.Left + i1, r.Top, (r.Right - r.Left) - i2, r.Bottom - r.Top)
 End Function
 
 
 
 
 Function Print_HWND_FORM_ontoForm(ByVal Form As Form, HWND_NUMBER As Long)
-    Dim R As RECT
+    Dim r As RECT
     Dim HWndx
     
     HWndx = HWND_NUMBER
     
     'HWndx = GetForegroundWindow
         
-    GetWindowRect HWndx, R
+    GetWindowRect HWndx, r
     
-    Set Form.Picture = hDCToPicture(GetDC(0), R.Left, R.Top, R.Right - R.Left, R.Bottom - R.Top)
+    Set Form.Picture = hDCToPicture(GetDC(0), r.Left, r.Top, r.Right - r.Left, r.Bottom - r.Top)
 End Function
 
 Function Print_HWND_FORM_ontoForm_2(ByVal Form As Form, HWND_NUMBER As Long)
     'NOT OVERLAP
-    Dim R As RECT
+    Dim r As RECT
     Dim HWndx
     
     HWndx = HWND_NUMBER
     
     'HWndx = GetForegroundWindow
         
-    GetWindowRect HWndx, R
+    GetWindowRect HWndx, r
     
-    Set Form.Picture = hDCToPicture(GetDC(0), R.Left, R.Top, R.Right - R.Left, R.Bottom - R.Top)
+    Set Form.Picture = hDCToPicture(GetDC(0), r.Left, r.Top, r.Right - r.Left, r.Bottom - r.Top)
 
     'rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
     'rv = SendMessage(Me.hwnd, WM_PRINT, SCREEN_CAP_PICTURE.Picture1.HDC, PRF_CHILDREN + PRF_CLIENT + PRF_OWNED)
@@ -12227,7 +12227,7 @@ End Sub
 'Private Declare Function CloseHandle Lib "kernel32" _
 '   (ByVal hObject As Long) As Long
 
-Public Function SetFileDateTime(ByVal Filename As String, _
+Public Function SetFileDateTime(ByVal FileName As String, _
   ByVal TheDate As String) As Boolean
 '************************************************
 'PURPOSE:    Set File Date (and optionally time)
@@ -12238,7 +12238,7 @@ Public Function SetFileDateTime(ByVal Filename As String, _
 
 'Returns:    True if successful, false otherwise
 '************************************************
-If Dir(Filename) = "" Then Exit Function
+If Dir(FileName) = "" Then Exit Function
 If Not IsDate(TheDate) Then Exit Function
 
 Dim lFileHnd As Long
@@ -12261,7 +12261,7 @@ End With
 lRet = SystemTimeToFileTime(typSystemTime, typLocalTime)
 lRet = LocalFileTimeToFileTime(typLocalTime, typFileTime)
 
-lFileHnd = CreateFile(Filename, GENERIC_WRITE, _
+lFileHnd = CreateFile(FileName, GENERIC_WRITE, _
     FILE_SHARE_READ Or FILE_SHARE_WRITE, ByVal 0&, _
     OPEN_EXISTING, 0, 0)
     
@@ -12279,7 +12279,7 @@ End Function
 
 
 
-Public Function SetFOLDERDateTime(ByVal Filename As String, Folder_Part_Path, _
+Public Function SetFOLDERDateTime(ByVal FileName As String, Folder_Part_Path, _
   ByVal TheDate As String) As Boolean
 
     
@@ -12294,7 +12294,7 @@ Public Function SetFOLDERDateTime(ByVal Filename As String, Folder_Part_Path, _
 'ModFileDT FileName, Folder_Part_Path, TheDate '"1/05/2017 1:0:00"
 
 
-ModFileDT Filename, Folder_Part_Path, TheDate
+ModFileDT FileName, Folder_Part_Path, TheDate
 
 
 End Function
@@ -12352,7 +12352,7 @@ Next
 End Function
 
 
-Public Function Set2244FOLDERDateTime(ByVal Filename As String, _
+Public Function Set2244FOLDERDateTime(ByVal FileName As String, _
   ByVal TheDate As String) As Boolean
 '************************************************
 'PURPOSE:    Set File Date (and optionally time)
@@ -12366,7 +12366,7 @@ Public Function Set2244FOLDERDateTime(ByVal Filename As String, _
 
 Dim FT1, FT2
 
-If Dir(Filename, vbDirectory) = "" Then Exit Function
+If Dir(FileName, vbDirectory) = "" Then Exit Function
 If Not IsDate(TheDate) Then Exit Function
 
 Dim lFileHnd As Long
@@ -12391,7 +12391,7 @@ lRet = LocalFileTimeToFileTime(typLocalTime, typFileTime)
 
 'CreateDirectory "C:\Test", ByVal &H0
 
-lFileHnd = CreateDirectory(Filename, ByVal &H0)
+lFileHnd = CreateDirectory(FileName, ByVal &H0)
 
 'lFileHnd = CreateDirectory(FileName, GENERIC_WRITE, _
     FILE_SHARE_READ Or FILE_SHARE_WRITE, ByVal 0&, _
@@ -12448,7 +12448,7 @@ End Function
 'Private Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
 
 
-Private Function Set2222FOLDERDateTime(ByVal Filename As String, ByVal TheDate As String) As Boolean
+Private Function Set2222FOLDERDateTime(ByVal FileName As String, ByVal TheDate As String) As Boolean
 Dim lngHandle As Long
 Dim FT1 As FILETIME, FT2 As FILETIME, SysTime As SYSTEMTIME
 
@@ -12466,9 +12466,9 @@ With typSystemTime
     .wSecond = Second(TheDate)
 End With
 
-CreateDirectory Filename, ByVal &H0
+CreateDirectory FileName, ByVal &H0
 
-lngHandle = GetFileAttributes(Filename)
+lngHandle = GetFileAttributes(FileName)
 'MsgBox lngHandle
 GetFileTime lngHandle, FT1, FT1, FT2
 
