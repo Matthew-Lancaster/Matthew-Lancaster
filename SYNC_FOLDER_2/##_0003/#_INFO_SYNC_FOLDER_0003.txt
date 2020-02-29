@@ -1,6 +1,0 @@
-C:\PStart\Progs\0_Nirsoft_Package\NirSoft\BlueToothView_Desc.VBS
-SYNC WITHER
-C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 14-Bluetoothview_Desc.VBS
-
-
-[ Saturday 04:53:10 Pm_23 March 2019 ]
