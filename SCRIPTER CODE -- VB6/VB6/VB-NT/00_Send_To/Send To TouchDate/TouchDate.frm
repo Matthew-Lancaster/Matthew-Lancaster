@@ -11,6 +11,227 @@ Begin VB.Form Form1
    ScaleWidth      =   15720
    StartUpPosition =   2  'CenterScreen
    Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   36
+      Left            =   13620
+      TabIndex        =   38
+      Top             =   624
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   35
+      Left            =   13068
+      TabIndex        =   37
+      Top             =   696
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   34
+      Left            =   12996
+      TabIndex        =   36
+      Top             =   612
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   33
+      Left            =   12780
+      TabIndex        =   35
+      Top             =   588
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   32
+      Left            =   13392
+      TabIndex        =   34
+      Top             =   768
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   31
+      Left            =   12960
+      TabIndex        =   33
+      Top             =   840
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   30
+      Left            =   13152
+      TabIndex        =   32
+      Top             =   624
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   29
+      Left            =   13068
+      TabIndex        =   31
+      Top             =   240
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   28
+      Left            =   12792
+      TabIndex        =   30
+      Top             =   540
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   27
+      Left            =   13548
+      TabIndex        =   29
+      Top             =   888
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   26
+      Left            =   13116
+      TabIndex        =   28
+      Top             =   564
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   25
+      Left            =   13380
+      TabIndex        =   27
+      Top             =   1104
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   396
+      Index           =   0
+      Left            =   13560
+      TabIndex        =   26
+      Top             =   444
+      Width           =   396
+   End
+   Begin VB.Label LABEL_SET 
       Caption         =   "PERFORM ON ALL FILES IN FOLDER OR FILE"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -131,9 +352,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   588
       Index           =   10
-      Left            =   132
+      Left            =   228
       TabIndex        =   11
-      Top             =   4692
+      Top             =   4764
       Width           =   11100
    End
    Begin VB.Label LABEL_SET 
@@ -149,9 +370,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   11
-      Left            =   288
+      Left            =   432
       TabIndex        =   12
-      Top             =   5364
+      Top             =   5544
       Width           =   10812
    End
    Begin VB.Label LABEL_SET 
@@ -166,9 +387,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   12
-      Left            =   14352
+      Left            =   13344
       TabIndex        =   13
-      Top             =   1704
+      Top             =   768
       Width           =   396
    End
    Begin VB.Label LABEL_SET 
@@ -183,9 +404,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   13
-      Left            =   13872
+      Left            =   12828
       TabIndex        =   14
-      Top             =   1008
+      Top             =   768
       Width           =   396
    End
    Begin VB.Label LABEL_SET 
@@ -200,9 +421,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   14
-      Left            =   13968
+      Left            =   13416
       TabIndex        =   15
-      Top             =   348
+      Top             =   372
       Width           =   396
    End
    Begin VB.Label LABEL_SET 
@@ -217,9 +438,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   396
       Index           =   15
-      Left            =   13968
+      Left            =   12804
       TabIndex        =   16
-      Top             =   348
+      Top             =   336
       Width           =   396
    End
    Begin VB.Label LABEL_SET 
@@ -502,7 +723,7 @@ Dim FORM_ME As New Form1
 Dim I_1 ' QUICK MODE RESULT
 Dim I_2 ' QUICK MODE RESULT
 
-Dim M()
+Dim M_1()
 Dim M_2()
 Dim M_3()
 Dim FR1
@@ -780,42 +1001,52 @@ Private Sub Form_Resize()
 
 Dim r
 
-ReDim M(LABEL_SET.Count)
+ReDim M_1(LABEL_SET.Count)
 ReDim M_2(LABEL_SET.Count)
 ReDim M_3(LABEL_SET.Count)
 i = 0
 
-i = i + 1: M(i) = "GO"
-i = i + 1: M(i) = "Folder Label"
-i = i + 1: M(i) = "File Label"
-'i = i + 1: M(i) = "PERFORM ON ALL FILES IN FOLDER OR FILE"
-i = i + 1: M(i) = "NOW_DATE"
-i = i + 1: M(i) = "MODIFY DATE TO CREATED DATE - NOT WORKING"
-i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "BATCH - CREATED DATE TO MODIFY DATE"
-i = i + 1: M(i) = "FILE  - CREATED DATE TO MODIFY DATE"
-i = i + 1: M(i) = "----"
+i = i + 1: M_1(i) = "GO"
+i = i + 1: M_1(i) = "Folder Label"
+i = i + 1: M_1(i) = "File Label"
+'i = i + 1: M_1(i) = "PERFORM ON ALL FILES IN FOLDER OR FILE"
+i = i + 1: M_1(i) = "NOW_DATE"
+i = i + 1: M_1(i) = "MODIFY DATE TO CREATED DATE - NOT WORKING"
+i = i + 1: M_1(i) = "----"
+i = i + 1: M_1(i) = "BATCH - CREATED DATE TO MODIFY DATE"
+i = i + 1: M_1(i) = "FILE  - CREATED DATE TO MODIFY DATE"
+i = i + 1: M_1(i) = "----"
+i = i + 1: M_1(i) = "DATE CONVERTOR__ MMM D, YYYY H MM AM __ TO YYYY-MM-DD--HH-MM-DD FOR SCREENCASTIFY"
+i = i + 0: M_3(i) = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
+i = i + 1: M_1(i) = "----"
+i = i + 1: M_1(i) = "MAKE_FOLDER YYYY-MM-DD OF FILE AND MOVE THERE AND BATCH IT"
+i = i + 0: M_3(i) = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT"
+i = i + 1: M_1(i) = "----"
 
-i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- SINGLE"
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- CH00_YYYY_MM_DD HH_MM_SS.MP4 -- HIKVISION -- SINGLE"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE"
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD .MP4 .WMV -- WITH_ONE_FOLDER"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER"
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- SINGLE"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
-i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- BATCH"
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- BATCH"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
-i = i + 1: M(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA__.MP4 -- BATCH"
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA__.MP4 -- BATCH"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
-i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET_ONE_DATE_HARDCODER"
-i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
-i = i + 1: M(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
-i = i + 1: M(i) = "----"
-i = i + 1: M(i) = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH_--_\#_TEXT_DATER*.TXT"
+i = i + 1: M_1(i) = "----"
+i = i + 1: M_1(i) = "SET_ONE_DATE_HARDCODER"
+i = i + 1: M_1(i) = "----"
+i = i + 1: M_1(i) = "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+i = i + 1: M_1(i) = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+i = i + 1: M_1(i) = "----"
+i = i + 1: M_1(i) = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH_--_\#_TEXT_DATER*.TXT"
 i = i + 0: M_3(i) = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
 
 For r = 0 To i
-    M_2(r) = Replace(M(r), "_", " ")
+    M_2(r) = Replace(M_1(r), "_", " ")
 Next
 
-For r = 1 To LABEL_SET.Count
+For r = 0 To LABEL_SET.Count - 1
     If M_2(r) <> "Folder Label" Then
         If M_2(r) <> "File Label" Then
             If LABEL_SET(r).Caption <> M_2(r) Then
@@ -832,29 +1063,38 @@ On Error Resume Next
 Me.Width = 17000
 On Error GoTo 0
 
-For r = 1 To LABEL_SET.Count
-    LABEL_SET(r).FontSize = 16
+For r = 0 To LABEL_SET.Count - 1
+    LABEL_SET(r).FontSize = 12
     LABEL_SET(r).fontname = "ARIAL"
 Next
-LABEL_SET(2).FontSize = LABEL_SET(2).FontSize - 4
-LABEL_SET(3).FontSize = LABEL_SET(3).FontSize - 4
 
-' TOP LABEL
-' HEIGHT LABEL
-HL = LABEL_SET(2).Height
-HL = 370
+MIN_HL = 4000
+For r = 0 To LABEL_SET.Count - 1
+    LABEL_SET(r).Refresh
+    LABEL_SET(r).AutoSize = True
+    LABEL_SET(r).Refresh
+    If LABEL_SET(r).Caption <> "" Then
+    If LABEL_SET(r).Height < MIN_HL Then
+        MIN_HL = LABEL_SET(r).Height
+    End If
+    End If
+    LABEL_SET(r).AutoSize = False
+Next
+LABEL_SET(2).FontSize = MIN_HL - 4
+LABEL_SET(3).FontSize = MIN_HL - 4
 
+HL = MIN_HL
 LENGHT_LABEL = 380
-
+LENGHT_LABEL_AND_WIDTH = Me.Width - LENGHT_LABEL + 100
 STEP_H = 100
-For r = 2 To LABEL_SET.Count
+For r = 2 To LABEL_SET.Count - 1
     If LABEL_SET(r).Caption = "" Then
         LABEL_SET(r).Visible = False
     End If
     
     If LABEL_SET(r).Visible = True Then
         LABEL_SET(r).Left = 100
-        LABEL_SET(r).Width = Me.Width - LENGHT_LABEL
+        LABEL_SET(r).Width = LENGHT_LABEL_AND_WIDTH
         LABEL_SET(r).Height = HL
         LABEL_SET(r).Top = STEP_H
         STEP_H = STEP_H + 40 + HL
@@ -863,13 +1103,13 @@ Next
 
 r = 1
 LABEL_SET(r).Left = 100
-LABEL_SET(r).Width = Me.Width - LENGHT_LABEL
+LABEL_SET(r).Width = LENGHT_LABEL_AND_WIDTH
 LABEL_SET(r).Height = HL
 LABEL_SET(r).Top = STEP_H
 STEP_H = STEP_H + 40 + HL
 
 On Error Resume Next
-Me.Height = STEP_H + 1000
+Me.Height = STEP_H + 800
 Me.Top = 0
 
 End Sub
@@ -877,7 +1117,7 @@ End Sub
 
 Private Sub LABEL_SET_Click(index As Integer)
 
-DISPLAY_NAMER = M(index)
+DISPLAY_NAMER = M_1(index)
 If M_3(index) <> "" Then
     DISPLAY_NAMER = M_3(index)
 End If
@@ -920,7 +1160,18 @@ Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 
 Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-    
+
+Case "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
+Case "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
+
+Case "SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+Case "SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
@@ -1086,6 +1337,173 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
     End
 End Sub
 
+Sub SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER()
+
+    ScanPath.chkSubFolders = vbUnchecked
+    ScanPath.cboMask.Text = "*.*"
+    
+    ' SCAN DO ON TEXTPATH CHANGE
+    If LABEL_SET(2).Caption <> "NOT FOLDER GIVEN" Then
+        ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    End If
+    
+    If IsIDE Then
+        '2009-02-17-4896_S03_.WMV
+        ScanPath.txtPath.Text = "D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM\2009-06 JUN"
+    End If
+    
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+    If ScanPath.ListView1.ListItems.Count > 500 Then
+        MsgBox "LOOK LIKE GOT TOO MANY FILE TO DO OVER 500" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+        End
+    End If
+    
+    If ScanPath.ListView1.ListItems.Count > 0 Then
+        MsgBox "FILE COUNTER -- BEFORE FILTER ON" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+    End If
+    
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        If InStr("WMV MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
+            DATE_FILENAME_D_1 = Mid(B11, 1, 10)
+            DATE_FILENAME_T_2 = "10:00:00" ' Mid(B11, 20, 8) -- CLOCK TIMEZONE IF MIDNIGHT DAY OFFSET OUT KEEP IN
+            i2 = DATE_FILENAME_D_1
+            i4 = DATE_FILENAME_T_2
+            DATE_FILENAME_D_1 = Mid(i2, 1, 4) + "/" + Mid(i2, 6, 2) + "/" + Mid(i2, 9, 2)
+            DATE_FILENAME_T_2 = Mid(i4, 1, 2) + ":" + Mid(i4, 4, 2) + ":" + Mid(i4, 7, 2)
+            
+            DATE_FILENAME_SUCCESS = DateValue(DATE_FILENAME_D_1) + TimeValue(DATE_FILENAME_T_2)
+            
+            DT4 = DATE_FILENAME_SUCCESS
+            If IsDate(DT4) = False Then
+                ' FALSE DATE
+                ' ----------
+                MsgBox "DATE HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+                End
+            End If
+            
+            If DT4 = 0 Then
+                MsgBox "NAUGHT DATE FINDER -- EXIT"
+                End
+            End If
+        
+            TT = SetFileDateTime(A11 + B11, DT4)
+            
+            EXT_ORG = Mid(B11, Len(B11) - 2)
+            EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+            If EXT_ORG <> EXT_STR Then
+                'RENAME EXTENSION CAPITAL
+                FILE_RENAME1 = Mid(B11, 1, Len(B11) - 4) + "." + EXT_STR
+                Name A11 + B11 As A11 + FILE_RENAME1
+            End If
+            
+            XC = XC + 1
+            MM_1 = MM_1 + B11 + vbCrLf
+        End If
+    Next
+    
+    Call SET_QUICK_MODE_RESULT
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+End Sub
+
+
+Sub SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE()
+    ' ---------------------------------------------------------------------
+    ' ANOTHER SUB ROUTINE
+    ' LEECH AND MODIFY FROM BATCH CODE SET
+    ' Fri 28-Feb-2020 07:18:00
+    ' ---------------------------------------------------------------------
+    ' LABEL_SET(3).Caption ' -- FULL_PATH_AND_FILENAME
+    ' ---------------------------------------------------------------------
+    A11 = LABEL_SET(3).Caption
+    D11 = A11
+    If A11 <> "NOT FILE GIVEN" Then
+        A11 = Mid(D11, 1, InStrRev(A11, "\"))
+        B11 = Mid(D11, InStrRev(A11, "\") + 1)
+    End If
+    If LABEL_SET(2).Caption = "NOT FOLDER GIVEN" Then
+        If IsIDE Then
+            D11 = "F:\DSC--2018+CCSE_HIKVISION_SCREENCASTIFY\2020-01-27--EDDIE\CH01_2020 01 27--16 47 36_BLAGGER_CCTV-1.mp4"
+            A11 = Mid(D11, 1, InStrRev(D11, "\"))
+            B11 = Mid(D11, InStrRev(D11, "\") + 1)
+        End If
+    End If
+    If Len(D11) < 5 Or D11 = "NOT FILE GIVEN" Then
+        MsgBox "FULL PATH AND FILE NOT GOOD -- EXIT" + vbCrLf + vbCrLf + D11
+        End
+    End If
+    
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+    If InStr("MP4 TXT", EXT_STR) Then
+        DATE_FILENAME_D_1 = Mid(B11, 6, 10)
+        DATE_FILENAME_T_2 = Mid(B11, 18, 8)
+        Mid(DATE_FILENAME_D_1, 5, 1) = "/"
+        Mid(DATE_FILENAME_D_1, 8, 1) = "/"
+        Mid(DATE_FILENAME_T_2, 3, 1) = ":"
+        Mid(DATE_FILENAME_T_2, 6, 1) = ":"
+        
+        DATE_FILENAME_SUCCESS = DateValue(DATE_FILENAME_D_1) + TimeValue(DATE_FILENAME_T_2)
+        
+        DT4 = DATE_FILENAME_SUCCESS
+        If IsDate(DT4) = False Then
+            ' FALSE DATE
+            ' ----------
+            MsgBox "DATE HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+            End
+        End If
+        
+        If DT4 = 0 Then
+            MsgBox "NAUGHT DATE FINDER -- EXIT"
+            End
+        End If
+    
+        TT = SetFileDateTime(A11 + B11, DT4)
+        
+        EXT_ORG = Mid(B11, Len(B11) - 2)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        If EXT_ORG <> EXT_STR Then
+            'RENAME EXTENSION CAPITAL
+            FILE_RENAME1 = Mid(B11, 1, Len(B11) - 4) + "." + EXT_STR
+            Name A11 + B11 As A11 + FILE_RENAME1
+        End If
+        
+        XC = XC + 1
+        MM_1 = MM_1 + B11 + vbCrLf
+    End If
+    
+    Call SET_QUICK_MODE_RESULT
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+
+End Sub
+
 Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE()
     ' ---------------------------------------------------------------------
     ' ANOTHER SUB ROUTINE
@@ -1096,7 +1514,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE()
     ' ---------------------------------------------------------------------
     
     A11 = LABEL_SET(3).Caption
-    A11 = "\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY\2020 CyberShot HX60V\MP4\2020_01_20 Jan_Mon 12_25_38__MAH01294_HOVE GRAND AVENUE DEMOLITION__.MP4"
+    ' A11 = "\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY\2020 CyberShot HX60V\MP4\2020_01_20 Jan_Mon 12_25_38__MAH01294_HOVE GRAND AVENUE DEMOLITION__.MP4"
     D11 = A11
     If A11 <> "NOT FILE GIVEN" Then
         A11 = Mid(D11, 1, InStrRev(A11, "\"))
@@ -1175,6 +1593,194 @@ Sub SET_QUICK_MODE_RESULT()
     I_2 = "QUICK MODE -- OFF -- GIVE MESSENGER"
 
 End Sub
+
+Sub DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY()
+
+    ScanPath.chkSubFolders = vbUnchecked
+    ScanPath.cboMask.Text = "*.MP4"
+    
+    ' SCAN DO ON TEXTPATH CHANGE
+    If LABEL_SET(2).Caption <> "NOT FOLDER GIVEN" Then
+        ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    End If
+    If LABEL_SET(2).Caption = "NOT FOLDER GIVEN" Then
+        If IsIDE Then
+            ScanPath.txtPath.Text = "F:\DSC--SCREENCASTIFY__GD_CLOUD"
+        End If
+    End If
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+'    If ScanPath.ListView1.ListItems.Count > 500 Then
+'        MsgBox "LOOK LIKE GOT TOO MANY FILE TO DO OVER 500" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+'        End
+'    End If
+    
+    'If ScanPath.ListView1.ListItems.Count > 0 Then
+        MsgBox "FILE COUNTER -- BEFORE FILTER ON" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+    'End If
+    
+    
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        If InStr("MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
+            
+            Set F = FSO.GetFile(A11 + B11)
+            DT1 = 0
+            DT1 = F.datelastmodified
+            DT1 = 0
+            'Aug 5, 2019 9 57 Am-4
+            DATE_STRING = ""
+            If InStrRev(B11, "m-") > 0 Then
+                THREE_BACK_SPACE = InStrRev(B11, " ", Len(B11))
+                For r = 1 To 2
+                    THREE_BACK_SPACE = InStrRev(B11, " ", THREE_BACK_SPACE - 1)
+                Next
+                DATE_STRING_1 = Mid(B11, 1, THREE_BACK_SPACE)
+                DATE_STRING_2 = Mid(B11, THREE_BACK_SPACE, InStrRev(B11, "m-") - THREE_BACK_SPACE + 1)
+                DATE_STRING_2 = Trim(DATE_STRING_2)
+            End If
+            DATE_STRING_2 = Replace(DATE_STRING_2, " ", ":", , 1)
+            If DATE_STRING_1 <> "" Then
+            If IsDate(DATE_STRING_1) Then
+                DT1 = DateValue(DATE_STRING_1)
+            End If
+            End If
+            
+            If DATE_STRING_2 <> "" Then
+            If IsDate(DATE_STRING_2) Then
+                DT1 = DT1 + TimeValue(DATE_STRING_2)
+            End If
+            End If
+            
+            DT1_STRING = Format(DT1, "YYYY-MM-DD--HH-MM-SS")
+            WHAT_AT_AFTER_MARK_DASH = Mid(B11, InStrRev(B11, "-"))
+            DT1_STRING = DT1_STRING + WHAT_AT_AFTER_MARK_DASH
+            
+            If DT1 > 0 Then
+                
+                On Error Resume Next
+                Err.Clear
+                Name A11 + "\" + B11 As A11 + "\" + DT1_STRING
+                If Err.Number > 0 Then
+                
+                    DETAIL_VAR = "RENAME FROM --" + vbCrLf + vbCrLf + A11 + "\" + B11
+                    DETAIL_VAR = "MOVE TO   --" + vbCrLf + vbCrLf + A11 + "\" + DT1_STRING
+                    MsgBox "WAS A ERROR RENAME FILE REQUEST" + vbCrLf + vbCrLf + "Err.Description = " + Err.Description + vbCrLf + vbCrLf + DETAIL_VAR, vbMsgBoxSetForeground
+                
+                End If
+                TT = SetFileDateTime(A11 + "\" + DT1_STRING, DT1)
+                
+                XC = XC + 1
+                MM_1 = MM_1 + B11 + vbCrLf
+            End If
+        End If
+    Next
+    
+    Call SET_QUICK_MODE_RESULT
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+
+
+End Sub
+
+
+Sub MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT()
+
+    ScanPath.chkSubFolders = vbUnchecked
+    ScanPath.cboMask.Text = "*.MP4"
+    
+    ' SCAN DO ON TEXTPATH CHANGE
+    If LABEL_SET(2).Caption <> "NOT FOLDER GIVEN" Then
+        ScanPath.txtPath.Text = LABEL_SET(2).Caption
+    End If
+    If IsIDE Then
+        ScanPath.txtPath.Text = "F:\DSC--2018+CCTV_HIKVISION\2018+CCTV_HIKVISION_DS-7204H\2020_CCTV_HIKVISION_DS-7204H"
+    End If
+    
+    If Len(ScanPath.txtPath.Text) < 5 Then
+        MsgBox "PATH TO SHORT -- EXIT"
+        End
+    End If
+    
+'    If ScanPath.ListView1.ListItems.Count > 500 Then
+'        MsgBox "LOOK LIKE GOT TOO MANY FILE TO DO OVER 500" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+'        End
+'    End If
+    
+    'If ScanPath.ListView1.ListItems.Count > 0 Then
+        MsgBox "FILE COUNTER -- BEFORE FILTER ON" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+    'End If
+    
+    
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        If InStr("MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
+            
+            Set F = FSO.GetFile(A11 + B11)
+            DT1 = F.datelastmodified
+
+            OUT_FOLDER__ = A11 + "\" + Format(DT1, "YYYY-MM-DD")
+            OUT_FOLDER_AND_FILENAME = A11 + "\" + Format(DT1, "YYYY-MM-DD") + "\" + B11
+'            If InStr(LABEL_SET(3).Caption, "REC") > 0 And InStr(LABEL_SET(3).Caption, ".WAV") > 0 Then
+'                OUT_FOLDER_AND_FILENAME = LABEL_SET(2).Caption + "\RECORD " + Format(DT1, "YYYY-MM-DD")
+'            End If
+            'CREATE
+            If Dir(OUT_FOLDER__, vbDirectory) = "" Then
+                CreateFolderTree OUT_FOLDER__
+            End If
+            FILE_NAME = A11 + B11
+            On Error Resume Next
+            Err.Clear
+            FSO.MoveFile FILE_NAME, OUT_FOLDER_AND_FILENAME
+            If Err.Number > 0 Then
+            
+                DETAIL_VAR = "MOVE FROM --" + vbCrLf + vbCrLf + FILE_NAME
+                DETAIL_VAR = "MOVE TO   --" + vbCrLf + vbCrLf + OUT_FOLDER_AND_FILENAME
+                MsgBox "WAS A ERROR MOVE FILE REQUESTED" + vbCrLf + vbCrLf + "Err.Description = " + Err.Description + vbCrLf + vbCrLf + DETAIL_VAR, vbMsgBoxSetForeground
+            
+            End If
+            
+            XC = XC + 1
+            MM_1 = MM_1 + B11 + vbCrLf
+        End If
+    Next
+    
+    Call SET_QUICK_MODE_RESULT
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+
+
+End Sub
+
 
 Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
 
@@ -1382,9 +1988,10 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
     
     TIME_STRING = Replace(TIME_STRING, "\", "/")
     TIME_STRING = Replace(TIME_STRING, "_", ":")
-    TIME_STRING = Replace(TIME_STRING, "-", ":")
     
-    
+    If InStr(ScanPath.txtPath.Text, "XXX") > 0 Then
+        If Val(TimeValue(TIME_STRING)) = 0 Then TIME_STRING = Format(DateValue(TIME_STRING), "YYYY/MM/DD") + " 10:00:00"
+    End If
     DT4 = DateValue(TIME_STRING) + TimeValue(TIME_STRING)
     If IsDate(DT4) = False Then
         ' FALSE DATE
@@ -1421,7 +2028,7 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         MM_1 = MM_1 + B11 + vbCrLf
         FI = UCase(B11)
         FI = Mid(FI, InStrRev(FI, ".") + 1) + " "
-        If InStr("MPG MPEG MP4 JPG AVI ", FI) > 0 Then
+        If InStr(" MPG MPEG MP4 JPG AVI ", FI) > 0 Then
             DT4 = DT4 + TimeSerial(0, 1, 0)
         End If
     Next
@@ -1827,7 +2434,7 @@ End Sub
 
 Private Sub Label_GO_AH_Click()
 
-If WORK = "NOW_DATE" = True Then
+If WORK = "NOW_DATE" Then
     ' -------------------------------
     a = LABEL_SET(3).Caption           ' GET FILE
     DateSet = Now
@@ -1839,12 +2446,12 @@ If WORK = "NOW_DATE" = True Then
     Exit Sub
 End If
 
-If WORK = "MOD_TO_CREATED_DATE" = True Then
+If WORK = "MOD_TO_CREATED_DATE" Then
     Call BATCH_MODIFIED_TO_CREATED_TIME
     Exit Sub
 End If
 
-If WORK = "CREATED_TO_MOD_DATE" = True Then
+If WORK = "CREATED_TO_MOD_DATE" Then
     Call BATCH_CREATED_TO_MODIFIED_TIME
     Exit Sub
 End If
@@ -1864,12 +2471,31 @@ If WORK = "SET_OLDER_DATE_TO_OTHER_IN_FOLDER" Then
     Exit Sub
 End If
 
+If WORK = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
+
+If WORK = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
+
+
 If WORK = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
 
 If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
+If WORK = "SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
+If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
@@ -2019,7 +2645,7 @@ Private Sub MNU_CREATE_FOLDER_DATE_OF_FILE_Click()
     End If
     
     
-    MkDir OUT_FOLDER
+    CreateFolderTree OUT_FOLDER
 
     End
 
@@ -2198,5 +2824,166 @@ Public Function GetSpecialfolder(CSIDL As Long) As String
 End Function
 
 
+
+
+' --------------------------------------------------------------------
+' ALL IN ONE FUNCTION LESS API LESS DEMAND JOB WORKER
+' --------------------------------------------------------------------
+' CreateFolderTree CreatePATH Create_PATH
+' --------------------------------------------------------------------
+Private Function CreateFolderTree(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+
+    On Error GoTo CreateFolderTreeError
+    
+    nPos = InStr(sPath, "\")
+'    If Mid(sPath, 1, 2) = "\\" Then
+'        nPos = InStr(nPos + 1, sPath, "\")
+'        nPos = InStr(nPos + 1, sPath, "\")
+'        nPos = InStr(nPos + 1, sPath, "\")
+'    End If
+    
+    While nPos > 0
+        If nPos - 1 > 3 Then
+            If Dir(Left$(sPath, nPos - 1), vbDirectory) = "" Then
+                MkDir Left$(sPath, nPos - 1)
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+    If Dir(sPath, vbDirectory) = "" Then MkDir sPath
+    
+    CreateFolderTree = True
+    If Dir(sPath, vbDirectory) = "" Then
+        CreateFolderTree = False
+    End If
+
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
+
+Private Function CreateFolderTree_AND_NETWORK(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+    Dim strarray
+    Dim r
+    Dim LINE_PATH_BUILDER
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+    
+    If Mid(sPath, 1, 2) = "\\" Then
+        LINE_PATH_BUILDER = "\\"
+    End If
+    If Mid(sPath, 2, 2) = ":\" Then
+        LINE_PATH_BUILDER = "" 'Mid(sPath, 1, 3)
+    End If
+    
+    On Error Resume Next
+    
+    strarray = Split(sPath, "\")
+    For r = 0 To UBound(strarray)
+        If strarray(r) <> "" Then
+            LINE_PATH_BUILDER = LINE_PATH_BUILDER + strarray(r)
+                        
+            FSO.CreateFolder LINE_PATH_BUILDER
+            ' -----------------------------------
+            ' THIS HAS ERROR IS NOT ABLE MAKE PATH
+            ' USE FSO
+            ' -----------------------------------
+            MkDir LINE_PATH_BUILDER
+            
+            LINE_PATH_BUILDER = LINE_PATH_BUILDER + "\"
+            
+        End If
+    Next
+    
+    
+    
+    
+    nPos = InStr(sPath, "\")
+'    If Mid(sPath, 1, 2) = "\\" Then
+'        nPos = InStr(nPos + 1, sPath, "\")
+'        nPos = InStr(nPos + 1, sPath, "\")
+'        nPos = InStr(nPos + 1, sPath, "\")
+'    End If
+    
+'    While nPos > 0
+'        If nPos - 1 > 3 Then
+'            If Dir(Left$(sPath, nPos - 1), vbDirectory) = "" Then
+'                MkDir Left$(sPath, nPos - 1)
+'            End If
+'        End If
+'        nPos = InStr(nPos + 1, sPath, "\")
+'    Wend
+'    If Dir(sPath, vbDirectory) = "" Then MkDir sPath
+    
+'    CreateFolderTree_AND_NETWORK = True
+'    If Dir(sPath, vbDirectory) = "" Then
+'        CreateFolderTree_AND_NETWORK = False
+'    End If
+
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
+
+
+
+
+
+' --------------------------------------------------------------------
+' WORK BUT EASIER ALL IN ONE FUNCTION NOT WITH API THOUGH
+' MORE TRANSPORTBALE TO OTHER CODE MAYBE IN ONE FUNCTION LESS DELCLARE
+' --------------------------------------------------------------------
+Private Function CreateFolderTree_API(ByVal sPath As String) As Boolean
+    Dim nPos As Integer
+
+    If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
+
+    On Error GoTo CreateFolderTreeError
+    
+    nPos = InStr(sPath, "\")
+    While nPos > 0
+        If nPos - 1 > 3 Then ' NOT CHECK ROOT
+            If Not FolderExists(Left$(sPath, nPos - 1)) Then
+                MkDir Left$(sPath, nPos - 1)
+            End If
+        End If
+        nPos = InStr(nPos + 1, sPath, "\")
+    Wend
+    If Not FolderExists(sPath) Then MkDir sPath
+    
+    If Not FolderExists(sPath) Then
+        CreateFolderTree_API = False
+        Exit Function
+    End If
+    CreateFolderTree_API = True
+    Exit Function
+
+CreateFolderTreeError:
+    Exit Function
+End Function
+
+Private Function FolderExists(sFolder As String) As Boolean
+    '##############################################################################################
+    'Returns True if the specified folder exists
+    '##############################################################################################
+    
+    Dim WFD As WIN32_FIND_DATA
+    Dim lResult As Long
+    
+    lResult = FindFirstFile(sFolder, WFD)
+    If lResult <> INVALID_HANDLE_VALUE Then
+        If (WFD.dwFileAttributes And FILE_ATTRIBUTE_DIRECTORY) = FILE_ATTRIBUTE_DIRECTORY Then
+            FolderExists = True
+        Else
+            FolderExists = False
+        End If
+    End If
+End Function
 
 

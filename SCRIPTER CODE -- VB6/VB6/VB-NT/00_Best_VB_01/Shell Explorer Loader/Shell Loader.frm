@@ -13,6 +13,17 @@ Begin VB.Form Form1
    ScaleWidth      =   12312
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
+   Begin VB.Timer TIMER_TO_RESIZE 
+      Enabled         =   0   'False
+      Interval        =   10
+      Left            =   7176
+      Top             =   1320
+   End
+   Begin VB.Timer Timer_FORM_RESIZE 
+      Interval        =   10
+      Left            =   7176
+      Top             =   936
+   End
    Begin VB.Timer Timer3 
       Enabled         =   0   'False
       Interval        =   1
@@ -5913,6 +5924,13 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+' Form1_Height -- SETTER
+' SH = Screen.Height - 8000 'higer = smaller
+' SH = Me.Height - 2000
+' Me.WindowState = vbMaximized
+' Me.WindowState = vbNormal
+
+
 ' ------------------------------------------------------------------------------
 ' SESSION COUNT NUMBER MASSIVE
 ' 002 SESSION
@@ -5973,7 +5991,10 @@ Attribute VB_Exposed = False
 ' Wed 18-Sep-2019 22:55:17
 ' ------------------------------------------------------------------------------
 
-
+Dim FHEIGHTX
+Dim OLD_MENUBAR
+Dim DO_ANOTHER_COMBO1_WIDTH
+Dim OLD_SCREEN_WIDTH
 
 
 ' -------------------------------------
@@ -6204,7 +6225,9 @@ X_COUNTER = Trim(Str(Combo1.ListIndex) + 1)
 If X_COUNTER <= 0 Then X_COUNTER = 1
 tt = String(Len(Trim(Str(Combo1.ListCount))), "0")
 STRING_COMBO_NUMBER = Format(X_COUNTER, tt) + " of " + Format(Combo1.ListCount, tt)
-If Len(STRING_COMBO_NUMBER) <> Len(Lbl_COMBO_NUMBER.Caption) Then
+On Error Resume Next
+
+If Len(STRING_COMBO_NUMBER) <> Len(Lbl_COMBO_NUMBER.Caption) Or DO_ANOTHER_COMBO1_WIDTH = True Then
     Lbl_COMBO_NUMBER.Caption = STRING_COMBO_NUMBER
     
     Lbl_COMBO_NUMBER.AutoSize = True
@@ -6216,26 +6239,55 @@ If Len(STRING_COMBO_NUMBER) <> Len(Lbl_COMBO_NUMBER.Caption) Then
     Lbl_COMBO_NUMBER.Left = Lbl_Title.Width + 20
     Lbl_COMBO_NUMBER.Width = Lbl_COMBO_NUMBER.Width + 200
     Combo1.Left = Lbl_COMBO_NUMBER.Left + Lbl_COMBO_NUMBER.Width + 20
+    ' ----------------------------------------------------
+    ' ERROR HAPPEN LINE _COMBO1.WIDTH_ INVAILD PROPERTY VALUE --  RESIZER
+    ' ----------------------------------------------------
     Combo1.Width = Form1.Width - Combo1.Left - 100
+    If Err.Number > 0 Then
+        DO_ANOTHER_COMBO1_WIDTH = True
+        XXW = Form1.Width - Combo1.Left - 100
+        If XXW < 0 Then XXW = 400
+        Combo1.Width = XXW
+    Else
+        DO_ANOTHER_COMBO1_WIDTH = False
+    End If
 End If
+
 Lbl_COMBO_NUMBER.Caption = STRING_COMBO_NUMBER
+End Sub
+
+Private Sub Timer_FORM_RESIZE_Timer()
+
+    If X_Y_DONE_ONCE <> True Then
+        Call Form_Resize
+    Else
+        Timer_FORM_RESIZE.Enabled = False
+    End If
 
 End Sub
 
-
 Private Sub Form_Resize()
 
-If X_Y_DONE_ONCE = True Then Exit Sub
+If Form1_Height = 0 Then Exit Sub
+If Form1_Width = 0 Then Exit Sub
+
+A = Form1.Width + Form1.Height + Form1.Top + Form1.Left + Menu_Height + Screen.Width
+B = Form1_Width + Form1_Height + OLD_SCREEN_WIDTH + OLD_MENUBAR
+If A = B Then Exit Sub
+OLD_MENUBAR = Menu_Height
+OLD_SCREEN_WIDTH = Screen.Width
 
 On Error Resume Next
 Form1.Width = Form1_Width
-Form1.Height = Form1_Height
+Form1.Height = Form1_Height + Menu_Height
 'Center Screen
-Form1.Top = 0 'Screen.Height / 2 - Form1.Height / 2
-Form1.Left = Screen.Width / 2 - Form1.Width / 2
+If X_Y_DONE_ONCE <> True Then
+    Form1.Top = 0 'Screen.Height / 2 - Form1.Height / 2
+    Form1.Left = Screen.Width / 2 - Form1.Width / 2
+End If
 
-If Form1.Width = Form1_Width And Form1.Height = Form1_Height Then X_Y_DONE_ONCE = True
-
+X_Y_DONE_ONCE = True
+Call SET_COMBO1_POSITION
 
 End Sub
 
@@ -6688,6 +6740,7 @@ FormStart.MNU_TREESIZE_GO = True
 
 End Sub
 
+
 Private Sub Timer_KEY_CODE_Timer()
 
 ' If IsIDE = True Then Timer_GET_KEY_ASYNC_STATE.Interval = 1000
@@ -6717,6 +6770,10 @@ End Sub
 
 Sub SubCode()
 
+
+
+Dim RT
+Dim FHEIGHT
 
 Dim RG
 RG = 0
@@ -6750,6 +6807,7 @@ Next
 
 
 Me.WindowState = vbMaximized
+' Me.WindowState = vbNormal
 Me.Refresh
 Me.Show
 DoEvents
@@ -6822,7 +6880,7 @@ RD = 0
 DoEvents
 
 SH = Screen.Height - 4000 'higer = smaller
-SH = Me.Height - 1500
+' SH = Me.Height - 100
 '---------------------------
 ' GOT TO SHOW THE FORM FIRST
 '---------------------------
@@ -6833,7 +6891,6 @@ SH = Me.Height - 1500
 'ScreenTwipsX = Screen.TwipsPerPixelX
 'ScreenTwipsY = Screen.TwipsPerPixelY
 'SH = (FORM_MAX.Top + FORM_MAX.Bottom) * Screen.TwipsPerPixelY
-
 
 RX = 0
 For R = 1 To ScanPath.ListView1.ListItems.Count + 100
@@ -6864,11 +6921,11 @@ Next
 
 x = tx
 RX = 0
-rt = 0
+RT = 0
 For R = 1 To ScanPath.ListView1.ListItems.Count
     
     RX = RX + 1
-    rt = rt + 1
+    RT = RT + 1
     
     If Label1(RX - 1).Top > SH Then
         x = tx
@@ -6894,7 +6951,7 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
     If txr = 0 Then LABEL_BACKCOLOR_VAR = RGB(127, 200, 127) '&H56E25E
     
     If InStrRev(B1$, " ----#") > 0 Then
-        rt = rt - 1
+        RT = RT - 1
     End If
     
     
@@ -6919,7 +6976,7 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
         If InStr(A1$, "SPECIAL") > 0 Then
             Label1(RX).FontSize = FontSizez_2
         End If
-        Label1(RX).Caption = Format$(rt, "000") + ". " + ttg$
+        Label1(RX).Caption = Format$(RT, "000") + ". " + ttg$
         
     End If
     'If InStr(Label1(RX), 125) = 1 Then Stop
@@ -6963,12 +7020,9 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
     End If
     
     x = x + Label1(RX).Height + LABEL_GAP
-    fheight = Label1(RX).Top + Label1(RX).Height + 420
-    If fheight > fheightx Then fheightx = fheight
+    FHEIGHT = Label1(RX).Top + Label1(RX).Height + 420
+    ' If FHEIGHT > FHEIGHTX Then FHEIGHTX = FHEIGHT
     RD = RD + 1
-
-
-
 Next
 DoEvents
 
@@ -6983,8 +7037,8 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
         x = tx
         xgag = xgag + 1
         wdt = 0
-        For rt = R - 1 To R - tig Step -1
-        If Label1(rt).Width > wdt Then wdt = Label1(rt).Width
+        For RT = R - 1 To R - tig Step -1
+        If Label1(RT).Width > wdt Then wdt = Label1(RT).Width
         Next
         xy(xgag) = wdt + 150
         tig2 = R
@@ -6995,8 +7049,8 @@ Next
 
 xgag = xgag + 1
 wdt = 0
-For rt = tig2 To R - 1
-    If Label1(rt).Width > wdt Then wdt = Label1(rt).Width
+For RT = tig2 To R - 1
+    If Label1(RT).Width > wdt Then wdt = Label1(RT).Width
 Next
 xy(xgag) = wdt + 150
 
@@ -7027,20 +7081,24 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
     
 Next
 
-fheightx = 0
-For rt = 1 To ScanPath.ListView1.ListItems.Count
-    fheight = Label1(rt).Top + Label1(rt).Height
-    If fheight > fheightx Then
-        fheightx = fheight
+FHEIGHTX = 0
+For RT = 1 To ScanPath.ListView1.ListItems.Count
+    FHEIGHT = Label1(RT).Top + Label1(RT).Height
+    If FHEIGHT > FHEIGHTX Then
+        FHEIGHTX = FHEIGHT
+'        Debug.Print Label1(rt).Caption
     Else
-        Exit For
+    '    Exit For
     End If
 Next
 
 
 Form1_Width = Label1(R - 1).Left + Label1(R - 1).Width + 280
 If Form1_Width > Screen.Width Then Form1_Width = Screen.Width - 120
-Form1_Height = fheightx + 900
+
+' IF FORM SET TO GO ON VBMAXIMIZED ADJUST MUGHT NOT LOOK PROPER
+' -------------------------------------------------------------
+Form1_Height = FHEIGHTX + 1400
 
 Lbl2.Width = Form1.Width
 Lbl_Title.Top = tg
@@ -7069,7 +7127,7 @@ Combo1.SelStart = 0
 
 Call SET_COMBO1_POSITION
 
-Lbl3.Top = fheight - 410
+Lbl3.Top = FHEIGHT - 410
 Lbl3.Width = Form1.Width
 Lbl3.Left = 0
 Form1.Refresh
@@ -7133,6 +7191,8 @@ R_RGB = &HFF& And Col
 G_RGB = (&HFF00& And Col) \ 256
 B_RGB = (&HFF0000 And Col) \ 65536
 End Sub
+
+
 Private Sub Timer2_Timer()
 
 'If FSO.FolderExists("C:\Program Files (x86)") = False Then
@@ -8035,4 +8095,37 @@ End Function
 'Algorithm to Switch Between RGB and HSB Color Values
 'http://www.devx.com/tips/Tip/41581
 '----
+
+
+Private Function Menu_Height()
+ 
+    MenuInfo.cbSize = Len(MenuInfo)
+    
+    If GetMenuBarInfo(Me.hWnd, OBJID_MENU, 0, MenuInfo) Then
+   
+        With MenuInfo.rcBar
+       
+'            Debug.Print "Left: " & CStr(.Left)
+'            Debug.Print "Right: " & CStr(.Right)
+'            Debug.Print "Top: " & CStr(.Top)
+'            Debug.Print "Bottom: " & CStr(.Bottom)
+            Menu_Height = CStr(.Bottom) - CStr(.Top)
+        End With
+    End If
+
+    If Menu_Height <> ARCHIVE_Menu_Height Then
+        TIMER_TO_RESIZE.Enabled = True
+    End If
+    
+    ARCHIVE_Menu_Height = Menu_Height
+   
+End Function
+
+Private Sub TIMER_TO_RESIZE_Timer()
+    TIMER_TO_RESIZE.Enabled = False
+    'NOT_RESIZE_EVENTER = False
+    Call Form_Resize
+    'NOT_RESIZE_EVENTER = True
+
+End Sub
 

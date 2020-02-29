@@ -6,14 +6,19 @@ Begin VB.Form DIALER
    ClientHeight    =   3228
    ClientLeft      =   10068
    ClientTop       =   312
-   ClientWidth     =   17412
+   ClientWidth     =   15432
    LinkTopic       =   "Form2"
    PaletteMode     =   1  'UseZOrder
    ScaleHeight     =   3228
-   ScaleWidth      =   17412
+   ScaleWidth      =   15432
    Visible         =   0   'False
    WhatsThisHelp   =   -1  'True
    WindowState     =   1  'Minimized
+   Begin VB.Timer Timer_TICKER_CHAIN_DOG_SHOW_RUN 
+      Interval        =   1
+      Left            =   9924
+      Top             =   492
+   End
    Begin VB.Timer Timer20 
       Enabled         =   0   'False
       Interval        =   20000
@@ -324,6 +329,7 @@ Public Sub Form_Load()
 
 If App.PrevInstance = True Then End
 
+
 FIRST_BOOT_CODE = True
 
 'KILL ITSELF IN __.EXE KILL SOFTLY
@@ -395,8 +401,10 @@ End If
 TIMER_PIR.Enabled = True
 TIMER_FRONT_DOOR.Enabled = True
 
-'Me.Hide
-Me.Show
+On Error Resume Next
+
+Me.Hide
+'Me.Show
 'Exit Sub
 
 If ME_WINDOWSTATE_2 = 2 Then
@@ -572,7 +580,7 @@ Else
     STATE_PIR = " Active _____ "
 End If
 If VAR_DSR_3 = 0 Then VAR_DSR_4 = "FALSE" Else VAR_DSR_4 = "TRUE"
-If Me.MSComm_PIR.DSRHolding Then VAR_DSR_5 = "FALSE" Else VAR_DSR_5 = "TRUE"
+If Me.MSComm_PIR.DSRHolding Then VAR_DSR_5 = "TRUE" Else VAR_DSR_5 = "FALSE"
 ' Debug.Print "PIR ____ " + Time$ + " " + VAR_DSR_4 + STATE_PIR + TTITTY
 Label1.Caption = "PIR _____ " + Time$ + " -- " + TTITTY
 Label2.Caption = "PIR _____ " + Time$ + " -- " + VAR_DSR_5 + K
@@ -676,19 +684,14 @@ If Me.MSComm_DOOR.PortOpen = False Then
     
 End If
 
-VAR_DSR_4 = Me.MSComm_DOOR.DSRHolding
-If VAR_DSR_4 = False Then
-    VAR_DSR_5 = "FALSE"
-Else
+If Me.MSComm_DOOR.DSRHolding = True Then
+    VAR_DSR_4 = True
     VAR_DSR_5 = "TRUE"
-End If
-If VAR_DSR_4 = False Then
     STATE_DOOR = "Open _______"
 Else
+    VAR_DSR_5 = "FALSE"
     STATE_DOOR = "Close ______"
 End If
-
-' Debug.Print VAR_DSR_4
 
 Label4.Caption = "DOOR ___ " + Time$ + " -- " + TTITTY
 Label5.Caption = "DOOR ___ " + Time$ + " -- " + VAR_DSR_5
@@ -698,9 +701,8 @@ If Me.MSComm_DOOR.PortOpen = False Then
     Exit Sub
 End If
 
-
-
 On Error Resume Next
+VAR_DSR_4 = Me.MSComm_DOOR.DSRHolding
 If Me.MSComm_DOOR.PortOpen = False Then
     VAR_DSR_4 = False
     TIMER_1.Enabled = True
@@ -741,7 +743,7 @@ If VAR_DSR_4 = True Then
             RESULT = CreateFolderTree(FOLDER_NAME)
         End If
         'If DOOR_OPEN_HAPPEN = True Then
-        KILL_DONE = True
+        KILL_DONE = False
         If InStr(UCase(STATE_DOOR), "OPEN") > 0 Then
             If FIRST_BOOT_CODE = True Then
                 FIRST_BOOT_CODE = False
@@ -1096,6 +1098,23 @@ End Function
 '***********************************************
 
 
+
+Private Sub Timer_TICKER_CHAIN_DOG_SHOW_RUN_Timer()
+If Timer_TICKER_CHAIN_DOG_SHOW_RUN.Interval <> 2000 Then
+    RUN_HERE_ONCE = True
+    Timer_TICKER_CHAIN_DOG_SHOW_RUN.Interval = 2000
+End If
+
+On Error Resume Next
+    VAR_FILENAME = App.Path + "\" + App.EXEName + "_APP_RUNNER_TICKER_#NFS_EX.TXT"
+    
+    ' If IsIDE = True And RUN_HERE_ONCE Then Debug.Print VAR_FILENAME
+    
+    FR1 = FreeFile
+    Open VAR_FILENAME For Output As #FR1
+    Close #FR1
+On Error GoTo 0
+End Sub
 
 Private Sub Timer20_Timer()
     Exit Sub

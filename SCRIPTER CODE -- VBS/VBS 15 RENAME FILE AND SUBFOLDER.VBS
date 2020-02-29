@@ -39,6 +39,11 @@ I=I+1:ARRAY(I)="E:\"
 I=I+1:ARRAY(I)=""
 I=I+1:ARRAY(I)=""
 
+
+Wscript.QUIT
+' NOT IN USE
+
+
 ' FOR R=2 TO 20:ARRAY(R)="":NEXT
 
 DIM ARRAY_2(20000)

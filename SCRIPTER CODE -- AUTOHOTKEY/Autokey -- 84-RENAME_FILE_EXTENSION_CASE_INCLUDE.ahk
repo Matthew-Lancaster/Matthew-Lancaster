@@ -152,7 +152,18 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	
 	O_LEN_STRING_HOLD_HWND=%LEN_STRING_HOLD_HWND_1%
 	
-	; ---------------------------------------------------------------
+	; ----
+	; Command-line arguments - Rosetta Code
+	; https://rosettacode.org/wiki/Command-line_arguments#AutoHotkey
+	; ----
+	; AutoHotkey
+	; From the AutoHotkey documentation: "The script sees incoming parameters as the variables %1%, %2%, 
+	; and so on. In addition, %0% contains the number of parameters passed (0 if none). "
+	PARAM_SET=
+	FOR n, param in A_Args  ; For each parameter:
+		PARAM_SET=%PARAM_SET%%A_Space%%PARAM%
+
+		; ---------------------------------------------------------------
 	; DEBUG RUN ALWAYS REPEATER
 	; ---------------------------------------------------------------
 	; SET_GO_RENAME_EXT_MP4=TRUE
@@ -181,11 +192,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"           ; THESE ARE CASE WANTING END RESULT WILL BE AS HERE
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\VI_ DSC ME 01\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-	SET_ARRAY_3[ArrayCount]:=
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:VI_ DSC ME 02\"
+	SET_ARRAY_1[ArrayCount]:="D:\VI_ DSC ME\"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
@@ -250,7 +257,29 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 04 V0 01 HC"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="F:\DSC--SCREENCASTIFY__GD_CLOUD"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="F:\DSC--2018+CCSE_HIKVISION_SCREENCASTIFY"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="C:\DD"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="D:\DD"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 
+	; ---------------------------------------------------------------
+	; WHEN REQUEST COMMAND_LINE ARG GOODSYNC REQUIRE VB 
+	; ---------------------------------------------------------------
+	IF PARAM_SET=VB
+	LOOP, %ArrayCount%
+	{
+		SET_ARRAY_1[A_INDEX]:=""
+		SET_ARRAY_2[A_INDEX]:=""
+	}	
+	
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\VB6\VB-NT\"
 	SET_ARRAY_2[ArrayCount]:="vbp"                    ; THESE ARE CASE WANTING END RESULT WILL BE AS HERE
@@ -320,130 +349,134 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	{
 	
 		PATH_1:=SET_ARRAY_1[A_Index]
-		NOT_TALK:=SET_ARRAY_3[A_Index]
-
-		; MAKE PATH HAVE RIGHT END BACKSLAHS IF NOT FIIT
-		; -------------------------------------------
-		StringRight, CHECKVAR, PATH_1, 1
-		IF (CHECKVAR<>"\")	
-			PATH_1=%PATH_1%\
-
-		
-		IF SET_SHOW_TOOLTIP
-			TOOLTIP % "Loop SET_ARRAY_1 MAX" "`n" SET_ARRAY_1.MaxIndex() "`n" "Loop SET_ARRAY_1_INDEX" "`n" A_INDEX "`n" SET_ARRAY_2[A_Index]
-
-		EXT_COMP_1:=SET_ARRAY_2[A_Index]
-
-		; SPLITTER 
-		; ---------------------------------------------------------------
-		Loop, parse, EXT_COMP_1, " "
+		IF PATH_1
 		{
-			EXT_COMP_GET:=A_LoopField
-			
-			STRINGUPPER EXT_COMP_UP, EXT_COMP_GET
+			NOT_TALK:=SET_ARRAY_3[A_Index]
 
-			; -----------------------------------------------------------
-			; SPLITTER
-			; -----------------------------------------------------------
-			EXCLUDE_NOT_GO=
-			IF RENAME_FILTER_EXTENSION_CASE_EXCLUDE
-				Loop, parse, RENAME_FILTER_EXTENSION_CASE_EXCLUDE, " "
-				IF A_LoopField=%EXT_COMP_UP%
-					EXCLUDE_NOT_GO=TRUE
-			; -----------------------------------------------------------
-			; IF NOTHING %EXCLUDE_NOT_GO% THEN OPERATE ALL 
-			; EXCEPT INCLUDE REQUIRE
-			; DON'T USER EXCLUDE WITH INCLUDE OR INCLUDE MEAN NONE
-			; -----------------------------------------------------------
-			
-			; -----------------------------------------------------------
-			; INCLUDE_TAKE_ACTION_AND_EXLCUDE_LEFT_NOT
-			; -----------------------------------------------------------
-			IF RENAME_FILTER_EXTENSION_CASE_INCLUDE
-				EXCLUDE_NOT_GO=
-			SET_INCLUDE_GO=
-			IF !RENAME_FILTER_EXTENSION_CASE_EXCLUDE
-			IF RENAME_FILTER_EXTENSION_CASE_INCLUDE
-				Loop, parse, RENAME_FILTER_EXTENSION_CASE_INCLUDE, " "
-				IF A_LoopField=%EXT_COMP_UP%
-					SET_INCLUDE_GO=TRUE
-			IF !RENAME_FILTER_EXTENSION_CASE_INCLUDE
-				SET_INCLUDE_GO=TRUE
-			; -----------------------------------------------------------
+			; MAKE PATH HAVE RIGHT END BACKSLAHS IF NOT FIIT
+			; -------------------------------------------
+			StringRight, CHECKVAR, PATH_1, 1
+			IF (CHECKVAR<>"\")	
+				PATH_1=%PATH_1%\
 
 			
 			IF SET_SHOW_TOOLTIP
-				TOOLTIP % "Loop SET_ARRAY_1 MAX" "`n" SET_ARRAY_1.MaxIndex() "`n" "Loop SET_ARRAY_1_INDEX" "`n" A_INDEX "`n" SET_ARRAY_2[A_Index] "`n" "EXCLUDE_NOT_GO" "`n" EXCLUDE_NOT_GO  "`n" "SET_INCLUDE_GO" "`n"  SET_INCLUDE_GO
+				TOOLTIP % "Loop SET_ARRAY_1 MAX" "`n" SET_ARRAY_1.MaxIndex() "`n" "Loop SET_ARRAY_1_INDEX" "`n" A_INDEX "`n" SET_ARRAY_2[A_Index]
 
-			
-			IF SET_INCLUDE_GO  ; ---- IF NOTHING %SET_INCLUDE_GO% THEN NOT OPERATE
-			IF !EXCLUDE_NOT_GO
-			IF EXT_COMP_GET
-			IfExist, %PATH_1%
+			EXT_COMP_1:=SET_ARRAY_2[A_Index]
+
+			; SPLITTER
+			; ---------------------------------------------------------------
+			Loop, parse, EXT_COMP_1, " "
 			{
-				PATH_NAME_2=% PATH_1 "*." EXT_COMP_GET
-				; *C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 84-RENAME_FILE_EXTENSION_CASE_INCLUDE.ahk - Notepad++ [Administrator]
-
-				Loop, Files, %PATH_NAME_2% ,R
-					FILE_COUNTER_MAX=%A_INDEX%
-				IF !FILE_COUNTER_MAX
-					FILE_COUNTER_MAX=0
+				EXT_COMP_GET:=A_LoopField
 				
-				IF !RENAME_EXTENSION_SET_DONE_QUIET
-				IF !NOT_TALK
+				STRINGUPPER EXT_COMP_UP, EXT_COMP_GET
+
+				; -----------------------------------------------------------
+				; SPLITTER
+				; -----------------------------------------------------------
+				EXCLUDE_NOT_GO=
+				IF RENAME_FILTER_EXTENSION_CASE_EXCLUDE
+					Loop, parse, RENAME_FILTER_EXTENSION_CASE_EXCLUDE, " "
+					IF A_LoopField=%EXT_COMP_UP%
+						EXCLUDE_NOT_GO=TRUE
+				; -----------------------------------------------------------
+				; IF NOTHING %EXCLUDE_NOT_GO% THEN OPERATE ALL 
+				; EXCEPT INCLUDE REQUIRE
+				; DON'T USER EXCLUDE WITH INCLUDE OR INCLUDE MEAN NONE
+				; -----------------------------------------------------------
+				
+				; -----------------------------------------------------------
+				; INCLUDE_TAKE_ACTION_AND_EXLCUDE_LEFT_NOT
+				; -----------------------------------------------------------
+				IF RENAME_FILTER_EXTENSION_CASE_INCLUDE
+					EXCLUDE_NOT_GO=
+				SET_INCLUDE_GO=
+				IF !RENAME_FILTER_EXTENSION_CASE_EXCLUDE
+				IF RENAME_FILTER_EXTENSION_CASE_INCLUDE
+					Loop, parse, RENAME_FILTER_EXTENSION_CASE_INCLUDE, " "
+					IF A_LoopField=%EXT_COMP_UP%
+						SET_INCLUDE_GO=TRUE
+				IF !RENAME_FILTER_EXTENSION_CASE_INCLUDE
+					SET_INCLUDE_GO=TRUE
+				; -----------------------------------------------------------
+
+				
 				IF SET_SHOW_TOOLTIP
-					TOOLTIP % "FILE_COUNTER_MAX" "`n" FILE_COUNTER_MAX "`n" "FILE_COUNTER_INDEX" "`n" FILE_COUNTER_INDEX "`n"  A_Index "`n" PATH_NAME_2 
+					TOOLTIP % "Loop SET_ARRAY_1 MAX" "`n" SET_ARRAY_1.MaxIndex() "`n" "Loop SET_ARRAY_1_INDEX" "`n" A_INDEX "`n" SET_ARRAY_2[A_Index] "`n" "EXCLUDE_NOT_GO" "`n" EXCLUDE_NOT_GO  "`n" "SET_INCLUDE_GO" "`n"  SET_INCLUDE_GO
 
-				Loop, Files, %PATH_NAME_2% ,R
+				
+				IF SET_INCLUDE_GO  ; ---- IF NOTHING %SET_INCLUDE_GO% THEN NOT OPERATE
+				IF !EXCLUDE_NOT_GO
+				IF EXT_COMP_GET
+				IfExist, %PATH_1%
 				{
-					PATH_NAME_3=%A_LoopFileFullPath%
-					FILE_COUNTER_INDEX=%A_INDEX%
-
+					PATH_NAME_2=% PATH_1 "*." EXT_COMP_GET
+					; *C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 84-RENAME_FILE_EXTENSION_CASE_INCLUDE.ahk - Notepad++ [Administrator]
+					
+					FILE_COUNTER_MAX=
+					Loop, Files, %PATH_NAME_2% ,R
+						FILE_COUNTER_MAX=%A_INDEX%
+					IF !FILE_COUNTER_MAX
+						FILE_COUNTER_MAX=0
+					
+					IF !RENAME_EXTENSION_SET_DONE_QUIET
+					IF !NOT_TALK
 					IF SET_SHOW_TOOLTIP
-					IF Mod(A_INDEX, 100)=0 
-						TOOLTIP % "FILE_COUNTER_MAX" "`n" FILE_COUNTER_MAX "`n" "FILE_COUNTER_INDEX" "`n" FILE_COUNTER_INDEX "`n" A_Index "`n" PATH_NAME_2 
-					
-					SplitPath, PATH_NAME_3, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
-					PATH_EXT_NAME_4=%OutExtension%
-					PATH_NAME_4_REPLACE=% OutDir "\" OutNameNoExt "." EXT_COMP_GET
-					
+						TOOLTIP % "FILE_COUNTER_MAX" "`n" FILE_COUNTER_MAX "`n" "FILE_COUNTER_INDEX" "`n" FILE_COUNTER_INDEX "`n"  A_Index "`n" PATH_NAME_2 
 
-					; MATCH CASE IS ON
-					; ------------------------------
-					IF StrLen(EXT_COMP_GET)=StrLen(PATH_EXT_NAME_4)
-					IF EXT_COMP_GET<>%PATH_EXT_NAME_4%
+					Loop, Files, %PATH_NAME_2% ,R
 					{
-			
-						; ANY MISTAKE CORRECT YOUR RENAME WHILE 
-						; DEBUGGER
-						; -------------------------------------------
-						
-						; StringReplace, PATH_NAME_4_REPLACE, PATH_NAME_4_REPLACE,MMPEG,MPEG
+						PATH_NAME_3=%A_LoopFileFullPath%
+						FILE_COUNTER_INDEX=%A_INDEX%
 
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						IF SET_SHOW_TOOLTIP
+						IF Mod(A_INDEX, 100)=0 
+							TOOLTIP % "FILE_COUNTER_MAX" "`n" FILE_COUNTER_MAX "`n" "FILE_COUNTER_INDEX" "`n" FILE_COUNTER_INDEX "`n" A_Index "`n" PATH_NAME_2 
 						
-						; -----------------------------------------------
-						; 4096 BRING TO FOREGROUND
-						; 4100 BRING TO FOREGROUND + YES NOT
-						; FOREGROUND + YES NOT
-						; 4096 + 4
-						; -----------------------------------------------
-						; MSGBOX ,4100,,% "RENAME TO HAPPEN UPPER CASE .MP4 EXTENSION`n`n"
-						; IFMSGBOX YES
-						; -----------------------------------------------
-						IF !NOT_TALK
-							; MSGBOX, 4096,,%  FILE_COUNTER_INDEX " OF " FILE_COUNTER_MAX "`n`n" "RENAME TO HAPPEN CASE CONVERT _.___ EXTENSION`n`n" A_LoopFileFullPath "`n`n" PATH_NAME_4_REPLACE
+						SplitPath, PATH_NAME_3, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
+						PATH_EXT_NAME_4=%OutExtension%
+						PATH_NAME_4_REPLACE=% OutDir "\" OutNameNoExt "." EXT_COMP_GET
 						
-						RENAME_DONE=% RENAME_DONE PATH_NAME_4_REPLACE "`n"
-						RENAME_DONE_COUNT+=1
-						
-						
-						SplitPath, PATH_NAME_4_REPLACE, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
-						
-						IFNOTEXIST, %OutDir%
-							MSGBOX % "DEBUGGER ERROR _ RESULT RENAME TARGET FOLDER NOT EXIST AS SHOWN`n`nTARGET FOLDER`n-------------_-----`n" OutDir "\`n`nSUPPOSE FILENAME TARGET WHEN RENAME`n-----------------------------------_---------------`n" PATH_NAME_4_REPLACE
-						
-						FILEMOVE, %A_LoopFileFullPath%,%PATH_NAME_4_REPLACE%
+
+						; MATCH CASE IS ON
+						; ------------------------------
+						IF StrLen(EXT_COMP_GET)=StrLen(PATH_EXT_NAME_4)
+						IF EXT_COMP_GET<>%PATH_EXT_NAME_4%
+						{
+				
+							; ANY MISTAKE CORRECT YOUR RENAME WHILE 
+							; DEBUGGER
+							; -------------------------------------------
+							
+							; StringReplace, PATH_NAME_4_REPLACE, PATH_NAME_4_REPLACE,MMPEG,MPEG
+
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							
+							; -----------------------------------------------
+							; 4096 BRING TO FOREGROUND
+							; 4100 BRING TO FOREGROUND + YES NOT
+							; FOREGROUND + YES NOT
+							; 4096 + 4
+							; -----------------------------------------------
+							; MSGBOX ,4100,,% "RENAME TO HAPPEN UPPER CASE .MP4 EXTENSION`n`n"
+							; IFMSGBOX YES
+							; -----------------------------------------------
+							IF !NOT_TALK
+								; MSGBOX, 4096,,%  FILE_COUNTER_INDEX " OF " FILE_COUNTER_MAX "`n`n" "RENAME TO HAPPEN CASE CONVERT _.___ EXTENSION`n`n" A_LoopFileFullPath "`n`n" PATH_NAME_4_REPLACE
+							
+							RENAME_DONE=% RENAME_DONE PATH_NAME_4_REPLACE "`n"
+							RENAME_DONE_COUNT+=1
+							
+							
+							SplitPath, PATH_NAME_4_REPLACE, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
+							
+							IFNOTEXIST, %OutDir%
+								MSGBOX % "DEBUGGER ERROR _ RESULT RENAME TARGET FOLDER NOT EXIST AS SHOWN`n`nTARGET FOLDER`n-------------_-----`n" OutDir "\`n`nSUPPOSE FILENAME TARGET WHEN RENAME`n-----------------------------------_---------------`n" PATH_NAME_4_REPLACE
+							
+							FILEMOVE, %A_LoopFileFullPath%,%PATH_NAME_4_REPLACE%
+						}
 					}
 				}
 			}
