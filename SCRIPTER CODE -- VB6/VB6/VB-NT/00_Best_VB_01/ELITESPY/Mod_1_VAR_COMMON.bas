@@ -1,4 +1,6 @@
 Attribute VB_Name = "Mod_1_VAR_COMMON"
+Public m_CRC As clsCRC
+
 Public cProcesses As New clsCnProc
 
 Public VAR_ARRAY

@@ -70,7 +70,7 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
-; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
 
 
@@ -78,10 +78,11 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; --------------------------------------------------------
 ; ONCE A MINUTE CLEAN UP THE ICON NOTIFICATION AREA
 ; --------------------------------------------------------
-GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP
-SETTIMER RUN_TIMER_TRAY_ICON_CLEAN_UP,60000
+GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP_2
 
-RUN_TIMER_TRAY_ICON_CLEAN_UP:
+SETTIMER RUN_TIMER_TRAY_ICON_CLEAN_UP_2,60000
+
+RUN_TIMER_TRAY_ICON_CLEAN_UP_2:
 
 	Array_Icon_GetInfo := TrayIcon_GetInfo()
 	Loop % Array_Icon_GetInfo.MaxIndex()
@@ -376,11 +377,10 @@ TrayIcon_Button(sExeName, sButton := "L", bDouble := false, index := 1)
 
 
 
-; MenuHandler:
-; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-; return
 
-; #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+
+
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 
 
 ;# ------------------------------------------------------------------
