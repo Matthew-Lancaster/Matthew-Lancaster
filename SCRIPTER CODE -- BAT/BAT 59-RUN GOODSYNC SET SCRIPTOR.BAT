@@ -316,8 +316,8 @@ REM GOTO START
 
 IF "!MODE_RUN!"=="" (
 
-	SET MODE_RUN=GITHUB
 	SET MODE_RUN=CAMERA_BACKUP
+	SET MODE_RUN=GITHUB
 	REM @CD /D "C:\SCRIPTER"
 	GOTO START
 )
@@ -1162,12 +1162,12 @@ IF !ERROR_COUNT!==0 (
 	ECHO ----------------------------------------------------------------
 	REM TIMEOUT /T 8
 	REM ECHO ------------------------------------------------------------
-	ECHO RUN COMMAND 
-	ECHO %~dp0
-	ECHO BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk !TITLE_VAR!
-	ECHO ----------------------------------------------------------------
-	"%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
-	ECHO ----------------------------------------------------------------
+	REM ECHO RUN COMMAND 
+	REM ECHO %~dp0
+	REM ECHO BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk !TITLE_VAR!
+	REM ECHO ----------------------------------------------------------------
+	REM "%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
+	REM ECHO ----------------------------------------------------------------
 	ECHO.
 	TIMEOUT /T 300
 	REM 300 = 5 MINUTE
@@ -1178,6 +1178,9 @@ IF NOT !ERROR_COUNT!==0   PAUSE
 
 :ENDER
 IF NOT "!MODE_RUN!"=="GITHUB_ONLY"    TIMEOUT /T 90
+IF NOT !MODE_RUN!==GITHUB     GOTO ENDE
+
+CALL C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT
 
 
 
