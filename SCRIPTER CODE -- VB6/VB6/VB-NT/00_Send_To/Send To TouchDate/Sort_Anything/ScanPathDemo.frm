@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    Caption         =   "ScanPath 2.0 - Anything -- Demo of Class Object"
@@ -333,7 +333,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   127139841
+      Format          =   144113665
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -347,7 +347,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   127139841
+      Format          =   144113665
       CurrentDate     =   37296
    End
    Begin VB.Label Label14 

@@ -63,9 +63,8 @@ setTimer TIMER_PREVIOUS_INSTANCE,1
 Return
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 

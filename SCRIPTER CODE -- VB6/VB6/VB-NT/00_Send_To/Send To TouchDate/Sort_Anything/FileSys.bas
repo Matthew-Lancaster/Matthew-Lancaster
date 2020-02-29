@@ -1,6 +1,8 @@
 Attribute VB_Name = "mdlFileSys"
 'Option Explicit
 
+Public m_CRC As clsCRC
+Public WxHex$
 
 '##############################################################################################
 'Purpose:   Used for File System operations

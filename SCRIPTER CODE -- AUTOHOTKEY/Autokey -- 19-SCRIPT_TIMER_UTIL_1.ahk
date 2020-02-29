@@ -2835,10 +2835,10 @@ if OSVER_N_VAR<10
 }
 
 
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
-IfExist, %FN_VAR%
+FN_VAR_01:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
+IfExist, %FN_VAR_01%
 	{
-		Run, %FN_VAR%
+		Run, %FN_VAR_01%
 	}
 
 RETURN
@@ -3074,37 +3074,37 @@ TIMER_SUB_BLUETOOTH_LOGGER:
 
 			IF (A_ComputerName="1-ASUS-X5DIJ")
 			{
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\004.WAV, WAIT
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\004.WAV, WAIT
 				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\190623_0018_1X_ASUS_.WAV
 			}
 			IF (A_ComputerName="2-ASUS-EEE")
 			{
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\005.WAV, WAIT
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\005.WAV, WAIT
 				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\190623_0017_2E_ASUS_.WAV
 			}
 			IF (A_ComputerName="3-LINDA-PC")
 			{
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
 				SET_GO=TRUE
 			}
 			IF (A_ComputerName="4-ASUS-GL522VW")
 			{
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
 				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\190623_0019_4G_ASUS.WAV
 			}
 			IF (A_ComputerName="5-ASUS-P2520LA") 
 			{
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
 				SET_GO=TRUE
 			}
 			IF (A_ComputerName="7-ASUS-GL522VW") 
 			{
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
 				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\190623_0020_7G-ASUS_.WAV
 			}
 			IF (A_ComputerName="8-MSI-GP62M-7RD")
 			{
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
 				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\190623_0022_8M-MSI_.WAV
 			}
 			
@@ -3346,9 +3346,7 @@ RETURN
 
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 

@@ -11,6 +11,13 @@
 '-------------------------------------
 ' [ Sat 05:10:00 Am_21 Apr 2018 ] Add WildCard Sub Folder File Finder Proper
 '-------------------------------------
+
+' ----
+' DeployHappiness | Pinning Programs to the Taskbar with Group Policy 
+' https://deployhappiness.com/pinning-programs-to-the-taskbar-with-group-policy/
+' ----
+
+
 ' ADDITIONAL 10 URL'S OPEN OF HELPING
 
 '-----------------------------------------------------------------
@@ -60,6 +67,25 @@
 '                          __ And Programs to Be Installed ASUS-5P
 '-----------------------------------------------------------------
 
+'-----------------------------------------------------------------
+' 007 Session __
+'-----------------------------------------------------------------
+' -----------------------------------------------------------
+' USE EXE -- WHEN PinTo10_v4 -- MSI 8-ASUS-M WHICH GOT UPDATE WINDOW
+' NOT WORK ANYMORE
+' RECENT UPDATE SOFTWARE FIND BLOGGER MESSENGER COMMENT
+' NOT WORK EITHER
+' ICON MADDEN SET IN
+' -----------------------------------------------------------
+' Thu 20-Feb-2020 13:02:02
+' Thu 20-Feb-2020 13:33:58 -- 32 MINUTE
+' -----------------------------------------------------------
+' Thu 20-Feb-2020 18:29:08
+' Thu 20-Feb-2020 21:06:22 -- 2 HOUR 37 MINUTE
+' Thu 20-Feb-2020 21:06:22 -- 3 HOUR 09 MINUTE
+' -----------------------------------------------------------
+
+
 
 ' -------------------------------------------------------------------
 ' [ Friday 20:48:00 Pm_08 March 2019 ]
@@ -79,8 +105,21 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 DIM Q
 DIM PinTo10_EXE_PATH
+DIM PinTo10_v4_EXE__
+
 Q=CHR(34)
-PinTo10_EXE_PATH=Q & "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10.exe" & Q
+
+PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10.exe" 
+PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10.exe"
+PinTo10_v4_EXE__=Q & "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10_v4.exe" & Q
+
+Set wshShell = CreateObject( "WScript.Shell" )
+strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
+
+' IF strComputerName="8-MSI-GP62M-7RD" THEN 
+	' PinTo10_EXE_PATH = PinTo10_v4_EXE__
+' END IF
+
 
 'EXAMPLE
 'PinTo10.exe /PTFOL:"C:\Windows" /PTFILE:"notepad.exe"
@@ -236,6 +275,7 @@ If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 END IF
 
 
+DIM EXTRA_ITEM_ADD_TO_TASKBAR
 
 '--------------------------------------------------------------------
 IF Version_OS=>6 THEN 
@@ -262,22 +302,25 @@ Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
 APPDATA_FOLDER_FILE_COUNT_VAR_2=0
 Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_2)
 
-IF APPDATA_FOLDER_FILE_COUNT_VAR_1=APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
-	IF QUITE_MODE_ENDING=FALSE THEN 
+' IF APPDATA_FOLDER_FILE_COUNT_VAR_1=APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
+IF EXTRA_ITEM_ADD_TO_TASKBAR=0 THEN
+	IF QUITE_MODE_ENDING=FALSE THEN
 		I_VAR=""
 		I_VAR=I_VAR + "DONE _ PUT ITEM SET PUT ON TASKBAR COUNT TOTAL = " & VBCRLF & COUNT_I & VBCRLF
-		I_VAR=I_VAR + VBCRLF 
+		I_VAR=I_VAR + VBCRLF
 		I_VAR=I_VAR + "NONE EXTRA ADDED"
-		MSGBOX I_VAR,vbMsgBoxSetForeground 
+		MSGBOX I_VAR,vbMsgBoxSetForeground
 	END IF
 END IF
 
-IF APPDATA_FOLDER_FILE_COUNT_VAR_1<>APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
+'IF APPDATA_FOLDER_FILE_COUNT_VAR_1<>APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
+IF EXTRA_ITEM_ADD_TO_TASKBAR>0 THEN 
 	I_VAR=""
 	I_VAR=I_VAR + "PIN ITEM SET PUT ON TASKBAR TOTAL = " & VBCRLF & COUNT_I & VBCRLF
 	I_VAR=I_VAR + VBCRLF 
 	I_VAR=I_VAR + "EXTRA PIN ITEM SET PUT ON TASKBAR = " & VBCRLF
-	I_VAR=I_VAR + CSTR(APPDATA_FOLDER_FILE_COUNT_VAR_2-APPDATA_FOLDER_FILE_COUNT_VAR_1)
+	' I_VAR=I_VAR + CSTR(APPDATA_FOLDER_FILE_COUNT_VAR_2-APPDATA_FOLDER_FILE_COUNT_VAR_1)
+	I_VAR=I_VAR + CSTR(EXTRA_ITEM_ADD_TO_TASKBAR)
 	MSGBOX I_VAR,vbMsgBoxSetForeground 
 END IF
 
@@ -489,9 +532,12 @@ I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 SET_GO_GS=FALSE
 IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then SET_GO_GS=TRUE
 IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then SET_GO_GS=TRUE
-IF Version_OS=10 AND SET_GO_GS=TRUE THEN
+
+IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - C\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO C DRIVE.AHK.EXE"
-	I=I+1:ARRAY_1(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - D\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.AHK.EXE"
+	IF SET_GO_GS=TRUE THEN 
+		I=I+1:ARRAY_1(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - D\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.AHK.EXE"
+	END IF
 END IF
 
 IF Version_OS=10 THEN
@@ -564,6 +610,9 @@ END IF
 I=I+1:ARRAY_1(I)="C:\Program Files\MiniTool Partition Wizard 11\partitionwizard.exe"
 If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 	ARRAY_1(I)="C:\Program Files\MiniTool Partition Wizard 10\partitionwizard.exe"
+END IF
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)="C:\Program Files\MiniToolPowerDataRecovery\PowerDataRecovery.exe"
 END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe"
@@ -787,15 +836,69 @@ END SUB
 '--------------------------------------------------------
 SUB RUN_THE_CODE_PIN_TO
 '--------------------------------------------------------
+
 FOR R_SET=1 TO UBOUND(ARRAY_1)
 	IF ARRAY_1(R_SET)<>"" AND ARRAY_2(R_SET)=FALSE THEN 
 		ITEM_VAR_PATH=Q & MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1) & Q
 		ITEM_VAR_FILE=Q & MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1) & Q
-		ITEM_VAR_SET=" /PTFOL:" & ITEM_VAR_PATH & " /PTFILE:" & ITEM_VAR_FILE
+		ITEM_VAR_SET=ITEM_VAR_PATH & ITEM_VAR_FILE
+		ITEM_VAR_SET=ARRAY_1(R_SET)
 		
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
+			RESULT_TO_DO=RESULT_TO_DO & ITEM_VAR_SET &VBCRLF&VBCRLF
+			RESULT_TO_DO_COUNTER=RESULT_TO_DO_COUNTER+1
+		END IF
+	END IF
+NEXT
+' LOAD GOODSYNC2GO C DRIVE.AHK.EXE
+IF QUITE_MODE_ENDING=FALSE THEN
+	MSGBOX "ITEM TO BE PIN TASKBAR __ " + CSTR(RESULT_TO_DO_COUNTER) + VBCRLF+VBCRLF+ RESULT_TO_DO
+END IF				
 
-			objShell.Run PinTo10_EXE_PATH & ITEM_VAR_SET , 0 , TRUE
+
+FOR R_SET=1 TO UBOUND(ARRAY_1)
+	IF ARRAY_1(R_SET)<>"" AND ARRAY_2(R_SET)=FALSE THEN 
+		
+		ITEM_VAR_PATH=Q & MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1) & Q
+		ITEM_VAR_FILE=Q & MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1) & Q
+		ITEM_VAR_SET=" /PTFOL:" & ITEM_VAR_PATH & " /PTFILE:" & ITEM_VAR_FILE
+		
+		' -----------------------------------------------------------
+		' USE EXE -- WHEN PinTo10_v4 -- MSI 8-ASUS-M WHICH GOT UPDATE WINDOW
+		' NOT WORK ANYMORE
+		' RECENT UPDATE SOFTWARE FIND BLOGGER MESSENGER COMMENT
+		' NOT WORK EITHER
+		' ICON MADDEN SET IN
+		' -----------------------------------------------------------
+		' Thu 20-Feb-2020 13:02:02
+		' Thu 20-Feb-2020 13:33:58 -- 32 MINUTE
+		' -----------------------------------------------------------
+		' Thu 20-Feb-2020 18:29:08
+		' Thu 20-Feb-2020 21:06:22 -- 2 HOUR 37 MINUTE
+		' Thu 20-Feb-2020 21:06:22 -- 3 HOUR 09 MINUTE
+		' -----------------------------------------------------------
+		IF INSTR(PinTo10_EXE_PATH ,"PinTo10_v4")>0  THEN
+			ITEM_VAR_PATH=MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1)
+			ITEM_VAR_FILE=MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1)
+			ITEM_VAR_SET=" """+ITEM_VAR_PATH+"\"+ITEM_VAR_FILE+""""+" PIN TASKBAR"
+		END IF
+		
+		' USE POWERSHELL
+		IF 1=2 AND INSTR(PinTo10_EXE_PATH ,"PinTo10_v4")>0  THEN
+			ITEM_VAR_PATH=MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1)
+			ITEM_VAR_FILE=MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1)
+			ITEM_VAR_SET=" """+ITEM_VAR_PATH+"\"+ITEM_VAR_FILE+""""+" PIN TASKBAR"
+			' -noexit 
+			PinTo10_EXE_PATH="powershell -noprofile -ExecutionPolicy Bypass -file ""C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 12-Pinto10\PinTo10_v4.ps1"""
+		END IF
+		
+		If objFSO.FileExists(PinTo10_EXE_PATH) = FALSE Then 
+			MSGBOX "ERROR NOT EXIST "& VBCRLF & PinTo10_EXE_PATH
+		END IF
+
+		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
+			objShell.Run """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET , 0 , TRUE
+			EXTRA_ITEM_ADD_TO_TASKBAR = EXTRA_ITEM_ADD_TO_TASKBAR + 1
 			'WScript.Sleep 1000
 
 			IF QUITE_MODE_ENDING=FALSE THEN
@@ -805,6 +908,28 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		END IF
 	END IF
 NEXT
+
+FOR R_SET=1 TO UBOUND(ARRAY_1)
+	IF ARRAY_1(R_SET)<>"" AND ARRAY_2(R_SET)=FALSE THEN 
+		ITEM_VAR_PATH=Q & MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1) & Q
+		ITEM_VAR_FILE=Q & MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1) & Q
+		ITEM_VAR_SET = ITEM_VAR_PATH & ITEM_VAR_FILE
+		ITEM_VAR_SET = ARRAY_1(R_SET)
+		
+		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
+			RESULT_TO_DO_VERIFY=RESULT_TO_DO_VERIFY & ITEM_VAR_SET &VBCRLF&VBCRLF
+			RESULT_TO_DO_VERIFY_COUNTER=RESULT_TO_DO_VERIFY_COUNTER+1
+		END IF
+	END IF
+NEXT
+' LOAD GOODSYNC2GO C DRIVE.AHK.EXE
+IF QUITE_MODE_ENDING=FALSE THEN
+	MSGBOX "__ ITEM TO BE PIN DOUBLE VERIFY __ " + VBCRLF + "__ ERROR NOT GET ON __" + CSTR(RESULT_TO_DO_COUNTER) + " __ OF __ " + CSTR(RESULT_TO_DO_VERIFY_COUNTER) + " __ NOT ARRIVE __ " + VBCRLF + VBCRLF + RESULT_TO_DO_VERIFY
+END IF				
+
+
+
+
 END SUB
 
 
