@@ -1179,9 +1179,9 @@ IF !ERROR_COUNT!==0 (
 	REM -- NONE REQUIRE THIS COMMAND 
 	REM -- THE LAST JOB OF GITHUB SCRIPT HERE WOULD DO THEM
 	REM -----------------------------------------------------------------
-	IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
+	REM IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
 		REM  CALL C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT
-	:JUMP_OVER_GITHUB
+	REM :JUMP_OVER_GITHUB
 	
 	REM TIMEOUT /T 8
 	REM ECHO ------------------------------------------------------------
@@ -1191,16 +1191,27 @@ IF !ERROR_COUNT!==0 (
 	REM ECHO ----------------------------------------------------------------
 	REM "%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
 	REM ECHO ----------------------------------------------------------------
-	ECHO.
-	TIMEOUT /T 300
-	REM 300 = 5 MINUTE
 )
 
-PAUSE
+IF !MODE_RUN!==GITHUB  GOTO GITHUB_SUB
 
-IF !MODE_RUN!==GITHUB  TIMEOUT /T 30
+GOTO NEXT_PART
 
-PAUSE
+:GITHUB_SUB
+REM -----------------------------------------------------------------
+REM -- GITHUB WINDOW HERE OF COMMAND WOULD DISPLAY BUT NEXT APP AHK 
+REM -- DO THE GITHUB SYNCER DESTROY IT INSTANT
+REM -----------------------------------------------------------------
+TIMEOUT /T 30
+GOTO ENDE
+
+:NEXT_PART
+
+
+
+ECHO.
+TIMEOUT /T 300
+REM 300 = 5 MINUTE
 
 IF NOT !ERROR_COUNT!==0   PAUSE
 :ENDER
@@ -1223,9 +1234,6 @@ ECHO ----------------------------------------------------------------
 
 :ENDE
 EXIT
-
-
-
 
 @REM ----------------------------------------------------------------
 @REM -- NOT WORKING ODD SOD'S -- UNABLE TO CONVERT THE CODEPAGE 
@@ -1274,9 +1282,4 @@ REM Few key things to note about the above program.
 REM The ‘globalvar’ is defined with a global scope and is available throughout the entire script.
 
 REM The ‘var‘ variable is defined in a local scope because it is enclosed between a ‘SETLOCAL’ and ‘ENDLOCAL’ block. Hence, this variable will be destroyed as soon the ‘ENDLOCAL’ statement is executed.
-
-
-
-
-
 
