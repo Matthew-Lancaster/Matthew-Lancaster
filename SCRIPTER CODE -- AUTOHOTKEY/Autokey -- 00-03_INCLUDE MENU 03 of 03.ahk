@@ -46,6 +46,21 @@
 ; Sun 26-Jan-2020 18:40:00 -- 6 HOUR 39 MINUTE
 ; -------------------------------------------------------------------
 
+; ---------------------------------------------------------------------------------
+; SESSION 002
+; ---------------------------------------------------------------------------------
+; ROUTINE SET
+; ---------------------------------------------------------------------------------
+; TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
+; ---------------------------------------------------------------------------------
+; IF KILL OWN PROCESS LAST OF ALL -- IT NOT ABLE REMOVE ICON AND EXIT GRACEFUL THEN
+; ---------------------------------------------------------------------------------
+; -- Fri 28-Feb-2020 17:24:17
+; -- Fri 28-Feb-2020 19:04:28 -- 1 HOUR 40 MINUTE
+; ---------------------------------------------------------------------------------
+
+
+
 FILE_ScriptName=%A_ScriptName%
 IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 {
@@ -125,6 +140,55 @@ PROCESS_KILL_AUTOHOTKEY:
 RETURN
 
 
+
+CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK:
+	DetectHiddenWindows, ON
+	WinGet, List, List, ahk_class ThunderRT6FormDC
+	PATH_ID_BUILD=
+	Loop %List%  
+	{
+		; IfWinExist ahk_id List%A_Index%
+		;WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		WinGet, PATH_FULL, ProcessPath, % "ahk_id " List%A_Index% 
+		WinGet, PATH_EXE, ProcessName, % "ahk_id " List%A_Index% 
+		StringUpper PATH_EXE, PATH_EXE
+		StringUpper PATH_FULL, PATH_FULL
+			IF INSTR(PATH_FULL,"D:\VB")>0
+			{
+			
+				IF INSTR(PATH_ID_BUILD,PATH_EXE)=0
+				{
+					PATH_ID_BUILD=%PATH_ID_BUILD%%PATH_EXE%`n
+					PROCESS, EXIST, %PATH_EXE%
+					IF ERRORLEVEL
+					{
+						TOOLTIP % PATH_ID_BUILD
+						SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						WINCLOSE ahk_exe %PATH_EXE%
+						SLEEP 200
+						PROCESS, EXIST, %PATH_EXE%
+						IF ERRORLEVEL
+						{
+							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							WINCLOSE ahk_exe %PATH_EXE%
+						}
+						SLEEP 200
+						PROCESS, EXIST, %PATH_EXE%
+						IF ERRORLEVEL
+						{
+							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							Process, Close, %PATH_EXE%
+						}
+					}
+				}
+
+			}
+	}	
+	TOOLTIP
+RETURN
+
+
+
 ARRAY_INCLUDE_SCRIPT_NAME() {
 	ARRAY_INCLUDE_SCRIPT_NAME := []
 	ArrCnt := 0
@@ -174,6 +238,28 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 }
 RETURN
 
+
+TIMEZONE_MINI_GUI_DISPLAY_EXE:
+Element_1 := "D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe"
+IfExist, %Element_1%
+{
+	SoundBeep , 2000 , 100
+	Run, %Element_1%
+}
+RETURN
+
+ALL_LOW_PROCCES_PRIORITY_TO_NORMAL:
+Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 94-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk"
+IfExist, %Element_1%
+{
+	SoundBeep , 2000 , 100
+	Run, %Element_1%
+}
+RETURN
+
+
+
+
 SUB_RESTORE_VB_KEEP_RUNNER:
 	SetTitleMatchMode 2  ; Avoids Specify Full path.
 	; WinRestore, VB_KEEP_RUNNER ahk_class ThunderFormDC
@@ -220,6 +306,7 @@ SUB_RESTORE_VB_KEEP_RUNNER:
 		SOUNDBEEP 1400,100
 	}
 RETURN
+
 SUB_RESTORE_ELITESPY:
 	SetTitleMatchMode 2  ; Avoids Specify Full path.
 	; WinRestore, VB_KEEP_RUNNER ahk_class ThunderFormDC
@@ -521,85 +608,67 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	; TO   __ Sun 09-Jun-2019 09:50:00 __ Clipboard Count = 139 __ NEAR 3 HOUR
 	; ---------------------------------------------------------------
 	
+	DetectHiddenWindows, On
+	SetTitleMatchMode, 2
+
+	; RUN HERE AS ANOTHER TYPE SCRIPT PROGRAMMER LANGUAGE
+	; ----------------------------------------------------
+	FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk"
+	IfExist, %FN_VAR_1%
+	{
+		Run, %FN_VAR_1%
+		WINWAIT Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk ahk_class AutoHotkey,,30
+	}
+	
+	ScriptName = %FN_VAR_1%
+	SCRIPTNAME = %SCRIPTNAME% - AutoHotkey v %A_AhkVersion%
+	TT=
+	WinGet, List, List, ahk_class AutoHotkey
+	Loop %List%
+	{ 
+		ID_SX:=List%A_Index%
+		WinGetTitle, TITLE_VAR_T, ahk_id %ID_SX%
+		IF TITLE_VAR_T
+		IF INSTR(TITLE_VAR_T,"Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk")>0
+			WinGet, PID_78_TRAY_ICON_CLEANER, PID, ahk_id %ID_SX%
+		TT=%TT%`n%TITLE_VAR_T%
+	}
+	
 	SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
 
-	Allitem=2
-	WHILE Allitem>1
+	WinGet, List, List, ahk_class AutoHotkey
+	Loop
 	{
-		WinGet, List, List, ahk_class AutoHotkey 
-		Loop %List%  
-		{ 
+		Loop %List%
+		{
 			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
 			IF PID_8
 			If PID_8 <> %SCRIPTOR_OWN_PID%
+			IF PID_8 <> %PID_78_TRAY_ICON_CLEANER%
 			{
-				; MSGBOX % PID_8 " -- " SCRIPTOR_OWN_PID
-				; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				Process, Close, %PID_8% 
-				SOUNDBEEP 1200,40
+				PROCESS, Close, %PID_8% 
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				SOUNDBEEP 1000,20
 			}
 		}
-		Allitem=0
-		WinGet, List, List, ahk_class AutoHotkey 
-		Loop %List%  
-			Allitem:=A_Index
-	}	
+		WinGet, List, List, ahk_class AutoHotkey
+		Loop %List%
+			I_COUNT=%A_Index%
+		SLEEP 50
+		IF I_COUNT<3 THEN 
+			BREAK
+	}
+	GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK
+	GOSUB KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT
 	
-	; ---------------------------------------------------------------
-	; SOMETIME AUTOHOTKEY IS LEFT BEHIND WHEN LOOK FOR CLASS
-	; AS SOME MSGBOX-ER ARE DIFFERENT CLASS NAME
-	; ---------------------------------------------------------------
-	Allitem=2
-	WHILE Allitem>1
-	{
-		WinGet, List, List, ahk_exe AutoHotkey.EXE
-		Loop %List%  
-		{ 
-			; -------------------------------------------------------
-			; MSGBOX % List%A_Index% -- HWND NUMBER IS HERE
-			; BUT I WAS THINKER -- THAT STAY WITH HWND NUMBER WOULD OF BEEN BETTER QUICKER
-			; WHEN MACHINE UNDER LOAD ABLE TO SEE STRESS MAKE
-			; LESS SPEED BETWEEN EACH KILL
-			; OH GUESS REQUIRING PROCESS NUMBER AT END ANYHOW
-			; WAS THINKER COULD JUST KILL ALL AHK
-			; WHICH WOULD NOT BE SUCH A BAD IDEA
-			; SOMEBODY ONCE TALKER THE SCRIPT REQUEST LIST LEAVES ITSELF TO LAST ANYWAY
-			; WHAT A KNOBBER LOSER IT CHECK PID FOR OWN EACH TIME GET A NEW NUMBER
-			; DONE THAT
-			; IT NOT THIS BIT THAT LESS QUICKER
-			; IT THE REMOVE ICON
-			; -------------------------------------------------------
-			WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
-			If PID_8 <> %SCRIPTOR_OWN_PID%
-			{
-				; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				Process, Close, %PID_8% 
-				SOUNDBEEP 1200,40
-			}
-		}
-		Allitem=0
-		WinGet, List, List, ahk_exe AutoHotkey.EXE
-		Loop %List%  
-			Allitem:=A_Index
-	}	
-
-	GOSUB KILL_ALL_PROCESS_BY_NAME
-	
-	
-	
-	; FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - RUN_ONCE.ahk"
-	; IfExist, %FN_VAR_1%
-	    ; Run, %FN_VAR_1%,,HIDE
-	
-	FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk"
-	IfExist, %FN_VAR_1%
-		Run, %FN_VAR_1%
-
-	; Run, %FN_VAR_1%,,HIDE -- HIDE NOT WORKER FOR AHK
-	; USE
-	; #NoTrayIcon
+	; IF KILL OWN PROCESS LAST OF ALL -- IT NOT ABLE REMOVE ICON AND EXIT GRACEFUL THEN
+	; ---------------------------------------------------------------------------------
+	; -- Fri 28-Feb-2020 17:24:17
+	; -- Fri 28-Feb-2020 19:04:28 -- 1 HOUR 40 MINUTE
+	; ---------------------------------------------------------------------------------
+	EXITAPP
+	RETURN
 		
-	Process, Close, %SCRIPTOR_OWN_PID%
 RETURN
 
 
@@ -608,8 +677,8 @@ RETURN
 
 
 
-KILL_ALL_PROCESS_BY_NAME:
-	WinGet, List, List, ahk_exe cmd.exe
+KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT:
+	WinGet, List, List, ahk_exe CMD.EXE
 	Loop %List%  
 	{ 
 		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
@@ -617,9 +686,10 @@ KILL_ALL_PROCESS_BY_NAME:
 		{
 			Process, Close, %PID_8% 
 			SOUNDBEEP 1200,40
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
-	WinGet, List, List, ahk_exe conhost.exe
+	WinGet, List, List, ahk_exe CONHOST.EXE
 	Loop %List%  
 	{ 
 		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
@@ -627,8 +697,21 @@ KILL_ALL_PROCESS_BY_NAME:
 		{
 			Process, Close, %PID_8% 
 			SOUNDBEEP 1200,40
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
+	WinGet, List, List, ahk_exe WSCRIPT.EXE	
+	Loop %List%  
+	{ 
+		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		IF PID_8
+		{
+			Process, Close, %PID_8% 
+			SOUNDBEEP 1200,40
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+	}
+	
 RETURN
 
 
@@ -650,6 +733,7 @@ FN_VAR_2=%TEMP_VAR_3%
 IFWINEXIST %FN_VAR_2%
 {
 	WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	SoundBeep , 8000 , 100
 	Process, Close,% PID_01
 }
@@ -657,6 +741,7 @@ IFWINEXIST %FN_VAR_2%
 IFWINNOTEXIST %FN_VAR_2%
 {
 	SoundBeep , 5000 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %TEMP_VAR_1_INCLUDE%
 }
 
@@ -1248,7 +1333,18 @@ Return
 
 WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 		
-		FILENAME_2__=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER ADD_SOME_#NFS_
+		FILENAME_2__=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER ADD_SOME_#NFS_EX_
+		
+		; -----------------------------------------------------------
+		; WORK AS ELEMENT7 BEGIN WITH UNDERLINE DASH -- MAKE IT DOUBLE DASH FROM ABOVE
+		; AND MIS-MATCHER
+		; Mon 17-Feb-2020 04:58:54
+		; ALL WORK DONE FOR DAY
+		; ABOUT FIVE OR FOUR WORK TONIGHT 
+		; HA HA HA
+		; -----------------------------------------------------------
+		
+		
 		ArrayCount = 0
 		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
 		{
@@ -1270,10 +1366,11 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 				ELEMENT4:=Array_NETPATH_02%ArrayCount%
 				ELEMENT5=%FILENAME_2__%
 				; NET_PATH:=A_LoopReadLine
-				ELEMENT7=_%NET_PATH%.TXT
+				ELEMENT7=%NET_PATH%.TXT
 
-				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-				; MSGBOX % Array_FileName%A_Index%
+				Array_FileName_VAR=%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
+				Array_FileName%ArrayCount%=%Array_FileName_VAR%
+				; MSGBOX %Array_FileName_VAR%
 			}
 		}
 
@@ -1303,13 +1400,13 @@ RETURN
 
 RUN_TIMER_TRAY_ICON_CLEAN_UP:
 
-	Array_Icon_GetInfo := TrayIcon_GetInfo()
+	Array_Icon_GetInfo := TrayIcon_GetInfo_MENU_03()
 	Loop % Array_Icon_GetInfo.MaxIndex()
 	{
 
 		IF Array_Icon_GetInfo[A_Index].process<1
 		{
-			TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
+			TrayIcon_Remove_MENU_03(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
@@ -1327,7 +1424,7 @@ RUN_TIMER_TRAY_ICON_CLEAN_UP:
 	; Loop % Array_Icon_GetInfo.MaxIndex()
 	; {
 		; IF Array_Icon_GetInfo[A_Index].process="TrayApplication.exe"
-			; TrayIcon_Remove(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
+			; TrayIcon_Remove_MENU_03(Array_Icon_GetInfo[A_Index].HWND, Array_Icon_GetInfo[A_Index].uID)
 	; }
 	
 RETURN
@@ -1373,13 +1470,13 @@ RETURN
 ; ...............: TBBUTTON structure     - http://goo.gl/EIE21Z
 ; ----------------------------------------------------------------------------------------------------------------------
 
-TrayIcon_GetInfo(sExeName := "")
+TrayIcon_GetInfo_MENU_03(sExeName := "")
 {
 	DetectHiddenWindows, % (Setting_A_DetectHiddenWindows := A_DetectHiddenWindows) ? "On" :
 	oTrayIcon_GetInfo := {}
 	For key, sTray in ["Shell_TrayWnd", "NotifyIconOverflowWindow"]
 	{
-		idxTB := TrayIcon_GetTrayBar(sTray)
+		idxTB := TrayIcon_GetTrayBar_MENU_03(sTray)
 		WinGet, pidTaskbar, PID, ahk_class %sTray%
 		
 		hProc := DllCall("OpenProcess", UInt, 0x38, Int, 0, UInt, pidTaskbar)
@@ -1437,19 +1534,19 @@ TrayIcon_GetInfo(sExeName := "")
 	Return oTrayIcon_GetInfo
 }
 
-; ----------------------------------------------------------------------------------------------------------------------
+; -------------------------------------------------------------------------------------------------
 ; Function .....: TrayIcon_Hide
 ; Description ..: Hide or unhide a tray icon.
 ; Parameters ...: IDcmd - Command identifier associated with the button.
 ; ..............: bHide - True for hide, False for unhide.
 ; ..............: sTray - 1 or Shell_TrayWnd || 0 or NotifyIconOverflowWindow.
 ; Info .........: TB_HIDEBUTTON message - http://goo.gl/oelsAa
-; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_Hide(IDcmd, sTray := "Shell_TrayWnd", bHide:=True)
+; -------------------------------------------------------------------------------------------------
+TrayIcon_Hide_MENU_03(IDcmd, sTray := "Shell_TrayWnd", bHide:=True)
 {
 	(sTray == 0 ? sTray := "NotifyIconOverflowWindow" : sTray == 1 ? sTray := "Shell_TrayWnd" : )
 	DetectHiddenWindows, % (Setting_A_DetectHiddenWindows := A_DetectHiddenWindows) ? "On" :
-	idxTB := TrayIcon_GetTrayBar()
+	idxTB := TrayIcon_GetTrayBar_MENU_03()
 	SendMessage, 0x404, IDcmd, bHide, ToolbarWindow32%idxTB%, ahk_class %sTray% ; TB_HIDEBUTTON
 	SendMessage, 0x1A, 0, 0, , ahk_class %sTray%
 	DetectHiddenWindows, %Setting_A_DetectHiddenWindows%
@@ -1462,11 +1559,11 @@ TrayIcon_Hide(IDcmd, sTray := "Shell_TrayWnd", bHide:=True)
 ; ..............: sTray - 1 or Shell_TrayWnd || 0 or NotifyIconOverflowWindow.
 ; Info .........: TB_DELETEBUTTON message - http://goo.gl/L0pY4R
 ; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_Delete(idx, sTray := "Shell_TrayWnd")
+TrayIcon_Delete_MENU_03(idx, sTray := "Shell_TrayWnd")
 {
 	(sTray == 0 ? sTray := "NotifyIconOverflowWindow" : sTray == 1 ? sTray := "Shell_TrayWnd" : )
 	DetectHiddenWindows, % (Setting_A_DetectHiddenWindows := A_DetectHiddenWindows) ? "On" :
-	idxTB := TrayIcon_GetTrayBar()
+	idxTB := TrayIcon_GetTrayBar_MENU_03()
 	SendMessage, 0x416, idx, 0, ToolbarWindow32%idxTB%, ahk_class %sTray% ; TB_DELETEBUTTON
 	SendMessage, 0x1A, 0, 0, , ahk_class %sTray%
 	DetectHiddenWindows, %Setting_A_DetectHiddenWindows%
@@ -1477,7 +1574,7 @@ TrayIcon_Delete(idx, sTray := "Shell_TrayWnd")
 ; Description ..: Remove a tray icon.
 ; Parameters ...: hWnd_I, uID.
 ; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_Remove(hWnd_I, uID)
+TrayIcon_Remove_MENU_03(hWnd_I, uID)
 {
 		NumPut(VarSetCapacity(NID,(A_IsUnicode ? 2 : 1) * 384 + A_PtrSize * 5 + 40,0), NID)
 		NumPut(hWnd_I , NID, (A_PtrSize == 4 ? 4 : 8 ))
@@ -1493,11 +1590,11 @@ TrayIcon_Remove(hWnd_I, uID)
 ; ..............: sTray - 1 or Shell_TrayWnd || 0 or NotifyIconOverflowWindow.
 ; Info .........: TB_MOVEBUTTON message - http://goo.gl/1F6wPw
 ; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_Move(idxOld, idxNew, sTray := "Shell_TrayWnd")
+TrayIcon_Move_MENU_03(idxOld, idxNew, sTray := "Shell_TrayWnd")
 {
 	(sTray == 0 ? sTray := "NotifyIconOverflowWindow" : sTray == 1 ? sTray := "Shell_TrayWnd" : )
 	DetectHiddenWindows, % (Setting_A_DetectHiddenWindows := A_DetectHiddenWindows) ? "On" :
-	idxTB := TrayIcon_GetTrayBar()
+	idxTB := TrayIcon_GetTrayBar_MENU_03()
 	SendMessage, 0x452, idxOld, idxNew, ToolbarWindow32%idxTB%, ahk_class %sTray% ; TB_MOVEBUTTON
 	DetectHiddenWindows, %Setting_A_DetectHiddenWindows%
 }
@@ -1514,7 +1611,7 @@ TrayIcon_Move(idxOld, idxNew, sTray := "Shell_TrayWnd")
 ; Info .........: NOTIFYICONDATA structure  - https://goo.gl/1Xuw5r
 ; ..............: Shell_NotifyIcon function - https://goo.gl/tTSSBM
 ; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_Set(hWnd_I, uId, hIcon, hIconSmall:=0, hIconBig:=0)
+TrayIcon_Set_MENU_03(hWnd_I, uId, hIcon, hIconSmall:=0, hIconBig:=0)
 {
     d := A_DetectHiddenWindows
     DetectHiddenWindows, On
@@ -1540,7 +1637,7 @@ TrayIcon_Set(hWnd_I, uId, hIcon, hIconSmall:=0, hIconBig:=0)
 ; Function .....: TrayIcon_GetTrayBar
 ; Description ..: Get the tray icon handle.
 ; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_GetTrayBar(Tray:="Shell_TrayWnd")
+TrayIcon_GetTrayBar_MENU_03(Tray:="Shell_TrayWnd")
 {
 	DetectHiddenWindows, % (Setting_A_DetectHiddenWindows := A_DetectHiddenWindows) ? "On" :
 	WinGet, ControlList, ControlList, ahk_class %Tray%
@@ -1564,9 +1661,9 @@ TrayIcon_GetTrayBar(Tray:="Shell_TrayWnd")
 ; Description ..: Get the index of tray's hot item.
 ; Info .........: TB_GETHOTITEM message - http://goo.gl/g70qO2
 ; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_GetHotItem()
+TrayIcon_GetHotItem_MENU_03()
 {
-	idxTB := TrayIcon_GetTrayBar()
+	idxTB := TrayIcon_GetTrayBar_MENU_03()
 	SendMessage, 0x447, 0, 0, ToolbarWindow32%idxTB%, ahk_class Shell_TrayWnd ; TB_GETHOTITEM
 	Return ErrorLevel << 32 >> 32
 }
@@ -1579,7 +1676,7 @@ TrayIcon_GetHotItem()
 ; ..............: bDouble  - True to double click, false to single click.
 ; ..............: index    - Index of tray icon to click if more than one match.
 ; ----------------------------------------------------------------------------------------------------------------------
-TrayIcon_Button(sExeName, sButton := "L", bDouble := false, index := 1)
+TrayIcon_Button_MENU_03(sExeName, sButton := "L", bDouble := false, index := 1)
 {
 	DetectHiddenWindows, % (Setting_A_DetectHiddenWindows := A_DetectHiddenWindows) ? "On" :
 	WM_MOUSEMOVE	  = 0x0200
@@ -1594,7 +1691,7 @@ TrayIcon_Button(sExeName, sButton := "L", bDouble := false, index := 1)
 	WM_MBUTTONDBLCLK = 0x0209
 	sButton := "WM_" sButton "BUTTON"
 	oIcons := {}
-	oIcons := TrayIcon_GetInfo(sExeName)
+	oIcons := TrayIcon_GetInfo_MENU_03(sExeName)
 	msgID  := oIcons[index].msgID
 	uID    := oIcons[index].uID
 	hWnd_I := oIcons[index].hWnd

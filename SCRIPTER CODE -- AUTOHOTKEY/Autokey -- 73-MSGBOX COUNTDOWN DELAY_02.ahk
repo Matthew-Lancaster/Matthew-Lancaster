@@ -622,9 +622,6 @@ Return
 
 
 
-MenuHandler:
-#Include %A_ScriptDir%\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
 
 #Include %A_ScriptDir%\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 

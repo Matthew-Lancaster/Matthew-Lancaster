@@ -809,7 +809,7 @@ Private Function MakeRegFile(ByVal hKey As Long, ByVal lpszSubKey As String, ByV
     MakeRegFile = (lResult = ERROR_SUCCESS)
     Exit Function
 End Function
-Public Sub ExecuteNewProgram()
+Public Sub ExecuteNewPrograM_1()
     Ret = Shell("rundll32.exe url.dll,FileProtocolHandler " & App.Path & "\" & App.EXEName & ".EXE")
     Exit Sub
 End Sub
@@ -821,7 +821,7 @@ Public Sub NotAlwaysOnTop(FormName As Form)
     Call SetWindowPos(FormName.hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags)
     Exit Sub
 End Sub
-Public Sub InvisibleForm(Frm As Form)
+Public Sub InvisibleForM_1(Frm As Form)
     Dim rctClient As RECT, rctFrame As RECT
     Dim hClient As Long, hFrame As Long
     GetWindowRect Frm.hWnd, rctFrame
@@ -917,7 +917,7 @@ Function VolumeOfCube(edge As Long)
     VolumeOfCube = edge ^ 3
     Exit Function
 End Function
-Function VolumeOfPrism(base As Long, Height As Long)
+Function VolumeOfPrisM_1(base As Long, Height As Long)
     VolumeOfPrism = base * Height
     Exit Function
 End Function
@@ -1169,7 +1169,7 @@ Public Sub ShowMouse()
     ShowCursor (bShow = True)
     Exit Sub
 End Sub
-Public Sub DrawSquareOnForm(Frm As Form, X1 As Single, X2 As Single, Y1 As Single, Y2 As Single, Red As Integer, Green As Integer, Blue As Integer, Solid As Boolean)
+Public Sub DrawSquareOnForM_1(Frm As Form, X1 As Single, X2 As Single, Y1 As Single, Y2 As Single, Red As Integer, Green As Integer, Blue As Integer, Solid As Boolean)
     If Solid = True Then
     Frm.Line (X1, Y1)-(X2, Y2), RGB(Red, Green, Blue), BF
     Else
@@ -1177,7 +1177,7 @@ Public Sub DrawSquareOnForm(Frm As Form, X1 As Single, X2 As Single, Y1 As Singl
     End If
     Exit Sub
 End Sub
-Public Sub DrawLineOnForm(Frm As Form, X1 As Single, X2 As Single, Y1 As Single, Y2 As Single, Red As Integer, Green As Integer, Blue As Integer)
+Public Sub DrawLineOnForM_1(Frm As Form, X1 As Single, X2 As Single, Y1 As Single, Y2 As Single, Red As Integer, Green As Integer, Blue As Integer)
     Frm.Line (X1, Y1)-(X2, Y2), RGB(Red, Green, Blue)
     Exit Sub
 End Sub
@@ -1560,7 +1560,7 @@ Public Function CaptureWindow(ByVal hWndSrc As Long, ByVal Client As Boolean, By
     
       Set CaptureWindow = CreateBitmapPicture(hBmp, hPal)
 End Function
-Public Function CaptureForm(frmSrc As Form) As Picture
+Public Function CaptureForM_1(frmSrc As Form) As Picture
     On Error Resume Next
     Set CaptureForm = CaptureWindow(frmSrc.hWnd, False, 0, 0, frmSrc.ScaleX(frmSrc.Width, vbTwips, vbPixels), frmSrc.ScaleY(frmSrc.Height, vbTwips, vbPixels))
 End Function
@@ -1857,7 +1857,7 @@ Function KillForms()
     Next Form
     Result.LP_RESULT = MsgBox("Forms Terminated!", vbExclamation, "Forms")
 End Function
-Function PlacePictureOnForm(Picture As String, Width As Long, Height As Long, Form As Form, hWnd As Long)
+Function PlacePictureOnForM_1(Picture As String, Width As Long, Height As Long, Form As Form, hWnd As Long)
     Dim HDC As Long, hBitmap As Long
     hBitmap = LoadImage(App.hInstance, Picture, IMAGE_BITMAP, Width, Height, LR_LOADFROMFILE)
     If hBitmap = 0 Then

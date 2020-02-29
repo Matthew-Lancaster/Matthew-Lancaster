@@ -403,11 +403,24 @@ RETURN
 ;                          -- DON'T FORGET THE OBVIOUS 
 ;                          -- SIG LINE REQUIRE REVERSE SEARCH WAY
 ; -------------------------------------------------------------------
+
+
+#IfWinActive .PS1 - Notepad++ ahk_class Notepad++
+{
+F5:: 
+	SENDINPUT ^S
+	SOUNDBEEP 1000,100
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	RETURN
+}
+#ifwinactive
+
 #IfWinNOTActive ahk_class Notepad++
 {
 +^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
 	VAR_INDEX=1
 	GOSUB HOT_KEY_CONVERT_TExT 
+	RETURN
 }
 #ifwinactive
 
@@ -447,6 +460,7 @@ HOT_KEY_CONVERT_TExT:
 		RETURN
 	}
 	Clipper_1_GET=%Clipper_GET%
+	Clipper_2_GET=
 	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R 
 	; ---------------------------------------------------------------
 	; TALK -1 IF NONE ---- StrGetPos_Clipper>0
@@ -522,7 +536,7 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		{
 			SetCapsLockState ,ON
 		}
-		IfWinActive Your Notifications
+		IfWinActive Your notifications
 		IfWinActive  - Google Chrome
 		{
 			SetCapsLockState ,OFF
@@ -2825,9 +2839,7 @@ RETURN
 ;   Send,{ctrl down}f{ctrl up}{ENTER}
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 

@@ -57,7 +57,7 @@ CHROME_RUN_AND_MIN:
 	IF INSTR(TITLE_VAR,Element)
 		AUTO_RELOAD_FIREFOX_VAR_2=1
 
-	Element:=Your Notifications - Google Chrome
+	Element:=Your notifications - Google Chrome
 	WinGetTITLE, TITLE_VAR, %Element% ahk_class Chrome_WidgetWin_1
 	IF INSTR(TITLE_VAR,Element)
 		AUTO_RELOAD_FACEBOOK_VAR=1

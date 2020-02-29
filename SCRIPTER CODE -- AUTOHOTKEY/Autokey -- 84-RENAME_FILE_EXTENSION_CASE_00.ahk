@@ -65,9 +65,7 @@ RETURN
 
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
 
 ; -------------------------------------------------------------------
 ; HERE HAS A HOT KEY TERMINATE SMART BOMBER KILL SWITCH FOR AHK

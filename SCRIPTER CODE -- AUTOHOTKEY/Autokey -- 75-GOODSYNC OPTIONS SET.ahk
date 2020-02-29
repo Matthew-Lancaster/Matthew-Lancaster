@@ -193,6 +193,7 @@ CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=
 HDD_HUBIC_HWND=
 DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=
 WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND=
+NOT_GSDATA_CLOUD_HWND=
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
@@ -222,9 +223,13 @@ SET_ACTIVATION__HWND_02=0
 ACTIVATION_GS_FILENAME_CONTENT=
 O_WNDCLASS_DESKED_GSK_MATCH=
 
+NOT_GSDATA_FOLDER_CLOUD_HWND_1=
+NOT_GSDATA_FOLDER_CLOUD_HWND_44_4=
+NOT_GSDATA_FOLDER_CLOUD_HWND_55_1=
+NOT_GSDATA_FOLDER_CLOUD_HWND_57_4=
 
 ; -------------------------------------------------------------------
-SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
+SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,500
 SETTIMER TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP,1000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
@@ -778,6 +783,42 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 	}
 	; ---------------------------------------------------------------
 
+	; GOODSYNC DESKTOP C-HDD
+	; ---------------------------------------------------------------
+	IF !HWND_4
+	{
+		WinGet HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		WinGet, HWND_44, ID, A
+		IF HWND_4<>%HWND_44%
+			HWND_4=
+		
+		; IF HWND_4>0
+		; {
+			; ; -----------------------------------------------------------
+			; WinGet, HWND_2, ID, A
+			; HWND_GS_A_PARENT=%HWND_2%
+			; IF HWND_2<>%HWND_4%
+			; {
+				; aParent:=DllCall( "GetParent", UInt, HWND_2) + 0
+				; HWND_2=%aParent%
+				; HWND_GS_A_PARENT=%HWND_2%
+			; }
+			; ; -----------------------------------------------------------
+			; IF HWND_2=%HWND_4%
+			; {
+				; ; EXE NAME IF AS ABOVE
+				; ; --------------------
+				; WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+			; }
+			; ; -----------------------------------------------------------
+		; }
+		; ---------------------------------------------------------------
+	}
+	; ---------------------------------------------------------------
+	IF HWND_4
+	IF !HWND_1
+		HWND_1=%HWND_4%
+	
 	WinGet, HWND_1, ID, ] Options ahk_class #32770
 	IF !HWND_1
 		RETURN
@@ -936,27 +977,27 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			}
 		}
 		
-		IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
-		IF UNCHECK_PERIODIC_TIMER_HWND<>%HWND_1%
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
-			If Status=1
-			{
-				TOOLTIP AUTO - UNCHECK PERIODIC TIMER
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_PERIOD_CHECKBOX_`n"
-				Control, UNCheck,, Button17, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
-			If Status=0
-			{
-				UNCHECK_PERIODIC_TIMER_HWND=%HWND_1%
-				; TOOLTIP
-			}
-		}
+		; IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
+		; IF UNCHECK_PERIODIC_TIMER_HWND<>%HWND_1%
+		; IF (OutputVar_2="Periodically (On Timer), every")
+		; {
+			; ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
+			; If Status=1
+			; {
+				; TOOLTIP AUTO - UNCHECK PERIODIC TIMER
+				; TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+				; TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+				; TT_1:=% TT_1 "_PERIOD_CHECKBOX_`n"
+				; Control, UNCheck,, Button17, ahk_id %HWND_1%
+				; SoundBeep , 4000 , 100
+			; }
+			; ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
+			; If Status=0
+			; {
+				; UNCHECK_PERIODIC_TIMER_HWND=%HWND_1%
+				; ; TOOLTIP
+			; }
+		; }
 
 		
 		; -----------------------------------------------------------
@@ -1067,7 +1108,279 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 				; TOOLTIP
 			}	
 		}
+
+		; -----------------------------------------------------------
+		; Fri 21-Feb-2020 11:03:20
+		; -----------------------------------------------------------
+		; SETTER A CHECKBOX _ VBCHECK
+		; -----------------------------------------------------------
+		WinGetTitle OutputVar_3,ahk_id %HWND_1%
+		SET_GO_2=FALSE
+		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE 20")>0 
+			SET_GO_2=
 		
+		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #1")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #5")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #7")>0 
+			SET_GO_2=
+		
+		IF INSTR(OutputVar_3,"DSC EVER GOOGLE")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"GOOGLE DRI")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"GD _")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"D DSC __ WORK -- GD")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"D DSC VI_3 __  G P DSC SYNC DSC ARC 10 - VIDEO MINE 01 OD-MATT4")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE MATT.LITT")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE METAL.LITT")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE MORP")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"MS #MEDIA")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"MS D")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"MS VB6")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"QNAP")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"VVV")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"VVV")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"VVV")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"VVV")>0 
+			SET_GO_2=
+		
+		WinGetTitle OutputVar_4,ahk_id %HWND_4%
+		SET_GO_4=FALSE
+		IF INSTR(OutputVar_4,"E DESKTOP")>0 
+			SET_GO_4=
+		IF INSTR(OutputVar_4,"E STARTMENU")>0 
+			SET_GO_4=
+
+		; IF INSTR(OutputVar_3,"")>0 
+			; SET_GO_2=
+		; IF INSTR(OutputVar_3,"")>0 
+			; SET_GO_2=
+		; IF INSTR(OutputVar_3,"")>0 
+			; SET_GO_2=
+		; IF INSTR(OutputVar_3,"")>0 
+			; SET_GO_2=
+		; IF INSTR(OutputVar_3,"")>0 
+			; SET_GO_2=
+		
+		; -----------------------------------------------------------
+		; NOT_GSDATA_FOLDER_CLOUD_HWND_57_4
+		; -----------------------------------------------------------
+		SET_GO_8=0
+		
+		IF !SET_GO_1
+			SET_GO_8=1
+		IF !SET_GO_4
+			SET_GO_8=1
+
+		IF HWND_1
+		IF !SET_GO_1
+			SET_GO_4=JUNK
+		
+		SET_GO_10=0
+		IF HWND_4
+			SET_GO_10=1
+		IF HWND_1
+			SET_GO_10=1
+		
+		SET_GO_12=0
+		IF NOT_GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_4%
+			SET_GO_12=1
+		IF NOT_GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
+			SET_GO_12=1
+		
+		IF SET_GO_8=1
+		IF SET_GO_10=1
+		IF SET_GO_12=1
+		{               
+			; 01 OF 04
+			IF NOT_GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_4%
+			{
+				ControlGettext, OutputVar_1, Button57, ahk_id %HWND_4%
+				ControlGet, Status, Checked,, Button57, ahk_id %HWND_4%
+				IF OutputVar_1=No _gsdata_ folder here
+				{
+					If Status=0
+					{
+						Control, Check,, Button57, ahk_id %HWND_4%
+						SoundBeep , 4000 , 100
+						TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
+						TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						SoundBeep , 4000 , 100
+					}
+					
+					ControlGet, Status, Checked,, Button57, ahk_id %HWND_4%
+					If Status=1
+					{
+						NOT_GSDATA_FOLDER_CLOUD_HWND_57_4=%HWND_4%
+					}
+				}
+			}
+			
+			; 02 OF 04
+			IF NOT_GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
+			{
+				ControlGettext, OutputVar_1, Button57, ahk_id %HWND_1%
+				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+				IF OutputVar_1=No _gsdata_ folder here
+				{
+					If Status=0
+					{
+						Control, Check,, Button57, ahk_id %HWND_1%
+						SoundBeep , 4000 , 100
+						TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+						TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						SoundBeep , 4000 , 100
+					}
+					
+					ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+					If Status=1
+					{
+						NOT_GSDATA_FOLDER_CLOUD_HWND_57_1=%HWND_1%
+					}
+				}
+			}
+			; 03 OF 06
+			IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_4<>%HWND_4%
+			{
+				ControlGettext, OutputVar_1, Button55, ahk_id %HWND_4%
+				ControlGet, Status, Checked,, Button55, ahk_id %HWND_4%
+				IF OutputVar_1=No _gsdata_ folder here
+				{
+					If Status=0
+					{
+						Control, Check,, Button55, ahk_id %HWND_4%
+						SoundBeep , 4000 , 100
+						TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
+						TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						SoundBeep , 4000 , 100
+					}
+					
+					ControlGet, Status, Checked,, Button55, ahk_id %HWND_4%
+					If Status=1
+					{
+						NOT_GSDATA_FOLDER_CLOUD_HWND_55_4=%HWND_4%
+					}
+				}
+			}
+			
+			; 04 OF 06
+			IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_1<>%HWND_1%
+			{
+				ControlGettext, OutputVar_1, Button55, ahk_id %HWND_1%
+				ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
+				IF OutputVar_1=No _gsdata_ folder here
+				{
+					If Status=0
+					{
+						Control, Check,, Button55, ahk_id %HWND_1%
+						SoundBeep , 4000 , 100
+						TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+						TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						SoundBeep , 4000 , 100
+					}
+					
+					ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
+					If Status=1
+					{
+						NOT_GSDATA_FOLDER_CLOUD_HWND_55_1=%HWND_1%
+					}
+				}
+			}
+
+			; 05 OF 06
+			IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_4<>%HWND_1%
+			{
+				ControlGettext, OutputVar_1, Button44, ahk_id %HWND_4%
+				ControlGet, Status, Checked,, Button44, ahk_id %HWND_4%
+				IF OutputVar_1=No _gsdata_ folder here
+				{
+					If Status=0
+					{
+						Control, Check,, Button44, ahk_id %HWND_4%
+						SoundBeep , 4000 , 100
+						TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
+						TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						SoundBeep , 4000 , 100
+					}
+					
+					ControlGet, Status, Checked,, Button44, ahk_id %HWND_4%
+					If Status=1
+					{
+						NOT_GSDATA_FOLDER_CLOUD_HWND_44_4=%HWND_4%
+					}
+				}
+			}
+			
+			; 06 OF 06
+			IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_1<>%HWND_1%
+			{
+				ControlGettext, OutputVar_1, Button44, ahk_id %HWND_1%
+				ControlGet, Status, Checked,, Button44, ahk_id %HWND_1%
+				IF OutputVar_1=No _gsdata_ folder here
+				{
+					If Status=0
+					{
+						Control, Check,, Button44, ahk_id %HWND_1%
+						SoundBeep , 4000 , 100
+						TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+						TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						SoundBeep , 4000 , 100
+					}
+					
+					ControlGet, Status, Checked,, Button44, ahk_id %HWND_1%
+					If Status=1
+					{
+						NOT_GSDATA_FOLDER_CLOUD_HWND_44_1=%HWND_1%
+					}
+				}
+			}
+		}
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+
+		
+		
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
 		IF HDD_HUBIC_HWND<>%HWND_1%
 		{
 			WinGetTitle OutputVar_3, ahk_id %HWND_1%
@@ -1755,9 +2068,8 @@ Return
 ; -------------------------------------------------------------------
 
 
-MenuHandler:
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-02_INCLUDE MENU 02 of 03.ahk
-return
+
+
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 

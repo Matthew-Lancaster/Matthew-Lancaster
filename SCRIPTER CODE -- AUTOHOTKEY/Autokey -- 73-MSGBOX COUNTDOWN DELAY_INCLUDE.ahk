@@ -166,8 +166,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	ArrayCount := 0
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="VB_KEEP_RUNNER.EXE"
-	ArrayCount += 1
-	FN_Array_2[ArrayCount]:="ClipBoard Logger"
+	; ArrayCount += 1
+	; FN_Array_2[ArrayCount]:="ClipBoard Logger"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="MSGBOX COUNTDOWN DELAY.ahk"
 	ArrayCount += 1
@@ -189,8 +189,8 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	ArrayCount := 0
 	ArrayCount += 1
 	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-	ArrayCount += 1
-	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE"
+	; ArrayCount += 1
+	; FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.EXE"
 	ArrayCount += 1
 	FN_Array_4[ArrayCount]:=""
 	ArrayCount += 1

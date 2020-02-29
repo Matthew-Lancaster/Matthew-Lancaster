@@ -284,9 +284,9 @@ Private Sub FORM_Load()
     i = i + vbCrLf
     If VAR_COMMAND = "001" Then
         Label1.FontSize = 20
-        i = i + "CURRENT TITLE NOT RESPOND FOR 120 SECOND" + vbCrLf
+        i = i + "CURRENT TITLE OF VBKEEPRUNNER NOT RESPOND FOR 120 SECOND * 100 IF XP PRO" + vbCrLf
         i = i + vbCrLf
-        i = i + "1.. IF 7-ASUS __ THEN __ CLOSE GOOSYNC" + vbCrLf
+        i = i + "1.. IF 7-ASUS __ AND THEN __ CLOSE GOOSYNC" + vbCrLf
         i = i + vbCrLf
         i = i + "2.. KILL_WSCRIPT_GLOBAL" + vbCrLf
         i = i + vbCrLf
@@ -342,6 +342,9 @@ Private Sub FORM_Load()
     Me.Height = Label1.Height + 900
     
     Call MNU_ADMINISTRATOR_Click
+    
+    Me.WindowState = vbMinimized
+    
     
 End Sub
 

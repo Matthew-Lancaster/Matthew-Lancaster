@@ -51,6 +51,26 @@ AStart = ScanPath.ListView1.ListItems.Count
 'ScanPath.ListView1.Sorted = True
 'ScanPath.ListView1.Sorted = False
 
+' ------------------------------
+' WHEN WANT REMOVE ANY USER HERE
+' Sub OpenProfileScan()
+' Sun 09-Feb-2020 19:37:57
+' LEACH IDEA AND WAS FOR ANOTHER SCRIPT FOLDER
+' AND THEN BRING HERE
+' ------------------------------
+For we = ScanPath.ListView1.ListItems.Count To 1 Step -1
+    A1$ = UCase(ScanPath.ListView1.ListItems.Item(we).SubItems(1))
+    B1$ = UCase(ScanPath.ListView1.ListItems.Item(we))
+    XZAG = 0
+    If InStr(A1$, "_GSDATA_") > 0 Then XZAG = 2
+    If InStr(A1$, "\#_NOT_INCLUDE") > 0 Then
+        XZAG = 2
+    End If
+    If XZAG = 2 Then
+        ScanPath.ListView1.ListItems.Remove (we)
+    End If
+Next
+
 For we = 1 To ScanPath.ListView2.ListItems.Count
     A1$ = ScanPath.ListView2.ListItems.Item(we).SubItems(1)
     B1$ = ScanPath.ListView2.ListItems.Item(we)
@@ -120,7 +140,11 @@ For we = ScanPath.ListView1.ListItems.Count To 1 Step -1
     If InStr(A1$, "_GSDATA_") > 0 Then XZAG = 2
     If InStr(A1$, "\SCRIPTER CODE -- VB6") > 0 Then XZAG = 2
     If InStr(A1$, "\SCRIPTER\SYNC_FOLDER") > 0 Then XZAG = 2
-    
+    If InStr(A1$, "\SCRIPTER\SYNC_FOLDER") > 0 Then XZAG = 2
+    If InStr(A1$, "\#_NOT_INCLUDE") > 0 Then
+        XZAG = 2
+    End If
+
     If InStr(B1$, ".TXT") > 0 Then
         If InStr(B1$, "JAVA") = 0 Then XZAG = 2
         If InStr(B1$, "STYLUS") = 0 Then XZAG = 2

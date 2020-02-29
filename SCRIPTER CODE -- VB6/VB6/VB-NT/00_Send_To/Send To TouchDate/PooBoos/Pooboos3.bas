@@ -453,7 +453,7 @@ End Type
 Private Type OVERLAPPED
     ternal As Long
     ternalHigh As Long
-    offset As Long
+    Offset As Long
     OffsetHigh As Long
     hEvent As Long
 End Type
@@ -812,8 +812,8 @@ Dim LP_RESULT_CALLBACK As Long
 
 Dim IntMain As Integer
 
-Dim duNUM(0 To 128) As Byte
-Dim dvNUM(0 To 256) As Byte
+Dim duNUM_1(0 To 128) As Byte
+Dim dvNUM_1(0 To 256) As Byte
 Property Get Handle() As Long
     Handle = m_VirtualMem
 End Property
@@ -888,7 +888,7 @@ Function AviFilePreviewDialog(ByVal hWnd As Long, duTitle As String, dvFilter As
     End With
     Ret = GetOpenFileNamePreview(OFN)
 End Function
-Function StarShapedForm(ByVal hWnd As Long, duSize As Long) As Long
+Function StarShapedForM_1(ByVal hWnd As Long, duSize As Long) As Long
     Dim PentaPoints(1 To 5) As POINTAPI, Cnt As Long
     NumCoords = 5
     PentaPoints(1).x = duSize / 2
@@ -1078,7 +1078,7 @@ Function hDCToPicture(ByVal hDCSrc As Long, ByVal LeftSrc As Long, ByVal TopSrc 
     r = DeleteDC(hDCMemory)
     Set hDCToPicture = CreateBitmapPicture(hBmp, hPal)
 End Function
-Function PrintScreenOntoForm(ByVal Form As Form)
+Function PrintScreenOntoForM_1(ByVal Form As Form)
     Set Form.Picture = hDCToPicture(GetDC(0), 0, 0, Screen.Width / Screen.TwipsPerPixelX, Screen.Height / Screen.TwipsPerPixelY)
 End Function
 Function GetMACAddress() As String
@@ -1721,7 +1721,7 @@ Function DelTreeCacheDx(aList As ListBox)
     EndMemory
     
 End Function
-Function DrawTextOnForm(ByVal hWnd As Long, duText As String, dvFont As String)
+Function DrawTextOnForM_1(ByVal hWnd As Long, duText As String, dvFont As String)
 
     'Should compile project first and then run the EXE file.
 

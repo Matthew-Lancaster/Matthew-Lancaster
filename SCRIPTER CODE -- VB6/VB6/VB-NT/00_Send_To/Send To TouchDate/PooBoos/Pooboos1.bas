@@ -1370,7 +1370,7 @@ Function GetWindowTitle(ByVal hWnd As Long) As String
    GetWindowText hWnd, S, l + 1
    GetWindowTitle = Left$(S, l)
 End Function
-Function TopMostForm(F As Form, Top As Boolean)
+Function TopMostForM_1(F As Form, Top As Boolean)
    If Top Then
       SetWindowPos F.hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE + SWP_NOSIZE
    Else
@@ -1813,7 +1813,7 @@ On Error Resume Next
   End If
   
 End Function
-Function EndTheProgram()
+Function EndThePrograM_1()
 On Error Resume Next
   
   Dim Form As Form
@@ -2165,7 +2165,7 @@ On Error Resume Next
   ThePictureBox.Refresh
   
 End Function
-Function OpenProgram(ByVal FullProgramPath As String, Optional ByVal ProgramPriority As Priorities = p_Normal, Optional ByVal WindowState As WindowStates = SW_NORMAL, Optional ByVal DOS_FullScreen As Boolean = True, Optional ByRef Return_ProcessHandle As Long, Optional ByRef Return_ThreadHandle As Long, Optional ByRef Return_ProcessID As Long, Optional ByVal Return_ThreadID As Long) As Boolean
+Function OpenPrograM_1(ByVal FullProgramPath As String, Optional ByVal ProgramPriority As Priorities = p_Normal, Optional ByVal WindowState As WindowStates = SW_NORMAL, Optional ByVal DOS_FullScreen As Boolean = True, Optional ByRef Return_ProcessHandle As Long, Optional ByRef Return_ThreadHandle As Long, Optional ByRef Return_ProcessID As Long, Optional ByVal Return_ThreadID As Long) As Boolean
 
   Dim ReturnValue As Long
   Dim flags       As Long
@@ -2199,7 +2199,7 @@ Function OpenProgram(ByVal FullProgramPath As String, Optional ByVal ProgramPrio
   Exit Function
   
 End Function
-Function CloseProgram(Optional ByVal ProcessHandle As Long, Optional ByVal ThreadHandle As Long, Optional CloseThread As Boolean = True) As Boolean
+Function ClosePrograM_1(Optional ByVal ProcessHandle As Long, Optional ByVal ThreadHandle As Long, Optional CloseThread As Boolean = True) As Boolean
   
   Dim ReturnValue As Long
   Dim ExitCode    As Long
