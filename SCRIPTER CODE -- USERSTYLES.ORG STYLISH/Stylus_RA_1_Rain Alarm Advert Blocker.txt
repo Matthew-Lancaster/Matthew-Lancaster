@@ -1,0 +1,29 @@
+@-moz-document domain("rain-alarm.com") {
+/* 
+TOTAL BLOCK ADVERT RAIN ALARM MORE STYLE THAN EVER
+*/
+
+#googlead_bg{
+    
+	display: none !important;
+}
+
+
+/* 
+
+----------
+CURRENT ADVERT OF 
+Mon 02-Mar-2020 13:00:00
+----------
+----------
+No ads, no problem!
+
+If you block ads, instead give support by buying me a coffee. Alternatively, join me to give more people access to clean water over at charity: water.
+
+(Neither of these removes the ad space.)
+----------
+
+*/
+
+
+}
