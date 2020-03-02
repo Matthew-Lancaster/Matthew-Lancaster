@@ -1511,9 +1511,9 @@ RETURN
 				
 	Loop
 	{
-		; TAB NEXT
+		; TAB BEFORE
 		; --------
-		Send, ^{Tab}
+		Send, ^{Tab}    ; ---- CONTROL TAB
 		Sleep, 200
 		WinActivate, ahk_class Chrome_WidgetWin_1
 		IfWinNotExist, ahk_class Chrome_WidgetWin_1

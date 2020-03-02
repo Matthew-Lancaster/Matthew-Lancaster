@@ -1,0 +1,31 @@
+@-moz-document domain("facebook.com") {
+/* 
+WHEN USER AN EXTENSION CHROME OF TYPE
+FOCUS FIRST TEXT BOX 
+WITH FACEBOOK IT WOULD SIGNAL A PULL DOWN MENU TO APPEAR
+
+SEE AS NONE AUTO FOCUS EXTESNION GOT ABILITY TO CERTAIN SITE NOT ACTIVE
+ACCEPT ONE 
+CALLER
+AUTO FOCUS PRO
+THAT ANOTHER METHOD IT FOCUS OF CHOSER
+AND THEN HAS TO BE PRIME EVERY SITE
+NOT SHARE COMPUTER
+*/
+
+/* REMOVE SEARCH BAR AND FACEBOOK ICON WHOLE BIT BAR AREA -------------------------------- */
+/* WHEN REMOVE HERE -- ALSO ALIGN WHOLE AREA TO MOVE LEFT FLUSH PERFECT NOW ICON GONE ---- */
+._2t-e {
+    
+	display: none !important;
+}
+
+/* REMOVE SEARCH BAR --------------------------------------------------------------------- */
+/* 
+._50tm._4kny {
+    
+	display: none !important;
+}
+*/
+
+}
