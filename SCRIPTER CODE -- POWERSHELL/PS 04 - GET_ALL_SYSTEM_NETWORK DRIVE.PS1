@@ -23,7 +23,7 @@
 # ------------------------------------------------------------------
 # LOCATION SOURCE ONLINE
 # ---------------------------------------------------------------------
-# Matthew-Lancaster/Autokey -- 94-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk
+# Matthew-Lancaster/Autokey -- 94-ALL_LOWER_THAN_NORMAL_PROCCES_PRIORITY_RESTORE.ahk
 # ---------------------------------------------------------------------
 # https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOHOTKEY/Autokey%20--%2094-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk 
 # ---------------------------------------------------------------------
