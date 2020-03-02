@@ -1,7 +1,7 @@
 ;  =============================================================
-;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 94-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk
+;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 94-ALL_LOWER_THAN_NORMAL_PROCCES_PRIORITY_RESTORE.ahk
 ;# __ 
-;# __ Autokey -- 94-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk
+;# __ Autokey -- 94-ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE.ahk
 ;# __ 
 ;# BY Matthew __ Matt.Lan@Btinternet.com __ 
 ;# __ 
@@ -32,7 +32,7 @@
 ; Location SOURCE
 ;---------------------------------------------------------------------
 ; ---------------------
-; Matthew-Lancaster/Autokey -- 94-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk
+; Matthew-Lancaster/Autokey -- 94-ALL_LOWER_THAN_NORMAL_PROCCES_PRIORITY_RESTORE.ahk
 ; ---------------------
 ; https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20AUTOHOTKEY/Autokey%20--%2094-ALL_LOW_PROCCES_PRIORITY_TO_NORMAL.ahk 
 ; ---------------------
@@ -159,9 +159,13 @@ Sort, l, C  ; Uncomment this line to sort the list alphabetically.
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
+; DO NOTHING WITH THE FILTER 
+; NOT WORTH BRING HERE PROCESS UP A A BIT LEAVE THEM LOW
+; ADD YOUR OWN __.EXE
+; -------------------------------------------------------------------
 FILTER=
 FILTER=%FILTER%--GoogleCrashHandler64.exe`n
-FILTER=%FILTER%--GoogleCrashHandler64.exe`n
+FILTER=%FILTER%--GoogleCrashHandler.exe`n
 FILTER=%FILTER%--GoogleUpdate.exe`n
 FILTER=%FILTER%--SearchFilterHost.exe`n
 FILTER=%FILTER%--SearchProtocolHost.exe`n
@@ -178,7 +182,7 @@ FILTER=%FILTER%--`n
 COUNTER_V=0
 VAR_INFO=
 ; -------------------------------------------------------------------
-Loop, parse, l, `n
+LOOP, parse, l, `n
 {
 	PIDV:=substr(A_LoopField, INSTR(A_LoopField,"----")+5)
 	PIDNAME:=substr(A_LoopField,1, INSTR(A_LoopField,"----")-2)
@@ -186,7 +190,6 @@ Loop, parse, l, `n
 	IF PIDV
 	IF GetPriority(PIDV)<3 
 	{
-		
 		IF GetPriority(PIDV)=1
 			PRIORITY_SET=LOW______
 		IF GetPriority(PIDV)=2
@@ -202,31 +205,36 @@ Loop, parse, l, `n
 		COUNTER_V+=1
 	}
 }
+
 ; -------------------------------------------------------------------
 DASH_STRING=---------------------------------------------------------------------------------
-VAR_INFO= % COUNTER_V "  PROCESS PRIORITY LOWER TO NORMAL OPERATION" "`n" DASH_STRING "`n" VAR_INFO DASH_STRING
+VAR_INFO= % COUNTER_V "  ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE" "`n" DASH_STRING "`n" VAR_INFO DASH_STRING
 ; -------------------------------------------------------------------
-Freq:=18
+; GUI ROUTINE HAS INFO ABOUT TIME OUT COUNTER
 ; -------------------------------------------------------------------
+COUNTDOWN_TIME:=40
+; -------------------------------------------------------------------
+COUNTDOWN_TEXT_01=Second To EXIT Or ESC Key
+COUNTDOWN_TEXT_02=%COUNTDOWN_TIME%.  %COUNTDOWN_TEXT_01%
 
+; DISPLAY FIND
 ; -------------------------------------------------------------------
 Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoid taskbar button.
 Gui, Color, White
-Gui, Font, s12 bold, Arial
+Gui, Font, s11 bold, Arial
 DASH_STRING=----------------------------------------------------
 Gui, Add, Text, x10 y10 , % VAR_INFO
-Gui, Add, Text, vFreq, %Freq%.  TO EXIT OR ESC KEY
+Gui, Add, Text, vCOUNTDOWN_TIME, %COUNTDOWN_TEXT_02%
 ; Gui, Show, NoActivate, Title of Window  ; NoActivate avoids deactivating the currently active window.
 ; Gui, Show, , Title of Window  ; NoActivate avoids deactivating the currently active window.
 Gui, Show
 ; -------------------------------------------------------------------
+SETTIMER TIMER_EXIT_ROUTINE,1000
+; -------------------------------------------------------------------
+
 
 ; -------------------------------------------------------------------
 ; OnMessage(0x201, "WM_LBUTTONDOWN")
-; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-SETTIMER TIMER_EXIT_ROUTINE,1000
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
@@ -252,9 +260,10 @@ RETURN
 ; https://autohotkey.com/board/topic/32653-countdown-in-a-gui/
 ; -------------------------------------------------------------------
 TIMER_EXIT_ROUTINE:
-Freq -= 1
-GuiControl,,Freq,%Freq%.  TO EXIT OR ESC KEY
-	IF Freq<1 
+COUNTDOWN_TIME -= 1
+COUNTDOWN_TEXT_02=%COUNTDOWN_TIME%.  %COUNTDOWN_TEXT_01%
+GuiControl,,COUNTDOWN_TIME,%COUNTDOWN_TEXT_02%
+	IF COUNTDOWN_TIME<1 
 	{
 		Gui, Destroy
 		EXITAPP
@@ -275,29 +284,29 @@ RETURN
 
 ; -------------------------------------------------------------------
 GetPriority(process="") {
- Process, Exist, %process%
- PID := ErrorLevel
- IfLessOrEqual, PID, 0, Return, "Error!"
+	Process, Exist, %process%
+	PID := ErrorLevel
+	IfLessOrEqual, PID, 0, Return, "Error!"
 
- hProcess := DllCall("OpenProcess", Int,1024, Int,0, Int,PID)
- Priority := DllCall("GetPriorityClass", Int,hProcess)
- DllCall("CloseHandle", Int,hProcess)
+	hProcess := DllCall("OpenProcess", Int,1024, Int,0, Int,PID)
+	Priority := DllCall("GetPriorityClass", Int,hProcess)
+	DllCall("CloseHandle", Int,hProcess)
 
- ; IfEqual, Priority, 64   , Return, "Low"
- ; IfEqual, Priority, 16384, Return, "BelowNormal"
- ; IfEqual, Priority, 32   , Return, "Normal"
- ; IfEqual, Priority, 32768, Return, "AboveNormal"
- ; IfEqual, Priority, 128  , Return, "High"
- ; IfEqual, Priority, 256  , Return, "Realtime"
+	; IfEqual, Priority, 64   , Return, "Low"
+	; IfEqual, Priority, 16384, Return, "BelowNormal"
+	; IfEqual, Priority, 32   , Return, "Normal"
+	; IfEqual, Priority, 32768, Return, "AboveNormal"
+	; IfEqual, Priority, 128  , Return, "High"
+	; IfEqual, Priority, 256  , Return, "Realtime"
 
- ; ROUTINE CHECK FOR NUMERIC BELOW VALUE
- ; ------------------------------------------------------------------
- IfEqual, Priority, 64   , Return, "1"
- IfEqual, Priority, 16384, Return, "2"
- IfEqual, Priority, 32   , Return, "3"
- IfEqual, Priority, 32768, Return, "4"
- IfEqual, Priority, 128  , Return, "5"
- IfEqual, Priority, 256  , Return, "8"
+	; ROUTINE CHECK FOR NUMERIC BELOW VALUE
+	; ------------------------------------------------------------------
+	IfEqual, Priority, 64   , Return, "1"
+	IfEqual, Priority, 16384, Return, "2"
+	IfEqual, Priority, 32   , Return, "3"
+	IfEqual, Priority, 32768, Return, "4"
+	IfEqual, Priority, 128  , Return, "5"
+	IfEqual, Priority, 256  , Return, "8"
 Return "" 
 }
 ; -------------------------------------------------------------------
@@ -350,23 +359,23 @@ Return ""
 ; NOT USER
 ; TEST CODE NOT FULL RESULT ONLY FINDER WINDOW TITLE
 ; -------------------------------------------------------------------
-VAR_PID2=
-WinGet, all, list ;get all hwnd
-Loop, %all%
-{
-	WinGet, PIDV, PID, % "ahk_id " all%A_Index%
-	IF PIDV
-	IF INSTR(VAR_PID2,PIDV . "`n")=0
-	{
-		VAR_PID2=%VAR_PID2%%PIDV%`n
-		IF GetPriority(PIDV)<3 
-		{
-			WinGet, PID_ProcessName, ProcessName, % "ahk_id " all%A_Index%
-			MSGBOX % GetPriority(PIDV) "--" PID_ProcessName
-			Process, Priority, %PIDV%, Normal
-		}
-	}
-}
+; VAR_PID2=
+; WinGet, all, list ;get all hwnd
+; Loop, %all%
+; {
+	; WinGet, PIDV, PID, % "ahk_id " all%A_Index%
+	; IF PIDV
+	; IF INSTR(VAR_PID2,PIDV . "`n")=0
+	; {
+		; VAR_PID2=%VAR_PID2%%PIDV%`n
+		; IF GetPriority(PIDV)<3 
+		; {
+			; WinGet, PID_ProcessName, ProcessName, % "ahk_id " all%A_Index%
+			; MSGBOX % GetPriority(PIDV) "--" PID_ProcessName
+			; Process, Priority, %PIDV%, Normal
+		; }
+	; }
+; }
 ; -------------------------------------------------------------------
 
 ; WM_LBUTTONDOWN(wParam, lParam)
