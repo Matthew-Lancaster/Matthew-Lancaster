@@ -191,11 +191,11 @@ LOOP, parse, l, `n
 	IF GetPriority(PIDV)<3 
 	{
 		IF GetPriority(PIDV)=1
-			PRIORITY_SET=LOW______
+			PRIORITY_SET=LOW_______
 		IF GetPriority(PIDV)=2
-			PRIORITY_SET=BNORMAL_
+			PRIORITY_SET=B_NORMAL_
 		IF GetPriority(PIDV)=3
-			PRIORITY_SET=NORMAL___
+			PRIORITY_SET=NORMAL____
 		
 		Num := PIDV
 		Pack := "000000"
@@ -207,7 +207,7 @@ LOOP, parse, l, `n
 }
 
 ; -------------------------------------------------------------------
-DASH_STRING=---------------------------------------------------------------------------------
+DASH_STRING=------------------------------------------------------------------------------------------
 VAR_INFO= % COUNTER_V "  ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE" "`n" DASH_STRING "`n" VAR_INFO DASH_STRING
 ; -------------------------------------------------------------------
 ; GUI ROUTINE HAS INFO ABOUT TIME OUT COUNTER
@@ -215,7 +215,7 @@ VAR_INFO= % COUNTER_V "  ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE" "`n" DA
 COUNTDOWN_TIME:=40
 ; -------------------------------------------------------------------
 COUNTDOWN_TEXT_01=Second To EXIT Or ESC Key
-COUNTDOWN_TEXT_02=%COUNTDOWN_TIME%.  %COUNTDOWN_TEXT_01%
+COUNTDOWN_TEXT_02=%COUNTDOWN_TIME%  %COUNTDOWN_TEXT_01%
 
 ; DISPLAY FIND
 ; -------------------------------------------------------------------
@@ -226,7 +226,6 @@ DASH_STRING=----------------------------------------------------
 Gui, Add, Text, x10 y10 , % VAR_INFO
 Gui, Add, Text, vCOUNTDOWN_TIME, %COUNTDOWN_TEXT_02%
 ; Gui, Show, NoActivate, Title of Window  ; NoActivate avoids deactivating the currently active window.
-; Gui, Show, , Title of Window  ; NoActivate avoids deactivating the currently active window.
 Gui, Show
 ; -------------------------------------------------------------------
 SETTIMER TIMER_EXIT_ROUTINE,1000
@@ -261,7 +260,7 @@ RETURN
 ; -------------------------------------------------------------------
 TIMER_EXIT_ROUTINE:
 COUNTDOWN_TIME -= 1
-COUNTDOWN_TEXT_02=%COUNTDOWN_TIME%.  %COUNTDOWN_TEXT_01%
+COUNTDOWN_TEXT_02=%COUNTDOWN_TIME%  %COUNTDOWN_TEXT_01%
 GuiControl,,COUNTDOWN_TIME,%COUNTDOWN_TEXT_02%
 	IF COUNTDOWN_TIME<1 
 	{
