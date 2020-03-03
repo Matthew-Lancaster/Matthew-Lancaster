@@ -1,8 +1,10 @@
+@-moz-document domain("facebook.com") {
 /* 
 
 MATT.LAN@BTINTERNET.COM
 
 WRITE DATE CODER
+------------------------
 ------------------------
 Mon 02-Mar-2020 12:21:52 
 Mon 02-Mar-2020 22:20:00 -- 58 MINUTE
@@ -47,4 +49,4 @@ NOT SHARE COMPUTER
 ._2t-d._4pmj._2t-a {
 	left: 417px
 }
-
+}
