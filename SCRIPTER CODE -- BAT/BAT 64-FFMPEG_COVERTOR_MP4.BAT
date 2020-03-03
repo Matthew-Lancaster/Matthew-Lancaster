@@ -35,3 +35,9 @@ for %%i in (*.mp4) do ffmpeg -err_detect ignore_err -i %%i -c copy %%~ni_fixed.m
 pause
 
 
+
+
+REM ----
+REM Converting HikVision MP4 to standard MP4 or other format | IP Cam Talk 
+REM https://ipcamtalk.com/threads/converting-hikvision-mp4-to-standard-mp4-or-other-format.30315/
+REM ----
