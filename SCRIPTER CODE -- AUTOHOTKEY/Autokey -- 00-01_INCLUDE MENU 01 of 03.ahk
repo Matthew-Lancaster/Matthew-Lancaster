@@ -98,6 +98,8 @@ Menu, Tray, Add, TIMEZONE_MINI_GUI_DISPLAY_EXE
 
 Menu, Tray, Add, ALL_LOW_PROCCES_PRIORITY_TO_NORMAL
 
+Menu, Tray, Add, SET_GITHUB_GO_AR
+
 Menu, Tray, Add  
 
 
@@ -268,6 +270,18 @@ if A_ThisMenuItem=ALL_LOW_PROCCES_PRIORITY_TO_NORMAL
 {
 	GOSUB ALL_LOW_PROCCES_PRIORITY_TO_NORMAL
 }
+
+if A_ThisMenuItem=SET_GITHUB_GO_AR
+{
+	; ---------------------------------------------------------------
+	; ALL ROUTINE MUST GO IN 
+	; Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+	; IT UPSET THE INTI BEFORE ROUTINE BEGINNER
+	; ---------------------------------------------------------------
+	GOSUB SET_GITHUB_GO_AR
+}
+
+
 
 
 ; -------------------------------------------------------------------
