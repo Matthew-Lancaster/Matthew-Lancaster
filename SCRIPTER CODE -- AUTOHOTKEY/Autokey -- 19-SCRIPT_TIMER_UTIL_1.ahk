@@ -942,45 +942,76 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	{
 		GITHUB_SET_GO=TRUE
 	}	
-	IF A_Hour<>%GOODSYNC_HOUR_NOW%
-	{
-		; EVERY HOUR
-		GOODSYNC_SET_GO=TRUE
-	}
-
 	GITHUB_HOUR_NOW=%A_Hour%
+	
+	
+
+	IF A_Hour<>%GOODSYNC_HOUR_NOW%    ; EVERY HOUR
+		GOODSYNC_SET_GO=TRUE
+
 	GOODSYNC_HOUR_NOW=%A_Hour%
 	
-	IF (GITHUB_SET_GO=FALSE and GOODSYNC_SET_GO=FALSE)
+	
+	FILE_NET_C=\\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2_TIMER_GITHUB_CLICKER_#NFS_EX__.txt
+	FILE_NET_D=\\7-ASUS-GL522VW\7_ASUS_GL522VW_02_D_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2_TIMER_GITHUB_CLICKER_#NFS_EX__.txt
+	
+	FILE_HDD_C=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2_TIMER_GITHUB_CLICKER_#NFS_EX__.txt
+	FILE_HDD_D=D:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2_TIMER_GITHUB_CLICKER_#NFS_EX__.txt
+
+	IFEXIST %FILE_HDD_C%
+	{
+		FileDelete %FILE_HDD_C%
+		FileDelete %FILE_HDD_D%
+		GOODSYNC_SET_GO=TRUE
+	}
+	IFEXIST %FILE_HDD_D%
+	{
+		FileDelete %FILE_HDD_C%
+		FileDelete %FILE_HDD_D%
+		GOODSYNC_SET_GO=TRUE
+	}
+	
+	
+	IF (GOODSYNC_SET_GO=FALSE)
 		RETURN
 
 	; INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe") ---- \BAT 45-SCRIPT RUN GITHUB.exe
 
-	WinGet, Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-	IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
-		GITHUB_SET_GO=FALSE
-		; MSGBOX INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
-	
-	; ---------------------------------------------------------------
-	; IF BOTH C DRIVE GOOD SYNC AND WITH GS2GO NOT RUN 
-	; THEN DON'T RUN THESE SCRIPT
-	; AS I PROBABLY RUN LONG TASK IN WHOLE D-DRIVE BACK UP 
-	; WITH ANOTHER GS2GO ON DRIVE FROM ANOTHER
-	; 
-	; IF D DRIVE GS2GO WAS HAPPEN THAT WOULDN'T ALLOW LOGIC EITHER
-	; ---------------------------------------------------------------
-	WinGet, Path_1, ProcessPath, ahk_exe GoodSync2Go.exe
-	WinGet, Path_2, ProcessPath, ahk_exe GoodSync-v10.exe
-	IF INSTR(Path_1,"\GoodSync2Go.exe")=0
-	IF INSTR(Path_2,"\GoodSync-v10.exe")=0
-		GITHUB_SET_GO=FALSE
-
-	IF GITHUB_SET_GO=TRUE
+	; -----------------------------------
+	; DON'T CHECK IF GOODSYNC RUN ANYMORE
+	; DO HOUR TOOL ANYWAY
+	; -----------------------------------
+	IF TRUE=FALSE
 	{
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe"
+		WinGet, Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+		IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+			GITHUB_SET_GO=FALSE
+			; MSGBOX INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+		
+		; ---------------------------------------------------------------
+		; IF BOTH C DRIVE GOOD SYNC AND WITH GS2GO NOT RUN 
+		; THEN DON'T RUN THESE SCRIPT
+		; AS I PROBABLY RUN LONG TASK IN WHOLE D-DRIVE BACK UP 
+		; WITH ANOTHER GS2GO ON DRIVE FROM ANOTHER
+		; 
+		; IF D DRIVE GS2GO WAS HAPPEN THAT WOULDN'T ALLOW LOGIC EITHER
+		; ---------------------------------------------------------------
+		WinGet, Path_1, ProcessPath, ahk_exe GoodSync2Go.exe
+		WinGet, Path_2, ProcessPath, ahk_exe GoodSync-v10.exe
+		IF INSTR(Path_1,"\GoodSync2Go.exe")=0
+		IF INSTR(Path_2,"\GoodSync-v10.exe")=0
+			GITHUB_SET_GO=FALSE
+	}
+	
+	IF GOODSYNC_SET_GO=TRUE
+	{
+		MSGBOX "001"
+		FN_VAR=C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB.exe
 		IfExist, %FN_VAR%
 		{
-			Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
+			MSGBOX "002"
+			; Run, %FN_VAR% /GITHUB_MODE /TASKBAR_TRAY_ICON
+			Run, %FN_VAR% /GITHUB_MODE
 			; -------------------------------------------------------
 			; HERE WILL EVENTUALLY RUN 
 			; BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT
