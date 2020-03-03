@@ -2387,7 +2387,6 @@ If Not ErrorLevel
 	
 	Style_4=-2
 	WinWait, TeamViewer ahk_class #32770
-	EXIT_LOOP=10 ; ---- DO A FEW MIGHT AS WELL
 	TIMER_CLOSE_4 = % A_Now
 	TIMER_CLOSE_4 += 20, SECONDS
 
@@ -2413,10 +2412,9 @@ If Not ErrorLevel
 		;1 maximized 0 normal -1 minimized
 		If Style_4=0
 		{
-			EXIT_LOOP-=1
-			IF EXIT_LOOP<0
-				BREAK
+			BREAK
 		}
+
 		SLEEP 50
 		IF TIMER_CLOSE_4<%A_Now%
 			BREAK
@@ -2457,9 +2455,13 @@ OUTLOOK_RUN_AND_MIN:
 
 	IF SET_DONE=TRUE 
 	{
+		; TEAMVIEWER ROUTINE HAS THIS ONE 
+		; TIMER_CLOSE_4 = % A_Now
+		; TIMER_CLOSE_4 += 20, SECONDS
+
 		style_OUTLOOK=-2
 		WinWait, ahk_class rctrl_renwnd32
-		EXIT_LOOP=10 ; SEND OUTLOOK INTO MIN AT LOAD HAS TO BE CALLER 2 TWICE 
+		EXIT_LOOP=20 ; SEND OUTLOOK INTO MIN AT LOAD HAS TO BE CALLER 2 TWICE 
 		; AT LEAST MAYBE BIT MORE IF UNDER LOAD 10
 		LOOP
 		{
@@ -2469,10 +2471,10 @@ OUTLOOK_RUN_AND_MIN:
 			;1 maximized 0 normal -1 minimized
 			If style_OUTLOOK=-1
 			{
-				EXIT_LOOP-=1
-				IF EXIT_LOOP<0
 					BREAK
 			}
+			EXIT_LOOP-=1
+			IF EXIT_LOOP<0
 			SLEEP 50
 		}
 	}
