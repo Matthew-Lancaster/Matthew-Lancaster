@@ -410,8 +410,8 @@ OLD_FREEMAKER_ENTER_TAB_MP4_INPUT_HWND=0
 SETTIMER FREEMAKER_ENTER_TAB_MP4_INPUT_BOX_EXIST,500
 
 FOCUS_TABBER=0
-OLD_FOCUS_TABBER_HWND=0
 OLD_FOCUS_TABBER_TITLE=
+FOCUS_TABBER_TITLE=
 SETTIMER FOCUS_TABBER_TAB_NEXT_ONE,500
 
 NATIONWIDE_BANK_LOGIN_TAB_1=0
@@ -663,21 +663,30 @@ RETURN
 ; Wed 04-Mar-2020 11:34:00 -- 2 HOUR 20 MINUTE
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+; $ AND * $* NOT WORKER TO ALLOW PASS THROUGH
+; LButton::
+	; MouseClick, left
+	; IF OLD_FOCUS_TABBER_TITLE<>%FOCUS_TABBER_TITLE%
+	; OLD_FOCUS_TABBER_TITLE=
+
+; RETURN
+		
 FOCUS_TABBER_TAB_NEXT_ONE:
-	DetectHiddenWindows, OFF ; OFF ; ---- ON HAS FAULTY
+	DetectHiddenWindows,  OFF ; ---- ON HAS FAULTY
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
 
 	FOCUS_TABBER_HWND_A=	
 	FOCUS_TABBER_CLASS_01=ahk_class Chrome_WidgetWin_1
 	WinGet, FOCUS_TABBER_HWND_A, ID, A
 	WinGetClass, FOCUS_TABBER_CLASS_02, ahk_id %FOCUS_TABBER_HWND_A%
-	WinGetTitle, FOCUS_TABBER_TITLE_01, ahk_id %FOCUS_TABBER_HWND_A%
+	WinGetTitle, FOCUS_TABBER_TITLE, ahk_id %FOCUS_TABBER_HWND_A%
 	WinGet, FOCUS_TABBER_HWND_A, ID, ahk_id %FOCUS_TABBER_HWND_A%       ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
 	IF !FOCUS_TABBER_HWND_A
 		RETURN
-	IF OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE_01%
+	IF INSTR(OLD_FOCUS_TABBER_TITLE,FOCUS_TABBER_TITLE)>0
 		RETURN
-	OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE_01%
+	OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE%`n%OLD_FOCUS_TABBER_TITLE%
+	TOOLTIP % OLD_FOCUS_TABBER_TITLE
 	WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
 	IF FOCUS_TABBER_HWND_A
 	{
@@ -697,18 +706,19 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 		ArrayCount_1:=0
 		ArrayCount_2:=0
 		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="Google Search - Google Chrome"
-		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="^L{TAB}{ENTER}"
-		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="LinkedIn -  Google Chrome"        
-		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="^L{TAB}{TAB}{ENTER}"
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="{ctrl down}L{ctrl up}{TAB}{ENTER}"
+		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="LinkedIn - Google Chrome"        
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="{ctrl down}L{ctrl up}{TAB}{TAB}{ENTER}"
 		
 		; -----------------------------------------------------------
-		; -----------------------
+		; -----------------------------------------------------------
 		FOCUS_TABBER_SET_GO=
 		FOCUS_TABBER_TAB_=
 		Loop % SET_ARRAY_1.MaxIndex()
 		{
 			FOCUS_TABBER_WORD := SET_ARRAY_1[A_Index]
-			IF INSTR(FOCUS_TABBER_TITLE_01,FOCUS_TABBER_WORD)>0
+			FOCUS_TABBER_TAB_=
+			IF INSTR(FOCUS_TABBER_TITLE,FOCUS_TABBER_WORD)>0
 			{
 				FOCUS_TABBER_TAB_ := SET_ARRAY_2[A_Index]
 				BREAK
@@ -716,15 +726,15 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 		}
 		IF FOCUS_TABBER_TAB_
 		{
-			OLD_FOCUS_TABBER_HWND=%FOCUS_TABBER_HWND_A%
 			TAB_TRIGGER_VALUE=1
+			TOOLTIP % OLD_FOCUS_TABBER_TITLE
 			; SetKeyDelay, 100
-			; ControlSend,, %FOCUS_TABBER_TAB_%,ahk_class Chrome_WidgetWin_1
 			SLEEP 400
 			WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
 			IF FOCUS_TABBER_HWND_A
 			{
-			SendINPUT, %FOCUS_TABBER_TAB_%
+			; SendINPUT, %FOCUS_TABBER_TAB_%
+			ControlSend,, %FOCUS_TABBER_TAB_%,ahk_class Chrome_WidgetWin_1
 			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 			}
 			; SetKeyDelay, -1
