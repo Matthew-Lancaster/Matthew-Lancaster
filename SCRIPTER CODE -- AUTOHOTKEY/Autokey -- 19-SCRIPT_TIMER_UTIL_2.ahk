@@ -409,10 +409,6 @@ SETTIMER BT_COM_LOG_IN,500
 OLD_FREEMAKER_ENTER_TAB_MP4_INPUT_HWND=0
 SETTIMER FREEMAKER_ENTER_TAB_MP4_INPUT_BOX_EXIST,500
 
-FOCUS_TABBER=0
-OLD_FOCUS_TABBER_TITLE=
-FOCUS_TABBER_TITLE=
-SETTIMER FOCUS_TABBER_TAB_NEXT_ONE,500
 
 NATIONWIDE_BANK_LOGIN_TAB_1=0
 SETTIMER NATIONWIDE_BANK_LOGIN_TAB_TO_ENTER_INPUT_BOX_EXIST,500
@@ -436,7 +432,10 @@ SETTIMER RUN_VIDEO_WHEN_TESTER_MPG,100
 OLD_BAT_01_BOOT_KILLER_BAT_EXIST_HWND=
 SETTIMER BAT_01_BOOT_KILLER_BAT_EXIST_KILL_TIMER,1000
 
-
+OLD_FOCUS_TABBER_TITLE=
+FOCUS_TABBER_TITLE=
+FOCUS_TABBER_HWND_A=
+SETTIMER FOCUS_TABBER_APP_ESCAPE_KEY_STOP_THE_PULL_DOWN_TIMER,500
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -591,7 +590,6 @@ NATIONWIDE_BANK_LOGIN_TAB_TO_ENTER_INPUT_BOX_NOT_EXIST:
 RETURN
 
 
-
 BAT_01_BOOT_KILLER_BAT_EXIST_KILL_TIMER:
 	DetectHiddenWindows, ON
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
@@ -660,23 +658,47 @@ RETURN
 ; MY WAKE UP CODE FIRST THING TODAY
 ; I GET BETTER WRITE THESE ROUTINE EVERY APPROACH THEM
 ; Wed 04-Mar-2020 09:13:06
-; Wed 04-Mar-2020 11:34:00 -- 2 HOUR 20 MINUTE
+; Wed 04-Mar-2020 16:38:00 -- 7 HOUR 24 MINUTE
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; $ AND * $* NOT WORKER TO ALLOW PASS THROUGH
 ; WAY TO DO PASS THROUGH HERE IS USER ~
+; THE ~ MEAN TO ACTIVE IN THE HOTKEY PRESS DOWN STATE 
+; NOT IN LIFTER OVER
 ; -------------------------------------------------------------------
 ; NOW EVERY MOUSE CLICK ALLOW THE TAB ROUTINE TO TRIGGER 
 ; AND NOT AGAINST WINDOW SAME WINDOW
+; BUT NOT PROBLEM WINDOW TITLE MUST CHANGE 
 ; -------------------------------------------------------------------
-~LButton::
-	; MouseClick, left
-	IF OLD_FOCUS_TABBER_TITLE<>%FOCUS_TABBER_TITLE%
-	 OLD_FOCUS_TABBER_TITLE=
+; NEAR DONE
+; THE OTHER CODE BEFORE WORKER
+; C:\SCRIPTER\SCRIPTER CODE -- USERSTYLES.ORG STYLISH\Stylus_FB_2_Switch Search Bar Off.txt
+; Stylus_FB_2_Switch Search Bar Off.txt
+;
+; FACEBOOK IS NOT STOP THE SEARCH BAR PULL DOWN MENU BY DEFAKULT WAY OF ESCAPE KEY
+; SO THAT CODE BEFORE STILL STAND THERE
+; AND ALSO REMOVE THE SEARCH BAR BOX WAS GOOD IDEA
+; AS HAVE RESIZE CHANGE OF SIZE WHILE LOAD SO LINKER URL NOT IN CORREWCT PLACE WHILE SLIDE
+; AND COMMON HITT THE WRONG ONE -- FURTHER PAGE LOAD HASSEL
+; I STOP THAT ONE
+; -------------------------------------------------------------------
+; Wed 04-Mar-2020 09:13:06
+; Wed 04-Mar-2020 16:38:00 -- 7 HOUR 24 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+~LButton::   ; MouseClick, left AND ~ THE PRESS DOWN STATE WITHOUT DEFAULT UP METHOD
+			 ; HERE THE CODE WILL DETECT CLICK ONLY OF THE MENUBAR TOP PART OF FORM WINDOW 
+			 ; IN THE TOP 50 PIXEL
+			 ; ------------------------------------------------------
+	CoordMode, Mouse, Relative
+	MouseGetPos, xpos, ypos 
+	IF Ypos>50 
+		RETURN
+	OLD_FOCUS_TABBER_TITLE=
 RETURN
-
-
-FOCUS_TABBER_TAB_NEXT_ONE:
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+FOCUS_TABBER_APP_ESCAPE_KEY_STOP_THE_PULL_DOWN_TIMER:
 	DetectHiddenWindows,  ON ; ---- ON HAS FAULTY
 	DetectHiddenWindows,  OFF ; ---- ON HAS FAULTY
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
@@ -710,7 +732,7 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 		}
 	}
 	
-	TOOLTIP % OLD_FOCUS_TABBER_TITLE 
+	; TOOLTIP % OLD_FOCUS_TABBER_TITLE 
 	WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
 	IF FOCUS_TABBER_HWND_A
 	{
@@ -776,6 +798,7 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 		}
 	}
 RETURN
+; -------------------------------------------------------------------
 
 
 FOCUS_TABBER_TAB_NEXT_ONE__MACH_VERSION_01:
