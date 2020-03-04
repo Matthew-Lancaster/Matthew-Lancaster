@@ -649,7 +649,8 @@ RETURN
 ; TAB ONE MORE 
 ; PROBLEM OVER AND IN
 ; -------------------------------------------------------------------
-; POP BACK WHEN I MAKE AN ARRAY FOR USE SELECTION
+; POP BACK WHEN I MAKE AN ARRAY FOR USE SELECTION -- GOT ARRAY DONE
+; -------------------------------------------------------------------
 ; SEARCH TERM -- WHEN PREVIOUS SEARCH FIND CODE ALREADY 
 ; THERE ON WEB AR
 ; STYLUS SEND ONE TAB PAGE LOAD
@@ -659,33 +660,72 @@ RETURN
 ; MY WAKE UP CODE FIRST THING TODAY
 ; I GET BETTER WRITE THESE ROUTINE EVERY APPROACH THEM
 ; Wed 04-Mar-2020 09:13:06
-; Wed 04-Mar-2020 10:24:00 -- 1 HOUR 10 MINUTE
+; Wed 04-Mar-2020 11:34:00 -- 2 HOUR 20 MINUTE
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 FOCUS_TABBER_TAB_NEXT_ONE:
 	DetectHiddenWindows, ON
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
 
-	FOCUS_TABBER_HWND=
+	FOCUS_TABBER_HWND_A=	
 	FOCUS_TABBER_CLASS_01=ahk_class Chrome_WidgetWin_1
-	WinGet, FOCUS_TABBER_HWND, ID, A
-	WinGetClass, FOCUS_TABBER_CLASS_02, ahk_id %FOCUS_TABBER_HWND%
-	WinGetTitle, FOCUS_TABBER_TITLE_01, ahk_id %FOCUS_TABBER_HWND%
-	WinGet, FOCUS_TABBER_HWND, ID, ahk_id %FOCUS_TABBER_HWND%       ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
-	IF !FOCUS_TABBER_HWND
+	WinGet, FOCUS_TABBER_HWND_A, ID, A
+	WinGetClass, FOCUS_TABBER_CLASS_02, ahk_id %FOCUS_TABBER_HWND_A%
+	WinGetTitle, FOCUS_TABBER_TITLE_01, ahk_id %FOCUS_TABBER_HWND_A%
+	WinGet, FOCUS_TABBER_HWND_A, ID, ahk_id %FOCUS_TABBER_HWND_A%       ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
+	IF !FOCUS_TABBER_HWND_A
 		RETURN
 	IF OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE_01%
 		RETURN
 	OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE_01%
-	WinGet, FOCUS_TABBER_HWND , ID, ahk_id %FOCUS_TABBER_HWND%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
-	IF FOCUS_TABBER_HWND
-	IF INSTR(FOCUS_TABBER_CLASS_02,"Chrome_WidgetWin_1")>0
-	IF INSTR(FOCUS_TABBER_TITLE_01,"LinkedIn - Google Chrome")>0
+	WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
+	IF FOCUS_TABBER_HWND_A
+	{
+
+		; -----------------------------------------------------------
+		; SET THE ARRAY TITLE WANT WORKER
+		; -----------------------------------------------------------
+		; VARIABLE SET ALLOW COMBINE ONE LINE SEPARATOR ,
+		; -----------------------------------------------------------
+		IA=
+		IA=%IA%____Google Search - Google Chrome----
+		IA=%IA%____LinkedIn -  Google Chrome----
+		
+		SET_ARRAY_1:=[]
+		SET_ARRAY_2:=[]          ; HOW MANY TAB WANTER
+		ArrayCount_1:=0
+		ArrayCount_2:=0
+		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="Google Search - Google Chrome"
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="1"
+		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="LinkedIn -  Google Chrome"        
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="1"        
+		
+		; -----------------------------------------------------------
+		; -----------------------
+		FOCUS_TABBER_SET_GO=
+		Loop % SET_ARRAY_1.MaxIndex()
 		{
-			OLD_FOCUS_TABBER_HWND=%FOCUS_TABBER_HWND%
-			SendINPUT, {Tab 1}    ; -- TAB ONE
-			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			FOCUS_TABBER_WORD := SET_ARRAY_1[A_Index]
+			TAB_TRIGGER_VALUE := SET_ARRAY_2[A_Index]
+			IF INSTR(FOCUS_TABBER_TITLE_01,FOCUS_TABBER_WORD)>0
+			{
+				FOCUS_TABBER_SET_GO=TRUE
+				BREAK
+			}
 		}
+		IF FOCUS_TABBER_SET_GO
+		{
+			OLD_FOCUS_TABBER_HWND=%FOCUS_TABBER_HWND_A%
+			TAB_TRIGGER_VALUE=1
+			Loop % TAB_TRIGGER_VALUE
+			{
+				SendINPUT, {Tab}
+				SendINPUT, +{Tab}
+				SendINPUT, +{Tab}
+				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			}
+		}
+	}
 RETURN
 
 
