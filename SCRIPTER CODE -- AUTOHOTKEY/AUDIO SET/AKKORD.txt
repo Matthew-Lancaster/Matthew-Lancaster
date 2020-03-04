@@ -1,0 +1,12 @@
+------------------------------------------------
+Sat 29-Feb-2020 07:45:36 P
+D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\Sound_Wav's--2\AKKORD.WAV
+D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\Sound_Wav's--2\AKKORD.txt
+------------------------------------------------
+"D:\VB6\VB-NT\00_Best_VB_01\#0 AllApi\dswatch\AKKORD.WAV"
+
+
+D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\Sound_Wav's--2\AKKORD.txt
+
+
+C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
