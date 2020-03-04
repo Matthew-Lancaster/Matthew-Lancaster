@@ -664,7 +664,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 FOCUS_TABBER_TAB_NEXT_ONE:
-	DetectHiddenWindows, ON
+	DetectHiddenWindows, OFF ; OFF ; ---- ON HAS FAULTY
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
 
 	FOCUS_TABBER_HWND_A=	
@@ -681,49 +681,53 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 	WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
 	IF FOCUS_TABBER_HWND_A
 	{
-
 		; -----------------------------------------------------------
 		; SET THE ARRAY TITLE WANT WORKER
 		; -----------------------------------------------------------
-		; VARIABLE SET ALLOW COMBINE ONE LINE SEPARATOR ,
+		; VARIABLE SET ARRAY ALLOW COMBINE ONE LINE SEPARATOR ,
+		; MULTI COMMAND ONE LINE ONLY WITH AR VARIABLE SETTER
 		; -----------------------------------------------------------
-		IA=
-		IA=%IA%____Google Search - Google Chrome----
-		IA=%IA%____LinkedIn -  Google Chrome----
+		; PLAY WHEN CAME HERE WAS POSSIBLE ANOTHER TAB ALONG
+		; BUT THAT DIFFICULT AS TAB KEEP SLIDE ALONG EACH RE-VISITOR 
+		; NEW IDEA IS CONTROL L FOCUS IN URL BAR AGAIN
+		; -----------------------------------------------------------
 		
 		SET_ARRAY_1:=[]
-		SET_ARRAY_2:=[]          ; HOW MANY TAB WANTER
+		SET_ARRAY_2:=[]
 		ArrayCount_1:=0
 		ArrayCount_2:=0
 		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="Google Search - Google Chrome"
-		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="1"
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="^L{TAB}{ENTER}"
 		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="LinkedIn -  Google Chrome"        
-		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="1"        
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="^L{TAB}{TAB}{ENTER}"
 		
 		; -----------------------------------------------------------
 		; -----------------------
 		FOCUS_TABBER_SET_GO=
+		FOCUS_TABBER_TAB_=
 		Loop % SET_ARRAY_1.MaxIndex()
 		{
 			FOCUS_TABBER_WORD := SET_ARRAY_1[A_Index]
-			TAB_TRIGGER_VALUE := SET_ARRAY_2[A_Index]
 			IF INSTR(FOCUS_TABBER_TITLE_01,FOCUS_TABBER_WORD)>0
 			{
-				FOCUS_TABBER_SET_GO=TRUE
+				FOCUS_TABBER_TAB_ := SET_ARRAY_2[A_Index]
 				BREAK
 			}
 		}
-		IF FOCUS_TABBER_SET_GO
+		IF FOCUS_TABBER_TAB_
 		{
 			OLD_FOCUS_TABBER_HWND=%FOCUS_TABBER_HWND_A%
 			TAB_TRIGGER_VALUE=1
-			Loop % TAB_TRIGGER_VALUE
+			; SetKeyDelay, 100
+			; ControlSend,, %FOCUS_TABBER_TAB_%,ahk_class Chrome_WidgetWin_1
+			SLEEP 400
+			WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
+			IF FOCUS_TABBER_HWND_A
 			{
-				SendINPUT, {Tab}
-				SendINPUT, +{Tab}
-				SendINPUT, +{Tab}
-				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			SendINPUT, %FOCUS_TABBER_TAB_%
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 			}
+			; SetKeyDelay, -1
 		}
 	}
 RETURN
