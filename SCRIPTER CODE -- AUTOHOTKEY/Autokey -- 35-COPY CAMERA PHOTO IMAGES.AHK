@@ -104,10 +104,8 @@ IF OSVER_N_VAR<10
 	Exitapp
 }
 
-
 SetTitleMatchMode 2 
 DetectHiddenText, Off
-
 
 ; -------------------------------------------------------------------
 ; IF DOS SHELL BATCH RUN SWERVE THAT ONE
@@ -123,7 +121,7 @@ IFWINEXIST %WINFIND_VAR% ahk_class ConsoleWindowClass
 GLOBAL O_HWND_ID_1
 GLOBAL MSGBOX_CAMERA_CountDown_Generate_VAR
 
-setTimer TIMER_PREVIOUS_INSTANCE,1
+SETTIMER TIMER_PREVIOUS_INSTANCE,1
 	
 SETTIMER TIMER_DRIVE_GET_CAMERA,5000
 
@@ -148,14 +146,13 @@ RETURN
 ; ---------------------------------------------------------------
 
 TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM:
-
 	SETTIMER TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM,300000
 
 	VOLUME_LETTER:="V:\"
 	
-	DriveGet, Label_CAMERA, label, %VOLUME_LETTER%
+	DriveGet, LABEL_CAMERA, label, %VOLUME_LETTER%
 
-	IF Label_CAMERA=MC - HX60V1
+	IF LABEL_CAMERA=MC - HX60V1
 	{
 		FN_VAR_DELETE:="V:\FOUND.*"    ; EXAMPLE FOUND.004
 		IfExist, %FN_VAR_DELETE%
@@ -168,7 +165,6 @@ TIMER_CHKDSK_OF_V_DRIVE_CAMERA_MEDIA_CARD_DELETE_ITEM:
 			FileRemoveDir %FOLDER_NAME_CHKDSK%, 1
 		}
 	}
-
 RETURN
 
 ; --------------------------------------------------------------------
@@ -203,124 +199,109 @@ TIMER_DELETE_EMPTY_2020_CyberShot_HX60V_MP_ROOT:
 RETURN
 
 
-
 TIMER_DRIVE_GET_CAMERA:
-DriveGet, list, list
-COUNT_VAR_1:=StrLen(LIST)-1
-COUNT_VAR_2=0
-LOOP
-{
-	COUNT_VAR_2+=1
-	VOLUME_LETTER:=SUBSTR(LIST,COUNT_VAR_2,1)":\"
-	; VOLUME_LETTER:=%VOLUME_LETTER% 
-	
-	DriveGet, Label_CAMERA, label, %VOLUME_LETTER%
-	
-	;MSGBOX % label
-	
-	SET_GO=FALSE
-	IF Label_CAMERA=MC - HX60V
-		SET_GO=TRUE
-	IF Label_CAMERA=MC - HX60V0
-		SET_GO=TRUE
-	IF Label_CAMERA=FUJI XP90
-		SET_GO=TRUE
-	IF Label_CAMERA=GOPRO
-		SET_GO=TRUE
-	IF Label_CAMERA=DUAL SCRN
-		SET_GO=TRUE
-	IF Label_CAMERA=DASH_CAMERA
-		SET_GO=TRUE
-	IF Label_CAMERA=4K-ULTRA-HD
-		SET_GO=TRUE
-	IF Label_CAMERA=4K-ULTRA-02
-		SET_GO=TRUE
-	IF Label_CAMERA=KEY_FOB
-		SET_GO=TRUE
-	IF Label_CAMERA=MEM-BANK-AR
-		SET_GO=TRUE
-	IF Label_CAMERA=MEM-BANK-CAMERA      ; -- WHICH ONE CODE AFTER USER HERE
-		SET_GO=TRUE
-	IF Label_CAMERA=HIKVISION#1
-		SET_GO=TRUE
-	IF Label_CAMERA=MAGICMINDR7
-		SET_GO=TRUE
-	IF Label_CAMERA=FRONT DOOR
-		SET_GO=TRUE
-	IF Label_CAMERA=HI-LOOK-04           ; WHITE 04 PORT
-		SET_GO=TRUE
-	IF Label_CAMERA=HI-LOOK-08           ; BLACK 08 PORT
-		SET_GO=TRUE
-	
-		
-	IF SET_GO=TRUE
-		BREAK
+	SET_ARRAY_1:=[]
+	I:=0
+	I+=1,SET_ARRAY_1[I]:="MC - HX60V"
+	I+=1,SET_ARRAY_1[I]:="MC - HX60V0"
+	I+=1,SET_ARRAY_1[I]:="FUJI XP90"
+	I+=1,SET_ARRAY_1[I]:="GOPRO"
+	I+=1,SET_ARRAY_1[I]:="DUAL SCRN"
+	I+=1,SET_ARRAY_1[I]:="DASH_CAMERA"
+	I+=1,SET_ARRAY_1[I]:="4K-ULTRA-HD"
+	I+=1,SET_ARRAY_1[I]:="4K-ULTRA-02"
+	I+=1,SET_ARRAY_1[I]:="KEY_FOB"
+	I+=1,SET_ARRAY_1[I]:="MEM-BANK-AR"
+	I+=1,SET_ARRAY_1[I]:="MEM-BANK-CAMERA"      ; -- WHICH ONE CODE AFTER USER HERE
+	I+=1,SET_ARRAY_1[I]:="HIKVISION#1"
+	I+=1,SET_ARRAY_1[I]:="MAGICMINDR7"
+	I+=1,SET_ARRAY_1[I]:="FRONT DOOR"
+	I+=1,SET_ARRAY_1[I]:="HI-LOOK-04"           ; WHITE 04 PORT
+	I+=1,SET_ARRAY_1[I]:="HI-LOOK-08"           ; BLACK 08 PORT
+	I+=1,SET_ARRAY_1[I]:="IMPACT_REC"
+	; I+=1,SET_ARRAY_1[I]:=""
+	; I+=1,SET_ARRAY_1[I]:=""
+	; I+=1,SET_ARRAY_1[I]:=""
+	; I+=1,SET_ARRAY_1[I]:=""
 
-	IF COUNT_VAR_2>%COUNT_VAR_1%
-		BREAK
-}
-
-; -------------------------------------------------------------------
-; LOCK IT WORKER REMOVE CAMERA BEFORE DO ANOTHER
-; -------------------------------------------------------------------
-IF SET_GO=FALSE
-	VAR_STORE_CAMERA_LABEL=
-
-IF (!VAR_STORE_CAMERA_LABEL and SET_GO="TRUE")
-{
-	VAR_STORE_CAMERA_LABEL:=Label_CAMERA
-	Secs_CAMERA := 800
-	SetTimer, MSGBOX_CAMERA_CountDown, 1000
-	GOSUB MSGBOX_CAMERA_CountDown_Generate_Line
-	MsgBox, 4, Copy_Camera_Media_Card, %MSGBOX_CAMERA_CountDown_Generate_VAR%, %Secs_CAMERA%
-	SetTimer, MSGBOX_CAMERA_CountDown, Off
-	IfMsgBox Yes
+	DriveGet, list, list
+	COUNT_VAR_1:=StrLen(LIST)-1
+	COUNT_VAR_2=0
+	DRIVE_SET=
+	LOOP %LIST%
 	{
-		VAR_STORE_CAMERA_LABEL:=Label_CAMERA
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS"
+		VOLUME_LETTER:=SUBSTR(LIST,COUNT_VAR_2,1)
+		IF VOLUME_LETTER
+		{
+			DriveGet, LABEL_CAMERA, label, %VOLUME_LETTER%:
+			DRIVE_SET=%DRIVE_SET%--%LABEL_CAMERA%__
+		}
+	}
+	SET_GO=
+	Loop, % SET_ARRAY_1.MaxIndex()
+	{
+		FIND_VOLUME_NAME:="--" SET_ARRAY_1[A_Index] "__"
+		IF INSTR(DRIVE_SET,FIND_VOLUME_NAME)
+		{
+			SET_GO=TRUE
+			BREAK                               ; -- FIRST FIND TO EXIT LOOPER
+		}
+	}
+	MSGBOX "EEE"
+
+	; -------------------------------------------------------------------
+	; LOCK IT WORKER REMOVE CAMERA BEFORE DO ANOTHER
+	; -------------------------------------------------------------------
+	IF !SET_GO
+		VAR_STORE_CAMERA_LABEL=
+
+	IF (!VAR_STORE_CAMERA_LABEL and SET_GO="TRUE")
+	{
+		VAR_STORE_CAMERA_LABEL:=LABEL_CAMERA
+		Secs_CAMERA := 800
+		SetTimer, MSGBOX_CAMERA_CountDown, 1000
+		GOSUB MSGBOX_CAMERA_CountDown_Generate_Line
+		MsgBox, 4, Copy_Camera_Media_Card, %MSGBOX_CAMERA_CountDown_Generate_VAR%, %Secs_CAMERA%
+		SetTimer, MSGBOX_CAMERA_CountDown, Off
+		IfMsgBox Yes
+		{
+			VAR_STORE_CAMERA_LABEL:=LABEL_CAMERA
+			FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS"
+			IfExist, %FN_VAR%
+			{
+				SoundBeep , 2000 , 100
+				SoundBeep , 3000 , 100
+				Run, "%FN_VAR%"
+			}
+		}
+	}
+
+	SetTitleMatchMode 3    ; EXACT AR
+	DetectHiddenText, Off
+
+	HWND_ID_1 := WinExist("This PC\FinePix XP90 XP91 XP95 ahk_class CabinetWClass")
+	IF (HWND_ID_1>0 and HWND_ID_1<>O_HWND_ID_1)
+	{
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT"
 		IfExist, %FN_VAR%
 		{
-			SoundBeep , 2000 , 100
-			SoundBeep , 3000 , 100
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			; SoundBeep , 2500 , 100
 			Run, "%FN_VAR%"
 		}
 	}
-}
-
-
-SetTitleMatchMode 3  ; Exactly
-DetectHiddenText, Off
-
-HWND_ID_1 := WinExist("This PC\FinePix XP90 XP91 XP95 ahk_class CabinetWClass")
-IF (HWND_ID_1>0 and HWND_ID_1<>O_HWND_ID_1)
-{
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 35-COPY CAMERA - FUJI XP90 - GOODSYNC.BAT"
-	IfExist, %FN_VAR%
-	{
-		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%"
-	}
-}
-O_HWND_ID_1=%HWND_ID_1%
-
-
-
-
-
-
+	O_HWND_ID_1=%HWND_ID_1%
 RETURN
-
 
 
 MSGBOX_CAMERA_CountDown_Generate_Line:
-MSGBOX_CAMERA_CountDown_Generate_VAR=Would you like to Copy Camera Media Card`n%Label_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds
+	MSGBOX_CAMERA_CountDown_Generate_VAR=Would you like to Copy Camera Media Card`n%LABEL_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds
 RETURN
 
 MSGBOX_CAMERA_CountDown:
-Secs_CAMERA -= 1
-GOSUB MSGBOX_CAMERA_CountDown_Generate_Line
-ControlSetText,Static1,%MSGBOX_CAMERA_CountDown_Generate_VAR%,Copy_Camera_Media_Card ahk_class #32770
-
+	Secs_CAMERA -= 1
+	GOSUB MSGBOX_CAMERA_CountDown_Generate_Line
+	ControlSetText,Static1,%MSGBOX_CAMERA_CountDown_Generate_VAR%,Copy_Camera_Media_Card ahk_class #32770
 Return
 
 
