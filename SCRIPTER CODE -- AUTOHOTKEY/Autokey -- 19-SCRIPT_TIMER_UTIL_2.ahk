@@ -664,14 +664,20 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; $ AND * $* NOT WORKER TO ALLOW PASS THROUGH
-; LButton::
+; WAY TO DO PASS THROUGH HERE IS USER ~
+; -------------------------------------------------------------------
+; NOW EVERY MOUSE CLICK ALLOW THE TAB ROUTINE TO TRIGGER 
+; AND NOT AGAINST WINDOW SAME WINDOW
+; -------------------------------------------------------------------
+~LButton::
 	; MouseClick, left
-	; IF OLD_FOCUS_TABBER_TITLE<>%FOCUS_TABBER_TITLE%
-	; OLD_FOCUS_TABBER_TITLE=
+	IF OLD_FOCUS_TABBER_TITLE<>%FOCUS_TABBER_TITLE%
+	 OLD_FOCUS_TABBER_TITLE=
+RETURN
 
-; RETURN
-		
+
 FOCUS_TABBER_TAB_NEXT_ONE:
+	DetectHiddenWindows,  ON ; ---- ON HAS FAULTY
 	DetectHiddenWindows,  OFF ; ---- ON HAS FAULTY
 	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
 
@@ -685,23 +691,26 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 		RETURN
 	IF INSTR(OLD_FOCUS_TABBER_TITLE,FOCUS_TABBER_TITLE)>0
 		RETURN
-	OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE%`n%OLD_FOCUS_TABBER_TITLE%`n
+	OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE%`n%OLD_FOCUS_TABBER_TITLE%
 	
 	ARR_Split := StrSplit(OLD_FOCUS_TABBER_TITLE, "`n")
-	OLD_FOCUS_TABBER_TITLE=
+	OLD_FOCUS_TABBER_TITLE=        ; MIGHT BE DOUBLE WINDOW LIKE POP UP N SCREEN -- AVOID DOUBLE TRIGGER
+								   ; NOT WORK TO WELL -- WHEN SWAPPER ONE PAGE TO NEXT REQUIRE BOTH DONE
+								   ; IF A_Index<2
 	Loop % ARR_Split.MaxIndex()
 	{
-		; TOOLTIP % OLD_FOCUS_TABBER_TITLE "--`n--`n" FOCUS_TABBER_TITLE "`n" ARR_Split.MaxIndex()
-		; IF A_Index<4
-		; {
+		IF A_Index<2
+		{
 			FOCUS_TABBER_VAR := ARR_Split[A_Index]
-			; MSGBOX % FOCUS_TABBER_VAR
+			IF OLD_FOCUS_TABBER_TITLE
 			IF FOCUS_TABBER_VAR
-				OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_VAR%`n%OLD_FOCUS_TABBER_TITLE%`n
-		; }
+				OLD_FOCUS_TABBER_TITLE=%OLD_FOCUS_TABBER_TITLE%`n%FOCUS_TABBER_VAR%
+			IF !OLD_FOCUS_TABBER_TITLE
+				OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_VAR%
+		}
 	}
 	
-	TOOLTIP % OLD_FOCUS_TABBER_TITLE "`n" FOCUS_TABBER_TITLE "`n" ARR_Split.MaxIndex()
+	TOOLTIP % OLD_FOCUS_TABBER_TITLE 
 	WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
 	IF FOCUS_TABBER_HWND_A
 	{
@@ -715,15 +724,118 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 		; BUT THAT DIFFICULT AS TAB KEEP SLIDE ALONG EACH RE-VISITOR 
 		; NEW IDEA IS CONTROL L FOCUS IN URL BAR AGAIN
 		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; AFTER MUCH EFFORT 
+		; PROVIDE WORK STYLE
+		; FOUND AN EASIER WAY
+		; ALL HAVE TO DO STOP THE PULL DOWN SEARCHER IS ESCAPE THE THING
+		; -----------------------------------------------------------
+		
+		SET_ARRAY_1:=[]
+		ArrayCount_1:=0
+		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="*Google Search - Google Chrome"
+		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="LinkedIn - Google Chrome"        
+		
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		FOCUS_TABBER_SET_GO=
+		FOCUS_TABBER_TAB_=
+		Loop % SET_ARRAY_1.MaxIndex()
+		{
+			FOCUS_TABBER_WORD := SET_ARRAY_1[A_Index]
+			FOCUS_TABBER_GO__=
+			; REMOVE NUMERIC AND BRACKET
+			; --------------------------
+			; FOCUS_TABBER_TITLE
+			; REPLACE AND ONLY NUMERIC VALUE
+			FOCUS_TABBER_TITLE_MOD=%FOCUS_TABBER_TITLE%
+			NewVar := RegExReplace(FOCUS_TABBER_TITLE_MOD, "\D") ; REPLACE AND ONLY NUMERIC VALUE
+			FOCUS_TABBER_TITLE_MOD := StrReplace(FOCUS_TABBER_TITLE_MOD, NewVar, "")
+			FOCUS_TABBER_TITLE_MOD := StrReplace(FOCUS_TABBER_TITLE_MOD, "()", "")
+			FOCUS_TABBER_TITLE_MOD := Trim(FOCUS_TABBER_TITLE_MOD)
+			IF FOCUS_TABBER_TITLE_MOD=%FOCUS_TABBER_WORD%
+				FOCUS_TABBER_GO__=TRUE
+
+			FIND_WILDCARD:=SubStr(FOCUS_TABBER_WORD, 1, 1)
+			IF FIND_WILDCARD=*
+			FOCUS_TABBER_WORD:=SubStr(FOCUS_TABBER_WORD, 2)
+			IF INSTR(FOCUS_TABBER_TITLE_MOD,FOCUS_TABBER_WORD)>0
+				FOCUS_TABBER_GO__=TRUE
+			
+			IF FOCUS_TABBER_GO__
+				BREAK
+		}
+		IF FOCUS_TABBER_GO__
+		{
+			WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%   ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
+			IF FOCUS_TABBER_HWND_A
+			{
+				ControlSend,, {ESC}, ahk_id %FOCUS_TABBER_HWND_A%
+				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			}
+		}
+	}
+RETURN
+
+
+FOCUS_TABBER_TAB_NEXT_ONE__MACH_VERSION_01:
+	DetectHiddenWindows,  ON ; ---- ON HAS FAULTY
+	DetectHiddenWindows,  OFF ; ---- ON HAS FAULTY
+	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
+
+	FOCUS_TABBER_HWND_A=	
+	FOCUS_TABBER_CLASS_01=ahk_class Chrome_WidgetWin_1
+	WinGet, FOCUS_TABBER_HWND_A, ID, A
+	WinGetClass, FOCUS_TABBER_CLASS_02, ahk_id %FOCUS_TABBER_HWND_A%
+	WinGetTitle, FOCUS_TABBER_TITLE, ahk_id %FOCUS_TABBER_HWND_A%
+	WinGet, FOCUS_TABBER_HWND_A, ID, ahk_id %FOCUS_TABBER_HWND_A%       ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
+	IF !FOCUS_TABBER_HWND_A
+		RETURN
+	IF INSTR(OLD_FOCUS_TABBER_TITLE,FOCUS_TABBER_TITLE)>0
+		RETURN
+	OLD_FOCUS_TABBER_TITLE=%FOCUS_TABBER_TITLE%`n%OLD_FOCUS_TABBER_TITLE%
+	
+	ARR_Split := StrSplit(OLD_FOCUS_TABBER_TITLE, "`n")
+	OLD_FOCUS_TABBER_TITLE=
+	Loop % ARR_Split.MaxIndex()
+	{
+		IF A_Index<7
+		{
+			FOCUS_TABBER_VAR := ARR_Split[A_Index]
+			IF FOCUS_TABBER_VAR
+				OLD_FOCUS_TABBER_TITLE=%OLD_FOCUS_TABBER_TITLE%`n%FOCUS_TABBER_VAR%
+		}
+	}
+	
+	; TOOLTIP % OLD_FOCUS_TABBER_TITLE "`n" FOCUS_TABBER_TITLE "`n" ARR_Split.MaxIndex()
+	WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
+	IF FOCUS_TABBER_HWND_A
+	{
+		; -----------------------------------------------------------
+		; SET THE ARRAY TITLE WANT WORKER
+		; -----------------------------------------------------------
+		; VARIABLE SET ARRAY ALLOW COMBINE ONE LINE SEPARATOR ,
+		; MULTI COMMAND ONE LINE ONLY WITH AR VARIABLE SETTER
+		; -----------------------------------------------------------
+		; PLAY WHEN CAME HERE WAS POSSIBLE ANOTHER TAB ALONG
+		; BUT THAT DIFFICULT AS TAB KEEP SLIDE ALONG EACH RE-VISITOR 
+		; NEW IDEA IS CONTROL L FOCUS IN URL BAR AGAIN
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; AFTER MUCH EFFORT 
+		; PROVIDE WORK STYLE
+		; FOUND AN EASIER WAY
+		; ALL HAVE TO DO STOP THE PULL DOWN SEARCHER IS ESCAPE THE THING
+		; -----------------------------------------------------------
 		
 		SET_ARRAY_1:=[]
 		SET_ARRAY_2:=[]
 		ArrayCount_1:=0
 		ArrayCount_2:=0
 		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="*Google Search - Google Chrome"
-		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="{ctrl down}L{ctrl up}{TAB}{ENTER}"
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="^L****{TAB}****{ENTER}"
 		ArrayCount_1+=1 , SET_ARRAY_1[ArrayCount_1]:="LinkedIn - Google Chrome"        
-		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="{ctrl down}L{ctrl up}{TAB}{TAB}{ENTER}"
+		ArrayCount_2+=1 , SET_ARRAY_2[ArrayCount_2]:="^L****{TAB}****{TAB}****{ENTER}"
 		
 		; -----------------------------------------------------------
 		; -----------------------------------------------------------
@@ -759,22 +871,33 @@ FOCUS_TABBER_TAB_NEXT_ONE:
 		}
 		IF FOCUS_TABBER_TAB_
 		{
-			TAB_TRIGGER_VALUE=1
-			TOOLTIP % OLD_FOCUS_TABBER_TITLE
+			; TOOLTIP % OLD_FOCUS_TABBER_TITLE
 			; SetKeyDelay, 100
-			SLEEP 400
+			SLEEP 50
 			WinGet, FOCUS_TABBER_HWND_A , ID, ahk_id %FOCUS_TABBER_HWND_A%      ; DOUBLE CHECK HWND HANDLE STILL EXIST AR
 			IF FOCUS_TABBER_HWND_A
 			{
+			; FOCUS_TABBER_TAB_:="{ctrl down}L{ctrl up}" ; "{TAB}{TAB}{ENTER}"
+			; ControlSend,, %FOCUS_TABBER_TAB_%,ahk_class Chrome_WidgetWin_1
 			; SendINPUT, %FOCUS_TABBER_TAB_%
-			ControlSend,, %FOCUS_TABBER_TAB_%,ahk_class Chrome_WidgetWin_1
+			
+			; SendINPUT, {ctrl down}L{ctrl up}
+			; SendINPUT, ^L
+			ARR_Split := StrSplit(FOCUS_TABBER_TAB_, "****")
+			Loop % ARR_Split.MaxIndex()
+			{
+				ARR_Split_VAR := ARR_Split[A_Index]
+				IF ARR_Split_VAR
+				ControlSend,, %ARR_Split_VAR%, ahk_id %FOCUS_TABBER_HWND_A%
+				SLEEP 200
+			}
+			
 			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 			}
 			; SetKeyDelay, -1
 		}
 	}
 RETURN
-
 
 
 
