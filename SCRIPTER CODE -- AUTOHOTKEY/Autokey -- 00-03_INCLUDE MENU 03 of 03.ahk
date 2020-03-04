@@ -284,9 +284,18 @@ SET_GITHUB_GO_AR:
 		FileAppend,"INFO_WRITE_FILE",%FILE_NET_D%
 
 	
-	IfNotExist %FILE_HDD_C%
-	IfNotExist %FILE_HDD_D%
-	MSGBOX % "NOT EXIST BOTH `n" FILE_NET_C "`n`n" FILE_NET_D
+	IF (A_ComputerName="7-ASUS-GL522VW")
+	{
+		IfNotExist %FILE_HDD_C%
+		IfNotExist %FILE_HDD_D%
+		MSGBOX % "NOT EXIST BOTH `n" FILE_HDD_C "`n`n" FILE_HDD_D
+	}
+	IF (A_ComputerName<>"7-ASUS-GL522VW")
+	{
+		IfNotExist %FILE_NET_C%
+		IfNotExist %FILE_NET_D%
+		MSGBOX % "NOT EXIST BOTH `n" FILE_NET_C "`n`n" FILE_NET_D
+	}
 	
 	; FILE PICKER HERE
 	; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
