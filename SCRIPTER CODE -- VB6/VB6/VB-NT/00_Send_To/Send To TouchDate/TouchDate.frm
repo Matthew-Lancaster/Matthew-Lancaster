@@ -718,6 +718,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
+Dim VARCENTER
+
 Dim FORM_ME As New Form1
 
 Dim I_1 ' QUICK MODE RESULT
@@ -958,7 +960,6 @@ End If
 If Mid(W$, 1, 1) = """" Then
     W$ = Mid(W$, 2): W$ = Mid(W$, 1, Len(W$) - 1)
 End If
-
 FULL_PATH_AND_FILENAME = W$
 
 If FSO.FileExists(W$) Then
@@ -983,6 +984,10 @@ If W$ <> "" Then
     If Mid$(W$, Len(W$), 1) <> "\" Then
         W$ = W$ + "\"
     End If
+End If
+
+If Mid(W$, 1, 1) = """" Then
+    W$ = Mid(W$, 2): W$ = Mid(W$, 1, Len(W$) - 1)
 End If
 
 'FOLDER LABEL
@@ -1060,9 +1065,7 @@ For r = 0 To LABEL_SET.Count - 1
 Next
 
 On Error Resume Next
-Me.Width = 17000
-On Error GoTo 0
-
+Me.Width = Screen.Width - 1000 ' 24000
 For r = 0 To LABEL_SET.Count - 1
     LABEL_SET(r).FontSize = 12
     LABEL_SET(r).fontname = "ARIAL"
@@ -1080,8 +1083,8 @@ For r = 0 To LABEL_SET.Count - 1
     End If
     LABEL_SET(r).AutoSize = False
 Next
-LABEL_SET(2).FontSize = MIN_HL - 4
-LABEL_SET(3).FontSize = MIN_HL - 4
+LABEL_SET(2).FontSize = LABEL_SET(4).FontSize - 2
+LABEL_SET(3).FontSize = LABEL_SET(2).FontSize
 
 HL = MIN_HL
 LENGHT_LABEL = 380
@@ -1109,13 +1112,24 @@ LABEL_SET(r).Top = STEP_H
 STEP_H = STEP_H + 40 + HL
 
 On Error Resume Next
-Me.Height = STEP_H + 800
+Me.Height = STEP_H + 900 ' + MENUBAR CODE REQUIRE --- REQUIRE HIGH NUMBER IF WINDOWS 10 NOT GRAPHIC DPI CLUE
 Me.Top = 0
+
+If Me.WindowState = 0 Then
+    If VARCENTER = True Then Exit Sub
+    Me.Top = Screen.Height / 2 - Me.Height / 2 '+400
+    Me.Left = Screen.Width / 2 - Me.Width / 2 '+400
+    VARCENTER = True
+    On Error GoTo 0
+End If
+
 
 End Sub
 
 
 Private Sub LABEL_SET_Click(index As Integer)
+
+' LABEL_SET(3).Caption
 
 DISPLAY_NAMER = M_1(index)
 If M_3(index) <> "" Then
@@ -1440,14 +1454,14 @@ Sub SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE()
         B11 = Mid(D11, InStrRev(A11, "\") + 1)
     End If
     If LABEL_SET(2).Caption = "NOT FOLDER GIVEN" Then
-        If IsIDE Then
-            D11 = "F:\DSC--2018+CCSE_HIKVISION_SCREENCASTIFY\2020-01-27--EDDIE\CH01_2020 01 27--16 47 36_BLAGGER_CCTV-1.mp4"
-            A11 = Mid(D11, 1, InStrRev(D11, "\"))
-            B11 = Mid(D11, InStrRev(D11, "\") + 1)
-        End If
+'        If IsIDE Then
+'            D11 = "F:\DSC--2018+CCSE_HIKVISION_SCREENCASTIFY\2020-01-27--EDDIE\CH01_2020 01 27--16 47 36_BLAGGER_CCTV-1.mp4"
+'            A11 = Mid(D11, 1, InStrRev(D11, "\"))
+'            B11 = Mid(D11, InStrRev(D11, "\") + 1)
+'        End If
     End If
     If Len(D11) < 5 Or D11 = "NOT FILE GIVEN" Then
-        MsgBox "FULL PATH AND FILE NOT GOOD -- EXIT" + vbCrLf + vbCrLf + D11
+        MsgBox "FULL PATH AND FILE NOT FIND -- EXIT" + vbCrLf + vbCrLf + D11
         End
     End If
     
@@ -1461,12 +1475,25 @@ Sub SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE()
     If InStr("MP4 TXT", EXT_STR) Then
         DATE_FILENAME_D_1 = Mid(B11, 6, 10)
         DATE_FILENAME_T_2 = Mid(B11, 18, 8)
-        Mid(DATE_FILENAME_D_1, 5, 1) = "/"
-        Mid(DATE_FILENAME_D_1, 8, 1) = "/"
-        Mid(DATE_FILENAME_T_2, 3, 1) = ":"
-        Mid(DATE_FILENAME_T_2, 6, 1) = ":"
+        If IsDate(DATE_FILENAME_D_1) = True Then
+            Mid(DATE_FILENAME_D_1, 5, 1) = "/"
+            Mid(DATE_FILENAME_D_1, 8, 1) = "/"
+            Mid(DATE_FILENAME_T_2, 3, 1) = ":"
+            Mid(DATE_FILENAME_T_2, 6, 1) = ":"
+        End If
+        If IsDate(DATE_FILENAME_D_1) = False Then
+            ' CH01_20200225--142741
+            ' IN YYYYMMDD
+            ' OUT DD-MM-YYYY
+            DATE_FILENAME_D_1 = Mid(B11, 12, 2) + "/" + Mid(B11, 10, 2) + "/" + Mid(B11, 6, 4)
+            DATE_FILENAME_T_2 = Mid(B11, 16, 2) + ":" + Mid(B11, 18, 2) + ":" + Mid(B11, 20, 2)
+        End If
         
         DATE_FILENAME_SUCCESS = DateValue(DATE_FILENAME_D_1) + TimeValue(DATE_FILENAME_T_2)
+        If IsDate(DATE_FILENAME_SUCCESS) = False Then
+        a = a
+        End If
+        
         
         DT4 = DATE_FILENAME_SUCCESS
         If IsDate(DT4) = False Then
