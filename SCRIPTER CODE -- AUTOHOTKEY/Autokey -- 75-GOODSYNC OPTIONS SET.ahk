@@ -1150,15 +1150,21 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			SET_GO_2=
 		IF INSTR(OutputVar_3,"QNAP")>0 
 			SET_GO_2=
-		IF INSTR(OutputVar_3,"VVV")>0 
+		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE MORPHEUS")>0 
 			SET_GO_2=
-		IF INSTR(OutputVar_3,"VVV")>0 
+		IF INSTR(OutputVar_3,"VV")>0 
 			SET_GO_2=
-		IF INSTR(OutputVar_3,"VVV")>0 
+		IF INSTR(OutputVar_3,"VV")>0 
 			SET_GO_2=
-		IF INSTR(OutputVar_3,"VVV")>0 
+		IF INSTR(OutputVar_3,"VV")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"VV")>0 
+			SET_GO_2=
+		IF INSTR(OutputVar_3,"VV")>0 
 			SET_GO_2=
 		
+		
+		; HWND_4 __ GOODSYNC DESKTOP
 		WinGetTitle OutputVar_4,ahk_id %HWND_4%
 		SET_GO_4=FALSE
 		IF INSTR(OutputVar_4,"E DESKTOP")>0 
