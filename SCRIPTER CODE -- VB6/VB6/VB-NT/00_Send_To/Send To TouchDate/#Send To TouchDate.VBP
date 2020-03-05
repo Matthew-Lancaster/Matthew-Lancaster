@@ -16,13 +16,13 @@ Startup="Form1"
 HelpFile=""
 Title="#Send To TouchDate"
 ExeName32="#Send To TouchDate.exe"
-Command32=""
+Command32=""\\7-asus-gl522vw\7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D\VI_ DSC ME\2020+CCTV_HIKVISION\2020-02-25_CH01_M_FRONT ROOM\CH01_20200225--152834__15-28__15-37__READY FOR OUTDOR.MP4""
 Name="FILE_DATE_NOW"
 HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=90
+RevisionVer=95
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Sat 05-Mar-2011 10-01-52p"
