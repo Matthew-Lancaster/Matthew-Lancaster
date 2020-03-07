@@ -190,7 +190,9 @@ TEMPORARY_FILE_HWND=
 PERIODICALLY_SET_VALUE_HWND=
 UNCHECK_PERIODIC_TIMER_HWND=
 CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=
-HDD_HUBIC_HWND=
+
+
+
 DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=
 WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND=
 NOT_GSDATA_CLOUD_HWND=
@@ -224,9 +226,13 @@ ACTIVATION_GS_FILENAME_CONTENT=
 O_WNDCLASS_DESKED_GSK_MATCH=
 
 NOT_GSDATA_FOLDER_CLOUD_HWND_1=
+NOT_GSDATA_FOLDER_CLOUD_HWND_44_1=
 NOT_GSDATA_FOLDER_CLOUD_HWND_44_4=
 NOT_GSDATA_FOLDER_CLOUD_HWND_55_1=
+NOT_GSDATA_FOLDER_CLOUD_HWND_55_4=
+NOT_GSDATA_FOLDER_CLOUD_HWND_57_1=
 NOT_GSDATA_FOLDER_CLOUD_HWND_57_4=
+MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND_OLD=
 
 ; -------------------------------------------------------------------
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,500
@@ -241,6 +247,10 @@ SET_GOODSYNC_CONNECT_BOX_HWND=0
 SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
 SETTIMER TOOLTIP_REMOVER,1000
 
+SETTIMER MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_SUB,1000
+
+HDD_HUBIC_HWND=
+SETTIMER HUBIC_SETTER,1000
 ; -------------------------------------------------------------------
 RETURN
 ; -------------------------------------------------------------------
@@ -1267,6 +1277,8 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 					}
 				}
 			}
+			
+
 			; 03 OF 06
 			IF NOT_GSDATA_FOLDER_SET_GO_4_L=TRUE
 			IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_4<>%HWND_4%
@@ -1295,6 +1307,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 					}
 				}
 			}
+
 			
 			; 04 OF 06
 			IF NOT_GSDATA_FOLDER_SET_GO_1_L=TRUE
@@ -1353,7 +1366,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 					}
 				}
 			}
-			
+
 			; 06 OF 06
 			IF NOT_GSDATA_FOLDER_SET_GO_4_L=TRUE
 			IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_1<>%HWND_1%
@@ -1382,39 +1395,47 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 					}
 				}
 			}
-		}
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-
-		
-		
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		IF HDD_HUBIC_HWND<>%HWND_1%
-		{
-			WinGetTitle OutputVar_3, ahk_id %HWND_1%
-			If INSTR(OutputVar_3,"HDD HUBIC")>0 
+			
+			
+			; THE HUBIC JOB NAME TO DO ON GOODSYNC
+			; -----------------------------------------------------------
+			; WinGet, HWND_HUBIC_1, ID, A   ; --- AS ABOVE
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+			IF HDD_HUBIC_HWND<>%HWND_HUBIC_1%
 			{
-				TOOLTIP ---- - HUBIC UNCHECK BUTTON58
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_HDD_HUBIC_HWND_`n"
-
-				ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
-				If Status=1
+				WinGetTitle OutputVar_3, ahk_id %HWND_HUBIC_1%
+				If INSTR(OutputVar_3,"HDD HUBIC")>0 
 				{
-					Control, UNCheck,, Button58, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
+					TOOLTIP ---- - HUBIC UNCHECK BUTTON58
+					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_HUBIC_1%
+					TT_1:=% TT_1 "_HDD_HUBIC_HWND_`n"
+
+					ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
+					If Status=1
+					{
+						Control, UNCheck,, Button58, ahk_id %HWND_HUBIC_1%
+						SoundBeep , 4000 , 100
+					}
+				}
+				ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
+				If Status=0
+				{
+					HDD_HUBIC_HWND=%HWND_HUBIC_1%
+					; TOOLTIP
 				}
 			}
-			ControlGet, Status, Checked,, Button58, ahk_id %HWND_1%
-			If Status=0
-			{
-				HDD_HUBIC_HWND=%HWND_1%
-				; TOOLTIP
-			}
-		}
 
+			
+			
+		}
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+
+		
+		
+		
 		; -----------------------------------------------------------
 		; -----------------------------------------------------------
 		; -----------------------------------------------------------
@@ -1655,13 +1676,59 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			; SoundBeep , 4000 , 100
 		; }
 	; }
-
 	
 	O_HWND_1=%HWND_1%
 	
 	DetectHiddenWindows, % dhw
 
 Return
+
+HUBIC_SETTER:
+
+
+RETURN
+
+
+
+
+
+
+MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_SUB:
+
+	; ahk_exe mpc-hc64.exe
+	; MEDIA PLAYER
+	
+	OutputVar_1=
+	WinGet, MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND, ID, Options ahk_class #32770
+	IF MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND
+		ControlGettext, OutputVar_1, Button7, ahk_id %MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
+	IF MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND
+	{
+		ControlGettext, OutputVar_1, Button7, ahk_id %MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
+		ControlGet, Status, Checked,, Button7, ahk_id %MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
+		IF INSTR(OutputVar_1,"Auto-zoom")>0
+		{
+			If Status=1
+			{
+				Control, UNCheck,, Button7, ahk_id %MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
+				TOOLTIP MEDIA PLAYER __ MPC-HC64.EXE __ ZOOM UNCHECK __ STOP WINDOW ADJUST EACH VIDEO
+				TOOLTIP_MEDIA_PLAYER_TIMER_1=TRUE
+				TOOLTIP_MEDIA_PLAYER_TIMER_2=%MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
+				TT_1:=% TT_1 "MEDIA_PLAYER__ZOOM_UNCHECKER`n"
+
+				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				SoundBeep , 4000 , 100
+			}
+			
+			ControlGet, Status, Checked,, Button7, ahk_id %MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
+			If Status=0
+			{
+				MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND_OLD=%MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND%
+			}
+		}
+	}
+	
+RETURN
 
 
 
