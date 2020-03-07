@@ -336,6 +336,10 @@ OLD_EXPLORER_ID_STR=
 OLD_AUTORUNS_ID_STR=
 OLD_TEAMVIEWER_ID_STR=
 
+OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR=
+SETTIMER FREEMAKER_MAXIMIZE_VIDEO_WINDOW_SUB,500
+
+
 
 ; -------------------------------------------------------------------
 ; TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP:
@@ -437,6 +441,9 @@ FOCUS_TABBER_TITLE=
 FOCUS_TABBER_HWND_A=
 SETTIMER FOCUS_TABBER_APP_ESCAPE_KEY_STOP_THE_PULL_DOWN_TIMER,500
 
+SETTIMER MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER,500
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
@@ -510,6 +517,23 @@ IfWinNOTEXIST ahk_class MediaPlayerClassicW
 }
 RETURN
 
+
+MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER:
+	; ahk_exe mpc-hc64.exe
+
+	WinGet,VAR_GET, ID, Delete File ahk_class #32770
+	IF !VAR_GET
+		RETURN
+	
+	ControlGettext, OutVar_2, SysLink1, ahk_id %VAR_GET%
+	IF INSTR(OutVar_2,"Are you sure that you want to permanentl")>0
+	{
+		ControlClick, Button1, ahk_id %VAR_GET%
+		ControlClick, &Yes, ahk_id %VAR_GET%
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+
+RETURN
 
 
 RUN_VIDEO_WHEN_TESTER_MPG:
@@ -2065,12 +2089,56 @@ HIGHER_SPEED:
 			}
 		}
 		
-
-		
 		
 	}
 	OLD_id=%id%
 
+RETURN
+
+
+
+
+FREEMAKER_MAXIMIZE_VIDEO_WINDOW_SUB:
+	SetTitleMatchMode 2  ; Specify EXACT path
+	DetectHiddenWindows, ON
+	; -----------------------------------------------------------
+	; FREEMAKER MAXIMIZE VIDEO WINDOW
+	; -----------------------------------------------------------
+	; ahk_exe FreemakeVC.exe
+	; -----------------------------------------------------------
+	; ahk_class HwndWrapper[FreemakeVC.exe;;d876c023-e552-45dc-81e7-e4e7a290b371]
+	; ahk_class HwndWrapper[FreemakeVC.exe;;bad543b2-6d91-461e-bc12-e7e99cfee116]
+	; ABLE TO VARY EVERY WINDOW
+	 ;-----------------------------------------------------------
+	ID_FREEMAKEVC=
+	
+	WinGetCLASS, ID_FREEMAKEVC, A
+	
+	IF INSTR(ID_FREEMAKEVC,"HwndWrapper[FreemakeVC.exe")>0 
+	{
+		ID_STRING= -- %ID_FREEMAKEVC%
+		IF INSTR(OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR,ID_STRING)=0
+		{
+			WinMaximize, A
+			WinMaximize, AHK_ID %ID_FREEMAKEVC%
+			WinGet STYLE_FREEMAKER, MinMax, AHK_ID %ID_FREEMAKEVC%
+			; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
+			IF STYLE_FREEMAKER=1
+			{
+				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR=%OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR% -- %ID_FREEMAKEVC%
+				Length := StrLen(OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR)
+				; ---------------------------------------------------
+				; 10 IS THE DEFAULT LENGTH FOR 1 BLOCK OF DATA
+				; ---------------------------------------------------
+				WHILE Length>10*10
+				{
+					StringTrimRIGHT, OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR, OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR, 10
+					Length := StrLen(OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR)
+				}
+			}
+		}
+	}
 RETURN
 
 
@@ -4757,6 +4825,7 @@ IF HWND_1>0
 		IF SET_GO=TRUE
 		IF (OutVar_2="Periodically (On Timer), every")
 		{
+			
 			ControlSetText, Edit9,, ahk_id %HWND_1%
 			Control, EditPaste, 5, Edit9, ahk_id %HWND_1%
 			SoundBeep , 4000 , 100
