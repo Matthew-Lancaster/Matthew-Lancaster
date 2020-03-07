@@ -425,6 +425,41 @@ F5::
 #ifwinactive
 
 
+; SELECT 20 PHOTO WITH HOTKEY H
+#IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+H:: 
+
+	TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT=0
+	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H,300
+
+RETURN
+#ifwinactive
+
+
+
+TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H:
+
+	TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT+=1
+	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>40 
+	{
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H,OFF
+		RETURN
+	}
+	If WinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+	{
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H,OFF
+		RETURN
+	}
+	
+	SENDINPUT {RIGHT}
+	SLEEP 50
+	SENDINPUT X
+
+RETURN
+
+
+
+
 Return
 ; --
 ^l:: ; CTRL+L ---- Converts Text To Lower
@@ -449,6 +484,12 @@ Return
 	VAR_INDEX=3
 	GOSUB HOT_KEY_CONVERT_TEXT
 Return
+
+
+
+
+
+
 
 ; -------------------------------------------------------------------
 HOT_KEY_CONVERT_TExT:
@@ -504,6 +545,9 @@ RETURN
 ; HTTP://TINYURL.COM/R9OEH4F
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+
 
 
 
