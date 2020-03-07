@@ -280,8 +280,6 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_1[ArrayCount]:="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC_4G_1TB\DSC--2018+CCSE_HIKVISION"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
 	
-	
-	
 
 	; ---------------------------------------------------------------
 	; WHEN REQUEST COMMAND_LINE ARG GOODSYNC REQUIRE VB 
