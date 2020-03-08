@@ -1859,7 +1859,12 @@ Sub DeleteEmptyFolders(folder)
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		MSGBOX "DeleteFolder " + folder.Path
+		' -----------------------------------------------------------
+		' SUCCESS ACHIEVE ON TEST RUN
+		' ALLOW NOT MESSENGER LEAVER
+		' Sun 08-Mar-2020 17:20:40
+		' -----------------------------------------------------------
+		'MSGBOX "DeleteFolder " + folder.Path
 		FSO.DeleteFolder folder.Path, TRUE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
