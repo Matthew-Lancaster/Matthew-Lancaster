@@ -16942,7 +16942,6 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 'USE OPTION CLIP EXE NAME AND MOVE TO FOLDER
-Dim X_COLOR(4000)
 ' -----------------------------
 ' SESSION 002
 ' -----------------------------
@@ -16964,6 +16963,28 @@ Dim X_COLOR(4000)
 ' Sun 26-Jan-2020 00:46:10
 ' Sun 26-Jan-2020 05:28:00 -- 5 HOUR 42 MINUTE
 ' -----------------------------
+
+' -----------------------------
+' SESSION 003 OF PLENTY
+' -----------------------------
+' ROUTINE OF WORK
+' Sub SubCode()
+' Private Sub Timer2_Timer()
+' Private Sub Timer3_Timer()   ---- NEW -- CHECK LINK AND HERE TRAILER AFTER CHECK
+' --------------------------------- AND RESTORE COLOUR FROM WHITE
+' ADJUST COLOUR PROPER
+' TOOK A WHILE
+' REM LINE HELP A BIT NEXT SESSION
+' ---------------------------------
+' Mon 09-Mar-2020 14:05:35
+' Mon 09-Mar-2020 12:07:24 -- 1 HOUR 58 MINUTE
+' ---------------------------------
+
+
+
+
+Dim FIRST_GO_GATHER_COLOUR
+Dim X_COLOR(4000)
 
 Dim COLOUR_1_VB
 Dim COLOUR_2_VB
@@ -17216,7 +17237,6 @@ End Sub
 
 Sub SubCode()
 
-
 rg = 0
 FontSizez = 7
 LABEL_GAP = 12
@@ -17237,13 +17257,10 @@ Me.Refresh
 Me.Show
 DoEvents
 
-
 Lbl2.Top = 0
 Lbl2.Left = 0
 
-
 x = Lbl2.Height + LABEL_GAP
-
 
 Check1.Top = x
 Check1.Left = (Form1.Width / 2) + 10
@@ -17269,12 +17286,10 @@ rr2 = GetWindowRect(rr, RECT1)
 rr = FindWindow("MOM Class", vbNullString)
 rr2 = GetWindowRect(rr, RECT2)
 
-
 XX1 = (RECT1.Bottom - RECT1.Top) * Screen.TwipsPerPixelY
 XX1 = XX1 + (RECT2.Bottom - RECT2.Top) * Screen.TwipsPerPixelY
 
 SH = Screen.Height - (XX1 + 1300) 'higer = smaller
-
 
 For R = ScanPath.ListView1.ListItems.Count To 1 Step -1
     If InStr(ScanPath.ListView1.ListItems.Item(R).SubItems(1), "\_gsdata_") > 0 Then
@@ -17297,31 +17312,50 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
     If InStrRev(A1$, "\") > 0 Then
         seedy$ = Mid$(A1$, InStrRev(A1$, "\", Len(A1$) - 1))
     End If
+    
+    If R = 52 Then
+        Label1(R).BackColor = Label1(836).BackColor
+'         Stop
+    End If
+    If R = 102 Then
+        Label1(R).BackColor = Label1(837).BackColor  ' Label1(837).BackColor
+'         Stop
+    End If
+    
     If oseedy$ <> seedy$ Then txr = Not txr
     oseedy$ = seedy$
     ' FLIP FLOPPER VBP
+    If R__AStart = False And COLOUR_1_VB = 0 Then
+        R__AStart = True
+        COLOUR_1_VB = Label1(836).BackColor ' Label1(175).BackColor
+        COLOUR_2_VB = Label1(837).BackColor ' Label1(208).BackColor
+    End If
+
     If txr = 0 Then
-        AA = Hex(Label1(837).BackColor)  ' RGB(204, 255, 255)
-        Label1(R).BackColor = Label1(836).BackColor
+        Label1(R).BackColor = COLOUR_1_VB
+        X_COLOR(R) = Label1(R).BackColor
     End If
     If txr = -1 Then
-        AA = Hex(Label1(837).BackColor)
-        Label1(R).BackColor = Label1(837).BackColor  ' Label1(837).BackColor
+        Label1(R).BackColor = COLOUR_2_VB
+        X_COLOR(R) = Label1(R).BackColor
     End If
     
     If InStr(A1$, "E:\01 VB Shell Folders\") > 0 Then
         Label1(R).BackColor = RGB(190, 210, 136)
+        X_COLOR(R) = Label1(R).BackColor
     End If
     
     If R > AStart Then
         'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects + 1
-        If R__AStart = False Then
+        
+        If R__AStart = False And COLOUR_1_VB = 0 Then
             R__AStart = True
             COLOUR_1_VB = Label1(175).BackColor
             COLOUR_2_VB = Label1(208).BackColor
         End If
         If txr = -1 Then Label1(R).BackColor = COLOUR_1_VB
         If txr = 0 Then Label1(R).BackColor = COLOUR_2_VB
+        X_COLOR(R) = Label1(R).BackColor
     End If
     
     If InStr(UCase(B1$), ".VBS") > 0 Then
@@ -17333,7 +17367,8 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
     If InStr(UCase(B1$), ".BAT") > 0 Then
         Label1(R).BackColor = RGB(50, 240, 150)
     End If
-    
+    X_COLOR(R) = Label1(R).BackColor
+
     LABEL_FILENAME = ScanPath.ListView1.ListItems.Item(R)
     If InStr(LABEL_FILENAME, "_gsdata_") = 0 Then
         Mid$(LABEL_FILENAME, 1, 1) = UCase$(Mid$(LABEL_FILENAME, 1, 1))
@@ -17395,68 +17430,67 @@ fw2 = fw2
 
 xgag = 1: xgax2 = 0
 For R = 1 To ScanPath.ListView1.ListItems.Count
-Label1(R).AutoSize = False
-
-DoEvents
-xxb = Label1(R - 1).Top
-xxb = Form1.Height
-
-If Label1(R - 1).Top > SH Then
-    xgax2 = xgax2 + 1
-    xgag = 0
-    For rs2 = 1 To xgax2
-        xgag = xgag + xy(rs2)
-    Next
-End If
-
-Label1(R).Width = xy(xgax2 + 1) - 20
-' -----------------------------------
-' HERE THE 1ST LEFT
-' -----------------------------------
-' WORK HERE TODAY
-' FILL FIRST COLUMN WITH BLANK AT END
-' SO VB PROJECT STUFF START NEW ONE
-' Sun 09-Feb-2020 18:53:30
-' NOT REQUIRE WANT
-' IF TAKE AWAY MORE
-' MAKE COLUMN LOOK IN-LINE BETTER
-' WAS ONLY COUPLE AT BOTTOM FOR
-' BEGIN VB CODE PROJECT LOADER
-' -----------------------------------
-AA = Label1(R).Caption
-
-Label1(R).Left = xgag
-FIRST_LEFT = Label1(R).Left
-' FIND IF LEFT HAS FIRST CHANGE
-' -----------------------------------
-If O_FIRST_LEFT = 0 Then
-    O_FIRST_LEFT = FIRST_LEFT   ' FIRST_LEFT WILL ONLY BE 1
-End If
-If O_FIRST_LEFT <> FIRST_LEFT Then
-    FIND_IF_LEFT_HAS_FIRST_CHANGE = True
-End If
-
-O_FIRST_LEFT = FIRST_LEFT
-'Tolerance
-If Label1(R).Left + Label1(R).Width > Screen.Width + 1500 Then
-    Label1(R).Visible = False
-    A1$ = ScanPath.ListView1.ListItems.Item(R).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(R)
+    Label1(R).AutoSize = False
     
-    'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
-    'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
+    DoEvents
+    xxb = Label1(R - 1).Top
+    xxb = Form1.Height
     
-    If halo = 0 Then
-    halo = R
-    On Error Resume Next
-        Set F = FS.getfile(A1$ + B1$)
-        ttdate = DateDiff("d", F.datelastmodified, Now)
-    On Error GoTo 0
-    
+    If Label1(R - 1).Top > SH Then
+        xgax2 = xgax2 + 1
+        xgag = 0
+        For rs2 = 1 To xgax2
+            xgag = xgag + xy(rs2)
+        Next
     End If
-End If
-
+    
+    Label1(R).Width = xy(xgax2 + 1) - 20
+    ' -----------------------------------
+    ' HERE THE 1ST LEFT
+    ' -----------------------------------
+    ' WORK HERE TODAY
+    ' FILL FIRST COLUMN WITH BLANK AT END
+    ' SO VB PROJECT STUFF START NEW ONE
+    ' Sun 09-Feb-2020 18:53:30
+    ' NOT REQUIRE WANT
+    ' IF TAKE AWAY MORE
+    ' MAKE COLUMN LOOK IN-LINE BETTER
+    ' WAS ONLY COUPLE AT BOTTOM FOR
+    ' BEGIN VB CODE PROJECT LOADER
+    ' -----------------------------------
+    AA = Label1(R).Caption
+    
+    Label1(R).Left = xgag
+    FIRST_LEFT = Label1(R).Left
+    ' FIND IF LEFT HAS FIRST CHANGE
+    ' -----------------------------------
+    If O_FIRST_LEFT = 0 Then
+        O_FIRST_LEFT = FIRST_LEFT   ' FIRST_LEFT WILL ONLY BE 1
+    End If
+    If O_FIRST_LEFT <> FIRST_LEFT Then
+        FIND_IF_LEFT_HAS_FIRST_CHANGE = True
+    End If
+    
+    O_FIRST_LEFT = FIRST_LEFT
+    'Tolerance
+    If Label1(R).Left + Label1(R).Width > Screen.Width + 1500 Then
+        Label1(R).Visible = False
+        A1$ = ScanPath.ListView1.ListItems.Item(R).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(R)
+        
+        'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
+        'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
+        
+        If halo = 0 Then
+        halo = R
+        On Error Resume Next
+            Set F = FS.getfile(A1$ + B1$)
+            ttdate = DateDiff("d", F.datelastmodified, Now)
+        On Error GoTo 0
+        End If
+    End If
 Next
+
 fheightx = 0
 For rt = 1 To ScanPath.ListView1.ListItems.Count
     fheight = Label1(rt).Top + Label1(rt).Height
@@ -17503,8 +17537,8 @@ Lbl3.Left = 0
 
 
 Form1.Refresh
-
 Form1.Lbl2.Caption = TXmsg + " -- Projects From " + Str(DaysToScan) + " Days -" + Str(DaysToScanYears) + " Years " + Str(Year(Now - DaysToScan)) + " -- Last Project" + Str(ttdate) + " Days Ago -- " + Format$(F.datelastmodified, "DDD DD-MMM-YY") + " -- Projects Found" + Str(ProProjects) + " Inn" + Str(DaysToScanYears) + " Years -- Projects in Script =" + Str(ProProjects2)
+
 
 End Sub
 
@@ -17699,7 +17733,6 @@ TitleLbl.BackColor = Label1(838).BackColor
 End Sub
 
 Private Sub Timer2_Timer()
-
 XXT2 = XXT2 + 1
 If XXT2 > ScanPath.ListView1.ListItems.Count Then
     EXIT_TIMER_2_NOW = True
@@ -17712,6 +17745,12 @@ End If
 '    EXIT_TIMER_2_NOW = True
 'End If
 
+If FIRST_GO_GATHER_COLOUR = False Then
+    FIRST_GO_GATHER_COLOUR = True
+    For XXT4 = 1 To ScanPath.ListView1.ListItems.Count
+        X_COLOR(XXT4) = Label1(XXT4).BackColor
+    Next
+End If
 
 If EXIT_TIMER_2_NOW = True Then
     TitleLbl.BackColor = Label1(836).BackColor
@@ -17728,19 +17767,29 @@ B1$ = ScanPath.ListView1.ListItems.Item(XXT2)
 C1$ = Form1.Label1(XXT2).Caption
 
 STOP_COLOUR_CHANGE_HERE = 0
-If InStr(UCase(B1$), ".VBS") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
-If InStr(UCase(B1$), ".AHK") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
-If InStr(UCase(B1$), ".BAT") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+
+'If InStr(UCase(B1$), ".VBS") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+'If InStr(UCase(B1$), ".AHK") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+'If InStr(UCase(B1$), ".BAT") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+If InStr(A1$, "E:\01 VB Shell Folders") = 0 Then
+    STOP_COLOUR_CHANGE_HERE = 1
+End If
 
 If STOP_COLOUR_CHANGE_HERE = 0 Then
     X_COLOR(XXT2) = Form1.Label1(XXT2).BackColor
     Form1.Label1(XXT2).BackColor = &HFFFFFF
     Form1.Label1(XXT2).Refresh
+    ' -------------------------------------------------
     ' GOT FIRST ONE SET TIMER3 GO WHITE TO PUT COLOR ON
+    ' -------------------------------------------------
+    ' NOT REQUIRE CHECK ALL LINK ONLY FIRST FEW
+    ' AS TAKEN FROM LINK
+    ' OTHER NOT LINK PATH SO NOT CHECKER
+    ' Mon 09-Mar-2020 13:32:00
     ' -------------------------------------------------
     If Timer3.Enabled = False Then
         Timer3.Enabled = True
-        Timer3.Interval = 10
+        Timer3.Interval = Timer2.Interval + 20
     End If
     
     On Local Error GoTo 0
@@ -17764,6 +17813,8 @@ If STOP_COLOUR_CHANGE_HERE = 0 Then
             ' SET COLOR BACK WITH TIMER 3
             ' ---------------------------
             ' Form1.Label1(XXT2).BackColor = X_COLOR
+            ' X_COLOR(XXT2) = Label1(XXT2).BackColor
+
             Exit Sub
         End If
         tt$ = Mid$(rr$, InStr(105, rr$, ":\") - 1)
@@ -17788,22 +17839,26 @@ End If
 End Sub
 
 Private Sub Timer3_Timer()
-XXT3 = XXT3 + 1
-If XXT3 > ScanPath.ListView1.ListItems.Count Then
-    Timer3.Enabled
-    TitleLbl.BackColor = Label1(836).BackColor
-    'TitleLbl.Caption = TitleLbl.Caption + " ____ DONE \/\/"
-    'TitleLbl.BackColor = Label1(838).BackColor
-    Timer_TITLE_COLOR_END_DONE.Enabled = True
-    Exit Sub
-End If
-
-A1$ = ScanPath.ListView1.ListItems.Item(XXT3).SubItems(1)
-B1$ = ScanPath.ListView1.ListItems.Item(XXT3)
-C1$ = Form1.Label1(XXT3).Caption
-
-Form1.Label1(XXT3).BackColor = X_COLOR(XXT3)
-Form1.Label1(XXT3).Refresh
+    If XXT2 < XXT3 Then
+        Exit Sub
+    End If
+    ' -------------------------------------------------
+    ' NOT REQUIRE CHECK ALL LINK ONLY FIRST FEW
+    ' AS TAKEN FROM LINK
+    ' OTHER NOT LINK PATH SO NOT CHECKER
+    ' Mon 09-Mar-2020 13:32:00
+    ' -------------------------------------------------
+    
+    XXT3 = XXT3 + 1
+    If XXT3 > ScanPath.ListView1.ListItems.Count Then
+        Timer3.Enabled = False
+        TitleLbl.BackColor = Label1(836).BackColor
+        Timer_TITLE_COLOR_END_DONE.Enabled = True
+        Exit Sub
+    End If
+    
+    Form1.Label1(XXT3).BackColor = X_COLOR(XXT3)
+    Form1.Label1(XXT3).Refresh
 
 End Sub
 
