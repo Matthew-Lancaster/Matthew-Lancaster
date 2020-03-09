@@ -249,6 +249,8 @@ GLOBAL OSVER_N_VAR
 
 CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=FALSE
 
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT=
+
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
 OSVER_N_VAR:=a_osversion
@@ -562,26 +564,6 @@ Loop, %id%
 	table := id%A_Index%
 	WinMinimize  ahk_id %table%
 } 
-RETURN
-
-
-MINIMIZE_GOODSYNC_AT_BOOT:
-WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-Loop, %id%
-{
-
-	table := id%A_Index%
-	WinMinimize  ahk_id %table%
-} 
-; GOODSYNC2GO
-WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-Loop, %id%
-{
-
-	table := id%A_Index%
-	WinMinimize  ahk_id %table%
-} 
-
 RETURN
 
 
@@ -1263,7 +1245,6 @@ IF SET_GO_1=1
 }
 
 
-
 SET_GO_1=0
 IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	SET_GO_1=1
@@ -1298,6 +1279,11 @@ If Not ErrorLevel
 		Run, "%FN_VAR%"  /service
 	}
 }
+
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
+SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
+
 	
 IF SET_GO=FALSE
 {
@@ -1827,9 +1813,7 @@ IF SET_GO=TRUE
 				}
 				IF HWND>0 
 					BREAK
-		}
-			
-				
+			}
 		}
 	}
 }
@@ -2094,21 +2078,20 @@ RegDelete, HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\Autor
 ; WINDOWS 10
 FILE_PATH:="C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\NeroDesktopSwitcher.scf"
 if FileExist(FILE_PATH) 
-	{
-		SoundBeep , 2500 , 100
-		FileSetAttrib, -RH, %FILE_PATH% 
-		FileDelete, %FILE_PATH%
-	}
+{
+	SoundBeep , 2500 , 100
+	FileSetAttrib, -RH, %FILE_PATH% 
+	FileDelete, %FILE_PATH%
+}
 
 ; WINDOWS 10
 FILE_PATH:="E:\01 Start Menu\#_7-ASUS-GL522VW\Programs\Startup\NeroDesktopSwitcher.scf"
 if FileExist(FILE_PATH)
-	{
-		SoundBeep , 2500 , 100
-		FileSetAttrib, -RH, %FILE_PATH% 
-		FileDelete, %FILE_PATH%
-	}
-
+{
+	SoundBeep , 2500 , 100
+	FileSetAttrib, -RH, %FILE_PATH% 
+	FileDelete, %FILE_PATH%
+}
 	
 DetectHiddenWindows, ON
 
@@ -2154,7 +2137,6 @@ IF SET_GO=TRUE
 	}
 }	
 
-
 GOSUB POWERSHELL
 
 GOSUB MINIMIZE_ALL__EXPLORER_AT_BOOT
@@ -2162,7 +2144,11 @@ GOSUB MINIMIZE_ALL_CMD_AT_BOOT
 GOSUB ESCAPE_KEY_THE_RESTORE_PAGES_CHROME
 GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 GOSUB MINIMIZE_ALL_BLUETOOTH
-GOSUB MINIMIZE_GOODSYNC_AT_BOOT
+
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
+SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
+
 
 IF (A_ComputerName = "5-ASUS-P2520LA") 
 {
@@ -2345,6 +2331,11 @@ IF AttributeString
 
 ; GOSUB TEAMVIWER_LOAD
 
+
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 40, SECONDS
+SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
+
 	
 	
 RETURN
@@ -2358,6 +2349,59 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+MINIMIZE_GOODSYNC_AT_BOOT_TIMER:
+
+	; SET TIMER OUT OF ROUTINE ALLOW MULTI TIME DIFFERENCE
+	; HAVE DEFAULT TIMER -- OPTIONAL IF NOT SET
+	; ----------------------------------------------------
+
+	IF !TIMER_MINIMIZE_GOODSYNC_AT_BOOT
+	{
+		TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
+		TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
+	}
+
+	STYLE_GOODSYNC_MINIMIZE_ACHIEVE=0
+	; ---------------------------------------------------------------
+	; GOODSYNC DESKTOP
+	; ---------------------------------------------------------------
+	WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	Loop, %id%
+	{
+
+		table := id%A_Index%
+		WinMinimize  ahk_id %table%
+		WinGet STYLE_GOODSYNC, MinMax, ahk_id %table%
+		If STYLE_GOODSYNC=-1
+			STYLE_GOODSYNC_MINIMIZE_ACHIEVE=1
+	} 
+	; ---------------------------------------------------------------
+	; GOODSYNC2GO
+	; ---------------------------------------------------------------
+	WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	Loop, %id%
+	{
+
+		table := id%A_Index%
+		WinMinimize  ahk_id %table%
+		WinGet STYLE_GOODSYNC, MinMax, ahk_id %table%
+		If STYLE_GOODSYNC=-1
+		IF 	STYLE_GOODSYNC_MINIMIZE_ACHIEVE=1
+			STYLE_GOODSYNC_MINIMIZE_ACHIEVE=2
+	} 
+	; ---------------------------------------------------------------
+	; 1 MAXIMIZED  0 NORMAL  -1 MINIMIZED
+	; ---------------------------------------------------------------
+	If STYLE_GOODSYNC_MINIMIZE_ACHIEVE=-1
+	{
+		SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,OFF
+		TIMER_MINIMIZE_GOODSYNC_AT_BOOT=
+	}
+
+RETURN
+
 
 TEAMVIWER_LOAD:
 RETURN
@@ -2420,9 +2464,7 @@ If Not ErrorLevel
 			BREAK
 	}
 }	
-
 RETURN
-
 
 
 CHROME_RUN_AND_MIN:
