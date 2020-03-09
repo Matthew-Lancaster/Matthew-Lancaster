@@ -13,6 +13,12 @@ Begin VB.Form Form1
    ScaleWidth      =   12324
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
+   Begin VB.Timer Timer3 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   5472
+      Top             =   2640
+   End
    Begin VB.Timer Timer_TITLE_COLOR_END_DONE 
       Enabled         =   0   'False
       Interval        =   1000
@@ -16936,7 +16942,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 'USE OPTION CLIP EXE NAME AND MOVE TO FOLDER
-
+Dim X_COLOR(4000)
 ' -----------------------------
 ' SESSION 002
 ' -----------------------------
@@ -16959,6 +16965,9 @@ Attribute VB_Exposed = False
 ' Sun 26-Jan-2020 05:28:00 -- 5 HOUR 42 MINUTE
 ' -----------------------------
 
+Dim COLOUR_1_VB
+Dim COLOUR_2_VB
+
 Dim FIND_IF_LEFT_HAS_FIRST_CHANGE
 Dim O_FIRST_LEFT
 
@@ -16970,6 +16979,7 @@ Dim Form1_Width, Form1_Height
 Dim X_Y_DONE_ONCE
 
 Dim XXT2
+Dim XXT3
 
 Dim ClipEXE
 
@@ -17289,14 +17299,29 @@ For R = 1 To ScanPath.ListView1.ListItems.Count
     End If
     If oseedy$ <> seedy$ Then txr = Not txr
     oseedy$ = seedy$
-    ' FLIP FLOPPER
-    If txr = -1 Then Label1(R).BackColor = Label1(836).BackColor
-    If txr = 0 Then Label1(R).BackColor = Label1(837).BackColor
+    ' FLIP FLOPPER VBP
+    If txr = 0 Then
+        AA = Hex(Label1(837).BackColor)  ' RGB(204, 255, 255)
+        Label1(R).BackColor = Label1(836).BackColor
+    End If
+    If txr = -1 Then
+        AA = Hex(Label1(837).BackColor)
+        Label1(R).BackColor = Label1(837).BackColor  ' Label1(837).BackColor
+    End If
+    
+    If InStr(A1$, "E:\01 VB Shell Folders\") > 0 Then
+        Label1(R).BackColor = RGB(190, 210, 136)
+    End If
+    
     If R > AStart Then
         'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects + 1
-            
-        If txr = -1 Then Label1(R).BackColor = Label1(175).BackColor
-        If txr = 0 Then Label1(R).BackColor = Label1(208).BackColor
+        If R__AStart = False Then
+            R__AStart = True
+            COLOUR_1_VB = Label1(175).BackColor
+            COLOUR_2_VB = Label1(208).BackColor
+        End If
+        If txr = -1 Then Label1(R).BackColor = COLOUR_1_VB
+        If txr = 0 Then Label1(R).BackColor = COLOUR_2_VB
     End If
     
     If InStr(UCase(B1$), ".VBS") > 0 Then
@@ -17679,13 +17704,13 @@ XXT2 = XXT2 + 1
 If XXT2 > ScanPath.ListView1.ListItems.Count Then
     EXIT_TIMER_2_NOW = True
 End If
-If Form1.Label1(XXT2).BackColor = Label1(175).BackColor Then
-    ' FIRST COLOUR OF 2 _ HERE
-    EXIT_TIMER_2_NOW = True
-End If
-If Form1.Label1(XXT2).BackColor = Label1(208).BackColor Then
-    EXIT_TIMER_2_NOW = True
-End If
+'If Form1.Label1(XXT2).BackColor = COLOUR_1_VB Then  ' Label1(175).BackColor Then
+'    ' FIRST COLOUR OF 2 _ HERE
+'    EXIT_TIMER_2_NOW = True
+'End If
+'If Form1.Label1(XXT2).BackColor = COLOUR_2_VB Then  ' Label1(208).BackColor Then
+'    EXIT_TIMER_2_NOW = True
+'End If
 
 
 If EXIT_TIMER_2_NOW = True Then
@@ -17708,23 +17733,25 @@ If InStr(UCase(B1$), ".AHK") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
 If InStr(UCase(B1$), ".BAT") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
 
 If STOP_COLOUR_CHANGE_HERE = 0 Then
-    X_COLOR = Form1.Label1(XXT2).BackColor
+    X_COLOR(XXT2) = Form1.Label1(XXT2).BackColor
     Form1.Label1(XXT2).BackColor = &HFFFFFF
     Form1.Label1(XXT2).Refresh
-    DoEvents
-    Sleep 10
-End If
-
-On Local Error GoTo 0
-On Error GoTo 0
-
-If STOP_COLOUR_CHANGE_HERE = 0 Then
+    ' GOT FIRST ONE SET TIMER3 GO WHITE TO PUT COLOR ON
+    ' -------------------------------------------------
+    If Timer3.Enabled = False Then
+        Timer3.Enabled = True
+        Timer3.Interval = 10
+    End If
+    
+    On Local Error GoTo 0
+    On Error GoTo 0
+    
     'GoTo skip:
     LINK_DATA = A1$ + B1$
     If InStr(LCase(B1$), ".lnk") > 0 Then
         Open A1$ + B1$ For Binary As #1
-        rr$ = Space$(LOF(1))
-        Get #1, 1, rr$
+            rr$ = Space$(LOF(1))
+            Get #1, 1, rr$
         Close #1
         If InStr(rr$, ":\") = 0 Then
             
@@ -17733,34 +17760,54 @@ If STOP_COLOUR_CHANGE_HERE = 0 Then
             i = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
             If i = vbYes Then
                 Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
-        
-        
             End If
-            Form1.Label1(XXT2).BackColor = X_COLOR
+            ' SET COLOR BACK WITH TIMER 3
+            ' ---------------------------
+            ' Form1.Label1(XXT2).BackColor = X_COLOR
             Exit Sub
         End If
         tt$ = Mid$(rr$, InStr(105, rr$, ":\") - 1)
         LINK_DATA = Mid$(tt$, 1, InStr(tt$, Chr$(0)) - 1)
     End If
-End If
-
-
-If STOP_COLOUR_CHANGE_HERE = 0 Then
+    
     ALLOW_OKAY_PASS_VALID_LINK = False
     If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
         'GetOsBitness_2
         Call TEST_LINK_MODIFY
     End If
-    Form1.Label1(XXT2).BackColor = X_COLOR
+    ' SET COLOR BACK WITH TIMER 3
+    ' ---------------------------
+    ' Form1.Label1(XXT2).BackColor = X_COLOR
 
     If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
+        ' SET RED
         Label1(XXT2).BackColor = RGB(250, 127, 127) + QBColor(12)
+        X_COLOR(XXT2) = Label1(XXT2).BackColor
     End If
 End If
+End Sub
 
+Private Sub Timer3_Timer()
+XXT3 = XXT3 + 1
+If XXT3 > ScanPath.ListView1.ListItems.Count Then
+    Timer3.Enabled
+    TitleLbl.BackColor = Label1(836).BackColor
+    'TitleLbl.Caption = TitleLbl.Caption + " ____ DONE \/\/"
+    'TitleLbl.BackColor = Label1(838).BackColor
+    Timer_TITLE_COLOR_END_DONE.Enabled = True
+    Exit Sub
+End If
 
+A1$ = ScanPath.ListView1.ListItems.Item(XXT3).SubItems(1)
+B1$ = ScanPath.ListView1.ListItems.Item(XXT3)
+C1$ = Form1.Label1(XXT3).Caption
+
+Form1.Label1(XXT3).BackColor = X_COLOR(XXT3)
+Form1.Label1(XXT3).Refresh
 
 End Sub
+
+
 
 Sub TEST_LINK_MODIFY()
 
