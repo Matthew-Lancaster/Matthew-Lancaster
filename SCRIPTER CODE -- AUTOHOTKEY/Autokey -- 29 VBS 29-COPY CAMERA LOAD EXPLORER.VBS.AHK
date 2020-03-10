@@ -55,11 +55,13 @@ for n, GivenPath in A_Args  ; For each parameter (or file dropped onto a script)
 ; -------------------------------------------------------------------
 ; TESTER DEBUG TRY
 ; -------------------------------------------------------------------
-LongPath_1=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\2020-03-10 13-37-09 - SONY DSC-HX60V - DSC01700.JPG
+; LongPath_1=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\2020-03-10 13-37-09 - SONY DSC-HX60V - DSC01700.JPG
 ; -------------------------------------------------------------------
 
 LongPath_2="%LongPath_1%"
 
+; STRIP QUOTES -- LongPath_2:=StrReplace(LongPath_2, """" , "")
+LongPath_2:=StrReplace(LongPath_2, """" , "")
 
 IF !LongPath_1
 	RETURN
@@ -70,9 +72,10 @@ WinGet Path, ProcessPath, %LongPath_1%
 ; IF INSTR(PATH,"C:\Windows\explorer.exe")>0
 	; RETURN
 
+; IF !TITLE_VAR_BT_MAIL_A
+
 FN_VAR_EXE=C:\Windows\explorer.exe
 IF FileExist(FN_VAR_EXE)
-; IF !TITLE_VAR_BT_MAIL_A
 {
 	FN_VAR_EXE:="C:\Windows\explorer.exe "
 	if InStr(FileExist(LongPath_2), "D")
