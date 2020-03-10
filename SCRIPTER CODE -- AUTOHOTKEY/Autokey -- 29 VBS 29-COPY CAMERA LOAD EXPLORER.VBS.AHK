@@ -62,7 +62,7 @@ PATH_TARGET=%PARAM_SET%
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-PATH_TARGET=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\GGG\DDD
+; PATH_TARGET=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\GGG\DDD
 ; PATH_TARGET=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\2020-03-10 13-37-09 - SONY DSC-HX60V - DSC01700.JPG
 ; -------------------------------------------------------------------
 
@@ -81,6 +81,11 @@ WinGet Path, ProcessPath, %PATH_TARGET%
 ; IF !TITLE_VAR_BT_MAIL_A
 
 
+
+; -------------------------------------------------------------------
+; HACK THE PATH DOWN IF PATH NOT EXIST AT THE HIGHER LEVEL
+; NOT WANT LAND IN MY DOCUMENT OR C-DRIVE ROOT
+; -------------------------------------------------------------------
 If !FileExist(PATH_TARGET)
 {
 	oText := StrSplit(PATH_TARGET, "\")
@@ -90,21 +95,20 @@ If !FileExist(PATH_TARGET)
 		VAR_ARR:=oText[A_Index]
 		PATH_NAME=%PATH_NAME%%VAR_ARR%\
 		PATH_NAME_2=%PATH_NAME_2%%PATH_NAME%`n
-		
-		; MSGBOX % PATH_NAME "`n" PATH_NAME_2
-		
-		
 	}
 
-	Sort, PATH_NAME_2, ReverseDirection
-	MSGBOX % PATH_NAME_2
-
-	
+	Sort, PATH_NAME_2, R   ; REVERSE SORT DEFAULT VBCRLF
+	oText := StrSplit(PATH_NAME_2, "`n")
+	Loop, % oText.MaxIndex()
+	{
+		PATH_NAME_4:=oText[A_Index]
+		IF FileExist(PATH_NAME_4)
+		{
+			PATH_TARGET=%PATH_NAME_4%
+			BREAK
+		}
+	}
 }
-
-; IF SUBSTR(oText[A_Index],1,1)<>"#"
-; IF TRIM(oText[A_Index])<>""
-
 
 FN_VAR_EXE=C:\Windows\explorer.exe
 IF FileExist(FN_VAR_EXE)
@@ -119,6 +123,5 @@ IF FileExist(FN_VAR_EXE)
 	
 	SoundBeep , 2500 , 100
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-
 }
 RETURN
