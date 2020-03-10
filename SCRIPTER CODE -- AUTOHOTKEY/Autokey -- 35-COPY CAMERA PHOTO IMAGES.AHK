@@ -107,15 +107,6 @@ IF OSVER_N_VAR<10
 SetTitleMatchMode 2 
 DetectHiddenText, Off
 
-; -------------------------------------------------------------------
-; IF DOS SHELL BATCH RUN SWERVE THAT ONE
-; AS TRIGGER FROM CERTAIN SYNC JOB
-; Fri 31-Jan-2020 04:25:06
-; -------------------------------------------------------------------
-WINFIND_VAR:="BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
-IFWINEXIST %WINFIND_VAR% ahk_class ConsoleWindowClass
-	Exitapp
-; -------------------------------------------------------------------
 
 
 GLOBAL O_HWND_ID_1
@@ -234,6 +225,9 @@ TIMER_DRIVE_GET_CAMERA:
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
 
+	
+	FIND_VOLUME_NAME_02=
+	
 	DriveGet, list, list
 	COUNT_VAR_1:=StrLen(LIST)-1
 	COUNT_VAR_2=0
@@ -254,26 +248,51 @@ TIMER_DRIVE_GET_CAMERA:
 		IF SET_GO=TRUE
 			BREAK                                ; -- FIRST FIND GIVE EXIT
 	}
+
+
+	; -------------------------------------------------------------------
+	; IF DOS SHELL BATCH RUN SWERVE THAT ONE
+	; AS TRIGGER FROM CERTAIN SYNC JOB
+	; Fri 31-Jan-2020 04:25:06
+	; -------------------------------------------------------------------
+	; HARD MAKE WORK WHEN SOMETIME RUN REQUEST IS SILENTLY
+	; -------------------------------------------------------------------
+	WINFIND_VAR:="BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
+	IFWINEXIST %WINFIND_VAR% ahk_class ConsoleWindowClass
+	{
+		; MSGBOX BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT `nIS ALREADY RUNNER
+		RETURN
+	}
+	; -------------------------------------------------------------------
+
 	
+	; MSGBOX % SET_GO
+	; MSGBOX % VAR_STORE_CAMERA_LABEL
+	; MSGBOX % FIND_VOLUME_NAME_02
+	; PAUSE
+	
+	IF !SET_GO
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+	IF !SET_GO
+		VAR_STORE_CAMERA_LABEL=
 	; -------------------------------------------------------------------
 	; LOCK IT WORKER REMOVE CAMERA BEFORE DO ANOTHER
 	; -------------------------------------------------------------------
-	IF 	VAR_STORE_CAMERA_LABEL
-	IF !SET_GO
-		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
-
-	IF !SET_GO
-		VAR_STORE_CAMERA_LABEL=
-
-	IF (!VAR_STORE_CAMERA_LABEL and SET_GO="TRUE")
+	IF SET_GO
+	IF FIND_VOLUME_NAME_02
+	IF VAR_STORE_CAMERA_LABEL<>%FIND_VOLUME_NAME_02%
 	{
+		VAR_STORE_CAMERA_LABEL=%FIND_VOLUME_NAME_02%
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 		VAR_STORE_CAMERA_LABEL:=FIND_VOLUME_NAME_02   ; -- STOP REPEAT ASK IT MSGBOX 
+		
 		Secs_CAMERA := 800
 		SetTimer, MSGBOX_CAMERA_CountDown, 1000
 		GOSUB MSGBOX_CAMERA_CountDown_Generate_Line
+
 		MsgBox, 4, Copy_Camera_Media_Card, %MSGBOX_CAMERA_CountDown_Generate_VAR%, %Secs_CAMERA%
 		SetTimer, MSGBOX_CAMERA_CountDown, Off
+
 		IfMsgBox Yes
 		{
 			FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS"
