@@ -1544,27 +1544,27 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		}
 		
 		
-		IF O_HWND_1<>%HWND_1%
-		{
-			O_Status_GSDATA=0
-		}
-		;------------------------------------------------------------
-		; ---- No _gsdata_ folder here
-		;------------------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-			If Status = 1
-			IF O_Status_GSDATA<>%Status%
-			{
-				Control, unCheck,, Button41, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-				ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-				If Status=0
-					O_Status_GSDATA=1
-			}
-		}
+		; IF O_HWND_1<>%HWND_1%
+		; {
+			; O_Status_GSDATA=0
+		; }
+		; ;------------------------------------------------------------
+		; ; ---- No _gsdata_ folder here
+		; ;------------------------------------------------------------
+		; Var_check=[VB
+		; if (SubStr(OutputVar_3, 1, 3)=Var_check)
+		; {
+			; ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+			; If Status = 1
+			; IF O_Status_GSDATA<>%Status%
+			; {
+				; Control, unCheck,, Button41, ahk_id %HWND_1%
+				; SoundBeep , 4000 , 100
+				; ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+				; If Status=0
+					; O_Status_GSDATA=1
+			; }
+		; }
 		
 		;------------------------------------------------------------
 		;Button10 ---	Text:	Exclude empty folders
