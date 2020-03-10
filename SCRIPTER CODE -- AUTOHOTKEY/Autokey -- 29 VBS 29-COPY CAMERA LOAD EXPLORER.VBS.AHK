@@ -46,56 +46,79 @@ EXITAPP
 
 EXPLORER_ROUTINE:
 
-for n, GivenPath in A_Args  ; For each parameter (or file dropped onto a script):
+; for n, GivenPath in A_Args  ; For each parameter (or file dropped onto a script):
+; {
+    ; Loop Files, %GivenPath%, FD  ; Include files and directories.
+        ; PATH_TARGET := A_LoopFileFullPath
+; }
+
+FOR n, param in A_Args  ; For each parameter:
 {
-    Loop Files, %GivenPath%, FD  ; Include files and directories.
-        LongPath_1 := A_LoopFileFullPath
-}
+	PARAM_SET=%PARAM_SET%%A_Space%%PARAM%
+}	
+
+PARAM_SET:=StrReplace(PARAM_SET, "*", " ")
+PATH_TARGET=%PARAM_SET%
 
 ; -------------------------------------------------------------------
-; TESTER DEBUG TRY
 ; -------------------------------------------------------------------
-; LongPath_1=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\2020-03-10 13-37-09 - SONY DSC-HX60V - DSC01700.JPG
+PATH_TARGET=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\GGG\DDD
+; PATH_TARGET=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\2020-03-10 13-37-09 - SONY DSC-HX60V - DSC01700.JPG
 ; -------------------------------------------------------------------
 
-LongPath_2="%LongPath_1%"
+; STRIP QUOTES -- PATH_TARGET:=StrReplace(PATH_TARGET, """" , "")
+PATH_TARGET:=StrReplace(PATH_TARGET, """" , "")
 
-; STRIP QUOTES -- LongPath_2:=StrReplace(LongPath_2, """" , "")
-LongPath_2:=StrReplace(LongPath_2, """" , "")
-
-IF !LongPath_1
+IF !PATH_TARGET
 	RETURN
 
-WinGetTITLE, TITLE_VAR_BT_MAIL_A, %LongPath_1%
-WinGet Path, ProcessPath, %LongPath_1%
+WinGetTITLE, TITLE_VAR_BT_MAIL_A, %PATH_TARGET%
+WinGet Path, ProcessPath, %PATH_TARGET%
 	
 ; IF INSTR(PATH,"C:\Windows\explorer.exe")>0
 	; RETURN
 
 ; IF !TITLE_VAR_BT_MAIL_A
 
+
+If !FileExist(PATH_TARGET)
+{
+	oText := StrSplit(PATH_TARGET, "\")
+	Loop, % oText.MaxIndex()
+	{
+		
+		VAR_ARR:=oText[A_Index]
+		PATH_NAME=%PATH_NAME%%VAR_ARR%\
+		PATH_NAME_2=%PATH_NAME_2%%PATH_NAME%`n
+		
+		; MSGBOX % PATH_NAME "`n" PATH_NAME_2
+		
+		
+	}
+
+	Sort, PATH_NAME_2, ReverseDirection
+	MSGBOX % PATH_NAME_2
+
+	
+}
+
+; IF SUBSTR(oText[A_Index],1,1)<>"#"
+; IF TRIM(oText[A_Index])<>""
+
+
 FN_VAR_EXE=C:\Windows\explorer.exe
 IF FileExist(FN_VAR_EXE)
 {
 	FN_VAR_EXE:="C:\Windows\explorer.exe "
-	if InStr(FileExist(LongPath_2), "D")
-	{
-		MSGBOX % FN_VAR_EXE LongPath_2
-		Run, %FN_VAR_EXE% %LongPath_2%
-		
-		SoundBeep , 2500 , 100
-		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		RETURN
-	}
+	if FileExist(PATH_TARGET)
+		FN_VAR_EXE:="C:\Windows\explorer.exe /select, "
+	if InStr(FileExist(PATH_TARGET), "D")
+		FN_VAR_EXE:="C:\Windows\explorer.exe "
 	
-	FN_VAR_EXE:="C:\Windows\explorer.exe /select, "
-	if FileExist(LongPath_2)
-	{
+	Run, %FN_VAR_EXE% %PATH_TARGET%
+	
+	SoundBeep , 2500 , 100
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
-		Run, %FN_VAR_EXE% %LongPath_2%
-		
-		SoundBeep , 2500 , 100
-		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	}
 }
 RETURN
