@@ -55,10 +55,11 @@ for n, GivenPath in A_Args  ; For each parameter (or file dropped onto a script)
 ; -------------------------------------------------------------------
 ; TESTER DEBUG TRY
 ; -------------------------------------------------------------------
-; LongPath_1=D:\DSC\2015+SONY\2020 CyberShot HX60V
+LongPath_1=D:\DSC\2015+SONY\2020 CyberShot HX60V\DCIM\2020 03 10\2020-03-10 13-37-09 - SONY DSC-HX60V - DSC01700.JPG
 ; -------------------------------------------------------------------
 
 LongPath_2="%LongPath_1%"
+
 
 IF !LongPath_1
 	RETURN
@@ -66,14 +67,26 @@ IF !LongPath_1
 WinGetTITLE, TITLE_VAR_BT_MAIL_A, %LongPath_1%
 WinGet Path, ProcessPath, %LongPath_1%
 	
-IF INSTR(PATH,"C:\Windows\explorer.exe")>0
-	RETURN
+; IF INSTR(PATH,"C:\Windows\explorer.exe")>0
+	; RETURN
 
-IF !TITLE_VAR_BT_MAIL_A
+FN_VAR_EXE=C:\Windows\explorer.exe
+IF FileExist(FN_VAR_EXE)
+; IF !TITLE_VAR_BT_MAIL_A
 {
-
-	FN_VAR_EXE=C:\Windows\explorer.exe
-	IfExist, %FN_VAR_EXE%
+	FN_VAR_EXE:="C:\Windows\explorer.exe "
+	if InStr(FileExist(LongPath_2), "D")
+	{
+		MSGBOX % FN_VAR_EXE LongPath_2
+		Run, %FN_VAR_EXE% %LongPath_2%
+		
+		SoundBeep , 2500 , 100
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		RETURN
+	}
+	
+	FN_VAR_EXE:="C:\Windows\explorer.exe /select, "
+	if FileExist(LongPath_2)
 	{
 
 		Run, %FN_VAR_EXE% %LongPath_2%
@@ -82,5 +95,4 @@ IF !TITLE_VAR_BT_MAIL_A
 		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 }
-
 RETURN
