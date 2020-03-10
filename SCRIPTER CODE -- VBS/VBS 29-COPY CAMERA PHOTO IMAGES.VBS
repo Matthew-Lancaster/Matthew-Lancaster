@@ -345,6 +345,9 @@ DIM FOLDER_PATH_DONT_SHOW_EXPLORER_UNLESS_COPY()
 DIM WORK_DOER
 DIM FOLDER_PATH_HOLD
 DIM DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_DONE
+DIM DO_SEND_TO_PUT_DATE_INFRONT_FILENAME
+DIM DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_SONY_CAMERA
+DIM DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_FUJI
 DIM VBS_54_CAMERA_MOVE_COPY_FROM_MP_ROOT_TO_DROP_ONE_PATH_IMAGER
 
 REDIM FOLDER_PATH(NUMBER_OF_ITEM)
@@ -648,8 +651,16 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	' ONLY CARRY EXIF
 	' OTHER FOLDER ONLY DO FROM FILE _ DATE _ MODIFIED
 	' ---------------------------------------------------------------
-	IF INSTR("MC - HX60V -- FUJI XP90",FOLDER_PATH(R_COUNT)) THEN 
+	IF INSTR("FUJI XP90 --",FOLDER_PATH(R_COUNT)) THEN 
 		IF FOLDER_PATH_VAR_2<>"" THEN 
+			DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_FUJI=TRUE         ' FUTURE
+			DO_SEND_TO_PUT_DATE_INFRONT_FILENAME=TRUE 
+		END IF
+	END IF
+
+	IF INSTR("MC - HX60V -- MC - HX60V0 --",FOLDER_PATH(R_COUNT)) THEN 
+		IF FOLDER_PATH_VAR_2<>"" THEN 
+			DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_SONY_CAMERA=TRUE  ' FUTURE
 			DO_SEND_TO_PUT_DATE_INFRONT_FILENAME=TRUE
 		END IF
 	END IF
@@ -1043,10 +1054,20 @@ Sub Main
 	
 	IF DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_DONE=FALSE THEN 
 		IF DO_SEND_TO_PUT_DATE_INFRONT_FILENAME=TRUE THEN 
+		' IF DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_SONY_CAMERA=TRUE THEN 
 			IF I_COUNT_1>=0 AND (JPG_BEEN_DONE=TRUE) THEN 
+			' IF I_COUNT_1>=0 THEN 
 				' VB6
 				DO_SEND_TO_PUT_DATE_INFRONT_FILENAME_DONE=TRUE
-				WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+				
+				' AHK FOR RUN VB6 CODE
+				' ---------------------------------------------------
+				' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
+				
+				' NEW WAY HERE
+				CALL DATE_OF_FILE_IN_FRONT_FILENAME_SONY_CAMERA
+				
+				
 			END IF
 		END IF
 	END IF
@@ -1111,6 +1132,53 @@ Sub Main
     Set oDict = Nothing
 End Sub
 ' -------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+SUB DATE_OF_FILE_IN_FRONT_FILENAME_SONY_CAMERA
+
+EXIT SUB
+
+FOLDER_PATH_DEST(1)="D:\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
+FOLDER_PATH__MP4(1)="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V"
+FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+
+FOR R_CNT = 1 TO 2
+
+	IF FSO.FolderExists(FOLDER_PATH_DEST(R_CNT))=TRUE THEN  
+PAD
+	END IF
+
+	IF FSO.FolderExists(FOLDER_PATH__MP4(R_CNT))=TRUE THEN  
+	
+	END IF
+
+
+NEXT
+
+
+
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function ShowDriveInfo(drvPath)
@@ -1301,6 +1369,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 		FileModDate_1 = F1.DateLastModified
 	END IF
 
+
+	' ---------------------------------------------------------------
+	' CYBERSHOT HX60V -- MP4
+	' ---------------------------------------------------------------
 	IF INSTR(UCASE(PATH_VAR),"CYBERSHOT HX60V")>0 THEN 
 	IF INSTR(UCASE(FILE_VAR),"MP4")>0 THEN 
 	IF LEN(FILE_VAR)<41 THEN 
@@ -1326,14 +1398,65 @@ SUB PATH_SCANNER_COPY_CAMERA
 			X_SP_2=INSTRREV(PATH_VAR,"\")
 			X_SP_4=MID(PATH_VAR,X_SP_1,X_SP_2-X_SP_1)
 			PATH_VAR=REPLACE(PATH_VAR,X_SP_4,"")
-			PATH_FILE_VAR=PATH_VAR+NewFilename
 		END IF
+		PATH_FILE_VAR=PATH_VAR+"\"+NewFilename
 	END IF
 	END IF
 	END IF
+
 	
-	' MSGBOX "2" + VBCR+FOLDER_PATH_DEST_VAR+VBCRLF+VBCRLF+PATH_VAR+VBCRLF+VBCRLF+PATH_FILE_VAR
+
+	' ---------------------------------------------------------------
+	' CYBERSHOT HX60V -- JPG
+	' 2020-03-10 09-48-46 - SONY DSC-HX60V - DSC01697.JPG
+	' ---------------------------------------------------------------
+	IF INSTR(UCASE(PATH_VAR),"CYBERSHOT HX60V")>0 THEN 
+	IF INSTR(UCASE(FILE_VAR),"JPG")>0 THEN 
+	IF LEN(FILE_VAR)<41 THEN 
+		' 41
+		' 2020_01_03 Jan_Fri 22_47_16__MAH00824.MP4
+		IF LEN(FILE_VAR)< 41 THEN
+			i_TIME=""
+			i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"_"
+			i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Day(FileModDate_1), "0", 2)+" "
+			FOLDER_DATE=""
+			FOLDER_DATE=FOLDER_DATE+LPad(Year(FileModDate_1), "0", 4)+" "
+			FOLDER_DATE=FOLDER_DATE+LPad(Month(FileModDate_1), "0", 2)+" "
+			FOLDER_DATE=FOLDER_DATE+LPad(Day(FileModDate_1), "0", 2)
+			
+			i_TIME=i_TIME+""
+			i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Second(FileModDate_1), "0", 2)+" "
+			i_TIME=i_TIME+"- SONY DSC-HX60V - "
+			NewFilename=i_TIME + UCASE(FILE_VAR)
+		END IF
+		STRIP_PART="\MP_ROOT\100ANV01"
+		STRIP_PART="\DCIM\"
+		X_SP_1=INSTRREV(PATH_VAR,STRIP_PART)
+		' -----------------------------------------------------------
+		' STRIP THE END PATH LEVEL AWAY AND REPLACE THE BIT VARIABLE ABOVE -- "\DCIM\"
+		' THE END PATH IS FOLDER FROM THE CAMERA AND LAST 4 DIGIT AND DATE OF MONTH AND DAY
+		' FROM HERE FOLDER DATE WILL MAKE FROM FILENAME DATE 
+		' RATHER THAN THAT FOLDER THING STRIPPER
+		' -----------------------------------------------------------
+		IF X_SP_1>0 THEN 
+			X_SP_2=INSTRREV(PATH_VAR,"\")
+			X_SP_4=MID(PATH_VAR,X_SP_1,X_SP_2-X_SP_1)
+			PATH_VAR=REPLACE(PATH_VAR,X_SP_4,"")
+			PATH_VAR=PATH_VAR+"JPG\"+FOLDER_DATE+"\"
+		END IF
+		PATH_FILE_VAR=PATH_VAR+NewFilename
+	END IF
+	END IF
+	END IF
+
+	' MSGBOX PATH_FILE_VAR
 	
+	' ---------------------------------------------------------------
+	' HIKVISION#1
+	' ---------------------------------------------------------------
 	IF INSTR(FOLDER_PATH_HOLD,"HIKVISION#1")>0 THEN
 		IF INSTR(UCASE(FILE_VAR),".MP4")>0 THEN 
 			' -----------------------------------------------------------
@@ -1347,6 +1470,10 @@ SUB PATH_SCANNER_COPY_CAMERA
 		END IF
 	END IF
 
+	' ---------------------------------------------------------------
+	' HI-LOOK-04
+	' HI-LOOK-08
+	' ---------------------------------------------------------------
 	SET_GO=0
 	IF INSTR(FOLDER_PATH_HOLD,"HI-LOOK-04")>0 THEN SET_GO=1
 	IF INSTR(FOLDER_PATH_HOLD,"HI-LOOK-08")>0 THEN SET_GO=1
@@ -1385,6 +1512,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 			IF WHERE_COPY_TO_FOR_EXPLORER="" THEN 
 				WHERE_COPY_TO_FOR_EXPLORER=PATH_FILE_VAR
 				FOLDER_PATH_DEST_VAR_2=PATH_FILE_VAR
+				' MSGBOX FOLDER_PATH_DEST_VAR_2
 				WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 			END IF
 			
@@ -1395,6 +1523,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 			IF WHERE_COPY_TO_FOR_EXPLORER="" THEN 
 				WHERE_COPY_TO_FOR_EXPLORER=PATH_FILE_VAR
 				FOLDER_PATH_DEST_VAR_2=PATH_FILE_VAR
+				MSGBOX FOLDER_PATH_DEST_VAR_2
 				WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 			END IF
 			If FSO.FileExists(PATH_FILE_VAR) Then
