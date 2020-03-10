@@ -1003,7 +1003,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=VOLUME_NOT_FOUND              !VOLUME_NOT_FOUND!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=RESULT FIND                   !STATUS_84[%%a]!
-	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=RESULT OVERALL ERROR COUNT    !STATUS_88[%%a]! OF %%a -- !STATUS_TT[%%a]!  -- ANOTHER_JOB_COUNTER
+	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=RESULT OVERALL ERROR COUNT    !STATUS_88[%%a]! OF %%a -- !STATUS_TT[%%a]!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=ANOTHER_JOB_COUNTER           !ANOTHER_JOB_COUNTER!
 	IF !OPERATION_HIDE_ERROR!==TRUE (
 		SET /A L=L+1 & SET MSGBOX[!L!,%%a]=OPERATION_HIDE_ERROR          !OPERATION_HIDE_ERROR!
