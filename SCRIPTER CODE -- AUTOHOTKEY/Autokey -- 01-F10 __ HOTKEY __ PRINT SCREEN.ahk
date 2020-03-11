@@ -427,11 +427,14 @@ F5::
 
 ; SELECT 20 PHOTO WITH HOTKEY H
 #IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
-H:: 
-
-	TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT=0
-	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,300
-
+*~H::
+	; ControlGet, hWnd, hWnd,, Intermediate D3D Window1, A
+	; MSGBOX %  hWnd
+	; IF !hWnd
+	; {
+		TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT=0
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,300
+	; }
 RETURN
 #ifwinactive
 

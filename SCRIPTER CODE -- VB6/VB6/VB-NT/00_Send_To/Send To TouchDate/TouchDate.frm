@@ -10,6 +10,14 @@ Begin VB.Form Form1
    ScaleHeight     =   7284
    ScaleWidth      =   15720
    StartUpPosition =   2  'CenterScreen
+   Begin VB.FileListBox File1 
+      Height          =   1032
+      Left            =   12156
+      TabIndex        =   39
+      Top             =   1548
+      Visible         =   0   'False
+      Width           =   1104
+   End
    Begin VB.Label LABEL_SET 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -718,6 +726,12 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
+Dim FILE_NAME_MP4
+Dim FILE_NAME_MP4_2
+Dim MAQ
+Dim START_MAQ
+Dim NAME_PART_02
+
 Dim VARCENTER
 
 Dim FORM_ME As New Form1
@@ -803,6 +817,9 @@ Private Declare Function SystemTimeToFileTime Lib _
 Private Declare Function CloseHandle Lib "kernel32" _
    (ByVal hObject As Long) As Long
 
+Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+
+
 Public Function SetFileDateTime(ByVal Filename As String, _
   ByVal TheDate As String) As Boolean
 '************************************************
@@ -849,6 +866,13 @@ SetFileDateTime = lRet > 0
 
 End Function
 
+
+Private Sub Form_Activate()
+
+'LABEL_SET(2).Caption = "F:\DSC\2015+SONY_MP4\2020 CyberShot HX60V __ MP4"
+'Call MNU_FILEDATE_WHOLE_FOLDER_Click
+
+End Sub
 
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 
@@ -929,12 +953,9 @@ W$ = "D:\0 00 ART LOGGERS - WEBCAM\VIDEO\"
 W$ = "D:\DSC\# Docus Proofs Texts\# BHT\NOTICE BOARD"
 
 W$ = "D:\DSC\2018 Double Screen Cam\DCIM\2018-10-21"
-
 W$ = "D:\VI_ DSC ME\2010+NOKIA\" '"2015 NOKIA E72 _ 008 AUG _ MP4 _ x001 _ Home Front Room.MP4"
-
 ' CARE WHEN MODIFY DATE FROM MOD TO CREATED _
 ' EXPLORER WITH A DISPLAY OF JPG TREAT AS PICTURE AND NOT THE REAL FILE SYSTEM MOD-DATE SELECTION FOR COLOUMN HEADER
-
 W$ = ""
 
 If Command$ <> "" Or W$ <> "" Then
@@ -1000,6 +1021,7 @@ If FULL_PATH_AND_FILENAME = "" Then LABEL_SET(3).Caption = "NOT FILE GIVEN"
 
 LABEL_SET(1).BackColor = Label_COLOR_YELLOW.BackColor
 
+
 End Sub
 
 Private Sub Form_Resize()
@@ -1026,6 +1048,10 @@ i = i + 0: M_3(i) = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_M
 i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "MAKE_FOLDER YYYY-MM-DD OF FILE AND MOVE THERE AND BATCH IT"
 i = i + 0: M_3(i) = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT"
+i = i + 1: M_1(i) = "----"
+
+i = i + 1: M_1(i) = "RENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- BATCH"
+i = i + 0: M_3(i) = "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH"
 i = i + 1: M_1(i) = "----"
 
 i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- CH00_YYYY_MM_DD HH_MM_SS.MP4 -- HIKVISION -- SINGLE"
@@ -1181,9 +1207,12 @@ Case "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT"
 Case "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
+Case "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
@@ -1237,7 +1266,7 @@ Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
         
         Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
-        DT1 = F.datelastmodified
+        DT1 = F.DateLastModified
         
         If DT4 = 0 Then DT4 = DT1
         If DT1 > DT4 Then DT4 = DT1
@@ -1304,7 +1333,7 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
         
         Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
-        DT1 = F.datelastmodified
+        DT1 = F.DateLastModified
         If FLAG_OPER = True Then
             If DT4 = 0 Then DT4 = DT1
             If DT1 < DT4 Then DT4 = DT1
@@ -1437,6 +1466,13 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER()
     
     End
 End Sub
+
+Sub RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH()
+
+Call MNU_FILEDATE_WHOLE_FOLDER_Click
+
+End Sub
+
 
 
 Sub SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE()
@@ -1666,7 +1702,7 @@ Sub DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCA
             
             Set F = FSO.GetFile(A11 + B11)
             DT1 = 0
-            DT1 = F.datelastmodified
+            DT1 = F.DateLastModified
             DT1 = 0
             'Aug 5, 2019 9 57 Am-4
             DATE_STRING = ""
@@ -1770,7 +1806,7 @@ Sub MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT()
         If InStr("MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
             
             Set F = FSO.GetFile(A11 + B11)
-            DT1 = F.datelastmodified
+            DT1 = F.DateLastModified
 
             OUT_FOLDER__ = A11 + "\" + Format(DT1, "YYYY-MM-DD")
             OUT_FOLDER_AND_FILENAME = A11 + "\" + Format(DT1, "YYYY-MM-DD") + "\" + B11
@@ -1988,7 +2024,7 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         
         Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
-        DT1 = F.datelastmodified
+        DT1 = F.DateLastModified
         
         If DT4 = 0 Then DT4 = DT1
         If DT1 < DT4 Then DT4 = DT1
@@ -2123,7 +2159,7 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
     
     Set F = FSO.GetFile(A11 + B11)
     DT3 = F.DateCreated
-    DT1 = F.datelastmodified
+    DT1 = F.DateLastModified
     
     DateSet = DT3
     
@@ -2180,7 +2216,7 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
     
     Set F = FSO.GetFile(A11 + B11)
     DT3 = F.DateCreated
-    DT1 = F.datelastmodified
+    DT1 = F.DateLastModified
     Set F = Nothing
     
     TT = SetFileDateTime(A11 + B11, DT3)
@@ -2209,7 +2245,7 @@ Sub FILE_CREATED_TO_MODIFIED_TIME()
         
     Set F = FSO.GetFile(FULL_PATH_AND_FILENAME)
     DT3 = F.DateCreated
-    DT1 = F.datelastmodified
+    DT1 = F.DateLastModified
     Set F = Nothing
     
     TT = SetFileDateTime(FULL_PATH_AND_FILENAME, DT3)
@@ -2274,7 +2310,7 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
     B11 = ScanPath.ListView1.ListItems.Item(we)
     
     Set F = FSO.GetFile(A11 + B11)
-    DT1 = F.datelastmodified
+    DT1 = F.DateLastModified
     
     DateSet = DT1 - TimeSerial(1, 0, 0)
     
@@ -2518,6 +2554,13 @@ If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
+
+If WORK = "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
+
+
 If WORK = "SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
@@ -2650,7 +2693,7 @@ End Sub
 Private Sub MNU_CREATE_FOLDER_DATE_MONTH_Click()
 
     Set F = FSO.GetFile(LABEL_SET(3).Caption)
-    DT1 = F.datelastmodified
+    DT1 = F.DateLastModified
 
     OUT_FOLDER = LABEL_SET(2).Caption + "\" + Format(DT1, "YYYY-MM MMM")
     
@@ -2664,7 +2707,7 @@ End Sub
 Private Sub MNU_CREATE_FOLDER_DATE_OF_FILE_Click()
 
     Set F = FSO.GetFile(LABEL_SET(3).Caption)
-    DT1 = F.datelastmodified
+    DT1 = F.DateLastModified
 
     OUT_FOLDER = LABEL_SET(2).Caption + "\" + Format(DT1, "YYYY-MM-DD")
     If InStr(LABEL_SET(3).Caption, "REC") > 0 And InStr(LABEL_SET(3).Caption, ".WAV") > 0 Then
@@ -3011,6 +3054,319 @@ Private Function FolderExists(sFolder As String) As Boolean
             FolderExists = False
         End If
     End If
+End Function
+
+
+'LABEL_SET(2).Caption
+Private Sub MNU_FILEDATE_WHOLE_FOLDER_Click()
+    '---------------------------------------------
+    'VIDEO MP4
+    '---------------------------------------------
+
+    ' If FILE_NAME_MP4 = "" Then Beep: MsgBox "NOT A FILE NAME PIPED": End
+    
+    File1.Path = LABEL_SET(2).Caption
+    
+    ' SOMETIME THE PASS BY CONTEXT MENU ISN'T LONG NAME BUT SHORTNAME
+        
+    R_C_COUNTER_MAX = 0
+    For R_C_2 = 1 To 3
+        
+        A_M = ""
+        
+        R_C_COUNTER = 0
+            
+        For R_C = 0 To File1.ListCount - 1
+    
+            FILE_NAME_MP4 = File1.Path + "\" + File1.List(R_C)
+        
+            If Mid(FILE_NAME_MP4, 1, 2) <> "\\" Then
+                FILE_NAME_MP4 = GetLongName(FILE_NAME_MP4)
+            End If
+            
+            Set F = FSO.GetFile((FILE_NAME_MP4))
+            ADATE1 = F.DateLastModified
+            
+            'Clipboard.Clear
+            'Sleep 200
+            'If Year(ADATE1) = 2016 Then at1 = "-- 2k Sixteenth"
+            'If Year(ADATE1) = 2015 Then at1 = "-- 2k Fifteenth"
+            'If Year(ADATE1) <= 2015 Then at1 = "-- " + Format(ADATE1, "YYYY")
+            'If Year(ADATE1) > 2016 Then at1 = "-- " + Format(ADATE1, "YYYY")
+            
+            'at1 = "-- " + Format(ADATE1, "YYYY")
+            
+            
+            '------------------------
+            ' LONG DATE FOR YOUTUBING
+            '------------------------
+            'If InStr(FILE_NAME_MP4, "D:\DSC\") > 0 Then
+            'Clipboard.SetText " " + at1 + Format(ADATE1, " MMMM DD DDDD HH-MM-SS Am/Pm")
+            FILE_NAME_MP4_2 = Mid(FILE_NAME_MP4, InStrRev(FILE_NAME_MP4, "\") + 1)
+            FILE_NAME_MP4_2_EXT = Mid(FILE_NAME_MP4, InStrRev(FILE_NAME_MP4, "."))
+            
+            MAQ = ""
+            START_MAQ = 0
+            
+            Call MNU_FILEDATE_CLIPBOARD_ROUTINE_CHECKER
+            
+            If START_MAQ = 1 Then
+                If File1.List(R_C) <> Format(ADATE1, "YYYY_MM_DD MMM_DDD HH_MM_SS") + "__" + MAQ + NAME_PART_02 + FILE_NAME_MP4_2_EXT Then
+                    If MAQ <> "" Then
+                    
+                        R_C_COUNTER = R_C_COUNTER + 1
+                        If R_C_2 = 1 Then
+                            R_C_COUNTER_MAX = R_C_COUNTER_MAX + 1
+                        
+                        End If
+                        
+                        A_M = A_M + "RENAMER --" + str(R_C_COUNTER) + " OF" + str(R_C_COUNTER_MAX) + " OF" + str(File1.ListCount) + vbCrLf + File1.Path + "\" + vbCrLf + "\" + File1.List(R_C) + vbCrLf + "\" + Format(ADATE1, "YYYY_MM_DD MMM_DDD HH_MM_SS") + "__" + MAQ + NAME_PART_02 + FILE_NAME_MP4_2_EXT
+                        A_M = A_M + vbCrLf
+                        A_M = A_M + vbCrLf
+                        
+                        
+                        If R_C_2 = 3 Then
+                        
+                            If R_C_COUNTER < 10 Then
+                            
+                                A_M_2 = "RENAMER -- VERIFY 1ST 10  AND THEN AUTO" + vbCrLf + Trim(str(R_C + 1)) + " OF" + str(File1.ListCount) + vbCrLf + File1.Path + "\" + vbCrLf + "\" + File1.List(R_C) + vbCrLf + "\" + Format(ADATE1, "YYYY_MM_DD MMM_DDD HH_MM_SS") + "__" + MAQ + NAME_PART_02 + FILE_NAME_MP4_2_EXT
+                                
+                                X_M = MsgBox(A_M_2, vbYesNo)
+                                If X_M = vbNo Then
+                                    R_C_COUNTER = R_C_COUNTER - 1
+                                    Exit For
+                                End If
+                            End If
+                            
+                            Name File1.Path + "\" + File1.List(R_C) As File1.Path + "\" + Format(ADATE1, "YYYY_MM_DD MMM_DDD HH_MM_SS") + "__" + MAQ + NAME_PART_02 + FILE_NAME_MP4_2_EXT
+                        
+                        End If
+                    End If
+                End If
+            End If
+        Next
+            
+        If R_C_2 = 2 Then
+            If A_M <> "" Then
+                R_C_COUNTER = 0
+                X_M = MsgBox("RENAME CONVERSION AS FOLLOW PROCESS YES / NOT" + vbCrLf + vbCrLf + A_M, vbYesNo)
+                If X_M = vbNo Then Exit For
+            End If
+        End If
+    Next
+        
+    If R_C_COUNTER > 0 Then
+    
+    MsgBox "DONE " + Trim(str(R_C_COUNTER)) + " CHANGER"
+    
+    End If
+    
+    End
+End Sub
+
+
+
+Private Sub MNU_FILEDATE_CLIPBOARD_Click()
+    ' MNU_FILEDATE_CLIPBOARD
+    ' [ Sunday 09:46:40 Am_18 November 2018 ]
+
+    '---------------------------------------------
+    'VIDEO MP4
+    '---------------------------------------------
+
+    If FILE_NAME_MP4 = "" Then Beep: MsgBox "NOT A FILE NAME PIPED": End
+    
+    Beep
+    
+    Me.Hide
+
+'    On Error Resume Next
+'    Me.Visible = True
+'    DoEvents
+'    Me.WindowState = vbMinimized
+'    DoEvents
+'    MsgBox FILE_NAME_MP4, vbMsgBoxSetForeground
+'    On Error GoTo 0
+
+'    SOMETIME THE PASS BY CONTEXT MENU ISN;T LONG NAME BUT SHORTNAME
+
+    If Mid(FILE_NAME_MP4, 1, 2) <> "\\" Then
+        FILE_NAME_MP4 = GetLongName(FILE_NAME_MP4)
+    End If
+    
+    Set F = fs.GetFile((FILE_NAME_MP4))
+    ADATE1 = F.DateLastModified
+    
+'    Clipboard.Clear
+'    Sleep 200
+    'If Year(ADATE1) = 2016 Then at1 = "-- 2k Sixteenth"
+    'If Year(ADATE1) = 2015 Then at1 = "-- 2k Fifteenth"
+    'If Year(ADATE1) <= 2015 Then at1 = "-- " + Format(ADATE1, "YYYY")
+    'If Year(ADATE1) > 2016 Then at1 = "-- " + Format(ADATE1, "YYYY")
+    
+    'at1 = "-- " + Format(ADATE1, "YYYY")
+    
+    
+    '------------------------
+    ' LONG DATE FOR YOUTUBING
+    '------------------------
+    'If InStr(FILE_NAME_MP4, "D:\DSC\") > 0 Then
+    'Clipboard.SetText " " + at1 + Format(ADATE1, " MMMM DD DDDD HH-MM-SS Am/Pm")
+    FILE_NAME_MP4_2 = Mid(FILE_NAME_MP4, InStrRev(FILE_NAME_MP4, "\") + 1)
+    'MsgBox FILE_NAME_MP4_2
+    MAQ = ""
+    START_MAQ = 0
+    
+
+    Call MNU_FILEDATE_CLIPBOARD_ROUTINE_CHECKER
+    
+    Clipboard.Clear
+    Sleep 200
+
+    Clipboard.SetText Format(ADATE1, "YYYY_MM_DD MMM_DDD HH_MM_SS") + "__" + MAQ + NAME_PART_02
+    'Else
+    '------------------------
+    ' OTHER DATE
+    '------------------------
+    'Clipboard.SetText Format(ADATE1, "YYYY-MM-DD")
+    'End If
+
+    End
+    
+End Sub
+
+Sub MNU_FILEDATE_CLIPBOARD_ROUTINE_CHECKER()
+    TEE = "MAQ"
+    If InStr(FILE_NAME_MP4_2, TEE) > 0 Then
+        START_MAQ_LEN = 8
+        MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+        START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+    End If
+    
+    TEE = "MAH"
+    If InStr(FILE_NAME_MP4_2, TEE) > 0 Then
+        START_MAQ_LEN = 8
+        MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+        START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+    End If
+    
+    TEE = "M4V"
+    If InStr(FILE_NAME_MP4_2, TEE) > 0 Then
+        START_MAQ_LEN = 8
+        MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+        START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+    End If
+    
+    TEE = "M4H"
+    If InStr(FILE_NAME_MP4_2, TEE) > 0 Then
+        START_MAQ_LEN = 8
+        MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+        START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+    End If
+    
+    TEE = "DSCF"
+    If InStr(GetLongName(FILE_NAME_MP4), TEE) > 0 Then
+        If InStr(GetLongName(FILE_NAME_MP4), ".MOV") > 0 Then
+            START_MAQ_LEN = 8
+            MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+            START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+        End If
+    End If
+
+    'DOUBLE SCREEN CAMERA
+    TEE = "DSCF"
+    If InStr(GetLongName(FILE_NAME_MP4), TEE) > 0 Then
+        If InStr(GetLongName(FILE_NAME_MP4), ".AVI") > 0 Then
+            START_MAQ_LEN = 8
+            MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+            START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+        End If
+    End If
+    
+    TEE = "image"
+    If InStr(GetLongName(FILE_NAME_MP4), TEE) > 0 Then
+        If InStr(GetLongName(FILE_NAME_MP4), ".AVI") > 0 Then
+            START_MAQ_LEN = 7
+            MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+            START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+        End If
+    End If
+    
+    TEE = "Photo"
+    If InStr(GetLongName(FILE_NAME_MP4), TEE) > 0 Then
+        If InStr(GetLongName(FILE_NAME_MP4), ".JPG") > 0 Then
+            START_MAQ_LEN = 7
+            MAQ = Mid(FILE_NAME_MP4_2, InStr(FILE_NAME_MP4_2, TEE), START_MAQ_LEN)
+            START_MAQ = InStr(FILE_NAME_MP4_2, TEE)
+        End If
+    End If
+    
+    
+    'IF DESCRIPTION ALREADY ON
+    NAME_PART_02 = ""
+    If START_MAQ > 0 Then
+        NAME_PART_02 = Mid(FILE_NAME_MP4_2, START_MAQ + START_MAQ_LEN)
+        NAME_PART_02 = Mid(NAME_PART_02, 1, InStrRev(NAME_PART_02, ".") - 1)
+    End If
+End Sub
+
+
+Public Function GetLongName(ByVal sShortName As String) As String
+
+    If Mid(sShortName, 1, 2) = "\\" Then
+        GetLongName = sShortName
+        Exit Function
+    End If
+
+' --> (All this modules code) Obtained from : -
+' ---> Microsoft's/MSDN's code
+' ->  http://support.microsoft.com/default.aspx?scid=kb;EN-US;154822
+' ---> The original comments were by them :
+
+     Dim sLongName As String
+     Dim sTemp As String
+     Dim iSlashPos As Integer
+     Dim sShortName_ENTRY As String
+
+     sShortName_ENTRY = sShortName
+
+     'Add \ to short name to prevent Instr from failing
+     
+     sShortName = sShortName & "\"
+
+     'Start from 4 to ignore the "[Drive Letter]:\" characters
+     iSlashPos = InStr(4, sShortName, "\")
+
+     'Pull out each string between \ character for conversion
+     While iSlashPos
+       sTemp = Dir(Left$(sShortName, iSlashPos - 1), vbNormal + vbHidden + vbSystem + vbDirectory)
+       If sTemp = "" Then
+            'Error 52 - Bad File Name or Number
+            GetLongName = ""
+            If Trim(GetLongName) = "" Then GetLongName = sShortName_ENTRY
+            'SOMETIME SHORT NAME ENTRY WORK SOMETIME NOT
+            'MAYBE ERROR IF PARAM IN LINK __ TESTER
+            'SOLVED ERROR IS IN PERMISSION OF FOLDER LIKE \PROGRAM FILES (X86)
+            '"C:\Program Files (x86)\Process Lasso\ProcessLassoLauncher.exe"
+            'SOLVED ERROR 64 BIT IN 32 BIT VB6 SHORTCUT FINDER
+            'WORKED ERRRO FROM HERE AGAIN
+            '"C:\Program Files (x86)\Process Lasso\ProcessLassoLauncher.exe"
+            
+            
+            
+            
+             Exit Function
+       End If
+       sLongName = sLongName & "\" & sTemp
+       iSlashPos = InStr(iSlashPos + 1, sShortName, "\")
+     Wend
+
+     'Prefix with the drive letter
+     GetLongName = Left$(sShortName, 2) & sLongName
+    If Trim(GetLongName) = "" Then GetLongName = sShortName_ENTRY
+    'SOMETIME SHORT NAME ENTRY WORK SOMETIME NOT
+    'MAYBE ERROR IF PARAM IN LINK __ TESTER
+
 End Function
 
 
