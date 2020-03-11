@@ -1417,8 +1417,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 		' 2020_01_03 Jan_Fri 22_47_16__MAH00824.MP4
 		IF LEN(FILE_VAR)< 41 THEN
 			i_TIME=""
-			i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"_"
-			i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"-"
+			i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"-"
 			i_TIME=i_TIME+LPad(Day(FileModDate_1), "0", 2)+" "
 			FOLDER_DATE=""
 			FOLDER_DATE=FOLDER_DATE+LPad(Year(FileModDate_1), "0", 4)+" "
@@ -1426,8 +1426,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 			FOLDER_DATE=FOLDER_DATE+LPad(Day(FileModDate_1), "0", 2)
 			
 			i_TIME=i_TIME+""
-			i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"_"
-			i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"-"
+			i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"-"
 			i_TIME=i_TIME+LPad(Second(FileModDate_1), "0", 2)+" "
 			i_TIME=i_TIME+"- SONY DSC-HX60V - "
 			NewFilename=i_TIME + UCASE(FILE_VAR)
@@ -1452,7 +1452,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF
 	END IF
 
-	' MSGBOX PATH_FILE_VAR
+	MSGBOX PATH_FILE_VAR
 	
 	' ---------------------------------------------------------------
 	' HIKVISION#1
