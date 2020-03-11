@@ -16,13 +16,13 @@ Startup="Form1"
 HelpFile=""
 Title="#Send To TouchDate"
 ExeName32="#Send To TouchDate.exe"
-Command32=""\\7-asus-gl522vw\7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D\DSC_4G~1\DSC--2~2\2018_C~4\2020_C~1\20C90F~1\CH01_2~1.MP4""
+Command32=""
 Name="FILE_DATE_NOW"
 HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=95
+RevisionVer=97
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Sat 05-Mar-2011 10-01-52p"
