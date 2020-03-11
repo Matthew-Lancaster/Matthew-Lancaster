@@ -3317,7 +3317,7 @@ Private Declare Function DeleteDC Lib "gdi32" (ByVal hDC As Long) As Long
 'Private Declare Function BeginPaint Lib "user32" (ByVal hWnd As Long, lpPaint As PAINTSTRUCT) As Long
 Private Declare Function GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function DPtoLP Lib "gdi32" (ByVal hDC As Long, lpPoint As POINTAPI, ByVal nCount As Long) As Long
-Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal c As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
+Private Declare Function CreateFont Lib "gdi32" Alias "CreateFontA" (ByVal H As Long, ByVal W As Long, ByVal E As Long, ByVal O As Long, ByVal W As Long, ByVal i As Long, ByVal u As Long, ByVal s As Long, ByVal C As Long, ByVal OP As Long, ByVal CP As Long, ByVal Q As Long, ByVal PAF As Long, ByVal F As String) As Long
 Private Declare Function SelectObject Lib "gdi32" (ByVal hDC As Long, ByVal hObject As Long) As Long
 'Private Declare Function GetTextExtentPoint32 Lib "gdi32" Alias "GetTextExtentPoint32A" (ByVal HDC As Long, ByVal lpsz As String, ByVal cbString As Long, lpSize As Size) As Long
 Private Declare Function SetBkMode Lib "gdi32" (ByVal hDC As Long, ByVal nBkMode As Long) As Long
@@ -5659,7 +5659,9 @@ Public Sub Label_EXE_FILENAME_Click()
     End If
         
     Call PROCESS_LISTVIEW_2_AND_3_ENSURE_VISIBLE_SELECTOR_STAY
-
+    
+    Me.WindowState = vbMinimized
+    
 End Sub
 
 Private Sub MNU_TIMEZONE_CLOCK_Click()
@@ -5752,6 +5754,46 @@ Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
 
 SET_COMPUTER_TO_RUN_PID_EXE = "Wscript.exe"
 Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+SET_COMPUTER_TO_RUN_PID_EXE = "NokiaSuite.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+' C:\Program Files (x86)\Common Files\Freemake Shared\ProductUpdater\ProductUpdater.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "ProductUpdater.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+SET_COMPUTER_TO_RUN_PID_EXE = "FreemakeUtilsService.EXE"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
+' C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1710.2791.0_x64__8wekyb3d8bbwe\Calculator.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "Calculator.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+' C:\Program Files (x86)\Nero\Update\NASvc.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "NASvc.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+' C:\Program Files (x86)\Google\Update\1.3.35.442\GoogleCrashHandler64.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "GoogleCrashHandler64.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+' C:\Program Files (x86)\Siber Systems\AI RoboForm\robotaskbaricon-x64.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "robotaskbaricon-x64.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+' C:\Program Files (x86)\Dropbox\Update\DropboxUpdate.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "DropboxUpdate.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+' C:\Program Files (x86)\Samsung\SideSync4\SideSync.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "SideSync.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+' C:\Windows\System32\SearchIndexer.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "SearchIndexer.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+' C:\Program Files (x86)\FUJIFILM\FUJIFILM PC AutoSave\PCAutoSaveSv.exe
+SET_COMPUTER_TO_RUN_PID_EXE = "PCAutoSaveSv.exe"
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+SET_COMPUTER_TO_RUN_PID_EXE = ""
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+SET_COMPUTER_TO_RUN_PID_EXE = ""
+Call FIND_SCRIPTNAME_AND_KILL(SET_COMPUTER_TO_RUN_PID_EXE)
+
 
 Call MNU_AUTOHOTKEYS_SET_Click
 
@@ -9870,6 +9912,8 @@ End Sub
 
 Function FIND_SCRIPTNAME_AND_KILL(PROCESS_NAME)
 
+If PROCESS_NAME = "" Then Exit Function
+
 Dim objWMIService
 Dim colProcesses
 Dim i1
@@ -12947,10 +12991,10 @@ End Function
 
 
 Public Sub LV_SetSizeColumn(LV As ListView, Optional Column As ColumnHeader = Nothing)
-    Dim c As ColumnHeader
+    Dim C As ColumnHeader
     If Column Is Nothing Then
-    For Each c In LV.ColumnHeaders
-        SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
+    For Each C In LV.ColumnHeaders
+        SendMessage LV.hWnd, LVM_FIRST + 30, C.Index - 1, -1
     Next
     Else
         SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
@@ -12960,10 +13004,10 @@ End Sub
 
 
 Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column As ColumnHeader = Nothing)
-    Dim c As ColumnHeader
+    Dim C As ColumnHeader
     If Column Is Nothing Then
-    For Each c In LV.ColumnHeaders
-        SendMessage LV.hWnd, LVM_FIRST + 30, c.Index - 1, -1
+    For Each C In LV.ColumnHeaders
+        SendMessage LV.hWnd, LVM_FIRST + 30, C.Index - 1, -1
     Next
     Else
         SendMessage LV.hWnd, LVM_FIRST + 30, Column.Index - 1, -1
@@ -14911,16 +14955,16 @@ Public Function GetFileFromHWND(lnghWnd) As String
 
 'MsgBox GetFileFromHWND(Me.hWnd)
 
-Dim lngProcess&, hProcess&, bla&, c&
+Dim lngProcess&, hProcess&, bla&, C&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
-c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromHWND = Left(strFile, c)
+x = EnumProcessModules(hProcess, bla, 4&, C)
+C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromHWND = Left(strFile, C)
 
 End Function
 
@@ -14929,16 +14973,16 @@ Public Function GetFileFromProc(lngProcess) As String
 
 'MsgBox GetFileFromHWND(Me.hWnd)
 'Dim lngProcess&, hProcess&, bla&, C&
-Dim hProcess&, bla&, c&
+Dim hProcess&, bla&, C&
 Dim strFile As String
 Dim x
 
 strFile = String$(256, 0)
 'x = GetWindowThreadProcessId(lnghWnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-x = EnumProcessModules(hProcess, bla, 4&, c)
-c = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromProc = Left(strFile, c)
+x = EnumProcessModules(hProcess, bla, 4&, C)
+C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
+GetFileFromProc = Left(strFile, C)
 
 End Function
 
