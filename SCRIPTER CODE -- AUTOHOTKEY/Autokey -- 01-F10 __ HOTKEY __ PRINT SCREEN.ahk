@@ -464,6 +464,7 @@ RETURN
 
 
 Return
+; UCASE UPPER
 ; --
 ^l:: ; CTRL+L ---- Converts Text To Lower
 	VAR_INDEX=2
@@ -471,17 +472,25 @@ Return
 Return
 ; --
 #IfWinActive ahk_class Chrome_WidgetWin_1
+{
 +u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
                                                ; HAS OPEN SOURCE OF PAGE 
 											   ; IN A NEW TAB OF BROWSER
+}
 #ifwinactive
 
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
+{
 ^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
                                                ; CONTROL 
-											   ; IF BROWSER PAGE CHROME
-											   ; SO NOT OPEN SOURCE CONTROL U 
-											   ; IN A NEW TAB OF BROWSER
+											   ; IF NOT BROWSER PAGE CHROME
+											   ; USER SHIFT AND OR CONTROL
+											   ; 
++u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
+                                               ; CONTROL 
+											   ; IF NOT BROWSER PAGE CHROME
+											   ; USER SHIFT AND OR CONTROL
+}
 #ifwinactive
 
 	VAR_INDEX=3
