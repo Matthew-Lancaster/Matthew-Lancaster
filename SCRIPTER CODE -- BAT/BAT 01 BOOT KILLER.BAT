@@ -1650,6 +1650,12 @@ GOTO JUMPER_TEXT_AUTORUNS_SERVICE_STOPPER
 	@REM gupdatem	Keeps your Google software up to date. @IF this service is disabled or stopped, your Google software will not be kept up to date, meaning security vulnerabilities that may arise cannot be fixed and features may not work. This service uninstalls itself when there is no Google software using it.	Google Inc.	c:\program files (x86)\google\update\googleupdate.exe	09/01/2016 12:08	
 
 	
+	REM KILL AT BOOT NOT WANT ANY REGISTRY START AR
+	REM TASKKILL /F /IM TeamViewer.exe /T
+	
+	
+	
+	
 
 	@REM peservice	photoSync syncing service	webEcoz, LLC.	c:\program files (x86)\photosync\peservice.exe	10/11/2008 07:15	
 
