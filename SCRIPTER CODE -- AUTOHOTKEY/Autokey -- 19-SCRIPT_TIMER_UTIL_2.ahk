@@ -2718,10 +2718,13 @@ CLOSE_MANY_APP_IF_NOT_RESPONDER:
 	; FN_Array_2[ArrayCount]:="URL Logger.exe"
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="CPU % INDIVIDUAL PROCESS.exe"
-	ArrayCount += 1
-	FN_Array_2[ArrayCount]:="LogiOptions.exe"
-	ArrayCount += 1
-	FN_Array_2[ArrayCount]:="LogiOptionsMgr.exe"
+	
+	; ArrayCount += 1
+	; FN_Array_2[ArrayCount]:="LogiOptions.exe"
+	
+	; ArrayCount += 1
+	; FN_Array_2[ArrayCount]:="LogiOptionsMgr.exe"  ; -- REMOVE HERE AND MOUSE WHEEL STOP WORK FOR ADVANCE LOGITECH MOUSER
+	
 	ArrayCount += 1
 	FN_Array_2[ArrayCount]:="LogiOverlay.exe"
 	ArrayCount += 1
