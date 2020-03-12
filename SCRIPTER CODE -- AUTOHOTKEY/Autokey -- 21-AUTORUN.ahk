@@ -524,31 +524,32 @@ ESCAPE_KEY_THE_RESTORE_PAGES_CHROME:
 SetTitleMatchMode 3
 DetectHiddenWindows, ON
 
-WinGet, id, list,ahk_class Chrome_WidgetWin_1
-SET_FLAG_04=TRUE
 LOOP
+{
+SET_FLAG_02=
+WinGet, id, list,ahk_class Chrome_WidgetWin_1
 Loop, %id%
 {
-	SET_FLAG_02=
 	TABLE_02 := id%A_Index%
 	WinGetTitle, TITLE_02, ahk_id %TABLE_02%
 	IF TABLE_02
 	IF TITLE_02=Restore pages?
 	{
 		SET_FLAG_02=TRUE
-		SET_FLAG_04=
 		WinActivate, ahk_id %TABLE_02%
 		
 		IFWinActive, ahk_id %TABLE_02%
+		{
 			SENDINPUT {ENTER}
-		IF TABLE_02
-		#IfWinNOTActive ("ahk_id" TABLE_02)
 			SLEEP 500
+		}
+		#IfWinNOTActive ("ahk_id" TABLE_02)
+			SET_FLAG_02=
 	}
-	; IF !SET_FLAG_04
-	; IF !SET_FLAG_02
-	; MSGBOX "DONE"
 
+	IF !SET_FLAG_02
+	RETURN
+} 
 	IF !SET_FLAG_02
 	RETURN
 } 
@@ -1686,6 +1687,11 @@ IF SET_GO=TRUE
 	
 ;GOSUB MINIMIZE_ALL_BLUETOOTH
 
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
+SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
+
+
 DetectHiddenWindows, ON
 
 SET_GO=FALSE
@@ -2336,6 +2342,10 @@ TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 40, SECONDS
 SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
 
+
+TIMER_MINIMIZE_BLUETOOTH_AT_BOOT = % A_Now
+TIMER_MINIMIZE_BLUETOOTH_AT_BOOT += 40, SECONDS
+SETTIMER MINIMIZE_ALL_BLUETOOTH_TIMER,1000
 	
 	
 RETURN
@@ -2349,6 +2359,67 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
+MINIMIZE_ALL_BLUETOOTH_TIMER:
+	SetTitleMatchMode 3
+	DetectHiddenWindows, OFF
+
+	; ----------------------------------------------------
+	; SET TIMER OUT OF ROUTINE ALLOW MULTI TIME DIFFERENCE
+	; HAVE DEFAULT TIMER -- OPTIONAL IF NOT SET
+	; ----------------------------------------------------
+		
+	IF !TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT
+	{
+		TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT = % A_Now
+		TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT += 10, SECONDS
+	}
+
+	STYLE_BLUETOOTH_NIRSOFT_MINIMIZE_ACHIEVE=
+	; ---------------------------------------------------------------
+	; BLUETOOTHVIEW
+	; ---------------------------------------------------------------
+	WinGet, id, list, ahk_class BluetoothView
+	Loop, %id%
+	{
+
+		table := id%A_Index%
+		WinMinimize  ahk_id %table%
+		WinGet STYLE_BLUETOOTH_NIRSOFT, MinMax, ahk_id %table%
+		If STYLE_BLUETOOTH_NIRSOFT=-1
+			STYLE_BLUETOOTH_NIRSOFT_MINIMIZE_ACHIEVE=1
+	} 
+	; ---------------------------------------------------------------
+	; BLUETOOTHLOGVIEW
+	; ---------------------------------------------------------------
+	WinGet, id, list,ahk_class BluetoothLogView
+	Loop, %id%
+	{
+
+		table := id%A_Index%
+		WinMinimize  ahk_id %table%
+		WinGet STYLE_BLUETOOTH_NIRSOFT, MinMax, ahk_id %table%
+		If STYLE_BLUETOOTH_NIRSOFT=-1
+		IF 	STYLE_BLUETOOTH_NIRSOFT_MINIMIZE_ACHIEVE=1
+			STYLE_BLUETOOTH_NIRSOFT_MINIMIZE_ACHIEVE=2
+	} 
+	; ---------------------------------------------------------------
+	; 1 MAXIMIZED  0 NORMAL  -1 MINIMIZED
+	; ---------------------------------------------------------------
+	If STYLE_BLUETOOTH_NIRSOFT_MINIMIZE_ACHIEVE=-1
+	{
+		SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,OFF
+		TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT=
+	}
+	; If !STYLE_BLUETOOTH_NIRSOFT_MINIMIZE_ACHIEVE
+	; {
+		; SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,OFF
+		; TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT=
+	; }
+RETURN
+
+
 
 
 MINIMIZE_GOODSYNC_AT_BOOT_TIMER:
@@ -2403,8 +2474,45 @@ MINIMIZE_GOODSYNC_AT_BOOT_TIMER:
 RETURN
 
 
-TEAMVIWER_LOAD:
+; -------------------------------------------------------------------
+; NOT USER 
+; SUPERSEDE BY ---- MINIMIZE_ALL_BLUETOOTH_TIMER:
+; -------------------------------------------------------------------
+MINIMIZE_ALL_BLUETOOTH:
+
+	SetTitleMatchMode 3
+	DetectHiddenWindows, OFF
+
+	SET_GO=FALSE
+	If OSVER_N_VAR>5
+		SET_GO=TRUE
+	
+	SET_GO=TRUE
+
+	IF SET_GO=FALSE
+		RETURN
+	
+	IF WinExist("BluetoothView") 
+	{
+		SLEEP 1000
+		WinGet, HWND, ID, BluetoothView
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800)
+	}
+	
+	IF WinExist("ahk_class BluetoothLogView")
+	{
+		SLEEP 1000
+		WinGet, HWND, ID, ahk_class BluetoothLogView
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800)
+	}
+	
 RETURN
+
+
+
+; -------------------------------------------------------------------
+TEAMVIWER_LOAD:
+RETURN   ; ----------------------------------------------------------
 
 ; "C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe"
 SET_GO_4=0
@@ -2687,36 +2795,6 @@ IF SET_GO=TRUE
 RETURN
 
 
-
-MINIMIZE_ALL_BLUETOOTH:
-
-	SetTitleMatchMode 3
-	DetectHiddenWindows, OFF
-
-	SET_GO=FALSE
-	If OSVER_N_VAR>5
-		SET_GO=TRUE
-	
-	SET_GO=TRUE
-
-	IF SET_GO=FALSE
-		RETURN
-	
-	IF WinExist("BluetoothView") 
-	{
-		SLEEP 1000
-		WinGet, HWND, ID, BluetoothView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800)
-	}
-	
-	IF WinExist("ahk_class BluetoothLogView")
-	{
-		SLEEP 1000
-		WinGet, HWND, ID, ahk_class BluetoothLogView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800)
-	}
-	
-RETURN
 
 BRUTE_BOOT_DOWN_AHK_SUB:
 	; IF CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE

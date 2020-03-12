@@ -511,7 +511,7 @@ If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then
     XR = InStr(UCase(VAR_STRING), UCase("A1}#2.2#0; mscomctl.OCX"))
     If XR > 0 Then
         Mid(VAR_STRING, XR, Len("A1}#2.1#0; mscomctl.OCX")) = "A1}#2.1#0; MSCOMCTL.OCX"
-        MsgBox UCase("#2.2# -- mscomctl.OCX") + vbCrLf + "WRONG VERSION -- AUTO CHANGED TO" + vbCrLf + UCase("#2.1# -- mscomctl.OCX"), vbMsgBoxSetForeground
+        ' MsgBox UCase("#2.2# -- mscomctl.OCX") + vbCrLf + "WRONG VERSION -- AUTO CHANGED TO" + vbCrLf + UCase("#2.1# -- mscomctl.OCX"), vbMsgBoxSetForeground
         GO_NEXT_IN = True
     End If
     
