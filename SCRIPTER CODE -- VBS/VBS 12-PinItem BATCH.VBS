@@ -128,7 +128,6 @@ COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
 	' PinTo10_EXE_PATH = PinTo10_v4_EXE__
 ' END IF
 
-
 'EXAMPLE
 'PinTo10.exe /PTFOL:"C:\Windows" /PTFILE:"notepad.exe"
 
@@ -384,24 +383,9 @@ If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
 IF SET_GO=TRUE THEN 
 	FILE_SCAN_FIND_2=""
 	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-	' Call ShowSubfolders(objSuperFolder, "Flickr.exe")
+	Call ShowSubfolders(objSuperFolder, "Flickr.exe")
 	IF FILE_SCAN_FIND_2<>"" THEN 
 		'I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
-	ELSE
-		'I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\Flickr.exe"
-	END IF
-END IF
-
-' C:\Windows\WinSxS\amd64_microsoft-windows-s..ment-policytools-ex_31bf3856ad364e35_10.0.16299.15_none_7c4b8190b23a11fd\secpol.msc
-obj_SOURCE_Folder = "C:\Windows\WinSxS"
-SET_GO=TRUE
-If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
-IF SET_GO=TRUE THEN 
-	FILE_SCAN_FIND_2=""
-	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-	Call ShowSubfolders(objSuperFolder, "secpol.msc")
-	IF FILE_SCAN_FIND_2<>"" THEN 
-		I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
 	ELSE
 		'I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\Flickr.exe"
 	END IF

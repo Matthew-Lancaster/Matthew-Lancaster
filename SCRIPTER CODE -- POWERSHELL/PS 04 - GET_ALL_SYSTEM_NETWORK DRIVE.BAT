@@ -40,7 +40,7 @@ REM -- OKAY SORTER NOW POWERSHELL FIND OWN PATH FROM IT WORKER
 REM -----------------------------------------------------------------
  
 SET FILE_NAME="%~dp0%~n0.PS1"
-START "" /MIN "powershell" -executionpolicy bypass -File %FILE_NAME%
+START "" /MIN "powershell"  -noexit -executionpolicy bypass -File %FILE_NAME%
 
 REM -----------------------------------------------------------------
 REM -- Sat 29-Feb-2020 15:48:00
