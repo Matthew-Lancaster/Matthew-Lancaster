@@ -686,7 +686,7 @@ Begin VB.Form Form1
       Left            =   8880
       TabIndex        =   196
       Top             =   4404
-      Width           =   540
+      Width           =   552
    End
    Begin VB.Label Label_TREESIZE_D 
       AutoSize        =   -1  'True
