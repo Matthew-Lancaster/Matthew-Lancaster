@@ -1,6 +1,12 @@
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
 
+' FILE PATH SEARCH STRING
+' "C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\PS 04 - GET_ALL_SYSTEM_NETWORK DRIVE.PS1__#NFS_EX__.TXT"
+' $(AllLocalDrives)\
+
+' $(AllLocalDrives)\;C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\PS 04 - GET_ALL_SYSTEM_NETWORK DRIVE.PS1__#NFS_EX__.TXT
+
 Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 
 	On Error Resume Next

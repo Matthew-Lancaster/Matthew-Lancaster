@@ -301,6 +301,9 @@ $SCRIPT_LOG = "$SCRIPTPATH\$SCRIPTNAME"+"__"+"$COMPNAME"+"__"+".TXT"
 # -----------------------------------------------------------------
 
 
+# Write-Host $SCRIPT_LOG
+# PAUSE
+
 # WHEN READER CONTENT OPERATION GIVE NOT VBCRLF ON
 # SO HARD NOT CORRECT WAY READ FILE FOR OUR LOVELY PEOPLE
 # THE INTERNET IS A PAIN
@@ -311,9 +314,12 @@ $SCRIPT_LOG = "$SCRIPTPATH\$SCRIPTNAME"+"__"+"$COMPNAME"+"__"+".TXT"
 # $ORANGES = $ORANGES -replace "`r", ""
 # $ORANGES = $ORANGES -replace "`n", ""
 # -------------------------------------------------------------------
-
+if (Test-Path $SCRIPT_LOG) {
+	# FILE EXIST
+	$APPLES = [IO.File]::ReadAllText($SCRIPT_LOG)
+}
 # -------------------------------------------------------------------
-$APPLES = [IO.File]::ReadAllText($SCRIPT_LOG)
+
 # -------------------------------------------------------------------
 $ORANGES = $SHARE01
 $ORANGES+="`r`n"
