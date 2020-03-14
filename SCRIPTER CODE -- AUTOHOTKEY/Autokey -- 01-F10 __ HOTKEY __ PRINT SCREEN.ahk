@@ -415,15 +415,6 @@ F5::
 }
 #ifwinactive
 
-#IfWinNOTActive ahk_class Notepad++
-{
-+^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
-	VAR_INDEX=1
-	GOSUB HOT_KEY_CONVERT_TExT 
-	RETURN
-}
-#ifwinactive
-
 
 ; SELECT 20 PHOTO WITH HOTKEY H
 #IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
@@ -437,6 +428,7 @@ F5::
 	; }
 RETURN
 #ifwinactive
+
 
 TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 
@@ -464,7 +456,19 @@ RETURN
 
 
 Return
+
+
 ; UCASE UPPER
+
+#IfWinNOTActive ahk_class Notepad++
+{
++^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
+	VAR_INDEX=1
+	GOSUB HOT_KEY_CONVERT_TExT 
+	RETURN
+}
+#ifwinactive
+
 ; --
 ^l:: ; CTRL+L ---- Converts Text To Lower
 	VAR_INDEX=2
@@ -472,33 +476,39 @@ Return
 Return
 ; --
 #IfWinActive ahk_class Chrome_WidgetWin_1
-{
 +u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
                                                ; HAS OPEN SOURCE OF PAGE 
 											   ; IN A NEW TAB OF BROWSER
-}
+	VAR_INDEX=3
+	GOSUB HOT_KEY_CONVERT_TEXT
+RETURN
 #ifwinactive
-
+#IfWinActive ahk_class Chrome_WidgetWin_1
+^u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
+                                               ; HAS OPEN SOURCE OF PAGE 
+											   ; IN A NEW TAB OF BROWSER
+	VAR_INDEX=3
+	GOSUB HOT_KEY_CONVERT_TEXT
+RETURN
+#ifwinactive
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
-{
 ^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
                                                ; CONTROL 
 											   ; IF NOT BROWSER PAGE CHROME
 											   ; USER SHIFT AND OR CONTROL
-											   ; 
+	VAR_INDEX=3
+	GOSUB HOT_KEY_CONVERT_TEXT
+RETURN
+#ifwinactive
+#IfWinNOTActive ahk_class Chrome_WidgetWin_1
 +u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
                                                ; CONTROL 
 											   ; IF NOT BROWSER PAGE CHROME
 											   ; USER SHIFT AND OR CONTROL
-}
-#ifwinactive
-
 	VAR_INDEX=3
 	GOSUB HOT_KEY_CONVERT_TEXT
-Return
-
-
-
+RETURN
+#ifwinactive
 
 
 
