@@ -1,5 +1,4 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form FORM_1 
    Appearance      =   0  'Flat
    AutoRedraw      =   -1  'True
@@ -10,6 +9,7 @@ Begin VB.Form FORM_1
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   4680
+   DrawStyle       =   5  'Transparent
    Icon            =   "Volume2.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
@@ -19,7 +19,7 @@ Begin VB.Form FORM_1
    ScaleWidth      =   4680
    ShowInTaskbar   =   0   'False
    Begin VB.Timer Timer_FORM_PROJECT_CHECK_DATE 
-      Interval        =   1000
+      Interval        =   2000
       Left            =   2880
       Top             =   1812
    End
@@ -39,35 +39,6 @@ Begin VB.Form FORM_1
       Left            =   840
       Top             =   1008
    End
-   Begin VB.Timer Timer3 
-      Interval        =   5000
-      Left            =   1710
-      Top             =   2205
-   End
-   Begin VB.Timer Timer2 
-      Interval        =   1000
-      Left            =   1665
-      Top             =   1530
-   End
-   Begin VB.Timer Timer1 
-      Interval        =   100
-      Left            =   1665
-      Top             =   945
-   End
-   Begin MSComctlLib.ProgressBar ProgressBar1 
-      Height          =   180
-      Left            =   -180
-      TabIndex        =   0
-      Top             =   -30
-      Visible         =   0   'False
-      Width           =   1935
-      _ExtentX        =   3408
-      _ExtentY        =   318
-      _Version        =   393216
-      BorderStyle     =   1
-      Appearance      =   0
-      Scrolling       =   1
-   End
    Begin VB.Label LAB_TIMEZONE 
       Alignment       =   2  'Center
       AutoSize        =   -1  'True
@@ -84,8 +55,8 @@ Begin VB.Form FORM_1
       EndProperty
       Height          =   348
       Left            =   744
-      TabIndex        =   1
-      Top             =   336
+      TabIndex        =   0
+      Top             =   324
       Width           =   1524
    End
 End
@@ -137,6 +108,11 @@ Attribute VB_Exposed = False
 ' LOCATION ON-LINE
 ' -------------------------------------------------------------------
 
+Dim GS
+Dim FREE_BYTE
+
+Dim MOD_VALUE_INTERVAL_2
+
 Dim TIMER_TIMEZONE_FIRST_RUN
 
 Dim Explorer_Path_OLD, Explorer_Path
@@ -174,7 +150,7 @@ Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
 Private Declare Function WindowFromPoint Lib "user32" (ByVal xPoint As Long, ByVal yPoint As Long) As Long
     
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
     
 Private Declare Function EnumChildWindows Lib "user32" (ByVal hwndParent As Long, ByVal lpEnumFunc As Long, ByVal lParam As Long) As Long
 Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cchar As Long) As Long
@@ -232,6 +208,18 @@ Private Sub Form_Load()
 
     If App.PrevInstance = True Then End
     
+        'KILL ITSELF IN __.EXE KILL SOFTLY
+    'WHILE ISIDE LEARN
+    '---------------------------------
+    If IsIDE = True Then
+        A = cProcesses.GetEXEID_KILL_ALL_INSTANCE(App.Path + "\" + App.EXEName + ".exe")
+        If A = "FOUND SOEMTHING" Then
+            Beep
+            End
+        End If
+    End If
+
+    
     TIMER_TIMEZONE_FIRST_RUN = "D:\"
     
     Me.Caption = App.EXEName
@@ -262,6 +250,8 @@ End Sub
 Private Sub Timer_FORM_PROJECT_CHECK_DATE_Timer()
 
 Call Project_Check_Date.VB_PROJECT_CHECKDATE("FORM LOAD")
+
+Timer_FORM_PROJECT_CHECK_DATE.Interval = 60000
 
 End Sub
 
@@ -356,6 +346,8 @@ End Sub
 
 Private Sub Timer_TIMEZONE_Timer()
 
+   ' Timer_TIMEZONE.Interval = 1000
+
     Dim FS
     Dim M1(10)
     Dim M2(10)
@@ -380,93 +372,103 @@ Private Sub Timer_TIMEZONE_Timer()
     i = i + 1: M3(i) = "7G"
     i = i + 1: M3(i) = "8M"
 
-    GOOSYNC_PORTABLE = ""
-    If Dir("C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\D_HDD_GOODSYNC2GO_RUNNER_" + GetComputerName + ".TXT") <> "" Then
-        GOOSYNC_PORTABLE = "Gs-D-Hdd __ "
-    End If
-    If GOOSYNC_PORTABLE = "" Then
-        If Dir("C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_C_HDD_GOODSYNC2GO_RUNNER\C_HDD_GOODSYNC2GO_RUNNER_" + GetComputerName + ".TXT") <> "" Then
-            GOOSYNC_PORTABLE = "Gs-c-Hdd __ "
+
+    MOD_VALUE_INTERVAL_1 = 10
+    MOD_VALUE_INTERVAL_2 = MOD_VALUE_INTERVAL_2 + 1
+    If MOD_VALUE_INTERVAL_2 Mod MOD_VALUE_INTERVAL_1 = 0 Then
+        MOD_VALUE_INTERVAL_2 = 0
+        GOOSYNC_PORTABLE = ""
+        If Dir("C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\D_HDD_GOODSYNC2GO_RUNNER_" + GetComputerName + ".TXT") <> "" Then
+            GOOSYNC_PORTABLE = "Gs-D-Hdd __ "
         End If
-    End If
-    GS = GOOSYNC_PORTABLE
-    
-    hWndForm = FindWindow("CabinetWClass", vbNullString)
-    Explorer_Path = StripNulls(GetWindowTitle(hWndForm))
-    Explorer_Path = Replace(Explorer_Path, "This PC", "")
-    
-    If Mid(Explorer_Path, 2, 1) <> ":" Then
-        If Mid(Explorer_Path, 1, 2) <> "\\" Then
-            Explorer_Path = ""
-        End If
-    End If
-    
-        
-    If Explorer_Path = "" Then
-        ' -------------------------------------------------------
-        ' IF NONE AT
-        ' EXPLORER_PATH
-        ' GIVE IT DEFAULT D DRIVE -- VIA TIMER_TIMEZONE_FIRST_RUN
-        ' -------------------------------------------------------
-        If TIMER_TIMEZONE_FIRST_RUN <> "" Then
-            Explorer_Path_OLD = TIMER_TIMEZONE_FIRST_RUN
-            TIMER_TIMEZONE_FIRST_RUN = ""
-        End If
-        If Explorer_Path_OLD <> "" Then
-            Explorer_Path = Explorer_Path_OLD
-        End If
-    End If
-    
-    Explorer_Path_OLD = Explorer_Path
-    TIMER_TIMEZONE_FIRST_RUN = ""
-    
-    If Explorer_Path <> "" Then
-        Set FS = CreateObject("Scripting.FileSystemObject")
-        If Mid(Explorer_Path, 1, 2) = "\\" Then
-            X2 = InStr(Explorer_Path, "\\")
-            If X2 > 0 Then
-                X21 = InStr(X2 + 2, Explorer_Path, "\")
-                X31 = InStr(X21 + 1, Explorer_Path, "\")
-                If X31 = 0 And X21 > 0 Then X31 = Len(Explorer_Path)
-                If X31 > 0 Then
-                    Explorer_Path = Mid(Explorer_Path, 1, X31)
-                End If
+        If GOOSYNC_PORTABLE = "" Then
+            If Dir("C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_C_HDD_GOODSYNC2GO_RUNNER\C_HDD_GOODSYNC2GO_RUNNER_" + GetComputerName + ".TXT") <> "" Then
+                GOOSYNC_PORTABLE = "Gs-c-Hdd __ "
             End If
         End If
-        If Mid(Explorer_Path, 2, 1) = ":" Then
-            Explorer_Path = Mid(Explorer_Path, 1, 1) + ":\"
+    
+        GS = GOOSYNC_PORTABLE
+        
+        hWndForm = FindWindow("CabinetWClass", vbNullString)
+        Explorer_Path = StripNulls(GetWindowTitle(hWndForm))
+        Explorer_Path = Replace(Explorer_Path, "This PC", "")
+        
+        If Mid(Explorer_Path, 2, 1) <> ":" Then
+            If Mid(Explorer_Path, 1, 2) <> "\\" Then
+                Explorer_Path = ""
+            End If
         End If
-        DRI = Explorer_Path
-        On Error Resume Next
-        Set G = FS.GetDrive(DRI)
-        If G.ISREADY = False Then Exit Sub
-        NUKE1 = G.freespace
-        On Error GoTo 0
-        'If nuke1 < MHD1 And nuke1 <> MHD1 Then E$ = "ã" Else E$ = "ä"
-    '    If nuke1 < MHD1 Then E$ = "ä"
-    '    If nuke1 > MHD1 And MHD1 > 0 Then E$ = "ã"
-    '    If nuke1 = MHD1 Then E$ = Label13.Caption
-    '    If MHD1 = 0 Then E$ = Label13.Caption
-        If NUKE1 > 0 Then
-        If Mid(Explorer_Path, 1, 2) = "\\" Then
-            DISPLAY_HDD_NET = LCase(Explorer_Path)
-            For r = 1 To i
-                DISPLAY_HDD_NET = Replace(DISPLAY_HDD_NET, LCase(M1(r)), M3(r))
-                DISPLAY_HDD_NET = Replace(DISPLAY_HDD_NET, LCase(M2(r)), "")
-                DISPLAY_HDD_NET = Replace(DISPLAY_HDD_NET, "\\", "")
-            Next
-            DISPLAY_HDD_NET = UCase(Replace(DISPLAY_HDD_NET, "_02_", ""))
-            ' DISPLAY_HDD_NET = UCase(Replace(DISPLAY_HDD_NET, "DRIVE", "HDD"))
+        
             
-            Explorer_Path = DISPLAY_HDD_NET
+        If Explorer_Path = "" Then
+            ' -------------------------------------------------------
+            ' IF NONE AT
+            ' EXPLORER_PATH
+            ' GIVE IT DEFAULT D DRIVE -- VIA TIMER_TIMEZONE_FIRST_RUN
+            ' -------------------------------------------------------
+            If TIMER_TIMEZONE_FIRST_RUN <> "" Then
+                Explorer_Path_OLD = TIMER_TIMEZONE_FIRST_RUN
+                TIMER_TIMEZONE_FIRST_RUN = ""
+            End If
+            If Explorer_Path_OLD <> "" Then
+                Explorer_Path = Explorer_Path_OLD
+            End If
         End If
-            FREE_BYTE = Explorer_Path + " " + Format$(NUKE1 / 1024 ^ 3, "0.0000") + " Gb __ "
+        
+        Explorer_Path_OLD = Explorer_Path
+        TIMER_TIMEZONE_FIRST_RUN = ""
+        
+        If Explorer_Path <> "" Then
+            Set FS = CreateObject("Scripting.FileSystemObject")
+            If Mid(Explorer_Path, 1, 2) = "\\" Then
+                X2 = InStr(Explorer_Path, "\\")
+                If X2 > 0 Then
+                    X21 = InStr(X2 + 2, Explorer_Path, "\")
+                    X31 = InStr(X21 + 1, Explorer_Path, "\")
+                    If X31 = 0 And X21 > 0 Then X31 = Len(Explorer_Path)
+                    If X31 > 0 Then
+                        Explorer_Path = Mid(Explorer_Path, 1, X31)
+                    End If
+                End If
+            End If
+            If Mid(Explorer_Path, 2, 1) = ":" Then
+                Explorer_Path = Mid(Explorer_Path, 1, 1) + ":\"
+            End If
+            DRI = Explorer_Path
+            On Error Resume Next
+            Set G = FS.GetDrive(DRI)
+            If G.ISREADY = False Then Exit Sub
+            NUKE1 = G.freespace
+            On Error GoTo 0
+            'If nuke1 < MHD1 And nuke1 <> MHD1 Then E$ = "ã" Else E$ = "ä"
+        '    If nuke1 < MHD1 Then E$ = "ä"
+        '    If nuke1 > MHD1 And MHD1 > 0 Then E$ = "ã"
+        '    If nuke1 = MHD1 Then E$ = Label13.Caption
+        '    If MHD1 = 0 Then E$ = Label13.Caption
+            If NUKE1 > 0 Then
+            If Mid(Explorer_Path, 1, 2) = "\\" Then
+                DISPLAY_HDD_NET = LCase(Explorer_Path)
+                For r = 1 To i
+                    DISPLAY_HDD_NET = Replace(DISPLAY_HDD_NET, LCase(M1(r)), M3(r))
+                    DISPLAY_HDD_NET = Replace(DISPLAY_HDD_NET, LCase(M2(r)), "")
+                    DISPLAY_HDD_NET = Replace(DISPLAY_HDD_NET, "\\", "")
+                Next
+                DISPLAY_HDD_NET = UCase(Replace(DISPLAY_HDD_NET, "_02_", ""))
+                ' DISPLAY_HDD_NET = UCase(Replace(DISPLAY_HDD_NET, "DRIVE", "HDD"))
+                
+                Explorer_Path = DISPLAY_HDD_NET
+            End If
+                FREE_BYTE = Explorer_Path + " " + Format$(NUKE1 / 1024 ^ 3, "0.0000") + " Gb __ "
+            End If
         End If
+    
     End If
+
     LAB_TIMEZONE.Caption = FREE_BYTE + GS + Format(Now + TimeSerial(10, 0, 0), "DDD  HH : MM : SS  AM/PM")
-    LAB_TIMEZONE.AutoSize = False
-    LAB_TIMEZONE.Refresh
-    LAB_TIMEZONE.AutoSize = True
+    
+    'LAB_TIMEZONE.AutoSize = False
+    'LAB_TIMEZONE.Refresh
+    'LAB_TIMEZONE.AutoSize = True
     
     Me.Width = LAB_TIMEZONE.Width + 200
     Me.Height = LAB_TIMEZONE.Height
@@ -475,13 +477,7 @@ End Sub
 
 
 
-Private Sub Timer1_Timer()
 
-    Timer1.Enabled = False
-
-    'ProgressBar1.Value = GetVolume(SPEAKER)
-
-End Sub
 
 Private Sub Timer2_Timer()
 
@@ -678,5 +674,19 @@ Sub GET_VB_PROJECT_NAME_TO_EXE(CODER_EXE_FILE_NAME_1, CODER_VBP_FILE_NAME_2)
     CODER_VBP_FILE_NAME_2 = FILE_SPEC_GO
 End Sub
 
+
+
+'***********************************************
+'# Check, whether we are in the IDE
+Function IsIDE() As Boolean
+  Debug.Assert Not TestIDE(IsIDE)
+  
+  'TESTING
+'  IsIDE = False
+End Function
+Private Function TestIDE(Test As Boolean) As Boolean
+  Test = True
+End Function
+'***********************************************
 
 
