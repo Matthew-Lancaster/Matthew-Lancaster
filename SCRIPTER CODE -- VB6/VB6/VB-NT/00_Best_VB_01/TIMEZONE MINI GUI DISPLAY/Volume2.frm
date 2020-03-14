@@ -18,6 +18,7 @@ Begin VB.Form FORM_1
    ScaleHeight     =   4416
    ScaleWidth      =   4680
    ShowInTaskbar   =   0   'False
+   Visible         =   0   'False
    Begin VB.Timer Timer_FORM_PROJECT_CHECK_DATE 
       Interval        =   2000
       Left            =   2880
@@ -107,6 +108,11 @@ Attribute VB_Exposed = False
 ' -------------------------------------------------------------------
 ' LOCATION ON-LINE
 ' -------------------------------------------------------------------
+
+
+
+Public cProcesses As New clsCnProc
+
 
 Dim GS
 Dim FREE_BYTE
@@ -219,6 +225,7 @@ Private Sub Form_Load()
         End If
     End If
 
+        
     
     TIMER_TIMEZONE_FIRST_RUN = "D:\"
     
@@ -240,7 +247,9 @@ Private Sub Form_Load()
     LAB_TIMEZONE.ToolTipText = UCase(App.Path + " ---- \ ---- " + App.EXEName + ".EXE")
     
     ' Call TIMER_SET_POSITION_Timer
-
+    LAB_TIMEZONE.Caption = ""
+    LAB_TIMEZONE.Visible = False
+    Me.Visible = False
 End Sub
 
 Private Sub Form_Resize()
@@ -258,8 +267,12 @@ End Sub
 Sub TIMER_SET_POSITION_Timer()
     
     On Error Resume Next
-    Me.Show
+    ' Me.Show
+    
     Me.WindowState = vbNormal
+    If Err.Number > 0 Then Exit Sub
+    
+    
     If STR_ME_TOP = "" Then
         Me.Top = 150
         Me.Left = 680
@@ -273,7 +286,7 @@ Sub TIMER_SET_POSITION_Timer()
     
     LAB_TIMEZONE.Top = 0
     LAB_TIMEZONE.Left = 0
-    LAB_TIMEZONE.Width = 100
+'    LAB_TIMEZONE.Width = 100
     LAB_TIMEZONE.FontName = "Arial"
     FONT_SIZE = 15
     If GetComputerName = "1-ASUS-X5DIJ" Then FONT_SIZE = 13
@@ -281,14 +294,15 @@ Sub TIMER_SET_POSITION_Timer()
     LAB_TIMEZONE.FontSize = FONT_SIZE
     LAB_TIMEZONE.FontBold = True
     Call Timer_TIMEZONE_Timer
-    LAB_TIMEZONE.AutoSize = False
-    LAB_TIMEZONE.Refresh
-    LAB_TIMEZONE.AutoSize = True
+    ' LAB_TIMEZONE.AutoSize = False
+    ' LAB_TIMEZONE.Refresh
+    ' LAB_TIMEZONE.AutoSize = True
     LAB_TIMEZONE.Left = 100
     
     Me.Width = LAB_TIMEZONE.Width + 200
     Me.Height = LAB_TIMEZONE.Height
     
+    If Err.Number > 0 Then Exit Sub
     AlwaysOnTop (Me.hWnd)
 
     If Err.Number = 0 Then
@@ -464,8 +478,13 @@ Private Sub Timer_TIMEZONE_Timer()
     
     End If
 
+    VAR_X = Len(FREE_BYTE) + Len(GS)
+    If LAB_TIMEZONE.Caption = "" And VAR_X > 0 Then
+        LAB_TIMEZONE.Visible = True
+        Me.Visible = True
+    End If
     LAB_TIMEZONE.Caption = FREE_BYTE + GS + Format(Now + TimeSerial(10, 0, 0), "DDD  HH : MM : SS  AM/PM")
-    
+
     'LAB_TIMEZONE.AutoSize = False
     'LAB_TIMEZONE.Refresh
     'LAB_TIMEZONE.AutoSize = True
@@ -549,12 +568,12 @@ End Function
 
 
 Function GetWindowTitle(ByVal hWnd As Long) As String
-   Dim l As Long
-   Dim s As String
-   l = GetWindowTextLength(hWnd)
-   s = Space(l + 1)
-   GetWindowText hWnd, s, l + 1
-   GetWindowTitle = Left$(s, l)
+   Dim L As Long
+   Dim S As String
+   L = GetWindowTextLength(hWnd)
+   S = Space(L + 1)
+   GetWindowText hWnd, S, L + 1
+   GetWindowTitle = Left$(S, L)
 
 End Function
 
