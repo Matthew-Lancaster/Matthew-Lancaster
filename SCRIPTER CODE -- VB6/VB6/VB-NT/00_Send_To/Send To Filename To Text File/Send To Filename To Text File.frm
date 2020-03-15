@@ -262,6 +262,10 @@ Private Function TestIDE(Test As Boolean) As Boolean
 End Function
 '***********************************************
 
+Private Sub Form_Load()
+
+End Sub
+
 Private Sub Timer_MAIN_Timer()
 'at$ = Command$
 
