@@ -1,0 +1,514 @@
+----
+Video File Formats
+http://fileinfo.com/filetypes/video
+----
+
+
+ 
+Search
+Advanced Search  
+File Types Software Quizzes Help
+Home : Browse : Video Files
+
+Video Files
+
+The Video Files category includes a wide range of video formats, which use different codecs to encode and compress video data. This category also includes video project files and video information files, which may not contain video data.
+
+Common video file extensions include .MPG, .MOV, .WMV, and .RM.
+
+File Extension	File Type	Popularity
+.264	Ripped Video Data File	
+.3G2	3GPP2 Multimedia File	
+.3GP	3GPP Multimedia File	
+.3GP2	3GPP Multimedia File	
+.3GPP	3GPP Media File	
+.3GPP2	3GPP2 Multimedia File	
+.3MM	3D Movie Maker Movie Project	
+.3P2	3GPP Multimedia File	
+.60D	CCTV Video Clip	
+.787	AVTECH CCTV Video File	
+.890	Cavena Subtitles File	
+.AAF	Advanced Authoring Format File	
+.AEC	Cinema 4D After Effects Composition	
+.AEP	After Effects Project	
+.AEPX	After Effects XML Project	
+.AET	After Effects Project Template	
+.AETX	After Effects XML Project Template	
+.AJP	CCTV Video File	
+.ALE	Avid Log Exchange File	
+.AM	Anark Media File	
+.AMC	AMC Video File	
+.AMV	Anime Music Video File	
+.AMX	Adobe Motion Exchange File	
+.ANIM	Amiga Animation File	
+.ANX	Annodex Exchange Format File	
+.AQT	AQTitle Subtitles File	
+.ARCUT	Prelude Rough Cut File	
+.ARF	WebEx Advanced Recording File	
+.ASF	Advanced Systems Format File	
+.ASX	Microsoft ASF Redirector File	
+.AVB	Avid Bin File	
+.AVC	Avid Media Composer Script	
+.AVCHD	High Definition Video File	
+.AVD	Movie Edit Pro Video Information File	
+.AVI	Audio Video Interleave File	
+.AVM	Anime Music Video	
+.AVP	Avid Project File	
+.AVS	AviSynth Script File	
+.AVS	Application Visualization System File	
+.AVV	Avid Volume Bin File	
+.AWLIVE	Active Webcam Video File	
+.AXM	AXMEDIS Object	
+.AXV	Annodex Video File	
+.BDM	AVHCD Information File	
+.BDMV	Blu-ray Disc Movie Information File	
+.BDT2	BEEDOCS Timeline 3D 2 Document	
+.BDT3	BEEDOCS Timeline 3D 3 Document	
+.BIK	Bink Video File	
+.BIN	Binary Video File	
+.BIX	Kodicom Video File	
+.BMC	Bolide Movie Creator Project File	
+.BMK	PowerDVD MovieMark File	
+.BNP	Sony Camcorder Video Data File	
+.BOX	Kodicom Video	
+.BS4	Mikogo Session Video Recording	
+.BSF	Blu-ray AVC Video File	
+.BU	Samsung CCTV Video File	
+.BVR	Blue Iris Video	
+.BYU	Brigham Young University Movie File	
+.CAMPROJ	Camtasia Studio Project	
+.CAMREC	Camtasia Studio Screen Recording	
+.CAMV	Camtasia Video File	
+.CED	JVC Camera Video Data File	
+.CEL	FLIC Animation	
+.CINE	Phantom Digital Video File	
+.CIP	Cavena Subtitles File	
+.CLK	ClickView Video File	
+.CLPI	Blu-ray Clip Information File	
+.CMMP	Camtasia MenuMaker Project	
+.CMMTPL	Camtasia MenuMaker Template	
+.CMPROJ	Camtasia Project File	
+.CMREC	Camtasia Recording	
+.CMV	CorelMOVE Animation	
+.CPI	AVCHD Video Clip Information File	
+.CPVC	Adobe Captivate Video Composition	
+.CST	Director External Cast File	
+.CVC	cVideo	
+.CX3	CMS Recorded Video File	
+.D2V	DVD2AVI File	
+.D3V	Datel Video File	
+.DASH	MPEG-DASH Video File	
+.DAT	VCD Video File	
+.DAV	DVR365 Video File	
+.DB2	Samsung CCTV Video Information File	
+.DCE	DriveCam Video File	
+.DCK	Resolume Deck File	
+.DCR	Liberty Video Recording File	
+.DCR	Digital Court Recorder Video File	
+.DDAT	DivX Temporary Video File	
+.DIF	Digital Interface Format	
+.DIR	Adobe Director Movie	
+.DIVX	DivX-Encoded Movie File	
+.DLX	Sony VDU Video File	
+.DMB	Digital Multimedia Broadcasting File	
+.DMSD	Roxio MyDVD Project	
+.DMSD3D	Roxio MyDVD 3D Project	
+.DMSM	VideoWave Movie Project File	
+.DMSM3D	VideoWave 3D Movie Project File	
+.DMSS	VideoWave SlideShow Project File	
+.DMX	Source Filmmaker Project File	
+.DNC	Windows Dancer File	
+.DPA	DrawPlus Animation File	
+.DPG	Nintendo DS Movie File	
+.DREAM	Dream Animated Wallpaper File	
+.DSY	Besta Video File	
+.DV	Digital Video File	
+.DV-AVI	Microsoft DV-AVI Video File	
+.DV4	Bosch Security Systems CCTV Video File	
+.DVDMEDIA	RipIt DVD Package	
+.DVR	Microsoft Recorded TV Show	
+.DVR-MS	Microsoft Digital Video Recording	
+.DVX	DivX Video File	
+.DXR	Protected Macromedia Director Movie	
+.DZM	DirectorZone Menu Template	
+.DZP	DirectorZone Particle Effect File	
+.DZT	DirectorZone Title File	
+.EDL	Edit Decision List File	
+.EVO	SeeVogh Player Video Recording	
+.EVO	HD DVD Video File	
+.EXO	YouTube Video Chunk File	
+.EYE	Eyemail Video Recording File	
+.EYETV	EyeTV Recording File	
+.EZT	EZTitles Subtitles File	
+.F4F	Flash Video Fragment	
+.F4P	Adobe Flash Protected Media File	
+.F4V	Flash MP4 Video File	
+.FBR	FlashBack Screen Recording	
+.FBR	Mercury Screen Recording	
+.FBZ	FlashBack Screen Recorder Movie	
+.FCARCH	Final Cut Pro Archive	
+.FCP	Final Cut Project	
+.FCPROJECT	Final Cut Pro X Project File	
+.FFD	ffDiaporama Project File	
+.FFM	FFmpeg Stream File	
+.FLC	FLIC Animation	
+.FLH	FLIC Animation File	
+.FLI	FLIC Animation	
+.FLIC	FLIC Animation	
+.FLV	Animate Video File	
+.FLX	FLIC Animation	
+.FPDX	Utilius Fairplay Project	
+.FTC	FluxTime Clip File	
+.G2M	GoToMeeting Recording File	
+.G64	Genetec Video File	
+.GCS	Cineform Studio Video Project	
+.GFP	GreenForce-Player Protected Media File	
+.GIFV	GIF Video File	
+.GL	GRASP Animation	
+.GOM	GOM Media File	
+.GRASP	GRASP Animation	
+.GTS	CaptiveWorks PVR Video File	
+.GVI	Google Video File	
+.GVP	Google Video Pointer	
+.GXF	General eXchange Format File	
+.H264	H.264 Encoded Video File	
+.HDMOV	QuickTime HD Movie File	
+.HDV	High Definition Video Format	
+.HKM	Havok Movie File	
+.IFO	DVD-Video Disc Information File	
+.IMOVIELIBRARY	iMovie Library File	
+.IMOVIEMOBILE	iOS iMovie Project File	
+.IMOVIEPROJ	iMovie Project File	
+.IMOVIEPROJECT	iMovie Project	
+.INP	Sony Camcorder Image Management File	
+.INT	Sony Camcorder Image Management File	
+.IRCP	SpeedGrade IRIDAS Composite File	
+.IRF	CCTV DVR H.264 Video File	
+.ISM	IIS Smooth Streaming Manifest File	
+.ISMC	Smooth Streaming Client Manifest File	
+.ISMCLIP	iStopMotion Animation Clip	
+.ISMV	IIS Smooth Streaming Video File	
+.IVA	Surveillance Video File	
+.IVF	Indeo Video Format File	
+.IVR	Internet Video Recording	
+.IVS	Internet Streaming Video	
+.IZZ	Isadora Media Control Project	
+.IZZY	Isadora Project	
+.JMV	Jnes Movie File	
+.JSS	JACOsub Subtitle File	
+.JTS	Cyberlink AVCHD Video File	
+.JTV	JRiver TV File	
+.K3G	3GP Mobile Phone Video File	
+.KDENLIVE	Kdenlive Project File	
+.KMV	Mobile DJ Video File	
+.KTN	KTooN Animation Project File	
+.LREC	Inter-Tel Web Conference Recording	
+.LRV	Low Resolution Video File	
+.LSF	Streaming Media Format	
+.LSX	Streaming Media Shortcut	
+.LVIX	Lightworks Video Index File	
+.M15	MPEG Video	
+.M1PG	iFinish Video Clip	
+.M1V	MPEG-1 Video File	
+.M21	MPEG-21 File	
+.M21	AXMEDIS MPEG-21 File	
+.M2A	MPEG-1 Layer 2 Audio File	
+.M2P	MPEG-2 Program Stream File	
+.M2T	HDV Video File	
+.M2TS	Blu-ray BDAV Video File	
+.M2V	MPEG-2 Video	
+.M4E	MPEG-4 Video File	
+.M4U	MPEG-4 Playlist	
+.M4V	iTunes Video File	
+.M75	MPEG Video	
+.MANI	Mine-imator Project File	
+.META	RealPlayer Metafile	
+.MGV	PSP Video File	
+.MJ2	Motion JPEG 2000 Video Clip	
+.MJP	MJPEG Video File	
+.MJPEG	Motion JPEG Video File	
+.MJPG	Motion JPEG Video File	
+.MK3D	Matroska 3D Video File	
+.MKV	Matroska Video File	
+.MMV	MicroMV Video File	
+.MNV	PlayStation Movie File	
+.MOB	MOBTV Video File	
+.MOD	Camcorder Recorded Video File	
+.MODD	Sony Video Analysis File	
+.MOFF	Sony Video Analysis Index File	
+.MOI	MOI Video File	
+.MOOV	Apple QuickTime Movie	
+.MOV	Apple QuickTime Movie	
+.MOVIE	QuickTime Movie File	
+.MP21	MPEG-21 Multimedia File	
+.MP21	AXMEDIS MPEG-21 Object	
+.MP2V	MPEG-2 Video File	
+.MP4	MPEG-4 Video File	
+.MP4.INFOVID	Parrot AR Drone and Gyro Flyer Video	
+.MP4V	MPEG-4 Video	
+.MPE	MPEG Movie File	
+.MPEG	MPEG Movie	
+.MPEG1	MPEG-1 Video File	
+.MPEG2	MPEG-2 Video File	
+.MPEG4	MPEG-4 File	
+.MPF	MainActor Project File	
+.MPG	MPEG Video File	
+.MPG2	MPEG-2 Video File	
+.MPG4	MPEG-4 Video File	
+.MPGINDEX	Adobe MPEG Index File	
+.MPL	AVCHD Playlist File	
+.MPL	MPL2 Subtitles File	
+.MPLS	Blu-ray Movie Playlist File	
+.MPROJ	Mine-imator Project	
+.MPSUB	MPlayer Subtitles File	
+.MPV	MPEG Elementary Stream Video File	
+.MPV2	MPEG-2 Video Stream	
+.MQV	Sony Movie Format File	
+.MSDVD	Windows DVD Maker Project File	
+.MSE	MediaShow Slideshow Project File	
+.MSH	Visual Communicator Project File	
+.MSWMM	Windows Movie Maker Project	
+.MT2S	MPEG-2 Transport Stream File	
+.MTS	AVCHD Video File	
+.MTV	MTV Video Format File	
+.MVB	Multimedia Viewer Book Source File	
+.MVC	Movie Collector Catalog	
+.MVD	Movie Edit Pro Movie File	
+.MVE	Infinity Engine Movie File	
+.MVEX	Muvee autoProducer 6 Project File	
+.MVP	MAGIX Video Project File	
+.MVP	MoviePlus Project File	
+.MVY	Video easy Project File	
+.MXF	Material Exchange Format File	
+.MXV	MAGIX Video File	
+.MYS	Vineyard Captured Video File	
+.NCOR	Adobe Encore Project File	
+.NSV	Nullsoft Streaming Video File	
+.NTP	Natron Project File	
+.NUT	NUT Video File	
+.NUV	NuppelVideo File	
+.NVC	NeroVision Express Project File	
+.OGM	Ogg Media File	
+.OGV	Ogg Video File	
+.OGX	Ogg Vorbis Multiplexed Media File	
+.ORV	Oracom Video File	
+.OSP	OpenShot Project File	
+.OTRKEY	OnlineTvRecorder Encoded Video File	
+.PAC	PAC Subtitles File	
+.PAR	Dedicated Micros DVR Recording	
+.PDS	PowerDirector Script File	
+.PGI	Video Recording File	
+.PHOTOSHOW	Roxio PhotoShow Project	
+.PIV	Pivot Stickfigure Animation	
+.PJS	Phoenix Subtitles File	
+.PLAYLIST	CyberLink PowerDVD Playlist	
+.PLPROJ	Adobe Prelude Project File	
+.PMF	PSP Movie File	
+.PMV	Return to Zork Video File	
+.PNS	Pelco CCTV Video File	
+.PPJ	Premiere 6 Project File	
+.PREL	Premiere Elements Project File	
+.PRO	ProPresenter Export File	
+.PRO4DVD	ProPresenter DVD Clips Document	
+.PRO5DVD	ProPresenter DVD Clips Document	
+.PROQC	ProPresenter Quartz Composition	
+.PRPROJ	Premiere Pro Project	
+.PRTL	Premiere Pro Title File	
+.PSB	PowerDivX Subtitles File	
+.PSH	Photodex Slide Show	
+.PSSD	PhotoSuite Slide Show File	
+.PVA	PVA Video File	
+.PVR	Wintal PVR Video File	
+.PXV	Pixbend Media File	
+.QT	Apple QuickTime Movie	
+.QTCH	QuickTime Cache File	
+.QTINDEX	Adobe QTIndex File	
+.QTL	QuickTime Link File	
+.QTM	Apple QuickTime Movie File	
+.QTZ	Quartz Composer File	
+.R3D	REDCODE Video File	
+.RCD	pcAnywhere Recorded Session File	
+.RCPROJECT	iMovie '08 Project	
+.RCREC	LogMeIn Remote Control Session Recording	
+.RCUT	Webinaria Recording Cut	
+.RDB	Wavelet Video Images File	
+.REC	Topfield PVR Recording	
+.RM	RealMedia File	
+.RMD	RED Metadata File	
+.RMD	RealPlayer Media File	
+.RMP	RealPlayer Metadata Package File	
+.RMS	Secure Real Media File	
+.RMV	The Simpsons Hit & Run Video File	
+.RMVB	RealMedia Variable Bit Rate File	
+.ROQ	Id Software Game Video	
+.RP	RealPix Clip	
+.RSX	RED Metadata XML File	
+.RTS	RealPlayer Streaming Media	
+.RTS	QuickTime Real-Time Streaming Format	
+.RUM	Bink Video Subtitle File	
+.RV	Real Video File	
+.RVID	Snapz Pro X Recorded Video File	
+.RVL	Muvee Reveal X Project File	
+.SAN	Smush Animation File	
+.SBK	SWiSH Project Backup File	
+.SBT	SBT Subtitle File	
+.SBZ	ShowBiz Project File	
+.SCC	ScreenFlow Screen Recording	
+.SCM	ScreenCam Screen Recording	
+.SCM	Super Chain Media File	
+.SCN	Pinnacle Studio Scene File	
+.SCREENFLOW	ScreenFlow Document	
+.SDV	Studio DV Project File	
+.SEC	Samsung Security Video File	
+.SEC	GuinXell Video File	
+.SEDPRJ	Slideshow Studio Elements Project	
+.SEQ	NorPix StreamPix Sequence	
+.SFD	Sofdec Dreamcast Movie	
+.SFERA	Sfera 360° File	
+.SFVIDCAP	Sonic Foundry Video Capture File	
+.SIV	Silicon Imaging Video File	
+.SMI	SAMI Subtitles File	
+.SMI	SMIL Presentation	
+.SMIL	SMIL Presentation File	
+.SMK	Smacker Compressed Movie File	
+.SML	SMIL Slideshow Presentation	
+.SMV	VideoLink Mail Video File	
+.SNAGPROJ	Snagit Project File	
+.SPL	FutureSplash Animation	
+.SQZ	Squeeze Project File	
+.SRT	SubRip Subtitle File	
+.SSF	Structured Subtitle Format File	
+.SSM	Standard Streaming Metafile	
+.STL	Spruce Technologies Subtitle File	
+.STR	PlayStation Video Stream	
+.STX	Pinnacle Studio Project File	
+.SVI	Samsung Video File	
+.SWF	Shockwave Flash Movie	
+.SWI	SWiSH Project File	
+.SWT	Flash Generator Template	
+.TDA3MT	DivX Author Template File	
+.TDT	AVCHD Thumbnail File	
+.TDX	D-TEG CCTV Video Information File	
+.THEATER	iMovie Theater File	
+.THP	Wii/GameCube Video File	
+.TID	AVCHD Thumbnail File	
+.TIVO	TiVo Video File	
+.TIX	DivX Video Download Activation File	
+.TOD	JVC Everio Video Capture File	
+.TP	Beyond TV Transport Stream File	
+.TP0	Mascom PVR Video File	
+.TPD	Cyberlink TOD Video File	
+.TPR	TMPGEnc Project File	
+.TREC	TechSmith Recording File	
+.TRP	HD Video Transport Stream	
+.TS	Video Transport Stream File	
+.TSP	Digital TV DVR Recording	
+.TTXT	MPEG-4 Timed Text Subtitles File	
+.TVLAYER	BoinxTV TV Layer	
+.TVRECORDING	BoinxTV TV recording	
+.TVS	TeamViewer Video Session File	
+.TVSHOW	BoinxTV TV Show	
+.USF	Universal Subtitles Format File	
+.USM	USM Game Video File	
+.V264	v264 IPROBOT3 Video File	
+.VBC	VodBurner Crude Video File	
+.VC1	VC-1 Video File	
+.VCPF	VideoConvert Project File	
+.VCR	ATI Video Card Recording	
+.VCV	ViewCave Video File	
+.VDO	VDOLive Media File	
+.VDR	VirtualDub Signpost File	
+.VDX	The 7th Guest Video File	
+.VEG	Vegas Video Project	
+.VEM	Meta Media Video E-Mail File	
+.VEP	AVS Video Editor Project File	
+.VF	Vegas Movie Studio Project File	
+.VFT	VideoStudio Filter File	
+.VFW	Video for Windows	
+.VFZ	Creative Webcam Video Effects File	
+.VGZ	DigitalVDO Compressed Video File	
+.VID	Generic Video File	
+.VIDEO	aTube Catcher Video File	
+.VIEWLET	Qarbon Viewlet	
+.VIV	VivoActive Video File	
+.VIVO	VivoActive Video File	
+.VIX	Lightworks Video Index File	
+.VLAB	VisionLab Studio Project File	
+.VMLF	VAIO Video File	
+.VMLT	VAIO Video File	
+.VOB	DVD Video Object File	
+.VP3	On2 Streaming Video File	
+.VP6	TrueMotion VP6 Video File	
+.VP7	TrueMotion VP7 Video File	
+.VPJ	VideoPad Video Editor Project File	
+.VRO	DVD Video Recording Format	
+.VS4	AVTECH CCTV Video Surveillance File	
+.VSE	AVTECH CCTV Video	
+.VSP	VideoStudio Project File	
+.VTT	Web Video Text Tracks File	
+.W32	WinCAPs Subtitle File	
+.WCP	WinDVD Creator Project File	
+.WEBM	WebM Video File	
+.WFSP	Wondershare Fantashow Project	
+.WGI	Wildgame Innovations Video File	
+.WLMP	Windows Live Movie Maker Project File	
+.WM	Windows Media File	
+.WMD	Windows Media Download Package	
+.WMMP	Windows Movie Maker Project File	
+.WMV	Windows Media Video File	
+.WMX	Windows Media Redirector File	
+.WOT	WebEx Recording File	
+.WP3	Microsoft Photo Story Project File	
+.WPL	Windows Media Player Playlist	
+.WSVE	Wondershare Filmora for Mac Project File	
+.WTV	Windows Recorded TV Show File	
+.WVE	Wondershare Filmora Project File	
+.WVX	Windows Media Video Redirector	
+.WXP	Wax 2.0 Project	
+.XEJ	Expression Encoder Job File	
+.XEL	Expression Encoder Live Encoding File	
+.XESC	Expression Encoder Screen Capture File	
+.XFL	Animate Movie Archive	
+.XLMV	Xunlei Movie File	
+.XML	Cinelerra Video Project	
+.XMV	Xbox Media Video File	
+.XVID	Xvid-Encoded Video File	
+.Y4M	YUV4MPEG2 Video File	
+.YOG	Outerra Captured Video File	
+.YUV	YUV Video File	
+.ZEG	ZeroG Subtitles File	
+.ZM1	ZSNES Movie #1 File	
+.ZM2	ZSNES Movie #2 File	
+.ZM3	ZSNES Movie #3 File	
+.ZMV	ZSNES Movie File	
+All Categories
+
+Common File Types
+Text Files
+Data Files
+Audio Files
+Video Files
+eBook Files
+3D Images
+Raster Images
+Vector Images
+Camera Raw Images
+Page Layout Files
+Spreadsheet Files
+Database Files
+Executable Files
+Game Files
+CAD Files
+GIS Files
+Web Files
+Plugin Files
+Font Files
+System Files
+Settings Files
+Encoded Files
+Compressed Files
+Disk Images
+Developer Files
+Backup Files
+Misc Files
+© 2016 Sharpened Productions  |  Terms of Use  |  Privacy Policy  |  About  |  Contact
