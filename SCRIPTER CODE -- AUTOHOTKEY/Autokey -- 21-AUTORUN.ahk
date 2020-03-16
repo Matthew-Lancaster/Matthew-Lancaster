@@ -1145,14 +1145,14 @@ IF (A_ComputerName = "2-ASUS-EEE")
 
 	
 If ProcessExist("picpick.exe", A_UserName)=0
+{
+	FN_VAR:="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
+	IfExist, %FN_VAR%
 	{
-		FN_VAR:="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			Run, "%FN_VAR%" /startup , , HIDE
-		}
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%" /startup , , HIDE
 	}
+}
 
 If ProcessExist("RoboTaskBarIcon.exe", A_UserName)=0
 {
@@ -2335,7 +2335,21 @@ IF AttributeString
 ; -------------------------------------------------------------------
 
 
-; GOSUB TEAMVIWER_LOAD
+
+
+; -------------------------------------------------------------------
+If ProcessExist("USBSafelyRemove.exe", A_UserName)=0
+{
+	FN_VAR:="C:\Program Files (x86)\USB Safely Remove\USBSafelyRemove.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%" /startup , , HIDE
+	}
+}
+IfExist, %FN_VAR%
+	RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, USB Safely Remove
+; -------------------------------------------------------------------
 
 
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
