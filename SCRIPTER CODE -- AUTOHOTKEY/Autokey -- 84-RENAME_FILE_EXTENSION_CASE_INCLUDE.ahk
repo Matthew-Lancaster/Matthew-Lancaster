@@ -197,7 +197,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\VIDEO\"
-	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG WMV"
 	SET_ARRAY_3[ArrayCount]:=
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\NOKIA E72\"
@@ -269,6 +269,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\DD"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+
 	
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\DD"
