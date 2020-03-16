@@ -1603,8 +1603,8 @@ TIMER_SET_GO_GOOGLEDRIVESYNC:
 	; --------------------------
 	If OSVER_N_VAR=10
 		SET_GO_GOOGLEDRIVESYNC=1
-	IF (A_ComputerName = "5-ASUS-P2520LA") 
-		SET_GO_GOOGLEDRIVESYNC=1
+	IF (A_ComputerName = "4-ASUS-GL522VW") 
+		SET_GO_GOOGLEDRIVESYNC=0
 		
 	; ALL 3 HIGH END COMPUTER AND ASUS-5P
 	; -----------------------------------
