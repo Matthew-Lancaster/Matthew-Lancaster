@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "ComDlg32.OCX"
 Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.Ocx"
 Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.Ocx"
@@ -33,7 +33,6 @@ Begin VB.Form frmMain
       _ExtentY        =   508
       _Version        =   393217
       BackColor       =   16777215
-      Enabled         =   -1  'True
       HideSelection   =   0   'False
       ScrollBars      =   2
       Appearance      =   0
@@ -635,7 +634,7 @@ LockWindow lstProj.hWnd, False
 If mIndexes = "" Then
     BadRun = True
   
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Input As #FR1
@@ -1555,21 +1554,21 @@ For x = 0 To Cnt - 1
 
 Next
 
-If Dir(App.Path + "\#_Data", vbDirectory) = "" Then
+If Dir(App.Path + "\#_Data_Batch_Compiler", vbDirectory) = "" Then
     On Error Resume Next
-    MkDir App.Path + "\#_Data"
+    MkDir App.Path + "\#_Data_Batch_Compiler"
     If err.Number > 0 Then
-        MsgBox "ERROR MAKE DATA FOLDER" + vbCrLf + vbCrLf + App.Path + "\#_Data" + vbCrLf + vbCrLf + err.Description + vbCrLf + vbCrLf + "END"
+        MsgBox "ERROR MAKE DATA FOLDER" + vbCrLf + vbCrLf + App.Path + "\#_Data_Batch_Compiler" + vbCrLf + vbCrLf + err.Description + vbCrLf + vbCrLf + "END"
         End
     End If
     On Error GoTo 0
 End If
 
-If Dir(App.Path + "\#_Data\" + GetComputerName, vbDirectory) = "" Then
+If Dir(App.Path + "\#_Data_Batch_Compiler\" + GetComputerName, vbDirectory) = "" Then
     On Error Resume Next
-    MkDir App.Path + "\#_Data\" + GetComputerName
+    MkDir App.Path + "\#_Data_Batch_Compiler\" + GetComputerName
     If err.Number > 0 Then
-        MsgBox "ERROR MAKE DATA FOLDER" + vbCrLf + vbCrLf + App.Path + "\#_Data\" + GetComputerName + vbCrLf + vbCrLf + err.Description + vbCrLf + vbCrLf + "END"
+        MsgBox "ERROR MAKE DATA FOLDER" + vbCrLf + vbCrLf + App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + vbCrLf + vbCrLf + err.Description + vbCrLf + vbCrLf + "END"
         End
     End If
     On Error GoTo 0
@@ -1577,7 +1576,7 @@ End If
 
 
 
-Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
+Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
 If Dir(Tx$) <> "" Then
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
@@ -1810,6 +1809,14 @@ Private Sub MNU_VB_FOLDER_Click()
 Shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".vbp", vbMaximizedFocus
 End Sub
 
+Private Sub MNU_FOLDER_ME_Click()
+    Shell "EXPLORER /SELECT, " + App.Path + "\" + App.EXEName + ".VBP", vbMaximizedFocus
+    End
+    Beep
+    Me.WindowState = vbMinimized
+    End
+End Sub
+
 Private Sub MNU_VB_ME_Click()
     
     Dim CODER_VBP_FILE_NAME_2
@@ -1951,7 +1958,7 @@ Private Sub mnuAutoCompile_Click()
     
     
     
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
     If Dir(Tx$) <> "" Then
         DumVar = IsFileOpenDelay(Tx$)
         FR1 = FreeFile
@@ -2472,8 +2479,8 @@ Sub UpdateFileLoggs()
     Dim GOOD
     Dim TX1
             
-    TX1 = Tx$ = App.Path + "\#_Data\" + GetComputerName
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLogger.txt"
+    TX1 = Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLogger.txt"
     
     R_RESULT = CreateFolderTree(TX1)
     If R_RESULT = True Then
@@ -2493,7 +2500,7 @@ Sub UpdateFileLoggs()
         
     On Error Resume Next
     'Compilied projects count new thing include ones not compile succeed
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDatesCount.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDatesCount.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Input As #FR1
@@ -2501,21 +2508,21 @@ Sub UpdateFileLoggs()
     Close #FR1
     LV2 = Val(LVS) + 1
         
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDates.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDates.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Append As #FR1
         Print #FR1, Format$(TN, "DD-MM-YYYY HH:MM:SS") + Str(LV2)
     Close #FR1
 
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDatesCount.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDatesCount.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Output As #FR1
         Print #FR1, LV2
     Close #FR1
     
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierDaysToScan.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierDaysToScan.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Input As #FR1
@@ -2523,7 +2530,7 @@ Sub UpdateFileLoggs()
     Close #FR1
     DaysToScan2 = LV
     
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierDaysToScan.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierDaysToScan.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Output As #FR1
@@ -2531,7 +2538,7 @@ Sub UpdateFileLoggs()
     Close #FR1
     
     LV = 0
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerSeek.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerSeek.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Input As #FR1
@@ -2542,7 +2549,7 @@ Sub UpdateFileLoggs()
     If Val(DaysToScan2) <> DaysToScan Then HOX = 1
     
     LV3 = Now - DaysToScan
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDates.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDates.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Input Lock Write As #FR1
@@ -2570,14 +2577,14 @@ Sub UpdateFileLoggs()
         Loop Until EOF(FR1)
     Close #FR1
     
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerSeek.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerSeek.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Output As #FR1
         Print #FR1, HOX
     Close #FR1
 
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerCount1.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerCount1.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Output Lock Write As #FR1
@@ -2585,7 +2592,7 @@ Sub UpdateFileLoggs()
         Print #FR1, "Unique - VB Projects Compiled in (" + Trim(Str(DaysToScan)) + ") Days =" & Str(ScanPath.ListView1.ListItems.Count)
     Close #FR1
 
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerCount2.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerCount2.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Output Lock Write As #FR1
@@ -2603,7 +2610,7 @@ Sub UpdateFileLoggs()
         Print #FR1, "Unique VB Projects Compiled in (" + Trim(Str(DaysToScan)) + ") Days" & Str(ScanPath.ListView1.ListItems.Count)
     Close #FR1
 
-    Tx$ = App.Path + "\#_Data\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
+    Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
     Open Tx$ For Output As #FR1
