@@ -57,11 +57,12 @@ IF '%1%'=='/ADMIN' (
 @ECHO Got ADMIN Privileges
 
 
+REM -----------------------------------------------------------------
 pushd "%cd%"
-
 cd /d "%~dp0"
-
 CD \
+REM -----------------------------------------------------------------
+
 
 REM ------------------------------------------------------------------------------
 REM __ THIS HAS PROBLEM WHEN EXECUTING A PROGRAM THROUGHT NOTEPAD++ SHELLEXE LEARN
@@ -82,7 +83,7 @@ IF %errorlevel% EQU 0 SET VARLATCH2=WIN07
 ver | find "10.0." > nul
 IF %errorlevel% EQU 0 SET VARLATCH2=WIN10
 
-
+REM -----------------------------------------------------------------
 @ECHO OFF
 ECHO.
 @ECHO PROGRAM RUNNER NAME____
@@ -93,67 +94,60 @@ ECHO.
 ECHO.
 ECHO %~dp0
 ECHO.
+REM -----------------------------------------------------------------
 
 
-
+REM -----------------------------------------------------------------
 REM TIMEOUT /T 2
-
 REM C:\PStart\Progs\0_Nirsoft_Package\NirSoft\nircmd sendkeypress rwin+"m"
+REM -----------------------------------------------------------------
 
-
-
+REM -----------------------------------------------------------------
 REM CURRENT USER
+REM -----------------------------------------------------------------
 Reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /F /v "STARTUP_COMMON_04_ALL" /t REG_SZ /d "\"%~f0\"
+
 ECHO.
 
-
+REM -----------------------------------------------------------------
 REM ALL USERS
+REM -----------------------------------------------------------------
 REM Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /F /v "STARTUP_COMMON_04_ALL" /t REG_SZ /d "\"E:\01 Start Menu\#_0_STARTUP_COMMON_04_ALL\BAT 00 ELEVATED PRIV ADMIN _ START_UP.BAT\"
 
-REM START "" /WAIT "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 21-AutoRun.ahk"
-
-REM PAUSE
 
 ECHO RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT^>"C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2_RUN_NORTON_ONCE_AT_BOOT_AR_#NFS_EX_%A_ComputerName%.TXT"
-
 
 ECHO RUN_NORTON_ONCE_AT_BOOT_WITH_MIDNIGHT>"C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2_RUN_NORTON_ONCE_AT_BOOT_AR_#NFS_EX_%A_ComputerName%.TXT"
 
 ECHO.
 
-
 START "" "C:\Program Files\AutoHotkey\AutoHotkey.exe" "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 21-AutoRun.ahk"
+
 ECHO.
 
 SET X_TIME=24
 
-@IF NOT "%WINXP__%"=="YES" GOTO NOT_WINDOWS_XP
-@REM PAUSE
 @SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 @ECHO OFF
 
-@ECHO WINDOWS XP
-@REM 40 SECONDS
+@IF     "%WINXP__%"=="YES"  GOTO WINDOWS_XP
+@IF NOT "%WINXP__%"=="YES"  GOTO WINDOWS_7_UP_TO_WINDOWS_10
 
-
-
-FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
-FOR /L %%# IN (%X_TIME%,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
-	PING -n 2 127.0.0.1 >NUL:)
-
-:NOT_WINDOWS_XP
-@IF "%WINXP__%"=="YES" GOTO WINDOWS_XP
-@ECHO WINDOWS 7-UP TO WINDOWS 10
-TIMEOUT /T %X_TIME%
+:WINDOWS_7_UP_TO_WINDOWS_10
+	@ECHO WINDOWS_7_UP_TO_WINDOWS_10
+	TIMEOUT /T %X_TIME%
+GOTO ENDE
 
 :WINDOWS_XP
-
-:VERY_ENDER_BLOCK
+	@ECHO WINDOWS XP
+	FOR /F %%# IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%#"
+	FOR /L %%# IN (%X_TIME%,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
+		PING -n 2 127.0.0.1 >NUL:)
+GOTO ENDE
 
 :ENDE
 
 EXIT /B
-
 EXIT
 
 
@@ -209,23 +203,12 @@ REM START "" "C:\Program Files (x86)\Siber Systems\AI RoboForm\RoboTaskBarIcon.e
 REM IF %VARLATCH2% == WINXP GOTO NOT_HERE
 REM IF %VARLATCH2% == WIN07 GOTO NOT_HERE
 
-REM __ FROM __ HKCU\Software\Microsoft\Windows\CurrentVersion\Run
-REM START "" "C:\Program Files (x86)\Google\Drive\googledrivesync.exe" /autostart
-REM DONE BY AHK
 
-REM START "" "C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe" /min
-REM DONE BY AHK
-
-REM START "" "C:\Program Files (x86)\Nokia\Nokia Suite\NokiaSuite.exe" -tray
-REM DONE BY AHK
 
 REM START "" "C:\Users\MATT 01\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
 REM DONE BY AHK
 
 REM START "" "C:\Program Files (x86)\Pushbullet\pushbullet.exe" -show false
-REM DONE BY AHK
-
-REM START "" "C:\Program Files\OVH\hubiC\hubiC.exe"
 REM DONE BY AHK
 
 REM __ FROM __ HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
@@ -236,9 +219,6 @@ REM START "" "C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe" /min /auto
 REM DONE BY AHK
 
 REM START "" "C:\Program Files (x86)\WordWeb\wweb32.exe" -startup
-REM DONE BY AHK
-
-REM START "" "C:\Program Files (x86)\LastPass\lastapp_x64.exe"
 REM DONE BY AHK
 
 REM __ FROM __ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
@@ -255,64 +235,17 @@ REM DONE BY AHK
 REM START "" "C:\Program Files\Logitech\SetPointP\SetPoint.exe" /launchGaming
 REM START "" "C:\Program Files\Logitech\LogiOptions\LogiOptions.exe" /noui
 
-
-REM START "" /MIN "C:\PStart\Progs\#_PortableApps\Start.exe"
-
-
 REM ECHO MINIMIZE	
 REM C:\PStart\Progs\0_Nirsoft_Package\NirSoft\nircmd sendkeypress rwin+"m"
-
-REM ECHO TASKKILL ELITE*
-REM --------------------------------------------------------------------------------
-REM TIMEOUT /T 1
-REM TASKKILL /F /IM ELITE* /T
-
-REM C:\PStart\Progs\0_Nirsoft_Package\NirSoft\nircmd sendkeypress rwin+"m"
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk"	
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 02-SAVE AS KEY ENTER ON.ahk"
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 04-SET CAP NUM & SCROLL TO LIKING - ONCE.ahk"	
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 10-READ MOUSE CURSOR ICON STATE AND BEEPER WHEN NOT BUSY HOUR GLASS OVER.ahk"
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 14-Brightnes With Dimmer.ahk"
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 15-BLOCK KEY CTRL ENTER ON WEB PAGES MYSMS.ahk"
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 17-SWAP ALL ENTER KEY TO CTRL ENTER CHROME.ahk"
-
-REM START "" "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
-
-
-REM START "" /WAIT /B "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 11-F9 __ HOTKEY __ DELETE FILTER MACRO FOR _GOODSYNC CTRL_F9 PAUSE.ahk"
-REM START "" /WAIT /B "C:\SCRIPTER\SCRIPTER CODE -- AUTOKEY\Autokey -- 13-LOGITECH_SPEAKER_AUDIO 1Hz.ahk"
-
 
 
 
 REM A STARTUP TIME FOR GOODSYNC AND REQUIRE DELAY HERE MINIMUM = 10 NOT PROPER
 REM --------------------------------------------------------------------------
 
-REM CALL TIMEOUT /T 1
-REM TASKKILL /F /IM ELITE* /T	
-
-REM REQUIRE ALREADY RUNNNER DETECTION
-REM PUT BACK IN SHORTCUT
-REM start "" "C:\Program Files\OVH\hubiC\hubiC.exe"
-
 REM CMD /C "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 REGISTRY AT BOOTER.BAT"
 
-REM C:\PStart\Progs\0_Nirsoft_Package\NirSoft\nircmd sendkeypress rwin+"m"
-
-REM TIMEOUT /T 1
-
-REM C:\PStart\Progs\0_Nirsoft_Package\NirSoft\nircmd sendkeypress rwin+"m"
-
 REM start "" "D:\VB6\VB-NT\00_Best_VB_01\DELAYED_LOADER\SYSTEM_DELAYED_LOADER.exe"
-
-
 
 REM START "" /MIN "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 21-NORTON UPDATE and QUICK SCAN.BAT"
 
@@ -339,14 +272,12 @@ REM START "" /WAIT /B "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 12-KEEP WINDOWS UPDA
 REM :NOT_HERE
 
 
-
 REM EXIT 
 
 REM CMD /C "E:\REG KEY SETTINGS\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT"
 
 
-
-REM HELP ABOUT MINIMIZE ALL WINDOW AND THRON TO MIN AND RESTORE D RATHER THAN M MINIMIZE
+REM HELP ABOUT MINIMIZE ALL WINDOW AND TO MIN AND RESTORE D RATHER THAN M MINIMIZE
 
 REM ----
 REM batch script minimize all windows - Google Search
@@ -359,13 +290,6 @@ REM How to minimize all desktop windows via scripts ?
 REM https://www.experts-exchange.com/questions/22154358/How-to-minimize-all-desktop-windows-via-scripts.html
 REM ----
 
-
-
-
-REM START "" /WAIT /B "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\TASKKILLER ELITESPY.BAT"
-REM START "" /WAIT /B "TASKKILL" "/F /IM ELITE* /T"
-
-REM CALL TASKKILL /F /IM CMD* /T
 
 
 REM _ REFERENCES
@@ -440,7 +364,5 @@ REM %~dp$PATH:I - searches the directories listed in the PATH
                REM drive letter and path of the first one found.
 REM %~ftzaI     - expands %I to a DIR like output line
 REM In the above examples %I and PATH can be replaced by other valid values. The %~ syntax is terminated by a valid FOR variable name. Picking upper case variable names like %I makes it more readable and avoids confusion with the modifiers, which are not case sensitive.
-
-
 
 
