@@ -1,6 +1,0 @@
-------------------------------------------------
-Sat 08-Aug-2009 01:53:32 p
-D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\vcap_src\VCap_Src\VBDataNoArchive\WebCamTemp.Jpg
-D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\vcap_src\VCap_Src\VBDataNoArchive\WebCamTemp.txt
-------------------------------------------------
-Will be Deleted every Run at start of prog
