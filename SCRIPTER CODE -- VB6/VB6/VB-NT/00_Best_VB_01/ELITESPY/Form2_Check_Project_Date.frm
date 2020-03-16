@@ -21,7 +21,7 @@ Begin VB.Form Project_Check_Date
       Enabled         =   0   'False
       Interval        =   1000
       Left            =   3564
-      Top             =   1536
+      Top             =   1548
    End
    Begin VB.Timer TIMER_RUN_AND_THEN_HIDE_PRE_EVENT 
       Enabled         =   0   'False
@@ -45,7 +45,7 @@ Begin VB.Form Project_Check_Date
       Enabled         =   0   'False
       Interval        =   2000
       Left            =   1296
-      Top             =   780
+      Top             =   792
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
@@ -118,6 +118,8 @@ Attribute VB_Exposed = False
 'NETWORK SYNCRONIZATION WORK __ CURED A NIGGELY BUG BY REMOVING ONE
 'BEEP AT END
 '-----------------------------------------------------------
+
+Dim ONCE_STARTER_MODE
 
 
 Dim VB_APP_PATH_NAME_2 As String
@@ -411,12 +413,12 @@ Private Sub Label1_Change()
     Next
     
     SET_FORM_PROJECT_CHECK_DATE_SOME_INFO_TRIGGER_SHOW = True
-    PR_WIDTH = Project_Check_Date.Label2.width + 100
+    PR_WIDTH = Project_Check_Date.Label2.Width + 100
     Project_Check_Date.Label2.FontSize = 15
     On Error Resume Next
-    Project_Check_Date.width = PR_WIDTH
-    Project_Check_Date.height = Project_Check_Date.Label2.height + 800
-    Project_Check_Date.Left = Screen.width / 2 - (PR_WIDTH / 2)
+    Project_Check_Date.Width = PR_WIDTH
+    Project_Check_Date.Height = Project_Check_Date.Label2.Height + 800
+    Project_Check_Date.Left = Screen.Width / 2 - (PR_WIDTH / 2)
     
     Project_Check_Date.Label2.Left = 0
     Project_Check_Date.Label2.Top = 100
@@ -430,18 +432,24 @@ Private Sub Label1_Change()
 End Sub
 
 
-Private Sub Timer_VB_PROJECT_CHECKDATE_Timer()
+Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 
     If Me.EXIT_TRUE = True Then
         Unload Me
         Exit Sub
     End If
     
+    If ONCE_STARTER_MODE = True Then
+    Exit Sub
+    End If
+    ONCE_STARTER_MODE = True
+    
     ' --------------------------------------------------
     Call VB_PROJECT_CHECKDATE
     Call DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB
     Call DATE_OF_APP_EXE_AT_LOAD_SUB
     ' --------------------------------------------------
+
 
 End Sub
 
@@ -604,6 +612,12 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
         Exit Sub
     End If
     
+    If ONCE_STARTER_MODE = True Then
+    Exit Sub
+    End If
+    ONCE_STARTER_MODE = True
+    
+    
     RETRY_CRC_ERROR = 4
     
     Dim VB_DATE
@@ -636,6 +650,17 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
     APP_EXENAME_DATE = F.DateLastModified
     Set F = FSO.GetFile(PATH_FILE_NAME2)
     VB_EXE_DATE = F.DateLastModified
+    
+    ' NOT ANY FURTHER CHECK AFTER ONE
+    ' IF VB_EXE NOT MATCH VB THEN CONTUNE AHEAD
+    ' UNABLE STORE VARIABLE FOR ONE PASS
+    ' AS FORM UNLOADER
+    ' UNTIL BETTER AR
+    ' -----------------------------------------
+    If APP_EXENAME_DATE = VB_EXE_DATE Then
+        Exit Sub
+    End If
+    
     
     If APP_EXENAME_DATE > VB_EXE_DATE Then
         WxHex_FILE_2 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME2))
