@@ -1,0 +1,63 @@
+# robots.txt for http://matthewlan.com/
+
+User-agent: *
+Disallow: /index.html
+Disallow: /FileMenu
+Disallow: /FileMenu/
+Disallow: /awstats2/
+Disallow: /Backup/
+Disallow: /First_Index/
+Disallow: /Secure_Folder/
+Disallow: /ServerTest/
+Disallow: /Temp/
+Disallow: /WhoIs/
+Disallow: /FileMenu/autoindex/
+Disallow: /FileMenu/Ebooks/UFO Books/UFO Books/
+Disallow: /FileMenu/Videos/
+Disallow: /FileMenu/GuestBookArchive/
+Disallow: /FileMenu/index_icons/
+Disallow: /FileMenu/languages/
+Disallow: /FileMenu/Quotations/
+Disallow: /FileMenu/Sound-Music/
+Disallow: /FileMenu/Tv_Theme_Tunes/
+Disallow: /FileMenu/Videos/
+Disallow: /Photo_Links/
+Disallow: /about_me.htm
+Disallow: /Winamp Generated PlayList.htm
+Disallow: /Winamp%20Generated%20PlayList.htm
+Disallow: /0DOUBLE.HTM
+Disallow: /hallucinations.html
+Disallow: /matthew_lan_cv.html
+Disallow: /1listxxx_txt.html
+Disallow: /my_prescription_charges.htm
+Disallow: /joke-s.html
+Disallow: /cannabis_link.htm
+Disallow: /death.htm
+Disallow: /quotes_an_stuff.html
+Disallow: /0acron_txt.html
+Disallow: /about_me_and_my_family.htm
+Disallow: /about_me.htm
+Disallow: /matts_project.htm
+Disallow: /1goodkarma_txt.html
+Disallow: /sz_an_med_info.html
+Disallow: /yahoo_photo_link.htm
+Disallow: /delusions.htm 
+Disallow: /dates_and_events.htm
+Disallow: /moon_earth_and_sun.htm
+Disallow: /0past_txt.html
+Disallow: /delusions.htm
+Disallow: /photos.htm
+Disallow: /Photos/Photos_Jpgs/
+Disallow: /Photos/A1_Menu/Photos_HTML/
+Disallow: /Photos_The%20Young%20Me.htm
+Disallow: /Photos_The Young Me.htm
+Disallow: /Photos_Where_I_Live.htm
+Disallow: /Photos_Funny.htm
+Disallow: /Photos_Fractals.htm
+Disallow: /Photos_The_Young_Me.htm
+Disallow: /Photos_My_Mathmatical_V-Basic_Drawings.htm
+Disallow: /Photos_Matts_Photos.htm
+Disallow: /Photos_My_Archive.htm
+Disallow: /Photos_Paradise.htm
+Disallow: /Photos_Sea-Water_Shots.htm
+
