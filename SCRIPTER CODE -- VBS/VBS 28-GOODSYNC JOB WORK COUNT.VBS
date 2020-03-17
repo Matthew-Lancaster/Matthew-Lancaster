@@ -174,7 +174,7 @@ Set objFile = FSO.CreateTextFile(SCRIPT_NAME_2)
 objFile.Write I_X
 SET fso = NOTHING
 
-MSGBOX I_X,vbMsgBoxSetForeground 
+MSGBOX I_X,vbMsgBoxSetForeground,Wscript.ScriptName 
 
 WScript.Quit(0)
 '--------------------------------------------------------------------
