@@ -41,7 +41,7 @@ Set File_2 = fso.OpenTextFile("C:\Users\MATT 01\AppData\Roaming\GoodSync\jobs-gr
 
 File_2.Write TT_EDITOR
 
-MsgBox "Done Total " & Counter_VAR & " Proecesses",vbMsgBoxSetForeground 
+MsgBox "Done Total " & Counter_VAR & " Proecesses",vbMsgBoxSetForeground,Wscript.ScriptName
 
 
 ' Const vbFromUnicode = 128
