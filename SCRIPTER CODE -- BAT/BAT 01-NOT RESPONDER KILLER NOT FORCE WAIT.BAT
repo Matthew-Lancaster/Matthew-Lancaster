@@ -94,10 +94,24 @@ IF "%INPUT%" == "Y" GOTO YES
 GOTO NOT
 :YES
 ECHO.
-ECHO ON
-TASKKILL %CMD_TASKKILLER%
-@ECHO OFF
-:NOT
+REM ECHO ON
+ECHO.
+ECHO ----------------------------------------------------------------
+ECHO RUN COMMAND
+ECHO ----------------------------------------------------------------
+ECHO TASKKILL %CMD_TASKKILLER%
+ECHO ----------------------------------------------------------------
+TASKKILL %CMD_TASKKILLER% >%FILENAME_ER% 2>>&1
+TYPE %FILENAME_ER%
+
+find "Sent termination signal to the process with PID" %FILENAME_ER%>NUL
+SET ERR_1=%ERRORLEVEL%
+ECHO.
+
+IF "%ERR_1%"=="0"      ECHO ---- ERRORLEVEL FROM FIND GIVER RESULT ^> 0
+IF NOT "%ERR_1%"=="0"  ECHO ---- ERRORLEVEL FROM FIND RESULT NOTHING 0
+IF "%ERR_1%"=="0"      SET TIMER_DELAY=40
+IF NOT "%ERR_1%"=="0"  SET TIMER_DELAY=10
 
 ECHO.
 ECHO -----------------------------------------------------------------------------------------------
@@ -114,5 +128,7 @@ IF NOT "%WINXP__%"=="YES" GOTO NOT_WINDOWS_XP
 	TIMEOUT /T %TIMER_DELAY%
 :NOT_WINDOWS_XP_JUMP
 ECHO.
-	
-REM EXIT
+
+IF NOT "%ERR_1%"=="0" EXIT
+IF "%ERR_1%"=="0"     PAUSE
+EXIT
