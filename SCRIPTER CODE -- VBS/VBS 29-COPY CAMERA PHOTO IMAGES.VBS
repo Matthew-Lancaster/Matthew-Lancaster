@@ -202,7 +202,7 @@ FOR EACH objProcess IN colProcesses
 	END IF
 NEXT
 ' -------------------------------------------------------------------
-' MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(iMyPID),vbMsgBoxSetForeground 
+' MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(iMyPID),vbMsgBoxSetForeground,Wscript.ScriptName 
 ' -------------------------------------------------------------------
 
 
@@ -948,7 +948,7 @@ IF WORK_GO_ER=FALSE THEN
 	I=I+INF
 	I=I+"" + VBCRLF
 	IF MSGBOX_SHOW=TRUE THEN 
-		MSGBOX I,vbMsgBoxSetForeground 
+		MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 END IF
 
@@ -969,7 +969,7 @@ IF WORK_GO_ER=TRUE OR 1=1 THEN
 	I=I+INF
 	'IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
 	IF MSGBOX_SHOW=TRUE THEN 
-		MSGBOX I,vbMsgBoxSetForeground 
+		MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 END IF
 
@@ -1602,7 +1602,7 @@ Sub Main_4
     ' Display All Findings from Dictionary object
     DisplayFindings_4
 	IF I_COUNT>0 THEN 
-		MSGBOX "DONE RENAME COUNT AT" & VBCRLF & FOLDER_PATH_MAIN_4 & VBCRLF & CSTR(I_COUNT) & " of " & CSTR(oDict_4.count),vbMsgBoxSetForeground 
+		MSGBOX "DONE RENAME COUNT AT" & VBCRLF & FOLDER_PATH_MAIN_4 & VBCRLF & CSTR(I_COUNT) & " of " & CSTR(oDict_4.count),vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 	
     Set oDict_4 = Nothing
@@ -1715,7 +1715,7 @@ SUB PATH_SCANNER_RENAME_4
 		FileModDate = f.DateLastModified
 	SET f=NOTHING	
 	IF FileModDate=0 THEN 
-		MSGBOX "ERROR FILE DATE = 0 " + VBCRLF + VAR_PATH_SCANNER,vbMsgBoxSetForeground 
+		MSGBOX "ERROR FILE DATE = 0 " + VBCRLF + VAR_PATH_SCANNER,vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 	
 	' 4K-ULTRA-HD
@@ -1817,7 +1817,7 @@ SUB PATH_SCANNER_RENAME_4
 
 		NewFilename=NewPATH+NewFilename
 		IF FSO.FolderExists(NewPATH)=FALSE THEN 
-			MSGBOX "FOLDER NOT EXIST ERROR"+VBCRLF+VBCLF+NewPATH,vbMsgBoxSetForeground 
+			MSGBOX "FOLDER NOT EXIST ERROR"+VBCRLF+VBCLF+NewPATH,vbMsgBoxSetForeground,Wscript.ScriptName 
 			' CreateFolderTree(NewPATH)
 			' BuildFullPath PATH_VAR
 		END IF
@@ -1836,7 +1836,7 @@ SUB PATH_SCANNER_RENAME_4
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 		'WSCRIPT.QUIT
 	end if
@@ -1908,7 +1908,7 @@ SUB PATH_SCANNER_RENAME
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 	END IF
 
@@ -1959,7 +1959,7 @@ SUB PATH_SCANNER_RENAME
 					LOOP UNTIL LEN(NewFilename)=12
 				end if
 				 
-				msgbox NewFilename,vbMsgBoxSetForeground 
+				msgbox NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 				 
 				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
 			 NEXT
@@ -1974,7 +1974,7 @@ SUB PATH_SCANNER_RENAME
 		'MSGBOX PATH_VAR_4
 		'MSGBOX VAR_PATH_SCANNER
 		IF SET_GO=TRUE THEN 
-			msgbox NewFilename,vbMsgBoxSetForeground 
+			msgbox NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT_1=I_COUNT_1+1

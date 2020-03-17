@@ -568,7 +568,7 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 				
 					IF FSO.FileExists(VAR_PATH_FILE_1(I_COUNT))=FALSE THEN 
 						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
-							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_1(I_COUNT),vbMsgBoxSetForeground 
+							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_1(I_COUNT),,vbMsgBoxSetForeground,Wscript.ScriptName 
 						END IF
 					END IF
 
@@ -597,7 +597,7 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 								I_TXT=I_TXT+"ERROR DESCRIPTION"+VBCRLF+VBCRLF
 								I_TXT=I_TXT+ERR.DESCRIPTION +VBCRLF
 								
-								MSGBOX I_TXT,vbMsgBoxSetForeground 
+								MSGBOX I_TXT,,vbMsgBoxSetForeground,Wscript.ScriptName 
 							END IF
 						END IF
 					END IF
@@ -612,7 +612,7 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 					
 					IF FSO.FileExists(VAR_PATH_FILE_2(I_COUNT))=FALSE THEN 
 						IF VAR_DO_WORK_IN_QUITE_MODE_WITHOUT_ERROR_WARNING(I_COUNT)="FALSE" THEN
-							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_2(I_COUNT),vbMsgBoxSetForeground 
+							MSGBOX "NOT EXIST "+VBCRLF+VBCRLF+VAR_PATH_FILE_2(I_COUNT),,vbMsgBoxSetForeground,Wscript.ScriptName 
 						END IF
 					END IF
 					
@@ -642,7 +642,7 @@ FOR I_COUNT=1 TO UBOUND(VAR_PATH_FILE_1)
 							I_TXT=I_TXT+"ERROR DESCRIPTION"+VBCRLF+VBCRLF
 							I_TXT=I_TXT+ERR.DESCRIPTION +VBCRLF
 							
-							MSGBOX I_TXT,vbMsgBoxSetForeground 
+							MSGBOX I_TXT,,vbMsgBoxSetForeground,Wscript.ScriptName 
 						END IF
 					END IF
 				END IF
@@ -688,7 +688,7 @@ NEXT
 
 IF Wscript_Arguments="" THEN 
 	IF COPY_COUNTER>0 THEN 
-		MSGBOX "COPY DONE = "+CSTR(COPY_COUNTER) +VBCRLF+"COPY ERROR = "+CSTR(COPY_ERROR_COUNTER),vbMsgBoxSetForeground 
+		MSGBOX "COPY DONE = "+CSTR(COPY_COUNTER) +VBCRLF+"COPY ERROR = "+CSTR(COPY_ERROR_COUNTER),,vbMsgBoxSetForeground,Wscript.ScriptName 
 	ELSE
 		MSGBOX "NONE WERE COPY"
 	END IF
@@ -976,7 +976,7 @@ IF WORK_GO_ER=FALSE THEN
 	FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		I=I+FOLDER_PATH(R_COUNT) + VBCRLF
 	NEXT
-	MSGBOX I,vbMsgBoxSetForeground 
+	MSGBOX I,,vbMsgBoxSetForeground,Wscript.ScriptName 
 
 END IF
 
@@ -1012,7 +1012,7 @@ Sub Main
 	I=I+DRIVE_SPACE_INFO
 	
 	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
-		MSGBOX I,vbMsgBoxSetForeground 
+		MSGBOX I,,vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 	
 	IF I_COUNT_1>=0 AND JPG_BEEN_DONE=TRUE THEN 
@@ -1250,7 +1250,7 @@ SUB PATH_SCANNER_RENAME_4
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 		'Wscript.QUIT
 	end if
@@ -1288,7 +1288,7 @@ SUB PATH_SCANNER_RENAME_2
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 	END IF
 
@@ -1326,7 +1326,7 @@ SUB PATH_SCANNER_RENAME_2
 		NewFilename=PATH_VAR+NewFilename
 
 		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename,vbMsgBoxSetForeground 
+			msgbox NewFilename,,vbMsgBoxSetForeground,Wscript.ScriptName 
 			Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 
@@ -1363,7 +1363,7 @@ SUB PATH_SCANNER_RENAME
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 	END IF
 
@@ -1416,7 +1416,7 @@ SUB PATH_SCANNER_RENAME
 					LOOP UNTIL LEN(NewFilename)=12
 				end if
 				 
-				msgbox NewFilename,vbMsgBoxSetForeground 
+				msgbox NewFilename,,vbMsgBoxSetForeground,Wscript.ScriptName 
 				 
 				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
 			 NEXT
@@ -1431,7 +1431,7 @@ SUB PATH_SCANNER_RENAME
 		'MSGBOX PATH_VAR_4
 		'MSGBOX VAR_PATH_SCANNER
 		IF SET_GO=TRUE THEN 
-			msgbox NewFilename,vbMsgBoxSetForeground 
+			msgbox NewFilename,,vbMsgBoxSetForeground,Wscript.ScriptName 
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT_1=I_COUNT_1+1

@@ -22,13 +22,13 @@ For Each arg In args
 	EXIT FOR
 Next
 
-MSGBOX XF0,vbMsgBoxSetForeground 
+MSGBOX XF0,vbMsgBoxSetForeground,Wscript.ScriptName 
 
 'If Sent-to is Used Sometime Additional Quote Surround are User
 '--------------------------------------------------------------
 XF0 = UCASE(Replace(XF0,"""""",""""))
 
-MSGBOX XF0,vbMsgBoxSetForeground 
+MSGBOX XF0,vbMsgBoxSetForeground,Wscript.ScriptName 
 
 
 ' WSHShell.Run "CMD /K """ + "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 03_PROCESS_KILLER.BAT" + """ , ShowWindow, DontWaitUntilFinished
