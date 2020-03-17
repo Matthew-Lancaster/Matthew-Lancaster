@@ -490,6 +490,8 @@ FOLDER_PATH_DEST(1)="D:\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
 ' ------------------------
 	FOLDER_PATH__MP4(1)="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V"
 
+	' \\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\2020 CyberShot HX60V
+	
 IF ComputerName="4-ASUS-GL522VW" THEN 
 
 	FOLDER_PATH__MP4(1)="F:\DSC\2015+SONY_MP4\2020 CyberShot HX60V __ MP4"
@@ -498,6 +500,7 @@ IF ComputerName="4-ASUS-GL522VW" THEN
 	' ---------------------------------------------------------------
 	IF FSO.FolderExists(FOLDER_PATH__MP4(1))=FALSE THEN 
 		FOLDER_PATH__MP4(1)="\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V __ MP4"
+		' \\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\2020 CyberShot HX60V __ MP4
 	END IF
 
 END IF 
@@ -921,7 +924,7 @@ IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=FALSE THEN
 	FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
 	PARAM="CAMERA_BACKUP_MODE"
 	' ---------------------------------------
-	WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+	' WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 END IF
 
 
@@ -1452,7 +1455,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF
 	END IF
 
-	MSGBOX PATH_FILE_VAR
+	' MSGBOX PATH_FILE_VAR
 	
 	' ---------------------------------------------------------------
 	' HIKVISION#1
