@@ -53,14 +53,14 @@ FOLDER_PATH="D:\DSC\2015+Sony\2019 CyberShot HX60V\DCIM"
 'FOLDER_PATH="D:\DSC\z compare\NIKON TOTAL"
 
 IF FSO.FolderExists(FOLDER_PATH)=FALSE THEN 
-	MSGBOX "FOLDER NOT EXIST",vbMsgBoxSetForeground 
+	MSGBOX "FOLDER NOT EXIST",vbMsgBoxSetForeground,Wscript.ScriptName
 	Wscript.QUIT
 END IF
 
 'Call the Search subroutine to start the recursive search.
 Search objFSO.GetFolder(FOLDER_PATH)
 
-MSGBOX "FILE COUNT FILTERING _ " & CSTR(I_COUNT) ,vbMsgBoxSetForeground 
+MSGBOX "FILE COUNT FILTERING _ " & CSTR(I_COUNT) ,vbMsgBoxSetForeground,Wscript.ScriptName
 
 SET objFSO = NOTHING
 Wscript.QUIT

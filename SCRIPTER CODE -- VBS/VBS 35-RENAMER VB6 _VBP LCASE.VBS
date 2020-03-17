@@ -210,7 +210,7 @@ FOLDER_PATH_FILTER(1)="\#0 AllApi\"
 
 FOR RR=1 TO UBOUND(FOLDER_PATH_SET_VAR)
 	IF FSO.FolderExists(FOLDER_PATH_SET_VAR(RR))=FALSE THEN 
-		MSGBOX "FOLDER NOT EXIST"+VBCRLF+VBCRLF+FOLDER_PATH_SET_VAR(RR),vbMsgBoxSetForeground 
+		MSGBOX "FOLDER NOT EXIST"+VBCRLF+VBCRLF+FOLDER_PATH_SET_VAR(RR),vbMsgBoxSetForeground,Wscript.ScriptName 
 		Wscript.QUIT
 	END IF
 NEXT 
@@ -263,7 +263,7 @@ I=I+""+ VBCRLF
 I=I+I_SET_DONE
 
 IF Wscript_Arguments="" THEN 
-	MSGBOX I,vbMsgBoxSetForeground 
+	MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
 END IF
 
 SET fso = NOTHING
@@ -475,7 +475,7 @@ Sub DisplayFindings_3()
 			FSO.DeleteFile VAR_PATH_SCANNER
 			I_COUNT_1=I_COUNT_1+1
 			IF ERR.NUMBER>0 THEN 
-				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
+				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground,Wscript.ScriptName 
 			END IF
 			ON ERROR GOTO 0
 		END IF
@@ -487,7 +487,7 @@ Sub DisplayFindings_3()
 				FSO.DeleteFolder VAR_PATH_SCANNER
 				I_COUNT_2=I_COUNT_2+1
 				IF ERR.NUMBER>0 THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
+					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground,Wscript.ScriptName 
 				END IF
 				ON ERROR GOTO 0
 			END IF
@@ -516,7 +516,7 @@ Sub DisplayFindings_4()
 				FSO.DeleteFile VAR_PATH_SCANNER
 				I_COUNT_1=I_COUNT_1+1
 				IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
-					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
+					MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground,Wscript.ScriptName 
 				END IF
 				ON ERROR GOTO 0
 			END IF
@@ -545,7 +545,7 @@ Sub DisplayFindings_4()
 						FSO.DeleteFolder VAR_PATH_SCANNER
 						I_COUNT_2=I_COUNT_2+1
 						IF ERR.NUMBER>0  AND Wscript_Arguments="" THEN 
-							MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
+							MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO DELETE" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground,Wscript.ScriptName 
 						END IF
 						ON ERROR GOTO 0
 					END IF
@@ -578,7 +578,7 @@ Sub DisplayFindings_5()
 			I_SET_DONE=I_SET_DONE+VAR_PATH_SCANNER+VBCRLF
 			IF ERR.NUMBER>0 AND Wscript_Arguments="" THEN 
 				I_COUNT_3=I_COUNT_3+1
-				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO RENAME" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground 
+				MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "UNABLE TO RENAME" & VBCRLF & VBCRLF & VAR_PATH_SCANNER,vbMsgBoxSetForeground,Wscript.ScriptName 
 			END IF
 			ON ERROR GOTO 0
 		END IF
@@ -628,7 +628,7 @@ SUB PATH_SCANNER_FOLDER_MOVE_FROM_IMPORT
 	Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 	I_COUNT_4=I_COUNT_4+1		
 	IF ERR.NUMBER>0 THEN 
-		MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+		MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		Wscript.QUIT
 	END IF
 	
@@ -671,7 +671,7 @@ SUB PATH_SCANNER_FOLDER_DATE_CREATE
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		I_COUNT_2=I_COUNT_2+1		
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VBCRLF & "FROM" & VBCRLF & VAR_PATH_SCANNER & VBCRLF & VBCRLF & "TO" & VBCRLF & NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 			Wscript.QUIT
 		END IF
 	END IF
@@ -706,7 +706,7 @@ SUB PATH_SCANNER_FOLDER_FUJI_RENAME
 	Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 	I_COUNT_2=I_COUNT_2+1		
 	IF ERR.NUMBER>0 THEN 
-		MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+		MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		Wscript.QUIT
 	END IF
 End Sub
@@ -818,7 +818,7 @@ SUB PATH_SCANNER_RENAME_4
 		ERR.CLEAR
 		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 		IF ERR.NUMBER>0 THEN 
-			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground 
+			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 		'Wscript.QUIT
 	end if
@@ -857,7 +857,7 @@ SUB PATH_SCANNER_RENAME_2
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 	END IF
 
@@ -895,7 +895,7 @@ SUB PATH_SCANNER_RENAME_2
 		NewFilename=PATH_VAR+NewFilename
 
 		if VAR_PATH_SCANNER <> NewFilename then 
-			msgbox NewFilename,vbMsgBoxSetForeground 
+			msgbox NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 			Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 
@@ -931,7 +931,7 @@ SUB PATH_SCANNER_RENAME
 	if SET_GO=TRUE then
 		NewFilename_COUNTER=CLNG(MID(NewFilename,4,INSTR(NewFilename,".")-4))
 		IF ERR.NUMBER >0 THEN 
-			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground 
+			msgbox "ERROR CLNG WITH "+VBCRLF+VBCRLF+NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 	END IF
 
@@ -984,7 +984,7 @@ SUB PATH_SCANNER_RENAME
 					LOOP UNTIL LEN(NewFilename)=12
 				end if
 				 
-				msgbox NewFilename,vbMsgBoxSetForeground 
+				msgbox NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 				 
 				 if FSO.FileExists(PATH_VAR+NewFilename)=FALSE THEN EXIT FOR
 			 NEXT
@@ -999,7 +999,7 @@ SUB PATH_SCANNER_RENAME
 		'MSGBOX PATH_VAR_4
 		'MSGBOX VAR_PATH_SCANNER
 		IF SET_GO=TRUE THEN 
-			msgbox NewFilename,vbMsgBoxSetForeground 
+			msgbox NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 			'Wscript.QUIT
 			Fso.MoveFile VAR_PATH_SCANNER, NewFilename
 			I_COUNT_1=I_COUNT_1+1

@@ -234,7 +234,7 @@ Sub Main
 	I=I+FOLDER_PATH_STORE
 	
 	IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
-		MSGBOX I,vbMsgBoxSetForeground 
+		MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 	
     Set oDict = Nothing
@@ -326,7 +326,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 	NewFilename=REPLACE(NewFilename,"\\","\")
 
 	If Not FSO.FolderExists(PATH_VAR_2) Then
-		MSGBOX "PATH NOT EXIST ERROR"+VBCRLF+VBCRLF+PATH_VAR_2,vbMsgBoxSetForeground 
+		MSGBOX "PATH NOT EXIST ERROR"+VBCRLF+VBCRLF+PATH_VAR_2,vbMsgBoxSetForeground,Wscript.ScriptName 
 		' BuildFullPath PATH_VAR_2
 		' CreateFolderTree(NewPATH)
 	End If
