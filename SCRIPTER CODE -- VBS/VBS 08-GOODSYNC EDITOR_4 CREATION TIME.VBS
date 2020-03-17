@@ -52,7 +52,7 @@ CALL USUAL_MAIN_2
 
 
 
-MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR,vbMsgBoxSetForeground 
+MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
 
 
 Set File_2 = fso.OpenTextFile("C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic", ForWriting)
