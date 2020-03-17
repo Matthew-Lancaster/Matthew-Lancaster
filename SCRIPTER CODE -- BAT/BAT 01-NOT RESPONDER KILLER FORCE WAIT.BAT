@@ -16,6 +16,15 @@ REM "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE.BAT"
 REM "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE WAIT.BAT"
 REM "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT"
 REM -----------------------------------------------------------------
+REM -----------------------------------------------------------------
+REM SESSION 003
+REM -----------------------------------------------------------------
+REM ENOUGH DO
+REM -----------------------------------------------------------------
+REM Tue 17-Mar-2020 20:21:40
+REM Tue 17-Mar-2020 21:10:00 -- 48 MINUTE
+REM -----------------------------------------------------------------
+
 
 ECHO CD /D D:\
 CD /D D:\
@@ -69,7 +78,7 @@ ECHO.
 IF "!ERR_1!"=="0"      ECHO ---- ERRORLEVEL FROM FIND GIVER RESULT ^> 0
 IF NOT "!ERR_1!"=="0"  ECHO ---- ERRORLEVEL FROM FIND RESULT NOTHING 0
 IF "!ERR_1!"=="0"      SET TIMER_DELAY=20
-IF NOT "!ERR_1!"=="0"  SET TIMER_DELAY=4
+IF NOT "!ERR_1!"=="0"  SET TIMER_DELAY=10
 IF NOT "!ERR_1!"=="0"  GOTO NOT
 
 ECHO.
