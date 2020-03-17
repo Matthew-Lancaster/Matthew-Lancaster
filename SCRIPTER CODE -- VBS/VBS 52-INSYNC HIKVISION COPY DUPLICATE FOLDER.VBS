@@ -118,7 +118,7 @@ IF 1=2 THEN
 	FOR EACH objProcess IN colProcesses
 		IF NOT (IsNull(objProcess.ProcessID )) THEN
 			strScriptProcessID = objProcess.ProcessID
-			MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(strScriptProcessID),vbMsgBoxSetForeground 
+			MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(strScriptProcessID),vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
 	NEXT
 END IF

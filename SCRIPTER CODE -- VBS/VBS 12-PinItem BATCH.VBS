@@ -85,6 +85,27 @@
 ' Thu 20-Feb-2020 21:06:22 -- 3 HOUR 09 MINUTE
 ' -----------------------------------------------------------
 
+'-----------------------------------------------------------------
+' 008 Session __
+'-----------------------------------------------------------------
+' PLAN TO AND COMPLETER ALMOST AS READER
+' FOR OPERATING SYSTEM WINDOWS 10
+' THAT UPDATE DO TO LATEST
+' THE CODE NOT WORK PINITEM.EXE
+' AND THEN ANOTHER WAY
+' IS OPEN EXPLORER WITH / SELECTION TO FILENAME
+' AND DIY FROM THERE
+' --
+' ANOTHER WAY WHEN TIME EXTRA -- CODE IN PLACE ALREADY NOT COMPLETE YET
+' IS MAKE SHORTCUT 
+' AND LESS OVERHEAD OF EXPLORER LOAD 
+' ONLY DRAG FROM DESKTOP
+' SEARCH STRING 
+' ---- ' PIN ITEM BATCH LOAD EXPLORER NEW LINKER WHEN EXE NOT WORK
+' -------------------------------------------------------------------
+' Tue 17-Mar-2020 09:43:26
+' Tue 17-Mar-2020 11:24:00 -- 1 HOUR 40 MINUTE
+' -------------------------------------------------------------------
 
 
 ' -------------------------------------------------------------------
@@ -102,6 +123,8 @@
 ' -------------------------------------------------------------------
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
+Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
+
 
 ' END RESULT ITEM
 DIM LINK_SET_EXIST_TOTAL_VERIFY_2
@@ -143,9 +166,9 @@ XF0 = UCASE(Replace(XF0,"""",""))
 IF INSTR(XF0,"-Q") THEN QUITE_MODE_ENDING=TRUE
 IF INSTR(XF0,"/Q") THEN QUITE_MODE_ENDING=TRUE
 
-QUITE_MODE_ENDING=TRUE
+' QUITE_MODE_ENDING=TRUE
 
-'QUITE_MODE_ENDING=TRUE
+' QUITE_MODE_ENDING=TRUE
 
 DIM LINK_SET_ALREADY_EXIST_TOTAL
 DIM Version_OS
@@ -212,7 +235,7 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 				I_VAR=I_VAR + "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS = " & VBCRLF 
 				I_VAR=I_VAR + VBCRLF 
 				I_VAR=I_VAR + ARRAY_1(R_SET_1)
-				MSGBOX I_VAR,vbMsgBoxSetForeground 
+				MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
 			END IF
 		END IF
 	NEXT
@@ -239,6 +262,16 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 	END IF
 NEXT
 '-------------------------------------
+FOR R_SET=1 TO UBOUND(ARRAY_1)
+	IF ARRAY_2(R_SET)=FALSE THEN 
+	IF ARRAY_1(R_SET)<>"" THEN 
+				MSGBOX "---- " + ARRAY_1(R_SET)
+				MSGBOX CSTR(R_SET)+VBCR+FILE_SCAN_FIND_1
+			
+	END IF 
+	END IF 
+NEXT
+
 
 '-------------------------------------------------------
 ' CHECK FOR FILEEXISTS THAT COULD BE 64 BIT & VICE VERSA
@@ -315,6 +348,7 @@ Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_2)
 IF QUITE_MODE_ENDING=TRUE THEN 
 IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
 	NOT_SHOW_END_MESSENGER=FALSE
+	MSGBOX "HHH"
 END IF
 END IF
 
@@ -324,21 +358,23 @@ IF EXTRA_ITEM_ADD_TO_TASKBAR=0 THEN
 	IF QUITE_MODE_ENDING=FALSE THEN
 	IF NOT_SHOW_END_MESSENGER=FALSE THEN 
 		I_VAR=""
-		I_VAR=I_VAR + "DONE _ PUT ITEM SET ON "+VBCRLF+VBCRLF+"TASKBAR COUNT TOTAL -- " & COUNT_I & VBCRLF
-		I_VAR=I_VAR + VBCRLF
-		I_VAR=I_VAR + "NONE EXTRA ADDED"
-		MSGBOX I_VAR,vbMsgBoxSetForeground
+		' ADDITION
+		I_VAR=I_VAR + "DONE _ PUT ITEM SET ON "+VBCRLF
+		I_VAR=I_VAR + "NONE OTHER ADDITIONAL "+VBCRLF+VBCRLF
+		I_VAR=I_VAR + "TASKBAR COUNT TOTAL -- " & COUNT_I & VBCRLF
+		MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
 	END IF
 	END IF
 END IF
 
 
-IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
+IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" AND QUITE_MODE_ENDING=TRUE THEN
 	NOT_SHOW_END_MESSENGER=TRUE
+	MSGBOX "HHEWRE"
 END IF
 
 ' QUITE_MODE_ENDING=TRUE
-'IF APPDATA_FOLDER_FILE_COUNT_VAR_1<>APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
+' IF APPDATA_FOLDER_FILE_COUNT_VAR_1<>APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
 IF EXTRA_ITEM_ADD_TO_TASKBAR>0 THEN 
 IF NOT_SHOW_END_MESSENGER=FALSE THEN 
 	I_VAR=""
@@ -346,12 +382,52 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 	I_VAR=I_VAR + VBCRLF 
 	I_VAR=I_VAR + "ADDITIONAL ITEM SET PUT ON -- "
 	I_VAR=I_VAR + CSTR(EXTRA_ITEM_ADD_TO_TASKBAR)+VBCRLF+VBCRLF
+	' ---- "THE FOLLOW SET DOUBLE VERIFY NOT MAKE IT ON"
 	IF LINK_SET_EXIST_TOTAL_VERIFY_2<>"" THEN 
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
 		I_VAR=I_VAR + LINK_SET_EXIST_TOTAL_VERIFY_2
+		lRet = MsgBox(I_VAR, vbYesNo + vbMsgBoxSetForeground)
+		IF lRet=VBYES THEN
+			' LINK_SET_STRING -- ALREADY OBTAIN
+			' RUN QUICKER WHEN CHECKER
+			' ARRAY_4(R_SET)=TRUE
+			' MIGHT HAVE TO LIMIT HOW MANY RUNNING OF EXPLORER 
+			' LESS ABLE COMPUTER -- AND RUNNING AGAIN
+			' PIN ITEM BATCH LOAD EXPLORER NEW LINKER WHEN EXE NOT WORK
+			' -----------------------------------------------------------
+			FOR R_SET=1 TO UBOUND(ARRAY_1)
+				IF ARRAY_4(R_SET)=TRUE THEN 
+					' MSGBOX "000 "+ARRAY_1(R_SET)
+					WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+					' A BETTER WAY LESS OVERHEAD
+					' IS MAKE THEM SHORTCUT DESKTOP AND DRAG THEM IN THERE
+					' TAKE A WHILE SORT THAT ONE
+					' -----------------------------------------------
+					' Tue 17-Mar-2020 09:42:36
+					' Tue 17-Mar-2020 10:28:21 -- 45 MINUTE
+					' -----------------------------------------------
+					' VBScript - Creating a Shortcut
+					' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
+					' -----------------------------------------------
+					' Set Shell = CreateObject("WScript.Shell")
+					' DesktopPath = Shell.SpecialFolders("Desktop")
+					' Set link = Shell.CreateShortcut(DesktopPath & "\test.lnk")
+					' link.Arguments = "1 2 3"
+					' link.Description = "test shortcut"
+					' link.HotKey = "CTRL+ALT+SHIFT+X"
+					' link.IconLocation = "app.exe,1"
+					' link.TargetPath = ARRAY_1(R_SET)
+					' link.WindowStyle = 3
+					' link.WorkingDirectory = "c:\blah"
+					' link.Save
+					' -----------------------------------------------
+				END IF
+			NEXT
+		END IF
+	ELSE
+		MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
-	
-	MSGBOX I_VAR,vbMsgBoxSetForeground 
+
 END IF
 END IF
 
@@ -587,6 +663,9 @@ IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Notepad++\notepad++.exe"
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)="C:\Program Files\Notepad++\notepad++.exe"
+END IF
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
@@ -871,7 +950,8 @@ END SUB
 '--------------------------------------------------------
 SUB RUN_THE_CODE_PIN_TO
 '--------------------------------------------------------
-
+RESULT_TO_DO=""
+RESULT_TO_DO_COUNTER=0
 FOR R_SET=1 TO UBOUND(ARRAY_1)
 	IF ARRAY_1(R_SET)<>"" AND ARRAY_2(R_SET)=FALSE THEN 
 		ITEM_VAR_PATH=Q & MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1) & Q
@@ -886,13 +966,6 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 	END IF
 NEXT
 ' LOAD GOODSYNC2GO C DRIVE.AHK.EXE
-
-IF QUITE_MODE_ENDING=FALSE THEN
-	IF RESULT_TO_DO_COUNTER>0 THEN 
-	MSGBOX "ITEM TO BE PIN TASKBAR __ " + CSTR(RESULT_TO_DO_COUNTER) + VBCRLF+VBCRLF+ RESULT_TO_DO
-	END IF
-END IF				
-
 
 FOR R_SET=1 TO UBOUND(ARRAY_1)
 	IF ARRAY_1(R_SET)<>"" AND ARRAY_2(R_SET)=FALSE THEN 
@@ -935,10 +1008,12 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 			MSGBOX "ERROR NOT EXIST "& VBCRLF & PinTo10_EXE_PATH
 		END IF
 
+		
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
 			' MSGBOX """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET
 			objShell.Run """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET , 0 , TRUE
 			EXTRA_ITEM_ADD_TO_TASKBAR = EXTRA_ITEM_ADD_TO_TASKBAR + 1
+			MSGBOX ITEM_VAR_SET
 			'WScript.Sleep 1000
 
 			IF QUITE_MODE_ENDING=FALSE THEN
@@ -978,7 +1053,7 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 NEXT
 '-------------------------------------
 IF LINK_SET_EXIST_TOTAL_VERIFY_FAIL>0 THEN 
-	LINK_SET_EXIST_TOTAL_VERIFY_2= "THE FOLLOW SET DOUBLE VERIFY NOT MAKE IT ON" & VBCRLF & VBCRLF & "ERROR COUNTER  " & LINK_SET_EXIST_TOTAL_VERIFY_FAIL & VBCRLF & VBCRLF & LINKTEXT_SET_NOT_VERIFY
+	LINK_SET_EXIST_TOTAL_VERIFY_2= "THE FOLLOW SET DOUBLE VERIFY NOT MAKE IT ON"+VBCRLF+VBCRLF+"OPEN IN EXPLORER _ YES/NOT" & VBCRLF & VBCRLF & "ERROR COUNTER  " & LINK_SET_EXIST_TOTAL_VERIFY_FAIL & VBCRLF & VBCRLF & LINKTEXT_SET_NOT_VERIFY
 END IF
 
 
@@ -1006,7 +1081,7 @@ SUB GET_LINK_SET_STRING(fFolder)
 	Dim oFile
 	For Each objFile in colFiles
 		Set oFile = oFSO.GetFile(objFile.PATH)
-		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground  : Exit SUB
+		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground,Wscript.ScriptName  : Exit SUB
 		With oFile.OpenAsTextStream()
 			readBinary = .Read(oFile.Size)
 			.Close
@@ -1030,7 +1105,7 @@ FUNCTION LINK_ALREADY_EXIST_DOUBLE_VERIFY(fFolder,FILE_SCAN_FIND_1)
 		'Set File_1 = fso.OpenTextFile(objFile.PATH, ForReading,0,0)
 		
 		Set oFile = oFSO.GetFile(objFile.PATH)
-		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground  : Exit Function
+		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground,Wscript.ScriptName  : Exit Function
 		With oFile.OpenAsTextStream()
 			readBinary = .Read(oFile.Size)
 			.Close
@@ -1057,7 +1132,7 @@ FUNCTION LINK_ALREADY_EXIST(fFolder,FILE_SCAN_FIND_1)
 		'Set File_1 = fso.OpenTextFile(objFile.PATH, ForReading,0,0)
 		
 		Set oFile = oFSO.GetFile(objFile.PATH)
-		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground  : Exit Function
+		If IsNull(oFile) Then MsgBox("File not found: " & strPath),vbMsgBoxSetForeground,Wscript.ScriptName  : Exit Function
 		With oFile.OpenAsTextStream()
 			readBinary = .Read(oFile.Size)
 			.Close
@@ -1161,7 +1236,7 @@ Sub ShowSubfolders_FIND_FOLDER(fFolder,FILE_SCAN_FIND_1)
 		If INSTR(UCASE(Subfolder.PATH), UCASE(FILE_SCAN_FIND_1))>0 Then SET_GO=TRUE
 		IF SET_GO=TRUE THEN 
 			FILE_SCAN_FIND_2=Subfolder.PATH
-			MSGBOX FILE_SCAN_FIND_2,vbMsgBoxSetForeground 
+			MSGBOX FILE_SCAN_FIND_2,vbMsgBoxSetForeground,Wscript.ScriptName 
 			EXIT FOR
 		End If
 

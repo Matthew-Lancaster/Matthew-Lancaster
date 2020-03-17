@@ -264,7 +264,7 @@ I=I+VBCRLF
 I=I+I_SET_DONE
 
 IF Wscript_Arguments="" THEN 
-	MSGBOX I,vbMsgBoxSetForeground 
+	MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
 END IF
 
 
