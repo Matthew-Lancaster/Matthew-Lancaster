@@ -1,16 +1,20 @@
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' __ CODE BY MATTHEW LANCASTER
-' __ DATE BEGINNER 4 AM TO 4:44 PM 12 HOUR TWO CODE SET SESSION --
+' __ DATE BEGINNER 4 AM TO 4:44 PM 12 HOUR TWO CODE SET SESSION ----
 ' __ WITH SOME HEAVY WIND 
 ' __ THROWING BITS FROM ONE PLACE TO ANOTHER 
 ' __ I AM THE WEAVER __ I AM THE WIND
-' __ DATE BEGINNER AND ENDER --------------------------------------
-'-------------------------------------
+' __ DATE BEGINNER AND ENDER ----------------------------------------
+' -------------------------------------------------------------------
 ' [ Fri 13:00:00 Pm_29 Dec 2017 ] The UK
 ' [ Fri 04:44:40 Pm_29 Dec 2017 ] GMT UTC+0 WET
-'-------------------------------------
+' ------------------------------------
 ' [ Sat 05:10:00 Am_21 Apr 2018 ] Add WildCard Sub Folder File Finder Proper
-'-------------------------------------
+' ------------------------------------
+' LAST EDITOR
+' TOTAL TIMER -- 008 + 009 MOTION
+' Wed 18-Mar-2020 00:54:00 -- 2 HOUR 50 MINUTE
+' ------------------------------------
 
 ' ----
 ' DeployHappiness | Pinning Programs to the Taskbar with Group Policy 
@@ -20,13 +24,13 @@
 
 ' ADDITIONAL 10 URL'S OPEN OF HELPING
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' [ Thu 15:10:00 Pm_10 May 2018 ] Make Counter of How Many Added Before and After
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' 002 Session __
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' Fri 18-May-2018 03:34:28
 ' Fri 18-May-2018 05:39:52 __ 2 HOURING IN EARLY HOUR DAWN
 '                             I ADD CHECK IF EXIST BEFORE MAKE ICON SPEEDER
@@ -35,41 +39,41 @@
 '                             IT WAS CAUSE PROBLEMS BY HAVING LINKS DOUBLE THEY 
 '                             HIDE AS WHITE LABEL SOME FEW TOGETHER
 ' Fri 18-May-2018 06:24:52 __ 3 HOUR _ DO SOME EXTRA WORK
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' 003 Session __
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' Fri 18-May-2018 11:34:46
 ' Fri 18-May-2018 12:19:12 __ 1 HOUR- MORE SPEEDER UP WORKS IN AN INSTANT NOW
 '                             IF NOTHING TO DO
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' 004 Session __
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' Fri 18-May-2018 22:44:00
 ' Fri 18-May-2018 22:44:00
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' 005 Session __
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' Sun 07-Oct-2018 02:57:00
 ' Sun 07-Oct-2018 03:15:00 __ Additional & Modify 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' 006 Session __
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' Sun 07-Oct-2018 05:40:00
 ' Sun 07-Oct-2018 05:44:00 __ Back to Write the Time Header-ing 
 '                          __ And Programs to Be Installed ASUS-5P
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' 007 Session __
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' -----------------------------------------------------------
 ' USE EXE -- WHEN PinTo10_v4 -- MSI 8-ASUS-M WHICH GOT UPDATE WINDOW
 ' NOT WORK ANYMORE
@@ -85,9 +89,9 @@
 ' Thu 20-Feb-2020 21:06:22 -- 3 HOUR 09 MINUTE
 ' -----------------------------------------------------------
 
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' 008 Session __
-'-----------------------------------------------------------------
+' -------------------------------------------------------------------
 ' PLAN TO AND COMPLETER ALMOST AS READER
 ' FOR OPERATING SYSTEM WINDOWS 10
 ' THAT UPDATE DO TO LATEST
@@ -105,6 +109,22 @@
 ' -------------------------------------------------------------------
 ' Tue 17-Mar-2020 09:43:26
 ' Tue 17-Mar-2020 11:24:00 -- 1 HOUR 40 MINUTE
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' 009 Session __ PART TWO OF SESSION 088 TWO IN ONE DAY OVER MIDNIGHT
+' -------------------------------------------------------------------
+' REM OUT WSHShell.Run
+' RUN EXPLORER IS HEAVY OVERHEAD FOR EACH SHORTCUT FINDER
+' INSTEAD NOW GOT MAKE SHORTCUT DESKTOP THAT BE MORE FINER
+' MOVE SHORTCUT TO TASKBAR
+' -----------------------------------------------
+' Tue 17-Mar-2020 23:43:51
+' Wed 18-Mar-2020 00:54:00 -- 1 HOUR 10 MINUTE
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' TOTAL TIMER -- 008 + 009 MOTION
+' Wed 18-Mar-2020 00:54:00 -- 2 HOUR 50 MINUTE
 ' -------------------------------------------------------------------
 
 
@@ -125,6 +145,7 @@
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
+DIM DEBUG_DUMMY_RUN
 
 ' END RESULT ITEM
 DIM LINK_SET_EXIST_TOTAL_VERIFY_2
@@ -160,7 +181,7 @@ For Each arg In args
 Next
 
 'If Sent-to is Used Sometime Additional Quote Surround are User
-'--------------------------------------------------------------
+' -------------------------------------------------------------
 XF0 = UCASE(Replace(XF0,"""",""))
 
 IF INSTR(XF0,"-Q") THEN QUITE_MODE_ENDING=TRUE
@@ -221,9 +242,9 @@ DIM FILE_SCAN_FIND_4
 CALL CREATE_PIN_ITEM_ARRAY
 
 
-'-------------------------------------
+' ------------------------------------
 ' CHECK FOR DUPLICATES IN ARRAY
-'-------------------------------------
+' ------------------------------------
 DIM R_SET_1
 DIM R_SET_2
 
@@ -242,9 +263,9 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 NEXT
 
 
-'-------------------------------------
+' ------------------------------------
 ' CHECK FOR DUPLICATES MASSIVE SPEEDER
-'-------------------------------------
+' ------------------------------------
 obj_SOURCE_Folder = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
 Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
 CALL GET_LINK_SET_STRING(objSuperFolder)
@@ -261,7 +282,7 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		END IF
 	END IF
 NEXT
-'-------------------------------------
+' ------------------------------------
 ' FOR R_SET=1 TO UBOUND(ARRAY_1)
 	' IF ARRAY_2(R_SET)=FALSE THEN 
 	' IF ARRAY_1(R_SET)<>"" THEN 
@@ -273,9 +294,9 @@ NEXT
 ' NEXT
 
 
-'-------------------------------------------------------
+' ------------------------------------------------------
 ' CHECK FOR FILEEXISTS THAT COULD BE 64 BIT & VICE VERSA
-'-------------------------------------------------------
+' ------------------------------------------------------
 ' DIM R_SET_1
 FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 	HOLDER_VAR=ARRAY_1(R_SET_1)
@@ -311,7 +332,7 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 	END IF
 	
 NEXT
-'-------------------------------------
+' ------------------------------------
 
 If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 	ARRAY_1(I)="C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
@@ -320,11 +341,21 @@ END IF
 
 DIM EXTRA_ITEM_ADD_TO_TASKBAR
 
-'--------------------------------------------------------------------
+' -------------------------------------------------------------------
 IF Version_OS=>6 THEN 
-	CALL RUN_THE_CODE_PIN_TO
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+		DEBUG_DUMMY_RUN=FALSE
+		DEBUG_DUMMY_RUN=TRUE 
+		CALL RUN_THE_CODE_PIN_TO
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
 END IF
-'--------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 'WScript.Quit(0)
 
@@ -346,10 +377,9 @@ APPDATA_FOLDER_FILE_COUNT_VAR_2=0
 Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_2)
 
 IF QUITE_MODE_ENDING=TRUE THEN 
-IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
-	NOT_SHOW_END_MESSENGER=FALSE
-	MSGBOX "HHH"
-END IF
+	IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
+		NOT_SHOW_END_MESSENGER=FALSE
+	END IF
 END IF
 
 
@@ -397,8 +427,19 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 			' -----------------------------------------------------------
 			FOR R_SET=1 TO UBOUND(ARRAY_1)
 				IF ARRAY_4(R_SET)=TRUE THEN 
-					' MSGBOX "000 "+ARRAY_1(R_SET)
-					WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+					' -----------------------------------------------
+					' Tue 17-Mar-2020 23:43:51
+					' Wed 18-Mar-2020 00:54:00 -- 1 HOUR 10 MINUTE
+					' -----------------------------------------------
+					' REM OUT WSHShell.Run
+					' RUN EXPLORER IS HEAVY OVERHEAD FOR EACH SHORTCUT FINDER
+					' INSTEAD NOW GOT MAKE SHORTCUT DESKTOP THAT BE MORE FINER
+					' MOVE SHORTCUT TO TASKBAR
+					' -----------------------------------------------
+					' -----------------------------------------------
+					' WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+					' -----------------------------------------------
+					' -----------------------------------------------
 					' A BETTER WAY LESS OVERHEAD
 					' IS MAKE THEM SHORTCUT DESKTOP AND DRAG THEM IN THERE
 					' TAKE A WHILE SORT THAT ONE
@@ -409,17 +450,74 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 					' VBScript - Creating a Shortcut
 					' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
 					' -----------------------------------------------
-					' Set Shell = CreateObject("WScript.Shell")
-					' DesktopPath = Shell.SpecialFolders("Desktop")
-					' Set link = Shell.CreateShortcut(DesktopPath & "\test.lnk")
-					' link.Arguments = "1 2 3"
-					' link.Description = "test shortcut"
-					' link.HotKey = "CTRL+ALT+SHIFT+X"
-					' link.IconLocation = "app.exe,1"
-					' link.TargetPath = ARRAY_1(R_SET)
-					' link.WindowStyle = 3
-					' link.WorkingDirectory = "c:\blah"
-					' link.Save
+					ITEM_VAR_PATH=MID(ARRAY_1(R_SET),1,INSTRREV(ARRAY_1(R_SET),"\")-1)
+					ITEM_VAR_FILE=MID(ARRAY_1(R_SET),INSTRREV(ARRAY_1(R_SET),"\")+1)
+					ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
+					' -----------------------------------------------
+					' IF ALL LOWER CASE PUT ALL UPPER CASE
+					' IF SEMI LOW AND HIGH CASE ONLY MAKE SURE FIRST LETTER IS HIGH 
+					' AND LEAVE AS SAME
+					IF ITEM_VAR_FILE_NOT_EXT=LCASE(ITEM_VAR_FILE_NOT_EXT) THEN 
+					 	ITEM_VAR_FILE_NOT_EXT=UCASE(ITEM_VAR_FILE_NOT_EXT)
+					END IF
+					ITEM_VAR_FILE_NOT_EXT=UCASE(MID(ITEM_VAR_FILE_NOT_EXT,1,1))+MID(ITEM_VAR_FILE_NOT_EXT,2)
+					MSGBOX  ITEM_VAR_FILE_NOT_EXT
+					IF 1=1 THEN ' RESULT CODE WHEN THIRD FIND FROM E-INTERNET -- MAKE SHORTCUT
+						' ----
+						' Shortcut - VBScript - SS64.com 
+						' https://ss64.com/vb/shortcut.html
+						' ----
+						Set objShell = WScript.CreateObject("WScript.Shell")
+						strDesktop = WshShell.SpecialFolders("Desktop")
+						Set lnk = objShell.CreateShortcut(strDesktop & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
+
+						lnk.TargetPath = ARRAY_1(R_SET)
+						lnk.Arguments = ""
+						' lnk.Description = UCASE(ITEM_VAR_FILE)  ' NOT WANT BIGGER
+						' lnk.HotKey = "ALT+CTRL+F"
+						' lnk.IconLocation = ARRAY_1(R_SET) & ", 2"     ' 2 OR 1 ---- IF REAL ICON NOT EXE
+						lnk.WindowStyle = "1"
+						lnk.WorkingDirectory = ITEM_VAR_PATH
+						lnk.Save
+						'Clean up 
+						Set lnk = Nothing
+					END IF 
+						
+					IF 1=2 THEN ' -- NOT WORK
+						' ----
+						' How to create a desktop shortcut with the Windows Script Host 
+						' https://support.microsoft.com/en-gb/help/244677/how-to-create-a-desktop-shortcut-with-the-windows-script-host
+						' ----
+						SET WshShell = CreateObject("Wscript.shell")
+						SET strDesktop = WshShell.SpecialFolders("Desktop")
+						MSGBOX strDesktop 
+						oMyShortcut = WshShell.CreateShortcut(strDesktop & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
+						oMyShortcut.WindowStyle = "1" ' 3 &&Maximized 7=Minimized  4=Normal 
+						oMyShortcut.IconLocation = "" ' "C:\myicon.ico"
+						OMyShortcut.TargetPath = ARRAY_1(R_SET)
+						' oMyShortCut.Hotkey = "" ' "ALT+CTRL+F"
+						oMyShortCut.Save
+					END IF	
+					IF 1=2 THEN ' -- NOT WORK
+						' ----
+						' VBScript - Creating a Shortcut 
+						' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
+						' ----
+						Set Shell = CreateObject("WScript.Shell")
+						DesktopPath = Shell.SpecialFolders("Desktop")
+						DESKTOPPATH="E:\01 Desktop\"+ITEM_VAR_FILE_NOT_EXT+".lnk"
+						MSGBOX DesktopPath
+						Set link = Shell.CreateShortcut(DESKTOPPATH) 
+						' DesktopPath)  ' FILENAME
+						link.Arguments = ""          									    ' "1 2 3"
+						link.Description = ""                                               ' "test shortcut"
+						link.HotKey = ""            									    ' "CTRL+ALT+SHIFT+X"
+						link.IconLocation = "app.exe,1"                                     ' AS HERE TESTER
+						link.TargetPath = ARRAY_1(R_SET)
+						link.WindowStyle = 3
+						link.WorkingDirectory = ""   '   "c:\blah"           	            ' IGNOR
+						link.Save
+					END IF
 					' -----------------------------------------------
 				END IF
 			NEXT
@@ -433,18 +531,18 @@ END IF
 
 WScript.Quit(0)
 'END OF
-'--------------------------------------------------------------------
-'--------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
-'--------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' STARTING
-'--------------------------------------------------------------------
-'--------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 SUB CREATE_PIN_ITEM_ARRAY
-'--------------------------------------------------------------------
+' -------------------------------------------------------------------
 I=0
 
-'--------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 I=I+1:ARRAY_1(I)="C:\Windows\System32\cmd.exe"
 I=I+1:ARRAY_1(I)="C:\Windows\explorer.exe"
@@ -792,15 +890,15 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
 END IF
 
-'----------------------------------------------------------------------------
+' ---------------------------------------------------------------------------
 ' ----
 ' Downloads / Tools by other people / Classic Paint app for Windows 10
 ' https://winaero.com/download.php?view.1927
 ' ----
 ' D:\03_MICROSOFT\# 01 OPERATING_SYSTEM\#_OP_SYS\ClassicPaintforWindows10.zip
-'----------------------------------------------------------------------------
+' ---------------------------------------------------------------------------
 ' ORIGINAL LOCATION COMES WITH WINDOWS
-'----------------------------------------------------------------------------
+' ---------------------------------------------------------------------------
 
 
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
@@ -932,9 +1030,9 @@ I=I+1:ARRAY_1(I)=""
 END SUB
 
 
-'--------------------------------------------------------
+' -------------------------------------------------------
 SUB GET_WINDOWS_VERSION
-'--------------------------------------------------------
+' -------------------------------------------------------
 	Set SystemSet = GetObject("winmgmts:").InstancesOf ("Win32_OperatingSystem") 
 	for each System in SystemSet 
 	' WScript.Echo System.Caption 
@@ -951,9 +1049,9 @@ SUB GET_WINDOWS_VERSION
 	next 
 END SUB
 
-'--------------------------------------------------------
+' -------------------------------------------------------
 SUB RUN_THE_CODE_PIN_TO
-'--------------------------------------------------------
+' -------------------------------------------------------
 RESULT_TO_DO=""
 RESULT_TO_DO_COUNTER=0
 FOR R_SET=1 TO UBOUND(ARRAY_1)
@@ -1015,9 +1113,11 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
 			' MSGBOX """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET
-			objShell.Run """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET , 0 , TRUE
+			IF DEBUG_DUMMY_RUN=FALSE THEN 
+				objShell.Run """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET , 0 , TRUE
+			END IF
 			EXTRA_ITEM_ADD_TO_TASKBAR = EXTRA_ITEM_ADD_TO_TASKBAR + 1
-			MSGBOX ITEM_VAR_SET
+			' MSGBOX ITEM_VAR_SET
 			'WScript.Sleep 1000
 
 			IF QUITE_MODE_ENDING=FALSE THEN
@@ -1034,9 +1134,9 @@ NEXT
 
 
 
-'-------------------------------------
+' ------------------------------------
 ' CHECK FOR DUPLICATES MASSIVE SPEEDER
-'-------------------------------------
+' ------------------------------------
 obj_SOURCE_Folder = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
 Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
 CALL GET_LINK_SET_STRING(objSuperFolder)
@@ -1055,7 +1155,7 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		END IF
 	END IF
 NEXT
-'-------------------------------------
+' ------------------------------------
 IF LINK_SET_EXIST_TOTAL_VERIFY_FAIL>0 THEN 
 	LINK_SET_EXIST_TOTAL_VERIFY_2= "THE FOLLOW SET DOUBLE VERIFY NOT MAKE IT ON"+VBCRLF+VBCRLF+"OPEN IN EXPLORER _ YES/NOT" & VBCRLF & VBCRLF & "ERROR COUNTER  " & LINK_SET_EXIST_TOTAL_VERIFY_FAIL & VBCRLF & VBCRLF & LINKTEXT_SET_NOT_VERIFY
 END IF
@@ -1076,9 +1176,9 @@ END IF
 END SUB
 
 
-'-----------------------------------------------
+' ----------------------------------------------
 SUB GET_LINK_SET_STRING(fFolder)
-'-----------------------------------------------
+' ----------------------------------------------
 	LINK_SET_STRING=""
 	Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
@@ -1097,9 +1197,9 @@ SUB GET_LINK_SET_STRING(fFolder)
 LINK_SET_STRING=UCASE(LINK_SET_STRING)
 End SUB
 
-'-----------------------------------------------
+' ----------------------------------------------
 FUNCTION LINK_ALREADY_EXIST_DOUBLE_VERIFY(fFolder,FILE_SCAN_FIND_1)
-'-----------------------------------------------
+' ----------------------------------------------
 	LINK_ALREADY_EXIST_DOUBLE_VERIFY=FALSE
 	Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
@@ -1124,9 +1224,9 @@ FUNCTION LINK_ALREADY_EXIST_DOUBLE_VERIFY(fFolder,FILE_SCAN_FIND_1)
 End FUNCTION
 
 
-'-----------------------------------------------
+' ----------------------------------------------
 FUNCTION LINK_ALREADY_EXIST(fFolder,FILE_SCAN_FIND_1)
-'-----------------------------------------------
+' ----------------------------------------------
 	LINK_ALREADY_EXIST=FALSE
 	Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
@@ -1150,9 +1250,9 @@ FUNCTION LINK_ALREADY_EXIST(fFolder,FILE_SCAN_FIND_1)
 	Next
 End FUNCTION
 
-'-----------------------------------------------
+' ----------------------------------------------
 SUB APPDATA_FOLDER_FILE_COUNT(fFolder,FILE_SCAN_FIND_1)
-'-----------------------------------------------
+' ----------------------------------------------
 	Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
     For Each objFile in colFiles
@@ -1161,7 +1261,7 @@ SUB APPDATA_FOLDER_FILE_COUNT(fFolder,FILE_SCAN_FIND_1)
 	
     For Each Subfolder in fFolder.SubFolders
 		' MIGHT AS WELL SUB FOLDER SCAN IT AS THE CODE IS HERE
-		'-----------------------------------------------------
+		' ----------------------------------------------------
         CALL APPDATA_FOLDER_FILE_COUNT(Subfolder,FILE_SCAN_FIND_1)
     Next
 End SUB
@@ -1184,9 +1284,9 @@ End SUB
 ' Sat 09-Mar-2019 01:22:00
 ' ---------------------------------------------------------------------
 ' 01 OF 02
-'-------------------------------------
+' ------------------------------------
 Sub ShowSubfolders_FIND_NORTON_UISTUB_EXE
-'-------------------------------------
+' ------------------------------------
 	FILE_SCAN_FIND_4=""
 	FOR R_COUNT=1 TO 2
 		IF R_COUNT=1 THEN obj_SOURCE_Folder = "C:\Program Files"
@@ -1207,11 +1307,11 @@ Sub ShowSubfolders_FIND_NORTON_UISTUB_EXE
 		Next
 	Next
 End Sub
-'-------------------------------------
+' ------------------------------------
 ' 02 OF 02
-'-------------------------------------
+' ------------------------------------
 Sub ShowSubfolders_FIND_NORTON_UISTUB_EXE_02(fFolder,FILE_SCAN_FIND_1)
-'-------------------------------------
+' ------------------------------------
     Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
     For Each objFile in colFiles
@@ -1229,9 +1329,9 @@ End Sub
 
 
 
-'-------------------------------------
+' ------------------------------------
 Sub ShowSubfolders_FIND_FOLDER(fFolder,FILE_SCAN_FIND_1)
-'-------------------------------------
+' ------------------------------------
 	Set objFolder = objFSO.GetFolder(fFolder.Path)
 	Set colFiles = objFolder.Files
 
@@ -1251,9 +1351,9 @@ Sub ShowSubfolders_FIND_FOLDER(fFolder,FILE_SCAN_FIND_1)
 	
 End Sub
 
-'-------------------------------------
+' ------------------------------------
 Sub ShowSubFolders(fFolder,FILE_SCAN_FIND_1)
-'-------------------------------------
+' ------------------------------------
     Set objFolder = objFSO.GetFolder(fFolder.Path)
     Set colFiles = objFolder.Files
     For Each objFile in colFiles
@@ -1271,9 +1371,9 @@ Sub ShowSubFolders(fFolder,FILE_SCAN_FIND_1)
     Next
 End Sub
 
-' -----------------------------------------------------------------
+' --------------------------------------------------------------------
 ' REFERENCING
-' -----------------------------------------------------------------
+' --------------------------------------------------------------------
 ' ----
 ' DeployHappiness | Pinning Programs to the Taskbar with Group Policy
 ' https://deployhappiness.com/pinning-programs-to-the-taskbar-with-group-policy/
