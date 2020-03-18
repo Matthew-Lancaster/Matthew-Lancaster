@@ -416,7 +416,9 @@ F5::
 #ifwinactive
 
 
-; SELECT 20 PHOTO WITH HOTKEY H
+; -------------------------------------------------------------------
+; SELECT 1000 PHOTO WITH HOTKEY H
+; -------------------------------------------------------------------
 #IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 *~H::
 	; ControlGet, hWnd, hWnd,, Intermediate D3D Window1, A
@@ -424,16 +426,20 @@ F5::
 	; IF !hWnd
 	; {
 		TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT=0
-		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,300
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,380
 	; }
 RETURN
 #ifwinactive
-
-
+; -------------------------------------------------------------------
 TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 
 	TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT+=1
-	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>50 
+	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>1000 
+	{
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
+		RETURN
+	}
+	IF GetKeyState("LButton","P")
 	{
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
 		RETURN
@@ -444,14 +450,18 @@ TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 		RETURN
 	}
 	
-	SENDINPUT {RIGHT}
-	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,80
+	; SENDINPUT {RIGHT}
+	SENDINPUT {LEFT}
+	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,120
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 RETURN
-
+; -------------------------------------------------------------------
 TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02:
 	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
 	SENDINPUT X
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 RETURN
+; -------------------------------------------------------------------
 
 
 
