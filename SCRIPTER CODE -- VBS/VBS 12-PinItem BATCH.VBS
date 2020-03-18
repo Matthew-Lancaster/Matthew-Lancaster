@@ -262,15 +262,15 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 	END IF
 NEXT
 '-------------------------------------
-FOR R_SET=1 TO UBOUND(ARRAY_1)
-	IF ARRAY_2(R_SET)=FALSE THEN 
-	IF ARRAY_1(R_SET)<>"" THEN 
-				MSGBOX "---- " + ARRAY_1(R_SET)
-				MSGBOX CSTR(R_SET)+VBCR+FILE_SCAN_FIND_1
+' FOR R_SET=1 TO UBOUND(ARRAY_1)
+	' IF ARRAY_2(R_SET)=FALSE THEN 
+	' IF ARRAY_1(R_SET)<>"" THEN 
+				' MSGBOX "---- " + ARRAY_1(R_SET)
+				' MSGBOX CSTR(R_SET)+VBCR+FILE_SCAN_FIND_1
 			
-	END IF 
-	END IF 
-NEXT
+	' END IF 
+	' END IF 
+' NEXT
 
 
 '-------------------------------------------------------
@@ -551,7 +551,7 @@ IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" then
 END IF 
 
 IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then 
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
 END IF 
 
@@ -855,7 +855,11 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe"
 
 
 ' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_Hiren_Programs\Programs\guiformat.exe"
-I=I+1:ARRAY_1(I)=""
+
+
+IF Version_OS=10 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Arduino\arduino.exe"
+END IF
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
