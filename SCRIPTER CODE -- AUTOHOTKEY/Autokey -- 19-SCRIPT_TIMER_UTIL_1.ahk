@@ -2545,6 +2545,10 @@ UniqueID := WinActive("mysms - Google Chrome")
 IF UniqueID=0
 	OLD_UniqueID_MYSMS=0
 ; tooltip % OLD_UniqueID_MYSMS
+
+
+UniqueID=0
+
 IF UniqueID>0 
 	IfWinExist ahk_id %UniqueID%
 	{
