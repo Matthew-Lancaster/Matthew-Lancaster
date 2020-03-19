@@ -284,14 +284,22 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	{
 		ArrayCount+=1
 		SET_ARRAY_1[ArrayCount]:="G:\VI_ DSC 01 V0 01 MM"
-		SET_ARRAY_2[ArrayCount]:=".DB" ; Thumbs.db
+		SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
+		ArrayCount+=1
+		SET_ARRAY_1[ArrayCount]:="D:\VI_ DSC ME"
+		SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
 	}
 	
-	
-	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM\2010+SONY\2011 CyberShot H70____ IMAGE_06-Jun_x013"
-	SET_ARRAY_2[ArrayCount]:=".DB" ; Thumbs.db
-	
+	IF (A_ComputerName="7-ASUS-GL522VW")
+	{
+		ArrayCount+=1
+		SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM"
+		SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
+		ArrayCount+=1
+		SET_ARRAY_1[ArrayCount]:="D:\VI_ DSC ME"
+		SET_ARRAY_2[ArrayCount]:="DB" ; Thumbs.db
+		
+	}
 	
 
 	; ---------------------------------------------------------------
@@ -510,12 +518,9 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 							DO_DELETER=
 							IF INSTR(A_LoopFileFullPath,"Thumbs.db")>0
 							{
-								MSGBOX % A_LoopFileFullPath
-								PAUSE
 								FileSetAttrib, -R, %A_LoopFileFullPath%
 								FileDelete, %A_LoopFileFullPath%
 								DO_DELETER=TRUE
-								
 							}
 							
 							; ---------------------------------------
