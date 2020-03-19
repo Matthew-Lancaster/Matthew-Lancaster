@@ -504,6 +504,7 @@ Return
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+
 #IfWinActive ahk_class Chrome_WidgetWin_1
 ^u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
                                                ; HAS OPEN SOURCE OF PAGE 
