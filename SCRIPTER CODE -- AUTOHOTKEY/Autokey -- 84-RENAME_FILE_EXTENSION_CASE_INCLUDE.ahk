@@ -269,7 +269,6 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\DD"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
-
 	
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="D:\DD"
@@ -280,6 +279,19 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	ArrayCount+=1
 	SET_ARRAY_1[ArrayCount]:="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC_4G_1TB\DSC--2018+CCSE_HIKVISION"
 	SET_ARRAY_2[ArrayCount]:="MP4 MPG MPEG"
+
+	IF (A_ComputerName="8-MSI-GP62M-7RD")
+	{
+		ArrayCount+=1
+		SET_ARRAY_1[ArrayCount]:="G:\VI_ DSC 01 V0 01 MM"
+		SET_ARRAY_2[ArrayCount]:=".DB" ; Thumbs.db
+	}
+	
+	
+	ArrayCount+=1
+	SET_ARRAY_1[ArrayCount]:="T:\VI_ DSC 01 V0 01 MM\2010+SONY\2011 CyberShot H70____ IMAGE_06-Jun_x013"
+	SET_ARRAY_2[ArrayCount]:=".DB" ; Thumbs.db
+	
 	
 
 	; ---------------------------------------------------------------
@@ -484,16 +496,42 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 							IF !NOT_TALK
 								; MSGBOX, 4096,,%  FILE_COUNTER_INDEX " OF " FILE_COUNTER_MAX "`n`n" "RENAME TO HAPPEN CASE CONVERT _.___ EXTENSION`n`n" A_LoopFileFullPath "`n`n" PATH_NAME_4_REPLACE
 							
-							RENAME_DONE=% RENAME_DONE PATH_NAME_4_REPLACE "`n"
-							RENAME_DONE_COUNT+=1
 							
 							
 							SplitPath, PATH_NAME_4_REPLACE, OutFileName, OutDir, OutExtension, OutNameNoExt, OutDrive
-							
 							IFNOTEXIST, %OutDir%
 								MSGBOX % "DEBUGGER ERROR _ RESULT RENAME TARGET FOLDER NOT EXIST AS SHOWN`n`nTARGET FOLDER`n-------------_-----`n" OutDir "\`n`nSUPPOSE FILENAME TARGET WHEN RENAME`n-----------------------------------_---------------`n" PATH_NAME_4_REPLACE
 							
-							FILEMOVE, %A_LoopFileFullPath%,%PATH_NAME_4_REPLACE%
+							; ---------------------------------------
+							; ---------------------------------------
+							; ---------------------------------------
+							; ---------------------------------------
+							; ---------------------------------------
+							DO_DELETER=
+							IF INSTR(A_LoopFileFullPath,"Thumbs.db")>0
+							{
+								MSGBOX % A_LoopFileFullPath
+								PAUSE
+								FileSetAttrib, -R, %A_LoopFileFullPath%
+								FileDelete, %A_LoopFileFullPath%
+								DO_DELETER=TRUE
+								
+							}
+							
+							; ---------------------------------------
+							; ---------------------------------------
+							; ---------------------------------------
+							; ---------------------------------------
+							IF !DO_DELETER
+							{
+								FILEMOVE, %A_LoopFileFullPath%,%PATH_NAME_4_REPLACE%
+								RENAME_DONE=% RENAME_DONE PATH_NAME_4_REPLACE "`n"
+								RENAME_DONE_COUNT+=1
+							}
+							; ---------------------------------------
+							; ---------------------------------------
+							; ---------------------------------------
+							; ---------------------------------------
 						}
 					}
 				}
