@@ -955,9 +955,37 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe"
 ' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_Hiren_Programs\Programs\guiformat.exe"
 
 
-IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Arduino\arduino.exe"
+
+I=I+1:ARRAY_1(I)="C:\Users\" & CUR_USER & "\AppData\Roaming\Insync\App\Insync.exe"
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)=""
+	I=I-1
 END IF
+
+
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Arduino\arduino.exe"
+If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
+	ARRAY_1(I)=""
+	I=I-1
+END IF
+
+' IF Version_OS=10 THEN
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Arduino\arduino.exe"
+' END IF
+
+IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
+	I=I+1:ARRAY_1(I)="C:\Users\" & CUR_USER & "\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
+END IF
+
+' C:\Windows\WinSxS\amd64_microsoft-windows-s..ytools-ex.resources_31bf3856ad364e35_10.0.16299.15_en-us_28a070b1f81f73ec\secpol.msc
+
+' "C:\PStart\# NOT INSTALL REQUIRED\FFMPEG\ffmpeg-gui_v1.1- FRONT END CONVERT ANY TO ANY\ffmpeggui\ffmpeggui.exe"
+
+
+' Fri 20-Mar-2020 01:48:30
+' UNINSTALLL HAPPEN
+' Alon Video Joiner
+
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
