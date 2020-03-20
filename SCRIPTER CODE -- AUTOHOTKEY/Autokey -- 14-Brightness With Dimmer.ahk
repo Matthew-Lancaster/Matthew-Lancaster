@@ -80,12 +80,9 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ADD_MINUTE_BEFORE_SCREEN_SAVER=
 ; CARRY ON THE TIMER SET
 ADD_MINUTE_SCREEN_SAVER=
-SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=
 ; ---------------------------------------------------------------
 
-
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
-
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER\Class_Monitor_Master\SRC\Class_Monitor.ahk     ; include the class here
 
@@ -581,8 +578,12 @@ RS232_LOGGER_TIMER_RUN_EXE:
 	; }
 RETURN 
 
-RS232_SUB:
-RS232_LOGGER_TIMER_CHANGE:
+RS232_SUB: ; ----
+RS232_LOGGER_TIMER_CHANGE: ; ----
+
+	IF ADD_MINUTE_SCREEN_SAVER
+	IF ADD_MINUTE_SCREEN_SAVER>%A_NOW%
+		RETURN
 
 	; HERE COME FROM
 	; "D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER.vbp"
@@ -705,7 +706,7 @@ RS232_LOGGER_TIMER_CHANGE:
 RETURN
 
 
-~$F5:: 
+~$F5:: ; ---- 
 {
 ARTIFICIAL_F5:=GetKeyState("F5","P")
 ARTIFICIAL_F5_A_Now:=A_Now
@@ -734,34 +735,24 @@ RETURN
 ; IT ALSO TRIGGER THAT SCREEN SAVER SWITCH IS SHOW VISIBLE
 ; -------------------------------------------------------------------
 
-CHECK_FILENAME_1_HOUR:
-
+SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND:
+	EXIST_VAR_SCREEN_SAVER=
 	IF ADD_MINUTE_BEFORE_SCREEN_SAVER
-	{
-		ADD_MINUTE_BEFORE_SCREEN_SAVER=
-		ADD_MINUTE_SCREEN_SAVER=%A_Now%
-		ADD_MINUTE_SCREEN_SAVER+=2 , Hours
-		SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
-		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
-	}
+		EXIST_VAR_SCREEN_SAVER=TRUE
 
-	FileName_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer ADD_SOME_#NFS_EX_%A_ComputerName%.TXT
-	if FileExist(FileName_VB)
+	FILENAME_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-Brightness With Dimmer ADD_SOME_#NFS_EX_%A_ComputerName%.TXT
+	IF FILEEXIST(FILENAME_VB)
+		EXIST_VAR_SCREEN_SAVER=TRUE
+	
+	IF EXIST_VAR_SCREEN_SAVER
 	{
-		FileDelete, % FileName_VB
-		
 		ADD_MINUTE_BEFORE_SCREEN_SAVER=
 		ADD_MINUTE_SCREEN_SAVER=%A_Now%
 		ADD_MINUTE_SCREEN_SAVER+=1 , Hours
-		SWITCH_SCREEN_SAVER_TO_SHOW_SCREEN=TRUE     ; NOT REALLY USER
-		SOUNDBEEP 1000,100
 		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
-		IF OSVER_N_VAR=5 ; XP
-		{
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		}
-		
+		if FileExist(FILENAME_VB)
+			FileDelete, % FILENAME_VB
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 		Gui, -caption +toolwindow +AlwaysOnTop +Disabled -SysMenu +Owner  ; +Owner avoids a taskbar button.
 		Gui Color, White
 		Gui font, s30 bold, Arial
@@ -771,14 +762,19 @@ CHECK_FILENAME_1_HOUR:
 		SLEEP 4000
 		Gui, Hide
 	}
-Return
+RETURN
+
+CHECK_FILENAME_1_HOUR: ; ----
+	; FROM MENU OPTION ----------------------------------------------
+	GOSUB SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND
+RETURN
 
 
 
 
 
 ; ------------------------------------
-Mouse_Idle_Timer:
+Mouse_Idle_Timer: ; ----
 
 COUNT_TICK_TIME=% 1000*60*24
 ; TOOLTIP %A_TICKCOUNT% __ %COUNT_TICK_TIME%
@@ -989,7 +985,7 @@ GOSUB, Keyboard_Idle_Timer
 Return ; End of Mouse_Idle_Timer
 
 ; ------------------------------------------------------------------
-Keyboard_Idle_Timer:
+Keyboard_Idle_Timer: ; ----
 ; Tooltip % + A_TimeIdle " -- " VAR_A__TimeIdle 
 ;TEST DEBUG ___________
 
@@ -1044,14 +1040,13 @@ RETURN
 
 
 ; ------------------------------------------------------------------
-MONITOR_BRIGHTNESS_DIM:
+MONITOR_BRIGHTNESS_DIM: ; ----
+
 
 
 IF ADD_MINUTE_SCREEN_SAVER
-IF A_NOW<%ADD_MINUTE_SCREEN_SAVER%
-{
-	ALLOW_DIMMER := "False"
-}
+IF ADD_MINUTE_SCREEN_SAVER>%A_NOW%
+	RETURN
 
 IF (ALLOW_DIMMER = "False")
 	RETURN
@@ -1071,7 +1066,7 @@ If (Mouse_Idle_Flip_Flop_Toggle = "False")
 RETURN
 
 ; ------------------------------------------------------------------
-MONITOR_BRIGHTNESS_UP:
+MONITOR_BRIGHTNESS_UP: ; ----
 ; FIX BIG DIM SUPPOSED TO COME OUT OF DIM BUT WAS HAPPEN EVERY OTHER ODD ALTERNATE
 ; DON'T REQUIRE THE IF AROUND HERE
 ; [ Tuesday 02:20:40 Am_14 May 2019 ]
@@ -1147,12 +1142,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 	}
 	
 
-	IF ADD_MINUTE_SCREEN_SAVER
-	IF A_NOW<%ADD_MINUTE_SCREEN_SAVER%
-	{
-		ALLOW_DIMMER := "False"
-	}
-	
+	; IF ADD_MINUTE_SCREEN_SAVER
+	; IF ADD_MINUTE_SCREEN_SAVER<%A_NOW%
 	IF (O_IN_DAY_1<>%IN_DAY% or SET_GO="TRUE")
 	{
 	
@@ -1170,6 +1161,8 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 		IF (A_ComputerName="8-MSI-GP62M-7RD")
 			DIMMER_ONLY_NOT_BLANK := "True"
 	
+		IF ADD_MINUTE_SCREEN_SAVER
+		IF ADD_MINUTE_SCREEN_SAVER<%A_NOW%
 		IF (IN_DAY="FALSE" or SET_GO="TRUE")
 			IF (ALLOW_DIMMER="True")
 			{
@@ -1253,7 +1246,7 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 RETURN
 
 
-SCREEN_SAVER_TO_SHOW_SCREEN:
+SCREEN_SAVER_TO_SHOW_SCREEN: ; ----
 
 	Gui, HIDE
 	;--------------------------------------------------------
@@ -1287,12 +1280,10 @@ SCREEN_SAVER_TO_SHOW_SCREEN:
 	; SET TIMER TO THE SECOND 1000MS FOR EASIER COUNTER TIME_OUT
 	; ---------------------------------------------------------------
 	Mouse_Idle_Flip_Flop_Toggle := "False"
-
-
 RETURN
 
 
-IS_IN_DAY:
+IS_IN_DAY: ; ----
 
 FormatTime, T,, HHmm
 If ( ( T >= 0000 and T <= 0500 ) or ( T >= 2200 and T <= 2359 ) )
@@ -1389,7 +1380,7 @@ or winW < A_ScreenWidth) ? false : true
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 
 
-TIMER_PREVIOUS_INSTANCE:
+TIMER_PREVIOUS_INSTANCE: ; ----
 SETTIMER TIMER_PREVIOUS_INSTANCE,10000
 
 if ScriptInstanceExist()
@@ -1409,7 +1400,7 @@ ScriptInstanceExist() {
 Return
 
 ; ------------------------------------------------------------------
-EOF:                           ; on exit
+EOF: ; ----                    ; on exit
 Display.OnExit()               ; release and free the library
 ExitApp     
 ; ------------------------------------------------------------------
