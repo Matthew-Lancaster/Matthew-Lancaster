@@ -2207,60 +2207,35 @@ Return
 
 TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01:
 
-
-; -------------------------------------------------------------------
-; IF NOT WANT TO CLICK ON __ AutoFill - RoboForm __ TO GAIN 
-; FOCUS AND OPERATE
-; INSTEAD GOT TO GO TO ROBOFORM SETTING AND CLICK 
-; AUTOFILL STEALS KEYBOARD FOCUS
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
 SetTitleMatchMode 3  ; Exactly
 
 WINDOW_Array := []
 WINDOW_Ar_OPT := []
-
 ArrayCount := 0
-
 ArrayCount += 1
 WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
 ArrayCount += 1
+WINDOW_Array[ArrayCount] := "Email Login Page - Mozilla Firefox"	
+ArrayCount += 1
 WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
 
-UniqueID := WinActive("AutoFill - RoboForm")
-IF UniqueID>0 
 Loop % ArrayCount
 {
-  Element := WINDOW_Array[A_Index]
-  OPTION_PRESS_ENTER := WINDOW_Ar_OPT[A_Index]
-	IfWinExist %Element%
+	Element := WINDOW_Array[A_Index]
+	IfWinActive %Element%
 	{
-		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
-		If (OutputVar_2="&Fill Forms")
-		{
-			#WinActivateForce, AutoFill - RoboForm
-			ControlClick, Button1, AutoFill - RoboForm
-			SoundBeep , 2500 , 100
-			#WinActivateForce, %Element%
-			
-			Loop, 10
-			{
-				IfWinExist %Element%
-				{
-					SLEEP 500
-					SENDINPUT {ENTER}
-					SoundBeep , 2500 , 100
-				}
-				ELSE
-					BREAK
-			}
-			
-		}
+		IF INSTR(Element,"QNAP")>0 
+		SENDINPUT {ENTER} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
+		
+		IF INSTR(Element,"Email Login Page")>0 
+		SENDINPUT {F5} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
+		
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 	}
 }
-	
-
 RETURN
+
+
 	
 
 TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_02:
