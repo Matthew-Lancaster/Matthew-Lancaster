@@ -408,8 +408,7 @@ HWNDID=
 
 SETTIMER ONE_SECOND,1000
 
-SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01,3000
-SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_02,500
+SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01,5000
 
 ; SETTIMER CHECK_TEAMVIEWER_NOT_RUN_ALL_MACHINER,60000
 SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
@@ -2218,6 +2217,8 @@ ArrayCount += 1
 WINDOW_Array[ArrayCount] := "Email Login Page - Mozilla Firefox"	
 ArrayCount += 1
 WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
+ArrayCount += 1
+WINDOW_Array[ArrayCount] := "Flickr Login - Google Chrome"
 
 Loop % ArrayCount
 {
@@ -2225,10 +2226,13 @@ Loop % ArrayCount
 	IfWinActive %Element%
 	{
 		IF INSTR(Element,"QNAP")>0 
-		SENDINPUT {ENTER} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
+			SENDINPUT {ENTER} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
 		
 		IF INSTR(Element,"Email Login Page")>0 
-		SENDINPUT {F5} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
+			SENDINPUT {F5} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
+		
+		IF INSTR(Element,"Flickr Login - Google Chrome")>0 
+			TOOLTIP "Flickr Login - Google Chrome ---- WHAT TO DO -- NOTHING AT THE MOMENT"
 		
 		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 	}
@@ -2238,53 +2242,8 @@ RETURN
 
 	
 
-TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_02:
-
-
-; -------------------------------------------------------------------
-; IF NOT WANT TO CLICK ON __ AutoFill - RoboForm __ TO GAIN 
-; FOCUS AND OPERATE
-; INSTEAD GOT TO GO TO ROBOFORM SETTING AND CLICK 
-; AUTOFILL STEALS KEYBOARD FOCUS
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-SetTitleMatchMode 3  ; Exactly
-
-WINDOW_Array := []
-WINDOW_Ar_OPT := []
-
-ArrayCount := 0
-; ArrayCount += 1
-; WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
-; ArrayCount += 1
-; WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "Flickr Login - Google Chrome"
-
-; PRESS ENTER AFTER SELECT FILL FORM -- BUTTON1 LEFTER
-
-UniqueID := WinActive("AutoFill - RoboForm")
-IF UniqueID>0 
-Loop % ArrayCount
-{
-	Element := WINDOW_Array[A_Index]
-	IfWinExist %Element%
-	{
-		ControlGettext, OutputVar_2, Button1, AutoFill - RoboForm
-		If (OutputVar_2="&Fill Forms")
-		{
-			#WinActivateForce, AutoFill - RoboForm
-			ControlClick, Button1, AutoFill - RoboForm
-			SoundBeep , 2500 , 100
-			; #WinActivateForce, %Element%
-			
-		}
-	}
-}
 	
 
-RETURN
-	
 	
 TIMER_SUB_VB_KEEP_RUNNER_02:
 IF TIMER_SUB_VB_KEEP_RUNNER__01_VAR_NOT_FIRST_TIME
