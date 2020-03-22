@@ -421,6 +421,7 @@ F5::
 ; -------------------------------------------------------------------
 #IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 *~H::
+{
 	; ControlGet, hWnd, hWnd,, Intermediate D3D Window1, A
 	; MSGBOX %  hWnd
 	; IF !hWnd
@@ -431,6 +432,7 @@ F5::
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
 
 	; }
+}
 RETURN
 #ifwinactive
 ; -------------------------------------------------------------------
@@ -449,7 +451,7 @@ TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 		RETURN
 	}
 	SetTitleMatchMode 2  ; PARTIAL PATH
-	If WinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+	IfWinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 	{
 		WinActivate Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 		RETURN
@@ -461,7 +463,7 @@ RETURN
 ; -------------------------------------------------------------------
 TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02:
 	SetTitleMatchMode 2  ; PARTIAL PATH
-	If WinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+	IfWinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 	{
 		WinActivate Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 		RETURN
@@ -472,8 +474,103 @@ TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02:
 	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
 	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,ON
 RETURN
-; -------------------------------------------------------------------
 
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; PAGE DOWN REPEATER PHOTO WITH HOTKEY CONTROL H SHIFT H
+; -------------------------------------------------------------------
+#IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+*~L::    ; L FOR LATITUDE
+{
+	TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT=0
+	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_01,800
+	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,200
+	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+}
+RETURN
+#ifwinactive
+; -------------------------------------------------------------------
+TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_01:
+
+	SENDINPUT {PgDn}
+	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_01,OFF
+	SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,ON
+RETURN
+
+TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02:
+
+	IF GetKeyState("LButton","P")
+	{
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		RETURN
+	}
+	SetTitleMatchMode 2  ; PARTIAL PATH
+	IfWinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+	{
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		RETURN
+	}
+
+	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>2000
+	{
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		RETURN
+	}
+	TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT+=1
+	SEND ^{END}
+RETURN
+
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; PAGE DOWN REPEATER PHOTO WITH HOTKEY CONTROL H SHIFT H
+; -------------------------------------------------------------------
+; #IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+; *~+H::
+	; TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT=0
+	; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_01,100
+	; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,1
+	; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+; RETURN
+; #ifwinactive
+; ; -------------------------------------------------------------------
+; TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_01:
+
+	; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_01,OFF
+	; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,ON
+	; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+; RETURN
+
+; TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02:
+
+	; IF GetKeyState("LButton","P")
+	; {
+		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+		; RETURN
+	; }
+	; SetTitleMatchMode 2  ; PARTIAL PATH
+	; If WinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+	; {
+		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+		; RETURN
+	; }
+
+	; IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>200
+	; {
+		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		; SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_ENDER_02,OFF
+		; RETURN
+	; }
+
+	; SENDINPUT {WheelDown}
+; RETURN
 
 
 Return
