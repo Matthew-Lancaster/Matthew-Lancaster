@@ -2064,8 +2064,9 @@ AUTO_RELOAD_RAIN_ALARM:
 			SENDINPUT {F5}
 
 			SLEEP 100
-			IF Element5_RAIN
-				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			IF Element5_RAIN   ; "YES AUDIO"
+				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+				; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 		
 		; ------------------------------------
@@ -2143,7 +2144,7 @@ AUTO_RELOAD_FACEBOOK:
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"    ; ---- COMPUTER NAME
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=                  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE   
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20                ; ---- TIMER INTERVAL ACTIVATE
+	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20                ; ---- TIMER INTERVAL ACTIVATE -- SECOND
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2                 ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"       ; ---- MAKE AUDIO HITTER
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50                ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
