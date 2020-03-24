@@ -691,9 +691,7 @@ IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then
 	' C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe
 	' SUPPOSED TO ADD HERE TO END --  GOODSYNC_MODE  TASKBAR_TRAY_ICON
 END IF 
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
-	I=I+1:ARRAY_1(I)="C:\Users\" & CUR_USER & "\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
-END IF
+
 
 IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe"
@@ -934,6 +932,8 @@ IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
 		END IF
 	NEXT
 END IF
+
+
 IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
 	FOR R_USERNAME=1 TO 8
 		U1=TRIM(CSTR(R_USERNAME))
@@ -943,6 +943,7 @@ IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
 		END IF
 	NEXT
 END IF
+
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Office\Office12\OUTLOOK.EXE"
@@ -956,11 +957,6 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe"
 
 
 
-I=I+1:ARRAY_1(I)="C:\Users\" & CUR_USER & "\AppData\Roaming\Insync\App\Insync.exe"
-If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
-	ARRAY_1(I)=""
-	I=I-1
-END IF
 
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Arduino\arduino.exe"
@@ -986,7 +982,7 @@ END IF
 ' UNINSTALLL HAPPEN
 ' Alon Video Joiner
 
-I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)="D:\Program Files (x86)\Microsoft Encarta\Encarta Encyclopedia 2001\ENC2001.EXE"
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
