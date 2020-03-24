@@ -507,6 +507,10 @@ END IF
 
 ' ------------------------
 FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+
+FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\VI_ DSC ME\2010+SONY\2020 CyberShot HX60V_#"
+
+
 ' ------------------------
 
 FOLDER_PATH_DEST(3)="D:\DSC\2017+FUJI XP90\" + CSTR(Year(Now)) + " FinePix XP90"
