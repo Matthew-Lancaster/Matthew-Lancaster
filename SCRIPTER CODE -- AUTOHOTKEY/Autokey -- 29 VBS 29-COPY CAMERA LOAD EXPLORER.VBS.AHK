@@ -57,8 +57,10 @@ FOR n, param in A_Args  ; For each parameter:
 	PARAM_SET=%PARAM_SET%%A_Space%%PARAM%
 }	
 
+
 PARAM_SET:=StrReplace(PARAM_SET, "*", " ")
 PATH_TARGET=%PARAM_SET%
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -79,7 +81,6 @@ WinGet Path, ProcessPath, %PATH_TARGET%
 	; RETURN
 
 ; IF !TITLE_VAR_BT_MAIL_A
-
 
 
 ; -------------------------------------------------------------------
@@ -119,9 +120,13 @@ IF FileExist(FN_VAR_EXE)
 	if InStr(FileExist(PATH_TARGET), "D")
 		FN_VAR_EXE:="C:\Windows\explorer.exe "
 	
+	; MSGBOX %FN_VAR_EXE% %PATH_TARGET%
 	Run, %FN_VAR_EXE% %PATH_TARGET%
 	
 	SoundBeep , 2500 , 100
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 }
+
+
+
 RETURN
