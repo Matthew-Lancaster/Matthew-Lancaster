@@ -864,8 +864,9 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	SET DELETE_IT_IF_IT_BECAME_CORRUPTED=FALSE
 	SET SPECIFIED_NETWORK_NAME_IS_NOT_FINDAR=FALSE
 	SET OPERATION_HIDE_ERROR=FALSE
-	REM Cannot parse state file, delete it if it became corrupted
+	SET FILE_HAVE_CHANGE_MORE_THAN_THRESHOLD=FALSE
 	
+	REM Cannot parse state file, delete it if it became corrupted
 	
 	REM ------------------------------------------------------------
 	REM ------------------------------------------------------------
@@ -932,6 +933,12 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	if !errorlevel!==0 SET SPECIFIED_NETWORK_NAME_IS_NOT_FINDAR=TRUE
 	if !errorlevel!==0 SET Sync_Runner_FAULT_TOTAL=FALSE
 	if !errorlevel!==0 SET Sync_Runner_ONE=FALSE
+	find "files have changed (excluding renames), more than a threshold of" !FILENAME_ER!>NUL
+	if !errorlevel!==0 SET FILE_HAVE_CHANGE_MORE_THAN_THRESHOLD=TRUE
+	if !errorlevel!==0 SET Sync_Runner_FAULT_TOTAL=FALSE
+	if !errorlevel!==0 SET Sync_Runner_ONE=FALSE
+	
+	
 	FIND "volume not found" !FILENAME_ER!>NUL
 	IF !errorlevel!==0 SET VOLUME_NOT_FOUND=TRUE
 	REM -- THE MEDIA CARD FOR CAMERA SOMETIME NOT PLUG IN AND THEN 
@@ -1001,6 +1008,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=SPECIFIED_NETWORK_NOT_FINDAR  !SPECIFIED_NETWORK_NAME_IS_NOT_FINDAR!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=STATE_FILE_CORRUPTED_DELETE   !DELETE_IT_IF_IT_BECAME_CORRUPTED!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=VOLUME_NOT_FOUND              !VOLUME_NOT_FOUND!
+	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=FILE_HAVE_CHANGE_THRESHOLD    !FILE_HAVE_CHANGE_MORE_THAN_THRESHOLD!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=RESULT FIND                   !STATUS_84[%%a]!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=RESULT OVERALL ERROR COUNT    !STATUS_88[%%a]! OF %%a -- !STATUS_TT[%%a]!
