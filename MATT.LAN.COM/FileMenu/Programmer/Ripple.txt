@@ -1,0 +1,79 @@
+'Visual Basic For Dos Easy Converted
+'Displays an animated tunnel fly through
+'With kelidoscope of colours
+'By Matt Lan 11-Apr-2004
+
+
+
+COMMON SHARED awat AS DOUBLE
+
+DECLARE SUB highres ()
+
+CALL Highres
+
+END
+
+SUB highres ()
+
+DEFDBL A-Z
+SCREEN 12
+pi = 4 * ATN(1)
+lk = 150
+cv = .0000001
+cv = .00002
+
+Rem FOR h = 0 TO lk STEP cv
+
+FOR h = 1 TO lk STEP cv
+    IF INKEY$ <> "" THEN h = h + 1
+
+    Rem IF h > 1 THEN h = h + .0001: GOTO jump
+    Rem IF h <= 1 THEN h = h + .0002: GOTO jump
+
+    jump:
+
+    LOCATE 1, 1: PRINT FORMAT$(h, "0000.000000000000000"); " Of"; lk; " Keep Pressing key to Exit "
+
+    q = h
+    tyu = tyu + .003
+    r = tyu
+    Rem r = 0
+    w = 1
+    c = cb / 20 :rem c / 10000
+    c2 = cb :rem c2 / 10000
+
+    cb = cb + .01
+
+    cb2 = (100000 + (SIN((cb)))) / 2
+
+    c = c + cb2
+    c2 = c2 + cb2
+
+    DO
+        Rem c2 = c2 + (cv)
+        Rem gh = 300 * (SIN(c2)) + 100
+
+        c = c + .001 :rem (cv * 1000) + ((COS(c2)) / gh)
+        IF c > 15 THEN c = 0
+        c1 = 14 * (ABS(COS(c)))
+        r = r + q
+        w = ((r / (pi)) / ((h)))  '(h * 2))'h * 1.5))
+        x = (w) * SIN(r * 5) + 320
+        y = (w / 1.333333) * COS(r * 5) + 240
+
+        PSET (x, y), c1
+        Rem CIRCLE (x, y), 2, c1
+        Rem LINE STEP(0, 0)-(x, y), c1
+        s1 = 0
+        Rem wl = 100
+        Rem IF x < wl OR y < wl THEN s1 = 1
+        Rem IF x > 640 - wl OR y > 480 - wl THEN s1 = 1
+        Rem IF x > 590 OR y > 430 THEN s1 = 1
+
+        IF w > 200 THEN s = s + 1 ELSE s = 0
+
+    LOOP UNTIL s > 100
+    s = 0
+NEXT
+
+END SUB
