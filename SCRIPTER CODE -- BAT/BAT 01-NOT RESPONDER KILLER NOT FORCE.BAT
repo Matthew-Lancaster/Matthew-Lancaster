@@ -93,8 +93,8 @@ ECHO.
 
 IF "!WINXP_!"=="YES" (
 	@SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
-	@FOR /F !!# IN ('COPY /Z "!~dpf0" NUL') DO SET "CR=!!#"
-	@FOR /L !!# IN (!TIMER_DELAY!,-1,1) DO (SET/P "=Script will end in !!# seconds. !CR!"<NUL:
+	@FOR /F %%# in ('COPY /Z "!~dpf0" NUL') DO SET "CR=%%#"
+	@FOR /L %%# in (!TIMER_DELAY!,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
 		PING -n 2 127.0.0.1 >NUL:)
 )
 IF NOT "!WINXP__!"=="YES" GOTO NOT_WINDOWS_XP
