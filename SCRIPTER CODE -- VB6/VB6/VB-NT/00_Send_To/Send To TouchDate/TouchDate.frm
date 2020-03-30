@@ -1064,6 +1064,10 @@ i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
 i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS - DDD NOKIA__.MP4 -- BATCH"
 i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
+
+i = i + 1: M_1(i) = "SET_DATE_OF_FILENAME -- YYYY MM DD HH-MM-SS_.JPG -- CAMERA -- SINGLE"
+i = i + 0: M_3(i) = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE"
+
 i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "SET_ONE_DATE_HARDCODER"
 i = i + 1: M_1(i) = "----"
@@ -1220,6 +1224,9 @@ Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
+Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE"
+    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
   
@@ -1266,7 +1273,7 @@ Sub SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER()
         
         Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
-        DT1 = F.DateLastModified
+        DT1 = F.datelastmodified
         
         If DT4 = 0 Then DT4 = DT1
         If DT1 > DT4 Then DT4 = DT1
@@ -1333,7 +1340,7 @@ Sub SET_OLDER_DATE_TO_OTHER_IN_FOLDER()
         
         Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
-        DT1 = F.DateLastModified
+        DT1 = F.datelastmodified
         If FLAG_OPER = True Then
             If DT4 = 0 Then DT4 = DT1
             If DT1 < DT4 Then DT4 = DT1
@@ -1702,7 +1709,7 @@ Sub DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCA
             
             Set F = FSO.GetFile(A11 + B11)
             DT1 = 0
-            DT1 = F.DateLastModified
+            DT1 = F.datelastmodified
             DT1 = 0
             'Aug 5, 2019 9 57 Am-4
             DATE_STRING = ""
@@ -1806,7 +1813,7 @@ Sub MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT()
         If InStr("MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
             
             Set F = FSO.GetFile(A11 + B11)
-            DT1 = F.DateLastModified
+            DT1 = F.datelastmodified
 
             OUT_FOLDER__ = A11 + "\" + Format(DT1, "YYYY-MM-DD")
             OUT_FOLDER_AND_FILENAME = A11 + "\" + Format(DT1, "YYYY-MM-DD") + "\" + B11
@@ -1930,6 +1937,83 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
     End
 End Sub
 
+
+
+Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE()
+    ' ---------------------------------------------------------------------
+    ' ANOTHER SUB ROUTINE
+    ' LEECH AND MODIFY FROM BATCH CODE SET
+    ' Mon 30-Mar-2020 22:51:11
+    ' ---------------------------------------------------------------------
+    ' LABEL_SET(3).Caption ' -- FULL_PATH_AND_FILENAME
+    ' ---------------------------------------------------------------------
+    A11 = LABEL_SET(3).Caption
+    ' A11 = "D:\DSC\2015+SONY\2020 CyberShot HX60V\JPG\2020 03 30\2020-03-30 13-05-50 - SONY DSC-HX60V - DSC02044 - EDITOR.JPG"
+    D11 = A11
+    If A11 <> "NOT FILE GIVEN" Then
+        A11 = Mid(D11, 1, InStrRev(A11, "\"))
+        B11 = Mid(D11, InStrRev(A11, "\") + 1)
+    End If
+    
+    If Len(D11) < 5 Or D11 = "NOT FILE GIVEN" Then
+        MsgBox "FULL PATH AND FILE NOT GOOD -- EXIT" + vbCrLf + vbCrLf + D11
+        End
+    End If
+    
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    
+    EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+    If InStr("JPG TXT", EXT_STR) Then
+        DATE_FILENAME_D_1 = Mid(B11, 1, 10)
+        DATE_FILENAME_T_2 = Mid(B11, 12, 8)
+        i2 = DATE_FILENAME_D_1
+        i4 = DATE_FILENAME_T_2
+        DATE_FILENAME_D_1 = Mid(i2, 1, 4) + "/" + Mid(i2, 6, 2) + "/" + Mid(i2, 9, 2)
+        DATE_FILENAME_T_2 = Mid(i4, 1, 2) + ":" + Mid(i4, 4, 2) + ":" + Mid(i4, 7, 2)
+        
+        DATE_FILENAME_SUCCESS = DateValue(DATE_FILENAME_D_1) + TimeValue(DATE_FILENAME_T_2)
+        
+        DT4 = DATE_FILENAME_SUCCESS
+        If IsDate(DT4) = False Then
+            ' FALSE DATE
+            ' ----------
+            MsgBox "DATE HERE IS FALSE " + vbCrLf + vbCrLf + ScanPath.txtPath.Text + "\" + XX + vbCrLf + vbCrLf + "IS A FALSE ONE -- EXIT"
+            End
+        End If
+        
+        If DT4 = 0 Then
+            MsgBox "NAUGHT DATE FINDER -- EXIT"
+            End
+        End If
+    
+        TT = SetFileDateTime(A11 + B11, DT4)
+        
+        EXT_ORG = Mid(B11, Len(B11) - 2)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        If EXT_ORG <> EXT_STR Then
+            'RENAME EXTENSION CAPITAL
+            FILE_RENAME1 = Mid(B11, 1, Len(B11) - 4) + "." + EXT_STR
+            Name A11 + B11 As A11 + FILE_RENAME1
+        End If
+        
+        XC = XC + 1
+        MM_1 = MM_1 + B11 + vbCrLf
+    End If
+    
+    Call SET_QUICK_MODE_RESULT
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+
+End Sub
+
+
 Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH()
 
     ScanPath.chkSubFolders = vbChecked
@@ -2024,7 +2108,7 @@ Sub SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH()
         
         Set F = FSO.GetFile(A11 + B11)
         DT2 = F.DateCreated
-        DT1 = F.DateLastModified
+        DT1 = F.datelastmodified
         
         If DT4 = 0 Then DT4 = DT1
         If DT1 < DT4 Then DT4 = DT1
@@ -2159,7 +2243,7 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
     
     Set F = FSO.GetFile(A11 + B11)
     DT3 = F.DateCreated
-    DT1 = F.DateLastModified
+    DT1 = F.datelastmodified
     
     DateSet = DT3
     
@@ -2216,7 +2300,7 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
     
     Set F = FSO.GetFile(A11 + B11)
     DT3 = F.DateCreated
-    DT1 = F.DateLastModified
+    DT1 = F.datelastmodified
     Set F = Nothing
     
     TT = SetFileDateTime(A11 + B11, DT3)
@@ -2245,7 +2329,7 @@ Sub FILE_CREATED_TO_MODIFIED_TIME()
         
     Set F = FSO.GetFile(FULL_PATH_AND_FILENAME)
     DT3 = F.DateCreated
-    DT1 = F.DateLastModified
+    DT1 = F.datelastmodified
     Set F = Nothing
     
     TT = SetFileDateTime(FULL_PATH_AND_FILENAME, DT3)
@@ -2310,7 +2394,7 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
     B11 = ScanPath.ListView1.ListItems.Item(we)
     
     Set F = FSO.GetFile(A11 + B11)
-    DT1 = F.DateLastModified
+    DT1 = F.datelastmodified
     
     DateSet = DT1 - TimeSerial(1, 0, 0)
     
@@ -2555,6 +2639,11 @@ If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH" Then
     Exit Sub
 End If
 
+If WORK = "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
+
 If WORK = "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
@@ -2693,7 +2782,7 @@ End Sub
 Private Sub MNU_CREATE_FOLDER_DATE_MONTH_Click()
 
     Set F = FSO.GetFile(LABEL_SET(3).Caption)
-    DT1 = F.DateLastModified
+    DT1 = F.datelastmodified
 
     OUT_FOLDER = LABEL_SET(2).Caption + "\" + Format(DT1, "YYYY-MM MMM")
     
@@ -2707,7 +2796,7 @@ End Sub
 Private Sub MNU_CREATE_FOLDER_DATE_OF_FILE_Click()
 
     Set F = FSO.GetFile(LABEL_SET(3).Caption)
-    DT1 = F.DateLastModified
+    DT1 = F.datelastmodified
 
     OUT_FOLDER = LABEL_SET(2).Caption + "\" + Format(DT1, "YYYY-MM-DD")
     If InStr(LABEL_SET(3).Caption, "REC") > 0 And InStr(LABEL_SET(3).Caption, ".WAV") > 0 Then
@@ -3085,7 +3174,7 @@ Private Sub MNU_FILEDATE_WHOLE_FOLDER_Click()
             End If
             
             Set F = FSO.GetFile((FILE_NAME_MP4))
-            ADATE1 = F.DateLastModified
+            ADATE1 = F.datelastmodified
             
             'Clipboard.Clear
             'Sleep 200
@@ -3195,7 +3284,7 @@ Private Sub MNU_FILEDATE_CLIPBOARD_Click()
     End If
     
     Set F = fs.GetFile((FILE_NAME_MP4))
-    ADATE1 = F.DateLastModified
+    ADATE1 = F.datelastmodified
     
 '    Clipboard.Clear
 '    Sleep 200
