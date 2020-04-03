@@ -166,7 +166,14 @@
 #NoTrayIcon
 
 ; -------------------------------------------------------------------
-#Persistent
+; MODIFY TO EXIT QUICKER
+; #Persistent
+Exitapp
+RETURN
+; -------------------------------------------------------------------
+
+
+
 ; -------------------------------------------------------------------
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
@@ -217,6 +224,8 @@ WANT_GO=
 IF (A_ComputerName="7-ASUS-GL522VW")
 	WANT_GO=TRUE
 IF (A_ComputerName="4-ASUS-GL522VW")
+	WANT_GO=TRUE
+IF (A_ComputerName="8-MSI-GP62M-7RD")
 	WANT_GO=TRUE
 
 WAIT_REMOTE_APP_LOAD=
@@ -290,8 +299,6 @@ IF INSTR(PARAM_SET,"REMOTE_CALL_RUN")>0
 	SET_EXIT_VAR=1
 IF INSTR(Command_Params,"NOT_SHOW")>0
 	SET_EXIT_VAR=1
-IF SET_EXIT_VAR=1
-
 
 IF WANT_GO
 IF SET_EXIT_VAR=0
