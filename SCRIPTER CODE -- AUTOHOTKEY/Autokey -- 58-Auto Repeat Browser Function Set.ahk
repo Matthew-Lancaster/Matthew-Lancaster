@@ -2591,7 +2591,8 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 			; BT MAIL RINGER RINGTONE RING TONE NOTIFY
 			; -----------------------------------------------
 			IF OLD_TITLE_VAR_BT_MAIL<>-2
-				Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+				; Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+				Soundplay, %a_scriptDir%\AUDIO SET\R2D2-yeah.wav,1 ; WAIT
 			OLD_TITLE_VAR_BT_MAIL=%NewVar%
 			RETURN
 		}
@@ -2612,7 +2613,7 @@ SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET:
 				; BT MAIL RINGER RINGTONE RING TONE NOTIFY
 				; -----------------------------------------------
 				IF OLD_TITLE_VAR_BT_MAIL<>-2
-					Soundplay, %a_scriptDir%\Autokey -- Audio\10 Guitars\003.WAV,1 ; WAIT
+					Soundplay, %a_scriptDir%\AUDIO SET\R2D2-yeah.wav,1 ; WAIT
 				OLD_TITLE_VAR_BT_MAIL=%NewVar%
 			}
 		}
