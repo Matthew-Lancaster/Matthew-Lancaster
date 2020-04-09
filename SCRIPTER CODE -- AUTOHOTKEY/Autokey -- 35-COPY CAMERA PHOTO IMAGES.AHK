@@ -221,7 +221,7 @@ TIMER_DRIVE_GET_CAMERA:
 	I+=1,SET_ARRAY_1[I]:="HI-LOOK-04"           ; WHITE 04 PORT
 	I+=1,SET_ARRAY_1[I]:="HI-LOOK-08"           ; BLACK 08 PORT
 	I+=1,SET_ARRAY_1[I]:="HARD_REC_8G"          ; ACTIONS HS USB FlashDisk USB ---- FAT32 -- Wed 04-Mar-2020
-	; I+=1,SET_ARRAY_1[I]:=""
+	I+=1,SET_ARRAY_1[I]:="RETEKESS"
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
