@@ -1046,8 +1046,8 @@ i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "DATE CONVERTOR__ MMM D, YYYY H MM AM __ TO YYYY-MM-DD--HH-MM-DD FOR SCREENCASTIFY"
 i = i + 0: M_3(i) = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
 i = i + 1: M_1(i) = "----"
-i = i + 1: M_1(i) = "MAKE_FOLDER YYYY-MM-DD OF FILE AND MOVE THERE AND BATCH IT"
-i = i + 0: M_3(i) = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT"
+i = i + 1: M_1(i) = "MAKE_FOLDER YYYY-MM-DD OF FILE AND MOVE THERE ___ BATCH IT"
+i = i + 0: M_3(i) = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT"
 i = i + 1: M_1(i) = "----"
 
 i = i + 1: M_1(i) = "RENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- BATCH"
@@ -1205,7 +1205,7 @@ Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
 Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
-Case "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT"
+Case "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT"
     LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
@@ -1769,18 +1769,18 @@ Sub DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCA
 
 End Sub
 
-
-Sub MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT()
+Sub MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT()
 
     ScanPath.chkSubFolders = vbUnchecked
-    ScanPath.cboMask.Text = "*.MP4"
+    ScanPath.cboMask.Text = "*.MP4;*.MP3;*.WAV"
     
     ' SCAN DO ON TEXTPATH CHANGE
     If LABEL_SET(2).Caption <> "NOT FOLDER GIVEN" Then
         ScanPath.txtPath.Text = LABEL_SET(2).Caption
     End If
     If IsIDE Then
-        ScanPath.txtPath.Text = "F:\DSC--2018+CCTV_HIKVISION\2018+CCTV_HIKVISION_DS-7204H\2020_CCTV_HIKVISION_DS-7204H"
+        ' ScanPath.txtPath.Text = "F:\DSC--2018+CCTV_HIKVISION\2018+CCTV_HIKVISION_DS-7204H\2020_CCTV_HIKVISION_DS-7204H"
+        ScanPath.txtPath.Text = "D:\0 00 MOBILE-2\RETEKESS\RETEKESS_RECORD 2020\MRECORD"
     End If
     
     If Len(ScanPath.txtPath.Text) < 5 Then
@@ -1810,7 +1810,9 @@ Sub MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT()
         A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
         B11 = ScanPath.ListView1.ListItems.Item(RR)
         EXT_STR = UCase(Mid(B11, Len(B11) - 2))
-        If InStr("MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
+        ' WANT PROCESS WITH -- MP4 TXT MP3 -- AND THEN PUT THEM HERE
+        ' ----------------------------------------------------------
+        If InStr("MP4 TXT MP3", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
             
             Set F = FSO.GetFile(A11 + B11)
             DT1 = F.datelastmodified
@@ -2623,7 +2625,7 @@ If WORK = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_S
     Exit Sub
 End If
 
-If WORK = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_AND_BATCH_IT" Then
+If WORK = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT" Then
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
