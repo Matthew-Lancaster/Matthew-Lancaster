@@ -79,8 +79,8 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 		IF EXTNAME=".EXE" THEN                     bIsValid = False
 	END IF
 	
-	' isValidFileName = bIsValid
-	isValidFileName = NOT bIsValid
+	isValidFileName = bIsValid
+	' isValidFileName = NOT bIsValid -- INVERT THEM
 
 End Function
 
