@@ -338,6 +338,8 @@ DetectHiddenWindows, on
 CoordMode, Mouse, Screen
 Mouse_Idle = 0 
 Mouse_Idle_Flip_Flop_Toggle := "True"
+SCREEN_SAVER_NOT_ACTIVE := "TRUE"
+OLD_SCREEN_SAVER_NOT_ACTIVE=
 LastX = 0
 LastY = 0
 VAR_A__TimeIdle_1_OF_4:=0
@@ -764,10 +766,164 @@ SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND:
 	}
 RETURN
 
+
+SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND_1X_2E_COMPUTERNAME:
+
+	FILENAME_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER ADD_ACTIVE_1X_2E_#NFS_EX_%A_ComputerName%.TXT
+	IF FILEEXIST(FILENAME_VB)
+		EXIST_VAR_SCREEN_SAVER=TRUE
+	
+	IF EXIST_VAR_SCREEN_SAVER
+	{
+		ADD_MINUTE_BEFORE_SCREEN_SAVER=
+		ADD_MINUTE_SCREEN_SAVER=%A_Now%
+		ADD_MINUTE_SCREEN_SAVER+=10 , Minutes
+		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
+		if FileExist(FILENAME_VB)
+			FileDelete, % FILENAME_VB
+	}
+RETURN
+
+SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND_3L_5P_8M_COMPUTERNAME:
+
+	FILENAME_VB=C:\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER ADD_ACTIVE_3L_5P_8M_#NFS_EX_%A_ComputerName%.TXT
+	IF FILEEXIST(FILENAME_VB)
+		EXIST_VAR_SCREEN_SAVER=TRUE
+	
+	IF EXIST_VAR_SCREEN_SAVER
+	{
+		ADD_MINUTE_BEFORE_SCREEN_SAVER=
+		ADD_MINUTE_SCREEN_SAVER=%A_Now%
+		ADD_MINUTE_SCREEN_SAVER+=10 , Minutes
+		GOSUB SCREEN_SAVER_TO_SHOW_SCREEN
+		if FileExist(FILENAME_VB)
+			FileDelete, % FILENAME_VB
+	}
+RETURN
+
 CHECK_FILENAME_1_HOUR: ; ----
 	; FROM MENU OPTION ----------------------------------------------
 	GOSUB SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND
+	GOSUB SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND_1X_2E_COMPUTERNAME
+	GOSUB SET_LOADER_FILE_FOR_SCREEN_SAVER_EXTEND_3L_5P_8M_COMPUTERNAME
+
+	; TOOLTIP % SCREEN_SAVER_NOT_ACTIVE
+	
+	IF SCREEN_SAVER_NOT_ACTIVE<>%OLD_SCREEN_SAVER_NOT_ACTIVE%
+	{
+		OLD_SCREEN_SAVER_NOT_ACTIVE=%SCREEN_SAVER_NOT_ACTIVE%
+		IF SCREEN_SAVER_NOT_ACTIVE=FALSE
+		{
+			IF (A_ComputerName="4-ASUS-GL522VW")
+				GOSUB WRITE_FILE_SCREEN_BRIGHT_ACTIVE_COMPUTER_NAME_1X_2E
+			IF (A_ComputerName="7-ASUS-GL522VW")
+				GOSUB WRITE_FILE_SCREEN_BRIGHT_ACTIVE_COMPUTER_NAME_3L_5P_8M
+		}
+	}
+	
+	
 RETURN
+
+
+WRITE_FILE_SCREEN_BRIGHT_ACTIVE_COMPUTER_NAME_1X_2E:
+		
+		FILENAME_2__=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER ADD_ACTIVE_1X_2E_#NFS_EX_
+		
+		ArrayCount = 0
+		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
+		{
+			NET_PATH:=A_LoopReadLine
+			
+			SET_GO=FALSE
+			IF INSTR(NET_PATH,"1-ASUS-X5DIJ")
+				SET_GO=TRUE
+			IF INSTR(NET_PATH,"2-ASUS-EEE")
+				SET_GO=TRUE
+				
+			IF SET_GO=TRUE
+			{
+				; TOOLTIP % NET_PATH
+				ArrayCount += 1
+				Array_NETPATH_01%ArrayCount% = %NET_PATH%
+				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
+				ELEMENT1=\\
+				ELEMENT2:=Array_NETPATH_01%ArrayCount%
+				ELEMENT3=\
+				ELEMENT4:=Array_NETPATH_02%ArrayCount%
+				ELEMENT5=%FILENAME_2__%
+				; NET_PATH:=A_LoopReadLine
+				ELEMENT7=%NET_PATH%.TXT
+
+				Array_FileName_VAR=%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
+				Array_FileName%ArrayCount%=%Array_FileName_VAR%
+				; MSGBOX %Array_FileName_VAR%
+			}
+		}
+
+		Loop %ArrayCount%
+		{
+			file := FileOpen(Array_FileName%A_Index%, "w")
+			if IsObject(file)
+			{
+				; MSGBOX % Array_FileName%A_Index%
+				TestString := "This is a test string.`r`n"  
+				file.Write(TestString)
+				file.Close()
+			}
+		}
+
+RETURN
+
+
+WRITE_FILE_SCREEN_BRIGHT_ACTIVE_COMPUTER_NAME_3L_5P_8M:
+		
+		FILENAME_2__=_01_c_drive\SCRIPTOR DATA\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER ADD_ACTIVE_3L_5P_8M_#NFS_EX_
+		
+		ArrayCount = 0
+		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
+		{
+			NET_PATH:=A_LoopReadLine
+			
+			SET_GO=FALSE
+			IF INSTR(NET_PATH,"3-LINDA-PC")
+				SET_GO=TRUE
+			IF INSTR(NET_PATH,"5-ASUS-P2520LA")
+				SET_GO=TRUE
+			IF INSTR(NET_PATH,"8-MSI-GP62M-7RD")
+				SET_GO=TRUE
+
+			IF SET_GO=TRUE
+			{
+				ArrayCount += 1
+				Array_NETPATH_01%ArrayCount% = %NET_PATH%
+				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
+				ELEMENT1=\\
+				ELEMENT2:=Array_NETPATH_01%ArrayCount%
+				ELEMENT3=\
+				ELEMENT4:=Array_NETPATH_02%ArrayCount%
+				ELEMENT5=%FILENAME_2__%
+				; NET_PATH:=A_LoopReadLine
+				ELEMENT7=%NET_PATH%.TXT
+
+				Array_FileName_VAR=%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
+				Array_FileName%ArrayCount%=%Array_FileName_VAR%
+				; MSGBOX %Array_FileName_VAR%
+			}
+		}
+
+		Loop %ArrayCount%
+		{
+			file := FileOpen(Array_FileName%A_Index%, "w")
+			if IsObject(file)
+			{
+				TestString := "This is a test string.`r`n"  
+				file.Write(TestString)
+				file.Close()
+			}
+		}
+
+RETURN
+
 
 
 
@@ -1062,6 +1218,8 @@ If (Mouse_Idle_Flip_Flop_Toggle = "False")
 	SetTimer,Mouse_Idle_Timer, 10 ; RAPID RESPONSE BRING OUT OF DIM
 	; SET TIMER TO THE SECOND 1000MS FOR EASIER COUNTER TIME_OUT
 	Mouse_Idle_Flip_Flop_Toggle := "True"
+	SCREEN_SAVER_NOT_ACTIVE := "TRUE"
+
 }
 RETURN
 
@@ -1087,6 +1245,7 @@ MONITOR_BRIGHTNESS_UP: ; ----
 
 	Gui, HIDE
 	Mouse_Idle_Flip_Flop_Toggle := "False"
+	SCREEN_SAVER_NOT_ACTIVE := "FALSE"
 ; }
 RETURN
 
@@ -1202,6 +1361,7 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 				SetTimer,Mouse_Idle_Timer, 10 ; RAPID RESPONSE BRING OUT OF DIM
 				; SET TIMER TO THE SECOND 1000MS FOR EASIER COUNTER TIME_OUT
 				Mouse_Idle_Flip_Flop_Toggle := "True"
+				SCREEN_SAVER_NOT_ACTIVE := "TRUE"
 			}
 		
 		IF IN_DAY=TRUE
@@ -1239,6 +1399,7 @@ MONITOR_BRIGHTNESS_DIMMER_PER_DAY:
 			; RAPID RESPONSE BRING OUT OF DIM
 			; SET TIMER TO THE SECOND 1000MS FOR EASIER COUNTER TIME_OUT
 			Mouse_Idle_Flip_Flop_Toggle := "False"
+			SCREEN_SAVER_NOT_ACTIVE := "FALSE"
 		}
 	}
 	O_IN_DAY_1:=%IN_DAY%
@@ -1280,6 +1441,7 @@ SCREEN_SAVER_TO_SHOW_SCREEN: ; ----
 	; SET TIMER TO THE SECOND 1000MS FOR EASIER COUNTER TIME_OUT
 	; ---------------------------------------------------------------
 	Mouse_Idle_Flip_Flop_Toggle := "False"
+	SCREEN_SAVER_NOT_ACTIVE := "FALSE"
 RETURN
 
 
