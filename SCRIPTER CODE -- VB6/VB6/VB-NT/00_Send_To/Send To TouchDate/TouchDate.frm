@@ -1045,10 +1045,14 @@ i = i + 1: M_1(i) = "FILE  - CREATED DATE TO MODIFY DATE"
 i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "DATE CONVERTOR__ MMM D, YYYY H MM AM __ TO YYYY-MM-DD--HH-MM-DD FOR SCREENCASTIFY"
 i = i + 0: M_3(i) = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
-i = i + 1: M_1(i) = "----"
+
+'i = i + 1: M_1(i) = "----"
+i = i + 1: M_1(i) = "ONE_FOLDER AS OTHER SAME ___ HARDCODER __ BATCH"
+i = i + 0: M_3(i) = "ONE_FOLDER_AS_OTHER_SAME_____HARDCODER____BATCH"
+'i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "MAKE_FOLDER YYYY-MM-DD OF FILE AND MOVE THERE ___ BATCH IT"
 i = i + 0: M_3(i) = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT"
-i = i + 1: M_1(i) = "----"
+'i = i + 1: M_1(i) = "----"
 
 i = i + 1: M_1(i) = "RENAME -- YYYY_MM_DD MMM_DDD HH_MM_SS__MA_.MP4 -- BATCH"
 i = i + 0: M_3(i) = "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH"
@@ -1171,6 +1175,8 @@ If DISPLAY_NAMER <> "GO" Then
 End If
 
 
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
 Select Case DISPLAY_NAMER
 
 Case 2
@@ -1185,7 +1191,6 @@ Case "PERFORM ON ALL FILES IN FOLDER OR FILE"
     
 Case "NOW_DATE"
     'WORK = "MOD_TO_NOW_DATE"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "MODIFY DATE TO CREATED DATE - NOT WORKING"
     Call Label2_Click
@@ -1197,41 +1202,32 @@ Case "FILE  - CREATED DATE TO MODIFY DATE"
     Call Label11_Click
     
 Case "SET_ONE_DATE_HARDCODER"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
 Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
+Case "ONE_FOLDER_AS_OTHER_SAME_____HARDCODER____BATCH"
 
 Case "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
   
 Case "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
-    LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
 Case "GO"
     If LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor Then
@@ -1763,6 +1759,71 @@ Sub DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCA
     If InStr(MNU_QUICK_MODE.Caption, I_2) Then
         MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
     End If
+    
+    End
+
+
+End Sub
+
+Sub ONE_FOLDER_AS_OTHER_SAME_____HARDCODER____BATCH()
+
+    Set FSO = CreateObject("Scripting.FileSystemObject")
+
+    DR_1 = "C:\DD\ABBYWINTERS.COM\"
+    DR_2 = "C:\DD\"
+    ScanPath.chkSubFolders = vbUnchecked
+    ScanPath.cboMask.Text = "*.MP4;*.WMV"
+    
+    ' SCAN DO ON TEXTPATH CHANGE
+    ScanPath.txtPath.Text = DR_1
+    
+    'If ScanPath.ListView1.ListItems.Count > 0 Then
+        'MsgBox "FILE COUNTER -- BEFORE FILTER ON" + vbCrLf + vbCrLf + Trim(str(ScanPath.ListView1.ListItems.Count)) + vbCrLf + vbCrLf + "CHECK IT OUT" + vbCrLf + vbCrLf + "PATH " + vbCrLf + vbCrLf + ScanPath.txtPath.Text
+    'End If
+    
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+    Dim RR
+    For RR = 1 To ScanPath.ListView1.ListItems.Count
+        A11 = ScanPath.ListView1.ListItems.Item(RR).SubItems(1)
+        B11 = ScanPath.ListView1.ListItems.Item(RR)
+        EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+        B11_NOT_EXT = Mid(B11, 1, Len(B11) - 4)
+        ' WANT PROCESS WITH -- MP4 WMV -- AND THEN PUT THEM HERE
+        ' ----------------------------------------------------------
+        If InStr("MP4 WMV", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
+            
+            Set F = FSO.GetFile(A11 + B11)
+            DT1 = F.datelastmodified
+
+            On Error Resume Next
+            Err.Clear
+            
+            OUT_FILE_MP4 = DR_2 + B11_NOT_EXT + ".MP4"
+            OUT_FILE_WMV = DR_2 + B11_NOT_EXT + ".WMV"
+            If Dir(OUT_FILE_MP4) <> "" Then
+                TT = SetFileDateTime(OUT_FILE_MP4, DT1)
+                Name OUT_FILE_MP4 As OUT_FILE_MP4
+                XC = XC + 1
+                MM_1 = MM_1 + B11 + vbCrLf
+            End If
+            If Err.Number > 0 Then MsgBox "EEROR WITH " + vbCrLf + vbCrLf + OUT_FILE_MP4
+            If Dir(OUT_FILE_WMV) <> "" Then
+                TT = SetFileDateTime(OUT_FILE_WMV, DT1)
+                Name OUT_FILE_WMV As OUT_FILE_WMV
+                XC = XC + 1
+                MM_1 = MM_1 + B11 + vbCrLf
+            End If
+            If Err.Number > 0 Then MsgBox "EEROR WITH " + vbCrLf + vbCrLf + OUT_FILE_WMV
+        End If
+    Next
+    
+    Call SET_QUICK_MODE_RESULT
+    ' If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    ' End If
     
     End
 
@@ -2630,6 +2691,10 @@ If WORK = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT" Then
     Exit Sub
 End If
 
+If WORK = "ONE_FOLDER_AS_OTHER_SAME_____HARDCODER____BATCH" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
 
 If WORK = "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH" Then
     CallByName FORM_ME, WORK, VbMethod
