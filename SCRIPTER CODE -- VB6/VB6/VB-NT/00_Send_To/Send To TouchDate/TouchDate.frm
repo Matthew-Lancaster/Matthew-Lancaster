@@ -1175,8 +1175,6 @@ If DISPLAY_NAMER <> "GO" Then
 End If
 
 
-LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
-
 Select Case DISPLAY_NAMER
 
 Case 2
@@ -1202,32 +1200,46 @@ Case "FILE  - CREATED DATE TO MODIFY DATE"
     Call Label11_Click
     
 Case "SET_ONE_DATE_HARDCODER"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
 Case "SET_MOST_RECENT_DATE_TO_OTHER_IN_FOLDER"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_OLDER_DATE_TO_OTHER_IN_FOLDER"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "ONE_FOLDER_AS_OTHER_SAME_____HARDCODER____BATCH"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_CH00_YYYY_MM_DD_HH_MM_SS_MP4_HIKVISION_SINGLE"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD__WITH_ONE_FOLDER"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA_SINGLE"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS__JPG_SINGLE"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "SET_DATE_OF_FILENAME_YYYY_MM_DD_HH_MM_SS_DDD_NOKIA_AH"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
   
 Case "SET_ALL_DATE_FOLDER_TO_THE_TEXTFILE_HOLD_DATE_WITHIN_AH"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
     
 Case "GO"
     If LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor Then
@@ -1236,7 +1248,6 @@ Case "GO"
         DoEvents
         Call Label_GO_AH_Click
     End If
-    
 End Select
 
 End Sub
@@ -1984,7 +1995,7 @@ Sub SET_DATE_OF_FILENAME_YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA()
             If EXT_ORG <> EXT_STR Then
                 'RENAME EXTENSION CAPITAL
                 FILE_RENAME1 = Mid(B11, 1, Len(B11) - 4) + "." + EXT_STR
-                Name A11 + B11 As A11 + FILE_RENAME1
+                    Name A11 + B11 As A11 + FILE_RENAME1
             End If
             
             XC = XC + 1
