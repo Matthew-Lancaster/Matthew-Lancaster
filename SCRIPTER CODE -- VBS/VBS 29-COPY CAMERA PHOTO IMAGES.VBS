@@ -518,9 +518,9 @@ END IF
 	
 
 ' ------------------------
-FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
 
-FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\VI_ DSC ME\2010+SONY\2020 CyberShot HX60V_#"
+FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_ IMAGE"
+FOLDER_PATH__MP4(2)="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\VI_ DSC ME\2010+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
 
 
 ' ------------------------
@@ -1371,6 +1371,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 	
 	' MSGBOX ucase(VAR_PATH_SCANNER)
 
+	
+	
 	IF IGNOR_DATE_INDEX=FALSE THEN 
 		IF FileModDate<=FileModDate_2 THEN EXIT SUB
 	END IF 
@@ -1496,7 +1498,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF
 	END IF
 
-	
 
 	' ---------------------------------------------------------------
 	' CYBERSHOT HX60V -- JPG
@@ -1580,6 +1581,8 @@ SUB PATH_SCANNER_COPY_CAMERA
 		END IF
 	END IF
 
+	
+
 	If Not FSO.FolderExists(PATH_VAR) Then
 		BuildFullPath PATH_VAR
 	End If
@@ -1599,8 +1602,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 		MSGBOX "DESTINATION FOLDER NOT EXIST -- POSSIBLE FORMAT WRONG"+VBCRLF++VBCRLF+PATH_VAR_TMP
 	END IF 
 	
-	' MSGBOX VAR_PATH_SCANNER
-	' MSGBOX PATH_FILE_VAR
+	
 	
 	' DO_ALL_FILE=TRUE ---- OUGHT TO BE 
 	' DO ALL FILE WITH OVERWRITE IF LOOK AR
