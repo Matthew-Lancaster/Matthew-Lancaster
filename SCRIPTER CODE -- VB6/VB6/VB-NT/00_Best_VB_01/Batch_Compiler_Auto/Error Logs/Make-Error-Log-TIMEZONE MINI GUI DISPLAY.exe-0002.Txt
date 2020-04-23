@@ -1,0 +1,15 @@
+-----------------------------------
+28/02/2020 06:25:07 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe
+-----------------------------------
+TIMEZONE MINI GUI DISPLAY.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-TIMEZONE MINI GUI DISPLAY.exe-0002.Txt
+-----------------------------------
+
+Build of 'TIMEZONE MINI GUI DISPLAY.exe' succeeded.

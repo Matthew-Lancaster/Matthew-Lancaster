@@ -1,0 +1,15 @@
+-----------------------------------
+28/02/2020 06:25:29 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\Clipboard Viewer.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe
+-----------------------------------
+ClipBoard Viewer.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-ClipBoard Viewer.exe-0005.Txt
+-----------------------------------
+
+Build of 'ClipBoard Viewer.exe' succeeded.

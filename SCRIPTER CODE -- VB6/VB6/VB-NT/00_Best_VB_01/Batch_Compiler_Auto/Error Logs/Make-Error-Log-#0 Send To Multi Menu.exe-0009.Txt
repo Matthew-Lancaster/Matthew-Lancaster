@@ -1,0 +1,16 @@
+-----------------------------------
+28/02/2020 06:26:01 
+-----------------------------------
+D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\
+-----------------------------------
+D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe
+-----------------------------------
+#0 Send To Multi Menu.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-#0 Send To Multi Menu.exe-0009.Txt
+-----------------------------------
+
+Compile Error in File 'D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.frm', Line 2883 : User-defined type not defined
+Build of '#0 Send To Multi Menu.exe' failed.

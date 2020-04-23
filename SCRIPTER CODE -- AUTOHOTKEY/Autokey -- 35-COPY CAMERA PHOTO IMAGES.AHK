@@ -328,6 +328,8 @@ RETURN
 
 
 MSGBOX_CAMERA_CountDown_Generate_Line:
+	; DO YOU WANT
+	; SLURP WANT
 	MSGBOX_CAMERA_CountDown_Generate_VAR=Would you like to Copy Camera Media Card`n%LABEL_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds
 RETURN
 

@@ -1,0 +1,15 @@
+-----------------------------------
+24/02/2020 13:57:32 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.exe
+-----------------------------------
+SYNCRONIZER.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-SYNCRONIZER.exe-0005.Txt
+-----------------------------------
+
+Build of 'SYNCRONIZER.exe' succeeded.
