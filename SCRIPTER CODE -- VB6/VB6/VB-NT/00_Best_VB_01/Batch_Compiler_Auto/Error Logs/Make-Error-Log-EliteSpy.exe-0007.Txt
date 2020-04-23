@@ -1,0 +1,15 @@
+-----------------------------------
+28/02/2020 06:25:46 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ELITESPY\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ELITESPY\EliteSpy.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\ELITESPY\EliteSpy.exe
+-----------------------------------
+EliteSpy.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-EliteSpy.exe-0007.Txt
+-----------------------------------
+
+Build of 'EliteSpy.exe' succeeded.

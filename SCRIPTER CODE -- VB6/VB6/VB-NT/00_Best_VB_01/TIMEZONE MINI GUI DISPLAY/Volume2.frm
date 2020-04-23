@@ -19,6 +19,12 @@ Begin VB.Form FORM_1
    ScaleWidth      =   4680
    ShowInTaskbar   =   0   'False
    Visible         =   0   'False
+   Begin VB.Timer MOUSE_HOVER 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   2844
+      Top             =   2436
+   End
    Begin VB.Timer Timer_FORM_PROJECT_CHECK_DATE 
       Interval        =   2000
       Left            =   2880
@@ -109,7 +115,7 @@ Attribute VB_Exposed = False
 ' LOCATION ON-LINE
 ' -------------------------------------------------------------------
 
-
+Dim MOUSE_DOWN_EVENT_TIME
 
 Public cProcesses As New clsCnProc
 
@@ -322,12 +328,32 @@ End Sub
 
 Private Sub LAB_TIMEZONE_DblClick()
     Unload Me
+    End
 End Sub
-
 Private Sub LAB_TIMEZONE_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
     Timer_MOUSE_MOVER.Enabled = True
     X_VAR = x
     Y_VAR = y
+    If MOUSE_DOWN_EVENT_ACTION = "HIGH" Then
+        MOUSE_DOWN_EVENT_TIME = 0
+    End If
+    If MOUSE_DOWN_EVENT_TIME = 0 Then
+        MOUSE_DOWN_EVENT_TIME = Now + TimeSerial(0, 0, 4)
+        MOUSE_DOWN_EVENT_ACTION = "DOWN"
+        LAB_TIMEZONE.ToolTipText = "HOLD MOUSE DOWN 3 SEC TO QUIT ---- DOUBLE CLICK END WHOLE APP"
+        MOUSE_HOVER.Enabled = True
+    End If
+End Sub
+Sub MOUSE_HOVER_TIMER()
+    If MOUSE_DOWN_EVENT_ACTION = "DOWN" Then
+        If MOUSE_DOWN_EVENT_TIME <= Now And MOUSE_DOWN_EVENT_TIME > 0 Then
+            Unload Me
+        End If
+    End If
+    If MOUSE_DOWN_EVENT_TIME <= Now And MOUSE_DOWN_EVENT_ACTION = "HIGH" Then
+        MOUSE_DOWN_EVENT_TIME = 0
+        LAB_TIMEZONE.ToolTipText = UCase(App.Path + " ---- \ ---- " + App.EXEName + ".EXE")
+    End If
 End Sub
 Private Sub LAB_TIMEZONE_MouseUP(Button As Integer, Shift As Integer, x As Single, y As Single)
     Timer_MOUSE_MOVER.Enabled = False
@@ -335,7 +361,12 @@ Private Sub LAB_TIMEZONE_MouseUP(Button As Integer, Shift As Integer, x As Singl
     If Button = R_BUTTON Then
         Call MNU_VB_ME_Click
     End If
+    MOUSE_DOWN_EVENT_ACTION = "HIGH"
+    
+    AlwaysOnTop (Me.hWnd)
+
 End Sub
+
 Private Sub Timer_MOUSE_MOVER_Timer()
     Dim tPA As POINTAPI
     ' Get cursor cordinates
@@ -347,6 +378,11 @@ Private Sub Timer_MOUSE_MOVER_Timer()
     Me.Top = (tPA.y) * Screen.TwipsPerPixelY - (Y_VAR - 0)
     STR_ME_TOP = Trim(Str(Me.Top))
     STR_ME_LEFT = Trim(Str(Me.Left))
+    If MOUSE_DOWN_EVENT_TIME > 0 Then
+        If MOUSE_DOWN_EVENT_ACTION = "DOWN" Then
+            MOUSE_DOWN_EVENT_TIME = Now + TimeSerial(0, 0, 4)
+        End If
+    End If
 End Sub
 
 Private Sub ProgressBar1_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
@@ -473,7 +509,7 @@ Private Sub Timer_TIMEZONE_Timer()
                 
                 Explorer_Path = DISPLAY_HDD_NET
             End If
-                FREE_BYTE = Explorer_Path + " " + Format$(NUKE1 / 1024 ^ 3, "0.0000") + " Gb __ "
+                FREE_BYTE = Explorer_Path + " " + Format$(NUKE1 / 1024 ^ 3, "0.0000") + " Gb Remain __ "
             End If
         End If
     

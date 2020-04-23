@@ -1,0 +1,15 @@
+-----------------------------------
+24/02/2020 13:57:26 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
+-----------------------------------
+VB_KEEP_RUNNER.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-VB_KEEP_RUNNER.exe-0004.Txt
+-----------------------------------
+
+Build of 'VB_KEEP_RUNNER.exe' succeeded.

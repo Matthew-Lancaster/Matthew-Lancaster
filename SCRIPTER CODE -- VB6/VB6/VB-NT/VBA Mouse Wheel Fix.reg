@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\VBA\VBE\6.0\Addins\VB6IDEMouseWheelAddin.Connect]
+"FriendlyName"="MouseWheel Fix"
+"CommandLineSafe"=dword:00000000
+"LoadBehavior"=dword:00000000

@@ -1,16 +1,16 @@
 VERSION 5.00
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.Ocx"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00800000&
    Caption         =   "Form1"
-   ClientHeight    =   5136
-   ClientLeft      =   192
-   ClientTop       =   2976
-   ClientWidth     =   12864
+   ClientHeight    =   5145
+   ClientLeft      =   195
+   ClientTop       =   2970
+   ClientWidth     =   12855
    Icon            =   "#0 Send To Multi Menu.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5136
-   ScaleWidth      =   12864
+   ScaleHeight     =   5145
+   ScaleWidth      =   12855
    StartUpPosition =   2  'CenterScreen
    Begin RichTextLib.RichTextBox RTB5 
       Height          =   435
@@ -20,7 +20,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       Enabled         =   -1  'True
       MultiLine       =   0   'False
@@ -34,7 +34,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       Enabled         =   -1  'True
       MultiLine       =   0   'False
@@ -48,7 +48,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       Enabled         =   -1  'True
       MultiLine       =   0   'False
@@ -62,7 +62,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       Enabled         =   -1  'True
       MultiLine       =   0   'False
@@ -76,7 +76,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   720
+      _ExtentY        =   714
       _Version        =   393217
       Enabled         =   -1  'True
       MultiLine       =   0   'False
@@ -98,7 +98,7 @@ Begin VB.Form Form1
       Top             =   480
    End
    Begin VB.FileListBox File1 
-      Height          =   648
+      Height          =   480
       Left            =   5220
       TabIndex        =   5
       Top             =   1476
@@ -122,7 +122,7 @@ Begin VB.Form Form1
       Caption         =   "PATH_FILE __ SOURCE __ "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -140,7 +140,7 @@ Begin VB.Form Form1
       Caption         =   "AVAILABLE CLIPBOARD __ PATH_FILE __ EXIST  __ REQUEST IF YOU WANT"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -158,7 +158,7 @@ Begin VB.Form Form1
       Caption         =   "AVAILABLE CLIPBOARD"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -176,7 +176,7 @@ Begin VB.Form Form1
       Caption         =   "Text List of JPG Files With Number Bullet Point -- Camera"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -194,7 +194,7 @@ Begin VB.Form Form1
       Caption         =   "Label_2_FOLDER"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -212,7 +212,7 @@ Begin VB.Form Form1
       Caption         =   "Create a DOC Folder Here -- LABEL SET IN CODE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -230,7 +230,7 @@ Begin VB.Form Form1
       Caption         =   "Label_1_FOLDER_FILE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1786,7 +1786,7 @@ FILE_NAME_1 = Label_1_FOLDER_FILE.Caption
 'FILE_NAME_1 = "C:\DOWNLOADS\stylus-2020-03-03.json"
 FILE_NAME_2 = Mid(FILE_NAME_1, InStrRev(FILE_NAME_1, "\") + 1)
 
-If InStr(FILE_NAME_1, "C:\DOWNLOADS\") Then
+'If InStr(FILE_NAME_1, "C:\DOWNLOADS\") Then
 If InStr(FILE_NAME_1, "stylus") Then
 If InStr(FILE_NAME_1, ".json") Then
     DESTI = "C:\SCRIPTER\SCRIPTER CODE -- USERSTYLES.ORG STYLISH\" + FILE_NAME_2
@@ -1822,7 +1822,7 @@ End If
 End If
 
 End If
-End If
+' End If
 
 
 End Sub
