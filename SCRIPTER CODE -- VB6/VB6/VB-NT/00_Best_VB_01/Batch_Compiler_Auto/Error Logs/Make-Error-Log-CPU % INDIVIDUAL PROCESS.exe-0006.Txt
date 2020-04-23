@@ -1,0 +1,15 @@
+-----------------------------------
+28/02/2020 06:25:42 
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.vbp
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe
+-----------------------------------
+CPU % INDIVIDUAL PROCESS.exe
+-----------------------------------
+D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\Error Logs\Make-Error-Log-CPU % INDIVIDUAL PROCESS.exe-0006.Txt
+-----------------------------------
+
+Build of 'CPU % INDIVIDUAL PROCESS.exe' succeeded.
