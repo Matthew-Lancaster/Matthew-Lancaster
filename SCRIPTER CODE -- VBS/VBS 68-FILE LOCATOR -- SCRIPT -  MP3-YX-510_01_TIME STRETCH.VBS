@@ -52,9 +52,14 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 		
 		Set F = FSO.GetFile(strPath + strFileName)
         DT1 = F.datelastmodified
-		' DT1= TimeSerial(0,0,0)
 		DT1= DateSerial(1000+TIME_STRETCH_COUNTER,1,1)
-
+		DT2=DT1
+		
+		DT4=""
+		DT4=DT4+LPad(DATEPART("d",DT2), "0", 2)+"/"
+		DT4=DT4+LPad(DATEPART("m",DT2), "0", 2)+"/"
+		DT4=DT4+LPad(DATEPART("y",DT2), "0", 4)
+		
 		Set File = FSO.OpenTextFile(FILE_TEST_2, ForAppending)
 		File.Write CSTR(DT1) + " .. " + strPath + strFileName + VBCRLF
 		
@@ -66,7 +71,9 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 End Function
 
 
-
+Function LPad (str, pad, length)
+    LPad = String(length - Len(str), pad) & str
+End Function
 
 
 
