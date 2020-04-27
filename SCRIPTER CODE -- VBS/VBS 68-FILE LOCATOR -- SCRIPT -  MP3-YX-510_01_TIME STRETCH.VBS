@@ -44,7 +44,7 @@ objFile.Close
 Set objFile = FSO.CreateTextFile(FILE_TEST_2,True)
 objFile.Close
 
-TIME_STRETCH_COUNTER=0	
+TIME_STRETCH_COUNTER=0
 
 
 ' -------------------------------------------------------------------
@@ -59,8 +59,10 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 	bIsValid = FALSE
 	bIsValid = TRUE
 
-	IF INSTR(strPath,"_gsdata_")>0 THEN bIsValid = FALSE
-	IF INSTR(strFileName,".srf")>0 THEN bIsValid = FALSE
+	IF INSTR(strPath,"_gsdata_")>0                      THEN bIsValid = FALSE
+	IF INSTR(strFileName,".srf")>0                      THEN bIsValid = FALSE
+	IF INSTR(strFileName,"System Volume Information")>0 THEN bIsValid = FALSE
+	
 	
 	isValidFileName = bIsValid
 	
@@ -71,12 +73,10 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 		Set File = FSO.OpenTextFile(FILE_TEST_1, ForWriting)
 		File.Write TIME_STRETCH_COUNTER
 		
-		Set F = FSO.GetFile(strPath + strFileName)
-        DT1 = F.datelastmodified
-		DT1= DateSerial(2000+TIME_STRETCH_COUNTER,1,1)
+		DT1=DateSerial(8000,1,1)+TIMESERIAL(1,0,0)
 		
 		DT4=""
-		DT4=DT4+LPad(YEAR(DT1), "0", 4)
+		DT4=DT4+LPad(YEAR(DT1)-TT_COUNT, "0", 4)
 		DT4=DT4+LPad(MONTH(DT1), "0", 2)
 		DT4=DT4+LPad(DAY(DT1), "0", 2)
 		
