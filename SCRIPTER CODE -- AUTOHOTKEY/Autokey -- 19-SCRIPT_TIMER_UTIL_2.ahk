@@ -441,6 +441,10 @@ SETTIMER FOCUS_TABBER_APP_ESCAPE_KEY_STOP_THE_PULL_DOWN_TIMER,500
 
 SETTIMER MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER,500
 
+SETTIMER XP_MSGBOX_FOR_FIRESHOT,1000
+
+
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -448,6 +452,31 @@ SETTIMER MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER,500
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 RETURN
+
+XP_MSGBOX_FOR_FIRESHOT:
+	; chrome-extension://mcbpblocgmgfnpjjppndjkmgjaogfceg says:
+    ; Mon 27 April 2020 09:10:10----------
+
+	IF OSVER_N_VAR>5
+		RETURN
+
+		WinGet,VAR_GET, ID, chrome-extension://mcbpblocgmgfnpjjppndjkmgjaogfceg
+		IF !VAR_GET
+			RETURN
+		TOOLTIP % OSVER_N_VAR
+			
+			WinActivate,  ahk_id %VAR_GET%
+			
+			SENDINPUT {ESC}
+			; ControlClick, Button1, ahk_id %VAR_GET%
+			; ControlClick, &Yes, ahk_id %VAR_GET%
+
+			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
+RETURN
+
+
+
 
 REMOTE_APP_RUN_SET_UP_AND_RUN_AUTOKEY_85_C_HDD:
 	SET_GO_2=
