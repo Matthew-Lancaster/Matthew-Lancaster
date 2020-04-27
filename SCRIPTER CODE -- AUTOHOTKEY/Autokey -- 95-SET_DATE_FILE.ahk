@@ -79,58 +79,57 @@ RENAME_EXTENSION_SET_DONE_QUIET=
 GOSUB TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER
 
 
-IFEXIST, J:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
-{
-	; ---------------------------------------------------------------
-	; How to prevent creation of "System Volume Information" folder in Windows 10 for USB flash drives? - Super User 
-	; https://superuser.com/questions/1199823/how-to-prevent-creation-of-system-volume-information-folder-in-windows-10-for
-	; ---------------------------------------------------------------
-	; IDEA DELETE \SYSTEM VOLUME INFO FOLDER
-	; AS PLAYER FIND FILE AN REPORT NOT RECOGNITION
-	; USE IO-BIT-UNLOCKER
-	; WHEN DELETE CREATE FILE REPLACE
-	; ---------------------------------------------------------------
+; IFEXIST, J:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
+; {
+	; ; ---------------------------------------------------------------
+	; ; How to prevent creation of "System Volume Information" folder in Windows 10 for USB flash drives? - Super User 
+	; ; https://superuser.com/questions/1199823/how-to-prevent-creation-of-system-volume-information-folder-in-windows-10-for
+	; ; ---------------------------------------------------------------
+	; ; IDEA DELETE \SYSTEM VOLUME INFO FOLDER
+	; ; AS PLAYER FIND FILE AN REPORT NOT RECOGNITION
+	; ; USE IO-BIT-UNLOCKER
+	; ; WHEN DELETE CREATE FILE REPLACE
+	; ; ---------------------------------------------------------------
 	
-	IF TRUE=FALSE
-	{
-		FileSetAttrib, -RHS, J:\System Volume Information\* ,1 ,1
+	; IF TRUE=FALSE
+	; {
+		; FileSetAttrib, -RHS, J:\System Volume Information\* ,1 ,1
 
-		FileDelete, J:\System Volume Information\WPSettings.dat
-		FileRemoveDir, J:\System Volume Information
+		; FileDelete, J:\System Volume Information\WPSettings.dat
+		; FileRemoveDir, J:\System Volume Information
 		
-			Loop, J:\System Volume Information\*, ,1 
-		{
-			FileDelete, A_LoopFileFullPath
-			MSGBOX % A_LoopFileFullPath
-		}
-		FileRemoveDir, J:\System Volume Information,1
-		FileRecycle "J:\System Volume Information"
-		DirDelete "J:\System Volume Information", 1
-	}
+			; Loop, J:\System Volume Information\*, ,1 
+		; {
+			; FileDelete, A_LoopFileFullPath
+			; MSGBOX % A_LoopFileFullPath
+		; }
+		; FileRemoveDir, J:\System Volume Information,1
+		; FileRecycle "J:\System Volume Information"
+		; DirDelete "J:\System Volume Information", 1
+	; }
+; }
 
-	
-}
-IFEXIST, I:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
-{
-	IF TRUE=FALSE
-	{
-		FileSetAttrib, -RHS, I:\System Volume Information\* ,1 ,1
+; IFEXIST, I:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
+; {
+	; IF TRUE=FALSE
+	; {
+		; FileSetAttrib, -RHS, I:\System Volume Information\* ,1 ,1
 		
-		; ERROR: File ownership cannot be applied on insecure file systems;
-		; there is no support for ACLs.
-		; run, %comspec% /k takeown /r /f "I:\System Volume Information", , max
+		; ; ERROR: File ownership cannot be applied on insecure file systems;
+		; ; there is no support for ACLs.
+		; ; run, %comspec% /k takeown /r /f "I:\System Volume Information", , max
 		
-		Loop, I:\System Volume Information\*, ,1 
-		{
-			FileDelete, A_LoopFileFullPath
-			MSGBOX % A_LoopFileFullPath
-		}
-		FileRemoveDir, I:\System Volume Information,1
+		; Loop, I:\System Volume Information\*, ,1 
+		; {
+			; FileDelete, A_LoopFileFullPath
+			; MSGBOX % A_LoopFileFullPath
+		; }
+		; FileRemoveDir, I:\System Volume Information,1
 		
-	}
+	; }
 	
 	
-}
+; }
 	
 RETURN
 
@@ -149,8 +148,9 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 		
 		SUBST_2_FILENAME:= SubStr(A_LoopReadLine, 13)
 
-		; DATE NOT ABLE SET BELOW 1600 YEAR
-	
+		; LOWER DATE NOT ABLE SET BELOW 1600 YEAR
+		; HIGHER DATE NOT ABLE SET ABOVE 1600 YEAR
+
 		SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
 		SUBST_1_DATE_Y:= SubStr(A_LoopReadLine, 1, 4)
 		SUBST_1_DATE_M:= SubStr(A_LoopReadLine, 5,2)
@@ -161,21 +161,23 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 		; FormatTime, TS, %SUBST_1_DATE%, YYYYMMDD
 		; FormatTime, TimeString, 20050423220133, dddd MMMM d, yyyy hh:mm:ss tt
 		
- 		TS:=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
+		SUBST_1_DATE_Y+=-6000
+		
+ 		TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
 		; FormatTime, TS, TS, YYYYMMDD
 
 		; IF Mod(A_INDEX, 10)=0 
 			; TOOLTIP % SUBST_1_DATE "`n" TS "`n" SUBST_2_FILENAME,100,100
 		WORK_DO_COUNT+=1
 		
-		IFEXIST, %SUBST_2_FILENAME%
-			FileSetTime, TS , %SUBST_2_FILENAME%, M
+		; IFEXIST, %SUBST_2_FILENAME%
+		FileSetTime, TS , %SUBST_2_FILENAME% , C
 		
-		IFEXIST, %SUBST_2_FILENAME%
-		FileGetTime, TS_2, %SUBST_2_FILENAME%
+		; IFEXIST, %SUBST_2_FILENAME%
+		FileGetTime, TS_2, %SUBST_2_FILENAME%, C
 
-		IF Mod(A_INDEX, 1000)=0 
-			TOOLTIP % SUBST_1_DATE "`n" TS_2 "`n" SUBST_2_FILENAME,100,100
+		IF Mod(A_INDEX, 1)=0 
+			TOOLTIP % SUBST_1_DATE "`n" TS "`n" TS_2 "`n" SUBST_2_FILENAME,100,100
 		
 	}
 
