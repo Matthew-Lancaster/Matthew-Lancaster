@@ -188,6 +188,55 @@ CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK:
 RETURN
 
 
+CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT:
+	DetectHiddenWindows, ON
+	WinGet, List, List, ahk_class ThunderRT6FormDC
+	PATH_ID_BUILD=
+	Loop %List%  
+	{
+		; IfWinExist ahk_id List%A_Index%
+		;WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		WinGet, PATH_FULL, ProcessPath, % "ahk_id " List%A_Index% 
+		WinGet, PATH_EXE, ProcessName, % "ahk_id " List%A_Index% 
+		StringUpper PATH_EXE, PATH_EXE
+		StringUpper PATH_FULL, PATH_FULL
+			IF INSTR(PATH_FULL,"VB_KEEP_RUNNER.exe")=0
+			IF INSTR(PATH_FULL,"D:\VB")>0
+			{
+			
+				IF INSTR(PATH_ID_BUILD,PATH_EXE)=0
+				{
+					PATH_ID_BUILD=%PATH_ID_BUILD%%PATH_EXE%`n
+					PROCESS, EXIST, %PATH_EXE%
+					IF ERRORLEVEL
+					{
+						TOOLTIP % PATH_ID_BUILD
+						SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						WINCLOSE ahk_exe %PATH_EXE%
+						SLEEP 200
+						PROCESS, EXIST, %PATH_EXE%
+						IF ERRORLEVEL
+						{
+							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							WINCLOSE ahk_exe %PATH_EXE%
+						}
+						SLEEP 200
+						PROCESS, EXIST, %PATH_EXE%
+						IF ERRORLEVEL
+						{
+							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							Process, Close, %PATH_EXE%
+						}
+					}
+				}
+
+			}
+	}	
+	TOOLTIP
+RETURN
+
+
+
 
 ARRAY_INCLUDE_SCRIPT_NAME() {
 	ARRAY_INCLUDE_SCRIPT_NAME := []

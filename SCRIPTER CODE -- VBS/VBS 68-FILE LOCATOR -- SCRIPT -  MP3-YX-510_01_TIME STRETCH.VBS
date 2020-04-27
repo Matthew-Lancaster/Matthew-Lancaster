@@ -1,3 +1,24 @@
+
+' -------------------------------------------------------------------
+' WORK TIME
+' -------------------------------------------------------------------
+' SESSION 2 DAY 1
+' Sun 26-Apr-2020 11:22:41
+' Sun 26-Apr-2020 11:05:46 -- 12 HOUR 56 MINUTE
+' -------------------------------------------------------------------
+' SESSION 2 DAY 1
+' Sun 26-Apr-2020 19:17:03
+' Sun 26-Apr-2020 23:58:00 -- 4 HOUR 40 MINUTE
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' TO CREATE EFFORT FOR NEW MP3 UNIT
+' -------------------------------------------------------------------
+' 
+' -------------------------------------------------------------------
+
+
+
+
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
@@ -52,16 +73,15 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 		
 		Set F = FSO.GetFile(strPath + strFileName)
         DT1 = F.datelastmodified
-		DT1= DateSerial(1000+TIME_STRETCH_COUNTER,1,1)
-		DT2=DT1
+		DT1= DateSerial(2000+TIME_STRETCH_COUNTER,1,1)
 		
 		DT4=""
-		DT4=DT4+LPad(DATEPART("d",DT2), "0", 2)+"/"
-		DT4=DT4+LPad(DATEPART("m",DT2), "0", 2)+"/"
-		DT4=DT4+LPad(DATEPART("y",DT2), "0", 4)
+		DT4=DT4+LPad(YEAR(DT1), "0", 4)
+		DT4=DT4+LPad(MONTH(DT1), "0", 2)
+		DT4=DT4+LPad(DAY(DT1), "0", 2)
 		
 		Set File = FSO.OpenTextFile(FILE_TEST_2, ForAppending)
-		File.Write CSTR(DT1) + " .. " + strPath + strFileName + VBCRLF
+		File.Write CSTR(DT4) + " .. " + strPath + strFileName + VBCRLF
 		
 		' DT1= TimeSerial(0,TIME_STRETCH_COUNTER,0)
 		' DT1= DT1 + DateSerial(2000,0,0)
