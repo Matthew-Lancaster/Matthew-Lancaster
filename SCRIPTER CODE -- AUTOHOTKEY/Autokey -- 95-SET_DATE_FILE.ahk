@@ -161,7 +161,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 		; FormatTime, TS, %SUBST_1_DATE%, YYYYMMDD
 		; FormatTime, TimeString, 20050423220133, dddd MMMM d, yyyy hh:mm:ss tt
 		
-		SUBST_1_DATE_Y+=-6000
+		; SUBST_1_DATE_Y+=-6000
 		
  		TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
 		; FormatTime, TS, TS, YYYYMMDD
@@ -171,12 +171,16 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 		WORK_DO_COUNT+=1
 		
 		; IFEXIST, %SUBST_2_FILENAME%
-		FileSetTime, TS , %SUBST_2_FILENAME% , C
+		FileSetTime, %TS% , %SUBST_2_FILENAME% , M
+		; -----------------------------------------------------------
+		; HARD WORK UNABLE SET DATE ON MEDIA CARD
+		; SO EXTRA COPY HARD-DRIVE
+		; -----------------------------------------------------------
 		
 		; IFEXIST, %SUBST_2_FILENAME%
-		FileGetTime, TS_2, %SUBST_2_FILENAME%, C
+		FileGetTime, TS_2, %SUBST_2_FILENAME%, M
 
-		IF Mod(A_INDEX, 1)=0 
+		IF Mod(A_INDEX, 1000)=0 
 			TOOLTIP % SUBST_1_DATE "`n" TS "`n" TS_2 "`n" SUBST_2_FILENAME,100,100
 		
 	}
