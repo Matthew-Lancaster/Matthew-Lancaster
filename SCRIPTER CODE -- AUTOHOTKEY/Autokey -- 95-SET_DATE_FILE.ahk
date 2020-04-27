@@ -77,6 +77,38 @@ RENAME_EXTENSION_QUIET_WITH_AUDIO=
 RENAME_EXTENSION_SET_DONE_QUIET=
 
 GOSUB TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER
+
+
+IFEXIST, J:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
+{
+	FileDelete, J:\System Volume Information\WPSettings.dat
+	FileRemoveDir, J:\System Volume Information
+}
+IFEXIST, I:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
+{
+	FileSetAttrib, -RHS, I:\System Volume Information\* ,1 ,1
+	FileSetAttrib, -RH, I:\System Volume Information\* ,1 ,1
+	FileSetAttrib, -R, I:\System Volume Information\* ,1 ,1
+	FileSetAttrib, -H, I:\System Volume Information\* ,1 ,1
+	FileSetAttrib, -RHS, I:\System Volume Information ,1 ,1
+	FileSetAttrib, -RH, I:\System Volume Information ,1 ,1
+	FileSetAttrib, -R, I:\System Volume Information ,1 ,1
+	
+	
+	; ERROR: File ownership cannot be applied on insecure file systems;
+    ; there is no support for ACLs.
+	; run, %comspec% /k takeown /r /f "I:\System Volume Information", , max
+	
+	Loop, I:\System Volume Information\*, ,1 
+	{
+		FileDelete, A_LoopFileFullPath
+		MSGBOX % A_LoopFileFullPath
+	}
+	FileRemoveDir, I:\System Volume Information
+	
+	
+	
+}
 	
 RETURN
 
@@ -89,6 +121,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	; ---------------------------------------------------------------
 	
 	; "F:\MP3-YX-510_02_TS\M"
+	
 	Loop,read,C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 68-FILE LOCATOR -- SCRIPT - MP3-YX-510_FILE_SCRIPT.TXT
 	{
 		
@@ -113,9 +146,12 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 			; TOOLTIP % SUBST_1_DATE "`n" TS "`n" SUBST_2_FILENAME,100,100
 		WORK_DO_COUNT+=1
 		
-		FileSetTime, TS , %SUBST_2_FILENAME%, M
+		IFEXIST, %SUBST_2_FILENAME%
+			FileSetTime, TS , %SUBST_2_FILENAME%, M
 		
+		IFEXIST, %SUBST_2_FILENAME%
 		FileGetTime, TS_2, %SUBST_2_FILENAME%
+
 		IF Mod(A_INDEX, 1000)=0 
 			TOOLTIP % SUBST_1_DATE "`n" TS_2 "`n" SUBST_2_FILENAME,100,100
 		
