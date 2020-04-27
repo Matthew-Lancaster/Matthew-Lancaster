@@ -81,31 +81,53 @@ GOSUB TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER
 
 IFEXIST, J:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
 {
-	FileDelete, J:\System Volume Information\WPSettings.dat
-	FileRemoveDir, J:\System Volume Information
+	; ---------------------------------------------------------------
+	; How to prevent creation of "System Volume Information" folder in Windows 10 for USB flash drives? - Super User 
+	; https://superuser.com/questions/1199823/how-to-prevent-creation-of-system-volume-information-folder-in-windows-10-for
+	; ---------------------------------------------------------------
+	; IDEA DELETE \SYSTEM VOLUME INFO FOLDER
+	; AS PLAYER FIND FILE AN REPORT NOT RECOGNITION
+	; USE IO-BIT-UNLOCKER
+	; WHEN DELETE CREATE FILE REPLACE
+	; ---------------------------------------------------------------
+	
+	IF TRUE=FALSE
+	{
+		FileSetAttrib, -RHS, J:\System Volume Information\* ,1 ,1
+
+		FileDelete, J:\System Volume Information\WPSettings.dat
+		FileRemoveDir, J:\System Volume Information
+		
+			Loop, J:\System Volume Information\*, ,1 
+		{
+			FileDelete, A_LoopFileFullPath
+			MSGBOX % A_LoopFileFullPath
+		}
+		FileRemoveDir, J:\System Volume Information,1
+		FileRecycle "J:\System Volume Information"
+		DirDelete "J:\System Volume Information", 1
+	}
+
+	
 }
 IFEXIST, I:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
 {
-	FileSetAttrib, -RHS, I:\System Volume Information\* ,1 ,1
-	FileSetAttrib, -RH, I:\System Volume Information\* ,1 ,1
-	FileSetAttrib, -R, I:\System Volume Information\* ,1 ,1
-	FileSetAttrib, -H, I:\System Volume Information\* ,1 ,1
-	FileSetAttrib, -RHS, I:\System Volume Information ,1 ,1
-	FileSetAttrib, -RH, I:\System Volume Information ,1 ,1
-	FileSetAttrib, -R, I:\System Volume Information ,1 ,1
-	
-	
-	; ERROR: File ownership cannot be applied on insecure file systems;
-    ; there is no support for ACLs.
-	; run, %comspec% /k takeown /r /f "I:\System Volume Information", , max
-	
-	Loop, I:\System Volume Information\*, ,1 
+	IF TRUE=FALSE
 	{
-		FileDelete, A_LoopFileFullPath
-		MSGBOX % A_LoopFileFullPath
+		FileSetAttrib, -RHS, I:\System Volume Information\* ,1 ,1
+		
+		; ERROR: File ownership cannot be applied on insecure file systems;
+		; there is no support for ACLs.
+		; run, %comspec% /k takeown /r /f "I:\System Volume Information", , max
+		
+		Loop, I:\System Volume Information\*, ,1 
+		{
+			FileDelete, A_LoopFileFullPath
+			MSGBOX % A_LoopFileFullPath
+		}
+		FileRemoveDir, I:\System Volume Information,1
+		
 	}
-	FileRemoveDir, I:\System Volume Information
-	
 	
 	
 }
