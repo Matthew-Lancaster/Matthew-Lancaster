@@ -88,6 +88,8 @@
 #Warn
 #NoEnv
 #SingleInstance Force
+
+
 ; -------------------------------------------------------------------
 #Persistent
 ; -------------------------------------------------------------------
@@ -123,6 +125,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+
+
 
 
 ;# ------------------------------------------------------------------
@@ -2512,6 +2516,10 @@ MIDNIGHT_AND_HOUR_TIMER:
 	Midnight -= A_Now, seconds
 
 	EnvMult, Midnight, 1000
+	
+	
+	
+	
 
 	SET_GO=FALSE
 
@@ -5804,6 +5812,8 @@ RETURN
 
 
 
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -5823,6 +5833,7 @@ if ScriptInstanceExist()
 {
 	Exitapp
 }
+
 return
 
 ScriptInstanceExist() {

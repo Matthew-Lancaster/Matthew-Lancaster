@@ -3,18 +3,34 @@
 ;# __ 
 ;# __ Autokey -- 94-ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE.ahk
 ;# __ 
-;# BY Matthew __ Matt.Lan@Btinternet.com __ 
+;# BY __ Matt.Lan@Btinternet.com
 ;# __ 
-;# Fri 28-Feb-2020 22:44:00 -- 1 HOUR 54 MINUTE -- GOT GO AR
-;# Fri 28-Feb-2020 23:58:00 -- 3 HOUR 08 MINUTE -- ADD MORE
+;# Sun 26-Apr-2020 19:17:03
+;# Sun 26-Apr-2020 23:58:00 -- 4 HOUR 40 MINUTE
 ;# __ 
 ;  =============================================================
+
+; -------------------------------------------------------------------
+; WORK TIME
+; -------------------------------------------------------------------
+; SESSION 2 DAY 1
+; Sun 26-Apr-2020 11:22:41
+; Sun 26-Apr-2020 11:05:46 -- 12 HOUR 56 MINUTE
+; -------------------------------------------------------------------
+; SESSION 2 DAY 1
+; Sun 26-Apr-2020 19:17:03
+; Sun 26-Apr-2020 23:58:00 -- 4 HOUR 40 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; TO CREATE EFFORT FOR NEW MP3 UNIT
+; -------------------------------------------------------------------
+; 
+; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
 ; SESSION 001
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; Fri 28-Feb-2020 23:58:00 -- 3 HOUR 08 MINUTE -- ADD MORE
 ; -------------------------------------------------------------------
 
 ; ------------------------------------------------------------------
@@ -46,15 +62,11 @@
 ; A MASSIVE EFFORT HARD WORK FIND READY MADE LEARN SCRIPT 
 ; LIKE HERE
 ; -------------------------------------------------------------------
-; Sat 29-Feb-2020 15:10:00 -- 1 HOUR 13 MINUTE
-; Text Size  16303 -- CRC32 53AC75E0
-; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
 #Warn
 #NoEnv
 #SingleInstance Force
-
 
 
 RENAME_EXTENSION_SET_GO_EVERY_TIME=
@@ -79,20 +91,38 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	; "F:\MP3-YX-510_02_TS\M"
 	Loop,read,C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 68-FILE LOCATOR -- SCRIPT - MP3-YX-510_FILE_SCRIPT.TXT
 	{
-		SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 10)
-		FormatTime, TS, SUBST_1_DATE, yyyyMMddHHmmss
-		SUBST_2_FILENAME:= SubStr(A_LoopReadLine, 15)
 		
-		IF Mod(A_INDEX, 100)=0 
-			TOOLTIP % TS "`n" SUBST_2_FILENAME,100,100
+		SUBST_2_FILENAME:= SubStr(A_LoopReadLine, 13)
+
+		; DATE NOT ABLE SET BELOW 1600 YEAR
+	
+		SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
+		SUBST_1_DATE_Y:= SubStr(A_LoopReadLine, 1, 4)
+		SUBST_1_DATE_M:= SubStr(A_LoopReadLine, 5,2)
+		SUBST_1_DATE_D:= SubStr(A_LoopReadLine, 7,2)
+
+		; SUBST_1_DATE:= StrReplace(SUBST_1_DATE,"/","")
+
+		; FormatTime, TS, %SUBST_1_DATE%, YYYYMMDD
+		; FormatTime, TimeString, 20050423220133, dddd MMMM d, yyyy hh:mm:ss tt
+		
+ 		TS:=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
+		; FormatTime, TS, TS, YYYYMMDD
+
+		; IF Mod(A_INDEX, 10)=0 
+			; TOOLTIP % SUBST_1_DATE "`n" TS "`n" SUBST_2_FILENAME,100,100
 		WORK_DO_COUNT+=1
 		
-		FileSetTime, TS, %SUBST_2_FILENAME%, M
+		FileSetTime, TS , %SUBST_2_FILENAME%, M
+		
+		FileGetTime, TS_2, %SUBST_2_FILENAME%
+		IF Mod(A_INDEX, 1000)=0 
+			TOOLTIP % SUBST_1_DATE "`n" TS_2 "`n" SUBST_2_FILENAME,100,100
 		
 	}
 
 	IF WORK_DO_COUNT
-		MSGBOX, 4096,, % "CHANGE DATE COUNTER =`n" WORK_DO_COUNT
+		; MSGBOX, 4096,, % "CHANGE DATE COUNTER =`n" WORK_DO_COUNT
 	
 RETURN
 
