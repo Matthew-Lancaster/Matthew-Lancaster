@@ -73,13 +73,15 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 		Set File = FSO.OpenTextFile(FILE_TEST_1, ForWriting)
 		File.Write TIME_STRETCH_COUNTER
 		
-		DT1=DateSerial(8000,1,1)+TIMESERIAL(1,0,0)
+		DT1=DateSerial(2000,1,1)+TIMESERIAL(1,0,0)
+		
+		TT_COUNT=5000-TT_COUNT
+		DT1=DT1+TT_COUNT
 		
 		DT4=""
-		DT4=DT4+LPad(YEAR(DT1)-TT_COUNT, "0", 4)
+		DT4=DT4+LPad(YEAR(DT1), "0", 4)
 		DT4=DT4+LPad(MONTH(DT1), "0", 2)
 		DT4=DT4+LPad(DAY(DT1), "0", 2)
-		
 		Set File = FSO.OpenTextFile(FILE_TEST_2, ForAppending)
 		File.Write CSTR(DT4) + " .. " + strPath + strFileName + VBCRLF
 		
