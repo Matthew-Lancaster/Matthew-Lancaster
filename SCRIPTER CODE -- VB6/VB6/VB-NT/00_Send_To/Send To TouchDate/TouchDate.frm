@@ -1046,6 +1046,10 @@ i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "DATE CONVERTOR__ MMM D, YYYY H MM AM __ TO YYYY-MM-DD--HH-MM-DD FOR SCREENCASTIFY"
 i = i + 0: M_3(i) = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
 
+i = i + 1: M_1(i) = "DATE CONVERTOR__ MMM D, YYYY H MM AM __ TO YYYY-MM-DD--HH-MM-DD FOR SCREENCASTIFY SINGLE"
+i = i + 0: M_3(i) = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY_SINGLE"
+
+
 'i = i + 1: M_1(i) = "----"
 i = i + 1: M_1(i) = "ONE_FOLDER AS OTHER SAME ___ HARDCODER __ BATCH"
 i = i + 0: M_3(i) = "ONE_FOLDER_AS_OTHER_SAME_____HARDCODER____BATCH"
@@ -1216,6 +1220,10 @@ LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
 
 Case "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY"
 LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+Case "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY_SINGLE"
+LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
+
+
 
 Case "RENAME____YYYY_MM_DD_MMM_DDD_HH_MM_SS__MA__MP4____BATCH"
 LABEL_SET(1).BackColor = Label_COLOR_GREEN.BackColor
@@ -1775,6 +1783,105 @@ Sub DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCA
 
 
 End Sub
+
+Sub DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY_SINGLE()
+
+    A11 = LABEL_SET(3).Caption
+    ' A11 = "\\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY\2020 CyberShot HX60V\MP4\2020_01_20 Jan_Mon 12_25_38__MAH01294_HOVE GRAND AVENUE DEMOLITION__.MP4"
+    D11 = A11
+    If A11 <> "NOT FILE GIVEN" Then
+        A11 = Mid(D11, 1, InStrRev(A11, "\"))
+        B11 = Mid(D11, InStrRev(A11, "\") + 1)
+    End If
+    
+    If Len(D11) < 5 Or D11 = "NOT FILE GIVEN" Then
+        MsgBox "FULL PATH AND FILE NOT GOOD -- EXIT" + vbCrLf + vbCrLf + D11
+        End
+    End If
+    
+    
+    'ScanPath.Show
+    Dim DT1 As Date
+    Dim DS2 As Date
+    Dim DS4 As Date ' OLDER COMPARE
+    Dim TT
+        
+    ' D11 = "C:\DOWNLOADS\Apr 28, 2020 9_57 AM.mp4"
+    
+    EXT_STR = UCase(Mid(B11, Len(B11) - 2))
+    If InStr("MP4 TXT", EXT_STR) And InStr(A11, "_gsdata_") = 0 Then
+        
+        Set F = FSO.GetFile(A11 + B11)
+        DT1 = 0
+        DT1 = F.datelastmodified
+        DT1 = 0
+        'Aug 5, 2019 9 57 Am-4
+        DATE_STRING = ""
+        If InStrRev(B11, "m-") > 0 Then
+            THREE_BACK_SPACE = InStrRev(B11, " ", Len(B11))
+            For r = 1 To 2
+                THREE_BACK_SPACE = InStrRev(B11, " ", THREE_BACK_SPACE - 1)
+            Next
+            DATE_STRING_1 = Mid(B11, 1, THREE_BACK_SPACE)
+            DATE_STRING_2 = Mid(B11, THREE_BACK_SPACE, InStrRev(B11, "m-") - THREE_BACK_SPACE + 1)
+            DATE_STRING_2 = Trim(DATE_STRING_2)
+        End If
+        DATE_STRING_2 = Replace(DATE_STRING_2, " ", ":", , 1)
+        If DATE_STRING_1 <> "" Then
+        If IsDate(DATE_STRING_1) Then
+            DT1 = DateValue(DATE_STRING_1)
+        End If
+        End If
+        
+        If DATE_STRING_2 <> "" Then
+        If IsDate(DATE_STRING_2) Then
+            DT1 = DT1 + TimeValue(DATE_STRING_2)
+        End If
+        End If
+        
+        GET_MMM_ = Mid(B11, 1, 3)
+        GET_DD__ = Mid(B11, 5, 2)
+        GET_YYYY = Mid(B11, 9, 4)
+        GET_TIME = Mid(B11, 14, InStrRev(B11, "M.") - 13)
+        GET_TIME = Replace(GET_TIME, "_", ":")
+
+        GET_DATE_VALUE = DateValue(GET_YYYY + " " + GET_MMM_ + " " + GET_DD__) + TimeValue(GET_TIME)
+        DT1 = GET_DATE_VALUE
+        DT1_STRING = Format(DT1, "YYYY-MM-DD--HH-MM-SS")
+        If InStrRev(B11, "-") > 0 Then
+            WHAT_AT_AFTER_MARK_DASH = Mid(B11, InStrRev(B11, "-"))
+            Else
+            WHAT_AT_AFTER_MARK_DASH = "." + EXT_STR
+        End If
+        DT1_STRING = DT1_STRING + WHAT_AT_AFTER_MARK_DASH
+        
+        If DT1 > 0 Then
+            On Error Resume Next
+            Err.Clear
+            Name A11 + "\" + B11 As A11 + "\" + DT1_STRING
+            If Err.Number > 0 Then
+            
+                DETAIL_VAR = "RENAME FROM --" + vbCrLf + vbCrLf + A11 + "\" + B11
+                DETAIL_VAR = "MOVE TO   --" + vbCrLf + vbCrLf + A11 + "\" + DT1_STRING
+                MsgBox "WAS A ERROR RENAME FILE REQUEST" + vbCrLf + vbCrLf + "Err.Description = " + Err.Description + vbCrLf + vbCrLf + DETAIL_VAR, vbMsgBoxSetForeground
+            
+            End If
+            TT = SetFileDateTime(A11 + "\" + DT1_STRING, DT1)
+            
+            XC = XC + 1
+            MM_1 = MM_1 + B11 + vbCrLf
+        End If
+    End If
+    
+    Call SET_QUICK_MODE_RESULT
+    If InStr(MNU_QUICK_MODE.Caption, I_2) Then
+        MsgBox "Done = " + vbCrLf + str(XC) + vbCrLf + vbCrLf + MM_1
+    End If
+    
+    End
+
+End Sub
+
 
 Sub ONE_FOLDER_AS_OTHER_SAME_____HARDCODER____BATCH()
 
@@ -2696,6 +2803,12 @@ If WORK = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_S
     CallByName FORM_ME, WORK, VbMethod
     Exit Sub
 End If
+
+If WORK = "DATE_CONVERTOR___MMM_D__YYYY_H_MM_AM____TO_YYYY_MM_DD__HH_MM_DD_FOR_SCREENCASTIFY_SINGLE" Then
+    CallByName FORM_ME, WORK, VbMethod
+    Exit Sub
+End If
+
 
 If WORK = "MAKE_FOLDER_YYYY_MM_DD_OF_FILE_AND_MOVE_THERE_____BATCH_IT" Then
     CallByName FORM_ME, WORK, VbMethod
