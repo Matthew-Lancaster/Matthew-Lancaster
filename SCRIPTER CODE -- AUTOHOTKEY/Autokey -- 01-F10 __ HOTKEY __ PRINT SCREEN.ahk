@@ -141,6 +141,9 @@ SetTitleMatchMode 3  ; Specify Full path
 Send {shift up}
 
 
+VAR_REPEAT_F5_TOOGLE=
+SETTIMER REPEAT_F5_BASHING,20000
+
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 GLOBAL VAR_COUNTER
@@ -279,6 +282,9 @@ MESSENGER_KEY=HI MARIANNE
 GOSUB STRING_INVERT_MESSENGER
 SENDINPUT %MESSENGER_KEY%
 RETURN
+
+
+
 
 
 ; :*:22::
@@ -435,6 +441,9 @@ F5::
 	RETURN
 }
 #ifwinactive
+
+
+
 
 
 ; -------------------------------------------------------------------
@@ -595,6 +604,34 @@ RETURN
 
 
 Return
+
+
+; #IfWinActive ahk_class Chrome_WidgetWin_1
+; ^F5:: ; CTRL+F5 
+	
+	; IF !VAR_REPEAT_F5_TOOGLE
+	; {
+		; VAR_REPEAT_F5_TOOGLE=1
+		; SETTIMER REPEAT_F5_BASHING,20000
+		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		; RETURN
+	; }
+	
+	; IF VAR_REPEAT_F5_TOOGLE
+	; {
+		; VAR_REPEAT_F5_TOOGLE=
+		; SETTIMER REPEAT_F5_BASHING,OFF
+		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+	; }
+; Return
+; #ifwinactive
+
+REPEAT_F5_BASHING:
+	IF A_TimeIdleMouse>20000
+	IfWinActive Secure online banking home - Google Chrome ahk_class Chrome_WidgetWin_1
+		SENDINPUT {F5}
+		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+RETURN
 
 
 ; UCASE UPPER
