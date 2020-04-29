@@ -631,11 +631,15 @@ REPEAT_F5_BASHING:
 	IfWinActive Secure online banking home - Google Chrome ahk_class Chrome_WidgetWin_1
 		SENDINPUT {F5}
 		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 RETURN
 
 
 ; UCASE UPPER
 
+; -------------------------------------------------------------------
+; ---- THE CASE CHANGER BLOCK CODE ----------------------------------
+; -------------------------------------------------------------------
 #IfWinNOTActive ahk_class Notepad++
 {
 +^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
@@ -644,13 +648,14 @@ RETURN
 	RETURN
 }
 #ifwinactive
-
-; --
+; -------------------------------------------------------------------
+#IfWinNOTActive ahk_class HwndWrapper[FreemakeVC.exe;;361378b1-207c-4a9b-9511-a53a32655ad9]
 ^l:: ; CTRL+L ---- Converts Text To Lower
 	VAR_INDEX=2
 	GOSUB HOT_KEY_CONVERT_TEXT 
 Return
-; --
+#ifwinactive
+; -------------------------------------------------------------------
 #IfWinActive ahk_class Chrome_WidgetWin_1
 +u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
                                                ; HAS OPEN SOURCE OF PAGE 
@@ -659,7 +664,7 @@ Return
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
-
+; -------------------------------------------------------------------
 #IfWinActive ahk_class Chrome_WidgetWin_1
 ^u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
                                                ; HAS OPEN SOURCE OF PAGE 
@@ -668,6 +673,7 @@ RETURN
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+; -------------------------------------------------------------------
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
 ^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
                                                ; CONTROL 
@@ -677,6 +683,7 @@ RETURN
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+; -------------------------------------------------------------------
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
 +u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
                                                ; CONTROL 
@@ -686,6 +693,8 @@ RETURN
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
 
