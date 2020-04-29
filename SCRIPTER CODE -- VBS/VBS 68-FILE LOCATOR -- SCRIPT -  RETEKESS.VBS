@@ -16,6 +16,8 @@ END IF
 Set objFile = FSO.CreateTextFile(FILE_TEST,True)
 objFile.Close
 
+
+DIM XX
 	
 
 Public Function isValidFileName( ByVal strPath, ByVal strFileName)
@@ -31,7 +33,8 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 
 	IF isValidFileName=TRUE THEN 
 		Set File = FSO.OpenTextFile(FILE_TEST, ForAppending)
-		File.Write strPath + strFileName + VBCRLF
+		XX=XX+1
+		File.Write CSTR(XX) +"  "+ strPath + strFileName + VBCRLF
 	END IF
 	
 End Function
