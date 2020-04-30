@@ -1192,7 +1192,8 @@ Case "PERFORM ON ALL FILES IN FOLDER OR FILE"
     ' Call Label3_Click
     
 Case "NOW_DATE"
-    'WORK = "MOD_TO_NOW_DATE"
+    ' WORK = "MOD_TO_NOW_DATE"
+    Call ROUTINE_MOD_TO_NOW_DATE
 
 Case "MODIFY DATE TO CREATED DATE - NOT WORKING"
     Call Label2_Click
@@ -2760,9 +2761,21 @@ Sub SET_BATCH_DATE_CAMERA_VIDEO_FILENAME_TO_DATE_FILE()
 End Sub
 
 
+Private Sub ROUTINE_MOD_TO_NOW_DATE()
+
+    ' If WORK = "MOD_TO_NOW_DATE" Then
+    ' -------------------------------
+    a = LABEL_SET(3).Caption           ' GET FILE
+    DateSet = Now
+    TT = SetFileDateTime(a, DateSet)
+    ' MsgBox "Done " + vbCrLf + vbCrLf + a + vbCrLf + vbCrLf + DATEVAR, vbMsgBoxSetForeground
+    End
+
+End Sub
+
 Private Sub Label_GO_AH_Click()
 
-If WORK = "NOW_DATE" Then
+If WORK = "MOD_TO_NOW_DATE" Then
     ' -------------------------------
     a = LABEL_SET(3).Caption           ' GET FILE
     DateSet = Now
