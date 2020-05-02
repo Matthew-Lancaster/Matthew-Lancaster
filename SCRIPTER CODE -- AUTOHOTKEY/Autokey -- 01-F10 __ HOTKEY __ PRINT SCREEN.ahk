@@ -628,10 +628,15 @@ Return
 
 REPEAT_F5_BASHING:
 	IF A_TimeIdleMouse>20000
-	IfWinActive Secure online banking home - Google Chrome ahk_class Chrome_WidgetWin_1
+	IfWinEXIST Secure online banking home - Google Chrome ahk_class Chrome_WidgetWin_1
+	{
+		WinActivate
+		SLEEP 500
+		; IfWinActive Secure online banking home - Google Chrome ahk_class Chrome_WidgetWin_1
 		SENDINPUT {F5}
 		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
 RETURN
 
 
