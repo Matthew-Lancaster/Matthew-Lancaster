@@ -652,12 +652,12 @@ RETURN
 RETURN
 #ifwinactive
 ; -------------------------------------------------------------------
-#IfWinNOTActive ahk_class HwndWrapper[FreemakeVC.exe;;361378b1-207c-4a9b-9511-a53a32655ad9]
+;#IfWinNOTActive ahk_class HwndWrapper[FreemakeVC.exe;;361378b1-207c-4a9b-9511-a53a32655ad9]
 ^l:: ; CTRL+L ---- Converts Text To Lower
 	VAR_INDEX=2
 	GOSUB HOT_KEY_CONVERT_TEXT 
 RETURN
-#ifwinactive
+; #ifwinactive
 ; -------------------------------------------------------------------
 #IfWinActive ahk_class Chrome_WidgetWin_1
 +u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
