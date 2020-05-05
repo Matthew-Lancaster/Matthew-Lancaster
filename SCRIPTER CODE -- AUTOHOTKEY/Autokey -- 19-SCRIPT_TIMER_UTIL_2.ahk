@@ -445,12 +445,36 @@ SETTIMER XP_MSGBOX_FOR_FIRESHOT,1000
 
 
 
+SETTIMER COPY_CAMERA_MEDIA_CARD_BRING_FRONT,1000
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+RETURN
+
+COPY_CAMERA_MEDIA_CARD_BRING_FRONT:
+	IF OSVER_N_VAR<5
+		RETURN
+
+	WinGet,VAR_GET_2, ID, Copy_Camera_Media_Card
+	IF !VAR_GET_2
+		RETURN
+		
+	IF VAR_GET_2_OLD=%VAR_GET_2%
+	
+		VAR_GET_2_OLD=%VAR_GET_2%
+		
+		WinActivate,  ahk_id %VAR_GET%
+
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
+RETURN
+
+
+
 RETURN
 
 XP_MSGBOX_FOR_FIRESHOT:
