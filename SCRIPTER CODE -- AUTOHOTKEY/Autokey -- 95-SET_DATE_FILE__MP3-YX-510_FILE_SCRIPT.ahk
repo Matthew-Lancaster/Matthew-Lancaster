@@ -145,6 +145,35 @@ RETURN
 
 
 
+SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
+
+	; CONVERT FROM VB
+	; X2=MID(X1,1,INSTRREV(X1,"_T")-1)+".MP4"
+
+	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* ; ---- , R
+    {
+		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		IF INSTR(OutDir,OutNameNoExt)
+		{
+			; R_PATH:=StrReplace(OutDir,OutNameNoExt.MP4,"")
+			R_PATH:=SUBStr(OutNameNoExt,1,INSTR(OutNameNoExt,T_)-2)
+			
+			MSGBOX %R_PATH%
+			; MSGBOX F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutFILENAME%
+			
+			; FileMove, %A_LoopFileFullPath%, F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutNameNoExt%.MP4
+			; FileRemoveDir, %OutDir%
+			
+			; MSGBOX F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutNameNoExt%.MP4`n%R_PATH%%OutFILENAME%
+			; FileMove, F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutFILENAME%, %R_PATH%\%OutFILENAME%
+			
+			; MSGBOX % A_LoopFileFullPath "`n" R_PATH OutFILENAME
+			
+		}
+	}
+	
+RETURN
+
 
 SUB_RENAME_ERROR:
 
