@@ -76,7 +76,9 @@ RENAME_FILTER_EXTENSION_CASE_INCLUDE=
 RENAME_EXTENSION_QUIET_WITH_AUDIO=
 RENAME_EXTENSION_SET_DONE_QUIET=
 
-GOSUB TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER
+
+GOSUB SUB_SET_DATE_UNIT
+; GOSUB TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER
 
 
 ; IFEXIST, J:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
@@ -132,6 +134,118 @@ GOSUB TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER
 ; }
 	
 RETURN
+
+
+
+
+
+SUB_SET_DATE_UNIT:
+
+	WORK_DO_COUNT=0
+	
+	; ---------------------------------------------------------------
+	; LET SWITCH WITH AH BEGIN
+	; ---------------------------------------------------------------
+	
+	; "F:\MP3-YX-510_02_TS\M"
+	; F:\MP3-YX-510_02_TS\M
+	; F:\MP3-YX-510_02_TS_VIDEO\V2_4
+	
+	DT1=DateSerial(2000,1,1)+TIMESERIAL(1,0,0)
+
+	SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
+	SUBST_1_DATE_Y:= 2000
+	SUBST_1_DATE_M:= 01
+	SUBST_1_DATE_D:= 01
+	
+	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
+	
+	
+	
+	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , R
+    {
+		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		FILENAME = %OutDir%\%OutFILENAME%
+
+		IF INSTR(".MP3 .WAV .MP4",OutExtension)
+		{
+			FileSetTime, %TS% , %FILENAME% , M
+			FileGetTime, TS_2, %FILENAME%, M
+			TS+= 1, Days
+			; IF Mod(A_INDEX, 1000)=0 
+				; TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+		}
+	}
+	Loop, Files, F:\MP3-YX-510_02_TS\V\*.* , R
+    {
+		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		FILENAME = F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutFILENAME%
+
+		MSGBOX % OutFILENAME
+		
+		IF INSTR(.MP3 .WAV .MP4 .WMV .AVI,OutExtension)
+		{
+			MSGBOX % FILENAME
+			FileSetTime, %TS% , %FILENAME% , M
+			FileGetTime, TS_2, %FILENAME%, M
+			TS+= 1, Days
+			IF Mod(A_INDEX, 1000)=0 
+				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+		}
+	}
+
+	RETURN
+	
+	Loop,read,C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 68-FILE LOCATOR -- SCRIPT - MP3-YX-510_FILE_SCRIPT.TXT
+	{
+		
+		SUBST_2_FILENAME:= SubStr(A_LoopReadLine, 13)
+
+		; LOWER DATE NOT ABLE SET BELOW 1600 YEAR
+		; HIGHER DATE NOT ABLE SET ABOVE 1600 YEAR
+
+		SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
+		SUBST_1_DATE_Y:= SubStr(A_LoopReadLine, 1, 4)
+		SUBST_1_DATE_M:= SubStr(A_LoopReadLine, 5,2)
+		SUBST_1_DATE_D:= SubStr(A_LoopReadLine, 7,2)
+
+		; SUBST_1_DATE:= StrReplace(SUBST_1_DATE,"/","")
+
+		; FormatTime, TS, %SUBST_1_DATE%, YYYYMMDD
+		; FormatTime, TimeString, 20050423220133, dddd MMMM d, yyyy hh:mm:ss tt
+		
+		; SUBST_1_DATE_Y+=-6000
+		
+ 		TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
+		; FormatTime, TS, TS, YYYYMMDD
+
+		; IF Mod(A_INDEX, 10)=0 
+			; TOOLTIP % SUBST_1_DATE "`n" TS "`n" SUBST_2_FILENAME,100,100
+		WORK_DO_COUNT+=1
+		
+		; IFEXIST, %SUBST_2_FILENAME%
+		FileSetTime, %TS% , %SUBST_2_FILENAME% , M
+		; -----------------------------------------------------------
+		; HARD WORK UNABLE SET DATE ON MEDIA CARD
+		; SO EXTRA COPY HARD-DRIVE
+		; -----------------------------------------------------------
+		
+		; IFEXIST, %SUBST_2_FILENAME%
+		FileGetTime, TS_2, %SUBST_2_FILENAME%, M
+
+		IF Mod(A_INDEX, 1000)=0 
+			TOOLTIP % SUBST_1_DATE "`n" TS "`n" TS_2 "`n" SUBST_2_FILENAME,100,100
+		
+	}
+
+	IF WORK_DO_COUNT
+		; MSGBOX, 4096,, % "CHANGE DATE COUNTER =`n" WORK_DO_COUNT
+	
+RETURN
+
+
+
+
 
 TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 
