@@ -16,7 +16,12 @@
 ' 
 ' -------------------------------------------------------------------
 
+' PATH TO LOAD AT FILELOCATOR 
+' F:\MP3-YX-510_02_TS_VIDEO
+' F:\MP3-YX-510_02_TS_VIDEO
 
+' AFTER HERE RUN AND THEN HERE
+' "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 95-SET_DATE_FILE__MP3-YX-510_FILE_SCRIPT.ahk"
 
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
@@ -59,9 +64,11 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 	bIsValid = FALSE
 	bIsValid = TRUE
 
-	IF INSTR(strPath,"_gsdata_")>0                      THEN bIsValid = FALSE
-	IF INSTR(strFileName,".srf")>0                      THEN bIsValid = FALSE
-	IF INSTR(strFileName,"System Volume Information")>0 THEN bIsValid = FALSE
+	IF INSTR(strPath,"_gsdata_")>0                                                     THEN bIsValid = FALSE
+	IF INSTR(strFileName,".srf")>0                                                     THEN bIsValid = FALSE
+	IF INSTR(strFileName,"System Volume Information")>0                                THEN bIsValid = FALSE
+	IF INSTR(".MP3 .WAV .MP4",UCASE(MID(strFileName,INSTRREV(strFileName,"."))))=FALSE THEN bIsValid = FALSE
+	
 	
 	
 	isValidFileName = bIsValid
@@ -84,6 +91,20 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 		DT4=DT4+LPad(DAY(DT1), "0", 2)
 		Set File = FSO.OpenTextFile(FILE_TEST_2, ForAppending)
 		File.Write CSTR(DT4) + " .. " + strPath + strFileName + VBCRLF
+		
+		' -----------------------------------------------------------
+		' TEMP CODE RENAME 
+		' TEMP ROUTINE RENAME
+		' _T1_C1.mp4
+		' -----------------------------------------------------------
+		' _T1_C1.mp4
+		' SET FSO = WSCRIPT.CREATEOBJECT("SCRIPTING.FILESYSTEMOBJECT")
+		' X1=strPath + strFileName
+		' X2=MID(X1,1,INSTRREV(X1,"_T")-1)+".MP4"
+		' FSO.MOVEFILE X1, X2
+		' -----------------------------------------------------------
+ 		' File.Write X2 + VBCRLF   ' DOUBLE CHECK WHAT RENAME DESTINATION
+		' -----------------------------------------------------------
 		
 		' DT1= TimeSerial(0,TIME_STRETCH_COUNTER,0)
 		' DT1= DT1 + DateSerial(2000,0,0)
