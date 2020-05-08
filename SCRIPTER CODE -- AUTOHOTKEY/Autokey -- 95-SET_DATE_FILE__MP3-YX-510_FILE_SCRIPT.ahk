@@ -76,15 +76,19 @@ RENAME_FILTER_EXTENSION_CASE_INCLUDE=
 RENAME_EXTENSION_QUIET_WITH_AUDIO=
 RENAME_EXTENSION_SET_DONE_QUIET=
 
-; RETURN
+
+
+
 
 GOSUB SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME
 
 GOSUB SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER
 
+RETURN
 GOSUB SUB_SET_DATE_UNIT
+GOSUB SUB_RENAME_ERROR_WHEN_WRONG
+GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
 
-; GOSUB SUB_RENAME_ERROR_WHEN_WRONG
 
 RETURN
 
@@ -92,18 +96,14 @@ RETURN
 
 SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
 
-	; CONVERT FROM VB
-	; X2=MID(X1,1,INSTRREV(X1,"_T")-1)+".MP4"
-
 	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* ; ---- , R
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
 		StringUpper UPPER_OutExtension,OutExtension
-		FILENAME_ := SUBStr(OutNameNoExt,1,INSTR(OutNameNoExt,"T_",-1))
-		MSGBOX %A_LoopFileFullPath%`n%FILENAME_%`n----
-		R_PATH = %OutDir%\%FILENAME_%.%UPPER_OutExtension%
 		
-		MSGBOX %A_LoopFileFullPath%`n%R_PATH%
+		FILENAME_:=SUBStr(OutNameNoExt,1,INSTR(OutNameNoExt,"_T")-1)
+		R_PATH = %OutDir%\%FILENAME_%.%UPPER_OutExtension%
+;		MSGBOX %A_LoopFileFullPath%`n%R_PATH%
 		
 		FileMove, %A_LoopFileFullPath%, %R_PATH%
 	}
@@ -130,21 +130,10 @@ SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER:
 
 			IF FileExist(FILENAME)
 			{
-				MSGBOX %R_PATH%
+				; MSGBOX %R_PATH%
 				FileMove, %FILENAME%, %R_PATH%
 			}
 				
-			IF FileExist(FILENAME)
-			{
-				FileSetTime, %TS% , %FILENAME% , M
-				FileGetTime, TS_2, %FILENAME%, M
-			}
-			IF FileExist(R_PATH)
-			{
-				FileSetTime, %TS% , %R_PATH% , M
-				FileGetTime, TS_2, %R_PATH%, M
-			}
-			TS+= 1, Days
 			IF Mod(A_INDEX, 1000)=0 
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
 		}
@@ -218,6 +207,31 @@ RETURN
 
 
 	
+SUB_RENAME_ERROR_WHEN_WRONG_2:
+
+	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MPG\50Vcd - Old_01.MP4"
+	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MP4"
+	
+	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2\*.* , R
+    {
+		SplitPath, A_LoopFileFullPath, 1OutFILENAME, 1OutDir, 1OutExtension, 1OutNameNoExt
+		
+		Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
+		{
+			SplitPath, A_LoopFileFullPath, 2OutFILENAME, 2OutDir, 2OutExtension, 2OutNameNoExt
+
+			
+			IF INSTR(1OutNameNoExt,2OutNameNoExt)
+			{
+			FILENAME = %2OutDir%\%1OutNameNoExt%.MP4
+			
+			MSGBOX % FILENAME
+			FileMove, F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutFILENAME%, %FILENAME%
+			}
+		}
+	}
+	
+RETURN
 
 
 
