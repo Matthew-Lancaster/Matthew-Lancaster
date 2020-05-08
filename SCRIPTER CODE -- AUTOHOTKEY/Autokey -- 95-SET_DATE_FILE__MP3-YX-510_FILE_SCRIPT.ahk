@@ -77,8 +77,16 @@ RENAME_EXTENSION_QUIET_WITH_AUDIO=
 RENAME_EXTENSION_SET_DONE_QUIET=
 
 
+
+
+
 GOSUB SUB_SET_DATE_UNIT
 ; GOSUB TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER
+
+GOSUB SUB_RENAME_ERROR
+
+RETURN
+
 
 
 ; IFEXIST, J:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
@@ -138,6 +146,58 @@ RETURN
 
 
 
+SUB_RENAME_ERROR:
+
+	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MPG\50Vcd - Old_01.MP4"
+	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MP4"
+	
+	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , R
+    {
+		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		IF INSTR(OutDir,OutNameNoExt)
+		{
+			; R_PATH:=StrReplace(OutDir,OutNameNoExt.MP4,"")
+			R_PATH:=SUBStr(OutDir,1,INSTR(OutDir,OutNameNoExt)-2)
+			
+			; MSGBOX %R_PATH%\%OutFILENAME%
+			; MSGBOX F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutFILENAME%
+			
+			FileMove, %A_LoopFileFullPath%, F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutNameNoExt%.MP4
+			FileRemoveDir, %OutDir%
+			
+			; MSGBOX F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutNameNoExt%.MP4`n%R_PATH%%OutFILENAME%
+			FileMove, F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutFILENAME%, %R_PATH%\%OutFILENAME%
+			
+			; MSGBOX % A_LoopFileFullPath "`n" R_PATH OutFILENAME
+			
+		}
+	}
+	
+RETURN
+	
+		; R_PATH:=StrReplace(OutDir, "\%OutFILENAME%\", "F:\MP3-YX-510_02_TS_VIDEO\V2_4\")
+		; FileCreateDir, %R_PATH%
+		; R_PATH=%R_PATH%\%OutNameNoExt%.MP4
+
+		; IF FileExist(FILENAME)
+			; FileMove, %FILENAME%, %R_PATH%
+
+		; IF FileExist(FILENAME)
+		; {
+			; FileSetTime, %TS% , %FILENAME% , M
+			; FileGetTime, TS_2, %FILENAME%, M
+		; }
+		; IF FileExist(R_PATH)
+		; {
+			; FileSetTime, %TS% , %R_PATH% , M
+			; FileGetTime, TS_2, %R_PATH%, M
+		; }
+	; }
+
+	; RETURN
+
+
+
 
 SUB_SET_DATE_UNIT:
 
@@ -160,53 +220,85 @@ SUB_SET_DATE_UNIT:
 	
 	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
 	
-	; Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , R
-    ; {
-		; SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
-		; FILENAME = %OutDir%\%OutFILENAME%
-
-		; IF INSTR(".MP3 .WAV .MP4",OutExtension)
-		; {
-			; FileSetTime, %TS% , %FILENAME% , M
-			; FileGetTime, TS_2, %FILENAME%, M
-			; TS+= 1, Days
-			; IF Mod(A_INDEX, 1000)=0 
-				; TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
-		; }
-	; }
-	; TS+= 1, Years              ; ---- NOT GOT YEARS PARAMETER
-	TS:=SubStr(TS, 1, 4)
-	TS+= 1
-	TS=% TS . 01 . 01 . 01 . 00 . 00
-	
-	Loop, Files, F:\MP3-YX-510_02_TS\V\*.* , R
+	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , R
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
-		
-		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
+		FILENAME = %OutDir%\%OutFILENAME%
+
+		IF INSTR(".MP3 .WAV .MP4",OutExtension)
 		{
-			FILENAME = F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutNameNoExt%.MP4
-			R_PATH:=StrReplace(OutDir, "F:\MP3-YX-510_02_TS\V\", "F:\MP3-YX-510_02_TS_VIDEO\V2_4\")
-			FileCreateDir, %R_PATH%
-			R_PATH=%R_PATH%\%OutNameNoExt%.MP4
-
-			IF FileExist(FILENAME)
-				FileMove, %FILENAME%, %R_PATH%
-
-			IF FileExist(FILENAME)
-			{
-				FileSetTime, %TS% , %FILENAME% , M
-				FileGetTime, TS_2, %FILENAME%, M
-			}
-			IF FileExist(R_PATH)
-			{
-				FileSetTime, %TS% , %R_PATH% , M
-				FileGetTime, TS_2, %R_PATH%, M
-			}
+			FileSetTime, %TS% , %FILENAME% , M
+			FileGetTime, TS_2, %FILENAME%, M
 			TS+= 1, Days
 			IF Mod(A_INDEX, 1000)=0 
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+		}
+	}
+	; --------------------------------------------------------
+	; TS+= 1, Years              ; ---- NOT GOT YEAR PARAMETER
+	; --------------------------------------------------------
 
+	TS:=SubStr(TS, 1, 4)
+	TS+= 1
+	TS=% TS . 01 . 01 . 01 . 00 . 00
+
+	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , R
+    {
+		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		FILENAME = %OutDir%\%OutFILENAME%
+
+		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
+		{
+			FileSetTime, %TS% , %FILENAME% , M
+			FileGetTime, TS_2, %FILENAME%, M
+			TS+= 1, Days
+			IF Mod(A_INDEX, 1000)=0 
+				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+		}
+	}
+
+	; EXIT ROUTINE HERE OR NEXT ONE WHEN CONVERT IDEA
+	; -----------------------------------------------
+	RETURN
+	
+	
+	; ROUTINE WHEN AFTER CONVERT TO MP4
+	; OR ROUTINE SAME AS MUSIC VERSION
+	; ---------------------------------
+	IF TRUE=FALSE
+	{
+		Loop, Files, F:\MP3-YX-510_02_TS\V\*.* , R
+		{
+			SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+			
+			IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
+			{
+				FILENAME = F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutNameNoExt%.MP4
+				R_PATH:=StrReplace(OutDir, "F:\MP3-YX-510_02_TS\V\", "F:\MP3-YX-510_02_TS_VIDEO\V2_4\")
+				FileCreateDir, %R_PATH%
+				R_PATH=%R_PATH%\%OutNameNoExt%.MP4
+
+				IF FileExist(FILENAME)
+				{
+					MSGBOX %R_PATH%
+					FileMove, %FILENAME%, %R_PATH%
+				}
+					
+				IF FileExist(FILENAME)
+				{
+					FileSetTime, %TS% , %FILENAME% , M
+					FileGetTime, TS_2, %FILENAME%, M
+				}
+				IF FileExist(R_PATH)
+				{
+					FileSetTime, %TS% , %R_PATH% , M
+					FileGetTime, TS_2, %R_PATH%, M
+				}
+				TS+= 1, Days
+				IF Mod(A_INDEX, 1000)=0 
+					TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+
+			}
 		}
 	}
 
