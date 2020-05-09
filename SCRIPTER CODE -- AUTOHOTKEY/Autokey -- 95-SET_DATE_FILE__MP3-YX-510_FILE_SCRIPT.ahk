@@ -154,12 +154,12 @@ SUB_SET_DATE_UNIT:
 	DT1=DateSerial(2000,1,1)+TIMESERIAL(1,0,0)
 
 	SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
-	SUBST_1_DATE_Y:= 2000
+	SUBST_1_DATE_Y:= 2013
 	SUBST_1_DATE_M:= 01
 	SUBST_1_DATE_D:= 01
 	
 	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
-	
+	INFO_DISPLAY_ONCE=TRUE
 	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , R
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
@@ -169,19 +169,33 @@ SUB_SET_DATE_UNIT:
 		{
 			FileSetTime, %TS% , %FILENAME% , M
 			FileGetTime, TS_2, %FILENAME%, M
-			TS+= 1, Days
-			IF Mod(A_INDEX, 1000)=0 
+			TS+= -1, Days
+			IF Mod(A_INDEX, 200)=0 
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+		
+			IF INFO_DISPLAY_ONCE
+				MSGBOX % TS_2 "`n" FILENAME
+			INFO_DISPLAY_ONCE=
 		}
 	}
-	; --------------------------------------------------------
-	; TS+= 1, Years              ; ---- NOT GOT YEAR PARAMETER
-	; --------------------------------------------------------
 
+	MSGBOX % TS "`n" TS_2 "`n" FILENAME
+	; --------------------------------------------------------
+	; 2000 TO 2011 FOR MUSIC CHUNK
+	; --------------------------------------------------------
+	
+	; --------------------------------------------------------
+	; TS+= 1, Years               ; ---- NOT GOT YEAR PARAMETER
+	; ROUND THE YEAR NUMBER VIDEO STARTING
+	; SUBSTRACT ONE YEAR TO DATE GIVE
+	; AND NOTHING MONTH AND DAY
+	; --------------------------------------------------------
+	
 	TS:=SubStr(TS, 1, 4)
-	TS+= 1
+	TS+= -1
 	TS=% TS . 01 . 01 . 01 . 00 . 00
 
+	INFO_DISPLAY_ONCE=TRUE
 	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , R
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
@@ -191,11 +205,19 @@ SUB_SET_DATE_UNIT:
 		{
 			FileSetTime, %TS% , %FILENAME% , M
 			FileGetTime, TS_2, %FILENAME%, M
-			TS+= 1, Days
-			IF Mod(A_INDEX, 1000)=0 
+			TS+= -1, Days
+			; -------------------------------------------------------
+			; -- COUNT GO BACKWARD NOT FORWARD DEVICE HERE ---- MP3-YX-510 ---- MP3 PLAYER
+			; -------------------------------------------------------
+			IF Mod(A_INDEX, 200)=0 
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
-		}
+			IF INFO_DISPLAY_ONCE
+				MSGBOX % TS_2 "`n" FILENAME
+			INFO_DISPLAY_ONCE=
+			}
 	}
+	
+	MSGBOX % TS_2 "`n" FILENAME
 
 	; EXIT ROUTINE HERE OR NEXT ONE WHEN CONVERT IDEA
 	; -----------------------------------------------
