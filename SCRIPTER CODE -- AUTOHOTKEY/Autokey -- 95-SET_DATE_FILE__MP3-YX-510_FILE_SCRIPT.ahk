@@ -207,7 +207,20 @@ RETURN
 
 
 SUB_RENAME_ERROR_WHEN_WRONG_2:
+; -------------------------------------------------------------------
+; ACCIDENT -- CHOP TRIM STRING MORE THAN WANT WITH SUB ROUTINE
+; SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
+; -------------------------------------------------------------------
 
+STRING_NOT_USE_AGAIN=
+
+T_INDEX_1=0
+T_INDEX_2=0
+Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*, F                          ; Include Files and Directories FD
+    T_INDEX_1+=1
+T_INDEX_2=0
+Loop, Files, F:\MP3-YX-510_02_TS\V\*.*, FR                                 ; Include Files and Directories FD
+    T_INDEX_2+=1
 
 FileList1 =
 Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*, F                          ; Include Files and Directories FD
@@ -219,6 +232,11 @@ Loop, Files, F:\MP3-YX-510_02_TS\V\*.*, FR                                  ; In
     FileList2 = %FileList2%%A_LoopFileName%`t%A_LoopFileFullPath%`n
 Sort, FileList2                                                             ; Sort by date.
 
+T_INDEX=0
+
+; -------------------------------------------------------------------
+; FileList2 ---- PROPER 
+; -------------------------------------------------------------------
 Loop, Parse, FileList2, `n
 {
     if A_LoopField =  ; Omit the last linefeed (blank item) at the end of the list.
@@ -226,38 +244,64 @@ Loop, Parse, FileList2, `n
 	StringSplit, FileItem2, A_LoopField, %A_Tab%  ; Split into two parts at the tab char.
 
 	X_INDEX=%A_INDEX%
+	T_INDEX+=1
 	
 	; MSGBOX %A_INDEX% `n%FileItem21% `n%FileItem22%
 	
+	; ---------------------------------------------------------------
+	; FileList1 ---- NOT PROPER 
+	; ---------------------------------------------------------------
 	Loop, Parse, FileList1, `n
 	{
 		if A_LoopField =  ; Omit the last linefeed (blank item) at the end of the list.
 			continue
+
 		StringSplit, FileItem1, A_LoopField, %A_Tab%  ; Split into two parts at the tab char.
 		
-		SplitPath, FileItem21, 1OutFILENAME, 1OutDir, 1OutExtension, 1OutNameNoExt
-		SplitPath, FileItem12, 2OutFILENAME, 2OutDir, 2OutExtension, 2OutNameNoExt
+		SplitPath, FileItem12, 1OutFILENAME, 1OutDir, 1OutExtension, 1OutNameNoExt
+		SplitPath, FileItem21, 2OutFILENAME, 2OutDir, 2OutExtension, 2OutNameNoExt
 
-;			MSGBOX %A_INDEX% `n%X_INDEX%`n%FileItem21% `n%FileItem22% `n%FileItem12%
-
-			IF 1OutNameNoExt<>%2OutNameNoExt%
-			IF INSTR(1OutNameNoExt,2OutNameNoExt)
-{
-			IF A_INDEX>=%X_INDEX%
+		; MSGBOX %A_INDEX% `n%X_INDEX%`n%FileItem21% `n%FileItem22% `n%FileItem12%
+		
+		; ---------------------------------------------------------------
+		; 1 NOT PROPER
+		; 2 PROPER
+		; ---------------------------------------------------------------
+		IF 1OutNameNoExt<>%2OutNameNoExt%
+		IF INSTR(2OutNameNoExt,1OutNameNoExt)
 		{
-			MSGBOX %X_INDEX%`n%A_INDEX%`n`n%FileItem12%`n`n%FileItem22%`n`n%FileItem21%
+
+			STRING_COMPARE_02=--%A_INDEX%
+			IF INSTR(STRING_NOT_USE_AGAIN,STRING_COMPARE_02)=0
+			{
 			
-			; FileMove, %FP_1%, %FILENAME%
-
-			}
-}		
-
-	}	
-	
-	
+				STRING_NOT_USE_AGAIN=%STRING_NOT_USE_AGAIN%--%A_INDEX%
+				
+				; -------------------------------------------------------
+				; 1ST NEST LOOP -- FileList2 ---- PROPER
+				; 2ND NEST LOOP -- FileList1 ---- NOT PROPER
+				; -------------------------------------------------------
+				; FileList1 ---- NOT PROPER  ---- A_INDEX ---- NOT PROPER
+				; FileList2 ---- PROPER      ---- X_INDEX ---- PROPER
+				; -------------------------------------------------------
+				
+				; MSGBOX %T_INDEX% --OF-- %T_INDEX_2% --OF-- %T_INDEX_1%`n%X_INDEX% -- PROPER`n%A_INDEX% -- NOT PROPER`n`n%FileItem21%`n%X_INDEX%`n`n%FileItem22%`n`n%FileItem12%`n%A_INDEX%
+				
+				FILE_RENAME1=F:\MP3-YX-510_02_TS_VIDEO\V2_4\%FileItem12%
+				FILE_RENAME2=F:\MP3-YX-510_02_TS_VIDEO\V2_4\%2OutNameNoExt%.MP4
+				IF FileExist(FILE_RENAME1)
+				{
+					; -----------------------------------------------
+					; ALL DOUBLE CHECK 
+					; -----------------------------------------------
+					MSGBOX %FILE_RENAME1%`n%FILE_RENAME2%
+				
+					FileMove, %FILE_RENAME1%, %FILE_RENAME2%
+				}
+			}		
+		}		
+	}
 }	
-
-
 RETURN
 	
 	
