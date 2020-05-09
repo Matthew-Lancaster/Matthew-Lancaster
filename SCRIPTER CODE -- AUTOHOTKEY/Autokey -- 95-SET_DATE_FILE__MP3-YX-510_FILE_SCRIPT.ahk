@@ -151,10 +151,11 @@ SUB_SET_DATE_UNIT:
 	; F:\MP3-YX-510_02_TS\M
 	; F:\MP3-YX-510_02_TS_VIDEO\V2_4
 	
-	DT1=DateSerial(2000,1,1)+TIMESERIAL(1,0,0)
+	DT1=DateSerial(2000,1,1)+TIMESERIAL(1,0,0) ; IF REVERSE
+	DT1=DateSerial(2012,1,1)+TIMESERIAL(1,0,0) ; IF FORWARD
 
 	SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
-	SUBST_1_DATE_Y:= 2013
+	SUBST_1_DATE_Y:= 2012
 	SUBST_1_DATE_M:= 01
 	SUBST_1_DATE_D:= 01
 	
@@ -168,8 +169,10 @@ SUB_SET_DATE_UNIT:
 		IF INSTR(".MP3 .WAV .MP4",OutExtension)
 		{
 			FileSetTime, %TS% , %FILENAME% , M
-			FileGetTime, TS_2, %FILENAME%, M
-			TS+= -1, Days
+			FileGetTime, TS_2,  %FILENAME%, M
+			CONTENT_NAME_SET=%FILENAME%
+			; TS+= -1, Days ; REVERSE
+			TS+= 1, Days    ; FORWARD
 			IF Mod(A_INDEX, 200)=0 
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
 		
@@ -179,7 +182,7 @@ SUB_SET_DATE_UNIT:
 		}
 	}
 
-	MSGBOX % TS "`n" TS_2 "`n" FILENAME
+	MSGBOX % TS_2 "`n" CONTENT_NAME_SET
 	; --------------------------------------------------------
 	; 2000 TO 2011 FOR MUSIC CHUNK
 	; --------------------------------------------------------
@@ -190,9 +193,11 @@ SUB_SET_DATE_UNIT:
 	; SUBSTRACT ONE YEAR TO DATE GIVE
 	; AND NOTHING MONTH AND DAY
 	; --------------------------------------------------------
+	; THE MP3 PLAYER WANT MOST RECENT CONTENT PLAY FIRST
+	; --------------------------------------------------------
 	
 	TS:=SubStr(TS, 1, 4)
-	TS+= -1
+	TS+= -1 ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR
 	TS=% TS . 01 . 01 . 01 . 00 . 00
 
 	INFO_DISPLAY_ONCE=TRUE
@@ -204,12 +209,14 @@ SUB_SET_DATE_UNIT:
 		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
 		{
 			FileSetTime, %TS% , %FILENAME% , M
-			FileGetTime, TS_2, %FILENAME%, M
-			TS+= -1, Days
+			FileGetTime, TS_2,  %FILENAME%, M
+			CONTENT_NAME_SET=%FILENAME%
+			; TS+= -1, Days  ; REVERSE
+			TS+= 1, Days     ; FORWARD
 			; -------------------------------------------------------
 			; -- COUNT GO BACKWARD NOT FORWARD DEVICE HERE ---- MP3-YX-510 ---- MP3 PLAYER
 			; -------------------------------------------------------
-			IF Mod(A_INDEX, 200)=0 
+			IF Mod(A_INDEX, 1)=0 
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
 			IF INFO_DISPLAY_ONCE
 				MSGBOX % TS_2 "`n" FILENAME
@@ -217,7 +224,7 @@ SUB_SET_DATE_UNIT:
 			}
 	}
 	
-	MSGBOX % TS_2 "`n" FILENAME
+	MSGBOX % TS_2 "`n" CONTENT_NAME_SET
 
 	; EXIT ROUTINE HERE OR NEXT ONE WHEN CONVERT IDEA
 	; -----------------------------------------------
