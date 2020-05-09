@@ -206,8 +206,62 @@ SUB_SET_DATE_UNIT:
 RETURN
 
 
-	
 SUB_RENAME_ERROR_WHEN_WRONG_2:
+
+
+FileList1 =
+Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*, F                          ; Include Files and Directories FD
+    FileList1 = %FileList1%%A_LoopFileTimeModified%`t%A_LoopFileName%`n
+Sort, FileList1                                                             ; Sort by date.
+
+FileList2 =
+Loop, Files, F:\MP3-YX-510_02_TS\V\*.*, FR                                  ; Include Files and Directories FD AND RECURSE
+    FileList2 = %FileList2%%A_LoopFileName%`t%A_LoopFileFullPath%`n
+Sort, FileList2                                                             ; Sort by date.
+
+Loop, Parse, FileList2, `n
+{
+    if A_LoopField =  ; Omit the last linefeed (blank item) at the end of the list.
+        continue
+	StringSplit, FileItem2, A_LoopField, %A_Tab%  ; Split into two parts at the tab char.
+
+	X_INDEX=%A_INDEX%
+	
+	; MSGBOX %A_INDEX% `n%FileItem21% `n%FileItem22%
+	
+	Loop, Parse, FileList1, `n
+	{
+		if A_LoopField =  ; Omit the last linefeed (blank item) at the end of the list.
+			continue
+		StringSplit, FileItem1, A_LoopField, %A_Tab%  ; Split into two parts at the tab char.
+		
+		SplitPath, FileItem21, 1OutFILENAME, 1OutDir, 1OutExtension, 1OutNameNoExt
+		SplitPath, FileItem12, 2OutFILENAME, 2OutDir, 2OutExtension, 2OutNameNoExt
+
+;			MSGBOX %A_INDEX% `n%X_INDEX%`n%FileItem21% `n%FileItem22% `n%FileItem12%
+
+			IF 1OutNameNoExt<>%2OutNameNoExt%
+			IF INSTR(1OutNameNoExt,2OutNameNoExt)
+{
+			IF A_INDEX>=%X_INDEX%
+		{
+			MSGBOX %X_INDEX%`n%A_INDEX%`n`n%FileItem12%`n`n%FileItem22%`n`n%FileItem21%
+			
+			; FileMove, %FP_1%, %FILENAME%
+
+			}
+}		
+
+	}	
+	
+	
+}	
+
+
+RETURN
+	
+	
+SUB_RENAME_ERROR_WHEN_WRONG_3:
 
 	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MPG\50Vcd - Old_01.MP4"
 	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MP4"
