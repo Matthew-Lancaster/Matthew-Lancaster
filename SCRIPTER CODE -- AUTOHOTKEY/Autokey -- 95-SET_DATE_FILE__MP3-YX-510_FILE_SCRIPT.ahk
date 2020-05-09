@@ -156,6 +156,7 @@ SUB_SET_DATE_UNIT:
 
 	SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
 	SUBST_1_DATE_Y:= 2012
+	SUBST_1_DATE_Y:= 2000 ; IF FORWARD SET
 	SUBST_1_DATE_M:= 01
 	SUBST_1_DATE_D:= 01
 	
@@ -194,6 +195,8 @@ SUB_SET_DATE_UNIT:
 	; AND NOTHING MONTH AND DAY
 	; --------------------------------------------------------
 	; THE MP3 PLAYER WANT MOST RECENT CONTENT PLAY FIRST
+	; CORRECTION PREFER IS -- TIME BEFORE FIRST
+	; CARE TOO MANY DATE ONLY ALLOW LESS THAN 2022
 	; --------------------------------------------------------
 	
 	TS:=SubStr(TS, 1, 4)
