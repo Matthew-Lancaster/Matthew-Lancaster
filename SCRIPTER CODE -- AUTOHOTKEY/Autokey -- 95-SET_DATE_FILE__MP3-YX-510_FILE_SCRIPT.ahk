@@ -78,9 +78,11 @@ RENAME_EXTENSION_SET_DONE_QUIET=
 
 
 
+GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
 
+RETURN
 
-GOSUB SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME
+GOSUB SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME   ; ____ EXAMPLE __T1_C1 -- _T2_C1 -- _T3_C1 -- _T4_C1
 
 GOSUB SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER
 
@@ -95,7 +97,6 @@ RETURN
 
 
 SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
-
 	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* ; ---- , R
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
@@ -107,7 +108,6 @@ SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
 		
 		FileMove, %A_LoopFileFullPath%, %R_PATH%
 	}
-	
 RETURN
 
 
@@ -124,13 +124,14 @@ SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER:
 		{
 			FILENAME = F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutNameNoExt%.MP4
 			R_PATH:=StrReplace(OutDir, "F:\MP3-YX-510_02_TS\V\", "F:\MP3-YX-510_02_TS_VIDEO\V2_4\")
+
 			FileCreateDir, %R_PATH%
 			
 			R_PATH=%R_PATH%\%OutNameNoExt%.MP4
 
 			IF FileExist(FILENAME)
 			{
-				; MSGBOX %R_PATH%
+				MSGBOX %R_PATH%
 				FileMove, %FILENAME%, %R_PATH%
 			}
 				
@@ -138,7 +139,6 @@ SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER:
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
 		}
 	}
-
 RETURN
 
 
@@ -212,21 +212,25 @@ SUB_RENAME_ERROR_WHEN_WRONG_2:
 	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MPG\50Vcd - Old_01.MP4"
 	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MP4"
 	
-	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2\*.* , R
+	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
     {
 		SplitPath, A_LoopFileFullPath, 1OutFILENAME, 1OutDir, 1OutExtension, 1OutNameNoExt
 		
-		Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
+		FP_1:=A_LoopFileFullPath
+		
+		Loop, Files, F:\MP3-YX-510_02_TS\V\*.* , R
 		{
 			SplitPath, A_LoopFileFullPath, 2OutFILENAME, 2OutDir, 2OutExtension, 2OutNameNoExt
 
 			
 			IF INSTR(1OutNameNoExt,2OutNameNoExt)
 			{
-			FILENAME = %2OutDir%\%1OutNameNoExt%.MP4
-			
-			MSGBOX % FILENAME
-			FileMove, F:\MP3-YX-510_02_TS_VIDEO\V2_4\%OutFILENAME%, %FILENAME%
+			FILENAME = %1OutDir%\%2OutNameNoExt%.MP4
+			IF FP_1<>%FILENAME%
+			{
+			MSGBOX % FP_1 "`n" FILENAME
+			; FileMove, %FP_1%, %FILENAME%
+			}
 			}
 		}
 	}
