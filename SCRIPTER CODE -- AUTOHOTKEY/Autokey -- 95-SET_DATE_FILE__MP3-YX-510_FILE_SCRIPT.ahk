@@ -78,10 +78,10 @@ RENAME_EXTENSION_SET_DONE_QUIET=
 
 
 
-; GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
 
 
 ; GOSUB SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME   ; ____ EXAMPLE __T1_C1 -- _T2_C1 -- _T3_C1 -- _T4_C1
+; RETURN
 
 GOSUB SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER
 RETURN
@@ -91,6 +91,7 @@ RETURN
 
 
 GOSUB SUB_RENAME_ERROR_WHEN_WRONG
+GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
 GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
 
 RETURN
@@ -103,7 +104,13 @@ SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
 		StringUpper UPPER_OutExtension,OutExtension
 		
-		FILENAME_:=SUBStr(OutNameNoExt,1,INSTR(OutNameNoExt,"_T")-1)
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; HERE SHOULD BE INSTRREV
+		; -----------------------------------------------------------
+		; -----------------------------------------------------------
+		; ; ____ EXAMPLE __T1_C1 -- _T2_C1 -- _T3_C1 -- _T4_C1
+		FILENAME_:=SUBStr(OutNameNoExt,1,INSTR(OutNameNoExt,"_T",,-1)-1)   ;; REVERSE INSTR FINDER BY ,,-1
 		R_PATH = %OutDir%\%FILENAME_%.%UPPER_OutExtension%
 		MSGBOX %A_LoopFileFullPath%`n%R_PATH%
 		FileMove, %A_LoopFileFullPath%, %R_PATH%
