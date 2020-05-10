@@ -696,6 +696,12 @@ RETURN
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+
++^D:: ; SHIFT+CTRL+D ---- CONVERTS TEXT TO DASH
+	VAR_INDEX=4
+	GOSUB HOT_KEY_CONVERT_TEXT
+RETURN
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -729,7 +735,22 @@ HOT_KEY_CONVERT_TExT:
 		StringLower Clipper_1_GET, Clipper_1_GET
 	IF VAR_INDEX=3
 		StringUpper Clipper_1_GET, Clipper_1_GET
-		
+	IF VAR_INDEX=4
+	{
+		; -----------------------------------------------------------
+		; HOW CENSOR TEXT
+		; CONVERT STRING REPLACE WITH DASH -- VALUE LENGTH COMPARE DUPLICATE
+		; Sun 10-May-2020 11:15:46
+		; CONTROL SHIFT D
+		; -----------------------------------------------------------
+		StringLen, Length, Clipper_1_GET
+		Clipper_1_GET=
+		Clipper_2_GET=
+		DASH_STRING:="-"
+		loop, %Length%
+			Clipper_1_GET=%Clipper_1_GET%%DASH_STRING%
+	}
+	
 	
 	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
 	; MSGBOX %Clipper_GET%
