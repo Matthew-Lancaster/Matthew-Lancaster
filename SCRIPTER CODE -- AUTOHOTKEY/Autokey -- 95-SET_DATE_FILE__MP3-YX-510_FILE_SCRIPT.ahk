@@ -162,9 +162,13 @@ SUB_SET_DATE_UNIT:
 	; F:\MP3-YX-510_02_TS\M
 	; F:\MP3-YX-510_02_TS_VIDEO\V2_4
 
+	REVERSE_OR_FORWARD=FORWARD
+	
 	SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
-	SUBST_1_DATE_Y:= 2000 ; IF FORWARD SET
-	SUBST_1_DATE_Y:= 2012 ; WHEN REVERSE SET
+	IF REVERSE_OR_FORWARD=FORWARD
+		SUBST_1_DATE_Y:= 2000 ; IF FORWARD SET
+	IF REVERSE_OR_FORWARD=REVERSE
+		SUBST_1_DATE_Y:= 2012 ; WHEN REVERSE SET
 	SUBST_1_DATE_M:= 01
 	SUBST_1_DATE_D:= 01
 	
@@ -178,10 +182,14 @@ SUB_SET_DATE_UNIT:
 		IF INSTR(".MP3 .WAV .MP4",OutExtension)
 		{
 			FileSetTime, %TS% , %FILENAME% , M
+			FileSetTime, %TS% , %FILENAME% , C
 			FileGetTime, TS_2,  %FILENAME%, M
 			CONTENT_NAME_SET=%FILENAME%
-			; TS+= 1, Days    ; FORWARD
-			TS+= -1, Days     ; REVERSE
+			IF REVERSE_OR_FORWARD=FORWARD
+				TS+= 1, Days             ; FORWARD
+			IF REVERSE_OR_FORWARD=REVERSE
+				TS+= -1, Days            ; REVERSE
+			
 			IF Mod(A_INDEX, 200)=0 
 				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
 		
@@ -208,8 +216,9 @@ SUB_SET_DATE_UNIT:
 	; --------------------------------------------------------
 	
 	TS:=SubStr(TS, 1, 4)
-	; TS+= -1 ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- FORWARD
-	; TS+= -1 ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- REVERSE -- REM OUT WAY
+	IF REVERSE_OR_FORWARD=FORWARD
+		TS+= -1   ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- FORWARD
+		; TS+= -1 ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- REVERSE -- REM OUT WAY
 	TS=% TS . 01 . 01 . 01 . 00 . 00
 
 	INFO_DISPLAY_ONCE=TRUE
@@ -223,8 +232,10 @@ SUB_SET_DATE_UNIT:
 			FileSetTime, %TS% , %FILENAME% , M
 			FileGetTime, TS_2,  %FILENAME%, M
 			CONTENT_NAME_SET=%FILENAME%
-			; TS+= 1, Days     ; FORWARD
-			TS+= -1, Days      ; REVERSE
+			IF REVERSE_OR_FORWARD=FORWARD
+				TS+= 1, Days     ; FORWARD
+			IF REVERSE_OR_FORWARD=REVERSE
+				TS+= -1, Days      ; REVERSE
 			; -------------------------------------------------------
 			; -- COUNT GO BACKWARD NOT FORWARD DEVICE HERE ---- MP3-YX-510 ---- MP3 PLAYER
 			; -------------------------------------------------------
