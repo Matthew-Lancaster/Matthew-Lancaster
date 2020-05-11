@@ -443,10 +443,11 @@ SETTIMER MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER,500
 
 SETTIMER XP_MSGBOX_FOR_FIRESHOT,1000
 
-
 VAR_GET_2_OLD=
-	
 SETTIMER COPY_CAMERA_MEDIA_CARD_BRING_FRONT,1000
+
+VAR_GET_4_OLD=
+SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,4000
 
 
 ; -------------------------------------------------------------------
@@ -455,6 +456,49 @@ SETTIMER COPY_CAMERA_MEDIA_CARD_BRING_FRONT,1000
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 RETURN
+
+
+
+
+NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP:
+	IF OSVER_N_VAR>5                            ; ---- HIGHER THAN XP
+	{
+		SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,OFF
+		RETURN
+	}
+	WinGet,VAR_GET_4, ID, NortonSecurity.exe - Application Error ahk_class #32770
+	IF !VAR_GET_4
+		RETURN
+		
+	IF VAR_GET_4_OLD<>%VAR_GET_4%
+	{
+		WINCLOSE, ahk_id %VAR_GET_4%
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+	}
+	VAR_GET_4_OLD=%VAR_GET_4%
+	
+	; ---------------------------------------------------------------
+	; Mon 11-May-2020 12:58:00
+	; ---------------------------------------------------------------
+	; ClassNN:	Button1
+	; Text:	OK
+	; NortonSecurity.exe - Application Error
+	; #32770
+	; OK
+	; Cancel
+	; The instruction at "0x04d61180" referenced memory at "0x00000010". The memory could not be "written".
+	; Click on OK to terminate the program
+	; Click on CANCEL to debug the program
+	
+RETURN
+
+
+	
+	
+
+
+
+
 
 COPY_CAMERA_MEDIA_CARD_BRING_FRONT:
 	IF OSVER_N_VAR<5
