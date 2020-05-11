@@ -241,23 +241,24 @@ FOR RV=1 TO 3
 	NEXT
 NEXT
 
+FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot\"
 FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"
 ' A BACKDATE SYSTEM
 
-FOR RV=4 TO 4
-	FOR RO=2 TO 80
-		XXC=CSTR(RO)
-		IF RV=4 THEN 
-			FOLDER_STRING=FOLDER_STRING_4
-		END IF
+FOR RV=3 TO 4
+	IF RV=3 THEN 
+		FOLDER_STRING=FOLDER_STRING_3
+	END IF
+	IF RV=4 THEN 
+		FOLDER_STRING=FOLDER_STRING_4
+	END IF
 
-		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-			Set objFolder = FSO.GetFolder(FOLDER_STRING)
-			If objFolder.SubFolders.Count > 0 Then 
-				CALL COPY_FOLDER_2ND_LEVEL
-			END IF
+	IF FSO.FOLDERExists(FOLDER_STRING) THEN
+		Set objFolder = FSO.GetFolder(FOLDER_STRING)
+		If objFolder.SubFolders.Count > 0 Then 
+			CALL COPY_FOLDER_2ND_LEVEL
 		END IF
-	NEXT
+	END IF
 NEXT
 
 
@@ -345,25 +346,37 @@ Sub COPY_FOLDER_2ND_LEVEL
 '-------------------------------------
 
 	DELETE_AFTER=TRUE
-	
 	If objFSO.FOLDERExists(FOLDER_STRING) = FALSE Then 
 		EXIT SUB
 	END IF
-
+	
 	Set fFolder = objFSO.GetFolder(FOLDER_STRING)
     For Each Subfolder in fFolder.SubFolders
-		Set objFolder = objFSO.GetFolder(fFolder.Path)
-		X2 = objFolder.PATH
-		MSGBOX X2
-		FOR RO=2 TO 80
-			XXC=CSTR(RO)
-			FOLDER_STRING=X2+" ("+XXC+")"
-			' MSGBOX FOLDER_STRING
-			If objFSO.FOLDERExists(FOLDER_STRING) = TRUE Then 
-				MSGBOX FOLDER_STRING
+		FN_1= objFSO.GetFileName(Subfolder.PATH)
+		FN_2=""
+		IF INSTR(FN_1," (")>0 THEN 
+			FN_2=MID(FN_1,1,8)
+		END IF
+		FN_4=""
+		IF INSTR(FN_1,")")>8 AND INSTR(FN_1,")")<14 THEN 
+			FN_2=FN_2
+			FN_4=MID(Subfolder.PATH,1,INSTR(Subfolder.PATH," (")-1)
+		ELSE
+			FN_2=""
+		END IF
+		
+		IF FN_2<>"" THEN 
+			MSGBOX Subfolder.PATH + VBCR + FN_4
+			ON ERROR RESUME NEXT
+			ERR.CLEAR
+			objFSO.COPYFOLDER Subfolder.PATH, FN_4
+			IF ERR.NUMBER=0 THEN 
+				objFSO.DELETEFOLDER Subfolder.PATH
+			ELSE
+				MSGBOX ERR.DESCRIPTION	
 			END IF
-				
-		NEXT
+			
+		END IF
     Next
 END SUB
 
