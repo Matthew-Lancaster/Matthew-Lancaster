@@ -205,11 +205,9 @@ TARGET_FOLDER_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 ' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 ' -------------------------------------------------------------------
 
-FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 
 
-FOR RV=1 TO 3
+FOR RV=1 TO 2
 	FOR RO=2 TO 80
 		XXC=CSTR(RO)
 		IF RV=1 THEN 
@@ -219,14 +217,6 @@ FOR RV=1 TO 3
 		IF RV=2 THEN 
 			FOLDER_STRING=FOLDER_STRING_2+XXC+")"
 			TARGET_STRING=TARGET_FOLDER_2
-		END IF
-		IF RV=3 THEN 
-			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_3
-		END IF
-		IF RV=4 THEN 
-			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
-			TARGET_STRING=TARGET_FOLDER_3
 		END IF
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
@@ -241,8 +231,8 @@ FOR RV=1 TO 3
 	NEXT
 NEXT
 
-FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot\"
-FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"
+FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot"
+FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 ' A BACKDATE SYSTEM
 
 FOR RV=3 TO 4
@@ -260,6 +250,23 @@ FOR RV=3 TO 4
 		END IF
 	END IF
 NEXT
+
+
+' NEXT COPY OVER CLOUD TO D_HDD
+
+DIM FOLDER_STRING_3
+DIM TARGET_FOLDER_3
+FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot\"
+TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"
+
+IF FSO.FOLDEREXISTS(FOLDER_STRING_3) THEN
+IF FSO.FOLDEREXISTS(TARGET_FOLDER_3) THEN
+	Set objFolder = FSO.GetFolder(FOLDER_STRING_3)
+	If objFolder.SubFolders.Count > 0 Then 
+		CALL COPY_FOLDER_A_ROID_TO_B_D_HDD
+	END IF
+END IF
+END IF
 
 
 
@@ -341,11 +348,48 @@ End Function
 ' https://blogs.msdn.microsoft.com/jjameson/2009/11/03/deleting-empty-folders/
 ' ----
 
+
+'-------------------------------------
+Sub COPY_FOLDER_A_ROID_TO_B_D_HDD
+'-------------------------------------
+	Set fFolder = objFSO.GetFolder(FOLDER_STRING_3)
+    For Each Subfolder in fFolder.SubFolders
+		' MSGBOX Subfolder.PATH + VBCR + TARGET_FOLDER_3 + Subfolder.NAME
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		X = objShell.Popup("COPY - AND THEN - DELETE --" + VBCR + Subfolder.PATH + VBCR + TARGET_FOLDER_3 + Subfolder.NAME, 3,, vbOKOnly+ vbMsgBoxSetForeground)
+		objFSO.COPYFOLDER Subfolder.PATH, TARGET_FOLDER_3 + Subfolder.NAME
+		IF ERR.NUMBER=0 THEN 
+			objFSO.DELETEFOLDER Subfolder.PATH
+		ELSE
+			X = objShell.Popup("COPY - AND THEN - DELETE -- DELETE ERROR " + VBCR +ERR.DESCRIPTION+ VBCR +	Subfolder.PATH + VBCR + TARGET_FOLDER_3 + Subfolder.NAME, 3,, vbOKOnly+ vbMsgBoxSetForeground)
+			MSGBOX ERR.DESCRIPTION	
+		END IF
+			
+    Next
+END SUB
+'-------------------------------------
+
+
+
+
+' ----
+' How Can I Extract Just the File Name from the Full Path to the File? | Scripting Blog 
+' https://devblogs.microsoft.com/scripting/how-can-i-extract-just-the-file-name-from-the-full-path-to-the-file/
+' ----
+' Set objFSO = CreateObject(“Scripting.FileSystemObject”)
+' Set objFile = objFSO.GetFile(“C:\Scripts\Test.txt”)
+' Wscript.Echo “Absolute path: ” & objFSO.GetAbsolutePathName(objFile)
+' Wscript.Echo “Parent folder: ” & objFSO.GetParentFolderName(objFile)
+' Wscript.Echo “File name: ” & objFSO.GetFileName(objFile)
+' Wscript.Echo “Base name: ” & objFSO.GetBaseName(objFile)
+' Wscript.Echo “Extension name: ” & objFSO.GetExtensionName(objFile)
+
+
 '-------------------------------------
 Sub COPY_FOLDER_2ND_LEVEL
 '-------------------------------------
 
-	DELETE_AFTER=TRUE
 	If objFSO.FOLDERExists(FOLDER_STRING) = FALSE Then 
 		EXIT SUB
 	END IF
@@ -470,4 +514,5 @@ SUB GET_WINDOWS_VERSION
 	' Source: 	Microsoft VBScript runtime error
 	' ---------------------------
 END SUB
+
 
