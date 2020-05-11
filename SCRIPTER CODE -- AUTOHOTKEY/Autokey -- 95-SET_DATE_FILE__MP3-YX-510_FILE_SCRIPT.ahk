@@ -87,6 +87,7 @@ RENAME_EXTENSION_SET_DONE_QUIET=
 ; RETURN
 
 GOSUB SUB_SET_DATE_UNIT
+GOSUB RETREIVE_MODIFIED_DATE_SORTED_CONTECT_TO_LIST_FILE
 RETURN
 
 
@@ -97,7 +98,8 @@ GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
 RETURN
 
 
-
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
 	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* ; ---- , R
     {
@@ -116,8 +118,12 @@ SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
 		FileMove, %A_LoopFileFullPath%, %R_PATH%
 	}
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER:
 	
 	; ROUTINE WHEN AFTER CONVERT TO MP4
@@ -147,9 +153,12 @@ SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER:
 		}
 	}
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
-
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 SUB_SET_DATE_UNIT:
 
 	WORK_DO_COUNT=0
@@ -162,11 +171,12 @@ SUB_SET_DATE_UNIT:
 	; F:\MP3-YX-510_02_TS\M
 	; F:\MP3-YX-510_02_TS_VIDEO\V2_4
 
+	MSGBOX_OFF=TRUE
+	
 	REVERSE_OR_FORWARD=FORWARD
 	
-	SUBST_1_DATE:= SubStr(A_LoopReadLine, 1, 8)
 	IF REVERSE_OR_FORWARD=FORWARD
-		SUBST_1_DATE_Y:= 2000 ; IF FORWARD SET
+		SUBST_1_DATE_Y:= 1990 ; IF FORWARD SET
 	IF REVERSE_OR_FORWARD=REVERSE
 		SUBST_1_DATE_Y:= 2012 ; WHEN REVERSE SET
 	SUBST_1_DATE_M:= 01
@@ -191,15 +201,17 @@ SUB_SET_DATE_UNIT:
 				TS+= -1, Days            ; REVERSE
 			
 			IF Mod(A_INDEX, 200)=0 
-				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+				TOOLTIP % 	SubStr(TS, 1, 8) "`n" SubStr(TS_2, 1, 8 ) "`n" FILENAME,100,100
 		
 			IF INFO_DISPLAY_ONCE
-				MSGBOX % TS_2 "`n" FILENAME
+				IF !MSGBOX_OFF
+					MSGBOX % TS_2 "`n" FILENAME
 			INFO_DISPLAY_ONCE=
 		}
 	}
 
-	MSGBOX % TS_2 "`n" CONTENT_NAME_SET
+	IF !MSGBOX_OFF
+		MSGBOX % TS_2 "`n" CONTENT_NAME_SET
 	; --------------------------------------------------------
 	; 2000 TO 2011 FOR MUSIC CHUNK
 	; --------------------------------------------------------
@@ -230,6 +242,7 @@ SUB_SET_DATE_UNIT:
 		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
 		{
 			FileSetTime, %TS% , %FILENAME% , M
+			FileSetTime, %TS% , %FILENAME% , C
 			FileGetTime, TS_2,  %FILENAME%, M
 			CONTENT_NAME_SET=%FILENAME%
 			IF REVERSE_OR_FORWARD=FORWARD
@@ -240,20 +253,65 @@ SUB_SET_DATE_UNIT:
 			; -- COUNT GO BACKWARD NOT FORWARD DEVICE HERE ---- MP3-YX-510 ---- MP3 PLAYER
 			; -------------------------------------------------------
 			IF Mod(A_INDEX, 1)=0 
-				TOOLTIP % TS "`n" TS_2 "`n" FILENAME,100,100
+				TOOLTIP % SubStr(TS, 1, 8) "`n" SubStr(TS_2, 1, 8 ) "`n" FILENAME,100,100
 			IF INFO_DISPLAY_ONCE
-				MSGBOX % TS_2 "`n" FILENAME
+				IF !MSGBOX_OFF
+					MSGBOX % TS_2 "`n" FILENAME
 			INFO_DISPLAY_ONCE=
 			}
 	}
 	
-	MSGBOX % TS_2 "`n" CONTENT_NAME_SET
+	IF !MSGBOX_OFF
+		MSGBOX % TS_2 "`n" CONTENT_NAME_SET
 
 	; EXIT ROUTINE HERE OR NEXT ONE WHEN CONVERT IDEA
 	; -----------------------------------------------
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+RETREIVE_MODIFIED_DATE_SORTED_CONTECT_TO_LIST_FILE:
+
+	; Example #4: Retrieve file names sorted by modification date:
+	FileList =
+	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , R
+		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
+	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , R
+		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
+	Sort, FileList  ; Sort by date.
+
+	FILE_PLAY_SCRIPT_OUT=C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 68-FILE LOCATOR -- SCRIPT - MP3-YX-510_FILE_SCRIPT.TXT
+	FILE_PLAY_SCRIPT_OUT=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 95-SET_DATE_FILE__MP3-YX-510_FILE_SCRIPT_#NFS_EX_.TXT
+	IFEXIST, %FILE_PLAY_SCRIPT_OUT%
+		FileDELETE, %FILE_PLAY_SCRIPT_OUT%
+
+	Loop, Parse, FileList, `n
+	{
+		if A_LoopField =  ; Omit the last linefeed (blank item) at the end of the list.
+			continue
+		StringSplit, FileItem, A_LoopField, %A_Tab%  ; Split into two parts at the tab char.
+		FileItem1 :=SubStr(FileItem1, 1, 8 )
+		FILE_PLAY_SCRIPT_LINE=%FileItem1% .. %FileItem2%`n
+		SplitPath, FileItem2, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
+		{
+			FileAppend,%FILE_PLAY_SCRIPT_LINE%,%FILE_PLAY_SCRIPT_OUT%
+			IF Mod(A_INDEX, 100)=0 
+				TOOLTIP %A_INDEX% `n%FILE_PLAY_SCRIPT_LINE%,100,100
+		}
+	}
+
+	RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE "%FILE_PLAY_SCRIPT_OUT%"
+RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 SUB_RENAME_ERROR_WHEN_WRONG_2:
 ; -------------------------------------------------------------------
 ; ACCIDENT -- CHOP TRIM STRING MORE THAN WANT WITH SUB ROUTINE
@@ -351,8 +409,12 @@ Loop, Parse, FileList2, `n
 	}
 }	
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 	
 	
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 SUB_RENAME_ERROR_WHEN_WRONG_3:
 
 	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MPG\50Vcd - Old_01.MP4"
@@ -382,9 +444,12 @@ SUB_RENAME_ERROR_WHEN_WRONG_3:
 	}
 	
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
-
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 SUB_RENAME_ERROR_WHEN_WRONG:
 
 	; "F:\MP3-YX-510_02_TS_VIDEO\V2_4\00 2001 MEDIA HARDCORE\00 ROOT_DATE\1993 a17 -- OLD -- 1993\50Vcd - Old_01.MPG\50Vcd - Old_01.MP4"
@@ -413,8 +478,12 @@ SUB_RENAME_ERROR_WHEN_WRONG:
 	}
 	
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 HOW_TO_PREVENT_CREATION_OF_SYSTEM_VOLUME_INFORMATION_FOLDER_IN_WINDOWS_10_FOR_USB_FLASH_DRIVES___SUPER_USER_:
 ; IFEXIST, J:\M\01 SOUND EFFECT & TECHNO SAMPLES_REKETEKESS\BBC Micro.wav
 ; {
@@ -469,3 +538,5 @@ HOW_TO_PREVENT_CREATION_OF_SYSTEM_VOLUME_INFORMATION_FOLDER_IN_WINDOWS_10_FOR_US
 ; }
 	
 RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
