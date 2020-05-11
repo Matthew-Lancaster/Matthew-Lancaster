@@ -73,10 +73,13 @@ ComputerName=objShell.ExpandEnvironmentStrings("%COMPUTERNAME%")
 CALL GET_WINDOWS_VERSION
 
 
-Set objShell = CreateObject("WScript.Shell")
-X = objShell.Popup("WORK TO DO -- VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS -- QUIT GONE"+VBCR+VBCR+"4 SECOND GONE MESSENGER", 4,, vbOKOnly+ vbMsgBoxSetForeground)
 
-WScript.Quit
+
+
+Set objShell = CreateObject("WScript.Shell")
+' X = objShell.Popup("WORK TO DO -- VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS -- QUIT GONE"+VBCR+VBCR+"4 SECOND GONE MESSENGER", 4,, vbOKOnly+ vbMsgBoxSetForeground)
+' WScript.Quit
+' WScript.Quit
 
 IF Version_OS=<5 THEN 
 	'Wscript.Echo "begin."
@@ -88,6 +91,25 @@ END IF
 ' ------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+CUR_USER = CreateObject("WScript.Network").UserName
+Set objShell = Wscript.CreateObject("WScript.Shell")
+ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT WAR IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID : iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+On Error Goto 0
+
+' -------------------------------------------------------------------
+' GOOD CODE TO PASTE ON VB6
+' -------------------------------------------------------------------
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 
@@ -96,32 +118,36 @@ i2 = 0 ' MY  PROGRAM WSCRIPT
 FOR EACH objProcess IN colProcesses
     IF NOT (IsNull(objProcess.CommandLine )) THEN
 		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-		strScriptName = Left(strScriptName, Len(strScriptName) - 1)                             
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
 		IF strScriptName = Wscript.ScriptName THEN
 			i2=i2+1
-		else
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
 			i1=i1+1
 		END IF
+		
 		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
-				' Wscript.Quit
+			' Wscript.Quit
 		END IF
-		IF i2 > 1 THEN ' MY  PROGRAM WSCRIPT 
-				Wscript.Quit
+		IF i2 > 0 THEN ' MY  PROGRAM WSCRIPT 
+			' -------------------------------------------------------
+			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
+			' HERE SCRIPT WHEN START
+			' -------------------------------------------------------
+			' IF lngMyProcessId<>iMyPID THEN 
+				' I= "ERROR MISMATCH TRUE MYPID RESULT "
+				' MSGBOX I +VBV+ CSTR(iMyPID) +VBV+ CSTR(lngMyProcessId)
+			' -------------------------------------------------------
+			IF iMyPID<>PID_Script THEN 
+				objProcess.Terminate() 
+				objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+				' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
+			END IF
 		END IF
     END IF
 NEXT
- 
-' Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-' Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
-' KNOCK UP THIS FOR USE IN MY OUTLOOK SCRIPT CODING
-IF 1=2 THEN 
-	FOR EACH objProcess IN colProcesses
-		IF NOT (IsNull(objProcess.ProcessID )) THEN
-			strScriptProcessID = objProcess.ProcessID
-			MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(strScriptProcessID),vbMsgBoxSetForeground,Wscript.ScriptName 
-		END IF
-	NEXT
-END IF
 
 
 
@@ -184,7 +210,7 @@ TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 
 
 FOR RV=1 TO 3
-	FOR RO=2 TO 20
+	FOR RO=2 TO 80
 		XXC=CSTR(RO)
 		IF RV=1 THEN 
 			FOLDER_STRING=FOLDER_STRING_1+XXC+")"
@@ -197,23 +223,38 @@ FOR RV=1 TO 3
 		IF RV=3 THEN 
 			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
 			TARGET_STRING=TARGET_FOLDER_3
-			IF FSO.FOLDERExists(FOLDER_STRING) THEN
-				' ---------------------------------
-				' WHY WANT HERE
-				' LATER ON SHOWED UP
-				' PROVE WORKER
-				' ---------------------------------
-				' MSGBOX FOLDER_STRING
-			END IF
-			
+		END IF
+		IF RV=4 THEN 
+			FOLDER_STRING=FOLDER_STRING_3+XXC+")"
+			TARGET_STRING=TARGET_FOLDER_3
 		END IF
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
-				' MSGBOX "--"+FOLDER_STRING
+			
+			' MSGBOX "--"+VBCR+CSTR(RV)+VBCR+FOLDER_STRING+VBCR+TARGET_STRING
 
 			If objFolder.SubFolders.Count > 0 Then 
 				CALL COPY_FOLDER_ONE_UP_ROOT_LEVEL
+			END IF
+		END IF
+	NEXT
+NEXT
+
+FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"
+' A BACKDATE SYSTEM
+
+FOR RV=4 TO 4
+	FOR RO=2 TO 80
+		XXC=CSTR(RO)
+		IF RV=4 THEN 
+			FOLDER_STRING=FOLDER_STRING_4
+		END IF
+
+		IF FSO.FOLDERExists(FOLDER_STRING) THEN
+			Set objFolder = FSO.GetFolder(FOLDER_STRING)
+			If objFolder.SubFolders.Count > 0 Then 
+				CALL COPY_FOLDER_2ND_LEVEL
 			END IF
 		END IF
 	NEXT
@@ -224,9 +265,12 @@ NEXT
 
 FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
 FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
-
+' -------------------------------------------------------------------
+' AFTER END BRACKET ITEM COPY AND GONE DELETE EMPTY LEFT
+' ALL DELETE EMPTY WILL BE GONE
+' -------------------------------------------------------------------
 FOR RV=1 TO 2
-	FOR RO=2 TO 20
+	FOR RO=2 TO 80
 		XXC=CSTR(RO)
 		IF RV=1 THEN 
 			FOLDER_STRING=FOLDER_STRING_1+XXC+")"
@@ -238,23 +282,31 @@ FOR RV=1 TO 2
 		END IF
 
 		IF FSO.FOLDERExists(FOLDER_STRING) THEN
-
 			Set objFolder = FSO.GetFolder(FOLDER_STRING)
-
-			'MSGBOX objFolder.SubFolders.Count
-			'MSGBOX objFolder.Files.Count
+			ERROR_LINE=FALSE
+			XFOLDER_A=-10
+			XFILE___A=-10
+			ON ERROR RESUME NEXT
+				ERR.CLEAR
+				XFOLDER_A=objFolder.SubFolders.Count
+				XFILE___A=objFolder.Files.Count
+				IF ERR.NUMBER>0 THEN 
+					ERROR_LINE=TRUE
+				END IF
+			ON ERROR GOTO 0
 			
-			If objFolder.SubFolders.Count = 0 Then 
-				IF objFolder.Files.Count = 0 Then
-					' -------------------------------------------
-					' THE ROOT FOLDER IS NOT EVER DELETE HERE 
-					' AND NEXT ROUTINE IS SPECIAL DESIGN FOR THAT
-					' ALL DELETE EMPTY WILL BE GONE
-					' -------------------------------------------
-					fso.DeleteFolder objFolder.Path
-					IF FSO.FOLDERExists(FOLDER_STRING) THEN
-						fso.DeleteFolder FOLDER_STRING
-					END IF
+			' MSGBOX "FSO.DELETEFOLDER -- OBJFOLDER.PATH "+VBCR+objFolder.Path
+			If XFOLDER_A = 0 AND XFILE___A = 0 AND ERROR_LINE=FALSE Then 
+				' -------------------------------------------
+				' THE ROOT FOLDER IS NOT EVER DELETE HERE 
+				' AND NEXT ROUTINE IS SPECIAL DESIGN FOR THAT
+				' ALL DELETE EMPTY WILL BE GONE
+				' -------------------------------------------
+				' MSGBOX "FSO.DELETEFOLDER -- OBJFOLDER.PATH "+VBCR+objFolder.Path
+				FSO.DeleteFolder objFolder.Path
+				IF FSO.FOLDERExists(FOLDER_STRING) THEN
+					MSGBOX "FSO.DELETEFOLDER -- FOLDER_STRING "+VBCR+FOLDER_STRING
+					fso.DeleteFolder FOLDER_STRING
 				END IF
 			END IF
 		END IF
@@ -288,6 +340,32 @@ End Function
 ' https://blogs.msdn.microsoft.com/jjameson/2009/11/03/deleting-empty-folders/
 ' ----
 
+'-------------------------------------
+Sub COPY_FOLDER_2ND_LEVEL
+'-------------------------------------
+
+	DELETE_AFTER=TRUE
+	
+	If objFSO.FOLDERExists(FOLDER_STRING) = FALSE Then 
+		EXIT SUB
+	END IF
+
+	Set fFolder = objFSO.GetFolder(FOLDER_STRING)
+    For Each Subfolder in fFolder.SubFolders
+		Set objFolder = objFSO.GetFolder(fFolder.Path)
+		X2 = objFolder.PATH
+		MSGBOX X2
+		FOR RO=2 TO 80
+			XXC=CSTR(RO)
+			FOLDER_STRING=X2+" ("+XXC+")"
+			' MSGBOX FOLDER_STRING
+			If objFSO.FOLDERExists(FOLDER_STRING) = TRUE Then 
+				MSGBOX FOLDER_STRING
+			END IF
+				
+		NEXT
+    Next
+END SUB
 
 
 '-------------------------------------
@@ -297,7 +375,7 @@ Sub COPY_FOLDER_ONE_UP_ROOT_LEVEL
 	obj_SOURCE_Folder = FOLDER_STRING
 	obj_TARGET_Folder = TARGET_STRING ' +"\"
 	
-	' MSGBOX obj_SOURCE_Folder+VBCRLF +obj_TARGET_Folder
+	MSGBOX obj_SOURCE_Folder+VBCRLF +obj_TARGET_Folder
 
 	SET_GO=TRUE
 	If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
@@ -310,7 +388,6 @@ Sub COPY_FOLDER_ONE_UP_ROOT_LEVEL
 		Call ShowSubfolders (objSuperFolder)
 	END IF
 END SUB
-
 '-------------------------------------
 Sub ShowSubFolders(fFolder)
 '-------------------------------------
@@ -335,6 +412,7 @@ Sub ShowSubFolders(fFolder)
 		ERR.CLEAR
 		ON ERROR RESUME NEXT
 
+		' MSGBOX objFolder.PATH & VBCR & obj_TARGET_Folder+"\"+objFolder.NAME
 		objFSO.COPYFOLDER objFolder.PATH, obj_TARGET_Folder+"\"+objFolder.NAME
 		
 		IF DELETE_AFTER=TRUE AND ERR.NUMBER=0 THEN 
