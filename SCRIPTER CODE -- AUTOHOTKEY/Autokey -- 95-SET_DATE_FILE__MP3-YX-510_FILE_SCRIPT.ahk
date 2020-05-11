@@ -173,21 +173,27 @@ SUB_SET_DATE_UNIT:
 
 	MSGBOX_OFF=TRUE
 	
-	REVERSE_OR_FORWARD=FORWARD
+	REVERSE_OR_FORWARD=REVERSE
 	
 	IF REVERSE_OR_FORWARD=FORWARD
 		SUBST_1_DATE_Y:= 1990 ; IF FORWARD SET
 	IF REVERSE_OR_FORWARD=REVERSE
-		SUBST_1_DATE_Y:= 2012 ; WHEN REVERSE SET
+		SUBST_1_DATE_Y:= 2020 ; WHEN REVERSE SET
 	SUBST_1_DATE_M:= 01
 	SUBST_1_DATE_D:= 01
 	
 	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
 	INFO_DISPLAY_ONCE=TRUE
-	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , R
+	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , FDR
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
 		FILENAME = %OutDir%\%OutFILENAME%
+
+		IF !INSTR(FILEEXIST(FILENAME), "D")
+		{
+			FileSetTime, %TS% , %FILENAME% , M
+			FileSetTime, %TS% , %FILENAME% , C
+		}
 
 		IF INSTR(".MP3 .WAV .MP4",OutExtension)
 		{
@@ -228,17 +234,23 @@ SUB_SET_DATE_UNIT:
 	; --------------------------------------------------------
 	
 	TS:=SubStr(TS, 1, 4)
-	IF REVERSE_OR_FORWARD=FORWARD
+	IF REVERSE_OR_FORWARD=REVERSE
 		TS+= -1   ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- FORWARD
 		; TS+= -1 ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- REVERSE -- REM OUT WAY
 	TS=% TS . 01 . 01 . 01 . 00 . 00
 
 	INFO_DISPLAY_ONCE=TRUE
-	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , R
+	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , FDR
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
 		FILENAME = %OutDir%\%OutFILENAME%
 
+		IF !INSTR(FILEEXIST(FILENAME), "D")
+		{
+			FileSetTime, %TS% , %FILENAME% , M
+			FileSetTime, %TS% , %FILENAME% , C
+		}
+		
 		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
 		{
 			FileSetTime, %TS% , %FILENAME% , M
@@ -299,6 +311,7 @@ RETREIVE_MODIFIED_DATE_SORTED_CONTECT_TO_LIST_FILE:
 		FileItem1 :=SubStr(FileItem1, 1, 8 )
 		FILE_PLAY_SCRIPT_LINE=%FileItem1% .. %FileItem2%`n
 		SplitPath, FileItem2, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		IF !INSTR(FILEEXIST(FILEITEM2), "D")
 		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
 		{
 			FileAppend,%FILE_PLAY_SCRIPT_LINE%,%FILE_PLAY_SCRIPT_OUT_02%
@@ -306,13 +319,33 @@ RETREIVE_MODIFIED_DATE_SORTED_CONTECT_TO_LIST_FILE:
 				TOOLTIP %A_INDEX% `n%FILE_PLAY_SCRIPT_LINE%,100,100
 		}
 	}
+	
+	TOOLTIP 
 
 	FileCopy, %FILE_PLAY_SCRIPT_OUT_02%, %FILE_PLAY_SCRIPT_OUT_01%,1  
 	FileDELETE, %FILE_PLAY_SCRIPT_OUT_02%
-	
+
 	RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE -n1 "%FILE_PLAY_SCRIPT_OUT_01%"
-	MSGBOX DONE ....,1 ; PUT A MSGBOX SO NOTEPAD++ WILL LOAD THE CHANGE CONTENT -- HAS TO LOSE FOCUS BEFORE SUPPLY UPDATE AR
-	; #WinActivateForce, ahk_class Notepad++
+	
+	MSGBOX ,4096,, DONE ....,2 ; PUT A MSGBOX SO NOTEPAD++ WILL LOAD THE CHANGE CONTENT -- HAS TO LOSE FOCUS BEFORE SUPPLY UPDATE AR
+	#WinActivateForce, ahk_class Notepad++
+	
+	; -------------------------------------------------------------------
+	; MSGBOX ,4100,, HERE MAKE ASK WITH YES NOT 
+	; MSGBOX ,4096,,
+	; -------------------------------------------------------------------
+	; Group #4: Modality
+	; To indicate the modality of the dialog box, add one of the following values:
+	; Function
+	; Decimal Value
+	; Hex Value
+	; System Modal (always on top) 4096 0x1000 
+	; Task Modal 8192 0x2000 
+	; Always-on-top (style WS_EX_TOPMOST)
+	; (like System Modal but omits title bar icon) 262144 0x40000 
+	; -------------------------------------------------------------------
+
+	
 	
 RETURN
 ; -------------------------------------------------------------------
