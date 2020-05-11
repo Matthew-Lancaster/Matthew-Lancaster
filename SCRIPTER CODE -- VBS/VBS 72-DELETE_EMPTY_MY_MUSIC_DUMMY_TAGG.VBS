@@ -28,8 +28,6 @@ DIM PID_Script
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-
-
 CUR_USER = CreateObject("WScript.Network").UserName
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
