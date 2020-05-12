@@ -554,7 +554,34 @@ IF !SET_GO
 	SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
 
 
+	
+SETTIMER RESTORE_PAGE_GONE,20000
+	
+	
+
 RETURN
+
+
+RESTORE_PAGE_GONE:
+
+WinGet,      HWND_ACTIVE_1, ID, A    ; Get Active Window
+WinGetTITLE, HWND_ACTIVE_2, A   ; Get Active Window TITLE
+
+
+IF HWND_ACTIVE_2=Your Notifications - Google Chrome
+{
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	WinGet, HWND_RESTORE_PAGE, ID, Restore pages? ahk_class Chrome_WidgetWin_1
+	IF HWND_RESTORE_PAGE>0
+	{
+		WINCLOSE Restore pages? ahk_class Chrome_WidgetWin_1
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
+	}
+}
+RETURN
+
+
 
 
 ; -------------------------------------------------------------------
@@ -608,6 +635,8 @@ SET_ARRAY_FB_F5() {
 	                                                                   ; Mon 10-Feb-2020 18:59:00
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Error - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Privacy error - Google Chrome"
 	ArrayCount += 1
