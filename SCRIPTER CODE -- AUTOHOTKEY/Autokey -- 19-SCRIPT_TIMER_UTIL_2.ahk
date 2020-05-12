@@ -449,6 +449,9 @@ SETTIMER COPY_CAMERA_MEDIA_CARD_BRING_FRONT,1000
 VAR_GET_4_OLD=
 SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,4000
 
+VAR_GET_5_OLD=
+SETTIMER INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE,4000
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -456,6 +459,40 @@ SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,4000
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 RETURN
+
+
+INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
+	; Fatal error detected
+	; #32770
+	; C:\TEMP\-4-ASU~1\insync-upd-3.1.7.40811\Updater\InsyncUpdater.exe
+
+	IF OSVER_N_VAR<10                            ; ---- HIGHER THAN XP
+	{
+		SETTIMER INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE,OFF
+		RETURN
+	}
+	WinGet,VAR_GET_5, ID, Fatal error detected ahk_class #32770
+	IF !VAR_GET_5
+		RETURN
+	WinGet, VAR_GET_5_EXENAME, ProcessName, ahk_id %VAR_GET_5%
+
+	IF INSTR(VAR_GET_5_EXENAME,"InsyncUpdater.exe")>0
+	IF VAR_GET_5_OLD<>%VAR_GET_5%
+	{
+		; WINCLOSE, ahk_id %VAR_GET_5%
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		
+		LOOP, 8
+		R_USERNAME=%A_INDEX%
+		U1=%R_USERNAME%
+		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
+		MSGBOX % U2
+		
+	}
+	VAR_GET_5_OLD=%VAR_GET_5%
+	
+RETURN
+
 
 
 
