@@ -452,6 +452,9 @@ SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,4000
 VAR_GET_5_OLD=
 SETTIMER INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE,4000
 
+VAR_GET_8_OLD=
+SETTIMER CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,4000
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -479,14 +482,19 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 	IF INSTR(VAR_GET_5_EXENAME,"InsyncUpdater.exe")>0
 	IF VAR_GET_5_OLD<>%VAR_GET_5%
 	{
-		; WINCLOSE, ahk_id %VAR_GET_5%
+		WINCLOSE, ahk_id %VAR_GET_5%
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 		
 		LOOP, 8
-		R_USERNAME=%A_INDEX%
-		U1=%R_USERNAME%
-		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
-		MSGBOX % U2
+		{
+			R_USERNAME=%A_INDEX%
+			U1=%R_USERNAME%
+			U2=C:\Users\MATT 0%U1%\AppData\Roaming\Insync\App\Insync.exe
+			IF FILEEXIST(U2)
+			{
+				RUN %U2%
+			}
+		}
 		
 	}
 	VAR_GET_5_OLD=%VAR_GET_5%
@@ -494,7 +502,49 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 RETURN
 
 
+; -------------------------------------------------------------------
+; LINK TO NORTON CRASH AND CALL UP C++ DEBUG IDE -- WHERE INSTALL 
+; VB6 BUT FAULT COMPONENT FILE GONE -- RATHER UN-INSTALL GO
+; -------------------------------------------------------------------
+CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE:
+	IF OSVER_N_VAR>5                            ; ---- HIGHER THAN XP
+	{
+		SETTIMER CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,OFF
+		RETURN
+	}
+	; WinGet,VAR_GET_8, ID, Microsoft Visual C++ ahk_class #32770
+	WinGet,VAR_GET_8, ID, Microsoft Visual C++
+	IF !VAR_GET_8
+		RETURN
+		
+		
+	WinGet, VAR_GET_8_EXENAME, ProcessName, ahk_id %VAR_GET_8%
+	WinGet, VAR_GET_8_PID, PID, ahk_id %VAR_GET_8%
+		
+		
+	IF INSTR(VAR_GET_8_EXENAME,"MSDEV.EXE")>0   ; ---- OFFICIAL FIND TERM LOWER CASE -- msdev.exe
+	; IF VAR_GET_8_OLD<>%VAR_GET_8%
+	{
+		WINCLOSE, ahk_id %VAR_GET_8%
+		; Process, Close, %VAR_GET_8_PID%
+		Process, Close, %VAR_GET_8_PID%
+		Process, Close, %VAR_GET_8_EXENAME%
+		
+		
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		; MSGBOX %VAR_GET_8_EXENAME%`n%VAR_GET_8_PID%
+		
+	}
+	VAR_GET_8_OLD=%VAR_GET_8%
 
+	; -------------------------------------------------------------------	
+	; OK
+	; EECXX.DLL
+	; This required file cannot be loaded.
+	; Please re-install Microsoft Visual C++.
+	; -------------------------------------------------------------------	
+	
+RETURN
 
 
 NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP:
