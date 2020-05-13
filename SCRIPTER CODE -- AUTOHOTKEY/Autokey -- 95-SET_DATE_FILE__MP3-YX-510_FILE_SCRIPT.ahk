@@ -173,7 +173,7 @@ SUB_SET_DATE_UNIT:
 
 	MSGBOX_OFF=TRUE
 	
-	REVERSE_OR_FORWARD=FORWARD
+	REVERSE_OR_FORWARD=REVERSE
 	
 	IF REVERSE_OR_FORWARD=FORWARD
 		SUBST_1_DATE_Y:= 1989 ; IF FORWARD SET
@@ -184,7 +184,9 @@ SUB_SET_DATE_UNIT:
 	
 	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
 	INFO_DISPLAY_ONCE=TRUE
-	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , FDR
+	
+	DRIVE_NAME:="I:\MP3-YX-510_02_TS\M\*.*"
+	Loop, Files, %DRIVE_NAME% , FDR
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
 		FILENAME = %OutDir%\%OutFILENAME%
@@ -245,7 +247,8 @@ SUB_SET_DATE_UNIT:
 	TS=% TS . 01 . 01 . 01 . 00 . 00
 
 	INFO_DISPLAY_ONCE=TRUE
-	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , FDR
+	DRIVE_NAME:="I:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*"
+	Loop, Files, %DRIVE_NAME% , FDR
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
 		FILENAME = %OutDir%\%OutFILENAME%
@@ -301,12 +304,16 @@ RETREIVE_MODIFIED_DATE_SORTED_CONTECT_TO_LIST_FILE:
 
 	; Example #4: Retrieve file names sorted by modification date:
 	FileList =
-	Loop, Files, F:\MP3-YX-510_02_TS\M\*.* , R
+	DRIVE_NAME=I:\MP3-YX-510_02_TS\M\*.*
+	Loop, Files, %DRIVE_NAME% , R
 		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
-	Loop, Files, F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.* , R
+	DRIVE_NAME=I:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
+	Loop, Files, %DRIVE_NAME% , R
 		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
 	Sort, FileList  ; Sort by date.
 
+	MSGBOX % FileList
+	
 	FILE_PLAY_SCRIPT_OUT=C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 68-FILE LOCATOR -- SCRIPT - MP3-YX-510_FILE_SCRIPT.TXT
 	FILE_PLAY_SCRIPT_OUT_01=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 95-SET_DATE_FILE__MP3-YX-510_FILE_SCRIPT_#NFS_EX_.TXT
 	FILE_PLAY_SCRIPT_OUT_02=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 95-SET_DATE_FILE__MP3-YX-510_FILE_SCRIPT_#NFS_EX__TMP.TXT
