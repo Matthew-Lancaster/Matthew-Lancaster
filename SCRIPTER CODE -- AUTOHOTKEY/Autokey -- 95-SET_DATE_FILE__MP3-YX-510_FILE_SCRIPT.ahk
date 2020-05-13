@@ -159,7 +159,7 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-SUB_SET_DATE_UNIT:
+SUB_SET_DATE_UNIT_REMOTE_PEN_DRIVE:
 
 	WORK_DO_COUNT=0
 	
@@ -167,7 +167,6 @@ SUB_SET_DATE_UNIT:
 	; LET SWITCH WITH AH BEGIN
 	; ---------------------------------------------------------------
 	
-	; "F:\MP3-YX-510_02_TS\M"
 	; F:\MP3-YX-510_02_TS\M
 	; F:\MP3-YX-510_02_TS_VIDEO\V2_4
 
@@ -184,8 +183,23 @@ SUB_SET_DATE_UNIT:
 	
 	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
 	INFO_DISPLAY_ONCE=TRUE
+	FileList=
 	
-	DRIVE_NAME:="I:\MP3-YX-510_02_TS\M\*.*"
+	SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+	
+	IF SOURCE_HDD_OR_PEN_DRIVE=HDD
+		DRIVE_NAME=F:\M\*.*
+	IF SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+		DRIVE_NAME=I:\*.*
+	
+	Loop, Files, %DRIVE_NAME%\*.* , R
+		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
+	
+	IF SOURCE_HDD_OR_PEN_DRIVE=HDD
+		DRIVE_NAME=F:\V\*.*
+	IF SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+		DRIVE_NAME=I:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
+
 	Loop, Files, %DRIVE_NAME% , FDR
     {
 		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
@@ -196,6 +210,7 @@ SUB_SET_DATE_UNIT:
 			FileSetTime, %TS% , %FILENAME% , M ,1     ; ,1 MEAN SET DATE FOLDER DEFAULT ARE 0 1 2 -- 0 ARE FILE ONLY -- 1 ARE FILE AND FOLDER
 			FileSetTime, %TS% , %FILENAME% , C ,1     ; ,1 NOT REALLY REQUIRE DEFAULT SINGLE FOLDER ALLOW SET DATE
 			CONTENT_NAME_SET=%FILENAME%
+			
 			IF REVERSE_OR_FORWARD=FORWARD
 				TS+= 1, Days             ; FORWARD
 			IF REVERSE_OR_FORWARD=REVERSE
@@ -300,19 +315,191 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+SUB_SET_DATE_UNIT:
+
+	WORK_DO_COUNT=0
+	
+	; ---------------------------------------------------------------
+	; LET SWITCH WITH AH BEGIN
+	; ---------------------------------------------------------------
+	
+	; "F:\MP3-YX-510_02_TS\M"
+	; F:\MP3-YX-510_02_TS\M
+	; F:\MP3-YX-510_02_TS_VIDEO\V2_4
+
+	MSGBOX_OFF=TRUE
+	
+	REVERSE_OR_FORWARD=REVERSE
+	
+	IF REVERSE_OR_FORWARD=FORWARD
+		SUBST_1_DATE_Y:= 1989 ; IF FORWARD SET
+	IF REVERSE_OR_FORWARD=REVERSE
+		SUBST_1_DATE_Y:= 2020 ; WHEN REVERSE SET
+	SUBST_1_DATE_M:= 01
+	SUBST_1_DATE_D:= 01
+	
+	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
+	INFO_DISPLAY_ONCE=TRUE
+	FileList=
+	
+	SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+	
+	IF SOURCE_HDD_OR_PEN_DRIVE=HDD
+		DRIVE_NAME=F:\M\*.*
+	IF SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+		DRIVE_NAME=I:\MP3-YX-510_02_TS\M\*.*
+	
+	Loop, Files, %DRIVE_NAME% , R
+		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
+	
+	Loop, Files, %DRIVE_NAME% , FDR
+    {
+		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		FILENAME = %OutDir%\%OutFILENAME%
+
+		IF INSTR(FILEEXIST(FILENAME), "D")
+		{
+			FileSetTime, %TS% , %FILENAME% , M ,1     ; ,1 MEAN SET DATE FOLDER DEFAULT ARE 0 1 2 -- 0 ARE FILE ONLY -- 1 ARE FILE AND FOLDER
+			FileSetTime, %TS% , %FILENAME% , C ,1     ; ,1 NOT REALLY REQUIRE DEFAULT SINGLE FOLDER ALLOW SET DATE
+			CONTENT_NAME_SET=%FILENAME%
+			
+			IF REVERSE_OR_FORWARD=FORWARD
+				TS+= 1, Days             ; FORWARD
+			IF REVERSE_OR_FORWARD=REVERSE
+				TS+= -1, Days            ; REVERSE
+		}
+
+		IF INSTR(".MP3 .WAV .MP4",OutExtension)
+		{
+			FileSetTime, %TS% , %FILENAME% , M
+			FileSetTime, %TS% , %FILENAME% , C
+			FileGetTime, TS_2,  %FILENAME%, M
+			CONTENT_NAME_SET=%FILENAME%
+			IF REVERSE_OR_FORWARD=FORWARD
+				TS+= 1, Days             ; FORWARD
+			IF REVERSE_OR_FORWARD=REVERSE
+				TS+= -1, Days            ; REVERSE
+			
+			IF Mod(A_INDEX, 500)=0 
+				TOOLTIP % 	SubStr(TS, 1, 8) "`n" SubStr(TS_2, 1, 8 ) "`n" FILENAME,100,100
+		
+			IF INFO_DISPLAY_ONCE
+				IF !MSGBOX_OFF
+					MSGBOX % TS_2 "`n" FILENAME
+			INFO_DISPLAY_ONCE=
+		}
+	}
+
+	IF !MSGBOX_OFF
+		MSGBOX % TS_2 "`n" CONTENT_NAME_SET
+	; --------------------------------------------------------
+	; 2000 TO 2011 FOR MUSIC CHUNK
+	; --------------------------------------------------------
+	
+	; --------------------------------------------------------
+	; TS+= 1, Years               ; ---- NOT GOT YEAR PARAMETER
+	; ROUND THE YEAR NUMBER VIDEO STARTING
+	; SUBSTRACT ONE YEAR TO DATE GIVE
+	; AND NOTHING MONTH AND DAY
+	; --------------------------------------------------------
+	; THE MP3 PLAYER WANT MOST RECENT CONTENT PLAY FIRST
+	; CORRECTION PREFER IS -- TIME BEFORE FIRST
+	; CARE TOO MANY DATE ONLY ALLOW LESS THAN 2022
+	; --------------------------------------------------------
+	
+	TS:=SubStr(TS, 1, 4)
+	IF REVERSE_OR_FORWARD=REVERSE
+		TS+= -1   ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- FORWARD
+		; TS+= -1 ; WHEN ROUND DOWN NOT REQUIRE SUBTRACT ONE YEAR -- REVERSE -- REM OUT WAY
+	TS=% TS . 01 . 01 . 01 . 00 . 00
+
+	INFO_DISPLAY_ONCE=TRUE
+	
+	IF SOURCE_HDD_OR_PEN_DRIVE=HDD
+		DRIVE_NAME=F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
+	IF SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+		DRIVE_NAME=I:\V\*.*
+
+	Loop, Files, %DRIVE_NAME% , R
+		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
+	
+	Loop, Files, %DRIVE_NAME% , FDR
+    {
+		SplitPath, A_LoopFileFullPath, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+		FILENAME = %OutDir%\%OutFILENAME%
+
+		IF INSTR(FILEEXIST(FILENAME), "D")
+		{
+			FileSetTime, %TS% , %FILENAME% , M ,1     ; ,1 MEAN SET DATE FOLDER DEFAULT ARE 0 1 2 -- 0 ARE FILE ONLY -- 1 ARE FILE AND FOLDER 
+			FileSetTime, %TS% , %FILENAME% , C ,1
+			CONTENT_NAME_SET=%FILENAME%
+			IF REVERSE_OR_FORWARD=FORWARD
+				TS+= 1, Days     ; FORWARD
+			IF REVERSE_OR_FORWARD=REVERSE
+				TS+= -1, Days      ; REVERSE
+		}
+		
+		IF INSTR(".MP3 .WAV .MP4 .WMV .AVI .MPG .MPEG .FLV",OutExtension)
+		{
+			FileSetTime, %TS% , %FILENAME% , M
+			FileSetTime, %TS% , %FILENAME% , C
+			FileGetTime, TS_2,  %FILENAME%, M
+			CONTENT_NAME_SET=%FILENAME%
+			IF REVERSE_OR_FORWARD=FORWARD
+				TS+= 1, Days     ; FORWARD
+			IF REVERSE_OR_FORWARD=REVERSE
+				TS+= -1, Days      ; REVERSE
+			; -------------------------------------------------------
+			; -- COUNT GO BACKWARD NOT FORWARD DEVICE HERE ---- MP3-YX-510 ---- MP3 PLAYER
+			; -------------------------------------------------------
+			IF Mod(A_INDEX, 20)=0 
+				TOOLTIP % SubStr(TS, 1, 8) "`n" SubStr(TS_2, 1, 8 ) "`n" FILENAME,100,100
+			IF INFO_DISPLAY_ONCE
+				IF !MSGBOX_OFF
+					MSGBOX % TS_2 "`n" FILENAME
+			INFO_DISPLAY_ONCE=
+			}
+	}
+	
+	IF !MSGBOX_OFF
+		MSGBOX % TS_2 "`n" CONTENT_NAME_SET
+
+	TOOLTIP
+		
+	; EXIT ROUTINE HERE OR NEXT ONE WHEN CONVERT IDEA
+	; -----------------------------------------------
+RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 RETREIVE_MODIFIED_DATE_SORTED_CONTECT_TO_LIST_FILE:
 
 	; Example #4: Retrieve file names sorted by modification date:
 	FileList =
-	DRIVE_NAME=I:\MP3-YX-510_02_TS\M\*.*
-	Loop, Files, %DRIVE_NAME% , R
+	
+	SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+	
+	IF SOURCE_HDD_OR_PEN_DRIVE=HDD
+		DRIVE_NAME=F:\MP3-YX-510_02_TS\M\*.*
+	IF SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+		DRIVE_NAME=I:\M\*.*
+	Loop, Files, %DRIVE_NAME%\*.* , R
 		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
-	DRIVE_NAME=I:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
+	IF SOURCE_HDD_OR_PEN_DRIVE=HDD
+		DRIVE_NAME=F:\MP3-YX-510_02_TS_VIDEO\V2_4\*.*
+	IF SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+		DRIVE_NAME=I:\V\*.*
+
+		; MSGBOX % DRIVE_NAME
+		
+		
 	Loop, Files, %DRIVE_NAME% , R
 		FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileFullPath%`n
 	Sort, FileList  ; Sort by date.
 
-	MSGBOX % FileList
 	
 	FILE_PLAY_SCRIPT_OUT=C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 68-FILE LOCATOR -- SCRIPT - MP3-YX-510_FILE_SCRIPT.TXT
 	FILE_PLAY_SCRIPT_OUT_01=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 95-SET_DATE_FILE__MP3-YX-510_FILE_SCRIPT_#NFS_EX_.TXT
