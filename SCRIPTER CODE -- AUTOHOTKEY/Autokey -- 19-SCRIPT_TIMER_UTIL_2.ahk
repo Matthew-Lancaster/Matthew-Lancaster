@@ -455,12 +455,48 @@ SETTIMER INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE,4000
 VAR_GET_8_OLD=
 SETTIMER CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,4000
 
+VAR_GET_10_OLD=
+SETTIMER DDE_SERVER_WINDOW_MSDEV_EXE_APPLICATION_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,4000
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+RETURN
+
+DDE_SERVER_WINDOW_MSDEV_EXE_APPLICATION_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE:
+	IF OSVER_N_VAR>5                            ; ---- HIGHER THAN XP
+	{
+		SETTIMER DDE_SERVER_WINDOW_MSDEV_EXE_APPLICATION_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE,OFF
+		RETURN
+	}
+	WinGet,VAR_GET_10, ID, DDE Server Window: msdev.exe - Application Error
+	IF !VAR_GET_10
+	RETURN
+		
+	{
+		ControlClick, Button1, ahk_id %VAR_GET_10%
+		ControlClick, OK, ahk_id %VAR_GET_10%
+		WINCLOSE, ahk_id %VAR_GET_10%
+		; Process, Close, %VAR_GET_10_PID%
+		; Process, Close, %VAR_GET_10_PID%
+		; Process, Close, %VAR_GET_10_EXENAME%
+		
+		; TOOLTIP % VAR_GET_10
+		
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		; MSGBOX %VAR_GET_10_EXENAME%`n%VAR_GET_10_PID%
+		
+	}
+	VAR_GET_10_OLD=%VAR_GET_10%
+
+	; -------------------------------------------------------------------	
+; DDE Server Window: msdev.exe - Application Error
+; ahk_class #32770
+	; -------------------------------------------------------------------	
+	
 RETURN
 
 
