@@ -520,7 +520,19 @@ Private Sub Timer_TIMEZONE_Timer()
         LAB_TIMEZONE.Visible = True
         Me.Visible = True
     End If
-    LAB_TIMEZONE.Caption = FREE_BYTE + GS + Format(Now + TimeSerial(10, 0, 0), "DDD  HH : MM : SS  AM/PM")
+    
+        
+    'CPU MPC
+    M_NAME = GetComputerName
+    If M_NAME = "1-ASUS-X5DIJ" Then M_NAME_2 = "1X "
+    If M_NAME = "2-ASUS-EEE" Then M_NAME_2 = "2E "
+    If M_NAME = "3-LINDA-PC" Then M_NAME_2 = "3L "
+    If M_NAME = "4-ASUS-GL522VW" Then M_NAME_2 = "4G "
+    If M_NAME = "5-ASUS-P2520LA" Then M_NAME_2 = "5P "
+    If M_NAME = "7-ASUS-GL522VW" Then M_NAME_2 = "7G "
+    If M_NAME = "8-MSI-GP62M-7RD" Then M_NAME_2 = "8M "
+    M_NAME = M_NAME_2
+    LAB_TIMEZONE.Caption = M_NAME + FREE_BYTE + GS + Format(Now + TimeSerial(10, 0, 0), "DDD  HH : MM : SS  AM/PM")
 
     'LAB_TIMEZONE.AutoSize = False
     'LAB_TIMEZONE.Refresh
