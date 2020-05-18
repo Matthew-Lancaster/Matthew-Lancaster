@@ -1354,24 +1354,20 @@ SUB PATH_SCANNER_COPY_CAMERA
 	
 	IF STOP_PROGRESS=TRUE THEN EXIT SUB
 	
-	Set f = fso.GetFile(VAR_PATH_SCANNER)
+	FileModDate=0
+	IF FSO.FileExists(VAR_PATH_SCANNER) THEN 
+		Set f = fso.GetFile(VAR_PATH_SCANNER)
+		ON ERROR RESUME NEXT
 		FileModDate = f.DateLastModified
-	SET f=NOTHING
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		SET f=NOTHING
+		IF ERR.NUMBER>0 THEN 
+			MSGBOX "FILE NOT GET DATE "+VBCR+VAR_PATH_SCANNER+VBCR+VBCR+"ERROR NUMBER"+VBCR+CSTR(ERR.NUMBER)+VBCR+"ERROR DESCRIPTION"+VBCR+ERR.DESCRIPTION+VBCR+VBCR+"PUT CURRENT DATE",vbMsgBoxSetForeground,Wscript.ScriptName 
+			FileModDate=NOW
+		END IF
+		ON ERROR GOTO 0
+	END IF
 	
 	' MSGBOX ucase(VAR_PATH_SCANNER)
-
-	
 	
 	IF IGNOR_DATE_INDEX=FALSE THEN 
 		IF FileModDate<=FileModDate_2 THEN EXIT SUB
@@ -1458,11 +1454,13 @@ SUB PATH_SCANNER_COPY_CAMERA
 	
 	PATH_FILE_VAR=PATH_VAR+"\"+FILE_VAR
 	
-	FileModDate_1=0
-	IF FSO.FileExists(VAR_PATH_SCANNER) THEN 
-		Set F1 = fso.GetFile(VAR_PATH_SCANNER)
-		FileModDate_1 = F1.DateLastModified
-	END IF
+	FileModDate_1=FileModDate
+	' IF FSO.FileExists(VAR_PATH_SCANNER) THEN 
+		' Set F1 = fso.GetFile(VAR_PATH_SCANNER)
+		' ON ERROR RESUME NEXT
+		' FileModDate_1 = F1.DateLastModified
+		' ON ERROR GOTO 0
+	' END IF
 
 	' ---------------------------------------------------------------
 	' CYBERSHOT HX60V -- MP4
