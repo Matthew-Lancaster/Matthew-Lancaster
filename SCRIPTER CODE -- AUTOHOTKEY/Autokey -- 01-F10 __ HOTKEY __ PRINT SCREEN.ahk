@@ -742,15 +742,23 @@ HOT_KEY_CONVERT_TExT:
 		; CONVERT STRING REPLACE WITH DASH -- VALUE LENGTH COMPARE DUPLICATE
 		; Sun 10-May-2020 11:15:46
 		; CONTROL SHIFT D
+		; ALSO SPACE NOT CONVERT DASH WHILE STRING ARE
+		; Mon 18-May-2020 17:22:00
 		; -----------------------------------------------------------
 		StringLen, Length, Clipper_1_GET
-		Clipper_1_GET=
 		Clipper_2_GET=
 		DASH_STRING:="-"
-		loop, %Length%
-			Clipper_1_GET=%Clipper_1_GET%%DASH_STRING%
+		SPACE_STRING:=" "
+		LOOP, %LENGTH%
+		{
+		IF SUBSTR(Clipper_1_GET,A_INDEX,1)=" "
+			Clipper_2_GET=%Clipper_2_GET%%SPACE_STRING%
+		ELSE
+			Clipper_2_GET=%Clipper_2_GET%%DASH_STRING%
+		}
+		Clipper_1_GET=%Clipper_2_GET%
+		Clipper_2_GET=
 	}
-	
 	
 	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
 	; MSGBOX %Clipper_GET%
