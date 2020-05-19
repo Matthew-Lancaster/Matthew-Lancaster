@@ -504,8 +504,9 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 	; Fatal error detected
 	; #32770
 	; C:\TEMP\-4-ASU~1\insync-upd-3.1.7.40811\Updater\InsyncUpdater.exe
+	; C:\Users\MATT 04\AppData\Roaming\Insync\App\Insync.exe
 
-	IF OSVER_N_VAR<10                            ; ---- HIGHER THAN XP
+	IF OSVER_N_VAR<10       	; ---- HIGHER THAN XP
 	{
 		SETTIMER INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE,OFF
 		RETURN
@@ -515,10 +516,22 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 		RETURN
 	WinGet, VAR_GET_5_EXENAME, ProcessName, ahk_id %VAR_GET_5%
 
+	READY_GO=0
 	IF INSTR(VAR_GET_5_EXENAME,"InsyncUpdater.exe")>0
+	{
+		Process, Close, InsyncUpdater.exe
+		READY_GO=1
+	}
+	IF INSTR(VAR_GET_5_EXENAME,"Insync.exe")>0
+	{
+		Process, Close, Insync.exe
+		READY_GO=1
+	}
+	
+	IF READY_GO=1
 	IF VAR_GET_5_OLD<>%VAR_GET_5%
 	{
-		WINCLOSE, ahk_id %VAR_GET_5%
+		; WINCLOSE, ahk_id %VAR_GET_5%
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 		
 		LOOP, 8
@@ -531,7 +544,6 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 				RUN %U2%
 			}
 		}
-		
 	}
 	VAR_GET_5_OLD=%VAR_GET_5%
 	
