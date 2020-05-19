@@ -1276,8 +1276,8 @@ IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
 	SET_GO_1=1
 IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	SET_GO_1=1
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=1
+; IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	; SET_GO_1=1
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
 	SET_GO_1=1	
 
@@ -1300,8 +1300,8 @@ IF SET_GO_1=1
 
 
 SET_GO_1=0
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=1
+; IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	; SET_GO_1=1
 IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	SET_GO_1=1
 
@@ -1311,6 +1311,28 @@ IF SET_GO_1=1
 	If Not ErrorLevel
 	{
 		FN_VAR:="C:\GoodSync\x64\GoodSync2Go.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			Run, "%FN_VAR%" 
+		}
+	}
+}
+
+SET_GO_1=0
+IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+	SET_GO_1=1
+; IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
+	; SET_GO_1=1
+
+IF SET_GO_1=1
+{
+	Process, Exist, GoodSync2Go.exe
+	If Not ErrorLevel
+	{
+		FN_VAR:="D:\GoodSync\x64\GoodSync2Go.exe"
 		IfExist, %FN_VAR%
 		{
 			SoundBeep , 2500 , 100
