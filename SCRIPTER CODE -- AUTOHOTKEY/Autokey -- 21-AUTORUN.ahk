@@ -262,32 +262,55 @@ IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
 
-If ProcessExist("DriverBooster.exe", A_UserName)=0
-	{
-		FN_VAR_2=
-		FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
-		IfExist, %FN_VAR%
-			FN_VAR_2:=FN_VAR
-		FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
-		IfExist, %FN_VAR%
-			FN_VAR_2:=FN_VAR
-		
-		IfExist, %FN_VAR_2%
-		{
-			FN_VAR_2:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
-			SoundBeep , 2500 , 100
-			MSGBOX FN_VAR_2
-			Run, %FN_VAR_2% , , HIDE
-			; WinGet, HWND, ID, WordWeb ahk_class TTheDi
-			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
-			; WinGet, HWND, ID, ahk_class Wordweb Tray Icon
-			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
-		}
-	}
 
-	PAUSE
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	FN_VAR_2="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+	WinWait Driver Booster, , 50
+	SLEEP 2000
+	; WinGet, HWND, ID, Driver Booster ahk_class TApplication
+	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
+	WinGet, HWND, ID, Driver Booster ahk_class TFormDrvBst
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
+	; WinGet, HWND, ID, Driver Booster
+	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 100)
+
+}
+
+
+PAUSE
 	
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\IObit\Software Updater\SoftwareUpdater.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+	WinGet, HWND, ID, IObit Software Updater ahk_class TForm_SU1
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
+	WinGet, HWND, ID, IObit Software Updater ahk_class TPanel
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
+}
 
+
+PAUSE
+	
 	
 
 GOSUB TEST_STARTER_RUN_IN
@@ -1286,28 +1309,39 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVers
 	
 	
 	
-; C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe /skipuac
-If ProcessExist("DriverBooster.exe", A_UserName)=0
-	{
-		FN_VAR_2=
-		FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
-		IfExist, %FN_VAR%
-			FN_VAR_2:=FN_VAR
-		FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
-		IfExist, %FN_VAR%
-			FN_VAR_2:=FN_VAR
-		
-		IfExist, %FN_VAR_2%
-		{
-			FN_VAR_2:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
-			SoundBeep , 2500 , 100
-			Run, %FN_VAR_2% , , HIDE
-			; WinGet, HWND, ID, WordWeb ahk_class TTheDi
-			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
-			; WinGet, HWND, ID, ahk_class Wordweb Tray Icon
-			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
-		}
-	}
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	FN_VAR_2="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+	; WinGet, HWND, ID, WordWeb ahk_class TTheDi
+	; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
+	; WinGet, HWND, ID, ahk_class Wordweb Tray Icon
+	; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
+}
+	
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\IObit\Software Updater\SoftwareUpdater.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+MSGBOX % OutFILENAME
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+}
 
 	
 	
@@ -3047,16 +3081,25 @@ RETURN
 
 IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, TIME_LENGHT)
 {
-	IF (!HWND)
-		RETURN
-
-	WinGet, Style, Style, ahk_id %HWND%
-	; 0x20000000 = WS_MINIMIZE
-	; MSGBOX % (Style & 0x20000000)
-	IF (Style & 0x20000000)=0
+	; SLEEP 100
+	; IF (!HWND)
+		; RETURN
+	DONE_IS_WINDOW_MINIMIZE=FALSE
+		
+	LOOP, %TIME_LENGHT%
 	{
-		WINMINIMIZE ahk_id %HWND%
-		DONE_BLUETOOTH_MINIMIZE=TRUE
+		WinGet, Style, Style, ahk_id %HWND%
+		; 0x20000000 = WS_MINIMIZE
+		; MSGBOX % (Style & 0x20000000) IF RESULT = 0 THEN NOT MINIMIZE
+		IF (Style & 0x20000000)=0
+		{
+			WINMINIMIZE ahk_id %HWND%
+			DONE_IS_WINDOW_MINIMIZE=TRUE
+		}
+		IF DONE_IS_WINDOW_MINIMIZE=TRUE
+		IF (Style & 0x20000000)<>0
+			RETURN
+		SLEEP 100
 	}
 }
 RETURN
@@ -3069,7 +3112,7 @@ SLEEP 100
 IF (!HWND)
 	RETURN
 ; FEW QUICK COUNT TO CHECK WAIT TO SHOW
-XY=0
+XY=0  ; ---- NOT USER ONLY WHILE DEBUG TIMER TOOLTIP
 LOOP, %TIME_LENGHT%
 {
 	XY+=1
