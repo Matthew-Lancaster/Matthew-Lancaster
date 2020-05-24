@@ -259,6 +259,23 @@ SoundBeep , 2500 , 100
 CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=FALSE
 
 
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+}
+PAUSE
+
+
+
 GLOBAL CLOSE_SOME_LEFT_OVER_WINDOWS_VAR
 GLOBAL FLAG_GET_PROCESS_MATCH=0
 GLOBAL ProcessSearch:=""
@@ -2875,6 +2892,20 @@ If ProcessExist(OutFILENAME, A_UserName)=0
 ; Sun 24-May-2020 13:15:00 -- 5 HOUR 8 MINUTE
 ; -------------------------------------------------------------------
 
+
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+}
 
 
 
