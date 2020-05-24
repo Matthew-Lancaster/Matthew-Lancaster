@@ -262,6 +262,27 @@ IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
 
+
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	FN_VAR_2="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+	WinWait Driver Booster, , 50
+	SLEEP 500
+	WinGet, HWND_1, ID, Driver Booster ahk_class TApplication
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,0, 1000,2) ; - HAS TO EQUAL 2 REQUEST OF MINIMIZE BEFORE DONE -- NOT DEPEND ON SPEED -- CONSUME A LITTLE WHILE 
+}
+	
+	
 FN_VAR_2=
 FN_VAR:="C:\Program Files (x86)\IObit\Software Updater\SoftwareUpdater.exe"
 IfExist, %FN_VAR%
@@ -275,14 +296,18 @@ If ProcessExist(OutFILENAME, A_UserName)=0
 	SoundBeep , 2500 , 100
 	Run, %FN_VAR_2% , , MIN
 	WinWait IObit Software Updater, , 50
-	SLEEP 500
+	SLEEP 1000
+	WinWait IObit Software Updater ahk_class TApplication, , 50
+	SLEEP 1000
+	WinWait IObit Software Updater ahk_class TForm_SU1, , 50
+	SLEEP 1000
+	HWND_2=0
+; 	WinGet, HWND_2, ID, IObit Software Updater ahk_class TForm_SU1
+	WinGet, HWND_1, ID, IObit Software Updater ahk_class TApplication
 	
-	WinGet, HWND, ID, IObit Software Updater ahk_class TPanel
-	WinGet, HWND, ID, IObit Software Updater ahk_class TForm_SU1
-	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000,5)
+	MSGBOX ,4096,, IOBIT SOFTWARE UPDATER -- IS LOADER -- HAS TO LOSE FOCUS BEFORE WINDOW STATE MOVE MINIMIZE....,2 
 	
-	; WinGet, HWND, ID, IObit Software Updater ahk_class TPanel
-	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,HWND_2, 1000,1)   ; 0 ---- ONCE TRY
 }
 
 
@@ -1302,7 +1327,7 @@ If ProcessExist(OutFILENAME, A_UserName)=0
 	WinWait Driver Booster, , 50
 	SLEEP 500
 	WinGet, HWND_1, ID, Driver Booster ahk_class TApplication
-	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1, 1000,2) ; - HAS TO EQUAL 2 REQUEST OF MINIMIZE BEFORE DONE -- NOT DEPEND ON SPEED -- CONSUME A LITTLE WHILE 
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,0, 1000,2) ; - HAS TO EQUAL 2 REQUEST OF MINIMIZE BEFORE DONE -- NOT DEPEND ON SPEED -- CONSUME A LITTLE WHILE 
 }
 	
 FN_VAR_2=
@@ -2450,7 +2475,7 @@ IF SET_DONE=TRUE
 	}
 }
 
-; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800)
+; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,0,800,1)
 ; WinMinimize  ahk_id %table%
 
 GOSUB OUTLOOK_RUN_AND_MIN
@@ -2650,14 +2675,14 @@ MINIMIZE_ALL_BLUETOOTH:
 	{
 		SLEEP 1000
 		WinGet, HWND, ID, BluetoothView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,0)
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,0,800,1)
 	}
 	
 	IF WinExist("ahk_class BluetoothLogView")
 	{
 		SLEEP 1000
 		WinGet, HWND, ID, ahk_class BluetoothLogView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,0)
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,0,800,1)
 	}
 	
 RETURN
@@ -3055,25 +3080,27 @@ RETURN
 ; FUNCTION SET 
 ;--------------------------------------------------------------------
 
-
-IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, LOOP_LENGHT,REQUEST_REPEAT)
+IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,HWND_2, LOOP_LENGHT,REQUEST_REPEAT)
 {
 	IF (!HWND)
 		RETURN
+		
+	IF !HWND_2
+		HWND_2=%HWND%
 	DONE_IS_WINDOW_MINIMIZE=FALSE
-	X_COUNT=%REQUEST_REPEAT%
+	X_COUNT=0
 	LOOP, %LOOP_LENGHT%
 	{
 		; --------------------------------------
 		; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
 		; --------------------------------------
 		WinGet, Style, MinMax, ahk_id %HWND%
-		; TOOLTIP %Style%`n%X_COUNT%
+		TOOLTIP %Style%`n%X_COUNT%
 		IF Style<>-1
 		{
-			SLEEP 100
-			WINMINIMIZE ahk_id %HWND%
-			WinGet, Style, MinMax, ahk_id %HWND%
+			SLEEP 400
+			WINMINIMIZE ahk_id %HWND_2%
+			WinGet, Style, MinMax, ahk_id %HWND_2%
 			IF Style=-1
 			{
 				X_COUNT+=1   ; -- HAS TO EQUAL 3 BEFORE DONE -- LIKE TWO ATTEMPT -- DEPEND ON SPEED
@@ -3081,15 +3108,17 @@ IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, LOOP_LENGHT,REQUEST_REPEAT)
 				DONE_IS_WINDOW_MINIMIZE=TRUE
 			}
 		}
+		TOOLTIP %Style%`n%X_COUNT%
 		IF DONE_IS_WINDOW_MINIMIZE=TRUE
-		IF (Style=-1 AND X_COUNT=2)
+		IF Style=-1
+		IF X_COUNT=%REQUEST_REPEAT%
 			BREAK
-		IF (Style=-1 AND X_COUNT=0)
+		IF (Style=-1 AND REQUEST_REPEAT=0)
 			BREAK
 			
 		IF !HWND
 			BREAK
-		SLEEP 100
+		SLEEP 400
 	}
 }
 RETURN
