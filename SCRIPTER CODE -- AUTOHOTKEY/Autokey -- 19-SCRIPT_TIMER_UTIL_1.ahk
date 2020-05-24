@@ -241,6 +241,8 @@ GLOBAL dhw
 GLOBAL OLD_UniqueID_MYSMS
 
 
+ID_DRIVER_BOOSTER_OLD=0
+
 
 OLD_UniqueID_MYSMS=0
 
@@ -1681,35 +1683,19 @@ IfWinExist, Replace ahk_exe VB6.EXE
 }
 
 
-IfWinNotExist, Find ahk_exe VB6.EXE
-	UniqueID_Old=0
-
-IfWinExist, Find ahk_exe VB6.EXE
+WINGET, HWND_1, ID, Driver Booster ahk_class TFormDrvBst
+IF HWND_1
 {
-	; Replace Search and Replace Move to Better Position In Visual Basic
-	; or any other editor
-	ControlGetText, OutputVar, Current &Procedure , Find ahk_exe VB6.EXE
-	IF OutputVar 
-	{	
-		UniqueID := WinExist("Find ahk_exe VB6.EXE")
-		;tooltip %UniqueID%
-		WinGetPos,,YPos,,, Find ahk_exe VB6.EXE
-		if (YPOS>(A_ScreenHeight/2))
-			UniqueID_Old=0
-		if UniqueID_Old<>%UniqueID%
-		{
-			;WinMove, Replace,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
-			SoundBeep , 2500 , 50
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			WinMove, Find ahk_exe VB6.EXE,, (A_ScreenWidth)-(Width), 0
+	WinGet, Style, MinMax, ahk_id %HWND_1%
+	IF Style=-1
+		ID_DRIVER_BOOSTER_OLD=
+	ID_DRIVER_BOOSTER =%HWND_1%
+	if ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
+		RETURN
 
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			if (YPOS<>0)
-				UniqueID=0
-		}
-		
-		UniqueID_Old=%UniqueID%
-	}
+	SOUNDBEEP , 2500 , 50
+	WINMOVE, ahk_id %HWND_1%,,,-19   ; ---- CHANGE TOP TO 0
+	ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
 }
 
 
