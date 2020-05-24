@@ -260,6 +260,34 @@ IF OSVER_N_VAR=WIN_XP
 	OSVER_N_VAR=5
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
+
+
+If ProcessExist("DriverBooster.exe", A_UserName)=0
+	{
+		FN_VAR_2=
+		FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
+		IfExist, %FN_VAR%
+			FN_VAR_2:=FN_VAR
+		FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+		IfExist, %FN_VAR%
+			FN_VAR_2:=FN_VAR
+		
+		IfExist, %FN_VAR_2%
+		{
+			FN_VAR_2:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
+			SoundBeep , 2500 , 100
+			MSGBOX FN_VAR_2
+			Run, %FN_VAR_2% , , HIDE
+			; WinGet, HWND, ID, WordWeb ahk_class TTheDi
+			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
+			; WinGet, HWND, ID, ahk_class Wordweb Tray Icon
+			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
+		}
+	}
+
+	PAUSE
+	
+
 	
 
 GOSUB TEST_STARTER_RUN_IN
@@ -1255,6 +1283,33 @@ If ProcessExist("wweb32.exe", A_UserName)=0
 	}
 
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WordWeb
+	
+	
+	
+; C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe /skipuac
+If ProcessExist("DriverBooster.exe", A_UserName)=0
+	{
+		FN_VAR_2=
+		FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
+		IfExist, %FN_VAR%
+			FN_VAR_2:=FN_VAR
+		FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+		IfExist, %FN_VAR%
+			FN_VAR_2:=FN_VAR
+		
+		IfExist, %FN_VAR_2%
+		{
+			FN_VAR_2:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
+			SoundBeep , 2500 , 100
+			Run, %FN_VAR_2% , , HIDE
+			; WinGet, HWND, ID, WordWeb ahk_class TTheDi
+			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
+			; WinGet, HWND, ID, ahk_class Wordweb Tray Icon
+			; IS_WINDOW_HIDDEN_AND_HIDE(HWND, 50)
+		}
+	}
+
+	
 	
 SET_GO=FALSE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
