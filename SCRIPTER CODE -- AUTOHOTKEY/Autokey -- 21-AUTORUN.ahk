@@ -174,6 +174,24 @@
 ; -------------------------------------------------------------------
 
 
+; -------------------------------------------------------------------
+; SESSION 011
+; -------------------------------------------------------------------
+; TIME TAKE TO WRITE TWO ROUTINE
+; FOR 
+; IOBIT SOFTWARE UPDATER AND IOBIT DRIVER UPDATER
+; -------------------------------------------------------------------
+; Sun 24-May-2020 08:06:45
+; Sun 24-May-2020 13:15:00 -- 5 HOUR 8 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; ROUTINE 
+; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,LOOP_LENGHT,REQUEST_REPEAT)
+; -------------------------------------------------------------------
+
+
+
+
 
 
 ;# ------------------------------------------------------------------
@@ -240,6 +258,7 @@ SoundBeep , 2500 , 100
 
 CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=FALSE
 
+
 GLOBAL CLOSE_SOME_LEFT_OVER_WINDOWS_VAR
 GLOBAL FLAG_GET_PROCESS_MATCH=0
 GLOBAL ProcessSearch:=""
@@ -263,56 +282,6 @@ IF OSVER_N_VAR=WIN_7
 
 
 
-FN_VAR_2=
-FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
-If ProcessExist(OutFILENAME, A_UserName)=0
-{
-	FN_VAR_2="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
-	SoundBeep , 2500 , 100
-	Run, %FN_VAR_2% , , MIN
-	WinWait Driver Booster, , 50
-	SLEEP 500
-	WinGet, HWND_1, ID, Driver Booster ahk_class TApplication
-	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,0, 1000,2) ; - HAS TO EQUAL 2 REQUEST OF MINIMIZE BEFORE DONE -- NOT DEPEND ON SPEED -- CONSUME A LITTLE WHILE 
-}
-	
-	
-FN_VAR_2=
-FN_VAR:="C:\Program Files (x86)\IObit\Software Updater\SoftwareUpdater.exe"
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
-If ProcessExist(OutFILENAME, A_UserName)=0
-{
-	SoundBeep , 2500 , 100
-	Run, %FN_VAR_2% , , MIN
-	WinWait IObit Software Updater, , 50
-	SLEEP 1000
-	WinWait IObit Software Updater ahk_class TApplication, , 50
-	SLEEP 1000
-	WinWait IObit Software Updater ahk_class TForm_SU1, , 50
-	SLEEP 1000
-	HWND_2=0
-; 	WinGet, HWND_2, ID, IObit Software Updater ahk_class TForm_SU1
-	WinGet, HWND_1, ID, IObit Software Updater ahk_class TApplication
-	
-	MSGBOX ,4096,, IOBIT SOFTWARE UPDATER -- IS LOADER -- HAS TO LOSE FOCUS BEFORE WINDOW STATE MOVE MINIMIZE....,2 
-	
-	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,HWND_2, 1000,1)   ; 0 ---- ONCE TRY
-}
-
-
-PAUSE
-	
 	
 
 GOSUB TEST_STARTER_RUN_IN
@@ -1311,40 +1280,6 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVers
 	
 	
 	
-FN_VAR_2=
-FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
-If ProcessExist(OutFILENAME, A_UserName)=0
-{
-	FN_VAR_2="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
-	SoundBeep , 2500 , 100
-	Run, %FN_VAR_2% , , MIN
-	WinWait Driver Booster, , 50
-	SLEEP 500
-	WinGet, HWND_1, ID, Driver Booster ahk_class TApplication
-	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,0, 1000,2) ; - HAS TO EQUAL 2 REQUEST OF MINIMIZE BEFORE DONE -- NOT DEPEND ON SPEED -- CONSUME A LITTLE WHILE 
-}
-	
-FN_VAR_2=
-FN_VAR:="C:\Program Files (x86)\IObit\Software Updater\SoftwareUpdater.exe"
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
-IfExist, %FN_VAR%
-	FN_VAR_2:=FN_VAR
-MSGBOX % OutFILENAME
-SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
-If ProcessExist(OutFILENAME, A_UserName)=0
-{
-	SoundBeep , 2500 , 100
-	Run, %FN_VAR_2% , , MIN
-}
-
 	
 	
 SET_GO=FALSE
@@ -2475,7 +2410,7 @@ IF SET_DONE=TRUE
 	}
 }
 
-; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,0,800,1)
+; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
 ; WinMinimize  ahk_id %table%
 
 GOSUB OUTLOOK_RUN_AND_MIN
@@ -2675,14 +2610,14 @@ MINIMIZE_ALL_BLUETOOTH:
 	{
 		SLEEP 1000
 		WinGet, HWND, ID, BluetoothView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,0,800,1)
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
 	}
 	
 	IF WinExist("ahk_class BluetoothLogView")
 	{
 		SLEEP 1000
 		WinGet, HWND, ID, ahk_class BluetoothLogView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,0,800,1)
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
 	}
 	
 RETURN
@@ -2891,6 +2826,60 @@ If (OSVER_N_VAR>5
 
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubiC
 
+
+
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	FN_VAR_2="C:\Program Files (x86)\IObit\Driver Booster\7.4.0\DriverBooster.exe" - /skipuac
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+	WinWait Driver Booster, , 50
+	SLEEP 500
+	WinGet, HWND_1, ID, Driver Booster ahk_class TApplication
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,1000,2) ; - HAS TO EQUAL 2 REQUEST OF MINIMIZE BEFORE DONE -- NOT DEPEND ON SPEED -- CONSUME A LITTLE WHILE 
+}
+	
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\IObit\Software Updater\SoftwareUpdater.exe"
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+IfExist, %FN_VAR%
+	FN_VAR_2:=FN_VAR
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	SoundBeep , 2500 , 100
+	Run, %FN_VAR_2% , , MIN
+	WinWait IObit Software Updater, , 50
+	SLEEP 1000
+	HWND_2=0
+	WinGet, HWND_1, ID, IObit Software Updater ahk_class TApplication
+	
+	MSGBOX ,4096,, IOBIT SOFTWARE UPDATER -- IS LOADER`nHAS TO LOSE FOCUS BEFORE WINDOW STATE MOVE MINIMIZE....,2 
+	
+	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,1000,1)   ; 0 ---- ONCE TRY
+}
+; -------------------------------------------------------------------
+; TIME TAKE TO WRITE TWO ROUTINE
+; -------------------------------------------------------------------
+; Sun 24-May-2020 08:06:45
+; Sun 24-May-2020 13:15:00 -- 5 HOUR 8 MINUTE
+; -------------------------------------------------------------------
+
+
+
+
+
+
 RETURN
 
 
@@ -3080,13 +3069,37 @@ RETURN
 ; FUNCTION SET 
 ;--------------------------------------------------------------------
 
-IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,HWND_2, LOOP_LENGHT,REQUEST_REPEAT)
+;--------------------------------------------------------------------
+; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,LOOP_LENGHT,REQUEST_REPEAT)
+;--------------------------------------------------------------------
+; MIGHT WANT ROUTINE HERE -- NOT FOUND USER YET
+; PUT PARAMETER ON AND GO ROUTINE SET UP TO GO
+; ONE WINDOW FOUND OTHER WINDOW MINIMIZE
+;--------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; TIME TAKE TO WRITE TWO ROUTINE
+; FOR 
+; IOBIT SOFTWARE UPDATER AND IOBIT DRIVER UPDATER
+; -------------------------------------------------------------------
+; Sun 24-May-2020 08:06:45
+; Sun 24-May-2020 13:15:00 -- 5 HOUR 8 MINUTE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,LOOP_LENGHT,REQUEST_REPEAT)
+
+	; ---------------------------------------------------------------
+	; SOME PROGRAM REQUIRE HERE -- DELAY MSGBOX 
+	; ---------------------------------------------------------------
+	; MSGBOX ,4096,, IOBIT SOFTWARE UPDATER -- IS LOADER`nHAS TO LOSE FOCUS BEFORE WINDOW STATE MOVE MINIMIZE....,2 
+	; ---------------------------------------------------------------
 {
 	IF (!HWND)
 		RETURN
 		
-	IF !HWND_2
-		HWND_2=%HWND%
+	HWND_8=%HWND%
+	IF !HWND_8
+		HWND_8=%HWND%
 	DONE_IS_WINDOW_MINIMIZE=FALSE
 	X_COUNT=0
 	LOOP, %LOOP_LENGHT%
@@ -3095,12 +3108,12 @@ IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,HWND_2, LOOP_LENGHT,REQUEST_REPEAT)
 		; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
 		; --------------------------------------
 		WinGet, Style, MinMax, ahk_id %HWND%
-		TOOLTIP %Style%`n%X_COUNT%
+		; TOOLTIP %Style%`n%X_COUNT%   ; --- USER TOOLTIP IF COUNT REQUEST WINDOW MINIMIZE REQUIRE
 		IF Style<>-1
 		{
 			SLEEP 400
-			WINMINIMIZE ahk_id %HWND_2%
-			WinGet, Style, MinMax, ahk_id %HWND_2%
+			WINMINIMIZE ahk_id %HWND_8%
+			WinGet, Style, MinMax, ahk_id %HWND_8%
 			IF Style=-1
 			{
 				X_COUNT+=1   ; -- HAS TO EQUAL 3 BEFORE DONE -- LIKE TWO ATTEMPT -- DEPEND ON SPEED
@@ -3108,7 +3121,7 @@ IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,HWND_2, LOOP_LENGHT,REQUEST_REPEAT)
 				DONE_IS_WINDOW_MINIMIZE=TRUE
 			}
 		}
-		TOOLTIP %Style%`n%X_COUNT%
+		; TOOLTIP %Style%`n%X_COUNT%   ; --- USER TOOLTIP IF COUNT REQUEST WINDOW MINIMIZE REQUIRE
 		IF DONE_IS_WINDOW_MINIMIZE=TRUE
 		IF Style=-1
 		IF X_COUNT=%REQUEST_REPEAT%
