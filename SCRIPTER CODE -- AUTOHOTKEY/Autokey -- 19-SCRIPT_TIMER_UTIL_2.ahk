@@ -3953,36 +3953,8 @@ IfWinExist, Replace ahk_exe VB6.EXE
 }
 
 
-IfWinNotExist, Find ahk_exe VB6.EXE
-	UniqueID_Old=0
 
-IfWinExist, Find ahk_exe VB6.EXE
-{
-	; Replace Search and Replace Move to Better Position In Visual Basic
-	; or any other editor
-	ControlGetText, OutputVar, Current &Procedure , Find ahk_exe VB6.EXE
-	IF OutputVar 
-	{	
-		UniqueID := WinExist("Find ahk_exe VB6.EXE")
-		;tooltip %UniqueID%
-		WinGetPos,,YPos,,, Find ahk_exe VB6.EXE
-		if (YPOS>(A_ScreenHeight/2))
-			UniqueID_Old=0
-		if UniqueID_Old<>%UniqueID%
-		{
-			;WinMove, Replace,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
-			SoundBeep , 2500 , 50
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			WinMove, Find ahk_exe VB6.EXE,, (A_ScreenWidth)-(Width), 0
 
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			if (YPOS<>0)
-				UniqueID=0
-		}
-		
-		UniqueID_Old=%UniqueID%
-	}
-}
 
 
 ; MAYBE WANT IT
