@@ -278,13 +278,37 @@ If ProcessExist(OutFILENAME, A_UserName)=0
 	Run, %FN_VAR_2% , , MIN
 	WinWait Driver Booster, , 50
 	SLEEP 2000
-	; WinGet, HWND, ID, Driver Booster ahk_class TApplication
-	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
-	WinGet, HWND, ID, Driver Booster ahk_class TFormDrvBst
-	IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
+	; WinGet, HWND_1, ID, Driver Booster ahk_class TApplication
+	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 10000)
+	; WinGet, HWND_2, ID, Driver Booster ahk_class TFormDrvBst
+	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 10000)
 	; WinGet, HWND, ID, Driver Booster
-	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 100)
-
+	; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, 1000)
+	
+	DONE_IS_WINDOW_MINIMIZE_2=FALSE
+	TIME_LENGHT_2=1000
+	LOOP, %TIME_LENGHT_2%
+	{
+		WinGet, HWND_1, ID, Driver Booster ahk_class TApplication
+		; --------------------------------------
+		; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
+		; --------------------------------------
+		WinGet, Style_2, MinMax, ahk_id %HWND_1%
+		TOOLTIP %Style_2%
+		IF Style_2<>-1
+		{
+			SLEEP 2000
+			WINMINIMIZE ahk_id %HWND_1%
+			DONE_IS_WINDOW_MINIMIZE_2=TRUE
+		}
+		IF DONE_IS_WINDOW_MINIMIZE_2=TRUE
+		IF (Style_2=-1)
+			BREAK
+			
+		IF !HWND_1
+			BREAK
+		SLEEP 100
+	}
 }
 
 
@@ -2795,7 +2819,7 @@ OUTLOOK_RUN_AND_MIN:
 			WinMinimize ahk_class rctrl_renwnd32
 			WinGet style_OUTLOOK, MinMax, ahk_class rctrl_renwnd32
 			SoundBeep , 2500 , 100
-			;1 maximized 0 normal -1 minimized
+			; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
 			If style_OUTLOOK=-1
 			{
 					BREAK
@@ -3088,16 +3112,18 @@ IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND, TIME_LENGHT)
 		
 	LOOP, %TIME_LENGHT%
 	{
-		WinGet, Style, Style, ahk_id %HWND%
-		; 0x20000000 = WS_MINIMIZE
-		; MSGBOX % (Style & 0x20000000) IF RESULT = 0 THEN NOT MINIMIZE
-		IF (Style & 0x20000000)=0
+	
+		; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
+		WinGet, Style, MinMax, ahk_id %HWND%
+		TOOLTIP % Style
+		IF Style<>-1
 		{
+			SLEEP 4000
 			WINMINIMIZE ahk_id %HWND%
 			DONE_IS_WINDOW_MINIMIZE=TRUE
 		}
 		IF DONE_IS_WINDOW_MINIMIZE=TRUE
-		IF (Style & 0x20000000)<>0
+		IF Style=-1
 			RETURN
 		SLEEP 100
 	}
@@ -3112,14 +3138,11 @@ SLEEP 100
 IF (!HWND)
 	RETURN
 ; FEW QUICK COUNT TO CHECK WAIT TO SHOW
-XY=0  ; ---- NOT USER ONLY WHILE DEBUG TIMER TOOLTIP
 LOOP, %TIME_LENGHT%
 {
-	XY+=1
 	WINHIDE ahk_id %HWND%
 	WinGet, Style, Style, ahk_id %HWND%
 	; 0x10000000 is WS_VISIBLE  Style & 0x10000000 = 0 IS HIDDEN > 0 NOT HIDDEN
-	; TOOLTIP % XY
 	IF (Style & 0x10000000)=0
 		{
 		;MSGBOX STYLE 0
