@@ -5,7 +5,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 #SingleInstance force
 ; -------------------------------------------------------------------
-; #Persistent
+#Persistent
 ; -------------------------------------------------------------------
 
 
@@ -23,34 +23,95 @@ SetTitleMatchMode 3  ; Specify Full path
 ; #InstallMouseHook
 ; -------------------------------------------------------------------
 
+TRIG_FIND_STATEL_WINDOWS_7=
+TRIG_FIND_STATEL_WINDOWS_7_TIMER_1=
+TRIG_FIND_STATEL_WINDOWS_7_TIMER_2=
+MOUSE_DOWN_Calculator=
+SETTIMER RIGHT_CLICK_TO_LOAD_REAL_WINDOWS_10_CALCULATOR_NOT_WINAERO_COM_CONVERTOR_WINDOWS_7,100
+RETURN
 
-LOOP
-{				                    ; Place cursor over [location]
+; -------------------------------------------------------------------
+; HAVE ROUTINE HERE -- 
+; WHEN RIGHT CLICK DOWN I PRESS ON APPLICATION WITH KILL PROCESS AND UNDERNEATH DO RIGHT CONTEXT MENU UP
+; -------------------------------------------------------------------
+#IfWinActive, Calculator ahk_class CalcFrame
+RButton::
+{
 	MouseGetPos, offsetx, offsety	; x x x
 	offsetx := offsetx - 0	     	; x O x  O = tip of mouse cursor
 	offsety := offsety - 0	     	;
-	WinGetTitle, ACTIVE_TITLE, A
-	GetKeyState, state, LButton 
-
-	IfWinActive Calculator ahk_class CalcFrame
 	IF offsetx>41
 	IF offsetx<562
-	IF offsety<38   ; --  HITT IN TITLE BAR AREA NOT ANY OTHER BUTTON -- DEPEND SIZE BUTTON TYPE THING
-	IF (state = "D")
+	IF offsety<38   ; --  HITT IN TITLE BAR AREA NOT ANY OTHER BUTTON THERE -- AND DEPEND SIZE BUTTON TYPE THING
 	{
-		; ---------------------------------------------------------------
-		; ORIGINAL INTENTION CLICK TITLE BAR CLOSE APP LOAD ANOTHER
-		; CALC FOR WINDOWS 7 ONLY RUN BY SPECIAL APP 
-		; REPLACE GET WINDOWS 10 VERSION 
-		; ONLY BY TASK-BAR LINK 
-		; AND HOTKEY NOT DETECTABLE
-		; ---------------------------------------------------------------
-		; ; TOOLTIP % "Offset x = " . offsetx . ", y = " . offsety
-		WINCLOSE Calculator ahk_class CalcFrame
-		RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+	MOUSE_DOWN_Calculator=TRUE
 	}
-
 }
+RETURN
+#ifwinactive
+
+RIGHT_CLICK_TO_LOAD_REAL_WINDOWS_10_CALCULATOR_NOT_WINAERO_COM_CONVERTOR_WINDOWS_7:
+	
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	IF TRIG_FIND_STATEL_WINDOWS_7_TIMER_1<%A_NOW%
+	IF TRIG_FIND_STATEL_WINDOWS_7=TRUE
+	IF (stateL = "U")
+	{
+		TRIG_FIND_STATEL_WINDOWS_7=
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_1=
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_2=%A_NOW%
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_2 += 2, SECONDS
+		TOOLTIP
+	}
+	IfWinNOTActive Calculator ahk_class CalcFrame
+		RETURN
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+
+	MouseGetPos, offsetx, offsety	; x x x
+	offsetx := offsetx - 0	     	; x O x  O = tip of mouse cursor
+	offsety := offsety - 0	     	;
+	GetKeyState, stateL, LButton 
+	GetKeyState, stateR, RButton 
+
+	; ---------------------------------------------------------------
+	; ORIGINAL INTENTION CLICK TITLE BAR CLOSE APP LOAD ANOTHER
+	; CALC FOR WINDOWS 7 ONLY RUN BY SPECIAL APP 
+	; REPLACE GET WINDOWS 10 VERSION 
+	; ONLY BY TASK-BAR LINK 
+	; AND HOTKEY NOT DETECTABLE
+	; ---------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	IF offsetx>41
+	IF offsetx<562
+	IF offsety<38   ; --  HITT IN TITLE BAR AREA NOT ANY OTHER BUTTON THERE -- AND DEPEND SIZE BUTTON TYPE THING
+	IF MOUSE_DOWN_Calculator=TRUE
+	{
+		MOUSE_DOWN_Calculator=
+		Process, CLOSE, Calc1.exe
+		RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+		SENDINPUT {ESC}
+	}
+	; ---------------------------------------------------------------
+	IF offsetx>41
+	IF offsetx<562
+	IF offsety<38   ; --  HITT IN TITLE BAR AREA NOT ANY OTHER BUTTON THERE -- AND DEPEND SIZE BUTTON TYPE THING
+	IF (stateL = "D")
+	IF TRIG_FIND_STATEL_WINDOWS_7_TIMER_2<%A_NOW%
+	{
+		CoordMode, ToolTip, Screen  ; Place ToolTips at absolute screen coordinates.
+		WinGetPos TOOLTIP_X, TOOLTIP_Y,,,Calculator ahk_class CalcFrame
+		TOOLTIP_X+= 8
+		TOOLTIP_Y-= 70
+		
+		TOOLTIP % "RIGHT CLICK TO LOAD REAL WINDOWS 10 CALCULATOR`n`nNOT -- WINAERO.COM CONVERTOR WINDOWS 7",%TOOLTIP_X%,%TOOLTIP_Y%
+		TRIG_FIND_STATEL_WINDOWS_7=TRUE
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_1=%A_NOW%
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_1 += 2, SECONDS
+		; TOOLTIP % "Offset x = " . offsetx . ", y = " . offsety
+	}
 RETURN
 
 
@@ -117,11 +178,11 @@ RETURN
 ; -------------------------------------------------------------------
 ; DETECTOR LAST KEYCODE AND 2ND SC CODE
 ; -------------------------------------------------------------------
-; LOOP
-; {
-	; TOOLTIP % A_PRIORKEY
-; }
-; RETURN
+LOOP
+{
+	TOOLTIP % A_PRIORKEY
+}
+RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
