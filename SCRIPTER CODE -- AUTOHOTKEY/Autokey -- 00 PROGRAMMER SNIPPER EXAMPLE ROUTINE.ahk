@@ -207,3 +207,150 @@ RETURN
 ; ; -------------------------------------------------------------------
 
 
+
+
+; -------------------------------------------------------------------
+; THREE PROJECT THIS MORNING
+; -------------------------------------------------------------------
+; #1 GOODSYNC NOT REQUIRE TO RUN EVERY COMPUTER AT MOMENT ONLY PORTABLE VERSION D-DRIVE
+; Thu 28-May-2020 08:27:28
+; ON WARD
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; #2
+; CODE TO KNOCK OUT THE NAG SCREEN FROM FACEBOOK THAT BOLLOCKS 
+; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-AUTO REPEAT BROWSER FUNCTION SET.ahk
+; SETTIMER CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__4G,6000
+; AND ELSEWHERE
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; #3
+; THIRD PROJECT THIS MORNING
+; Thu 28-May-2020 09:15:12
+; Thu 28-May-2020 12:10:00 -- 2 HOUR 55 MINUTE
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; NOTHING SPECIAL. RUN IT AND
+; -------------------------------------------------------------------
+; //autohotkey.com/board/topic/21105-crazy-scripting-scriptlet-to-find-scancode-of-a-key/?p=138256
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; ---- DECLARE FOR HERE ROUTINE
+; -------------------------------------------------------------------
+; TRIG_FIND_STATEL_WINDOWS_7=
+; TRIG_FIND_STATEL_WINDOWS_7_TIMER_1=
+; TRIG_FIND_STATEL_WINDOWS_7_TIMER_2=
+; MOUSE_DOWN_CALCULATOR=
+; -------------------------------------------------------------------
+; HAVE ROUTINE HERE -- 
+; WHEN RIGHT CLICK DOWN I PRESS ON APPLICATION WITH KILL PROCESS AND UNDERNEATH DO RIGHT CONTEXT MENU UP
+; -------------------------------------------------------------------
+#IfWinActive, Calculator ahk_class CalcFrame
+RButton::
+{
+	MouseGetPos, offsetx, offsety	; x x x
+	offsetx := offsetx - 0	     	; x O x  O = tip of mouse cursor
+	offsety := offsety - 0	     	;
+	IF offsetx>41
+	IF offsetx<562
+	IF offsety<38   ; --  HITT IN TITLE BAR AREA NOT ANY OTHER BUTTON THERE -- AND DEPEND SIZE BUTTON TYPE THING
+	{
+	MOUSE_DOWN_CALCULATOR=TRUE
+	}
+}
+RETURN
+#ifwinactive
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+RIGHT_CLICK_TO_LOAD_REAL_WINDOWS_10_CALCULATOR_NOT_WINAERO_COM_CONVERTOR_WINDOWS_7:
+	
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	IF TRIG_FIND_STATEL_WINDOWS_7_TIMER_1<%A_NOW%
+	IF TRIG_FIND_STATEL_WINDOWS_7=TRUE
+	IF (stateL = "U")
+	{
+		TRIG_FIND_STATEL_WINDOWS_7=
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_1=
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_2=%A_NOW%
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_2 += 2, SECONDS
+		TOOLTIP
+	}
+	IfWinNOTActive Calculator ahk_class CalcFrame
+		RETURN
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+
+	MouseGetPos, offsetx, offsety	; x x x
+	offsetx := offsetx - 0	     	; x O x  O = tip of mouse cursor
+	offsety := offsety - 0	     	;
+	GetKeyState, stateL, LButton 
+	GetKeyState, stateR, RButton 
+
+	; ---------------------------------------------------------------
+	; ORIGINAL INTENTION CLICK TITLE BAR CLOSE APP LOAD ANOTHER
+	; CALC FOR WINDOWS 7 ONLY RUN BY SPECIAL APP 
+	; REPLACE GET WINDOWS 10 VERSION 
+	; ONLY BY TASK-BAR LINK 
+	; AND HOTKEY NOT DETECTABLE
+	; ---------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	IF offsetx>41
+	IF offsetx<562
+	IF offsety<38   ; --  HITT IN TITLE BAR AREA NOT ANY OTHER BUTTON THERE -- AND DEPEND SIZE BUTTON TYPE THING
+	IF MOUSE_DOWN_CALCULATOR=TRUE
+	{
+		TOOLTIP
+		MOUSE_DOWN_CALCULATOR=
+		Process, CLOSE, Calc1.exe
+		; Process, CLOSE, Calc1.exe
+		RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+	}
+	; ---------------------------------------------------------------
+	IF offsetx>41
+	IF offsetx<562
+	IF offsety<38   ; --  HITT IN TITLE BAR AREA NOT ANY OTHER BUTTON THERE -- AND DEPEND SIZE BUTTON TYPE THING
+	IF (stateL = "D")
+	IF TRIG_FIND_STATEL_WINDOWS_7_TIMER_2<%A_NOW%
+	{
+		CoordMode, ToolTip, Screen  ; Place ToolTips at absolute screen coordinates.
+		WinGetPos TOOLTIP_X, TOOLTIP_Y,,,Calculator ahk_class CalcFrame
+		TOOLTIP_X+= 8
+		TOOLTIP_Y-= 70
+		
+		TOOLTIP % "RIGHT CLICK TO LOAD REAL WINDOWS 10 CALCULATOR`n`nNOT -- WINAERO.COM CONVERTOR WINDOWS 7",%TOOLTIP_X%,%TOOLTIP_Y%
+		TRIG_FIND_STATEL_WINDOWS_7=TRUE
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_1=%A_NOW%
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_1 += 2, SECONDS
+		; TOOLTIP % "Offset x = " . offsetx . ", y = " . offsety
+	}
+RETURN
+; ----
+; -------------------------------------------------------
+; -------------------------------------------------------
+; CODE NOT REQUIRE HOTKEY AND NOW USER TIMER ROUNTINE OF 
+; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+; NOT WORK NOT KEYCODE MY COMPUTER -- CALC NOT DETECTABLE
+; -------------------------------------------------------
+; Launch_App2::
+; RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+; RETURN
+; #ifwinactive
+
+; NOT WORK NOT KEYCODE MY COMPUTER -- CALC NOT DETECTABLE
+; -------------------------------------------------------
+; sc121::
+; RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+; RETURN
+; #ifwinactive
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+
