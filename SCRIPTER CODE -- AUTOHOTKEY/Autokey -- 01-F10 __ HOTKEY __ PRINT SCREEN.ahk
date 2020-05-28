@@ -14,6 +14,8 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; SESSION 001
@@ -109,6 +111,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
 
+
+
 ; ---------------------------------------------------------------
 ; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
 ; 01. INTRO SETUP MENU
@@ -141,6 +145,9 @@ SetTitleMatchMode 3  ; Specify Full path
 Send {shift up}
 
 
+
+
+
 VAR_REPEAT_F5_TOOGLE=
 SETTIMER REPEAT_F5_BASHING,20000
 
@@ -168,25 +175,54 @@ GLOBAL PART_RENAME_VAR
 
 SETTIMER TIMER_ENTER,OFF
 
-; LOOP
-; {
-	; TOOLTIP % A_PRIORKEY
-; }
-; RETURN
-
-LOOP
-{
-Loop,9
-  TOOLTIP % ( 255+A_Index, "ScanCode" ) ; 0x100 to 0x108
-} 
-Return
-
-
-ScanCode( wParam, lParam ) {
- Clipboard := "SC" SubStr((((lParam>>16) & 0xFF)+0xF000),-2) 
- GuiControl,, SC, %Clipboard%
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; REQUIRE HOOK METHOD WHEN USER ELSEWHERE
+; -------------------------------------------------------------------
+; Thu 28-May-2020 10:35:00
+; -------------------------------------------------------------------
+; #InstallKeybdHook
+; #InstallMouseHook
+; -------------------------------------------------------------------
+; TWO ROUTINE TO CHECK HOTKEY
+; -------------------------------------------------------------------
+IF TRUE=FALSE
+	{
+	LOOP
+	{
+		TOOLTIP % A_PRIORKEY
+	}
+	RETURN
 }
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+IF TRUE=FALSE
+	{
+	SetFormat, Integer, Hex
+	Gui +ToolWindow -SysMenu +AlwaysOnTop
+	Gui, Font, s14 Bold, Arial
+	Gui, Add, Text, w100 h33 vSC 0x201 +Border, {SC000}
+	Gui, Show,, % "// ScanCode //////////"
+	LOOP
+	{
+	Loop 9
+	  OnMessage( 255+A_Index, "ScanCode" ) ; 0x100 to 0x108
+	}
 
+	ScanCode( wParam, lParam ) {
+	 Clipboard_TMP := "SC" SubStr((((lParam>>16) & 0xFF)+0xF000),-2) 
+	 GuiControl,, SC, %Clipboard_TMP%
+	}
+	RETURN
+}
+; -------------------------------------------------------------------
+
+
+
+; ----
+; Crazy Scripting : Scriptlet to find Scancode of a Key - Scripts and Functions - AutoHotkey Community 
+; https://autohotkey.com/board/topic/21105-crazy-scripting-scriptlet-to-find-scancode-of-a-key/
+; ----
 
 ; HERE THE FUNCTION ROUTINE FOR GOODSYNC
 ; --------------------------------------
@@ -275,15 +311,34 @@ RETURN
 
 
 
+
+; -------------------------------------------------------
+; -------------------------------------------------------
+; CODE NOT REQUIRE HOTKEY AND NOW USER TIMER ROUNTINE OF 
+; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+; NOT WORK NOT KEYCODE MY COMPUTER -- CALC NOT DETECTABLE
+; -------------------------------------------------------
 ; Launch_App2::
 ; RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
 ; RETURN
 ; #ifwinactive
 
-sc121::
-RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
-RETURN
-#ifwinactive
+; NOT WORK NOT KEYCODE MY COMPUTER -- CALC NOT DETECTABLE
+; -------------------------------------------------------
+; sc121::
+; RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+; RETURN
+; #ifwinactive
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+; -------------------------------------------------------
+
+
 
 ; ----
 ; How do I make a mute button - Ask for Help - AutoHotkey Community 
@@ -433,9 +488,7 @@ $*CtrlBreak::RETURN
 ; return
 
 
-
 RETURN
-
 
 
 
@@ -450,6 +503,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
 ; WORK TIME 
 ; -------------------------------------------------------------------
 ; Tue 14-Jan-2020 08:32:29 -- FIRST FIND IDEA
