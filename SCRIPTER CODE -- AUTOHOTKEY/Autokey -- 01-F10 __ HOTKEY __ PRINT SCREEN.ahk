@@ -168,6 +168,26 @@ GLOBAL PART_RENAME_VAR
 
 SETTIMER TIMER_ENTER,OFF
 
+; LOOP
+; {
+	; TOOLTIP % A_PRIORKEY
+; }
+; RETURN
+
+LOOP
+{
+Loop,9
+  TOOLTIP % ( 255+A_Index, "ScanCode" ) ; 0x100 to 0x108
+} 
+Return
+
+
+ScanCode( wParam, lParam ) {
+ Clipboard := "SC" SubStr((((lParam>>16) & 0xFF)+0xF000),-2) 
+ GuiControl,, SC, %Clipboard%
+}
+
+
 ; HERE THE FUNCTION ROUTINE FOR GOODSYNC
 ; --------------------------------------
 GOSUB F5_ROUTINE
@@ -252,6 +272,18 @@ RETURN
 RETURN	
 #ifwinactive
 
+
+
+
+; Launch_App2::
+; RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+; RETURN
+; #ifwinactive
+
+sc121::
+RUN, "C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+RETURN
+#ifwinactive
 
 ; ----
 ; How do I make a mute button - Ask for Help - AutoHotkey Community 
