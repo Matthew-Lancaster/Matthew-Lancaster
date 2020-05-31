@@ -22,7 +22,7 @@
 ; -------------------------------------------------------------------
 ; FROM TO Sun 15-Apr-2018 19:26:10
 ; -------------------------------------------------------------------
-; THIS IS OUR PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
+; THIS IS MY PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
 ; THE MIDDLE CHECK-BOX IS SELECTED
 ; Reference's at End
 ; -------------------------------------------------------------------
@@ -160,6 +160,15 @@
 ; Count = 008 -- Tue 19-Mar-2019 11:34:43
 ; Count = 098 -- Tue 19-Mar-2019 12:51:50
 ; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; HERE LOOK UN-COMPLETE ON TO SOMETHING -- SEARCH STRING
+; -------------------------------------------------------------------
+; NOTEPAD_PP_SESSION_BACKUP_DAILY:
+; ; C:\Users\MATT 04\AppData\Roaming\Notepad++\session.xml
+; RETURN
+; -------------------------------------------------------------------
+
 
 
 #Warn
@@ -652,12 +661,7 @@ RETURN
 
 
 NOTEPAD_PP_SESSION_BACKUP_DAILY:
-
-
 ; C:\Users\MATT 04\AppData\Roaming\Notepad++\session.xml
-
-
-
 RETURN
 
 GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
@@ -785,13 +789,19 @@ ReadInteger( p_address, p_offset, p_size, p_hex=true )
 	
 KILL_RS232_LOGGER_DO_RESTARTER:
 	; D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR.exe
-	If FileExist("C:\SCRIPTOR DATA\VB6\VB-NT\00_Best_VB_01\Tidal_Info\RS232 FRONT DOOR.txt")
-		FileDelete C:\SCRIPTOR DATA\VB6\VB-NT\00_Best_VB_01\Tidal_Info\RS232 FRONT DOOR.txt
+	; ----------------------------------------------------------------
+	; C:\SCRIPTOR DATA\VB6\VB-NT\00_Best_VB_01\Tidal_Info\RS232 FRONT DOOR.txt
+	; WOULD DELETE BUT NOT HELP
+	; CHECK FILE AT BEGIN MAKE ERROR MESSENGER IF STILL EXIT APP NOT EXIT GOOD
+	; ----------------------------------------------------------------
+	FILENAME_RS232:="C:\SCRIPTOR DATA\VB6\VB-NT\00_BEST_VB_01\TIDAL_INFO\RS232 FRONT DOOR_REBOOT__#NFS_EX.TXT"
+	IF !FILEEXIST(FILENAME_RS232)
+		FILEAPPEND, "THIS IS A TESTER TO MAKE RS232_LOGGER DETECT BEEN REBOOT EVENT SHUTDOWN FORCE PROCESS KILL`n", %FILENAME_RS232%
+	IF !FILEEXIST(FILENAME_RS232)
+		MSGBOX FILE NOT EXIST
 	PROCESS, CLOSE, RS232 LOGGER PIR.EXE
-	If FileExist("C:\SCRIPTOR DATA\VB6\VB-NT\00_Best_VB_01\Tidal_Info\RS232 FRONT DOOR.txt")
-		FileDelete "C:\SCRIPTOR DATA\VB6\VB-NT\00_Best_VB_01\Tidal_Info\RS232 FRONT DOOR.txt"
-	If FileExist("C:\SCRIPTOR DATA\VB6\VB-NT\00_Best_VB_01\Tidal_Info\RS232 FRONT DOOR.txt")
-	MSGBOX NOT DELETE FILE
+	SLEEP 1000
+	RUN, D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR.exe
 
 RETURN
 
@@ -802,9 +812,6 @@ RETURN
 	
 MIDNIGHT_AND_HOUR_TIMER:
 
-			GOSUB KILL_RS232_LOGGER_DO_RESTARTER
-			
-PAUSE
 
 	; ---------------------------------------------------------------
 	; DAY TIMER 
