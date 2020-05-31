@@ -346,7 +346,7 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	REM --------------------------------------------------------------
 	SET NAME_V1=DATE MODIFY ____
 	SET NAME_V2=%NAME_V1% FOLDER
-	SET NAME_V4=D:\VB6\VB-NT\00_Send_To\Send To TouchDate\#Send To TouchDate.exe
+	SET NAME_V4=D:\VB6\VB-NT\00_Send_To\Send To MODIFY DATE\#SEND TO MODIFY DATE.EXE
 	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /f
 	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /f
 	REM --------------------------------------------------------------
