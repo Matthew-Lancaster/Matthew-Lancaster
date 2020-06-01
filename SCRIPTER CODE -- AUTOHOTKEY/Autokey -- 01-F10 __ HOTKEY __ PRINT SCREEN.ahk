@@ -1457,8 +1457,16 @@ CHECK_ESC_KEY:
 				ControlGet, OutputVar, Visible,, Button1, Notepad++
 				If OutputVar=0
 				{
-					SendInput {F7}
-					SoundBeep , 2000 , 100
+					; ----------------------------------------------------------------------------------
+					; FROM HERE ONLY WANT CLOSE NOT AS F7 KEY OPEN AGAIN -- THE FLIP FLOP IS TOO MUCH
+					; IDEAL IF SEARCH RESULT FIND SOMETHING TO ISSUE FIND RESULT ITEM
+					; ALLOW ESCAPE CLOSE AND FOR TIMER ALLOW QUICK REOPEN ESC KEY RATHER THAN F7 AS HERE
+					; OPEN SEARCH RESULT AGAIN WOULD REQUIRE SEARCH AGAIN
+					; CLOSE SEARCH BOX ISSUE ESCAPE OPEN RESULT BOTH MAYBE CHECK THERE
+					; Sat 30-May-2020 16:51:00
+					; ----------------------------------------------------------------------------------
+					; SendInput {F7}
+					; SoundBeep , 2000 , 100
 					VAR_DONE_ESCAPE_KEY=TRUE
 				}
 				LOOP, 10000
