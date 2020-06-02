@@ -680,6 +680,14 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME_OLD_BY_LEAVE_SCRIPT_TO_LAST:
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	DetectHiddenWindows, ON
 	SOUNDBEEP 1000,100
+	
+	; ---------------------------------------------------------------
+	; RESET HERE IF SHIFT KEY GOT STUCK DOWN SOMEWHERE BIG RESETER AS CLOSE ALL
+	; Tue 02-Jun-2020 15:50:00
+	; ---------------------------------------------------------------
+	SEND {SHIFT UP}
+	; ---------------------------------------------------------------
+
 	; ---------------------------------------------------------------
 	; IN MY CODE THERE IS A PROBLEM 
 	; Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
