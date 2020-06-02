@@ -797,16 +797,14 @@ RETURN
 RETURN
 #ifwinactive
 
-+^D:: ; SHIFT+CTRL+D ---- CONVERTS TEXT TO DASH
+; +^D:: ; SHIFT+CTRL+D
+^D:: ; CTRL+D ---- CONVERTS TEXT TO DASH -- NOTEPADD++ WHERE MOST WORK USER CNTR D FOR DUPLICATE LINE BUT NEVER NEEDER
 	VAR_INDEX=4
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-
-
-
 
 ; -------------------------------------------------------------------
 HOT_KEY_CONVERT_TExT:
@@ -851,9 +849,26 @@ HOT_KEY_CONVERT_TExT:
 		SPACE_STRING:=" "
 		LOOP, %LENGTH%
 		{
+		SELECT_NOT=0
+
+		; MSGBOX % Clipper_1_GET "`n" A_INDEX "`n"  "`n" SUBSTR(Clipper_1_GET,A_INDEX,1)
+		
+		IF SUBSTR(Clipper_1_GET,A_INDEX,1)="."
+			SELECT_NOT=1
+		IF SUBSTR(Clipper_1_GET,A_INDEX,1)="’"
+			SELECT_NOT=1
+		IF SUBSTR(Clipper_1_GET,A_INDEX,1)="?"
+			SELECT_NOT=1
+		IF SUBSTR(Clipper_1_GET,A_INDEX,1)="'"
+			SELECT_NOT=1
 		IF SUBSTR(Clipper_1_GET,A_INDEX,1)=" "
-			Clipper_2_GET=%Clipper_2_GET%%SPACE_STRING%
-		ELSE
+			SELECT_NOT=1
+		
+		COPY_STRING=% SUBSTR(Clipper_1_GET,A_INDEX,1)
+		
+		IF SELECT_NOT=1
+			Clipper_2_GET=%Clipper_2_GET%%COPY_STRING%
+		IF SELECT_NOT=0
 			Clipper_2_GET=%Clipper_2_GET%%DASH_STRING%
 		}
 		Clipper_1_GET=%Clipper_2_GET%
