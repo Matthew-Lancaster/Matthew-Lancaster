@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "ComDlg32.OCX"
 Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.Ocx"
 Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.Ocx"
@@ -24,11 +24,11 @@ Begin VB.Form frmMain
    ScaleWidth      =   12000
    WindowState     =   1  'Minimized
    Begin RichTextLib.RichTextBox TxtLog 
-      Height          =   285
-      Left            =   1950
+      Height          =   288
+      Left            =   7332
       TabIndex        =   23
-      Top             =   165
-      Width           =   1410
+      Top             =   3744
+      Width           =   1416
       _ExtentX        =   2477
       _ExtentY        =   508
       _Version        =   393217
@@ -38,10 +38,10 @@ Begin VB.Form frmMain
       Appearance      =   0
       TextRTF         =   $"frmMain.frx":058A
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   11.4
+         Name            =   "Arial Black"
+         Size            =   10.8
          Charset         =   0
-         Weight          =   400
+         Weight          =   900
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
@@ -184,12 +184,13 @@ Begin VB.Form frmMain
       BackColor       =   &H00000000&
       ForeColor       =   &H0000FF00&
       Height          =   315
-      Left            =   4245
+      Left            =   4620
       Locked          =   -1  'True
       MultiLine       =   -1  'True
       ScrollBars      =   2  'Vertical
       TabIndex        =   10
-      Top             =   5115
+      Top             =   4704
+      Visible         =   0   'False
       Width           =   1215
    End
    Begin VB.Frame framCompile 
@@ -223,7 +224,7 @@ Begin VB.Form frmMain
                Height          =   1368
                Index           =   1
                Left            =   60
-               Picture         =   "frmMain.frx":05FF
+               Picture         =   "frmMain.frx":060A
                ScaleHeight     =   1368
                ScaleWidth      =   324
                TabIndex        =   21
@@ -247,7 +248,7 @@ Begin VB.Form frmMain
                Height          =   384
                Index           =   1
                Left            =   60
-               Picture         =   "frmMain.frx":0C47
+               Picture         =   "frmMain.frx":0C52
                Top             =   2220
                Width           =   384
             End
@@ -255,7 +256,7 @@ Begin VB.Form frmMain
                Height          =   384
                Index           =   1
                Left            =   0
-               Picture         =   "frmMain.frx":0DDE
+               Picture         =   "frmMain.frx":0DE9
                Top             =   0
                Width           =   384
             End
@@ -397,6 +398,15 @@ Begin VB.Form frmMain
       BackColor       =   -2147483643
       BorderStyle     =   1
       Appearance      =   1
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Arial"
+         Size            =   10.2
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       OLEDropMode     =   1
       NumItems        =   2
       BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
@@ -441,8 +451,17 @@ Begin VB.Form frmMain
    Begin VB.Menu MNU_EXIT 
       Caption         =   "EXIT"
    End
+   Begin VB.Menu MNU_VB_ME 
+      Caption         =   "VB ME"
+   End
+   Begin VB.Menu MNU_FOLDER_ME 
+      Caption         =   "VB FOLDER"
+   End
+   Begin VB.Menu MNU_VERSION 
+      Caption         =   "VERSION"
+   End
    Begin VB.Menu mnuFile 
-      Caption         =   "&File"
+      Caption         =   "&FILE"
       Begin VB.Menu mnuNew 
          Caption         =   "&New Batch Profile"
          Shortcut        =   ^N
@@ -470,7 +489,7 @@ Begin VB.Form frmMain
       End
    End
    Begin VB.Menu mnuCompile 
-      Caption         =   "&Compile"
+      Caption         =   "&COMPILE"
       Begin VB.Menu mnuAutoCompile 
          Caption         =   "&Auto Compile"
          Shortcut        =   {F9}
@@ -487,18 +506,12 @@ Begin VB.Form frmMain
          Shortcut        =   {F12}
       End
    End
-   Begin VB.Menu MNU_VB_ME 
-      Caption         =   "VB ME"
-   End
-   Begin VB.Menu MNU_FOLDER_ME 
-      Caption         =   "FOLDER ME"
-   End
    Begin VB.Menu mnuQSave 
-      Caption         =   "&Quick Save"
+      Caption         =   "&QUICK SAVE"
       Enabled         =   0   'False
    End
    Begin VB.Menu mnuLogPopup 
-      Caption         =   "&Event Log"
+      Caption         =   "&EVENT LOG"
       Begin VB.Menu mnuPrintLog 
          Caption         =   "&Print Log..."
       End
@@ -513,10 +526,10 @@ Begin VB.Form frmMain
       End
    End
    Begin VB.Menu Mnu_ACompile 
-      Caption         =   "Auto-Compile"
+      Caption         =   "AUTO-COMPILE"
    End
    Begin VB.Menu MNU_VB 
-      Caption         =   "Run VB"
+      Caption         =   "RUN VB"
       Visible         =   0   'False
    End
    Begin VB.Menu MNU_RUN_FAVS 
@@ -654,6 +667,9 @@ Private Sub Form_Load()
 
 On Error GoTo EXIT_ERROR
 
+MNU_VERSION.Caption = "VERSION_2020_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision)) ' + " _ MATT.LAN@BTINTERNET.COM"
+
+
 If App.PrevInstance = True Then End
 Dim Filespec, TT
 
@@ -715,7 +731,11 @@ End If
     
 DoEvents
     
-frmMain.WindowState = 1
+If IsIDE = True Then
+Me.Show
+Me.WindowState = vbMaximized
+End If
+
 DoEvents
 
 On Error GoTo 0
@@ -747,9 +767,13 @@ If Me.WindowState = 0 Then
 End If
 
 If Bads = 0 Then
-    TxtLog.Text = TxtLog.Text + vbCrLf + "***** Finished ******" + vbCrLf
+    TxtLog.Text = TxtLog.Text + "***** Finished ******" + vbCrLf
 Else
-    TxtLog.Text = TxtLog.Text + vbCrLf + "***** Finished ******   **** " + Str(Bads) + " Errors" + vbCrLf
+    TxtLog.Text = Replace(TxtLog.Text, vbCrLf + vbCrLf + vbCrLf, vbCrLf)
+    TxtLog.Text = Replace(TxtLog.Text, vbCrLf + vbCrLf, vbCrLf)
+    TxtLog.Text = Replace(TxtLog.Text, vbCr + vbLf, vbCrLf)
+    TxtLog.Text = TxtLog.Text + "***** Finished ******   **** " + Str(Bads) + " Errors" + vbCrLf
+    ' MsgBox TxtLog.Text
 End If
 TxtLog.Refresh
 DoEvents
@@ -777,12 +801,14 @@ TxtLog.SelStart = 0 'Len(TxtLog.Text)
 
 TxtLog.Refresh
 DoEvents
-
+Me.WindowState = vbMaximized
 
 ' On Error Resume Next ' FOR NOW
 'HERE NO
 lstProj.SetFocus
-
+lstProj.Font.Name = "Arial"
+lstProj.Font.Size = 10
+lstProj.Font.Bold = True
 'Search this thats where they are highlighted in selection
 'lstProj.ListItems.Item(R).Selected = True
 
@@ -792,7 +818,7 @@ lstProj.SetFocus
 
 '----------------- END
 
-Me.Caption = "MAster BATch VB6 Compiler -- WORK DONE"
+Me.Caption = "MAster BATch VB6 COMPILER -- WORK DONE"
 If Command$ <> "" And IsIDE = False Then
     'Call MNU_RUN_FAVS_Click
     End
@@ -827,6 +853,8 @@ Exit Sub
 '-----NEW END
 
 
+    
+If IsIDE = True Then Me.WindowState = vbMaximized
 
 
 If BadRun = False And IsIDE = False Then
@@ -849,13 +877,14 @@ End If
     
     
     
-    
 Unload Me
     
 
 
 
 If Me.WindowState = 1 And BadRun = False Then Unload frmMain
+If IsIDE = True Then Me.WindowState = vbMaximized
+
 
 Dim RF
 RF = FindWindow(vbNullString, "#00_Schedule_Timer")
@@ -903,8 +932,12 @@ Dim x
     Me.Left = Screen.Width / 2 - Me.Width / 2
     Me.Height = 7800 '9900
 
-  lstProj.Move 0, 0, ScaleWidth, (ScaleHeight / 100) * 50
-  TxtLog.Move 0, lstProj.Height, ScaleWidth, (ScaleHeight / 100) * 49.7
+  lstProj.Move 0, 0, ScaleWidth, (ScaleHeight / 100) * 40
+  TxtLog.Move 0, lstProj.Height, ScaleWidth, (ScaleHeight / 100) * 59.7
+  TxtLog.Font.Name = "Arial BLACK"
+  TxtLog.Font.Size = 8.4
+  TxtLog.Font.Bold = True
+  
   framCompile.Move 0, -60, ScaleWidth, lstProj.Height
   frmSlide.Move 60, 240, framCompile.Width - 120
   'splitter1.Width = ScaleWidth
@@ -1334,7 +1367,8 @@ jump9:
         InfoI = "Errors -----------------------------" + vbCrLf + "Cannot Compile EXE Already Running" + vbCrLf + mProjects(Val(Indexes(x))).ExeFullPath + vbCrLf + "-----------------------------<<" + vbCrLf
         'InfoR(x) = InfoI
         ErrorPro(x) = mProjects(Val(Indexes(x))).ProjectName
-        TxtLog.Text = TxtLog.Text + vbCrLf + InfoI
+        TxtLog.Text = Trim(TxtLog.Text) + InfoI
+        ' MsgBox InfoI
         BadRun = True
         Bads = Bads + 1
     End If
@@ -1368,17 +1402,11 @@ jump9:
     Call FileInUseDelay(TF$)
     FR1 = FreeFile
     Open TF$ For Output Lock Read As #FR1
-    Print #FR1, "-----------------------------------"
     Print #FR1, Now
-    Print #FR1, "-----------------------------------"
     Print #FR1, Left(mProjects(Val(Indexes(x))).ProjectFullPath, InStrRev(mProjects(Val(Indexes(x))).ProjectFullPath, "\"))
-    Print #FR1, "-----------------------------------"
     Print #FR1, mProjects(Val(Indexes(x))).ProjectFullPath
-    Print #FR1, "-----------------------------------"
     Print #FR1, mProjects(Val(Indexes(x))).ExeFullPath
-    Print #FR1, "-----------------------------------"
     Print #FR1, DD$
-    Print #FR1, "-----------------------------------"
     Print #FR1, TF$
     Print #FR1, "-----------------------------------"
     Close #FR1
@@ -1399,6 +1427,7 @@ jump9:
     'Shell the command to Complie
     'Call Shell(CMD)
           
+    ' MsgBox CMD
     RETURNvAL = shellAndWait(CMD)
           
           
@@ -1456,11 +1485,11 @@ For x = 0 To Cnt - 1
             II$ = Input(LOF(FR1), FR1)
             IQ = LOF(FR1)
         Close #FR1
-        II$ = II$ + "---<<"
+        ' II$ = II$ + "---<<"
+        ' MsgBox II$
         
-        
-         ProFullPath = mProjects(Val(Indexes(x))).ProjectFullPath
-         ProEXEPath = mProjects(Val(Indexes(x))).ExeFullPath
+        ProFullPath = mProjects(Val(Indexes(x))).ProjectFullPath
+        ProEXEPath = mProjects(Val(Indexes(x))).ExeFullPath
 
         
         Call UpdateFileLoggs
@@ -1480,6 +1509,7 @@ For x = 0 To Cnt - 1
                 Dim YY1, YY2
                 YY1 = Len(TxtLog.Text)
                 TxtLog.Text = TxtLog.Text + vbCrLf + "Error -----------------------------** Errors In Log" + vbCrLf + mProjects(Val(Indexes(x))).ExeFullPath + vbCrLf + II$ ' Info(X) + vbCrLf + II$
+                ' MsgBox II$
                 
                 'If InfoR(x) = "" Then
                 '    TxtLog.Text = TxtLog.Text + vbCrLf + "Error -----------------------------** Errors In Log" + vbCrLf + mProjects(Val(Indexes(x))).ExeFullPath + vbCrLf + II$ ' Info(X) + vbCrLf + II$
@@ -1522,14 +1552,9 @@ For x = 0 To Cnt - 1
                 
             Tagg = 1 'LOOKHERE
             
-            
-            
-            
             Dim TXD
             TXD = LCase(" WMICPU2 MINI.exeVolumeBar.exeVolumeBar WinAmp.exeWinAmp MP3%.exeFast Clipboard.exeDrive_Detach.exeURL Logger.exeActive Idle.exeDrives_Gig.exeCid -RunMe.exeBBCWeather.exeTidal.exeRun Fav Programs.exe")
             If InStr(TXD, LCase(mProjects(Val(Indexes(x))).EXEName)) > 0 Then Tagg = 1
-            
-            
             
             If mProjects(Val(Indexes(x))).ExeFullPath = "D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe" Then
                 'FS.CopyFile "D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe", "D:\TEMP\Auto Start Menu.exe"
@@ -1547,7 +1572,6 @@ For x = 0 To Cnt - 1
             DumVar = IsFileOpenDelay(Tx2$)
             FS.CopyFile Tx$, Tx2$
             On Error GoTo 0
-            
         
         End If
     End If
@@ -1573,8 +1597,6 @@ If Dir(App.Path + "\#_Data_Batch_Compiler\" + GetComputerName, vbDirectory) = ""
     End If
     On Error GoTo 0
 End If
-
-
 
 Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierTextForVBCompiler.txt"
 If Dir(Tx$) <> "" Then
@@ -1860,6 +1882,10 @@ Private Sub Mnu_VB_Click()
 Shell """C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"" """ + App.Path + "\BatchCompiler.vbp""", vbNormalFocus
 End
 
+End Sub
+
+Private Sub MNU_VERSION_Click()
+' MNU_VERSION.CAPTION = "VER_2020_" + TRIM(STR(APP.MAJOR)) + "." + TRIM(STR(APP.MINOR)) + "." + TRIM(STR(APP.REVISION)) ' + " _ MATT.LAN@BTINTERNET.COM"
 End Sub
 
 Private Sub mnuAutoCompile_Click()
@@ -2508,6 +2534,7 @@ Sub UpdateFileLoggs()
     Close #FR1
     LV2 = Val(LVS) + 1
         
+    
     Tx$ = App.Path + "\#_Data_Batch_Compiler\" + GetComputerName + "\" + GetComputerName + "__BatchComplierLoggerDates.txt"
     DumVar = IsFileOpenDelay(Tx$)
     FR1 = FreeFile
@@ -2616,6 +2643,7 @@ Sub UpdateFileLoggs()
     Open Tx$ For Output As #FR1
         Print #FR1, AXx$
     Close #FR1
+    ' MsgBox AXx$
 
 End Sub
 
