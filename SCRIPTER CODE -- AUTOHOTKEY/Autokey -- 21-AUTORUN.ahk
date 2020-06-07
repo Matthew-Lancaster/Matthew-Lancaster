@@ -2706,6 +2706,9 @@ RETURN
 
 OUTLOOK_RUN_AND_MIN:
 			
+	
+	RETURN
+	
 	SET_DONE=FALSE
 	IF (A_ComputerName = "7-ASUS-GL522VW") 
 	{	
