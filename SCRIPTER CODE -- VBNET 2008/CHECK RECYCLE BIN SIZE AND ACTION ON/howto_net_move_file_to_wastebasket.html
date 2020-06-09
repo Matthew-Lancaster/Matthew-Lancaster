@@ -1,0 +1,371 @@
+<HTML>
+<META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "RodStephens@vb-helper.com" for "http://www.vb-helper.com" on "1998.03.17T18:18-0800" r (n 0 s 0 v 0 l 0))'>
+<HEAD>
+<TITLE>VB Helper: HowTo: Manage the wastebasket in Visual Basic .NET</TITLE>
+<META NAME="Author" CONTENT="Rod Stephens">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Keywords" CONTENT="wastebasket, recycle bin, delete, delete file, empty recycle bin, empty wastebasket, Visual Basic .NET, VB.NET">
+<META NAME="Keywords" CONTENT="wastebasket, recycle bin, delete, delete file, empty recycle bin, empty wastebasket, Visual Basic .NET, VB.NET">
+<META NAME="Description" CONTENT="VB Helper: HowTo: Manage the wastebasket in Visual Basic .NET">
+<META NAME="Copyright" CONTENT="Copyright 1997-2008, Rocky Mountain Computer Consulting, Inc.">
+<META NAME="Rating" CONTENT="General">
+<META NAME="Robots" CONTENT="All">
+<LINK REL="icon" HREF="http://www.vb-helper.com/vbhelper_icon.ico">
+</HEAD>
+
+<BODY BGCOLOR="#E1F3FF" BACKGROUND="bg_blue.jpg">
+
+  <!-- This table contains the banner, menu column, and content. -->
+  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <!-- ****** -->
+    <!-- Banner -->
+    <!-- ****** -->
+    <TR><TD>
+      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Left">
+        <TR>
+          <TD BACKGROUND="banner_mid.jpg"><IMG SRC="banner_l.jpg" WIDTH="410" HEIGHT="64"></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="banner_r.jpg" WIDTH="32" HEIGHT="64"></TD>
+        </TR>
+      </TABLE>
+    </TD></TR>
+    <TR><TD>&nbsp;</TD></TR>
+
+    <!-- Menu column and content -->
+    <TR><TD>
+      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+        <!-- *********** -->
+        <!-- Menu column -->
+        <!-- *********** -->
+        <TR>
+          <TD ALIGN="Left" VALIGN="Top">
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <!-- Menu top -->
+              <TR>
+                <TD><IMG SRC="blue_ul.jpg" WIDTH="16" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_um.jpg" WIDTH="93" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_ur.jpg" WIDTH="16" HEIGHT="16"></TD>
+              </TR>
+
+              <!-- Menu entries -->
+              <TR BGCOLOR="#7FCFFF">
+                <TD BACKGROUND="blue_l.jpg" WIDTH="16">&nbsp;</TD>
+                <TD><CENTER>
+                  <A HREF="index.html"><B><FONT SIZE="+1">Home</FONT></B></A><BR>
+                  <A HREF="search.html"><B>Search</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="whats_new.html"><B>What's New</B></A><BR>
+                  <A HREF="index_categories.html"><B>Index</B></A><BR>
+                  <A HREF="books.html"><B>Books</B></A><BR>
+                  <A HREF="links.html"><B>Links</B></A><BR>
+                  <A HREF="http://www.topica.com/lists/VBHelperQA/read"><B>Q &amp; A</B></A><BR>
+                  <A HREF="newsletter.html"><B>Newsletter</B></A><BR>
+                  <A HREF="banners.html"><B>Banners</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="http://astore.amazon.com/vbhelper/about"><B>Bookstore...</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="mailto:feedback@vb-helper.com"><B>Feedback</B></A><BR>
+                  <A HREF="tip_jar.html"><B>Tip Jar</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="feed.xml"><IMG SRC="xml_rss.jpg" BORDER="0" ALT="XML RSS Feed"></A><BR>
+                </CENTER></TD>
+                <TD BACKGROUND="blue_r.jpg" WIDTH="16">&nbsp;</TD>
+              </TR>
+
+              <!-- Menu bottom -->
+              <TR>
+                <TD><IMG SRC="blue_ll.jpg" WIDTH="16" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_lm.jpg" WIDTH="93" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_lr.jpg" WIDTH="16" HEIGHT="16"></TD>
+              </TR>
+
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- ******** -->
+              <!-- Partners -->
+              <!-- ******** -->
+
+              <!-- MVP -->
+              <TR><TD COLSPAN="3"><A HREF="http://www.mvps.org"><IMG SRC="mvp_logo.gif" BORDER="0"></A></TR></TD>
+              <TR><TD HEIGHT="20" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- MSDN VB Community -->
+              <TR><TD COLSPAN="3" ALIGN="Center">
+<A HREF="http://msdn.microsoft.com/vbasic/community/default.aspx">MSDN Visual Basic Community</A>
+              </TD></TR>
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Amazon Recommends -->
+              <TR><TD COLSPAN="3" ALIGN="Center">
+<!-- -->
+                <SCRIPT SRC="http://rcm.amazon.com/e/cm?t=vbhelper&l=rc1&p=2&o=1" TYPE="text/JavaScript"></SCRIPT>
+<!-- -->
+                <NOSCRIPT>
+                  <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="125">
+                    <TR><TD>
+                      <MAP NAME="boxmap">
+                        <AREA SHAPE="RECT" COORDS="18, 263, 105, 274" HREF="http://rcm.amazon.com/e/cm/privacy-policy.html?o=1">
+                        <AREA COORDS="0,0,10000,10000" HREF="http://www.amazon.com/exec/obidos/redirect-home/vbhelper">
+                      </MAP>
+                      <img src="http://rcm-images.amazon.com/images/G/01/associates/amzn_recommends/gnbox125x275.gif" width="125" height="275" border="0" usemap="#boxmap">
+                    </TD></TR>
+                  </TABLE>
+                </NOSCRIPT>
+              </TD></TR>
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Wiley -->
+              <TR><TD COLSPAN="3" ALIGN="Center" BACKGROUND="sandpaper.gif"><A HREF="http://service.bfast.com/bfast/click?bfmid=37920629&siteid=40078832&bfpage=computer_science" TARGET="_top"><IMG SRC="wiley_logo.gif" BORDER="0" ALIGN="Center" WIDTH="77" HEIGHT="105"></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Que -->
+              <TR><TD COLSPAN="3" ALIGN="Center"><A HREF="http://www.quepublishing.com"><IMG SRC="que.gif" BORDER="0" ALIGN="Center" WIDTH="121" HEIGHT="36"></A></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Amazon -->
+              <TR><TD COLSPAN="3" ALIGN="Center"><A HREF="amazon.html"><IMG SRC="amazon_logo.gif" BORDER="0" ALIGN="Center" WIDTH="68" HEIGHT="65"></A></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- ********** -->
+              <!-- More stuff -->
+              <!-- ********** -->
+
+            </TABLE>
+          </TD>
+
+          <!-- A little space between the menus and content -->
+          <TD WIDTH="5">&nbsp;</TD>
+
+          <!-- ******* -->
+          <!-- Content -->
+          <!-- ******* -->
+          <TD WIDTH="100%" ALIGN="Left" VALIGN="Top">
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <!-- How To Summary -->
+              <TR><TD>
+                <TABLE WIDTH="100%" BORDER="2" CELLSPACING="0" CELLPADDING="2">
+                  <TR><TH ALIGN="Left">Title</TH><TD WIDTH="100%">Manage the wastebasket in Visual Basic .NET</TD></TR>
+                  <TR><TH ALIGN="Left">Description</TH><TD WIDTH="100%">This example shows how to manage the wastebasket in Visual Basic .NET.</TD></TR>
+                  <TR><TH ALIGN="Left">Keywords</TH><TD>wastebasket, recycle bin, delete, delete file, empty recycle bin, empty wastebasket, Visual Basic .NET, VB.NET</TD></TR>
+                  <TR><TH ALIGN="Left">Categories</TH><TD>Files and Directories, Utilities</TD></TR>
+                </TABLE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+This example uses interop methods to define functions in DLLs so it imports the System.Runtime.InteropServices namespace.
+<P>
+It then declares teh SHQueryRecycleBin and SHEmptyRecycleBin API functions, and the structures they need.
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2">&lt;StructLayout(LayoutKind.Sequential, Pack:=1)&gt; _
+Public Structure SHQUERYRBINFO
+    Dim cbSize As Int32
+    Dim i64Size As Long
+    Dim i64NumItems As Long
+End Structure
+
+&lt;DllImport("shell32.dll")&gt; _
+Private Shared Function SHQueryRecycleBin(ByVal pszRootPath _
+    As String, ByRef ptSHQueryRBInfo As SHQUERYRBINFO) As _
+    Int32
+End Function
+
+Private Enum RecycleFlags As Int32
+    SHERB_NOCONFIRMATION = &amp;H1
+    SHERB_NOPROGRESSUI = &amp;H2
+    SHERB_NOSOUND = &amp;H4
+End Enum
+
+&lt;DllImport("shell32.dll")&gt; _
+Private Shared Function SHEmptyRecycleBin(ByVal hwnd As _
+    IntPtr, ByVal pszRootPath As String, ByVal dwFlags As _
+    RecycleFlags) As Int32
+End Function</FONT></PRE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+Every second a timer executes the following code. It uses the SHQueryRecycleBin function to see how many files are in the recycle bin and how much space they occupy.
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2">Private Sub tmrCheckBin_Tick(ByVal sender As System.Object, _
+    ByVal e As System.EventArgs) Handles tmrCheckBin.Tick
+    Static had_error As Boolean = False
+    If had_error Then Exit Sub
+
+    Try
+        Dim info As SHQUERYRBINFO
+        info.cbSize = Len(info)
+        SHQueryRecycleBin(Nothing, info)
+        lblNumItems.Text = info.i64NumItems &amp; " items (" &amp; _
+            info.i64Size &amp; " bytes)"
+    Catch ex As Exception
+        had_error = True
+        MessageBox.Show("Error getting wastebasket " &amp; _
+            "information" &amp; vbCrLf &amp; ex.Message, "Error", _
+            MessageBoxButtons.OK, MessageBoxIcon.Error)
+    End Try
+End Sub</FONT></PRE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+When you click the Delete File button, the following code executes. It examines the form's radio buttons to see whether it should permanently delete the file or move it to the wastebasket. It examines the chkConfirmDelete check box to see if it should make the user confirm the deletion.
+<P>
+The code then calls My.Computer.FileSystem.DeleteFile to delete the file. (This part of the program is purely .NET. Too bad there aren't similar methods for checking the wastebasket's size and emptying it.)
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2">Private Sub btnDelete_Click(ByVal sender As System.Object, _
+    ByVal e As System.EventArgs) Handles btnDelete.Click
+    Dim opt_recycle As FileIO.RecycleOption
+    If radDeletePermanently.Checked Then
+        opt_recycle = FileIO.RecycleOption.DeletePermanently
+    Else
+        opt_recycle = FileIO.RecycleOption.SendToRecycleBin
+    End If
+
+    Dim opt_confirm As FileIO.UIOption
+    If chkConfirmDelete.Checked Then
+        opt_confirm = FileIO.UIOption.AllDialogs
+    Else
+        opt_confirm = FileIO.UIOption.OnlyErrorDialogs
+    End If
+
+    Try
+        My.Computer.FileSystem.DeleteFile( _
+            txtFile.Text, opt_confirm, opt_recycle)
+    Catch ex As Exception
+        MessageBox.Show("Error deleting file" &amp; vbCrLf &amp; _
+            ex.Message, "Error", MessageBoxButtons.OK, _
+            MessageBoxIcon.Error)
+    End Try
+
+    MakeDummyFile()
+End Sub</FONT></PRE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+When you click the Empty Wastebasket button, the following code executes. The code sets appropriate options to optionally display a progress bar, play the recycling sound, and ask the user for confirmation. It then calls the SHEmptyRecycleBin API function to empty the wastebasket.
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2">Private Sub btnEmpty_Click(ByVal sender As System.Object, _
+    ByVal e As System.EventArgs) Handles btnEmpty.Click
+    Dim options As RecycleFlags = 0
+
+    If Not chkProgress.Checked Then options = options Or _
+        RecycleFlags.SHERB_NOPROGRESSUI
+    If Not chkPlaySound.Checked Then options = options Or _
+        RecycleFlags.SHERB_NOSOUND
+    If Not chkConfirmEmpty.Checked Then options = options _
+        Or RecycleFlags.SHERB_NOCONFIRMATION
+
+    Try
+        SHEmptyRecycleBin(Nothing, Nothing, options)
+    Catch ex As Exception
+        MessageBox.Show("Error emptying wastebasket" &amp; _
+            vbCrLf &amp; ex.Message, "Error", _
+            MessageBoxButtons.OK, MessageBoxIcon.Error)
+    End Try
+End Sub</FONT></PRE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+Unfortunately the SHEmptyRecycleBin function seems to ignore some of these parameters and does play the recycling sound or display a progress dialog for me. If you figure out how to fix this, <A HREF="mailto:RodStephens@vb-helper.com">please let me know</A>.
+              </TD></TR>
+
+              <!-- *************** -->
+              <!-- Download button -->
+              <!-- *************** -->
+
+              <TR><TD><FONT SIZE="-2">&nbsp;</FONT></TD></TR>
+              <TR><TD ALIGN="Center"><A HREF="HowTo/howto_net_move_file_to_wastebasket.zip"><IMG SRC="download.jpg" BORDER="0"></A></TD></TR>
+              <TR><TD><FONT SIZE="-2">&nbsp;</FONT></TD></TR>
+
+            </TABLE> <!-- End content table -->
+          </TD> <!-- End content column -->
+
+          <!-- ************** -->
+          <!-- Google AdSense -->
+          <!-- ************** -->
+          <TD WIDTH="120" ALIGN="Right" VALIGN="Top">
+            <TABLE WIDTH="165" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="Right">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-6627515316741006";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_channel ="4974732445";
+google_color_border = "00CC66";
+google_color_bg = "99FF99";
+google_color_link = "0000FF";
+google_color_url = "0033FF";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+              </TD></TR>
+            </TABLE> <!-- End Google AdSense table -->
+          </TD> <!-- End Google AdSense column -->
+
+
+        </TR> <!-- End row containing menu column and content -->
+      </TABLE> <!-- End table containing menu column and content -->
+    </TD></TR>
+
+    <!-- ****** -->
+    <!-- Footer -->
+    <!-- ****** -->
+    <TR><TD WIDTH="100%">
+      <TABLE WIDTH="100%" BORDER="0" BGCOLOR="#87CEFA" CELLSPACING="0" CELLPADDING="0">
+        <!-- Top row -->
+        <TR>
+          <TD BGCOLOR="#E1F3FF" ALIGN="Right" WIDTH="16"><IMG SRC="blue_ul.jpg" WIDTH="16" HEIGHT="16"></TD>
+          <TD BACKGROUND="blue_um.jpg" COLSPAN="2" ALIGN="Center"><FONT SIZE="-2">
+            Copyright &copy; 1997-2008 Rocky Mountain Computer Consulting, Inc. &nbsp; All rights reserved.
+          </FONT></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="blue_ur.jpg" WIDTH="16" HEIGHT="16"></TD>
+        </TR>
+
+        <!-- Bottom row -->
+        <TR>
+          <TD BGCOLOR="#E1F3FF" ALIGN="Right" WIDTH="16"><IMG SRC="blue_ll.jpg" WIDTH="16" HEIGHT="16"></TD>
+          <TD BACKGROUND="blue_lm.jpg"><FONT SIZE="-2">
+            &nbsp;<SCRIPT LANGUAGE=JavaScript>document.write(document.URL)</SCRIPT></FONT></TD>
+          <TD BACKGROUND="blue_lm.jpg" ALIGN="Right"><FONT SIZE="-2">
+            Updated <SCRIPT LANGUAGE=JavaScript>document.write(document.lastModified)</SCRIPT> &nbsp;
+          </FONT></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="blue_lr.jpg" WIDTH="16" HEIGHT="16"></TD>
+        </TR>
+      </TABLE>
+    </TD></TR>
+  </TABLE> <!-- End table containing banner, menu column + content, and footer -->
+
+</BODY>
+</HTML>

@@ -1,0 +1,10 @@
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\bin\Debug\howto_net_move_file_to_wastebasket.exe
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\bin\Debug\howto_net_move_file_to_wastebasket.pdb
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\bin\Debug\howto_net_move_file_to_wastebasket.xml
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\obj\Debug\ResolveAssemblyReference.cache
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\obj\Debug\howto_net_move_file_to_wastebasket.Form1.resources
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\obj\Debug\howto_net_move_file_to_wastebasket.Resources.resources
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\obj\Debug\howto_net_move_file_to_wastebasket.vbproj.GenerateResource.Cache
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\obj\Debug\howto_net_move_file_to_wastebasket.exe
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\obj\Debug\howto_net_move_file_to_wastebasket.xml
+C:\SCRIPTER\SCRIPTER CODE -- VBNET 2008\CHECK RECYCLE BIN SIZE AND ACTION ON\obj\Debug\howto_net_move_file_to_wastebasket.pdb
