@@ -64,6 +64,8 @@ DIM obj_SOURCE_Folder
 DIM obj_TARGET_Folder
 DIM Version_OS
 
+
+' X = objShell.Popup("COPY - AND THEN - DELETE --" + VBCR + Subfolder.PATH + VBCR + TARGET_FOLDER_3 + Subfolder.NAME, 3,, vbOKOnly+ vbMsgBoxSetForeground)
 Set objShell = Wscript.CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 WindowsDir = objShell.ExpandEnvironmentStrings("%windir%")
