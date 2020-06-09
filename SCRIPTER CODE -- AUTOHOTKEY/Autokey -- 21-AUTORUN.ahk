@@ -1232,6 +1232,7 @@ If ProcessExist("picpick.exe", A_UserName)=0
 	}
 }
 
+IF TRUE=FALSE
 If ProcessExist("RoboTaskBarIcon.exe", A_UserName)=0
 {
 	FN_VAR:="C:\Program Files (x86)\Siber Systems\AI RoboForm\RoboTaskBarIcon.exe"
@@ -1258,6 +1259,8 @@ RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Robo
 
 DetectHiddenWindows, On
 
+IF (A_ComputerName <> "1-ASUS-X5DIJ") 
+IF (A_ComputerName <> "2-ASUS-EEE") 
 If ProcessExist("wweb32.exe", A_UserName)=0
 	{
 		FN_VAR_2=
@@ -1282,9 +1285,6 @@ If ProcessExist("wweb32.exe", A_UserName)=0
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WordWeb
 	
 	
-	
-	
-	
 SET_GO=FALSE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
 	SET_GO=TRUE
@@ -1292,7 +1292,6 @@ IF (A_ComputerName = "2-ASUS-EEE")
 	SET_GO=TRUE
 IF (A_ComputerName = "3-LINDA-PC") 
 	SET_GO=TRUE
-
 
 SET_GO_1=0
 IF (A_ComputerName="1-ASUS-X5DIJ")
@@ -1309,7 +1308,6 @@ IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	; SET_GO_1=1
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
 	SET_GO_1=1	
-
 
 IF SET_GO_1=1
 {
@@ -1371,7 +1369,6 @@ IF SET_GO_1=1
 		}
 	}
 }
-	
 	
 Process, Exist, gs-server.exe
 If Not ErrorLevel
