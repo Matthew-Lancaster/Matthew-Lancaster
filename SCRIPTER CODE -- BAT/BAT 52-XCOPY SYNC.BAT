@@ -49,7 +49,7 @@
 @REM -- TO KEEP CENTRAL 
 @REM -- MULTI JOB IN ONE
 @REM ----------------------------------------------------------------
-@REM -- C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS
+@REM -- C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 32-COPIER_SYNC.VBS
 @REM ----------------------------------------------------------------
 
 @CD \
