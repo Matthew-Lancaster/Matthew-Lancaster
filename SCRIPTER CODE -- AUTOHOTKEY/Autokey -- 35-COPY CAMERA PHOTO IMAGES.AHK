@@ -108,6 +108,8 @@ SetTitleMatchMode 2
 DetectHiddenText, Off
 
 
+LABEL_CAMERA=
+
 
 GLOBAL O_HWND_ID_1
 GLOBAL MSGBOX_CAMERA_CountDown_Generate_VAR
@@ -245,11 +247,12 @@ TIMER_DRIVE_GET_CAMERA:
 		FIND_VOLUME_NAME_01:="--" SET_ARRAY_1[A_Index] "__"
 		FIND_VOLUME_NAME_02:=SET_ARRAY_1[A_Index]
 		IF INSTR(DRIVE_SET,FIND_VOLUME_NAME_01)>0
+		{
+			LABEL_CAMERA:=SET_ARRAY_1[A_Index]
 			SET_GO=TRUE
-		IF SET_GO=TRUE
 			BREAK                                ; -- FIRST FIND GIVE EXIT
+		}
 	}
-
 
 	; -------------------------------------------------------------------
 	; IF DOS SHELL BATCH RUN SWERVE THAT ONE
