@@ -780,6 +780,11 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 		IMAGE_POINTER_NAME=IMAGE_POINTER_FOLDER_1+"COPY_CAMERA_PHOTO_IMAGE_POINTER_"+FOLDER_PATH(R_COUNT)+".TXT"
 		IMAGE_POINTER_NAME=REPLACE(IMAGE_POINTER_NAME,"\SCRIPTER\","\SCRIPTOR DATA\")
 		
+		IMAGE_POINTER_FOLDER_DATA=MID(Wscript.ScriptFullName,1,INSTRREV(Wscript.ScriptFullName,"\"))+"VBS 29-COPY CAMERA\"
+		IMAGE_POINTER_FOLDER_DATA=REPLACE(IMAGE_POINTER_FOLDER_DATA,"\SCRIPTER\","\SCRIPTOR DATA\")
+		
+		' C:\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 29-COPY CAMERA		
+		
 		If Not FSO.FolderExists(IMAGE_POINTER_FOLDER_1) Then
 			BuildFullPath IMAGE_POINTER_FOLDER_1
 		End If
@@ -834,9 +839,15 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			DeleteEmptyFolders objFolder
 		END IF
 		
+		' --------------------------------------------------
+		If Not FSO.FolderExists(IMAGE_POINTER_FOLDER_DATA) Then
+			BuildFullPath IMAGE_POINTER_FOLDER_DATA
+		End If
+		' --------------------------------------------------
 		Set objFile = FSO.CreateTextFile(IMAGE_POINTER_NAME)
-		objFile.Write FileModDate_3
+			objFile.Write FileModDate_3
 		SET objFile=NOTHING
+		' --------------------------------------------------
 
 		IF I_COUNT_1>0 THEN 
 			WORK_GO_ER=TRUE
