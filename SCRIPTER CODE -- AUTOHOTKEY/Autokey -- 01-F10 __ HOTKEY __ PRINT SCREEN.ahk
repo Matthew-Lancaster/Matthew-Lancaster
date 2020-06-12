@@ -568,6 +568,8 @@ F5::
 
 ; -------------------------------------------------------------------
 ; SELECT 1000 PHOTO WITH HOTKEY H
+; IF SEARCH JPG 1500 MAXIMUM
+; GO FROM BOTTOM UP WITH LEFT KEY
 ; -------------------------------------------------------------------
 #IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 *~H::
@@ -588,7 +590,7 @@ RETURN
 ; -------------------------------------------------------------------
 TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 
-	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>10010
+	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>1500
 	{
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
