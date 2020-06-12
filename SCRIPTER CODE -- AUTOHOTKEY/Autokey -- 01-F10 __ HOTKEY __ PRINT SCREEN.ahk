@@ -563,9 +563,6 @@ F5::
 #ifwinactive
 
 
-
-
-
 ; -------------------------------------------------------------------
 ; SELECT 1000 PHOTO WITH HOTKEY H
 ; IF SEARCH JPG 1500 MAXIMUM
@@ -602,10 +599,18 @@ TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
 		RETURN
 	}
+	IF GetKeyState("RButton","P")
+	{
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
+		RETURN
+	}
 	SetTitleMatchMode 2  ; PARTIAL PATH
 	IfWinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 	{
-		WinActivate Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
+		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
+		; WinActivate Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 		RETURN
 	}
 	SENDINPUT {LEFT}
