@@ -427,6 +427,10 @@ SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
 
 SETTIMER KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION,500
 
+PROCESS_NAME_COUNTER_01=
+PROCESS_NAME_COUNTER_02=
+PROCESS_NAME_COUNTER_03=
+SETTIMER APP_TO_KILL,10000
 
 
 
@@ -440,8 +444,78 @@ RETURN
 ; -------------------------------------------------------------------
 
 
+
+APP_TO_KILL:
+; -------------------------------------------------------------------
+; "C:\Program Files\Laplink\DiskImage\oodiag.exe"
+; -------------------------------------------------------------------
+WinGet, Path_1, ProcessPath, ahk_exe oodiag.exe
+
+IF INSTR(Path_1,"oodiag.exe")>0
+{
+	IF PROCESS_NAME_COUNTER_01=2
+	{
+		MSGBOX "C:\Program Files\Laplink\DiskImage\oodiag.exe`n`nHAS BEEN FIND AND KILL PROCESS"
+	}
+	PROCESS_NAME_COUNTER_01+=1
+	Process, Close, oodiag.exe
+}
+IF !PROCESS_NAME_COUNTER_01
+IF INSTR(Path_1,"oodiag.exe")=0
+	PROCESS_NAME_COUNTER_01=2
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; "C:\Program Files (x86)\MiniTool ShadowMaker\AgentService.exe"
+; -------------------------------------------------------------------
+WinGet, PATH_1, ProcessPath, ahk_exe AgentService.exe
+
+IF INSTR(PATH_1,"AgentService.exe")>0
+{
+	IF PROCESS_NAME_COUNTER_02=2
+	{
+		MSGBOX "C:\Program Files (x86)\MiniTool ShadowMaker\AgentService.exe`n`nHAS BEEN FIND AND KILL PROCESS"
+	}
+	PROCESS_NAME_COUNTER_02+=1
+	Process, Close, AgentService.exe
+}
+IF !PROCESS_NAME_COUNTER_02
+IF INSTR(Path_1,"AgentService.exe")=0
+	PROCESS_NAME_COUNTER_02=2
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; "C:\Program Files (x86)\Wondershare\WAF\2.4.3.229\WsAppService.exe"
+; -------------------------------------------------------------------
+WinGet, PATH_1, ProcessPath, ahk_exe WsAppService.exe
+
+IF INSTR(PATH_1,"WsAppService.exe")>0
+{
+	IF PROCESS_NAME_COUNTER_03=2
+	{
+		MSGBOX "C:\Program Files (x86)\Wondershare\WAF\2.4.3.229\WsAppService.exe`n`nHAS BEEN FIND AND KILL PROCESS"
+	}
+	PROCESS_NAME_COUNTER_03+=1
+	Process, Close, WsAppService.exe
+}
+IF !PROCESS_NAME_COUNTER_03
+IF INSTR(Path_1,"WsAppService.exe")=0
+	PROCESS_NAME_COUNTER_03=2
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+
+RETURN
+
+
+
 ONE_MOMENT_CLOSE_CMD:
 
+	WinGet, HWNDID, ID ,C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe ahk_class ConsoleWindowClass
 	WINCLOSE ahk_id %HWNDID%
 	HWNDID=
 	SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
