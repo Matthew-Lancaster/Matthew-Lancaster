@@ -18,7 +18,7 @@ objFile.Close
 
 
 DIM XX
-	
+DIM PATH_STRING_PUT_OLD
 
 Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 
@@ -27,14 +27,32 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 	bIsValid = FALSE
 
 	bIsValid = TRUE
-	IF INSTR(strPath,"_gsdata_")>0 THEN bIsValid = FALSE
+	IF INSTR(strPath & "\" & strFileName,"_gsdata_")>0 THEN bIsValid = FALSE
+	IF FSO.FOLDEREXISTS(strPath & "\" & strFileName) THEN bIsValid = FALSE
 	
 	isValidFileName = bIsValid
 
 	IF isValidFileName=TRUE THEN 
 		Set File = FSO.OpenTextFile(FILE_TEST, ForAppending)
 		XX=XX+1
-		File.Write CSTR(XX) +"  "+ strPath + strFileName + VBCRLF
+		PATH_STRING=strPath + strFileName
+		X1=INSTRREV(PATH_STRING,"\")
+		X1=INSTRREV(PATH_STRING,"\",X1-1)
+		PATH_STRING=MID(PATH_STRING,X1)
+
+		PATH_STRING_2=strPath
+		X1=INSTRREV(PATH_STRING_2,"\")
+		X1=INSTRREV(PATH_STRING_2,"\",X1-1)
+		PATH_STRING_2=MID(PATH_STRING_2,X1)
+		PATH_STRING_2=MID(PATH_STRING_2,2)
+		
+		PATH_STRING_PUT=strPath
+		IF PATH_STRING_PUT_OLD<>PATH_STRING_PUT THEN 
+		File.Write CSTR(XX) +"__"+ PATH_STRING_2 + VBCRLF
+		END IF 
+		PATH_STRING_PUT_OLD=PATH_STRING_PUT
+		
+' 		File.Write CSTR(XX) +"  "+ PATH_STRING + VBCRLF
 	END IF
 	
 End Function
