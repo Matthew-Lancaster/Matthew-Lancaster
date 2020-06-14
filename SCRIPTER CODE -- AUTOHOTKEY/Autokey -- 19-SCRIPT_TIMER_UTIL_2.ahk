@@ -1509,6 +1509,7 @@ RETURN
 
 NOT_RESPOND_TIMEZONE_MINI_GUI_DISPLAY_05:
 Element_1 := "D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe"
+IF (A_ComputerName <> "2-ASUS-EEE") 
 IfExist, %Element_1%
 {
 	VAR_1_WIN_05=TIMEZONE MINI GUI DISPLAY ahk_class ThunderFormDC
@@ -1526,7 +1527,9 @@ IfExist, %Element_1%
 
 		SoundBeep , 2000 , 100
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; --------------
 		Run, %Element_1%
+		; --------------
 	}
 }
 RETURN
