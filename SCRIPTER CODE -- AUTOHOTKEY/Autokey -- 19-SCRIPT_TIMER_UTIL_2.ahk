@@ -465,12 +465,90 @@ MOUSE_DOWN_Calculator=
 SETTIMER RIGHT_CLICK_TO_LOAD_REAL_WINDOWS_10_CALCULATOR_NOT_WINAERO_COM_CONVERTOR_WINDOWS_7,100
 
 
+
+SETTIMER ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET,1000
+
+
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 RETURN
+
+
+ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET:
+
+	; Setup - Freemake Music Box
+	; ahk_class TWizardForm
+	; ahk_exe MusicBox.tmp
+
+	DetectHiddenWindows, OFF
+
+	WinGet,VAR_GET, ID, ahk_class TWizardForm
+	OutVar_1=
+	OutVar_2=
+	OutVar_3=
+	IF VAR_GET
+	{
+		ControlGettext, OutVar_1, TNewButton1, ahk_id %VAR_GET%
+		ControlGettext, OutVar_2, TNewButton2, ahk_id %VAR_GET%
+		ControlGet, OutVar_3, Enabled,, TNewButton1, ahk_id %VAR_GET%
+		ControlGet, OutVar_4, Checked,, TNewCheckBox1, ahk_id %VAR_GET%
+	}
+	
+	
+	IF VAR_GET
+	IF OutVar_4=1
+		Control, UNCheck,, TNewCheckBox1, ahk_id %VAR_GET%
+	
+	
+	IF VAR_GET
+	{
+		IF OutVar_3=1    ; NOT ENABLE
+		IF OutVar_2=&Next >
+		{
+			ControlClick, &Next >, ahk_id %VAR_GET%
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			RETURN
+		}
+		
+		IF OutVar_2=&Finish
+		{
+			ControlClick, &Finish, ahk_id %VAR_GET%
+			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			RETURN
+		}
+		
+		IF OutVar_1
+		{
+			ControlClick, TNewButton1, ahk_id %VAR_GET%
+			; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		}
+	}
+	
+	WinGet,VAR_GET_1, ID, Exit Setup ahk_class #32770
+	IF VAR_GET_1
+	{
+		WinGet,VAR_GET_2, ProcessPath, ahk_exe FreemakeMusicBoxFull.tmp
+		IF VAR_GET_2
+		{
+			ControlGettext, OutVar_2, Button2, ahk_id %VAR_GET_1%
+			TOOLTIP % OutVar_2
+			IF OutVar_2
+			{
+				ControlClick, Button2, ahk_id %VAR_GET_1%
+				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+				RETURN
+			}
+		}
+	}		
+		
+
+RETURN
+
 
 
 ; -------------------------------------------------------------------
