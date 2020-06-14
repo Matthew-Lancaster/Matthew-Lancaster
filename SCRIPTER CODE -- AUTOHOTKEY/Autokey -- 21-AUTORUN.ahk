@@ -261,7 +261,6 @@ CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=FALSE
 
 
 
-
 GLOBAL CLOSE_SOME_LEFT_OVER_WINDOWS_VAR
 GLOBAL FLAG_GET_PROCESS_MATCH=0
 GLOBAL ProcessSearch:=""
@@ -1567,6 +1566,9 @@ RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Goog
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, GoogleDriveSync
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, OneDrive
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, Dropbox
+
+; C:\Program Files (x86)\Samsung\SideSync4\SideSync.exe
+RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, SideSync
 
 
 Process, Exist, ViceVersa.exe
