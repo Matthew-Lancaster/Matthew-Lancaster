@@ -79,7 +79,6 @@ Menu, Tray, Add
 Menu, Tray, Add, 1 HOUR TIMER UNTIL HUBIC.EXE LEARN, MenuHandler  
 }
 
-
 if A_ScriptName=Autokey -- 58-Auto Repeat Browser Function Set.ahk
 {
 Menu, Tray, Add
