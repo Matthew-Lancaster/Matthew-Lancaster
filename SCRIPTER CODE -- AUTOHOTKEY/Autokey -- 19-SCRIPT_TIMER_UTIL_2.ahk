@@ -486,11 +486,17 @@ ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET:
 	; ahk_exe MusicBox.tmp
 
 	DetectHiddenWindows, OFF
-
+	VAR_TITLE=
 	WinGet,VAR_GET, ID, ahk_class TWizardForm
+	IF VAR_GET
+		WinGetTitle, VAR_TITLE, ahk_id %VAR_GET%
 	OutVar_1=
 	OutVar_2=
 	OutVar_3=
+	
+	IF INSTR(VAR_TITLE,"Freemake")=0 
+		RETURN
+	
 	IF VAR_GET
 	{
 		ControlGettext, OutVar_1, TNewButton1, ahk_id %VAR_GET%
