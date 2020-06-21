@@ -1,6 +1,6 @@
 ' -------------------------------------------------------------------
 ' Mon 18-Mar-2019 02:19:46 P
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 41-GET DATE AND TIME FORMATTER.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 41-GET DATE AND TIME FORMATTER.VBS
 ' -------------------------------------------------------------------
 ' END WRITE
 ' Mon 18-Mar-2019 15:10:00 P
@@ -20,7 +20,7 @@
 
 ' -------------------------------------------------------------------
 ' USAGE IN BATCH FILE
-' SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 41-GET DATE AND TIME FORMATER.VBS"
+' SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 41-GET DATE AND TIME FORMATER.VBS"
 ' for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
 ' SET DATE_TIME_FORMATER=%strVBScriptResults%
 ' ECHO %DATE_TIME_FORMATER%

@@ -1,4 +1,4 @@
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS
 ' --------------------------------------------------------------------
 ' VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS
 ' --------------------------------------------------------------------
@@ -22,7 +22,7 @@
 ' --------------------------------------------------------------------
 ' IS RUN FROM
 ' --------------------------------------------------------------------
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
 ' --------------------------------------------------------------------
 ' HERE ROUTINE HANDLE
 ' --------------------------------------------------------------------

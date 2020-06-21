@@ -157,9 +157,9 @@ DIM PinTo10_v4_EXE__
 
 Q=CHR(34)
 
-PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 12-Pinto10\PinTo10.exe" 
-PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 12-Pinto10\PinTo10.exe"
-PinTo10_v4_EXE__=Q & "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 12-Pinto10\PinTo10_v4.exe" & Q
+PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-Pinto10\PinTo10.exe" 
+PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-Pinto10\PinTo10.exe"
+PinTo10_v4_EXE__=Q & "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-Pinto10\PinTo10_v4.exe" & Q
 
 Set wshShell = CreateObject( "WScript.Shell" )
 strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
@@ -1136,7 +1136,7 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 			ITEM_VAR_SET=" """+ITEM_VAR_PATH+"\"+ITEM_VAR_FILE+""""+" PIN TASKBAR"
 			' -noexit 
 			
-			PinTo10_EXE_PATH="powershell -noprofile -ExecutionPolicy Bypass -file ""C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 12-Pinto10\PinTo10_v4.ps1"""
+			PinTo10_EXE_PATH="powershell -noprofile -ExecutionPolicy Bypass -file ""C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-Pinto10\PinTo10_v4.ps1"""
 		END IF
 		
 		If objFSO.FileExists(PinTo10_EXE_PATH) = FALSE Then 

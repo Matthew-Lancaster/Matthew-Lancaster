@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 38-Stop Goodsync From Continue Msgbox.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 38-Stop Goodsync From Continue Msgbox.VBS
 '# __ 
 '# __ VBS 38-Stop Goodsync From Continue Msgbox.VBS
 '# __ 

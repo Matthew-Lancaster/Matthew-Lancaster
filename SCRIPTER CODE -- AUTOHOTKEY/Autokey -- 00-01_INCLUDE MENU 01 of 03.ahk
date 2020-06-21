@@ -160,7 +160,7 @@ if A_ThisMenuItem=Terminate Script
 
 if A_ThisMenuItem=Terminate All AutoHotKey.exe -- LEFT(Ctrl)+WInKEY+ESCAPE
 {
-	; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
+	; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
 	GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
 	
 	;  ----------------------------------------------------------
@@ -193,7 +193,7 @@ if A_ThisMenuItem=Terminate All AutoHotKey.exe -- LEFT(Ctrl)+WInKEY+ESCAPE
 	; AND THEY USE IT HERE THIS ONE
 	; C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
 	; ORIGINAL AT HERE LOCATION 
-	; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 39-KILL PROCESS.VBS
+	; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 39-KILL PROCESS.VBS
 	; AND MOVED HERE MAYBE 
 	; -------------------------------------------------------------------
 	; MOST LIKELY TRY AND KEEP IN SYNC LATER

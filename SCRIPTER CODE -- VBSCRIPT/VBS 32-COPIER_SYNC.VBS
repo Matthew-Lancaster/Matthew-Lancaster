@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 32-COPIER_SYNC.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 32-COPIER_SYNC.VBS
 '# __ 
 '# __ VBS 32-COPIER_SYNC.VBS
 '# __ 
@@ -147,7 +147,7 @@ I_COUNT=0
 ' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
 ' I1="C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\VBS 32-COPIER_SYNC.VBS"
-' I2="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 32-COPIER_SYNC.VBS"
+' I2="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 32-COPIER_SYNC.VBS"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1
 ' VAR_PATH_FILE_1(I_COUNT)=I1
@@ -256,7 +256,7 @@ END IF
 ' FOUND IN THE WINDOWS FOLDER AS A SCHEDULER TASK RUNNER BY MICROSOFT
 ' WELL WRITTEN CODE FOR FINDER INFO ABOUT ALLSORT OF THING
 ' -------------------------------------------------------------------
-I1="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 33-GatherNetworkInfo.vbs"
+I1="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 33-GatherNetworkInfo.vbs"
 I2="C:\Windows\System32\gatherNetworkInfo.vbs"
 ' -------------------------------------------------------------------
 I_COUNT=I_COUNT+1
@@ -422,7 +422,7 @@ VAR_PATH_FILE_2(I_COUNT)=I2
 
 ' GOODSYNC PRIORITY _ DONE
 ' -------------------------------------------------------------------
-' I1="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS"
+' I1="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS"
 ' I2="D:\DSC\2017-Now FUJI XP90\VBS 30-FUJI CAMERA IMAGE DATE FOLDER CREATE & MOVE.VBS"
 ' ' -------------------------------------------------------------------
 ' I_COUNT=I_COUNT+1

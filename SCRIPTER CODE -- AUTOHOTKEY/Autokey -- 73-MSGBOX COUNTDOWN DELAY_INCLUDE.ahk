@@ -201,7 +201,7 @@ TIMER_VB_EXE_APPLICATION_ERROR_MSGBOX:
 	FN_Array_4[ArrayCount]:=""
 	ArrayCount += 1
 	FN_Array_4[ArrayCount]:="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
-	FN_Array_4[ArrayCount]:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 58-VB6 CORRECT MSCOMCTL.OCX _2.2_ _TO_ _2.1_.VBS"
+	FN_Array_4[ArrayCount]:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 58-VB6 CORRECT MSCOMCTL.OCX _2.2_ _TO_ _2.1_.VBS"
 
 	; ---------------------------------------------------------------
 	; GIVE SOME INFO THAT WILL BE IN THE STATIC1 OR STATIC2 CONTROL 
