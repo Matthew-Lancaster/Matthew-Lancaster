@@ -234,6 +234,25 @@ REM ---------------------------------------------------------------------
 REM Sun 21-Jun-2020 09:28:38
 REM Sun 21-Jun-2020 12:31:00 -- 3 HOUR 2 MINUTE
 REM ---------------------------------------------------------------------
+REM ---------------------------------------------------------------------
+REM Enumerating objects: 1072, done.
+REM Counting objects: 100% (1003/1003), done.
+REM Delta compression using up to 8 threads
+REM Compressing objects: 100% (910/910), done.
+REM Writing objects: 100% (930/930), 246.06 MiB | 2.07 MiB/s, done.
+REM Total 930 (delta 621), reused 37 (delta 2)
+REM remote: Resolving deltas: 100% (621/621), completed with 67 local objects.
+REM remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+REM remote: error: Trace: 2e5362150f5a829900f0e42e20845967
+REM remote: error: See http://git.io/iEPt8g for more information.
+REM remote: error: File SCRIPTER CODE -- Grub4Dos/~vv1.tmp is 959.06 MB; this exceeds GitHub's file size limit of 100.00 MB
+REM To https://github.com/Matthew-Lancaster/Matthew-Lancaster.git
+REM ! [remote rejected] master -> master (pre-receive hook declined)
+REM error: failed to push some refs to 'https://github.com/Matthew-Lancaster/Matthew-Lancaster.git'
+REM ---------------------------------------------------------------------
+REM ---------------------------------------------------------------------
+
+
 
 
 @ECHO OFF
@@ -312,7 +331,7 @@ CD /D "C:\SCRIPTOR GITHUB"
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
 
-SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 41-GET DATE AND TIME FORMATTER.VBS"
+SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 41-GET DATE AND TIME FORMATTER.VBS"
 for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
 
 SET DATE_TIME_FORMATER=%strVBScriptResults%
