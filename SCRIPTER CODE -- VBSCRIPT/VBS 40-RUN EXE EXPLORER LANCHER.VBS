@@ -8,6 +8,32 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 ' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
+' EXAMPLE USER OF VISUAL BASIC 6
+' FROM THIS CODER -- 
+' --
+' D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe
+' -------------------------------------------------------------------
+' Private Sub MNU_GC_PROFILE_Click(Index As Integer)
+    ' Me.WindowState = vbMinimized
+    ' XX = MNU_GC_PROFILE(Index).Caption
+    ' SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
+    ' SHELL_LINE_2 = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    ' SHELL_LINE_3 = "--profile-directory=""Profile " + Trim(Str(Index + 1)) + """"
+    ' ' "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 4"
+    ' SHELL_LINE_2 = Replace(SHELL_LINE_2, " ", "*")
+    ' SHELL_LINE_3 = Replace(SHELL_LINE_3, " ", "*")
+    ' Dim WSHShell
+    ' Set WSHShell = CreateObject("WScript.Shell")
+        ' l = """" + SHELL_LINE_1 + """" + " " + SHELL_LINE_2 + " " + SHELL_LINE_3
+        ' Debug.Print l
+        ' WSHShell.Run l, ShowWindow_2, DontWaitUntilFinished
+    ' Set WSHShell = Nothing
+' End
+' End Sub
+' -------------------------------------------------------------------
+
+
+' -------------------------------------------------------------------
 ' HOW TO OPEN U A LAUNCHER FOR VBSCRIPT TO PASS THE ARGUMENT THE PROPER METHOD
 ' THE APP THE WANT USER HERE
 ' SEND ARGUMENT AND ENCODED IN SAME WAY AS URL WAY
