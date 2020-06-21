@@ -14,11 +14,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 ' Example
-<<<<<<< HEAD
 ' Form or Module
-=======
-' IN Form or Module
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ' Public cProcesses As New clsCnProc
 
 ' VAR = cProcesses.Convert(CPHwnd, Otss, cnFromProcessID Or cnTohWnd)
@@ -84,20 +80,12 @@ Option Explicit
 '# General definitions
 '#########################################################
 Private Declare Function TerminateProcess _
-<<<<<<< HEAD
         Lib "Kernel32" _
-=======
-        Lib "kernel32" _
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
         (ByVal hProcess As Long, _
         ByVal uExitCode As Long) As Long
 
 
-<<<<<<< HEAD
 Private Declare Sub CloseHandle Lib "Kernel32" (ByVal hPass As Long)
-=======
-Private Declare Sub CloseHandle Lib "kernel32" (ByVal hPass As Long)
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 Private Const MAX_PATH = 260
 
 Private sEXEName As String
@@ -116,11 +104,7 @@ Private Declare Function FindWindowDLL _
 '#########################################################
 '# Functions/Consts/Types used for GetVersionEx()
 '#########################################################
-<<<<<<< HEAD
 Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
-=======
-Private Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 'Private Const VER_PLATFORM_WIN32s = 0
 'Private Const VER_PLATFORM_WIN32_WINDOWS = 1
 Private Const VER_PLATFORM_WIN32_NT = 2
@@ -137,15 +121,9 @@ End Type
 '#########################################################
 '# Win32 (non-NT4) specific definitions
 '#########################################################
-<<<<<<< HEAD
 Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal lFlags As Long, lProcessID As Long) As Long
 Private Declare Function ProcessFirst Lib "Kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
 Private Declare Function ProcessNext Lib "Kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
-=======
-Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal lflags As Long, lProcessID As Long) As Long
-Private Declare Function ProcessFirst Lib "kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
-Private Declare Function ProcessNext Lib "kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 Private Const TH32CS_SNAPPROCESS As Long = 2&
 Private Type PROCESSENTRY32
     dwSize As Long
@@ -169,11 +147,7 @@ Private hSnapShot As Long
 '# Windows NT4 specific definitions
 '#    NOTE: Remember to distribute the PSAPI.DLL file.
 '#########################################################
-<<<<<<< HEAD
 Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
-=======
-Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
 Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
@@ -197,18 +171,10 @@ Private i As Long
 '#########################################################
     '#### Functions/Consts used for GetHWnd() (part of Convert())
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
-<<<<<<< HEAD
 Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
 Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
-=======
-Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
-Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
-Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
-Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
-Private Const GW_HWNDFIRST = 0
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 Private Const GW_HWNDNEXT = 2
 Private Const GW_CHILD = 5
 
@@ -226,23 +192,11 @@ Public Enum cnProcessConv
     cnToTitle = 512
 End Enum
 
-<<<<<<< HEAD
 Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 'Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
 'Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
 'Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
 Private Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hWnd As Long) As Long
-=======
-<<<<<<< HEAD:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/Process Info, Traversal & Conversion/clsCnProc.cls
-Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
-=======
-Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/TIMEZONE MINI GUI DISPLAY/Process Info, Traversal & Conversion/clsCnProc.cls
-'Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
-'Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
-'Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
-Private Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hwnd As Long) As Long
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 
 
@@ -274,7 +228,6 @@ Private Const PROCESSOR_ARCHITECTURE_UNKNOWN As Long = &HFFFF
 
 
 
-<<<<<<< HEAD
 Private Function GetWindowTitle(ByVal hWnd As Long) As String
    Dim L As Long
    Dim S As String
@@ -282,15 +235,6 @@ Private Function GetWindowTitle(ByVal hWnd As Long) As String
    S = Space(L + 1)
    GetWindowText hWnd, S, L + 1
    GetWindowTitle = Left$(S, L)
-=======
-Private Function GetWindowTitle(ByVal hwnd As Long) As String
-   Dim l As Long
-   Dim S As String
-   l = GetWindowTextLength(hwnd)
-   S = Space(l + 1)
-   GetWindowText hwnd, S, l + 1
-   GetWindowTitle = Left$(S, l)
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 End Function
 
 '#####################################################################################
@@ -344,17 +288,10 @@ End Property
 Public Property Get EXE() As String
     EXE = sEXEName
 End Property
-<<<<<<< HEAD
 Public Property Get hWnd() As Long
         '#### If conversion is not successful, reset the return value
     If (Not Convert(lProcessID, hWnd, cnFromProcessID Or cnTohWnd)) Then
         hWnd = -1
-=======
-Public Property Get hwnd() As Long
-        '#### If conversion is not successful, reset the return value
-    If (Not Convert(lProcessID, hwnd, cnFromProcessID Or cnTohWnd)) Then
-        hwnd = -1
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
     End If
 End Property
 Public Property Get ProcessID() As Long
@@ -710,19 +647,7 @@ Public Function GetEXEID(ByRef lRunningID As Long, ByRef sRunningEXE As String) 
                 GoTo GetEXEID_Close
 
                 '#### Else if the EXE names match
-<<<<<<< HEAD
             ElseIf (InStr(1, UCase(sEXEName), sRunningEXE, vbBinaryCompare) > 0) Then
-=======
-<<<<<<< HEAD:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/Process Info, Traversal & Conversion/clsCnProc.cls
-                '---------------------------------------------------------
-                'ERROR MODIFY REQUIRE AT 2017 EXTRA ---- sRunningEXE <> ""
-                'VALUE EMPTY COMPARE AS TRUE
-                '---------------------------------------------------------
-            ElseIf (InStr(1, UCase(sEXEName), sRunningEXE, vbBinaryCompare) > 0) And sRunningEXE <> "" Then
-=======
-            ElseIf (InStr(1, UCase(sEXEName), sRunningEXE, vbBinaryCompare) > 0) Then
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/TIMEZONE MINI GUI DISPLAY/Process Info, Traversal & Conversion/clsCnProc.cls
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
                 lRunningID = lProcessID
                 sRunningEXE = TrimNull(sEXEName)
                 GetEXEID = True
@@ -752,15 +677,7 @@ End Function
 '#########################################################
 '# Returns a windows hWnd, ProcessID, Title and Class from the passed hWnd, ProcessID, Title or Class
 '#########################################################
-<<<<<<< HEAD
 Private Function GetHWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTitle As String, ByRef sClass As String) As Boolean
-=======
-<<<<<<< HEAD:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/Process Info, Traversal & Conversion/clsCnProc.cls
-Private Function GetHWnd(ByRef hProcessID As Long, ByRef hwnd As Long, ByRef sTitle As String, ByRef sClass As String) As Boolean
-=======
-Private Function GetHWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTitle As String, ByRef sClass As String) As Boolean
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/TIMEZONE MINI GUI DISPLAY/Process Info, Traversal & Conversion/clsCnProc.cls
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
     Dim sWinTitle As String
     Dim sClassName As String
     Dim hWndChild As Long
@@ -784,21 +701,9 @@ Private Function GetHWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTi
         sClassName = Left(sClassName, GetClassName(hWndChild, sClassName, 255))
 
             '#### If we have a match with the hProcessID or hWnd, return the values
-<<<<<<< HEAD
         If (hWndChildProcessID = hProcessID Or hWndChild = hWnd) Then
             hProcessID = hWndChildProcessID
             hWnd = hWndChild
-=======
-<<<<<<< HEAD:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/Process Info, Traversal & Conversion/clsCnProc.cls
-        If (hWndChildProcessID = hProcessID Or hWndChild = hwnd) Then
-            hProcessID = hWndChildProcessID
-            hwnd = hWndChild
-=======
-        If (hWndChildProcessID = hProcessID Or hWndChild = hWnd) Then
-            hProcessID = hWndChildProcessID
-            hWnd = hWndChild
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/TIMEZONE MINI GUI DISPLAY/Process Info, Traversal & Conversion/clsCnProc.cls
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
             sTitle = sWinTitle
             sClass = sClassName
             GetHWnd = True
@@ -808,11 +713,7 @@ Private Function GetHWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTi
         ElseIf (Len(sWinTitle) > 0 And Len(sTitle) > 0) Then
             If (sWinTitle Like sTitle) Then
                 hProcessID = hWndChildProcessID
-<<<<<<< HEAD
                 hWnd = hWndChild
-=======
-                hwnd = hWndChild
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
                 sTitle = sWinTitle
                 sClass = sClassName
                 GetHWnd = True
@@ -823,11 +724,7 @@ Private Function GetHWnd(ByRef hProcessID As Long, ByRef hWnd As Long, ByRef sTi
         ElseIf (Len(sClassName) > 0 And Len(sClass) > 0) Then
             If (sClassName Like sClass) Then
                 hProcessID = hWndChildProcessID
-<<<<<<< HEAD
                 hWnd = hWndChild
-=======
-                hwnd = hWndChild
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
                 sTitle = sWinTitle
                 sClass = sClassName
                 GetHWnd = True
@@ -914,11 +811,7 @@ End Function
 
 Public Function FindHighestHandle() As Long
 
-<<<<<<< HEAD
 Dim test_hwnd As Long, _
-=======
-Dim Test_HWND As Long, _
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
     test_pid As Long, _
     test_thread_id As Long
 
@@ -927,7 +820,6 @@ Dim wText As String
 Dim HighTest_hWnd As Long
 
 'Find the first window
-<<<<<<< HEAD
 test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
 
 Do While test_hwnd <> 0
@@ -940,20 +832,6 @@ Do While test_hwnd <> 0
     End If
     'retrieve the next window
     test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
-=======
-Test_HWND = FindWindowDLL(ByVal 0&, ByVal 0&)
-
-Do While Test_HWND <> 0
-    
-    wText = GetWindowTitle(Test_HWND)
-
-    If Test_HWND > HighTest_hWnd Then
-        HighTest_hWnd = Test_HWND:
-        wText = GetWindowTitle(Test_HWND)
-    End If
-    'retrieve the next window
-    Test_HWND = GetWindow(Test_HWND, GW_HWNDNEXT)
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 Loop
 
@@ -977,46 +855,3 @@ End Function
 
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/Process Info, Traversal & Conversion/clsCnProc.cls
-Public Function GetFileFromHwnd(lngHwnd) As String
-
-'-----------------------------------------------------------
-'REPAIR DONE NOW GET FULL PATH OF EXE BY USE THE OPENPROCESS
-'COPY PASTE THE DECLARE AND DONE
-'Thu 16 February 2017 03:11:44----------
-'-----------------------------------------------------------
-'-----------------------------------------------------------
-
-'------------------------------------------------------------------
-'------------------------------------------------------------------
-'TEMPORARY AS FULL EXE WAS NOT WORKING FOR A BIT
-'------------------------------------------------------------------
-'MsgBox getfilefromhwnd(Me.hwnd)
-'Var = cProcesses.Convert(lngHwnd, vfile, cnFromhWnd Or cnToEXE)
-'Var = cProcesses.Convert(lngHwnd, PID, cnFromhWnd Or cnToProcessID)
-'Var = cProcesses.Convert(PID, vfile, cnFromProcessID Or cnToEXE)
-'GetFileFromHwnd = vfile
-'Exit Function
-'------------------------------------------------------------------
-
-'------------------------------------------------------------------
-Dim lngProcess&, hProcess&, bla&, C&
-Dim strFile As String
-Dim X
-
-strFile = String$(256, 0)
-X = GetWindowThreadProcessId(lngHwnd, lngProcess)
-hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-X = EnumProcessModules(hProcess, bla, 4&, C)
-C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromHwnd = Left(strFile, C)
-'------------------------------------------------------------------
-
-End Function
-
-
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff:SCRIPTER CODE -- VB6/VB6/VB-NT/00_Best_VB_01/TIMEZONE MINI GUI DISPLAY/Process Info, Traversal & Conversion/clsCnProc.cls
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff

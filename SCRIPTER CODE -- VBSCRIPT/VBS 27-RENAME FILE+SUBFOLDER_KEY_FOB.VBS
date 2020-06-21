@@ -1,4 +1,4 @@
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS
 ' --------------------------------------------------------------------
 ' VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS
 ' --------------------------------------------------------------------

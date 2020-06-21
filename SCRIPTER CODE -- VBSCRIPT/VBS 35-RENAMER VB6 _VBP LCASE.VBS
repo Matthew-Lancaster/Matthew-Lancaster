@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 35-RENAMER VB6 _VBP LCASE.VBS
 '# __ 
 '# __ VBS 35-RENAMER VB6 _VBP LCASE.VBS
 '# __ 
@@ -146,7 +146,7 @@ DIM I_SET_DONE
 '--------------------------------------------------------------------
 ' USAGE IN GOODSYNC SCRIPT TEXT FIELD
 '--------------------------------------------------------------------
-' "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS" %JOBNAME%
+' "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 35-RENAMER VB6 _VBP LCASE.VBS" %JOBNAME%
 '--------------------------------------------------------------------
 
 
@@ -687,7 +687,7 @@ End Sub
 ' THE SCRIPT WRITING
 ' BUT INCLUDE IF THEY ARE GOING TO BE USEFUL LATER
 ' IT WAS TAKEN COPY FROM ANOTHER CODE
-' C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
 '
 ' TEMP RUN IF WANT TO JUST A REANME-ER USE ONCE
 ' -------------------------------------------------------------------
