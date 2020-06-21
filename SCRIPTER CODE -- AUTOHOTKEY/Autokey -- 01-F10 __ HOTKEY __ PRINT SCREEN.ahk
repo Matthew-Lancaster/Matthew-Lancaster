@@ -14,8 +14,11 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; SESSION 001
@@ -111,8 +114,11 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; -------------------------------------------------------------------
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; ---------------------------------------------------------------
 ; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
 ; 01. INTRO SETUP MENU
@@ -145,12 +151,15 @@ SetTitleMatchMode 3  ; Specify Full path
 Send {shift up}
 
 
+<<<<<<< HEAD
 
 
 
 VAR_REPEAT_F5_TOOGLE=
 SETTIMER REPEAT_F5_BASHING,20000
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 GLOBAL VAR_COUNTER
@@ -173,6 +182,7 @@ O_OutputVar_store=
 
 GLOBAL PART_RENAME_VAR
 
+<<<<<<< HEAD
 SETTIMER TIMER_ENTER,OFF
 
 ; -------------------------------------------------------------------
@@ -223,12 +233,24 @@ IF TRUE=FALSE
 ; Crazy Scripting : Scriptlet to find Scancode of a Key - Scripts and Functions - AutoHotkey Community 
 ; https://autohotkey.com/board/topic/21105-crazy-scripting-scriptlet-to-find-scancode-of-a-key/
 ; ----
+=======
+GLOBAL STATE_XYPOSCOUNTER
+
+GLOBAL OLD_STATE_XYPOSCOUNTER
+STATE_XYPOSCOUNTER=0
+OLD_STATE_XYPOSCOUNTER=0
+
+OLD_HWND_4=0
+
+SETTIMER TIMER_ENTER,OFF
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 ; HERE THE FUNCTION ROUTINE FOR GOODSYNC
 ; --------------------------------------
 GOSUB F5_ROUTINE
 ; --------------------------------------
 
+<<<<<<< HEAD
 GLOBAL STATE_XYPOS_COUNTER
 GLOBAL OLD_STATE_XYPOS_COUNTER
 STATE_XYPOS_COUNTER=0
@@ -242,6 +264,9 @@ SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,10
 ; OLD_STATE_XYPOS_COUNTER_TOP_MOUSE_REFRESH=0
 ; OLD_HWND_5=0
 ; SETTIMER TIMER_TOP_LEFT_MOUSE_REFRESH_BROWSER,10
+=======
+SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,100
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -309,6 +334,7 @@ RETURN
 #ifwinactive
 
 
+<<<<<<< HEAD
 
 
 ; -------------------------------------------------------
@@ -339,6 +365,8 @@ RETURN
 
 
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; ----
 ; How do I make a mute button - Ask for Help - AutoHotkey Community 
 ; https://autohotkey.com/board/topic/85600-how-do-i-make-a-mute-button/
@@ -348,6 +376,7 @@ RETURN
 $F1::Send {VOLUME_MUTE}	
 RETURN
 #ifwinactive
+<<<<<<< HEAD
 
 ; TIMER_GET_HWND:
 	; WinGet, OLD_HWND, ID, ahk_class Winamp Gen
@@ -361,6 +390,8 @@ IfWinNotExist ClipBoard Logger
 	RUN D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe
 RETURN
 #ifwinactive
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	
 ; -------------------------------------------------------------------
 ; ANYCODE WANT HOTKEY AND THE LINE IS AFTER ONE ABOVE
@@ -387,6 +418,7 @@ SENDINPUT %MESSENGER_KEY%
 RETURN
 
 
+<<<<<<< HEAD
 :*:TERS::
 MESSENGER_KEY=TERESA
 GOSUB STRING_INVERT_MESSENGER
@@ -416,6 +448,8 @@ RETURN
 RETURN
 
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; ADDITIONAL NOTE ABOUT BUG
 ; THIS CODE GOOD FOR THE N ; ' T -- WOUDLN'T BUT BUG 
 ; THE METHOD HAS TYPE WHILE YOU TYPE SO NEXT THING
@@ -519,10 +553,18 @@ $*CtrlBreak::RETURN
 ; return
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 RETURN
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -534,7 +576,10 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+<<<<<<< HEAD
 ; -------------------------------------------------------------------
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; WORK TIME 
 ; -------------------------------------------------------------------
 ; Tue 14-Jan-2020 08:32:29 -- FIRST FIND IDEA
@@ -566,8 +611,11 @@ F5::
 
 ; -------------------------------------------------------------------
 ; SELECT 1000 PHOTO WITH HOTKEY H
+<<<<<<< HEAD
 ; IF SEARCH JPG 1500 MAXIMUM
 ; GO FROM BOTTOM UP WITH LEFT KEY
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; -------------------------------------------------------------------
 #IfWinActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
 *~H::
@@ -588,7 +636,11 @@ RETURN
 ; -------------------------------------------------------------------
 TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 
+<<<<<<< HEAD
 	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>1000
+=======
+	IF TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_COUNT>10010
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	{
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
@@ -600,6 +652,7 @@ TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
 		RETURN
 	}
+<<<<<<< HEAD
 	IF GetKeyState("RButton","P")
 	{
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
@@ -612,6 +665,12 @@ TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01,OFF
 		SETTIMER TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_02,OFF
 		; WinActivate Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+=======
+	SetTitleMatchMode 2  ; PARTIAL PATH
+	IfWinNOTActive Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+	{
+		WinActivate Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 		RETURN
 	}
 	SENDINPUT {LEFT}
@@ -734,6 +793,7 @@ RETURN
 Return
 
 
+<<<<<<< HEAD
 ; #IfWinActive ahk_class Chrome_WidgetWin_1
 ; ^F5:: ; CTRL+F5 
 	
@@ -787,6 +847,25 @@ RETURN
 RETURN
 ; #ifwinactive
 ; -------------------------------------------------------------------
+=======
+; UCASE UPPER
+
+#IfWinNOTActive ahk_class Notepad++
+{
++^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
+	VAR_INDEX=1
+	GOSUB HOT_KEY_CONVERT_TExT 
+	RETURN
+}
+#ifwinactive
+
+; --
+^l:: ; CTRL+L ---- Converts Text To Lower
+	VAR_INDEX=2
+	GOSUB HOT_KEY_CONVERT_TEXT 
+Return
+; --
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 #IfWinActive ahk_class Chrome_WidgetWin_1
 +u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
                                                ; HAS OPEN SOURCE OF PAGE 
@@ -795,7 +874,11 @@ RETURN
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+<<<<<<< HEAD
 ; -------------------------------------------------------------------
+=======
+
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 #IfWinActive ahk_class Chrome_WidgetWin_1
 ^u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
                                                ; HAS OPEN SOURCE OF PAGE 
@@ -804,7 +887,10 @@ RETURN
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+<<<<<<< HEAD
 ; -------------------------------------------------------------------
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
 ^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
                                                ; CONTROL 
@@ -814,7 +900,10 @@ RETURN
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 #ifwinactive
+<<<<<<< HEAD
 ; -------------------------------------------------------------------
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
 +u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
                                                ; CONTROL 
@@ -825,6 +914,7 @@ RETURN
 RETURN
 #ifwinactive
 
+<<<<<<< HEAD
 ; +^D:: ; SHIFT+CTRL+D
 ^D:: ; CTRL+D ---- CONVERTS TEXT TO DASH -- NOTEPADD++ WHERE MOST WORK USER CNTR D FOR DUPLICATE LINE BUT NEVER NEEDER
 	VAR_INDEX=4
@@ -833,6 +923,10 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+=======
+
+
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 ; -------------------------------------------------------------------
 HOT_KEY_CONVERT_TExT:
@@ -861,6 +955,7 @@ HOT_KEY_CONVERT_TExT:
 		StringLower Clipper_1_GET, Clipper_1_GET
 	IF VAR_INDEX=3
 		StringUpper Clipper_1_GET, Clipper_1_GET
+<<<<<<< HEAD
 	IF VAR_INDEX=4
 	{
 		; -----------------------------------------------------------
@@ -902,6 +997,9 @@ HOT_KEY_CONVERT_TExT:
 		Clipper_1_GET=%Clipper_2_GET%
 		Clipper_2_GET=
 	}
+=======
+		
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	
 	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
 	; MSGBOX %Clipper_GET%
@@ -1500,6 +1598,7 @@ CHECK_ESC_KEY:
 				ControlGet, OutputVar, Visible,, Button1, Notepad++
 				If OutputVar=0
 				{
+<<<<<<< HEAD
 					; ----------------------------------------------------------------------------------
 					; FROM HERE ONLY WANT CLOSE NOT AS F7 KEY OPEN AGAIN -- THE FLIP FLOP IS TOO MUCH
 					; IDEAL IF SEARCH RESULT FIND SOMETHING TO ISSUE FIND RESULT ITEM
@@ -1510,6 +1609,10 @@ CHECK_ESC_KEY:
 					; ----------------------------------------------------------------------------------
 					; SendInput {F7}
 					; SoundBeep , 2000 , 100
+=======
+					SendInput {F7}
+					SoundBeep , 2000 , 100
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 					VAR_DONE_ESCAPE_KEY=TRUE
 				}
 				LOOP, 10000
@@ -2171,6 +2274,7 @@ F5_ROUTINE:
 
 RETURN
 
+<<<<<<< HEAD
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -2187,6 +2291,26 @@ CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY:
 RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+=======
+STATE_XYPOS_Limit:
+	STATE_XYPOSCOUNTER=0
+	OLD_STATE_XYPOSCOUNTER=0
+	SetTimer, STATE_XYPOS_Limit,OFF
+Return
+
+
+CHECK_NEW_WINDOW:
+WinGet, HWND_4, ID, A
+IF HWND_4<>%OLD_HWND_4%
+{
+	SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,100
+	; SOUNDBEEP 1000,100
+}
+OLD_HWND_4=%HWND_4%
+RETURN
+				
+; TIMER_TOP_LEFT_MOUSE_CLOSE_MPC
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 {
 	CoordMode, Mouse, Screen
@@ -2194,11 +2318,23 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 	
 	STATE_XYPOS:=xpos+ypos
 	
+<<<<<<< HEAD
 	IF (STATE_XYPOS=0 and OLD_STATE_XYPOS<>%STATE_XYPOS%)
 		STATE_XYPOS_COUNTER+=1
 	
 	OLD_STATE_XYPOS=%STATE_XYPOS%
 	
+=======
+	; TOOLTIP % STATE_XYPOS "," OLD_STATE_XYPOS
+	
+	IF (STATE_XYPOS=0 and OLD_STATE_XYPOS<>%STATE_XYPOS%)
+		STATE_XYPOSCOUNTER+=1
+	
+	OLD_STATE_XYPOS=%STATE_XYPOS%
+	
+	; TOOLTIP % STATE_XYPOSCOUNTER "," OLD_STATE_XYPOSCOUNTER
+	
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	SET_GO=FALSE
 	
 	WinGetCLASS, CLASS, A
@@ -2215,6 +2351,7 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 		XR=4
 	IF INSTR(CLASS,"IrfanView")
 		XR=5
+<<<<<<< HEAD
 	
 	IF XR>0
 	IF STATE_XYPOS=0
@@ -2230,16 +2367,50 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 	OLD_STATE_XYPOS_COUNTER=%STATE_XYPOS_COUNTER%
 	
 	IF (STATE_XYPOS_COUNTER>1 or A_PriorKey=27)
+=======
+
+	; TOOLTIP % STATE_XYPOSCOUNTER "`n" OLD_STATE_XYPOSCOUNTER "`n" CLASS
+
+	; RETURN
+	
+	IF XR=0 
+	{
+		SETTIMER TIMER_TOP_LEFT_MOUSE_CLOSE_MPC,OFF
+		SETTIMER CHECK_NEW_WINDOW,1000
+		RETURN
+	}
+	
+	IF XR>0
+	IF STATE_XYPOS=0
+	IF STATE_XYPOSCOUNTER<>%OLD_STATE_XYPOSCOUNTER%
+		SOUNDBEEP 2000,100
+		
+	IF STATE_XYPOSCOUNTER>0
+	IF STATE_XYPOSCOUNTER<>%OLD_STATE_XYPOSCOUNTER%
+	{
+		OLD_STATE_XYPOSCOUNTER=%STATE_XYPOSCOUNTER%
+		SetTimer, STATE_XYPOS_Limit, 2000 ;<-- set a oneshot 1 second timer to stop the loop
+	}
+	OLD_STATE_XYPOSCOUNTER=%STATE_XYPOSCOUNTER%
+	
+	IF (STATE_XYPOSCOUNTER>1 or A_PriorKey=27)
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	{
 		IF XR>0 
 		{
 			; TOOLTIP % HWND_X "," HWND_ACTIVE "," SET_GO
 			IF XR<4
 			{
+<<<<<<< HEAD
 				SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY,50
 				GOSUB KILL_ALL_MPC_EXE_NAME
 				XR=0
 				STATE_XYPOS_COUNTER=0
+=======
+				GOSUB KILL_ALL_MPC_EXE_NAME
+				Soundbeep 2000,200
+				XR=0
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 			}
 			IF XR>0
 			{
@@ -2257,15 +2428,22 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 				; BOTH METHOD WORK BUT HARD TO USE WITH PASS VARIABLE 
 				; UNLESS DEBUG A BIT
 				; ---------------------------------------------------
+<<<<<<< HEAD
 				SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY,50
 				PostMessage, 0x112, 0xF060,,, IrfanView ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 				WinClose, IrfanView
 				STATE_XYPOS_COUNTER=0
+=======
+				PostMessage, 0x112, 0xF060,,, IrfanView ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+				WinClose, IrfanView
+				Soundbeep 2000,200
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 			}
 		}	
 	}	
 }
 RETURN
+<<<<<<< HEAD
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
@@ -2354,6 +2532,8 @@ RETURN
 
 
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 KILL_ALL_MPC_EXE_NAME:
 

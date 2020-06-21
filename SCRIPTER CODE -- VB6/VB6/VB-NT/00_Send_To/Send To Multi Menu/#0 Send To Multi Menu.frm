@@ -22,6 +22,10 @@ Begin VB.Form Form1
       _ExtentX        =   2646
       _ExtentY        =   762
       _Version        =   393217
+<<<<<<< HEAD
+=======
+      Enabled         =   -1  'True
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0ECA
    End
@@ -35,6 +39,10 @@ Begin VB.Form Form1
       _ExtentX        =   2646
       _ExtentY        =   762
       _Version        =   393217
+<<<<<<< HEAD
+=======
+      Enabled         =   -1  'True
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0F55
    End
@@ -48,6 +56,10 @@ Begin VB.Form Form1
       _ExtentX        =   2646
       _ExtentY        =   762
       _Version        =   393217
+<<<<<<< HEAD
+=======
+      Enabled         =   -1  'True
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0FE0
    End
@@ -61,6 +73,10 @@ Begin VB.Form Form1
       _ExtentX        =   2646
       _ExtentY        =   762
       _Version        =   393217
+<<<<<<< HEAD
+=======
+      Enabled         =   -1  'True
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":106B
    End
@@ -74,6 +90,10 @@ Begin VB.Form Form1
       _ExtentX        =   2646
       _ExtentY        =   720
       _Version        =   393217
+<<<<<<< HEAD
+=======
+      Enabled         =   -1  'True
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":10F6
    End
@@ -93,7 +113,11 @@ Begin VB.Form Form1
       Top             =   480
    End
    Begin VB.FileListBox File1 
+<<<<<<< HEAD
       Height          =   456
+=======
+      Height          =   648
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
       Left            =   5220
       TabIndex        =   5
       Top             =   1476
@@ -557,9 +581,12 @@ If Label_1_FOLDER_FILE.Caption <> "" Then
 End If
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 'Sleep 4000
 
 End Sub
@@ -967,6 +994,7 @@ Timer1.Enabled = False
 
 Timer_Form_Load_Opperation_Do_Time_Manager.Enabled = False
 
+<<<<<<< HEAD
 
 'MsgBox Label_1_FOLDER_FILE.Caption
 
@@ -977,6 +1005,8 @@ If InStr(Label_1_FOLDER_FILE.Caption, "D:\DSC\2011 SONY\") > 0 Then
 End If
 
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 End Sub
 
 
@@ -1794,7 +1824,11 @@ FILE_NAME_1 = Label_1_FOLDER_FILE.Caption
 'FILE_NAME_1 = "C:\DOWNLOADS\stylus-2020-03-03.json"
 FILE_NAME_2 = Mid(FILE_NAME_1, InStrRev(FILE_NAME_1, "\") + 1)
 
+<<<<<<< HEAD
 'If InStr(FILE_NAME_1, "C:\DOWNLOADS\") Then
+=======
+If InStr(FILE_NAME_1, "C:\DOWNLOADS\") Then
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 If InStr(FILE_NAME_1, "stylus") Then
 If InStr(FILE_NAME_1, ".json") Then
     DESTI = "C:\SCRIPTER\SCRIPTER CODE -- USERSTYLES.ORG STYLISH\" + FILE_NAME_2
@@ -1830,7 +1864,11 @@ End If
 End If
 
 End If
+<<<<<<< HEAD
 ' End If
+=======
+End If
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 
 End Sub
