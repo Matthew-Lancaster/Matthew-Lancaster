@@ -79,81 +79,6 @@ Option Explicit
 '#########################################################
 '# General definitions
 '#########################################################
-<<<<<<< HEAD
-=======
-Private Declare Function GetParent Lib "user32.dll" (ByVal hWnd As Long) As Long
-Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
-Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long) As Long
-' PRIVATE Constants for GetWindowLong API declaration
-Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
-Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
-Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
-Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
-
-Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" ( _
-     ByVal hProcess As Long, _
-     ByVal hModule As Long, _
-     ByVal lpFileName As String, _
-     ByVal nSize As Long) As Long
-
-Private Const GWL_STYLE = (-16)
-Private Const GWL_EXSTYLE = (-20)
-
-' PRIVATE Constants for window styles
-Private Const WS_BORDER = &H800000
-Private Const WS_CAPTION = &HC00000
-Private Const WS_CHILD = &H40000000
-Private Const WS_CLIPCHILDREN = &H2000000
-Private Const WS_CLIPSIBLINGS = &H4000000
-Private Const WS_DLGFRAME = &H400000
-Private Const WS_GROUP = &H20000
-Private Const WS_HSCROLL = &H100000
-Private Const WS_MAXIMIZEBOX = &H10000
-Private Const WS_MINIMIZEBOX = &H20000
-Private Const WS_SYSMENU = &H80000
-Private Const WS_POPUP = &H80000000
-Private Const WS_POPUPWINDOW = (WS_POPUP Or WS_BORDER Or WS_SYSMENU)
-Private Const WS_TABSTOP = &H10000
-Private Const WS_THICKFRAME = &H40000
-Private Const WS_SIZEBOX = WS_THICKFRAME
-Private Const WS_VISIBLE = &H10000000
-Private Const WS_VSCROLL = &H200000
-Private Const WM_CLOSE = &H10
-
-' Private constants for extended window styles
-Private Const WS_EX_CLIENTEDGE = &H200&
-Private Const WS_EX_STATICEDGE = &H20000
-
-Private Const DELETE As Long = &H10000
-Private Const READ_CONTROL As Long = &H20000
-Private Const WRITE_DAC As Long = &H40000
-Private Const WRITE_OWNER As Long = &H80000
-Private Const SYNCHRONIZE As Long = &H100000
-Private Const STANDARD_RIGHTS_REQUIRED As Long = &HF0000
-Private Const STANDARD_RIGHTS_READ As Long = READ_CONTROL
-Private Const STANDARD_RIGHTS_WRITE As Long = READ_CONTROL
-Private Const STANDARD_RIGHTS_EXECUTE As Long = READ_CONTROL
-Private Const STANDARD_RIGHTS_ALL As Long = &H1F0000
-Private Const SPECIFIC_RIGHTS_ALL As Long = &HFFFF
-Private Const GENERIC_READ As Long = &H80000000
-Private Const GENERIC_WRITE As Long = &H40000000
-Private Const GENERIC_EXECUTE As Long = &H20000000
-Private Const GENERIC_ALL As Long = &H10000000
-
-Private Const PROCESS_TERMINATE As Long = &H1
-Private Const PROCESS_CREATE_THREAD As Long = &H2
-Private Const PROCESS_SET_SESSIONID As Long = &H4
-Private Const PROCESS_VM_OPERATION As Long = &H8
-Private Const PROCESS_VM_READ As Long = &H10
-Private Const PROCESS_VM_WRITE As Long = &H20
-Private Const PROCESS_DUP_HANDLE As Long = &H40
-Private Const PROCESS_CREATE_PROCESS As Long = &H80
-Private Const PROCESS_SET_QUOTA As Long = &H100
-Private Const PROCESS_SET_INFORMATION As Long = &H200
-Private Const PROCESS_QUERY_INFORMATION As Long = &H400
-Private Const PROCESS_ALL_ACCESS As Long = (STANDARD_RIGHTS_REQUIRED Or SYNCHRONIZE Or &HFFF)
-
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 Private Declare Function TerminateProcess _
         Lib "kernel32" _
         (ByVal hProcess As Long, _
@@ -222,20 +147,12 @@ Private hSnapShot As Long
 '# Windows NT4 specific definitions
 '#    NOTE: Remember to distribute the PSAPI.DLL file.
 '#########################################################
-<<<<<<< HEAD
 Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
 Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
 Private Const PROCESS_QUERY_INFORMATION = 1024
 Private Const PROCESS_VM_READ = 16
-=======
-'Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
-'Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
-'Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
-'Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
-
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 'Private Const STANDARD_RIGHTS_REQUIRED = &HF0000
 'Private Const SYNCHRONIZE = &H100000
 'STANDARD_RIGHTS_REQUIRED Or SYNCHRONIZE Or &HFFF
@@ -644,10 +561,6 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
     ElseIf (eConversionType And cnToEXE) Then
             '#### If sEXE is not already set, determine its value now then set the OutputData
         If (Len(sEXE) = 0) Then
-<<<<<<< HEAD
-=======
-        
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
             If (Not GetEXEID(lProcessID, sEXE)) Then GoTo Convert_Error
         End If
         OutputData = sEXE
@@ -850,10 +763,6 @@ Public Function GetEXEID(ByRef lRunningID As Long, ByRef sRunningEXE As String) 
                 lRunningID = lProcessID
                 sRunningEXE = TrimNull(sEXEName)
                 GetEXEID = True
-<<<<<<< HEAD
-=======
-                ' Exit Do
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
                 GoTo GetEXEID_Close
             End If
         Loop While (NextProcess())

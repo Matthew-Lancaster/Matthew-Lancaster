@@ -15,7 +15,7 @@ REM >%temp%\MyIP.TXT
 
 REM wget -q -O %temp%\MyIP.TXT http://www.whatismyip.com/automation/n09230945.asp
 
-for /f "delims= " %%G in ('"C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 23-MY IP.VBS"') do set PublicIP=%%G
+for /f "delims= " %%G in ('"C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 23-MY IP.VBS"') do set PublicIP=%%G
 
 echo. & echo Your public IP address is %PublicIP% & echo.
 

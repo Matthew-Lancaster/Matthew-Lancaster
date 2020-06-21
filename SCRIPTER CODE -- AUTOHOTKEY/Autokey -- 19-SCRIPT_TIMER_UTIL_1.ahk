@@ -22,7 +22,7 @@
 ; -------------------------------------------------------------------
 ; FROM TO Sun 15-Apr-2018 19:26:10
 ; -------------------------------------------------------------------
-; THIS IS OUR PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
+; THIS IS MY PREFERRED DEFAULT OPTIONS FOR INSTALLING NOTEPAD++
 ; THE MIDDLE CHECK-BOX IS SELECTED
 ; Reference's at End
 ; -------------------------------------------------------------------
@@ -161,6 +161,15 @@
 ; Count = 098 -- Tue 19-Mar-2019 12:51:50
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; HERE LOOK UN-COMPLETE ON TO SOMETHING -- SEARCH STRING
+; -------------------------------------------------------------------
+; NOTEPAD_PP_SESSION_BACKUP_DAILY:
+; ; C:\Users\MATT 04\AppData\Roaming\Notepad++\session.xml
+; RETURN
+; -------------------------------------------------------------------
+
+
 
 #Warn
 #NoEnv
@@ -240,6 +249,8 @@ GLOBAL dhw
 
 GLOBAL OLD_UniqueID_MYSMS
 
+
+ID_DRIVER_BOOSTER_OLD=0
 
 
 OLD_UniqueID_MYSMS=0
@@ -416,6 +427,11 @@ SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
 
 SETTIMER KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION,500
 
+PROCESS_NAME_COUNTER_01=
+PROCESS_NAME_COUNTER_02=
+PROCESS_NAME_COUNTER_03=
+SETTIMER APP_TO_KILL,10000
+
 
 
 
@@ -429,8 +445,78 @@ RETURN
 ; -------------------------------------------------------------------
 
 
+
+APP_TO_KILL:
+; -------------------------------------------------------------------
+; "C:\Program Files\Laplink\DiskImage\oodiag.exe"
+; -------------------------------------------------------------------
+WinGet, Path_1, ProcessPath, ahk_exe oodiag.exe
+
+IF INSTR(Path_1,"oodiag.exe")>0
+{
+	IF PROCESS_NAME_COUNTER_01=2
+	{
+		MSGBOX "C:\Program Files\Laplink\DiskImage\oodiag.exe`n`nHAS BEEN FIND AND KILL PROCESS"
+	}
+	PROCESS_NAME_COUNTER_01+=1
+	Process, Close, oodiag.exe
+}
+IF !PROCESS_NAME_COUNTER_01
+IF INSTR(Path_1,"oodiag.exe")=0
+	PROCESS_NAME_COUNTER_01=2
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; "C:\Program Files (x86)\MiniTool ShadowMaker\AgentService.exe"
+; -------------------------------------------------------------------
+WinGet, PATH_1, ProcessPath, ahk_exe AgentService.exe
+
+IF INSTR(PATH_1,"AgentService.exe")>0
+{
+	IF PROCESS_NAME_COUNTER_02=2
+	{
+		MSGBOX "C:\Program Files (x86)\MiniTool ShadowMaker\AgentService.exe`n`nHAS BEEN FIND AND KILL PROCESS"
+	}
+	PROCESS_NAME_COUNTER_02+=1
+	Process, Close, AgentService.exe
+}
+IF !PROCESS_NAME_COUNTER_02
+IF INSTR(Path_1,"AgentService.exe")=0
+	PROCESS_NAME_COUNTER_02=2
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+; -------------------------------------------------------------------
+; "C:\Program Files (x86)\Wondershare\WAF\2.4.3.229\WsAppService.exe"
+; -------------------------------------------------------------------
+WinGet, PATH_1, ProcessPath, ahk_exe WsAppService.exe
+
+IF INSTR(PATH_1,"WsAppService.exe")>0
+{
+	IF PROCESS_NAME_COUNTER_03=2
+	{
+		MSGBOX "C:\Program Files (x86)\Wondershare\WAF\2.4.3.229\WsAppService.exe`n`nHAS BEEN FIND AND KILL PROCESS"
+	}
+	PROCESS_NAME_COUNTER_03+=1
+	Process, Close, WsAppService.exe
+}
+IF !PROCESS_NAME_COUNTER_03
+IF INSTR(Path_1,"WsAppService.exe")=0
+	PROCESS_NAME_COUNTER_03=2
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+
+RETURN
+
+
+
 ONE_MOMENT_CLOSE_CMD:
 
+	WinGet, HWNDID, ID ,C:\Program Files\Common Files\Logishrd\LAClient\laclient.exe ahk_class ConsoleWindowClass
 	WINCLOSE ahk_id %HWNDID%
 	HWNDID=
 	SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
@@ -650,19 +736,14 @@ RETURN
 
 
 NOTEPAD_PP_SESSION_BACKUP_DAILY:
-
-
 ; C:\Users\MATT 04\AppData\Roaming\Notepad++\session.xml
-
-
-
 RETURN
 
 GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
 
 VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS:
 
-	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 58-VB6 CORRECT MSCOMCTL.OCX _2.2_ _TO_ _2.1_.VBS"
+	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 58-VB6 CORRECT MSCOMCTL.OCX _2.2_ _TO_ _2.1_.VBS"
 
 	IfExist, %Element_1%
 		Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
@@ -672,7 +753,7 @@ RETURN
 
 VBS_35_RENAMER_VB6_VBP_LCASE_VBS:
 
-	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 35-RENAMER VB6 _VBP LCASE.VBS"
+	Element_1:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 35-RENAMER VB6 _VBP LCASE.VBS"
 
 	IfExist, %Element_1%
 		Run, "%Element_1%" /QUITE_COMMANDLINE_ARGS
@@ -780,8 +861,44 @@ ReadInteger( p_address, p_offset, p_size, p_hex=true )
 }
 
 	
+RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND:
+
+	FILENAME_LOAD:="C:\Program Files\OVH\hubiC\hubiC.exe"
+
+	Process, Exist, HUBIC.EXE
+	If NOT ErrorLevel
+		IF FILEEXIST(FILENAME_LOAD)
+			RUN, %FILENAME_LOAD%
+
+RETURN
+	
+KILL_RS232_LOGGER_DO_RESTARTER:
+	; D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR.exe
+	; ----------------------------------------------------------------
+	; C:\SCRIPTOR DATA\VB6\VB-NT\00_Best_VB_01\Tidal_Info\RS232 FRONT DOOR.txt
+	; WOULD DELETE BUT NOT HELP
+	; CHECK FILE AT BEGIN MAKE ERROR MESSENGER IF STILL EXIT APP NOT EXIT GOOD
+	; ----------------------------------------------------------------
+	FILENAME_RS232:="C:\SCRIPTOR DATA\VB6\VB-NT\00_BEST_VB_01\TIDAL_INFO\RS232 FRONT DOOR_REBOOT__#NFS_EX.TXT"
+	IF !FILEEXIST(FILENAME_RS232)
+		FILEAPPEND, "THIS IS A TESTER TO MAKE RS232_LOGGER DETECT BEEN REBOOT EVENT SHUTDOWN FORCE PROCESS KILL`n", %FILENAME_RS232%
+	IF !FILEEXIST(FILENAME_RS232)
+		MSGBOX FILE NOT EXIST
+	PROCESS, CLOSE, RS232 LOGGER PIR.EXE
+	SLEEP 1000
+	RUN, D:\VB6\VB-NT\00_Best_VB_01\RS232 LOGGER PIR\RS232 LOGGER PIR.exe
+
+RETURN
+
+PULL_RECYCLE_BIN_ON:
+	; CHECK IF EMPTY BEFORE BEGIN
+	; Run, shell:RecycleBinFolder ;Recycle Bin
+	; THE CODE HERE ---- D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe
+	; AND BEFORE HERE -- C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
+RETURN
 	
 MIDNIGHT_AND_HOUR_TIMER:
+
 
 	; ---------------------------------------------------------------
 	; DAY TIMER 
@@ -801,6 +918,15 @@ MIDNIGHT_AND_HOUR_TIMER:
 			GOSUB SET_OWNER_RUN_BATCH_FILER
 			GOSUB RAM_EMPTY_MAIN
 			GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER
+			GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT
+			GOSUB PULL_RECYCLE_BIN_ON  ; CHECK IF EMPTY BEFORE BEGIN
+			GOSUB KILL_RS232_LOGGER_DO_RESTARTER
+			FN_VAR_04=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD_DAY EVENT.ahk
+			IfExist, %FN_VAR_04%
+				Run, %FN_VAR_04%
+				
+				
+			GOSUB RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND
 		}
 		
 
@@ -1676,35 +1802,19 @@ IfWinExist, Replace ahk_exe VB6.EXE
 }
 
 
-IfWinNotExist, Find ahk_exe VB6.EXE
-	UniqueID_Old=0
-
-IfWinExist, Find ahk_exe VB6.EXE
+WINGET, HWND_1, ID, Driver Booster ahk_class TFormDrvBst
+IF HWND_1
 {
-	; Replace Search and Replace Move to Better Position In Visual Basic
-	; or any other editor
-	ControlGetText, OutputVar, Current &Procedure , Find ahk_exe VB6.EXE
-	IF OutputVar 
-	{	
-		UniqueID := WinExist("Find ahk_exe VB6.EXE")
-		;tooltip %UniqueID%
-		WinGetPos,,YPos,,, Find ahk_exe VB6.EXE
-		if (YPOS>(A_ScreenHeight/2))
-			UniqueID_Old=0
-		if UniqueID_Old<>%UniqueID%
-		{
-			;WinMove, Replace,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
-			SoundBeep , 2500 , 50
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			WinMove, Find ahk_exe VB6.EXE,, (A_ScreenWidth)-(Width), 0
+	WinGet, Style, MinMax, ahk_id %HWND_1%
+	IF Style=-1
+		ID_DRIVER_BOOSTER_OLD=
+	ID_DRIVER_BOOSTER =%HWND_1%
+	if ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
+		RETURN
 
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			if (YPOS<>0)
-				UniqueID=0
-		}
-		
-		UniqueID_Old=%UniqueID%
-	}
+	SOUNDBEEP , 2500 , 50
+	WINMOVE, ahk_id %HWND_1%,,,-19   ; ---- CHANGE TOP TO 0
+	ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
 }
 
 
@@ -2425,7 +2535,7 @@ TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 	Process, Exist, WSCRIPT.EXE
 	If NOT ErrorLevel
 	{
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 32-COPIER_SYNC.VBS"
 		IfExist, %FN_VAR%
 		{
 			Run, %FN_VAR% NOTHING_DISPLAY
@@ -2606,7 +2716,7 @@ TIMER_SUB_HUBIC_1:
 	
 	RETURN
 	
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS"
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 34-HUBIC DELETE-ER.VBS"
 	IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR%
@@ -2618,7 +2728,7 @@ Return
 TIMER_SUB_HUBIC_2:
 ; -------------------------------------------------------------------
 	
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS"
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 34-HUBIC DELETE-ER.VBS"
 	IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR% /QUITE_MODE
@@ -2812,7 +2922,7 @@ TIMER_SUB__MY_IP:
 
 setTimer TIMER_SUB__MY_IP, % -1 * 1000 * 60 * 10 ; After10Minute
 
-FN_VAR_20:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
+FN_VAR_20:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 23-MY IP.VBS"
 IfExist, %FN_VAR_20%
 	{
 		Run, %FN_VAR_20%
@@ -2845,7 +2955,7 @@ if OSVER_N_VAR<10
 }
 
 
-FN_VAR_01:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
+FN_VAR_01:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
 IfExist, %FN_VAR_01%
 	{
 		Run, %FN_VAR_01%
@@ -3042,12 +3152,12 @@ TIMER_SUB_SCRIPT_SHELL_FOLDERING:
 
 setTimer TIMER_SUB_SCRIPT_SHELL_FOLDERING,% -1 * 1000 * 60 * 60 ; After1Hours
 
-; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 13-COPY MOVE SHELL FOLDING.VBS" , , hide
+; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 13-COPY MOVE SHELL FOLDING.VBS" , , hide
 
-Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" /RUN
+Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" /RUN
 
-; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" , , hide
-; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 10-VICEVERSA _ SHELL FOLDERING__.VBS
+; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" , , hide
+; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.VBS
 
 Return
 

@@ -338,10 +338,6 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; ---------------------------------------------------------------
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 DEBBY_HALL_PAUSE=TRUE
 DEBBY_HALL_PAUSE=FALSE
 
@@ -482,7 +478,6 @@ SETTIMER AUTO_RELOAD_FACEBOOK,1000
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-<<<<<<< HEAD
 GLOBAL STATE_XYPOS_COUNTER
 GLOBAL OLD_STATE_XYPOS_COUNTER
 STATE_XYPOS_COUNTER_TOP_MOUSE_REFRESH=0
@@ -497,8 +492,6 @@ LEAVE_FACEBOOK_NOTIFY_RETURN_OLD=
 SETTIMER TIMER_LEAVE_FACEBOOK_NOTIFY_AND_RETURN_PRESS_ESCPAPE,100
 
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 
 RAIN_ALARM_DO_ONCE=TRUE
@@ -574,7 +567,6 @@ IF !SET_GO
 	SETTIMER SOUND_EFFECT_FOR_NEW_MAIL_ARRIVE_BTINTERNET,1000
 
 
-<<<<<<< HEAD
 	
 SETTIMER RESTORE_PAGE_GONE,20000
 	
@@ -604,11 +596,6 @@ RETURN
 
 
 
-=======
-RETURN
-
-
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; -------------------------------------------------------------------
 ; END OF INIT DECLARE VARIABLE
 ; NOW ROUTINE AND FUNCTION
@@ -661,11 +648,8 @@ SET_ARRAY_FB_F5() {
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
-<<<<<<< HEAD
 	SET_ARRAY_FB_F5[ArrayCount]:="Error - Google Chrome"
 	ArrayCount += 1
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	SET_ARRAY_FB_F5[ArrayCount]:="Privacy error - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Connect to network - Google Chrome"
@@ -2201,35 +2185,23 @@ AUTO_RELOAD_FACEBOOK:
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"    ; ---- COMPUTER NAME
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=                  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE   
-<<<<<<< HEAD
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40                ; ---- TIMER INTERVAL ACTIVATE -- SECOND
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4                 ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=                  ; ---- MAKE AUDIO HITTER
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240               ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
-=======
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20                ; ---- TIMER INTERVAL ACTIVATE -- SECOND
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2                 ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"       ; ---- MAKE AUDIO HITTER
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50                ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=10
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
-<<<<<<< HEAD
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
-=======
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	ArrayCount += 1 
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="3-LINDA-PC"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=10
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
-<<<<<<< HEAD
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
@@ -2238,16 +2210,6 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=120
-=======
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=50
-	ArrayCount += 1
-	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
-	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=1
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=20
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="5-ASUS-P2520LA"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
@@ -2258,7 +2220,6 @@ AUTO_RELOAD_FACEBOOK:
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="7-ASUS-GL522VW"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
-<<<<<<< HEAD
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
@@ -2269,18 +2230,6 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
-=======
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=1
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=20
-	ArrayCount += 1
-	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="8-MSI-GP62M-7RD"
-	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=1
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=20
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 	COMPUTER_NAME_FOUND=
 	Loop % SET_ARRAY_FB_HITT_CN_1.MaxIndex()
@@ -2608,7 +2557,6 @@ AUTO_RELOAD_FACEBOOK:
 			SLEEP 400
 		}
 		IF (A_ComputerName = "4-ASUS-GL522VW") 
-<<<<<<< HEAD
 		{
 			TOOLTIP 
 			SLEEP 100
@@ -2621,12 +2569,6 @@ AUTO_RELOAD_FACEBOOK:
 		SETTIMER CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__4G,11000
 		SETTIMER CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__1X,11000
 
-=======
-			TOOLTIP 
-		SLEEP 100
-		SENDINPUT {Up}
-		SENDINPUT {F5}
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 		SLEEP 100
 		IF Element5
@@ -2653,7 +2595,6 @@ AUTO_RELOAD_FACEBOOK:
 RETURN
 
 
-<<<<<<< HEAD
 SEND_ESCAPE_02:
 	SENDINPUT {ESC}
 	SETTIMER SEND_ESCAPE_02,OFF
@@ -2842,8 +2783,6 @@ RETURN
 
 
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------

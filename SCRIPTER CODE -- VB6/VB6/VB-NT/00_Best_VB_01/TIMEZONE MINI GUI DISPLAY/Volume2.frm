@@ -19,15 +19,12 @@ Begin VB.Form FORM_1
    ScaleWidth      =   4680
    ShowInTaskbar   =   0   'False
    Visible         =   0   'False
-<<<<<<< HEAD
    Begin VB.Timer MOUSE_HOVER 
       Enabled         =   0   'False
       Interval        =   100
       Left            =   2844
       Top             =   2436
    End
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
    Begin VB.Timer Timer_FORM_PROJECT_CHECK_DATE 
       Interval        =   2000
       Left            =   2880
@@ -118,11 +115,7 @@ Attribute VB_Exposed = False
 ' LOCATION ON-LINE
 ' -------------------------------------------------------------------
 
-<<<<<<< HEAD
 Dim MOUSE_DOWN_EVENT_TIME
-=======
-
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 Public cProcesses As New clsCnProc
 
@@ -335,18 +328,12 @@ End Sub
 
 Private Sub LAB_TIMEZONE_DblClick()
     Unload Me
-<<<<<<< HEAD
     End
 End Sub
-=======
-End Sub
-
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 Private Sub LAB_TIMEZONE_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
     Timer_MOUSE_MOVER.Enabled = True
     X_VAR = x
     Y_VAR = y
-<<<<<<< HEAD
     If MOUSE_DOWN_EVENT_ACTION = "HIGH" Then
         MOUSE_DOWN_EVENT_TIME = 0
     End If
@@ -367,8 +354,6 @@ Sub MOUSE_HOVER_TIMER()
         MOUSE_DOWN_EVENT_TIME = 0
         LAB_TIMEZONE.ToolTipText = UCase(App.Path + " ---- \ ---- " + App.EXEName + ".EXE")
     End If
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 End Sub
 Private Sub LAB_TIMEZONE_MouseUP(Button As Integer, Shift As Integer, x As Single, y As Single)
     Timer_MOUSE_MOVER.Enabled = False
@@ -376,16 +361,12 @@ Private Sub LAB_TIMEZONE_MouseUP(Button As Integer, Shift As Integer, x As Singl
     If Button = R_BUTTON Then
         Call MNU_VB_ME_Click
     End If
-<<<<<<< HEAD
     MOUSE_DOWN_EVENT_ACTION = "HIGH"
     
     AlwaysOnTop (Me.hWnd)
 
 End Sub
 
-=======
-End Sub
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 Private Sub Timer_MOUSE_MOVER_Timer()
     Dim tPA As POINTAPI
     ' Get cursor cordinates
@@ -397,14 +378,11 @@ Private Sub Timer_MOUSE_MOVER_Timer()
     Me.Top = (tPA.y) * Screen.TwipsPerPixelY - (Y_VAR - 0)
     STR_ME_TOP = Trim(Str(Me.Top))
     STR_ME_LEFT = Trim(Str(Me.Left))
-<<<<<<< HEAD
     If MOUSE_DOWN_EVENT_TIME > 0 Then
         If MOUSE_DOWN_EVENT_ACTION = "DOWN" Then
             MOUSE_DOWN_EVENT_TIME = Now + TimeSerial(0, 0, 4)
         End If
     End If
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 End Sub
 
 Private Sub ProgressBar1_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
@@ -531,11 +509,7 @@ Private Sub Timer_TIMEZONE_Timer()
                 
                 Explorer_Path = DISPLAY_HDD_NET
             End If
-<<<<<<< HEAD
                 FREE_BYTE = Explorer_Path + " " + Format$(NUKE1 / 1024 ^ 3, "0.0000") + " Gb Remain __ "
-=======
-                FREE_BYTE = Explorer_Path + " " + Format$(NUKE1 / 1024 ^ 3, "0.0000") + " Gb __ "
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
             End If
         End If
     
@@ -546,7 +520,6 @@ Private Sub Timer_TIMEZONE_Timer()
         LAB_TIMEZONE.Visible = True
         Me.Visible = True
     End If
-<<<<<<< HEAD
     
         
     'CPU MPC
@@ -560,9 +533,6 @@ Private Sub Timer_TIMEZONE_Timer()
     If M_NAME = "8-MSI-GP62M-7RD" Then M_NAME_2 = "8M "
     M_NAME = M_NAME_2
     LAB_TIMEZONE.Caption = M_NAME + FREE_BYTE + GS + Format(Now + TimeSerial(10, 0, 0), "DDD  HH : MM : SS  AM/PM")
-=======
-    LAB_TIMEZONE.Caption = FREE_BYTE + GS + Format(Now + TimeSerial(10, 0, 0), "DDD  HH : MM : SS  AM/PM")
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
     'LAB_TIMEZONE.AutoSize = False
     'LAB_TIMEZONE.Refresh

@@ -332,11 +332,7 @@ for /L %%a in (1,1,!LDA!) do (
 	@ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
 	@ECHO.
 	REM START /B "" %GoodSync_GSync% sync !Sources_02[%%a]!
-<<<<<<< HEAD
-	START "" "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE 2 ARG.VBS" "%GoodSync_GSync% sync !Sources_02[%%a]!"
-=======
-	START "" "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE 2 ARG.VBS" "%GoodSync_GSync% sync !Sources_02[%%a]!"
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
+	START "" "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 40-RUN EXE 2 ARG.VBS" "%GoodSync_GSync% sync !Sources_02[%%a]!"
 	REM CMD /K "%GoodSync_GSync% sync !Sources_02[%%a]!">!FILENAME_ER!
 	ECHO HH >!FILENAME_ER!
 	@ECHO OFF

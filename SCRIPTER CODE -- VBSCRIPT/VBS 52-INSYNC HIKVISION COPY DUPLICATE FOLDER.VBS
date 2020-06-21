@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS
 '# __ 
 '# __ VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS
 '# __ 
@@ -531,7 +531,7 @@ SUB GET_WINDOWS_VERSION
 	' ---------------------------
 	' Windows Script Host
 	' ---------------------------
-	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 13-COPY MOVE SHELL FOLDING.VBS
+	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 13-COPY MOVE SHELL FOLDING.VBS
 	' Line:	150
 	' Char:	2
 	' Error:	ActiveX component can't create object
