@@ -13,7 +13,11 @@
 ;---------------------------------------------------------------
 ; DETECT CAMERA BY VOLUME LABEL OF MEDIA CARD INSERTED
 ; AND THEN RUNS ACCORDING PROGRAM
+<<<<<<< HEAD
 ; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\
+=======
+; C:\SCRIPTER\SCRIPTER CODE -- VBS\
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; VBS 29-COPY CAMERA PHOTO IMAGES.VBS
 ; AND THE VBS SCRIPTOR PROGRAM THEN GOES ON TO RUN OTHER PROGRAMS IN VB6-VBA 
 ; FOR RE-NAMER PHOTOS WITH EXIF INFO AND DIRECTORY'S INTO DAYS
@@ -108,8 +112,11 @@ SetTitleMatchMode 2
 DetectHiddenText, Off
 
 
+<<<<<<< HEAD
 LABEL_CAMERA=
 
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 GLOBAL O_HWND_ID_1
 GLOBAL MSGBOX_CAMERA_CountDown_Generate_VAR
@@ -224,6 +231,7 @@ TIMER_DRIVE_GET_CAMERA:
 	I+=1,SET_ARRAY_1[I]:="HI-LOOK-08"           ; BLACK 08 PORT
 	I+=1,SET_ARRAY_1[I]:="HARD_REC_8G"          ; ACTIONS HS USB FlashDisk USB ---- FAT32 -- Wed 04-Mar-2020
 	I+=1,SET_ARRAY_1[I]:="RETEKESS"
+<<<<<<< HEAD
 	I+=1,SET_ARRAY_1[I]:="128GB-V-OPA"          ; ---------------------------------------------------------------
 												; £54.99 HTTPS://TINYURL.COM/Y9CN3UG3
 												; Spy Camera, OMOUP 10000mAh Power Bank with Camera,
@@ -243,6 +251,8 @@ TIMER_DRIVE_GET_CAMERA:
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
@@ -266,6 +276,7 @@ TIMER_DRIVE_GET_CAMERA:
 		FIND_VOLUME_NAME_01:="--" SET_ARRAY_1[A_Index] "__"
 		FIND_VOLUME_NAME_02:=SET_ARRAY_1[A_Index]
 		IF INSTR(DRIVE_SET,FIND_VOLUME_NAME_01)>0
+<<<<<<< HEAD
 		{
 			LABEL_CAMERA:=SET_ARRAY_1[A_Index]
 			SET_GO=TRUE
@@ -273,6 +284,14 @@ TIMER_DRIVE_GET_CAMERA:
 		}
 	}
 
+=======
+			SET_GO=TRUE
+		IF SET_GO=TRUE
+			BREAK                                ; -- FIRST FIND GIVE EXIT
+	}
+
+
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	; -------------------------------------------------------------------
 	; IF DOS SHELL BATCH RUN SWERVE THAT ONE
 	; AS TRIGGER FROM CERTAIN SYNC JOB
@@ -319,7 +338,11 @@ TIMER_DRIVE_GET_CAMERA:
 
 		IfMsgBox Yes
 		{
+<<<<<<< HEAD
 			FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 29-COPY CAMERA PHOTO IMAGES.VBS"
+=======
+			FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 29-COPY CAMERA PHOTO IMAGES.VBS"
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 			IfExist, %FN_VAR%
 			{
 
@@ -350,8 +373,11 @@ RETURN
 
 
 MSGBOX_CAMERA_CountDown_Generate_Line:
+<<<<<<< HEAD
 	; DO YOU WANT
 	; SLURP WANT
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	MSGBOX_CAMERA_CountDown_Generate_VAR=Would you like to Copy Camera Media Card`n%LABEL_CAMERA%`nRespond in`n%Secs_CAMERA% Seconds
 RETURN
 

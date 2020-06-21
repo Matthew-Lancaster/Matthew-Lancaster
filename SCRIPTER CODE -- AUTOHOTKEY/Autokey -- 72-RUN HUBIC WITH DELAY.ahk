@@ -164,7 +164,11 @@ If (OSVER_N_VAR>5)
 					
 					RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubiC
 					
+<<<<<<< HEAD
 					; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE.VBS" "%FN_VAR%"
+=======
+					; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE.VBS" "%FN_VAR%"
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 					SoundBeep , 2500 , 100
 					EXITAPP
 				}

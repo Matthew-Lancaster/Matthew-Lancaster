@@ -45,6 +45,7 @@ GO_ROUTINE:
 	; IF (A_ComputerName="4-ASUS-GL522VW") 	
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	
+<<<<<<< HEAD
 	
 	; -----------------------------------------------
 	; 4096 BRING TO FOREGROUND
@@ -58,6 +59,8 @@ GO_ROUTINE:
 	MSGBOX ,4096,,NOT GOODSYNC PORTABLE D-DRIVE WITH ASUS 4G AT THE MOMENT`n`nAS IMAGE AT GOOGLE PHOTO NOT IN-LINE YET
 	RETURN
 	
+=======
+>>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	; ---------------------------------------------------------------
 	FN_VAR_TMP_FILE=C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\
 	PATH_NAME_2=%FN_VAR_TMP_FILE%*.TXT
