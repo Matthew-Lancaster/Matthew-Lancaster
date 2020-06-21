@@ -494,64 +494,81 @@ ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET:
 	OutVar_2=
 	OutVar_3=
 	
-	IF INSTR(VAR_TITLE,"Freemake")=0 
-		RETURN
-	
-	IF VAR_GET
+	IF INSTR(VAR_TITLE,"Freemake")>0 
 	{
-		ControlGettext, OutVar_1, TNewButton1, ahk_id %VAR_GET%
-		ControlGettext, OutVar_2, TNewButton2, ahk_id %VAR_GET%
-		ControlGet, OutVar_3, Enabled,, TNewButton1, ahk_id %VAR_GET%
-		ControlGet, OutVar_4, Checked,, TNewCheckBox1, ahk_id %VAR_GET%
-	}
-	
-	
-	IF VAR_GET
-	IF OutVar_4=1
-		Control, UNCheck,, TNewCheckBox1, ahk_id %VAR_GET%
-	
-	
-	IF VAR_GET
-	{
-		IF OutVar_3=1    ; NOT ENABLE
-		IF OutVar_2=&Next >
+		IF VAR_GET
 		{
-			ControlClick, &Next >, ahk_id %VAR_GET%
-			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
-			RETURN
+			ControlGettext, OutVar_1, TNewButton1, ahk_id %VAR_GET%
+			ControlGettext, OutVar_2, TNewButton2, ahk_id %VAR_GET%
+			ControlGet, OutVar_3, Enabled,, TNewButton1, ahk_id %VAR_GET%
+			ControlGet, OutVar_4, Checked,, TNewCheckBox1, ahk_id %VAR_GET%
 		}
 		
-		IF OutVar_2=&Finish
+		
+		IF VAR_GET
+		IF OutVar_4=1
+			Control, UNCheck,, TNewCheckBox1, ahk_id %VAR_GET%
+		
+		
+		IF VAR_GET
 		{
-			ControlClick, &Finish, ahk_id %VAR_GET%
-			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
-			RETURN
+			IF OutVar_3=1    ; NOT ENABLE
+			IF OutVar_2=&Next >
+			{
+				ControlClick, &Next >, ahk_id %VAR_GET%
+				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+				RETURN
+			}
+			
+			IF OutVar_2=&Finish
+			{
+				ControlClick, &Finish, ahk_id %VAR_GET%
+				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+				RETURN
+			}
+			
+			IF OutVar_1
+			{
+				ControlClick, TNewButton1, ahk_id %VAR_GET%
+				; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			}
 		}
 		
-		IF OutVar_1
+		WinGet,VAR_GET_1, ID, Exit Setup ahk_class #32770
+		IF VAR_GET_1
 		{
-			ControlClick, TNewButton1, ahk_id %VAR_GET%
-			; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
-		}
-	}
-	
-	WinGet,VAR_GET_1, ID, Exit Setup ahk_class #32770
+			WinGet,VAR_GET_2, ProcessPath, ahk_exe FreemakeMusicBoxFull.tmp
+			IF VAR_GET_2
+			{
+				ControlGettext, OutVar_2, Button2, ahk_id %VAR_GET_1%
+				TOOLTIP % OutVar_2
+				IF OutVar_2
+				{
+					ControlClick, Button2, ahk_id %VAR_GET_1%
+					SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+					RETURN
+				}
+			}
+		}		
+	}		
+		
+	WinGet,VAR_GET_1, ID, Select Setup Language ahk_class TSelectLanguageForm
 	IF VAR_GET_1
 	{
-		WinGet,VAR_GET_2, ProcessPath, ahk_exe FreemakeMusicBoxFull.tmp
+		WinGet,VAR_GET_2, ProcessPath, ahk_exe MusicBox.tmp
 		IF VAR_GET_2
 		{
-			ControlGettext, OutVar_2, Button2, ahk_id %VAR_GET_1%
+			ControlGettext, OutVar_2, TNewButton1, ahk_id %VAR_GET_1%
 			TOOLTIP % OutVar_2
 			IF OutVar_2
 			{
-				ControlClick, Button2, ahk_id %VAR_GET_1%
+				ControlClick, TNewButton1, ahk_id %VAR_GET_1%
 				SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 				RETURN
 			}
 		}
 	}		
-		
+
 
 RETURN
 

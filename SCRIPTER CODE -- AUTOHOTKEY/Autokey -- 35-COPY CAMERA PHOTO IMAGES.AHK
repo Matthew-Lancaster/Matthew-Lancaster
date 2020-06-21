@@ -224,6 +224,25 @@ TIMER_DRIVE_GET_CAMERA:
 	I+=1,SET_ARRAY_1[I]:="HI-LOOK-08"           ; BLACK 08 PORT
 	I+=1,SET_ARRAY_1[I]:="HARD_REC_8G"          ; ACTIONS HS USB FlashDisk USB ---- FAT32 -- Wed 04-Mar-2020
 	I+=1,SET_ARRAY_1[I]:="RETEKESS"
+	I+=1,SET_ARRAY_1[I]:="128GB-V-OPA"          ; ---------------------------------------------------------------
+												; £54.99 HTTPS://TINYURL.COM/Y9CN3UG3
+												; Spy Camera, OMOUP 10000mAh Power Bank with Camera,
+												; 1080P HD Hidden Camera Nanny Cam with Motion Detection 
+												; Night Vision Gravity Sensing Function
+												; 17-JUN-2020 ORDER -- 18-JUN-2020 DELIVERY -- 20-JUN-2020 GET GO
+												; NEW MODEL -- HAS EVERYTHING
+												; AND OVER SPEC TAKE 128GB MC-CARD -- THAN SPECIFY MAXIMUM 64GB
+												; ---------------------------------------------------------------
+	I+=1,SET_ARRAY_1[I]:="HARD-RIPER2"          ; ACTIONS HS USB FlashDisk USB ---- FAT32 -- Sat 20-Jun-2020
+												; Digital Voice Recorder, COOAU 8GB Rechargeable: Amazon.co.uk: Electronics 
+												; https://www.amazon.co.uk/gp/product/B07G5BVWS8/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
+												; https://tinyurl.com/yanwzeyu
+												; ---------------------------------------------------------------
+	; I+=1,SET_ARRAY_1[I]:=""
+	; I+=1,SET_ARRAY_1[I]:=""
+	; I+=1,SET_ARRAY_1[I]:=""
+	; I+=1,SET_ARRAY_1[I]:=""
+	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""
 	; I+=1,SET_ARRAY_1[I]:=""

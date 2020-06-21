@@ -355,6 +355,7 @@ RETURN
 	
 #IfWinActive ahk_class Chrome_WidgetWin_1
 ~LButton::
+IF (A_ComputerName<>"1-ASUS-X5DIJ")
 IF (A_ComputerName<>"2-ASUS-EEE")
 IfWinNotExist ClipBoard Logger
 	RUN D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe
