@@ -1,4 +1,4 @@
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 27-RENAME FILE+SUBFOLDER_AUDIO_DEVICE.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_AUDIO_DEVICE.VBS
 ' --------------------------------------------------------------------
 ' VBS 27-RENAME FILE+SUBFOLDER_AUDIO_DEVICE.VBS
 ' --------------------------------------------------------------------

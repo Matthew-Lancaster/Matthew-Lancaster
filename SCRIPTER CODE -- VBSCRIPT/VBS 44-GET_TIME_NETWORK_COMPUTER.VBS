@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 42-PSTART SYNC NETWORK.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 42-PSTART SYNC NETWORK.VBS
 '# __ 
 '# __ VBS 42-PSTART SYNC NETWORK.VBS
 '# __ 
