@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER.VBS
 '# __ 
 '# __ VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER.VBS
 '# __ 
@@ -43,7 +43,7 @@
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
-FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS"
+FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 52-INSYNC HIKVISION COPY DUPLICATE FOLDER.VBS"
 '--------------------------------------------------------------
 WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 '--------------------------------------------------------------
@@ -135,7 +135,7 @@ NEXT
 
 
 
-FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER_2.VBS"
+FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 52-GOODSYNC GOOGLE DRIVE INSYNC HIKVISION DELETE EMPTY FOLDER_2.VBS"
 '--------------------------------------------------------------
 WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 '--------------------------------------------------------------
