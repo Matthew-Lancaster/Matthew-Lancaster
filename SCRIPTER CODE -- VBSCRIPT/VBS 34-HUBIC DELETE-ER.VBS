@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 34-HUBIC DELETE-ER.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 34-HUBIC DELETE-ER.VBS
 '# __ 
 '# __ VBS 34-HUBIC DELETE-ER.VBS
 '# __ 
@@ -515,7 +515,7 @@ Function FolderEmpty(strFolder)
 	' ---------------------------
 	' Windows Script Host
 	' ---------------------------
-	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 34-HUBIC DELETE-ER.VBS
+	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 34-HUBIC DELETE-ER.VBS
 	' Line:	410
 	' Char:	3
 	' Error:	Path not found
@@ -636,7 +636,7 @@ End Sub
 ' THE SCRIPT WRITING
 ' BUT INCLUDE IF THEY ARE GOING TO BE USEFUL LATER
 ' IT WAS TAKEN COPY FROM ANOTHER CODE
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 29-COPY CAMERA PHOTO IMAGES.VBS
 '
 ' TEMP RUN IF WANT TO JUST A REANME-ER USE ONCE
 ' -------------------------------------------------------------------

@@ -14,7 +14,7 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 ' Mon 17-Feb-2020 02:10:00
 ' -------------------------------------------------------------------
 ' COPY FROM 
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS
 ' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
@@ -53,7 +53,7 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 ' -------------------------------------------------------------------
 ' THIS FILE HERE
 ' -------------------------------------------------------------------
-' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS
 ' IS LINKER ON
 ' D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\VBS 40-RUN EXE EXPLORER LANCHER.VBS
 ' -------------------------------------------------------------------

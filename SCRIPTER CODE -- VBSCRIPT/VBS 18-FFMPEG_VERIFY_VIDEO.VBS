@@ -180,14 +180,14 @@ Sub BEGIN
 	' https://ffmpeg.zeranoe.com/builds/
 	' ----
 	' ---------------------------------------------------------------
-	' DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
-	' DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+	' DH = """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+	' DH = """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
 	' DH = """C:\PStart\# NOT INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
 
 	' ---------------------------------------------------------------
 	' UP-TO-DATE VERSION 
 	' ---------------------------------------------------------------
-	' PATH_FFMPEG="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
+	' PATH_FFMPEG="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
 	
 	' ---------------------------------------------------------------
 	' SAME AS HERE COPIER
@@ -200,7 +200,7 @@ Sub BEGIN
 
 	'-----------------------------
 	'TRY TO RUN SCRIPTING FROM COMMAND LINE -- WRONG DEBUG IT WORK TO DO
-	'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
+	'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
 	'-----------------------------
 		
 	TEMP = XF4

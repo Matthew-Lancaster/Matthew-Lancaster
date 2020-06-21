@@ -1,5 +1,5 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\SysWow64\stdole2.tlb#OLE Automation
 Reference=*\G{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}#1.0#0#C:\Windows\SysWOW64\wshom.ocx#Windows Script Host Object Model
 Reference=*\G{420B2830-E718-11CF-893D-00A0C9054228}#1.0#0#C:\Windows\SysWOW64\scrrun.dll#Microsoft Scripting Runtime
 Object={3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0; richtx32.Ocx
@@ -17,7 +17,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=271
+RevisionVer=275
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Sat 09-Jun-2018 10-03-12a"

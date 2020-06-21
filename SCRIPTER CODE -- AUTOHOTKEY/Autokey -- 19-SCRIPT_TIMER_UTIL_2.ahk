@@ -88,11 +88,8 @@
 #Warn
 #NoEnv
 #SingleInstance Force
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; -------------------------------------------------------------------
 #Persistent
 ; -------------------------------------------------------------------
@@ -130,11 +127,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ;# ------------------------------------------------------------------
 ;# ------------------------------------------------------------------
 
@@ -447,7 +441,6 @@ SETTIMER FOCUS_TABBER_APP_ESCAPE_KEY_STOP_THE_PULL_DOWN_TIMER,500
 
 SETTIMER MPC_DELETE_FILE_TO_RECYCLE_BUTTON_CLICKER,500
 
-<<<<<<< HEAD
 SETTIMER XP_MSGBOX_FOR_FIRESHOT,1000
 
 VAR_GET_2_OLD=
@@ -477,8 +470,6 @@ SETTIMER ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET,1000
 
 
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -487,7 +478,6 @@ SETTIMER ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET,1000
 ; -------------------------------------------------------------------
 RETURN
 
-<<<<<<< HEAD
 
 ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET:
 
@@ -946,8 +936,6 @@ RETURN
 
 
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 REMOTE_APP_RUN_SET_UP_AND_RUN_AUTOKEY_85_C_HDD:
 	SET_GO_2=
 	IF (A_ComputerName="4-ASUS-GL522VW")
@@ -1137,11 +1125,7 @@ BAT_01_BOOT_KILLER_BAT_EXIST_KILL_TIMER:
 	{
 		OLD_BAT_01_BOOT_KILLER_BAT_EXIST_HWND=%BAT_01_BOOT_KILLER_BAT_EXIST_HWND%
 		BAT_01_BOOT_KILLER_BAT_EXIST_TIMER_COUNT_DOWN=%A_NOW%
-<<<<<<< HEAD
 		BAT_01_BOOT_KILLER_BAT_EXIST_TIMER_COUNT_DOWN+= 2, Minute
-=======
-		BAT_01_BOOT_KILLER_BAT_EXIST_TIMER_COUNT_DOWN+= 1, Minute
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 	}
 	IF BAT_01_BOOT_KILLER_BAT_EXIST_TIMER_COUNT_DOWN>0
@@ -1150,11 +1134,8 @@ BAT_01_BOOT_KILLER_BAT_EXIST_KILL_TIMER:
 		OLD_BAT_01_BOOT_KILLER_BAT_EXIST_HWND=%BAT_01_BOOT_KILLER_BAT_EXIST_HWND%
 		WINCLOSE, %BAT_01_BOOT_KILLER_VAR_CLASS%
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
-<<<<<<< HEAD
 		BAT_01_BOOT_KILLER_BAT_EXIST_TIMER_COUNT_DOWN=0
 		; SETTIMER BAT_01_BOOT_KILLER_BAT_EXIST_KILL_TIMER,OFF
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 		; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
@@ -1551,10 +1532,7 @@ RETURN
 
 NOT_RESPOND_TIMEZONE_MINI_GUI_DISPLAY_05:
 Element_1 := "D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe"
-<<<<<<< HEAD
 IF (A_ComputerName <> "2-ASUS-EEE") 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 IfExist, %Element_1%
 {
 	VAR_1_WIN_05=TIMEZONE MINI GUI DISPLAY ahk_class ThunderFormDC
@@ -1572,13 +1550,9 @@ IfExist, %Element_1%
 
 		SoundBeep , 2000 , 100
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-<<<<<<< HEAD
 		; --------------
 		Run, %Element_1%
 		; --------------
-=======
-		Run, %Element_1%
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 	}
 }
 RETURN
@@ -3034,13 +3008,10 @@ MIDNIGHT_AND_HOUR_TIMER:
 	Midnight -= A_Now, seconds
 
 	EnvMult, Midnight, 1000
-<<<<<<< HEAD
 	
 	
 	
 	
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 	SET_GO=FALSE
 
@@ -4241,41 +4212,8 @@ IfWinExist, Replace ahk_exe VB6.EXE
 }
 
 
-<<<<<<< HEAD
 
 
-=======
-IfWinNotExist, Find ahk_exe VB6.EXE
-	UniqueID_Old=0
-
-IfWinExist, Find ahk_exe VB6.EXE
-{
-	; Replace Search and Replace Move to Better Position In Visual Basic
-	; or any other editor
-	ControlGetText, OutputVar, Current &Procedure , Find ahk_exe VB6.EXE
-	IF OutputVar 
-	{	
-		UniqueID := WinExist("Find ahk_exe VB6.EXE")
-		;tooltip %UniqueID%
-		WinGetPos,,YPos,,, Find ahk_exe VB6.EXE
-		if (YPOS>(A_ScreenHeight/2))
-			UniqueID_Old=0
-		if UniqueID_Old<>%UniqueID%
-		{
-			;WinMove, Replace,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
-			SoundBeep , 2500 , 50
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			WinMove, Find ahk_exe VB6.EXE,, (A_ScreenWidth)-(Width), 0
-
-			WinGetPos,,YPos, Width, Height, Find ahk_exe VB6.EXE
-			if (YPOS<>0)
-				UniqueID=0
-		}
-		
-		UniqueID_Old=%UniqueID%
-	}
-}
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 
 
 ; MAYBE WANT IT
@@ -4794,11 +4732,7 @@ TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 	Process, Exist, WSCRIPT.EXE
 	If NOT ErrorLevel
 	{
-<<<<<<< HEAD
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 32-COPIER_SYNC.VBS"
-=======
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 32-COPIER_SYNC.VBS"
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 32-COPIER_SYNC.VBS"
 		IfExist, %FN_VAR%
 		{
 			Run, %FN_VAR% NOTHING_DISPLAY
@@ -4975,11 +4909,7 @@ TIMER_SUB_HUBIC_1:
 	
 	RETURN
 	
-<<<<<<< HEAD
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 34-HUBIC DELETE-ER.VBS"
-=======
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS"
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 34-HUBIC DELETE-ER.VBS"
 	IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR%
@@ -4991,11 +4921,7 @@ Return
 TIMER_SUB_HUBIC_2:
 ; -------------------------------------------------------------------
 	
-<<<<<<< HEAD
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 34-HUBIC DELETE-ER.VBS"
-=======
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 34-HUBIC DELETE-ER.VBS"
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 34-HUBIC DELETE-ER.VBS"
 	IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR% /QUITE_MODE
@@ -5881,11 +5807,7 @@ TIMER_SUB__MY_IP:
 
 ; SETTIMER TIMER_SUB__MY_IP, % -1 * 1000 * 60 * 10 ; After10Minute
 
-<<<<<<< HEAD
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 23-MY IP.VBS"
-=======
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 23-MY IP.VBS"
 IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR%
@@ -5918,11 +5840,7 @@ if OSVER_N_VAR<10
 }
 
 
-<<<<<<< HEAD
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
-=======
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 24-I_VIEW32 CONVERT_CCSE.AHK"
 IfExist, %FN_VAR%
 	{
 		Run, %FN_VAR%
@@ -6119,21 +6037,12 @@ TIMER_SUB_SCRIPT_SHELL_FOLDERING:
 
 ; SETTIMER TIMER_SUB_SCRIPT_SHELL_FOLDERING,% -1 * 1000 * 60 * 60 ; After1Hours
 
-<<<<<<< HEAD
-; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 13-COPY MOVE SHELL FOLDING.VBS" , , hide
+; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 13-COPY MOVE SHELL FOLDING.VBS" , , hide
 
-Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" /RUN
+Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" /RUN
 
-; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" , , hide
-; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.VBS
-=======
-; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 13-COPY MOVE SHELL FOLDING.VBS" , , hide
-
-Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" /RUN
-
-; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" , , hide
-; C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 10-VICEVERSA _ SHELL FOLDERING__.VBS
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
+; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" , , hide
+; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.VBS
 
 Return
 
@@ -6367,11 +6276,8 @@ RETURN
 
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -6391,10 +6297,7 @@ if ScriptInstanceExist()
 {
 	Exitapp
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 90ddd3dff472788f77096141bd1af892a766f0ff
 return
 
 ScriptInstanceExist() {

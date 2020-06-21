@@ -42,7 +42,7 @@ IF (A_ComputerName<>"7-ASUS-GL522VW")
 ;--------------------------------------------------------------------
 IF SET_GO=TRUE 
 {
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 24-i_view32 convert_CCSE.VBS"
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 24-i_view32 convert_CCSE.VBS"
 IfExist, %FN_VAR%
 	RunWait, "%FN_VAR%" , , HIDE
 }

@@ -1,5 +1,5 @@
 '====================================================================
-'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 28-GOODSYNC JOB WORK COUNT.VBS
+'# __ C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 28-GOODSYNC JOB WORK COUNT.VBS
 '# __ 
 '# __ VBS 28-GOODSYNC JOB WORK COUNT.VBS
 '# __ 
