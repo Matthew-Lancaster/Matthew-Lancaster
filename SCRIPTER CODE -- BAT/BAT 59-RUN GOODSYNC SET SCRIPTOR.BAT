@@ -1233,13 +1233,12 @@ GOTO NEXT_PART
 	START /B "" "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
 	
 	:JUMP_OVER_GITHUB
-	ECHO.
-	ECHO ------------------------------------------------------------
-	ECHO RUN COMMAND 
-	ECHO C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT
-	REM ECHO %~dp0
-	ECHO ----------------------------------------------------------------
-	TIMEOUT /T 8
+	REM ECHO.
+	REM ECHO ------------------------------------------------------------
+	REM ECHO RUN COMMAND 
+	REM REM ECHO %~dp0
+	REM ECHO ----------------------------------------------------------------
+	REM TIMEOUT /T 8
 TIMEOUT /T 30
 GOTO ENDE
 
