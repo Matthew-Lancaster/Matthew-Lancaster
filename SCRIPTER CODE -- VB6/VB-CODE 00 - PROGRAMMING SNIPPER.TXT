@@ -31,8 +31,21 @@ C:\SCRIPTER\SCRIPTER CODE -- VB6\VB-CODE 00 - PROGRAMMING SNIPPER.TXT
 ' Fri 26-Jun-2020 10:44:17
 ' Fri 26-Jun-2020 12:28:10 -- 1 HOUR 43 MINUTE
 ' ---------------------------------------------------------------------
+' ---------------------------------------------------------------------
+' Fri 26-Jun-2020 14:34:56 -- 
+' Fri 26-Jun-2020 15:17:48 -- 42 MINUTE
+' ---------------------------------------------------------------------
+' ---------------------------------------------------------------------
+' TWO SESSION -- 1 HOUR 43 MINUTE __+__ 42 MINUTE
+' FIND ERROR CODE NOT CLOSE APP -- AND DESTROY CALL APP WINDOW
+' WHEN CALL BY APP CLOSE OTHER DO
+' ---------------------------------------------------------------------
+' ---------------------------------------------------------------------
+' Fri 26-Jun-2020 10:44:17 -- TOTAL SMALL GAP BETWEEN
+' Fri 26-Jun-2020 15:17:48 -- 4 HOUR 33 MINUTE
+' ---------------------------------------------------------------------
 ' --------------------------------------------------------------------
-' TIME TO FIND HERE
+' TIME TO FIND HERE BEFORE WORKER
 ' --------------------------------------------------------------------
 ' Fri 26-Jun-2020 10:44:17
 ' Fri 26-Jun-2020 12:00:00 -- 1 HOUR 15 MINUTE
@@ -81,8 +94,18 @@ End Sub
 ' --------------------------------------------------------------------
 Private Sub MNU_OPEN_PROPERTIE_FOR_ALL_DRIVE_Click()
     Me.WindowState = vbMinimized
+    
+    ' -----------------------------------------------
+    ' HERE MIGHT WORK BUT
+    ' CHANGE TO HERE AS
+    ' RESULT NOT DESIRE
+    ' WHEN APP CLOSE THAT CALL OPEN PROPERTY AND THEN
+    ' ALSO CLOSE OPEN PROPERTY AFTER
+    ' -----------------------------------------------
+    
     Dim TT, TG, Y1 ' ---- NOT REQUIRE INFO OTHER EXAMPLE
-	DIM FILENAME
+    Dim FileName
+    Dim s As SHELLEXECUTEINFO
     On Error Resume Next
     For R = 3 To 25
         Err.Clear
@@ -99,19 +122,101 @@ Private Sub MNU_OPEN_PROPERTIE_FOR_ALL_DRIVE_Click()
             TT = z.DriveLetter + ":" + "- Type - " + T + " --- Serial - " + Hex$(z.SerialNumber) + " - Vol.Name - " + z.VolumeName + vbCrLf
             TG = TG + 1
             Y1 = Y1 + TT
-            FILENAME = z.DriveLetter + ":\" ' + z.VolumeName
-                Dim s As SHELLEXECUTEINFO
-                s.cbSize = LenB(s)
-                s.lpFile = FILENAME
-                s.nShow = SW_SHOW
-                s.fMask = SEE_MASK_INVOKEIDLIST
-                s.lpVerb = "properties"
-                ShellExecuteEx s
+            FileName = z.DriveLetter + ":\" ' + z.VolumeName
+            Shell "D:\VB6\VB-NT\00_BEST_VB_01\Shell Explorer Loader\SHELLEXECUTEEX_OPEN_PROPERTY.EXE" + " " + FileName
+            
+'            s.cbSize = LenB(s)
+'            s.lpFile = FileName
+'            s.nShow = SW_SHOW
+'            s.fMask = SEE_MASK_INVOKEIDLIST
+'            s.lpVerb = "properties"
+'            ShellExecuteEx s
         End If
     Next
-    End
+    Unload Me
 End Sub
 ' --------------------------------------------------------------------
+
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+' D:\VB6\VB-NT\00_BEST_VB_01\Shell Explorer Loader\SHELLEXECUTEEX_OPEN_PROPERTY.EXE
+' D:\VB6\VB-NT\00_BEST_VB_01\Shell Explorer Loader\SHELLEXECUTEEX_OPEN_PROPERTY.BAS
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+Dim COMMAND_LINE
+Dim FSO
+Private Const SW_SHOW = 5
+Private Const SEE_MASK_INVOKEIDLIST = &HC
+Private Type SHELLEXECUTEINFO
+    cbSize As Long
+    fMask As Long
+    hwnd As Long
+    lpVerb As String
+    lpFile As String
+    lpParameters As String
+    lpDirectory As String
+    nShow As Long
+    hInstApp As Long
+    ' ---- OPTIONAL FIELDS
+    lpIDList As Long
+    lpClass As String
+    hkeyClass As Long
+    dwHotKey As Long
+    hIcon As Long
+    hProcess As Long
+End Type
+Private Declare Function ShellExecuteEx Lib "shell32.dll" (ByRef s As SHELLEXECUTEINFO) As Long
+' --------------------------------------------------------------------
+Private Sub Command1_Click()
+    Dim s As SHELLEXECUTEINFO
+    s.cbSize = LenB(s)
+    s.lpFile = "E:\"
+    s.nShow = SW_SHOW
+    s.fMask = SEE_MASK_INVOKEIDLIST
+    s.lpVerb = "properties"
+    ShellExecuteEx s
+End Sub
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+Sub Main()
+	' ---------------------------------
+	' HERE GET CALL WHEN START VB MAIN
+	' ---------------------------------
+    COMMAND_LINE = Command$
+    COMMAND_LINE = "E"
+    If Trim(COMMAND_LINE) = "" Then End
+    Set FSO = CreateObject("Scripting.FileSystemObject")
+    Call SHELLEXECUTEEX_OPEN_PROPERTY
+End Sub
+
+Sub SHELLEXECUTEEX_OPEN_PROPERTY()
+    Dim FileName
+    Dim s As SHELLEXECUTEINFO
+    On Error Resume Next
+    DRIVE_LETTER = Mid(COMMAND_LINE, 1, 1)
+    Err.Clear
+    Set z = FSO.GetDrive(FSO.GetDriveName(FSO.GetAbsolutePathName(DRIVE_LETTER + ":")))
+    Select Case z.DriveType
+        Case 0: T = "Unknown"
+        Case 1: T = "Removable"
+        Case 2: T = "Fixed"
+        Case 3: T = "Network"
+        Case 4: T = "CD-ROM"
+        Case 5: T = "RAM Disk"
+    End Select
+    If Err.Number = 0 Then
+        TT = z.DriveLetter + ":" + "- Type - " + T + " --- Serial - " + Hex$(z.SerialNumber) + " - Vol.Name - " + z.VolumeName + vbCrLf
+        TG = TG + 1
+        Y1 = Y1 + TT
+        FileName = z.DriveLetter + ":\" ' + z.VolumeName
+            s.cbSize = LenB(s)
+            s.lpFile = FileName
+            s.nShow = SW_SHOW
+            s.fMask = SEE_MASK_INVOKEIDLIST
+            s.lpVerb = "properties"
+            ShellExecuteEx s
+    End If
+End Sub
 
 
 
