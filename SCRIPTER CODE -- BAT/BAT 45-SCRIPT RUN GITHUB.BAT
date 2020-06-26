@@ -309,6 +309,16 @@ SETLOCAL DisableDelayedExpansion
 
 @TITLE %TITLE_VAR%
 
+@START /wait "" "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_CHECK_EXIST.ahk" %TITLE_VAR%
+
+IF %ERRORLEVEL% GTR 1 GOTO ENDE
+REM -----------------------------------------------------------------
+REM --- EXIT WHEN COUNTER OF PREVIOUS SCRIPT SAME ALREADY RUNNING
+REM -----------------------------------------------------------------
+
+
+
+
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %~n0
 REM %TITLE_VAR%
 
@@ -327,6 +337,9 @@ SETLOCAL DisableDelayedExpansion
 SET PATH_GIT="C:\Program Files\Git\bin"
  
 CD /D "C:\SCRIPTOR GITHUB"
+
+
+
 
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 

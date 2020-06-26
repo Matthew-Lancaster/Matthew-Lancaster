@@ -778,7 +778,7 @@ RETURN
 
 
 ;# ------------------------------------------------------------------
-; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
+; END BLOCK OF CODE -- EXIT ROUTINE
 ;# ------------------------------------------------------------------
 
 TIMER_PREVIOUS_INSTANCE:

@@ -456,6 +456,8 @@ REM GOTO NEXT_CONTINUE
 
 :GITHUB__________________SET_ARRRAY
 
+GOTO JUMPER
+
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G INCL"
 SET /A LDA=LDA+1
@@ -480,6 +482,8 @@ SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 01 MAIN"
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ y _ 7G __ GITHUB _ MY WEB 02 WORD SET"
+
+:JUMPER
 
 REM -----------------------------------------------------------------
 REM -- VAR LINE HERE GO AT END AS GOT SCRIPT WITHIN 
@@ -1206,38 +1210,40 @@ IF !ERROR_COUNT!==0 (
 	ECHO ----------------------------------------------------------------
 	ECHO ----------------------------------------------------------------
 	ECHO.
-	
-	REM -- NONE REQUIRE THIS COMMAND 
-	REM -- THE LAST JOB OF GITHUB SCRIPT HERE WOULD DO THEM
-	REM -----------------------------------------------------------------
-	REM IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
-		REM  CALL C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT
-	REM :JUMP_OVER_GITHUB
-	
-	REM TIMEOUT /T 8
-	REM ECHO ------------------------------------------------------------
-	REM ECHO RUN COMMAND 
-	REM ECHO %~dp0
-	REM ECHO BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk !TITLE_VAR!
-	REM ECHO ----------------------------------------------------------------
-	REM "%~dp0\BAT 59-RUN GOODSYNC SET SCRIPTOR-AHK_MINIMIZE.ahk" !TITLE_VAR!
-	REM ECHO ----------------------------------------------------------------
 )
 
 IF !MODE_RUN!==GITHUB  GOTO GITHUB_SUB
-
 GOTO NEXT_PART
 
 :GITHUB_SUB
-REM -----------------------------------------------------------------
-REM -- GITHUB WINDOW HERE OF COMMAND WOULD DISPLAY BUT NEXT APP AHK 
-REM -- DO THE GITHUB SYNCER DESTROY IT INSTANT
-REM -----------------------------------------------------------------
+	REM -----------------------------------------------------------------
+	REM -- NOT REQUIRE
+	REM -- THE LAST JOB OF GITHUB SCRIPT HERE WOULD DO THEM
+	REM -----------------------------------------------------------------
+	REM -- BUT USEFUL BUT NOT RUN TWO SAME TIME
+	REM -- SOMETIME THERE CHANGE BUT NOT GET UPDATE IF CHANGE BEFORE
+	REM -----------------------------------------------------------------
+	REM -- NOW HAS ABLE TO CHECK IF ALREADY RUNNER
+	REM -----------------------------------------------------------------
+	REM -----------------------------------------------------------------
+	ECHO 
+	ECHO !MODE_RUN!
+	PAUSE
+
+	IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
+		 CALL "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
+	:JUMP_OVER_GITHUB
+	ECHO.
+	ECHO ------------------------------------------------------------
+	ECHO RUN COMMAND 
+	ECHO C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT
+	REM ECHO %~dp0
+	ECHO ----------------------------------------------------------------
+	TIMEOUT /T 8
 TIMEOUT /T 30
 GOTO ENDE
 
 :NEXT_PART
-
 
 ECHO.
 TIMEOUT /T 300
@@ -1259,7 +1265,7 @@ IF NOT !ERROR_COUNT!==0   PAUSE
 @REM MONTH-DAY
 @REM ----------------------------------------------------------------
 
-@ECHO.
+ECHO.
 ECHO ----------------------------------------------------------------
 
 :ENDE
