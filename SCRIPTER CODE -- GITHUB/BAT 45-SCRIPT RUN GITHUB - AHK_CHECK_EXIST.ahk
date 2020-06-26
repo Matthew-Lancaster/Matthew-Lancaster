@@ -17,7 +17,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;
 
-#Persistent
+; #Persistent
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
 ; Exitapp CALLS ONTO ExitFunc
@@ -39,149 +39,38 @@ GITHUB_RUNNNER_RERUN=
 ;
 ;# ------------------------------------------------------------------
 
-;# ------------------------------------------------------------------
-; SESSION 001
-; -------------------------------------------------------------------
-; ----
-; -------------------------------------------------------------------
-; FROM   Fri 19-Oct-2018 17:51:00
-; TO     Fri 19-Oct-2018 18:10:00
-;# ------------------------------------------------------------------
-
-;# ------------------------------------------------------------------
-; SESSION 002
-; -------------------------------------------------------------------
-; CODE ADD _ TIMING AND ORDER AND VARIABLES PASSING 
-; BETWEEN OTHER PROGRAM
-; -------------------------------------------------------------------
-; FROM   Sat 20-Oct-2018 08:28:38
-; TO     Sat 20-Oct-2018 09:52:00 -- 1 HOUR AND A HALF
-;# ------------------------------------------------------------------
-
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
 
-; SoundBeep , 1000 , 200
-
-GITHUB_RUNNNER_RERUN=
-BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=FALSE
-
-GOSUB MAIN_ROUTINE
-
-RETURN
-
-; -------------------------------------------------------------------
-
-; GLOBAL SETTINGS ===================================================
-
-; GUI ===============================================================
-
-
-MAIN_ROUTINE:
-
-Gui, Margin, 5, 5
-Gui, font, s14 ; , Arial ; , Calibri  
-Gui, Add, Button, y+5 w480 gSTATUS, Window of Command Console Minimize
-
-; MINIMIZE_ALL__COMMAND_PROMPT_WITH_GITHUB_ON_REQUEST
-
-
-Loop, %0%  ; For each parameter:
-  info .= %A_Index% " "
+LOOP, %0%  ; FOR EACH PARAMETER:
+  INFO .= %A_Index% " "
   
-Command_Params=%info%
-  
-
-; Space := " "
-; ; MSGBOX -%Space%-
-; ; ; %Space%
-; Command_Params=
-; Loop, %0% ; number of parameters
-	; Command_Params=%Command_Params%%A_Index%%Space%
-
-; WAS USER BEFORE
-; Command_Params.=%A_Index%
+COMMAND_PARAM=%INFO%
+IF !COMMAND_PARAM
+	RETURN
+	; NONE COMMAND LINE INFO ASK TO SEARCH FOR
 	
-; IF (!Command_Params or %0%=0)
-	; Command_Params=GITHUB_RUNNNER
+FINDER=0
 
-
-	; Command_Params:=StrReplace(Command_Params, """" , "")
-
-; MSGBOX % Command_Params
-	
-EXIT_NOW=TRUE
-SOUND_EVENT_DONE=FALSE
-
-COMMAND_WINDOW_FOUND_SHOW_ER=FALSE
-
-; WinMinimize, ahk_class Notepad++
-
-WinGet, id, list,ahk_class ConsoleWindowClass
-Loop, %id%
+WINGET, ID, list,ahk_class ConsoleWindowClass
+LOOP, %ID%
 {
-	Table := id%A_Index%
-	WinGetTitle, Title, ahk_id %Table%
-	; Command_Params:="%Command_Params%"
+	TABLE := ID%A_Index%
+	WinGetTitle, Title, ahk_id %TABLE%
 
-	SET_GO=FALSE
-	IF INSTR(Title,Command_Params)
-		SET_GO=TRUE
-	IF !Command_Params
-		SET_GO=TRUE
-
-	IF SET_GO=TRUE
-	{
-		WinGet MMX, MinMax, ahk_id %Table%
-		If MMX>-1
-		{
-			COMMAND_WINDOW_FOUND_SHOW_ER=TRUE
-			WinMinimize, ahk_id %Table%
-			; -----------------------------------------------------------
-			; MMX 0 = NORMAL -- MMX 1 = MAXIMIZED -- MMX -1 = MINIMIZED
-			; -----------------------------------------------------------
-			IF SOUND_EVENT_DONE=FALSE 
-			{
-				; Gui, Show, AutoSize
-				SETTIMER TIMER_EXIT, 2000
-				SoundBeep , 1000 , 200
-				EXIT_NOW=FALSE
-				SOUND_EVENT_DONE=TRUE
-			}
-		}
-	}
+	IF INSTR(Title,COMMAND_PARAM)
+		FINDER+=1
 } 
 
-IF BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=FALSE
-	IF INSTR(Command_Params, "QUICK_INTRO_DUMMY_RUN")
-	{
-		BEEN_RUN_DUMMY_RUN_STATUS_BUTTON=TRUE
-		IF COMMAND_WINDOW_FOUND_SHOW_ER=TRUE 
-			Gui, Show, AutoSize
-		EXIT_NOW=FALSE
-		SETTIMER TIMER_EXIT, 4000
-	}		
-
-IF 	EXIT_NOW=TRUE
-	EXITAPP
+EXITAPP, %FINDER%
+; -------------------------------------------------------------------
+; EXIT CODE RETURN HOW MANY FINDER COUNT
+; -------------------------------------------------------------------
 
 RETURN
 ; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-STATUS:
-	GITHUB_RUNNNER_RERUN=GITHUB_RUNNNER
-	GOSUB MAIN_ROUTINE
-	EXITAPP
-RETURN
-; -------------------------------------------------------------------
-
-; -------------------------------------------------------------------
-TIMER_EXIT:
-	EXITAPP
-RETURN
-; -------------------------------------------------------------------
+ 
 
  
 ;# ------------------------------------------------------------------
@@ -248,12 +137,6 @@ class MyObject
     }
 }
 ; -------------------------------------------------------------------
-; exit the app
+; EXIT THE APP
 ; -------------------------------------------------------------------
 
-
-
-; -------------------------------------------------------------------
-; REFERENCE PAGES OPEN 30
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
