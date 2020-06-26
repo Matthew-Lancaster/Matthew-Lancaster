@@ -1227,11 +1227,9 @@ GOTO NEXT_PART
 	REM -----------------------------------------------------------------
 	REM -----------------------------------------------------------------
 	ECHO 
-	ECHO !MODE_RUN!
-	PAUSE
 
 	IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
-		 CALL "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
+		CMD /K "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
 	:JUMP_OVER_GITHUB
 	ECHO.
 	ECHO ------------------------------------------------------------
