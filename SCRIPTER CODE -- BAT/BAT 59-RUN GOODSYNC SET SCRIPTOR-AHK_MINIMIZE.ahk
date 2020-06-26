@@ -122,7 +122,7 @@ Loop, %id%
 			; -----------------------------------------------------------
 			IF SOUND_EVENT_DONE=FALSE 
 			{
-				Gui, Show, AutoSize
+				; Gui, Show, AutoSize
 				SETTIMER TIMER_EXIT, 5000
 				SoundBeep , 1000 , 200
 				EXIT_NOW=FALSE
@@ -163,7 +163,7 @@ RETURN
 
  
 ;# ------------------------------------------------------------------
-; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
+; END BLOCK OF CODE -- EXIT ROUTINE
 ;# ------------------------------------------------------------------
 
 
