@@ -12,6 +12,9 @@ Attribute VB_Name = "Module1"
 
 Const DontWaitUntilFinished = False, WaitUntilFinished = True, ShowWindow = 1, DontShowWindow = 0
 
+Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+
+
 
 Sub Main()
 
@@ -41,6 +44,14 @@ Sub Main()
     ' End
     
     ' IF RUN BY COMMAND LINE #1 OR #2
+    
+    ' DONT RUN IF THIS ONE RUN
+    
+    If FindWindow("ConsoleWindowClass", "Administrator:  C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT") Then
+        End
+    End If
+    
+    
     
     FILE_EXE_RUNNER = "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
     
