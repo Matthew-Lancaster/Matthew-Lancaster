@@ -470,6 +470,9 @@ SETTIMER ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET,1000
 
 
 
+SETTIMER SUB_SET_SECURITY,400
+
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -4709,6 +4712,32 @@ Return
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+
+
+SUB_SET_SECURITY:
+
+	; Error Applying Security ahk_class #32770
+	; ahk_exe DllHost.exe
+	; ClassNN:	Button1
+	; Text:	&Continue
+
+	; MOST HERE DO BY __ VB_KEEP_RUNNER.EXE
+
+	SetTitleMatchMode 3  ; Exactly
+	DetectHiddenText, Off
+	HWND_ID_8 := WinExist("Error Applying Security ahk_class #32770")
+	IF HWND_ID_8>0
+	{
+		ControlClick, Button1, ahk_id %HWND_ID_8%
+	}
+	HWND_ID_8 := WinExist("Error Applying Security ahk_class #32770")
+	IF HWND_ID_8>0
+	{
+		ControlClick, Button1, ahk_id %HWND_ID_8%,,,, NA x10 y10
+	}
+
+RETURN
 
 
 

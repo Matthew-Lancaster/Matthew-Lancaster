@@ -293,8 +293,18 @@ TIMER_SET_GOODSYNC_CONNECT_BOX:
 	IF SET_GOODSYNC_CONNECT_BOX_HWND<>%HWND_GOODSYNC_CONNECT_BOX%
 	IF HWND_GOODSYNC_CONNECT_BOX
 	{
+		Element_1=%A_ComputerName%
+		StringLower, Element_1, Element_1
 		Element_2=matt-lan-btinternet-com
 		Element_3=24682468
+		ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+		IF OutputVar_2<>%Element_1%
+		{
+			ControlSetText, Edit1,, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+			Control, EditPaste, %Element_1%, Edit1, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
+			SoundBeep , 4000 , 100
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
 		ControlGettext, OutputVar_2, Edit2, ahk_id %HWND_GOODSYNC_CONNECT_BOX%
 		IF OutputVar_2<>%Element_2%
 		{
