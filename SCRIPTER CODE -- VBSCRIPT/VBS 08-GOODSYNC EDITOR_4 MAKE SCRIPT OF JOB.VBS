@@ -9,6 +9,90 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
+' -------------------------------------------------------------------
+' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF ARE
+' SOURCE GIVEN
+' -------------------------------------------------------------------
+' vbscript - how to check vbs script in windows is running or not? - Stack Overflow
+' https://stackoverflow.com/questions/7849699/how-to-check-vbs-script-in-windows-is-running-or-not
+' -------------------------------------------------------------------
+' [ Wednesday 13:08:00 Pm_20 March 2019 ]
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+DIM CUR_USER
+DIM ComputerName
+DIM objShell
+DIM objWMIService
+DIM colProcesses
+DIM i1
+DIM i2
+DIM objProcess
+DIM VBV
+VBV=VBCRLF
+DIM strScriptName
+DIM PID_Script
+
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+CUR_USER = CreateObject("WScript.Network").UserName
+Set objShell = Wscript.CreateObject("WScript.Shell")
+ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT WAR IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID : iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+On Error Goto 0
+
+' -------------------------------------------------------------------
+' GOOD CODE TO PASTE ON VB6
+' -------------------------------------------------------------------
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
+			i1=i1+1
+		END IF
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		IF i2 > 0 THEN ' MY  PROGRAM WSCRIPT 
+			' -------------------------------------------------------
+			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
+			' HERE SCRIPT WHEN START
+			' -------------------------------------------------------
+			' IF lngMyProcessId<>iMyPID THEN 
+				' I= "ERROR MISMATCH TRUE MYPID RESULT "
+				' MSGBOX I +VBV+ CSTR(iMyPID) +VBV+ CSTR(lngMyProcessId)
+			' -------------------------------------------------------
+			IF iMyPID<>PID_Script THEN 
+				objProcess.Terminate() 
+				objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+				' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
+			END IF
+		END IF
+    END IF
+NEXT
+
+
+
 'MsgBox "Done Total " & CHR(&H64) & " Proecesses"
 
 
@@ -95,28 +179,95 @@ Do
 	N3 = Mid(TT_EDITOR, T1+3, (T2 - T1)-3)
 	N4 = Mid(TT_EDITOR, T2+1, CLNG(N3))
 	N5 = LPad(CSTR(Counter_VAR),"0",4)+"--"
-
+	
+	
 	IF BLANK_JOBBER=TRUE THEN REAL_OR_BLANK="0  "
 	IF BLANK_JOBBER=FALSE THEN REAL_OR_BLANK="x--"
-	
-	I_X=I_X+N5+REAL_OR_BLANK+N4+VBCRLF
-	
+
+	JOB_NAME=N5+REAL_OR_BLANK+N4
+
+	' GET SCHEDULE HOUR
+	' --------------------------------
+	N4=0
+	TX1 = InStr(T1, TT_EDITOR, "]d=")
+	IF TX1>0 THEN 
+	TX2 = InStr(TX1, TT_EDITOR, "|")
+	N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
+	N4 = TRIM(Replace(N3, "]d=",""))
+	TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+	END IF
+	' --------------------------------
+	SCHEDULE_TIMER=0
+	IF TX1<TD1 THEN 
+	IF INSTR(JOB_NAME,"D DSC")>0 THEN
+	IF ISNUMERIC(N4) THEN 
+	IF N4>0 THEN 
+		SCHEDULE_TIMER=N4
+		' MSGBOX JOB_NAME & VBCR & CSTR(SCHEDULE_TIMER)
+	END IF
+	END IF
+	END IF
+	END IF
+
+	' --------------------------------
+	' GET CHANGE TIMER
+	' --------------------------------
+	' --------------------------------
+	' Capital letter E with acute accent or E-acute
+	' ASCII CODE 144 :
+	' É
+	' HTML entity :
+	' &Eacute;
+	' --------------------------------
+	' https://theasciicode.com.ar/extended-ascii-code/capital-letter-e-acute-accent-e-acute-uppercase-ascii-code-144.html 
+	' --------------------------------
+
+	N4=0
+	TX1 = InStr(T1, TT_EDITOR, "|"+CHR(144)+"=") 
+	IF TX1>0 THEN 
+	TX2 = InStr(TX1, TT_EDITOR, "|")
+	N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
+	N4 = TRIM(Replace(N3, "|"+CHR(144)+"=",""))
+	TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+	END IF
+	' --------------------------------
+	SCHEDULE_TIMER=0
+	IF TX1<TD1 THEN 
+	IF INSTR(JOB_NAME,"D DSC")>0 THEN
+	IF ISNUMERIC(N4) THEN 
+	IF N4>0 THEN 
+		CHANGE_TIMER=N4
+		MSGBOX JOB_NAME & VBCR & CSTR(CHANGE_TIMER)
+	END IF
+	END IF
+	END IF
+	END IF
+
+
+	IF N4<>"" THEN 
+	IF INSTR(JOB_NAME,"D DSC")=0 THEN
+		' IF VAL(N4)>0 THEN     
+		' END IF
+	END IF
+	END IF
+
+	If T1 > 0 Then
+		Counter_VAR = Counter_VAR + 1
+	End If
+	X = T1 + 2
+
 	' SPECIFY THE JOB TO FILTER THE SELECTION
 	' ---------------------------------------------------------------
 	SET_GO=FALSE
-	IF INSTR(N4,"HDD 0")>0 THEN SET_GO=TRUE
-	IF INSTR(N4,"HDD 4")>0 THEN SET_GO=TRUE
-	IF INSTR(N4,"HDD A")>0 THEN SET_GO=TRUE
-	IF INSTR(N4,"HDD H")>0 THEN SET_GO=TRUE
-	IF INSTR(N4,"HDD S")>0 THEN SET_GO=TRUE
+	' IF VAL(N4)>0 THEN           SET_GO=TRUE
+	IF INSTR(JOB_NAME,"D DSC")=0 THEN SET_GO=FALSE
+	IF BLANK_JOBBER=TRUE THEN   SET_GO=FALSE
 	
-	IF SET_GO=TRUE THEN
-		I_X=I_X+N5+REAL_OR_BLANK+N4+VBCRLF
+	IF SET_GO=TRUE THEN 
+		I_X=I_X+JOB_NAME+VBCRLF
 	END IF
-	
+		
 Loop Until T1 = 0
-
-
 
 FILEN_2="C:\SCRIPTER\NOTEPAD TALK\TEXT 2020-06-26 __ GS-STRING.TXT"
 
