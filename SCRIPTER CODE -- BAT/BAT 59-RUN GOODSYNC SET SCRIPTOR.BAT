@@ -1230,9 +1230,11 @@ GOTO NEXT_PART
 
 	IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
 	START "" "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
-	REM -- DOS WINDOW BLUE 97 RGB COLOUR
-	REM -- LUCIDA CONSOLE 14
-	PAUSE
+	REM -----------------------------------------------------------------
+	REM -- COLOR -- DOS WINDOW BLUE 97 RGB COLOUR
+	REM -- FONT -- LUCIDA CONSOLE 14
+	REM -- FONT BOLD
+	REM -----------------------------------------------------------------
 	
 	:JUMP_OVER_GITHUB
 	REM ECHO.
