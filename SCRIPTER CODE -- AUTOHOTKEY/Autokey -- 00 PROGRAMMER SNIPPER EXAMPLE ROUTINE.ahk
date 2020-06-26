@@ -126,6 +126,112 @@ MSGBOX ,4096,,NOT GOODSYNC PORTABLE D-DRIVE WITH ASUS 4G AT THE MOMENT`n`nAS IMA
 RETURN
 ; -------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; IN VISUAL BASIC 6 __ LOOK LIKE HERE __ NOT HERE FOR VBSCRIPT
+; Set objShell = CreateObject("WScript.Shell")
+; objShell.Popup MSGBOX_STRING, 20, , vbOKOnly + vbMsgBoxSetForeground
+; Set objShell = Nothing
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; HERE A BIT FURTHER FOR VISUAL BASIC 6 VB6 MSGBOX --&-- Declare Function MessageBoxTimeout Lib "user32.dll" Alias "MessageBoxTimeoutA"
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; MsgBox Arguments
+; Constant Value Description 
+; vbOKOnly 0 OK button only (default) 
+; vbOKCancel 1 OK and Cancel buttons 
+; vbAbortRetryIgnore 2 Abort, Retry, and Ignore buttons 
+; vbYesNoCancel 3 Yes, No, and Cancel buttons 
+; vbYesNo 4 Yes and No buttons 
+; vbRetryCancel 5 Retry and Cancel buttons 
+; vbCritical 16 Critical message 
+; vbQuestion 32 Warning query 
+; vbExclamation 48 Warning message 
+; vbInformation 64 Information message 
+; vbDefaultButton1 0 First button is default (default) 
+; vbDefaultButton2 256 Second button is default 
+; vbDefaultButton3 512 Third button is default 
+; vbDefaultButton4 768 Fourth button is default 
+; vbApplicationModal 0 Application modal message box (default) 
+; vbSystemModal 4096 System modal message box 
+; vbMsgBoxHelpButton 16384 Adds Help button to the message box 
+; VbMsgBoxSetForeground 65536 Specifies the message box window as the foreground window 
+; vbMsgBoxRight 524288 Text is right aligned 
+; vbMsgBoxRtlReading 1048576 Specifies text should appear as right-to-left reading on Hebrew and Arabic systems 
+; -------------------------------------------------------------------
+; MsgBox Return Values
+; Constant Value Description 
+; vbOK 1 OK button pressed 
+; vbCancel 2 Cancel button pressed 
+; vbAbort 3 Abort button pressed 
+; vbRetry 4 Retry button pressed 
+; vbIgnore 5 Ignore button pressed 
+; vbYes 6 Yes button pressed 
+; vbNo 7 No button pressed 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; excel - Display a message box with a timeout value - Stack Overflow 
+; https://stackoverflow.com/questions/4274103/display-a-message-box-with-a-timeout-value
+; -------------------------------------------------------------------
+; Declare Function MessageBoxTimeout Lib "user32.dll" Alias "MessageBoxTimeoutA" ( _
+; ByVal hwnd As Long, _
+; ByVal lpText As String, _
+; ByVal lpCaption As String, _
+; ByVal uType As Long, _
+; ByVal wLanguageID As Long, _
+; ByVal lngMilliseconds As Long) As Long
+
+; Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" ( _
+; ByVal lpClassName As String, _
+; ByVal lpWindowName As String) As Long
+
+; Public Sub MsgBoxDelay()
+    ; Const cmsg As String = "Yes or No? leaving this window for 1 min is the same as clicking Yes."
+    ; Const cTitle As String = "popup window"
+    ; Dim retval As Long
+    ; retval = MessageBoxTimeout(FindWindow(vbNullString, Title), cmsg, cTitle, 4, 0, 60000)
+
+    ; If retval <> 7 Then
+        ; Call MethodFoo
+    ; End If
+
+; End Sub  
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; VB6 GOOD EXAMPLE
+; -------------------------------------------------------------------
+; MSGBOX_STRING = "REQUEST TO CLOSE FORM __ CLEAN UP DO WANT EMPTY _ 4 SECOND DISPLAY MSGBOX"
+; I2 = MessageBoxTimeout(Me.hwnd, MSGBOX_STRING, Me.Caption, IDOKONLY Or MB_SETFOREGROUND, 0, 4000)
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; Private Declare Function MessageBoxTimeout Lib "user32.dll" Alias "MessageBoxTimeoutA" ( _
+; ByVal hwnd As Long, _
+; ByVal lpText As String, _
+; ByVal lpCaption As String, _
+; ByVal uType As Long, _
+; ByVal wLanguageID As Long, _
+; ByVal dwMilliseconds As Long _
+; ) As Long
+
+; Private Const IDOKONLY& = 0&
+; Private Const IDOK& = 1&
+; Private Const IDCANCEL = 2
+; Private Const IDABORT = 3
+; Private Const IDRETRY = 4
+; Private Const IDIGNORE = 5
+; Private Const IDYES& = 6&
+; Private Const IDNO& = 7&
+; Private Const MB_SETFOREGROUND& = &H10000
+; Private Const MB_YESNO& = &H4&
+; Private Const MB_ICONASTERISK& = &H40&
+; Private Const MB_TIMEDOUT& = &H7D00&
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+
+
+
 
 ; -------------------------------------------------------------------
 ; 0003 __  DETECTOR LAST KEYCODE AND 2ND SC CODE

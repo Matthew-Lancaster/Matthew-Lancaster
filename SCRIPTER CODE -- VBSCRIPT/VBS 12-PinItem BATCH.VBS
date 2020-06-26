@@ -427,6 +427,15 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 			' -----------------------------------------------------------
 			FOR R_SET=1 TO UBOUND(ARRAY_1)
 				IF ARRAY_4(R_SET)=TRUE THEN 
+					SET_TO_DO_COUNT=SET_TO_DO_COUNT+1
+				END IF
+			NEXT 
+			IF SET_TO_DO_COUNT>4 THEN 
+				MSGBOX "OPEN EXPLORER LOT TO DO AND MAKE SHORTCUT DESKTOP INSTEAD __ > 4 __ COUNTER SET " & CSTR(SET_TO_DO_COUNT)
+			END IF
+
+			FOR R_SET=1 TO UBOUND(ARRAY_1)
+				IF ARRAY_4(R_SET)=TRUE THEN 
 					' -----------------------------------------------
 					' Tue 17-Mar-2020 23:43:51
 					' Wed 18-Mar-2020 00:54:00 -- 1 HOUR 10 MINUTE
@@ -437,7 +446,9 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 					' MOVE SHORTCUT TO TASKBAR
 					' -----------------------------------------------
 					' -----------------------------------------------
-					' WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+					IF SET_TO_DO_COUNT<=4 THEN
+						WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+					END IF
 					' -----------------------------------------------
 					' -----------------------------------------------
 					' A BETTER WAY LESS OVERHEAD
@@ -461,7 +472,10 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 					 	ITEM_VAR_FILE_NOT_EXT=UCASE(ITEM_VAR_FILE_NOT_EXT)
 					END IF
 					ITEM_VAR_FILE_NOT_EXT=UCASE(MID(ITEM_VAR_FILE_NOT_EXT,1,1))+MID(ITEM_VAR_FILE_NOT_EXT,2)
-					MSGBOX  ITEM_VAR_FILE_NOT_EXT
+					
+					' MSGBOX  ITEM_VAR_FILE_NOT_EXT ' ---- DISPLAY PROGRAM NAME QUICK POP
+					
+					IF SET_TO_DO_COUNT>4 THEN 
 					IF 1=1 THEN ' RESULT CODE WHEN THIRD FIND FROM E-INTERNET -- MAKE SHORTCUT
 						' ----
 						' Shortcut - VBScript - SS64.com 
@@ -481,6 +495,7 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 						lnk.Save
 						'Clean up 
 						Set lnk = Nothing
+					END IF 
 					END IF 
 						
 					IF 1=2 THEN ' -- NOT WORK
@@ -1190,8 +1205,9 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 NEXT
 ' ------------------------------------
 IF LINK_SET_EXIST_TOTAL_VERIFY_FAIL>0 THEN 
-	LINK_SET_EXIST_TOTAL_VERIFY_2= "THE FOLLOW SET DOUBLE VERIFY NOT MAKE IT ON"+VBCRLF+VBCRLF+"OPEN IN EXPLORER _ YES/NOT" & VBCRLF & VBCRLF & "ERROR COUNTER  " & LINK_SET_EXIST_TOTAL_VERIFY_FAIL & VBCRLF & VBCRLF & LINKTEXT_SET_NOT_VERIFY
+	LINK_SET_EXIST_TOTAL_VERIFY_2= "THE FOLLOW SET DOUBLE VERIFY NOT MAKE IT ON"+VBCRLF+VBCRLF+"OPEN IN EXPLORER _ YES / NOT" & VBCRLF & VBCRLF & "ERROR COUNTER  " & LINK_SET_EXIST_TOTAL_VERIFY_FAIL & VBCRLF & VBCRLF & LINKTEXT_SET_NOT_VERIFY
 END IF
+
 
 
 

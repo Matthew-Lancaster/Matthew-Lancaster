@@ -1,8 +1,127 @@
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+HERE MY OLDER VISUAL BASIC -- QUICK REFERENCE
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+C:\SCRIPTER\SCRIPTER CODE -- VB6\VB-CODE 00 - PROGRAMMING SNIPPER.TXT
+---------------------------------------------------------------------
+HERE WILL BE SYNCRO VERSION OF HERE ANOTHER
+---------------------------------------------------------------------
+D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt
+---------------------------------------------------------------------
+HAVE INFOS HERE ABOUT SYNCRO
+C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 32-COPIER_SYNC.VBS
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+MOMENT BEFORE HAD A RENAME AND USE AR TO BE CALL
+---------------------------------------------------------------------
+FROM
+C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS
+TO AS ABOVE
+C:\SCRIPTER\SCRIPTER CODE -- VB6\VB-CODE 00 - PROGRAMMING SNIPPER.TXT
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+
+' ---------------------------------------------------------------------
+' NEWER ADDITION PUBLISHER
+' ---------------------------------------------------------------------
+' Fri 26-Jun-2020 10:44:17
+' Fri 26-Jun-2020 12:28:10 -- 1 HOUR 43 MINUTE
+' ---------------------------------------------------------------------
+' --------------------------------------------------------------------
+' TIME TO FIND HERE
+' --------------------------------------------------------------------
+' Fri 26-Jun-2020 10:44:17
+' Fri 26-Jun-2020 12:00:00 -- 1 HOUR 15 MINUTE
+' --------------------------------------------------------------------
+' ShellExecute to specify the properties verb VB6 - Google Search
+' https://www.google.co.uk/search?safe=active&sxsrf=ALeKk02PtyW3kzi1wOQHAHk707nxgZsszg%3A1593167672498&ei=OM_1Xp-DHtujgAbcyamgAg&q=ShellExecute+to+specify+the+properties+verb+VB6&oq=ShellExecute+to+specify+the+properties+verb+VB6&gs_lcp=CgZwc3ktYWIQAzoHCAAQRxCwAzoHCCMQrgIQJzoFCCEQoAFQjdkOWOfeDmCF4g5oAXAAeACAAZ0BiAGvA5IBAzIuMpgBAKABAaoBB2d3cy13aXo&sclient=psy-ab&ved=0ahUKEwif_76JpJ_qAhXbEcAKHdxkCiQQ4dUDCAw&uact=5
+' --------
+' ShellExecute and "properties" verb
+' http://forums.codeguru.com/showthread.php?2125-ShellExecute-and-properties-verb
+' --------------------------------------------------------------------
+' REM --- IF -- Ambiguous name detected: SW_SHOW --
+' REM ---- AMBIGUOUS -- MEAN ALREADY GOT SOMEWHERE IN CODE DECLARE
+' --------------------------------------------------------------------
+' Private Const SW_SHOW = 5
+Private Const SEE_MASK_INVOKEIDLIST = &HC
+Private Type SHELLEXECUTEINFO
+    cbSize As Long
+    fMask As Long
+    hwnd As Long
+    lpVerb As String
+    lpFile As String
+    lpParameters As String
+    lpDirectory As String
+    nShow As Long
+    hInstApp As Long
+    ' ---- OPTIONAL FIELDS
+    lpIDList As Long
+    lpClass As String
+    hkeyClass As Long
+    dwHotKey As Long
+    hIcon As Long
+    hProcess As Long
+End Type
+Private Declare Function ShellExecuteEx Lib "shell32.dll" (ByRef s As SHELLEXECUTEINFO) As Long
+' --------------------------------------------------------------------
+Private Sub Command1_Click()
+    Dim s As SHELLEXECUTEINFO
+    s.cbSize = LenB(s)
+    s.lpFile = "E:\"
+    s.nShow = SW_SHOW
+    s.fMask = SEE_MASK_INVOKEIDLIST
+    s.lpVerb = "properties"
+    ShellExecuteEx s
+End Sub
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+Private Sub MNU_OPEN_PROPERTIE_FOR_ALL_DRIVE_Click()
+    Me.WindowState = vbMinimized
+    Dim TT, TG, Y1 ' ---- NOT REQUIRE INFO OTHER EXAMPLE
+	DIM FILENAME
+    On Error Resume Next
+    For R = 3 To 25
+        Err.Clear
+        Set z = FSO.GetDrive(FSO.GetDriveName(FSO.GetAbsolutePathName(Chr$(R + 64) + ":")))
+        Select Case z.DriveType
+            Case 0: T = "Unknown"
+            Case 1: T = "Removable"
+            Case 2: T = "Fixed"
+            Case 3: T = "Network"
+            Case 4: T = "CD-ROM"
+            Case 5: T = "RAM Disk"
+        End Select
+        If Err.Number = 0 Then
+            TT = z.DriveLetter + ":" + "- Type - " + T + " --- Serial - " + Hex$(z.SerialNumber) + " - Vol.Name - " + z.VolumeName + vbCrLf
+            TG = TG + 1
+            Y1 = Y1 + TT
+            FILENAME = z.DriveLetter + ":\" ' + z.VolumeName
+                Dim s As SHELLEXECUTEINFO
+                s.cbSize = LenB(s)
+                s.lpFile = FILENAME
+                s.nShow = SW_SHOW
+                s.fMask = SEE_MASK_INVOKEIDLIST
+                s.lpVerb = "properties"
+                ShellExecuteEx s
+        End If
+    Next
+    End
+End Sub
+' --------------------------------------------------------------------
+
+
+
+
+
+
+
+---------------------------------------------------------------------
 -- Thu 03-May-18 00:06:05 --
-
-
------
-
+---------------------------------------------------------------------
 
 D:\VB6\VB-NT\#1 Documents\Programming Snippets.txt
 ---------------------

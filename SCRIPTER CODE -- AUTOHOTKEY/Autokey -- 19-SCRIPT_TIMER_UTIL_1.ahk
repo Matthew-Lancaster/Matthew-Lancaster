@@ -863,12 +863,23 @@ ReadInteger( p_address, p_offset, p_size, p_hex=true )
 	
 RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND:
 
+	SET_GO=
+	IF A_ComputerName=1-ASUS-X5DIJ
+		SET_GO=TRUE
+	IF A_ComputerName=2-ASUS-EEE
+		SET_GO=TRUE
+	IF A_ComputerName=3-LINDA-PC
+		SET_GO=TRUE
+
+	IF !SET_GO 
+		RETURN
+
 	FILENAME_LOAD:="C:\Program Files\OVH\hubiC\hubiC.exe"
 
-	Process, Exist, HUBIC.EXE
-	If NOT ErrorLevel
-		IF FILEEXIST(FILENAME_LOAD)
-			RUN, %FILENAME_LOAD%
+		Process, Exist, HUBIC.EXE
+		If NOT ErrorLevel
+			IF FILEEXIST(FILENAME_LOAD)
+				RUN, %FILENAME_LOAD%
 
 RETURN
 	
