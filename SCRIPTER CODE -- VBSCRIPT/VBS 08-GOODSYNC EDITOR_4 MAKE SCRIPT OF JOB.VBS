@@ -183,52 +183,67 @@ Do
 	
 	IF BLANK_JOBBER=TRUE THEN REAL_OR_BLANK="0  "
 	IF BLANK_JOBBER=FALSE THEN REAL_OR_BLANK="x--"
+	' IMPLY IS FALSE JOB FOR TRUER IS BLANK
+	' ---------------------------------------------------------------
 
 	JOB_NAME=N5+REAL_OR_BLANK+N4
 
-	' GET SCHEDULE HOUR
+	' GET SCHEDULE HOUR -- ]d=
 	' --------------------------------
 	N4=0
 	TX1 = InStr(T1, TT_EDITOR, "]d=")
 	IF TX1>0 THEN 
-	TX2 = InStr(TX1, TT_EDITOR, "|")
-	N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
-	N4 = TRIM(Replace(N3, "]d=",""))
-	TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+		TX2 = InStr(TX1+1, TT_EDITOR, "|")
+		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
+		N4 = TRIM(Replace(N3, "]d=",""))
+		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
 	SCHEDULE_TIMER=0
 	IF TX1<TD1 THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
 	IF ISNUMERIC(N4) THEN 
-	IF N4>0 THEN 
+	IF N4>0 AND N4 <1000 THEN 
 		SCHEDULE_TIMER=N4
 		' MSGBOX JOB_NAME & VBCR & CSTR(SCHEDULE_TIMER)
 	END IF
 	END IF
 	END IF
 	END IF
-
-	' --------------------------------
-	' GET CHANGE TIMER
-	' --------------------------------
-	' --------------------------------
-	' Capital letter E with acute accent or E-acute
-	' ASCII CODE 144 :
-	' É
-	' HTML entity :
-	' &Eacute;
-	' --------------------------------
-	' https://theasciicode.com.ar/extended-ascii-code/capital-letter-e-acute-accent-e-acute-uppercase-ascii-code-144.html 
-	' --------------------------------
+	
+	' GET SCHEDULE IS ON -- |z=2 -- ENABLE = TRUE
 
 	N4=0
-	TX1 = InStr(T1, TT_EDITOR, "|"+CHR(144)+"=") 
+	TX1 = InStr(T1, TT_EDITOR, "|z=") 
 	IF TX1>0 THEN 
-	TX2 = InStr(TX1, TT_EDITOR, "|")
-	N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
-	N4 = TRIM(Replace(N3, "|"+CHR(144)+"=",""))
-	TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+		TX2 = InStr(TX1+1, TT_EDITOR, "|")
+		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
+		N4 = TRIM(Replace(N3, "|z=",""))
+		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+	END IF
+	' --------------------------------
+	IF TX1<TD1 THEN 
+	IF INSTR(JOB_NAME,"D DSC")>0 THEN
+	IF ISNUMERIC(N4) THEN 
+	IF N4<>2 THEN 
+		SCHEDULE_TIMER=0
+	END IF
+	END IF
+	END IF
+	END IF
+
+	' --------------------------------
+	' GET CHANGE TIMER -- |Ë=
+	' --------------------------------
+	' --------------------------------
+	' CB 203
+	N4=0
+	TX1 = InStr(T1, TT_EDITOR, "|"+CHR(203)+"=") 
+	IF TX1>0 THEN 
+		TX2 = InStr(TX1+1, TT_EDITOR, "|")
+		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
+		N4 = TRIM(Replace(N3, "|"+CHR(203)+"=",""))
+		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
 	SCHEDULE_TIMER=0
@@ -237,11 +252,33 @@ Do
 	IF ISNUMERIC(N4) THEN 
 	IF N4>0 THEN 
 		CHANGE_TIMER=N4
-		MSGBOX JOB_NAME & VBCR & CSTR(CHANGE_TIMER)
+		' MSGBOX JOB_NAME & VBCR & CSTR(CHANGE_TIMER)
 	END IF
 	END IF
 	END IF
 	END IF
+	' --------------------------------
+	' GET CHANGE TIMER IS ON -- |D=2 -- NOT ENABLE |D=0 -- TRUE ENABLE
+	' --------------------------------
+	N4=0
+	TX1 = InStr(T1, TT_EDITOR, "|D=") 
+	IF TX1>0 THEN 
+		TX2 = InStr(TX1+1, TT_EDITOR, "|")
+		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
+		N4 = TRIM(Replace(N3, "|D=",""))
+		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+	END IF
+	' --------------------------------
+	IF TX1<TD1 THEN 
+	IF INSTR(JOB_NAME,"D DSC")>0 THEN
+	IF ISNUMERIC(N4) THEN 
+	IF N4=2 THEN 
+		CHANGE_TIMER=0
+	END IF
+	END IF
+	END IF
+	END IF
+
 
 
 	IF N4<>"" THEN 
@@ -259,9 +296,10 @@ Do
 	' SPECIFY THE JOB TO FILTER THE SELECTION
 	' ---------------------------------------------------------------
 	SET_GO=FALSE
-	' IF VAL(N4)>0 THEN           SET_GO=TRUE
+	IF SCHEDULE_TIMER>0          THEN SET_GO=TRUE
+	IF CHANGE_TIMER>0            THEN SET_GO=TRUE
 	IF INSTR(JOB_NAME,"D DSC")=0 THEN SET_GO=FALSE
-	IF BLANK_JOBBER=TRUE THEN   SET_GO=FALSE
+	IF BLANK_JOBBER=FALSE        THEN SET_GO=FALSE
 	
 	IF SET_GO=TRUE THEN 
 		I_X=I_X+JOB_NAME+VBCRLF
@@ -285,7 +323,9 @@ objFile.Close
 Set File_2 = fso.OpenTextFile(FILEN_2, ForWriting)
 File_2.Write I_X
 
-MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+
+
+' MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
 
 
 END SUB
