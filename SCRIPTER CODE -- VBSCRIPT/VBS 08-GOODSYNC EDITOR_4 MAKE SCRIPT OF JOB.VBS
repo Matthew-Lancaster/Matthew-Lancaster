@@ -174,33 +174,43 @@ Do
 	END IF
 
 	T1 = InStr(X-2, TT_EDITOR, "[n:")
-
+	
 	T2 = InStr(T1+3, TT_EDITOR, ":")
 	N3 = Mid(TT_EDITOR, T1+3, (T2 - T1)-3)
 	N4 = Mid(TT_EDITOR, T2+1, CLNG(N3))
 	N5 = LPad(CSTR(Counter_VAR),"0",4)+"--"
 	
+	IF T2=T1 THEN MSGBOX "YY"
+
+	JOB_LINE_FIND_WINDOW_LOW=T1
+	JOB_LINE_FIND_WINDOW_HIGH=InStr(T1+2, TT_EDITOR, "[n:")
+	IF JOB_LINE_FIND_WINDOW_LOW>0 AND JOB_LINE_FIND_WINDOW_HIGH=0 THEN 
+		JOB_LINE_FIND_WINDOW_HIGH=LEN(TT_EDITOR)
+	END IF
+
+
+	JOB_NAME=N4
 	
 	IF BLANK_JOBBER=TRUE THEN REAL_OR_BLANK="0  "
 	IF BLANK_JOBBER=FALSE THEN REAL_OR_BLANK="x--"
 	' IMPLY IS FALSE JOB FOR TRUER IS BLANK
 	' ---------------------------------------------------------------
 
-	JOB_NAME=N5+REAL_OR_BLANK+N4
+	JOB_NAME=N5+REAL_OR_BLANK+JOB_NAME
 
 	' GET SCHEDULE HOUR -- ]d=
 	' --------------------------------
 	N4=0
+	SCHEDULE_TIMER=0
 	TX1 = InStr(T1, TT_EDITOR, "]d=")
 	IF TX1>0 THEN 
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
 		N4 = TRIM(Replace(N3, "]d=",""))
-		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
-	SCHEDULE_TIMER=0
-	IF TX1<TD1 THEN 
+	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
 	IF ISNUMERIC(N4) THEN 
 	IF N4>0 AND N4 <1000 THEN 
@@ -212,17 +222,16 @@ Do
 	END IF
 	
 	' GET SCHEDULE IS ON -- |z=2 -- ENABLE = TRUE
-
 	N4=0
 	TX1 = InStr(T1, TT_EDITOR, "|z=") 
 	IF TX1>0 THEN 
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
 		N4 = TRIM(Replace(N3, "|z=",""))
-		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
-	IF TX1<TD1 THEN 
+	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
 	IF ISNUMERIC(N4) THEN 
 	IF N4<>2 THEN 
@@ -236,18 +245,17 @@ Do
 	' GET CHANGE TIMER -- |Ë=
 	' --------------------------------
 	' --------------------------------
-	' CB 203
+	CHANGE_TIMER=0
 	N4=0
 	TX1 = InStr(T1, TT_EDITOR, "|"+CHR(203)+"=") 
 	IF TX1>0 THEN 
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
 		N4 = TRIM(Replace(N3, "|"+CHR(203)+"=",""))
-		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
-	SCHEDULE_TIMER=0
-	IF TX1<TD1 THEN 
+	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
 	IF ISNUMERIC(N4) THEN 
 	IF N4>0 THEN 
@@ -266,44 +274,34 @@ Do
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
 		N4 = TRIM(Replace(N3, "|D=",""))
-		TD1 = InStr(T1+1, TT_EDITOR, "[n:")
+		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
-	IF TX1<TD1 THEN 
+	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
 	IF ISNUMERIC(N4) THEN 
 	IF N4=2 THEN 
 		CHANGE_TIMER=0
+		MSGBOX JOB_NAME & VBCR & SCHEDULE_TIMER & VBCR & CSTR(N4)
 	END IF
 	END IF
 	END IF
 	END IF
 
 
-
-	IF N4<>"" THEN 
-	IF INSTR(JOB_NAME,"D DSC")=0 THEN
-		' IF VAL(N4)>0 THEN     
-		' END IF
-	END IF
-	END IF
-
-	If T1 > 0 Then
-		Counter_VAR = Counter_VAR + 1
-	End If
-	X = T1 + 2
 
 	' SPECIFY THE JOB TO FILTER THE SELECTION
 	' ---------------------------------------------------------------
 	SET_GO=FALSE
-	IF SCHEDULE_TIMER>0          THEN SET_GO=TRUE
-	IF CHANGE_TIMER>0            THEN SET_GO=TRUE
-	IF INSTR(JOB_NAME,"D DSC")=0 THEN SET_GO=FALSE
-	IF BLANK_JOBBER=FALSE        THEN SET_GO=FALSE
+	IF INSTR(JOB_NAME,"D DSC")>0            THEN SET_GO=TRUE
+	IF SCHEDULE_TIMER=0 AND CHANGE_TIMER=0  THEN SET_GO=FALSE
+	IF BLANK_JOBBER=FALSE                   THEN SET_GO=FALSE
 	
 	IF SET_GO=TRUE THEN 
 		I_X=I_X+JOB_NAME+VBCRLF
+		Counter_VAR = Counter_VAR + 1
 	END IF
+	X = T1 + 2
 		
 Loop Until T1 = 0
 
