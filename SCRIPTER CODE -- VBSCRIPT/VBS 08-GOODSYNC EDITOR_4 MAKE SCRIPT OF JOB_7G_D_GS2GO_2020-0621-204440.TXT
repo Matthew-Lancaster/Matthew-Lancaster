@@ -1,0 +1,2664 @@
+0001--0  #### D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 09 8M _ GOOGLE DRI
+file://@
+/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/SNAPSHOT PHOTO CCSE HIKVISION
+----------------------------------------
+0003--0  0000  NOKIA
+file://@
+/%GSDISK%/NOKIA E72
+file://@
+/=3_SAMSUNG_4TB_D:/NOKIA E72
+----------------------------------------
+0005--0  0000 0 __ D DRIVE GOODSYNC PORTABLE ____ ____ ____ ____
+file://@
+/=1ELEMENTS4TB:
+file://@
+/=2ELEMENTS4TB:
+----------------------------------------
+0007--0  0000 CHIME DONG
+file://@
+/C:/GOODSYNC CHIME/GOODSYNC CHIME 1
+file://@
+/C:/GOODSYNC CHIME/GOODSYNC CHIME 2
+----------------------------------------
+0009--0  0000 EXTREME LOCK
+file://@
+/=ADATA_E:/FOUND ALL
+file://@
+/=ADATA_E:/FOUND BAK
+----------------------------------------
+0011--0  0000 SAMSUNG PHONE __ FOR SPACE
+mtp://
+Samsung_M5_07919180203/Phone
+file://@
+/%GSDISK%/Android/SD CARD TEST SIZE & EMPTY
+----------------------------------------
+0013--0  0000 SAMSUNG PHONE __ FOR SPACE (1)
+mtp://
+Samsung_M5_07919180203/Phone
+file://@
+/%GSDISK%/Android/SD CARD TEST SIZE & EMPTY
+----------------------------------------
+0015--0  0000 TOP JOB INFO ____ ____ ____ ____
+file://@
+/=1ELEMENTS4TB:
+file://@
+/=2ELEMENTS4TB:
+----------------------------------------
+0017--0  00000
+file://@
+/%GSDISK%/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+file://@
+/=1_SAMSUNG_4TB_D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+----------------------------------------
+0019--0  00009  NOKIAE72
+file://@
+/=3_SAMSUNG_4TB_D:/NOKIA E72
+file://@
+/=1_SAMSUNG_4TB_D:/NOKIA E72
+----------------------------------------
+0021--0  0001 C GOODSYNC 0 ____ ____ ____ ____
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0023--0  0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/GoodSync
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/GoodSync
+----------------------------------------
+0025--0  0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G NOT GSD
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/GoodSync
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/GoodSync
+----------------------------------------
+0027--0  0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G _ JOB SET
+file://@
+/%GSDISK%/GoodSync
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/GoodSync
+----------------------------------------
+0029--0  0001 C GOODSYNC 2 GO -- D TO D __ 7G 8G _ JOB SET
+file://@
+/%GSDISK%/GoodSync
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/GoodSync
+----------------------------------------
+0031--0  0001 C GOODSYNC 2 GO -- D TO D __ 7G 8M GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/GoodSync
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/GoodSync
+----------------------------------------
+0033--0  1 C # DRIVE TOTAL 0 ____ ____ ____ ____
+file://@
+/D:
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:
+----------------------------------------
+0035--0  1 C # DRIVE TOTAL WHOLE __ 4G __1X
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:
+----------------------------------------
+0037--0  1 C # DRIVE TOTAL WHOLE __ 4G __2E
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:
+----------------------------------------
+0039--0  1 C # DRIVE TOTAL WHOLE __ 4G __3L
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+gstps://matt-lan-btinternet-com
+3-linda-pc/C:
+----------------------------------------
+0041--0  1 C # DRIVE TOTAL WHOLE __ 4G __5P
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/C:
+----------------------------------------
+0043--0  1 C # DRIVE TOTAL WHOLE __ 4G __7G
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:
+----------------------------------------
+0045--0  1 C # DRIVE TOTAL WHOLE __ 4G __8M
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:
+----------------------------------------
+0047--0  1 D # DRIVE TOTAL 0 ____ ____ ____ ____
+file://@
+/D:
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:
+----------------------------------------
+0049--0  1 D # DRIVE TOTAL WHOLE __ 4G__5P
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:
+----------------------------------------
+0051--0  1 D # DRIVE TOTAL WHOLE __ 7G __1X
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:
+----------------------------------------
+0053--0  1 D # DRIVE TOTAL WHOLE __ DHD __ 4G
+file://@
+/D:
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:
+----------------------------------------
+0055--0  1 D # DRIVE TOTAL WHOLE __ DHD __8M
+file://@
+/D:
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:
+----------------------------------------
+0057--0  AAAA
+file://@
+/=1_SAMSUNG_4TB_D:/0 00 ART WORK IN BOUND
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/0 00 ART WORK IN BOUND
+----------------------------------------
+0059--0  AAAA (1)
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/0 00 HTTrack
+file://@
+/%GSDISK%/0 00 HTTrack
+----------------------------------------
+0061--0  ANDROID
+gstps://matt-lan-btinternet-com
+sm-g800f/SDCard1/# MY INFO DATA
+@
+
+----------------------------------------
+0063--x--C 0 00 LINK SET QUICKER MOVER 0 ____ ____ ____
+@
+
+@
+
+----------------------------------------
+0065--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 1X
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0067--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 1X C-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/# 0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0069--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 2E
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:/0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0071--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 2E C-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/# 0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0073--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 3L
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+smb://
+3-LINDA-PC/3_LINDA_PC_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0075--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 3L C-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+3-linda-pc/D:/# 0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0077--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 4G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/C:/0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0079--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 4G C-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/# 0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0081--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 5P
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+smb://
+5-ASUS-P2520LA/5_ASUS_P2520LA_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0083--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 5P C-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+file://@
+/%GSDISK%/# 0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0085--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 7G C-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+file://@
+/%GSDISK%/# 0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0087--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0089--0  C 0 00 LINK SET QUICKER MOVER __ 7G TO 8M C-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LINK SET QUICKER MOVER
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/# 0 00 LINK SET QUICKER MOVER
+----------------------------------------
+0091--x--C 0 LOGGERS TEXT 0 ____ ____ ____
+@
+
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_01_C_DRIVE/0 00 LOGGERS TEXT
+----------------------------------------
+0093--0  C 0 LOGGERS TEXT __ 7G TO 1X_
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_01_C_DRIVE/0 00 LOGGERS TEXT
+----------------------------------------
+0095--0  C 0 LOGGERS TEXT __ 7G TO 2E
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:/0 00 LOGGERS TEXT
+----------------------------------------
+0097--0  C 0 LOGGERS TEXT __ 7G TO 3L_
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+smb://
+3-LINDA-PC/3_LINDA_PC_01_C_DRIVE/0 00 LOGGERS TEXT
+----------------------------------------
+0099--0  C 0 LOGGERS TEXT __ 7G TO 4G_
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+----------------------------------------
+0101--0  C 0 LOGGERS TEXT __ 7G TO 5P_
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+smb://
+5-ASUS-P2520LA/5_ASUS_P2520LA_01_C_DRIVE/0 00 LOGGERS TEXT
+----------------------------------------
+0103--0  C 0 LOGGERS TEXT __ 7G TO 8M_
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_01_C_DRIVE/0 00 LOGGERS TEXT
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/0 00 LOGGERS TEXT
+----------------------------------------
+0105--0  C DOWNLOAD -- MOVER -- FB-PURIFTY
+file://@
+/C:/DOWNLOADS
+file://@
+/C:/SCRIPTER/FB PURITY
+----------------------------------------
+0107--0  C DOWNLOAD -- MOVER -- STYLUS .JSON
+file://@
+/C:/DOWNLOADS
+file://@
+/C:/SCRIPTER/SCRIPTER CODE -- USERSTYLES.ORG STYLISH
+----------------------------------------
+0109--0  C GOODSYNC JOB CONTROL 0 ____ ____
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0111--0  C GOODSYNC JOB CONTROL __ 1X
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0113--0  C GOODSYNC JOB CONTROL __ 2E
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0115--0  C GOODSYNC JOB CONTROL __ 3L
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+3-linda-pc/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0117--0  C GOODSYNC JOB CONTROL __ 4G
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0119--0  C GOODSYNC JOB CONTROL __ 5P
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0121--0  C GOODSYNC JOB CONTROL __ 7G
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0123--0  C GOODSYNC JOB CONTROL __ 8M
+file://@
+/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/GOODSYNC JOB CONTROL
+----------------------------------------
+0125--0  C GOODSYNC JOB CONTROL __ C TO D - 4G
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/GOODSYNC JOB CONTROL
+----------------------------------------
+0127--0  C GOODSYNC JOB CONTROL __ C TO D - 7G
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/GOODSYNC JOB CONTROL
+----------------------------------------
+0129--0  C GOODSYNC JOB CONTROL __ C TO D - 8M
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/GOODSYNC JOB CONTROL
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/GOODSYNC JOB CONTROL
+----------------------------------------
+0131--0  C MSDOS6.22
+file://@
+/=OS:/MSDOS6.22
+file://@
+/D:/MSDOS6.22
+----------------------------------------
+0133--0  C MSDOS6.22 - VBDOS APP
+file://@
+/%GSDISK%/MSDOS6.22/VBDOS
+file://@
+/D:/VB6/VB-DOS-APP
+----------------------------------------
+0135--0  C MSDOS6.22 - VBDOS CODE
+file://@
+/=OS:/MSDOS6.22/VB
+file://@
+/D:/VB6/VB-DOS-CODE
+----------------------------------------
+0137--x--C SCRIPTOR 0 ____ ____ ____ ____
+@
+
+@
+
+----------------------------------------
+0139--0  C SCRIPTOR 00 4G 7G
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+----------------------------------------
+0141--0  C SCRIPTOR 4G 1X
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:/SCRIPTER
+----------------------------------------
+0143--0  C SCRIPTOR 4G 1X #NFS
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:/SCRIPTER
+----------------------------------------
+0145--0  C SCRIPTOR 4G 1X NOT GSD
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_01_C_DRIVE/SCRIPTER
+----------------------------------------
+0147--0  C SCRIPTOR 4G 2E
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:/SCRIPTER
+----------------------------------------
+0149--0  C SCRIPTOR 4G 3L
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+smb://
+3-LINDA-PC/3_LINDA_PC_01_C_DRIVE/SCRIPTER
+----------------------------------------
+0151--0  C SCRIPTOR 4G 5P
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/C:/SCRIPTER
+----------------------------------------
+0153--0  C SCRIPTOR 4G 7G
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+----------------------------------------
+0155--0  C SCRIPTOR 4G 8M
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/SCRIPTER
+----------------------------------------
+0157--0  C SCRIPTOR 7G
+file://@
+/C:/SCRIPTER
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/C:/SCRIPTER
+----------------------------------------
+0159--0  C SCRIPTOR 7G 1X
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:/SCRIPTER
+----------------------------------------
+0161--0  C SCRIPTOR 7G 2E
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:/SCRIPTER
+----------------------------------------
+0163--0  C SCRIPTOR 7G 3L
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+smb://
+3-LINDA-PC/3_LINDA_PC_01_C_DRIVE/SCRIPTER
+----------------------------------------
+0165--0  C SCRIPTOR 7G 4G 0
+file://@
+/C:/SCRIPTER
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTER
+----------------------------------------
+0167--0  C SCRIPTOR 7G 4G 1 #GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/C:/SCRIPTER
+----------------------------------------
+0169--0  C SCRIPTOR 7G 4G 1 #GSD AHK
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER/SCRIPTER CODE -- AUTOHOTKEY
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/C:/SCRIPTER/SCRIPTER CODE -- AUTOHOTKEY
+----------------------------------------
+0171--0  C SCRIPTOR 7G 5P
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/C:/SCRIPTER
+----------------------------------------
+0173--0  C SCRIPTOR 7G 8M 0
+file://@
+/C:/SCRIPTER
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/SCRIPTER
+----------------------------------------
+0175--0  C SCRIPTOR 7G 8M 1 #GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/SCRIPTER
+----------------------------------------
+0177--0  C SCRIPTOR DATA -- 1X
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/C:/SCRIPTER
+----------------------------------------
+0179--0  C SCRIPTOR DATA -- 2E
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:/SCRIPTOR DATA
+----------------------------------------
+0181--0  C SCRIPTOR DATA -- 3L
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+3-linda-pc/C:/SCRIPTOR DATA
+----------------------------------------
+0183--0  C SCRIPTOR DATA -- 4G
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/C:
+----------------------------------------
+0185--0  C SCRIPTOR DATA -- 4G 2E
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_01_C_DRIVE/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+1-asus-eee/C:/SCRIPTOR DATA
+----------------------------------------
+0187--0  C SCRIPTOR DATA -- 5P
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/C:/SCRIPTOR DATA
+----------------------------------------
+0189--0  C SCRIPTOR DATA -- 7G
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTOR DATA
+----------------------------------------
+0191--0  C SCRIPTOR DATA -- 7G TO D-HDD
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/SCRIPTOR DATA
+----------------------------------------
+0193--0  C SCRIPTOR DATA -- 8M
+file://@
+/C:/SCRIPTOR DATA
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/C:/SCRIPTOR DATA
+----------------------------------------
+0195--0  C SCRIPTOR __ y _ 7G __ GITHUB 03 SAFE AUTOHOTKEY 01
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER/SCRIPTER CODE -- AUTOHOTKEY
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER BACKER/SCRIPTER CODE -- AUTOKEY 4
+----------------------------------------
+0197--0  C SCRIPTOR __ y _ 7G __ GITHUB 03 SAFE AUTOHOTKEY 02
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER/SCRIPTER CODE -- AUTOHOTKEY
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/C:/SCRIPTER BACKER/SCRIPTER CODE -- AUTOKEY 8
+----------------------------------------
+0199--0  C SCRIPTOR __ z _ TO ONE DRIVE
+file://@
+/C:/SCRIPTER
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/SCRIPTER
+----------------------------------------
+0201--x--D # MY DOC 0____ ____ ____
+@
+
+@
+
+----------------------------------------
+0203--0  D # MY DOC __ 7G TO 1X_0_INCL
+file://@
+/D:/# MY DOCS
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0205--0  D # MY DOC __ 7G TO 1X_0_INCL_GSD
+file://@
+/D:/# MY DOCS
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/# MY DOCS
+----------------------------------------
+0207--0  D # MY DOC __ 7G TO 1X_1
+file://@
+/D:/# MY DOCS
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0209--0  D # MY DOC __ 7G TO 1X_1_GSD
+file://@
+/D:/# MY DOCS
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0211--0  D # MY DOC __ 7G TO 2E_0_INCL
+file://@
+/D:/# MY DOCS
+smb://
+2-ASUS-EEE/2_ASUS_EEE_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0213--0  D # MY DOC __ 7G TO 2E_0_INCL GSD
+file://@
+/D:/# MY DOCS
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/# MY DOCS
+----------------------------------------
+0215--0  D # MY DOC __ 7G TO 2E_1
+file://@
+/D:/# MY DOCS
+smb://
+2-ASUS-EEE/2_ASUS_EEE_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0217--0  D # MY DOC __ 7G TO 2E_1 GSD
+file://@
+/D:/# MY DOCS
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/# MY DOCS
+----------------------------------------
+0219--0  D # MY DOC __ 7G TO 3L_0_INCL
+file://@
+/D:/# MY DOCS
+smb://
+3-LINDA-PC/3_LINDA_PC_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0221--0  D # MY DOC __ 7G TO 3L_1
+file://@
+/D:/# MY DOCS
+smb://
+3-LINDA-PC/3_LINDA_PC_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0223--0  D # MY DOC __ 7G TO 4G_0_INCL
+file://@
+/D:/# MY DOCS
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0225--0  D # MY DOC __ 7G TO 4G_1
+file://@
+/D:/# MY DOCS
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS
+----------------------------------------
+0227--0  D # MY DOC __ 7G TO 5P_0_INCL GSD
+file://@
+/D:/# MY DOCS
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/# MY DOCS
+----------------------------------------
+0229--0  D # MY DOC __ 7G TO 5P_1 GSD
+file://@
+/D:/# MY DOCS
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/# MY DOCS
+----------------------------------------
+0231--0  D # MY DOC __ 7G TO 8M_0_INCL
+file://@
+/D:/# MY DOCS
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/# MY DOCS
+----------------------------------------
+0233--0  D # MY DOC __ 7G TO 8M_1
+file://@
+/D:/# MY DOCS
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/# MY DOCS
+----------------------------------------
+0235--0  D # MY DOCS COMMON _ 7G 4G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/# MY DOCS COMMON
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS COMMON
+----------------------------------------
+0237--0  D # MY DOCS COMMON _ 7G 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/# MY DOCS COMMON
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/# MY DOCS COMMON
+----------------------------------------
+0239--0  D # MY DOCS _ 02 _ 7G 5P
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/# MY DOCS _ 02
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/# MY DOCS _ 02
+----------------------------------------
+0241--0  D # MY DOCS _ 02 _ 7G 8M
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/# MY DOCS _ 02
+smb://matt-lan-btinternet-com
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/# MY DOCS _ 02
+----------------------------------------
+0243--0  D # MY DOCS _ IN SYNC _ 7G 4G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/# MY DOCS _ IN SYNC
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/# MY DOCS _ IN SYNC
+----------------------------------------
+0245--0  D # MY DOCS _ IN SYNC _ 7G 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/# MY DOCS _ IN SYNC
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/# MY DOCS _ IN SYNC
+----------------------------------------
+0247--x--D 0 00 ART - 0 PICTURE FOLDER ___ ___ ___
+@
+
+@
+
+----------------------------------------
+0249--0  D 0 00 ART LOGGERS - WEBCAM _ 7G 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/0 00 ART LOGGERS - WEBCAM
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/0 00 ART LOGGERS - WEBCAM
+----------------------------------------
+0251--0  D 0 00 ART LOGGERS _ 5P 4G
+smb://
+5-ASUS-P2520LA/5_ASUS_P2520LA_02_D_DRIVE/0 00 ART LOGGERS
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/0 00 ART LOGGERS
+----------------------------------------
+0253--0  D 0 00 ART LOGGERS _ 7G 4G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/0 00 Art Loggers
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/0 00 ART LOGGERS
+----------------------------------------
+0255--0  D 0 00 ART LOGGERS _ 7G 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/0 00 Art Loggers
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/0 00 ART LOGGERS
+----------------------------------------
+0257--0  D 0 00 ART _ 7G 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/0 00 ART
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/0 00 ART
+----------------------------------------
+0259--0  D 0 00 LOGGERS TEXT GOODSYNC __ 4G
+file://@
+/%GSDISK%/0 00 LOGGERS TEXT GOODSYNC
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/0 00 LOGGERS TEXT GOODSYNC
+----------------------------------------
+0261--0  D 0 00 LOGGERS TEXT GOODSYNC __ 7G
+file://@
+/%GSDISK%/0 00 LOGGERS TEXT GOODSYNC
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 LOGGERS TEXT GOODSYNC
+----------------------------------------
+0263--0  D 0 00 LOGGERS TEXT GOODSYNC __ 8M
+file://@
+/%GSDISK%/0 00 LOGGERS TEXT GOODSYNC
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/0 00 LOGGERS TEXT GOODSYNC
+----------------------------------------
+0265--0  D 0 00 LOGGERS TEXT __ 4G
+file://@
+/D:/0 00 LOGGERS TEXT
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/0 00 LOGGERS TEXT
+----------------------------------------
+0267--0  D 0 00 LOGGERS TEXT __ 7G
+file://@
+/%GSDISK%/0 00 LOGGERS TEXT
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 LOGGERS TEXT
+----------------------------------------
+0269--0  D 0 00 LOGGERS TEXT __ 8M
+file://@
+/D:/0 00 LOGGERS TEXT
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/0 00 LOGGERS TEXT
+----------------------------------------
+0271--0  D 0 00 MUSIC #0____ ____ ____ ____
+file://@
+/D:/0 00 MUSIC ---
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 MUSIC ---
+----------------------------------------
+0273--0  D 0 00 MUSIC -- 4G 7G
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/0 00 MUSIC ---
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 MUSIC ---
+----------------------------------------
+0275--0  D 0 00 MUSIC -- 4G 8M
+file://@
+/D:/0 00 MUSIC ---
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/0 00 MUSIC ---
+----------------------------------------
+0277--0  D 0 00 MUSIC -- GD _ 0 NOT ISFOLDER _ ROOTAR
+file://@
+/D:/0 00 MUSIC ---
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC
+----------------------------------------
+0279--0  D 0 00 MUSIC -- GD _ 00 - CD-CLASSICAL-POP
+file://@
+/%GSDISK%/0 00 MUSIC ---/00 - CD-CLASSICAL-POP
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/00 - CD-CLASSICAL-POP
+----------------------------------------
+0281--0  D 0 00 MUSIC -- GD _ 01 SOUND EFFECT & TECHNO SAMPLES
+file://@
+/%GSDISK%/0 00 MUSIC ---/01 SOUND EFFECT & TECHNO SAMPLES
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/01 SOUND EFFECT & TECHNO SAMPLES
+----------------------------------------
+0283--0  D 0 00 MUSIC -- GD _ 04 My Music
+file://@
+/%GSDISK%/0 00 MUSIC ---/04 My Music
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/04 My Music
+----------------------------------------
+0285--0  D 0 00 MUSIC -- GD _ 05 HTTrack
+file://@
+/%GSDISK%/0 00 MUSIC ---/05 HTTrack
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/05 HTTrack
+----------------------------------------
+0287--0  D 0 00 MUSIC -- GD _ 05 Whole Lot
+file://@
+/%GSDISK%/0 00 MUSIC ---/05 Whole Lot
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/05 Whole Lot
+----------------------------------------
+0289--0  D 0 00 MUSIC -- GD _ 05 Whole Lot MP3
+file://@
+/%GSDISK%/0 00 MUSIC ---/05 Whole Lot MP3
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/05 Whole Lot MP3
+----------------------------------------
+0291--0  D 0 00 MUSIC -- GD _ 07 MIDI MOD
+file://@
+/%GSDISK%/0 00 MUSIC ---/07 MIDI MOD
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/07 MIDI MOD
+----------------------------------------
+0293--0  D 0 00 MUSIC -- GD _ 08 Talk Book
+file://@
+/%GSDISK%/0 00 MUSIC ---/08 Talk Book
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/08 Talk Book
+----------------------------------------
+0295--0  D 0 00 MUSIC -- GD _ 08 Talk Book- FEW DUPE TO SORT
+file://@
+/%GSDISK%/0 00 MUSIC ---/08 Talk Book- FEW DUPE TO SORT
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/08 Talk Book- FEW DUPE TO SORT
+----------------------------------------
+0297--0  D 0 00 MUSIC -- GD _ 08 Tbooks All
+file://@
+/%GSDISK%/0 00 MUSIC ---/08 Tbooks All
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/08 Tbooks All
+----------------------------------------
+0299--0  D 0 00 MUSIC -- GD _ 09 SOUND EFFECT
+file://@
+/%GSDISK%/0 00 MUSIC ---/09 SOUND EFFECT
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/09 SOUND EFFECT
+----------------------------------------
+0301--0  D 0 00 MUSIC -- GD _ HAMA 128 PORTABLE
+file://@
+/%GSDISK%/0 00 MUSIC ---/HAMA 128 PORTABLE
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/HAMA 128 PORTABLE
+----------------------------------------
+0303--0  D 0 00 MUSIC -- GD _ MP3
+file://@
+/%GSDISK%/0 00 MUSIC ---/MP3
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/MP3
+----------------------------------------
+0305--0  D 0 00 MUSIC -- GD _ WINAMP PLAYLIST SCRIPT SET
+file://@
+/%GSDISK%/0 00 MUSIC ---/WINAMP PLAYLIST SCRIPT SET
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/WINAMP PLAYLIST SCRIPT SET
+----------------------------------------
+0307--0  D 0 00 MUSIC -- GD _ WINAMP PLAYLIST SCRIPT SET (1)
+file://@
+/%GSDISK%/0 00 MUSIC ---/WINAMP PLAYLIST SCRIPT SET
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/MUSIC/WINAMP PLAYLIST SCRIPT SET
+----------------------------------------
+0309--0  D 0 00 MUSIC -- GD _ Winamp Logger Info
+file://@
+/%GSDISK%/0 00 MUSIC ---/Winamp Logger Info
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/Winamp Logger Info
+----------------------------------------
+0311--0  D 0 00 MUSIC -- GD _ Zz Bangers Work Folder
+file://@
+/%GSDISK%/0 00 MUSIC ---/Zz Bangers Work Folder
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/# MUSIC/Zz Bangers Work Folder
+----------------------------------------
+0313--0  D 0 00 MUSIC -- ONE DRIVE _ 0 NOT ISFOLDER _ ROOTAR
+file://@
+/D:/0 00 MUSIC ---
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC
+----------------------------------------
+0315--0  D 0 00 MUSIC -- ONE DRIVE _ 00 - CD-CLASSICAL-POP
+file://@
+/D:/0 00 MUSIC ---/00 - CD-CLASSICAL-POP
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/00 - CD-CLASSICAL-POP
+----------------------------------------
+0317--0  D 0 00 MUSIC -- ONE DRIVE _ 01 SOUND EFFECT & TECHNO SAMPLES
+file://@
+/D:/0 00 MUSIC ---/01 SOUND EFFECT & TECHNO SAMPLES
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/01 SOUND EFFECT & TECHNO SAMPLES
+----------------------------------------
+0319--0  D 0 00 MUSIC -- ONE DRIVE _ 04 My Music
+file://@
+/D:/0 00 MUSIC ---/04 My Music
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/04 My Music
+----------------------------------------
+0321--0  D 0 00 MUSIC -- ONE DRIVE _ 05 HTTrack
+file://@
+/D:/0 00 MUSIC ---/05 HTTrack
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/05 HTTrack
+----------------------------------------
+0323--0  D 0 00 MUSIC -- ONE DRIVE _ 05 Whole Lot
+file://@
+/D:/0 00 MUSIC ---/05 Whole Lot
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/05 Whole Lot
+----------------------------------------
+0325--0  D 0 00 MUSIC -- ONE DRIVE _ 05 Whole Lot MP3
+file://@
+/D:/0 00 MUSIC ---/05 Whole Lot MP3
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/05 Whole Lot MP3
+----------------------------------------
+0327--0  D 0 00 MUSIC -- ONE DRIVE _ 07 MIDI MOD
+file://@
+/D:/0 00 MUSIC ---/07 MIDI MOD
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/07 MIDI MOD
+----------------------------------------
+0329--0  D 0 00 MUSIC -- ONE DRIVE _ 08 Talk Book
+file://@
+/D:/0 00 MUSIC ---/08 Talk Book
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/08 Talk Book
+----------------------------------------
+0331--0  D 0 00 MUSIC -- ONE DRIVE _ 08 Talk Book- FEW DUPE TO SORT
+file://@
+/D:/0 00 MUSIC ---/08 Talk Book- FEW DUPE TO SORT
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/08 Talk Book- FEW DUPE TO SORT
+----------------------------------------
+0333--0  D 0 00 MUSIC -- ONE DRIVE _ 08 Tbooks All
+file://@
+/D:/0 00 MUSIC ---/08 Tbooks All
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/08 Tbooks All
+----------------------------------------
+0335--0  D 0 00 MUSIC -- ONE DRIVE _ 09 SOUND EFFECT
+file://@
+/D:/0 00 MUSIC ---/09 SOUND EFFECT
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/09 SOUND EFFECT
+----------------------------------------
+0337--0  D 0 00 MUSIC -- ONE DRIVE _ HAMA 128 PORTABLE
+file://@
+/D:/0 00 MUSIC ---/HAMA 128 PORTABLE
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/HAMA 128 PORTABLE
+----------------------------------------
+0339--0  D 0 00 MUSIC -- ONE DRIVE _ MP3
+file://@
+/D:/0 00 MUSIC ---/MP3
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/MP3
+----------------------------------------
+0341--0  D 0 00 MUSIC -- ONE DRIVE _ WINAMP PLAYLIST SCRIPT SET
+file://@
+/D:/0 00 MUSIC ---/WINAMP PLAYLIST SCRIPT SET
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/WINAMP PLAYLIST SCRIPT SET
+----------------------------------------
+0343--0  D 0 00 MUSIC -- ONE DRIVE _ Winamp Logger Info
+file://@
+/D:/0 00 MUSIC ---/Winamp Logger Info
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/Winamp Logger Info
+----------------------------------------
+0345--0  D 0 00 MUSIC -- ONE DRIVE _ Zz Bangers Work Folder
+file://@
+/D:/0 00 MUSIC ---/Zz Bangers Work Folder
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MUSIC/Zz Bangers Work Folder
+----------------------------------------
+0347--0  D 0 00 MUSIC -- QNAP
+file://@
+/D:/0 00 MUSIC ---
+gstps://matt-lan-btinternet-com
+nas-qnap-ml/share/CACHEDEV1_DATA/Multimedia/MEDIA/AUDIO
+----------------------------------------
+0349--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 4G
+file://@
+/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+----------------------------------------
+0351--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 4G ARC
+file://@
+/%GSDISK%/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+----------------------------------------
+0353--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 7G
+file://@
+/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+----------------------------------------
+0355--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 8M
+file://@
+/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+smb://matt-lan-btinternet-com
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+----------------------------------------
+0357--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 8M 7G ARC GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+----------------------------------------
+0359--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 8M 7G GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+----------------------------------------
+0361--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 8M ARC
+file://@
+/%GSDISK%/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+smb://matt-lan-btinternet-com
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+----------------------------------------
+0363--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 01 8M GSD
+file://@
+/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION
+----------------------------------------
+0365--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 02 8M _ 01 D INSYNC
+file://@
+/D:/0 00 VIDEO SNAPSHOT
+file://@
+/D:/0 CLOUD/GD-INSYNC/rub.rim@gmail.com
+----------------------------------------
+0367--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 03 8M _ 01 C INSYNC USER
+file://@
+/D:/0 00 VIDEO SNAPSHOT
+file://@
+/=C DRIVE:/Users/MATT 04/Insync/rub.rim@gmail.com/Google Drive
+----------------------------------------
+0369--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 04 8M _ GOOGLE DRI 01
+file://@
+/D:/0 00 VIDEO SNAPSHOT/snapshot
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/snapshot
+----------------------------------------
+0371--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 04 8M _ GOOGLE DRI 02
+file://@
+/D:/0 00 VIDEO SNAPSHOT/snapshot
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+
+----------------------------------------
+0373--0  D 0 00 VIDEO SNAPSHOT CCSE HIKVISION _ 09 8M _ GOOGLE DRI ARC
+file://@
+/D:/0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com:443
+/SNAPSHOT PHOTO CCSE HIKVISION ARC
+----------------------------------------
+0375--x--D DSC 0 ____ ____ ____ ____ ____
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0377--x--D DSC EVER 0____ ____ ____ ____ ____
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0379--0  D DSC EVER 4_CLOUD_2TB ROIDSRIM WHOLE 01
+file://@
+/D:/DSC
+file://@
+/=4_CLOUD_2TB_01:/GD1TB/DSC
+----------------------------------------
+0381--0  D DSC EVER GOOGLE #0  ALL
+file://@
+/D:/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0383--0  D DSC EVER GOOGLE #0  ALL #0____ ____ ____ ____
+file://@
+/E:/# GOODSYNC SEPERATOR BAR/1-1
+file://@
+/E:/# GOODSYNC SEPERATOR BAR/1-2
+----------------------------------------
+0385--0  D DSC EVER GOOGLE #1  2011
+file://@
+/D:/DSC/2011 Sony
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2011 Sony
+----------------------------------------
+0387--0  D DSC EVER GOOGLE #2 +2018
+file://@
+/D:/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0389--0  D DSC EVER GOOGLE #3 +2019
+file://@
+/D:/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0391--0  D DSC EVER GOOGLE #4 +2015
+file://@
+/D:/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0393--0  D DSC EVER GOOGLE #4 +2015 _ 4G TO GD
+smb://matt-lan-btinternet-com
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0395--0  D DSC EVER GOOGLE #5 -2015
+file://@
+/D:/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0397--0  D DSC EVER GOOGLE #5 -2015 _ 4G TO GD
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0399--0  D DSC EVER GOOGLE 2010+ #1 NIKON
+file://@
+/D:/DSC/2010 NIKON COOLPIX S640 & SONY DSC-HX5V
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2010 NIKON COOLPIX S640 & SONY DSC-HX5V
+----------------------------------------
+0401--0  D DSC EVER GOOGLE 2012+ #1 NOKIA E72
+file://@
+/D:/DSC/2012+Nokia E72
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2012+Nokia E72
+----------------------------------------
+0403--0  D DSC EVER GOOGLE 2017+ #1 DSC CYBERSHOT 2017
+file://@
+/D:/DSC/2015+Sony/2017 CyberShot HX60V
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2015+Sony/2017 CyberShot HX60V
+----------------------------------------
+0405--0  D DSC EVER GOOGLE 2018+ #2 DSC CYBERSHOT 2018
+file://@
+/D:/DSC/2015+Sony/2018 CyberShot HX60V
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2015+Sony/2018 CyberShot HX60V
+----------------------------------------
+0407--0  D DSC EVER GOOGLE 2018+ #3 FUJI
+file://@
+/D:/DSC/2017+FUJI XP90
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2017+FUJI XP90
+----------------------------------------
+0409--0  D DSC EVER GOOGLE 2018+ #4 SAMSUNG MINI S5
+file://@
+/D:/DSC/2018 Samsung Mini S5
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2018 Samsung Mini S5
+----------------------------------------
+0411--0  D DSC EVER GOOGLE 2018+ #5 GO PRO
+file://@
+/D:/DSC/2018 GoPro 01
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2018 GoPro 01
+----------------------------------------
+0413--0  D DSC EVER GOOGLE 2018+ #7 DOUBLE SCREEN
+file://@
+/D:/DSC/2018 Double Screen Cam
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2018 Double Screen Cam
+----------------------------------------
+0415--0  D DSC EVER GOOGLE 2018+ #8 CCTV HIKVISION
+file://@
+/D:/DSC
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC
+----------------------------------------
+0417--0  D DSC EVER GOOGLE 2019+ #1 DSC CYBERSHOT 2019
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+SONY/2019 CyberShot HX60V
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2015+SONY/2019 CyberShot HX60V
+----------------------------------------
+0419--0  D DSC EVER GOOGLE 2019+ #2 DSC 2019+SCREENCASTIFY
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2019+SCREENCASTIFY
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2019+SCREENCASTIFY
+----------------------------------------
+0421--0  D DSC EVER GOOGLE 2020+ #1 DSC CYBERSHOT 0000 D-HDD MP4
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC_4G_1TB/DSC
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC
+----------------------------------------
+0423--0  D DSC EVER GOOGLE 2020+ #1 DSC CYBERSHOT 2020 D-HDD MP4
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+SONY_MP4
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2015+SONY_MP4
+----------------------------------------
+0425--0  D DSC EVER GOOGLE 2020+ #1 DSC CYBERSHOT 2020 T-HDD MP4
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/DSC_4G_1TB/DSC/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/DSC/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
+----------------------------------------
+0427--0  D DSC EVER ONE DRIVE #0____ ____ ____ ____
+file://@
+/E:/# GOODSYNC SEPERATOR BAR/1-1
+file://@
+/E:/# GOODSYNC SEPERATOR BAR/1-2
+----------------------------------------
+0429--0  D DSC EVER ONE DRIVE #1 DSC 0000+SONY MP4 00 SAM 4G 7G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC_4G_1TB/DSC
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC
+----------------------------------------
+0431--0  D DSC EVER ONE DRIVE #1 DSC 2015+SONY
+file://@
+/D:/DSC/2015+SONY
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY
+----------------------------------------
+0433--0  D DSC EVER ONE DRIVE #1 DSC 2015+SONY MP4
+file://@
+/%GSDISK%/DSC/2015+SONY_MP4
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY_MP4
+----------------------------------------
+0435--0  D DSC EVER ONE DRIVE #1 DSC 2015+SONY MP4 4G SAM
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC_4G_1TB/DSC/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
+----------------------------------------
+0437--0  D DSC EVER ONE DRIVE #1 DSC 2015+SONY MP4 7G SAM
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC_4G_1TB/DSC/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY_MP4/2020 CyberShot HX60V __ MP4
+----------------------------------------
+0439--0  D DSC EVER ONE DRIVE #5 +2015 --
+file://@
+/D:/DSC
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC
+----------------------------------------
+0441--0  D DSC EVER ONE DRIVE #5 -2015 --
+file://@
+/D:/DSC
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC
+----------------------------------------
+0443--0  D DSC EVER ONE DRIVE #7 +2018 --
+file://@
+/D:/DSC
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC
+----------------------------------------
+0445--0  D DSC EVER ONE DRIVE #7 +2020 --
+file://@
+/=MSI_1TB_DRIVE:/DSC
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC
+----------------------------------------
+0447--0  D DSC EVER ONE DRIVE #8 4G-F-HDD TO 7G-SAM-3-HDD COPY BELOW
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/DSC_4G_1TB
+----------------------------------------
+0449--0  D DSC EVER ONE DRIVE #8 D-HDD 4K ULTRA 4G 7G
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC--2019+4K ULTRA
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/DSC_4G_1TB/DSC--2019+4K ULTRA
+----------------------------------------
+0451--0  D DSC EVER ONE DRIVE 2019+ #1 DSC 2015+ _AGAIN
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+SONY
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY
+----------------------------------------
+0453--0  D DSC EVER ONE DRIVE 2019+ #1 DSC CYBERSHOT 2019
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+SONY/2019 CyberShot HX60V
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY/2019 CyberShot HX60V
+----------------------------------------
+0455--0  D DSC EVER ONE DRIVE 2019+ #1 DSC CYBERSHOT 2020
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+SONY/2020 CyberShot HX60V
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY/2020 CyberShot HX60V
+----------------------------------------
+0457--0  D DSC EVER ONE DRIVE 2019+ #2 DSC 2019+SCREENCASTIFY
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2019+SCREENCASTIFY
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2019+SCREENCASTIFY
+----------------------------------------
+0459--0  D DSC EVER ONE DRIVE 2020+ #1 DSC CYBERSHOT 2020 D-HDD -- IMAGE
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+SONY/2020 CyberShot HX60V
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY/2020 CyberShot HX60V
+----------------------------------------
+0461--0  D DSC EVER ONE DRIVE 2020+ #1 DSC CYBERSHOT 2020 SAM-F-HDD 1_TB -- MP4
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC/2015+SONY/2020 CyberShot HX60V
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY/2020 CyberShot HX60V
+----------------------------------------
+0463--0  D DSC EVER ONE DRIVE 2020+ #1 F-HDD DSC--2018+CCTV HIKVISION
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC--2018+CCSE_HIKVISION
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC--2018+CCSE_HIKVISION
+----------------------------------------
+0465--0  D DSC EVER ONE DRIVE 2020+ #4 D-HDD 2019+4K ULTRA
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC--2019+4K ULTRA
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC--2019+4K ULTRA
+----------------------------------------
+0467--x--D DSC VI_0  ____ ____ ____ ____ ____
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0469--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G-F-HDD TO 7G SAM-3-HDD
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/DSC_4G_1TB
+----------------------------------------
+0471--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G_SAMSUNG 1TB_2020
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_12_2_SAMSUNG_1TB
+----------------------------------------
+0473--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G_SAMSUNG 1TB_2020 #GSD
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/G:
+----------------------------------------
+0475--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G_SAMSUNG 1TB_2020 #GSD (1)
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/G:
+----------------------------------------
+0477--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 7G 4G
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC
+----------------------------------------
+0479--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 400 DAY 7G 4G __ 2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+Sony/2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+SONY/2019 CyberShot HX60V
+----------------------------------------
+0481--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 400 DAY 7G 4G __ 2020 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+SONY/2020 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+SONY/2020 CyberShot HX60V
+----------------------------------------
+0483--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 01
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 01 IM 400 DAY
+----------------------------------------
+0485--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 01 8M
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 01 IM 400 DAY
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/DSC ARC 01 IM 400 DAY
+----------------------------------------
+0487--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 01 NOT GSD
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 01 IM 400 DAY
+----------------------------------------
+0489--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 02 4G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 01 IM 400 DAY
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC ARC 01 IM 400 DAY
+----------------------------------------
+0491--0  D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 03 OD MATT4
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 01 IM 400 DAY
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC ARC 01 IM 400 DAY
+----------------------------------------
+0493--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 02 - IMAGE ALL
+file://@
+/D:/DSC
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 02 IM ALL
+----------------------------------------
+0495--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 03 - ART
+file://@
+/D:/0 00 ART
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 03 IM ART
+----------------------------------------
+0497--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 03 - VIDEO MINE 2020
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB/DSC/2015+SONY_MP4
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB/DSC ARC 04 V0/2015+SONY_MP4
+----------------------------------------
+0499--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 03 - VIDEO MINE 2020 GSD
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB/DSC/2015+SONY_MP4
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC ARC 04 V0/2015+SONY_MP4
+----------------------------------------
+0501--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 04 - VIDEO MINE 02 4G 7G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB/DSC ARC 04 V0
+----------------------------------------
+0503--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 04 - VIDEO MINE 02 4G 7G #GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/DSC ARC 04 V0
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC ARC 04 V0
+----------------------------------------
+0505--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 05 - VIDEO MINE 01 _ SAM 1TB 2020
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB/DSC ARC 04 V0
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+----------------------------------------
+0507--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01
+file://@
+/D:/DSC
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+----------------------------------------
+0509--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01 2020
+file://@
+/=3_SAMSUNG_4TB_D:/DSC_4G_1TB/DSC
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+----------------------------------------
+0511--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01 4G
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC ARC 04 V0
+----------------------------------------
+0513--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01 8M
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/DSC ARC 04 V0
+----------------------------------------
+0515--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 08 - VIDEO MINE 01 4G_F TO 7G_SUMSUNG_3
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC_4G_1TB
+----------------------------------------
+0517--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 09 - VIDEO MINE 2020 OD-MATT4
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB/DSC ARC 04 V0/2015+SONY_MP4
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/DSC/2015+SONY_MP4
+----------------------------------------
+0519--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 10 - VIDEO MINE 01 OD
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0/2015+SONY
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY
+----------------------------------------
+0521--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 10 - VIDEO MINE 01 OD-MATT4 (1)
+smb://matt-lan-btinternet-com
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0/2015+SONY/2020 CyberShot HX60V
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/DSC/2015+SONY/2020 CyberShot HX60V
+----------------------------------------
+0523--0  D DSC VI_3 __  YOUTUBE DSC MP4 4G 4G YT_1 YT_2
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC_YT_1
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC_YT_2
+----------------------------------------
+0525--0  D DSC VI_3 __  YOUTUBE DSC MP4 C-HDD 7G YT_1
+file://@
+/%GSDISK%/DSC_YT_1
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC_YT_1
+----------------------------------------
+0527--0  D DSC VI_3 __  YOUTUBE DSC MP4 D-HDD 4G YT_1
+file://@
+/%GSDISK%/DSC_YT_1
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC_YT_1
+----------------------------------------
+0529--0  D DSC VI_3 __  YOUTUBE DSC MP4 D-HDD C-HDD YT_1 YT_2
+file://@
+/C:/DSC_YT_1
+file://@
+/D:/DSC_YT_1
+----------------------------------------
+0531--0  D DSC VI_3 __  YOUTUBE DSC MP4 D-HDD YT_1 YT_2
+file://@
+/%GSDISK%/DSC_YT_1
+file://@
+/%GSDISK%/DSC_YT_2
+----------------------------------------
+0533--x--D DSC VI_DSC 0_____ ____ NOT TO DO WITH 4G
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0535--x--D DSC VI_DSC 0_____ ____ ____ ____ ____
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0537--0  D DSC VI_DSC_ME GOOGLE MATT.LITT - NOT USE
+file://@
+/D:/VI_ DSC ME
+gdrive://Matt_Littman-0ALmebU5MwayvUk9PVA@www.googleapis.com
+/V DSC MINE
+----------------------------------------
+0539--0  D DSC VI_DSC_ME GOOGLE METAL.LITT - NOT USE
+file://@
+/D:/VI_ DSC ME
+gdrive://Metal_Littman-0AGhfTi1eLYL5Uk9PVA@www.googleapis.com
+/V DSC MINE
+----------------------------------------
+0541--x--D DSC VI_DSC_ME GOOGLE M_ X1 1 0 ____ MM__ IMAGE
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0543--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 00
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM
+----------------------------------------
+0545--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 01 2020 SONY-HIK
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC ME
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 04 MM_2020 7G_MH
+----------------------------------------
+0547--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 02 2020 HIKISION
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 04 MM_2020 7G_MH/2020+CCTV_HIKVISION
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM/2020+CCTV_HIKVISION
+----------------------------------------
+0549--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 02 2020 POWERBANK
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_10_1_SAMSUNG_1TB/DSC--2020+128GB-V-OPA/2020_128GB-V-OPA
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM/2020+CCTV_HIKVISION
+----------------------------------------
+0551--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 02 2020 SONY
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 04 MM_2020 7G_MH/2010+SONY
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM/2010+SONY
+----------------------------------------
+0553--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 04 2020 SONY
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 04 MM_2020 7G_MH/2010+SONY
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM/2010+SONY
+----------------------------------------
+0555--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 7G MORPHIONAN
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 01 V0 01 MM
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/VI_ DSC 01 V0 02 V1_V2_MORPHIONAN
+----------------------------------------
+0557--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 8G
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 01 V0 01 MM
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/VI_ DSC 01 V0 01 MM
+----------------------------------------
+0559--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 HC
+file://@
+/=D DRIVE:/VIDEO/NOT/X 00 NOT ME/00 Vid XXX
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 02 V0 01 HC
+----------------------------------------
+0561--x--D DSC VI_DSC_ME GOOGLE M_ X1 1 ____ HC __ VIDEO
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0563--0  D DSC VI_DSC_ME GOOGLE M_ X1 2 HC BUNKER
+file://@
+/=D DRIVE:/VIDEO/NOT/X 00 NOT ME/00 Vid XXX/BUNKER.COM
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 04 V0 01 HC/00 2001 MEDIA HARDCORE/BUNKER.COM
+----------------------------------------
+0565--0  D DSC VI_DSC_ME GOOGLE M_ X1 3 HC AUTO
+file://@
+/D:/VIDEO/NOT/AUTOPIX/AUTOPIX 00
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 04 V0 01 HC/00 2001 MEDIA AUTOPIX
+----------------------------------------
+0567--0  D DSC VI_DSC_ME GOOGLE M_ X1 4 HC  LITT
+file://@
+/%GSDISK%/VIDEO/NOT/X 00 NOT ME/00 Vid XXX/00 HARDCORE LITERACY
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 04 V0 01 HC/00 2004 HARDCORE LITERACY
+----------------------------------------
+0569--0  D DSC VI_DSC_ME GOOGLE M_ X1 5 HC
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 02 V0 01 HC
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 04 V0 01 HC/00 2001 MEDIA HARDCORE
+----------------------------------------
+0571--0  D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 3 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 04 V0 01 HC
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/VI_ DSC 01 V0 01 MM
+----------------------------------------
+0573--0  D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 4 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/VI_ DSC 01 V0 01 MM
+----------------------------------------
+0575--0  D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 4 HC MORPHIONAN
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 04 V0 01 HC/00 2001 MEDIA HARDCORE
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/VI_ DSC 01 V0 02 V1_V2_MORPHIONAN/00 2001 MEDIA HARDCORE
+----------------------------------------
+0577--0  D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 4 MM MORPHIONAN
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/VI_ DSC 01 V0 02 V1_V2_MORPHIONAN
+----------------------------------------
+0579--0  D DSC VI_DSC_ME GOOGLE M_ X2 4 HC__FOR PHOTO GD 5 V2-I2 MORPH
+file://@
+/=3_SAMSUNG_4TB_D:/VI_ DSC 02 V0 01 HC
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/VI_ DSC 01 V0 02 V2_I2_MORPHIOUS
+----------------------------------------
+0581--0  D DSC VI_DSC_ME GOOGLE M_ X2 4 HC__FOR PHOTO GD 7G 5P
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/VI_ DSC 01 V0 01 MM
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/VI_ DSC 01 V0 01 MM
+----------------------------------------
+0583--x--D DSC VI_DSC_ME GOOGLE M_ X3 0__ GD DRIVE ____ ____
+matt-lan-btinternet-com@
+
+@
+
+----------------------------------------
+0585--0  D DSC VI_DSC_ME GOOGLE M_ X3 1 MM IM1 & VI1
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM
+gdrive://0AOpCmi-edmVwUk9PVA@www.googleapis.com-n1
+/VI_ DSC ME
+----------------------------------------
+0587--0  D DSC VI_DSC_ME GOOGLE M_ X3 2 HC
+file://@
+/=D DRIVE:/VIDEO/NOT/X 00 NOT ME/00 Vid XXX
+gdrive://0AOpCmi-edmVwUk9PVA@www.googleapis.com-n1
+/VI_ DSC ME/00 2001 MEDIA HARDCORE
+----------------------------------------
+0589--0  D DSC VI_DSC_ME __ 7G 5P
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/VI_ DSC ME
+----------------------------------------
+0591--0  D DSC VI_DSC_ME __ 7G 8M
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/VI_ DSC ME
+----------------------------------------
+0593--0  D DSC VI_DSC_ME __ 7G LINK 01 HDD-D
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME/2010+SONY_MP4/2020 CyberShot HX60V_#
+smb://
+7-asus-gl522vw/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME/2010+SONY/2020 CyberShot HX60V_#
+----------------------------------------
+0595--0  D DSC VI_DSC_ME __ 7G LINK 02 HDD-D
+smb://
+7-asus-gl522vw/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME/2010+SONY/2020 CyberShot HX60V_#
+smb://
+7-asus-gl522vw/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME/2010+SONY_MP4
+----------------------------------------
+0597--0  D DSC VI_DSC_ME __ 7G LINK 04
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME/2010+SONY_MP4/2020 CyberShot HX60V_#
+smb://
+7-asus-gl522vw/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC ME/2010+SONY_MP4 2020
+----------------------------------------
+0599--0  D DSC VI_DSC_ME __ 7G LINK 05
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME/2010+SONY_MP4/2020 CyberShot HX60V_#
+smb://
+7-asus-gl522vw/7_asus_gl522vw_80_3_samsung_4tb_d/VI_ DSC ME/2010+SONY_MP4 2020/2020 CyberShot HX60V_#
+----------------------------------------
+0601--0  D DSC VI_DSC_ME __ 7G LINK 08
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VI_ DSC ME/2010+SONY_MP4/2020 CyberShot HX60V_#
+smb://
+7-asus-gl522vw/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/VI_ DSC 01 V0 01 MM/2010+SONY_MP4
+----------------------------------------
+0603--0  D DSC __ 7G 4G
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/DSC
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+----------------------------------------
+0605--0  D DSC __ 7G 4G #GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC
+----------------------------------------
+0607--0  D DSC __ 7G 4G D DSC EVER ONE DRIVE #8 4G-F-HDD TO 7G-SAM-3-HDD COPY BELOW
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/DSC_4G_1TB
+----------------------------------------
+0609--0  D DSC __ 7G 4G __ 2015+ Sony
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/DSC/2015+SONY
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+Sony
+----------------------------------------
+0611--0  D DSC __ 7G 4G __ 2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+Sony/2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+Sony/2019 CyberShot HX60V
+----------------------------------------
+0613--0  D DSC __ 7G 4G __ QUICKER _ 2015+
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/DSC
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/DSC
+----------------------------------------
+0615--0  D DSC __ 7G 5P
+file://@
+/D:/DSC
+smb://
+5-ASUS-P2520LA/5_ASUS_P2520LA_02_D_DRIVE/DSC
+----------------------------------------
+0617--0  D DSC __ 7G 8M
+file://@
+/D:/DSC
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/DSC
+----------------------------------------
+0619--0  D DSC __ 7G 8M #GSD
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/DSC
+----------------------------------------
+0621--0  D DSC __ 7G 8M __ 2015+ Sony
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+Sony
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/DSC/2015+Sony
+----------------------------------------
+0623--0  D DSC __ 7G 8M __ 2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+Sony/2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/DSC/2015+Sony/2019 CyberShot HX60V
+----------------------------------------
+0625--0  D DSC __ MC CARD FIND ME INFO MY CAMERA FUJI
+mtp://
+FinePix_XP90_XP91_XP95/External Memory/z FIND ME INFO
+file://@
+/D:/DSC/# CAMERA DATA
+----------------------------------------
+0627--0  D DSC __ MC CARD FIND ME INFO MY CAMERA HX
+file://@
+/=MC - HX60V:/z FIND ME INFO
+file://@
+/D:/DSC/# CAMERA DATA
+----------------------------------------
+0629--0  D DSC __ MC CARD FIND ME INFO MY CAMERA HX-V
+file://@
+/=MC - HX60V0:/z FIND ME INFO
+file://@
+/D:/DSC/# CAMERA DATA
+----------------------------------------
+0631--0  D DSC __ MC CARD FIND ME INFO MY SYNC-VB-DSC
+file://@
+/D:/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/CAMERA DATA
+file://@
+/D:/DSC/# CAMERA DATA
+----------------------------------------
+0633--0  D DSC __ MC CARD FIND ME INFO NOKIA
+file://@
+/D:/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/CAMERA DATA
+file://matt-lan-2@
+/D:/NOKIA E72/# NOKIA E72/z FIND ME INFO
+----------------------------------------
+0635--0  D DSC __ MC CARD FIND ME INFO OUTDOOR
+file://@
+/D:/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/CAMERA DATA
+file://matt-lan-2@
+/=OUT_DOOR:/z FIND ME INFO
+----------------------------------------
+0637--0  D DSC __ MC CARD FIND ME INFO SAMSUNG 128
+file://@
+/D:/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/CAMERA DATA
+file://matt-lan-2@
+/=SAMSUNG_128:/z FIND ME INFO
+----------------------------------------
+0639--0  D DSC __ MC CARD FIND ME INFO USB_32GB
+file://@
+/D:/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/CAMERA DATA
+file://matt-lan-2@
+/=USB32G_HDD:/z FIND ME INFO
+----------------------------------------
+0641--0  D DSC __ MC CARD FIND ME INFO V_DSC_ME
+file://@
+/D:/VB6/VB-NT/00_Best_VB_01/KAT MP3 RELOAD/CAMERA DATA
+file://matt-lan-2@
+/D:/VI_ DSC ME/z FIND ME INFO
+----------------------------------------
+0643--0  D DSC __ MC CARD V0 EVER _ #1 SONY HX60V CAMERA
+file://@
+/=MC - HX60V:
+file://@
+/D:/DSC/2015+Sony/2019 CyberShot HX60V
+----------------------------------------
+0645--0  D DSC __ MC CARD V0 EVER _ #2 SMB FUJI XP90
+mtp://
+FinePix_XP90_XP91_XP95/External Memory
+file://@
+/D:/DSC/2017+FUJI XP90/FUJI XP90 IMPORT
+----------------------------------------
+0647--0  D DSC __ MC CARD V0 EVER _ #2 SMB FUJI XP90 _ FIND ME INFO
+mtp://
+FinePix_XP90_XP91_XP95/External Memory/z FIND ME INFO
+file://@
+/D:/DSC/2017+FUJI XP90/FUJI XP90 IMPORT/z FIND ME INFO
+----------------------------------------
+0649--0  D DSC __ MC CARD V0 EVER _ #2 SMB FUJI XP90 _ FIND ME INFO SYNC
+file://@
+/D:/DSC/# CAMERA DATA
+file://@
+/D:/DSC/2017+FUJI XP90/FUJI XP90 IMPORT/z FIND ME INFO
+----------------------------------------
+0651--x--D DSC __ MC CARD V0 ____ ____ ____ ____ ____
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0653--0  D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT
+file://@
+/=MC - HX60V:
+file://@
+/=MSI_1TB_DRIVE:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0655--0  D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - RIGHT
+file://@
+/=MC - HX60V:
+file://@
+/=MSI_1TB_DRIVE:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0657--0  D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V1
+file://@
+/=MC - HX60V:
+file://@
+/=MC - HX60V1:
+----------------------------------------
+0659--0  D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 4G HDD - LEFT
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/MC - HX60V1_MEDIA_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0661--0  D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 4G HDD -RIGHT
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/MC - HX60V1_MEDIA_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0663--0  D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 8M HDD - LEFT
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/MC - HX60V1_MEDIA_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0665--0  D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 8M HDD - RIGHT
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/MC - HX60V1_MEDIA_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0667--x--D DSC __ MC CARD V0 _____ #2 ____ ____ ____
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0669--0  D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 4G TO HDD - LEFT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0671--0  D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 4G TO HDD - RIGHT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0673--0  D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 4G TO HDD _GSD
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/V:
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/F:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0675--0  D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 7G TO HDD
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/T:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0677--0  D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 8M TO HDD
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_82_1_MC_CARD_CAMERA
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/G:/MC - HX60V1_MEDIA_CARD_CAMERA
+----------------------------------------
+0679--0  D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G GSD - LEFT
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/V:
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/V:
+----------------------------------------
+0681--0  D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G GSD - RIGHT
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/V:
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/V:
+----------------------------------------
+0683--0  D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE - LEFT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+----------------------------------------
+0685--0  D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE - RIGHT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+----------------------------------------
+0687--0  D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE 1
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+----------------------------------------
+0689--0  D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE 2
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_82_1_MC_CARD_CAMERA
+----------------------------------------
+0691--0  D DSC __ MC CARD V0 _____ #5 7G 4G __ 2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/DSC/2015+Sony/2019 CyberShot HX60V
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/DSC/2015+Sony/2019 CyberShot HX60V
+----------------------------------------
+0693--0  D DSC __ WORK -- FOLDER SYNC
+file://@
+/D:/DSC/2015-2018/2018 CyberShot HX60V/DCIM
+file://@
+/D:/DSC/2015-2018/2018 CyberShot HX60V/WORK
+----------------------------------------
+0695--0  D DSC __ WORK -- GD FLICKR
+file://@
+/D:/DSC/2015-2018/2018 CyberShot HX60V/DCIM/WORK
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/FLICKR/WORK
+----------------------------------------
+0697--0  D DSC __ WORK -- GD FLICKR BI-DIR
+file://@
+/D:/DSC/2015-2018/2018 CyberShot HX60V/DCIM/WORK
+gdrive://RoidsRim-0AAoB_cPOibCPUk9PVA@www.googleapis.com
+/FLICKR/WORK
+----------------------------------------
+0699--x--D DSC __ WORK -- ____ ____ ____ ____ ____
+@
+
+Matt_Littman-0ALmebU5MwayvUk9PVA@
+
+----------------------------------------
+0701--x--E 0 FAT32 4GB _ 7G 0 SMALL DRIVE FOR SPECIAL FOLDERS NTFS_NOW ____ ____
+@
+
+@
+
+----------------------------------------
+0703--x--E 0 FAT32 4GB _ 7G 1X 0____ ____ ____
+@
+
+@
+
+----------------------------------------
+0705--0  E 0 FAT32 4GB _ 7G 1X _2_ INCL GSD
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/E:
+----------------------------------------
+0707--0  E 0 FAT32 4GB _ 7G 1X _3_ QUICKER GSD
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/E:
+----------------------------------------
+0709--x--E 0 FAT32 4GB _ 7G 2E 0____ ____ ____
+@
+
+@
+
+----------------------------------------
+0711--0  E 0 FAT32 4GB _ 7G 2E _2_ INCL GSD
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+1-asus-eee/E:
+----------------------------------------
+0713--0  E 0 FAT32 4GB _ 7G 2E _3_ QUICKER _ GSD
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+1-asus-eee/E:
+----------------------------------------
+0715--x--E 0 FAT32 4GB _ 7G 3L 0____ ____ ____
+@
+
+@
+
+----------------------------------------
+0717--0  E 0 FAT32 4GB _ 7G 3L _2_ INCL GSD
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+3-linda-pc/E:
+----------------------------------------
+0719--0  E 0 FAT32 4GB _ 7G 3L _3_ QUICKER GSC
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+3-linda-pc/E:
+----------------------------------------
+0721--x--E 0 FAT32 4GB _ 7G 4G 0____ ____ ____
+@
+
+@
+
+----------------------------------------
+0723--0  E 0 FAT32 4GB _ 7G 4G _2_ INCL
+file://@
+/E:
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_03_FAT32_4GB
+----------------------------------------
+0725--0  E 0 FAT32 4GB _ 7G 4G _2_ INCL -- 4G SUCCESS
+file://@
+/E:
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_03_FAT32_4GB
+----------------------------------------
+0727--0  E 0 FAT32 4GB _ 7G 4G _3_ QUICKER
+file://@
+/E:
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_03_FAT32_4GB
+----------------------------------------
+0729--x--E 0 FAT32 4GB _ 7G 5P 0____ ____ ____
+@
+
+@
+
+----------------------------------------
+0731--0  E 0 FAT32 4GB _ 7G 5P _2_ INCL
+file://@
+/E:
+smb://
+5-ASUS-P2520LA/5_ASUS_P2520LA_03_FAT32_4GB
+----------------------------------------
+0733--0  E 0 FAT32 4GB _ 7G 5P _3_ QUICKER
+file://@
+/E:
+smb://
+5-ASUS-P2520LA/5_ASUS_P2520LA_03_FAT32_4GB
+----------------------------------------
+0735--x--E 0 FAT32 4GB _ 7G 8M 0____ ____ ____
+file://@
+/E:
+@
+
+----------------------------------------
+0737--0  E 0 FAT32 4GB _ 7G 8M _2_ INCL
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/E:
+----------------------------------------
+0739--0  E 0 FAT32 4GB _ 7G 8M _2_ INCL -- 7G SUCCESS
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/E:
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/E:
+----------------------------------------
+0741--0  E 0 FAT32 4GB _ 7G 8M _3_ QUICKER
+file://@
+/E:
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/E:
+----------------------------------------
+0743--0  KAT 0 ____ ____ ____ ____ ____
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6
+----------------------------------------
+0745--0  KAT D 1X
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/KAT MP3 RECORDER
+----------------------------------------
+0747--0  KAT D 2E
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/KAT MP3 RECORDER
+----------------------------------------
+0749--0  KAT D 3L
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+gstps://matt-lan-btinternet-com
+3-linda-pc/D:/KAT MP3 RECORDER
+----------------------------------------
+0751--0  KAT D 4G
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/KAT MP3 RECORDER
+----------------------------------------
+0753--0  KAT D 5P
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/KAT MP3 RECORDER
+----------------------------------------
+0755--0  KAT D 7G
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+----------------------------------------
+0757--0  KAT D 8M
+file://@
+/%GSDISK%/KAT MP3 RECORDER
+gstps://matt-lan-btinternet-com
+8-msi-gp62m-7rd/D:/KAT MP3 RECORDER
+----------------------------------------
+0759--0  MS #0____ MICROSOFT ____ ____ ____ ____
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6
+----------------------------------------
+0761--0  MS #MEDIA 01 VB6 00_BEST_VB_01
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT/00_Best_VB_01
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/VB-NT/00_Best_VB_01
+----------------------------------------
+0763--0  MS #MEDIA 02 VB6 1-S Code
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/1 S Code
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/1 S Code
+----------------------------------------
+0765--0  MS #MEDIA 02 VB6 VB Icon's
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB Icon's
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/VB Icon's
+----------------------------------------
+0767--0  MS #MEDIA 02 VB6 VB-NT
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/VB-NT
+----------------------------------------
+0769--0  MS #MEDIA 03 VB6
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6
+----------------------------------------
+0771--0  MS D 0 00 ART LOGGER 05__GDD CLOUD 02_# APP AND SCREEN -- MS
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/0 00 ART LOGGERS/# APP AND SCREEN
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/0 00 ART LOGGERS/# APP AND SCREEN
+----------------------------------------
+0773--0  MS VB6 01 VB6 00_BEST_VB_01
+file://@
+/D:/VB6/VB-NT/00_Best_VB_01
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/VB6/VB-NT/00_Best_VB_01
+----------------------------------------
+0775--0  MS VB6 02 VB6 1-S Code
+file://@
+/D:/VB6/1 S Code
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/VB6/1 S Code
+----------------------------------------
+0777--0  MS VB6 02 VB6 VB Icon's
+file://@
+/D:/VB6/VB Icon's
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/VB6/VB Icon's
+----------------------------------------
+0779--0  MS VB6 02 VB6 VB-NT
+file://@
+/D:/VB6/VB-NT
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/VB6/VB-NT
+----------------------------------------
+0781--0  MS VB6 03 VB6
+file://@
+/D:/VB6
+msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
+/:drive:5d4dc9f4c3e976d9/VB6
+----------------------------------------
+0783--x--VB 00 VB ____ ____ ____ ____
+matt-lan-btinternet-com@
+
+@
+
+----------------------------------------
+0785--0  VB VB-NT 00 ____ ____ ____ ____
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/VB6/VB-NT
+----------------------------------------
+0787--0  VB VB-NT 01 EXE 7G 1X _001_ EXE
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/VB6/VB-NT
+smb://
+1-ASUS-X5DIJ/1_ASUS_X5DIJ_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0789--0  VB VB-NT 01 EXE 7G 4G _001_ EXE
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/VB6/VB-NT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0791--0  VB VB-NT 01 EXE 7G 8M _001_ EXE
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/VB6/VB-NT
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0793--0  VB VB-NT 02 EXE 1X _002_ EXE
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/VB6-EXE/VB-NT
+----------------------------------------
+0795--0  VB VB-NT 02 EXE 2E _002_ EXE
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/VB6-EXE/VB-NT
+----------------------------------------
+0797--0  VB VB-NT 02 EXE 3L _002_ EXE
+file://@
+/D:/VB6/VB-NT
+smb://
+3-LINDA-PC/3_LINDA_PC_02_D_DRIVE/VB6-EXE/VB-NT
+----------------------------------------
+0799--0  VB VB-NT 02 EXE 4G _002_ EXE
+file://@
+/D:/VB6/VB-NT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/VB6-EXE/VB-NT
+----------------------------------------
+0801--0  VB VB-NT 02 EXE 5P _002_ EXE
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/VB6-EXE/VB-NT
+----------------------------------------
+0803--0  VB VB-NT 02 EXE 7G _002_ EXE
+file://@
+/D:/VB6/VB-NT
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6-EXE/VB-NT
+----------------------------------------
+0805--0  VB VB-NT 02 EXE 8M _002_ EXE
+file://@
+/D:/VB6/VB-NT
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/VB6-EXE/VB-NT
+----------------------------------------
+0807--0  VB VB-NT 03 1X _003_ VBP -- NEWER
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/VB6/VB-NT
+----------------------------------------
+0809--0  VB VB-NT 03 2E _003_ VBP -- NEWER
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/VB6/VB-NT
+----------------------------------------
+0811--0  VB VB-NT 03 3L _003_ VBP -- NEWER
+file://@
+/D:/VB6/VB-NT
+smb://
+3-LINDA-PC/3_LINDA_PC_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0813--0  VB VB-NT 03 4G _003_ VBP -- NEWER
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/VB6/VB-NT
+----------------------------------------
+0815--0  VB VB-NT 03 5P _003_ VBP -- NEWER
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/VB6/VB-NT
+----------------------------------------
+0817--0  VB VB-NT 03 7G _003_ VBP -- NEWER
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/VB6/VB-NT
+----------------------------------------
+0819--0  VB VB-NT 03 8M _003_ VBP -- NEWER
+file://@
+/%GSDISK%/VB6/VB-NT
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0821--0  VB VB-NT 04 1X _004_
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/VB6/VB-NT
+----------------------------------------
+0823--0  VB VB-NT 04 2E _004_
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/VB6/VB-NT
+----------------------------------------
+0825--0  VB VB-NT 04 3L _004_
+file://@
+/D:/VB6/VB-NT
+smb://
+3-LINDA-PC/3_LINDA_PC_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0827--0  VB VB-NT 04 4G _004_
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+4-asus-gl522vw/D:/VB6/VB-NT
+----------------------------------------
+0829--0  VB VB-NT 04 5P _004_
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/VB6/VB-NT
+----------------------------------------
+0831--0  VB VB-NT 04 7G _004_
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+7-asus-gl522vw/D:/VB6/VB-NT
+----------------------------------------
+0833--0  VB VB-NT 04 8M _004_
+file://@
+/%GSDISK%/VB6/VB-NT
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0835--0  VB VB-NT 05 1X _005_ QUICKER _NEW_GO
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+2-asus-x5dij/D:/VB6/VB-NT
+----------------------------------------
+0837--0  VB VB-NT 05 2E _005_ QUICKER _NEW_GO
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+1-asus-eee/D:/VB6/VB-NT
+----------------------------------------
+0839--0  VB VB-NT 05 3L _005_ QUICKER _NEW_GO
+file://@
+/D:/VB6/VB-NT
+smb://
+3-LINDA-PC/3_LINDA_PC_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0841--0  VB VB-NT 05 4G _005_ QUICKER _NEW_GO
+file://@
+/D:/VB6/VB-NT
+smb://
+4-ASUS-GL522VW/4_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0843--0  VB VB-NT 05 5P _005_ QUICKER _NEW_GO
+file://@
+/D:/VB6/VB-NT
+gstps://matt-lan-btinternet-com
+5-asus-p2520la/D:/VB6/VB-NT
+----------------------------------------
+0845--0  VB VB-NT 05 7G _005_ QUICKER _NEW_GO
+file://@
+/D:/VB6/VB-NT
+smb://
+7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0847--0  VB VB-NT 05 8M _005_ QUICKER _NEW_GO
+file://@
+/D:/VB6/VB-NT
+smb://
+8-MSI-GP62M-7RD/8_MSI_GP62M_7RD_02_D_DRIVE/VB6/VB-NT
+----------------------------------------
+0849--0  0000 SAMSUNG CARD __ FOR SPACE
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0851--0  D DSC VI_DSC_ME GOOGLE M_ X1 2 HC BUNKER (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0853--0  0000 SAMSUNG CARD __ FOR SPACE (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0855--0  D DSC VI_1 __  SONY CYBER SHOT MEDIA CARD BACKUP
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0857--0  D DSC VI_DSC_ME GOOGLE M_ X2 MOVE WORK __ # T TO M DRIVE _ DEDUPE
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0859--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 02 2020 HIK (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0861--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 02 2020 HIK
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0863--0  D DSC VI_DSC_ME GOOGLE M_ X3 2 HC (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0865--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 04 2020 HIKVISION
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0867--0  E 0 FAT32 4GB _ 7G 8M _2_ INCL 7G TO 8M CONFLICT SUCCESS
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0869--0  E 0 FAT32 4GB _ 7G 8M _3_ QUICKER 7G TO 8M CONFLICT SUCCESS
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0871--0  E 0 FAT32 4GB _ 7G 4G _3_ QUICKER 4G-SUCCESS
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0873--0  E 0 FAT32 4GB _ 7G 8M _3_ QUICKER 7G TO 8M CONFLICT SUCCES
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0875--0  D DSC VI_DSC_ME GOOGLE M_ X3 2 HC
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0877--0  D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 3 8M (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0879--0  D DSC VI_DSC_ME GOOGLE M_ X2 MOVE WORK __ # T TO M DRIVE _ DEDUPE (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0881--0  D DSC VI_DSC_ME GOOGLE M_ X2 4 HC__FOR PHOTO GD 8 5P
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0883--0  D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 00 (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0885--0  E 0 FAT32 4GB _ 7G 4G _3_ QUICKER (1)
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------
+0887--0  D DSC VI_DSC_ME GOOGLE M_ X3 2 HC (1)7
+file://@
+/D:/VB6/VB-NT
+
+
+----------------------------------------

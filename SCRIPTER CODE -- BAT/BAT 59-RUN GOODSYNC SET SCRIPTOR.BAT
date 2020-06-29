@@ -286,11 +286,19 @@ IF %errorlevel% EQU 0 (
 	GOTO START
 )
 
+	REM - TEMP REMMER
+	REM ---------------------------------------------------------------------
+	REM SET MODE_RUN=CAMERA_BACKUP
+	REM GOTO START
+	REM ---------------------------------------------------------------------
+
 ECHO %* | FIND "CAMERA_BACKUP_CLOUD" >NUL
 IF %errorlevel% EQU 0 (
 	SET MODE_RUN=CAMERA_BACKUP_CLOUD
 	GOTO START
 )
+
+
 
 ECHO %* | FIND "D_DRIVE_GOODSYNC_JOB_SET" >NUL
 IF %errorlevel% EQU 0 (
@@ -456,8 +464,6 @@ REM GOTO NEXT_CONTINUE
 
 :GITHUB__________________SET_ARRRAY
 
-GOTO JUMPER
-
 SET /A LDA=LDA+1
 SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G INCL"
 SET /A LDA=LDA+1
@@ -556,8 +562,22 @@ GOTO NEXT_CONTINUE
 	REM  ALL JOB FROM ASUS-7 COMPUTER
 	SET GoodSync_GSync="D:\GoodSync\x64\gsync.exe"
 
+	SET AI=SET /A LDA=LDA+1
+
+	GOTO CAMERA_2
+
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V1"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE"
 	SET /A LDA=LDA+1
@@ -591,51 +611,51 @@ GOTO NEXT_CONTINUE
 	SET /A LDA=LDA+1
 	SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G 8M"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 1 1 MM"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 1 1 MM 5P"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 5P"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 1 1 MM 8G"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 8G"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 1 HC"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 1 HC"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 1 HC 2 BUNKER"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 1 HC 2 BUNKER"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X2 2 HC ROOT"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC ROOT"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 3 ROOT 1"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 3 ROOT 1"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 3 ROOT 2"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 3 ROOT 2"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 3 ROOT 3 DATE ALPHA"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 3 ROOT 3 DATE ALPHA"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 4 AUTO"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 4 AUTO"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 4 VIRTUAL 1"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 4 VIRTUAL 1"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 4 VIRTUAL 2"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 4 VIRTUAL 2"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X1 5 LITT"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 5 LITT"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X2 2 HC ROOT"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC ROOT"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X2 2 HC__FOR PHOTO GD 1 7G"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 1 7G"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X2 2 HC__FOR PHOTO GD 2 7G"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 2 7G"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X2 2 HC__FOR PHOTO GD 3 5P"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 3 5P"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X2 2 HC__FOR PHOTO GD 3 8M"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 3 8M"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X3 1 MM IM1 & VI1"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X3 1 MM IM1 & VI1"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X3 2 HC"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X3 2 HC"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X3 3 HC ROOT"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X3 3 HC ROOT"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X3 4 AUTO"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X3 4 AUTO"
 	SET /A LDA=LDA+1
-	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MORPHEUS X3 5 LITT"
+	SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X3 5 LITT"
 	
 	@REM ---- PRE CLOUD
 	SET /A LDA=LDA+1
@@ -736,6 +756,161 @@ REM files have changed (excluding renames), more than a threshold of 20%. So the
 REM Error analyzing C:\SCRIPTOR GITHUB: Cannot parse state file, delete it if it became corrupted: C:/SCRIPTOR GITHUB: End of file at pos 491520
 
 	
+:CAMERA_2
+SET GoodSync_GSync="D:\GoodSync\x64\gsync.exe"
+SET AI=SET /A LDA=LDA+1
+
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO MY CAMERA FUJI"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO MY CAMERA HX"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO MY CAMERA HX-V"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO MY SYNC-VB-DSC"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO NOKIA"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO OUTDOOR"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO SAMSUNG 128"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO USB_32GB"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD FIND ME INFO V_DSC_ME"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 EVER _ #1 SONY HX60V CAMERA"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 EVER _ #2 SMB FUJI XP90"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 EVER _ #2 SMB FUJI XP90 _ FIND ME INFO"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 EVER _ #2 SMB FUJI XP90 _ FIND ME INFO SYNC"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - LEFT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V - RIGHT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #1 MEDIA CARD BACKUP -- =MC - HX60V1"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 4G HDD - LEFT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 4G HDD -RIGHT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 8M HDD - LEFT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #2 MCSDV0  MC BACKUP -- 7G 8M HDD - RIGHT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 4G TO HDD - LEFT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 4G TO HDD - RIGHT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 4G TO HDD _GSD"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 7G TO HDD"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #3 MCSDV0  MC BACKUP -- 8M TO HDD"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G GSD - LEFT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G GSD - RIGHT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE - LEFT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE - RIGHT"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE 1"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #4 MCSDV0  MC BACKUP -- 4G TO 7G SHARE 2"
+!AI! && SET Sources[!LDA!]="D DSC __ MC CARD V0 _____ #5 7G 4G __ 2019 CyberShot HX60V"
+
+REM !AI! && SET Sources[!LDA!]="D DSC EVER 4_CLOUD_2TB ROIDSRIM WHOLE 01"
+
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #0  ALL"
+
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #1  2011"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #2 +2018"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #3 +2019"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #4 +2015"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #4 +2015 _ 4G TO GD"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #5 -2015"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE #5 -2015 _ 4G TO GD"
+
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2010+ #1 NIKON"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2012+ #1 NOKIA E72"
+
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2017+ #1 DSC CYBERSHOT 2017"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2018+ #2 DSC CYBERSHOT 2018"
+
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2018+ #3 FUJI"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2018+ #4 SAMSUNG MINI S5"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2018+ #5 GO PRO"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2018+ #7 DOUBLE SCREEN"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2018+ #8 CCTV HIKVISION"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2019+ #1 DSC CYBERSHOT 2019"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2019+ #2 DSC 2019+SCREENCASTIFY"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2020+ #1 DSC CYBERSHOT 0000 D-HDD MP4"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2020+ #1 DSC CYBERSHOT 2020 D-HDD MP4"
+!AI! && SET Sources[!LDA!]="D DSC EVER GOOGLE 2020+ #1 DSC CYBERSHOT 2020 T-HDD MP4"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #1 DSC 0000+SONY MP4 00 SAM 4G 7G"
+
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #1 DSC 2015+SONY"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #1 DSC 2015+SONY MP4"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #1 DSC 2015+SONY MP4 4G SAM"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #1 DSC 2015+SONY MP4 7G SAM"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #5 +2015 --"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #5 -2015 --"
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #7 +2018 --"
+
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #7 +2020 --"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #8 4G-F-HDD TO 7G-SAM-3-HDD COPY BELOW"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE #8 D-HDD 4K ULTRA 4G 7G"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2019+ #1 DSC 2015+ _AGAIN"
+
+REM !AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2019+ #1 DSC CYBERSHOT 2019"
+
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2019+ #1 DSC CYBERSHOT 2020"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2019+ #2 DSC 2019+SCREENCASTIFY"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2020+ #1 DSC CYBERSHOT 2020 D-HDD -- IMAGE"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2020+ #1 DSC CYBERSHOT 2020 SAM-F-HDD 1_TB -- MP4"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2020+ #1 F-HDD DSC--2018+CCTV HIKVISION"
+!AI! && SET Sources[!LDA!]="D DSC EVER ONE DRIVE 2020+ #4 D-HDD 2019+4K ULTRA"
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G-F-HDD TO 7G SAM-3-HDD"
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G_SAMSUNG 1TB_2020"
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G_SAMSUNG 1TB_2020 #GSD"
+
+REM !AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 4G_SAMSUNG 1TB_2020 #GSD (1)"
+
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 0 DSC 7G 4G"
+
+REM !AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 400 DAY 7G 4G __ 2019 CyberShot HX60V"
+
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 00 - 400 DAY 7G 4G __ 2020 CyberShot HX60V"
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 01 8M"
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 01 NOT GSD"
+!AI! && SET Sources[!LDA!]="D DSC VI_2 __  G P DSC SYNC DSC ARC 01 - 400 DAY 03 OD MATT4"
+
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 02 - IMAGE ALL"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 03 - ART"
+
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 03 - VIDEO MINE 2020"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 03 - VIDEO MINE 2020 GSD"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 04 - VIDEO MINE 02 4G 7G"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 04 - VIDEO MINE 02 4G 7G #GSD"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 05 - VIDEO MINE 01 _ SAM 1TB 2020"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01 8M"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 08 - VIDEO MINE 01 4G_F TO 7G_SUMSUNG_3"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 09 - VIDEO MINE 2020 OD-MATT4"
+!AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 10 - VIDEO MINE 01 OD"
+
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  G P DSC SYNC DSC ARC 10 - VIDEO MINE 01 OD-MATT4 (1)"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  YOUTUBE DSC MP4 4G 4G YT_1 YT_2"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  YOUTUBE DSC MP4 C-HDD 7G YT_1"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  YOUTUBE DSC MP4 D-HDD 4G YT_1"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  YOUTUBE DSC MP4 D-HDD C-HDD YT_1 YT_2"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_3 __  YOUTUBE DSC MP4 D-HDD YT_1 YT_2"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE MATT.LITT - NOT USE"
+REM !AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE METAL.LITT - NOT USE"
+
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 1 1 MM 8G"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 2 HC BUNKER"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 3 HC AUTO"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X1 4 HC LITT"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 3 8M"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 2 HC__FOR PHOTO GD 4 8M"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X2 4 HC__FOR PHOTO GD 7G 5P"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X3 1 MM IM1 & VI1"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME GOOGLE M_ X3 2 HC"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G 5P"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G 8M"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G LINK 01 HDD-D"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G LINK 02 HDD-D"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G LINK 04"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G LINK 05"
+!AI! && SET Sources[!LDA!]="D DSC VI_DSC_ME __ 7G LINK 08"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 4G"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 4G #GSD"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 4G D DSC EVER ONE DRIVE #8 4G-F-HDD TO 7G-SAM-3-HDD COPY BELOW"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 4G __ 2015+ Sony"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 4G __ 2019 CyberShot HX60V"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 4G __ QUICKER _ 2015+"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 5P"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 8M"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 8M #GSD"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 8M __ 2015+ Sony"
+!AI! && SET Sources[!LDA!]="D DSC __ 7G 8M __ 2019 CyberShot HX60V"
+
+
 	
 	
 	
@@ -822,6 +997,9 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	ECHO ----------------------------------------------------------------
 	ECHO %%a of !LDA! -- START
 	ECHO ----------------------------------------------------------------
+
+	REM -- STRIP QUOTE EITHER END -- EXAMPLE -- !GoodSync_GSync! NORMAL DISPLAY !GoodSync_GSync:"=! STRIP QUOTE WAY
+
 
 	REM STRIP QUOTES THIS BIT BEFORE END :"=
 	REM NORMAL VAR BE LIKE !Sources_02[%%a]!
@@ -998,6 +1176,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=!Sources_02[%%a]:"=!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
+	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=!GoodSync_GSync:"=!
+	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=----------------------------------------------------------------
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=Analysis_Complete             !Analysis_Complete!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=Sync_Runner                   !Sync_Runner_ONE!
 	SET /A L=L+1 & SET MSGBOX[!L!,%%a]=NONE_TO_DO                    !NONE_TO_DO_______!
@@ -1090,8 +1270,15 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		REM )
 
 
-		REM TIMEOUT /T 4
+		TIMEOUT /T 4
+
+		REM -------------------------------------------------------------
+		REM ---- IN THE LOOP 
+		REM -------------------------------------------------------------
+
 	)
+
+
 
 	REM -------------------------------------------------------------
 	REM FOR /L %%parameter IN (start,step,end) DO command 

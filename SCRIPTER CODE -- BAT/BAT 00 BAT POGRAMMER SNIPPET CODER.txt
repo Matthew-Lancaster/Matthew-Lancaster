@@ -1,0 +1,8 @@
+
+
+
+REM --------------------------------------------------------------------
+REM -- STRIP QUOTE EITHER END -- EXAMPLE -- !GoodSync_GSync! NORMAL DISPLAY !GoodSync_GSync:"=! STRIP QUOTE WAY
+REM -- Sat 27-Jun-2020 05:19:37
+REM  --------------------------------------------------------------------
+

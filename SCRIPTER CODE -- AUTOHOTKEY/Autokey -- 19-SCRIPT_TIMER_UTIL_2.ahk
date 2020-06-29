@@ -391,10 +391,10 @@ SETTIMER USB_OPTION_SETTER_HUMAN_INTERFACE_DEVICE_USB_POWER_MANAGE_OFF_QUICK_SET
 WAIT_OPEN_EXE_RELOAD=40
 TIMER_NOT_RESPOND_APP_VB_VAR_01=-10
 TIMER_NOT_EXIST_APP_VB_01=-10
-SETTIMER NOT_RESPOND_CLIPBOARD_LOGGER_01, 1000
+SETTIMER NOT_RESPOND_CLIPBOARD_LOGGER_01, 100000
 TIMER_NOT_RESPOND_APP_VB_VAR_02=-10
 TIMER_NOT_EXIST_APP_VB_02=-10
-SETTIMER NOT_RESPOND_CLIPBOARD_VIEWER_02, 1000
+SETTIMER NOT_RESPOND_CLIPBOARD_VIEWER_02, 100000
 TIMER_NOT_RESPOND_APP_VB_VAR_03=-10
 TIMER_NOT_EXIST_APP_VB_03=-10
 SETTIMER NOT_RESPOND_URL_LOGGER_03, 1000
@@ -4736,6 +4736,52 @@ SUB_SET_SECURITY:
 	{
 		ControlClick, Button1, ahk_id %HWND_ID_8%,,,, NA x10 y10
 	}
+	; ---------------------------------------------------------------
+
+	; ---------------------------------------------------------------
+	SetTitleMatchMode 3  ; Exactly
+	DetectHiddenText, Off
+	HWND_ID_8 := WinExist("Access Denied ahk_class #32770")
+	IF HWND_ID_8>0
+	{
+		ControlClick, Button1, ahk_id %HWND_ID_8%
+	}
+	HWND_ID_8 := WinExist("Access Denied ahk_class #32770")
+	IF HWND_ID_8>0
+	{
+		ControlClick, Button1, ahk_id %HWND_ID_8%,,,, NA x10 y10
+	}
+	; ---------------------------------------------------------------
+	; Access Denied ahk_class #32770
+	; ahk_exe Shell Explorer Loader.exe
+	; ---------------------------------------------------------------
+
+	
+	; ---------------------------------------------------------------
+	SetTitleMatchMode 3  ; Exactly
+	DetectHiddenText, Off
+	HWND_ID_8 := WinExist("Error Applying Attributes ahk_class #32770")
+	IF HWND_ID_8>0
+	{
+		ControlClick, Button2, ahk_id %HWND_ID_8%
+	}
+	HWND_ID_8 := WinExist("Error Applying Attributes ahk_class #32770")
+	IF HWND_ID_8>0
+	{
+		ControlClick, Button2, ahk_id %HWND_ID_8%,,,, NA x10 y10
+	}
+	; ---------------------------------------------------------------
+	; BUTTON2 IGNOR ALL
+	; ---------------------------------------------------------------
+	; An error occurred while applying attributes to the file:
+	; F:\System Volume...\IndexerVolumeGuid
+	; Access is denied.
+	; &Ignore
+	; I&gnore All
+	; T&ry Again
+	; Cancel
+	; ---------------------------------------------------------------
+
 
 RETURN
 
