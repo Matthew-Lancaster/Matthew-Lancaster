@@ -863,13 +863,13 @@ ReadInteger( p_address, p_offset, p_size, p_hex=true )
 	
 RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND:
 
-	SET_GO=
+	SET_GO=TRUE
 	IF A_ComputerName=1-ASUS-X5DIJ
-		SET_GO=TRUE
+		SET_GO=
 	IF A_ComputerName=2-ASUS-EEE
-		SET_GO=TRUE
+		SET_GO=
 	IF A_ComputerName=3-LINDA-PC
-		SET_GO=TRUE
+		SET_GO=
 
 	IF !SET_GO 
 		RETURN
