@@ -196,7 +196,9 @@ Do
 	' IMPLY IS FALSE JOB FOR TRUER IS BLANK
 	' ---------------------------------------------------------------
 
-	JOB_NAME=N5+REAL_OR_BLANK+JOB_NAME
+	' JOB_NAME=N5+REAL_OR_BLANK+JOB_NAME
+	JOB_NAME="!AI! && SET Sources[!LDA!]=""" & JOB_NAME & """"
+
 
 	' GET SCHEDULE HOUR -- ]d=
 	' --------------------------------
@@ -206,15 +208,16 @@ Do
 	IF TX1>0 THEN 
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
-		N4 = TRIM(Replace(N3, "]d=",""))
+		N5 = TRIM(Replace(N3, "]d=",""))
+		N5 = CLNG(N5)
 		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
 	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
 	IF ISNUMERIC(N4) THEN 
-	IF N4>0 AND N4 <1000 THEN 
-		SCHEDULE_TIMER=N4
+	IF N5>0 AND N5 <1000 THEN 
+		SCHEDULE_TIMER=N
 		' MSGBOX JOB_NAME & VBCR & CSTR(SCHEDULE_TIMER)
 	END IF
 	END IF
@@ -222,19 +225,20 @@ Do
 	END IF
 	
 	' GET SCHEDULE IS ON -- |z=2 -- ENABLE = TRUE
-	N4=0
+	N5=0
 	TX1 = InStr(T1, TT_EDITOR, "|z=") 
 	IF TX1>0 THEN 
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
-		N4 = TRIM(Replace(N3, "|z=",""))
+		N5 = TRIM(Replace(N3, "|z=",""))
+		N5 = CLNG(N5)
 		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
 	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
-	IF ISNUMERIC(N4) THEN 
-	IF N4<>2 THEN 
+	IF ISNUMERIC(N5) THEN 
+	IF N5<>2 THEN 
 		SCHEDULE_TIMER=0
 	END IF
 	END IF
@@ -246,51 +250,61 @@ Do
 	' --------------------------------
 	' --------------------------------
 	CHANGE_TIMER=0
-	N4=0
+	N5=0
 	TX1 = InStr(T1, TT_EDITOR, "|"+CHR(203)+"=") 
 	IF TX1>0 THEN 
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
-		N4 = TRIM(Replace(N3, "|"+CHR(203)+"=",""))
+		N5 = TRIM(Replace(N3, "|"+CHR(203)+"=",""))
+		N5 = CLNG(N5)
 		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
 	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
-	IF ISNUMERIC(N4) THEN 
-	IF N4>0 THEN 
-		CHANGE_TIMER=N4
-		' MSGBOX JOB_NAME & VBCR & CSTR(CHANGE_TIMER)
-	END IF
+	IF N5>0 THEN 
+		CHANGE_TIMER=N5
 	END IF
 	END IF
 	END IF
 	' --------------------------------
-	' GET CHANGE TIMER IS ON -- |D=2 -- NOT ENABLE |D=0 -- TRUE ENABLE
+	' GET CHANGE TIMER IS ON -- |D=0 -- NOT ENABLE |D=2 -- TRUE ENABLE
+	' SOMETIME THE CHANGE VARIABLE IS NOT DETECTABLE
+	' IT EXPECT 2 TO TALK OFF BUT NOT SOMETIME 2
+	' AND NONE OTHER SHIT THERE
+	' Sat 27-Jun-2020 04:30:48
 	' --------------------------------
-	N4=0
+	' METHOD IF NONE TIMER DO
+	' SET VALUE OF TIMER TO NONE
+	' --------------------------------
+	N5=0
 	TX1 = InStr(T1, TT_EDITOR, "|D=") 
 	IF TX1>0 THEN 
 		TX2 = InStr(TX1+1, TT_EDITOR, "|")
 		N3 = Mid(TT_EDITOR, TX1, (TX2 - TX1))
-		N4 = TRIM(Replace(N3, "|D=",""))
+		N5 = TRIM(Replace(N3, "|D=",""))
+		N5 = CLNG(N5)
 		TD1 = InStr(TX1+1, TT_EDITOR, "[n:")
 	END IF
 	' --------------------------------
 	IF TX1>JOB_LINE_FIND_WINDOW_LOW AND TX1<JOB_LINE_FIND_WINDOW_HIGH THEN 
 	IF INSTR(JOB_NAME,"D DSC")>0 THEN
-	IF ISNUMERIC(N4) THEN 
-	IF N4=2 THEN 
+	IF N5=2 THEN 
 		CHANGE_TIMER=0
-		MSGBOX JOB_NAME & VBCR & SCHEDULE_TIMER & VBCR & CSTR(N4)
-	END IF
 	END IF
 	END IF
 	END IF
 
+	' IF INSTR(JOB_NAME,"D DSC __ WORK -- FOLDER SYNC")>0 THEN
+	' IF TX1>0 THEN 
+		' MSGBOX  JOB_NAME & VBCR & SCHEDULE_TIMER & VBCR & CHANGE_TIMER & VBCR & N5 & VBCR & TX1 & VBCR & TX2 & VBCR & N5
+	' END IF
+	' END IF
 
 
-	' SPECIFY THE JOB TO FILTER THE SELECTION
+	SCHEDULE_TIMER=CLNG(SCHEDULE_TIMER)
+	CHANGE_TIMER=CLNG(CHANGE_TIMER)
+
 	' ---------------------------------------------------------------
 	SET_GO=FALSE
 	IF INSTR(JOB_NAME,"D DSC")>0            THEN SET_GO=TRUE
