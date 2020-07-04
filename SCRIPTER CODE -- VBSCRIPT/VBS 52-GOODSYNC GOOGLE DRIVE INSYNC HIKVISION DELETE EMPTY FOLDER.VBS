@@ -102,8 +102,8 @@ ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 Dim objFolder
 
-FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
+FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot ("
+FOLDER_STRING_2="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot ("
 FOLDER_STRING_3="C:\Users\MATT 04\Insync\rub.rim@gmail.com\Google Drive\snapshot ("
 
 ON ERROR RESUME NEXT
