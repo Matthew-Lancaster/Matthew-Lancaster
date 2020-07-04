@@ -83,6 +83,7 @@ Public FS        ' Set = CreateObject("Scripting.FileSystemObject")
 Dim PATH_FILE
 Dim AT_TEMP
 Dim FILE
+Const DontWaitUntilFinished = False, WaitUntilFinished = True, ShowWindow_2 = 1, DontShowWindow = 0
 
 
 Private Sub Form_Load()
@@ -102,13 +103,13 @@ AT_TEMP = Replace(AT_TEMP, """", "")
 '---------
 'TEST MODE -- FILE
 '---------
-AT_ISIDE = "C:\TEMP\bcdinfo.txt"
-If IsIDE = True Then AT_TEMP = AT_ISIDE
+' AT_ISIDE = "C:\TEMP\bcdinfo.txt"
+' If IsIDE = True Then AT_TEMP = AT_ISIDE
 '---------
 'TEST MODE -- FOLDER
 '---------
-AT_ISIDE = "C:\TEMP\"
-'If IsIDE = True Then AT_TEMP = AT_ISIDE
+' AT_ISIDE = "C:\TEMP\"
+' If IsIDE = True Then AT_TEMP = AT_ISIDE
 
 
 Me.Height = Label2.Top + Label2.Height + (1200)
@@ -134,23 +135,36 @@ End If
 '---------------------
 AT_TEMP = Replace(Trim(Clipboard.GetText), """", "")
 If PATH_FILE = "" Then
-    
     If FS.FolderExists(AT_TEMP) = True Then
         PATH_FILE = AT_TEMP
         SENDTO = "CLIPBOARD FIND PICK"
     End If
-        
     If FS.FileExists(AT_TEMP) = True Then
         PATH_FILE = AT_TEMP
         SENDTO = "CLIPBOARD FIND PICK"
         FILE = True
     End If
 End If
-    
+
+
 
 Label3 = PATH_FILE
 
 MNU_STATUS.Caption = "  -- SOURCE GIVEN IS -- " + SENDTO
+
+
+
+If InStr(UCase(Label3), ".URL") > 0 Then
+
+    Dim WSHShell
+    Set WSHShell = CreateObject("WScript.Shell")
+        WSHShell.Run """" + Label3 + """", ShowWindow_2, DontWaitUntilFinished
+    Set WSHShell = Nothing
+    End
+
+End If
+
+
 
 'If FILE = True Then
 'TIMER1.Enabled = True
