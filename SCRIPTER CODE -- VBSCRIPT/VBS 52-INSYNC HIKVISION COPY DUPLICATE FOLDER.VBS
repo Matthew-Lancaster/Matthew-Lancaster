@@ -181,9 +181,8 @@ Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 Dim objFolder
-
-FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
-TARGET_FOLDER_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot"
+FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot ("
+TARGET_FOLDER_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot"
 
 FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
 TARGET_FOLDER_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
@@ -200,7 +199,7 @@ DIM WORK_DISPLAY_INFO_MESSENGER_2_COUNTER
 ' -------------------------------------------------------------------
 ' SOMETIME FOLDER IS ACCESS DENY
 ' BUT LITTLE TRICK SEND THEM OVER FROM
-' D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (
+' D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot (
 ' TO 
 ' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot
 ' LESS DENY THAT WAY
@@ -208,7 +207,7 @@ DIM WORK_DISPLAY_INFO_MESSENGER_2_COUNTER
 
 ' EXAMPLE 
 ' snapshot (3) -- HAS ACCESS OVER AT 
-' D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot (
+' D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot (
 ' BUT NOT ACCESS OVER AT -- WITH snapshot (3)
 ' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot (3)
 ' SO COPY DIRECT TO 
@@ -241,7 +240,7 @@ FOR RV=1 TO 2
 	NEXT
 NEXT
 
-FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot"
+FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot"
 FOLDER_STRING_4="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 ' A BACKDATE SYSTEM
 
@@ -266,7 +265,7 @@ NEXT
 
 DIM FOLDER_STRING_3
 DIM TARGET_FOLDER_3
-FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot\"
+FOLDER_STRING_3="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot\"
 TARGET_FOLDER_3="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot\"
 
 IF FSO.FOLDEREXISTS(FOLDER_STRING_3) THEN
@@ -281,7 +280,7 @@ END IF
 
 
 
-FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\snapshot ("
+FOLDER_STRING_1="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\snapshot ("
 FOLDER_STRING_2="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot ("
 ' -------------------------------------------------------------------
 ' AFTER END BRACKET ITEM COPY AND GONE DELETE EMPTY LEFT

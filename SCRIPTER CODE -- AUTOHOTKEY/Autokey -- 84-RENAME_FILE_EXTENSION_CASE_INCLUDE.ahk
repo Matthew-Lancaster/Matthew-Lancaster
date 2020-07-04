@@ -318,7 +318,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	SET_ARRAY_3[ArrayCount]:="NOT TALK"
 	
 	ArrayCount+=1
-	SET_ARRAY_1[ArrayCount]:="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\MY COMPUTER\VB6\VB-NT\"
+	SET_ARRAY_1[ArrayCount]:="D:\0 CLOUD\GD-INSYNC\rub.rim@gmail.com\Google Drive\MY COMPUTER\VB6\VB-NT\"
 	SET_ARRAY_2[ArrayCount]:="vbp"                    ; THESE ARE CASE WANTING END RESULT WILL BE AS HERE
 	SET_ARRAY_3[ArrayCount]:="NOT TALK"
 	
