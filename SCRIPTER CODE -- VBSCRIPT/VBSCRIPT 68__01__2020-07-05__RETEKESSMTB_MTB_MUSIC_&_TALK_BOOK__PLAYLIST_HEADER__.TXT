@@ -33,21 +33,21 @@
 0334__SP 01 WILL DE CRUIZE - WINHTTRACK\
 0337__NB 0 MC-WITHOUT\
 0338__X03\
-0339__0078 - 2005 - Latex Zebra\
+0339__0078 - 2005 - Latex Zebra\            ---- PRETTY MIXER
 0340__0114 - 2005 - Betwixt & Between\
 0343__0124 - 2005 - Jem Lang\
 0345__0132 - 2005 - Dj Hypnotic\
 0346__0132 - 2006 - Dj Hypnotic\
 0347__0163 - 2006 - Nomisdj\
 0348__0167 - 2006 - Dot\
-0349__0001 - 2004 - Dj Snort\
+0349__0001 - 2004 - Dj Snort\               ---- HARD BUT MIXER
 0353__0019 - 2004 - Fastfreddy\
 0354__0171 - 2005 - Jon Bw\
 0355__0184 - 2005 - T Zero\
 0356__0208 - 2006 - Disturbed\
 0357__0095 - 2006 - Dave Elyzium\
 0358__0113 - 2005 - Meke\
-0359__0131 - 2005 - Hystericmaniak\
+0359__0131 - 2005 - Hystericmaniak\         ---- MENTAL MIXER
 0360__0143 - 2006 - Rascal\
 0362__0149 - 2006 - Mangafish\
 0364__0162 - 2006 - Tim Trip\
@@ -58,7 +58,7 @@
 0374__0027 - 2004 - Dj Dragon\
 0375__0056 - 2004 - Orfeus\
 0376__0094 - 2005 - Seb Woolford\
-0377__0103 - 2006 - Elementary\
+0377__0103 - 2006 - Elementary\             ---- TRANCE AR
 0378__0115 - 2005 - Dj Yim\
 0379__0120 - 2005 - Johnny Monsoon\
 0382__0120 - 2006 - Johnny Monsoon\
@@ -70,7 +70,7 @@
 0393__0145 - 2006 - Chris Powell\
 0394__0190 - 2006 - Elucidate\
 0396__0151 - PEARSALL\
-0397__0021 - 2004 - Fuk-Nut\
+0397__0021 - 2004 - Fuk-Nut\                ---- BANGER FAV AR --- HARD NUT MIXER
 0398__0031 - 2004 - Anx\
 0399__0031 - 2005 - Anx\
 0400__0034 - 2005 - Deathmind\
