@@ -37,10 +37,10 @@ STRPATH="D:\DL"
 STRPATH="D:\# MY DOCS"
 STRPATH="D:\# MY DOCS _ 02"
 STRPATH="D:\My Webs2"
-' STRPATH="D:\My Webs"
-'STRPATH=""
-'STRPATH=""
-'STRPATH=""
+STRPATH="D:\My Webs"
+STRPATH="K:\M\07 MIDI MOD\MIDI"
+STRPATH="K:\M"
+' STRPATH="J:\M"
 
 Dim objFolder
 DIM objFolderERR
