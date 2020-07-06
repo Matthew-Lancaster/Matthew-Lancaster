@@ -1,0 +1,334 @@
+0001__Benita (by H Rider Haggard)\
+0025__Black Bag Left On A Doorstep (by Catherine Louisa Pirkis)\
+0029__Lady Molly 01 - The Ninescore Mystery (by Baroness Orczy)\
+0033__Lady Molly 02 - The Frewin Miniatures (by Baroness Orczy)\
+0037__Lady Molly 03 - The Irish-Tweed Coat (by Baroness Orczy)\
+0041__Lady Molly 04 - The Fordwych Castle Mystery (by Baroness Orczy)\
+0044__Lady Molly 05 - A Days Folly (by Baroness Orczy)\
+0048__Lady Molly 06 - A Castle In Brittany (by Baroness Orczy)\
+0052__Lady Molly 07 - A Christmas Tragedy (by Baroness Orczy)\
+0057__Lady Molly 08 - A Bag Of Sand (by Baroness Orczy)\
+0062__Lady Molly 09 - The Man In The Inverness Cape (by Baroness Orczy)\
+0065__Lady Molly 10 - The Woman In The Big Hat (by Baroness Orczy)\
+0069__Lady Molly 11 - Sir Jeremiahs Will (by Baroness Orczy)\
+0078__Lost Stradivarius (by J M Falkner)\
+0094__Princess'S Vengeance (by C L Pirkis)\
+0097__1 000 000 Pounds Bank-Note (by Mark Twain)\
+0101__10000 Years In A Block Of Ice (by Louis Boussenard)\
+0117__20000 Leagues Under The Sea\
+0162__Adventures Of Ben Gunn (by R F Delderfield)\
+0201__All Gold Canyon (by Jack London)\
+0206__Ankardyne Pew (by W F Harvey)\
+0209__Another Short In The Locker (by Michael Kent)\
+0211__Around The World In 80 Days (by Jules Verne)\
+0248__Bartleby (by Herman Melville)\
+0257__Big Bow Mystery (by Israel Zangwill)\
+0276__Black Bloodhound (by Farnham Bishop)\
+0304__Black Ferry (by John Galt)\
+0307__Blow Up With The Brig (by Wilkie Collins)\
+0309__Blue Room (by Prosper Merimee)\
+0312__Unknown Weapon (by Andrew Forrester)\
+0324__Yellow Wallpaper (by Charlotte Perkins Gilman)\
+0328__Five Children And It (by E Nesbit)\
+0355__Nutcracker (by Alexandre Dumas)\
+0372__Oz 01 - Wizard Of Oz (by Frank Baum)\
+0396__Oz 02 - The Land Of Oz (by Frank Baum)\
+0422__Oz 03 - Ozma Of Oz (by Frank Baum)\
+0445__Oz 04 - Dorothy And The Wizard In Oz (by Frank Baum)\
+0469__Oz 05 - Road To Oz (by Frank Baum)\
+0493__Oz 06 - Emerald City Of Oz (by Frank Baum)\
+0523__Oz 07 - Patchwork Girl Of Oz (by Frank Baum)\
+0551__Oz 08 - The Cowardly Lion And The Hungry Tiger (by Frank Baum)\
+0553__Oz 09 - Little Dorothy And Toto (by Frank Baum)\
+0555__Oz 10 - Tiktok And The Nome King (by Frank Baum)\
+0557__Oz 11 - Ozma And The Little Wizard (by Frank Baum)\
+0559__Oz 12 - Jack Pumpkinhead And The Sawhorse (by Frank Baum)\
+0561__Oz 13 - The Scarecrow And The Tin Woodman (by Frank Baum)\
+0563__Oz 14 - Tik-Tok Of Oz (by Frank Baum)\
+0588__Oz 15 - Scarecrow Of Oz (by Frank Baum)\
+0612__Oz 16 - Rinkitink In Oz (by Frank Baum)\
+0636__Oz 17 - The Lost Princess Of Oz (by Frank Baum)\
+0662__Oz 18 - The Tin Woodman Of Oz (by Frank Baum)\
+0686__Oz 19 - The Magic Of Oz (by Frank Baum)\
+0709__Oz 20 - Glinda Of Oz (by Frank Baum)\
+0733__Phoenix And The Carpet (by E Nesbit)\
+0766__Scarlet Sails (by Alexander Green)\
+0782__Starynights-Absentmindedghost\
+0783__Starynights-Gumball\
+0784__Starynights-Smiffy\
+0785__Story Of The Amulet (by E Nesbit)\
+0799__Water Babies (by Charles Kingsley)\
+0820__Kama Sutra (of Vatsyayana)\
+0856__Night In A Moorish Harem (by Anonymous Author)\
+0871__Perfumed Garden (by Sheikh Nefzaoui)\
+0906__Life Of Buddha (by L Adams Beck)\
+0928__Manners For Men (by Mrs Humphry)\
+0958__Onwar Book1 (by Carl Von Clausewitz)\
+0967__Onwar Book2 (by Carl Von Clausewitz)\
+0976__Onwar Book3 (by Carl Von Clausewitz)\
+0985__Onwar Book4 (by Carl Von Clausewitz)\
+0998__Tao Te Ching (by Lao Tzu)\
+1006__Edgarpoe-Raven\
+1007__Elegy On The Death Of A Mad Dog (by Oliver Goldsmith)\
+1008__Etiquette (by Sir W S Gilbert)\
+1009__Gentle Alice Brown (by Sir W S Gilbert)\
+1010__Heather Ale (by Robert Louis Stevenson)\
+1011__Kiplings Poems - If\
+1012__Kiplings Poems - Mandallay\
+1013__Kiplings Poems - Norman And Saxon\
+1014__Kiplings Poems - The Ballad Of East And West\
+1015__Kiplings Poems - The Gipsy Trail\
+1016__Kiplings Poems - The Mary Gloster\
+1017__Kiplings Poems - The White Man'S Burden\
+1018__Rime Of The Ancient Mariner  Parody (by Anonymous Author)\
+1019__Rime Of The Ancient Mariner (by Samuel Taylor Coleridge)\
+1026__Wreck Of The Hesperus (by Henry Wadsworth Longfellow)\
+1027__Yarn Of The Nancy Bell (by Sir W S Gilbert)\
+1028__Alice In Wonderland\
+1039__Alice Through The Looking Glass\
+1049__At The Back Of The North Wind\
+1087__Birthday Of The Enfanter (by Oscar Wilde)\
+1090__Devoted Friend (by Oscar Wilde)\
+1092__Dragons - Kind Little Edmund (by E Nesbit)\
+1095__Dragons - The Book Of Beasts (by E Nesbit)\
+1097__Dragons - The Deliverers Of Their Country (by E Nesbit)\
+1099__Dragons - The Dragon Tamers (by E Nesbit)\
+1101__Dragons - The Fiery Dragon (by E Nesbit)\
+1104__Dragons - The Ice Dragon (by E Nesbit)\
+1108__Dragons - The Isle Of The Nine Whirlpools (by E Nesbit)\
+1111__Dragons - The Last Of The Dragons (by E Nesbit)\
+1113__Dragons - Uncle James (by E Nesbit)\
+1116__Ernestfluffyrabbit(byalecreid)\
+1125__Fisherman And Goldfish (by Alexander Pushkin)\
+1126__Fisherman And His Soul  (by Oscar Wilde)\
+1132__Happy Prince (by Oscar Wilde)\
+1134__Hunting Of The Snark (by Lewis Carroll)\
+1142__Knock Three Times (by Marion St John Webb)\
+1164__Nigtingale And Roses (by Oscar Wilde)\
+1165__Prince And Pauper (by Mark Twain)\
+1199__Princess And Curdie (by George Macdonald)\
+1234__Princess And The Goblin (by George Macdonald)\
+1258__Remarkable Rocket (by Oscar Wilde)\
+1261__Reynard The Fox (by C S Evans)\
+1279__Rip Van Winkle (by Washington Irving)\
+1283__Rose And The Ring (by W M Thackeray)\
+1302__Selfish Giant (by Oscar Wilde)\
+1303__Star-Child (by Oscar Wilde)\
+1306__Three Fat Men (by Yuri Olesha)\
+1320__To Central Africa On Iceberg (by Charles Squire And Frank Maclean)\
+1330__Wind In The Willows (by Kenneth Grahame)\
+1342__Wizard Of Oz (by Frank Baum)\
+1354__Wizard Prang(by Alec Reid)\
+1358__Young King (by Oscar Wilde)\
+1361__Alfred Church The Iliad for Boys and Girls\
+1386__Anna Sewell Black Beauty\
+1435__Arthur Scott Bailey The Tale of Timothy Turtle\
+1443__Beatrix Potter - Great Big Treasury of Beatrix Potter\
+1462__Carlo Collodi Pinocchio\
+1498__Charles Lamb Tales from Shakespeare\
+1518__Dorothy Dale A Girl of Today\
+1545__Dorothy Dale Camping Days\
+1574__Edith Howes Wonderwings and other Fairy Stories\
+1577__Edith Nesbit The Story of the Treasure Seekers\
+1593__Edith Nesbitt Five Children and It\
+1604__Edith Nesbitt Railway Children\
+1618__Eleanor H Porter Pollyanna\
+1650__English Fairy Tales\
+1694__Ethel Pedley Dot and the Kangaroo\
+1707__Ethel Sybil Turner Seven Little Australians\
+1720__FH Burnett The Secret Garden\
+1747__Frances H Burnett A little Princess\
+1766__Frances Hodgson Burnett Little Lord Fauntleroy\
+1781__Frances Hodgson Burnett Sara Crewe\
+1788__Frank Baum Dorothy & the Wizard of Oz\
+1808__Frank Baum Emerald City\
+1838__Frank Baum Enchanted Island of Yew\
+1853__Frank Baum Lost Princess of Oz\
+1880__Frank Baum Marvelous Land of Oz\
+1905__Frank Baum Mother Goose in Prose\
+1928__Frank Baum Road to Oz\
+1952__Frank Baum Sky Island\
+1982__Frank Baum The Life of Santa Claus\
+1994__Frank Baum Tik-Tok of Oz\
+2020__George MacDonald At the Back of the North Wind\
+2058__George MacDonald Princess and Curdie\
+2077__George MacDonald Princess and the Goblin\
+2095__George MacDonald The Day Boy and the Night Girl\
+2102__George MacDonald The Light Princess\
+2117__Grimm's Fairy Tales\
+2180__Hans Christian Anderson's Fairy Tales\
+2198__Harriet Beecher Stowe Uncle Tom’s Cabin\
+2243__Howard Pyle Otto of the Silver Hand\
+2258__Howard Pyle Robin Hood\
+2280__Hugh Lofting The Story Of Doctor Dolittle\
+2302__Jack London Call of the Wild\
+2308__Jack London White Fang\
+2333__James Baldwin Robinson Crusoe written anew for children\
+2348__JD Wyss The Swiss Family Robinson\
+2400__Jean Webster Daddy-Long-Legs\
+2409__Joel Chandler Harris Uncle Remus\
+2455__Johanna Spyri Heidi\
+2478__Jonathan Swift Gulliver's Travels\
+2518__Jules Verne Around The World In 80 Days\
+2555__Kenneth Grahame the reluctant dragon\
+2556__Kenneth Grahame The Wind in the Willows\
+2568__Laura Lee Hope The Story of the Stuffed Elephant\
+2578__Lewis Caroll Alice In Wonderland\
+2590__Lewis Carroll Alice Through The Looking Glass\
+2600__LM Montgomery Anne of Green Gables\
+2638__LM Montgomery Anne of the island\
+2679__LM Montgomery Chronicles of Avonlea\
+2707__LM Montgomery Rainbow Valley\
+2742__LM Montgomery Rilla of Ingleside\
+2774__LM Montgomery The Golden Road\
+2808__LM Montgomery The Story Girl\
+2840__Margery Williams The Velveteen Rabbit\
+2841__Mark Twain  Tom Sawyer\
+2857__Mark Twain Huckleberry Finn\
+2900__Mark Twain Prince & Pauper\
+2919__Mark Twain Tom Sawyer\
+2935__Oscar Wilde Devoted Friend\
+2936__Oscar Wilde Nightingale Rose\
+2937__Oscar Wilde Remarkable Rocket\
+2938__Oscar Wilde Selfish Giant\
+2939__Oscar Wilde The Happy Prince\
+2940__Peter Newell The Rocket Book\
+2941__Peter Newell The Slant Book\
+2942__Robert Louis Stevenson Treasure Island\
+2968__Rudyard Kipling Just So Stories\
+2980__Rudyard Kipling Stalky and Co\
+2990__Susan Coolidge What Katy did at School\
+3003__West African Folk Tales\
+3038__William Patten The Junior Classics\
+3099__William Trowbridge Lerned American Indian Fairy Tales\
+3108__WW Denslow's Three Bears\
+3109__VOL 01\
+3119__VOL 02\
+3129__VOL 03\
+3149__VOL 04\
+3169__VOL 05\
+3189__VOL 06\
+3209__VOL 07\
+3229__VOL 08\
+3249__VOL 09\
+3259__VOL 10\
+3269__VOL 11\
+3279__VOL 12\
+3290__VOL 13\
+3300__VOL 14\
+3310__VOL 15\
+3320__VOL 16\
+3330__VOL 17\
+3340__VOL 18\
+3351__VOL 19\
+3362__VOL 20\
+3373__VOL 21\
+3375__VOL 22\
+3386__VOL 23\
+3397__VOL 24\
+3408__VOL 25\
+3419__VOL 26\
+3430__VOL 27\
+3441__VOL 28\
+3451__VOL 29\
+3461__VOL 30\
+3471__VOL 31\
+3481__VOL 32\
+3491__VOL 33\
+3501__VOL 34\
+3521__VOL 35\
+3534__TBOOK 20 BILL BRYSON - A SHORT HISTORY OF NEARLY EVERYTHING\
+3600__TBOOK 20 FAIRYLAND_OF_SCIENCE\
+3610__TBOOK 21 ANTHONY ROBBINS - LESSONS IN MASTERY\
+3681__TBOOK 21 LORD OF THE RINGS J.R.R TOLKIEN\
+3775__TBOOK 24 DUDE, WHERE'S MY COUNTRY - MICHAEL MOORE\
+3785__TBOOK 25 GERRY SPENCE - HOW TO ARGUE AND WIN EVERY TIME\
+3789__TBOOK 27 THE ART AND SKILL OF CONVERSATION\
+3797__Disk 1\
+3841__Disk 2\
+3879__Disk 3\
+3918__Best of Lesbian Comedy, Vol. 1\
+3934__00 Bill Hicks - Shock And Awe _ Oxford Playhouse 11.11.92\
+3955__Arizona Bay\
+3973__Dangerous\
+3983__Flying Saucer Tour Vol. 1\
+4013__Love Laughter And Truth\
+4031__Qtes\
+4046__Qtls\
+4063__Rant In E Minor\
+4099__Relentless In Montreal\
+4114__Revelations\
+4132__Shock An Awe\
+4153__Brighton\
+4168__Chicago 3\
+4185__Chicago2\
+4199__Chicago_\
+4218__Dark_Poe\
+4232__Egham Part_1\
+4245__Egham Part_2\
+4256__Filling_\
+4270__Hallowee\
+4271__I_M_Sorr Part_1\
+4283__I_M_Sorr Part_2\
+4298__Queen_S1\
+4315__Queen_S2\
+4330__Relentle\
+4345__Texas\
+4347__1991 Bill Hicks And Marble Head Johnson\
+4352__Bill Hicks Capzeyez Interview (1993) (v)\
+4353__Bill Hicks Rant Revival Benefit At Cap City Comedy, Austin Texas, February 26 2004\
+4356__Chicargo Funny Farm\
+4358__Kut Radio Tribute\
+4359__Late Show With David Letterman October 1, 1993\
+4370__Ninja Bachelor Party (1991)\
+4371__Extras\
+4375__Interviews\
+4376__Austin__\
+4382__Howard_S\
+4384__Intervie\
+4394__Len_Belz\
+4407__Revelati\
+4408__Rid\
+4413__Sacred_C\
+4416__Sane_Man\
+4432__Specials\
+4443__The_Begi\
+4444__Various_\
+4454__Zoe_S_Be\
+4455__Cheech & Chong - Greatest Hits\
+4467__John Leguizamo - Live\
+4497__Monty Python's - Instant Record Collection\
+4521__The Trials of Lenny Bruce\
+4569__z MUSIC ON - Kevin Bloody Wilson - Let Loose Live In The Outback\
+4589__z MUSIC ON - The Goodies - Funky Gibbon\
+4605__z MUSIC ON - The Goodies Sing Songs\
+4616__Cd 1\
+4626__Cd 2\
+4636__Cd 3\
+4646__Cd 4\
+4656__Cd 5\
+4666__Cd 6\
+4676__Cd 7\
+4684__Cd 8\
+4694__Oz 20 - Glinda Of Oz (by Frank Baum)\
+4695__Manners For Men (by Mrs Humphry)\
+4696__At The Back Of The North Wind\
+4697__Knock Three Times (by Marion St John Webb)\
+4699__Prince And Pauper (by Mark Twain)\
+4700__Arizona Bay\
+4718__Dangerous\
+4728__Flying Saucer Tour Vol. 1\
+4758__Love Laughter And Truth\
+4776__Rant In E Minor\
+4812__Relentless In Montreal\
+4827__Revelations\
+4845__Shock An Awe\
+4866__LORD OF THE RINGS J.R.R TOLKIEN\
+4867__ANKARDYNE PEW (BY W F HARVEY)\
+4868__CAPTAIN DAVID GRIEF 01 - THE PROUD GOAT OF ALOYSIUS PANKBURN (BY JACK LONDON)\
+4869__CAPTAIN SINGLETON\
+4870__DOWN AMONG THE DEAD MEN\
+4871__DRACULA (BY BRAM STOKER)\
+4872__EDGARPOE-METZENGERSEIN\
+4873__20 WESTERN MOVIE TUNE SET\
+4881__22 BEACH BALL\

@@ -1,0 +1,473 @@
+0001__:\
+0007__ANNE AND TOM HIGGINS IRISH MUSIC\
+0031__CD CONTACTS WINDOWS 98\
+0032__MY MOBILE PHONE ROOT\
+0044__SMALLS FUN W-NOISE SOUNDS\
+0068__SMALLS MOBILE RINGS\
+0150__SMALLS MY AUDIO RECORDING SOUNDS\
+0152__Birds\
+0154__Fireworks\
+0155__Thunder\
+0159__04 SOUND CLIPS\
+0206__04 SOUND CLIPS TOTAL - ALL\
+0320__11 BEACH BALL\
+0323__SMALLS TV THEME'S MY FAV'S\
+0355__Benita (by H Rider Haggard)\
+0379__Black Bag Left On A Doorstep (by Catherine Louisa Pirkis)\
+0383__1 000 000 Pounds Bank-Note (by Mark Twain)\
+0387__10000 Years In A Block Of Ice (by Louis Boussenard)\
+0403__20000 Leagues Under The Sea\
+0448__Adventures Of Ben Gunn (by R F Delderfield)\
+0487__All Gold Canyon (by Jack London)\
+0492__Ankardyne Pew (by W F Harvey)\
+0495__Another Short In The Locker (by Michael Kent)\
+0497__Around The World In 80 Days (by Jules Verne)\
+0534__Bartleby (by Herman Melville)\
+0543__Big Bow Mystery (by Israel Zangwill)\
+0562__Black Bloodhound (by Farnham Bishop)\
+0590__Black Ferry (by John Galt)\
+0593__Blow Up With The Brig (by Wilkie Collins)\
+0595__Blue Room (by Prosper Merimee)\
+0598__Body Snatcher (by Robert Louise Stevenson)\
+0602__Bold Dragoon (by Washington Irving)\
+0604__Bonesoftheriver01- The Fearful Word (by Edgar Wallace)\
+0607__Bonesoftheriver02- The Medical Officer Of Health (by Edgar Wallace)\
+0610__Bonesoftheriver03- The Black Egg (by Edgar Wallace)\
+0613__Bonesoftheriver04- A Nice Gel (by Edgar Wallace)\
+0616__Bonesoftheriver05- The Brass Bedstead (by Edgar Wallace)\
+0619__Bonesoftheriver06- A Lover Of Dogs (by Edgar Wallace)\
+0622__Bonesoftheriver07- The Camera Man (by Edgar Wallace)\
+0627__Bonesoftheriver08- The Healer (by Edgar Wallace)\
+0630__Bonesoftheriver09- The Wazoos (by Edgar Wallace)\
+0634__Bonesoftheriver10- The All-Africans (by Edgar Wallace)\
+0637__Bonesoftheriver11- The Woman Who Spoke To Birds (by Edgar Wallace)\
+0641__Bonesoftheriver12- The Lake Of The Devil (by Edgar Wallace)\
+0644__Brazilian Cat (by Sir Arthur Conan Doyle)\
+0648__Brown Hand (by Arthur Conan Doyle)\
+0652__Buoy That Did Not Light\
+0655__Burglary (by Arnold Bennett)\
+0657__Byzantine Omelette (by Saki)\
+0658__Canterville Ghost (by Oscar Wilde)\
+0662__Captain David Grief 01 - The Proud Goat Of Aloysius Pankburn (by Jack London)\
+0667__Captain David Grief 02 - The Devils Of Fuatino (by Jack London)\
+0671__Captain David Grief 03 - The Jokers Of New Gibbon (by Jack London)\
+0674__Captain David Grief 04 - A Little Account With Swithin Hall (by Jack London)\
+0677__Captain David Grief 05 - A Goboto Night (by Jack London)\
+0680__Captain David Grief 06 - The Feathers Of The Sun (by Jack London)\
+0685__Captain David Grief 07 - The Pearls Of Parlay (by Jack London)\
+0689__Captain Sharkey 01 - Governor Of Saint Kitt'S Came Home (by Arthur Conan Doyle)\
+0691__Captain Sharkey 02 - Dealings With Stephen Craddock (by Arthur Conan Doyle)\
+0693__Captain Sharkey 03 - Blighting Of Sharkey (by Arthur Conan Doyle)\
+0695__Captain Sharkey 04 - Copley Banks Slew Sharkey (by Arthur Conan Doyle)\
+0697__Captain Singleton\
+0743__Carnacki 01 - Thing Invisible (by William Hope Hodgson)\
+0747__Carnacki 02 - Gateway Of The Monster (by William Hope Hodgson)\
+0751__Carnacki 03 - House Among The Laurels (by William Hope Hodgson)\
+0755__Carnacki 04 - Whistling Room (by William Hope Hodgson)\
+0758__Carnacki 05 - Searcher Of The End House (by William Hope Hodgson)\
+0763__Carnacki 06 - Horse Of The Invisible (by William Hope Hodgson)\
+0768__Carnacki 07 - Haunted Jarvee (by William Hope Hodgson)\
+0771__Carnacki 08 - The Find (by William Hope Hodgson)\
+0773__Carnacki 09 - The Hog (by William Hope Hodgson)\
+0781__Chaplet (by Saki)\
+0782__Christmas Eve (by Nikolai Gogol)\
+0792__Cost Of Kindness (by Jerome K Jerome)\
+0794__Cracksman-Amateur Cracksman\
+0811__Cracksman-Further Adventures\
+0832__Cracksman-Thief In The Night\
+0857__Cruise Of The Dazzler (by Jack London)\
+0878__Cupboard Of Yesterdays (by Saki)\
+0879__Damned Thing (by Ambrose Bierce)\
+0881__Dead Men Tell No Tales (by E W Hornung)\
+0913__Dead Smile (by F Marlon Crawford)\
+0917__Defensive Diamond (by Saki)\
+0918__Dirty Money\
+0965__Disintegration Machine (by Arthur Conan Doyle)\
+0967__Doctors Ghost (by Norman Macleod)\
+0968__Dog Or Demon (by Theo Gift)\
+0970__Down Among The Dead Men\
+1008__Dracula (by Bram Stoker)\
+1070__Draculas Guest (by Bram Stoker)\
+1073__Dreamland Bride (by Theophile Gautier)\
+1077__Drop Of Blood (by Mor Jokai)\
+1079__Easter Egg (by Saki)\
+1080__Edgarpoe-Assigantion\
+1083__Edgarpoe-Berenice\
+1085__Edgarpoe-Blackcat\
+1087__Edgarpoe-Caskofamontillado\
+1089__Edgarpoe-Descent Into Mealstrom\
+1093__Edgarpoe-Homocameleopard\
+1095__Edgarpoe-Hopfrog\
+1097__Edgarpoe-Houseofusher\
+1101__Edgarpoe-Imp Of Perverse\
+1103__Edgarpoe-Island Of Fay (by Edgar Alan Poe)\
+1104__Edgarpoe-Kingpest\
+1107__Edgarpoe-Ligeia\
+1111__Edgarpoe-Loss Of Breath\
+1114__Edgarpoe-Man That Was Used Up\
+1116__Edgarpoe-Marierogetmystery\
+1126__Edgarpoe-Metzengersein\
+1128__Edgarpoe-Monsieurvaldemar\
+1130__Edgarpoe-Morella\
+1132__Edgarpoe-Ms In The Bottle\
+1134__Edgarpoe-Never Bet The Devil Your Head\
+1136__Edgarpoe-Oblong Box\
+1139__Edgarpoe-Ovalportrait\
+1140__Edgarpoe-Pit And Pendulum\
+1143__Edgarpoe-Prematureburials\
+1146__Edgarpoe-Purloined Letter\
+1150__Edgarpoe-Reddeath\
+1152__Edgarpoe-Ruemorguemurders\
+1159__Edgarpoe-Shadow-Parable\
+1160__Edgarpoe-Silence-Fable\
+1161__Edgarpoe-Some Words With A Mummy\
+1165__Edgarpoe-Sphinx\
+1166__Edgarpoe-System Of Dr Tarr And Prof Fether\
+1170__Edgarpoe-Tell Tale Heart\
+1172__Edgarpoe-Unparalleled Adventure Of One Hans Pfaall\
+1182__Edgarpoe-Von Kempelen And His Discovery\
+1184__Edgarpoe-William Wilson\
+1189__Edgarpoe-The Narrative Of Arthur Gordan Pym Of Nantucket\
+1215__Edward Randolphs Portrait (by Nathaniel Hawthorne)\
+1218__Enchanted Typewriter (by John Kendrick Bangs)\
+1236__Episode Of Cathedral History (by M R James)\
+1239__Faerie Queene (by Edmund Spenser)\
+1281__Fantomas 1 - Fantomas (by Marcel Allain)\
+1336__Fantomas 2 - The Silent Executioner (by Marcel Allain)\
+1370__Fatal Cradle (by Wilkie Collins)\
+1374__Father Brown - Absence Of Mr Glass (by G K Chesterton)\
+1377__Father Brown - Arrow Of Heaven (by G K Chesterton)\
+1381__Father Brown - Doom Of The Darnaways (by G K Chesterton)\
+1386__Father Brown - Hammer Of God (by G K Chesterton)\
+1390__Father Brown - Invisible Man (by G K Chesterton)\
+1393__Father Brown - Man In The Passage (by G K Chesterton)\
+1396__Father Brown - Mirror Of The Magistrate (by G K Chesterton)\
+1400__Father Brown - Mistake Of A Machine (by G K Chesterton)\
+1403__Father Brown - Oracle Of The Dog (by G K Chesterton)\
+1407__Father Brown - Purple Wig (by G K Chesterton)\
+1410__Father Brown - Queer Feet (by G K Chesterton)\
+1415__Father Brown - Secret Garden (by G K Chesterton)\
+1419__Father Brown - Song Of The Flying Fish (by G K Chesterton)\
+1423__Father Brown - Wrong Shape (by G K Chesterton)\
+1427__Feet (by Mark Channing)\
+1429__Flying Dutchman (by Washington Irving)\
+1433__Food Of The Gods (by H G Wells)\
+1481__For The Blood Is The Life (by Francis Marion Crawford)\
+1485__Four Just Men (by Edgar Wallace)\
+1507__Frankenstein (by Mary Shelley)\
+1538__Furnished Room (by O Henry)\
+1540__Gabriel Ernest (by Saki)\
+1541__Gala Programme (by Saki)\
+1542__Ghost Of Dorothy Dingley (by Daniel Defoe)\
+1544__Ghost Pirates\
+1561__Ghost Ship (by Richard Middleton)\
+1564__Ghost Story (by Mark Twain)\
+1566__Ghosts Touch\
+1569__Gold Axe (by Gaston Leroux)\
+1572__Goldmans Anatomy\
+1584__Grave By The Handpost\
+1586__Gray Wolf (by George Macdonald)\
+1587__Green Tea (by J Sheridan Le Fanu)\
+1592__Growing Gold (by Bram Stoker)\
+1595__Gulivers Travels 1 - Voyage To Lilliput (by Jonathan Swift)\
+1608__Gulivers Travels 2 - Voyage To Brobdingnag (by Jonathan Swift)\
+1621__Gulivers Travels 3 - Voyage To Laputa (by Jonathan Swift)\
+1634__Gulivers Travels 4 - Voyage To The Houynhnms (by Jonathan Swift)\
+1646__Hand (by Guy De Maupassant)\
+1648__Haunted And Haunters (by Lord Lytton)\
+1654__Haunted Dolls House (by M R James)\
+1656__Haunted Station (by Hume Nisbet)\
+1660__Heart Of Darkness (by Joseph Conrad)\
+1681__Hearts Of Three (by Jack London)\
+1710__Hoare1-Portsmouth Atrocities (by Wilder Perkins)\
+1735__Hoare2-Headless Captains (by Wilder Perkins)\
+1767__Hoare3-Matter Of Treason (by Wilder Perkins)\
+1794__Holiday Task (by Saki)\
+1795__Horla (by Guy De Maupassant)\
+1799__Horror Of The Heights (by Arthur Conan Doyle)\
+1803__Hound (by H P Lovecraft)\
+1805__Hounds Of Fate (by Saki)\
+1806__How I Edited An Agricultural Paper (by Mark Twain)\
+1808__How I Killed A Bear (by Charles Dudley Warner)\
+1810__Huckleberry Finn (by Mark Twain)\
+1853__Hunted Down (by Charles Dickens)\
+1857__Interlopers (by Saki)\
+1858__Iron Collar (by Marcus Clarke)\
+1861__John Charingtons Wedding (by E Nesbit)\
+1863__John Dene Of Toronto (by Herbert Jenkins)\
+1902__Journey To The Center Of The Earth (by Jules Verne)\
+1945__Kai Lung Unrolls His Mat (by Ernest Bramah)\
+1979__King Solomons Mines (by Rider Haggard)\
+1999__Lady Molly 01 - The Ninescore Mystery (by Baroness Orczy)\
+2003__Lady Molly 02 - The Frewin Miniatures (by Baroness Orczy)\
+2007__Lady Molly 03 - The Irish-Tweed Coat (by Baroness Orczy)\
+2011__Lady Molly 04 - The Fordwych Castle Mystery (by Baroness Orczy)\
+2014__Lady Molly 05 - A Days Folly (by Baroness Orczy)\
+2018__Lady Molly 06 - A Castle In Brittany (by Baroness Orczy)\
+2022__Lady Molly 07 - A Christmas Tragedy (by Baroness Orczy)\
+2027__Lady Molly 08 - A Bag Of Sand (by Baroness Orczy)\
+2032__Lady Molly 09 - The Man In The Inverness Cape (by Baroness Orczy)\
+2035__Lady Molly 10 - The Woman In The Big Hat (by Baroness Orczy)\
+2039__Lady Molly 11 - Sir Jeremiahs Will (by Baroness Orczy)\
+2048__Lost Stradivarius (by J M Falkner)\
+2064__Princess'S Vengeance (by C L Pirkis)\
+2067__Kwaidan - Diplomacy (by Lafcadio Hearn)\
+2068__Kwaidan - Jikininki (by Lafcadio Hearn)\
+2069__Kwaidan - Jiu-Roku-Zakura (by Lafcadio Hearn)\
+2070__Kwaidan - Rokuro-Kubi (by Lafcadio Hearn)\
+2071__Kwaidan - The Dream Of Akinosuke (by Lafcadio Hearn)\
+2072__Kwaidan - The Story Of Mimi-Nashi-Hoichi (by Lafcadio Hearn)\
+2073__Kwaidan - Yuki-Onna (by Lafcadio Hearn)\
+2074__Lady Of Glenwith Grange (by Wilkie Collins)\
+2078__Land Of Mist (by Sir Arthur Conan Doyle)\
+2117__Leaden Ring (by S Baring-Gould)\
+2121__Liberation Of The First Three (by Price Warung)\
+2123__Loaded Dog (by Henrey Lawson)\
+2125__Lord Arthur Saviles Crime (by Oscar Wilde)\
+2130__Lord Jim (by Joseph Conrad)\
+2188__Lost Hearts (by M R James)\
+2190__Lost World (by Arthur Conan Doyle)\
+2226__Love-Philtre Of Ikey Schoenstein (by O Henry)\
+2227__Lucians Wonderland\
+2237__Lukundoo (by Edward Lucas White)\
+2239__Lull (by Saki)\
+2240__Malcome Sage Detective\
+2271__Man And Snake (by Ambrose Bierce)\
+2273__Man In The Bell (by W A Aytoun)\
+2275__Man Who Was Thursday (by G K Chesterton)\
+2308__Man Who Would Be King (by Rudyard Kipling)\
+2316__Man-Size In Marble (by E Nesbit)\
+2318__Mark Of The Beast (by Rudyard Kipling)\
+2321__Markheim (by Robert Louis Stevenson)\
+2325__Masada Never Again\
+2348__Mexican (by Jack London)\
+2352__Middle Toe (by Ambrose Bierce)\
+2354__Monk (by Matthew Lewis)\
+2357__Moon-Bog (by H P Lovecraft)\
+2359__Moonstone (by Wilkie Collins)\
+2438__Murder (by Arnold Bennett)\
+2441__Murder By Proxy (by M Mcd Bodkin Qc)\
+2445__Murder Of The Mandarin (by Arnold Bennett)\
+2447__Music On The Hill (by Saki)\
+2449__Musketeers 1 - The Three Musketeers (by Alexaandre Dumas)\
+2517__Mysterious Mansion (by Honore De Balzac)\
+2519__Mysterious Stranger (by Mark Twain)\
+2540__Mystery Of Room 666 (by Jacques Futrelle)\
+2543__Negotium Perambulans (by E F Benson)\
+2546__New Sun (by J S Fletcher)\
+2550__Nigger Of The Narcissus (by Joseph Conrad)\
+2576__Open Window (by Saki)\
+2577__Phantom Coach (by Amelia B Edwards)\
+2580__Poison Belt (by Arthur Conan Doyle)\
+2595__Pope'S Mule (by Alphonse Daudet)\
+2597__Portrait Of Dorian Gray\
+2628__Pot Of Caviare (by Arthur Conan Doyle)\
+2631__Prince Zaleski 1 - The Race Of Orven (by M P Shiel)\
+2638__Prince Zaleski 2 - The Stone Of The Edmundsbury Monks (by M P Shiel)\
+2643__Prince Zaleski 3 - The Ss (by M P Shiel)\
+2650__Prince Zaleski 4 - Return Of Prince Zaleski (by M P Shiel)\
+2652__Prisoner In The Caucasus (by Lev Tolstoy)\
+2657__Prisoner Of Zenda (by Anthony Hope)\
+2679__Proofs Of Holy Writ (by Rudyard Kipling)\
+2682__Public Relations\
+2704__Rats (by M R James)\
+2705__Red Cavalry - Afonka Beda (by Isaac Babel)\
+2707__Red Cavalry - My First Goose (by Isaac Babel)\
+2708__Red Cavalry - Preschepa'S Vengeance (by Isaac Babel)\
+2709__Red Cavalry - Salt (by Isaac Babel)\
+2710__Red Cavalry - Story Of Mathew Pavlichenko (by Isaac Babel)\
+2712__Remoulding Of Groby Lington (by Saki)\
+2714__Resurrectionist (by Samuel Warren)\
+2717__Reticence Of Lady Anne (by Saki)\
+2718__Riddle Of The Sands (by Erskine Childers)\
+2761__Moonraker (by F Tennyson Jesse)\
+2787__Right Ho Jeeves (by P G Wodehouse)\
+2816__Robinson Cruso (by Daniel Defoe)\
+2875__Romance Of Old Clothes (by Henry James)\
+2879__Romancers (by Saki)\
+2880__Rupert Of Hentzau (by Anthony Hope)\
+2901__Sacrifice\
+2925__Salvationists (by Villiers De Le Isle Adam)\
+2926__Sapient Monkey (by Headon Hill)\
+2928__Sea Wolf (by Jack London)\
+2994__Secret Agent (by Joseph Conrad)\
+3035__Seven Steps To Treason\
+3070__Sexton Blake And The Time-Killer (by Anonymous Author)\
+3083__Shadow Of A Shade (by Tom Hood)\
+3086__She (by H Rider Haggard)\
+3146__Sherlockholmes-Adventures\
+3171__Sherlockholmes-Baskervilles\
+3186__Sherlockholmes-Casebook\
+3214__Sherlockholmes-Lastbow\
+3231__Sherlockholmes-Memoirs\
+3254__Sherlockholmes-Return\
+3281__Sherlockholmes-Signoffour\
+3294__Sherlockholmes-Studyinscarlet\
+3308__Sherlockholmes-Valleyoffear\
+3322__Signalman (by Charles Dickens)\
+3325__Sir Nigel (by Sir Arthur Conan Doyle)\
+3352__Smoke Bellew 01 - The Taste Of The Meat (by Jack London)\
+3360__Smoke Bellew 02 - The Meat (by Jack London)\
+3367__Smoke Bellew 03 - The Stampede To Squaw Creek (by Jack London)\
+3371__Smoke Bellew 04 - Shorty Dreams (by Jack London)\
+3379__Smoke Bellew 05 - The Man On The Other Bank (by Jack London)\
+3384__Smoke Bellew 06 - The Race For Number One (by Jack London)\
+3390__Smoke Bellew 07 - The Little Man (by Jack London)\
+3393__Smoke Bellew 08 - The Hanging Of Cultus George (by Jack London)\
+3397__Smoke Bellew 09 - The Mistake Of Creation (by Jack London)\
+3401__Smoke Bellew 10 - A Flutter In Eggs (by Jack London)\
+3406__Smoke Bellew 11 - The Town-Site Of Tra-Lee (by Jack London)\
+3411__Smoke Bellew 12 - Wonder Of Woman (by Jack London)\
+3419__Son Of The Wolf (by Jack London)\
+3423__Spectre Bridegroom (by Washington Irving)\
+3426__Squaw (by Bram Stoker)\
+3428__Squires Story (by Mrs Gaskell)\
+3431__Sredni Vashtar (by Saki)\
+3432__St Vespaluus (by Saki)\
+3434__Staley Flemings Hallucination (by Ambrose Bierce)\
+3435__Stolen Cigar Case (by Brett Harte)\
+3438__Story-Teller (by Saki)\
+3439__Tale (by  Joseph Conrad)\
+3443__Talisman Of Ictis\
+3464__Taming The Bicycle (by Mark Twain)\
+3466__Tapestried Chamber (by Sir Walter Scott)\
+3469__Terrible Solomons (by Jack London)\
+3472__Terrible Tale (by Gaston Leroux)\
+3475__Terribly Strange Bed (by Wilkie Collins)\
+3479__Terror Of Blue John Gap (by Arthur Conan Doyle)\
+3483__Thousand Deaths (by Jack London)\
+3485__Three Men In A Boat\
+3504__Three Men On The Bummel\
+3517__Unknown Weapon (by Andrew Forrester)\
+3529__Yellow Wallpaper (by Charlotte Perkins Gilman)\
+3533__Three Versions Of Judas (by Jorge Luis Borges)\
+3536__Thurnley Abbey (by Perceval Landon)\
+3539__Ticket Please (by D H Lawrence)\
+3541__Tobermory (by Saki)\
+3543__Tom Sawyer (by Mark Twain)\
+3580__Tom Sawyer Abroad (by Mark Twain)\
+3593__Tom Sawyer Detective (by Mark Twain)\
+3604__Treasure Hunt (by Edgar Wallace)\
+3607__Treasure Island (by Robert Louis Stevenson)\
+3641__Trial For Murder (by Charles Dickens)\
+3643__Turn Of The Screw (by Henry James)\
+3672__Typhoon (by Joseph Conrad)\
+3685__Umbrella (by Arnold Bennett)\
+3688__Unkindest Blow (by Saki)\
+3689__Unrest Cure (by Saki)\
+3690__Upper Berth (by F Marion Crawford)\
+3694__Vanished Yacht (by E Harcourt Burrage)\
+3744__Vendetta (by Guy De Maupassant)\
+3745__Vengeance For Ippitha (by William Henry Suttor)\
+3747__Viy (by Nikolai Gogol)\
+3756__Voice In The Night (by William Hope Hodgson)\
+3759__Water Ghost Of Harrowby Hall (by John Kendall Bangs)\
+3761__We (by Yevgeny Zamyatin)\
+3801__Werewolf (by Frederick Marryat)\
+3805__Western Rebellions (by William Henry Suttor)\
+3807__When The World Screamed (by Sir Arthur Conan Doyle)\
+3813__Whistling Room (by William Hope Hodgson)\
+3817__White Company (conan Doyle)\
+3891__Who Killed Zebedee (by Wilkie Collins)\
+3895__Who Knows (by Guy De Maupassant)\
+3898__Why Herbert Killed His Mother (by Winifred Holtby)\
+3900__Will Of Luke Carlowe (by Clive Pemberton)\
+3902__Yankee In King Arthurs Court\
+3962__Yellow God (by H Rider Haggard)\
+4011__Youth (by Joseph Conrad)\
+4019__Five Children And It (by E Nesbit)\
+4046__Nutcracker (by Alexandre Dumas)\
+4063__Oz 01 - Wizard Of Oz (by Frank Baum)\
+4087__Oz 02 - The Land Of Oz (by Frank Baum)\
+4113__Oz 03 - Ozma Of Oz (by Frank Baum)\
+4136__Oz 04 - Dorothy And The Wizard In Oz (by Frank Baum)\
+4160__Oz 05 - Road To Oz (by Frank Baum)\
+4184__Oz 06 - Emerald City Of Oz (by Frank Baum)\
+4214__Oz 07 - Patchwork Girl Of Oz (by Frank Baum)\
+4242__Oz 08 - The Cowardly Lion And The Hungry Tiger (by Frank Baum)\
+4244__Oz 09 - Little Dorothy And Toto (by Frank Baum)\
+4246__Oz 10 - Tiktok And The Nome King (by Frank Baum)\
+4248__Oz 11 - Ozma And The Little Wizard (by Frank Baum)\
+4250__Oz 12 - Jack Pumpkinhead And The Sawhorse (by Frank Baum)\
+4252__Oz 13 - The Scarecrow And The Tin Woodman (by Frank Baum)\
+4254__Oz 14 - Tik-Tok Of Oz (by Frank Baum)\
+4279__Oz 15 - Scarecrow Of Oz (by Frank Baum)\
+4303__Oz 16 - Rinkitink In Oz (by Frank Baum)\
+4327__Oz 17 - The Lost Princess Of Oz (by Frank Baum)\
+4353__Oz 18 - The Tin Woodman Of Oz (by Frank Baum)\
+4377__Oz 19 - The Magic Of Oz (by Frank Baum)\
+4400__Oz 20 - Glinda Of Oz (by Frank Baum)\
+4424__Phoenix And The Carpet (by E Nesbit)\
+4457__Scarlet Sails (by Alexander Green)\
+4473__Starynights-Absentmindedghost\
+4474__Starynights-Gumball\
+4475__Starynights-Smiffy\
+4476__Story Of The Amulet (by E Nesbit)\
+4490__Water Babies (by Charles Kingsley)\
+4511__Life Of Buddha (by L Adams Beck)\
+4533__Manners For Men (by Mrs Humphry)\
+4563__Onwar Book1 (by Carl Von Clausewitz)\
+4572__Onwar Book2 (by Carl Von Clausewitz)\
+4581__Onwar Book3 (by Carl Von Clausewitz)\
+4590__Onwar Book4 (by Carl Von Clausewitz)\
+4603__Tao Te Ching (by Lao Tzu)\
+4611__Art Of War\
+4619__Book Of Lord Shang\
+4639__Communist Manifesto (by Karl Marx And Fredrick Engels)\
+4648__Domestic Blunders Of Women (by A Mere Man)\
+4661__Mein Kampf Book1 (by Adolf Hitler)\
+4740__Wandering Jew (by S Baring-Gould)\
+4745__Zaratustra (by F. Nietzsche)\
+4793__Edgarpoe-Raven\
+4794__Elegy On The Death Of A Mad Dog (by Oliver Goldsmith)\
+4795__Etiquette (by Sir W S Gilbert)\
+4796__Gentle Alice Brown (by Sir W S Gilbert)\
+4797__Heather Ale (by Robert Louis Stevenson)\
+4798__Kiplings Poems - If\
+4799__Kiplings Poems - Mandallay\
+4800__Kiplings Poems - Norman And Saxon\
+4801__Kiplings Poems - The Ballad Of East And West\
+4802__Kiplings Poems - The Gipsy Trail\
+4803__Kiplings Poems - The Mary Gloster\
+4804__Kiplings Poems - The White Man'S Burden\
+4805__Rime Of The Ancient Mariner  Parody (by Anonymous Author)\
+4806__Rime Of The Ancient Mariner (by Samuel Taylor Coleridge)\
+4813__Wreck Of The Hesperus (by Henry Wadsworth Longfellow)\
+4814__Yarn Of The Nancy Bell (by Sir W S Gilbert)\
+4815__Frankenstein\
+4823__Great Expectations\
+4831__Jane Eyre\
+4840__LAST BOW\
+4871__Les Miserables\
+4879__Little Women\
+4887__Lorna Doone\
+4896__Madame Bovary\
+4904__Middle March\
+4913__Mill On The Floss\
+4921__Moby Dick\
+4929__The Old Wive's Tale\
+4937__The Picture Of Dorian Gray\
+4945__The Portrait of a Lady\
+4953__The Scarlet Letter\
+4961__The Scarlet Pimpernel\
+4969__The Strange Case Of Dr. Jekyll & Mr. Hyde\
+4977__The Thirty-Nine Steps\
+4985__The Three Musketeers\
+4993__The Turn Of The Screw\
+5001__THE VICAR OF WAKEFIELD\
+5025__Three Men In A Boat\
+5033__Tom Jones\
+5041__Tom Sawyer (by Mark Twain)\
+5078__Treasure Island\
+5086__Vanity Fair\
+5094__Villette\
+5102__War And Peace\
+5118__William S Burroughs - Naked Lunch\
+5142__Women In Love\
+5150__Wuthering Heights\
+5159__TBOOK 20 BILL BRYSON - A SHORT HISTORY OF NEARLY EVERYTHING\
+5225__12 YOUTUBE\
+5321__14 YOUTUBE -- WINDOWS 95 SUCK\
+5323__15 YOUTUBE -- SP 10 WINDOWS 98 SE\
+5325__20 WESTERN MOVIE TUNE SET\
+5333__22 BEACH BALL\
