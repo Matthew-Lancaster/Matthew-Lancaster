@@ -522,16 +522,23 @@ FOR R=1 TO 40
 NEXT 
 FOLDER_PATH_VAR(8)="\Android\SDCard2_Sync\DCIM\"
 
+
+
+
 ' ------------------------
 FOLDER_PATH_DEST(1)="D:\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
 ' ------------------------
-	FOLDER_PATH__MP4(1)="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V"
 
-	' \\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\2020 CyberShot HX60V
+	
+
+IF ComputerName="7-ASUS-GL522VW" THEN 
+FOLDER_PATH__MP4(1)="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC_4G_1TB\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V __ MP4"
+END IF
+	
 	
 IF ComputerName="4-ASUS-GL522VW" THEN 
 
-	FOLDER_PATH__MP4(1)="F:\DSC\2015+SONY_MP4\2020 CyberShot HX60V __ MP4"
+	FOLDER_PATH__MP4(1)="F:\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " 2020 CyberShot HX60V __ MP4"
 	' ---------------------------------------------------------------
 	' USER NETWORK PATH IF HASSLE DRIVE LETTER CHANGER
 	' ---------------------------------------------------------------
