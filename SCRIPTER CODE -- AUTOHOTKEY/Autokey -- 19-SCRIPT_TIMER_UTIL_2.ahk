@@ -467,6 +467,12 @@ OLD_VAR_GET_A=
 SETTIMER TIMER_FILE_LOCATOR_GET_CONTROL__SET_FOCUS_ACTIVATE,100
 
 
+SETTIMER TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT,1000
+
+
+
+
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -474,6 +480,36 @@ SETTIMER TIMER_FILE_LOCATOR_GET_CONTROL__SET_FOCUS_ACTIVATE,100
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 RETURN
+
+
+
+TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT:
+
+; ClassNN:	Button1
+; Text:	Quit
+; Backup and sync from Google ahk_class #32770
+; ahk_exe googledrivesync.exe
+; ahk_pid 153376
+; ClassNN:	Static2
+; Text:	Sorry, Backup and Sync needs to quit.
+
+	LINE_CHECKER_1=Backup and sync from Google ahk_class #32770
+	LINE_CHECKER_2=Sorry, Backup and Sync needs to quit.
+
+	IfWinExist %LINE_CHECKER_1%
+		WinActivate, %LINE_CHECKER_1%
+
+	ControlGettext, OUTVAR_3, Static2, %LINE_CHECKER_1%
+	IF INSTR(OUTVAR_3,LINE_CHECKER_2)>0
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		
+	ControlGettext, OUTVAR_3, Static2, %LINE_CHECKER_1%
+	IF INSTR(OUTVAR_3,LINE_CHECKER_2)>0
+		ControlClick, Button1, %LINE_CHECKER_1%,,,, NA x10 y10
+
+
+RETURN
+
 
 
 ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET:
