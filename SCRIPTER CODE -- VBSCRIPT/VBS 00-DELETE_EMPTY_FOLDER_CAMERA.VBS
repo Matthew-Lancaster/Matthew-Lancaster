@@ -50,7 +50,8 @@ IF FSO.FOLDEREXISTS(STRPATH) = TRUE THEN
 END IF
 
 Sub DeleteEmptyFolders(folder)
-    Dim subfolder
+    DIM subfolder
+	DIM READY_ERROR
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
     For Each subfolder in folder.SubFolders
@@ -71,15 +72,12 @@ Sub DeleteEmptyFolders(folder)
 	IF INSTR(folder.Path,":\System Volume Information")>0 THEN    READY_01 = 10000
 	IF INSTR(folder.Path,":\_gsdata_")>0 THEN                     READY_01 = 10000
 	
-	
-	' ---------------------------------------------------------------
-	' ---------------------------------------------------------------
-    If READY_01 = 0 And READY_02 = 0 AND ERR.NUMBER=0 Then
+	READY_ERROR=ERR.NUMBER
+		
+	If READY_01 = 0 And READY_02 = 0 AND READY_ERROR=0 Then
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		MSGBOX folder.Path
-		WScript.Quit(1)
 
 		FSO.DeleteFolder folder.Path, TRUE
 	End If
