@@ -29,6 +29,7 @@ STRPATH="T:\VI_ DSC 01 V0 01 MM22"
 'STRPATH=""
 'STRPATH=""
 STRPATH="X:\"
+STRPATH="V:\"
 
 Dim objFolder
 DIM objFolderERR
@@ -74,10 +75,12 @@ Sub DeleteEmptyFolders(folder)
 	' ---------------------------------------------------------------
 	' ---------------------------------------------------------------
     If READY_01 = 0 And READY_02 = 0 AND ERR.NUMBER=0 Then
-		ON ERROR GOTO 0
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
+		MSGBOX folder.Path
+		WScript.Quit(1)
+
 		FSO.DeleteFolder folder.Path, TRUE
 	End If
 End Sub
