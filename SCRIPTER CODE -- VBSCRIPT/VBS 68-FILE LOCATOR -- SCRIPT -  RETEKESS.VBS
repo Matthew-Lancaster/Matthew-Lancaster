@@ -254,6 +254,14 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName)
 			Set objFile = FSO.CreateTextFile(FILE_TEST_02,True)
 			objFile.Close
 		END IF
+		' -------------------------------------------------------------------
+		' NOTEPAD++ HERE SCRIPT HAVE TO RUN AGAIN FROM NOTEPAD++ F5 KEY EXECUTE AFTER SCRIPT RUN FILELOCATOR
+		' -----------------------------------------------------------
+		Set WSHShell = CreateObject("WScript.Shell")
+		SCRIPT_HERE="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 68-FILE LOCATOR -- SCRIPT -  RETEKESS.VBS"
+		' FIND CODE TO GET SCRIPT NAME
+		WSHShell.Run """C:\Program Files (x86)\Notepad++\notepad++.exe""" + " " + """"+SCRIPT_HERE+""""
+		Set WSHShell = Nothing
 		
 		' Set FILE_1 = FSO.OpenTextFile(FILE_TEST_01, ForAppending)
 		' Set FILE_2 = FSO.OpenTextFile(FILE_TEST_02, ForAppending)
