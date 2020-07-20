@@ -1519,14 +1519,18 @@ smb://matt-lan-btinternet-com
 0507--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01
 file://@
 /D:/DSC
+file:///%GSDISK%/DSC
+
 smb://matt-lan-btinternet-com
 7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+
 ----------------------------------------
 0509--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01 2020
 file://@
 /=3_SAMSUNG_4TB_D:/DSC_4G_1TB/DSC
 smb://matt-lan-btinternet-com
 7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
+smb://matt-lan-btinternet-com\7-ASUS-GL522VW/7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D/DSC ARC 04 V0
 ----------------------------------------
 0511--0  D DSC VI_3 __  G P DSC SYNC DSC ARC 07 - VIDEO MINE 01 4G
 smb://matt-lan-btinternet-com
