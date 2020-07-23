@@ -471,6 +471,8 @@ SETTIMER TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT,1000
 
 
 
+SETTIMER TIMER_1_SECOND_BLAST_ERROR_NAGGER,1000
+
 
 
 
@@ -481,6 +483,48 @@ SETTIMER TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT,1000
 ; -------------------------------------------------------------------
 RETURN
 
+
+TIMER_1_SECOND_BLAST_ERROR_NAGGER:
+
+	; -------------------------------------------------------------------
+	; WINDOWS XP GOODSYNC NOT UPDATE -- BUGGER INSTALLER
+	; -------------------------------------------------------------------
+	; VERSION   ---- TO ----
+	; VERSION 
+	; GoodSync-v10-Setup.exe - Entry Point Not Found
+	; ---------------------------
+	; The procedure entry point WSAPoll could not be located in the dynamic link library WS2_32.dll. 
+	; ---------------------------
+	; OK   
+	; -------------------------------------------------------------------
+
+	DetectHiddenWindows, OFF
+	SetTitleMatchMode 3  ; Specify EXACT path
+
+	LINE_CHECKER_1=GoodSync-v10-Setup.exe - Entry Point Not Found ahk_class #32770
+	LINE_CHECKER_2=
+
+	IfWinExist %LINE_CHECKER_1%
+		WinActivate, %LINE_CHECKER_1%
+
+	ControlGettext, OUTVAR_3, Static2, %LINE_CHECKER_1%
+	IF LINE_CHECKER_2
+	IF INSTR(OUTVAR_3,LINE_CHECKER_2)>0
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
+	IfWinExist %LINE_CHECKER_1%
+	IF !LINE_CHECKER_2
+		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		
+	ControlGettext, OUTVAR_3, Static2, %LINE_CHECKER_1%
+	IF LINE_CHECKER_2
+	IF INSTR(OUTVAR_3,LINE_CHECKER_2)>0
+		ControlClick, Button1, %LINE_CHECKER_1%,,,, NA x10 y10
+	
+	IF !LINE_CHECKER_2
+		ControlClick, Button1, %LINE_CHECKER_1%,,,, NA x10 y10
+
+RETURN
 
 
 TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT:
