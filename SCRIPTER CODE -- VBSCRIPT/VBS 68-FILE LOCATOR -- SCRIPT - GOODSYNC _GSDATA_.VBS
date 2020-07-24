@@ -7,9 +7,11 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 
 ' $(AllLocalDrives)\;C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\PS 04 - GET_ALL_SYSTEM_NETWORK DRIVE.PS1__#NFS_EX__.TXT
 
+DIM VAR_ONCE
+
 Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 
-	On Error Resume Next
+	' On Error Resume Next
 	
 	' bIsValid = False
 	' IF EXTNAME=".LOG" AND ISNUMERIC(F4) THEN bIsValid = TRUE
@@ -18,6 +20,8 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 
 	bIsValid = FALSE
 	
+	
+	IF VAR_ONCE=1000 THEN 
 	IF strFileName="FILE_LOCATOR_DUMMY_FILE_TO_RUN_SCRIPT_DO_OTHER.txt" THEN
 		bIsValid = FALSE
 
@@ -38,6 +42,7 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 		Set WSHShell = CreateObject("WScript.Shell")
 		WSHShell.run("powershell -file "+FILE_NAME), 0, TRUE
 		EXIT FUNCTION
+	END IF
 	END IF
 	
 	
@@ -77,6 +82,13 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 		IF EXTNAME=".GSL" THEN                     bIsValid = False
 		IF EXTNAME=".LOG" THEN                     bIsValid = False
 		IF EXTNAME=".EXE" THEN                     bIsValid = False
+	END IF
+	
+	' D:\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0627-022318_2020-0627-194941.tic
+	IF INSTR(strFileName,"jobs-groups-options-")>0    THEN
+	' IF INSTR(strFileName,".tic")>0  THEN 
+	bIsValid = False
+	' END IF
 	END IF
 	
 	isValidFileName = bIsValid
