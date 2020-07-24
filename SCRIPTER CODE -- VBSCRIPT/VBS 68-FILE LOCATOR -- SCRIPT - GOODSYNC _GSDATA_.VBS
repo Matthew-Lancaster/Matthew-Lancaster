@@ -85,10 +85,15 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 	END IF
 	
 	' D:\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0627-022318_2020-0627-194941.tic
-	IF INSTR(strFileName,"jobs-groups-options-")>0    THEN
-	' IF INSTR(strFileName,".tic")>0  THEN 
+	IF INSTR(strFileName,"jobs-groups-options")>0    THEN
+	IF INSTR(strFileName,".tic")>0  THEN 
 	bIsValid = False
-	' END IF
+	END IF
+	END IF
+	
+	' D:\GOODSYNC__BACK\_gsdata_\_history_\Profile\accounts-bookmarks_2020-0711-120833.tic
+	IF INSTR(strPath,"\GOODSYNC__BACK\")>0    THEN
+	bIsValid = False
 	END IF
 	
 	isValidFileName = bIsValid
