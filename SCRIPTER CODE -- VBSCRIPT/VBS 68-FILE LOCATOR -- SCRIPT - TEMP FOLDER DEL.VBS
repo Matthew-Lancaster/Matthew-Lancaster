@@ -9,8 +9,19 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 
 DIM VAR_ONCE
 
-Dim FSO
-Set FSO = CreateObject("Scripting.FileSystemObject")
+DIM FSO
+SET FSO = CreateObject("Scripting.FileSystemObject")
+
+DIM CUR_USER
+DIM COMPUTER_NAME_VAR
+DIM wshShell
+
+SET wshShell = CreateObject( "WScript.Shell" )
+strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
+
+CUR_USER = CreateObject("WScript.Network").UserName
+COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
+
 
 
 Public Function isValidFileName( ByVal strPath, ByVal strFileName )
@@ -51,7 +62,7 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 	
 	
 	
-	IF INSTR(UCASE(strPath),"C:\TEMP\")>0 THEN 
+	IF INSTR(UCASE(strPath),UCASE("C:\TEMP\-"+COMPUTER_NAME_VAR))>0 THEN 
 		bIsValid = True
 		FSO.DeleteFILE strPath+strFileName
 	END IF
@@ -114,3 +125,6 @@ PUBLIC FUNCTION TEST_ROUTINE_NOT_RUN_TWO_OF_SOMETHING_IS_COUNTER_HERE_MIGHT_WORK
 	' strCustom = 
 	
 END FUNCTION
+
+
+
