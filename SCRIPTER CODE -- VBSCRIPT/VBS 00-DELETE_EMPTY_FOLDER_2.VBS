@@ -22,6 +22,19 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 ' STRPATH = WScript.Arguments(0)
 
 
+DIM wshShell
+DIM strComputerName
+DIM CUR_USER
+DIM COMPUTER_NAME_VAR
+
+Set wshShell = CreateObject( "WScript.Shell" )
+strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
+
+CUR_USER = CreateObject("WScript.Network").UserName
+COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
+
+
+
 STRPATH="G:\"
 STRPATH="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 STRPATH="T:\VI_ DSC 01 V0 01 MM"
@@ -40,6 +53,7 @@ STRPATH="D:\My Webs2"
 STRPATH="D:\My Webs"
 STRPATH="K:\M\07 MIDI MOD\MIDI"
 STRPATH="K:\M"
+STRPATH="C:\TEMP\-"+COMPUTER_NAME_VAR
 ' STRPATH="J:\M"
 
 Dim objFolder
