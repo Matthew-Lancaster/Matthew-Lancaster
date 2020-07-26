@@ -1,5 +1,3 @@
-
-
 ' ---------------------------------------------------------------
 ' NEW FABBY CODE TO ASSIST GOODSYNC 
 ' WHERE MY VISUAL BASIC CODE VB6 __ THE APP ARE KILL TO ALLOW GOODSYNC COPY OVER
@@ -72,7 +70,14 @@ FOR EACH objProcess IN colProcesses
 		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
 			' Wscript.Quit
 		END IF
-		IF i2 > 0 THEN ' MY PROGRAM WSCRIPT 
+		
+		IF iMyPID<>PID_Script THEN 
+			' MSGBOX iMyPID & VBCR & PID_Script
+			objProcess.Terminate() 
+			objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+		END IF
+		
+		'IF i2 > 0 THEN ' MY PROGRAM WSCRIPT 
 			' -------------------------------------------------------
 			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
 			' HERE SCRIPT WHEN START
@@ -81,14 +86,14 @@ FOR EACH objProcess IN colProcesses
 				' I= "ERROR MISMATCH TRUE MYPID RESULT "
 				' MSGBOX I +VBV+ CSTR(iMyPID) +VBV+ CSTR(lngMyProcessId)
 			' -------------------------------------------------------
-			IF iMyPID<>PID_Script THEN 
+			' IF iMyPID<>PID_Script THEN 
 				' MSGBOX iMyPID & VBCR & PID_Script
-				' MSGBOX PID_Script
-				objProcess.Terminate() 
-				objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
-				' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
-			END IF
-		END IF
+				' ' MSGBOX PID_Script
+				' objProcess.Terminate() 
+				' objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+				' ' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
+			' END IF
+		' END IF
     END IF
 NEXT
 ' -------------------------------------------------------------------
@@ -126,18 +131,22 @@ IF XX>0 THEN
 	LOGPATH=REPLACE(LOGPATH,"""","")
 END IF
 
+' THE SCRIPT LOG NOT WRITE FROM GOODSYNC AND USER 
+' THE NOWAIT FOR LOAD SCRIPT OPTION
+' -------------------------------------------------------------------
 IF FSO.FILEEXISTS(LOGPATH) = TRUE THEN 
 	Set FILE_1 = FSO.OpenTextFile(LOGPATH, ForReading)
 	TT_EDITOR = FILE_1.ReadAll
-	' MSGBOX TT_EDITOR
 	FILE_1.CLOSE
+	' MSGBOX TT_EDITOR
 END IF
 
 IF FSO.FILEEXISTS(LOGPATH) = TRUE THEN 
 	' ---------------------------------------------
-	Set WSHShell = CreateObject("WScript.Shell")
+	'Set WSHShell = CreateObject("WScript.Shell")
 	' WSHShell.Run """C:\Program Files (x86)\Notepad++\notepad++.exe""" + " " + """"+LOGPATH+""""
-	Set WSHShell = Nothing
+	'Set WSHShell = Nothing
+	' ---------------------------------------------
 	' LOSE ACCESS TO DISPLAY NOTEPAD++ AND EXPLORER
 	' NETWORK -------------------------------------
 	' AND SUDDEN COME BACK
@@ -151,8 +160,6 @@ IF FSO.FILEEXISTS(LOGPATH) = TRUE THEN
 	' REM OUT NOTEPAD -- ALL DO
 	' ---------------------------------------------
 END IF
-
-
 
 XX=INSTR(PARAM,"--JOBNAME--")
 IF XX>0 THEN
@@ -170,6 +177,22 @@ i = i + 1: NETNAME(i) = "4-ASUS-GL522VW"
 i = i + 1: NETNAME(i) = "5-ASUS-P2520LA"
 i = i + 1: NETNAME(i) = "7-ASUS-GL522VW"
 i = i + 1: NETNAME(i) = "8-MSI-GP62M-7RD"
+
+' WAIT FOR LOG FILE ARRIVE SEEM DELAY CREATE FROM REQUEST SCRIPT FILE RUN
+
+' DEBUGGER KITT USER WHEN FIND NOWAIT OPTION
+COUNTER_LOOP=0
+DO 
+	IF FSO.FILEEXISTS(LOGPATH) = TRUE THEN   EXIT DO
+	WScript.Sleep 100
+	COUNTER_LOOP=COUNTER_LOOP+1
+	IF COUNTER_LOOP>100 THEN                 EXIT DO
+LOOP
+
+IF FSO.FILEEXISTS(LOGPATH) = FALSE THEN 
+	MSGBOX "TT FSO.FILEEXISTS(LOGPATH) = FALSE"+VBCR+VBCR+LOGPATH
+	WSCRIPT.QUIT
+END IF
 
 SET FILE_1 = FSO.OpenTextFile(LOGPATH)
 Do Until FILE_1.AtEndOfStream
@@ -246,13 +269,21 @@ END IF
 BuildFullPath PATH_1
 
 ON ERROR RESUME NEXT
+ERR.CLEAR 
 IF FSO.FILEEXISTS(PATH_1) = FALSE THEN 
+	ERR.CLEAR 
 	SET OBJFILE = FSO.CreateTextFile(PATH_1)
-	SET OBJFILE = NOTHING 
-	' OBJFILE.Close
+	IF ERR.NUMBER >0 THEN MSGBOX "LINE 276" & VBCR & "ERROR -- SET OBJFILE = FSO.CreateTextFile(PATH_1)" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & PATH_1
+	ERR.CLEAR 
+	SET OBJFILE = FSO.CreateTextFile(LCASE(PATH_1))
+	IF ERR.NUMBER >0 THEN MSGBOX "LINE 279" & VBCR & "ERROR -- SET OBJFILE = FSO.CreateTextFile(PATH_1)" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & LCASE(PATH_1)
+	ERR.CLEAR
+	OBJFILE.Close
+	IF ERR.NUMBER >0 THEN MSGBOX "LINE 273" & VBCR & "ERROR -- OBJFILE.Close"
+	' SET OBJFILE = NOTHING 
 END IF
 IF ERR.NUMBER>0 THEN 
-	MSGBOX ERR.DESCRIPTION & VBCR & VBCR & PATH_1
+	MSGBOX "LINE 276" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & PATH_1
 END IF
 ON ERROR GOTO 0
 
@@ -268,12 +299,12 @@ ON ERROR RESUME NEXT
 SET FILE_2 = FSO.OpenTextFile(PATH_1, ForWriting)
 FILE_2.Write WRITE_FILE_INFO
 SET FILE_2 = NOTHING 
-IF ERR.NUMBER >0 THEN MSGBOX "ERROR -- SET FILE_2 = NOTHING"
+IF ERR.NUMBER >0 THEN MSGBOX "LINE 289" & VBCR & "ERROR -- SET FILE_2 = NOTHING"
 ERR.CLEAR
 FILE_2.Close
-IF ERR.NUMBER >0 THEN MSGBOX "FILE_2.Close"
+IF ERR.NUMBER >0 THEN MSGBOX "LINE 292" & VBCR & "ERROR -- FILE_2.Close"
 IF ERR.NUMBER>0 THEN 
-	MSGBOX ERR.DESCRIPTION & VBCR & VBCR & PATH_1
+	MSGBOX "LINE 294" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & PATH_1
 END IF
 ON ERROR GOTO 0
 ' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
@@ -290,7 +321,6 @@ END IF
 ' @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 ' SET Sources[!LDA!]="0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G _ JOB SET"
 ' %GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
-
 
 
 COUNTER_LOOP=0
@@ -337,8 +367,10 @@ Sub BuildFullPath(ByVal FullPath)
 	
 	If Not FSO.FolderExists(FullPath) Then
 		ON ERROR RESUME NEXT
+		ERR.CLEAR
 		BuildFullPath FSO.GetParentFolderName(FullPath)
 		FSO.CreateFolder FullPath
+		IF ERR.NUMBER>0 THEN MSGBOX "LINE 373" & VBCR & "ERROR -- FSO.CreateFolder FullPath" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & FullPath
 		ON ERROR GOTO 0
 	End If
 End Sub
