@@ -474,6 +474,11 @@ SETTIMER TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT,1000
 SETTIMER TIMER_1_SECOND_BLAST_ERROR_NAGGER,1000
 
 
+SETTIMER TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS,1000
+
+
+
+
 
 
 ; -------------------------------------------------------------------
@@ -481,6 +486,50 @@ SETTIMER TIMER_1_SECOND_BLAST_ERROR_NAGGER,1000
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+RETURN
+
+TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS:
+
+	; ---------------------------------------------------------------
+	; NEW FABBY CODE TO ASSIST GOODSYNC 
+	; WHERE MY VISUAL BASIC CODE VB6 __ THE APP ARE KILL TO ALLOW GOODSYNC COPY OVER
+	; AT REMOTE LOCATION
+	; THE SCRIPT RERUN AGAIN AFTER TOO
+	; A BIT LATER THAT LAST BIT
+	; DELAY REMOTE SENSOR REQUIRE
+	; WRITE TIME
+	; Sun 26-Jul-2020 08:06:11
+	; Sun 26-Jul-2020 10:48:00 -- 2 HOUR 41 MINUTE
+	; ---------------------------------------------------------------
+	; HERE WORK WITH HER
+	; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
+	; ---------------------------------------------------------------
+	; AND HERE
+	; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+	; ROUTINE ---- TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS:
+	; ---------------------------------------------------------------
+	
+	SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+	
+	; %A_ScriptDir%
+	LINE_VAR=
+	U2=C:\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT
+	IF FILEEXIST(U2)
+		; LAST LINE WANT OF 2
+		LOOP, read, %U2%
+			LINE_VAR=%a_loopreadline%
+	
+	IF !LINE_VAR
+	RETURN
+	
+	PROCESS, Exist, %LINE_VAR%
+	NewPID = %ERRORLEVEL%
+	If NewPID > 0
+	{
+		PROCESS, CLOSE, %LINE_VAR%
+		FileDelete, %U2%
+	}
+
 RETURN
 
 
@@ -525,6 +574,8 @@ TIMER_1_SECOND_BLAST_ERROR_NAGGER:
 		ControlClick, Button1, %LINE_CHECKER_1%,,,, NA x10 y10
 
 RETURN
+
+
 
 
 TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT:
