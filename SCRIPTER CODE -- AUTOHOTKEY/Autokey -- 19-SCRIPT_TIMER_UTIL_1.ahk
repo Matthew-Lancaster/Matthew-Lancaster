@@ -226,6 +226,8 @@ SetStoreCapslockMode, off
 SoundBeep , 2000 , 100
 SoundBeep , 2500 , 100
 
+TIMER_MINIMIZE_GOODSYNC_AT_BOOT=
+
 OL_Hour_Get_01=
 OL_Day_Get__01=
 
@@ -935,8 +937,9 @@ MIDNIGHT_AND_HOUR_TIMER:
 			FN_VAR_04=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD_DAY EVENT.ahk
 			IfExist, %FN_VAR_04%
 				Run, %FN_VAR_04%
-				
-				
+			GOSUB RUN_GOODSYNC
+			GOSUB KILL_COMPUTER_TEAMVIEWER
+			
 			GOSUB RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND
 		}
 		
@@ -1026,9 +1029,112 @@ MIDNIGHT_AND_HOUR_TIMER:
 	; Test Timer Status - Ask for Help - AutoHotkey Community
 	; https://autohotkey.com/board/topic/55321-test-timer-status/
 	; ----
-
 	
 RETURN
+
+
+RUN_GOODSYNC:
+	SET_GO_2=
+	IF A_ComputerName=1-ASUS-X5DIJ
+		SET_GO_2=TRUE
+	IF A_ComputerName=2-ASUS-EEE
+		SET_GO_2=TRUE
+	IF A_ComputerName=3-LINDA-PC
+		SET_GO_2=TRUE
+	IF !SET_GO_2
+		RETURN
+
+	; -------------------------------------------------------------------
+	; -------------------------------------------------------------------
+	Process, Exist, gs-server.exe
+	If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			Run, "%FN_VAR%"  /service
+		}
+	}
+
+	; -------------------------------------------------------------------
+	; -------------------------------------------------------------------
+	Process, Exist, GoodSync-v10.exe
+	If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			Run, "%FN_VAR%" 
+		}
+	}
+
+	TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
+	TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
+	SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
+
+	; -------------------------------------------------------------------
+	; -------------------------------------------------------------------
+RETURN
+
+
+
+
+
+MINIMIZE_GOODSYNC_AT_BOOT_TIMER:
+
+	; SET TIMER OUT OF ROUTINE ALLOW MULTI TIME DIFFERENCE
+	; HAVE DEFAULT TIMER -- OPTIONAL IF NOT SET
+	; ----------------------------------------------------
+
+	IF !TIMER_MINIMIZE_GOODSYNC_AT_BOOT
+	{
+		TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
+		TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
+	}
+
+	STYLE_GOODSYNC_MINIMIZE_ACHIEVE=0
+	; ---------------------------------------------------------------
+	; GOODSYNC DESKTOP
+	; ---------------------------------------------------------------
+	WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	Loop, %id%
+	{
+
+		table := id%A_Index%
+		WinMinimize  ahk_id %table%
+		WinGet STYLE_GOODSYNC, MinMax, ahk_id %table%
+		If STYLE_GOODSYNC=-1
+			STYLE_GOODSYNC_MINIMIZE_ACHIEVE=1
+	} 
+	; ---------------------------------------------------------------
+	; GOODSYNC2GO
+	; ---------------------------------------------------------------
+	WinGet, id, list,ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	Loop, %id%
+	{
+
+		table := id%A_Index%
+		WinMinimize  ahk_id %table%
+		WinGet STYLE_GOODSYNC, MinMax, ahk_id %table%
+		If STYLE_GOODSYNC=-1
+		IF 	STYLE_GOODSYNC_MINIMIZE_ACHIEVE=1
+			STYLE_GOODSYNC_MINIMIZE_ACHIEVE=2
+	} 
+	; ---------------------------------------------------------------
+	; 1 MAXIMIZED  0 NORMAL  -1 MINIMIZED
+	; ---------------------------------------------------------------
+	If STYLE_GOODSYNC_MINIMIZE_ACHIEVE=-1
+	{
+		SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,OFF
+		TIMER_MINIMIZE_GOODSYNC_AT_BOOT=
+	}
+
+RETURN
+
 
 
 
@@ -1246,6 +1352,34 @@ IF SET_GO=TRUE
 	}
 }
 RETURN
+
+KILL_COMPUTER_TEAMVIEWER:
+
+	; C:\Program Files (x86)\TeamViewer\TeamViewer_Service.exe
+	; C:\Program Files (x86)\TeamViewer\TeamViewer.exe
+
+	Process, Exist, TeamViewer_Service.exe
+	If ErrorLevel > 0
+	{
+		RunWait,sc stop "TeamViewer", , hide, pid2
+		; WinWait, ahk_pid %pid2%
+		; WinWaitactive, ahk_pid %pid2%
+		; WinMinimize  ahk_pid %pid2%
+		
+		RunWait,sc config "TeamViewer" start= disabled, , hide, pid2
+		RunWait,sc delete "TeamViewer", , hide, pid2
+		
+		SoundBeep , 2000 , 100
+	}
+	Process, Exist, TeamViewer.exe
+	If ErrorLevel > 0
+	{
+		; TOOLTIP "__ TEAM VIEWER WAS KILLER __ Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
+		Process, Close, TeamViewer.exe
+		SoundBeep , 2000 , 100
+	}
+RETURN
+
 
 
 ;----------------------------------------
