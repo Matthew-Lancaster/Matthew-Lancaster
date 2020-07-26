@@ -71,6 +71,8 @@ Sub BEGIN
     For Each arg In args
         VAR_2_FOLDER = VAR_2_FOLDER + arg
     Next
+	
+	' VAR_2_FOLDER="C:\SCRIPTER"
     
     'If Sent-to is Used Sometime Additional Quote Surround are User
     '--------------------------------------------------------------
@@ -85,7 +87,7 @@ Sub BEGIN
 	If Mid(VAR_2_FOLDER, Len(VAR_2_FOLDER)) = "\" Then VAR_2_FOLDER = Mid(VAR_2_FOLDER, 1, Len(VAR_2_FOLDER) - 1)
 
 	
-	IF WScript.Arguments.Count = 0 THEN 
+	IF WScript.Arguments.Count = 0 AND VAR_2_FOLDER = "" THEN 
         Wscript.Echo "Not Any Command-line Arguments Were Given _ Exit without Do"
         exit sub
     End if
