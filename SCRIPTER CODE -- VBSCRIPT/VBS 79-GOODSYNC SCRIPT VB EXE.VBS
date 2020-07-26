@@ -8,6 +8,7 @@
 ' WRITE TIME
 ' Sun 26-Jul-2020 08:06:11
 ' Sun 26-Jul-2020 10:48:00 -- 2 HOUR 41 MINUTE
+' Sun 26-Jul-2020 14:43:42 -- 6 HOUR 37 MINUTE
 ' ---------------------------------------------------------------
 ' HERE WORK WITH HER
 ' Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
@@ -16,7 +17,6 @@
 ' AND HERE
 ' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
 ' ---------------------------------------------------------------
-
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
