@@ -2663,7 +2663,9 @@ If Not ErrorLevel
 		; WinMinimize ahk_class Chrome_WidgetWin_1
 		; WinMAXIMIZE ahk_class Chrome_WidgetWin_1
 		; WinMinimize TeamViewer ahk_class #32770
-		WinClose, TeamViewer ahk_class #32770
+		
+		; TEMP REMOVE REM 
+		; WinClose, TeamViewer ahk_class #32770
 		BREAK
 		; -----------------------------------------------------------
 		; BREAK -- GET IT OVER WITH HERE
