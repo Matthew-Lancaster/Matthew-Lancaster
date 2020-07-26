@@ -33,6 +33,76 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
 
+' -------------------------------------------------------------------
+DIM WSHShell
+SET WSHShell = CreateObject("WScript.Shell")
+SET objShell = Wscript.CreateObject("WScript.Shell")
+CUR_USER = CreateObject("WScript.Network").UserName
+COMPUTERNAME = objShell.ExpandEnvironmentStrings("%computername%")
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT WAR IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID : iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+On Error Goto 0
+' -------------------------------------------------------------------
+' GOOD CODE TO PASTE ON VB6
+' -------------------------------------------------------------------
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+' -------------------------------------------------------------------
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
+			i1=i1+1
+		END IF
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		IF i2 > 0 THEN ' MY PROGRAM WSCRIPT 
+			' -------------------------------------------------------
+			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
+			' HERE SCRIPT WHEN START
+			' -------------------------------------------------------
+			' IF lngMyProcessId<>iMyPID THEN 
+				' I= "ERROR MISMATCH TRUE MYPID RESULT "
+				' MSGBOX I +VBV+ CSTR(iMyPID) +VBV+ CSTR(lngMyProcessId)
+			' -------------------------------------------------------
+			IF iMyPID<>PID_Script THEN 
+				' MSGBOX iMyPID & VBCR & PID_Script
+				' MSGBOX PID_Script
+				objProcess.Terminate() 
+				objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+				' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
+			END IF
+		END IF
+    END IF
+NEXT
+' -------------------------------------------------------------------
+
+
+
+' GOODSYNC_GSYNC="D:\GoodSync\x64\gsync.exe"
+' JOBNAME="VB VB-NT 01 EXE 7G 4G _001_ EXE"
+' Set WSHShell = CreateObject("WScript.Shell")
+' WSHShell.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
+' Set WSHShell = Nothing
+' WSCRIPT.QUIT
+
+
 SET objArgs = Wscript.Arguments
 FOR EACH strArg In objArgs
 
@@ -60,6 +130,7 @@ IF FSO.FILEEXISTS(LOGPATH) = TRUE THEN
 	Set FILE_1 = FSO.OpenTextFile(LOGPATH, ForReading)
 	TT_EDITOR = FILE_1.ReadAll
 	' MSGBOX TT_EDITOR
+	FILE_1.CLOSE
 END IF
 
 IF FSO.FILEEXISTS(LOGPATH) = TRUE THEN 
@@ -141,7 +212,7 @@ Do Until FILE_1.AtEndOfStream
 	END IF
 	MM=0
 Loop
-
+FILE_1.CLOSE
 
 Set objShell = Wscript.CreateObject("WScript.Shell")
 ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
@@ -150,7 +221,7 @@ IF COMPUTERNAME_1<>UCASE(ComputerName) THEN
 	COMPUTERNAME_REMOTE=COMPUTERNAME_1
 END IF
 IF COMPUTERNAME_2<>UCASE(ComputerName) THEN 
-	COMPUTERNAME_REMOTE=COMPUTERNAME_1
+	COMPUTERNAME_REMOTE=COMPUTERNAME_2
 END IF
 
 XXVV=XXVV+VBCR+COMPUTERNAME_REMOTE
@@ -172,15 +243,103 @@ IF FSO.FILEEXISTS(PATH_1) = TRUE THEN
 	FSO.DELETEFILE(PATH_1)
 END IF
 
-SET OBJFILE = FSO.CreateTextFile(PATH_1,True)
-OBJFILE.Close
+BuildFullPath PATH_1
+
+ON ERROR RESUME NEXT
+IF FSO.FILEEXISTS(PATH_1) = FALSE THEN 
+	SET OBJFILE = FSO.CreateTextFile(PATH_1)
+	SET OBJFILE = NOTHING 
+	' OBJFILE.Close
+END IF
+IF ERR.NUMBER>0 THEN 
+	MSGBOX ERR.DESCRIPTION & VBCR & VBCR & PATH_1
+END IF
+ON ERROR GOTO 0
+
+' Object required
+' \\\_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT
+' Object required
+' \\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT
+
 
 WRITE_FILE_INFO=JOBNAME + VBCRLF + EXE_NAME + VBCRLF
 
+ON ERROR RESUME NEXT
 SET FILE_2 = FSO.OpenTextFile(PATH_1, ForWriting)
 FILE_2.Write WRITE_FILE_INFO
+SET FILE_2 = NOTHING 
+IF ERR.NUMBER >0 THEN MSGBOX "ERROR -- SET FILE_2 = NOTHING"
+ERR.CLEAR
+FILE_2.Close
+IF ERR.NUMBER >0 THEN MSGBOX "FILE_2.Close"
+IF ERR.NUMBER>0 THEN 
+	MSGBOX ERR.DESCRIPTION & VBCR & VBCR & PATH_1
+END IF
+ON ERROR GOTO 0
+' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
+' Line:	263
+' Char:	1
+' Error:	Permission denied
+' Code:	800A0046
+' Source: 	Microsoft VBScript runtime error
+
+IF INSTR(LOGPATH,"D:\GOODSYNC\Profile\")>0 THEN 
+	GOODSYNC_GSYNC="D:\GoodSync\x64\gsync.exe"
+END IF
+
+' @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
+' SET Sources[!LDA!]="0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G _ JOB SET"
+' %GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
+
+
+
+COUNTER_LOOP=0
+DO 
+	IF FSO.FILEEXISTS(PATH_1) = FALSE THEN   EXIT DO
+
+	WScript.Sleep 1000
+	COUNTER_LOOP=COUNTER_LOOP+1
+	IF COUNTER_LOOP>100 THEN                 EXIT DO
+LOOP
+
+
+IF FSO.FILEEXISTS(PATH_1) = FALSE THEN
+
+	' ---------------------------------------------------------------
+	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
+	' Line:	274  ---- HERE ---- WSHShell.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
+	' Char:	2
+	' Error:	The system cannot find the file specified. 
+	' Code:	80070002
+	' Source: 	(null)
+	' ---------------------------------------------------------------
+	' SET ERROR TRAP
+	' AFTER JOB EXIT COMPLETE FINE THIS STATE
+	' ---------------------------------------------------------------
+	
+	ON ERROR RESUME NEXT
+	' MSGBOX JOBNAME
+	Set WSHShell = CreateObject("WScript.Shell")
+	WSHShell.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
+	Set WSHShell = Nothing
+	ON ERROR GOTO 0
+
+END IF
 
 
 Wscript.QUIT
 
+Sub BuildFullPath(ByVal FullPath)
+	
+	If FSO.FileExists(FullPath) Then
+		FULLPATH=MID(FULLPATH,1,INSTRREV(FULLPATH,"\"))
+	end if
+	
+	If Not FSO.FolderExists(FullPath) Then
+		ON ERROR RESUME NEXT
+		BuildFullPath FSO.GetParentFolderName(FullPath)
+		FSO.CreateFolder FullPath
+		ON ERROR GOTO 0
+	End If
+End Sub
 
