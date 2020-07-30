@@ -1227,7 +1227,21 @@ Sub Main
 				FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
 				PARAM="CAMERA_BACKUP_MODE"
 				' ---------------------------------------
-				WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+				' ---------------------------------------
+				' ---------------------------------------
+				' ---------------------------------------
+				' TEMP REMOVE -- SOMETHING IS DELETE THING 
+				' GOODSYNC
+				' DOS CMD START
+				' ---------------------------------------
+				' ---------------------------------------
+				' ---------------------------------------
+				' ---------------------------------------
+				'WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+				' ---------------------------------------
+				' ---------------------------------------
+				' ---------------------------------------
+				' ---------------------------------------
 			END IF
 		END IF
 	END IF
