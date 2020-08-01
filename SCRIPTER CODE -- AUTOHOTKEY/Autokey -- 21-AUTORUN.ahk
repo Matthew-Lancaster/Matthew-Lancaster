@@ -1850,8 +1850,21 @@ IF SET_GO=TRUE
 			{
 				SoundBeep , 2500 , 100
 				Run, "%FN_VAR%" /min /auto	, , HIDE
-				WinWait, QNAP Qfinder Pro, , 240
-				WINHIDE
+				LOOP, 1000
+				{
+					SLEEP 10
+					WINGETTITLE, QNAP_TITLE, QNAP Qfinder Pro
+					; ---- QNAP Qfinder Pro 6.7.0
+					IF INSTR(QNAP_TITLE,"QNAP Qfinder Pro") > 0
+					{
+						WINHIDE QNAP Qfinder Pro
+						BREAK
+					}
+				}				
+				; WinWait, QNAP Qfinder Pro, , 240
+				; WINHIDE
+				; NOT HIDE NOT SEE  -- HIDE IS OKAY SET BACK IS WINWAIT FAULT FOR HERE
+				; SEEM STOP RUN ALSO
 			}
 		}
 }
