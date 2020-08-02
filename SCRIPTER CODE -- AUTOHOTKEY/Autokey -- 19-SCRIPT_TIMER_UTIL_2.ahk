@@ -2286,6 +2286,15 @@ TIMER_PROCESS_KILLER:
 	If NewPID > 0
 	Process, Close, LogiCampaignNotifier.exe
 	; ----------------------------------------------------------------
+	
+	; ----------------------------------------------------------------
+	; C:\Program Files (x86)\Freemake\CaptureLib\CaptureLibService.exe
+	Process, Exist, CaptureLibService.exe
+	NewPID = %ErrorLevel%
+	If NewPID > 0
+	Process, Close, CaptureLibService.exe
+	; ----------------------------------------------------------------
+	
 RETURN
 
 
