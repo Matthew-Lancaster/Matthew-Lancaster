@@ -39,7 +39,7 @@ CUR_USER = CreateObject("WScript.Network").UserName
 COMPUTERNAME = objShell.ExpandEnvironmentStrings("%computername%")
 ' -------------------------------------------------------------------
 ' 01 OF 02 
-' SOME CONFLICT WAR IN CODE STYLE 
+' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
 ' SOME PEOPLE TALK THIS HAS ERROR 
 ' THIS ONE IS CORRECT 
 ' -------------------------------------------------------------------
@@ -100,12 +100,14 @@ NEXT
 
 
 
+' -------------------------------------------------------------------
 ' GOODSYNC_GSYNC="D:\GoodSync\x64\gsync.exe"
 ' JOBNAME="VB VB-NT 01 EXE 7G 4G _001_ EXE"
 ' Set WSHShell = CreateObject("WScript.Shell")
 ' WSHShell.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
 ' Set WSHShell = Nothing
 ' WSCRIPT.QUIT
+' -------------------------------------------------------------------
 
 
 SET objArgs = Wscript.Arguments
@@ -120,8 +122,37 @@ IF PARAM="" THEN
 END IF
 
 
+' -------------------------------------------------------------------
 ' "--JOBNAME--" "VB VB-NT 01 EXE 4G 1X _001_ EXE" "--RESULT--" "" "--ERROR--" "1" "--CONFLICT--" "0" "--LOGPATH--" "D:\GOODSYNC\Profile\_mirrors_\gstps-matt-lan-btinternet-com@4-asus-gl522vw.matt-lan-btinternet-com.goodsync-D-VB6-VB-NT\2020-0726-082045-4-ASUS-GL522VW-VB VB-NT 01 EXE 4G 1X _001_ EXE.log" 
+' -------------------------------------------------------------------
 ' "--JOBNAME--" "VB VB-NT 01 EXE 7G 4G _001_ EXE" "--RESULT--" "" "--ERROR--" "1" "--CONFLICT--" "0" "--LOGPATH--" "D:\GOODSYNC\Profile\_mirrors_\gstps-matt-lan-btinternet-com@7-asus-gl522vw.matt-lan-btinternet-com.goodsync-D-VB6-VB-NT-00_BEST_VB_01\2020-0726-094314-4-ASUS-GL522VW-VB VB-NT 01 EXE 7G 4G _001_ EXE.log" 
+' -------------------------------------------------------------------
+
+
+
+' -------------------------------------------------------------------
+' LINE TO ENTER AT GOODSYNC SCRIPTOR -- OF POST SYNC -- EXAMPLE
+' -------------------------------------------------------------------
+' "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS" --JOBNAME-- %JOBNAME% --RESULT-- %RESULT% --ERROR-- %ERRORS% --CONFLICT-- %CONFLICTS% --LOGPATH-- %LOGPATH%
+' -------------------------------------------------------------------
+' Wed 29-Jul-2020 04:54:24
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' MORE WORK DO
+' -------------------------------------------------------------------
+' 001
+' IDENTIFY PROCCESS.EXE NAME OPERATION BASE ON
+' -------------------------------------------------------------------
+' 002
+' CLOSE CERTAIN JOB FRIENDLY WAY -
+' DOUBLE CHECK WAITER
+' -------------------------------------------------------------------
+' 003
+' STOP REPEAT FAIL KILL
+' -------------------------------------------------------------------
+
+
 
 
 
@@ -249,9 +280,11 @@ END IF
 
 XXVV=XXVV+VBCR+COMPUTERNAME_REMOTE
 
+' -------------------------------------------------------------------
 ' SO FAR SO GOOD
 ' SEND THE INFO TO REMOTE COMPUTER
 ' ABOUT KILL PROCESS SOMETHING
+' -------------------------------------------------------------------
 
 COMPUTERNAME_REMOTE_UNBDERLINE=REPLACE(COMPUTERNAME_REMOTE,"-","_")
 
@@ -261,8 +294,10 @@ PATH_1=""
 PATH_1=PATH_1+"\\"+COMPUTERNAME_REMOTE+"\"+COMPUTERNAME_REMOTE_UNBDERLINE+"_01_C_DRIVE"
 PATH_1=PATH_1+"\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT"
 
+' -------------------------------------------------------------------
 ' THAT SHOULD DO
 ' WRITE PROCESS EXE NAME
+' -------------------------------------------------------------------
 
 IF FSO.FILEEXISTS(PATH_1) = TRUE THEN 
 	FSO.DELETEFILE(PATH_1)
@@ -280,10 +315,12 @@ ERR.CLEAR
 IF FSO.FILEEXISTS(PATH_1) = FALSE THEN 
 	ERR.CLEAR 
 	SET OBJFILE = FSO.CreateTextFile(PATH_1)
+	' ---------------------------------------------------------------
 	' GET ERROR -- SET OBJFILE = FSO.CreateTextFile(PATH_1)
 	' Permission denied
 	' FOR AGER WHEN BuildFullPath __ CREATE FOLDER WHERE FILE TO BE FOLDER AS NAME FILE
 	IF ERR.NUMBER >0 THEN MSGBOX "LINE 283" & VBCR & "ERROR -- SET OBJFILE = FSO.CreateTextFile(PATH_1)" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & PATH_1
+	' ---------------------------------------------------------------
 	ERR.CLEAR
 	OBJFILE.Close
 	IF ERR.NUMBER >0 THEN MSGBOX "LINE 286" & VBCR & "ERROR -- OBJFILE.Close"
@@ -293,10 +330,12 @@ IF ERR.NUMBER>0 THEN
 END IF
 ON ERROR GOTO 0
 
+' -------------------------------------------------------------------
 ' Object required
 ' \\\_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT
 ' Object required
 ' \\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT
+' -------------------------------------------------------------------
 
 
 WRITE_FILE_INFO=JOBNAME + VBCRLF + EXE_NAME + VBCRLF
@@ -311,21 +350,24 @@ IF ERR.NUMBER >0 THEN
 	MSGBOX "LINE 308" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & PATH_1
 END IF
 ON ERROR GOTO 0
+' -------------------------------------------------------------------
 ' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
 ' Line:	263
 ' Char:	1
 ' Error:	Permission denied
 ' Code:	800A0046
 ' Source: 	Microsoft VBScript runtime error
+' -------------------------------------------------------------------
 
 IF INSTR(LOGPATH,"D:\GOODSYNC\Profile\")>0 THEN 
 	GOODSYNC_GSYNC="D:\GoodSync\x64\gsync.exe"
 END IF
 
+' -------------------------------------------------------------------
 ' @SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 ' SET Sources[!LDA!]="0001 C GOODSYNC 2 GO -- D TO D __ 7G 4G _ JOB SET"
 ' %GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
-
+' -------------------------------------------------------------------
 
 COUNTER_LOOP=0
 DO 
@@ -361,7 +403,11 @@ IF FSO.FILEEXISTS(PATH_1) = FALSE THEN
 END IF
 
 
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 Wscript.QUIT
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 Sub BuildFullPath(ByVal FullPath)
 	
