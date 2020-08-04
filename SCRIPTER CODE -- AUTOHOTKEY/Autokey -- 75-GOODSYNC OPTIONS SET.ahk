@@ -251,6 +251,9 @@ SETTIMER MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_SUB,1000
 
 HDD_HUBIC_HWND=
 SETTIMER HUBIC_SETTER,1000
+
+SETTIMER TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT,400
+
 ; -------------------------------------------------------------------
 RETURN
 ; -------------------------------------------------------------------
@@ -341,6 +344,10 @@ TIMER_SET_GOODSYNC_CONNECT_BOX:
 			SET_GOODSYNC_CONNECT_BOX_HWND=%HWND_GOODSYNC_CONNECT_BOX%
 	}
 RETURN
+
+
+
+
 
 
 ; -------------------------------------------------------------------
@@ -764,6 +771,59 @@ TOOLTIP_REMOVER:
 	}
 	
 	
+RETURN
+
+; -------------------------------------------------------------------
+TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT:
+
+	; SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT
+	; SERVER ACCOUNT CHANGE AT MAIN ACCOUNT CHANGE
+	; SERVER ACCOUNT CHANGED AT MAIN ACCOUNT CHANGED
+
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 3  ; EXACTLY
+
+	; ---------------------------------------------------------------
+	WinGet, HWND_1, ID, GoodSync ahk_class #32770
+	IF HWND_1>0
+	{
+		; -----------------------------------------------------------
+		ControlGetText, OutputVar_2, Static1, ahk_id %HWND_1%
+		ControlGettext, OutputVar_4, Button1, ahk_id %HWND_1%
+		ControlGettext, OutputVar_5, Button2, ahk_id %HWND_1%
+		ControlGettext, OutputVar_8, Button3, ahk_id %HWND_1%
+		
+		; -----------------------------------------------------------
+		; THE TEXT BEEN HIDE AS ABOVE REPLACE BY CODE NAME
+		; THE BOX HERE ANSWER NOT ALL TIME OR SERIOUS ERROR PATH NAME CHANGE TO FAULT ERROR
+		; -----------------------------------------------------------
+		
+		IF OutputVar_2=_GoodSync_Dialog_220373_
+		IF OutputVar_4=YES
+		IF OutputVar_5=NO
+		IF OutputVar_8=CANCEL
+			ControlClick, Button2, ahk_id %HWND_1%
+		; MSGBOX % OutputVar_2 OutputVar_4 OutputVar_5 OutputVar_8
+
+	}
+
+
+; _GoodSync_Dialog_220373_
+; Yes
+; No
+; Cancel
+
+
+		; ; -----------------------------------------------------------
+		; IF HWND_2=%HWND_1%
+		; {
+			; WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+			; IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+				; NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
+		; }
+		; ; -----------------------------------------------------------
+
 RETURN
 
 
