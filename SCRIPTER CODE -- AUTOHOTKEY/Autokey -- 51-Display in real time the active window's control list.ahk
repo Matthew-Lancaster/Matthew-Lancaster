@@ -86,29 +86,39 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 SetTitleMatchMode, 3
 ; SetTitleMatchMode, slow
 
-setTimer, WatchActiveWindow_2, 200
+
+
+SETTIMER, WatchActiveWindow_2, 200
 
 ; SetTimer, WatchCursor, 50
 
-return
+RETURN
 
 ; ESC::EXITAPP
 ESC::
 {
-tooltip
-pause
+	TOOLTIP
+	PAUSE
 }
 
 WatchActiveWindow_1:
-WinGet, ControlList, ControlList, A
-ToolTip, %ControlList%
+	WinGet, ControlList, ControlList, A
+	ToolTip, %ControlList%
 return
 
 WatchActiveWindow_2:
 
+
+Controls=
+
 ; WinGet, ControlList, ControlList, ahk_class CabinetWClass
-; WinGet, ControlList, ControlList, A
-WinGet, ControlList, ControlList, ahk_class Chrome_WidgetWin_1
+
+; ACTIVE WINDOW OR CERTAIN ONE
+; -------------------------------------------------------------------
+WinGet, ControlList, ControlList, A
+; -------------------------------------------------------------------
+; WinGet, ControlList, ControlList, ahk_class Chrome_WidgetWin_1
+; -------------------------------------------------------------------
 
 ; WinGet, ControlList, ControlList, ahk_class ThunderRT6FormDC
 ; WinGet, ControlList, ControlList, "EliteSpy+ by Andrea B 2001 __ www.PlanetSourceCode.com_ & Big Timer Worker By Matthew Lancaster __ 07722224555 __ Version 1.0.421"
@@ -130,15 +140,24 @@ Loop, Parse, ControlList, `n
 
 }
 
-ToolTip, %ControlS%
-; ToolTip, %ControlList%
+TOOLTIP, %ControlS%
 
-clipboard = %ControlS%
-setTimer, WatchActiveWindow_2, off
+; TOOLTIP, %ControlList%
+
+; TO THE CLIPBOARD OR NOT
+; -------------------------------------------------------------------
+; CLIPBOARD = %ControlS%
+
+
+; REPEAT OR ONE
+; -------------------------------------------------------------------
+; SETTIMER, WatchActiveWindow_2, off
+
+
 
 ; NEXT WANTED TITLE FROM EACH CONTROL ALONGSIDE EXTENDED CLASS NAME
 
-return
+RETURN
 
 
 WatchCursor:
@@ -157,3 +176,65 @@ return
 
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+
+
+
+;# ------------------------------------------------------------------
+; END BLOCK OF CODE -- EXIT ROUTINE
+;# ------------------------------------------------------------------
+
+;# ------------------------------------------------------------------
+TIMER_PREVIOUS_INSTANCE:
+SETTIMER TIMER_PREVIOUS_INSTANCE,10000
+
+if ScriptInstanceExist()
+{
+	Exitapp
+}
+return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+ScriptInstanceExist() {
+	static title := " - AutoHotkey v" A_AhkVersion
+	DHW_2 := A_DetectHiddenWindows
+	DetectHiddenWindows, On
+	WinGet, match, List, % A_ScriptFullPath . title
+	DetectHiddenWindows, % DHW_2
+	return (match > 1)
+	}
+Return
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+EOF:                           ; on exit
+ExitApp     
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+ExitFunc(ExitReason, ExitCode)
+{
+    if ExitReason not in Logoff,Shutdown
+    {
+        ;MsgBox, 4, , Are you sure you want to exit?
+        ;IfMsgBox, No
+        ;    return 1  ; OnExit functions must return non-zero to prevent exit.
+    }
+    ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
+}
+
+class MyObject
+{
+    Exiting()
+    {
+        ;
+        ;MsgBox, MyObject is cleaning up prior to exiting...
+        /*
+        this.SayGoodbye()
+        this.CloseNetworkConnections()
+        */
+    }
+}
+; -------------------------------------------------------------------
+; EXIT THE APP
+; -------------------------------------------------------------------
