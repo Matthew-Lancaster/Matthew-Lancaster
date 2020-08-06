@@ -236,6 +236,10 @@ MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND_OLD=
 
 ; -------------------------------------------------------------------
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,500
+SETTIMER TIMER_SUB_GGODSYNC_TEXT_MANIPULATE,500
+SETTIMER TIMER_WINDOWS_PROPERTIES_PERMISSION_SET_BHUTTON_4_TO_16,400
+OLD_HWND_10=
+SETTIMER TIMER_WINDOWS_PROPERTIES_OPEN_BUTTON_3__EDIT_FOR_PERMISSION,800
 SETTIMER TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP,1000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
 SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
@@ -253,6 +257,8 @@ HDD_HUBIC_HWND=
 SETTIMER HUBIC_SETTER,1000
 
 SETTIMER TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT,400
+
+
 
 ; -------------------------------------------------------------------
 RETURN
@@ -650,6 +656,7 @@ SET_OK_BOX:
 	IF HWND_2>0 
 	IF HWND_1<>%HWND_2%
 		WinActivate,  ahk_id %HWND_2%
+	
 	IfWinExist Right Folder ahk_class #32770
 	WinGet, HWND_2, ID, Right Folder ahk_class #32770
 	IF HWND_2>0 
@@ -826,6 +833,128 @@ TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT:
 
 RETURN
 
+
+
+
+
+
+
+TIMER_WINDOWS_PROPERTIES_OPEN_BUTTON_3__EDIT_FOR_PERMISSION:
+
+	; ---------------------------------------------------------------
+	; PERMISSIONS FOR #
+	; AHK_CLASS #32770
+	; AHK_EXE SHELL EXPLORER LOADER.EXE
+	; AHK_PID 5908
+	; ---------------------------------------------------------------
+	; THE CODE PRESS THE PERMISSION BUTTON ONCE UNLESS HWND NUMBER CHANGE
+	; SAVE THAT BIT GET OPEN
+	; SURE DID STYLE BEFORE
+	; LOOK AROUND INTERNET SURE DO PERMISSION BUTTON BEFORE
+	; LOT OF TWO DIALOG DISPLAY UP 
+	; NOW ONLY ONE FOR TIME BE ERR
+	; ---------------------------------------------------------------
+	; Thu 06-Aug-2020 09:14:17
+	; Thu 06-Aug-2020 09:55:00 -- 40 MINUTE
+	; ---------------------------------------------------------------
+	; FAT32_4GB (E:) Properties
+	; ---------------------------------------------------------------
+
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, OFF
+	SetTitleMatchMode 2  ; Avoids Specify Full path.
+
+	IfWinNOTExist Properties ahk_class #32770
+		RETURN
+	
+	WinGet, HWND_10, ID, A
+	WinGetTitle OutputVar_10, ahk_id %HWND_10%
+	WinGetCLASS OutputVar_11, ahk_id %HWND_10%
+	IF INSTR(OutputVar_10,"Properties")
+	IF INSTR(OutputVar_11,"#32770")
+	IF OLD_HWND_10<>%HWND_10%
+	{
+		OLD_HWND_10=%HWND_10%
+		COUNTER_BUTTON=3
+		BUTTON_FINDER=Button%COUNTER_BUTTON%
+		IfWinExist AHK_ID %HWND_10%
+		{
+			ControlGettext, OutputVar_12, %BUTTON_FINDER%, AHK_ID %HWND_10%
+			IF INSTR(OutputVar_12,"&EDIT...")
+			ControlClick, %BUTTON_FINDER%,AHK_ID %HWND_10%
+		}
+	}
+RETURN
+
+
+TIMER_WINDOWS_PROPERTIES_PERMISSION_SET_BHUTTON_4_TO_16:
+
+	; ---------------------------------------------------------------
+	; PERMISSIONS FOR #
+	; AHK_CLASS #32770
+	; AHK_EXE SHELL EXPLORER LOADER.EXE
+	; AHK_PID 5908
+	; ---------------------------------------------------------------
+	; SET ALL THE BUTTON CHECK FOR WINDOWS DRIVE PERMISSION
+	; I GOT CODE TO LOAD ALL PROPERTIE PAGE AND THEN GET ON PERMISSION
+	; FOR C DRIVE
+	; I NOT LOAD ALL NOT WASNT ALL SET
+	; SO LOAD EACH FOLDER -- MULTIPLE
+	; ---------------------------------------------------------------
+	; NICE BUTTON ARRAY KITT
+	; ---------------------------------------------------------------
+	; Thu 06-Aug-2020 08:08:11
+	; Thu 06-Aug-2020 08:54:00 -- 45 MINUTE
+	; ---------------------------------------------------------------
+
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, OFF
+	SetTitleMatchMode 2  ; Avoids Specify Full path.
+
+	IfWinNOTExist Permissions for ahk_class #32770
+		RETURN
+	
+	WinGet, HWND_8, ID, A
+	WinGetTitle OutputVar_10, ahk_id %HWND_8%
+	WinGetCLASS OutputVar_11, ahk_id %HWND_8%
+	IF INSTR(OutputVar_10,"Permissions for")
+	IF INSTR(OutputVar_11,"#32770")
+	{
+		COUNTER_BUTTON=2
+		LOOP, 6
+		{
+			COUNTER_BUTTON+=2
+			BUTTON_FINDER=Button%COUNTER_BUTTON%
+			IfWinExist AHK_ID %HWND_8%
+			{
+				ControlGet, Status, Enabled,, %BUTTON_FINDER%, AHK_ID %HWND_8%
+				If Status=1
+				{
+					; TOOLTIP % BUTTON_FINDER
+					ControlGet, Status, Checked,, %BUTTON_FINDER%, AHK_ID %HWND_8%
+					If Status=0
+						Control, Check,, %BUTTON_FINDER%, AHK_ID %HWND_8%
+				}
+				SLEEP 200
+			}
+		}
+	}
+	; ---------------------------------------------------------------
+	
+RETURN
+
+
+
+TIMER_SUB_GGODSYNC_TEXT_MANIPULATE:
+	; ahk_exe GoodSync-v10.exe
+	IfWinExist Right Folder ahk_class #32770
+	{
+		ControlGet, OutputVar_10, Line, 1, Edit1, Right Folder ahk_class #32770
+		IF OutputVar_10=file://
+			ControlSetText, Edit1,,  Right Folder ahk_class #32770
+	}
+
+RETURN
 
 ; -------------------------------------------------------------------
 TIMER_SUB_GOODSYNC_OPTIONS:
