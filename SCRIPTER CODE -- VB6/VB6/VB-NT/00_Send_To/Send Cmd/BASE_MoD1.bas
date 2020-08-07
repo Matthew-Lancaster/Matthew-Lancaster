@@ -1,4 +1,7 @@
 Attribute VB_Name = "BASE_MoD1"
+Public DSC_2020_ABOVE
+
+
 Public TAP, PROCESSBEGIN
 Public COUNTDIR
 
@@ -79,9 +82,9 @@ Private Sub SP_FileMatch(Filename As String, DFilename As String, Path As String
     DAT4 = Replace(DAT4, " 00,", "    ")
     DAT4 = Replace(DAT4, "  0,", "    ")
 
-    i = Space(12)
-    LSet i = DFilename
-    DAT5 = i + " -- "
+    I = Space(12)
+    LSet I = DFilename
+    DAT5 = I + " -- "
     
     If DFilename = "" Then Stop
     
@@ -300,9 +303,9 @@ Private Sub SP_DirMatch(Directory As String, DDirectory As String, Path As Strin
     
 
     'DAT5 = " - " + DDirectory + " -- "
-    i = Space(12)
-    LSet i = DDirectory
-    DAT5 = "  " + i + " -- "
+    I = Space(12)
+    LSet I = DDirectory
+    DAT5 = "  " + I + " -- "
     
     If DDirectory = "" Then Stop
     
