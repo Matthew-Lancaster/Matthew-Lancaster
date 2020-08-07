@@ -564,6 +564,20 @@ F5::
 #ifwinactive
 
 
+; ----
+; [How To] Programmatically Tile / Cascade windows - Tutorials - AutoHotkey Community
+; https://autohotkey.com/board/topic/80580-how-to-programmatically-tile-cascade-windows/
+; ----
+; Thu 06-Aug-2020 13:00:00
+; Tile windows vertically : DllCall( "TileWindows", uInt,0, Int,0, Int,0, Int,0, Int,0 )
+; Tile windows horizontally : DllCall( "TileWindows", uInt,0, Int,1, Int,0, Int,0, Int,0 )
+; Cascade windows : DllCall( "CascadeWindows", uInt,0, Int,4, Int,0, Int,0, Int,0 )
+F7:: 
+DllCall( "CascadeWindows", uInt,0, Int,4, Int,0, Int,0, Int,0 )
+Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+RETURN
+
+
 ; -------------------------------------------------------------------
 ; SELECT 1000 PHOTO WITH HOTKEY H
 ; IF SEARCH JPG 1500 MAXIMUM
