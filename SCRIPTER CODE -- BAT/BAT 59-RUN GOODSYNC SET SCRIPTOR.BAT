@@ -97,7 +97,7 @@
 @REM OF LEFT AFTER 
 @REM NOT FIRST TIME DISCOVER THE OPERATION 
 @REM FIRST TIME MAYBE FROM DOS TO AUTOHOTKEYS AND BACK AGAIN 
-@REM EXIT CODE errorlevel AND PASS PARAMETER 
+@REM EXIT CODE ERRORLEVEL AND PASS PARAMETER 
 @REM ALWAYS PASS PARAMETER WITH * NOT ANY OTHER CHARACTER LIKE DASH -
 @REM OR YOUR HEADACHE HURTING
 @REM ----------------------------------------------------------------
@@ -172,13 +172,13 @@ IF NOT "%*"=="" ECHO %*
 IF "%*"==""     ECHO -- NONE COMMANDLINE  PARAMETER --  ENV VARS WERE GIVE ----------
 ECHO.
 
-ECHO %* | FIND /i "/ADMIN" >nul
-IF %errorlevel% EQU 0 SET ADMIN_REQUEST=/ADMIN
+ECHO %* | FIND /i "/ADMIN" >NUL
+IF %ERRORLEVEL% EQU 0 SET ADMIN_REQUEST=/ADMIN
 
 IF '%ADMIN_REQUEST%'=='/ADMIN' (
 	@REM :: Check for ADMIN Privileges Again
-	>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-	@IF '%errorlevel%' GTR '2' SET NOT_GOT_ADMIN=TRUE
+	>NUL 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+	@IF '%ERRORLEVEL%' GTR '2' SET NOT_GOT_ADMIN=TRUE
 )
 
 @IF "%NOT_GOT_ADMIN%"=="TRUE" (
@@ -192,8 +192,8 @@ IF '%ADMIN_REQUEST%'=='/ADMIN' (
 )
 
 @REM :: Check for ADMIN Privileges
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
-@IF '%errorlevel%' GTR '2' (
+>NUL 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+@IF '%ERRORLEVEL%' GTR '2' (
 	@REM Get ADMIN Privileges
 	@ECHO Set UAC = CreateObject^("Shell.Application"^) >> "%temp%\getadmin.vbs"
 	@ECHO UAC.ShellExecute "%~s0", "/ADMIN %*", "", "runas", 1 >> "%temp%\getadmin.vbs"
@@ -251,9 +251,9 @@ SET MYSCRIPT_AHK_STRIPPER=%~NX1
 ECHO @START /WAIT "" "%MYSCRIPT_AHK_STRIPPER%" %PARAM_PASS%
 START /WAIT "" "%MYSCRIPT_AHK%" %PARAM_PASS%
 ECHO.
-IF NOT %errorlevel%==0 ECHO SCRIPT ALREADY RUN __ EXITCODE
+IF NOT %ERRORLEVEL%==0 ECHO SCRIPT ALREADY RUN __ EXITCODE
 
-IF %errorlevel%==0 GOTO OPERATION_AHEAD_GOOD
+IF %ERRORLEVEL%==0 GOTO OPERATION_AHEAD_GOOD
 ECHO ----------------------------------------------------------------
 ECHO -- SCRIPT HERE ALREADY RUN -------------------------------------
 ECHO.
@@ -273,17 +273,17 @@ ECHO READY!\n!STEADY!\n!GO
 ECHO.
 
 
-ECHO %* | FIND /i "GOODSYNC_MODE" >nul
-IF %errorlevel% EQU 0 (
-REM ECHO !TITLE_VAR! | FIND /i "BAT 59-RUN GOODSYNC SET SCRIPTOR" >nul
-REM @if !errorlevel!==0 (
+ECHO %* | FIND /i "GOODSYNC_MODE" >NUL
+IF %ERRORLEVEL% EQU 0 (
+REM ECHO !TITLE_VAR! | FIND /i "BAT 59-RUN GOODSYNC SET SCRIPTOR" >NUL
+REM @if !ERRORLEVEL!==0 (
 	SET MODE_RUN=GOODSYNC
 	REM @CD /D "C:\SCRIPTER"
 	GOTO START
 )
 
-ECHO %* | FIND /i "CAMERA_BACKUP_MODE" >nul
-IF %errorlevel% EQU 0 (
+ECHO %* | FIND /i "CAMERA_BACKUP_MODE" >NUL
+IF %ERRORLEVEL% EQU 0 (
 	SET MODE_RUN=CAMERA_BACKUP
 	GOTO START
 )
@@ -294,22 +294,22 @@ IF %errorlevel% EQU 0 (
 	REM GOTO START
 	REM ---------------------------------------------------------------------
 
-ECHO %* | FIND /i "CAMERA_BACKUP_CLOUD" >nul
-IF %errorlevel% EQU 0 (
+ECHO %* | FIND /i "CAMERA_BACKUP_CLOUD" >NUL
+IF %ERRORLEVEL% EQU 0 (
 	SET MODE_RUN=CAMERA_BACKUP_CLOUD
 	GOTO START
 )
 
 
 
-ECHO %* | FIND /i "D_DRIVE_GOODSYNC_JOB_SET" >nul
-IF %errorlevel% EQU 0 (
+ECHO %* | FIND /i "D_DRIVE_GOODSYNC_JOB_SET" >NUL
+IF %ERRORLEVEL% EQU 0 (
 	SET MODE_RUN=D_DRIVE_GOODSYNC_JOB_SET
 	GOTO START
 )
 
-ECHO %* | FIND /i "GITHUB_MODE" >nul
-IF %errorlevel% EQU 0 (
+ECHO %* | FIND /i "GITHUB_MODE" >NUL
+IF %ERRORLEVEL% EQU 0 (
 	SET MODE_RUN=GITHUB
 	REM @CD /D "C:\SCRIPTOR GITHUB"
 	GOTO START
@@ -335,8 +335,8 @@ IF "!MODE_RUN!"=="" (
 :START
 
 
-ECHO %* | FIND /i "WITH_GITHUB_MODE" >nul
-IF %errorlevel% EQU 0 SET MODE_RUN_WITH_GITHUB=TRUE
+ECHO %* | FIND /i "WITH_GITHUB_MODE" >NUL
+IF %ERRORLEVEL% EQU 0 SET MODE_RUN_WITH_GITHUB=TRUE
 
 REM SET TITLE_RUN_MODE=BAT 45-SCRIPT RUN GITHUB - GOODSYNC
 REM SET MODE_RUN=GITHUB
@@ -1029,7 +1029,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	ECHO ----------------------------------------------------------------
 	ECHO.
 	%ConvertCP% 1200 0 /i !FILENAME_ER! /o !FILENAME_ER_2!
-	DEL !FILENAME_ER! >nul 2>nul
+	DEL !FILENAME_ER! >NUL 2>NUL
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
 	TYPE !FILENAME_ER!
 
@@ -1061,7 +1061,6 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	SET CHANGE_HAPPEN=FALSE
 	REM ------------------------------------------------------------
 	
-	IF /I %%a   GEQ 13 PAUSE
 
 	REM ------------------------------------------------------------
 	REM ------------------------------------------------------------
@@ -1072,15 +1071,15 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM -- Sat 08-Feb-2020 17:30:00
 	REM -- Sat 08-Feb-2020 20:00:00 -- 2 HOUR 30 MINUTE
 	
-	FIND /i "-- analysis complete" !filename_er!>nul
-	if !errorlevel!==0 set analysis_complete=true
+	FIND /i "-- analysis complete" !filename_er!>NUL
+	if !ERRORLEVEL!==0 set analysis_complete=true
 
-	FIND /i "SYNC: RUNNING:" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET ANALYSIS_COMPLETE=TRUE
+	FIND /i "SYNC: RUNNING:" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET ANALYSIS_COMPLETE=TRUE
 
-	FIND /i "SYNC COMPLETE." !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET ANALYSIS_COMPLETE=TRUE
-	IF !errorlevel!==0 SET SYNC_RUNNER_ONE=TRUE
+	FIND /i "SYNC COMPLETE." !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET ANALYSIS_COMPLETE=TRUE
+	IF !ERRORLEVEL!==0 SET SYNC_RUNNER_ONE=TRUE
 
 
 
@@ -1140,7 +1139,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM ECHO -------------------------------------------------------------
 	REM ECHO -------------------------------------------------------------
 	
-	REM  ECHO !VAR! | FINDSTR /I /C:"Analysis_Complete">nul
+	REM  ECHO !VAR! | FINDSTR /I /C:"Analysis_Complete">NUL
 	
 	REM SET /a param=%1+0
 	REM IF NOT %param%==0 ECHO Valid number
@@ -1148,15 +1147,15 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	
 	
 	REM -------------------------------------------------------------
-	REM FIND /i "CHANGES: 0," !FILENAME_ER!>nul
-	REM IF !errorlevel!==0 SET CHANGE_HAPPEN=FALSE
+	REM FIND /i "CHANGES: 0," !FILENAME_ER!>NUL
+	REM IF !ERRORLEVEL!==0 SET CHANGE_HAPPEN=FALSE
 	REM -------------------------------------------------------------
 	REM THE SORT OF CHANGE LIKE -- NONE -- AND ID -- ERROR OR FIXSTATE
 	REM -------------------------------------------------------------
-	FIND /i "CHANGES: 0, CONFLICTS: 0, COPYTIME: 0, FIXSTATE: 0, ERRORS: 0" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET ANALYSIS_COMPLETE=TRUE
-	IF !errorlevel!==0 SET NONE_TO_DO_______=TRUE
-	REM IF !errorlevel!==0 SET SET CHANGE_HAPPEN=NONE
+	FIND /i "CHANGES: 0, CONFLICTS: 0, COPYTIME: 0, FIXSTATE: 0, ERRORS: 0" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET ANALYSIS_COMPLETE=TRUE
+	IF !ERRORLEVEL!==0 SET NONE_TO_DO_______=TRUE
+	REM IF !ERRORLEVEL!==0 SET SET CHANGE_HAPPEN=NONE
 
 	
 	REM -------------------------------------------------------------
@@ -1175,9 +1174,9 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM -------------------------------------------------------------
 	REM -- FIND /I ARE CASE SENSITIVE
 	REM -------------------------------------------------------------
-	REM FIND /i "CHANGES: 0, CONFLICTS: 0, COPYTIME: 0," !FILENAME_ER!>nul
+	REM FIND /i "CHANGES: 0, CONFLICTS: 0, COPYTIME: 0," !FILENAME_ER!>NUL
 	REM IF NOT !CHANGE_HAPPEN!==NONE (
-		REM IF !errorlevel!==0 SET CHANGE_HAPPEN=CHECKER1
+		REM IF !ERRORLEVEL!==0 SET CHANGE_HAPPEN=CHECKER1
 	REM )
 	REM -------------------------------------------------------------
 	REM -------------------------------------------------------------
@@ -1199,8 +1198,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM IF NOT !CHANGE_HAPPEN!==TRUE         SET /A ACCUMULATOR=ACCUMULATOR+1
 	REM IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
 	REM IF !ACCUMULATOR! NEQ 2 (
-		REM FIND /i ", ERRORS: 0" !FILENAME_ER!>nul
-		REM IF !errorlevel!==0                 SET CHANGE_HAPPEN=CHECKER2
+		REM FIND /i ", ERRORS: 0" !FILENAME_ER!>NUL
+		REM IF !ERRORLEVEL!==0                 SET CHANGE_HAPPEN=CHECKER2
 	REM )
 	REM REM -------------------------------------------------------------
 	REM REM NONE ERROR HAPPEN  -- MAYBE FIXSTATE OR NOTHING ART ALL
@@ -1210,8 +1209,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
 	REM IF NOT !CHANGE_HAPPEN!==CHECKER2     SET /A ACCUMULATOR=ACCUMULATOR+1
 	REM IF !ACCUMULATOR! NEQ 3 (
-		REM FIND /i ", FIXSTATE: 0" !FILENAME_ER!>nul
-		REM IF !errorlevel!==0                 SET CHANGE_HAPPEN=CHECKER3
+		REM FIND /i ", FIXSTATE: 0" !FILENAME_ER!>NUL
+		REM IF !ERRORLEVEL!==0                 SET CHANGE_HAPPEN=CHECKER3
 	REM ) 
 	REM REM -------------------------------------------------------------
 	REM REM OBVIOUS FOUND RESULT DOUBLE CHECKER
@@ -1219,8 +1218,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM REM OBVIOUS THE RESULT MAYBE QUICKER WHEN HERE INSTEAD
 	REM REM NOT FIND -- SYNC COMPLETE
 	REM REM -------------------------------------------------------------
-	REM REM FIND /i "SYNC COMPLETE." !FILENAME_ER!>nul
-	REM REM IF !errorlevel!==0 SET SYNC_RUNNER_ONE=TRUE
+	REM REM FIND /i "SYNC COMPLETE." !FILENAME_ER!>NUL
+	REM REM IF !ERRORLEVEL!==0 SET SYNC_RUNNER_ONE=TRUE
 	REM REM -------------------------------------------------------------
 	REM REM DEFAULT IS TRUE UNLESS PROVE -- IF !CHANGE_HAPPEN!==TRUE
 	REM REM -------------------------------------------------------------
@@ -1238,20 +1237,20 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM IF NOT !CHANGE_HAPPEN!==CHECKER2     SET /A ACCUMULATOR=ACCUMULATOR+1
 	REM IF NOT !CHANGE_HAPPEN!==CHECKER3     SET /A ACCUMULATOR=ACCUMULATOR+1
 	REM IF !ACCUMULATOR! NEQ 5 (
-		REM FIND /i "CHANGES:" !FILENAME_ER!>nul
-		REM IF NOT !errorlevel!==0 (
-		REM FIND /i ", CONFLICTS:" !FILENAME_ER!>nul
+		REM FIND /i "CHANGES:" !FILENAME_ER!>NUL
+		REM IF NOT !ERRORLEVEL!==0 (
+		REM FIND /i ", CONFLICTS:" !FILENAME_ER!>NUL
 		REM )
-		REM IF NOT !errorlevel!==0 (
-		REM FIND /i ", COPYTIME:" !FILENAME_ER!>nul
+		REM IF NOT !ERRORLEVEL!==0 (
+		REM FIND /i ", COPYTIME:" !FILENAME_ER!>NUL
 		REM )
-		REM IF NOT !errorlevel!==0 (
-		REM FIND /i ", FIXSTATE:" !FILENAME_ER!>nul
+		REM IF NOT !ERRORLEVEL!==0 (
+		REM FIND /i ", FIXSTATE:" !FILENAME_ER!>NUL
 		REM )
-		REM IF NOT !errorlevel!==0 (
-		REM FIND /i ", ERRORS:" !FILENAME_ER!>nul
+		REM IF NOT !ERRORLEVEL!==0 (
+		REM FIND /i ", ERRORS:" !FILENAME_ER!>NUL
 		REM )
-		REM IF NOT !errorlevel!==0 (
+		REM IF NOT !ERRORLEVEL!==0 (
 			REM SET CHANGE_HAPPEN=FALSE
 	REM )
 	REM -------------------------------------------------------------
@@ -1267,53 +1266,53 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	SET ERROR_GO=FALSE
 	REM -------------------------------------------------------------
 	
-	FIND /i "ANOTHER JOB IS SYNCING IN FOLDER" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET /A ANOTHER_JOB_COUNTER=!ANOTHER_JOB_COUNTER!+1
-	IF !errorlevel!==0 SET ANOTHER_JOB=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "UNRESOLVED CONFLITS" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET UNRESOLVED_CONFLICTS=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "ANALYZE HAS FINISHED WITH CONFLICTS" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET UNRESOLVED_CONFLICTS=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "COMPUTER IS OFFLINE OR TURNED OFF" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET COMPUTER_IS_OFFLINE=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "ERROR PARSING COMMAND LINE: JOB" !FILENAME_ER!>nul     & REM -- JOB_NOT_FOUND
-	IF !errorlevel!==0 SET JOB_NOT_FOUND=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "THE PROCESS CANNOT ACCESS THE FILE BECAUSE IT IS BEING USED BY ANOTHER PROCESS" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET JOB_IS_USE_BY_ANOTHER_PROCESS=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "THE NETWORK NAME CANNOT BE FOUND" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET NET_PATH_NOT_FIND=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "SYNC FOLDER DOES NOT EXIST" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET SYNC_FOLDER_NOT_EXIST=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "DELETE IT IF IT BECAME CORRUPTED" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET DELETE_IT_IF_IT_BECAME_CORRUPTED=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "THE SPECIFIED NETWORK NAME IS NO LONGER AVAILABLE" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET SPECIFIED_NETWORK_NAME_IS_NOT_FINDAR=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "FILES HAVE CHANGED (EXCLUDING RENAMES), MORE THAN A THRESHOLD OF" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET FILE_HAVE_CHANGE_MORE_THAN_THRESHOLD=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "CANNOT PARSE STATE FILE, DELETE IT" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET NOT_ABLE_PARSE_STATE_FILE_DELETE_IT=TRUE
-	IF !errorlevel!==0 SET ERROR_GO=TRUE
-	FIND /i "PROGRAM RETURNED CONTROL" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET PROGRAM_RETURNED_CONTROL_ADD_VBCR=TRUE
-	IF !errorlevel!==0 ECHO.
+	FIND /i "ANOTHER JOB IS SYNCING IN FOLDER" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET /A ANOTHER_JOB_COUNTER=!ANOTHER_JOB_COUNTER!+1
+	IF !ERRORLEVEL!==0 SET ANOTHER_JOB=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "UNRESOLVED CONFLITS" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET UNRESOLVED_CONFLICTS=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "ANALYZE HAS FINISHED WITH CONFLICTS" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET UNRESOLVED_CONFLICTS=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "COMPUTER IS OFFLINE OR TURNED OFF" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET COMPUTER_IS_OFFLINE=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "ERROR PARSING COMMAND LINE: JOB" !FILENAME_ER!>NUL     & REM -- JOB_NOT_FOUND
+	IF !ERRORLEVEL!==0 SET JOB_NOT_FOUND=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "THE PROCESS CANNOT ACCESS THE FILE BECAUSE IT IS BEING USED BY ANOTHER PROCESS" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET JOB_IS_USE_BY_ANOTHER_PROCESS=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "THE NETWORK NAME CANNOT BE FOUND" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET NET_PATH_NOT_FIND=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "SYNC FOLDER DOES NOT EXIST" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET SYNC_FOLDER_NOT_EXIST=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "DELETE IT IF IT BECAME CORRUPTED" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET DELETE_IT_IF_IT_BECAME_CORRUPTED=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "THE SPECIFIED NETWORK NAME IS NO LONGER AVAILABLE" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET SPECIFIED_NETWORK_NAME_IS_NOT_FINDAR=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "FILES HAVE CHANGED (EXCLUDING RENAMES), MORE THAN A THRESHOLD OF" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET FILE_HAVE_CHANGE_MORE_THAN_THRESHOLD=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "CANNOT PARSE STATE FILE, DELETE IT" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET NOT_ABLE_PARSE_STATE_FILE_DELETE_IT=TRUE
+	IF !ERRORLEVEL!==0 SET ERROR_GO=TRUE
+	FIND /i "PROGRAM RETURNED CONTROL" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET PROGRAM_RETURNED_CONTROL_ADD_VBCR=TRUE
+	IF !ERRORLEVEL!==0 ECHO.
 	
-	FIND /i "VOLUME NOT FOUND" !FILENAME_ER!>nul
-	IF !errorlevel!==0 SET VOLUME_NOT_FOUND=TRUE
-	if !errorlevel!==0 SET ERROR_GO=TRUE
+	FIND /i "VOLUME NOT FOUND" !FILENAME_ER!>NUL
+	IF !ERRORLEVEL!==0 SET VOLUME_NOT_FOUND=TRUE
+	if !ERRORLEVEL!==0 SET ERROR_GO=TRUE
 	REM -- THE MEDIA CARD FOR CAMERA SOMETIME NOT PLUG IN AND THEN 
 	REM -- NOT WANT ERROR ABOUT IT ON THERE
-	REM ECHO !Sources_02[%%a]! | FIND /i "D DSC __ MC CARD V0 _____" >nul
+	REM ECHO !Sources_02[%%a]! | FIND /i "D DSC __ MC CARD V0 _____" >NUL
 
 
 	if !ERROR_GO!=="TRUE" SET Sync_Runner_FAULT_TOTAL=FALSE
@@ -1321,8 +1320,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	
 	REM -------------------------------------------------------------
 	REM TEMP OFF Wed 23-Sep-2020 09:32:10
-	REM if !errorlevel!==0 SET Sync_Runner_FAULT_TOTAL=FALSE
-	REM if !errorlevel!==0 SET Sync_Runner_ONE=FALSE
+	REM if !ERRORLEVEL!==0 SET Sync_Runner_FAULT_TOTAL=FALSE
+	REM if !ERRORLEVEL!==0 SET Sync_Runner_ONE=FALSE
 	REM -------------------------------------------------------------
 	REM -- NOT JOB WORK NUMBER [ #1 ] AS THAT THE CAMERA MEDIA CARD QUITE OFTEN NOT PLUG IN 
 	REM -- NOT COUNT AS ERROR THEN HIDE RESULT
@@ -1360,7 +1359,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM PROBLEM OF CONFLICT OF THIS FILE
 	REM ONLY WAY NOW IS TO EXCLUDE IN GOODSYNC
 	REM ----------------------------------------------------------------
-	DEL !FILENAME_ER! >nul 2>nul
+	DEL !FILENAME_ER! >NUL 2>NUL
 	REM ----------------------------------------------------------------
 
 	REM ACCUMULATOR
@@ -1421,6 +1420,12 @@ FOR /L %%a in (1,1,!LDA!) DO (
 
 	
 	REM ---------------------------------------------------------
+	REM REQUIRE DELAY HERE OR LAST RESULT NOT SHOW AND JUMP OUT OF NEST LOOP
+	IF /I %%a   GEQ 13   TIMEOUT /T 4
+
+	
+	
+	REM ---------------------------------------------------------
 	REM ---------------------------------------------------------
 	REM ---------------------------------------------------------
 	REM ---------------------------------------------------------
@@ -1467,17 +1472,17 @@ FOR /L %%a in (1,1,!LDA!) DO (
 			REM REM ECHO "AAA "  %%a   "VVV " %%v " 444 VAR " !VAR!    
 			REM IF %%v==2                 SET msgboxerB[%%v,%%a]=!VAR!
 			REM IF %%v==4                 SET msgboxerB[%%v,%%a]=!VAR!
-			REM ECHO !VAR! | FINDSTR /I /C:"Analysis_Complete">nul
-			REM If !errorlevel!==0        SET msgboxerB[%%v,%%a]=!VAR!
-			REM ECHO !VAR! | FINDSTR /I /C:"Sync_Runner">nul
-			REM If !errorlevel!==0        SET msgboxerB[%%v,%%a]=!VAR!
-			REM ECHO !VAR! | FINDSTR /I /C:"Another_Running">nul
-			REM If !errorlevel!==0        SET START_LINE=TRUE
+			REM ECHO !VAR! | FINDSTR /I /C:"Analysis_Complete">NUL
+			REM If !ERRORLEVEL!==0        SET msgboxerB[%%v,%%a]=!VAR!
+			REM ECHO !VAR! | FINDSTR /I /C:"Sync_Runner">NUL
+			REM If !ERRORLEVEL!==0        SET msgboxerB[%%v,%%a]=!VAR!
+			REM ECHO !VAR! | FINDSTR /I /C:"Another_Running">NUL
+			REM If !ERRORLEVEL!==0        SET START_LINE=TRUE
 			REM IF !START_LINE!==TRUE (
-				REM ECHO !VAR! | FINDSTR /I /C:"TRUE">nul
-				REM If !errorlevel!==0    SET msgboxerB[%%v,%%a]=!VAR!
-				REM ECHO !VAR! | FINDSTR /I /C:"RESULT OVERALL ERROR COUNT">nul
-				REM If !errorlevel!==0    SET msgboxerB[%%v,%%a]=!VAR!
+				REM ECHO !VAR! | FINDSTR /I /C:"TRUE">NUL
+				REM If !ERRORLEVEL!==0    SET msgboxerB[%%v,%%a]=!VAR!
+				REM ECHO !VAR! | FINDSTR /I /C:"RESULT OVERALL ERROR COUNT">NUL
+				REM If !ERRORLEVEL!==0    SET msgboxerB[%%v,%%a]=!VAR!
 			REM )
 			REM REM SET VAR_2=!msgboxerB[%%v,%%a]!
 			REM REM ECHO "LDM "  %%a   "VVV " %%v "11111 VAR_2 " !VAR!    
@@ -1712,7 +1717,7 @@ EXIT
 @REM -- NOT WORKING ODD SOD'S -- UNABLE TO CONVERT THE CODEPAGE 
 @REM -- USING DOS COMMANDING
 @REM ----------------------------------------------------------------
-@REM chcp 1200 >nul & cmd /a /c type "%~dp0GOODSYNC_ER_OUTPUT.TXT" >"%~dp0GOODSYNC_ER_OUTPUT_2.TXT"
+@REM chcp 1200 >NUL & cmd /a /c type "%~dp0GOODSYNC_ER_OUTPUT.TXT" >"%~dp0GOODSYNC_ER_OUTPUT_2.TXT"
 @REM cmd /a /c type "%~dp0GOODSYNC_ER_OUTPUT.TXT" >"%~dp0GOODSYNC_ER_OUTPUT_2.TXT"
 @REM cmd /a /c TYPE "%~dp0GOODSYNC_ER_OUTPUT_2.TXT"
 
