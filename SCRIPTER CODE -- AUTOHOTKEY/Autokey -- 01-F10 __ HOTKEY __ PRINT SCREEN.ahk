@@ -131,8 +131,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
-
 
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
@@ -145,6 +145,9 @@ SetTitleMatchMode 3  ; Specify Full path
 Send {shift up}
 
 
+
+GroupAdd, FIND_WINDOW_1, GoodSync2Go -
+GroupAdd, FIND_WINDOW_1, GoodSync -
 
 
 
@@ -174,6 +177,8 @@ O_OutputVar_store=
 GLOBAL PART_RENAME_VAR
 
 SETTIMER TIMER_ENTER,OFF
+SETTIMER TIMER_CONVERT_CIPBOARD,400
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -564,18 +569,28 @@ F5::
 #ifwinactive
 
 
-; ----
+; -------------------------------------------------------------------
 ; [How To] Programmatically Tile / Cascade windows - Tutorials - AutoHotkey Community
 ; https://autohotkey.com/board/topic/80580-how-to-programmatically-tile-cascade-windows/
-; ----
+; -------------------------------------------------------------------
 ; Thu 06-Aug-2020 13:00:00
 ; Tile windows vertically : DllCall( "TileWindows", uInt,0, Int,0, Int,0, Int,0, Int,0 )
 ; Tile windows horizontally : DllCall( "TileWindows", uInt,0, Int,1, Int,0, Int,0, Int,0 )
 ; Cascade windows : DllCall( "CascadeWindows", uInt,0, Int,4, Int,0, Int,0, Int,0 )
+; -------------------------------------------------------------------
+
+; GroupAdd, FIND_WINDOW_1, GoodSync -
+; #IfWinNOTActive GoodSync2Go -
+; #IfWinNOTActive GoodSync -
+
+#IfWinNOTActive ahk_group FIND_WINDOW_1
+{
 F7:: 
-DllCall( "CascadeWindows", uInt,0, Int,4, Int,0, Int,0, Int,0 )
-Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-RETURN
+	DllCall( "CascadeWindows", uInt,0, Int,4, Int,0, Int,0, Int,0 )
+	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	RETURN
+}
+#ifwinactive
 
 
 ; -------------------------------------------------------------------
@@ -599,6 +614,48 @@ RETURN
 }
 RETURN
 #ifwinactive
+
+
+; -------------------------------------------------------------------
+RETURN
+; -------------------------------------------------------------------
+; END OF INIT ROUTINE BEGIN
+; THIS DO BEFORE HIGHER
+; -------------------------------------------------------------------
+
+TIMER_CONVERT_CIPBOARD:
+
+IF DLLCall("GetClipboardOwner")
+   if (A_Index > 100)
+	RETURN
+
+ClipWait, 0.1
+IF ErrorLevel
+    RETURN
+
+WWWW:=Clipboard 
+IF !WWWW
+	RETURN
+
+	
+IF INSTR(WWWW,"C:\Users_BAK\")>0
+{
+	StringReplace, WWWW, WWWW,C:\Users_BAK\,D:\Users_BAK\, All
+	Clipboard=%WWWW%
+
+}	
+IF INSTR(WWWW,"C:\SCRIPTER\SCRIPTER CODE -- VBS\")>0
+{
+	StringReplace, WWWW, WWWW,C:\SCRIPTER\SCRIPTER CODE -- VBS\,C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\, All
+	Clipboard=%WWWW%
+}	
+
+RETURN
+; ----
+; Can't open clipboard for reading. - Ask for Help - AutoHotkey Community 
+; https://autohotkey.com/board/topic/33798-cant-open-clipboard-for-reading/
+; ----
+
 ; -------------------------------------------------------------------
 TIMER_SELECT_20_PHOTO_WITH_HOTKEY_H_01:
 
@@ -1176,6 +1233,60 @@ RETURN
 	; ; ---------------------------------------------------------------
 	
 ; RETURN
+
+
+; #ifwinactive FACEBOOK
+; F4::
+
+	; NOT WORK ONE
+	; SENDINPUT comments
+
+	; SENDINPUT mill
+	; SENDINPUT one other
+	; SENDINPUT swandean
+	; SLEEP 800
+	; SENDINPUT {TAB}{TAB}{TAB}
+	; SENDINPUT {ENTER}
+	; SLEEP 800
+	; SENDINPUT {W}   CONTROL W CLOSE
+; RETURN
+; #ifwinactive
+
+
+#ifwinactive Facebook
+F4::
+	WinGet, HWND_22, ID ,A
+	LOOP 1000000
+	{
+		IF GetKeyState("LButton")   ; MOUSEDOWN
+			RETURN
+		WinGet, HWND_24, ID ,A
+		IF HWND_22<>%HWND_24%
+			RETURN
+		SENDINPUT {WheelDown}
+		SLEEP 100
+	}
+RETURN
+#ifwinactive
+
+
+#ifwinactive Trash - Google Drive
+F4::
+	WinGet, HWND_22, ID ,A
+	LOOP 1000000
+	{
+		IF GetKeyState("LButton")   ; MOUSEDOWN
+			RETURN
+		WinGet, HWND_24, ID ,A
+		IF HWND_22<>%HWND_24%
+			RETURN
+		SENDINPUT {WheelDown}
+		SLEEP 100
+	}
+RETURN
+#ifwinactive
+
+
 
 TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 	

@@ -82,9 +82,10 @@ ADD_MINUTE_BEFORE_SCREEN_SAVER=
 ADD_MINUTE_SCREEN_SAVER=
 ; ---------------------------------------------------------------
 
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
-
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER\Class_Monitor_Master\SRC\Class_Monitor.ahk     ; include the class here
+
 
 ; ------------------------------------------------------------------
 ; ----

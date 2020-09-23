@@ -208,6 +208,7 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
 ;# ------------------------------------------------------------------
@@ -434,17 +435,33 @@ PROCESS_NAME_COUNTER_02=
 PROCESS_NAME_COUNTER_03=
 SETTIMER APP_TO_KILL,10000
 
-
+SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
 
 
 RETURN
-
-
-
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
+RETURN
+
+SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:
+	
+	; SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
+	SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 600000 ; 10 MINUTE
+	
+	SET_GO_COMPUTERNAME_02=0
+	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		SET_GO_COMPUTERNAME_02=1
+	IF (A_ComputerName = "2-ASUS-EEE") 
+		SET_GO_COMPUTERNAME_02=1
+	IF (A_ComputerName = "3-LINDA-PC") 
+		SET_GO_COMPUTERNAME_02=1
+	
+	IF SET_GO_COMPUTERNAME_02=1
+		PROCESS, Priority, % DllCall("GetCurrentProcessId"), Low
+RETURN
+
 
 
 
@@ -2468,8 +2485,8 @@ WINDOW_Ar_OPT := []
 ArrayCount := 0
 ArrayCount += 1
 WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "Email Login Page - Mozilla Firefox"	
+; ArrayCount += 1
+; WINDOW_Array[ArrayCount] := "Email Login Page - Mozilla Firefox"	
 ArrayCount += 1
 WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
 ArrayCount += 1

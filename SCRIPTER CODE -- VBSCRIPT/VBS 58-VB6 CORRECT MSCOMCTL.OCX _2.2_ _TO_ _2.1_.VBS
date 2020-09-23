@@ -362,7 +362,20 @@ Sub DisplayFindings_5()
 			FILE_DATE_SPAN=40
 			IF FileModDate+FILE_DATE_SPAN>NOW THEN
 				Set File_1 = fso.OpenTextFile(VAR_PATH_SCANNER, ForReading)
-				TT_EDITOR = File_1.ReadAll
+				TT_EDITOR=""
+				ON ERROR RESUME NEXT
+					TT_EDITOR = File_1.ReadAll
+				ON ERROR GOTO 0
+				' ---------------------------------------------------
+				' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 58-VB6 CORRECT MSCOMCTL.OCX _2.2_ _TO_ _2.1_.VBS
+				' Line:	365
+				' Char:	5
+				' Error:	Input past end of file
+				' Code:	800A003E
+				' Source: 	Microsoft VBScript runtime error
+				' ---------------------------------------------------
+				' Sat 22-Aug-2020 02:23:04
+				' ---------------------------------------------------
 				Set File_1 = NOTHING
 				IF InStr(UCASE(TT_EDITOR), "#2.2#0; MSCOMCTL.OCX")>0 THEN 
 					' MSGBOX VAR_PATH_SCANNER
