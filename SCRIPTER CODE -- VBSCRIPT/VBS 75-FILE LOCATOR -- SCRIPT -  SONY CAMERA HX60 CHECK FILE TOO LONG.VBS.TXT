@@ -1,15 +1,1 @@
-41__BAK COMPUTER VOLUME NAME__MC - HX60V1.txt
-24__JPG AND MP4 SEARCHER.srf
-50__JPG AND MP4 SEARCHER_LONG FILENAME_ERROR_FIND .srf
-73__VBS 75-FILE LOCATOR -- SCRIPT -  SONY CAMERA HX60 CHECK FILE TOO LONG.VBS
-26__#00 Matthew L Email@BT.vcf
-27__#00 Matthew L Mobile BT.vcf
-25__#00 Matthew L Home BT.vcf
-27__#00 Matthew L Mobile VF.vcf
-59__FIND ME - READ ME - SONY CYBER SHOT__XH60V__XP90_BEFORE.txt
-48__FIND ME __ CAMERA DATA __ LINKER THIS FOLDER.lnk
-52__FIND ME CONTACT LEARN ADDRESS - DUPLICATE HIDDEN.txt
-52__Zz #0 Send To Date Of File In Front FileName.exe.lnk
-32__SavedCriteria____MP4 AND JPG.srf
-17__IndexerVolumeGuid
-14__WPSettings.dat
+18__Some_Text_File.txt

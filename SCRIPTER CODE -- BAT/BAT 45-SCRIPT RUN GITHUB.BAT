@@ -127,132 +127,6 @@ REM -----------------------------------------------------------------
 REM Mon 02-Sep-2019 11:45:40
 REM -----------------------------------------------------------------
 
-REM -----------------------------------------------------------------
-REM -----------------------------------------------------------------
-REM -----------------------------------------------------------------
-REM -- NEW UPDATER
-REM -- Sun 21-Jun-2020 12:31:00 -- 3 HOUR 2 MINUTE -- TIME WORKER
-REM -----------------------------------------------------------------
-REM -----------------------------------------------------------------
-REM I HAD JOB HERE EASIER -- DELETE BIG FILE FROM GITHUB STORE
-REM ---------------------------------------------------------------------
-REM GO TO THE WEB AR
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-REM Removing files from a repository's history - GitHub Help
-REM https://help.github.com/en/github/managing-large-files/removing-files-from-a-repositorys-history 
-REM ---------------------------------------------------------------------
-REM Removing sensitive data from a repository - GitHub Help
-REM https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository 
-REM ---------------------------------------------------------------------
-REM BFG Repo-Cleaner by rtyley
-REM https://rtyley.github.io/bfg-repo-cleaner/ 
-REM ---------------------------------------------------------------------
-REM Rewriting Git project history with The BFG | Info | theguardian.com
-REM https://www.theguardian.com/info/developer-blog/2013/apr/29/rewrite-git-history-with-the-bfg 
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-REM DOWNLOAD BFG
-REM AND PUT IT HERE TO USER RENAME SHORTER IF WANT TO
-REM ---------------------------------------------------------------------
-REM "C:\SCRIPTOR GITHUB\bfg.jar"
-REM "C:\SCRIPTOR GITHUB\bfg-1.13.0.jar"
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-REM TYPE IN LINK TO BASH 
-REM AND THEN USE ADMIN ON
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-REM MOVE TO MY FOLDER WITH CD -- NOTE LOWER CASE MOST TIME SOME ARGUMMENT REQUIRE UPPER OR LOWER AR
-REM cd "/c/scriptor github"
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-REM AND THEN HERE TO DELETE ALL TEMP FILE AS LODGE A LARGE ONE IN THERE
-REM java -jar "/c/scriptor github/bfg-1.13.0.jar" --no-blob-protection --delete-files *.tmp
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-REM LOOK CLEAR WHEN WORK -- IF ADMIN NOT AND THEN RESULT NOT CLEAR
-REM ---------------------------------------------------------------------
-REM AFTER HERE
-REM AND THEN -- IT WILL TALKER RUN THAT WHEN DONE
-REM git reflog expire --expire=now --all && git gc --prune=now --aggressive
-REM ---------------------------------------------------------------------
-REM EXAMPLE
-REM ---------------------------------------------------------------------
-REM DELETED FILES
-REM -------------
-REM FILENAME                                                   GIT ID
-REM ----------------------------------------------------------
-REM IcarosPropertyHandler_pending_delete_unpay.tmp            | 90799221 (728.5 KB)
-REM VB47B.tmp                                                 | f8278a37 (932 B)
-REM VB47C.tmp                                                 | e69de29b (0 B)
-REM VBD9EA.tmp                                                | 612a0c2c (158.4 KB)
-REM ~vv1.tmp                                                  | c1cac29f (959.1 MB)
-REM IN TOTAL, 3641 OBJECT IDS WERE CHANGED. FULL DETAILS ARE LOGGED HERE:
-REM ----
-REM C:\SCRIPTOR GITHUB.BFG-REPORT\2020-06-21\11-31-03
-REM ----
-REM BFG RUN IS COMPLETE, RUN: git reflog expire --expire=now --all && git gc --prune=now --aggressive
-REM ---------------------------------------------------------------------
-REM NOTHING ELSE DO IN -- BASH -- COMMAND LINE TOOL
-REM ---------------------------------------------------------------------
-REM NEXT RUN
-REM AND THEN USE ADMIN ON
-REM C:\Users\MATT 04\AppData\Local\GitHubDesktop\app-2.5.2\GitHubDesktop.exe
-REM ---------------------------------------------------------------------
-REM REPOSITORY -- PULL DOWN MENU
-REM DO
-REM PULL AND PUSH
-REM ---------------------------------------------------------------------
-REM FIDDLE AROUND THIS PART
-REM ---------------------------------------------------------------------
-REM BRANCH -- PULL DOWN MENU
-REM ---------------------------------------------------------------------
-REM MERGE INTO CURRENT BRANCH -- MIGHT HAVE THING TO DO -- ONLY IF CHANGE
-REM ---------------------------------------------------------------------
-REM BACK TO PULL PUSH
-REM ---------------------------------------------------------------------
-REM AND POSSIBLE THEY A MERGE FORM WINDOW APPEAR
-REM WITH DETAIL ABOUT CONFLICT
-REM YOU RESOLVE THEM
-REM OPTION CHECKER 
-REM TAKE FROM ORIGIN MASTER OR MASTER
-REM THIS IS FIDDLE
-REM DO EITHER WAY
-REM YOU SYNC JOB SHOULD RENEW OVER SUCCESSFUL
-REM SOME MAYBE COMPLAIN PREFERENCE IS ALTERNATIVE WAY
-REM SO UNDO AND SET
-REM AFTER THEN
-REM DO PULL PUSH IF ANOTHER 
-REM ---------------------------------------------------------------------
-REM OUGHT BE OPTION COMMIT ALL CHANGE -- NOW DONE
-REM ---------------------------------------------------------------------
-REM THAT WILL SAVE REDO CLONE WHOLE
-REM ---------------------------------------------------------------------
-REM -- TIME WORKER
-REM ---------------------------------------------------------------------
-REM Sun 21-Jun-2020 09:28:38
-REM Sun 21-Jun-2020 12:31:00 -- 3 HOUR 2 MINUTE
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-REM Enumerating objects: 1072, done.
-REM Counting objects: 100% (1003/1003), done.
-REM Delta compression using up to 8 threads
-REM Compressing objects: 100% (910/910), done.
-REM Writing objects: 100% (930/930), 246.06 MiB | 2.07 MiB/s, done.
-REM Total 930 (delta 621), reused 37 (delta 2)
-REM remote: Resolving deltas: 100% (621/621), completed with 67 local objects.
-REM remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
-REM remote: error: Trace: 2e5362150f5a829900f0e42e20845967
-REM remote: error: See http://git.io/iEPt8g for more information.
-REM remote: error: File SCRIPTER CODE -- Grub4Dos/~vv1.tmp is 959.06 MB; this exceeds GitHub's file size limit of 100.00 MB
-REM To https://github.com/Matthew-Lancaster/Matthew-Lancaster.git
-REM ! [remote rejected] master -> master (pre-receive hook declined)
-REM error: failed to push some refs to 'https://github.com/Matthew-Lancaster/Matthew-Lancaster.git'
-REM ---------------------------------------------------------------------
-REM ---------------------------------------------------------------------
-
-
 
 
 @ECHO OFF
@@ -309,16 +183,6 @@ SETLOCAL DisableDelayedExpansion
 
 @TITLE %TITLE_VAR%
 
-@START /wait "" "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_CHECK_EXIST.ahk" %TITLE_VAR%
-
-IF %ERRORLEVEL% GTR 1 GOTO ENDE
-REM -----------------------------------------------------------------
-REM --- EXIT WHEN COUNTER OF PREVIOUS SCRIPT SAME ALREADY RUNNING
-REM -----------------------------------------------------------------
-
-
-
-
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" %~n0
 REM %TITLE_VAR%
 
@@ -338,13 +202,10 @@ SET PATH_GIT="C:\Program Files\Git\bin"
  
 CD /D "C:\SCRIPTOR GITHUB"
 
-
-
-
 "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\BAT 45-SCRIPT RUN GITHUB - AHK_MINIMIZE.ahk" /QUICK_INTRO_DUMMY_RUN
 
 
-SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 41-GET DATE AND TIME FORMATTER.VBS"
+SET FILENAME_VBS="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 41-GET DATE AND TIME FORMATTER.VBS"
 for /f "tokens=*" %%a in ('cscript //nologo %FILENAME_VBS%') do (set "strVBScriptResults=%%a")
 
 SET DATE_TIME_FORMATER=%strVBScriptResults%

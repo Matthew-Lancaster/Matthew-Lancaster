@@ -61,6 +61,13 @@
 
 
 
+; ---------------------------------------------------------------------------------
+; DECLARE ARE DO BY INCLUDE 
+; Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+; ---------------------------------------------------------------------------------
+
+
+
 FILE_ScriptName=%A_ScriptName%
 IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 {
@@ -677,10 +684,66 @@ RETURN
 ; + Shift 
 
 
+
+; -------------------------------------------------------------------
+; MOUSE_POS_TOP_LEFT_CORNER_TIMER_BEGIN=
+; MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER=
+; -------------------------------------------------------------------
+; DECLARE FOR
+; Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+; TIMER_CHECK_MOUSE_TOP_LEFT_CORNER_LONG
+; DECLARE IN
+; Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+; -------------------------------------------------------------------
+TIMER_CHECK_MOUSE_TOP_LEFT_CORNER_LONG:
+	; GLOBAL MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER
+	CoordMode, Mouse, Screen
+
+	MOUSEGETPOS, XPOS, YPOS
+
+	IF XPOS>20
+		MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER=
+	IF YPOS>20
+		MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER=
+
+	IF !MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER
+		IF XPOS=0
+		IF YPOS=0
+		{
+			MOUSE_POS_TOP_LEFT_CORNER_TIMER_BEGIN=%A_NOW%
+			MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER=%A_NOW%
+			MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER+=60, Seconds
+			; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+
+	IF MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER
+	IF MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER<%A_NOW%
+	{
+		GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
+		SETTIMER TIMER_CHECK_MOUSE_TOP_LEFT_CORNER_LONG,OFF
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+	}
+RETURN
+
+
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME_OLD_BY_LEAVE_SCRIPT_TO_LAST:
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	DetectHiddenWindows, ON
 	SOUNDBEEP 1000,100
+	
+	; -------------------------------------------------------------------
+	; GIRLGAMER 
+	; https://autohotkey.com/board/topic/74519-solved-move-cursor-to-center-of-screen/
+	; Moderators
+	; 3263 posts
+	; Last active: Feb 01 2015 09:49 AM
+	; Joined: 04 Jun 2010
+	; -------------------------------------------------------------------
+	CoordMode, Mouse, Screen
+	MouseMove, (A_ScreenWidth // 2), (A_ScreenHeight // 2)
+	; -------------------------------------------------------------------
+
 	
 	; ---------------------------------------------------------------
 	; RESET HERE IF SHIFT KEY GOT STUCK DOWN SOMEWHERE BIG RESETER AS CLOSE ALL
@@ -739,7 +802,50 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	
 	SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
 
+	; -------------------------------------------------------------------
+	; STOP TIMER OF THIS SCRIPTOR
+	; -------------------------------------------------------------------
+	IF INSTR(A_ScriptName,"Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk")>0
+	{
+		; -------------------------------------------------------------------
+		; NOT ABLE DO THERE
+		; SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,OFF
+		; -------------------------------------------------------------------
+		; INSTEAD
+		; -------------------------------------------------------------------
+		FILENAME_SCRIPT_AHK_RELOADER=%a_scriptDir%\Autokey -- 28-AUTOHOTKEYS SET RELOADER INFO STOP TIMER #NFS_EX.TXT
+		FileAppend, "SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD _ OFF`n", %FILENAME_SCRIPT_AHK_RELOADER%
+		; -------------------------------------------------------------------
+		; SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,OFF
+		; SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
+		; SETTIMER TIMER_CLOSE_DIFFERCULT_TO_SHUTDOWN_PROGRAM_WHEN_RESTART,1000
+	}
+
+	; -------------------------------------------------------------------
+	; KILL THIS ONE QUICKER WHEN NOT OWN PID
+	; -------------------------------------------------------------------
+	IF INSTR(A_ScriptName,"Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk")=0
+	{
+		WinGet, List, List, ahk_class AutoHotkey
+		Loop %List%
+		{
+			WinGetTitle, TITLE_VAR_T, % "ahk_id " List%A_Index% 
+			If TITLE_VAR_T = Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
+			{
+				WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+				PROCESS, Close, %PID_8% 
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			}
+		}
+	}
+
+
+
+	; -------------------------------------------------------------------
+	; KILL ALL NOT INCLUDE OWN OR TRAY_ICON_CLEANER
+	; -------------------------------------------------------------------
 	WinGet, List, List, ahk_class AutoHotkey
+	PID_8=
 	Loop
 	{
 		Loop %List%
@@ -751,7 +857,7 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 			{
 				PROCESS, Close, %PID_8% 
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				SOUNDBEEP 1000,20
+				; SOUNDBEEP 1000,20
 			}
 		}
 		WinGet, List, List, ahk_class AutoHotkey
@@ -761,9 +867,16 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 		IF I_COUNT<3 THEN 
 			BREAK
 	}
+
+	; -------------------------------------------------------------------
+	; KILL ALL VISUAL BASIC AND COMMAND
+	; -------------------------------------------------------------------
 	GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK
 	GOSUB KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT
 
+	; -------------------------------------------------------------------
+	; KILL NOT RESPONDER
+	; -------------------------------------------------------------------
 	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT"
 		IfExist, %FN_VAR%
 		{
@@ -787,6 +900,10 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	; -- Fri 28-Feb-2020 17:24:17
 	; -- Fri 28-Feb-2020 19:04:28 -- 1 HOUR 40 MINUTE
 	; ---------------------------------------------------------------------------------
+
+	SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
+	PROCESS, Close, %SCRIPTOR_OWN_PID% 
+
 	EXITAPP
 	RETURN
 		

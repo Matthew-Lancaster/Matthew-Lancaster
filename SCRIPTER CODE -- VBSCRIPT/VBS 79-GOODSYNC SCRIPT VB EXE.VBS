@@ -337,7 +337,6 @@ ON ERROR GOTO 0
 ' \\7-ASUS-GL522VW\7_ASUS_GL522VW_01_C_DRIVE\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT
 ' -------------------------------------------------------------------
 
-
 WRITE_FILE_INFO=JOBNAME + VBCRLF + EXE_NAME + VBCRLF
 
 ON ERROR RESUME NEXT
@@ -378,7 +377,6 @@ DO
 	IF COUNTER_LOOP>100 THEN                 EXIT DO
 LOOP
 
-
 IF FSO.FILEEXISTS(PATH_1) = FALSE THEN
 
 	' ---------------------------------------------------------------
@@ -402,7 +400,6 @@ IF FSO.FILEEXISTS(PATH_1) = FALSE THEN
 
 END IF
 
-
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 Wscript.QUIT
@@ -419,7 +416,12 @@ Sub BuildFullPath(ByVal FullPath)
 		BuildFullPath FSO.GetParentFolderName(FullPath)
 		ERR.CLEAR
 		FSO.CreateFolder FullPath
-		IF ERR.NUMBER>0 THEN MSGBOX "LINE 373" & VBCR & "ERROR -- FSO.CreateFolder FullPath" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & FullPath
+		IF ERR.NUMBER>0 THEN 
+			IF ERR.DESCRIPTION = "File already exists" THEN
+				MSGBOX_INFO=VBCR+VBCR+"GOT ERROR FILE EXIST INSTRUCTION MAKE FOLDER"+VBCR+VBCR+"VARIABLE -- FullPath -- CONTENT" +VBCR+VBCR+FullPath +VBCR+VBCR
+			END IF
+		END IF
+		IF ERR.NUMBER>0 THEN MSGBOX "LINE 421" & VBCR & "CODER CUSTOM ERROR -- FSO.CreateFolder FullPath" & VBCR & ERR.DESCRIPTION & VBCR & VBCR & FullPath+MSGBOX_INFO,vbMsgBoxSetForeground,Wscript.ScriptName
 		ON ERROR GOTO 0
 	End If
 	End If

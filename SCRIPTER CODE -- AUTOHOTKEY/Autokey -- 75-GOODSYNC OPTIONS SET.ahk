@@ -159,7 +159,9 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+
 
 
 ; -------------------------------------------------------------------
@@ -236,7 +238,6 @@ MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND_OLD=
 
 ; -------------------------------------------------------------------
 SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,500
-SETTIMER TIMER_SUB_GGODSYNC_TEXT_MANIPULATE,500
 SETTIMER TIMER_WINDOWS_PROPERTIES_PERMISSION_SET_BHUTTON_4_TO_16,400
 OLD_HWND_10=
 SETTIMER TIMER_WINDOWS_PROPERTIES_OPEN_BUTTON_3__EDIT_FOR_PERMISSION,800
@@ -257,12 +258,39 @@ HDD_HUBIC_HWND=
 SETTIMER HUBIC_SETTER,1000
 
 SETTIMER TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT,400
+SETTIMER TIMER_SUB_GOODSYNC_TEXT_MANIPULATE,500
+
+SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
+
+SETTIMER GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME, 2000
 
 
-
-; -------------------------------------------------------------------
 RETURN
 ; -------------------------------------------------------------------
+; END OF INIT PROCEDURE
+; NEXT IS THE CODE SUBROUTINE SET
+; -------------------------------------------------------------------
+RETURN
+
+
+SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:
+	
+	; SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
+	SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 600000 ; 10 MINUTE
+	
+	SET_GO_COMPUTERNAME_02=0
+	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		SET_GO_COMPUTERNAME_02=1
+	IF (A_ComputerName = "2-ASUS-EEE") 
+		SET_GO_COMPUTERNAME_02=1
+	IF (A_ComputerName = "3-LINDA-PC") 
+		SET_GO_COMPUTERNAME_02=1
+	
+	IF SET_GO_COMPUTERNAME_02=1
+		PROCESS, Priority, % DllCall("GetCurrentProcessId"), Low
+RETURN
+
+
 
 DETECT_VB_IDE_BEEN_RUN_MULTIPLE_AND_DO_TASK_AFTER:
 RETURN
@@ -945,13 +973,48 @@ RETURN
 
 
 
-TIMER_SUB_GGODSYNC_TEXT_MANIPULATE:
+TIMER_SUB_GOODSYNC_TEXT_MANIPULATE:
+	; ---------------------------------------------------------------
 	; ahk_exe GoodSync-v10.exe
+	; ---------------------------------------------------------------
+	; HERE WILL FIND WHEN GOT LEFT RIGHT FOLDER
+	; IT WILL NORMAL SET THE FILED LINE TO NOTHING
+	; WHEN CHANGE TO FILE SYSTEM MY COMPUTER OF GOODSYNC
+	; PURPOSE IS ENTER ANOTHER FOLDER FROM CLIPBOARD 
+	; AND FIELD BLANK TO BEGIN
+	; RATHER THAN -- FILE:// -- THERE
+	; ALSO IT WILL CHANGE IF CHANGE TO NETWORK PATH BY WAY OF \\
+	; AND ENTER IT RATHER THAN NONE
+	; ---------------------------------------------------------------
+	; Sat 05-Sep-2020 04:33:15
+	; ---------------------------------------------------------------
+	
+	TITLE_FOLDER_VAR=
 	IfWinExist Right Folder ahk_class #32770
+		TITLE_FOLDER_VAR=Right Folder
+	IfWinExist Left Folder ahk_class #32770
+		TITLE_FOLDER_VAR=Left Folder
+	IF TITLE_FOLDER_VAR
 	{
-		ControlGet, OutputVar_10, Line, 1, Edit1, Right Folder ahk_class #32770
+		ControlGet, OutputVar_10, Line, 1, Edit1, %TITLE_FOLDER_VAR% ahk_class #32770
 		IF OutputVar_10=file://
-			ControlSetText, Edit1,,  Right Folder ahk_class #32770
+		{
+			Clipper_GET:=Clipboard
+			IF SubStr(Clipper_GET,1,2)="\\"
+			{
+				; FIND NETWORK PATH WITH CLIPPER AND ENTER AR
+				; ---------------------------------------------------
+				ControlSetText, Edit1,%Clipper_GET%, %TITLE_FOLDER_VAR% ahk_class #32770
+				SENDINPUT {ENTER}
+			}
+			ELSE
+			{
+				; NOT FIND NETWORK PATH WITH CLIPPER AND ENTER NOTHING
+				; ---------------------------------------------------
+				ControlSetText, Edit1,, %TITLE_FOLDER_VAR% ahk_class #32770
+			}
+			
+		}
 	}
 
 RETURN
@@ -1028,10 +1091,8 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 	IF !HWND_1
 		HWND_1=%HWND_4%
 	
-	WinGet, HWND_1, ID, ] Options ahk_class #32770
-	IF !HWND_1
-		RETURN
-
+	IF HWND_1
+	{
 	WinGet, HWND_1_EXENAME, ProcessName, ahk_id %HWND_1%
 	WinGet, HWND_2, ID, A
 	IF HWND_1
@@ -1579,7 +1640,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			}
 
 			; 06 OF 06
-			; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
+			; ---- %HWND_1% ---- GOODSYNC 2 GO
 			IF GSDATA_FOLDER_SET_GO_4_L=TRUE
 			IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_1<>%HWND_1%
 			{
@@ -1646,8 +1707,6 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		; -----------------------------------------------------------
 
 		
-		
-		
 		; -----------------------------------------------------------
 		; -----------------------------------------------------------
 		; -----------------------------------------------------------
@@ -1708,21 +1767,21 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		Var_check=[VB
 		if (SubStr(OutputVar_3, 1, 3)=Var_check)
 		{
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 1
-		{
-			sleep, 500
-			ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
-			ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
-			If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+			If Status = 1
+			{
+				sleep, 500
+				ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
+				ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
+				If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
 				{
 					ControlSetText, Edit1,, ahk_id %HWND_1%
 					Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
 					SoundBeep , 4000 , 100
+				}
 			}
 		}
-		}
-		
+
 		;-----------------------------------------------------
 		; CAN'T DO THIS ONE 
 		; IT'S EITHER HISTORY OR SAVED NOT BOTH
@@ -1735,26 +1794,36 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		; Cleanup _history_ folder after this many (...)
 		; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
 		;-----------------------------------------------------
-		;ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
-		;If Status = 0
-		;{
-		;	Control, Check,, Button3, ahk_id %HWND_1%
-		;	SoundBeep , 4000 , 100
-		;}
+		; ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
+		; If Status = 0
+		; {
+		; 	Control, Check,, Button3, ahk_id %HWND_1%
+		; 	SoundBeep , 4000 , 100
+		; }
 		
-		ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-		If Status = 0
+		; -----------------------------------------------------------
+		; NOT WORK YET -- REM AWAY -- REQUIRE DETAIL
+		; Save deleted/replaced files to Recycle
+		; -----------------------------------------------------------
+		; Button4 -- Text:	Cleanup _saved_ folder after this many
+		; Button6 -- Text:	Cleanup _history_ folder after this many
+		; -----------------------------------------------------------
+		Var_check=[VB
+		if (SubStr(OutputVar_3, 1, 3)=Var_check)
 		{
-			Control, Check,, Button4, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
+			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button4, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
+			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+			If Status = 0
+			{
+				Control, Check,, Button6, ahk_id %HWND_1%
+				SoundBeep , 4000 , 100
+			}
 		}
-		ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-		If Status = 0
-		{
-			Control, Check,, Button6, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-		}
-		
 		
 		; IF O_HWND_1<>%HWND_1%
 		; {
@@ -1783,6 +1852,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		;Button11 --- Text:	Exclude Hidden files and folders
 		;Button12 -- Text:	Exclude System files and folders
 		;------------------------------------------------------------
+
 		Var_check=[VB EXE SYNC
 		if (SubStr(OutputVar_3, 1, 12)=Var_check)
 		{
@@ -1806,6 +1876,10 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 			}
 		}
 	}                       ; 	IF HWND_2=%HWND_1%
+	
+	} ; ---- IF HWND_1
+
+
 
 
 	; ---------------------------------------------------------------
@@ -1839,25 +1913,33 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 
 			WinGet, HWND_5, ID, GoodSync ahk_class #32770
 			WinGetText OutputVar_3,ahk_id %HWND_5%
+			WinGet, HWND_14, ID, GoodSync2Go ahk_class #32770
+			WinGetText OutputVar_14,ahk_id %HWND_14%
+			
+			
 
-			IfInString, OutputVar_3, Removable drive with volume name
-			{
-				ControlClick, Yes,ahk_id %HWND_5%
-				SoundBeep , 4000 , 100
-			}
-
-
+			; -----------------------------------------------------------
 			; We recommend not to sync to disk root folder, because:
 			; - there are limitations on how many files and folders you can have in disk root folder,
 			; - sync folder name would help you identify copy of what folder you keep in there.
 			; So we will sync to folder K:\=D_DRIVE-2TB - Backup instead. Is this Ok?
 			; Yes
 			; No
+			; -----------------------------------------------------------
 			IfInString, OutputVar_3, We recommend not to sync to disk root folder
 			{
 				ControlClick, Button3,ahk_id %HWND_5%
 				SoundBeep , 4000 , 100
 			}
+
+			IfInString, OutputVar_14, We recommend not to sync to disk root folder
+			{
+				ControlClick, Button3,ahk_id %HWND_14%
+				SoundBeep , 4000 , 100
+			}
+
+
+
 		}
 		
 		
@@ -1895,9 +1977,95 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 
 Return
 
+
+GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME:
+
+
+	dhw := A_DetectHiddenWindows
+	DetectHiddenWindows, ON
+	SetTitleMatchMode 2  ; Avoids Specify Full path.
+	
+	; GOODSYNC2GO __ C OR D HDD
+	; ---------------------------------------------------------------
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	IF HWND_1>0
+	{
+		; -----------------------------------------------------------
+		WinGet, HWND_2, ID, A
+		HWND_GS_A_PARENT=%HWND_2%
+		IF HWND_2<>%HWND_1%
+		{
+			aParent:=DllCall( "GetParent", UInt, HWND_2) + 0
+			HWND_2=%aParent%
+			HWND_GS_A_PARENT=%HWND_2%
+		}
+		; -----------------------------------------------------------
+		IF HWND_2=%HWND_1%
+		{
+			WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+			; INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
+		}
+		; -----------------------------------------------------------
+	}
+	; ---------------------------------------------------------------
+
+	; GOODSYNC DESKTOP C-HDD
+	; ---------------------------------------------------------------
+	IF !HWND_4
+	{
+		WinGet HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+		WinGet, HWND_44, ID, A
+		IF HWND_4<>%HWND_44%
+			HWND_4=
+	}
+
+	; ---------------------------------------------------------------
+	IF HWND_4
+	IF !HWND_1
+		HWND_1=%HWND_4%
+	
+	IF !HWND_1
+		RETURN
+
+
+	; -----------------------------------------------------------
+	; HWND_1 __ APPLY TO GOODSYNC 2 GO
+	; -----------------------------------------------------------
+	WinGetTitle OutputVar_A1,ahk_id %HWND_1%
+	WinGetTitle OutputVar_A2,ahk_id %HWND_4%
+	; TOOLTIP % OutputVar_3 "`n" OutputVar_4
+	GSDATA_FOLDER_SET_GO_4=FALSE
+	IF INSTR(OutputVar_A1,"0000")>0 
+		GSDATA_FOLDER_SET_GO_4=TRUE
+	IF INSTR(OutputVar_A1,"REKTEK")>0 
+		GSDATA_FOLDER_SET_GO_4=TRUE
+	; -----------------------------------------------------------
+	; HWND_4 __ GOODSYNC DESKTOP
+	; -----------------------------------------------------------
+	IF INSTR(OutputVar_A2,"0000")>0 
+		GSDATA_FOLDER_SET_GO_4=TRUE
+	IF INSTR(OutputVar_A2,"REKTEK")>0 
+		GSDATA_FOLDER_SET_GO_4=TRUE
+
+	; TOOLTIP % GSDATA_FOLDER_SET_GO_4 "`n" OutputVar_3 "`n" OutputVar_4
+	IF GSDATA_FOLDER_SET_GO_4=TRUE
+	IfInString, OutputVar_3, Removable drive with volume name
+	{
+		ControlClick, No, ahk_id %HWND_5%
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+	IF GSDATA_FOLDER_SET_GO_4=FALSE
+	IfInString, OutputVar_3, Removable drive with volume name
+	{
+		ControlClick, Yes,ahk_id %HWND_5%
+		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+
+RETURN
+
+
+
 HUBIC_SETTER:
-
-
 RETURN
 
 

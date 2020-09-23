@@ -124,8 +124,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
-
 
 
 
@@ -211,6 +211,11 @@ Array_FileName_2 := []
 
 GLOBAL OLD_UniqueID_WINRAR_CONVERT
 OLD_UniqueID_WINRAR_CONVERT=0
+
+
+
+
+
 
 
 OSVER_N_VAR:=a_osversion
@@ -445,6 +450,9 @@ SETTIMER COPY_CAMERA_MEDIA_CARD_BRING_FRONT,1000
 VAR_GET_4_OLD=
 SETTIMER NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP,4000
 
+SETTIMER INSTALL_REGISTER,2000
+
+
 VAR_GET_5_OLD=
 SETTIMER INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE,4000
 
@@ -476,17 +484,56 @@ SETTIMER TIMER_1_SECOND_BLAST_ERROR_NAGGER,1000
 
 SETTIMER TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS,1000
 
+SETTIMER VBS_29_COPY_CAMERA_PHOTO_IMAGES_VBS,1000
+
+SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME,2000 
+
+; SETTIMER TIMER_, 600000 ; 10 MINUTE
 
 
+SETTIMER AUTOKEY__98_ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR_AHK,2000
 
-
-
+RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 RETURN
+
+; -------------------------------------------------------------------
+; Sun 20-Sep-2020 04:32:0
+; NICE IDEA ONE
+; -------------------------------------------------------------------
+AUTOKEY__98_ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR_AHK:
+	SETTIMER AUTOKEY__98_ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR_AHK,3600000 ; ---- 1 HOUR
+	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 98-ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR.ahk"
+	IfExist, %FN_VAR%
+	{
+		Run, "%FN_VAR%"
+	}
+RETURN
+
+SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:
+	
+	; SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000 
+	SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 600000 ; 10 MINUTE
+	
+	SET_GO_COMPUTERNAME_02=0
+	IF (A_ComputerName = "1-ASUS-X5DIJ") 
+		SET_GO_COMPUTERNAME_02=1
+	IF (A_ComputerName = "2-ASUS-EEE") 
+		SET_GO_COMPUTERNAME_02=1
+	IF (A_ComputerName = "3-LINDA-PC") 
+		SET_GO_COMPUTERNAME_02=1
+	
+	IF SET_GO_COMPUTERNAME_02=1
+		PROCESS, Priority, % DllCall("GetCurrentProcessId"), Low
+RETURN
+
+
+
+
 
 TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS:
 
@@ -925,7 +972,11 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 			U2=C:\Users\MATT 0%U1%\AppData\Roaming\Insync\App\Insync.exe
 			IF FILEEXIST(U2)
 			{
-				RUN %U2%
+				; RUN %U2%
+				; ---------------------------------------------------
+				; ---------------------------------------------------
+				; ---------------------------------------------------
+				; ---------------------------------------------------
 			}
 		}
 	}
@@ -1012,7 +1063,24 @@ NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP:
 RETURN
 
 
+
+INSTALL_REGISTER:
+
+
+	WinGet,VAR_GET_7, ID, Easy CD-DA Extractor 5.1 ahk_class TTrialForm
+	IF !VAR_GET_7
+		RETURN
 	
+	ControlGettext, OutVar_22, TEdit2,       ahk_id %VAR_GET_7%
+	IF INSTR(OutVar_22,"ttdown@ttdown.com")=0
+		ControlSetText,TEdit2,ttdown@ttdown.com, ahk_id %VAR_GET_7%
+
+	ControlGettext, OutVar_22, TEdit1,       ahk_id %VAR_GET_7%
+	IF INSTR(OutVar_22,"7RUHUBGBLD")=0
+		ControlSetText,TEdit1,7RUHUBGBLD,        ahk_id %VAR_GET_7%
+	
+	
+RETURN
 	
 
 
@@ -1642,22 +1710,34 @@ RETURN
 NOT_ALLOWED_PRCOCESS:
 	; -- Mon 17-Feb-2020 13:51:46
 	VAR_2_WIN_01=LACLIENT.EXE
-	PROCESS, EXIST, %VAR_2_WIN_01%.exe
+	PROCESS, EXIST, %VAR_2_WIN_01%
 	If ErrorLevel
 	{
-		PROCESS, CLOSE, %VAR_2_WIN_01%.exe
+		PROCESS, CLOSE, %VAR_2_WIN_01%
 		GOSUB SOUND_START_WAV
-		RETURN
+		; RETURN
 	}
 
 	VAR_2_WIN_02=LOGITECHCAMPAIGNNOTIFIER.EXE
-	PROCESS, EXIST, %VAR_2_WIN_02%.exe
+	PROCESS, EXIST, %VAR_2_WIN_02%
 	If ErrorLevel
 	{
-		PROCESS, CLOSE, %VAR_2_WIN_02%.exe
+		PROCESS, CLOSE, %VAR_2_WIN_02%
 		GOSUB SOUND_START_WAV
-		RETURN
+		; RETURN
 	}
+	
+	; C:\Program Files (x86)\MiniTool ShadowMaker\AgentService.exe
+	VAR_2_WIN_02=AgentService
+	PROCESS, EXIST, %VAR_2_WIN_02%
+	If ErrorLevel
+	{
+		PROCESS, CLOSE, %VAR_2_WIN_02%
+		GOSUB SOUND_START_WAV
+		; RETURN
+	}
+	
+	
 RETURN
 
 NOT_RESPOND_TIMEZONE_MINI_GUI_DISPLAY_05:
@@ -1669,14 +1749,14 @@ IfExist, %Element_1%
 	IfWinExist %VAR_1_WIN_05%
 	{
 		TIMER_NOT_RESPOND_APP_VB_TIMEZONE_MINI_GUI_DISPLAY=%A_NOW%
-		TIMER_NOT_RESPOND_APP_VB_TIMEZONE_MINI_GUI_DISPLAY+= 1, MINUTES
+		TIMER_NOT_RESPOND_APP_VB_TIMEZONE_MINI_GUI_DISPLAY+= 4, MINUTES
 	}
 
 	IFWinNotExist %VAR_1_WIN_05%
 	IF TIMER_NOT_RESPOND_APP_VB_TIMEZONE_MINI_GUI_DISPLAY<%A_NOW%
 	{
 		TIMER_NOT_RESPOND_APP_VB_TIMEZONE_MINI_GUI_DISPLAY=%A_NOW%
-		TIMER_NOT_RESPOND_APP_VB_TIMEZONE_MINI_GUI_DISPLAY+= 1, MINUTES
+		TIMER_NOT_RESPOND_APP_VB_TIMEZONE_MINI_GUI_DISPLAY+= 4, MINUTES
 
 		SoundBeep , 2000 , 100
 		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
@@ -3024,6 +3104,37 @@ IF (OSVER_N_VAR=5)
 RETURN
 
 
+; -------------------------------------------------------------------
+; VBS 29-COPY CAMERA PHOTO IMAGES.VBS
+; ---------------------------
+; FILE NOT GET DATE 
+; J:\RECORD\REC012.WAV
+;
+; ERROR NUMBER
+; 5
+; ERROR DESCRIPTION
+; Invalid procedure call or argument
+;
+; PUT CURRENT DATE
+; ---------------------------
+; OK   
+; ---------------------------
+; Thu 27-Aug-2020 03:22:44
+; -------------------------------------------------------------------
+VBS_29_COPY_CAMERA_PHOTO_IMAGES_VBS:
+	IfWinEXIST VBS 29-COPY CAMERA PHOTO IMAGES.VBS ahk_class #32770
+	{
+		WinActivate, VBS 29-COPY CAMERA PHOTO IMAGES.VBS ahk_class #32770
+		; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+	}	
+RETURN
+; -------------------------------------------------------------------
+
+
+
+
+
 
 GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 	RETURN
@@ -3293,7 +3404,7 @@ CHECK_SET_OF_APP_NOT_RESPOND_MAIN:
 				TIMER_SET_NOT_RESPONDING=0
 				TOOLTIP
 				GOSUB CLOSE_MANY_APP_IF_NOT_RESPONDER
-				MSGBOX "Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk"`n"SOME COMPUTER APP ARE NOT RESPONDER KILL THEM IS DUE`nAutokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`n"%TIMER_SET_NOT_RESPONDING% " -- `n" %A_Now%`n"MSGBOX TIMEOUT 8 SEONCD",8
+				MSGBOX ,,, Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`nSOME COMPUTER APP ARE NOT RESPONDER KILL THEM IS DUE`nAutokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`n%TIMER_SET_NOT_RESPONDING%`n%A_Now% `nMSGBOX TIMEOUT 8 SECOND,8
 
 				}	
 			

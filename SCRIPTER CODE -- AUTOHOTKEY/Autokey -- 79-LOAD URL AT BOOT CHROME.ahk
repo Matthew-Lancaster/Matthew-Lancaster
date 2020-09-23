@@ -57,7 +57,8 @@ CHROME_RUN_AND_MIN:
 	IF INSTR(TITLE_VAR,Element)
 		AUTO_RELOAD_FIREFOX_VAR_2=1
 
-	Element:=Your notifications - Google Chrome
+	; Element:=Your notifications - Google Chrome
+	Element:=Facebook - Google Chrome
 	WinGetTITLE, TITLE_VAR, %Element% ahk_class Chrome_WidgetWin_1
 	IF INSTR(TITLE_VAR,Element)
 		AUTO_RELOAD_FACEBOOK_VAR=1
@@ -89,20 +90,22 @@ CHROME_RUN_AND_MIN:
 			MSGBOX CHROME.EXE NOT EXIST TO FIND
 		}	
 		
+		; USER TO BE BEFORE 15-SEP-2020 CHANGE NEW DESIGN
+		; CHROME_PAGE=https://www.facebook.com/notifications
 		IF (A_ComputerName = "1-ASUS-X5DIJ") 
-		CHROME_PAGE=https://www.facebook.com/notifications
+		CHROME_PAGE=https://www.facebook.com
 		IF (A_ComputerName = "2-ASUS-EEE") 
 		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
 		; IF (A_ComputerName = "3-LINDA-PC") 
-		; CHROME_PAGE=https://www.facebook.com/notifications
+		; CHROME_PAGE=https://www.facebook.com
 		IF (A_ComputerName = "4-ASUS-GL522VW") 
-		CHROME_PAGE=https://www.facebook.com/notifications
+		CHROME_PAGE=https://www.facebook.com
 		IF (A_ComputerName = "5-ASUS-P2520LA") 
 		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
 		IF (A_ComputerName = "7-ASUS-GL522VW") 
-		CHROME_PAGE=https://www.facebook.com/notifications
+		CHROME_PAGE=https://www.facebook.com
 		IF (A_ComputerName = "8-MSI-GP62M-7RD") 
-		CHROME_PAGE=https://www.facebook.com/notifications
+		CHROME_PAGE=https://www.facebook.com
 		
 		IF AUTO_RELOAD_FACEBOOK_VAR=0
 		IF CHROME_PAGE

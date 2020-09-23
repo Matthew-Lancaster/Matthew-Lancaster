@@ -224,25 +224,17 @@ IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
 ArrayCount := 0
-; IF (A_ComputerName <> "2-ASUS-EEE")
-; -------------------------------------------------------------------
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
-; -------------------------------------------------------------------
 
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk"
-
-; IF (A_ComputerName <> "2-ASUS-EEE")
-; -------------------------------------------------------------------
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 75-GOODSYNC OPTIONS SET.ahk"
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
-; -------------------------------------------------------------------
-
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk"	
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+; ArrayCount += 1
+; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk"	
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 14-BRIGHTNESS WITH DIMMER.ahk"
 IF OSVER_N_VAR>5
@@ -266,11 +258,8 @@ IF OSVER_N_VAR>=10
 	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK"
 }
 
-; IF (A_ComputerName <> "2-ASUS-EEE")
-; -------------------------------------------------------------------
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 50-Check The Capital Lock State.ahk"
-
 
 ; ArrayCount += 1
 ; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
@@ -461,27 +450,8 @@ SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,200
 SETTIMER TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE,10000
 SETTIMER TIMER_CLOSE_DIFFERCULT_TO_SHUTDOWN_PROGRAM_WHEN_RESTART,1000
 SETTIMER TIMER_FILE_FIND_TO_STOP_TIMER,1000	
-SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
 
 RETURN
-
-SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:
-	
-	; SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
-	SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 600000 ; 10 MINUTE
-	
-	SET_GO_COMPUTERNAME_02=0
-	IF (A_ComputerName = "1-ASUS-X5DIJ") 
-		SET_GO_COMPUTERNAME_02=1
-	IF (A_ComputerName = "2-ASUS-EEE") 
-		SET_GO_COMPUTERNAME_02=1
-	IF (A_ComputerName = "3-LINDA-PC") 
-		SET_GO_COMPUTERNAME_02=1
-	
-	IF SET_GO_COMPUTERNAME_02=1
-		PROCESS, Priority, % DllCall("GetCurrentProcessId"), Low
-RETURN
-
 
 
 ; -------------------------------------------------------------------
@@ -591,7 +561,7 @@ RUN_THE_APP:
 
 	SET_GO=TRUE
 	
-	IF INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
 		IF (A_ComputerName = "1-ASUS-X5DIJ") 
 			SET_GO=FALSE

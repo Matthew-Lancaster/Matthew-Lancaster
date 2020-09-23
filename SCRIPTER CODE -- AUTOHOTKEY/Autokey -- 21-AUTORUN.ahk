@@ -248,6 +248,7 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
 DetectHiddenWindows, on
@@ -303,16 +304,17 @@ Loop, %0% {               ;for each command line parameter
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+GOSUB MAIN_ROUTINE_2
+
 If Param_in
 {
-	GOSUB MAIN_ROUTINE_2
 	EXITAPP
 }
-ELSE
-{
-	GOSUB MAIN_ROUTINE_2
-	GOSUB MAIN_ROUTINE
-}
+
+GOSUB MAIN_ROUTINE
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -646,6 +648,21 @@ MAIN_ROUTINE_2:
 
 
 ; -------------------------------------------------------------------
+; GIRLGAMER 
+; https://autohotkey.com/board/topic/74519-solved-move-cursor-to-center-of-screen/
+; Moderators
+; 3263 posts
+; Last active: Feb 01 2015 09:49 AM
+; Joined: 04 Jun 2010
+; -------------------------------------------------------------------
+CoordMode, Mouse, Screen
+MouseMove, (A_ScreenWidth // 2), (A_ScreenHeight // 2)
+; -------------------------------------------------------------------
+
+
+
+
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 Element_1 := "D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe"
 IfExist, %Element_1%
@@ -755,8 +772,8 @@ IF SET_GO_8=TRUE
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
 		IfExist, %FN_VAR%
 		{
-				SoundBeep , 2000 , 100
-				Run, "%FN_VAR%"
+				; SoundBeep , 2000 , 100
+				; Run, "%FN_VAR%"
 		}
 	}
 }
@@ -1306,7 +1323,7 @@ IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 ; IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	; SET_GO_1=1
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
-	SET_GO_1=1	
+	SET_GO_1=8M
 
 IF SET_GO_1=1
 {
@@ -1323,6 +1340,30 @@ IF SET_GO_1=1
 		}
 	}
 }
+
+IF SET_GO_1=8M
+	SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,1000
+
+TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M:
+{
+	Process, Exist, GoodSync-v10.exe
+	If ErrorLevel
+		SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,OFF
+		
+	If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			MSGBOX "COMPUTER NAME 8-MSI-GP62M-7RD -- READY TO START DESKTOP GOODSYNC"
+			Run, "%FN_VAR%" 
+		}
+	}
+}
+RETURN
 
 
 SET_GO_1=0
@@ -2266,6 +2307,14 @@ GOSUB ESCAPE_KEY_THE_RESTORE_PAGES_CHROME
 GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 GOSUB MINIMIZE_ALL_BLUETOOTH
 
+
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 98-ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR.ahk"
+IfExist, %FN_VAR%
+{
+	Run, "%FN_VAR%"
+}
+
+
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
 SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
@@ -2924,6 +2973,9 @@ RETURN
 TEST_STARTER_RUN_IN:
 
 ; ExitApp
+
+
+
 
 RETURN
 
