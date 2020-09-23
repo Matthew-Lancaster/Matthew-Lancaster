@@ -1341,7 +1341,7 @@ GOTO NEXT_PART
 	REM -- NOW HAS ABLE TO CHECK IF ALREADY RUNNER
 	REM -----------------------------------------------------------------
 	REM -----------------------------------------------------------------
-	ECHO 
+	ECHO.
 
 	IF NOT !MODE_RUN!==GITHUB GOTO JUMP_OVER_GITHUB
 	START "" "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 45-SCRIPT RUN GITHUB.BAT"
