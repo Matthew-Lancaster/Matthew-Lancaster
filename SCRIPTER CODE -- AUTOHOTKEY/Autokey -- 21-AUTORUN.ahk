@@ -1619,25 +1619,25 @@ If TRUE=FALSE
 	VV_VAR:="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
 	IfExist, %VV_VAR%
 	{
-		;VF_VAR:="C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VICE V -- VB-VB-NT--  EXE -- AT BOOT.fsf"
+		;VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VICE V -- VB-VB-NT--  EXE -- AT BOOT.fsf"
 		;IfExist, %VF_VAR%
 		; Run, "%VV_VAR%" "%VF_VAR%" /dialogautoexec /autoclose , , MIN
 		
-		VF_VAR:="C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VV C DRIVE ROOT\VV C DRIVE __  SYSINTERNALS TO PROGRAM FILES.fsf"
+		VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE __  SYSINTERNALS TO PROGRAM FILES.fsf"
 		IfExist, %VF_VAR%
 		{
 			SoundBeep , 2500 , 100
 			Run, "%VV_VAR%" "%VF_VAR%" /dialogautoexec /autoclose , , MIN
 		}
 		
-		VF_VAR:="C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES MOVER ROOT.fsf"
+		VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES MOVER ROOT.fsf"
 		IfExist, %VF_VAR%
 		{
 			SoundBeep , 2500 , 100
 			Run, "%VV_VAR%" "%VF_VAR%" /dialogautoexec /autoclose , , MIN
 		}
 
-		VF_VAR:="C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES WINRAR.fsf"
+		VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES WINRAR.fsf"
 		IfExist, %VF_VAR%
 		{
 			SoundBeep , 2500 , 100
