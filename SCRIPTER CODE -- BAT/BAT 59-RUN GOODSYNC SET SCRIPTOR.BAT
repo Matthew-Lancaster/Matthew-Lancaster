@@ -1009,9 +1009,17 @@ FOR /L %%a in (1,1,!LDA!) DO (
 
 	SET COMMAND_PRINT=%GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
 	
+	REM -------------------------------------------------------------
+	REM THE TRIM QUOTE LEAD AND ENDER -- A BIT MISLEAD AS STRIP ALL QUOTE
+	REM -------------------------------------------------------------
+	REM ECHO !COMMAND_PRINT!
+	REM -------------------------------------------------------------
 	ECHO !COMMAND_PRINT:"=!
+	REM -------------------------------------------------------------
+	REM SOME REASON A LINE FEED APPEAR ODD TIME
+	REM -------------------------------------------------------------
 	
-	REM -----------------------------------------------------------------
+	REM -------------------------------------------------------------
 	IF %%a  LSS 2  ECHO.
 	REM -----------------------------------------------------------------
 	REM LOOK GOOD LINE -- THE FIRST ENTRY HERE NEST LOOP NOT SPACE GAP PRINT HERE
@@ -1425,7 +1433,11 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	
 	REM ---------------------------------------------------------
 	REM REQUIRE DELAY HERE OR LAST RESULT NOT SHOW AND JUMP OUT OF NEST LOOP
-	IF /I %%a   GEQ 13   TIMEOUT /T 2
+	IF /I %%a   GEQ 13   TIMEOUT /T 1
+	REM ---------------------------------------------------------
+	REM THAT THE REASON THE END MSGBOX NOT SHOW WHEN TEST LONG BEFORE
+	REM INCLUDE VARIABLE ARRAY WITHIN PROCEDURE 
+	REM WORK THAT BACK ON BEEN REMMER ARD SURE WORK
 	REM ---------------------------------------------------------
 
 	
