@@ -1421,7 +1421,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	
 	REM ---------------------------------------------------------
 	REM REQUIRE DELAY HERE OR LAST RESULT NOT SHOW AND JUMP OUT OF NEST LOOP
-	IF /I %%a   GEQ 13   TIMEOUT /T 4
+	IF /I %%a   GEQ 13   TIMEOUT /T 2
+	REM ---------------------------------------------------------
 
 	
 	
@@ -1682,16 +1683,18 @@ GOTO NEXT_PART
 	REM REM ECHO %~dp0
 	REM ECHO ----------------------------------------------------------------
 	REM TIMEOUT /T 8
-TIMEOUT /T 30
-GOTO ENDE
+	
+	TIMEOUT /T 40
+
+	GOTO ENDE
 
 :NEXT_PART
 
-ECHO.
-TIMEOUT /T 300
-REM ------------- 300 = 5 MINUTE
+	ECHO.
+	TIMEOUT /T 300
+	REM ------------- 300 = 5 MINUTE
 
-IF NOT !ERROR_COUNT!==0   PAUSE
+	IF NOT !ERROR_COUNT!==0   PAUSE
 :ENDER
 
 
