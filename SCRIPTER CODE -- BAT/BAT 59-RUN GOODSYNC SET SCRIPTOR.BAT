@@ -988,6 +988,9 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	ECHO !PADD1!%%a of !PADD2!!LDA! -- START
 	ECHO ----------------------------------------------------------------
 
+	IF /I %%a   GTR 10 PAUSE
+
+	
 	REM -----------------------------------------------------------------
 	REM STRIP QUOTE THIS BIT BEFORE END :"=
 	REM -----------------------------------------------------------------
@@ -1008,6 +1011,10 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	ECHO.
 	ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
 	IF %%a  LSS 2  ECHO.
+	REM -----------------------------------------------------------------
+	REM LOOK GOOD LINE -- THE FIRST ENTRY HERE NEST LOOP NOT SPACE GAP PRINT HERE
+	REM -----------------------------------------------------------------
+	
 	%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
 
 	REM  OUT EXAMPLE
@@ -1026,8 +1033,6 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	DEL !FILENAME_ER! >nul 2>nul
 	RENAME !FILENAME_ER_2! !FILENAME_ER_4!
 	TYPE !FILENAME_ER!
-
-
 
 	REM ------------------------------------------------------------
 	REM -- SYMBOL -- CYMBAL
@@ -1135,8 +1140,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	
 	REM SET /a param=%1+0
 	REM IF NOT %param%==0 ECHO Valid number
-	
-	
+
 	
 	
 	REM -------------------------------------------------------------
@@ -1149,9 +1153,17 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	IF !errorlevel!==0 SET ANALYSIS_COMPLETE=TRUE
 	IF !errorlevel!==0 SET NONE_TO_DO_______=TRUE
 	REM IF !errorlevel!==0 SET SET CHANGE_HAPPEN=NONE
+
 	
-	
-	
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
 	REM -------------------------------------------------------------
 	REM __ DOUBLE STEP LINE -- NOT BOTHER HERE __ FixState: 0
 	REM __ EXAMPLE ONE ONE
@@ -1159,10 +1171,18 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM -------------------------------------------------------------
 	REM -- FIND /I ARE CASE SENSITIVE
 	REM -------------------------------------------------------------
-	FIND /i "CHANGES: 0, CONFLICTS: 0, COPYTIME: 0," !FILENAME_ER!>nul
-	IF NOT !CHANGE_HAPPEN!==NONE (
-		IF !errorlevel!==0 SET CHANGE_HAPPEN=CHECKER1
-	)
+	REM FIND /i "CHANGES: 0, CONFLICTS: 0, COPYTIME: 0," !FILENAME_ER!>nul
+	REM IF NOT !CHANGE_HAPPEN!==NONE (
+		REM IF !errorlevel!==0 SET CHANGE_HAPPEN=CHECKER1
+	REM )
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
 	REM -------------------------------------------------------------
 	REM NONE CHANGE -- MAYBE FIXSTATE OR ERROR OR NONE
 	REM RULE 1ST TWO BOTH OUT BEFORE
@@ -1171,65 +1191,72 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM -------------------------------------------------------------
 	REM GIVER TO FIND _OR_ STATEMENT USE TALLY COUNT INSTEAD
 	REM -------------------------------------------------------------
-	SET /A ACCUMULATOR=0
-	IF NOT !CHANGE_HAPPEN!==TRUE         SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF !ACCUMULATOR! NEQ 2 (
-		FIND /i ", ERRORS: 0" !FILENAME_ER!>nul
-		IF !errorlevel!==0                 SET CHANGE_HAPPEN=CHECKER2
-	)
+	REM SET /A ACCUMULATOR=0
+	REM IF NOT !CHANGE_HAPPEN!==TRUE         SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF !ACCUMULATOR! NEQ 2 (
+		REM FIND /i ", ERRORS: 0" !FILENAME_ER!>nul
+		REM IF !errorlevel!==0                 SET CHANGE_HAPPEN=CHECKER2
+	REM )
+	REM REM -------------------------------------------------------------
+	REM REM NONE ERROR HAPPEN  -- MAYBE FIXSTATE OR NOTHING ART ALL
+	REM REM -------------------------------------------------------------
+	REM SET /A ACCUMULATOR=0
+	REM IF NOT !CHANGE_HAPPEN!==TRUE         SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF NOT !CHANGE_HAPPEN!==CHECKER2     SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF !ACCUMULATOR! NEQ 3 (
+		REM FIND /i ", FIXSTATE: 0" !FILENAME_ER!>nul
+		REM IF !errorlevel!==0                 SET CHANGE_HAPPEN=CHECKER3
+	REM ) 
+	REM REM -------------------------------------------------------------
+	REM REM OBVIOUS FOUND RESULT DOUBLE CHECKER
+	REM REM -------------------------------------------------------------
+	REM REM OBVIOUS THE RESULT MAYBE QUICKER WHEN HERE INSTEAD
+	REM REM NOT FIND -- SYNC COMPLETE
+	REM REM -------------------------------------------------------------
+	REM REM FIND /i "SYNC COMPLETE." !FILENAME_ER!>nul
+	REM REM IF !errorlevel!==0 SET SYNC_RUNNER_ONE=TRUE
+	REM REM -------------------------------------------------------------
+	REM REM DEFAULT IS TRUE UNLESS PROVE -- IF !CHANGE_HAPPEN!==TRUE
+	REM REM -------------------------------------------------------------
+	REM REM EQU - EQUAL
+	REM REM NEQ - NOT EQUAL
+	REM REM LSS - LESS THAN
+	REM REM LEQ - LESS THAN OR EQUAL
+	REM REM GTR - GREATER THAN
+	REM REM GEQ - GREATER THAN OR EQUAL
+	REM REM -------------------------------------------------------------
+	REM SET /A ACCUMULATOR=0
+	REM IF NOT !CHANGE_HAPPEN!==TRUE         SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF NOT !CHANGE_HAPPEN!==NONE_2222    SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF NOT !CHANGE_HAPPEN!==CHECKER2     SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF NOT !CHANGE_HAPPEN!==CHECKER3     SET /A ACCUMULATOR=ACCUMULATOR+1
+	REM IF !ACCUMULATOR! NEQ 5 (
+		REM FIND /i "CHANGES:" !FILENAME_ER!>nul
+		REM IF NOT !errorlevel!==0 (
+		REM FIND /i ", CONFLICTS:" !FILENAME_ER!>nul
+		REM )
+		REM IF NOT !errorlevel!==0 (
+		REM FIND /i ", COPYTIME:" !FILENAME_ER!>nul
+		REM )
+		REM IF NOT !errorlevel!==0 (
+		REM FIND /i ", FIXSTATE:" !FILENAME_ER!>nul
+		REM )
+		REM IF NOT !errorlevel!==0 (
+		REM FIND /i ", ERRORS:" !FILENAME_ER!>nul
+		REM )
+		REM IF NOT !errorlevel!==0 (
+			REM SET CHANGE_HAPPEN=FALSE
+	REM )
 	REM -------------------------------------------------------------
-	REM NONE ERROR HAPPEN  -- MAYBE FIXSTATE OR NOTHING ART ALL
 	REM -------------------------------------------------------------
-	SET /A ACCUMULATOR=0
-	IF NOT !CHANGE_HAPPEN!==TRUE         SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF NOT !CHANGE_HAPPEN!==CHECKER2     SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF !ACCUMULATOR! NEQ 3 (
-		FIND /i ", FIXSTATE: 0" !FILENAME_ER!>nul
-		IF !errorlevel!==0                 SET CHANGE_HAPPEN=CHECKER3
-	) 
 	REM -------------------------------------------------------------
-	REM OBVIOUS FOUND RESULT DOUBLE CHECKER
 	REM -------------------------------------------------------------
-	REM OBVIOUS THE RESULT MAYBE QUICKER WHEN HERE INSTEAD
-	REM NOT FIND -- SYNC COMPLETE
 	REM -------------------------------------------------------------
-	REM FIND /i "SYNC COMPLETE." !FILENAME_ER!>nul
-	REM IF !errorlevel!==0 SET SYNC_RUNNER_ONE=TRUE
 	REM -------------------------------------------------------------
-	REM DEFAULT IS TRUE UNLESS PROVE -- IF !CHANGE_HAPPEN!==TRUE
 	REM -------------------------------------------------------------
-	REM EQU - EQUAL
-	REM NEQ - NOT EQUAL
-	REM LSS - LESS THAN
-	REM LEQ - LESS THAN OR EQUAL
-	REM GTR - GREATER THAN
-	REM GEQ - GREATER THAN OR EQUAL
-	REM -------------------------------------------------------------
-	SET /A ACCUMULATOR=0
-	IF NOT !CHANGE_HAPPEN!==TRUE         SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF NOT !CHANGE_HAPPEN!==NONE_2222    SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF NOT !CHANGE_HAPPEN!==CHECKER1     SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF NOT !CHANGE_HAPPEN!==CHECKER2     SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF NOT !CHANGE_HAPPEN!==CHECKER3     SET /A ACCUMULATOR=ACCUMULATOR+1
-	IF !ACCUMULATOR! NEQ 5 (
-		FIND /i "CHANGES:" !FILENAME_ER!>nul
-		IF NOT !errorlevel!==0 (
-		FIND /i ", CONFLICTS:" !FILENAME_ER!>nul
-		)
-		IF NOT !errorlevel!==0 (
-		FIND /i ", COPYTIME:" !FILENAME_ER!>nul
-		)
-		IF NOT !errorlevel!==0 (
-		FIND /i ", FIXSTATE:" !FILENAME_ER!>nul
-		)
-		IF NOT !errorlevel!==0 (
-		FIND /i ", ERRORS:" !FILENAME_ER!>nul
-		)
-		IF NOT !errorlevel!==0 (
-			SET CHANGE_HAPPEN=FALSE
-	)
 	REM -------------------------------------------------------------
 		
 	REM -------------------------------------------------------------
