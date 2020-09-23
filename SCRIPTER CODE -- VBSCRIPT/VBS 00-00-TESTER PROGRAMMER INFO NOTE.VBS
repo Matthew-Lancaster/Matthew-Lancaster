@@ -72,9 +72,24 @@ Private Const MB_TIMEDOUT& = &H7D00&
 ' SET A MSGBOX THAT QUIT WITH TIMER
 ' ----------------------------------------------------------------------------
 Me.Show
-RESULT = MessageBoxTimeout(0&, I_1, App.EXEName, MB_SETFOREGROUND Or IDOKONLY Or MB_ICONASTERISK, 0&, 10000&)
-If RESULT = "IDYES" Then
+RESULT = MessageBoxTimeout(0&, MSGBOX_STRING, App.EXEName+ ".EXE", MB_SETFOREGROUND Or IDOKONLY Or MB_ICONASTERISK, 0&, 10000&)
+If RESULT <> IDOK Then
+	Exit Sub
 End If
+RESULT = MessageBoxTimeout(0&, MSGBOX_STRING, App.EXEName + ".EXE", MB_SETFOREGROUND Or MB_YESNO Or MB_ICONASTERISK, 0&, 10000&)
+If RESULT <> IDYES Then
+	Exit Sub
+End If
+If RESULT <> IDYES Then
+	Exit Sub
+End If
+If RESULT = IDNO Then
+	Exit Sub
+End If
+If RESULT = IDCANCEL Then
+	Exit Sub
+End If
+
 ' ----------------------------------------------------------------------------
 ' ----------------------------------------------------------------------------
 
@@ -134,3 +149,46 @@ End Sub
 
 
 
+
+
+' This part needs to be at the top of a VBA module
+#If Win64 Then 
+    Private Declare PtrSafe Function MsgBoxTimeout _
+        Lib "user32" _
+        Alias "MessageBoxTimeoutA" ( _
+            ByVal hwnd As LongPtr, _
+            ByVal lpText As String, _
+            ByVal lpCaption As String, _
+            ByVal wType As VbMsgBoxStyle, _
+            ByVal wlange As Long, _
+            ByVal dwTimeout As Long) _
+    As Long
+#Else
+    Private Declare Function MsgBoxTimeout _
+        Lib "user32" _
+        Alias "MessageBoxTimeoutA" ( _
+            ByVal hwnd As Long, _
+            ByVal lpText As String, _
+            ByVal lpCaption As String, _
+            ByVal wType As VbMsgBoxStyle, _
+            ByVal wlange As Long, _
+            ByVal dwTimeout As Long) _
+    As Long
+#End If
+
+
+Sub TestMsgbox()
+    Dim ReturnValue
+
+    ReturnValue = MsgBoxTimeout(0, "Do you like this message?" & vbCrLf & "This message box will be closed after 4 seconds." & vbCrLf & vbCrLf & "(See Immediate window for return value)", "Return Choice", vbQuestion + vbYesNoCancel, 0, 4000)
+    Select Case ReturnValue
+        Case vbYes
+            Debug.Print "You picked Yes."
+        Case vbNo
+            Debug.Print "You picked No."
+        Case vbCancel
+            Debug.Print "You picked Cancel."
+        Case 32000
+            Debug.Print "Timeout before user made selection."
+    End Select
+End Sub
