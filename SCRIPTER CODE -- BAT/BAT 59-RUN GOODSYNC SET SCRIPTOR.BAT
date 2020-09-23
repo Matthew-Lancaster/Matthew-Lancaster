@@ -325,7 +325,6 @@ REM GOTO START
 
 
 IF "!MODE_RUN!"=="" (
-
 	SET MODE_RUN=CAMERA_BACKUP
 	SET MODE_RUN=GITHUB
 	REM @CD /D "C:\SCRIPTER"
@@ -362,7 +361,6 @@ REM EXAMPLE !Sources_02[%%a]!
 REM -----------------------------------------------------------------
 
 ECHO.
-ECHO ------------------------------------------------------------------------
 IF EXIST=="%~dp0ConvertCP\convertcp.exe" GOTO JUMP
 	ECHO ------------------------------------------------------------------------
 	ECHO THE EXE NAME REQUIRE TO CONVERT UNICODE OUTPUT FROM GOODSYNC IS NOT HERE
