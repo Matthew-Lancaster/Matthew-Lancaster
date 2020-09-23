@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FreeFileSync XmlFormat="5" XmlType="GUI">
+    <MainConfig>
+        <Comparison>
+            <Variant>TimeAndSize</Variant>
+            <Symlinks>Exclude</Symlinks>
+            <IgnoreTimeShift/>
+        </Comparison>
+        <SyncConfig>
+            <Variant>TwoWay</Variant>
+            <CustomDirections>
+                <LeftOnly>right</LeftOnly>
+                <RightOnly>left</RightOnly>
+                <LeftNewer>right</LeftNewer>
+                <RightNewer>left</RightNewer>
+                <Different>none</Different>
+                <Conflict>none</Conflict>
+            </CustomDirections>
+            <DetectMovedFiles>false</DetectMovedFiles>
+            <DeletionPolicy>Versioning</DeletionPolicy>
+            <VersioningFolder Style="Replace">C:\SYNC\C-DRIVE-%DATE%</VersioningFolder>
+        </SyncConfig>
+        <GlobalFilter>
+            <Include>
+                <Item>\Program Files\Microsoft Games\</Item>
+                <Item>\Program Files\games\</Item>
+                <Item>\Program Files\00 WinAmp's old\</Item>
+                <Item>\Program Files\#_INFAR_USB\</Item>
+                <Item>\Program Files\#\</Item>
+                <Item>\Program Files\DOSBox-0.72\</Item>
+                <Item>\Program Files\# NO INSTALL REQUIRED\</Item>
+                <Item>\Program Files\00 WINAMP'S\</Item>
+                <Item>*</Item>
+            </Include>
+            <Exclude>
+                <Item>\System Volume Information\</Item>
+                <Item>\$Recycle.Bin\</Item>
+                <Item>\RECYCLER\</Item>
+                <Item>\RECYCLED\</Item>
+                <Item>*\desktop.ini</Item>
+                <Item>*\thumbs.db</Item>
+            </Exclude>
+            <TimeSpan Type="None">0</TimeSpan>
+            <SizeMin Unit="None">0</SizeMin>
+            <SizeMax Unit="None">0</SizeMax>
+        </GlobalFilter>
+        <FolderPairs>
+            <Pair>
+                <Left>C:\\Program Files</Left>
+                <Right>\\Asus-eee\eee c\\Program Files</Right>
+            </Pair>
+        </FolderPairs>
+        <OnCompletion/>
+    </MainConfig>
+    <GuiConfig>
+        <HandleError>Popup</HandleError>
+        <MiddleGridView>Action</MiddleGridView>
+    </GuiConfig>
+</FreeFileSync>

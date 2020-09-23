@@ -1,0 +1,5 @@
+﻿
+TREESIZE LOCK_._GSL -- ALL DRIVE & NETWORK & BIG DRIVE FILTER & DELETE
+
+Name	Containing Path	Size	Last Modified	Type	Owner	Permissions
+lock.gsl	\\2-ASUS-X5DIJ\ASUS-X5DIJ C\_gsdata_\_saved_\PStart\Progs\#_Nirsoft_Package\NirSoft\_gsdata_\	0.2 KB	08/08/2016 20:51	.gsl (GSL File)	MATT 01	Everyone: full   
