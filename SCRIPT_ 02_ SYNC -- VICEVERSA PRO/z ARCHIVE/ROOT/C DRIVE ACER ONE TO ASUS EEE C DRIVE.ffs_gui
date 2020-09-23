@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FreeFileSync XmlFormat="5" XmlType="GUI">
+    <MainConfig>
+        <Comparison>
+            <Variant>TimeAndSize</Variant>
+            <Symlinks>Exclude</Symlinks>
+            <IgnoreTimeShift/>
+        </Comparison>
+        <SyncConfig>
+            <Variant>TwoWay</Variant>
+            <CustomDirections>
+                <LeftOnly>right</LeftOnly>
+                <RightOnly>left</RightOnly>
+                <LeftNewer>right</LeftNewer>
+                <RightNewer>left</RightNewer>
+                <Different>none</Different>
+                <Conflict>none</Conflict>
+            </CustomDirections>
+            <DetectMovedFiles>false</DetectMovedFiles>
+            <DeletionPolicy>Versioning</DeletionPolicy>
+            <VersioningFolder Style="Replace">C:\SYNC\C-DRIVE-%DATE%</VersioningFolder>
+        </SyncConfig>
+        <GlobalFilter>
+            <Include>
+                <Item>*</Item>
+                <Item>\Program Files\Microsoft Games\</Item>
+                <Item>\Program Files\games\</Item>
+                <Item>\Program Files\00 WinAmp's old\</Item>
+                <Item>\Program Files\#_INFAR_USB\</Item>
+                <Item>\Program Files\#\</Item>
+                <Item>\Program Files\DOSBox-0.72\</Item>
+                <Item>\Program Files\# NO INSTALL REQUIRED\</Item>
+                <Item>\Program Files\00 WINAMP'S\</Item>
+            </Include>
+            <Exclude>
+                <Item>\System Volume Information\</Item>
+                <Item>\$Recycle.Bin\</Item>
+                <Item>\RECYCLER\</Item>
+                <Item>\RECYCLED\</Item>
+                <Item>*\desktop.ini</Item>
+                <Item>*\thumbs.db</Item>
+                <Item>\#bootmgr_acer_win_7</Item>
+                <Item>\2012-11-05-dg.log</Item>
+                <Item>\boot.bak</Item>
+                <Item>\BOOT.INI</Item>
+                <Item>\bootmgr</Item>
+                <Item>\CAPTURE.AVI</Item>
+                <Item>\CHKDSK-VAR.BAT</Item>
+                <Item>\CHKDSK_ERROR_2015_12_11.TXT</Item>
+                <Item>\hiberfil.sys</Item>
+                <Item>\IO.SYS</Item>
+                <Item>\MSDOS.SYS</Item>
+                <Item>\ntdetect.com</Item>
+                <Item>\ntldr</Item>
+                <Item>\pagefile.sys</Item>
+                <Item>\Windows_7_Computer_Acer_One.txt</Item>
+                <Item>\Windows\</Item>
+                <Item>\Program Files\</Item>
+                <Item>\TEMP\</Item>
+                <Item>\MSOCache\</Item>
+                <Item>\Recovery\</Item>
+                <Item>\TEMP ROOT\</Item>
+                <Item>*\_gsdata_\</Item>
+                <Item>\TEMP_ROOT\</Item>
+                <Item>\Config.Msi\</Item>
+                <Item>\My RoboForm Data\</Item>
+                <Item>\Intel\</Item>
+                <Item>\SC\</Item>
+                <Item>\CmdHere Powertoy For Windows XP.msi</Item>
+                <Item>\menu_Win_Oppo_System.lst</Item>
+                <Item>\TXTSETUP.SIF</Item>
+                <Item>\Inetpub\</Item>
+                <Item>\Application Data\</Item>
+                <Item>\Users\Public\Videos\</Item>
+                <Item>\Users\Public\Music\</Item>
+                <Item>\Users\Public\Pictures\</Item>
+                <Item>\Users\Public\NTUSER.DAT</Item>
+                <Item>\Users\Public\NTUSER.DAT.LOG1</Item>
+                <Item>\Users\Public\NTUSER.DAT.LOG2</Item>
+                <Item>\Users\Public\NTUSER.DAT{8911759e-193f-11e2-81af-88ae1d97c054}.TM.blf</Item>
+                <Item>\Users\Public\NTUSER.DAT{8911759e-193f-11e2-81af-88ae1d97c054}.TMContainer00000000000000000001.regtrans-ms</Item>
+                <Item>\Users\Public\NTUSER.DAT{8911759e-193f-11e2-81af-88ae1d97c054}.TMContainer00000000000000000002.regtrans-ms</Item>
+                <Item>\Users\Public\NTUSER.DAT{d0afdacc-4003-11e0-876f-88ae1d97c054}.TM.blf</Item>
+                <Item>\Users\Public\NTUSER.DAT{d0afdacc-4003-11e0-876f-88ae1d97c054}.TMContainer00000000000000000001.regtrans-ms</Item>
+                <Item>\Users\Public\NTUSER.DAT{d0afdacc-4003-11e0-876f-88ae1d97c054}.TMContainer00000000000000000002.regtrans-ms</Item>
+                <Item>\Users\Public\Documents\</Item>
+                <Item>\Users\Public\Desktop\</Item>
+                <Item>\Users\Public\OEM\</Item>
+                <Item>\Users\Public\Libraries\</Item>
+                <Item>\Users\Public\Favorites\</Item>
+                <Item>\Users\MATT 01\AppData\</Item>
+                <Item>\Users\Linda\AppData\</Item>
+                <Item>*\My RoboForm Data\</Item>
+                <Item>\Users\Default\</Item>
+                <Item>\Program Files\Winamp\</Item>
+                <Item>\Program Files\JAM Software\</Item>
+                <Item>\Documents and Settings\</Item>
+                <Item>\OEM\</Item>
+                <Item>\Program Files\WordNet\</Item>
+                <Item>\ProgramData\</Item>
+                <Item>\Users\Public\</Item>
+                <Item>\Program Files\# NO INSTALL REQUIRED\04 GAMES\Kids Tetris\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#00 Palm 01\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#00 Palm 02\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#03 Matts\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#01 !Root\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#02 Really Good\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#03 Latest\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#01 Root Archive\</Item>
+                <Item>\Users\Linda\Favorites\01 Favs\#00 Local Machine\</Item>
+                <Item>\Program Files\Iomega\</Item>
+                <Item>\MSDOS6.22\I-DRIVE\</Item>
+                <Item>\MSDOS6.22\H-DRIVE\</Item>
+            </Exclude>
+            <TimeSpan Type="None">0</TimeSpan>
+            <SizeMin Unit="None">0</SizeMin>
+            <SizeMax Unit="None">0</SizeMax>
+        </GlobalFilter>
+        <FolderPairs>
+            <Pair>
+                <Left>C:\</Left>
+                <Right>\\Asus-eee\eee c</Right>
+            </Pair>
+        </FolderPairs>
+        <OnCompletion/>
+    </MainConfig>
+    <GuiConfig>
+        <HandleError>Popup</HandleError>
+        <MiddleGridView>Action</MiddleGridView>
+    </GuiConfig>
+</FreeFileSync>

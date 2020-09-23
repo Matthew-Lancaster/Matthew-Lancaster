@@ -1,0 +1,19 @@
+﻿
+TREESIZE LOCK_._GSL -- ALL DRIVE & NETWORK & BIG DRIVE FILTER & DELETE.txt
+
+Name	Containing Path	Size	Last Modified	Type	Owner	Permissions
+lock.gsl	\\1-ASUS-EEE\ASUS-EEE G-FAT32\01 Favs\_gsdata_\	0.1 KB	28/08/2016 23:29	.gsl (GSL File)	Everyone	Everyone: full
+lock.gsl	\\1-ASUS-EEE\ASUS-EEE G-FAT32\_gsdata_\	0.1 KB	28/08/2016 23:29	.gsl (GSL File)	Everyone	Everyone: full
+LOCK.GSL	\\1-ASUS-EEE\C$\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	MATT 01	Everyone: full   MATT 02: full   SYSTEM: full   
+LOCK.GSL	C:\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	MATT 01	Administrators: full   Authenticated Users: full   SYSTEM: full   Users: full   
+LOCK.GSL	\\3-LINDA-PC\C$\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	Administrators	Everyone: full   Guest: full   Linda: full   SYSTEM: full   
+LOCK.GSL	\\3-LINDA-PC\ACER C\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	Administrators	Everyone: full   Guest: full   Linda: full   SYSTEM: full   
+lock.gsl	\\3-LINDA-PC\F$\_gsdata_\_saved_\01 Start Menu\3-LINDA-PC\Programs\# 0 VB Shell Folders\_gsdata_\	0.2 KB	28/08/2016 01:56	.gsl (GSL File)	Everyone	Everyone: full
+lock.gsl	\\3-LINDA-PC\ACER-ONE FAT32\_gsdata_\_saved_\01 Start Menu\3-LINDA-PC\Programs\# 0 VB Shell Folders\_gsdata_\	0.2 KB	28/08/2016 01:56	.gsl (GSL File)	Everyone	Everyone: full
+LOCK.GSL	\\1-ASUS-EEE\ASUS-EEE C\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	MATT 01	Everyone: full   MATT 02: full   SYSTEM: full   
+lock.gsl	\\1-ASUS-EEE\G$\01 Favs\_gsdata_\	0.1 KB	28/08/2016 23:29	.gsl (GSL File)	Everyone	Everyone: full
+lock.gsl	\\1-ASUS-EEE\G$\_gsdata_\	0.1 KB	28/08/2016 23:29	.gsl (GSL File)	Everyone	Everyone: full
+LOCK.GSL	\\4-ASUS-GL522VW\4-ASUS-GL522VW_01_C-DRIVE\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	MATT 01	Administrators: full   Authenticated Users: full   SYSTEM: full   Users: full   
+LOCK.GSL	\\5-ASUS-P2520LA\5-ASUS-P2520LA_01_C-DRIVE\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	Administrators	Administrators: full   Authenticated Users: +r+w+x   SYSTEM: full   Users: +r+x   
+LOCK.GSL	\\5-ASUS-P2520LA\C$\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	Administrators	Administrators: full   Authenticated Users: +r+w+x   SYSTEM: full   Users: +r+x   
+LOCK.GSL	\\4-ASUS-GL522VW\C$\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	MATT 01	Administrators: full   Authenticated Users: full   SYSTEM: full   Users: full   
