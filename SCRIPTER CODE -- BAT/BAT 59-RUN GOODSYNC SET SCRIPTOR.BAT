@@ -288,7 +288,7 @@ IF %errorlevel% EQU 0 (
 	GOTO START
 )
 
-	REM - TEMP REMMER
+	REM TEMP REMMER
 	REM ---------------------------------------------------------------------
 	REM SET MODE_RUN=CAMERA_BACKUP
 	REM GOTO START
@@ -336,8 +336,6 @@ IF "!MODE_RUN!"=="" (
 :START
 
 
-
-
 ECHO %* | FIND "WITH_GITHUB_MODE" >NUL
 IF %errorlevel% EQU 0 SET MODE_RUN_WITH_GITHUB=TRUE
 
@@ -349,14 +347,47 @@ ECHO RUN MODE -- !MODE_RUN!
 
 REM ECHO !TITLE_RUN_MODE!
 
-@SET PATH_GIT="C:\Program Files\Git\bin"
-@SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
+SET PATH_GIT="C:\Program Files\Git\bin"
+SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 
-@REM ----
-@REM CONVERTCP download | SourceForge.net
-@REM https://sourceforge.net/projects/convertcp/
-@REM ----
-@SET ConvertCP="C:\SCRIPTER\SCRIPTER -- APP TOOL SET\ConvertCP\convertcp.exe"
+REM ----
+REM CONVERTCP download | SourceForge.net
+REM https://sourceforge.net/projects/convertcp/
+REM ----
+REM -----------------------------------------------------------------
+REM STRIP QUOTE THIS BIT BEFORE END :"=
+REM -----------------------------------------------------------------
+REM EXAMPLE !VAR:"=!
+REM EXAMPLE !Sources_02[%%a]!
+REM -----------------------------------------------------------------
+
+ECHO.
+ECHO ------------------------------------------------------------------------
+IF EXIST=="%~dp0ConvertCP\convertcp.exe" GOTO JUMP
+	ECHO ------------------------------------------------------------------------
+	ECHO THE EXE NAME REQUIRE TO CONVERT UNICODE OUTPUT FROM GOODSYNC IS NOT HERE
+	ECHO %~dp0ConvertCP\convertcp.exe
+	ECHO ------------------------------------------------------------------------
+	ECHO IDEAL LOCATE WITH SCRIPT DIR
+	ECHO %~dp0
+	ECHO \CONVERTCP\CONVERTCP.EXE
+	ECHO ------------------------------------------------------------------------
+	ECHO EXIT WANT TO
+	ECHO GOODSYNC WILL RUN AND NOT ANY RESULT_ DISPLAY
+	ECHO ------------------------------------------------------------------------
+	PAUSE
+:JUMP
+
+@SET ConvertCP="%~dp0ConvertCP\convertcp.exe"
+IF EXIST==!ConvertCP! (
+	ECHO ------------------------------------------------------------------------
+	ECHO THE EXE REQUIRE TO CONVERT UNICODE OUTPUT FROM GOODSYNC IS LOCATE FINE
+	ECHO ------------------------------------------------------------------------
+	ECHO !ConvertCP:"=!
+	ECHO ------------------------------------------------------------------------
+)
+
+
 
 @REM WELL IT TOOK A WHILE TO FIND CODE PAGE OF TEXT DOCUMENT
 @REM ANSWER CAME FROM A PAG THAT GIVE IT NOTEPAD++ IN BOTTOM RIGHT CORNER TELL THE ANSWER
@@ -886,10 +917,19 @@ REM IF /I !COUNTER! GEQ 10000 SET PAD=0
 
 
 ECHO.
+ECHO ------------------------------------------------------------------------
+
+
+REM -----------------------------------------------------------------
+REM STRIP QUOTE THIS BIT BEFORE END :"=
+REM -----------------------------------------------------------------
+REM EXAMPLE !VAR:"=!
+REM EXAMPLE !Sources_02[%%a]!
+REM -----------------------------------------------------------------
 
 for /L %%a in (1,1,!LDA!) do (
 	IF /I %%a LSS 10 (SET PADD=0) ELSE SET PADD=
-	ECHO !PADD!%%a -- !sources_02[%%a]!
+	ECHO !PADD!%%a -- !sources_02[%%a]:"=!
 )
 
 
@@ -925,12 +965,16 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	ECHO !PADD1!%%a of !PADD2!!LDA! -- START
 	ECHO ----------------------------------------------------------------
 
-	REM -- STRIP QUOTE EITHER END -- EXAMPLE -- !GoodSync_GSync! NORMAL DISPLAY !GoodSync_GSync:"=! STRIP QUOTE WAY
-
-
-	REM STRIP QUOTES THIS BIT BEFORE END :"=
-	REM NORMAL VAR BE LIKE !Sources_02[%%a]!
+	REM -----------------------------------------------------------------
+	REM STRIP QUOTE THIS BIT BEFORE END :"=
+	REM -----------------------------------------------------------------
+	REM EXAMPLE !VAR:"=!
+	REM EXAMPLE !Sources_02[%%a]!
+	REM -----------------------------------------------------------------
 	REM CREDIT FINDER AT END OF CODE
+	REM -----------------------------------------------------------------
+	REM -- STRIP QUOTE EITHER END -- EXAMPLE -- !GoodSync_GSync! NORMAL DISPLAY !GoodSync_GSync:"=! STRIP QUOTE WAY
+	REM -----------------------------------------------------------------
 
 	ECHO !Sources_02[%%a]:"=!
 
@@ -940,9 +984,14 @@ FOR /L %%a in (1,1,!LDA!) DO (
 
 	ECHO.
 	ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
-	IF /I %%a  LSS 2  ECHO.
+	IF %%a  LSS 2  ECHO.
 	%GoodSync_GSync% sync !Sources_02[%%a]!>!FILENAME_ER!
 
+	REM  OUT EXAMPLE
+	REM  "C:\SCRIPTER\SCRIPTER CODE -- BAT\#NFS-7-ASUS-GL522VW\BAT 59-RUN GOODSYNC SET SCRIPTOR_GOODSYNC_OUTPUT_#NFS_EX.TXT"
+	REM  "C:\SCRIPTER\SCRIPTER CODE -- BAT\#NFS-7-ASUS-GL522VW\BAT 59-RUN GOODSYNC SET SCRIPTOR_GOODSYNC_OUTPUT_#NFS_EX.TXT"
+	
+	
 	REM ----------------------------------------------------------------
 	REM ------ 1200 UCS-2 (UTF-16 Little Endian Byte Order)
 	REM ----------------------------------------------------------------

@@ -1,0 +1,28 @@
+@-moz-document domain("facebook.com") {
+/*
+----
+Notice new Facebook notifications | Userstyles.org
+https://userstyles.org/styles/125092/notice-new-facebook-notifications
+----
+
+FB Notice New Facebook Notifications
+
+*/
+
+/*
+MODIFY FROM CODE ON-LINE ABOVE AT STYLUS
+HERE MY PREFER STATE TO HAVE NOTIFCATION SHOW UP BETTER
+IT IS BLUE AND WORK WELL IF DARK BACKGROUND OR LIGHT
+SEEM UNABLE FOR ME TO LEARN
+HOW CHANGE COLOUR TEXT WITHIN BOX
+OR THEN HAVE A CONTRAST SWAP OR SOMETHING BETWEEN DARK LIGHT
+AND MORE FLEXIABLE BACKGROUND COLOUR
+
+background-color: #656582 !important;
+
+*/
+
+.jewelItemNew ._33e {
+		background-color: #657782 !important;
+}
+}

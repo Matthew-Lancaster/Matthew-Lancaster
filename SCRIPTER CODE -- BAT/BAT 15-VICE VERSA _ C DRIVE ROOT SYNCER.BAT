@@ -66,9 +66,9 @@ IF '%1%'=='/ADMIN' (
 
 @ECHO ON
 
-START "" /WAIT "C:\Program Files\ViceVersa Pro\ViceVersa.exe" "C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VV C DRIVE ROOT\VV C DRIVE ROOT __ C DRIVE ROOT SOURCE __ C DRIVE.fsf" /hiddenautoexec /autoclose
+START "" /WAIT "C:\Program Files\ViceVersa Pro\ViceVersa.exe" "C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE ROOT __ C DRIVE ROOT SOURCE __ C DRIVE.fsf" /hiddenautoexec /autoclose
 
-REM START "" /WAIT "C:\Program Files\ViceVersa Pro\ViceVersa.exe" "C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VV C DRIVE ROOT\VV C DRIVE ROOT __ C DRIVE ROOT _ SOURCE __ C- _ TARGET.fsf" /hiddenautoexec /autoclose
+REM START "" /WAIT "C:\Program Files\ViceVersa Pro\ViceVersa.exe" "C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE ROOT __ C DRIVE ROOT _ SOURCE __ C- _ TARGET.fsf" /hiddenautoexec /autoclose
 
 REM ECHO %TIME% >"%~f0.TIME_EVENT.TXT"
 
