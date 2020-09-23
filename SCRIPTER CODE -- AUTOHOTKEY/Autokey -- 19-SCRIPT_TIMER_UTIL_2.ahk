@@ -486,54 +486,16 @@ SETTIMER TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS,1000
 
 SETTIMER VBS_29_COPY_CAMERA_PHOTO_IMAGES_VBS,1000
 
-SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME,2000 
-
-; SETTIMER TIMER_, 600000 ; 10 MINUTE
 
 
-SETTIMER AUTOKEY__98_ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR_AHK,2000
 
-RETURN
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
 RETURN
-
-; -------------------------------------------------------------------
-; Sun 20-Sep-2020 04:32:0
-; NICE IDEA ONE
-; -------------------------------------------------------------------
-AUTOKEY__98_ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR_AHK:
-	SETTIMER AUTOKEY__98_ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR_AHK,3600000 ; ---- 1 HOUR
-	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 98-ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR.ahk"
-	IfExist, %FN_VAR%
-	{
-		Run, "%FN_VAR%"
-	}
-RETURN
-
-SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:
-	
-	; SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000 
-	SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 600000 ; 10 MINUTE
-	
-	SET_GO_COMPUTERNAME_02=0
-	IF (A_ComputerName = "1-ASUS-X5DIJ") 
-		SET_GO_COMPUTERNAME_02=1
-	IF (A_ComputerName = "2-ASUS-EEE") 
-		SET_GO_COMPUTERNAME_02=1
-	IF (A_ComputerName = "3-LINDA-PC") 
-		SET_GO_COMPUTERNAME_02=1
-	
-	IF SET_GO_COMPUTERNAME_02=1
-		PROCESS, Priority, % DllCall("GetCurrentProcessId"), Low
-RETURN
-
-
-
-
 
 TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS:
 
@@ -1071,11 +1033,11 @@ INSTALL_REGISTER:
 	IF !VAR_GET_7
 		RETURN
 	
-	ControlGettext, OutVar_22, TEdit2,       ahk_id %VAR_GET_7%
+	ControlGettext, OutVar_22, TEdit2,           ahk_id %VAR_GET_7%
 	IF INSTR(OutVar_22,"ttdown@ttdown.com")=0
 		ControlSetText,TEdit2,ttdown@ttdown.com, ahk_id %VAR_GET_7%
 
-	ControlGettext, OutVar_22, TEdit1,       ahk_id %VAR_GET_7%
+	ControlGettext, OutVar_22, TEdit1,           ahk_id %VAR_GET_7%
 	IF INSTR(OutVar_22,"7RUHUBGBLD")=0
 		ControlSetText,TEdit1,7RUHUBGBLD,        ahk_id %VAR_GET_7%
 	
@@ -1710,34 +1672,22 @@ RETURN
 NOT_ALLOWED_PRCOCESS:
 	; -- Mon 17-Feb-2020 13:51:46
 	VAR_2_WIN_01=LACLIENT.EXE
-	PROCESS, EXIST, %VAR_2_WIN_01%
+	PROCESS, EXIST, %VAR_2_WIN_01%.exe
 	If ErrorLevel
 	{
-		PROCESS, CLOSE, %VAR_2_WIN_01%
+		PROCESS, CLOSE, %VAR_2_WIN_01%.exe
 		GOSUB SOUND_START_WAV
-		; RETURN
+		RETURN
 	}
 
 	VAR_2_WIN_02=LOGITECHCAMPAIGNNOTIFIER.EXE
-	PROCESS, EXIST, %VAR_2_WIN_02%
+	PROCESS, EXIST, %VAR_2_WIN_02%.exe
 	If ErrorLevel
 	{
-		PROCESS, CLOSE, %VAR_2_WIN_02%
+		PROCESS, CLOSE, %VAR_2_WIN_02%.exe
 		GOSUB SOUND_START_WAV
-		; RETURN
+		RETURN
 	}
-	
-	; C:\Program Files (x86)\MiniTool ShadowMaker\AgentService.exe
-	VAR_2_WIN_02=AgentService
-	PROCESS, EXIST, %VAR_2_WIN_02%
-	If ErrorLevel
-	{
-		PROCESS, CLOSE, %VAR_2_WIN_02%
-		GOSUB SOUND_START_WAV
-		; RETURN
-	}
-	
-	
 RETURN
 
 NOT_RESPOND_TIMEZONE_MINI_GUI_DISPLAY_05:
