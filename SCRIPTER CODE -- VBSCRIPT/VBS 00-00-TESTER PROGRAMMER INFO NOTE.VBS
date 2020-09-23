@@ -150,7 +150,16 @@ End Sub
 
 
 
-
+' ----------------------------------------------------------------------------
+' excel - How to insert a break line in 'mshta.exe' pop up (VBA macro)? - Stack Overflow 
+' https://stackoverflow.com/questions/54253640/how-to-insert-a-break-line-in-mshta-exe-pop-up-vba-macro/57512186#57512186
+' ----------------------------------------------------------------------------
+' NOTE THESE TWO LINE DIFFER
+' ----------------------------------------------------------------------------
+' Private Declare PtrSafe Function MsgBoxTimeout _
+' ----------------------------------------------------------------------------
+' Private Declare Function MsgBoxTimeout _
+' ----------------------------------------------------------------------------
 ' This part needs to be at the top of a VBA module
 #If Win64 Then 
     Private Declare PtrSafe Function MsgBoxTimeout _

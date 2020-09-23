@@ -95,7 +95,7 @@ CHROME_RUN_AND_MIN:
 		IF (A_ComputerName = "1-ASUS-X5DIJ") 
 		CHROME_PAGE=https://www.facebook.com
 		IF (A_ComputerName = "2-ASUS-EEE") 
-		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
+		CHROME_PAGE=https://www.rain-alarm.com
 		; IF (A_ComputerName = "3-LINDA-PC") 
 		; CHROME_PAGE=https://www.facebook.com
 		IF (A_ComputerName = "4-ASUS-GL522VW") 
@@ -109,10 +109,12 @@ CHROME_RUN_AND_MIN:
 		
 		IF AUTO_RELOAD_FACEBOOK_VAR=0
 		IF CHROME_PAGE
+		{
 			FN_VAR_EXE=%FN_VAR_EXE%" "%CHROME_PAGE%
-		Run, "%FN_VAR_EXE%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
-		SoundBeep , 2500 , 100
+			Run, "%FN_VAR_EXE%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
+			SoundBeep , 2500 , 100
 		SET_DONE=TRUE
+		}
 	}
 	
 
@@ -166,7 +168,7 @@ CHROME_RUN_AND_MIN:
 			WinMAXIMIZE ahk_class Chrome_WidgetWin_1
 			WinGet STYLE_CHROME, MinMax, ahk_class Chrome_WidgetWin_1
 			SoundBeep , 2500 , 100
-			;1 maximized 0 normal -1 minimized
+			;1 MAXIMIZED 0 NORMAL -1 MINIMIZED
 			If STYLE_CHROME=1
 			{
 				EXIT_LOOP-=1
