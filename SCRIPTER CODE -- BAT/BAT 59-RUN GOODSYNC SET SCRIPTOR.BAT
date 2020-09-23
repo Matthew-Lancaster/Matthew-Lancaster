@@ -1007,8 +1007,11 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	ECHO RUN COMMAND
 	ECHO ----------------------------------------------------------------
 
-	ECHO.
-	ECHO %GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
+	SET COMMAND_PRINT=%GoodSync_GSync% sync !Sources_02[%%a]!^>!FILENAME_ER!
+	
+	ECHO !COMMAND_PRINT:"=!
+	
+	REM -----------------------------------------------------------------
 	IF %%a  LSS 2  ECHO.
 	REM -----------------------------------------------------------------
 	REM LOOK GOOD LINE -- THE FIRST ENTRY HERE NEST LOOP NOT SPACE GAP PRINT HERE
@@ -1400,7 +1403,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM -------------------------------------------------------------
 	SET /A L=L+1 & SET msgbox[!L!,%%a]=RESULT OVERALL ERROR COUNT    !PADD1!!STATUS_88[%%a]! ERROR OF !PADD2!%%a -- !PADD3!!STATUS_TT[%%a]!
 	REM -------------------------------------------------------------
-	SET /A L=L+1 & SET msgbox[!L!,%%a]=ANOTHER_JOB_COUNTER           !ANOTHER_JOB_COUNTER!
+	IF /I !ANOTHER_JOB_COUNTER!  LSS 10 (SET PADD1=0) ELSE SET PADD1=
+	SET /A L=L+1 & SET msgbox[!L!,%%a]=ANOTHER_JOB_COUNTER           !PADD1!!ANOTHER_JOB_COUNTER!
 	REM -------------------------------------------------------------
 	IF !OPERATION_HIDE_ERROR!==TRUE (
 	SET /A L=L+1 & SET msgbox[!L!,%%a]=OPERATION_HIDE_ERROR          !OPERATION_HIDE_ERROR!
