@@ -1116,7 +1116,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM -------------------------------------------------------------
 	REM -------------------------------------------------------------
 	
-	FINDSTR /i Changes..[0-9],     !FILENAME_ER!
+	REM FINDSTR /i Changes..[0-9],     !FILENAME_ER!
 	
 	
 	
@@ -1274,7 +1274,7 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	IF !errorlevel!==0 SET ERROR_GO=TRUE
 	FIND /i "PROGRAM RETURNED CONTROL" !FILENAME_ER!>nul
 	IF !errorlevel!==0 SET PROGRAM_RETURNED_CONTROL_ADD_VBCR=TRUE
-	REM IF !errorlevel!==0 ECHO.
+	IF !errorlevel!==0 ECHO.
 	
 	FIND /i "VOLUME NOT FOUND" !FILENAME_ER!>nul
 	IF !errorlevel!==0 SET VOLUME_NOT_FOUND=TRUE
@@ -1386,6 +1386,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	
 	IF !L! GTR !LDL! SET LDL=!L!
 
+	
+	IF 1==2 (
 	REM ---- PUT IN THE ERROR ARRAY -- msgboxer
 	IF !Sync_Runner_FAULT_TOTAL!==FALSE (
 		FOR /L %%f IN (1,1,!LDL!) DO (
@@ -1430,6 +1432,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 			REM ---------------------------------------------------------
 		)
 		)
+		
+		)
 
 		REM ECHO SHOW MINIMAL ERROR ARRAY ---------------------------------------------
 		REM REM ---- SHOW BRIEF ERROR ARRAY -- msgboxer
@@ -1443,7 +1447,8 @@ FOR /L %%a in (1,1,!LDA!) DO (
 		REM )
 
 
-		TIMEOUT /T 4
+		
+		REM TIMEOUT /T 4
 
 		REM -------------------------------------------------------------
 		REM ---- IN THE LOOP 
