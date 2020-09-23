@@ -1,0 +1,1 @@
+"C:\Program Files\ViceVersa Pro\ViceVersa.exe" "C:\SCRIPTER\SCRIPTER -- ViceVersa PRO\VICE V -- VB-VB-NT--  EXE -- AT BOOT.fsf" /autoexec /autoclose 
