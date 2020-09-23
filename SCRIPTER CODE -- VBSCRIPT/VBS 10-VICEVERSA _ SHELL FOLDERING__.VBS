@@ -89,8 +89,32 @@ FOR i = 1 to UBOUND(VV_VAR_TRACKING)
 NEXT
 
 VV_EXE_PATH=""
-VV_PATH_1="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\# VV COMPUTERNAME SCRIPTOR\"
-VV_PATH_2="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\# TRACKING DATABASE\"
+
+
+Set File = FSO.GetFile(Wscript.ScriptFULLNAME)
+' Wscript.Echo "Absolute path: " & FSO.GetAbsolutePathName(File)
+' Wscript.Echo "Parent folder: " & FSO.GetParentFolderName(File) 
+' Wscript.Echo "File name: " & FSO.GetFileName(File)
+' Wscript.Echo "Base name: " & FSO.GetBaseName(File)
+' Wscript.Echo "Extension name: " & FSO.GetExtensionName(File)
+
+SCRIPT_PARENT_PATH = FSO.GetParentFolderName(File) 
+
+' MSGBOX Wscript.ScriptNAME
+' MSGBOX FSO.GetBaseName(File)
+
+SCRIPT_BASE_NAME = FSO.GetBaseName(File)
+
+' MSGBOX Wscript.ScriptPATH
+' WSCRIPT.QUIT
+
+
+VV_PATH_1=SCRIPT_PARENT_PATH+"\"+SCRIPT_BASE_NAME+"\# VV COMPUTERNAME SCRIPTOR\"
+VV_PATH_2=SCRIPT_PARENT_PATH+"\"+SCRIPT_BASE_NAME+"\# TRACKING DATABASE\"
+
+' MSGBOX VV_PATH_2
+' WSCRIPT.QUIT
+
 
 DIM RN_VAR(8)
 RN_VAR(1)="2-ASUS-EEE"
@@ -161,6 +185,7 @@ FOR VV_2=1 TO UBOUND(VV_VAR)
 		FILEN_2=VV_PATH_1 & VV_VAR(VV_2) & RN_VAR(RN) & ".fsf"
 		
 		If FSO.FileExists(FILEN_2) = FALSE Then
+			MSGBOX FILEN_1
 			FSO.COPYFILE FILEN_1, FILEN_2
 		END IF
 		
@@ -248,6 +273,9 @@ NEXT
 END SUB
 
 
+
+' "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\# TRACKING DATABASE\VV_DB__03__4-ASUS-GL522VW.tdb"
+' "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__\# TRACKING DATABASE
 '--------------------------------------------------------
 SUB WRITE_THE_TRACKING_DATABASE_IF_NOT_EXIST
 '--------------------------------------------------------
@@ -256,6 +284,7 @@ SUB WRITE_THE_TRACKING_DATABASE_IF_NOT_EXIST
 			IF RN_VAR(RN)<>"" AND RN_VAR(RN)<>INDEX_VAR THEN 
 				FILE_NAME_CHECKER=VV_PATH_2 & VV_VAR_TRACKING(VV_2) & RN_VAR(RN) & ".tdb"
 				If FSO.FileExists(FILE_NAME_CHECKER) = FALSE Then
+					MSGBOX "280 __ "+FILE_NAME_CHECKER
 					Set objFile = FSO.CreateTextFile(FILE_NAME_CHECKER,True)
 					objFile.Close
 				END IF
