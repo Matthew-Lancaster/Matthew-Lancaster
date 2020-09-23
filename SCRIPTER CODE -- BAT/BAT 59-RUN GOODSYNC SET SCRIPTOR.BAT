@@ -479,6 +479,7 @@ SET PATH_GIT="C:\Program Files\Git\bin"
 SET GoodSync_GSync="C:\Program Files\Siber Systems\GoodSync\gsync.exe"
 SET AI=SET /A LDA=LDA+1
 
+!AI! && SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G INCL"
 !AI! && SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G -- 4G SUCCESS"
 !AI! && SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 5P -- 5P SUCCESS"
 !AI! && SET Sources[!LDA!]="C SCRIPTOR __ 7G TO 4G INCL"
@@ -1296,7 +1297,9 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	REM -- NOT COUNT AS ERROR THEN HIDE RESULT
 	REM -- OPERATION ARCHIVE WHEN = VOLUME_NOT_FOUND=TRUE
 	REM -------------------------------------------------------------
-	IF "%%a"=="1" SET OPERATION_HIDE_ERROR=TRUE
+	IF !MODE_RUN!==CAMERA_BACKUP (
+		IF "%%a"=="1" SET OPERATION_HIDE_ERROR=TRUE
+	)
 	
 	REM ----------------------------------------------------------------
 	REM ----------------------------------------------------------------
@@ -1382,77 +1385,112 @@ FOR /L %%a in (1,1,!LDA!) DO (
 	FOR /L %%f IN (1,1,!L!) DO (
 		ECHO !msgbox[%%f,%%a]!
 	)
+	
+	REM IF !L! GTR !LDL! SET LDL=!L!
 
 	
-	IF !L! GTR !LDL! SET LDL=!L!
-
-	
-	IF 1==2 (
-	REM ---- PUT IN THE ERROR ARRAY -- msgboxer
-	IF !Sync_Runner_FAULT_TOTAL!==FALSE (
-		FOR /L %%f IN (1,1,!LDL!) DO (
-			SET msgboxer[%%f,%%a]=!msgbox[%%f,%%a]!
-			REM ECHO XXAAA  %%a FFF  %%f LDL  !LDL!   "msgboxer"  !msgboxer[%%f,%%a]!
-		)
-	)
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM TEMP OUT
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM IF 1==2 (
+	REM REM ---- PUT IN THE ERROR ARRAY -- msgboxer
+	REM IF !Sync_Runner_FAULT_TOTAL!==FALSE (
+		REM FOR /L %%f IN (1,1,!LDL!) DO (
+			REM SET msgboxer[%%f,%%a]=!msgbox[%%f,%%a]!
+			REM REM ECHO XXAAA  %%a FFF  %%f LDL  !LDL!   "msgboxer"  !msgboxer[%%f,%%a]!
+		REM )
+	REM )
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM TEMP OUT
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
 	
 	
 	REM ECHO ERROR__WORKER --------------------------------------------------
 	REM -- AFTER HERE NOT WORK GOOD
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM TEMP OUT
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM REM ---- PUT MINIMAL ERROR ARRAY -- msgboxer
+	REM IF !Sync_Runner_FAULT_TOTAL!==FALSE (
+		REM FOR /L %%v IN (1,1,%%a) DO (
+			REM REM ECHO "RRRR " !msgboxer[%%v,%%a]!
+			REM SET VAR=!msgboxer[%%v,%%a]!
+			REM REM ECHO "AAA "  %%a   "VVV " %%v " 444 VAR " !VAR!    
+			REM IF %%v==2                 SET msgboxerB[%%v,%%a]=!VAR!
+			REM IF %%v==4                 SET msgboxerB[%%v,%%a]=!VAR!
+			REM ECHO !VAR! | FINDSTR /I /C:"Analysis_Complete">nul
+			REM If !errorlevel!==0        SET msgboxerB[%%v,%%a]=!VAR!
+			REM ECHO !VAR! | FINDSTR /I /C:"Sync_Runner">nul
+			REM If !errorlevel!==0        SET msgboxerB[%%v,%%a]=!VAR!
+			REM ECHO !VAR! | FINDSTR /I /C:"Another_Running">nul
+			REM If !errorlevel!==0        SET START_LINE=TRUE
+			REM IF !START_LINE!==TRUE (
+				REM ECHO !VAR! | FINDSTR /I /C:"TRUE">nul
+				REM If !errorlevel!==0    SET msgboxerB[%%v,%%a]=!VAR!
+				REM ECHO !VAR! | FINDSTR /I /C:"RESULT OVERALL ERROR COUNT">nul
+				REM If !errorlevel!==0    SET msgboxerB[%%v,%%a]=!VAR!
+			REM )
+			REM REM SET VAR_2=!msgboxerB[%%v,%%a]!
+			REM REM ECHO "LDM "  %%a   "VVV " %%v "11111 VAR_2 " !VAR!    
+			REM REM ---------------------------------------------------------
+			REM REM -- FIND THE START LINE WHERE ALL TRUE FLAG FOR ERROR BEGINNER
+			REM REM -- AFTER COMPOSE EDITOR HAPPEN
+			REM REM -- FINDSTR /I /C:"TRUE" -- WITHOUT QUOTE OR NOT 
+			REM REM -- POSSIBLE SPACE IN LINE MAKE CHANGE
+			REM REM ---------------------------------------------------------
+			REM REM OPERATION FIND HAPPEN -- DISPLAY RESULT SAME AS /X MUST BE DEFAULT
+			REM REM ---------------------------------------------------------
+		REM )
+	REM )
+	REM )
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM TEMP OUT
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+	REM ---------------------------------------------------------
+
 	
-	REM ---- PUT MINIMAL ERROR ARRAY -- msgboxer
-	IF !Sync_Runner_FAULT_TOTAL!==FALSE (
-		FOR /L %%v IN (1,1,%%a) DO (
-			REM ECHO "RRRR " !msgboxer[%%v,%%a]!
-			SET VAR=!msgboxer[%%v,%%a]!
-			REM ECHO "AAA "  %%a   "VVV " %%v " 444 VAR " !VAR!    
-			IF %%v==2                 SET msgboxerB[%%v,%%a]=!VAR!
-			IF %%v==4                 SET msgboxerB[%%v,%%a]=!VAR!
-			ECHO !VAR! | FINDSTR /I /C:"Analysis_Complete">nul
-			If !errorlevel!==0        SET msgboxerB[%%v,%%a]=!VAR!
-			ECHO !VAR! | FINDSTR /I /C:"Sync_Runner">nul
-			If !errorlevel!==0        SET msgboxerB[%%v,%%a]=!VAR!
-			ECHO !VAR! | FINDSTR /I /C:"Another_Running">nul
-			If !errorlevel!==0        SET START_LINE=TRUE
-			IF !START_LINE!==TRUE (
-				ECHO !VAR! | FINDSTR /I /C:"TRUE">nul
-				If !errorlevel!==0    SET msgboxerB[%%v,%%a]=!VAR!
-				ECHO !VAR! | FINDSTR /I /C:"RESULT OVERALL ERROR COUNT">nul
-				If !errorlevel!==0    SET msgboxerB[%%v,%%a]=!VAR!
-			)
-			REM SET VAR_2=!msgboxerB[%%v,%%a]!
-			REM ECHO "LDM "  %%a   "VVV " %%v "11111 VAR_2 " !VAR!    
-			REM ---------------------------------------------------------
-			REM -- FIND THE START LINE WHERE ALL TRUE FLAG FOR ERROR BEGINNER
-			REM -- AFTER COMPOSE EDITOR HAPPEN
-			REM -- FINDSTR /I /C:"TRUE" -- WITHOUT QUOTE OR NOT 
-			REM -- POSSIBLE SPACE IN LINE MAKE CHANGE
-			REM ---------------------------------------------------------
-			REM OPERATION FIND HAPPEN -- DISPLAY RESULT SAME AS /X MUST BE DEFAULT
-			REM ---------------------------------------------------------
-		)
-		)
-		
-		)
-
-		REM ECHO SHOW MINIMAL ERROR ARRAY ---------------------------------------------
-		REM REM ---- SHOW BRIEF ERROR ARRAY -- msgboxer
-		REM FOR /L %%f IN (1,1,%%a) DO (
-		REM FOR /L %%v IN (1,1,!LDL!) DO (
-			REM REM ECHO VVV  %%v   FFF  %%f
-			REM REM SET VAR=!msgboxerB[%%v,%%f]! 
-			REM REM ECHO !VAR!
-			REM REM IF NOT "!VAR!"=="" ECHO !VAR!
-		REM )
-		REM )
+	
+	REM ECHO SHOW MINIMAL ERROR ARRAY ---------------------------------------------
+	REM REM ---- SHOW BRIEF ERROR ARRAY -- msgboxer
+	REM FOR /L %%f IN (1,1,%%a) DO (
+	REM FOR /L %%v IN (1,1,!LDL!) DO (
+		REM REM ECHO VVV  %%v   FFF  %%f
+		REM REM SET VAR=!msgboxerB[%%v,%%f]! 
+		REM REM ECHO !VAR!
+		REM REM IF NOT "!VAR!"=="" ECHO !VAR!
+	REM )
+	REM )
 
 
-		
-		REM TIMEOUT /T 4
+	
+	REM TIMEOUT /T 4
 
-		REM -------------------------------------------------------------
-		REM ---- IN THE LOOP 
-		REM -------------------------------------------------------------
+	REM -------------------------------------------------------------
+	REM ---- IN THE LOOP 
+	REM -------------------------------------------------------------
 
 	)
 
