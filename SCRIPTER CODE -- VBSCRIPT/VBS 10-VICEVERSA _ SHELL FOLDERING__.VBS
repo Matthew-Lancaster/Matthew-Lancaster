@@ -90,7 +90,10 @@ NEXT
 
 VV_EXE_PATH=""
 
-
+' ----
+' How Can I Extract Just the File Name from the Full Path to the File? | Scripting Blog 
+' https://devblogs.microsoft.com/scripting/how-can-i-extract-just-the-file-name-from-the-full-path-to-the-file/
+' ----
 Set File = FSO.GetFile(Wscript.ScriptFULLNAME)
 ' Wscript.Echo "Absolute path: " & FSO.GetAbsolutePathName(File)
 ' Wscript.Echo "Parent folder: " & FSO.GetParentFolderName(File) 
@@ -275,6 +278,8 @@ END SUB
 
 
 ' "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\# TRACKING DATABASE\VV_DB__03__4-ASUS-GL522VW.tdb"
+' "C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\# TRACKING DATABASE\VV_DB__03__4-ASUS-GL522VW.tdb" for reading and writing. Aborting comparison. Check the tracking database path in the profile settings. Error: C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\# TRACKING DATABASE\VV_DB__03__4-ASUS-GL522VW.tdb
+
 ' "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__\# TRACKING DATABASE
 '--------------------------------------------------------
 SUB WRITE_THE_TRACKING_DATABASE_IF_NOT_EXIST
