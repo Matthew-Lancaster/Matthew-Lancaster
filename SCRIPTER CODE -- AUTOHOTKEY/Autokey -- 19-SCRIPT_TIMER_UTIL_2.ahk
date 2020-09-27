@@ -6488,6 +6488,10 @@ If SET_GO=TRUE
 ; -------------------------------------------------------------------
 IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 {	
+
+	MSGBOX "LLLLLLLLLLL"
+
+
 	SCRIPT_NAME_VAR:=SubStr(A_ScriptName, 1, -4)
 	SCRIPT_NAME_VAR=%A_ScriptDir%\%SCRIPT_NAME_VAR%_TIMER_%A_ComputerName%.txt
 	SCRIPT_NAME_VAR=%SCRIPT_NAME_VAR%
