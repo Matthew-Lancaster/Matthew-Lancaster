@@ -201,3 +201,35 @@ Sub TestMsgbox()
             Debug.Print "Timeout before user made selection."
     End Select
 End Sub
+
+
+
+
+
+----
+Blackview A60 Mobile Phone Android Smartphone, Dual SIM Free Android Phone Unlocked, 6.1-Inch IPS Full-Screen, 4080mAh Battery, 5MP+13MP Dual Camera, Android 8.1, UK Version - Black: Amazon.co.uk: Electronics 
+https://www.amazon.co.uk/Blackview-SIM-Free-Smartphones-Unlocked-Waterdrop/dp/B07QGJXJLN/ref=bmx_6/257-2107926-6902857?_encoding=UTF8&pd_rd_i=B07QGJXJLN&pd_rd_r=908232eb-4155-426e-b96e-34f62370c9d8&pd_rd_w=16xfL&pd_rd_wg=UNnJn&pf_rd_p=26d9b5cc-9c88-4655-88a4-db5806d5daad&pf_rd_r=FS1B1KEDH9DZNQRM0HKV&refRID=FS1B1KEDH9DZNQRM0HKV&th=1
+----
+Lee
+5.0 out of 5 stars Blackview A60 - Excellent budget mobile phone
+Reviewed in the United Kingdom on 18 February 2020
+Colour Name: BlackVerified Purchase
+Awesome phone for the price. Android Go OS very familiar to use. Go doesn't seem to be much different to the full version in day to day use. For phone calls and light internet use it's ideal. Dual SIM is what drew me to it, one for business one for pleasure. Overall features and quality are very good and comparable with much more expensive phones. Battery is larger capacity than similar models which is always a good thing. Silicon cover and screen protector included so that's another bonus. You simply can't beat it for a budget phone! *****
+
+Handy Hint! You can speed the phone up even more if you wish...
+
+1. Go to SYSTEM
+2. Go to BUILD.
+3. Press Build 7 times.
+4. Now you have DEVELOPER options.
+5. Go back one level.
+6. Go to DEVELOPER options.
+7. Scroll down to the 'animation' settings (there are 3).
+8. Turn the 3 animation settings from 1x to OFF.
+9. Press back out of settings and use your faster phone!
+
+Note. Some people advise not to turn animation all the way off but turn it to 0.5x Try it yourself and see what's best for you. I've had no problems with it off and the phone is lightning quick. Mess with other developer options at your own risk. It may also void your warranty but you can return everything back to normal with a factory reset. You can use this trick on most things Android.
+
+Well done Blackview! An excellent phone at an awesome price!
+Read less
+55 people found this helpful

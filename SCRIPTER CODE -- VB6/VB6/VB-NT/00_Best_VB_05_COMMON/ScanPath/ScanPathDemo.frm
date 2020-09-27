@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    BackColor       =   &H00808080&
@@ -529,7 +529,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   152305665
+      Format          =   79101953
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -543,7 +543,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   152305665
+      Format          =   79101953
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -556,7 +556,7 @@ Begin VB.Form ScanPath
       _ExtentX        =   1969
       _ExtentY        =   572
       _Version        =   393216
-      Format          =   152371202
+      Format          =   79101954
       CurrentDate     =   37299
    End
    Begin VB.Label lblCount7 
@@ -957,7 +957,7 @@ Dim OPATH
 Dim DDate2 As Date
 Public Dog, OutPutPath, Xdate As Date, Tdate As Date, Zdate$, Ydate As Date, OldFolder, OldSize
 
-Private Declare Function DeleteFile Lib "kernel32" Alias "DeleteFileA" (ByVal lpFileName As String) As Long
+Private Declare Function DeleteFile Lib "Kernel32" Alias "DeleteFileA" (ByVal lpFileName As String) As Long
 
 'Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
 
@@ -1018,7 +1018,7 @@ Public A1, B1, G1$, FF$
 'Author:    Richard Mewett ©2005
 '##############################################################################################
 
-Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
+Private Declare Sub CopyMemory Lib "Kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwndLock As Long) As Long
 
 'We must declare with WithEvents to process the files returned
@@ -3382,12 +3382,13 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
 
 
 
+FR1 = FreeFile
 'Load File From Link
 D1 = A1 + B1
-Open A1 + B1 For Binary As #1
-RR = Space$(LOF(1))
-Get #1, 1, RR
-Close #1
+Open A1 + B1 For Binary As #FR1
+RR = Space$(LOF(FR1))
+Get #FR1, 1, RR
+Close #FR1
 'If Mid$(rr$, &H568, 3) = ":" + Chr$(0) + "\" Then
 'rr$ = Mid$(rr$, &H566)
 'End If
