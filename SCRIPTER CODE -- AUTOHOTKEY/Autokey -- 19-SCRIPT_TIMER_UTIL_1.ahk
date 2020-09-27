@@ -3461,7 +3461,8 @@ Return
 ;----------------------------------------
 TIMER_SUB_OWNER:
 
-IF (OSVER_N_VAR < 6 ) ; THAN XP
+
+IF (OSVER_N_VAR < 6 ) ; XP
 	RETURN
 	
 dhw := A_DetectHiddenWindows
@@ -3502,19 +3503,19 @@ WinGet, HID, ID ,TeamViewer Panel ahk_class TV_ControlWin
 If HID>0
 {
 	ControlGettext, OutputVar_2, Static1, ahk_id %HID%
+
+	; ---------------------------------------------------------------
 	; WinGet MMX, MinMax, ahk_id %HID%
 	; WinGetPos, WinLeft, WinTop, WinWidth, WinHeight, ahk_id %HID%
 	; ControlGetPos, x, y, w, h, Static1, ahk_id %HID%
 	; TOOLTIP %OutputVar_2%"`n"%HID% " -- " %MMX%"`n"%WinLeft% " -- " %WinTop% " -- " %WinWidth% " -- " %WinHeight%"`n"%x% " -- " %y% " -- " %w% " -- " %h%
+	; ---------------------------------------------------------------
+
 	IF Instr(OutputVar_2,"Free license (non-commercial use only)")
 	{
 		; soundbeep 1500,200
 	}
 }
-
-; DetectHiddenWindows, OFF
-; SetTitleMatchMode 3
-; WinGet, HID_2, ID,TeamViewer ahk_class #32770
 
 SET_GO=TRUE
 If !HID
@@ -3527,8 +3528,10 @@ IF !Instr(OutputVar_2,"Free license (non-commercial use only)")
 ; RATHER SEE A LONG SHOT OF IT DONE AT MOMENT HASN'T GOT THROUGH FOR AGES AND VERY LONG WORKER
 ; -------------------------------------------------------------------
 	
+; -------------------------------------------------------------------
 If SET_GO=TRUE
 {
+	; ---------------------------------------------------------------
 	; MSGBOX HERE
 	; ; msgbox hh
 	; Process, Exist, ICACLS.EXE
@@ -3551,7 +3554,9 @@ If SET_GO=TRUE
 			; WINCLOSE, ahk_id %HID%
 		; }
 	; }
+	; ---------------------------------------------------------------
 }
+; -------------------------------------------------------------------
 
 
 ; ------------------------------------------------------------
@@ -3570,9 +3575,6 @@ If SET_GO=TRUE
 ; -------------------------------------------------------------------
 IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 {	
-	
-	MSGBOX "LLLLLLLLLLL"
-
 	SCRIPT_NAME_VAR:=SubStr(A_ScriptName, 1, -4)
 	SCRIPT_NAME_VAR=%A_ScriptDir%\%SCRIPT_NAME_VAR%_TIMER_%A_ComputerName%.txt
 	SCRIPT_NAME_VAR=%SCRIPT_NAME_VAR%
@@ -3591,12 +3593,22 @@ IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 	TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
 	; TIMER_SUB_OWNER_SAVE_TIMER+= 10,SECONDS
 
+	; COMPUTER THAT REBOOT REGULAR NOT RUN WHEN SMALLER
+	; -------------------------------------------------
 	IF (A_ComputerName="3-LINDA-PC") 
-		TIMER_SUB_OWNER_SAVE_TIMER+= 8, Days
-
+		TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
+	IF (A_ComputerName="5-ASUS-P2520LA") 
+		TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
+	; -------------------------------------------------
+	; THE ROUTINE AS HIGER CODE TOP -- NOT RUN XP COMPUTER
+	; XP NTFS NOT REQUIRE -- ACCESS LAW
+	; -------------------------------------------------
+	IF (OSVER_N_VAR < 6 ) ; XP
+		RETURN
+	; -------------------------------------------------
+		
 	FileDELETE, %SCRIPT_NAME_VAR%
 	FileAppend,%TIMER_SUB_OWNER_SAVE_TIMER%,%SCRIPT_NAME_VAR%
-
 }
 ELSE
 {
@@ -3604,13 +3616,14 @@ ELSE
 	RETURN
 }
 
-; --------------------------------------------
-; LOOK ABOVE OWNER DON'T HAVE TO RUN ON WIN XP
-; --- IF (OSVER_N_VAR < 6 ) ; THAN XP
-; --------------------------------------------
-
 ; -------------------------------------------------------------------
 ; 03 OF 03 RUN PROG TO SET ICACLS -- TAKEOWN OWNER
+; -------------------------------------------------------------------
+; HERE NOT RUN THE CODE SCRIPT WITH CONDITION PRESENT ON
+; -------------------------------------------------------------------
+; ICACLS.EXE 
+; TAKEOWN.EXE
+; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 SET_GO=TRUE
 IFWINEXIST, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
@@ -3630,7 +3643,6 @@ IF SET_GO=TRUE
 	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN ; HIDE
 	SLEEP 4000
 }
-
 DetectHiddenWindows, % dhw
 
 RETURN
