@@ -15,6 +15,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
+; 000005 LINE 0639 -- CODE GOT ERROR WORK CANT OPEN CLIPBOARD --- REQUIRE ERROR TRAP
+
+
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -268,6 +272,9 @@ WSCRIPT_FOCUS_SET_FLAG_02=
 SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
 
 ESCAPE_KEY_COUNT=0
+
+
+
 
 
 ; -------------------------------------------------------------------
@@ -633,6 +640,7 @@ ClipWait, 0.1
 IF ErrorLevel
     RETURN
 
+; 000005 LINE 0639 -- CODE GOT ERROR WORK CANT OPEN CLIPBOARD --- REQUIRE ERROR TRAP
 WWWW:=Clipboard 
 IF !WWWW
 	RETURN
