@@ -1,6 +1,0 @@
-------------------------------------------------
-Tue 12-Sep-2017 07:49:30 P
-E:\REG KEY SETTINGS\# Windows 7 REG SCRIPT\NOTEPAD++ WORK\windows 7 - How to open a file for editing in Administrator mode- - Super User.url
-E:\REG KEY SETTINGS\# Windows 7 REG SCRIPT\NOTEPAD++ WORK\windows 7 - How to open a file for editing in Administrator mode- - Super User.txt
-------------------------------------------------
-EXAMPLE HOW TRO USE REGISTRY IN VB SCRIPTOR
