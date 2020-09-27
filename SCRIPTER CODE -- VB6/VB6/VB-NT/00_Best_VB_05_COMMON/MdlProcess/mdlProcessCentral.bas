@@ -25,7 +25,7 @@ Public Idle_Timer_Proc
 '// version, many of the stuffs here do not exist in msdn or api viewer, so I've left them
 '// so you could use them, if you need.
 
-Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
+Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 'Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessId As Long) As Long
 Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
@@ -1207,23 +1207,23 @@ Public Sub List_ActiveProcess()
     
     lCount = Process32_Enum(Process())
     
-    Dim I As Long
+    Dim i As Long
     'With TreeView
     '    .Nodes.Clear
-        For I = 0 To lCount
+        For i = 0 To lCount
            ' Set NodeX = .Nodes.Add(, , CStr("PROCESS_" & I), FileName_Parse(Process(I).szExeFile), 1)
-            ProcessID(I) = Process(I).th32ProcessID
-            eer = Module32_Enum(Module(), ProcessID(I))
+            ProcessID(i) = Process(i).th32ProcessID
+            eer = Module32_Enum(Module(), ProcessID(i))
          '   NodeX.Tag = Process(I).szExeFile
         
         'ert$=("PROCESS_" & O, tvwChild, CStr("MODULE_" & O & "NUM_" & I), Module(I).szModule, 2)
-        Ew$ = Process(I).szExeFile
+        Ew$ = Process(i).szExeFile
         
         'Ew$ = Module(i).szExePath & "\" & Module(i).szModule
         'Ew$ = Module(i).szExePath & "\" & Module(i).szModule
         'Ew$ = process(i).
 
-        RR = ProcessID(I)
+        RR = ProcessID(i)
         'CID_Run_Me.List1.AddItem Format$(rr, "0000") + "." + Format$(O, "0000") + "." + Format$(i, "0000 ") + Ew$
         'ProcLB.List1.AddItem Format$(rr, "0000 ") + Ew$
 
@@ -1235,7 +1235,7 @@ Public Sub List_ActiveProcess()
 
 
 
-        Next I
+        Next i
     'End With
 End Sub
 
@@ -1250,7 +1250,7 @@ Public Sub List_ActiveModules()
     Dim pCount As Long
     Dim pFile As String
     Dim NodeX As Node
-    Dim I As Long
+    Dim i As Long
     Dim O As Long
     Dim lSize As Long
     
@@ -1264,10 +1264,10 @@ Public Sub List_ActiveModules()
     
     For O = 0 To pCount
         lCount = Module32_Enum(Module(), ProcessID(O))
-        For I = 0 To lCount
+        For i = 0 To lCount
               '  Set NodeX = .Nodes.Add("PROCESS_" & O, tvwChild, CStr("MODULE_" & O & "NUM_" & I), Module(I).szModule, 2)
              '   NodeX.Tag = Module(I).szExePath & "\" & Module(I).szModule
-        Ew$ = Module(I).szExePath & "\" & Module(I).szModule
+        Ew$ = Module(i).szExePath & "\" & Module(i).szModule
         RR = ProcessID(O)
         'CID_Run_Me.List3.AddItem Format$(rr, "0000") + "." + Format$(O, "0000") + "." + Format$(i, "0000 ") + Ew$
         'ProcLB.List1.AddItem Format$(rr, "0000 ") + Ew$
@@ -1281,7 +1281,7 @@ Public Sub List_ActiveModules()
         'Call Perfect(Ew$, 0)
         'If NoMusic = 1 Then FlingGrater1$ = Ew$
         'If NoMonOff = 1 Then FlingGrater2$ = Ew$
-        Next I
+        Next i
     Next O
 'If NoMusic = 1 And Cmdv = 1 Then NoMusic = 0
 'If Ebuy = 0 Then Ebuyer = 0
@@ -1291,20 +1291,20 @@ Public Sub List_ActiveThreads(ListView As ListView, P_ID As Long)
     '// A little different
     
     Dim lCount As Long
-    Dim I As Long
+    Dim i As Long
     Dim ItemX As ListItem
     
     lCount = Thread32_Enum(Thread(), ProcessID(P_ID - 1))
     
     With ListView
         .ListItems.Clear
-        For I = 0 To lCount
-            If Thread(I).th32OwnerProcessID = ProcessID(P_ID - 1) Then
-                Set ItemX = ListView.ListItems.Add(, , Thread(I).th32OwnerProcessID, , 4)
+        For i = 0 To lCount
+            If Thread(i).th32OwnerProcessID = ProcessID(P_ID - 1) Then
+                Set ItemX = ListView.ListItems.Add(, , Thread(i).th32OwnerProcessID, , 4)
            '     ItemX.SubItems(1) = Thread(I).th32ThreadID
            '     ItemX.SubItems(2) = Thread(I).cntUsage
             End If
-        Next I
+        Next i
     End With
 End Sub
 

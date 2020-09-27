@@ -53,6 +53,26 @@
 ' WIN XP
 ' ------------------------------------------------------------------
 
+
+
+' SEARCH FOR STRING LATER IN CODE PROJECT TO DO
+' DIM FIND_NAME_F(10)
+' FIND_NAME_F(1)=""
+
+' objStartFolder = "C:\"
+' Set objFolder = objFSO.GetFolder(objStartFolder)
+' Set colFiles = objFolder.Files
+' For Each objFile in colFiles
+	' FOR R_LOOP_2 = 1 TO UBOUND(FIND_NAME_F)
+		' IF instr(objFile.Name,FIND_NAME_F(R_LOOP_2))>0 THEN 
+			' I_COUNT=I_COUNT+1
+			' ARRAY_2(I_COUNT)=objFile.PATH
+		' END IF
+	' Next
+' Next
+' WSCRIPT.QUIT
+
+
 DIM USER_INTERACTIVE_MODE
 
 Set args = Wscript.Arguments
@@ -324,7 +344,36 @@ FOR VV_2=3 TO UBOUND(VV_VAR)
 		' ------------------------------------------------------------------
 		'IF Version_OS=5 THEN
 
+
+
 		IF USER_INTERACTIVE_MODE=FALSE THEN 
+		
+		
+			' -------------------------------------------------------
+			' DO HERE FROM OWN SKIN ANYTHING CHANGE ROOT FOLDER
+			' RATHER THAN RETURN BY VICE VERSA
+			' 
+			' AND THEN ABLE AVOID CERTAIN SHITTER
+			' -------------------------------------------------------
+			' REQUIRE STORE INFO FILE NOT PERPETUAL RUNNER
+			' FILE COUNT
+			' FILE SIZE
+			' FILE DATE
+			' -------------------------------------------------------
+			' objStartFolder = "C:\"
+			' Set objFolder = objFSO.GetFolder(objStartFolder)
+			' Set colFiles = objFolder.Files
+			' For Each objFile in colFiles
+				' FOR R_LOOP_2 = 1 TO UBOUND(FIND_NAME_F)
+					' IF instr(objFile.Name,FIND_NAME_F(R_LOOP_2))>0 THEN 
+						' I_COUNT=I_COUNT+1
+						' ARRAY_2(I_COUNT)=objFile.PATH
+					' END IF
+				' Next
+			' Next
+
+			
+			
 			iReturn=objShell.Run (CHR(34)& "C:\Program Files\ViceVersa Pro\ViceVersa.exe" & CHR(34)& " " & CHR(34)& FILEN_2 & CHR(34) & " /hiddenautoexec /wait",0,TRUE)
 			
 			'= 5 = CONFLICT

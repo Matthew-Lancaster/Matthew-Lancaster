@@ -621,7 +621,8 @@ WinGet,      HWND_ACTIVE_1, ID, A    ; Get Active Window
 WinGetTITLE, HWND_ACTIVE_2, A   ; Get Active Window TITLE
 
 
-IF HWND_ACTIVE_2=Your Notifications - Google Chrome
+; IF HWND_ACTIVE_2=Your Notifications - Google Chrome
+IF HWND_ACTIVE_2=Notifications | Facebook  - Google Chrome
 {
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	WinGet, HWND_RESTORE_PAGE, ID, Restore pages? ahk_class Chrome_WidgetWin_1
@@ -673,9 +674,10 @@ SET_ARRAY_FB_F5() {
 	SET_ARRAY_FB_F5 := []
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_FB_F5[ArrayCount]:="Your Notifications - Google Chrome"
+	; SET_ARRAY_FB_F5[ArrayCount]:="Your Notifications - Google Chrome"
+	SET_ARRAY_FB_F5[ArrayCount]:="Notifications | Facebook - Google Chrome" 
 	ArrayCount += 1
-	SET_ARRAY_FB_F5[ArrayCount]:="Your notifications - Google Chrome"  ; A CHANGE FB CASE LOWER
+	SET_ARRAY_FB_F5[ArrayCount]:="Notifications | Facebook - Google Chrome"  ; A CHANGE FB CASE LOWER
 	                                                                   ; Mon 10-Feb-2020 18:59:00
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
@@ -722,7 +724,8 @@ SET_ARRAY_AUTO_KEY() {
 	SET_ARRAY_AUTO_KEY := []
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_AUTO_KEY[ArrayCount]:="Your notifications - Google Chrome"
+	; SET_ARRAY_AUTO_KEY[ArrayCount]:="Your notifications - Google Chrome"
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="Notifications | Facebook - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
@@ -965,6 +968,7 @@ RETURN
 
 
 AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
+	RETURN
 	; ---------------------------------------------------------------
 	; IN ORDER TO USE THIS ROUTINE 
 	; FBPURITY MUST BE INSTALLED BECAUSE AT THE END OF A VIDEO IT TRY 
@@ -2218,29 +2222,29 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="1-ASUS-X5DIJ"    ; ---- COMPUTER NAME
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=                  ; ---- SELECTION IS NOT WANT USER ACTIVATE MODE   
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40                ; ---- TIMER INTERVAL ACTIVATE -- SECOND
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4                 ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=10                ; ---- TIMER LARGER INTERVAL F5 PRESS MINUTE SETTER
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=                  ; ---- MAKE AUDIO HITTER
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240               ; ---- TIME TO SPEND RELOAD PAGE BEFORE ENGAGE AGAIN
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="2-ASUS-EEE"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=10
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:= ; "YES AUDIO"
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 	ArrayCount += 1 
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="3-LINDA-PC"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=20
+	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=10
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:= ; "YES AUDIO"
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2
-	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:= ; "YES AUDIO"
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=120
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="5-ASUS-P2520LA"
@@ -2254,6 +2258,7 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:= ; "YES AUDIO"
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="8-MSI-GP62M-7RD"
@@ -2652,7 +2657,8 @@ TIMER_LEAVE_FACEBOOK_NOTIFY_AND_RETURN_PRESS_ESCPAPE:
 	WinGetTITLE, TITLE_NAME, A
 
 	IF LEAVE_FACEBOOK_NOTIFY_RETURN_OLD<>%TITLE_NAME%
-	IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")=0
+	; IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")=0
+	IF INSTR(TITLE_NAME,"Notifications | Facebook - Google Chrome")=0
 	{
 		SET_NEXT_ESCAPE_TO_GO=TRUE
 		RETURN
@@ -2662,7 +2668,8 @@ TIMER_LEAVE_FACEBOOK_NOTIFY_AND_RETURN_PRESS_ESCPAPE:
 
 	IF SET_NEXT_ESCAPE_TO_GO=TRUE
 	IF INSTR(CLASS,"Chrome_WidgetWin_1")
-	IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")
+	; IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")
+	IF INSTR(TITLE_NAME,"Notifications | Facebook - Google Chrome")
 	{	
 		SETTIMER SEND_ESCAPE_02,800
 		SET_NEXT_ESCAPE_TO_GO=
@@ -2705,7 +2712,8 @@ CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__4G:
 	}
 
 	WinGetTITLE, TITLE_NAME, A
-	IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")=0
+	; IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")=0
+	IF INSTR(TITLE_NAME,"Notifications | Facebook - Google Chrome")=0
 	{
 		SETTIMER CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__4G,OFF
 		RETURN
@@ -2719,7 +2727,7 @@ RETURN
 CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__1X:
 
 	WinGetTITLE, TITLE_NAME, A
-	IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")=0
+	IF INSTR(TITLE_NAME,"Notifications | Facebook - Google Chrome")=0
 	{
 		SETTIMER CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__1X,OFF
 		RETURN
@@ -2758,7 +2766,7 @@ TIMER_TOP_LINE_MOUSE_REFRESH_BROWSER:
 
 	XR=0
 	IF INSTR(CLASS,"Chrome_WidgetWin_1")
-	IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")
+	IF INSTR(TITLE_NAME,"Notifications | Facebook - Google Chrome")
 		XR=1
 
 	; TOOLTIP %STATE_XYPOS_TOP_LINE_MOUSE_REFRESH% `n %ypos% `n %xpos% `n %XR%
@@ -2810,7 +2818,7 @@ TIMER_TOP_LEFT_MOUSE_REFRESH_BROWSER:
 
 	; XR=0
 	; IF INSTR(CLASS,"Chrome_WidgetWin_1")
-	; IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")
+	; IF INSTR(TITLE_NAME,"Notifications | Facebook - Google Chrome")
 	; 	XR=1
 	
 	IF (STATE_XYPOS_COUNTER_TOP_LEFT_MOUSE_REFRESH>1)

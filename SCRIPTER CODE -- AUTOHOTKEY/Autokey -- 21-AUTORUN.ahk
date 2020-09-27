@@ -661,7 +661,6 @@ MouseMove, (A_ScreenWidth // 2), (A_ScreenHeight // 2)
 
 
 
-
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 Element_1 := "D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe"
@@ -1619,25 +1618,25 @@ If TRUE=FALSE
 	VV_VAR:="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
 	IfExist, %VV_VAR%
 	{
-		;VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VICE V -- VB-VB-NT--  EXE -- AT BOOT.fsf"
+		;VF_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VICE V -- VB-VB-NT--  EXE -- AT BOOT.fsf"
 		;IfExist, %VF_VAR%
 		; Run, "%VV_VAR%" "%VF_VAR%" /dialogautoexec /autoclose , , MIN
 		
-		VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE __  SYSINTERNALS TO PROGRAM FILES.fsf"
+		VF_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VV C DRIVE ROOT\VV C DRIVE __  SYSINTERNALS TO PROGRAM FILES.fsf"
 		IfExist, %VF_VAR%
 		{
 			SoundBeep , 2500 , 100
 			Run, "%VV_VAR%" "%VF_VAR%" /dialogautoexec /autoclose , , MIN
 		}
 		
-		VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES MOVER ROOT.fsf"
+		VF_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES MOVER ROOT.fsf"
 		IfExist, %VF_VAR%
 		{
 			SoundBeep , 2500 , 100
 			Run, "%VV_VAR%" "%VF_VAR%" /dialogautoexec /autoclose , , MIN
 		}
 
-		VF_VAR:="C:\SCRIPTER\SCRIPT_02 SYNC_ VICEVERSA\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES WINRAR.fsf"
+		VF_VAR:="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VV C DRIVE ROOT\VV C DRIVE __  PROGRAM FILES WINRAR.fsf"
 		IfExist, %VF_VAR%
 		{
 			SoundBeep , 2500 , 100
@@ -1876,7 +1875,7 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=TRUE
 IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO=TRUE
+	SET_GO=FALSE
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 	SET_GO=TRUE
 

@@ -73,7 +73,7 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
-
+; ; MsgBox % TrayIcon_GetInfo("hubiC.exe")
 
 
 ; --------------------------------------------------------
@@ -82,6 +82,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 GOSUB RUN_TIMER_TRAY_ICON_CLEAN_UP_2
 
 SETTIMER RUN_TIMER_TRAY_ICON_CLEAN_UP_2,60000
+
+RETURN
 
 RUN_TIMER_TRAY_ICON_CLEAN_UP_2:
 
@@ -95,6 +97,35 @@ RUN_TIMER_TRAY_ICON_CLEAN_UP_2:
 		}
 	}
 RETURN
+
+
+REMOVE_HUBIC_ICON:
+
+; -------------------------------------------------------------------
+; TRY HERE 
+; SOLVE PAIN RIGHT CLICK CONTEXT MENU EXPLORER AND THING
+; DISPLAY AFTER FEW SECOND SHOW
+; STOP HUBIC.EXE ONE WAY 
+; STOP ICON ANOTHER BUTT NOT THERE
+; TEST OTHER ITEM GOT ANIMATE ICON 
+; SAME PROBLEM
+; SUSSPEND FOR HOUR IDLE ONLY WAY
+; HUBIC.EXE HUBIC.COM
+; -------------------------------------------------------------------
+; LEARN FORMAT ALL POSSIBLE WAY REMOVE ICON
+; Thu 24-Sep-2020 11:44:00
+; Thu 24-Sep-2020 12:32:00 -- 48 MINUTE
+; -------------------------------------------------------------------
+Array_Icon_GetInfo := TrayIcon_GetInfo("hubiC.exe")
+TRAYICON_HIDE(Array_Icon_GetInfo[1].IDcmd, Array_Icon_GetInfo[1].TRAY,FALSE)  ; UNHIDE
+TRAYICON_HIDE(Array_Icon_GetInfo[1].IDcmd, Array_Icon_GetInfo[1].TRAY,TRUE)   ; HIDE
+TRAYICON_REMOVE(Array_Icon_GetInfo[1].HWND, Array_Icon_GetInfo[1].uID)
+TRAYICON_DELETE(Array_Icon_GetInfo[1].idx, Array_Icon_GetInfo[1].TRAY)
+PAUSE
+
+RETURN
+
+
 	
 
 ; ----------------------------------------------------------------------------------------------------------------------
@@ -116,6 +147,7 @@ RETURN
 ; ----------------------------------------------------------------------------------------------------------------------
 
 ; ----------------------------------------------------------------------------------------------------------------------
+; Function ......: TrayIcon
 ; Function ......: TrayIcon_GetInfo
 ; Description ...: Get a series of useful information about tray icons.
 ; Parameters ....: sExeName  - The exe for which we are searching the tray icon data. Leave it empty to receive data for 
