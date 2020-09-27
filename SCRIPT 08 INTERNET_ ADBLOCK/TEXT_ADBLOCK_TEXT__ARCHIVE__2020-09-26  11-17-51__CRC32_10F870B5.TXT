@@ -25,19 +25,19 @@
 ! AND THEN STILL SKILLFUL
 ! IT NOT PICKER THAT GOOD -- TRANSFER DATA IN GOOD AND OUT 
 ! -------------------------------------------------------------------
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK.TXT\TEXT_ADBLOCK_TEXT.TXT
+! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK\TEXT_ADBLOCK_TEXT.TXT
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.VBP -- VB6 CODE DRIVE HERE MERGING SCRIPT
 ! TWO FORM ONE TO COPY PASTE -- LINE PICKER
-! WORK MERGE ROUTINE AND ARCHIVE KEEP SUBSTANTIAL FEW AND BY DATE
+! WORK MERGE ROUTINE AND __ ARCHIVE __ KEEPER OF SUBSTANTIAL FEW AND BY DATE
 ! Sat 26-Sep-2020 06:54:20
-! Sat 26-Sep-2020 10:00:00 -- 3 HOUR 5 MINUTE
-! ABLE WRITE FOR VBSCRIPT -- AND RAPID DEVELOP HERE
+! Sat 26-Sep-2020 11:15:00 -- 4 HOUR 20 MINUTE
+! ABLE WRITE FOR VBSCRIPT --- AND RAPID DEVELOP HERE
 ! -------------------------------------------------------------------
 ! -------------------------------------------------------------------
 ! Fri 25-Sep-2020 14:40:00
+! Sat 26-Sep-2020 11:15:00 -- 20 HOUR 35 MINUTE
 ! -------------------------------------------------------------------
-||buy.tinypass.com/checkout/template/show?displayMode=inline&containerSelector=%23footerPrompt&templateId=OTJ8QZ6LZWNU&templateVariantId=OTVZ0YPNIC3NA&offerId=fakeOfferId&showCloseButton=false&trackingId=%7Bjcx%7DH4sIAAAAAAAAAI2RX0-DMBTFv0ufR1JaBqVviCwDFWbcJuOtlMKaMGD8nRq_u7BNzeKL9-nenPM7zb39AEwmgIIX531uW8HuzQMzULFMbKUY3ElBEEEFIkU1FVVTLr1pEiXsFprlDU98Uy9C5B6VhGsqSQkTMeexGfMYGgKnGHI10Qgn8RgsTpWopSi4OEc7oR_gpRW9BKvwRnVOgnetLIuzTSVwLnAG0_HtsVCD2qNRI30Pc3QsysxImy674S3-Azf7cliLQ5WzVhB76SwcbXnv-Q8Ej8SeNd8aoG3diRlor_MZDtYeeY70x-jV34BfbctqyYr2atlGcLfyXRv71ujh7FAxmRUNoEWX5zPQy0ZerL3y95Z4Wknp79LSOtirU6iv-qB3_3NLWU2fwyCkCHODplMzZtHENDUaQxxT00CMcg2i0d01orYyUbQjlAx8WqbNAVXnBCFINKh_fgHkEM4lCgIAAA&experienceId=EXNO3HAZSOPX&tbc=%7Bjzx%7D0hRl93QRmnQWEMayU4HVENW__VE6KVW5bZsRU6KIV6Q-_tQTLCV2hNvbwwofNE4Vt7gcf2w64epDOStYGkY4hJhpq83H8rbdQwd78Rz1J-hxOkYYWBNpqnZAG4w40XQb54GRTK9oqSzJS6cuXzbSig&iframeId=offer-0-p4cYq&url=https%3A%2F%2Fwww.independent.co.uk%2Findependentpremium%2Fpolitics-explained%2Fandrew-sabisky-dominic-cummin$subdo
 ||buy.tinypass.com/checkout/template/show?displayMode=inline&containerSelector=%23subscription-below-article&templateId=OTZI4HCWAAUG&templateVariantId=OTVDB0QB1X8Y7&offerId=fakeOfferId&showCloseButton=false&trackingId=%7Bjcx%7DH4sIAAAAAAAAAFWRW4_aMBCF_4ufseRr7Pgtu6CWbfeCoNnQN8uZgLXBRIkDrFb973XothV-Gut8Z8Y-84Gsr5FBTy3v_fvyW7ZGM9TZHZQezstJYYQRTCQmHFOCBcGcYqUUfuHny26_Pj1mY1Wt4TtWuaZQUyVkLRvJnOQkz6gWzOa6rnWWGsOlg95DcHBtvahet1vG5yu-erlRFxdwY_THcMWoJloOmjRvmKTDBugiq10Tjq6GIGGUIXc3_sL9Mw_743kDh661EUgm9FP--FDq5zllybG3w18NmdiPMEPx8341P29-LsXX-9ei-PEF_ddK23sb4idSzu_I6o5WeqsS4-yhs34XBmTC2LYzdPKD_4Oe8G2WXKf_YE05DpvFaSkbqPryoAu4x0JllPP0XiCNpdJxygURuQSSC8akSIN8Ny3HEmIYd8o0U5HSMVJk0jCnciMkMCO0nehxgL7YQYjJVJ-ntGJskaFSa6kl4-zXb5OQPq8KAgAA&experienceId=EXWYY23DQ3QP&tbc=%7Bjzx%7D2GkKM7aebHT49ilUzIhAyZ3YDAOIBl0A58ZEZv1uhDJhUL-JODVsD9-TiRg5zCs3iQSdeI0PXvR5UXSoHFBo3iOfIxmuVQ7IASsuCAbAsQOKkgQ76tNot1lsJzNDIIVI_OkD5rJPOzgcnhqxdjtyBA&iframeId=offer-0-YXs8V&url=https%3A%2F%2Fwww.theargus.co.uk%2Fnews%2F18422510.william-westein-wa$subdo
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/banners/covid-19-update-600x450.jpg$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/banners/1200x450/uk/essential-services.jpg$image
