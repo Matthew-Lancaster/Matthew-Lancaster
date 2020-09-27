@@ -1,7 +1,7 @@
-! -------------------------------------------------------------------
+! ---------------------------------------------------------------------
 ! MAINTAIN BLOCK FOR ADBLOCK.COM OVER AT CHROME QUICKER USER
 ! CLIPBOARD CHUNK BELOW -- ADBLOCK FOR CHROME -- /\/\/\/\/\ -- HITT HERE LINE -- /\/\/\/\/\ --
-! -------------------------------------------------------------------
+! ---------------------------------------------------------------------
 ! -------------------------------------------------------------------
 ! HERE A REM LINE -- HERE ALL MY ADBLOCK.COM
 ! COMPLETE COVER FB.COM UP-TO-DATE TRIM DOWN NICE SIMPLE LAND
@@ -25,7 +25,7 @@
 ! AND THEN STILL SKILLFUL
 ! IT NOT PICKER THAT GOOD -- TRANSFER DATA IN GOOD AND OUT 
 ! -------------------------------------------------------------------
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK.TXT\TEXT_ADBLOCK_TEXT_TXT
+! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK\TEXT_ADBLOCK_TEXT.TXT
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.VBP -- VB6 CODE DRIVE HERE MERGING SCRIPT
 ! TWO FORM ONE TO COPY PASTE -- LINE PICKER
@@ -34,20 +34,12 @@
 ! Sat 26-Sep-2020 11:15:00 -- 4 HOUR 20 MINUTE
 ! ABLE WRITE FOR VBSCRIPT --- AND RAPID DEVELOP HERE
 ! -------------------------------------------------------------------
-! Sat 26-Sep-2020 12:40:00 -- MOVE ROOM WORKER
-! Sat 26-Sep-2020 15:34:00 -- 2 HOUR 54 MINUTE
 ! -------------------------------------------------------------------
-! Fri 25-Sep-2020 14:40:00 -- START DAY & TOTAL NOT INCLUDE GAP BETWEEN
+! Fri 25-Sep-2020 14:40:00
 ! Sat 26-Sep-2020 11:15:00 -- 20 HOUR 35 MINUTE
-! Sat 26-Sep-2020 15:34:00 -- 1 DAY 54 MINUTE
 ! -------------------------------------------------------------------
-! -------------------------------------------------------------------
-! FILE HERE
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__01__MAIN.TXT
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
-! USER THIS ONE FOR MERGE
-! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
-! -------------------------------------------------------------------
+||buy.tinypass.com/checkout/offer/show?displayMode=inline&containerSelector=%23piano-message&templateId=OTKUJH8IWNG0&offerId=OFR2WKUU2NVU&formNameByTermId=%7B%7D&showCloseButton=false&experienceId=EXDP1ZKAJXIQ&activeMeters=%5B%7B%22meterName%22%3A%22DefaultMeter%22%2C%22views%22%3A1%2C%22viewsLeft%22%3A0%2C%22maxViews%22%3A1%2C%22totalViews%22%3A2%7D%5D&iframeId=offer-0-3zpd5&url=https%3A%2F%2Fwww.theargus.co.uk%2Fnews%2F17696655.bad-weather-causes-travel-chaos-in-sussex%2F%3Fref%3Dmr%26lp%3D1&parentDualScreenLeft=0&parentDualScreenTop=0&parentWidth=1536&parentHeight=638&parentOuterHeight=740&debug=true&aid=Nl3riyIK6S&userProvider=publisher_user_ref&userToken=&customCookies=%7B%7D&hasLoginRequiredCallback=true&width=1519&_qh=708082491
+||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/banners/covid-19-update-600x450.jpg$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/banners/1200x450/uk/essential-services.jpg$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/delivery-info-600x600.jpg$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
@@ -85,6 +77,7 @@ metro.co.uk##.container-1Kowb
 my.edfenergy.com##.even.field-item > .no-bottom-margin
 my.edfenergy.com##td:nth-of-type(2) > div
 new.brighton-hove.gov.uk##.col-sm-8 > h2:nth-of-type(1)
+new.brighton-hove.gov.uk##.row.covid-banner-inner
 onedrive.live.com##div.LeftNav-subLinksAsComponent:nth-of-type(1)
 onlinebanking.nationwide.co.uk###divWarnings
 onlinebanking.nationwide.co.uk###freeFormHTML
@@ -274,6 +267,7 @@ www.tesco.com##.jISkmI.styled__Container-sc-1bf1p22-0
 www.theargus.co.uk###subscription-below-article
 www.theargus.co.uk##.block-a.article-continuation > article
 www.theargus.co.uk##.block-b.article-continuation
+www.theargus.co.uk##li:nth-of-type(1) > a[href="https://www.theargus.co.uk/sport/18562947.adam-webster-praises-amazing-ex-chelsea-teen-tariq-lamptey/"]
 www.times-series.co.uk###sp_message_panel_id1577787247262
 www.waitrose.com##.cc_cursor.emergency___OFNEj
 www.youtube.com###secondary
