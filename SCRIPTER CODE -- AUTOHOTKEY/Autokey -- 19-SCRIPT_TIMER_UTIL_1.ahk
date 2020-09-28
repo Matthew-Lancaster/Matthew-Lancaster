@@ -3461,7 +3461,6 @@ Return
 ;----------------------------------------
 TIMER_SUB_OWNER:
 
-
 IF (OSVER_N_VAR < 6 ) ; XP
 	RETURN
 	
@@ -3590,15 +3589,18 @@ IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 IF TIMER_SUB_OWNER_SAVE_TIMER<%A_NOW%
 {	
 	TIMER_SUB_OWNER_SAVE_TIMER=%A_NOW%
-	TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
+	TIMER_SUB_OWNER_SAVE_TIMER+= 7, Days
 	; TIMER_SUB_OWNER_SAVE_TIMER+= 10,SECONDS
 
+	; -------------------------------------------------
 	; COMPUTER THAT REBOOT REGULAR NOT RUN WHEN SMALLER
 	; -------------------------------------------------
+	; OOH DO REBOOT DON'T MINDER ABOUT PARTICULAR ISSUE
+	; -------------------------------------------------
 	IF (A_ComputerName="3-LINDA-PC") 
-		TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
+		TIMER_SUB_OWNER_SAVE_TIMER+= 20, Days
 	IF (A_ComputerName="5-ASUS-P2520LA") 
-		TIMER_SUB_OWNER_SAVE_TIMER+= 4, Days
+		TIMER_SUB_OWNER_SAVE_TIMER+= 24, Days
 	; -------------------------------------------------
 	; THE ROUTINE AS HIGER CODE TOP -- NOT RUN XP COMPUTER
 	; XP NTFS NOT REQUIRE -- ACCESS LAW
@@ -3639,6 +3641,8 @@ IF SET_GO=TRUE
 {
 	; ---------------------------------------------------------------
 	; SET ICACLS -- TAKEOWN OWNER
+	; ---------------------------------------------------------------
+	; BAT 49-OWNER-ALL-DRIVES.BAT
 	; ---------------------------------------------------------------
 	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN ; HIDE
 	SLEEP 4000
