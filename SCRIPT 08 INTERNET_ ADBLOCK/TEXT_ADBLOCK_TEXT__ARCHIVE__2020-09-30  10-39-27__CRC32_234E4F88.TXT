@@ -84,12 +84,6 @@ my.edfenergy.com##.even.field-item > .no-bottom-margin
 my.edfenergy.com##td:nth-of-type(2) > div
 new.brighton-hove.gov.uk##.col-sm-8 > h2:nth-of-type(1)
 new.brighton-hove.gov.uk##.row.covid-banner-inner
-news.google.com###i30
-news.google.com##.EA71Tc.zWHNCf > div:nth-of-type(5) > div:nth-of-type(2)
-news.google.com##.SbZred.Xw9d0 > c-wiz
-news.google.com##div.j7vNaf.keNKEd.R7GTQ.lMgtcc.Oc0wGc.w0Adec:nth-of-type(2) > .j7vNaf.keNKEd.R7GTQ.YDRMcc.a8arzf.Pz9Pcd.mi8Lec.pjBVq
-news.google.com##div.j7vNaf.keNKEd.R7GTQ.lMgtcc.Oc0wGc.w0Adec:nth-of-type(3) > .j7vNaf.keNKEd.R7GTQ.YDRMcc.a8arzf.Pz9Pcd.mi8Lec.pjBVq
-news.google.com##div.j7vNaf.keNKEd.R7GTQ.lMgtcc.Oc0wGc.w0Adec:nth-of-type(4) > .j7vNaf.keNKEd.R7GTQ.YDRMcc.a8arzf.Pz9Pcd.mi8Lec.pjBVq
 onedrive.live.com##div.LeftNav-subLinksAsComponent:nth-of-type(1)
 onlinebanking.nationwide.co.uk###divWarnings
 onlinebanking.nationwide.co.uk###freeFormHTML
