@@ -1,0 +1,15 @@
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+Sub Session_OnEnd			
+	Application.Lock
+		sSessID = Session.SessionID
+		Application("yoyo"&sSessID) = Null
+		Application.Remove("yoyo"&sSessID)
+	Application.Unlock
+End Sub
+
+Sub Session_OnStart
+	Application.Lock
+		Session("Start") = now()
+	Application.Unlock
+End Sub
+</script>
