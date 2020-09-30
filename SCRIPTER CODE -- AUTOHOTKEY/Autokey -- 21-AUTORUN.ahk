@@ -2515,6 +2515,47 @@ IfExist, %FN_VAR%
 ; -------------------------------------------------------------------
 
 
+
+; -------------------------------------------------------------------
+SET_GO_5=0
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SET_GO_5=1
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_GO_5=1
+IF SET_GO_5=1
+If ProcessExist("FileLocatorPro.exe", A_UserName)=0
+{
+	FN_VAR:="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%" ,,MIN
+	}
+}
+; IfExist, %FN_VAR%
+	; RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, USB Safely Remove
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+SET_GO_5=0
+IF (A_ComputerName="4-ASUS-GL522VW")
+	SET_GO_5=1
+IF (A_ComputerName="7-ASUS-GL522VW")
+	SET_GO_5=1
+IF SET_GO_5=1
+If ProcessExist("DuplicateCleaner.exe", A_UserName)=0
+{
+	FN_VAR:="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%" ,,MIN
+	}
+}
+; IfExist, %FN_VAR%
+	; RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, USB Safely Remove
+; -------------------------------------------------------------------
+
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 40, SECONDS
 SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
