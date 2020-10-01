@@ -77,47 +77,50 @@ RENAME_EXTENSION_QUIET_WITH_AUDIO=
 RENAME_EXTENSION_SET_DONE_QUIET=
 ; ------------------------------------------------ DECLARE VARIABLE
 
-
-
-
 ; GOSUB SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME   ; ____ EXAMPLE __T1_C1 -- _T2_C1 -- _T3_C1 -- _T4_C1
 ; RETURN
 
 ; GOSUB SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER
 ; RETURN
 
-
-
 REVERSE_OR_FORWARD=FORWARD
 SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
+SOURCE_HDD_OR_PEN_DRIVE=HDD
 
-; GOSUB SUB_SET_DATE_UNIT
-
-
+GOSUB SUB_SET_DATE_UNIT
 
 ; ONLY WHEN VIDEO
 ; GOSUB SUB_SET_DATE_FOLDER_ONLY_REMOTE_UNIT
 
 ; RUN HERE FOR REKETESS V115 
 
-IF !FileExist("J:\M")
+; -----------------------------------------------
+; IF !FileExist("J:\M")
+; -----------------------------------------------
+; CHECK FOLDER HERE
+; -----------------------------------------------
+IF !FileExist("F:\RETEKESS M3 32GB M3 -- DATE\M")
 {
 	MSGBOX ,4096,, NONE DRIVE INPUT ;
 }
-GOSUB RETREIVE_MODIFIED_DATE_SORTED_CONTENT_TO_LIST_FILE
+
+; 1ST RUN
+; NOT TO RUN THIS ONE
+; GOSUB RETREIVE_MODIFIED_DATE_SORTED_CONTENT_TO_LIST_FILE
 
 
-
+; NOT RUN MOST TIME
+; ---------------------------------
 RETURN
-
-
+; ---------------------------------
 GOSUB SUB_RENAME_ERROR_WHEN_WRONG
 GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
 GOSUB SUB_RENAME_ERROR_WHEN_WRONG_2
-
+; ---------------------------------
 RETURN
+; ---------------------------------
 
-
+; NOT RUN MOST TIME
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME:
@@ -141,7 +144,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-
+; NOT RUN MOST TIME
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 SUB_MOVE_TO_DIRECTORY_STRUCTURE_FOLDER:
@@ -181,6 +184,8 @@ RETURN
 ; -------------------------------------------------------------------
 SUB_SET_DATE_UNIT:
 
+	TS=
+
 	WORK_DO_COUNT=0
 	
 	; ---------------------------------------------------------------
@@ -211,6 +216,8 @@ SUB_SET_DATE_UNIT:
 		DRIVE_NAME=F:\MP3-YX-510_02_TS\M\*.*
 	IF SOURCE_HDD_OR_PEN_DRIVE=PEN_DRIVE
 		DRIVE_NAME=I:\M\*.*
+	
+	DRIVE_NAME=F:\RETEKESS M3 32GB M3 -- DATE\M\*.*
 	
 	Loop, Files, %DRIVE_NAME% , FDR
     {
@@ -308,10 +315,11 @@ SUB_SET_DATE_UNIT:
 			CONTENT_NAME_SET=%FILENAME%
 			IF REVERSE_OR_FORWARD=FORWARD
 				TS+= 1, Days     ; FORWARD
-			IF REVERSE_OR_FORWARD=REVERSE
-				TS+= -1, Days      ; REVERSE
+			; IF REVERSE_OR_FORWARD=REVERSE
+				; TS+= -1, Days      ; REVERSE
 			; -------------------------------------------------------
 			; -- COUNT GO BACKWARD NOT FORWARD DEVICE HERE ---- MP3-YX-510 ---- MP3 PLAYER
+			; -- COUNT FORWARD REKETEKESS -- NEW HER
 			; -------------------------------------------------------
 			IF Mod(A_INDEX, 20)=0 
 				TOOLTIP % SubStr(TS, 1, 8) "`n" SubStr(TS_2, 1, 8 ) "`n" FILENAME,100,100
@@ -517,6 +525,7 @@ RETURN
 
 
 
+; NOT TO RUN THIS ONE
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 RETREIVE_MODIFIED_DATE_SORTED_CONTENT_TO_LIST_FILE:
