@@ -672,21 +672,6 @@ IfExist, %Element_1%
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-Process, Exist, gs-server.exe
-If Not ErrorLevel
-{
-	FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
-	IfExist, %FN_VAR%
-	{
-		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%"  /service
-	}
-}
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-
 
 
 
@@ -940,6 +925,9 @@ IfExist, %FN_VAR%
 		SoundBeep , 2000 , 100
 		Run, "%FN_VAR%"
 	}
+
+
+
 
 
 RETURN
@@ -1299,6 +1287,23 @@ If ProcessExist("wweb32.exe", A_UserName)=0
 
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WordWeb
 	
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+Process, Exist, gs-server.exe
+If Not ErrorLevel
+{
+	FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
+	IfExist, %FN_VAR%
+	{
+		SoundBeep , 2500 , 100
+		Run, "%FN_VAR%"  /service
+	}
+}
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
 	
 SET_GO=FALSE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
@@ -1321,9 +1326,9 @@ IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	SET_GO_1=1
 ; IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	; SET_GO_1=1
-IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
-	SET_GO_1=8M
 
+
+; DESKTOP 
 IF SET_GO_1=1
 {
 	Process, Exist, GoodSync-v10.exe
@@ -1340,60 +1345,12 @@ IF SET_GO_1=1
 	}
 }
 
-IF SET_GO_1=8M
+; DESKTOP
+IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
 	SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,1000
 
-TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M:
-{
-	Process, Exist, GoodSync-v10.exe
-	If ErrorLevel
-		SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,OFF
-		
-	If Not ErrorLevel
-	{
-		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-			MSGBOX "COMPUTER NAME 8-MSI-GP62M-7RD -- READY TO START DESKTOP GOODSYNC"
-			Run, "%FN_VAR%" 
-		}
-	}
-}
-RETURN
-
-
-SET_GO_1=0
-; IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	; SET_GO_1=1
-IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
-	SET_GO_1=1
-
-IF SET_GO_1=1
-{
-	Process, Exist, GoodSync2Go.exe
-	If Not ErrorLevel
-	{
-		FN_VAR:="C:\GoodSync\x64\GoodSync2Go.exe"
-		IfExist, %FN_VAR%
-		{
-			SoundBeep , 2500 , 100
-			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-			Run, "%FN_VAR%" 
-		}
-	}
-}
-
-SET_GO_1=0
+; GOODYNC D
 IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=1
-; IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
-	; SET_GO_1=1
-
-IF SET_GO_1=1
 {
 	Process, Exist, GoodSync2Go.exe
 	If Not ErrorLevel
@@ -2572,11 +2529,42 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 ; END OF MAIN LOAD ROUTINE
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+
+TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M:
+{
+	Process, Exist, GoodSync-v10.exe
+	If ErrorLevel
+		SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,OFF
+		
+	If Not ErrorLevel
+	{
+		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			MSGBOX "COMPUTER NAME 8-MSI-GP62M-7RD -- READY TO START DESKTOP GOODSYNC"
+			Run, "%FN_VAR%" 
+		}
+	}
+}
+RETURN
 
 
 MINIMIZE_ALL_BLUETOOTH_TIMER:
