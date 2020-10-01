@@ -48,6 +48,7 @@
 ! USER THIS ONE FOR MERGE
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
+||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
 ||d1byywzi6ghj11.cloudfront.net/img/spacer.gif$image
 ||home.bt.com/images/email-login-promotional-image-136445082693902601-200806111032.jpg$image
