@@ -75,6 +75,7 @@ RENAME_FILTER_EXTENSION_CASE_EXCLUDE=
 RENAME_FILTER_EXTENSION_CASE_INCLUDE=
 RENAME_EXTENSION_QUIET_WITH_AUDIO=
 RENAME_EXTENSION_SET_DONE_QUIET=
+OLD_OUTDIR=
 ; ------------------------------------------------ DECLARE VARIABLE
 
 ; GOSUB SUB_STRIP_THE_HANDBRAKE_EXE_BATCH_GENERATOR_ADDTION_FILENAME   ; ____ EXAMPLE __T1_C1 -- _T2_C1 -- _T3_C1 -- _T4_C1
@@ -199,15 +200,32 @@ SUB_SET_DATE_UNIT:
 
 	MSGBOX_OFF=TRUE
 	
-	
 	IF REVERSE_OR_FORWARD=FORWARD
-		SUBST_1_DATE_Y:= 2000 ; WHEN FORWARD SET
+		TS := SubStr( 20000001, 1, 8 ) . "000000" ; WHEN FORWARD SET YEAR 2000
 	IF REVERSE_OR_FORWARD=REVERSE
-		SUBST_1_DATE_Y:= 1980 ; WHEN REVERSE SET
-	SUBST_1_DATE_M:= 01
-	SUBST_1_DATE_D:= 01
-	
-	TS=% SUBST_1_DATE_Y . SUBST_1_DATE_M . SUBST_1_DATE_D . 01 . 00 . 00
+		TS := SubStr( 19800001, 1, 8 ) . "000000" ; WHEN REVERSE SET 1980
+	; -----------------------------------------------
+	; NOT ABLE HERE SO A TRICKER
+	; GOT DATE AND NOT 1ST MONTH 1ST DAY
+	; IS OCTOBER
+	; WAS GO DO IT GET DAY OFFSET AND SUBTRACT THEM
+	; BETTER ADD ONE DAY AND SUBTRACT THEM
+	; WHEN ENTER NONE NAUGHT CURRENT
+	; -----------------------------------------------
+	; NEW LEARN TOOK LOT OF WORK NOT FIND REAL ANSWER
+	; -----------------------------------------------
+	; FormatTime, TT, %TS%, YDay
+	; MSGBOX % TT "`n" TS
+	; -----------------------------------------------
+	; STILL NOT WORK GO STYLE BEFORE
+	; -----------------------------------------------
+	; TS+= -1, DAYS             ; REVERSE
+	FormatTime, TT, %TS%, YDay
+	MSGBOX % TT
+	TS+= -1, DAYS             ; REVERSE
+
+	FormatTime, TL, TS, yyyy MM dd HH mm ss
+	MsgBox % "0004" "`n" TL "--`n--" TS
 	
 	INFO_DISPLAY_ONCE=TRUE
 	
@@ -231,10 +249,29 @@ SUB_SET_DATE_UNIT:
 			FileSetTime, %TS% , %FILENAME% , C ,1     ; ,1 NOT REALLY REQUIRE DEFAULT SINGLE FOLDER ALLOW SET DATE
 			CONTENT_NAME_SET=%FILENAME%
 			
-			IF REVERSE_OR_FORWARD=FORWARD
-				TS+= 1, Days             ; FORWARD
-			IF REVERSE_OR_FORWARD=REVERSE
-				TS+= -1, Days            ; REVERSE
+			IF !OLD_OUTDIR
+				OLD_OUTDIR=%OUTDIR%
+			
+			; FOR SAMSUNG MOBILE PHONE DATE ORDER
+			; WHEN FOLDER CHANGE PATH ADD IT DATE
+			; OR ELSE EACH FILE UP ONE MINUTE
+			DO_SOME_ADD_DATER=FALSE
+			IF OUTDIR<>%OLD_OUTDIR%
+			{
+				IF REVERSE_OR_FORWARD=FORWARD
+					TS+= 1 , DAYS             ; FORWARD
+				IF REVERSE_OR_FORWARD=REVERSE
+					TS+= -1, DAYS             ; REVERSE
+				
+				TS := SubStr(TS, 1, 8 ) . "000000" ; WHEN FORWARD SET YEAR 2000
+
+				MSGBOX %TS% 
+
+				FormatTime, TL, TS, yyyy MM dd -- HH mm ss
+				MsgBox % "0003" "`n" TL "`n" TS "`n" FILENAME
+				DO_SOME_ADD_DATER=TRUE
+			}
+			OLD_OUTDIR=%OUTDIR%
 		}
 
 		IF INSTR(".MP3 .WAV .MP4",OutExtension)
@@ -243,10 +280,21 @@ SUB_SET_DATE_UNIT:
 			FileSetTime, %TS% , %FILENAME% , C
 			FileGetTime, TS_2,  %FILENAME%, M
 			CONTENT_NAME_SET=%FILENAME%
+			
+			; WHEN IT REKTEK HERE
+			; IF REVERSE_OR_FORWARD=FORWARD
+				; TS+= 1, Days             ; FORWARD
+			; IF REVERSE_OR_FORWARD=REVERSE
+				; TS+= -1, Days            ; REVERSE
+
+			; WHEN NEW MOBILE HERE
 			IF REVERSE_OR_FORWARD=FORWARD
-				TS+= 1, Days             ; FORWARD
+				TS+= 1 , MINUTES             ; FORWARD
 			IF REVERSE_OR_FORWARD=REVERSE
-				TS+= -1, Days            ; REVERSE
+				TS+= -1, MINUTES             ; REVERSE
+			
+			FormatTime, TL, TS, yyyy MM dd -- HH mm ss
+			MsgBox % "0004" "`n" TL "`n" TS "`n" FILENAME
 			
 			IF Mod(A_INDEX, 500)=0 
 				TOOLTIP % 	SubStr(TS, 1, 8) "`n" SubStr(TS_2, 1, 8 ) "`n" FILENAME,100,100
@@ -342,6 +390,22 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+; var1 = 8/1/2013
+; var2 = 8/1/2013 12:00:00 AM
+; MsgBox % DatePad(var1) "`n" DatePad(var2)
+; return
+
+DatePad(indate){
+	RegExMatch( indate , "(\d+)/(\d+)/(\d+)" , m )
+	return (StrLen(m1)=1?"0":"") m1 "/" (StrLen(m2)=1?"0":"") m2 "/" m3
+}
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
 ; -------------------------------------------------------------------
