@@ -48,6 +48,7 @@
 ! USER THIS ONE FOR MERGE
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
+||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
 ||d1byywzi6ghj11.cloudfront.net/img/spacer.gif$image
 ||home.bt.com/images/email-login-promotional-image-136445082693902601-200806111032.jpg$image
 ||images-eu.ssl-images-amazon.com/images/G/02/mobile-marketing/air_tap/v2/XCM_Manual_1188247_air_Tap_ILM_Desktop_Mobile_650x45_Mobile_Traffic__XCM_Manual_1188247_uk_mobile_traffic_air_tap_ilm_ilm_desktop_650x45_1567413310_jpg._CB438206683_.jpg$image
