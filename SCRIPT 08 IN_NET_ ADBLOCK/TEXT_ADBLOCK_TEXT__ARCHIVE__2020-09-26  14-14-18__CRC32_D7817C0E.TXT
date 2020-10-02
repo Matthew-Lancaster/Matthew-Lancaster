@@ -25,7 +25,7 @@
 ! AND THEN STILL SKILLFUL
 ! IT NOT PICKER THAT GOOD -- TRANSFER DATA IN GOOD AND OUT 
 ! -------------------------------------------------------------------
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK\TEXT_ADBLOCK_TEXT.TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK\TEXT_ADBLOCK_TEXT.TXT
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.VBP -- VB6 CODE DRIVE HERE MERGING SCRIPT
 ! TWO FORM ONE TO COPY PASTE -- LINE PICKER
@@ -38,6 +38,7 @@
 ! Fri 25-Sep-2020 14:40:00
 ! Sat 26-Sep-2020 11:15:00 -- 20 HOUR 35 MINUTE
 ! -------------------------------------------------------------------
+||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
