@@ -14,7 +14,7 @@ EXAMPLE
 AND TAKE THAT DEAL WITH
 
 
-C:\Windows\system32>DEL \\4-asus-gl522vw\4_asus_gl522vw_01_c_drive\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK
+C:\Windows\system32>DEL \\4-asus-gl522vw\4_asus_gl522vw_01_c_drive\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK
 
 
 

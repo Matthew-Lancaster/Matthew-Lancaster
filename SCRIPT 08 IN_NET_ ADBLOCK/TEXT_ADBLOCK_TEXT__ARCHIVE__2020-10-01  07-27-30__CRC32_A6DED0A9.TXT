@@ -25,7 +25,7 @@
 ! AND THEN STILL SKILLFUL
 ! IT NOT PICKER THAT GOOD -- TRANSFER DATA IN GOOD AND OUT 
 ! -------------------------------------------------------------------
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK.TXT\TEXT_ADBLOCK_TEXT_TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK.TXT\TEXT_ADBLOCK_TEXT_TXT
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.VBP -- VB6 CODE DRIVE HERE MERGING SCRIPT
 ! TWO FORM ONE TO COPY PASTE -- LINE PICKER
@@ -43,14 +43,11 @@
 ! -------------------------------------------------------------------
 ! -------------------------------------------------------------------
 ! FILE HERE
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__01__MAIN.TXT
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__01__MAIN.TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! USER THIS ONE FOR MERGE
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
-||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/delivery-info-600x600.jpg$image
-||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
-||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
 ||d1byywzi6ghj11.cloudfront.net/img/spacer.gif$image
@@ -84,6 +81,13 @@ metro.co.uk##.container-1Kowb
 my.edfenergy.com##.even.field-item > .no-bottom-margin
 my.edfenergy.com##td:nth-of-type(2) > div
 new.brighton-hove.gov.uk##.col-sm-8 > h2:nth-of-type(1)
+new.brighton-hove.gov.uk##.row.covid-banner-inner
+news.google.com###i30
+news.google.com##.EA71Tc.zWHNCf > div:nth-of-type(5) > div:nth-of-type(2)
+news.google.com##.SbZred.Xw9d0 > c-wiz
+news.google.com##div.j7vNaf.keNKEd.R7GTQ.lMgtcc.Oc0wGc.w0Adec:nth-of-type(2) > .j7vNaf.keNKEd.R7GTQ.YDRMcc.a8arzf.Pz9Pcd.mi8Lec.pjBVq
+news.google.com##div.j7vNaf.keNKEd.R7GTQ.lMgtcc.Oc0wGc.w0Adec:nth-of-type(3) > .j7vNaf.keNKEd.R7GTQ.YDRMcc.a8arzf.Pz9Pcd.mi8Lec.pjBVq
+news.google.com##div.j7vNaf.keNKEd.R7GTQ.lMgtcc.Oc0wGc.w0Adec:nth-of-type(4) > .j7vNaf.keNKEd.R7GTQ.YDRMcc.a8arzf.Pz9Pcd.mi8Lec.pjBVq
 onedrive.live.com##div.LeftNav-subLinksAsComponent:nth-of-type(1)
 onlinebanking.nationwide.co.uk###divWarnings
 onlinebanking.nationwide.co.uk###freeFormHTML
@@ -148,6 +152,8 @@ www.amazon.co.uk##.swa-block-item.a-box > .a-box-inner
 www.amazon.co.uk##.uilm-section.a-spacing-none.a-section > .a-link-normal
 www.britishcornershop.co.uk##.clear.inner
 www.britishcornershop.co.uk##.information > .clear.inner
+www.bt.com###homeroutingRXF > .xf-content-height > .aem-Grid--default--12.aem-Grid--12.aem-Grid > .aem-GridColumn--default--12.aem-GridColumn.parbase.herobanner > div > .height600.hero-banner
+www.bt.com##.main-content
 www.clocktab.com###donate-button
 www.clocktab.com###donate-button > .button-text
 www.clocktab.com###donate-button > .glass-background.button-background
@@ -181,7 +187,10 @@ www.facebook.com##.gs1a9yip.j83agx80.cbu4d94t.osnr6wyh.hv4rvrfc.dati1w0a.pybr56y
 www.facebook.com##.hzawbc8m.m9osqain.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
 www.facebook.com##.hzawbc8m.oo9gr5id.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.dp1hu0rb.hpfvmrgz > .j83agx80.cbu4d94t.dp1hu0rb.l9j0dhe7 > div:nth-of-type(1)
+www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1)
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1) > div:nth-of-type(1)
+www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1) > ul > li:nth-of-type(1)
+www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1) > ul > li:nth-of-type(1) > div
 www.facebook.com##.k4urcfbm.tr9rh885 > div.taijpn5t.btwxx1t3.j83agx80:nth-of-type(2)
 www.facebook.com##.l6v480f0.j83agx80.kvgmc6g5.ad2k81qe.oygrvhab.f9o22wc5.discj3wi.rz4wbd8a.ihqw7lf3.a8nywdso
 www.facebook.com##.lzcic4wl.btwxx1t3.j83agx80.dati1w0a.e5nlhep0.hv4rvrfc.ecm0bbzt
@@ -273,6 +282,7 @@ www.tesco.com##.jISkmI.styled__Container-sc-1bf1p22-0
 www.theargus.co.uk###subscription-below-article
 www.theargus.co.uk##.block-a.article-continuation > article
 www.theargus.co.uk##.block-b.article-continuation
+www.theargus.co.uk##li:nth-of-type(1) > a[href="https://www.theargus.co.uk/sport/18562947.adam-webster-praises-amazing-ex-chelsea-teen-tariq-lamptey/"]
 www.times-series.co.uk###sp_message_panel_id1577787247262
 www.waitrose.com##.cc_cursor.emergency___OFNEj
 www.youtube.com###secondary

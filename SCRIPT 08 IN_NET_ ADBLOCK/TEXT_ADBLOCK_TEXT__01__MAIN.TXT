@@ -25,7 +25,7 @@
 ! AND THEN STILL SKILLFUL
 ! IT NOT PICKER THAT GOOD -- TRANSFER DATA IN GOOD AND OUT 
 ! -------------------------------------------------------------------
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK.TXT\TEXT_ADBLOCK_TEXT_TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK.TXT\TEXT_ADBLOCK_TEXT_TXT
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe
 ! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.VBP -- VB6 CODE DRIVE HERE MERGING SCRIPT
 ! TWO FORM ONE TO COPY PASTE -- LINE PICKER
@@ -43,12 +43,11 @@
 ! -------------------------------------------------------------------
 ! -------------------------------------------------------------------
 ! FILE HERE
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__01__MAIN.TXT
-! C:\SCRIPTER\SCRIPT 08 INTERNET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__01__MAIN.TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! USER THIS ONE FOR MERGE
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
-||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
 ||d1byywzi6ghj11.cloudfront.net/img/spacer.gif$image
 ||home.bt.com/images/email-login-promotional-image-136445082693902601-200806111032.jpg$image

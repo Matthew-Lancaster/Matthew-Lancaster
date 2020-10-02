@@ -16,7 +16,18 @@
 ' ---------------------------------------------------------------
 ' AND HERE
 ' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
+' NEW NAME DESCRIPTOR
+' VBS 79-GOODSYNC SCRIPT VB6__KILL TO ALLOW REMOTE COPY OVER.VBS
+' LOT THEM IN GOODSYNC PROFILE
+' AND 
+' Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
+' AN WITHIN OWN HERE
+' WHEN CHANGE RUN HERE
+' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 08-GOODSYNC EDITOR_4 CALCULATOR PATH LEN & CORRECTOR.VBS
+' REQUIRE BACKUP WORKER HERE
 ' ---------------------------------------------------------------
+
+
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
