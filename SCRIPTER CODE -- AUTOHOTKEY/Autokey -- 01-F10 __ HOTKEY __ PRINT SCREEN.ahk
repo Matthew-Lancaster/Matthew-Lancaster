@@ -1278,19 +1278,31 @@ RETURN
 #ifwinactive
 
 
+
+; -------------------------------------------------------------------
+; GOOGLE PHOTO WHEELDOWN 
+; NOT REALLY 
+; MOUSEWHEEL PAGE DOWN THING FROM GOOGLE TRASH
+; -------------------------------------------------------------------
+
 #ifwinactive Trash - Google Drive
 F4::
 	WinGet, HWND_22, ID ,A
+	TOOLTIP LEFT MOUSE BUTON TO STOP `nSCROLL OVER LIST AREA TO MOUSE-WHEEL MOVE
 	LOOP 1000000
 	{
 		IF GetKeyState("LButton")   ; MOUSEDOWN
+		{
+			TOOLTIP 
 			RETURN
+		}
 		WinGet, HWND_24, ID ,A
 		IF HWND_22<>%HWND_24%
 			RETURN
 		SENDINPUT {WheelDown}
 		SLEEP 100
 	}
+TOOLTIP 
 RETURN
 #ifwinactive
 
