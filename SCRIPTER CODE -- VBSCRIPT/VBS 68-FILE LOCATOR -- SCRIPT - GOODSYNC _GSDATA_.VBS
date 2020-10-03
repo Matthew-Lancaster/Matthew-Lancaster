@@ -1,25 +1,29 @@
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
-
 ' FILE PATH SEARCH STRING
 ' "C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\PS 04 - GET_ALL_SYSTEM_NETWORK DRIVE.PS1__#NFS_EX__.TXT"
 ' $(AllLocalDrives)\
 
 ' $(AllLocalDrives)\;C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\PS 04 - GET_ALL_SYSTEM_NETWORK DRIVE.PS1__#NFS_EX__.TXT
 
+
+	
 DIM VAR_ONCE
+
+Dim FSO
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+
 
 Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 
 	' On Error Resume Next
-	
 	' bIsValid = False
 	' IF EXTNAME=".LOG" AND ISNUMERIC(F4) THEN bIsValid = TRUE
 	' IF EXTNAME=".LOG" AND F8="GOODSYNC" THEN bIsValid = TRUE
 	' IF EXTNAME=".LOG" AND F8="SENDSMTP" THEN bIsValid = TRUE
 
 	bIsValid = FALSE
-	
 	
 	IF VAR_ONCE=1000 THEN 
 	IF strFileName="FILE_LOCATOR_DUMMY_FILE_TO_RUN_SCRIPT_DO_OTHER.txt" THEN
@@ -44,8 +48,20 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 		EXIT FUNCTION
 	END IF
 	END IF
-	
-	
+
+	' DELETE PATH FIND STRING QUICK WAY THAN EXPLORER WHEN LOT OF THEM
+	' ----------------------------------------------------------------
+	IF INSTR(strPath,    "_saved_")>0 THEN
+	IF INSTR(strPath,    "D:\0 CLOUD\_gsdata_\_saved_\GD-INSYNC\rub.rim@gmail.com\KAT MP3 RECORDER")>0 THEN
+	IF INSTR(strFileName,"MP3")>0 THEN
+		TIME_GET=DATE & " " & MID(TIME,1,2)
+		IF TIME_GET="03/10/2020 19" THEN 
+			FSO.DELETEFILE(strPath & strFileName)
+		END IF
+	END IF
+	END IF
+	END IF
+
 	
 	IF INSTR(strPath,"_saved_")>0 THEN bIsValid = True
 	IF INSTR(strPath,"_history_")>0 THEN 
@@ -87,13 +103,13 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 	' D:\GOODSYNC__BACK\_gsdata_\_history_\Profile\jobs-groups-options-2020-0627-022318_2020-0627-194941.tic
 	IF INSTR(strFileName,"jobs-groups-options")>0    THEN
 	IF INSTR(strFileName,".tic")>0  THEN 
-	bIsValid = False
+		bIsValid = False
 	END IF
 	END IF
 	
 	' D:\GOODSYNC__BACK\_gsdata_\_history_\Profile\accounts-bookmarks_2020-0711-120833.tic
 	IF INSTR(strPath,"\GOODSYNC__BACK\")>0    THEN
-	bIsValid = False
+		bIsValid = False
 	END IF
 	
 	isValidFileName = bIsValid

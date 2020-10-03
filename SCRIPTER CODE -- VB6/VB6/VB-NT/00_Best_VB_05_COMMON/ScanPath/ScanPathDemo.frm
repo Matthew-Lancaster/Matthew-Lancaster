@@ -1,6 +1,6 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Begin VB.Form ScanPath 
    BackColor       =   &H00808080&
    Caption         =   "ScanPath 2.0 - Sort  Anything -"
@@ -529,7 +529,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   79101953
+      Format          =   154271745
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -543,7 +543,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   572
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   79101953
+      Format          =   154271745
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -556,7 +556,7 @@ Begin VB.Form ScanPath
       _ExtentX        =   1969
       _ExtentY        =   572
       _Version        =   393216
-      Format          =   79101954
+      Format          =   154271746
       CurrentDate     =   37299
    End
    Begin VB.Label lblCount7 
@@ -1669,7 +1669,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     MkDir OutPutPath + hole + GeText
     On Error GoTo 0
     
-    F.Copy OutPutPath + hole + GeText
+    F.COPY OutPutPath + hole + GeText
 
 Next
 
@@ -1725,7 +1725,7 @@ For WE = ListView1.ListItems.Count To 1 Step -1
     Set F = FSO.GetFile(A1 + G1$)
 
     GeText = "#" + LCase(Mid$(B1, Len(B1) - 2, 3)) + "\"
-    F.Copy OutPutPath + GeText
+    F.COPY OutPutPath + GeText
 Next
 
 ListView1.ListItems.Clear
@@ -2052,8 +2052,8 @@ Public Sub cmdScan_Click()
         MSGBOX_OPTION = vbOKCancel
         If IsIDE = False Then MSGBOX_OPTION = vbOKOnly
         
-        i = MsgBox("SCAN PATH" + vbCrLf + vbCrLf + "TxtPath = """" " + vbCrLf + vbCrLf + "REQUEST TO SCAN WAS EMPTY VARIABLE" + vbCrLf + vbCrLf + "EXIT RUN", MSGBOX_OPTION, vbMsgBoxSetForeground)
-        If i = vbCancel Then
+        I = MsgBox("SCAN PATH" + vbCrLf + vbCrLf + "TxtPath = """" " + vbCrLf + vbCrLf + "REQUEST TO SCAN WAS EMPTY VARIABLE" + vbCrLf + vbCrLf + "EXIT RUN", MSGBOX_OPTION, vbMsgBoxSetForeground)
+        If I = vbCancel Then
             Stop
         End If
         
@@ -3798,20 +3798,20 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     
     
-    II = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
-    II = InStr(OO, Trim(Str(Year(Now))))
-    If II = 0 Then
+    ii = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
+    ii = InStr(OO, Trim(Str(Year(Now))))
+    If ii = 0 Then
     II1 = InStr(OO, Trim(Str(Year(Now) - 1)))
     II3 = InStr(OO, Trim(Str(Year(Now) + 1)))
-    If II1 > 0 Then II = II1
-    If II2 > 0 Then II = II2
-    If II3 > 0 Then II = II2
+    If II1 > 0 Then ii = II1
+    If II2 > 0 Then ii = II2
+    If II3 > 0 Then ii = II2
     End If
     
     IIRIME = ""
-    If II > 0 Then
+    If ii > 0 Then
         For r = 1 To 19
-            IIRIME = IIRIME + Chr(Asc(Mid(OO, II + r - 1, 1)))
+            IIRIME = IIRIME + Chr(Asc(Mid(OO, ii + r - 1, 1)))
             '&HFA
         Next
     End If
@@ -3991,20 +3991,20 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
         cam = "JFIF"
     End If
     
-    II = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
-    II = InStr(OO, Trim(Str(Year(Now))))
-    If II = 0 Then
+    ii = InStr(OO, Chr(1) + Chr(0) + Chr(0) + Chr(0) + Chr(32))
+    ii = InStr(OO, Trim(Str(Year(Now))))
+    If ii = 0 Then
     II1 = InStr(OO, Trim(Str(Year(Now) - 1)))
     II3 = InStr(OO, Trim(Str(Year(Now) + 1)))
-    If II1 > 0 Then II = II1
-    If II2 > 0 Then II = II2
-    If II3 > 0 Then II = II2
+    If II1 > 0 Then ii = II1
+    If II2 > 0 Then ii = II2
+    If II3 > 0 Then ii = II2
     End If
     
     IIRIME = ""
-    If II > 0 Then
+    If ii > 0 Then
         For r = 1 To 19
-            IIRIME = IIRIME + Chr(Asc(Mid(OO, II + r - 1, 1)))
+            IIRIME = IIRIME + Chr(Asc(Mid(OO, ii + r - 1, 1)))
             '&HFA
         Next
     End If
@@ -4541,14 +4541,12 @@ End Function
 
 
 Private Sub txtPath_Click()
-If TxtPath <> Clipboard.GetText Then TxtPath = Clipboard.GetText
+' If TxtPath <> Clipboard.GetText Then TxtPath = Clipboard.GetText
 
-If Mid(ScanPath.TxtPath, Len(ScanPath.TxtPath) - 1, 1) <> "\" Then ScanPath.TxtPath = ScanPath.TxtPath + "\"
-
-TxtPath.SelStart = 0
-TxtPath.SelLength = Len(TxtPath)
-
-
+'If Mid(ScanPath.TxtPath, Len(ScanPath.TxtPath) - 1, 1) <> "\" Then ScanPath.TxtPath = ScanPath.TxtPath + "\"
+'
+'TxtPath.SelStart = 0
+'TxtPath.SelLength = Len(TxtPath)
 
 End Sub
 
