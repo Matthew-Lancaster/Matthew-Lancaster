@@ -215,9 +215,6 @@ OLD_UniqueID_WINRAR_CONVERT=0
 
 
 
-
-
-
 OSVER_N_VAR:=a_osversion
 IF INSTR(a_osversion,".")>0
 	OSVER_N_VAR:=substr(a_osversion, 1, INSTR(a_osversion,".")-1)
@@ -342,7 +339,8 @@ OLD_TEAMVIEWER_ID_STR=
 OLD_FREEMAKER_MAXIMIZE_VIDEO_WINDOW_STR=
 SETTIMER FREEMAKER_MAXIMIZE_VIDEO_WINDOW_SUB,500
 
-
+OLD_MAXIMIZE_ALL_MEDIA=
+SETTIMER MAXIMIZE_ALL_MEDIA,400
 
 ; -------------------------------------------------------------------
 ; TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER_VBP:
@@ -415,8 +413,6 @@ SETTIMER FREEMAKER_ENTER_TAB_MP4_INPUT_BOX_EXIST,500
 OLD_NATIONWIDE_BANK_CHROME_HWND=
 NATIONWIDE_BANK_LOGIN_TAB_1=0
 SETTIMER NATIONWIDE_BANK_LOGIN_TAB_TO_ENTER_INPUT_BOX_EXIST,500
-
-
  
 SETTIMER NOT_ALLOWED_PRCOCESS,4000
 
@@ -474,19 +470,47 @@ SETTIMER SUB_SET_SECURITY,400
 OLD_VAR_GET_A=
 SETTIMER TIMER_FILE_LOCATOR_GET_CONTROL__SET_FOCUS_ACTIVATE,100
 
-
 SETTIMER TIMER_GOOLGE_DRIVE_SYNC_REQUIRE_QUIT,1000
 
-
-
 SETTIMER TIMER_1_SECOND_BLAST_ERROR_NAGGER,1000
-
 
 SETTIMER TIMER_GOODSYNC_DELETE_PROCESS_VIA_VBS,1000
 
 SETTIMER VBS_29_COPY_CAMERA_PHOTO_IMAGES_VBS,1000
 
+KEY_STATE=
 
+*~ESC::
+	GOSUB CHECK_ESC_KEY
+	KEYWAIT, ESC  ; WAIT FOR THE ESC KEY TO BE RELEASED.
+RETURN	
+#ifwinactive
+
+RETURN
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; HARD FIND DOCUMENT SEARCH
+; SEARCH RETURN RESULT FOR -- LAUNCH URL INSTEAD
+; -------------------------------------------------------------------
+; MAKE AUTOHOTKEYS JUMP FROM HELP COMPUTER TO HELP INTERNET
+; -------------------------------------------------------------------
+; Hotkey - Syntax & Usage | AutoHotkey 
+; https://www.autohotkey.com/docs/commands/Hotkey.htm
+; Properties
+; mk:@MSITStore:C:\Program%20Files\AutoHotkey\AutoHotkey.chm::/docs/commands/Hotkey.htm
+; REPLACE ::   -- NONE
+; REPLACE .CHM -- .COM
+; REPLACE FRONT 
+; REPLACE mk:@MSITStore:C:\Program%20Files\ -- NONE
+; ADD TO FRONT 
+; https://www.
+; https://www.autoHotkey.com/docs/commands/Hotkey.htm
+; CASE DOWN 
+; https://www.autoHotkey.com
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 
 
@@ -558,8 +582,8 @@ TIMER_1_SECOND_BLAST_ERROR_NAGGER:
 	; OK   
 	; -------------------------------------------------------------------
 
-	DetectHiddenWindows, OFF
-	SetTitleMatchMode 3  ; Specify EXACT path
+	DETECTHIDDENWINDOWS, OFF
+	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 
 	LINE_CHECKER_1=GoodSync-v10-Setup.exe - Entry Point Not Found ahk_class #32770
 	LINE_CHECKER_2=
@@ -624,7 +648,7 @@ ENTER_DETAIL_TO_AUTO_SETTER_FOR_FREEMAKE_AND_OTHER_SET:
 	; ahk_class TWizardForm
 	; ahk_exe MusicBox.tmp
 
-	DetectHiddenWindows, OFF
+	DETECTHIDDENWINDOWS, OFF
 	VAR_TITLE=
 	WinGet,VAR_GET, ID, ahk_class TWizardForm
 	IF VAR_GET
@@ -2503,7 +2527,7 @@ TIMER_PROCESS_LASSO_POST_UPDATE_01:
 	; Text:	The system's Task Scheduler service is n (...)
 	
 	DetectHiddenWindows, ON
-	SetTitleMatchMode 3  ; Specify EXACT path
+	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 	VAR_GET:=WINEXIST(WIN_LINE_____1)
 	IF !VAR_GET
 		RETURN 
@@ -2621,7 +2645,7 @@ HIGHER_SPEED:
 
 	IF OLD_id<>%id%
 	{
-		DetectHiddenWindows, OFF
+		DETECTHIDDENWINDOWS, OFF
 		SetTitleMatchMode 2  ; Specify PARTIAL path
 		; -----------------------------------------------------------
 		; HUBIC 01 OF 02
@@ -2649,7 +2673,7 @@ HIGHER_SPEED:
 		}
 
 
-		SetTitleMatchMode 3  ; Specify EXACT path
+		SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 		; -----------------------------------------------------------
 		; CHROME
 		; -----------------------------------------------------------
@@ -2690,7 +2714,7 @@ HIGHER_SPEED:
 
 		
 		
-		SetTitleMatchMode 3  ; Specify EXACT path
+		SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 		; -----------------------------------------------------------
 		; EXPLORER
 		; -----------------------------------------------------------
@@ -2715,7 +2739,7 @@ HIGHER_SPEED:
 			}
 		}
 		
-		SetTitleMatchMode 3  ; Specify EXACT path
+		SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 		; -----------------------------------------------------------
 		; Autoruns
 		; -----------------------------------------------------------
@@ -2740,7 +2764,7 @@ HIGHER_SPEED:
 		}
 
 
-		SetTitleMatchMode 3  ; Specify EXACT path
+		SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 		; -----------------------------------------------------------
 		; Autoruns
 		; -----------------------------------------------------------
@@ -2771,6 +2795,57 @@ HIGHER_SPEED:
 RETURN
 
 
+; *~ESC::
+	; GOSUB CHECK_ESC_KEY
+	; KEYWAIT, ESC  ; WAIT FOR THE ESC KEY TO BE RELEASED.
+; RETURN	
+; #ifwinactive
+
+; -------------------------------------------------------------------
+; DEMO ROUTINE
+; -------------------------------------------------------------------
+CHECK_ESC_KEY:
+	
+	SETTITLEMATCHMODE 2  ; SPECIFY PARTIAL PATH
+
+	WIN_LINE_4=MediaArea.net/MediaInfo
+	ACTIVEHWND := WinExist("A")
+	
+	WinGetTITLE, OUTPUTVAR, ahk_id %ACTIVEHWND%
+	IF INSTR(OUTPUTVAR,WIN_LINE_4)>0 
+		WINCLOSE, AHK_ID %ACTIVEHWND%
+
+
+	RETURN
+RETURN
+; -------------------------------------------------------------------
+
+
+MAXIMIZE_ALL_MEDIA:
+	SetTitleMatchMode 2  ; SPECIFY PARTIAL PATH
+	DetectHiddenWindows, ON
+	WIN_LINE_4=MediaArea.net/MediaInfo ahk_class TMainF
+	WinGet UniqueID, ID, %WIN_LINE_4%
+	; ActiveHwnd := WinExist("A").
+	IF !UniqueID
+		RETURN
+	IF OLD_MAXIMIZE_ALL_MEDIA=%UniqueID%
+		RETURN
+	OLD_MAXIMIZE_ALL_MEDIA=%UniqueID%
+
+	WinGet, list, List, %WIN_LINE_4%
+	LOOP %LIST%
+	{
+		HWND := list%A_Index%
+		WinGet STATE_MAX, MinMax, AHK_ID %HWND%
+		; ---- 1 MAXIMIZED 0 NORMAL -1 MINIMIZED
+		IF STATE_MAX<>1
+		{
+			WinMaximize, ahk_id %hwnd%
+			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+	}
+RETURN
 
 
 FREEMAKER_MAXIMIZE_VIDEO_WINDOW_SUB:
@@ -2849,7 +2924,7 @@ ONE_SECOND:
 	}
 	
 	DetectHiddenWindows, ON
-	SetTitleMatchMode 3
+	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 	
 	
 	;Control, Show, , Button1, ahk_class Shell_TrayWnd
@@ -3708,7 +3783,7 @@ RETURN
 	; ; IF !(A_ComputerName = "7-ASUS-GL522VW") 
 		; ; RETURN
 
-	; DetectHiddenWindows, OFF
+	; DETECTHIDDENWINDOWS, OFF
 
 	; WinGet, HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 
@@ -3767,7 +3842,7 @@ RETURN
 NOTEPAD_PLUS_PLUS_DO_YOU_WANT_RELOAD_THIS_DOCUMENT:
 
 	DetectHiddenWindows, ON
-	SetTitleMatchMode 3
+	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 
 	WinGet, HWND_1, ID, A
 	
@@ -3821,7 +3896,7 @@ RETURN
 VISUAL_BASIC_IDE_RUN_TIME_ERROR_PRESS_CLICKER:
 
 	DetectHiddenWindows, ON
-	SetTitleMatchMode 3
+	SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 	
 	OutVar_2=
 	
@@ -3912,7 +3987,7 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 
 if (WinExist("Output ahk_class #32770"))
@@ -3948,7 +4023,7 @@ IF PATH=ViceVersa.exe
 ; -------------------------------------------------------------------
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 if (WinExist("Warning ahk_class #32770"))
 {
@@ -3991,7 +4066,7 @@ if (WinExist("Warning ahk_class #32770"))
 	}
 }
 
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 
 ;Would you like to switch to the following audio playback device?
 IfWinExist FxSound Message
@@ -4039,7 +4114,7 @@ IfWinExist File Access Denied ahk_class OperationStatusWindow
 }
 
 DetectHiddenWindows, ON
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 
 IF TRUE=FALSE
 ifWinNotExist, ahk_class wndclass_desked_gsk
@@ -4077,7 +4152,7 @@ if (!WinExist("Page Unresponsive") and Set_Var_Responding_2="TRUE")
 	; SoundBeep , 2000 , 100
 }
 
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 
 IfWinExist RoboForm Upgrade
 {
@@ -4147,7 +4222,7 @@ IfWinExist ahk_class #32770
 }
 
 
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 
 ; -------------------------------------------------------------------
 ; Question at End of Sync is Able to Be Made Close Auto
@@ -4230,7 +4305,7 @@ IfWinExist DuplicateCleaner ahk_class #32770
 ;ahk_class #32770
 ;ahk_exe dfx.exe
 
-DetectHiddenWindows, off
+DETECTHIDDENWINDOWS, OFF
 
 IfWinExist left in trial
 {
@@ -4239,7 +4314,7 @@ IfWinExist left in trial
 	SoundBeep , 1000 , 50
 }
 
-SetTitleMatchMode 3  ; Exactly
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 
 ; DFXSTATIC
 ; ..\..\UTIL\doubleBuff\doubleBuffInit.cpp
@@ -4291,7 +4366,7 @@ IfWinExist Sponsored session
 ; TEAM VIEWER CLOSE AFTER CONNECTION ADVERT
 ;--------------------------------------------------------------------
 
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 
 IfWinExist ahk_class ATL:03A50E50
 {
@@ -4312,8 +4387,8 @@ IfWinExist Session timeout! ahk_class #32770
 
 
 
-DetectHiddenWindows, OFF
-SetTitleMatchMode 3  ; Exactly
+DETECTHIDDENWINDOWS, OFF
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 IfWinExist Visual Component Manager
 {
 	ControlGet, OutputVar_4, Visible, , OK, Visual Component Manager
@@ -4325,7 +4400,7 @@ IfWinExist Visual Component Manager
 }
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 IfWinExist Data View ahk_class VBFloatingPalette
 {
 	ControlGet, OutputVar_4, Visible, , OK, Data View ahk_class VBFloatingPalette
@@ -4361,7 +4436,7 @@ IfWinExist hubiC
 
 
 ; MAYBE WANT IT
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 
 IfWinExist RoboForm Question
 {
@@ -4374,7 +4449,7 @@ IfWinExist RoboForm Question
 }
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 IfWinExist Microsoft OneDrive
 {
@@ -4387,7 +4462,7 @@ IfWinExist Microsoft OneDrive
 }
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -4428,7 +4503,7 @@ IfWinExist, Replace ahk_exe VB6.EXE
 
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 ;DuplicateCleaner
 IfWinExist Finished deleting files.
@@ -4438,7 +4513,7 @@ IfWinExist Finished deleting files.
 }
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 ;Are you sure you want to cancel the scan?
 IfWinExist DuplicateCleaner
@@ -4488,7 +4563,7 @@ IfWinExist DuplicateCleaner
 ; --------------------------------------------------------------------
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 IfWinExist Open File - Security Warning
 {
@@ -4515,7 +4590,7 @@ IfWinExist Open File - Security Warning
 }
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 ;DuplicateCleaner
 IfWinExist Scan cancelled
@@ -4527,7 +4602,7 @@ IfWinExist Scan cancelled
 
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -4564,9 +4639,9 @@ IfWinExist MSDN Library Visual
 ; -------------------------------------------------------------------
 
 ; MAYBE WANT IT
-; DetectHiddenWindows, OFF
+; DETECTHIDDENWINDOWS, OFF
 
-SetTitleMatchMode 3  ; Exactly
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 
 SET_GO=TRUE
 IF (A_ComputerName="7-ASUS-GL522VW")
@@ -4597,7 +4672,7 @@ IfWinExist Permanent Access Activated
 	ControlClick, OK, Permanent Access Activated
 }
 
-SetTitleMatchMode 3  ; Exactly
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 
 ; CHROME
 DetectHiddenText, ON
@@ -4638,7 +4713,7 @@ IF UniqueID>0
 
 DetectHiddenText, OFF
 
-SetTitleMatchMode 3  ; Exactly
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 	
 ; ROBOFORM EDITOR
 ; -----------------------------------------
@@ -4672,7 +4747,7 @@ IF OLD_UniqueID_NOTEPAD_PLUS_PLUS<>%UniqueID%
 ; ADD MORE SAFETY CHECKER SEE HOW GOES
 ; -------------------------------------------------------------------
 
-SetTitleMatchMode 3  ; Exactly
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 
 UniqueID := WinActive("Log in with PayPal - Google Chrome")
 
@@ -4693,8 +4768,8 @@ IF Instr(Title,"Log in with PayPal - Google Chrome")
 }
 
 	
-DetectHiddenWindows, OFF
-SetTitleMatchMode 3
+DETECTHIDDENWINDOWS, OFF
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 ; Convert archives ahk_class #32770 ahk_exe WinRAR.exe
 WinGet, UniqueID_WINRAR, ID, Convert archives ahk_class #32770
 ; -----------------------------------------------------------
@@ -4738,7 +4813,7 @@ OLD_UniqueID_WINRAR_CONVERT=%UniqueID_WINRAR%
 	
 
 	
-SetTitleMatchMode 3  ; Exactly
+SETTITLEMATCHMODE 3  ; SPECIFY EXACT PATH
 DetectHiddenText, Off
 IfWinExist TeamViewer ahk_class #32770
 {
@@ -5859,7 +5934,7 @@ TIMER_SUB_GOODSYNC:
 ;--------------------------------------------------------------------
 ; SETTIMER TIMER_SUB_GOODSYNC, OFF
 dhw := A_DetectHiddenWindows
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
@@ -5973,7 +6048,7 @@ IF (TRUE=TRUE)
 ; -------------------------------------------------------------------
 ; GoodSync Script Command to Stop in Wait using a Messenger Box
 
-DetectHiddenWindows, OFF
+DETECTHIDDENWINDOWS, OFF
 SetTitleMatchMode 2  
 
 VAR_WORKER_MSGBOX_DELAY_COUNT_02=ahk_class #32770 ahk_exe WScript.exe
@@ -6047,7 +6122,7 @@ IfWinExist Reporting a Crash
 
 IF (TRUE=FALSE)
 {
-	DetectHiddenWindows, OFF
+	DETECTHIDDENWINDOWS, OFF
 	IfWinExist GoodSync
 	{
 		ControlGetText, OutputVar, GoodSync has crashed just now , GoodSync
