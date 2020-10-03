@@ -49,6 +49,7 @@
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
+||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
@@ -72,7 +73,6 @@ clocktab.com##.screen-button
 cpc.farnell.com###ad_pf_header_topbar > div > p
 cpc.farnell.com###pf_pdp_espot_01 > div > div > p > b
 cpc.farnell.com##.eSpot.extra-info
-drive.google.com##.Wmhurf
 mail.yahoo.com##.cdPFi_Z2drWk6.C_Z2drWk6.M_E8xte.ab_C.D_F.ac_C.en_0.I_T.P_0.b_0.r_P
 mail.yahoo.com##.D_B.u_b.E_fq7.em_N.G_e.J_x.o_h
 mail.yahoo.com##.I4_1YEmYj.I_T.bj_Z18Bi5B.aw_82XEY.C_ZpQYvz.bj_2spJWC.bm_FJ.bn_dBP.I4_sgPuT.k_w.cdPFi_52qC.I_sgPuo.v_g9505.D_ZKxLmw.p_R.ab_C.A_6EqO.o_h.X_eo6.H_qg.e_82XEY
