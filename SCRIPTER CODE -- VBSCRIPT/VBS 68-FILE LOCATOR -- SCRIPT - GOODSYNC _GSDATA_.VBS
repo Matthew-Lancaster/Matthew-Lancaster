@@ -51,14 +51,14 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 
 	' DELETE PATH FIND STRING QUICK WAY THAN EXPLORER WHEN LOT OF THEM
 	' ----------------------------------------------------------------
-	IF INSTR(strPath,    "_saved_")>0 THEN
-	IF INSTR(strPath,    "D:\0 CLOUD\_gsdata_\_saved_\GD-INSYNC\rub.rim@gmail.com\KAT MP3 RECORDER")>0 THEN
-	IF INSTR(strFileName,"MP3")>0 THEN
+	IF INSTR(strPath,            "_saved_")>0 THEN
+	IF INSTR(strPath,            "D:\0 CLOUD\_gsdata_\_saved_\GD-INSYNC\rub.rim@gmail.com")>0 THEN
+	'IF INSTR(UCASE(strFileName), ".JPG")>0 THEN
 		TIME_GET=DATE & " " & MID(TIME,1,2)
-		IF TIME_GET="03/10/2020 19" THEN 
-			FSO.DELETEFILE(strPath & strFileName)
+		IF TIME_GET="03/10/2020 20" THEN 
+			FSO.DELETEFILE(strPath & "\" & strFileName)
 		END IF
-	END IF
+	'END IF
 	END IF
 	END IF
 
