@@ -216,6 +216,30 @@ SUB_SET_DATE_UNIT:
 	; -----------------------------------------------
 	; FormatTime, TT, %TS%, YDay
 	; MSGBOX % TT "`n" TS
+
+
+	Test1 := "2016071200000000"
+	FormatTime, WDay, %Test1%, WDay
+	Test1 += -2, Days
+	FormatTime, NewTime, %Test1%, yyyy-MM-dd HH:mm:ss
+	MsgBox, % NewTime
+
+
+	VAR_Y=2000
+	VAR_MM=1
+	VAR_D=1
+	VAR_H=0
+	VAR_M=0
+	VAR_S=0
+	TIMEFORMAT = %VAR_Y%-%VAR_MM%-%VAR_D%(%VAR_H%h%VAR_M%m%VAR_S%sec)
+	Timeformat = %A_YYYY%-%A_MM%-%A_DD%(%A_Hour%h%A_Min%m%A_Sec%sec)
+	
+	Timeformat+= -1, DAYS
+	TS=%TIMEFORMAT%
+	FormatTime, TL, TS, yyyy MM dd HH mm ss
+	MsgBox % "0004" "`n" TL "--`n--" TS
+PAUSE
+
 	; -----------------------------------------------
 	; STILL NOT WORK GO STYLE BEFORE
 	; -----------------------------------------------
