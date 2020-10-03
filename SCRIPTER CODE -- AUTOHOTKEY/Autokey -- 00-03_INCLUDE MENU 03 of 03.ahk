@@ -285,7 +285,7 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 }
 
 
-
+F1:: GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
 ~<^#ESC:: GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
 
 ~>^F1::
@@ -728,10 +728,15 @@ RETURN
 
 
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME_OLD_BY_LEAVE_SCRIPT_TO_LAST:
+
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	DetectHiddenWindows, ON
 	SOUNDBEEP 1000,100
-	
+
+	IF (A_ComputerName<>"2-ASUS-EEE")
+	IF A_PRIORKEY = F1
+		RETURN
+		
 	; -------------------------------------------------------------------
 	; GIRLGAMER 
 	; https://autohotkey.com/board/topic/74519-solved-move-cursor-to-center-of-screen/
