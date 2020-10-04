@@ -1263,21 +1263,9 @@ RETURN
 
 #ifwinactive Facebook
 F4::
-	WinGet, HWND_22, ID ,A
-	LOOP 1000000
-	{
-		IF GetKeyState("LButton")   ; MOUSEDOWN
-			RETURN
-		WinGet, HWND_24, ID ,A
-		IF HWND_22<>%HWND_24%
-			RETURN
-		SENDINPUT {WheelDown}
-		SLEEP 100
-	}
+	GOSUB MOUSE_WHEEL_DOWN
 RETURN
 #ifwinactive
-
-
 
 ; -------------------------------------------------------------------
 ; GOOGLE PHOTO WHEELDOWN 
@@ -1287,6 +1275,17 @@ RETURN
 
 #ifwinactive Trash - Google Drive
 F4::
+	GOSUB MOUSE_WHEEL_DOWN
+RETURN
+#ifwinactive
+
+#ifwinactive - Google Photo
+F4::
+	GOSUB MOUSE_WHEEL_DOWN_QUICKER
+RETURN
+#ifwinactive
+
+MOUSE_WHEEL_DOWN:
 	WinGet, HWND_22, ID ,A
 	TOOLTIP LEFT MOUSE BUTON TO STOP `nSCROLL OVER LIST AREA TO MOUSE-WHEEL MOVE
 	LOOP 1000000
@@ -1304,8 +1303,25 @@ F4::
 	}
 TOOLTIP 
 RETURN
-#ifwinactive
 
+MOUSE_WHEEL_DOWN_QUICKER:
+	WinGet, HWND_22, ID ,A
+	TOOLTIP LEFT MOUSE BUTON TO STOP `nSCROLL OVER LIST AREA TO MOUSE-WHEEL MOVE
+	LOOP 1000000
+	{
+		IF GetKeyState("LButton")   ; MOUSEDOWN
+		{
+			TOOLTIP 
+			RETURN
+		}
+		WinGet, HWND_24, ID ,A
+		IF HWND_22<>%HWND_24%
+			RETURN
+		SENDINPUT {WheelDown}
+		SLEEP 10
+	}
+TOOLTIP 
+RETURN
 
 
 TIMER_WSCRIPT_FOCUS_LEFT_KILL:
