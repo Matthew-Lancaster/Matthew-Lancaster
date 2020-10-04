@@ -48,6 +48,7 @@
 ! USER THIS ONE FOR MERGE
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
+||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
