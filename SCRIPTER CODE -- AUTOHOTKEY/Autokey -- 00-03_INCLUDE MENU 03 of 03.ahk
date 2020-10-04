@@ -193,6 +193,17 @@ CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK:
 			}
 	}	
 	TOOLTIP
+	SLEEP 500
+	; ---------------------------------------------------------------
+	; AFTER ALL GONE
+	; RE_RUNNER VB_KEEP_RUNNER
+	; ---------------------------------------------------------------
+	; GOSUB SUB_RESTORE_VB_KEEP_RUNNER
+	FN_VAR_1 := "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	IfExist, %FN_VAR_1%
+		Run, %FN_VAR_1%
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
 RETURN
 
 
@@ -241,6 +252,17 @@ CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT:
 			}
 	}	
 	TOOLTIP
+	SLEEP 500
+	; ---------------------------------------------------------------
+	; AFTER ALL GONE
+	; RE_RUNNER VB_KEEP_RUNNER
+	; ---------------------------------------------------------------
+	; GOSUB SUB_RESTORE_VB_KEEP_RUNNER
+	FN_VAR_1 := "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	IfExist, %FN_VAR_1%
+		Run, %FN_VAR_1%
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
 RETURN
 
 
@@ -285,13 +307,25 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 }
 
 
-F1:: GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
-~<^#ESC:: GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
+F1::
+{
+	F1_KEY_PRESS=TRUE
+	GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
+	KEYWAIT, F1
+}
+RETURN
+
+~<^#ESC::
+{
+	GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
+	KEYWAIT, ESC
+}
 
 ~>^F1::
 {
 	GOSUB SUB_RESTORE_VB_KEEP_RUNNER
 	GOSUB SUB_RESTORE_ELITESPY
+	KEYWAIT, F1
 }
 RETURN
 
@@ -733,8 +767,15 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	DetectHiddenWindows, ON
 	SOUNDBEEP 1000,100
 
+	; ---------------------------------------------------------------
+	; THE ROUTINE WILL RUN A LOT OF THEM 
+	; LIKE A MSGBOX HERE EXAMPLE
+	; WILL RUN A LOT
+	; AS EACH SCRIPT HAVE HERE CODE AND RUN TO TERMINATE GONE
+	; ---------------------------------------------------------------
+	
+	IF F1_KEY_PRESS=TRUE
 	IF (A_ComputerName<>"2-ASUS-EEE")
-	IF A_PRIORKEY = F1
 		RETURN
 		
 	; -------------------------------------------------------------------
@@ -877,6 +918,7 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	; KILL ALL VISUAL BASIC AND COMMAND
 	; -------------------------------------------------------------------
 	GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK
+	; ---------------------------------------------------------------
 	GOSUB KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT
 
 	; -------------------------------------------------------------------
@@ -900,6 +942,8 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 		
 
 	
+	
+	
 	; IF KILL OWN PROCESS LAST OF ALL -- IT NOT ABLE REMOVE ICON AND EXIT GRACEFUL THEN
 	; ---------------------------------------------------------------------------------
 	; -- Fri 28-Feb-2020 17:24:17
@@ -908,7 +952,7 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 
 	SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
 	PROCESS, Close, %SCRIPTOR_OWN_PID% 
-
+	
 	EXITAPP
 	RETURN
 		

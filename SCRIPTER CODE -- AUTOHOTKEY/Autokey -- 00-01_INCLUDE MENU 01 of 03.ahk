@@ -40,7 +40,7 @@
 ; -------------------------------------------------------------------
 
 
-
+F1_KEY_PRESS=
 
 
 Menu, Tray, Add  ; Creates a separator line.
@@ -65,8 +65,8 @@ Menu, Tray, Add, RUN HERE NOW, MenuHandler  ; Creates a new menu item.
 
 
 Menu, Tray, Add  
-Menu, Tray, Add, Terminate Script, MenuHandler
-Menu, Tray, Add, Terminate All AutoHotKey.exe -- LEFT(Ctrl)+WInKEY+ESCAPE, MenuHandler
+Menu, Tray, Add, TERMINATE SCRIPT, MenuHandler
+Menu, Tray, Add, TERMINATE ALL AUTOHOTKEY.EXE -- LEFT(CTRL)+WINKEY+ESCAPE, MenuHandler
 Menu, Tray, Add  
 Menu, Tray, Add, RESTORE_VB_KEEP_RUNNER AND ELITESPY -- RIGHT(Ctrl)+F1, MenuHandler
 Menu, Tray, Add  
@@ -130,6 +130,8 @@ Menu, Tray, Add
 ; GOTO NIPER_MENUHANDLER
 ; -------------------------------------------------------------------
 
+
+
 IF TRUE=FALSE
 {
 MenuHandler:
@@ -159,10 +161,10 @@ if A_ThisMenuItem=RESTORE_VB_KEEP_RUNNER AND ELITESPY -- RIGHT(Ctrl)+F1
 	GOSUB SUB_RESTORE_ELITESPY
 }
 
-if A_ThisMenuItem=Terminate Script
+if A_ThisMenuItem=TERMINATE SCRIPT
 	Process, Close,% DllCall("GetCurrentProcessId")
 
-if A_ThisMenuItem=Terminate All AutoHotKey.exe -- LEFT(Ctrl)+WInKEY+ESCAPE
+if A_ThisMenuItem=TERMINATE ALL AUTOHOTKEY.EXE -- LEFT(CTRL)+WINKEY+ESCAPE
 {
 	; Run, "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 39-KILL PROCESS.VBS" /F /IM AutoHotKey.exe /T , , Max
 	GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
