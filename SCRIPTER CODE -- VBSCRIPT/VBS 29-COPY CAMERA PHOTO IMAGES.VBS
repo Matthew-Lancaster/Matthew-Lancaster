@@ -314,6 +314,7 @@ DIM IMAGE_POINTER_NAME
 DIM objSuperFolder
 
 Dim FSO
+
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
@@ -329,12 +330,10 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 ' -------------------------------------------------------------------
 
 Dim RESULT
-DIM ARRAY_PATH_02_NEXT_LOOP
+DIM ARRAY_FOR_NEXT
 DIM ARRAY_PATH_01()
-DIM ARRAY_PATH_02()
 
 REDIM ARRAY_PATH_01(10)
-REDIM ARRAY_PATH_02(10)
 I=0
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
@@ -346,17 +345,9 @@ I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
 '  ALL THEM ARE __ V:\
 ' -------------------------------------------------------------------
 REDIM PRESERVE ARRAY_PATH_01(I)
-REDIM PRESERVE ARRAY_PATH_02(I)
 ' -------------------------------------------------------------------
-FOR RM=1 TO UBOUND(ARRAY_PATH_01)
-	ARRAY_PATH_02(RM) = ARRAY_PATH_01(RM)
-	IF MID(ARRAY_PATH_02(RM),1,2)<>"\\" THEN
-		ARRAY_PATH_02(RM) = GET_DRIVE_LETTER_FROM_VOLUME_NAME(ARRAY_PATH_02(RM))
-	END IF
-NEXT
 
-
-FOR ARRAY_PATH_02_NEXT_LOOP=1 TO UBOUND(ARRAY_PATH_01)
+FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	DIM VOLUME_NAME_STRING_
 	DIM DAY_BACK_TRIMMER_COUNTER
 	DIM DRIVE_FREE_SPACE_GB_BEGIN
@@ -378,15 +369,7 @@ FOR ARRAY_PATH_02_NEXT_LOOP=1 TO UBOUND(ARRAY_PATH_01)
 	LOW_DATE=NOW
 	HIGH_DATE=NOW-1000
 	' -------------------------------------------------------------------
-
-	IF ARRAY_PATH_02(ARRAY_PATH_02_NEXT_LOOP)<>"" THEN 
-		' CHECK VOLUME OKAY ______________
-		' ISREADY
-		FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA=ARRAY_PATH_02(ARRAY_PATH_02_NEXT_LOOP)
-		IF FSO.FolderExists(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA)=TRUE THEN 
-			CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
-		END IF
-	END IF
+	CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 NEXT
 
 
@@ -1272,10 +1255,10 @@ Sub Main
 	
     DisplayFindings
 
-	' DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
+	' DRVPATH_VAR=MID(ARRAY_PATH_01,1,2)
 	' ' WHEN NETWORK PATH GIVE FULL PATH
-	' IF MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)="\\" THEN 
-		' DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
+	' IF MID(ARRAY_PATH_01,1,2)="\\" THEN 
+		' DRVPATH_VAR=ARRAY_PATH_01
 	' END IF
 
 
@@ -1433,48 +1416,6 @@ FOR R_CNT = 1 TO 2
 NEXT
 End Sub
 
-
-
-SUB GET_DRIVE_SPACE(DRVPATH)
-
-	SET D = FS.GETDRIVE(DRVPATH)
-	IF D.ISREADY = TRUE THEN
-		DRIVE_IS_READY_____=TRUE
-		VOLUME_NAME_STRING_=D.VOLUMENAME
-		DRIVE_FREE_SPACE_GB=CDbl(D.FREESPACE)/1024/1024/1024
-		DRIVE_CAPACITY___GB=CDbl(D.TOTALSIZE)/1024/1024/1024
-	ELSE
-		DRIVE_IS_READY_____=FALSE
-		VOLUME_NAME_STRING_=D.VOLUMENAME
-		DRIVE_FREE_SPACE_GB=CDbl(D.FREESPACE)/1024/1024/1024
-		DRIVE_CAPACITY___GB=CDbl(D.TOTALSIZE)/1024/1024/1024
-	END IF
-	MSGBOX DRIVE_IS_READY_____ & VBCR & VOLUME_NAME_STRING_ & VBCR &  DRIVE_FREE_SPACE_GB & VBCR & DRIVE_CAPACITY___GB
-
-
-	IF LEN(OBJITEM.VOLUMENAME)>0 THEN
-		S=S+"-----------------------------------------------------------" & VBCRLF
-		S=S+"VOLUMENAME:" & VBTAB & OBJITEM.VOLUMENAME  & VBCRLF
-		S=S+"-----------------------------------------------------------" & VBCRLF
-		S=S+"DRIVE LETTER 1ST FOUND FOR MATCH VOLUME NAME: " & VBCRLF & DRVPATH & "\" & VBCRLF
-		S=S+"-----------------------------------------------------------" & VBCRLF
-		S=S+"FREESPACE:" & VBTAB
-		S=S+FORMATNUMBER((CDBL(D.FREESPACE)/1024/1024/1024))  & " GB" & VBCRLF
-		S=S+"SIZE:" & VBTAB & VBTAB
-		S=S+FORMATNUMBER((CDBL(D.TOTALSIZE)/1024/1024/1024)) & " GB" & VBCRLF
-		S=S+"OCCUPIED SPACE:" & VBTAB
-		S=S+FORMATNUMBER((CDBL(D.TOTALSIZE - D.FREESPACE)/1024/1024/1024)) & " GB"
-		IF IX_ERROR_MESSENGER<>"" THEN 
-			S=S+VBCRLF
-			S=IX_ERROR_MESSENGER
-		END IF
-		DRIVE_FREE_SPACE_GB=CDBL(D.FREESPACE)/1024/1024/1024
-		DRIVE_CAPACITY___GB=CDBL(D.TOTALSIZE)/1024/1024/1024
-	END IF
-
-	DRIVE_SPACE_INFO=S
-
-END SUB
 
 
 
@@ -1937,6 +1878,45 @@ SUB PATH_SCANNER_COPY_CAMERA
 	END IF
 END SUB
 
+
+SUB GET_DRIVE_SPACE(DRVPATH)
+	SET D = FSO.GETDRIVE(DRVPATH)
+	VOLUME_NAME_STRING_=D.VOLUMENAME
+	DRIVE_FREE_SPACE_GB=CDbl(D.FREESPACE)/1024/1024/1024
+	DRIVE_CAPACITY___GB=CDbl(D.TOTALSIZE)/1024/1024/1024
+	IF FREE_SPACE_SET_TO_EQUAL=0 THEN DRIVE_FREE_SPACE_GB_BEGIN = DRIVE_FREE_SPACE_GB
+	FREE_SPACE_SET_TO_EQUAL=20 ' GB
+	
+	IF D.ISREADY = TRUE THEN
+		DRIVE_IS_READY_____="DRIVE IS READY __ TRUE"
+		VOLUME_NAME_STRING_=D.VOLUMENAME
+	ELSE
+		DRIVE_IS_READY_____="DRIVE IS READY __ FALSE"
+		VOLUME_NAME_STRING_=D.VOLUMENAME
+	END IF
+
+	IF D.ISREADY = TRUE THEN
+		S=S+"-----------------------------------------------------------" & VBCRLF
+		S=S+"VOLUMENAME:" & VBTAB & VOLUME_NAME_STRING  & VBCRLF
+		S=S+"-----------------------------------------------------------" & VBCRLF
+		S=S+"DRIVE LETTER 1ST FOUND FOR MATCH VOLUME NAME: " & VBCRLF & DRVPATH & "\" & VBCRLF
+		S=S+"-----------------------------------------------------------" & VBCRLF
+		S=S+"FREESPACE:" & VBTAB
+		S=S+FORMATNUMBER((CDBL(D.FREESPACE)/1024/1024/1024))  & " GB" & VBCRLF
+		S=S+"SIZE:" & VBTAB & VBTAB
+		S=S+FORMATNUMBER((CDBL(D.TOTALSIZE)/1024/1024/1024)) & " GB" & VBCRLF
+		S=S+"OCCUPIED SPACE:" & VBTAB
+		S=S+FORMATNUMBER((CDBL(D.TOTALSIZE - D.FREESPACE)/1024/1024/1024)) & " GB"
+		IF IX_ERROR_MESSENGER<>"" THEN 
+			S=S+VBCRLF
+			S=IX_ERROR_MESSENGER
+		END IF
+	END IF
+
+	DRIVE_SPACE_INFO=S
+END SUB
+
+
 Sub BuildFullPath(ByVal FullPath)
 	If Not fso.FolderExists(FullPath) Then
 		ON ERROR RESUME NEXT
@@ -1945,6 +1925,7 @@ Sub BuildFullPath(ByVal FullPath)
 		ON ERROR GOTO 0
 	End If
 End Sub
+
 
 Function GET_DRIVE_LETTER_FROM_VOLUME_NAME( volumeName )
 Dim volumes, volume
@@ -1967,17 +1948,17 @@ Dim volumes, volume
 End Function
 
 
-
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	I_COUNT=0
-	IF FSO.FolderExists(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA)=FALSE THEN 
+	
+	IF FSO.FolderExists(ARRAY_PATH_01(ARRAY_FOR_NEXT))=FALSE THEN 
 		EXIT SUB
 	END IF
     Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
     ' CALL RECURSIVE SUB
-    FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA))
+    FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(ARRAY_PATH_01(ARRAY_FOR_NEXT)))
     ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
 	
 	I_COUNT_DEL=0
@@ -1986,12 +1967,7 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
 		
-		I_NEXT=ARRAY_PATH_02_NEXT_LOOP
-		IF MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)<>"\\" THEN 
-			DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_PATH_02(I_NEXT) & " ---- " & ARRAY_PATH_01(I_NEXT)
-		ELSE
-			DISPLAY_MESSENGER_FOLDER_CAMERA=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA	
-		END IF
+		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_PATH_01(ARRAY_FOR_NEXT)
 		
 		I = ""
 		I = I + "-----------------------------------------------------------" & VBCRLF 
@@ -1999,31 +1975,25 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "MP4 __AND__ JPG" & VBCRLF 
 		I = I + DISPLAY_MESSENGER_FOLDER_CAMERA & VBCRLF
 		I = I + VOLUME_NAME_STRING_ 
-		IF LEN(DISPLAY_MESSENGER_FOLDER_CAMERA)<51 THEN 
-			I = I + VBCRLF
-		END IF
+		I = I + VBCRLF                                                    
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & " _______________ DAY __ LIMIT COUNTER" & VBCRLF 
+		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & "                 DAY __ LIMIT COUNTER" & VBCRLF 
 		I = I + CSTR(DAY_BACK_TRIMMER) & " DAY __ TRIMMER" & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
-		IF MSGBOX_I1<>"" THEN 
 		I = I + "---------------------------------------------------" & VBCRLF 
-			I = I + "OLDER DATE OF _________ " & VBCRLF 
-			I = I + "------------------------------------------" & VBCRLF 
-			I = I + MSGBOX_I1 & VBCRLF 
-			I = I + "------------------------------------------" & VBCRLF 
-			I = I + "NEWER DATE BEFORE ____ " & VBCRLF 
-			I = I + "------------------------------------------" & VBCRLF 
-			I = I + MSGBOX_I2 & VBCRLF 
-		END IF
+		I = I + "OLDER DATE OF _________ " & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
+		I = I + MSGBOX_I1 & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
+		I = I + "NEWER DATE BEFORE ____ " & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
+		I = I + MSGBOX_I2 & VBCRLF 
 
 		' NOT RUNNER ROUTINE AS NOT CHANGE AND HERE
 		' -----------------------------------------
 		IF FREE_SPACE_SET_TO_EQUAL=0 THEN 
-			DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
-			DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
-			MSGBOX "DRVPATH_VAR " & DRVPATH_VAR
+			DRVPATH_VAR=ARRAY_PATH_01(ARRAY_FOR_NEXT)
 			CALL GET_DRIVE_SPACE(DRVPATH_VAR)
 			IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
 				FREE_SPACE_SET_TO_EQUAL=20 ' GB
@@ -2031,25 +2001,26 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 			DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
 		END IF 
 
-
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "TOTAL FREE_SPACE_SET_TO_EQUAL__GB _ " & FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN___GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE___________GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_CAPACITY______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		I = I + "MESSENGER BOX GONE IN 20 SECOND"
+		I = I + "MESSENGER BOX GONE IN 32 SECOND"
 		
 		I_1=I
 		DISPLAY_MESSENGER=TRUE
 		IF DISPLAY_MESSENGER=TRUE THEN 
 			DIM WSHShell
 			SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I_1, 20, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			RESULT = WSHSHELL.POPUP(I_1, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 			SET WSHShell = Nothing
 		END IF
 	END IF
-	CALL DELETE_EMPTY_FOLDER(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA)
+	
+	CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	CALL DELETE_EMPTY_FOLDER(ARRAY_PATH_01(ARRAY_FOR_NEXT))
 	
     Set ODICT_TRIM_THE_DATE = Nothing
 End Sub
@@ -2133,9 +2104,9 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 			IF GET_SPACE_STRING="" THEN
 				GET_SPACE_STRING="IN IT"
 				' -------------------------------------------------------
-				DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
-				IF MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)="\\" THEN 
-					DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
+				DRVPATH_VAR=MID(ARRAY_PATH_01(ARRAY_FOR_NEXT),1,2)
+				IF MID(ARRAY_PATH_01(ARRAY_FOR_NEXT),1,2)="\\" THEN 
+					DRVPATH_VAR=ARRAY_PATH_01(ARRAY_FOR_NEXT)
 				END IF
 
 				DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
@@ -2170,7 +2141,7 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 
 			IF GOGO=1 THEN 
 				' MSGBOX OKEY
-				FSO.DeleteFile(oKey) 
+				' FSO.DeleteFile(oKey) 
 				I_COUNT_DEL=I_COUNT_DEL+1
 			END IF
 		ON ERROR GOTO 0
@@ -2660,6 +2631,56 @@ Sub DELETE_EMPTY_FOLDER(folder)
 End Sub
 
 		
+SUB DELETE_FOUND_000_ROOT_PATH(folder)
+    Dim subfolder
+	ON ERROR RESUME NEXT
+	ERR.CLEAR
+    For Each subfolder in folder.SubFolders
+			DELETE_FOUND_000_ROOT_PATH subfolder
+    Next
+	' ---------------------------------------------------------------
+	' MORE ERROR SAFE METHOD
+	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
+	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAPP IT
+	' ---------------------------------------------------------------
+	READY_01=-1
+	READY_02=-1
+	READY_03=0
+	READY_04=-1
+	ERR.CLEAR
+	READY_01=folder.SubFolders.Count
+	READY_02=folder.Files.Count
+	READY_04=ERR.NUMBER
+	IF UCASE(ORIGINAL_PATH)=UCASE(folder.Path) THEN READY_03=1
+	READY_04=ERR.NUMBER
+	' ---------------------------------------------------------------
+    If READY_01 = 0 And READY_02 = 0 And READY_03 = 0 AND READY_04=0 Then
+		ON ERROR GOTO 0
+		TEST_COUNTER=TEST_COUNTER+1
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		' -----------------------------------------------------------
+		' SUCCESS ACHIEVE ON TEST RUN
+		' ALLOW NOT MESSENGER LEAVER
+		' Sun 08-Mar-2020 17:20:40
+		' -----------------------------------------------------------
+		'MSGBOX "DeleteFolder " + folder.Path
+		MSGBOX FOLDER.PATH
+		MSGBOX MID(FOLDER.PATH,2,8)
+		IF MID(FOLDER.PATH,2,8)=":\FOUND" THEN 
+		
+		END IF
+		'FSO.DeleteFolder folder.Path, TRUE
+		IF ERR.NUMBER>0 THEN 
+			ERR_COUNTER = ERR_COUNTER +1
+			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+			ERR.CLEAR
+			' objFolder.DELETE, TRUE
+			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
+		END IF
+	End If
+End Sub
+
 
 
 '---------
