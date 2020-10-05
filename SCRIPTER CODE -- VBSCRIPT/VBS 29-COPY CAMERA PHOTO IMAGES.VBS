@@ -1361,10 +1361,10 @@ IF WORK_GO_ER=TRUE OR 1=1 THEN
 
 	IF MSGBOX_SHOW=TRUE THEN 
 		' MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
-		I = I + "MESSENGER BOX GONE IN 32 SECOND"
+		I = I + "MESSENGER BOX GONE IN 10 SECOND"
 		' DIM WSHShell
 		SET WSHShell = CreateObject("WScript.Shell")
-		RESULT = WSHSHELL.POPUP(I, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		RESULT = WSHSHELL.POPUP(I, 10, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 		SET WSHShell = Nothing
 
 		IF I_COUNT_1=0 THEN 
@@ -1415,7 +1415,7 @@ SET objFSO = NOTHING
 I_1="ABOUT DO THE LAST THREE ROUTINE CLEANER"
 ' DIM WSHShell
 SET WSHShell = CreateObject("WScript.Shell")
-RESULT = WSHSHELL.POPUP(I_1, 2, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+RESULT = WSHSHELL.POPUP(I_1, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 SET WSHShell = Nothing
 
 CALL RUNN_IT_HARDCORE_THREE_ROUTINE
@@ -2306,10 +2306,10 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN____GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_CAPACITY_______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
 		I = I + "--------------------------------------------------------------" & VBCRLF 
-		I = I + "MESSENGER BOX GONE IN 32 SECOND"
+		I = I + "MESSENGER BOX GONE IN 10 SECOND"
 		DIM WSHShell
 		SET WSHShell = CreateObject("WScript.Shell")
-		RESULT = WSHSHELL.POPUP(I, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		RESULT = WSHSHELL.POPUP(I, 10, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 		SET WSHShell = Nothing
 		
 	END IF
