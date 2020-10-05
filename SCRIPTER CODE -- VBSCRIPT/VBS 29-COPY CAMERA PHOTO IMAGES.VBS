@@ -215,6 +215,19 @@ Next
 
 
 
+With CreateObject("Scripting.FileSystemObject")
+MsgBox .GetDrive("\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera\").AvailableSpace & " bytes"
+End With
+' ----
+' check free space on share - VBScript - Tek-Tips 
+' https://www.tek-tips.com/viewthread.cfm?qid=1692870
+' ----
+
+
+
+
+WSCRIPT.QUIT
+
 
 
 
@@ -320,51 +333,63 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 ' -------------------------------------------------------------------
 
 Dim RESULT
-DIM ARRAY_PATH()
+DIM ARRAY_PATH_02_NEXT_LOOP
+DIM ARRAY_PATH_01()
+DIM ARRAY_PATH_02()
 
-REDIM ARRAY_PATH(10)
+REDIM ARRAY_PATH_01(10)
+REDIM ARRAY_PATH_02(10)
 I=0
-I=I+1:ARRAY_PATH(I) = GET_DRIVE_LETTER_FROM_VOLUME_NAME("MC - HX60V")
-I=I+1:ARRAY_PATH(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
-I=I+1:ARRAY_PATH(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
-I=I+1:ARRAY_PATH(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
+I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
+I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
+I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
+I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
 ' -------------------------------------------------------------------
 '  "MC - HX60V"   BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE
 '  "MC - HX60V1"  BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE  
 '  ALL THEM ARE __ V:\
 ' -------------------------------------------------------------------
-REDIM PRESERVE ARRAY_PATH(I)
+REDIM PRESERVE ARRAY_PATH_01(I)
+REDIM PRESERVE ARRAY_PATH_02(I)
 ' -------------------------------------------------------------------
+FOR RM=1 TO UBOUND(ARRAY_PATH_01)
+	ARRAY_PATH_02(RM) = ARRAY_PATH_01(RM)
+	IF MID(ARRAY_PATH_02(RM),1,2)<>"\\" THEN
+		ARRAY_PATH_02(RM) = GET_DRIVE_LETTER_FROM_VOLUME_NAME(ARRAY_PATH_02(RM))
+	END IF
+NEXT
 
-FOR RM=1 TO UBOUND(ARRAY_PATH)
 
-DIM VOLUME_NAME_STRING
-DIM DAY_BACK_TRIMMER_COUNTER
-DIM DRIVE_FREE_SPACE_GB_BEGIN
-DIM DRVPATH_VAR
-DIM GET_SPACE_STRING
-DIM FREE_SPACE_SET_TO_EQUAL
-DIM	DRIVE_FREE_SPACE_GB
-DIM	DRIVE_CAPACITY___GB
-DIM I_COUNT_DEL
-DIM I_COUNT_TOTAL
-DIM DAY_BACK_TRIMMER
-DIM I_COUNT
-DIM MSGBOX_I1 , MSGBOX_I2
-DIM ODICT_TRIM_THE_DATE
-' -------------------------------------------------------------------
-DIM LOW_DATE
-DIM HIGH_DATE
-' -------------------------------------------------------------------
-LOW_DATE=NOW
-HIGH_DATE=NOW-1000
-' -------------------------------------------------------------------
+FOR ARRAY_PATH_02_NEXT_LOOP=1 TO UBOUND(ARRAY_PATH_01)
+	DIM VOLUME_NAME_STRING
+	DIM DAY_BACK_TRIMMER_COUNTER
+	DIM DRIVE_FREE_SPACE_GB_BEGIN
+	DIM DRVPATH_VAR
+	DIM GET_SPACE_STRING
+	DIM FREE_SPACE_SET_TO_EQUAL
+	DIM	DRIVE_FREE_SPACE_GB
+	DIM	DRIVE_CAPACITY___GB
+	DIM I_COUNT_DEL
+	DIM I_COUNT_TOTAL
+	DIM DAY_BACK_TRIMMER
+	DIM I_COUNT
+	DIM MSGBOX_I1 , MSGBOX_I2
+	DIM ODICT_TRIM_THE_DATE
+	' -------------------------------------------------------------------
+	DIM LOW_DATE
+	DIM HIGH_DATE
+	' -------------------------------------------------------------------
+	LOW_DATE=NOW
+	HIGH_DATE=NOW-1000
+	' -------------------------------------------------------------------
 
-	IF ARRAY_PATH(RM)<>"" THEN 
+	IF ARRAY_PATH_02(ARRAY_PATH_02_NEXT_LOOP)<>"" THEN 
 		' CHECK VOLUME OKAY ______________
 		' ISREADY
-		FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA=ARRAY_PATH(RM)
-		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+		FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA=ARRAY_PATH_02(ARRAY_PATH_02_NEXT_LOOP)
+		IF FSO.FolderExists(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA)=TRUE THEN 
+			CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+		END IF
 	END IF
 NEXT
 
@@ -1432,7 +1457,12 @@ SUB GET_DRIVE_SPACE(drvPath)
 		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+drvPath+"'",,48) 
 	FOR EACH objItem in colItems 
 		IF LEN(objItem.VolumeName)>0 then
-			VOLUME_NAME_STRING=objItem.VolumeName
+			IF MID(DRVPATH,1,2)<>"\\" THEN 
+				VOLUME_NAME_STRING=objItem.VolumeName
+				VOLUME_NAME_STRING=REPLACE(VOLUME_NAME_STRING,CHR(0),"")
+				VOLUME_NAME_STRING=REPLACE(VOLUME_NAME_STRING,VBCR,"")
+				VOLUME_NAME_STRING=REPLACE(VOLUME_NAME_STRING,VBLF,"")
+			END IF
 			DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
 			DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
 		END IF
@@ -1448,6 +1478,7 @@ FUNCTION SHOWDRIVEINFO(drvPath)
 	Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2") 
 	Set colItems = objWMIService.ExecQuery( _
 		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+drvPath+"'",,48) 
+	MSGBOX drvPath
 
 	For Each objItem in colItems 
 		if len(objItem.VolumeName)>0 then
@@ -1909,21 +1940,33 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	CALL DISPLAYFIND_TRIM_THE_DATE
 	
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
+		
+		I_NEXT=ARRAY_PATH_02_NEXT_LOOP
+		IF MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)<>"\\" THEN 
+			DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_PATH_02(I_NEXT) & " ---- " & ARRAY_PATH_01(I_NEXT)
+		ELSE
+			DISPLAY_MESSENGER_FOLDER_CAMERA=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA	
+		END IF
+		
+		MSGBOX LEN(DISPLAY_MESSENGER_FOLDER_CAMERA)
+		
+		
 		I = ""
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "DONE DELETE COUNT LESS DAY SPAN COUNTER" & VBCRLF 
 		I = I + "MP4 __AND__ JPG" & VBCRLF 
-		I = I + FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA & VBCRLF
-		I = I + VOLUME_NAME_STRING & VBCRLF
+		I = I + DISPLAY_MESSENGER_FOLDER_CAMERA & VBCRLF
+		I = I + VOLUME_NAME_STRING 
+		IF LEN(DISPLAY_MESSENGER_FOLDER_CAMERA)<51 THEN 
+			I = I + VBCRLF
+		END IF
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		MSGBOX LPAD(2, "0", 4) 
-		MSGBOX LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) 
-		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & " DAY _________ LIMIT COUNTER" & VBCRLF 
-		I = I + LPAD(DAY_BACK_TRIMMER, "0", 4) & " DAY __ TRIMMER" & VBCRLF 
+		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & " _______________ DAY __ LIMIT COUNTER" & VBCRLF 
+		I = I + CSTR(DAY_BACK_TRIMMER) & " DAY __ TRIMMER" & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
-		I = I + "---------------------------------------------------" & VBCRLF 
 		IF MSGBOX_I1<>"" THEN 
+		I = I + "---------------------------------------------------" & VBCRLF 
 			I = I + "OLDER DATE OF _________ " & VBCRLF 
 			I = I + "------------------------------------------" & VBCRLF 
 			I = I + MSGBOX_I1 & VBCRLF 
@@ -1932,20 +1975,34 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 			I = I + "------------------------------------------" & VBCRLF 
 			I = I + MSGBOX_I2 & VBCRLF 
 		END IF
+
+		' NOT RUNNER ROUTINE AS NOT CHANGE AND HERE
+		' -----------------------------------------
+		IF FREE_SPACE_SET_TO_EQUAL=0 THEN 
+			DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
+			DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
+			DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
+			IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
+				FREE_SPACE_SET_TO_EQUAL=20 ' GB
+			END IF
+			DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
+		END IF 
+
+
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "TOTAL FREE_SPACE_SET_TO_EQUAL__GB _ " & FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN___GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE___________GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_CAPACITY______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		I = I + "MESSENGER BOX GONE IN 18 SECOND"
+		I = I + "MESSENGER BOX GONE IN 20 SECOND"
 		
 		I_1=I
 		DISPLAY_MESSENGER=TRUE
 		IF DISPLAY_MESSENGER=TRUE THEN 
 			DIM WSHShell
 			SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I_1, 18, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			RESULT = WSHSHELL.POPUP(I_1, 20, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 			SET WSHShell = Nothing
 		END IF
 	END IF
@@ -2034,6 +2091,7 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 				GET_SPACE_STRING="IN IT"
 				' -------------------------------------------------------
 				DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
+				DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
 				DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
 				IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
 					FREE_SPACE_SET_TO_EQUAL=20 ' GB
