@@ -319,6 +319,9 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
+
+DIM VOLUME_NAME_STRING
+DIM DAY_BACK_TRIMMER_COUNTER
 DIM DRIVE_FREE_SPACE_GB_BEGIN
 DIM DRVPATH_VAR
 DIM GET_SPACE_STRING
@@ -948,12 +951,12 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			DeleteFolder__=FOLDER_PATH_VAR_2+"DCIM"
 			Set objFolder = FSO.GetFolder(DeleteFolder__)
 			ORIGINAL_PATH=UCASE(objFolder.PATH)
-			DeleteEmptyFolders objFolder
+			DELETE_EMPTY_FOLDER objFolder
 
 			DeleteFolder__=FOLDER_PATH_VAR_2+"MP_ROOT"
 			Set objFolder = FSO.GetFolder(DeleteFolder__)
 			ORIGINAL_PATH=UCASE(objFolder.PATH)
-			DeleteEmptyFolders objFolder
+			DELETE_EMPTY_FOLDER objFolder
 		END IF
 		
 		' --------------------------------------------------
@@ -1397,12 +1400,14 @@ End Sub
 
 
 SUB GET_DRIVE_SPACE(drvPath)
+	' EXIT SUB ' SPEED
 	STRCOMPUTER = "." 
 	SET objWMIService = GetObject("winmgmts:\\" & STRCOMPUTER & "\root\CIMV2") 
 	SET colItems = objWMIService.ExecQuery( _
 		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+drvPath+"'",,48) 
 	FOR EACH objItem in colItems 
 		IF LEN(objItem.VolumeName)>0 then
+			VOLUME_NAME_STRING=objItem.VolumeName
 			DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
 			DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
 		END IF
@@ -1412,6 +1417,7 @@ END SUB
 
 
 FUNCTION SHOWDRIVEINFO(drvPath)
+	' EXIT FUNCTION ' SPEED
 	strComputer = "." 
 
 	Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2") 
@@ -1873,36 +1879,39 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
     ' CALL RECURSIVE SUB
     FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA))
     ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
-
-
 	
 	CALL DISPLAYFIND_TRIM_THE_DATE
 	
 	IF I_COUNT_DEL>0 THEN 
 		I = ""
-		I = I + "DONE DELETE COUNT LESS THAN DAY BEFORE ____ MP4 AND JPG ____" & VBCRLF 
-		I = I + "____ " & TRIM(CSTR(DAY_BACK_TRIMMER)) & " DAY" & VBCRLF 
-		I = I + "____ " & FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA & VBCRLF & VBCRLF 
-		I = I + CSTR(I_COUNT_DEL) & " ____ DELETE ON ____ " & CSTR(I_COUNT_TOTAL) & " ____ TOTAL" & VBCRLF & VBCRLF
-		I = I + "--------------------------------" & VBCRLF 
-		I = I + "--------------------------------" & VBCRLF 
-		I = I + "OLDER DATE OF ______ " & VBCRLF 
-		I = I + "--------------------------------" & VBCRLF 
-		I = I + MSGBOX_I1 & VBCRLF
+		I = I + "-----------------------------------------------------------" & VBCRLF 
+		I = I + "DONE DELETE COUNT LESS DAY SPAN COUNTER" & VBCRLF 
+		I = I + "MP4 __AND__ JPG" & VBCRLF 
+		I = I + FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA & VBCRLF
+		I = I + VOLUME_NAME_STRING & VBCRLF
+		I = I + "-----------------------------------------------------------" & VBCRLF 
+		I = I + TRIM(CSTR(DAY_BACK_TRIMMER_COUNTER)) & " DAY __ LIMIT COUNTER" & VBCRLF 
+		I = I + TRIM(CSTR(DAY_BACK_TRIMMER)) & " DAY __ TRIMMER" & VBCRLF 
+		I = I + "-----------------------------------------------------------" & VBCRLF 
+		I = I + CSTR(I_COUNT_DEL) & " ____ DELETE ON ____ " & CSTR(I_COUNT_TOTAL) & " ____ TOTAL" & VBCRLF 
+		I = I + "---------------------------------------------------" & VBCRLF 
+		I = I + "OLDER DATE OF _________ " & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
+		I = I + MSGBOX_I1 & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
 		I = I + "NEWER DATE BEFORE ____ " & VBCRLF 
-		I = I + "--------------------------------" & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
 		I = I + MSGBOX_I2 & VBCRLF 
-		I = I + "--------------------------------" & VBCRLF 
-		I = I + "--------------------------------" & VBCRLF 
-		I = I + "TOTAL FREE_SPACE_SET_TO_EQUAL____ " & FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,0) & " __ GB" & VBCRLF & VBCRLF 
-		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN_____GB ____ " & VBCRLF & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF & VBCRLF 
-		I = I + "TOTAL DRIVE_FREE_SPACE_____________GB ____ " & VBCRLF & FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & VBCRLF & VBCRLF 
-		I = I + "TOTAL DRIVE_CAPACITY_________________GB ____ " & VBCRLF & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
-		I = I + "--------------------------------" & VBCRLF 
+		I = I + "-----------------------------------------------------------" & VBCRLF 
+		I = I + "TOTAL FREE_SPACE_SET_TO_EQUAL__GB _ " & FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2) & VBCRLF 
+		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN___GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
+		I = I + "TOTAL DRIVE_FREE_SPACE___________GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & VBCRLF 
+		I = I + "TOTAL DRIVE_CAPACITY______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
+		I = I + "-----------------------------------------------------------" & VBCRLF 
 
 		MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
-	' DEL EMPTY
+	CALL DELETE_EMPTY_FOLDER(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA)
 	
     Set ODICT_TRIM_THE_DATE = Nothing
 	WSCRIPT.QUIT
@@ -1939,7 +1948,8 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 		
 		' DO HERE METHOD DAY GONE
 		' -----------------------------------------------------------
-		DAY_BACK_TRIMMER=NOW-120 ' DAY -- LESS NUMBER MORE IN FUTURE
+		DAY_BACK_TRIMMER_COUNTER=120
+		DAY_BACK_TRIMMER=NOW-DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
 		IF PATH_FIND_RESULT=TRUE THEN 
 			IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
 				PATH_FIND_RESULT=FALSE
@@ -1989,7 +1999,7 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 				DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
 				DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
 				IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
-					FREE_SPACE_SET_TO_EQUAL=19 ' GB
+					FREE_SPACE_SET_TO_EQUAL=20 ' GB
 				END IF
 				DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
 				' -------------------------------------------------------
@@ -2003,8 +2013,9 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 				CALL GET_DRIVE_SPACE(DRVPATH_VAR)
 			END IF
 
-			IF DRIVE_FREE_SPACE_GB<FREE_SPACE_SET_TO_EQUAL THEN 
-				GOGO=1
+
+			IF DRIVE_FREE_SPACE_GB>FREE_SPACE_SET_TO_EQUAL THEN 
+				GOGO=0
 				' ---------------------------------------------------
 				' MSGBOX DRIVE_FREE_SPACE_GB & FREE_SPACE_SET_TO_EQUAL & "GB"
 				' ---------------------------------------------------
@@ -2018,7 +2029,7 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 
 			IF GOGO=1 THEN 
 				' MSGBOX OKEY
-				' FSO.DeleteFile(oKey) 
+				FSO.DeleteFile(oKey) 
 				I_COUNT_DEL=I_COUNT_DEL+1
 			END IF
 		ON ERROR GOTO 0
@@ -2461,12 +2472,12 @@ Sub Search(Folder)
 End Sub
 
 
-Sub DeleteEmptyFolders(folder)
+Sub DELETE_EMPTY_FOLDER(folder)
     Dim subfolder
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
     For Each subfolder in folder.SubFolders
-			DeleteEmptyFolders subfolder
+			DELETE_EMPTY_FOLDER subfolder
     Next
 	
 	' ---------------------------------------------------------------
