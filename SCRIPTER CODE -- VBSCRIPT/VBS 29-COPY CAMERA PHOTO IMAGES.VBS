@@ -215,18 +215,14 @@ Next
 
 
 
-With CreateObject("Scripting.FileSystemObject")
-MsgBox .GetDrive("\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera\").AvailableSpace & " bytes"
-End With
+' With CreateObject("Scripting.FileSystemObject")
+' MsgBox .GetDrive("\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera\").AvailableSpace & " bytes"
+' End With
 ' ----
 ' check free space on share - VBScript - Tek-Tips 
 ' https://www.tek-tips.com/viewthread.cfm?qid=1692870
 ' ----
-
-
-
-
-WSCRIPT.QUIT
+' WSCRIPT.QUIT
 
 
 
@@ -361,7 +357,7 @@ NEXT
 
 
 FOR ARRAY_PATH_02_NEXT_LOOP=1 TO UBOUND(ARRAY_PATH_01)
-	DIM VOLUME_NAME_STRING
+	DIM VOLUME_NAME_STRING_
 	DIM DAY_BACK_TRIMMER_COUNTER
 	DIM DRIVE_FREE_SPACE_GB_BEGIN
 	DIM DRVPATH_VAR
@@ -1276,8 +1272,15 @@ Sub Main
 	
     DisplayFindings
 
+	' DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
+	' ' WHEN NETWORK PATH GIVE FULL PATH
+	' IF MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)="\\" THEN 
+		' DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
+	' END IF
+
+
 	IF MID(FOLDER_PATH_VAR_2,1,2)<>"D:" THEN 
-		ShowDriveInfo(MID(FOLDER_PATH_VAR_2,1,2))
+		CALL GET_DRIVE_SPACE(MID(FOLDER_PATH_VAR_2,1,2))
 	END IF
 	
 	' ---------------------------------------------------------------
@@ -1417,51 +1420,78 @@ End Sub
 
 
 SUB DATE_OF_FILE_IN_FRONT_FILENAME_SONY_CAMERA
-
 EXIT SUB
-
 FOLDER_PATH_DEST(1)="D:\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
 FOLDER_PATH__MP4(1)="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V"
 FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
-
 FOR R_CNT = 1 TO 2
-
 	IF FSO.FolderExists(FOLDER_PATH_DEST(R_CNT))=TRUE THEN  
 		PAD
 	END IF
-
 	IF FSO.FolderExists(FOLDER_PATH__MP4(R_CNT))=TRUE THEN  
-	
 	END IF
-
-
 NEXT
-
-
-
-
 End Sub
 
 
 
+SUB GET_DRIVE_SPACE(DRVPATH)
+
+	SET D = FS.GETDRIVE(DRVPATH)
+	IF D.ISREADY = TRUE THEN
+		DRIVE_IS_READY_____=TRUE
+		VOLUME_NAME_STRING_=D.VOLUMENAME
+		DRIVE_FREE_SPACE_GB=CDbl(D.FREESPACE)/1024/1024/1024
+		DRIVE_CAPACITY___GB=CDbl(D.TOTALSIZE)/1024/1024/1024
+	ELSE
+		DRIVE_IS_READY_____=FALSE
+		VOLUME_NAME_STRING_=D.VOLUMENAME
+		DRIVE_FREE_SPACE_GB=CDbl(D.FREESPACE)/1024/1024/1024
+		DRIVE_CAPACITY___GB=CDbl(D.TOTALSIZE)/1024/1024/1024
+	END IF
+	MSGBOX DRIVE_IS_READY_____ & VBCR & VOLUME_NAME_STRING_ & VBCR &  DRIVE_FREE_SPACE_GB & VBCR & DRIVE_CAPACITY___GB
+
+
+	IF LEN(OBJITEM.VOLUMENAME)>0 THEN
+		S=S+"-----------------------------------------------------------" & VBCRLF
+		S=S+"VOLUMENAME:" & VBTAB & OBJITEM.VOLUMENAME  & VBCRLF
+		S=S+"-----------------------------------------------------------" & VBCRLF
+		S=S+"DRIVE LETTER 1ST FOUND FOR MATCH VOLUME NAME: " & VBCRLF & DRVPATH & "\" & VBCRLF
+		S=S+"-----------------------------------------------------------" & VBCRLF
+		S=S+"FREESPACE:" & VBTAB
+		S=S+FORMATNUMBER((CDBL(D.FREESPACE)/1024/1024/1024))  & " GB" & VBCRLF
+		S=S+"SIZE:" & VBTAB & VBTAB
+		S=S+FORMATNUMBER((CDBL(D.TOTALSIZE)/1024/1024/1024)) & " GB" & VBCRLF
+		S=S+"OCCUPIED SPACE:" & VBTAB
+		S=S+FORMATNUMBER((CDBL(D.TOTALSIZE - D.FREESPACE)/1024/1024/1024)) & " GB"
+		IF IX_ERROR_MESSENGER<>"" THEN 
+			S=S+VBCRLF
+			S=IX_ERROR_MESSENGER
+		END IF
+		DRIVE_FREE_SPACE_GB=CDBL(D.FREESPACE)/1024/1024/1024
+		DRIVE_CAPACITY___GB=CDBL(D.TOTALSIZE)/1024/1024/1024
+	END IF
+
+	DRIVE_SPACE_INFO=S
+
+END SUB
 
 
 
-
-
-SUB GET_DRIVE_SPACE(drvPath)
+' WHY BOTHER THAT ONE AND USER FSO.
+SUB GET_DRIVE_SPACE_NOT_COOL(DRVPATH)
 	' EXIT SUB ' SPEED
 	STRCOMPUTER = "." 
 	SET objWMIService = GetObject("winmgmts:\\" & STRCOMPUTER & "\root\CIMV2") 
 	SET colItems = objWMIService.ExecQuery( _
-		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+drvPath+"'",,48) 
+		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
 	FOR EACH objItem in colItems 
 		IF LEN(objItem.VolumeName)>0 then
 			IF MID(DRVPATH,1,2)<>"\\" THEN 
-				VOLUME_NAME_STRING=objItem.VolumeName
-				VOLUME_NAME_STRING=REPLACE(VOLUME_NAME_STRING,CHR(0),"")
-				VOLUME_NAME_STRING=REPLACE(VOLUME_NAME_STRING,VBCR,"")
-				VOLUME_NAME_STRING=REPLACE(VOLUME_NAME_STRING,VBLF,"")
+				VOLUME_NAME_STRING_=objItem.VolumeName
+				VOLUME_NAME_STRING_=REPLACE(VOLUME_NAME_STRING_,CHR(0),"")
+				VOLUME_NAME_STRING_=REPLACE(VOLUME_NAME_STRING_,VBCR,"")
+				VOLUME_NAME_STRING_=REPLACE(VOLUME_NAME_STRING_,VBLF,"")
 			END IF
 			DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
 			DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
@@ -1471,21 +1501,36 @@ END SUB
 
 
 
-FUNCTION SHOWDRIVEINFO(drvPath)
+FUNCTION SHOWDRIVEINFO_NOT_COOL(DRVPATH)
 	' EXIT FUNCTION ' SPEED
 	strComputer = "." 
 
+	' A NETWORK PATH
+	IF MID(DRVPATH,1,2)="\\" THEN 
+		
+		With CreateObject("Scripting.FileSystemObject")
+		' DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).AvailableSpace)/1024/1024/1024
+		DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).FreeSpace)/1024/1024/1024
+		MSGBOX DRVPATH
+		MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
+		DRIVE_CAPACITY___GB=CDbl(.GetDrive(DRVPATH).FSize)/1024/1024/1024
+		MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
+		MSGBOX CSTR(DRIVE_CAPACITY___GB)
+
+		End With
+	END IF
+
 	Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2") 
 	Set colItems = objWMIService.ExecQuery( _
-		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+drvPath+"'",,48) 
-	MSGBOX drvPath
+		"SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
+	MSGBOX DRVPATH
 
 	For Each objItem in colItems 
 		if len(objItem.VolumeName)>0 then
 			S=S+"-----------------------------------------------------------" & vbCrLf
 			S=S+"VolumeName:" & vbTab & objItem.VolumeName  & vbCrLf
 			S=S+"-----------------------------------------------------------" & vbCrLf
-			S=S+"Drive Letter 1st Found for Match Volume Name: " & VBCRLF & drvPath & "\" & vbCrLf
+			S=S+"Drive Letter 1st Found for Match Volume Name: " & VBCRLF & DRVPATH & "\" & vbCrLf
 			S=S+"-----------------------------------------------------------" & vbCrLf
 			S=S+"FreeSpace:" & vbTab
 			S=S+FORMATNUMBER((CDbl(objItem.FreeSpace)/1024/1024/1024))  & " GB" & vbCrLf
@@ -1948,15 +1993,12 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 			DISPLAY_MESSENGER_FOLDER_CAMERA=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA	
 		END IF
 		
-		MSGBOX LEN(DISPLAY_MESSENGER_FOLDER_CAMERA)
-		
-		
 		I = ""
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "DONE DELETE COUNT LESS DAY SPAN COUNTER" & VBCRLF 
 		I = I + "MP4 __AND__ JPG" & VBCRLF 
 		I = I + DISPLAY_MESSENGER_FOLDER_CAMERA & VBCRLF
-		I = I + VOLUME_NAME_STRING 
+		I = I + VOLUME_NAME_STRING_ 
 		IF LEN(DISPLAY_MESSENGER_FOLDER_CAMERA)<51 THEN 
 			I = I + VBCRLF
 		END IF
@@ -1981,7 +2023,8 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		IF FREE_SPACE_SET_TO_EQUAL=0 THEN 
 			DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
 			DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
-			DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
+			MSGBOX "DRVPATH_VAR " & DRVPATH_VAR
+			CALL GET_DRIVE_SPACE(DRVPATH_VAR)
 			IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
 				FREE_SPACE_SET_TO_EQUAL=20 ' GB
 			END IF
@@ -2091,7 +2134,10 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 				GET_SPACE_STRING="IN IT"
 				' -------------------------------------------------------
 				DRVPATH_VAR=MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)
-				DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
+				IF MID(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA,1,2)="\\" THEN 
+					DRVPATH_VAR=FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA
+				END IF
+
 				DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
 				IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
 					FREE_SPACE_SET_TO_EQUAL=20 ' GB
