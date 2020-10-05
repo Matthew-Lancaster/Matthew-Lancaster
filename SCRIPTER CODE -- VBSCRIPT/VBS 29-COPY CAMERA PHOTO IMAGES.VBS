@@ -211,7 +211,7 @@ NEXT
 Set args = Wscript.Arguments
 For Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
-Next
+NEXT
 
 
 
@@ -305,7 +305,7 @@ DIM IX_ERROR_MESSENGER
 DIM DRIVE_SPACE_INFO
 
 DIM objStartFolder
-DIM objFolder
+DIM OBJFOLDER
 DIM I_COUNT_1
 DIM I_COUNT_2
 DIM VAR_PATH_SCANNER
@@ -329,7 +329,8 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
-Dim RESULT
+DIM DRIVE_LETTER__
+DIM RESULT
 DIM ARRAY_FOR_NEXT
 DIM ARRAY_PATH_01()
 DIM ARRAY_PATH_02()
@@ -337,10 +338,10 @@ DIM ARRAY_PATH_02()
 REDIM ARRAY_PATH_01(10)
 REDIM ARRAY_PATH_02(10)
 I=0
+I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
-I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
 I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
 ' -------------------------------------------------------------------
 '  "MC - HX60V"   BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE
@@ -378,25 +379,18 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	HIGH_DATE=NOW-1000
 	' -------------------------------------------------------------------
 
-	FOLDER_ARRAY_SONY_CAMERA_TRIM=ARRAY_PATH_01(ARRAY_FOR_NEXT)
-
-	DRIVE_LETTER=GET_DRIVE_LETTER_FROM_VOLUME_NAME(FOLDER_ARRAY_SONY_CAMERA_TRIM)
-
-	IF DRIVE_LETTER<>"" THEN 
-	IF DRIVE_LETTER<>"DRIVE EXIST GOOD NETWORK TYPE" THEN
-	ARRAY_PATH_01(ARRAY_FOR_NEXT)=DRIVE_LETTER
+	I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	IF MID(I,2,1)=":" THEN 
+		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
+		
 	END IF
-	END IF
-
-	CALL DELETE_FOUND_000_ROOT_PATH(DRIVE_LETTER)
-	CALL DELETE_FOUND_000_ROOT_PATH(FSO.GetFolder(DRIVE_LETTER))
+	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
 	
-	MSGBOX "DELETE_FOUND_000_ROOT_PATH ---- DONE  " & FOLDER_ARRAY_SONY_CAMERA_TRIM
-
+	CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
 	
-	'CALL DELETE_EMPTY_FOLDER(FOLDER_ARRAY_SONY_CAMERA_TRIM)
+	'CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 	'MSGBOX "DELETE_EMPTY_FOLDER ---- DONE"
-	'CALL DELETE_FOUND_000_ROOT_PATH(FOLDER_ARRAY_SONY_CAMERA_TRIM)
+	'CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
 	'MSGBOX "DELETE_FOUND_000_ROOT_PATH ---- DONE"
 
 	'CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
@@ -804,7 +798,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	' IF ANOTHER DRIVE PRESENT DROP D_DRIVE
 	' ---------------------------------------------------------------
 	IF R_COUNT<>8 THEN 
-		FOLDER_PATH_VAR_2=GET_DRIVE_LETTER_FROM_VOLUME_NAME(FOLDER_PATH(R_COUNT))
+		FOLDER_PATH_VAR_2=GET_VOLUME_LETTER__(FOLDER_PATH(R_COUNT))
 		HDD_INFO = HDD_INFO + FOLDER_PATH_VAR_2
 	END IF
 NEXT	
@@ -828,7 +822,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	' TRY GET VOLUME LETTER LABEL FROM VOLUME_NAME OF PROVIDER
 	' IF EXIST GOT A DRIVE LETTER OR EMPTY 
 	' ---------------------------------------------------------------
-	FOLDER_PATH_VAR_2=GET_DRIVE_LETTER_FROM_VOLUME_NAME(FOLDER_PATH(R_COUNT))
+	FOLDER_PATH_VAR_2=GET_VOLUME_LETTER__(FOLDER_PATH(R_COUNT))
 	
 	FOLDER_PATH_DEST_VAR=FOLDER_PATH_DEST(R_COUNT)
 	FOLDER_PATH__MP4_VAR=FOLDER_PATH__MP4(R_COUNT)
@@ -1516,21 +1510,21 @@ FUNCTION SHOWDRIVEINFO_NOT_COOL(DRVPATH)
 			DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
 			DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
 		END IF
-	Next
+	NEXT
 	DRIVE_SPACE_INFO=S
 END FUNCTION
 
 Sub FindWantedFiles(sFolder)
-    On Error Resume Next
+    On Error Resume NEXT
     Dim oFDR, oItem, file
     ' Check if wanted files are in this folder
     For Each file In sFolder.Files
 		oDict.Add FILE.path, file
-    Next
+    NEXT
     ' Recurse into it's sub folders
     For Each oFDR In sFolder.SubFolders
         FindWantedFiles objFSO.GetFolder(oFDR.Path)
-    Next
+    NEXT
 	
 End Sub
 
@@ -1542,7 +1536,7 @@ Sub DisplayFindings()
 		IF FSO.FILEExists(VAR_PATH_SCANNER)=TRUE THEN 
 			CALL PATH_SCANNER_COPY_CAMERA
 		END IF
-	Next
+	NEXT
 End Sub
 
 SUB PATH_SCANNER_COPY_CAMERA
@@ -1958,7 +1952,7 @@ End Sub
 
 
 
-Function GET_DRIVE_LETTER_FROM_VOLUME_NAME(VOLUMENAME)
+Function GET_VOLUME_LETTER__(VOLUMENAME)
 	
 	' ---------------------------------------------------------------
 	' RETURN -- NONE
@@ -1966,28 +1960,28 @@ Function GET_DRIVE_LETTER_FROM_VOLUME_NAME(VOLUMENAME)
 	' RETURN -- NETWORK DRIVE IS GOOD
 	' ---------------------------------------------------------------
 	
-	GET_DRIVE_LETTER_FROM_VOLUME_NAME=""
+	GET_VOLUME_LETTER__=""
 	IF MID(VOLUMENAME,1,2)="\\" THEN 
 		' NETWORK DRIVE CHECK RESULT GOOD
 		' -------------------------------
 		IF FSO.DRIVEEXISTS(VOLUMENAME) = TRUE THEN 
-			' DRIVE_LETTER
-			GET_DRIVE_LETTER_FROM_VOLUME_NAME="DRIVE EXIST GOOD NETWORK TYPE"
+			' DRIVE_LETTER__
+			GET_VOLUME_LETTER__="DRIVE EXIST GOOD NETWORK TYPE"
 			EXIT FUNCTION
 		END IF
 	ELSE
 		FOR R1 = ASC("C") TO ASC("Z")
 			Set FS0 = CreateObject("Scripting.FileSystemObject")
-			DRIVE_LETTER=CHR(R1)+":"
-			Set D = FS0.GetDrive(FSO.GetDriveName(FSO.GetAbsolutePathName(DRIVE_LETTER)))
+			DRIVE_LETTER__=CHR(R1)+":"
+			Set D = FS0.GetDrive(FSO.GetDriveName(FSO.GetAbsolutePathName(DRIVE_LETTER__)))
 			ON ERROR RESUME NEXT
 			ERR.CLEAR
 			XX=D.ISREADY
 			IF XX=TRUE AND ERR.NUMBER=0 THEN 
-				IF FSO.DRIVEEXISTS(DRIVE_LETTER) = TRUE THEN 
+				IF FSO.DRIVEEXISTS(DRIVE_LETTER__) = TRUE THEN 
 					IF UCASE(D.VOLUMENAME)=UCASE(VOLUMENAME) THEN
 						' -------------------------------------------------------
-						GET_DRIVE_LETTER_FROM_VOLUME_NAME=UCASE(DRIVE_LETTER+"\")
+						GET_VOLUME_LETTER__=UCASE(DRIVE_LETTER__+"\")
 						EXIT FUNCTION
 						' -------------------------------------------------------
 					END IF
@@ -2000,11 +1994,11 @@ END FUNCTION
 
 
 
-Function GET_DRIVE_LETTER_FROM_VOLUME_NAME_OLD_MESSY(volumeName)
+Function GET_VOLUME_LETTER___OLD_MESSY(volumeName)
 Dim volumes, volume
 
     ' UNLESS WE FOUND A MATCHING VOLUME, AN EMPTY STRING WILL BE THE RETURNED VALUE
-    GET_DRIVE_LETTER_FROM_VOLUME_NAME=""
+    GET_VOLUME_LETTER__=""
 
     ' ASK WMI FOR THE LIST OF VOLUMES WITH THE REQUESTED LABEL
     Set volumes = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") _ 
@@ -2021,9 +2015,9 @@ Dim volumes, volume
     ' IF EXIST AN MATCHING VOLUME, GET ITS DRIVE LETTER
 	IF VOLUMES.COUNT > 0 THEN 
         For Each volume In volumes 
-            GET_DRIVE_LETTER_FROM_VOLUME_NAME = volume.DriveLetter
+            GET_VOLUME_LETTER__ = volume.DriveLetter
             Exit For
-        Next 
+        NEXT 
     End If
 
 End Function
@@ -2037,12 +2031,12 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	MSGBOX_I1=""
 	MSGBOX_I2=""
 	
-	IF FSO.FolderExists(FOLDER_ARRAY_SONY_CAMERA_TRIM)=FALSE THEN 
+	IF FSO.FolderExists(ARRAY_SONY_FOLDER)=FALSE THEN 
 		EXIT SUB
 	END IF
     Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
     ' CALL RECURSIVE SUB
-    FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(FOLDER_ARRAY_SONY_CAMERA_TRIM))
+    FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(ARRAY_SONY_FOLDER))
     ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
 	
 	I_COUNT_DEL=0
@@ -2051,7 +2045,7 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
 		
-		DISPLAY_MESSENGER_FOLDER_CAMERA=FOLDER_ARRAY_SONY_CAMERA_TRIM
+		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_SONY_FOLDER
 		
 		I = ""
 		I = I + "-----------------------------------------------------------" & VBCRLF 
@@ -2090,16 +2084,16 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 			SET WSHShell = Nothing
 		END IF
 	END IF
-	FOLDER_PATH=(objFSO.GetFolder(FOLDER_ARRAY_SONY_CAMERA_TRIM))
+	FOLDER_PATH=(objFSO.GetFolder(ARRAY_SONY_FOLDER))
 	CALL DELETE_FOUND_000_ROOT_PATH(FOLDER_PATH)
-	CALL DELETE_EMPTY_FOLDER(FOLDER_ARRAY_SONY_CAMERA_TRIM)
+	CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 	
     Set ODICT_TRIM_THE_DATE = Nothing
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
-    On Error Resume Next
+    On Error Resume NEXT
     Dim oFDR, oItem, file
     ' CHECK IF WANTED FILES ARE IN THIS FOLDER
     For Each file In sFolder.Files
@@ -2141,7 +2135,7 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 				HIGH_DATE=FILEMODDATE
 				' STRIP THE FRONT PART PATH TOO LONG 
 				' ---------------------------------------------------
-				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,FOLDER_ARRAY_SONY_CAMERA_TRIM,"")
+				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
 				MSGBOX_I2=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- HIGH"
 				MSGBOX_I2=UCASE(MSGBOX_I2)
 			END IF
@@ -2149,7 +2143,7 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 				LOW_DATE=FILEMODDATE
 				' STRIP THE FRONT PART PATH TOO LONG 
 				' ---------------------------------------------------
-				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,FOLDER_ARRAY_SONY_CAMERA_TRIM,"")
+				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
 				MSGBOX_I1=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- LOW" 
 				MSGBOX_I1=UCASE(MSGBOX_I1)
 			END IF
@@ -2164,11 +2158,11 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 		' -----------------------------------------------------------
 		
 
-    Next
+    NEXT
     ' RECURSE INTO IT'S SUB FOLDERS
     For Each oFDR In sFolder.SubFolders
         FINDWANTEDFILE_TRIM_THE_DATE objFSO.GetFolder(oFDR.Path)
-    Next
+    NEXT
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -2188,9 +2182,9 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 			IF GET_SPACE_STRING="" THEN
 				GET_SPACE_STRING="IN IT"
 				' -------------------------------------------------------
-				DRVPATH_VAR=MID(FOLDER_ARRAY_SONY_CAMERA_TRIM,1,2)
-				IF MID(FOLDER_ARRAY_SONY_CAMERA_TRIM,1,2)="\\" THEN 
-					DRVPATH_VAR=FOLDER_ARRAY_SONY_CAMERA_TRIM
+				DRVPATH_VAR=MID(ARRAY_SONY_FOLDER,1,2)
+				IF MID(ARRAY_SONY_FOLDER,1,2)="\\" THEN 
+					DRVPATH_VAR=ARRAY_SONY_FOLDER
 				END IF
 
 				DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
@@ -2230,7 +2224,7 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 			END IF
 		ON ERROR GOTO 0
 		' -----------------------------------------------------------
-    Next
+    NEXT
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -2274,7 +2268,7 @@ End Sub
 ' THUMBS.DB -- Thumbs.db
 ' -------------------------------------------------------------------
 Sub FindWantedFiles_THUMB_OFF_CAMERA_HX60(sFolder)
-    On Error Resume Next
+    On Error Resume NEXT
     Dim oFDR, oItem, file
     ' CHECK IF WANTED FILES ARE IN THIS FOLDER
     For Each file In sFolder.Files
@@ -2284,11 +2278,11 @@ Sub FindWantedFiles_THUMB_OFF_CAMERA_HX60(sFolder)
 		IF UCASE(FILE.path)="THUMBS.DB" THEN
 			oDict.Add FILE.path, file
 		END IF
-    Next
+    NEXT
     ' RECURSE INTO IT'S SUB FOLDERS
     For Each oFDR In sFolder.SubFolders
         FindWantedFiles_THUMB_OFF_CAMERA_HX60 objFSO.GetFolder(oFDR.Path)
-    Next
+    NEXT
 End Sub
 Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
     Dim oKeys, oKey
@@ -2311,14 +2305,14 @@ Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
 			' THE -- THUMBS.DB -- Thumbs.db -- BEEN DELETE
 			FSO.DeleteFile(oKey) 
 		END IF
-    Next
+    NEXT
 End Sub
 ' -------------------------------------------------------------------
 
 
 
 Sub FindWantedFiles_4(sFolder)
-    On Error Resume Next
+    On Error Resume NEXT
     Dim oFDR, oItem, file
     ' Check if wanted files are in this folder
     For Each file In sFolder.Files
@@ -2331,11 +2325,11 @@ Sub FindWantedFiles_4(sFolder)
 		IF INSTR(file,".MP4") THEN
 			oDict_4.Add FILE.path, file
 		END IF
-    Next
+    NEXT
     ' Recurse into it's sub folders
     For Each oFDR In sFolder.SubFolders
         FindWantedFiles_4 objFSO.GetFolder(oFDR.Path)
-    Next
+    NEXT
 	
 End Sub
 
@@ -2345,7 +2339,7 @@ Sub DisplayFindings_4()
     For Each oKey In oKeys
 		VAR_PATH_SCANNER=oKey
 		CALL PATH_SCANNER_RENAME_4
-    Next
+    NEXT
 End Sub
 
 SUB PATH_SCANNER_RENAME_4
@@ -2663,7 +2657,7 @@ Sub Search(Folder)
 	For Each subFolder In Folder.SubFolders
 		'Call the Search subroutine to start the recursive search on EACH SUBFOLDER.
 		Search objFSO.GetFolder(subFolder.Path)
-	Next
+	NEXT
 
 End Sub
 
@@ -2674,7 +2668,7 @@ SUB DELETE_EMPTY_FOLDER(folder)
 	ERR.CLEAR
     For Each subfolder in folder.SubFolders
 			DELETE_EMPTY_FOLDER subfolder
-    Next
+    NEXT
 	
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
@@ -2713,42 +2707,55 @@ SUB DELETE_EMPTY_FOLDER(folder)
 		END IF
 	End If
 End Sub
-
-		
-'SUB DELETE_EMPTY_FOLDER(folder)
-SUB DELETE_FOUND_000_ROOT_PATH(folder)
+' -------------------------------------------------------------------	
+SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
     
-	Dim subfolder
+	DIM SUBFOLDER
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
 
+	' ----------------------------------------
 	' HERE FOLDER OBJECT
-	MSGBOX UCASE(TYPENAME(FOLDER))
+	' ----------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
-	ELSE
-	
+		' PERFECT 
 	END IF
+	' ----------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		' Set FOLDER = NOTHING
+		Set OBJFOLDER = FSO.GETFOLDER(FOLDER)
+		CALL DELETE_FOUND_000_ROOT_PATH(OBJFOLDER)
+		EXIT SUB
+	END IF
+	' ----------------------------------------
 
-
-
-    For Each subfolder in folder.SubFolders
-		' REM HERE -- STOP LOOP SUBFOLDER
-		' HERE NOT A FILE NESTER
+	' -----------------------------------------------------------
+	' REM HERE -- STOP LOOP SUBFOLDER
+	' HERE NOT A FILE NESTER ONLY FOLDER
+	' WOULD BE BETTER NOT SUBFOLDER -- ROOT DOWN
+	' -----------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
 		DELETE_FOUND_000_ROOT_PATH subfolder
-    Next
-
-
+    NEXT
+	
+	
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
 	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
-	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAPP IT
+	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAP IT
 	' ---------------------------------------------------------------
 	READY_01=-1
 	READY_02=-1
 	READY_04=-1
 	ERR.CLEAR
-	READY_01=folder.SubFolders.Count
-	READY_02=folder.Files.Count
+	READY_01=0
+	READY_02=0
+	' ---------------------------------------------------------------
+	' SEARCH FOR EMPTY
+	' ---------------------------------------------------------------
+	' READY_01=FOLDER.SUBFOLDERS.COUNT
+	' READY_02=FOLDER.FILES.COUNT
+	' ---------------------------------------------------------------
 	READY_04=ERR.NUMBER
 	' ---------------------------------------------------------------
     If READY_01 = 0 And READY_02 = 0 AND READY_04=0 Then
@@ -2761,13 +2768,12 @@ SUB DELETE_FOUND_000_ROOT_PATH(folder)
 		' ALLOW NOT MESSENGER LEAVER
 		' Sun 08-Mar-2020 17:20:40
 		' -----------------------------------------------------------
-		'MSGBOX "DeleteFolder " + folder.Path
-		MSGBOX FOLDER.PATH
-		MSGBOX MID(FOLDER.PATH,2,8)
-		IF MID(FOLDER.PATH,2,8)=":\FOUND" THEN 
-		MSGBOX "GOT"
-		
+
+		IF INSTR(FOLDER.PATH,"\FOUND.")>0  THEN 
+			MSGBOX FOLDER.PATH
 		END IF
+
+		
 		'FSO.DeleteFolder folder.Path, TRUE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
@@ -2778,6 +2784,7 @@ SUB DELETE_FOUND_000_ROOT_PATH(folder)
 		END IF
 	End If
 End Sub
+' -------------------------------------------------------------------	
 
 
 
