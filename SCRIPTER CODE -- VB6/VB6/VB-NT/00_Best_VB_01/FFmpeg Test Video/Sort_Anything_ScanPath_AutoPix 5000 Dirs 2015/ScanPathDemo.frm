@@ -1,16 +1,16 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    Caption         =   "ScanPath 2.0 - Anything -- "
-   ClientHeight    =   8685
+   ClientHeight    =   8688
    ClientLeft      =   60
-   ClientTop       =   345
-   ClientWidth     =   12630
+   ClientTop       =   348
+   ClientWidth     =   12636
    Icon            =   "ScanPathDemo.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   8685
-   ScaleWidth      =   12630
+   ScaleHeight     =   8688
+   ScaleWidth      =   12636
    StartUpPosition =   2  'CenterScreen
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
@@ -19,7 +19,7 @@ Begin VB.Form ScanPath
       Top             =   4545
    End
    Begin VB.ListBox List1 
-      Height          =   2595
+      Height          =   2544
       Left            =   60
       TabIndex        =   41
       Top             =   6000
@@ -201,8 +201,8 @@ Begin VB.Form ScanPath
       BackColor       =   &H00FFFFFF&
       Height          =   630
       Left            =   0
-      ScaleHeight     =   570
-      ScaleWidth      =   12570
+      ScaleHeight     =   588
+      ScaleWidth      =   12588
       TabIndex        =   22
       Top             =   0
       Width           =   12630
@@ -212,7 +212,7 @@ Begin VB.Form ScanPath
          Caption         =   "Single File solution to quickly add file processing to any Utility Project."
          BeginProperty Font 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   7.8
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -232,7 +232,7 @@ Begin VB.Form ScanPath
          Caption         =   "A High Performance API file/folder scanner Class."
          BeginProperty Font 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   7.8
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -252,7 +252,7 @@ Begin VB.Form ScanPath
          Caption         =   "Description:"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   7.8
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -280,8 +280,8 @@ Begin VB.Form ScanPath
       TabIndex        =   21
       Top             =   3210
       Width           =   11295
-      _ExtentX        =   19923
-      _ExtentY        =   4842
+      _ExtentX        =   19918
+      _ExtentY        =   4847
       LabelEdit       =   1
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
@@ -319,11 +319,11 @@ Begin VB.Form ScanPath
       TabIndex        =   13
       Top             =   2400
       Width           =   1545
-      _ExtentX        =   2725
-      _ExtentY        =   556
+      _ExtentX        =   2731
+      _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   23461889
+      Format          =   127729665
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -333,11 +333,11 @@ Begin VB.Form ScanPath
       TabIndex        =   14
       Top             =   2760
       Width           =   1545
-      _ExtentX        =   2725
-      _ExtentY        =   556
+      _ExtentX        =   2731
+      _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   23461889
+      Format          =   127729665
       CurrentDate     =   37296
    End
    Begin VB.Label Label15 
@@ -384,7 +384,7 @@ Begin VB.Form ScanPath
       Caption         =   "Date/Size Filter:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -402,7 +402,7 @@ Begin VB.Form ScanPath
       Caption         =   "Options:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -438,7 +438,7 @@ Begin VB.Form ScanPath
       Caption         =   "Attributes:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -587,37 +587,41 @@ ScanPath.ListView1.ListItems.Clear
 ScanPath.cboMask.Text = "*.mpeg;*.mpg;*.avi;*.mp4;.wmv;*.flc;*.mov;*.qt;*.3gp;*.asf;*.m4v;*.rm;*.vob"
 ScanPath.chkSubFolders = vbChecked
 
+If 1 = 2 Then
+    DirVar = "M:\0 00 VIDEO\"
+    
+    ScanPath.txtPath = DirVar
+    Call cmdScan_Click
+    ScanPath.txtPath = "U:\0 00 VIDEO\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "U:\00 0 VIDEO CAMERA'S\"
+    Call cmdScan_Click
+    
+    ScanPath.txtPath = "I:\0 00 VIDEO\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "I:\00 0 VIDEO CAMERA'S\"
+    Call cmdScan_Click
+    
+    ScanPath.txtPath = "D:\0 00 Art\# 00 My Pictures\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "M:\0 00 Art\# 00 My Pictures\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "U:\0 00 Art\# 00 My Pictures\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "I:\0 00 Art\# 00 My Pictures\"
+    Call cmdScan_Click
+    
+    ScanPath.txtPath = "D:\Videos\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "M:\Videos\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "U:\Videos\"
+    Call cmdScan_Click
+    ScanPath.txtPath = "I:\Videos\"
+    Call cmdScan_Click
+End If
 
-DirVar = "M:\0 00 VIDEO\"
-
-ScanPath.txtPath = DirVar
-Call cmdScan_Click
-ScanPath.txtPath = "U:\0 00 VIDEO\"
-Call cmdScan_Click
-ScanPath.txtPath = "U:\00 0 VIDEO CAMERA'S\"
-Call cmdScan_Click
-
-ScanPath.txtPath = "I:\0 00 VIDEO\"
-Call cmdScan_Click
-ScanPath.txtPath = "I:\00 0 VIDEO CAMERA'S\"
-Call cmdScan_Click
-
-ScanPath.txtPath = "D:\0 00 Art\# 00 My Pictures\"
-Call cmdScan_Click
-ScanPath.txtPath = "M:\0 00 Art\# 00 My Pictures\"
-Call cmdScan_Click
-ScanPath.txtPath = "U:\0 00 Art\# 00 My Pictures\"
-Call cmdScan_Click
-ScanPath.txtPath = "I:\0 00 Art\# 00 My Pictures\"
-Call cmdScan_Click
-
-ScanPath.txtPath = "D:\Videos\"
-Call cmdScan_Click
-ScanPath.txtPath = "M:\Videos\"
-Call cmdScan_Click
-ScanPath.txtPath = "U:\Videos\"
-Call cmdScan_Click
-ScanPath.txtPath = "I:\Videos\"
+ScanPath.txtPath = "F:\MC - HX60V1_MEDIA_CARD_CAMERA\MP_ROOT"
 Call cmdScan_Click
 
 
@@ -685,7 +689,9 @@ For we = 1 To ListView1.ListItems.Count
         d1$ = d1$ + "REM ---" + Str(we) + " of" + Str(ListView1.ListItems.Count) + vbCrLf
         d1$ = d1$ + "TIME /T" + vbCrLf
         d1$ = d1$ + "REM --------------" + vbCrLf
-        d1$ = d1$ + """C:\Program Files\# NO INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
+        ' d1$ = d1$ + """C:\Program Files\# NO INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
+        d1$ = d1$ + """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
+        
         
         weCount = weCount + 1
         lblCount2.Caption = Str(weCount)
@@ -741,7 +747,13 @@ Shell "cmd /k """ + FILEBATCH + """"
 
 Sleep 9000
 
-Shell "C:\Program Files\Notepad++\notepad++.exe """ + FILEBATCH + """", vbNormalFocus
+If Dir("C:\Program Files\Notepad++\notepad++.exe") <> "" Then
+    NOTEPAD_VAR = "C:\Program Files\Notepad++\notepad++.exe"
+End If
+If Dir("C:\Program Files (X86)\Notepad++\notepad++.exe") <> "" Then
+    NOTEPAD_VAR = "C:\Program Files (X86)\Notepad++\notepad++.exe"
+End If
+Shell NOTEPAD_VAR + " """ + FILEBATCH + """", vbMaximizedFocus
 
 'Wait for Active
 Do
@@ -790,8 +802,8 @@ For we = 1 To ListView1.ListItems.Count
     xf2 = Replace(xf1, ".txt", ".FFmpeg-Verify.txt")
     
     If FS.FileExists(xf2) = True Then
-        Set f = FS.getfile(xf2)
-        If f.Size = 0 Then
+        Set F = FS.getfile(xf2)
+        If F.Size = 0 Then
             'Kill A1$ + B1$ + ".txt"
         Else
             tagcount = tagcount + 1
@@ -807,7 +819,7 @@ Print #fr1, "---------------------"
 
 Close #fr1
 
-Shell "C:\Program Files\Notepad++\notepad++.exe """ + FILELOGNAME + """", vbNormalFocus
+Shell NOTEPAD_VAR + "  """ + FILELOGNAME + """", vbMaximizedFocus
 
 End
 
