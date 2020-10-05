@@ -412,6 +412,7 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
+DIM ARRAY_SONY_FOLDER
 DIM DRIVE_LETTER__
 DIM RESULT
 DIM ARRAY_FOR_NEXT
@@ -499,9 +500,7 @@ DIM HIGH_DATE
 ' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
 ' -------------------------------------------------------------------
 
-
-
-
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
 
 
 ' -------------------------------------------------------------------
@@ -1349,7 +1348,7 @@ I_1="ABOUT DO THE LAST THREE ROUTINE CLEANER"
 
 ' DIM WSHShell
 SET WSHShell = CreateObject("WScript.Shell")
-RESULT = WSHSHELL.POPUP(I_1, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+RESULT = WSHSHELL.POPUP(I_1, 2, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 SET WSHShell = Nothing
 
 CALL RUNN_IT_HARDCORE_THREE_ROUTINE
@@ -1365,7 +1364,27 @@ CALL RUNN_IT_HARDCORE_THREE_ROUTINE
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
+
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
 Wscript.QUIT
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
@@ -2167,14 +2186,19 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	
 	MSGBOX_I1=""
 	MSGBOX_I2=""
-	
+
 	IF FSO.FolderExists(ARRAY_SONY_FOLDER)=FALSE THEN 
 		EXIT SUB
 	END IF
-    Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
+
+	' MSGBOX "001 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & ARRAY_SONY_FOLDER
+    
+	Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
     ' CALL RECURSIVE SUB
-    FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(ARRAY_SONY_FOLDER))
+    FINDWANTEDFILE_TRIM_THE_DATE(FSO.GetFolder(ARRAY_SONY_FOLDER))
     ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
+	
+	MSGBOX "003 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & ARRAY_SONY_FOLDER
 	
 	I_COUNT_DEL=0
 	
@@ -2235,6 +2259,10 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 		PATH_FIND_02="\MP_ROOT"
 		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
 		PATH_FIND_RESULT=FALSE
+		
+		' MSGBOX "002 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "FINDWANTEDFILE_TRIM_THE_DATE" &  VBCR & ARRAY_SONY_FOLDER & VBCR & FILE.path
+
+		
 		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
 		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
 		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
@@ -2296,6 +2324,7 @@ End Sub
 Sub DISPLAYFIND_TRIM_THE_DATE()
     Dim oKeys, oKey
     oKeys = ODICT_TRIM_THE_DATE.Keys
+	MSGBOX "002244 "
     For Each oKey In oKeys
 		ON ERROR RESUME NEXT
 			GOGO=0
@@ -2306,6 +2335,14 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 			' DO AR METHOD FREESPACE
 			' IN NEXT ROUTINE
 			' -----------------------------------------------------------
+			MSGBOX "004 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "DISPLAYFIND_TRIM_THE_DATE()" &  VBCR & ARRAY_SONY_FOLDER
+
+			MSGBOX "0088 "
+
+			MSGBOX "005 " & VBCR & GET_SPACE_STRING
+			
+
+
 			IF GET_SPACE_STRING="" THEN
 				GET_SPACE_STRING="IN IT"
 				' -------------------------------------------------------
@@ -2765,11 +2802,15 @@ SUB PATH_SCANNER_RENAME
 	END IF
 
 END SUB
-
-
-'------------------------------------------------
-Sub Search(Folder)
-'------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+SUB SEARCH(FOLDER)
 	ON ERROR RESUME NEXT
 	
 	ERR.CLEAR
@@ -2787,14 +2828,12 @@ Sub Search(Folder)
 	NEXT
 
 End Sub
-
-
-
-
-
-
-
-
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB DELETE_EMPTY_FOLDER(FOLDER)
@@ -2810,10 +2849,14 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 	' ----------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
 		' SET FOLDER = NOTHING
+		
 		SET FOLDER = FSO.GETFOLDER(FOLDER)
 		CALL DELETE_EMPTY_FOLDER(FOLDER)
-		EXIT SUB
+		' EXIT SUB
 	END IF
+	
+	' MSGBOX "DELETE_EMPTY_FOLDER     " & VBCR & ARRAY_PATH_01(ARRAY_FOR_NEXT) & VBCR & ARRAY_PATH_02(ARRAY_FOR_NEXT) & UCASE(FOLDER.PATH)
+	
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
 	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
@@ -2829,7 +2872,7 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 	READY_04=ERR.NUMBER
 	IF UCASE(ORIGINAL_PATH)=UCASE(FOLDER.PATH) THEN 
 		' NOT ORIGINAL PATH
-		READY_03 = 1
+		READY_03 = 0
 	END IF
 	READY_04=ERR.NUMBER
 	' ---------------------------------------------------------------
@@ -2838,7 +2881,7 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		MSGBOX "DELETE -- " & FOLDER.PATH
+		' MSGBOX "DELETE -- " & FOLDER.PATH
 		FSO.DELETEFOLDER FOLDER.PATH, TRUE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
@@ -2868,6 +2911,8 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 		CALL DELETE_FOUND_000_ROOT_PATH(FOLDER)
 		EXIT SUB
 	END IF
+	
+	
 	' ----------------------------------------
 	' -----------------------------------------------------------
 	' REM HERE -- STOP LOOP SUBFOLDER
@@ -2896,6 +2941,7 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 	' ---------------------------------------------------------------
 	READY_04=ERR.NUMBER
 	' ---------------------------------------------------------------
+	' MSGBOX "DELETE_FOUND_000_ROOT_PATH     " & VBCR & ARRAY_PATH_01(ARRAY_FOR_NEXT) & VBCR & ARRAY_PATH_02(ARRAY_FOR_NEXT) & UCASE(FOLDER.PATH)
     If READY_01 = 0 And READY_02 = 0 AND READY_04=0 Then
 		ON ERROR GOTO 0
 		TEST_COUNTER=TEST_COUNTER+1
@@ -2930,8 +2976,8 @@ SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 		VOLUME_NAME_STRING_=""
 		DAY_BACK_TRIMMER_COUNTER=0
 		DRIVE_FREE_SPACE_GB_BEGIN=0
-		DRVPATH_VAR=0
-		GET_SPACE_STRING=0
+		DRVPATH_VAR=""
+		GET_SPACE_STRING=""
 		FREE_SPACE_SET_TO_EQUAL=0
 		DRIVE_FREE_SPACE_GB=0
 		DRIVE_CAPACITY___GB=0
@@ -2939,9 +2985,9 @@ SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 		I_COUNT_TOTAL=0
 		DAY_BACK_TRIMMER=0
 		I_COUNT=0
-		MSGBOX_I1=0
-		MSGBOX_I2=0
-		ODICT_TRIM_THE_DATE=0
+		MSGBOX_I1=""
+		MSGBOX_I2=""
+		REDIM ODICT_TRIM_THE_DATE
 		' -------------------------------------------------------------------
 		LOW_DATE=NOW
 		HIGH_DATE=NOW-1000
@@ -2987,29 +3033,26 @@ END SUB
 
 
 
-'---------
+' -------------------------------------------------------------------
 ' REFERENCE
-'---------
+' -------------------------------------------------------------------
 ' How Can I Get a List of All the Files in a Folder and Its Subfolders? – Hey, Scripting Guy! Blog
 ' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
-' ----
-
-'------------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' THIS PROJECT USING THIS CODE
 ' BECAUSE A MOVE FILE HAPPEN MUST GATHER WHOLE FILE LIST BEFORE ACT ON IT
 ' AND IT WAS DEBUGED IN THE NEXT URL LINK LINE
-'------------------------------------------------------------------------
-'----
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' windows - VBS to Search for Multiple Files Recursively in C:\Users - Stack Overflow
 ' https://stackoverflow.com/questions/25658004/vbs-to-search-for-multiple-files-recursively-in-c-users
-'------------------------------------------------------------------------
-'------------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' vbscript - Read files in subfolders - Stack Overflow
 ' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
-'----
-'------------------------------------------------------------------------
-
-' ----
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 ' vbscript - Read files in subfolders - Stack Overflow
 ' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
-' ----
+' -------------------------------------------------------------------
