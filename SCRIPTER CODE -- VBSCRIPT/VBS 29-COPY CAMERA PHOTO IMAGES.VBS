@@ -173,10 +173,66 @@
 ' Sun 21-Jul-2019 17:54:45
 ' Mon 22-Jul-2019 00:58:00
 ' -------------------------------------------------------------------
-
-
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
 ' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' SESSION __ 009
+' -------------------------------------------------------------------
+' A LOAD OF WORK COMPLETER
+' 1 2 3
+' 1 MAKE ALL OUT OF DATE IMAGE A MP4 TRUNCATE OFF THE END
+' SO BY DATE AND ALSO ALWAYS HAVE ON ABOUT 20 GB SPARE 
+' GO OUT TOOLED WITH CARD
+' I DO ENJOY THIS PART
+' I BEEN WAIT FOR THIS CODER LONG TIME
+' AND ALMOST COMPLETE EVERYTHING TO DO
+' 2 -- I RECURSIVE DELETE ALL THE \FOUND.???
+' 3 -- I MAKE DELETE EMPTY FOLDER -- EVERY GO
+' -------------------------------------------------------------------
+' AS TALK MANY
+' I KEEP WHAT MY SODDING SD-CARD GOT THERE FOR OUTDOOR CAMERA
+' AND ABLE SHOW ANYONE
+' EVERYBODY HAPPY A CUSTOMER
+' ONE THING WAS STUCK WITH SYNCHRONIZE PROFESSIONAL GOODSYNC
+' ALL CORRECT EXCEPT ONE THING
+' IT NOT LIKE HUGE NEAR RUN OUT OF SPACE
+' AND ALSO SOME SD-CARD GET TO CERTAIN LEVEL AND NOT WORK WELL
+' OF HOLD CONTAIN
+' SO TRIM -- IS EASIER NOW
+' ONLY SET HOW MANY GB WANT FREE 
+' WHEN SYNCER
+' AND NOW GOODSYNC GONNA BE FABBAR
+' GOODSYNC AND SD-CARD HAVE TO OPERATE THAT NONE EVER DELETE
+' MAKE MORE SUPERIOR WAY
+' AND NONE SYNC PROGRAM CODE COMMERCIAL WILL DO THIS LOT
+' WE LIKE IT KEEP ON 
+' -------------------------------------------------------------------
+' TIME SPEND FORM THIS MORNING WITHOUT ANY ASLEEP 
+' -------------------------------------------------------------------
+' Count = 062 -- Mon 05-Oct-2020 04:50:20
+' -------------------------------------------------------------------
+' HOW LONG
+' GOT NEW CODE ROUTINE THAT NOT FIND ON-LINE HARDLY
+' HOW JUMP INTO RECURSIVE ROUTINE AND NOT BIGG CODE LEAD IN
+' THREE ROUTINE WORKER 
+' -------------------------------------------------------------------
+' 0001 OF 0003 -------------------------------------
+' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+' 0002 OF 0003 -------------------------------------
+' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+' 0003 OF 0003 -------------------------------------
+' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' Mon 05-Oct-2020 04:50:20
+' Mon 05-Oct-2020 16:50:00 -- 12 HOUR 00 MINUTE
+' -------------------------------------------------------------------
+
+
+
 
 DIM ORIGINAL_PATH
 DIM EXPLORER_COUNTING
@@ -338,10 +394,11 @@ DIM ARRAY_PATH_02()
 REDIM ARRAY_PATH_01(10)
 REDIM ARRAY_PATH_02(10)
 I=0
-I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
-I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
+I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
+I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
 I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
 ' -------------------------------------------------------------------
 '  "MC - HX60V"   BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE
@@ -356,24 +413,42 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	ARRAY_PATH_02(I) =ARRAY_PATH_01(I)
 NEXT
 
+DIM VOLUME_NAME_STRING_
+DIM DAY_BACK_TRIMMER_COUNTER
+DIM DRIVE_FREE_SPACE_GB_BEGIN
+DIM DRVPATH_VAR
+DIM GET_SPACE_STRING
+DIM FREE_SPACE_SET_TO_EQUAL
+DIM	DRIVE_FREE_SPACE_GB
+DIM	DRIVE_CAPACITY___GB
+DIM I_COUNT_DEL
+DIM I_COUNT_TOTAL
+DIM DAY_BACK_TRIMMER
+DIM I_COUNT
+DIM MSGBOX_I1 , MSGBOX_I2
+DIM ODICT_TRIM_THE_DATE
+' -------------------------------------------------------------------
+DIM LOW_DATE
+DIM HIGH_DATE
+' -------------------------------------------------------------------
+
+
 FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
-	DIM VOLUME_NAME_STRING_
-	DIM DAY_BACK_TRIMMER_COUNTER
-	DIM DRIVE_FREE_SPACE_GB_BEGIN
-	DIM DRVPATH_VAR
-	DIM GET_SPACE_STRING
-	DIM FREE_SPACE_SET_TO_EQUAL
-	DIM	DRIVE_FREE_SPACE_GB
-	DIM	DRIVE_CAPACITY___GB
-	DIM I_COUNT_DEL
-	DIM I_COUNT_TOTAL
-	DIM DAY_BACK_TRIMMER
-	DIM I_COUNT
-	DIM MSGBOX_I1 , MSGBOX_I2
-	DIM ODICT_TRIM_THE_DATE
-	' -------------------------------------------------------------------
-	DIM LOW_DATE
-	DIM HIGH_DATE
+	VOLUME_NAME_STRING_=""
+	DAY_BACK_TRIMMER_COUNTER=0
+	DRIVE_FREE_SPACE_GB_BEGIN=0
+	DRVPATH_VAR=0
+	GET_SPACE_STRING=0
+	FREE_SPACE_SET_TO_EQUAL=0
+	DRIVE_FREE_SPACE_GB=0
+	DRIVE_CAPACITY___GB=0
+	I_COUNT_DEL=0
+	I_COUNT_TOTAL=0
+	DAY_BACK_TRIMMER=0
+	I_COUNT=0
+	MSGBOX_I1=0
+	MSGBOX_I2=0
+	ODICT_TRIM_THE_DATE=0
 	' -------------------------------------------------------------------
 	LOW_DATE=NOW
 	HIGH_DATE=NOW-1000
@@ -382,22 +457,26 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
 	IF MID(I,2,1)=":" THEN 
 		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
-		
 	END IF
 	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
-	
-	CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-	
-	'CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-	'MSGBOX "DELETE_EMPTY_FOLDER ---- DONE"
-	'CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-	'MSGBOX "DELETE_FOUND_000_ROOT_PATH ---- DONE"
 
-	'CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
+	' ---------------------------------------------------
+	' 0001 OF 0003
+	CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------
+	END IF
+	' ---------------------------------------------------
+	' 0002 OF 0003
+	CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+	' 0003 OF 0003
+	CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+	' ---------------------------------------------------
 NEXT
 
 
-WSCRIPT.QUIT
+
+
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -1454,9 +1533,6 @@ SUB GET_DRIVE_SPACE_NOT_COOL(DRVPATH)
 		IF LEN(objItem.VolumeName)>0 then
 			IF MID(DRVPATH,1,2)<>"\\" THEN 
 				VOLUME_NAME_STRING_=objItem.VolumeName
-				VOLUME_NAME_STRING_=REPLACE(VOLUME_NAME_STRING_,CHR(0),"")
-				VOLUME_NAME_STRING_=REPLACE(VOLUME_NAME_STRING_,VBCR,"")
-				VOLUME_NAME_STRING_=REPLACE(VOLUME_NAME_STRING_,VBLF,"")
 			END IF
 			DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
 			DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
@@ -2084,10 +2160,6 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 			SET WSHShell = Nothing
 		END IF
 	END IF
-	FOLDER_PATH=(objFSO.GetFolder(ARRAY_SONY_FOLDER))
-	CALL DELETE_FOUND_000_ROOT_PATH(FOLDER_PATH)
-	CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-	
     Set ODICT_TRIM_THE_DATE = Nothing
 End Sub
 ' -------------------------------------------------------------------
@@ -2152,12 +2224,6 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 			' RATHER THAN DATE SPLITTER
 			' -------------------------------------------------------
 		END IF
-		' -----------------------------------------------------------
-		' DO AR METHOD FREESPACE
-		' IN NEXT ROUTINE
-		' -----------------------------------------------------------
-		
-
     NEXT
     ' RECURSE INTO IT'S SUB FOLDERS
     For Each oFDR In sFolder.SubFolders
@@ -2203,13 +2269,13 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 				CALL GET_DRIVE_SPACE(DRVPATH_VAR)
 			END IF
 
-
+			' ---------------------------------------------------
+			' MSGBOX DRIVE_FREE_SPACE_GB & FREE_SPACE_SET_TO_EQUAL & "GB"
+			' ---------------------------------------------------
 			IF DRIVE_FREE_SPACE_GB>FREE_SPACE_SET_TO_EQUAL THEN 
 				GOGO=0
-				' ---------------------------------------------------
-				' MSGBOX DRIVE_FREE_SPACE_GB & FREE_SPACE_SET_TO_EQUAL & "GB"
-				' ---------------------------------------------------
 			END IF
+
 			' -------------------------------------------------------
 			' EXAMPLE ON -- FORMATNUMBER
 			' FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) GIVE 2 DECIMAL PLACE 00.00
@@ -2219,7 +2285,7 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 
 			IF GOGO=1 THEN 
 				' MSGBOX OKEY
-				' FSO.DeleteFile(oKey) 
+				FSO.DeleteFile(oKey) 
 				I_COUNT_DEL=I_COUNT_DEL+1
 			END IF
 		ON ERROR GOTO 0
@@ -2662,58 +2728,66 @@ Sub Search(Folder)
 End Sub
 
 
-SUB DELETE_EMPTY_FOLDER(folder)
-    Dim subfolder
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+SUB DELETE_EMPTY_FOLDER(FOLDER)
+	DIM SUBFOLDER
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
-    For Each subfolder in folder.SubFolders
-			DELETE_EMPTY_FOLDER subfolder
-    NEXT
-	
+	' ----------------------------------------
+	' HERE FOLDER OBJECT
+	' ----------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		' PERFECT 
+	END IF
+	' ----------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		' SET FOLDER = NOTHING
+		SET FOLDER = FSO.GETFOLDER(FOLDER)
+		CALL DELETE_EMPTY_FOLDER(FOLDER)
+		EXIT SUB
+	END IF
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
 	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
-	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAPP IT
+	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAP IT
 	' ---------------------------------------------------------------
 	READY_01=-1
 	READY_02=-1
-	READY_03=0
+	READY_03= 0
 	READY_04=-1
 	ERR.CLEAR
-	READY_01=folder.SubFolders.Count
-	READY_02=folder.Files.Count
+	READY_01=FOLDER.SUBFOLDERS.COUNT
+	READY_02=FOLDER.FILES.COUNT
 	READY_04=ERR.NUMBER
-	IF UCASE(ORIGINAL_PATH)=UCASE(folder.Path) THEN READY_03=1
+	IF UCASE(ORIGINAL_PATH)=UCASE(FOLDER.PATH) THEN 
+		' NOT ORIGINAL PATH
+		READY_03 = 1
+	END IF
 	READY_04=ERR.NUMBER
 	' ---------------------------------------------------------------
-    If READY_01 = 0 And READY_02 = 0 And READY_03 = 0 AND READY_04=0 Then
+    IF READY_01 = 0 AND READY_02 = 0 AND READY_03 = 0 AND READY_04=0 THEN
 		ON ERROR GOTO 0
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		' -----------------------------------------------------------
-		' SUCCESS ACHIEVE ON TEST RUN
-		' ALLOW NOT MESSENGER LEAVER
-		' Sun 08-Mar-2020 17:20:40
-		' -----------------------------------------------------------
-		'MSGBOX "DeleteFolder " + folder.Path
-		FSO.DeleteFolder folder.Path, TRUE
+		MSGBOX "DELETE -- " & FOLDER.PATH
+		FSO.DELETEFOLDER FOLDER.PATH, TRUE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
-			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+			ERROR_WITH_SOME = FOLDER.PATH & VBCRLF & ERR.DESCRIPTION
 			ERR.CLEAR
-			' objFolder.DELETE, TRUE
+			' OBJFOLDER.DELETE, TRUE
 			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
 		END IF
 	End If
 End Sub
 ' -------------------------------------------------------------------	
+' -------------------------------------------------------------------
 SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
-    
 	DIM SUBFOLDER
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
-
 	' ----------------------------------------
 	' HERE FOLDER OBJECT
 	' ----------------------------------------
@@ -2723,12 +2797,11 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 	' ----------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
 		' Set FOLDER = NOTHING
-		Set OBJFOLDER = FSO.GETFOLDER(FOLDER)
-		CALL DELETE_FOUND_000_ROOT_PATH(OBJFOLDER)
+		Set FOLDER = FSO.GETFOLDER(FOLDER)
+		CALL DELETE_FOUND_000_ROOT_PATH(FOLDER)
 		EXIT SUB
 	END IF
 	' ----------------------------------------
-
 	' -----------------------------------------------------------
 	' REM HERE -- STOP LOOP SUBFOLDER
 	' HERE NOT A FILE NESTER ONLY FOLDER
@@ -2737,8 +2810,6 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
     FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
 		DELETE_FOUND_000_ROOT_PATH subfolder
     NEXT
-	
-	
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
 	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
@@ -2770,16 +2841,14 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 		' -----------------------------------------------------------
 
 		IF INSTR(FOLDER.PATH,"\FOUND.")>0  THEN 
-			MSGBOX FOLDER.PATH
+			FSO.DELETEFOLDER FOLDER.PATH, TRUE
+			' FOLDER.DELETE, TRUE
 		END IF
-
 		
-		'FSO.DeleteFolder folder.Path, TRUE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
-			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+			ERROR_WITH_SOME = ERROR_WITH_SOME + folder.Path & VBCRLF & ERR.DESCRIPTION + VBCR
 			ERR.CLEAR
-			' objFolder.DELETE, TRUE
 			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
 		END IF
 	End If
