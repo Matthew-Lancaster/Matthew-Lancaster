@@ -500,6 +500,58 @@ DIM HIGH_DATE
 ' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
 ' -------------------------------------------------------------------
 
+
+' SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
+	FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
+		VOLUME_NAME_STRING_=""
+		DAY_BACK_TRIMMER_COUNTER=0
+		DRIVE_FREE_SPACE_GB_BEGIN=0
+		DRVPATH_VAR=""
+		GET_SPACE_STRING=""
+		FREE_SPACE_SET_TO_EQUAL=0
+		DRIVE_FREE_SPACE_GB=0
+		DRIVE_CAPACITY___GB=0
+		I_COUNT_DEL=0
+		I_COUNT_TOTAL=0
+		DAY_BACK_TRIMMER=0
+		I_COUNT=0
+		MSGBOX_I1=""
+		MSGBOX_I2=""
+		' REDIM ODICT_TRIM_THE_DATE
+		' MSGBOX "0002 DIM ODICT_TRIM_THE_DATE"
+		' -------------------------------------------------------------------
+		LOW_DATE=NOW
+		HIGH_DATE=NOW-1000
+		' -------------------------------------------------------------------
+
+		I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+		IF MID(I,2,1)=":" THEN 
+			ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
+		END IF
+		ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
+
+		IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
+		' ---------------------------------------------------
+		' 0001 OF 0003
+		'CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+		' ---------------------------------------------------
+		END IF
+		' ---------------------------------------------------
+		' 0002 OF 0003
+		'CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+		' 0003 OF 0003
+		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+		' ---------------------------------------------------
+	NEXT
+' END SUB
+
+
+
+' ---------------------------------
+' NOT ABLE RELOCATE THIS PART 
+' RESULT COME THROUGH BLANK
+' RUNNER AT FRONT -- WHILE
+' ---------------------------------
 ' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
 
 
@@ -1303,11 +1355,18 @@ IF WORK_GO_ER=TRUE OR 1=1 THEN
 	
 	I=I+"CHECKER VOLUME NAME OF -- "+CSTR(IX)+" TOTAL DUPE FILTER" + VBCRLF
 	I=I+"--------------------------------------------------------" + VBCRLF
-	I=I+INF
+	I=I+INF + VBCRLF
+	I=I+"--------------------------------------------------------" + VBCRLF
 	'IF SHOW_EXPLORER_FLAG=TRUE OR I_COUNT_1>0 THEN 
 
 	IF MSGBOX_SHOW=TRUE THEN 
-		MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
+		' MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
+		I = I + "MESSENGER BOX GONE IN 32 SECOND"
+		' DIM WSHShell
+		SET WSHShell = CreateObject("WScript.Shell")
+		RESULT = WSHSHELL.POPUP(I, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		SET WSHShell = Nothing
+
 		IF I_COUNT_1=0 THEN 
 			I=""
 			I=I+ Wscript.ScriptName + VBCRLF
@@ -1317,8 +1376,17 @@ IF WORK_GO_ER=TRUE OR 1=1 THEN
 			I=I+ "WORK DRIVE VOLUME NAME ------ " + HDD_WAS_HERE_2 + VBCRLF + VBCRLF
 			
 			I=I+ "IF WANT REWIND BACK -- INDEX POINTER -- A DAY FOR OVERSHOOT" + VBCRLF
-			I=I+ "OPERATION OR SKIPPER "
-			lRet = MsgBox(I, vbYesNo + vbMsgBoxSetForeground,Wscript.ScriptName)
+			I=I+ "OPERATION OR SKIPPER " & VBCRLF
+			' lRet = MsgBox(I, vbYesNo + vbMsgBoxSetForeground,Wscript.ScriptName)
+			
+			I = I + "-------------------------------" & VBCRLF
+			I = I + "MESSENGER BOX GONE IN 10 SECOND"
+			' DIM WSHShell
+			SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I, 10, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+
+			lRet=RESULT
 			IF lRet=VBYES THEN
 				IMAGE_POINTER_FOLDER_1=MID(Wscript.ScriptFullName,1,INSTRREV(Wscript.ScriptFullName,"\"))+"VBS 29-COPY CAMERA\"
 				IMAGE_POINTER_NAME=IMAGE_POINTER_FOLDER_1+"COPY_CAMERA_PHOTO_IMAGE_POINTER_"+HDD_WAS_HERE_2+".TXT"
@@ -1345,7 +1413,6 @@ SET objFSO = NOTHING
 
 
 I_1="ABOUT DO THE LAST THREE ROUTINE CLEANER"
-
 ' DIM WSHShell
 SET WSHShell = CreateObject("WScript.Shell")
 RESULT = WSHSHELL.POPUP(I_1, 2, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
@@ -2187,18 +2254,22 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	MSGBOX_I1=""
 	MSGBOX_I2=""
 
+	' MSGBOX "IF FSO.FolderExists(ARRAY_SONY_FOLDER)=FALSE THEN " & VBCR & ARRAY_SONY_FOLDER
+
 	IF FSO.FolderExists(ARRAY_SONY_FOLDER)=FALSE THEN 
 		EXIT SUB
 	END IF
 
-	' MSGBOX "001 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & ARRAY_SONY_FOLDER
-    
+	
+
+    ' MSGBOX "0004 DIM ODICT_TRIM_THE_DATE"
+
 	Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
     ' CALL RECURSIVE SUB
     FINDWANTEDFILE_TRIM_THE_DATE(FSO.GetFolder(ARRAY_SONY_FOLDER))
     ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
 	
-	MSGBOX "003 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & ARRAY_SONY_FOLDER
+	' MSGBOX "003 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & ARRAY_SONY_FOLDER
 	
 	I_COUNT_DEL=0
 	
@@ -2209,6 +2280,7 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_SONY_FOLDER
 		
 		I = ""
+		I = I + LPAD(ARRAY_FOR_NEXT, "0", 4) & " __ OF __ " & LPAD(UBOUND(ARRAY_PATH_01), "0", 4) & VBCRLF
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "DONE DELETE COUNT LESS DAY SPAN COUNTER" & VBCRLF 
 		I = I + "MP4 __AND__ JPG" & VBCRLF 
@@ -2235,17 +2307,13 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "TOTAL DRIVE_CAPACITY_______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
 		I = I + "--------------------------------------------------------------" & VBCRLF 
 		I = I + "MESSENGER BOX GONE IN 32 SECOND"
+		DIM WSHShell
+		SET WSHShell = CreateObject("WScript.Shell")
+		RESULT = WSHSHELL.POPUP(I, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		SET WSHShell = Nothing
 		
-		I_1=I
-		DISPLAY_MESSENGER=TRUE
-		IF DISPLAY_MESSENGER=TRUE THEN 
-			DIM WSHShell
-			SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I_1, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-			SET WSHShell = Nothing
-		END IF
 	END IF
-    Set ODICT_TRIM_THE_DATE = Nothing
+    ' Set ODICT_TRIM_THE_DATE = Nothing
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -2323,8 +2391,8 @@ End Sub
 ' -------------------------------------------------------------------
 Sub DISPLAYFIND_TRIM_THE_DATE()
     Dim oKeys, oKey
+	' MSGBOX "0001 oKeys = ODICT_TRIM_THE_DATE.Keys"
     oKeys = ODICT_TRIM_THE_DATE.Keys
-	MSGBOX "002244 "
     For Each oKey In oKeys
 		ON ERROR RESUME NEXT
 			GOGO=0
@@ -2335,16 +2403,14 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 			' DO AR METHOD FREESPACE
 			' IN NEXT ROUTINE
 			' -----------------------------------------------------------
-			MSGBOX "004 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "DISPLAYFIND_TRIM_THE_DATE()" &  VBCR & ARRAY_SONY_FOLDER
+			' MSGBOX "004 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "DISPLAYFIND_TRIM_THE_DATE()" &  VBCR & ARRAY_SONY_FOLDER
 
-			MSGBOX "0088 "
-
-			MSGBOX "005 " & VBCR & GET_SPACE_STRING
 			
 
 
 			IF GET_SPACE_STRING="" THEN
 				GET_SPACE_STRING="IN IT"
+				' MSGBOX "111 " & VBCR & GET_SPACE_STRING
 				' -------------------------------------------------------
 				DRVPATH_VAR=MID(ARRAY_SONY_FOLDER,1,2)
 				IF MID(ARRAY_SONY_FOLDER,1,2)="\\" THEN 
@@ -2987,17 +3053,22 @@ SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 		I_COUNT=0
 		MSGBOX_I1=""
 		MSGBOX_I2=""
-		REDIM ODICT_TRIM_THE_DATE
+		' REDIM ODICT_TRIM_THE_DATE
+		' MSGBOX "0002 DIM ODICT_TRIM_THE_DATE"
+
 		' -------------------------------------------------------------------
 		LOW_DATE=NOW
 		HIGH_DATE=NOW-1000
 		' -------------------------------------------------------------------
+
 
 		I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
 		IF MID(I,2,1)=":" THEN 
 			ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
 		END IF
 		ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
+
+		' MSGBOX "ARRAY_PATH_01(ARRAY_FOR_NEXT) ____ " & ARRAY_PATH_01(ARRAY_FOR_NEXT)
 
 		IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
 		' ---------------------------------------------------
@@ -3009,7 +3080,7 @@ SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 		' 0002 OF 0003
 		CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 		' 0003 OF 0003
-		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+		' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		' ---------------------------------------------------
 	NEXT
 END SUB
