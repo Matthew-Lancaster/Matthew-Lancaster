@@ -1,0 +1,14 @@
+Error's in These Files
+---------------------
+221 -- Total Video's on My Computer
+---------------------
+221 -- Job Count Files
+---------------------
+221 Files to be Done --
+2020-10-05 21:39:06 -- Start Job
+---------------------
+2020-10-05 21:42:26 -- Now Time - End Job Clean Up & Completion
+---------------------
+---------------------
+0 -- Error File Count After Batch Run -- 
+---------------------
