@@ -213,24 +213,51 @@
 ' Count = 062 -- Mon 05-Oct-2020 04:50:20
 ' -------------------------------------------------------------------
 ' HOW LONG
+' -------------------------------------------------------------------
 ' GOT NEW CODE ROUTINE THAT NOT FIND ON-LINE HARDLY
 ' HOW JUMP INTO RECURSIVE ROUTINE AND NOT BIGG CODE LEAD IN
+' -------------------------------------------------------------------
 ' THREE ROUTINE WORKER 
 ' -------------------------------------------------------------------
-' 0001 OF 0003 -------------------------------------
-' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-' 0002 OF 0003 -------------------------------------
-' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-' 0003 OF 0003 -------------------------------------
-' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' RUN ROUTINE END NUMBER 03 AND RUN IT FOUR THAT POWER
 ' -------------------------------------------------------------------
+' 0001 OF 0004 -------------------------------------
+' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+' 0002 OF 0004 -------------------------------------
+' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+' 0003 OF 0004 -------------------------------------
+' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' 0004 OF 0004 -------------------------------------
+' LINE 2800 AT END
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+' --------------------------------------------------
+' -------------------------------------------------------------------
+' AND SAVE ME FROM HAVE 3 BACK UP COPY WALK AROUND WITH
+' AS IT STAND ABLE SLIP MIRROR COPY SIDE OF SD-CARD SLOT CAMERA 
+' AND TWO OF THEM
+' MAKE NICE PRESS NOT SLIP ANYWHERE
+' BUTTER DON'T NEED THEM
+' THE THREE ARE ONE BLANK AND ONE BEFORE
+' WHEN CROSS OVER
+' I HAVE ABOUT 8 SUPPOSE
+' TWO BACK UP BESIDE COMPUTER
+' 3 COMPUTER SD-CARD BACKUP ONE EACH AND NETWORK PROVIDE
+' AND HARD DRIVE SOME THEM
+' THAT AMOUNT ABOUT 8 64-GB FOR ONE OUTDOOR
+' AND NOW SLIM DOWN TO TWO WHERE ONLY REQUIRE ONE BLANK
+' AND BIFF AR TO MAXIMUM CARD SIZE
+' HA HA
+' AFRAID A FEW 128-GB
+' BUTTY THE RELY GOOD WHEN SPACE STORE
+' AND CAMERA BOOT TIME ACCORD TO HOW MUCH ON THERE
+' GUESS 64-GB DO END OF DAY
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' Mon 05-Oct-2020 04:50:20
 ' Mon 05-Oct-2020 16:50:00 -- 12 HOUR 00 MINUTE
+' Mon 05-Oct-2020 17:52:00 -- 13 HOUR 00 MINUTE
 ' -------------------------------------------------------------------
-
 
 
 
@@ -263,14 +290,13 @@ NEXT
 ' -------------------------------------------------------------------
 
 
-
 Set args = Wscript.Arguments
 For Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
 NEXT
 
 
-
+' -------------------------------------------------------------------
 ' With CreateObject("Scripting.FileSystemObject")
 ' MsgBox .GetDrive("\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera\").AvailableSpace & " bytes"
 ' End With
@@ -279,9 +305,7 @@ NEXT
 ' https://www.tek-tips.com/viewthread.cfm?qid=1692870
 ' ----
 ' WSCRIPT.QUIT
-
-
-
+' -------------------------------------------------------------------
 
 
 DIM MSGBOX_SHOW
@@ -295,7 +319,6 @@ END IF
 IF INSTR(Wscript_Arguments,"NOT_SHOW")>0 THEN ' ---- "RUN_FROM_GOODSYNC"
 	MSGBOX_SHOW=FALSE
 END IF
-
 
 
 
@@ -385,21 +408,40 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
+
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 DIM DRIVE_LETTER__
 DIM RESULT
 DIM ARRAY_FOR_NEXT
 DIM ARRAY_PATH_01()
 DIM ARRAY_PATH_02()
-
+' -------------------------------------------------------------------
 REDIM ARRAY_PATH_01(10)
 REDIM ARRAY_PATH_02(10)
 I=0
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
-I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
 I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
 I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
+' -------------------------------------------------------------------
+' HERE IS HARD DRIVE STORE AND NOT REQUIRE SPACE CHECKER
+' MORE IN-LINE TALK COMPARE TO SD CARD
+' TEMP PUT ON HOLD
+' -------------------------------------------------------------------
+' I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
+' -------------------------------------------------------------------
+' WHEN MAIN MC-CARD FOR CAMERA IN
+' NOT OPERATION COMPUTER TAKEN AWAY OF FOUND.???
+' -------------------------------------------------------------------
+' CODE IS THERE STOP THAT DO
+' -------------------------------------------------------------------
+' I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
+' -------------------------------------------------------------------
+' NOT GET - HDD SIZE & FREESPACE AT MOMENT SOMETHING CODE WENT LOON
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 '  "MC - HX60V"   BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE
 '  "MC - HX60V1"  BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE  
@@ -408,11 +450,11 @@ I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
 REDIM PRESERVE ARRAY_PATH_01(I)
 REDIM PRESERVE ARRAY_PATH_02(I)
 ' -------------------------------------------------------------------
-
+' -------------------------------------------------------------------
 FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	ARRAY_PATH_02(I) =ARRAY_PATH_01(I)
 NEXT
-
+' -------------------------------------------------------------------
 DIM VOLUME_NAME_STRING_
 DIM DAY_BACK_TRIMMER_COUNTER
 DIM DRIVE_FREE_SPACE_GB_BEGIN
@@ -431,48 +473,33 @@ DIM ODICT_TRIM_THE_DATE
 DIM LOW_DATE
 DIM HIGH_DATE
 ' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' SET ABOVE FOR CODE ROUTINE 
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' RUNN_IT_HARDCORE_THREE ROUTINE GIVER GIVE BACK SPACE _ REMOVE \_FOUND_000 KILL EMPTY
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE:
+' -------------------------------------------------------------------
+' 0001 
+' START BEFORE LINE  380
+' 0002
+' AHEAD LINE 2800 AT END
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' RUN ROUTINE END NUMBER 03 AND RUN IT FOUR THAT POWER
+' -------------------------------------------------------------------
+' 0001 OF 0004 -------------------------------------
+' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+' 0002 OF 0004 -------------------------------------
+' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+' 0003 OF 0004 -------------------------------------
+' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' 0004 OF 0004 -------------------------------------
+' LINE 2800 AT END
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+' -------------------------------------------------------------------
 
 
-FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
-	VOLUME_NAME_STRING_=""
-	DAY_BACK_TRIMMER_COUNTER=0
-	DRIVE_FREE_SPACE_GB_BEGIN=0
-	DRVPATH_VAR=0
-	GET_SPACE_STRING=0
-	FREE_SPACE_SET_TO_EQUAL=0
-	DRIVE_FREE_SPACE_GB=0
-	DRIVE_CAPACITY___GB=0
-	I_COUNT_DEL=0
-	I_COUNT_TOTAL=0
-	DAY_BACK_TRIMMER=0
-	I_COUNT=0
-	MSGBOX_I1=0
-	MSGBOX_I2=0
-	ODICT_TRIM_THE_DATE=0
-	' -------------------------------------------------------------------
-	LOW_DATE=NOW
-	HIGH_DATE=NOW-1000
-	' -------------------------------------------------------------------
-
-	I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
-	IF MID(I,2,1)=":" THEN 
-		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
-	END IF
-	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
-
-	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
-	' ---------------------------------------------------
-	' 0001 OF 0003
-	CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------
-	END IF
-	' ---------------------------------------------------
-	' 0002 OF 0003
-	CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-	' 0003 OF 0003
-	CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
-	' ---------------------------------------------------
-NEXT
 
 
 
@@ -1241,13 +1268,12 @@ IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=FALSE THEN
 	' ONLY WHEN COPY SOME
 	' ---------------------------------------------------------------
 	' ---------------------------------------------------------------
-	
-	
-		
-	
-	
-	
-	
+
+	' ---------------------------------------------------------------
+	' HERE A BIT LATER
+	' ---------------------------------------------------------------
+	' RUNN_IT_HARDCORE_THREE_ROUTINE:
+	' ---------------------------------------------------------------
 	
 END IF
 
@@ -1317,9 +1343,44 @@ END IF
 
 
 SET objFSO = NOTHING
+
+
+I_1="ABOUT DO THE LAST THREE ROUTINE CLEANER"
+
+' DIM WSHShell
+SET WSHShell = CreateObject("WScript.Shell")
+RESULT = WSHSHELL.POPUP(I_1, 32, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+SET WSHShell = Nothing
+
+CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+
+
+
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
 Wscript.QUIT
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+'-------------------------------------------------------------------
+
+
+
+
+
+
 
 SUB SET_VAR_DESTINATION_FOLDER
 	SET_GO_MAIN_4=FALSE
@@ -2728,6 +2789,12 @@ Sub Search(Folder)
 End Sub
 
 
+
+
+
+
+
+
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB DELETE_EMPTY_FOLDER(FOLDER)
@@ -2854,6 +2921,69 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 	End If
 End Sub
 ' -------------------------------------------------------------------	
+
+
+
+
+SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
+	FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
+		VOLUME_NAME_STRING_=""
+		DAY_BACK_TRIMMER_COUNTER=0
+		DRIVE_FREE_SPACE_GB_BEGIN=0
+		DRVPATH_VAR=0
+		GET_SPACE_STRING=0
+		FREE_SPACE_SET_TO_EQUAL=0
+		DRIVE_FREE_SPACE_GB=0
+		DRIVE_CAPACITY___GB=0
+		I_COUNT_DEL=0
+		I_COUNT_TOTAL=0
+		DAY_BACK_TRIMMER=0
+		I_COUNT=0
+		MSGBOX_I1=0
+		MSGBOX_I2=0
+		ODICT_TRIM_THE_DATE=0
+		' -------------------------------------------------------------------
+		LOW_DATE=NOW
+		HIGH_DATE=NOW-1000
+		' -------------------------------------------------------------------
+
+		I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+		IF MID(I,2,1)=":" THEN 
+			ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
+		END IF
+		ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
+
+		IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
+		' ---------------------------------------------------
+		' 0001 OF 0003
+		CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+		' ---------------------------------------------------
+		END IF
+		' ---------------------------------------------------
+		' 0002 OF 0003
+		CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+		' 0003 OF 0003
+		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+		' ---------------------------------------------------
+	NEXT
+END SUB
+' -------------------------------------------------------------------
+' RUNN_IT_HARDCORE_THREE ROUTINE GIVER GIVE BACK SPACE _ REMOVE \_FOUND_000 KILL EMPTY
+' -------------------------------------------------------------------
+' RUN ROUTINE END NUMBER 03 AND RUN IT FOUR THAT POWER
+' -------------------------------------------------------------------
+' 0001 OF 0004 -------------------------------------
+' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+' 0002 OF 0004 -------------------------------------
+' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+' 0003 OF 0004 -------------------------------------
+' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' 0004 OF 0004 -------------------------------------
+' LINE 2800 AT END
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+' -------------------------------------------------------------------
+
+
 
 
 
