@@ -332,9 +332,12 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 Dim RESULT
 DIM ARRAY_FOR_NEXT
 DIM ARRAY_PATH_01()
+DIM ARRAY_PATH_02()
 
 REDIM ARRAY_PATH_01(10)
+REDIM ARRAY_PATH_02(10)
 I=0
+I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
@@ -345,7 +348,12 @@ I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
 '  ALL THEM ARE __ V:\
 ' -------------------------------------------------------------------
 REDIM PRESERVE ARRAY_PATH_01(I)
+REDIM PRESERVE ARRAY_PATH_02(I)
 ' -------------------------------------------------------------------
+
+FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
+	ARRAY_PATH_02(I) =ARRAY_PATH_01(I)
+NEXT
 
 FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	DIM VOLUME_NAME_STRING_
@@ -369,7 +377,29 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	LOW_DATE=NOW
 	HIGH_DATE=NOW-1000
 	' -------------------------------------------------------------------
-	CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+
+
+	MSGBOX ARRAY_PATH_01(ARRAY_FOR_NEXT)
+	DRIVE_LETTER=GET_DRIVE_LETTER_FROM_VOLUME_NAME(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	MSGBOX DRIVE_LETTER
+	
+	
+	IF DRIVE_LETTER<>"" THEN 
+		ARRAY_PATH_01(ARRAY_FOR_NEXT)=DRIVE_LETTER+"\"
+		MSGBOX "hh"
+	END IF
+		MSGBOX "EEE"
+		
+	CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	MSGBOX "DELETE_FOUND_000_ROOT_PATH ---- DONE  " & ARRAY_PATH_01(ARRAY_FOR_NEXT)
+
+	
+	'CALL DELETE_EMPTY_FOLDER(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	'MSGBOX "DELETE_EMPTY_FOLDER ---- DONE"
+	'CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	'MSGBOX "DELETE_FOUND_000_ROOT_PATH ---- DONE"
+
+	'CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 NEXT
 
 
@@ -1927,18 +1957,49 @@ Sub BuildFullPath(ByVal FullPath)
 End Sub
 
 
-Function GET_DRIVE_LETTER_FROM_VOLUME_NAME( volumeName )
+
+Function GET_DRIVE_LETTER_FROM_VOLUME_NAME(VOLUMENAME)
+	GET_DRIVE_LETTER_FROM_VOLUME_NAME=""
+	FOR R1 = ASC("C") TO ASC("Z")
+		Set FS0 = CreateObject("Scripting.FileSystemObject")
+		DRIVE_LETTER=CHR(R1)+":"
+		Set D = FS0.GetDrive(FSO.GetDriveName(FS.GetAbsolutePathName(DRIVE_LETTER)))
+		ON ERROR RESUME NEXT
+		FOR R2 = 1 TO ARRAY_UBOUND
+			IF D.ISREADY THEN 
+				IF UCASE(D.VOLUMENAME)=UCASE(VOLUMENAME) THEN
+				' -------------------------------------------------------
+				GET_DRIVE_LETTER_FROM_VOLUME_NAME=UCASE(VOLUMENAME)
+				' -------------------------------------------------------
+				END IF
+			END IF
+		NEXT
+	NEXT
+End Function
+
+
+
+
+Function GET_DRIVE_LETTER_FROM_VOLUME_NAME_OLD_MESSY(volumeName)
 Dim volumes, volume
 
-    ' Unless we found a matching volume, an empty string will be the returned value
+    ' UNLESS WE FOUND A MATCHING VOLUME, AN EMPTY STRING WILL BE THE RETURNED VALUE
     GET_DRIVE_LETTER_FROM_VOLUME_NAME=""
 
-    ' Ask WMI for the list of volumes with the requested label
+    ' ASK WMI FOR THE LIST OF VOLUMES WITH THE REQUESTED LABEL
     Set volumes = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") _ 
                   .ExecQuery("SELECT DriveLetter FROM Win32_Volume WHERE Label='" & volumeName & "'")
 
-    ' If exist an matching volume, get its drive letter
-	If volumes.Count > 0 Then 
+	ON ERROR RESUME NEXT
+	ERR.CLEAR
+	X = VOLUMES.COUNT
+	IF ERR.NUMBER>0 THEN 
+	EXIT FUNCTION
+	END IF
+	ON ERROR GOTO 0
+
+    ' IF EXIST AN MATCHING VOLUME, GET ITS DRIVE LETTER
+	IF VOLUMES.COUNT > 0 THEN 
         For Each volume In volumes 
             GET_DRIVE_LETTER_FROM_VOLUME_NAME = volume.DriveLetter
             Exit For
@@ -1952,6 +2013,9 @@ End Function
 ' -------------------------------------------------------------------
 Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	I_COUNT=0
+	
+	MSGBOX_I1=""
+	MSGBOX_I2=""
 	
 	IF FSO.FolderExists(ARRAY_PATH_01(ARRAY_FOR_NEXT))=FALSE THEN 
 		EXIT SUB
@@ -1977,7 +2041,7 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + VOLUME_NAME_STRING_ 
 		I = I + VBCRLF                                                    
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & "                 DAY __ LIMIT COUNTER" & VBCRLF 
+		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & "                           DAY __ LIMIT COUNTER" & VBCRLF 
 		I = I + CSTR(DAY_BACK_TRIMMER) & " DAY __ TRIMMER" & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
@@ -1989,24 +2053,12 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "NEWER DATE BEFORE ____ " & VBCRLF 
 		I = I + "------------------------------------------" & VBCRLF 
 		I = I + MSGBOX_I2 & VBCRLF 
-
-		' NOT RUNNER ROUTINE AS NOT CHANGE AND HERE
-		' -----------------------------------------
-		IF FREE_SPACE_SET_TO_EQUAL=0 THEN 
-			DRVPATH_VAR=ARRAY_PATH_01(ARRAY_FOR_NEXT)
-			CALL GET_DRIVE_SPACE(DRVPATH_VAR)
-			IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
-				FREE_SPACE_SET_TO_EQUAL=20 ' GB
-			END IF
-			DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
-		END IF 
-
-		I = I + "-----------------------------------------------------------" & VBCRLF 
+		I = I + "--------------------------------------------------------------" & VBCRLF 
 		I = I + "TOTAL FREE_SPACE_SET_TO_EQUAL__GB _ " & FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2) & VBCRLF 
-		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN___GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE___________GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & VBCRLF 
-		I = I + "TOTAL DRIVE_CAPACITY______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
-		I = I + "-----------------------------------------------------------" & VBCRLF 
+		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN____GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
+		I = I + "TOTAL DRIVE_CAPACITY_______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
+		I = I + "--------------------------------------------------------------" & VBCRLF 
 		I = I + "MESSENGER BOX GONE IN 32 SECOND"
 		
 		I_1=I
@@ -2018,8 +2070,8 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 			SET WSHShell = Nothing
 		END IF
 	END IF
-	
-	CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	FOLDER_PATH=(objFSO.GetFolder(ARRAY_PATH_01(ARRAY_FOR_NEXT)))
+	CALL DELETE_FOUND_000_ROOT_PATH(FOLDER_PATH)
 	CALL DELETE_EMPTY_FOLDER(ARRAY_PATH_01(ARRAY_FOR_NEXT))
 	
     Set ODICT_TRIM_THE_DATE = Nothing
@@ -2067,12 +2119,24 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 			ODICT_TRIM_THE_DATE.Add FILE.path, file
 			IF FILEMODDATE>HIGH_DATE THEN 
 				HIGH_DATE=FILEMODDATE
-				MSGBOX_I2=FILE.path & VBCR & FILEMODDATE & " ---- HIGH" 
+				' STRIP THE FRONT PART PATH TOO LONG 
+				' ---------------------------------------------------
+				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_PATH_01(ARRAY_FOR_NEXT),"")
+				MSGBOX_I2=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- HIGH"
+				MSGBOX_I2=UCASE(MSGBOX_I2)
 			END IF
 			IF FILEMODDATE<LOW_DATE THEN 
 				LOW_DATE=FILEMODDATE
-				MSGBOX_I1=FILE.path & VBCR & FILEMODDATE & " ---- LOW" 
+				' STRIP THE FRONT PART PATH TOO LONG 
+				' ---------------------------------------------------
+				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_PATH_01(ARRAY_FOR_NEXT),"")
+				MSGBOX_I1=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- LOW" 
+				MSGBOX_I1=UCASE(MSGBOX_I1)
 			END IF
+			' MAXIMUM HIGH DATE WHEN WANT
+			' AND LOW
+			' RATHER THAN DATE SPLITTER
+			' -------------------------------------------------------
 		END IF
 		' -----------------------------------------------------------
 		' DO AR METHOD FREESPACE
@@ -2584,7 +2648,7 @@ Sub Search(Folder)
 End Sub
 
 
-Sub DELETE_EMPTY_FOLDER(folder)
+SUB DELETE_EMPTY_FOLDER(folder)
     Dim subfolder
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
@@ -2631,10 +2695,12 @@ Sub DELETE_EMPTY_FOLDER(folder)
 End Sub
 
 		
+'SUB DELETE_EMPTY_FOLDER(folder)
 SUB DELETE_FOUND_000_ROOT_PATH(folder)
     Dim subfolder
 	ON ERROR RESUME NEXT
 	ERR.CLEAR
+	
     For Each subfolder in folder.SubFolders
 			DELETE_FOUND_000_ROOT_PATH subfolder
     Next
@@ -2645,16 +2711,14 @@ SUB DELETE_FOUND_000_ROOT_PATH(folder)
 	' ---------------------------------------------------------------
 	READY_01=-1
 	READY_02=-1
-	READY_03=0
 	READY_04=-1
 	ERR.CLEAR
 	READY_01=folder.SubFolders.Count
 	READY_02=folder.Files.Count
 	READY_04=ERR.NUMBER
-	IF UCASE(ORIGINAL_PATH)=UCASE(folder.Path) THEN READY_03=1
 	READY_04=ERR.NUMBER
 	' ---------------------------------------------------------------
-    If READY_01 = 0 And READY_02 = 0 And READY_03 = 0 AND READY_04=0 Then
+    If READY_01 = 0 And READY_02 = 0 AND READY_04=0 Then
 		ON ERROR GOTO 0
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
@@ -2668,6 +2732,7 @@ SUB DELETE_FOUND_000_ROOT_PATH(folder)
 		MSGBOX FOLDER.PATH
 		MSGBOX MID(FOLDER.PATH,2,8)
 		IF MID(FOLDER.PATH,2,8)=":\FOUND" THEN 
+		MSGBOX "GOT"
 		
 		END IF
 		'FSO.DeleteFolder folder.Path, TRUE
