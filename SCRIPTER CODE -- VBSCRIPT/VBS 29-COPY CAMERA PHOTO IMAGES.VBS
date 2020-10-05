@@ -319,6 +319,24 @@ Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
+Dim RESULT
+DIM ARRAY_PATH()
+
+REDIM ARRAY_PATH(10)
+I=0
+I=I+1:ARRAY_PATH(I) = GET_DRIVE_LETTER_FROM_VOLUME_NAME("MC - HX60V")
+I=I+1:ARRAY_PATH(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
+I=I+1:ARRAY_PATH(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
+I=I+1:ARRAY_PATH(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
+' -------------------------------------------------------------------
+'  "MC - HX60V"   BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE
+'  "MC - HX60V1"  BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE  
+'  ALL THEM ARE __ V:\
+' -------------------------------------------------------------------
+REDIM PRESERVE ARRAY_PATH(I)
+' -------------------------------------------------------------------
+
+FOR RM=1 TO UBOUND(ARRAY_PATH)
 
 DIM VOLUME_NAME_STRING
 DIM DAY_BACK_TRIMMER_COUNTER
@@ -331,17 +349,24 @@ DIM	DRIVE_CAPACITY___GB
 DIM I_COUNT_DEL
 DIM I_COUNT_TOTAL
 DIM DAY_BACK_TRIMMER
-DIM LOW_DATE
-DIM HIGH_DATE
-
-LOW_DATE=NOW
-HIGH_DATE=NOW-1000
-
 DIM I_COUNT
 DIM MSGBOX_I1 , MSGBOX_I2
 DIM ODICT_TRIM_THE_DATE
-FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA="V:\"
-CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' -------------------------------------------------------------------
+DIM LOW_DATE
+DIM HIGH_DATE
+' -------------------------------------------------------------------
+LOW_DATE=NOW
+HIGH_DATE=NOW-1000
+' -------------------------------------------------------------------
+
+	IF ARRAY_PATH(RM)<>"" THEN 
+		' CHECK VOLUME OKAY ______________
+		' ISREADY
+		FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA=ARRAY_PATH(RM)
+		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+	END IF
+NEXT
 
 
 WSCRIPT.QUIT
@@ -745,7 +770,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	' IF ANOTHER DRIVE PRESENT DROP D_DRIVE
 	' ---------------------------------------------------------------
 	IF R_COUNT<>8 THEN 
-		FOLDER_PATH_VAR_2=getDriveLetterFromVolumeName(FOLDER_PATH(R_COUNT))
+		FOLDER_PATH_VAR_2=GET_DRIVE_LETTER_FROM_VOLUME_NAME(FOLDER_PATH(R_COUNT))
 		HDD_INFO = HDD_INFO + FOLDER_PATH_VAR_2
 	END IF
 NEXT	
@@ -769,7 +794,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	' TRY GET VOLUME LETTER LABEL FROM VOLUME_NAME OF PROVIDER
 	' IF EXIST GOT A DRIVE LETTER OR EMPTY 
 	' ---------------------------------------------------------------
-	FOLDER_PATH_VAR_2=getDriveLetterFromVolumeName(FOLDER_PATH(R_COUNT))
+	FOLDER_PATH_VAR_2=GET_DRIVE_LETTER_FROM_VOLUME_NAME(FOLDER_PATH(R_COUNT))
 	
 	FOLDER_PATH_DEST_VAR=FOLDER_PATH_DEST(R_COUNT)
 	FOLDER_PATH__MP4_VAR=FOLDER_PATH__MP4(R_COUNT)
@@ -1649,15 +1674,15 @@ SUB PATH_SCANNER_COPY_CAMERA
 		' 2020_01_03 Jan_Fri 22_47_16__MAH00824.MP4
 		IF LEN(FILE_VAR)< 41 THEN
 			i_TIME=""
-			i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"_"
-			i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"_"
-			i_TIME=i_TIME+LPad(Day(FileModDate_1), "0", 2)+" "
+			i_TIME=i_TIME+LPAD(Year(FileModDate_1), "0", 4)+"_"
+			i_TIME=i_TIME+LPAD(Month(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPAD(Day(FileModDate_1), "0", 2)+" "
 			i_TIME=i_TIME+MonthName(MONTH(FileModDate_1),TRUE)+"_"
 			i_TIME=i_TIME+WeekdayName(Weekday(FileModDate_1),TRUE)+" "
 			i_TIME=i_TIME+""
-			i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"_"
-			i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"_"
-			i_TIME=i_TIME+LPad(Second(FileModDate_1), "0", 2)+"__"
+			i_TIME=i_TIME+LPAD(Hour(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPAD(Minute(FileModDate_1), "0", 2)+"_"
+			i_TIME=i_TIME+LPAD(Second(FileModDate_1), "0", 2)+"__"
 			NewFilename=i_TIME + UCASE(FILE_VAR)
 		END IF
 		STRIP_PART="\MP_ROOT\100ANV01"
@@ -1685,18 +1710,18 @@ SUB PATH_SCANNER_COPY_CAMERA
 		' 2020_01_03 Jan_Fri 22_47_16__MAH00824.MP4
 		IF LEN(FILE_VAR)< 41 THEN
 			i_TIME=""
-			i_TIME=i_TIME+LPad(Year(FileModDate_1), "0", 4)+"-"
-			i_TIME=i_TIME+LPad(Month(FileModDate_1), "0", 2)+"-"
-			i_TIME=i_TIME+LPad(Day(FileModDate_1), "0", 2)+" "
+			i_TIME=i_TIME+LPAD(Year(FileModDate_1), "0", 4)+"-"
+			i_TIME=i_TIME+LPAD(Month(FileModDate_1), "0", 2)+"-"
+			i_TIME=i_TIME+LPAD(Day(FileModDate_1), "0", 2)+" "
 			FOLDER_DATE=""
-			FOLDER_DATE=FOLDER_DATE+LPad(Year(FileModDate_1), "0", 4)+" "
-			FOLDER_DATE=FOLDER_DATE+LPad(Month(FileModDate_1), "0", 2)+" "
-			FOLDER_DATE=FOLDER_DATE+LPad(Day(FileModDate_1), "0", 2)
+			FOLDER_DATE=FOLDER_DATE+LPAD(Year(FileModDate_1), "0", 4)+" "
+			FOLDER_DATE=FOLDER_DATE+LPAD(Month(FileModDate_1), "0", 2)+" "
+			FOLDER_DATE=FOLDER_DATE+LPAD(Day(FileModDate_1), "0", 2)
 			
 			i_TIME=i_TIME+""
-			i_TIME=i_TIME+LPad(Hour(FileModDate_1), "0", 2)+"-"
-			i_TIME=i_TIME+LPad(Minute(FileModDate_1), "0", 2)+"-"
-			i_TIME=i_TIME+LPad(Second(FileModDate_1), "0", 2)+" "
+			i_TIME=i_TIME+LPAD(Hour(FileModDate_1), "0", 2)+"-"
+			i_TIME=i_TIME+LPAD(Minute(FileModDate_1), "0", 2)+"-"
+			i_TIME=i_TIME+LPAD(Second(FileModDate_1), "0", 2)+" "
 			i_TIME=i_TIME+"- SONY DSC-HX60V - "
 			NewFilename=i_TIME + UCASE(FILE_VAR)
 		END IF
@@ -1845,11 +1870,11 @@ Sub BuildFullPath(ByVal FullPath)
 	End If
 End Sub
 
-Function GetDriveLetterFromVolumeName( volumeName )
+Function GET_DRIVE_LETTER_FROM_VOLUME_NAME( volumeName )
 Dim volumes, volume
 
     ' Unless we found a matching volume, an empty string will be the returned value
-    GetDriveLetterFromVolumeName=""
+    GET_DRIVE_LETTER_FROM_VOLUME_NAME=""
 
     ' Ask WMI for the list of volumes with the requested label
     Set volumes = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") _ 
@@ -1858,13 +1883,12 @@ Dim volumes, volume
     ' If exist an matching volume, get its drive letter
 	If volumes.Count > 0 Then 
         For Each volume In volumes 
-            GetDriveLetterFromVolumeName = volume.DriveLetter
+            GET_DRIVE_LETTER_FROM_VOLUME_NAME = volume.DriveLetter
             Exit For
         Next 
     End If
 
 End Function
-
 
 
 
@@ -1880,9 +1904,11 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
     FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA))
     ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
 	
+	I_COUNT_DEL=0
+	
 	CALL DISPLAYFIND_TRIM_THE_DATE
 	
-	IF I_COUNT_DEL>0 THEN 
+	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
 		I = ""
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "DONE DELETE COUNT LESS DAY SPAN COUNTER" & VBCRLF 
@@ -1890,31 +1916,42 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA & VBCRLF
 		I = I + VOLUME_NAME_STRING & VBCRLF
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		I = I + TRIM(CSTR(DAY_BACK_TRIMMER_COUNTER)) & " DAY __ LIMIT COUNTER" & VBCRLF 
-		I = I + TRIM(CSTR(DAY_BACK_TRIMMER)) & " DAY __ TRIMMER" & VBCRLF 
+		MSGBOX LPAD(2, "0", 4) 
+		MSGBOX LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) 
+		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & " DAY _________ LIMIT COUNTER" & VBCRLF 
+		I = I + LPAD(DAY_BACK_TRIMMER, "0", 4) & " DAY __ TRIMMER" & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		I = I + CSTR(I_COUNT_DEL) & " ____ DELETE ON ____ " & CSTR(I_COUNT_TOTAL) & " ____ TOTAL" & VBCRLF 
+		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
 		I = I + "---------------------------------------------------" & VBCRLF 
-		I = I + "OLDER DATE OF _________ " & VBCRLF 
-		I = I + "------------------------------------------" & VBCRLF 
-		I = I + MSGBOX_I1 & VBCRLF 
-		I = I + "------------------------------------------" & VBCRLF 
-		I = I + "NEWER DATE BEFORE ____ " & VBCRLF 
-		I = I + "------------------------------------------" & VBCRLF 
-		I = I + MSGBOX_I2 & VBCRLF 
+		IF MSGBOX_I1<>"" THEN 
+			I = I + "OLDER DATE OF _________ " & VBCRLF 
+			I = I + "------------------------------------------" & VBCRLF 
+			I = I + MSGBOX_I1 & VBCRLF 
+			I = I + "------------------------------------------" & VBCRLF 
+			I = I + "NEWER DATE BEFORE ____ " & VBCRLF 
+			I = I + "------------------------------------------" & VBCRLF 
+			I = I + MSGBOX_I2 & VBCRLF 
+		END IF
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "TOTAL FREE_SPACE_SET_TO_EQUAL__GB _ " & FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN___GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE___________GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_CAPACITY______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-
-		MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
+		I = I + "MESSENGER BOX GONE IN 18 SECOND"
+		
+		I_1=I
+		DISPLAY_MESSENGER=TRUE
+		IF DISPLAY_MESSENGER=TRUE THEN 
+			DIM WSHShell
+			SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I_1, 18, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+		END IF
 	END IF
 	CALL DELETE_EMPTY_FOLDER(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA)
 	
     Set ODICT_TRIM_THE_DATE = Nothing
-	WSCRIPT.QUIT
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -2191,13 +2228,13 @@ SUB PATH_SCANNER_RENAME_4
 		IF INSTR(FILE_VAR,".JPG") THEN 
 			IF MID(FILE_VAR,1,3)="JPG" THEN 
 				i_TIME=""
-				i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"-"
-				i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"-"
-				i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)
+				i_TIME=i_TIME+LPAD(Year(FileModDate), "0", 4)+"-"
+				i_TIME=i_TIME+LPAD(Month(FileModDate), "0", 2)+"-"
+				i_TIME=i_TIME+LPAD(Day(FileModDate), "0", 2)
 				i_TIME=i_TIME+" "
-				i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+"-"
-				i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+"-"
-				i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)
+				i_TIME=i_TIME+LPAD(Hour(FileModDate), "0", 2)+"-"
+				i_TIME=i_TIME+LPAD(Minute(FileModDate), "0", 2)+"-"
+				i_TIME=i_TIME+LPAD(Second(FileModDate), "0", 2)
 				i_TIME=i_TIME+" - 4K ULTRA A_CAM - "+FILE_VAR
 			END IF
 		END IF
@@ -2207,16 +2244,16 @@ SUB PATH_SCANNER_RENAME_4
 			IF MID(FILE_VAR,1,3)="SOS" THEN SET_GO=TRUE
 			IF SET_GO=TRUE THEN
 				i_TIME=""
-				i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"_"
-				i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"_"
-				i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)+" "
+				i_TIME=i_TIME+LPAD(Year(FileModDate), "0", 4)+"_"
+				i_TIME=i_TIME+LPAD(Month(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPAD(Day(FileModDate), "0", 2)+" "
 				i_TIME=i_TIME+MonthName(MONTH(FileModDate),TRUE)+"_"
 				i_TIME=i_TIME+WeekdayName(Weekday(VAR_NOW),TRUE)
 
 				i_TIME=i_TIME+" "
-				i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+"_"
-				i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+"_"
-				i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)+"__"
+				i_TIME=i_TIME+LPAD(Hour(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPAD(Minute(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPAD(Second(FileModDate), "0", 2)+"__"
 				i_TIME=i_TIME+FILE_VAR
 			END IF
 		END IF
@@ -2262,16 +2299,16 @@ SUB PATH_SCANNER_RENAME_4
 			IF MID(FILE_VAR,1,2)="MA" THEN SET_GO=TRUE
 			IF SET_GO=TRUE THEN
 				i_TIME=""
-				i_TIME=i_TIME+LPad(Year(FileModDate), "0", 4)+"_"
-				i_TIME=i_TIME+LPad(Month(FileModDate), "0", 2)+"_"
-				i_TIME=i_TIME+LPad(Day(FileModDate), "0", 2)+" "
+				i_TIME=i_TIME+LPAD(Year(FileModDate), "0", 4)+"_"
+				i_TIME=i_TIME+LPAD(Month(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPAD(Day(FileModDate), "0", 2)+" "
 				i_TIME=i_TIME+MonthName(MONTH(FileModDate),TRUE)+"_"
 				i_TIME=i_TIME+WeekdayName(Weekday(VAR_NOW),TRUE)
 
 				i_TIME=i_TIME+" "
-				i_TIME=i_TIME+LPad(Hour(FileModDate), "0", 2)+"_"
-				i_TIME=i_TIME+LPad(Minute(FileModDate), "0", 2)+"_"
-				i_TIME=i_TIME+LPad(Second(FileModDate), "0", 2)+"__"
+				i_TIME=i_TIME+LPAD(Hour(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPAD(Minute(FileModDate), "0", 2)+"_"
+				i_TIME=i_TIME+LPAD(Second(FileModDate), "0", 2)+"__"
 				i_TIME=i_TIME+FILE_VAR
 			END IF
 		END IF
