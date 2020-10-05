@@ -178,6 +178,7 @@
 ' CHECK IF ANY WSCRIPT ALREADY RUNNER AND QUIT IF IS WORKER
 ' -------------------------------------------------------------------
 
+DIM MSGBOX_I1,MSGBOX_I2,Q
 DIM ORIGINAL_PATH
 DIM EXPLORER_COUNTING
 DIM LOAD_EXPLORER_HAPPEN
@@ -212,6 +213,12 @@ Set args = Wscript.Arguments
 For Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
 Next
+
+
+
+
+
+
 
 DIM MSGBOX_SHOW
 
@@ -302,6 +309,35 @@ Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
+
+
+
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+DIM MSGBOX_I
+DIM ODICT_TRIM_THE_DATE
+FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA="V:\"
+CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+
+
+WSCRIPT.QUIT
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
+
+
 
 Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
@@ -1043,6 +1079,25 @@ IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=FALSE THEN
 	PARAM="CAMERA_BACKUP_MODE"
 	' ---------------------------------------
 	' WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
+	
+	
+	' ---------------------------------------------------------------
+	' TAKE FROM HERE INSERT NEW
+	' GO TO GET SD-CARD FROM CAMERA AND HOLDER COMPUTER AND DRIVE
+	' AND TRIM THEM FROM OLDER
+	' HELP THE SYNC DO BETTER
+	' SCAN THE DIR
+	' ONLY WHEN COPY SOME
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	
+	
+		
+	
+	
+	
+	
+	
 END IF
 
 
@@ -1779,6 +1834,104 @@ End Function
 
 
 
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
+	I_COUNT=0
+	IF FSO.FolderExists(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA)=FALSE THEN 
+		EXIT SUB
+	END IF
+    Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
+    ' CALL RECURSIVE SUB
+    FINDWANTEDFILE_TRIM_THE_DATE(objFSO.GetFolder(FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA))
+    ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
+	
+	MSGBOX MSGBOX_I1 & VBCR & MSGBOX_I2
+	WSCRIPT.QUIT
+    DISPLAYFIND_TRIM_THE_DATE
+	IF I_COUNT>0 THEN 
+		I = ""
+		I = I + "DONE RENAME COUNT AT" & VBCRLF & FOLDER_PATH_TRIM_THE_DATE_OLDER_CAMERA & VBCRLF 
+		I = I + CSTR(I_COUNT) & " of " & CSTR(ODICT_TRIM_THE_DATE.count)
+		MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
+	END IF
+	
+    Set ODICT_TRIM_THE_DATE = Nothing
+	WSCRIPT.QUIT
+End Sub
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
+    On Error Resume Next
+    Dim oFDR, oItem, file
+    ' CHECK IF WANTED FILES ARE IN THIS FOLDER
+    For Each file In sFolder.Files
+		STR_F="-- .JPG .MP4" 
+		PATH_FIND_01="\DCIM"
+		PATH_FIND_02="\MP_ROOT"
+		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
+		PATH_FIND_RESULT=FALSE
+		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
+		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
+		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
+		DAY_BACK_TRIMMER=158 ' DAY
+		FILEMODDATE=0
+		SET F = FSO.GETFILE(FILE.path)
+			FILEMODDATE = F.DATELASTMODIFIED
+		SET F=NOTHING	
+		IF FILEMODDATE=0 THEN 
+			' MSGBOX "ERROR RESULT GET DATE"
+		END IF
+		IF FILEMODDATE=0 THEN 
+			PATH_FIND_RESULT=FALSE
+		END IF
+		IF PATH_FIND_RESULT=TRUE THEN 
+		IF FILEMODDATE<NOW-DAY_BACK_TRIMMER THEN 
+			PATH_FIND_RESULT=FALSE
+		END IF
+		END IF
+		IF PATH_FIND_RESULT=TRUE THEN 
+			ODICT_TRIM_THE_DATE.Add FILE.path, file
+			IF MSGBOX_I1="" THEN 
+				MSGBOX_I1=FILE.path & VBCR & FILEMODDATE & VBCR & VBCR & "...." & VBCR 
+			END IF
+			
+			Q=Q+1
+			MSGBOX_I2=FILE.path & VBCR & FILEMODDATE & VBCR & TRIM(CSTR(Q))
+		END IF
+    Next
+    ' RECURSE INTO IT'S SUB FOLDERS
+    For Each oFDR In sFolder.SubFolders
+        FINDWANTEDFILE_TRIM_THE_DATE objFSO.GetFolder(oFDR.Path)
+    Next
+End Sub
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+Sub DISPLAYFIND_TRIM_THE_DATE()
+    Dim oKeys, oKey
+    oKeys = ODICT_TRIM_THE_DATE.Keys
+    For Each oKey In oKeys
+		GOGO=0
+		XX=MID(oKey,1,INSTRREV(oKey,"."))+"MP4"
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		IF FSO.FILEEXISTS(XX)=FALSE THEN GOGO=1
+		IF ERR.NUMBER>0 THEN GOGO=0
+		ON ERROR RESUME NEXT
+		IF GOGO=1 THEN 
+			' THE THUMB _.THM BEEN DELETE THAT NOT WITHER _.MP4
+			' FSO.DeleteFile(oKey) 
+		END IF
+		' -----------------------------------------------------------
+    Next
+End Sub
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
+
+
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
 
@@ -1806,6 +1959,8 @@ Sub Main_4
 	
     Set oDict_4 = Nothing
 End Sub
+
+
 
 ' -------------------------------------------------------------------
 ' MAH00004.THM
