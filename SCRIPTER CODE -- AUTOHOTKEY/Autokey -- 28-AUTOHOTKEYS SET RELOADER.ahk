@@ -504,103 +504,107 @@ RETURN
 
 TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD:
 
-SET_TIMER=FALSE
+	SET_TIMER=FALSE
 
-Loop % ArrayCount
-{
-	TT_1_LESS=%A_Index%
-	TT_1_LESS-=1
-	Element_1 := FN_Array_1[A_Index]
-	
-	Element_7 := FN_Array_1[TT_1_LESS]  ; -- LESS 
-
-	Element_2 := DATE_MOD_Array[A_Index]
-
-	Element_3 := FN_Array_2[A_Index]
-	
-	Element_5 := FN_Array_2[TT_1_LESS]  ; -- LESS 
-	
-	Element_4 := FN_Array_4[A_Index]
-	Element_4 = %Element_4% ahk_class #32770
-
-	RUN_APP_GO=TRUE
-
-	IF WinExist(Element_4)
+	Loop % ArrayCount
 	{
-		; MSGBOX % Element_4
-		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,40000
-		Element_8=%Element_2%
-		Element_8+= -1, Days
-		DATE_MOD_Array.InsertAt(A_Index,Element_8)
-		; MSGBOX % Element_2 " -- " DATE_MOD_Array[A_Index]
-		SET_TIMER=TRUE
-		RUN_APP_GO=FALSE
-	}
-	IF SET_TIMER=FALSE
-	{	
-		SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
-	}
-	
-	IfExist, %Element_1%
-		FileGetTime, OutputVar, %Element_1%, M
-	
-	RUN_APP_HAPPEN_FLAG=FALSE
-	IfExist, %Element_1%
-		IF INSTR(Element_3,"_INCLUDE.ahk")=0
-		IF (!WinExist(Element_3))
-			IF RUN_APP_GO=TRUE
-			{
-				DATE_MOD_Array[A_Index] := OutputVar
-				GOSUB RUN_THE_APP
-				RUN_APP_HAPPEN_FLAG=TRUE
-			}
-	; ---------------------------------------------------------------
-	; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
-	; INCLUDER
-	; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
-	; Thu 29-Aug-2019 00:35:10
-	; ---------------------------------------------------------------
-	IfExist, %Element_1%
-		IF INSTR(Element_3,"_INCLUDE.ahk")>0
-		IF (!WinExist(Element_5))
-			IF RUN_APP_GO=TRUE
-			{
-				DATE_MOD_Array[A_Index] := OutputVar
-				GOSUB RUN_THE_APP
-				RUN_APP_HAPPEN_FLAG=TRUE
-			}
-	
-	IF RUN_APP_HAPPEN_FLAG=FALSE
-		IF OutputVar<>%Element_2%
-			IF RUN_APP_GO=TRUE
-			{
-				; -----------------------------------------------------------
-				; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
-				; IMMEDIATELY AGAIN
-				; -----------------------------------------------------------
-				; IF (A_TimeIdle > 1000)
-				IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
+		TT_1_LESS=%A_Index%
+		TT_1_LESS-=1
+		Element_1 := FN_Array_1[A_Index]
+		
+		Element_7 := FN_Array_1[TT_1_LESS]  ; -- LESS 
+
+		Element_2 := DATE_MOD_Array[A_Index]
+
+		Element_3 := FN_Array_2[A_Index]
+		
+		Element_5 := FN_Array_2[TT_1_LESS]  ; -- LESS 
+		
+		Element_4 := FN_Array_4[A_Index]
+		Element_4 = %Element_4% ahk_class #32770
+
+		RUN_APP_GO=TRUE
+
+		IF WinExist(Element_4)
+		{
+			; MSGBOX % Element_4
+			SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
+			Element_8=%Element_2%
+			Element_8+= -1, Days
+			DATE_MOD_Array.InsertAt(A_Index,Element_8)
+			; MSGBOX % Element_2 " -- " DATE_MOD_Array[A_Index]
+			SET_TIMER=TRUE
+			RUN_APP_GO=FALSE
+		}
+
+		IF SET_TIMER=FALSE
+			SETTIMER TIMER_SUB_AUTOHOTKEYS_ARRAY_RELOAD,4000
+		
+		IfExist, %Element_1%
+			FileGetTime, OutputVar, %Element_1%, M
+		
+		RUN_APP_HAPPEN_FLAG=FALSE
+		IfExist, %Element_1%
+			IF INSTR(Element_3,"_INCLUDE.ahk")=0
+			IF (!WinExist(Element_3))
+				IF RUN_APP_GO=TRUE
 				{
 					DATE_MOD_Array[A_Index] := OutputVar
 					GOSUB RUN_THE_APP
+					RUN_APP_HAPPEN_FLAG=TRUE
 				}
-			}
-			
+		; ---------------------------------------------------------------
+		; NOW INCLUDE -- INCLUDE FILE WHEN UPDATE GO IT UPDATE THE FILE WITH 
+		; INCLUDER
+		; NEAR FALL ASLEEP FEW TIME TO GET THIS DONE END OF LONG HARD DAY
+		; Thu 29-Aug-2019 00:35:10
+		; ---------------------------------------------------------------
+		IfExist, %Element_1%
+			IF INSTR(Element_3,"_INCLUDE.ahk")>0
+			IF (!WinExist(Element_5))
+				IF RUN_APP_GO=TRUE
+				{
+					DATE_MOD_Array[A_Index] := OutputVar
+					GOSUB RUN_THE_APP
+					; -----------------------------------------------
+					; NOT HERE FOR INCLUDE -- NOT SURE ODD MEANER -- WORKER
+					; INCLUDE DON'T HAVE ICON 
+					; AND ANYWAY SUBSEQUENT AHK HOLD DO
+					; -----------------------------------------------
+					RUN_APP_HAPPEN_FLAG=TRUE
+				}
+		
+		IF RUN_APP_HAPPEN_FLAG=FALSE
+			IF OutputVar<>%Element_2%
+				IF RUN_APP_GO=TRUE
+				{
+					; -----------------------------------------------------------
+					; PUT AN IDLE DELAY HERE CAN'T HAVE AHK APP THAT ARE STOP RUN
+					; IMMEDIATELY AGAIN
+					; -----------------------------------------------------------
+					; IF (A_TimeIdle > 1000)
+					IF (A_TimeIdlePhysical > 2000 or FIRST_RUN=TRUE)
+					{
+						DATE_MOD_Array[A_Index] := OutputVar
+						GOSUB RUN_THE_APP
+						RUN_APP_HAPPEN_FLAG=TRUE
+					}
+				}
+	}
+
 	IF RUN_APP_HAPPEN_FLAG=TRUE
 	{
 		; ---------------------------------------------------------------
 		FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk"
-		IF SOME_AHK_PROCCESS_CLOSE=TRUE
-		IfExist, %FN_VAR_1%
+		IFEXIST, %FN_VAR_1%
 		{
-			Run, %FN_VAR_1%
+			RUN, %FN_VAR_1%
 			WINWAIT Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk ahk_class AutoHotkey,,30
 		}
 		; ---------------------------------------------------------------
 	}
-}
 
-FIRST_RUN=FALSE
+	FIRST_RUN=FALSE
 
 RETURN
 

@@ -41,7 +41,7 @@
 
 
 F1_KEY_PRESS=
-
+PID_78_TRAY_ICON_CLEANER=
 
 Menu, Tray, Add  ; Creates a separator line.
 
