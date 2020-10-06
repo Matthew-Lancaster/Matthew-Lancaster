@@ -1286,7 +1286,7 @@ If ProcessExist("wweb32.exe", A_UserName)=0
 	}
 
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WordWeb
-	
+
 
 
 ; -------------------------------------------------------------------
@@ -1302,17 +1302,9 @@ If Not ErrorLevel
 	}
 }
 ; -------------------------------------------------------------------
+
 ; -------------------------------------------------------------------
-
-	
-SET_GO=FALSE
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO=TRUE
-IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO=TRUE
-IF (A_ComputerName = "3-LINDA-PC") 
-	SET_GO=TRUE
-
+; -------------------------------------------------------------------
 SET_GO_1=0
 IF (A_ComputerName="1-ASUS-X5DIJ")
 	SET_GO_1=1
@@ -1320,15 +1312,12 @@ IF (A_ComputerName="2-ASUS-EEE")
 	SET_GO_1=1
 IF (A_ComputerName="3-LINDA-PC")
 	SET_GO_1=1
-IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
+IF (A_ComputerName="5-ASUS-P2520LA")
 	SET_GO_1=1
 IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	SET_GO_1=1
-; IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	; SET_GO_1=1
-
-
-; DESKTOP 
+; -------------------------------------------------------------------
+; GOODSYNC DESKTOP ALL COMPUTER AND EXCEPTOR
 IF SET_GO_1=1
 {
 	Process, Exist, GoodSync-v10.exe
@@ -1344,13 +1333,20 @@ IF SET_GO_1=1
 		}
 	}
 }
-
-; DESKTOP
-IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; GOODSYNC DESKTOP 7G
+IF (A_ComputerName="7-ASUS-GL522VW")
 	SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,1000
-
-; GOODYNC D
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; GOODSYNC DESKTOP 8M
+IF (A_ComputerName="8-MSI-GP62M-7RD")
+	SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M,1000
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; GOODSYNC PORTABLE __D__7G_________
+IF (A_ComputerName="7-ASUS-GL522VW")
 {
 	Process, Exist, GoodSync2Go.exe
 	If Not ErrorLevel
@@ -1365,22 +1361,34 @@ IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 		}
 	}
 }
-	
-Process, Exist, gs-server.exe
-If Not ErrorLevel
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; GOODYNC PORTABLE __C__4G__________
+IF (A_ComputerName="4-ASUS-GL522VW")
 {
-	FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
-	IfExist, %FN_VAR%
+	Process, Exist, GoodSync2Go.exe
+	If Not ErrorLevel
 	{
-		SoundBeep , 2500 , 100
-		Run, "%FN_VAR%"  /service
+		FN_VAR:="D:\GoodSync\x64\GoodSync2Go.exe"
+		IfExist, %FN_VAR%
+		{
+			SoundBeep , 2500 , 100
+			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
+			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
+			Run, "%FN_VAR%" 
+		}
 	}
 }
+; -------------------------------------------------------------------
+	
+
+
+
+	
 
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
 SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
-
 	
 IF SET_GO=FALSE
 {
@@ -2552,11 +2560,11 @@ RETURN
 
 
 
-TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M:
+TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M:
 {
 	Process, Exist, GoodSync-v10.exe
 	If ErrorLevel
-		SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,OFF
+		SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M,OFF
 		
 	If Not ErrorLevel
 	{
@@ -2566,12 +2574,13 @@ TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M:
 			SoundBeep , 2500 , 100
 			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
 			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-			MSGBOX "COMPUTER NAME 8-MSI-GP62M-7RD -- READY TO START DESKTOP GOODSYNC"
+			MSGBOX "COMPUTER NAME " %A_ComputerName% "-- READY TO START DESKTOP GOODSYNC"
 			Run, "%FN_VAR%" 
 		}
 	}
 }
 RETURN
+
 
 
 MINIMIZE_ALL_BLUETOOTH_TIMER:
