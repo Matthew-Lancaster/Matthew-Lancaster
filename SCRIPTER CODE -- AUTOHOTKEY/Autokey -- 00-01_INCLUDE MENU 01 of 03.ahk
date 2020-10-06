@@ -67,6 +67,7 @@ Menu, Tray, Add, RUN HERE NOW, MenuHandler  ; Creates a new menu item.
 Menu, Tray, Add  
 Menu, Tray, Add, TERMINATE SCRIPT, MenuHandler
 Menu, Tray, Add, TERMINATE ALL AUTOHOTKEY.EXE -- LEFT(CTRL)+WINKEY+ESCAPE, MenuHandler
+Menu, Tray, Add, TERMINATE ALL AUTOHOTKEY.EXE GONE, MenuHandler
 Menu, Tray, Add  
 Menu, Tray, Add, RESTORE_VB_KEEP_RUNNER AND ELITESPY -- RIGHT(Ctrl)+F1, MenuHandler
 Menu, Tray, Add  
@@ -163,6 +164,13 @@ if A_ThisMenuItem=RESTORE_VB_KEEP_RUNNER AND ELITESPY -- RIGHT(Ctrl)+F1
 
 if A_ThisMenuItem=TERMINATE SCRIPT
 	Process, Close,% DllCall("GetCurrentProcessId")
+
+
+
+if A_ThisMenuItem=TERMINATE ALL AUTOHOTKEY.EXE GONE
+{
+	GOSUB TERMINATE_ALL_AUTOHOTKEYS_GONE
+}
 
 if A_ThisMenuItem=TERMINATE ALL AUTOHOTKEY.EXE -- LEFT(CTRL)+WINKEY+ESCAPE
 {
