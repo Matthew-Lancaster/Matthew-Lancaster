@@ -1,11 +1,4 @@
-
-
-
-; The following DllCall is optional: it tells the OS to shut down this script first (prior to all other applications).
-DllCall("kernel32.dll\SetProcessShutdownParameters", "UInt", 0x4FF, "UInt", 0)
-OnMessage(0x11, "WM_QUERYENDSESSION")
-
- ;  =============================================================
+;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 99-OS SHUT DOWN ROUTINE.ahk
 ;# __ 
 ;# __ Autokey -- 99-OS SHUT DOWN ROUTINE.ahk
@@ -14,6 +7,20 @@ OnMessage(0x11, "WM_QUERYENDSESSION")
 ;# __ Matt.Lan@Btinternet.com
 ;# __ 
 ;  =============================================================
+
+; -------------------------------------------------------------------
+; WORK TIME 2ND DAY
+; -------------------------------------------------------------------
+; Tue 06-Oct-2020 14:18:17
+; Tue 06-Oct-2020 16:48:00 -- 02 HOUR 29 MINUTE
+; -------------------------------------------------------------------
+
+
+
+
+; The following DllCall is optional: it tells the OS to shut down this script first (prior to all other applications).
+DllCall("kernel32.dll\SetProcessShutdownParameters", "UInt", 0x4FF, "UInt", 0)
+OnMessage(0x11, "WM_QUERYENDSESSION")
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
@@ -51,14 +58,12 @@ SETSTORECAPSLOCKMODE, OFF
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; 0001 SOMETHING DO SHUTDOWN 
-; 0002 APP IT OWN GET REQUEST CLOSE WITH BOOT LOGGOFF
+; 0001 SOMETHING DO LOGGOFF SHUTDOWN
+; 0002 APP IT OWN GET REQUEST CLOSE WITH BOOT LOGGOFF SHUTDOWN
 ; -------------------------------------------------------------------
 
 
 SET_SHUT_DOWN=
-
-SETTIMER TIMER_SET_SHUTDOWN_DO,1200000    ;     TWO MINUTE -- 4 SECOND WHEN ALL CLEAR
 
 
 ; -------------------------------------------------------------------
@@ -76,6 +81,22 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 SHUTDOWN_ROUTINE:
+	PROCESS, CLOSE, SYSTEMEXPLORER.EXE
+	PROCESS, CLOSE, FILEZILLA SERVER INTERFACE.EXE
+	; C:\PROGRAM FILES\LOGITECH\SETPOINTP\CAMPAIGN\
+	PROCESS, CLOSE, LOGICAMPAIGNNOTIFIER.EXE
+
+	; ---------------------------------------------------------------
+	; TWO MINUTE
+	; 4 SECOND WHEN ALL CLEAR
+	; BY SETTIMER MAIN_RUNNER, 400
+	; ---------------------------------------------------------------
+	
+	
+	
+	SETTIMER TIMER_MSGBOX_KEEP_WAIT_OWN_SCRIPT_POP_AWAY,400
+	SETTIMER TIMER_SET_SHUTDOWN_DO,1200000    
+
 	SETTIMER WINDOWS_10_STATRT_MENU_DOWN      , 1000
 	SETTIMER WINDOWS_STATRT_MENU_DOWN_GENERAL , 1000
 	SETTIMER MAIN_RUNNER, 400
@@ -86,19 +107,45 @@ SHUTDOWN_ROUTINE:
 	GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_GONE_NOT_INCLUDER
 	GOSUB KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT_NOT_INCLUDER
 
-	PROCESS, CLOSE, SYSTEMEXPLORER.EXE
-	PROCESS, CLOSE, FILEZILLA SERVER INTERFACE.EXE
-	; C:\PROGRAM FILES\LOGITECH\SETPOINTP\CAMPAIGN\
-	PROCESS, CLOSE, LOGICAMPAIGNNOTIFIER.EXE
 RETURN
 ; -------------------------------------------------------------------
 
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+TIMER_MSGBOX_KEEP_WAIT_OWN_SCRIPT_POP_AWAY:
+
+	WinGet, VAR_GET, ID, Autokey -- 99-OS SHUT DOWN ROUTINE.ahk ahk_class #32770
+	IF !VAR_GET
+		RETURN
+
+	; ---------------------------------------------------------------
+	; HERE RELOAD WITH MY NEW ROUTINE
+	; RATHER THAN OLD ONE LEFT THERE
+	; ---------------------------------------------------------------
+	WinGet, VAR_GET, PID, Autokey -- 99-OS SHUT DOWN ROUTINE.ahk ahk_class #32770
+	PROCESS, CLOSE, %VAR_GET% 
+	RETURN
+
+	; ---------------------------------------------------------------
+	; RATHER THAN OLD ONE LEFT THERE
+	; ---------------------------------------------------------------
+	ControlClick, Button2, ahk_id %VAR_GET%,,,, NA x10 y10
+	ControlClick, Button2, ahk_id %VAR_GET%
+
+	; ---------------------------------------------------------------
+	; Text:	&No
+	; ClassNN:	Static1
+	; Text:	Could not close the previous instance of (...)
+	; ---------------------------------------------------------------
+RETURN
+; -------------------------------------------------------------------
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 TIMER_SET_SHUTDOWN_DO:
 	; KILLER ITSELF
-	Process, Close,% DllCall("GetCurrentProcessId")
+	PROCESS, CLOSE,% DllCall("GetCurrentProcessId")
 RETURN
 ; -------------------------------------------------------------------
 
@@ -106,14 +153,18 @@ RETURN
 ; -------------------------------------------------------------------
 MAIN_RUNNER:
 	
+	; ---------------------------------------------------------------
 	ALL_CLEAR_SHUTDOWN=TRUE
+	; ---------------------------------------------------------------
 
+	; ---------------------------------------------------------------
 	If WinExist("SystemExplorer")
 		ALL_CLEAR_SHUTDOWN=FALSE
 	If WinExist("CAsyncSocketEx Helper Window")
 		ALL_CLEAR_SHUTDOWN=FALSE
 	If WinExist("End Program - CSR_SYNCML_CLASS_1EF5ED00AB77")
 		ALL_CLEAR_SHUTDOWN=FALSE
+	; ---------------------------------------------------------------
 
 	; ---------------------------------------------------------------
 	; KILLER IT OWN
@@ -121,17 +172,19 @@ MAIN_RUNNER:
 	IF ALL_CLEAR_SHUTDOWN=TRUE
 	{
 		SETTIMER TIMER_SET_SHUTDOWN_DO,4000
+		SETTIMER MAIN_RUNNER,OFF
 	}
+	; ---------------------------------------------------------------
 
-	;---------------------------------------------------
+	; ---------------------------------------------------------------
 	; THESE PAIR WON'T REALLY GET RUN BUT LEFT IN ANYWAY
 	; AS WORK TO FIND OUT FIRST OFF
 	; PRIORITY IS IN THE EXITAPP
-	;---------------------------------------------------
+	; ---------------------------------------------------------------
 
-	;--------------------------------------
+	; ---------------------------------------------------------------
 	;C:\PStart\Progs\#_PortableApps\PortableApps\SystemExplorerPortable\App\SystemExplorer\SystemExplorer.exe	
-	;--------------------------------------
+	; ---------------------------------------------------------------
 	IfWinExist End Program - SystemExplorer	
 	{
 		; Run, "TASKKILL.exe" /F /IM SystemExplorer.exe /T , , HIDE
@@ -139,11 +192,12 @@ MAIN_RUNNER:
 		SoundBeep , 2500 , 100
 		ControlClick, &End Now, End Program - SystemExplorer
 	}
+	; ---------------------------------------------------------------
 
-	;------------------------------
+	; ---------------------------------------------------------------
 	;FileZilla Server Interface.exe
 	;CAsyncSocketEx Helper Window
-	;------------------------------
+	; ---------------------------------------------------------------
 	IfWinExist End Program - CAsyncSocketEx Helper Window
 	{
 		;WinGet, path, ProcessName, CAsyncSocketEx Helper Window
@@ -151,7 +205,9 @@ MAIN_RUNNER:
 		SoundBeep , 2500 , 100
 		ControlClick, &End Now, End Program - CAsyncSocketEx Helper Window
 	}	
+	; ---------------------------------------------------------------
 
+	; ---------------------------------------------------------------
 	IfWinExist End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
 	{
 		; CODE HELP CREDIT 
@@ -174,6 +230,7 @@ MAIN_RUNNER:
 		WINACTIVATE, END PROGRAM - CSR_SYNCML_CLASS_1EF5ED00AB77
 		CONTROLCLICK, &END NOW, END PROGRAM - CSR_SYNCML_CLASS_1EF5ED00AB77
 	}	
+	; ---------------------------------------------------------------
 RETURN
 ; -------------------------------------------------------------------
 
@@ -199,9 +256,10 @@ TERMINATE_ALL_AUTOHOTKEYS_GONE_NOT_INCLUDER:
 			If PID_8 <> %SCRIPTOR_OWN_PID%
 			IF PID_8 <> %PID_78_TRAY_ICON_CLEANER%
 			{
-				PROCESS, Close, %PID_8% 
+				PROCESS, CLOSE, %PID_8% 
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				; SOUNDBEEP 1000,20
+				SOME_AHK_PROCCESS_CLOSE=TRUE
 			}
 		}
 		WinGet, List, List, ahk_class AutoHotkey
@@ -213,10 +271,13 @@ TERMINATE_ALL_AUTOHOTKEYS_GONE_NOT_INCLUDER:
 	}
 
 	; RUN HERE AS ANOTHER TYPE SCRIPT PROGRAMMER LANGUAGE
+	; TRAY CLEANER
 	; ----------------------------------------------------
 	FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk"
+	IF SOME_AHK_PROCCESS_CLOSE=TRUE
 	IfExist, %FN_VAR_1%
 	{
+		; MSGBOX "HH"
 		Run, %FN_VAR_1%
 		WINWAIT Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk ahk_class AutoHotkey,,30
 	}
@@ -224,7 +285,7 @@ TERMINATE_ALL_AUTOHOTKEYS_GONE_NOT_INCLUDER:
 	; LET OWN ONE EXIT STYLE -- ICON GONE
 	; ---------------------------------------------------------------
 	; SCRIPTOR_OWN_PID=% DllCall("GetCurrentProcessId")
-	; PROCESS, Close, %SCRIPTOR_OWN_PID% 
+	; PROCESS, CLOSE, %SCRIPTOR_OWN_PID% 
 	; ---------------------------------------------------------------
 
 RETURN
@@ -239,7 +300,7 @@ KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT_NOT_INCLUDER:
 		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
 		IF PID_8
 		{
-			Process, Close, %PID_8% 
+			PROCESS, CLOSE, %PID_8% 
 			SOUNDBEEP 1200,40
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
@@ -250,7 +311,7 @@ KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT_NOT_INCLUDER:
 		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
 		IF PID_8
 		{
-			Process, Close, %PID_8% 
+			PROCESS, CLOSE, %PID_8% 
 			SOUNDBEEP 1200,40
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
@@ -261,7 +322,7 @@ KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT_NOT_INCLUDER:
 		WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
 		IF PID_8
 		{
-			Process, Close, %PID_8% 
+			PROCESS, CLOSE, %PID_8% 
 			SOUNDBEEP 1200,40
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
@@ -308,7 +369,7 @@ CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_GONE_NOT_INCLUDER:
 						IF ERRORLEVEL
 						{
 							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							Process, Close, %PATH_EXE%
+							PROCESS, CLOSE, %PATH_EXE%
 						}
 					}
 				}
@@ -375,8 +436,9 @@ EXITAPP
 ; -------------------------------------------------------------------
 EXITFUNC(EXITREASON, EXITCODE)
 {
-    IF EXITREASON NOT IN LOGOFF,SHUTDOWN
-		SET_SHUT_DOWN=TRUE
+    ; IF EXITREASON NOT IN LOGOFF,SHUTDOWN
+		; SET_SHUT_DOWN=NOT A SHUTDOWN METHOD
+		
     IF EXITREASON IN LOGOFF,SHUTDOWN
 		SET_SHUT_DOWN=TRUE
 	
@@ -468,7 +530,7 @@ ISWINDOWSHOW( winTitle ) {
 	; 0X20000000 IS WS_MINIMIZE.
 	; NO BORDER AND NOT MINIMIZED
 
-	TOOLTIP % X " -- " Y " -- "WINW " -- " WINH " -- " STYLE
+	; TOOLTIP % X " -- " Y " -- "WINW " -- " WINH " -- " STYLE
 
 	RETURN ((STYLE & 0X20800000) 
 	OR WINH < A_SCREENHEIGHT 
