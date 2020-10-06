@@ -359,6 +359,10 @@ ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER.ahk"
 
 
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 99-OS SHUT DOWN ROUTINE.ahk"
+
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
