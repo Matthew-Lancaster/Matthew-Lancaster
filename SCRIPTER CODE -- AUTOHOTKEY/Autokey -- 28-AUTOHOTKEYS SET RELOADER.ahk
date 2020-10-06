@@ -324,8 +324,8 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 
 IF SET_GO=TRUE
 {
-	ArrayCount += 1
-	FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
+	; ArrayCount += 1
+	; FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
 }
 
 
@@ -353,14 +353,14 @@ ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 73-MSGBOX COUNTDOWN DELAY_INCLUDE.ahk"
 
 
+ArrayCount += 1
+FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 99-OS SHUT DOWN ROUTINE.ahk"
 
 
 ArrayCount += 1
 FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER.ahk"
 
 
-ArrayCount += 1
-FN_Array_1[ArrayCount] := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 99-OS SHUT DOWN ROUTINE.ahk"
 
 
 
@@ -585,6 +585,19 @@ Loop % ArrayCount
 					GOSUB RUN_THE_APP
 				}
 			}
+			
+	IF RUN_APP_HAPPEN_FLAG=TRUE
+	{
+		; ---------------------------------------------------------------
+		FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk"
+		IF SOME_AHK_PROCCESS_CLOSE=TRUE
+		IfExist, %FN_VAR_1%
+		{
+			Run, %FN_VAR_1%
+			WINWAIT Autokey -- 78-TRAY ICON CLEANER - WAIT RUN_ONCE.ahk ahk_class AutoHotkey,,30
+		}
+		; ---------------------------------------------------------------
+	}
 }
 
 FIRST_RUN=FALSE
@@ -593,8 +606,30 @@ RETURN
 
 RUN_THE_APP:
 
+	; ---------------------------------------------------------------
+	; FOUND ANSWER LOOK AT CODE HERE
+	; REQUIRE SOME SORT OF HOT SWAP LAUNCHER FOR ITSELF OWN CODE
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	IF INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
+	{
+		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+		Process, Close,% DllCall("GetCurrentProcessId")
+		SOUNDBEEP, 1500,100
+	}
+	; ---------------------------------------------------------------
+	IF INSTR(Element_3,"Autokey -- 99-OS SHUT DOWN ROUTINE")
+	{
+		WINGET, PID_1, PID, %Element_3% ahk_class AutoHotkey
+		IF PID_1>0 
+		{
+			PROCESS, CLOSE,% PID_1
+		}
+		RUN, %Element_1%
+		SOUNDBEEP, 1500,100
+	}
+	; ---------------------------------------------------------------
 	SET_GO=TRUE
-	
 	IF INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
 	{
 		IF (A_ComputerName = "1-ASUS-X5DIJ") 
@@ -606,13 +641,25 @@ RUN_THE_APP:
 		IF (A_ComputerName = "5-ASUS-P2520LA") 
 			SET_GO=FALSE
 	}
-
-	
+	IF SET_GO=TRUE
+	IF INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
+	{
+		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
+		IF PID_1>0 
+		{
+			Process, Close,% PID_1
+		}
+		Run, %Element_1%
+		SOUNDBEEP, 1500,100
+	}
+	; ----------------------------------------------------------
+	; EVERY OTHER ONE
+	; ----------------------------------------------------------
 	; ----------------------------------------------------------
 	; NEW CODE FOR INCLUDE FILE -- DON'T RUN THE INCLUDE BUT 
 	; RUN THE ALTERNATIVE PROGRAM THAT INCLUDE IS WITH OR MANY
 	; ----------------------------------------------------------
-	if INSTR(Element_3,"_INCLUDE.ahk")
+	IF INSTR(Element_3,"_INCLUDE.ahk")
 	{
 	
 		; MSGBOX %Element_5%
@@ -625,65 +672,21 @@ RUN_THE_APP:
 		SOUNDBEEP, 1500,100
 		RETURN	
 	}
-
-	
-	; ----------------------------------------------------------
-	; FOUND ANSWER LOOK AT CODE HERE
-	; REQUIRE SOME SORT OF HOT SWAP LAUNCHER FOR ITSELF OWN CODE
-	; ----------------------------------------------------------
-	if INSTR(Element_3,"Autokey -- 28-AUTOHOTKEYS SET RELOADER")
-	{
-		Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
-		Process, Close,% DllCall("GetCurrentProcessId")
-		SOUNDBEEP, 1500,100
-		RETURN
-	}
-	if INSTR(Element_3,"Autokey -- 32-BRUTE BOOT DOWN")
-	{
-		WinGet, PID_1, PID, %Element_3% ahk_class AutoHotkey
-		IF PID_1>0 
-		{
-			Process, Close,% PID_1
-			
-			; MSGBOX %Element_3% ahk_class AutoHotkey 
-			; MSGBOX % PID_1
-		}
-		Run, %Element_1%
-		SOUNDBEEP, 1500,100
-		RETURN
-	}
-
-	; Loop % 500
-	; {
-		; PID_1=
-		; PID_2=
-		; WinGet, PID_1, PID, %Element_4% ahk_class #32770
-		; IF PID_1>0 
-		; {
-			; ; MSGBOX %PID_1% " -- " %Element_4%
-			; ; Process, Close,% PID_1
-			; PID_1=
-		; }
-		; WinGet, PID_2, PID, %Element_3% ahk_class AutoHotkey
-		; IF PID_1>0 
-		; {
-			; Process, Close,% PID_2
-			; ; MSGBOX % PID_1 " -- " PID_2
-		; }
-		; if (!PID_1 and !PID_2)
-			; BREAK
-	; }
+	; ---------------------------------------------------------------
 		
 	IfExist, %Element_1%
 	{
 		SoundBeep , 2000 , 20
 		Run, %Element_1%
 	}
-	
-	
 	; TOOLTIP % Element_1
 
 RETURN
+
+
+
+
+
 
 ; WinGetTitle, Titel, ahk_id %ID%
 
