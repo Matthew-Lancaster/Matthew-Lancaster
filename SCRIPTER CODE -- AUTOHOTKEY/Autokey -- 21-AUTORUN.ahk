@@ -757,7 +757,7 @@ IF SET_GO_8=TRUE
 		IfExist, %FN_VAR%
 		{
 				; SoundBeep , 2000 , 100
-				; Run, "%FN_VAR%"
+				Run, "%FN_VAR%"
 		}
 	}
 }
