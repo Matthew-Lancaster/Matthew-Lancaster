@@ -323,7 +323,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   127729665
+      Format          =   146735105
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -337,7 +337,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   127729665
+      Format          =   146735105
       CurrentDate     =   37296
    End
    Begin VB.Label Label15 
@@ -587,6 +587,13 @@ ScanPath.ListView1.ListItems.Clear
 ScanPath.cboMask.Text = "*.mpeg;*.mpg;*.avi;*.mp4;.wmv;*.flc;*.mov;*.qt;*.3gp;*.asf;*.m4v;*.rm;*.vob"
 ScanPath.chkSubFolders = vbChecked
 
+
+'ScanPath.txtPath = "F:\MC - HX60V1_MEDIA_CARD_CAMERA\MP_ROOT"
+ScanPath.txtPath = "K:\MP_ROOT"
+Call cmdScan_Click
+
+
+
 If 1 = 2 Then
     DirVar = "M:\0 00 VIDEO\"
     
@@ -620,9 +627,6 @@ If 1 = 2 Then
     ScanPath.txtPath = "I:\Videos\"
     Call cmdScan_Click
 End If
-
-ScanPath.txtPath = "F:\MC - HX60V1_MEDIA_CARD_CAMERA\MP_ROOT"
-Call cmdScan_Click
 
 
 'sort of PATH then FILE
