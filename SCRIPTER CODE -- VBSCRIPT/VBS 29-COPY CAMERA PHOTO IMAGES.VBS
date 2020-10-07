@@ -507,6 +507,7 @@ NEXT
 
 DIM COUNTER_RR
 
+DIM DEL_SCRIPT_DATE_GONE
 DIM I_DELETE_FOUND_000
 DIM I_DELETE_EMPTY
 DIM I_COUNT_HASH_TRASH_32_CHAR
@@ -2260,16 +2261,23 @@ END SUB
 
 
 SUB GET_DRIVE_SPACE(DRVPATH)
+
+	IF DRVPATH="" THEN 
+		MSGBOX "DRVPATH = NOTHING "
+		EXIT SUB
+	END IF
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(DRVPATH))="FOLDER" THEN 
 		' PERFECT -- FOLDER OBJECT 
 	END IF
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(DRVPATH))="STRING" THEN
-		' Set FOLDER = NOTHING
-		Set DRVPATH = FSO.GETFOLDER(DRVPATH)
-		GET_DRIVE_SPACE(DRVPATH)
-		EXIT SUB
+		IF FSO.FOLDEREXISTS(DRVPATH)=TRUE THEN 
+			Set DRVPATH = FSO.GETFOLDER(DRVPATH)
+			GET_DRIVE_SPACE(DRVPATH)
+		ELSE
+			MSGBOX "ERROR    " & DRVPATH
+		END IF
 	END IF
 	' ---------------------------------------------------------------
 	SET D = FSO.GETDRIVE(DRVPATH)
@@ -2404,6 +2412,29 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	MSGBOX_I1=""
 	MSGBOX_I2=""
 
+	' ---------------------------------------------------------------
+	' VERIFY WHAT DELETE BEFORE -- HOW MANY
+	' ---------------------------------------------------------------
+	' 0001 OF 0002
+	' ---------------------------------------------------------------
+	I_COUNT_TOTAL=0
+	
+	CALL OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
+	' DONE GET SPACE
+	MSGBOX "STOP DRIVE SPACE"
+	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
+
+	IF I_COUNT_DEL>0 THEN 
+		MSGBOX TRIM(I_COUNT_DEL) & VBCR & "FILE TO DELETE" & VBCR & "TOP HALF SCRIPT" & VBCR & DEL_SCRIPT_DATE_GONE
+	END IF
+	MSGBOX "STOP"
+	
+	' ---------------------------------------------------------------
+	' CONFIRM AND GO
+	' ---------------------------------------------------------------
+	' 0002 OF 0002
+	' ---------------------------------------------------------------
+	I_COUNT_TOTAL=0
 	CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
 		
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
@@ -2446,82 +2477,11 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	END IF
 End Sub
 
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
+
+
+
+
 SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
-
-	DIM SUBFOLDER
-	DIM FILE
-	ON ERROR RESUME NEXT
-	
-	' ---------------------------------------------------------------
-	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
-		' PERFECT -- FOLDER OBJECT 
-		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
-		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
-	END IF
-	' ---------------------------------------------------------------
-	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
-		FOLDER="E:\HARDWARE"
-		Set FOLDER = FSO.GETFOLDER(FOLDER)
-		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
-	END IF
-	' ---------------------------------------------------------------
-
-	FOR EACH FILE IN FOLDER.FILES
-		' DO STUFF
-		' ----------------------------------------------
-		' NOT GO IN DIRECTORY THAT DON'T HAVE ACCESS
-		' LIKE \SYSTEM INFORMATION FOLDER FROM ROOT
-		' OR BOMB OUT OF SCAN
-		' SAFE NOT PROCESS ANY INTRICATE INFO ABOUT THEM
-		' ----------------------------------------------
-		FILE_PATH_STRING=FILE.path
-		STR_F="-- .JPG .MP4" 
-		PATH_FIND_01="\DCIM"
-		PATH_FIND_02="\MP_ROOT"
-		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
-		PATH_FIND_RESULT=FALSE
-		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
-		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
-		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
-		PATH_FIND_RESULT=TRUE
-		IF PATH_FIND_RESULT=TRUE THEN 
-			' ON ERROR RESUME NEXT
-			ERR.CLEAR
-			FILEMODDATE=0
-			SET F = FSO.GETFILE(FILE.path)
-				FILEMODDATE = F.DATELASTMODIFIED
-			SET F=NOTHING
-			'COUNTER_RR=COUNTER_RR+1
-		END IF
-	NEXT
-
-	' ---------------------------------------------------------------
-	' GET SPACE DATA
-	' ---------------------------------------------------------------
-	' CALL GET_DRIVE_SPACE(FOLDER.path)
-	' MSGBOX FOLDER.path
-
-	COUNTER_RR=COUNTER_RR+1
-
-
-	' ---------------------------------------------------------------
-    ' RECURSE INTO AR SUB FOLDER COLLECTION
-	' ---------------------------------------------------------------
-    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
-		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
-		EXIT SUB
-    NEXT
-
-
-END SUB
-
-
-
-
-SUB HHHH
-
 	' ---------------------------------------------------------------
 	' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
 	' FILE AND SUB-FOLDER --- NICELY PRESENTABLE
@@ -2557,8 +2517,8 @@ SUB HHHH
 	' WHILE GO
 	' ---------------------------------------------------------------
 	' ---------------------------------------------------------------
-	' DIM SUBFOLDER
-	 ' DIM FILE
+	DIM SUBFOLDER
+	DIM FILE
 	ON ERROR RESUME NEXT
 	
 	' ---------------------------------------------------------------
@@ -2569,7 +2529,6 @@ SUB HHHH
 	END IF
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
-		' Set FOLDER = NOTHING
 		Set FOLDER = FSO.GETFOLDER(FOLDER)
 		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	END IF
@@ -2614,12 +2573,17 @@ SUB HHHH
 			' -----------------------------------------------------------
 			' -----------------------------------------------------------
 			DAY_BACK_TRIMMER_COUNTER=110
-			DAY_BACK_TRIMMER=NOW-DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
+			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
 			IF PATH_FIND_RESULT=TRUE THEN 
 				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
 					PATH_FIND_RESULT=FALSE
 				END IF
 			END IF
+			' -------------------------------------------------------
+			' OBTAIN HIGH LOW DATE OF SELECTION WORKER
+			' THAT WILL BE CLOSE TO LAST ONE LEFT OF DATE HIGH VALUE
+			' AND LOW IS WHERE WIPE ALL THEM FROM
+			' -------------------------------------------------------
 			IF PATH_FIND_RESULT=TRUE THEN 
 				IF FILEMODDATE>HIGH_DATE THEN 
 					HIGH_DATE=FILEMODDATE
@@ -2649,7 +2613,7 @@ SUB HHHH
 			' GET BEGIN DRIVE SPACE -- ONLY FOR INFO - NOT SPACE TRIM
 			' -----------------------------------------------------------
 			IF GET_SPACE_STRING="" THEN
-				GET_SPACE_STRING="IN IT" ' -- GET SPACE ONCE AND AT END
+				GET_SPACE_STRING="__IN_IT__"   ' -- GET SPACE ONCE AND AT END
 				' -------------------------------------------------------
 				' -------------------------------------------------------
 				' NETWORK PATH FRIEND AR
@@ -2668,7 +2632,7 @@ SUB HHHH
 				' CHECK DATE HAPPEN AND ALSO WANT 20 GB FREE
 				' BUTTER NOT OVER DO HER
 				' SET DATE MORE TRIM
-				' DIFFERCULT WHEN DRIVE FREE SPACE NOT SAME
+				' DIFFICULT WHEN DRIVE FREE SPACE NOT SAME
 				' DO BY DATE INSTEAD ACCURATE
 				' -------------------------------------------------------
 			END IF
@@ -2679,8 +2643,8 @@ SUB HHHH
 			' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  
 			' MSGBOX FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
 			' -----------------------------------------------------------
-			IF GOGO=1 THEN 
-				MSGBOX "FSO.DeleteFile(FILE.path)     " & FILE.path
+			IF PATH_FIND_RESULT=TRUE THEN 
+				MSGBOX "FSO.DeleteFile(FILE.path)     " & VBCR  & FILE.path & VBCR & FILEMODDATE
 				FSO.DeleteFile(FILE.path) 
 				I_COUNT_DEL=I_COUNT_DEL+1
 				' -----------------------------------------------------------
@@ -2707,6 +2671,126 @@ SUB HHHH
 	' ---------------------------------------------------------------
 End Sub
 ' -------------------------------------------------------------------
+
+
+SUB OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(FOLDER)
+	DIM SUBFOLDER
+	DIM FILE
+	ON ERROR RESUME NEXT
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		' PERFECT -- FOLDER OBJECT 
+		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
+		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
+	END IF
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		Set FOLDER = FSO.GETFOLDER(FOLDER)
+		OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(FOLDER)
+	END IF
+	' ---------------------------------------------------------------
+	FOR EACH FILE IN FOLDER.FILES
+		FILE_PATH_STRING=FILE.path
+		STR_F="-- .JPG .MP4" 
+		PATH_FIND_01="\DCIM"
+		PATH_FIND_02="\MP_ROOT"
+		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
+		PATH_FIND_RESULT=FALSE
+		' ----------------------------------------------
+		' NOT GO IN DIRECTORY THAT DON;T HAVE ACCESS
+		' LIKE \SYSTEM INFORMATION FOLDER FROM ROOT
+		' OR BOMB OUT OF SCAN
+		' SAFE NOT PROCESS ANY INTRICATE INFO ABOUT THEM
+		' ----------------------------------------------
+		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
+		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
+		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
+		
+		IF PATH_FIND_RESULT=TRUE THEN 
+			ON ERROR RESUME NEXT
+			ERR.CLEAR
+			FILEMODDATE=0
+			SET F = FSO.GETFILE(FILE.path)
+				FILEMODDATE = F.DATELASTMODIFIED
+			SET F=NOTHING
+			IF ERR.NUMBER>0 THEN FILEMODDATE=0
+			IF FILEMODDATE=0 THEN 
+				MSGBOX "ERROR RESULT GET DATE"
+				PATH_FIND_RESULT=FALSE
+			END IF
+
+			I_COUNT_TOTAL=I_COUNT_TOTAL+1
+			
+			' -----------------------------------------------------------
+			' -----------------------------------------------------------
+			DAY_BACK_TRIMMER_COUNTER=500  ' DAY -- LESS NUMBER MORE IN FUTURE
+			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER 
+			IF PATH_FIND_RESULT=TRUE THEN 
+				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
+					PATH_FIND_RESULT=FALSE
+				END IF
+			END IF
+			' -------------------------------------------------------
+			' OBTAIN HIGH LOW DATE OF SELECTION WORKER
+			' THAT WILL BE CLOSE TO LAST ONE LEFT OF DATE HIGH VALUE
+			' AND LOW IS WHERE WIPE ALL THEM FROM
+			' -------------------------------------------------------
+			IF PATH_FIND_RESULT=TRUE THEN 
+				IF FILEMODDATE>HIGH_DATE THEN 
+					HIGH_DATE=FILEMODDATE
+					' STRIP THE FRONT PART PATH TOO LONG 
+					' ---------------------------------------------------
+					FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
+					MSGBOX_I2=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- HIGH"
+					MSGBOX_I2=UCASE(MSGBOX_I2)
+				END IF
+				IF FILEMODDATE<LOW_DATE THEN 
+					LOW_DATE=FILEMODDATE
+					' STRIP THE FRONT PART PATH TOO LONG 
+					' ---------------------------------------------------
+					FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
+					MSGBOX_I1=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- LOW" 
+					MSGBOX_I1=UCASE(MSGBOX_I1)
+				END IF
+				' MAXIMUM HIGH DATE WHEN WANT
+				' AND LOW
+				' RATHER THAN DATE SPLITTER
+				' -------------------------------------------------------
+			END IF
+		
+			ON ERROR RESUME NEXT
+			' -------------------------------------------------------
+			' EXAMPLE ON -- FORMATNUMBER
+			' FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) GIVE 2 DECIMAL PLACE 00.00
+			' -------------------------------------------------------
+			' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  
+			' MSGBOX FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
+			' -------------------------------------------------------
+			IF PATH_FIND_RESULT=TRUE THEN 
+				' ---------------------------------------------------
+				MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE
+				
+				
+				
+				' ---------------------------------------------------
+				' FSO.DeleteFile(FILE.path) 
+				' ---------------------------------------------------
+				I_COUNT_DEL=I_COUNT_DEL+1
+				DEL_SCRIPT_DATE_GONE=DEL_SCRIPT_DATE_GONE & FILE.path & VBCRLF
+			END IF
+			ON ERROR GOTO 0
+			' -------------------------------------------------------
+		END IF
+	NEXT
+
+	' ---------------------------------------------------------------
+    ' RECURSE INTO IT'S SUB FOLDERS
+	' ---------------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
+		OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(SUBFOLDER)
+    NEXT
+	
+End Sub
 ' -------------------------------------------------------------------
 
 
@@ -2716,6 +2800,9 @@ End Sub
 
 
 
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' TWO ROUTINE THIS ONE -- THUMB WRITTEN
 ' -------------------------------------------------------------------
 ' MAH00004.THM
 ' &
@@ -2764,19 +2851,6 @@ Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
     NEXT
 End Sub
 ' -------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3207,14 +3281,9 @@ SUB PATH_SCANNER_RENAME
 
 		END IF
 	END IF
-
 END SUB
 ' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
+
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB SEARCH(FOLDER)
@@ -3233,14 +3302,9 @@ SUB SEARCH(FOLDER)
 		'Call the Search subroutine to start the recursive search on EACH SUBFOLDER.
 		Search FSO.GetFolder(subFolder.Path)
 	NEXT
-
 End Sub
 ' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
+
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB DELETE_EMPTY_FOLDER(FOLDER)
@@ -3255,11 +3319,8 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 	END IF
 	' ----------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
-		' SET FOLDER = NOTHING
-		
 		SET FOLDER = FSO.GETFOLDER(FOLDER)
 		CALL DELETE_EMPTY_FOLDER(FOLDER)
-		' EXIT SUB
 	END IF
 	
 	' MSGBOX "DELETE_EMPTY_FOLDER     " & VBCR & ARRAY_PATH_01(ARRAY_FOR_NEXT) & VBCR & ARRAY_PATH_02(ARRAY_FOR_NEXT) & UCASE(FOLDER.PATH)
@@ -3310,6 +3371,8 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 	End If
 End Sub
 ' -------------------------------------------------------------------	
+
+' -------------------------------------------------------------------	
 ' -------------------------------------------------------------------
 SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 	DIM SUBFOLDER
@@ -3323,10 +3386,8 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 	END IF
 	' ----------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
-		' Set FOLDER = NOTHING
 		Set FOLDER = FSO.GETFOLDER(FOLDER)
 		CALL DELETE_FOUND_000_ROOT_PATH(FOLDER)
-		EXIT SUB
 	END IF
 	
 	' ----------------------------------------
@@ -3386,9 +3447,6 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 End Sub
 ' -------------------------------------------------------------------	
 
-
-
-
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
@@ -3438,10 +3496,8 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 	END IF
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
-		' Set FOLDER = NOTHING
 		Set FOLDER = FSO.GETFOLDER(FOLDER)
 		CALL FIND_HASH_TRASH_32_CHAR(FOLDER)
-		EXIT SUB
 	END IF
 	' ---------------------------------------------------------------
     
@@ -3510,7 +3566,6 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 End Sub
 ' -------------------------------------------------------------------	
 
-
 ' -------------------------------------------------------------------	
 ' -------------------------------------------------------------------	
 Sub BuildFullPath(ByVal FullPath)
@@ -3524,7 +3579,8 @@ End Sub
 ' https://stackoverflow.com/questions/4407386/help-to-create-folder1-folder2-in-windows-using-vbscript-both-the-folders-not
 ' -------------------------------------------------------------------	
 
-
+' -------------------------------------------------------------------	
+' -------------------------------------------------------------------	
 SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 	FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 		VOLUME_NAME_STRING_=""
@@ -3584,6 +3640,8 @@ END SUB
 
 
 
+
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' REFERENCE
 ' -------------------------------------------------------------------
@@ -3607,3 +3665,111 @@ END SUB
 ' vbscript - Read files in subfolders - Stack Overflow
 ' https://stackoverflow.com/questions/16905278/read-files-in-subfolders
 ' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
+
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' EXTRA CODE ROUTINE SET
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+SUB VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLDER)
+	' -------------------------------------------------------------------
+	' HERE ARE PERFECT CODE
+	' NOT FOUND ON-LINE EVER EXCEPT
+	' YOU ABLE CALL ROUTINE FROM OUT ROUTINE
+	' OR GIVE FOLDER WITHIN
+	' THERE NONE NEST BESIDE IT LOOP ITSELF
+	' NONE MULTIPLE ROUTINE EFFORT
+	' -------------------------------------------------------------------
+	' EASY PASS 1ST PARAMETER -- WHAT FOLDER
+	' -------------------------------------------------------------------
+	' IF YOU AIN'T KICKING TOP ROUTINE SCANNER 
+	' LOOK AT MY SHIT
+	' -------------------------------------------------------------------
+	' WITH AR SOME EXAMPLE WHAT TO DO WITH INNER
+	' -------------------------------------------------------------------
+	' [ WED 12:44:10 PM_07 OCTOBER 2020 ]
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+
+	DIM SUBFOLDER
+	DIM FILE
+	ON ERROR RESUME NEXT
+	
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		' PERFECT -- FOLDER OBJECT 
+		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
+		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
+	END IF
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		FOLDER="E:\HARDWARE"
+		Set FOLDER = FSO.GETFOLDER(FOLDER)
+		VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLDER)
+	END IF
+	' ---------------------------------------------------------------
+
+	FOR EACH FILE IN FOLDER.FILES
+		' DO STUFF
+		' ----------------------------------------------
+		' NOT GO IN DIRECTORY THAT DON'T HAVE ACCESS
+		' LIKE \SYSTEM INFORMATION FOLDER FROM ROOT
+		' OR BOMB OUT OF SCAN
+		' SAFE NOT PROCESS ANY INTRICATE INFO ABOUT THEM
+		' ----------------------------------------------
+		FILE_PATH_STRING=FILE.path
+		STR_F="-- .JPG .MP4" 
+		PATH_FIND_01="\DCIM"
+		PATH_FIND_02="\MP_ROOT"
+		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
+		PATH_FIND_RESULT=FALSE
+		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
+		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
+		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
+		PATH_FIND_RESULT=TRUE
+		IF PATH_FIND_RESULT=TRUE THEN 
+			ERR.CLEAR
+			FILEMODDATE=0
+			SET F = FSO.GETFILE(FILE.path)
+				FILEMODDATE = F.DATELASTMODIFIED
+			SET F=NOTHING
+			COUNTER_RR=COUNTER_RR+1
+		END IF
+	NEXT
+
+	' ---------------------------------------------------------------
+	' CALL GET_DRIVE_SPACE(FOLDER.path)
+	' ---------------------------------------------------------------
+
+	COUNTER_RR=COUNTER_RR+1
+	
+	' ---------------------------------------------------------------
+	' DO STUFF ON FOLDER HERE
+	' ---------------------------------------------------------------
+	MYFOLDER = FOLDER.path
+	' ---------------------------------------------------------------
+	IF MYFOLDER = "EXCELLENT" THEN 
+		' DO STUFF
+	END IF
+	' ---------------------------------------------------------------
+	
+	' ---------------------------------------------------------------
+    ' RECURSE INTO AR SUB FOLDER COLLECTION
+	' ---------------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
+		VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(SUBFOLDER)
+    NEXT
+END SUB
+
+
