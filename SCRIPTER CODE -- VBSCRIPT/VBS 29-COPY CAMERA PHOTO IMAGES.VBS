@@ -497,9 +497,9 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 NEXT
 ' -------------------------------------------------------------------
 
+DIM DELETE_LIMITITOR
 DIM DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE
 DIM COUNTER_RR
-
 DIM DEL_SCRIPT_DATE_GONE
 DIM I_DELETE_FOUND_000
 DIM I_DELETE_EMPTY
@@ -593,20 +593,58 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
 	
 	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
-		' -----------------------------------------------------------
-		' RUN EXPLORER
-		' -----------------------------------------------------------
-		SET WSHShell = CreateObject("WScript.Shell")
-		' MSGBOX "EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+""""
-		RESULT = WSHShell.Run("EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+"""" , ShowWindow, DontWaitUntilFinished)
-		SET WSHShell = Nothing
-		' -----------------------------------------------------------
-		' INFO MSGBOX
-		' -----------------------------------------------------------
-		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND SOME LOSS HASH TRASH" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
-		SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-		SET WSHShell = Nothing
+		FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH"
+		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH") = FALSE THEN 
+			
+			I=""
+			I=I+"SOME HASH TRASH COUNTER AND FOLDER NOT THERE - ERROR" & VBCR 
+			I=I+ VBCR 
+			I=I+"ARRAY_SONY_FOLDER" & "\TEMP_HASH_TRASH"
+			I=I+ VBCR 
+			I=I+ "CHANGE PATH TO \ AND TAKE THERE EXPLORER"
+			I=I+ VBCR 
+			I=I+ ARRAY_SONY_FOLDER
+			I=I+ VBCR 
+
+			FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER
+			
+			SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, 15, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+		
+		END IF
+
+		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = FALSE THEN 
+			I="THE FOLDER PATH NOT THERE OR ACCESS " & VBCR 
+			I=I+ VBCR 
+			I=I+ FOLDER_JUMP_TO_HASH_TRASH_EXPLORER
+			I=I+ VBCR 
+			I=I+ VBCR 
+			I=I+ "GET TO HASH TRASH THE COUNT WAS SHOW"
+			I=I+ VBCR 
+			
+			SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, 15, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+		END IF
+
+		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = TRUE THEN 
+			' -----------------------------------------------------------
+			' RUN EXPLORER
+			' -----------------------------------------------------------
+			SET WSHShell = CreateObject("WScript.Shell")
+			' MSGBOX "EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+""""
+			RESULT = WSHShell.Run("EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+"""" , ShowWindow, DontWaitUntilFinished)
+			SET WSHShell = Nothing
+			' -----------------------------------------------------------
+			' INFO MSGBOX
+			' -----------------------------------------------------------
+			I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND SOME LOSS HASH TRASH" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
+
+			SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+		END IF
 	END IF
 
 	I_DELETE_FOUND_000=0
@@ -2374,6 +2412,8 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	MSGBOX_I1=""
 	MSGBOX_I2=""
 	FREE_SPACE_SET_TO_EQUAL=20
+	LOW_DATE=NOW
+	HIGH_DATE=NOW-1000
 	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER) ' BEFORE NUMBER
 	' ---------------------------------------------------------------
 	DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE="GET_FIND_INFO"
@@ -2391,12 +2431,28 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I=I+ "HIGH_DATE  " & HIGH_DATE & VBCR 
 		I=I+ "LOW_DATE   " & LOW_DATE & VBCR 
 		I=I+ "----" & VBCR 
-		I=I+ "DELETE IS LIMIT TO 100 TRY AGAIN" & VBCR 
+		I=I+ "NEWER DATE BEFORE _____ " & VBCR
+		I=I+ MSGBOX_I2 & VBCR 
 		I=I+ "----" & VBCR 
-		I=I+ "TOP HALF SCRIPT" & VBCR 
+		I=I+ "OLDER DATE OF _________ " & VBCR 
+		I=I+ MSGBOX_I1 & VBCR 
+		I=I+ "----" & VBCR 
+		I=I+ "DELETE IS LIMIT TO __ " & CSTR(DELETE_LIMITITOR) 
+		IF I_COUNT_DEL<DELETE_LIMITITOR THEN 
+			I=I+ VBCR & "CLEAR FOR LIMITITOR" & VBCR
+			I=I+ "THE DELETE LIMIT HAVE NOT BEEN REACH __ " 
+			I=I+ CSTR(I_COUNT_DEL) & "_<_" & CSTR(DELETE_LIMITITOR) & VBCR
+		END IF
+		IF I_COUNT_DEL=>DELETE_LIMITITOR THEN 
+			I=I+ " __ DO ANOTHER" & VBCR 
+			I=I+ "THE DELETE LIMIT GIVE OVER  __ " 
+			I=I+ CSTR(I_COUNT_DEL) & "_>_" & CSTR(DELETE_LIMITITOR) & VBCR
+		END IF
+		I=I+ "----" & VBCR 
+		I=I+ "FRONT HALF SCRIPT -- DELETE TO DO" & VBCR 
 		I=I+ "----" & VBCR 
 		I=I+ DEL_SCRIPT_DATE_GONE & VBCR 
-		MSGBOX TRIM(I)
+		MSGBOX TRIM(I),vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 	' ---------------------------------------------------------------
 	
@@ -2411,6 +2467,8 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I_COUNT_TOTAL=0
 		MSGBOX_I1=""
 		MSGBOX_I2=""
+		LOW_DATE=NOW
+		HIGH_DATE=NOW-1000
 		DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE=""
 		CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
 	END IF
@@ -2429,6 +2487,8 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_SONY_FOLDER
 		
 		I = ""
+		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
 		I = I + LPAD(ARRAY_FOR_NEXT, "0", 4) & " __ OF __ " & LPAD(UBOUND(ARRAY_PATH_01), "0", 4) & VBCRLF
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "DONE DELETE COUNT LESS DAY SPAN COUNTER" & VBCRLF 
@@ -2440,15 +2500,14 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & "                           DAY __ LIMIT COUNTER" & VBCRLF 
 		I = I + CSTR(DAY_BACK_TRIMMER) & " DAY __ TRIMMER" & VBCRLF 
 		I = I + "-----------------------------------------------------------" & VBCRLF 
-		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
 		I = I + "---------------------------------------------------" & VBCRLF 
-		I = I + "OLDER DATE OF _________ " & VBCRLF 
-		I = I + "------------------------------------------" & VBCRLF 
-		I = I + MSGBOX_I1 & VBCRLF 
-		I = I + "------------------------------------------" & VBCRLF 
 		I = I + "NEWER DATE BEFORE ____ " & VBCRLF 
 		I = I + "------------------------------------------" & VBCRLF 
 		I = I + MSGBOX_I2 & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
+		I = I + "OLDER DATE OF _________ " & VBCRLF 
+		I = I + "------------------------------------------" & VBCRLF 
+		I = I + MSGBOX_I1 & VBCRLF 
 		I = I + "--------------------------------------------------------------" & VBCRLF 
 		I = I + "TOTAL FREE_SPACE_SET_TO_EQUAL__GB _ " & FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_FREE_SPACE___________GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & VBCRLF 
@@ -2550,7 +2609,7 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			' -------------------------------------------------------
 			' -------------------------------------------------------
 			DAY_BACK_TRIMMER_COUNTER=300  ' DAY -- LESS NUMBER MORE IN FUTURE
-			DELETE_LIMITITOR=200
+			DELETE_LIMITITOR=1000
 			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER 
 			IF PATH_FIND_RESULT=TRUE THEN 
 				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
@@ -2589,13 +2648,13 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			ERR.CLEAR
 
 			IF PATH_FIND_RESULT=TRUE THEN 
-				IF DELETE_LIMITITOR<=I_COUNT_DEL THEN 
+				IF I_COUNT_DEL<=DELETE_LIMITITOR THEN 
 					' MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE & VBCR & "HIGH_DATE  " & HIGH_DATE & VBCR & "LOW_DATE  " & LOW_DATE 					' ---------------------------------------------------
 					IF DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE<>"GET_FIND_INFO" THEN 
 						IF I_COUNT_DEL=0 THEN 
 							I=""
-							I=I+"1ST TO DELETE _ NONE QUESTIN AFTER" & VBCR 
-							I=I+FILE.PATH & VBCR 
+							I=I+"1ST TO DELETE _ NONE PROVIDE AFTER" & VBCR 
+							I=I+FILE.PATH & VBCR
 							I=I+FILEMODDATE & VBCR 
 							I=I+HIGH_DATE & VBCR
 							I=I+LOW_DATE & VBCR
