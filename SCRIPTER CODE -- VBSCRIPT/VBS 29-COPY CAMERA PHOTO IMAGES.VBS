@@ -499,6 +499,7 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 NEXT
 ' -------------------------------------------------------------------
 
+DIM I_DELETE_FOUND_000
 DIM I_DELETE_EMPTY
 DIM I_COUNT_HASH_TRASH_32_CHAR
 DIM VOLUME_NAME_STRING_
@@ -552,6 +553,9 @@ DIM HIGH_DATE
 
 FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 
+    I_DELETE_FOUND_000=0
+    I_DELETE_EMPTY=0
+    I_COUNT_HASH_TRASH_32_CHAR=0
 	I_COUNT_HASH_TRASH_32_CHAR=0
 	VOLUME_NAME_STRING_=""
 	DRIVE_FREE_SPACE_GB_BEGIN=0
@@ -577,17 +581,6 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
 	END IF
 	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
-
-	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
-	' ---------------------------------------------------------------
-	' 0001 OF 0003
-	' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------------------
-	END IF
-	' ---------------------------------------------------------------
-	' 0002 OF 0003
-	' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------------------
  	
 	I_COUNT_HASH_TRASH_32_CHAR=0
 	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
@@ -597,7 +590,8 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 		' RUN EXPLORER
 		' -----------------------------------------------------------
 		SET WSHShell = CreateObject("WScript.Shell")
-		RESULT = WSHShell.Run("EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP\"+"""" , ShowWindow, DontWaitUntilFinished)
+		' MSGBOX "EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+""""
+		RESULT = WSHShell.Run("EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+"""" , ShowWindow, DontWaitUntilFinished)
 		SET WSHShell = Nothing
 		' -----------------------------------------------------------
 		' INFO MSGBOX
@@ -607,22 +601,39 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 			RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 		SET WSHShell = Nothing
 	END IF
+
+	I_DELETE_FOUND_000=0
+	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
+	' ---------------------------------------------------------------
+		CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------------------
+	END IF
+
+	IF I_DELETE_FOUND_000>0 THEN 
+		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND TO DELETE SOME FOUND_000"
+		SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		SET WSHShell = Nothing
+	END IF 
+
 	
 	' ---------------------------------------------------------------
-	I_DELETE_EMPTY=0
-	CALL DELETE_EMPTY_FOLDER (ARRAY_SONY_FOLDER)
+	I_DELETE_EMPTY_COUNTER=0
+	CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 	' ---------------------------------------------------------------
-	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
+	IF I_DELETE_EMPTY_COUNTER>0 THEN 
 		' -----------------------------------------------------------
 		' SOME DELETE EMPTY
 		' -----------------------------------------------------------
-		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "SOME DELETE EMPTY WERE DONE"
+		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "SOME DELETE __ EMPTY __ WERE DONE"
 		SET WSHShell = CreateObject("WScript.Shell")
 			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 		SET WSHShell = Nothing
 	END IF
 	' ---------------------------------------------------------------
 
+	' ---------------------------------------------------
+	' DO LATER AT RUN 
 	' ---------------------------------------------------
 	' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------
@@ -3114,6 +3125,17 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 	END IF
 	
 	' MSGBOX "DELETE_EMPTY_FOLDER     " & VBCR & ARRAY_PATH_01(ARRAY_FOR_NEXT) & VBCR & ARRAY_PATH_02(ARRAY_FOR_NEXT) & UCASE(FOLDER.PATH)
+
+
+	' -----------------------------------------------------------
+	' -----------------------------------------------------------
+	' REM HERE -- STOP LOOP SUBFOLDER
+	' HERE NOT A FILE NESTER ONLY FOLDER
+	' WOULD BE BETTER NOT SUBFOLDER -- ROOT DOWN
+	' -----------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
+		DELETE_EMPTY_FOLDER(subfolder)
+    NEXT
 	
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
@@ -3128,20 +3150,18 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 	READY_01=FOLDER.SUBFOLDERS.COUNT
 	READY_02=FOLDER.FILES.COUNT
 	READY_04=ERR.NUMBER
-	IF UCASE(ORIGINAL_PATH)=UCASE(FOLDER.PATH) THEN 
-		' NOT ORIGINAL PATH
-		READY_03 = 0
-	END IF
-	READY_04=ERR.NUMBER
+	' IF UCASE(ORIGINAL_PATH)=UCASE(FOLDER.PATH) THEN 
+		' ' NOT ORIGINAL PATH
+		' READY_03 = 0
+	' END IF
 	' ---------------------------------------------------------------
     IF READY_01 = 0 AND READY_02 = 0 AND READY_03 = 0 AND READY_04=0 THEN
-		ON ERROR GOTO 0
-		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		' MSGBOX "DELETE -- " & FOLDER.PATH
+		' MSGBOX "CHECKER __ DEL EMPTY " & FOLDER.PATH
 		FSO.DELETEFOLDER FOLDER.PATH, TRUE
-		I_DELETE_EMPTY=I_DELETE_EMPTY+1
+		I_DELETE_EMPTY_COUNTER=I_DELETE_EMPTY_COUNTER+1
+		TEST_COUNTER=TEST_COUNTER+1
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
 			ERROR_WITH_SOME = FOLDER.PATH & VBCRLF & ERR.DESCRIPTION
@@ -3212,7 +3232,9 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 		' -----------------------------------------------------------
 
 		IF INSTR(FOLDER.PATH,"\FOUND.")>0  THEN 
+			MSGBOX "CHECKER __ FOUND 000 " & FOLDER.PATH
 			FSO.DELETEFOLDER FOLDER.PATH, TRUE
+			I_DELETE_FOUND_000=I_DELETE_FOUND_000+1
 			' FOLDER.DELETE, TRUE
 		END IF
 		
@@ -3321,13 +3343,20 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 			' MAKE SURE END SLASH NOT THERE AS ENTER
 			' DOUBLE CHECK NONE TO DO ALREADY API FSO OBJECT
 			' -------------------------------------------------------
-			IF FSO.FOLDEREXISTS(ROOT_FOLDER & "\TEMP") = FALSE THEN 
-				CALL BUILDFULLPATH(ROOT_FOLDER & "\TEMP")
+			IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH") = FALSE THEN 
+				CALL BUILDFULLPATH(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")
 			END IF
+			' -------------------------------------------------------
+			' CALL BUILDFULLPATH(ROOT_FOLDER & "\TEMP_HASH_TRASH")
+			' -------------------------------------------------------
+
+			' -------------------------------------------------------
+			' MOVE THE FILE -- NOT \TEMP_HASH_TRASH FOLDER 
+			' DONE BEFORE
+			' -------------------------------------------------------
+			IF INSTR(FILE.path,"\TEMP_HASH_TRASH\")=0 THEN 
 			
-			' MOVE THE FILE -- NOT \TEMP FOLDER DONE BEFORE
-			IF INSTR(FILE.path,"\TEMP\")=0 THEN 
-				FSO.MOVEFILE FILE.path, ARRAY_SONY_FOLDER & "\TEMP\" & FILE_01_PART
+				FSO.MOVEFILE FILE.path, ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\" & FILE_01_PART
 				I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
 			END IF
 		END IF
@@ -3382,26 +3411,18 @@ SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 		HIGH_DATE=NOW-1000
 		' -------------------------------------------------------------------
 
-
 		I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
 		IF MID(I,2,1)=":" THEN 
 			ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
 		END IF
 		ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
 
-		' MSGBOX "ARRAY_PATH_01(ARRAY_FOR_NEXT) ____ " & ARRAY_PATH_01(ARRAY_FOR_NEXT)
-
-		IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
 		' ---------------------------------------------------
-		' 0001 OF 0003
-		CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-		' ---------------------------------------------------
-		END IF
+		' 0003 OF 0003
+		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		' ---------------------------------------------------
 		' 0002 OF 0003
 		CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-		' 0003 OF 0003
-		' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		' ---------------------------------------------------
 	NEXT
 END SUB
