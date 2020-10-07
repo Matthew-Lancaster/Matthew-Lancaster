@@ -1777,97 +1777,20 @@ End Sub
 
 
 
-
-
-
-
-
-
-
 SUB DATE_OF_FILE_IN_FRONT_FILENAME_SONY_CAMERA
-EXIT SUB
-FOLDER_PATH_DEST(1)="D:\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
-FOLDER_PATH__MP4(1)="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V"
-FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
-FOR R_CNT = 1 TO 2
-	IF FSO.FolderExists(FOLDER_PATH_DEST(R_CNT))=TRUE THEN  
-		PAD
-	END IF
-	IF FSO.FolderExists(FOLDER_PATH__MP4(R_CNT))=TRUE THEN  
-	END IF
-NEXT
+	EXIT SUB
+	FOLDER_PATH_DEST(1)="D:\DSC\2015+SONY\" + CSTR(Year(Now)) + " CyberShot HX60V"
+	FOLDER_PATH__MP4(1)="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V"
+	FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
+	FOR R_CNT = 1 TO 2
+		IF FSO.FolderExists(FOLDER_PATH_DEST(R_CNT))=TRUE THEN  
+			PAD
+		END IF
+		IF FSO.FolderExists(FOLDER_PATH__MP4(R_CNT))=TRUE THEN  
+		END IF
+	NEXT
 End Sub
 
-
-
-
-' ' WHY BOTHER THAT ONE AND USER FSO.
-' SUB GET_DRIVE_SPACE_NOT_COOL(DRVPATH)
-	' ' EXIT SUB ' SPEED
-	' STRCOMPUTER = "." 
-	' SET objWMIService = GetObject("winmgmts:\\" & STRCOMPUTER & "\root\CIMV2") 
-	' SET colItems = objWMIService.ExecQuery( _
-		' "SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
-	' FOR EACH objItem in colItems 
-		' IF LEN(objItem.VolumeName)>0 then
-			' IF MID(DRVPATH,1,2)<>"\\" THEN 
-				' VOLUME_NAME_STRING_=objItem.VolumeName
-			' END IF
-			' DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
-			' DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
-		' END IF
-	' NEXT
-' END SUB
-
-
-
-' FUNCTION SHOWDRIVEINFO_NOT_COOL(DRVPATH)
-	' ' EXIT FUNCTION ' SPEED
-	' strComputer = "." 
-
-	' ' A NETWORK PATH
-	' IF MID(DRVPATH,1,2)="\\" THEN 
-		
-		' With CreateObject("Scripting.FileSystemObject")
-		' ' DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).AvailableSpace)/1024/1024/1024
-		' DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).FreeSpace)/1024/1024/1024
-		' MSGBOX DRVPATH
-		' MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
-		' DRIVE_CAPACITY___GB=CDbl(.GetDrive(DRVPATH).FSize)/1024/1024/1024
-		' MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
-		' MSGBOX CSTR(DRIVE_CAPACITY___GB)
-
-		' End With
-	' END IF
-
-	' Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2") 
-	' Set colItems = objWMIService.ExecQuery( _
-		' "SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
-	' MSGBOX DRVPATH
-
-	' For Each objItem in colItems 
-		' if len(objItem.VolumeName)>0 then
-			' S=S+"-----------------------------------------------------------" & vbCrLf
-			' S=S+"VolumeName:" & vbTab & objItem.VolumeName  & vbCrLf
-			' S=S+"-----------------------------------------------------------" & vbCrLf
-			' S=S+"Drive Letter 1st Found for Match Volume Name: " & VBCRLF & DRVPATH & "\" & vbCrLf
-			' S=S+"-----------------------------------------------------------" & vbCrLf
-			' S=S+"FreeSpace:" & vbTab
-			' S=S+FORMATNUMBER((CDbl(objItem.FreeSpace)/1024/1024/1024))  & " GB" & vbCrLf
-			' S=S+"Size:" & vbTab & vbTab
-			' S=S+FORMATNUMBER((CDbl(objItem.Size)/1024/1024/1024)) & " GB" & vbCrLf
-			' S=S+"Occupied Space:" & vbTab
-			' S=S+FORMATNUMBER((CDbl(objItem.Size - objItem.FreeSpace)/1024/1024/1024)) & " GB"
-			' IF IX_ERROR_MESSENGER<>"" THEN 
-				' S=S+vbCrLf
-				' S=IX_ERROR_MESSENGER
-			' END IF
-			' DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
-			' DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
-		' END IF
-	' NEXT
-	' DRIVE_SPACE_INFO=S
-' END FUNCTION
 
 Sub FindWantedFiles(sFolder)
     On Error Resume NEXT
@@ -1880,7 +1803,6 @@ Sub FindWantedFiles(sFolder)
     For Each oFDR In sFolder.SubFolders
         FindWantedFiles FSO.GetFolder(oFDR.Path)
     NEXT
-	
 End Sub
 
 Sub DisplayFindings()
@@ -1904,7 +1826,6 @@ SUB PATH_SCANNER_COPY_CAMERA
 	IF mid(ucase(VAR_PATH_SCANNER),3,6)="\VIDEO"   then SET_GO_FILE=TRUE   ' KEY_FOB
 	IF mid(ucase(VAR_PATH_SCANNER),3,7)="\RECORD"  then SET_GO_FILE=TRUE   ' BLUE AUDIO
 	IF mid(ucase(VAR_PATH_SCANNER),3,8)="\MRECORD"  then SET_GO_FILE=TRUE  ' RETEKESS
-	
 
 	IF INSTR(FOLDER_PATH_HOLD,"HIKVISION#1")>0 THEN
 		SET_GO_FILE=TRUE  ' ----------------------- WANT ALL FROM ROOT
@@ -2263,7 +2184,7 @@ END SUB
 SUB GET_DRIVE_SPACE(DRVPATH)
 
 	IF DRVPATH="" THEN 
-		MSGBOX "DRVPATH = NOTHING "
+		MSGBOX "DRVPATH = NOTHING " & VBCR & UCASE(TYPENAME(DRVPATH))
 		EXIT SUB
 	END IF
 	' ---------------------------------------------------------------
@@ -2313,8 +2234,17 @@ SUB GET_DRIVE_SPACE(DRVPATH)
 			S=IX_ERROR_MESSENGER
 		END IF
 	END IF
-
+	' ---------------------------------------------------------------
 	DRIVE_SPACE_INFO=S
+	' ---------------------------------------------------------------
+	
+	' ---------------------------------------------------------------
+	' EXAMPLE ON -- FORMATNUMBER
+	' FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) GIVE 2 DECIMAL PLACE 00.00
+	' ---------------------------------------------------------------
+	' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  
+	' MSGBOX FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
+	' ---------------------------------------------------------------
 END SUB
 
 
@@ -2406,27 +2336,54 @@ End Function
 ' -------------------------------------------------------------------
 Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 
-	I_COUNT=0
-	I_COUNT_DEL=0
-	
-	MSGBOX_I1=""
-	MSGBOX_I2=""
+	' -------------------------------------------------------
+	' 0001 OF 0002 -- GET FREE SPACE
+	' -------------------------------------------------------
+	FREE_SPACE_SET_TO_EQUAL=20
+	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
 
 	' ---------------------------------------------------------------
 	' VERIFY WHAT DELETE BEFORE -- HOW MANY
 	' ---------------------------------------------------------------
-	' 0001 OF 0002
+	' 0002 OF 0002
 	' ---------------------------------------------------------------
+	I_COUNT=0
+	I_COUNT_DEL=0
+	MSGBOX_I1=""
+	MSGBOX_I2=""
 	I_COUNT_TOTAL=0
-	
+	' ---------------------------------------------------------------
 	CALL OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
-	' DONE GET SPACE
-	MSGBOX "STOP DRIVE SPACE"
+	' ---------------------------------------------------------------
+	' -------------------------------------------------------
+	I_COUNT=0
+	I_COUNT_DEL=0
+	MSGBOX_I1=""
+	MSGBOX_I2=""
+	FREE_SPACE_SET_TO_EQUAL=20
 	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
+	' -------------------------------------------------------
 
+	' -----------------------------------------------------------
+	' ---------------------------------------------------------------
 	IF I_COUNT_DEL>0 THEN 
-		MSGBOX TRIM(I_COUNT_DEL) & VBCR & "FILE TO DELETE" & VBCR & "TOP HALF SCRIPT" & VBCR & DEL_SCRIPT_DATE_GONE
+		I=""
+		I=I+ "FOLDER -- " & VBCR 
+		I=I+ ARRAY_SONY_FOLDER & VBCR 
+		I=I+ "FILE TO DELETE" & VBCR 
+		I=I+ I_COUNT_DEL & VBCR 
+		I=I+ "----" & VBCR 
+		I=I+ "HIGH_DATE  " & HIGH_DATE & VBCR 
+		I=I+ "LOW_DATE   " & LOW_DATE & VBCR 
+		I=I+ "----" & VBCR 
+		I=I+ "DELETE IS LIMIT TO 100 TRY AGAIN" & VBCR 
+		I=I+ "----" & VBCR 
+		I=I+ "TOP HALF SCRIPT" & VBCR 
+		I=I+ "----" & VBCR 
+		I=I+ DEL_SCRIPT_DATE_GONE & VBCR 
+		MSGBOX TRIM(I)
 	END IF
+	' ---------------------------------------------------------------
 	MSGBOX "STOP"
 	
 	' ---------------------------------------------------------------
@@ -2436,6 +2393,16 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------------------
 	I_COUNT_TOTAL=0
 	CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
+
+	' -------------------------------------------------------
+	' 0002 OF 0002 -- GET FREE SPACE
+	' -------------------------------------------------------
+	' -------------------------------------------------------
+	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
+	' -------------------------------------------------------
+	DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
+	' -----------------------------------------------------------
+
 		
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
 		
@@ -2479,8 +2446,6 @@ End Sub
 
 
 
-
-
 SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	' ---------------------------------------------------------------
 	' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
@@ -2520,7 +2485,6 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	DIM SUBFOLDER
 	DIM FILE
 	ON ERROR RESUME NEXT
-	
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
 		' PERFECT -- FOLDER OBJECT 
@@ -2533,7 +2497,6 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	END IF
 	' ---------------------------------------------------------------
-	
 	FOR EACH FILE IN FOLDER.FILES
 		FILE_PATH_STRING=FILE.path
 		STR_F="-- .JPG .MP4" 
@@ -2541,167 +2504,12 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 		PATH_FIND_02="\MP_ROOT"
 		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
 		PATH_FIND_RESULT=FALSE
-		
-		' ----------------------------------------------
+		' -----------------------------------------------------------
 		' NOT GO IN DIRECTORY THAT DON;T HAVE ACCESS
 		' LIKE \SYSTEM INFORMATION FOLDER FROM ROOT
 		' OR BOMB OUT OF SCAN
 		' SAFE NOT PROCESS ANY INTRICATE INFO ABOUT THEM
-		' ----------------------------------------------
-		' ----------------------------------------------
-		
-		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
-		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
-		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
-		
-		IF PATH_FIND_RESULT=TRUE THEN 
-			ON ERROR RESUME NEXT
-			ERR.CLEAR
-			
-			FILEMODDATE=0
-			SET F = FSO.GETFILE(FILE.path)
-				FILEMODDATE = F.DATELASTMODIFIED
-			SET F=NOTHING
-			IF ERR.NUMBER>0 THEN FILEMODDATE=0
-			IF FILEMODDATE=0 THEN 
-				MSGBOX "ERROR RESULT GET DATE"
-				PATH_FIND_RESULT=FALSE
-			END IF
-
-			I_COUNT_TOTAL=I_COUNT_TOTAL+1
-			
-			' -----------------------------------------------------------
-			' -----------------------------------------------------------
-			DAY_BACK_TRIMMER_COUNTER=110
-			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
-			IF PATH_FIND_RESULT=TRUE THEN 
-				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
-					PATH_FIND_RESULT=FALSE
-				END IF
-			END IF
-			' -------------------------------------------------------
-			' OBTAIN HIGH LOW DATE OF SELECTION WORKER
-			' THAT WILL BE CLOSE TO LAST ONE LEFT OF DATE HIGH VALUE
-			' AND LOW IS WHERE WIPE ALL THEM FROM
-			' -------------------------------------------------------
-			IF PATH_FIND_RESULT=TRUE THEN 
-				IF FILEMODDATE>HIGH_DATE THEN 
-					HIGH_DATE=FILEMODDATE
-					' STRIP THE FRONT PART PATH TOO LONG 
-					' ---------------------------------------------------
-					FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
-					MSGBOX_I2=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- HIGH"
-					MSGBOX_I2=UCASE(MSGBOX_I2)
-				END IF
-				IF FILEMODDATE<LOW_DATE THEN 
-					LOW_DATE=FILEMODDATE
-					' STRIP THE FRONT PART PATH TOO LONG 
-					' ---------------------------------------------------
-					FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
-					MSGBOX_I1=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- LOW" 
-					MSGBOX_I1=UCASE(MSGBOX_I1)
-				END IF
-				' MAXIMUM HIGH DATE WHEN WANT
-				' AND LOW
-				' RATHER THAN DATE SPLITTER
-				' -------------------------------------------------------
-			END IF
-		
-			ON ERROR RESUME NEXT
-			ERR.CLEAR
-			' -----------------------------------------------------------
-			' GET BEGIN DRIVE SPACE -- ONLY FOR INFO - NOT SPACE TRIM
-			' -----------------------------------------------------------
-			IF GET_SPACE_STRING="" THEN
-				GET_SPACE_STRING="__IN_IT__"   ' -- GET SPACE ONCE AND AT END
-				' -------------------------------------------------------
-				' -------------------------------------------------------
-				' NETWORK PATH FRIEND AR
-				' AND ABLE GET REMOTE VOLUME LABEL SHARE DRIVE
-				' -------------------------------------------------------
-				' -------------------------------------------------------
-				' GET SPACE DATA
-				' -------------------------------------------------------
-				CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
-				' -------------------------------------------------------
-				IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
-				END IF
-				FREE_SPACE_SET_TO_EQUAL=20
-				DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
-				' -------------------------------------------------------
-				' CHECK DATE HAPPEN AND ALSO WANT 20 GB FREE
-				' BUTTER NOT OVER DO HER
-				' SET DATE MORE TRIM
-				' DIFFICULT WHEN DRIVE FREE SPACE NOT SAME
-				' DO BY DATE INSTEAD ACCURATE
-				' -------------------------------------------------------
-			END IF
-			' -----------------------------------------------------------
-			' EXAMPLE ON -- FORMATNUMBER
-			' FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) GIVE 2 DECIMAL PLACE 00.00
-			' -----------------------------------------------------------
-			' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  
-			' MSGBOX FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
-			' -----------------------------------------------------------
-			IF PATH_FIND_RESULT=TRUE THEN 
-				MSGBOX "FSO.DeleteFile(FILE.path)     " & VBCR  & FILE.path & VBCR & FILEMODDATE
-				FSO.DeleteFile(FILE.path) 
-				I_COUNT_DEL=I_COUNT_DEL+1
-				' -----------------------------------------------------------
-				' REPEATER GET SPACE WHILE FILE DELETE
-				' -----------------------------------------------------------
-				IF GET_SPACE_STRING<>"" THEN 
-					' CALL GET_DRIVE_SPACE(DRVPATH_VAR)
-				END IF
-			END IF
-			ON ERROR GOTO 0
-			' -----------------------------------------------------------
-		END IF
-	NEXT
-
-	' ---------------------------------------------------------------
-    ' RECURSE INTO IT'S SUB FOLDERS
-	' ---------------------------------------------------------------
-    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
-		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
-    NEXT
-	
-	' DONE AND EACH FOLDER 
-	CALL GET_DRIVE_SPACE(DRVPATH_VAR)
-	' ---------------------------------------------------------------
-End Sub
-' -------------------------------------------------------------------
-
-
-SUB OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(FOLDER)
-	DIM SUBFOLDER
-	DIM FILE
-	ON ERROR RESUME NEXT
-	' ---------------------------------------------------------------
-	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
-		' PERFECT -- FOLDER OBJECT 
-		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
-		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
-	END IF
-	' ---------------------------------------------------------------
-	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
-		Set FOLDER = FSO.GETFOLDER(FOLDER)
-		OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(FOLDER)
-	END IF
-	' ---------------------------------------------------------------
-	FOR EACH FILE IN FOLDER.FILES
-		FILE_PATH_STRING=FILE.path
-		STR_F="-- .JPG .MP4" 
-		PATH_FIND_01="\DCIM"
-		PATH_FIND_02="\MP_ROOT"
-		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
-		PATH_FIND_RESULT=FALSE
-		' ----------------------------------------------
-		' NOT GO IN DIRECTORY THAT DON;T HAVE ACCESS
-		' LIKE \SYSTEM INFORMATION FOLDER FROM ROOT
-		' OR BOMB OUT OF SCAN
-		' SAFE NOT PROCESS ANY INTRICATE INFO ABOUT THEM
-		' ----------------------------------------------
+		' -----------------------------------------------------------
 		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
 		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
 		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
@@ -2720,10 +2528,10 @@ SUB OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(FOLDER)
 			END IF
 
 			I_COUNT_TOTAL=I_COUNT_TOTAL+1
-			
-			' -----------------------------------------------------------
-			' -----------------------------------------------------------
-			DAY_BACK_TRIMMER_COUNTER=500  ' DAY -- LESS NUMBER MORE IN FUTURE
+			' -------------------------------------------------------
+			' -------------------------------------------------------
+			DAY_BACK_TRIMMER_COUNTER=300  ' DAY -- LESS NUMBER MORE IN FUTURE
+			DELETE_LIMITITOR=100
 			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER 
 			IF PATH_FIND_RESULT=TRUE THEN 
 				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
@@ -2759,22 +2567,17 @@ SUB OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(FOLDER)
 			END IF
 		
 			ON ERROR RESUME NEXT
-			' -------------------------------------------------------
-			' EXAMPLE ON -- FORMATNUMBER
-			' FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) GIVE 2 DECIMAL PLACE 00.00
-			' -------------------------------------------------------
-			' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  
-			' MSGBOX FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
-			' -------------------------------------------------------
+			ERR.CLEAR
+
 			IF PATH_FIND_RESULT=TRUE THEN 
-				' ---------------------------------------------------
-				MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE
-				
-				
-				
-				' ---------------------------------------------------
-				' FSO.DeleteFile(FILE.path) 
-				' ---------------------------------------------------
+				IF DELETE_LIMITITOR<=I_COUNT_DE THEN 
+					' ---------------------------------------------------
+					' MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE & VBCR & "HIGH_DATE  " & HIGH_DATE & VBCR & "LOW_DATE  " & LOW_DATE 
+					' ---------------------------------------------------
+					' ---------------------------------------------------
+					' FSO.DeleteFile(FILE.path) 
+					' ---------------------------------------------------
+				END IF
 				I_COUNT_DEL=I_COUNT_DEL+1
 				DEL_SCRIPT_DATE_GONE=DEL_SCRIPT_DATE_GONE & FILE.path & VBCRLF
 			END IF
@@ -2787,17 +2590,12 @@ SUB OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(FOLDER)
     ' RECURSE INTO IT'S SUB FOLDERS
 	' ---------------------------------------------------------------
     FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
-		OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(SUBFOLDER)
+		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
     NEXT
 	
+	' ---------------------------------------------------------------
 End Sub
 ' -------------------------------------------------------------------
-
-
-
-
-
-
 
 
 ' -------------------------------------------------------------------
@@ -2856,36 +2654,11 @@ End Sub
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'-------------------------------------------------------------------
-'-------------------------------------------------------------------
-
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' THE BLOCK 4 ROUTINE BELOW IS USE FOR RENAME 
 ' OF TYPE PUT DATE IN FRONT FILE FOR CAMERA
 ' -------------------------------------------------------------------
-
 Sub Main_4
 	I_COUNT=0
 	IF FSO.FolderExists(FOLDER_PATH_MAIN_4)=FALSE THEN 
@@ -3640,10 +3413,93 @@ END SUB
 
 
 
+' -------------------------------------------------------------------
+' 0001 OF 0003
+' -------------------------------------------------------------------
+' USELESS CODE
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' ' WHY BOTHER THAT ONE AND USER FSO.
+' SUB GET_DRIVE_SPACE_NOT_COOL(DRVPATH)
+	' ' EXIT SUB ' SPEED
+	' STRCOMPUTER = "." 
+	' SET objWMIService = GetObject("winmgmts:\\" & STRCOMPUTER & "\root\CIMV2") 
+	' SET colItems = objWMIService.ExecQuery( _
+		' "SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
+	' FOR EACH objItem in colItems 
+		' IF LEN(objItem.VolumeName)>0 then
+			' IF MID(DRVPATH,1,2)<>"\\" THEN 
+				' VOLUME_NAME_STRING_=objItem.VolumeName
+			' END IF
+			' DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
+			' DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
+		' END IF
+	' NEXT
+' END SUB
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
+' FUNCTION SHOWDRIVEINFO_NOT_COOL(DRVPATH)
+	' ' EXIT FUNCTION ' SPEED
+	' strComputer = "." 
+
+	' ' A NETWORK PATH
+	' IF MID(DRVPATH,1,2)="\\" THEN 
+		
+		' With CreateObject("Scripting.FileSystemObject")
+		' ' DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).AvailableSpace)/1024/1024/1024
+		' DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).FreeSpace)/1024/1024/1024
+		' MSGBOX DRVPATH
+		' MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
+		' DRIVE_CAPACITY___GB=CDbl(.GetDrive(DRVPATH).FSize)/1024/1024/1024
+		' MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
+		' MSGBOX CSTR(DRIVE_CAPACITY___GB)
+
+		' End With
+	' END IF
+
+	' Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2") 
+	' Set colItems = objWMIService.ExecQuery( _
+		' "SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
+	' MSGBOX DRVPATH
+
+	' For Each objItem in colItems 
+		' if len(objItem.VolumeName)>0 then
+			' S=S+"-----------------------------------------------------------" & vbCrLf
+			' S=S+"VolumeName:" & vbTab & objItem.VolumeName  & vbCrLf
+			' S=S+"-----------------------------------------------------------" & vbCrLf
+			' S=S+"Drive Letter 1st Found for Match Volume Name: " & VBCRLF & DRVPATH & "\" & vbCrLf
+			' S=S+"-----------------------------------------------------------" & vbCrLf
+			' S=S+"FreeSpace:" & vbTab
+			' S=S+FORMATNUMBER((CDbl(objItem.FreeSpace)/1024/1024/1024))  & " GB" & vbCrLf
+			' S=S+"Size:" & vbTab & vbTab
+			' S=S+FORMATNUMBER((CDbl(objItem.Size)/1024/1024/1024)) & " GB" & vbCrLf
+			' S=S+"Occupied Space:" & vbTab
+			' S=S+FORMATNUMBER((CDbl(objItem.Size - objItem.FreeSpace)/1024/1024/1024)) & " GB"
+			' IF IX_ERROR_MESSENGER<>"" THEN 
+				' S=S+vbCrLf
+				' S=IX_ERROR_MESSENGER
+			' END IF
+			' DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
+			' DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
+		' END IF
+	' NEXT
+	' DRIVE_SPACE_INFO=S
+' END FUNCTION
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
+
+' -------------------------------------------------------------------
+' 0002 OF 0003
+' -------------------------------------------------------------------
 ' REFERENCE
+' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' How Can I Get a List of All the Files in a Folder and Its Subfolders? – Hey, Scripting Guy! Blog
 ' https://blogs.technet.microsoft.com/heyscriptingguy/2004/10/20/how-can-i-get-a-list-of-all-the-files-in-a-folder-and-its-subfolders/
@@ -3670,8 +3526,9 @@ END SUB
 ' -------------------------------------------------------------------
 
 
-
-
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' 0003 OF 0003
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -3681,7 +3538,6 @@ END SUB
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-
 SUB VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLDER)
 	' -------------------------------------------------------------------
 	' HERE ARE PERFECT CODE
@@ -3701,11 +3557,9 @@ SUB VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLD
 	' [ WED 12:44:10 PM_07 OCTOBER 2020 ]
 	' -------------------------------------------------------------------
 	' -------------------------------------------------------------------
-
 	DIM SUBFOLDER
 	DIM FILE
 	ON ERROR RESUME NEXT
-	
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
 		' PERFECT -- FOLDER OBJECT 
@@ -3719,7 +3573,6 @@ SUB VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLD
 		VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLDER)
 	END IF
 	' ---------------------------------------------------------------
-
 	FOR EACH FILE IN FOLDER.FILES
 		' DO STUFF
 		' ----------------------------------------------
@@ -3747,13 +3600,10 @@ SUB VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLD
 			COUNTER_RR=COUNTER_RR+1
 		END IF
 	NEXT
-
 	' ---------------------------------------------------------------
 	' CALL GET_DRIVE_SPACE(FOLDER.path)
 	' ---------------------------------------------------------------
-
 	COUNTER_RR=COUNTER_RR+1
-	
 	' ---------------------------------------------------------------
 	' DO STUFF ON FOLDER HERE
 	' ---------------------------------------------------------------
@@ -3771,5 +3621,10 @@ SUB VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(FOLD
 		VBS_82_RECURSE_SUBFOLDER___FILE_ONE_SHOT_ROUTINE_EXAMPLE_TOP_PLAYER_VBS(SUBFOLDER)
     NEXT
 END SUB
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
+
 
 
