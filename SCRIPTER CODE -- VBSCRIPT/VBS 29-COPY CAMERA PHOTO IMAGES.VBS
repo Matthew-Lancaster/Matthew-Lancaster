@@ -272,6 +272,8 @@
 ' -------------------------------------------------------------------
 ' WED 07-OCT-2020 01:22:36
 ' WED 07-OCT-2020 04:18:30 -- 2 HOUR 55 MINUTE
+' EXTEND WORK
+' WED 07-OCT-2020 06:24:00 -- 5 HOUR 00 MINUTE
 ' -------------------------------------------------------------------
 ' ANOTHER ROUTINE ADD FOR CAMERA AS PART NEW SYNC ROUTINE STUFF
 ' SOMETIME -- GOODSYNC WHEN NOT SAFEMODE OR SUPPOSE IS SAFEMODE
@@ -497,6 +499,7 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 NEXT
 ' -------------------------------------------------------------------
 
+DIM I_DELETE_EMPTY
 DIM I_COUNT_HASH_TRASH_32_CHAR
 DIM VOLUME_NAME_STRING_
 DIM NOT_DO_OCCUPY_SPACE
@@ -576,31 +579,64 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
 
 	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
-	' ---------------------------------------------------
+	' ---------------------------------------------------------------
 	' 0001 OF 0003
 	' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------
+	' ---------------------------------------------------------------
 	END IF
-	' ---------------------------------------------------
+	' ---------------------------------------------------------------
 	' 0002 OF 0003
 	' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------
+	' ---------------------------------------------------------------
+ 	
+	I_COUNT_HASH_TRASH_32_CHAR=0
+	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
 	
-	MSGBOX "RRRRL"
-' 	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
-	'CALL DELETE_EMPTY_FOLDER    (ARRAY_SONY_FOLDER)
-	
-	I_COUNT_HASH_TRASH_32_CHAR=2
-	IF	I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
-		WSHShell.Run "EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP\"+"""" , ShowWindow, DontWaitUntilFinished
+	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
+		' -----------------------------------------------------------
+		' RUN EXPLORER
+		' -----------------------------------------------------------
+		SET WSHShell = CreateObject("WScript.Shell")
+		RESULT = WSHShell.Run("EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP\"+"""" , ShowWindow, DontWaitUntilFinished)
+		SET WSHShell = Nothing
+		' -----------------------------------------------------------
+		' INFO MSGBOX
+		' -----------------------------------------------------------
+		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND SOME LOSS HASH TRASH" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
+		SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		SET WSHShell = Nothing
 	END IF
-	MSGBOX "LL"
 	
+	' ---------------------------------------------------------------
+	I_DELETE_EMPTY=0
+	CALL DELETE_EMPTY_FOLDER (ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------------------
+	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
+		' -----------------------------------------------------------
+		' SOME DELETE EMPTY
+		' -----------------------------------------------------------
+		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "SOME DELETE EMPTY WERE DONE"
+		SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		SET WSHShell = Nothing
+	END IF
+	' ---------------------------------------------------------------
+
+	' ---------------------------------------------------
 	' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------
 NEXT
 
-WSCRIPT.QUIT
+
+' -----------------------------------------------------------
+' DO THE CAMERA SYNCER NOW
+' -----------------------------------------------------------
+I = ARRAY_SONY_FOLDER & VBCR & VBCR & "DO THE CAMERA SYNCER NOW"
+SET WSHShell = CreateObject("WScript.Shell")
+	RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+SET WSHShell = Nothing
+
 
 
 ' ---------------------------------
@@ -609,6 +645,7 @@ WSCRIPT.QUIT
 ' RUNNER AT FRONT -- WHILE
 ' ---------------------------------
 ' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+
 
 
 ' -------------------------------------------------------------------
@@ -1085,14 +1122,15 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 	END IF
 	
 	IF INSTR("MC - HX60V",FOLDER_PATH(R_COUNT)) THEN 
-		IF FOLDER_PATH_VAR_2<>"" THEN 
-			ONLY_SONY_CYBERSHOT_HAS_DO=TRUE
-			RUN_FILE="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 00-DELETE_EMPTY_FOLDER_CAMERA.VBS"
-			IF FSO.FileExists(RUN_FILE) THEN 
-				WSHShell.Run """"+RUN_FILE+"""", DontShowWindow, WaitUntilFinished
-			END IF
-
-		END IF
+		' IF FOLDER_PATH_VAR_2<>"" THEN 
+			' ONLY_SONY_CYBERSHOT_HAS_DO=TRUE
+			' RUN_FILE="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 00-DELETE_EMPTY_FOLDER_CAMERA.VBS"
+			' IF FSO.FileExists(RUN_FILE) THEN 
+				' SET WSHShell = CreateObject("WScript.Shell")
+				' RESULT = WSHShell.Run (""""+RUN_FILE+"""", DontShowWindow, WaitUntilFinished)
+				' SET WSHShell = Nothing
+			' END IF
+		' END IF
 	END IF
 
 	IF FOLDER_PATH_VAR_2<>"" THEN 
@@ -1157,7 +1195,9 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 			FOLDER_PATH_DEST_VAR_2=PATH_FILE_VAR
 			FOLDER_PATH_DEST_VAR_2=FOLDER_PATH_DEST_VAR
 			FOLDER_PATH_DEST_VAR_PARAM=REPLACE(FOLDER_PATH_DEST_VAR_2," ","*")
+			SET WSHShell = CreateObject("WScript.Shell")
 			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
+			SET WSHShell = Nothing
 			
 		END IF
 		
@@ -1276,6 +1316,7 @@ NEXT
 IF INSTR(WORK_DOER,"MC - HX60V")>0 THEN 
 	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_MC_HX60V.VBS"
 	IF FSO.FileExists(RENAME_VAR) THEN 
+		' SET WSHShell = CreateObject("WScript.Shell")
 		' WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
 	END IF
 END IF
@@ -1298,6 +1339,7 @@ END IF
 IF INSTR(WORK_DOER,"KEY_FOB")>0 THEN 
 	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_KEY_FOB.VBS"
 	IF FSO.FileExists(RENAME_VAR) THEN 
+		SET WSHShell = CreateObject("WScript.Shell")
 		WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
 	END IF
 END IF
@@ -1305,6 +1347,7 @@ END IF
 IF INSTR(WORK_DOER,"MEM-BANK-CAMERA")>0 THEN 
 	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_MEMORY-BANK-CAMERA.VBS"
 	IF FSO.FileExists(RENAME_VAR) THEN 
+		SET WSHShell = CreateObject("WScript.Shell")
 		WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
 	END IF
 END IF
@@ -1314,6 +1357,7 @@ IF INSTR(WORK_DOER,"FRONT DOOR")>0 THEN
 	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS"
 	PARAM="BLUE_1_FRONTDOOR"  
 	IF FSO.FileExists(RENAME_VAR) THEN
+		SET WSHShell = CreateObject("WScript.Shell")
 		WSHShell.Run """"+RENAME_VAR+"""" + " " + PARAM, DontShowWindow, DontWaitUntilFinished
 	END IF
 END IF
@@ -1323,6 +1367,7 @@ IF INSTR(WORK_DOER,"OUTDOOR JACKET")>0 THEN
 	RENAME_VAR="C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 27-RENAME FILE+SUBFOLDER_FRONT_DOOR.VBS"
 	PARAM="OUTDOOR_JACKET"
 	IF FSO.FileExists(RENAME_VAR) THEN
+		SET WSHShell = CreateObject("WScript.Shell")
 		WSHShell.Run """"+RENAME_VAR+"""", DontShowWindow, DontWaitUntilFinished
 	END IF
 END IF
@@ -1337,6 +1382,7 @@ IF INSTR(FOLDER_PATH_HOLD_2,"MAGICMINDR")  THEN DO_THE_CLOCK=TRUE  ' "OUTDOOR JA
 IF DO_THE_CLOCK=TRUE THEN 
 	EXE_VAR="D:\0 00 MOBILE-2\8GB RECORD AUDIO BLUE _ 7 _ OUTDOOR JACKET\Settime\SetDigitRecorderTm.exe"
 	IF FSO.FileExists(EXE_VAR) THEN
+		SET WSHShell = CreateObject("WScript.Shell")
 		WSHShell.Run """"+EXE_VAR+"""", ShowWindow, DontWaitUntilFinished
 	END IF
 END IF
@@ -1362,6 +1408,7 @@ IF CAMERA_BACKUP_MC_CARD_CODE_TO_ACTOR_DONE_ONCE=FALSE THEN
 	FILE_NAME="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR.BAT"
 	PARAM="CAMERA_BACKUP_MODE"
 	' ---------------------------------------
+		' SET WSHShell = CreateObject("WScript.Shell")
 	' WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 	
 	
@@ -1579,6 +1626,7 @@ Sub Main
 	' ---------------------------------------------------------------
 	
 	IF SHOW_EXPLORER_FLAG=TRUE AND EXPLORER_LOADED=FALSE AND I_COUNT_1>0 THEN 
+		' SET WSHShell = CreateObject("WScript.Shell")
 		' WSHShell.Run "EXPLORER """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
 		' REMMER ---- Tue 10-Mar-2020 17:38:35
 		' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_2+"""" , ShowWindow, DontWaitUntilFinished
@@ -1613,6 +1661,7 @@ Sub Main
 				
 				' AHK FOR RUN VB6 CODE
 				' ---------------------------------------------------
+				' SET WSHShell = CreateObject("WScript.Shell")
 				' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 33-#0 Send To Date Of File In Front FileName.ahk""", ShowWindow, DontWaitUntilFinished
 				
 				' NEW WAY HERE
@@ -1626,6 +1675,7 @@ Sub Main
 	IF VBS_54_CAMERA_MOVE_COPY_FROM_MP_ROOT_TO_DROP_ONE_PATH_IMAGER=FALSE THEN
 		IF I_COUNT_1>=0 AND (MP4_BEEN_DONE=TRUE) THEN
 			VBS_54_CAMERA_MOVE_COPY_FROM_MP_ROOT_TO_DROP_ONE_PATH_IMAGER=TRUE
+			SET WSHShell = CreateObject("WScript.Shell")
 			WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER.VBS""", ShowWindow, DontWaitUntilFinished
 		END IF
 	END IF
@@ -1653,6 +1703,7 @@ Sub Main
 				' ---------------------------------------
 				' ---------------------------------------
 				' ---------------------------------------
+				'SET WSHShell = CreateObject("WScript.Shell")
 				'WSHShell.Run """"+FILE_NAME+"""" + " " + ""+PARAM+"" , ShowWindow, DontWaitUntilFinished
 				' ---------------------------------------
 				' ---------------------------------------
@@ -2142,6 +2193,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				FOLDER_PATH_DEST_VAR_2=PATH_FILE_VAR
 				' MSGBOX FOLDER_PATH_DEST_VAR_2
 				FOLDER_PATH_DEST_VAR_PARAM=REPLACE(FOLDER_PATH_DEST_VAR_2," ","*")
+				SET WSHShell = CreateObject("WScript.Shell")
 				WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
 				LOAD_EXPLORER_HAPPEN=TRUE
 			END IF
@@ -2155,6 +2207,7 @@ SUB PATH_SCANNER_COPY_CAMERA
 				FOLDER_PATH_DEST_VAR_2=PATH_FILE_VAR
 				' MSGBOX FOLDER_PATH_DEST_VAR_2
 				FOLDER_PATH_DEST_VAR_PARAM=REPLACE(FOLDER_PATH_DEST_VAR_2," ","*")
+				SET WSHShell = CreateObject("WScript.Shell")
 				WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 29 VBS 29-COPY CAMERA LOAD EXPLORER.VBS.AHK"""+ " """+FOLDER_PATH_DEST_VAR_PARAM+"""" , ShowWindow, DontWaitUntilFinished
 				LOAD_EXPLORER_HAPPEN=TRUE
 			END IF
@@ -3088,6 +3141,7 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 		ERR.CLEAR
 		' MSGBOX "DELETE -- " & FOLDER.PATH
 		FSO.DELETEFOLDER FOLDER.PATH, TRUE
+		I_DELETE_EMPTY=I_DELETE_EMPTY+1
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
 			ERROR_WITH_SOME = FOLDER.PATH & VBCRLF & ERR.DESCRIPTION
@@ -3186,6 +3240,8 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 	' ---------------------------------------------------------------
 	' WED 07-OCT-2020 01:22:36
 	' WED 07-OCT-2020 04:18:30 -- 2 HOUR 55 MINUTE
+	' EXTEND WORK
+	' WED 07-OCT-2020 06:24:00 -- 5 HOUR 00 MINUTE
 	' ---------------------------------------------------------------
 	' ANOTHER ROUTINE ADD FOR CAMERA AS PART NEW SYNC ROUTINE STUFF
 	' SOMETIME -- GOODSYNC WHEN NOT SAFEMODE OR SUPPOSE IS SAFEMODE
@@ -3268,9 +3324,12 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 			IF FSO.FOLDEREXISTS(ROOT_FOLDER & "\TEMP") = FALSE THEN 
 				CALL BUILDFULLPATH(ROOT_FOLDER & "\TEMP")
 			END IF
-			' MSGBOX ARRAY_SONY_FOLDER & "\TEMP\" & FILE_01_PART
-			FSO.MOVEFILE FILE.path, ARRAY_SONY_FOLDER & "\TEMP\" & FILE_01_PART
-			I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
+			
+			' MOVE THE FILE -- NOT \TEMP FOLDER DONE BEFORE
+			IF INSTR(FILE.path,"\TEMP\")=0 THEN 
+				FSO.MOVEFILE FILE.path, ARRAY_SONY_FOLDER & "\TEMP\" & FILE_01_PART
+				I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
+			END IF
 		END IF
 		END IF
     NEXT
