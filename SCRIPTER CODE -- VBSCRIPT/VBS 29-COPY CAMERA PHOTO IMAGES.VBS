@@ -226,7 +226,7 @@
 ' 0002 OF 0004 -------------------------------------
 ' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 ' 0003 OF 0004 -------------------------------------
-' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 ' 0004 OF 0004 -------------------------------------
 ' LINE 2800 AT END
 ' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
@@ -457,14 +457,18 @@ DIM ARRAY_PATH_02()
 REDIM ARRAY_PATH_01(10)
 REDIM ARRAY_PATH_02(10)
 I=0
-I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
-I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
+' -------------------------------------------------------------------
+' LOCAL COMPUTER MC-CARD
+' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
-I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
+' NETWORK COMPUTER MC-CARD
+' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
 I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
+' HDD
+' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
 ' -------------------------------------------------------------------
 ' AS HERE -- ABLE INCLUDE HDD BACK WHEN IGNORE OCCUPY SPACE 
@@ -488,7 +492,8 @@ I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC 
 ' -------------------------------------------------------------------
 '  "MC - HX60V"   BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE
 '  "MC - HX60V1"  BACKUP INDOOR MEDIA-CARD 64GB TRIPLE THREE NETWORK COMPUTER ON SHARE DRIVE  
-'  ALL THEM ARE __ V:\
+'  "MC - HX60V"   ANY USUAL DRIVE LETTER
+'  "MC - HX60V1"  ARE __ V:\
 ' -------------------------------------------------------------------
 REDIM PRESERVE ARRAY_PATH_01(I)
 REDIM PRESERVE ARRAY_PATH_02(I)
@@ -498,6 +503,8 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	ARRAY_PATH_02(I) =ARRAY_PATH_01(I)
 NEXT
 ' -------------------------------------------------------------------
+
+DIM RRRR
 
 DIM I_DELETE_FOUND_000
 DIM I_DELETE_EMPTY
@@ -542,13 +549,11 @@ DIM HIGH_DATE
 ' 0002 OF 0004 -------------------------------------
 ' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 ' 0003 OF 0004 -------------------------------------
-' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 ' 0004 OF 0004 -------------------------------------
 ' LINE 2800 AT END
 ' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
 ' -------------------------------------------------------------------
-
-
 
 
 FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
@@ -575,12 +580,23 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	LOW_DATE=NOW
 	HIGH_DATE=NOW-1000
 	' -------------------------------------------------------------------
-
 	I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
 	IF MID(I,2,1)=":" THEN 
 		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
 	END IF
 	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
+
+	' ---------------------------------------------------
+	' DO LATER AT RUN 
+	' TEST RUN
+	' ---------------------------------------------------
+	CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
+	' ---------------------------------------------------
+
+	MSGBOX RRRR
+
+
+	WSCRIPT.QUIT
  	
 	I_COUNT_HASH_TRASH_32_CHAR=0
 	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
@@ -615,7 +631,6 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 		SET WSHShell = Nothing
 	END IF 
-
 	
 	' ---------------------------------------------------------------
 	I_DELETE_EMPTY_COUNTER=0
@@ -631,11 +646,10 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 		SET WSHShell = Nothing
 	END IF
 	' ---------------------------------------------------------------
-
 	' ---------------------------------------------------
 	' DO LATER AT RUN 
 	' ---------------------------------------------------
-	' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+	' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------
 NEXT
 
@@ -2247,6 +2261,7 @@ END SUB
 
 SUB GET_DRIVE_SPACE(DRVPATH)
 	SET D = FSO.GETDRIVE(DRVPATH)
+	MSGBOX "SET D = FSO.GETDRIVE(DRVPATH)  " & DRVPATH & VBCR & D.VOLUMENAME
 	VOLUME_NAME_STRING_=D.VOLUMENAME
 	DRIVE_FREE_SPACE_GB=CDbl(D.FREESPACE)/1024/1024/1024
 	DRIVE_CAPACITY___GB=CDbl(D.TOTALSIZE)/1024/1024/1024
@@ -2365,33 +2380,21 @@ Dim volumes, volume
 End Function
 
 
+
+
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
+Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
+
 	I_COUNT=0
+	I_COUNT_DEL=0
 	
 	MSGBOX_I1=""
 	MSGBOX_I2=""
 
-	' MSGBOX "IF FSO.FolderExists(ARRAY_SONY_FOLDER)=FALSE THEN " & VBCR & ARRAY_SONY_FOLDER
-
-	IF FSO.FolderExists(ARRAY_SONY_FOLDER)=FALSE THEN 
-		EXIT SUB
-	END IF
-
-    ' MSGBOX "0004 DIM ODICT_TRIM_THE_DATE"
-
-	Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
-    ' CALL RECURSIVE SUB
-    FINDWANTEDFILE_TRIM_THE_DATE(FSO.GetFolder(ARRAY_SONY_FOLDER))
-    ' DISPLAY ALL FIND FROM DICTIONARY OBJECT
+	CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
 	
-	' MSGBOX "003 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & ARRAY_SONY_FOLDER
-	
-	I_COUNT_DEL=0
-	
-	CALL DISPLAYFIND_TRIM_THE_DATE
-	
+		
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
 		
 		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_SONY_FOLDER
@@ -2430,107 +2433,215 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		SET WSHShell = Nothing
 		
 	END IF
-    ' Set ODICT_TRIM_THE_DATE = Nothing
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
-    On Error Resume NEXT
-    Dim oFDR, oItem, file, ODICT_SET
-    ' CHECK IF WANTED FILES ARE IN THIS FOLDER
-    For Each file In sFolder.Files
+SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
+
+	DIM SUBFOLDER
+	DIM FILE
+	ON ERROR RESUME NEXT
+	
+	
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		' PERFECT -- FOLDER OBJECT 
+		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
+		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
+	END IF
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		' Set FOLDER = NOTHING
+		Set FOLDER = FSO.GETFOLDER(FOLDER)
+		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
+		
+		' EXIT SUB
+	END IF
+	' ---------------------------------------------------------------
+
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		MSGBOX "TEST " & FOLDER
+	END IF
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		TTTT=FOLDER.PATH & VBCR
+		MSGBOX "TRRT " & TTTT
+	END IF
+	IF INSTR(RRRR,TTTT)>0 THEN MSGBOX "DUPE " & TTTT
+	RRRR=RRRR+TTTT
+
+
+	' ---------------------------------------------------------------
+    ' RECURSE INTO IT'S SUB FOLDERS
+	' ---------------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
+		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
+    NEXT
+
+END SUB
+
+
+
+
+SUB HHHH
+
+	' ---------------------------------------------------------------
+	' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
+	' FILE AND SUB-FOLDER --- NICELY PRESENTABLE
+	' EASY ENTRY EITHER STRING FOLDER NAME OR OBJECT
+	' NOT EASY FINDER INTERNET PLUS SWEET AND SIMPLE
+	' ---------------------------------------------------------------
+	' WED 07-OCT-2020 01:22:36
+	' WED 07-OCT-2020 04:18:30 -- 2 HOUR 55 MINUTE
+	' EXTEND WORK
+	' WED 07-OCT-2020 06:24:00 -- 5 HOUR 00 MINUTE
+	' ---------------------------------------------------------------
+	' ANOTHER ROUTINE ADD FOR CAMERA AS PART NEW SYNC ROUTINE STUFF
+	' SOMETIME -- GOODSYNC WHEN NOT SAFEMODE OR SUPPOSE IS SAFEMODE
+	' FILE TRASH HASH LEFT BEHIND FROM ABORT COPY
+	' THE HASH FILE NAME ARE 32 CHAR LONG
+	' EXAMPLE HERE
+	' \1d6c1d40497153e04ffd0ea3f9dbb124.JPG
+	' WE KILL THEM WHEN ALL LOWERCASE AND NUMBER LEN(32)
+	' ---------------------------------------------------------------
+	' AND BETTER SUBROUTINE FILE SUB-FOLDER ONE SHOT AND! 
+	' ONE ROUTINE CODE -- SIMPLICITY TO RUNNER
+	' NONE FOLDER COMPLICATE GET FROM API -- USE STRING PATH
+	' EASY LAY DOWN
+	' ---------------------------------------------------------------
+	' UNLESS WANT FILE SCAN DOUBLE NEST IN THE SUB FOLDER ROUTINE
+	' ---------------------------------------------------------------
+	' SOME PEOPLE USER 3 ROUTINE FOR THE PART HERE
+	' ONE TO CALL 
+	' ONE TO COLLECT STRING ARRAY
+	' ANOTHER TO DEAL WITH THEM
+	' ---------------------------------------------------------------
+	' I FIND DELETE WORK WELL IT NOT MESS THE FIND OVER TO DELETE 
+	' WHILE GO
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	' DIM SUBFOLDER
+	 ' DIM FILE
+	ON ERROR RESUME NEXT
+	
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		' PERFECT -- FOLDER OBJECT 
+		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
+		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
+	END IF
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		' Set FOLDER = NOTHING
+		Set FOLDER = FSO.GETFOLDER(FOLDER)
+		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
+		MSGBOX "KKKKKLLL  " & FOLDER.PATH
+		
+		EXIT SUB
+	END IF
+	' ---------------------------------------------------------------
+
+	
+	FOR EACH FILE IN FOLDER.FILES
 		STR_F="-- .JPG .MP4" 
 		PATH_FIND_01="\DCIM"
 		PATH_FIND_02="\MP_ROOT"
 		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
 		PATH_FIND_RESULT=FALSE
 		
-		' MSGBOX "002 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "FINDWANTEDFILE_TRIM_THE_DATE" &  VBCR & ARRAY_SONY_FOLDER & VBCR & FILE.path
+		' ----------------------------------------------
+		' NOT GO IN DIRECTORY THAT DON;T HAVE ACCESS
+		' LIKE \SYSTEM INFORMATION FOLDER FROM ROOT
+		' OR BOMB OUT OF SCAN
+		' SAFE NOT PROCESS ANY INTRICATE INFO ABOUT THEM
+		' ----------------------------------------------
+		' ----------------------------------------------
 		
 		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
 		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
 		IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
-		FILEMODDATE=0
-		ERR.CLEAR
-		SET F = FSO.GETFILE(FILE.path)
-			FILEMODDATE = F.DATELASTMODIFIED
-		SET F=NOTHING
-		IF ERR.NUMBER>0 THEN FILEMODDATE=0
-		IF FILEMODDATE=0 THEN 
-			MSGBOX "ERROR RESULT GET DATE"
-			PATH_FIND_RESULT=FALSE
-		END IF
-		IF PATH_FIND_RESULT=TRUE THEN 
-			I_COUNT_TOTAL=I_COUNT_TOTAL+1
-		END IF
 		
-		' DO HERE METHOD DAY GONE
-		' -----------------------------------------------------------
-		NOT_DO_OCCUPY_SPACE=TRUE
-		DAY_BACK_TRIMMER_COUNTER=110
-		DAY_BACK_TRIMMER=NOW-DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
 		IF PATH_FIND_RESULT=TRUE THEN 
-			IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
+			ON ERROR RESUME NEXT
+			
+			FILEMODDATE=0
+			ERR.CLEAR
+			SET F = FSO.GETFILE(FILE.path)
+				FILEMODDATE = F.DATELASTMODIFIED
+			SET F=NOTHING
+			IF ERR.NUMBER>0 THEN FILEMODDATE=0
+			IF FILEMODDATE=0 THEN 
+				MSGBOX "ERROR RESULT GET DATE"
 				PATH_FIND_RESULT=FALSE
 			END IF
-		END IF
-		IF PATH_FIND_RESULT=TRUE THEN 
-			ODICT_TRIM_THE_DATE.Add FILE.path, file
-			IF FILEMODDATE>HIGH_DATE THEN 
-				HIGH_DATE=FILEMODDATE
-				' STRIP THE FRONT PART PATH TOO LONG 
-				' ---------------------------------------------------
-				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
-				MSGBOX_I2=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- HIGH"
-				MSGBOX_I2=UCASE(MSGBOX_I2)
-			END IF
-			IF FILEMODDATE<LOW_DATE THEN 
-				LOW_DATE=FILEMODDATE
-				' STRIP THE FRONT PART PATH TOO LONG 
-				' ---------------------------------------------------
-				FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
-				MSGBOX_I1=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- LOW" 
-				MSGBOX_I1=UCASE(MSGBOX_I1)
-			END IF
-			' MAXIMUM HIGH DATE WHEN WANT
-			' AND LOW
-			' RATHER THAN DATE SPLITTER
-			' -------------------------------------------------------
-		END IF
-    NEXT
-    ' RECURSE INTO IT'S SUB FOLDERS
-    For Each oFDR In sFolder.SubFolders
-        FINDWANTEDFILE_TRIM_THE_DATE FSO.GetFolder(oFDR.Path)
-    NEXT
-End Sub
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-Sub DISPLAYFIND_TRIM_THE_DATE()
-    Dim oKeys, oKey
-    oKeys = ODICT_SET.Keys
-    For Each oKey In oKeys
-		ON ERROR RESUME NEXT
-			GOGO=0
-			ERR.CLEAR
-			IF FSO.FILEEXISTS(oKey)=TRUE THEN GOGO=1
-			IF ERR.NUMBER>0 THEN              GOGO=0
-			' -----------------------------------------------------------
-			' DO AR METHOD FREESPACE
-			' IN NEXT ROUTINE
-			' -----------------------------------------------------------
-			' MSGBOX "004 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "DISPLAYFIND_TRIM_THE_DATE()" &  VBCR & ARRAY_SONY_FOLDER
 
-
-			IF GET_SPACE_STRING="" THEN
-				GET_SPACE_STRING="IN IT"
-				' MSGBOX "111 " & VBCR & GET_SPACE_STRING
-				' -------------------------------------------------------
-				DRVPATH_VAR=MID(ARRAY_SONY_FOLDER,1,2)
-				IF MID(ARRAY_SONY_FOLDER,1,2)="\\" THEN 
-					DRVPATH_VAR=ARRAY_SONY_FOLDER
+			I_COUNT_TOTAL=I_COUNT_TOTAL+1
+			
+			' -----------------------------------------------------------
+			' DO AR METHOD DAY GONE
+			' -----------------------------------------------------------
+			' NOT BOTHER SPACE AT MINUTE
+			' INDICATE BY -- NOT_DO_OCCUPY_SPACE
+			' -----------------------------------------------------------
+			NOT_DO_OCCUPY_SPACE=TRUE
+			' -----------------------------------------------------------
+			DAY_BACK_TRIMMER_COUNTER=110
+			DAY_BACK_TRIMMER=NOW-DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
+			IF PATH_FIND_RESULT=TRUE THEN 
+				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
+					PATH_FIND_RESULT=FALSE
 				END IF
+			END IF
+			IF PATH_FIND_RESULT=TRUE THEN 
+				IF FILEMODDATE>HIGH_DATE THEN 
+					HIGH_DATE=FILEMODDATE
+					' STRIP THE FRONT PART PATH TOO LONG 
+					' ---------------------------------------------------
+					FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
+					MSGBOX_I2=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- HIGH"
+					MSGBOX_I2=UCASE(MSGBOX_I2)
+				END IF
+				IF FILEMODDATE<LOW_DATE THEN 
+					LOW_DATE=FILEMODDATE
+					' STRIP THE FRONT PART PATH TOO LONG 
+					' ---------------------------------------------------
+					FILE_PATH_TWO_LINE=REPLACE(FILE.PATH,ARRAY_SONY_FOLDER,"")
+					MSGBOX_I1=FILE_PATH_TWO_LINE & VBCR & FILEMODDATE & " ---- LOW" 
+					MSGBOX_I1=UCASE(MSGBOX_I1)
+				END IF
+				' MAXIMUM HIGH DATE WHEN WANT
+				' AND LOW
+				' RATHER THAN DATE SPLITTER
+				' -------------------------------------------------------
+			END IF
+		
+			ON ERROR RESUME NEXT
+			ERR.CLEAR
+			' -----------------------------------------------------------
+			' GET BEGIN DRIVE SPACE
+			' -----------------------------------------------------------
+			IF GET_SPACE_STRING="" THEN
+				GET_SPACE_STRING="IN IT" ' -- GET SPACE ONCE AND AT END
+				' -------------------------------------------------------
+				' WHEN RUNNER HAVE TO ALL TIME TO SIZE WORKER
+				' -------------------------------------------------------
+				' -------------------------------------------------------
+				' DRVPATH_VAR=MID(ARRAY_SONY_FOLDER,1,2)
+				' IF MID(ARRAY_SONY_FOLDER,1,2)="\\" THEN 
+					' DRVPATH_VAR=ARRAY_SONY_FOLDER
+				' END IF
 
+				' ----------------------------------
+				' FULL PATH OR TRIM 1ST 3 CHAR ABOVE
+				' MODIFY
+				' ----------------------------------
+				DRVPATH_VAR=ARRAY_SONY_FOLDER
+
+				' -------------------------------------------------------
+				' GET SPACE DATA
+				' -------------------------------------------------------
 				DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
+				' -------------------------------------------------------
+				FREE_SPACE_SET_TO_EQUAL=20
 				IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
 					FREE_SPACE_SET_TO_EQUAL=20 ' GB
 				END IF
@@ -2541,38 +2652,56 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 				' SET DATE MORE TRIM
 				' -------------------------------------------------------
 			END IF
-
+			' -----------------------------------------------------------
+			' NOT BOTHER REPEATER GET SPACE ONLY DO AT ENDER
+			' -----------------------------------------------------------
 			IF GET_SPACE_STRING<>"" THEN 
-				CALL GET_DRIVE_SPACE(DRVPATH_VAR)
+				' CALL GET_DRIVE_SPACE(DRVPATH_VAR)
 			END IF
-
-			' ---------------------------------------------------
+			' -----------------------------------------------------------
 			' MSGBOX DRIVE_FREE_SPACE_GB & FREE_SPACE_SET_TO_EQUAL & "GB"
-			' ---------------------------------------------------
+			' -----------------------------------------------------------
+			' NOT BOTHER SPACE AT MINUTE
+			' INDICATE BY -- NOT_DO_OCCUPY_SPACE
+			' -----------------------------------------------------------
 			IF NOT_DO_OCCUPY_SPACE <> TRUE THEN
 				IF DRIVE_FREE_SPACE_GB > FREE_SPACE_SET_TO_EQUAL THEN 
-					GOGO=0
+					' GOGO=0
 				END IF
 			END IF
-
-			' -------------------------------------------------------
+			' -----------------------------------------------------------
+			' -----------------------------------------------------------
 			' EXAMPLE ON -- FORMATNUMBER
 			' FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) GIVE 2 DECIMAL PLACE 00.00
-			' -------------------------------------------------------
+			' -----------------------------------------------------------
 			' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
-			' -------------------------------------------------------
-
+			' -----------------------------------------------------------
 			IF GOGO=1 THEN 
-				' MSGBOX OKEY
-				FSO.DeleteFile(oKey) 
+				MSGBOX "XXXYYY " & FILE.path
+				FSO.DeleteFile(FILE.path) 
 				I_COUNT_DEL=I_COUNT_DEL+1
 			END IF
-		ON ERROR GOTO 0
-		' -----------------------------------------------------------
+			ON ERROR GOTO 0
+			' -----------------------------------------------------------
+		END IF
+	NEXT
+
+	' ---------------------------------------------------------------
+    ' RECURSE INTO IT'S SUB FOLDERS
+	' ---------------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
+		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
     NEXT
+	
+	' DONE AND EACH FOLDER 
+	CALL GET_DRIVE_SPACE(DRVPATH_VAR)
+	' ---------------------------------------------------------------
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
+
+
+
 
 
 
@@ -3419,7 +3548,7 @@ SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 
 		' ---------------------------------------------------
 		' 0003 OF 0003
-		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+		CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		' ---------------------------------------------------
 		' 0002 OF 0003
 		CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
@@ -3436,7 +3565,7 @@ END SUB
 ' 0002 OF 0004 -------------------------------------
 ' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 ' 0003 OF 0004 -------------------------------------
-' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 ' 0004 OF 0004 -------------------------------------
 ' LINE 2800 AT END
 ' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
