@@ -301,8 +301,6 @@
 ' -------------------------------------------------------------------
 
 
-
-
 DIM ORIGINAL_PATH
 DIM EXPLORER_COUNTING
 DIM LOAD_EXPLORER_HAPPEN
@@ -331,9 +329,8 @@ NEXT
 ' MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(iMyPID),vbMsgBoxSetForeground,Wscript.ScriptName 
 ' -------------------------------------------------------------------
 
-
-Set args = Wscript.Arguments
-For Each arg In args
+SET args = Wscript.Arguments
+FOR Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
 NEXT
 
@@ -363,7 +360,6 @@ IF INSTR(Wscript_Arguments,"NOT_SHOW")>0 THEN ' ---- "RUN_FROM_GOODSYNC"
 END IF
 
 
-
 Dim strScriptName
 Dim objProcess
 
@@ -391,7 +387,6 @@ FOR EACH objProcess IN colProcesses
 			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
 			' HERE SCRIPT WHEN START
 			' -------------------------------------------------------
-			
 			IF iMyPID<>PID_Script AND PID_Script>0 THEN 
 			    ' MSGBOX CSTR(iMyPID) + VBCRLF + CSTR(PID_Script)
 				objProcess.Terminate() 
@@ -404,8 +399,6 @@ NEXT
 
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
-
-
                              
 							 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -460,7 +453,6 @@ I=0
 ' -------------------------------------------------------------------
 ' LOCAL COMPUTER MC-CARD
 ' -------------------------------------------------------------------
-I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 ' NETWORK COMPUTER MC-CARD
@@ -505,6 +497,7 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 NEXT
 ' -------------------------------------------------------------------
 
+DIM DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE
 DIM COUNTER_RR
 
 DIM DEL_SCRIPT_DATE_GONE
@@ -594,10 +587,7 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------
 
-	MSGBOX COUNTER_RR
-
-
-	WSCRIPT.QUIT
+	' WSCRIPT.QUIT
  	
 	I_COUNT_HASH_TRASH_32_CHAR=0
 	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
@@ -2335,13 +2325,6 @@ End Function
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
-
-	' -------------------------------------------------------
-	' 0001 OF 0002 -- GET FREE SPACE
-	' -------------------------------------------------------
-	FREE_SPACE_SET_TO_EQUAL=20
-	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
-
 	' ---------------------------------------------------------------
 	' VERIFY WHAT DELETE BEFORE -- HOW MANY
 	' ---------------------------------------------------------------
@@ -2349,29 +2332,23 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------------------
 	I_COUNT=0
 	I_COUNT_DEL=0
-	MSGBOX_I1=""
-	MSGBOX_I2=""
 	I_COUNT_TOTAL=0
-	' ---------------------------------------------------------------
-	CALL OBTAIN_CONFIRM_WITH_AR_DELETE_VALUE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------------------
-	' -------------------------------------------------------
-	I_COUNT=0
-	I_COUNT_DEL=0
 	MSGBOX_I1=""
 	MSGBOX_I2=""
 	FREE_SPACE_SET_TO_EQUAL=20
-	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
-	' -------------------------------------------------------
-
-	' -----------------------------------------------------------
+	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER) ' BEFORE NUMBER
+	' ---------------------------------------------------------------
+	DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE="GET_FIND_INFO"
+	CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------------------
+	CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER) ' AFTER
 	' ---------------------------------------------------------------
 	IF I_COUNT_DEL>0 THEN 
 		I=""
 		I=I+ "FOLDER -- " & VBCR 
 		I=I+ ARRAY_SONY_FOLDER & VBCR 
 		I=I+ "FILE TO DELETE" & VBCR 
-		I=I+ I_COUNT_DEL & VBCR 
+		I=I+ CSTR(I_COUNT_DEL) & VBCR 
 		I=I+ "----" & VBCR 
 		I=I+ "HIGH_DATE  " & HIGH_DATE & VBCR 
 		I=I+ "LOW_DATE   " & LOW_DATE & VBCR 
@@ -2384,15 +2361,21 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		MSGBOX TRIM(I)
 	END IF
 	' ---------------------------------------------------------------
-	MSGBOX "STOP"
 	
 	' ---------------------------------------------------------------
 	' CONFIRM AND GO
 	' ---------------------------------------------------------------
 	' 0002 OF 0002
 	' ---------------------------------------------------------------
-	I_COUNT_TOTAL=0
-	CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
+	IF I_COUNT_DEL>0 THEN 
+		I_COUNT=0
+		I_COUNT_DEL=0
+		I_COUNT_TOTAL=0
+		MSGBOX_I1=""
+		MSGBOX_I2=""
+		DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE=""
+		CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
+	END IF
 
 	' -------------------------------------------------------
 	' 0002 OF 0002 -- GET FREE SPACE
@@ -2403,7 +2386,6 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
 	' -----------------------------------------------------------
 
-		
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
 		
 		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_SONY_FOLDER
@@ -2438,50 +2420,49 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "MESSENGER BOX GONE IN 10 SECOND"
 		DIM WSHShell
 		SET WSHShell = CreateObject("WScript.Shell")
-		RESULT = WSHSHELL.POPUP(I, 10, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		RESULT = WSHSHELL.POPUP(I, 40, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 		SET WSHShell = Nothing
 		
 	END IF
 End Sub
 
 
-
+' ---------------------------------------------------------------
+' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
+' FILE AND SUB-FOLDER --- NICELY PRESENTABLE
+' EASY ENTRY EITHER STRING FOLDER NAME OR OBJECT
+' NOT EASY FINDER INTERNET PLUS SWEET AND SIMPLE
+' ---------------------------------------------------------------
+' WED 07-OCT-2020 01:22:36
+' WED 07-OCT-2020 04:18:30 -- 2 HOUR 55 MINUTE
+' EXTEND WORK
+' WED 07-OCT-2020 06:24:00 -- 5 HOUR 00 MINUTE
+' ---------------------------------------------------------------
+' ANOTHER ROUTINE ADD FOR CAMERA AS PART NEW SYNC ROUTINE STUFF
+' SOMETIME -- GOODSYNC WHEN NOT SAFEMODE OR SUPPOSE IS SAFEMODE
+' FILE TRASH HASH LEFT BEHIND FROM ABORT COPY
+' THE HASH FILE NAME ARE 32 CHAR LONG
+' EXAMPLE HERE
+' \1d6c1d40497153e04ffd0ea3f9dbb124.JPG
+' WE KILL THEM WHEN ALL LOWERCASE AND NUMBER LEN(32)
+' ---------------------------------------------------------------
+' AND BETTER SUBROUTINE FILE SUB-FOLDER ONE SHOT AND! 
+' ONE ROUTINE CODE -- SIMPLICITY TO RUNNER
+' NONE FOLDER COMPLICATE GET FROM API -- USE STRING PATH
+' EASY LAY DOWN
+' ---------------------------------------------------------------
+' UNLESS WANT FILE SCAN DOUBLE NEST IN THE SUB FOLDER ROUTINE
+' ---------------------------------------------------------------
+' SOME PEOPLE USER 3 ROUTINE FOR THE PART HERE
+' ONE TO CALL 
+' ONE TO COLLECT STRING ARRAY
+' ANOTHER TO DEAL WITH THEM
+' ---------------------------------------------------------------
+' I FIND DELETE WORK WELL IT NOT MESS THE FIND OVER TO DELETE 
+' WHILE GO
+' ---------------------------------------------------------------
+' ---------------------------------------------------------------
 SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
-	' ---------------------------------------------------------------
-	' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
-	' FILE AND SUB-FOLDER --- NICELY PRESENTABLE
-	' EASY ENTRY EITHER STRING FOLDER NAME OR OBJECT
-	' NOT EASY FINDER INTERNET PLUS SWEET AND SIMPLE
-	' ---------------------------------------------------------------
-	' WED 07-OCT-2020 01:22:36
-	' WED 07-OCT-2020 04:18:30 -- 2 HOUR 55 MINUTE
-	' EXTEND WORK
-	' WED 07-OCT-2020 06:24:00 -- 5 HOUR 00 MINUTE
-	' ---------------------------------------------------------------
-	' ANOTHER ROUTINE ADD FOR CAMERA AS PART NEW SYNC ROUTINE STUFF
-	' SOMETIME -- GOODSYNC WHEN NOT SAFEMODE OR SUPPOSE IS SAFEMODE
-	' FILE TRASH HASH LEFT BEHIND FROM ABORT COPY
-	' THE HASH FILE NAME ARE 32 CHAR LONG
-	' EXAMPLE HERE
-	' \1d6c1d40497153e04ffd0ea3f9dbb124.JPG
-	' WE KILL THEM WHEN ALL LOWERCASE AND NUMBER LEN(32)
-	' ---------------------------------------------------------------
-	' AND BETTER SUBROUTINE FILE SUB-FOLDER ONE SHOT AND! 
-	' ONE ROUTINE CODE -- SIMPLICITY TO RUNNER
-	' NONE FOLDER COMPLICATE GET FROM API -- USE STRING PATH
-	' EASY LAY DOWN
-	' ---------------------------------------------------------------
-	' UNLESS WANT FILE SCAN DOUBLE NEST IN THE SUB FOLDER ROUTINE
-	' ---------------------------------------------------------------
-	' SOME PEOPLE USER 3 ROUTINE FOR THE PART HERE
-	' ONE TO CALL 
-	' ONE TO COLLECT STRING ARRAY
-	' ANOTHER TO DEAL WITH THEM
-	' ---------------------------------------------------------------
-	' I FIND DELETE WORK WELL IT NOT MESS THE FIND OVER TO DELETE 
-	' WHILE GO
-	' ---------------------------------------------------------------
-	' ---------------------------------------------------------------
 	DIM SUBFOLDER
 	DIM FILE
 	ON ERROR RESUME NEXT
@@ -2531,7 +2512,7 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			' -------------------------------------------------------
 			' -------------------------------------------------------
 			DAY_BACK_TRIMMER_COUNTER=300  ' DAY -- LESS NUMBER MORE IN FUTURE
-			DELETE_LIMITITOR=100
+			DELETE_LIMITITOR=200
 			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER 
 			IF PATH_FIND_RESULT=TRUE THEN 
 				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
@@ -2570,12 +2551,22 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			ERR.CLEAR
 
 			IF PATH_FIND_RESULT=TRUE THEN 
-				IF DELETE_LIMITITOR<=I_COUNT_DE THEN 
-					' ---------------------------------------------------
-					' MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE & VBCR & "HIGH_DATE  " & HIGH_DATE & VBCR & "LOW_DATE  " & LOW_DATE 
-					' ---------------------------------------------------
-					' ---------------------------------------------------
-					' FSO.DeleteFile(FILE.path) 
+				IF DELETE_LIMITITOR<=I_COUNT_DEL THEN 
+					' MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE & VBCR & "HIGH_DATE  " & HIGH_DATE & VBCR & "LOW_DATE  " & LOW_DATE 					' ---------------------------------------------------
+					IF DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE<>"GET_FIND_INFO" THEN 
+						IF I_COUNT_DEL=0 THEN 
+							I=""
+							I=I+"1ST TO DELETE _ NONE QUESTIN AFTER" & VBCR 
+							I=I+FILE.PATH & VBCR 
+							I=I+FILEMODDATE & VBCR 
+							I=I+HIGH_DATE & VBCR
+							I=I+LOW_DATE & VBCR
+							I=I+"HIGH_DATE  " & HIGH_DATE & VBCR
+							I=I+"LOW_DATE   " & LOW_DATE 
+							MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
+						END IF
+						FSO.DeleteFile(FILE.path) 
+					END IF
 					' ---------------------------------------------------
 				END IF
 				I_COUNT_DEL=I_COUNT_DEL+1
