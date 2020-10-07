@@ -427,12 +427,16 @@ I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
 I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
+I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
 ' -------------------------------------------------------------------
+' AS HERE -- ABLE INCLUDE HDD BACK WHEN IGNORE OCCUPY SPACE 
+' ALL DATE NOW BE EXACT -- FOR DELETE OFF END
+' -------------------------------------------------------------------
+' CROSS HERE OFF
 ' HERE IS HARD DRIVE STORE AND NOT REQUIRE SPACE CHECKER
 ' MORE IN-LINE TALK COMPARE TO SD CARD
 ' TEMP PUT ON HOLD
 ' -------------------------------------------------------------------
-' I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
 ' -------------------------------------------------------------------
 ' WHEN MAIN MC-CARD FOR CAMERA IN
 ' NOT OPERATION COMPUTER TAKEN AWAY OF FOUND.???
@@ -456,7 +460,9 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	ARRAY_PATH_02(I) =ARRAY_PATH_01(I)
 NEXT
 ' -------------------------------------------------------------------
+
 DIM VOLUME_NAME_STRING_
+DIM NOT_DO_OCCUPY_SPACE
 DIM DAY_BACK_TRIMMER_COUNTER
 DIM DRIVE_FREE_SPACE_GB_BEGIN
 DIM DRVPATH_VAR
@@ -474,6 +480,7 @@ DIM ODICT_TRIM_THE_DATE
 DIM LOW_DATE
 DIM HIGH_DATE
 ' -------------------------------------------------------------------
+' DIM DAY_BACK_TRIMMER_COUNTER ' =102 ---- HERE LATER ON -- DAY COUNT BACK
 ' -------------------------------------------------------------------
 ' SET ABOVE FOR CODE ROUTINE 
 ' -------------------------------------------------------------------
@@ -504,7 +511,6 @@ DIM HIGH_DATE
 ' SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 	FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 		VOLUME_NAME_STRING_=""
-		DAY_BACK_TRIMMER_COUNTER=0
 		DRIVE_FREE_SPACE_GB_BEGIN=0
 		DRVPATH_VAR=""
 		GET_SPACE_STRING=""
@@ -2351,7 +2357,8 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 		
 		' DO HERE METHOD DAY GONE
 		' -----------------------------------------------------------
-		DAY_BACK_TRIMMER_COUNTER=120
+		NOT_DO_OCCUPY_SPACE=TRUE
+		DAY_BACK_TRIMMER_COUNTER=110
 		DAY_BACK_TRIMMER=NOW-DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
 		IF PATH_FIND_RESULT=TRUE THEN 
 			IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
@@ -2436,8 +2443,10 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 			' ---------------------------------------------------
 			' MSGBOX DRIVE_FREE_SPACE_GB & FREE_SPACE_SET_TO_EQUAL & "GB"
 			' ---------------------------------------------------
-			IF DRIVE_FREE_SPACE_GB>FREE_SPACE_SET_TO_EQUAL THEN 
-				GOGO=0
+			IF NOT_DO_OCCUPY_SPACE <> TRUE THEN
+				IF DRIVE_FREE_SPACE_GB > FREE_SPACE_SET_TO_EQUAL THEN 
+					GOGO=0
+				END IF
 			END IF
 
 			' -------------------------------------------------------
