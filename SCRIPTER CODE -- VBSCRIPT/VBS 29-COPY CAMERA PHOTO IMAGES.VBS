@@ -259,6 +259,44 @@
 ' Mon 05-Oct-2020 17:52:00 -- 13 HOUR 00 MINUTE
 ' -------------------------------------------------------------------
 
+' -------------------------------------------------------------------
+' SESSION __ 10
+' -------------------------------------------------------------------
+' SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
+' FILE AND SUB-FOLDER --- NICELY PRESENTABLE
+' EASY ENTRY EITHER STRING FOLDER NAME OR OBJECT
+' NOT EASY FINDER INTERNET PLUS SWEET AND SIMPLE
+' -------------------------------------------------------------------
+' WED 07-OCT-2020 01:22:36
+' WED 07-OCT-2020 04:18:30 -- 2 HOUR 55 MINUTE
+' -------------------------------------------------------------------
+' ANOTHER ROUTINE ADD FOR CAMERA AS PART NEW SYNC ROUTINE STUFF
+' SOMETIME -- GOODSYNC WHEN NOT SAFEMODE OR SUPPOSE IS SAFEMODE
+' FILE TRASH HASH LEFT BEHIND FROM ABORT COPY
+' THE HASH FILE NAME ARE 32 CHAR LONG
+' EXAMPLE HERE
+' \1d6c1d40497153e04ffd0ea3f9dbb124.JPG
+' WE KILL THEM WHEN ALL LOWERCASE AND NUMBER LEN(32)
+' -------------------------------------------------------------------
+' AND BETTER SUBROUTINE FILE SUB-FOLDER ONE SHOT AND! 
+' ONE ROUTINE CODE -- SIMPLICITY TO RUNNER
+' NONE FOLDER COMPLICATE GET FROM API -- USE STRING PATH
+' EASY LAY DOWN
+' -------------------------------------------------------------------
+' UNLESS WANT FILE SCAN DOUBLE NEST IN THE SUB FOLDER ROUTINE
+' -------------------------------------------------------------------
+' SOME PEOPLE USER 3 ROUTINE FOR THE PART HERE
+' ONE TO CALL 
+' ONE TO COLLECT STRING ARRAY
+' ANOTHER TO DEAL WITH THEM
+' -------------------------------------------------------------------
+' I FIND DELETE WORK WELL IT NOT MESS THE FIND OVER TO DELETE 
+' WHILE GO
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 
 
@@ -362,17 +400,8 @@ FOR EACH objProcess IN colProcesses
 NEXT
 
 
-DIM I2MSG
-DIM I_COUNT_HASH_TRASH_32_CHAR
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
-CALL FIND_HASH_TRASH_32_CHAR("\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera\")
-
-' MSGBOX I2MSG
-MSGBOX I_COUNT_HASH_TRASH_32_CHAR
-
-
-WSCRIPT.QUIT
 
 
                              
@@ -424,6 +453,7 @@ DIM ARRAY_PATH_02()
 REDIM ARRAY_PATH_01(10)
 REDIM ARRAY_PATH_02(10)
 I=0
+I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
@@ -463,6 +493,7 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 NEXT
 ' -------------------------------------------------------------------
 
+DIM I_COUNT_HASH_TRASH_32_CHAR
 DIM VOLUME_NAME_STRING_
 DIM NOT_DO_OCCUPY_SPACE
 DIM DAY_BACK_TRIMMER_COUNTER
@@ -512,8 +543,9 @@ DIM HIGH_DATE
 
 
 
-' SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
 FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
+
+	I_COUNT_HASH_TRASH_32_CHAR=0
 	VOLUME_NAME_STRING_=""
 	DRIVE_FREE_SPACE_GB_BEGIN=0
 	DRVPATH_VAR=""
@@ -528,7 +560,6 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	MSGBOX_I1=""
 	MSGBOX_I2=""
 	' REDIM ODICT_TRIM_THE_DATE
-	' MSGBOX "0002 DIM ODICT_TRIM_THE_DATE"
 	' -------------------------------------------------------------------
 	LOW_DATE=NOW
 	HIGH_DATE=NOW-1000
@@ -543,20 +574,22 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
 	' ---------------------------------------------------
 	' 0001 OF 0003
-	'CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+	' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
 	' ---------------------------------------------------
 	END IF
 	' ---------------------------------------------------
 	' 0002 OF 0003
-	'CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-	' 0003 OF 0003
+	' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------
 	
-	CALL FIND_FILE_HASH_TRASH_32_CHAR
+	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
+	CALL DELETE_EMPTY_FOLDER    (ARRAY_SONY_FOLDER)
 	
 	' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------
 NEXT
 
+WSCRIPT.QUIT
 
 
 ' ---------------------------------
@@ -3135,10 +3168,37 @@ End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
+	' ---------------------------------------------------------------
 	' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
 	' FILE AND SUB-FOLDER --- NICELY PRESENTABLE
 	' EASY ENTRY EITHER STRING FOLDER NAME OR OBJECT
 	' NOT EASY FINDER INTERNET PLUS SWEET AND SIMPLE
+	' ---------------------------------------------------------------
+	' WED 07-OCT-2020 01:22:36
+	' WED 07-OCT-2020 04:18:30 -- 2 HOUR 55 MINUTE
+	' ---------------------------------------------------------------
+	' ANOTHER ROUTINE ADD FOR CAMERA AS PART NEW SYNC ROUTINE STUFF
+	' SOMETIME -- GOODSYNC WHEN NOT SAFEMODE OR SUPPOSE IS SAFEMODE
+	' FILE TRASH HASH LEFT BEHIND FROM ABORT COPY
+	' THE HASH FILE NAME ARE 32 CHAR LONG
+	' EXAMPLE HERE
+	' \1d6c1d40497153e04ffd0ea3f9dbb124.JPG
+	' WE KILL THEM WHEN ALL LOWERCASE AND NUMBER LEN(32)
+	' ---------------------------------------------------------------
+	' AND BETTER SUBROUTINE FILE SUB-FOLDER ONE SHOT AND! 
+	' ONE ROUTINE CODE -- SIMPLICITY TO RUNNER
+	' NONE FOLDER COMPLICATE GET FROM API -- USE STRING PATH
+	' EASY LAY DOWN
+	' ---------------------------------------------------------------
+	' UNLESS WANT FILE SCAN DOUBLE NEST IN THE SUB FOLDER ROUTINE
+	' ---------------------------------------------------------------
+	' SOME PEOPLE USER 3 ROUTINE FOR THE PART HERE
+	' ONE TO CALL 
+	' ONE TO COLLECT STRING ARRAY
+	' ANOTHER TO DEAL WITH THEM
+	' ---------------------------------------------------------------
+	' I FIND DELETE WORK WELL IT NOT MESS THE FIND OVER TO DELETE 
+	' WHILE GO
 	' ---------------------------------------------------------------
 	' ---------------------------------------------------------------
 	DIM SUBFOLDER
@@ -3146,7 +3206,9 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 	ON ERROR RESUME NEXT
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
-		' PERFECT 
+		' PERFECT -- FOLDER OBJECT 
+		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
+		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
 	END IF
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
@@ -3156,34 +3218,48 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 		EXIT SUB
 	END IF
 	' ---------------------------------------------------------------
-    FOR EACH FILE IN FOLDER.FILES
+    
+	DIM F
+	RL=FOLDER.PATH
+	IF MID(RL,1,LEN(RL))<>"\" THEN RL=RL+"\"
+	MSGBOX RL
+	FOR R1=1 TO 20
+		F = FSO.GETFOLDER(RL)
+		IF F.ISROOTFOLDER=FALSE THEN 
+			RL=MID(RL,1,INSTRREV(RL,"\"),LEN(RL)-2)
+			' MSGBOX "rooter T" & RL
+		ELSE
+			' MSGBOX "rooter H" & RL
+			EXIT FOR
+		END IF
+	NEXT
+	MSGBOX RL
+	' IF FSO.FOLDEREXISST(
 	
+	FOR EACH FILE IN FOLDER.FILES
 		FILE_01_PART=MID(FILE.path     ,INSTRREV(FILE.path,"\")+1)
-		FILE_02_PART=MID(FILE_01_PART,1,INSTRREV(FILE.path,"."))
+		FILE_02_PART=MID(FILE_01_PART,1,INSTRREV(FILE_01_PART,".")-1)
 		FILE_02_PART_NOT_EXTENSION=FILE_02_PART
 		FILE_02_NOT_EXTENSION_____=FILE_02_PART
 		' ALL LOWERCASE VERIFY
 		IF LCASE(FILE_02_NOT_EXTENSION_____)=FILE_02_NOT_EXTENSION_____ THEN
 		' LENGTH 32 CHARACTER
-		IF LEN(FILE_01_PART)>30 THEN
-			MSGBOX FILE_02_PART & VBCR & FILE_01_PART & VBCR & LEN(FILE_01_PART)
-			' I2MSG=I2MSG & FILE_02_PART & VBCR
-			
-			I = I + 1
+		IF LEN(FILE_02_NOT_EXTENSION_____)=32 THEN
+			MSGBOX "FILE_02_PART  " & FILE_02_PART
+			I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
 		END IF
 		END IF
-		I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
-		
     NEXT
 	' ---------------------------------------------------------------
     FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
-		FIND_HASH_TRASH_32_CHAR(FOLDER.PATH)
+		FIND_HASH_TRASH_32_CHAR(SUBFOLDER)
     NEXT
 	' ---------------------------------------------------------------
     If INSTR(FOLDER.PATH,"\FOUND.")  Then
 	End If
 End Sub
 ' -------------------------------------------------------------------	
+
 
 
 
