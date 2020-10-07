@@ -261,6 +261,8 @@
 
 
 
+
+
 DIM ORIGINAL_PATH
 DIM EXPLORER_COUNTING
 DIM LOAD_EXPLORER_HAPPEN
@@ -358,6 +360,21 @@ FOR EACH objProcess IN colProcesses
 		END IF
     END IF
 NEXT
+
+
+DIM I2MSG
+DIM I_COUNT_HASH_TRASH_32_CHAR
+DIM FSO
+SET FSO = CreateObject("Scripting.FileSystemObject")
+CALL FIND_HASH_TRASH_32_CHAR("\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera\")
+
+' MSGBOX I2MSG
+MSGBOX I_COUNT_HASH_TRASH_32_CHAR
+
+
+WSCRIPT.QUIT
+
+
                              
 							 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -390,26 +407,11 @@ DIM I_COUNT_2
 DIM VAR_PATH_SCANNER
 DIM IMAGE_POINTER_NAME
 
-DIM objSuperFolder
-
-Dim FSO
-
-Set FSO = CreateObject("Scripting.FileSystemObject")
-Set objFSO = CreateObject("Scripting.FileSystemObject")
-Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
-
 
 
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-
-
-
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 DIM ARRAY_SONY_FOLDER
@@ -508,48 +510,52 @@ DIM HIGH_DATE
 ' -------------------------------------------------------------------
 
 
+
+
 ' SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
-	FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
-		VOLUME_NAME_STRING_=""
-		DRIVE_FREE_SPACE_GB_BEGIN=0
-		DRVPATH_VAR=""
-		GET_SPACE_STRING=""
-		FREE_SPACE_SET_TO_EQUAL=0
-		DRIVE_FREE_SPACE_GB=0
-		DRIVE_CAPACITY___GB=0
-		I_COUNT_DEL=0
-		I_COUNT_TOTAL=0
-		DAY_BACK_TRIMMER=0
-		I_COUNT=0
-		MSGBOX_I1=""
-		MSGBOX_I2=""
-		' REDIM ODICT_TRIM_THE_DATE
-		' MSGBOX "0002 DIM ODICT_TRIM_THE_DATE"
-		' -------------------------------------------------------------------
-		LOW_DATE=NOW
-		HIGH_DATE=NOW-1000
-		' -------------------------------------------------------------------
+FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
+	VOLUME_NAME_STRING_=""
+	DRIVE_FREE_SPACE_GB_BEGIN=0
+	DRVPATH_VAR=""
+	GET_SPACE_STRING=""
+	FREE_SPACE_SET_TO_EQUAL=0
+	DRIVE_FREE_SPACE_GB=0
+	DRIVE_CAPACITY___GB=0
+	I_COUNT_DEL=0
+	I_COUNT_TOTAL=0
+	DAY_BACK_TRIMMER=0
+	I_COUNT=0
+	MSGBOX_I1=""
+	MSGBOX_I2=""
+	' REDIM ODICT_TRIM_THE_DATE
+	' MSGBOX "0002 DIM ODICT_TRIM_THE_DATE"
+	' -------------------------------------------------------------------
+	LOW_DATE=NOW
+	HIGH_DATE=NOW-1000
+	' -------------------------------------------------------------------
 
-		I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
-		IF MID(I,2,1)=":" THEN 
-			ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
-		END IF
-		ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
+	I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	IF MID(I,2,1)=":" THEN 
+		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
+	END IF
+	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
 
-		IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
-		' ---------------------------------------------------
-		' 0001 OF 0003
-		'CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-		' ---------------------------------------------------
-		END IF
-		' ---------------------------------------------------
-		' 0002 OF 0003
-		'CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-		' 0003 OF 0003
-		CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
-		' ---------------------------------------------------
-	NEXT
-' END SUB
+	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
+	' ---------------------------------------------------
+	' 0001 OF 0003
+	'CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------
+	END IF
+	' ---------------------------------------------------
+	' 0002 OF 0003
+	'CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+	' 0003 OF 0003
+	
+	CALL FIND_FILE_HASH_TRASH_32_CHAR
+	
+	' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
+	' ---------------------------------------------------
+NEXT
 
 
 
@@ -1502,7 +1508,7 @@ END SUB
 Sub Main
     Set oDict = CreateObject("Scripting.Dictionary")
     ' Call Recursive Sub
-    FindWantedFiles(objFSO.GetFolder(FOLDER_PATH_VAR_2))
+    FindWantedFiles(FSO.GetFolder(FOLDER_PATH_VAR_2))
     ' Display All Findings from Dictionary object
 	
 	FOLDER_PATH_DEST_VAR_2=FOLDER_PATH_DEST(R_COUNT)
@@ -1752,7 +1758,7 @@ Sub FindWantedFiles(sFolder)
     NEXT
     ' Recurse into it's sub folders
     For Each oFDR In sFolder.SubFolders
-        FindWantedFiles objFSO.GetFolder(oFDR.Path)
+        FindWantedFiles FSO.GetFolder(oFDR.Path)
     NEXT
 	
 End Sub
@@ -2266,8 +2272,6 @@ Sub MAIN__TRIM_THE_DATE_OLDER_CAMERA
 		EXIT SUB
 	END IF
 
-	
-
     ' MSGBOX "0004 DIM ODICT_TRIM_THE_DATE"
 
 	Set ODICT_TRIM_THE_DATE = CreateObject("Scripting.Dictionary")
@@ -2325,7 +2329,7 @@ End Sub
 ' -------------------------------------------------------------------
 SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
     On Error Resume NEXT
-    Dim oFDR, oItem, file
+    Dim oFDR, oItem, file, ODICT_SET
     ' CHECK IF WANTED FILES ARE IN THIS FOLDER
     For Each file In sFolder.Files
 		STR_F="-- .JPG .MP4" 
@@ -2335,7 +2339,6 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 		PATH_FIND_RESULT=FALSE
 		
 		' MSGBOX "002 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "FINDWANTEDFILE_TRIM_THE_DATE" &  VBCR & ARRAY_SONY_FOLDER & VBCR & FILE.path
-
 		
 		IF INSTR(STR_F , EXTENSION_PART) >0 THEN PATH_FIND_RESULT=TRUE
 		IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
@@ -2353,7 +2356,6 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
 		IF PATH_FIND_RESULT=TRUE THEN 
 			I_COUNT_TOTAL=I_COUNT_TOTAL+1
 		END IF
-		
 		
 		' DO HERE METHOD DAY GONE
 		' -----------------------------------------------------------
@@ -2391,15 +2393,14 @@ SUB FINDWANTEDFILE_TRIM_THE_DATE(sFolder)
     NEXT
     ' RECURSE INTO IT'S SUB FOLDERS
     For Each oFDR In sFolder.SubFolders
-        FINDWANTEDFILE_TRIM_THE_DATE objFSO.GetFolder(oFDR.Path)
+        FINDWANTEDFILE_TRIM_THE_DATE FSO.GetFolder(oFDR.Path)
     NEXT
 End Sub
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 Sub DISPLAYFIND_TRIM_THE_DATE()
     Dim oKeys, oKey
-	' MSGBOX "0001 oKeys = ODICT_TRIM_THE_DATE.Keys"
-    oKeys = ODICT_TRIM_THE_DATE.Keys
+    oKeys = ODICT_SET.Keys
     For Each oKey In oKeys
 		ON ERROR RESUME NEXT
 			GOGO=0
@@ -2411,8 +2412,6 @@ Sub DISPLAYFIND_TRIM_THE_DATE()
 			' IN NEXT ROUTINE
 			' -----------------------------------------------------------
 			' MSGBOX "004 MAIN__TRIM_THE_DATE_OLDER_CAMERA" & VBCR & "DISPLAYFIND_TRIM_THE_DATE()" &  VBCR & ARRAY_SONY_FOLDER
-
-			
 
 
 			IF GET_SPACE_STRING="" THEN
@@ -2471,6 +2470,95 @@ End Sub
 
 
 
+
+' -------------------------------------------------------------------
+' MAH00004.THM
+' &
+' THUMBS.DB -- Thumbs.db
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+Sub FIND_THUMB_OFF_CAMERA_HX60(sFolder)
+    On Error Resume NEXT
+    Dim oFDR, oItem, file
+    ' CHECK IF WANTED FILES ARE IN THIS FOLDER
+    For Each file In sFolder.Files
+		IF INSTR(UCASE(FILE.path),".THM") THEN
+			oDict.Add FILE.path, file
+		END IF
+		IF UCASE(FILE.path)="THUMBS.DB" THEN
+			oDict.Add FILE.path, file
+		END IF
+    NEXT
+    ' RECURSE INTO IT'S SUB FOLDERS
+    For Each oFDR In sFolder.SubFolders
+        FindWantedFiles_THUMB_OFF_CAMERA_HX60 FSO.GetFolder(oFDR.Path)
+    NEXT
+End Sub
+' -------------------------------------------------------------------
+Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
+    Dim oKeys, oKey
+    oKeys = oDict.Keys
+    For Each oKey In oKeys
+		GOGO=0
+		XX=MID(oKey,1,INSTRREV(oKey,"."))+"MP4"
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
+		IF FSO.FILEEXISTS(XX)=FALSE THEN GOGO=1
+		IF ERR.NUMBER>0 THEN GOGO=0
+		ON ERROR RESUME NEXT
+		IF GOGO=1 THEN 
+			' THE THUMB _.THM BEEN DELETE THAT NOT WITHER _.MP4
+			FSO.DeleteFile(oKey) 
+		END IF
+		' -----------------------------------------------------------
+		IF INSTR(UCASE(oKey),"THUMBS.DB") THEN XX=oKey
+		IF FSO.FILEEXISTS(oKey)=TRUE THEN
+			' THE -- THUMBS.DB -- Thumbs.db -- BEEN DELETE
+			FSO.DeleteFile(oKey) 
+		END IF
+    NEXT
+End Sub
+' -------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
 
@@ -2479,9 +2567,7 @@ End Sub
 ' OF TYPE PUT DATE IN FRONT FILE FOR CAMERA
 ' -------------------------------------------------------------------
 
-
 Sub Main_4
-	
 	I_COUNT=0
 	IF FSO.FolderExists(FOLDER_PATH_MAIN_4)=FALSE THEN 
 		EXIT SUB
@@ -2489,7 +2575,7 @@ Sub Main_4
 	
     Set oDict_4 = CreateObject("Scripting.Dictionary")
     ' Call Recursive Sub
-    FindWantedFiles_4(objFSO.GetFolder(FOLDER_PATH_MAIN_4))
+    FindWantedFiles_4(FSO.GetFolder(FOLDER_PATH_MAIN_4))
     ' Display All Findings from Dictionary object
     DisplayFindings_4
 	IF I_COUNT>0 THEN 
@@ -2504,7 +2590,7 @@ End Sub
 ' -------------------------------------------------------------------
 ' MAH00004.THM
 ' &
-' THUMBS.DB -- Thumbs.db
+' THUMBS.DB -- THUMBS.DB
 ' -------------------------------------------------------------------
 Sub FindWantedFiles_THUMB_OFF_CAMERA_HX60(sFolder)
     On Error Resume NEXT
@@ -2520,9 +2606,10 @@ Sub FindWantedFiles_THUMB_OFF_CAMERA_HX60(sFolder)
     NEXT
     ' RECURSE INTO IT'S SUB FOLDERS
     For Each oFDR In sFolder.SubFolders
-        FindWantedFiles_THUMB_OFF_CAMERA_HX60 objFSO.GetFolder(oFDR.Path)
+        FindWantedFiles_THUMB_OFF_CAMERA_HX60 FSO.GetFolder(oFDR.Path)
     NEXT
 End Sub
+' -------------------------------------------------------------------
 Sub DisplayFinder_THUMB_OFF_CAMERA_HX60()
     Dim oKeys, oKey
     oKeys = oDict.Keys
@@ -2567,7 +2654,7 @@ Sub FindWantedFiles_4(sFolder)
     NEXT
     ' Recurse into it's sub folders
     For Each oFDR In sFolder.SubFolders
-        FindWantedFiles_4 objFSO.GetFolder(oFDR.Path)
+        FindWantedFiles_4 FSO.GetFolder(oFDR.Path)
     NEXT
 	
 End Sub
@@ -2899,7 +2986,7 @@ SUB SEARCH(FOLDER)
 	'Find EACH SUBFOLDER.
 	For Each subFolder In Folder.SubFolders
 		'Call the Search subroutine to start the recursive search on EACH SUBFOLDER.
-		Search objFSO.GetFolder(subFolder.Path)
+		Search FSO.GetFolder(subFolder.Path)
 	NEXT
 
 End Sub
@@ -2987,7 +3074,6 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 		EXIT SUB
 	END IF
 	
-	
 	' ----------------------------------------
 	' -----------------------------------------------------------
 	' REM HERE -- STOP LOOP SUBFOLDER
@@ -3043,6 +3129,61 @@ SUB DELETE_FOUND_000_ROOT_PATH(FOLDER)
 End Sub
 ' -------------------------------------------------------------------	
 
+
+
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
+	' ALL-IN-ONE -- EASIER -- RECURSIVE NEST LOOP
+	' FILE AND SUB-FOLDER --- NICELY PRESENTABLE
+	' EASY ENTRY EITHER STRING FOLDER NAME OR OBJECT
+	' NOT EASY FINDER INTERNET PLUS SWEET AND SIMPLE
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------------------
+	DIM SUBFOLDER
+	DIM FILE
+	ON ERROR RESUME NEXT
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		' PERFECT 
+	END IF
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		' Set FOLDER = NOTHING
+		Set FOLDER = FSO.GETFOLDER(FOLDER)
+		CALL FIND_HASH_TRASH_32_CHAR(FOLDER)
+		EXIT SUB
+	END IF
+	' ---------------------------------------------------------------
+    FOR EACH FILE IN FOLDER.FILES
+	
+		FILE_01_PART=MID(FILE.path     ,INSTRREV(FILE.path,"\")+1)
+		FILE_02_PART=MID(FILE_01_PART,1,INSTRREV(FILE.path,"."))
+		FILE_02_PART_NOT_EXTENSION=FILE_02_PART
+		FILE_02_NOT_EXTENSION_____=FILE_02_PART
+		' ALL LOWERCASE VERIFY
+		IF LCASE(FILE_02_NOT_EXTENSION_____)=FILE_02_NOT_EXTENSION_____ THEN
+		' LENGTH 32 CHARACTER
+		IF LEN(FILE_01_PART)>30 THEN
+			MSGBOX FILE_02_PART & VBCR & FILE_01_PART & VBCR & LEN(FILE_01_PART)
+			' I2MSG=I2MSG & FILE_02_PART & VBCR
+			
+			I = I + 1
+		END IF
+		END IF
+		I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
+		
+    NEXT
+	' ---------------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
+		FIND_HASH_TRASH_32_CHAR(FOLDER.PATH)
+    NEXT
+	' ---------------------------------------------------------------
+    If INSTR(FOLDER.PATH,"\FOUND.")  Then
+	End If
+End Sub
+' -------------------------------------------------------------------	
 
 
 
