@@ -453,18 +453,18 @@ I=0
 ' -------------------------------------------------------------------
 ' LOCAL COMPUTER MC-CARD
 ' -------------------------------------------------------------------
-I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 ' NETWORK COMPUTER MC-CARD
 ' -------------------------------------------------------------------
-I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
-I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
-I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
+I=I+1:ARRAY_PATH_01(I) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_82_1_MC_CARD_CAMERA" 
+I=I+1:ARRAY_PATH_01(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_82_1_MC_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_82_1_MC_CARD_CAMERA"
 ' HDD
 ' -------------------------------------------------------------------
-I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
-I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_05_1_SAMSUNG_4TB_D\MC - HX60V1_MEDIA_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D\MC - HX60V1_MEDIA_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_05_2_SAMSUNG_4TB_D\MC - HX60V1_MEDIA_CARD_CAMERA"
 ' -------------------------------------------------------------------
 ' AS HERE -- ABLE INCLUDE HDD BACK WHEN IGNORE OCCUPY SPACE 
 ' ALL DATE NOW BE EXACT -- FOR DELETE OFF END
@@ -1568,16 +1568,33 @@ END IF
 
 SET objFSO = NOTHING
 
+I_1=""
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"                THE ENDER"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
+I_1=I_1+"----------------------------------------"
 
-I_1="ABOUT DO THE LAST THREE ROUTINE CLEANER"
 ' DIM WSHShell
 SET WSHShell = CreateObject("WScript.Shell")
-RESULT = WSHSHELL.POPUP(I_1, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+RESULT = WSHSHELL.POPUP(I_1, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 SET WSHShell = Nothing
 
-CALL RUNN_IT_HARDCORE_THREE_ROUTINE
 
 
+'-------------------------------------------------------------------
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+'-------------------------------------------------------------------
 
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
@@ -3440,7 +3457,7 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 				FSO.DeleteFile FILE.path
 			END IF
 			If ASIZE1>0 AND FSO.FileExists(FILE.path) = TRUE Then 
-				IF INSTR(FILE.path,"\TEMP_HASH_TRASH")=0 THEN 
+				IF INSTR(FILE.path,"\TEMP")=0 THEN 
 					' ---------------------------------------------------
 					IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH") = FALSE THEN 
 						CALL BUILDFULLPATH(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")
