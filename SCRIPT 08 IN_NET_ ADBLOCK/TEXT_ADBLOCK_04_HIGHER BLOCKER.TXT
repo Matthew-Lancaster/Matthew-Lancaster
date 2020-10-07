@@ -9,3 +9,13 @@ drive.google.com##.Wmhurf
 
 ! 2020-10-04 https://photos.google.com
 photos.google.com##.XQsPc
+
+
+! 03/10/2020 https://app.mysms.com
+app.mysms.com##.lostPassword
+
+! 05/10/2020 https://www.amazon.co.uk
+www.amazon.co.uk##.a-span-last.a-span5.a-column
+
+! 07/10/2020 https://www.amazon.co.uk
+www.amazon.co.uk##.celwidget > .a-color-success
