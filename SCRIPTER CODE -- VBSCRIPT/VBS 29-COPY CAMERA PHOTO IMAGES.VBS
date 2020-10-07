@@ -453,6 +453,7 @@ I=0
 ' -------------------------------------------------------------------
 ' LOCAL COMPUTER MC-CARD
 ' -------------------------------------------------------------------
+I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 ' NETWORK COMPUTER MC-CARD
@@ -463,6 +464,7 @@ I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
 ' HDD
 ' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
 ' -------------------------------------------------------------------
 ' AS HERE -- ABLE INCLUDE HDD BACK WHEN IGNORE OCCUPY SPACE 
 ' ALL DATE NOW BE EXACT -- FOR DELETE OFF END
@@ -594,8 +596,7 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	
 	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
 		FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH"
-		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH") = FALSE THEN 
-			
+		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=TRUE  THEN
 			I=""
 			I=I+"SOME HASH TRASH COUNTER AND FOLDER NOT THERE - ERROR" & VBCR 
 			I=I+ VBCR 
@@ -2487,15 +2488,18 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_SONY_FOLDER
 		
 		I = ""
+		IF I_COUNT_DEL=0 THEN 
+			I = I + "NONE DELETER" & VBCR
+		ELSE
+			I = I + "SOME DELETER" & VBCR
+		END IF
 		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
-		I = I + "------------------------------------------" & VBCRLF 
-		I = I + LPAD(ARRAY_FOR_NEXT, "0", 4) & " __ OF __ " & LPAD(UBOUND(ARRAY_PATH_01), "0", 4) & VBCRLF
+		I = I + LPAD(ARRAY_FOR_NEXT, "0", 4) & " ____ OF ____ " & LPAD(UBOUND(ARRAY_PATH_01), "0", 4) & VBCRLF
+		I = I + DISPLAY_MESSENGER_FOLDER_CAMERA & VBCRLF
+		I = I + VOLUME_NAME_STRING_ & VBCRLF
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + "DONE DELETE COUNT LESS DAY SPAN COUNTER" & VBCRLF 
 		I = I + "MP4 __AND__ JPG" & VBCRLF 
-		I = I + DISPLAY_MESSENGER_FOLDER_CAMERA & VBCRLF
-		I = I + VOLUME_NAME_STRING_ 
-		I = I + VBCRLF                                                    
 		I = I + "-----------------------------------------------------------" & VBCRLF 
 		I = I + LPAD(DAY_BACK_TRIMMER_COUNTER, "0", 4) & "                           DAY __ LIMIT COUNTER" & VBCRLF 
 		I = I + CSTR(DAY_BACK_TRIMMER) & " DAY __ TRIMMER" & VBCRLF 
@@ -2514,10 +2518,15 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "TOTAL DRIVE_FREE_SPACE_BEGIN____GB _ " & FORMATNUMBER(DRIVE_FREE_SPACE_GB_BEGIN,2) & VBCRLF 
 		I = I + "TOTAL DRIVE_CAPACITY_______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
 		I = I + "--------------------------------------------------------------" & VBCRLF 
-		I = I + "MESSENGER BOX GONE IN 10 SECOND"
+		IF I_COUNT_DEL=0 THEN 
+			VALUE_WAIT=8
+		ELSE
+			VALUE_WAIT=40
+		END IF
+		I = I + "MESSENGER BOX DISAPPEAR ON " & CSTR(VALUE_WAIT) & " SECOND"
 		DIM WSHShell
 		SET WSHShell = CreateObject("WScript.Shell")
-		RESULT = WSHSHELL.POPUP(I, 40, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 		SET WSHShell = Nothing
 		
 	END IF
@@ -2608,7 +2617,7 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			I_COUNT_TOTAL=I_COUNT_TOTAL+1
 			' -------------------------------------------------------
 			' -------------------------------------------------------
-			DAY_BACK_TRIMMER_COUNTER=300  ' DAY -- LESS NUMBER MORE IN FUTURE
+			DAY_BACK_TRIMMER_COUNTER=280  ' DAY -- LESS NUMBER MORE IN FUTURE
 			DELETE_LIMITITOR=1000
 			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER 
 			IF PATH_FIND_RESULT=TRUE THEN 
@@ -2660,7 +2669,14 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 							I=I+LOW_DATE & VBCR
 							I=I+"HIGH_DATE  " & HIGH_DATE & VBCR
 							I=I+"LOW_DATE   " & LOW_DATE 
-							MSGBOX I,vbMsgBoxSetForeground,Wscript.ScriptName 
+							VALUE_WAIT=20
+							I = I + "-------------------------------" & VBCRLF
+							I = I + "MESSENGER BOX GONE IN " & CSTR(VALUE_WAIT) & " SECOND"
+							DIM WSHShell
+							SET WSHShell = CreateObject("WScript.Shell")
+							RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+							SET WSHShell = Nothing
+							
 						END IF
 						FSO.DeleteFile(FILE.path) 
 					END IF
@@ -3398,9 +3414,9 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 			' MAKE SURE END SLASH NOT THERE AS ENTER
 			' DOUBLE CHECK NONE TO DO ALREADY API FSO OBJECT
 			' -------------------------------------------------------
-			IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH") = FALSE THEN 
-				CALL BUILDFULLPATH(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")
-			END IF
+			' NOW DO BUILD DIRECTORY TREE WHEN REQUEST MADE MOVE FILE
+			' -------------------------------------------------------
+			
 			' -------------------------------------------------------
 			' CALL BUILDFULLPATH(ROOT_FOLDER & "\TEMP_HASH_TRASH")
 			' -------------------------------------------------------
@@ -3409,10 +3425,31 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 			' MOVE THE FILE -- NOT \TEMP_HASH_TRASH FOLDER 
 			' DONE BEFORE
 			' -------------------------------------------------------
-			IF INSTR(FILE.path,"\TEMP_HASH_TRASH\")=0 THEN 
+
+			' -------------------------------------------------------
+			' VERIFY FILE SIZE IS NAUGHT BYTE 
+			' NOT REQUIRE MOVE THEN ONLY DELETEE 
+			' MOST COMMON IS THAT ONE
+			' -------------------------------------------------------
+			ASIZE1=-10
+			SET F = FS.GETFILE(FILE.path)
+			ASIZE1 = F.SIZE
+			SET F = NOTHING
 			
-				FSO.MOVEFILE FILE.path, ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\" & FILE_01_PART
-				I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
+			If ASIZE1=0 AND FSO.FileExists(FILE.path) = TRUE Then 
+				FSO.DeleteFile FILE.path
+			END IF
+			If ASIZE1>0 AND FSO.FileExists(FILE.path) = TRUE Then 
+				IF INSTR(FILE.path,"\TEMP_HASH_TRASH")=0 THEN 
+					' ---------------------------------------------------
+					IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH") = FALSE THEN 
+						CALL BUILDFULLPATH(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")
+					END IF
+					' ---------------------------------------------------
+					FSO.MOVEFILE FILE.path, ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\" & FILE_01_PART
+					I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
+					' ---------------------------------------------------
+				END IF
 			END IF
 		END IF
 		END IF
