@@ -437,6 +437,8 @@ DIM VAR_PATH_SCANNER
 DIM IMAGE_POINTER_NAME
 
 
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
 
 
 ' -------------------------------------------------------------------
@@ -453,9 +455,11 @@ DIM ARRAY_PATH_02()
 REDIM ARRAY_PATH_01(10)
 REDIM ARRAY_PATH_02(10)
 I=0
-I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
+I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_05_1_samsung_4tb_d\MC - HX60V1_MEDIA_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
+I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "\\7-asus-gl522vw\7_asus_gl522vw_82_1_mc_card_camera"
 I=I+1:ARRAY_PATH_01(I) = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_82_1_mc_card_camera"
@@ -582,8 +586,15 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
 	' ---------------------------------------------------
 	
-	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
-	CALL DELETE_EMPTY_FOLDER    (ARRAY_SONY_FOLDER)
+	MSGBOX "RRRRL"
+' 	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
+	'CALL DELETE_EMPTY_FOLDER    (ARRAY_SONY_FOLDER)
+	
+	I_COUNT_HASH_TRASH_32_CHAR=2
+	IF	I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
+		WSHShell.Run "EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP\"+"""" , ShowWindow, DontWaitUntilFinished
+	END IF
+	MSGBOX "LL"
 	
 	' CALL MAIN__TRIM_THE_DATE_OLDER_CAMERA
 	' ---------------------------------------------------
@@ -613,8 +624,7 @@ WSCRIPT.QUIT
 
 
 
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
+
 
 
 Dim arr1
@@ -2847,7 +2857,7 @@ SUB PATH_SCANNER_RENAME_4
 		I_COUNT=I_COUNT+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		Fso.MoveFile VAR_PATH_SCANNER, NewFilename
+		FSO.MOVEFILE VAR_PATH_SCANNER, NEWFILENAME
 		IF ERR.NUMBER>0 THEN 
 			MSGBOX ERR.DESCRIPTION & VBCRLF & VAR_PATH_SCANNER & VBCRLF & NewFilename,vbMsgBoxSetForeground,Wscript.ScriptName 
 		END IF
@@ -3219,22 +3229,23 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 	END IF
 	' ---------------------------------------------------------------
     
+	' ---------------------------------------------------------------
+	' FIND THE ROOT PATH AND NETWORK OR BE A BIT HARD
+	' WORK RECYCLE BIN STORE FILE RISK PRECIOUS
+	' ONLY DETECT IS LEN() 32 WITH LOWER CASE ALPHA
+	' ---------------------------------------------------------------
 	DIM F
-	RL=FOLDER.PATH
-	IF MID(RL,1,LEN(RL))<>"\" THEN RL=RL+"\"
-	MSGBOX RL
-	FOR R1=1 TO 20
-		F = FSO.GETFOLDER(RL)
+	SET F = FSO.GETFOLDER(FOLDER.PATH)
+	FOR R1=1 TO 10
 		IF F.ISROOTFOLDER=FALSE THEN 
-			RL=MID(RL,1,INSTRREV(RL,"\"),LEN(RL)-2)
-			' MSGBOX "rooter T" & RL
+			SET F = F.PARENTFOLDER
 		ELSE
-			' MSGBOX "rooter H" & RL
 			EXIT FOR
 		END IF
 	NEXT
-	MSGBOX RL
-	' IF FSO.FOLDEREXISST(
+	ROOT_FOLDER = F.PATH
+	
+	SET F = NOTHING
 	
 	FOR EACH FILE IN FOLDER.FILES
 		FILE_01_PART=MID(FILE.path     ,INSTRREV(FILE.path,"\")+1)
@@ -3245,7 +3256,20 @@ SUB FIND_HASH_TRASH_32_CHAR(FOLDER)
 		IF LCASE(FILE_02_NOT_EXTENSION_____)=FILE_02_NOT_EXTENSION_____ THEN
 		' LENGTH 32 CHARACTER
 		IF LEN(FILE_02_NOT_EXTENSION_____)=32 THEN
-			MSGBOX "FILE_02_PART  " & FILE_02_PART
+			' -------------------------------------------------------
+			' FIND ITEM MAKE TEMP FOLDER 
+			' HAVE TO VERIFY NOT ANOTHER FILE OF LEN()=32 
+			' RECYCLE NOT WORK MC-CARD
+			' -------------------------------------------------------
+			' GET THE ROOT GOOD IDEA BUTTY REALLY WANT ORIGINAL PATH WITH DEPTH
+			' MAKE SURE END SLASH NOT THERE AS ENTER
+			' DOUBLE CHECK NONE TO DO ALREADY API FSO OBJECT
+			' -------------------------------------------------------
+			IF FSO.FOLDEREXISTS(ROOT_FOLDER & "\TEMP") = FALSE THEN 
+				CALL BUILDFULLPATH(ROOT_FOLDER & "\TEMP")
+			END IF
+			' MSGBOX ARRAY_SONY_FOLDER & "\TEMP\" & FILE_01_PART
+			FSO.MOVEFILE FILE.path, ARRAY_SONY_FOLDER & "\TEMP\" & FILE_01_PART
 			I_COUNT_HASH_TRASH_32_CHAR = I_COUNT_HASH_TRASH_32_CHAR + 1
 		END IF
 		END IF
@@ -3261,6 +3285,18 @@ End Sub
 ' -------------------------------------------------------------------	
 
 
+' -------------------------------------------------------------------	
+' -------------------------------------------------------------------	
+Sub BuildFullPath(ByVal FullPath)
+    If Not fso.FolderExists(FullPath) Then
+        BuildFullPath fso.GetParentFolderName(FullPath)
+        fso.CreateFolder FullPath
+    End If
+End Sub
+' -------------------------------------------------------------------	
+' scripting - Help To create Folder1/Folder2 in Windows using VBScript ( Both the folders not exists before, i mean to create multilevel folders @ a strech.) - Stack Overflow 
+' https://stackoverflow.com/questions/4407386/help-to-create-folder1-folder2-in-windows-using-vbscript-both-the-folders-not
+' -------------------------------------------------------------------	
 
 
 SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
