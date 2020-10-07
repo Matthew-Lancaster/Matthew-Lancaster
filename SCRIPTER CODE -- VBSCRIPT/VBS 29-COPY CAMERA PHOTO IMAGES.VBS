@@ -460,6 +460,7 @@ I=0
 ' -------------------------------------------------------------------
 ' LOCAL COMPUTER MC-CARD
 ' -------------------------------------------------------------------
+I=I+1:ARRAY_PATH_01(I) = "\\4-asus-gl522vw\4_asus_gl522vw_82_1_mc_card_camera" 
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
 I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 ' NETWORK COMPUTER MC-CARD
@@ -2259,7 +2260,6 @@ END SUB
 
 
 SUB GET_DRIVE_SPACE(DRVPATH)
-
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(DRVPATH))="FOLDER" THEN 
 		' PERFECT -- FOLDER OBJECT 
@@ -2272,11 +2272,11 @@ SUB GET_DRIVE_SPACE(DRVPATH)
 		EXIT SUB
 	END IF
 	' ---------------------------------------------------------------
-
 	SET D = FSO.GETDRIVE(DRVPATH)
-	MSGBOX "DD  " & DRVPATH.DRIVE
+	' ---------------------------------------------------------------
 	DRIVE_FREE_SPACE_GB=CDbl(D.FREESPACE)/1024/1024/1024
 	DRIVE_CAPACITY___GB=CDbl(D.TOTALSIZE)/1024/1024/1024
+	' ---------------------------------------------------------------
 	IF FREE_SPACE_SET_TO_EQUAL=0 THEN DRIVE_FREE_SPACE_GB_BEGIN = DRIVE_FREE_SPACE_GB
 	FREE_SPACE_SET_TO_EQUAL=20 ' GB
 	
@@ -2405,7 +2405,6 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	MSGBOX_I2=""
 
 	CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(ARRAY_SONY_FOLDER)
-	
 		
 	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
 		
@@ -2446,6 +2445,7 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		
 	END IF
 End Sub
+
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
@@ -2462,7 +2462,7 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	END IF
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
-		' Set FOLDER = NOTHING
+		FOLDER="E:\HARDWARE"
 		Set FOLDER = FSO.GETFOLDER(FOLDER)
 		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	END IF
@@ -2493,27 +2493,27 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			SET F = FSO.GETFILE(FILE.path)
 				FILEMODDATE = F.DATELASTMODIFIED
 			SET F=NOTHING
-			COUNTER_RR=COUNTER_RR+1
+			'COUNTER_RR=COUNTER_RR+1
 		END IF
 	NEXT
 
-	DRVPATH_VAR=ARRAY_SONY_FOLDER
-
-	' -------------------------------------------------------
+	' ---------------------------------------------------------------
 	' GET SPACE DATA
-	' -------------------------------------------------------
-	
-	' DRIVE_FUNCTION=SHOWDRIVEINFO(ARRAY_SONY_FOLDER)
-	CALL GET_DRIVE_SPACE(FOLDER.PATH)
-	MSGBOX "FS " & FOLDER.PATH & " ---- " & DRIVE_FREE_SPACE_GB
+	' ---------------------------------------------------------------
+	' CALL GET_DRIVE_SPACE(FOLDER.path)
+	' MSGBOX FOLDER.path
+
+	COUNTER_RR=COUNTER_RR+1
+
+
 	' ---------------------------------------------------------------
     ' RECURSE INTO AR SUB FOLDER COLLECTION
 	' ---------------------------------------------------------------
     FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
 		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
+		EXIT SUB
     NEXT
 
-	
 
 END SUB
 
@@ -2612,12 +2612,6 @@ SUB HHHH
 			I_COUNT_TOTAL=I_COUNT_TOTAL+1
 			
 			' -----------------------------------------------------------
-			' DO AR METHOD DAY GONE
-			' -----------------------------------------------------------
-			' NOT BOTHER SPACE AT MINUTE
-			' INDICATE BY -- NOT_DO_OCCUPY_SPACE
-			' -----------------------------------------------------------
-			NOT_DO_OCCUPY_SPACE=TRUE
 			' -----------------------------------------------------------
 			DAY_BACK_TRIMMER_COUNTER=110
 			DAY_BACK_TRIMMER=NOW-DAY_BACK_TRIMMER_COUNTER ' DAY -- LESS NUMBER MORE IN FUTURE
@@ -2652,69 +2646,49 @@ SUB HHHH
 			ON ERROR RESUME NEXT
 			ERR.CLEAR
 			' -----------------------------------------------------------
-			' GET BEGIN DRIVE SPACE
+			' GET BEGIN DRIVE SPACE -- ONLY FOR INFO - NOT SPACE TRIM
 			' -----------------------------------------------------------
 			IF GET_SPACE_STRING="" THEN
 				GET_SPACE_STRING="IN IT" ' -- GET SPACE ONCE AND AT END
 				' -------------------------------------------------------
-				' WHEN RUNNER HAVE TO ALL TIME TO SIZE WORKER
 				' -------------------------------------------------------
+				' NETWORK PATH FRIEND AR
+				' AND ABLE GET REMOTE VOLUME LABEL SHARE DRIVE
 				' -------------------------------------------------------
-				' DRVPATH_VAR=MID(ARRAY_SONY_FOLDER,1,2)
-				' IF MID(ARRAY_SONY_FOLDER,1,2)="\\" THEN 
-					' DRVPATH_VAR=ARRAY_SONY_FOLDER
-				' END IF
-
-				' ----------------------------------
-				' FULL PATH OR TRIM 1ST 3 CHAR ABOVE
-				' MODIFY
-				' ----------------------------------
-				DRVPATH_VAR=ARRAY_SONY_FOLDER
-
 				' -------------------------------------------------------
 				' GET SPACE DATA
 				' -------------------------------------------------------
-				DRIVE_FUNCTION=SHOWDRIVEINFO(DRVPATH_VAR)
+				CALL GET_DRIVE_SPACE(ARRAY_SONY_FOLDER)
 				' -------------------------------------------------------
-				FREE_SPACE_SET_TO_EQUAL=20
 				IF DRIVE_CAPACITY___GB>40 THEN ' EXAMPLE 64GB CARD
-					FREE_SPACE_SET_TO_EQUAL=20 ' GB
 				END IF
+				FREE_SPACE_SET_TO_EQUAL=20
 				DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
 				' -------------------------------------------------------
 				' CHECK DATE HAPPEN AND ALSO WANT 20 GB FREE
 				' BUTTER NOT OVER DO HER
 				' SET DATE MORE TRIM
+				' DIFFERCULT WHEN DRIVE FREE SPACE NOT SAME
+				' DO BY DATE INSTEAD ACCURATE
 				' -------------------------------------------------------
 			END IF
-			' -----------------------------------------------------------
-			' NOT BOTHER REPEATER GET SPACE ONLY DO AT ENDER
-			' -----------------------------------------------------------
-			IF GET_SPACE_STRING<>"" THEN 
-				' CALL GET_DRIVE_SPACE(DRVPATH_VAR)
-			END IF
-			' -----------------------------------------------------------
-			' MSGBOX DRIVE_FREE_SPACE_GB & FREE_SPACE_SET_TO_EQUAL & "GB"
-			' -----------------------------------------------------------
-			' NOT BOTHER SPACE AT MINUTE
-			' INDICATE BY -- NOT_DO_OCCUPY_SPACE
-			' -----------------------------------------------------------
-			IF NOT_DO_OCCUPY_SPACE <> TRUE THEN
-				IF DRIVE_FREE_SPACE_GB > FREE_SPACE_SET_TO_EQUAL THEN 
-					' GOGO=0
-				END IF
-			END IF
-			' -----------------------------------------------------------
 			' -----------------------------------------------------------
 			' EXAMPLE ON -- FORMATNUMBER
 			' FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) GIVE 2 DECIMAL PLACE 00.00
 			' -----------------------------------------------------------
-			' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
+			' MSGBOX FORMATNUMBER(DRIVE_FREE_SPACE_GB,2) & " ---- " &  
+			' MSGBOX FORMATNUMBER(FREE_SPACE_SET_TO_EQUAL,2)  & " -- GB"
 			' -----------------------------------------------------------
 			IF GOGO=1 THEN 
-				MSGBOX "XXXYYY " & FILE.path
+				MSGBOX "FSO.DeleteFile(FILE.path)     " & FILE.path
 				FSO.DeleteFile(FILE.path) 
 				I_COUNT_DEL=I_COUNT_DEL+1
+				' -----------------------------------------------------------
+				' REPEATER GET SPACE WHILE FILE DELETE
+				' -----------------------------------------------------------
+				IF GET_SPACE_STRING<>"" THEN 
+					' CALL GET_DRIVE_SPACE(DRVPATH_VAR)
+				END IF
 			END IF
 			ON ERROR GOTO 0
 			' -----------------------------------------------------------
