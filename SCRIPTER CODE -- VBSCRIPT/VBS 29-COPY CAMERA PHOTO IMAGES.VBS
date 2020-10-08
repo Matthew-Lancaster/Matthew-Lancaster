@@ -403,7 +403,14 @@ NEXT
 
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
-                             
+
+
+
+
+
+				I = ARRAY_SONY_FOLDER & VBCR & VBCR & "HASH TRASH FOLDER GONE BY DELETER" & VBCR & VBCR & "NONE CONTENT" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
+
+							 
 							 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
@@ -600,7 +607,9 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 	
 	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
 		FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH"
-		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=TRUE  THEN
+		' COUNTER EXPLAIN GOT HASH TRASH BUTTY FOLDER NOT THERE TRY ROOT\
+		' ---------------------------------------------------------------
+		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=FALSE  THEN
 			I=""
 			I=I+"SOME HASH TRASH COUNTER AND FOLDER NOT THERE - ERROR" & VBCR 
 			I=I+ VBCR 
@@ -618,9 +627,11 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 				RESULT = WSHSHELL.POPUP(I, 15, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 			SET WSHShell = Nothing
 			END IF
-		
 		END IF
 
+		' FOLDER HASH TRASH STILL NOT THERE AGAIN LOCATE FOLDER OR ROOT\
+		' TUFF ONE
+		' --------------------------------------------------------------
 		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = FALSE THEN 
 			I="THE FOLDER PATH NOT THERE OR ACCESS " & VBCR 
 			I=I+ VBCR 
@@ -636,6 +647,25 @@ FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
 			SET WSHShell = Nothing
 			END IF
 		END IF
+
+		' MAIN FOLDER HAS TRASH IS THERE AND EMPTY -- DELETER
+		' -----------------------------------------------------------
+		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=TRUE  THEN
+			SET F = FSO.GETFOLDER(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")
+			IF F.SIZE=0 THEN
+				' FOLDER NOT EXIST DELETER
+				FSO.DELETEFOLDER ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH", TRUE
+					
+				I = ARRAY_SONY_FOLDER & VBCR & VBCR & "HASH TRASH FOLDER GONE BY DELETER" & VBCR & VBCR & "NONE CONTENT" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
+				IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+				SET WSHShell = CreateObject("WScript.Shell")
+					RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+				SET WSHShell = Nothing
+				END IF
+			END IF
+		END IF
+
+
 
 		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = TRUE THEN 
 			' -----------------------------------------------------------
@@ -1607,7 +1637,7 @@ I_1=I_1+"----------------------------------------" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
-I_1=I_1+"                THE ENDER" & VBCR
+I_1=I_1+"THE ENDER" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
