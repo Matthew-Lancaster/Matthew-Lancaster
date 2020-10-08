@@ -2623,6 +2623,7 @@ End Sub
 SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	DIM SUBFOLDER
 	DIM FILE
+	
 	ON ERROR RESUME NEXT
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
@@ -2636,6 +2637,9 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	END IF
 	' ---------------------------------------------------------------
+
+	
+
 	FOR EACH FILE IN FOLDER.FILES
 		FILE_PATH_STRING=FILE.path
 		STR_F="-- .JPG .MP4" 
@@ -2669,9 +2673,21 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			I_COUNT_TOTAL=I_COUNT_TOTAL+1
 			' -------------------------------------------------------
 			' -------------------------------------------------------
-			DAY_BACK_TRIMMER_COUNTER=280  ' DAY -- LESS NUMBER MORE IN FUTURE
-			DELETE_LIMITITOR=1000
+			' NOT USE NOW -- HIGH NUMBER SOUND
+			' -------------------------------------------------------
+			DELETE_LIMITITOR=1000 
+			' -------------------------------------------------------
+			DAY_BACK_TRIMMER_COUNTER=150
 			DAY_BACK_TRIMMER = NOW - DAY_BACK_TRIMMER_COUNTER 
+			' -------------------------------------------------------
+			' DAY -- HIGH NUMBER MORE BEFORE
+			' -------------------------------------------------------
+			' EXAMPLE 200 DAY - SUPPLY - 2020-10-08 GIVE - 22/03/2020 
+			' EXAMPLE 400 DAY - SUPPLY - 2020-10-08 GIVE - 04/09/2019
+			' -------------------------------------------------------
+			MSGBOX DAY_BACK_TRIMMER
+
+			
 			IF PATH_FIND_RESULT=TRUE THEN 
 				IF FILEMODDATE>DAY_BACK_TRIMMER THEN 
 					PATH_FIND_RESULT=FALSE
@@ -2707,8 +2723,12 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 		
 			ON ERROR RESUME NEXT
 			ERR.CLEAR
+			' IF INSTR(UCASE(FOLDER.PATH),"4_ASUS_GL522VW_82_1_MC_CARD_CAMERA")>0 THEN
+				MSGBOX FOLDER.PATH
+			' END IF
 
 			IF PATH_FIND_RESULT=TRUE THEN 
+
 				IF I_COUNT_DEL<=DELETE_LIMITITOR THEN 
 					' MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE & VBCR & "HIGH_DATE  " & HIGH_DATE & VBCR & "LOW_DATE  " & LOW_DATE 					' ---------------------------------------------------
 					IF DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE<>"GET_FIND_INFO" THEN 
