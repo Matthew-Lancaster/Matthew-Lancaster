@@ -47,7 +47,26 @@ Menu, Tray, Add  ; Creates a separator line.
 
 FileGetTime, A_Script_MODIIFED_DATE , A_ScriptFullPath, M
 FormatTime, TimeString, A_Script_MODIIFED_DATE, yyyy MMM dd hh:mm:ss tt
-Menu, Tray, Add, %A_ScriptName% ---- %TimeString%, MenuHandler  ; Creates a new menu item.
+SCRIPT_DATE_AND_TIME_VERSION=%A_ScriptName% [----] %TimeString%
+Menu, Tray, Add, %SCRIPT_DATE_AND_TIME_VERSION%, MenuHandler  ; Creates a new menu item.
+
+FILE_NAME_SCRIPT_VER=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER\%A_ScriptName%_VERSION.TXT
+IF FileExist(FILE_NAME_SCRIPT_VER)
+	FileDelete, %FILE_NAME_SCRIPT_VER%
+FileAppend,%A_ScriptName%,%FILE_NAME_SCRIPT_VER%
+FileAppend,%TimeString%,  %FILE_NAME_SCRIPT_VER%
+
+
+
+; FileList=
+; Loop, read, %FILE_PLAY_SCRIPT_OUT_T_VIDEO%
+	; FileList = %FileList%%A_LoopReadLine%`n
+; IF FileExist(FILE_PLAY_SCRIPT_OUT_T_VIDEO)
+	; FileDelete, %FILE_PLAY_SCRIPT_OUT_T_VIDEO%
+; FileAppend,%FILELIST%,%FILE_PLAY_SCRIPT_OUTT__VIDEO%
+
+
+
 
 ; Create the popup menu by adding some items to it.
 if A_ScriptName=Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk
@@ -158,13 +177,17 @@ if A_ThisMenuItem=RUN HERE NOW
 
 if A_ThisMenuItem=RESTORE_VB_KEEP_RUNNER AND ELITESPY -- RIGHT(Ctrl)+F1
 {
+	; NONE GOSUB ALLOW OFF INCLUDE TO RUN IN SAVER
+	; SURE HAD RUN BEFORE
+	; F5 MEAN ONLY SAVE FOR INCLUDE 
+	; ANOTHER METHOD LAUNCHER
+	; --------------------------------------------
 	GOSUB SUB_RESTORE_VB_KEEP_RUNNER
 	GOSUB SUB_RESTORE_ELITESPY
 }
 
 if A_ThisMenuItem=TERMINATE SCRIPT
 	Process, Close,% DllCall("GetCurrentProcessId")
-
 
 
 if A_ThisMenuItem=TERMINATE ALL AUTOHOTKEY.EXE GONE
