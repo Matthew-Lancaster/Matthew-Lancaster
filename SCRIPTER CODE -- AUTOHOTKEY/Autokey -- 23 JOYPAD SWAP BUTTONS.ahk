@@ -17,7 +17,7 @@
 ; -------------------------------------------------------------------
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
-; Exitapp CALLS ONTO ExitFunc
+; Exitapp HAVE AR CALL ONTO ExitFunc
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------

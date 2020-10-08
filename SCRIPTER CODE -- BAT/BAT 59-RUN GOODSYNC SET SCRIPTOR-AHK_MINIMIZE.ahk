@@ -20,7 +20,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Persistent
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
-; Exitapp CALLS ONTO ExitFunc
+; Exitapp HAVE AR CALL ONTO ExitFunc
 ; --------------------
 #SingleInstance force
 
