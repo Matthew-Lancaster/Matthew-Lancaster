@@ -46,15 +46,19 @@ PID_78_TRAY_ICON_CLEANER=
 Menu, Tray, Add  ; Creates a separator line.
 
 FileGetTime, A_Script_MODIIFED_DATE , A_ScriptFullPath, M
-FormatTime, TimeString, A_Script_MODIIFED_DATE, yyyy MMM dd hh:mm:ss tt
-SCRIPT_DATE_AND_TIME_VERSION=%A_ScriptName% [----] %TimeString%
+FormatTime, TIME_STRING, A_Script_MODIIFED_DATE, yyyy MMM dd hh:mm:ss tt
+SCRIPT_DATE_AND_TIME_VERSION=%A_ScriptName% [----] %TIME_STRING%
 Menu, Tray, Add, %SCRIPT_DATE_AND_TIME_VERSION%, MenuHandler  ; Creates a new menu item.
 
-FILE_NAME_SCRIPT_VER=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER\%A_ScriptName%_VERSION.TXT
+FILE_NAME_SCRIPT_VER=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER_VERSION\%A_ScriptName%.TXT
 IF FileExist(FILE_NAME_SCRIPT_VER)
 	FileDelete, %FILE_NAME_SCRIPT_VER%
-FileAppend,%A_ScriptName%,%FILE_NAME_SCRIPT_VER%
-FileAppend,%TimeString%,  %FILE_NAME_SCRIPT_VER%
+
+; DUPLICATE LINE WITH CHANGE DATE FORMAT COMPUTER READER
+; -------------------------------------------------------------------
+FormatTime, TIME_STRING, A_Script_MODIIFED_DATE, yyyy/MM/dd hh:mm:ss
+SCRIPT_DATE_AND_TIME_VERSION_DATA=%TIME_STRING%`n%A_ScriptName%
+FileAppend,%SCRIPT_DATE_AND_TIME_VERSION_DATA%,%FILE_NAME_SCRIPT_VER%
 
 
 
