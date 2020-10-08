@@ -2538,9 +2538,9 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		
 		I = ""
 		IF I_COUNT_DEL=0 THEN 
-			I = I + "NONE DELETER" & VBCR
+			I = I + "RESULT NONE DELETER" & VBCR
 		ELSE
-			I = I + "SOME DELETER" & VBCR
+			I = I + "RESULT SOME DELETER" & VBCR
 		END IF
 		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
 		I = I + LPAD(ARRAY_FOR_NEXT, "0", 4) & " ____ OF ____ " & LPAD(UBOUND(ARRAY_PATH_01), "0", 4) & VBCRLF
@@ -2682,10 +2682,14 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			' -------------------------------------------------------
 			' DAY -- HIGH NUMBER MORE BEFORE
 			' -------------------------------------------------------
-			' EXAMPLE 200 DAY - SUPPLY - 2020-10-08 GIVE - 22/03/2020 
 			' EXAMPLE 400 DAY - SUPPLY - 2020-10-08 GIVE - 04/09/2019
+			' EXAMPLE 200 DAY - SUPPLY - 2020-10-08 GIVE - 22/03/2020 
+			' EXAMPLE 150 DAY - SUPPLY - 2020-10-08 GIVE - 11/05/2020
 			' -------------------------------------------------------
-			MSGBOX DAY_BACK_TRIMMER
+			' DEBUG REM VERIFY -- WHAT DATE GIVE HOW FAR BACK
+			' MSGBOX DAY_BACK_TRIMMER
+			' -------------------------------------------------------
+			' -------------------------------------------------------
 
 			
 			IF PATH_FIND_RESULT=TRUE THEN 
@@ -2723,9 +2727,6 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 		
 			ON ERROR RESUME NEXT
 			ERR.CLEAR
-			' IF INSTR(UCASE(FOLDER.PATH),"4_ASUS_GL522VW_82_1_MC_CARD_CAMERA")>0 THEN
-				MSGBOX FOLDER.PATH
-			' END IF
 
 			IF PATH_FIND_RESULT=TRUE THEN 
 
@@ -2734,15 +2735,19 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 					IF DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE<>"GET_FIND_INFO" THEN 
 						IF I_COUNT_DEL=0 THEN 
 							I=""
-							I=I+"1ST TO DELETE _ NONE PROVIDE AFTER" & VBCR 
+							I=I+"1ST FILE DELETE" & VBCR 
+							I=I+"NONE INFO PROVIDE AFTER" & VBCR 
+							I = I + "-------------------------------" & VBCR
 							I=I+FILE.PATH & VBCR
 							I=I+FILEMODDATE & VBCR 
+							I = I + "-------------------------------" & VBCR
 							I=I+HIGH_DATE & VBCR
 							I=I+LOW_DATE & VBCR
+							I = I + "-------------------------------" & VBCR
 							I=I+"HIGH_DATE  " & HIGH_DATE & VBCR
-							I=I+"LOW_DATE   " & LOW_DATE 
+							I=I+"LOW_DATE   " & LOW_DATE & VBCR
 							VALUE_WAIT=20
-							I = I + "-------------------------------" & VBCRLF
+							I = I + "-------------------------------" & VBCR
 							I = I + "MESSENGER BOX GONE IN " & CSTR(VALUE_WAIT) & " SECOND"
 							DIM WSHShell
 							SET WSHShell = CreateObject("WScript.Shell")
