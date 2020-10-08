@@ -1,2 +1,2 @@
-2020/10/08 12:09:25
+2020/10/08 03:00:33
 Autokey -- 50-Check The Capital Lock State.ahk
