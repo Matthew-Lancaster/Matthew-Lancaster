@@ -2532,7 +2532,16 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I=I+ "FRONT HALF SCRIPT -- DELETE TO DO" & VBCR 
 		I=I+ "----" & VBCR 
 		I=I+ DEL_SCRIPT_DATE_GONE & VBCR 
-		MSGBOX TRIM(I),vbMsgBoxSetForeground,Wscript.ScriptName 
+		I=I+ "----" & VBCR 
+		VALUE_WAIT=20
+		I=I+ "MESSENGER BOX DISAPPEAR ON " & CSTR(VALUE_WAIT) & " SECOND"
+		I = TRIM(I)
+		IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN
+			DIM WSHShell
+			SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+		END IF
 	END IF
 	' ---------------------------------------------------------------
 	
@@ -2605,7 +2614,6 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "MESSENGER BOX DISAPPEAR ON " & CSTR(VALUE_WAIT) & " SECOND"
 		IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN
 		IF I_COUNT_DEL>0 THEN 
-			DIM WSHShell
 			SET WSHShell = CreateObject("WScript.Shell")
 			RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 			SET WSHShell = Nothing
