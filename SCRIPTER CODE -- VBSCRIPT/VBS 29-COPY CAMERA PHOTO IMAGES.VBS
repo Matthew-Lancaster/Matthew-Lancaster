@@ -2318,7 +2318,15 @@ SUB GET_DRIVE_SPACE(DRVPATH)
 			Set DRVPATH = FSO.GETFOLDER(DRVPATH)
 			GET_DRIVE_SPACE(DRVPATH)
 		ELSE
-			MSGBOX "ERROR    " & DRVPATH
+			VALUE_WAIT=4
+			IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN
+				I = "ERROR DRIVE NOT READY " & VBCR & DRVPATH & VBCR
+				I=I+ "MESSENGER BOX DISAPPEAR ON " & CSTR(VALUE_WAIT) & " SECOND"
+				DIM WSHShell
+				SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+				SET WSHShell = Nothing
+			END IF
 		END IF
 	END IF
 	' ---------------------------------------------------------------
