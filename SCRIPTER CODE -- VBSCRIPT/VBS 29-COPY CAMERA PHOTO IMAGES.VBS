@@ -464,14 +464,26 @@ I=0
 ' -------------------------------------------------------------------
 ' LOCAL COMPUTER MC-CARD
 ' -------------------------------------------------------------------
-I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
-I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
+' I=I+1:ARRAY_PATH_01(I) = "MC - HX60V"
+' I=I+1:ARRAY_PATH_01(I) = "MC - HX60V1"
 ' NETWORK COMPUTER MC-CARD
 ' -------------------------------------------------------------------
+' ALL NETWORK IMPROVER NOT LOCAL
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' MC-CARD NETWORK -- 4G 7G 8M
+' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_82_1_MC_CARD_CAMERA" 
+I=I+1:ARRAY_PATH_01(I) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_82_2_MC_CARD_CAMERA"
+' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_82_1_MC_CARD_CAMERA"
+I=I+1:ARRAY_PATH_01(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_82_2_MC_CARD_CAMERA"
+' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_82_1_MC_CARD_CAMERA"
-' HDD
+I=I+1:ARRAY_PATH_01(I) = "\\8-MSI-GP62M-7RD\8_MSI_GP62M_7RD_82_2_MC_CARD_CAMERA"
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' HDD NETWORK     -- 4G 7G 8M
 ' -------------------------------------------------------------------
 I=I+1:ARRAY_PATH_01(I) = "\\4-ASUS-GL522VW\4_ASUS_GL522VW_05_1_SAMSUNG_4TB_D\MC - HX60V1_MEDIA_CARD_CAMERA"
 I=I+1:ARRAY_PATH_01(I) = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D\MC - HX60V1_MEDIA_CARD_CAMERA"
