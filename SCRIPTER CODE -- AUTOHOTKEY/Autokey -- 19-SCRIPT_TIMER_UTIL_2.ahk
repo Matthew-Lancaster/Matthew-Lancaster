@@ -5100,34 +5100,27 @@ Return
 TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP:
 
 	; SETTIMER TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP, 1000 
-	
+	DETECTHIDDENWINDOWS, ON
+	SETTITLEMATCHMODE 2  ; NOT FULL PATH
 	TOGGLE_EXIST_WSCRIPT_EXE=0
-	WINGET, LIST, LIST, AHK_EXE WSCRIPT.EXE
+	
+	WINGET, LIST, LIST, ahk_exe WSCRIPT.EXE
+	
+	LIST_COUNTER=0
+	LOOP %LIST%
+		LIST_COUNTER+=1
+	
+	
 	LOOP %LIST%
 	{
 		TOGGLE_EXIST_WSCRIPT_EXE+=1
-		
-		WINGET, PID_MINE, PID, % "ahk_id " List%A_Index%
 
-		VarSetCapacity(sCmdLine, 512)
-		pFunc := DllCall("GetProcAddress"
-		 , "Uint", DllCall("GetModuleHandle", "str", "kernel32.dll")
-		 , "str", "GetCommandLineA")
-
-		hProc_MINE := DllCall("OpenProcess", "Uint", 0x3A, "int", 0, "Uint", PID_MINE)
-
-		hThrd := DllCall("CreateRemoteThread", "Uint", hProc_MINE, "Uint", 0, "Uint", 0
-		 , "Uint", pFunc, "Uint", 0, "Uint", 0, "Uint", 0)
-
-		DllCall("WaitForSingleObject", "Uint", hThrd, "Uint", 0xFFFFFFFF)
-		DllCall("GetExitCodeThread", "Uint", hThrd, "UintP", pcl)
-		DllCall("ReadProcessMemory", "Uint", hProc_MINE, "Uint", pcl, "str", sCmdLine, "Uint", 512, "Uint", 0)
-
-		DllCall("CloseHandle", "Uint", hThrd)
-		DllCall("CloseHandle", "Uint", hProc_MINE)
+		LIST_ID_1 := list%A_Index%
+		WINGET, PID_02, PID, ahk_id %LIST_ID_1%
+		; MSGBOX %LIST_ID_1%`n%PID_02%
 
 
-		MSGBOX  %sCmdLine%
+		; MSGBOX % GetCommandLine(PID_02)
 		
 		
 		; WinGetTITLE, WIN_TITLE_KEY_VAR, % "ahk_id " List%A_Index%
@@ -5142,9 +5135,7 @@ TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP:
 		;PROCESS_02=
 	}
 	
-	
-	
-	TOOLTIP %TOGGLE_EXIST_WSCRIPT_EXE%`n%OLD_TOGGLE_EXIST_WSCRIPT_EXE%
+	; TOOLTIP %TOGGLE_EXIST_WSCRIPT_EXE%`n%OLD_TOGGLE_EXIST_WSCRIPT_EXE%
 	
 	IF OLD_TOGGLE_EXIST_WSCRIPT_EXE<>%TOGGLE_EXIST_WSCRIPT_EXE%
 	{
@@ -5153,6 +5144,44 @@ TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP:
 		SETTIMER EXIST_WSCRIPT_EXE_SOUND_PLAY_02,1000
 	}
 RETURN
+
+
+
+
+GetCommandLine( PID ) { ;  by Sean          www.autohotkey.com/forum/viewtopic.php?t=16575 
+ Static pFunc 
+ pFunc=
+ If ! ( hProcess := DllCall( "OpenProcess", UInt,0x043A, Int,0, UInt, PID ) ) 
+        Return  
+ If pFunc= 
+    pFunc := DllCall( "GetProcAddress", UInt 
+           , DllCall( "GetModuleHandle", Str,"kernel32.dll" ), Str,"GetCommandLineA" ) 
+ hThrd := DllCall( "CreateRemoteThread", UInt,hProcess, UInt,0, UInt,0, UInt,pFunc, UInt,0 
+        , UInt,0, UInt,0 ),  DllCall( "WaitForSingleObject", UInt,hThrd, UInt,0xFFFFFFFF ) 
+ DllCall( "GetExitCodeThread", UInt,hThrd, UIntP,pcl ), VarSetCapacity( sCmdLine,512 ) 
+ DllCall( "ReadProcessMemory", UInt,hProcess, UInt,pcl, Str,sCmdLine, UInt,512, UInt,0 ) 
+ DllCall( "CloseHandle", UInt,hThrd ), DllCall( "CloseHandle", UInt,hProcess ) 
+Return sCmdLine 
+} 
+
+SetDebugPrivilege() {
+ ;PROCESS_QUERY_INFORMATION=[color=red]0x400[/color], TOKEN_ADJUST_PRIVILEGES=[color=red]0x20[/color], SE_PRIVILEGE_ENABLED:=[color=red]0x2[/color]
+ hProcess := DllCall( "OpenProcess", UInt,[color=red]0x400[/color],Int,0,UInt,DllCall("GetCurrentProcessId"))
+ DllCall( "Advapi32.dll\LookupPrivilegeValueA", UInt,0, Str,"[color=red]SeDebugPrivilege[/color]", UIntP,lu )
+  ; TOKEN_PRIVILEGES Structure : www.msdn.microsoft.com/en-us/library/aa379630(VS.85).aspx
+ VarSetCapacity( TP,16,0), NumPut( 1,TP,0,4 ),  NumPut( lu,TP,4,8 ), NumPut( [color=red]0x2[/color],TP,12,4 ) 
+ DllCall( "Advapi32.dll\OpenProcessToken", UInt,hProcess, UInt,[color=red]0x20[/color], UIntP,hToken )
+ Result :=  DllCall( "Advapi32.dll\AdjustTokenPrivileges"
+                 , UInt,hToken, UInt,0, UInt,&TP, UInt,0, UInt,0, UInt,0 )
+ DllCall( "CloseHandle", UInt,hProcess ), DllCall( "CloseHandle", UInt,hToken )
+Return Result 
+}
+
+SetDebugPrivilege() 
+MsgBox, % GetCommandLine( DllCall( "GetCurrentProcessId" ) ) 
+Process, Exist, svchost.exe 
+MsgBox,0, %errorLevel%, % GetCommandLine( errorLevel )
+
 
 EXIST_WSCRIPT_EXE_SOUND_PLAY_01:
 	SETTIMER EXIST_WSCRIPT_EXE_SOUND_PLAY_01,OFF
