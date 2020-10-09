@@ -5100,20 +5100,55 @@ Return
 TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP:
 
 	; SETTIMER TIMER__WSCRIPT_EXE__IS_RUNNER_SOUND_EFFECT_START_AND_STOP, 1000 
+	
+	TOGGLE_EXIST_WSCRIPT_EXE=0
+	WINGET, LIST, LIST, AHK_EXE WSCRIPT.EXE
+	LOOP %LIST%
+	{
+		TOGGLE_EXIST_WSCRIPT_EXE+=1
+		
+		WINGET, PID_MINE, PID, % "ahk_id " List%A_Index%
 
-	PROCESS, EXIST, WSCRIPT.EXE
-	IF NOT ERRORLEVEL
-	{
-		TOGGLE_EXIST_WSCRIPT_EXE="TRUE EXIST"
-	}
-	ELSE
-	{
-		TOGGLE_EXIST_WSCRIPT_EXE="NOT EXIST"
-	}
+		VarSetCapacity(sCmdLine, 512)
+		pFunc := DllCall("GetProcAddress"
+		 , "Uint", DllCall("GetModuleHandle", "str", "kernel32.dll")
+		 , "str", "GetCommandLineA")
 
-	IF OLD_TOGGLE_EXIST_WSCRIPT_EXE<>TOGGLE_EXIST_WSCRIPT_EXE
+		hProc_MINE := DllCall("OpenProcess", "Uint", 0x3A, "int", 0, "Uint", PID_MINE)
+
+		hThrd := DllCall("CreateRemoteThread", "Uint", hProc_MINE, "Uint", 0, "Uint", 0
+		 , "Uint", pFunc, "Uint", 0, "Uint", 0, "Uint", 0)
+
+		DllCall("WaitForSingleObject", "Uint", hThrd, "Uint", 0xFFFFFFFF)
+		DllCall("GetExitCodeThread", "Uint", hThrd, "UintP", pcl)
+		DllCall("ReadProcessMemory", "Uint", hProc_MINE, "Uint", pcl, "str", sCmdLine, "Uint", 512, "Uint", 0)
+
+		DllCall("CloseHandle", "Uint", hThrd)
+		DllCall("CloseHandle", "Uint", hProc_MINE)
+
+
+		MSGBOX  %sCmdLine%
+		
+		
+		; WinGetTITLE, WIN_TITLE_KEY_VAR, % "ahk_id " List%A_Index%
+		; Process, Exist, WSCRIPT.EXE
+		
+		; WinGetTITLE, WIN_TITLE_KEY_VAR, % "ahk_id " List%A_Index% 
+		; MSGBOX % WIN_TITLE_KEY_VAR
+
+		; WINGET, EXENAME_PATH, Processpath, % "ahk_id " List%A_Index%
+		; MSGBOX % EXENAME_PATH
+		; MSGBOX % List%A_Index%
+		;PROCESS_02=
+	}
+	
+	
+	
+	TOOLTIP %TOGGLE_EXIST_WSCRIPT_EXE%`n%OLD_TOGGLE_EXIST_WSCRIPT_EXE%
+	
+	IF OLD_TOGGLE_EXIST_WSCRIPT_EXE<>%TOGGLE_EXIST_WSCRIPT_EXE%
 	{
-		OLD_TOGGLE_EXIST_WSCRIPT_EXE=TOGGLE_EXIST_WSCRIPT_EXE
+		OLD_TOGGLE_EXIST_WSCRIPT_EXE:=TOGGLE_EXIST_WSCRIPT_EXE
 		SETTIMER EXIST_WSCRIPT_EXE_SOUND_PLAY_01,400
 		SETTIMER EXIST_WSCRIPT_EXE_SOUND_PLAY_02,1000
 	}
