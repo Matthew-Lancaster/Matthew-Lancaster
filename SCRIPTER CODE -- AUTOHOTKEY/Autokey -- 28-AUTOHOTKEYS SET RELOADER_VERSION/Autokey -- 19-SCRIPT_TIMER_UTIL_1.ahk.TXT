@@ -1,2 +1,0 @@
-2020/10/09 07:00:11
-Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk
