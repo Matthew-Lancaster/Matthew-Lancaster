@@ -19,3 +19,9 @@ www.amazon.co.uk##.a-span-last.a-span5.a-column
 
 ! 07/10/2020 https://www.amazon.co.uk
 www.amazon.co.uk##.celwidget > .a-color-success
+
+
+
+! BAD BLOCK FOR FACEBOOK WIPE SOME MESSENGER ON POSTER
+!www.facebook.com##.hzawbc8m.oo9gr5id.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
+
