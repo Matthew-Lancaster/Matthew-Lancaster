@@ -1,2 +1,0 @@
-2020/10/09 07:00:11
-Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
