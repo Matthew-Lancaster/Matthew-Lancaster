@@ -14,7 +14,7 @@ Dim RXRIME
 
 
 Private Type SHFILEOPSTRUCT
-hwnd As Long
+hWnd As Long
 wFunc As Long
 pFrom As String
 pTo As String
@@ -46,12 +46,11 @@ Private Const FILE_ATTRIBUTE_COMPRESSED = &H800    ' X -
 
 Dim WinType_SFO As SHFILEOPSTRUCT
 Dim lRet As Long
-Dim lflags As Long
+Dim lFlags As Long
 
 
 '----------------
 '## MODIFY BATCH SHORT CUTS VARS
-
 'Option Explicit
 
 '---------------------------
@@ -295,7 +294,7 @@ Dim r     As Long
 Dim pidl  As Long
 Dim sPath As String
 
-r = api_SHGetSpecialFolderLocation(ScanPath.hwnd, CSIDL, pidl)
+r = api_SHGetSpecialFolderLocation(ScanPath.hWnd, CSIDL, pidl)
 
 If r = 0 Then
 
@@ -1035,7 +1034,7 @@ For WE = 1 To ScanPath.ListView1.ListItems.Count
     
     'If Var <> 0 Then MsgBox "Error This One -- " + vbCrLf + A1 + B1
     
-    If Var <> False And Var <> True Then
+    If VAR <> False And VAR <> True Then
         TTH = TTH + 1: ScanPath.lblCount3 = Trim(Str(TTH)) + " ERR EXECUTE"
     End If
     
@@ -1652,12 +1651,12 @@ End Sub
 
 Public Function ShellFileDelete(src As String, Optional NoConfirm As Boolean = False) As Boolean
 
-lflags = FOF_ALLOWUNDO
-If NoConfirm Then lflags = lflags Or FOF_NOCONFIRMATION Or FOF_NOCONFIRMMKDIR
+lFlags = FOF_ALLOWUNDO
+If NoConfirm Then lFlags = lFlags Or FOF_NOCONFIRMATION Or FOF_NOCONFIRMMKDIR
 With WinType_SFO
 .wFunc = FO_DELETE
 .pFrom = src
-.fFlags = lflags
+.fFlags = lFlags
 End With
 
 lRet = SHFileOperation(WinType_SFO)
