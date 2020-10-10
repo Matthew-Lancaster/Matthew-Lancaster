@@ -49,6 +49,7 @@
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
+||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
 ||d1byywzi6ghj11.cloudfront.net/img/spacer.gif$image
@@ -65,6 +66,7 @@
 ||www.santander.co.uk/assets/s3fs-public/images/123_student_current_account_masthead.jpg$image
 ||www.santander.co.uk/assets/s3fs-public/images/scam-ouflage_antandec_masthead.jpg$image
 ||www.theargus.co.uk/resources/images/6624235/?type=nile-list&htype=0$image
+app.mysms.com##.lostPassword
 clocktab.com###donate-button
 clocktab.com##.button-background.glass-background
 clocktab.com##.screen-button
@@ -98,6 +100,7 @@ onlinebanking.nationwide.co.uk##.cc_cursor.bottom-prompts-container
 onlinebanking.nationwide.co.uk##.form-row-middle.form-row
 onlinebanking.nationwide.co.uk##.step-head-6 > h2
 photos.google.com##.DF792b.yDSiEe.dhgHyf:nth-of-type(2) > .XQsPc > .RunE3b
+photos.google.com##.XQsPc
 retail.santander.co.uk###myoffers
 retail.santander.co.uk###splash-97123-body
 retail.santander.co.uk###splash-97123-overlay
@@ -139,8 +142,10 @@ www.amazon.co.uk###reviewsMedley > .a-fixed-left-grid-inner > .a-col-right.a-fix
 www.amazon.co.uk###rhf-shoveler
 www.amazon.co.uk##.a-alert-info.a-alert.a-box > .a-alert-container.a-box-inner
 www.amazon.co.uk##.askInlineWidget
+www.amazon.co.uk##.a-span-last.a-span5.a-column
 www.amazon.co.uk##.a-text-center.a-spacing-top-extra-large.a-section
 www.amazon.co.uk##.card-padding
+www.amazon.co.uk##.celwidget > .a-color-success
 www.amazon.co.uk##.click_region
 www.amazon.co.uk##.cr-solicitation.cr-lazy-widget
 www.amazon.co.uk##.global-reviews-all

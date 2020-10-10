@@ -1,33 +1,53 @@
-
-
-
-! 2020-10-03 https://drive.google.com
-drive.google.com##.Wmhurf
-
-
-! 2020-10-04 https://photos.google.com
-photos.google.com##.XQsPc
-
-
-! 03/10/2020 https://app.mysms.com
-app.mysms.com##.lostPassword
-
-
-! 05/10/2020 https://www.amazon.co.uk
-www.amazon.co.uk##.a-span-last.a-span5.a-column
-
-
-! 03/10/2020 https://app.mysms.com
-app.mysms.com##.lostPassword
-
-! 05/10/2020 https://www.amazon.co.uk
-www.amazon.co.uk##.a-span-last.a-span5.a-column
-
-! 07/10/2020 https://www.amazon.co.uk
-www.amazon.co.uk##.celwidget > .a-color-success
-
-
-
+! -------------------------------------------------------------------
+! MAINTAIN BLOCK FOR ADBLOCK.COM OVER AT CHROME QUICKER USER
+! CLIPBOARD CHUNK BELOW -- ADBLOCK FOR CHROME -- /\/\/\/\/\ -- HITT HERE LINE -- /\/\/\/\/\ --
+! -------------------------------------------------------------------
+! -------------------------------------------------------------------
+! HERE A REM LINE -- HERE ALL MY ADBLOCK.COM
+! COMPLETE COVER FB.COM UP-TO-DATE TRIM DOWN NICE SIMPLE LAND
+! REM BY ! ! ! ! 
+! HERE IS NEW A MAINTAIN BY ME
+! -------------------------------------------------------------------
+! Fri 25-Sep-2020 14:34:00
+! -------------------------------------------------------------------
+! I GOT A CLIPBOARD GRAB CODE APP IN VB6
+! WHEN I CLICK A CERTAIN LINE IN AR -- I GIVE ME WHOLE SET BELOW BY MARKER ENDER
+! AND THEN PUT EVERY BROWSER THE DO ADBLOCK
+! THE ARE SORT ALPHABET AND DUPLICATE REMOVE NOTEPAD++ 
+! THE A NICE FEATURE OF ADBLOCKER -- WHEN PRESS SHIFT KEY AND FINE TUNE THE ITEM BLOCK
+! SHIFT WILL GIVE COSMETIC -- SO WHEN ONE ITEM REMOVE I QUITE OFTEN GIVE MANY THAT SAME ITEM
+! EASY CREATE FILE HERE AND USE AR MY CODE
+! UNDERSTAND I COLLECT SOME
+! SOME I DO BY STYLUS.COM AND UPDATE SYNC OVER IS A LITTLE EASY
+! SOME COMPUTER ARE VERY MINIMAL XP 
+! AND ONLY ONE ADBLOCK.COM EXTENSION WORK
+! AND THEN PRIMITIVE
+! AND THEN STILL SKILLFUL
+! IT NOT PICKER THAT GOOD -- TRANSFER DATA IN GOOD AND OUT 
+! -------------------------------------------------------------------
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK.TXT\TEXT_ADBLOCK_TEXT_TXT
+! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe
+! D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.VBP -- VB6 CODE DRIVE HERE MERGING SCRIPT
+! TWO FORM ONE TO COPY PASTE -- LINE PICKER
+! WORK MERGE ROUTINE AND __ ARCHIVE __ KEEPER OF SUBSTANTIAL FEW AND BY DATE
+! Sat 26-Sep-2020 06:54:20
+! Sat 26-Sep-2020 11:15:00 -- 4 HOUR 20 MINUTE
+! ABLE WRITE FOR VBSCRIPT --- AND RAPID DEVELOP HERE
+! -------------------------------------------------------------------
+! Sat 26-Sep-2020 12:40:00 -- MOVE ROOM WORKER
+! Sat 26-Sep-2020 15:34:00 -- 2 HOUR 54 MINUTE
+! -------------------------------------------------------------------
+! Fri 25-Sep-2020 14:40:00 -- START DAY & TOTAL NOT INCLUDE GAP BETWEEN
+! Sat 26-Sep-2020 11:15:00 -- 20 HOUR 35 MINUTE
+! Sat 26-Sep-2020 15:34:00 -- 1 DAY 54 MINUTE
+! -------------------------------------------------------------------
+! -------------------------------------------------------------------
+! FILE HERE
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__01__MAIN.TXT
+! C:\SCRIPTER\SCRIPT 08 IN_NET_ ADBLOCK_TXT\TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
+! USER THIS ONE FOR MERGE
+! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
+! -------------------------------------------------------------------
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
@@ -45,7 +65,6 @@ www.amazon.co.uk##.celwidget > .a-color-success
 ||www.santander.co.uk/assets/s3fs-public/images/123_student_current_account_masthead.jpg$image
 ||www.santander.co.uk/assets/s3fs-public/images/scam-ouflage_antandec_masthead.jpg$image
 ||www.theargus.co.uk/resources/images/6624235/?type=nile-list&htype=0$image
-app.mysms.com##.lostPassword
 clocktab.com###donate-button
 clocktab.com##.button-background.glass-background
 clocktab.com##.screen-button
@@ -79,7 +98,6 @@ onlinebanking.nationwide.co.uk##.cc_cursor.bottom-prompts-container
 onlinebanking.nationwide.co.uk##.form-row-middle.form-row
 onlinebanking.nationwide.co.uk##.step-head-6 > h2
 photos.google.com##.DF792b.yDSiEe.dhgHyf:nth-of-type(2) > .XQsPc > .RunE3b
-photos.google.com##.XQsPc
 retail.santander.co.uk###myoffers
 retail.santander.co.uk###splash-97123-body
 retail.santander.co.uk###splash-97123-overlay
@@ -121,10 +139,8 @@ www.amazon.co.uk###reviewsMedley > .a-fixed-left-grid-inner > .a-col-right.a-fix
 www.amazon.co.uk###rhf-shoveler
 www.amazon.co.uk##.a-alert-info.a-alert.a-box > .a-alert-container.a-box-inner
 www.amazon.co.uk##.askInlineWidget
-www.amazon.co.uk##.a-span-last.a-span5.a-column
 www.amazon.co.uk##.a-text-center.a-spacing-top-extra-large.a-section
 www.amazon.co.uk##.card-padding
-www.amazon.co.uk##.celwidget > .a-color-success
 www.amazon.co.uk##.click_region
 www.amazon.co.uk##.cr-solicitation.cr-lazy-widget
 www.amazon.co.uk##.global-reviews-all
@@ -274,3 +290,6 @@ www.waitrose.com##.cc_cursor.emergency___OFNEj
 www.youtube.com###secondary
 www.youtube.com##.ytd-clarification-renderer.style-scope.content-title
 www.youtube.com##.ytd-clarification-renderer.style-scope.description
+! ---------------------------------------------------------------------
+! END CHUNK -- CLIPBOARD CHUNK BELOW -- ADBLOCK.COM CHROME
+! ---------------------------------------------------------------------
