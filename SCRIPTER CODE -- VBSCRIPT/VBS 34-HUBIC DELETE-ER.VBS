@@ -109,8 +109,8 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 DIM objFSO
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
 
 Dim oDict_1 ' Key: Full filename, Item: Filename
 Dim oDict_2 ' Key: Full filename, Item: Filename
@@ -172,12 +172,20 @@ FOLDER_PATH_FILTER(7)=DRIVE_VAR+"\zz--NETWORK_FOLDER"
 DELETE_FILE_TIME_SPAN=TIMESERIAL(2,0,0)
 DELETE_FOLDER_TIME_SPAN=TIMESERIAL(48,0,0)
 
-DIM CUR_USER
-DIM ComputerName
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+' DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
 
-CUR_USER = CreateObject("WScript.Network").UserName
-Set objShell = Wscript.CreateObject("WScript.Shell")
-ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
 
 ' IF ComputerName<>"8-MSI-GP62M-7RD" THEN 
 	' Wscript.QUIT

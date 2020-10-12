@@ -12,16 +12,19 @@ DIM VAR_ONCE
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
 
-DIM CUR_USER
-DIM COMPUTER_NAME_VAR
-DIM wshShell
-
-SET wshShell = CreateObject( "WScript.Shell" )
-strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
-
-CUR_USER = CreateObject("WScript.Network").UserName
-COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
-
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
 
 
 Public Function isValidFileName( ByVal strPath, ByVal strFileName )
@@ -62,7 +65,7 @@ Public Function isValidFileName( ByVal strPath, ByVal strFileName )
 	
 	
 	
-	IF INSTR(UCASE(strPath),UCASE("C:\TEMP\-"+COMPUTER_NAME_VAR))>0 THEN 
+	IF INSTR(UCASE(strPath),UCASE("C:\TEMP\-"+GETCOMPUTERNAME))>0 THEN 
 		bIsValid = True
 		FSO.DeleteFILE strPath+strFileName
 	END IF

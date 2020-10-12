@@ -415,16 +415,26 @@ SET FSO = CreateObject("Scripting.FileSystemObject")
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
-DIM CUR_USER
+DIM GETUSERNAME
 DIM ComputerName
 
 DIM FOLDER_PATH_DEST_VAR_2
 DIM FOLDER_PATH_MP4__VAR_2
 DIM SET_GO_MAIN_4
 
-CUR_USER = CreateObject("WScript.Network").UserName
-Set objShell = Wscript.CreateObject("WScript.Shell")
-ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
 
 DIM JPG_BEEN_DONE
 DIM MP4_BEEN_DONE

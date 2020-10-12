@@ -161,11 +161,19 @@ PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-Pinto10\PinTo10
 PinTo10_EXE_PATH = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-Pinto10\PinTo10.exe"
 PinTo10_v4_EXE__=Q & "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-Pinto10\PinTo10_v4.exe" & Q
 
-Set wshShell = CreateObject( "WScript.Shell" )
-strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
-
-CUR_USER = CreateObject("WScript.Network").UserName
-COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
 
 
 ' IF strComputerName="8-MSI-GP62M-7RD" THEN 
@@ -378,7 +386,7 @@ APPDATA_FOLDER_FILE_COUNT_VAR_2=0
 Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_2)
 
 IF QUITE_MODE_ENDING=TRUE THEN 
-	IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
+	IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
 		NOT_SHOW_END_MESSENGER=FALSE
 	END IF
 END IF
@@ -399,7 +407,7 @@ IF EXTRA_ITEM_ADD_TO_TASKBAR=0 THEN
 END IF
 
 
-IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" AND QUITE_MODE_ENDING=TRUE THEN
+IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" AND QUITE_MODE_ENDING=TRUE THEN
 	NOT_SHOW_END_MESSENGER=TRUE
 END IF
 
@@ -566,7 +574,7 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files\Internet Explorer\iexplore.exe"
 END IF
 
-obj_SOURCE_Folder = "C:\Users\" & CUR_USER & "\AppData\Local\FlickrUploadrWindows"
+obj_SOURCE_Folder = "C:\Users\" & GETUSERNAME & "\AppData\Local\FlickrUploadrWindows"
 SET_GO=TRUE
 If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
 IF SET_GO=TRUE THEN 
@@ -616,7 +624,7 @@ ELSE
 END IF
 
 
-obj_SOURCE_Folder = "C:\Users\" & CUR_USER & "\AppData\Local\GrammarlyForWindows"
+obj_SOURCE_Folder = "C:\Users\" & GETUSERNAME & "\AppData\Local\GrammarlyForWindows"
 SET_GO=TRUE
 If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
 IF SET_GO=TRUE THEN 
@@ -650,25 +658,25 @@ END IF
 ' 7-ASUS-GL522VW
 ' 8-MSI-GP62M-7RD
 
-' IF COMPUTER_NAME_VAR="1-ASUS-X5DIJ" then 
-' IF COMPUTER_NAME_VAR="2-ASUS-EEE" then 
-' IF COMPUTER_NAME_VAR="3-LINDA-PC" then 
-' IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then 
-' IF COMPUTER_NAME_VAR="5-ASUS-P2520LA" then 
-' IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then 
+' IF GETCOMPUTERNAME="1-ASUS-X5DIJ" then 
+' IF GETCOMPUTERNAME="2-ASUS-EEE" then 
+' IF GETCOMPUTERNAME="3-LINDA-PC" then 
+' IF GETCOMPUTERNAME="4-ASUS-GL522VW" then 
+' IF GETCOMPUTERNAME="5-ASUS-P2520LA" then 
+' IF GETCOMPUTERNAME="7-ASUS-GL522VW" then 
 
 
-IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" then 
+IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" then 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NetSetMan\netsetman.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
 END IF 
 
-IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then 
+IF GETCOMPUTERNAME="4-ASUS-GL522VW" then 
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
 END IF 
 
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then 
+IF GETCOMPUTERNAME="7-ASUS-GL522VW" then 
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
 END IF 
@@ -699,7 +707,7 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
 END IF 
 
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then 
+IF GETCOMPUTERNAME="7-ASUS-GL522VW" then 
 	I=I+1:ARRAY_1(I)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe" 
 	
 	' C:\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe
@@ -708,7 +716,7 @@ IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then
 END IF 
 
 
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS.exe"
@@ -720,7 +728,7 @@ IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
 END IF
 
-IF Version_OS=10 OR ORCOMPUTER_NAME_VAR="3-LINDA-PC" THEN
+IF Version_OS=10 OR ORGETCOMPUTERNAME="3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
 END IF
 
@@ -746,8 +754,8 @@ I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.ex
 I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 ' -------------------------------------------------------------------
 SET_GO_GS=FALSE
-IF COMPUTER_NAME_VAR="4-ASUS-GL522VW" then SET_GO_GS=TRUE
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" then SET_GO_GS=TRUE
+IF GETCOMPUTERNAME="4-ASUS-GL522VW" then SET_GO_GS=TRUE
+IF GETCOMPUTERNAME="7-ASUS-GL522VW" then SET_GO_GS=TRUE
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - C\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO C DRIVE.AHK.EXE"
@@ -763,7 +771,7 @@ IF Version_OS=10 THEN
 END IF 
 
 
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
@@ -794,7 +802,7 @@ IF Version_OS=10 THEN
 END IF
 
 
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
@@ -817,7 +825,7 @@ END IF
 
 ' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\ProcessExplorerPortable\ProcessExplorerPortable.exe"
 
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\procexp.exe"
 	' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\AutorunsPortable\App\Autoruns\Autoruns64.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\Autoruns.exe"
@@ -871,7 +879,7 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
 END IF
 
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
 END IF
@@ -923,7 +931,7 @@ END IF
 ' ---------------------------------------------------------------------------
 
 
-IF COMPUTER_NAME_VAR<>"3-LINDA-PC" THEN
+IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
 END IF
 
@@ -947,7 +955,7 @@ IF Version_OS=10 THEN
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Evernote\Evernote\EvernoteClipper.exe"
 END IF
 
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
+IF GETCOMPUTERNAME="7-ASUS-GL522VW" THEN
 	FOR R_USERNAME=1 TO 8
 		U1=TRIM(CSTR(R_USERNAME))
 		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
@@ -958,7 +966,7 @@ IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
 END IF
 
 
-IF COMPUTER_NAME_VAR="8-MSI-GP62M-7RD" THEN
+IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
 	FOR R_USERNAME=1 TO 8
 		U1=TRIM(CSTR(R_USERNAME))
 		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
@@ -993,8 +1001,8 @@ END IF
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Arduino\arduino.exe"
 ' END IF
 
-IF COMPUTER_NAME_VAR="7-ASUS-GL522VW" THEN
-	I=I+1:ARRAY_1(I)="C:\Users\" & CUR_USER & "\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
+IF GETCOMPUTERNAME="7-ASUS-GL522VW" THEN
+	I=I+1:ARRAY_1(I)="C:\Users\" & GETUSERNAME & "\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
 END IF
 
 ' C:\Windows\WinSxS\amd64_microsoft-windows-s..ytools-ex.resources_31bf3856ad364e35_10.0.16299.15_en-us_28a070b1f81f73ec\secpol.msc

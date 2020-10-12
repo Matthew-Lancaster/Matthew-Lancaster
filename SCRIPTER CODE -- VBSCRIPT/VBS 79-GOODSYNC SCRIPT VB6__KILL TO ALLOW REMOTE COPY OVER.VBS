@@ -43,11 +43,24 @@ DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
 
 ' -------------------------------------------------------------------
-DIM WSHShell
-SET WSHShell = CreateObject("WScript.Shell")
-SET objShell = Wscript.CreateObject("WScript.Shell")
-CUR_USER = CreateObject("WScript.Network").UserName
-COMPUTERNAME = objShell.ExpandEnvironmentStrings("%computername%")
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
+
+
+
+' GETUSERNAME
+' GETGETCOMPUTERNAME
 ' -------------------------------------------------------------------
 ' 01 OF 02 
 ' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
@@ -85,7 +98,7 @@ FOR EACH objProcess IN colProcesses
 		IF iMyPID<>PID_Script THEN 
 			' MSGBOX iMyPID & VBCR & PID_Script
 			objProcess.Terminate() 
-			objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+			WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
 		END IF
 		
 		'IF i2 > 0 THEN ' MY PROGRAM WSCRIPT 
@@ -101,7 +114,7 @@ FOR EACH objProcess IN colProcesses
 				' MSGBOX iMyPID & VBCR & PID_Script
 				' ' MSGBOX PID_Script
 				' objProcess.Terminate() 
-				' objShell.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+				' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
 				' ' MSGBOX CSTR(iMyPID) +VBV+ strScriptName +VBV+ CSTR(PID_Script)  +VBV+ Wscript.ScriptName
 			' END IF
 		' END IF
@@ -114,9 +127,9 @@ NEXT
 ' -------------------------------------------------------------------
 ' GOODSYNC_GSYNC="D:\GoodSync\x64\gsync.exe"
 ' JOBNAME="VB VB-NT 01 EXE 7G 4G _001_ EXE"
-' Set WSHShell = CreateObject("WScript.Shell")
-' WSHShell.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
-' Set WSHShell = Nothing
+' Set WSHSHELL = CreateObject("WScript.Shell")
+' WSHSHELL.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
+' Set WSHSHELL = Nothing
 ' WSCRIPT.QUIT
 ' -------------------------------------------------------------------
 
@@ -185,9 +198,9 @@ END IF
 
 IF FSO.FILEEXISTS(LOGPATH) = TRUE THEN 
 	' ---------------------------------------------
-	'Set WSHShell = CreateObject("WScript.Shell")
-	' WSHShell.Run """C:\Program Files (x86)\Notepad++\notepad++.exe""" + " " + """"+LOGPATH+""""
-	'Set WSHShell = Nothing
+	'Set WSHSHELL = CreateObject("WScript.Shell")
+	' WSHSHELL.Run """C:\Program Files (x86)\Notepad++\notepad++.exe""" + " " + """"+LOGPATH+""""
+	'Set WSHSHELL = Nothing
 	' ---------------------------------------------
 	' LOSE ACCESS TO DISPLAY NOTEPAD++ AND EXPLORER
 	' NETWORK -------------------------------------
@@ -253,12 +266,12 @@ Do Until FILE_1.AtEndOfStream
 	IF M1>0 THEN 
 		FOR R=1 TO 7
 			IF INSTR(UCASE(READ_LINE),UCASE(NETNAME(R)))>0 THEN 
-				COMPUTERNAME_1=UCASE(NETNAME(R))
+				GETCOMPUTERNAME_1=UCASE(NETNAME(R))
 			END IF
 		NEXT 
 		FOR R=1 TO 7
-			IF INSTR(UCASE(READ_LINE),UCASE(NETNAME(R)))>0 AND NETNAME(R)<>COMPUTERNAME_1 THEN 
-				COMPUTERNAME_2=UCASE(NETNAME(R))
+			IF INSTR(UCASE(READ_LINE),UCASE(NETNAME(R)))>0 AND NETNAME(R)<>GETCOMPUTERNAME_1 THEN 
+				GETCOMPUTERNAME_2=UCASE(NETNAME(R))
 			END IF
 		NEXT 
 		
@@ -273,23 +286,23 @@ Do Until FILE_1.AtEndOfStream
 	END IF
 
 	IF MM>0 THEN
-		XXVV=READ_LINE+VBCR+COMPUTERNAME_1+VBCR+COMPUTERNAME_2+VBCR+EXE_NAME
+		XXVV=READ_LINE+VBCR+GETCOMPUTERNAME_1+VBCR+GETCOMPUTERNAME_2+VBCR+EXE_NAME
 	END IF
 	MM=0
 Loop
 FILE_1.CLOSE
 
-Set objShell = Wscript.CreateObject("WScript.Shell")
-ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+Set WSHSHELL = Wscript.CreateObject("WScript.Shell")
+GETCOMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%GETCOMPUTERNAME%")
 
-IF COMPUTERNAME_1<>UCASE(ComputerName) THEN 
-	COMPUTERNAME_REMOTE=COMPUTERNAME_1
+IF GETCOMPUTERNAME_1<>UCASE(GETCOMPUTERNAME) THEN 
+	GETCOMPUTERNAME_REMOTE=GETCOMPUTERNAME_1
 END IF
-IF COMPUTERNAME_2<>UCASE(ComputerName) THEN 
-	COMPUTERNAME_REMOTE=COMPUTERNAME_2
+IF GETCOMPUTERNAME_2<>UCASE(GETCOMPUTERNAME) THEN 
+	GETCOMPUTERNAME_REMOTE=GETCOMPUTERNAME_2
 END IF
 
-XXVV=XXVV+VBCR+COMPUTERNAME_REMOTE
+XXVV=XXVV+VBCR+GETCOMPUTERNAME_REMOTE
 
 ' -------------------------------------------------------------------
 ' SO FAR SO GOOD
@@ -297,12 +310,12 @@ XXVV=XXVV+VBCR+COMPUTERNAME_REMOTE
 ' ABOUT KILL PROCESS SOMETHING
 ' -------------------------------------------------------------------
 
-COMPUTERNAME_REMOTE_UNBDERLINE=REPLACE(COMPUTERNAME_REMOTE,"-","_")
+GETCOMPUTERNAME_REMOTE_UNBDERLINE=REPLACE(GETCOMPUTERNAME_REMOTE,"-","_")
 
-IF COMPUTERNAME_REMOTE="" THEN WSCRIPT.QUIT
+IF GETCOMPUTERNAME_REMOTE="" THEN WSCRIPT.QUIT
 
 PATH_1=""
-PATH_1=PATH_1+"\\"+COMPUTERNAME_REMOTE+"\"+COMPUTERNAME_REMOTE_UNBDERLINE+"_01_C_DRIVE"
+PATH_1=PATH_1+"\\"+GETCOMPUTERNAME_REMOTE+"\"+GETCOMPUTERNAME_REMOTE_UNBDERLINE+"_01_C_DRIVE"
 PATH_1=PATH_1+"\SCRIPTOR DATA\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE_VBS_DATA_#NFS_EX.TXT"
 
 ' -------------------------------------------------------------------
@@ -392,7 +405,7 @@ IF FSO.FILEEXISTS(PATH_1) = FALSE THEN
 
 	' ---------------------------------------------------------------
 	' Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB EXE.VBS
-	' Line:	274  ---- HERE ---- WSHShell.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
+	' Line:	274  ---- HERE ---- WSHSHELL.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
 	' Char:	2
 	' Error:	The system cannot find the file specified. 
 	' Code:	80070002
@@ -404,9 +417,9 @@ IF FSO.FILEEXISTS(PATH_1) = FALSE THEN
 	
 	ON ERROR RESUME NEXT
 	' MSGBOX JOBNAME
-	Set WSHShell = CreateObject("WScript.Shell")
-	WSHShell.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
-	Set WSHShell = Nothing
+	Set WSHSHELL = CreateObject("WScript.Shell")
+	WSHSHELL.Run """" + GOODSYNC_GSYNC + """" + " sync " + """"+JOBNAME+""""
+	Set WSHSHELL = Nothing
 	ON ERROR GOTO 0
 
 END IF

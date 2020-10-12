@@ -36,13 +36,25 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 'HERE VBS DOES SINGLE 
 '--------------------------------------------------------
 
-CUR_USER = CreateObject("WScript.Network").UserName
-Set objShell = Wscript.CreateObject("WScript.Shell")
-ComputerName = objShell.ExpandEnvironmentStrings("%computername%")
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
+
+
 
 'C:\Users\MATT 04\AppData\Roaming\GoodSync\jobs-groups-options.tic
 
-FILEN_1="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
+FILEN_1="C:\Users\"&GETUSERNAME&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
 
 
 
@@ -146,8 +158,8 @@ i_TIME_2=i_TIME_2+LPad(Day(Now), "0", 2)
 
 SCRIPT_FOLDER_1=MID(Wscript.ScriptFullName,1,INSTRREV(Wscript.ScriptFullName,"\"))
 SCRIPT_FOLDER_2=SCRIPT_FOLDER_1+"GOODSYNC JOB WORKER"
-SCRIPT_NAME_1=SCRIPT_FOLDER_2+"\GOODSYNC JOB WORKER GS-DESKTOP "+ComputerName+"_"+CUR_USER+"_"+i_TIME_2+".TXT"
-SCRIPT_NAME_2=SCRIPT_FOLDER_2+"\GOODSYNC JOB WORKER GS-DESKTOP "+ComputerName+"_"+CUR_USER+"_"+".TXT"
+SCRIPT_NAME_1=SCRIPT_FOLDER_2+"\GOODSYNC JOB WORKER GS-DESKTOP "+ComputerName+"_"+GETUSERNAME+"_"+i_TIME_2+".TXT"
+SCRIPT_NAME_2=SCRIPT_FOLDER_2+"\GOODSYNC JOB WORKER GS-DESKTOP "+ComputerName+"_"+GETUSERNAME+"_"+".TXT"
 
 Set oFSO = CreateObject("Scripting.FileSystemObject")
 

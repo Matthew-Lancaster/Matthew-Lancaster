@@ -42,6 +42,8 @@ Set WSHShell = Nothing
 ' ----------------------------------------------------------------------------
 ' ----------------------------------------------------------------------------
 
+WSCRIPT.QUIT
+
 
 
 ' ----------------------------------------------------------------------------
@@ -150,6 +152,172 @@ End Sub
 
 
 
+
+
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+' -------------------------------------------------------------------
+' HERE ARE PERFECT CODE
+' NOT FOUND ON-LINE EVER EXCEPT THIS ONE
+' YOU ABLE CALL ROUTINE FROM OUT ROUTINE
+' OR GIVE FOLDER WITHIN
+' THERE NONE NEST BESIDE IT LOOP ITSELF
+' NONE MULTIPLE ROUTINE EFFORT
+' -------------------------------------------------------------------
+' EASY PASS 1ST PARAMETER -- WHAT FOLDER
+' -------------------------------------------------------------------
+' IF YOU AIN'T KICKING TOP ROUTINE SCANNER 
+' LOOK AT MY SHIT
+' -------------------------------------------------------------------
+' WITH AR SOME EXAMPLE WHAT TO DO WITH INNER
+' -------------------------------------------------------------------
+' [ WED 12:44:10 PM_07 OCTOBER 2020 ]
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+DIM FSO
+SET FSO = CreateObject("Scripting.FileSystemObject")
+
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
+
+' ------------------------------------------------------------------
+' EXAMPLE 0001 CALL ROUTINE WITH PATH
+' ------------------------------------------------------------------
+FOLDER_NAME="C:\Users\"+GETUSERNAME+"\AppData\Local\Packages\Microsoft.Windows.Cortana_cw5n1h2txyewy\LocalState\DeviceSearchCache"
+
+' ------------------------------------------------------------------
+' EXAMPLE 0002 CALL ROUTINE NOTHING PATH AND THEN MINIMAL ONE SHOT SET PATH WITHIN 
+' ------------------------------------------------------------------
+FOLDER_NAME=""
+
+COUNTER_RR=0
+COUNTER_TOTAL=0
+
+CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER_NAME)
+
+MSGBOX "DELETE DONE "& VBCR & COUNTER_RR & VBCR & "OF" & VBCR & COUNTER_TOTAL
+
+WSCRIPT.QUIT
+
+SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
+
+	DIM SUBFOLDER
+	DIM FILE
+	ON ERROR RESUME NEXT
+	
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="FOLDER" THEN 
+		' PERFECT -- FOLDER OBJECT 
+		' ABLE ARGUMENT PARAMETER AS STRING ANYTIME AND EXTRA CONVERT TAKE PLACE
+		' USUAL ONCE AS STRING AND FOREVER AFTER FOLDER OBJECT VARIABLE TYPE
+	END IF
+	' ---------------------------------------------------------------
+	IF UCASE(TYPENAME(FOLDER))="STRING" THEN
+		' FOLDER= "LET ME FIND A PATH"
+		IF FOLDER="" THEN 
+			FOLDER="E:\HARDWARE"
+		END IF
+		Set FOLDER = FSO.GETFOLDER(FOLDER)
+		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
+		EXIT SUB
+	END IF
+	' ---------------------------------------------------------------
+
+	FOR EACH FILE IN FOLDER.FILES
+		' DO STUFF
+		' ----------------------------------------------
+		' NOT GO IN DIRECTORY THAT DON'T HAVE ACCESS
+		' LIKE \SYSTEM INFORMATION FOLDER FROM ROOT
+		' OR BOMB OUT OF SCAN
+		' SAFE NOT PROCESS ANY INTRICATE INFO ABOUT THEM
+		' ----------------------------------------------
+		
+		FILE_PATH_STRING=FILE.path
+		STR_FIND="-- .JPG .MP4" 
+		STR_FIND="-- .TXT" 
+		PATH_FIND_01="\DCIM"
+		PATH_FIND_02="\MP_ROOT"
+		EXTENSION_PART=MID(FILE.path,INSTRREV(FILE.path,"."))
+		PATH_FIND_RESULT=FALSE
+		
+		IF INSTR(STR_FIND , UCASE(EXTENSION_PART)) >0 THEN PATH_FIND_RESULT=TRUE
+		' IF INSTR(UCASE(FILE.path) , PATH_FIND_01) >0 THEN PATH_FIND_RESULT=TRUE
+		' IF INSTR(UCASE(FILE.path) , PATH_FIND_02) >0 THEN PATH_FIND_RESULT=TRUE
+		
+		IF PATH_FIND_RESULT=TRUE THEN
+			ERR.CLEAR
+			FILEMODDATE=0
+			SET F = FSO.GETFILE(FILE.path)
+				FILEMODDATE = F.DATELASTMODIFIED
+				FILECREATEDATE = F.DATECREATED
+			SET F=NOTHING
+			' --------------------------------------------
+			' EXAMPLE DELETE FILE OVER 48 HOUR IN THE PAST
+			' --------------------------------------------
+			' IF FILEMODDATE+TIMESERIAL(48,0,0)<NOW THEN 
+			' --------------------------------------------
+			' EXAMPLE DELETE FILE OVER 20 DAY IN THE PAST
+			' --------------------------------------------
+			IF FILEMODDATE+20<NOW THEN 
+				ON ERROR RESUME NEXT
+				ERR.CLEAR
+				MSGBOX FILE.path
+				'''' FSO.DeleteFile FILE.path
+				COUNTER_RR=COUNTER_RR+1
+			ELSE
+			END IF
+		END IF
+		COUNTER_TOTAL=COUNTER_TOTAL+1
+	NEXT
+
+	' ---------------------------------------------------------------
+	' CALL GET_DRIVE_SPACE(FOLDER.path)
+	' ---------------------------------------------------------------
+	
+	' ---------------------------------------------------------------
+	' DO STUFF ON FOLDER HERE
+	' ---------------------------------------------------------------
+	MYFOLDER = FOLDER.path
+	' ---------------------------------------------------------------
+	IF MYFOLDER = "EXCELLENT" THEN 
+		' DO STUFF
+	END IF
+	' ---------------------------------------------------------------
+	
+	' ---------------------------------------------------------------
+    ' RECURSE INTO AR SUB FOLDER COLLECTION
+	' ---------------------------------------------------------------
+    FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
+		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
+    NEXT
+
+END SUB
+
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+' ----------------------------------------------------------------------------
+
+
+
+
+
+
 ' ----------------------------------------------------------------------------
 ' excel - How to insert a break line in 'mshta.exe' pop up (VBA macro)? - Stack Overflow 
 ' https://stackoverflow.com/questions/54253640/how-to-insert-a-break-line-in-mshta-exe-pop-up-vba-macro/57512186#57512186
@@ -161,6 +329,19 @@ End Sub
 ' Private Declare Function MsgBoxTimeout _
 ' ----------------------------------------------------------------------------
 ' This part needs to be at the top of a VBA module
+
+
+
+
+
+
+
+
+
+
+
+
+
 #If Win64 Then 
     Private Declare PtrSafe Function MsgBoxTimeout _
         Lib "user32" _
@@ -204,32 +385,3 @@ End Sub
 
 
 
-
-
-----
-Blackview A60 Mobile Phone Android Smartphone, Dual SIM Free Android Phone Unlocked, 6.1-Inch IPS Full-Screen, 4080mAh Battery, 5MP+13MP Dual Camera, Android 8.1, UK Version - Black: Amazon.co.uk: Electronics 
-https://www.amazon.co.uk/Blackview-SIM-Free-Smartphones-Unlocked-Waterdrop/dp/B07QGJXJLN/ref=bmx_6/257-2107926-6902857?_encoding=UTF8&pd_rd_i=B07QGJXJLN&pd_rd_r=908232eb-4155-426e-b96e-34f62370c9d8&pd_rd_w=16xfL&pd_rd_wg=UNnJn&pf_rd_p=26d9b5cc-9c88-4655-88a4-db5806d5daad&pf_rd_r=FS1B1KEDH9DZNQRM0HKV&refRID=FS1B1KEDH9DZNQRM0HKV&th=1
-----
-Lee
-5.0 out of 5 stars Blackview A60 - Excellent budget mobile phone
-Reviewed in the United Kingdom on 18 February 2020
-Colour Name: BlackVerified Purchase
-Awesome phone for the price. Android Go OS very familiar to use. Go doesn't seem to be much different to the full version in day to day use. For phone calls and light internet use it's ideal. Dual SIM is what drew me to it, one for business one for pleasure. Overall features and quality are very good and comparable with much more expensive phones. Battery is larger capacity than similar models which is always a good thing. Silicon cover and screen protector included so that's another bonus. You simply can't beat it for a budget phone! *****
-
-Handy Hint! You can speed the phone up even more if you wish...
-
-1. Go to SYSTEM
-2. Go to BUILD.
-3. Press Build 7 times.
-4. Now you have DEVELOPER options.
-5. Go back one level.
-6. Go to DEVELOPER options.
-7. Scroll down to the 'animation' settings (there are 3).
-8. Turn the 3 animation settings from 1x to OFF.
-9. Press back out of settings and use your faster phone!
-
-Note. Some people advise not to turn animation all the way off but turn it to 0.5x Try it yourself and see what's best for you. I've had no problems with it off and the phone is lightning quick. Mess with other developer options at your own risk. It may also void your warranty but you can return everything back to normal with a factory reset. You can use this trick on most things Android.
-
-Well done Blackview! An excellent phone at an awesome price!
-Read less
-55 people found this helpful
