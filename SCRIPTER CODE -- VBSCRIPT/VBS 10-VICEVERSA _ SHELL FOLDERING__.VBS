@@ -149,11 +149,22 @@ RN_VAR(6)=""
 RN_VAR(7)="7-ASUS-GL522VW"
 RN_VAR(8)="8-MSI-GP62M-7RD"
 
-CUR_USER = CreateObject("WScript.Network").UserName
-COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
 
 FOR VV_4=1 TO UBOUND(RN_VAR)
-	IF RN_VAR(VV_4)=COMPUTER_NAME_VAR THEN
+	IF RN_VAR(VV_4)=GETCOMPUTERNAME THEN
 		INDEX_VAR=RN_VAR(VV_4)
 		EXIT FOR
 	END IF
