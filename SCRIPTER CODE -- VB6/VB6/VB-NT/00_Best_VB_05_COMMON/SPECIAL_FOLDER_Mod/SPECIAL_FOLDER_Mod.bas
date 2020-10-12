@@ -1,21 +1,12 @@
 Attribute VB_Name = "SPECIAL_FOLDER_Mod"
-
 '24-FEB-2010
 'THIS IS THE FIRST COMMONS SHARED MODULE
-
-
-
-
-
-
 
 'Public FS
 Public sSystemFolder As String, DOMAINGET
 Public sTempFolder As String
 Public sWindowsFolder As String
 Public sMyDocsFolder
-
-
 
 '----------------------------------------------------
 'I PUT THIS HERE FOR THE SHELL EXECUTE LOADER PROGRAM
@@ -35,11 +26,6 @@ Public sMyDocsFolder
 'End Function
 '----------------------------------------------------
 '----------------------------------------------------
-
-
-
-Declare Function ShowWindow Lib "user32" (ByVal hWnd As Long, ByVal nCmdShow As Long) As Long
-
 
 
 
@@ -109,44 +95,16 @@ Private Type ITEMIDLIST
     mkid As SHITEMID
 End Type
 
-
-
 'Public Declare Function SHEmptyRecycleBin Lib "shell32.dll" Alias "SHEmptyRecycleBinA" (ByVal hWnd As Long, ByVal pszRootPath As String, ByVal dwFlags As Long) As Long
 'Public Declare Function SHUpdateRecycleBinIcon Lib "shell32.dll" () As Long
 'Public Declare Function SHQueryRecycleBin Lib "shell32.dll" Alias "SHQueryRecycleBinA" (ByVal pszRootPath As String, pSHQueryRBInfo As SHQUERYRBINFO) As Long
-Public Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
+Private Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
 'Public Declare Function SHSimpleIDListFromPath Lib "shell32" Alias "#162" (ByVal szPath As String) As Long
 'Public Declare Function SHBrowseForFolder Lib "shell32" Alias "SHBrowseForFolderA" (lpBrowseInfo As BROWSEINFO) As Long
-
 Private Declare Function IsIconic Lib "user32.dll" (ByVal hWnd As Long) As Long
 Private Declare Function IsWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
-
-
-Public Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
-
-
-
-'----------------------------------------------------
-'I PUT THIS HERE FOR THE SHELL EXECUTE LOADER PROGRAM
-'----------------------------------------------------
-Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
-Function GetUserName() As String
-   Dim UserName As String * 255
-   Call GetUserNameA(UserName, 255)
-   GetUserName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
-End Function
-
-Function GetComputerName() As String
-   Dim UserName As String * 255
-   Call GetComputerNameA(UserName, 255)
-   GetComputerName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
-End Function
-'----------------------------------------------------
-'----------------------------------------------------
-
 
 
 '
@@ -626,10 +584,10 @@ End Sub
 
 Sub SHOW_DEBUG_SPECIALS()
 
-Dim R As Long
+Dim r As Long
 On Error Resume Next
-For R = 0 To 120
-    Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
+For r = 0 To 120
+    Debug.Print Str(r) + " -- " + GetSpecialfolder(r)
 Next
 
 End
@@ -638,10 +596,10 @@ End Sub
 
 Public Function GetSpecialFolder_Show_Script_Debug(CSIDL As Long) As String
 
-Dim R As Long
+Dim r As Long
 On Error Resume Next
-For R = 0 To 120
-    Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
+For r = 0 To 120
+    Debug.Print Str(r) + " -- " + GetSpecialfolder(r)
 Next
 End
     
@@ -679,8 +637,6 @@ End Function
 '    sText = Left$(sText, Ret)
 '   GetWindowClass = sText
 'End Function
-
-
 'Function GetWindowTitle(ByVal hWnd As Long) As String
 '   Dim l As Long
 '   Dim S As String
@@ -689,9 +645,6 @@ End Function
 '   GetWindowText hWnd, S, l + 1
 '   GetWindowTitle = Left$(S, l)
 'End Function
-
-
-
 Public Function GetWindowState(ByVal lngHwnd As Long) As Integer
     If IsWindow(lngHwnd) = 1 Then
         GetWindowState = -1
