@@ -190,7 +190,7 @@ FOR EACH objProcess IN colProcesses
     END IF
 NEXT
 
-Dim WSHShell
+' Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
 
 Dim FSO

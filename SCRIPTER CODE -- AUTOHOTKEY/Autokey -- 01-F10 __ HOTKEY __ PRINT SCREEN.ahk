@@ -1,4 +1,9 @@
-﻿ ;  =============================================================
+﻿; Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 24-i_view32 convert_CCSE.VBS
+; Line:	193
+
+
+
+ ;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
 ;# __ 
 ;# __ Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
@@ -323,6 +328,67 @@ RETURN
 
 
 
+
+
+; ---------------------
+; Count = 175 -- Mon 12-Oct-2020 15:59:27
+; ---------------------
+; Form FindWindow ---
+; Windows Script Host
+; ---------------------
+; ---------------------------
+; Windows Script Host
+; ---------------------------
+; Script:	C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 24-i_view32 convert_CCSE.VBS
+; Line:	193
+; Char:	5
+; Error:	Name redefined
+; Code:	800A0411
+; Source: 	Microsoft VBScript compilation error
+
+; ---------------------------
+; OK   
+; ---------------------------
+
+
+; GIVE THE F1 HOTKEY BACK OR NOT * IN FRONT
+; ~ LET KEY ON NOT BLOCK
+; * ANY TYPE SHIFT CONTROL -- NOT WORK WITH FUNCTION KEY -- F1 - F10
+; CHOICE OF BLOCK HOW
+#IFWINACTIVE, Windows Script Host ahk_class #32770
+~F1::
+
+	ControlGettext, OUTVAR_F1, Static2, Windows Script Host ahk_class #32770
+	IF INSTR(OUTVAR_F1,"Script:")>0
+	IF INSTR(OUTVAR_F1,"Line:")>0
+	{
+		XPOS_ONE_:=INSTR(OUTVAR_F1,"Script:")
+		XPOS_VBCR:=INSTR(OUTVAR_F1,"`n")
+		SCRIPT_FILE:=SUBSTR(OUTVAR_F1,XPOS_ONE_+8,XPOS_VBCR-9)
+
+		XPOS_ONE_:=INSTR(OUTVAR_F1,"Line:")
+		XPOS_ONE_+=STRLEN("Line: ")
+		SCRIPT_LINE:=SUBSTR(OUTVAR_F1,XPOS_ONE_)
+		XPOS_VBCR:=INSTR(SCRIPT_LINE,"`n")
+		SCRIPT_LINE:=SUBSTR(SCRIPT_LINE,1,XPOS_VBCR-1)
+
+		IFEXIST, C:\PROGRAM FILES\NOTEPAD++\NOTEPAD++.EXE
+		{
+			RUN,C:\PROGRAM FILES\NOTEPAD++\NOTEPAD++.EXE -n%SCRIPT_LINE% "%SCRIPT_FILE%"
+		}
+
+		IFEXIST, C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE
+		{
+			RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE -n%SCRIPT_LINE% "%SCRIPT_FILE%"
+		}
+	
+		; ControlClick, OK, Windows Script Host ahk_class #32770,,,, NA x10 y10
+	}
+RETURN	
+#IFWINACTIVE
+
+
+
 ; -------------------------------------------------------
 ; -------------------------------------------------------
 ; CODE NOT REQUIRE HOTKEY AND NOW USER TIMER ROUNTINE OF 
@@ -356,10 +422,10 @@ RETURN
 ; https://autohotkey.com/board/topic/85600-how-do-i-make-a-mute-button/
 ; ----
 
-#IFWINNOTACTIVE ahk_class wndclass_desked_gsk
-$F1::Send {VOLUME_MUTE}	
-RETURN
-#ifwinactive
+; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
+; $F1::Send {VOLUME_MUTE}	
+; RETURN
+; #ifwinactive
 
 ; TIMER_GET_HWND:
 	; WinGet, OLD_HWND, ID, ahk_class Winamp Gen
