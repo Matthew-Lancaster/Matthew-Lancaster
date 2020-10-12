@@ -85,7 +85,7 @@ For Each arg In args
 	Wscript_Arguments = Wscript_Arguments + arg
 Next
 
-Dim WSHShell
+' Dim WSHShell
 Set WSHShell = CreateObject("WScript.Shell")
 
 DIM VAR_PATH_FILE_1()

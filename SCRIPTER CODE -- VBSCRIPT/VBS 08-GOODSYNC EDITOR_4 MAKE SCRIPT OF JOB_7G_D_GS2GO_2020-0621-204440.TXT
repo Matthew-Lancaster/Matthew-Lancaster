@@ -2232,7 +2232,7 @@ gstps://matt-lan-btinternet-com
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6
 msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
-/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 FILE FOLDER/COMPUTER_CODING_VB/VB6
 ----------------------------------------
 0745--0  KAT D 1X
 file://@
@@ -2280,37 +2280,37 @@ gstps://matt-lan-btinternet-com
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6
 msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
-/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 FILE FOLDER/COMPUTER_CODING_VB/VB6
 ----------------------------------------
 0761--0  MS #MEDIA 01 VB6 00_BEST_VB_01
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT/00_Best_VB_01
 msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
-/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/VB-NT/00_Best_VB_01
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 FILE FOLDER/COMPUTER_CODING_VB/VB6/VB-NT/00_Best_VB_01
 ----------------------------------------
 0763--0  MS #MEDIA 02 VB6 1-S Code
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/1 S Code
 msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
-/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/1 S Code
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 FILE FOLDER/COMPUTER_CODING_VB/VB6/1 S Code
 ----------------------------------------
 0765--0  MS #MEDIA 02 VB6 VB Icon's
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB Icon's
 msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
-/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/VB Icon's
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 FILE FOLDER/COMPUTER_CODING_VB/VB6/VB Icon's
 ----------------------------------------
 0767--0  MS #MEDIA 02 VB6 VB-NT
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6/VB-NT
 msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
-/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6/VB-NT
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 FILE FOLDER/COMPUTER_CODING_VB/VB6/VB-NT
 ----------------------------------------
 0769--0  MS #MEDIA 03 VB6
 smb://
 7-ASUS-GL522VW/7_ASUS_GL522VW_02_D_DRIVE/VB6
 msgraph://Matthew Lancaster-5d4dc9f4c3e976d9@graph.microsoft.com
-/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 File Folder/COMPUTER_CODING_VB/VB6
+/:drive:5d4dc9f4c3e976d9/# MEDIA/# 00 FILE FOLDER/COMPUTER_CODING_VB/VB6
 ----------------------------------------
 0771--0  MS D 0 00 ART LOGGER 05__GDD CLOUD 02_# APP AND SCREEN -- MS
 gstps://matt-lan-btinternet-com
