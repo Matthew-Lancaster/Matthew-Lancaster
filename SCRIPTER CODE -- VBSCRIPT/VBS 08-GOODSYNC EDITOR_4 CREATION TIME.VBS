@@ -28,12 +28,25 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 'HERE VBS DOES SINGLE 
 '--------------------------------------------------------
 
-CUR_USER = CreateObject("WScript.Network").UserName
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
+
 
 ' C:\Users\MATT 04\AppData\Roaming\GoodSync\jobs-groups-options.tic
 
-FILEN_1="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
-FILEN_2="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options - Copy.tic"
+FILEN_1="C:\Users\"&GETUSERNAME&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
+FILEN_2="C:\Users\"&GETUSERNAME&"\AppData\Roaming\GoodSync\jobs-groups-options - Copy.tic"
 
 FSO.COPYFILE FILEN_1, FILEN_2
 
@@ -55,7 +68,7 @@ CALL USUAL_MAIN_2
 MsgBox "Done Total " & Counter_VAR & " Proecesses"+VBCRLF+"Total Changes "& Counter_Change_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
 
 
-Set File_2 = fso.OpenTextFile("C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic", ForWriting)
+Set File_2 = fso.OpenTextFile("C:\Users\"&GETUSERNAME&"\AppData\Roaming\GoodSync\jobs-groups-options.tic", ForWriting)
 File_2.Write TT_EDITOR
 
 

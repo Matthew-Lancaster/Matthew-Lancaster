@@ -108,7 +108,19 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 '
 ' --------------------------------------------------------
 
-' CUR_USER = CreateObject("WScript.Network").UserName
+' DIM GETUSERNAME
+' DIM GETCOMPUTERNAME
+' DIM COMPUTERNAME
+' DIM WSHSHELL
+' SET WSHSHELL = CreateObject("WScript.Shell")
+' GETUSERNAME = CreateObject("WScript.Network").USERNAME
+' GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ' ------------------------------------------------------------------
+' ' ANOTHER EXAMPLE
+' ' ------------------------------------------------------------------
+' ' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ' ------------------------------------------------------------------
 ' 
 ' FILEN_1=
 ' FILEN_2=

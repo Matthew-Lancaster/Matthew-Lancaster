@@ -22,17 +22,19 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 ' STRPATH = WScript.Arguments(0)
 
 
-DIM wshShell
-DIM strComputerName
-DIM CUR_USER
-DIM COMPUTER_NAME_VAR
-
-Set wshShell = CreateObject( "WScript.Shell" )
-strComputerName = wshShell.ExpandEnvironmentStrings( "%COMPUTERNAME%" )
-
-CUR_USER = CreateObject("WScript.Network").UserName
-COMPUTER_NAME_VAR = CreateObject("WScript.Network").Computername
-
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
 
 
 STRPATH="G:\"
@@ -53,7 +55,7 @@ STRPATH="D:\My Webs2"
 STRPATH="D:\My Webs"
 STRPATH="K:\M\07 MIDI MOD\MIDI"
 STRPATH="K:\M"
-STRPATH="C:\TEMP\-"+COMPUTER_NAME_VAR
+STRPATH="C:\TEMP\-"+GETCOMPUTERNAME
 STRPATH="J:\M"
 STRPATH="H:\"
 STRPATH="D:\0 00 MUSIC ---\04 MY MUSIC"

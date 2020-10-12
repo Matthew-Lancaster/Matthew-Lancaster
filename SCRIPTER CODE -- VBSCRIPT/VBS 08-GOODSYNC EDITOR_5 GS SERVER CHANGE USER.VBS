@@ -28,18 +28,32 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 'HERE VBS DOES SINGLE 
 '--------------------------------------------------------
 
-CUR_USER = CreateObject("WScript.Network").UserName
+
+DIM GETUSERNAME
+DIM GETCOMPUTERNAME
+DIM COMPUTERNAME
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+GETUSERNAME = CreateObject("WScript.Network").USERNAME
+GETCOMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
+' ------------------------------------------------------------------
+' ANOTHER EXAMPLE
+' ------------------------------------------------------------------
+' COMPUTERNAME = WSHSHELL.ExpandEnvironmentStrings("%computername%")
+' ------------------------------------------------------------------
+
 
 ' C:\Users\MATT 04\AppData\Roaming\GoodSync\jobs-groups-options.tic
 ' C:\Users\MATT 01\AppData\Roaming\GoodSync\jobs-groups-options.tic
 
 ' WINDOWS XP
-FILEN_1="C:\Documents and Settings\"&CUR_USER&"\Application Data\GoodSync\jobs-groups-options.tic"
-FILEN_2="C:\Documents and Settings\"&CUR_USER&"\Application Data\GoodSync\jobs-groups-options - COPY.tic"
+FILEN_1="C:\Documents and Settings\"&GETUSERNAME&"\Application Data\GoodSync\jobs-groups-options.tic"
+FILEN_2="C:\Documents and Settings\"&GETUSERNAME&"\Application Data\GoodSync\jobs-groups-options - COPY.tic"
 
 ' WINDOWS 07 UP
-FILEN_1="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
-FILEN_2="C:\Users\"&CUR_USER&"\AppData\Roaming\GoodSync\jobs-groups-options - Copy.tic"
+FILEN_1="C:\Users\"&GETUSERNAME&"\AppData\Roaming\GoodSync\jobs-groups-options.tic"
+FILEN_2="C:\Users\"&GETUSERNAME&"\AppData\Roaming\GoodSync\jobs-groups-options - Copy.tic"
 
 ' GOODSYNC 2 GO
 FILEN_1="C:\GoodSync\Profile\jobs-groups-options.tic"
