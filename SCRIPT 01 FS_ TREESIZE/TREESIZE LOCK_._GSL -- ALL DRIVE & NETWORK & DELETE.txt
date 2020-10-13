@@ -1,4 +1,0 @@
-﻿
-TREESIZE LOCK_._GSL -- ALL DRIVE & NETWORK & DELETE
-
-Name	Containing Path	Size	Last Modified	Type	Owner	Permissions
