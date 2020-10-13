@@ -59,14 +59,12 @@ FOLDER_NAME="D:\0 00 ART LOGGERS\# APP AND SCREEN AUTO"
 ' FOLDER_NAME=""
 ' ------------------------------------------------------------------
 
-
 DIM SIMULATE_DELETE_MODE
 DIM FILESIZE_TOTAL
 
 COUNTER_RR=0
 COUNTER_TOTAL=0
 FILESIZE_TOTAL=0
-
 
 SIMULATE_DELETE_MODE=TRUE
 CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER_NAME)
@@ -149,7 +147,6 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 				FILECREATEDATE = F.DATECREATED 
 				FILESIZE = F.SIZE
 			SET F=NOTHING
-			FILESIZE_TOTAL=FILESIZE_TOTAL+FILESIZE
 			' --------------------------------------------
 			' EXAMPLE DELETE FILE OVER 48 HOUR IN THE PAST
 			' --------------------------------------------
@@ -165,8 +162,16 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			' MAKE SOME ODD DAY POCKET TO KEEP SOME
 			' --------------------------------------------
 			CONFIRM_DELETER=FALSE
-			IF FILEMODDATE>DATESERIAL(2020,1,1) THEN             CONFIRM_DELETER=TRUE
-			IF FILEMODDATE+10<NOW AND CONFIRM_DELETER=TRUE THEN  CONFIRM_DELETER=FALSE
+			IF FILEMODDATE>DATESERIAL(2020,1,1) THEN              CONFIRM_DELETER=TRUE
+			' HIGHER NUMBER HERE LESS WILL BE DELETE
+			' FILEMODDATE+20
+
+			IF FILEMODDATE>NOW-100 AND CONFIRM_DELETER=TRUE THEN  CONFIRM_DELETER=FALSE
+			IF CONFIRM_DELETER=TRUE THEN 
+				MSGBOX NOW-100 & VBCR & FILEMODDATE & VBCR & DATESERIAL(2020,1,1)
+			END IF
+			
+			
 			FOR RL=1 TO 12
 				IF FILEMODDATE=DATESERIAL(2020,RL,-2) THEN CONFIRM_DELETER=FALSE
 				IF FILEMODDATE=DATESERIAL(2020,RL,-1) THEN CONFIRM_DELETER=FALSE
@@ -179,10 +184,11 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			IF CONFIRM_DELETER=TRUE THEN 
 				ON ERROR RESUME NEXT
 				ERR.CLEAR
-				' MSGBOX FILE.PATH
+				MSGBOX FILE.PATH
 				IF SIMULATE_DELETE_MODE=FALSE THEN 
-				FSO.DELETEFILE FILE.PATH
+					FSO.DELETEFILE FILE.PATH
 				END IF
+				FILESIZE_TOTAL=FILESIZE_TOTAL+FILESIZE
 				COUNTER_RR=COUNTER_RR+1
 			END IF
 		END IF
@@ -226,16 +232,25 @@ SUB ROUTINE_DELETE_WSCRIPT_IF_RUN
 ' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
 ' SOME PEOPLE TALK THIS HAS ERROR 
 ' THIS ONE IS CORRECT 
+' THIS WAS CORRECT 
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
 ' -------------------------------------------------------------------
-DIM WSHSHELL
-SET WSHSHELL = CreateObject("WScript.Shell")
-
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
 On Error Resume Next
-Dim iMyPID : iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+Dim iMyPID
+' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+iMyPID=ThisProcessId
 On Error Goto 0
 ' -------------------------------------------------------------------
 ' GOOD CODE TO PASTE ON VB6
 ' -------------------------------------------------------------------
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+
 Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
 ' -------------------------------------------------------------------
@@ -261,10 +276,39 @@ FOR EACH objProcess IN colProcesses
 		IF iMyPID<>PID_Script THEN 
 			' MSGBOX iMyPID & VBCR & PID_Script
 			objProcess.Terminate() 
-			WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+			' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
 		END IF
     END IF
 NEXT
 ' -------------------------------------------------------------------
 END SUB
 
+
+' -------------------------------------------------------------------
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
+' -------------------------------------------------------------------
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
+' I like Kul-Tigin's idea (+1), and Asok Smith's idea (based on .Exec) deserve respect (+1), 
+' and it w'd been even better if .Exec run hidden process. So, to feed my curiosity, 
+' I also toyed with this and this's what I did.
+' -------------------------------------------------------------------
+Function ThisProcessId
+    ThisProcessId = 0
+    Dim sTFile, oPrc
+    With CreateObject("Scripting.FileSystemObject")
+        sTFile = .BuildPath(.GetSpecialFolder(2), "sleep.vbs")
+        With .OpenTextFile(sTFile, 2, True)
+            .Write "WScript.Sleep 1000"
+        End With
+    End With
+    With CreateObject("WScript.Shell").Exec("WScript " & sTFile)
+        For Each oPrc In GetObject("winmgmts:\\.\root\cimv2").ExecQuery(_
+        "Select * From Win32_Process Where ProcessId=" & .ProcessID)
+        Exit For : Next
+        ThisProcessId = oPrc.ParentProcessId
+    End With
+End Function
