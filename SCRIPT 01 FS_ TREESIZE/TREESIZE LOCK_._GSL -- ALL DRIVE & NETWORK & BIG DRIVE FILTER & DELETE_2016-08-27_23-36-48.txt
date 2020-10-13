@@ -1,5 +1,0 @@
-﻿
-TREESIZE LOCK_._GSL -- ALL DRIVE & NETWORK & BIG DRIVE FILTER & DELETE.txt
-
-Name	Containing Path	Size	Last Modified	Type	Owner	Permissions
-lock.gsl	C:\_gsdata_\	0.1 KB	27/08/2016 23:12	.gsl (GSL File)	Administrators	Administrators: full   Authenticated Users: full   SYSTEM: full   Users: full   

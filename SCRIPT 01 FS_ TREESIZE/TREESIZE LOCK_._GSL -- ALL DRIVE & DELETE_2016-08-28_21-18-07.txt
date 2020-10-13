@@ -1,5 +1,0 @@
-﻿
-TREESIZE LOCK_._GSL -- ALL DRIVE & DELETE
-
-Name	Containing Path	Size	Last Modified	Type	Owner	Permissions
-LOCK.GSL	C:\BAT\OWNER\	0.0 KB	28/08/2016 22:27	.GSL (GSL File)	MATT 01	Administrators: full   Authenticated Users: full   SYSTEM: full   Users: full   
