@@ -1,5 +1,29 @@
 ' -------------------------------------------------------------------
-' HERE ARE PERFECT CODE
+' USE OF ROUTINE BELWO TO MAKE
+' DELETE MY VISUAL BASIC 6 
+' SCREEN SHOT LOGGER
+' RATHER THAN WITHIN THE CODE APP
+' DO EXTERNAL
+' AND ARCHIVE OF SCREEN SHOT ARE DELETER
+' WITH AN ARCHIVE VIEW PERSPECTER
+' SCREEN SHOT ARE DONE
+' HIGH SPEED
+' FOR EVEN FORM APP THAT CHANGE SWAP
+' AND EVEYR MINUTE
+' AND EVERY LONG TIMER
+' AND EVERY EVEN MORE
+' RATHER A LOT AND SPCAE TAKER D DRIVE
+' WANT TRIM EVER NOW AND THEN
+' AND HERE
+' WORK TIME -- ALL DYA SUPPOSE LONGER AND OTHER THING
+' ALL ABOUT DATE THEME TODAY
+' GET MY DATE IN ORDER
+' Tue 13-Oct-2020 12:11:30
+' Tue 13-Oct-2020 20:15:00 -- 8 HOUR 3 MINUTE
+' -------------------------------------------------------------------
+
+' -------------------------------------------------------------------
+' PERFECT CODE -- SUBROUTINE RECURSIVE
 ' NOT FOUND ON-LINE EVER EXCEPT THIS ONE
 ' YOU ABLE CALL ROUTINE FROM OUT ROUTINE
 ' OR GIVE FOLDER WITHIN
@@ -17,19 +41,17 @@
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
-REM  ----------------------------------------------------------------
-REM -- EXAMPLE 
-REM  ----------------------------------------------------------------
+REM -----------------------------------------------------------------
+REM -- EXAMPLE
+REM -----------------------------------------------------------------
 REM -- AppCache132361150295058860.txt
 REM -- AppCache*.txt
 REM -- NOT DELETE ALL GET DATE
 REM -- LEAVE RECENT THERE
-REM  ----------------------------------------------------------------
-REM  ----------------------------------------------------------------
+REM -----------------------------------------------------------------
+REM -----------------------------------------------------------------
 
-
-CALL ROUTINE_DELETE_WSCRIPT_IF_RUN
-
+CALL ROUTINE_DELETE_WSCRIPT_FINDER_RUN
 
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
@@ -67,7 +89,7 @@ DIM DEL_02
 DIM DEL_01_DATE
 DIM DEL_02_DATE
 DIM DATE_MOVE
-DIM STATE_LINE
+DIM SIMULATE_STATE_LINE
 DEL_01_DATE=""
 DEL_02_DATE=""
 DEL_01=""
@@ -77,11 +99,12 @@ COUNTER_TOTAL=0
 FILESIZE_TOTAL=0
 
 ' LOWER DAY NUMBER MEAN MORE DELETE
+' -------------------------------------------------------------------
 FAR_DAY_COUNT_BACK_DELETE=13
 
 SIMULATE_DELETE_MODE=TRUE
 CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER_NAME)
-STATE_LINE="SIMULATE DELETE MODE DONE"
+SIMULATE_STATE_LINE="SIMULATE DELETE MODE DONE"
 CALL DISPLAY_INFO
 
 COUNTER_RR=0
@@ -89,7 +112,7 @@ COUNTER_TOTAL=0
 FILESIZE_TOTAL=0
 SIMULATE_DELETE_MODE=FALSE
 CALL SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER_NAME)
-STATE_LINE="DELETE DONE"
+SIMULATE_STATE_LINE="DELETE DONE"
 CALL DISPLAY_INFO
 
 WSCRIPT.QUIT
@@ -101,7 +124,7 @@ SUB DISPLAY_INFO
 	I=I+"DAY COUNT BACK DELETE ARE -- " & FAR_DAY_COUNT_BACK_DELETE & VBCR & VBCR
 	I=I+"FOLDER NAME ----------------------- " & VBCR
 	I=I+FOLDER_NAME & VBCR & VBCR
-	I=I+"SIMULATE DELETE MODE DONE" & VBCR 
+	I=I+SIMULATE_STATE_LINE & VBCR 
 	I=I+CSTR(COUNTER_RR) & VBCR 
 	I=I+"OF" & VBCR
 	I=I+CSTR(COUNTER_TOTAL) & VBCR
@@ -126,7 +149,6 @@ END SUB
 
 
 SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
-
 	DIM SUBFOLDER
 	DIM FILE
 	ON ERROR RESUME NEXT
@@ -213,7 +235,7 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 					MSGBOX "ALL SUNDAY -- " & WEEKDAY(NOW)
 				END IF 
 				' ALL BEGIN MONTH +-2 DAY
-				FOR RL=1 TO 12
+				FOR RL=1 TO 2
 					IF FILEMODDATE=DATESERIAL(YEAR(NOW),RL,-2) THEN 
 						CONFIRM_DELETER=FALSE
 						MSGBOX "ALL BEGIN MONTH +-2 DAY -- " & VBCR & FILEMODDATE & VBCR & DATESERIAL(YEAR(NOW),RL,-2)
@@ -271,17 +293,12 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
     FOR EACH SUBFOLDER IN FOLDER.SUBFOLDERS
 		SCAN__TRIM_THE_DATE_OLDER_CAMERA(SUBFOLDER)
     NEXT
-
 END SUB
 
 
 
 
-
-
-
-
-SUB ROUTINE_DELETE_WSCRIPT_IF_RUN
+SUB ROUTINE_DELETE_WSCRIPT_FINDER_RUN
 ' -------------------------------------------------------------------
 ' 01 OF 02 
 ' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
@@ -337,7 +354,6 @@ FOR EACH objProcess IN colProcesses
 NEXT
 ' -------------------------------------------------------------------
 END SUB
-
 
 ' -------------------------------------------------------------------
 ' THING ARE EXPLAIN HERE
