@@ -48,7 +48,7 @@ On Error Resume Next
 Dim iMyPID
 iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
 On Error Goto 0
-MSGBOX iMyPID
+
 ' -------------------------------------------------------------------
 ' GOOD CODE TO PASTE ON VB6
 ' -------------------------------------------------------------------

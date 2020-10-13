@@ -300,38 +300,14 @@
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
-
 DIM MESSENGER_DISPLAY_MODE
 MESSENGER_DISPLAY_MODE=FALSE
-
 
 DIM ORIGINAL_PATH
 DIM EXPLORER_COUNTING
 DIM LOAD_EXPLORER_HAPPEN
 
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
-
-' -------------------------------------------------------------------
-' HERE WAS WORK FOR A BIT 
-' AND BELOW A BETTER CODE
-' -------------------------------------------------------------------
-Dim iMyPID
-' -------------------------------------------------------------------
-' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
-' -------------------------------------------------------------------
-' MSGBOX iMyPID
-' -------------------------------------------------------------------
-
-' -------------------------------------------------------------------
-FOR EACH objProcess IN colProcesses
-	IF NOT (IsNull(objProcess.ProcessID )) THEN
-		iMyPID = objProcess.ProcessID
-	END IF
-NEXT
-' -------------------------------------------------------------------
-' MSGBOX "MY PROCESS NUMBER PID IS -- "+ CSTR(iMyPID),vbMsgBoxSetForeground,Wscript.ScriptName 
-' -------------------------------------------------------------------
+CALL ROUTINE_DELETE_WSCRIPT_FINDER_RUN
 
 SET args = Wscript.Arguments
 FOR Each arg In args
@@ -363,44 +339,6 @@ IF INSTR(Wscript_Arguments,"NOT_SHOW")>0 THEN ' ---- "RUN_FROM_GOODSYNC"
 	MSGBOX_SHOW=FALSE
 END IF
 
-
-Dim strScriptName
-Dim objProcess
-
-
-i1 = 0 ' ANY PROGRAM WSCRIPT 
-i2 = 0 ' MY  PROGRAM WSCRIPT 
-FOR EACH objProcess IN colProcesses
-    IF NOT (IsNull(objProcess.CommandLine )) THEN
-		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
-		PID_Script = objProcess.ProcessID
-		
-		IF strScriptName = Wscript.ScriptName THEN
-			i2=i2+1
-		END IF
-		IF strScriptName <> Wscript.ScriptName THEN
-			i1=i1+1
-		END IF
-		
-		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
-			' Wscript.Quit
-		END IF
-		IF strScriptName = Wscript.ScriptName THEN ' MY PROGRAM WSCRIPT 
-			' -------------------------------------------------------
-			' KILL PROCESS NUMBER OF ALL OTHER INSTANCE 
-			' HERE SCRIPT WHEN START
-			' -------------------------------------------------------
-			IF iMyPID<>PID_Script AND PID_Script>0 THEN 
-			    ' MSGBOX CSTR(iMyPID) + VBCRLF + CSTR(PID_Script)
-				objProcess.Terminate() 
-
-			END IF
-		END IF
-    END IF
-NEXT
-
-
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
 
@@ -415,9 +353,6 @@ SET FSO = CreateObject("Scripting.FileSystemObject")
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
-DIM GETUSERNAME
-DIM ComputerName
-
 DIM FOLDER_PATH_DEST_VAR_2
 DIM FOLDER_PATH_MP4__VAR_2
 DIM SET_GO_MAIN_4
@@ -425,6 +360,7 @@ DIM SET_GO_MAIN_4
 DIM GETUSERNAME
 DIM GETCOMPUTERNAME
 DIM COMPUTERNAME
+
 DIM WSHSHELL
 SET WSHSHELL = CreateObject("WScript.Shell")
 GETUSERNAME = CreateObject("WScript.Network").USERNAME
@@ -451,11 +387,6 @@ DIM I_COUNT_1
 DIM I_COUNT_2
 DIM VAR_PATH_SCANNER
 DIM IMAGE_POINTER_NAME
-
-
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
-
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -1668,7 +1599,6 @@ I_1=I_1+"----------------------------------------" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
 I_1=I_1+"----------------------------------------" & VBCR
 
-' DIM WSHShell
 IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN 
 	SET WSHShell = CreateObject("WScript.Shell")
 	RESULT = WSHSHELL.POPUP(I_1, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
@@ -2342,7 +2272,11 @@ SUB GET_DRIVE_SPACE(DRVPATH)
 	' ---------------------------------------------------------------
 	IF FSO.FOLDEREXISTS(DRVPATH)=FALSE THEN 
 	IF UCASE(TYPENAME(DRVPATH))="STRING" THEN
-		MSGBOX "8888 IF TRIM(DRVPATH)= THEN -- EXIT SUB" 
+		' -----------------------------------------------------------
+		' LAST TIME HERE 
+		' 13-OCT-2020 20:34:48 TUE
+		' -----------------------------------------------------------
+		' MSGBOX "8888 IF TRIM(DRVPATH)= THEN -- EXIT SUB" 
 		EXIT SUB
 	END IF 
 	END IF 
@@ -2353,7 +2287,7 @@ SUB GET_DRIVE_SPACE(DRVPATH)
 	
 	IF UCASE(TYPENAME(DRVPATH))="FOLDER" THEN 
 		IF FSO.FOLDEREXISTS(DRVPATH.PATH)=FALSE THEN 
-			' THE SD-CARD WORK OKAY SEEM TO -- SOMETIME ASSESSS
+			' THE SD-CARD WORK OKAY SEEM TO -- SOMETIME ASSESS
 			' MSGBOX "4444 IF TRIM(DRVPATH)= THEN -- EXIT SUB" 
 			' HERE K DRIVE SD-CARD OKAY BUTT NOT POPUP
 			EXIT SUB
@@ -3895,6 +3829,89 @@ END SUB
 ' -------------------------------------------------------------------
 
 
+SUB ROUTINE_DELETE_WSCRIPT_FINDER_RUN
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' THIS WAS CORRECT 
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
+' -------------------------------------------------------------------
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID
+' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+iMyPID=ThisProcessId
+On Error Goto 0
+' -------------------------------------------------------------------
+' GOOD CODE TO PASTE ON VB6
+' -------------------------------------------------------------------
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
 
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+' -------------------------------------------------------------------
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
+			i1=i1+1
+		END IF
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		
+		IF iMyPID<>PID_Script THEN 
+			' MSGBOX iMyPID & VBCR & PID_Script
+			objProcess.Terminate() 
+			' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+		END IF
+    END IF
+NEXT
+' -------------------------------------------------------------------
+END SUB
+' -------------------------------------------------------------------
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
+' -------------------------------------------------------------------
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
+' I like Kul-Tigin's idea (+1), and Asok Smith's idea (based on .Exec) deserve respect (+1), 
+' and it w'd been even better if .Exec run hidden process. So, to feed my curiosity, 
+' I also toyed with this and this's what I did.
+' -------------------------------------------------------------------
+Function ThisProcessId
+    ThisProcessId = 0
+    Dim sTFile, oPrc
+    With CreateObject("Scripting.FileSystemObject")
+        sTFile = .BuildPath(.GetSpecialFolder(2), "sleep.vbs")
+        With .OpenTextFile(sTFile, 2, True)
+            .Write "WScript.Sleep 1000"
+        End With
+    End With
+    With CreateObject("WScript.Shell").Exec("WScript " & sTFile)
+        For Each oPrc In GetObject("winmgmts:\\.\root\cimv2").ExecQuery(_
+        "Select * From Win32_Process Where ProcessId=" & .ProcessID)
+        Exit For : Next
+        ThisProcessId = oPrc.ParentProcessId
+    End With
+End Function
 
 
