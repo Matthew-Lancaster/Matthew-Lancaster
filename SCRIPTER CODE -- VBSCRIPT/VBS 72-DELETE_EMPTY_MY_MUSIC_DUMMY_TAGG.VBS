@@ -13,8 +13,6 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 ' -------------------------------------------------------------------
 
 ' -------------------------------------------------------------------
-DIM GETUSERNAME
-DIM ComputerName
 DIM objShell
 DIM objWMIService
 DIM colProcesses
@@ -47,9 +45,10 @@ COMPUTERNAME = CreateObject("WScript.Network").COMPUTERNAME
 ' THIS ONE IS CORRECT 
 ' -------------------------------------------------------------------
 On Error Resume Next
-Dim iMyPID : iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+Dim iMyPID
+iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
 On Error Goto 0
-
+MSGBOX iMyPID
 ' -------------------------------------------------------------------
 ' GOOD CODE TO PASTE ON VB6
 ' -------------------------------------------------------------------
