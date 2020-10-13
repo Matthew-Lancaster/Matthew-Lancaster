@@ -2639,7 +2639,6 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 		SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 	END IF
 	' ---------------------------------------------------------------
-
 	
 
 	FOR EACH FILE IN FOLDER.FILES
@@ -2764,10 +2763,10 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 				I_COUNT_DEL=I_COUNT_DEL+1
 				DEL_SCRIPT_DATE_GONE=DEL_SCRIPT_DATE_GONE & FILE.path & VBCRLF
 			END IF
-			ON ERROR GOTO 0
 			' -------------------------------------------------------
 		END IF
 	NEXT
+	ON ERROR GOTO 0
 
 	' ---------------------------------------------------------------
     ' RECURSE INTO IT'S SUB FOLDERS
