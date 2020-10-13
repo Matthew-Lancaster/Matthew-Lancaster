@@ -12,21 +12,39 @@
 
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
+Set objArgs = Wscript.Arguments
+' -------------------------------------------------------------------
+IF objArgs.COUNT=0 THEN 
+	SCRIPT_NAME=WScript.ScriptFullName
+	SCRIPT_NAME=REPLACE(SCRIPT_NAME , WScript.ScriptName , VBCRLF + VBCRLF + WScript.ScriptName)
+	IMSGBOX=""
+	IMSGBOX=IMSGBOX+ "NOTHING TO RUN NONE PARAMETER PASS ON TO ME -- MSGBOX FROM"
+	IMSGBOX=IMSGBOX+ VBCRLF + VBCRLF + VBCRLF 
+	IMSGBOX=IMSGBOX+ SCRIPT_NAME
+	MSGBOX IMSGBOX
+	Wscript.QUIT
+END IF
+' -------------------------------------------------------------------
 
-Set args = Wscript.Arguments
-For Each arg In args
-	XF0 = XF0 + arg + " "
+Set objArgs = Wscript.Arguments
+For Each strArg In objArgs
+
+	PARAM = PARAM + """"+REPLACE(strArg,"*"," ")+"""" +" "
+	
 Next
 
-'If Sent-to is Used Sometime Additional Quote Surround are User
-'--------------------------------------------------------------
-XF0 = UCASE(Replace(XF0,"""",""))
+Dim WSHShell
+Set WSHShell = CreateObject("WScript.Shell")
+WSHShell.Run PARAM , ShowWindow, DontWaitUntilFinished
+
+
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+Wscript.Arguments.Item(0)
 
 ' WSHShell.Run "CMD /K """ + "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 03_PROCESS_KILLER.BAT" + """ , ShowWindow, DontWaitUntilFinished
 
 ' WSHShell.Run """C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 03_PROCESS_KILLER.BAT""" , ShowWindow, DontWaitUntilFinished
 
-
-WSHShell.Run """"+XF0+"""" + " " + ""+XF2_VOID+"" , ShowWindow, DontWaitUntilFinished
+' WSHShell.Run """"+XF0+"""" + " " + ""+XF2_VOID+"" , ShowWindow, DontWaitUntilFinished

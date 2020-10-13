@@ -32,7 +32,6 @@ Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUnt
 ' End Sub
 ' -------------------------------------------------------------------
 
-
 ' -------------------------------------------------------------------
 ' HOW TO OPEN U A LAUNCHER FOR VBSCRIPT TO PASS THE ARGUMENT THE PROPER METHOD
 ' THE APP THE WANT USER HERE
@@ -114,7 +113,6 @@ For Each strArg In objArgs
 
 	PARAM = PARAM + """"+REPLACE(strArg,"*"," ")+"""" +" "
 	
-	' MSGBOX PARAM
 Next
 
 Dim WSHShell
@@ -125,9 +123,8 @@ WSHShell.Run PARAM , ShowWindow, DontWaitUntilFinished
 ' -------------------------------------------------------------------
 Wscript.Arguments.Item(0)
 
-
 ' --------------------------------------------------------------
-' If Sent-to is Used Sometime Additional Quote Surround are User
+' IF SENT-TO IS USER QUOTE SURROUND ARE USER
 ' --------------------------------------------------------------
 'XF0 = UCASE(Replace(XF0,"""",""))
 
