@@ -1337,7 +1337,7 @@ IF SET_GO_1=1
 ; -------------------------------------------------------------------
 ; GOODSYNC DESKTOP 7G
 IF (A_ComputerName="7-ASUS-GL522VW")
-	SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_8M,1000
+	SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M,1000
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; GOODSYNC DESKTOP 8M
