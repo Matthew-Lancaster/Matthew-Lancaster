@@ -1,0 +1,28 @@
+PROJECT TIME AMOUNT RESULT SCRIPT
+TOTAL PROJECT SESSION COUNT SHIFT'S SPENT = 3   INCLUDING NOW
+PROJECT CURRENTLY ACTIVE NOW
+-----------------------------------
+DAY SCRIPT OF INCLUDED PROJECT ACTIVE DAY COUNT = 3
+Fri-- 22 -- Jul
+Sun-- 24 -- Jul
+Sat-- 23 -- Jul
+-----------------------------------
+TOTAL TIME SPENT ---- & ---- MOD DIVEDE ----
+
+SESSION -- 01 -- of -- 01 to 03 -- 
+BEGIN -- 22-Jul-2016 00:00:00 -- END -- 22-Jul-2016 14:58:58
+DAY  --  00 -- HOUR --  14 -- MIN  --   898 -- SEC  --    53938 -- 
+DAY  --  00 -- HOUR --  14 -- MIN  --    58 -- SEC  --       58 -- 
+SESSION -- 02 -- of -- 01 to 03 -- 
+BEGIN -- 23-Jul-2016 00:00:00 -- END -- 23-Jul-2016 11:50:50
+DAY  --  00 -- HOUR --  11 -- MIN  --   710 -- SEC  --    42650 -- 
+DAY  --  00 -- HOUR --  11 -- MIN  --    50 -- SEC  --       50 -- 
+SESSION -- 03 -- of -- 01 to 03 -- 
+BEGIN -- 24-Jul-2016 00:00:00 -- END -- 24-Jul-2016 18:46:13
+DAY  --  00 -- HOUR --  18 -- MIN  --  1126 -- SEC  --    67573 -- 
+DAY  --  00 -- HOUR --  18 -- MIN  --    46 -- SEC  --       13 -- 
+
+TOTAL TIME SPENT ALL 3 SESSION ---- & ---- MOD DIVEDE ----
+DAY  --  00 -- HOUR --  43 -- MIN  --  2734 -- SEC  --   164161 -- 
+DAY  --  00 -- HOUR --  43 -- MIN  --   154 -- SEC  --      121 -- 
+
