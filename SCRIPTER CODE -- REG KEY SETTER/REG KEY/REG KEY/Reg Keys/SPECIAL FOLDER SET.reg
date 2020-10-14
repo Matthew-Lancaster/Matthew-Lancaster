@@ -1,0 +1,50 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders]
+
+"Desktop"="E:\\01 Desktop"
+"Favorites"="E:\\01 Favs"
+"Personal"="D:\\# MY DOCS\\# 01 My Documents"
+"Recent"="E:\\01 Recent"
+"SendTo"="E:\\01 SendTo"
+"Start Menu"="E:\\01 Start Menu"
+"Templates"="E:\\01 Templates"
+"Programs"="E:\\01 Start Menu\\Programs"
+"Startup"="E:\\01 Start Menu\\Programs\\Startup"
+"My Pictures"="D:\\0 00 Art\\SPECIAL FOLDER"
+"Fonts"="C:\\WINDOWS\\Fonts"
+"My Music"="D:\\0 00 Music ---"
+"My Video"="D:\\0 00 VIDEO"
+"Administrative Tools"=""
+
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders]
+
+"Common Programs"="E:\\01 Start Menu Common\\Programs"
+"Common Documents"="D:\\# MY DOCS\\# 01 My Documents"
+"Common Desktop"="E:\\01 Desktop Common"
+"Common Start Menu"="E:\\01 Start Menu Common"
+"CommonPictures"="D:\\0 00 Art\\SPECIAL FOLDER"
+"CommonMusic"="D:\\0 00 Music ---"
+"CommonVideo"="D:\\0 00 VIDEO"
+"Common Favorites"="E:\\01 Favs"
+"Common Startup"="E:\\01 Start Menu Common\\Programs\\Startup"
+"Common Templates"="E:\\01 Templates"
+"Common Administrative Tools"="C:\\01 Start Menu\\Programs\\A\\Administrative Tools"
+
+
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders]
+"Desktop"="E:\\01 Desktop"
+"Favorites"="E:\\01 Favs"
+"Personal"="D:\\# MY DOCS\\# 01 My Documents"
+"Recent"="E:\\01 Recent"
+"SendTo"="E:\\01 SendTo"
+"Start Menu"="E:\\01 Start Menu"
+"Templates"="E:\\01 Templates"
+"Programs"="E:\\01 Start Menu\\Programs"
+"Startup"="E:\\01 Start Menu Common\\Programs\\Startup"
+"My Pictures"="D:\\0 00 Art\\SPECIAL FOLDER"
+"Fonts"="E:\\Fonts"
+"My Music"="D:\\0 00 Music ---"
+"My Video"="D:\\0 00 VIDEO"
+
