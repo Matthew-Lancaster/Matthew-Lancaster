@@ -1,0 +1,113 @@
+Windows Registry Editor Version 5.00
+
+; THESE SOLCUTION NOT REQUIRED IN VS2008 FOR WINDOWS 10
+; [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe"="^ VISTASP2"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+"C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe"="^ RUNASADMIN"
+; [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; "C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe"="^ VISTASP2"
+
+; [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe"="^ VISTASP2"
+; [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; "C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe"="^ RUNASADMIN"
+
+
+; USEFUL FROM 
+; ----
+; Can you force Visual Studio to always run as an Administrator in Windows 8? - Stack Overflow
+; https://stackoverflow.com/questions/12257110/can-you-force-visual-studio-to-always-run-as-an-administrator-in-windows-8
+; ----
+; ----
+; Tools Extensions - Visual Studio
+; https://marketplace.visualstudio.com/search?target=VS&category=Tools&vsVersion=&subCategory=All&sortBy=Downloads
+; ----
+
+
+
+; [ Tuesday 01:54:40 Am_16 October 2018 ]
+; ----
+; Visual Studio Run as administrator shortcut - Stack Overflow
+; https://stackoverflow.com/questions/4132508/visual-studio-run-as-administrator-shortcut/11582875#11582875
+; ----
+; ----
+; Visual Studio Run as administrator shortcut - Stack Overflow
+; https://stackoverflow.com/questions/4132508/visual-studio-run-as-administrator-shortcut
+; ----
+; [HKEY_CLASSES_ROOT\VisualStudio.Launcher.sln\Shell\runas\Command]
+; @="\"C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe\" \"%1\""
+; ----
+; BE DEFAULT THERE WAS NOTHING AT 
+; \runas\Command]
+; ----
+; THIS SOLUTION SEEM TO BE WORKER
+; YOU ARE ABLE TO RIGHT CLICK AND OPEN AS ADMIN IN EXPLORER FOR A .SLN PROJECT
+; ----
+; NEXT MAKE YOUR OWN LAUNCHER
+; ----
+; OR DO THIS CHANGE VSLauncher.exe TO devenv.exe 
+; FOR THE MEAN TIME IF ONLY RUNNING ONE 2008 COPY OF VISUAL STUDIO
+; THIS DOES WORK devenv.exe OPENS UP AS ADMIN BUT VSLauncher.exe DOES NOT DO
+; ----
+
+; ---- DEFAULT
+;[HKEY_CLASSES_ROOT\VisualStudio.Launcher.sln\Shell\Open\Command]
+;@="\"C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe\" \"%1\""
+; ---- 
+; OPEN COMMAND DEFAULT =
+; "C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\VSLauncher.exe" "%1"
+; CHANGE TO
+; C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe"
+; ---- MODIFIED
+[HKEY_CLASSES_ROOT\VisualStudio.Launcher.sln\Shell\Open\Command]
+@="\"C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe\" \"%1\""
+
+
+; ---- 1ST
+; [ Tuesday 02:18:00 Am_16 October 2018 ]
+; windows 10 - Make visual studio solution files(sln) always executed as administrator - Super User
+; https://superuser.com/questions/1074835/make-visual-studio-solution-filessln-always-executed-as-administrator/1106637#1106637
+; ---- 2ND
+; [ Tuesday 02:18:00 Am_16 October 2018 ]
+; OPEN AND READ ALL COMMENT ADDING UP STILL IN 2018
+; NOT FINDING SOLUTION WHEN TALK IT STILL ANSWER
+; ----
+; .net - How to Run Visual Studio as Administrator by default - Stack Overflow
+; https://stackoverflow.com/questions/9654833/how-to-run-visual-studio-as-administrator-by-default/9654880#9654880
+; ----
+
+
+
+; [ Tuesday 00:51:40 Am_16 October 2018 ]
+; ----
+; .net - How to Run Visual Studio as Administrator by default - Stack Overflow
+; https://stackoverflow.com/questions/9654833/how-to-run-visual-studio-as-administrator-by-default/35055686#35055686
+; ----
+; ----
+; ----
+; ----
+; HELP FILE PAGE CHANGE FROM ~ TO ^
+; HELP FILE PAGE CHANGE 
+; FROM 
+; Microsoft Visual Studio 14.0 
+; TO
+; Microsoft Visual Studio 9.0
+
+; FOUND THIS ONE WANTED TO REMOVER FOR NOTE TAKER
+; [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; "D:\\VB6\\VB-NT\\00_Best_VB_01\\EliteSpy\\EliteSpy.exe"="~ WIN8RTM"
+
+; THIS WHOLE KEY WAS NOT PRESENT
+; [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe"="^ RUNASADMIN"
+
+; DEFAULT ALREADY THERE
+; ^ VISTASP2
+; [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\devenv.exe"="^ RUNASADMIN"
+
+; ALSO DEFAULT ALREADY THERE
+; [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+; " C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe"="^ RUNASADMIN"
+
