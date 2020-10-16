@@ -2545,7 +2545,14 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		ELSE
 			I = I + "RESULT SOME DELETER" & VBCR
 		END IF
+
+		ON ERROR RESUME NEXT
+		ERR.CLEAR
 		I = I + LPAD(I_COUNT_DEL, "0", 4) & " ____ DELETE ON ____ " & LPAD(I_COUNT_TOTAL, "0", 4) & " ____ TOTAL" & VBCRLF 
+		IF ERR.NUMBER>0 THEN 
+			MSGBOX "2553 ERROR LINE " & VBCR & LPAD(I_COUNT_DEL, "0", 4) & VBCR & LPAD(I_COUNT_TOTAL, "0", 4) 
+			MSGBOX "2553 ERROR LINE " & VBCR & CSTR(LPAD(I_COUNT_DEL, "0", 4)) & VBCR & CSTR(LPAD(I_COUNT_TOTAL, "0", 4) )
+		END IF
 		I = I + LPAD(ARRAY_FOR_NEXT, "0", 4) & " ____ OF ____ " & LPAD(UBOUND(ARRAY_PATH_01), "0", 4) & VBCRLF
 		I = I + DISPLAY_MESSENGER_FOLDER_CAMERA & VBCRLF
 		I = I + VOLUME_NAME_STRING_ & VBCRLF
@@ -3104,7 +3111,7 @@ END SUB
 ' -------------------------------------------------------------------
 
 Function LPad (str, pad, length)
-	LPad=str
+	LPad=CSTR(str)
 	IF pad>0 THEN 
 		ON ERROR RESUME NEXT
 		LPad = String(length - Len(str), pad) & str
