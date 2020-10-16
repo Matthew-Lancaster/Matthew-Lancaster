@@ -2766,7 +2766,8 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			' -------------------------------------------------------
 		END IF
 	NEXT
-	ON ERROR GOTO 0
+	' ON ERROR GOTO 0
+	' NOT CODE DO -- ON ERROR GOTO 0 -- UNREM 
 
 	' ---------------------------------------------------------------
     ' RECURSE INTO IT'S SUB FOLDERS
@@ -3103,7 +3104,15 @@ END SUB
 ' -------------------------------------------------------------------
 
 Function LPad (str, pad, length)
-    LPad = String(length - Len(str), pad) & str
+	LPad=str
+	IF pad>0 THEN 
+		ON ERROR RESUME NEXT
+		LPad = String(length - Len(str), pad) & str
+		IF ERR.NUMBER>0 THEN
+			' BEFORE ERROR WERE PAD = 0 WHICH NOT RUN
+			MSGBOX "LINE 3110 ERROR " & VBCR & "LPad = String(length - Len(str), pad) & str" & VBCR & CSTR(str) & VBCR & CSTR(pad) & VBCR & CSTR(length)
+		END IF
+	END IF
 End Function
 
 Function CreateFolderTree(sPath)
