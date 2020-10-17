@@ -85,9 +85,6 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO_2 = CreateObject("Scripting.FileSystemObject")
 
-Dim WSHShell
-Set WSHShell = CreateObject("WScript.Shell")
-
 
 Dim arr1
 Dim oDict ' Key: Full filename, Item: Filename
