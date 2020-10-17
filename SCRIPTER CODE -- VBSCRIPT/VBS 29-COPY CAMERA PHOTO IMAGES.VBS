@@ -300,6 +300,31 @@
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
+
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' WORK TO DO 
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' HERE CODE SET REQUIRE MOVE IN HERE PROJECT
+' -------------------------------------------------------------------
+' VBS 54-CAMERA MOVE COPY FROM MP_ROOT TO DROP ONE PATH & IMAGER.VBS
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
 DIM MESSENGER_DISPLAY_MODE
 MESSENGER_DISPLAY_MODE=FALSE
 
@@ -329,7 +354,9 @@ NEXT
 
 DIM MSGBOX_SHOW
 
+' -------------------------------------------------------------------
 MSGBOX_SHOW=TRUE
+' -------------------------------------------------------------------
 
 IF INSTR(Wscript_Arguments,"RUN_FROM_GOODSYNC")>0 THEN 
 	MSGBOX_SHOW=FALSE
@@ -345,11 +372,6 @@ SET FSO = CreateObject("Scripting.FileSystemObject")
 
 
 
-
-				I = ARRAY_SONY_FOLDER & VBCR & VBCR & "HASH TRASH FOLDER GONE BY DELETER" & VBCR & VBCR & "NONE CONTENT" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
-
-							 
-							 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
@@ -488,218 +510,9 @@ DIM ODICT_TRIM_THE_DATE
 ' -------------------------------------------------------------------
 DIM LOW_DATE
 DIM HIGH_DATE
-' -------------------------------------------------------------------
-' DIM DAY_BACK_TRIMMER_COUNTER ' =102 ---- HERE LATER ON -- DAY COUNT BACK
-' -------------------------------------------------------------------
-' SET ABOVE FOR CODE ROUTINE 
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' RUNN_IT_HARDCORE_THREE ROUTINE GIVER GIVE BACK SPACE _ REMOVE \_FOUND_000 KILL EMPTY
-' CALL RUNN_IT_HARDCORE_THREE_ROUTINE:
-' -------------------------------------------------------------------
-' 0001 
-' START BEFORE LINE  380
-' 0002
-' AHEAD LINE 2800 AT END
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' RUN ROUTINE END NUMBER 03 AND RUN IT FOUR THAT POWER
-' -------------------------------------------------------------------
-' 0001 OF 0004 -------------------------------------
-' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-' 0002 OF 0004 -------------------------------------
-' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-' 0003 OF 0004 -------------------------------------
-' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
-' 0004 OF 0004 -------------------------------------
-' LINE 2800 AT END
-' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
-' -------------------------------------------------------------------
 
-FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
-
-    I_DELETE_FOUND_000=0
-    I_DELETE_EMPTY=0
-    I_COUNT_HASH_TRASH_32_CHAR=0
-	I_COUNT_HASH_TRASH_32_CHAR=0
-	VOLUME_NAME_STRING_=""
-	DRIVE_FREE_SPACE_GB_BEGIN=0
-	DRVPATH_VAR=""
-	GET_SPACE_STRING=""
-	FREE_SPACE_SET_TO_EQUAL=0
-	DRIVE_FREE_SPACE_GB=0
-	DRIVE_CAPACITY___GB=0
-	I_COUNT_DEL=0
-	I_COUNT_TOTAL=0
-	DAY_BACK_TRIMMER=0
-	I_COUNT=0
-	MSGBOX_I1=""
-	MSGBOX_I2=""
-	' REDIM ODICT_TRIM_THE_DATE
-	' -------------------------------------------------------------------
-	LOW_DATE=NOW
-	HIGH_DATE=NOW-1000
-	' -------------------------------------------------------------------
-	I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
-	IF MID(I,2,1)=":" THEN 
-		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
-	END IF
-	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
-
-	' ---------------------------------------------------
-	' DO LATER AT RUN 
-	' TEST RUN
-	' ---------------------------------------------------
-	CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
-	' ---------------------------------------------------
-
-	' WSCRIPT.QUIT
- 	
-	I_COUNT_HASH_TRASH_32_CHAR=0
-	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
-	
-	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
-		FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH"
-		' COUNTER EXPLAIN GOT HASH TRASH BUTTY FOLDER NOT THERE TRY ROOT\
-		' ---------------------------------------------------------------
-		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=FALSE  THEN
-			I=""
-			I=I+"SOME HASH TRASH COUNTER AND FOLDER NOT THERE - ERROR" & VBCR 
-			I=I+ VBCR 
-			I=I+"ARRAY_SONY_FOLDER" & "\TEMP_HASH_TRASH"
-			I=I+ VBCR 
-			I=I+ "CHANGE PATH TO \ AND TAKE THERE EXPLORER"
-			I=I+ VBCR 
-			I=I+ ARRAY_SONY_FOLDER
-			I=I+ VBCR 
-
-			FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER
-			
-			IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-			SET WSHShell = CreateObject("WScript.Shell")
-				RESULT = WSHSHELL.POPUP(I, 15, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-			SET WSHShell = Nothing
-			END IF
-		END IF
-
-		' FOLDER HASH TRASH STILL NOT THERE AGAIN LOCATE FOLDER OR ROOT\
-		' TUFF ONE
-		' --------------------------------------------------------------
-		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = FALSE THEN 
-			I="THE FOLDER PATH NOT THERE OR ACCESS " & VBCR 
-			I=I+ VBCR 
-			I=I+ FOLDER_JUMP_TO_HASH_TRASH_EXPLORER
-			I=I+ VBCR 
-			I=I+ VBCR 
-			I=I+ "GET TO HASH TRASH THE COUNT WAS SHOW"
-			I=I+ VBCR 
-
-			IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-			SET WSHShell = CreateObject("WScript.Shell")
-				RESULT = WSHSHELL.POPUP(I, 15, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-			SET WSHShell = Nothing
-			END IF
-		END IF
-
-		' MAIN FOLDER HAS TRASH IS THERE AND EMPTY -- DELETER
-		' -----------------------------------------------------------
-		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=TRUE  THEN
-			SET F = FSO.GETFOLDER(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")
-			IF F.SIZE=0 THEN
-				' FOLDER NOT EXIST DELETER
-				FSO.DELETEFOLDER ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH", TRUE
-					
-				I = ARRAY_SONY_FOLDER & VBCR & VBCR & "HASH TRASH FOLDER GONE BY DELETER" & VBCR & VBCR & "NONE CONTENT" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
-				IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-				SET WSHShell = CreateObject("WScript.Shell")
-					RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-				SET WSHShell = Nothing
-				END IF
-			END IF
-		END IF
-
-
-
-		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = TRUE THEN 
-			' -----------------------------------------------------------
-			' RUN EXPLORER
-			' -----------------------------------------------------------
-			SET WSHShell = CreateObject("WScript.Shell")
-			' MSGBOX "EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+""""
-			RESULT = WSHShell.Run("EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+"""" , ShowWindow, DontWaitUntilFinished)
-			SET WSHShell = Nothing
-			' -----------------------------------------------------------
-			' INFO MSGBOX
-			' -----------------------------------------------------------
-			I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND SOME LOSS HASH TRASH" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
-
-			IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-			SET WSHShell = CreateObject("WScript.Shell")
-				RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-			SET WSHShell = Nothing
-			END IF
-		END IF
-	END IF
-
-	I_DELETE_FOUND_000=0
-	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
-	' ---------------------------------------------------------------
-		CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------------------
-	END IF
-
-	IF I_DELETE_FOUND_000>0 THEN 
-		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND TO DELETE SOME FOUND_000"
-		IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-		SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-		SET WSHShell = Nothing
-		END IF 
-	END IF 
-	
-	' ---------------------------------------------------------------
-	I_DELETE_EMPTY_COUNTER=0
-	CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
-	' ---------------------------------------------------------------
-	IF I_DELETE_EMPTY_COUNTER>0 THEN 
-		' -----------------------------------------------------------
-		' SOME DELETE EMPTY
-		' -----------------------------------------------------------
-		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "SOME DELETE __ EMPTY __ WERE DONE"
-		IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-		SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-		SET WSHShell = Nothing
-		END IF
-	END IF
-	' ---------------------------------------------------------------
-	' ---------------------------------------------------
-	' DO LATER AT RUN 
-	' ---------------------------------------------------
-	' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
-	' ---------------------------------------------------
-NEXT
-
-
-' -----------------------------------------------------------
-' DO THE CAMERA SYNCER NOW
-' -----------------------------------------------------------
-IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-I = ARRAY_SONY_FOLDER & VBCR & VBCR & "DO THE CAMERA SYNCER NOW"
-SET WSHShell = CreateObject("WScript.Shell")
-	RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-SET WSHShell = Nothing
-END IF
-
-
-' ---------------------------------
-' NOT ABLE RELOCATE THIS PART 
-' RESULT COME THROUGH BLANK
-' RUNNER AT FRONT -- WHILE
-' ---------------------------------
-' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
-
-
+''''''''''''''''''''''''''''''''''''''''''''
+' I = ARRAY_SONY_FOLDER & VBCR & VBCR & "HASH TRASH FOLDER GONE BY DELETER" & VBCR & VBCR & "NONE CONTENT" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -709,10 +522,32 @@ END IF
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-
-
-
-
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE_0002
+' HERE DO LATER LAST THING
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
 
 
 
@@ -1580,6 +1415,41 @@ IF WORK_GO_ER=TRUE OR 1=1 THEN
 END IF
 
 
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+CALL RUNN_IT_HARDCORE_THREE_ROUTINE_0002
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
 SET objFSO = NOTHING
 
 I_1=""
@@ -1606,9 +1476,6 @@ IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN
 END IF
 
 
-'-------------------------------------------------------------------
-' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
-'-------------------------------------------------------------------
 
 '-------------------------------------------------------------------
 '-------------------------------------------------------------------
@@ -2440,6 +2307,336 @@ Dim volumes, volume
 End Function
 
 
+
+
+SUB ROUTINE_DELETE_WSCRIPT_FINDER_RUN
+' -------------------------------------------------------------------
+' 01 OF 02 
+' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
+' SOME PEOPLE TALK THIS HAS ERROR 
+' THIS ONE IS CORRECT 
+' THIS WAS CORRECT 
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
+' -------------------------------------------------------------------
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
+On Error Resume Next
+Dim iMyPID
+' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
+iMyPID=ThisProcessId
+On Error Goto 0
+' -------------------------------------------------------------------
+' GOOD CODE TO PASTE ON VB6
+' -------------------------------------------------------------------
+DIM WSHSHELL
+SET WSHSHELL = CreateObject("WScript.Shell")
+
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
+' -------------------------------------------------------------------
+i1 = 0 ' ANY PROGRAM WSCRIPT 
+i2 = 0 ' MY  PROGRAM WSCRIPT 
+FOR EACH objProcess IN colProcesses
+    IF NOT (IsNull(objProcess.CommandLine )) THEN
+		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
+        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
+		PID_Script = objProcess.ProcessID
+		
+		IF strScriptName = Wscript.ScriptName THEN
+			i2=i2+1
+		END IF
+		IF strScriptName <> Wscript.ScriptName THEN
+			i1=i1+1
+		END IF
+		
+		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
+			' Wscript.Quit
+		END IF
+		
+		IF iMyPID<>PID_Script THEN 
+			' MSGBOX iMyPID & VBCR & PID_Script
+			objProcess.Terminate() 
+			' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
+		END IF
+    END IF
+NEXT
+' -------------------------------------------------------------------
+END SUB
+' -------------------------------------------------------------------
+' THING ARE EXPLAIN HERE
+' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
+' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
+' -------------------------------------------------------------------
+' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
+' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
+' -------------------------------------------------------------------
+' I like Kul-Tigin's idea (+1), and Asok Smith's idea (based on .Exec) deserve respect (+1), 
+' and it w'd been even better if .Exec run hidden process. So, to feed my curiosity, 
+' I also toyed with this and this's what I did.
+' -------------------------------------------------------------------
+Function ThisProcessId
+    ThisProcessId = 0
+    Dim sTFile, oPrc
+    With CreateObject("Scripting.FileSystemObject")
+        sTFile = .BuildPath(.GetSpecialFolder(2), "sleep.vbs")
+        With .OpenTextFile(sTFile, 2, True)
+            .Write "WScript.Sleep 1000"
+        End With
+    End With
+    With CreateObject("WScript.Shell").Exec("WScript " & sTFile)
+        For Each oPrc In GetObject("winmgmts:\\.\root\cimv2").ExecQuery(_
+        "Select * From Win32_Process Where ProcessId=" & .ProcessID)
+        Exit For : Next
+        ThisProcessId = oPrc.ParentProcessId
+    End With
+End Function
+
+
+
+
+
+
+
+SUB RUNN_IT_HARDCORE_THREE_ROUTINE_0002
+	' -------------------------------------------------------------------
+	' DIM DAY_BACK_TRIMMER_COUNTER ' =102 ---- HERE LATER ON -- DAY COUNT BACK
+	' -------------------------------------------------------------------
+	' SET ABOVE FOR CODE ROUTINE 
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+	' RUNN_IT_HARDCORE_THREE ROUTINE GIVER GIVE BACK SPACE _ REMOVE \_FOUND_000 KILL EMPTY
+	' CALL RUNN_IT_HARDCORE_THREE_ROUTINE:
+	' -------------------------------------------------------------------
+	' 0001 
+	' START BEFORE LINE  380
+	' 0002
+	' AHEAD LINE 2800 AT END
+	' -------------------------------------------------------------------
+	' -------------------------------------------------------------------
+	' RUN ROUTINE END NUMBER 03 AND RUN IT FOUR THAT POWER
+	' -------------------------------------------------------------------
+	' 0001 OF 0004 -------------------------------------
+	' CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+	' 0002 OF 0004 -------------------------------------
+	' CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+	' 0003 OF 0004 -------------------------------------
+	' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
+	' 0004 OF 0004 -------------------------------------
+	' LINE 2800 AT END
+	' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+	' -------------------------------------------------------------------
+
+	FOR ARRAY_FOR_NEXT=1 TO UBOUND(ARRAY_PATH_01)
+
+	DELETE_LIMITITOR=0
+	DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE=0
+	COUNTER_RR=0
+	DEL_SCRIPT_DATE_GONE=NULL
+	I_DELETE_FOUND_000=0
+	I_DELETE_EMPTY=0
+	I_COUNT_HASH_TRASH_32_CHAR=NULL
+	VOLUME_NAME_STRING_=NULL
+	NOT_DO_OCCUPY_SPACE=0
+	DAY_BACK_TRIMMER_COUNTER=0
+	DRIVE_FREE_SPACE_GB_BEGIN=0
+	DRVPATH_VAR=NULL
+	GET_SPACE_STRING=NULL
+	FREE_SPACE_SET_TO_EQUAL=0
+	DRIVE_FREE_SPACE_GB=0
+	DRIVE_CAPACITY___GB=0
+	I_COUNT_DEL=0
+	I_COUNT_TOTAL=0
+	DAY_BACK_TRIMMER=0
+	I_COUNT=0
+	MSGBOX_I1=NULL
+	MSGBOX_I2=NULL
+	ODICT_TRIM_THE_DATE=0
+	' -------------------------------------------------------------------
+	' REDIM ODICT_TRIM_THE_DATE
+	' -------------------------------------------------------------------
+	LOW_DATE=NULL
+	HIGH_DATE=NULL
+	' -------------------------------------------------------------------
+
+	' -------------------------------------------------------------------
+	' REDIM ODICT_TRIM_THE_DATE
+	' -------------------------------------------------------------------
+	LOW_DATE=NOW
+	HIGH_DATE=NOW-1000
+	' -------------------------------------------------------------------
+	I=GET_VOLUME_LETTER__(ARRAY_PATH_01(ARRAY_FOR_NEXT))
+	IF MID(I,2,1)=":" THEN 
+		ARRAY_PATH_01(ARRAY_FOR_NEXT)=I
+	END IF
+	ARRAY_SONY_FOLDER=ARRAY_PATH_01(ARRAY_FOR_NEXT)
+
+	' ---------------------------------------------------
+	' DO LATER AT RUN 
+	' TEST RUN
+	' ---------------------------------------------------
+	CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
+	' ---------------------------------------------------
+
+	' ---------------------------------------------------
+	' WSCRIPT.QUIT
+	' ---------------------------------------------------
+ 	
+	I_COUNT_HASH_TRASH_32_CHAR=0
+	CALL FIND_HASH_TRASH_32_CHAR(ARRAY_SONY_FOLDER)
+	
+	IF I_COUNT_HASH_TRASH_32_CHAR>0 THEN 
+		FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH"
+		' COUNTER EXPLAIN GOT HASH TRASH BUTTY FOLDER NOT THERE TRY ROOT\
+		' ---------------------------------------------------------------
+		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=FALSE  THEN
+			I=""
+			I=I+"SOME HASH TRASH COUNTER AND FOLDER NOT THERE - ERROR" & VBCR 
+			I=I+ VBCR 
+			I=I+"ARRAY_SONY_FOLDER" & "\TEMP_HASH_TRASH"
+			I=I+ VBCR 
+			I=I+ "CHANGE PATH TO \ AND TAKE THERE EXPLORER"
+			I=I+ VBCR 
+			I=I+ ARRAY_SONY_FOLDER
+			I=I+ VBCR 
+
+			FOLDER_JUMP_TO_HASH_TRASH_EXPLORER = ARRAY_SONY_FOLDER
+			
+			IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+			SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, 15, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+			END IF
+		END IF
+
+		' FOLDER HASH TRASH STILL NOT THERE AGAIN LOCATE FOLDER OR ROOT\
+		' TUFF ONE
+		' --------------------------------------------------------------
+		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = FALSE THEN 
+			I="THE FOLDER PATH NOT THERE OR ACCESS " & VBCR 
+			I=I+ VBCR 
+			I=I+ FOLDER_JUMP_TO_HASH_TRASH_EXPLORER
+			I=I+ VBCR 
+			I=I+ VBCR 
+			I=I+ "GET TO HASH TRASH THE COUNT WAS SHOW"
+			I=I+ VBCR 
+
+			IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+			SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, 15, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+			END IF
+		END IF
+
+		' MAIN FOLDER HAS TRASH IS THERE AND EMPTY -- DELETER
+		' -----------------------------------------------------------
+		IF FSO.FOLDEREXISTS(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")=TRUE  THEN
+			SET F = FSO.GETFOLDER(ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH")
+			IF F.SIZE=0 THEN
+				' FOLDER NOT EXIST DELETER
+				FSO.DELETEFOLDER ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH", TRUE
+					
+				I = ARRAY_SONY_FOLDER & VBCR & VBCR & "HASH TRASH FOLDER GONE BY DELETER" & VBCR & VBCR & "NONE CONTENT" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
+				IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+				SET WSHShell = CreateObject("WScript.Shell")
+					RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+				SET WSHShell = Nothing
+				END IF
+			END IF
+		END IF
+
+
+
+		IF FSO.FOLDEREXISTS(FOLDER_JUMP_TO_HASH_TRASH_EXPLORER) = TRUE THEN 
+			' -----------------------------------------------------------
+			' RUN EXPLORER
+			' -----------------------------------------------------------
+			SET WSHShell = CreateObject("WScript.Shell")
+			' MSGBOX "EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+""""
+			RESULT = WSHShell.Run("EXPLORER """+ARRAY_SONY_FOLDER & "\TEMP_HASH_TRASH\"+"""" , ShowWindow, DontWaitUntilFinished)
+			SET WSHShell = Nothing
+			' -----------------------------------------------------------
+			' INFO MSGBOX
+			' -----------------------------------------------------------
+			I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND SOME LOSS HASH TRASH" & VBCR & VBCR & "TAKE THERE EXPLORER.EXE" & VBCR & VBCR & "MESSENGER POP FEW SECOND"
+
+			IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+			SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, 8, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			SET WSHShell = Nothing
+			END IF
+		END IF
+	END IF
+
+	I_DELETE_FOUND_000=0
+	IF ARRAY_PATH_02(ARRAY_FOR_NEXT) <> "MC - HX60V" THEN 
+	' ---------------------------------------------------------------
+		CALL DELETE_FOUND_000_ROOT_PATH(ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------------------
+	END IF
+
+	IF I_DELETE_FOUND_000>0 THEN 
+		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "FIND TO DELETE SOME FOUND_000"
+		IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+		SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		SET WSHShell = Nothing
+		END IF 
+	END IF 
+	
+	' ---------------------------------------------------------------
+	I_DELETE_EMPTY_COUNTER=0
+	CALL DELETE_EMPTY_FOLDER(ARRAY_SONY_FOLDER)
+	' ---------------------------------------------------------------
+	IF I_DELETE_EMPTY_COUNTER>0 THEN 
+		' -----------------------------------------------------------
+		' SOME DELETE EMPTY
+		' -----------------------------------------------------------
+		I = ARRAY_SONY_FOLDER & VBCR & VBCR & "SOME DELETE __ EMPTY __ WERE DONE"
+		IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+		SET WSHShell = CreateObject("WScript.Shell")
+			RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+		SET WSHShell = Nothing
+		END IF
+	END IF
+	' ---------------------------------------------------------------
+	' ---------------------------------------------------
+	' DO LATER AT RUN 
+	' ---------------------------------------------------
+	' CALL STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
+	' ---------------------------------------------------
+NEXT
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+' -------------------------------------------------------------------
+
+
+' -----------------------------------------------------------
+' DO THE CAMERA SYNCER NOW
+' -----------------------------------------------------------
+IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+I = ARRAY_SONY_FOLDER & VBCR & VBCR & "DO THE CAMERA SYNCER NOW"
+SET WSHShell = CreateObject("WScript.Shell")
+	RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+SET WSHShell = Nothing
+END IF
+
+
+' ---------------------------------
+' NOT ABLE RELOCATE THIS PART 
+' RESULT COME THROUGH BLANK
+' RUNNER AT FRONT -- WHILE
+' ---------------------------------
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE
+' CALL RUNN_IT_HARDCORE_THREE_ROUTINE_0002
+
+END SUB
 
 
 ' -------------------------------------------------------------------
@@ -3296,7 +3493,6 @@ SUB DELETE_EMPTY_FOLDER(FOLDER)
 	
 	' MSGBOX "DELETE_EMPTY_FOLDER     " & VBCR & ARRAY_PATH_01(ARRAY_FOR_NEXT) & VBCR & ARRAY_PATH_02(ARRAY_FOR_NEXT) & UCASE(FOLDER.PATH)
 
-
 	' -----------------------------------------------------------
 	' -----------------------------------------------------------
 	' REM HERE -- STOP LOOP SUBFOLDER
@@ -3571,6 +3767,11 @@ End Sub
 ' https://stackoverflow.com/questions/4407386/help-to-create-folder1-folder2-in-windows-using-vbscript-both-the-folders-not
 ' -------------------------------------------------------------------	
 
+
+' -------------------------------------------------------------------	
+' -------------------------------------------------------------------	
+' HERE MOVE LOWER AND NOT RUN SMALL VERSION ABOVE GOT THERE
+' RUNN_IT_HARDCORE_THREE_ROUTINE_0002
 ' -------------------------------------------------------------------	
 ' -------------------------------------------------------------------	
 SUB RUNN_IT_HARDCORE_THREE_ROUTINE:
@@ -3633,89 +3834,7 @@ END SUB
 
 
 ' -------------------------------------------------------------------
-' 0001 OF 0003
-' -------------------------------------------------------------------
-' USELESS CODE
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' ' WHY BOTHER THAT ONE AND USER FSO.
-' SUB GET_DRIVE_SPACE_NOT_COOL(DRVPATH)
-	' ' EXIT SUB ' SPEED
-	' STRCOMPUTER = "." 
-	' SET objWMIService = GetObject("winmgmts:\\" & STRCOMPUTER & "\root\CIMV2") 
-	' SET colItems = objWMIService.ExecQuery( _
-		' "SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
-	' FOR EACH objItem in colItems 
-		' IF LEN(objItem.VolumeName)>0 then
-			' IF MID(DRVPATH,1,2)<>"\\" THEN 
-				' VOLUME_NAME_STRING_=objItem.VolumeName
-			' END IF
-			' DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
-			' DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
-		' END IF
-	' NEXT
-' END SUB
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-' FUNCTION SHOWDRIVEINFO_NOT_COOL(DRVPATH)
-	' ' EXIT FUNCTION ' SPEED
-	' strComputer = "." 
-
-	' ' A NETWORK PATH
-	' IF MID(DRVPATH,1,2)="\\" THEN 
-		
-		' With CreateObject("Scripting.FileSystemObject")
-		' ' DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).AvailableSpace)/1024/1024/1024
-		' DRIVE_FREE_SPACE_GB=CDbl(.GetDrive(DRVPATH).FreeSpace)/1024/1024/1024
-		' MSGBOX DRVPATH
-		' MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
-		' DRIVE_CAPACITY___GB=CDbl(.GetDrive(DRVPATH).FSize)/1024/1024/1024
-		' MSGBOX CSTR(DRIVE_FREE_SPACE_GB)
-		' MSGBOX CSTR(DRIVE_CAPACITY___GB)
-
-		' End With
-	' END IF
-
-	' Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2") 
-	' Set colItems = objWMIService.ExecQuery( _
-		' "SELECT * FROM Win32_LogicalDisk where DeviceID='"+DRVPATH+"'",,48) 
-	' MSGBOX DRVPATH
-
-	' For Each objItem in colItems 
-		' if len(objItem.VolumeName)>0 then
-			' S=S+"-----------------------------------------------------------" & vbCrLf
-			' S=S+"VolumeName:" & vbTab & objItem.VolumeName  & vbCrLf
-			' S=S+"-----------------------------------------------------------" & vbCrLf
-			' S=S+"Drive Letter 1st Found for Match Volume Name: " & VBCRLF & DRVPATH & "\" & vbCrLf
-			' S=S+"-----------------------------------------------------------" & vbCrLf
-			' S=S+"FreeSpace:" & vbTab
-			' S=S+FORMATNUMBER((CDbl(objItem.FreeSpace)/1024/1024/1024))  & " GB" & vbCrLf
-			' S=S+"Size:" & vbTab & vbTab
-			' S=S+FORMATNUMBER((CDbl(objItem.Size)/1024/1024/1024)) & " GB" & vbCrLf
-			' S=S+"Occupied Space:" & vbTab
-			' S=S+FORMATNUMBER((CDbl(objItem.Size - objItem.FreeSpace)/1024/1024/1024)) & " GB"
-			' IF IX_ERROR_MESSENGER<>"" THEN 
-				' S=S+vbCrLf
-				' S=IX_ERROR_MESSENGER
-			' END IF
-			' DRIVE_FREE_SPACE_GB=CDbl(objItem.FreeSpace)/1024/1024/1024
-			' DRIVE_CAPACITY___GB=CDbl(objItem.Size)/1024/1024/1024
-		' END IF
-	' NEXT
-	' DRIVE_SPACE_INFO=S
-' END FUNCTION
-' -------------------------------------------------------------------
-' -------------------------------------------------------------------
-
-
-
-' -------------------------------------------------------------------
-' 0002 OF 0003
+' 0001 OF 0002
 ' -------------------------------------------------------------------
 ' REFERENCE
 ' -------------------------------------------------------------------
@@ -3747,7 +3866,7 @@ END SUB
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
-' 0003 OF 0003
+' 0002 OF 0002
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -3843,90 +3962,5 @@ END SUB
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
 
-
-SUB ROUTINE_DELETE_WSCRIPT_FINDER_RUN
-' -------------------------------------------------------------------
-' 01 OF 02 
-' SOME CONFLICT DISAGREE-ER IN CODE STYLE 
-' SOME PEOPLE TALK THIS HAS ERROR 
-' THIS ONE IS CORRECT 
-' THIS WAS CORRECT 
-' THING ARE EXPLAIN HERE
-' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
-' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
-' -------------------------------------------------------------------
-' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
-' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
-' -------------------------------------------------------------------
-On Error Resume Next
-Dim iMyPID
-' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
-iMyPID=ThisProcessId
-On Error Goto 0
-' -------------------------------------------------------------------
-' GOOD CODE TO PASTE ON VB6
-' -------------------------------------------------------------------
-DIM WSHSHELL
-SET WSHSHELL = CreateObject("WScript.Shell")
-
-Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
-Set colProcesses = objWMIService.ExecQuery("select * from win32_process where name = 'wscript.exe'")
-' -------------------------------------------------------------------
-i1 = 0 ' ANY PROGRAM WSCRIPT 
-i2 = 0 ' MY  PROGRAM WSCRIPT 
-FOR EACH objProcess IN colProcesses
-    IF NOT (IsNull(objProcess.CommandLine )) THEN
-		strScriptName = Trim(Right(objProcess.CommandLine,Len(objProcess.CommandLine) - InstrRev(objProcess.CommandLine,"\")))
-        strScriptName = Left(strScriptName, Len(strScriptName) - 1)
-		PID_Script = objProcess.ProcessID
-		
-		IF strScriptName = Wscript.ScriptName THEN
-			i2=i2+1
-		END IF
-		IF strScriptName <> Wscript.ScriptName THEN
-			i1=i1+1
-		END IF
-		
-		IF i1 > 0 THEN ' ANY PROGRAM WSCRIPT 
-			' Wscript.Quit
-		END IF
-		
-		IF iMyPID<>PID_Script THEN 
-			' MSGBOX iMyPID & VBCR & PID_Script
-			objProcess.Terminate() 
-			' WSHSHELL.Run "TASKKILL /F /IM """+CSTR(PID_Script)+"""", DONTShowWindow, WaitUntilFinished
-		END IF
-    END IF
-NEXT
-' -------------------------------------------------------------------
-END SUB
-' -------------------------------------------------------------------
-' THING ARE EXPLAIN HERE
-' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
-' NOW WITH BEST EXAMPLE ALSO FIND HIDDEN PROCESS TOP SPEED
-' -------------------------------------------------------------------
-' PID - FIND MY OWN PROCESS ID IN VBSCRIPT - STACK OVERFLOW 
-' https://stackoverflow.com/questions/8296037/find-my-own-process-id-in-vbscript
-' -------------------------------------------------------------------
-' I like Kul-Tigin's idea (+1), and Asok Smith's idea (based on .Exec) deserve respect (+1), 
-' and it w'd been even better if .Exec run hidden process. So, to feed my curiosity, 
-' I also toyed with this and this's what I did.
-' -------------------------------------------------------------------
-Function ThisProcessId
-    ThisProcessId = 0
-    Dim sTFile, oPrc
-    With CreateObject("Scripting.FileSystemObject")
-        sTFile = .BuildPath(.GetSpecialFolder(2), "sleep.vbs")
-        With .OpenTextFile(sTFile, 2, True)
-            .Write "WScript.Sleep 1000"
-        End With
-    End With
-    With CreateObject("WScript.Shell").Exec("WScript " & sTFile)
-        For Each oPrc In GetObject("winmgmts:\\.\root\cimv2").ExecQuery(_
-        "Select * From Win32_Process Where ProcessId=" & .ProcessID)
-        Exit For : Next
-        ThisProcessId = oPrc.ParentProcessId
-    End With
-End Function
 
 
