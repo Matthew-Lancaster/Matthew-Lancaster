@@ -1711,9 +1711,10 @@ SUB DATE_OF_FILE_IN_FRONT_FILENAME_SONY_CAMERA
 	FOLDER_PATH_DEST(2)="\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VI_ DSC ME\2010+SONY_MP4\" + CSTR(Year(Now)) + " CyberShot HX60V_#"
 	FOR R_CNT = 1 TO 2
 		IF FSO.FolderExists(FOLDER_PATH_DEST(R_CNT))=TRUE THEN  
-			PAD
+			MSGBOX "LINE 1714 __ LINER __ PAD __ SOMETHING SUPPOSE TO BE HERE"& VBCR & VBCR & "SUB DATE_OF_FILE_IN_FRONT_FILENAME_SONY_CAMERA"
 		END IF
 		IF FSO.FolderExists(FOLDER_PATH__MP4(R_CNT))=TRUE THEN  
+			MSGBOX "LINE 1717 __ LINER __ PAD __ SOMETHING SUPPOSE TO BE HERE"& VBCR & VBCR & "SUB DATE_OF_FILE_IN_FRONT_FILENAME_SONY_CAMERA"
 		END IF
 	NEXT
 End Sub
@@ -3307,15 +3308,14 @@ END SUB
 ' OF TYPE PUT DATE IN FRONT FILE FOR CAMERA
 ' -------------------------------------------------------------------
 
-Function LPad (str, pad, length)
-	LPad=CSTR(str)
-	IF pad>0 THEN 
-		ON ERROR RESUME NEXT
-		LPad = String(length - Len(str), pad) & str
-		IF ERR.NUMBER>0 THEN
-			' BEFORE ERROR WERE PAD = 0 WHICH NOT RUN
-			MSGBOX "LINE 3110 ERROR " & VBCR & "LPad = String(length - Len(str), pad) & str" & VBCR & CSTR(str) & VBCR & CSTR(pad) & VBCR & CSTR(length)
-		END IF
+Function LPAD (str, pad, length)
+	LPAD=""
+	ON ERROR RESUME NEXT
+	LPAD = String(length - Len(str), pad) & str
+	IF ERR.NUMBER>0 THEN
+		LPAD=STR
+		' BEFORE ERROR WERE PAD = 0 WHICH NOT RUN
+		MSGBOX "LINE 3318 ERROR " & VBCR & "LPAD = String(length - Len(str), pad) & str" & VBCR & CSTR(str) & VBCR & CSTR(pad) & VBCR & CSTR(length)
 	END IF
 End Function
 
