@@ -161,7 +161,7 @@ GroupAdd, FIND_WINDOW_1, GoodSync -
 
 
 VAR_REPEAT_F5_TOOGLE=
-SETTIMER REPEAT_F5_BASHING,20000
+; SETTIMER REPEAT_F5_BASHING,20000
 
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
@@ -1017,7 +1017,7 @@ F4::
 RETURN
 #ifwinactive
 
-#ifwinactive - Google Photos - Google Chrome
+#ifwinactive Google Photos - Google Chrome
 F4::
 	GOSUB MOUSE_WHEEL_DOWN_QUICKER
 RETURN
