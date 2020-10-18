@@ -46,6 +46,9 @@ GO_ROUTINE:
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	
 	
+	DRIVE_LETTER=
+	DL=D
+
 	; -----------------------------------------------
 	; 4096 BRING TO FOREGROUND
 	; 4100 BRING TO FOREGROUND + YES NOT
@@ -55,11 +58,14 @@ GO_ROUTINE:
 	; MSGBOX ,4100,,% "------ -- ------ ----- ---- ---- ---------`n`n"
 	; IFMSGBOX YES
 	; -----------------------------------------------
-	MSGBOX ,4096,,NOT GOODSYNC PORTABLE D-DRIVE WITH ASUS 4G AT THE MOMENT`n`nAS IMAGE AT GOOGLE PHOTO NOT IN-LINE YET
-	RETURN
+	IF (A_ComputerName="4-ASUS-GL522VW") 	
+	{
+		MSGBOX ,4096,,NOT GOODSYNC PORTABLE D-DRIVE WITH ASUS 4G AT THE MOMENT`n`nAS IMAGE AT GOOGLE PHOTO NOT IN-LINE YET
+		RETURN
+	}
 	
 	; ---------------------------------------------------------------
-	FN_VAR_TMP_FILE=C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_D_HDD_GOODSYNC2GO_RUNNER\
+	FN_VAR_TMP_FILE=C:\SCRIPTOR DATA\VB_KEEP_RUNNER_IS_%DL%_HDD_GOODSYNC2GO_RUNNER\
 	PATH_NAME_2=%FN_VAR_TMP_FILE%*.TXT
 	
 	PATH := % PATH_NAME_2 "`n`n"
@@ -69,14 +75,32 @@ GO_ROUTINE:
 		NUMBER := A_INDEX
 		; PATH := A_LoopFileName
 		PATH := % PATH A_LoopFileName "`n"
+		IF INSTR(A_LoopFileName,A_ComputerName)>0
+			OWN_RUNNER := TRUE
 	}
+	
+	
+	; ---------------------------------------------------------------
+	; ---------------------------------------------------------------
+	IF (NUMBER=1 and OWN_RUNNER=TRUE)
+	{
+		T1=
+		T2=
+		T3=%DL%_HDD_GOODSYNC2GO ALREADY RUN
+		T4=%PATH%
+		T20=% T3 "`n`n" T4 "`n" T5
+		MSGBOX % T20
+		EXITAPP
+	}
+	; ---------------------------------------------------------------
+	
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	IF NUMBER>0 THEN 
 	{
 		T1=VB_KEEP_RUNNER AND AHK
-		T2=Autokey -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.ahk
-		T3=DETECT D_HDD_GOODSYNC2GO IS RUNNER
+		T2=Autokey -- 80-AHK TO EXE LOAD GOODSYNC2GO %DL% DRIVE.ahk
+		T3=DETECT %DL%_HDD_GOODSYNC2GO IS RUNNER
 		T4=%PATH%
 		T5=NOT TO RUN TWO
 		T20=% T1 "`n`n" T2 "`n`n" T3 "`n`n" T4 "`n" T5
@@ -85,8 +109,6 @@ GO_ROUTINE:
 	}
 	; ---------------------------------------------------------------
 	
-	DRIVE_LETTER=
-	DL=D
 
 	IF DL=D
 		ICON_GOT=GoodSync-inst_155.ico
@@ -105,12 +127,12 @@ GO_ROUTINE:
 		RETURN
 	}	
 
-	GOODSYNC2GO_D_RUN=TRUE
+	GOODSYNC2GO_RUN=TRUE
 	WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
 	IF INSTR(Path,"%DL%:\GoodSync\x64\GoodSync2Go.exe")
-		GOODSYNC2GO_D_RUN=TRUE
+		GOODSYNC2GO_RUN=TRUE
 
-	IF GOODSYNC2GO_D_RUN=TRUE
+	IF GOODSYNC2GO_RUN=TRUE
 		Run, %FN_VAR_EXE% ; ,,MIN
 	
 	SoundBeep , 2500 , 100
@@ -140,7 +162,6 @@ GO_ROUTINE:
 				SoundBeep , 2500 , 100
 				Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
-		
 		}
 	}
 
