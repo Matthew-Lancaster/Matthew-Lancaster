@@ -28,6 +28,9 @@ www.amazon.co.uk##.celwidget > .a-color-success
 
 
 
+
+
+||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
@@ -171,7 +174,6 @@ www.facebook.com##.cxgpxx05 > div:nth-of-type(2) > .l9j0dhe7 > .aodizinl.e5nlhep
 www.facebook.com##.etr7akla.irj2b8pg.ocgrx2df.taijpn5t.j0lfo8lj.j83agx80.g5ia77u1.bp9cbjyn
 www.facebook.com##.gs1a9yip.j83agx80.cbu4d94t.osnr6wyh.hv4rvrfc.dati1w0a.pybr56ya
 www.facebook.com##.hzawbc8m.m9osqain.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
-www.facebook.com##.hzawbc8m.oo9gr5id.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.dp1hu0rb.hpfvmrgz > .j83agx80.cbu4d94t.dp1hu0rb.l9j0dhe7 > div:nth-of-type(1)
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1)
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1) > div:nth-of-type(1)
@@ -274,3 +276,6 @@ www.waitrose.com##.cc_cursor.emergency___OFNEj
 www.youtube.com###secondary
 www.youtube.com##.ytd-clarification-renderer.style-scope.content-title
 www.youtube.com##.ytd-clarification-renderer.style-scope.description
+
+! 10/18/2020 https://www.facebook.com
+www.facebook.com##.l9j0dhe7.stjgntxs.ni8dbmo4.a8c37x1j
