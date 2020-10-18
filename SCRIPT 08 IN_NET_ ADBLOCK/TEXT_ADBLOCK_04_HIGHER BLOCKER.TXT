@@ -24,4 +24,8 @@ www.amazon.co.uk##.celwidget > .a-color-success
 
 ! BAD BLOCK FOR FACEBOOK WIPE SOME MESSENGER ON POSTER
 !www.facebook.com##.hzawbc8m.oo9gr5id.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
-
+! THE LINE HERE IS FOR ONE ABOVE HERE
+! ANOTHER WAY WHEN WIPE NOTIFY INFO AN LEAVE TIME THERE -- SIDE EFFECT REMOVE POST INFO TOP PART -- YOUR OWN
+! SIDE EFFECT HERE REMOVE EARLIER LINE AND YOUR NAME TOP BAR NEXT TO ICON -- GUESS ICON STILL DO JOB
+! 10/18/2020 https://www.facebook.com
+www.facebook.com##.l9j0dhe7.stjgntxs.ni8dbmo4.a8c37x1j
