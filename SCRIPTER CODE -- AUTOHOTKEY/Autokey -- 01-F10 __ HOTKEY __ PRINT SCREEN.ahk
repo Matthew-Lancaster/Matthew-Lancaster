@@ -905,19 +905,6 @@ Return
 ; Return
 ; #ifwinactive
 
-REPEAT_F5_BASHING:
-	IF A_TimeIdleMouse>20000
-	IfWinEXIST Secure online banking home - Google Chrome ahk_class Chrome_WidgetWin_1
-	{
-		WinActivate
-		SLEEP 500
-		; IfWinActive Secure online banking home - Google Chrome ahk_class Chrome_WidgetWin_1
-		SENDINPUT {F5}
-		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
-		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	}
-RETURN
-
 
 ; UCASE UPPER
 
@@ -976,11 +963,158 @@ RETURN
 RETURN
 #ifwinactive
 
+
+
+; F4::
+	; SEND ^{V}
+	; SEND {ENTER}
+	
+	
+	; ; ---------------------------------------------------------------
+	; ; # Win (Windows logo key) 
+	; ; ! Alt 
+	; ; ^ Control 
+	; ; + Shift 
+	; ; & An ampersand 
+	; ; ---------------------------------------------------------------
+	
+; RETURN
+
+
+; #ifwinactive FACEBOOK
+; F4::
+
+	; NOT WORK ONE
+	; SENDINPUT comments
+
+	; SENDINPUT mill
+	; SENDINPUT one other
+	; SENDINPUT swandean
+	; SLEEP 800
+	; SENDINPUT {TAB}{TAB}{TAB}
+	; SENDINPUT {ENTER}
+	; SLEEP 800
+	; SENDINPUT {W}   CONTROL W CLOSE
+; RETURN
+; #ifwinactive
+
+
+#ifwinactive Facebook
+F4::
+	GOSUB MOUSE_WHEEL_DOWN
+RETURN
+#ifwinactive
+
+; -------------------------------------------------------------------
+; GOOGLE PHOTO WHEELDOWN 
+; NOT REALLY 
+; MOUSEWHEEL PAGE DOWN THING FROM GOOGLE TRASH
+; -------------------------------------------------------------------
+
+#ifwinactive Trash - Google Drive
+F4::
+	GOSUB MOUSE_WHEEL_DOWN
+RETURN
+#ifwinactive
+
+#ifwinactive - Google Photos - Google Chrome
+F4::
+	GOSUB MOUSE_WHEEL_DOWN_QUICKER
+RETURN
+#ifwinactive
+
+MOUSE_WHEEL_DOWN:
+	MSGBOX "HH"
+	WinGet, HWND_22, ID ,A
+	TOOLTIP LEFT MOUSE BUTON TO STOP `nSCROLL OVER LIST AREA TO MOUSE-WHEEL MOVE
+	LOOP 1000000
+	{
+		IF GetKeyState("LButton")   ; MOUSEDOWN
+		{
+			TOOLTIP 
+			RETURN
+		}
+		WinGet, HWND_24, ID ,A
+		IF HWND_22<>%HWND_24%
+			RETURN
+		SENDINPUT {WheelDown}
+		SLEEP 100
+	}
+	TOOLTIP 
+RETURN
+
+MOUSE_WHEEL_DOWN_QUICKER:
+	WinGet, HWND_22, ID ,A
+	TOOLTIP LEFT MOUSE BUTON TO STOP `nSCROLL OVER LIST AREA TO MOUSE-WHEEL MOVE
+	LOOP 1000000
+	{
+		IF GetKeyState("LButton")   ; MOUSEDOWN
+		{
+			TOOLTIP 
+			RETURN
+		}
+		WinGet, HWND_24, ID ,A
+		IF HWND_22<>%HWND_24%
+			RETURN
+		SENDINPUT {WheelDown}
+		SLEEP 10
+	}
+TOOLTIP 
+RETURN
+
+
+
+
+
 ; +^D:: ; SHIFT+CTRL+D
 ^D:: ; CTRL+D ---- CONVERTS TEXT TO DASH -- NOTEPADD++ WHERE MOST WORK USER CNTR D FOR DUPLICATE LINE BUT NEVER NEEDER
 	VAR_INDEX=4
 	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
+
+; *D::
+; *::
+; MSGBOX  You pressed %A_ThisHotkey%.
+; Return
+
+
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+TIMER_HOTKEY:
+	VAR_IN_NAME=Confirm Save As ahk_class #32770
+	SetTitleMatchMode 3  ; Specify Full path
+	IFWINEXIST %VAR_IN_NAME%
+	IFWINEXIST Confirm Save As ahk_exe VB6.EXE
+	{
+		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
+		
+		STRING_V:=&&Yes  0
+		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
+		{	
+			; NA [v1.0.45+]: May improve reliability. See reliability below.
+			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
+			SOUNDBEEP 4000,300
+			VAR_DONE_ESCAPE_KEY=TRUE
+		}
+		IF CONTROL_TEXT=&Yes
+		{
+			Secs_MSGBOX_04=5
+			SOUNDBEEP 5000,200
+		}
+
+		IF Secs_MSGBOX_04>0 	
+			Secs_MSGBOX_04-=1
+			
+		ControlSetText,Button1,&Yes  %Secs_MSGBOX_04%, %VAR_IN_NAME%
+	}
+RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -1264,136 +1398,7 @@ STRING_INVERT_MESSENGER:
 RETURN
 
 
-; *D::
-; *::
-; MSGBOX  You pressed %A_ThisHotkey%.
-; Return
 
-TIMER_HOTKEY:
-	VAR_IN_NAME=Confirm Save As ahk_class #32770
-	SetTitleMatchMode 3  ; Specify Full path
-	IFWINEXIST %VAR_IN_NAME%
-	IFWINEXIST Confirm Save As ahk_exe VB6.EXE
-	{
-		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
-		
-		STRING_V:=&&Yes  0
-		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
-		{	
-			; NA [v1.0.45+]: May improve reliability. See reliability below.
-			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
-			SOUNDBEEP 4000,300
-			VAR_DONE_ESCAPE_KEY=TRUE
-		}
-		IF CONTROL_TEXT=&Yes
-		{
-			Secs_MSGBOX_04=5
-			SOUNDBEEP 5000,200
-		}
-
-		IF Secs_MSGBOX_04>0 	
-			Secs_MSGBOX_04-=1
-			
-		ControlSetText,Button1,&Yes  %Secs_MSGBOX_04%, %VAR_IN_NAME%
-	}
-RETURN
-
-
-; F4::
-	; SEND ^{V}
-	; SEND {ENTER}
-	
-	
-	; ; ---------------------------------------------------------------
-	; ; # Win (Windows logo key) 
-	; ; ! Alt 
-	; ; ^ Control 
-	; ; + Shift 
-	; ; & An ampersand 
-	; ; ---------------------------------------------------------------
-	
-; RETURN
-
-
-; #ifwinactive FACEBOOK
-; F4::
-
-	; NOT WORK ONE
-	; SENDINPUT comments
-
-	; SENDINPUT mill
-	; SENDINPUT one other
-	; SENDINPUT swandean
-	; SLEEP 800
-	; SENDINPUT {TAB}{TAB}{TAB}
-	; SENDINPUT {ENTER}
-	; SLEEP 800
-	; SENDINPUT {W}   CONTROL W CLOSE
-; RETURN
-; #ifwinactive
-
-
-#ifwinactive Facebook
-F4::
-	GOSUB MOUSE_WHEEL_DOWN
-RETURN
-#ifwinactive
-
-; -------------------------------------------------------------------
-; GOOGLE PHOTO WHEELDOWN 
-; NOT REALLY 
-; MOUSEWHEEL PAGE DOWN THING FROM GOOGLE TRASH
-; -------------------------------------------------------------------
-
-#ifwinactive Trash - Google Drive
-F4::
-	GOSUB MOUSE_WHEEL_DOWN
-RETURN
-#ifwinactive
-
-#ifwinactive - Google Photo
-F4::
-	GOSUB MOUSE_WHEEL_DOWN_QUICKER
-RETURN
-#ifwinactive
-
-MOUSE_WHEEL_DOWN:
-	WinGet, HWND_22, ID ,A
-	TOOLTIP LEFT MOUSE BUTON TO STOP `nSCROLL OVER LIST AREA TO MOUSE-WHEEL MOVE
-	LOOP 1000000
-	{
-		IF GetKeyState("LButton")   ; MOUSEDOWN
-		{
-			TOOLTIP 
-			RETURN
-		}
-		WinGet, HWND_24, ID ,A
-		IF HWND_22<>%HWND_24%
-			RETURN
-		SENDINPUT {WheelDown}
-		SLEEP 100
-	}
-TOOLTIP 
-RETURN
-
-MOUSE_WHEEL_DOWN_QUICKER:
-	WinGet, HWND_22, ID ,A
-	TOOLTIP LEFT MOUSE BUTON TO STOP `nSCROLL OVER LIST AREA TO MOUSE-WHEEL MOVE
-	LOOP 1000000
-	{
-		IF GetKeyState("LButton")   ; MOUSEDOWN
-		{
-			TOOLTIP 
-			RETURN
-		}
-		WinGet, HWND_24, ID ,A
-		IF HWND_22<>%HWND_24%
-			RETURN
-		SENDINPUT {WheelDown}
-		SLEEP 10
-	}
-TOOLTIP 
-RETURN
 
 
 TIMER_WSCRIPT_FOCUS_LEFT_KILL:
