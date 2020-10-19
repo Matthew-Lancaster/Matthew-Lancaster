@@ -3315,10 +3315,10 @@ Function LPAD (str, pad, length)
 	' THAT NOT TRUE STRING RESULT "0"
 	' ---------------------------------------------------------------
 	IF PAD="" THEN PAD="0"
-	IF LENGHT<LEN(STR) THEN 
+	IF LENGHT<LEN(STR) THEN
 		LPAD=CSTR(STR)
 		EXIT FUNCTION
-	END IF 
+	END IF
 	ON ERROR RESUME NEXT
 	LPAD = String(length - Len(str), pad) & str
 	IF ERR.NUMBER>0 THEN
