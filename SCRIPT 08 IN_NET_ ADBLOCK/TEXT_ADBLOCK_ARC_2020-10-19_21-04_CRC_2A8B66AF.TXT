@@ -48,8 +48,7 @@
 ! USER THIS ONE FOR MERGE
 ! TEXT_ADBLOCK_TEXT__02__MERGE_COMBINE.TXT
 ! -------------------------------------------------------------------
-||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
-||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg$image
+||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||cpc.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/cpc/homepage/buttons/square/work-from-home-600x600.jpg?170420$image
 ||d1byywzi6ghj11.cloudfront.net/img/close-btn.png$image
 ||d1byywzi6ghj11.cloudfront.net/img/santanderuk_personal_20131022.jpg$image
@@ -67,12 +66,14 @@
 ||www.santander.co.uk/assets/s3fs-public/images/123_student_current_account_masthead.jpg$image
 ||www.santander.co.uk/assets/s3fs-public/images/scam-ouflage_antandec_masthead.jpg$image
 ||www.theargus.co.uk/resources/images/6624235/?type=nile-list&htype=0$image
+app.mysms.com##.lostPassword
 clocktab.com###donate-button
 clocktab.com##.button-background.glass-background
 clocktab.com##.screen-button
 cpc.farnell.com###ad_pf_header_topbar > div > p
 cpc.farnell.com###pf_pdp_espot_01 > div > div > p > b
 cpc.farnell.com##.eSpot.extra-info
+drive.google.com##.Wmhurf
 mail.yahoo.com##.cdPFi_Z2drWk6.C_Z2drWk6.M_E8xte.ab_C.D_F.ac_C.en_0.I_T.P_0.b_0.r_P
 mail.yahoo.com##.D_B.u_b.E_fq7.em_N.G_e.J_x.o_h
 mail.yahoo.com##.I4_1YEmYj.I_T.bj_Z18Bi5B.aw_82XEY.C_ZpQYvz.bj_2spJWC.bm_FJ.bn_dBP.I4_sgPuT.k_w.cdPFi_52qC.I_sgPuo.v_g9505.D_ZKxLmw.p_R.ab_C.A_6EqO.o_h.X_eo6.H_qg.e_82XEY
@@ -99,6 +100,7 @@ onlinebanking.nationwide.co.uk##.cc_cursor.bottom-prompts-container
 onlinebanking.nationwide.co.uk##.form-row-middle.form-row
 onlinebanking.nationwide.co.uk##.step-head-6 > h2
 photos.google.com##.DF792b.yDSiEe.dhgHyf:nth-of-type(2) > .XQsPc > .RunE3b
+photos.google.com##.XQsPc
 retail.santander.co.uk###myoffers
 retail.santander.co.uk###splash-97123-body
 retail.santander.co.uk###splash-97123-overlay
@@ -140,8 +142,10 @@ www.amazon.co.uk###reviewsMedley > .a-fixed-left-grid-inner > .a-col-right.a-fix
 www.amazon.co.uk###rhf-shoveler
 www.amazon.co.uk##.a-alert-info.a-alert.a-box > .a-alert-container.a-box-inner
 www.amazon.co.uk##.askInlineWidget
+www.amazon.co.uk##.a-span-last.a-span5.a-column
 www.amazon.co.uk##.a-text-center.a-spacing-top-extra-large.a-section
 www.amazon.co.uk##.card-padding
+www.amazon.co.uk##.celwidget > .a-color-success
 www.amazon.co.uk##.click_region
 www.amazon.co.uk##.cr-solicitation.cr-lazy-widget
 www.amazon.co.uk##.global-reviews-all
@@ -188,7 +192,6 @@ www.facebook.com##.cxgpxx05 > div:nth-of-type(2) > .l9j0dhe7 > .aodizinl.e5nlhep
 www.facebook.com##.etr7akla.irj2b8pg.ocgrx2df.taijpn5t.j0lfo8lj.j83agx80.g5ia77u1.bp9cbjyn
 www.facebook.com##.gs1a9yip.j83agx80.cbu4d94t.osnr6wyh.hv4rvrfc.dati1w0a.pybr56ya
 www.facebook.com##.hzawbc8m.m9osqain.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
-www.facebook.com##.hzawbc8m.oo9gr5id.knj5qynh.a3bd9o3v.jq4qci2q.iv3no6db.c8b282yb.mau55g9w.fe6kdd0r.d3f4x2em.aigsh9s9.nxhoafnm.keod5gw0.a8c37x1j.rrkovp55.c1et5uql.qv66sw1b.hpfvmrgz.d2edcug0
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.dp1hu0rb.hpfvmrgz > .j83agx80.cbu4d94t.dp1hu0rb.l9j0dhe7 > div:nth-of-type(1)
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1)
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1) > div:nth-of-type(1)
@@ -196,6 +199,7 @@ www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-
 www.facebook.com##.j83agx80.cbu4d94t.buofh1pr.sn7ne77z > .buofh1pr > div:nth-of-type(1) > ul > li:nth-of-type(1) > div
 www.facebook.com##.k4urcfbm.tr9rh885 > div.taijpn5t.btwxx1t3.j83agx80:nth-of-type(2)
 www.facebook.com##.l6v480f0.j83agx80.kvgmc6g5.ad2k81qe.oygrvhab.f9o22wc5.discj3wi.rz4wbd8a.ihqw7lf3.a8nywdso
+www.facebook.com##.l9j0dhe7.stjgntxs.ni8dbmo4.a8c37x1j
 www.facebook.com##.lzcic4wl.btwxx1t3.j83agx80.dati1w0a.e5nlhep0.hv4rvrfc.ecm0bbzt
 www.facebook.com##.lzcic4wl.btwxx1t3.j83agx80.scb9dxdr.sj5x9vvc.hv4rvrfc.ecm0bbzt
 www.facebook.com##.m7zwrmfr.tmrshh9y.pmk7jnqg.cypi58rs.lfi1tu6t
