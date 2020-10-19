@@ -3310,12 +3310,23 @@ END SUB
 
 Function LPAD (str, pad, length)
 	LPAD=""
+	' ---------------------------------------------------------------
+	' SOME ERROR PAD VAR ARUMENT ARRIVE WITH NONE
+	' THAT NOT TRUE STRING RESULT "0"
+	' ---------------------------------------------------------------
+	IF PAD="" THEN PAD="0"
+	IF LENGHT<LEN(STR) THEN 
+		LPAD=CSTR(STR)
+		EXIT FUNCTION
+	END IF 
 	ON ERROR RESUME NEXT
 	LPAD = String(length - Len(str), pad) & str
 	IF ERR.NUMBER>0 THEN
 		LPAD=STR
+		' -----------------------------------------------------------
 		' BEFORE ERROR WERE PAD = 0 WHICH NOT RUN
-		MSGBOX "LINE 3318 ERROR " & VBCR & "LPAD = String(length - Len(str), pad) & str" & VBCR & CSTR(str) & VBCR & CSTR(pad) & VBCR & CSTR(length)
+		' -----------------------------------------------------------
+		MSGBOX "LINE 3321 ERROR " & VBCR & "LPAD (str, pad, length)" & VBCR & CSTR(str) & VBCR & CSTR(pad) & VBCR & CSTR(length),vbMsgBoxSetForeground,Wscript.ScriptName 
 	END IF
 End Function
 
