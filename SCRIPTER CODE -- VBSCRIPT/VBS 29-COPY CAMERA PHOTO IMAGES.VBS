@@ -1328,7 +1328,7 @@ FOR R_COUNT=1 TO UBOUND(FOLDER_PATH)
 NEXT
 
 ' IF WORK_GO_ER=TRUE OR 1=1 THEN
-IF WORK_GO_ER=TRUE OR 1=1 THEN
+IF WORK_GO_ER=TRUE AND I_COUNT_1>0 THEN ' OR 1=1 THEN
 
 	I=""
 	I=I+ Wscript.ScriptName + VBCRLF
@@ -1338,13 +1338,16 @@ IF WORK_GO_ER=TRUE OR 1=1 THEN
 	I=I+ "From Date -- Index Pointer -- " + TT_DATE_POINTER + VBCRLF + VBCRLF
 	I=I+ "HDD IS HERE -- " + HDD_WAS_HERE + " -- "+ WORK_DOER_2 + VBCRLF
 	' I=I+ "WORK DRIVE VOLUME NAME -- " + HDD_WAS_HERE_2 + VBCRLF 
-	I=I+ VBCRLF
+	' I=I+ VBCRLF
+
+	IF DRVPATH<>"" THEN 
+		CALL GET_DRIVE_SPACE(DRVPATH)
+	END IF
 	
-	' CALL GET_DRIVE_SPACE(DRVPATH)
-	
-	I=I+ DRIVE_SPACE_INFO
-	I=I+ VBCRLF
-	I=I+ VBCRLF
+	IF DRIVE_SPACE_INFO<>"" THEN 
+		I=I+ DRIVE_SPACE_INFO
+		I=I+ VBCRLF
+	END IF
 	
 	I=I+"CHECKER VOLUME NAME OF -- "+CSTR(IX)+" TOTAL DUPE FILTER" + VBCRLF
 	I=I+"--------------------------------------------------------" + VBCRLF
@@ -1362,10 +1365,10 @@ IF WORK_GO_ER=TRUE OR 1=1 THEN
 			I = I + "-------------------------------" & VBCRLF
 			I = I + "MESSENGER BOX GONE OF 10 SECOND"
 
-			IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN 
-			SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I, 10, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-			SET WSHShell = Nothing
+			IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+				SET WSHShell = CreateObject("WScript.Shell")
+				RESULT = WSHSHELL.POPUP(I, 10, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+				SET WSHShell = Nothing
 			END IF
 		END IF
 		' -----------------------------------------------------------
@@ -2112,9 +2115,11 @@ END SUB
 SUB GET_DRIVE_SPACE(DRVPATH)
 
 	' ---------------------------------------------------------------
-	IF DRVPATH="" THEN 
-		MSGBOX "DRVPATH = NOTHING " & VBCR & UCASE(TYPENAME(DRVPATH))
-		EXIT SUB
+	IF MESSENGER_DISPLAY_MODE=TRUE THEN 
+		IF DRVPATH="" THEN 
+			MSGBOX "DRVPATH = NOTHING " & VBCR & UCASE(TYPENAME(DRVPATH))
+			EXIT SUB
+		END IF
 	END IF
 	' ---------------------------------------------------------------
 	IF UCASE(TYPENAME(DRVPATH))="FOLDER" THEN 
@@ -2126,13 +2131,13 @@ SUB GET_DRIVE_SPACE(DRVPATH)
 			Set DRVPATH = FSO.GETFOLDER(DRVPATH)
 			GET_DRIVE_SPACE(DRVPATH)
 		ELSE
-			VALUE_WAIT=4
-			IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN
+			MSGBOX_VALUE_WAIT=4
+			IF MESSENGER_DISPLAY_MODE=TRUE THEN
 				I = "ERROR DRIVE NOT READY " & VBCR & DRVPATH & VBCR
-				I=I+ "MESSENGER BOX DISAPPEAR ON " & CSTR(VALUE_WAIT) & " SECOND"
+				I=I+ "MESSENGER BOX DISAPPEAR ON " & CSTR(MSGBOX_VALUE_WAIT) & " SECOND"
 				DIM WSHShell
 				SET WSHShell = CreateObject("WScript.Shell")
-				RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+				RESULT = WSHSHELL.POPUP(I, MSGBOX_VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 				SET WSHShell = Nothing
 			END IF
 		END IF
@@ -2622,10 +2627,10 @@ NEXT
 ' DO THE CAMERA SYNCER NOW
 ' -----------------------------------------------------------
 IF MESSENGER_DISPLAY_MODE=TRUE THEN 
-I = ARRAY_SONY_FOLDER & VBCR & VBCR & "DO THE CAMERA SYNCER NOW"
-SET WSHShell = CreateObject("WScript.Shell")
-	RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-SET WSHShell = Nothing
+	I = ARRAY_SONY_FOLDER & VBCR & VBCR & "DO THE CAMERA SYNCER NOW"
+	SET WSHShell = CreateObject("WScript.Shell")
+		RESULT = WSHSHELL.POPUP(I, 4, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+	SET WSHShell = Nothing
 END IF
 
 
@@ -2695,13 +2700,13 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I=I+ "----" & VBCR 
 		I=I+ DEL_SCRIPT_DATE_GONE & VBCR 
 		I=I+ "----" & VBCR 
-		VALUE_WAIT=20
-		I=I+ "MESSENGER BOX DISAPPEAR ON " & CSTR(VALUE_WAIT) & " SECOND"
+		MSGBOX_VALUE_WAIT=20
+		I=I+ "MESSENGER BOX DISAPPEAR ON " & CSTR(MSGBOX_VALUE_WAIT) & " SECOND"
 		I = TRIM(I)
-		IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN
+		IF MESSENGER_DISPLAY_MODE=TRUE THEN
 			DIM WSHShell
 			SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			RESULT = WSHSHELL.POPUP(I, MSGBOX_VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 			SET WSHShell = Nothing
 		END IF
 	END IF
@@ -2733,10 +2738,8 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 	DRIVE_FREE_SPACE_GB_BEGIN=DRIVE_FREE_SPACE_GB
 	' -----------------------------------------------------------
 
-	IF I_COUNT_DEL>0 OR 1 = 1 THEN 
-		
+	IF I_COUNT_DEL>0 THEN 
 		DISPLAY_MESSENGER_FOLDER_CAMERA=ARRAY_SONY_FOLDER
-		
 		I = ""
 		IF I_COUNT_DEL=0 THEN 
 			I = I + "RESULT NONE DELETER" & VBCR
@@ -2776,15 +2779,15 @@ Sub STRESSOR__TRIM_THE_DATE_OLDER_CAMERA
 		I = I + "TOTAL DRIVE_CAPACITY_______________GB _ " & FORMATNUMBER(DRIVE_CAPACITY___GB,2) & VBCRLF 
 		I = I + "--------------------------------------------------------------" & VBCRLF 
 		IF I_COUNT_DEL=0 THEN 
-			VALUE_WAIT=8
+			MSGBOX_VALUE_WAIT=8
 		ELSE
-			VALUE_WAIT=40
+			MSGBOX_VALUE_WAIT=40
 		END IF
-		I = I + "MESSENGER BOX DISAPPEAR ON " & CSTR(VALUE_WAIT) & " SECOND"
-		IF TRUE=TRUE OR MESSENGER_DISPLAY_MODE=TRUE THEN
+		I = I + "MESSENGER BOX DISAPPEAR ON " & CSTR(MSGBOX_VALUE_WAIT) & " SECOND"
+		IF MESSENGER_DISPLAY_MODE=TRUE THEN
 		IF I_COUNT_DEL>0 THEN 
 			SET WSHShell = CreateObject("WScript.Shell")
-			RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+			RESULT = WSHSHELL.POPUP(I, MSGBOX_VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
 			SET WSHShell = Nothing
 		END IF
 		END IF
@@ -2935,7 +2938,6 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 			ERR.CLEAR
 
 			IF PATH_FIND_RESULT=TRUE THEN 
-
 				IF I_COUNT_DEL<=DELETE_LIMITITOR THEN 
 					' MSGBOX FILE.PATH & VBCR & FILEMODDATE & VBCR & HIGH_DATE & VBCR & LOW_DATE & VBCR & "HIGH_DATE  " & HIGH_DATE & VBCR & "LOW_DATE  " & LOW_DATE 					' ---------------------------------------------------
 					IF DUMMY_RUN_GET_VALUE_HOW_MANY_DELETE<>"GET_FIND_INFO" THEN 
@@ -2952,14 +2954,15 @@ SUB SCAN__TRIM_THE_DATE_OLDER_CAMERA(FOLDER)
 							I = I + "-------------------------------" & VBCR
 							I=I+"HIGH_DATE  " & HIGH_DATE & VBCR
 							I=I+"LOW_DATE   " & LOW_DATE & VBCR
-							VALUE_WAIT=20
+							MSGBOX_VALUE_WAIT=20
 							I = I + "-------------------------------" & VBCR
-							I = I + "MESSENGER BOX GONE IN " & CSTR(VALUE_WAIT) & " SECOND"
-							DIM WSHShell
-							SET WSHShell = CreateObject("WScript.Shell")
-							RESULT = WSHSHELL.POPUP(I, VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
-							SET WSHShell = Nothing
-							
+							I = I + "MESSENGER BOX GONE IN " & CSTR(MSGBOX_VALUE_WAIT) & " SECOND"
+							IF MESSENGER_DISPLAY_MODE=TRUE THEN
+								DIM WSHShell
+								SET WSHShell = CreateObject("WScript.Shell")
+								RESULT = WSHSHELL.POPUP(I, MSGBOX_VALUE_WAIT, Wscript.ScriptName , vbOKOnly + vbMsgBoxSetForeground)
+								SET WSHShell = Nothing
+							END IF
 						END IF
 						FSO.DeleteFile(FILE.path) 
 					END IF
