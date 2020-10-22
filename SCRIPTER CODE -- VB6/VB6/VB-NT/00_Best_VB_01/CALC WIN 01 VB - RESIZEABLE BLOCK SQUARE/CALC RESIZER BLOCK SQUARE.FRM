@@ -317,7 +317,7 @@ Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
 End Function
 Private Function NotAlwaysOnTop(ByVal hWnd As Long)
     Dim flags
-    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
+    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
 End Function
 
 

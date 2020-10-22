@@ -1286,7 +1286,7 @@ Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
 
 End Function
 Function NotAlwaysOnTop(ByVal hWnd As Long)
-    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
+    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
 End Function
 
 Function HideProgOnList()  'Hide program on CTRL ALT DEL List.
