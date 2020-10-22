@@ -820,7 +820,7 @@ End Sub
 '    Exit Sub
 'End Sub
 'Public Sub NotAlwaysOnTop(FormName As Form)
-'    Call SetWindowPos(FormName.hwnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags)
+'    Call SetWindowPos(FormName.hwnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE)
 '    Exit Sub
 'End Sub
 Public Sub InvisibleForm(Frm As Form)
