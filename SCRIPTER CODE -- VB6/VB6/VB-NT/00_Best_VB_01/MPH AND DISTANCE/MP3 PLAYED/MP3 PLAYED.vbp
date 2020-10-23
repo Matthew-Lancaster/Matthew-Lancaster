@@ -1,6 +1,6 @@
 Type=Exe
 Form=MP3_PLAYED.frm
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOZE\system32\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\SysWow64\stdole2.tlb#OLE Automation
 IconForm="MP3_PLAYED"
 Startup="MP3_PLAYED"
 ExeName32="MP3 PLAYED.exe"
@@ -10,7 +10,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=12
+RevisionVer=13
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Tue 16-Nov-2010 07-18-27p"
