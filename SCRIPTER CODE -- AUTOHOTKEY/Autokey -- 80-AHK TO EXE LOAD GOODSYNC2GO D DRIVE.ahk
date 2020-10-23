@@ -58,7 +58,7 @@ GO_ROUTINE:
 	; MSGBOX ,4100,,% "------ -- ------ ----- ---- ---- ---------`n`n"
 	; IFMSGBOX YES
 	; -----------------------------------------------
-	IF (A_ComputerName="4-ASUS-GL522VW") 	
+	IF A_ComputerName=4-ASUS-GL522VW
 	{
 		MSGBOX ,4096,,NOT GOODSYNC PORTABLE D-DRIVE WITH ASUS 4G AT THE MOMENT`n`nAS IMAGE AT GOOGLE PHOTO NOT IN-LINE YET
 		RETURN

@@ -68,6 +68,8 @@
 
 
 
+
+
 FILE_ScriptName=%A_ScriptName%
 IF INSTR(FILE_ScriptName,"_INCLUDE")>0
 {
@@ -255,6 +257,9 @@ CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK:
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 RETURN
+
+
+
 
 
 CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT:
@@ -446,6 +451,8 @@ RETURN
 
 
 
+
+
 SUB_RESTORE_VB_KEEP_RUNNER:
 	SetTitleMatchMode 2  ; Avoids Specify Full path.
 	; WinRestore, VB_KEEP_RUNNER ahk_class ThunderFormDC
@@ -539,6 +546,9 @@ SUB_RESTORE_ELITESPY:
 		SOUNDBEEP 1400,100
 	}
 RETURN
+
+
+
 
 SUB_RESTORE_VB_KEEP_RUNNER_02:
 
@@ -1687,6 +1697,8 @@ IfWinNotExist EliteSpy+ by Andrea
 }
 DetectHiddenWindows, % dhw
 Return
+
+
 
 ; -------------------------------------------------------------------
 ; TO DO WITHER -- Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk

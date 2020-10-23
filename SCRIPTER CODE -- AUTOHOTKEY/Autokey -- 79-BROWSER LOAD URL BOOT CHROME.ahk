@@ -111,18 +111,24 @@ CHROME_RUN_AND_MIN:
 		CHROME_PAGE=https://www.facebook.com/notifications
 	IF (A_ComputerName = "2-ASUS-EEE") 
 		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
+		CHROME_PAGE=https://www.rain-alarm.com
 	IF (A_ComputerName = "4-ASUS-GL522VW") 
 	{
+		CHROME_PAGE=https://www.facebook.com
 		CHROME_PAGE=https://www.facebook.com/notifications
 		FIREFOX_PAGE=https://mail.yahoo.com/d/folders/1
 	}
 	IF (A_ComputerName = "5-ASUS-P2520LA") 
 		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
 	IF (A_ComputerName = "7-ASUS-GL522VW") 
+	{
+		CHROME_PAGE=https://www.facebook.com
 		CHROME_PAGE=https://www.facebook.com/notifications
-	IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+	}
+	IF (A_ComputerName = "8-MSI-GP62M-7RD")
 	{
 		CHROME_PAGE=https://www.facebook.com/notifications
+		CHROME_PAGE=https://www.facebook.com
 		FIREFOX_PAGE=https://mail.yahoo.com/d/folders/1
 	}
 
