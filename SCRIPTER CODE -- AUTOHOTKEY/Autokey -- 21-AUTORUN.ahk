@@ -945,6 +945,24 @@ MAIN_ROUTINE:
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
 
+
+
+
+
+; -------------------------------------------------------------------
+; Reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\PlugPlay" /v "AutorunsDisabled" /t REG_DWORD /d "2" /f
+; [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PlugPlay]
+; "Description"="Enables a computer to recognize and adapt to hardware changes with little or no user input. Stopping or disabling this service will result in system instability."
+; "DisplayName"="Plug and Play"
+; -------------------------------------------------------------------
+; ONLY FOR WINDOWS XP CONSUME LOT CPU %
+; WINDOWS 10 SEARCH FOR 
+; HKLM\SYSTEM\CurrentControlSet\Services\PlugPlay
+; -------------------------------------------------------------------
+If (OSVER_N_VAR=5) ; WIN XP
+	RegWrite, REG_DWORD, HKLM\SYSTEM\CurrentControlSet\Services\PlugPlay, AutorunsDisabled, 2
+
+
 ; --------------------------------------------
 ; Main Boot up File Source Written to Registry
 ; IT SETS THE UAC TO ADMIN IF POSSIBLE
