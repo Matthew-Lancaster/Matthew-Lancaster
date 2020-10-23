@@ -46,7 +46,7 @@ Return
 
 ;Started = 0
 
-;F9::
+; F9::
 ;     If (Started == 0)
 ;     {
 ;         ; MouseGetPos, X, Y

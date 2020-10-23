@@ -31,7 +31,7 @@
 ; SESSION 002
 ; -------------------------------------------------------------------
 ; MADE THIS ROUTINE 
-; CLOSE_MANY_APP_IF_NOT_RESPONDER:
+; CLOSE_MANY_APP__NOT_RESPONDER:
 ; LOOK QUITE SUCCESSFUL
 ; IT WILL SCAN ALL APP TO FIND ANY THAT GOT NOT RESPONDING
 ; FOR THOSE SITUATION WHEN MACHINE IS GRIND TO A HALT 
@@ -2099,6 +2099,10 @@ NOT_RESPOND_URL_LOGGER_03:
 RETURN
 
 
+
+
+
+
 NOT_RESPOND_VB_KEEP_RUNNER_04:
 	If OSVER_N_VAR<>10
 	{
@@ -3522,7 +3526,7 @@ CHECK_SET_OF_APP_NOT_RESPOND_MAIN:
 				SoundBeep , 1500 , 100
 				TIMER_SET_NOT_RESPONDING=0
 				TOOLTIP
-				GOSUB CLOSE_MANY_APP_IF_NOT_RESPONDER
+				GOSUB CLOSE_MANY_APP__NOT_RESPONDER
 				MSGBOX ,,, Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`nSOME COMPUTER APP ARE NOT RESPONDER KILL THEM IS DUE`nAutokey -- 19-SCRIPT_TIMER_UTIL_2.ahk`n%TIMER_SET_NOT_RESPONDING%`n%A_Now% `nMSGBOX TIMEOUT 8 SECOND,8
 
 				}	
@@ -3535,7 +3539,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-CLOSE_MANY_APP_IF_NOT_RESPONDER:
+CLOSE_MANY_APP__NOT_RESPONDER:
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 

@@ -134,7 +134,7 @@ PAUSE
 ;-------------------------------------------------------------------------
 
 
-F9::Sendinput {Enter}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Enter}{Up}
+; F9::Sendinput {Enter}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Del}{Enter}{Up}
 
 ^F9::
 SoundBeep , 1500 , 400
