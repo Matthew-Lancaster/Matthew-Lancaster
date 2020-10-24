@@ -108,58 +108,66 @@ CHROME_RUN_AND_MIN:
 
 	; SET DO AR
 	IF (A_ComputerName = "1-ASUS-X5DIJ") 
-		CHROME_PAGE=https://www.facebook.com/notifications
+	{
+		CHROME_PAGE__=https://www.facebook.com/notifications
+	}
 	IF (A_ComputerName = "2-ASUS-EEE") 
-		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
-		CHROME_PAGE=https://www.rain-alarm.com
+	{
+		CHROME_PAGE__=https://www.rain-alarm.com/?from=chrome2
+		CHROME_PAGE__=https://www.rain-alarm.com
+	}
 	IF (A_ComputerName = "4-ASUS-GL522VW") 
 	{
-		CHROME_PAGE=https://www.facebook.com
-		CHROME_PAGE=https://www.facebook.com/notifications
-		FIREFOX_PAGE=https://mail.yahoo.com/d/folders/1
+		CHROME_PAGE__=https://www.facebook.com
+		CHROME_PAGE__=https://www.facebook.com/notifications
+		FIREFOX_PAGE_=https://mail.yahoo.com/d/folders/1
 	}
-	IF (A_ComputerName = "5-ASUS-P2520LA") 
-		CHROME_PAGE=https://www.rain-alarm.com/?from=chrome2
+	IF (A_ComputerName = "5-ASUS-P2520LA")
+	{
+		CHROME_PAGE__=https://www.rain-alarm.com/?from=chrome2
+	}
 	IF (A_ComputerName = "7-ASUS-GL522VW") 
 	{
-		CHROME_PAGE=https://www.facebook.com
-		CHROME_PAGE=https://www.facebook.com/notifications
+		CHROME_PAGE__=https://www.facebook.com
+		CHROME_PAGE__=https://www.facebook.com/notifications
 	}
 	IF (A_ComputerName = "8-MSI-GP62M-7RD")
 	{
-		CHROME_PAGE=https://www.facebook.com/notifications
-		CHROME_PAGE=https://www.facebook.com
-		FIREFOX_PAGE=https://mail.yahoo.com/d/folders/1
+		CHROME_PAGE__=https://www.facebook.com/notifications
+		CHROME_PAGE__=https://www.facebook.com
+		FIREFOX_PAGE_=https://mail.yahoo.com/d/folders/1
 	}
 
 	; REMOVE IF NOT REQUIRE
-	IF (A_ComputerName = "1-ASUS-X5DIJ" and !AUTO_RELOAD_FACEBOOK_VAR) 
-		CHROME_PAGE=
-	IF (A_ComputerName = "2-ASUS-EEE" and !AUTO_RELOAD_RAIN_ALARM_VAR) 
-		CHROME_PAGE=
-	IF (A_ComputerName = "4-ASUS-GL522VW" and !AUTO_RELOAD_FACEBOOK_VAR) 
-		CHROME_PAGE=
-	IF (A_ComputerName = "4-ASUS-GL522VW" and !AUTO_RELOAD_FIREFOX_VAR)
-		FIREFOX_PAGE=
-	IF (A_ComputerName = "5-ASUS-P2520LA" and !AUTO_RELOAD_RAIN_ALARM_VAR) 
-		CHROME_PAGE=
-	IF (A_ComputerName = "7-ASUS-GL522VW" and !AUTO_RELOAD_FACEBOOK_VAR) 
-		CHROME_PAGE=
-	IF (A_ComputerName = "8-MSI-GP62M-7RD" and !AUTO_RELOAD_FACEBOOK_VAR) 
-		CHROME_PAGE=
-	IF (A_ComputerName = "8-MSI-GP62M-7RD" and !AUTO_RELOAD_FIREFOX_VAR) 
-		FIREFOX_PAGE=
+	; IF (A_ComputerName = "1-ASUS-X5DIJ" and !AUTO_RELOAD_FACEBOOK_VAR) 
+		; CHROME_PAGE__=
+	; IF (A_ComputerName = "4-ASUS-GL522VW" and !AUTO_RELOAD_FACEBOOK_VAR) 
+		; CHROME_PAGE__=
+	; IF (A_ComputerName = "7-ASUS-GL522VW" and !AUTO_RELOAD_FACEBOOK_VAR) 
+		; CHROME_PAGE__=
+	; IF (A_ComputerName = "8-MSI-GP62M-7RD" and !AUTO_RELOAD_FACEBOOK_VAR) 
+		; CHROME_PAGE__=
+
+	; IF (A_ComputerName = "2-ASUS-EEE" and !AUTO_RELOAD_RAIN_ALARM_VAR) 
+		; CHROME_PAGE__=
+	; IF (A_ComputerName = "5-ASUS-P2520LA" and !AUTO_RELOAD_RAIN_ALARM_VAR) 
+		; CHROME_PAGE__=
+
+	; IF (A_ComputerName = "4-ASUS-GL522VW" and !AUTO_RELOAD_FIREFOX_VAR)
+		; FIREFOX_PAGE_=
+	; IF (A_ComputerName = "8-MSI-GP62M-7RD" and !AUTO_RELOAD_FIREFOX_VAR) 
+		; FIREFOX_PAGE_=
 	
 	IF !CHROME_EXE
 	{
 		MSGBOX CHROME.EXE NOT EXIST TO FIND
-		CHROME_PAGE=
+		CHROME_PAGE__=
 	}
 		
 	IF !FIREFOX_EXE
 	{
 		MSGBOX FIREFOX.EXE NOT EXIST TO FIND
-		FIREFOX_PAGE=
+		FIREFOX_PAGE_=
 	}
 
 		
@@ -171,17 +179,17 @@ CHROME_RUN_AND_MIN:
 	; EXAMPLE ABOVE NOT FIND WITHOUT
 	; AND OKAY HERE
 	; ---------------------------------------------------------------
-	IF CHROME_PAGE
+	IF CHROME_PAGE__
 	{
-		LAUNCH_EXE_GO=%CHROME_EXE%" "%CHROME_PAGE%
+		LAUNCH_EXE_GO=%CHROME_EXE%" "%CHROME_PAGE__%
 		Run, "%LAUNCH_EXE_GO%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
 		SoundBeep , 2500 , 100
 		SET_DONE_CHROME=TRUE
 	}
 	
-	IF FIREFOX_PAGE
+	IF FIREFOX_PAGE_
 	{
-		LAUNCH_EXE_GO=%FIREFOX_EXE%" "%FIREFOX_PAGE%
+		LAUNCH_EXE_GO=%FIREFOX_EXE%" "%FIREFOX_PAGE_%
 		Run, "%LAUNCH_EXE_GO%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
 		SoundBeep , 2500 , 100
 		SET_DONE_FIREFOX=TRUE
