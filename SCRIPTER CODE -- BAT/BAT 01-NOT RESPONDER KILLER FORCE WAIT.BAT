@@ -46,6 +46,8 @@ IF "!WIN7__!"=="YES" ECHO WINDOWS 7
 IF "!WIN10_!"=="YES" ECHO WINDOWS 10
 REM ---------------------------------------------------------------
 
+GOTO ENDE
+
 SET DESCRIPTION=TASK KILLER NOT RESPOND FORCE AND WAIT
 TITLE ____ !DESCRIPTION! ____
 ECHO.
@@ -135,5 +137,8 @@ ECHO.
 
 IF NOT "!ERR_1!"=="0" EXIT
 IF "!ERR_1!"=="0"     PAUSE
+
+
+:ENDE
 EXIT
 

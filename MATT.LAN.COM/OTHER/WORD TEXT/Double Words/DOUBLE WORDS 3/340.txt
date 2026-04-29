@@ -1,0 +1,348 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+40 ' ---------------- "VIEW
+40 ' ---------------- CLOSE
+40 ' ----------- EXPLORER
+40 ' ---------- CURSOR
+40 ' --------- ACCESSORIES
+40 ' ACCESSORIES HIGHLIGHTS
+40 ' German Std
+40 ' Length of
+40 ' This must
+40 ' use to
+40 ' view as
+40 -- 0;127
+40 -- Destiny's Child
+40 - breakfast in
+40 - I've Got
+40 - m/board free
+40 - No More
+40 - Please Don't
+40 - The Broadcast
+40 -2147483648
+40 & Chrissie Hynde
+40 (28) HEAR MY
+40 (50 recommended). If
+40 (display
+40 (for OHP's) œ28.00
+40 **Exclusive** .wav Samples
+40 *Info*
+40 + 7 Albums
+40 <A HREF="137.htm#o416">SCSI</A> Hostadapter:
+40 <DIR> 13/03/03 2:06
+40 <DIR> 22/08/01 18:20
+40 0 0 0
+40 0.0%
+40 0.1%
+40 0.2%
+40 0.8%
+40 00 8A E1
+40 02/03/01 18:14 B17
+40 08 12
+40 09/01/01 11:26 3D
+40 0a 12
+40 0d d4 4f
+40 1,4
+40 1,6,8
+40 1.1%
+40 1.3%
+40 1/2 AMI004 #3608
+40 10/10/99 19:36 Segamega.txt
+40 102 0.0%
+40 1073741824
+40 11.068 V
+40 14/10/00 8:59 x-wing
+40 14/10/00 9:09 dkm
+40 14/11/99 3:30 ENACARTA
+40 14/11/99 3:30 VISUAL
+40 15/06/01 23:59 SYSMAST.cbk
+40 17 0 0
+40 18 27 16
+40 1994. Last *Info*
+40 1995 Area: *Info*
+40 2/2 AMI004 #3609
+40 20581
+40 2147483648
+40 24/11/00 2:55 3D
+40 25 19 540
+40 25 19 5450
+40 259 1.0%
+40 27/02/01 23:37 Britannica
+40 273 26.2% <11apr02>
+40 274 26.2%
+40 274 26.2% <13apr02>
+40 30, well as
+40 30347
+40 357913941
+40 36 182 0.0%
+40 3601/14 441/80
+40 42 75 82
+40 472139
+40 52 160 0.0%
+40 5513219****MCI Mail 241-2526****
+40 5521878****fax +49 40
+40 60 80 100
+40 64 0.2%
+40 6e 65 74
+40 active <A HREF="137.htm#o522">termination</A>
+40 aktive <A HREF="137.htm#o522">Terminierung</A>
+40 Album Chart -
+40 Album Disk2.txt
+40 Album Disk2.txtThe Official
+40 Albums 2K1-06 June
+40 albums in that
+40 All Beauties.....................
+40 AMIGA_PROG 1 0.0%
+40 AMIGA_PROG 1 0.1%
+40 AMIGA_PROG 1 3
+40 AMIGA_PROG 12 0.3%
+40 AMIGA_PROG 159 0.1%
+40 AMIGA_PROG 161 0.0%
+40 AMIGA_PROG 3 0.1%
+40 AMIGA_PROG 32 36
+40 AMIGA_PROG 4 0.1%
+40 AMIGA_PROG 5 0.1%
+40 AMIGA_PROG 6 0.2%
+40 AMIGA_PROG 7 17
+40 AMIGA_PROG 8 0.1%
+40 AMIGA_PROG 9 0.3%
+40 and 100 mb.
+40 and one 60
+40 are my favorites.
+40 areas or so
+40 areas were scanned.
+40 as 21st May
+40 automatically (sorta like
+40 Beatles hits *Info*
+40 Black
+40 branches. Performs pipe
+40 bucks. Take the
+40 but mentally 20
+40 cards that
+40 channels o 4W
+40 CHARAC-
+40 character vacuum fluorescent
+40 characters long. Any
+40 characters long. It
+40 chars, per your
+40 cm, zwischen allen
+40 column mode I
+40 column, looks like
+40 conferences on my
+40 CorelDRAW: Chapter 2
+40 degrees, so i'm
+40 degrees. <g>
+40 development tools
+40 different `types` of
+40 different cursors
+40 different image file
+40 different operations. Enables
+40 directorys with the
+40 Dual Adapter.
+40 e9 07 02
+40 effects,
+40 events that raise
+40 extra levels
+40 fields of data
+40 file(s) 1,082,242 bytes
+40 file(s) 1,106,943 bytes
+40 file(s) 3,032,187 bytes
+40 file(s) 30,511,040 bytes
+40 files
+40 folders of various
+40 for NT.
+40 for ten quid.
+40 games
+40 games.
+40 GBP.
+40 Golden Greats (Disc
+40 Great Songs
+40 GREAT transition effects!
+40 groove discs, steel
+40 H001728.ZIP OLD FASHIONED
+40 H001741.ZIP DECORATIVE CAPS
+40 H005041.ZIP v1.1 DIMENSIONAL
+40 H009563.ZIP v1.01 ORNAMATICA
+40 handles,
+40 Hidden Obsessions................
+40 hot reviews of
+40 hours and it
+40 icons are
+40 icons for use
+40 If you would
+40 image file formats
+40 in 4 months.
+40 issues to 500
+40 Ivor Biggun My
+40 label
+40 languages!
+40 languages, L&H Simply
+40 lbs, and I
+40 line message in
+40 macros and
+40 man-years to produce
+40 MB Amstrad 2286,
+40 MB Disk, 5
+40 MB free for
+40 mb HD
+40 Mb HDD VGA
+40 MB" border="0" hspace="10"
+40 Mb... Then there's
+40 meg
+40 meg *Info*
+40 meg disk if
+40 meg hard drives
+40 meg HD. I
+40 meg Hds (plus
+40 meg isn't enough
+40 Meg MFM ST157
+40 meg of hard
+40 meg scsi hard
+40 megabyte hard drive,
+40 Megs as test
+40 megs HD on
+40 Megs,
+40 menus, then simply
+40 messages in here
+40 messages. :}
+40 MHz '386 Lantastic
+40 MHz 386DX motherboard
+40 MHZ for 727
+40 Miles (Vocal Version)
+40 miles apart. Currently
+40 miles from
+40 miles outside of
+40 miles(intrumental).mp3
+40 military related clipart
+40 milliseconds anyway?
+40 Millside, Culvers Avenue,
+40 mins of pure
+40 minutes
+40 minutes 19 seconds
+40 minutes 45 seconds
+40 minutes 48 seconds
+40 minutes already! :)
+40 minutes by car.
+40 minutes of xmas
+40 minutes soon
+40 minutes, or
+40 minutes, or until
+40 minutes. Remove from
+40 minutes. Test the
+40 more. High color
+40 MR DO (CLONE)
+40 N002334.ZIP BORDERS GALORE!
+40 N002399.ZIP TEXT SUPPORT
+40 N002551.ZIP SIGNS &
+40 N003149.ZIP v2.0 SCALEFONT
+40 N003150.ZIP v2.0 SCALEFONT
+40 N003151.ZIP v2.0 SCALEFONT
+40 NAUGHTY
+40 node,
+40 obviously lower the
+40 of them in
+40 or 50 megahertz
+40 or 50 users?
+40 or 50 will
+40 or 80 column
+40 or a Passport
+40 or better, DOS
+40 or more threads.
+40 or Passport
+40 page appendix entitled
+40 Papa Roach -
+40 Past Midnight-OCS!s.mp3
+40 past Midnight
+40 Past Midnight.mp3
+40 Photoshop Plugins
+40 pictures of people/furniture
+40 pins
+40 pins on the
+40 pins to the
+40 plus years to
+40 Plus/Net for Windows
+40 points for claiming
+40 pounds each for
+40 pounds.
+40 pre-made
+40 pre-made picture, save
+40 predefined page sizes
+40 preset scenarios, individual
+40 Priory Road
+40 quid for
+40 quid for 3.5
+40 quid for a
+40 quid isn't it?
+40 quid ono, 2
+40 quid ono.
+40 quid.
+40 Ray Dream Studio
+40 REM treated as
+40 screen shots
+40 seconds
+40 secs to 80
+40 SECS) AMI002 #1283
+40 Shape of my
+40 Singels
+40 Singles
+40 Singles & Top
+40 SINGLES 03/3/00
+40 Singles 16/12/00
+40 Singles Chart W
+40 SINGLES W/E 16/12/00
+40 SINGLES WEEK END
+40 Singles.txt
+40 Singles.txtThe Official UK
+40 Song in last
+40 soundtracks\CD1
+40 soundtracks\CD2
+40 speed dial entries
+40 students, with the
+40 tasks/week per user;
+40 teams per le
+40 THEN
+40 These dreams -
+40 Thevz - C
+40 THEVZ
+40 Thevz]
+40 Thieves" is an
+40 times
+40 times. Can be
+40 to 400 channels
+40 to 50 feet,
+40 to 50 users
+40 to 50 Wings
+40 top FTP sites,
+40 type cr*p. MTV's
+40 ukp voice 0778-344654
+40 ukp.
+40 units of translation
+40 Useful Functions, A
+40 user utility
+40 way IDE
+40 wicked hits
+40 Winks
+40 worked. Then I
+40 x 148 x
+40 year olds dressed
+40 years ago, THEN
+40 years back-come.mp3
+40 years of top
+40 years old. My
+40 years suggests that
+40 years, and he's
+40 years. The main
+40 Zappa CD's, and

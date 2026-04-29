@@ -1,0 +1,37 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+005 10,874 18/08/02 21:21
+005 20,786 12/01/98 2:11
+005 25,702 21/06/93 11:58
+005 30,469 18/08/02 21:21
+005 327,537 02/06/93 9:53
+005 38,532 12/01/98 2:11
+005 48,171 18/08/02 21:21
+005 Adam And The
+005 And I
+005 Aswad Dancehall Mood
+005 Barrel Of A
+005 Drawing Crazy Patterns
+005 Interlude-Speaker Phone
+005 Never Let Me
+005 PCX 325,575 16/09/94
+005 Perfect
+005 Rainbow Wings
+005 Sympathetic Character
+005 The Trip
+005 Tsunami
+005 Uselink
+005 Wishing I Was

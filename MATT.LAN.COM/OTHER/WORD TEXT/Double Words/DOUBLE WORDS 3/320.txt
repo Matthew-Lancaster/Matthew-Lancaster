@@ -1,0 +1,824 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+20 ' ---------------- ACTIVE
+20 ' --------------- PROGRAMS
+20 ' ------------ ONLINE
+20 ' ------------ PROGRAMS
+20 ' ---- TYPING
+20 ' active desktop
+20 ' Envelope #10
+20 ' Number of
+20 ' online services
+20 ' PROGRAMS HIGHLIGHTS
+20 '93 you wrote
+20 'Resume without error
+20 -- Five -
+20 - 3 am.mp3
+20 - 6 -
+20 - Ain't Misbehavin'.mp3
+20 - Andy Griggs
+20 - April 2001
+20 - Batman
+20 - Bellamy Brothers
+20 - Benchmarks &
+20 - Big Joe
+20 - Biz Markie
+20 - Black Nasty
+20 - Chainsaw
+20 - Charlie Parker
+20 - Crazy World
+20 - Days.mp3
+20 - Gangsta Shit.mp3
+20 - Gatemouth Moore
+20 - Honey hush.mp3
+20 - I'm In
+20 - Insider
+20 - Josef Locke
+20 - judy garland
+20 - Julian Cope
+20 - keely smith
+20 - Let's Get
+20 - Lichfield Cathedral
+20 - Lightnin' Hopkins
+20 - matt monro
+20 - Mephisto and
+20 - MS Office
+20 - O Canada
+20 - O Canada.mp3
+20 - Oh Girl
+20 - One bourbon,
+20 - Patsy O'Hagan
+20 - Pauls Emulator
+20 - Reg
+20 - Rock 'N'
+20 - Situation Vacant.mp3
+20 - Speckled Red
+20 - The Basement
+20 - The crippled
+20 - There Are
+20 - Unknown.mp3
+20 - Waterloo sunset.mp3
+20 - yourself or
+20 ( 3.60%)
+20 ( 3.60%) PEP
+20 (05/26/95). *Info*
+20 (16-10-99)
+20 (16) CHOCOLATE STARFISH
+20 (Files for financing
+20 (for faster compression)
+20 (unless you really
+20 (upgrades your 386MB
+20 (validated user SL).
+20 ) to be
+20 *Info*
+20 .BAT or .WCX
+20 .Jpg
+20 / Fast 40
+20 \x1B&b18WPML \x04\x00\x05\x01\x03\x03\x03\x0B\x04\x02\x01\x55\x1BE
+20 | .#...4.
+20 ~ Catatonia -
+20 </p>
+20 = osc 3
+20 0 0 0
+20 0 0 44
+20 0.0%
+20 0.1%
+20 0.3%
+20 0.4%
+20 0.5%
+20 0.6%
+20 0.8%
+20 0;20
+20 007 THE BODYSNATCHERS
+20 02/09/01 20:20 7500
+20 04-12-00
+20 04/02/01 23:51 Arcsoft
+20 05/06/98 0:00 FORM1.FRX
+20 05/06/98 0:00 ODBCLOGN.FRX
+20 06/05/01 15:37 No
+20 06/05/98 20:01 RESTART.COM
+20 08/08/00 20:10 Devl
+20 1 280/0 28/777
+20 1 37 7
+20 1 650 2.4%
+20 1.5%
+20 1/12/95
+20 10 91 0.4%
+20 10.00 ms
+20 100
+20 102 0.0%
+20 106 0.4%
+20 113 0.4%
+20 123 0.0%
+20 13093
+20 135 0.5%
+20 14 1 45
+20 14/07/01 0:19 NDQ.BAT
+20 142 0.5%
+20 17 23 41
+20 18 38 22
+20 1993 05:38, Nick
+20 1993 07:38, Peter
+20 1993 09:00, Simon
+20 1993 09:09, Paul
+20 1993 14:50, David
+20 1993 22:33, gerard
+20 1993 at 03:32,
+20 1993 at 04:28
+20 1993 at 23:23,
+20 1993 you wrote:
+20 1993, Surya Lovejoy
+20 1993, Tony Dunn
+20 1993>, gerard van.der.land
+20 1995 Area: *Info*
+20 2 R -
+20 20 20 36
+20 21/10/01 17:57 V_Bring
+20 21/11/96 0:00 CUSTOM.DIC
+20 22
+20 24/05/03 7:15 TIMER5.TXT
+20 24/11/00 3:11 AutoCad
+20 25 10 0
+20 25/06/01 16:05 RE.BAT
+20 25/10/93 11:41 ID1.DAT
+20 25/10/93 11:41 ID2.DAT
+20 25/10/93 11:41 ID3.DAT
+20 25/10/93 11:41 ID4.DAT
+20 27 59 0.0%
+20 28 28 15
+20 29 0.0%
+20 29/10/01 22:23 T2.CFC
+20 300dpi humorous images
+20 31 31 25
+20 33 41 a0
+20 36 35 36
+20 39 33 25
+20 396/1 270/101 267/200
+20 3c
+20 4 37 0.1%
+20 4 46 0.2%
+20 40 60 80
+20 49 77 230
+20 58
+20 58 33 2
+20 6.24 ms
+20 63 61 6C
+20 651 meg 05-04-94
+20 66 61 69
+20 67.226.75.52 (11 Apr
+20 7 0 27
+20 7 209/209 270/101
+20 73 69
+20 83668
+20 9 65 0.3%
+20 A COUPLE MORE
+20 A man in
+20 Adult Screen Savers
+20 after 30 days.
+20 Albums - Disc
+20 Albums W /
+20 Albums.txt
+20 Albums.txtTop 20 Albums
+20 Alena - Turn
+20 Alice Deejay_Back In
+20 Allpass Filters,
+20 Alton Ellis -
+20 Amiga support files
+20 AMSTRAD 0 0
+20 AMSTRAD 1 0
+20 AMSTRAD 1 0.0%
+20 AMSTRAD 1 2
+20 AMSTRAD 7 0.0%
+20 AMSTRAD 9 0.0%
+20 and 30 days
+20 and is a
+20 and searching for
+20 and the AMSAT
+20 apps installed in
+20 Apr 85 -
+20 ASP *Info*
+20 Aug 93 11:34]
+20 Aug 93 17:09:00),
+20 Aug 93 19:10:20,
+20 Aug 93 21:19:00
+20 Aug 93 Amiga
+20 Aug 93 with
+20 Aug 93, Kevin
+20 Aug 93,you blethered
+20 Balham gateway to
+20 band graphic
+20 barbara streisand -
+20 Barbers adagio for
+20 Barron Knights Awful
+20 Batch File Utilities
+20 BBS's in my
+20 BBS's listed (none
+20 Beavis and Butt-Head
+20 Belinda Carlisle\A Place
+20 belong.mp3
+20 Best Users
+20 Beta Ver, !
+20 BILION to Move
+20 billion (last of
+20 bit
+20 bit address
+20 bit address bus
+20 Biz Markie_Make The
+20 blocks away from
+20 BO DIDDLEY
+20 Born slippy.mp3 5,279,744
+20 Born to be
+20 Break of dawn.mp3
+20 bucks, and since
+20 bulemas.
+20 but sometimes it
+20 can you feel(what
+20 cases to
+20 CD's in PB,
+20 CD To Modem
+20 channel spectrum analysis
+20 characters, and definition
+20 children's *Info*
+20 children's drawings
+20 children's drawings in
+20 Chinese input
+20 Chinese input methods.
+20 Chuck Berry-My ding
+20 Cimarrons - Rock
+20 Classic Tracks
+20 Clues v2.1 is
+20 Clues v2.2 is
+20 Comb Filters and
+20 Come get to
+20 Common File/Directory
+20 compressed video signals
+20 Cool Cuts On
+20 cuepoints, Visual
+20 customiza- tion
+20 D/Ls for PCB.
+20 Day Demo
+20 day demo. To
+20 day trial period,
+20 days mail in
+20 days. If anybody
+20 dazzling special
+20 Dean Martin_Sway
+20 Death In Vegas
+20 debts can be
+20 Dec 80 -
+20 Dec 86 -
+20 Dec 94
+20 deductive
+20 DIAMOND RUN (CLONE)
+20 Different
+20 different chat walls
+20 different kinds of
+20 different metric *Info*
+20 different wait cursors;
+20 disks get 4
+20 disks</font></b></p>
+20 Don't go.mp3 4,329,534
+20 DOORS,
+20 downloaders
+20 dozen only Berol
+20 each lot
+20 ec cd 3d
+20 elements. Help is
+20 Emulator for DOS
+20 episodes, so I
+20 Eric Morris -
+20 Errol Dunkley -
+20 errors, and you
+20 excellent levels /WadsML
+20 Faithless - Don't
+20 false confessions, some
+20 famous golf course
+20 Feb 88 -
+20 feet
+20 feet away and
+20 feet away.
+20 feet from where
+20 file(s) 1,002,775 bytes
+20 file(s) 1,051,944,904 bytes
+20 file(s) 1,096,792 bytes
+20 file(s) 1,443,847 bytes
+20 file(s) 1,444,559 bytes
+20 file(s) 1,785 bytes
+20 file(s) 102,786 bytes
+20 file(s) 11,686,756 bytes
+20 file(s) 137,552 bytes
+20 file(s) 178,340,584 bytes
+20 file(s) 227,290 bytes
+20 file(s) 25,724 bytes
+20 file(s) 26,656 bytes
+20 file(s) 26,812 bytes
+20 file(s) 39,447 bytes
+20 file(s) 526,342 bytes
+20 file(s) 54,940 bytes
+20 file(s) 55,581 bytes
+20 file(s) 568,319 bytes
+20 file(s) 606,580 bytes
+20 file(s) 73,322 bytes
+20 file(s) 8,078,743 bytes
+20 file(s) 849,558 bytes
+20 file(s) found
+20 files ! Now
+20 Files *Info*
+20 files of 20
+20 files open *Info*
+20 files open at
+20 files).
+20 filter
+20 filter operations on
+20 Fingers - Short
+20 Fingers
+20 Flight Rock Bolan,
+20 foot of rain
+20 for returning to
+20 for sale....
+20 for the lot.(Almost
+20 Forever love.mp3
+20 formats
+20 ft ?
+20 ft tall tree,
+20 fuckin' *Info*
+20 full-length *Info*
+20 full-length MIDI songs,
+20 full screen 320x200
+20 functions
+20 Funky Hits Of
+20 games
+20 games are working
+20 games either have
+20 GETTIN' HIGH ON
+20 Ghost Town THE
+20 Golden Greatest Hits
+20 Golden Greats
+20 goto aftuser
+20 goto bbs
+20 graphs
+20 Great Love Songs
+20 Greatest Hits
+20 GROWING TIRED
+20 H000518.ZIP v7.00 SCHEDULING
+20 H004427.ZIP v3.0d BUSINESS
+20 H004430.ZIP v5.32 FLEXITIME
+20 H005078.ZIP v2.0 METRO
+20 H006608.ZIP v1.09 EMPLOYEE
+20 H007366.ZIP v1.14 EASY
+20 H007473.ZIP v2.0g DELEGATOR
+20 H007861.ZIP v1.0 STAFF
+20 H008173.ZIP v4.2B ATTEND
+20 H008519.ZIP v3.0f RESSCHED
+20 H008599.ZIP v3.0 DAYS
+20 H008858.ZIP v2.0 FBSCHEDULER
+20 H008959.ZIP v3.0f RESSCHED
+20 H008960.ZIP v3.0f RESSCHED
+20 H009207.ZIP v1.00 PEOPLE
+20 H009535.ZIP v3.01 A_ROSTER
+20 H009547.ZIP v2.0d DELEGATOR
+20 H009548.ZIP v2.1a DELEGATOR
+20 H009568.ZIP v3.0f RESSCHED
+20 H009987.ZIP v1.0 PROJECT
+20 Hamilton Bohannon -
+20 hand-painted scenes in
+20 Harry Champion-You can't
+20 Harry Champion
+20 Help topics shown
+20 Help topics viewed.
+20 high
+20 Hits )
+20 Hot Butter -
+20 hot reviews
+20 hours of audio
+20 houston.mp3
+20 I turn to
+20 I wanna be
+20 I want you
+20 Icons (W)
+20 identical netmail queries
+20 If this ain't
+20 in
+20 in each area
+20 in the Actions
+20 in the Create
+20 in the Photo
+20 inch 'segment'
+20 inches (or any
+20 inches of snow
+20 independent cue memories
+20 inside ? Gee,
+20 integrated
+20 it will resize
+20 items per menu/25
+20 jackie wilson -
+20 Jam-The modern world
+20 James Bond -
+20 Jeff Foxworthy You
+20 Johnny Cash-A boy
+20 Judy Collins-Amazing Grace
+20 Jul 93 23:48:00,
+20 Jul 93 Jason
+20 Jul 96 with
+20 July *Info*
+20 July 93 you
+20 Jun 87 -
+20 June 2002.doc
+20 Justin Hayward-Blue guitar
+20 KARATEKA [5]
+20 kB.
+20 keystrokes in Windows
+20 Kim Wilde-The Singles
+20 KING ARTHUR AND
+20 km near Munich.
+20 La danza .mp3
+20 languages. Easy-to-use colorized
+20 laps or so
+20 Les Miserables_Bring Him
+20 let's get it
+20 levels 4MB
+20 levels of pure
+20 levels. If
+20 levels. Move marbles
+20 lines is a
+20 lines or less,
+20 lines. If you
+20 Local logins (well
+20 M - Pop
+20 m/s
+20 Main Menus Plus
+20 manuals ú55.00
+20 Mar 96 with
+20 March 1999.
+20 maths co-processor (complete
+20 May 89 -
+20 MB
+20 MB compact<br>
+20 MB file.
+20 MB for swap
+20 MB free disk
+20 MB hard disk
+20 MB hard drive
+20 MB in size,
+20 MB of available
+20 MB of compressed
+20 MB of hard
+20 mb on hd)
+20 MB required
+20 MB)</P>
+20 meatballs.
+20 Meg
+20 meg database like
+20 MEG EU213
+20 meg HD under
+20 meg in on
+20 MEG XEBEC 1210
+20 megs of Ram,
+20 Melodians and Hugh
+20 Memory Specs. Full
+20 Menus for PCBoard.
+20 MEPHISTO AND KEVIN.mp3
+20 message
+20 messages, so be
+20 metres on some
+20 mhz (runs at
+20 MHz Tact rate,
+20 Mhz Taktrate, 8
+20 mhz with Super
+20 mi. E of
+20 Miami Vice.mp3 2,975,744
+20 Mighty Diamonds -
+20 miles away is
+20 miles from work.
+20 miles north of
+20 miles of 3
+20 miles south of
+20 million with good
+20 min
+20 min. compile time
+20 min. Peanut Butter
+20 min. to finish
+20 min. when it
+20 mins ago. I
+20 mins driving with
+20 mins on the
+20 mins or so),
+20 mins to do
+20 minute delay as
+20 minute demo, with
+20 minute train journey.
+20 minutes
+20 minutes a game
+20 minutes a week
+20 minutes as I
+20 minutes away from
+20 minutes by auto.
+20 minutes closer to
+20 minutes drive by
+20 minutes drive south
+20 minutes I think.
+20 minutes more at
+20 minutes or till
+20 minutes ride to
+20 minutes so the
+20 minutes the great
+20 minutes til
+20 minutes til piping
+20 minutes to reach
+20 minutes!
+20 minutes, adding 1/2
+20 minutes, or until
+20 minutes.
+20 minutes. Squeeze out
+20 minutes."
+20 mis before being
+20 Money.mp3 4,793,469 01/10/2001
+20 monster trucks, including
+20 month long 370
+20 months it belong
+20 Monty Python Lumberjack
+20 more messages to
+20 most common fixes
+20 most commonly asked
+20 MOTHERBOARD WITH ONBOARD
+20 mothership connection.mp3 3,769,469
+20 Moving.mp3 5,290,318 08/10/2001
+20 Mr tambourine man
+20 ms increments) for
+20 My Fair Lady_I've
+20 My Rifle My
+20 N000949.ZIP EMPLOYEE MANAGEMENT
+20 N001887.ZIP v1.0 SBASE
+20 N004042.ZIP vIIb STAFF
+20 N004132.ZIP v7.1 ROTA-WRITER
+20 N004647.ZIP v95-96 BURTON'S
+20 N004883.ZIP v2.0 ATTENDANCE
+20 N006644.ZIP v1.0 PUNCH
+20 N007414.ZIP v2.4s TIMECLOCK
+20 N008297.ZIP v1.0 TIME
+20 N008605.ZIP v4.42 MYPEOPLE
+20 N008608.ZIP v3.11 TIMECAPTURE
+20 N008753.ZIP v1.2 FLEXITIME
+20 N009210.ZIP SCHEDULING FOR
+20 N009487.ZIP YTD Excel
+20 N009982.ZIP v2.5 MAINLINE
+20 new awesome levels
+20 new filters for
+20 new fractal terrain
+20 new variables and
+20 New: 8-11-1994
+20 Niney The Observer
+20 node network with
+20 NORTHERN SOUL MONSTERS
+20 November). I'll be
+20 O sole mio
+20 Oct 1994 1,
+20 Oct 84 -
+20 Oct 93 02:35:59
+20 Oct 93 03:46:29
+20 Oct 93 Gary
+20 Oct 93 Nicholas
+20 Oct 93, David
+20 Oct 94.
+20 October 1983. Limited
+20 odd echoes as
+20 odd people come
+20 odd seconds of
+20 of the greatest
+20 of them (20
+20 of those
+20 on the 14th
+20 on the 21st
+20 open files. Drag
+20 OPTIMIZED VIA'S ROUTES
+20 or 25
+20 or 30 times
+20 or more, this
+20 or so
+20 or so links.
+20 or so Unix
+20 or so).
+20 Oracle7 - Fundamentals
+20 other martial art
+20 Otis Reading -I've
+20 out of my
+20 outro.mp3
+20 Over the rainbow.mp3
+20 Oxide & Nuetrino
+20 paces, am I
+20 Page Clipboard Extender,
+20 pages using both
+20 parameters Define your
+20 paths, add a
+20 PCX colour images
+20 pence)
+20 percent discount on
+20 percent in 1993
+20 percent of the
+20 Phil Collins -
+20 player
+20 PLENTY SCORE
+20 Plus drive I
+20 Plus drive)
+20 Plus drive?
+20 plus years in
+20 points for defending
+20 points for each
+20 points for every
+20 points for suggesting
+20 points) to get
+20 points....oh well....
+20 pounds !!!
+20 pounds indeed...25 is
+20 pounds or 50
+20 pounds.
+20 pounds? Or does
+20 POWER INSTINCT [3]
+20 pps pulse dial
+20 pre-defined and well-tested
+20 predefined actions.
+20 preset
+20 Prodigy - Mindfields
+20 programs.
+20 pupils had all
+20 Questions Ami Pro
+20 quid
+20 quid all in.
+20 quid inc postage
+20 quid when the
+20 quid)
+20 quid.
+20 quid???
+20 Ray Dream Studio
+20 recipes using boboli
+20 referring pages (with
+20 referring sites (cumulative
+20 Reflective Recordings
+20 Relacement. Last revision
+20 REM This program
+20 Renee & Renato_Save
+20 Repeat the previous
+20 reports available.
+20 rings
+20 Robson & Jerome
+20 routines for returning
+20 Sargasso sea.mp3 3,999,744
+20 say. My dad
+20 screen saver: *Info*
+20 screens of 11
+20 Searching for a
+20 sec. for Winamp/NAD,
+20 second and nothing
+20 seconds
+20 seconds after you
+20 seconds away
+20 seconds to
+20 seconds to install.
+20 seconds until i
+20 seconds), but a
+20 seconds. He knows
+20 secs.
+20 Security A Hackers
+20 Sep 93 you
+20 September 1993
+20 September 1993 21:50,
+20 Shake it fast
+20 sheets fillo dough
+20 Sheltered in your
+20 Shirley & Company
+20 short .wav *Info*
+20 short reviews! This
+20 Shots are Allowed
+20 Since I left
+20 Since You Broke
+20 single-player levels *Info*
+20 singles, a hit
+20 skins
+20 So what if
+20 song collection of
+20 Song in last
+20 Songs Especially For
+20 Soulsearcher_Can't I Get
+20 sound bites in
+20 Space character
+20 spheres on it.
+20 square grid that
+20 SQUARES Windows version
+20 standard
+20 STARDUST SUPLEX [5]
+20 super-systemen fur die
+20 SUPER MARIO ALLSTARS
+20 supports and moments
+20 T 19 S
+20 TAKE A CHANCE
+20 Tantric.mp3 3,110,912 09/07/2001
+20 Techniques - Oh
+20 teilweise muﬂ es
+20 temporary buffers allocated
+20 Thank Abba For
+20 that specifies ìgo
+20 the hiest.mp3 2,592,914
+20 the human chorus.mp3
+20 The Subway Ghost
+20 The way you
+20 THEN b =
+20 THEN PRINT #8,
+20 THERE ARE WORSE
+20 Things Can Only
+20 thousand dollars a
+20 TIFF and graphics
+20 Time Will Tell.mp3
+20 times as much
+20 times faster, prints
+20 times fix.
+20 times in a
+20 times now, that
+20 to 25 minutes
+20 to 30 disks
+20 to 30 faxes
+20 to 30 minutes
+20 to 60 days
+20 to go, we
+20 Toaster equipped 2000
+20 too old? I'm
+20 total.
+20 tracks will fit
+20 trans
+20 tries
+20 twiddling through
+20 UK pounds for
+20 ukp.
+20 upgraded because I
+20 uploaders on
+20 user installation and
+20 user RA2/Pro.
+20 users, and is
+20 users.
+20 users. New
+20 Valentines - Blam
+20 variations
+20 variations of shaped
+20 VOICE STEREO SOUND
+20 VOLARE - THE
+20 Wamdue Project_King Of
+20 was installed I
+20 WAV files sampled
+20 We're not going
+20 week sonogram.
+20 weeks, 20 to
+20 What'd I Say.mp3
+20 Whistle_Nothing Serious Just
+20 Wild Honey.mp3 1,340,930
+20 Wild wild west
+20 Will you love
+20 Wonderboy.mp3
+20 Worst Users
+20 year
+20 YEAR CHARTS v95
+20 year old Chivas
+20 year old mother!
+20 years
+20 years ago for
+20 years ago)
+20 years ago, everyone
+20 years ago, so
+20 years ago.
+20 years ago. He
+20 years ago. I
+20 years and my
+20 years before they
+20 years from now
+20 years going still
+20 years now, she
+20 Years Of Jethro
+20 years old and
+20 years old, I
+20 years old.... and
+20 years on, governments
+20 years paying for
+20 years since I
+20 years since Paul
+20 years time
+20 years, then there
+20 years, who's gonna
+20 years.
+20 years. :-)
+20 years. 1971 -
+20 years. I
+20 years. The backstage
+20 years?</p>
+20 You are alive.mp3
+20 yrs.old.Live in southern

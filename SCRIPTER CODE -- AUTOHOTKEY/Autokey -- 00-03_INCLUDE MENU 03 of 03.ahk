@@ -252,73 +252,80 @@ CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK:
 	; ---------------------------------------------------------------
 	; GOSUB SUB_RESTORE_VB_KEEP_RUNNER
 	FN_VAR_1 := "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-	IfExist, %FN_VAR_1%
-		Run, %FN_VAR_1%
-	; ---------------------------------------------------------------
-	; ---------------------------------------------------------------
-RETURN
-
-
-
-
-
-CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT:
-	DetectHiddenWindows, ON
-	WinGet, List, List, ahk_class ThunderRT6FormDC
-	PATH_ID_BUILD=
-	Loop %List%  
+	PROCESS, EXIST, %FN_VAR_1%
+	IF NOT ERRORLEVEL
 	{
-		; IfWinExist ahk_id List%A_Index%
-		;WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
-		WinGet, PATH_FULL, ProcessPath, % "ahk_id " List%A_Index% 
-		WinGet, PATH_EXE, ProcessName, % "ahk_id " List%A_Index% 
-		StringUpper PATH_EXE, PATH_EXE
-		StringUpper PATH_FULL, PATH_FULL
-			IF INSTR(PATH_FULL,"VB_KEEP_RUNNER.exe")=0
-			IF INSTR(PATH_FULL,"D:\VB")>0
-			{
-			
-				IF INSTR(PATH_ID_BUILD,PATH_EXE)=0
-				{
-					PATH_ID_BUILD=%PATH_ID_BUILD%%PATH_EXE%`n
-					PROCESS, EXIST, %PATH_EXE%
-					IF ERRORLEVEL
-					{
-						TOOLTIP % PATH_ID_BUILD
-						SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						WINCLOSE ahk_exe %PATH_EXE%
-						SLEEP 200
-						PROCESS, EXIST, %PATH_EXE%
-						IF ERRORLEVEL
-						{
-							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							WINCLOSE ahk_exe %PATH_EXE%
-						}
-						SLEEP 200
-						PROCESS, EXIST, %PATH_EXE%
-						IF ERRORLEVEL
-						{
-							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-							Process, Close, %PATH_EXE%
-						}
-					}
-				}
-
-			}
-	}	
-	TOOLTIP
-	SLEEP 500
-	; ---------------------------------------------------------------
-	; AFTER ALL GONE
-	; RE_RUNNER VB_KEEP_RUNNER
-	; ---------------------------------------------------------------
-	; GOSUB SUB_RESTORE_VB_KEEP_RUNNER
-	FN_VAR_1 := "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-	IfExist, %FN_VAR_1%
-		Run, %FN_VAR_1%
+		IfExist, %FN_VAR_1%
+		{
+			Run, %FN_VAR_1%
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		}
+	}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 RETURN
+
+
+
+
+
+; CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT:
+	; DetectHiddenWindows, ON
+	; WinGet, List, List, ahk_class ThunderRT6FormDC
+	; PATH_ID_BUILD=
+	; Loop %List%  
+	; {
+		; ; IfWinExist ahk_id List%A_Index%
+		; ;WinGet, PID_8, PID, % "ahk_id " List%A_Index% 
+		; WinGet, PATH_FULL, ProcessPath, % "ahk_id " List%A_Index% 
+		; WinGet, PATH_EXE, ProcessName, % "ahk_id " List%A_Index% 
+		; StringUpper PATH_EXE, PATH_EXE
+		; StringUpper PATH_FULL, PATH_FULL
+			; IF INSTR(PATH_FULL,"VB_KEEP_RUNNER.exe")=0
+			; IF INSTR(PATH_FULL,"D:\VB")>0
+			; {
+			
+				; IF INSTR(PATH_ID_BUILD,PATH_EXE)=0
+				; {
+					; PATH_ID_BUILD=%PATH_ID_BUILD%%PATH_EXE%`n
+					; PROCESS, EXIST, %PATH_EXE%
+					; IF ERRORLEVEL
+					; {
+						; TOOLTIP % PATH_ID_BUILD
+						; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						; WINCLOSE ahk_exe %PATH_EXE%
+						; SLEEP 200
+						; PROCESS, EXIST, %PATH_EXE%
+						; IF ERRORLEVEL
+						; {
+							; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							; WINCLOSE ahk_exe %PATH_EXE%
+						; }
+						; SLEEP 200
+						; PROCESS, EXIST, %PATH_EXE%
+						; IF ERRORLEVEL
+						; {
+							; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							; Process, Close, %PATH_EXE%
+						; }
+					; }
+				; }
+
+			; }
+	; }	
+	; TOOLTIP
+	; SLEEP 500
+	; ; ---------------------------------------------------------------
+	; ; AFTER ALL GONE
+	; ; RE_RUNNER VB_KEEP_RUNNER
+	; ; ---------------------------------------------------------------
+	; ; GOSUB SUB_RESTORE_VB_KEEP_RUNNER
+	; FN_VAR_1 := "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	; IfExist, %FN_VAR_1%
+		; Run, %FN_VAR_1%
+	; ; ---------------------------------------------------------------
+	; ; ---------------------------------------------------------------
+; RETURN
 
 
 
@@ -349,7 +356,7 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 						FILE_SCRIPT_PATH=%A_ScriptDir%\%A_LoopFileName%
 						ArrCnt += 1
 						ARRAY_INCLUDE_SCRIPT_NAME[ArrCnt]:=FILE_SCRIPT_PATH
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+						; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						BREAK
 					}
 					IF InStr(LoopFileName_UPPER, "_INCLUDE")>0
@@ -362,13 +369,13 @@ ARRAY_INCLUDE_SCRIPT_NAME() {
 }
 
 
-F1::
-{
-	F1_KEY_PRESS=TRUE
-	GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
-	KEYWAIT, F1
-}
-RETURN
+; F1::
+; {
+	; F1_KEY_PRESS=TRUE
+	; GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
+	; KEYWAIT, F1
+; }
+; RETURN
 
 ~<^#ESC::
 {
@@ -389,7 +396,7 @@ TIMEZONE_MINI_GUI_DISPLAY_EXE:
 Element_1 := "D:\VB6\VB-NT\00_Best_VB_01\TIMEZONE MINI GUI DISPLAY\TIMEZONE MINI GUI DISPLAY.exe"
 IfExist, %Element_1%
 {
-	SoundBeep , 2000 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %Element_1%
 }
 RETURN
@@ -398,7 +405,7 @@ ALL_LOW_PROCCES_PRIORITY_TO_NORMAL:
 Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 94-ALL_LOWER_THAN_NORMAL_PROCCES_PRIORITY_RESTORE.ahk"
 IfExist, %Element_1%
 {
-	SoundBeep , 2000 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %Element_1%
 }
 RETURN
@@ -476,13 +483,13 @@ SUB_RESTORE_VB_KEEP_RUNNER:
 			WinGet Style_VB, MinMax, ahk_id %HWND_10%
 			IF Style_VB=0
 			{
-				SOUNDBEEP 1400,100
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				BREAK
 			}
 			IF A_INDEX>150 
 				IF Style_VB<>0
 				{
-					SOUNDBEEP 1400,100
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					Process, Close, VB_KEEP_RUNNER.exe
 				}
 			SLEEP 20	
@@ -496,7 +503,7 @@ SUB_RESTORE_VB_KEEP_RUNNER:
 		IfExist, %FN_VAR_1%
 			Run, %FN_VAR_1%
 		
-		SOUNDBEEP 1400,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 RETURN
 
@@ -523,13 +530,13 @@ SUB_RESTORE_ELITESPY:
 			WinGet Style_VB, MinMax, ahk_id %HWND_10%
 			IF Style_VB=0
 			{
-				SOUNDBEEP 1400,100
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				BREAK
 			}
 			IF A_INDEX>150 
 				IF Style_VB<>0
 				{
-					SOUNDBEEP 1400,100
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					Process, Close, EliteSpy.exe
 				}
 			SLEEP 20	
@@ -543,7 +550,7 @@ SUB_RESTORE_ELITESPY:
 		IfExist, %FN_VAR_1%
 			Run, %FN_VAR_1%
 		
-		SOUNDBEEP 1400,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 RETURN
 
@@ -587,9 +594,7 @@ SUB_RESTORE_VB_KEEP_RUNNER_02:
 		{
 			WinRestore, %VB_KEEP_RUNNER_TITLE%
 			WinActivate, %VB_KEEP_RUNNER_TITLE%
-			SoundBeep , 1000 , 100
-			SoundBeep , 2000 , 100
-			SoundBeep , 3000 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			VAR_DONE_ESCAPE_KEY=TRUE
 			SLEEP 400
 		}
@@ -618,9 +623,8 @@ SUB_RESTORE_VB_KEEP_RUNNER_02:
 		{
 			WinRestore, %ELITE_SPY_TITLE%
 	 		WinActivate, %ELITE_SPY_TITLE%
-			SoundBeep , 1000 , 100
-			SoundBeep , 2000 , 100
-			SoundBeep , 3000 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			
 			VAR_DONE_ESCAPE_KEY=TRUE
 			VB_ELITE_SPY_VAR=TRUE
 		}
@@ -668,11 +672,11 @@ SUB_RESTORE_VB_KEEP_RUNNER_02:
 	IfWinNotExist %VB_KEEP_RUNNER_TITLE%
 	{
 		VAR_DONE_ESCAPE_KEY=TRUE
-		SoundBeep , 3000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 		IfExist, %FN_VAR%
 			{
-				Run, %FN_VAR% MAXIMUM
+				Run, %FN_VAR%
 			}
 	}	
 	
@@ -683,17 +687,17 @@ SUB_RESTORE_VB_KEEP_RUNNER_02:
 		WinGet, UniquePID, PID,  ahk_id %HWND_10%
 		IF UniquePID>0
 		{
-			SOUNDBEEP 1000,100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Process, Close, %UniquePID% 
 		}
 
 		IfWinNotExist %VB_KEEP_RUNNER_TITLE%
 		{
-			SoundBeep , 3000 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 			IfExist, %FN_VAR%
 				{
-					Run, %FN_VAR% MAXIMUM
+					Run, %FN_VAR%
 				}
 		}	
 	}
@@ -723,7 +727,7 @@ SUB_RESTORE_VB_KEEP_RUNNER_02:
 	IfWinNotExist %ELITE_SPY_TITLE%
 	{
 		VAR_DONE_ESCAPE_KEY=TRUE
-		SoundBeep , 3000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 		IfExist, %FN_VAR%
 			{
@@ -738,13 +742,13 @@ SUB_RESTORE_VB_KEEP_RUNNER_02:
 		WinGet, UniquePID, PID,  ahk_id %HWND_10%
 		IF UniquePID>0
 		{
-			SOUNDBEEP 1000,100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Process, Close, %UniquePID% 
 		}
 
 		IfWinNotExist %ELITE_SPY_TITLE%
 		{
-			SoundBeep , 3000 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 			IfExist, %FN_VAR%
 				{
@@ -807,7 +811,7 @@ TIMER_CHECK_MOUSE_TOP_LEFT_CORNER_LONG:
 			MOUSE_POS_TOP_LEFT_CORNER_TIMER_BEGIN=%A_NOW%
 			MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER=%A_NOW%
 			MOUSE_POS_TOP_LEFT_CORNER_TIMER_ENDER+=60, Seconds
-			; SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 
@@ -816,7 +820,7 @@ TIMER_CHECK_MOUSE_TOP_LEFT_CORNER_LONG:
 	{
 		GOSUB TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME
 		SETTIMER TIMER_CHECK_MOUSE_TOP_LEFT_CORNER_LONG,OFF
-		SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 RETURN
 
@@ -888,7 +892,7 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME_OLD_BY_LEAVE_SCRIPT_TO_LAST:
 
 TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	DetectHiddenWindows, ON
-	SOUNDBEEP 1000,100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 	; ---------------------------------------------------------------
 	; THE ROUTINE WILL RUN A LOT OF THEM 
@@ -1050,16 +1054,14 @@ TERMINATE_ALL_AUTOHOTKEYS_SCRIPT_BY_EXE_NAME:
 	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER NOT FORCE.BAT"
 		IfExist, %FN_VAR%
 		{
-			SOUNDBEEP, 2500 , 100
-			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Run, "%FN_VAR%"
 		}
 
 	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01-NOT RESPONDER KILLER FORCE.BAT"
 		IfExist, %FN_VAR%
 		{
-			SOUNDBEEP, 2500 , 100
-			SOUNDPLAY, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Run, "%FN_VAR%"
 		}
 		
@@ -1095,7 +1097,7 @@ KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT:
 		IF PID_8
 		{
 			Process, Close, %PID_8% 
-			SOUNDBEEP 1200,40
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
@@ -1106,7 +1108,7 @@ KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT:
 		IF PID_8
 		{
 			Process, Close, %PID_8% 
-			SOUNDBEEP 1200,40
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
@@ -1117,7 +1119,7 @@ KILL_ALL_PROCESS_BY_NAME_CMD_CONHOST_WSCRIPT:
 		IF PID_8
 		{
 			Process, Close, %PID_8% 
-			SOUNDBEEP 1200,40
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
@@ -1144,13 +1146,11 @@ IFWINEXIST %FN_VAR_2%
 {
 	WinGet, PID_01, PID, %FN_VAR_2% ahk_class AutoHotkey
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	SoundBeep , 8000 , 100
 	Process, Close,% PID_01
 }
 
 IFWINNOTEXIST %FN_VAR_2%
 {
-	SoundBeep , 5000 , 100
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Run, %TEMP_VAR_1_INCLUDE%
 }
@@ -1160,95 +1160,95 @@ RETURN
 
 
 
-RELOAD_ALL_NET___VB_CODE_EXE_SUB:
+; RELOAD_ALL_NET___VB_CODE_EXE_SUB:
 
-		FILENAME_2__=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
+		; FILENAME_2__=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
 		
-		ArrayCount = 0
-		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
-		{
-			NET_PATH:=A_LoopReadLine
+		; ArrayCount = 0
+		; Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
+		; {
+			; NET_PATH:=A_LoopReadLine
 			
-			SET_GO=TRUE
-			IF INSTR(NET_PATH,"BTHUB")
-				SET_GO=FALSE
-			IF INSTR(NET_PATH,"NAS-QNAP-ML")
-				SET_GO=FALSE
-			IF SET_GO=TRUE
-			{
-				ArrayCount += 1
-				Array_NETPATH_01%ArrayCount% = %NET_PATH%
-				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
-				ELEMENT1=\\
-				ELEMENT2:=Array_NETPATH_01%ArrayCount%
-				ELEMENT3=\
-				ELEMENT4:=Array_NETPATH_02%ArrayCount%
-				ELEMENT5=%FILENAME_2__%
-				NET_PATH:=A_LoopReadLine
-				ELEMENT7=_%NET_PATH%.TXT
+			; SET_GO=TRUE
+			; IF INSTR(NET_PATH,"BTHUB")
+				; SET_GO=FALSE
+			; IF INSTR(NET_PATH,"NAS-QNAP-ML")
+				; SET_GO=FALSE
+			; IF SET_GO=TRUE
+			; {
+				; ArrayCount += 1
+				; Array_NETPATH_01%ArrayCount% = %NET_PATH%
+				; Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
+				; ELEMENT1=\\
+				; ELEMENT2:=Array_NETPATH_01%ArrayCount%
+				; ELEMENT3=\
+				; ELEMENT4:=Array_NETPATH_02%ArrayCount%
+				; ELEMENT5=%FILENAME_2__%
+				; NET_PATH:=A_LoopReadLine
+				; ELEMENT7=_%NET_PATH%.TXT
 
-				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-			}
-		}
+				; Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
+			; }
+		; }
 
-		Loop %ArrayCount%
-		{
-			FileDelete, % Array_FileName%A_Index%
-			SOUNDBEEP 1000,100
-		}
-		SOUNDBEEP 2000,100
+		; Loop %ArrayCount%
+		; {
+			; FileDelete, % Array_FileName%A_Index%
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; }
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
-RETURN
+; RETURN
  
 
 
-KILL_ALL_NET_VB_CODE_EXE_01:
+; KILL_ALL_NET_VB_CODE_EXE_01:
 		
-		FILENAME_2__=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
+		; FILENAME_2__=_01_c_drive\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL__KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE
 		
-		ArrayCount = 0
-		Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
-		{
-			NET_PATH:=A_LoopReadLine
+		; ArrayCount = 0
+		; Loop, Read, C:\NETWORK_COMPUTER_NAME.txt 
+		; {
+			; NET_PATH:=A_LoopReadLine
 			
-			SET_GO=TRUE
-			IF INSTR(NET_PATH,"BTHUB")
-				SET_GO=FALSE
-			IF INSTR(NET_PATH,"NAS-QNAP-ML")
-				SET_GO=FALSE
-			IF SET_GO=TRUE
-			{
-				ArrayCount += 1
-				Array_NETPATH_01%ArrayCount% = %NET_PATH%
-				Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
-				ELEMENT1=\\
-				ELEMENT2:=Array_NETPATH_01%ArrayCount%
-				ELEMENT3=\
-				ELEMENT4:=Array_NETPATH_02%ArrayCount%
-				ELEMENT5=%FILENAME_2__%
-				NET_PATH:=A_LoopReadLine
-				ELEMENT7=_%NET_PATH%.TXT
+			; SET_GO=TRUE
+			; IF INSTR(NET_PATH,"BTHUB")
+				; SET_GO=FALSE
+			; IF INSTR(NET_PATH,"NAS-QNAP-ML")
+				; SET_GO=FALSE
+			; IF SET_GO=TRUE
+			; {
+				; ArrayCount += 1
+				; Array_NETPATH_01%ArrayCount% = %NET_PATH%
+				; Array_NETPATH_02%ArrayCount% :=StrReplace(NET_PATH, "-", "_")
+				; ELEMENT1=\\
+				; ELEMENT2:=Array_NETPATH_01%ArrayCount%
+				; ELEMENT3=\
+				; ELEMENT4:=Array_NETPATH_02%ArrayCount%
+				; ELEMENT5=%FILENAME_2__%
+				; NET_PATH:=A_LoopReadLine
+				; ELEMENT7=_%NET_PATH%.TXT
 
-				Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
-			}
-		}
+				; Array_FileName%ArrayCount% =%ELEMENT1%%ELEMENT2%%ELEMENT3%%ELEMENT4%%ELEMENT5%%ELEMENT7%
+			; }
+		; }
 
-		Loop %ArrayCount%
-		{
-			file := FileOpen(Array_FileName%A_Index%, "w")
-			if !IsObject(file)
-			{
-				MsgBox Can't open "%FileName%" for writing.
-				return
-			}
-			TestString := "This is a test string.`r`n"  
-			file.Write(TestString)
-			file.Close()
-			SOUNDBEEP 1000,100
-		}
-		SOUNDBEEP 2000,100
+		; Loop %ArrayCount%
+		; {
+			; file := FileOpen(Array_FileName%A_Index%, "w")
+			; if !IsObject(file)
+			; {
+				; MsgBox Can't open "%FileName%" for writing.
+				; return
+			; }
+			; TestString := "This is a test string.`r`n"  
+			; file.Write(TestString)
+			; file.Close()
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; }
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
-RETURN
+; RETURN
 
 
 TIMER_KILL_RELOAD_ALL_NETWORK_VB_CODE_EXE:
@@ -1389,7 +1389,7 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_04_OF_04:
 	IFWINNOTEXIST, SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\BAT_03_PROCESS_KILLER.BAT
 		IfExist, %FN_VAR%
 		{
-			SoundBeep , 2500 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Run, "%FN_VAR%"  /F /IM AutoHotKey.exe /T , , Max
 		}
 	
@@ -1409,7 +1409,7 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_04_OF_04:
 			{
 				Process, Close, % PID_02
 				; PostMessage,0x111,65405,0,, % "ahk_id " List%A_Index% 
-				SoundBeep , 2500 , 100
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 	  }
 	
@@ -1421,15 +1421,15 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_04_OF_04:
 	for process in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process where name = 'Autohotkey.exe' and processID  <> " PID_02 )
 	{
 		Process, Close, % process.ProcessId
-		SoundBeep , 2500 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 	; -----------------------------------------------------------
 	; KILL OUR OWN SCRIPTOR - LASTLY
 	; -----------------------------------------------------------
 	Process, Close,% DllCall("GetCurrentProcessId")
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	WINCLOSE % A_ScriptName
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 	; CREDIT SOURCE KICK START
 	; ----
@@ -1453,7 +1453,7 @@ DELETE_THE_CREATE_PATH_ARRAY_SET_NETWORK_ALL_CODE:
 	Loop %ArrayCount%
 	{
 		FileDelete, % Array_FILENAME_2__[A_Index]
-		SOUNDBEEP 1000,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 RETURN
 
@@ -1537,7 +1537,7 @@ CREATE_FILENAME_FORMAT_ALL_NETWORK_LEVEL_FROM_ARRAY:
 		TestString := "This is a test string.`r`n"  
 		FileName.Write(TestString)
 		FileName.Close()
-		SOUNDBEEP 1000,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 
 RETURN
@@ -1672,7 +1672,7 @@ IfWinExist Notepad++ v
 		If Status = 0
 		{
 			Control, Check,, Button5
-			SoundBeep , 4000 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
 }
@@ -1688,7 +1688,7 @@ SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 IfWinNotExist EliteSpy+ by Andrea
 {
-	SoundBeep , 3000 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 	IfExist, %FN_VAR%
 		{
@@ -1718,7 +1718,7 @@ SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 IfWinNotExist VB_KEEP_RUNNER
 {
-	SoundBeep , 3000 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
 	IfExist, %FN_VAR%
 		{
@@ -1738,7 +1738,7 @@ SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 IfWinNotExist INDIVIDUAL PROCESS
 {
-	SoundBeep , 3000 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
 	IfExist, %FN_VAR%
 		{
@@ -1810,7 +1810,7 @@ WRITE_FILE_SCREEN_BRIGHT_FOR_1_HOUR:
 				file.Close()
 			}
 		}
-		SOUNDBEEP 2000,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 RETURN
 

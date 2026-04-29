@@ -1,0 +1,223 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+33 ' ---- TYPING
+33 ' Envelope B4
+33 ' France
+33 -- 0;120
+33 -- Madonna -
+33 - 48 channel
+33 - Live Aid
+33 - ROFF4ST typesetting
+33 - The Broadcast
+33 - Various Artist
+33 (26) THE WRITING'S
+33 *Info*
+33 : Cd 1
+33 : Cd 2
+33 | .....DK3
+33 0 0 0
+33 0 0 1
+33 0 0 187
+33 0 0 36
+33 0 33 0
+33 0.0%
+33 0.1%
+33 0.5%
+33 0.6%
+33 0.7%
+33 0.9%
+33 03/12/99 16:42 Read
+33 03/12/99 16:43 Buy
+33 09/05/02 0:16 checkrs.bat
+33 1.4%
+33 1/3% LIFETIME discount
+33 10.964 H
+33 10/06/01 19:51 Roy
+33 11/06/01 17:39 The
+33 11/09/95 12:28 RECORDS.TXT
+33 11/12/94 13:13 ET4000.DRV
+33 123 0.5%
+33 14 28
+33 14/11/99 3:30 CONCISE
+33 14/11/99 3:30 ENCYCLOPEDIA
+33 14/11/99 3:30 Window
+33 15 24 3
+33 15/07/02 0:32 MSIN2752.RHC
+33 18 55 55
+33 18/10/95 15:15 RECORDS.TXT
+33 18187
+33 2 109/25 396/1
+33 2.5%
+33 20 0 0
+33 20/05/01 12:17 Photoshop
+33 20/12/97 12:30 SETUP.INI
+33 203/1 23 396/1
+33 24 139 0.5%
+33 24 208 0.8%
+33 24 34 48
+33 24/11/00 3:23 3D
+33 240/100 12/12 270/101
+33 25 68 248
+33 27 5 0
+33 270/101 267/200 2607/10
+33 28 15 0
+33 29 0 80
+33 29/11/00 21:27 Norton
+33 30 20 17
+33 30 32 109
+33 32 20 20
+33 32 56 140
+33 39 0.0%
+33 3a 09
+33 41 a0 77
+33 44 51 64
+33 45 Jethro From
+33 51 84 260
+33 53 54 41
+33 5d 6a |
+33 65 186 0.0%
+33 7 1 53
+33 70 00 +33
+33 70 10
+33 7440/25 7445/200 7441/106
+33 7440/25 7445/200 7441/206
+33 8 93 0.4%
+33 84 38 42
+33 99 00
+33 and as like
+33 and the one
+33 Barron Knights Little
+33 Because the night
+33 but then what
+33 but what importance
+33 controller, Norton Disk
+33 d/Unzipped/Darren/millionare.txtwho wants to
+33 D2 F7 D8
+33 DB 8B
+33 DIFFERENT LANGUAGES OMNIDIRECTIONALLY,
+33 DOS utilities, some
+33 e7 07 02
+33 File dlgbrnst.cpp, Line
+33 file(s) 1,121,808 bytes
+33 file(s) 140,576 bytes
+33 file(s) 18,486 bytes
+33 file(s) 183,925 bytes
+33 file(s) 3,178,419 bytes
+33 file(s) 334,938 bytes
+33 file(s) 341,347 bytes
+33 file(s) 35,262 bytes
+33 file(s) 44,323 bytes
+33 file(s) 53,524 bytes
+33 file(s) 7,433,787 bytes
+33 file(s) found
+33 for details.
+33 for more on
+33 Fragma - Toca
+33 FREE25 0 0
+33 FREE25 1 0.0%
+33 FREE25 1 1
+33 FREE25 12 18
+33 FREE25 38 0.0%
+33 FREE25 57 0.0%
+33 from 2:250/405 to
+33 H000024.ZIP v2.0 WYNDFIELDS
+33 H000132.ZIP v5.0 PC-RIM
+33 H000153.ZIP v4.0 ZEPHYR
+33 H000225.ZIP v2.11 REXL
+33 H000299.ZIP v7.0 PC-FILE
+33 H000322.ZIP v2.50 SCHOONER
+33 H000359A.ZIP v1.0 BUTTONFILE
+33 H000359B.ZIP v1.0 BUTTONFILE
+33 H000627.ZIP v11.4 EASY
+33 H003529.ZIP v6.0 FILE
+33 H004730.ZIP v1.5g AD
+33 H004959.ZIP v1.06 RV2
+33 H004997.ZIP v2.0A Q&DBASE
+33 H005047.ZIP v3.13D SPCS
+33 H006942.ZIP v1.0 DATABROWSER
+33 H007006.ZIP v1.50 INFOTHEK
+33 H008175A.ZIP v6.0 B&B
+33 H008175B.ZIP v6.0 B&B
+33 H008175C.ZIP v6.0 B&B
+33 H008176.ZIP v1.03 BLUEBOOK
+33 H008841.ZIP v2.0a VISIMAP
+33 H008857A.ZIP v1.6 DATABASE
+33 H008857B.ZIP v1.6 DATABASE
+33 H009255.ZIP v1.04 INFODEX
+33 H009481.ZIP v2.00 TRUE
+33 H009664.ZIP v1.00 TABLE
+33 H009813.ZIP v3.5 GS-BASE
+33 H010002.ZIP v2.1 AZZ
+33 If that were
+33 in a couple
+33 Justin Street,
+33 KERBOOM (DEKKER)
+33 Kevin Bloody Wilson
+33 LANGUAGE TRANSLATION PROGRAM
+33 LANGUAGES
+33 LANGUAGES, INCLUDING SPELL-CHECKING.
+33 LANGUAGES.
+33 LANGUAGES. NOW IT'S
+33 LANGUAGES. YOU SIMPLY
+33 mb on hd)
+33 MB/s (66 MB/s
+33 MB/s (UltraDMA 33)
+33 MHz 486, on
+33 Mhz based system.
+33 Mhz Motherboard for
+33 minutes 16 seconds
+33 N001530.ZIP SDB DATABASE
+33 N001818A.ZIP v5.01 PC-FILE
+33 N001818B.ZIP v5.01 PC-FILE
+33 N001818C.ZIP v5.01 PC-FILE
+33 N002028.ZIP v1.11 PIROUETTE
+33 N002109A.ZIP v3.14 SR-INFO
+33 N002109B.ZIP v1.0 SR-INFO
+33 N002397.ZIP v4.0 Q-PRO
+33 N002472.ZIP v2.00 IDEALIST
+33 N002861.ZIP WINSQL and
+33 N003308.ZIP v5.43 FASTFILE
+33 N003354.ZIP v3.1b SSQL
+33 N003400.ZIP v1.1 ASSIST
+33 N003620.ZIP v4.31a WORKBASE
+33 N003741.ZIP v4.5 WAMPUM
+33 N004275.ZIP v3.0 A2Z
+33 N004864.ZIP v1.001 TABOGA
+33 N005046.ZIP MDBCONVERT change
+33 N005132.ZIP v1.20c QUICKDEX
+33 N006560.ZIP v1.16 DBFTEST
+33 N006576.ZIP v5.1 RECAP
+33 N006971.ZIP v3.2.1 EZB
+33 N007097.ZIP v3.0 TABLE-PRINTER
+33 N009215.ZIP v2.1 TURBOFILES
+33 N009233.ZIP v2.1 COMDATA
+33 N009604.ZIP v1.10 DUPENUKE
+33 N010196.ZIP v? FXP26PRG
+33 new
+33 new commands to
+33 P o s
+33 pounds (hehe)
+33 pre-written texts to
+33 Recipes from Hershey
+33 Seconds of "Welcome
+33 SQL Plus -
+33 SUPPORTED LANGUAGES (ARABIC,
+33 The Oxford English
+33 VOC FILES
+33 with the music
+33 years old, and
+33 years,
+33 Yellow

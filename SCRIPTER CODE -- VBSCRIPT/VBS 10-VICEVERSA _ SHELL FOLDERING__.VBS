@@ -85,6 +85,8 @@ IF XF0="" THEN
 ELSE
 	USER_INTERACTIVE_MODE=FALSE
 END IF 
+
+USER_INTERACTIVE_MODE=TRUE
 	
 DIM FSO
 SET FSO = CreateObject("Scripting.FileSystemObject")
@@ -139,15 +141,14 @@ VV_PATH_2=SCRIPT_PARENT_PATH+"\"+SCRIPT_BASE_NAME+"\# TRACKING DATABASE\"
 ' WSCRIPT.QUIT
 
 
-DIM RN_VAR(8)
+DIM RN_VAR(7)
 RN_VAR(1)="2-ASUS-EEE"
 RN_VAR(2)="1-ASUS-X5DIJ"
 RN_VAR(3)="3-LINDA-PC"
 RN_VAR(4)="4-ASUS-GL522VW"
 RN_VAR(5)="5-ASUS-P2520LA"
-RN_VAR(6)=""
-RN_VAR(7)="7-ASUS-GL522VW"
-RN_VAR(8)="8-MSI-GP62M-7RD"
+RN_VAR(6)="7-ASUS-GL522VW"
+RN_VAR(7)="8-MSI-GP62M-7RD"
 
 DIM GETUSERNAME
 DIM GETCOMPUTERNAME
@@ -357,6 +358,7 @@ FOR VV_2=3 TO UBOUND(VV_VAR)
 
 
 
+		USER_INTERACTIVE_MODE=FALSE
 		IF USER_INTERACTIVE_MODE=FALSE THEN 
 		
 		
@@ -384,8 +386,12 @@ FOR VV_2=3 TO UBOUND(VV_VAR)
 			' Next
 
 			
-			
+			' MSGBOX "HERE"
 			iReturn=objShell.Run (CHR(34)& "C:\Program Files\ViceVersa Pro\ViceVersa.exe" & CHR(34)& " " & CHR(34)& FILEN_2 & CHR(34) & " /hiddenautoexec /wait",0,TRUE)
+			
+			' SIMULATE CONFLICT HERE
+			' ----------------------
+			' IRETURN=5
 			
 			'= 5 = CONFLICT
 			'--------------
@@ -394,11 +400,17 @@ FOR VV_2=3 TO UBOUND(VV_VAR)
 			END IF
 
 			IF IRETURN >0 AND IRETURN <>5 THEN 
-				msgbox "VICE VERSA C ROOT = " & iReturn,vbMsgBoxSetForeground,Wscript.ScriptName
+				MSGBOX "VICE VERSA C ROOT = " & iReturn,vbMsgBoxSetForeground,Wscript.ScriptName
 				iReturn=objShell.Run (CHR(34)& "C:\Program Files\ViceVersa Pro\ViceVersa.exe" & CHR(34)& " " & CHR(34)& FILEN_2 & CHR(34) & " /autocompare",0,TRUE)
 			END IF
 		ELSE
-			msgbox "VICE VERSA C ROOT = USER_INTERACTIVE_MODE=TRUE",vbMsgBoxSetForeground,Wscript.ScriptName 
+			' --------------------------------------------------
+			' SOMETHING HAS CHANGE TO RUN MORE THESE INTERACTIVE
+			' MOST LIKELY GOODSYNC NOT PARAMETER
+			' 26-OCT-2020 07:44:37 MON
+			' USER_INTERACTIVE_MODE SOMETHING CALL SCRIPTNAME WITH NONE ARGUMENT
+			' --------------------------------------------------
+			MSGBOX "VICE VERSA C ROOT = USER_INTERACTIVE_MODE=TRUE",vbMsgBoxSetForeground,Wscript.ScriptName 
 			iReturn=objShell.Run (CHR(34)& "C:\Program Files\ViceVersa Pro\ViceVersa.exe" & CHR(34)& " " & CHR(34)& FILEN_2 & CHR(34) & " /autocompare",0,TRUE)
 		END IF
 		

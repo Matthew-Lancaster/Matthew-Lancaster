@@ -1,0 +1,355 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+22 ' ---- TYPING
+22 ' Envelope #12
+22 ' Number of
+22 '93 you wrote
+22 -- Ayla -
+22 - 10 -
+22 - 23
+22 - and I
+22 - Goin' down.mp3
+22 - How insensitive.mp3
+22 - I Wanna
+22 - Isaac Hayes
+22 - JUNE 2001
+22 - Just The
+22 - Kermit for
+22 - Love Me
+22 - Masterpieces (Disc
+22 - Mc Shan
+22 - Micky Doherty
+22 - Muddy Waters
+22 - Private Collection
+22 - Roy Milton
+22 - Slum Beautiful.mp3
+22 - Victoria.mp3
+22 - Village green.mp3
+22 - Waiting for
+22 - We Go
+22 - Zorba the
+22 ( 3.96%)
+22 ( 4.16%) Down
+22 ( 4.16%) LO
+22 (06/09/95). *Info*
+22 (17) THE GREATEST
+22 (Relatively Small) Files
+22 *Info*
+22 / 1991
+22 ? Their wobbly
+22 @SEEN+BY: 292/100 344/7
+22 ~ Adam Rickitt
+22 + CRACK
+22 <DIR> 11/08/02 2:07
+22 <DIR> 13/03/03 2:12
+22 <DIR> 23/03/03 22:49
+22 = osc 5
+22 ³ BBS TAG
+22 0 0 0
+22 0 36 0.1%
+22 0 55 0.2%
+22 0.0%
+22 0.1%
+22 0.4%
+22 0.5%
+22 0.6%
+22 0.7%
+22 0.9%
+22 0;47
+22 01/05/02 9:44 MyOwnOscar.ini
+22 02 25 00
+22 02 25 45
+22 02 25 46
+22 02 25 50
+22 02 25 70
+22 02 25 80
+22 03 06 |
+22 03/02/01 5:34 PageMaker
+22 04/02/01 23:58 Norton
+22 05/06/98 0:00 DATASRC.FRX
+22 05/06/98 0:00 RPTNWIND.DSX
+22 06/05/01 20:59 NERO
+22 06/05/01 20:59 NEROV5~1.TXT
+22 06/06/95 20:42 NEW-CONF.SYS
+22 09
+22 1 62 1
+22 1.7%
+22 10 26
+22 11 58 0.2%
+22 11/05/02 16:46 _ISNU.INI
+22 12 0 20
+22 12 26
+22 12/11/01 0:45 SOUND.CFG
+22 13/08/00 13:12 Mortyr.txt
+22 14 20 135
+22 14 49 0.0%
+22 14/10/00 10:12 messiah.txt
+22 14/10/00 8:53 daikatana.txt
+22 14027
+22 15/02/03 22:19 1.BAT
+22 16 24 47
+22 16 25 21
+22 16/04/03 20:22 SHAREMEM.INI
+22 17 39 0.0%
+22 17/02/99 21:11 STAGING
+22 17/03/02 14:51 CONFIG.MB1
+22 17/05/89 4:20 PROTEXT.BAT
+22 18 22 09
+22 1993 (12:03), Ryan
+22 1993 02:33, Sam
+22 1993 04:25, Louis
+22 1993 10:18, Craig
+22 1993 10:28, Lars
+22 1993 20:34, Souki
+22 1993 21:06, Peter
+22 1993 22:02, you
+22 1993, Ian McCormack
+22 1993, Jason Fesler
+22 1993, John Judge
+22 1999, at 20:29:32.
+22 1f 79 |
+22 20;
+22 21/10/01 17:58 V_Space
+22 22 22 0.0%
+22 23
+22 24/05/94 1:01 SELECT.PCS
+22 24/05/94 1:01 WRONG.PCS
+22 24/11/00 3:07 3D
+22 27 29 104
+22 3 140 0.5%
+22 3 7
+22 3 7 253/157
+22 30 6e 6a
+22 31 28 100
+22 32 33 44
+22 35 107 0.4%
+22 36 119 8
+22 36 3 5
+22 373 1.5%
+22 38 91 0.0%
+22 42 12 33
+22 5 37 0.1%
+22 54 199 0.7%
+22 55
+22 642 2182
+22 643 1233 +91
+22 68
+22 68 (French speaking)
+22 72 0.3%
+22 773KB
+22 82;
+22 9 22 38
+22 95 06 64
+22 and 44
+22 and I've the
+22 Annie_It's A Hard
+22 Apr 90
+22 Apr 90 with
+22 Apr 93 you
+22 Aug 93 11:54,
+22 Aug 93 16:40,
+22 Aug 93 Henry
+22 Aug 93, David
+22 because I will
+22 Big Time Charlie_On
+22 Bob Marley vs
+22 but I have
+22 bytes
+22 Can't fight the
+22 CE From Modem
+22 Chinatown.mp3 10,045,440 16/07/2001
+22 Classic hip-hop tunes
+22 command to get
+22 COMMON-ROOM 112 3.2%
+22 COMMON-ROOM 119 1.9%
+22 COMMON-ROOM 2298 0.8%
+22 COMMON-ROOM 2781 0.6%
+22 COMMON-ROOM 42 1.2%
+22 COMMON-ROOM 47 1.9%
+22 COMMON-ROOM 53 1.2%
+22 COMMON-ROOM 54 1.0%
+22 COMMON-ROOM 57 1.6%
+22 COMMON-ROOM 57 53
+22 COMMON-ROOM 8 0.6%
+22 COMMON-ROOM 82 2.6%
+22 COMMON-ROOM 826 619
+22 COMMON-ROOM 84 2.2%
+22 COMMON-ROOM 89 58
+22 con Ave. Carlos
+22 CONFIGURATION MENU
+22 CorelDRAW: Chapter 2
+22 Could it be
+22 days after I
+22 Days go by.mp3
+22 Death Meets the
+22 Dec 95.
+22 Dec 95. This
+22 December (1993), the
+22 Desktop Themes:
+22 DRACULA (PSYGNOSIS)
+22 ec f0 44
+22 F with the
+22 Fear is the
+22 feb 1996) This
+22 file(s)
+22 file(s) 1,255 bytes
+22 file(s) 1,281,785 bytes
+22 file(s) 1,475,998 bytes
+22 file(s) 2,705,504 bytes
+22 file(s) 247,006 bytes
+22 file(s) 4,272,949 bytes
+22 file(s) 4,313,828 bytes
+22 file(s) found
+22 files
+22 flights *Info*
+22 for us in
+22 frames to complete
+22 Friends.mp3 2,757,764 10/08/1999
+22 Functional Menus, Built
+22 GAMES
+22 general *Info*
+22 H000097.ZIP v4.21 TELEMATE
+22 H000191.ZIP v2.94 COM-AND
+22 H000298.ZIP v3.51 TELIX
+22 H000399.ZIP v2.0 ODYSSEY
+22 H000573.ZIP v1.2201 AMEOL
+22 H002056.ZIP v3.14 MS-KERMIT
+22 H003116.ZIP v4.6 QMODEM
+22 H004244.ZIP v4E C-KERMIT
+22 H004568.ZIP v2.0 ACECOM
+22 H006731.ZIP v2.5a QUICKSEND
+22 H006737.ZIP v1.00 SOFTLINK
+22 H006943.ZIP v1.5 DIGITERM
+22 H007552.ZIP v1.10 TELEMATE
+22 H007570.ZIP v2.0.6 WISDN
+22 H009016.ZIP v5.09 COM
+22 H009366.ZIP v3.08 ZOC
+22 H010035.ZIP v3.0 POSTMAN
+22 Harry Fragson-Paperbook cookery
+22 Harry Fragson
+22 Honey Boy Martin
+22 hours in a
+22 hours of audio
+22 Jul 89 -
+22 Jul 93 10:25,
+22 Jul 93 Tony
+22 Jul 93 you
+22 Jul 93, you
+22 Jun 93 13:57,
+22 Jun 93 23:09:00,
+22 Jun 93, Eddy
+22 Khz
+22 kHz 16-bit mono
+22 kHz is a
+22 Khz Mono.
+22 kHz Sample frequency
+22 kHz,
+22 kHz, 8-bit, stereo.
+22 kHz, or
+22 kz.
+22 languages
+22 Larkspur Dr.
+22 LCD_Zorba's Dance.mp3
+22 Liquid Child -
+22 LOVE'S MADE A
+22 LSRU Logon Menuz
+22 Lyn Taitt and
+22 Mar 80 -
+22 MC Shan &
+22 meg
+22 meg )
+22 MHz 22 kz.
+22 million people with
+22 Min).
+22 mins to upload/dload.
+22 Money for nothing
+22 months I worked
+22 mrci2.vxd
+22 N000717.ZIP v2.29 KERMIT
+22 N000964.ZIP v8.1 PC-VT,
+22 N001146.ZIP v2.0 ANSIPAINT
+22 N001208.ZIP v1.06 ANSI
+22 N001303.ZIP v5.2 BOYAN
+22 N001554.ZIP v2.43 PROCOMM
+22 N001572A.ZIP v2.32/A KERMIT
+22 N001572B.ZIP KERMIT assembler
+22 N001572C.ZIP KERMIT assembler
+22 N001589.ZIP vAPR89 WYSE
+22 N001825.ZIP v3.74 QVT
+22 N002722.ZIP v4.87 WINQVT
+22 N003232.ZIP v4.61 THEDRAW
+22 N003459.ZIP v4.1 EAZILINK
+22 N003560.ZIP v2.11 ZIP
+22 N003795.ZIP v2.3 DOORWAY
+22 N004232.ZIP ZMODEM file
+22 N004234.ZIP JMODEM file
+22 N005089.ZIP v3.0 BANANACOM
+22 N005427.ZIP NULL text
+22 N006570.ZIP v1.1 ICEZMODEM
+22 N006906.ZIP v2.2 MODEM
+22 N007170.ZIP v7.5 COMMO
+22 N007295.ZIP v060795 DSZ
+22 N007388.ZIP v2.00 THE
+22 N007850.ZIP v1.0 SOUND
+22 Nelly - Country
+22 Nelson Mandela THE
+22 new
+22 New Missions
+22 new missions for
+22 Oct 93 you
+22 of TV Zone?
+22 On the move.mp3
+22 or 44khz Stereo/Mono
+22 Oracle7 - Managing
+22 parameter-adjustable filters in
+22 people injured ,
+22 per cent in
+22 Peter Andre -
+22 Plastic Man.mp3
+22 Ray Charles -Hallelujah
+22 Ray Dream Studio
+22 Rulers - Wrong
+22 Sam & Dave
+22 samples of CD-disk
+22 Sep 93 06:53:00,
+22 Sep 93 11:43,
+22 Sep 93, FD
+22 sept *Info*
+22 Shareware - See
+22 Song in last
+22 Speed
+22 SuperTrouper.mp3 3,567,543 16/12/1999
+22 Thank you for
+22 The chances for
+22 time related WPG
+22 To die for.mp3
+22 Tony Bennett_The Good
+22 useful
+22 V 21 U
+22 VBXs
+22 WE GO TOGETHER
+22 wheel man.mp3 3,783,053
+22 Who loves you.mp3
+22 X-Men and
+22 yards please. Especially
+22 year old, going
+22 year young basketball
+22 years of (fairly
+22 years old (old??).
+22 years old and
+22 years to a
+22 years"
+22 yr old female,

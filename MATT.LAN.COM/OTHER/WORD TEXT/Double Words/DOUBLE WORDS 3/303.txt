@@ -1,0 +1,784 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+03 ' Points to
+03 -- Geri Halliwell
+03 - 9pm (Till
+03 - A wedding
+03 - Aisy Waisy
+03 - All You
+03 - Almost like
+03 - angel on
+03 - Another Tear.MP3
+03 - Anything that's
+03 - Baker street.mp3
+03 - Barcarolle -
+03 - Beach Boys
+03 - Beautiful Stranger
+03 - Behind the
+03 - Benny Goodman
+03 - Best Friend
+03 - Better Off
+03 - Big Willie
+03 - BigMistake.mp3
+03 - Billie Holiday
+03 - Blitzkrieg Bop
+03 - Booker T.
+03 - Brownie McGhee
+03 - Buddy Guy
+03 - Can't Get
+03 - CANDYMAN MESSIAH.MP3
+03 - Caramel
+03 - Carmen Mccrae
+03 - Charlie Parker
+03 - Chi Mai
+03 - Chocolate Box.MP3
+03 - Chocolate Salty
+03 - CircleInTheSand.mp3
+03 - Classic Chillout
+03 - Clone My
+03 - Cold blooded
+03 - Cold Play
+03 - Comatose (In
+03 - Cry To
+03 - cryogen
+03 - Dance and
+03 - Dark Skies
+03 - Dave Cavanaugh
+03 - Deep Bass
+03 - Deeper Underground
+03 - Devil's Dance.mp3
+03 - Devil Without
+03 - Dexter Gordon
+03 - Diggin' On
+03 - Dinah Washington
+03 - Dizzy Gillespie
+03 - Do you
+03 - Dodo Marmarosa
+03 - Dolores Keane
+03 - Dont Go
+03 - Down In
+03 - Draggin' The
+03 - Draggin the
+03 - Dressed For
+03 - Driftwood [live]
+03 - Dubliners -
+03 - easy lover.mp3
+03 - Egg N
+03 - Ella Fitzgerald
+03 - Eric Clapton
+03 - Even The
+03 - Every Little
+03 - Eye Of
+03 - Fading like
+03 - Falling Leaves.mp3
+03 - Fats Waller
+03 - Feel The
+03 - Fenton Robinson
+03 - Fireworks
+03 - Flood Tide
+03 - Fool again.mp3
+03 - For Whom
+03 - fred astaire
+03 - From This
+03 - Frosty The
+03 - Gee Baby
+03 - Gerry Mulligan
+03 - Gimme Some
+03 - Gina Thompson
+03 - Got love
+03 - Halleluia
+03 - Hank Williams
+03 - He Is
+03 - Heresy.mp3
+03 - High And
+03 - Hold on.mp3
+03 - Holiday.mp3
+03 - Holier Than
+03 - Hometown Blues
+03 - Hoplessly Devoted
+03 - Hot Lunch
+03 - Howlin' Wolf
+03 - I'm Cool
+03 - I'm Eighteen
+03 - I'm in
+03 - I'm So
+03 - I Get
+03 - I Gotta
+03 - If You
+03 - Ike Turner
+03 - In Case
+03 - In Liverpool
+03 - Ironbound Fancy
+03 - It's Easy
+03 - J.B. Hutto
+03 - Jack the
+03 - Jambalaya.mp3
+03 - Jeepers Creepers.mp3
+03 - Jimmy Witherspoon
+03 - Jimmy Yancey
+03 - John Lee
+03 - Jurassic 5
+03 - Kashmere .mp3
+03 - Keep Away.mp3
+03 - Kenny Burrell
+03 - Kim Carnes
+03 - King Curtis
+03 - last exit
+03 - Lazy.mp3
+03 - Let There
+03 - Lighnin' Hopkins
+03 - Like China.mp3
+03 - Lil'Homies.mp3
+03 - Little Fluffy
+03 - Little Richard
+03 - Liverpool
+03 - Livin' La
+03 - Lonestar -
+03 - Long long
+03 - Love Is
+03 - Love Theme
+03 - Lowell Fulson
+03 - Lucretia
+03 - Make Time
+03 - Mamma Mia
+03 - Marlene On
+03 - Mary Lou
+03 - Memories
+03 - Memphis Slim
+03 - Micky Doherty
+03 - Mike Reno
+03 - Moment In
+03 - Motorbreath.mp3
+03 - Mucho mambo
+03 - Music For
+03 - Mutant Beat
+03 - My Chico
+03 - My Love
+03 - My Name
+03 - N_____ Nature
+03 - nancy williams.mp3
+03 - Night Fever
+03 - No No
+03 - Nocturne In
+03 - Oh Yeah
+03 - One Armed
+03 - Ooh! My
+03 - Patrick Swayze
+03 - Pax Deorum.mp3
+03 - Rag Doll.mp3
+03 - Ricks Road
+03 - Ride and
+03 - Ritchie Blackmore
+03 - Rivers
+03 - Rock DJ.mp3
+03 - Rock Flock
+03 - romeo and
+03 - Ronan Keating
+03 - Rusted Pipe
+03 - Ry Cooder
+03 - Searchin for
+03 - She's Lost
+03 - Shirelles -
+03 - Sing It
+03 - Sleeping Single
+03 - Some Mother's
+03 - Song For
+03 - Spice Girls
+03 - St Germain
+03 - St John's
+03 - Stephane Grappelli
+03 - Stop Your
+03 - Straight Into
+03 - Strings
+03 - Summer Son
+03 - Super Trouper
+03 - Superfly Slick
+03 - Supernova.mp3
+03 - Superpredaters
+03 - Survivor -
+03 - T-Shirt Suntan
+03 - Take a
+03 - Take No
+03 - Take On
+03 - Talk On
+03 - Teatro Jam
+03 - Teeny tiny
+03 - Telegram
+03 - Ten Out
+03 - Thank You
+03 - That Was
+03 - The Abyss
+03 - The biz.mp3
+03 - The Boss
+03 - The Look
+03 - The Name
+03 - The Power
+03 - The Teardrop
+03 - Things That
+03 - Thinking In
+03 - This Love.mp3
+03 - To Be
+03 - Tom Scholz
+03 - tony bennett
+03 - Trailer
+03 - True Colours
+03 - Unknown.mp3
+03 - Waxies Dargle
+03 - We Will
+03 - Who said
+03 - Wonderful Life
+03 - You'd be
+03 - You Are.mp3
+03 - You Do
+03 - You Needed
+03 -Ayla [dj taucher
+03 (2) PARACHUTES COLDPLAY
+03 (Originally Mark 58)
+03 (renamed from Valet
+03 *Info*
+03 / 04 ]
+03 [Far From Earth]
+03 | );......
+03 | .!......
+03 | ........
+03 | .1......
+03 | .R......
+03 | @.......
+03 | >.......
+03 | 1.......
+03 | 8[......
+03 | A.......
+03 | gt......
+03 | h.......
+03 ~ ATB -
+03 ~ Elvis Costello
+03 ~ R Kelly
+03 <DIR> 13/03/03 2:02
+03 <DIR> 26/11/01 22:44
+03 00 00 00
+03 00 10 80
+03 00 14 02
+03 00 16 03
+03 00 BF AA
+03 01 00 00
+03 03 03 00
+03 05 00 04
+03 05 c2 23
+03 06 | .!..."..
+03 06 | .!......
+03 06 00 00
+03 07 02 08
+03 08:26:44 1993
+03 18 00 04
+03 1921.mp3 2,918,400 01/10/2001
+03 1993 00:06)
+03 1993 00:17, Russell
+03 1993 03:22, Terry
+03 1993 07:52, Paul
+03 1993 08:10, Keven
+03 1993 08:40, Scott
+03 1993 10:01, Dean
+03 1993 10:01, Edward
+03 1993 10:08, Adam
+03 1993 10:23, Lars
+03 1993 11:19, Paul
+03 1993 15:10)
+03 1993 15:29, Chris
+03 1993 16:50, Kelly
+03 1993 17:00, Chris
+03 1993 23:56, Russell
+03 1993 at 05:41
+03 1993 at 14:14
+03 1993 did you
+03 1993 you wrote:
+03 1993, Akin Akinloye
+03 1993, Andreas Selstam
+03 1993, Fingers (?)
+03 1993>, James Ray
+03 1993>, Per Ryden
+03 1a 00 04
+03 21:28, Jeff Claggett
+03 26 00 04
+03 29 Jimmy Jones
+03 55 00 04
+03 59 Bob Monnkhouse
+03 73 54 |
+03 Agnelli & Nelson
+03 Al Green -
+03 alcaholic.mp3 3,520,261 08/10/2001
+03 All rise.mp3 4,462,592
+03 All rise.mp3 5,028,048
+03 All She Wants
+03 Allure - Rejected
+03 Angels.mp3 4,692,114 08/10/2001
+03 Another chance.mp3 4,919,296
+03 ANOTHER ONE BITES
+03 Anyway
+03 Apr 2002 04:58:42
+03 Apr 2002 18:28:34
+03 Apr 2002 18:40:36
+03 Apr 2002 23:28:34
+03 Apr 2002 23:40:36
+03 Ar a ghabhail
+03 As bad as
+03 ATB_9pm Till I
+03 Aug
+03 Aug 85 -
+03 Aug 93 08:10:11
+03 Aug 93 11:40:28
+03 Aug 93 12:35,
+03 Aug 93 16:31:06
+03 Aug 93 16:50,
+03 Aug 93 19:41:00,
+03 Aug 93 20:56:48
+03 Aug 93 21:55,
+03 Aug 93 23:25,
+03 Aug 93 Andrew
+03 Aug 93 Steve
+03 Aug 93 the
+03 Aug 93 you
+03 Aug 93, Andrew
+03 Aug 97 with
+03 Auntie Rotter
+03 AUSTIN POWERS THE
+03 Automatic.mp3 4,892,212 02/10/2001
+03 Autumm in new
+03 Baba Brooks Band
+03 Baby one more
+03 Babylon Zoo -
+03 BACK CHAT.mp3
+03 BARBIE GIRL.mp3
+03 Because you loved
+03 behind the sun.mp3
+03 Bel Amour.mp3 3,514,368
+03 Ben E King
+03 Bette Davis -
+03 Bill Withers -
+03 Billy Ocean -
+03 Black Capricorn Day.mp3
+03 Blink 182 -
+03 BLOIK.mp3
+03 BLOOD OMEN LEGACY
+03 Bob's line dance.mp3
+03 Book of Days
+03 BORDERLINE
+03 Bottle Of Smoke
+03 BRAND NEW FUNK.mp3
+03 Bread-Baby I'm a
+03 Breaking The Girl
+03 Breezin'.mp3 5,189,632 09/07/2001
+03 BRIGHTON ROCK.mp3
+03 Bring your heart
+03 Broadway melody of
+03 Can't Get Enough
+03 Can't Stop The
+03 can t get
+03 Cant cry these
+03 cd 0d a5
+03 Celine Dion -
+03 Cha Cha Cha
+03 Cheerio.mp3 4,563,591 01/10/2001
+03 Chicane_Salt Water.mp3
+03 CHOCOLATE SALTY BALLS(P.S
+03 Clear View -
+03 Clint eastwood.mp3 6,799,673
+03 Conal Gallen.mp3
+03 Conel Gallen
+03 Connected.mp3 4,517,888 16/07/2001
+03 Cool For Cats.mp3
+03 Cortizone.mp3 5,193,142 08/10/2001
+03 cowboys & kisses.mp3
+03 Curtis Mayfield -
+03 D-Ream - Things
+03 David Hirschfelder -
+03 dead or alive
+03 DEATH ON TWO
+03 Decoy.mp3 7,008,256 16/07/2001
+03 deep bros,soul takin.mp3
+03 Des'ree_Life.mp3
+03 Des Mitchell_Welcome To
+03 Desmond Dekker -
+03 Desomond Dekker -
+03 Didn't we
+03 disco 2000 selector.mp3
+03 Distraction.mp3 5,556,224 09/07/2001
+03 domestic,seamless welder.mp3
+03 Domino: Part one-In
+03 DON'T CRY OUT
+03 DONT STOP
+03 Dove Beat -
+03 Dragontown.mp3 6,098,546 08/10/2001
+03 Drifting away.mp3 3,416,064
+03 drinki' Wine Spo-Dee-O-De..
+03 Driving the last
+03 Easter Island RICO
+03 Easter Island RICO.mp3
+03 Eddy Grant -
+03 egg `n' cress.mp3
+03 Electro Roll
+03 ENOLA GAY.mp3
+03 Eternal life.mp3 6,123,102
+03 EVERYBODY'S MAKIN IT
+03 excuse me
+03 Eye Of The
+03 f9 45 |
+03 faculty x,citizen.mp3
+03 Fancy.mp3
+03 Fatboy Slim_Praise You.mp3
+03 Fatboy Slim_Right Here
+03 Feb 94 you
+03 Feb 94, Adrian
+03 Feb 94, Andrew
+03 Feb 94, Damian
+03 First Choice -
+03 five is a
+03 Flava in ya
+03 flying squad.mp3 1,738,710
+03 Food for thot.mp3
+03 Fools gold.mp3 5,023,346
+03 Footloose Kenny Loggins
+03 Forever in your
+03 forever,n-trance.mp3
+03 forever,trinity-x.mp3
+03 Fortune teller.mp3 3,100,734
+03 Foxtrot
+03 Foxtrot Genesis \Foxtrot
+03 French letter.mp3 3,989,420
+03 Fucking In Heaven
+03 Full disclosure.mp3 4,661,812
+03 Fun Fun Fun.mp3
+03 Galaxy bounce.mp3 5,703,680
+03 Genie in the
+03 Get 'em out
+03 Get on up.mp3
+03 Get up and
+03 Gettin together.mp3 15,987,461
+03 Ghost Town THE
+03 girls & boys.mp3
+03 gladys knight &
+03 Goldfinger.mp3 3,389,440 16/07/2001
+03 Goodbye Girl (Remix).mp3
+03 got to tell
+03 Gotta tell you
+03 GREAT KING RAT.mp3
+03 Gregory Isaacs -
+03 Guide vocal
+03 Half The Man
+03 Haper Valley PTA
+03 Hey Little Rich
+03 Home by the
+03 Homeward Bound.mp3
+03 Homosapian.mp3 5,215,608 08/10/2001
+03 HOPELESSLY DEVOTED TO
+03 Houses.mp3 1,161,404 02/10/2001
+03 housework.mp3
+03 How can i
+03 Hurry Up And
+03 I'll Be Waiting.mp3
+03 I'm like a
+03 I'm outta love.mp3
+03 I BELIEVE (IN
+03 I Don't Know
+03 I don't know.mp3
+03 I Hope You
+03 I Shall Be
+03 I Wouldn't Know.mp3
+03 If I Could
+03 If i should
+03 if you dare.mp3
+03 IM IN LOVE
+03 Indiana .mp3 6,445,056
+03 INDOOR SPORTS
+03 Into the fire.mp3
+03 intravenous agnostic.mp3
+03 IT'S A JAZZ
+03 It's all coming
+03 It's raining men.mp3
+03 it's still rock
+03 It's Up To
+03 ITS A HARD
+03 Ivor Biggun The
+03 JEALOUSY.mp3
+03 Jeff Foxworthy Victorias
+03 Jesus he knows
+03 joe dolce -
+03 Jul 82 -
+03 Jul 93 20:11:43,
+03 Jul 93, Austin
+03 Jul 93, FileMgr
+03 Jun 93 you
+03 Jussi Bjorling -
+03 just the way
+03 Just Walking In
+03 KAJAGOOGOO - TOO
+03 kenny rogers -
+03 Kevin Bloody Wilson
+03 KILLER QUEEN.mp3
+03 King George Street.mp3
+03 KRAFTWERK - THE
+03 kylie minogue -
+03 Land of confusion
+03 Largo al factotum
+03 Last Night Of
+03 Lazy.mp3 12,895,608 03/10/2001
+03 Let's Take It
+03 Let me let
+03 Let the music
+03 Life's Too Short
+03 Life In The
+03 Lil'Homies.mp3
+03 Lip Up Fatty
+03 Lloydie and the
+03 London calling.mp3 4,022,334
+03 LONG AWAY.mp3
+03 Long Way Home.mp3
+03 Look ma.mp3 5,241,730
+03 Lord Creator -
+03 Lord Tanaomo -
+03 Lost Witness_Red Sun
+03 Lou Bega -
+03 Mar 84 -
+03 Mar 93 you
+03 Mar.txt
+03 Mar.txtBEST OF BUSINESS
+03 Marcheta
+03 Marie's wedding
+03 Marie's wedding.mp3
+03 Marksman Sam
+03 Marksman Sam.mp3
+03 Masque Of Love.mp3
+03 May 80 -
+03 Maybe I'm A
+03 Maytals - Monkey
+03 McGuiness Flint-Malt &
+03 Mind made up.mp3
+03 MING'S THEME(IN THE
+03 Moving On Up.mp3
+03 Mr Bojangles -
+03 Mr Pleasant.mp3
+03 Ms Jackson.mp3 4,855,118
+03 Multiplayer *Info*
+03 My beautiful white
+03 My Father's Eyes.mp3
+03 MY GIRL
+03 My oh my.mp3
+03 N_____ Nature Remix.mp3
+03 Nancy Sinatra &
+03 Nazareth - Broken
+03 Nazareth - My
+03 NENA - 99
+03 Never had a
+03 Nite Klub THE
+03 No alternative.mp3 4,069,376
+03 No More Heroes.mp3
+03 No Pressure Over
+03 Non ti scordar
+03 Nov 91 with
+03 Nov 93 04:02:39,
+03 Nov 93 04:04:40,
+03 Nov 93 21:46,
+03 Nov 93 23:45,
+03 Nov 93 you
+03 Nov 93, Nick
+03 NOV Sky gold
+03 Obsession blues.mp3 5,523,853
+03 Oct 87 -
+03 Oct 93 0:00:04
+03 Oct 93 0:35:31
+03 Oct 93 12:12,
+03 Oct 93 12:46:53,
+03 Oct 93 20:54,
+03 Oct 93 23:50:13
+03 Oct 93 23:59:03
+03 Oct 93 Nicholas
+03 Oct 93 Stewart
+03 Oct 93 you
+03 Oct 94
+03 Oct 94 with
+03 Octobre.mp3 5,906,808 02/10/2001
+03 of 03, Multimedia
+03 of 04, Printer
+03 OH LAMOUR.mp3
+03 oh no remix.mp3
+03 Oklahoma_Oh What A
+03 Oktober 1993, om
+03 old fashiond.mp3 4,870,791
+03 Old Man River
+03 On my own.mp3
+03 On My Radio
+03 One Of Us.mp3
+03 ONE YEAR OF
+03 ONLY WHEN I
+03 out of control.mp3
+03 Out of the
+03 Pale white girls.mp3
+03 Paragons - On
+03 Paragons - The
+03 Paul Young -
+03 PEACEFUL EASY FEELING
+03 Peter Tosh -
+03 phuture 2000.mp3
+03 Please stay.mp3 4,656,065
+03 Points Of View.mp3
+03 Power To The
+03 Pres des ramparts
+03 Put your hands
+03 Queen - Innuendo.mp3
+03 Radio Ga Ga.mp3
+03 Raining In My
+03 Randy Crawford -
+03 Rarities Volume 1
+03 Raspberry jam delta-v
+03 RASPUTIN
+03 RAY OF LIGHT.mp3
+03 RendevousWithMurder
+03 revolution 909.mp3
+03 RICKY MARTIN -
+03 Right Said Fred
+03 Rossini: The Barber
+03 S & M
+03 S Club 7_Your're
+03 Safe in the
+03 Sam & Dave
+03 Say my name
+03 Scriabin.mp3 2,895,412 02/10/2001
+03 Sep 83 -
+03 Sep 93 03:18:02
+03 Sep 93 03:40:03
+03 Sep 93 12:33:29
+03 Sep 93 18:56:00
+03 Sep 93 at
+03 Sep 93, Michael
+03 Sep Tina Anderson
+03 Separate Beds.mp3
+03 Set you free.mp3
+03 Seven Bridges Road.mp3
+03 shaggy - oh
+03 Shanks & Bigfoot_Sweet
+03 SHEER HEART ATTACK.mp3
+03 shes got it
+03 Si, mi chaimano
+03 Side A.mp3
+03 Side B.mp3
+03 Silent words.mp3 8,651,755
+03 Simon Garfunkel -
+03 Simple Minds -
+03 Sincerly me.mp3 3,376,065
+03 Sinead_Oconner_NothingCom.. 4,800,470 12/02/1997
+03 skunk.mp3
+03 Smoke on the
+03 so in love
+03 SOUL BROTHER
+03 sparks.mp3
+03 Spies.mp3
+03 Spottieottiedopalicious.mp3 8,537,861 01/10/2001
+03 Squonk
+03 Stand by me
+03 stand up for
+03 State Of Mind.mp3
+03 Still afraid of
+03 Stranger Cole And
+03 Strong In Reason.mp3
+03 STUDIO KID A
+03 Superficial.mp3 5,171,200 09/07/2001
+03 supernova.mp3
+03 Supersonic.mp3 5,395,853 01/10/2001
+03 Sweet Dreams (Spike
+03 SWEET MUSIC.mp3
+03 T-Rex - Jeepster
+03 Taken for granted
+03 Tavares-Whodunit
+03 Tempted.mp3
+03 TENEMENT FUNSTER.mp3
+03 THAT'LL BE THE
+03 that's amore.mp3
+03 That kind of
+03 that old song.mp3
+03 The ambush -
+03 THE BEACH (OST)
+03 THE BEST CLUB
+03 the capponi library.mp3
+03 The crush of
+03 The drugs don't
+03 The Fear of
+03 The Girl From
+03 The gravy train.mp3
+03 The Horse and
+03 The Jones Girls
+03 The journey.mp3 9,221,224
+03 The lion and
+03 The love you
+03 THE MAN WHO
+03 The Meeting of
+03 The New Seekers
+03 The power.mp3 4,483,134
+03 The Prince MADNESS
+03 The real life.mp3
+03 The return of
+03 the river of
+03 The Saints Of
+03 the smokie life.mp3
+03 The Sugarhill Gang_Rappers
+03 the trail of
+03 The wrong side
+03 their law.mp3
+03 There's A Guy
+03 There she goes.mp3
+03 They Make Me
+03 Threesome.mp3 3,076,179 08/10/2001
+03 Till I Kissed
+03 Tin Tin Out
+03 Too many Mc's.mp3
+03 TOO MUCH.mp3
+03 Toploader - Achiles
+03 Touching Me Touching
+03 Tracks Of My
+03 Trouble man.mp3 4,562,944
+03 try to remember.mp3
+03 Tá Mo Chleamhnas
+03 twist.mp3
+03 Two fatt guitars
+03 Two of a
+03 Tyranosaurus Rex -
+03 U remind me.mp3
+03 Un di felice,
+03 Una furtiva lagrima
+03 Unicorn
+03 Uptown.mp3 2,715,062 17/04/1999
+03 Verdi Aida -
+03 Virus of the
+03 Vision of angels
+03 Walk like a
+03 Wannabe Spice Girls
+03 we're going now
+03 Weakest link.mp3 4,136,960
+03 What took you
+03 When A Woman.mp3
+03 where love lives.mp3
+03 Whistle Down The
+03 White knuckle blackout.mp3
+03 WHITE QUEEN(AS IT
+03 Will Smith_Gettin Jiggy
+03 Wilson Pickett-Hey Jude
+03 Wilson Pickett -In
+03 win or lose.mp3
+03 Ya'll Come -
+03 You Can`t Put
+03 YOU MIGHT THINK
+03 You Really Got
+03 Young man, despaire
+03 Your own special
+03 Zbigniew Preisner -

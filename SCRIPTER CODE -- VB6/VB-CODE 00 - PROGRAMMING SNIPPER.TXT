@@ -16,7 +16,7 @@ HAVE INFOS HERE ABOUT SYNCRO
 C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 32-COPIER_SYNC.VBS
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------
-MOMENT BEFORE HAD A RENAME AND USE AR TO BE CALL
+MOMENT BEFORE HAD A RENAME AND USE ARE TO BE CALL
 ---------------------------------------------------------------------
 FROM
 C:\SCRIPTER\SCRIPTER CODE -- VB6\VB6 Programming Snippet-Set.TXT.BAS

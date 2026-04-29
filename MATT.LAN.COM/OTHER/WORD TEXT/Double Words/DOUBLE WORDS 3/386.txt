@@ -1,0 +1,138 @@
+#@***-----------------------------------------------------***
+#@***-------**-----CPU----------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+86 ' Duplicate index
+86 ' PR China
+86 - A Different
+86 - CAD /
+86 - Caravan Of
+86 - Chain Reaction
+86 - Dont Leave
+86 - Every Loser
+86 - I Want
+86 - Living Doll
+86 - Papa Dont
+86 - Reet Petite
+86 - Rock Me
+86 - Spirit In
+86 - Take My
+86 - The Chicken
+86 - The Edge
+86 - The Final
+86 - The Lady
+86 - The Sun
+86 - This file
+86 - True Blue
+86 - West End
+86 - When The
+86 <DIR> 22/08/01 18:53
+86 0 0 0
+86 0.0%
+86 0.3%
+86 01/01/90 19:05 PASSWORD
+86 01/06/98 0:00 ADREDIR.ASP
+86 02/02/01 11:30 Dragon
+86 1.4%
+86 122
+86 14/11/99 3:30 3003
+86 14/11/99 3:30 SCIENTIFIC
+86 15 7D C5
+86 18/08/01 22:19 MU8I6IF1.GIF
+86 2.3%
+86 2.4%
+86 20/10/01 0:44 MULAEFDL.GIF
+86 21/11/96 0:00 EURHIWAY.TAB
+86 22 0;47
+86 2403/30 2405/100 111
+86 3 0 7
+86 385 0.1%
+86 3e 07 02
+86 444/0
+86 50 347 1.4%
+86 57 DC 51
+86 86, von 05:00-17:00
+86 88 93 169
+86 asks to use
+86 C2 AA 8A
+86 C4 5E B1
+86 C4 8B D0
+86 CC AA FE
+86 CD1
+86 CD2
+86 complete bbs file
+86 CorelDRAW: Chapter 3
+86 d0 89 4a
+86 ec a6 b9
+86 f7 3f e2
+86 Fast sophisticated Basic
+86 H000654.ZIP v1.2 CHESSMATE
+86 H002501.ZIP v4.177 GNU
+86 H004021.ZIP v2.2 K-CHESS
+86 H005038.ZIP v2.54 CLUBMATE
+86 H006634A.ZIP v1.4 CHESS
+86 H006634B.ZIP v1.4 CHESS
+86 H007446A.ZIP v3.5 ARASAN
+86 H007446B.ZIP v3.5 ARASAN
+86 H007447.ZIP v3.5 ARASAN
+86 H007507.ZIP v1.02 LESSONS
+86 H007890.ZIP v2.0 WINCHESS
+86 H009624.ZIP v1.10 K-CHESS
+86 H009818.ZIP v1.0 LASERCHESS
+86 H010008.ZIP v3.0 CHESSHELPER
+86 H010115.ZIP v1.22 RIVAL
+86 H010139.ZIP v1.03b 3D
+86 H010232.ZIP v2.10 CHESS
+86 H010239.ZIP v1.9d DBS
+86 H010240.ZIP v2.0d DBS
+86 library written in
+86 mb on hd)
+86 meg )
+86 N001334.ZIP TELE-CHESS play
+86 N002794.ZIP v3.1 GNU
+86 N002813.ZIP CHESS TUTOR
+86 N003128.ZIP v3.0 NOYES
+86 N003352.ZIP v2.30 ED'S
+86 N006583.ZIP v4.0 CHESSRPT
+86 N006680.ZIP v2.1 ARASAN
+86 N007471.ZIP v5.0 DIACHESS
+86 N007538.ZIP v1.5e RIVAL
+86 N007718.ZIP v3.30 CHESSTD
+86 N007860.ZIP v6.0 SWIS-SYS
+86 N008453.ZIP v1.12 NOVA
+86 N008751.ZIP FANTASY CHESS
+86 N009230.ZIP v2.0 CHESS
+86 percent of 12-17
+86 Ray Dream Studio
+86 She's not there
+86 Side A Jungle.mp3
+86 Side A Jungle.wav
+86 Side B.mp3
+86 Side B.wav
+86 Songs in last
+86 Tracks auf die
+86 tracks in playlist,
+86 tracks on the
+86 UK_HST 1 0.0%
+86 UK_HST 1 1
+86 UK_HST 2 0.1%
+86 UK_HST 2 0.2%
+86 UK_HST 4 0.1%
+86 UK_HST 5 0.1%
+86 UK_HST 5 5
+86 UK_HST 56 0.0%
+86 UK_HST 57 0.0%
+86 UK_HST 6 0.2%
+86 UK_HST 6 4
+86 v4.1. Colorful tutorial

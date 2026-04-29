@@ -1,3 +1,6 @@
+@CD\
+
+REM C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT  /QUITE
 REM ---------------------------------------------------------------- 
 REM I LIKE THIS CODE GIVE ACCESS TO ALL FOLDER QUICKER
 REM HAVE A READER READ
@@ -9,8 +12,6 @@ REM ----------------------------------------------------------------
 REM [ Tuesday 22:44:50 Pm_17 September 2019 ]
 REM ---------------------------------------------------------------- 
 
-
-@CD\
 
 REM ---------------------------------------------------------------- 
 REM __ SET ADMIN A SAFE DOUBLE CHECKER WAY NOT A LOOPY ONE
@@ -48,7 +49,7 @@ REM :: Check for ADMIN Privileges
 
 @ECHO Got ADMIN Privileges
 
-
+ECHO.
 
 
 @ECHO.
@@ -62,20 +63,26 @@ REM :: Check for ADMIN Privileges
 setlocal EnableDelayedExpansion
 CD\
 
+SET TITLE_VAR=%~f0
+TITLE !TITLE_VAR!
+
 SET "INPUT_VAR="
 REM ---------------------
 
 REM GOTO JUMP_PART0
 
-SET INPUT_VAR="C:\ProgramData\Microsoft\Windows"
-ECHO.
-ECHO !INPUT_VAR!
-ECHO ICACLS __ !INPUT_VAR!
+REM SET INPUT_VAR="C:\ProgramData\Microsoft\Windows"
+REM SET INPUT_VAR=C:\ProgramData
+REM ECHO.
+REM ECHO !INPUT_VAR!
+REM ECHO ICACLS __ !INPUT_VAR!
 ECHO ---------------------------------------------------------------------------
-REM __ TAKEOWN IS THE SAME AS GET GRANT ACCESS EVERYONE
-REM __ TAKEOWN /F !INPUT_VAR! /R /A /D Y >NUL
-ICACLS !INPUT_VAR! /C /L /Q /setowner "Everyone" >NUL
-ICACLS !INPUT_VAR! /C /L /Q /grant Everyone:F >NUL
+REM TAKEOWN IS THE SAME AS GET GRANT ACCESS EVERYONE
+REM TAKEOWN /F "!INPUT_VAR!\*" /R /A /D "Y" >NUL
+REM TAKEOWN /F "%%G:\%%F_VAR!"" /A >NUL
+
+REM ICACLS !INPUT_VAR! /C /L /Q /T /setowner "administrators" >NUL
+REM ICACLS !INPUT_VAR! /C /L /Q /T /grant administrators:F >NUL
 REM TIMEOUT /T 2
 
 REM REM ___________ MS WINDOW 10
@@ -90,7 +97,7 @@ REM ICACLS !INPUT_VAR! /T /C /L /Q /setowner "Everyone" >NUL
 REM ICACLS !INPUT_VAR! /T /C /L /Q /grant Everyone:F >NUL
 REM ECHO.
 
-TIMEOUT /T 2
+REM TIMEOUT /T 2
 ECHO.
 
 
@@ -102,7 +109,8 @@ REM GOTO JUMP_PART2
 REM -------------------------------------------------------------------------------------------------
 
 REM @FOR %%G IN (C) DO (
-@FOR %%G IN (C,D,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
+@FOR %%G IN (D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (
+REM @FOR %%G IN (D,O) DO (
 	IF EXIST %%G:\. (
 		SET "target_="
 		SET target_=%%G:
@@ -113,15 +121,46 @@ REM @FOR %%G IN (C) DO (
 				SET "VAR_FLAG="
 				SET VAR_FLAG=YES
 				IF "%%F"=="System Volume Information" SET VAR_FLAG=NOT
-				IF "%%F"=="$Recycle.Bin" SET VAR_FLAG=NOT
+				REM IF "%%F"=="$Recycle.Bin" SET VAR_FLAG=NOT
 				IF "%%F"=="$RECYCLE.BIN" SET VAR_FLAG=NOT
 				IF "%%F"=="Recovery" SET VAR_FLAG=NOT
 				IF "%%F"=="Windows" SET VAR_FLAG=NOT
 				IF "%%F"=="ProgramData" SET VAR_FLAG=NOT
 				IF "%%F"=="Boot" SET VAR_FLAG=NOT
-				REM __ Documents and Settings __ A JUNCTION FOR C:\USERS
-				REM IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
+				IF "%%F"=="$WINDOWS.~BT" SET VAR_FLAG=NOT
+				IF "%%F"=="$Windows.~WS" SET VAR_FLAG=NOT
+				IF "%%F"=="Windows.old" SET VAR_FLAG=NOT
+				IF "%%F"=="_gsdata_" SET VAR_FLAG=NOT
+				IF "%%F"=="aws" SET VAR_FLAG=NOT
+				IF "%%F"=="eSupport" SET VAR_FLAG=NOT
+				IF "%%F"=="SC" SET VAR_FLAG=NOT
+				IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
+				IF "%%F"=="LocalStorage" SET VAR_FLAG=NOT
+				IF "%%F"=="GoodSync" SET VAR_FLAG=NOT
+				IF "%%F"=="Program Files (x86)" SET VAR_FLAG=NOT
+				IF "%%F"=="Program Files" SET VAR_FLAG=NOT
+				IF "%%F"=="MSOCache" SET VAR_FLAG=NOT
+				IF "%%F"=="Config.Msi" SET VAR_FLAG=NOT
+				IF "%%F"=="Users" SET VAR_FLAG=NOT
+				IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
+				IF "%%F"=="EFI" SET VAR_FLAG=NOT
+				IF "%%F"=="ESD" SET VAR_FLAG=NOT
+				REM IF "%%F"=="" SET VAR_FLAG=NOT
+				REM IF "%%F"=="" SET VAR_FLAG=NOT
+				
+				REM CHECK IF NOT A SUB FOLDER MEANS IT A FILE -- CANT PROCESS SUB FOLDER SCAN WHEN ASK FILE ERROR
+				REM DOES THE WHOLE DRIVE IN A ROOT
+				ECHO ---------------------------------------------------------------------------
+				IF NOT EXIST "%%G:\%%F\" ECHO FILE -- "%%F"
+				IF EXIST "%%G:\%%F\" ECHO FOLDER -- "%%F"
+
+				IF "!VAR_FLAG!"=="NOT" ECHO NOT RUN WITH -- "%%G:\%%F"
 				IF "!VAR_FLAG!"=="YES" (
+					IF NOT EXIST "%%G:\%%F\" SET VAR_FLAG=GO
+				)
+				
+				IF "!VAR_FLAG!"=="GO" (
+				
 						ECHO.
 						
 						REM __ TAKEOWNER IS THE SAME AS GET GRANT ACCESS EVERYONE
@@ -134,23 +173,78 @@ REM @FOR %%G IN (C) DO (
 						REM REM TIMEOUT /T 2
 						REM ECHO.
 						
-						TITLE #02 OF #03 __ ICACLS /SETOWNER __ "%%G:\%%F"
+						REM TITLE #01 OF #01 __ ICACLS /SETOWNER __ "%%G:\%%F"
+						ECHO ---------------------------------------------------------------------------
 						ECHO "%%G:\%%F"
-						ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
-						ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "Everyone"
+						REM ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
+						REM ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
+						REM GOT TO DO ADMIN 1ST BEFORE EVERYONE
+						
+						ECHO #01 OF 01 __ TAKEOWN /F "%%G:\%%F" /A
+						ECHO ---------------------------------------------------------------------------
+						TAKEOWN /F "%%G:\%%F" /A
+						ECHO ---------------------------------------------------------------------------
+						REM PAUSE
+						REM ICACLS "%%G:\%%F" /C /L /Q /T /setowner "administrators" 
+						REM ICACLS "%%G:\%%F" /C /L /Q /T /setowner "administrators" 
+						REM TIMEOUT /T 2
+						REM /T RECURSIVE MISSING
+						REM ECHO.
+				
+				
+				
+				
+				
+				
+				)
+				
+				
+				
+				REM __ Documents and Settings __ A JUNCTION FOR C:\USERS
+				REM IF "%%F"=="Documents and Settings" SET VAR_FLAG=NOT
+				IF "!VAR_FLAG!"=="YES" (
+						REM ECHO.
+						
+						REM __ TAKEOWNER IS THE SAME AS GET GRANT ACCESS EVERYONE
+						REM TITLE #01 OF #03 __ TAKEOWN ___________ "%%G:\%%F"
+						REM ECHO "%%G:\%%F"
+						REM ECHO #01 OF 03 __ TAKEOWN /F "%%G:\%%F" /A /D N 
+						REM REM /R RECURSIVE MISSING
+						REM ECHO ---------------------------------------------------------------------------
+						REM TAKEOWN /F "%%G:\%%F" /A >NUL
+						REM REM TIMEOUT /T 2
+						REM ECHO.
+						
+						REM TITLE #01 OF #01 __ ICACLS /SETOWNER __ "%%G:\%%F"
+						ECHO ---------------------------------------------------------------------------
+						ECHO "%%G:\%%F"
+						REM ECHO #01 OF 02 __ ICACLS "%%G:\%%F" /setowner "administrators"
+						ECHO #01 OF 02 __ TAKEOWN /F "%%G:\%%F" /A
 						ECHO ---------------------------------------------------------------------------
 						REM GOT TO DO ADMIN 1ST BEFORE EVERYONE
 						
-						ICACLS "%%G:\%%F" /C /L /Q /setowner "administrators" >NUL
-						ICACLS "%%G:\%%F" /C /L /Q /setowner "Everyone" >NUL
+						TAKEOWN /F "%%G:\%%F" /A
+						ECHO ---------------------------------------------------------------------------
+						
+						ECHO #02 OF 02 __ TAKEOWN /F "%%G:\%%F\*" /R /A /D "Y"
+						ECHO ---------------------------------------------------------------------------
+						TAKEOWN /F "%%G:\%%F\*" /R /A /D "Y" >NUL
+						ECHO ---------------------------------------------------------------------------
+				
+
+
+
+						REM PAUSE
+						REM ICACLS "%%G:\%%F" /C /L /Q /T /setowner "administrators" 
+						REM ICACLS "%%G:\%%F" /C /L /Q /T /setowner "administrators" 
 						REM TIMEOUT /T 2
 						REM /T RECURSIVE MISSING
 						ECHO.
 						
-						TITLE #03 OF #03 __ ICACLS /GRANT _____ "%%G:\%%F"
-						ECHO "%%G:\%%F"
-						ECHO #02 OF 02 __ ICACLS "%%G:\%%F" /grant Everyone:F
-						ECHO ---------------------------------------------------------------------------
+						REM TITLE #03 OF #03 __ ICACLS /GRANT _____ "%%G:\%%F"
+						REM ECHO "%%G:\%%F"
+						REM ECHO #02 OF 02 __ ICACLS "%%G:\%%F" /grant administrators:F
+						REM ECHO ---------------------------------------------------------------------------
 						REM GRANT STILL DOES SUB FOLDER SO HAVE TO LEAVE OUT
 						REM ----------------------------------------------------------------------------
 						REM ICACLS "%%G:\%%F" /C /L /Q /grant administrators:F >NUL
@@ -162,6 +256,7 @@ REM @FOR %%G IN (C) DO (
 		)
 	)
 )
+
 
 REM -------------------------------------------------------------------------------------------------
 REM -------------------------------------------------------------------------------------------------

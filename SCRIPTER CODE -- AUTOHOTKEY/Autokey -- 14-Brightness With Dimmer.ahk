@@ -1021,6 +1021,8 @@ IF TRUE = FALSE
 		SET_GO=1
 	IF Path_2=mpc-hc64.exe
 		SET_GO=1
+	IF Path_2=mpc-hc.exe
+		SET_GO=1	
 	IF (A_ComputerName<>"7-ASUS-GL522VW")
 		SET_GO=1
 

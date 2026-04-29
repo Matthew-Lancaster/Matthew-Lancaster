@@ -1,4 +1,0 @@
-﻿
-TREESIZE MEDIA DUPE ALL LOCAL DRIVE
-
-Name	Containing Path	Size	Last Modified	Type	Owner	Permissions

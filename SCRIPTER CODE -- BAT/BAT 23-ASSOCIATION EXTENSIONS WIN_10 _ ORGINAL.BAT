@@ -568,6 +568,7 @@ REM ----------------------------------------------------------
 
 SET MPC="\"%%ProgramFiles(x86)%%\Windows Media Player\wmplayer.exe\"
 IF EXIST "C:\Program Files\MPC-HC\mpc-hc64.exe" SET MPC="\"C:\Program Files\MPC-HC\mpc-hc64.exe\"
+IF EXIST "C:\Program Files (x86)\MPC-HC\mpc-hc.exe" SET MPC="\"C:\Program Files (x86)\MPC-HC\mpc-hc.exe\"
 
 ECHO VIDEO AVI
 

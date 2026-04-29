@@ -1,0 +1,28 @@
+#@***-----------------------------------------------------***
+#@***-------**-----CPU----------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+586 0 0 2
+586 05/07/91 12:00 VIDEON1.DRV
+586 05/07/91 12:00 VIDEOO1.DRV
+586 05/10/02 0:54 Help.gif
+586 06/12/01 22:28 M13DRO8R.GIF
+586 06/12/01 22:30 MU1TP6UB.GIF
+586 24/04/98 0:00 VBEXT.SRG
+586 29/12/99 22:24 389.htm
+586 computer as
+586 computer as having
+586 CorelDRAW: Chapter 11
+586 fix. (Last *Info*
+586 pci *Info*

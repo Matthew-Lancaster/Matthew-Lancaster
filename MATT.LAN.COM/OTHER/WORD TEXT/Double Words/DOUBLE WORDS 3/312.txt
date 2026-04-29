@@ -1,0 +1,1811 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+12  Arranging Objects
+12 ' -------- NEW
+12 ' 16-color very
+12 ' 5 ranges,
+12 ' B4 250
+12 ' DPno
+12 ' Joystick adapter
+12 ' Low/Pointed
+12 ' Number of
+12 ' Oblique/Flattened
+12 ' Obtuse Sans
+12 '93 you wrote
+12 ------"------
+12 -- A Teens
+12 - (Money's Too
+12 - 17 admitted
+12 - 17"
+12 - 24 hours.
+12 - 24 VDC
+12 - 4pm you
+12 - 9.95 UKpounds,
+12 - A Matter
+12 - Adrian Cronauer.mp3
+12 - Albert Collins
+12 - All The
+12 - Arthur.mp3
+12 - As Long
+12 - Attitude.mp3
+12 - Baby (You
+12 - Bangles -
+12 - Bernie &
+12 - Big Boss
+12 - Big Joe
+12 - Bille Holiday
+12 - Blarney Lads
+12 - bobby vee
+12 - Boyd Raeburn
+12 - By WRU
+12 - C'est Si
+12 - calling elvis.mp3
+12 - Catacombs .mp3
+12 - Caught out
+12 - Charles Avery
+12 - Charlie Patton
+12 - Circulation -
+12 - Consolation -
+12 - Crazy Love.mp3
+12 - Dana -
+12 - Dance Decade
+12 - Darude -
+12 - Dead end
+12 - Dead Souls
+12 - Dear Dairy
+12 - Dignity -
+12 - dinah washington
+12 - Directory and
+12 - Disappointed
+12 - Don't come
+12 - Duran Duran
+12 - Elmore James
+12 - Everything They
+12 - explorer and
+12 - Fear of
+12 - Fernando
+12 - Find a
+12 - Foreigner -
+12 - Fuck Off
+12 - Function Parameter
+12 - Gettin' in
+12 - Gnossienne No
+12 - Goodnight My
+12 - Hank Marvin
+12 - Harace Silver
+12 - Harvest Moon
+12 - Harvest Moon.mp3
+12 - Have You
+12 - He's Gone
+12 - Here Comes
+12 - Here Today
+12 - Hey love.mp3
+12 - How Do
+12 - I'm a
+12 - i've got
+12 - I Do,
+12 - I Wanna
+12 - InTooDeep.mp3
+12 - It's Almost
+12 - It's Rainin'
+12 - Jammin' Me
+12 - Jimi Hendrix
+12 - Jimmy Smith
+12 - Jive Talkin'
+12 - Joe Turner
+12 - Johnny Cash
+12 - Julian Cope
+12 - Jurassic Park
+12 - keely smith
+12 - King Biscuit
+12 - LeftOfTheMiddle.mp3
+12 - Lemon Jelly
+12 - Lichfield Cathedral
+12 - Little Milton
+12 - Little Richard
+12 - Lloyd Price
+12 - Lo Boob
+12 - Look out
+12 - Man Parrish
+12 - Mari Wilson
+12 - Mary Jane's
+12 - Merry go
+12 - Milk and
+12 - Mood Indigo
+12 - Mountain Town
+12 - My Favorite
+12 - No Cheap
+12 - No matter
+12 - On the
+12 - One Is
+12 - Otis Rush
+12 - Out of
+12 - Out There
+12 - Patsy O'hagan
+12 - Paul Orta
+12 - Peggy Lee
+12 - Pink Anderson
+12 - Quedate Aqui
+12 - Raytracing for
+12 - Red Tape
+12 - Regina Carter
+12 - Reptile.mp3
+12 - Responsorium
+12 - Ricky Valence
+12 - River of
+12 - Robin Williams
+12 - Rock'n'Roll Is
+12 - Runnin On
+12 - Save The
+12 - Shadow Of
+12 - Sidney Bechet
+12 - Sinead O'Connor
+12 - Small talk
+12 - So you
+12 - Song of
+12 - Soul Bossa
+12 - Stay Young
+12 - Street Spirit
+12 - Sunny Afternoon.mp3
+12 - Sunnyland Slim
+12 - Sunrise Serenade.mp3
+12 - Teddy Wilson
+12 - Tequila
+12 - The Best
+12 - The boy
+12 - The Five
+12 - The Key
+12 - The Mills
+12 - The Right
+12 - The Struggle
+12 - The Way
+12 - There was
+12 - Thunderbirds
+12 - Tim McGraw
+12 - Toast &
+12 - Tom Johnston
+12 - Tommy Tucker
+12 - Tomorrow never
+12 - Unknown.mp3
+12 - Up In
+12 - Utils:cursor,windows etc.
+12 - Voodoo.mp3
+12 - Voulez-Vous
+12 - Wake Up
+12 - Walk the
+12 - WALKING WITH
+12 - Waterboys -
+12 - Waterloo [French-Swedish]
+12 - When All
+12 - When You're
+12 - You Really
+12 - You Were
+12 - Your Luck
+12 -> del D:\hpHPF\UNSTALL.BMP
+12 & 35 -
+12 & 35.mp3
+12 & a pinch
+12 & half
+12 ( )
+12 ("67")
+12 ("67") back
+12 (12cd's but can
+12 (14) LOST SONGS
+12 (2cd's)
+12 (50 QUAKE MAPS)
+12 (Apr. 1995). 59
+12 (Bell 212A assignment)
+12 (C) DesignCad +
+12 (Just Like) Starting
+12 (nur wenn keine
+12 (only if a
+12 (relocatable, no CD
+12 (Whigfield) - Saturday
+12 *Info*
+12 *REGiSTERED*
+12 : 118: 791/
+12 [#551-600] [from the
+12 [04 Zips]
+12 [1/1]
+12 [1]
+12 ~ Eric Benet
+12 ~ Jennifer Lopez
+12 ~ Trevor Jones
+12 + 1
+12 + Crack File
+12 +5
+12 = inferior quality
+12 = SETTLERS AND
+12 => 8800h
+12 ³ K-Bytes 342
+12 0 0 0
+12 0 0 33
+12 0 0.0³
+12 0 2 0
+12 0 20 10
+12 0 30 16
+12 0 56 0
+12 0.0%
+12 0.2%
+12 0.3%
+12 0.4%
+12 0.5%
+12 0;38
+12 00 00 00
+12 01 00 00
+12 01 1994. *Info*
+12 02 1994. Last
+12 04 1995. Last
+12 04/06/98 0:00 CONFIG.FPW
+12 05 1995. Last
+12 06 | ........
+12 06 00 00
+12 08:13>, Jeff Marchi
+12 09 1995. Last
+12 09/06/02 4:45 SPIRAL.MAK
+12 1 0 3
+12 1 151/1003 270/101
+12 1 28 0.1%
+12 1/2 minutes, until
+12 10-15
+12 10 16 20
+12 10/08/02 21:39 $WinMgmt.CFG
+12 103 0.4%
+12 11-15
+12 11 12 12
+12 11 45 0.2%
+12 12-15
+12 12 12 0.0%
+12 12 12 10
+12 12 12 66,769
+12 12 12 9
+12 12:12>, ya wrote:
+12 12:34> by Robert
+12 123/19 396/1 11/2
+12 123/19 396/1 270/101
+12 13-15
+12 13 14 15
+12 13 14.txt
+12 13 2 52
+12 13/12/00 13:37 R0DB.INI
+12 136 0.5%
+12 14-15
+12 15-15
+12 15/03/03 0:33 FAST.BAT
+12 16 - 12"
+12 16 300 252/21
+12 16:54>, John Ochenduszko
+12 17/03/03 0:32 x
+12 17/08/01 10:48 NewClassID.ini
+12 18 11 5
+12 18 74 0.3%
+12 18/06/98 0:00 frmOverwrite.frx
+12 18/06/98 0:00 Options
+12 19 11 80
+12 19 13 8
+12 19 1995 Area:
+12 19 31 0.0%
+12 1991 garbo.uwasa.fi:/pc/arcers/zoo210.exe"
+12 1993
+12 1993 01:51, Ron
+12 1993 09:45, Christian
+12 1993 10:31, Dave
+12 1993 10:32, Ron
+12 1993 10:47, gerard
+12 1993 12:08, Reine
+12 1993 12:45, FRANK
+12 1993 13:08, Lou
+12 1993 13:37, Sonia
+12 1993 17:12, Morris
+12 1993 17:17, Jan
+12 1993 18:20, Hans
+12 1993 20:05, Tim
+12 1993 21:00, Warren
+12 1993 21:21, James
+12 1993 21:24, Denn
+12 1993 22:02, Steve
+12 1993 22:22, Alex
+12 1993 22:42, Andre
+12 1993 23:46, Kim
+12 1993) Steve Ambrosini
+12 1993, Alan Mulvie
+12 1993, Chris Bradley
+12 1993, Dave Raymond
+12 1993, David Hays
+12 1993, Gordon Hunter
+12 1993, James Berry
+12 1993, Jim Trash
+12 1993, John Hutton
+12 1993, Matthew Mccarthy
+12 1993, Ron Dwight
+12 1993, Stephen Gage
+12 1993, Uwe Schirm
+12 1993, Wolfgang Hanke
+12 1993>, from Michael
+12 1994 07:15, Chris
+12 1994 17:42, Geoff
+12 1994 20:36, Ian
+12 1994 20:38, Halina
+12 1995 Serious First
+12 2-15
+12 2 2 0
+12 2 2 29
+12 2 2 J
+12 20 1995 Area:
+12 20:00 OAK.Oakland.Edu:/pub/msdos/zoo/zoo210.exe"
+12 20:03, Richard Onanian
+12 21
+12 21 1995 Area:
+12 214
+12 216
+12 218
+12 220
+12 222
+12 23 43 0.0%
+12 24/05/94 1:01 GUN1.PCS
+12 24/05/94 1:01 MOVE.PCS
+12 24/05/94 1:01 UFO.PCS
+12 25 1995 Area:
+12 26
+12 27478
+12 28 0.0%
+12 280 1.1%
+12 280/1 396/1 11/2
+12 280/1 396/1 209/209
+12 29 30 8
+12 2b
+12 3-15
+12 3 56 0.2%
+12 300dpi images of
+12 30470
+12 33 24 208
+12 33713
+12 34 56;
+12 37 0.1%
+12 37 1995 Area:
+12 39 1995 Area:
+12 39.mp3
+12 4-15
+12 4,476,315 3,122 1583
+12 40 1995 Area:
+12 41 1995 Area:
+12 414.8 0% 0.00
+12 5-15
+12 5 29 0.1%
+12 54 0.2%
+12 57 0.0%
+12 59,851 42,525 914
+12 6-15
+12 6 0.0³
+12 6 26 86
+12 6 28,891 18,496
+12 65 0.2%
+12 66,769 34,480 1582
+12 7-15
+12 7 47 0.2%
+12 7570
+12 78 0.3%
+12 7e 83 9e
+12 8-15
+12 8 12 93
+12 8 23 0.0%
+12 9-15
+12 9 0 36
+12 9 10 12
+12 9 3 6
+12 93 0.3%
+12 A cool place
+12 A house is
+12 A thing called
+12 a1 | P.......
+12 ACE STRIKER SERIE-A
+12 Acorn User Monthly
+12 ACTRAISER 2
+12 Adamski_-_Killer.mp3 5,280,151 28/05/2002
+12 Addio Fiorito Asil
+12 additional programs as
+12 All my life
+12 All This Time.mp3
+12 Amiga
+12 amsint.mpd
+12 an 3 quarters
+12 An Gleann (1998)
+12 and 15. I'm
+12 AND 35 -
+12 and 35
+12 and Valid)
+12 aneka - japanese
+12 Annie Get Your
+12 Annie Lennox -
+12 aphrohead,crybaby.mp3
+12 APPARE
+12 Apr 2002 00:03:00
+12 Apr 2002 00:04:05
+12 Apr 2002 00:04:33
+12 Apr 2002 00:05:41
+12 Apr 2002 00:07:50
+12 Apr 2002 00:08:45
+12 Apr 2002 00:10:33
+12 Apr 2002 00:14:41
+12 Apr 2002 00:17:06
+12 Apr 2002 00:19:04
+12 Apr 2002 00:19:49
+12 Apr 2002 00:23:23
+12 Apr 2002 00:25:10
+12 Apr 2002 00:25:49
+12 Apr 2002 00:28:15
+12 Apr 2002 00:30:53
+12 Apr 2002 00:31:44
+12 Apr 2002 00:32:20
+12 Apr 2002 00:34:12
+12 Apr 2002 00:34:42
+12 Apr 2002 00:34:52
+12 Apr 2002 00:38:52
+12 Apr 2002 00:41:13
+12 Apr 2002 00:44:26
+12 Apr 2002 00:45:20
+12 Apr 2002 00:46:04
+12 Apr 2002 00:48:34
+12 Apr 2002 00:48:41
+12 Apr 2002 00:50:20
+12 Apr 2002 00:51:41
+12 Apr 2002 00:55:01
+12 Apr 2002 00:58:06
+12 Apr 2002 00:59:12
+12 Apr 2002 01:01:38
+12 Apr 2002 01:02:00
+12 Apr 2002 01:03:08
+12 Apr 2002 01:03:32
+12 Apr 2002 01:03:49
+12 Apr 2002 01:04:09
+12 Apr 2002 01:07:05
+12 Apr 2002 01:07:09
+12 Apr 2002 01:10:37
+12 Apr 2002 01:10:47
+12 Apr 2002 01:14:20
+12 Apr 2002 01:31:59
+12 Apr 2002 01:32:21
+12 Apr 2002 01:32:22
+12 Apr 2002 01:32:23
+12 Apr 2002 01:44:29
+12 Apr 2002 01:54:17
+12 Apr 2002 01:54:30
+12 Apr 2002 01:55:02
+12 Apr 2002 01:58:41
+12 Apr 2002 01:59:01
+12 Apr 2002 01:59:33
+12 Apr 2002 02:01:08
+12 Apr 2002 02:03:39
+12 Apr 2002 02:03:54
+12 Apr 2002 02:04:33
+12 Apr 2002 02:06:22
+12 Apr 2002 02:06:33
+12 Apr 2002 02:07:53
+12 Apr 2002 02:09:14
+12 Apr 2002 02:11:21
+12 Apr 2002 02:11:49
+12 Apr 2002 02:12:42
+12 Apr 2002 02:14:03
+12 Apr 2002 02:14:41
+12 Apr 2002 02:15:04
+12 Apr 2002 02:15:51
+12 Apr 2002 02:17:06
+12 Apr 2002 02:17:44
+12 Apr 2002 02:19:04
+12 Apr 2002 02:19:44
+12 Apr 2002 02:23:23
+12 Apr 2002 02:25:44
+12 Apr 2002 02:26:14
+12 Apr 2002 02:42:23
+12 Apr 2002 02:42:44
+12 Apr 2002 02:43:45
+12 Apr 2002 02:45:56
+12 Apr 2002 02:48:14
+12 Apr 2002 02:49:01
+12 Apr 2002 02:51:05
+12 Apr 2002 02:51:55
+12 Apr 2002 02:55:06
+12 Apr 2002 02:56:55
+12 Apr 2002 03:09:44
+12 Apr 2002 03:13:43
+12 Apr 2002 03:15:58
+12 Apr 2002 03:17:40
+12 Apr 2002 03:23:53
+12 Apr 2002 03:29:02
+12 Apr 2002 03:30:35
+12 Apr 2002 03:39:02
+12 Apr 2002 03:39:27
+12 Apr 2002 03:55:02
+12 Apr 2002 03:56:45
+12 Apr 2002 03:59:02
+12 Apr 2002 04:03:54
+12 Apr 2002 04:12:21
+12 Apr 2002 04:15:58
+12 Apr 2002 04:17:11
+12 Apr 2002 04:18:09
+12 Apr 2002 04:18:40
+12 Apr 2002 04:29:04
+12 Apr 2002 04:32:27
+12 Apr 2002 04:35:46
+12 Apr 2002 04:36:16
+12 Apr 2002 04:38:52
+12 Apr 2002 04:47:38
+12 Apr 2002 04:58:57
+12 Apr 2002 05:01:28
+12 Apr 2002 05:05:26
+12 Apr 2002 05:06:18
+12 Apr 2002 05:07:05
+12 Apr 2002 05:09:44
+12 Apr 2002 05:10:47
+12 Apr 2002 05:13:42
+12 Apr 2002 05:14:20
+12 Apr 2002 05:23:02
+12 Apr 2002 05:25:24
+12 Apr 2002 05:32:23
+12 Apr 2002 05:50:30
+12 Apr 2002 05:54:30
+12 Apr 2002 06:13:06
+12 Apr 2002 06:45:21
+12 Apr 2002 06:45:35
+12 Apr 2002 06:47:44
+12 Apr 2002 06:51:24
+12 Apr 2002 07:00:55
+12 Apr 2002 07:09:32
+12 Apr 2002 07:17:25
+12 Apr 2002 07:22:20
+12 Apr 2002 07:25:40
+12 Apr 2002 07:40:11
+12 Apr 2002 07:57:38
+12 Apr 2002 07:58:21
+12 Apr 2002 07:58:23
+12 Apr 2002 07:59:22
+12 Apr 2002 08:01:41
+12 Apr 2002 08:05:52
+12 Apr 2002 08:09:38
+12 Apr 2002 08:12:11
+12 Apr 2002 08:14:24
+12 Apr 2002 08:14:29
+12 Apr 2002 08:27:53
+12 Apr 2002 08:31:11
+12 Apr 2002 08:46:36
+12 Apr 2002 08:57:58
+12 Apr 2002 09:08:18
+12 Apr 2002 09:19:52
+12 Apr 2002 09:22:08
+12 Apr 2002 09:25:55
+12 Apr 2002 09:27:18
+12 Apr 2002 09:44:56
+12 Apr 2002 09:45:24
+12 Apr 2002 09:46:01
+12 Apr 2002 09:46:40
+12 Apr 2002 09:51:56
+12 Apr 2002 09:55:17
+12 Apr 2002 10:05:45
+12 Apr 2002 10:07:00
+12 Apr 2002 10:09:12
+12 Apr 2002 10:10:24
+12 Apr 2002 10:19:09
+12 Apr 2002 10:25:55
+12 Apr 2002 10:30:54
+12 Apr 2002 10:38:48
+12 Apr 2002 10:44:51
+12 Apr 2002 10:50:44
+12 Apr 2002 10:50:47
+12 Apr 2002 11:00:55
+12 Apr 2002 11:07:39
+12 Apr 2002 11:15:12
+12 Apr 2002 11:15:58
+12 Apr 2002 11:17:25
+12 Apr 2002 11:22:20
+12 Apr 2002 11:29:15
+12 Apr 2002 11:31:44
+12 Apr 2002 11:32:25
+12 Apr 2002 11:36:06
+12 Apr 2002 11:42:34
+12 Apr 2002 11:47:29
+12 Apr 2002 11:48:29
+12 Apr 2002 11:49:41
+12 Apr 2002 11:51:26
+12 Apr 2002 11:55:16
+12 Apr 2002 11:57:38
+12 Apr 2002 11:58:23
+12 Apr 2002 11:58:57
+12 Apr 2002 12:01:28
+12 Apr 2002 12:01:41
+12 Apr 2002 12:03:32
+12 Apr 2002 12:05:26
+12 Apr 2002 12:06:18
+12 Apr 2002 12:09:32
+12 Apr 2002 12:09:38
+12 Apr 2002 12:11:51
+12 Apr 2002 12:12:11
+12 Apr 2002 12:12:32
+12 Apr 2002 12:23:02
+12 Apr 2002 12:32:23
+12 Apr 2002 12:38:10
+12 Apr 2002 12:39:54
+12 Apr 2002 12:45:17
+12 Apr 2002 12:45:18
+12 Apr 2002 12:45:19
+12 Apr 2002 12:45:20
+12 Apr 2002 12:45:21
+12 Apr 2002 12:45:44
+12 Apr 2002 12:55:08
+12 Apr 2002 12:58:26
+12 Apr 2002 13:00:10
+12 Apr 2002 13:00:12
+12 Apr 2002 13:00:43
+12 Apr 2002 13:00:46
+12 Apr 2002 13:05:40
+12 Apr 2002 13:06:08
+12 Apr 2002 13:07:29
+12 Apr 2002 13:11:06
+12 Apr 2002 13:17:59
+12 Apr 2002 13:21:32
+12 Apr 2002 13:26:07
+12 Apr 2002 13:27:17
+12 Apr 2002 13:29:57
+12 Apr 2002 13:34:41
+12 Apr 2002 13:41:44
+12 Apr 2002 13:42:50
+12 Apr 2002 13:51:42
+12 Apr 2002 13:53:18
+12 Apr 2002 13:53:58
+12 Apr 2002 13:54:36
+12 Apr 2002 13:55:16
+12 Apr 2002 13:55:54
+12 Apr 2002 14:09:57
+12 Apr 2002 14:09:58
+12 Apr 2002 14:11:47
+12 Apr 2002 14:15:42
+12 Apr 2002 14:25:27
+12 Apr 2002 14:26:17
+12 Apr 2002 14:30:28
+12 Apr 2002 14:31:48
+12 Apr 2002 14:32:31
+12 Apr 2002 14:39:54
+12 Apr 2002 14:42:34
+12 Apr 2002 14:45:09
+12 Apr 2002 14:47:32
+12 Apr 2002 14:48:07
+12 Apr 2002 15:10:16
+12 Apr 2002 15:25:45
+12 Apr 2002 15:29:15
+12 Apr 2002 15:29:26
+12 Apr 2002 15:31:44
+12 Apr 2002 15:34:35
+12 Apr 2002 15:38:02
+12 Apr 2002 15:40:47
+12 Apr 2002 15:43:03
+12 Apr 2002 15:45:06
+12 Apr 2002 15:49:44
+12 Apr 2002 15:52:32
+12 Apr 2002 15:55:06
+12 Apr 2002 15:56:59
+12 Apr 2002 15:57:21
+12 Apr 2002 15:59:39
+12 Apr 2002 16:00:05
+12 Apr 2002 16:04:01
+12 Apr 2002 16:17:29
+12 Apr 2002 16:19:52
+12 Apr 2002 16:21:52
+12 Apr 2002 16:22:09
+12 Apr 2002 16:24:06
+12 Apr 2002 16:24:25
+12 Apr 2002 16:25:47
+12 Apr 2002 16:29:59
+12 Apr 2002 16:39:21
+12 Apr 2002 16:42:34
+12 Apr 2002 16:42:43
+12 Apr 2002 16:43:56
+12 Apr 2002 16:45:00
+12 Apr 2002 16:45:09
+12 Apr 2002 16:45:24
+12 Apr 2002 16:45:45
+12 Apr 2002 16:46:40
+12 Apr 2002 16:47:32
+12 Apr 2002 16:49:54
+12 Apr 2002 17:03:16
+12 Apr 2002 17:05:45
+12 Apr 2002 17:06:06
+12 Apr 2002 17:06:44
+12 Apr 2002 17:08:04
+12 Apr 2002 17:09:50
+12 Apr 2002 17:13:33
+12 Apr 2002 17:17:30
+12 Apr 2002 17:17:51
+12 Apr 2002 17:18:00
+12 Apr 2002 17:27:23
+12 Apr 2002 17:33:18
+12 Apr 2002 17:43:19
+12 Apr 2002 17:44:28
+12 Apr 2002 17:44:52
+12 Apr 2002 17:45:13
+12 Apr 2002 17:45:32
+12 Apr 2002 17:46:46
+12 Apr 2002 17:46:54
+12 Apr 2002 17:47:35
+12 Apr 2002 18:02:10
+12 Apr 2002 18:03:32
+12 Apr 2002 18:11:44
+12 Apr 2002 18:15:07
+12 Apr 2002 18:15:50
+12 Apr 2002 18:21:03
+12 Apr 2002 18:24:08
+12 Apr 2002 18:24:20
+12 Apr 2002 18:24:53
+12 Apr 2002 18:26:20
+12 Apr 2002 18:27:11
+12 Apr 2002 18:27:15
+12 Apr 2002 18:28:45
+12 Apr 2002 18:29:24
+12 Apr 2002 18:31:26
+12 Apr 2002 18:31:33
+12 Apr 2002 18:32:26
+12 Apr 2002 18:36:16
+12 Apr 2002 18:38:42
+12 Apr 2002 18:40:49
+12 Apr 2002 18:42:37
+12 Apr 2002 18:43:52
+12 Apr 2002 18:44:32
+12 Apr 2002 18:47:48
+12 Apr 2002 18:48:07
+12 Apr 2002 18:50:23
+12 Apr 2002 18:52:02
+12 Apr 2002 19:03:57
+12 Apr 2002 19:05:40
+12 Apr 2002 19:07:54
+12 Apr 2002 19:15:34
+12 Apr 2002 19:20:22
+12 Apr 2002 19:25:45
+12 Apr 2002 19:26:07
+12 Apr 2002 19:29:53
+12 Apr 2002 19:29:57
+12 Apr 2002 19:34:41
+12 Apr 2002 19:37:34
+12 Apr 2002 19:40:47
+12 Apr 2002 19:42:50
+12 Apr 2002 19:45:42
+12 Apr 2002 19:47:12
+12 Apr 2002 19:51:35
+12 Apr 2002 19:52:32
+12 Apr 2002 19:59:39
+12 Apr 2002 20:00:05
+12 Apr 2002 20:04:16
+12 Apr 2002 20:04:35
+12 Apr 2002 20:08:06
+12 Apr 2002 20:12:22
+12 Apr 2002 20:12:32
+12 Apr 2002 20:12:36
+12 Apr 2002 20:17:29
+12 Apr 2002 20:21:16
+12 Apr 2002 20:31:48
+12 Apr 2002 20:42:00
+12 Apr 2002 20:42:05
+12 Apr 2002 20:44:20
+12 Apr 2002 20:46:34
+12 Apr 2002 20:49:10
+12 Apr 2002 20:51:42
+12 Apr 2002 20:53:58
+12 Apr 2002 20:54:30
+12 Apr 2002 20:56:10
+12 Apr 2002 20:56:48
+12 Apr 2002 20:57:40
+12 Apr 2002 21:06:02
+12 Apr 2002 21:11:48
+12 Apr 2002 21:16:49
+12 Apr 2002 21:17:34
+12 Apr 2002 21:20:21
+12 Apr 2002 21:21:32
+12 Apr 2002 21:23:32
+12 Apr 2002 21:26:36
+12 Apr 2002 21:28:23
+12 Apr 2002 21:29:56
+12 Apr 2002 21:30:04
+12 Apr 2002 21:30:24
+12 Apr 2002 21:33:53
+12 Apr 2002 21:33:58
+12 Apr 2002 21:35:54
+12 Apr 2002 21:36:55
+12 Apr 2002 21:36:57
+12 Apr 2002 21:37:09
+12 Apr 2002 21:39:16
+12 Apr 2002 21:39:21
+12 Apr 2002 21:40:18
+12 Apr 2002 21:41:52
+12 Apr 2002 21:43:20
+12 Apr 2002 21:44:29
+12 Apr 2002 21:45:32
+12 Apr 2002 21:47:32
+12 Apr 2002 21:48:10
+12 Apr 2002 21:48:17
+12 Apr 2002 21:51:20
+12 Apr 2002 21:54:08
+12 Apr 2002 21:58:55
+12 Apr 2002 22:06:53
+12 Apr 2002 22:07:23
+12 Apr 2002 22:09:46
+12 Apr 2002 22:13:27
+12 Apr 2002 22:15:10
+12 Apr 2002 22:23:46
+12 Apr 2002 22:25:24
+12 Apr 2002 22:27:23
+12 Apr 2002 22:34:27
+12 Apr 2002 22:35:16
+12 Apr 2002 22:36:07
+12 Apr 2002 22:37:26
+12 Apr 2002 22:39:27
+12 Apr 2002 22:43:03
+12 Apr 2002 22:45:06
+12 Apr 2002 22:47:35
+12 Apr 2002 22:48:06
+12 Apr 2002 22:50:03
+12 Apr 2002 22:51:09
+12 Apr 2002 22:54:16
+12 Apr 2002 22:55:07
+12 Apr 2002 22:55:18
+12 Apr 2002 22:58:28
+12 Apr 2002 23:05:06
+12 Apr 2002 23:06:02
+12 Apr 2002 23:07:09
+12 Apr 2002 23:10:06
+12 Apr 2002 23:15:34
+12 Apr 2002 23:19:41
+12 Apr 2002 23:23:08
+12 Apr 2002 23:23:36
+12 Apr 2002 23:25:48
+12 Apr 2002 23:26:04
+12 Apr 2002 23:26:05
+12 Apr 2002 23:39:30
+12 Apr 2002, when
+12 Apr 80 -
+12 APR 96) -
+12 Area: *Info*
+12 Aretha Franklin -Spanish
+12 ARJ subs chess_(1-
+12 Armin - Communication
+12 Armoured Fist /
+12 as advertised
+12 ASA - Disk
+12 ASA (17HD) ³
+12 ASTERIX AND OBELIX
+12 at 12:45, FRANK
+12 at the time
+12 Aug 93 01:57:00,
+12 Aug 93 12:14
+12 Aug 93 15:22:43,
+12 Aug 93 15:22:43:
+12 Aug 93 16:30:50
+12 Aug 93 Bart
+12 Aug 93 Damien
+12 Aug 93, Kaz
+12 Aug 93, Peter
+12 August, Universal Time.
+12 Baby won't you
+12 Ballad for the
+12 BANK ROAD SPRINTER
+12 Bar
+12 Barbara Ann.mp3 1,231,113
+12 BARKLEY SHUT UP
+12 BAT 67 04/10/02
+12 BATTLE PINBALL
+12 BATTLE SOCCER 2
+12 BATTLE ZEQUE DEN
+12 Be bop.mp3 3,559,424
+12 beats so that
+12 beats.<o:p>
+12 Bel amour.mp3 3,581,952
+12 Belinda Carlisle\A Place
+12 Bernard Manning Shootin
+12 billion dollars to
+12 billion year old
+12 black & white
+12 Black And Blue
+12 Black sun.mp3 3,117,056
+12 blocks groups
+12 Blood Brothers_Tell Me
+12 Blue Angel.mp3 2,298,357
+12 Blue Monday 88.mp3
+12 BLUE MOON
+12 Blur-Country House.mp3 3,788,410
+12 Bob Dylan -
+12 Bobby Davis -
+12 Bolan's Zip Gun
+12 Bombalurina - Itsy
+12 bongs a work
+12 BONK
+12 Boris Gardiner -
+12 Both-Unlisted 4
+12 BRAIN LORD [3]
+12 Brand Nubian_Slow Down.mp3.mp3
+12 BRANDISH (USA FINAL)
+12 Breath.mp3 4,780,930 08/10/2001
+12 Brewery ;London;;WX1 6LT;UK;(71)
+12 Bright Lights (Instrumental)
+12 Brimful Of Asha
+12 Brother Brown_Under The
+12 brush shapes, dithered
+12 Bryan Adams -
+12 BUGS BUNNY -
+12 bulletins. A sinch
+12 burning up.mp3 4,783,020
+12 but there
+12 buttons pre-
+12 Byrds-Chestnut mare
+12 C source code.
+12 Cafe de fiore.mp3
+12 CANNON FODDER
+12 CANNONDALE CUP
+12 categories. It let
+12 categories. Wery easy
+12 Cathy Dennis- Move
+12 caught in the
+12 CCMail scripts ³
+12 cd crack
+12 CDs 10+ gig
+12 Celebrate our love.mp3
+12 CENTIPED (CHAMP)
+12 Champaign supernova.mp3 7,836,212
+12 Channel XM ³
+12 char '#' is
+12 character-long filenames. I
+12 characters), don't use
+12 charlene - i've
+12 CHDIR c$ +
+12 China Doll
+12 Choose Mag Base
+12 ChrisDeBurgh_LadyInRed.mp3 3,975,232 12/02/1997
+12 CI From Modem
+12 cities at the
+12 Click Save to
+12 Click the Current
+12 Click the Translate/Pull
+12 Closing titles.mp3 7,008,130
+12 Come on eileen
+12 command
+12 COMPILATION ALBUMS W
+12 Cool For Cats.mp3
+12 Cooper.mp3
+12 CorelDRAW: Chapter 1
+12 CRACKED
+12 Creating documents for
+12 Crocodile rock.mp3 4,959,085
+12 Crying Like A
+12 CSS Labs
+12 cups cold water.
+12 current and former
+12 Danger.mp3 4,282,514 01/10/2001
+12 Data
+12 data sets
+12 databases comprised of
+12 Dave Edmunds -
+12 DAY TRIPPER OASIS
+12 DEAR BOYS BASKETBALL
+12 Dec 81 -
+12 December 2000
+12 decorative monthly banners
+12 Deep down and
+12 deformations. Supports plug-in
+12 degrees of passion.mp3
+12 Derick Morgan -
+12 Desmond Dekker -
+12 detailed
+12 Developer 2000 Report
+12 different
+12 different surgeries, including
+12 digit ID that
+12 Digital love.mp3 4,786,155
+12 Digitizer
+12 digits precision,
+12 Disco's revenge .mp3
+12 DJ Jurgen Presents
+12 DJ Tiësto -
+12 DL Time 00:02:24
+12 DL Time 00:08:31
+12 Do what we
+12 do you see
+12 Doctors my eyes.mp3
+12 DON'T STOP IT
+12 Don't you want
+12 don mclean -
+12 Donnie Elbert-Where did
+12 DONT STOP ME
+12 DORAEMON TOKIHOUGYOKU ADVENTURE
+12 DORAKKI A LEAGUE
+12 Down The Line.mp3
+12 DRAMA !.mp3
+12 DREAM BASKETBALL DUNK
+12 Drink It Down
+12 Drinkin' My Way
+12 drvspacx.vxd
+12 DUAL-PLAY OPTiON TRAiNER
+12 Duke's end
+12 dwgs - electrical
+12 e smoove pres
+12 Easy Lessons
+12 Easy Lessons Table
+12 Easy Lessons/index.html"> Visual
+12 Easy Lessons</A><BR>
+12 eggs for breakfast...
+12 enable null stripping
+12 Endearing Young Charms
+12 engaging games like
+12 Enter Clown Faces
+12 episode of Fawlty
+12 Episodes
+12 episodes of Postman
+12 equal pieces. Roll
+12 Eugene Stratton-Little Dolly
+12 Eugene Stratton
+12 Every part of
+12 Everything's Coming Up
+12 Everything They Owe.mp3
+12 Evil acid.mp3 4,341,760
+12 EXCITE STAGE 95
+12 external *Info*
+12 external comm
+12 Fading lights
+12 familiar
+12 Fat Cat.mp3
+12 February 96
+12 Feel The Sun.mp3
+12 Felix navidad.mp3 18,077,257
+12 file
+12 file ³
+12 file ³ ³
+12 file areas.
+12 file(s)
+12 file(s) 1,056,702 bytes
+12 file(s) 1,101,061 bytes
+12 file(s) 1,152,862 bytes
+12 file(s) 1,398,256 bytes
+12 file(s) 1,786,588 bytes
+12 file(s) 113,450 bytes
+12 file(s) 121,029 bytes
+12 file(s) 152,013 bytes
+12 file(s) 2,130,478 bytes
+12 file(s) 2,214,825 bytes
+12 file(s) 2,640,555 bytes
+12 file(s) 21,727 bytes
+12 file(s) 241,945 bytes
+12 file(s) 248,453 bytes
+12 file(s) 249,027 bytes
+12 file(s) 249,437 bytes
+12 file(s) 251,192 bytes
+12 file(s) 28,165 bytes
+12 file(s) 281,978 bytes
+12 file(s) 3,087,722 bytes
+12 file(s) 3,096,820 bytes
+12 file(s) 330,568 bytes
+12 file(s) 335,205 bytes
+12 file(s) 340,183 bytes
+12 file(s) 340,587 bytes
+12 file(s) 340,709 bytes
+12 file(s) 340,905 bytes
+12 file(s) 341,704 bytes
+12 file(s) 342,008 bytes
+12 file(s) 342,139 bytes
+12 file(s) 342,318 bytes
+12 file(s) 343,086 bytes
+12 file(s) 345,677 bytes
+12 file(s) 378,049 bytes
+12 file(s) 424,063 bytes
+12 file(s) 425,425 bytes
+12 file(s) 432,520 bytes
+12 file(s) 44,513,556 bytes
+12 file(s) 466,828 bytes
+12 file(s) 5,097,504 bytes
+12 file(s) 5,456,921 bytes
+12 file(s) 5,458,432 bytes
+12 file(s) 5,866 bytes
+12 file(s) 6,131,479 bytes
+12 file(s) 609,665 bytes
+12 file(s) 637,050 bytes
+12 file(s) 77,028 bytes
+12 file(s) 888,126 bytes
+12 file(s) 92,987 bytes
+12 file(s) 98,304 bytes
+12 file(s) found
+12 Fire Island.mp3
+12 FISHES ON THE
+12 Flight 643.mp3 6,877,184
+12 floors there, but
+12 floors?????
+12 folders for quick
+12 fonts
+12 fonts of its
+12 Footsteps
+12 For Dos
+12 for windows +
+12 for WINDOWS C1.
+12 For Windows With
+12 FOREVER.mp3
+12 Form-feed character
+12 fps is sufficient.
+12 fps, while the
+12 Francis Lai -
+12 From Russia with
+12 from Simulmundo -
+12 FULL POWER [2]
+12 fully
+12 function keys on
+12 Funky like a
+12 Funny How It
+12 Gabriel Yared -
+12 Gabrilovich.mp3 5,185,306 02/10/2001
+12 Game Roms
+12 Games in One.
+12 games! ³
+12 Garbage-G\12 - Milk.mp3
+12 Gary Barlow -
+12 Gaylads - She
+12 Gemma bier trinken.mp3
+12 Get Smart.mp3
+12 Gigi_Thank Heaven For
+12 Gigs online -918-272-4327
+12 Girls like us.mp3
+12 Go ~B~ack
+12 GO GO ACKMAN
+12 GOD SAVE THE
+12 GOOD OLD FASHIONED
+12 Goodbye to the
+12 GOTO 1200BAUD
+12 GP1 PART 2
+12 Graphics 3.5" HD
+12 graphs at the
+12 graphs in
+12 graphs in different
+12 GREAT BATTLE 4,
+12 GREY DAY
+12 GUESS ME WEIGHT.mp3
+12 H000187.ZIP v2.3 MONACC
+12 H000647.ZIP v3.3 BANK-PLAN
+12 H000648.ZIP v3.3 EASI-PLAN
+12 H002679.ZIP v3.00J PAGE
+12 H003248.ZIP v1.60a CHECKMATE
+12 H004147.ZIP v3.1 MONEY
+12 H004201.ZIP v3.95 ACCOUNTING
+12 H004273.ZIP v2.0 NUTGROVE
+12 H004529.ZIP v4.0r THE
+12 H004577.ZIP v2.20 SYSTEMATIC
+12 H004644.ZIP AF BOOKKEEPING
+12 H006566.ZIP v3.30 EASI-PLAN
+12 H006587.ZIP v3.30 EASI-PLAN
+12 H006611.ZIP v1.00 FINANCIAL
+12 H006671A.ZIP v1.0d WINVOICES
+12 H006671B.ZIP v1.0d WINVOICES
+12 H006685.ZIP v4.50 OWL
+12 H006989.ZIP v2.20 GENERAL
+12 H007445.ZIP v4.07 ACCOUNT
+12 H007514.ZIP vMay96 MEDLIN
+12 H008678A.ZIP v5.01 ACCOUNT
+12 H008678B.ZIP v5.01 ACCOUNT
+12 H008681.ZIP v2.7 BILLPOWER
+12 H008908.ZIP v1.01 ORDERGEN
+12 H008950.ZIP v2.0 FINANCIAL
+12 H008957.ZIP v1.1 ES
+12 H008981.ZIP v1.7 BILLPOWER
+12 H009029.ZIP EZ BUSINESS
+12 H009374.ZIP v3.1 BUDGET
+12 H009448.ZIP v1.01 OWL
+12 H009815.ZIP v1.101 INVOICE!
+12 Hall of fame
+12 has been successfully
+12 HD GRAPHICS
+12 HD GRAPHICS/DTP
+12 high-end secial
+12 His eyes is
+12 HOME IMPROVEMENT
+12 hour shift on
+12 hours from Washington
+12 hours of cd
+12 Hours of MP3
+12 hours of singles
+12 hours, 49 mins
+12 hours. With a
+12 How do I
+12 hrs of me
+12 I'm a believer
+12 I'm Going Slightly
+12 I'm over you.mp3
+12 i've got it
+12 I can't get
+12 i fell in
+12 I ll meet
+12 i put a
+12 I Should Be
+12 I Want To
+12 I Will Always
+12 IBM PC/AT (alternative
+12 If I Said
+12 IF NOT YOU
+12 IF22 RAPTOR
+12 igotyoubabe.mp3 3,041,906 06/01/2000
+12 Ike Bennett and
+12 images per page!
+12 in
+12 In Fields Where
+12 in the manual,
+12 in the shortest
+12 In this maze.mp3
+12 inch Mixes
+12 inch rope, covering
+12 inch)
+12 Inches
+12 inches (full resolution)
+12 inches and there
+12 inches)
+12 inches, an object
+12 independent windows (MDI)
+12 Index
+12 Index 60
+12 Inner London Violence
+12 Innocence (The Desperation
+12 interactive display
+12 inxs - disappear.mp3
+12 IRON COMMANDO
+12 is occurring, this
+12 issues - 18
+12 issues
+12 It's a shame
+12 It
+12 James Bond -
+12 Jan
+12 Jan 2002 01:32:14
+12 Jazzy Jeff +
+12 Jeff Foxworthy Twas
+12 jim diamond -
+12 Jimmy James &
+12 jive bunny and
+12 JOHN MADDEN '95
+12 John Miles-Slow down
+12 Join the Future
+12 Jordan Knight_Give It
+12 Judy Collins-Send in
+12 Jul 80 -
+12 Jul 86 -
+12 Jul 93 07:30:27,
+12 Jul 93 Margarete
+12 Jul 93 you
+12 Jul 93, Mark
+12 JUL 99/FREELY
+12 Juli 1993 schrieb
+12 July 93:-
+12 Jump around.mp3 3,929,861
+12 Jun 2000.txt
+12 Jun 82 -
+12 Jun 93 James
+12 Jun 93 the
+12 Jun 93 you
+12 Jun 93, Ron
+12 JUN 95) -
+12 June 2000
+12 just a girl-mtv
+12 Kamaya Painters_Endless Wave.mp3
+12 Karl Douglas -
+12 keep your heart
+12 Kernkraft 400.mp3 4,157,440
+12 Kevin Bloody Wilson
+12 kilometers... how
+12 Kim Wilde-The Singles
+12 KNIGHTS OF THE
+12 KOSHIEN 3 (BASEBALL)
+12 kylie minogue -
+12 L 11 K
+12 L300.mp3 4,465,893 08/10/2001
+12 La strada del
+12 lace and whiskey-1977
+12 Lange - I
+12 large well greased
+12 Last
+12 Last revision date
+12 Laurel Aitken -
+12 left if you're
+12 Lena Flagbe_Golden Boy.mp3
+12 Let's get married
+12 Let It Be
+12 Let The Music
+12 Level
+12 levels and the
+12 levels, like opus
+12 LIKE A PRAYER
+12 Like a rolling
+12 Like im invisible.mp3
+12 Like we never
+12 Lines (1:271/47)
+12 lines to just
+12 lines, 913-897-6667 (1:280/35)
+12 Little Green Bag
+12 LITTLE STAR.mp3
+12 Loud And Clear.mp3
+12 Love Affair-One road
+12 Love me.mp3 4,856,685
+12 LUPIN 3
+12 m/s
+12 Madonna - Who's
+12 MAGIC
+12 MALFAND STORIES
+12 Man of mystery.mp3
+12 Man Parrish_Hip Hop
+12 Mansun - I
+12 Mantovani THE SWINGING
+12 Many happy returns
+12 Many happy returns.mp3
+12 Mar 83 -
+12 MARY'S BOY CHILD
+12 Mauro Picotto_Lizard.mp3
+12 May 1995
+12 May 1995,
+12 May 2001 09:35
+12 MB
+12 MB available hard-disk
+12 MB for Windows
+12 MB of available
+12 MB of RAM
+12 MB of space
+12 mb on hd)
+12 MB on Windows
+12 MB or RAM
+12 meg eu217
+12 Melodians - Swing
+12 Mercy mercy me.mp3
+12 METAL MORPH
+12 MHz system is
+12 MICHAEL JORDAN -
+12 MICKEY'S TOKYO DISNEYLAND
+12 MIGHT AND MAGIC
+12 MIGHTY MORPHING POWER
+12 minutes to compile
+12 minutes, or until
+12 minutes.
+12 minutes. You must
+12 mix)
+12 Mix).mp3
+12 mo underground people.mp3
+12 Modem/Uart/Serial Port *Info*
+12 Modem/Uart/Serial Port tester
+12 modern woman.mp3
+12 Moloko - Sing
+12 Money -Caberet
+12 Monkeys
+12 monsters in *Info*
+12 month
+12 month M.O.T.
+12 month M.O.T. 6
+12 month M.O.T. Special
+12 month memory deal
+12 month period. Sub-accounts;
+12 month personal &
+12 Month Screen Calendar
+12 months
+12 months ahead. Asset
+12 months FREE.
+12 months if that
+12 months on
+12 months on one
+12 MONTHS SCREEN CALENDAR
+12 months since I
+12 months.
+12 months. I'm now
+12 Months.xlt
+12 moon landing WAV
+12 more looney wav.
+12 Mp3 Albums -
+12 MP3 Albums
+12 MR. TUFF [3]
+12 Mrs. Robinson.mp3
+12 Mumbo Jumbo.mp3
+12 Mungo Jerry -
+12 musics are
+12 My Diary.mp3
+12 My generation.mp3 18,977,436
+12 N001525.ZIP v1997 MEDLIN
+12 N001702.ZIP vDEC91 BOOKKEEPING
+12 N002201.ZIP v1.5A1 CASH
+12 N002435.ZIP v6.8 BILLPOWER
+12 N002640.ZIP v8.0 NOYES
+12 N002763.ZIP v2.0b NOYES
+12 N002766.ZIP v3.0 NOYES
+12 N002785A.ZIP v4.00 SOAR
+12 N002785B.ZIP v4.00 SOAR
+12 N003062.ZIP vDEC91 BILLER4
+12 N003561.ZIP v4.0 NOYES
+12 N003625.ZIP v3.0 NOYES
+12 N003715.ZIP v2.08 PROFITABILITY
+12 N003793.ZIP v1.50 COLUMN
+12 N003801A.ZIP v2.11 SOAR+
+12 N003801B.ZIP v2.11 SOAR+
+12 N003947.ZIP v1.2D P&H
+12 N004580.ZIP v5.47 TIME
+12 N006658.ZIP v1.2.0 TIMETRACKER
+12 N007315.ZIP v3.1 MONEY
+12 N007465.ZIP v1.0 CREATE-A-RECEIPT
+12 N008171.ZIP v1.33 SIMPLE
+12 N008235.ZIP v1.87 I'M
+12 Naked In The
+12 Natalie Imbruglia -
+12 NBA LIVE '95
+12 NCAA FINAL FOUR
+12 near pool [abp]
+12 neat fun software
+12 Nelson Mandela THE
+12 NEW messages, but
+12 New Scenery Disks
+12 NICKELODEON GUTS
+12 NINJA WARRIORS, THE
+12 no mans land.mp3
+12 No Show Jones
+12 No. 8
+12 noon 'til 11:30
+12 noon, June 30th,
+12 Nos 1-8
+12 Nos 9-17
+12 Nov
+12 November
+12 Number 10
+12 Number 11
+12 Number 9
+12 O'Clock High:Bombing the
+12 Obvious
+12 Oct 1993 08:58:51
+12 Oct 1993 11:02:44
+12 Oct 1993, 15:00
+12 Oct 85 -
+12 Oct 93 11:37:18
+12 Oct 93 18:44,
+12 Oct 93 AD.
+12 Oct 93 at
+12 Oct 93 Mark
+12 Oct 93 Mike
+12 Oct 93 you
+12 Oct 93,
+12 Oct 93, Bill
+12 Oct 93, Nick
+12 Oct 96 with
+12 Oct Claire's Cracker
+12 oct. That was
+12 of 'em.
+12 of
+12 of @50p ea
+12 of 12 Last
+12 of 16.
+12 of 17.
+12 of the match
+12 of those countries
+12 offshore,chicane.mp3
+12 OGRE BATTLE [3]
+12 OH DIANE
+12 oh gaston
+12 oh gaston.mp3
+12 oh yeah.mp3
+12 ONE OF THESE
+12 Open Your Heart.mp3
+12 opponents
+12 OPPONENTS ARE º
+12 options (1 to
+12 or 14 something
+12 or Less Moves,
+12 or Windows 3.3
+12 Otis Clay -
+12 OUT VERY SOON.....
+12 oz jars</FONT></TD>
+12 Pacific state.mp3 4,532,767
+12 packets: 7 NETmail,
+12 PACMAN 2 -
+12 pages text file
+12 pages; CU 17
+12 Paint the Sky
+12 pantechnicons to move,"
+12 Paragons - On
+12 Paragons - The
+12 passwords
+12 PaulYoung_WhereverILayMyH.. 3,848,024 12/02/1997
+12 Pavarotti - Lunge
+12 PERFORMANCE AND COCKTAILS
+12 Periods, Constant .5
+12 Photoshop steps required
+12 pictures in PCX
+12 PIL - Don't
+12 Placebo - Slave
+12 player LAN teamplay-2.
+12 players and 4
+12 players, varyingº
+12 PLPCC.EXP- Ver
+12 Pm, ya just
+12 POCKY AND ROCKY
+12 points):
+12 POPEYE
+12 popular multi-part exclusive
+12 posters *Info*
+12 pounds a year
+12 pounds.
+12 Powerhouse ft Duane
+12 Pre-Installed Games
+12 Prelude part 2.mp3
+12 PREMIERS SYMPTOMES -
+12 PRETTY LITTLE ANGEL
+12 PRIME GOAL 2
+12 properties calculated for
+12 PUTTY SQUAD [3]
+12 PUZZ 3D
+12 Queen of cold.mp3
+12 QUEEN OF HOLLYWOOD
+12 QUID
+12 quid ono each,
+12 R Strauss -
+12 Rat Race THE
+12 Ray Dream Studio
+12 ReadMe
+12 Real McCoy -
+12 return to me.mp3
+12 RISE OF THE
+12 Ritorna Vincitor!
+12 ROBOTREK
+12 ROCK N IS
+12 Rock Rap'n'Roll CD
+12 ROCKO'S MODERN LIFE
+12 rolls of thermal
+12 Rubina .mp3 9,766,912
+12 Rude Boys Outa
+12 Runnin On E.mp3
+12 same old story.mp3
+12 Save the file
+12 Scared of you.mp3
+12 Scen.
+12 SD GREAT BATTLE
+12 seconds
+12 SECRET OF THE
+12 SECRET.mp3
+12 Sep
+12 Sep 1993, 15:37
+12 Sep 93 03:43:02:
+12 Sep 93 04:09:03,
+12 Sep 93 07:09:00
+12 Sep 93 1:34
+12 Sep 93 1:46
+12 Sep 93 10:44:31:
+12 Sep 93 10:57,
+12 Sep 93 12:45:02
+12 Sep 93 12:45:02,
+12 Sep 93 17:21,
+12 Sep 93 23:39:09
+12 Sep 93 23:56:20:
+12 Sep 93 at
+12 Sep 93 Chris
+12 Sep 93 Ian
+12 Sep 93 in
+12 Sep 93 Jon
+12 Sep 93 Kevin
+12 Sep 93 Lawrence
+12 Sep 93 the
+12 Sep 93 you
+12 Sep 93,
+12 Sep 93, Adam
+12 Sep 93, Alan
+12 SEP 93, CHUCK
+12 Sep 93, Frank
+12 Sep 93, I
+12 Sep 93, John
+12 Sep 93, Jon
+12 Sep 93, Nick
+12 Sep 93, Paul
+12 Sep 93, Ray
+12 Sep 93, Richard
+12 Sep 93, Ron
+12 Sep 93, Ruth
+12 Sep 93, Steve
+12 Sep 93...
+12 Sep 93:
+12 Sep 93>, Peter
+12 Sep Kaz Glover
+12 September 1993 03:31,
+12 September 1993 14:49
+12 September 93 you
+12 September( Redmire Pool
+12 Set the Side-Side
+12 Shackles.mp3 3,856,195 01/10/2001
+12 she's got away.mp3
+12 SHE MAKES ME(STORMTROOPER
+12 SHELF
+12 Shirley Bassey_Goldfinger
+12 Shorty.mp3 3,855,151 01/10/2001
+12 Side A.mp3
+12 Side B.mp3
+12 Signs of the
+12 Silent Breed -
+12 Skatalites and Don
+12 skill levels. Windows
+12 skyla.mp3
+12 skylined.mp3
+12 Sleeper-The It Girl\02
+12 so long marrianne.mp3
+12 SOCCER KID
+12 SOCCER SHOOT
+12 soft fonts
+12 Some wonderful.mp3 6,731,755
+12 Somebody stand by
+12 Sometimes Bad (Sometimes
+12 Song in last
+12 Song of life.mp3
+12 SONIC BLASTMAN 2
+12 Space-Tin Planet\14 -
+12 SPIDERMAN: LETHAL FOES
+12 Starting Problem
+12 STARTREK : DS9-
+12 STAY.mp3
+12 Stella.mp3 4,950,016 09/07/2001
+12 step programs sucking
+12 step programs, electronic
+12 STEP UP.mp3
+12 Steps Recovery Program
+12 stereo sound cards
+12 Steve Miller Band
+12 stone - dont
+12 String Acoustic Guitar.
+12 Suddenly it's folk
+12 Suede-Coming Up\Suede -
+12 Sugarhill Gang -
+12 SUPER ADVENTURE ISLAND
+12 SUPER B.C KID
+12 SUPER BOMBERMAN 3
+12 SUPER FIRE PRO
+12 SUPER FORMATION SOCCER
+12 SUPER MAD CHAMPIONSHIP
+12 SUPER MOERO PROYAHYU
+12 SUPER PINBALL 2
+12 Symphony.mp3 3,430,400 01/10/2001
+12 tablets in 24
+12 Take It Easy.mp3
+12 Taucher - Waters
+12 teams
+12 Tekara Feat. Lucy
+12 Tested.mp3 4,139,363 01/10/2001
+12 TG v1.0 Top
+12 That's entertainment.mp3 4,180,114
+12 thats just the
+12 The Battle March
+12 The Beat Goes
+12 The beefeater
+12 The beefeater.mp3
+12 The Blue Pearls
+12 The bottom hem
+12 the convalescent.mp3
+12 The Dandy Warhols
+12 The Drifters -Save
+12 The Elephant Ride.mp3
+12 The extremist .mp3
+12 The Fortnight Saga.mp3
+12 The heart is
+12 The Maytals -
+12 The music in
+12 The Perfect Fan
+12 The sentinel.mp3 4,661,812
+12 The Series Pyram
+12 The Series: Pyramid
+12 The Sharpes -
+12 The world is
+12 Thee is beauty
+12 THEN
+12 THEN G$ =
+12 THEN jk =
+12 then too. I
+12 There's no other
+12 Thinking it over.mp3
+12 This train don
+12 time after time.mp3
+12 times its original
+12 TNN BASS TOURNAMENT
+12 TO 0 STEP
+12 TO 1 STEP
+12 to 15 fps.
+12 to 18 +
+12 to 24 hours.
+12 to 24 inches
+12 to 8am *
+12 to MS-Kermit 3.12
+12 Tommy can you
+12 Too Experienced THE
+12 Too Much Too
+12 tools and 35
+12 Toots And The
+12 tossing & turning.mp3
+12 Toy soldier.mp3 3,045,355
+12 track 1 -
+12 track recorder. Importing
+12 tracks in playlist,
+12 tracks on
+12 tracks on it,
+12 tracks</strong>, each
+12 Trainer
+12 Transcribed by Reg
+12 Trephination.mp3 5,969,502 01/10/2001
+12 TROY AIKMAN NFL
+12 TrueType script font
+12 Tu che m'hai
+12 Tune.mp3 1,286,144 09/07/2001
+12 Twinkle Brothers -
+12 Two of a
+12 types of charts.
+12 U sure do.mp3
+12 £25
+12 UKP to register
+12 ULTIMATE FIGHTER [3]
+12 Uninvited.mp3
+12 Untouchable.mp3 4,859,297 01/10/2001
+12 Various Tracks
+12 Vega.mp3 3,540,992 09/07/2001
+12 Vengaboys - We're
+12 vide cor meum.mp3
+12 video digitiser with
+12 volt DC
+12 volts from Best
+12 VULTAN'S THEME(ATTACK OF
+12 WAKE UP WENDY.mp3
+12 Walking Down Madison
+12 Walking In Memphis.mp3
+12 Walking through the
+12 Wamdue Project_You're The
+12 Wanna do you.mp3
+12 WAV files sampled
+12 WCW : SUPER
+12 We belong -
+12 WEEKS
+12 WEEKS_01_I Do What
+12 WEEKS_02_The Best Is
+12 WEEKS_03_Slave To Love.mp3
+12 WEEKS_04_Black On Black.mp3
+12 WEEKS_06_You Can Leave
+12 WEEKS_07_Bread And Butter.mp3
+12 WEEKS_08_This City Never
+12 WEEKS_10_Let It Go.mp3
+12 Well Respected Man.mp3
+12 Well... All Right.mp3
+12 were
+12 What if
+12 Wierdaway
+12 will start the
+12 Willie Parker -
+12 Wind below.mp3
+12 Wiseguys_Ooh La La.mp3
+12 WORDS OF LOVE
+12 WORLD CUP USA
+12 WORLD OF MANGA
+12 x 5
+12 X rar files
+12 Yazz-The only way
+12 year old in
+12 year old school
+12 years
+12 years at this
+12 years of age.
+12 years of s**t
+12 YEARS OLD (I
+12 years old mostly
+12 years old!
+12 years, or whatever
+12 years? If someone
+12 You'll Never Know.mp3
+12 You Belong To
+12 You can't make
+12 You Don't Know
+12 You make me
+12 You will rise.mp3
+12 yr. old brother,
+12 yr. old girl
+12 ZIP inst msword(1-
+12 ZIP inst prodraw(1-
+12 ZIP inst versa_(1-
+12 zip passwords

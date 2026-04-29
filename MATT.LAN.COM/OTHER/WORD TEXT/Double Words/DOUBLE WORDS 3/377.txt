@@ -1,0 +1,79 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+77 - By Geneva
+77 & 67 chips
+77 *Info*
+77 0 0 39
+77 07 02 08
+77 07/12/94 16:29 INSTALL.BAT
+77 09/12/99 20:27 WTIME.INI
+77 1.7%
+77 13 0;50
+77 13/04/03 17:07 2468.TXT
+77 14/12/98 17:34 JSCRIPT.HTM
+77 16/06/01 23:36 DOS-0002.001
+77 16/06/01 23:36 DOS-UP.QDK
+77 18/06/98 0:00 MSVM.MNU
+77 2.2%
+77 22/10/01 0:20 DOS-UP.DAT
+77 230 0.8%
+77 25/03/96 15:00 FILE_ID.DIZ
+77 2998 after 6
+77 30/11/00 12:34 Microsoft
+77 38 6a |
+77 55
+77 55 100 218
+77 64 48 0
+77 6a | t...2.wj
+77 6B DA DC
+77 74 511 1.9%
+77 9e f7 82
+77 a3 04 e8
+77 Aldus Photostyler SE
+77 All night long
+77 categories with browser
+77 changed course in
+77 compiler script (req.
+77 days for my
+77 days late:O D'you
+77 file(s) 2,990,277 bytes
+77 H000093.ZIP NEW TRUTHS
+77 H000605.ZIP v1.0 IMPROVE
+77 H006573.ZIP v9.2 THE
+77 Minuten brennen, so
+77 minutes, then the
+77 MUSIC 1 0.0%
+77 MUSIC 196 0.1%
+77 MUSIC 2 0.0%
+77 MUSIC 2 0.1%
+77 MUSIC 2 5
+77 MUSIC 232 0.0%
+77 MUSIC 4 0.1%
+77 MUSIC 47 44
+77 MUSIC 5 0.1%
+77 MUSIC 6 0.5%
+77 MUSIC 7 0.2%
+77 MUSIC 8 9
+77 N004027.ZIP HOW THE
+77 N004105.ZIP PERSONALITY TESTERS
+77 N004428.ZIP v9.2 TOTAL
+77 N004450.ZIP v9.3 WITHIN
+77 N006572.ZIP v9.0 MADMEN
+77 options and 56
+77 P o s
+77 Pages! email bmetz@ukelele.gcr.com
+77 Sunset *Info*
+77 To return to

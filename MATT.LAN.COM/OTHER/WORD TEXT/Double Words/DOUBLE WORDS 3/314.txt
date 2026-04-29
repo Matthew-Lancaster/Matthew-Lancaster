@@ -1,0 +1,1328 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+14  Setting Lights
+14 ' ------------- NEW
+14 ' Flared
+14 ' Folio 8
+14 ' LM 2.0
+14 ' Number of
+14 ' Oblique/Off Center
+14 ' PDno
+14 '93 you wrote
+14 'Out of string
+14 ------"------
+14 -- Ronan Keating
+14 - A groovy
+14 - A love
+14 - A Rare
+14 - Adagio From
+14 - al martino
+14 - Albert Einstein's
+14 - Altan -
+14 - AlwaysBreakingMyHeart.mp3
+14 - andy williams
+14 - Anita O'Day
+14 - as time
+14 - Big black
+14 - Billie &
+14 - Black Chick
+14 - Black magic
+14 - Blarney Lads
+14 - Blue Train
+14 - Boogie Shoes
+14 - Brad Paisley
+14 - Buddy Guy
+14 - Can't believe.mp3
+14 - Can`t Fight
+14 - Chica bonita.mp3
+14 - Count Basie
+14 - Count On
+14 - Crazy love.mp3
+14 - Cretin Hop
+14 - Cyndi Lauper
+14 - Danny Boy
+14 - December 2000
+14 - Don't
+14 - Don't Ask
+14 - Dune
+14 - eartha kitt
+14 - Easy lover.mp3
+14 - Eddie Clearwater
+14 - Educational Files
+14 - Elmore James
+14 - END OF
+14 - Fats Domino
+14 - Fireball XL5
+14 - First time
+14 - Fur Elise
+14 - Gimme! Gimme!
+14 - Good Thing
+14 - Graduation (Friends
+14 - Herbie Hancock
+14 - Honey Honey
+14 - Hound Dog.mp3
+14 - Huboon Stomp
+14 - Hurt.mp3
+14 - I'm Sorry
+14 - I Don't
+14 - I Wanna
+14 - I Will
+14 - John Lee
+14 - Julian Cope
+14 - Keep on
+14 - Kim Weston
+14 - La Vie
+14 - LARN dungeon
+14 - Lazy River.mp3
+14 - Leave You
+14 - Let Love
+14 - Lets get
+14 - Lichfield Cathedral
+14 - Lightnin' Hopkins
+14 - Lionel Hampton
+14 - Little song.mp3
+14 - Lustral -
+14 - Lynn Anderson
+14 - M.O.B..mp3
+14 - Mamma Mia
+14 - Micky Doherty
+14 - Mighty Houserockers
+14 - Mike's Life
+14 - Mike Morgan
+14 - Mississippi Fred
+14 - Mississippi John
+14 - Moon Pie
+14 - mycomp, explorer,
+14 - Niamh Kavanagh
+14 - Oklahoma Medley.mp3
+14 - Olive -
+14 - on every
+14 - One More
+14 - Opening Title
+14 - P.J. Proby
+14 - Pat Boone
+14 - Paul Young
+14 - Phone Call
+14 - Rappers Delight
+14 - Rat trap.mp3
+14 - Responsorium
+14 - Robert Johnson
+14 - Robin Williams
+14 - Runnin' down
+14 - Running wild.mp3
+14 - Seeger's theme.mp3
+14 - Shadow Of
+14 - Shut Yo
+14 - Sleeping In
+14 - Smoke Gets
+14 - Something Must
+14 - Sometime in
+14 - Stormy weather.mp3
+14 - Sugar Bear
+14 - Teddy Wilson
+14 - Thank You
+14 - The Day
+14 - they suggest
+14 - Things will
+14 - Think Twice
+14 - This *Info*
+14 - Till The
+14 - Tony Bennet
+14 - Tony Iommi
+14 - Unknown.mp3
+14 - Until The
+14 - Waterloo Sunset.mp3
+14 - We Luv
+14 - When Heroes
+14 - When the
+14 - Wild Is
+14 - Wonderful Life
+14 - Woody Hermann
+14 -> del D:\hpHPF\EREG.HPI
+14 & 15.
+14 ( )
+14 ( 2.43%)
+14 ( 2.52%)
+14 ( 2.65%)
+14 ( 2.65%) PEP
+14 ( Final )
+14 (06/94). Last revision
+14 (1.4 seconds) </p>
+14 (12) SING WHEN
+14 (Moby) - Everloving.mp3
+14 (relocatable, no CD
+14 (SERIAL NUMBER 11111-11111)
+14 ********* The
+14 *Info*
+14 ....
+14 | ...#....
+14 ~ Madonna -
+14 ~ Underworld -
+14 ~S~kip Anyway
+14 + 2000 (M)
+14 => 9000h
+14 ³ K-Bytes 342
+14 0 0 0
+14 0 0 22
+14 0 0.0³
+14 0 5 22
+14 0 5 8
+14 0.0%
+14 0.1%
+14 0.2%
+14 0.3%
+14 0.4%
+14 0.6%
+14 0;49
+14 00 00 00
+14 02 06 |
+14 04/02/01 23:59 Server
+14 04/07/96 16:25 FROGGIE.BAT
+14 04/09/00 19:38 Autoroute
+14 1 1 0
+14 1 32 17
+14 1 40 0.2%
+14 1 45 16
+14 1.1%
+14 1/2
+14 1/2 and i
+14 1/2.. I live
+14 1/4....i live in
+14 10 0 0
+14 100 0.4%
+14 10cc - The
+14 123/19 396/1 11/2
+14 13 33 0.0%
+14 13 8 30
+14 14 14 60
+14 14 14 64
+14 15 16 18
+14 15 29 0.0%
+14 15 31 75
+14 18 08
+14 19 14 0
+14 19 38 118
+14 19/08/92 23:59 SORTDEMO.MAK
+14 19/08/92 23:59 SPINDEMO.MAK
+14 1993 01:20, Chris
+14 1993 01:24, Mark
+14 1993 03:19, Arnaud
+14 1993 11:29, Alexander
+14 1993 12:22:00
+14 1993 15:41, Andrew
+14 1993 16:26, James
+14 1993 17:21, Dave
+14 1993 19:41, Martyn
+14 1993 19:48, Papa
+14 1993 21:10, Maria
+14 1993 22:11, Terence
+14 1993 23:42, Dominic
+14 1993 at 11:55,
+14 1993 to Jonathan
+14 1993) Bob Wingender
+14 1993, After narrowly
+14 1993, Chris Mclean
+14 1993, David Garfield
+14 1993, Douglas Mackay
+14 1993, Erich Janssen
+14 1993, Ian Coates
+14 1993, Jean-Louis Bontront
+14 1993, Keith Hallock
+14 1993, Neil Sandham
+14 1993, Richard Webb
+14 1993, Ron Dwight
+14 1993, Stephen Davies
+14 1993, Thomas Ryan
+14 1993>, from Graham
+14 1993>, from Philip
+14 1993>, Jonathan Hutchins
+14 1993>, Tom Boucher
+14 1994 17:40, Mike
+14 1a 08
+14 2 0 7
+14 2 0 8
+14 2 L -
+14 20 135 0.5%
+14 2069
+14 21 0.1%
+14 21 40 102
+14 21 7 0
+14 21:33>, Brian Reed
+14 22 12 0
+14 22 32 33
+14 23/04/99 22:22 psp_path
+14 23:44>, Bill Mitchell
+14 25 14 8
+14 251/300 252/21 253/165
+14 26 20 1
+14 27 102 0.4%
+14 28
+14 28 0.1%
+14 29 0.1%
+14 29 113 0.4%
+14 2b
+14 3 0 8
+14 30 28 46
+14 33 30 32
+14 3601/14 441/80
+14 4 4 1
+14 4 4 48
+14 48 0.2%
+14 49 0.0%
+14 5 3 7
+14 5 4 8
+14 5 52 0.2%
+14 51 90 3
+14 58 13 0
+14 58376
+14 60 0.2%
+14 64 0.0%
+14 640 x 148
+14 65 0.0%
+14 68 266 5
+14 7 46 0.0%
+14 7/8 x 11
+14 70 0.0%
+14 74 0.3%
+14 8 12 8
+14 84 0.3%
+14 88 0.0%
+14 9 7 6
+14 94 and you
+14 9430
+14 abscondees traced, 1
+14 Acetate records.mp3 2,983,706
+14 adam ant -
+14 Adventures of Stevie
+14 After party.mp3 4,338,416
+14 Ain't It Sad.mp3
+14 All I Really
+14 All my teeth.mp3
+14 all new (fairly
+14 All Zips
+14 also. I am
+14 Alton Ellis -
+14 America -West Side
+14 and 2000
+14 and 24 point
+14 and I like
+14 and it was
+14 and living in
+14 and you have
+14 Angel - Galore
+14 Anthem.mp3 4,833,175 01/10/2001
+14 Anyway.mp3 4,945,920 13/07/2001
+14 Apr 1993
+14 Apr 1994, Jack
+14 Apr 2002 00:10:52
+14 Apr 2002 00:13:33
+14 Apr 2002 00:37:07
+14 Apr 2002 00:37:18
+14 Apr 2002 00:37:44
+14 Apr 2002 00:41:07
+14 Apr 2002 00:48:08
+14 Apr 2002 01:01:09
+14 Apr 2002 01:03:26
+14 Apr 2002 01:05:00
+14 Apr 2002 01:07:13
+14 Apr 2002 01:08:46
+14 Apr 2002 01:10:47
+14 Apr 2002 01:12:28
+14 Apr 2002 01:17:03
+14 Apr 2002 01:30:54
+14 Apr 2002 01:34:42
+14 Apr 2002 01:45:13
+14 Apr 2002 01:51:17
+14 Apr 2002 01:55:04
+14 Apr 2002 01:56:19
+14 Apr 2002 01:56:36
+14 Apr 2002 02:00:13
+14 Apr 2002 02:22:36
+14 Apr 2002 02:33:52
+14 Apr 2002 02:37:34
+14 Apr 2002 02:44:04
+14 Apr 2002 02:46:09
+14 Apr 2002 02:46:49
+14 Apr 2002 02:47:29
+14 Apr 2002 02:52:17
+14 Apr 2002 02:56:21
+14 Apr 2002 02:57:52
+14 Apr 2002 02:57:54
+14 Apr 2002 03:08:07
+14 Apr 2002 03:10:54
+14 Apr 2002 03:21:34
+14 Apr 2002 03:25:03
+14 Apr 2002 03:26:09
+14 Apr 2002 03:30:59
+14 Apr 2002 03:33:58
+14 Apr 2002 03:38:39
+14 Apr 2002 03:42:20
+14 Apr 2002 03:47:48
+14 Apr 2002 04:03:03
+14 Apr 2002 04:06:07
+14 Apr 2002 04:25:00
+14 Apr 2002 04:25:59
+14 Apr 2002 04:27:48
+14 Apr 2002 04:37:18
+14 Apr 2002 04:46:06
+14 Apr 2002 04:53:36
+14 Apr 2002 05:10:47
+14 Apr 2002 05:31:59
+14 Apr 2002 05:38:39
+14 Apr 2002 05:41:07
+14 Apr 2002 05:42:13
+14 Apr 2002 05:43:48
+14 Apr 2002 05:44:09
+14 Apr 2002 05:53:09
+14 Apr 2002 06:01:52
+14 Apr 2002 06:06:35
+14 Apr 2002 06:16:05
+14 Apr 2002 06:19:09
+14 Apr 2002 06:25:00
+14 Apr 2002 06:25:59
+14 Apr 2002 07:10:54
+14 Apr 2002 07:21:34
+14 Apr 2002 07:32:10
+14 Apr 2002 07:37:20
+14 Apr 2002 07:38:01
+14 Apr 2002 07:47:48
+14 Apr 2002 07:53:49
+14 Apr 2002 07:56:34
+14 Apr 2002 08:03:39
+14 Apr 2002 08:05:54
+14 Apr 2002 08:06:12
+14 Apr 2002 08:10:49
+14 Apr 2002 08:13:32
+14 Apr 2002 08:14:11
+14 Apr 2002 08:15:05
+14 Apr 2002 08:15:43
+14 Apr 2002 08:49:11
+14 Apr 2002 08:55:20
+14 Apr 2002 09:06:17
+14 Apr 2002 09:08:44
+14 Apr 2002 09:13:32
+14 Apr 2002 09:15:05
+14 Apr 2002 09:26:14
+14 Apr 2002 09:40:44
+14 Apr 2002 09:45:27
+14 Apr 2002 09:47:37
+14 Apr 2002 09:56:38
+14 Apr 2002 09:57:03
+14 Apr 2002 09:57:44
+14 Apr 2002 09:59:16
+14 Apr 2002 09:59:54
+14 Apr 2002 10:01:25
+14 Apr 2002 10:01:34
+14 Apr 2002 10:13:06
+14 Apr 2002 10:14:14
+14 Apr 2002 10:16:24
+14 Apr 2002 10:18:19
+14 Apr 2002 10:19:04
+14 Apr 2002 10:20:25
+14 Apr 2002 10:26:14
+14 Apr 2002 10:26:22
+14 Apr 2002 10:33:39
+14 Apr 2002 10:33:45
+14 Apr 2002 10:37:03
+14 Apr 2002 10:40:26
+14 Apr 2002 10:41:21
+14 Apr 2002 10:43:01
+14 Apr 2002 10:43:24
+14 Apr 2002 10:44:24
+14 Apr 2002 10:44:34
+14 Apr 2002 10:46:12
+14 Apr 2002 10:47:38
+14 Apr 2002 10:54:47
+14 Apr 2002 11:00:55
+14 Apr 2002 11:06:38
+14 Apr 2002 11:09:23
+14 Apr 2002 11:22:50
+14 Apr 2002 11:35:13
+14 Apr 2002 11:39:37
+14 Apr 2002 11:40:44
+14 Apr 2002 11:53:36
+14 Apr 2002 11:53:49
+14 Apr 2002 11:57:24
+14 Apr 2002 11:58:03
+14 Apr 2002 12:03:43
+14 Apr 2002 12:07:28
+14 Apr 2002 12:11:24
+14 Apr 2002 12:14:03
+14 Apr 2002 12:18:40
+14 Apr 2002 12:18:59
+14 Apr 2002 12:20:19
+14 Apr 2002 12:21:57
+14 Apr 2002 12:29:10
+14 Apr 2002 12:32:00
+14 Apr 2002 12:32:15
+14 Apr 2002 12:33:23
+14 Apr 2002 12:33:52
+14 Apr 2002 12:34:59
+14 Apr 2002 12:37:14
+14 Apr 2002 12:38:29
+14 Apr 2002 12:39:00
+14 Apr 2002 12:40:16
+14 Apr 2002 12:40:18
+14 Apr 2002 12:44:09
+14 Apr 2002 12:50:44
+14 Apr 2002 12:52:04
+14 Apr 2002 12:53:10
+14 Apr 2002 12:56:17
+14 Apr 2002 12:57:24
+14 Apr 2002 13:01:18
+14 Apr 2002 13:01:52
+14 Apr 2002 13:03:19
+14 Apr 2002 13:03:27
+14 Apr 2002 13:03:54
+14 Apr 2002 13:06:17
+14 Apr 2002 13:11:47
+14 Apr 2002 13:13:17
+14 Apr 2002 13:13:57
+14 Apr 2002 13:16:52
+14 Apr 2002 13:19:09
+14 Apr 2002 13:29:28
+14 Apr 2002 13:30:26
+14 Apr 2002 13:31:52
+14 Apr 2002 13:36:26
+14 Apr 2002 13:41:27
+14 Apr 2002 13:41:28
+14 Apr 2002 13:41:46
+14 Apr 2002 13:44:56
+14 Apr 2002 13:47:46
+14 Apr 2002 13:49:22
+14 Apr 2002 13:52:11
+14 Apr 2002 13:56:14
+14 Apr 2002 14:01:34
+14 Apr 2002 14:06:51
+14 Apr 2002 14:07:16
+14 Apr 2002 14:09:55
+14 Apr 2002 14:15:33
+14 Apr 2002 14:18:19
+14 Apr 2002 14:19:04
+14 Apr 2002 14:20:33
+14 Apr 2002 14:26:14
+14 Apr 2002 14:27:02
+14 Apr 2002 14:38:37
+14 Apr 2002 14:38:47
+14 Apr 2002 14:40:53
+14 Apr 2002 14:41:02
+14 Apr 2002 14:44:09
+14 Apr 2002 14:44:18
+14 Apr 2002 14:45:54
+14 Apr 2002 14:46:04
+14 Apr 2002 14:49:00
+14 Apr 2002 14:50:30
+14 Apr 2002 14:51:13
+14 Apr 2002 14:51:22
+14 Apr 2002 14:52:40
+14 Apr 2002 14:55:04
+14 Apr 2002 14:59:12
+14 Apr 2002 14:59:50
+14 Apr 2002 15:03:39
+14 Apr 2002 15:04:39
+14 Apr 2002 15:05:54
+14 Apr 2002 15:05:56
+14 Apr 2002 15:10:25
+14 Apr 2002 15:10:27
+14 Apr 2002 15:10:49
+14 Apr 2002 15:14:00
+14 Apr 2002 15:26:14
+14 Apr 2002 15:31:19
+14 Apr 2002 15:33:41
+14 Apr 2002 15:40:05
+14 Apr 2002 15:40:44
+14 Apr 2002 15:41:34
+14 Apr 2002 15:45:41
+14 Apr 2002 15:54:24
+14 Apr 2002 15:57:08
+14 Apr 2002 16:03:14
+14 Apr 2002 16:03:43
+14 Apr 2002 16:06:38
+14 Apr 2002 16:06:44
+14 Apr 2002 16:09:23
+14 Apr 2002 16:12:00
+14 Apr 2002 16:14:03
+14 Apr 2002 16:15:03
+14 Apr 2002 16:19:39
+14 Apr 2002 16:20:10
+14 Apr 2002 16:20:19
+14 Apr 2002 16:21:05
+14 Apr 2002 16:21:57
+14 Apr 2002 16:24:53
+14 Apr 2002 16:24:55
+14 Apr 2002 16:27:31
+14 Apr 2002 16:28:46
+14 Apr 2002 16:29:25
+14 Apr 2002 16:30:42
+14 Apr 2002 16:30:53
+14 Apr 2002 16:32:19
+14 Apr 2002 16:33:52
+14 Apr 2002 16:45:12
+14 Apr 2002 16:47:38
+14 Apr 2002 16:48:22
+14 Apr 2002 16:57:03
+14 Apr 2002 16:58:37
+14 Apr 2002 16:59:50
+14 Apr 2002 17:04:27
+14 Apr 2002 17:05:56
+14 Apr 2002 17:06:53
+14 Apr 2002 17:07:45
+14 Apr 2002 17:09:37
+14 Apr 2002 17:13:06
+14 Apr 2002 17:16:52
+14 Apr 2002 17:20:15
+14 Apr 2002 17:20:25
+14 Apr 2002 17:29:28
+14 Apr 2002 17:30:03
+14 Apr 2002 17:30:26
+14 Apr 2002 17:30:55
+14 Apr 2002 17:32:04
+14 Apr 2002 17:33:39
+14 Apr 2002 17:33:45
+14 Apr 2002 17:37:03
+14 Apr 2002 17:39:58
+14 Apr 2002 17:40:01
+14 Apr 2002 17:41:21
+14 Apr 2002 17:44:24
+14 Apr 2002 17:45:10
+14 Apr 2002 17:45:44
+14 Apr 2002 17:45:55
+14 Apr 2002 17:46:12
+14 Apr 2002 17:50:19
+14 Apr 2002 17:51:13
+14 Apr 2002 17:53:10
+14 Apr 2002 17:54:04
+14 Apr 2002 17:54:47
+14 Apr 2002 17:57:42
+14 Apr 2002 17:58:43
+14 Apr 2002 18:01:10
+14 Apr 2002 18:04:34
+14 Apr 2002 18:04:57
+14 Apr 2002 18:05:52
+14 Apr 2002 18:07:16
+14 Apr 2002 18:07:41
+14 Apr 2002 18:13:02
+14 Apr 2002 18:16:49
+14 Apr 2002 18:17:14
+14 Apr 2002 18:19:04
+14 Apr 2002 18:20:33
+14 Apr 2002 18:20:53
+14 Apr 2002 18:22:50
+14 Apr 2002 18:25:16
+14 Apr 2002 18:26:27
+14 Apr 2002 18:26:47
+14 Apr 2002 18:29:28
+14 Apr 2002 18:31:02
+14 Apr 2002 18:31:52
+14 Apr 2002 18:32:23
+14 Apr 2002 18:32:46
+14 Apr 2002 18:33:27
+14 Apr 2002 18:33:39
+14 Apr 2002 18:33:47
+14 Apr 2002 18:33:58
+14 Apr 2002 18:34:01
+14 Apr 2002 18:34:12
+14 Apr 2002 18:34:21
+14 Apr 2002 18:34:32
+14 Apr 2002 18:38:37
+14 Apr 2002 18:39:00
+14 Apr 2002 18:39:37
+14 Apr 2002 18:49:00
+14 Apr 2002 18:49:43
+14 Apr 2002 18:50:55
+14 Apr 2002 18:58:54
+14 Apr 2002 19:04:28
+14 Apr 2002 19:08:21
+14 Apr 2002 19:10:25
+14 Apr 2002 19:16:30
+14 Apr 2002 19:18:16
+14 Apr 2002 19:23:59
+14 Apr 2002 19:25:23
+14 Apr 2002 19:29:41
+14 Apr 2002 19:36:23
+14 Apr 2002 19:40:33
+14 Apr 2002 19:41:13
+14 Apr 2002 19:41:23
+14 Apr 2002 19:41:34
+14 Apr 2002 19:43:41
+14 Apr 2002 19:44:41
+14 Apr 2002 19:45:12
+14 Apr 2002 19:45:41
+14 Apr 2002 19:47:30
+14 Apr 2002 19:49:08
+14 Apr 2002 20:05:17
+14 Apr 2002 20:05:27
+14 Apr 2002 20:09:01
+14 Apr 2002 20:09:44
+14 Apr 2002 20:15:21
+14 Apr 2002 20:17:15
+14 Apr 2002 20:23:18
+14 Apr 2002 20:24:42
+14 Apr 2002 20:25:10
+14 Apr 2002 20:30:08
+14 Apr 2002 20:31:22
+14 Apr 2002 20:32:54
+14 Apr 2002 20:37:27
+14 Apr 2002 20:40:06
+14 Apr 2002 20:45:11
+14 Apr 2002 20:54:10
+14 Apr 2002 21:02:08
+14 Apr 2002 21:02:23
+14 Apr 2002 21:04:27
+14 Apr 2002 21:05:34
+14 Apr 2002 21:07:16
+14 Apr 2002 21:09:55
+14 Apr 2002 21:13:44
+14 Apr 2002 21:18:15
+14 Apr 2002 21:30:23
+14 Apr 2002 21:30:42
+14 Apr 2002 21:40:34
+14 Apr 2002 21:45:10
+14 Apr 2002 21:45:55
+14 Apr 2002 21:54:04
+14 Apr 2002 21:58:37
+14 Apr 2002 21:58:43
+14 Apr 2002 21:59:34
+14 Apr 2002 22:01:10
+14 Apr 2002 22:02:59
+14 Apr 2002 22:03:03
+14 Apr 2002 22:04:06
+14 Apr 2002 22:04:57
+14 Apr 2002 22:06:24
+14 Apr 2002 22:11:20
+14 Apr 2002 22:11:59
+14 Apr 2002 22:20:53
+14 Apr 2002 22:29:28
+14 Apr 2002 22:30:13
+14 Apr 2002 22:30:23
+14 Apr 2002 22:31:02
+14 Apr 2002 22:31:19
+14 Apr 2002 22:32:46
+14 Apr 2002 22:33:58
+14 Apr 2002 22:40:18
+14 Apr 2002 22:40:34
+14 Apr 2002 22:42:04
+14 Apr 2002 22:49:43
+14 Apr 2002 22:50:55
+14 Apr 2002 22:53:30
+14 Apr 2002 22:56:03
+14 Apr 2002 22:56:06
+14 Apr 2002 22:58:54
+14 Apr 2002 22:59:19
+14 Apr 2002 23:00:59
+14 Apr 2002 23:04:01
+14 Apr 2002 23:04:28
+14 Apr 2002 23:05:39
+14 Apr 2002 23:10:33
+14 Apr 2002 23:10:50
+14 Apr 2002 23:13:07
+14 Apr 2002 23:14:59
+14 Apr 2002 23:16:30
+14 Apr 2002 23:25:49
+14 Apr 2002 23:27:15
+14 Apr 2002 23:30:53
+14 Apr 2002 23:33:29
+14 Apr 2002 23:34:44
+14 Apr 2002 23:38:16
+14 Apr 2002 23:41:23
+14 Apr 2002 23:46:32
+14 Apr 2002 23:47:53
+14 Apr 2002 23:47:55
+14 Apr 2002 23:48:15
+14 Apr 2002 23:48:17
+14 Apr 2002 23:50:00
+14 Apr 2002 23:50:02
+14 Apr 2002 23:59:34
+14 Apr 94. Find
+14 archive types
+14 archive types and
+14 are ready
+14 Arms of Mary.mp3
+14 Art Strokes effects
+14 at 15:17, Keith
+14 at 16:53, Jacques
+14 Aug 93 10:50.
+14 Aug 93 18:05:33:
+14 Aug 93 19:58
+14 Aug 93 Ian
+14 Aug 93 the
+14 Aug 93 you
+14 Aug 93, Dave
+14 Aug 93, James
+14 Aug 93, Mark
+14 August 1997
+14 August 93 Barry
+14 Away THE SWINGING
+14 awesome effects, including
+14 Baby, I love
+14 BAKERS DOZEN
+14 BAND AID -
+14 Barber.mp3 7,060,375 02/10/2001
+14 barcode types on
+14 Be My Baby
+14 Beautiful South_Carry on
+14 Beautiful Things.mp3
+14 Before The Next
+14 Believe me baby
+14 Belinda Carlisle\A Place
+14 Billy Ocean-Stop me
+14 BLUE SAVANNAH.mp3
+14 Bob and Marcia-Pied
+14 Brain drain
+14 Bread - Make
+14 Brotherhood Of Man
+14 Bulletins For Remote
+14 but line length
+14 by unmarked christian
+14 C_ECHO 1 0.1%
+14 C_ECHO 10 0.4%
+14 C_ECHO 11 0.2%
+14 C_ECHO 11 0.3%
+14 C_ECHO 12 0.2%
+14 C_ECHO 12 0.3%
+14 C_ECHO 263 0.1%
+14 C_ECHO 276 0.1%
+14 C_ECHO 4 0.1%
+14 C_ECHO 51 72
+14 C_ECHO 6 9
+14 C_ECHO 7 0.2%
+14 C_ECHO 8 0.2%
+14 C_ECHO 8 16
+14 C_ECHO 9 0.2%
+14 calculations.
+14 Can't Get A
+14 CDATE 1995
+14 CHANNELS - WHY
+14 channels if you
+14 channels. OK
+14 characters, regardless of
+14 Chase the sun.mp3
+14 Che faro senza
+14 Cheesy but loveable
+14 CHERISH
+14 Cherish.mp3 4,981,028 01/10/2001
+14 column 16 in
+14 Come spy with
+14 COME TOGETHER OASIS
+14 components for Delphi
+14 CorelDRAW: Chapter 1
+14 courses in all
+14 CRAZY KONG (CHAMP)
+14 Creative effects. These
+14 Dance with me
+14 Dance with me.mp3
+14 Daniel Boone -
+14 Dark Blue
+14 dave clarke,the compass.mp3
+14 Day Demo
+14 day demo version
+14 day trial
+14 Days
+14 days Crew size:
+14 days for cheque
+14 days will cause
+14 days/index.html"> Teach Yourself
+14 Days</A><BR>
+14 Dead End Street.mp3
+14 Dec 85 -
+14 degrees, an object
+14 DELICIOUS.mp3
+14 Delphi components
+14 Derrick Morgan -
+14 Developer 2000 Report
+14 Diana Ross -
+14 different game
+14 different games like
+14 different locations in
+14 Dj Tiësto -
+14 DLC replacements for
+14 Don Drummond and
+14 Doris Day_Move Over
+14 Doves - Catch
+14 drives
+14 drives or is
+14 ECHOmail
+14 effects design filters
+14 ELSE COLOR 15
+14 epicentre.mp3
+14 Evangelina - Hoyt
+14 Everything is everything
+14 EZ Rollers -
+14 FASHION.mp3
+14 FAT BASTARD.mp3
+14 Fatboy Slim -
+14 Fatboy Slim_Praise You.mp3
+14 Feel the beat.mp3
+14 fields in WC
+14 file(s)
+14 file(s) 1,160,096 bytes
+14 file(s) 1,323,724 bytes
+14 file(s) 1,566,051 bytes
+14 file(s) 1,666,805 bytes
+14 file(s) 1,893,643 bytes
+14 file(s) 136,217 bytes
+14 file(s) 155,159 bytes
+14 file(s) 19,092 bytes
+14 file(s) 2,119,435 bytes
+14 file(s) 2,145,792 bytes
+14 file(s) 2,487,464 bytes
+14 file(s) 2,518,869 bytes
+14 file(s) 2,623,836 bytes
+14 file(s) 25,638 bytes
+14 file(s) 261,670 bytes
+14 file(s) 272,714 bytes
+14 file(s) 281,548 bytes
+14 file(s) 4,401,688 bytes
+14 file(s) 56,127 bytes
+14 file(s) 592,419 bytes
+14 file(s) 594,591 bytes
+14 file(s) 6,432,172 bytes
+14 file(s) 626,978 bytes
+14 file(s) 67,571 bytes
+14 file(s) 72,021 bytes
+14 file(s) 757,769 bytes
+14 file(s) 77,046,500 bytes
+14 file(s) 81,430 bytes
+14 file(s) 837,979 bytes
+14 file(s) 9,377 bytes
+14 file(s) 9,970,999 bytes
+14 file(s) found
+14 FLASH.mp3
+14 Flawless.mp3 3,775,216 08/10/2001
+14 Flush the fashion-1980
+14 Follow me.mp3 5,713,920
+14 fonts
+14 fonts are guaranteed
+14 fonts as this
+14 Fonts check box.
+14 fonts CorelDRAW, adds
+14 fonts, and convert
+14 fonts. Base 14
+14 FOR 2000
+14 for 2000.txt
+14 for each of
+14 for skipping school,
+14 FOREVER LIVE AND
+14 Fridge - Paradise
+14 Full albums comprising
+14 Full albums totaling
+14 Games <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+14 games in AGT
+14 Garbage-G\02 - Queer.mp3
+14 Gaylads - It's
+14 general technology categories
+14 Ghetto romance.mp3 4,233,404
+14 Gigs 16 Lines
+14 Go to the
+14 GOIN' BACK
+14 Good ol ghetto.mp3
+14 government related clipart
+14 GRAMS=$150
+14 GRAMS=$60
+14 graphical scenes
+14 Great Drawing Tools
+14 GREATEST HITS
+14 Gunner Joe
+14 Gunner Joe.mp3
+14 Gus Elen-Wait 'til
+14 Gus Elen
+14 guy from Hastings
+14 H000510.ZIP v1.01a THE
+14 H004999.ZIP v2.0a THE
+14 H007467.ZIP v1.21 CVEXE
+14 H009877.ZIP v5.0 OUT'N
+14 Hammer To Fall.mp3
+14 hard
+14 Heartbreak.mp3
+14 Heaven and earth
+14 HEAVEN IS IN
+14 HEAVEN KNOWS
+14 Help I'm a
+14 Hi-Gate_Pitchin'.mp3
+14 Holding you loving
+14 Hollies - He
+14 Honolulu baby
+14 Honolulu baby.mp3
+14 HOUND DOG..SHA-NA-NA.mp3
+14 Hour shift on
+14 hours a day
+14 hours of audio
+14 hours worth of
+14 house systems, 8400
+14 HP Vectra
+14 HUBOON STOMP.mp3
+14 I'll Meet you
+14 I'm Gonna Love
+14 I dreamt that
+14 I Get Lost.mp3
+14 i go to
+14 I love you
+14 I Wanna Be
+14 and was in
+14 if you want
+14 Impact.mp3 4,427,776 09/07/2001
+14 Importing, exporting, and
+14 in
+14 IN THE CITY
+14 inch colour monitor
+14 included ±²
+14 indo silver club.mp3
+14 intends to
+14 intermediate points (office
+14 Io l'Ho Perduta!
+14 irene cara -
+14 is a collection
+14 It don't mean
+14 Jamaicans - Things
+14 James Bond -
+14 Jan 1970. It's
+14 Jan 1982
+14 Jan 84 -
+14 Jesus Christ Superstar_Superstar
+14 jive bunny and
+14 Joe Tex -
+14 Johnny Clarke -
+14 Jul 96 with
+14 July,
+14 Jun 93 Michael
+14 Jun 93 Skyguide
+14 Jungle Music RICO
+14 Katrina Leskanich_In Our
+14 KB
+14 Kempsford Close, Oakenshaw
+14 Kim Wilde-The Singles
+14 Leah.mp3 2,589,675 17/04/1999
+14 Len_Steal My Sunshine.mp3
+14 Let's beuk.mp3 4,710,400
+14 Lets hang on.mp3
+14 Life In The
+14 Light my fire.mp3
+14 Loop control -
+14 Lord Of Tranz
+14 Love forget.mp3 6,722,873
+14 Love hurts
+14 Love Shack B52s
+14 M.O.B..mp3
+14 map projections
+14 map projections. Output
+14 Mar 81 -
+14 Mar 87 -
+14 Mar 94 18:57,
+14 March 2002. The
+14 Maria.mp3 6,893,568 09/07/2001
+14 Mario, Mario Mario
+14 May 88 -
+14 MB free disk
+14 mb on hd)
+14 Meatloaf - I
+14 Mechanical desktop has
+14 Meditations - Woman
+14 meg )
+14 meg eu203
+14 megabytes (MB) available
+14 megs of program
+14 Melodians - Sweet
+14 Messed Around.mp3
+14 Michael Jackson -
+14 MIDGE URE -
+14 MIDI channels and
+14 minutes 56 seconds
+14 Miscellaneous script files
+14 MMM Bop Hanson
+14 Montano vs Trumpet
+14 Move the camera
+14 Move the Scrubber
+14 MY LOVE IS
+14 N 13 M
+14 N003054.ZIP v4.0 RESUME
+14 N003159.ZIP vFEB92 CPS
+14 N003473.ZIP v1.20 PC-PAY
+14 N003624.ZIP v2.2 MOONLITE
+14 N003666.ZIP v2.7a BUSINESS
+14 N003713.ZIP v4.01 MONEY
+14 N003767.ZIP v2.07 JOB
+14 N003875.ZIP v3.0 RESUME
+14 N003953.ZIP v3.3 SOFTLINE
+14 N003968.ZIP v1.33 YOU'RE
+14 N003994.ZIP v3.0 PROFIT
+14 N004008.ZIP v4.3 B/PLAN
+14 N004112.ZIP v2.0 LOOKING
+14 N009225.ZIP v3.1 BUSINESS
+14 Natalie Imbruglia -
+14 new filters, multiprocessor
+14 NEW KID IN
+14 New World-Sister Jane
+14 Nina Simone -
+14 nitzer ebb,join in
+14 No 3 *Info*
+14 no. *Info*
+14 No. 16 *Info*
+14 No.9 *Info*
+14 Nobody's Baby Again.mp3
+14 Nos *Info*
+14 Nov 81 -
+14 Nov 87 -
+14 Number 4 PC
+14 Oct 1993 09:49:02
+14 Oct 1993 10:27:33
+14 Oct 1993 11:26:52
+14 Oct 1993 11:31:03
+14 Oct 1993 12:12:12
+14 Oct 1993 15:02:38
+14 Oct 1993 19:51:15
+14 Oct 93
+14 Oct 93 0:00:01
+14 Oct 93 0:01:01
+14 Oct 93 0:09:55
+14 Oct 93 01:07:01
+14 Oct 93 13:43:00<=-
+14 Oct 93 20:47:21
+14 Oct 93 20:48:51
+14 Oct 93 21:47:42
+14 Oct 93 21:48:22
+14 Oct 93 21:48:27
+14 Oct 93 21:48:29
+14 Oct 93 23:59:02
+14 Oct 93 Nick
+14 Oct 93,
+14 Oct 93, James
+14 Oct 93, Norma
+14 October 1993
+14 October as I
+14 odyssey - use
+14 of
+14 of 17.
+14 of the NOVLIB
+14 on-liners, where 6
+14 On my Way
+14 One 2 a
+14 only time will
+14 or longer. 600dpi
+14 or so, my
+14 ORC missions.
+14 other PCs access
+14 Our man flint.mp3
+14 OUT VERY SOON.....
+14 oz packages</FONT></TD>
+14 Pacific state.mp3 4,601,856
+14 Pastures of plenty
+14 Pato Banton &
+14 Pearls girl.mp3 5,298,155
+14 Peter Andre -
+14 Pioneers - Let
+14 Plastic dreams .mp3
+14 Plastic dreams.mp3 5,869,191
+14 pounds -
+14 pounds each -
+14 pounds. must pay
+14 Promises.mp3 4,021,289 01/10/2001
+14 Prosac.mp3 6,940,672 09/07/2001
+14 pts; 04/20/93; Pat
+14 queue records in
+14 QUID
+14 quid per hour,
+14 quid? Yes please!
+14 railway children -
+14 Ray Dream Studio
+14 Real McCoy -
+14 redredwine.mp3 2,935,327 05/01/2000
+14 rio bravo.mp3
+14 Rock Around With
+14 rooms Calculator- pops
+14 Sam & Dave
+14 Sam drummed out
+14 Sam drummed out.mp3
+14 Satellite.mp3 4,386,816 09/07/2001
+14 save games were
+14 Say what's on
+14 Scoop - Wings
+14 seconds
+14 Select just the
+14 Select the Right
+14 Sep
+14 Sep 1993 02:02
+14 Sep 1993 08:56:00>
+14 Sep 1993 10:47
+14 Sep 1993 10:49
+14 Sep 1993 13:57
+14 Sep 1993 20:50:02>
+14 Sep 93
+14 Sep 93 00:11:00,Russell
+14 Sep 93 01:27:01,
+14 Sep 93 05:12pm,
+14 Sep 93 08:58,
+14 Sep 93 09:46:18,Michael
+14 Sep 93 09:50,
+14 Sep 93 09:50:10,Michael
+14 Sep 93 10:27,
+14 Sep 93 12:12:11,Joe
+14 Sep 93 12:14:01,
+14 Sep 93 15:34:00,Bruce
+14 Sep 93 16:07,
+14 Sep 93 16:21
+14 Sep 93 16:21:03,
+14 Sep 93 17:58,
+14 Sep 93 20:23,
+14 Sep 93 22:06:00,
+14 Sep 93 22:26:24,Mathieu
+14 Sep 93 22:58,
+14 Sep 93 23:08:00,
+14 Sep 93 Dave
+14 Sep 93 Graham
+14 Sep 93 Simon
+14 Sep 93 the
+14 Sep 93 to
+14 Sep 93 you
+14 Sep 93,
+14 Sep 93, 08:01:46,
+14 Sep 93, Andy
+14 Sep 93, Anthony
+14 Sep 93, Barry
+14 Sep 93, Douglas
+14 Sep 93, Edward
+14 Sep 93, gARetH
+14 Sep 93, Graham
+14 Sep 93, I
+14 Sep 93, John
+14 Sep 93, Maria
+14 Sep 93, Michael
+14 Sep 93, Mike
+14 Sep 93, Murray
+14 Sep 93, Neil
+14 Sep 93, Niall
+14 Sep 93, Ray
+14 Sep 93, Rudy
+14 Sep 93, Terry
+14 Sep 93, Tim
+14 Sep 93, Tom
+14 Sep 93, Tony
+14 Sep 93:
+14 Sep 93>, Tim
+14 September 1993
+14 September 1993, you
+14 Serenata .mp3 3,559,424
+14 Serious.mp3 3,964,342 01/10/2001
+14 Set Bend to
+14 sets of invaluable
+14 Shaft - (Mucho
+14 Shaggy Boombastic.mp3 4,146,991
+14 SHARING THE NIGHT
+14 she's always a
+14 She Drives Me
+14 she moves(la la
+14 She thinks his
+14 Shine on.mp3 5,658,624
+14 should be used
+14 Side A Wed
+14 Silent wings -
+14 silver screen shower
+14 Sing it back
+14 Sky writer.mp3 3,812,832
+14 Skydive.mp3 4,067,328 09/07/2001
+14 Sleeper-The It Girl\TheItGirl2.BMP
+14 Sloop John B.mp3
+14 solid soul.mp3
+14 something like that....
+14 Somewhere Along The
+14 Songs.
+14 Songs. Anyone else
+14 Soundcheck_Minddrive.mp3
+14 Space-Tin Planet\TinPlanet.m3u
+14 Star sailor.mp3 3,461,120
+14 Starman.mp3
+14 steam heat.mp3 3,783,575
+14 Stereotype THE SPECIALS
+14 Stereotype THE SPECIALS.mp3
+14 Sugar Bear_Don't Scandalize.mp3.mp3
+14 SUPER HOLE IN
+14 Supercharger.mp3 4,562,024 01/10/2001
+14 Susan Cadonan -
+14 Sweet Charity_Big Spender
+14 SWEET LITTLE ROCK
+14 Sweetbox_Everythings Gonna Be
+14 Symarip - Skinhead
+14 TALK ON CORNERS
+14 Tammy Wynette-Stand by
+14 Thanks to John
+14 Thats entertainment.mp3 4,280,424
+14 The Broad Majestic
+14 The Coasters -Yakety
+14 the communards -
+14 The first night
+14 The Greeting Song
+14 the la's -
+14 the lie.mp3 4,209,371
+14 The Londonderry Air
+14 the lonely one.mp3
+14 The only living
+14 The Race Is
+14 The Singles Collection
+14 The Stylistics -
+14 The time is
+14 THE WEDDING MARCH.mp3
+14 THEN
+14 There's no drinking
+14 Thinking about lisa
+14 This guy's in
+14 Thoroughbred Mur
+14 Three Minute Hero
+14 Tingle tangle 1992
+14 Todd Terry_Something Goin
+14 Tom Jones-A minute
+14 Tom Petty &
+14 TOMB RAIDER 2
+14 Too Much Presure
+14 tracks in playlist,
+14 Trouble every day.mp3
+14 Try it you
+14 turn around.mp3
+14 TUSK
+14 Two In A
+14 types of pieces.
+14 U-Roy - Big
+14 UKW_Hypnotic.mp3
+14 Until The End
+14 Utils <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+14 Various Tracks (Aussie)
+14 Vic Reeves And
+14 Viper 2 -
+14 Warm weather.mp3 8,527,872
+14 Wassup
+14 Waterloo Sunset.mp3
+14 What Are We
+14 What took you
+14 When Love Goes
+14 When Will I
+14 White boy with
+14 Wild One.mp3 1,788,865
+14 WILL MAKE UP
+14 Win95
+14 Window Shopping THE
+14 WISHING
+14 Wishing I were
+14 with parental permission
+14 year-old daughter
+14 year old Patsy
+14 year olds aren't
+14 year olds. The
+14 years adifrnch.a
+14 years adimaths.a
+14 years and quite
+14 years in the
+14 years. I don't
+14 YMCA Millennium Mix.mp3
+14 Yomanda_Synth & Strings.mp3
+14 You're Wondering Now

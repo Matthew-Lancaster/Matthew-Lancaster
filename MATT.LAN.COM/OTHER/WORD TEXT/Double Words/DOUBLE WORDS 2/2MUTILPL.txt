@@ -1,0 +1,8877 @@
+#@***-----------------------------------------------------***
+#@***-------**-----INTEREST-----------------**------------***
+#@***-----------------------------------------------------***
+#**************----------------------------------************
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#@**************---------------------------------************
+* !@#$% NO CARRIER...but
+* "...Like a patient
+* "640K ought to
+* "90% of this
+* "; STRING$(20 -
+* "A bankrupt Jew
+* "A fool gives
+* "A Jew, if
+* "A Jewish miser
+* "A Jewish oath,
+* "A real Jew
+* "A sense of
+* "A thief gives
+* "About online meetings"
+* "Accuracy is in
+* "Ageing is bad,
+* "Always take --
+* "Always take!" [p.
+* "Ansi Strings" are
+* "Bargain like a
+* "Before a thief
+* "Better with a
+* "Can Not Read
+* "Coolness." - Picard
+* "Do NOT install
+* "Don't let that
+* "Energize said Kirk,
+* "excellent
+* "Go to hell!",
+* "God protect us
+* "Gold has a
+* "Gold shines out
+* "How would you
+* "I can't be
+* "I think Not!"
+* "I've said more
+* "If you can't
+* "If you steal
+* "IOS Failed to
+* "It's good to
+* "Just a Light
+* "Live among Jews,
+* "Man who jump
+* "Man who stand
+* "Mine! Mine! Mine!
+* "Money is the
+* "Money rules the
+* "Offer a Jew
+* "One need never
+* "Only a mediocre
+* "Petty thieves are
+* "Polly want a
+* "Rivendell? Not round
+* "Scotty, beam me
+* "So many Jews,
+* "Start an impromptu
+* "Start NetMeeting"
+* "The goy is
+* "The Jew cheats
+* "The world stands
+* "They told me
+* "Thieve and rob
+* "Topic Not Found"
+* "We will name
+* "What is smaller
+* "Why did the
+* "You never can
+* # Soap in
+* $19 Shareware.
+* %6 ID3 bug
+* 'You know my
+* ( ( ((
+* ( G -
+* ( Pictures at
+* ((((((Available in Stereo
+* (((((YOU)))))((((ARE))))(((((FEELING)))))(((((SLEEPY))))
+* ((640 / 480)
+* (+31-3408-71529) (2:512/162)
+* (+44-273-555984) 22:00 -
+* (+44-483-751324) (2:252/38)
+* (+49 211) 718
+* (0452) 384702 *
+* (061)-792-0260 (2:250/107)
+* (0705) 871471 *
+* (1 - cBarWid)
+* (1) Place tongue
+* (100-x%). If the
+* (1:104/655.0)
+* (1:105/200)
+* (1:106/9670)
+* (1:107/108.0)
+* (1:108/180)
+* (1:109/601)
+* (1:114/191)
+* (1:121/26.1)
+* (1:124/1208)
+* (1:124/1301)
+* (1:124/5149.0)
+* (1:124/7007.0)
+* (1:125/217.0)
+* (1:137/210)
+* (1:150/420.0)
+* (1:150/520)
+* (1:152/6)
+* (1:154/92)
+* (1:163/210)
+* (1:163/307.6)
+* (1:18/2)
+* (1:202/1324)
+* (1:209/276)
+* (1:226/210.0)
+* (1:240/1).
+* (1:243/12)
+* (1:244/118.0)
+* (1:2450/40)
+* (1:249/121)
+* (1:250/932)
+* (1:255/1.9)
+* (1:259/423)
+* (1:259/423.0)
+* (1:2603/106)
+* (1:2606/510)
+* (1:261/1131)
+* (1:261/1131.1)
+* (1:261/1137)
+* (1:2613/112)
+* (1:2613/112.2)
+* (1:2613/276)
+* (1:264/192)
+* (1:278/709)
+* (1:2801/40)
+* (1:300/204)
+* (1:300/39)
+* (1:307/26)
+* (1:345/25) * (8:980/25)
+* (1:3601/14)
+* (1:3601/14.0) (1:1/168.0) (1:18/68)
+* (1:3625/440@fidonet.org)
+* (1:369/76)
+* (1:374/31)
+* (1:379/901.0)
+* (203) 535-4284 (1:320/119)
+* (203)535-4284
+* (203)535-4284 (1:320/119)
+* (206) 588-6522 9600
+* (206)336-5915 (1:3401/5)
+* (206)566-1155 (1:138/115.0)
+* (212) 594-4425 *
+* (213:1010/107)
+* (214) 214-6805 *
+* (214) 660-3821 *
+* (214)250-4479 * (1:124/1208)
+* (215) 559-0553 (1:2607/302)
+* (215)626-3862 * The
+* (216) 688-2556 (1:157/635)
+* (250:501/605)
+* (2:200/709.2)
+* (2:220/320)
+* (2:220/620)
+* (2:222/151)
+* (2:222/360)
+* (2:246/9006)
+* (2:250/408)
+* (2:251/100)
+* (2:251/21)
+* (2:251/22)
+* (2:251/47)
+* (2:252/102.1)
+* (2:253/167)
+* (2:253/417.6)
+* (2:253/417.9)
+* (2:253/524)
+* (2:253/524.4)
+* (2:255/385)
+* (2:255/385.0)
+* (2:256/53)
+* (2:256/53.0)
+* (2:259/56)
+* (2:280/801)
+* (2:281/609)
+* (2:348/201)
+* (2:440/44)
+* (2:440/6)
+* (2:440/6.0)
+* (2:440/64.0)
+* (2:441/51)
+* (2:441/51.0)
+* (2:441/89)
+* (2:441/89.0)
+* (2:512/57.0)
+* (302) 732-6399 *
+* (302)529-1650 * (1:150/420.0)
+* (305) 346-8524 *
+* (313)582-0888 (1:2410/400)
+* (313)795-5445 * DS/HST
+* (317)-899-5741 (1:231/280)
+* (317)644-0006 (1:231/450)
+* (317)899-5741 (1:231/280)
+* (3:774/10)
+* (403)280-8802
+* (404) 471-6636 *
+* (405)782-5951 (1:385/24.0)
+* (410) 327-9263 *
+* (410)974-9305 (1:261/1108)
+* (416) 528-0636 (1:244/119)
+* (416)820-7273 * Dual
+* (416)898-3373 (1:250/910)
+* (44)-954-789993 * 1200-14400
+* (50 ^ (5
+* (50 ^ r))
+* (50 ^ r2))
+* (503)343-1712 * D/S
+* (503)343-4520 * HST/DS
+* (504) 837-2228 -
+* (512)282-3941 * H16
+* (519) 862-2396 (1:246/45)
+* (519) 862-2396 *
+* (601)939-2836 * v.32b
+* (602) 292-6576 *
+* (603)899-3335 (1:132/152)
+* (604)558-3701 (1:353/335)
+* (613) 545-9148 (1:249/107)
+* (613)634-6064 *
+* (613)634-6064 * (1:249/121)
+* (614) 291-9122 *
+* (615) 831-1758 (1:116/58)
+* (615) 831-1758 (1:116/58.0)
+* (619) 448-6470/448-2658 *
+* (6:600/226.0)
+* (713)879-6073]=- (1:106/6073)
+* (714)992-6636 (1:103/234.2)
+* (716)872-4415 * (1:2613/112)
+* (72:204/10)
+* (72:204/10.0)
+* (73:73/1)
+* (73:7440/22)
+* (803)293-3830 (1:3627/210)
+* (804)560-0322 *
+* (804)560-0322 * (1:264/192)
+* (813)585-4580,,,,,2 (1:3603/200)
+* (813)585-4580,,,,,22 (1:3603/200)
+* (818)951-2796/-6097
+* (8:954/407)
+* (8:980/25)
+* (902)835-0928 * Bedford,
+* (905)420-1774 (1:250/604)
+* (916) 448-2483
+* (916) 448-2483 (1:203/52)
+* (918) 254-6618 *
+* (918) 254-6618 HST
+* (Abs(lMax - lMin)
+* (AND IF YOU
+* (Antony Pappa Bootleg
+* (BUT THEIR CD`S
+* (c) 1996 Wonder-Soft
+* (C) IVEX
+* (CCur(&H7FFFFFFF) + 1)
+* (Eddy
+* (FARPOINTER far *)irqvector
+* (GE.DataWindow.X2 - GE.DataWindow.X1)
+* (GP.ChartWid - DLeft%)
+* (GP.ChartWid - DRight%)
+* (GP.MaxYPix% - 1)
+* (High - Low
+* (Kelly G Bump-N-Go
+* (Lennon/McCartney) Northern Songs
+* (LLayout.SymbolSize + 1)
+* (No-ware software /
+* (numeric keypad) 42
+* (Options AND 2)
+* (owned by root,
+* (PROFESSIONAL EDITION) 73-191
+* (rec.PercentPosition * 0.01))
+* (RMax - RMin)
+* (RND * 5)
+* (See the note
+* (Sharp Vocal Mix)
+* (Sol Brothers Turn
+* (STANDARD EDITION) 60-167
+* (Todd Terry Mix)
+* (unpac / zt));
+* (Upper - Lower
+* (VMax - VMin)
+* (W)e (A)in't (C)omin'
+* (X2 - X1)
+* (Y2 - Y1)
+* (YPanel + 1)
+* (YPanel - 1)
+* (YPanel - 1)).x4
+* (YPanel - 1)).y4
+* * *
+* * * (1:104/655.0)
+* * * (403)280-8802
+* * * *
+* * * **
+* * * ***
+* * * ****
+* * * *****
+* * * ******
+* * * *******
+* * * *Info*
+* * * -
+* * * --->
+* * * --New!--
+* * * -Full
+* * * -Innovative
+* * * -Multiple
+* * * -Speech
+* * * 2
+* * * 9
+* * * <-
+* * * A
+* * * Aladdin's
+* * * Also
+* * * ALTERNET
+* * * And
+* * * Awesome
+* * * be
+* * * Beyond
+* * * by
+* * * da
+* * * DANCE,
+* * * Deathmatch
+* * * different
+* * * DISC
+* * * Doom
+* * * Download
+* * * Easy,
+* * * Featuring
+* * * File
+* * * FINADISK
+* * * for
+* * * Free
+* * * FREEWARE!
+* * * graphics
+* * * Great
+* * * How
+* * * HUSTLER
+* * * If
+* * * InVircible
+* * * LIQUORICE
+* * * LITE
+* * * M
+* * * MADE
+* * * Make
+* * * New
+* * * NO
+* * * PICK
+* * * poll
+* * * Powerful
+* * * PRESENTS
+* * * PROMPT:
+* * * ProtEXE
+* * * QWK
+* * * Random
+* * * Requires
+* * * Scan
+* * * SKILL
+* * * STATUS
+* * * Supports
+* * * T
+* * * T4
+* * * Telix
+* * * THE
+* * * This
+* * * TO
+* * * UltiList
+* * * Use
+* * * Version
+* * * View
+* * * WAIT
+* * * World
+* * * _
+* * * |
+* * * ³
+* * * ÛÛÛ
+* *' .*****''
+* *'M ST*P*D -
+* **
+* ** * *
+* ** ** ***
+* ** Part of
+* ** Supports ALL
+* ***
+* *** !** *!*
+* *** * *
+* *** ***
+* *** *** ***
+* *** *** *******
+* *** **** *
+* *** From 21.30
+* ****
+* *****
+* ***** * *
+* ***** ***** *
+* ****** * *
+* ****** ******
+* ******* ****** ******
+* *****************
+* ************************************* * *
+* ************************************** * *
+* *deathmatch New
+* *deathmatch New Sounds,
+* *Info*
+* *loads faster. Created
+* + - Hackers
+* + MDI, edit
+* +1 503-254-2817 *
+* +31-1726-11190 * (2:281/609)
+* +351-1-8460390 * Lisboa,
+* +358-31-2110118 * (2:222/360)
+* +358-31-2110118 * v32bis/24h
+* +358-31-3564751 * (2:222/360)
+* +41-91-505857 * HST/DS
+* +44 (0)61-796-1770 (2:250/102.5)
+* +44 (0)71 284-3436
+* +44 501 31754
+* +44 666 504597
+* +44 86288 340
+* +44-(0)233-620228 * 24
+* +44-273-688888/699999 (2:441/86)
+* +44-279-792300 (2:440/103)
+* +44-322-278652 (2:440/51.0)
+* +44-322-278652 (RA 2:440/51.1)
+* +44-483-451802 & 451989
+* +44-666-504597 (Super 2:255/385.1)
+* +44-666-504597 * (2:255/385)
+* +44-706-821837 (2:252/150.0)
+* +44-732-870941 * HST/DS
+* +44-81-683-3536 * 24
+* +48-2-6284594 * 19:00-09:00
+* +49 7762-4191 *
+* +61-3-888-8846 v32bis (3:635/555)
+* - *
+* - * -
+* - 2-4 cooperative
+* - Ballistic Phunk
+* - Does the
+* - Regular Tribble
+* - single
+* --
+* -- (Lennon/McCartney) Northern
+* -- And Now
+* ---
+* --- Police tagline
+* ---- LOOKOUT ----
+* ---------------- (Lennon/McCartney) Northern
+* ------------------ (Lennon/McCartney) Northern
+* ------------------- --------------- ---------------
+* -------------------- (Lennon/McCartney) Northern
+* ---------------------- (Harrison) Northern
+* ---------------------------- (Lennon/McCartney) Northern
+* ---> Only $9.95!
+* --New!-- GIF support
+* --New!-- Turbo JPEG
+* --T-A+G-L-I+N-E--+M-E-A+S-U-R+I-N-G+--G-A+U-G-E--
+* -1))
+* -=[ Member of
+* -F-R-E-E- FREE CD-ROM
+* -Full
+* -Innovative Hit List
+* -Multiple Signatures *
+* -Speech (With Monologue)
+* .. You kinda
+* ... "Pssst... armadillosarebabytrolls...
+* ... "They'll probably
+* ... And on
+* ... Buy a
+* ... Despite the
+* ... During saxaphone
+* ... Everything's back
+* ... I think,
+* ... It's not
+* ... MSG 1
+* ... NO SPOT
+* ... Support mental
+* ... There is
+* ... There's too
+* ... Things have
+* ... What does
+* ... Zelda had
+* .... I can't
+* .... Kinda bent,
+* .... Tighten 'til
+* ...... "_______ÚÚÚ_¢.•_¿¿¿________" I
+* .....Fatal error. Press
+* .....their coming to
+* .../_vti_bin/fpcount.exe...
+* .../_vti_bin/shtml.dll...
+* .../_vti_bin/shtml.exe...
+* .../_vti_bin/_vti_adm/admin.exe...
+* .../_vti_bin/_vti_aut/author.exe...
+* ...And on the
+* ...as for me
+* ...but Windows IS
+* ...I used to
+* ...Take my advice,
+* ...wHERE'S THAT SHIFT
+* .0014)
+* .0015)
+* .0016)
+* .03)
+* .12 + ((ABS(SIN(tyg)
+* .12 + (ABS(SIN(tyg)
+* .85) / 2
+* .enlgat cnatas a
+* .WAV ouput support
+* .WAV writing bug
+* / ( )
+* /bin/sh session to
+* /etc/passwd and /etc/group.
+* /etc/passwd.
+* /usr/local/frontpage....
+* /\/\ * Voice
+* 0
+* 0 # D
+* 0 country dependent
+* 0.01)) + 1
+* 0.85) \ 2
+* 01. Ecuador (Original
+* 01. Scooby Snacks
+* 02. Jump Around
+* 02. Professional Widow
+* 0233 662424 (2:440/14)
+* 03. Block Reckin'
+* 03. I Wanna
+* 04 Jul 12:42:52
+* 04 Jul 12:42:55
+* 04 Jul 12:42:56
+* 04 Jul 12:43:00
+* 04 Jul 12:43:01
+* 04 Jul 12:43:02
+* 04 Jul 12:43:03
+* 04. Age Of
+* 04. Lovefool (Tee's
+* 04:37:58 MGR
+* 04:37:59 (status) (query)
+* 04:37:59 114.MSG from
+* 04:37:59 C_GAMES added
+* 04:37:59 C_MISC added
+* 04:37:59 C_SOUND added
+* 04:37:59 C_UTIL added
+* 04:37:59 NT_APPS added
+* 04:37:59 SDN.201 added
+* 04:37:59 SDSFRONT added
+* 04:37:59 SDSOTHER added
+* 04:37:59 SNDSBUTL added
+* 04:37:59 SNDSBVOC added
+* 04:37:59 SWEPOINT added
+* 04:37:59 TAGUTIL added
+* 04:37:59 WIN_SOUN added
+* 04:38:00 117.MSG from
+* 04:38:00 SDN.201 removed
+* 04:38:00 SDSOTHER removed
+* 04:38:01 118.MSG from
+* 04:38:01 SDSFRONT removed
+* 04:38:01 SWEPOINT removed
+* 04:38:01 WIN_SOUN removed
+* 04:38:04 124.MSG from
+* 04:38:05 164.MSG from
+* 04:38:07 Removing sent
+* 04:38:08 Active :
+* 04:38:08 Forward: 0
+* 04:38:08 Systems: 0
+* 05. Closer Than
+* 05. Sandman -
+* 06. Hold Your
+* 06. Let The
+* 0616521242 (2
+* 0616521242 (2:250/172)
+* 0622 891118 &
+* 0622 891118/891580 *
+* 07 Aug 13:13:17
+* 07 Aug 13:16:04
+* 07. Star People
+* 07. That Elvis
+* 078-7540902 * 12
+* 08. Ain't Nobody
+* 08. Belo Horizonti
+* 081-683 3536 *
+* 08:54:12 Packer error
+* 09. I Have
+* 09. Moment Of
+* 091-454 6978 *
+* 091-4546978 * 24
+* 1 ' To
+* 1 = "."
+* 1 = "="
+* 1 = "\"
+* 1'18992'18992'18992'32767' for getting
+* 1, FontHeader AS
+* 1-718-265-2547 * (1:2603/106)
+* 1-900-Tech Support...hold...all operators
+* 1. Anthem -
+* 1. Sweet Harmony
+* 1. They're Here
+* 1.00003)))
+* 1.04mb
+* 1.19mb
+* 1.27mb
+* 1.28mb
+* 1.2mb
+* 1.3)) * SIN(r)
+* 1.36mb
+* 1.38mb
+* 1.3mb
+* 1.5
+* 1.59mb
+* 1.6mb
+* 1.84mb
+* 1.8mb
+* 1.93mb
+* 1.95mb
+* 1.9mb
+* 10
+* 10 All i
+* 10 band graphical
+* 10 Gigs/1200 Confs
+* 10 Minute Guide
+* 10 times more
+* 10 ^ INT(LOG(MaxRange)
+* 10. Fly Life
+* 10. Just Can't
+* 10. Live In
+* 10. Shake Your
+* 10. Song Of
+* 10... 9... 8...
+* 10.3mb
+* 10.5mb
+* 10.8mb
+* 10.9mb
+* 100% Assembler decompression
+* 100% functional! (CREATES
+* 100% guide for
+* 100%.MP3 - Mary
+* 100)
+* 100) + 1
+* 100)))
+* 100))) + "%"
+* 100); "% ";
+* 100); "% code
+* 100, 1, 1)
+* 1024 * 1024
+* 1024 Bytes =
+* 104 (68h)
+* 10mb
+* 10pm-10am (2:253/511)
+* 11
+* 11 Perfect
+* 11. Brazen (Weep)
+* 11. Energy Flash
+* 11. Freed From
+* 11. I'm A
+* 11. Technomania Rebel
+* 11.5mb
+* 117 (75h)
+* 118MB
+* 119mb
+* 11:18:20 ANNOUNCE
+* 11:18:20 not enough
+* 12
+* 12 hours of
+* 12 to 8am
+* 12 What if
+* 12) + 1,
+* 12) + ty)
+* 12, 12) =
+* 12. 6 Underground
+* 12. Bells Of
+* 12. Gypsy Boy
+* 12. I Kill
+* 12. Voie Le
+* 12.5mb
+* 1200-14400 :-) (2:257/802)
+* 121mb
+* 122mb
+* 128
+* 128 ' Maintenance
+* 13 Sense
+* 13. I Am
+* 13. Offshore '97
+* 13. Rhythm Is
+* 13. Your Face
+* 13.2mb
+* 13.5mb
+* 138
+* 138 (8Ah)
+* 14
+* 14 Brain drain
+* 14. In Spirit
+* 14. Latinos Del
+* 14. Out Of
+* 14.4/V32B/V42B * (1:379/901.0)
+* 14.4k (1:106/435)
+* 14.4k (1:282/1010)
+* 14.4k * (713)879-6073]=-
+* 14.4K * v32bis
+* 14.4K bps or
+* 14.8mb
+* 144.5mb
+* 1461; // Number
+* 148.3mb
+* 14: RANDOMIZE
+* 15 Marvellous
+* 15 MB of
+* 15. Casual Sub
+* 15. Nine Ways
+* 15.2mb
+* 15mb
+* 16 + Bs
+* 16 MB of
+* 16 Three lions
+* 16) + 80
+* 16-color VGA video
+* 16. Bellissima (DJ
+* 16. Pacific Melody
+* 16.8HST/V.32bis * (203)535-4284
+* 16.8k ZyXEL (1:105/69)
+* 160''''''''=8*20
+* 166mb
+* 17. Argentina (Bootzilla
+* 17. Flaming June
+* 17.4mb
+* 171kb
+* 18
+* 18. Give Me
+* 18. Nightmare (Tall
+* 18.7mb
+* 19 Multi-Media Formats
+* 19. Amour (C'Mon)
+* 19. Somebody Like
+* 19.5mb
+* 194 (C2h)
+* 195 (C3h)
+* 19:00-09:00 CET *
+* 19:50:46 Rcvd C:\FD\INBOUND\0013D8C0.PKT;
+* 19:50:56 Sent C:\FD\OUTBOUND\0013D8C1.PKT;
+* 1mb
+* 1st 1.11 #1051s
+* 1st 1.11 #1557
+* 1st 1.11 #782s
+* 1st 1.11 #830s
+* 1st 1.11 #847
+* 2 * PI)
+* 2 + 2
+* 2 + Bs
+* 2 + HBs
+* 2 / 3
+* 2 Bad Mice
+* 2 CDs *
+* 2 country dependent
+* 2 Full
+* 2 Maes Y
+* 2 MB of
+* 2 megabytes disk
+* 2 The life
+* 2 ^ Align%
+* 2)
+* 2) + (b
+* 2) + 1)
+* 2) + 2
+* 2) - 1
+* 2) = hh(r
+* 2) = jj(r
+* 2) = r2d2
+* 2)) + (b(r2)
+* 2)) = hh((r
+* 2)) = jj((r
+* 2)), 2
+* 2)), 5
+* 2)), 6
+* 2. Let Me
+* 2. Rock Da
+* 2. Such A
+* 2.000003)))
+* 2.07mb
+* 2.15mb
+* 2.1mb
+* 2.2) * -1))
+* 2.2))
+* 2.47mb
+* 2.5 Gigs *
+* 2.57mb
+* 2.60mb
+* 2.66mb
+* 2.76mb
+* 2.94mb
+* 2.99mb
+* 20
+* 20 MB hard
+* 20" Monitor.
+* 20) + 5)
+* 20/20 TBBS *
+* 200
+* 20000'32767
+* 200:5200/14.7 *
+* 201-437-4355 (1:107/928)
+* 201-485-0299 (1:107/912)
+* 201.644.9047 * (1:2606/510)
+* 204-895-7522 * (72:204/10)
+* 204-895-7522 * (72:204/10.0)
+* 2048 = 681.984.000
+* 205-222-0772 * (1:18/2)
+* 206-720-4187 (1:343/92)
+* 206-720-4187 (1:343/92.0)
+* 206-763-2189 (1:343/92.0)
+* 207-761-4782 *
+* 21.4mb
+* 214-271-5410 (1:124/9006)
+* 214-390-7840 * 14.4K
+* 214-985-1453 * Plano,
+* 214/399-8414 * HST
+* 216-671-2574 (1:157/574)
+* 21:00 to 09:00
+* 21:14:14 Z_PNT.Z25 from
+* 22:09:02 PTSINFO.ZIP from
+* 22:09:05 (vscan) (move)
+* 23.6mb
+* 23:16:46 ANNOUNCE
+* 23:16:47 not enough
+* 24
+* 24 Hours *
+* 24 hours in
+* 24 HOURS ON-LINE
+* 24 Hrs *
+* 24));
+* 240
+* 24;
+* 24h (2:362/23)
+* 24hr * (2:251/21)
+* 24hr * Line
+* 24hr 44-273-885884 16k8
+* 24hr 44-273-885884 16k8HST
+* 24hrs * (2:252/102.1)
+* 24_7.MP3--3T - 24/7
+* 25
+* 25.9mb
+* 250
+* 250-number dialing directory
+* 253 ' Array
+* 255
+* 256
+* 256-color
+* 26 Z 25
+* 264kb
+* 271kb
+* 275-1785 @9600 (1:115/769)
+* 28 Lines *
+* 2: lie(1) =
+* 2:253/413.7 * 44:4000/6.7
+* 2BECOME.MP3--Spice Girls -
+* 2];
+* 3
+* 3 - 1
+* 3 - 4)
+* 3 /30 -
+* 3 1/2" Original
+* 3 : 1
+* 3 Lucky you
+* 3 or SYS(2004)</form>
+* 3) + 1:
+* 3) / 6
+* 3))
+* 3. All Funked
+* 3. Everybody All
+* 3. Technocat -
+* 3.08mb
+* 3.1mb
+* 3.32mb
+* 3.4
+* 3.5
+* 3.53mb
+* 3.5mb
+* 3.67mb
+* 3.76mb
+* 3.77mb
+* 3.87mb
+* 3.97mb
+* 30-day Trial
+* 30.8mb
+* 300kb
+* 305-432-2223 <HST/DS> (1:369/21)
+* 310-543-0439 V.32bis (1:102/125)
+* 312-769-1227 @2400 *
+* 315-797-3054 * (8:954/407)
+* 32 + Gs
+* 32 Compression Formats
+* 32 MB RAM
+* 32003
+* 32Bit *Info*
+* 33.6mb
+* 35.9mb
+* 37507 BSC Hartlepool
+* 38 + 34)
+* 38.6mb
+* 3D FTP 1.5.3
+* 3D Garden Planner
+* 3D Realms Full
+* 3D Spectrum Analyser
+* 3D Studio version
+* 3D WinBench'97 -
+* 3LIONS.MP3 - Baddiel
+* 4 + Gs
+* 4 + HGs
+* 4 You showed
+* 4)
+* 4, ByVal pIOProc
+* 4. Don't You
+* 4. Into Your
+* 4. Waterfall -
+* 4.0 Ã=¿
+* 4.0 Ã=¿ º
+* 4.21mb
+* 4.31mb
+* 4.46mb
+* 4.5 Gig *
+* 4.53mb
+* 4.66mb
+* 4.76mb
+* 4.86mb
+* 4.88mb
+* 4.8mb
+* 40
+* 400k
+* 400kb
+* 408-270-2678 (8:915/20)
+* 408-335-4595 (1:216/506.0)
+* 414kb
+* 415-337-5416 HST/V.32 *
+* 417kb
+* 42.2mb
+* 43
+* 43 ' The
+* 44
+* 44-273-688888/699999 (2:441/86)
+* 44-273-688888/699999 (2:441/86.0)
+* 44.8mb
+* 44:4000/6.7 * 200:5200/14.7
+* 45.8mb
+* 458kb
+* 46 characters with
+* 46.6mb
+* 47.1mb
+* 47311 Warrington Yard
+* 47515 Night Mail
+* 48 Local macros
+* 48) + 1
+* 48.4mb
+* 486+OS/2+FD+RA * 2.5
+* 486/66 processor (minimum);
+* 487kb
+* 49) + 1
+* 4mb
+* 4Mbyte SIMMs.
+* 5 * 5
+* 5 Change
+* 5 more suckers
+* 5 other suckers
+* 5)
+* 5) (PCI *
+* 5, 5);
+* 5. It's Alright
+* 5. It's My
+* 5. Morning -
+* 5.33, 255);
+* 5.3mb
+* 5.5mb
+* 5.98mb
+* 50
+* 50 country dependent
+* 50)
+* 500.MP3Lush - 500
+* 50036 Victorious
+* 501-267-9600 (1:391/1180.0)
+* 503-297-8667 * FAX
+* 503-659-4603 (1:105/269.0)
+* 503/697-0845 (1:105/250)
+* 504
+* 504 chord diagrams
+* 50h Net Application
+* 50mb
+* 51.4mb
+* 51.7mb
+* 512 Resolution -
+* 512-346-1852 (1:382/1201)
+* 513 745-0965 *
+* 515kb
+* 52 (34h)
+* 52.3mb
+* 54 (36h)
+* 592kb
+* 5mb
+* 6
+* 6 + 56)
+* 6 By Six
+* 6 Gigs *
+* 6 Waiting for
+* 6. Blue Orgasm
+* 6. Push The
+* 6. Spice Of
+* 6.14mb
+* 6.84mb
+* 60
+* 60 (s/min) *
+* 60 * 24));
+* 60 * 60
+* 60 * 60));
+* 60));
+* 600
+* 600) with 16-bit
+* 600k
+* 602-327-5601 * (1:300/39)
+* 602-846-4470 * (1:114/191)
+* 60;
+* 613 lines, *Info*
+* 613-739-1030 (1:163/224)
+* 613-830-0706 & 834-0823
+* 615-383-0727 (1:116/19)
+* 615-842-8758 (1:362/625)
+* 619-566-3280 * San
+* 626kb
+* 64
+* 64 bit mode
+* 640 X 480,
+* 650
+* 65mb
+* 67
+* 680 series: version
+* 690 series: version
+* 6mb
+* 7
+* 7 + 6)
+* 7 chord
+* 7 MB available
+* 7 NODES (1:152/22.0)
+* 7 Pure
+* 7) + 9
+* 7. Rhythm On
+* 7. Stay -
+* 7. You Gotto
+* 7.5GB * 7
+* 7.7mb
+* 702-386-7979 * (1:209/276)
+* 703-491-5726 (1:265/103.0)
+* 706-742-2729 (1:370/80.0)
+* 709kb
+* 713-292-2815 * 14.4k
+* 713/496-9670 * (1:106/9670)
+* 73 (49h)
+* 73:7441/106RANet
+* 75 (Blocks/s) =
+* 75 (Blöcke/s) =
+* 75.00 + VAT
+* 763kb
+* 79))
+* 79.6mb
+* 7mb
+* 8 * It's
+* 8 + HRs
+* 8 + Rs
+* 8 Language Translator
+* 8 MB of
+* 8 meg 72
+* 8 Sugar coated
+* 8. Don't Go
+* 8. Indica -
+* 8. My Love
+* 8.3mb
+* 8.4mb
+* 8.56mb
+* 8.76mb
+* 8.82mb
+* 80
+* 80 ' out:
+* 80 Crayola crayon
+* 80))
+* 800mb (2:440/8)
+* 805-395-0650 Home of
+* 805kb
+* 808kb
+* 813 481-5575>
+* 813-321-0734 (1:3603/20)
+* 813-481-5575 ³
+* 813-745-5677 * (1:137/210)
+* 813-939-3009 * HST/V32B
+* 813-939-3009 * USR
+* 814-886-2563 * DB
+* 814-941-9245 * Altoona,
+* 82.6% of statistics
+* 83.00 + VAT
+* 86255 Penrith Beacon
+* 87009 City Of
+* 87mb
+* 89.6mb
+* 8mb
+* 9 (I think)
+* 9 0' S
+* 9 Ready or
+* 9. Show Some
+* 9. The Ultimate
+* 9.06mb
+* 9.1mb
+* 9.79mb
+* 90% of being
+* 90% of PC
+* 904 729 2110
+* 908-972-8583 *
+* 908-972-8583 * (1:107/108.0)
+* 912-953-1053 (1:3611/15.0)
+* 913-631-0761 * Shawnee,
+* 92mb
+* 95)
+* 9600 baud modem;
+* 9600 baud or
+* 9600 V32b (1:124/1019.1912)
+* 97 Archive/SFX Formats
+* 97)
+* 970 series: version
+* 9999) / 10000
+* 9:441/118virnet * 73:7441/106RANet
+* <- Tribble .
+* <- Tribbles ù
+* << SysOp --
+* <<<<<<<<<<<<<< Beachcat 3
+* = INTER-BBS capable
+* = Lion King
+* =---------------------
+* >>>>>> <BG>
+* >ov++h+n AC*hanks for
+* @ M
+* A bird in
+* A C C
+* A clean, neat,
+* A closed mouth
+* A computer's attention
+* A deluge of
+* A dollar saved
+* A DOOM PWAD
+* A few items
+* A few new
+* a few other
+* A Hackers Guide
+* A HARD DRIVE
+* A Huge Level
+* A Lady is
+* A LEGACY OF
+* A little greed
+* A MAJOR
+* A MAJOR RELEASE,
+* A man is
+* A menu
+* A NEW magazine
+* A new way
+* A nudist wedding
+* A PC takes
+* A Portal Beta
+* A PPE to
+* A PRESIDENTIAL CANDIDATE'S
+* A printer interface
+* A program for
+* A pure conscience
+* A SELF-RUNNING DEMO
+* A semi-action arcade
+* A seminar on
+* A single fact
+* A small, quick
+* A software problem
+* A technique is
+* A TON of
+* A united Germany
+* A Very Large
+* a Windows-Based, High-
+* A Windows-based, resource
+* A wizard leads
+* A(pvt, col)
+* A(rp%, c%)
+* A(rpvt(pvt%), cpvt(pvt%))
+* A.S.H.A. - J.J.
+* A1 Condition.
+* AACTGATGGATTTATACAATATCCTGATGATGATGATTAT - D.N.A.
+* abbreviation of MPEG
+* Ability to convert
+* Ability to create
+* Ability to disable
+* Ability to execute
+* Ability to put
+* Ability to save
+* Ability to set
+* Ability to set/change
+* About LiveUpdate
+* About Online Meetings
+* Absence makes the
+* Absolutely Online 2.91
+* Absurd (Landslide Mix)
+* ABySS BBS *
+* Academic Edition Software.
+* Access to databases
+* Access ZipMagic options
+* access, read the
+* AccessDOS
+* Account Hot Keys
+* Accurate planning of
+* ACDSee32 v2.1
+* Acorn * [0829]
+* Acorn User Groups
+* ActiveOffice (for Office'95
+* ActiveX & VBScript
+* ActiveX Programming Unleashed
+* ActiveX Programming with
+* Adam's Apple *
+* Adaptec Easy CD
+* Adaptec EISA SCSI
+* Add "Microsoft Windows
+* Add a new
+* Add data compression
+* Add Method (CommandBars
+* Add or delete
+* Add Streaming Animation
+* Add tearline (Forward
+* Add the text
+* Add Web 3.33
+* Added "-Update" switch
+* Added "Expand filenames"
+* added 'default extension'
+* added 'playlist types'
+* Added -KillDupes command
+* Added -Unknown switch
+* Added .BTM support
+* Added .ZIP support
+* Added /CLASS="Winamp v1.y"
+* added /config=file.ini (path
+* added /new switch,
+* added /V (view
+* added 2-2-'98
+* Added a buttload
+* Added a nifty
+* Added a script
+* added a temporary
+* added ARCmail status
+* Added bar analyzer
+* Added better MPEG
+* added checking for
+* added demo.mp3, and
+* Added desktop icon
+* Added detection and
+* Added detection for
+* Added extended-M3U/PLS support
+* Added file disk
+* Added full Xing
+* Added heuristics for
+* Added live web
+* Added Maint command
+* added new remove
+* Added new switch:
+* Added nifty "add
+* Added option for
+* added page and
+* added plug-in config
+* Added recent stream
+* Added repair for
+* Added SHOUTcast title
+* added skin enhancement:
+* Added SkinDir= and
+* Added streamed-file saving
+* Added support for
+* added up/down arrow
+* added width&height chex
+* Added WM_GETMINMAXINFO handler,
+* Additional Information
+* Additional memory: 8
+* AddOfficeServerSubscription Method (Office
+* Addressing Mike Astin,
+* Adult Bbs* HST9600
+* ADULTS ONLY *
+* Advanced Accessibility Support
+* After all the
+* After applying this
+* After completing the
+* After his suspension,
+* After installing the
+* After the installation
+* Ain't Talkin' Bout
+* Airtel Remote Access
+* Aladdin's Palace Version
+* Alanis Morissette -
+* Alarms (if quotation
+* Alcatraz - Giv
+* ALCATRAZ.WAD *
+* Alchemist & Fade
+* alhambra
+* ALIAS Support º
+* Alison Balter's Mastering
+* Alison Limerick -
+* all fight like
+* All for one;
+* All hope abandon,
+* All Manuals
+* All messages created
+* All new better
+* All products that
+* All Speeds *
+* ALL UTILS TESTED
+* All wiyht. Rho
+* Allen TX *
+* Allfix for DOS
+* Allfix for OS/2
+* AllFix Reg/Support (1:153/942)
+* ALLFIX! for WC
+* Allow the BME's
+* allow the exclusion
+* Allow your callers
+* Allows Multiple Instances
+* Allows you to
+* Along with Name
+* Alresford in Hampshire,
+* Also added some
+* also be interested
+* Alt-H means never
+* Alternate and custom
+* Alternate volume setting
+* ALTERNET LIFESTYLES (303)935-7283
+* altg !/A!altm !+¢"altn
+* Although COUNTRY.SYS supports
+* Although the case
+* Although you might
+* Alton UK *
+* Altoona, PA (250:505/1877)
+* Always use tasteful
+* Amazing photo-realistic graphics
+* Amen UK -
+* AMENDMENTS TO OUR
+* AMIGA 1400 A
+* AmiQWK 1.1.1 *
+* AmiQWK II 1.0b
+* Ammonia system servicing
+* AMNESIA.MP3 - Double
+* Amount of free
+* AMOUR.MP3 - Brainbug
+* An *Info*
+* An account with
+* an enigmatic paradox
+* AN ENTIRELY UNRELATED
+* and # keys
+* and 4 Mage's,
+* AND A VERY
+* and effectively. Ensuring
+* AND FINALLY
+* and Great Graphics
+* and is not
+* And more!
+* And More... Requires
+* and of special
+* and them hit
+* AND TO ANY
+* and we want
+* and-much-more... (by W.Koerner)
+* Andalusia, AL *
+* Anderson,IN * (317)644-0006
+* ANDY : DO
+* ANDY :WHEN YA
+* Animation
+* ANSI and TTY
+* ANSI/VT102, VT52, AVATAR/0
+* Any COM port
+* Any existing installation
+* Anyone who is
+* AnyTime Organiser
+* Apache FrontPage module.
+* Apache Server Survival
+* Apathy Error: Don't
+* APOLONIA.MP3 - Indie
+* Apply effects using
+* Apply works as
+* appropriate. If there
+* Arched and rounded
+* Arched doorways.
+* architexure
+* Archive search of
+* Archivers run in
+* Archives:
+* are featured in
+* Are the speakers
+* ARE THEY A
+* Area : .Netmails
+* Area : EC_SUPPORT
+* Area : FIDOBILL
+* Area : Gecho
+* Area : MATRIX
+* Area : NETMAIL
+* Area : NETMAIL001
+* Area : RA_DIST
+* Area : USER-NET
+* Area : VR_SYSOP
+* Area Code 817
+* AreaFix is now
+* Aren't bigotry and
+* Ariel - Deep
+* arising out of
+* Armadale, UK *
+* Arsenal of Freedom
+* Art History Brush
+* Artificial Intelligence: The
+* As a computer,
+* As easy as
+* as root and
+* As seen *Info*
+* ASA CHANGES
+* ASC Worksheet Function
+* Asheville, NC *
+* Ashford, Kent *
+* ASP * Contact
+* Assistant Object
+* Assure that the
+* Assure that this
+* Assure that we
+* Astrolog 5.10 is
+* Astrolog 5.20 is
+* Astrolog 5.30 is
+* Astrolog version 4.30
+* Astrolog version 4.40
+* At last a
+* At the C:\
+* At the MS-DOS
+* At the same
+* AT&GETMAIL&READMAIL&STEALTAGLINE&ISTOLETHISONE
+* Atarian Multiline BBS
+* AtGuard
+* AtGuard 3.22
+* ATP/qwk 1.42 *
+* Attach binary files
+* Attempt to maintain
+* attempted fix: bookmark
+* Attention K-Mart shoppers,
+* AudioCatalyst 2.0
+* AudioSoft ASFS Support
+* Austin TX *
+* Austin, Tx *
+* AUSTRALI.MP3--Manic Street Preachers
+* Author: Rob
+* Auto
+* Auto Pan: A
+* AUTO SPORT
+* auto-idle when not
+* Auto-Protect (NAVAPW32.EXE, NAVAP.VxD,
+* Auto-Save on exit
+* Autoclean - provides
+* AUTODIZ * Version
+* Automatic archival and
+* Automatic Backup -
+* Automatic compression decision
+* Automatic correction for
+* Automatic creation of
+* Automatic detection of
+* Automatic IE integration
+* Automatic LiveUpdate requirements
+* Automatic management of
+* Automatic Protection and
+* Automatic quantity takeoffs
+* Automatic roof designer
+* Automatic Speed reduction
+* Automatically detects and
+* Automatically detects old
+* Automatically keeps
+* Automatically maintain head
+* Automatically saves newly
+* AutoPlay Menu Studio
+* Autowah - Filter
+* AutoWorks
+* Auxiliary power unit
+* Available hard-disk space
+* Available hard-disk space:
+* Avoid reality at
+* avoid sitting in
+* AVP can detect
+* AVP Control Center
+* AVP is up-to-date
+* AVP Monitor, the
+* AVP recursively scans
+* AVP works in
+* AVS 1.5a6 (coming
+* AVS 2.1 .
+* avs 2.4.9 (interface
+* AVS 2.5 (new
+* AVS includes experimental
+* avs: optimized fullscreen
+* AWARD NOMINATIONS SOUGHT
+* Award winning Eye
+* Award-Winning Freeware *
+* awareness of global
+* Awesome graphics, many
+* b(pvt)
+* b(rpvt(pvt%))
+* B.B.E. - Seven
+* Bachelor: Plays the
+* Back in October
+* Back up all
+* Backup not found.
+* Backup not found:
+* Bad or Missing
+* bangkok block
+* Banner Show
+* bark
+* Barrel Of A
+* BarWid
+* BarWidth
+* Base & crown
+* basketball
+* Bass Generator -
+* Bass X -
+* Bass-D & King
+* Bayonne, NJ *
+* BAZ : NICE,
+* BBS Ads, Supports
+* BBS Police: you've
+* BCG-Box, using BBBS!
+* be easily duplicated.
+* Be excellent to
+* Be kind to
+* Be paying for
+* be warned *
+* BEAHIPPY.MP3--Technohead - I
+* Beam me up
+* BEATGOES.MP3--The Whispers -
+* Beauty is skin
+* Beaverton, OR USA
+* Become a programmer
+* Bedford, NS (1:251/7)
+* Before all else
+* Before running Norton
+* being able to
+* BeLgArAtH *
+* BELIEVER.MP3 - Robson
+* Bellevue, Ne (1:285/34)
+* Bellissima (Original 12"
+* BEST OF BUSINESS
+* Beta - Unfinished
+* Beta()
+* Beta(inside%, col%)
+* Bethel Park, PA
+* Better "browse for
+* BETTER COMPRESSION THAN
+* Better directory and
+* Better docking code
+* Better equalizer presets
+* Better filetype registration
+* Better filetype registration.
+* Better installer integration
+* Better litestep support
+* Better multi-byte character
+* Better Netscape/IE integration
+* Better shell integration
+* better short-fn to
+* Better shuffle logic
+* Better support for
+* Better VU meter
+* Beveled cabinets.
+* Beyond Eternity BBS
+* big shield
+* Bigamy: Too many
+* BiGMaN *
+* Bigomy: one wife
+* Billy Bunter &
+* Billy Bunter -
+* Binding to an
+* BinkleyTerm 2.56
+* BisectX
+* BisectY
+* Bitmaps
+* Bizzare Inc. -
+* BJP.MP3 - 4
+* BLAMEIT.MP3--Jacksons - Blame
+* BLANK *
+* BLASTER Master Third
+* Blazing fast even
+* Blazing Fire
+* Blazing Fire Software
+* Blesses are the
+* blew up the
+* Blip reduction
+* BLOBBY R.I.P. *
+* Block Rockin' Beats
+* Blood Theme
+* Blue Wave door
+* Blue Wave v2.12/TLX
+* Blue Wave/QWK v2.12
+* Blue Wave/TLX v2.12
+* BMP of a
+* Bodegraven * +31-1726-11190
+* BOHEMIAN.MP3--Queen - Bohemian
+* Bonkers 5 MP3s
+* BONUS - International
+* BOOGIE.MP3--Earth Wind &
+* Bookmarking system
+* Booom! *
+* Boot & Parition
+* Boot from a
+* Boot to an
+* Boot your system
+* Born Free..Taxed to
+* Both in 16-
+* Boxed * Complete
+* Boy, am I
+* Boycott shampoo! Demand
+* Bradshaw asks petitioning
+* Brain Salad Surgery
+* branches
+* Braniff ran OS/2.
+* Breakfast.com halted....cereal port
+* BREAKOUT CLONE *
+* Brisk Vs Rebel
+* British Commons Committee
+* BROKEMY.MP3 - DJ
+* Browse and edit
+* Bs) + (256
+* Buffer and file
+* Bugfixes, new options
+* Bugfixes. I had
+* Bugs fixed in
+* Building an Intranet
+* Built in support
+* Built with VC++
+* Built-in
+* Built-In Dialog Box
+* Built-in log-on scripts
+* Builtin visualization settings
+* Bulletin Boards expand
+* BUT HE HAS
+* BUT TWICE AS
+* But WE decide
+* Buy Hot tubs,
+* by *Info*
+* by Dave *Info*
+* By failing to
+* By James Bovard
+* By Linear *Info*
+* By Walter E.
+* Byron Stingily -
+* ByteCatcher
+* bytes, only the
+* BytesInSector
+* C code. C
+* C&C Music Factory
+* C++ : There
+* c:\dos; c:\dos\run; run\dos\run
+* CABLE FOR ALL!
+* CAGE RATTLING
+* Calendar Enumeration Value.
+* Calendar ID Values.
+* Calendar Types.
+* Call it! (2:301/620)
+* Call screening, quiet
+* Caller ID informs
+* Callers can retrieve
+* Cambs Mail Centre
+* Can
+* Can be installed
+* Can be tailored
+* Can copy open-shared
+* Can't spell foxall
+* CANTGET.MP3 - S-Bam
+* Cape Cod, Ma.
+* Cards Are Compatable
+* CARDWARE: just send
+* CASHY : CANT
+* CASHY : SOLD
+* CASHY : WHERE
+* CASHY : WHERES
+* Casio Brothers -
+* Caution: This stuff
+* cBarWid
+* cbFileInfo size of
+* cc:Mail Post Office
+* CCHDEVICENAME
+* CCHFORMNAME
+* CCITT- Can't Conceive
+* CCUR(detD#) 'and column
+* CD Buyers Guide
+* CD Check 2.0
+* CD Comparison Utility
+* CD player functionality
+* CD Spectrum 2000
+* CD-ROM drive
+* CD-ROM drive (4x
+* CD-ROM drive (coupon
+* CD-ROM drive or
+* CD-ROM XA
+* CD1 *
+* CD1 - Mixed
+* CD2 *
+* CD2 - Mixed
+* CD3 - Mixed
+* CDDB support now
+* CDR Extensions
+* CDR Label 4.1
+* CDR Win 3.8a-e
+* CDR Win 3.8B
+* CDR Win v3.1
+* Ceasarian Section: A
+* CECILIA.MP3--Suggs - Cecilia
+* CELEBRAT.MP3--Kool & The
+* Celibacy is not
+* Centex PCUG *
+* CENTURY.MP3 - Sleeper
+* CGI Developer's Guide
+* CGI Manual of
+* CGI Programming Unleashed
+* Change directories to
+* change directories/drives
+* Change priority class
+* Change the
+* Change the volume
+* Change to a
+* Change Type
+* Change user and
+* changed file type
+* Changed format of
+* Changed the "^aVia"
+* Changes Incorporated Into
+* Changes to taskbar/system
+* Changing E-mail Configurations
+* Channel 1(R) *
+* Channels : Oh
+* character (or
+* character height to
+* CharLen%
+* Charlie Calvert's Borland
+* Chart Workspace Object
+* Chat BBS *
+* Check "Mgr options"
+* Check for conflicts
+* Check once for
+* Check that the
+* check that you
+* Check the printer
+* Check the volume
+* Check to ensure
+* Check to see
+* Check your drives
+* checking all four
+* Checkout left hand
+* Checks files and
+* Checks that all
+* Chernobyl uses OS/2
+* CHICABOO.MP3 - S-Bam
+* Chicken heads are
+* child process.
+* Children: the most
+* CHINESE ASTRA
+* CHISHOLM SUES SKY
+* Choose "Command Prompt
+* Choose from a
+* Choose Safe Mode
+* Choose the Step
+* Chorus - A
+* Chris Longhurst recently
+* christophe added IE
+* Christopher Saunders got
+* CIF File for
+* CINT(detS!)
+* CINT(detS!) 'and column
+* Circuit board wallpaper
+* Circuit Junkies prefer
+* cit
+* Citation for slow
+* CIVIL DISOBEDIENCE
+* Clackamas, OR *
+* Claris Works 95
+* Classified list of
+* Clean the print
+* Clean up old
+* Clean up stale
+* Cleaned up CDDA
+* Cleaned up playlist
+* cleaned up some
+* CleanReg 3.26
+* CLEAROUT *
+* Click and Type
+* Click on the
+* Client Server Computing
+* Clinics with Dr.
+* Clips and Photographs
+* CLNG(detD#)
+* CLNG(detD#) 'and column
+* Clone CD
+* CloneCD is a
+* Close all open
+* Close down other
+* Close Event
+* Closeout and clean
+* CLOSER.MP3 - Rosie
+* Clouds... Hammerite fro
+* CLuB ClaSSicS Vol.
+* clumps
+* Clutterbar now shows
+* cMaxFaceName
+* cMaxFaceName ' Font
+* cMaxFileName ' File
+* CmpQwk #UNREG *
+* CmpQwk #UNREG* UNREGISTERED
+* CmpQwk 1.14 #128
+* CmpQwk 1.14 #154
+* CmpQwk 1.14 #213
+* CmpQwk 1.14 #9999
+* Co-Moderator DBRIDGE (1:3601/14)
+* cobbles
+* COBOL can be
+* code in missing
+* Code the application
+* COLDROCK.MP3--MC Lyte -
+* Coler-coded HTML
+* Collection of Hindi
+* colonization *
+* ColorQWK 1.0
+* Colors May Not
+* Columbia, MD *
+* Columbus, Oh *
+* Combines a terminal
+* Come With Me
+* Coming soon! Mouse
+* COMING.MP3 - II
+* command below. Try
+* Command line limitation.
+* Command-line driven
+* COMMAND.COM
+* commdlg.h -- This
+* Common Room HQ
+* Communication between your
+* Communications * 3
+* Communism is like
+* Companies such as
+* Complete any major
+* Complete on-line manual
+* Complete With All
+* Complete With Registration
+* Comprehensive boot validity
+* Comprehensive search feature
+* Comprehensive Site Management
+* Compress an existing
+* Compresses all Win32
+* Compresses fax images,
+* Compressing your hard
+* Compression Driver errors
+* Compression util Great
+* compression. MP3 makes
+* Compuphile = Can
+* CompuPuc32 v1.61 build
+* Computer Connection (216)671-2574
+* Computer Help References
+* Computer Services
+* CON JOBS
+* conditions - it
+* conditions, but will
+* Configurable display, user/sysop
+* Configurable icon in
+* Configurable messages to
+* Configurable recording options:
+* Configurable storage: direct-to-disk
+* Configure A-MENU Screens
+* Confucious say to
+* Congress - 40
+* Contact *Info*
+* Contact Manager *
+* Contact Sheets
+* CONTACT.MP3--Edwin Starr -
+* Context Property (CommandBar
+* Context-sensitive online help
+* Contraceptive advice -
+* Control printers *
+* Convert inadvertent shtml.dll
+* Converted GEcho to
+* Converting your hard
+* Coolio - Gangsta's
+* Cooljack - Jus
+* Coppernic Pro 2000
+* Copy lines or
+* Copy of ranges
+* Copy Protection Detection
+* Copy the contents
+* Copy UK Info
+* Copy your inventory
+* Copying Names When
+* Copyright (c) 1985-1995,
+* Copyright (c) 1990-1995,
+* Copyright (c) 1991-1995,
+* Copyright (c) 1992-1995,
+* Copyright (c) 1993,
+* Copyright (c) 1993-1995,
+* Copyright (c) 1995-1998
+* Copyright (c) 1996-1998
+* Cordova, TN *
+* Corunna Ont. *
+* Cory Jaeger previously
+* COS((r - 3.1415)
+* COS((rn - 3.1415)
+* COS(Bisect)
+* COS(Bisect))
+* COS(r) + 200
+* COS(r) + 240
+* COS(XSect * XInc)
+* Cosmetic fixes
+* Cosmetic improvements
+* Cosmic Girl (Classic
+* Costa Mesa, Ca
+* Countless other improvements
+* COUNTRY.TXT, which provides
+* coupled with an
+* CP Info.
+* cPiVal ' 2*PI
+* CPU Speed *
+* CQWK 1.3 *
+* crack (assuming the
+* Create a CD-ROM
+* Create a new,
+* Create a temporary
+* Create all kinds
+* Create an automatic
+* Create Any
+* Create Audio, Data,
+* Create Audio-CD lists
+* Create planting beds
+* Create the Windows
+* CreateItem Method
+* Creates working safety
+* Creating a test
+* Creating Commercial Web
+* Creating Emergency Disks
+* Creating FrontPage 2000
+* Creating Shockwave Web
+* Creating Web Applets
+* Creator Program Must
+* Crime does not
+* CROSROAD.MP3 - Bone
+* Crossposted in 440_CHAT
+* Crossposted in 440_FILE
+* Crossposted in 441_CS
+* Crossposted in 4DOS
+* Crossposted in BBS-NEWS
+* Crossposted in BBS_USERS
+* Crossposted in BRIGHTON
+* Crossposted in BUY
+* Crossposted in CDROM
+* Crossposted in COMMON-ROOM
+* Crossposted in COMMS
+* Crossposted in COMMS_UK
+* Crossposted in CPM
+* Crossposted in CPMTECH
+* Crossposted in DBRIDGE
+* Crossposted in DBTECH
+* Crossposted in DB_NOVICE
+* Crossposted in DB_SOFT
+* Crossposted in DB_SUPPORT
+* Crossposted in DB_TECH
+* Crossposted in ECHO-NEWS
+* Crossposted in ENET.SOFT
+* Crossposted in ENET.SYSOP
+* Crossposted in FASTECHO.028
+* Crossposted in FDECHO
+* Crossposted in FDECHO_UK
+* Crossposted in FE_HELP
+* Crossposted in FREE25
+* Crossposted in GECHO_BETA
+* Crossposted in GECHO_HELP
+* Crossposted in GECHO_PLUS
+* Crossposted in GN.CD-ROM
+* Crossposted in HARDWARE
+* Crossposted in LINK_1066
+* Crossposted in LOCAL009
+* Crossposted in MAIL_80
+* Crossposted in MATHS.ACA
+* Crossposted in MODEM
+* Crossposted in NET440
+* Crossposted in NET441
+* Crossposted in NET441_USER
+* Crossposted in NETMAIL
+* Crossposted in OBSOLETE
+* Crossposted in OS2CDROM
+* Crossposted in QBBSNET_SYSOP
+* Crossposted in QUICKBBS
+* Crossposted in QUICKPRO
+* Crossposted in QUICK_BETA
+* Crossposted in RA_BILL
+* Crossposted in RA_COORD
+* Crossposted in RA_DIST
+* Crossposted in RA_EXEC
+* Crossposted in RA_FIND
+* Crossposted in RA_HELP
+* Crossposted in RA_NET
+* Crossposted in RA_PROG
+* Crossposted in RA_SUPPORT
+* Crossposted in RA_UTIL
+* Crossposted in REGCON.EUR
+* Crossposted in REGION25
+* Crossposted in SHARP_POINTS
+* Crossposted in SIG.PUB.FASTECHO
+* Crossposted in SOUNDOFF
+* Crossposted in SYSLNGE
+* Crossposted in TERMINAT
+* Crossposted in UKHOST
+* Crossposted in UK_DBRIDGE
+* Crossposted in UK_HST
+* CSNG((FileLen) / estTotal))
+* Ctrl+A: selects all
+* Curious About The
+* Currency format.
+* CurrentRow, Pause '
+* Cursor-driven
+* Cursor: What you
+* Cursors
+* Custom
+* Custom file types
+* Custom home simulation
+* Custom output directory
+* Custom user interface
+* Customizable cover pages.
+* Customizable DSP/Vis plug-in
+* Customizable User Interface
+* Customized random star
+* CXRot
+* CXRot - tz
+* Cybernet BBS *
+* CYRot
+* CYRot)
+* CYRot) - (sx
+* D'Bridge 1.30 flag
+* D'Bridge 1.53
+* D'Bridge Help/Information *
+* D.S. 16.8 *
+* D/S 21.6 *
+* da li'l fishies?
+* DABEAT.MP3 - Red5
+* DAFTPUNK.MP3 - Daft
+* Daisy, TN, USA
+* Dallas, Texas *
+* Dan Applemans Developing
+* DANCE, COUNTRY, FUNNY
+* DANCEFLR.MP3--Michael Jackson -
+* DANGER, DANGER! Computer
+* DARTFORD * KENT
+* Data Super-Highway *
+* Data transfer via
+* Data:The starboard nacelle
+* Database * Communications
+* Database improvements
+* Database of over
+* Databases made replicable
+* Dated <Mon 27
+* DB 1.51/004462 (250:505/210)
+* DB/RA * Melb,FL
+* DB/RA * Melbourne,FL
+* dBASE(r) v2.x and
+* dBASE(r) v4.x and
+* dbeko@nlbbs.com or Dane.Beko@f204.n300.z1.fidonet.org
+* DBPROP_MULTIPLECONNECTIONS is set
+* DB_NOVICE Echo
+* DB_NOVICE Moderator *
+* dde.h - Dynamic
+* De'Lacy - Hideaway
+* DEA Asks 9th
+* DEAD MEMORY
+* Dearborn, MI *
+* Deathmatch Heaven (see
+* Deathmatch wad into
+* debris
+* Decks and porches.
+* Decks and railings
+* Declare ourselves so
+* Decline if we
+* Decline if we're
+* Decline if webroot
+* decline. This should
+* Decoder bug fixed
+* Default Language for
+* Default Security Level
+* Definable mininimum number
+* Define all types
+* Delaware * (1:150/520)
+* Delay - Stereo
+* Delete any unneeded
+* Delete files with
+* Delete source files
+* Delete temporary and
+* Delete the contents
+* Delete the hidden
+* delete the offending
+* Delete the old
+* Delete the text
+* Delete unused program
+* Delete'97 (DOS delete
+* Deletes duplicate messages,
+* Delevan, NY until
+* delta
+* DELTACOM, Pour les
+* DeLuxe* 1.21 #340
+* DeLuxe* 1.21 #7919
+* DeLuxe2 1.25 #1077sa
+* DeLuxe2 1.25 #12915
+* DeLuxe2 1.25 #1431061828
+* DeLuxe2 1.25 #399
+* DeLuxe2 1.26b #4428
+* Demoniac - One
+* descriptions up to
+* DESERT RAID *
+* Design Templates
+* DESIGN.MP3 - Manic
+* DesignCad 3D for
+* Designed from the
+* designed to allow
+* Designing & Implementing
+* Desktop Dreams Vol
+* Desktop Icon and
+* DESKTOP SOFTWARE *
+* DESQview-aware to minimize
+* DESTROY MR. MCKEE
+* det!
+* det! 'and column
+* det#
+* det# 'and column
+* Detailed zoom to
+* Detect hardware
+* DETECT [PPE] *Info*
+* Detection and repair
+* Detection of pre-track
+* Detection of silence
+* Determine the users'
+* Determine whether a
+* Developing for Netscape
+* Developing Intranet Applications
+* Developing Professional Java
+* Dex & Jonesy
+* DGS Menu Version
+* Diabetics "needle" themselves!
+* diamond plate
+* Diamond Speed Star
+* Diamond Stealth video
+* Diamond Viper PCI
+* Did Apes evolve
+* Did you ever
+* different look
+* DIGITAL NEWS
+* Digits (for clocks)
+* Diplomacy: Saying "nice
+* Direct Booking of
+* Direct editing with
+* Direct Internet Link.
+* Direct Support PCBoard,
+* Directory Changer v1
+* Directory \MUSIC\70s *
+* Directory \MUSIC\CLASSICS *
+* Directory \MUSIC\CLUB KINETIC
+* Directory \MUSIC\CLUBLAND *
+* Directory \MUSIC\DANCE *
+* Directory \MUSIC\IBIZA 97
+* Directory \MUSIC\IN THE
+* Directory \MUSIC\ITALIAN *
+* Directory \MUSIC\KINETIC *
+* Directory \MUSIC\KISS ANTHEMS
+* Directory \MUSIC\KISS IN
+* Directory \MUSIC\KISS MIX
+* Directory \MUSIC\MIX97CD1 *
+* Directory \MUSIC\MIX97CD2 *
+* Directory \MUSIC\OASIS\ALBUMS\BEHERE *
+* Directory \MUSIC\OASIS\ALBUMS\LIVEMTV *
+* Directory \MUSIC\OASIS\ALBUMS\MAYBE *
+* Directory \MUSIC\OASIS\ALBUMS\MORNING *
+* Directory \MUSIC\OASIS\SINGLES\ALCOHOL *
+* Directory \MUSIC\OASIS\SINGLES\DONTLOOK *
+* Directory \MUSIC\OASIS\SINGLES\DOYOU *
+* Directory \MUSIC\OASIS\SINGLES\FOREVER *
+* Directory \MUSIC\OASIS\SINGLES\ROLL *
+* Directory \MUSIC\OASIS\SINGLES\SHAKE *
+* Directory \MUSIC\OASIS\SINGLES\SOME *
+* Directory \MUSIC\OASIS\SINGLES\STANDBY *
+* Directory \MUSIC\OASIS\SINGLES\THERE *
+* Directory \MUSIC\OASIS\SINGLES\WHATEVER *
+* Directory \MUSIC\OASIS\SINGLES\WIBBLING *
+* Directory \MUSIC\OASIS\SINGLES\WONDER *
+* Directory \MUSIC\OTHERS *
+* Directory \MUSIC\SEEDS\CAST *
+* Directory \MUSIC\SEEDS\DIZZY *
+* Directory \MUSIC\SEEDS\JOLI *
+* Directory \MUSIC\SEEDS\PURE *
+* DirectX 3.0b
+* DIRTY COPS IN
+* DIRTYLOV.MP3 - Infinity
+* Disable Ctrl-Break and
+* Disable the DEVICE
+* Disable the suid
+* Disable Virus Protection
+* Disabling email scanning
+* Disappearing Hard Drives
+* Disassembler. X-Link also
+* DISC 1 *
+* DISC 2 *
+* DISC 3 *
+* Disclaimer * DOOMLaunch
+* DISCOHOP.MP3 - Klubbheads
+* Discotheque (Morales Deep
+* Disk 03 of
+* Disk Data and
+* Disk drives: CD-ROM
+* DISK FACTORY v1.1
+* DISK FACTORY v1.11
+* Disk Juggler 2.0
+* Disk Juggler 2.00
+* Disk-based Webs Must
+* disk. That's more
+* Display of positioning/volume/balance
+* Display Summary *
+* Display the entire
+* displayed the "two
+* Displays your "Goodbye"
+* Displays your BBS
+* Distinctive ring answers
+* Distinguishes between local
+* Distribution Lists Not
+* Distribution. Microsoft grants
+* Divers do it
+* Divine Intervention -
+* DJ Breeze -
+* DJ Brisk -Airhead
+* DJ Demand -
+* DJ Dougal &
+* DJ Mix -
+* DJ QuickSilver -
+* DJ Seduction -
+* DJ Superme -
+* DJKOOL.MP3--DJ Kool -
+* DLeft% < TicInterval%
+* DLeft% AND 2
+* DLL & Driver
+* DNS
+* Do dogs mistake
+* Do I have
+* Do it now!
+* DO NOT REPACK
+* Do not run
+* Do query on
+* Do rabbits multiply
+* Do you hear
+* docs excellent *
+* Documentation *
+* Does the name
+* Doin' Time In
+* Don't "bundle" Snooper
+* Don't assume malice
+* Don't just do
+* DON'T log off
+* Don't reproduce the
+* Don't take life
+* Don't worry man,
+* DONT RELAX! RELOAD
+* DONTSTOP.MP3 - Livin'
+* DONTSTOP.MP3 - System
+* Doom
+* Doom 2: Hell
+* Doom II
+* DOOMLaunch is
+* DOOR.SYS, DORINFOx.DEF, SFFILES.DAT.
+* DOS Executables
+* DOS Internet *Info*
+* DOS Internet MUD
+* Dos Protected mode
+* DOSSHELL, where you
+* Double the space
+* Double-clicking an element
+* Double-clicking the element
+* Doublesize mode
+* DoubleSpace is installed
+* Doublespace's algorithm is
+* Dougal & Eruption
+* Download Accelerator Plus
+* Download or Upload
+* Download the file
+* Download This And
+* Download,
+* Downloading Euro Support
+* DOYOUGO.MP3--No Mercy -
+* DOYOUKNO.MP3--Michelle Gayle -
+* Dozens of 2D
+* Dozens of predefined
+* DR-DOS/Novell/OpenDOS DOS DOS
+* Dr. Detergent'94 (Retired!)
+* Dr. Music CD
+* Drag and Drop
+* Drag-and-drop * File
+* DRAGON : WHERES
+* Dramatically reduce IT
+* Draw, color &
+* Drawing on my
+* DREAM.MP3--DJ Quicksilver -
+* Dreamcast CD Loader
+* Dreamcast Loader
+* Dreamcast Wizard GLX
+* DRight% - LenLeft%)
+* Drive C will
+* Drive Information Report
+* Drivers for Windows,
+* Drop your carrier
+* Drop your carrier...we
+* DRVVFP.HLP Visual FoxPro
+* DS * (1:374/31)
+* DS/HST (1:120/209)
+* dsp plugin fixes
+* DSP Plugins
+* DST 16.8 HST
+* Dual
+* Dual * (1:259/423)
+* Dual * (1:259/423.0)
+* Due to a
+* Due to the
+* DUKE NUKEM 3D
+* Dutch Lower House
+* dutchgrille
+* dwFileAttributes file attribs,
+* Dynamic HTML
+* Dynamic keyboard searching
+* Dynamically linked 2D
+* E * R
+* E * T
+* E-mail: Microsoft Exchange
+* EARTH.MP3--Michael Jackson -
+* Earthworm Jim Special
+* Easier administration
+* EAST17.MP3--East 17 Feat.
+* Easy program setup
+* Easy Site Development
+* Easy to learn
+* Easy to learn!
+* Easy to use
+* Easy, fast, and
+* Easy, lightning-fast
+* Easy-to-use Interface (Designed
+* Easy-to-use Internet client
+* Easy-to-use, powerful search
+* Ecopad can now
+* ECUADOR.MP3 - Sash!
+* Ed Blackman got
+* EDEN.MP3 - Ca$ino
+* Edison NJ (1:107/387.0)
+* Edit RealMedia files
+* Edit the Autoexec.bat
+* Edit tracks online
+* Edit your CONFIG.SYS
+* Edit/List/Delete files
+* Editing a Formula
+* Editing Clips That
+* Edits and/or kills
+* Effects adapt to
+* eglin afb, fl
+* ELAM AG BBS
+* ELCHICO.MP3 - El
+* ELECTRIC.MP3 - Electric
+* ELTamer Lite *Info*
+* ELVIS PRESLEY 3
+* Email message headers
+* Email protection does
+* Employ the Wizard
+* Empty Set Of
+* Emulaser
+* en-/disabling of AreaFix
+* Enabling Scanning Features
+* Enabling this setting
+* Encoder
+* Encoder shells
+* Encore Une Fois
+* ENCORE.MP3 - Sash!
+* End of user
+* End the program
+* Enforces Limits, MultiDisk,
+* Engine Update 08/02/01
+* ENGLISH *
+* Enhanced DESQview, Windows,
+* enhanced FastEcho STAT
+* ENIGMA.MP3--Enigma - Return
+* Ensure that the
+* Enter d:\cdsample\sampler.exe (whereby
+* Enter: PATH; at
+* Entries in Distribution
+* environment variable. Also,
+* ENVOGUE.MP3--En Vogue -
+* Equalizer presets included
+* Error Messages
+* Error starting email
+* error, and decline.
+* Error: (A)bort (R)etry
+* Eruption Feat. Katherine
+* etch
+* Eudora 4.3.2 Email
+* Eudora Pro v3.03
+* Eugene OR *
+* Eugene, Oregon (1:152/14.0)
+* Europe *
+* Eval Day 1
+* Eval Day 19
+* even more
+* Even more ID3
+* Ever stop to
+* EVERYBDY.MP3 - Jam
+* EVERYBODY * that
+* EVERYDAY.MP3 - DJ
+* EVERYGET.MP3 - Magic
+* Everyone has a
+* Everyone hates me
+* Everyone is gifted.
+* Everything But The
+* Everything I said
+* Everything looks OK
+* Everything needs to
+* Excel heuristics which
+* EXCELSIOR UK SUPPORT
+* except for FrontPage
+* Exclude list
+* Exit Edit by
+* Exit Nag
+* Exit Win fast
+* Expanded furniture library.
+* EXPANDED IN REALSYSTEM
+* Expanded Web application
+* Experiencing synaptical diffilculties,
+* Experimental integer mode
+* Expert advice
+* expertise at any
+* exploited. User recovery:
+* Export and Publish
+* Export in ASCII,
+* Export to DXF
+* Exports to most
+* Expose yourself to
+* Expression
+* Expression evaluator for
+* extensive experience of
+* Extensive File Transfer
+* Extensive networking capabilities:
+* Extensive online help
+* External tank door
+* External Wad (PWAD)
+* Extremis (Dattara Mix)
+* EZ SPANISH FOR
+* EZ-ROM 2.00 CD-ROM
+* EZ-ROM 2.10 CD-ROM
+* EzyCom 1.02
+* Ezycom BBS v1.10
+* Ezycom BBS v1.20
+* FABLE.MP3 - Robert
+* FACTOR 5 *
+* faience
+* FAIRGRND.MP3--Simply Red -
+* Familiar hotkey user
+* FamilyNet Backbone ]
+* FamilyNet International (1:226/150)
+* Far Right =
+* Fast 'Copy to'
+* Fast communications technology
+* Fast dependable operation
+* Fast extracts of
+* FastEcho now skips
+* faster FFTs for
+* faster playlist loading,
+* Faster seeking
+* Fax (716) 447-7330
+* FAX 297-6748 (1:105/60)
+* FeatureInstall Property Code
+* FEATURING LEVEL SKIP
+* Featuring OUTSTANDING Sounds
+* FEEDBACK/INPUT WELCOMED *
+* FEEFIFO.MP3--Candy Girls -
+* FEELFREE.MP3 - Debbe
+* FEELIT.MP3 - Hi-Lux
+* Felix - Don't
+* Felton Ca *
+* Fencing (painted, wooden,
+* FESetup, delete JAM
+* FEUtil IMPORT and
+* FEUtil Link is
+* FEUtil PACK does
+* FEUtil POST can
+* FEUtil POST does
+* FE_HELP Mod *
+* fido (sysop/int): enet.sysop
+* FidoNET (1:2603/506.0)
+* Fidonet: (2:253/417), Internet:
+* field experience in
+* Fight against 4
+* Fight Sleepism! Nap
+* File areas
+* file around.
+* File Comparison Utility
+* File launching from
+* File Manager
+* File Tagging, Text
+* file. Stale key
+* FileMgr GAMMA
+* Filename editing with
+* Files Drop Component
+* Files, including archive
+* FINADISK WWW DOCUMENTATION
+* FINAL *
+* Final WMA support
+* Finally! I fixed
+* Finally, there's a
+* FindControls Method
+* FINENOW.MP3--New York City
+* Finger
+* Finland * Europe
+* Fire Analyzer Mode
+* Fired Up! (Angel's
+* FIRED_UP.MP3--Funky Green Dogs
+* Firestarter (Empirion Mix)
+* First shalt thou
+* fitness for a
+* fix to ex-m3u
+* Fix to Mjuice
+* Fix to mp3
+* fix to proxy
+* Fix-It Utilities 99
+* Fixed "blip" bug
+* Fixed * Telegard
+* fixed / in
+* fixed 2 digit
+* Fixed a bug
+* Fixed a dsp
+* Fixed a few
+* Fixed a number
+* fixed a silly
+* Fixed a skin
+* Fixed a slight
+* fixed a small
+* Fixed a stupid
+* Fixed a TON
+* Fixed and slightly
+* Fixed apply button
+* fixed AreaFix requests
+* fixed bad bug
+* Fixed bug in
+* Fixed bug that
+* Fixed clear-playlist-then-seek bug.
+* Fixed clipping problem
+* fixed cursor bugs
+* Fixed de-registration problem.
+* fixed drag&drop in
+* Fixed dsp plug-in
+* fixed eq preset
+* fixed error with
+* Fixed evil beeping
+* fixed evil playlist
+* fixed F5 redrawing
+* fixed FE creating
+* fixed FE leaving
+* fixed FESetup's GEcho
+* fixed FEUtil IMPORT
+* Fixed focus-main-winamp-window-on-open-of-eq-or-pe bug.
+* fixed Forward AreaFix
+* fixed HTTP/1.1 +
+* Fixed icon assignment
+* Fixed input-change bug
+* fixed IPC_JUMPTOTIME bug
+* fixed issues with
+* fixed layer 2
+* Fixed many little
+* Fixed mixed-mode layer
+* fixed moving a
+* Fixed Negative Bug
+* Fixed Nitrane's invalid-genre
+* Fixed occasional random
+* fixed one cdda
+* Fixed OS/2 detection
+* fixed path creation
+* fixed problem with
+* Fixed retarded Windows-making-the-window-too-high-after-awhile
+* fixed silly position
+* Fixed some default
+* Fixed some leak
+* Fixed some leaks
+* fixed some NT/2K
+* fixed some problems
+* Fixed some rare
+* fixed some region
+* fixed some skin
+* Fixed some stupid
+* Fixed some vis->plug-in
+* Fixed stupid hanging
+* Fixed the "Copy"
+* fixed the frame
+* fixed the generic
+* Fixed the incorrect
+* Fixed up some
+* fixed vis plug-in
+* fixed vis shutdown
+* Fixed vis starting
+* Fixed vis/dsp plug-in
+* Fixed WAV plug-in
+* fixed: bookmarking from
+* Fixed: gdi leak
+* Fixed: gdi object
+* fixed: make the
+* fixed: the install
+* Fixes EQ volume
+* fixes RealPlayer's .xpl
+* fixes to in_mod
+* Flash (Original Club
+* FLASH.MP3 - BBE
+* Flatulence - an
+* flesh
+* Flexibility to choose
+* Flexible printing options
+* Floating point emulation
+* Floppy disk drives
+* Floppy not responding,
+* florella
+* FM Disc Jockeys
+* FMOVE 1.2 wide
+* FO-20 SCHEDULE *
+* Folder Selection -
+* Follow the installation
+* Follow The Leader
+* Font-O-Matic
+* Foot Worship &
+* Footprint (Sonic Original)
+* FOOTPRNT.MP3 - Disco
+* For *Info*
+* for a file
+* For each compression
+* For instance a
+* for loss of
+* For Microsoft Windows
+* for NET$BIND.SYS then
+* For NET$BUAL.SYS: Type
+* for Network
+* For RA or
+* For RA/PB/TG &
+* FOR SALE *
+* For SynchroNet v2.x
+* For the CD-ROM
+* For the DVD-ROM
+* For those of
+* For use on
+* for WIN Server
+* For Windows 95
+* For WINDOWS AND
+* For Windows NT
+* Force & Styles
+* Forget the Password
+* FORGOTTEN TO MENTION
+* format (44100khz, 16-Bit,
+* Format any chart
+* Format hard drive
+* Formula and voicing
+* Forwarded by :
+* Forwarded by Bill
+* Forwarded by Colin
+* Forwarded by Dungeon
+* Forwarded by Frans
+* Forwarded by John
+* Forwarded by Malcolm
+* Forwarded by Mehdi
+* Forwarded by Paul
+* Forwarded by Peg
+* Forwarded by Peter
+* Forwarded by Ralph
+* Forwarded by Richard
+* Forwarded by Rick
+* Forwarded by Stewart
+* Forwarded by Terence
+* Forwarded by Tim
+* Forwarded from "#019
+* Forwarded from "GECHO_HELP
+* Forwarded from "Link.UK
+* Forwarded from "RA_UTIL"
+* Forwarded from "REGION25"
+* Forwarded from area
+* Forwarded from Ron
+* Forwarded on <Oct
+* Four new area
+* fpexe SUID stub
+* FQ 1.14 #13
+* Frames Tutor
+* FRANCE * Tel:(33)-1-47699261
+* Francois Blais got
+* freckles
+* Freddie 1.2 *
+* Freddie 1.2.5 *
+* FREE
+* Free an additional
+* Free Registration *
+* Free space allocated
+* FREE.MP3 - DJ
+* Freestyle & JDR
+* Freeware
+* Freeware *
+* freeware * *Info*
+* FREEWARE * Cursor-driven
+* FREEWARE * Send
+* FREEWARE * This
+* FREEWARE *Info*
+* FREEWARE from Branislav
+* FREEWARE to sample
+* FREEWARE! * *
+* FRESH.MP3--Gina G -
+* Friendly Sysop
+* FRIENDS.MP3 - Fluid
+* frmCmnDlg.chkSearchWord.value OR -4
+* frmCmnDlg.chkSearchWord.value OR 4
+* frmCmnDlg.optSearchDir(0).value
+* FROM
+* From *Info*
+* From : Craig
+* From : GEcho,
+* From : Geoff
+* From : Hans
+* From : James
+* From : Jonas
+* From : Jp
+* From : Kolja
+* From : Neill
+* From : Ori
+* From : Peter
+* From : Tim
+* From : Tony
+* FROM Customers WHERE
+* From DOS, run
+* from Orgatec 1994
+* From Packet Radio
+* FROM sysusers WHERE
+* FROM table" command.
+* from Table1 WHERE
+* From the CD
+* FROM UserNote WHERE
+* fronds
+* FrontDoor 2.20
+* FrontDoor Support USA
+* FrontPage 2000 Shortcut
+* FrontPage scenario.
+* FrontPage SUID Stub
+* Frustrated by that
+* Ft. Collins (303)490-2843
+* Ft. Knox,Ky.* (502)
+* FUGEE_LA.MP3--The Fugees -
+* Full
+* Full background
+* full custom colors
+* Full Documentation
+* full JAM support
+* Full security
+* FULL SOFTWARE LIST
+* full support
+* Full support for
+* Full version has
+* Fullerton, CA *
+* Fullscreen *Info*
+* Fullscreen plugins (Analyser,
+* Fully compatible with
+* Fully functional *Info*
+* fully ISO compliant
+* FUNKY.MP3--Wild Cherry -
+* fur
+* Future Files -
+* FutureNet HQ *
+* G. Pareja //
+* Gainesville, FL (1:3601/110)
+* Gallons"
+* GAMBIT : CAN
+* GAMBIT : GONNA
+* GAMBIT : I
+* GAMBIT : SUPPORTS
+* GammaTech
+* Garland, TX (1:124/4007)
+* Garland, TX (1:124/4007.1)
+* Garland, TX *
+* GCONVERT has been
+* Gear Replicator
+* GEcho & FileMgr
+* GEcho AreaMgr and
+* GEcho will no
+* GEcho will now
+* GEcho, FileMgr, O/T-Track,
+* GENERAL ISSUES
+* General purpose plug-in
+* Generated With KeyGen
+* Generic dialog processing
+* Generic PCM EQ
+* Genigraphics Wizard
+* George Hug got
+* Germantown, NY 518-537-4881
+* Get a Bird's
+* Get Into The
+* Get the big
+* Get the latest
+* Get Up (Everybody)
+* GetBot
+* GetDeviceCaps(hDC, BITSPIXEL))
+* GetSpellingSuggestions Method
+* Getting Started with
+* GETUP.MP3 - 50
+* GetValue Method (Office
+* GET_UP.MP3 - Sound
+* GFI.Ascent
+* GFI.Ascent - GFI.Leading)
+* GFI.AvgWidth) * GP.Aspect
+* GFI.MaxWidth
+* GFI.MaxWidth > TicInterval%
+* GFI.MaxWidth)
+* GFI.PixHeight
+* GFX News+Jan/Feb 95+Volume
+* giant (2000+) skin
+* Gif Construction Kit
+* GiGaMaN *
+* Gillette Wy.* HST
+* giMAX_REG_DATA_LENGTH, strValueName As
+* Give me a
+* Gives back
+* GLASTONBURY FESTIVAL JUNE
+* Glitch removal after
+* glMAX_NAME_LENGTH
+* Glndl, Az. *
+* Global Contacts Z19
+* Globally replacing a
+* Go on, do
+* GO!! *
+* Go!Zilla 3.5
+* God is real
+* God is real,
+* GoldED 2.40
+* GoldED 2.41+ *
+* Gone Chopin, have
+* good way of
+* GOOSE : ANY
+* GOOSE : BUY
+* GORGEOUS.MP3--Babybird - You're
+* got rid of
+* Got the OS/2
+* government Republican
+* GOWEST.MP3--Village People -
+* GP.Aspect
+* GP.NVals - 1)
+* Grand Prairie, TX
+* granite
+* Graphcat-Now for WP
+* graphics
+* Graphics *
+* GRAPHICS SOFTWARE *
+* grave
+* Gravity doesn't exist:
+* Great
+* Great for consultants
+* Great Graphics and
+* Great graphics ³
+* Great language/system support.
+* GREETINGS GO TO
+* GREETZ GO TO:
+* grit
+* Groove Bird (Original
+* Grossen-Buseck
+* Group Will Be
+* group, other) and
+* Growth simulation
+* Gs) + Rs
+* GSETUP and GEcho
+* GSETUP Pack will
+* GSETUP will now
+* GT Sampler -
+* Guardian of Gallifrey
+* GUI = [G]enerally
+* GUIDANCE.MP3 - Kamilian
+* GUILDFORD UK *
+* Gusto - Let's
+* H16 & v.32bis
+* H16 (1:382/91)
+* H16/V32b * (203)
+* H16/V32b * (203)535-4284
+* habits, may be
+* HALLELUL.MP3 - Interceptor
+* HALLOWEEN JACK :
+* HAM ON DISK
+* Hamilton, Ont. *
+* Handle that carefully,
+* Handles
+* Happy Clappers -
+* Hard mate orbiter
+* HARDWARE ISSUES
+* hardwood
+* Harmonizer - Transposes
+* hAS ANYONE SEEN
+* Has Lied to
+* have a /bin/sh,
+* Have a Great
+* Have a nice
+* Have mercy, been
+* He added full
+* He who dies
+* He who places
+* He's a few
+* HEAVEN.MP3--Tavares - Heaven
+* Helicopter - On
+* Hello, everybody, I'm
+* Hello, I am
+* Hello, this is
+* Help
+* Help Edit: the
+* HELP FILES *
+* Help Method
+* help minimize your
+* HelpBurger 1.58
+* hessian
+* Heuristics to detect
+* Hey Santa! How
+* Hey!!! Don't pick
+* Hezal CD Player
+* HF Wire Antenna
+* HI * (1:345/25)
+* Hi, I'm from
+* Hidden copy
+* Hidden sector synchronization
+* High
+* High Rom -
+* High speed Encoding
+* High thoughts must
+* High-Performance Networking Unleashed
+* Higher priority by
+* Highest Multimedia Compression
+* Highlander BBS *
+* HIS MIND IS
+* history * von
+* History Palette
+* Hit Alt-H now
+* Hit very hard
+* hof van
+* Hold down shift
+* HOLDBACK.MP3--The Trammps -
+* Home of Dixie-Net
+* Home of IMAGES
+* Home of INSTAbank!
+* Home of the
+* Home or Search
+* HomeSite v2.5
+* Hondy (No Access)
+* Hope to see
+* HoPe YoU EnjoY
+* Hot-list feature reminds
+* Houston, Tx *
+* How Intranets Work
+* How Long Can
+* How Many
+* How many have
+* How many human
+* How many systems
+* How to Program
+* How to Use
+* How you look
+* HPFS aware
+* HQ *
+* HQ button is
+* HS Screensaver Creator
+* HST * (918)
+* HST 16.8 *
+* HST DS *
+* HST/DS * (1:152/6)
+* HST/DS * (2:440/6)
+* HST/DS * (2:440/6.0)
+* HST/DS * (613)634-6064
+* HST/DS 14.4k (1:123/44)
+* HST/DS 16.8k *
+* HST/V32B (1:371/26)
+* HST/V32b * Lafayette
+* HTML 3.2 &
+* HTML By Example
+* HTML Reference Documentation
+* HTML Rename
+* HTMLData Property (Office
+* HTTP streaming support
+* huh huh huh
+* HUSTLE.MP3--Van McCoy &
+* HUSTLER OF THE
+* Hyper Go Go
+* Hyperlinks
+* Hypertext Help-system.
+* Hysteric Ego -
+* I ' Get
+* I am a
+* I am not
+* I am the
+* I could eat
+* I create therefore
+* I did send
+* I don't do
+* I don't have
+* I Hate Rupert
+* I have a
+* I have reached
+* I have seen
+* I have tripped
+* I just forgot
+* I just got
+* I know it
+* I Love birthdays;
+* I suggest banging
+* I survived torture.
+* I think he's
+* I thought about
+* I tried the
+* I tried to
+* I tune my
+* I used to
+* I W A
+* I was sane
+* I wear my
+* I wish life
+* I wouldn't know
+* I'd kill for
+* I'll have what
+* I'm an OS/2
+* I'm coming Dear,
+* I'm flexible... just
+* I'm in shape
+* I'm just here
+* I'm not a
+* I'm not dead.
+* I'm not schizophrenic,
+* I'm not tense,
+* I'm still using
+* I'm the leader,
+* I'm wet! I'm
+* I've tried to
+* Ian Cotton recently
+* IBM PC or
+* Icon Magician
+* Icon3D 2.1
+* IconEdit 2
+* Icons - loads
+* ICQ 2000
+* ID3v1 URL Comment
+* ID3v2 support
+* IDE Hard disk
+* IDE Harddisk Drive
+* Ide ports 2
+* Ideafisher
+* iElement)
+* If a drive
+* If a table
+* If all file
+* If all the
+* If an icon
+* If at 1st
+* If DeForest Kelly
+* If God were
+* If hard coding
+* If I melt
+* If I throw
+* If it ain't
+* If it has
+* If it walks
+* If it wasn't
+* If it works,
+* If money talks,
+* If no icon
+* If our behavior
+* If planning a
+* If the pipe
+* If the process
+* If the version
+* If there is
+* If they mention
+* If this reply
+* If this were
+* If we ask
+* If we can't
+* If you are
+* If you can
+* If you can't
+* If you change
+* If you don't
+* If you downloaded
+* If you get
+* If you got
+* If you have
+* If you insert,
+* If you install
+* If you knew
+* If you previously
+* If you run
+* If you still
+* If you type
+* If you use
+* If you're feeling
+* If your network
+* Ignorance is bliss...Are
+* Ignore "Calendar Control"
+* Ignore "Microsoft Windows
+* Ignore "Northwind SQL
+* Ignore the last
+* Iiyama Monitors
+* ILIKEIT.MP3--K C &
+* ILOVEYOU.MP3 - Red
+* Image Editor Integration
+* Image grabber. The
+* Image Slicing
+* Imail (unknown version
+* Imbedded archive support,
+* Import .DBF, SDF
+* Import all new
+* Import TIFF, BMP,
+* IMPORTANT *
+* important. In addition,
+* Importing Private Mailing
+* Improved appearance settings
+* Improved batch .WAV
+* Improved CDDA plug-in,
+* Improved CDDA support
+* Improved command line
+* Improved Directsound output
+* Improved graphical equalizer
+* Improved heuristics to
+* improved HTTP auth
+* improved http m3u
+* Improved ID3 tag
+* Improved in_mp3.dll's frame
+* Improved Jump (to
+* improved minibrowser functionality
+* Improved MOD decoder
+* Improved MOD/XM/IT rendering
+* improved mp3 http
+* Improved MPEG audio
+* Improved shift selection
+* Improved sound quality
+* Improved streaming, supports
+* improved that old
+* Improved the search
+* In a message
+* In a msg
+* in a URI,
+* In accordance with
+* In Canada, mail
+* In DriveSpace, choose
+* in front of
+* In Microsoft Windows
+* In Oneness (2:512/206.0)
+* In some words
+* in standalone_main(). The
+* In the "GEcho
+* In the "Global
+* In the "MBUTIL
+* In the "Miscellaneous
+* In the "Option
+* In the "Pathnames"
+* In the "Press"
+* In the "String
+* In the 50
+* In The Hot
+* In ThE MiX
+* In the new
+* In Windows Explorer
+* inability to use
+* incidental damages, the
+* Include file for
+* include NOTIFY.PRE file
+* Included experimental gapless
+* Included new beta
+* included new in_midi
+* Includes 2 free
+* Includes a
+* Includes a 'heuristic'
+* Includes a guitar
+* Includes Easy-To-Use
+* Includes: * *
+* including, without limitation,
+* Inconsistent Date Format
+* Incorrect MS-DOS Version
+* Incorrect ToolTip for
+* Incorrigible punster --
+* Increase or decrease
+* Increased maximum message
+* Increased visualization accuracy
+* Independent * OnLine
+* Independent and resizable
+* Independent left/right channel
+* INDEX ON is
+* Indianapolis, IN *
+* Inefficient linear lookup;
+* infantry and
+* INFERNO.MP3--The Trammps -
+* Infinite slab in
+* Info on how
+* Info-reading on demand
+* InfoMaker 6.0 (16
+* InfoMaker 6.0 (32
+* InfoMaker Online Books
+* information, or any
+* information. *
+* information. This code
+* initialization, effectively disabling
+* Innovations in collaboration,
+* Inoculation Alerts when
+* Inoculation Change Alerts
+* Input Summary *
+* INSANITY.MP3--Jamiroquai - Virtual
+* Insert
+* Insert a different
+* Insert the Microsoft
+* Insert variables into
+* Insert: inserts mp3s
+* INSIDE.MP3--Stiltskin - Inside
+* INSOMNIA.MP3 - Faithless
+* install *
+* Install Construct 3.3
+* Install freeze when
+* Install MDAC 2.1
+* Install replacement right
+* Install Shield 5
+* installable from the
+* Installation can be
+* INSTALLATION ISSUES
+* Installation now gives
+* Installation Settings for
+* INSTALLATION, SYSTEM REQUIREMENTS,
+* Installed version of
+* Installer bitmap updates
+* Installer now prompts
+* Installer terminology changes
+* InstallGuard - enables
+* Installing and Configuring
+* Installing FrontPage 2000
+* Installing Microsoft Office
+* INSTALLING NORTON SPEED
+* Installing Office 2000
+* Installing or Upgrading
+* Installing Outlook 2000
+* Installing/Uninstalling LiveUpdate
+* Instancing Property
+* Instant plancheck.
+* instead of /
+* Instruction on on
+* instructions carefully. Failure
+* Insufficient memory -
+* Insurance covers everything
+* Integrated 2D &
+* Integrated Adobe User
+* Integrated Authoring and
+* Integrates with Europress
+* Intel 80486/66 processor
+* Intel: Puts the
+* Intelligent editing that
+* Intelligent Game Training
+* Intelligent Interactive objects
+* Inter-node message services:
+* Interactively program for
+* INTERBBS Capable
+* interface is elegant
+* Interior & Exterior
+* internal clipboard for
+* Internet Explorer opens
+* Internet Explorer Plug-In
+* Internet Explorer Versions
+* Internet messaging and
+* Internet Summary *
+* Internet zone
+* Internet: Some Internet
+* Internet: UUCP, FTP,
+* Interrupt driven COM
+* INTIME.MP3 - 4
+* into " &
+* Intranets Unleashed
+* introducing an ASCII
+* Introduction to MAPI,
+* Invalid System Disk
+* InVircible 6.10a
+* InVircible 6.10a *
+* INXS Software *
+* in_cdda: reduced plug-in
+* in_mp3: improved mp3
+* IO.SYS
+* IP Address Search
+* IRA's
+* Irving, TX *
+* is a
+* is at least
+* Is God's last
+* Is reading in
+* Is that a
+* Isaac Hayes -
+* ISSUES FOR ASIAN
+* ISSUES FOR RIGHT-TO-LEFT
+* It adds the
+* It all began
+* It checks both
+* It copies the
+* It could be
+* it is harmless
+* It is not
+* It is strongly
+* It produces diskette
+* It was like
+* It will be
+* It will come
+* It will have
+* It works with
+* It's a chainsaw.
+* It's a security
+* It's always a
+* It's been a
+* It's not hard
+* It's only a
+* Its the Bolivian
+* ITS_OVER.MP3--Clock - It's
+* J & J
+* J.R. Jacques Baril,
+* JABBER v1.2 #187
+* JABBER v1.2 *
+* Jack the sound
+* jaggs
+* James Berry -
+* Jamiroquai - Space
+* Java
+* Java 1.1 Unleashed
+* Java By Example
+* Java Clock &
+* Java Developer's Guide
+* Java Developers Reference
+* Java Expert Solutions
+* Java Second Edition
+* Java Unleashed
+* JavaScript Manual of
+* JazzTag: Anthony's Law
+* Jesus Saves, Moses
+* Jesus Saves. Whales.
+* Jesus saves....passes to
+* Jet property lengths
+* jetsam
+* jfb292@ecs.soton.ac.uk (2:25/203)
+* Job Centre
+* John Mccormac recently
+* Join Sevside and
+* Jolly Roger -
+* Jonesboro, GA (1:133/719.0)
+* Jouni Miettunen jon@stekt.oulu.fi
+* JOURNEY FROM LEFT
+* Judge Jules &
+* Jukeboxes - loads
+* Junk: Stuff we
+* JURASSIC : COOL
+* Just Another Happy
+* Just enter
+* Just enter the
+* Just hit "RETURN"
+* Just Playin' (Scorccio
+* Just when you
+* justin can't code
+* JX - There's
+* Kai's Power Goo
+* Kali'95 v1.1
+* Karlskrona * (2:200/709.2)
+* Katy, TX 77491
+* Keep watching the
+* Keeps
+* KEEPWARM.MP3 - Jinny
+* KEN : I'M
+* KEN : YES,
+* Ken Doh -
+* Ken Whiton got
+* Kenny 'Dope' Presents
+* KENT * +44-322-278652
+* KENT * UK
+* KEY*
+* Keyboard shortcuts for
+* Keyboard utilities
+* KeyChar Property (Office
+* KILLING.MP3 - Fugees
+* Kills
+* KingQWK 1.05 *
+* Kingston, ONT *
+* Kingston, ONT. *
+* KiSS iN iBiZA
+* KiSSMiX 96 -
+* KLPAK 1.2 for
+* KLPAK 1.3 for
+* Klubbheads - Klubbhoping
+* KMail 2.96 Knight
+* KNEBWORTH AUGUST 11TH
+* Knowledge is like
+* Known Issues
+* Kobe, J (201:300/312)
+* Koolworld Productions -
+* KPT 6
+* KPT Vector Effects
+* KPT X-Goo
+* KRUPA.MP3 - Apollo
+* KWQ/2 1.1 *
+* KWQ/2 1.2 *
+* KWQ/2 1.2a *
+* KWQ/2 1.2b *
+* KWQ/2 1.2b NR
+* Lafayette LA (1:3803/1)
+* LAKOTA v1.0
+* LAKOTA v1.1
+* LAKOTA v1.2
+* LAN-Alarm is a
+* Landscaping including plants,
+* language ID that
+* Language IDs.
+* language pack improvements/cleanups
+* Language package support
+* LANG_NEUTRAL SUBLANG_DEFAULT User
+* LANG_NEUTRAL SUBLANG_NEUTRAL Language
+* LANG_NEUTRAL SUBLANG_SYS_DEFAULT System
+* Large files, compressed
+* Largo, FL *
+* Las Vegas, NV
+* LaserTwin v5.0
+* Late Night ActiveX
+* Latest Wizard file
+* Latin Thing -
+* lattice
+* Launch pad validations
+* Launch programs *
+* Laura Lemay's Guide
+* Laura Lemay's Web
+* Laura Lemays Web
+* lavarand.sgi.com).
+* Layer Effects
+* lBytes
+* lClust
+* Lean FTP 2.6.2
+* Learn
+* leaves
+* LEFREAK.MP3--Chic - Le
+* Legal
+* Legends (CJ's Bass
+* LESS GOLD
+* Let your Sims
+* Lets you restore
+* liable for any
+* Libido - The
+* lichen
+* Lies, damned lies
+* Life is anything
+* Life: A fatal,
+* LIFTED.MP3 - Lighthouse
+* Light
+* Light year: A
+* LIGHTNING SEEDS -
+* like the algorithm
+* Lill BBS, Paris,
+* limestreaks
+* Limitations on Reverse
+* Limited support for
+* Lindsey Bradshaw, the
+* Line 02 *
+* Line 1 Number...
+* Line 5 (1:170/400)
+* Line @
+* Line noise provided
+* linein/cdda decoder: support
+* Link checking capabilities
+* Link Launch
+* Links direct to
+* Linux System Administrator's
+* lions
+* LIQUORICE ALLSORTS MP3'S
+* Lisa Standsfield -
+* Lisboa, PO *
+* Listen to voice
+* Listing by County
+* Listing of all
+* Lists CD's that
+* Lists of
+* Lists your users
+* LITE version *
+* Live at the
+* livelihoods. Who
+* LiveUpdate subscriptions
+* Living Joy -
+* Living on Ramen,
+* LLayout.ColSpacing - GFI.AvgWidth
+* LLayout.HorizBorder + RowLeading%)
+* LLayout.HorizBorder)
+* LLayout.HorizBorder) / LLayout.ColSpacing)
+* LLayout.HorizBorder) / LLayout.RowSpacing)
+* LLayout.RowSpacing - RowLeading%
+* LLayout.SymbolSize + 1.75
+* LLayout.VertBorder
+* Load games
+* Loaded with rich
+* LOADSAVE.MP3--BBE - Enter,
+* Local bus video
+* Local intranet zone
+* Location of Readme
+* Locked Projects in
+* Lockjaw - Reactor
+* Logarithmic EQ
+* Logo screens -
+* Logoz
+* Long
+* Look for a
+* Look Ma, I'm
+* Looking out *
+* Lord's Of Hardcore
+* LORE Version 1.25wb
+* Lost & Found
+* Lost allocations on
+* LOSTIN.MP3--Sister Sledge -
+* lots
+* lots of
+* Lots of bugfixes
+* Lots of cosmetic
+* lots of delightful
+* lots of weapons
+* Lotto v1.0 for
+* Lottochampion [1/1] *
+* LOTUS - Let
+* Lotus Notes 4
+* Lotus Smartsuite 97
+* Love Beach (November
+* Love Bomb -
+* LOVE.MP3 - Anita
+* LOVEBABE.MP3--Barry White -
+* LOVELIVE.MP3 - Alison
+* LOVETRAI.MP3--O'Jays - Love
+* LOVING.MP3 - Hi-Liner
+* LOVINGU.MP3 - Quasimodo
+* LOVTHING.MP3--The Whispers -
+* Low
+* Low disk usage
+* LOW-LATENCY *Info*
+* lSect) * lClust
+* LShift% + Colr%
+* Lyric database support
+* M E E
+* M I X
+* MACARENA.MP3 - Los
+* Macro Exclusion Engine
+* Macromedia Director 8
+* Macromedia Dreamweaver Ultradev
+* Macromedia Fireworks 3
+* Macromedia Flash 4
+* Macromedia Freehand 9
+* MacSavvy BBS *
+* Made .pls playlists
+* made 12k fullscreen
+* made alt+delete work
+* MADE BY BOBBY
+* made credits less
+* made doublesize mode
+* made drag&drop playlist
+* made EQ's 0-lock
+* made general purpose
+* Made http:// default
+* made multiple-instance handling
+* made out_wm smaller
+* made physical file
+* made playlist editor
+* made shuffle not
+* made skin installing
+* made snap to
+* Made some mods
+* Made sure the
+* made tagging in
+* made title-scroll option
+* made tooltips and
+* made uninstall use
+* made vis_fs.dll default
+* made Winamp Agent
+* made Winamp handle
+* made winamp.exe and
+* made workaround for
+* made zip skin
+* Madness takes its
+* MAG : KEEP
+* MAG : THE
+* mail only system
+* Main propulsion system
+* Maintain a list
+* Maintain up to
+* Maintenance of Copyright
+* MAJOR "bug" fix:
+* Major release -
+* Make ?
+* Make friends, have
+* Make sure all
+* MAKE SURE NOTHING
+* Make sure that
+* Make sure the
+* Make sure there
+* Make sure you
+* Make the Control
+* Make Your Car
+* MAKELOVE.MP3--Etta James -
+* Makes PCB QWK
+* MAKINME.MP3 - Toni
+* MAMA.MP3--Spice Girls -
+* Man Utd. strip.
+* Manage mailboxes, passwords,
+* Manage your people
+* Management of up
+* Mangum, Okla, U.S.A.
+* Many
+* Many foxes grow
+* Many improvements were
+* Many more features
+* Many more powerful
+* many optimizations and
+* many other small
+* Many small bugfixes
+* Map from the
+* MARINE CORPS SL
+* Marmion - Schoneberg
+* mars
+* Maryland Senate Committee
+* massive improvements to
+* Massively improved CD
+* MASSIVELY optimized directory
+* Master Boot Record
+* Maximus
+* MAXPNAMELEN
+* MAXPNAMELEN ' product
+* MaxY/MaxX:
+* MAX_PATH
+* MAX_PATH ' out:
+* MB-NET | A
+* mb.ini skin support
+* MBUTIL Link can
+* MBUTIL Link didn't
+* MBUTIL Post can
+* MBUTIL Purge can
+* MCRAGE.MP3--MC Rage -
+* mcx.h -- This
+* MDAC SDK
+* Me, indecisive? I
+* Mechanical and electrical
+* Medium
+* Melb,FL * DS
+* Melbourne,FL (1:374/31.0)
+* MEMBERSHIP DATABASE -
+* Memory Card Manager.
+* Memory Editor. X-Link
+* Memory for Windows
+* Memory Report -
+* Mental Floss prevents
+* MENU AND INSTALLER
+* Menu repair technology
+* Menu selections offered
+* Merge with Contact
+* MERRY XMAS TO
+* Message areas (Local/ECHO)
+* Message During Installation
+* Message forwarded by
+* Message originally:
+* Messages that were
+* Metairie, LA *
+* METRIC BBS *
+* MetroNet * Columbia,
+* Miami -- see
+* Microsoft Access 97
+* Microsoft BackOffice Administrator's
+* Microsoft BackOffice Unleashed
+* Microsoft DirectX 7.0
+* Microsoft Excel 97
+* Microsoft Exchange client
+* Microsoft Exchange Server
+* Microsoft Exchange support.
+* Microsoft Frontpage 97
+* Microsoft FrontPage Unleashed
+* Microsoft Internet Explorer
+* Microsoft Knowledge Base
+* Microsoft Mail, Microsoft
+* Microsoft Mouse or
+* Microsoft Mouse, Microsoft
+* Microsoft Office 2000
+* Microsoft or compatible
+* Microsoft v2 Software
+* MICROSOFT VISUAL BASIC
+* Microsoft Windows 95
+* Microsoft Windows 95/98
+* Microsoft Windows 98
+* Microsoft Windows NT
+* MICROSOFT WORD 2000
+* Microsoft Word 97
+* Microsoft, where quality
+* MicroSoft: Using yesterday's
+* midi plugin: Fixed
+* midi plugin: Trying
+* Mijenix ZipMagic and
+* MikMod module decoder
+* mikmod update (we
+* Mini
+* Mini Notepad
+* Minibrowser improvements (new
+* Minibrowser optimizations
+* minibrowser start page
+* Minimum memory requirement
+* Minimum system requirements
+* Minor bugs fixed,
+* minutes. *
+* minutes. Don't you
+* MISCELLANEOUS ISSUES
+* Missing or Corrupted
+* MISSING.MP3 - Puff
+* MISSING.MP3--Everything But The
+* Misspelled? Impossible. My
+* MIXER_LONG_NAME_CHARS
+* MIXER_SHORT_NAME_CHARS
+* MKRead v1.01 *
+* MKRead v1.03 *
+* MMPM/2 CD Audio
+* MMPM/2 Software Motion
+* MMST 2.09 UnRegistered
+* MOANER.MP3 - Underworld
+* Mobile support
+* mod decoder: added
+* mod decoder: fixed
+* mod decoder: new
+* mod decoder: too
+* Mode 1 CD-ROM
+* Mode 2 CD-ROM
+* Modeless prefs box,
+* Modem indicator lights
+* Modem: 9600-baud modem;
+* MODERATOR *
+* Moderator DBRIDGE (1:3601/14)
+* MODERATOR DB_NOVICE *
+* MODERATOR DB_NOVICE, DBRIDGE
+* Moderator DB_Soft (1:3601/14)
+* Modern art: A
+* module and your
+* Module-initializer: Create the
+* MOIST *
+* MOJO FILTERS *
+* MOMONEY.MP3--Notorious B.I.G. -
+* Monaco - What
+* Monitor: VGA or
+* Moons with actual
+* Moorgrille
+* Moral indignation is
+* More E, Vicar?
+* More file icons
+* More flexible Gaussian
+* More ID3 format
+* More ID3 genres
+* More IPC functions
+* More IPC stuff
+* More menu items
+* More optimization, mostly
+* More Properties v2.01
+* More reliable HTTP
+* More stable threading
+* MORE STOCKING FILLERS
+* More!
+* More! * Great
+* more... ! :)
+* MORNING.MP3 - Team
+* Morristown NJ *
+* Morse : -.-
+* Most other controls
+* MOTION.MP3 - DJ
+* moulding
+* Mouse * *****
+* Mousewheel support (controls
+* Move or
+* MOVEBABY.MP3--Cappella - Move
+* MOVEYOUR.MP3 - Electric
+* MOVING.MP3 - Pierre
+* MP3 decoder bugfixes
+* mp3 decoder: added
+* mp3 decoder: better
+* mp3 decoder: fixed
+* mp3 decoder: high
+* mp3 decoder: improved
+* mp3 decoder: mixed-bitrate
+* mp3 decoder: more
+* mp3 decoder: new
+* mp3 decoder: optimized
+* MP3 is a
+* MP3 to Wave
+* MP3 Toolz 2.0
+* MPC-Level 2 compliant
+* MPEG 2.5 support
+* MR/2 * Vote
+* MR/2 1.52 NR
+* MR/2 1.54 NR
+* MS Exchange support.
+* MS-DOS 6.x
+* MS-DOS isn't dead,
+* MS-DOS Shell
+* MS/PC-DOS compatible, all
+* MSDOS.SYS
+* MSI - Bringing
+* MSI HQ! BBS
+* MSQuery returns a
+* MTV - A
+* much improved CDDA
+* Much improved HTTP
+* Much More!
+* Multi-chorus - 4
+* Multi-echo - with
+* Multi-filter - High
+* Multi-Line * +44-273-688888/699999
+* Multi-Player **** *******
+* Multimedia computer required
+* Multimedia PC with
+* Multimedia Summary *
+* Multimedia: Multimedia computer
+* MultiMenu 1.00 Menu
+* MultiMenu 1.00f Menu
+* multiplayer support *
+* Multiple Events:
+* Multiple Playback features
+* Multiple resizable sound
+* Multiple search
+* Multisession CD duplication
+* Multisession photo CD
+* Multistory walkthrough views.
+* Music CD
+* Music-on-hold an speakerphone
+* Muso Excuse #
+* Must get to
+* My brain's in
+* My computer is
+* My cow died
+* My favorite mythical
+* My Karma just
+* My reality check
+* MYHEAD.MP3 - Marradonna
+* MYLOVE.MP3 - No
+* MYLOVE.MP3--Emotions - Best
+* Myrtle Beach, SC
+* Myth #1: Computers
+* Mythical Kingdom Software
+* N * E
+* N-Trance - D.I.S.C.O.
+* NAKED.MP3 - Louise
+* name for a
+* Name Property
+* Napster 2.6
+* Narcissist: someone better
+* Nashville TN USA
+* National Systems Programmers
+* Natural Born Grooves
+* naugahyde
+* NAVDX and Long
+* NAVDX and ZIP
+* NB: Filefind responses
+* nBufMax
+* NCBNAMSZ
+* NEC platform only:
+* Need to Run
+* NeoTrace 2.10
+* Nero Burning Rom
+* Nero WinAspi Driver
+* Netmail facility
+* NetMeeting Online Collaboration
+* Netscape Communicator Professional
+* Netscape Plug-Ins Developer's
+* network
+* Network Information *
+* Network Press Study
+* NETWORKS.TXT, which describes
+* Never argue with
+* Never go to
+* Never hit a
+* NEVER MIND THE
+* Never say knups
+* NEW
+* New "Eject" button
+* New 'agressive buffering'
+* New 'alternate volume
+* New 'No Playlist
+* NEW * Line
+* new AVS version
+* new AVS with
+* New buffer-all logic
+* New bugs (since
+* New CDDA plug-in.
+* new directmusic/midiOut plug-in
+* new directsound output
+* New external wad
+* new FEOPT NOMSGID,
+* New high quality
+* New Hyper Textures
+* new hyper-leet desktop
+* New ID3 tags
+* New ID3->Title translation
+* NEW IN REALSYSTEM
+* New install screen
+* New level from
+* New Mail not
+* New mini features
+* New MJuice code
+* New MOD/XM/IT player
+* new mp3 input
+* New multiple instances
+* New Nitrane 1.0
+* New prebuffer after
+* New preference system
+* New Properties (VBA)
+* New quarter-sample-rate mode
+* New splash screen
+* New SuperPiMP installation
+* New Technologies
+* New version checking
+* New Zealand *
+* New, nicer, self
+* Newark, NJ *
+* Newest version (2.08)
+* Newly added
+* Newmarket, ON *
+* Newnix Shell *
+* News, Views, and
+* NEWSFLASH *
+* NewsGrabber 3.03
+* next (void) const
+* next to unread
+* Next;
+* NextStep%
+* Nfodiz
+* NFS-mounted on a
+* NFX V1.2 [Freeware]
+* NIGHT.MP3--Clock - Oh
+* Nightcrawlers - Push
+* Nitrane 1.20. Faster,
+* Nitrane 1.22, for
+* Nitrane 1.24 with
+* Nitrane 1.60 MPEG
+* Nitrane MP3: totally
+* NO
+* NO * to
+* No bytes remain
+* No generalization is
+* NO HIT FOR
+* NO LIABILITY FOR
+* no longer renames
+* No man is
+* No matter where
+* No more integer
+* No Music Exe
+* No other list
+* No Ram fitted
+* No Silicon Heaven?
+* NO special rights
+* No Standalone FrontPage
+* No time consuming
+* No Viewer Required!
+* No wanna work.
+* NO WARRANTIES. Microsoft
+* No wonder I'm
+* Nobody can be
+* NOBODY.MP3 - Tony
+* Node #3 *
+* Node 2 (1:273/205)
+* Node 3 (2:440/8)
+* Nodes in the
+* Nokia Datasuite 3
+* NOLONGER.MP3 - Kristaal
+* NON MEANT AS
+* non-existant PID).
+* non-root cannot list
+* None *
+* None of you
+* none option for
+* Noone can be
+* Normalization of extracted
+* NORML Spends $500,000
+* Northern FDN Connection
+* Norton Anti-Virus 2000
+* Norton AntiVirus June'96
+* Norton AntiVirus Program
+* NORTON COMMANDER 5.0á
+* Norton Ghost 6
+* Norton Speed Disk
+* Norton Utilities 2000
+* Norton Utilities 2001
+* not a FrontPage
+* NOT A HOAX
+* Not for Resale
+* Not just for
+* not out of
+* Not qualify OMMA
+* Not use a
+* NOTE - This
+* Note that the
+* Note: ap_pstrdup allocates
+* Note: if apricots
+* Note: LiveUpdate uses
+* Note: these plugins
+* Nothing is so
+* Notification of new
+* Notify you or
+* now adding inbound
+* Now decreases/increases weapon/armour
+* Now featuring *
+* Now generate the
+* now generating a
+* Now includes Internal
+* now supporting 16
+* now temporarily creating
+* Now using 1stReader...and
+* Now using Qmail
+* Now with Multi-Language
+* Now, only say
+* Now, switch to
+* nsis 1.0 installer
+* NTFS and FAT
+* NTSC - Scart
+* Nullsoft Visualization Library!
+* Number base conversions.
+* NumButtons
+* Numeric and alphanumeric
+* Numerous bugs fixed
+* Numerous playlist editor
+* NW Archive Site
+* nxt =0)
+* nxt =0) {
+* nxt)
+* nxt);
+* NYC, NY FileBone
+* O * N
+* OASIS - (WHAT'S
+* OASIS - BE
+* OASIS - CIGARETTES
+* OASIS - DEFINITELY
+* OASIS - DO
+* OASIS - DONT
+* OASIS - LIVE
+* OASIS - MTV
+* OASIS - ROLL
+* OASIS - SHAKEMAKER
+* OASIS - SOME
+* OASIS - STAND
+* OASIS - THERE
+* OASIS - VOLUME
+* OASIS - WHATEVER
+* OASIS - WIBBLING
+* OASIS - WONDERWALL
+* ObjectCycle 2.001
+* Obliterator - Higher
+* Obtain updated drivers
+* Obtaining Microsoft Office
+* OCEAN COLOUR SCENE
+* OCR (Optical Character
+* ODBC API
+* ODBCINST.HLP - General
+* of the possibility
+* of, then version
+* off Highlander BBS
+* Off-Line Xpress: Perfection!
+* Offers
+* Offers the fastest
+* Office 2000 Shortcuts
+* Office Assistant
+* Office Web Controls
+* Official Marimba Guide
+* OFFICIAL Technical Echo
+* OFFLINE 1.54 *
+* OFFLINE 1.56
+* OFFLINE 1.56 *
+* OFFSHORE.MP3--Chicane - Offshore
+* Oh, screw down
+* OHYEAH.MP3 - Ash
+* Oi, datz me
+* OK * and
+* OK,whoisthewiseguywhostolemyspacebar?
+* OKC, OK. (1:147/31.2)
+* Oklahoma City (1:147/911.0)
+* Oklahoma City, USA
+* OLD PIRATES NEVER
+* Oldham, Manchester *
+* oldmax!) THEN
+* oldmax!) THEN errcode%
+* oldmax#) THEN
+* oldmax#) THEN errcode%
+* OLIVE.MP3 - Olive
+* OLM VERSION 1.0
+* OLX 1.52 *
+* OLX 2.1 *
+* OLX 2.1 TD
+* OLX 2.2 *
+* OLX 3.10 31-0507
+* Omar Santana -
+* OmniPage Pro 10
+* On 06-09-93, Hamish
+* On 09-16-93 Hector
+* On 09-28-93, this
+* On a clear
+* on best levels
+* on files of
+* On rare occasions,
+* On September 13
+* On the fly
+* On the menu
+* On the Microsoft
+* on the rights
+* On the Start
+* One Armed Bandit
+* One click stamping
+* One click to
+* One of the
+* One Tribe -
+* One way to
+* onionweave
+* Online
+* ONLINE ? Good!
+* Online games
+* Online Magazine!"
+* Online Magazine!" -
+* Online, sysop configurable,
+* Online: http://www.microsoft.com/ntserver/
+* Only $35 reg.
+* ONLY $9.95
+* Only a mediocre
+* Ontario, NY *
+* OOHAHH.MP3--Gina G -
+* Ook geplaatst in
+* Opalis Grep_Reg v1.0
+* Open your mind
+* Opening Documents Created
+* Opens huge files
+* Opera 4.05
+* Operating System Requirements
+* Operating system: Microsoft
+* Operator? I wish
+* Optimize your quality
+* Optimized audio output
+* Optimized for faster
+* Optimized huffman decoding
+* Optimized Nitrane's 3DNow!
+* Optimized prefs/plugins --
+* optimized title/length reading
+* Optimized Visualization (less
+* Option for synchronizing
+* optional aol icon
+* Options dialog will
+* OptOut 0.9
+* or an equal
+* or DORINFOx.DEF. Keeps
+* or injury. These
+* Or!g!n: Bibble Babble
+* Or!gin: Aeronautical Stop
+* Or!gin: Phantasmagoria BBS,
+* Or$g$n: PeteXs Mail
+* Oracle Unleashed
+* Orator V1.21 #46
+* Order of Events
+* ORDINARY.MP3--Duran Duran Duran
+* Oregon Board of
+* Origin: ! !
+* Origin: !? No,
+* Origin: " Is
+* Origin: ®®The Tower
+* Origin: "...and we'll
+* Origin: "C‚ leis
+* Origin: "Deep in
+* Origin: "I drank
+* Origin: "It's fish
+* Origin: "Lightning BBS,
+* Origin: "Minky, musky,
+* Origin: "Mr. Worf,
+* Origin: "The Francenet
+* Origin: "The Music
+* Origin: "We can't
+* Origin: % EchoSprint:
+* Origin: &AMPersand (2:251/16.50)
+* Origin: 'Excessive order
+* Origin: 'Forests of
+* Origin: (1:104/330.0)
+* Origin: (1:124/6010)
+* Origin: (1:125/55)
+* Origin: (1:134/40)
+* Origin: (1:135/54)
+* Origin: (1:152/28)
+* Origin: (1:153/918.3)
+* Origin: (1:2609/2)
+* Origin: (1:273/401)
+* Origin: (1:324/179)
+* Origin: (1:340/30)
+* Origin: (1:343/109)
+* Origin: (1:3613/12.3)
+* Origin: (1:363/137)
+* Origin: (1:3639/11.0)
+* Origin: (1:369/33.2)
+* Origin: (1:375/46)
+* Origin: (2:200/110)
+* Origin: (2:200/407)
+* Origin: (2:203/116)
+* Origin: (2:206/201)
+* Origin: (2:220/22)
+* Origin: (2:243/7004)
+* Origin: (2:245/6605.0)
+* Origin: (2:246/117)
+* Origin: (2:247/191.4)
+* Origin: (2:2476/101.7)
+* Origin: (2:250/107)
+* Origin: (2:250/109)
+* Origin: (2:250/128.0)
+* Origin: (2:250/219.4)
+* Origin: (2:2502/5)
+* Origin: (2:252/116)
+* Origin: (2:253/509.2)
+* Origin: (2:254/4)
+* Origin: (2:254/8.0)
+* Origin: (2:256/301)
+* Origin: (2:257/609)
+* Origin: (2:257/800)
+* Origin: (2:258/101.24)
+* Origin: (2:258/24)
+* Origin: (2:258/36)
+* Origin: (2:259/57)
+* Origin: (2:281/506.19)
+* Origin: (2:281/611.1)
+* Origin: (2:283/309.7)
+* Origin: (2:283/4.6)
+* Origin: (2:284/217)
+* Origin: (2:292/603.43@Usenet)
+* Origin: (2:310/90.30)
+* Origin: (2:440/35.2)
+* Origin: (2:440/601)
+* Origin: (2:441/6)
+* Origin: (2:441/80)
+* Origin: (2:441/86.100)
+* Origin: (2B) ||
+* Origin: (Greeley-Com-Net 1:315/6)
+* Origin: (I'm really
+* Origin: (null) (1:388/29)
+* Origin: (RA 2:250/107.80)
+* Origin: * *
+* Origin: * 20/20
+* Origin: * ABySS
+* Origin: * Airtel
+* Origin: * Arsenal
+* Origin: * Atarian
+* Origin: * BCG-Box,
+* Origin: * Cambs
+* Origin: * Channels
+* Origin: * Chat
+* Origin: * Cybernet
+* Origin: * ELAM
+* Origin: * FrontDoor
+* Origin: * Highlander
+* Origin: * J
+* Origin: * MacSavvy
+* Origin: * MB-NET
+* Origin: * METRIC
+* Origin: * MetroNet
+* Origin: * Rampton
+* Origin: * Rich
+* Origin: * Severn
+* Origin: * SuperBBS
+* Origin: * Superior
+* Origin: * TeleSoft
+* Origin: * TempoSys
+* Origin: * THE
+* Origin: * XANADU
+* Origin: * ZyXEL=Zxx
+* Origin: ** The
+* Origin: *** FastEcho
+* Origin: *** Is
+* Origin: *** The
+* Origin: **FREE** Renegade
+* Origin: *-/\/Fire and
+* Origin: *>> The
+* Origin: *Liberty*AustinTx*(512)326-9491 (1:382/91.49)
+* Origin: *MINI BBS*
+* Origin: *Northern Lights*
+* Origin: *PCM* North
+* Origin: *RANet 7445
+* Origin: *The BillBoard
+* Origin: *THE K-W
+* Origin: *Walburght Castle*
+* Origin: *\-\Irillian bye
+* Origin: *\[-]\* The
+* Origin: *_ King
+* Origin: ++ Point
+* Origin: +++ The
+* Origin: ,Ü—,þÿþÿþÿþÿKaz (2:258/101)
+* Origin: - Adam's
+* Origin: - devious.fridge
+* Origin: - Lanarkshire
+* Origin: - The
+* Origin: -(*) The
+* Origin: -) Roulette:
+* Origin: -*- Great
+* Origin: -*FP*- (formerly
+* Origin: -*FP*- for
+* Origin: -*FP*- Sponsored
+* Origin: -*FP*- Stylish
+* Origin: -+- GEchoCON
+* Origin: -+- Spot
+* Origin: -- North
+* Origin: -- The
+* Origin: --* In
+* Origin: -------BE MINDFULL--------
+* Origin: ----> born
+* Origin: ----> DATA-LINX
+* Origin: ----> Dave's
+* Origin: ----> DPS
+* Origin: ----> Dream-Line
+* Origin: ----> Fox
+* Origin: ----> Gwent
+* Origin: ----> John's
+* Origin: ----> La
+* Origin: ----> Mail
+* Origin: ----> Still
+* Origin: ----> The
+* Origin: ----> This
+* Origin: ---> Satellite
+* Origin: ---> The
+* Origin: --==##**##==-- Watch
+* Origin: --==<(Flat Earth
+* Origin: --==> Linn
+* Origin: --=={{ The
+* Origin: --> Complete
+* Origin: --> Flight
+* Origin: --| OS/2
+* Origin: -= Animal
+* Origin: -= GOTHSOFT
+* Origin: -=* HACK!
+* Origin: -=* Virus
+* Origin: -=+-=> HaCK!
+* Origin: -=- In
+* Origin: -=- Oo-er,
+* Origin: -=-The Rave!!
+* Origin: -=> Flight
+* Origin: -=>Rainbow's End
+* Origin: -=Animal Farm
+* Origin: -=Information Central=-
+* Origin: -=P=I=X=- /
+* Origin: -=SciQuest BBS=-
+* Origin: -=Tech BBS=-Node
+* Origin: -=The Crossroads=-
+* Origin: -=The Rave
+* Origin: -=THE RAVE!!=-
+* Origin: -=[ Conservatory
+* Origin: -=[ Hyper
+* Origin: -=[ The
+* Origin: -=[Sherwood Forest
+* Origin: -=] The
+* Origin: -={ Christian
+* Origin: -=ð Freeware
+* Origin: -=ð þ
+* Origin: -=ð=- LifeForce
+* Origin: -=ð[Mi Amigo
+* Origin: -ECO BBS
+* Origin: -Moderator Zone
+* Origin: .. The
+* Origin: ... the
+* Origin: ...drop your
+* Origin: ...when I
+* Origin: ..ire, Claire,
+* Origin: .oO WhItE
+* Origin: .\\ystical .\\adrigal
+* Origin: /*Nothing*/ is
+* Origin: //\ The
+* Origin: /X\ostly Harmless
+* Origin: /\../\ Simon's
+* Origin: /\/\ am
+* Origin: /\/\ The
+* Origin: /\/\/\ HardRock
+* Origin: /\/\e(s Point
+* Origin: /\/\idnite /\/\adness
+* Origin: /\/\irage Corpus
+* Origin: /\/\ountainTop BBS
+* Origin: /\/\uddy \/\/aters
+* Origin: /^\ The
+* Origin: 01 for
+* Origin: 061 For
+* Origin: 1066 Mail
+* Origin: 1st Choice
+* Origin: 24th Street
+* Origin: 2:241/4004 (2:241/4004)
+* Origin: 2:242/37 UB-HOFF
+* Origin: 2:2501/201.12 (2:2501/201.12)
+* Origin: 2:254/40.7 (2:254/40.7)
+* Origin: 2:255/59 (2:255/59.0)
+* Origin: 2:255/59 (90:100/305.0)
+* Origin: 2nd Class
+* Origin: 3:632/107 -
+* Origin: 42! (2:441/80)
+* Origin: 501 WC
+* Origin: 501 Wildcat
+* Origin: 604-946-5815 V.32
+* Origin: 7, rue
+* Origin: 82d Airborne
+* Origin: :-] :-[
+* Origin: :-{) und
+* Origin: ::: The
+* Origin: :::: The
+* Origin: :The Boiler
+* Origin: :TONI'S OPEN
+* Origin: ;-) (2:370/15.1)
+* Origin: < Darrin's
+* Origin: < Popper's
+* Origin: <*InterMail* Sales/Support
+* Origin: <*] Silver
+* Origin: <----TOYS IN
+* Origin: << InterMail
+* Origin: << MacCircles
+* Origin: << StarNet
+* Origin: << Tharg
+* Origin: <<< **
+* Origin: <<< DESKTOP
+* Origin: <<<<< I
+* Origin: <<<<<< Quis
+* Origin: <<BuBulle System>>
+* Origin: <<C>> it
+* Origin: <FidoNet>Quintessence USR
+* Origin: <FORTRESS> BBS
+* Origin: <Magic Board
+* Origin: <SIGH>... <SNIFF>...
+* Origin: <The Whizkid
+* Origin: = C
+* Origin: = Newhouse
+* Origin: = Sound
+* Origin: =- LifeForce
+* Origin: =-> Ruebezahl's
+* Origin: =Abbey Road
+* Origin: =IMAIL= &
+* Origin: =IMAIL= Support
+* Origin: =[RA-USA]= RemoteAccess
+* Origin: >*Rescue-Connexion +49-(0)4536-1486*<
+* Origin: >> Citizens'
+* Origin: >> ELAM
+* Origin: >> Hal
+* Origin: >> INTERFACE
+* Origin: >> NICKELODEON
+* Origin: >Apricot Insight
+* Origin: A &
+* Origin: A better
+* Origin: A bon
+* Origin: A Byte
+* Origin: A clear
+* Origin: A different
+* Origin: A new
+* Origin: A Northerly
+* Origin: A Place
+* Origin: A point
+* Origin: A Pointed
+* Origin: A Professional
+* Origin: A project
+* Origin: A speed
+* Origin: A Stalagmite
+* Origin: A Toxic
+* Origin: A Very
+* Origin: A-point-meant with
+* Origin: A34 Oxon
+* Origin: A4000/040 Power,
+* Origin: Aaron's Digital
+* Origin: ABACUS-I BBS
+* Origin: Abandon Shop
+* Origin: Abbey Road
+* Origin: Abiogenesis (816)734-4732
+* Origin: Abort, Retry,
+* Origin: ABS International
+* Origin: Abstract Horizons
+* Origin: AbysS Taking
+* Origin: Access Information
+* Origin: ACCUG BBS
+* Origin: Achilles Castle!!
+* Origin: Achtung: Bald
+* Origin: Acropolis BBS.
+* Origin: Acropolis_HST -->
+* Origin: Acting Moderator,
+* Origin: ACZAR -
+* Origin: Adam's Apple
+* Origin: Adam's Point
+* Origin: Addictions: A
+* Origin: Adric's C.F.
+* Origin: AEOLUS -
+* Origin: Aeronautical Stop
+* Origin: After Hours
+* Origin: Agony -
+* Origin: Ahhhh! It's
+* Origin: AINEX-BBS [+31-33-633916]
+* Origin: Air Applewood
+* Origin: Air Applewood;
+* Origin: AirBoat OnLine
+* Origin: Airtel Remote
+* Origin: Akron Info
+* Origin: Al's Cabin
+* Origin: Alain Prost
+* Origin: Alba Maximus,
+* Origin: Albert's Point/2
+* Origin: Alexander I
+* Origin: Alex`s Point
+* Origin: Alien Archives!
+* Origin: all Bugs
+* Origin: All Praise
+* Origin: ALL PRO
+* Origin: All that
+* Origin: All The
+* Origin: AllTime BBS
+* Origin: AllTime Board
+* Origin: Almac BBS.
+* Origin: Alpha-Complex (Where
+* Origin: AlphaMed Link:
+* Origin: Alpine Wildcat!
+* Origin: Alten Hund
+* Origin: ALTERED ILLUSIONS
+* Origin: Altered State
+* Origin: Altoona-On-Line (814)-942-0195
+* Origin: Altoona-On-Line (814)-942-1724
+* Origin: Amatec (2:257/607.5)
+* Origin: Amatec -
+* Origin: Amatec BBS
+* Origin: Amatec Mail
+* Origin: Amazing! (2:255/171.8)
+* Origin: Amber Shadow
+* Origin: Ambridge H.S.,
+* Origin: AMBROSIA -
+* Origin: American Connection
+* Origin: Amiga Central
+* Origin: Amiga Devil
+* Origin: Amiga Format,
+* Origin: Amiga Information
+* Origin: Amiga Junction
+* Origin: Amiga South
+* Origin: Amiga StarLight_BBS
+* Origin: Amiga'Tastic! More
+* Origin: Amiga: Say
+* Origin: AMIgo BBS
+* Origin: AMIgo BBS,
+* Origin: AMIgo, friendly
+* Origin: AMIgo, the
+* Origin: AmoCat BBS
+* Origin: An Amiga
+* Origin: An ASCII/ANSI/RIP/NAPLPS
+* Origin: An Bhaibealoin
+* Origin: An oiled
+* Origin: Anarchy Unlimited
+* Origin: Ancient East
+* Origin: AndroTec, Hamm,
+* Origin: Andy Gardner
+* Origin: Andy's Point
+* Origin: AnnoDomini -
+* Origin: Anonymous BBS
+* Origin: Another area
+* Origin: Another BBS
+* Origin: Another Brick
+* Origin: Another PerManNet
+* Origin: Ansi's Escape,
+* Origin: Any sufficiently
+* Origin: Anyone seen
+* Origin: Apogee Software
+* Origin: Apparition BBS,
+* Origin: APPLE ][e
+* Origin: APPLEGATE; Neenah,
+* Origin: APPLEGATE_Mail_System, Appleton,
+* Origin: APPLEGATEý -
+* Origin: Apricot Insight
+* Origin: April on
+* Origin: APRIL UK
+* Origin: Arcade -
+* Origin: Arcadia BBS,
+* Origin: ArcForum :
+* Origin: Arctic BBS
+* Origin: Are WE
+* Origin: Arkham BBS
+* Origin: Arpeggio The
+* Origin: Arsenal of
+* Origin: Artemis Lair,
+* Origin: Artificial_Life (2:313/9.66)
+* Origin: Artistic ventures
+* Origin: As busy
+* Origin: ASA CompuHelp
+* Origin: Asm and
+* Origin: Aspects -
+* Origin: Aspects BBS
+* Origin: Aspects BBS.
+* Origin: Aspects of
+* Origin: Assembler BBS
+* Origin: Atarian Line
+* Origin: Atlanta Connection
+* Origin: Audio Dynamite
+* Origin: Aurora BBS
+* Origin: Avoid hangsovers,
+* Origin: AXLs, Wagga
+* Origin: Ayrshire Amiga
+* Origin: B Cubed
+* Origin: BABBLE -=0532
+* Origin: BABBLE SuperBBS
+* Origin: Back of
+* Origin: Back Woods
+* Origin: Bad Boys
+* Origin: Bad-Boy's BBS
+* Origin: Baggys' Point
+* Origin: Bajtek BBS
+* Origin: Bald Eagle
+* Origin: Barnabas The
+* Origin: Baroque BBS
+* Origin: barthold@dialis.hacktic.nl fax:
+* Origin: Basement -
+* Origin: Basic'ly Computers:
+* Origin: Batterijen oooooooooooooooop/lk9i08ui5-uj4ikrtpkl
+* Origin: BCL -
+* Origin: BCS IBM
+* Origin: BDL BBS
+* Origin: Be Excellent
+* Origin: Beachy Head
+* Origin: Beacon Terra
+* Origin: BEAM BBS/Ankara
+* Origin: Beate Uhse,
+* Origin: Because I
+* Origin: Bedlam BBS
+* Origin: BeDLaM! [10pm-2pm
+* Origin: Ben's Bulletin
+* Origin: Benbecula Shuttle
+* Origin: Bengt's OS/2-point
+* Origin: Besser drin'
+* Origin: Best Buy
+* Origin: Beta Bashin'
+* Origin: BETCHA' $PORT$
+* Origin: Better Than
+* Origin: Beware of
+* Origin: Beyond the
+* Origin: Bibble Babble
+* Origin: Big Bad
+* Origin: BIG BANG
+* Origin: Big Blue
+* Origin: Big Daddy's
+* Origin: Big Dreams
+* Origin: Bigfoot's RBBS
+* Origin: Bigger, Better,
+* Origin: Biker's Alley,
+* Origin: Biker's Nightmare
+* Origin: Bill Graham
+* Origin: Bill Mitchell,
+* Origin: Bill's Domain
+* Origin: Bill's MailBag,
+* Origin: Bill's N'Awlins
+* Origin: bill@escan.demon.co.uk (2:257/900)
+* Origin: Billy takes
+* Origin: Biochemists wear
+* Origin: Bird, bird,
+* Origin: BitByters BBS,
+* Origin: Bits &
+* Origin: Bits and
+* Origin: BitStream: ZyXEL
+* Origin: Bitter Butter
+* Origin: BIZynet BBS
+* Origin: Black Board
+* Origin: Black Cat
+* Origin: Black Dragon's
+* Origin: Blade Runner
+* Origin: Blank Range:-*DARKSIDE*
+* Origin: Blast away
+* Origin: BlinkLink -
+* Origin: Bloom Country
+* Origin: Bloom County
+* Origin: Blue Knight's
+* Origin: BLUE LABEL
+* Origin: Blue Moon
+* Origin: Blue Steel
+* Origin: BlueDog BBS
+* Origin: BlueWave Support/BETA
+* Origin: Bluewave/RA Beta
+* Origin: BLUFF CITY
+* Origin: Blunt Point
+* Origin: Bob's Bulldog
+* Origin: Bob's Place
+* Origin: Bob's Point
+* Origin: Boca Bytes
+* Origin: Bonnies Bar&Grill
+* Origin: Borderline! BBS
+* Origin: Bordertown -
+* Origin: Bored, bored,
+* Origin: Borland -Don't
+* Origin: Boroughbridge QBBS,
+* Origin: Bottom Line
+* Origin: BoysVille BB,
+* Origin: BoysVille BBS,
+* Origin: Bozzimaccoo!! (2:250/234)
+* Origin: Bozzimaccoo!! (2:256/62)
+* Origin: brad, let's
+* Origin: Branson's Remote
+* Origin: Brawner's BBS
+* Origin: Breaking Point
+* Origin: Brett's Programming
+* Origin: Brian AKA
+* Origin: Brian Pirie
+* Origin: Brian's Domain
+* Origin: Brian's Point
+* Origin: brian's small
+* Origin: Bridger BBS
+* Origin: brought to
+* Origin: Brushy Mountain
+* Origin: Bugs come
+* Origin: Bugsy's Place
+* Origin: Bullwinkle's Corner/Orlando,
+* Origin: BUNGALOW BILLS
+* Origin: Burning Chrome
+* Origin: Bus Stop
+* Origin: Busier than
+* Origin: Buy and
+* Origin: Buy for
+* Origin: ByteLine! -
+* Origin: Bytes 'n
+* Origin: C-9 Communications*InterNetGate*713-855-4382
+* Origin: C-System, The
+* Origin: C:\RON\SHOUT... C:\RC\JUMP...
+* Origin: Caddis OS/2
+* Origin: Cairo Research
+* Origin: Cajunet *
+* Origin: Cal's OS/2
+* Origin: Call Integrated
+* Origin: CALL, 505
+* Origin: Calvin's Lair
+* Origin: CAMELOT *
+* Origin: Camelot BBS
+* Origin: Can I
+* Origin: CAN O
+* Origin: CANet Systems
+* Origin: Cape Retreat
+* Origin: Capelle aan
+* Origin: Carelon BBS.
+* Origin: Carillon Aschaffenburg
+* Origin: Carl's Atomic
+* Origin: CAROLINA COUSIN
+* Origin: Carolina Forum
+* Origin: Carpe DM
+* Origin: Carrie's Living
+* Origin: Cascades BBS
+* Origin: Cash paid
+* Origin: Cassiopeia (2:258/101)
+* Origin: Cassiopeia -
+* Origin: Cassiopeia by
+* Origin: Cassiopeia II,
+* Origin: Cassiopeia, Cherry
+* Origin: Castle BBS
+* Origin: Castle Point,
+* Origin: Catch me,
+* Origin: Catch the
+* Origin: CatFlap BBS
+* Origin: Catonsville Comm
+* Origin: Catonsville Comm.
+* Origin: CATSPAW |
+* Origin: Caution! in
+* Origin: CBC -
+* Origin: CBC Tech
+* Origin: CC's Point,
+* Origin: CCD Ulm
+* Origin: cdc.demon.co.uk ->
+* Origin: CDS OnLine
+* Origin: Cebra! Hamburg
+* Origin: CEDAR BOARD
+* Origin: Centaur Aisle,
+* Origin: Central Florida
+* Origin: Centronics BBS
+* Origin: Cerberus -
+* Origin: Chameleon BBS
+* Origin: Channel Austin
+* Origin: Chans Land
+* Origin: Chaos !
+* Origin: CHAOS INFORMATION
+* Origin: CHAOS! bbs
+* Origin: Character is
+* Origin: Charlie's Corner
+* Origin: ChatterBox *
+* Origin: Checkpoint Charlie
+* Origin: Chehalem BBS,
+* Origin: CHEMI -
+* Origin: CHEMI-CALL *
+* Origin: Cheyenne Social
+* Origin: Chez Lewis
+* Origin: Chipper Clipper
+* Origin: Chris's Mailer
+* Origin: Chronicles of
+* Origin: CIIS/Command Interpreter
+* Origin: Circle Development
+* Origin: CIRCUIT BOARD
+* Origin: CIRCUIT BREAKER,Canandaigua,NY
+* Origin: CircusMaximus OS/2
+* Origin: City Lights
+* Origin: Clapham Junction
+* Origin: classic fidonet?
+* Origin: Cliffs of
+* Origin: Clive's Point
+* Origin: Cloak&Dagger 217-337-1679
+* Origin: Cloak_&_Dagger 217-337-1679
+* Origin: Cloud-NINE BBS,
+* Origin: Clovis Connection
+* Origin: Clovis-Net BBS
+* Origin: Club Changez
+* Origin: CNILE BBS
+* Origin: Coconino County
+* Origin: Code Plus
+* Origin: Coke Classic
+* Origin: Colin's Small
+* Origin: Colins' mailer
+* Origin: Collin Co.
+* Origin: Colossus -
+* Origin: COLOSSUS ]II[
+* Origin: Cols point
+* Origin: COM-DAT II
+* Origin: Combat Arms
+* Origin: ComCon BBS
+* Origin: Come, cross
+* Origin: Coming Attractions!
+* Origin: COMM Port
+* Origin: Comm-Post BBS
+* Origin: Command Interpreter
+* Origin: Commander Keen
+* Origin: Commodore A1200/040-40mhz
+* Origin: CommPass Point
+* Origin: COMMS at
+* Origin: Comms via
+* Origin: Comnet Point
+* Origin: Complete Mayhem
+* Origin: Comprehensive Property
+* Origin: Compu-Ray! BBS
+* Origin: Computer Connection
+* Origin: Computer Education
+* Origin: Computer Emporium-CD
+* Origin: Computers Anonymous
+* Origin: CONNECT V.SLOW
+* Origin: Connecticut ADULT
+* Origin: Conqueror BBS
+* Origin: Conrad's point
+* Origin: Consolation BBS
+* Origin: Conspiracy headquarters
+* Origin: Constants aren't;
+* Origin: Control Central,NY
+* Origin: Controversy Now!
+* Origin: Conway PC
+* Origin: COP BBS
+* Origin: COPS-N-HAMS BBS
+* Origin: Cormac mac
+* Origin: Cornerstone (206)362-4283
+* Origin: Cornucopia TBBS
+* Origin: Corpus Christi
+* Origin: CoSysOp from
+* Origin: cosysop Inside
+* Origin: Country Computer-Milwaukee,Wi
+* Origin: Coven's Den
+* Origin: CPU -
+* Origin: Craig's Place
+* Origin: creative.box +49-7551-7737
+* Origin: Creaturas de
+* Origin: CrO2, Tim's
+* Origin: Cross Beat
+* Origin: Cross The
+* Origin: Crossed Wires
+* Origin: Crossroads BBS
+* Origin: CRS Online,
+* Origin: Crystal Cavern,
+* Origin: CSC BBS
+* Origin: CSC-BBS !!!
+* Origin: CT CLASSIFIED
+* Origin: CTServe c/o
+* Origin: CTServe Le
+* Origin: CyberDreams BBS
+* Origin: Cyberdyne Systems
+* Origin: Cyberia -
+* Origin: CyberNET BBS
+* Origin: Cyberpunk EMS,
+* Origin: CyberSpace HeadQuarterz
+* Origin: CyberSpace HQz
+* Origin: Cyberspace Terminus:
+* Origin: CYGNUS -
+* Origin: Cymru Studies
+* Origin: D'Bridge +
+* Origin: D'Bridge 1.54
+* Origin: D'Bridge Beta
+* Origin: D'Bridge Help/Information
+* Origin: D'Bridge Help/Information:
+* Origin: D'Bridge On-line
+* Origin: D'Bridge Sales
+* Origin: D'Bridge Sales/Support
+* Origin: D'Bridge Support
+* Origin: D'BRIDGE! <=>
+* Origin: D'Bridge/Luxembourg, White
+* Origin: D'Bridge/North America
+* Origin: D'Bridging the
+* Origin: D.J's BBS!
+* Origin: D.W.'s TOOLBOX
+* Origin: Da steckt
+* Origin: Daggskimmer BBS,
+* Origin: Daily News
+* Origin: Dales Electronic
+* Origin: Damage Inc.
+* Origin: Damien's Iron
+* Origin: Damn it
+* Origin: Dan's Domain
+* Origin: DAN`S BBS
+* Origin: Dark Shadows
+* Origin: Darkness, having
+* Origin: Darkside BBS
+* Origin: Darkside|-)via DARKSIDE
+* Origin: Darren's Little
+* Origin: Darwin's Theory
+* Origin: das goldene
+* Origin: Data Port
+* Origin: DataLink NL
+* Origin: Dave Hatch,
+* Origin: Dave uses
+* Origin: Dave's Mail
+* Origin: Dave's Point
+* Origin: Dave's Point,
+* Origin: Dave's Private
+* Origin: Dave's Spare
+* Origin: Daves Mail
+* Origin: Daybreak Mail
+* Origin: Daytona BBS,
+* Origin: Dayze of
+* Origin: DB Help/Information
+* Origin: DBMS Power
+* Origin: DC's Castle
+* Origin: dCOM Support,
+* Origin: DDLG Link-Line,
+* Origin: Deal with
+* Origin: Death's Domain
+* Origin: Debating Point
+* Origin: Deep Cove
+* Origin: Deep Space
+* Origin: Default origin
+* Origin: DELTACOM, Montr‚al
+* Origin: deltaComm Online
+* Origin: Den of
+* Origin: Desert_Ireland (2:201/114.2)
+* Origin: Design flaws
+* Origin: Desktop Micro's
+* Origin: DesqView 2.60,4dos
+* Origin: DESQview does
+* Origin: DESQview: Your
+* Origin: Develsteyn Castle
+* Origin: Device =
+* Origin: DEVICE=SYSOP.SYS /TEMP
+* Origin: DFM "DinFetaMage"
+* Origin: DiaLaval, Qc,
+* Origin: Difference between
+* Origin: Digital Data
+* Origin: Digital Dreams
+* Origin: DiGITAL PARADISE
+* Origin: digital underground
+* Origin: DINO ][
+* Origin: Dinosaur Board
+* Origin: Direct from
+* Origin: Disability Hotline
+* Origin: Disorientated and
+* Origin: Dit is
+* Origin: DO-Mail -
+* Origin: Doc's Place
+* Origin: Doc's Place!
+* Origin: Does 10,314,424,798,490,535,546,171,949,056
+* Origin: Dogs nose
+* Origin: Don Plays
+* Origin: Don's Den
+* Origin: Don't ask
+* Origin: Don't be
+* Origin: Don't come
+* Origin: Don't make
+* Origin: Donald's point
+* Origin: DoNoR/2,Woking UK
+* Origin: Doris' Point
+* Origin: DOS never
+* Origin: Dots-N-Dashes BBS
+* Origin: Double the
+* Origin: Double your
+* Origin: Dougals Domain,
+* Origin: Down in
+* Origin: Down the
+* Origin: DOWNTOWN BBS.
+* Origin: Dragon's Realm
+* Origin: Dragons Lair
+* Origin: Draulas BBS,
+* Origin: Dream Line
+* Origin: Dream States
+* Origin: Dream You're
+* Origin: DreamLine BBS
+* Origin: Dreamline II
+* Origin: Dreamnet The
+* Origin: Dregal :UK
+* Origin: Duck Crossing
+* Origin: E-Qube /
+* Origin: e. coli
+* Origin: Eagle Eye
+* Origin: Eagle's Haven
+* Origin: Earth..1951 (1:106/1000)
+* Origin: Easy PC
+* Origin: Eat Flaming
+* Origin: Echo Valley
+* Origin: Eeek, I'm
+* Origin: Eh boa,
+* Origin: ELAM AG
+* Origin: ELAM BBS
+* Origin: Electric Spider
+* Origin: Electronic Car
+* Origin: Electronic Hell
+* Origin: ellis.dee@f99.n441.z2!{maddoc@fidouk} (081)6499408MO,TAK
+* Origin: Elxsi/2 "There's
+* Origin: Elxsi/2 'There's
+* Origin: ELYSIUS (2:440/58)
+* Origin: EMCC RA/Pro
+* Origin: EMERALD *
+* Origin: Emerald City
+* Origin: EMERALD(503)741-8174*HST DS
+* Origin: Emerogronican BBS
+* Origin: Empire BBS
+* Origin: Empire BBS,
+* Origin: En wie
+* Origin: End Of
+* Origin: End Point
+* Origin: End User/2
+* Origin: Ender's World
+* Origin: Enlightened Board
+* Origin: Enough Ferrari's
+* Origin: Enter password:
+* Origin: Enterprise Systems
+* Origin: EntreNet-Q *
+* Origin: ERANA's_PEACE,Toulouse_France, 2:324/102
+* Origin: Erik's point
+* Origin: Es ist
+* Origin: ESaSS /
+* Origin: Esc1.70 -
+* Origin: Escan BBS
+* Origin: ESE BBS
+* Origin: Et tu,
+* Origin: ET/PPCUG BBS
+* Origin: Europe (2:370/15.1)
+* Origin: Europe is
+* Origin: EvaWare BBS,
+* Origin: Even with
+* Origin: Ever notice
+* Origin: EVERGREEN ONE,
+* Origin: Every absurdity
+* Origin: Every Dungeon
+* Origin: Every joke
+* Origin: Every star
+* Origin: EXCALIBER BBS
+* Origin: Excelion (1:102/905)
+* Origin: Exit, pursued
+* Origin: EXPRESS CONNECTION
+* Origin: Extensive Search
+* Origin: Extra Point
+* Origin: Ezycom Support
+* Origin: F'REQ FILES
+* Origin: F'REQ MARANTA
+* Origin: Facts do
+* Origin: Fag fag
+* Origin: Family Treasures
+* Origin: FamilyNet Intl.
+* Origin: Fantasia, Long
+* Origin: Far from
+* Origin: Far Point
+* Origin: Far Point.
+* Origin: far side
+* Origin: Fareham BBS
+* Origin: Fareham BBS,
+* Origin: Farpoint (1:374/48)
+* Origin: FastEcho -
+* Origin: FastEcho Registration
+* Origin: FastEcho support
+* Origin: Father &
+* Origin: Father and
+* Origin: Faulty Towers
+* Origin: Faust's Dungeon
+* Origin: FD Help
+* Origin: Federation BBS
+* Origin: Fellwalkers from
+* Origin: Fernwood -
+* Origin: Fido classic
+* Origin: FIDO Tech
+* Origin: Fido's Kennel
+* Origin: FidoNet *
+* Origin: FIDONET via
+* Origin: Fido_Racer-Murray, KY
+* Origin: File and
+* Origin: FileHerald US
+* Origin: FileMgr &
+* Origin: FileMgr --
+* Origin: Filemgr Beta
+* Origin: FileMgr+ (2:247/174)
+* Origin: FileMgr: The
+* Origin: Filthy Habits
+* Origin: Final BBS
+* Origin: Fire Fly
+* Origin: Firesign >>--->
+* Origin: Five Guys
+* Origin: Five More
+* Origin: Flagg's Fortress
+* Origin: FlashOver! BBS
+* Origin: FliegWeg BBS
+* Origin: Floreat Burgundia
+* Origin: FLOTOM *
+* Origin: FLOYD'S FOLLY,
+* Origin: FLUFFY OWLS
+* Origin: Follow the
+* Origin: Follow-Box Darmstadt
+* Origin: Fool on
+* Origin: Fool's Gold
+* Origin: FOON +44-(0)273-474352
+* Origin: FOON þ
+* Origin: For PSION
+* Origin: for you
+* Origin: Forbidden Knights
+* Origin: Formal Dress
+* Origin: Foul Play
+* Origin: Fountain F/X
+* Origin: FOURTH DIMENSION,TARPON
+* Origin: FoxFire (313-785-9307)
+* Origin: FP-BBS, Includes
+* Origin: Frank's House
+* Origin: Free Anchorage
+* Origin: Free BBS'ing
+* Origin: Freedom Hall
+* Origin: FREQ CD_BST
+* Origin: Freq Magic
+* Origin: Friction can
+* Origin: Frisby tunes
+* Origin: Frodo via
+* Origin: From Lilly's
+* Origin: From Mulvie's
+* Origin: From Sunny
+* Origin: From The
+* Origin: From Tom's
+* Origin: FrontDoor APX
+* Origin: FrontDoor Help
+* Origin: FrontDoor Support
+* Origin: Frontiers -
+* Origin: Frontiers BBS
+* Origin: Frostbite Falls
+* Origin: Fug fug
+* Origin: FUNNY BBS
+* Origin: Furzefield Hq,
+* Origin: Fuzz Ball
+* Origin: G E
+* Origin: GABBS (0705
+* Origin: GABBS Line
+* Origin: GABBS on
+* Origin: GABBS(0705511590) What?You
+* Origin: Gail's Point..
+* Origin: Galaxy GateWay
+* Origin: GALICIA-1 (34-82-410902)
+* Origin: Galifrey, Regina
+* Origin: Gallifrey Command
+* Origin: Game World
+* Origin: GamlisBBS:OS/2, D'Bridge,
+* Origin: Gammatown BBS_Sunrise,
+* Origin: Gateway System
+* Origin: Gateway to
+* Origin: Gather 'Round
+* Origin: Gazza's Point
+* Origin: Gear Jammers
+* Origin: GEcho &
+* Origin: GEcho Development
+* Origin: Gecho, Mbutil,
+* Origin: Genesis *
+* Origin: Geoff's Point
+* Origin: Get Rabbiting!
+* Origin: Get real,
+* Origin: Get THE
+* Origin: GET, Lidingo,
+* Origin: gezonder: rechtsdraaiende
+* Origin: Gibson County
+* Origin: Give Brighton
+* Origin: Gizmo's Computer
+* Origin: GLASTERLAW BBS
+* Origin: Gleich tune
+* Origin: Glen Burnie
+* Origin: Gnome BBS,
+* Origin: Gnome: Warrington
+* Origin: Goldfinger's --
+* Origin: GoldMill Point
+* Origin: Golly! and
+* Origin: Golly! for
+* Origin: Golly! I
+* Origin: Golly! Imagine
+* Origin: Golly! in
+* Origin: Golly! Isn't
+* Origin: Golly! It's
+* Origin: Golly! via
+* Origin: GRABEN,GERMANY,EUROPE (2:246/60.14)
+* Origin: Grace Under
+* Origin: Graham's Point
+* Origin: GrandSlam, +358-0-3513124,
+* Origin: GrandSlam, SysOp
+* Origin: Graphics Guru
+* Origin: Grasshopper Nest
+* Origin: Gravitational Gherkin
+* Origin: Great Balls
+* Origin: Greater Phoenix
+* Origin: Greeley-Com-Net 303-351-8861
+* Origin: Greetings from
+* Origin: Greg Chapman's
+* Origin: Greg Chapman,
+* Origin: Greg's Pascal
+* Origin: Grimace BBS
+* Origin: Groucho, Harpo,
+* Origin: GTS CELLPHONES
+* Origin: GulfCoast SPE-BBS
+* Origin: Gwent FHSA
+* Origin: Gyles Brandereth
+* Origin: GYPSY BBS
+* Origin: Hack Central
+* Origin: Hackers Haven
+* Origin: Hackers World
+* Origin: Hackers' Cave
+* Origin: Half a
+* Origin: Hall of
+* Origin: Hangover Sq
+* Origin: Hard Disc
+* Origin: Hardball's BBS..Just
+* Origin: HARDWARE at
+* Origin: Hardware Haven
+* Origin: Harold's Basement
+* Origin: Hasta la
+* Origin: Have you
+* Origin: HAWK'S CASTLE
+* Origin: HAWK's NEST
+* Origin: HBI Your
+* Origin: HCC Fido
+* Origin: HCC Tulip
+* Origin: HCSNet(tm) *
+* Origin: HDS NetworX
+* Origin: he had
+* Origin: He said
+* Origin: He Who
+* Origin: He's got
+* Origin: Headboard BBS
+* Origin: HeadQuarters RemoteAccess
+* Origin: HeartBreak Hotel
+* Origin: Heaven's To
+* Origin: Heilheim Electronics
+* Origin: Heir to
+* Origin: HEKOM BBS
+* Origin: Helft den
+* Origin: Helpware BBS
+* Origin: Here _WE_
+* Origin: HERMES CENTER
+* Origin: Heute ist
+* Origin: HI-IQ BBS
+* Origin: Hiding in
+* Origin: High Sierra
+* Origin: Highlander BBS
+* Origin: HIGLI-BOX Koblenz
+* Origin: Hill Side
+* Origin: HILLCREST COMMUNITY
+* Origin: Hit the
+* Origin: HitchHacker's BBS
+* Origin: Hmmm. I
+* Origin: hmmm... well
+* Origin: Ho-Bo's Junkyard
+* Origin: Hobbytip: Ein
+* Origin: Home At
+* Origin: Home of
+* Origin: Homebirth Clinic
+* Origin: Hometown Glass
+* Origin: Hotline BBS
+* Origin: Houston Game
+* Origin: How many
+* Origin: How to
+* Origin: Hull Mail
+* Origin: Humboldt Exchange
+* Origin: Hunter's Quay
+* Origin: Hurricane Alley
+* Origin: HyperCUBE, Den
+* Origin: I always
+* Origin: I am
+* Origin: I can
+* Origin: I CAN!
+* Origin: I can't
+* Origin: I din't
+* Origin: I do
+* Origin: I heard
+* Origin: I hope
+* Origin: I like
+* Origin: I make
+* Origin: I must
+* Origin: I potted
+* Origin: I think
+* Origin: I wanna
+* Origin: i'd taste
+* Origin: I'll come
+* Origin: I'll point
+* Origin: I'm gone
+* Origin: I'm not
+* Origin: I.T. CONTACTs
+* Origin: Iain's Point
+* Origin: Ian's point
+* Origin: Ian's Point,
+* Origin: Ian`s Point
+* Origin: IBM at
+* Origin: IBM OS/2
+* Origin: Icarus BBS
+* Origin: Ice Palace
+* Origin: ICEBERG -
+* Origin: Iceman (2:245/6606.3)
+* Origin: ICHTHUS (Reading),
+* Origin: Ides of
+* Origin: IEEE South
+* Origin: If at
+* Origin: If it
+* Origin: If you
+* Origin: Igloo Station
+* Origin: Imageless Thoughts
+* Origin: IMAIL Development
+* Origin: Imperial BBS
+* Origin: IMS BBS
+* Origin: IN QUEUE
+* Origin: In the
+* Origin: In-Side In-Fo
+* Origin: Inclined Orbit
+* Origin: IND3X -
+* Origin: INDEX III
+* Origin: Infinity -
+* Origin: Infinity -=[HST/V32b]=-
+* Origin: Infinity begins
+* Origin: Infinity ]I[
+* Origin: INFONET Services
+* Origin: INFONET Services,
+* Origin: InfoSoft BBS
+* Origin: INFOTECH BBS
+* Origin: InfoTech Online
+* Origin: Infotel BBS
+* Origin: INI files
+* Origin: Inner Sight,
+* Origin: Innovatron, St-Boniface,
+* Origin: iNsaNiTY.. [HST/DS]
+* Origin: Instant Nirvana
+* Origin: INTERCOOK on
+* Origin: InterFace BBS
+* Origin: International OS/2
+* Origin: Internet *
+* Origin: Internet evsc.cld9.com
+* Origin: Intrepid: (205)
+* Origin: Ironbridge_Telford_UK (
+* Origin: Ironbridge_Telford_UK (23:00-07:00
+* Origin: Ishtar Terra
+* Origin: Island in
+* Origin: Island Logistics
+* Origin: It only
+* Origin: It's just
+* Origin: It's mail
+* Origin: It's not
+* Origin: It's tough
+* Origin: Its a
+* Origin: Its not
+* Origin: J &
+* Origin: J.P.'s Point
+* Origin: Jack's Free
+* Origin: Jackie's Place
+* Origin: Jacksonville, FL
+* Origin: Jacob's Well
+* Origin: James' Pointy
+* Origin: Javi's Point
+* Origin: JayCee's Silent
+* Origin: Jeffs Point
+* Origin: Jerry Tretiak
+* Origin: Jesus built
+* Origin: Jim's Point
+* Origin: Jim's point-to-point
+* Origin: JLACS Information
+* Origin: JOCK'S POINT
+* Origin: Joe's Point
+* Origin: Joerg Mueller,
+* Origin: John's Point
+* Origin: John's pointless
+* Origin: Johns brand
+* Origin: Johns nearly
+* Origin: JoJo-Box 06333-5961
+* Origin: Jons Point
+* Origin: Junction 9
+* Origin: Jurgen's Point
+* Origin: Just 176
+* Origin: Just 179
+* Origin: Just 184
+* Origin: Just a
+* Origin: Just Another
+* Origin: Just as
+* Origin: Just making
+* Origin: KARICO BS-BBS
+* Origin: Karl's Point
+* Origin: Karl's Vantage
+* Origin: Karnak -
+* Origin: Keep It
+* Origin: Keep Manchester
+* Origin: Keep Smiling!
+* Origin: Keith's Point
+* Origin: KEMTEK BBS.
+* Origin: Ken's Kafe'
+* Origin: Kendrick Comms
+* Origin: Kendrick Languages
+* Origin: Keyboard not
+* Origin: KickStart Amiga
+* Origin: King of
+* Origin: Kitten BBS
+* Origin: Kneptune BBS
+* Origin: Kneptune(tm) BBS
+* Origin: Kneptune<tm> BBS
+* Origin: Kneptune<tm> BBS(+44)61-777-8088
+* Origin: Knight Moves
+* Origin: Kocham ci‘
+* Origin: Koinonia ZMH
+* Origin: Komputer Knowledge
+* Origin: Komputers for
+* Origin: La Jungle
+* Origin: Laboratory Bbs
+* Origin: Labrot -
+* Origin: LakeShore Lmtd.
+* Origin: Lambda Speaks
+* Origin: Lamplight BBS
+* Origin: Lanarkshire EBP
+* Origin: Lanarkshire EBP,
+* Origin: Land Of
+* Origin: Land-Of-BOZ *
+* Origin: LANDS MultiLine
+* Origin: Lands' End
+* Origin: LANworks BBS
+* Origin: LaRK's Place,
+* Origin: Larry's World
+* Origin: LarZ's Drumkit
+* Origin: Last Input
+* Origin: Last of
+* Origin: last scream
+* Origin: LaughingStock BBS
+* Origin: LBD Consultants
+* Origin: Le Cross
+* Origin: Le Vignoble
+* Origin: Leak Path
+* Origin: Lee's Lab
+* Origin: Lets hear
+* Origin: Lets play
+* Origin: Lets start
+* Origin: Level 9
+* Origin: Li'LL BBS
+* Origin: Liam's getting
+* Origin: Liberty Hall
+* Origin: Lido Hotel
+* Origin: Lies Inc.
+* Origin: LifeBox Muenster-Roxel
+* Origin: LIFEFORCE FIVE
+* Origin: Lighthouse BBS
+* Origin: Lightning BBS,
+* Origin: LightPoint (2:500/131.2257)
+* Origin: Limbic system
+* Origin: Line noise
+* Origin: Lines and
+* Origin: Lino Pie
+* Origin: Little Betsy,
+* Origin: Little Rascals
+* Origin: Liv and
+* Origin: live and
+* Origin: LiveNet! Tulsa,
+* Origin: LiveWire Communications
+* Origin: Living in
+* Origin: Loaf Central
+* Origin: Lobbed over
+* Origin: Log Inn!
+* Origin: Log-on-In-Tynedale (+44)-434-606616(voice)
+* Origin: Logical Solutions,
+* Origin: LogiNord -
+* Origin: Lone Tree
+* Origin: Long Distance
+* Origin: LOOK NORTHWEST
+* Origin: Lothlorien, 31-1883-17534
+* Origin: Lots of
+* Origin: Lounge Lizards
+* Origin: Lucas Visions
+* Origin: Luxus ist
+* Origin: M-G-M Conference
+* Origin: M.L.C.S. -
+* Origin: Mach2 Vulcan
+* Origin: Machine code
+* Origin: MacTel_HQ_Iconex 0602-455417
+* Origin: MAD MIKES
+* Origin: maddoc@f99.n441.z2.fidonet.org +44(81)6499408MO,TAK
+* Origin: Madness takes
+* Origin: Madrid, SPAIN
+* Origin: Magnum BBS
+* Origin: Mail Shot
+* Origin: Maine-Coon's Castle
+* Origin: Mainframe Support
+* Origin: MainLine M.I.
+* Origin: Maison Michel
+* Origin: Making a
+* Origin: Maranatha! BBS
+* Origin: Marcel Jagt,
+* Origin: MARDUK (1:226/5000)
+* Origin: Margaritaville *
+* Origin: MARK &
+* Origin: Mark Baines
+* Origin: Mark's Point
+* Origin: Mark's Point!
+* Origin: Marquee/2 -+-
+* Origin: Martin's Point
+* Origin: Marty's Place
+* Origin: Master Control
+* Origin: Master Link
+* Origin: Mastercore point
+* Origin: Matabele BBS
+* Origin: Math illiteracy
+* Origin: Mathieu Not‚ris
+* Origin: Matrix Coordinates:
+* Origin: Matts Point
+* Origin: Max's Doghouse
+* Origin: Mazzel BBS
+* Origin: MB-NET Data
+* Origin: MB-NET |
+* Origin: Me, 3
+* Origin: MEBBSNET BBS
+* Origin: MEBBSNET UK
+* Origin: Medway Sanitorium
+* Origin: Mega-Death Solar
+* Origin: Megabyte BBS
+* Origin: Mektronic Computer
+* Origin: Melb. PC
+* Origin: Mercury Opus
+* Origin: Merlin's Domain
+* Origin: Message Center
+* Origin: Message from
+* Origin: Metcom BB
+* Origin: METNET AMIGA/PC-
+* Origin: METRO COM
+* Origin: Metro Data
+* Origin: MetroCop *
+* Origin: Metroplex Mailbox
+* Origin: Metroplex Mailbox!
+* Origin: MG Club
+* Origin: MHub #5,
+* Origin: Mi Amigo
+* Origin: Miami Amateur
+* Origin: MICHAEL High
+* Origin: Mick's Pointing
+* Origin: Micro Message
+* Origin: MicroDog BBS
+* Origin: MicroFone 14
+* Origin: Micromax Online
+* Origin: Midnight Micro!
+* Origin: Midnight Resistance,
+* Origin: Midnight Shift!
+* Origin: Mike Wynne's
+* Origin: Mike's Place
+* Origin: Mike's Professional
+* Origin: Mike's Transponder
+* Origin: Mildew Hall
+* Origin: Miller's Crossing
+* Origin: Milliways -
+* Origin: Minas Tirith
+* Origin: MINERVA BBS
+* Origin: Minerva Information
+* Origin: Minerva London
+* Origin: Mintz BBS,
+* Origin: Mirage Communications
+* Origin: Mirage/2 -
+* Origin: Missing Bit
+* Origin: MISSIONS POSSIBLE!
+* Origin: MK Tech
+* Origin: Mlv's Mail
+* Origin: Mmm... smells
+* Origin: Modem Addicts
+* Origin: Modem to
+* Origin: Modema Tider
+* Origin: ModemLink BBS
+* Origin: Moderator of
+* Origin: Moi's Point
+* Origin: Mole Hole
+* Origin: MongooseVille -
+* Origin: Moon Moth
+* Origin: Moose Mountain
+* Origin: Morays point
+* Origin: More of
+* Origin: Mother's Kitchen,
+* Origin: Mr Magic
+* Origin: Mr Potts
+* Origin: Msg Ctr
+* Origin: Mt. Retreat
+* Origin: Multitasking Systems
+* Origin: My coffee
+* Origin: My eXpress
+* Origin: My goldfish
+* Origin: My Granny
+* Origin: My House
+* Origin: My Little
+* Origin: My other
+* Origin: My Point
+* Origin: My point,
+* Origin: My Secret
+* Origin: My Window
+* Origin: My World
+* Origin: Mystic Castle
+* Origin: Mystic Gate
+* Origin: Mystic's Mountain
+* Origin: MYTH &
+* Origin: N.J. Intelligence
+* Origin: National Park
+* Origin: Nautilus (MO)
+* Origin: Near Wild
+* Origin: Ned's Opus
+* Origin: NEEDHAMPOINT (1:130/909.3)
+* Origin: Neighborhood.V.32bis(715)-341-4016 (1:238/420.0)
+* Origin: Nemesis' Dungeon
+* Origin: Nemesis' Dungeon.
+* Origin: Neon Lightning
+* Origin: Nerve Center:
+* Origin: NeST 'ZC'
+* Origin: Net 257
+* Origin: Netware City,
+* Origin: Networking from
+* Origin: NEUF POINT
+* Origin: Never mind
+* Origin: Neverland eXpress
+* Origin: New Orleans
+* Origin: NewAge BBS
+* Origin: Nibbles &
+* Origin: Nick's Nick
+* Origin: Nick's Nick.
+* Origin: Nick's Point
+* Origin: Nick's test
+* Origin: Nidus Systems
+* Origin: Nigel Broadcasting
+* Origin: Nigel communicating
+* Origin: Nigel pointing
+* Origin: Nigel using
+* Origin: Night Caller
+* Origin: Night City
+* Origin: Night Gallery
+* Origin: NIGHT HAWK
+* Origin: Night Moves
+* Origin: Night Owl
+* Origin: Night Owls'
+* Origin: Night Shift
+* Origin: NightFlite Developments
+* Origin: Nighthawk -
+* Origin: NightShades* !>
+* Origin: NightShift /
+* Origin: Nik's Point
+* Origin: NIU Connection
+* Origin: NLBB (2:250/224.1)
+* Origin: No Frills
+* Origin: No more
+* Origin: No Problem!
+* Origin: No Tarmac
+* Origin: None (2:200/427)
+* Origin: None Needed
+* Origin: Norm's Place
+* Origin: Norm's Place-Mobile
+* Origin: North American
+* Origin: North Lancs
+* Origin: Not Just
+* Origin: Not near
+* Origin: Not to
+* Origin: not very
+* Origin: NoT! (2:201/201.7)
+* Origin: NOTE: I'm
+* Origin: Novell from
+* Origin: Novice BBS
+* Origin: NP //
+* Origin: NTBTS, author
+* Origin: Nuclear Fusion,
+* Origin: Nuclear Fusion...
+* Origin: NUGI ConSorTium
+* Origin: NWCS Online
+* Origin: NWnet line
+* Origin: Oak Tree
+* Origin: Oakland BBS
+* Origin: Oberon Software
+* Origin: Occam's Razor
+* Origin: Octopus BBS
+* Origin: ODOT District
+* Origin: Odyssey BBs,
+* Origin: Odyssey Systems-6
+* Origin: Oedipus Rex
+* Origin: Of Something
+* Origin: Off Of
+* Origin: Off Roaders
+* Origin: OffLine BBS
+* Origin: Oh ..
+* Origin: oh baby...
+* Origin: Oh Golly!,
+* Origin: oh! what
+* Origin: Oh, don't
+* Origin: Oh, to
+* Origin: ohcEG -
+* Origin: Oklahoma Institute
+* Origin: Old Pueblo
+* Origin: OmniVerse: 'Cause
+* Origin: On Internet:
+* Origin: On The
+* Origin: On-Line After
+* Origin: ON-LINE BBS
+* Origin: On-Line Entertainment
+* Origin: One of
+* Origin: ONEDAY BBS
+* Origin: Online Archive
+* Origin: Only a
+* Origin: Only dull
+* Origin: Ooh aah
+* Origin: Ooooh, let's
+* Origin: ORAC/2 -
+* Origin: Oracle PC-Network,
+* Origin: Order of
+* Origin: Ordinary world
+* Origin: Origin -
+* Origin: Origin Line
+* Origin: Orion Point
+* Origin: Orion's Sword
+* Origin: Orlanth Rex!
+* Origin: Orpheus's Under-World
+* Origin: OS/2 -
+* Origin: OS/2 2.1
+* Origin: OS/2 can
+* Origin: OS/2 Connection
+* Origin: OS/2 Desktop
+* Origin: OS/2 Developers
+* Origin: OS/2 Junk
+* Origin: OS/2 LANMAN
+* Origin: OS/2 Shareware
+* Origin: OS/2 The
+* Origin: OS/2 was
+* Origin: Os2You Support
+* Origin: OUR gates
+* Origin: Out Front
+* Origin: Outhouse BBS,
+* Origin: OutPost #1
+* Origin: P.C.I.U.G. BBS
+* Origin: P.O.D.S. 14.7
+* Origin: P.O.S.T. -
+* Origin: PaceSoft Utilities
+* Origin: Pacific +44-(0)430-431145
+* Origin: Pacific Lightning
+* Origin: Pacific Rim
+* Origin: Pandora's Box
+* Origin: Papa's place
+* Origin: Papa's view-point
+* Origin: Paradigmus Maximus,
+* Origin: Paradise BBS
+* Origin: Paradise Lost
+* Origin: PaRaDoX *
+* Origin: Party on
+* Origin: Patch Works
+* Origin: Paul's Point
+* Origin: Paula's House
+* Origin: PAULAND BBS
+* Origin: PC FORUM
+* Origin: PC Independent
+* Origin: PC MUNCHLAND
+* Origin: PC-OHIO -
+* Origin: PC-Perspective Roland,Ok.
+* Origin: PC-Square [Quality**2]
+* Origin: PCBabillard -
+* Origin: PCIUG -
+* Origin: pdickie@ronand.co.uk.fidonet.fu.bar (2:256/62)
+* Origin: PDN HQ
+* Origin: Peachy Keeno
+* Origin: Peculiar Sabotage:
+* Origin: Pegasus on
+* Origin: Pen &
+* Origin: Pentarou! Enterprises
+* Origin: Percy's Point
+* Origin: Personal Computing
+* Origin: Pete's Cupboard
+* Origin: Pete's Palacea!
+* Origin: Pete's Point
+* Origin: Pete's Pointy
+* Origin: Pete's Random
+* Origin: Peter's Point
+* Origin: Phantasmagoria BBS
+* Origin: Phantasmagoria BBS,
+* Origin: Phantom BBS
+* Origin: Phil's Place
+* Origin: Phil's Point
+* Origin: Philbo's Folly
+* Origin: Philip's Point
+* Origin: Philosophers Thought
+* Origin: Phoebix BBS
+* Origin: Phoenix BBS
+* Origin: Phone Henge
+* Origin: PIC of
+* Origin: Pierless, Wigan,
+* Origin: PIGEON COOP
+* Origin: Pink Triangle
+* Origin: Pink Triangle,
+* Origin: Pioneer Valley
+* Origin: Piston Popper's,
+* Origin: PJB at
+* Origin: PJB's Home
+* Origin: PJB's Home,
+* Origin: PJBBS FidoPCB
+* Origin: PJBBS The
+* Origin: Playtime II
+* Origin: Plaza of
+* Origin: Please excuse
+* Origin: Plutten &
+* Origin: Point 1
+* Origin: Point 10
+* Origin: Point 2
+* Origin: Point 3
+* Origin: Point 4
+* Origin: Point 8
+* Origin: Point 93
+* Origin: Point Break
+* Origin: Point me
+* Origin: Point of
+* Origin: Point Operations
+* Origin: Point taken....
+* Origin: Pointing at
+* Origin: Pointing from
+* Origin: Pointing off
+* Origin: Pointing the
+* Origin: Pointless BBS
+* Origin: Pointless Reasoning
+* Origin: POINTS WEST
+* Origin: Poison Pete's
+* Origin: PONTY BBS
+* Origin: Pooh's Corner
+* Origin: PoP! Goes
+* Origin: Popper's &
+* Origin: Popper's point
+* Origin: Popper's, Hastings,
+* Origin: Popper's, UK
+* Origin: Port of
+* Origin: Portal To
+* Origin: POS+NET/HIVNET BBS
+* Origin: POT OF
+* Origin: Power Hour
+* Origin: PowerLine 315-865-4070
+* Origin: Powers Of
+* Origin: Precision BBS
+* Origin: Press all
+* Origin: Press any
+* Origin: Prestonet BBs
+* Origin: Pretty Blue
+* Origin: Pretzel Logic
+* Origin: Prime Minister
+* Origin: PrimeTime, Muskoka,
+* Origin: Processed at
+* Origin: Prodigy BBS
+* Origin: Prodigy BBS:
+* Origin: Professional Point
+* Origin: Profiles HeadQuarters[94,000+files]-HST/DS-
+* Origin: Programmer's Guild
+* Origin: Programmer's Haven
+* Origin: Programmer's Paradise
+* Origin: Programmers do
+* Origin: ProVision BBS,
+* Origin: Proximate Cause
+* Origin: Psion from
+* Origin: Psion via
+* Origin: PSIONING OFF
+* Origin: Psychotronic BBS
+* Origin: Public Board
+* Origin: Puss N
+* Origin: Pyrotechnix BBS/OS2
+* Origin: QRU BBS
+* Origin: QST -
+* Origin: QUADRIS TECHnics.UUCP!{maddoc@fidouk}
+* Origin: Quale for
+* Origin: Quantum DX,
+* Origin: Quick//Flyer -
+* Origin: quid habes,
+* Origin: Quiet Storm,
+* Origin: QWERTY (514)473-9357
+* Origin: R25 Files
+* Origin: RA -
+* Origin: RA 2.00.g1+
+* Origin: RA PRO
+* Origin: RA Registrations
+* Origin: RA topics
+* Origin: RA Xpress!
+* Origin: Rabbit BBS.
+* Origin: RACER-X Systems!
+* Origin: Radio Baldham
+* Origin: Radio Sendling
+* Origin: RadioMail, Saltdean,
+* Origin: RADIST Freq
+* Origin: Rael's Place
+* Origin: Rainbow's Point!
+* Origin: RaLin Software
+* Origin: RAMAN Beta
+* Origin: Rampart/2 <Kansas
+* Origin: Rampton Bird's
+* Origin: RANet |
+* Origin: RANET: Warp
+* Origin: RASCAL BBS
+* Origin: Rasputin Compute's,
+* Origin: Rasputin, bring
+* Origin: Ravan's Rock
+* Origin: Ray of
+* Origin: Ray's Desk
+* Origin: Ray's Uplink
+* Origin: Rays' Point
+* Origin: RAYTECH BBS
+* Origin: RA_UTIL on
+* Origin: RC must
+* Origin: RC28 (2:280/100)
+* Origin: Re-activated through
+* Origin: Reality: Misconception
+* Origin: Record Place-14.4
+* Origin: Records Department
+* Origin: Red Dragon
+* Origin: RED DWARF
+* Origin: Red Shift
+* Origin: REDEYE BBS
+* Origin: RedPoint BBS,
+* Origin: REECE's REDOUBT
+* Origin: Reflex AV-BBS
+* Origin: Register Terminate
+* Origin: Registered BOTH
+* Origin: Registration-site for
+* Origin: RemoteAccess via
+* Origin: Rendezvous!! 14400/V32b
+* Origin: Renzo's Roost
+* Origin: RESCUE BBS
+* Origin: Reservation Only!
+* Origin: Revelation ][
+* Origin: Reveller's Refuge
+* Origin: Revelstone Ft.
+* Origin: REVELSTONE Ft.Worth,TX
+* Origin: Rhein-Main Macintosh
+* Origin: Richard in
+* Origin: Richard's Point
+* Origin: Richards Place
+* Origin: Rick's Retreat
+* Origin: Ridjek Thome
+* Origin: Rights On!
+* Origin: RIM World!
+* Origin: Rincewinds point
+* Origin: Rings of
+* Origin: River Spills
+* Origin: RiverBend |
+* Origin: RM 1.0
+* Origin: Rob (2:281/608.1)
+* Origin: Rob's Point
+* Origin: Robbie's Point
+* Origin: Robert Klarmann
+* Origin: Robin's Place
+* Origin: Robins' Place
+* Origin: Rock 'n'
+* Origin: ROCKLAND BBS/Fax/Email
+* Origin: ROCKLAND BBS>
+* Origin: Roels Praathoek
+* Origin: Roger Has
+* Origin: Roger's Room
+* Origin: Rogers` Point
+* Origin: Romeo November
+* Origin: RoofTops BBS
+* Origin: ROOT CELLAR
+* Origin: Rosedale Data
+* Origin: RoyaLink -1-
+* Origin: Royalink UK
+* Origin: RPG NETMAIL
+* Origin: RTV-SAT BBS
+* Origin: Runtime Error
+* Origin: Runtime Error=ARF!=Portland
+* Origin: Rust never
+* Origin: Ryoga P-Chan
+* Origin: S P
+* Origin: S/e/m/a/j *
+* Origin: Saesoft +31-10-4795892
+* Origin: Saeubrenner BBS
+* Origin: Safe Hex
+* Origin: Salata *
+* Origin: San Diego
+* Origin: Sarcasm's Den
+* Origin: Satellite BBS,
+* Origin: Satellite info
+* Origin: Saturno BBS
+* Origin: Saxenheim BBS
+* Origin: Saxon BBS,
+* Origin: SBBS Zone
+* Origin: SCAM [Rockledge,
+* Origin: SCC BBS!
+* Origin: Schach-Cafe (2:243/91)
+* Origin: Science-Fiction BBS
+* Origin: SCIROCCO BBS,
+* Origin: Scooter's Place
+* Origin: Scorpio, docked
+* Origin: Scorpio, Orac
+* Origin: Scorpion Systems
+* Origin: Scott's Point/2
+* Origin: SeaBIN BBS
+* Origin: SeaNet Host,
+* Origin: SECRET C::The
+* Origin: Seeking for
+* Origin: SelectiveSource VirginiaBeach,VA
+* Origin: Senna with
+* Origin: Sentry Net
+* Origin: Serendipity BBS
+* Origin: Serf, Rad
+* Origin: SET UAFALTERNATE
+* Origin: Seven Seas
+* Origin: Shadow Systems
+* Origin: Shadowdale BBS
+* Origin: Shadowkeep BBS....Troutville
+* Origin: ShadowLand Not-quite-BBS.
+* Origin: Shadows Of
+* Origin: Shadowshack (1:105/51.0)
+* Origin: Shakey Jake's
+* Origin: Shaking Hands
+* Origin: Shangri-La BBS
+* Origin: Shareware Support
+* Origin: Sharp Users
+* Origin: SHENK'S EXPRESS
+* Origin: Sheriff's BBS,
+* Origin: Sherwood Forest
+* Origin: Shimmergloom's Lair
+* Origin: SHIT hot...
+* Origin: Si's Point
+* Origin: Sick of
+* Origin: Silicon Beach
+* Origin: Silicon Valley
+* Origin: Silicon Village,
+* Origin: Silver Bullet
+* Origin: Silver Xpress
+* Origin: Simon's point
+* Origin: Simply D'Best.
+* Origin: Simply PC
+* Origin: Sin City,
+* Origin: SIN-dy's pad,
+* Origin: Since the
+* Origin: Single-Tasking: Just
+* Origin: Situation normal,
+* Origin: Six &
+* Origin: Sky Link
+* Origin: Slash BBS,
+* Origin: Sleezo's Point
+* Origin: SlicerDicer Point
+* Origin: Smallest CBCS,
+* Origin: Smart-PC BBS,RA
+* Origin: Smoke de
+* Origin: Smugglers Cave.
+* Origin: Snipe's Castle
+* Origin: Sno-Valley Software
+* Origin: So false
+* Origin: So long
+* Origin: Soar Point
+* Origin: Sodalitas -
+* Origin: Softor Systems
+* Origin: SoftSpeed (2:205/203)
+* Origin: SoftWare City
+* Origin: Software Exchange
+* Origin: Software Heaven
+* Origin: Software Solutions
+* Origin: Solitudes BBS,
+* Origin: Solo-Quest BBS!
+* Origin: Something Fishy
+* Origin: Something goes
+* Origin: Something is
+* Origin: Sorccav Delft
+* Origin: Sound &
+* Origin: Sound Stage
+* Origin: South West
+* Origin: Southern Alberta's
+* Origin: Southern Pride
+* Origin: SOX! Live
+* Origin: spa ..
+* Origin: spa..58 --
+* Origin: spa..58! A
+* Origin: SPARTACUS BBS
+* Origin: Special Projects
+* Origin: Spectrum BBS
+* Origin: SPFPOINT *
+* Origin: Sphinx BBS!
+* Origin: SPooK BBS
+* Origin: Sputnik *
+* Origin: STacken BBS,
+* Origin: STandard ProBBS[0394-271550<10pm-8am>]
+* Origin: STAR BASE
+* Origin: STAR BBS
+* Origin: Star Factory
+* Origin: Starbase 11
+* Origin: Starbase One,
+* Origin: Starbase One:
+* Origin: StarBurst: Kingston
+* Origin: Stardust BBS
+* Origin: Starfleet Academy
+* Origin: StarFleet Cmd
+* Origin: Stargate Oregon
+* Origin: StarLight BBS
+* Origin: Starry Night
+* Origin: StateSide -
+* Origin: StateSide now
+* Origin: STatic2 BBS
+* Origin: Step into
+* Origin: Stephen's Point
+* Origin: Steps_of_DC_West Long
+* Origin: Steve -
+* Origin: Steve Reich
+* Origin: Steve's corner
+* Origin: Steve's OS/2
+* Origin: Steve's Point
+* Origin: Steve's sharp
+* Origin: Steven's Decimal
+* Origin: STEVIES ALBA
+* Origin: STill Dreaming
+* Origin: Stop spelling
+* Origin: Strange Net?
+* Origin: STRANGE***daze*** (2:250/313)
+* Origin: STRATEGIST BBS
+* Origin: Strike Eagle
+* Origin: Stu's Point
+* Origin: STYX BBS
+* Origin: Subscribe for
+* Origin: Summa Summarum
+* Origin: Sun Surf
+* Origin: Sunrise Door
+* Origin: SunShine PCBoard,
+* Origin: Super Ultrason
+* Origin: SuperBBS Support-TRB-804-484-0348
+* Origin: Superior by
+* Origin: Support the
+* Origin: Supporting the
+* Origin: Surya's chip
+* Origin: Surya's Point,
+* Origin: SweDX BBS,
+* Origin: SweDX, Malmo,
+* Origin: Sweet Home
+* Origin: Swizzle Stick-Kate
+* Origin: SWJ-Drive 06157-86861
+* Origin: Synergy::Kansas City,
+* Origin: Syruss System
+* Origin: Sysop @
+* Origin: Sysop of
+* Origin: Sysops Etcetera
+* Origin: System One
+* Origin: T-8000 12
+* Origin: T.O.M.M.I. *Munich*
+* Origin: Tandy Msdos
+* Origin: Tanelorn BBS/Wilsonville,OR,USA
+* Origin: Taunus-BBS Nastaetten
+* Origin: TBBS-TULSA (918-744-0106
+* Origin: TEAM OS/2
+* Origin: TEC />
+* Origin: Tech Talk
+* Origin: Tech's Den
+* Origin: Technology Transfer
+* Origin: TechTalk; Calgary,
+* Origin: Teenage Retreat
+* Origin: Telcom Central
+* Origin: TELEKOMMT ODER
+* Origin: TELESIS BBS
+* Origin: Ten Forward
+* Origin: TenderFeet's BBS
+* Origin: Tequila Sunrise
+* Origin: Terminate point
+* Origin: Terminate registration
+* Origin: Terminate support
+* Origin: Terminate USA
+* Origin: Terminator BBS
+* Origin: Terrapin Station
+* Origin: Test Drive
+* Origin: TEUTO-BBS, Steinhagen,
+* Origin: That Passage
+* Origin: That small
+* Origin: That's all
+* Origin: Thats Leutenant
+* Origin: The "Big
+* Origin: The "us"
+* Origin: The .\.\issing
+* Origin: The 100
+* Origin: The 19th
+* Origin: The 2"
+* Origin: The 70mm
+* Origin: The Abbey
+* Origin: The Abbey/2
+* Origin: The Absent
+* Origin: The Addamz
+* Origin: The Advanced
+* Origin: The AGENCY
+* Origin: The AIDS
+* Origin: THE ALCHEMIST
+* Origin: The Amiga
+* Origin: The Andromeda
+* Origin: The Angels'
+* Origin: The answer
+* Origin: The ARMada
+* Origin: The Astronomers
+* Origin: The Atari
+* Origin: The Avenger
+* Origin: The BABBLE
+* Origin: The Back
+* Origin: The Barracks
+* Origin: The Bart
+* Origin: The Bat
+* Origin: The BATcave
+* Origin: The Bath
+* Origin: The BBS
+* Origin: The Bear
+* Origin: The Bear's
+* Origin: The Bell
+* Origin: The Belly
+* Origin: The Berlin
+* Origin: The Big
+* Origin: The Bike
+* Origin: The BillBoard
+* Origin: The Bit
+* Origin: The Black
+* Origin: The Blue
+* Origin: The BoardRoom
+* Origin: The Boonies
+* Origin: The Bored
+* Origin: The Borg
+* Origin: The Borg,
+* Origin: The Brazorian
+* Origin: The Breeze
+* Origin: The Breezeway
+* Origin: The Bridge
+* Origin: The bug
+* Origin: The Builder's
+* Origin: The Building
+* Origin: The BULLET
+* Origin: The Bunkhouse
+* Origin: The Bus
+* Origin: The Business
+* Origin: The Butterfly
+* Origin: The Byte
+* Origin: The Byte's
+* Origin: The C
+* Origin: The CAGE,
+* Origin: The Cambridge
+* Origin: The Captains
+* Origin: The Cardboard
+* Origin: The Caretakers
+* Origin: The Castle
+* Origin: The Cat
+* Origin: The Catacombs,
+* Origin: The Catalog
+* Origin: The CatWalk
+* Origin: The Cavern
+* Origin: The Cellar
+* Origin: The Cereal
+* Origin: The Chatterbox
+* Origin: The Chessboard,
+* Origin: The Choice
+* Origin: The Christian
+* Origin: The Circuit
+* Origin: The Citadel
+* Origin: The City
+* Origin: The ClipBoard
+* Origin: The Clovis
+* Origin: The Clubhouse,
+* Origin: The Cockpit
+* Origin: The COCKpit!
+* Origin: The Coco
+* Origin: The Coffee
+* Origin: The College
+* Origin: THE COMMAND
+* Origin: The Computer
+* Origin: The Corn
+* Origin: THE CORNER
+* Origin: The CPU
+* Origin: The Cray
+* Origin: The Creative
+* Origin: The Cruiser
+* Origin: The Crypt
+* Origin: The Dance
+* Origin: The Dark
+* Origin: THE DARKROOM
+* Origin: The Darkside
+* Origin: The Dart
+* Origin: The Data
+* Origin: The Development
+* Origin: The DEVILS
+* Origin: The Dialing
+* Origin: The Diamond
+* Origin: THE DIGITAL
+* Origin: The Dirt
+* Origin: The Diving
+* Origin: The Doc's
+* Origin: The Dock
+* Origin: The Dog
+* Origin: The DogHouse,Santa
+* Origin: The DOOR
+* Origin: The Dragon's
+* Origin: The Dragons'
+* Origin: The Dream
+* Origin: The Dreaming
+* Origin: The Druid's
+* Origin: The Dungeon
+* Origin: The Dungeon...A
+* Origin: The Dungeon...Open
+* Origin: The Dutchess
+* Origin: The Dyslexic
+* Origin: The Eagle
+* Origin: The Eagles
+* Origin: The Eclectic
+* Origin: The Emerald
+* Origin: The Empire
+* Origin: The Emporium-Victoria
+* Origin: The End
+* Origin: The Energizer
+* Origin: The Enterprise
+* Origin: The Evans
+* Origin: The ever-present
+* Origin: The Exchange
+* Origin: The Expressway
+* Origin: The External
+* Origin: The Extinguisher
+* Origin: The Extremist
+* Origin: The Falcon
+* Origin: The Fanatic
+* Origin: The Far
+* Origin: The Federal
+* Origin: The Field
+* Origin: The File
+* Origin: The Finish
+* Origin: The Fireside,
+* Origin: The Firing
+* Origin: The First
+* Origin: The Fisherman's
+* Origin: The Flash
+* Origin: The Flea
+* Origin: The Flight
+* Origin: The Flying
+* Origin: The focal
+* Origin: The Fox's
+* Origin: The FRENCH
+* Origin: The Friendly
+* Origin: The FROG
+* Origin: The FuNny
+* Origin: The Future
+* Origin: The Gamemasters'
+* Origin: The Garden
+* Origin: The Gatehouse
+* Origin: The Gathering
+* Origin: The Gators'
+* Origin: The Genesis
+* Origin: The GIFfer
+* Origin: The Goat
+* Origin: The Godfather
+* Origin: The Golden
+* Origin: The GOTH-NET
+* Origin: The Gothic
+* Origin: The Graphics
+* Origin: The greatest
+* Origin: The Guru-Ten
+* Origin: The Hairy
+* Origin: The Ham
+* Origin: The Hammer
+* Origin: The Hangar
+* Origin: The Heart
+* Origin: The Henge
+* Origin: The Hideaway!
+* Origin: The High
+* Origin: The Highway
+* Origin: The Hitchin'
+* Origin: The Hobbit's
+* Origin: The HOLE
+* Origin: The Holodeck
+* Origin: The home
+* Origin: The HomeFront
+* Origin: The Homestead
+* Origin: The HOT
+* Origin: The House
+* Origin: The How-To
+* Origin: The HUB
+* Origin: The I/O
+* Origin: The Ice
+* Origin: The Index
+* Origin: the Indonesian
+* Origin: The Inn
+* Origin: The Inner
+* Origin: The Innocents
+* Origin: The Institute
+* Origin: The InterACTive
+* Origin: The International
+* Origin: The Invigilator
+* Origin: The Itchy
+* Origin: The Jack
+* Origin: The JailHouse
+* Origin: The Jungle
+* Origin: The Kennel:
+* Origin: The Kings
+* Origin: The Knowledge
+* Origin: The Land
+* Origin: The Last
+* Origin: The Learning
+* Origin: The Library
+* Origin: The Lighthouse
+* Origin: The Lightning
+* Origin: The Listening
+* Origin: The LOFT
+* Origin: The Lone
+* Origin: The Lonely
+* Origin: The Looking
+* Origin: The Lost
+* Origin: The Lottery
+* Origin: The Louvre
+* Origin: The Machine
+* Origin: The Madhouse
+* Origin: The Magic
+* Origin: THE MAIL
+* Origin: THE MATRIX
+* Origin: The Mausoleum
+* Origin: The Maven's
+* Origin: The Meaty
+* Origin: The Mega
+* Origin: The Mega-ROM
+* Origin: The Melmack
+* Origin: The Memory
+* Origin: THE MESSHALL,
+* Origin: The MFL
+* Origin: The Michigan
+* Origin: The MIDI
+* Origin: The Midnight
+* Origin: The Midrange
+* Origin: The Missing
+* Origin: The MOCHINE
+* Origin: The MonuSci
+* Origin: The Moonshadow
+* Origin: The MotherBoard
+* Origin: The Mud
+* Origin: The Munsters
+* Origin: The Music
+* Origin: The Musicbox
+* Origin: The Nashville
+* Origin: The Nerve
+* Origin: The Network
+* Origin: The Neverland
+* Origin: The NEW
+* Origin: The Next
+* Origin: The Nibble's
+* Origin: The Night
+* Origin: The Nightfly
+* Origin: The NightOwl
+* Origin: The Nimby
+* Origin: The No.1
+* Origin: The Normal
+* Origin: The North
+* Origin: the NURSING
+* Origin: The Ohio
+* Origin: The Old
+* Origin: The Olive
+* Origin: The OLP
+* Origin: The Online
+* Origin: The ONLY
+* Origin: The ONYX
+* Origin: The Open
+* Origin: The OS/2
+* Origin: The Other
+* Origin: The Outhouse
+* Origin: The Outland!
+* Origin: The OutPost
+* Origin: The Outpost/2
+* Origin: The Owl
+* Origin: The Panther
+* Origin: The Paradox
+* Origin: The PC
+* Origin: The pen
+* Origin: The Philosophical
+* Origin: The Phoenix
+* Origin: The PHONE
+* Origin: The Pig
+* Origin: The Pit-Stop
+* Origin: The Plain
+* Origin: The Plasma
+* Origin: The Pleasure
+* Origin: The POACHER
+* Origin: The Point
+* Origin: The pointiest
+* Origin: The Pointy
+* Origin: The Poor
+* Origin: The Port
+* Origin: The Power
+* Origin: The Private
+* Origin: The Pro
+* Origin: The Programmer's
+* Origin: The Programmers
+* Origin: The Projects
+* Origin: The Promised
+* Origin: The Psion
+* Origin: The Public's
+* Origin: The Purple
+* Origin: The RaLin
+* Origin: The RASTER
+* Origin: The Rave!!
+* Origin: The Ready
+* Origin: THE REALMZ
+* Origin: The Red
+* Origin: The Reef,
+* Origin: the Relative
+* Origin: The Reptilian
+* Origin: The Rhein-Main
+* Origin: The Richwood
+* Origin: The Ridge
+* Origin: The Rift
+* Origin: The Right
+* Origin: The Roach
+* Origin: The RoadHouse
+* Origin: The Rochester
+* Origin: The Rock
+* Origin: The Rumpus
+* Origin: The Rusty
+* Origin: The SCAM
+* Origin: The Seanachie
+* Origin: The Seaside
+* Origin: The Secret
+* Origin: The Seventh
+* Origin: The Slightly
+* Origin: The Smell
+* Origin: The Snow
+* Origin: The Socrates
+* Origin: The Software
+* Origin: The Soldier's
+* Origin: The Source
+* Origin: The Southern
+* Origin: The Spider's
+* Origin: The Spinal
+* Origin: The Spirit,
+* Origin: The Sprawl
+* Origin: The Spring
+* Origin: The Staff
+* Origin: The Star
+* Origin: The Stargazer's
+* Origin: The Starship
+* Origin: The Sticky
+* Origin: The Studio
+* Origin: The Summit
+* Origin: The Super
+* Origin: The Sysop's
+* Origin: The Talkie
+* Origin: THE TAVERN
+* Origin: The Tele-Forum
+* Origin: The TERMINAL
+* Origin: The Third
+* Origin: The Time
+* Origin: The Touch
+* Origin: The Transporter
+* Origin: The Traveler
+* Origin: The TruckStop
+* Origin: The Trust/2:
+* Origin: The Tube,
+* Origin: The Twi-Night
+* Origin: The Twilight
+* Origin: The Two
+* Origin: The Union
+* Origin: The UnKnown
+* Origin: The Unnecessary
+* Origin: The vanishing
+* Origin: The Verplank
+* Origin: The Video
+* Origin: The Village
+* Origin: The Vitamin-C
+* Origin: THE WANNABE
+* Origin: The Warzone
+* Origin: The Wasp
+* Origin: The Water
+* Origin: The Watering
+* Origin: The Welsh
+* Origin: The Wendy
+* Origin: The White
+* Origin: The Wild!
+* Origin: The Windows
+* Origin: The Wine
+* Origin: The Wired
+* Origin: The Wizard's
+* Origin: The Wolf's
+* Origin: The World
+* Origin: The Wouw-Board
+* Origin: The XT
+* Origin: The.45'er OS/2
+* Origin: Thee Landing
+* Origin: TheEnd! -
+* Origin: There is
+* Origin: There's nothing
+* Origin: This is
+* Origin: This lack
+* Origin: This Old
+* Origin: This Origin
+* Origin: This space
+* Origin: Thou shalt
+* Origin: Thought I'd
+* Origin: Threshold BBS
+* Origin: Thunder Box
+* Origin: Thunderball Amiga
+* Origin: ThunderBoard! (813)856-2910
+* Origin: Thunderbolt BBS
+* Origin: TIBM Wizard.
+* Origin: Tiger's Den
+* Origin: Tim's Point
+* Origin: TIMBYTE-BBS II
+* Origin: Time Safari
+* Origin: Time Tunnel
+* Origin: Tina's point
+* Origin: TIP-TOP GATE
+* Origin: TJ'S BBS
+* Origin: TLR *
+* Origin: To boldly
+* Origin: To err
+* Origin: To greatest
+* Origin: Toast is
+* Origin: Tom's Point
+* Origin: TOPPSI -
+* Origin: TOPPSI [1]
+* Origin: TOPPSI [2]
+* Origin: TOPPSI [3]
+* Origin: TOPPSI [4]
+* Origin: TOPPSI [@]
+* Origin: Tornado BBS,
+* Origin: Total Access
+* Origin: TOTAL CHAOS!
+* Origin: Tour de
+* Origin: Tout vient
+* Origin: Town Square
+* Origin: TOYZ BBS
+* Origin: TPS =
+* Origin: Trade Wars
+* Origin: TRADE WINDS
+* Origin: TRADERS COVE
+* Origin: TRANSPONDER BBS
+* Origin: Trantor (2:259/6.5)
+* Origin: Traveller-Box. New
+* Origin: Treasurer of
+* Origin: Tri-State Data
+* Origin: TRINITY CROSS,
+* Origin: Trinity ]I[
+* Origin: TrueBlue BBS
+* Origin: Trust me
+* Origin: Tucson Prologue
+* Origin: TUG II.
+* Origin: TUNode -
+* Origin: TV and
+* Origin: TypeCast BBS
+* Origin: Typed on
+* Origin: Typnet BBS
+* Origin: U.S National
+* Origin: U.S.S. Nautilus
+* Origin: U4IA BBS
+* Origin: UART? U
+* Origin: Uko bbs
+* Origin: UKRAS RA
+* Origin: UMRK -
+* Origin: Und nu'
+* Origin: Under 10
+* Origin: Underground Homebase
+* Origin: Undocumented Feature
+* Origin: Union Lakeside
+* Origin: Unique Computing
+* Origin: united we
+* Origin: Univ. of
+* Origin: Universal BBS
+* Origin: Universal Electronics
+* Origin: UNIVERSAL STRONGHOLD,
+* Origin: US Soldiers
+* Origin: USA-EUROPE-*the new
+* Origin: User error
+* Origin: User-To-User, 214-393-9317,
+* Origin: USS MegaByte
+* Origin: UTI -
+* Origin: Utopia /
+* Origin: V-MAX BBS
+* Origin: Valencia: Sleeve
+* Origin: Valhalla BBS,
+* Origin: Valley BBs
+* Origin: Vanishing Point,
+* Origin: VAXlab :
+* Origin: VE3PFB, Munster,
+* Origin: Vecopas (2:259/2.3)
+* Origin: Vegas PlayGround!
+* Origin: Verities &
+* Origin: Vertrauen -
+* Origin: Via Faint
+* Origin: Via Modem
+* Origin: VideOpolis-Blade Runner-Cyberspace
+* Origin: Viking City,
+* Origin: Virtual Insanity
+* Origin: VIRTUAL MADNESS
+* Origin: Virtual Reality
+* Origin: VirusHelpServ,KA,49-721-821355,9600,CM,XX,V32B,V42B (2:2476/8)
+* Origin: Visions Perceived
+* Origin: VKUG/VPCC Batpower
+* Origin: Voice: 0424-853168
+* Origin: Vote Labour
+* Origin: Vote Labour.
+* Origin: Voyager *
+* Origin: Voyager BBS,
+* Origin: Voyager, +44-483-751324
+* Origin: Vulcan's Ear
+* Origin: W. Morgel
+* Origin: Wacky Carrot
+* Origin: Wagon Trails
+* Origin: Waiter, this
+* Origin: Walk on
+* Origin: Wall Street
+* Origin: Wally's Board
+* Origin: Wally's Board,
+* Origin: Want a
+* Origin: Want some
+* Origin: Warhammer Point
+* Origin: Warrior BBS
+* Origin: Wasting time
+* Origin: Watch And
+* Origin: Wayne's Point
+* Origin: we're gonna
+* Origin: Wein, Weib
+* Origin: welcome to
+* Origin: Wer das
+* Origin: Wet N
+* Origin: Wexworks (1:260/190)
+* Origin: Wharf Rat
+* Origin: What a
+* Origin: What did
+* Origin: What do
+* Origin: What is
+* Origin: What use
+* Origin: What was
+* Origin: WHAT! Pay
+* Origin: What's the
+* Origin: What's up
+* Origin: What?!? DOSSHELL
+* Origin: WHATEVER BBS
+* Origin: When a
+* Origin: White Ghost.
+* Origin: White Light
+* Origin: Why won't
+* Origin: Wibble Wibble!
+* Origin: Wichita BBS,
+* Origin: Wild Magic
+* Origin: WILDBOX-Heidelberg [++49-6221-799500]
+* Origin: Wildcard BBS-Thornton,CO.
+* Origin: Wildcat!'s Den
+* Origin: Wildfire, Mesquite
+* Origin: Will write
+* Origin: Wilma Morgel
+* Origin: Wiltechs BBS,
+* Origin: Win32 Support
+* Origin: Winchester Radio
+* Origin: WindowError:002 No
+* Origin: WindowError:005 Multitasking
+* Origin: WinDoze, Better
+* Origin: Windws s
+* Origin: Wishful Thinking
+* Origin: With the
+* Origin: Wits' End
+* Origin: Wizard's Domain
+* Origin: WME Online!
+* Origin: WNBBS King's
+* Origin: WolfBox BBS
+* Origin: Wolverhampton ROS
+* Origin: WOMBAT-Mailer Inifinite
+* Origin: WOMBAZ Systems
+* Origin: Wonderland *
+* Origin: Wonderland Multiline
+* Origin: WOODY'S 0689
+* Origin: Woody's BBS
+* Origin: Woof's Basket
+* Origin: WorkBench2 BBS
+* Origin: World of
+* Origin: Wot!.... No
+* Origin: Wots-Its-Name support
+* Origin: Wreckin' the
+* Origin: Xanth BBS
+* Origin: Xenakis BBS
+* Origin: XON/XOFF Info.
+* Origin: XP-Problems? 49-7156-7879
+* Origin: XRS Point
+* Origin: Xstream +44-51-488-0698
+* Origin: Xstream BBs
+* Origin: Ye Crypte
+* Origin: Yes, you
+* Origin: Yet another
+* Origin: you are
+* Origin: You can
+* Origin: You can't
+* Origin: You gave
+* Origin: You mean
+* Origin: You're Not
+* Origin: YOUR BBS,
+* Origin: Your fault.
+* Origin: your heart'll
+* Origin: Yukon Ho!
+* Origin: Yvonne's Cat
+* Origin: Z2 WINNET/SOUNDNET/MSDN
+* Origin: ZENO BBS
+* Origin: Zero 2
+* Origin: Zlika (2:320/7.1)
+* Origin: Zu allem
+* Origin: Zyxel Filebone
+* Origin: Zzyzx Road
+* Origin: [ The
+* Origin: [ Yesterday
+* Origin: [704-541-9842] Moobasi
+* Origin: [Don't Point
+* Origin: [FidoNET] Le
+* Origin: [Laughing Loudly]
+* Origin: [Prince BBS,
+* Origin: [SQUARE-HEADs] :
+* Origin: [THE MESSENGER
+* Origin: \/\/ichita BBS
+* Origin: \\Techno Link\\
+* Origin: _C_E_N_T_R_A_L__S_T_A_T_I_O_N_ *
+* Origin: _Pointing_to_the_sky!_/\_ (2:250/319.7)
+* Origin: {-< HAWK'S
+* Origin: {-] Hawk's
+* Origin: {Psycho Hut}
+* Origin: | WallStreet
+* Origin: ~~ Buy
+* Origin: ~~ Col's
+* Origin: ~~ Kurious
+* Origin: °°°±->To be
+* Origin: °±² The
+* Origin: ±²± LIFTOFF!
+* Origin: ³ ÄÍ<
+* Origin: þÄÍÄ[The Glass
+* Origin:" THEN a
+* Origin:Hectors House BBS
+* Origin:Quantum DX, UK
+* Original *Info*
+* Original Area: F-Gecho
+* Original Area: F-RA_Util
+* Original Area: NET202_OS2
+* Original Area: NETMAIL
+* Original Area: RANet
+* Original Area: Uucp
+* Original from Yvonne
+* Original From: roberts@decus.arc.ab.ca
+* Original From: Sean
+* Original message :
+* Original message dated
+* Original To :
+* Original to All
+* Original to Roberto
+* Original to: Sysop
+* Original was from
+* Original Windows Trash
+* Originally by Chris
+* Originally by Dan
+* Originally by John
+* Originally by Lars
+* Originally by Mark
+* Originally by Peter
+* Originally by Rodolfo
+* Originally By: Ben
+* Originally By: Eric
+* Originally By: John
+* Originally By: Tim
+* Originally dated 08-26-93
+* Originally dated 11
+* Originally dated 12
+* Originally dated 18
+* Originally dated 23
+* Originally dated 25
+* Originally dated 27
+* Originally dated 3
+* Originally from Rick
+* Originally in Area
+* Originally Re: HELP
+* Originally Re: mbutil
+* Originally Re: New
+* Originally Re: RA
+* Originally to ALL
+* Originally to Graham
+* Originally to Malcolm
+* Originally to Robert
+* Originally to Steve
+* Originally to Terence
+* Originally To: All
+* Originally To: George
+* Originally To: Joe
+* OS/2 Version *
+* OS/2: Bill Gates'
+* OS2 * SDS/SDNetWorks!
+* OS2.TXT, which describes
+* OSCAR BANDPASS *
+* OSTSR 1.1 *
+* OSTSR 1.2 *
+* Other bugfixes
+* Oulu * Finland
+* OUT!
+* Outlook 2000 Shortcut
+* Outlook Automatically Upgrades
+* Output of time
+* Outrage - Tall
+* out_wave: made writeall
+* Over 100 different
+* Over 100 Pages
+* Over 100 pre-defined
+* Over 1500 definable
+* Over 2,000 plants,
+* Over 300 Fonts
+* Over 350 garden
+* Over 50 bitmapped
+* Overall Performance Index
+* Overburning is now
+* Overdrive - distortion
+* OVERME.MP3 - MCP
+* OYECOMO.MP3 - Tito
+* P A R
+* P L A
+* P.S I WISH
+* Pack and Go
+* Packed with fun
+* Page Design
+* PageUp and
+* Pain is inevitable...
+* Paint Shop Pro
+* Panasonic CDR Bios
+* panel
+* PANTHER *Freeware* Communications
+* Paola Kansas USA
+* Parameterized views work
+* PARAMETERS
+* Parametric EQ -
+* Parking: Wizards only!
+* PARROT SICK *
+* PART I-1979 PART
+* Partition Magic Pro
+* Partitioning Software
+* Partizan - Drive
+* Patient of the
+* Patient Resource Center
+* Paul Elstak -
+* Pause) / 2
+* Pause) / 3
+* pavement
+* pavestones
+* Pay a $5,000
+* Pay BBS features:
+* Payload bay door
+* Payload premate tests
+* Payload service kit
+* PC with a
+* PCB 15. (1:246/7)
+* PCBTEXT language file
+* pci slots 1
+* PDX-OR * 503-297-8667
+* PEACHES.MP3 - The
+* Pearl,MS * (601)939-2836
+* pebbles
+* PEEK(205) + PEEK(204)
+* PEEK(207) + PEEK(206)
+* PEGASCANS FLI's
+* Pentium 90 or
+* People Hold On
+* People say I'm
+* per Anhalter durch
+* Perfect for ANY
+* Perfect for notebooks
+* Perfect if your
+* Performance or Benchmark
+* Performs
+* Perl 5 By
+* Perl Quick Reference
+* permissions r**------).
+* permissions rwx--x--x.
+* pErrorInfo = NULL;
+* Perry Stripling and
+* Personal or Multimedia
+* Peter Norton's Complete
+* Peter Norton's Guide
+* Peter's latest and
+* Pets: Pure Love
+* PEZA : HOWS
+* PEZA : THE
+* Phaser - A
+* Philadelphia - The
+* Philadelphia is a
+* Philadelphia is the
+* Philadelphia PA is
+* Philadelphia, PA -
+* Philadelphia, PA is
+* Philadelphia, PA: Home
+* Phone bill?... what
+* Phone: (800) 370-8758
+* Photo CD
+* Photofinish v3
+* Photoshop 4.0 ->
+* PI / Tor.Panel
+* PI / Tor.Sect
+* PI) / 360
+* Pi2
+* Pianoman - Blurred
+* PICK EPISODE 1
+* Pictures at an
+* Pictures embedded in
+* Pictures included in
+* Ping
+* Pinpointer doesn't appear
+* Pipes are not
+* PKZIP/ARJ -AV protection,
+* Place the file
+* Plano, TX. (1:124/5149.0)
+* Plano, TX. *
+* Plant labeling capability
+* Platinum Edition Using
+* Play Information *
+* Play, pause, stop,
+* Playback a Particular
+* Players (WinPlay2 v2.3,
+* Playlist editor bugfixes
+* Playlist editor displays
+* Playlist editor has
+* Playlist editor's time
+* Plays audio from
+* Please delete those
+* Please do not
+* Please download VFWRT1.ZIP
+* Please download VFWRUN.ZIP
+* Please maximize this
+* Please read the
+* Plot out your
+* Plug-in configuration hwndParent
+* Plug-in input sources.
+* Plug-in name caching
+* Plug-in related stability
+* Plug-ins (loads for
+* Plug-Ins now go
+* Plugin Architecture
+* Plus, if you
+* PMDBM V1.7b #30
+* PmQwk 32! 1.00b08b
+* Point BazSoft -
+* Pointing device: Microsoft
+* poll contesttwo. Or
+* Porn Kings -
+* Port Scanner
+* Ported some code
+* Possibility of setting,
+* Possible Display Problems
+* Possible Printing Problems
+* Post It note
+* Power Builder Advanced
+* Power Builder Enterprise
+* POWER CD 22#
+* POWER CD 24#
+* POWER CD 25#
+* POWER CD 28#
+* POWER CD 30#
+* POWER CD 31#
+* POWER CD 34#
+* POWER CD 57#
+* POWER CD 60#
+* Power doesn't corrupt
+* Power reactant storage
+* Power%)
+* PowerBuilder Online Books
+* Powerful Loan Program
+* Powerful SALT scripts
+* Powerful Search facilities
+* Powerful user-defined searching
+* Powerful, built-in Contact
+* PowerPoint engine to
+* PowerQuest DriveCopy 2.0
+* PowerQuest Partition Magic
+* pox
+* PP's ACM disk
+* PP's WAV/VOC reader
+* PQ 2.15 765
+* PQ-Under-Trial 2.15 *
+* Practice random kindness
+* Practice Safe Hex
+* Pre-defined gardens
+* Pre-recorded greetings for
+* Precise Masking
+* Preliminary CDDB Support
+* Preliminary ID3v2 support
+* Presenting ActiveX
+* Presenting JavaBeans
+* PRESENTS * *
+* Press "+" to
+* Press any key
+* Press F1 when
+* prev (void) const
+* Prev;
+* Primary Language ID
+* Primary language IDs.
+* Print a descriptive
+* Print charts on
+* Print customized reports
+* Print out designs
+* Print pre-defined Avery
+* Print preview *
+* Print versions of
+* Printer control *
+* Printer Summary *
+* Printing Right-to-Left Languages
+* Prints a hardcopy
+* PRIOR KNOWLEDGE:
+* Private joke, sorry
+* Problem with Publishing
+* Processor: Pentium 75
+* Prodigy - Breathe
+* Program
+* Program For SYSOPS
+* Program is Cardware,
+* Program menu *
+* Programmable
+* Programming Netscape Plug-Ins
+* Programming Perl 5.0
+* programming! Languages such
+* PROJECT 1994 -
+* promotional offers on
+* Prompt for CD
+* PROMPT: * *
+* Proof relies on
+* Proofread carefully to
+* properly protected (owned
+* ProtEXE v3.0 *
+* provided "as is"
+* Provides design
+* Proxy Servers
+* prv =0, ListNode<T>
+* prv =0, _Node
+* prv, _Node *
+* psfi place to
+* Psion Data pack
+* Psion II Comms
+* pszPath file name
+* ptr (void) {
+* Public Domain Unlimited
+* Publish charts on
+* Publish to the
+* Pueblo, Co *
+* Puff Daddy &
+* Puts messages from
+* Puzzle Collection 1.46
+* PytHoN *
+* Q-Blue v0.7 [NR]
+* Q-Blue v0.8 BETA
+* Q-Blue v0.8b[NR] *
+* QmodemPro * Off-Line
+* QMPro 1.0 40-0258
+* QMPro 1.01 11-1111
+* QMPro 1.01 41-3300
+* QMPro 1.02 41-3636
+* QMPro 1.02 41-6088
+* QMPro 1.50 12-1234
+* QMPro 1.50 40-3775
+* QMPro 1.50 41-3660
+* QMPro 1.50 41-4385
+* QMPro 1.50 42-0577
+* QMPro 1.51 *
+* QMPro 1.52 *
+* QSE
+* Quake 3 Arena
+* QUAKE BEFORE THE
+* quality [like] Norton.
+* Quarantining non-deletable files
+* QUESTION FOR YA????
+* QUICK
+* Quick Access to
+* Quick stars are
+* Quick View Plus
+* Quicken Deluxe 4
+* QuickFind Box
+* QUITE LITERALLY OLD
+* Quote
+* Quoting Thomas Smith
+* QWK for Windows
+* QWK message off-line
+* QWKTALK * 4.0
+* QWKTALK *Info*
+* R * O
+* r*s*-x*-x.
+* r*x*-x*-x.
+* RA 2.00 *
+* RA/DB * Melbourne,FL
+* Ra2Wav
+* Rab S &
+* Rabbits reproduce like
+* RADIO SESSION DECEMBER
+* RADist * (614)
+* Radius) / GP.Aspect
+* railroad rocks
+* Rainbows that simulate
+* Rampton Bird's Box
+* random 32-bit integers
+* Random Quote Master
+* Random skin option
+* random(1))
+* RANet * GEcho
+* RANet : Filefind
+* RANet : Files
+* RANet, GEcho, AllFix,
+* RANet, GEcho, FileMgr,
+* Range decoding option,
+* RasterCad
+* RATINGS NEWS
+* Rats
+* Rave Nation -
+* Re-send and re-queue
+* Re-submits unsuccessful broadcast
+* Reach out and
+* Reach the widest
+* Read error and
+* Read the key
+* readable.
+* Reading Room *
+* READLIPS.MP3 - People
+* READMY.MP3--Alex Party -
+* Reads and/or kills
+* Reads data from
+* READYTO.MP3 - Republica
+* REAL digital sound...
+* REAL MEN -
+* Real Player 8
+* Real-mode CD-ROM drivers
+* Real-time 3D
+* Real-time user database:
+* Realistic lighting
+* Realistic seasonal and
+* Reality.Sys corrupted, Reboot
+* REALITY.SYS Corrupted: Re-boot
+* REALTHIN.MP3--Lisa Standsfield -
+* REALTHIN.MP3--Tony Di Bart
+* Realtime amplitude, spectrum,
+* Realtime playback during
+* Reboot and press
+* reboot, then try
+* Reboot. Either Setup
+* Reboot. Press the
+* Receive a written
+* Receive the latest
+* recommended * shareware
+* RECOMMENDED * SOUND
+* RECOMPRESS * Version
+* Record walkthroughs, Save
+* RecordsetLabel Property (Office
+* recovery: check to
+* recovery: Make sure
+* recovery: set stub
+* Recursion in open
+* Red Hat Linux
+* Redesigned playlist editor.
+* Redondo Beach, CA
+* Reduces your time
+* Refresh is not
+* Regarding your message
+* Register value may
+* REGISTERED *
+* Registration for personal
+* REGISTRATION KEYGENERATOR! *
+* Reinstall Microsoft Script
+* Release *Info*
+* Release Version *
+* release. Once bug
+* Released by Macishnot
+* Remember when Safe
+* Remember, no one
+* REMEMBER.MP3--Shalamar - A
+* Remembers the last
+* Reminder Event
+* Remote views to
+* RemoteAccess 2.xx (in
+* Remove and replace
+* Remove any variable
+* Remove right hand
+* Remove the Control
+* Removed bufferless playback
+* Removed Extra-HQ switch
+* Removed MIDI/CDDA plug-ins
+* removed Mjuice support
+* Removed playlist editor
+* Removed unused links
+* Removed Weapon and
+* Removes messages from
+* Rename SMARTDRV.EXE to
+* Renaming a Web
+* Renegade Support Network
+* Rental. You may
+* Replace "Compact current
+* Replace the text
+* Replay Action AFTER
+* Replicate directories
+* Reply to message
+* Reply to msg
+* Replying to a
+* Report to the
+* reptile
+* Requests, ZIP &
+* Requires
+* Requires password
+* Requires Vbrun200.Dll to
+* res
+* Rescue Disks
+* Resistance Is Useless!
+* Resizable playlist editor
+* Resource compression
+* resource leak.
+* Restricted sites zone
+* Restructured some internals
+* restructured the command
+* Restyled playlist editor
+* Restyled playlist editor,
+* Retrieve and forward
+* RETURN
+* return of classic
+* return of out_wm
+* Returned mixed-bitrate MPEG
+* Reverberator - Real
+* Reverted the previous
+* Review the Setup.txt
+* Revised main user
+* revised plug-in spec
+* Rewritten playlisting engine
+* rewrote large parts
+* Rewrote some memory
+* RF% THEN
+* RF%)
+* Rich in Paradise
+* Richmond B.C. (604)
+* Right- or left-handed
+* Right-click context menus
+* Right-click Recycle Bin,
+* RINGBELL.MP3--Anita Ward -
+* RIPscrip graphical user
+* River Spills BBS
+* rivulets
+* RM 1.0 *
+* RM 1.0 00521
+* RM 1.2 00222
+* RM 1.2 00299
+* RM 1.2 00320
+* RM 1.2 00341
+* RM 1.2 00549
+* RM 1.2 00616
+* RM 1.2 00755
+* RM 1.2 00769
+* RM 1.2 00858
+* RM 1.2 00906
+* RM 1.2 00974
+* RM 1.3 *
+* RM 1.3 00906
+* Rnd + .LowerValue)
+* Rnd + 1)
+* Rnd + giRETRY_WAIT_MIN)
+* Robert Miles -
+* Robin S -
+* RoboMail -- The
+* Rochester, NY USA!
+* Rock Da House
+* Roland GS Software
+* Rollout to pad
+* Rollovers
+* ROM )
+* ROTTERDA.MP3--Beautiful South -
+* roundel
+* Roundtrip HTML
+* Royal Family -
+* Royalty free!
+* rpp1)
+* RQM v3.14 *
+* Rules of conduct
+* Run custom CDR
+* Run multiple copies
+* Run the Bootdisk.bat
+* Run the NT/2000
+* Run the specified
+* Run up to
+* Run UPDATE.EXE to
+* run-away processes?), and
+* RUNFREE.MP3--Candi Station -
+* Running a Perfect
+* Running LiveUpdate
+* Running Microsoft Management
+* Running Setup in
+* Runs
+* Runs as a
+* runs in as
+* Runs under DOS
+* rwx*-x*-x.
+* rwx--x--x. Note you
+* ryan fixed shuffle!
+* S'Express - Theme
+* s.Tone Point System
+* SafetyScan - ensures
+* Saint John, N.B.,
+* SAMBA.MP3 - Bellini
+* Sample Offsets for
+* San Diego (1:202/1804)
+* San Jose, California,
+* sandpaper
+* SANDYB.MP3 - Sandy
+* Santee, Ca *
+* SARA : WHAT
+* SARA : YA
+* Sash! - Encore
+* Sausalito (1:125/55)
+* Save Fix *
+* Save Money *
+* Save the Children!
+* Save the trees,
+* Save time by
+* Saves prefs even
+* Saving a Calendar
+* Say the best.
+* SAYYOU.MP3--Spice Girls -
+* ScaleFactor ' Scale
+* ScaleFactor ' up
+* Scan and fax
+* Scan and store
+* Scan report *
+* Scan your computer
+* SCAN*.ZIP (McAfee virus
+* ScanPro
+* Scared (Lonely Traveller
+* SCARED.MP3 - Slacker
+* Scheduling scans for
+* scheme is your
+* Science is true.
+* ScOrPiOn *
+* Scotland UK *
+* Scott Brown Vs
+* scrape
+* scrapes
+* Screensavers
+* SDK (Software developer
+* SDN/Net! (2:251/22)
+* SDN/Net! (2:251/22.0)
+* SDS/SDNetWorks! (1:343/100)
+* seamless file transfers
+* Seamless Web Graphics
+* Search & Replace
+* Search for files
+* Seattle WA *
+* Second British Cannabis
+* Secrets to
+* Section joining &
+* SectorsInCluster * BytesInSector
+* Secure Live Registration
+* Secure, fast and
+* Security System *
+* Security Warning Issued
+* See Details for
+* See if there
+* See INSTALLING WINDOWS
+* See plants grow
+* See what your
+* Seek-in-windowshade mode
+* seeking for HTTP/1.1
+* Select a time-out
+* Select default print
+* Select Start Run
+* Select the "File"
+* Select the All
+* Select the This
+* Selection Property
+* SelectionChange Event (Office
+* Selections for Windows
+* Self-destructing streaming dialog
+* Send and receive
+* Send documents from
+* Send faxes from
+* Send files
+* Send To
+* Sends a Sysop
+* SENILE.COM found .
+* Sense Of Summer
+* SENSIBLE OFFERS INVITED
+* Separation of Components.
+* Serendipity is karmic
+* server extension programs.
+* Server Extensions Resource
+* server, restart the
+* server.
+* Serving coffee on
+* Session Explorer for
+* set directory to
+* set programs to
+* Set Up a
+* Set up Windows
+* Setting Permissions for
+* Setup
+* Seven chord formulas
+* Several other small
+* Severn Side -
+* SF-ROM 2.10 -
+* SHABBA : œ7.50
+* SHABBA : YOU
+* Shades Of Rhythm
+* SHAKE12.MP3 - Full
+* SHAKEIT.MP3 - Xtraordinary
+* SHAKERAD.MP3 - Full
+* Shareware
+* SHAREWARE *
+* ShareWare * Author:
+* shareware * ONLY
+* SHAREWARE from Branislav
+* Shareware version is
+* Sharif Al-om recently
+* Sharp CE -
+* Shawnee, KS (1:280/305)
+* Shell to Dos...Come
+* shellapi.h - SHELL.DLL
+* Sheryl Crow -
+* Shh! Be vewy
+* Shhhhhh.....the topic cops
+* Shift-minimize minimizes to
+* Shinbone: Device for
+* Shining-8 presents *
+* SHOP 'TILL YOU
+* Shop through the
+* SHORTMAN.MP3 - 20
+* should always have
+* should be length
+* should have access
+* SHOUTcast 1.1 (final,
+* Shoutcast 1.1 title
+* Shoutcast URL Browser
+* Show Me Love
+* Shuttle interface verification
+* Sic Biscuitus Disintegrat.
+* Signature Gathering Begins
+* Signatures Display Improperly
+* Silly wabbit -
+* Simple and easy-to-use
+* Simple Reverb/Echo
+* Simple test plugins
+* Simple Voice Removal
+* Simply 3D v2
+* Simultaneous
+* SIN((r - 3.1415)
+* SIN((rn - 3.1415)
+* SIN(Bisect) * GP.Aspect
+* SIN(Bisect)) * GP.Aspect
+* SIN(r) + 200
+* SIN(r) + 320
+* SIN(tt) + 238
+* SIN(XSect * XInc)
+* Single, handsome, funloving
+* Site Management
+* Six alternatives for
+* size in points
+* size in space.
+* SKILL LEVEL. IF
+* Skin selection menu
+* Skin support
+* Skins can now
+* skok@itwds1.energietechnik.uni-stuttgart.de *
+* Sky and Fog
+* SKY CARD HACKED!
+* SKY COMPLAINTS
+* Slackware Linux Unleashed
+* SLASH BBS *
+* Slaughter Canyon by
+* Slay
+* SLMR 2.0 *
+* SLMR 2.1 *
+* SLMR 2.1a #428
+* SLMR 2.1a #T103
+* SLMR 2.1a *
+* SMACKMY.MP3 - Prodigy
+* small avs updates
+* Small WAV editor
+* Small, Fast and
+* smaller main winamp.EXE
+* Smart GIF frame
+* Smart Networking: Broadcast
+* SmartDraw 2.0
+* SmartParts technology to
+* Smooth subpixel rendering.
+* Snap Doors, Windows,
+* Snap-to-viewport in always
+* Snapping is now
+* sngPercent + 0.5)
+* sngPercent, pic.Height), pic.ForeColor,
+* Sofits.
+* Soft Reset BBS
+* SOFTWARE / HARDWARE
+* Software Independent: Won't
+* Software License. Microsoft
+* Software lock, unlock
+* Software toolworks 3
+* Software Transfer. You
+* SOLBROS.MP3 - Sol
+* Solve a printer
+* Some Converters Are
+* Some dsp plug-in
+* Some Features Switch
+* Some Help for
+* Some Hyperlinks in
+* Some Internet functionality
+* Some mixed block
+* some new sample
+* Some studies suggest
+* SOMEBODY.MP3--Shola Ama -
+* Something is not
+* Sonic Boom -
+* Soon To Be
+* Sorry about the
+* Sorry that I
+* SORRY THAT SHOULD
+* sorry the phone
+* Sorry, this version
+* Sort by any
+* Sort your property
+* Sorting IDs.
+* SOUND
+* Sound card and
+* Sound Gadget Pro
+* SOUND SOFTWARE *
+* SoundBlaster Live! Drivers
+* Soundblaster Update
+* Source: The Fragrant
+* Source: Your Gas
+* Southern DOS: "Ya'll
+* Space - Female
+* SPACE CALENDAR *
+* SPACE.MP3--Space - Neighbourhood
+* SpaceNews 14-Mar-94 *
+* SPADES.MP3--Motorhead - Ace
+* Span Module
+* SPANISH ASSISTANT
+* SPANISH/ENGLISH VERSION *
+* Special
+* Special decorations activity
+* Special diskette drive
+* Special Edition Using
+* Special Edition, Using
+* SPECIES.MP3 - Space
+* Specify a Location:"
+* sped up exit
+* SPEED 1.30 #1270
+* SPEED 1.30 [NR]
+* Spicey Command Line
+* spicules
+* spiffier credits in
+* Spin Spin Sugar
+* SPITFIRE v3.3
+* SPITFIRE v3.4
+* split AreaFix receipts
+* Spreadsheet
+* SQL Server 6.5
+* SQL Server 7.0
+* Stacking of solid
+* Standalone servers call
+* Standard configuration will
+* Standard editing functions:
+* Standard effects: echo,
+* Star Wars 9:
+* Start an Impromptu
+* Start Nag
+* Start NetMeeting
+* start on any
+* Start/End JAGDOWN from
+* Start/End JAGPASS from
+* StartDotZip 1.54
+* Startup and Quit
+* Status Bar 1.5
+* STATUS BAR v
+* Status bar with
+* Stavanger, Norway -
+* Stay Connected 2.6
+* Stay in power,
+* STAYMINE.MP3- Maryhouse -
+* Stealth Cable Cube
+* Steinburg Mastering Edition
+* STEPBY.MP3--Whitney Houston -
+* Stero Sound *
+* Steve Stacher got
+* Steve's Point *
+* still showing off,
+* Stingray & Sonicoriver
+* stitches
+* Stock Aitken Waterman
+* Stockholm * Sweden
+* stop the FrontPage
+* Stow, OH *
+* straight from IBM,s
+* streaming improvements (authentification,
+* streaming improvements (now
+* Stretch 'N' Vern
+* STRIKE.MP3 - Strike
+* Strips out unwanted
+* structure
+* structure and unit
+* structure costs *
+* structure power
+* Stu Allen -
+* stupid in_mp3 fix
+* Stupid VC++ 6
+* STYLE_DESCRIPTION_SIZE
+* Subj : 9600+
+* Subj : A
+* Subj : AreaMgr
+* Subj : Fidobill
+* Subj : Files
+* Subj : GEcho
+* Subj : modem
+* Subj : Name
+* Subj : New
+* Subj : TIC
+* Subj : virus!!
+* Subj : zutsr
+* sublanguage ID have
+* Sublanguage IDs.
+* Subliminal Cuts -
+* Submission Wizard 5.4C
+* SuBsPaCe *
+* SUGAR.MP3--Lightning Seeds -
+* SUNDAY
+* Super low latency
+* Superb simulations of
+* SuperBBS HQ *
+* SuperBBS Support *
+* superflu issue 90
+* Superior by Design
+* Support BBS
+* Support for
+* Support for .wsz
+* Support for all
+* Support for the
+* Support for user
+* Support of external
+* Support Services. Microsoft
+* SUPPORT THE NEXT
+* Support your local
+* Supported
+* supporting new ^aVia
+* Supports 256, 32k,
+* Supports all interface
+* Supports all JFIF
+* Supports all MPC
+* Supports MAPI.
+* Supports Netscape &
+* Supports popular file
+* Supports Sound
+* Supports type (extension)
+* sure the key
+* SURVIVE.MP3--Gloria Gaynor -
+* Survivor - Eye
+* Suspend his practice
+* SVGA or higher
+* Sweden (2:201/314)
+* Switch to the
+* SXRot
+* SXRot + tz
+* Sybase SQL Anywhere
+* SYNPHON.MP3 - DJ
+* SYRot
+* SYRot)
+* SYRot) + (sx
+* Sysop inter-node control
+* SysOp of "The
+* SysOp point (2:244/1130.1)
+* System Configuration: The
+* System Event Notification
+* System memory
+* System Monitor -
+* SYSTEM REQUIREMENTS
+* System sectors, e.g.
+* System Summary *
+* System Support BBS
+* T *Info*
+* T h e
+* T-DIZ * Import
+* T. Caltech students
+* T3 - Gimme
+* T4 TIMESAVER LIGHT
+* Tables with Different
+* Tacoma Wa (1:138/173)
+* Tacoma Washington *
+* Taglines that make
+* Take a realistic
+* Take my advice.
+* TAKEAWAY.MP3- S-Bam -
+* TALKBOUT.MP3 - Ruffcut
+* Tall Paul -
+* Talladega, AL *
+* tangent
+* TANSTAAFL
+* TARKUS (June 1971)
+* Tasha
+* TATTVA.MP3 - Kula
+* Teach Yourself ActiveX
+* Teach Yourself C++
+* Teach Yourself CAFE
+* Teach Yourself CGI
+* Teach Yourself CorelDRAW
+* Teach Yourself Database
+* Teach Yourself HTML
+* Teach Yourself Internet
+* Teach Yourself Intrabuilder
+* Teach Yourself Java
+* Teach Yourself JavaScript
+* Teach Yourself Microsoft
+* Teach Yourself Oracle
+* Teach Yourself Perl
+* Teach Yourself Photoshop
+* Teach Yourself SQL
+* Teach Yourself TCPIP
+* Teach Yourself the
+* Teach Yourself VBScript
+* Teach Yourself Visual
+* Teach Yourself WEB
+* Technical Information
+* Technical Reference
+* Technocat - It's
+* Technocat- It's Gonna
+* Tel:(33)-1-47699261 (2:320/1)
+* Telecommunication Gateway: CIS<->MCI<->BBS<->FAX!
+* Telegard 3.00 Filebase
+* Telegard 3.00 Freqlist
+* Teleport Pro 1.29
+* TeleSoft Systems *
+* TeleSoft Systems BBS
+* Telix Scripts for
+* temp%)
+* Template files will
+* Temporarily override the
+* temporarily removed in_asfs
+* TempoSys * Bodegraven
+* TEMPTAT.MP3 - MC
+* tendinitis, and tenosynovitis.
+* tendinitis, or tenosynovitis.
+* Termination. Your rights
+* Test for FrontPage
+* Tests and disinfects
+* Tetbury * UK
+* Tetbury UK *
+* Tex's Lotto Now
+* Texas, USA
+* Thanks for the
+* Thanks to A.Mayrhofer@Austria.EU.net
+* Thanks to Scot
+* That CGI must
+* that I have
+* that non-root programs
+* That's not a
+* THE
+* The "Authorized groups"
+* The "Compression utilities"
+* The "Export list"
+* The "Scan USERS.BBS"
+* The %RESCAN could
+* The 100% American
+* The 2nd, 3rd
+* The ability to
+* THE ALCHEMIST *
+* The Alchemist BBS
+* The Analysis view
+* The AreaMgr has
+* The AreaMgr will
+* The average mp3
+* The backup's not
+* The Best Integrated
+* THE BEST MP3
+* The Best Of
+* The BillBoard BBS
+* The Blueboy -
+* The Bread Of
+* The Clutterbar.
+* The Comedy Channel
+* The Complete Idiot's
+* The connection has
+* The Course -
+* The DBPROP_AUTH_INTEGRATED property
+* The DBPROP_INIT_CATALOG property
+* The DBPROP_INIT_DATASOURCE property
+* The DBPROP_INIT_LOCATION property
+* The DBPROP_INIT_MODE provider
+* The debug version
+* The Deli Wars:
+* The Drive Options
+* The drive that
+* The drive you
+* The driver is
+* The drvssrvr.hlp file
+* The earth is
+* The EchoList *Info*
+* The end is
+* The Ethics -
+* The eventual supremacy
+* The extended packet
+* The fewer the
+* The Find function
+* The first
+* The first click
+* The first command
+* The first page
+* The floppy disk
+* The following two
+* The fragmentation reports
+* the FrontPage SUID
+* The FULL WORKING
+* The Funk Phenomena
+* The GEcho Notify
+* The gene pool
+* The Gog-Man's Doom
+* The Help file
+* The HP DeskJet
+* The IC, Matt
+* The initial setting
+* The Internet Email
+* The Intranet Advantage
+* the key file
+* The keyfile must
+* The lab called.
+* The Legend lists
+* THE LIBERTINE *
+* The Lisa Marie
+* The longer the
+* The main case
+* The more time
+* The most advanced
+* The most configurable
+* The most feature-rich
+* The name immediately
+* The NarrowBoat *
+* The Netherlands *
+* The new classic
+* The New Power
+* THE NORTH-SOUTH DIVIDE
+* The ODBC Driver
+* The ODBC specified
+* The Official Gamelan
+* The ONCE AND
+* The Optimization Map
+* The options that
+* The Original
+* The OS Components
+* the owners and
+* The Phone Number
+* the placement of
+* The power cable
+* The printer cable
+* The printer is
+* The printer should
+* The query list
+* The quick brown
+* The Return of
+* The return value
+* THE RIPBBSLIST :
+* The same 4
+* the same cd
+* The Saratoga Avenue
+* The Schedule Options
+* The SDK and
+* The second click
+* The second section
+* The section "Programming
+* THE SEGA CHANNEL
+* The SHGetFileInfo API
+* The Solution for
+* ThE SoUND oF
+* The Source -
+* The SSPROP_AUTH_TRUSTEDCONNECTION property
+* The stub used
+* the system being
+* the system cannot
+* The system file
+* The tables used
+* The TerraTek Co.
+* The Ultimate Anti
+* The Ultimate Virus
+* THE ULTIMATE WAD
+* The Vampire -
+* The VC++ version
+* the waitpid failure
+* The webroot and
+* The white paper
+* The Wildstyle (Supreme
+* The Windows Mail
+* The woman cries
+* The world's first
+* THEBOY.MP3 - C
+* THEDAYWE.MP3 - Ocean
+* THEFLOOR.MP3 - DJ
+* THEGIFT.MP3--Way Out West
+* THEHERO.MP3--M People -
+* THEMACK.MP3--Mark Morrison -
+* Then copy the
+* there are no
+* There are two
+* There is a
+* There is NO
+* There is now
+* There will be
+* therefore, the fpexe
+* Thesaurus Dictionary Card
+* Thesaurus: ancient reptile
+* THESE GUYS ARE
+* THESE OFFERS ARE
+* These types are
+* third *Info*
+* Third Dimension -
+* This
+* This *Info*
+* ThiS AwSomE JaM
+* This CD Holds
+* This Echo gets
+* This enhanced technology
+* This Instant Reference
+* ThiS iS iS
+* This lets my
+* This message forwarded
+* This message has
+* this next request),
+* This PPE displays
+* This PPE will
+* This Program
+* This Program Is
+* This routine looks
+* This routine will
+* This should be
+* This tagline is
+* This tagline stolen
+* THISISIT.MP3--Melba Moore -
+* Thousands and thousands
+* Thousands of companies
+* Three new Generator
+* through Space *
+* throwing RIP screens
+* THUMPING.MP3--Chumbawamba - Tubthumping
+* TicInterval
+* TicInterval%
+* TicInterval% THEN
+* TicInterval) / LOG(10!)))
+* Tick 2.06
+* Tickling Videos
+* TIF's * PEGASCANS
+* TIFFANYS.MP3--Deep Blue Something
+* Tillamook County DA
+* Time flies like
+* Time Slice *Info*
+* Time Slice Releaser
+* Time Sync
+* time. See the
+* Tin Tin Out
+* tinyvis 2001 v2.04
+* TinyVis 2001. Includes
+* TITHES MODULE -
+* TLX v3.00 *
+* TLX v3.10 *
+* Tmp(rpvt(pvt%), cpvt(pvt%))
+* TNT Window Washer
+* to 12 times
+* To : All
+* To : Andy
+* To : Bill
+* To : Dungeon
+* To : Paul
+* To : Peter
+* To : Richard
+* To : Terence
+* To : Tim
+* To align right-to-left
+* To align text
+* to all these
+* To avoid conflicts
+* To Be and
+* To boldy dial
+* To compress the
+* To determine compression
+* To err is
+* To free conventional
+* To get to
+* To hell with
+* To install Network
+* To install Norton
+* To install the
+* TO PLAY THIS
+* To print the
+* To read the
+* To roast chestnuts:
+* TO sidewalk
+* to substitute as
+* To use the
+* Today's Uploads *Info*
+* Todd Terry -
+* TOGETHER.MP3 - Simply
+* Toggle sound on
+* Tons
+* TONS of bugfixes
+* TONY : THE
+* TONY : TUT
+* TONY : WHERE
+* Too much is
+* Tool bars for
+* tools collection 1/7
+* tools collection 2/7
+* tools collection 3/7
+* tools collection 5/7
+* tools collection 6/7
+* tools collection 7/7
+* tools collection [4/7]
+* Tools to Create
+* Tooltip on titlebar
+* TOONS AVEC UN
+* Topic Not Found
+* Tor.Sect
+* Tori Amos -
+* Torrance, CA (1:102/338)
+* TosScan 1.00
+* Total the value
+* Total time display
+* Totally new output
+* TOTHETOP.MP3 - Kristaal
+* Toto, I don't
+* Toxygene (Way Out
+* Traceroute
+* Track 1 Alright
+* TRACK 1 CIGARETTES
+* Track 1 do
+* TRACK 1 DONT
+* Track 1 HELLO
+* TRACK 1 IMAGINERY
+* TRACK 1 LIVE
+* TRACK 1 PERFECT
+* Track 1 roll
+* TRACK 1 SHAKEMAKER
+* TRACK 1 SOME
+* Track 1 stand
+* Track 1 The
+* Track 1 What
+* TRACK 1 WHATEVER
+* TRACK 1 WIBBLING
+* TRACK 1 WONDERWALL
+* Track 10 Joy
+* Track 10 Reflections
+* TRACK 10 TELLING
+* Track 10 WONDERWALL
+* TRACK 10 YOU
+* Track 11 History
+* TRACK 11 READY
+* Track 11 The
+* Track 11 WHATEVER/OCTOPUS'S
+* Track 12 A
+* Track 12 DAY
+* TRACK 12 FISHES
+* Track 12 Two
+* Track 13 Happy
+* Track 13 YOUVE
+* Track 14 COME
+* Track 14 Tingle
+* Track 15 God
+* Track 15 I
+* Track 16 Bound
+* Track 17 The
+* Track 18 Thinking
+* Track 2 (i
+* TRACK 2 (ITS
+* Track 2 Cigarettes
+* TRACK 2 DYER
+* TRACK 2 I
+* Track 2 its
+* TRACK 2 LUCKY
+* Track 2 Promised
+* TRACK 2 ROUND
+* Track 2 Sense
+* Track 2 SOME
+* Track 2 stay
+* TRACK 2 TALK
+* TRACK 2 UP
+* TRACK 2 YOU
+* TRACK 2STEP OUT
+* TRACK 3 ACQUIESCE
+* TRACK 3 ALIVE
+* Track 3 angel
+* Track 3 Blowing
+* Track 3 Champagne
+* TRACK 3 CLOUDBURST
+* TRACK 3 HALF
+* TRACK 3 LISTEN
+* Track 3 LIVE
+* Track 3 my
+* TRACK 3 OPEN
+* Track 3 rockin
+* Track 3 Sandstorm
+* TRACK 3 THE
+* TRACK 3 WAITING
+* TRACK 3UNDERNEATH THE
+* TRACK 4 BRING
+* TRACK 4 CHANGE
+* TRACK 4 FADE
+* Track 4 going
+* TRACK 4 HEADSHRINKER
+* Track 4 heroes
+* Track 4 live
+* Track 4 Mankind
+* Track 4 Pure
+* TRACK 4 SLIDE
+* TRACK 4 SUPERSONIC
+* TRACK 4 THE
+* TRACK 4 WHAT
+* TRACK 4CUM ON
+* Track 5 DONT
+* TRACK 5 SUGAR
+* Track 5 Sweet
+* Track 5 Tell
+* TRACK 5 WHY
+* Track 6 All
+* Track 6 Four
+* TRACK 6 MARVELLOUS
+* Track 6 TALK
+* TRACK 6 TOUCH
+* Track 7 A
+* TRACK 7 FEELING
+* Track 7 Finetime
+* TRACK 7 LIKE
+* Track 7 MORNING
+* Track 8 Back
+* Track 8 Love
+* TRACK 8 MY
+* Track 8 ROUND
+* TRACK 8 WISHAWAY
+* Track 9 CAST
+* Track 9 Dont
+* TRACK 9 FINGERS
+* TRACK 9 PUNCH
+* Track 9 Walkaway
+* Track your possessions
+* Track01 - D'You
+* Track01 - Hello
+* Track01 - Rock
+* Track01.mp3 - DJ
+* Track01.mp3 - Praxis
+* Track01.mp3 - Ultra
+* Track02 - My
+* Track02 - Roll
+* Track02 - Shakermaker
+* Track02.mp3 - A
+* Track02.mp3 - Gala
+* Track02.mp3 - Tina
+* Track03 - Live
+* Track03 - Magic
+* Track03 - Wonderwall
+* Track03.mp3 - DJ
+* Track03.mp3 - Nu-Birth
+* Track03.mp3 - Pizzaman
+* Track04 - Don't
+* Track04 - Stand
+* Track04 - Up
+* Track04.mp3 - DJ
+* Track04.mp3 - Easy
+* Track04.mp3 - Mighty
+* Track05 - Columbia
+* Track05 - Hey
+* Track05 - I
+* Track05.mp3 - Dougal
+* Track05.mp3 - Jaydee
+* Track05.mp3 - The
+* Track06 - *
+* Track06 - Supersonic
+* Track06 - The
+* Track06.mp3 - Industry
+* Track06.mp3 - Nilly
+* Track06.mp3 - Stretch
+* Track07 - Bring
+* Track07 - Fade
+* Track07 - Some
+* Track07.mp3 - Force
+* Track07.mp3 - Smokin'
+* Track07.mp3 - Todd
+* Track08 - Cast
+* Track08 - Cigarettes
+* Track08 - Don't
+* Track08.mp3 - Ce
+* Track08.mp3 - DJ
+* Track08.mp3 - The
+* Track09 - Be
+* Track09 - Digsy's
+* Track09 - She's
+* Track09.mp3 - Happy
+* Track09.mp3 - Slacker
+* Track09.mp3 - TJR
+* Track10 - All
+* Track10 - Morning
+* Track10 - Slide
+* Track10.mp3 - DJ
+* Track10.mp3 - Underground
+* Track10.mp3 - Whiplash
+* Track11 - *
+* Track11 - It's
+* Track11 - Married
+* Track11.mp3 - Double
+* Track11.mp3 - La
+* Track11.mp3 - Rebel
+* Track12 - All
+* Track12 - Champagne
+* Track12.mp3 - DJ
+* Track12.mp3 - JDS
+* Track12.mp3 - The
+* Track13.mp3 - DJ
+* Track13.mp3 - Mrs
+* Track13.mp3 - Way
+* Track14.mp3 - Airscape
+* Track14.mp3 - Justin
+* Track14.mp3 - Klubbheads
+* Track15.mp3 - Chicane
+* Track15.mp3 - De
+* Track15.mp3 - DJ
+* Track16.mp3 - Nalin
+* Track16.mp3 - S.M.D.
+* Track16.mp3 - The
+* Track17.mp3 - Olive
+* Track17.mp3 - Whoosh
+* Track18.mp3 - Marmion
+* traditionally known, provides
+* Traffic Monitor re-schedules,
+* Trainer +3
+* TRANSACTION MODULE -
+* Transfer payload to
+* Transkei Green
+* Translation Dictionaries Not
+* Transparent Audio Compression
+* TRASH.MP3 - Suede
+* Tray Minimiser v1.61
+* Tray Run
+* TRENTON COMPUTER FESTIVAL
+* TRIBUTE.MP3 - Pianoman
+* Tricks of the
+* Trilogy (July 1972)
+* Trippy Visualization plugin
+* Trojan Cable Cube
+* Troubleshooting & Configuring
+* TRUE if things
+* Trust me, would
+* Trust me. I'm
+* Trusted sites zone
+* Try GOD,if it
+* TRY IT FREE...
+* Try printing from
+* Try the CD
+* Tucson, AZ *
+* Tunnel Test -
+* Turn and Burn
+* Turn down the
+* turn on Word
+* Turn your 486
+* Turning Off Autoformat
+* Tutorial
+* TWGOLD! Tradewars 2002
+* Two distributions (one
+* Two Ink Ribbons,
+* Two megs of
+* Two sided
+* Two streaming-related bugfixes
+* TXBBS, TABBS list
+* Type "DJCPTSR" at
+* Type DRVSPACE at
+* type enigma to
+* Type HELP DRVSPACE
+* Typed for you
+* UART, FOSSIL,
+* UART, FOSSIL, DigiBoard,
+* UART, FOSSIL, DIGIBOARD.
+* uC;
+* uFlags flags
+* UGOTKNOW.MP3--Cappella - U
+* uid and gid
+* UID/GID less than
+* UK *
+* UK * +44
+* UK * +44-322-278652
+* UK * +44-666-504597
+* UK * 44-273-688888/699999
+* UK ADS STAR
+* UK XENOLINK SUPPORT
+* UKRAS * Acorn
+* Ulead Gif Animator
+* Ulead Gif Optimiser
+* UltiList 2.0 -
+* Ultimate Buzz -
+* Ultra Flava (Rhythm
+* Ultrasonic - Do
+* Umbilical leak checks
+* Unable to add
+* Unable to Import
+* Unable to locate
+* Unattended mini-BBS capability
+* Unauthorized amphibians will
+* UNBREAK.MP3--Toni Braxton -
+* uncounted other little
+* undergrowth
+* Underwater Love (Morales
+* Underworld - Born
+* Unexpected Message During
+* Uninstall Beta versions
+* Uninstall icon in
+* Uninstaller only will
+* Uninstalling LiveUpdate or
+* UNINSTALLING NORTON SPEED
+* Uninstalling Outlook 2000
+* Unique search feature
+* UniQWK v2.0 *
+* UniQWK v2.1 *
+* UniStat
+* Universal in-box automatically
+* Unix Unleashed
+* Unlimited energy/level jump
+* Unlimited number of
+* Unlimited online capabilities
+* Unlimited open-ended gameplay
+* Unmatched productivity with
+* Unmount the floppy
+* Unregistered Evaluation Copy
+* until 1.0 is
+* UoSAT-OSCAR-11 NEWS *
+* Up to 10
+* Up to 125
+* Up to 250
+* Up to 40
+* Up to 500
+* UP&DOWN.MP3 - Anita
+* Updated AudioSoft code
+* Updated AudioSoft plug-in
+* updated directmusic/midiOut plug-in
+* Updated icons. Fixed
+* updated mikamp plug-in
+* Updated MJuice code
+* Updated network files
+* Updated the Handle2Name()
+* updated to new
+* updated to newer,
+* updated versions of
+* updated winamp agent
+* updated: uninstall should
+* Updates to URLs
+* Updating LiveUpdate
+* Updating Windows 95/98/Me
+* Upgraded version from
+* Upgrading & Repairing
+* Upgrading to Windows
+* Uploading Files into
+* USA (
+* USA (1:379/606)
+* USA) (1:2613/353)
+* Usage of the
+* USB ports
+* Use %HELP for
+* Use as a
+* Use F3 to
+* Use Less Gas
+* Use of a
+* use of different
+* Use the Microsoft
+* Use the Same
+* Use your disk
+* User accessible database
+* user and group
+* User Check Security
+* User configurable items.
+* User configurable play
+* User control of
+* User definable voice
+* User recovery is:
+* User recovery: Make
+* User recovery: run
+* User recovery: set
+* Using AOL (America
+* Using HTML 3.2,
+* Using IBM Global
+* Using just "%PASSWORD"
+* Using Microsoft Commercial
+* Using Netscape with
+* Using Norton AntiVirus
+* Using PCs
+* Using Punctuation Characters
+* Using Tables Instead
+* Using the Visual
+* Using the Windows
+* Using Windows NT
+* USR 16.8HST/V32bis (1:124/8002)
+* USR DS 16.8
+* USR DUAL STANDARD
+* USR HST 16.8/V32bis
+* USR Modems
+* Usually, if DriveSpace
+* Utilities from MS-DOS
+* UUCP -> FIDO
+* UUCP -> FTN
+* V I S
+* v.32b (1:3632/29)
+* V.32bis * (716)872-4415
+* V0.95, Intern.Public Release
+* v1.0 º
+* v1.1
+* v1.2 *Info*
+* v1.4 * *Info*
+* v1.4 *Info*
+* v1.6 *Info*
+* V32B (73:7480/19)
+* V32B/V42B (2:512/222.17)
+* v32b/v42b * (2:512/57.0)
+* v32bis (1:124/7004)
+* V32bis * +44
+* v32bis/24h * (2:222/360)
+* VAL(frmCmnDlg.cmdSearchChangeAll.Tag)
+* Valhalla BBS, The
+* Valid HTML—Speaks to
+* valid language ID.
+* Validate the arguments
+* Validate the target
+* valleys
+* value from 0-255
+* Value Property (Office
+* varDaysMilli;
+* varHoursMilli;
+* Various 70s Songs
+* VaRiOuS ArTiStS *
+* VARiOUS DaNCE *
+* Various Dance Songs
+* various fixes.
+* VARiOUS OTHeRS *
+* Various types of
+* varMinutesMilli;
+* Vastly better DirectSound
+* Vastly improved shell
+* Vastly improved window
+* vault
+* VbReader 1.5 #NR
+* VBScript Unleashed
+* VC.Colors)
+* venting drive plasma.
+* Verification Utility verifies
+* Verify the correctness
+* Vernon BC Canada
+* Version
+* Version *Info*
+* Version 0.93 is
+* Version 1.1 º
+* VERSION 1.1>
+* Version 1.2a
+* Version 2.0 º
+* Version 4.0.4.3
+* Version Information
+* Vertical (amplitude) zooming
+* VERY LEGAL
+* VERY LITTLE INVESTMENT
+* VESA
+* VGA LOGIC GAME
+* VGA or higher
+* VGA or higher-resolution
+* VGA PUZZLE GAME
+* Via phone or
+* Vibrato - Find
+* Videotrope Evaluation Version
+* View and edit
+* View Complete and
+* View incoming faxes
+* View manipulations such
+* View partition information
+* View the image
+* View your designs
+* View, zoom up
+* VIP*Legal Age Utility
+* Virtual Desktop for
+* Virtual Reality Garden
+* Virus Alerts
+* VIRUS SOFTWARE *
+* Virus/tampering checking
+* Visa - Revenge
+* Visio Professional 5
+* Visual Basic 4
+* Visual Basic 5
+* Visual Basic in
+* Visual C++ 4
+* Visual C++ in
+* Visual FoxPro Language
+* Visual J++ Unleashed
+* Visualization Plugins
+* VNEWZ v0.70 By
+* Voice : 1-908-224-2948
+* von Werner Dworak
+* Voodoo Drivers 4.07
+* Vote for corruption:
+* Voting Buttons Do
+* VU meter and
+* Vuja De: The
+* WAIT AT THE
+* WAITING TO STOP
+* WALKING.MP3 - Everything
+* WANNABE.MP3--Spice Girls -
+* Want a RA
+* WANTED *
+* WAP 26CD THK:
+* Warlock - Delirious
+* Warren G -
+* waste of time,
+* Watch the plants,
+* Watcom C++ Class
+* Waukesha, WI *
+* wav decoder: .VOC
+* wav decoder: .WAV
+* Wav'97
+* wave plugin: fixed
+* Wave Rider 0.35
+* Wave Rider 0.36
+* Wave Rider 1.01
+* waveout output plug-in
+* WaveRdr 0.35 Beta
+* WaveRdr 0.36 Beta
+* Wayne *
+* WCE 1.0/[NR-1245] *
+* WCE 1.10/2027 *
+* WCE 1.10/2058 *
+* WCE 1.10/2085 *
+* WCE 1.10/2110 *
+* WCE 1.10/2159 *
+* WCE 1.10/[NR-1202] *
+* WCE 1.10/[NR-1232] *
+* WCX Comment Version
+* wdHelpContents
+* wdHelpIndex
+* wdHelpSearch
+* wdHelpUsingHelp
+* We all live
+* We carry WINNet!
+* We Have Explosive
+* We need to
+* We require that
+* We secretly replace
+* We should never
+* weapon payload
+* weapon payload for
+* Web Optimization
+* Web Programming Desktop
+* Web Programming Unleashed
+* Web Programming with
+* Web Publishing Professional
+* Web Scripting Secret
+* Web Site Construction
+* WebBot Components Not
+* Webcam Drivers 4.15
+* WebFerret 3.0
+* Webmaster Expert Solutions
+* Webster, NY *
+* Websters: recursive. Adj.
+* weeks. Orders sent
+* WELCOME TO THE
+* Well, coat my
+* West Virginia Governor
+* Westbam - Wizards
+* what a bloomin'
+* What baud rates
+* What baud? How
+* What do you
+* What does this
+* What type and
+* What's New?
+* WHAT'S ON THIS
+* Wheel (for Quake)
+* When
+* When a "Use
+* When a machine
+* When a netmail
+* When all else
+* When an areas'
+* When an outbound
+* When cows laugh,
+* When editing the
+* When GEcho needs
+* When I build
+* When I get
+* When posting netmail
+* When routing netmail
+* When scanning the
+* When Sent/Rcvd netmail
+* When SETUP.GE is
+* When the -Future
+* When the AreaMgr
+* When the GSETUP
+* Where am I
+* Where are we
+* Where Can I
+* Where only the
+* Where to
+* Whether it?s a
+* Which gets you
+* While (!cat) play
+* While foraging in
+* While initializing IOS:
+* Who cares about
+* Who Do You
+* Who is General
+* Whois
+* Whu neds a
+* Why can't women
+* Why do we
+* why the system
+* WILDCAT! BBS *
+* WildFile * for
+* Wildmail Runs.. Gomail
+* Will
+* will execute the
+* Will scan for
+* WIN 3.1, DOS
+* Win 95/98/Me System
+* WIN. *
+* Win98/IE4 taskbar support
+* WinAmp 2.5
+* Winamp Agent (can
+* Winamp Browser
+* Winamp is now
+* Winamp now remembers
+* Winamp style dialogs
+* Winamp Visualization Studio
+* winbase.h -- This
+* Window Washer 3
+* Windows 95
+* Windows 95 or
+* Windows 95 with
+* Windows 98
+* Windows 98 Second
+* Windows are for
+* Windows font support
+* Windows initializing device
+* Windows Media Technology
+* Windows Millenium Final
+* Windows Millennium Edition
+* Windows Millennium Final
+* Windows NT 4
+* Windows NT 4.0
+* Windows NT? "Not
+* Windows Online, the
+* Windows Terminal Server
+* Windowshade button
+* Windowshade mode for
+* windowshade visualization now
+* WinFax v8
+* wingdi.h -- GDI
+* WinHacker v2
+* Wink - Higher
+* Winlfn.ini
+* Winner Of The
+* Winning is a
+* Winning is not
+* Winnipeg MB *
+* winnls.h -- NLS
+* WinOnCD v4
+* WinQwk 1.30 #0
+* WinQwk 2.0 a#0
+* WinQwk 2.0 a#796
+* WinQwk 2.0b#0 *
+* WinQwk 2.0b#355 *
+* WinRamp 1.00b for
+* WinRAR 2.50
+* WinRAR 2.71
+* WinRar v2.01
+* Winsock Information
+* Winterville, GA. *
+* WinTune'97
+* Winundo.dat
+* Winundo.ini
+* winver.h - Version
+* Winzip 7.0
+* Winzip Self-Extractor 2.2
+* with 5 "random"
+* With a brain
+* with a duration
+* with at least
+* With the mouse
+* Wizmark - for
+* WMA fixes
+* WMA support fixed
+* wobbles
+* WOMAN.MP3--Tony Rich Project
+* Women are like
+* WONDER.MP3 - Oasis
+* Woodbridge, VA *
+* WORD Heuristics improvement
+* Wordprocessor * Spreadsheet
+* Worf"
+* Work with a
+* Working IBMS Newly
+* Works with any
+* World War III?
+* World White Widow
+* World Wide Web
+* would use over
+* WOZA : NICE
+* Wrestlers try not
+* Writing simulation function
+* Written by
+* WSZ (Winamp Skin
+* WULF : GET
+* WULF : NEED
+* wVis 4.0: New
+* WWhhaatt ddooeess ""HHAALLFF
+* WWW Plug-Ins Companion
+* X#)) ' Calculates
+* x(col)
+* x(cpvt(col%))
+* X-FILES.MP3 - DJ
+* XANADU * Grand
+* Xenofex 1.1
+* XENON - The
+* XInc)
+* XInc) * CXRot
+* XInc) * SXRot
+* Xing Encoder
+* XQwk Mail Door
+* XS% - Length%
+* xyzzy = new
+* y)
+* y2)
+* Yahoo Messenger
+* Year 2000
+* Yellow Springs, Ohio
+* Yes, we like
+* YESSIR.MP3--Baccara - Yes
+* YInc)
+* YInc) * CXRot
+* YInc) * SXRot
+* YInc)) * COS(XSect
+* YInc)) * SIN(XSect
+* YLENGTH
+* YLENGTH)
+* You are encouraged
+* You are hereby
+* You are installing
+* You are running
+* You can generate
+* you can instruct
+* You can now
+* You can pick
+* You can't afford
+* YOU CANT KEEP
+* You have two
+* You know what
+* You may have
+* you may now
+* You must be
+* You must have
+* You never really
+* You no longer
+* You upgraded to
+* you.
+* Your advertisements, catalogs,
+* Your computer will
+* Your computer's parallel
+* Your current Windows
+* Your E-Mail has
+* Your Personal Access
+* Your printer is
+* YOURBODY.MP3 - DJ
+* YOURLOVE.MP3 - Jinny
+* YOUTOME.MP3--The Real Thing
+* YPanel + XSect
+* YPanel + XSect).x1
+* YPanel + XSect).y1
+* YPanel + XSect).z1
+* YPanel - 1).x3
+* YPanel - 1).y3
+* YPanel).x1 = ssx
+* YPanel).y1 = sy
+* YPanel).z1 = (sz
+* YS% - FI.PixHeight
+* z)
+* z2)
+* zags
+* Zap trailing slash
+* ZIPCHANGE * *Info*
+* ZIPCHANGE * v1.0
+* Zygron's plugin library
+* Zyxel 19.2 Fax/Modem!
+* ZyXEL 19200/v.32b *
+* ZyXEL=Zxx * Global
+* [0000] Some Silly
+* [01/01]
+* [0829] 782667/782676 (2:258/24)
+* [1/2]
+* [2/2]
+* [Extended 12" Mix]
+* [Extended 12" Version]
+* [FREEWARE]
+* [FREEWARE] The original
+* [o1/o1]
+* [This line intentionally
+* \ |\
+* \,__
+* \/\/ * Morse
+* ][ce *
+* ]°
+* ^ / *
+* ^ / /
+* _ *Info*
+* _next (void) const
+* _prev (void) const
+* _________//////|||||||| Domino effect
+* ____________________________________________ Ice-Skating!
+* | +
+* | TkT |
+* ||----||
+* °°±±²²WARNING!!! The more
+* ³ ³ Anti
+* ÛÛ²²±±°° IN STEREO
+* ÛÛÛ ÛÛÛ ÛÛÛ

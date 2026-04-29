@@ -1,0 +1,75 @@
+22-11-2009 07:17:10a
+---------------------------------------------
+Word Searched - BULLY -
+---------------------------------------------
+Process from these sources
+---------------------------------------------
+01 of  64 -- #00-00 TBooks All.txt
+02 of  64 -- #00-01 Banging Tunes.txt
+03 of  64 -- #00-01_All_Sz.txt
+04 of  64 -- #00-02 Chart.txt
+05 of  64 -- #00-03 DJ's Banging Tunes.Com.txt
+06 of  64 -- #00-03 NotePad Files.txt
+07 of  64 -- #00-05 Whole Lot.txt
+08 of  64 -- #00-Andy.txt
+09 of  64 -- #00-Beavis & Butthead Whole Lot.txt
+10 of  64 -- #00-Tv Themes All.txt
+11 of  64 -- #00-Videos 01 Simpsons.txt
+12 of  64 -- 00 News Outlook All News.txt
+13 of  64 -- 00_Opinion Clip.txt
+14 of  64 -- 00_Scan_Merge_00-Alt.Sz Best.txt
+15 of  64 -- 00_Scan_Merge_00-DVD-Nfo & Txt.txt
+16 of  64 -- 00_Scan_Merge_00-DVD-Nfo.txt
+17 of  64 -- 00_Scan_Merge_03 NotePad Files.txt
+18 of  64 -- 00_Scan_Merge_Alt.Philo_2003.txt
+19 of  64 -- 00_Scan_Merge_Alt.Philo_2007.txt
+20 of  64 -- 00_Scan_Merge_Anarchy.txt
+21 of  64 -- 00_Scan_Merge_BlueWave.txt
+22 of  64 -- 00_Scan_Merge_CallerID.txt
+23 of  64 -- 00_Scan_Merge_Galidakis.txt
+24 of  64 -- 00_Scan_Merge_MS Dos 6 NFO.txt
+25 of  64 -- 00_Scan_Merge_MS Dos 6 TXT DIZ NFO LOG.txt
+26 of  64 -- 1991DAT5 BBC.TXT
+27 of  64 -- 2000DAT2 Celeb Bday Events.TXT
+28 of  64 -- ACROBDOC.TXT
+29 of  64 -- All in One -- Matthewlan-Com.txt
+30 of  64 -- All in One Dates 13271.txt
+31 of  64 -- Alt.Gods.txt
+32 of  64 -- Alt.Roids Newest.txt
+33 of  64 -- Alt.Roids.txt
+34 of  64 -- BASHTML.ZIP.txt
+35 of  64 -- FILES_.LST.txt
+36 of  64 -- FONIX.txt
+37 of  64 -- LIST.txt
+38 of  64 -- matts_project.txt
+39 of  64 -- MONSTER1.txt
+40 of  64 -- NETSCAPE.TXT
+41 of  64 -- ONEFILE.TXT
+42 of  64 -- PCBFILES.txt
+43 of  64 -- Ph_Borg Queen.txt
+44 of  64 -- Ph_BORG.txt
+45 of  64 -- Ph_Kan.txt
+46 of  64 -- Ph_Kane.txt
+47 of  64 -- Ph_Kpo Of Borg.txt
+48 of  64 -- Ph_THE BORG.txt
+49 of  64 -- Ph_Trux.txt
+50 of  64 -- Ph_Zap.txt
+51 of  64 -- Precisely - Grammar.txt
+52 of  64 -- SZ_BORG.txt
+53 of  64 -- SZ_Borg_2003.txt
+54 of  64 -- SZ_Borg_2004.txt
+55 of  64 -- SZ_Borg_2005.txt
+56 of  64 -- SZ_Borg_2006.txt
+57 of  64 -- SZ_Judy.txt
+58 of  64 -- SZ_Matt.txt
+59 of  64 -- SZ_Roid.txt
+60 of  64 -- Teachers Dates.txt
+61 of  64 -- TEXT.txt
+62 of  64 -- TEXTFILE.TXT
+63 of  64 -- TUBE.TXT
+64 of  64 -- Winamp PlayList.txt
+
+---------------------------------------------
+0 Found
+---------------------------------------------
+

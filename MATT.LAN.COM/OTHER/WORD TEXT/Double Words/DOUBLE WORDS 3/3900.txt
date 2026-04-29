@@ -1,0 +1,81 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+900 0 0 0
+900 0.2%
+900 0.3%
+900 02/05/02 23:56 cleanup.log
+900 05/05/02 6:21 cleanup.log
+900 06/12/01 22:27 MU40EA6T.GIF
+900 07/03/01 0:58 4046_create_16d.jpg
+900 07/03/01 0:59 4046_create_16c.jpg
+900 09/06/98 14:30 BD14801_.GIF
+900 1,000
+900 125 250 Andrew_Craig
+900 125 250 Bill_McGowan
+900 125 250 Brendan_Edwards
+900 125 250 Chris_Gibson
+900 125 250 Frank_Anderson
+900 125 250 Fred_Jones
+900 125 250 Michael_Lake
+900 125 250 Sean_Clancy
+900 125 250 Wayne_Kimball
+900 13/13 270/101 141/209
+900 16/04/01 10:48 twilight
+900 250 475 Dan_Shoreman
+900 250 475 Jack_Salerno
+900 250 475 John_Mason
+900 250 475 John_Reblando
+900 250 475 Pete_Balboni
+900 250 475 Riccardo_Pantano
+900 250 475 Robert_Ham
+900 270/101 141/209 109/347
+900 3.3%
+900 841 128 441
+900 900 900 0.2%
+900 A.D. Global coverage
+900 Ad That
+900 Ad. Utilizes Latest
+900 Al_Unser_Jr. Al Albuquerque,_NM
+900 BC onwards. The
+900 billing service *Info*
+900 clone).
+900 Darmah -79
+900 diabetic recipes in
+900 different solitaire
+900 dots per inch
+900 Icons for Windows
+900 is worth going
+900 item modifiable food
+900 Kbyte large .zip
+900 messages in them!
+900 MHz phone with
+900 might be knackered.
+900 movies in my
+900 number.
+900 PCs. (Last
+900 series
+900 series printers
+900 service for Mbbs
+900 service module for
+900 Service Software Demo.
+900 Subscription utility *Info*
+900 textures are seamlessly
+900 the blank background
+900 there aren't on
+900 to lock onto.
+900 US$
+900 VX1=VX1+M2*AX:VY1=VY1+M2*AY:VZ1=VZ1+M2*AZ
+900 words.

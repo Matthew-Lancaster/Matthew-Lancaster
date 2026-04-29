@@ -1,0 +1,603 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+30 ' ---------------- ACTIVE
+30 ' ---------------- PROGRAMS
+30 ' ------------ CLOSE
+30 ' ------------ PROGRAMS
+30 ' ---- CLICK
+30 ' active desktop
+30 ' Envelope C4
+30 ' Line capabilities
+30 ' Maximum length
+30 ' PROGRAMS MENU
+30 ' Window extra
+30 '93 you wrote
+30 -- 7 quid
+30 -- Phats &
+30 - 31
+30 - 34 Cd1
+30 - 40 megabyte
+30 - Angel band.mp3
+30 - CLIPS (2
+30 - CLIPS (3
+30 - CLIPS expert
+30 - Infidels
+30 - Onl.. 4,408,781
+30 - Security /
+30 - WINS!!!
+30 && event.offsetY <=
+30 ( ) THE
+30 ( 5.21%)
+30 ( 5.67%) ISDN
+30 (0 dBm to
+30 (count them!) wave
+30 (last November). I
+30 *Info*
+30 , 1 ,
+30 /gallons/ per /mile/
+30 :). Well, I
+30 [HP DeskJet 670C
+30 ~ Backstreet Boys
+30 = 22.5
+30 0 0 0
+30 0.0%
+30 0.1%
+30 0.5%
+30 0.6%
+30 0.7%
+30 0.8%
+30 0.9%
+30 0;125
+30 08
+30 0A 41 1A
+30 10
+30 10 0 0
+30 10 209/209 141/141
+30 1073741824
+30 11/11/00 16:48 deux
+30 11/12/94 13:13 GENOA.DRV
+30 125 0.5%
+30 13/03/03 19:52 HOS.BAT
+30 13/06/99 11:11 Bryce
+30 14/11/99 3:30 Hackers
+30 14/11/99 3:30 Maya
+30 14/11/99 3:30 Trancender
+30 15 0 0
+30 16 102 0.4%
+30 16/12/00 0:15 Mosby's
+30 17/02/01 1:57 Driving
+30 17/02/03 21:15 WR.BAT
+30 17161
+30 188 0.7%
+30 1992:
+30 1993 06:24, Eckhart
+30 1993 13:42, Sean
+30 1993 17:47, Paul
+30 1993 18:22)
+30 1993 18:45, Stuart
+30 1993 21:05, Je-Yoon
+30 1993 21:36, Ashley
+30 1993 you wrote:
+30 1993>, Terence Milbourn
+30 1993>, you wrote
+30 1995 [Note: will
+30 2.3%
+30 20 17 23
+30 209/209
+30 209/209 270/101 24/900
+30 209/209 270/101 267/200
+30 209/209 396/1 11/2
+30 209/209 396/1 270/101
+30 21/10/01 17:57 V_Hellraiser
+30 22:08:24 1998' >=
+30 22:08:24 1998'.
+30 22:10:24 1998' >=
+30 22:10:24 1998'.
+30 24 16 88
+30 24 22 54
+30 25/08/02 16:15 SCAND.BAT
+30 26/05/93 4:14 INSTALL.BAT
+30 28 46 59
+30 29 45 57
+30 29/10/01 18:46 Mute.txt
+30 294 1.1%
+30 2d 1e 8b
+30 30 30
+30 31
+30 31 201 0.0%
+30 32 109 0.0%
+30 33 e7 07
+30 35 0.1%
+30 35 37 38
+30 39 54 138
+30 4 0 42
+30 47 33 29
+30 5 59 0.0%
+30 52 150 0.0%
+30 536870912
+30 56565282 55637506 4540404
+30 6 0 33
+30 6 62 151
+30 6a | ...&Hx0j
+30 6e 6a |
+30 8 22 14
+30 8 2501/301
+30 8 2501/301 25/53
+30 8 2501/301 440/2
+30 82 94 95
+30 88 6a |
+30 8e f9 75
+30 A-Level points do
+30 A 4 pages.
+30 All the young
+30 and 100 MB
+30 and work in
+30 applications are
+30 apps-
+30 apps- MegaWord adds
+30 Apr 83 -
+30 Apr 88 -
+30 at this point.
+30 Audio Plugins
+30 Aug 93 01:38:07
+30 Aug 93 02:17:24
+30 Aug 93 07:06:00,SCOTT
+30 Aug 93 07:14:00,BUBBA
+30 Aug 93 11:14:52
+30 Aug 93 11:23:16
+30 Aug 93 16:37:22,
+30 Aug 93 18:22
+30 Aug 93 in
+30 Aug 93 Mike
+30 Aug 93 um
+30 Aug 93 you
+30 Aug 93:
+30 August 93 you
+30 ballparks, and 700
+30 barcode t
+30 Barton Road, Coltishall,
+30 batch utilities
+30 beautiful
+30 Black
+30 brushes in each
+30 built in Reports.
+30 Callers Bulletin Creator
+30 Cards Per Project.
+30 characters
+30 characters long.</LI>
+30 characters. Otherwise, the
+30 cm betragen.</LI>
+30 cm reflector.
+30 cm.</LI>
+30 colour PCX images
+30 contributors from many
+30 control files for
+30 CorelDRAW: Chapter 2
+30 countries, employs more
+30 CU, AS, AF
+30 Cyberdemons in
+30 Data
+30 data items on
+30 day
+30 day *Info*
+30 day and 20
+30 day demo key
+30 day demo version
+30 day evaluation.
+30 Day Key for
+30 day MBG.
+30 day period, then
+30 day period. Its
+30 day trial
+30 Day trial keys
+30 day trial offer.
+30 day trial period
+30 Day Trial Version
+30 day voting
+30 Days
+30 days (2:253/165)
+30 DAYS /20 USES
+30 days after it
+30 days after the
+30 days ahead &
+30 days free telephone
+30 days in the
+30 days of purchase
+30 days or 30
+30 days the user
+30 days time, considering
+30 days to emerge...
+30 days to test
+30 days trial period
+30 days try out
+30 days vacation. The
+30 days) are accepted
+30 days, because I
+30 days, without charge
+30 days.
+30 days. I can't
+30 days. Paradox 4.5
+30 days. The creative
+30 days. Unzip to
+30 days. You configure
+30 degree increments.
+30 degree smooth angle,
+30 degrees and colder.
+30 degrees lately.
+30 degrees of
+30 degrees or so
+30 different methods of
+30 different MPs, and
+30 different SQL, ODBC
+30 DIRTY 40 NAUGHTY
+30 disks PD from
+30 Distiller options are
+30 Doom Games
+30 doom2 pwads
+30 DORADUS
+30 DORADUS *Info*
+30 Doradus. Smaller image,
+30 Downloads Bulletin.
+30 drive yoru wife
+30 effects), and precise
+30 enemy vehicles from
+30 excellent
+30 extensions
+30 family members
+30 faxes a week,
+30 feet lower than
+30 file(s)
+30 file(s) 1,104,881 bytes
+30 file(s) 1,254,079 bytes
+30 file(s) 1,624,008 bytes
+30 file(s) 1,765,313 bytes
+30 file(s) 133,573 bytes
+30 file(s) 138,330 bytes
+30 file(s) 138,895 bytes
+30 file(s) 139,073 bytes
+30 file(s) 139,517 bytes
+30 file(s) 139,799 bytes
+30 file(s) 142,864 bytes
+30 file(s) 145,973 bytes
+30 file(s) 147,622 bytes
+30 file(s) 147,925 bytes
+30 file(s) 148,133 bytes
+30 file(s) 148,188 bytes
+30 file(s) 149,998 bytes
+30 file(s) 152,488 bytes
+30 file(s) 156,699 bytes
+30 file(s) 159,683 bytes
+30 file(s) 166,454 bytes
+30 file(s) 169,602 bytes
+30 file(s) 174,973 bytes
+30 file(s) 180,964 bytes
+30 file(s) 37,326,420 bytes
+30 file(s) 61,684 bytes
+30 file(s) 65,319 bytes
+30 file(s) 69,481 bytes
+30 file(s) 720,338 bytes
+30 file(s) found
+30 files. And it
+30 flags
+30 food related clipart
+30 for
+30 frame
+30 frame movie that
+30 frame per second
+30 frames @ 80x50
+30 frames per
+30 frames with a
+30 Frankie Howerd Radio
+30 from a range
+30 ft square, with
+30 functions which allows
+30 games of *Info*
+30 games of 4D
+30 games,
+30 Gay World 2......................
+30 Giffy Gold.......................
+30 good ones -
+30 goto
+30 grams of fresh=~2
+30 graphic formats including
+30 Graphic Messages, Like
+30 H000342.ZIP v1.12p UUPC/EXTENDED
+30 H004245.ZIP v1.12p UUPC/EXTENDED
+30 H004313.ZIP v4.2 CTS
+30 H004692.ZIP v2.5 DIGITAL
+30 H009934.ZIP v3.03 PARCP
+30 H009983.ZIP v1.0 MODEM
+30 H010243.ZIP v2.0 EASY
+30 heads 17 sectors.
+30 high resolution
+30 holiday related clipart
+30 hours in the
+30 hours later and
+30 hours this week
+30 hours use. There
+30 House of Sleeping
+30 in size. Print
+30 inches of snow.
+30 instead of Sunday
+30 INVADERS 1978 (CLONE)
+30 JAM areas per).
+30 Jan 82 -
+30 Jan 88 -
+30 Jan 94 08:07:00,
+30 Jeff Foxworthy Cold
+30 Jul 93 18:56:38,
+30 Jul 93 19:11,
+30 Jul 93 Steven
+30 Jul 93, Ryan
+30 Jun 93 07:10:00,
+30 Jun 93 21:47:00,
+30 Jun 93 you
+30 JUN 95) -
+30 June ...
+30 KB
+30 kits but there
+30 languages. It can
+30 level DM WAD
+30 levels in Doom2.
+30 like ending!
+30 line message in
+30 Madonna - Music
+30 makes. Two files.
+30 Mar 2002 08:07:11
+30 May
+30 Mb for Windows
+30 MB minimum available
+30 MB minimum, Monitor:
+30 MB of available
+30 mb on hd)
+30 MB" border="0" hspace="10"
+30 MB.</font></td>
+30 message boards, so
+30 mile radius, For
+30 miles apart we
+30 miles away! So,
+30 miles east of
+30 miles of
+30 miles of my
+30 miles south of
+30 Million,
+30 min game and
+30 min so it
+30 Minimum BBS baud
+30 mins after spotting
+30 Mins on Blackburn
+30 Mins)
+30 mins.
+30 mins. It's under
+30 mins. My PC
+30 Minute Iq Test
+30 Minute Iq Test.
+30 minute Time limit
+30 minute train journey
+30 minutes
+30 minutes circling near
+30 minutes from
+30 minutes it caught
+30 minutes later and
+30 minutes my Psion
+30 minutes of begging
+30 minutes or until
+30 MINUTES to
+30 minutes to complete
+30 minutes to develop
+30 minutes to DL.
+30 minutes"
+30 minutes, or until
+30 minutes.
+30 minutes. Remove peppers
+30 minutes. Serve garnished
+30 minutes. Test the
+30 minutes....
+30 more
+30 more holiday related
+30 more with
+30 more. Effects include,
+30 Moving Fantasies (194
+30 moving paintings that
+30 msg or file
+30 N002258.ZIP EAZILINK/EAZIHOST UTILITIES
+30 N003043.ZIP v1.4B DATASCOPE
+30 N003853.ZIP v2.0 REFLECT
+30 N004302.ZIP SIMKEY lets
+30 N004509.ZIP v1.2 XCABLE
+30 N004694.ZIP v5.61 HANDS
+30 N004695.ZIP v2.0 MODEM
+30 N004721.ZIP v1.01 SIMPTERM
+30 N004742.ZIP v1.0 WINMODEM-PLUS
+30 N004780.ZIP v1.4 PHONEWORKS
+30 N004901.ZIP v3.00 TELESHARE/DOS
+30 N005119.ZIP COMMLYNX Windows
+30 N005813.ZIP v1.0 COMDOG
+30 N005814.ZIP v90-2 COMMCHK/COMMSET
+30 N005815.ZIP v2.5 COMPORT
+30 N005816.ZIP v1.0 COMTEST
+30 N005821.ZIP v1.0 CYCLEDTR
+30 N005843.ZIP IOVIEW lets
+30 N005844.ZIP v1.32 IP
+30 N005848.ZIP v2.0 LPTREAD
+30 N005849.ZIP v1.0 LPTWRITE
+30 N005853.ZIP v5.10 FAXMODEM
+30 N005866.ZIP v1.45 PARALLEL
+30 N005870.ZIP v1.1 PORT
+30 N005871.ZIP v2.71 PORT
+30 N005893.ZIP v1.5 SPTEST
+30 N005914.ZIP v1.1 WHATFAX
+30 N006575.ZIP v1.1 CTS
+30 N006651.ZIP v1.20 SMARTSURF
+30 N007031.ZIP v1.9 MODEMSTA
+30 N007464.ZIP v1.0 COMCFG
+30 N007710.ZIP v1.01 CARRIER
+30 N007818.ZIP v1.0 NETWATCH
+30 N008779.ZIP v1.1 TESTCOM
+30 N008942.ZIP v3.2 COMSPY3X
+30 N008943.ZIP v4.2 COMSPY95
+30 N008955.ZIP v2.2 MODEM
+30 N009041.ZIP v2.0 IOSPY386
+30 N009148.ZIP v1.0 RINGRES
+30 N009179.ZIP v1.97 COMSPEED
+30 N009467.ZIP v7.0S MODEM
+30 N009472.ZIP v2.0 PORTS
+30 N010248.ZIP v1.3 LOOK
+30 names or
+30 nations, including Canada,
+30 new fonts for
+30 No. 4 MAY
+30 No. 5) 06/96
+30 No. 6 --
+30 Nov 85 -
+30 Oct 93, Gavin
+30 Oct 97
+30 odd conferences besides
+30 odd karaoke tracks
+30 of 38. *Info*
+30 on *Info*
+30 on the same
+30 ono
+30 or 40)
+30 or çless. Actually,
+30 or more
+30 or so in
+30 Oracle7 - Backup
+30 oz boxes</FONT></TD>
+30 pad SIMMS, and
+30 pages of adverts
+30 pages of information
+30 paintings from the
+30 people are still
+30 people with a
+30 people, the
+30 percent is a
+30 percent of the
+30 percent with an
+30 pin simms for
+30 pin, 3 or
+30 pins?
+30 Pixure ROM Triple
+30 planes for Flight
+30 points for claiming
+30 points for each
+30 pound fine, there
+30 pounds
+30 pounds 55
+30 pounds a meg
+30 pounds and you
+30 pounds each
+30 pounds Ono
+30 pounds per
+30 pounds to reconnect
+30 pounds.
+30 predefined actions.
+30 QuickTime movies.
+30 QUID
+30 quid ?
+30 quid for two
+30 quid on CD
+30 quid you are
+30 quid.
+30 quid.....Im in portsmouth....Ring
+30 Ray Dream Studio
+30 REM is a
+30 runs
+30 runs whichever comes
+30 Same old brand
+30 second .Wav
+30 second song) backwards,
+30 seconds ago you
+30 seconds and repeat
+30 seconds to a
+30 seconds to invoke
+30 seconds! Hah!
+30 seconds. Premiere may
+30 seconds..
+30 seconds... Feeling only
+30 Seedy Rom Movie
+30 Sep 1993 |
+30 Sep 1993 11:07:56
+30 Sep 1993 14:29:48
+30 Sep 1993 14:33:42
+30 Sep 1993 15:30:21
+30 Sep 1993 22:22:31
+30 Sep 93 0:19:34
+30 Sep 93 09:01:06
+30 Sep 93 13:02:42
+30 Sep 93 23:35:45
+30 Sep 93 23:59:03
+30 Sep 93 Nicholas
+30 Sep 93 Nick
+30 September. As we
+30 Singles 31st May
+30 slices.
+30 something,and would like
+30 Song in last
+30 squid including VAT
+30 stadium-based Supercross
+30 stock areas and
+30 STOCK GUIDE DECEMBER
+30 tapes left.
+30 the program looks
+30 The Very Best
+30 THEN c =
+30 through 47 meet
+30 Tian Yao Qiao
+30 time zones
+30 times letting the
+30 times MP3-Encoding with
+30 times the name
+30 times trialware.
+30 times. Register online
+30 to 35 minutes
+30 to 40 minutes,
+30 to 60 percent
+30 to 95 |
+30 TRACKS
+30 trial of cheyanne
+30 turnovers.
+30 UKP and they
+30 ukp plus postage
+30 UKP.
+30 UKP. Contact at
+30 units per quarte
+30 units per quarter
+30 use trial Registration
+30 Variations Goldberg
+30 varieties of card
+30 ver 1.2
+30 wounded, Italy had
+30 x 20 square
+30 x 30 in
+30 y.o, bright and
+30 year
+30 year celebration (for
+30 year old
+30 years ago and
+30 years ago!
+30 years for it
+30 years from
+30 years now. Indeed
+30 years of Mini's.
+30 years old, soon
+30 years older then
+30 years plus.
+30 years time, or
+30 years).
+30 years. Anyway, all
+30 years. He is
+30 Zeichen lang sein.</LI>

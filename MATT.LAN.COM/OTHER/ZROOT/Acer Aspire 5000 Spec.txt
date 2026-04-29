@@ -1,0 +1,151 @@
+-- Sun 06-Jul-08 16:47:04 --
+
+
+-----
+Acer Aspire 5000
+Review | User Opinions | Specifications | Compare | Shop 
+Acer Aspire 5000
+Hide (x)Specifications
+
+Manufacturer:
+Acer America Corp.
+
+Part number:
+AS5002WLMi-XPH
+
+General
+System Type
+Notebook
+Built-in Devices Stereo speakers, Wireless LAN antenna 
+Width
+14.3 In
+Depth 11 in 
+Height
+1.6 In
+Weight 6.2 lbs 
+
+Notebook type
+Mid-size laptops (6-7.5 lbs.)
+Screen type High-gloss/Anti-glare screen, Wide-screen 
+Wireless capabilities
+802.11B, 802.11g
+
+Processor
+Processor
+AMD Turion 64 mobile technology ML-30 / 1.6 GHz
+64-Bit processor Yes 
+Chipset type
+SiSM760GX
+
+Cache Memory
+Type
+L2 cache
+Cache size 1 MB 
+
+RAM
+Installed Size
+512 MB / 2 GB (max)
+Technology DDR SDRAM - 333 MHz 
+Memory specification compliance
+PC2700
+RAM configuration features 2 x 256 MB 
+
+Storage Controller
+Storage controller type
+IDE
+Storage
+
+Floppy Drive
+None
+
+Hard Drive 80 GB 
+Storage Removable
+None 
+Hard drive type Portable 
+Optical Storage
+Type 
+DVD±RW (+R DL) - Integrated 
+CD / DVD read speed 24x (CD) / 8x (DVD) 
+CD / DVD write speed 
+24X (CD) / 8x (DVD±R) / 2.4x (DVD+R DL) 
+CD / DVD rewrite speed 10x (CD) / 4x (DVD±RW) 
+Optical Storage (2nd)
+2Nd optical storage type 
+None 
+
+Display
+Display Type 
+15.4 In TFT active matrix 
+Max Resolution 1280 x 800 ( WXGA ) 
+Widescreen Display 
+Yes 
+Color Support 24-bit (16.7 million colors) 
+Features 
+CrystalBrite 
+Video
+Graphics Processor / Vendor 
+SiS Mirage 2 
+Video Memory Shared video memory (UMA) 
+
+Audio
+Audio output type 
+Sound card 
+Audio output compliant standards DirectSound 
+Audio Input 
+Microphone 
+
+Input Device(s)
+Input device type 
+Keyboard, Touchpad 
+
+Telecom
+Modem 
+Fax / modem 
+Max transfer rate 56 Kbps 
+Protocols & Specifications 
+ITU V.92 
+
+Networking
+Networking 
+Network adapter 
+Networking / Wireless LAN Supported Yes 
+Wireless NIC 
+Acer InviLink 802.11g 
+Data link protocol Ethernet, IEEE 802.11b, IEEE 802.11g, Fast Ethernet 
+Networking standards 
+IEEE 802.11b, IEEE 802.11g, Wi-Fi CERTIFIED 
+
+Expansion / Connectivity
+Expansion Slots Total (Free) 
+2 ( 0 ) X Memory, 1 ( 1 ) x CardBus - Type II 
+Interfaces 1 x Modem - Phone line - RJ-11, 1 x Network - Ethernet 10Base-T/100Base-TX - RJ-45, 1 x Display / video - VGA - 15 pin HD D-Sub (HD-15), 1 x Audio - Line-in/microphone - Mini-phone 3.5 mm, 1 x Audio - Line-out/headphones - Mini-phone 3.5 mm, 3 x Hi-Speed USB - 4 pin USB Type A 
+Miscellaneous
+Features 
+Wake on LAN 
+Compliant Standards ACPI 1.0b 
+
+Power
+Power device form factor 
+External 
+Battery
+Technology 
+8-Cell Lithium ion 
+Installed Qty 1 
+Mfr estimated battery life 
+3 Hour(s) 
+
+Operating System / Software
+OS Provided 
+Microsoft Windows XP Home Edition 
+Software Acer eManager, Acer GridVista, NTI CD-Maker (OEM), Acer Launch Manager, Drivers & Utilities, Acer System Recovery, Adobe Acrobat Reader, Norton AntiVirus (OEM), CyberLink PowerProducer 
+
+Manufacturer Warranty
+Service & Support 
+1 Year warranty 
+Service & Support Details Limited warranty - 1 year 
+
+Greenpeace 'Guide to Greener Electronics'
+Greenpeace 'Guide to Greener Electronics' manufacturer rating (June 2008) 
+4.3 
+Greenpeace 'Guide to Greener Electronics' manufacturer rating (Mar 2008) 
+5.7

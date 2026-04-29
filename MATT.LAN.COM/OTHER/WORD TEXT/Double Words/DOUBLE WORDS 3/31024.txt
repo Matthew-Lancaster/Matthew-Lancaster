@@ -1,0 +1,47 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+1024 ' Mark Variable
+1024 "The Original *Info*
+1024 * 1024 Bytes
+1024 * res
+1024 02-01-91 Modem setup
+1024 256 2048K
+1024 768 256 1024K
+1024 768 of great
+1024 Aldus Pagemaker V4.0
+1024 and 256.
+1024 and MS-DOS's default
+1024 buffer works as
+1024 by 768, do
+1024 Bytes = 681.574.400
+1024 Bytes are exactly
+1024 Bytes groﬂ ist
+1024 Bytes large (and
+1024 Bytes sind genau
+1024 bytes, but expandable
+1024 cps then dropped
+1024 cylinders may, if
+1024 cylinders often require
+1024 dirs.
+1024 entries; the limit
+1024 ENVIROMENT for MOST
+1024 Fido/Opus, Hudson, JAM,
+1024 pixels wide. Automatic
+1024 x 768 (sorry
+1024 X 768 High
+1024 x 768 TruColor
+1024 x 768 x
+1024 x 768), the

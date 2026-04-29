@@ -1,0 +1,319 @@
+#@***-----------------------------------------------------***
+#@***-------**-----CPU----------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+386 ' Property not
+386 - Bighorn Golf
+386 - Castle Pines
+386 - Castles Pines
+386 - MEGA Files
+386 - The Bellfry
+386 & 4 meg
+386 & Seagate Drive
+386 & up
+386 (118304-001 New and
+386 (12HD) ³ CAD
+386 (80386) DX 24
+386 (and above) systems
+386 (or higher)
+386 (or higher) w/2
+386 (with QEMM) here.
+386 *Info*
+386 , Win3.1.
+386 .36 1
+386 .72 1
+386 0.1%
+386 01/11/93 3:11 ARIALI.FO_
+386 1-3
+386 1-4
+386 1.2 1
+386 1/6
+386 101,617 23/04/99 22:22
+386 112,304 27/10/94 10:36
+386 12 ZIP inst
+386 120,379 16/08/00 21:27
+386 16Mhz and 20Mhz
+386 17,320 24/07/95 6:48
+386 2-3
+386 2.60, and Qemm
+386 2/6
+386 20 mhz with
+386 20 MOTHERBOARD WITH
+386 20,653 23/04/99 22:22
+386 22/02/01 14:59 Magic
+386 23/04/99 22:22 fixspkr.inf
+386 25/08/02 1:21 Winamp.lnk
+386 25Hz 2MB Ram
+386 25MHZ , 8MB
+386 261,260 23/11/94 8:25
+386 28/07/01 19:35 JH-3
+386 29,286 28/02/94 8:00
+386 3-3
+386 3 ZIP inst
+386 32-bit instructions for
+386 33DX with 4mb
+386 33mhz computer WITHOUT
+386 33MHZ plus 8
+386 33SX with 4
+386 4,713 17/04/91 13:00
+386 4.02 Need 386+.
+386 4/6
+386 40-60 megahertz mother
+386 43,596 23/04/99 22:22
+386 486 CMOS floppy
+386 4H
+386 4H 0478
+386 4HD Golf
+386 5,295 31/05/94 6:22
+386 5,691 23/04/99 22:22
+386 5.1 - This
+386 5.11 - This
+386 5/6
+386 6 6 Game
+386 6/6
+386 60,257 23/04/99 22:22
+386 635/503 632/348 290/4
+386 66,279 23/04/99 22:22
+386 8,783 31/05/94 6:22
+386 80,385 23/04/99 22:22
+386 852, 850 EGA.CPI
+386 87,624 23/11/94 8:25
+386 9,295 23/04/99 22:22
+386 9,327 23/04/99 22:22
+386 9,349 10/03/93 6:00
+386 90,869 23/04/99 22:22
+386 adequate.
+386 all enquiries welcome
+386 and
+386 and !8088! stations!
+386 and / or
+386 and a 256
+386 and doublespace is
+386 and Windows 3.1
+386 BARTON CREEK COURSE
+386 BB, it was
+386 BOUNTIFUL COURSE 1
+386 box with 4MB
+386 BU-CLAF2 - BYU
+386 cd-rip v2.oo 1/12
+386 cd-rip v2.oo 10/12
+386 cd-rip v2.oo 11/12
+386 cd-rip v2.oo 12/12
+386 cd-rip v2.oo 2/12
+386 cd-rip v2.oo 3/12
+386 cd-rip v2.oo 4/12
+386 cd-rip v2.oo 5/12
+386 cd-rip v2.oo 6/12
+386 cd-rip v2.oo 7/12
+386 cd-rip v2.oo 8/12
+386 cd-rip v2.oo 9/12
+386 CD
+386 CD *Info*
+386 Cd and *Info*
+386 cd upgrade disk
+386 chip
+386 CMOS data to
+386 Computer
+386 computer with Windows,
+386 computer, with Windows,
+386 CorelDRAW: Chapter 9
+386 cost me œ180
+386 could do with
+386 Course - Barton
+386 Course - Belfry
+386 Course - Dorado
+386 Course - InsBrook
+386 Course - Mauna
+386 Course - Pinehurst
+386 Course - Troon
+386 CPU or higher
+386 detection/support.
+386 DORADO COURSE 1
+386 DOS C Compiler
+386 DOS version
+386 DOS, Win And
+386 DX
+386 DX 25 Mhz
+386 dx 33-40 motherboard
+386 dx can give
+386 DX/25 with Math
+386 DX40 42meg Hdrive
+386 EMULATOR FOR MY
+386 Enh Mode Support.
+386 enhanced
+386 Enhanced icon.
+386 enhanced mode
+386 enhanced mode and
+386 Enhanced Mode Problems;
+386 Enhanced Mode you
+386 Enhanced Mode, Ega
+386 enhanced mode, on
+386 Enhanced Mode.
+386 Enhanced Mode. It
+386 enhanced settings and
+386 Enhanced, and then
+386 executable, faster execution,
+386 executables -
+386 FIRESTONE COURSE 1
+386 for sale. Brand
+386 for Windows 95
+386 GOLF
+386 golf week 22.
+386 high performance file
+386 HPFS.
+386 implementation of Wirth's
+386 in the office.
+386 inc desqview 2.70/qemm
+386 instruction
+386 instructions by doing
+386 instructions only. Colorizes
+386 is a snail
+386 just for the
+386 Lan and is
+386 Machine and Windows
+386 MAX - MEMORY
+386 Max 1 Utility
+386 MAX V7.00
+386 Max v7.00 (1HD)
+386 Max vs.7.01 *Info*
+386 MEMORY MANAGER 1DD
+386 Memory Manager Isn't
+386 memory managers -
+386 MEMORY MAX V7
+386 memory testing *Info*
+386 memory testing utilities.
+386 mode but no
+386 Mode Uploaded Directly
+386 Mode Windows or
+386 Model 80.
+386 modem.
+386 motherboard cache-2 (by
+386 motherboard with about
+386 motherboards
+386 Multiuser operating system
+386 Notebook but FD
+386 operating system kernel.
+386 or
+386 or *Info*
+386 or 486
+386 or 486 at
+386 or 486 Compatible.
+386 or 486 computer,
+386 or 486 DX
+386 or 486 motherboard.
+386 or a 486?
+386 or better
+386 or better IBM
+386 or better machines.
+386 or better PC
+386 or better required!
+386 or better, 4MB
+386 or better, Windows
+386 or faster, and
+386 or higher
+386 or higher and
+386 or higher machines.
+386 or higher processor</font></td>
+386 or higher, 4MB
+386 or higher, a
+386 Or Later Cpu.
+386 pc costing
+386 pc costing #little,
+386 PC with a
+386 PC+, VGA+.
+386 PRO "BANFF SPRING"
+386 PRO "BELFRY" 3H
+386 PRO "BIGHORN" 3H
+386 PRO "CASTLE PINES"
+386 PRO "INNISBROOK" 3H
+386 PRO "MAUNA KEA"
+386 PRO "PEBBLE BEACH"
+386 PRO (3HD) ³
+386 PRO :THE BELLFRY
+386 PRO [03 Zips]
+386 PRO 10 DD
+386 Pro 4(+)HD
+386 pro bunker's club
+386 PRO BUNKER CLUB
+386 Pro Golf -
+386 Pro Golf
+386 PRO GOLF &
+386 PRO SCORECARD FOR
+386 Pro The High
+386 PRO UPDATE
+386 PRO UPDATE 1
+386 Pro Update 1.21
+386 Pro Upgrade 1
+386 Pro)
+386 Processor
+386 processor a bug.
+386 processor and
+386 Ray Dream Studio
+386 ray tracing system
+386 required. A
+386 setup
+386 setup information
+386 setup information *Info*
+386 setup information by
+386 setup information for
+386 SVGA version This
+386 SX
+386 SX 25 Motherboard
+386 SX 25MHZ with
+386 sx/40, my Bluewave
+386 SX40 Ultra Slimline
+386 systems
+386 then I did
+386 to
+386 TO 486
+386 TO 486 CONVERTER
+386 to play It
+386 to play.
+386 TO THE MAX.
+386 TORREY PINES COURSE
+386 upgrade patch version
+386 UPGRADE V1.11
+386 V2.3
+386 v2.70 1/1 1193063
+386 v2.70 1/1 792652
+386 V2.9
+386 v3.1
+386 V3.1 *REALEASE* 1/1
+386 v3.11 and *Info*
+386 v3.x: displays *Info*
+386 v3.x: displays previously
+386 VER 6
+386 VER 8 DUPEDISK
+386 version
+386 Version 12 ASA
+386 Version 3.1
+386 version of Mbutil
+386 version of SHEZ.
+386 version would be
+386 version, but I
+386 version.
+386 versions are not
+386 w/ 4 Megs
+386 when refreshing screens,
+386 will take upto
+386 with 4 meg
+386 with a cache,
+386 with a clock
+386 with a coprocessor.
+386 with a xircom
+386 with or without
+386 with vga or
+386 Word
+386 Word *Info*
+386 would be nice,

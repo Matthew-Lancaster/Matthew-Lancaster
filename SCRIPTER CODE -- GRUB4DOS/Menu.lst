@@ -1,3 +1,4 @@
+#color blue/green yellow/red white/magenta white/magenta
 timeout 59
 default /default
 #default 0
@@ -113,7 +114,7 @@ default /default
 #-----------------------------------------------------------------------
 #-----------------------------------------------------------------------
 #-----------------------------------------------------------------------
-title Menu Hard Drive Operating System Set...\nTHE AUTOBOOT SELECTION MENU THIS MENU HAS MORE DIGG AROUND AND LESS QUICK BOOTER\nTHAN THE FRONT TOOL MENU FOR AUTO BOOT FINDER OPTION ANOTHER MENU LEADS\nFROM THERE
+title Menu Hard Drive Operating System Set...\nTHE AUTOBOOT SELECTION MENU THIS MENU HAS MORE DIGG AROUND AND LESS QUICK BOOTER\nTHAN THE FRONT TOOL MENU FOR AUTO BOOT FINDER OPTION ANOTHER MENU\nLEADS FROM THERE
 find --set-root /menu_oppo_system.lst
 configfile /menu_oppo_system.lst
 #-----------------------------------------------------------------------
@@ -123,7 +124,7 @@ configfile /menu_oppo_system.lst
 #root
 
 #-----------------------------------------------------------------------
-title Mini Windows XP From Hiren's Boot CD\nDONT WORK FROM PEN DRIVE ONLY FROM HDD IS MY CUSTOM MINIMAL STRIPPER VERSION\nHIREN XP IT LOADS IN THE NOTEPAD++ HERE AT START (\MENU.LST) FOR QUICKER EDITOR\nHITT WORD WRAP ICON TO DO BETTER
+title Mini Windows XP From Hiren's Boot CD\nDONT WORK FROM PEN DRIVE ONLY FROM HDD\nMY CUSTOM MINIMAL STRIPPER VERSION
 #
 # example password: test 
 # password --md5 $1$gNe0$KZPOE8wNbTNSKOzrajuoB0
@@ -134,7 +135,7 @@ chainloader /HBCD/XP/XP.BIN
 #-----------------------------------------------------------------------
 
 #-----------------------------------------------------------------------
-title Mini Windows XP and All Hiren's Boot CD - From ISO\nThe Programs and Menu Will Load From First Drive Seen - Like Grub4Dos System\nAnswer For a Moment Reload the Programs Launcher From The Drive You Want\nI Think This Method Has More In Memory Overhead Than Load From HardDrive Folder\nOr ISO From Drive Need Contiguous Defrag File - Internal HDD Is Quicker
+title Mini Windows XP and All Hiren's Boot CD - From ISO\nThe Programs and Menu Will Load From First Drive Seen\nLike Grub4Dos System\nISO From Drive Need Contiguous Defrag File - Internal HDD Is Quicker
 map --mem /ISO/HBCD_2015_v15.2.iso (0xff)
 map --hook
 root (0xff)
@@ -145,8 +146,8 @@ chainloader (0xff)
 # USE MORE find --set-root  
 
 #------------------------------------------------------------
-#Alternative if you have plenty of system memory (excutes faster once loaded into memory)
-title Mini Windows 7 Ultimate 32 Bit ISO\nLOADER EXECUTE INTO MEMORY GRUB4DOS
+#Alternative if you have plenty of system memory (Executes quicker once loaded into memory)
+title Mini Windows 7 Ultimate 32 Bit ISO\nLOADER EXECUTE INTO MEMORY GRUB4DOS\nMOUSE DONT WORK
 map --mem /ISO/7pe_x86_M.iso (0xff)
 map --hook
 root (0xff)
@@ -154,7 +155,7 @@ chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title Mini Windows 7 Ultimate 64 Bit ISO\nLOADER EXECUTE INTO MEMORY GRUB4DOS
+title Mini Windows 7 Ultimate 64 Bit ISO\nLOADER EXECUTE INTO MEMORY GRUB4DOS\nMOUSE DONT WORK
 map --mem /ISO/7pe_amd64_M.iso (0xff)
 map --hook
 root (0xff)
@@ -162,7 +163,72 @@ chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title MiniTool Partition Wizard v10.3 Paid_Win_10\n£30.22 -- 1 Computer Lifetime Upgrade From Wed 14 Nov 2018 For 8-MSI-GP62M-7RD
+#title UBUNTU-24.04.3-DESKTOP-AMD64.ISO -- 5.9 GB\nNOT FROM GRUB4DOS
+#find --set-root --ignore-floppies /ISO/ubuntu-24.04.3-desktop-amd64.iso
+#map --mem /ISO/ubuntu-24.04.3-desktop-amd64.iso (0xff)
+#map --hook
+#root (0xff)
+#chainloader (0xff)
+#------------------------------------------------------------
+
+#------------------------------------------------------------
+title UBUNTU-24.04.3-DESKTOP-AMD64.ISO -- WORKER --\nTO POWER DOWN USE THE POWER SWITCH NOT RESTART
+find –set-root –ignore-floppies /ISO/casper/initrd
+kernel /ISO/casper/vmlinuz iso-scan/filename=/ISO/ubuntu/ubuntu-11.iso file=/cdrom/preseed/ubuntu.seed boot=casper noprompt
+initrd /ISO/casper/initrd
+#------------------------------------------------------------
+
+
+#-----------------------------------------------------------------------
+title WINDOWS 10 PRO RECOVERY MINI WINDOWS 10 PE -- CHAINLOAD.ISO\n
+find --set-root /ISO/WINDOWS_10_PRO_RECOVERY_MINI_PE.ISO
+chainloader /ISO/WINDOWS_10_PRO_RECOVERY_MINI_PE.ISO
+#-----------------------------------------------------------------------
+#-----------------------------------------------------------------------
+#Option 3: Boot a Hard Disk Image (.imghd or .bin) If the .bin file is an image of a full hard disk partition, you can map it as a hard disk
+title WINDOWS 10 PRO RECOVERY MINI WINDOWS 10 PE ISO -- Boot a MEM Disk Image\n
+map -- /ISO/WINDOWS_10_PRO_RECOVERY_MINI_PE.ISO (0xff)
+map --hook
+chainloader (0xff)+1
+rootnoverify (0xff)
+boot
+#-----------------------------------------------------------------------
+
+#-----------------------------------------------------------------------
+#Option 2: Boot as a Kernel
+#Some .bin files might be simple kernels that can be loaded directly. Consult the documentation for your specific .bin file to see if this method is appropriate.
+#-----------------------------------------------------------------------
+title WINDOWS 10 PRO RECOVERY MINI WINDOWS 10 PE ISO -- Boot as a Kernel\n
+kernel /ISO/WINDOWS_10_PRO_RECOVERY_MINI_PE.ISO
+boot
+#-----------------------------------------------------------------------
+
+
+
+
+
+#------------------------------------------------------------
+title MiniTool Partition Wizard v13.0 Paid_Win_10\n30.22 UK MONEY -- 1 COMPUTER UPGRADE FOR LIFE\nHALF PRICE UPGRADE PREVIOUS OWNER
+find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V13.0.iso
+map --mem /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V13.0.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+title MiniTool Partition Wizard v12.1 Paid_Win_10\n39.00 USD Paid -- 1 Computer FOR LIFE
+find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V12.1.iso
+map --mem /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V12.1.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+title MiniTool Partition Wizard v10.3 Paid_Win_10\n30.22 UK MONEY-- 1 Computer Lifetime Upgrade\nFrom Wed 14 Nov 2018 For 8-MSI-GP62M-7RD
 #
 # HALF PRICE OFFER AS PREVIOUS PURCHASE DISCOUNT
 # WELL GOOD VERSION SINGLE PAID ONE COMPUTER_HAVE TO ASK COMPANY FOR A CHANGE
@@ -175,15 +241,17 @@ title MiniTool Partition Wizard v10.3 Paid_Win_10\n£30.22 -- 1 Computer Lifetim
 # GET THE ONE THAST ALLOW ISO BOOTABLE AND BE HERE
 #
 #
-find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_V10.3.iso
-map --mem /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_V10.3.iso (0xff)
+find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V10.3.iso
+map --mem /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V10.3.iso (0xff)
 map --hook
 root (0xff)
 chainloader (0xff)
 #------------------------------------------------------------
 
+
+
 #------------------------------------------------------------
-title MiniTool Partition Wizard v10 Paid_Win_10\n$39.00 USD Paid -- 1 Computer 1 Year From Mon 15 Aug 2017 For 8-MSI-GP62M-7RD\nMini Tool Is An 64 Bit Boot System I Found
+title MiniTool Partition Wizard v10.0 Paid_Win_10\n39.00 USD Paid -- 1 Computer 1 Year From Mon 15 Aug 2017\nINSTALLED FOR 8-MSI-GP62M-7RD
 #
 # \nA WELL GOOD VERSION SINGLE PAID ONE COMPUTER_HAVE TO ASK COMPANY FOR A CHANGE\nMOUSE IS OKAY WORKER DRIVER HIGH END COMPUTER_GETTING THERE\nCDROM ANSWER YEAH QUICKER TO BOOT FROM HER WITH HER ASUS-X5DIJ\nMINI TOOL IS AN 64 BIT BOOT SYSTEM ONLY I FOUND
 #
@@ -192,23 +260,46 @@ title MiniTool Partition Wizard v10 Paid_Win_10\n$39.00 USD Paid -- 1 Computer 1
 # GET THE ONE THAST ALLOW ISO BOOTABLE AND BE HERE
 #
 #
-find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_V10.iso
-map --mem /ISO/MINI_TOOL_BOOT_PARTITON_WIZARD_V10.iso (0xff)
+find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V10.0.iso
+map --mem /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V10.0.iso (0xff)
 map --hook
 root (0xff)
 chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title MiniTool Partition Wizard v9\nLOADER EXECUTE INTO MEMORY GRUB4DOS
-map --mem /ISO/MINI_TOOL_P_WIZARD-FreeV9.iso (0xff)
+title MiniTool Partition Wizard v9 Free\nLOADER EXECUTE INTO MEMORY GRUB4DOS
+map --mem /ISO/MINI_TOOL_BOOT_PARTITION_WIZARD_V9_Free.iso (0xff)
 map --hook
 root (0xff)
 chainloader (0xff)
 #------------------------------------------------------------
 
+
+
+
 #------------------------------------------------------------
-title MiniTool Power Data Recovery V8.0     __ Paid __ UN-Erase Deleted File\nCost $89-USD Currency 1.2-GBP vs USD High UK Price\nBuy for Keep Only Opt __ 1 Computer Lifetime Upgrade __ Installed From 06 June 2018 for 4-ASUS-GL522VW
+title MiniTool Power Data Recovery V12.7 __ Paid __ UN-Erase Deleted File\nCost $89-USD Buy for Keep Only Option\n1 Computer Lifetime Upgrade\nInstalled From 06 June 2018 for 4-ASUS-GL522VW
+#
+# C:\ISO\MINI_TOOL_BOOT_RECOVERY_V12.7.iso
+# Personal Deluxe License 1 X $89.00 USD
+#
+# \nISO Portable Snap-in WinPE Bootable Builder
+# 1 Computer From Mon 06 June 2018 on 4-ASUS-GL522VW
+# Snap-in WinPE Bootable Builder
+# Single License for 1 PC
+# Free lifetime Upgrade Service
+#
+find --set-root --ignore-floppies /ISO/MINI_TOOL_BOOT_RECOVERY_V12.7.iso
+map --mem /ISO/MINI_TOOL_BOOT_RECOVERY_V12.7.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+title MiniTool Power Data Recovery V8.0  __ Paid __ UN-Erase Deleted File\nCost $89-USD Buy for Keep Only Option\n1Computer Lifetime Upgrade\nInstalled From 06 June 2018 for 4-ASUS-GL522VW
 #
 # MiniTool Power Data Recovery V8.0
 # Personal Deluxe License 1 X $89.00 USD
@@ -227,7 +318,7 @@ chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title MiniTool ShadowMaker Pro 3.0 __ Paid\nCost $29.00 £29.40 1 Year 1 Computer From Mon 05 November 2018 \nNone Option to Buy for Keeper Yet But Talker Going __ Installed For 4-ASUS-GL522VW
+title MiniTool ShadowMaker Pro 3.0 2018 __ Paid\nCost $29.00 29.40 UK MONEY 1 Year 1 Computer From Mon 05 November 2018\nNone Option to Buy for Keeper Yet But Talker Going\nInstalled For 4-ASUS-GL522VW
 #
 # \nISO Portable Snap-in WinPE Bootable Builder
 find --set-root --ignore-floppies /ISO/MINI_TOOL_SHADOWMAKER_PRO_V3.iso
@@ -238,7 +329,7 @@ chainloader (0xff)
 #------------------------------------------------------------
 
 #------------------------------------------------------------
-title Disk Imager Laplink\nA PAID\nCDROM ANSWER YES QUICKER TO BOOT FROM HER WITH HER
+title Disk Imager Laplink __ PAID\nCDROM\nANSWER YES QUICKER TO BOOT FROM HER WITH HER
 find --set-root --ignore-floppies /ISO/LAP-LINK.ISO
 map --mem /ISO/LAP-LINK.ISO (0xff)
 map --hook
@@ -246,9 +337,28 @@ root (0xff)
 chainloader (0xff)
 #------------------------------------------------------------
 
-EasyRE Professional for Windows XP.iso
+
 #------------------------------------------------------------
-title EasyRE Professional for Windows XP.iso\nEXPERIMENTAL NOT WORKING YET CDROM OR PEN DRIVE EASYIER __ FORMAT FAT32 1ST\nDONT RELY ON ERASE/CLEAN TO DO ISO FOR PENDRIVE MEMORY CARD
+title EasyRE_Professional_for_Windows_10_PRO\n$59.99 USD\nHERE TO STAY -- THERE ARE NO MORE UPDATES TO WINDOWS 10
+find --set-root --ignore-floppies /ISO/EasyRE_Professional_for_Windows_10_PRO.iso
+map --mem /ISO/EasyRE_Professional_for_Windows_10_PRO.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+#title EasyRE Professional for Windows 10_PRO _ HDD\nNOT WORK EARLIER WINDOWS 10 VERSION ONLY\nEXPERIMENTAL_NOT WORKER __ HDD LOADER _ CONTIGUOUS DEFRAG REQUIRE
+ find --set-root /ISO/EasyRE_Professional_for_Windows_10.iso 
+map --mem /ISO/EasyRE_Professional_for_Windows_10.iso (hd32)
+map --hook
+root (hd32)
+chainloader (hd32)
+#------------------------------------------------------------
+
+#------------------------------------------------------------
+title EasyRE Professional for Windows XP\nEXPERIMENTAL NOT WORKING FROM GRUB4DOS -- CDROM OR PEN DRIVE EASYIER __ FORMAT FAT32 1ST\nDONT RELY ON ERASE/CLEAN TO DO ISO FOR PEN-DRIVE MEMORY CARD
 find --set-root --ignore-floppies /ISO/EasyRE_Professional_for_Windows_XP.iso
 map --mem /ISO/EasyRE_Professional_for_Windows_XP.iso (0xff)
 map --hook
@@ -256,39 +366,23 @@ root (0xff)
 chainloader (0xff)
 #------------------------------------------------------------
 
-#------------------------------------------------------------
-title EasyRE Professional for Windows 10.iso\nEXPERIMENTAL NOT WORKING YET CDROM OR PEN DRIVE EASYIER __ FORMAT FAT32 1ST\nDONT RELY ON ERASE/CLEAN TO DO ISO FOR PENDRIVE MEMORY CARD
-find --set-root --ignore-floppies /ISO/EasyRE_Professional_for_Windows_10.iso
-map --mem /ISO/EasyRE_Professional_for_Windows_10.iso (0xff)
-map --hook
-root (0xff)
-chainloader (0xff)
-#------------------------------------------------------------
 
-#------------------------------------------------------------
-#title EasyRE Professional for Windows 10.iso _ HDD\nEXPERIMENTAL_NOT WORKER __ HDD LOADER _ CONTIGUOUS DEFRAG REQUIRE
-# find --set-root /ISO/EasyRE_Professional_for_Windows_10.iso 
-#map --mem /ISO/EasyRE_Professional_for_Windows_10.iso (hd32)
+#-----------------------------------------------------------------------
+#title UBUNTU - Linux UBUNTU-14.04.1-DESKTOP-AMD64.ISO (981 MB) From Memory\nFrom the DVD of Ultimate Multi Boot CD\nUBUNTU Loads Another 1GB ISO Making 2GB\n
+#ls /images/ubuntudesktopamd64.iso || find --set-root /images/ubuntudesktopamd64.iso
+#map --heads=0 --sectors-per-track=0 /images/ubuntudesktopamd64.iso (0xff) || map --heads=0 --sectors-per-track=0 --mem /images/ubuntudesktopamd64.iso (0xff)
 #map --hook
-#root (hd32)
+#chainloader (0xff)
+#-----------------------------------------------------------------------
+
+#-----------------------------------------------------------------------
+#title UBUNTU - Linux UBUNTU-14.04.1-DESKTOP-AMD64.ISO (981 MB) From HDD -- NOT WORK ANYMOE\nFrom the DVD of Ultimate Multi Boot CD\nUBUNTU Loads Another 1GB ISO Making 2GB\n
+#ls /images/ubuntudesktopamd64.iso || find --set-root /images/ubuntudesktopamd64.iso
+#map --heads=0 --sectors-per-track=0 /images/ubuntudesktopamd64.iso (hd32) || map --heads=0 --sectors-per-track=0 --mem /images/ubuntudesktopamd64.iso (hd32)
+#map --hook
+#root (hd32) 
 #chainloader (hd32)
-#------------------------------------------------------------
-
 #-----------------------------------------------------------------------
-title UBUNTU - Linux UBUNTU-14.04.1-DESKTOP-AMD64.ISO (981 MB) From Memory\nFrom the DVD of Ultimate Multi Boot CD\nUBUNTU Loads Another 1GB ISO Making 2GB\n
-ls /images/ubuntudesktopamd64.iso || find --set-root /images/ubuntudesktopamd64.iso
-map --heads=0 --sectors-per-track=0 /images/ubuntudesktopamd64.iso (0xff) || map --heads=0 --sectors-per-track=0 --mem /images/ubuntudesktopamd64.iso (0xff)
-map --hook
-chainloader (0xff)
-#-----------------------------------------------------------------------
-
-#-----------------------------------------------------------------------
-title UBUNTU - Linux UBUNTU-14.04.1-DESKTOP-AMD64.ISO (981 MB) From HDD\nFrom the DVD of Ultimate Multi Boot CD\nUBUNTU Loads Another 1GB ISO Making 2GB\n
-ls /images/ubuntudesktopamd64.iso || find --set-root /images/ubuntudesktopamd64.iso
-map --heads=0 --sectors-per-track=0 /images/ubuntudesktopamd64.iso (hd32) || map --heads=0 --sectors-per-track=0 --mem /images/ubuntudesktopamd64.iso (hd32)
-map --hook
-root (hd32) 
-chainloader (hd32)
 
 #-----------------------------------------------------------------------
 title ULTIMATE Multi Boot CD Disk ISO (599 MB) UBCD532.ISO\nOf The DVD That Include The Linux UBUNTU Below 2015

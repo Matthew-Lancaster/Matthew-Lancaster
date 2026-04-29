@@ -1,0 +1,252 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+64 ' A5 Extra
+64 ' Can do
+64 ' Cursive, etc.
+64 ' New Zealand
+64 - <*>
+64 - Jap
+64 - No cassette
+64 - Pal Mace
+64 - Usa
+64 - Usa Arcade
+64 - Usa Madden
+64 - Usa W
+64 - Windows 3.x
+64 -0
+64 -200
+64 & 52
+64 & Mario Kart
+64 ( 11.53%)
+64 ( 11.53%) Points
+64 (9) 357-0868
+64 (9) 357-5575
+64 (9) 357-5577
+64 (9) 357-5800
+64 (This is is
+64 * The system
+64 *Info*
+64 0 (Copy button
+64 0 0;121
+64 0 330 0
+64 0.0%
+64 0.00 ms
+64 0.2%
+64 01/02/00 20:28 TABLE1.HI
+64 01/02/00 20:38 TABLE4.HI
+64 01/02/00 20:39 TABLE3.HI
+64 01/02/00 20:42 TABLE2.HI
+64 01/06/01 10:05 default.ini
+64 02/05/99 14:07 Autocad
+64 04/12/93 1:08
+64 06/06/99 18:43 DRIVERR.BIN
+64 07/05/03 3:57 PROT.BAT
+64 07/12/00 16:18 oozic1.ini
+64 1 112 21
+64 1.4%
+64 10 170/400 209/209
+64 11/12/94 13:13 ATI3.DRV
+64 14/03/98 21:07 BD14985_.GIF
+64 14/11/99 3:30 CICA
+64 14/11/99 3:30 Windows
+64 14/12/98 17:34 VBSCRIPT.HTM
+64 16/12/99 15:21 SETUP.INI
+64 17/05/99 12:52 qball.txt
+64 18/09/02 4:38 HI.BAT
+64 19/03/01 1:30 Oozic.ini
+64 20 63 61
+64 21/10/01 17:57 V_Jossie
+64 23/11/00 3:00 oozic2.ini
+64 23/11/00 3:00 oozic3.ini
+64 23/11/00 3:00 oozic4.ini
+64 24/11/99 20:58 Corel
+64 25 45 53
+64 25/08/00 6:00 EXCLUDEL.DAT
+64 26/04/02 1:14 Capture.fcb
+64 27/09/00 16:47 Windows
+64 2D or 3D
+64 4.02.203 beta *Info*
+64 4.0B, Windows 95
+64 443/59
+64 48 0 124
+64 72 259 0.1%
+64 action game
+64 all work spot
+64 AT 78000000 POUNDS
+64 audio tracks, 256
+64 Beta .31 -
+64 BILLIARDS AMI002 #2155
+64 BinHex
+64 BIO FREAKS
+64 bit mode for
+64 bit YA
+64 came along i
+64 CD
+64 CD Release
+64 channels of
+64 channels of realtime
+64 character lines work
+64 chars (\A0)</p>
+64 chars) instead
+64 computer. You may
+64 CONV AMI003 #3134
+64 CorelDRAW: Chapter 2
+64 Dated 6/17/97.
+64 Display Cards
+64 dram dos utils
+64 DRAM drivers *Info*
+64 dram windows 3.1
+64 Driver V1.2, *Info*
+64 Driver V1.2, Control
+64 drivers *Info*
+64 DUKE NUKEM
+64 EGA colors *Info*
+64 EGA colors on
+64 EMMULATOR
+64 EMULATOR - WITH
+64 emulator
+64 Emulator & 26
+64 emulator V1.2c
+64 Emulator)
+64 Emulators
+64 entries are available.)
+64 entries in the
+64 ETC
+64 FAQ *Info*
+64 fat orchestral textures.
+64 file(s) 64,558 bytes
+64 files - New:
+64 for Apr. 1995,
+64 Full OS2 *Info*
+64 Graphics
+64 graphics 2001 *Info*
+64 Graphics Cards
+64 GX (GX, GXD,
+64 H000154.ZIP v2.0 UK-ELECT
+64 H001095.ZIP v1.7 US
+64 H007146.ZIP v3.2 WE
+64 H007709.ZIP CAMPAIGN MANAGER
+64 H007953.ZIP v4.1 CONSTITUTION
+64 H007960.ZIP v1.5 THE
+64 H008096.ZIP v3.0 U.S.
+64 H008134.ZIP v4.1 THE
+64 H008689.ZIP v1.00 THE
+64 H008792.ZIP v1.0 UK-ELECT
+64 H009518.ZIP v4.1 THE
+64 has had. Games
+64 High Level Emulator
+64 image collection. This
+64 IN TOTAL
+64 installation disks). The
+64 k colours for
+64 K), called chunks.
+64 Kb
+64 KB (v2.05 with
+64 KB in version
+64 KB Limitation May
+64 KB to store
+64 Kb!
+64 KB, not even
+64 KB.
+64 KB. For echomail,
+64 kbps total bitrate
+64 KBytes. In
+64 look!
+64 M
+64 MARIO 64
+64 MB
+64 MB hard disk
+64 MB of Physical
+64 MB of RAM
+64 MB RAM
+64 MB RAM.
+64 MB with 16
+64 MB, 45 MB
+64 meg eg35
+64 MIDI-NET 0 71
+64 MIDI-NET 1 0.0%
+64 MIDI-NET 2 0.0%
+64 MIDI-NET 2 0.1%
+64 MIDI-NET 2 1
+64 MIDI-NET 243 132
+64 MIDI-NET 252 5.7%
+64 MIDI-NET 33 0.6%
+64 MIDI-NET 76 2.1%
+64 MIDI-NET 863 0.2%
+64 MIDI-NET 953 0.3%
+64 MORTAL KOMBAT TRILOGY
+64 N007959.ZIP v3.0 CONSTITUTIONAL
+64 N007961.ZIP v1.2 THE
+64 N007991.ZIP FOR THE
+64 N008110.ZIP v3.5 WIN-USA
+64 of Ruby's Pearls
+64 on your nintendo
+64 PACK [WIN95] 15.MEG
+64 PCI Dos *Info*
+64 pixels
+64 powergraph *Info*
+64 Ray Dream Studio
+64 Rcv
+64 ROGUE SQUADRON
+64 ROMS
+64 ROMS 64 IN
+64 run superbly on
+64 Shindou Edition! Japanes[XX/01]
+64 Song in last
+64 sounds. *Info*
+64 squares
+64 teams to easily
+64 The moment of
+64 through the lesser
+64 to 65535; however,
+64 track
+64 track pc for
+64 track pc midi
+64 tracks!), you can
+64 tracks, runs in
+64 tracks, very powerful
+64 TUROK 2
+64 TUTAN (KORPELA)
+64 — changes the
+64 und Stingray
+64 Updated *Info*
+64 users in upgrading
+64 v. (Last revision
+64 V+ driver Windows
+64 V0.2c
+64 v1.1 (This iam
+64 VERSION AMI005 #4502
+64 Very funny videos
+64 vesa drivers 1.03.
+64 Video 2000, 2001
+64 Video 2001
+64 Video 3xx0 *Info*
+64 video drivers for
+64 Video Drivers v1.2
+64 Voices) From
+64 voices, support for
+64 VRAM display drivers
+64 VRAM UPGRADE TO
+64 wares Em. Sharew.
+64 WCW REVENGE
+64 Windows 95 driver
+64 Windows 95 drivers
+64 x 16 MIDI
+64 x 64
+64 x 64 0.00
+64 x 64 pixels
+64 x 64 squares
+64 X 64 —

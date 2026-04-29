@@ -355,6 +355,16 @@ TASKKILL /F /IM CHROME.EXE /T
 TASKKILL /F /IM DFX.EXE /T
 :JUMP_NOT_COMPUTER_NAME
 
+REM 05-DEC-2025 17:46:00 FRI
+REM -- CAN'T STOP IT ARRIVE ON BOOTUP
+TASKKILL /F /IM msedge.exe /T
+REM New tab - Personal - Microsoft? Edge
+REM ahk_class Chrome_WidgetWin_1
+REM ahk_exe msedge.exe
+
+
+
+
 @REM -----------------------------------------------------------------
 @REM -----------------------------------------------------------------
 GOTO JUMP_OVER_UPDATE_STOPPER
@@ -398,15 +408,15 @@ CALL "%~dp0BAT 11-RESET WINDOWS UPDATE VER 10.BAT" /QUIET
 @REM TAKEOWN /F C:\$Windows.~BT\* /R /A 
 @REM PAUSE
 @REM ICACLS C:\$Windows.~BT\*.* /T /grant administrators:F 
-TAKEOWN /F C:\$Windows.~BT\* /R /A /D Y
-ICACLS "C:\$Windows.~BT\*" /T /C /L /Q /setowner "Everyone"
-ICACLS "C:\$Windows.~BT\*" /T /C /L /Q /grant Everyone:F
-RMDIR /S /Q C:\$Windows.~BT\
+REM TAKEOWN /F C:\$Windows.~BT\* /R /A /D Y
+REM ICACLS "C:\$Windows.~BT\*" /T /C /L /Q /setowner "Everyone"
+REM ICACLS "C:\$Windows.~BT\*" /T /C /L /Q /grant Everyone:F
+REM RMDIR /S /Q C:\$Windows.~BT\
 
-TAKEOWN /F C:\$Windows.~WS\* /R /A /D Y
-ICACLS "C:\$Windows.~WS\*.*" /T /C /L /Q /setowner "Everyone"
-ICACLS "C:\$Windows.~WS\*" /T /C /L /Q /grant Everyone:F
-RMDIR /S /Q C:\$Windows.~WS\
+REM TAKEOWN /F C:\$Windows.~WS\* /R /A /D Y
+REM ICACLS "C:\$Windows.~WS\*.*" /T /C /L /Q /setowner "Everyone"
+REM ICACLS "C:\$Windows.~WS\*" /T /C /L /Q /grant Everyone:F
+REM RMDIR /S /Q C:\$Windows.~WS\
 
 @REM ----
 @REM Safe to delete "$WINDOWS.~BT" - Google Search
@@ -703,6 +713,8 @@ schtasks /change /TN "\Nero TuneItUp PRO (Autopilot.exe)" /DISABLE
 @REM  __ THE TASK HERE ALLOW ONLY ENABLE AND DISABLE __ FOR ME
 @REM schtasks /change /TN "\User_Feed_Synchronization-{9C3130D6-C560-4557-8BD1-BFF9344CA145}" /DISABLE
 
+
+
 @REM  ------------------------------------------------------------------------
 @REM  COMMAND HELP
 @REM  ------------------------------------------------------------------------
@@ -989,6 +1001,33 @@ schtasks /change /TN "\Microsoft\Windows\Application Experience\Microsoft Compat
 @REM  -----------------------------------------------------------------------------------------
 
 :JUMPER_NOT_XP_02
+
+
+REM C:\Program Files (x86)\Microsoft\EdgeWebView\Application\142.0.3595.94\msedgewebview2.exe
+REM C:\Program Files\Piriform\CCleaner 7\CCleaner.exe /bg
+schtasks /change /TN "CCleaner7" /DISABLE
+schtasks /change /TN "CCleaner 7" /DISABLE
+schtasks /change /TN "ccleaner_service.exe" /DISABLE
+
+
+schtasks /change /TN "CCleaner Service" /DISABLE
+REM C:\Program Files\Piriform\CCleaner 7\CCleaner_service.exe
+TASKKILL /F /IM CCleaner_service.exe /T
+REM C:\Program Files\Piriform\CCleaner 7\CCleaner.exe
+TASKKILL /F /IM CCleaner.exe /T
+REM CCleaner7	CCleaner Service	Gen Digital Inc.	c:\program files\piriform\ccleaner 7\ccleaner_service.exe	14/11/2025 14:03	
+
+
+Reg.exe delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services" /v "CCleaner7" /f
+REM WONT DELETE NOT FIND
+
+TASKKILL /F /IM msedgewebview2.exe /T
+TASKKILL /F /IM msedge.exe /T
+TASKKILL /F /IM M365Copilot.exe /T
+
+
+
+
 
 @REM   ------------------------------------------------
 @REM   BLOCK OF LINE ADD IN FROM WINDOWS STARTER ACER ONE
@@ -2654,9 +2693,12 @@ TASKKILL /F /FI "SERVICES eq ddmgr"
 
 @REM START= DISABLED
 @REM START= AUTO
-SC CONFIG WSearch START= DEMAND
+@REM START= DEMAND
+
+SC CONFIG WSearch START=DISABLED
 @REM NET START WSearch
-@REM NET STOP WSearch
+NET STOP WSearch
+
 @REM TASKKILL /F /FI "SERVICES eq WSearch"
 
 @REM @ECHO Windows Search -- SearchIndexer

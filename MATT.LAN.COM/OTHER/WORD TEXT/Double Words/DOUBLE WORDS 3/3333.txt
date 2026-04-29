@@ -1,0 +1,40 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+333 02/09/01 10:26 Dash's
+333 02/09/02 21:49 PlexTools
+333 02/09/02 21:49 PlexTools.lnk
+333 05/02/01 18:13 Elton
+333 05/07/99 13:37 Mag075.txt
+333 05/11/98 21:39 FOLIO.INF
+333 05/11/98 21:39 HIGHWAY.INF
+333 10/01/98 16:23 Mag59.txt
+333 11/07/97 0:37 GRID15.DAT
+333 14/11/99 3:30 Valet
+333 17/08/02 5:17 dirsort.bat
+333 209
+333 209 109/347 252/10
+333 209 252/156
+333 209 252/156 110
+333 31/08/02 17:31 Read
+333 79% 06-10-92 04:33
+333 79% 07-30-93 00:24
+333 79% 09-22-93 23:50
+333 79% 09-26-93 00:30
+333 HTM 8,256 29/12/99
+333 HTM 8,857 11/02/00
+333 P o s
+333 S.W. Park
+333 S.W. Park Ave.,

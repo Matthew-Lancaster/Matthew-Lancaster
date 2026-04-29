@@ -1,0 +1,35 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+006 15,581 22/06/93 17:41
+006 335,281 02/06/93 9:53
+006 4,940 12/01/98 2:11
+006 9,158 12/01/98 2:11
+006 Adam And The
+006 Aswad Dont Turn
+006 Behind The Wheel
+006 Edition. Last revision
+006 Falling In Love
+006 Good Advice
+006 It's No Good
+006 My Little Empire
+006 My Need
+006 Non Existent Nothing
+006 PCX 357,364 16/09/94
+006 Smoke
+006 That's How Love
+006 That I Would
+006 The Slide
+006 Useless

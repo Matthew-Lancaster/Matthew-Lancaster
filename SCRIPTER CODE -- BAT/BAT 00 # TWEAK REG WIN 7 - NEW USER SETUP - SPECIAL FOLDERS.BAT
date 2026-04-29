@@ -285,9 +285,9 @@ SET DRIVEPATH=NOT_BEEN_SET
 @REM -- SET HARDCODED WILL FIND OUR PATH LATER OR IF NOT VALUE HERE WILL SHOW AND QUESTION
 @REM -------------------------------------------------------------------------------------
 
-FOR %%G IN (A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@IF EXIST "%%G:\REG KEY SETTINGS\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT" IF "!DRIVEPATH!"=="NOT_BEEN_SET" SET DRIVEPATH=%%G:)
+FOR %%G IN (A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@IF EXIST "%%G:\REG KEY SETTINGS\# WINDOWS 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT" IF "!DRIVEPATH!"=="NOT_BEEN_SET" SET DRIVEPATH=%%G:)
 
-FOR %%G IN (A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@IF EXIST "%%G:\REG KEY SETTINGS\REG KEY\# Windows 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT" ECHO #### -- -------------------------------------------------------------- #### & ECHO #### -- SCAN FOUND DRIVEPATH UNIQUE FILE IS ON ------------ DRIVE %%G -- ####)
+FOR %%G IN (A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) DO (@IF EXIST "%%G:\REG KEY SETTINGS\# WINDOWS 7 REG SCRIPT\# TWEAK REG WIN 7 - NEW USER SETUP - SPECIAL FOLDERS.BAT" ECHO #### -- -------------------------------------------------------------- #### & ECHO #### -- SCAN FOUND DRIVEPATH UNIQUE FILE IS ON ------------ DRIVE %%G -- ####)
 
 setlocal DISableDelayedExpansion
 
@@ -325,6 +325,7 @@ PAUSE
 CD \
 @ECHO OFF
 @SET VARLATCH=0
+@SET VARLATCH2=0
 
 @REM OS=Windows_NT
 
@@ -333,29 +334,34 @@ CD \
 ECHO #### --------------------------------------------------------------------------------
 ECHO #### -- CHECK WINDOWS 7 OR XP OPERATING SYSTEM DETECTED OKAY HERE -- %OS% -----
 
+ECHO -----------------------------------------------------------
+ECHO %PROCESSOR_ARCHITECTURE%
+ECHO -----------------------------------------------------------
+SET PROCESSOR_ARCHITECTURE_VAR=%PROCESSOR_ARCHITECTURE%
 
-@IF NOT "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO NOT A MATCHING 64 BIT COMPUTER -- %PROCESSOR_ARCHITECTURE% -- GOTO END
-@REM @IF NOT "%PROCESSOR_ARCHITECTURE%"=="AMD64" GOTO END_SUB
+
+@IF NOT "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" ECHO NOT A MATCHING 64 BIT COMPUTER -- %PROCESSOR_ARCHITECTURE_VAR% -- GOTO END -- DONT RUN HERE FOM 32BIT NOTEPAD++
+@REM @IF NOT "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" GOTO END_SUB
 @REM -- THIS WILL BE THE SPECIAL FOLDER SETUP BATCH UNIVERSAL ANY OPERATING SYSTEM WIN 10 AND 32 BIT OR 64 BIT
 @REM -- AS TEXT REQUIRED ONLY OR IF BINARY DATA  VALUE USE 64 BIT
 
-ECHO #### -- CHECK 64 BIT COMPUTER DETECTED OKAY HERE -------------- %PROCESSOR_ARCHITECTURE% ---------------
-@REM -- AMD TRENDY
-
 
 IF "%COMPUTERNAME%" == "--------------" SET VARLATCH=1
-IF "%COMPUTERNAME%" == "5-ASUS-P2520LA" SET VARLATCH=1
-IF "%COMPUTERNAME%" == "4-ASUS-GL522VW" SET VARLATCH=1
-IF "%COMPUTERNAME%" == "4-ASUS-GL522VW" SET VARLATCH2=WIN10
-IF "%COMPUTERNAME%" == "7-ASUS-GL522VW" SET VARLATCH=1
-IF "%COMPUTERNAME%" == "7-ASUS-GL522VW" SET VARLATCH2=WIN10
-IF "%COMPUTERNAME%" == "3-LINDA-PC" SET VARLATCH=1
 IF "%COMPUTERNAME%" == "1-ASUS-X5DIJ" SET VARLATCH=1
 IF "%COMPUTERNAME%" == "1-ASUS-X5DIJ" SET VARLATCH2=WINXP
 IF "%COMPUTERNAME%" == "2-ASUS-EEE" SET VARLATCH=1
 IF "%COMPUTERNAME%" == "2-ASUS-EEE" SET VARLATCH2=WINXP
+IF "%COMPUTERNAME%" == "3-LINDA-PC" SET VARLATCH=1
+IF "%COMPUTERNAME%" == "4-ASUS-GL522VW" SET VARLATCH=1
+IF "%COMPUTERNAME%" == "4-ASUS-GL522VW" SET VARLATCH2=WIN10
+IF "%COMPUTERNAME%" == "5-ASUS-P2520LA" SET VARLATCH=1
+IF "%COMPUTERNAME%" == "7-ASUS-GL522VW" SET VARLATCH=1
+IF "%COMPUTERNAME%" == "7-ASUS-GL522VW" SET VARLATCH2=WIN10
 IF "%COMPUTERNAME%" == "8-MSI-GP62M-7RD" SET VARLATCH=1
 IF "%COMPUTERNAME%" == "8-MSI-GP62M-7RD" SET VARLATCH2=WIN10
+IF "%COMPUTERNAME%" == "9-ASUS-G815LM" SET VARLATCH=1
+IF "%COMPUTERNAME%" == "9-ASUS-G815LM" SET VARLATCH2=WIN10
+
 
 @REM ---------------------------------------------------------------
 ver | find "5.1." > nul
@@ -366,7 +372,36 @@ ver | find "10.0." > nul
 IF %errorlevel% EQU 0 SET VARLATCH2=WIN10
 @REM ---------------------------------------------------------------
 
+IF %VARLATCH2% == WIN10 SET PROCESSOR_ARCHITECTURE_VAR=AMD64
+
+IF %VARLATCH2%=="WIN10" (
+	@IF NOT "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" (
+	ECHO -----------------------------------------------------------
+	ECHO %PROCESSOR_ARCHITECTURE_VAR%
+	ECHO NOT SET TO 64 BIT WINDOWS 10 AND 11
+	ECHO -----------------------------------------------------------
+	ECHO END SCRIPT
+	SET VARLATCH=0
+	PAUSE
+	)
+)
+
+ECHO #### -- CHECK IF AMD64 / 64 BIT COMPUTER DETECTED OKAY HERE -------------- %PROCESSOR_ARCHITECTURE_VAR% ---------------
+@REM -- AMD TRENDY
+
+
+REM ECHO -----------------------------------------------------------
+REM ECHO %PROCESSOR_ARCHITECTURE_VAR%
+REM ECHO -----------------------------------------------------------
+REM PAUSE
+@IF %VARLATCH% == 0 GOTO END_SUB2
+REM PAUSE
+
+
+
 IF %VARLATCH% == 0 GOTO NOT_A_MATCH_RESULT
+IF %VARLATCH2% == 0 ECHO ---- NOT FOUND WINDOWS VERSION 
+IF %VARLATCH2% == 0 GOTO NOT_A_MATCH_RESULT
 
 IF "%USERNAME%"=="MATT 01" SET VARLATCH=2
 IF "%USERNAME%"=="MATT 02" SET VARLATCH=2
@@ -426,34 +461,137 @@ ECHO #### -- COMPUTER NAME = %COMPUTERNAME% -- USER NAME = %USERNAME%
 @ECHO ---------------------------------------------------------------
 @ECHO ---------------------------------------------------------------
 
-reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseHoverTime" /t REG_SZ /d "20" 
+
+
+
+
+
+REM AI Overview
+REM How to Change Mouse Hover Time in Windows 11 and Windows 10 ...
+REM Mouse Hover Time is the duration (in milliseconds) your cursor must stay still over a user interface element (like an icon or menu) before the system recognizes it as a "hover" action, triggering a response such as a tooltip, preview, or auto-selection, with defaults often around 400ms but adjustable via the Windows Registry (e.g., HKEY_CURRENT_USER\Control Panel\Mouse\MouseHoverTime) for faster (e.g., 30ms) or slower activation. 
+
+reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseHoverTime" /t REG_SZ /d "30" 
 @REM MouseHoverTime SPEEDY TIME HERE BUT AND LIKE A DECAY TIME AWAY AGAIN SEEM TO GET STUCK OPEN
+
+
+
+
+
+REM Gets the keyboard repeat-delay setting, which is a value in the range from 0 (approximately 250 milliseconds delay) through 3 (approximately 1 second delay).
+REM Applies to
+REM Product	Versions
+REM .NET Framework	3.0, 3.5, 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2, 4.7, 4.7.1, 4.7.2, 4.8, 4.8.1
+REM Windows Desktop	3.0, 3.1, 5, 6, 7, 8, 9, 10
+
 reg.exe ADD "HKCU\Control Panel\Keyboard" /f /v "KeyboardDelay" /t REG_SZ /d "0"
+
+
+
+
+
+
+REM Gets the keyboard repeat-speed setting, which is a value in the range from 0 (approximately 2.5 repetitions per second) through 31 (approximately 30 repetitions per second).
+REM Applies to
+REM Product	Versions
+REM .NET Framework	3.0, 3.5, 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2, 4.7, 4.7.1, 4.7.2, 4.8, 4.8.1
+REM Windows Desktop	3.0, 3.1, 5, 6, 7, 8, 9, 10
+
 reg.exe ADD "HKCU\Control Panel\Keyboard" /f /v "KeyboardSpeed" /t REG_SZ /d "31"
-REM reg.exe ADD "HKCU\Control Panel\Keyboard" /f /v "KeyboardSpeed" /t REG_SZ /d "1"
-reg.exe ADD "HKCU\Control Panel\Keyboard" /f /v "InitialKeyboardIndicators" /t REG_SZ /d "1"
+
+
+
+REM -- AI Overview
+REM -- InitialKeyboardIndicators is a crucial Windows Registry setting that controls the default state of the Num Lock key (on/off) at startup, found under HKEY_USERS\.DEFAULT\Control Panel\Keyboard. Setting its value to 2 turns Num Lock ON, while 0 turns it OFF, allowing users to enable or disable the numeric keypad automatically before logging in, though you might need to disable Fast Startup for changes to take effect. 
+
+reg.exe ADD "HKCU\Control Panel\Keyboard" /f /v "InitialKeyboardIndicators" /t REG_SZ /d "0"
 
 REM TIMEOUT /T 20
 
 
 @REM -- How to Fix High CPU Usage by RuntimeBroker.exe on Windows 10 - Google Chrome
 @REM ----------------------
-reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\TimeBroker]" /f /v "Start” /t REG_DWORD /d 3
 
-reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "MinAnimate" /t REG_SZ /d "0"
-reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout" /f /v "EnableAutoLayout" /t REG_DWORD /d 0
-reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWORD /d 0
+REM AI Overview
+REM HKLM\SYSTEM\CurrentControlSet\Services\TimeBroker is a specific Windows Registry path pointing to the configuration for the Time Broker service, crucial for managing Universal Windows Platform (UWP) app permissions and background tasks; it's often modified by changing the Start value (from 3 for Manual to 4 for Disabled) to troubleshoot high CPU usage from RuntimeBroker.exe, though this can stop Microsoft Store apps from working correctly. 
+REM What it is
+REM Time Broker (TimeBroker): A Windows service that acts as a mediator, ensuring UWP apps (like those from the Microsoft Store) only access the devices and data they're permitted to.
+REM Registry Key: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TimeBroker holds settings for this service, including its startup type. 
+REM Common reason for modification
+REM Troubleshooting High CPU: Users often modify the Start value from 3 (Manual) to 4 (Disabled) to stop RuntimeBroker.exe from spiking CPU usage, which can happen temporarily when UWP apps are active. 
+
+REM reg.exe ADD "HKLM\SYSTEM\CurrentControlSet\Services\TimeBroker]" /f /v "Start” /t REG_DWORD /d 3
+
+
+
+REM AI Overview
+REM The command reg query "HKCU\Control Panel\Desktop\WindowMetrics" /v "MinAnimate" is used to query the Windows Registry for the value of the MinAnimate entry. 
+REM This entry controls whether window animations (maximizing and minimizing effects) are enabled or disabled in the user interface.
+REM The data type is REG_SZ (string).
+REM A value of 1 enables the animations, and a value of 0 disables them. 
+
+reg.exe ADD "HKCU\Control Panel\Desktop\WindowMetrics" /f /v "MinAnimate" /t REG_SZ /d "1"
+
+REM AI Overview
+REM The command reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout" /f /v "EnableAutoLayout" /t REG_DWORD /d 0 is used to disable automatic disk defragmentation on a Windows system. 
+REM This command is often included in various Windows optimization scripts, particularly in virtual desktop infrastructure (VDI) environments or for users experiencing high CPU/disk usage caused by the Disk Defragmenter service (defragsvc). 
+
+REM reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OptimalLayout" /f /v "EnableAutoLayout" /t REG_DWORD /d 0
+
+REM AI Overview
+REM The command REG ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWORD /d 0 is used in a Windows command prompt or batch script to hide the Windows version and build number watermark from your desktop. 
+reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "PaintDesktopVersion" /t REG_DWORD /d 1
+
+
+REM AI Overview
+REM The command reg add "HKCU\Control Panel\Desktop" /f /v "CursorBlinkRate" /t REG_SZ /d "10" adds or updates a specific value in the Windows Registry to control the cursor blink rate. 
+REM Explanation of the command components
+REM reg add: This is the command used to add a new key or entry to the Windows Registry.
+REM "HKCU\Control Panel\Desktop": This specifies the full path to the registry key being targeted.
+REM HKCU stands for HKEY_CURRENT_USER, meaning the change only applies to the currently logged-in user's settings.
+REM Control Panel\Desktop is the subkey where desktop-related settings are stored.
+REM /f: This flag forces the command to run without prompting for confirmation (overwriting an existing value if necessary).
+REM /v "CursorBlinkRate": This specifies the name of the registry value to add or modify.
+REM /t REG_SZ: This defines the data type of the value as a REG_SZ (a string).
+REM /d "10": This sets the data for the value to "10". This number represents the blink rate in milliseconds. A value of "10" means the cursor will blink relatively quickly.
+REM /d "-1": (Not in your command, but often used) A value of -1 for CursorBlinkRate will stop the cursor from blinking entirely. 
 
 reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "CursorBlinkRate" /t REG_SZ /d "10"
-reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "DragFullWindows" /t REG_SZ /d "1"
 
-reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseTrails" /t REG_SZ /d "4"
-reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSpeed" /t REG_SZ /d "1"
-reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSensitivity" /t REG_SZ /d "4"
 
-reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "WheelScrollLines" /t REG_SZ /d "5"
-reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "ScrollLines" /t REG_DWORD /d 5
-reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "AccelerationCurve" /t REG_DWORD /d 5
+REM reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "DragFullWindows" /t REG_SZ /d "1"
+
+REM TAKEN OUT WITH WINDOWS 11
+REM reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseTrails" /t REG_SZ /d "4"
+REM reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSpeed" /t REG_SZ /d "1"
+REM reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseSensitivity" /t REG_SZ /d "4"
+REM reg.exe ADD "HKCU\Control Panel\Desktop" /f /v "WheelScrollLines" /t REG_SZ /d "5"
+
+REM AI Overview
+REM The command reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "ScrollLines" /t REG_DWORD /d 5 is used to configure the mouse scroll speed for the current user in Windows. 
+REM Here is a breakdown of the command's components:
+REM reg.exe ADD: This is the command-line utility used to add new keys or entries to the Windows Registry.
+REM "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling": This is the full path to the registry key being targeted. HKCU is an abbreviation for HKEY_CURRENT_USER, meaning the change will apply only to the user account that runs this command. This specific key is associated with Microsoft IntelliPoint mouse software settings, although Windows uses similar keys even without the specific software installed.
+REM /f: This flag forces the command to run without prompting for confirmation.
+REM /v "ScrollLines": This specifies the name of the registry value to add or modify, which is ScrollLines.
+REM /t REG_DWORD: This specifies the data type for the value, which is a 32-bit integer.
+REM /d 5: This sets the data for the ScrollLines value to 5. This value determines the number of lines the screen will scroll with each click or movement of the mouse wheel. The default setting is typically 3. 
+REM In essence, this command changes the mouse settings to scroll 5 lines at a time when using the mouse wheel. 
+
+REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "ScrollLines" /t REG_DWORD /d 5
+
+
+REM AI Overview
+REM The command reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "AccelerationCurve" /t REG_DWORD /d 5 is used to add or modify a Windows registry key related to mouse scrolling acceleration within the Microsoft IntelliPoint software settings. 
+REM Here is a breakdown of the command components:
+REM reg.exe ADD: The command used to add new keys or entries to the Windows registry.
+REM "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling": The full path to the registry key being targeted. HKCU stands for HKEY_CURRENT_USER, meaning the change applies only to the current user profile. This key is specific to the older Microsoft IntelliPoint software suite for mouse customization.
+REM /f: A flag that forces the operation to proceed without prompting for confirmation.
+REM /v "AccelerationCurve": Specifies the name of the registry entry (value) to add or modify, which is AccelerationCurve.
+REM /t REG_DWORD: Specifies the data type of the entry as a 32-bit DWORD (Double Word) integer.
+REM /d 5: Sets the data for the AccelerationCurve entry to 5. This value influences the speed or curve of the mouse scroll acceleration, though the exact effect of the value 5 is specific to the internal logic of the IntelliPoint software and its version. 
+REM This specific command is typically found in scripts or batch files intended to apply custom or specific mouse behavior settings, often used to fine-tune the feel of the scroll wheel beyond the standard options available in the Windows settings. 
+
+REM reg.exe ADD "HKCU\SOFTWARE\Microsoft\IntelliPoint\Scrolling" /f /v "AccelerationCurve" /t REG_DWORD /d 5
 
 @rem __ reg.exe ADD "HKLM\SOFTWARE\Microsoft\Dfrg\BootOptimizeFunction\Enable" /f /v "SUCCESS /t REG_SZ /d	"Y"	
 
@@ -620,14 +758,14 @@ reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folde
 SET FOLDER_NAME64BIT_HKLM=HKLM\SOFTWARE
 SET FOLDER_NAME64BIT_HKCU=HKCU\SOFTWARE
 
-@IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" SET FOLDER_NAME64BIT_HKLM=HKLM\SOFTWARE\WOW6432Node
-@IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" SET FOLDER_NAME64BIT_HKCU=HKCU\SOFTWARE\WOW6432Node
-@ECHO -- PROCESSOR ENVIROMENT VAR IS -- %PROCESSOR_ARCHITECTURE%
+@IF "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" SET FOLDER_NAME64BIT_HKLM=HKLM\SOFTWARE\WOW6432Node
+@IF "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" SET FOLDER_NAME64BIT_HKCU=HKCU\SOFTWARE\WOW6432Node
+@ECHO -- PROCESSOR ENVIROMENT VAR IS -- %PROCESSOR_ARCHITECTURE_VAR%
 @ECHO -- VARIABLE 32 OR 64 VAR SET AS -- FOLDER_NAME64BIT_HKCU -- SET %FOLDER_NAME64BIT_HKCU% -- 
-@IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" @ECHO PROCESSOR SET AS USE 64 BIT IS = TRUE -- "AMD64"="%PROCESSOR_ARCHITECTURE% IS EQUAL = TRUE 
+@IF "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" @ECHO PROCESSOR SET AS USE 64 BIT IS = TRUE -- "AMD64"="%PROCESSOR_ARCHITECTURE_VAR% IS EQUAL = TRUE 
 
 
-@REM @IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" SET FOLDER_NAME64BIT_HKU=HKU\SOFTWARE\WOW6432Node
+@REM @IF "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" SET FOLDER_NAME64BIT_HKU=HKU\SOFTWARE\WOW6432Node
 @REM -- HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
 @REM -- COMMON FAVS IS ONLY ONE NOT A 64 BIT SETTING
 @REM -- TEMPORARY FOLDER DOESN'T MOVE AS 32 BIT SETTING
@@ -799,7 +937,7 @@ reg.exe ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folde
 @ECHO %VARSTRING%
 @ECHO %FOLDER_NAME64BIT_HKCU%
 @ECHO _%COMPUTERNAME%--%USERNAME%
-@ECHO %PROCESSOR_ARCHITECTURE%
+@ECHO %PROCESSOR_ARCHITECTURE_VAR%
 
 @REM ----------------------------------------
 @REM ----------------------------------------
@@ -892,9 +1030,9 @@ reg.exe ADD "%FOLDER_NAME64BIT_HKLM%\Microsoft\Windows\CurrentVersion\Explorer\S
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 
-@REM @IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" SET FOLDER_NAME64BIT_HKLM=HKLM\SOFTWARE\WOW6432Node
-@REM IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" SET FOLDER_NAME64BIT_HKCU=HKCU\Environment\WOW6432Node
-@REM @IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" SET FOLDER_NAME64BIT_HKU=HKCU\Environment\WOW6432Node
+@REM @IF "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" SET FOLDER_NAME64BIT_HKLM=HKLM\SOFTWARE\WOW6432Node
+@REM IF "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" SET FOLDER_NAME64BIT_HKCU=HKCU\Environment\WOW6432Node
+@REM @IF "%PROCESSOR_ARCHITECTURE_VAR%"=="AMD64" SET FOLDER_NAME64BIT_HKU=HKCU\Environment\WOW6432Node
 @REM -- HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
 @REM -- COMMON FAVS IS ONLY ONE NOT A 64 BIT SETTING
 @REM -- TEMPORARY FOLDER DOESN'T MOVE AS 32 BIT SETTING

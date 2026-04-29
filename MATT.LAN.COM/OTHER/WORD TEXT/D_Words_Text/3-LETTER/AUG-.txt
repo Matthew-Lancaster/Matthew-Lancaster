@@ -1,0 +1,31 @@
+#@***-----------------------------------------------------***
+#@***-------**---------August---------------**------------***
+#@***-----------------------------------------------------***
+#**************----------------------------------************
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat manual files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#@**************---------------------------------************
+A) Use GoldEd
+Acorn User Groups
+Advanced User Guide
+AFAIK UK Gold
+and U Gap
+and UK Genealogy
+and Updating Genealogy
+and User Guide.
+and User's Guide
+and Utilities\Norton GHOST
+AntiVirus User Guide
+Applications, Utilities, Games
+Area User Group
+Articles: Using GFA
+Asia, Uk Gold
+Avoid Using Global
