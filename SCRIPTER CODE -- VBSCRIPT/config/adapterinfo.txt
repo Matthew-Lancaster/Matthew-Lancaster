@@ -1,0 +1,117 @@
+Driver Description = Realtek 8821AE Wireless LAN 802.11ac PCI-E NIC
+Adapter Guid = {745CBA07-42C7-4625-9BDC-2875384B1F75}
+Hardware ID = pci\ven_10ec&dev_8821&subsys_24821b9a
+Driver Date = 1-30-2015
+Driver Version = 2023.3.103.2015
+Driver Provider = Realtek Semiconductor Corp.
+ExtensibilityDLL = %SystemRoot%\system32\Rtlihvs.dll
+UIExtensibilityCLSID = {6C2A8CCA-B2A2-4d81-A3B2-4E15F445C312}
+GroupName = Realtek CCX SDK IHV Service
+AdapterOUI = 57420
+
+Driver Description = Microsoft Virtual WiFi Miniport Adapter
+Adapter Guid = {DBA89729-F8FF-4F9B-8ACD-57BA4FA75B1C}
+Hardware ID = {5d624f94-8850-40c3-a3fa-a4fd2080baf3}\vwifimp
+Driver Date = 6-21-2006
+Driver Version = 6.1.7600.16385
+Driver Provider = Microsoft
+
+wlanext.exe                   1340 Services                   0      5
+Driver Description = WAN Miniport (IPv6)
+Adapter Guid = {9A399D81-2EAD-4F23-BCDD-637FC13DCD51}
+Hardware ID = ms_ndiswanipv6
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.17514
+Driver Provider = Microsoft
+
+Driver Description = WAN Miniport (Network Monitor)
+Adapter Guid = {5BF54C7E-91DA-457D-80BF-333677D7E316}
+Hardware ID = ms_ndiswanbh
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.17514
+Driver Provider = Microsoft
+
+Driver Description = WAN Miniport (IP)
+Adapter Guid = {2CAA64ED-BAA3-4473-B637-DEC65A14C8AA}
+Hardware ID = ms_ndiswanip
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.17514
+Driver Provider = Microsoft
+
+Driver Description = Bluetooth Device (Personal Area Network)
+Adapter Guid = {E2C309E7-D2EE-4F87-B79F-F1EE6EE7C389}
+Hardware ID = bth\ms_bthpan
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.23863
+Driver Provider = Microsoft
+
+Driver Description = Realtek PCIe GBE Family Controller
+Adapter Guid = {21091E03-B0C6-41DC-93F5-B96A098FA3B0}
+Hardware ID = pci\ven_10ec&dev_8168&subsys_205f1043&rev_10
+Driver Date = 6-17-2014
+Driver Version = 7.88.617.2014
+Driver Provider = Realtek
+
+Driver Description = Realtek USB GBE Family Controller
+Adapter Guid = {DEAD8B72-8EF9-4D31-AD40-1562CB1F7F18}
+Hardware ID = usb\vid_0bda&pid_8153&rev_3000
+Driver Date = 10-9-2013
+Driver Version = 7.6.1009.2013
+Driver Provider = Realtek
+
+Driver Description = Realtek USB GBE Family Controller
+Adapter Guid = {6EA3372D-C80F-4C5C-96FE-6C46CC0D56D1}
+Hardware ID = usb\vid_0bda&pid_8153&rev_3000
+Driver Date = 10-9-2013
+Driver Version = 7.6.1009.2013
+Driver Provider = Realtek
+
+Driver Description = Realtek USB GBE Family Controller
+Adapter Guid = {4F03C5FD-0676-4568-915F-B35022444C8B}
+Hardware ID = usb\vid_0bda&pid_8153&rev_3000
+Driver Date = 10-9-2013
+Driver Version = 7.6.1009.2013
+Driver Provider = Realtek
+
+Driver Description = SAMSUNG Mobile USB Remote NDIS Network Device
+Adapter Guid = {849443BE-3B84-49D2-AFF4-96CC997497BE}
+Hardware ID = usb\vid_04e8&pid_6863&rndis
+Driver Date = 8-24-2016
+Driver Version = 2.12.4.0
+Driver Provider = SAMSUNG Electronics Co., Ltd. 
+
+Driver Description = Bluetooth Device (Personal Area Network)
+Adapter Guid = {5FBE1850-18D0-4276-AA8F-68FC7509236E}
+Hardware ID = bth\ms_bthpan
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.23863
+Driver Provider = Microsoft
+
+Driver Description = Bluetooth Device (Personal Area Network)
+Adapter Guid = {5B91713F-BB9A-4B03-BA2C-8A2B4EC1AE82}
+Hardware ID = bth\ms_bthpan
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.23863
+Driver Provider = Microsoft
+
+Driver Description = Bluetooth Device (Personal Area Network)
+Adapter Guid = {7132B353-C90C-4E74-83FF-1FB5C4FEC8B0}
+Hardware ID = bth\ms_bthpan
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.23863
+Driver Provider = Microsoft
+
+Driver Description = Bluetooth Device (Personal Area Network)
+Adapter Guid = {CA83CCD1-39F4-4225-9D71-BEFFB9173294}
+Hardware ID = bth\ms_bthpan
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.23863
+Driver Provider = Microsoft
+
+Driver Description = Bluetooth Device (Personal Area Network)
+Adapter Guid = {1357C05D-7FA7-4831-B5F5-E32F5F1615A0}
+Hardware ID = bth\ms_bthpan
+Driver Date = 6-21-2006
+Driver Version = 6.1.7601.23863
+Driver Provider = Microsoft
+

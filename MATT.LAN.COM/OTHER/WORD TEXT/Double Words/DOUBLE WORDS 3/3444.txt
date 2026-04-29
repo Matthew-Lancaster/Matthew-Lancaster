@@ -1,0 +1,28 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+444 'Method not applicable
+444 - MEGA Files
+444 ( 77.08%)
+444 04/07/96 1:00 POINTS.WAV
+444 11/02/00 19:10 805.htm
+444 13/10/94 18:20
+444 23/04/99 22:22 333ty305.gif
+444 29/12/99 22:24 639.htm
+444 30/08/02 0:06 ZIPLISTS.BAT
+444 CorelDRAW: Chapter 10
+444 Games, Chess *Info*
+444 Games, ChessBase. *Info*
+444 Games, PGN Format.

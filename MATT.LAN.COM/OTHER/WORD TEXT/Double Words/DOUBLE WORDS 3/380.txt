@@ -1,0 +1,327 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+80 ' ---------------- ACTIVE
+80 ' -------------- CLICK,
+80 ' -------------- WORDPAD
+80 ' ----------- TYPING
+80 ' active desktop
+80 ' Old English,
+80 ' out: type
+80 ' WORDPAD OPENS,
+80 - (Just Like)
+80 - 2255
+80 - 81
+80 - Ashes To
+80 - Brass In
+80 - Coward Of
+80 - dbs AND
+80 - Don't Stand
+80 - Feels Like
+80 - Going Underground/Dreams
+80 - Tegether We
+80 - The Special
+80 - The Tide
+80 - The Winner
+80 - Theme From
+80 - There's No-One
+80 - Use It
+80 - What's Another
+80 - Woman In
+80 - Working My
+80 -m example.microsoft.com -u
+80 -m sample.microsoft.com -u
+80 -m sample.microsoft.com</CODE></PRE>
+80 -multihost sample.microsoft.com </CODE></PRE>
+80 !!)
+80 (Unknown)
+80 * 1.5
+80 * cit
+80 *Info*
+80 + (520 -
+80 = 480 miles,
+80 0.0%
+80 0.3%
+80 01/06/01 10:04 default.ini
+80 01/28/1990 | adlib
+80 01/28/1990 | adlisb
+80 05/10/01 0:14 HISCORE.DAT
+80 08/06/1990 | adlib:
+80 09/05/93 18:57 HOST.HIS
+80 1 252/10 110
+80 1 253/165 257/100
+80 1,6,8
+80 1.3%
+80 1.5%
+80 10 209/209 270/101
+80 10 209/209 396/1
+80 100 120 140
+80 105 0.4%
+80 12/02/01 13:40 Bradshaws
+80 127 0.0%
+80 14/11/99 3:30 PC
+80 14/11/99 3:30 Red
+80 14/11/99 3:30 UNIVERSE
+80 15.60 ms
+80 16 0;25
+80 16/11/00 14:07 VCDs.txt
+80 1610612736
+80 17/03/99 22:21 MAG90.txt
+80 2.1%
+80 2.2%
+80 200 0.0%
+80 21 01 01
+80 21 01 02
+80 21 01 03
+80 21 01 04
+80 21 02 01
+80 21 02 02
+80 21 02 04
+80 21 03 03
+80 21 04 01
+80 21 04 02
+80 23/04/99 22:22 EXPLORER.SCF
+80 25/03/96 15:00 FILE_ID.DIZ
+80 27/08/00 5:00 SIDESYM2.GIF
+80 40 -2147483648
+80 40
+80 40 259 1.0%
+80 40 357913941
+80 50 1073741824
+80 54 295 0.1%
+80 60
+80 80 80
+80 81 0.0%
+80 82
+80 88 45 |
+80 90 91 92
+80 American
+80 and erased çany
+80 and I thought
+80 bad blocks. Hmm.
+80 BASICA/QBASIC
+80 BOFFINS 13 9
+80 BOFFINS 16 0.3%
+80 BOFFINS 174 0.0%
+80 BOFFINS 178 0.1%
+80 BOFFINS 2 0.1%
+80 BOFFINS 21 29
+80 BOFFINS 3 0.1%
+80 BOFFINS 3 5
+80 BOFFINS 4 0.1%
+80 BOFFINS 4 0.2%
+80 BOFFINS 5 0.1%
+80 BOFFINS 7 0.2%
+80 BOFFINS 7 0.5%
+80 born friday"
+80 by 25 text
+80 bytes
+80 bytes, rewrite here...
+80 cha 0 pt
+80 Character Lines
+80 characters
+80 characters long. v3
+80 characters to an
+80 chars
+80 chars (stick to
+80 chars even if
+80 chars wide sreeen?
+80 chars.
+80 chars/line
+80 chars/line 1.87 ms
+80 chars/line 1.88 ms
+80 chars/line 2.18 ms
+80 chars/line 2.19 ms
+80 chars/line 80 chars/line
+80 chars/line ine ine
+80 chars/line pt 0w
+80 cm
+80 cm solid dish,
+80 column
+80 column mode,
+80 column screen
+80 column screen width,
+80 column screens, enhanced
+80 column width-over-all font
+80 columns
+80 columns by 150
+80 compatable tape drive
+80 CorelDRAW: Chapter 2
+80 Crayola crayon colors
+80 custom buttons
+80 days - read
+80 degrees outside
+80 degrees south and
+80 different *Info*
+80 different configurations, so
+80 DIM X(1000),Y(1000),VX(1000),VY(1000),Z(1000),VZ(1000)
+80 dish
+80 dish?
+80 disks in a
+80 echo's on the
+80 Echo Mail areas,
+80 ED 02 CC
+80 ed. pages (I
+80 F ( 26
+80 F! I can
+80 fd | .!......
+80 fd 01 01
+80 file(s) 1,034,474 bytes
+80 for analog playback
+80 for digital playback,
+80 for my Board
+80 Functions
+80 Grades for Each
+80 H000387.ZIP v3.11 UNIVERSAL
+80 H007753.ZIP v2.0 GAME
+80 H008922.ZIP v4.00 UHS
+80 H008983.ZIP v2.0 JOERGEN'S
+80 H008987.ZIP v1.2 GAME
+80 H009132.ZIP v1.0 KIDS
+80 H009383.ZIP v3.05 DIRTY
+80 H010230.ZIP BINGO FUN
+80 hours in the
+80 hours of work
+80 çcolumn so it
+80 if she was
+80 in the field
+80 is the total
+80 items from the
+80 K depending on
+80 Kanji True-Type character
+80 lbs. His name
+80 MB after restart
+80 MB internal hard
+80 MB of available
+80 MB of free
+80 Mb of warez
+80 MB, with a
+80 Mb??? Your programs
+80 meg )
+80 meg drives for
+80 meg hard drive.
+80 metres wide can
+80 miles from where
+80 miles south of
+80 million people for
+80 min also)
+80 min blanks, after
+80 min cd
+80 min cd +
+80 min cd MISSING
+80 min CD zu
+80 MIN CD!
+80 MIN CD)
+80 min CD, then
+80 Min CDS
+80 MIN)
+80 min</A> .</P>
+80 Min</A> nachsehen.</P>
+80 Mins
+80 Minute
+80 minute blank so
+80 minute blanks are
+80 minute blanks is
+80 minute blanks or
+80 minute blanks then
+80 minute blanks. It
+80 minute blanks.</LI>
+80 minute blanks.</P>
+80 minute blanks</A></TD></TR>
+80 minute blanks</H3></A>
+80 minute blanks</TD><TD CLASS="toc"><A
+80 minute CD-R/RW and
+80 minute CD-R/RW, then
+80 Minute CD Then
+80 Minuten / 680MB
+80 Minuten auf eine
+80 Minuten beschreiben kˆnnen.</LI>
+80 Minuten Rohling ein,
+80 Minuten Rohlinge beschreiben
+80 Minuten Rohlinge eingesetzt
+80 Minuten Rohlinge einsetzen,
+80 Minuten Rohlinge gebrannt
+80 Minuten Rohlinge genauso
+80 Minuten Rohlinge geschrieben
+80 Minuten Rohlinge oder
+80 Minuten Rohlinge schreiben,
+80 Minuten Rohlinge sind
+80 Minuten Rohlinge</A></TD></TR>
+80 Minuten Rohlinge</H3></A>
+80 Minuten Rohlinge</TD><TD CLASS="toc"><A
+80 Minuten Rohlingen ist
+80 Minuten Rohlingen und
+80 Minuten Rohlingen. Bei
+80 minutes / 680MB
+80 minutes on a
+80 minutes.</LI>
+80 mph, you were
+80 My First Incredible
+80 N002179.ZIP CHEATS UNLIMITED
+80 N003231.ZIP SIMCITY TOOLS
+80 N004892.ZIP v3.0 GAME
+80 N006692.ZIP v26.0 CHEAT
+80 N007055.ZIP v1.00 POWER
+80 N008454.ZIP v1.0 PRO
+80 N008553.ZIP v2.03 CHEAT
+80 N008556.ZIP v1.0 DIRTY
+80 N009269.ZIP v4.0 RAEDIT
+80 number
+80 number storage.
+80 oder eine vergleichbare
+80 of the virtual
+80 offense and 18
+80 ono
+80 or a similar
+80 percent full
+80 percent of the
+80 pounds
+80 pounds (South London(
+80 pounds a year
+80 pounds perhaps? (Don't
+80 pounds! :) Anyway,
+80 printer overlay files
+80 quid
+80 quid i think..
+80 quid.
+80 quids.
+80 Ray Dream Studio
+80 RIP Icons beginning
+80 Rocks - Primal
+80 sec. there is
+80 secs and you'll
+80 so know quite
+80 South Bridge, |
+80 Starting Column: 0
+80 Starting Width.: 80
+80 STEP 8
+80 System board
+80 Taglines.
+80 THEN
+80 There is not
+80 to a PC-audio
+80 to an external
+80 ukp
+80 UKP +P&P (no
+80 ukp or so
+80 uses the latest
+80 variations of solitaire
+80 west of WV).
+80 when this port
+80 WRITER & MATHTEXT
+80 x 148 x
+80 x 25 textscreen.
+80 x 80 15.60
+80 year old part

@@ -1,0 +1,73 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+512 ' if this
+512 ' message buffer
+512 (voice).
+512 * 512 Resolution
+512 04/06/98 0:00 ORDERS.FPT
+512 07/08/02 1:20 FATAL1~1.TXT
+512 08/21/1983 | Nutcracker
+512 10/12/99 21:38 NONAME.PAT
+512 1024
+512 1142 1308 1149
+512 12/03/03 16:54 FAX0010.CNF
+512 17/02/01 0:53 Streisand,
+512 25/08/02 14:05 FAXEMI.JDB
+512 254/100 257/700 258/24
+512 256 512K
+512 26/03/03 19:47 FAX0010.CNF
+512 32K 512K OTI-077
+512 480 16M 1024K
+512 480 256 256K
+512 480 32K 512K
+512 5000 257/100 263/150
+512 512 512 (voice).
+512 512 512 32K
+512 516 257/100 440/2
+512 524 254/1 255/1
+512 and climbing back
+512 by 512
+512 Byte großen Blöcken
+512 bytes
+512 bytes in memory.
+512 bytes.
+512 bytes. (If you
+512 characters long.
+512 colour
+512 colour workbench
+512 CorelDRAW: Chapter 10
+512 directories. Easy³
+512 entries
+512 file(s) 91,467,962 bytes
+512 Games,
+512 Games, Chess
+512 Games, PGN
+512 HTM 24,849 29/12/99
+512 HTM 28,294 11/02/00
+512 K RAM, hard
+512 K.
+512 kb ASL card
+512 kb RAM.
+512 MB in size,
+512 MB is marked
+512 MB. To compress
+512 megabytes (MB).
+512 megabytes in size.
+512 pixels
+512 Resolution - 16
+512 to 65535.</p>
+512 x 32 colour
+512 x 512 pixels

@@ -1,0 +1,43 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+003 1,039,586 13/01/00 14:06
+003 10,874 10/08/02 22:32
+003 104,099 21/06/93 11:47
+003 117,056 10/09/02 16:40
+003 20,807 08/10/91 3:49
+003 3,456 18/08/02 21:27
+003 30,469 10/08/02 22:32
+003 335,156 02/06/93 9:52
+003 4 08/08/02 22:43
+003 41,920 10/09/02 16:41
+003 48,170 10/08/02 22:32
+003 850, 437 EGA.CPI
+003 9,353 09/10/93 0:25
+003 A Question Of
+003 Abc - The
+003 All That I
+003 Althea & Donna
+003 Big Coin
+003 Big Mistake
+003 Black Eyed Boy
+003 Comatose
+003 Condemnation
+003 Home
+003 Move Mania
+003 PCX 276,600 16/09/94
+003 Thank U
+003 You
+003 You Stole The

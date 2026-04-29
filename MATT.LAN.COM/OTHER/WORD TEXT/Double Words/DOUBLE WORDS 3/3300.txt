@@ -1,0 +1,199 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+300 ' ------------ BOW
+300 ' ---------- FIND
+300 ' FIND MENU
+300 ' For the
+300 ' msnbc page
+300 'how to' examples
+300 - 115,200. Shareware
+300 - 14.400 BAUD
+300 - 14400 Baud
+300 - 234 +
+300 - 9600 (HST
+300 - HST
+300 -> V32bis/HST -
+300 (V.21 or Bell
+300 *Info*
+300 /CLD
+300 : 0 (
+300 0 0 201
+300 0 0 270/17
+300 0.1%
+300 1.40 + Crack
+300 1200 2400 4800
+300 138/1 270/101 209/209
+300 138/1 270/101 267/200
+300 14/04/03 1:22 Magnifier.lnk
+300 17/04/00 18:59 title_mid.gif
+300 17/04/91 13:00 EXCEPT.CPS
+300 23/04/99 22:22 dhcp_on.inf
+300 23/04/99 22:22 dns_off.inf
+300 23/04/99 22:22 dns_on.inf
+300 2407/1 240/100 12/12
+300 252/10 110 21
+300 252/21 253/165 257/100
+300 28
+300 300 300
+300 300; e-mail: info-line@microsoft.hr
+300 347 252/10 110
+300 350 400 450
+300 400 500 600
+300 425 800 900
+300 450 300 425
+300 475 300 500
+300 475 500 501
+300 4902 10Pm-7am Fri-Sat
+300 4902 10Pm-7Am Fri
+300 500 275 475
+300 500 325 475
+300 500 500 501
+300 500 800 900
+300 500 Danny_Sullivan Danny
+300 525 800 900
+300 615 21
+300 78% 06-10-92 04:33
+300 78% 07-30-93 00:24
+300 78% 09-22-93 23:50
+300 78% 09-26-93 00:30
+300 a night or
+300 an honest man
+300 and 1200/75 bps
+300 and 425)
+300 and 600
+300 and growing fast).
+300 are they also
+300 atm and temperatures
+300 baud acoustic
+300 baud cassettes and
+300 baud modem card,
+300 baud modem was
+300 baud these days
+300 baud, even locally.
+300 baud. The first
+300 baud. This
+300 bps answer-only modems.
+300 bps full duplex
+300 bps minimum speed,
+300 bps or 14,400....
+300 bps to 115200
+300 bps, defaults to
+300 bps, the maximum
+300 bps. F1 command
+300 bps.</p>
+300 bps</p>
+300 bucks for a
+300 carrier, 1200/75 carrier
+300 carrier, no 1200/75
+300 Char Each. Select
+300 characters on
+300 common typos to
+300 commonly misspelled word
+300 CONNECT|/C:300
+300 cool *Info*
+300 cool Windows icons.
+300 CorelDRAW: Chapter 7
+300 cps. Is this
+300 degrees and bake
+300 different
+300 dpi and
+300 Dpi Printer
+300 dpi with
+300 DPI),
+300 dpi, 9
+300 DPI. A larger
+300 dpi; however, this
+300 entry dialing directory,
+300 Fonts * Over
+300 fonts to choose
+300 full page scanner
+300 GAMES
+300 GBP o.n.o.
+300 great cars we
+300 injuries
+300 is far too
+300 KB available. if
+300 level physics class
+300 LOCATE 24:PRINT"Are these
+300 M&M candies is
+300 MB of free
+300 MB) In Zip
+300 MB.
+300 meg difference in
+300 megs be?
+300 MHz at least.
+300 micro seconds guarantees
+300 midi files
+300 miles a day
+300 miles north of
+300 most widely used
+300 new scoring functions
+300 P2-ANA of *Info*
+300 pages that I
+300 PD disk roms.
+300 persons that need
+300 photos (.BMP)
+300 pounds or 750
+300 pounds), Disney sound
+300 pounds, I may
+300 professionally
+300 puzzles and the
+300 Queensbridge;London;;SW7 1RZ;UK;(71) 555-7733;
+300 questions from the
+300 quid bike bought
+300 quid!
+300 quid, and even
+300 quid. That was
+300 random questions including
+300 Recorder Update
+300 RegCode: J21DC1
+300 royalty-free IMAGES
+300 screens of
+300 sectors and represents
+300 sectors!!! New music,
+300 Sektoren zusammen und
+300 series.
+300 source code file
+300 source f
+300 squids inc each.
+300 stars in
+300 SUPPORT
+300 then but obviously
+300 THEN yn =
+300 through 38,400 and
+300 times!
+300 to 14400
+300 to 14400 bps,
+300 to 14k4bps
+300 TO 21600 BPS
+300 to 2400Bps
+300 to 9600 bits
+300 to fly *Info*
+300 true 3D transitions
+300 TRUETYPE FONTS OF
+300 types
+300 types of *Info*
+300 typos to the
+300 UK pounds.
+300 UKPDS.
+300 users, v1.13.
+300 users.
+300 V! The greatest
+300 W. Georgia street
+300 watt incandessant straight
+300 Watts and made
+300 Windows 95 drivers,
+300 XL/P Tape Cartridges

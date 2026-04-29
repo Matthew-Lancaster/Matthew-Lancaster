@@ -1,0 +1,144 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+400 ' ---------- C:
+400 ' --------- CURSOR
+400 ' C: DRIVE
+400 ' channel window
+400 ' For the
+400 ' Olivetti
+400 - (averd2 *
+400 - (averp2 *
+400 - (avers2 *
+400 - (dia *
+400 - (pulse *
+400 - (sys *
+400 - MEGA Files
+400 (all). Files: 3
+400 *Info*
+400 0 0 101
+400 0 0 201
+400 01/08/01 20:54 Brazillia
+400 02/12/01 0:10 REDHO~10.TXT
+400 03/08/01 3:52 MUVHSVHT.GIF
+400 07/08/02 1:20 REDHO~10.TXT
+400 07/12/00 16:16 oozic1.htm
+400 100 267/200 2607/10
+400 11/07/97 0:37 AUSCITYB.ID
+400 1102 170/400 209/209
+400 12/12 270/101 267/200
+400 13/08/01 23:29 Citrus
+400 14/11/99 3:30 Utils
+400 18/08/01 22:16 M0MUDRLF.GIF
+400 20/10 201/0 201
+400 209/209 141/141 568
+400 209/209 270/101 141/209
+400 209/209 396/1 11/2
+400 21/12/97 19:29 READ_ME.BAT
+400 23/04/99 22:22 imgst_tr.ini
+400 23/04/99 22:22 imgstart.ini
+400 25/10/99 4:22 Gold140.txt
+400 256 256K
+400 256 colour gif
+400 32K 512K
+400 32K 512K OTI-077
+400 404 418 501
+400 407 209/209 253/165
+400 441/80 86 444/0
+400 441/80 86 88
+400 450 500 550
+400 500 600 700
+400 562 500 501
+400 800 900 250
+400 an ounce, i
+400 and a Pace
+400 banners, buttons, bullets,
+400 BBSes
+400 camera
+400 channels by cable
+400 control
+400 CorelDRAW: Chapter 9
+400 disks! Is that
+400 Dpi 265 greyscale
+400 drachma? Anyway. The
+400 echo areas in
+400 echomail areas
+400 echomail areas çset
+400 echomail areas... His
+400 echos (although I
+400 entries
+400 exciting effects for
+400 F for 20-25
+400 for 2 years
+400 games. All
+400 Games/Positions of Paul
+400 GBP per 3
+400 human bodies.
+400 internal for true
+400 KB
+400 Line Drawing -
+400 line monster, newly
+400 lines long. DOCS
+400 LJII compatible..
+400 MB large but
+400 MB, depending on
+400 meg plus HD
+400 MEG UNPACKED
+400 meg.
+400 memories very fast
+400 metres long and
+400 mixed high &
+400 ModEM
+400 new
+400 or so per
+400 percent (slows
+400 pgm
+400 Pieces, Then Reassemble
+400 pixels.
+400 pixels. The minimum
+400 postings covering Professor
+400 pounds including any
+400 printers
+400 quid aimed at
+400 quid mark.
+400 quid overdraft to
+400 quid.
+400 REM place stars
+400 res.
+400 separate files, over
+400 SERIES, 500 SERIES,
+400 series, not sure
+400 strings
+400 strings for
+400 templates</strong> to
+400 titles per
+400 TO 50 STEP
+400 TruColor JPEG. Big
+400 TruColor JPEG. Redhead
+400 TrueType fonts that
+400 ukp.
+400 users. Unzip into
+400 WAD files.
+400 WAD files. Last
+400 watts into 4
+400 watts.
+400 when bought 3
+400 Windows 3.0 Icon
+400 Windows 95 drivers,
+400 Windows printer drivers
+400 word essay on
+400 word essay, on
+400 word essay. The
+400 x 256 colour

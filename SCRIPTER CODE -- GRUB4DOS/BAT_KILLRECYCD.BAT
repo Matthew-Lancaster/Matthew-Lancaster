@@ -1,1 +1,0 @@
-DEL D:\$RECYCLE.BIN\*.* /S/Q

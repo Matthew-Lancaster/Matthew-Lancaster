@@ -37,13 +37,48 @@ Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-FOLDER_PATH="D:\DSC"
+
+Set args = Wscript.Arguments
+For Each arg In args
+	VAR_2_FOLDER = VAR_2_FOLDER + arg
+Next
+
+' VAR_2_FOLDER="C:\SCRIPTER"
+
+'If Sent-to is Used Sometime Additional Quote Surround are User
+'--------------------------------------------------------------
+VAR_2_FOLDER = Replace(VAR_2_FOLDER,"""","")
+VAR_2_FOLDER = Replace(VAR_2_FOLDER,"*"," ")
+
+IF objFSO.FileExists(VAR_2_FOLDER)=True THEN 
+	' FOLDER ONLY
+	' -----------
+	VAR_2_FOLDER = Mid(VAR_2_FOLDER, 1, InStrRev(VAR_2_FOLDER, "\")-1)
+End if
+
+If Mid(VAR_2_FOLDER, Len(VAR_2_FOLDER)) = "\" Then VAR_2_FOLDER = Mid(VAR_2_FOLDER, 1, Len(VAR_2_FOLDER) - 1)
+
+IF WScript.Arguments.Count = 0 AND VAR_2_FOLDER = "" THEN 
+	Wscript.Echo "Not Any Command-line Arguments Were Given _ Exit without Do"
+	Wscript.QUIT
+End if
+
+IF objFSO.FolderExists(VAR_2_FOLDER)=False THEN 
+	Wscript.Echo VAR_2_FOLDER & vbcrlf & "Folder Name Given in Command line Arguments Is Not Exist _ Exit without Do"
+	Wscript.QUIT
+End if
+
+Wscript.Echo "OKAY TO PROCEED WITH THIS FOLDER" & vbcrlf & vbcrlf & VAR_2_FOLDER
+
+FOLDER_PATH=VAR_2_FOLDER
+
+' FOLDER_PATH="D:\DSC"
 ' FOLDER_PATH="D:\VI_ DSC ME"
 ' FOLDER_PATH="K:\VI_ DSC ME"
 ' FOLDER_PATH="D:\VI_ DSC ME"
 ' FOLDER_PATH="D:\VI_ DSC ME 02"
-FOLDER_PATH="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC ARC 01"
-FOLDER_PATH="D:\0 00 MUSIC ---"
+' FOLDER_PATH="\\7-asus-gl522vw\7_asus_gl522vw_80_3_samsung_4tb_d\DSC ARC 01"
+' FOLDER_PATH="D:\0 00 MUSIC ---"
 REM FOLDER_PATH=""
 REM FOLDER_PATH=""
 REM FOLDER_PATH=""
@@ -141,7 +176,7 @@ Sub Search_EXTENSION(Folder)
 			EXTENSION_T = UCASE(Fso.getextensionname(file.path))
 			IF instr(Search_EXTENSION_VAR,EXTENSION_T)=0 THEN 
 				I_COUNT=I_COUNT+1
-				Search_EXTENSION_VAR=Search_EXTENSION_VAR+CSTR(I_COUNT)+" -- ."+EXTENSION_T+VBCRLF
+				Search_EXTENSION_VAR=Search_EXTENSION_VAR+CSTR(I_COUNT)+" -- *."+EXTENSION_T+VBCRLF
 				' MSGBOX Search_EXTENSION_VAR
 			END IF
 		END IF

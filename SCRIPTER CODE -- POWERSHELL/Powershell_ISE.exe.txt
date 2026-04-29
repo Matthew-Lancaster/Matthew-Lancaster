@@ -1,0 +1,9 @@
+------------------------------------------------
+Mon 07-May-2018 04:35:00 P
+C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\Powershell_ISE.exe.lnk
+C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\Powershell_ISE.exe.txt
+------------------------------------------------
+THIS PROGRAM IS FOUND IN STARTMENU
+----------------------------------
+WINDOWS Powershell_ISE
+----------------------------------

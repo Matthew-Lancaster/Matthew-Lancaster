@@ -11,6 +11,7 @@ DIM ERROR_WITH_SOME
 
 DIM READY_01
 DIM READY_02
+DIM READY_03
 
 Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
@@ -62,18 +63,42 @@ STRPATH="D:\0 00 MUSIC ---\04 MY MUSIC"
 STRPATH="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_4tb_d\0 00 VIDEO VOB"
 STRPATH="\\7-asus-gl522vw\7_asus_gl522vw_10_1_samsung_4tb_d\0 00 VIDEO VOB1"
 STRPATH="D:\0 00 ART LOGGERS\# APP AND SCREEN AUTO"
+STRPATH="E:\01 Desktop\# 00 DESKTOP FOLDER\00 DESKTOP ICONS"
+STRPATH="D:\0 00 MUSIC ---\00 CD-CLASSICAL-POP"
+STRPATH="T:\DSC_4G_1TB\2019+4K ULTRA"
+STRPATH="E:\01 Favs\#00 Palm 01"
+STRPATH="E:\01 Favs"
+STRPATH="E:\01 FAVS 02"
+STRPATH="E:\VB6"
+STRPATH="D:\0 00 ART\# 00 My Pictures"
+STRPATH="P:\#\RECUVA"
+STRPATH="D:\0 00 ART LOGGERS\# APP AND SCREEN SHOT"
+STRPATH="S:\0 CLOUD\GD1TB\MY COMPUTER\VB6 BAK 2019-05-06"
+STRPATH="D:\VB6 BAK 2007-05-11"
+STRPATH="D:\VIDEO\NOT\X 00 NOT ME\00 Vid XXX\BUNKER.COM"
+STRPATH="G:\My Drive"
+STRPATH="D:\0 00 VIDEO 03 DOWNLOAD"
+STRPATH="D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION ARC\2019 HIKVISION"
+STRPATH="G:\My Drive"
+STRPATH="D:\0 00 ART LOGGERS - WEBCAM"
+STRPATH="F:\"
+STRPATH="N:\"
+STRPATH="H:\"
+STRPATH="M:\"
+STRPATH="T:\DSC_4G_1TB"
+STRPATH="U:\VI_ DSC 01 V0 02 V1_V2_MORPHIONAN"
+STRPATH="U:\VI_ DSC 01 V0 02 V2_I2_MORPHIOUS"
+STRPATH="U:\DSC_4G_1TB"
+STRPATH="C:\SCRIPTOR GITHUB"
 ' STRPATH=""
 ' STRPATH=""
-' STRPATH=""
-' STRPATH=""
-' STRPATH=""
-' STRPATH=""
-' STRPATH=""
-' STRPATH=""
-
 
 Dim objFolder
 DIM objFolderERR
+
+DIM FS
+DIM F
+Set fs = CreateObject("Scripting.FileSystemObject")
 
 IF LEN(STRPATH) = 2 AND MID(STRPATH,2,1) = ":" THEN STRPATH = STRPATH + "\"
 
@@ -83,7 +108,7 @@ IF FSO.FOLDEREXISTS(STRPATH) = TRUE THEN
 		DeleteEmptyFolders objFolder
 		EXECUTE_LANUCHED = TRUE
 	ELSE
-		WScript.Echo STRPATH & VBCRLF & "__ NOT A VAILD FOLDER GIVEN __ EXIT END __"
+		WScript.Echo STRPATH & VBCRLF & "__ NOT A VALID FOLDER GIVEN __ EXIT END __"
 END IF
 
 Sub DeleteEmptyFolders(folder)
@@ -96,27 +121,41 @@ Sub DeleteEmptyFolders(folder)
 	' ---------------------------------------------------------------
 	' MORE ERROR SAFE METHOD
 	' REMEMBER DECLARE ON AS OPTION EXPLICIT 
-	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAPP IT
+	' AND ERROR RESULT FROM DECLARE ERROR MAKE NOT PROPER TRAP IT
 	' ---------------------------------------------------------------
 	READY_01=-1
 	READY_02=-1
 	ERR.CLEAR
 	READY_01=folder.SubFolders.Count
 	READY_02=folder.Files.Count
+
+    Set f = fs.GetFolder(folder.Path)
+	READY_03=f.SIZE
+	'  IF READY_03<10 THEN MSGBOX folder.Path & VBCR & READY_03
 	' ---------------------------------------------------------------
 	' ---------------------------------------------------------------
-    If READY_01 = 0 And READY_02 = 0 AND ERR.NUMBER=0 Then
+	
+	IF INSTR(folder.Path,".git")>0 THEN 
+	
+	READY_03=100
+	' MSGBOX "DD"
+	END IF
+	
+    If READY_01 = 0 And READY_02 = 0 AND READY_03=0 AND ERR.NUMBER=0 Then
 		ON ERROR GOTO 0
 		TEST_COUNTER=TEST_COUNTER+1
 		ON ERROR RESUME NEXT
 		ERR.CLEAR
-		FSO.DeleteFolder folder.Path, TRUE
+		'  MSGBOX folder.Path & VBCR & READY_03
+		FSO.DeleteFolder folder.Path, FALSE
 		IF ERR.NUMBER>0 THEN 
 			ERR_COUNTER = ERR_COUNTER +1
 			ERROR_WITH_SOME = folder.Path & VBCRLF & ERR.DESCRIPTION
+			MSGBOX folder.Path & VBCRLF & ERR.DESCRIPTION
 			ERR.CLEAR
-			objFolder.DELETE, TRUE
+			objFolder.DELETE, FALSE
 			IF ERR.NUMBER=0 THEN ERR_COUNTER = ERR_COUNTER - 1
+			IF ERR.NUMBER>0 THEN MSGBOX folder.Path & VBCRLF & ERR.DESCRIPTION
 		END IF
 	End If
 End Sub

@@ -128,8 +128,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
-SoundBeep , 2000 , 200
-SoundBeep , 2500 , 100
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 SetStoreCapslockMode, off
 
 Var_Count=0
@@ -140,7 +140,7 @@ SetTimer TIMER_PREVIOUS_INSTANCE,1
 GOSUB TIMER_PREVIOUS_INSTANCE
 
 pause
-soundbeep , 1100,100
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 Return
 
@@ -163,8 +163,7 @@ TIMER_Main_Code:
 			IF (This_Class="#32770" 
 			and PATH="Chrome.exe")
 			{
-				SoundBeep , 1200, 100
-				SoundBeep , 2500 , 100
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				ControlClick, &Save, Save As
 			}
 		}
@@ -181,9 +180,9 @@ TIMER_Main_Code:
 		
 	if Var_Count > 120
 	{
-		SoundBeep , 1100,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Pause
-		SoundBeep , 1100,100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Var_Count = 0
 	}
 	

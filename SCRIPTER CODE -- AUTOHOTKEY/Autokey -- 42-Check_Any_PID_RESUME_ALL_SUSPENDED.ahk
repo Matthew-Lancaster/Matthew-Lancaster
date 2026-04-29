@@ -50,6 +50,7 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; #Include GO WITH FULL PATH AS SOME LAUNCHER DO NOT SET WORK PATH WHEN RUNNER
 ; RATHER THAN CHANGE THE WORKING PATH WITHIN-AH
 ; ---------------------------------------------------------------
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 04 of 04_SETTIMER.ahk
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
 
 
@@ -161,7 +162,7 @@ LV_ModifyCol(1, 100)
 LV_ModifyCol(2, 240)
 LV_ModifyCol(3, 200)
 
-SETTIMER MINIMIZE_GUI,4000
+SETTIMER MINIMIZE_GUI,8000
 
 
 GOSUB START

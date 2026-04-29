@@ -1,0 +1,75 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+640 (basic configuration 1
+640 02/05/02 21:25 DOC.WRI
+640 02/09/90 14:59 INSTALLH.BAT
+640 05/08/97 3:35 README.TXT
+640 05/10/02 0:09 privacyseal6.gif
+640 09-10-90 Midifile: my
+640 14/11/99 3:30 AZO
+640 17/03/00 22:39 Blimpy
+640 20/08/98 9:56 SMIMEE.CFG
+640 23/03/99 15:37 ADOFRE15.REG
+640 23/04/99 22:22 ADOFRE15.REG
+640 23/04/99 22:22 REGEVENT.MOF
+640 26/03/03 19:47 FAX0MID.MID
+640 26/07/93 13:17 XFONT09.BIN
+640 350 256 256
+640 350 256 256K
+640 350 32K 512K
+640 400 256 256K
+640 400 32K 512K
+640 480 16M 1024K
+640 480 256 512K
+640 480 256 BMP
+640 480 32K 1024K
+640 480 64K 1024K
+640 55% 05-14-93 02:43
+640 7881
+640 AND Y <
+640 area of
+640 area of DOS)
+640 by 480 in
+640 by 480 pcx
+640 CorelDRAW: Chapter 11
+640 HTM 14,818 29/12/99
+640 HTM 15,793 11/02/00
+640 Kb memory, 80286
+640 KB of
+640 operating range).
+640 pixels by 480
+640 REM
+640 to be on
+640 wide image, using
+640 x 148 x
+640 x 200 monochrome
+640 x 200 x
+640 x 4
+640 x 400 (all).
+640 x 400 res.
+640 x 400 TruColor
+640 x 400 x
+640 x 480
+640 x 480 *Info*
+640 x 480 256-color
+640 X 480 Ones
+640 x 480 pixels
+640 x 480 Wallpaper
+640 x 480 x
+640 x 480,
+640 X 480, 256-color
+640 x 598 x
+640 ändern (Basiskonfiguration 1

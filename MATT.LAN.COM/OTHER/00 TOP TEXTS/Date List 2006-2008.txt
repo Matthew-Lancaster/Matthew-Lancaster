@@ -1,0 +1,1233 @@
+-- Thu 28-Aug-08 00:41:51 --
+
+
+-----
+01-Jan-2006	Sun
+02-Jan-2006	Mon
+03-Jan-2006	Tue
+04-Jan-2006	Wed
+05-Jan-2006	Thu
+06-Jan-2006	Fri
+07-Jan-2006	Sat
+08-Jan-2006	Sun
+09-Jan-2006	Mon
+10-Jan-2006	Tue
+11-Jan-2006	Wed
+12-Jan-2006	Thu
+13-Jan-2006	Fri
+14-Jan-2006	Sat
+15-Jan-2006	Sun
+16-Jan-2006	Mon
+17-Jan-2006	Tue
+18-Jan-2006	Wed
+19-Jan-2006	Thu
+20-Jan-2006	Fri
+21-Jan-2006	Sat
+22-Jan-2006	Sun
+23-Jan-2006	Mon
+24-Jan-2006	Tue
+25-Jan-2006	Wed
+26-Jan-2006	Thu
+27-Jan-2006	Fri
+28-Jan-2006	Sat
+29-Jan-2006	Sun
+30-Jan-2006	Mon
+31-Jan-2006	Tue
+01-Feb-2006	Wed
+02-Feb-2006	Thu
+03-Feb-2006	Fri
+04-Feb-2006	Sat
+05-Feb-2006	Sun
+06-Feb-2006	Mon
+07-Feb-2006	Tue
+08-Feb-2006	Wed
+09-Feb-2006	Thu
+10-Feb-2006	Fri
+11-Feb-2006	Sat
+12-Feb-2006	Sun
+13-Feb-2006	Mon
+14-Feb-2006	Tue
+15-Feb-2006	Wed
+16-Feb-2006	Thu
+17-Feb-2006	Fri
+18-Feb-2006	Sat
+19-Feb-2006	Sun
+20-Feb-2006	Mon
+21-Feb-2006	Tue
+22-Feb-2006	Wed
+23-Feb-2006	Thu
+24-Feb-2006	Fri
+25-Feb-2006	Sat
+26-Feb-2006	Sun
+27-Feb-2006	Mon
+28-Feb-2006	Tue
+01-Mar-2006	Wed
+02-Mar-2006	Thu
+03-Mar-2006	Fri
+04-Mar-2006	Sat
+05-Mar-2006	Sun
+06-Mar-2006	Mon
+07-Mar-2006	Tue
+08-Mar-2006	Wed
+09-Mar-2006	Thu
+10-Mar-2006	Fri
+11-Mar-2006	Sat
+12-Mar-2006	Sun
+13-Mar-2006	Mon
+14-Mar-2006	Tue
+15-Mar-2006	Wed
+16-Mar-2006	Thu
+17-Mar-2006	Fri
+18-Mar-2006	Sat
+19-Mar-2006	Sun
+20-Mar-2006	Mon
+21-Mar-2006	Tue
+22-Mar-2006	Wed
+23-Mar-2006	Thu
+24-Mar-2006	Fri
+25-Mar-2006	Sat
+26-Mar-2006	Sun
+27-Mar-2006	Mon
+28-Mar-2006	Tue
+29-Mar-2006	Wed
+30-Mar-2006	Thu
+31-Mar-2006	Fri
+01-Apr-2006	Sat
+02-Apr-2006	Sun
+03-Apr-2006	Mon
+04-Apr-2006	Tue
+05-Apr-2006	Wed
+06-Apr-2006	Thu
+07-Apr-2006	Fri
+08-Apr-2006	Sat
+09-Apr-2006	Sun
+10-Apr-2006	Mon
+11-Apr-2006	Tue
+12-Apr-2006	Wed
+13-Apr-2006	Thu
+14-Apr-2006	Fri
+15-Apr-2006	Sat
+16-Apr-2006	Sun
+17-Apr-2006	Mon
+18-Apr-2006	Tue
+19-Apr-2006	Wed
+20-Apr-2006	Thu
+21-Apr-2006	Fri
+22-Apr-2006	Sat
+23-Apr-2006	Sun
+24-Apr-2006	Mon
+25-Apr-2006	Tue
+26-Apr-2006	Wed
+27-Apr-2006	Thu
+28-Apr-2006	Fri
+29-Apr-2006	Sat
+30-Apr-2006	Sun
+01-May-2006	Mon
+02-May-2006	Tue
+03-May-2006	Wed
+04-May-2006	Thu
+05-May-2006	Fri
+06-May-2006	Sat
+07-May-2006	Sun
+08-May-2006	Mon
+09-May-2006	Tue
+10-May-2006	Wed
+11-May-2006	Thu
+12-May-2006	Fri
+13-May-2006	Sat
+14-May-2006	Sun
+15-May-2006	Mon
+16-May-2006	Tue
+17-May-2006	Wed
+18-May-2006	Thu
+19-May-2006	Fri
+20-May-2006	Sat
+21-May-2006	Sun
+22-May-2006	Mon
+23-May-2006	Tue
+24-May-2006	Wed
+25-May-2006	Thu
+26-May-2006	Fri
+27-May-2006	Sat
+28-May-2006	Sun
+29-May-2006	Mon
+30-May-2006	Tue
+31-May-2006	Wed
+01-Jun-2006	Thu
+02-Jun-2006	Fri
+03-Jun-2006	Sat
+04-Jun-2006	Sun
+05-Jun-2006	Mon
+06-Jun-2006	Tue
+07-Jun-2006	Wed
+08-Jun-2006	Thu
+09-Jun-2006	Fri
+10-Jun-2006	Sat
+11-Jun-2006	Sun
+12-Jun-2006	Mon
+13-Jun-2006	Tue
+14-Jun-2006	Wed
+15-Jun-2006	Thu
+16-Jun-2006	Fri
+17-Jun-2006	Sat
+18-Jun-2006	Sun
+19-Jun-2006	Mon
+20-Jun-2006	Tue
+21-Jun-2006	Wed
+22-Jun-2006	Thu
+23-Jun-2006	Fri
+24-Jun-2006	Sat
+25-Jun-2006	Sun
+26-Jun-2006	Mon
+27-Jun-2006	Tue
+28-Jun-2006	Wed
+29-Jun-2006	Thu
+30-Jun-2006	Fri
+01-Jul-2006	Sat
+02-Jul-2006	Sun
+03-Jul-2006	Mon
+04-Jul-2006	Tue
+05-Jul-2006	Wed
+06-Jul-2006	Thu
+07-Jul-2006	Fri
+08-Jul-2006	Sat
+09-Jul-2006	Sun
+10-Jul-2006	Mon
+11-Jul-2006	Tue
+12-Jul-2006	Wed
+13-Jul-2006	Thu
+14-Jul-2006	Fri
+15-Jul-2006	Sat
+16-Jul-2006	Sun
+17-Jul-2006	Mon
+18-Jul-2006	Tue
+19-Jul-2006	Wed
+20-Jul-2006	Thu
+21-Jul-2006	Fri
+22-Jul-2006	Sat
+23-Jul-2006	Sun
+24-Jul-2006	Mon
+25-Jul-2006	Tue
+26-Jul-2006	Wed
+27-Jul-2006	Thu
+28-Jul-2006	Fri
+29-Jul-2006	Sat
+30-Jul-2006	Sun
+31-Jul-2006	Mon
+01-Aug-2006	Tue
+02-Aug-2006	Wed
+03-Aug-2006	Thu
+04-Aug-2006	Fri
+05-Aug-2006	Sat
+06-Aug-2006	Sun
+07-Aug-2006	Mon
+08-Aug-2006	Tue
+09-Aug-2006	Wed
+10-Aug-2006	Thu
+11-Aug-2006	Fri
+12-Aug-2006	Sat
+13-Aug-2006	Sun
+14-Aug-2006	Mon
+15-Aug-2006	Tue
+16-Aug-2006	Wed
+17-Aug-2006	Thu
+18-Aug-2006	Fri
+19-Aug-2006	Sat
+20-Aug-2006	Sun
+21-Aug-2006	Mon
+22-Aug-2006	Tue
+23-Aug-2006	Wed
+Ron Skip
+
+24-Aug-2006	Thu
+25-Aug-2006	Fri
+26-Aug-2006	Sat
+27-Aug-2006	Sun
+28-Aug-2006	Mon
+Walk MV
+
+29-Aug-2006	Tue
+Bus MV
+Last Time
+Occord
+
+30-Aug-2006	Wed
+31-Aug-2006	Thu
+01-Sep-2006	Fri
+Sally Bernard
+
+
+02-Sep-2006	Sat
+03-Sep-2006	Sun
+04-Sep-2006	Mon
+05-Sep-2006	Tue
+06-Sep-2006	Wed
+07-Sep-2006	Thu
+08-Sep-2006	Fri
+09-Sep-2006	Sat
+10-Sep-2006	Sun
+11-Sep-2006	Mon
+12-Sep-2006	Tue
+13-Sep-2006	Wed
+14-Sep-2006	Thu
+15-Sep-2006	Fri
+Dog 1st Forfar first 
+Wot say
+
+
+16-Sep-2006	Sat
+17-Sep-2006	Sun
+1St tins chinky
+Ron follow
+Girl shop
+Throat rings
+Txt eddie maz
+Sure find people out there
+
+18-Sep-2006	Mon
+Dr harris
+First tesco
+
+19-Sep-2006	Tue
+Dr Reed Cook 2 others
+
+20-Sep-2006	Wed
+Ron skip last
+Letter from reed
+
+21-Sep-2006	Thu
+Skip dr reed
+Appoint 1 day notice
+Super lock door
+
+22-Sep-2006	Fri
+23-Sep-2006	Sat
+24-Sep-2006	Sun
+Andy
+
+25-Sep-2006	Mon
+26-Sep-2006	Tue
+27-Sep-2006	Wed
+28-Sep-2006	Thu
+29-Sep-2006	Fri
+Supposed to meet mary
+
+30-Sep-2006	Sat
+01-Oct-2006	Sun
+02-Oct-2006	Mon
+03-Oct-2006	Tue
+04-Oct-2006	Wed
+05-Oct-2006	Thu
+06-Oct-2006	Fri
+07-Oct-2006	Sat
+08-Oct-2006	Sun
+09-Oct-2006	Mon
+Skip mary handy man
+
+10-Oct-2006	Tue
+11-Oct-2006	Wed
+12-Oct-2006	Thu
+13-Oct-2006	Fri
+14-Oct-2006	Sat
+15-Oct-2006	Sun
+16-Oct-2006	Mon
+17-Oct-2006	Tue
+18-Oct-2006	Wed
+Letter sent MV 
+
+19-Oct-2006	Thu
+20-Oct-2006	Fri
+MV rings house 6 times in month
+
+21-Oct-2006	Sat
+22-Oct-2006	Sun
+23-Oct-2006	Mon
+24-Oct-2006	Tue
+25-Oct-2006	Wed
+Letter Rx MV
+
+26-Oct-2006	Thu
+Meet Mary K Gaga instead
+
+27-Oct-2006	Fri
+28-Oct-2006	Sat
+29-Oct-2006	Sun
+30-Oct-2006	Mon
+31-Oct-2006	Tue
+01-Nov-2006	Wed
+02-Nov-2006	Thu
+03-Nov-2006	Fri
+Lock Locking
+
+04-Nov-2006	Sat
+05-Nov-2006	Sun
+06-Nov-2006	Mon
+07-Nov-2006	Tue
+08-Nov-2006	Wed
+09-Nov-2006	Thu
+Meet Mary
+
+10-Nov-2006	Fri
+11-Nov-2006	Sat
+12-Nov-2006	Sun
+13-Nov-2006	Mon
+14-Nov-2006	Tue
+15-Nov-2006	Wed
+16-Nov-2006	Thu
+17-Nov-2006	Fri
+Dr elsayed not 1 on 1 skip
+
+18-Nov-2006	Sat
+19-Nov-2006	Sun
+20-Nov-2006	Mon
+21-Nov-2006	Tue
+22-Nov-2006	Wed
+23-Nov-2006	Thu
+24-Nov-2006	Fri
+25-Nov-2006	Sat
+26-Nov-2006	Sun
+27-Nov-2006	Mon
+28-Nov-2006	Tue
+Dr elsayed 1 day notice not attend
+
+29-Nov-2006	Wed
+30-Nov-2006	Thu
+01-Dec-2006	Fri
+02-Dec-2006	Sat
+03-Dec-2006	Sun
+04-Dec-2006	Mon
+05-Dec-2006	Tue
+06-Dec-2006	Wed
+07-Dec-2006	Thu
+08-Dec-2006	Fri
+09-Dec-2006	Sat
+10-Dec-2006	Sun
+11-Dec-2006	Mon
+12-Dec-2006	Tue
+13-Dec-2006	Wed
+14-Dec-2006	Thu
+15-Dec-2006	Fri
+16-Dec-2006	Sat
+17-Dec-2006	Sun
+18-Dec-2006	Mon
+Hand Letter
+
+19-Dec-2006	Tue
+20-Dec-2006	Wed
+21-Dec-2006	Thu
+22-Dec-2006	Fri
+23-Dec-2006	Sat
+24-Dec-2006	Sun
+25-Dec-2006	Mon
+26-Dec-2006	Tue
+27-Dec-2006	Wed
+28-Dec-2006	Thu
+29-Dec-2006	Fri
+30-Dec-2006	Sat
+31-Dec-2006	Sun
+01-Jan-2007	Mon
+02-Jan-2007	Tue
+03-Jan-2007	Wed
+Med Payment Law
+If they take med payem
+
+04-Jan-2007	Thu
+MV steve cook turn up room no speak see rachelle bout it dicker
+Judy dog man hear
+
+05-Jan-2007	Fri
+Stay in
+
+06-Jan-2007	Sat
+07-Jan-2007	Sun
+08-Jan-2007	Mon
+No hope law
+
+09-Jan-2007	Tue
+10-Jan-2007	Wed
+Nation wide 11:30 missed 12:30 okay 4 weeks
+
+11-Jan-2007	Thu
+12-Jan-2007	Fri
+GP Lota
+Door open no confident
+
+13-Jan-2007	Sat
+Stay in bro at door
+
+14-Jan-2007	Sun
+Stay in
+Post get back to net bout hope
+
+15-Jan-2007	Mon
+Stay in
+
+16-Jan-2007	Tue
+Out! just shops?
+Hit blair super abso
+
+Rachelle clair savage queeer unmarked letter aldrington
+
+17-Jan-2007	Wed
+18-Jan-2007	Thu
+19-Jan-2007	Fri
+20-Jan-2007	Sat
+21-Jan-2007	Sun
+22-Jan-2007	Mon
+23-Jan-2007	Tue
+24-Jan-2007	Wed
+Dr happy
+
+25-Jan-2007	Thu
+26-Jan-2007	Fri
+27-Jan-2007	Sat
+28-Jan-2007	Sun
+Stay in
+
+29-Jan-2007	Mon
+Dla 200
+Stay in
+
+30-Jan-2007	Tue
+Stay in
+
+31-Jan-2007	Wed
+Stay in
+
+01-Feb-2007	Thu
+Stay in
+
+02-Feb-2007	Fri
+Out today
+
+03-Feb-2007	Sat
+04-Feb-2007	Sun
+Stay in
+
+05-Feb-2007	Mon
+Dream mfb girl kno wit kid mate gave cash brothday card wedge
+
+06-Feb-2007	Tue
+07-Feb-2007	Wed
+Natwide from 4 weeks 
+New toothpaste
+
+
+08-Feb-2007	Thu
+Dream man treating like fugive
+
+09-Feb-2007	Fri
+10-Feb-2007	Sat
+11-Feb-2007	Sun
+12-Feb-2007	Mon
+Dla
+
+13-Feb-2007	Tue
+14-Feb-2007	Wed
+15-Feb-2007	Thu
+16-Feb-2007	Fri
+17-Feb-2007	Sat
+18-Feb-2007	Sun
+19-Feb-2007	Mon
+20-Feb-2007	Tue
+21-Feb-2007	Wed
+22-Feb-2007	Thu
+23-Feb-2007	Fri
+24-Feb-2007	Sat
+25-Feb-2007	Sun
+26-Feb-2007	Mon
+Dla
+
+27-Feb-2007	Tue
+Warn then last night sit back middle
+
+28-Feb-2007	Wed
+01-Mar-2007	Thu
+02-Mar-2007	Fri
+03-Mar-2007	Sat
+04-Mar-2007	Sun
+I tesco
+I post fullmoon
+11:22
+Borg post
+I think baby dupe
+Dvd
+Earring start
+See bev no dog
+
+05-Mar-2007	Mon
+06-Mar-2007	Tue
+07-Mar-2007	Wed
+08-Mar-2007	Thu
+09-Mar-2007	Fri
+10-Mar-2007	Sat
+11-Mar-2007	Sun
+12-Mar-2007	Mon
+Dla
+
+13-Mar-2007	Tue
+14-Mar-2007	Wed
+Med collect
+Hair dresser katie ellis 5:15
+
+15-Mar-2007	Thu
+16-Mar-2007	Fri
+17-Mar-2007	Sat
+18-Mar-2007	Sun
+19-Mar-2007	Mon
+20-Mar-2007	Tue
+21-Mar-2007	Wed
+22-Mar-2007	Thu
+Mile oak clinic collar bone
+
+23-Mar-2007	Fri
+Dr happy
+
+24-Mar-2007	Sat
+25-Mar-2007	Sun
+26-Mar-2007	Mon
+Dla
+
+27-Mar-2007	Tue
+28-Mar-2007	Wed
+Polo neck deafront hot
+
+29-Mar-2007	Thu
+30-Mar-2007	Fri
+Autotill fuckup teso port cashpoint front
+Rons bird window phone
+
+31-Mar-2007	Sat
+72. Od
+27. UPT
+
+01-Apr-2007	Sun
+Start pong
+
+02-Apr-2007	Mon
+11.6
+First sat smell pong andy
+Machine noise room nite
+
+03-Apr-2007	Tue
+Fight refuse meds
+No more pass rons back way
+
+04-Apr-2007	Wed
+Letter hossy
+Cannibal
+Near time kid tall four doors down
+
+05-Apr-2007	Thu
+Pong last + week >
+
+06-Apr-2007	Fri
+Open window all night
++Week>
+
+07-Apr-2007	Sat
+Led warn naughty
+Kick car back
+Wheels as out tesco at busstop saw ron
+
+
+
+08-Apr-2007	Sun
+09-Apr-2007	Mon
+Dla
+
+
+10-Apr-2007	Tue
+Pong a pong start day onx when 1 said dr ^ near bed type no before ^
+
+11-Apr-2007	Wed
+12-Apr-2007	Thu
+Clinc hands
+Pong more
+Rent a kill day
+Quick one quick
+Close window
+Gone soon
+
+
+13-Apr-2007	Fri
+Clinic hands pong
+Oloke hurt estate agent church hove
+
+14-Apr-2007	Sat
+Window open all nite again day before too
+Odear all windows open street phone
+
+15-Apr-2007	Sun
+Hit girls watch me txt andy reflect window
+Left window open on leave house
+Odear garden all day
+Bus driver thing spoto nx dr
+
+
+
+16-Apr-2007	Mon
+Mental bill
+Fell sleep window open
+Mental bill
+Got handle window
+Spohie back
+
+Hit girls sun bath nx dr she lean wall see close window play music
+
+17-Apr-2007	Tue
+Hove star
+End my street go east bright 9:14p
+
+18-Apr-2007	Wed
+Garage led down road
+Steal tape window
+
+19-Apr-2007	Thu
+Micro switch window
+
+20-Apr-2007	Fri
+Key shop IR
+
+21-Apr-2007	Sat
+Metal putty window led out tesco bang door not like warn queen birthday saw vicky park
+
+22-Apr-2007	Sun
+23-Apr-2007	Mon
+Dla maplin nero town
+
+24-Apr-2007	Tue
+11. Stone
+Pong eat early hour nite
+Really bright hit girl kitchen in nite early hours
+
+25-Apr-2007	Wed
+Led warn
+Tesco auto chk area come door chk area keys
+
+26-Apr-2007	Thu
+Same day appointment dr locum pong 6:53a imediate shut window open door fans sorted exact just before
+
+27-Apr-2007	Fri
+Went got on bus
+Warn first
+Thing to clinic
+Dr who all that
+Ward 1st thing andys warn last night back middle seat led both
+
+28-Apr-2007	Sat
+10.13 Weight
+
+29-Apr-2007	Sun
+Open window shut since
+
+Led warn 27th dont change batt on downs
+
+Nx nite cows sit downs brany
+Vicky date?
+
+Sunrise 6:54:27
+
+30-Apr-2007	Mon
+Open window 20:4:7 3:30 dad math purfume stink smoke 11.2 weight bed warn on in too much noise
+
+01-May-2007	Tue
+02-May-2007	Wed
+03-May-2007	Thu
+Dream --
+Red hoody kids banks got cig dont smoke gave up
+
+04-May-2007	Fri
+drema hapgood photos of ass see how bad is
+
+05-May-2007	Sat
+two big days long yestr not so big today
+
+tone ear ring yes borg real name michelle minsum mansum milsum
+sty in all day
+continued
+
+06-May-2007	Sun
+07-May-2007	Mon
+£205 dla
+sound like dog then nx dr 9:46a
+bang wall uptill 2pm wipy wind
+
+08-May-2007	Tue
+first day window open no gas
+
+ear ring heavy as cyber see freak tink borg tue in till sp now
+
+09-May-2007	Wed
+not out at all usual
+
+10-May-2007	Thu
+11-May-2007	Fri
+12-May-2007	Sat
+burn smell teso ports othall coke teso hove
+
+13-May-2007	Sun
+ear ring today yester big borg earring samll finish weather prog think smell then here it is burn plastic 11pm
+stay in
+
+14-May-2007	Mon
+stay in
+
+15-May-2007	Tue
+stay in
+
+16-May-2007	Wed
+stay in
+
+17-May-2007	Thu
+11.1 weight
+out all day
+out in twice
+
+18-May-2007	Fri
+stay in
+no sleep weel 5-10p
+
+19-May-2007	Sat
+big black moth room lasy nite moev star center north to other near go north 10:20p
+
+20-May-2007	Sun
+21-May-2007	Mon
+dla 200
+stay in
+
+22-May-2007	Tue
+dream lazer
+an as wake
+aqua pump pumping but not a lot pir stay in
+
+23-May-2007	Wed
+out goto post office
+sun after long while
+
+24-May-2007	Thu
+4p - 6p
+tesco
+
+25-May-2007	Fri
+ear ring
+
+26-May-2007	Sat
+27-May-2007	Sun
+stay in jobs fuse box mother back
+
+28-May-2007	Mon
+29-May-2007	Tue
+MV letter hand
+chats odear K gaga ringing an my mobile
+goto town lanes
+walk back P sq
+clouds yes
+girls pass hope hoss
+goto corianda cafe 29th
+
+30-May-2007	Wed
+hoss letter
+stay in
+Rmail
+dr delia woman
+dr stev
+dr elsayed todoor *2
+dr hap
+
+31-May-2007	Thu
+sweet day stay in
+
+01-Jun-2007	Fri
+the hoss admin
+clouds diag NE SE
+phone sophie andy mum trip wat yer 1 im not a gaga
+
+02-Jun-2007	Sat
+not herion coke E
+see lsd mush pot
+meet dr farley psyiacal 
+pot dehydrate
+mental health meds
+
+jo came
+mfb up
+lunch lezz
+hot day
+
+03-Jun-2007	Sun
+04-Jun-2007	Mon
+ward round with sarah
+comms down bad signal 1st shop david twig twit dla 400
+
+05-Jun-2007	Tue
+Move caburn
+
+06-Jun-2007	Wed
+shop garage jackoline
+
+07-Jun-2007	Thu
+move star 2£;32a
+W-E
+Placebo
+days before
+you came
+profane song
+then beat bom
+shops katie
+
+08-Jun-2007	Fri
+09-Jun-2007	Sat
+10-Jun-2007	Sun
+today try shops elastic
+
+11-Jun-2007	Mon
+shop hardware matt
+
+12-Jun-2007	Tue
+WR#2 Dr baker
+Ralph clair dr simon blond manor brunet lukats 1:0p
+s baker
+
+13-Jun-2007	Wed
+joseta 1st an thurs
+
+teso 1st
+is years house ot worker
+
+johnthan 1st appear R.Room
+
+14-Jun-2007	Thu
+1st repub
+in in forget money
+
+teso not so speak jo
+
+water cut pim
+
+twaddle
+news
+
+
+15-Jun-2007	Fri
+16-Jun-2007	Sat
+17-Jun-2007	Sun
+18-Jun-2007	Mon
+19-Jun-2007	Tue
+20-Jun-2007	Wed
+21-Jun-2007	Thu
+22-Jun-2007	Fri
+23-Jun-2007	Sat
+24-Jun-2007	Sun
+25-Jun-2007	Mon
+26-Jun-2007	Tue
+27-Jun-2007	Wed
+28-Jun-2007	Thu
+29-Jun-2007	Fri
+30-Jun-2007	Sat
+01-Jul-2007	Sun
+02-Jul-2007	Mon
+03-Jul-2007	Tue
+04-Jul-2007	Wed
+05-Jul-2007	Thu
+06-Jul-2007	Fri
+07-Jul-2007	Sat
+08-Jul-2007	Sun
+09-Jul-2007	Mon
+10-Jul-2007	Tue
+11-Jul-2007	Wed
+12-Jul-2007	Thu
+13-Jul-2007	Fri
+14-Jul-2007	Sat
+15-Jul-2007	Sun
+16-Jul-2007	Mon
+17-Jul-2007	Tue
+18-Jul-2007	Wed
+19-Jul-2007	Thu
+20-Jul-2007	Fri
+21-Jul-2007	Sat
+22-Jul-2007	Sun
+23-Jul-2007	Mon
+24-Jul-2007	Tue
+25-Jul-2007	Wed
+26-Jul-2007	Thu
+27-Jul-2007	Fri
+28-Jul-2007	Sat
+29-Jul-2007	Sun
+30-Jul-2007	Mon
+31-Jul-2007	Tue
+01-Aug-2007	Wed
+02-Aug-2007	Thu
+03-Aug-2007	Fri
+04-Aug-2007	Sat
+05-Aug-2007	Sun
+06-Aug-2007	Mon
+07-Aug-2007	Tue
+08-Aug-2007	Wed
+09-Aug-2007	Thu
+10-Aug-2007	Fri
+11-Aug-2007	Sat
+12-Aug-2007	Sun
+13-Aug-2007	Mon
+14-Aug-2007	Tue
+15-Aug-2007	Wed
+16-Aug-2007	Thu
+17-Aug-2007	Fri
+18-Aug-2007	Sat
+19-Aug-2007	Sun
+20-Aug-2007	Mon
+21-Aug-2007	Tue
+22-Aug-2007	Wed
+23-Aug-2007	Thu
+24-Aug-2007	Fri
+25-Aug-2007	Sat
+26-Aug-2007	Sun
+27-Aug-2007	Mon
+28-Aug-2007	Tue
+29-Aug-2007	Wed
+30-Aug-2007	Thu
+31-Aug-2007	Fri
+01-Sep-2007	Sat
+02-Sep-2007	Sun
+03-Sep-2007	Mon
+04-Sep-2007	Tue
+05-Sep-2007	Wed
+06-Sep-2007	Thu
+07-Sep-2007	Fri
+08-Sep-2007	Sat
+09-Sep-2007	Sun
+10-Sep-2007	Mon
+11-Sep-2007	Tue
+12-Sep-2007	Wed
+13-Sep-2007	Thu
+14-Sep-2007	Fri
+15-Sep-2007	Sat
+16-Sep-2007	Sun
+17-Sep-2007	Mon
+18-Sep-2007	Tue
+19-Sep-2007	Wed
+20-Sep-2007	Thu
+21-Sep-2007	Fri
+22-Sep-2007	Sat
+23-Sep-2007	Sun
+24-Sep-2007	Mon
+25-Sep-2007	Tue
+26-Sep-2007	Wed
+27-Sep-2007	Thu
+28-Sep-2007	Fri
+29-Sep-2007	Sat
+30-Sep-2007	Sun
+01-Oct-2007	Mon
+02-Oct-2007	Tue
+03-Oct-2007	Wed
+04-Oct-2007	Thu
+05-Oct-2007	Fri
+06-Oct-2007	Sat
+07-Oct-2007	Sun
+08-Oct-2007	Mon
+09-Oct-2007	Tue
+10-Oct-2007	Wed
+11-Oct-2007	Thu
+12-Oct-2007	Fri
+13-Oct-2007	Sat
+14-Oct-2007	Sun
+15-Oct-2007	Mon
+16-Oct-2007	Tue
+17-Oct-2007	Wed
+18-Oct-2007	Thu
+19-Oct-2007	Fri
+20-Oct-2007	Sat
+21-Oct-2007	Sun
+22-Oct-2007	Mon
+23-Oct-2007	Tue
+24-Oct-2007	Wed
+25-Oct-2007	Thu
+26-Oct-2007	Fri
+27-Oct-2007	Sat
+28-Oct-2007	Sun
+29-Oct-2007	Mon
+30-Oct-2007	Tue
+31-Oct-2007	Wed
+01-Nov-2007	Thu
+02-Nov-2007	Fri
+03-Nov-2007	Sat
+04-Nov-2007	Sun
+05-Nov-2007	Mon
+06-Nov-2007	Tue
+07-Nov-2007	Wed
+08-Nov-2007	Thu
+09-Nov-2007	Fri
+10-Nov-2007	Sat
+11-Nov-2007	Sun
+12-Nov-2007	Mon
+13-Nov-2007	Tue
+14-Nov-2007	Wed
+15-Nov-2007	Thu
+16-Nov-2007	Fri
+17-Nov-2007	Sat
+18-Nov-2007	Sun
+19-Nov-2007	Mon
+20-Nov-2007	Tue
+21-Nov-2007	Wed
+22-Nov-2007	Thu
+23-Nov-2007	Fri
+24-Nov-2007	Sat
+25-Nov-2007	Sun
+26-Nov-2007	Mon
+27-Nov-2007	Tue
+28-Nov-2007	Wed
+29-Nov-2007	Thu
+30-Nov-2007	Fri
+01-Dec-2007	Sat
+02-Dec-2007	Sun
+03-Dec-2007	Mon
+04-Dec-2007	Tue
+05-Dec-2007	Wed
+06-Dec-2007	Thu
+07-Dec-2007	Fri
+08-Dec-2007	Sat
+09-Dec-2007	Sun
+10-Dec-2007	Mon
+11-Dec-2007	Tue
+12-Dec-2007	Wed
+13-Dec-2007	Thu
+14-Dec-2007	Fri
+15-Dec-2007	Sat
+16-Dec-2007	Sun
+17-Dec-2007	Mon
+18-Dec-2007	Tue
+19-Dec-2007	Wed
+20-Dec-2007	Thu
+21-Dec-2007	Fri
+22-Dec-2007	Sat
+23-Dec-2007	Sun
+24-Dec-2007	Mon
+25-Dec-2007	Tue
+26-Dec-2007	Wed
+27-Dec-2007	Thu
+28-Dec-2007	Fri
+29-Dec-2007	Sat
+30-Dec-2007	Sun
+31-Dec-2007	Mon
+01-Jan-2008	Tue
+02-Jan-2008	Wed
+03-Jan-2008	Thu
+04-Jan-2008	Fri
+05-Jan-2008	Sat
+06-Jan-2008	Sun
+07-Jan-2008	Mon
+08-Jan-2008	Tue
+09-Jan-2008	Wed
+10-Jan-2008	Thu
+11-Jan-2008	Fri
+12-Jan-2008	Sat
+13-Jan-2008	Sun
+14-Jan-2008	Mon
+15-Jan-2008	Tue
+16-Jan-2008	Wed
+17-Jan-2008	Thu
+18-Jan-2008	Fri
+19-Jan-2008	Sat
+20-Jan-2008	Sun
+21-Jan-2008	Mon
+22-Jan-2008	Tue
+23-Jan-2008	Wed
+24-Jan-2008	Thu
+25-Jan-2008	Fri
+26-Jan-2008	Sat
+27-Jan-2008	Sun
+28-Jan-2008	Mon
+29-Jan-2008	Tue
+30-Jan-2008	Wed
+31-Jan-2008	Thu
+01-Feb-2008	Fri
+02-Feb-2008	Sat
+03-Feb-2008	Sun
+04-Feb-2008	Mon
+05-Feb-2008	Tue
+06-Feb-2008	Wed
+07-Feb-2008	Thu
+08-Feb-2008	Fri
+09-Feb-2008	Sat
+10-Feb-2008	Sun
+11-Feb-2008	Mon
+12-Feb-2008	Tue
+13-Feb-2008	Wed
+14-Feb-2008	Thu
+15-Feb-2008	Fri
+16-Feb-2008	Sat
+17-Feb-2008	Sun
+18-Feb-2008	Mon
+19-Feb-2008	Tue
+20-Feb-2008	Wed
+21-Feb-2008	Thu
+22-Feb-2008	Fri
+23-Feb-2008	Sat
+24-Feb-2008	Sun
+25-Feb-2008	Mon
+26-Feb-2008	Tue
+27-Feb-2008	Wed
+28-Feb-2008	Thu
+29-Feb-2008	Fri
+01-Mar-2008	Sat
+02-Mar-2008	Sun
+03-Mar-2008	Mon
+04-Mar-2008	Tue
+05-Mar-2008	Wed
+06-Mar-2008	Thu
+07-Mar-2008	Fri
+08-Mar-2008	Sat
+09-Mar-2008	Sun
+10-Mar-2008	Mon
+11-Mar-2008	Tue
+12-Mar-2008	Wed
+13-Mar-2008	Thu
+14-Mar-2008	Fri
+15-Mar-2008	Sat
+16-Mar-2008	Sun
+17-Mar-2008	Mon
+18-Mar-2008	Tue
+19-Mar-2008	Wed
+20-Mar-2008	Thu
+21-Mar-2008	Fri
+22-Mar-2008	Sat
+23-Mar-2008	Sun
+24-Mar-2008	Mon
+25-Mar-2008	Tue
+26-Mar-2008	Wed
+27-Mar-2008	Thu
+28-Mar-2008	Fri
+29-Mar-2008	Sat
+30-Mar-2008	Sun
+31-Mar-2008	Mon
+01-Apr-2008	Tue
+02-Apr-2008	Wed
+03-Apr-2008	Thu
+04-Apr-2008	Fri
+05-Apr-2008	Sat
+06-Apr-2008	Sun
+07-Apr-2008	Mon
+08-Apr-2008	Tue
+09-Apr-2008	Wed
+10-Apr-2008	Thu
+11-Apr-2008	Fri
+12-Apr-2008	Sat
+13-Apr-2008	Sun
+14-Apr-2008	Mon
+15-Apr-2008	Tue
+16-Apr-2008	Wed
+17-Apr-2008	Thu
+18-Apr-2008	Fri
+19-Apr-2008	Sat
+20-Apr-2008	Sun
+21-Apr-2008	Mon
+22-Apr-2008	Tue
+23-Apr-2008	Wed
+24-Apr-2008	Thu
+25-Apr-2008	Fri
+26-Apr-2008	Sat
+27-Apr-2008	Sun
+28-Apr-2008	Mon
+29-Apr-2008	Tue
+30-Apr-2008	Wed
+01-May-2008	Thu

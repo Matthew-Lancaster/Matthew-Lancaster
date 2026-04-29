@@ -1,0 +1,44 @@
+#@***-----------------------------------------------------***
+#@***-------**-----CPU----------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+Z80 & CP/M emulator
+Z80 (1/2)
+Z80 <DIR> 22/08/01 18:57
+Z80 2nd Proccessor, and
+Z80 3.05 (ZX Spectrum
+Z80 and CP/M emulator
+Z80 based, 3.5 MHz,
+Z80 CCP replacement
+Z80 chip. Well, not
+Z80 computers which have
+Z80 CPeMulator
+Z80 CPU education or
+Z80 developer`s environment). Add
+Z80 Development Package
+Z80 Disk Pack Manual
+Z80 emulation and slow
+Z80 Emulation Engine
+Z80 emulator
+Z80 emulator + CP/M-80
+Z80 emulator package ever
+Z80 Emulator Ver 2.3;(C)1990,
+Z80 interpreter/simulator
+Z80 machines still have
+Z80 machines were destined
+Z80 power ;-)
+Z80 processor disassembler
+Z80 processors that
+Z80 Spectrum Emulator
+Z80 TAPR2 *Info*

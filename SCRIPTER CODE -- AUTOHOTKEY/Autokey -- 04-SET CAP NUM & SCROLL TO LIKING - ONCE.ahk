@@ -19,7 +19,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;----------------------------------------------------------------------
 ;My code begin
 ;----------------------------------------------------------------------
-SoundBeep , 1900 , 400
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 SetStoreCapslockMode, off
 
 

@@ -8,7 +8,7 @@ SetWorkingDir %A_ScriptDir%
 
 SetStoreCapslockMode, off
 
-SoundBeep , 1500 , 400
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 O_ID=0
 OLD_id=0

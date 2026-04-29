@@ -1,0 +1,93 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+111 ' Physical Height
+111 - Adult Files
+111 *Info*
+111 =DVD-Video files sorted
+111 001 0 1
+111 03/06/98 0:00 MSCHRT20.SRG
+111 06/12/01 22:27 M0N6OBT9.GIF
+111 07/05/98 0:00 CMDIALOG.SRG
+111 07/05/98 0:00 COMCT332.SRG
+111 07/05/98 0:00 DATALIST.SRG
+111 07/05/98 0:00 DBLIST.SRG
+111 07/05/98 0:00 INETCTLS.SRG
+111 07/05/98 0:00 MCI.SRG
+111 07/05/98 0:00 MSCOMM.SRG
+111 07/05/98 0:00 MSDATGRD.SRG
+111 07/05/98 0:00 MSDATREP.SRG
+111 07/05/98 0:00 MSMAPI.SRG
+111 07/05/98 0:00 MSMASK.SRG
+111 07/05/98 0:00 MSRDC20.SRG
+111 07/05/98 0:00 PICCLIP.SRG
+111 07/05/98 0:00 RICHTEXT.SRG
+111 07/05/98 0:00 VBSDIDB.SRG
+111 07/05/98 0:00 VSDBFLEX.SRG
+111 07/05/98 0:00 WINSOCK.SRG
+111 07/08/02 1:20 MEGADRIV.TXT
+111 07/08/02 1:20 PHOTOS~2.TXT
+111 100 93 409
+111 11/11/97 17:51 3D638428.txt
+111 11/12/94 13:13 PARADISE.DRV
+111 11/12/94 13:13 SS24X.DRV
+111 12/02/01 13:42 Bradshaws
+111 138 2 209/209
+111 16/11/00 14:02 Timetables
+111 20/05/01 12:15 Learn
+111 23/04/99 22:22 install.ini
+111 23/04/99 22:22 MDS.CNT
+111 28/10/00 10:22 Hip
+111 31/05/98 0:00 MSCOMCT2.SRG
+111 31/05/98 0:00 MSCOMCTL.SRG
+111 31/05/98 0:00 MSHFLXGD.SRG
+111 45 56 102
+111 60S_70S_PROGROCK 0 197
+111 60S_70S_PROGROCK 1 2
+111 60S_70S_PROGROCK 1092 0.4%
+111 60S_70S_PROGROCK 197 4.4%
+111 60S_70S_PROGROCK 2 0.1%
+111 60S_70S_PROGROCK 360 9.5%
+111 60S_70S_PROGROCK 4 0.2%
+111 60S_70S_PROGROCK 67 1.9%
+111 60S_70S_PROGROCK 753 0.2%
+111 60S_70S_PROGROCK 93 7
+111 60S_70S_PROGROCK 94 1.5%
+111 674357
+111 79 15 0;24
+111 84 60 103/100
+111 Animal - Def
+111 Communication between the
+111 Edition. Last revision
+111 Emerald Drive
+111 File areas. Over
+111 file(s) 10,179,518 bytes
+111 file(s) 94,160 bytes
+111 for a
+111 for more information.
+111 H000356.ZIP v1.1.2 DMORF
+111 H000513.ZIP v2.10 THE
+111 H000679.ZIP v3.0 BMORPH
+111 H004344.ZIP v1.7 SPMORF
+111 LL Cool J
+111 MB
+111 N004016.ZIP v0.4 RMORF
+111 P o s
+111 Quick Installer v2.2
+111 Quick Reinstaller v2.5
+111 SE
+111 Sugar Minott Good
+111 to 2.00?
+111 tracks

@@ -1,0 +1,209 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+128 ' Can do
+128 ' Maintenance string
+128 ' max error
+128 (Riva)= \stb\vel1283d
+128 *Info*
+128 *seperate* games or
+128 /* Should be
+128 0 0 128
+128 0.0%
+128 0.5%
+128 01/11/95 14:36 ACE.STG
+128 01/11/95 17:33 ACE.STG
+128 01/11/95 20:13 ACE.STG
+128 01/11/95 22:48 ACE.STG
+128 02/02/02 17:42 DEFAULT.ST1
+128 02/02/02 17:43 DEFAULT.ST1
+128 02/11/95 14:22 QUAL.STG
+128 02/11/95 14:25 FAST.STG
+128 02/11/95 14:34 EASY.STG
+128 02/11/95 14:35 FAST.STG
+128 02/11/95 14:35 QUAL.STG
+128 02/11/95 14:36 EASY.STG
+128 02/11/95 14:37 QUAL.STG
+128 02/11/95 14:41 FAST.STG
+128 02/11/95 14:44 DEFAULT.ST1
+128 02/11/95 14:44 EASY.STG
+128 02/11/95 14:56 QUAL.STG
+128 02/11/95 14:57 FAST.STG
+128 02/11/95 15:10 DEFAULT.ST1
+128 02/11/95 15:10 EASY.STG
+128 02/11/95 15:11 FAST.STG
+128 02/11/95 15:11 QUAL.STG
+128 02/11/95 15:12 DEFAULT.ST1
+128 02/11/95 15:12 EASY.STG
+128 02/11/95 15:12 QUAL.STG
+128 02/11/95 15:13 EASY.STG
+128 02/11/95 15:13 FAST.STG
+128 02/11/95 15:14 QUAL.STG
+128 02/11/95 15:15 FAST.STG
+128 02/11/95 15:17 EASY.STG
+128 02/11/95 15:17 QUAL.STG
+128 02/11/95 15:18 ACE.STG
+128 02/11/95 15:21 FAST.STG
+128 02/11/95 15:24 DEFAULT.ST1
+128 02/11/95 15:24 EASY.STG
+128 02/11/95 15:43 QUAL.STG
+128 02/11/95 15:45 DEFAULT.ST1
+128 02/11/95 15:45 EASY.STG
+128 02/11/95 15:45 FAST.STG
+128 02/11/95 15:47 DEFAULT.ST1
+128 02/11/95 15:47 EASY.STG
+128 02/11/95 15:47 FAST.STG
+128 02/11/95 15:51 FAST.STG
+128 02/11/95 15:52 DEFAULT.ST1
+128 02/11/95 15:52 EASY.STG
+128 02/11/95 15:53 FAST.STG
+128 02/11/95 15:54 DEFAULT.ST1
+128 02/11/95 15:54 EASY.STG
+128 02/11/95 15:55 QUAL.STG
+128 02/11/95 15:56 QUAL.STG
+128 02/11/95 15:58 DEFAULT.ST1
+128 02/11/95 15:58 EASY.STG
+128 02/11/95 15:58 FAST.STG
+128 02/11/95 15:59 QUAL.STG
+128 02/11/95 16:00 DEFAULT.ST1
+128 02/11/95 16:00 EASY.STG
+128 02/11/95 16:00 FAST.STG
+128 02/11/95 16:00 QUAL.STG
+128 02/11/95 16:01 FAST.STG
+128 02/11/95 16:02 DEFAULT.ST1
+128 02/11/95 16:02 EASY.STG
+128 06/06/99 18:44 INCH.SPK
+128 06/11/95 16:37 ACE.STG
+128 07/08/02 1:20 CORELDRA.TXT
+128 09/03/90 13:43 ME.KEY
+128 11/03/03 14:21 S0000000.FCS
+128 11/03/03 14:22 S0000001.FCS
+128 11/07/97 0:37 MX_STATE.ID
+128 128 128
+128 14/09/02 8:23 S0000000.FCS
+128 14/09/02 8:24 S0000001.FCS
+128 152 142 208
+128 19/09/02 1:41 ADDRESS.TXT
+128 2 player *Info*
+128 21/10/98 19:02 GUESTBK.INF
+128 22/11/95 14:20 DEFAULT.ST1
+128 23/04/99 22:22 epifle09.dt_
+128 23/04/99 22:22 epifle0a.dt_
+128 23/04/99 22:22 epifle11.dt_
+128 23/08/02 21:41 DEFAULT.ST1
+128 25/10/95 23:28 ACE.STG
+128 25/10/95 23:29 ACE.STG
+128 25/10/95 23:30 ACE.STG
+128 25/10/95 23:32 ACE.STG
+128 25/10/95 23:33 ACE.STG
+128 25/10/95 23:34 ACE.STG
+128 26/05/93 4:15 MPPREFS.CFG
+128 26/10/95 2:26 ACE.STG
+128 27/10/95 1:56 ACE.STG
+128 31/08/02 16:26 WMODEMS.NEW
+128 31/10/95 23:07 ACE.STG
+128 319 21
+128 3D AGP (Nvidia
+128 401 0.1%
+128 441
+128 and it worked,
+128 audio tracks, Virtuallly
+128 bits and supports
+128 Blaze of glory
+128 by
+128 by 128
+128 by 128 2
+128 by 128 in
+128 byte block it
+128 byte blocks and
+128 bytes it uses
+128 bytes will be
+128 channels of
+128 channels of Digital
+128 char's in each,
+128 char DOS command
+128 character limit and
+128 characters - so
+128 characters including the
+128 characters or longer,
+128 characters to
+128 characters to a
+128 characters which
+128 characters which is
+128 characters.
+128 characters. <o:p></o:p></span></p>
+128 chars (\A1) (Default.)</p>
+128 CorelDRAW: Chapter 3
+128 corresponds to 50%
+128 different samples can
+128 Display
+128 DOOM Players were
+128 Driver for win
+128 Drivers 23 march
+128 file(s) 369,302 bytes
+128 FLM2-BETA 1 0
+128 FLM2-BETA 1 0.0%
+128 FLM2-BETA 2 0.0%
+128 for 128MB of
+128 Games Brand New
+128 Games huh?
+128 GMIDI instruments,
+128 Green Socket Line
+128 H004340.ZIP v1.4 LOTTO
+128 H004424.ZIP v5.0 LOTTO
+128 H004425.ZIP v3.5 WINDOWS
+128 H007024.ZIP v1.02 LYNX
+128 H009062.ZIP v4.1 WINLOTS
+128 has been
+128 HP DeskJet 690C
+128 I am not
+128 If an invalid
+128 in 1 cartridge?
+128 in size
+128 in size You
+128 KB
+128 Kbit/s and 256
+128 kbps (local output
+128 Less aggressive :ex
+128 MB (134217728 Bytes)
+128 MB (77% Utilized)
+128 MB of RAM
+128 MB RAM
+128 megabytes of RAM,
+128 More aggressive ;ex.
+128 N004330.ZIP v3.1 UNFAIR
+128 N004423.ZIP v3.8 LOTTO
+128 N004429.ZIP v5.0 FLOTTO
+128 N004540.ZIP v1.0 UK
+128 N004586.ZIP v1.0 SYNDCHEK
+128 N007788.ZIP v1.48 UNIVERSAL
+128 N008766.ZIP v1.20 MULTI-LOTTOSIM
+128 N009816.ZIP v1.4 KARMA
+128 notes
+128 Osobisa - Sunshine
+128 P.C. - TurboBBS
+128 Players: 2,
+128 Players: 3,
+128 Ray Dream Studio
+128 Series 2</LI>
+128 serries :-{
+128 The Specials A
+128 TrueType Bar Code
+128 User)
+128 users, files, and
+128 video *Info*
+128 Wins with KNP
+128 works ok, but
+128 x 128 Players:

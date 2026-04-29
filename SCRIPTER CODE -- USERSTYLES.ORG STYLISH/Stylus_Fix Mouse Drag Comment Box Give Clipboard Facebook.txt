@@ -1,0 +1,281 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document domain("facebook.com")
+{
+/* Fix Mouse Drag Comment Box Give Clipboard Facebook */
+/* Fix Mouse Drag Over Comment Boxes to Allow Copy Clipboard on Facebook */
+
+/*
+Source Me Userstyles.org
+----
+Fix Mouse Drag Comment Box Give Clipboard Facebook | Userstyles.org
+https://userstyles.org/styles/167266/fix-mouse-drag-comment-box-give-clipboard-facebook
+----
+
+Source Me GitHub
+----
+Stylus_Fix Mouse Drag Comment Box Give Clipboard Facebook
+https://github.com/Matthew-Lancaster/Matthew-Lancaster/blob/master/SCRIPTER%20CODE%20--%20USERSTYLES.ORG%20STYLISH/Stylus_Fix%20The%20Missing%20Cursor%20In%20Facebook%20Comment%20Boxes.txt
+----
+
+Copied From Source Original Credit
+----
+Fix The Missing Cursor In Facebook Comment Boxes | Userstyles.org
+https://userstyles.org/styles/47490/fix-the-missing-cursor-in-facebook-comment-boxes
+----
+*/
+
+/* Here the Repeated Comment box on Our TimeLine                   */
+/* --------------------------------------------------              */
+/* Decide Now to Remove all Comment Box as Unable to Solve Problem */
+/* Some of the Icon Like Grammarly Make the Mouse Drag Get Stuck   */
+/* --------------------------------------------------              */
+.uiUfiAddComment, .UIImageBlock_Content.commentArea {
+    display: none !important;
+/* HERE WOULD BE WORKING CODE TO STOP SOME SORT OF DRAG OVER COMMENT BOX WAS WORKING FOR 
+   A BIT BUT ERROR FOUND LATER SOMETHING TO DO GRAMMARLY BOX
+   -------------------------------------------------------------------------------------
+    display:block !important;
+    width:auto !important;
+    margin-left:40px;
+*/    
+}
+
+/* Here the TOP Comment box on Fan Pages */
+/* ------------------------------------- */
+._5n2b._36bx._4-u2._4-u8 {
+   display: none !important;
+}
+
+/* Here the Repeated Comment box on Fan Pages */
+/* ------------------------------------------ */
+.UFIAddComment {
+   display: none !important;
+}
+
+/* Here the Repeated Reply to Comment box on Our TimeLine and Contacts  */
+/* -------------------------------------------------------------------- */
+._4efl.clearfix {
+   display: none !important;
+}
+/* Here the Repeated Comment box on Our TimeLine and Contacts */
+/* ---------------------------------------------------------  */
+.clearfix._4eez._43u6.clearfix {
+   display: none !important;
+}
+
+/* Here the Repeated Grammarly Button on Our TimeLine */
+/* "Protected by Grammarly" */
+/* -------------------------------------------------- */
+/* THE GRAMARLY ONE SURE IS THE PROBLEM BUT HARD TO LOCATE AS IS A HOOVER OVER
+*/
+/* 
+.clearfix._4eez._43u6.clearfix ,._1obb , ._1HjH7, ._3qe6h, ._955cdf35-2197-0559-23c6-bc2e7a776aef {
+   display: none !important;
+}
+*/
+
+/* The Repeated Comment Box On Our and Friends Timeline */
+/* Now has to go _ As It Was Okay On Own Time Line But Friends was a Problem of Snap the Drag  */
+/* Now Top Line has Been Made Redundant * /
+/*  ,._1obb , ._1HjH7, ._3qe6h, ._955cdf35-2197-0559-23c6-bc2e7a776aef NOT REQUIREY */
+/* ------------------------------------------------------------------------------------------- */
+/* NOT WORKING HIDES MORE THAN SHOULD
+
+.clearfix._4eez._43u6.clearfix{
+   display: none !important;
+}
+*/
+
+
+/*
+THIS ONE NOT WORK FOR EASIER LABEL BUT THAN ABOVE HAS TO USER
+--
+.UFI2Composer {
+   display: none !important;
+}
+*/
+
+
+/* Here the Repeated Comment box on Fan Pages                          */
+/* Can't Work this One Out to Fix Mouse Hoover _ Resort to 2nd Method */
+/* ------------------------------------------------------------------ */
+/* 
+.UFIAddComment, .UFICommentContainer, .UFIAddCommentInput, .ufi_comment_composer, .UFIInputContainer {
+   display:block !important;
+   width:auto !important;
+   margin-left:0px;
+}
+*/
+
+
+/* 
+------------------------------------------------------------------------------------------------------
+Additional Edit by me matt.lan@btinternet.com remove then top comment box
+This Fix has the effect of cure the mouse drag over comment box now it does not snap gone as per above
+The Line Below is for the top comment box remove
+Unable to find a cure that one where mouse drag snap over
+So instead hide the box 
+And the answer are when have want to add an Originate Messenger Comment 
+Flick the switch to disable this WWW.USERSTYLES.ORG STYLISH
+The Change Came About Recently when Google Chrome Went through and Update
+After That Hard to Copy Clipboard on Facebook When Drag over a Comment Box
+All the Usual Copy Paste Allow Extensions Did Not Work Anymore
+Just By Chance, I Found This One Worker
+
+Wish I Knew Where URL For Entering a Comment on Facebook Without Computer Dragging Less Speed 
+From So Many Other Items Remain
+
+Facebook Purity Found the Answer for Her
+Must Ask them Or Somebody If Can Do the Fix For Me Like FBP
+Most Them Are Very Aged Old
+
+
+SESSION 001
+WORKER __ FROM __ TO
+Wed 26-Dec-2018 00:21:42
+Wed 26-Dec-2018 05:20:00
+
+SESSION 002
+WORKER __ FROM __ TO
+Wed 26-Dec-2018 13:20:50
+Wed 26-Dec-2018 15:08:00
+
+SESSION 003 __ Do the Reply Box Gone
+WORKER __ FROM __ TO
+Thu 27-Dec-2018 09:02:54
+Thu 27-Dec-2018 09:12:00
+
+SESSION 004 __ The Comment Box Has to Go on Our Timeline and Is Same on Friends So Gone -- So all Comment Boxes Gone
+            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over anbd then Appear
+WORKER __ FROM __ TO
+Wed 02-Jan-2019 19:40:00
+Wed 02-Jan-2019 19:48:00
+
+SESSION 005 __ The Comment Box Has to Go on Our Timeline and Is Same on Friends So Gone -- So all Comment Boxes Gone
+            __ Thinker Grammarly Button Has Something to Do With It but Can't Inspect as a Hover Over anbd then Appear
+WORKER __ FROM __ TO
+Fri 04-Jan-2019 00:28:00
+Fri 04-Jan-2019 00:28:00
+
+Creation
+[ Wednesday 05:20:00 Am_26 December 2018 ]
+------------------------------------------------------------------------------------------------------
+*/
+
+/* Here the TOP Comment box on Our TimeLine */
+/* --------------------------------------------- */
+.fbTimelineComposerCapsule
+{
+   display: none !important;
+   margin-left:0px;
+}
+
+/* Hide the Top Nav Bar Jump to Timeline Thing Facebook  */
+/* Stop it From Float Down and Keep Banger Back Up Again */
+/* [ Friday 21:41:40 Pm_28 December 2018 ]               */
+/* ----------------------------------------------------  */
+._3qn7._61-3._2fyi._3qng._4tau.stickyHeaderWrap
+{
+   display: none !important;
+}
+
+/* Hide the Announcement Messenger Post From Fan Page         */
+/* [ Wednesday 20:02:50 Pm_02 January 2019 ]                  */
+/* ----------------------------------------------------       */
+/* "pagelet_announcement_posts"><div class="_4-u2 _1brn _4-u8 */
+._4-u2._1brn._4-u8
+{
+   display: none !important;
+}
+
+/* Same as Hide the Announcement Messenger Post From Fan Page also Pinned Top Post From Fanner Page  */
+/* [ Wednesday 22:32:00 Pm_02 January 2019 ]                                                         */
+/* ----------------------------------------------------                                              */
+
+/*
+._5pcr.userContentWrapper.has-downloader
+{
+   display: none !important;
+}
+*/
+
+
+
+/*
+------------------------------------------------------------------------------------------------------
+Some Test Play _ I'm Not That Good on Here
+Try make good comment box of TOP one With Similar Code at Above 
+------------------------------------------------------------------------------------------------------
+
+.timeline_composer_container, .pagelet_timeline_composer
+{
+    display: none !important;
+}
+
+.UFIImageBlockContent
+{
+    display: none !important;
+}
+
+._42wr.UFICommentContent.UFICommentContent
+{
+    display: none !important;
+}
+
+.UFIComment.UFIComment
+{
+    display: none !important;
+}
+
+.UFICommentContent
+{
+    display: none !important;
+}
+.UFIAddCommentInput {
+    display: none !important;
+}
+
+.UFICommentActions, .UFICommentAttachmentButtons {
+display: none !important;
+}
+
+.UFILikeSentence, .UFILikeLink, .UFICommentActions, .UFICommentAttachmentButtons, ._sa_, ._10lo, li[data-gt*="feedback_reaction_generic"], ._2tm9, ._6jru, ._6op5
+{
+display: none !important;
+}
+*/
+
+/*
+.uiUfiAddComment .UFICommentContent {
+   display:block !important;
+   width:auto !important;
+   margin-left:40px;
+}
+*/
+
+
+/* ._1mwp navigationFocus _395  _4c_p _5bu_ _34nd _21mu _5yk1 */
+
+/*
+
+.UFIAddCommentInput .UIImageBlock_Content.commentArea {
+   display:block !important;
+   width:auto !important;
+   margin-left:40px;
+}
+
+.UIRoundedImage_CornersSprite, .comments_add_box_image {
+display: none !important;
+}
+
+.commentable_item .comment_box .comments_add_box textarea {
+width: 340px !important;
+}
+
+.commentable_item .comment_box .comments_add_box .inline_comment_buttons {
+padding-left: 0px !important;
+text-align:right;
+}
+
+*/
+}

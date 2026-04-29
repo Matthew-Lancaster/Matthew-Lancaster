@@ -107,11 +107,11 @@ Menu, Tray, Add
 Menu, Tray, Add, 1 HOUR TIMER UNTIL HUBIC.EXE LEARN, MenuHandler  
 }
 
-if A_ScriptName=Autokey -- 58-Auto Repeat Browser Function Set.ahk
-{
-Menu, Tray, Add
-Menu, Tray, Add, Pause __ Debby Hall, MenuHandler 
-}
+; if A_ScriptName=Autokey -- 58-Auto Repeat Browser Function Set.ahk
+; {
+; Menu, Tray, Add
+; Menu, Tray, Add, Pause __ Debby Hall, MenuHandler 
+; }
 
 ; if A_ScriptName=Autokey -- 14-BRIGHTNESS WITH DIMMER.ahk
 ; {
@@ -275,19 +275,19 @@ if A_ThisMenuItem=TERMINATE All AutoHotKey Network.exe
 }
 
 
-if A_ThisMenuItem=Pause __ Debby Hall
-{
-	IF DEBBY_HALL_PAUSE=TRUE
-	{
-		DEBBY_HALL_PAUSE=FALSE
-		SOUNDBEEP 5000,200
-	}
-	ELSE
-	{
-		DEBBY_HALL_PAUSE=TRUE
-		SOUNDBEEP 1000,200
-	}
-}
+; if A_ThisMenuItem=Pause __ Debby Hall
+; {
+	; IF DEBBY_HALL_PAUSE=TRUE
+	; {
+		; DEBBY_HALL_PAUSE=FALSE
+		; SOUNDBEEP 5000,200
+	; }
+	; ELSE
+	; {
+		; DEBBY_HALL_PAUSE=TRUE
+		; SOUNDBEEP 1000,200
+	; }
+; }
 
 if A_ThisMenuItem=ADD 1 HOUR BEFORE SCREEN SAVER
 {

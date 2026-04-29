@@ -1,0 +1,35 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+777 **=-
+777 09-10-90 Midifile: beneath
+777 09-10-90 Midifile: this
+777 09-10-90 Midifile: when
+777 1 270/101 396/1
+777 10/08/02 22:48 AUTOEXEC.BAT
+777 20/08/98 9:56 POST.CFG
+777 20/08/98 9:56 POSTIT.CFG
+777 209/209 396/1 11/2
+777 and 778) for
+777 Fighter (Fruit Machine)
+777 FIGHTER 2
+777 FIGHTER 2 MIS
+777 Fighter 2.smc 541,184
+777 FIGHTER 777FIGHT.SMC 04Mb
+777 FIGHTER VAP INC
+777 Fighter.smc 532,992 28/04/94
+777 for United sitting
+777 HTM 1,304 29/12/99
+777 HTM 1,322 11/02/00

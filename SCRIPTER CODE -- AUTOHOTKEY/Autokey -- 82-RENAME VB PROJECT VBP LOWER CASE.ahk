@@ -57,8 +57,7 @@ setWorkingDir %a_scriptDir%
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
 
-SoundBeep , 1500 , 400
-Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 GOSUB GO_ROUTINE_2
 
@@ -77,7 +76,7 @@ GO_ROUTINE_2:
 		
 	Loop, % SET_ARRAY_1.MaxIndex()
 	{
-		Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		PATH_1:=SET_ARRAY_1[A_Index]
 		IfExist, %PATH_1%
 		{
@@ -91,7 +90,7 @@ GO_ROUTINE_2:
 				IF VB_4=VBP
 				{
 					VB_5:=SubStr(VB_3,1,StrLen(VB_3)-3)"vbp"
-					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+					; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					MSGBOX % VB_3 "`n`n" VB_5
 					FILEMOVE, %A_LoopFileFullPath%,%VB_5%
 				}

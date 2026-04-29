@@ -82,6 +82,7 @@ ver | find "6.1." > nul
 IF %errorlevel% EQU 0 SET VARLATCH2=WIN07
 ver | find "10.0." > nul
 IF %errorlevel% EQU 0 SET VARLATCH2=WIN10
+IF %errorlevel% EQU 0 SET WINXP__=NO
 
 REM -----------------------------------------------------------------
 @ECHO OFF
@@ -105,7 +106,26 @@ REM -----------------------------------------------------------------
 REM -----------------------------------------------------------------
 REM CURRENT USER
 REM -----------------------------------------------------------------
+
+ECHO %VARLATCH2%
+ECHO.
+
+@IF     "%WINXP__%"=="YES"  GOTO WINDOWS_XP_2
+@IF NOT "%WINXP__%"=="YES"  GOTO WINDOWS_7_UP_TO_WINDOWS_10_2
+
+:WINDOWS_XP_2
+ECHO "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /F /v "STARTUP_COMMON_04_ALL"
 Reg.exe add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /F /v "STARTUP_COMMON_04_ALL" /t REG_SZ /d "\"%~f0\"
+REM PAUSE
+GOTO HERE2
+
+:WINDOWS_7_UP_TO_WINDOWS_10_2
+ECHO "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run" /F /v "STARTUP_COMMON_04_ALL"
+Reg.exe add "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run" /F /v "STARTUP_COMMON_04_ALL" /t REG_SZ /d "\"%~f0\"
+REM PAUSE
+:HERE2
+
+	
 
 ECHO.
 

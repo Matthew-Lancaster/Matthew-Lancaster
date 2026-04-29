@@ -1,0 +1,138 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+1000 '1000ms
+1000 'Retry Wait is
+1000 'The minum milliseconds
+1000 'Used to control
+1000 ( maybe more)
+1000 (JAP) PUZ 524800
+1000 (Textures appear excessively
+1000 *Info*
+1000 1 200 7441/106
+1000 2000 123/19 396/1
+1000 25/52 253/165 257/100
+1000 and 4 Netware
+1000 and a summer
+1000 and up to
+1000 avi driver *Info*
+1000 bar. Replaces printed
+1000 Bible
+1000 by redimensioning these
+1000 Bytes) ergibt sich
+1000 Bytes) this results
+1000 card (s3 chip
+1000 card. Have I
+1000 CC + AMI004
+1000 characters and can
+1000 chimpanzees. Any opinions
+1000 Combinations *Info*
+1000 Companies
+1000 components. Completely menu
+1000 conferences and 1000
+1000 CTRL-Z's in them.
+1000 customers. Each account
+1000 Dances
+1000 Dances 2,282KB
+1000 Dances MIDI.
+1000 Dances MIDI. Last
+1000 deleted fil
+1000 directories - UNATTENDED!!
+1000 doors.
+1000 drink
+1000 dwor
+1000 Easy
+1000 employ
+1000 EMULATOR
+1000 EMULATOR by Jeff
+1000 Endgames *Info*
+1000 Entries; Stores Info
+1000 equipped with TS2040
+1000 file
+1000 files? No problem.
+1000 fonts.TXT
+1000 for January 1995
+1000 forums; X/Y/Zmodem;
+1000 forums; X/Y/Zmodem; HS/LINK;
+1000 FoxPro V2.5 for
+1000 from the Setting
+1000 GAMES FOR C64
+1000 games here. I
+1000 Games, *Info*
+1000 GOLD
+1000 Hours.mp3
+1000 Imps in a
+1000 in the Rate
+1000 it's down to
+1000 it's halved again
+1000 Lakes - Size:
+1000 lines each,
+1000 logon, event and
+1000 Lots Of Happiness
+1000 LUIDs are reserved.
+1000 mal beschrieben werden
+1000 mal). Die Kapazit‰t
+1000 Men
+1000 messages @ 14400
+1000 messages some more
+1000 messages!. Whilst iç
+1000 MIGLIA + 4
+1000 mile that-a-way!! *
+1000 MILES (RACING GAME)
+1000 Miniatures *Info*
+1000 Misc. Games from
+1000 More
+1000 new additions for
+1000 new features and
+1000 NR. Serial Numbers
+1000 or
+1000 original Dance and
+1000 pages and VERY
+1000 particles. You can
+1000 percent. This could
+1000 Photos
+1000 pixels wide by
+1000 plants.
+1000 POUNDS STERLING ONO
+1000 pounds, I would
+1000 programmes!), multiple passwords,
+1000 programs so CleanSweep
+1000 quid!!! per week
+1000 rave samples -
+1000 records
+1000 REM update screen
+1000 ripped off games'
+1000 Science Fiction movi
+1000 SL System-DJ Player
+1000 solvents and 350
+1000 sound module.
+1000 STEP 5
+1000 The Divine Comedy
+1000 Then
+1000 THEN op =
+1000 times downwardly spiraling
+1000 times more BUSYs
+1000 times!
+1000 times). The capacity
+1000 times. The UDF
+1000 vintage car drivin
+1000 VOC Files
+1000 watts into 4
+1000 words for indepth
+1000 words so far,
+1000 words. I realize
+1000 Workstations
+1000 years means that
+1000 Young!!!

@@ -1,0 +1,33 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+888 0 0.0³
+888 02/04/01 10:55 Select
+888 07/03/01 0:03 4046_learn_19k.jpg
+888 07/03/01 1:02 4046_learn_19m.jpg
+888 116 270/101 267/200
+888 116 270/101 396/1
+888 13/03/98 1:39 bogemu.txt
+888 15/11/01 0:07 M0FI2BH4.GIF
+888 15/11/01 0:08 M17S55K6.GIF
+888 22/07/93 11:34 FILELIST.BAT
+888 22/09/02 0:36 TIMER000.BAK
+888 23/04/99 22:22 sprev01.gif
+888 25/03/96 15:00 TILEDROP.WAV
+888 252/10 110 21
+888 265-4357
+888 31/01/01 22:58 ZoomIn.gif
+888 449 437 141/209
+888 entries of LOCAL

@@ -209,7 +209,7 @@ ALLOW_SOUND=1
 ; USEFUL IF YOUR EVER GOING TO LEARN WHAT TO GET
 ; -------------------------------------------------------------------
 
-IF !(A_ComputerName = "7-ASUS-GL522VW") 
+IF !(A_ComputerName = "4-ASUS-GL522VW") 
 	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\AutoHotKeys Mouse Changer _ Wait _ Hour Glass.wav
 
 
@@ -220,7 +220,7 @@ IF !(A_ComputerName = "7-ASUS-GL522VW")
 ; ---------------------------------------------------------------
 setTimer MOUSE_CURSOR_SUB,1
 setTimer TIMER_PREVIOUS_INSTANCE,1
-setTimer RELEASE_SOUNDPLAY_TIMER,1000
+setTimer RELEASE_SOUNDPLAY_TIMER,10
 
 
 return
@@ -285,7 +285,7 @@ IF WinExist(FN_NAME)
 ; THIS DOES IT WITH ECHO SOUNDING
 ; MUCH MORE HELPFUL AND GOOD IN OTHER PROGRAM WHEN WANT IT ON
 ; -------------------------------------------------------------------
-IF (A_ComputerName = "7-ASUS-GL522VW") 
+IF (A_ComputerName = "4-ASUS-GL522VW") 
 	IfWinNotActive, GoodSync -
 		ALLOW_SOUND=0
 ; -------------------------------------------------------------------
@@ -306,7 +306,7 @@ if SET_GO=1
 	
 	RELEASE_SOUNDPLAY=%A_Now%
 	RELEASE_SOUNDPLAY+=4 ; 4 SECONDS
-	setTimer RELEASE_SOUNDPLAY_TIMER,1000
+	setTimer RELEASE_SOUNDPLAY_TIMER,10
 
 	
 	; ---------------------------------------------------------------
@@ -376,7 +376,8 @@ if SET_GO=1
 		;TIMER_DURATION_VAR=500
 		;SoundBeep , 2000 , TIMER_DURATION_VAR
 		
-		;SoundBeep , 2000 , 400
+		; HERE WHEN CHANGER INTO HOUR GLASS
+		SoundBeep , 2000 , 400
 
 		;###
 		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID_EMPTY_FILE_STOP_SOUND_PLAY.wav
@@ -416,7 +417,7 @@ if SET_GO=1
 		;TIMER_DURATION_VAR=500
 		;setTimer,, 500
 
-		;SoundBeep , 1800 , 400
+		; SoundBeep , 1800 , 400
 
 		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
 		;-----------------------------------
@@ -478,7 +479,9 @@ if SET_GO=1
 		;TIMER_DURATION_VAR=40
 		;SoundBeep , 5000 , TIMER_DURATION_VAR
 		
-		;SoundBeep , 2000 , 400
+		
+		; HERE IS WHEN MOUSE CHANGER FROM HOUR GLASS BACK TO NORMAL MOUSY
+		SoundBeep , 2000 , 400
 		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
 
 		;-----------------------------------
@@ -531,7 +534,7 @@ if SET_GO=1
 	; GET CLICKS ON SOUND AUDIO WHEN QUICKER AND NOT SLIGHT PAUSE BETWEEN SOUND PLAYED
 	;----------------------------------------------------------------
 	if SOUND_PLAYED=1
-		setTimer MOUSE_CURSOR_SUB,100
+		setTimer MOUSE_CURSOR_SUB,10
 	if SOUND_PLAYED=0
 	setTimer MOUSE_CURSOR_SUB,1
 	

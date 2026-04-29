@@ -16,7 +16,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;--------------------
 ^F4::
 		x = 0
-		SoundBeep
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	   
 		;WinGetTitle, active_title, A
 		
@@ -36,7 +36,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		WinGetTitle, active_title, A
 		IF active_title <> O_active_title
 		{
-			SoundBeep
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			break
 		}
 		O_active_title = %active_title%
@@ -49,7 +49,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 		;------------------------------------------
 		IfWinNotActive ahk_class Chrome_WidgetWin_1
 		{
-			;SoundBeep
+			;SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			break
 		}
 		;--------------------------------------------------------------------
@@ -64,12 +64,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 				if GetKeyState("RButton")
 				{
-					SoundBeep
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					break
 				}
 				if (x > 4000000)
 				{
-					SoundBeep
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					break
 				}
 	   }
@@ -84,7 +84,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;-------------------------------------------------------------------------------------------   
 ;		if WinNOTActive(ahk_exe chrome.exe)
 ;		{
-;			SoundBeep
+;			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 ;			break
 ;		}
 ;-------------------------------------------------------------------------------------------   

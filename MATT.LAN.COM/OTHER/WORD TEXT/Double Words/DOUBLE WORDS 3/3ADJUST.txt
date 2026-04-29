@@ -1,0 +1,354 @@
+#@***-----------------------------------------------------***
+#@***-------**-----INTEREST2----------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+Adjust - will automatically
+Adjust (-1..1): The parameter
+Adjust (-1..1): This adjusts
+Adjust (0..1): This lets
+adjust *Info*
+adjust . . .
+adjust a Bezier
+adjust a curve.
+adjust a curve:
+adjust a gradient or
+adjust a light,
+adjust a node horizontally
+adjust a node vertically
+adjust a PDF file
+adjust a photoís dimen-sions,
+Adjust a section or
+adjust accordingly.
+adjust accordingly.<o:p>
+adjust adjusts the thickness
+Adjust All Channels check
+adjust all color
+adjust an
+adjust an intersection node
+adjust an objectís one-point
+adjust an objectís perspective
+adjust an objectís size
+adjust and optimise individual
+adjust and shift the
+Adjust any joint parameters
+adjust any operation via
+adjust approximately how much
+adjust between a
+adjust bitmap
+adjust blur and blend
+adjust body part color:
+adjust by drive wether
+adjust certain modem settings,
+adjust ChPos% to mark
+adjust color balance, contrast,
+adjust color in a
+adjust color, sharpen and
+adjust colors of
+Adjust command,
+adjust contrast & brightness
+adjust controls. 90 cm
+Adjust dialog appears.
+Adjust dialog to select
+adjust dirs in menu,
+adjust display settings whilst
+adjust each body partís
+adjust each channel separately,
+Adjust each channelís response
+adjust existing points and
+adjust float speed, adjust
+adjust focus,
+adjust focus, brightness, contrast
+adjust for inflation? How
+Adjust Frame Width button.
+adjust halftone screens.
+adjust handles to customize
+adjust how brightness diminishes
+adjust how much of
+adjust how much the
+adjust how shaders are
+adjust how wide the
+adjust image quality.
+adjust incoming call voice
+adjust IntX by adding
+adjust it as needed.
+adjust it from the
+adjust its
+adjust its attributes in
+adjust its operation to
+adjust just just how
+Adjust justing them separately
+adjust kerning between a
+Adjust label location for
+adjust light
+adjust margin size
+adjust master/midi/wave sound volume
+adjust matte transparency all
+adjust MixMeisterís
+adjust number of workers
+adjust numbers to
+adjust one of the
+adjust options, and view
+adjust or modify your
+Adjust other material channels
+adjust outlying pixel values
+adjust pal
+adjust paper orientation automatically.
+adjust parent-child
+adjust PCBSTATS.DAT
+adjust perspective . .
+adjust picture screen time
+adjust playback and recording
+adjust point sizes for
+adjust point sizes to
+Adjust Properties palette: Transform
+Adjust proportions to create
+Adjust quality setting and
+Adjust radii for percent
+Adjust Red Up/Down, Green
+adjust scale maximum and
+adjust scale values:
+Adjust scroll rates, pause
+adjust seasonings. Garnish with
+Adjust section, move any
+adjust servings to account
+Adjust sets the apparent
+Adjust settings independently for
+adjust settings on your
+adjust settings, such as
+adjust several
+adjust shader tiling:
+adjust shape numbers:
+adjust size
+adjust snapping tolerances:
+adjust so that 1.0
+adjust some of the
+Adjust Start&End (timecode)
+Adjust System Doctor's
+adjust teh spaces
+adjust the
+adjust the #
+adjust the <b>Video quality</b>
+adjust the AFC ...
+adjust the alignment of
+adjust the amount by
+adjust the amount of
+adjust the amplitude of
+adjust the angle
+adjust the apparent
+adjust the apparent depth
+adjust the apparent height
+adjust the arrowheadís position
+Adjust the bass and
+adjust the bass between
+adjust the beginning and
+adjust the Bend transformation
+adjust the bitmap from
+adjust the bitmap resolution
+adjust the brightness,
+adjust the brightness, contrast,
+adjust the brightness, intensity,
+adjust the cameraís
+adjust the cameras and
+Adjust the chair so
+adjust the child colors.
+adjust the clock rate
+adjust the color
+Adjust the color by
+adjust the color position
+adjust the color tints,
+adjust the colors in
+adjust the colours of
+adjust the commands accordingly.)
+adjust the compression quality
+adjust the compression ratio
+adjust the contents of
+adjust the controls to
+adjust the crease angle:
+adjust the current number
+Adjust the Current Render
+adjust the curve
+adjust the curve.
+adjust the dabs setting
+adjust the Deformers attributes
+Adjust the degree of
+adjust the depth of
+adjust the detail and
+adjust the display's font
+adjust the distance between
+adjust the drawing scale
+Adjust the eventís position
+adjust the extrusion envelope:
+Adjust the following sliders
+adjust the font, and
+adjust the gamma curve
+Adjust the Hardware Acceleration
+Adjust the Hips instead
+adjust the horizontal or
+adjust the horizontal spacing
+adjust the Hot Point:
+adjust the image
+adjust the increment used
+adjust the input and
+adjust the instance so
+adjust the intensity and
+adjust the intensity level
+adjust the intensity of
+adjust the keyboard controls,
+Adjust the label size,
+adjust the length of
+adjust the level of
+adjust the levels of
+adjust the lightís half
+adjust the lightís properties
+adjust the lighting angle
+Adjust the line end
+adjust the margin by
+adjust the margins to
+adjust the mix between
+adjust the mixture and
+adjust the nodes in
+adjust the noise values
+adjust the number and
+adjust the number of
+adjust the number on
+adjust the objectís envelope:
+adjust the objectís Hot
+adjust the offset distance,
+adjust the opacity of
+adjust the orientation by
+adjust the orientation of
+adjust the originX, originY,
+adjust the outline width
+adjust the parameter values.
+adjust the pattern or
+adjust the percentage of
+adjust the perspective.
+adjust the Phase of
+adjust the phase.
+adjust the players'
+adjust the point size
+adjust the points on
+adjust the pose
+adjust the pose from
+adjust the position
+adjust the position and
+adjust the position of
+adjust the position. The
+Adjust the positions of
+adjust the press so
+adjust the print quality:
+adjust the printing device
+adjust the Production Frame:
+adjust the properties any
+adjust the properties of
+adjust the radius of
+adjust the RealVideo data
+adjust the reel spin
+adjust the refresh rate
+adjust the relative master
+adjust the remaining
+adjust the RGB components
+adjust the roll of
+adjust the rotation of
+Adjust the salt.
+Adjust the scale limits
+adjust the scaling envelope
+adjust the settings
+adjust the settings for
+adjust the settings on
+adjust the shape of
+adjust the shape, you
+adjust the sharpness of
+adjust the size and
+adjust the size later
+adjust the size of
+adjust the size yourself.
+adjust the size,
+Adjust the size, color,
+adjust the slide show
+adjust the smoothness of
+adjust the space between
+adjust the spacing
+adjust the spacing before
+adjust the spacing between
+adjust the spacing of
+adjust the Stretch and
+Adjust the style options
+adjust the sweep path
+adjust the TempDB space
+adjust the tempo of
+Adjust the Text, Fill,
+adjust the the width
+adjust the threshold.
+adjust the tile size,
+adjust the tone curves
+Adjust the top of
+adjust the transformation
+adjust the treble between
+adjust the two base
+adjust the type size
+Adjust the values of
+adjust the various settings
+adjust the vertical alignment
+adjust the view to
+adjust the view:
+adjust the viewpoint, lighting,
+adjust the volume in
+Adjust the volume level
+adjust the Wave deformerís
+adjust the way the
+Adjust the wheel to
+adjust the width of
+adjust the window coordinates
+adjust the window scaling
+adjust the Windows Wave
+adjust theç users time
+Adjust Their Number &
+adjust them
+adjust them (the C
+adjust them for optimal
+adjust these settings.
+adjust this five-pixel threshold
+adjust this on a
+adjust this parameter as
+adjust time delay between
+Adjust to 1.0. Set
+Adjust to a larger
+adjust to changes in
+adjust to create a
+adjust to display the
+adjust to fit the
+adjust to living in
+Adjust to snap
+adjust to the çfrequent
+adjust to the new
+adjust to using HA5.
+adjust to video
+adjust to your writing
+adjust value property if
+Adjust volume to get
+adjust volume,
+adjust volume, eject/lock cd
+adjust where the color
+Adjust yield
+Adjust Yield up or
+adjust your downlinks' feeds
+adjust your events based
+adjust your front projection
+ADJUST YOUR MIND -
+adjust your monitor controls
+Adjust Your Set -
+Adjust your users time
+adjust your view of
+adjust your word wrap.

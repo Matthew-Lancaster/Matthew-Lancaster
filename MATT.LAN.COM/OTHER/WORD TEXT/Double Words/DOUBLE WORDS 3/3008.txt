@@ -1,0 +1,35 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+008 *Info*
+008 13,059 12/01/98 2:11
+008 24,223 12/01/98 2:11
+008 300,149 02/06/93 9:53
+008 32,615 24/06/93 18:06
+008 Andrea True Connection
+008 Audrey Hall Smile
+008 Can't Not
+008 Don't You Think
+008 Enjoy The Silence
+008 Go Deep
+008 I'm Learning (Part
+008 Insane
+008 It's My Life
+008 Jazz Thieves
+008 PCX 374,055 16/09/94
+008 The Table
+008 Useless
+008 When Mermaids Cry
+008 You're Tender And

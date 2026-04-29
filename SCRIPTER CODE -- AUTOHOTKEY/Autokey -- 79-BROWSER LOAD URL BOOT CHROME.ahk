@@ -118,9 +118,9 @@ CHROME_RUN_AND_MIN:
 	}
 	IF (A_ComputerName = "4-ASUS-GL522VW") 
 	{
-		CHROME_PAGE__=https://www.facebook.com
-		CHROME_PAGE__=https://www.facebook.com/notifications
-		FIREFOX_PAGE_=https://mail.yahoo.com/d/folders/1
+		; CHROME_PAGE__=https://www.facebook.com
+		; CHROME_PAGE__=https://www.facebook.com/notifications
+		; FIREFOX_PAGE_=https://mail.yahoo.com/d/folders/1
 	}
 	IF (A_ComputerName = "5-ASUS-P2520LA")
 	{
@@ -133,9 +133,10 @@ CHROME_RUN_AND_MIN:
 	}
 	IF (A_ComputerName = "8-MSI-GP62M-7RD")
 	{
-		CHROME_PAGE__=https://www.facebook.com/notifications
-		CHROME_PAGE__=https://www.facebook.com
+		; CHROME_PAGE__=https://www.facebook.com/notifications
+		; CHROME_PAGE__=https://www.facebook.com
 		FIREFOX_PAGE_=https://mail.yahoo.com/d/folders/1
+		FIREFOX_PAGE_=https://www.facebook.com/?filter=friends&sk=h_chr
 	}
 
 	; REMOVE IF NOT REQUIRE

@@ -1,0 +1,16 @@
+[History]
+B0=EliteSpy/frmAbout
+B1=EliteSpy/frmCGWizard
+B2=EliteSpy/frmgeneratedCode
+B3=EliteSpy/frmMain
+B4=EliteSpy/frmMemInfo
+B5=EliteSpy/modAPI
+B6=EliteSpy/frmAbout/Form_Load
+B7=EliteSpy/modAPI/GenerateCode
+B8=EliteSpy/frmCGWizard/Form_Terminate
+B9=EliteSpy/frmCGWizard/Form_Load
+B10=EliteSpy/frmCGWizard/cmdNext_Click
+B11=EliteSpy/frmCGWizard/SetPage
+B12=EliteSpy/modAPI/FindWindowHwnd
+B13=EliteSpy/frmMain/cmdHide_Click
+B14=EliteSpy/frmMain/cmdEnable_Click

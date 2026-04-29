@@ -1,0 +1,485 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+19 ' ---- TYPING
+19 ' Envelope #9
+19 '93 you wrote
+19 -- Binary Finary
+19 - 2001 -
+19 - A Thing
+19 - All your
+19 - Are friends
+19 - Basin Street
+19 - Cruisin' In
+19 - Do You
+19 - Dressed For
+19 - fred astaire
+19 - Gatemouth Moore
+19 - Guns 4
+19 - Intermezzo From
+19 - It's a
+19 - Jesse Fuller
+19 - Josef Locke
+19 - Julian Cope
+19 - Lazy Old
+19 - Leadbelly -
+19 - Lichfield Cathedral
+19 - livin' for
+19 - Look down.mp3
+19 - Louis Armstrong
+19 - louis prima
+19 - Mack The
+19 - March 2001
+19 - Mary's boy
+19 - Micky Doherty
+19 - Mindy McCready
+19 - Money, Money,
+19 - Mr pleasant.mp3
+19 - MS Office
+19 - Paul Hardcastle
+19 - Pete Johnson
+19 - Pleasant valley
+19 - Rock'n'Roll Party
+19 - She loves
+19 - Something in
+19 - Staple Singers
+19 - Super
+19 - The Elmores
+19 - They Can't
+19 - Time Tunnel
+19 - Tiny Grimes
+19 - tony bennett
+19 - Ultramagnetic Mc's
+19 - Unknown.mp3
+19 - Waterloo
+19 - Waylon Jennings
+19 - What A
+19 - Wonderboy.mp3
+19 -> del D:\WINDOWS\hpinit.bat
+19 ( )
+19 ( 3.30%)
+19 (13h)
+19 (13h) </p>
+19 (18) THE VOICE
+19 (20 soon), Live
+19 (January *Info*
+19 (Nov *Info*
+19 * RoboMail --
+19 *Info*
+19 / 09 /
+19 /KM
+19 : *Info*
+19 ~ Beverley Knight
+19 < TTY AND
+19 = osc 2
+19 0.0%
+19 0.1%
+19 0.3%
+19 0.4%
+19 0.5%
+19 0.6%
+19 0.8%
+19 0;31
+19 00 13 11
+19 00 2c 01
+19 01/02/00 20:41 SOUND.CFG
+19 04/02/01 23:56 Lotus
+19 07 02 08
+19 07/05/03 19:55 UNTITLE2.BAK
+19 07/05/03 19:56 UNTITLE2.BAS
+19 07:00 OAK.Oakland.Edu:/pub/msdos/zip/unz50p1.exe"
+19 08/08/01 19:41 catalog.ini
+19 1 32 3
+19 1/2 AMI004 #3592
+19 10 5 19
+19 101 0.4%
+19 106 0.4%
+19 11 11 14
+19 11 80 0.3%
+19 116 0.0%
+19 12667
+19 13
+19 13 8 17
+19 13/03/03 9:27 WINZIP.TXT
+19 136 0 0
+19 14 0 5
+19 14 7 46
+19 15 07 02
+19 15/02/01 2:59 Harry
+19 15/02/01 22:58 Pass
+19 15/02/01 3:00 Harry
+19 16/11/00 16:01 Shadowman.txt
+19 17 14 14
+19 17 16 96
+19 17 28
+19 17:21>, Ranan Samanya
+19 18/09/02 23:15 wzsF0B1.TMP
+19 19 19 28
+19 1993 00:55, Greg
+19 1993 03:55, Louis
+19 1993 08:57, Jackie
+19 1993 15:00, David
+19 1993 21:00, Warren
+19 1993 23:49, Chris
+19 1993 at 16:35,
+19 1993, David Garfield
+19 1993, Geoff Sim
+19 1995 Area: *Info*
+19 2 Q -
+19 2/2 AMI004 #3593
+19 2000.mp3 4,179,968 09/07/2001
+19 22 31 28
+19 23 14 10
+19 23/04/99 22:22 PHONE.VER
+19 237 164 204
+19 25/03/96 15:00 WARPED.INI
+19 26 70 0.0%
+19 26 90 0.0%
+19 28
+19 2d 06 1e
+19 3 34 0.1%
+19 3 64 0.0%
+19 30 0.0%
+19 300dpi images of
+19 31 0.0%
+19 320 x 148
+19 33 32 56
+19 38 118 0.4%
+19 396/1 11/2 4
+19 396/1 270/101 267/200
+19 4 37 20
+19 4 8 12
+19 49 0.2%
+19 50 0.2%
+19 540 +49 40
+19 5450
+19 57
+19 64 0.0%
+19 665 meg 01-04-94
+19 88 0.0%
+19 9 9 0
+19 96 1 0
+19 9mm?
+19 Access.mp3 4,261,888 09/07/2001
+19 again with sports..???
+19 Alan Price -
+19 Albion Street
+19 Alice Deejay -
+19 All rise.mp3 4,462,236
+19 AMI003 #3277
+19 and *Info*
+19 and 21...
+19 and live near
+19 Apr 86 -
+19 Aretha Franklin -Baby
+19 at heart! I
+19 Aug 2001 21:07:38
+19 Aug 2001 21:51:52
+19 Aug 2001 22:15:45
+19 Aug 93,you blethered
+19 Aug 97 with
+19 Augusus Pablo -
+19 Barkin Brothers_Gonna Catch
+19 Barrington Levy -
+19 Be-Bop-A-Lula.mp3 2,234,409 30/05/1999
+19 Belinda Carlisle\A Place
+19 between me and
+19 Bex_Baby James.mp3
+19 black a,m.mp3
+19 Bodyrock.mp3 4,417,306 01/10/2001
+19 BOWLING (GAMES\ALLEY19)
+19 BREATH OF LIFE.mp3
+19 Bridge Over Troubled
+19 Buena Vista Social
+19 Cafe del mar.mp3
+19 Can You Feel
+19 Can you let
+19 Cant take my
+19 Caravan Of Love.mp3
+19 Carrier Lost. Last
+19 Celebrate our love.mp3
+19 Choose Selection menu>
+19 cliff richard mistletoe
+19 Clinic - The
+19 Coolies - On
+19 Cubik.mp3 4,259,526 01/10/2001
+19 culture flash.mp3
+19 David Dundas -
+19 Daydream in blue.mp3
+19 Death Rings the
+19 Dec 87 -
+19 DEFENDER 2
+19 degrees east.
+19 degrees West) to
+19 Dial M for
+19 Different Servers! ==-----
+19 digits (0 -
+19 Dipso calypso
+19 Dipso calypso.mp3
+19 distinct curve fits.
+19 Do you really
+19 dollars. It just
+19 DontStandSoCloseToMe.mp3 4,047,725 16/12/1999
+19 Dov'e L'Amore.mp3
+19 Dr Feelgood-She's a
+19 Drag the clown
+19 dreaming of you.mp3
+19 Drink to get
+19 e3 07 02
+19 EARLY IN THE
+19 eddy grant -
+19 Ethiopians - Free
+19 explosive *Info*
+19 Feb 83 -
+19 FEELING STRANGELY FINE
+19 file(s)
+19 file(s) 1,164,266 bytes
+19 file(s) 1,180,716 bytes
+19 file(s) 1,221,461 bytes
+19 file(s) 2,133,552 bytes
+19 file(s) 2,142,841 bytes
+19 file(s) 2,490,124 bytes
+19 file(s) 2,783,070 bytes
+19 file(s) 20,482 bytes
+19 file(s) 26,526 bytes
+19 file(s) 5,767,065 bytes
+19 file(s) 55,045 bytes
+19 file(s) 551,858 bytes
+19 file(s) 586,744 bytes
+19 file(s) 594,812 bytes
+19 file(s) 645,946 bytes
+19 file(s) 646,004 bytes
+19 file(s) 658,445 bytes
+19 file(s) found
+19 files.
+19 Finished symphony.mp3 4,245,504
+19 Fonts
+19 for limited license
+19 Frank Anderson -
+19 from simulmondo multilanguage
+19 Funiculi funiculi .mp3
+19 Game Roms
+19 Girl your so
+19 H000669.ZIP v2.7 TASK
+19 H002972.ZIP v6.4 MT-TRACKER
+19 H003523.ZIP v2.4C TASK
+19 H004554.ZIP v3.20 CALENDAR
+19 H007340.ZIP v2.31 A-PLAN
+19 H007405.ZIP v1.6 SCHEDULAN
+19 H007432.ZIP v1.6 ZHOURNEAU
+19 H007831.ZIP v2.00 PLANSTAR
+19 H007878.ZIP v1.52 TASKS,
+19 H008513A.ZIP v1.24 POWER
+19 H008513B.ZIP v1.24 POWER
+19 H008513C.ZIP v1.24 POWER
+19 H009884.ZIP v1.30 TIMELESS
+19 H009937.ZIP v2.1 PROJECT
+19 Hard boiled eggs
+19 Have a nice
+19 Heard it all
+19 Hello Dolly -Hello
+19 Heroes And Villains.mp3
+19 high.mp3 4,547,918 01/10/2001
+19 Hill street blues.mp3
+19 hours a day
+19 HUMAN LEAGUE -
+19 IBM 10 0.3%
+19 IBM 13 0.3%
+19 IBM 13 0.4%
+19 IBM 13 12
+19 IBM 14 0.3%
+19 IBM 148 126
+19 IBM 15 0.4%
+19 IBM 16 0.4%
+19 IBM 16 14
+19 IBM 2 0.2%
+19 IBM 21 0.7%
+19 IBM 37 0.6%
+19 IBM 432 0.2%
+19 IBM 516 0.1%
+19 IBM 7 0.1%
+19 IBM 7 0.3%
+19 in BWMAIL.DOC)
+19 in July. I'v
+19 ITS A ROCKING
+19 James Bond -
+19 James Bond Posters
+19 Jan 80 -
+19 Jan 85 -
+19 Jasper Carrot The
+19 John Paul Young
+19 Jul 93 15:09:31,
+19 Jul 93 22:54:34,
+19 Jul 93 Iain
+19 Jul 93 Ian
+19 Jul 93 you
+19 Jul 93, MBUTIL
+19 Jul 93, Roger
+19 Jun 93 19:45:06,
+19 Jun 93 19:46:19,
+19 Jun 93 you
+19 Jun 93, Robert
+19 Keep it up
+19 Ken Boothe -
+19 Kim Wilde-The Singles
+19 King Of The
+19 L'ultima .mp3 5,138,432
+19 Lena Horne_The Lady
+19 Let's Talk About
+19 LIMOUSINE 20 PLENTY
+19 Limp Bizkit -
+19 lines of 76
+19 Love is all
+19 Love Really Hurts
+19 Lun Taitt and
+19 Macintosh support files
+19 Madison Avenue_Don't Call
+19 March
+19 May 97
+19 May 97 with
+19 meg eu203
+19 MEG EU213
+19 Melanie-Brand new key
+19 min.
+19 minutes of Hard
+19 Miss Saigon_The Movie
+19 modules,
+19 Moments-Dolly my love
+19 months I've been
+19 Multi-Media Formats Identified.
+19 N002162.ZIP v7.24 SHARING
+19 N002440.ZIP v2.0 ACTION
+19 N002661.ZIP v3.0 PC-PROJECT
+19 N002705.ZIP v4.07 EASY
+19 N002765.ZIP v4.0 NOYES
+19 N002815.ZIP v1.1c TIMETRACK
+19 N004516.ZIP v3.4 A
+19 N004992.ZIP v1.1 OBJECTIVES
+19 N007417.ZIP v2.2 TEAMWORK
+19 Nilsson - Without
+19 No bridge i
+19 No flow.mp3 4,057,338
+19 nov *Info*
+19 Nov 88 -
+19 November 2001 23:40
+19 Oct 1993 01:34:50
+19 Oct 1993 02:53:22
+19 Oct 1993 23:26:59
+19 Oct 93 02:29:42
+19 Oct 93 Ian
+19 Oct 93 Nick
+19 Oct 93, Ian
+19 of the 52
+19 of the very
+19 on the third
+19 One more time
+19 operations and 20+
+19 or 56 ?
+19 or higher.
+19 Oracle7 - Database
+19 Pages.
+19 people have been
+19 percent from 15
+19 Percy Sledge -Take
+19 Pet Shop Boys
+19 PF Project feat.
+19 Phats & Small_Tonite.mp3
+19 Pre-Defined Cards
+19 pretty helpful small
+19 Racquel THE SPECIAL
+19 rave scene.mp3
+19 RELEASE 1
+19 ROCK N ROLL
+19 Running from love.mp3
+19 S 18 R
+19 School's out -
+19 seconds
+19 Send In The
+19 Sep 81 -
+19 Sep 93
+19 Sep 93 19:48:12
+19 Sep 93 you
+19 Sep 93, GEcho/386
+19 Sep 93, James
+19 Sep 93, Nick
+19 Sep 94
+19 separate AUTOEXEC/CONFIG configurations.
+19 SFXs
+19 shakin stevens -
+19 Shape of my
+19 slam,positive education.mp3
+19 song for liberty.mp3
+19 Song in last
+19 Sound Of Music_Edelweiss
+19 Spice Girls -
+19 Stone cold.mp3 5,316,608
+19 Strawberry fields forever..
+19 Strike Commander CD,
+19 students at once.
+19 students,
+19 Supergrass - Moving
+19 Susannah's Still Alive.mp3
+19 Sweet sensation.mp3 3,831,118
+19 SWEETEST OF ALL
+19 The 45 King_The
+19 the gray man
+19 The Kinks -
+19 the only way
+19 THE RUNAWAY
+19 The Stone Roses_Fools
+19 THE VERY BEST
+19 The Wiseguys_Ooh La
+19 the youngest
+19 then
+19 THEN er =
+19 Three Degrees -
+19 through 27.
+19 Till you love
+19 Ting-a-ling.mp3 2,522,383 17/04/1999
+19 Tired of being
+19 Titanic-Sultana
+19 Tommy's holiday camp.mp3
+19 tracks
+19 Tremeloes-Number One
+19 tricky. Any pointers?
+19 Twinkle Brothers -
+19 Ultramagnetic MC's_Ego Trip.mp3.mp3
+19 Underworld_King Of Snake.mp3
+19 Untitled.mp3 4,536,320 09/07/2001
+19 uses 19 digits
+19 Various Dance Songs
+19 Vesta Tilley-There's a
+19 Vesta Tilley
+19 VOC FILES
+19 Wav Sound File.
+19 Whirlpool.mp3 8,539,951 01/10/2001
+19 Why THE SPECIALS
+19 Winston Wright -
+19 without parental permission
+19 would be in
+19 xcom modules. *Info*
+19 Xtra - Brutal
+19 year old guy,
+19 year old kid
+19 year sober double
+19 years in the
+19 years of diverse
+19 years old and
+19 years old as
+19 years old, =B-)
+19 years old, and
+19 years old.....PDB>What movies
+19 years without getting
+19 yrs old and

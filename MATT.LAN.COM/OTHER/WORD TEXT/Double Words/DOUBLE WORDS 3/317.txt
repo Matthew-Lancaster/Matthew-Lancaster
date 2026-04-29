@@ -1,0 +1,1212 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+17 ' ---- 'RENAME'
+17 ' 11x17 in
+17 'Can 't perform
+17 -- Will Smith
+17 - 'Speckled Red'
+17 - [1/2]
+17 - [2/2]
+17 - A Woman
+17 - Alien
+17 - APrayerForEveryone.mp3
+17 - Aritz Adarean
+17 - bing crosby
+17 - BISON source
+17 - Blakes Seven
+17 - Coasters -
+17 - Come Live
+17 - David Watts.mp3
+17 - Disco Inferno
+17 - Dizzy Gillespie
+17 - Down the
+17 - Dream A
+17 - Duane Eddy
+17 - Earl Hooker
+17 - En Vogue
+17 - Flying Fortress
+17 - Foster &
+17 - Gang Starr
+17 - Give Me
+17 - Good morning
+17 - Halleluljah *
+17 - Headline news.mp3
+17 - HEY CHILD
+17 - I'm Your
+17 - I've Been
+17 - I Don't
+17 - IF YOU
+17 - Into the
+17 - Janus Ian
+17 - Jeanie C
+17 - Jilted john.mp3
+17 - John Lee
+17 - Johnny Winter
+17 - Julian Cope
+17 - Leon Redbone
+17 - Let Love
+17 - Lightnin' Hopkins
+17 - Little Sonny
+17 - Man in
+17 - Martina McBride
+17 - Mary Coughlan
+17 - Micky Doherty
+17 - Mp3
+17 - My heart
+17 - nat king
+17 - our love
+17 - Pat Boone
+17 - Planet Funk
+17 - Planet Waves
+17 - Printing Utilities
+17 - Randy scouse
+17 - Robin Williams
+17 - Rosemary
+17 - Same Script,
+17 - She Doesn't
+17 - Solar Stone
+17 - Song Without
+17 - Spinning around.mp3
+17 - Stay Another
+17 - Sunset(Bird of
+17 - Susanna's Still
+17 - Temptation
+17 - Temptation .mp3
+17 - Temptation.mp3
+17 - That's Me
+17 - The 'in'
+17 - The 3DStudio
+17 - The Best
+17 - The Name
+17 - The Rainbow
+17 - This is
+17 - Tuxedo Junction.mp3
+17 - Unknown.mp3
+17 - Veil Of
+17 - Weather Report
+17 - Western Wind
+17 - What Would
+17 -> del D:\WINDOWS\hpinit.bak
+17 -THE BEST OF
+17 ÿÿÿÿÿÿÿÿÿÿÿÿÿ 1/1 ÜÙßª
+17 !) she cried
+17 ""Tricks"" for addition,
+17 "Seventeen").
+17 & GABRIELLE /
+17 ( )
+17 (`Fallout')
+17 (11h)
+17 (11h) </p>
+17 (20) HOT SHOT
+17 (just in case
+17 (relocatable, no CD
+17 ) or E-mail
+17 *Info*
+17 *REGiSTERED*
+17 / HEY CHILD
+17 : *Info*
+17 [01/01] 497547 BYTES
+17 [1/1]
+17 [1/2]
+17 [1/4]
+17 [2/2]
+17 [2/4]
+17 [3/4]
+17 [4/4]
+17 ~ Cardigans -
+17 = bottom of
+17 >.
+17 0 0 6
+17 0 0 80
+17 0 0 96
+17 0 33 0
+17 0 5 4
+17 0.0%
+17 0.1%
+17 0.3%
+17 0.4%
+17 0.5%
+17 0.7%
+17 0;16
+17 01/02
+17 01/04
+17 01:01 garbo.uwasa.fi:/pc/c/xms101je.zip
+17 02 06 |
+17 02/02
+17 02/04
+17 03/04
+17 04/04
+17 06; CD manufacturer
+17 1 3 37
+17 1.3%
+17 1/2 ©þÀÜ
+17 1/2 ßª ß¿
+17 1/2]
+17 10807
+17 10cc - Rubber
+17 11 10 53,315
+17 11:56:08 1998
+17 124 0.5%
+17 13
+17 13 15 50
+17 14 14 64
+17 14 65 0.0%
+17 15 4 99
+17 15 41 11
+17 15/03/01 15:54 KINGPIN.txt
+17 16 96 0.4%
+17 18 15 17
+17 18 19.txt
+17 18 9 12
+17 19 101 0.4%
+17 1993 00:27, Ray
+17 1993 07:21, Jeremy
+17 1993 09:10, Simon
+17 1993 10:32, Tim
+17 1993 16:02)
+17 1993 18:20, Jim
+17 1993 20:23, Louis
+17 1993 21:22, Aled
+17 1993 21:38, David
+17 1993 22:43, Andy
+17 1993 23:13, Kevin
+17 1993 23:15, Chris
+17 1993 23:31, Lawrie
+17 1993 at 10:52
+17 1993 to all,
+17 1993 to All;
+17 1993 to Eric
+17 1993 to Jonathan
+17 1993, Alan Mulvie
+17 1993, Alastair Moore
+17 1993, Andrew Leary
+17 1993, Dane Beko
+17 1993, Dave Langridge
+17 1993, gARetH baBB
+17 1993, John Pfeifer
+17 1993, Ron Huiskes
+17 1993, Wolfgang Hanke
+17 1993>, Mark Shaheen
+17 2 0 0
+17 2 10 1
+17 2 33 0.1%
+17 2 black ninjas,80's
+17 2 O -
+17 2/2 þßª
+17 2/2 ßª þ
+17 2/2]
+17 20 0.0%
+17 21 56 0.0%
+17 21 seconds.mp3
+17 21431
+17 23 163 0.6%
+17 23 41 193
+17 24/900 247/1999 1919
+17 26 0.0%
+17 26 13 140
+17 267 495 1.8%
+17 28
+17 296 901 3.5%
+17 32 bit data
+17 33 27 5
+17 35
+17 38 55 0.0%
+17 39 0.0%
+17 41 62 80
+17 42 0.2%
+17 5 14 29
+17 5 396/1 270/101
+17 640 x 148
+17 64k DRAMs (4164)
+17 8 42 0.2%
+17 9 Pm till
+17 94 25 9e
+17 A little love
+17 admitted
+17 Air - Playground
+17 Alec Hurley-Picaninny
+17 Alec Hurley
+17 Alena_Turn It Around.mp3
+17 all the time.
+17 and 18. E02/384
+17 and ever so
+17 and I live
+17 and I REALLY
+17 and live in
+17 ANIMATION ADDON (C)
+17 Apr 1998 02:04:43
+17 Apr 1998 02:05:31
+17 Apr 2002 00:00:52
+17 Apr 2002 00:01:45
+17 Apr 2002 00:05:19
+17 Apr 2002 00:06t
+17 Apr 2002 00:07:55
+17 Apr 2002 00:09:53
+17 Apr 2002 00:14:14
+17 Apr 2002 00:15:34
+17 Apr 2002 00:18:30
+17 Apr 2002 00:20:51
+17 Apr 2002 00:21:00
+17 Apr 2002 00:30:02
+17 Apr 2002 00:32:46
+17 Apr 2002 00:35:49
+17 Apr 2002 00:39:54
+17 Apr 2002 00:41:12
+17 Apr 2002 00:41:33
+17 Apr 2002 00:42:43
+17 Apr 2002 00:45:29
+17 Apr 2002 00:45:34
+17 Apr 2002 00:46:46
+17 Apr 2002 00:47:39
+17 Apr 2002 00:50:22
+17 Apr 2002 00:51:30
+17 Apr 2002 00:51:34
+17 Apr 2002 00:54:43
+17 Apr 2002 00:55:06
+17 Apr 2002 01:01:47
+17 Apr 2002 01:09:47
+17 Apr 2002 01:10:04
+17 Apr 2002 01:10:56
+17 Apr 2002 01:14:23
+17 Apr 2002 01:14:40
+17 Apr 2002 01:15:36
+17 Apr 2002 01:16:12
+17 Apr 2002 01:19:29
+17 Apr 2002 01:20:19
+17 Apr 2002 01:20:25
+17 Apr 2002 01:20:58
+17 Apr 2002 01:21:12
+17 Apr 2002 01:23:00
+17 Apr 2002 01:24:27
+17 Apr 2002 01:24:33
+17 Apr 2002 01:25:22
+17 Apr 2002 01:26:01
+17 Apr 2002 01:26:41
+17 Apr 2002 01:29:00
+17 Apr 2002 01:30:45
+17 Apr 2002 01:33:44
+17 Apr 2002 01:36:27
+17 Apr 2002 01:39:36
+17 Apr 2002 01:40:12
+17 Apr 2002 01:50:39
+17 Apr 2002 01:51:09
+17 Apr 2002 01:54:24
+17 Apr 2002 01:55:30
+17 Apr 2002 01:57:54
+17 Apr 2002 01:58:56
+17 Apr 2002 01:59:41
+17 Apr 2002 02:02:15
+17 Apr 2002 02:04:43
+17 Apr 2002 02:07:51
+17 Apr 2002 02:14:10
+17 Apr 2002 02:14:35
+17 Apr 2002 02:17:58
+17 Apr 2002 02:19:07
+17 Apr 2002 02:21:51
+17 Apr 2002 02:24:18
+17 Apr 2002 02:26:52
+17 Apr 2002 02:27:44
+17 Apr 2002 02:33:25
+17 Apr 2002 02:36:07
+17 Apr 2002 02:37:31
+17 Apr 2002 02:38:28
+17 Apr 2002 02:40:04
+17 Apr 2002 02:42:29
+17 Apr 2002 02:44:24
+17 Apr 2002 02:45:47
+17 Apr 2002 02:46:29
+17 Apr 2002 02:46:36
+17 Apr 2002 02:47:49
+17 Apr 2002 02:52:39
+17 Apr 2002 02:57:50
+17 Apr 2002 02:59:58
+17 Apr 2002 03:01:53
+17 Apr 2002 03:03:49
+17 Apr 2002 03:06:17
+17 Apr 2002 03:10:30
+17 Apr 2002 03:11:28
+17 Apr 2002 03:15:00
+17 Apr 2002 03:16:28
+17 Apr 2002 03:19:27
+17 Apr 2002 03:21:18
+17 Apr 2002 03:23:59
+17 Apr 2002 03:24:56
+17 Apr 2002 03:25:19
+17 Apr 2002 03:27:06
+17 Apr 2002 03:30:07
+17 Apr 2002 03:32:27
+17 Apr 2002 03:33:40
+17 Apr 2002 03:33:47
+17 Apr 2002 03:36:45
+17 Apr 2002 03:42:11
+17 Apr 2002 03:43:01
+17 Apr 2002 03:44:06
+17 Apr 2002 03:51:12
+17 Apr 2002 03:51:48
+17 Apr 2002 03:57:07
+17 Apr 2002 03:57:49
+17 Apr 2002 03:58:35
+17 Apr 2002 03:59:23
+17 Apr 2002 04:01:45
+17 Apr 2002 04:07:55
+17 Apr 2002 04:28:48
+17 Apr 2002 04:30:02
+17 Apr 2002 04:30:46
+17 Apr 2002 04:35:49
+17 Apr 2002 04:41:33
+17 Apr 2002 04:43:09
+17 Apr 2002 04:45:34
+17 Apr 2002 04:46:32
+17 Apr 2002 04:46:46
+17 Apr 2002 04:47:39
+17 Apr 2002 04:50:22
+17 Apr 2002 04:51:08
+17 Apr 2002 04:53:39
+17 Apr 2002 04:56:02
+17 Apr 2002 04:58:26
+17 Apr 2002 04:59:03
+17 Apr 2002 04:59:32
+17 Apr 2002 05:06:26
+17 Apr 2002 05:09:44
+17 Apr 2002 05:09:47
+17 Apr 2002 05:10:04
+17 Apr 2002 05:10:56
+17 Apr 2002 05:11:41
+17 Apr 2002 05:16:12
+17 Apr 2002 05:19:29
+17 Apr 2002 05:20:25
+17 Apr 2002 05:24:27
+17 Apr 2002 05:25:22
+17 Apr 2002 05:25:31
+17 Apr 2002 05:26:45
+17 Apr 2002 05:29:00
+17 Apr 2002 05:36:03
+17 Apr 2002 05:36:27
+17 Apr 2002 05:41:38
+17 Apr 2002 05:54:31
+17 Apr 2002 05:55:30
+17 Apr 2002 05:58:56
+17 Apr 2002 06:02:15
+17 Apr 2002 06:16:02
+17 Apr 2002 06:16:30
+17 Apr 2002 06:21:02
+17 Apr 2002 06:21:07
+17 Apr 2002 06:21:51
+17 Apr 2002 06:26:43
+17 Apr 2002 06:27:18
+17 Apr 2002 06:28:54
+17 Apr 2002 06:39:21
+17 Apr 2002 06:39:25
+17 Apr 2002 06:41:57
+17 Apr 2002 06:47:14
+17 Apr 2002 06:50:39
+17 Apr 2002 06:52:39
+17 Apr 2002 06:53:10
+17 Apr 2002 06:58:08
+17 Apr 2002 06:58:26
+17 Apr 2002 06:58:36
+17 Apr 2002 06:59:03
+17 Apr 2002 06:59:40
+17 Apr 2002 07:02:01
+17 Apr 2002 07:02:40
+17 Apr 2002 07:06:17
+17 Apr 2002 07:06:26
+17 Apr 2002 07:07:48
+17 Apr 2002 07:10:57
+17 Apr 2002 07:15:00
+17 Apr 2002 07:19:27
+17 Apr 2002 07:20:19
+17 Apr 2002 07:24:33
+17 Apr 2002 07:27:51
+17 Apr 2002 07:28:44
+17 Apr 2002 07:29:59
+17 Apr 2002 07:38:27
+17 Apr 2002 07:53:21
+17 Apr 2002 08:04:04
+17 Apr 2002 08:16:47
+17 Apr 2002 08:17:17
+17 Apr 2002 08:31:12
+17 Apr 2002 08:45:03
+17 Apr 2002 08:46:53
+17 Apr 2002 08:49:58
+17 Apr 2002 08:51:08
+17 Apr 2002 08:56:59
+17 Apr 2002 09:01:19
+17 Apr 2002 09:06:21
+17 Apr 2002 09:07:19
+17 Apr 2002 09:08:01
+17 Apr 2002 09:11:13
+17 Apr 2002 09:13:46
+17 Apr 2002 10:10:59
+17 Apr 2002 10:11:28
+17 Apr 2002 10:14:01
+17 Apr 2002 10:15:42
+17 Apr 2002 10:18:34
+17 Apr 2002 10:20:19
+17 Apr 2002 10:20:41
+17 Apr 2002 10:20:48
+17 Apr 2002 10:21:40
+17 Apr 2002 10:27:06
+17 Apr 2002 10:35:48
+17 Apr 2002 10:39:30
+17 Apr 2002 10:41:19
+17 Apr 2002 10:42:38
+17 Apr 2002 10:43:39
+17 Apr 2002 10:46:04
+17 Apr 2002 10:52:47
+17 Apr 2002 10:52:48
+17 Apr 2002 10:52:49
+17 Apr 2002 11:02:00
+17 Apr 2002 11:06:26
+17 Apr 2002 11:07:48
+17 Apr 2002 11:08:43
+17 Apr 2002 11:09:14
+17 Apr 2002 11:14:45
+17 Apr 2002 11:27:51
+17 Apr 2002 11:33:33
+17 Apr 2002 11:37:08
+17 Apr 2002 11:42:16
+17 Apr 2002 11:50:59
+17 Apr 2002 11:59:47
+17 Apr 2002 12:04:04
+17 Apr 2002 12:10:11
+17 Apr 2002 12:10:57
+17 Apr 2002 12:13:53
+17 Apr 2002 12:16:38
+17 Apr 2002 12:17:49
+17 Apr 2002 12:20:49
+17 Apr 2002 12:22:46
+17 Apr 2002 12:23:34
+17 Apr 2002 12:24:22
+17 Apr 2002 12:25:32
+17 Apr 2002 12:28:15
+17 Apr 2002 12:29:03
+17 Apr 2002 12:32:16
+17 Apr 2002 12:33:03
+17 Apr 2002 12:33:32
+17 Apr 2002 12:34:37
+17 Apr 2002 12:38:44
+17 Apr 2002 12:40:42
+17 Apr 2002 12:44:00
+17 Apr 2002 12:47:27
+17 Apr 2002 12:54:49
+17 Apr 2002 12:59:03
+17 Apr 2002 12:59:36
+17 Apr 2002 13:02:45
+17 Apr 2002 13:04:24
+17 Apr 2002 13:04:36
+17 Apr 2002 13:06:01
+17 Apr 2002 13:07:13
+17 Apr 2002 13:11:43
+17 Apr 2002 13:12:31
+17 Apr 2002 13:16:02
+17 Apr 2002 13:18:16
+17 Apr 2002 13:20:25
+17 Apr 2002 13:21:29
+17 Apr 2002 13:22:31
+17 Apr 2002 13:23:21
+17 Apr 2002 13:24:32
+17 Apr 2002 13:26:44
+17 Apr 2002 13:28:19
+17 Apr 2002 13:28:54
+17 Apr 2002 13:33:04
+17 Apr 2002 13:34:01
+17 Apr 2002 13:37:45
+17 Apr 2002 13:41:57
+17 Apr 2002 13:45:03
+17 Apr 2002 13:47:14
+17 Apr 2002 13:49:27
+17 Apr 2002 13:52:10
+17 Apr 2002 14:07:35
+17 Apr 2002 14:07:36
+17 Apr 2002 14:09:33
+17 Apr 2002 14:12:10
+17 Apr 2002 14:14:01
+17 Apr 2002 14:14:05
+17 Apr 2002 14:14:06
+17 Apr 2002 14:15:42
+17 Apr 2002 14:20:07
+17 Apr 2002 14:21:40
+17 Apr 2002 14:22:15
+17 Apr 2002 14:22:23
+17 Apr 2002 14:24:08
+17 Apr 2002 14:24:15
+17 Apr 2002 14:30:35
+17 Apr 2002 14:30:46
+17 Apr 2002 14:31:08
+17 Apr 2002 14:32:08
+17 Apr 2002 14:32:12
+17 Apr 2002 14:33:20
+17 Apr 2002 14:33:44
+17 Apr 2002 14:34:27
+17 Apr 2002 14:34:50
+17 Apr 2002 14:34:59
+17 Apr 2002 14:36:00
+17 Apr 2002 14:36:08
+17 Apr 2002 14:39:20
+17 Apr 2002 14:39:28
+17 Apr 2002 14:41:27
+17 Apr 2002 14:47:49
+17 Apr 2002 14:49:58
+17 Apr 2002 14:50:24
+17 Apr 2002 14:51:53
+17 Apr 2002 14:51:54
+17 Apr 2002 14:52:36
+17 Apr 2002 14:53:14
+17 Apr 2002 14:53:16
+17 Apr 2002 14:53:45
+17 Apr 2002 14:58:57
+17 Apr 2002 15:01:19
+17 Apr 2002 15:09:16
+17 Apr 2002 15:13:15
+17 Apr 2002 15:16:36
+17 Apr 2002 15:16:47
+17 Apr 2002 15:17:12
+17 Apr 2002 15:22:13
+17 Apr 2002 15:24:17
+17 Apr 2002 15:25:15
+17 Apr 2002 15:28:03
+17 Apr 2002 15:29:25
+17 Apr 2002 15:30:05
+17 Apr 2002 15:32:39
+17 Apr 2002 15:33:07
+17 Apr 2002 15:35:48
+17 Apr 2002 15:36:45
+17 Apr 2002 15:38:53
+17 Apr 2002 15:39:25
+17 Apr 2002 15:40:46
+17 Apr 2002 15:41:38
+17 Apr 2002 15:41:53
+17 Apr 2002 15:42:27
+17 Apr 2002 15:43:20
+17 Apr 2002 15:45:09
+17 Apr 2002 15:48:10
+17 Apr 2002 15:55:11
+17 Apr 2002 15:56:59
+17 Apr 2002 15:57:11
+17 Apr 2002 16:08:01
+17 Apr 2002 16:09:56
+17 Apr 2002 16:11:14
+17 Apr 2002 16:13:31
+17 Apr 2002 16:16:22
+17 Apr 2002 16:17:10
+17 Apr 2002 16:17:32
+17 Apr 2002 16:21:03
+17 Apr 2002 16:22:23
+17 Apr 2002 16:22:35
+17 Apr 2002 16:24:50
+17 Apr 2002 16:27:52
+17 Apr 2002 16:29:50
+17 Apr 2002 16:31:09
+17 Apr 2002 16:37:04
+17 Apr 2002 16:37:34
+17 Apr 2002 16:40:27
+17 Apr 2002 16:41:15
+17 Apr 2002 16:42:22
+17 Apr 2002 16:46:34
+17 Apr 2002 16:50:44
+17 Apr 2002 16:51:36
+17 Apr 2002 16:52:23
+17 Apr 2002 16:56:37
+17 Apr 2002 17:00:44
+17 Apr 2002 17:01:31
+17 Apr 2002 17:02:00
+17 Apr 2002 17:09:35
+17 Apr 2002 17:14:21
+17 Apr 2002 17:16:30
+17 Apr 2002 17:18:50
+17 Apr 2002 17:19:51
+17 Apr 2002 17:20:04
+17 Apr 2002 17:21:29
+17 Apr 2002 17:22:31
+17 Apr 2002 17:22:53
+17 Apr 2002 17:23:21
+17 Apr 2002 17:29:08
+17 Apr 2002 17:30:34
+17 Apr 2002 17:30:53
+17 Apr 2002 17:31:25
+17 Apr 2002 17:31:43
+17 Apr 2002 17:32:01
+17 Apr 2002 17:32:14
+17 Apr 2002 17:33:04
+17 Apr 2002 17:34:01
+17 Apr 2002 17:35:51
+17 Apr 2002 17:35:56
+17 Apr 2002 17:36:12
+17 Apr 2002 17:36:37
+17 Apr 2002 17:36:54
+17 Apr 2002 17:37:09
+17 Apr 2002 17:37:45
+17 Apr 2002 17:39:36
+17 Apr 2002 17:41:50
+17 Apr 2002 17:44:56
+17 Apr 2002 17:50:50
+17 Apr 2002 17:54:42
+17 Apr 2002 17:59:41
+17 Apr 2002 18:00:49
+17 Apr 2002 18:02:03
+17 Apr 2002 18:02:50
+17 Apr 2002 18:05:09
+17 Apr 2002 18:17:15
+17 Apr 2002 18:18:37
+17 Apr 2002 18:19:56
+17 Apr 2002 18:19:57
+17 Apr 2002 18:20:03
+17 Apr 2002 18:20:48
+17 Apr 2002 18:23:20
+17 Apr 2002 18:23:21
+17 Apr 2002 18:27:00
+17 Apr 2002 18:27:31
+17 Apr 2002 18:27:48
+17 Apr 2002 18:29:27
+17 Apr 2002 18:32:30
+17 Apr 2002 18:33:44
+17 Apr 2002 18:34:05
+17 Apr 2002 18:34:28
+17 Apr 2002 18:36:48
+17 Apr 2002 18:36:50
+17 Apr 2002 18:36:52
+17 Apr 2002 18:38:25
+17 Apr 2002 18:40:11
+17 Apr 2002 18:40:42
+17 Apr 2002 18:42:58
+17 Apr 2002 18:43:29
+17 Apr 2002 18:45:12
+17 Apr 2002 18:47:01
+17 Apr 2002 18:47:48
+17 Apr 2002 18:49:55
+17 Apr 2002 18:50:09
+17 Apr 2002 18:51:58
+17 Apr 2002 19:02:16
+17 Apr 2002 19:03:41
+17 Apr 2002 19:06:23
+17 Apr 2002 19:10:19
+17 Apr 2002 19:14:19
+17 Apr 2002 19:15:56
+17 Apr 2002 19:16:23
+17 Apr 2002 19:17:02
+17 Apr 2002 19:22:19
+17 Apr 2002 19:24:17
+17 Apr 2002 19:25:04
+17 Apr 2002 19:28:26
+17 Apr 2002 19:31:05
+17 Apr 2002 19:32:41
+17 Apr 2002 19:32:57
+17 Apr 2002 19:33:32
+17 Apr 2002 19:35:42
+17 Apr 2002 19:37:29
+17 Apr 2002 19:37:32
+17 Apr 2002 19:37:42
+17 Apr 2002 19:39:03
+17 Apr 2002 19:42:27
+17 Apr 2002 19:42:56
+17 Apr 2002 19:44:12
+17 Apr 2002 19:45:09
+17 Apr 2002 19:48:05
+17 Apr 2002 19:48:10
+17 Apr 2002 19:54:45
+17 Apr 2002 20:06:27
+17 Apr 2002 20:07:13
+17 Apr 2002 20:11:41
+17 Apr 2002 20:14:16
+17 Apr 2002 20:15:31
+17 Apr 2002 20:16:22
+17 Apr 2002 20:17:10
+17 Apr 2002 20:37:04
+17 Apr 2002 20:40:06
+17 Apr 2002 20:40:27
+17 Apr 2002 20:42:22
+17 Apr 2002 20:49:42
+17 Apr 2002 20:51:36
+17 Apr 2002 20:54:29
+17 Apr 2002 21:16:30
+17 Apr 2002 21:20:07
+17 Apr 2002 21:24:50
+17 Apr 2002 21:26:02
+17 Apr 2002 21:26:40
+17 Apr 2002 21:29:50
+17 Apr 2002 21:32:08
+17 Apr 2002 21:47:54
+17 Apr 2002 22:05:54
+17 Apr 2002 22:09:16
+17 Apr 2002 22:22:13
+17 Apr 2002 22:27:31
+17 Apr 2002 22:32:30
+17 Apr 2002 22:34:28
+17 Apr 2002 22:38:25
+17 Apr 2002 22:40:11
+17 Apr 2002 22:49:55
+17 Apr 2002 22:54:29
+17 Apr 2002 23:04:47
+17 Apr 2002 23:05:09
+17 Apr 2002 23:07:22
+17 Apr 2002 23:16:36
+17 Apr 2002 23:17:03
+17 Apr 2002 23:22:19
+17 Apr 2002 23:25:04
+17 Apr 2002 23:28:26
+17 Apr 2002 23:47:01
+17 Apr 82 -
+17 As we come.mp3
+17 Aspects Of Love_Love
+17 at 12:04, Gary
+17 Atomic Rooster -
+17 Aug
+17 Aug 9:49
+17 Aug 93 (FileMgr
+17 Aug 93 04:17:06
+17 Aug 93 10:15
+17 Aug 93 15:42
+17 Aug 93 15:56
+17 Aug 93 Ben
+17 Aug 93 Ian
+17 Aug 93 Kaz
+17 Aug 93 Ross
+17 Aug 93 the
+17 Aug 93 you
+17 August 93 Paul
+17 Augusto Pablo -
+17 Automating application tasks
+17 Autumn Almanac.mp3
+17 Ave maria .mp3
+17 Ave maria dolce
+17 Bee Gees-First of
+17 Bee Gees -
+17 Belinda Carlisle\A Place
+17 berlin - take
+17 Bibles avail. Full
+17 Big Youth -
+17 Bioforge
+17 Blow ya mind.mp3
+17 Blue Bayou.mp3 2,705,031
+17 Bon Jovi -
+17 Braggin' And Tryin'
+17 buck the trend.mp3
+17 Builder.mp3 4,917,248 09/07/2001
+17 Carla Thomas -BABY
+17 Caroline - Galore
+17 categories.
+17 Caught out there.mp3
+17 centuries
+17 chanels. The twentieth
+17 Chicane ft Marie
+17 chili recipes in
+17 Choose View menu>
+17 Chuck Berry -
+17 Conquerors - Lonely
+17 Dada-1983
+17 days and also
+17 days to receive
+17 DD From Modem
+17 De antidote.mp3 4,818,944
+17 Death in Mid-Air
+17 DEFENDER (DEKKER)
+17 Dell XBIOS
+17 Developer 2000 Report
+17 different archive types
+17 different fixtures and
+17 different fixtures, plus
+17 different zoom levels
+17 Digit
+17 digits. Many help
+17 display soft fonts
+17 DOCS [01/01] 15668
+17 don't ask me
+17 Don Drummond -
+17 Donnie Elbert -
+17 Enigma - Sadness
+17 Enjoy the silence.mp3
+17 episodes, first screened
+17 episodes, must have
+17 Ethiopians - Train
+17 Eve Gallagher_Nothing For
+17 EVERGREEN
+17 excuse me-remix
+17 Feat. Gabrielle -
+17 FEATURING GABRIELLE -
+17 Feb 1970. It's
+17 Feb 1972, Rainbow
+17 Feb 1972. So
+17 Feb 1972. This
+17 Feb 1996 23:52:27
+17 Feb 93 you
+17 Feb 94 21:15>
+17 file(s)
+17 file(s) 1,106,165 bytes
+17 file(s) 1,234,827 bytes
+17 file(s) 1,427,156 bytes
+17 file(s) 1,439,685 bytes
+17 file(s) 1,454,592 bytes
+17 file(s) 1,654,745 bytes
+17 file(s) 1,714,140 bytes
+17 file(s) 1,889,072 bytes
+17 file(s) 1,964,976 bytes
+17 file(s) 13,783,628 bytes
+17 file(s) 16,608 bytes
+17 file(s) 172,919 bytes
+17 file(s) 2,019,611 bytes
+17 file(s) 2,061,000 bytes
+17 file(s) 2,067,153 bytes
+17 file(s) 2,073,873 bytes
+17 file(s) 2,076,672 bytes
+17 file(s) 2,108,874 bytes
+17 file(s) 2,112,210 bytes
+17 file(s) 2,113,697 bytes
+17 file(s) 2,160,310 bytes
+17 file(s) 2,176,085 bytes
+17 file(s) 2,202,577 bytes
+17 file(s) 2,253,212 bytes
+17 file(s) 2,405,387 bytes
+17 file(s) 2,562,572 bytes
+17 file(s) 22,119 bytes
+17 file(s) 22,782 bytes
+17 file(s) 31,969 bytes
+17 file(s) 381,901 bytes
+17 file(s) 68,287 bytes
+17 file(s) 70,022 bytes
+17 file(s) 708,088 bytes
+17 file(s) 73,701,242 bytes
+17 file(s) 73,822,450 bytes
+17 file(s) 79,323 bytes
+17 file(s) 82,660,732 bytes
+17 file(s) 94,559 bytes
+17 file(s) 966,656 bytes
+17 file(s) found
+17 films?
+17 FLASH'S THEME REPRISE(VICTORY
+17 flying pickets -
+17 fof OS/2 3.0
+17 foreign shore.mp3
+17 Frankie Howerd Radio
+17 Freddie Notes And
+17 From Russia with
+17 funky pusher.mp3 3,334,791
+17 Gang Starr_Jazz Thing.mp3.mp3
+17 German TV Chanels.
+17 Get it on
+17 Gladiators - Looks
+17 Global Explorer
+17 Gotcha.mp3 4,352,000 16/07/2001
+17 GRIMEY.mp3
+17 Groove Armada Feat.
+17 H000224.ZIP v2.1 AUTO
+17 H000227.ZIP v1.2 SYSTRAK
+17 H000337.ZIP v3.0 BAR
+17 H000413.ZIP vJul96 BUSINESS
+17 H000696.ZIP v2.20 SUPERSTOCK
+17 H001079.ZIP v6.0 VEHICLE
+17 H003611.ZIP v4.1 FAR
+17 H004289.ZIP v1.0 SYSTEM
+17 H004753.ZIP v1.0c POWERFLEET
+17 H004990.ZIP v15c ICP
+17 H005819.ZIP v1.41 COMPUTER
+17 H006675.ZIP v2.5t WHAT
+17 H007378.ZIP v7.39 INVENTORY
+17 H007408A.ZIP v2.1 SOFTWARE
+17 H007408B.ZIP v2.1 SOFTWARE
+17 H008165.ZIP v1.00 COMPUTER
+17 H008219.ZIP v1.3 EASY
+17 H008265.ZIP v5.62 RETAIL
+17 H008526.ZIP v1.20 TRACKEQUIP
+17 H008657.ZIP v15 PICS
+17 H008670A.ZIP v3.0d SMARTTRACKER
+17 H008670B.ZIP v3.0d SMARTTRACKER
+17 H008671A.ZIP v3.0d SMARTTRACKER
+17 H008671B.ZIP v3.0d SMARTTRACKER
+17 H008711.ZIP MAINTENANCE PLANNING
+17 H009291A.ZIP v4.0 BAR
+17 H009291B.ZIP v4.0 BAR
+17 H009809.ZIP v1.1 FINANCIAL
+17 H009861.ZIP v2.00 FLEET
+17 Have a nice
+17 Headstart for hapiness.mp3
+17 Heatwave-Too hot to
+17 Hoovers and horns.mp3
+17 How soon is
+17 I Could Never
+17 I got that
+17 I just wanna
+17 I saved the
+17 Imajica_Sol.mp3
+17 in
+17 IN ALL! -NEW
+17 in September, and
+17 Inner laugh.mp3 5,113,856
+17 International Jet Set
+17 Ive got you
+17 James Bond -
+17 Jan 94, you
+17 jive bunny -
+17 Juillet 1993, gerard
+17 Jul 1991
+17 Jul 82 -
+17 Jul 93 14:53:00,
+17 Jul 93 Andy
+17 Jul 93 Tony
+17 Jul 93 you
+17 Jul 97 with
+17 July Revolution Day,
+17 Jun 09:23:04
+17 Jun 09:23:46
+17 Jun 09:24:14
+17 Jun 09:24:42
+17 Jun 09:25:11
+17 Jun 09:25:39
+17 Jun 09:26:07
+17 Jun 09:26:35
+17 Jun 93 Sean
+17 Jun 93 you
+17 Jun 93, Philip
+17 June *Info*
+17 June 1994,
+17 Kim Wilde-The Singles
+17 Komodo.mp3 3,106,816 09/07/2001
+17 Kung Fu Fighting
+17 La bomba.mp3 4,241,763
+17 languages and has
+17 Let the beat
+17 Lost Witness_Red Sun
+17 Love Is Strange.mp3
+17 LOVE TO HATE
+17 Lying to myself.mp3
+17 Lyn Tait and
+17 MacComCenter support files
+17 mags_17.ar
+17 Main Source_Live At
+17 Make sure the
+17 Mar 1998
+17 May
+17 May 80 -
+17 May 86 -
+17 MB
+17 meg eu203
+17 MEG EU213
+17 Meja_All Bout The
+17 micro-machines clone
+17 MIDIs mapped
+17 MODEM 10 0.3%
+17 MODEM 10 21
+17 MODEM 14 0.4%
+17 MODEM 14 0.6%
+17 MODEM 17 0.3%
+17 MODEM 21 24
+17 MODEM 23 0.7%
+17 MODEM 24 0.5%
+17 MODEM 32 0.5%
+17 MODEM 324 0.1%
+17 MODEM 349 0.1%
+17 MODEM 4 0.3%
+17 MODEM 47 71
+17 MODEM 7 0.2%
+17 MODEM 9 0.2%
+17 mono images from
+17 months is a
+17 months means YOU'RE
+17 MOONING..LOUIS ST LOUISE
+17 Motherless ft. Portishead
+17 musical youth -
+17 N001598.ZIP v2.15+ TINY
+17 N002070.ZIP v3.04 STARBURST
+17 N002690.ZIP v3.0a PC
+17 N002980.ZIP v2.1A SLOG-1
+17 N003770.ZIP v5.0 DIMANAGE
+17 N003934.ZIP v1.4 HARDWARE/SOFTWARE
+17 N004475.ZIP v4.2 SOFTWARE
+17 N004702.ZIP v3.0 PM
+17 N004823.ZIP v4.3 HARDWARE
+17 N008184.ZIP v2.03 BASIC
+17 N008843.ZIP v3.50 SOFTWARE
+17 Nat King Cole
+17 Nazareth - The
+17 Never enough.mp3 4,631,510
+17 Never too much.mp3
+17 New sounds to
+17 Night in my
+17 NO QUESTIONS ASKED
+17 NOT FADE AWAY
+17 NOV 1996
+17 Now 33
+17 Nu Generation_In Your
+17 Oct 1971, Golden
+17 Oct 1993 16:04:22
+17 Oct 1993 22:49:16
+17 Oct 81 -
+17 Oct 87 -
+17 Oct 93 08:54:24
+17 Oct 93 10:17:03...?
+17 Oct 93 Granville
+17 Oct 93 I
+17 Oct 93 Jason
+17 Oct 93 Peter
+17 Oct 93 you
+17 of 17.
+17 of 18. (Last
+17 of DOOMs sounds.
+17 official stations, and
+17 On and on.mp3
+17 on Sept 9th.
+17 On the quayside
+17 On the quayside.mp3
+17 One Vision.mp3
+17 or 18 (I'm
+17 or 18 I
+17 or 18? Maybe
+17 or 26."
+17 OrinocoFlow.mp3 4,259,004 14/12/1999
+17 Otis Reading -Fa
+17 OUR LOVE
+17 P o s
+17 PADDY McMARTHY (INSTRUMENTAL)
+17 pages; AF 18
+17 Paid in full.mp3
+17 Party political speech
+17 Party political speech.mp3
+17 Pat Kelly -
+17 Perfect bliss.mp3 4,347,297
+17 Pixies - Where
+17 Playa soul.mp3 9,413,485
+17 players per
+17 PORKY PIG'S HAUNTED
+17 pounds 50 pence
+17 Primal Scream -
+17 Q 16 P
+17 QUEEN + BOWIE
+17 quid each.
+17 Real McCoy -
+17 reports, on-line
+17 reports, on-line help;
+17 RESUE ME
+17 robson & jerome
+17 Rumour has it.mp3
+17 Running from love.mp3
+17 Sally Simpson.mp3 4,811,755
+17 Sam Small's party
+17 Sam Small's party.mp3
+17 Save Game Fix
+17 Saviour's Day -
+17 Say your prayers.mp3
+17 SCHIZOPHONIC - Geri
+17 seconds
+17 Seconds With Cliff
+17 sectors per track;
+17 sectors.
+17 seemed to follow
+17 Send Me The
+17 Sep
+17 Sep 1993 |
+17 Sep 92, big
+17 Sep 92, Tim
+17 Sep 93 00:06,
+17 Sep 93 01:11:03,
+17 Sep 93 07:44:22,Bret
+17 Sep 93 08:23:06
+17 Sep 93 13:19,
+17 Sep 93 17:16:58
+17 Sep 93 20:05,
+17 Sep 93 you
+17 Sep 93, Adam
+17 Sep 93, FastEcho/386
+17 Sep 93, Jon
+17 Sep 93, Tom
+17 Sep 93:
+17 Separated.mp3 5,287,936 09/07/2001
+17 September 1993
+17 September 1993 09:00,
+17 September 1993, schreef
+17 Servers! - Unlimited
+17 short .WAV files
+17 Should We Tell
+17 showing
+17 showing 100% kills
+17 Silence.mp3 4,577,280 09/07/2001
+17 Sinitta_Use Me Up.mp3
+17 Sly & the
+17 so there must
+17 So what if
+17 Song for life.mp3
+17 songs and plays
+17 Space-Tin Planet\02 -
+17 Springwater-I will return
+17 spt.
+17 standard, Fax function
+17 stars in your
+17 station LAN was
+17 STREETFIGHTER PUZZLE II
+17 Sunrise.mp3 7,024,640 09/07/2001
+17 Sunset.mp3 5,599,608 01/10/2001
+17 Super Trainer
+17 Symphony.mp3 3,368,751 01/10/2001
+17 synths. These include
+17 Tamlins - Baltimore.mp3
+17 Tammy Jones-Let me
+17 texture photos in
+17 The Beat Goes
+17 The blood.mp3 5,495,118
+17 The call.mp3 4,085,551
+17 The Chemical Brothers-Set..
+17 The Commitments -
+17 The Dreem Teem
+17 The Flame.mp3
+17 The Impossible Dream
+17 the jam -
+17 THE LONG RUN
+17 THE MISEDUCATION OF
+17 The nearly man
+17 The proffessional.mp3 2,316,288
+17 THE RAINBOW.mp3
+17 The Real Thing
+17 Then I Kissed
+17 They're Red Hot
+17 Thinking it over
+17 TO 0 STEP
+17 to buy one,
+17 Tom Jones And
+17 track CD's are
+17 tracks in playlist,
+17 tracks.
+17 Trainer [Ox/O1]
+17 TRAP SHOOTING PRO
+17 TV & Radio.
+17 u need love.mp3
+17 umek & valentino,recycled
+17 Uniques - My
+17 unit functions cover
+17 variable properties from
+17 Veracocha_Carte Blanche.mp3
+17 WE ARE THE
+17 We Don't Talk
+17 WE LOVE YOU(12INCH
+17 We re almost
+17 West Side Story_Tonight
+17 WHAM - I'M
+17 What A Fool
+17 which is running
+17 Why THE SPECIALS
+17 Wild wood.mp3 4,036,440
+17 without parental permission
+17 x 11 in
+17 year old boy
+17 year old elsewhere?
+17 YEARS FROM NOW
+17 years old. He
+17 years old. I'm
+17 YEARS PASSED DRIVING
+17 years.
+17 years...
+17 You'll Never Walk
+17 you're only human.mp3
+17 you all dat.mp3
+17 You can't turn

@@ -201,12 +201,12 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; https://www.google.co.uk/search?num=30&rlz=1C1SKPL_enGB417&q=get+title+of+winamp+in+autohotkey&oq=get+title+of+winamp+in+autohotkey&gs_l=serp.3...143925.145829.0.147106.4.3.0.0.0.0.444.444.4-1.1.0....0...1c.1.64.serp..4.0.0.FkTgqQ9AAmg
 ;---------------------------------------------------------
 
-#Persistent
+; #Persistent  ; TEMP MOVE LINE OUT WAY SO DON'T RUN
 DetectHiddenWindows, On
-SoundBeep , 1500 , 400
 
 Saved_WINAMP_Title=
 setTimer WinampTitle_SUB,100
+
 return
 
 WinampTitle_SUB:

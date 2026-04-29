@@ -1,0 +1,36 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+555 05/06/98 0:00 BLANKER.VBP
+555 06/06/99 18:44 SKEETA2.PCX
+555 06/12/01 22:30 M0SDJ66K.GIF
+555 22 82;
+555 23/04/99 22:22 epidde08.cf_
+555 28/12/01 22:40 MP3LIST.BAS
+555 29/12/99 22:24 208.htm
+555 82 82;
+555 94 44;
+555 HTM 704 29/12/99
+555 HTM 728 11/02/00
+555 oscillator designer (.BAS
+555 oscillator designer *Info*
+555 oscillator running at
+555 systems.
+555 timer
+555 timer. Educators and
+555 timers and more.
+555 timers, so when
+555 timers, unijunctions, puts,
+555 TXT 166 12/08/02

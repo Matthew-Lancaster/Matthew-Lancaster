@@ -1,0 +1,382 @@
+01 --- Wed-06-06-1906->>-Last '6 or 66' 666 On a Full Moon at: 21:11:35
+02 --- Wed-06-06-2001->>-Last 666 On a Full Moon at: 01:40:32
+03 --- Sun-13-04-2014---- Last -- Good Friday, On Friday the 13th ---- @ Sun-13-Apr-2014
+04 --- Thu-01-02-2018---- Last -- Black Moon ---- @ Thu-01-Feb-2018 12:00:00a --- No Full Moon in Feb
+05 --- Sat-31-03-2018---- Last -- Calendar Blue Moon ---- @ Sat-31-Mar-2018 12:38:01p --- 2nd Full Moon in Month
+06 --- Sat-22-12-2018---- Last -- Real Blue Moon ---- @ Sat-22-Dec-2018 05:49:48p --- 13 Full Moons in Year
+07 --- Wed-05-06-2019---- Last -- Event:- World Environment Day ---- @ Wed-05-Jun-2019
+08 --- Thu-06-06-2019---- Last -- Event:- D-Day WWII ---- @ Thu-06-Jun-2019
+09 --- Mon-10-06-2019---- Last -- Event:- Birthday Sahara Ware ---- @ Mon-10-Jun-2019
+10 --- Tue-11-06-2019---- Last -- Event:- St Barnabas ---- @ Tue-11-Jun-2019
+11 --- Mon-17-06-2019---- Last Earliest Sunrise Summer  04:45:11a
+12 --- Thu-20-06-2019---- Last -- Event:- United Nations World Refugee Day ---- @ Thu-20-Jun-2019
+13 --- Fri-21-06-2019---- Last -- Longest Day ---- @ Fri-21-Jun-2019
+14 --- Fri-21-06-2019---- Last -- Mid Summers Day (made famous by William Shakespeare) ---- @ Fri-21-Jun-2019
+15 --- Fri-21-06-2019---- Last -- Summer Solstice ---- @ Fri-21-Jun-2019
+16 --- Sat-22-06-2019---- Last -- Event:- 4th Sign Cancer Jun22 Jul22 Water Sign Ruled by Moon: The Crab ---- @ Sat-22-Jun-2019
+17 --- Sun-23-06-2019---- Last -- Event:- Father's Day ---- @ Sun-23-Jun-2019
+18 --- Mon-24-06-2019---- Last -- Event:- Midsummer Day, celebrated in Europe. ---- @ Mon-24-Jun-2019
+19 --- Mon-24-06-2019---- Last -- Event:- St John the Baptist ---- @ Mon-24-Jun-2019
+20 --- Tue-25-06-2019---- Last Latest Sunset Summer  09:16:54p
+21 --- Sat-29-06-2019---- Last -- Event:- St Peter St Paul ---- @ Sat-29-Jun-2019
+22 --- Mon-01-07-2019---- Last -- -- 3rd Quarter Of Year -- ---- @ Mon-01-Jul-2019
+23 --- Mon-01-07-2019---- Last -- Event:- Canada Day ---- @ Mon-01-Jul-2019
+24 --- Mon-01-07-2019---- Last -- Event:- Tour de France bicycle race ---- @ Mon-01-Jul-2019
+25 --- Wed-03-07-2019---- Last -- Event:- St. Thomas' Day ---- @ Wed-03-Jul-2019
+26 --- Thu-04-07-2019---- Last -- Event:- US Independence Day ---- @ Thu-04-Jul-2019
+27 --- Thu-11-07-2019---- Last -- Event:- World Population Day ---- @ Thu-11-Jul-2019
+28 --- Sun-14-07-2019---- Last -- Event:- French Bastille Day ---- @ Sun-14-Jul-2019
+29 --- Mon-15-07-2019---- Last -- Event:- St Swithin ---- @ Mon-15-Jul-2019
+30 --- Mon-22-07-2019---- Last -- Event:- St Mary Magdalene ---- @ Mon-22-Jul-2019
+31 --- Tue-23-07-2019---- Last -- Event:- 5th Sign Leo Jul23 Aug22 Fire Sign Ruled by Sun: The Lion ---- @ Tue-23-Jul-2019
+32 --- Thu-25-07-2019---- Last -- Event:- St James ---- @ Thu-25-Jul-2019
+33 --- Thu-01-08-2019---- Last -- Event:- World Wide Web Anniversary ---- @ Thu-01-Aug-2019
+34 --- Tue-06-08-2019---- Last -- Event:- Transfiguration ---- @ Tue-06-Aug-2019
+35 --- Mon-12-08-2019---- Last -- Event:- International Youth Day ---- @ Mon-12-Aug-2019
+36 --- Tue-13-08-2019---- Last -- Event:- International Left-handers Day ---- @ Tue-13-Aug-2019
+37 --- Wed-14-08-2019---- Last -- Event:- Pakistan Independence Day ---- @ Wed-14-Aug-2019
+38 --- Thu-15-08-2019---- Last -- Event:- Assumption of Mary ---- @ Thu-15-Aug-2019
+39 --- Thu-15-08-2019---- Last -- Event:- Indian Independence Day ---- @ Thu-15-Aug-2019
+40 --- Mon-19-08-2019---- Last -- Event:- Aviation Day ---- @ Mon-19-Aug-2019
+41 --- Fri-23-08-2019---- Last -- Event:- 6th Sign Virgo Aug23 Sep22 Earth Sign Ruled by Mercury: The Virgin ---- @ Fri-23-Aug-2019
+42 --- Mon-26-08-2019---- Last -- Event:- Late Summer Holiday ---- @ Mon-26-Aug-2019
+43 --- Sat-31-08-2019---- Last -- Event:- BlogDay ---- @ Sat-31-Aug-2019
+44 --- Sat-31-08-2019---- Last -- Event:- Malaysia Independence Day ---- @ Sat-31-Aug-2019
+45 --- Sat-07-09-2019---- Last -- Event:- Birthday Tracy Johnson ---- @ Sat-07-Sep-2019
+46 --- Sat-07-09-2019---- Last -- Event:- Brazilian Independence Day ---- @ Sat-07-Sep-2019
+47 --- Sun-08-09-2019---- Last -- Event:- Blessed Virgin Mary ---- @ Sun-08-Sep-2019
+48 --- Sun-08-09-2019---- Last -- Event:- International Literacy Day ---- @ Sun-08-Sep-2019
+49 --- Tue-10-09-2019---- Last -- Event:- Birthday Colleen Davies ---- @ Tue-10-Sep-2019
+50 --- Sat-14-09-2019---- Last -- Harvest Moon - Full Moon Closest to the Autumnal Equinox ---- @ 14-09-2019 - 05:34:05
+51 --- Sun-15-09-2019---- Last -- Event:- International Day of Democracy ---- @ Sun-15-Sep-2019
+52 --- Thu-19-09-2019---- Last -- Event:- International Talk Like A Pirate Day ---- @ Thu-19-Sep-2019
+53 --- Sat-21-09-2019---- Last -- Event:- International Day of Peace 1981 ---- @ Sat-21-Sep-2019
+54 --- Sat-21-09-2019---- Last -- Event:- St Matthew ---- @ Sat-21-Sep-2019
+55 --- Sun-22-09-2019---- Last -- Autumnal Equinox ---- @ Sun-22-Sep-2019
+56 --- Sun-22-09-2019---- Last -- Event:- Autumn Begins Diary Book ---- @ Sun-22-Sep-2019
+57 --- Mon-23-09-2019---- Last -- Event:- 7th Sign Libra Sep23 Oct22 Air Sign Ruled by Venus: The Balance ---- @ Mon-23-Sep-2019
+58 --- Thu-26-09-2019---- Last -- Event:- European Day of Languages ---- @ Thu-26-Sep-2019
+59 --- Fri-27-09-2019---- Last -- Event:- International Tourism Day ---- @ Fri-27-Sep-2019
+60 --- Sat-28-09-2019---- Last -- Event:- Grand Parents Day ---- @ Sat-28-Sep-2019
+61 --- Sun-29-09-2019---- Last -- Event:- Scotland Yard Anniversary ---- @ Sun-29-Sep-2019
+62 --- Sun-29-09-2019---- Last -- Event:- St Micheal ---- @ Sun-29-Sep-2019
+63 --- Mon-30-09-2019---- Last -- Event:- International Spelling Day ---- @ Mon-30-Sep-2019
+64 --- Mon-30-09-2019---- Last -- Event:- Jewish New Year ---- @ Mon-30-Sep-2019
+65 --- Tue-01-10-2019---- Last -- -- 4th Quarter Of Year -- ---- @ Tue-01-Oct-2019
+66 --- Tue-01-10-2019---- Last -- Event:- Start of Season Autumn Oct to Nov -- Amature Stuff ---- @ Tue-01-Oct-2019
+67 --- Thu-03-10-2019---- Last -- Event:- Reunification Day in Germany ---- @ Thu-03-Oct-2019
+68 --- Sat-05-10-2019---- Last -- Event:- World Teachers' Day ---- @ Sat-05-Oct-2019
+69 --- Wed-09-10-2019---- Last -- Event:- Jewish day of Atonement ---- @ Wed-09-Oct-2019
+70 --- Wed-09-10-2019---- Last -- Event:- John Lennon's birthday ---- @ Wed-09-Oct-2019
+71 --- Thu-10-10-2019---- Last -- Event:- World mental Health Day ---- @ Thu-10-Oct-2019
+72 --- Sat-12-10-2019---- Last -- Event:- Columbus day ---- @ Sat-12-Oct-2019
+73 --- Sun-13-10-2019---- Last -- Event:- St. Edward the confessor's day ---- @ Sun-13-Oct-2019
+74 --- Wed-16-10-2019---- Last -- Event:- World Food Day ---- @ Wed-16-Oct-2019
+75 --- Fri-18-10-2019---- Last -- Event:- St Luke ---- @ Fri-18-Oct-2019
+76 --- Wed-23-10-2019---- Last -- Event:- 8th Sign Scorpio Oct23 Nov21 Water Sign Ruled by Pluto: The Scorpion ---- @ Wed-23-Oct-2019
+77 --- Thu-24-10-2019---- Last -- Event:- United Nations Day ---- @ Thu-24-Oct-2019
+78 --- Mon-28-10-2019---- Last -- Armistice Day Forerunner for Veterans Day ---- @ Mon-28-Oct-2019
+79 --- Mon-28-10-2019---- Last -- Event:- St Simon and St Jude ---- @ Mon-28-Oct-2019
+80 --- Tue-29-10-2019---- Last -- Event:- Internet First Created - 1969 ---- @ Tue-29-Oct-2019
+81 --- Thu-31-10-2019---- Last -- Event:- Clocks Rewind 1 Hours GMT - A Chunk Of Time DisAppears -- OverLapp ---- @ Thu-31-Oct-2019
+82 --- Thu-31-10-2019---- Last -- Event:- Halloween ---- @ Thu-31-Oct-2019
+83 --- Thu-31-10-2019---- Last -- Event:- Hallowwe'en ---- @ Thu-31-Oct-2019
+84 --- Fri-01-11-2019---- Last -- Event:- All Saints' Day ---- @ Fri-01-Nov-2019
+85 --- Tue-05-11-2019---- Last -- Event:- Birthday Damo YEAR %%% ---- @ Tue-05-Nov-2019
+86 --- Tue-05-11-2019---- Last -- Event:- Bonfire Night ---- @ Tue-05-Nov-2019
+87 --- Tue-05-11-2019---- Last -- Event:- Guy Falwks Night ---- @ Tue-05-Nov-2019
+88 --- Tue-05-11-2019---- Last -- Event:- Remember Remember 5th November Guy Fawkes FireWorks Night ---- @ Tue-05-Nov-2019
+89 --- Thu-07-11-2019---- Last -- Event:- Marie Curie's birth 1867 ---- @ Thu-07-Nov-2019
+90 --- Sun-10-11-2019---- Last -- Rememberance Sunday Veterans Day ---- @ Sun-10-Nov-2019
+91 --- Mon-11-11-2019---- Last -- Event:- Remembrance Day ---- @ Mon-11-Nov-2019
+92 --- Mon-11-11-2019---- Last -- Rememberance Veterans Day 11th Day 11th Hour ---- @ Mon-11-Nov-2019
+93 --- Wed-13-11-2019---- Last -- Event:- Birthday Debbie Macindeor Was French ---- @ Wed-13-Nov-2019
+94 --- Sat-16-11-2019---- Last -- Event:- International Day for Tolerance ---- @ Sat-16-Nov-2019
+95 --- Sun-17-11-2019---- Last -- Event:- World Peace Day ---- @ Sun-17-Nov-2019
+96 --- Wed-20-11-2019---- Last -- Event:- Universal Childrens Day - UN ---- @ Wed-20-Nov-2019
+97 --- Fri-22-11-2019---- Last -- Event:- 9th Sign Sagittarius Nov22 Dec21 Fire Sign Ruled by Jupiter: The Archer ---- @ Fri-22-Nov-2019
+98 --- Fri-22-11-2019---- Last -- Event:- JF Kennedy assassinated 1963 ---- @ Fri-22-Nov-2019
+99 --- Thu-28-11-2019---- Last -- US Thanksgiving Day - Fourth Thurs in Month Nov ---- @ Thu-28-Nov-2019
+100 --- Fri-29-11-2019---- Last -- Buy Nothing Day in US - Day after Thanksgiving. ---- @ Fri-29-Nov-2019
+101 --- Sat-30-11-2019---- Last -- Event:- St Andrew's Day, Scotland ---- @ Sat-30-Nov-2019
+102 --- Sun-01-12-2019---- Last -- Event:- First Sunday In Advent ---- @ Sun-01-Dec-2019
+103 --- Sun-01-12-2019---- Last -- Event:- Start of Season Winter Dec to Feb -- Amature Stuff ---- @ Sun-01-Dec-2019
+104 --- Sun-01-12-2019---- Last -- Event:- Tolerance Week - 1st week of Dec. ---- @ Sun-01-Dec-2019
+105 --- Sun-01-12-2019---- Last -- Event:- World Aids Day ---- @ Sun-01-Dec-2019
+106 --- Fri-06-12-2019---- Last -- Event:- Birthday Michele CORBET Openshaw ---- @ Fri-06-Dec-2019
+107 --- Sat-07-12-2019---- Last -- Event:- PAUL NICKLEN BIRTHDAY FAMILY ---- @ Sat-07-Dec-2019
+108 --- Sat-07-12-2019---- Last -- Event:- Pearl Harbour Day ---- @ Sat-07-Dec-2019
+109 --- Tue-10-12-2019---- Last -- Event:- Human Rights Day, a United Nations observance. ---- @ Tue-10-Dec-2019
+110 --- Thu-12-12-2019---- Last Earliest Sunset Winter  04:53:29p
+111 --- Sat-21-12-2019---- Last -- Event:- Winter Solstice (& June 21st) ---- @ Sat-21-Dec-2019
+112 --- Sun-22-12-2019---- Last -- Event:- 10th Sign Capricorn Dec22 Jan19 Earth Sign Ruled by Satun: The Goat ---- @ Sun-22-Dec-2019
+113 --- Sun-22-12-2019---- Last -- Shortest Day ---- @ Sun-22-Dec-2019
+114 --- Sun-22-12-2019---- Last -- Winter Solstice ---- @ Sun-22-Dec-2019
+115 --- Tue-24-12-2019---- Last -- Event:- Birthday Slick Willy Dee@gmail ---- @ Tue-24-Dec-2019
+116 --- Tue-24-12-2019---- Last -- Event:- Christmas Eve ---- @ Tue-24-Dec-2019
+117 --- Wed-25-12-2019---- Last -- Event:- Christmas day ---- @ Wed-25-Dec-2019
+118 --- Thu-26-12-2019---- Last -- Event:- Kwanzaa ---- @ Thu-26-Dec-2019
+119 --- Thu-26-12-2019---- Last -- Event:- St. Stephen's Day ---- @ Thu-26-Dec-2019
+120 --- Thu-26-12-2019---- Last # Solar Eclipse -Annular 26-12-2019 05:14:00a GMT
+121 --- Tue-31-12-2019---- Last -- Event:- New Year's Eve ---- @ Tue-31-Dec-2019
+122 --- Tue-31-12-2019---- Last Latest Sunrise Winter  09:01:39a
+123 --- Wed-01-01-2020---- Last -- -- 1st Quarter Of Year -- ---- @ Wed-01-Jan-2020
+124 --- Wed-01-01-2020---- Last -- Event:- Circumcision ---- @ Wed-01-Jan-2020
+125 --- Wed-01-01-2020---- Last -- Event:- New Years Day ---- @ Wed-01-Jan-2020
+126 --- Wed-01-01-2020---- Last -- Event:- New Year's Day ---- @ Wed-01-Jan-2020
+127 --- Mon-06-01-2020---- Last -- Event:- Epiphany ---- @ Mon-06-Jan-2020
+128 --- Mon-06-01-2020---- Last -- Event:- Three King's Day ---- @ Mon-06-Jan-2020
+129 --- Tue-07-01-2020---- Last -- Event:- Coptic Christian Christmas ---- @ Tue-07-Jan-2020
+130 --- Wed-08-01-2020---- Last -- Event:- Elvis Presley's official Birthday ---- @ Wed-08-Jan-2020
+131 --- Fri-10-01-2020---- Last # Lunar Eclipse -Penumbral 10-01-2020 07:22:00p GMT
+132 --- Mon-20-01-2020---- Last -- Event:- 11th Sign Aquarius Jan20 Feb18 Air Sign Ruled by Uranus: The Water Bearer ---- @ Mon-20-Jan-2020
+133 --- Mon-20-01-2020---- Last -- Event:- Reindeer Day ---- @ Mon-20-Jan-2020
+134 --- Sat-25-01-2020---- Last -- Event:- Converstion of St Paul ---- @ Sat-25-Jan-2020
+135 --- Sat-25-01-2020---- Last -- Event:- Robert Burns' Day - Scotland's national poet ---- @ Sat-25-Jan-2020
+136 --- Sat-25-01-2020---- Last -- Event:- The Start of the Chinese New Year. ---- @ Sat-25-Jan-2020
+137 --- Sun-26-01-2020---- Last -- Event:- Australia Day ---- @ Sun-26-Jan-2020
+138 --- Sun-26-01-2020---- Last -- Event:- Indian Republic Day ---- @ Sun-26-Jan-2020
+139 --- Sun-02-02-2020---- Last -- Event:- Groundhog Day ---- @ Sun-02-Feb-2020
+140 --- Thu-06-02-2020---- Last -- Event:- Waitangi Day - New Zealand ---- @ Thu-06-Feb-2020
+141 --- Fri-14-02-2020---- Last -- Event:- St Valentine ---- @ Fri-14-Feb-2020
+142 --- Fri-14-02-2020---- Last -- Event:- St Valentine's Day ---- @ Fri-14-Feb-2020
+143 --- Wed-19-02-2020---- Last -- Event:- 12th Sign Pisces Feb19 Mar20 Water Sign Ruled by Neptune: The fish ---- @ Wed-19-Feb-2020
+144 --- Fri-21-02-2020---- Last -- Event:- International Mother Language Day ---- @ Fri-21-Feb-2020
+145 --- Mon-24-02-2020---- Last -- Event:- St Matthias ---- @ Mon-24-Feb-2020
+146 --- Sun-01-03-2020---- Last -- Event:- St. David's Day - Wales ---- @ Sun-01-Mar-2020
+147 --- Sun-01-03-2020---- Last -- Event:- Start of Season Spring Mar to May  -- Amature Stuff ---- @ Sun-01-Mar-2020
+148 --- Mon-02-03-2020---- Last -- Event:- World Book Day ---- @ Mon-02-Mar-2020
+149 --- Sun-08-03-2020---- Last -- Event:- International Women's Day ---- @ Sun-08-Mar-2020
+150 --- Mon-09-03-2020---- Last -- Event:- International Womens Day ---- @ Mon-09-Mar-2020
+151 --- Tue-10-03-2020---- Last -- Event:- United Kingdom Commonwealth Day ---- @ Tue-10-Mar-2020
+152 --- Fri-13-03-2020---- Last -- Friday The 13th ---- @ Fri-13-Mar-2020
+153 --- Wed-18-03-2020---- Last -- Event:- St. Edward the martyr Feast day ---- @ Wed-18-Mar-2020
+154 --- Thu-19-03-2020---- Last -- Event:- St Joseph ---- @ Thu-19-Mar-2020
+155 --- Fri-20-03-2020---- Last -- Event:- Spring Begins Diary Book ---- @ Fri-20-Mar-2020
+156 --- Fri-20-03-2020---- Last -- Vernal Equinox ---- @ Fri-20-Mar-2020
+157 --- Sat-21-03-2020---- Last -- Event:- 1st Sign Aries Mar21 Apr19 Fire Sign Ruled by Mars: The Ram ---- @ Sat-21-Mar-2020
+158 --- Sun-22-03-2020---- Last -- Event:- World Water Day ---- @ Sun-22-Mar-2020
+159 --- Wed-25-03-2020---- Last -- Event:- Annuciation ---- @ Wed-25-Mar-2020
+160 --- Thu-26-03-2020---- Last -- Event:- Independence Day of Bangladesh ---- @ Thu-26-Mar-2020
+161 --- Fri-27-03-2020---- Last -- Event:- World Theatre Day ---- @ Fri-27-Mar-2020
+162 --- Sun-29-03-2020---- Last -- British Summer Time Begins - BST ---- @ Sun-29-Mar-2020
+163 --- Mon-30-03-2020---- Last -- Event:- Clocks Go Forward 1 Hours BST - We Get a Hour Rest ---- @ Mon-30-Mar-2020
+164 --- Wed-01-04-2020---- Last -- -- 2nd Quarter Of Year -- ---- @ Wed-01-Apr-2020
+165 --- Wed-01-04-2020---- Last -- Event:- April Fool's Day ---- @ Wed-01-Apr-2020
+166 --- Thu-02-04-2020---- Last -- Event:- International Children's Book Day ---- @ Thu-02-Apr-2020
+167 --- Tue-07-04-2020---- Last -- Event:- World Health Day ---- @ Tue-07-Apr-2020
+168 --- Tue-14-04-2020---- Last -- Event:- Anniversary of Titanic sinking ---- @ Tue-14-Apr-2020
+169 --- Sat-18-04-2020---- Last -- Event:- Record Store Day - UK ---- @ Sat-18-Apr-2020
+170 --- Sun-19-04-2020---- Last -- Event:- Patriot's Day ---- @ Sun-19-Apr-2020
+171 --- Mon-20-04-2020---- Last -- Event:- 2nd Sign Taurus Apr20 May20 Earth Sign Ruled by Venus: The bull ---- @ Mon-20-Apr-2020
+172 --- Mon-20-04-2020---- Last -- Event:- Jewish Passover ---- @ Mon-20-Apr-2020
+173 --- Wed-22-04-2020---- Last -- Event:- Earth Day ---- @ Wed-22-Apr-2020
+174 --- Thu-23-04-2020---- Last -- Event:- St George Day - Grandad Birthday ---- @ Thu-23-Apr-2020
+175 --- Sat-25-04-2020---- Last -- Event:- International Noise Awareness Day ---- @ Sat-25-Apr-2020
+176 --- Sat-25-04-2020---- Last -- Event:- The Feast of St. Mark ---- @ Sat-25-Apr-2020
+177 --- Sun-26-04-2020---- Last -- Event:- John Vousden Sister's Husband ---- @ Sun-26-Apr-2020
+178 --- Sun-26-04-2020---- Last -- Event:- London Marathon Last Sunday In April ---- @ Sun-26-Apr-2020
+179 --- Fri-01-05-2020---- Last -- Event:- May Day - Labour Day ---- @ Fri-01-May-2020
+180 --- Fri-01-05-2020---- Last -- Event:- St Philip and St James ---- @ Fri-01-May-2020
+181 --- Tue-05-05-2020---- Last -- Event:- Cinco de Mayo - Mexico ---- @ Tue-05-May-2020
+182 --- Fri-08-05-2020---- Last -- Event:- World Red Cross Day ---- @ Fri-08-May-2020
+183 --- Tue-12-05-2020---- Last -- Event:- Limerick Day - Birthday of Edward Lear ---- @ Tue-12-May-2020
+184 --- Mon-18-05-2020---- Last -- Event:- International Museum Day ---- @ Mon-18-May-2020
+185 --- Thu-21-05-2020---- Last -- Event:- 3rd Sign Gemini May21 Jun21 Air Sign Ruled by Mercury: The twins ---- @ Thu-21-May-2020
+186 --- Sun-24-05-2020---- Last -- Event:- Victoria Day - Canada ---- @ Sun-24-May-2020
+187 --- Sun-31-05-2020---- Last -- Event:- Birthday Paul Brown ---- @ Sun-31-May-2020
+188 --- Mon-01-06-2020---- Last -- Event:- Start of Season Summer Jun to Sep -- Amature Stuff ---- @ Mon-01-Jun-2020
+189 --- Mon-01-06-2020---- Last -- Event:- Wimbledon begins ---- @ Mon-01-Jun-2020
+
+#---- Last to Next ----Mon 01-Jun-20
+
+01 --- Fri-05-06-2020---- Next -- Event:- World Environment Day ---- @ Fri-05-Jun-2020
+02 --- Fri-05-06-2020---- Next # Lunar Eclipse -Penumbral 05-06-2020 07:11:00p GMT
+03 --- Sat-06-06-2020---- Next -- Event:- D-Day WWII ---- @ Sat-06-Jun-2020
+04 --- Wed-10-06-2020---- Next -- Event:- Birthday Sahara Ware ---- @ Wed-10-Jun-2020
+05 --- Thu-11-06-2020---- Next -- Event:- St Barnabas ---- @ Thu-11-Jun-2020
+06 --- Tue-16-06-2020---- Next Earliest Sunrise Summer  04:45:11a
+07 --- Sat-20-06-2020---- Next -- Event:- United Nations World Refugee Day ---- @ Sat-20-Jun-2020
+08 --- Sun-21-06-2020---- Next -- Event:- Father's Day ---- @ Sun-21-Jun-2020
+09 --- Sun-21-06-2020---- Next -- Longest Day ---- @ Sun-21-Jun-2020
+10 --- Sun-21-06-2020---- Next -- Mid Summers Day (made famous by William Shakespeare) ---- @ Sun-21-Jun-2020
+11 --- Sun-21-06-2020---- Next -- Summer Solstice ---- @ Sun-21-Jun-2020
+12 --- Sun-21-06-2020---- Next # Solar Eclipse -Annular 21-06-2020 06:41:00a GMT
+13 --- Mon-22-06-2020---- Next -- Event:- 4th Sign Cancer Jun22 Jul22 Water Sign Ruled by Moon: The Crab ---- @ Mon-22-Jun-2020
+14 --- Wed-24-06-2020---- Next -- Event:- Midsummer Day, celebrated in Europe. ---- @ Wed-24-Jun-2020
+15 --- Wed-24-06-2020---- Next -- Event:- St John the Baptist ---- @ Wed-24-Jun-2020
+16 --- Wed-24-06-2020---- Next Latest Sunset Summer  09:16:55p
+17 --- Mon-29-06-2020---- Next -- Event:- St Peter St Paul ---- @ Mon-29-Jun-2020
+18 --- Wed-01-07-2020---- Next -- -- 3rd Quarter Of Year -- ---- @ Wed-01-Jul-2020
+19 --- Wed-01-07-2020---- Next -- Event:- Canada Day ---- @ Wed-01-Jul-2020
+20 --- Wed-01-07-2020---- Next -- Event:- Tour de France bicycle race ---- @ Wed-01-Jul-2020
+21 --- Fri-03-07-2020---- Next -- Event:- St. Thomas' Day ---- @ Fri-03-Jul-2020
+22 --- Sat-04-07-2020---- Next -- Event:- US Independence Day ---- @ Sat-04-Jul-2020
+23 --- Sat-11-07-2020---- Next -- Event:- World Population Day ---- @ Sat-11-Jul-2020
+24 --- Tue-14-07-2020---- Next -- Event:- French Bastille Day ---- @ Tue-14-Jul-2020
+25 --- Wed-15-07-2020---- Next -- Event:- St Swithin ---- @ Wed-15-Jul-2020
+26 --- Wed-22-07-2020---- Next -- Event:- St Mary Magdalene ---- @ Wed-22-Jul-2020
+27 --- Thu-23-07-2020---- Next -- Event:- 5th Sign Leo Jul23 Aug22 Fire Sign Ruled by Sun: The Lion ---- @ Thu-23-Jul-2020
+28 --- Sat-25-07-2020---- Next -- Event:- St James ---- @ Sat-25-Jul-2020
+29 --- Sat-01-08-2020---- Next -- Event:- World Wide Web Anniversary ---- @ Sat-01-Aug-2020
+30 --- Thu-06-08-2020---- Next -- Event:- Transfiguration ---- @ Thu-06-Aug-2020
+31 --- Wed-12-08-2020---- Next -- Event:- International Youth Day ---- @ Wed-12-Aug-2020
+32 --- Thu-13-08-2020---- Next -- Event:- International Left-handers Day ---- @ Thu-13-Aug-2020
+33 --- Fri-14-08-2020---- Next -- Event:- Pakistan Independence Day ---- @ Fri-14-Aug-2020
+34 --- Sat-15-08-2020---- Next -- Event:- Assumption of Mary ---- @ Sat-15-Aug-2020
+35 --- Sat-15-08-2020---- Next -- Event:- Indian Independence Day ---- @ Sat-15-Aug-2020
+36 --- Wed-19-08-2020---- Next -- Event:- Aviation Day ---- @ Wed-19-Aug-2020
+37 --- Sun-23-08-2020---- Next -- Event:- 6th Sign Virgo Aug23 Sep22 Earth Sign Ruled by Mercury: The Virgin ---- @ Sun-23-Aug-2020
+38 --- Mon-31-08-2020---- Next -- Event:- BlogDay ---- @ Mon-31-Aug-2020
+39 --- Mon-31-08-2020---- Next -- Event:- Late Summer Holiday ---- @ Mon-31-Aug-2020
+40 --- Mon-31-08-2020---- Next -- Event:- Malaysia Independence Day ---- @ Mon-31-Aug-2020
+41 --- Wed-02-09-2020---- Next -- Harvest Moon - Full Moon Closest to the Autumnal Equinox ---- @ 02-09-2020 - 06:23:12
+42 --- Mon-07-09-2020---- Next -- Event:- Birthday Tracy Johnson ---- @ Mon-07-Sep-2020
+43 --- Mon-07-09-2020---- Next -- Event:- Brazilian Independence Day ---- @ Mon-07-Sep-2020
+44 --- Tue-08-09-2020---- Next -- Event:- Blessed Virgin Mary ---- @ Tue-08-Sep-2020
+45 --- Tue-08-09-2020---- Next -- Event:- International Literacy Day ---- @ Tue-08-Sep-2020
+46 --- Thu-10-09-2020---- Next -- Event:- Birthday Colleen Davies ---- @ Thu-10-Sep-2020
+47 --- Tue-15-09-2020---- Next -- Event:- International Day of Democracy ---- @ Tue-15-Sep-2020
+48 --- Sat-19-09-2020---- Next -- Event:- International Talk Like A Pirate Day ---- @ Sat-19-Sep-2020
+49 --- Mon-21-09-2020---- Next -- Event:- International Day of Peace 1981 ---- @ Mon-21-Sep-2020
+50 --- Mon-21-09-2020---- Next -- Event:- St Matthew ---- @ Mon-21-Sep-2020
+51 --- Tue-22-09-2020---- Next -- Autumnal Equinox ---- @ Tue-22-Sep-2020
+52 --- Tue-22-09-2020---- Next -- Event:- Autumn Begins Diary Book ---- @ Tue-22-Sep-2020
+53 --- Wed-23-09-2020---- Next -- Event:- 7th Sign Libra Sep23 Oct22 Air Sign Ruled by Venus: The Balance ---- @ Wed-23-Sep-2020
+54 --- Sat-26-09-2020---- Next -- Event:- European Day of Languages ---- @ Sat-26-Sep-2020
+55 --- Sat-26-09-2020---- Next -- Event:- Grand Parents Day ---- @ Sat-26-Sep-2020
+56 --- Sun-27-09-2020---- Next -- Event:- International Tourism Day ---- @ Sun-27-Sep-2020
+57 --- Tue-29-09-2020---- Next -- Event:- Scotland Yard Anniversary ---- @ Tue-29-Sep-2020
+58 --- Tue-29-09-2020---- Next -- Event:- St Micheal ---- @ Tue-29-Sep-2020
+59 --- Wed-30-09-2020---- Next -- Event:- International Spelling Day ---- @ Wed-30-Sep-2020
+60 --- Wed-30-09-2020---- Next -- Event:- Jewish New Year ---- @ Wed-30-Sep-2020
+61 --- Thu-01-10-2020---- Next -- -- 4th Quarter Of Year -- ---- @ Thu-01-Oct-2020
+62 --- Thu-01-10-2020---- Next -- Event:- Start of Season Autumn Oct to Nov -- Amature Stuff ---- @ Thu-01-Oct-2020
+63 --- Sat-03-10-2020---- Next -- Event:- Reunification Day in Germany ---- @ Sat-03-Oct-2020
+64 --- Mon-05-10-2020---- Next -- Event:- World Teachers' Day ---- @ Mon-05-Oct-2020
+65 --- Fri-09-10-2020---- Next -- Event:- Jewish day of Atonement ---- @ Fri-09-Oct-2020
+66 --- Fri-09-10-2020---- Next -- Event:- John Lennon's birthday ---- @ Fri-09-Oct-2020
+67 --- Sat-10-10-2020---- Next -- Event:- World mental Health Day ---- @ Sat-10-Oct-2020
+68 --- Mon-12-10-2020---- Next -- Event:- Columbus day ---- @ Mon-12-Oct-2020
+69 --- Tue-13-10-2020---- Next -- Event:- St. Edward the confessor's day ---- @ Tue-13-Oct-2020
+70 --- Fri-16-10-2020---- Next -- Event:- World Food Day ---- @ Fri-16-Oct-2020
+71 --- Sun-18-10-2020---- Next -- Event:- St Luke ---- @ Sun-18-Oct-2020
+72 --- Fri-23-10-2020---- Next -- Event:- 8th Sign Scorpio Oct23 Nov21 Water Sign Ruled by Pluto: The Scorpion ---- @ Fri-23-Oct-2020
+73 --- Sat-24-10-2020---- Next -- Event:- United Nations Day ---- @ Sat-24-Oct-2020
+74 --- Mon-26-10-2020---- Next -- Armistice Day Forerunner for Veterans Day ---- @ Mon-26-Oct-2020
+75 --- Wed-28-10-2020---- Next -- Event:- St Simon and St Jude ---- @ Wed-28-Oct-2020
+76 --- Thu-29-10-2020---- Next -- Event:- Internet First Created - 1969 ---- @ Thu-29-Oct-2020
+77 --- Sat-31-10-2020---- Next -- Calendar Blue Moon ---- @ Sat-31-Oct-2020 02:50:25p --- 2nd Full Moon in Month
+78 --- Sat-31-10-2020---- Next -- Event:- Clocks Rewind 1 Hours GMT - A Chunk Of Time DisAppears -- OverLapp ---- @ Sat-31-Oct-2020
+79 --- Sat-31-10-2020---- Next -- Event:- Halloween ---- @ Sat-31-Oct-2020
+80 --- Sat-31-10-2020---- Next -- Event:- Hallowwe'en ---- @ Sat-31-Oct-2020
+81 --- Sun-01-11-2020---- Next -- Event:- All Saints' Day ---- @ Sun-01-Nov-2020
+82 --- Thu-05-11-2020---- Next -- Event:- Birthday Damo YEAR %%% ---- @ Thu-05-Nov-2020
+83 --- Thu-05-11-2020---- Next -- Event:- Bonfire Night ---- @ Thu-05-Nov-2020
+84 --- Thu-05-11-2020---- Next -- Event:- Guy Falwks Night ---- @ Thu-05-Nov-2020
+85 --- Thu-05-11-2020---- Next -- Event:- Remember Remember 5th November Guy Fawkes FireWorks Night ---- @ Thu-05-Nov-2020
+86 --- Sat-07-11-2020---- Next -- Event:- Marie Curie's birth 1867 ---- @ Sat-07-Nov-2020
+87 --- Wed-11-11-2020---- Next -- Event:- Remembrance Day ---- @ Wed-11-Nov-2020
+88 --- Wed-11-11-2020---- Next -- Rememberance Veterans Day 11th Day 11th Hour ---- @ Wed-11-Nov-2020
+89 --- Fri-13-11-2020---- Next -- Event:- Birthday Debbie Macindeor Was French ---- @ Fri-13-Nov-2020
+90 --- Fri-13-11-2020---- Next -- Friday The 13th ---- @ Fri-13-Nov-2020
+91 --- Sun-15-11-2020---- Next -- Rememberance Sunday Veterans Day ---- @ Sun-15-Nov-2020
+92 --- Mon-16-11-2020---- Next -- Event:- International Day for Tolerance ---- @ Mon-16-Nov-2020
+93 --- Tue-17-11-2020---- Next -- Event:- World Peace Day ---- @ Tue-17-Nov-2020
+94 --- Fri-20-11-2020---- Next -- Event:- Universal Childrens Day - UN ---- @ Fri-20-Nov-2020
+95 --- Sun-22-11-2020---- Next -- Event:- 9th Sign Sagittarius Nov22 Dec21 Fire Sign Ruled by Jupiter: The Archer ---- @ Sun-22-Nov-2020
+96 --- Sun-22-11-2020---- Next -- Event:- JF Kennedy assassinated 1963 ---- @ Sun-22-Nov-2020
+97 --- Thu-26-11-2020---- Next -- US Thanksgiving Day - Fourth Thurs in Month Nov ---- @ Thu-26-Nov-2020
+98 --- Fri-27-11-2020---- Next -- Buy Nothing Day in US - Day after Thanksgiving. ---- @ Fri-27-Nov-2020
+99 --- Sun-29-11-2020---- Next -- Event:- First Sunday In Advent ---- @ Sun-29-Nov-2020
+100 --- Mon-30-11-2020---- Next -- Event:- St Andrew's Day, Scotland ---- @ Mon-30-Nov-2020
+101 --- Tue-01-12-2020---- Next -- Event:- Start of Season Winter Dec to Feb -- Amature Stuff ---- @ Tue-01-Dec-2020
+102 --- Tue-01-12-2020---- Next -- Event:- Tolerance Week - 1st week of Dec. ---- @ Tue-01-Dec-2020
+103 --- Tue-01-12-2020---- Next -- Event:- World Aids Day ---- @ Tue-01-Dec-2020
+104 --- Sun-06-12-2020---- Next -- Event:- Birthday Michele CORBET Openshaw ---- @ Sun-06-Dec-2020
+105 --- Mon-07-12-2020---- Next -- Event:- PAUL NICKLEN BIRTHDAY FAMILY ---- @ Mon-07-Dec-2020
+106 --- Mon-07-12-2020---- Next -- Event:- Pearl Harbour Day ---- @ Mon-07-Dec-2020
+107 --- Thu-10-12-2020---- Next -- Event:- Human Rights Day, a United Nations observance. ---- @ Thu-10-Dec-2020
+108 --- Fri-11-12-2020---- Next Earliest Sunset Winter  04:53:29p
+109 --- Mon-21-12-2020---- Next -- Event:- Winter Solstice (& June 21st) ---- @ Mon-21-Dec-2020
+110 --- Mon-21-12-2020---- Next -- Shortest Day ---- @ Mon-21-Dec-2020
+111 --- Mon-21-12-2020---- Next -- Winter Solstice ---- @ Mon-21-Dec-2020
+112 --- Tue-22-12-2020---- Next -- Event:- 10th Sign Capricorn Dec22 Jan19 Earth Sign Ruled by Satun: The Goat ---- @ Tue-22-Dec-2020
+113 --- Thu-24-12-2020---- Next -- Event:- Birthday Slick Willy Dee@gmail ---- @ Thu-24-Dec-2020
+114 --- Thu-24-12-2020---- Next -- Event:- Christmas Eve ---- @ Thu-24-Dec-2020
+115 --- Fri-25-12-2020---- Next -- Event:- Christmas day ---- @ Fri-25-Dec-2020
+116 --- Sat-26-12-2020---- Next -- Event:- Kwanzaa ---- @ Sat-26-Dec-2020
+117 --- Sat-26-12-2020---- Next -- Event:- St. Stephen's Day ---- @ Sat-26-Dec-2020
+118 --- Wed-30-12-2020---- Next -- Real Blue Moon ---- @ Wed-30-Dec-2020 03:29:19a --- 13 Full Moons in Year
+119 --- Wed-30-12-2020---- Next Latest Sunrise Winter  09:01:39a
+120 --- Thu-31-12-2020---- Next -- Event:- New Year's Eve ---- @ Thu-31-Dec-2020
+121 --- Fri-01-01-2021---- Next -- -- 1st Quarter Of Year -- ---- @ Fri-01-Jan-2021
+122 --- Fri-01-01-2021---- Next -- Event:- Circumcision ---- @ Fri-01-Jan-2021
+123 --- Fri-01-01-2021---- Next -- Event:- New Years Day ---- @ Fri-01-Jan-2021
+124 --- Fri-01-01-2021---- Next -- Event:- New Year's Day ---- @ Fri-01-Jan-2021
+125 --- Wed-06-01-2021---- Next -- Event:- Epiphany ---- @ Wed-06-Jan-2021
+126 --- Wed-06-01-2021---- Next -- Event:- Three King's Day ---- @ Wed-06-Jan-2021
+127 --- Thu-07-01-2021---- Next -- Event:- Coptic Christian Christmas ---- @ Thu-07-Jan-2021
+128 --- Fri-08-01-2021---- Next -- Event:- Elvis Presley's official Birthday ---- @ Fri-08-Jan-2021
+129 --- Wed-20-01-2021---- Next -- Event:- 11th Sign Aquarius Jan20 Feb18 Air Sign Ruled by Uranus: The Water Bearer ---- @ Wed-20-Jan-2021
+130 --- Wed-20-01-2021---- Next -- Event:- Reindeer Day ---- @ Wed-20-Jan-2021
+131 --- Mon-25-01-2021---- Next -- Event:- Converstion of St Paul ---- @ Mon-25-Jan-2021
+132 --- Mon-25-01-2021---- Next -- Event:- Robert Burns' Day - Scotland's national poet ---- @ Mon-25-Jan-2021
+133 --- Mon-25-01-2021---- Next -- Event:- The Start of the Chinese New Year. ---- @ Mon-25-Jan-2021
+134 --- Tue-26-01-2021---- Next -- Event:- Australia Day ---- @ Tue-26-Jan-2021
+135 --- Tue-26-01-2021---- Next -- Event:- Indian Republic Day ---- @ Tue-26-Jan-2021
+136 --- Tue-02-02-2021---- Next -- Event:- Groundhog Day ---- @ Tue-02-Feb-2021
+137 --- Sat-06-02-2021---- Next -- Event:- Waitangi Day - New Zealand ---- @ Sat-06-Feb-2021
+138 --- Sun-14-02-2021---- Next -- Event:- St Valentine ---- @ Sun-14-Feb-2021
+139 --- Sun-14-02-2021---- Next -- Event:- St Valentine's Day ---- @ Sun-14-Feb-2021
+140 --- Fri-19-02-2021---- Next -- Event:- 12th Sign Pisces Feb19 Mar20 Water Sign Ruled by Neptune: The fish ---- @ Fri-19-Feb-2021
+141 --- Sun-21-02-2021---- Next -- Event:- International Mother Language Day ---- @ Sun-21-Feb-2021
+142 --- Wed-24-02-2021---- Next -- Event:- St Matthias ---- @ Wed-24-Feb-2021
+143 --- Mon-01-03-2021---- Next -- Event:- St. David's Day - Wales ---- @ Mon-01-Mar-2021
+144 --- Mon-01-03-2021---- Next -- Event:- Start of Season Spring Mar to May  -- Amature Stuff ---- @ Mon-01-Mar-2021
+145 --- Tue-02-03-2021---- Next -- Event:- World Book Day ---- @ Tue-02-Mar-2021
+146 --- Mon-08-03-2021---- Next -- Event:- International Women's Day ---- @ Mon-08-Mar-2021
+147 --- Tue-09-03-2021---- Next -- Event:- International Womens Day ---- @ Tue-09-Mar-2021
+148 --- Wed-10-03-2021---- Next -- Event:- United Kingdom Commonwealth Day ---- @ Wed-10-Mar-2021
+149 --- Thu-18-03-2021---- Next -- Event:- St. Edward the martyr Feast day ---- @ Thu-18-Mar-2021
+150 --- Fri-19-03-2021---- Next -- Event:- St Joseph ---- @ Fri-19-Mar-2021
+151 --- Sat-20-03-2021---- Next -- Event:- Spring Begins Diary Book ---- @ Sat-20-Mar-2021
+152 --- Sat-20-03-2021---- Next -- Vernal Equinox ---- @ Sat-20-Mar-2021
+153 --- Sun-21-03-2021---- Next -- Event:- 1st Sign Aries Mar21 Apr19 Fire Sign Ruled by Mars: The Ram ---- @ Sun-21-Mar-2021
+154 --- Mon-22-03-2021---- Next -- Event:- World Water Day ---- @ Mon-22-Mar-2021
+155 --- Thu-25-03-2021---- Next -- Event:- Annuciation ---- @ Thu-25-Mar-2021
+156 --- Fri-26-03-2021---- Next -- Event:- Independence Day of Bangladesh ---- @ Fri-26-Mar-2021
+157 --- Sat-27-03-2021---- Next -- Event:- World Theatre Day ---- @ Sat-27-Mar-2021
+158 --- Sun-28-03-2021---- Next -- British Summer Time Begins - BST ---- @ Sun-28-Mar-2021
+159 --- Tue-30-03-2021---- Next -- Event:- Clocks Go Forward 1 Hours BST - We Get a Hour Rest ---- @ Tue-30-Mar-2021
+160 --- Thu-01-04-2021---- Next -- -- 2nd Quarter Of Year -- ---- @ Thu-01-Apr-2021
+161 --- Thu-01-04-2021---- Next -- Event:- April Fool's Day ---- @ Thu-01-Apr-2021
+162 --- Fri-02-04-2021---- Next -- Event:- International Children's Book Day ---- @ Fri-02-Apr-2021
+163 --- Wed-07-04-2021---- Next -- Event:- World Health Day ---- @ Wed-07-Apr-2021
+164 --- Wed-14-04-2021---- Next -- Event:- Anniversary of Titanic sinking ---- @ Wed-14-Apr-2021
+165 --- Sun-18-04-2021---- Next -- Event:- Record Store Day - UK ---- @ Sun-18-Apr-2021
+166 --- Mon-19-04-2021---- Next -- Event:- Patriot's Day ---- @ Mon-19-Apr-2021
+167 --- Tue-20-04-2021---- Next -- Event:- 2nd Sign Taurus Apr20 May20 Earth Sign Ruled by Venus: The bull ---- @ Tue-20-Apr-2021
+168 --- Tue-20-04-2021---- Next -- Event:- Jewish Passover ---- @ Tue-20-Apr-2021
+169 --- Thu-22-04-2021---- Next -- Event:- Earth Day ---- @ Thu-22-Apr-2021
+170 --- Fri-23-04-2021---- Next -- Event:- St George Day - Grandad Birthday ---- @ Fri-23-Apr-2021
+171 --- Sun-25-04-2021---- Next -- Event:- International Noise Awareness Day ---- @ Sun-25-Apr-2021
+172 --- Sun-25-04-2021---- Next -- Event:- London Marathon Last Sunday In April ---- @ Sun-25-Apr-2021
+173 --- Sun-25-04-2021---- Next -- Event:- The Feast of St. Mark ---- @ Sun-25-Apr-2021
+174 --- Mon-26-04-2021---- Next -- Event:- John Vousden Sister's Husband ---- @ Mon-26-Apr-2021
+175 --- Sat-01-05-2021---- Next -- Event:- May Day - Labour Day ---- @ Sat-01-May-2021
+176 --- Sat-01-05-2021---- Next -- Event:- St Philip and St James ---- @ Sat-01-May-2021
+177 --- Wed-05-05-2021---- Next -- Event:- Cinco de Mayo - Mexico ---- @ Wed-05-May-2021
+178 --- Sat-08-05-2021---- Next -- Event:- World Red Cross Day ---- @ Sat-08-May-2021
+179 --- Wed-12-05-2021---- Next -- Event:- Limerick Day - Birthday of Edward Lear ---- @ Wed-12-May-2021
+180 --- Tue-18-05-2021---- Next -- Event:- International Museum Day ---- @ Tue-18-May-2021
+181 --- Fri-21-05-2021---- Next -- Event:- 3rd Sign Gemini May21 Jun21 Air Sign Ruled by Mercury: The twins ---- @ Fri-21-May-2021
+182 --- Mon-24-05-2021---- Next -- Event:- Victoria Day - Canada ---- @ Mon-24-May-2021
+183 --- Mon-31-05-2021---- Next -- Event:- Birthday Paul Brown ---- @ Mon-31-May-2021
+184 --- Tue-01-06-2021---- Next -- Event:- Start of Season Summer Jun to Sep -- Amature Stuff ---- @ Tue-01-Jun-2021
+185 --- Tue-01-06-2021---- Next -- Event:- Wimbledon begins ---- @ Tue-01-Jun-2021
+186 --- Sun-01-02-2037---- Next -- Black Moon ---- @ Sun-01-Feb-2037 12:00:00a --- No Full Moon in Feb
+187 --- Mon-06-06-2039->>-Next 666 On a Full Moon at: 18:48:58
+188 --- Tue-13-04-2060---- Next -- Good Friday, On Friday the 13th ---- @ Tue-13-Apr-2060
+189 --- Mon-06-06-3166->>-Next '6 or 66' 666 On a Full Moon at: 02:58:34
+190 --- Wed-06-06-6666->>--Next 6666 On a Full Moon at: 11:02:51

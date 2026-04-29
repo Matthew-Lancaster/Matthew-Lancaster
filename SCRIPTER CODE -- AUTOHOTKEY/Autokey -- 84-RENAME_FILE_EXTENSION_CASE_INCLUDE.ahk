@@ -346,8 +346,8 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 	STRINGUPPER, RENAME_FILTER_EXTENSION_CASE_INCLUDE,RENAME_FILTER_EXTENSION_CASE_INCLUDE
 	
 
-	IF !RENAME_EXTENSION_QUIET_WITH_AUDIO
-	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; IF !RENAME_EXTENSION_QUIET_WITH_AUDIO
+	; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	
 	StringCaseSense, On
 	
@@ -490,7 +490,7 @@ TIMER_RENAME_FILE_EXTENSION_CASE_UPPER_OR_LOWER:
 							
 							; StringReplace, PATH_NAME_4_REPLACE, PATH_NAME_4_REPLACE,MMPEG,MPEG
 
-							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 							
 							; -----------------------------------------------
 							; 4096 BRING TO FOREGROUND

@@ -1,0 +1,87 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Date 2000-2009-----------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+2003 - DT8 Feat
+2003 - Fergie -
+2003 - Ian Van
+2003 CD1 - 01
+2003 CD1 - 02
+2003 CD1 - 03
+2003 CD1 - 04
+2003 CD1 - 05
+2003 CD1 - 06
+2003 CD1 - 07
+2003 CD1 - 08
+2003 CD1 - 09
+2003 CD1 - 10
+2003 CD1 - 11
+2003 CD1 - 12
+2003 CD1 - 13
+2003 CD1 - 14
+2003 CD1 - 15
+2003 CD1 - 16
+2003 CD1 - 17
+2003 CD1 - 18
+2003 CD1 - 19
+2003 CD1 - 20
+2003 CD1 - 21
+2003 CD2 - 01
+2003 CD2 - 02
+2003 CD2 - 03
+2003 CD2 - 04
+2003 CD2 - 05
+2003 CD2 - 06
+2003 CD2 - 07
+2003 CD2 - 08
+2003 CD2 - 09
+2003 CD2 - 10
+2003 CD2 - 11
+2003 CD2 - 12
+2003 CD2 - 13
+2003 CD2 - 14
+2003 CD2 - 15
+2003 CD2 - 16
+2003 CD2 - 17
+2003 CD2 - 18
+2003 CD2 - 19
+2003 CD2 - 20
+2003 CD2 - 21
+2003 CD2 - Cosmic
+2003 CD2 - Dee
+2003 CD2 - Ferry
+2003 CD2 - JamX
+2003 CD2 - Jurgen
+2003 CD2 - Yves
+2003 CD3 - 01
+2003 CD3 - 02
+2003 CD3 - 03
+2003 CD3 - 04
+2003 CD3 - 05
+2003 CD3 - 06
+2003 CD3 - 07
+2003 CD3 - 08
+2003 CD3 - 09
+2003 CD3 - 10
+2003 CD3 - 11
+2003 CD3 - 12
+2003 CD3 - 13
+2003 CD3 - 14
+2003 CD3 - 15
+2003 CD3 - 16
+2003 CD3 - 17
+2003 CD3 - 18
+2003 CD3 - 19
+2003 CD3 - 20
+2003 CD3 - 21

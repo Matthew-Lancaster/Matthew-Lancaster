@@ -84,10 +84,11 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 #SingleInstance force
 ;--------------------
 
-SetTitleMatchMode, 3
+SetTitleMatchMode, 3 
 ; SetTitleMatchMode, slow
 
-
+DetectHiddenText, On
+DetectHiddenWindows, On
 
 SETTIMER, WatchActiveWindow_2, 200
 
@@ -111,33 +112,34 @@ WatchActiveWindow_2:
 
 
 Controls=
-
+ 
 ; WinGet, ControlList, ControlList, ahk_class CabinetWClass
-
+ 
 ; ACTIVE WINDOW OR CERTAIN ONE
 ; -------------------------------------------------------------------
-WinGet, ControlList, ControlList, A
+; WinGet, ControlList, ControlList,  a ; hk_class Chrome_WidgetWin_1
+HDesktop := DllCall("User32.dll\GetDesktopWindow", "UPtr")
+WinGet ControlList, ControlList, ahk_id %HDeskTop%
 ; -------------------------------------------------------------------
 ; WinGet, ControlList, ControlList, ahk_class Chrome_WidgetWin_1
 ; -------------------------------------------------------------------
-
+ 
 ; WinGet, ControlList, ControlList, ahk_class ThunderRT6FormDC
 ; WinGet, ControlList, ControlList, "EliteSpy+ by Andrea B 2001 __ www.PlanetSourceCode.com_ & Big Timer Worker By Matthew Lancaster __ 07722224555 __ Version 1.0.421"
-
+OutputVar2=
 Loop, Parse, ControlList, `n
 
 {
 
 	ClassNN := A_LoopField
-
+	; ClassNNH := A_LoopReadLine
 	; ControlGetPos, X, Y, W, H, %ClassNN%, ahk_class CabinetWClass
 	; ControlGetText, OutputVar, %ClassNN%, ahk_class CabinetWClass
 	
-	ControlGetText, OutputVar, %ClassNN%, ahk_class Chrome_WidgetWin_1
-
-	; Controls .= ClassNN "`t" X "," Y " - " W "," H "`n"
-	Controls .= ClassNN "`t" OutputVar "`n"
-	; Controls .= ClassNN "`n"
+	ControlGetText, OutputVar, %ClassNN%, ahk_id %HDeskTop% ;A ; ahk_class Chrome_WidgetWin_1
+	; ControlGet OutputVar2, ID,, Edit1,  ahk_id %ClassNN%
+	WinGet, Control2, ID, ahk_id %HDeskTop%
+	Controls .= Control2 " " OutputVar2 " " ClassNN "`t" OutputVar "`n"
 
 }
 

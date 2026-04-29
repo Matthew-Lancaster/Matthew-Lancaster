@@ -1,0 +1,364 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+256 ' Device-specific dithers
+256 ' Device-specific intents
+256 ' Device-specific media
+256 ' Device-specific methods
+256 ' device specific
+256 ' High byte
+256 ' Maximum password
+256 ' Maximum username
+256 ' Multipurpose comment
+256 - WIN 95/98:
+256 & 24bit Window
+256 (V3.2) (c)1993/94 T42
+256 *Info*
+256 .bmp (RGB) *Info*
+256 .bmp (RGB) Raytrace
+256 ˆ‚ÂÚÓ‚
+256 ∫ÿ¶‚±m
+256 ÷÷…´≤ 
+256  ’
+256 01/05/02 8:29 Import
+256 01/06/97 14:41 BLUETST.TBL
+256 01/07/97 0:41 Slime.tbl
+256 06/09/02 22:47 Import
+256 1-Oct-1994 03:30a 3F473602
+256 1,790 11/12/94 13:13
+256 10/07/97 18:33 WATER.TBL
+256 1024K
+256 1024K 80C453 only
+256 1024K OTI-077
+256 13/06/97 17:02 RED2BRN.TBL
+256 14/02/97 18:21 default.tbl
+256 14/02/97 18:21 REDTINT.TBL
+256 15/04/02 15:22 recv0024.ACM
+256 15/04/02 15:24 recv0025.ACM
+256 17/08/02 5:47 Import
+256 18/02/97 16:17 IDENTITY.TBL
+256 18/02/97 16:21 RED1.TBL
+256 18/03/97 17:48 Char.tbl
+256 19/02/97 12:33 BLUE1.TBL
+256 19/02/97 12:43 BLACK1.TBL
+256 2048K
+256 21/08/02 22:17 Import
+256 21/08/02 22:30 Import
+256 21/10/98 19:00 HORZSPLT.HTM
+256 21/10/98 19:00 VERTSPLT.HTM
+256 22/05/97 16:49 GOLDTST.TBL
+256 22/11/01 21:54 GREETING
+256 23/04/99 22:22 clbtn2.gif
+256 23/04/99 22:22 ipac_on.inf
+256 24/04/02 1:58 Import
+256 24/04/02 21:16 Import
+256 256 256
+256 256K
+256 26/04/02 21:52 recv0042.ACM
+256 26/06/01 18:16 Toms
+256 28/06/00 20:30 Redhot
+256 28/06/00 20:30 RedHot_G110.txt
+256 500 506 509
+256 512K
+256 512K WD90C11
+256 60% 07-30-93 00:24
+256 60% 09-22-93 23:50
+256 60% 09-26-93 00:30
+256 64,768 12/01/00 9:42
+256 64K
+256 add 256-colour bitmap
+256 and
+256 and *TRUE COLOR
+256 barev
+256 BBSs and thousands
+256 beautiful colors. Spend
+256 BMP of the
+256 byte block. Interesting...
+256 byte democompo :
+256 Byte L‰nge, symbolische
+256 bytes in the
+256 bytes length, symbolic
+256 card,,
+256 CDs ∫
+256 character
+256 character file names!
+256 characters to the
+256 characters...
+256 chars (\A3) </p>
+256 Color
+256 color *Info*
+256 color 3D
+256 Color 3D awesome
+256 color 640 x
+256 Color and 24
+256 Color Animated Icons
+256 color arcade game
+256 color Autumn
+256 color bitmaps
+256 color bitmaps for
+256 Color BMP Can
+256 Color BMP file
+256 Color Bmp Files
+256 Color BMP Wallpper
+256 color bugs and
+256 color cards,
+256 color chart to
+256 color display driver
+256 color display.
+256 Color Display. Supports
+256 color driver *Info*
+256 Color Driver; Can
+256 color drivers.
+256 color flight sim
+256 color graphics
+256 color graphics and
+256 color graphics card.
+256 color graphics driver
+256 color graphics with
+256 color graphics,
+256 color graphics, digitized
+256 color icon, cursor
+256 Color Icons
+256 Color Icons for
+256 Color Icons. Last
+256 color images;
+256 Color in
+256 color issues (vis
+256 color mode?
+256 Color Module for
+256 color needed on
+256 COLOR ONLY.
+256 color or or
+256 Color Pa
+256 color paint program
+256 color palette for
+256 COLOR PCX'ES OF
+256 color pictures to.
+256 COLOR PORTRAITS OF
+256 color recommended.
+256 color rendered ≥
+256 color scr; 4
+256 color screen
+256 color screen drivers,
+256 color screen saver
+256 color screen saver.
+256 color screen savers,
+256 Color Skull &
+256 color space action
+256 Color Sprite Animator.
+256 color support. ***
+256 color systems. All
+256 color ver. Of
+256 color version?
+256 color version? .
+256 color VGA -
+256 color VGA *Info*
+256 color vga arcade
+256 color VGA artillery
+256 color VGA display
+256 color VGA graphics
+256 color VGA graphics.
+256 color VGA; Joystick
+256 color vide
+256 color video driver,
+256 color video mode.
+256 color wallpaper of
+256 color wallpaper Skelton
+256 Color Windows 3.0
+256 color(although filmclip is
+256 color) should produce
+256 color, 3D animated
+256 color, and True
+256 Color/256
+256 color</font></td>
+256 colores
+256 colori
+256 Colors
+256 Colors & the
+256 colors (8-bit) to
+256 colors (minimum) to
+256 colors . .
+256 colors and got
+256 colors if Active
+256 colors if such
+256 colors in your
+256 Colors Only -
+256 colors or higher.
+256 colors or more
+256 colors or more.
+256 Colors resolves this
+256 colors screen *Info*
+256 Colors setting or
+256 colors Startrek *Info*
+256 colors Startrek picture
+256 colors to create
+256 colors when
+256 colors when I
+256 Colors With .5
+256 colors with any
+256 colors with equal
+256 Colors(Not
+256 colors,
+256 colors, and
+256 colors, and 800x600
+256 Colors, and then
+256 colors, clearly.
+256 colors, if such
+256 colors, or high-resolution
+256 colors, the error
+256 colors, which is
+256 colors.
+256 colors. *Info*
+256 colors. A 24-bit
+256 colors. Converting a
+256 colors. Easy to
+256 colors. Icon
+256 COLORS. Includes a
+256 colors. It is
+256 colors. Last
+256 colors. Last revision
+256 colors. Microsoft recommends
+256 colors. Otherwise, you
+256 colors. Shots
+256 colors. Supports
+256 colors. Toyland is
+256 colors. Utes +
+256 COLORS/SB 1/7
+256 COLORS/SB 2/7
+256 COLORS/SB 3/7
+256 COLORS/SB 4/7
+256 COLORS/SB 5/7
+256 COLORS/SB 6/7
+256 COLORS/SB 7/7
+256 colors:
+256 colors; req
+256 colors?
+256 Colour - Disk
+256 Colour - English
+256 colour *Info*
+256 colour and all
+256 colour cursors, some
+256 colour flight sim
+256 colour gif of
+256 colour GIF. *Info*
+256 colour GIF. 2
+256 colour GIF. 6
+256 colour GIF. A
+256 colour Gif. Any
+256 colour GIF. Bike
+256 colour GIF. Girl
+256 colour GIF. Hard
+256 colour GIF. Man
+256 colour GIF. Nice
+256 colour GIF. Nude
+256 colour Gif. Sam
+256 colour Gif. This
+256 colour GIF. Tits
+256 colour GIF. Two
+256 colour GIF.Good *Info*
+256 colour GIF/IFF
+256 colour gifs from
+256 colour gra
+256 colour graphics as
+256 colour mode will
+256 colour page switching
+256 COLOUR PICCY SHOW
+256 Colour Shaded Folder
+256 Colour SVGA image
+256 colour version
+256 colour VGA Paint
+256 colour video card
+256 colour Workbench shots
+256 colour. And theen
+256 colour/SB & GUI
+256 Colours - [1/1].
+256 colours
+256 colours (and it's
+256 colours and
+256 Colours for VGA)
+256 colours.
+256 colours. If the
+256 CorelDRAW: Chapter 6
+256 cores
+256 couleurs
+256 different CD-ROM titles.
+256 driver
+256 drivers, and everything
+256 êF
+256 events at any
+256 Farben
+256 farger
+256 farver
+256 fields per .DBF
+256 for more
+256 f‰rger
+256 Graphic *Info*
+256 Gray Scale HP
+256 GrayScale
+256 grayscale (8-bit) to
+256 Grayscale = Yes
+256 grey
+256 Hand Held Scanner
+256 increments between black
+256 InstallDrive: 0
+256 is assumed (unless
+256 k ram 60:00
+256 KB memory
+256 Kbit/s (NEW!).
+256 Kbit/s ratio
+256 kolorÛw
+256 Levels (8 bits
+256 levels of depth.
+256 levels of intensity,
+256 MB of memory.
+256 Meg
+256 of cache.
+256 on Ergo Vram
+256 or fewer
+256 or more colors
+256 or more colors.
+256 PAINT V6.00
+256 pool (1HD) ≥
+256 possible
+256 possible combinations, so
+256 possible shades of
+256 quid? ;-))
+256 random point, then
+256 Ray Dream Studio
+256 Real Beautiful! Scanned
+256 SAVELINE uses ~300k
+256 SCAN
+256 shades
+256 shades of gray
+256 shades of gray,
+256 shades of gray.';">
+256 shades of gray.
+256 somewhere....:-))))
+256 SuperVGA paint program
+256 SzÌn
+256 text characters in
+256 to 262,144 color
+256 track MIDI sequencer,
+256 Track MIDI Studio
+256 tracks
+256 v2.0d SVGA paint
+256 Version 2.0 Maze
+256 VGA Color
+256 VGA Graphics! You're
+256 virtual tracks (midi/audio),
+256 v‰ri‰
+256 wallpaper of an
+256 with Phototouch for
+256 World City Clocks

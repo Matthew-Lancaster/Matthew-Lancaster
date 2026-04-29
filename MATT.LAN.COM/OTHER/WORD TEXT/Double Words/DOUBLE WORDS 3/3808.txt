@@ -1,0 +1,38 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+808 03/08/98 16:28 DUMPSTER.ECF
+808 04/06/98 0:00 CATEGORY.DBF
+808 06/06/99 18:43 LLET2.PCX
+808 06/06/99 18:43 TURTLER3.PCX
+808 07/03/01 0:55 4046_listen2_50.jpg
+808 14/03/98 23:17 BD21307_.GIF
+808 20/08/98 9:56 RCLRPT.CFG
+808 23/04/99 22:22 228nwic1.gif
+808 CorelDRAW: Chapter 16
+808 drum machine and
+808 Games
+808 State - 808080808
+808 State - Ancodia
+808 State - Cobra
+808 State - Donkey
+808 state - in
+808 State - Magical
+808 State - Only
+808 State - Pacific
+808 State - Sunrise
+808 State - The
+808 State / Ninety
+808 State. Some of

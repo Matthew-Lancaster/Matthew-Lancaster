@@ -1,0 +1,1649 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+16 ' ---- SOUND
+16 ' 1
+16 ' 10x14 in
+16 ' absolute length
+16 ' Can do
+16 ' Number of
+16 ' Variable stroke
+16 '93 you wrote
+16 'Expression Too Complex
+16 ------"------
+16 -- Cartoons -
+16 - (6 CD)
+16 - *Info*
+16 - 12" MIXES
+16 - 200 ∫
+16 - A Self-Made
+16 - Albert Collins
+16 - andy williams
+16 - Annie Get
+16 - Aussie Bryson
+16 - Autumn Almanac.mp3
+16 - B.B. King
+16 - Back to
+16 - Blueberry Hill.mp3
+16 - Book &
+16 - Buddy Guy
+16 - California Sun
+16 - Capricorn One
+16 - Chaka Khan
+16 - Charles Mingus
+16 - Chatanooga Choo
+16 - Clint Black
+16 - dakota staton
+16 - Dance Of
+16 - Dancing Queen
+16 - Dedicated Follower
+16 - Demon's Theme
+16 - Dizzy Gillespie
+16 - Dominic Kirwan
+16 - Drinkin' Again.mp3
+16 - Dubliners -
+16 - Dylan (A
+16 - Fancy.mp3
+16 - Feel Like
+16 - FeelsLikeI'veKnownYouForever.mp3
+16 - Five O'Clock
+16 - For the
+16 - Forget that
+16 - Games Listing
+16 - Gerry Mulligan
+16 - Go To
+16 - Good fortune.mp3
+16 - help for
+16 - Home of
+16 - I'm through
+16 - I Learned
+16 - I Wish
+16 - It's Not
+16 - Jerry Lee
+16 - Jesse Fuller
+16 - Jimmy Smith
+16 - Joe 90
+16 - Julian Cope
+16 - K Jee
+16 - Kansas City
+16 - Keith Jarrett
+16 - Kinobe -
+16 - Kyle's Mom's
+16 - LATEST FILES!
+16 - Learning to
+16 - Lets Groove
+16 - Liar Liar
+16 - local hero
+16 - lou rawls
+16 - Love song.mp3
+16 - Love Will
+16 - Makin' Whoopee.mp3
+16 - Margie Joseph
+16 - Maurice Williams
+16 - Muddy Waters
+16 - My babe.mp3
+16 - One Of
+16 - Oscar Peterson
+16 - Papua New
+16 - Patti Labelle
+16 - Romeo Nelson
+16 - Sarah Vaughan
+16 - Shake 'em
+16 - Sicilienne -
+16 - snowfall on
+16 - Soundblaster PRO
+16 - Statler Brothers
+16 - Stetsasonic -
+16 - Take me
+16 - Tears On
+16 - Teddy Wilson
+16 - That's all.mp3
+16 - The Seventh
+16 - The Waiting
+16 - This *Info*
+16 - Thong song.mp3
+16 - To Turn
+16 - Todd Sharpville
+16 - Together Forever
+16 - Total Eclipse
+16 - Under Attack
+16 - Unknown.mp3
+16 - Up Where
+16 - Utils Listing
+16 - Vogues -
+16 - Vunerable
+16 - Walking by
+16 - Waxies Dargle
+16 - Wired For
+16 - x;
+16 - YACC &
+16 -> del D:\hpHPF\LICENSE.BMP
+16 & *Info*
+16 & 24 Point
+16 & 256 color
+16 & 32-BIT
+16 & 32-bit CRCs
+16 & 32-bit D
+16 & 32-bit Windows.
+16 & 32 bit
+16 &16tp adapter disk
+16 ( )
+16 ( 2.78%) MAX
+16 ( 2.88%) MAX
+16 ( 3.02%)
+16 ( 3.02%) MAX
+16 (.S3M)
+16 (`Once Upon A
+16 (13) MUSIC MADONNA
+16 (Bottom)
+16 (by
+16 (don't groan, I
+16 (Macintosh) or Sound
+16 (relocatable, no CD
+16 (yes 16) Kodak
+16 ) {
+16 * 4Mbyte SIMMs.
+16 *Info*
+16 .Scr Files for
+16 .Wav files that
+16 ? LW07
+16 ~ Lolly -
+16 + Bs *
+16 = 64000 bytes.
+16 ˆ‚ÂÚÓ‚
+16 ∫ÿ¶‚±m
+16 ÷÷…´≤ 
+16  ’
+16 0 (Back button
+16 0 131072 0;}
+16 0 2401/1 240/100
+16 0 47 143
+16 0 5 3
+16 0.0%
+16 0.1%
+16 0.3%
+16 0.4%
+16 0.5%
+16 0.7%
+16 0;25
+16 01/05/02 3:57 swplugin.nsi
+16 01:41:56 1993
+16 02 06 |
+16 03 06 |
+16 03/02/01 5:14 PhotoMontage
+16 05/06/98 0:00 TBLSTRU.FRX
+16 06:50 garbo.uwasa.fi:/pc/pd2/moder32.zip
+16 09/08/93 19:59 MARIOSAV.NAM
+16 09:10, Carlo Adami
+16 1 1 0
+16 102 0.4%
+16 10264
+16 11/05/02 16:48 NUPLUGIN.NSI
+16 11/12/00 15:17 Diablo.txt
+16 120-watt transponders each.
+16 13 10 52
+16 14 10 0
+16 14 26 20
+16 14 74 0.3%
+16 14/08/02 4:29 exfile
+16 14/11/99 3:30 SQL
+16 145 334 200
+16 15:08, Jeff Paul
+16 15:55:45 CDT 1993
+16 16 16 0.1%
+16 17
+16 17 1 3
+16 17 15 4
+16 17 18 19.txt
+16 18 0.1%
+16 18 20 22
+16 18 34 0.0%
+16 18 5 0
+16 18/06/98 0:00 ODBC
+16 1993 01:37, Louis
+16 1993 02:30, Martyn
+16 1993 02:33, Martyn
+16 1993 07:21, James
+16 1993 08:56, Mike
+16 1993 08:58, Alan
+16 1993 09:32, Andre
+16 1993 16:00, Daniel
+16 1993 20:03, Joe
+16 1993 22:45, Mike
+16 1993 23:14, Patrick
+16 1993 23:17, Jim
+16 1993 at 00:16
+16 1993 at 06:27
+16 1993 at 09:55
+16 1993 to Jonathan
+16 1993) arthur.greenberg@dbridge.com wrote:
+16 1993) Hans Barendregt
+16 1993, After narrowly
+16 1993, Ben Donnachie
+16 1993, Jim Trash
+16 1993, Neil Morgan
+16 1993, Nick Jay
+16 1Mbyte SIMMS
+16 1Mbyte SIMMs (9
+16 1Mbyte SIMMS without
+16 1stReader *Info*
+16 2 N -
+16 20 106 0.4%
+16 20:59 garbo.uwasa.fi:/pc/pd2/post16.zip
+16 21 141 0.5%
+16 21 42 66
+16 24 15 76
+16 24 47 185
+16 24/05/94 1:01 GUN2.PCS
+16 25 21 84
+16 257/100 441/86
+16 27 0 67
+16 29 196 0.7%
+16 3 0 25
+16 3 0 4,053
+16 3 11 7
+16 3 35 0.1%
+16 3.0
+16 30/08/02 1:33 X.BAT
+16 300 252/21 253/165
+16 303 0.1%
+16 31/12/91 11:24 TABVOL.BIN
+16 33 0.0%
+16 37 0.0%
+16 3D, Dos/Win3.1x/Win95
+16 4 0 13
+16 42 0.2%
+16 49 86 0.0%
+16 4meg x 9
+16 5 14 30
+16 5 26 0.1%
+16 640 x 148
+16 640912 ZyX (2:292/603.9)
+16 7 4 10
+16 72 0.3%
+16 88 0.0%
+16 9 6 5,918
+16 90 % of
+16 92
+16 96 0.4%
+16 A.S.P
+16 active timers at
+16 ADDAMS FAMILY VALUES
+16 addresses
+16 AERO THE ACROBAT
+16 again .. especially
+16 Aint no sunshine.mp3
+16 akas as as
+16 Al Arm JBs
+16 albums:
+16 AMIGA 11 0.2%
+16 AMIGA 151 0.0%
+16 AMIGA 161 0.1%
+16 AMIGA 22 0.4%
+16 AMIGA 33 24
+16 AMIGA 4 0.1%
+16 AMIGA 4 8
+16 AMIGA 5 0.1%
+16 AMIGA 5 0.2%
+16 AMIGA 5 0.4%
+16 AMIGA 7 0.2%
+16 AMIGA 7 0.3%
+16 AMIGA 8 0.2%
+16 AMIGA 9 0.3%
+16 AMIGA 9 8
+16 Amt
+16 and
+16 and 17
+16 and 17).
+16 and 17?
+16 and 18.
+16 and 24
+16 and 24 bit
+16 and 24 Point
+16 and 256 color
+16 and 32-bit
+16 and 32-bit *Info*
+16 and 32-bit applications
+16 and 32
+16 and 32 Bit
+16 and 32 bit.
+16 and Compatibles ∫
+16 and compatibles.
+16 and I think
+16 and was quite
+16 and work with
+16 animated *Info*
+16 animated objects to
+16 Ann Lee_Voices.mp3
+16 another day.mp3 4,244,897
+16 ans,
+16 ans, j'habite a
+16 Apr 2002
+16 Apr 2002 00:00:11
+16 Apr 2002 00:03:26
+16 Apr 2002 00:09:48
+16 Apr 2002 00:11:16
+16 Apr 2002 00:11:30
+16 Apr 2002 00:15:40
+16 Apr 2002 00:16:16
+16 Apr 2002 00:22:00
+16 Apr 2002 00:22:51
+16 Apr 2002 00:23:07
+16 Apr 2002 00:32:38
+16 Apr 2002 00:32:48
+16 Apr 2002 00:33:35
+16 Apr 2002 00:36:02
+16 Apr 2002 00:37:11
+16 Apr 2002 00:39:54
+16 Apr 2002 00:41:08
+16 Apr 2002 00:46:41
+16 Apr 2002 00:49:41
+16 Apr 2002 00:56:32
+16 Apr 2002 00:57:48
+16 Apr 2002 01:03:41
+16 Apr 2002 01:11:32
+16 Apr 2002 01:12:31
+16 Apr 2002 01:20:32
+16 Apr 2002 01:25:02
+16 Apr 2002 01:35:42
+16 Apr 2002 01:52:34
+16 Apr 2002 01:59:38
+16 Apr 2002 02:00:21
+16 Apr 2002 02:04:29
+16 Apr 2002 02:06:08
+16 Apr 2002 02:11:05
+16 Apr 2002 02:15:01
+16 Apr 2002 02:17:07
+16 Apr 2002 02:17:56
+16 Apr 2002 02:23:53
+16 Apr 2002 02:29:02
+16 Apr 2002 02:34:21
+16 Apr 2002 02:34:35
+16 Apr 2002 02:36:43
+16 Apr 2002 02:36:50
+16 Apr 2002 02:36:59
+16 Apr 2002 02:52:14
+16 Apr 2002 03:26:18
+16 Apr 2002 03:27:06
+16 Apr 2002 03:28:26
+16 Apr 2002 03:29:56
+16 Apr 2002 03:35:14
+16 Apr 2002 03:41:09
+16 Apr 2002 03:42:35
+16 Apr 2002 03:51:48
+16 Apr 2002 03:52:34
+16 Apr 2002 03:55:07
+16 Apr 2002 03:57:24
+16 Apr 2002 04:01:35
+16 Apr 2002 04:09:48
+16 Apr 2002 04:11:30
+16 Apr 2002 04:13:48
+16 Apr 2002 04:16:16
+16 Apr 2002 04:18:09
+16 Apr 2002 04:22:51
+16 Apr 2002 04:32:38
+16 Apr 2002 04:33:01
+16 Apr 2002 04:33:35
+16 Apr 2002 04:39:08
+16 Apr 2002 04:41:08
+16 Apr 2002 04:44:08
+16 Apr 2002 04:48:27
+16 Apr 2002 04:55:01
+16 Apr 2002 04:55:07
+16 Apr 2002 04:56:39
+16 Apr 2002 04:58:17
+16 Apr 2002 04:58:18
+16 Apr 2002 05:11:16
+16 Apr 2002 05:11:32
+16 Apr 2002 05:21:55
+16 Apr 2002 05:22:21
+16 Apr 2002 05:24:01
+16 Apr 2002 05:27:39
+16 Apr 2002 05:31:19
+16 Apr 2002 05:33:20
+16 Apr 2002 05:34:43
+16 Apr 2002 05:40:42
+16 Apr 2002 05:41:20
+16 Apr 2002 05:41:29
+16 Apr 2002 06:00:21
+16 Apr 2002 06:12:12
+16 Apr 2002 06:26:05
+16 Apr 2002 06:27:49
+16 Apr 2002 06:32:21
+16 Apr 2002 06:53:47
+16 Apr 2002 07:04:15
+16 Apr 2002 07:07:14
+16 Apr 2002 07:25:02
+16 Apr 2002 07:29:50
+16 Apr 2002 07:31:19
+16 Apr 2002 07:33:20
+16 Apr 2002 07:36:24
+16 Apr 2002 07:39:41
+16 Apr 2002 07:57:52
+16 Apr 2002 07:58:48
+16 Apr 2002 08:02:54
+16 Apr 2002 08:06:40
+16 Apr 2002 08:22:45
+16 Apr 2002 08:23:19
+16 Apr 2002 08:24:28
+16 Apr 2002 08:26:34
+16 Apr 2002 08:27:33
+16 Apr 2002 08:39:44
+16 Apr 2002 08:49:32
+16 Apr 2002 08:54:51
+16 Apr 2002 08:59:30
+16 Apr 2002 09:01:59
+16 Apr 2002 09:02:25
+16 Apr 2002 09:03:09
+16 Apr 2002 09:03:58
+16 Apr 2002 09:06:25
+16 Apr 2002 09:09:58
+16 Apr 2002 09:11:30
+16 Apr 2002 09:19:26
+16 Apr 2002 09:22:21
+16 Apr 2002 09:24:19
+16 Apr 2002 09:24:54
+16 Apr 2002 09:33:00
+16 Apr 2002 09:40:42
+16 Apr 2002 09:44:33
+16 Apr 2002 09:50:51
+16 Apr 2002 09:53:26
+16 Apr 2002 09:53:49
+16 Apr 2002 09:56:54
+16 Apr 2002 10:11:35
+16 Apr 2002 10:14:04
+16 Apr 2002 10:15:18
+16 Apr 2002 10:17:20
+16 Apr 2002 10:26:44
+16 Apr 2002 10:39:37
+16 Apr 2002 10:48:55
+16 Apr 2002 10:48:57
+16 Apr 2002 10:53:06
+16 Apr 2002 10:56:57
+16 Apr 2002 11:00:28
+16 Apr 2002 11:00:58
+16 Apr 2002 11:01:08
+16 Apr 2002 11:01:58
+16 Apr 2002 11:05:05
+16 Apr 2002 11:05:11
+16 Apr 2002 11:05:52
+16 Apr 2002 11:11:53
+16 Apr 2002 11:18:12
+16 Apr 2002 11:20:40
+16 Apr 2002 11:23:43
+16 Apr 2002 11:25:02
+16 Apr 2002 11:26:42
+16 Apr 2002 11:27:33
+16 Apr 2002 11:29:50
+16 Apr 2002 11:35:46
+16 Apr 2002 11:36:24
+16 Apr 2002 11:37:53
+16 Apr 2002 11:51:33
+16 Apr 2002 11:52:43
+16 Apr 2002 11:54:03
+16 Apr 2002 11:55:26
+16 Apr 2002 11:57:52
+16 Apr 2002 12:00:47
+16 Apr 2002 12:26:52
+16 Apr 2002 12:32:00
+16 Apr 2002 12:33:16
+16 Apr 2002 12:34:08
+16 Apr 2002 12:37:07
+16 Apr 2002 12:39:44
+16 Apr 2002 12:41:21
+16 Apr 2002 12:41:29
+16 Apr 2002 12:46:13
+16 Apr 2002 12:54:51
+16 Apr 2002 12:55:03
+16 Apr 2002 12:56:15
+16 Apr 2002 12:59:47
+16 Apr 2002 13:18:03
+16 Apr 2002 13:18:12
+16 Apr 2002 13:22:33
+16 Apr 2002 13:24:43
+16 Apr 2002 13:26:34
+16 Apr 2002 13:28:19
+16 Apr 2002 13:28:33
+16 Apr 2002 13:32:18
+16 Apr 2002 13:32:28
+16 Apr 2002 13:34:16
+16 Apr 2002 13:43:16
+16 Apr 2002 13:57:56
+16 Apr 2002 14:03:22
+16 Apr 2002 14:04:15
+16 Apr 2002 14:09:12
+16 Apr 2002 14:11:11
+16 Apr 2002 14:20:18
+16 Apr 2002 14:20:37
+16 Apr 2002 14:23:07
+16 Apr 2002 14:33:16
+16 Apr 2002 14:35:40
+16 Apr 2002 14:39:41
+16 Apr 2002 14:44:03
+16 Apr 2002 14:48:32
+16 Apr 2002 14:57:09
+16 Apr 2002 14:57:51
+16 Apr 2002 14:57:56
+16 Apr 2002 15:00:13
+16 Apr 2002 15:01:08
+16 Apr 2002 15:01:12
+16 Apr 2002 15:04:56
+16 Apr 2002 15:06:03
+16 Apr 2002 15:09:42
+16 Apr 2002 15:12:08
+16 Apr 2002 15:12:53
+16 Apr 2002 15:19:47
+16 Apr 2002 15:21:32
+16 Apr 2002 15:24:54
+16 Apr 2002 15:29:11
+16 Apr 2002 15:33:00
+16 Apr 2002 15:35:46
+16 Apr 2002 15:37:24
+16 Apr 2002 15:37:53
+16 Apr 2002 15:39:38
+16 Apr 2002 15:44:27
+16 Apr 2002 15:44:30
+16 Apr 2002 15:44:33
+16 Apr 2002 15:49:31
+16 Apr 2002 15:56:57
+16 Apr 2002 15:57:45
+16 Apr 2002 15:59:43
+16 Apr 2002 16:00:58
+16 Apr 2002 16:01:58
+16 Apr 2002 16:03:10
+16 Apr 2002 16:03:26
+16 Apr 2002 16:11:37
+16 Apr 2002 16:12:39
+16 Apr 2002 16:15:33
+16 Apr 2002 16:18:03
+16 Apr 2002 16:20:25
+16 Apr 2002 16:24:32
+16 Apr 2002 16:24:33
+16 Apr 2002 16:24:34
+16 Apr 2002 16:24:36
+16 Apr 2002 16:24:37
+16 Apr 2002 16:24:39
+16 Apr 2002 16:24:40
+16 Apr 2002 16:24:41
+16 Apr 2002 16:24:42
+16 Apr 2002 16:24:43
+16 Apr 2002 16:24:44
+16 Apr 2002 16:50:59
+16 Apr 2002 16:55:25
+16 Apr 2002 16:55:56
+16 Apr 2002 17:00:09
+16 Apr 2002 17:05:18
+16 Apr 2002 17:05:21
+16 Apr 2002 17:06:16
+16 Apr 2002 17:07:24
+16 Apr 2002 17:08:59
+16 Apr 2002 17:09:47
+16 Apr 2002 17:11:01
+16 Apr 2002 17:13:08
+16 Apr 2002 17:13:22
+16 Apr 2002 17:14:26
+16 Apr 2002 17:15:20
+16 Apr 2002 17:15:36
+16 Apr 2002 17:22:04
+16 Apr 2002 17:26:42
+16 Apr 2002 17:30:57
+16 Apr 2002 17:32:46
+16 Apr 2002 17:36:04
+16 Apr 2002 17:41:12
+16 Apr 2002 17:42:43
+16 Apr 2002 17:45:29
+16 Apr 2002 17:51:30
+16 Apr 2002 17:51:55
+16 Apr 2002 17:52:30
+16 Apr 2002 17:54:36
+16 Apr 2002 17:54:46
+16 Apr 2002 17:54:48
+16 Apr 2002 17:55:31
+16 Apr 2002 17:56:50
+16 Apr 2002 17:57:26
+16 Apr 2002 17:57:35
+16 Apr 2002 17:57:37
+16 Apr 2002 17:57:58
+16 Apr 2002 17:58:53
+16 Apr 2002 17:58:56
+16 Apr 2002 18:00:52
+16 Apr 2002 18:01:12
+16 Apr 2002 18:01:28
+16 Apr 2002 18:02:59
+16 Apr 2002 18:06:27
+16 Apr 2002 18:07:38
+16 Apr 2002 18:09:19
+16 Apr 2002 18:09:52
+16 Apr 2002 18:12:05
+16 Apr 2002 18:14:23
+16 Apr 2002 18:16:08
+16 Apr 2002 18:18:14
+16 Apr 2002 18:18:33
+16 Apr 2002 18:20:58
+16 Apr 2002 18:21:12
+16 Apr 2002 18:21:44
+16 Apr 2002 18:28:10
+16 Apr 2002 18:37:06
+16 Apr 2002 18:40:12
+16 Apr 2002 18:43:07
+16 Apr 2002 18:46:13
+16 Apr 2002 18:50:33
+16 Apr 2002 18:56:19
+16 Apr 2002 18:57:09
+16 Apr 2002 18:57:38
+16 Apr 2002 19:02:14
+16 Apr 2002 19:04:43
+16 Apr 2002 19:05:00
+16 Apr 2002 19:06:20
+16 Apr 2002 19:06:36
+16 Apr 2002 19:07:51
+16 Apr 2002 19:15:36
+16 Apr 2002 19:17:22
+16 Apr 2002 19:18:17
+16 Apr 2002 19:24:49
+16 Apr 2002 19:24:56
+16 Apr 2002 19:28:14
+16 Apr 2002 19:29:26
+16 Apr 2002 19:30:02
+16 Apr 2002 19:35:40
+16 Apr 2002 19:37:31
+16 Apr 2002 19:40:15
+16 Apr 2002 19:43:19
+16 Apr 2002 19:43:50
+16 Apr 2002 19:44:41
+16 Apr 2002 19:50:31
+16 Apr 2002 19:55:03
+16 Apr 2002 19:57:56
+16 Apr 2002 19:59:47
+16 Apr 2002 20:15:56
+16 Apr 2002 20:16:08
+16 Apr 2002 20:17:43
+16 Apr 2002 20:17:55
+16 Apr 2002 20:28:19
+16 Apr 2002 20:39:00
+16 Apr 2002 20:39:02
+16 Apr 2002 20:39:34
+16 Apr 2002 20:43:27
+16 Apr 2002 20:43:41
+16 Apr 2002 20:44:29
+16 Apr 2002 20:45:21
+16 Apr 2002 20:49:09
+16 Apr 2002 20:49:26
+16 Apr 2002 20:51:12
+16 Apr 2002 20:53:54
+16 Apr 2002 20:54:24
+16 Apr 2002 20:59:23
+16 Apr 2002 21:00:06
+16 Apr 2002 21:01:27
+16 Apr 2002 21:13:22
+16 Apr 2002 21:16:28
+16 Apr 2002 21:18:04
+16 Apr 2002 21:18:20
+16 Apr 2002 21:18:23
+16 Apr 2002 21:20:30
+16 Apr 2002 21:20:33
+16 Apr 2002 21:22:43
+16 Apr 2002 21:25:06
+16 Apr 2002 21:26:42
+16 Apr 2002 21:29:12
+16 Apr 2002 21:30:46
+16 Apr 2002 21:41:39
+16 Apr 2002 21:43:22
+16 Apr 2002 21:44:03
+16 Apr 2002 21:46:31
+16 Apr 2002 21:50:39
+16 Apr 2002 21:50:59
+16 Apr 2002 21:57:47
+16 Apr 2002 22:02:13
+16 Apr 2002 22:13:43
+16 Apr 2002 22:14:50
+16 Apr 2002 22:15:39
+16 Apr 2002 22:17:21
+16 Apr 2002 22:21:58
+16 Apr 2002 22:23:41
+16 Apr 2002 22:42:29
+16 Apr 2002 22:45:47
+16 Apr 2002 22:47:35
+16 Apr 2002 22:47:49
+16 Apr 2002 22:57:07
+16 Apr 2002 22:58:07
+16 Apr 2002 23:07:19
+16 Apr 2002 23:08:53
+16 Apr 2002 23:12:33
+16 Apr 2002 23:16:30
+16 Apr 2002 23:21:18
+16 Apr 2002 23:23:59
+16 Apr 2002 23:25:19
+16 Apr 2002 23:30:02
+16 Apr 2002 23:30:07
+16 Apr 2002 23:32:27
+16 Apr 2002 23:33:40
+16 Apr 2002 23:36:09
+16 Apr 2002 23:36:45
+16 Apr 2002 23:40:54
+16 Apr 2002 23:41:50
+16 Apr 2002 23:42:11
+16 Apr 2002 23:43:01
+16 Apr 2002 23:43:42
+16 Apr 2002 23:43:50
+16 Apr 2002 23:45:19
+16 Apr 2002 23:57:49
+16 Apr 2002 23:57:58
+16 Apr 2002, when
+16 Arcade Emulator
+16 are widely used
+16 as the birthday.
+16 ASP and it
+16 ASP sound card!
+16 aswell :-<) Wow
+16 at 03:20
+16 at 15:38, Greg
+16 ATB_Don't Stop.mp3
+16 Aug 5:17
+16 Aug 5:20
+16 Aug 93 11:06,
+16 Aug 93 18:43:35,
+16 Aug 93 Aidan
+16 Aug 93 Andrew
+16 Aug 93 Jason
+16 Aug 93 Lee
+16 Aug 93 Steven
+16 Aug 93 Stu
+16 Aug 93 you
+16 Aug 93, Cormac
+16 Aug 93, Niall
+16 Aug 93,you blethered
+16 Aug 97 -
+16 Aug 97 with
+16 August 93 Iain
+16 BABY ONE MORE
+16 Baby, It's Cold
+16 Ballroom blitz -
+16 band
+16 Band Spectrum Analyzer
+16 barev
+16 BARRELS ROUND.mp3
+16 BARS
+16 BASSIN'S BLACK BASS
+16 BATMAN AND ROBIN
+16 Bauhaus - Kingdom's
+16 Beauty and the
+16 Belinda Carlisle\A Place
+16 BETTER LOVE NEXT
+16 billy joel -
+16 bit
+16 Bit *Info*
+16 bit .wav sound
+16 BIT / 32
+16 bit + KeyGen
+16 bit 44100 hz
+16 Bit and stereo
+16 Bit at 44k.
+16 bit audio DSP
+16 Bit auf 8
+16 bit Banyan clients
+16 Bit Bus on
+16 bit bus or
+16 Bit Bus width,
+16 Bit Busbreite, 20MB/s
+16 Bit Busbreite, 40MB/s
+16 bit calls.
+16 bit cards.dll which
+16 bit CD-ROM drive,
+16 bit Color
+16 bit color bu
+16 bit colors) with
+16 bit compressed
+16 bit CPU, why
+16 bit CRC specified
+16 bit data bus
+16 bit DOS ??
+16 bit DOS Snake-Byte
+16 bit files. Requires
+16 bit for large
+16 bit from
+16 bit harddisk Controler,
+16 BIT I/F
+16 Bit I/O Recovery
+16 bit linear data
+16 bit memory on
+16 BIT MFM OR
+16 Bit per Sample
+16 bit program is
+16 bit raw pcm
+16 bit real mode,
+16 bit recording cards
+16 bit SIMMS
+16 bit slots.
+16 bit sound .wav
+16 bit sound card
+16 bit sound wave
+16 bit stereo 44.1k.
+16 bit stereo 44100
+16 Bit Stereo at
+16 Bit Stereo to
+16 Bit Stereo Wav
+16 Bit Stereo Wave
+16 bit SYN
+16 bit synchronization
+16 Bit to 8
+16 Bit und Stereokanal.
+16 bit version *Info*
+16 bit Version 1.96
+16 bit version, but
+16 bit version. This
+16 bit Vinny Graphics
+16 bit was faster...
+16 bit wav file.
+16 bit wav sound
+16 bit wave file
+16 BIT wd1003v-mm2 floppy
+16 bit will go
+16 bit Windows
+16 bit Windows Automated
+16 bit Windows sockets
+16 bit Windows/Win95 Demo
+16 bit Windows/Win95 program
+16 bit)
+16 bit) in working
+16 Bit,
+16 bit, .WAV
+16 bit, but optimized
+16 bit, for Windows
+16 bit, it has
+16 bit, stereo.
+16 Bit.
+16 bit. 2 serial
+16 bits)
+16 blood is pumpin.mp3
+16 BLUE MOON.mp3
+16 BMV CDs currently
+16 Boadicea
+16 Bob & Marcia
+16 Boogie Macs_Sugar Dumb
+16 Bound in a
+16 Box 204j
+16 Box 204j.mp3
+16 breed of dog.
+16 BRETT HULL HOCKEY
+16 Brian & Michael
+16 BRUTAL - PAWS
+16 BUBSY THE BOBCAT
+16 Bull Micral 60
+16 Burn baby burn.mp3
+16 Busenfreund.mp3 5,289,984 09/07/2001
+16 Butterfly instrumental.mp3 6,426,624
+16 button
+16 by FATAL
+16 by now.
+16 by now. He
+16 Byte groﬂem Pufferspeicher).</P>
+16 byte values that
+16 c Water 2
+16 CAD 3.5" HD
+16 Can't Stop Killing
+16 CAPTAIN COMMANDO [2]
+16 CAPTAIN TUBASA 5
+16 card, you could
+16 CARRIER ACES [2]
+16 categories and over
+16 Categories.
+16 CD-ROM drivers. Sent
+16 Channel
+16 channel efforts like
+16 channel instead of
+16 CHANNEL LOGIC ANALYZER
+16 channel sound for
+16 CHANNELS - PANIC
+16 channels instead of
+16 Channels.
+16 Chess *Info*
+16 CHORUS.mp3
+16 CLASSIC ROAD 2
+16 Climb Every Mountain
+16 CLIPS
+16 Coffee.mp3 4,214,073 01/10/2001
+16 color
+16 Color Drivers --
+16 Color Drivers if
+16 color eraser;
+16 Color Fast Drivers
+16 color icon paint
+16 Color Icons
+16 Color Icons for
+16 color icons; extract/
+16 color mode, all
+16 color mode. I
+16 color monitor<br>
+16 color O and
+16 color PCX files.
+16 Color Timed Bitmap
+16 color to 256
+16 color VGA *Info*
+16 Color.
+16 colores
+16 colori
+16 colors
+16 colors)
+16 colors)<br>
+16 colors, like Windows
+16 colors, then you
+16 colors, there is
+16 colors; prints
+16 colors?
+16 colour
+16 colour iffs and
+16 colour mode' function
+16 colour mode myself,
+16 colour modes anyway,
+16 colour modes so
+16 colour Windows 3.0
+16 colours are good
+16 colours Cray-Pas oil
+16 colours of which
+16 colum number data
+16 combinations) in 16
+16 Compat with AT-CD
+16 compatible or above).
+16 Connected.mp3 4,465,371 01/10/2001
+16 Control Freaks -
+16 Coolio - Gangstas
+16 CorelDRAW: Chapter 1
+16 Cores
+16 couldn't have been
+16 couleurs
+16 CPUs
+16 CRASH DIVE ON
+16 Customizing Corel applications
+16 Cygnus X -
+16 Dark Forces (CD-RIP)
+16 DAS BOOT (360
+16 david bowie -
+16 DAZE BEFORE CHRISTMAS
+16 Death of a
+16 Dec 89 -
+16 Dec 96) -
+16 Deep Blue Something
+16 deg. can sometimes
+16 degrees East last
+16 DEMONS CREST [4]
+16 Derrick Morgan -
+16 Developer 2000 Report
+16 device modification. (Last
+16 differect colours for
+16 different
+16 different configurations.
+16 different fill
+16 different sets of
+16 different versions of
+16 Digital Control_Dreams Last
+16 Dirty Harry.mp3 3,207,168
+16 distinct, <strong>killer
+16 DJ Jean -
+16 Do Nothing THE
+16 Doctor Jones Aqua
+16 don't stay away.mp3
+16 dont laugh.mp3
+16 DOS & Win
+16 DRACULA XX [2]
+16 DRAGON - THE
+16 DRAGON BALL Z
+16 DRAGON VIEW [2]
+16 drive,
+16 drivers for MS-Windows
+16 DUP (?) ;The
+16 Dutilleux.mp3 4,370,285 02/10/2001
+16 East 17 -
+16 east one.
+16 east saying
+16 editor for doom
+16 êF
+16 Emulation
+16 Emulator -------------- 75
+16 EMULATOR
+16 EMULATOR V0.53
+16 ESPN NATIONAL HOCKEY
+16 ESPN SUNDAY NIGHT
+16 ethernet card, and
+16 EveryLittleThingSheDoesIs.. 3,639,588 16/12/1999
+16 exciting and imaginative
+16 EXTRA 1/3
+16 EXTRA 2/3
+16 EXTRA 3/3
+16 F1 GRAND PRIX
+16 F1 WORLD CHAMPIONSHIP
+16 Fancy.mp3
+16 Farben
+16 farger
+16 farver
+16 FEARGAL SHARKEY -
+16 Feb 80 -
+16 FEEL LIKE MAKIN
+16 FEVER PITCH SOCCER
+16 file(s)
+16 file(s) 1,127,021 bytes
+16 file(s) 1,167,159 bytes
+16 file(s) 1,185,830 bytes
+16 file(s) 1,256,432 bytes
+16 file(s) 1,429,504 bytes
+16 file(s) 1,540,917 bytes
+16 file(s) 1,563,597 bytes
+16 file(s) 1,632 bytes
+16 file(s) 1,870,914 bytes
+16 file(s) 1,923,437 bytes
+16 file(s) 123,274,224 bytes
+16 file(s) 150,037 bytes
+16 file(s) 17,248 bytes
+16 file(s) 177,160,478 bytes
+16 file(s) 2,399,299 bytes
+16 file(s) 21,201 bytes
+16 file(s) 254,074 bytes
+16 file(s) 3,920,045 bytes
+16 file(s) 32,627 bytes
+16 file(s) 35,169 bytes
+16 file(s) 368,631 bytes
+16 file(s) 4,886 bytes
+16 file(s) 43,321 bytes
+16 file(s) 451,101 bytes
+16 file(s) 451,906 bytes
+16 file(s) 478,488 bytes
+16 file(s) 52,573 bytes
+16 file(s) 54,006 bytes
+16 file(s) 55,622 bytes
+16 file(s) 65,938 bytes
+16 file(s) 690,759 bytes
+16 file(s) 729,154 bytes
+16 file(s) 91,454 bytes
+16 file(s) 95,839 bytes
+16 file(s) found
+16 files could not
+16 Files.
+16 filters
+16 FLINTSTONES - THE
+16 fly with me.mp3
+16 FOOL'S PARADISE
+16 for
+16 Foundations-In the bad
+16 freeware HTML editor
+16 fuck wid us.mp3
+16 Full albums totaling
+16 FULL THROTTLE RACING
+16 functions at once
+16 funk ad.mp3
+16 f‰rger
+16 G GUNDAM [2]
+16 Games
+16 Games ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+16 GENETIC ENGINEERING.mp3
+16 GENOCIDE 2 [2]
+16 George Lashwood-There's another
+16 George Lashwood
+16 George Michael feat.
+16 GHOST CHASER DENSEI
+16 Ghost Town THE
+16 God Only Knows.mp3
+16 GOEMAN THE WARRIOR
+16 GOKUJAMES PARODIUS [2]
+16 Goodbye Carter.mp3 4,360,192
+16 Grand Parade, St.
+16 Greatest Love Songs
+16 Grey Levels
+16 Groove on.mp3 4,863,477
+16 groups of 52
+16 Gypsies Tramps And
+16 H000677.ZIP v3.21 DR.
+16 H003310.ZIP v2.2 FORMGEN
+16 H004485.ZIP v96cc FORMPOWER
+16 H004878A.ZIP v3.11w LABEL
+16 H004878B.ZIP v3.11w LABEL
+16 H007762.ZIP v95La HOTFORMZ
+16 H008222.ZIP v5.0 E-Z-BOOK
+16 H008834.ZIP v2.0 QUICK-BAR
+16 H009432.ZIP v1.2 YEAH
+16 H009433.ZIP v1.2 YEAH
+16 H009881.ZIP v1.0b QUALSOFT
+16 HAGANE "THE FINAL
+16 HAMMER LOCK WRESTLING
+16 Hand in handTrack
+16 HEAD-ON SOCCER [4]
+16 HEARTACHE TONIGHT
+16 Higher and higher.mp3
+16 Higher than the
+16 HIRYU NOKEN [2]
+16 HOLD ME
+16 hope and wait.mp3
+16 hours away (by
+16 hours for weekdays.
+16 hours in a
+16 hours, so with
+16 How's The World
+16 HUMAN GRAND PRIX
+16 HYBRID WRESTLER [2]
+16 I'm Gonna Change
+16 I've to have
+16 i got the.mp3
+16 I put a
+16 I thought I
+16 I Wonder If
+16 icons with
+16 if you want
+16 images, you should
+16 in a PCI
+16 in April 6th.
+16 in white on
+16 INCREDIBLE HULK, THE
+16 INDIANA JONES THE
+16 Infinity.mp3 1,509,376 09/07/2001
+16 Injected with poison.mp3
+16 Inner Circle -
+16 into a 32,
+16 Is there anybody
+16 Is this the
+16 issues
+16 it's hard to
+16 It's Over.mp3 2,398,249
+16 It feels so
+16 Itals - Push
+16 items per menu;
+16 IZZY'S QUEST FOR
+16 J-LEAGUE SUPER SOCCER
+16 James Bond -
+16 JAMES POND 3
+16 Jamiroquai - Canned
+16 Jan 82 -
+16 Jan 88 -
+16 Jan 88. Just
+16 Jan92
+16 JAZZ NOTE.mp3
+16 jesus loves you
+16 jimmy somerville -
+16 Joe Tex-Ain't gonna
+16 Johnny Clarke -
+16 Joseph And The
+16 JUDGE DREDD -
+16 Jul 93 you
+16 July 1970, at
+16 July 1970, BBC,
+16 July 1993. However,
+16 Jun 84 -
+16 Jun 93 18:49,
+16 Jun 93 19:14,
+16 Jun 93 Michael
+16 JUN 95) -
+16 JUNGLE BOOK [4]
+16 JUNGLE STRIKE [2]
+16 JURASSIC PARK 2
+16 JUSTIFY MY LOVE
+16 kbps 48:1
+16 Kbps or higher
+16 Keys of the
+16 KHz instead of
+16 Kim Wilde-The Singles
+16 kit (or
+16 kit at a
+16 kit was a
+16 kit) may take
+16 kolorÛw
+16 KOSHIEN 4 [2]
+16 largest dirs; analog
+16 LAUNCHPAD 97 V1.02
+16 LeAnn Rimes_You Light
+16 LEMMINGS 2 -
+16 letters
+16 levels for *Info*
+16 liasons dangereuses, los
+16 Line Node
+16 Lines V.32b 908-494-8666
+16 Linkin Park -
+16 Linval Thompson -
+16 litre Detroit turbo
+16 LK.mp3
+16 Loaded.mp3 3,861,942 01/10/2001
+16 London by day.mp3
+16 Looking For A
+16 LOONY TUNES BASKETBALL
+16 Lord Btynner -
+16 Lord Tanamo -
+16 Love me with
+16 Lynn Anderson-Rose garden
+16 Maggies Farm THE
+16 MAGICAL POP [2]
+16 MAKERUNA! MAKENDO 2
+16 Marcia Griffiths -
+16 MARKO'S MAGIC FOOTBALL
+16 Marrs - Pump
+16 MARY SHELLY'S FRANKENSTEIN
+16 Mauro picotto -
+16 max in registered
+16 May 2001 07:04
+16 may have a
+16 MB
+16 MB (megabytes) of
+16 MB Hudson limit...
+16 MB of
+16 MB of memory
+16 MB of memory,
+16 MB of memory;
+16 MB of RAM
+16 MB of RAM.
+16 MB of RAM</font></td>
+16 MB of RAM</font><font
+16 mb on hd)
+16 MB or RAM
+16 MB RAM
+16 MB RAM after
+16 MB RAM for
+16 Mb RAM, a
+16 MB RAM, ATI
+16 MB RAM</font></td>
+16 meg )
+16 MEG = 200
+16 meg file with
+16 meg or RAM
+16 Meg Ram
+16 meg thing..Ok..So too
+16 meg! What
+16 megabytes in size,
+16 megabytes.
+16 megs and regular
+16 megs be enough
+16 megs of RAM
+16 megs.
+16 Melodians - Come
+16 mentions illegal parameters
+16 METAL WARRIORS [4]
+16 MG.
+16 MHz 386SX motherboard
+16 MHz is recommended,
+16 MHz, with at
+16 Michael Holliday_The Story
+16 MICKEY & MINI
+16 MICKEY MANIA [2]
+16 MIDI-channels,
+16 MIDI tracks
+16 MIDIs mapped
+16 MIGHTY MORPHING POWER
+16 mill or 64
+16 million
+16 million *Info*
+16 million colors. Reads
+16 million colors: 8
+16 million colors?
+16 Million Colours!
+16 million Jewish children
+16 Miracle cure.mp3 256,000
+16 Mo Ghile Mear
+16 Mode on Vram
+16 modem cards -
+16 Moloko - The
+16 Monolgue
+16 month library.
+16 Moves.
+16 MUHAMMED ALI BOXING
+16 Multimedia System, and
+16 N-fluence_Sweet Substance.mp3
+16 N001789.ZIP v2.0 FORM
+16 N001836.ZIP BAR CODES
+16 N002160.ZIP FORMGEN -
+16 N002161.ZIP FORMGEN -
+16 N002487.ZIP v3.12c SUPER
+16 N002982.ZIP v1.41 BAR
+16 N003311.ZIP v2.2 FORMGEN
+16 N003638.ZIP v4.2 INFORM-Z
+16 N003641.ZIP INFORM-Z FORMS
+16 N004000.ZIP v1.1 BARCODE-BLOBS
+16 N004001.ZIP v3.0 GRAFTECH
+16 N004561.ZIP v6.31 PC-FORMS
+16 N006753.ZIP v1.0 HEX-PCL
+16 N007699.ZIP BARCODE WIZARD
+16 N008659.ZIP v1.72 SCAN&FILL
+16 N008740.ZIP v1.0 BARCODE
+16 N008835.ZIP v1.01 REALFORMS
+16 N009244.ZIP v1.16 FORMS
+16 native Delphi VCL
+16 Never Never Gonna
+16 Never never land
+16 Never never land.mp3
+16 New Fonts for
+16 NEW HORIZONS [2]
+16 New Kids On
+16 NEWMANHAAS INDYCAR [2]
+16 NIC in a
+16 nick berry -
+16 NICs AND PCI
+16 NINJA KIDS [2]
+16 NO GOOD FOR
+16 No more.mp3 4,762,122
+16 nodes,
+16 nodes, your WCMAIL,
+16 non-DOS OSes in
+16 NOSFERATU [2]
+16 oct *Info*
+16 Oct 1993 00:12:31
+16 Oct 1993 02:19:56
+16 Oct 1993 04:10:02
+16 Oct 1993 04:44:53
+16 Oct 1993 04:48:26
+16 Oct 1993 04:57:34
+16 Oct 1993 05:18:59
+16 Oct 1993 05:48:18
+16 Oct 1993 06:16:15
+16 Oct 1993 13:16:45
+16 Oct 1993 19:12:17
+16 Oct 92 -
+16 Oct 92.
+16 Oct 93 0:00:04
+16 Oct 93 0:01:01
+16 Oct 93 01:36:42
+16 Oct 93 21:30:58
+16 Oct 93 23:59:02
+16 Oct 93 Chris
+16 Oct 93 Jason
+16 Oct 93 Michael
+16 Oct 93 Norma
+16 Oct 93 Peter
+16 Oct 93 Philip
+16 Oct 93 Sharif
+16 Oct 93, Chris
+16 Oct 93, Souki
+16 Oct 93, you
+16 of
+16 of 16.
+16 of 17
+16 of 18. (Last
+16 of the 26
+16 OHMONO BLACKBASS [2]
+16 on 23/9)
+16 On dogs.mp3 4,704,130
+16 One day in
+16 One each apiece
+16 or 17 years
+16 or 24 bits
+16 or 256 Color
+16 or 32-bit install
+16 or 32 cells
+16 or 8 bit
+16 or 8?
+16 or more! They
+16 Original.mp3 7,172,096 09/07/2001
+16 oz bottles</FONT></TD>
+16 oz Kernel corn,
+16 oz packages</FONT></TD>
+16 oz. bottle of
+16 P 15 O
+16 PAGEMASTER, THE (EURO
+16 pages.
+16 part
+16 Percy Sledge -Take
+16 Perfect bliss.mp3 4,334,759
+16 PGN *Info*
+16 PHANTOM 2040 [4]
+16 Pink Pedal Pushers.mp3
+16 PITFALL, THE MAYAN
+16 Plus v1.03, WinNT
+16 Plus v2.03, DOS/Win3.1x/Win95
+16 Plus v3.01, DOS/Win3.1x/Win95
+16 Pob Feat. X-avia
+16 Point (Medium-Thick), and
+16 ports
+16 ports.
+16 powder your face.mp3
+16 PRETTY FIGHTER [2]
+16 PRIME! A SUPER
+16 PROGRAM DISKS 4
+16 Queen - Innuendo.mp3
+16 Quicklink II support
+16 RAPJAM VOLUME ONE
+16 Ray Dream Studio
+16 Real McCoy -
+16 Real real real.mp3
+16 REM Astronomy magazine
+16 reserved
+16 Reviews! ≤±
+16 Reviews! ˙See our
+16 RHI ROLLER HOCKEY
+16 Right here.mp3 5,156,864
+16 Right, But then
+16 RIP Screens, Good
+16 robert palmer -
+16 Robyn_Show Me Love.mp3
+16 ROCKMAN 7 [2]
+16 s/w
+16 Sacha Distel -
+16 Safe from harm.mp3
+16 Sakin - Blue
+16 SEAQUEST DSV [4]
+16 seconds
+16 Secrets.mp3 4,548,608 09/07/2001
+16 SEGA WORLD WIDE
+16 Select each of
+16 Select the polygons
+16 Sep
+16 Sep 1993 15:57:23
+16 Sep 93
+16 Sep 93 01:51,
+16 Sep 93 07:53:00
+16 Sep 93 11:04:00,
+16 Sep 93 14:52:27
+16 Sep 93 15:46,
+16 Sep 93 15:57:25
+16 Sep 93 15:57:28
+16 Sep 93 17:05:38
+16 Sep 93 19:14,
+16 Sep 93 21:23:00,Francois
+16 Sep 93 22:03,
+16 Sep 93 22:03:01,Mike
+16 Sep 93 Ray
+16 Sep 93 you
+16 Sep 93,
+16 Sep 93, Alex
+16 Sep 93, Dave
+16 Sep 93, Jeff
+16 Sep 93, Nick
+16 Sep 93, Tony
+16 Sep 93:
+16 Sep 96 with
+16 September 1993 13:45,
+16 Set Bend to
+16 SHAQ FU [2]
+16 SHIENS REVENGE [2]
+16 Si, Pel Ciel
+16 signals by 32000
+16 Signore, Ascolta! Non
+16 SIMM sockets
+16 SIMM sockets.
+16 SIMULATION PROYAKYUU (BASEBALL)
+16 Since you've been
+16 Sir Psycho Sexy
+16 Skatalites and Don
+16 Skinhead Symphony THE
+16 Skins for the
+16 Sleeper-The It Girl\07
+16 SNOOPY CONCERT [2]
+16 so i can't
+16 So what if
+16 sockets. It is
+16 SOFTWARE 1/3
+16 Some Enchanted Evening
+16 Song in last
+16 sound car. Last
+16 Sound Card INSTALLATION
+16 sound card, enable
+16 sound card, how
+16 sound card. It
+16 soundcard</LI>
+16 Soundkarte</LI>
+16 Space-Tin Planet\TinPlanet2.BMP
+16 Spanishtonians - Rudie
+16 SPEED RACER [2]
+16 SPIDERMAN & VENOM:
+16 SPIDERMAN: ANIMATED SERIES
+16 SPORTS ILLUSTRATED BASEBALL
+16 squares
+16 standard VGA paint
+16 STAR KILLER
+16 STARGATE (FINAL) [2]
+16 STARTREK : TNG-
+16 Status Quo -
+16 STEP ONE -
+16 Stereo (or any
+16 Stetsasonic_Talkin All That
+16 STEVEN SEAGAL -
+16 STONE PROTECTORS [2]
+16 Strange world.mp3 4,036,608
+16 strawberry fields. Last
+16 STREET FIGHTER 2
+16 STREET SPORTS JAMMIT
+16 Strings of life
+16 Strutton Ground London
+16 Stylistics-I'm stone in
+16 Sugar Minott -
+16 SUPER BASES LOADED
+16 SUPER BATTER UP
+16 SUPER CHINESE FIGHTER
+16 SUPER DRIFT OUT
+16 SUPER PUNCH OUT
+16 SUPER RETURN OF
+16 SUPER TURRICAN 2
+16 SUPERMAN [4]
+16 survivor - eye
+16 Sweet Dreams Eurythmics
+16 sydney youngblood -
+16 SzÌn
+16 T T P.mp3
+16 ta pedia tou
+16 Take That -
+16 tdr,invasion series voloume
+16 TEARS ON MY
+16 Tears Too Late.mp3
+16 TECMO SUPER BOWL
+16 Ten fold.mp3 5,858,742
+16 than Ottawa so
+16 the apartment.mp3 2,708,375
+16 The cricket song
+16 The cricket song.mp3
+16 the downeaster.mp3
+16 The Drifters -Sweets
+16 The drill.mp3 5,855,232
+16 the number of
+16 The real life.mp3
+16 THE RETURN OF
+16 THE SHADOW [2]
+16 The Show Must
+16 The Singles Collection
+16 The sun rising.mp3
+16 The Threepenny Opera_Mack
+16 THE TICK [2]
+16 The Trammps -
+16 The Verve -
+16 then
+16 THEN c =
+16 Three Degrees-Take good
+16 Three drives .mp3
+16 Three lions
+16 Three Lions (Jules
+16 through 256. The
+16 TIME COP (USA
+16 Time to burn.mp3
+16 times from pupdate.asm
+16 TINSTAR [2]
+16 to
+16 to 128. Higher
+16 to 256 colors
+16 to do a
+16 Tons -- Drop
+16 Tons
+16 Top Tracks
+16 total) but there
+16 TR. Sent to
+16 track recording studio.
+16 Tracks and 16
+16 tracks in playlist,
+16 TRUE LIES (FINAL)
+16 True Love Ways.mp3
+16 tunes. (I think
+16 Typically Tropical -
+16 ó changes the
+16 Un aura amarosa
+16 Unamed Tracks
+16 unbreak my heart.mp3
+16 unchangeable colors. FlyingColors
+16 UNDERCOVER COPS [2]
+16 UNI RACERS [2]
+16 until the message
+16 update *Info*
+16 Updated Drivers [01/01]
+16 Urge Overkill -
+16 users
+16 users, each a
+16 utilities 4.0 1/3
+16 utilities for Maximus.
+16 Utils ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+16 v1.0e VGA paint
+16 v1.2 Image viewer
+16 V1.3 1-3
+16 V9.5 patch level
+16 Vanilla Ice -
+16 Various Tracks
+16 vector and matrix
+16 very well known
+16 VIRTUAL BART [4]
+16 Volare .mp3 3,866,624
+16 v‰ri‰
+16 WARLOCK (USA FINAL)
+16 was complete. If
+16 wave files from
+16 waveform input)
+16 waveform output)
+16 WE'VE GOT TONIGHT
+16 We can make
+16 WE WILL ROCK
+16 where the ISO
+16 WhitneyHouston_OneMomentI.. 4,517,720 12/02/1997
+16 Wilder.mp3 4,365,583 01/10/2001
+16 Wildwood.mp3 4,964,310 08/10/2001
+16 WILE'E COYOTE'S REVENGE
+16 Win 3.1 Drivers.
+16 Windows 3.1 drivers.
+16 windows of text
+16 with parental permission
+16 with Waveblaster.
+16 wo der ISO
+16 WOLVERINE [2]
+16 WRESTLE AND ROMANCE
+16 X-MEN : MUTANT
+16 x 16 squares
+16 X 16 ó
+16 year old ..
+16 year old guy
+16 years and certainly
+16 years mainframe experience,
+16 years old -
+16 years old and
+16 years old student
+16 years old, so
+16 years old. When
+16 years, why?
+16 years. But we
+16 You can sleep
+16 you may be
+16 You re the
+16 You really got
+16 Youre ready now.mp3
+16 yrs old. I
+16 yrs. old. I
+16 YUYUHAKUSYO 2 [2]
+16 ZERO THE KAMIKAZE
+16 Zipper catches skin-1982

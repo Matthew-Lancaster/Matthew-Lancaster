@@ -1,0 +1,128 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+88 ' Logical pixels/inch
+88 - A Groovy
+88 - Doctorin' The
+88 - Don't Turn
+88 - Games and
+88 - He Ain't
+88 - Heaven Is
+88 - I Owe
+88 - I Should
+88 - I Think
+88 - Mistletoe And
+88 - Nothing's Gonna
+88 - One Moment
+88 - The Only
+88 - Theme From
+88 - With A
+88 ""
+88 "" a8P
+88 "8a, ,a88 88
+88 `"YbbdP'Y8 88 Get
+88 0.0%
+88 06/06/99 18:44 CRAWL.SPK
+88 06/06/99 18:44 HATCH.SPK
+88 06/08/00 20:51 Devel
+88 0c 28 07
+88 1.7%
+88 108 68 52
+88 11/07/97 0:37 MX_AIRPT.ID
+88 12/02/01 13:31 MG
+88 15
+88 160 179 142
+88 19/05/97 11:59 ICONHEAT.SFD
+88 2.0%
+88 217 34 0
+88 23/01/01 14:10 The
+88 23/04/99 22:22 wfcsetup.ini
+88 237 0.9%
+88 24 0;45
+88 24/05/03 7:20 Fast.pip
+88 25/03/96 15:00 MHEX.INI
+88 26/05/98 1:10 ARTMEDIA.TXT
+88 27 43 FE
+88 3.6%
+88 3a 0c 39
+88 3a 0c cf
+88 3a 20 ec
+88 3a 25 ee
+88 3a 43 22
+88 3a 51 3d
+88 3a 53 e9
+88 3a 54 25
+88 3a 5a a4
+88 3a 70 42
+88 3a 70 cd
+88 3a 76 4d
+88 3a 8d 1d
+88 3a 93 2a
+88 3a a7 e6
+88 3a d2 a8
+88 3a fb 65
+88 45 | .9.....E
+88 45 | U.1&6..E
+88 482 1.9%
+88 54 69 253
+88 65 78 320
+88 6a | .....0.j
+88 88 88
+88 88 88 ""
+88 88 88 "8a,
+88 88 88 `"YbbdP'Y8
+88 88 88 ´
+88 88 88 88
+88 88 88 88,dPPYba,
+88 88 88 88P'
+88 88,dPPYba, ,a8P"
+88 88P' "8a d8"
+88 91000 1349 84%
+88 93 169 444/0
+88 ad88888ba
+88 BCAST_RADIO 10 7
+88 BCAST_RADIO 15 0.2%
+88 BCAST_RADIO 15 0.4%
+88 BCAST_RADIO 2 0.0%
+88 BCAST_RADIO 252 0.1%
+88 BCAST_RADIO 26 67
+88 BCAST_RADIO 275 0.1%
+88 BCAST_RADIO 3 0.1%
+88 BCAST_RADIO 4 0.1%
+88 BCAST_RADIO 4 0.2%
+88 BCAST_RADIO 5 0.1%
+88 BCAST_RADIO 6 0.5%
+88 BCAST_RADIO 8 0.2%
+88 BCAST_RADIO 9 5
+88 CorelDRAW: Chapter 3
+88 d6 cd 45
+88 d8" "8b
+88 Dark Forces /
+88 degrees in my
+88 H000345.ZIP NELS ANDERSON
+88 Hebrew Fonts for
+88 Jump - Van
+88 meg )
+88 miles per *Info*
+88 N002253.ZIP EGA GAMES
+88 N002520.ZIP EGA DUNGEONBASHERS
+88 N002636.ZIP MJ SOLVER
+88 N002926.ZIP MORE TILES
+88 or 3
+88 page 92
+88 page user manual
+88 Ray Dream Studio
+88 remix).mp3
+88 years old.
