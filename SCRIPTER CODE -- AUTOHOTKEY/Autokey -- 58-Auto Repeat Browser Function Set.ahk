@@ -1,4 +1,4 @@
-;  =============================================================
+﻿;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 58-Auto Repeat Browser Function Set.ahk
 ;# __ 
 ;# __ Autokey -- 58-Auto Repeat Browser Function Set.ahk
@@ -346,7 +346,7 @@ DEBBY_HALL_PAUSE=FALSE
 ; -------------------------------------------------------------------
 ; CODE INITIALIZE
 ; -------------------------------------------------------------------
-SoundBeep , 1500 , 400
+; SoundBeep , 1500 , 400
 SetStoreCapslockMode, off
 
 ; -------------------------------------------------------------------
@@ -492,8 +492,8 @@ OLD_TITLE_NAME=
 
 OLD_STATE_XYPOS_TOP_LEFT_MOUSE_REFRESH=
 OLD_STATE_XYPOS_TOP_LINE_MOUSE_REFRESH=
-SETTIMER TIMER_TOP_LEFT_MOUSE_REFRESH_BROWSER,10
-SETTIMER TIMER_TOP_LINE_MOUSE_REFRESH_BROWSER,10
+; SETTIMER TIMER_TOP_LEFT_MOUSE_REFRESH_BROWSER,10
+; SETTIMER TIMER_TOP_LINE_MOUSE_REFRESH_BROWSER,10
 
 
 
@@ -504,7 +504,7 @@ SETTIMER TIMER_TOP_LINE_MOUSE_REFRESH_BROWSER,10
 ; -------------------------------------------------------------------
 SET_NEXT_ESCAPE_TO_GO=
 LEAVE_FACEBOOK_NOTIFY_RETURN_OLD=
-SETTIMER TIMER_LEAVE_FACEBOOK_NOTIFY_AND_RETURN_PRESS_ESCPAPE,100
+; SETTIMER TIMER_LEAVE_FACEBOOK_NOTIFY_AND_RETURN_PRESS_ESCPAPE,100
 
 
 
@@ -521,8 +521,8 @@ SETTIMER AUTO_RELOAD_RAIN_ALARM,1000
 AUTO_HITTER_COUNTER_FACEBOOK_COUNTER=0	
 AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_RUN_ONCE=TRUE
 ; 04 OF 04
-IF OSVER_N_VAR>5 
-	SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO,1000
+; IF OSVER_N_VAR>5 
+	; SETTIMER AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO,1000
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -642,7 +642,7 @@ SET_ARRAY_1() {
 	FN_Array_1 := []
 	ArrayCount := 0
 	ArrayCount += 1
-	FN_Array_1[ArrayCount]:="Facebook - Mozilla Firefox"
+	FN_Array_1[ArrayCount]:="Facebook — Mozilla Firefox"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="Facebook - Google Chrome"
 	ArrayCount += 1
@@ -664,7 +664,7 @@ FN_ARRAY_BT_MAIL() {
 	SET_ARRAY_BT_MAIL := []
 	ArrayCount := 0
 	ArrayCount += 1
-	SET_ARRAY_BT_MAIL[ArrayCount]:="unread) - matt.lan@btinternet.com - BT Yahoo Mail - Google Chrome"
+	SET_ARRAY_BT_MAIL[ArrayCount]:=" - matt.lan@btinternet.com - Google Chrome"
 RETURN FN_ARRAY_BT_MAIL
 }
 
@@ -677,8 +677,13 @@ SET_ARRAY_FB_F5() {
 	; SET_ARRAY_FB_F5[ArrayCount]:="Your Notifications - Google Chrome"
 	SET_ARRAY_FB_F5[ArrayCount]:="Notifications | Facebook - Google Chrome" 
 	ArrayCount += 1
-	SET_ARRAY_FB_F5[ArrayCount]:="Notifications | Facebook - Google Chrome"  ; A CHANGE FB CASE LOWER
+	SET_ARRAY_FB_F5[ArrayCount]:="Facebook - Google Chrome"
 	                                                                   ; Mon 10-Feb-2020 18:59:00
+	; AI ANSWER
+	; AHK HOW GET THIS CHARACTER —
+	; Encoding: Ensure your .ahk script is saved as UTF-8 with BOM
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Facebook — Mozilla Firefox"
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
@@ -947,8 +952,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5:
 			SLEEP 1000
 			SENDINPUT {F5}
 
-			SOUNDBEEP 1500,50
-			SOUNDBEEP 2000,50
+			; SOUNDBEEP 1500,50
+			; SOUNDBEEP 2000,50
 		}
 
 	; # Win (Windows logo key) 
@@ -1009,6 +1014,8 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 
 	IF A_ComputerName<>4-ASUS-GL522VW
 		RETURN
+	
+	RETURN
 	
 	IF DEBBY_HALL_PAUSE=TRUE
 		RETURN
@@ -1290,12 +1297,12 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				MouseMove, 80, 200
 				SLEEP 400
 
-				SOUNDBEEP 1000,50
-				SOUNDBEEP 1500,50
-				SOUNDBEEP 2000,50
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				; SOUNDBEEP 1500,50
+				; SOUNDBEEP 2000,50
 				
 				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, OFF
-				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 420000 ; 7 MINUTE
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, % 1000 * 60 * 10 ; 10 MINUTE
 
 				; MouseClick, LEFT, 80, 200
 			}
@@ -1317,12 +1324,12 @@ AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO:
 				MouseMove, 200, 200
 				SLEEP 400
 
-				SOUNDBEEP 1000,50
-				SOUNDBEEP 1500,50
-				SOUNDBEEP 2000,50
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				; SOUNDBEEP 1500,50
+				; SOUNDBEEP 2000,50
 				
 				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, OFF
-				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, 420000 ; 7 MINUTE
+				SETTIMER,  AUTO_HITTER_COUNTER_FOR_FACEBOOK_VIDEO_PRESS_F5, % 1000 * 60 * 10 ; 10 MINUTE
 
 				; MouseClick, LEFT, 80, 200
 			}
@@ -1379,11 +1386,11 @@ TIMER_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN:
 			WinActivate, ahk_class Chrome_WidgetWin_1
 			WinWaitActive, ahk_class Chrome_WidgetWin_1
 		}
-		; IF BROWSER_APP=2
-		; {
-			; WinActivate, ahk_class MozillaWindowClass
-			; WinWaitActive, ahk_class MozillaWindowClass
-		; }
+		IF BROWSER_APP=2
+		{
+			WinActivate, ahk_class MozillaWindowClass
+			WinWaitActive, ahk_class MozillaWindowClass
+		}
 		
 		WinGetTITLE, TITLE_VAR_2, A
 		IF INSTR(TITLE_VAR_2,ARRAY_BROWSER_TAB_RELOAD_MAIN_SET_GO)
@@ -1392,7 +1399,7 @@ TIMER_SET_ARRAY_BROWSER_TAB_RELOAD_MAIN:
 			IF HWND_3
 			{
 				Send,,^{w}
-				SOUNDBEEP 1000,50
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				SLEEP 100
 			}
 			
@@ -1500,7 +1507,7 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE_CPC:
 				IF INSTR(TITLE_VAR_2,"404 Page Not Found | CPC")
 				{
 					Send,,^{w}
-					SOUNDBEEP 1000,50
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					SLEEP 100
 				}
 			}
@@ -1629,7 +1636,7 @@ TIMER_SET_ARRAY_BROWSER_TAB_CLOSE:
 			IF HWND_2
 			{
 				Send,,^{w}
-				SOUNDBEEP 1000,50
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				SLEEP 100
 			}
 		}
@@ -1731,9 +1738,11 @@ SET_RAIN_ALARM_WINDOW_DIMENSION:
 			SET_GO=TRUE
 		IF A_ComputerName=5-ASUS-P2520LA
 			SET_GO=TRUE
-		IF A_ComputerName=4-ASUS-GL522VW
-			SET_GO=TRUE
+		; IF A_ComputerName=4-ASUS-GL522VW
+			; SET_GO=TRUE
 
+		; SET_GO=TRUE
+		
 		XX_OVER=
 		IF SET_GO=TRUE
 		{
@@ -1766,7 +1775,7 @@ SET_RAIN_ALARM_WINDOW_DIMENSION:
 			}
 			
 			WinMove, %RAINER_F5_SET_GO%, ,x, -2, Width_2, Height_4
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 		}
 
@@ -1848,9 +1857,9 @@ AUTO_RELOAD_RAIN_ALARM:
 	ArrayCount += 1
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
 	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE" ; TRY HERE -- IF DETECT IDLE NOT ACTIVE
-	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
-	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=30
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=30
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
 	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=10
 	ArrayCount += 1
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="5-ASUS-P2520LA"
@@ -1864,13 +1873,20 @@ AUTO_RELOAD_RAIN_ALARM:
 	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
 	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
 	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
-	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:="YES AUDIO"
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
 	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=10
 	ArrayCount += 1
 	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="8-MSI-GP62M-7RD"
-	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:=
-	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=20
-	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=10
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=30
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=30
+	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=10
+	ArrayCount += 1
+	SET_ARRAY_RAIN_HITT_CN_1[ArrayCount]:="9-ASUS-G815LM"
+	SET_ARRAY_RAIN_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_RAIN_HITT_CN_3[ArrayCount]:=30
+	SET_ARRAY_RAIN_HITT_CN_4[ArrayCount]:=30
 	SET_ARRAY_RAIN_HITT_CN_5[ArrayCount]:=
 	SET_ARRAY_RAIN_HITT_CN_6[ArrayCount]:=10
 
@@ -2141,8 +2157,8 @@ AUTO_RELOAD_RAIN_ALARM:
 			SENDINPUT {F5}
 
 			SLEEP 100
-			IF Element5_RAIN   ; "YES AUDIO"
-				Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+			; IF Element5_RAIN   ; "YES AUDIO"
+				; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
 				; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 		
@@ -2192,10 +2208,11 @@ AUTO_RELOAD_FACEBOOK:
 	; QUICK TO ACTIVATE -- DONE
 	; TIMER AFTER VALUE
 
-	SetTitleMatchMode 2                ; PARTIAL FIND
+	SetTitleMatchMode 2
 	XX_OVER=
 	Loop % FN_ARRAY_FB_F5.MaxIndex()
 	{
+		; MSGBOX % FN_ARRAY_FB_F5[A_Index]
 		Element := FN_ARRAY_FB_F5[A_Index]
 		IFWinEXIST, %Element%
 		{
@@ -2243,9 +2260,9 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="4-ASUS-GL522VW"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
-	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=2
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:= ; "YES AUDIO"
-	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=120
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="5-ASUS-P2520LA"
 	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
@@ -2262,9 +2279,16 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="8-MSI-GP62M-7RD"
-	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:=
+	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
+	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
+	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
+	ArrayCount += 1
+	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="9-ASUS-G815LM"
+	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
+	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=20
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 
@@ -2360,7 +2384,7 @@ AUTO_RELOAD_FACEBOOK:
 	; Fri 11-Oct-2019 19:33:29
 	; ---------------------------------------------------------------
 	IF !CHANGE_HWND_GO_FB
-	If (A_TimeIdle < 8000)
+	If (A_TimeIdle < 20000)
 		RETURN
 	
 	; ---------------------------------------------------------------
@@ -2504,8 +2528,10 @@ AUTO_RELOAD_FACEBOOK:
 					; -----------------------------------------------
 					Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
 					; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\Complete - AMPAR.WAV,1 ; WAIT
+					
+					; REM OUT TEST TWO LINE DONT WANT 2ND RING
 					SOUND_PLAYER_FB_DO=%A_NOW%
-					SOUND_PLAYER_FB_DO+= 8, seconds  ; -- SET TIME OR RING REPEAT LOOP UNTIL PAGE REFRESH
+					SOUND_PLAYER_FB_DO+= 30, seconds  ; -- SET TIME OR RING REPEAT LOOP UNTIL PAGE REFRESH
 				}									 ; WHEN NEW NOTIFY ARRIVE FACEBOOK 
 													 ; DETECT BY "(" WINTITLE
 													 ; IF REFRESH PAGE QUICKER OTHER COMPUTER WILL 
@@ -2608,8 +2634,8 @@ AUTO_RELOAD_FACEBOOK:
 
 
 		SLEEP 100
-		IF Element5
-			Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; IF Element5
+			; Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		
 		; ------------------------------------
 		; TOP UP THE TIMER PAIR AFTER ACTIVATE
@@ -2693,7 +2719,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 CHECK_NEW_WINDOW_TIMER_TOP_MOUSE_REFRESH_BROWSER_SOUNDPLAY:
-	SOUNDPLAY, %A_SCRIPTDIR%\AUTOKEY -- 10-READ MOUSE CURSOR ICON\START.WAV
+	; SOUNDPLAY, %A_SCRIPTDIR%\AUTOKEY -- 10-READ MOUSE CURSOR ICON\START.WAV
 	SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_MOUSE_REFRESH_BROWSER_SOUNDPLAY,OFF
 RETURN
 CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__4G:

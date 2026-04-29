@@ -145,6 +145,8 @@
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 Const ShowWindow = 1, DontShowWindow = 0, DontWaitUntilFinished = false, WaitUntilFinished = true
 
+DIM AATRUE
+
 DIM DEBUG_DUMMY_RUN
 
 ' END RESULT ITEM
@@ -208,6 +210,7 @@ DIM APPDATA_FOLDER_FILE_COUNT_VAR_1
 DIM ARRAY_1(200)
 DIM ARRAY_2(200)
 DIM ARRAY_4(200)
+DIM ARRAY_5(200)
 
 Set objShell = Wscript.CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
@@ -264,7 +267,32 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 				I_VAR=I_VAR + "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS = " & VBCRLF 
 				I_VAR=I_VAR + VBCRLF 
 				I_VAR=I_VAR + ARRAY_1(R_SET_1)
-				MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+				IF QUITE_MODE_ENDING=TRUE THEN 
+					MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+				END IF
+			END IF
+		END IF
+	NEXT
+NEXT
+
+
+' ------------------------------------
+' CHECK FOR DUPLICATES IN ARRAY 5
+' ------------------------------------
+' DIM R_SET_1
+' DIM R_SET_2
+
+FOR R_SET_1=1 TO UBOUND(ARRAY_5)
+	FOR R_SET_2=1 TO UBOUND(ARRAY_5)
+		IF ARRAY_1(R_SET_1)<>"" AND ARRAY_1(R_SET_2)<>"" THEN 
+			IF UCASE(ARRAY_1(R_SET_1))=UCASE(ARRAY_1(R_SET_2)) AND R_SET_1<>R_SET_2 THEN 
+				I_VAR=""
+				I_VAR=I_VAR + "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS = " & VBCRLF 
+				I_VAR=I_VAR + VBCRLF 
+				I_VAR=I_VAR + ARRAY_1(R_SET_1)
+				IF QUITE_MODE_ENDING=TRUE THEN 
+					MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+				END IF
 			END IF
 		END IF
 	NEXT
@@ -300,6 +328,33 @@ NEXT
 	' END IF 
 	' END IF 
 ' NEXT
+
+
+
+
+' ' ------------------------------------
+' ' CHECK FOR DUPLICATES MASSIVE SPEEDER ARRAY 5
+' ' ------------------------------------
+' obj_SOURCE_Folder = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
+' Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
+' CALL GET_LINK_SET_STRING(objSuperFolder)
+
+' FOR R_SET=1 TO UBOUND(ARRAY_5)
+	' IF ARRAY_1(R_SET)<>"" THEN 
+		' If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then
+			' FILE_SCAN_FIND_1=UCASE(MID(ARRAY_5(R_SET),INSTR(ARRAY_5(R_SET),"\")+1))
+
+			' IF INSTR(LINK_SET_STRING,FILE_SCAN_FIND_1)>0 THEN 
+				' ARRAY_8(R_SET)=TRUE
+				' LINK_SET_ALREADY_EXIST_TOTAL_5=LINK_SET_ALREADY_EXIST_TOTAL_5+1
+			' END IF
+		' END IF
+	' END IF
+' NEXT
+' ' ------------------------------------
+
+
+
 
 
 ' ------------------------------------------------------
@@ -380,16 +435,30 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 	END IF
 NEXT
 
+
+FOR R_SET=1 TO UBOUND(ARRAY_5)
+	IF ARRAY_5(R_SET)<>"" THEN 
+		If objFSO.FileExists(ARRAY_5(R_SET)) = TRUE Then
+			COUNT_I5=COUNT_I5+1
+		ELSE
+			IF QUITE_MODE_ENDING=FALSE THEN 
+				WScript.Echo "ITEM DON'T EXIST" & VBCRLF & VBCRLF & ARRAY_5(R_SET)
+			END IF
+		END IF
+	END IF
+NEXT
+
+
 obj_SOURCE_Folder = AppDataLocation & "\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
 Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
 APPDATA_FOLDER_FILE_COUNT_VAR_2=0
 Call APPDATA_FOLDER_FILE_COUNT(objSuperFolder, APPDATA_FOLDER_FILE_COUNT_VAR_2)
 
-IF QUITE_MODE_ENDING=TRUE THEN 
-	IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
-		NOT_SHOW_END_MESSENGER=FALSE
-	END IF
-END IF
+' IF QUITE_MODE_ENDING=TRUE THEN 
+	' IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
+		' NOT_SHOW_END_MESSENGER=FALSE
+	' END IF
+' END IF
 
 
 ' IF APPDATA_FOLDER_FILE_COUNT_VAR_1=APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
@@ -398,7 +467,7 @@ IF EXTRA_ITEM_ADD_TO_TASKBAR=0 THEN
 	IF NOT_SHOW_END_MESSENGER=FALSE THEN 
 		I_VAR=""
 		' ADDITION
-		I_VAR=I_VAR + "DONE _ PUT ITEM SET ON "+VBCRLF
+		I_VAR=I_VAR + "DONE _ PUT ITEM SET ON "+VBCRLF+VBCRLF
 		I_VAR=I_VAR + "NONE OTHER ADDITIONAL "+VBCRLF+VBCRLF
 		I_VAR=I_VAR + "TASKBAR COUNT TOTAL -- " & COUNT_I & VBCRLF
 		MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
@@ -407,13 +476,63 @@ IF EXTRA_ITEM_ADD_TO_TASKBAR=0 THEN
 END IF
 
 
-IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" AND QUITE_MODE_ENDING=TRUE THEN
-	NOT_SHOW_END_MESSENGER=TRUE
-END IF
+' IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" AND QUITE_MODE_ENDING=TRUE THEN
+	' NOT_SHOW_END_MESSENGER=TRUE
+' END IF
 
 ' QUITE_MODE_ENDING=TRUE
 ' IF APPDATA_FOLDER_FILE_COUNT_VAR_1<>APPDATA_FOLDER_FILE_COUNT_VAR_2 THEN
-IF EXTRA_ITEM_ADD_TO_TASKBAR>0 THEN 
+
+
+SET_TO_DO_COUNT=0
+FOR R_SET=0 TO UBOUND(ARRAY_1)
+' MSGBOX ARRAY_1(R_SET)
+	IF ARRAY_4(R_SET)=TRUE THEN 
+		SET_TO_DO_COUNT=SET_TO_DO_COUNT+1
+	END IF
+NEXT 
+
+SET WSHShell = WScript.CreateObject("WScript.Shell")
+Set objShell = WScript.CreateObject("WScript.Shell")
+strDesktop = objShell.SpecialFolders("Desktop")
+Set FOLDER = FSO.GETFOLDER(strDesktop)
+
+
+ITEM_VAR_PATH=MID(ARRAY_1(R_SET2),1,INSTRREV(ARRAY_1(R_SET2),"\")-1)
+ITEM_VAR_FILE=MID(ARRAY_1(R_SET2),INSTRREV(ARRAY_1(R_SET2),"\")+1)
+ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
+
+' LINKS THAT ALREADY EXIST ON DESKTOP
+' -----------------------------------
+IF AATRUE="" THEN 
+	AATRUE=LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(FOLDER)
+END IF
+
+AATRUE="ALL THE DESKTOP ICONS"&VBCRLF&AATRUE
+
+'
+' Get clipboard text
+' Set objHTML = CreateObject("htmlfile")
+' text = objHTML.ParentWindow.ClipboardData.GetData("text")
+
+' EDIT: I use this snippet to put text back on the clipboard, but it needs third party software; a standalone executable 'clip.exe' which can be found on Windows 2003 Server or just on the internet:
+
+' Put it back to the clipboard
+Set WshShell = CreateObject("WScript.Shell")
+Set oExec = WshShell.Exec("clip")
+
+Set oIn = oExec.stdIn
+
+oIn.WriteLine AATRUE
+oIn.Close
+
+
+MSGBOX AATRUE
+
+
+
+
+IF EXTRA_ITEM_ADD_TO_TASKBAR>0 AND SET_TO_DO_COUNT>0 THEN 
 IF NOT_SHOW_END_MESSENGER=FALSE THEN 
 	I_VAR=""
 	I_VAR=I_VAR + "PIN ITEM SET _ PUT ON " + VBCRLF + VBCRLF + "TASKBAR COUNT TOTAL -- " & COUNT_I & VBCRLF
@@ -421,10 +540,11 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 	I_VAR=I_VAR + "ADDITIONAL ITEM SET PUT ON -- "
 	I_VAR=I_VAR + CSTR(EXTRA_ITEM_ADD_TO_TASKBAR)+VBCRLF+VBCRLF
 	' ---- "THE FOLLOW SET DOUBLE VERIFY NOT MAKE IT ON"
-	IF LINK_SET_EXIST_TOTAL_VERIFY_2<>"" THEN 
+	' MSGBOX LINK_SET_EXIST_TOTAL_VERIFY_2 & VBCR & I_VAR
+	IF LINK_SET_EXIST_TOTAL_VERIFY_2<>"" OR EXTRA_ITEM_ADD_TO_TASKBAR>0 THEN 
 		I_VAR=I_VAR + "--------------------------------------------------------"+VBCRLF
 		I_VAR=I_VAR + LINK_SET_EXIST_TOTAL_VERIFY_2
-		lRet = MsgBox(I_VAR, vbYesNo + vbMsgBoxSetForeground)
+		lRet = MsgBox(I_VAR, vbYesNoCancel  + vbMsgBoxSetForeground)
 		IF lRet=VBYES THEN
 			' LINK_SET_STRING -- ALREADY OBTAIN
 			' RUN QUICKER WHEN CHECKER
@@ -433,16 +553,69 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 			' LESS ABLE COMPUTER -- AND RUNNING AGAIN
 			' PIN ITEM BATCH LOAD EXPLORER NEW LINKER WHEN EXE NOT WORK
 			' -----------------------------------------------------------
-			FOR R_SET=1 TO UBOUND(ARRAY_1)
+			FOR R_SET=0 TO UBOUND(ARRAY_1)
+			' MSGBOX ARRAY_1(R_SET)
 				IF ARRAY_4(R_SET)=TRUE THEN 
 					SET_TO_DO_COUNT=SET_TO_DO_COUNT+1
 				END IF
 			NEXT 
-			IF SET_TO_DO_COUNT>4 THEN 
-				MSGBOX "OPEN EXPLORER LOT TO DO AND MAKE SHORTCUT DESKTOP INSTEAD __ > 4 __ COUNTER SET " & CSTR(SET_TO_DO_COUNT)
-			END IF
+			' MSGBOX SET_TO_DO_COUNT
+			IF EXTRA_ITEM_ADD_TO_TASKBAR>0 THEN 
+				FOR R_SET2=0 TO UBOUND(ARRAY_1)
+				IF ARRAY_4(R_SET2)=TRUE THEN 
+					' SET_TO_DO_COUNT=SET_TO_DO_COUNT+1
+					' MSGBOX "OPEN EXPLORER LOT TO DO AND MAKE SHORT-CUT DESKTOP INSTEAD __ 4 __ COUNTER SET" & VBCR & CSTR(R_SET2) & VBCR & ARRAY_1(R_SET2)
+					
+					' IF GETCOMPUTERNAME="9-ASUS-G815LM" AND FIGHTVAR=FALSE THEN 
+						' MSGBOX "DON'T LOAD IN EXPLORER IN -- 9-ASUS-G815LM"
+						' FIGHTVAR=TRUE
+					' END IF
 
-			FOR R_SET=1 TO UBOUND(ARRAY_1)
+
+
+
+
+					' Set objShell = WScript.CreateObject("WScript.Shell")
+					' strDesktop = WshShell.SpecialFolders("Desktop")
+			
+
+					' VAR_READ_DESKTOP_ONCE="GO"
+					' IF VAR_READ_DESKTOP_ONCE="GO" THEN 
+						' VAR_READ_DESKTOP_ONCE="STOP"
+
+
+						
+
+					' AATRUE=FALSE 
+					' Set FOLDER = FSO.GETFOLDER(strDesktop)
+					' IF AATRUE=FALSE THEN AATRUE=LINK_ALREADY_EXIST(FOLDER,ITEM_VAR_PATH)
+					' IF AATRUE=FALSE THEN AATRUE=LINK_ALREADY_EXIST(FOLDER,ITEM_VAR_FILE_NOT_EXT)
+					' IF AATRUE=FALSE THEN AATRUE=LINK_ALREADY_EXIST(FOLDER,ITEM_VAR_FILE)
+
+					' IF AATRUE=FALSE THEN MSGBOX AATRUE & VBCRLF & ITEM_VAR_FILE_NOT_EXT
+
+
+					
+					IF INSTR(UCASE(AATRUE),UCASE(ITEM_VAR_PATH))=0 THEN 
+						WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET2)+"""" , ShowWindow, DontWaitUntilFinished
+					END IF
+				END IF
+				NEXT 	
+			END IF
+			
+			
+			' MSGBOX "----" & VBCRLF & VBCRLF & "WOMAN ACROSS THE ROAD" & VBCRLF & CSTR(EXTRA_ITEM_ADD_TO_TASKBAR)
+			
+	
+			' IF EXTRA_ITEM_ADD_TO_TASKBAR<=4 THEN 
+				' WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+			' END IF
+					
+			' MSGBOX CSTR(EXTRA_ITEM_ADD_TO_TASKBAR)
+			
+			' MSGBOX CSTR(ET_TO_DO_COUNT)
+			' MSGBOX UBOUND(ARRAY_1)
+			FOR R_SET=0 TO UBOUND(ARRAY_1)
 				IF ARRAY_4(R_SET)=TRUE THEN 
 					' -----------------------------------------------
 					' Tue 17-Mar-2020 23:43:51
@@ -453,10 +626,11 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 					' INSTEAD NOW GOT MAKE SHORTCUT DESKTOP THAT BE MORE FINER
 					' MOVE SHORTCUT TO TASKBAR
 					' -----------------------------------------------
+					
 					' -----------------------------------------------
-					IF SET_TO_DO_COUNT<=4 THEN
-						WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
-					END IF
+					' IF SET_TO_DO_COUNT<=4 THEN 
+						' WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+					' END IF
 					' -----------------------------------------------
 					' -----------------------------------------------
 					' A BETTER WAY LESS OVERHEAD
@@ -483,28 +657,74 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 					
 					' MSGBOX  ITEM_VAR_FILE_NOT_EXT ' ---- DISPLAY PROGRAM NAME QUICK POP
 					
-					IF SET_TO_DO_COUNT>4 THEN 
+					IF SET_TO_DO_COUNT>0 THEN 
 					IF 1=1 THEN ' RESULT CODE WHEN THIRD FIND FROM E-INTERNET -- MAKE SHORTCUT
 						' ----
 						' Shortcut - VBScript - SS64.com 
 						' https://ss64.com/vb/shortcut.html
 						' ----
-						Set objShell = WScript.CreateObject("WScript.Shell")
-						strDesktop = WshShell.SpecialFolders("Desktop")
-						Set lnk = objShell.CreateShortcut(strDesktop & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
+				
+						
+						
+						
+						' MSGBOX ITEM_VAR_PATH
+						
 
-						lnk.TargetPath = ARRAY_1(R_SET)
-						lnk.Arguments = ""
-						' lnk.Description = UCASE(ITEM_VAR_FILE)  ' NOT WANT BIGGER
-						' lnk.HotKey = "ALT+CTRL+F"
-						' lnk.IconLocation = ARRAY_1(R_SET) & ", 2"     ' 2 OR 1 ---- IF REAL ICON NOT EXE
-						lnk.WindowStyle = "1"
-						lnk.WorkingDirectory = ITEM_VAR_PATH
-						lnk.Save
-						'Clean up 
-						Set lnk = Nothing
+						' IF AATRUE=FALSE THEN AATRUE=LINK_ALREADY_EXIST(FOLDER,ITEM_VAR_PATH)
+						' IF AATRUE=FALSE THEN AATRUE=LINK_ALREADY_EXIST(FOLDER,ITEM_VAR_FILE_NOT_EXT)
+						' IF AATRUE=FALSE THEN AATRUE=LINK_ALREADY_EXIST(FOLDER,ITEM_VAR_FILE)
+
+
+						' Set objShell = WScript.CreateObject("WScript.Shell")
+						' strDesktop = WshShell.SpecialFolders("Desktop")
+						' Set FOLDER = FSO.GETFOLDER(strDesktop)
+
+
+
+						' WScript.Quit(0)
+
+
+
+
+
+						' END IF
+
+				
+						
+						' NOT WORKER IN WINDOWS 11 WONT MAKE LINK
+						' IF GETCOMPUTERNAME="9-ASUS-G815LM" THEN 		
+							' MSGBOX ITEM_VAR_FILE_NOT_EXT
+							' MSGBOX ARRAY_1(R_SET)
+							' MSGBOX UCASE(ITEM_VAR_FILE_NOT_EXT)
+						' END IF
+						
+						
+						' MSGBOX ITEM_VAR_PATH
+
+							
+								
+						IF INSTR(UCASE(AATRUE),UCASE(ITEM_VAR_PATH))=0 THEN 
+							Set lnk = objShell.CreateShortcut(strDesktop & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
+
+							lnk.TargetPath = ARRAY_1(R_SET)
+							lnk.Arguments = ""
+							
+							IF GETCOMPUTERNAME="9-ASUS-G815LM" THEN 	
+								lnk.Description = UCASE(ITEM_VAR_FILE_NOT_EXT)  ' NOT WANT BIGGER UCASE GONE & BACK -- GOOGLE AI SAY THIS ONE AI REPORT THIS ONE IS MANDATORY
+							END IF
+							
+							' lnk.HotKey = "ALT+CTRL+F"
+							' lnk.IconLocation = ARRAY_1(R_SET) & ", 2"     ' 2 OR 1 ---- IF REAL ICON NOT EXE
+							' lnk.WindowStyle = "1"
+							lnk.WorkingDirectory = ITEM_VAR_PATH
+							lnk.Save
+							'Clean up 
+							Set lnk = Nothing
+						END IF
 					END IF 
 					END IF 
+
+					
 						
 					IF 1=2 THEN ' -- NOT WORK
 						' ----
@@ -544,6 +764,104 @@ IF NOT_SHOW_END_MESSENGER=FALSE THEN
 					' -----------------------------------------------
 				END IF
 			NEXT
+
+
+
+
+
+			SET WSHShell = WScript.CreateObject("WScript.Shell")
+			Set objShell = WScript.CreateObject("WScript.Shell")
+			strDesktop = objShell.SpecialFolders("Desktop")
+			Set FOLDER = FSO.GETFOLDER(strDesktop)
+
+			AATRUEZ=""
+
+			' LINKS THAT ALREADY EXIST ON DESKTOP
+			' -----------------------------------
+			IF AATRUEZ="" THEN 
+				AATRUEZ=LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(FOLDER)
+			END IF
+
+
+			' FOR THE DESKTOP
+			FOR R_SET=0 TO UBOUND(ARRAY_5)
+				MSGBOX ARRAY_5(R_SET)
+				'IF ARRAY_4(R_SET)=TRUE THEN 
+					' -----------------------------------------------
+					' Tue 17-Mar-2020 23:43:51
+					' Wed 18-Mar-2020 00:54:00 -- 1 HOUR 10 MINUTE
+					' -----------------------------------------------
+					' REM OUT WSHShell.Run
+					' RUN EXPLORER IS HEAVY OVERHEAD FOR EACH SHORTCUT FINDER
+					' INSTEAD NOW GOT MAKE SHORTCUT DESKTOP THAT BE MORE FINER
+					' MOVE SHORTCUT TO TASKBAR
+					' -----------------------------------------------
+					
+					' -----------------------------------------------
+					' IF SET_TO_DO_COUNT<=4 THEN 
+						' WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_1(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
+					' END IF
+					' -----------------------------------------------
+					' -----------------------------------------------
+					' A BETTER WAY LESS OVERHEAD
+					' IS MAKE THEM SHORTCUT DESKTOP AND DRAG THEM IN THERE
+					' TAKE A WHILE SORT THAT ONE
+					' -----------------------------------------------
+					' Tue 17-Mar-2020 09:42:36
+					' Tue 17-Mar-2020 10:28:21 -- 45 MINUTE
+					' -----------------------------------------------
+					' VBScript - Creating a Shortcut
+					' https://www.vbsedit.com/html/e6ac108b-15f6-4a54-891f-589e8b687ace.asp
+					' -----------------------------------------------
+					ITEM_VAR_PATH=MID(ARRAY_5(R_SET),1,INSTRREV(ARRAY_5(R_SET),"\")-1)
+					ITEM_VAR_FILE=MID(ARRAY_5(R_SET),INSTRREV(ARRAY_5(R_SET),"\")+1)
+					ITEM_VAR_FILE_NOT_EXT=MID(ITEM_VAR_FILE,1,INSTRREV(ITEM_VAR_FILE,".")-1)
+					' -----------------------------------------------
+					' IF ALL LOWER CASE PUT ALL UPPER CASE
+					' IF SEMI LOW AND HIGH CASE ONLY MAKE SURE FIRST LETTER IS HIGH 
+					' AND LEAVE AS SAME
+					IF ITEM_VAR_FILE_NOT_EXT=LCASE(ITEM_VAR_FILE_NOT_EXT) THEN 
+						ITEM_VAR_FILE_NOT_EXT=UCASE(ITEM_VAR_FILE_NOT_EXT)
+					END IF
+					ITEM_VAR_FILE_NOT_EXT=UCASE(MID(ITEM_VAR_FILE_NOT_EXT,1,1))+MID(ITEM_VAR_FILE_NOT_EXT,2)
+					
+					' MSGBOX  ITEM_VAR_FILE_NOT_EXT ' ---- DISPLAY PROGRAM NAME QUICK POP
+					
+					' IF SET_TO_DO_COUNT>0 THEN 
+					' IF 1=1 THEN ' RESULT CODE WHEN THIRD FIND FROM E-INTERNET -- MAKE SHORTCUT
+						' ----
+						' Shortcut - VBScript - SS64.com 
+						' https://ss64.com/vb/shortcut.html
+						' ----
+				
+								
+						IF INSTR(UCASE(AATRUEZ),UCASE(ITEM_VAR_PATH))=0 THEN 
+							Set lnk = objShell.CreateShortcut(strDesktop & "\" & ITEM_VAR_FILE_NOT_EXT & ".lnk")
+
+							lnk.TargetPath = ARRAY_5(R_SET)
+							lnk.Arguments = ""
+							
+							IF GETCOMPUTERNAME="9-ASUS-G815LM" THEN 	
+								lnk.Description = UCASE(ITEM_VAR_FILE_NOT_EXT)  ' NOT WANT BIGGER UCASE GONE & BACK -- GOOGLE AI SAY THIS ONE AI REPORT THIS ONE IS MANDATORY
+							END IF
+							
+							' lnk.HotKey = "ALT+CTRL+F"
+							' lnk.IconLocation = ARRAY_1(R_SET) & ", 2"     ' 2 OR 1 ---- IF REAL ICON NOT EXE
+							' lnk.WindowStyle = "1"
+							lnk.WorkingDirectory = ITEM_VAR_PATH
+							lnk.Save
+							'Clean up 
+							Set lnk = Nothing
+
+
+
+						 END IF
+					' END IF 
+				' END IF 
+			NEXT
+
+
+
 		END IF
 	ELSE
 		MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName 
@@ -615,32 +933,45 @@ END IF
 FILE_SCAN_FIND_4=""
 Call ShowSubfolders_FIND_NORTON_UISTUB_EXE
 
-IF FILE_SCAN_FIND_4<>"" THEN 
-	' FOUND NORTON \uiStub.exe
+FILE_SCAN_FIND_4="C:\Program Files\Norton\Suite\NortonUI.exe"
+If objFSO.FileExists(FILE_SCAN_FIND_4) = TRUE Then
 	I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_4
+	ELSE
+	FILE_SCAN_FIND_4=""
+END IF
+
+FILE_SCAN_FIND_4=""
+Call ShowSubfolders_FIND_NORTON_UISTUB_EXE
+
+IF FILE_SCAN_FIND_4="" THEN 
+	Call ShowSubfolders_FIND_NORTON_UISTUB_EXE
+	IF FILE_SCAN_FIND_4<>"" THEN I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_4
 ELSE
 	' WHEN CANNOT FIND ALLOW FOR ALERT ANYWAY
 	I=I+1:ARRAY_1(I)="C:\Program Files\Norton Security\Engine\...\uiStub.exe"
 END IF
 
 
-obj_SOURCE_Folder = "C:\Users\" & GETUSERNAME & "\AppData\Local\GrammarlyForWindows"
-SET_GO=TRUE
-If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
-IF SET_GO=TRUE THEN 
-	FILE_SCAN_FIND_2=""
-	Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
-	Call ShowSubfolders (objSuperFolder,"GrammarlyForWindows.exe")
-	IF FILE_SCAN_FIND_2<>"" THEN 
-		I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
-	ELSE
-		I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\GrammarlyForWindows.exe"
-	END IF
-END IF
+' obj_SOURCE_Folder = "C:\Users\" & GETUSERNAME & "\AppData\Local\GrammarlyForWindows"
+' SET_GO=TRUE
+' If objFSO.FOLDERExists(obj_SOURCE_Folder) = FALSE Then SET_GO=FALSE
+' IF SET_GO=TRUE THEN 
+	' FILE_SCAN_FIND_2=""
+	' Set objSuperFolder = objFSO.GetFolder(obj_SOURCE_Folder)
+	' Call ShowSubfolders (objSuperFolder,"GrammarlyForWindows.exe")
+	' IF FILE_SCAN_FIND_2<>"" THEN 
+		' I=I+1:ARRAY_1(I)=FILE_SCAN_FIND_2
+	' ELSE
+		' I=I+1:ARRAY_1(I)=obj_SOURCE_Folder & "\GrammarlyForWindows.exe"
+	' END IF
+' END IF
+
 
 IF Version_OS=6 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\UWT2.2 _ WIN 7\Ultimate Windows Tweaker.exe"
 END IF 
+
+
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\UWT4 ___ WIN 10\Ultimate Windows Tweaker 4.1.1.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\UWT4.3 ___ WIN 10\Ultimate Windows Tweaker 4.3\Ultimate Windows Tweaker 4.3.exe"
@@ -649,6 +980,10 @@ IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\Windows\system32\mspaint.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\specialfoldersview.exe"
 END IF 
+IF Version_OS=11 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nokia\Nokia Suite\NokiaSuite.exe"
+	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\specialfoldersview.exe"
+END IF
 
 ' 1-ASUS-X5DIJ
 ' 2-ASUS-EEE
@@ -677,10 +1012,12 @@ IF GETCOMPUTERNAME="4-ASUS-GL522VW" then
 END IF 
 
 IF GETCOMPUTERNAME="7-ASUS-GL522VW" then 
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\DFX\dfx.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
 END IF 
-
+IF Version_OS=11 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
+END IF
 
 'I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\Agent Ransack\AgentRansack.exe"
 'If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
@@ -688,27 +1025,34 @@ END IF
 'END IF
 
 I=I+1:ARRAY_1(I)="C:\Program Files\Mozilla Firefox\firefox.exe"
+
 If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 	ARRAY_1(I)="C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
 END IF
+
+
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\bluetoothlogview.exe"
 I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\bluetoothview.exe"
 
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-IF Version_OS=10 THEN
+IF Version_OS=10 OR Version_OS=11 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
 END IF 
+
+
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
 I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
-IF Version_OS=10 THEN
+
+
+IF Version_OS=10 OR Version_OS=11 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
 END IF 
 
 IF GETCOMPUTERNAME="7-ASUS-GL522VW" then 
-	I=I+1:ARRAY_1(I)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe" 
+	' I=I+1:ARRAY_1(I)="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe" 
 	
 	' C:\SCRIPTOR GITHUB\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe
 	' C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 59-RUN GOODSYNC SET SCRIPTOR--VB\BAT 59-RUN GOODSYNC SET SCRIPTOR.exe
@@ -728,20 +1072,23 @@ IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
 END IF
 
-IF Version_OS=10 OR ORGETCOMPUTERNAME="3-LINDA-PC" THEN
+IF Version_OS=10 OR Version_OS=11 OR GETCOMPUTERNAME="3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
 END IF
 
-IF Version_OS=10 THEN
+IF Version_OS=10 OR Version_OS=11 THEN
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
 	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
 END IF 
+
+
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
-IF Version_OS=10 THEN
+IF Version_OS=10 OR Version_OS=11 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"
 END IF 
-IF Version_OS=10 THEN
+
+IF Version_OS=10 OR Version_OS=11 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Speech SDK 5.1\Bin\TTSApp.exe"
 END IF 
 
@@ -751,35 +1098,36 @@ END IF
 ' -------------------------------------------------------------------
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Siber Systems\AI RoboForm\Identities.exe"
 ' -------------------------------------------------------------------
-I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync.exe"
+
 ' -------------------------------------------------------------------
-SET_GO_GS=FALSE
-IF GETCOMPUTERNAME="4-ASUS-GL522VW" then SET_GO_GS=TRUE
-IF GETCOMPUTERNAME="7-ASUS-GL522VW" then SET_GO_GS=TRUE
+' SET_GO_GS=FALSE
+' IF GETCOMPUTERNAME="4-ASUS-GL522VW" then SET_GO_GS=TRUE
+' IF GETCOMPUTERNAME="7-ASUS-GL522VW" then SET_GO_GS=TRUE
 
-IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - C\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO C DRIVE.AHK.EXE"
-	IF SET_GO_GS=TRUE THEN 
-		I=I+1:ARRAY_1(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - D\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.AHK.EXE"
-	END IF
-END IF
+' IF Version_OS=10 THEN
+	' I=I+1:ARRAY_1(I)="C:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - C\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO C DRIVE.AHK.EXE"
+	' IF SET_GO_GS=TRUE THEN 
+		' I=I+1:ARRAY_1(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - D\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.AHK.EXE"
+	' END IF
+' END IF
 
-IF Version_OS=10 THEN
+IF Version_OS=10 OR Version_OS=11 THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\hashmyfiles.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\Reg Converter\RegConvert.exe"
 	'I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\regfromapp.exe"
 END IF 
 
 
-IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
-	I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
-	I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
-	I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WinMerge\WinMergeU.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
 
-END IF
+I=I+1:ARRAY_1(I)="C:\PStart\PStart.exe"
+I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\Start.exe"
+I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirLauncher.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WinMerge\WinMergeU.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
+' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
+
+
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Notepad++\notepad++.exe"
 If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
@@ -787,33 +1135,49 @@ If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 END IF
 
 IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files\CCleaner\CCleaner64.exe"
+	
+	' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\PicPickPortable\App\picpick\picpick.exe"
+	
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PicPick\picpick.exe"
+	
+	' I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\Piriform\CCleaner 7\CCleaner.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Common Files\LogiShrd\Unifying\DJCUHost.exe"
 END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
-I=I+1:ARRAY_1(I)="C:\Program Files\VS Revo Group\Revo Uninstaller\RevoUnin.exe"
+IF Version_OS=11 THEN
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PicPick\picpick.exe"
+	
+	' I=I+1:ARRAY_1(I)="C:\Program Files\OVH\hubiC\hubiC.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\Piriform\CCleaner 7\CCleaner.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files\LogiOptionsPlus\logioptionsplus.exe"
+END IF
 
-IF Version_OS=10 THEN
+
+I=I+1:ARRAY_1(I)="C:\Program Files\JAM Software\TreeSize Free\TreeSizeFree.exe"
+I=I+1:ARRAY_1(I)="C:\Program Files\VS Revo Group\Revo Uninstaller Pro\RevoUninPro.exe"
+
+IF Version_OS=10 OR Version_OS=11 THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Cool2000\cool2000.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Audacity\audacity.exe"
 END IF
 
+' DUPLICATE ENTRY
+' I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\Reg Converter\RegConvert.exe"
 
-IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
+' IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Greatis\WinDowse\WinDowse.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\MPC-HC\mpc-hc64.exe"
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\MPC-HC\mpc-hc.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Process Lasso\ProcessLasso.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
-END IF
+' END IF
 
 
-IF Version_OS=10 THEN
+IF Version_OS=10 OR Version_OS=11 THEN
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wweb32.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\WordWeb\wwnotray.exe"
 	' I=I+1:ARRAY_1(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
@@ -829,29 +1193,49 @@ IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\procexp.exe"
 	' I=I+1:ARRAY_1(I)="C:\PStart\Progs\#_PortableApps\PortableApps\AutorunsPortable\App\Autoruns\Autoruns64.exe"
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\Autoruns.exe"
-	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\Easy USB Creator Lite.exe"
-	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\RUFUS\rufus-3.1.exe"
+
 END IF
 
 PART_WIZ="C:\Program Files\MiniTool Partition Wizard 10\partitionwizard.exe"
 If objFSO.FileExists(PART_WIZ) = TRUE Then
-	ARRAY_1(I)=PART_WIZ
+	I=I+1:ARRAY_1(I)=PART_WIZ
 END IF
 PART_WIZ="C:\Program Files\MiniTool Partition Wizard 11\partitionwizard.exe"
 If objFSO.FileExists(PART_WIZ) = TRUE Then
-	ARRAY_1(I)=PART_WIZ
+	I=I+1:ARRAY_1(I)=PART_WIZ
 END IF
 PART_WIZ="C:\Program Files\MiniTool Partition Wizard 12\partitionwizard.exe"
 If objFSO.FileExists(PART_WIZ) = TRUE Then
-	ARRAY_1(I)=PART_WIZ
+	I=I+1:ARRAY_1(I)=PART_WIZ
+END IF
+PART_WIZ="C:\Program Files\MiniTool Partition Wizard 13\partitionwizard.exe"
+If objFSO.FileExists(PART_WIZ) = TRUE Then
+	I=I+1:ARRAY_1(I)=PART_WIZ
 END IF
 
 
-If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
-	ARRAY_1(I)="C:\Program Files\MiniToolPowerDataRecovery\PowerDataRecovery.exe"
-END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe"
+
+
+
+
+I=I+1:ARRAY_1(I)="C:\Program Files\MiniToolPowerDataRecovery\PowerDataRecovery.exe"
+
+
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe" ' V 2.4
+
+I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\EasyBCD 2.4.exe"
+
+I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASY USB CREATOR 2.3.2\Easy USB Creator v2.3.2.exe" ' PAID FOR
+
+I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
+
+I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\RUFUS\rufus-3.1.exe" 'LATEST
+
+' I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\Easy USB Creator Lite.exe"
+
+
+
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_1(I)="C:\ProgramData\Logishrd\LogiOptions\Software\Current\LogiOptionsUI.exe"
@@ -872,23 +1256,35 @@ IF Version_OS=10 THEN
 	END IF
 END IF
 
+
+
+
 IF Version_OS=10 THEN
-	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\ImgBurn.exe"
+
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Vision\NeroVision.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe" 
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
+	'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\No-IP\DUC40.exe"
+	'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero TuneItUp\TuneItUp.exe"
+	
 END IF
 
 IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
+	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
+	
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero Apps\Nero WaveEditor\waveedit.exe"
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero Common\Nero Launcher\NeroLauncher.exe"
+	I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
+	
 	I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
 END IF
 
 
 IF Version_OS=10 THEN
-	'I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero TuneItUp\TuneItUp.exe"
+
 	I=I+1:ARRAY_1(I)="C:\Program Files\FileZilla FTP Client\filezilla.exe"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
+	
+	' C:\Program Files\FileZilla Server\filezilla-server-gui.exe --server.name Local --server.host 127.0.0.1 --server.port 14148
+	' I=I+1:ARRAY_1(I)="C:\Program Files\FileZilla Server\filezilla-server-gui.exe"
 END IF
 
 
@@ -911,12 +1307,22 @@ I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 02 XP\Calc XP.exe"
 ' ----
 
 
-IF Version_OS=10 THEN
+IF Version_OS=10 OR VERSION_OS=11 THEN
 	' WIN 07 CALC FOR WIN 10 OR WIN XP
 	' WILL ONLY WORK ON WIN 10 
 	' NOT A VALID WINDOWS APPLICATION FOR WINDOWS 7
 	' GUESS BE THE SAME ONE AS WIN 07 ANYWAY
-	I=I+1:ARRAY_1(I)="C:\Windows\System32\Calc1.exe" 
+	' I=I+1:ARRAY_1(I)="C:\Windows\System32\Calc1.exe" 
+	' I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
+	' I=I+1:ARRAY_1(I)="C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_11.2508.4.0_x64__8wekyb3d8bbwe\CalculatorApp.exe"
+	' C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_11.2508.4.0_x64__8wekyb3d8bbwe\CalculatorApp.exe
+	
+	
+	' ------------------------------------------------------------------------------------
+	' CALC WINDOWS 11 IS THE SAME AS WINDOWS 10
+	' Calc Windows 10.exe IS A LAUNCHER FOR WINDOWS 10 AND WINDOWS 11 CALC
+ 	' ------------------------------------------------------------------------------------
+	
 	I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\CALC WIN 04 10\Calc Windows 10.exe"
 END IF
 
@@ -931,11 +1337,7 @@ END IF
 ' ---------------------------------------------------------------------------
 
 
-IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
-	I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
-END IF
-
-IF Version_OS=10 THEN
+IF Version_OS=10 OR Version_OS=11 THEN
 	' DVD RIPER COPIER
 	I=I+1:ARRAY_1(I)="C:\Program Files\HandBrake\HandBrake.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
@@ -946,16 +1348,14 @@ END IF
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
 ' END IF
 
-I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
-If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
-	ARRAY_1(I)=REPLACE(UCASE(ARRAY_1(I)), "\PROGRAM FILES (X86)\","\PROGRAM FILES\")
-END IF
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Glarysoft\Software Update\Software Update.exe"
+
 
 IF Version_OS=10 THEN
 	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Evernote\Evernote\EvernoteClipper.exe"
 END IF
 
-IF GETCOMPUTERNAME="7-ASUS-GL522VW" THEN
+IF GETCOMPUTERNAME="4-ASUS-GL522VW" THEN
 	FOR R_USERNAME=1 TO 8
 		U1=TRIM(CSTR(R_USERNAME))
 		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
@@ -963,6 +1363,12 @@ IF GETCOMPUTERNAME="7-ASUS-GL522VW" THEN
 			I=I+1:ARRAY_1(I)=U2
 		END IF
 	NEXT
+	
+	' THIS IS A WINDOWS APP AND WONT WORK PUT ON DESKTOP BY HERE
+	' press Win + R, type shell:AppsFolder, find the app, right-click it, and select "Create shortcut"
+	'
+	' I=I+1:ARRAY_1(I)="C:\Program Files\WindowsApps\DigitalVolcanoSoftware.40903F03D22BA_5.26.0.0_x64__55chcb595f864\Duplicate Cleaner 5\Duplicate Cleaner 5.exe"
+	
 END IF
 
 
@@ -997,11 +1403,8 @@ If objFSO.FileExists(ARRAY_1(I)) = FALSE Then
 	I=I-1
 END IF
 
-' IF Version_OS=10 THEN
-	' I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Arduino\arduino.exe"
-' END IF
-
-IF GETCOMPUTERNAME="7-ASUS-GL522VW" THEN
+' CHANGE FORM 7-ASUS-GL522VW"
+IF GETCOMPUTERNAME="4-ASUS-GL522VW" THEN
 	I=I+1:ARRAY_1(I)="C:\Users\" & GETUSERNAME & "\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
 END IF
 
@@ -1015,12 +1418,157 @@ END IF
 ' Alon Video Joiner
 
 I=I+1:ARRAY_1(I)="D:\Program Files (x86)\Microsoft Encarta\Encarta Encyclopedia 2001\ENC2001.EXE"
+
+
+
+' ONLY ON 4-ASUS-GL522VW
+' THIS IS A WINDOWS APP
+' I=I+1:ARRAY_1(I)="C:\Program Files\WindowsApps\DigitalVolcanoSoftware.40903F03D22BA_5.26.0.0_x64__55chcb595f864\Duplicate Cleaner 5\Duplicate Cleaner 5.exe"
+
+
+
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)=""
+
+
+
+
+
+' CLIPBOARD(
+
+' THESE ARE FOR THE DESKTOP
+' --------------------------
+I=1
+I=I+1:ARRAY_5(I)="C:\PStart\Progs\#_PortableApps\PortableApps\AutorunsPortable\AutorunsPortable.exe"
+' I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\Acrobat.exe"
+'I=I+1:ARRAY_5(I)="C:\PStart\# NOT INSTALL REQUIRED\Advanced_Renamer\ARen.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Advanced Renamer\ARen.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Arduino\arduino.exe"
+I=I+1:ARRAY_5(I)="D:\GOODSYNC JOB CONTROL\GoodSync2Go AHK2EXE - D\AUTOKEY -- 80-AHK TO EXE LOAD GOODSYNC2GO D DRIVE.AHK.EXE"
+I=I+1:ARRAY_5(I)="C:\Users\MATT 01\AppData\Local\balena_etcher\balenaEtcher.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\BootRacer\Bootrace.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Canon\Quick Menu\CNQMMAIN.EXE"
+I=I+1:ARRAY_5(I)="C:\Program Files\Defraggler\Defraggler64.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\DOSBox-0.72\dosbox.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
+I=I+1:ARRAY_5(I)="C:\PStart\# NOT INSTALL REQUIRED\EASY USB CREATOR 2.3.2\Easy USB Creator v2.3.2.exe"
+'I=I+1:ARRAY_5(I)="C:\WINDOWS\Installer\{03EC818F-96E5-497F-AF28-EC6BC4CF32D3}\EasyVideoMaker.exe_96942AE20DCC466DBFC84D044"
+I=I+1:ARRAY_5(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\EasyBCD 2.4.exe"
+I=I+1:ARRAY_5(I)="D:\Program Files (x86)\Microsoft Encarta\Encarta Encyclopedia 2001\ENC2001.EXE"
+I=I+1:ARRAY_5(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Mozilla Firefox\firefox.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\foobar2000\foobar2000.exe"
+'I=I+1:ARRAY_5(I)="C:\WINDOWS\Installer\{01995E6E-DABA-47BE-8E59-4149038DAC0A}\FreeSpeedVideo.exe_11C90DF38DEB457BA61C5A87D"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Audio Converter\FreemakeAudioConverter.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Music Box\FreemakeMusicBox.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Video Downloader\FreemakeVideoDownloader.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake YouTube To MP3 Boom\FreemakeYB.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
+'I=I+1:ARRAY_5(I)="C:\Program Files\Git\git-bash.exe"
+I=I+1:ARRAY_5(I)="C:\Users\MATT 01\AppData\Local\GitHubDesktop\GitHubDesktop.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Siber Systems\GoodSync\GoodSync.exe"
+' I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Google\Drive File Stream\launch.bat"
+I=I+1:ARRAY_5(I)="C:\HBCD\Programs\Programs\grubinst_gui.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\HandBrake\HandBrake.exe"
+I=I+1:ARRAY_5(I)="C:\HBCD\HBCDMenu.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\IMGBURN\ImgBurn.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\IObit\IObit Unlocker\IObitUnlocker.exe"
+' SORT HERE
+' I=I+1:ARRAY_5(I)="C:\Program Files (x86)\IrfanView\i_view64.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\IrfanView\i_view64.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\IrfanView\i_view32.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Kat MP3 Recorder\Kat MP3 Recorder.exe"
+I=I+1:ARRAY_5(I)="D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Mega Video Converter\Client.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\MiniTool Partition Wizard 13\partitionwizard.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\MiniToolPowerDataRecovery\PowerDataRecovery.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\MP4Tools\bin\MP4Joiner.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\MP4Tools\bin\MP4Splitter.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\MPC-HC\mpc-hc64.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero Launcher\NeroLauncher.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Nero\Nero Common\Nero Launcher\NeroLauncher.exe"
+' SORT HERE
+' I=I+1:ARRAY_5(I)="C:\Program Files\Norton\Utilities\NortonUtilitiesUI.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\PicPick\picpick.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Piriform\CCleaner 7\CCleaner.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Recuva\recuva64.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Speccy\Speccy64.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Process Lasso\ProcessLassoLauncher.exe"
+I=I+1:ARRAY_5(I)="C:\PStart\PStart.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\RemoteNetBackup\RemoteBackup.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\VS Revo Group\Revo Uninstaller Pro\RevoUninPro.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
+'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Samsung\SideSync4\SideSync.exe"
+'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Samsung\Smart Switch PC\SmartSwitchPC.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Glarysoft\Software Update\Software Update.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Speccy\Speccy64.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe"
+'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Wondershare\Wondershare TunesGo (Win) - Android Devices\TunesGo.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\UltraISO\UltraISO.exe"
+'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Common Files\Logishrd\Unifying\DJCUHost.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\USB Safely Remove\USBSafelyRemove.exe"
+I=I+1:ARRAY_5(I)="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\USBIMAGER\usbimager.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
+I=I+1:ARRAY_5(I)="C:\Program Files\ViceVersa Pro\ViceVersa.exe"
+I=I+1:ARRAY_5(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\VSPlayer\VSPlayer.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Nero\Nero Apps\Nero WaveEditor\waveedit.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Winamp\winamp.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\WinRAR\WinRAR.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Wise\Wise Video Converter\WiseVideoConverter.exe"
+'I=I+1:ARRAY_5(I)="C:\WINDOWS\Installer\{58582B88-0260-4C80-9A89-8CA0923AFD26}\_4ae13d6c.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files\XnViewMP\xnviewmp.exe"
+'I=I+1:ARRAY_5(I)="C:\Windows\Installer\{543D2D61-3E3D-4CAD-A39A-B40D7E0911DB}\YoutubeMovieMaker._1396BF56F31E4060B7BF96A42"
+
+
+
+
+
+
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+I=I+1:ARRAY_5(I)=""
+
+
+
+
+
+
 
 
 
@@ -1101,7 +1649,12 @@ SUB GET_WINDOWS_VERSION
 	' WScript.Echo " Serial Number: " + System.SerialNumber 
 	' Wscript.Echo "" 
 	Version_OS = CINT(MID(System.Version,1,INSTR(System.Version,".")-1))
-	'WINDOWS 7 = 6.1.7601
+	'WINDOWS 7 = 6.1.7601 
+	'WINDOWS 11 = 10.0.26200
+	' IF System.Version =10.0.26200 THEN Version_OS=11
+
+	IF GETCOMPUTERNAME="9-ASUS-G815LM" THEN Version_OS="11"
+
 	next 
 END SUB
 
@@ -1117,8 +1670,10 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		ITEM_VAR_SET=ITEM_VAR_PATH & ITEM_VAR_FILE
 		ITEM_VAR_SET=ARRAY_1(R_SET)
 		
+		' MSGBOX ITEM_VAR_FILE
+		
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
-			RESULT_TO_DO=RESULT_TO_DO & ITEM_VAR_SET &VBCRLF&VBCRLF
+			RESULT_TO_DO=RESULT_TO_DO & ITEM_VAR_SET & VBCRLF & VBCRLF
 			RESULT_TO_DO_COUNTER=RESULT_TO_DO_COUNTER+1
 		END IF
 	END IF
@@ -1170,10 +1725,15 @@ FOR R_SET=1 TO UBOUND(ARRAY_1)
 		If objFSO.FileExists(ARRAY_1(R_SET)) = TRUE Then 
 			' MSGBOX """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET
 			IF DEBUG_DUMMY_RUN=FALSE THEN 
-				objShell.Run """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET , 0 , TRUE
+				' objShell.Run """"&PinTo10_EXE_PATH&""" " & ITEM_VAR_SET , 0 , TRUE
 			END IF
 			EXTRA_ITEM_ADD_TO_TASKBAR = EXTRA_ITEM_ADD_TO_TASKBAR + 1
-			' MSGBOX ITEM_VAR_SET
+			
+			
+			
+			' MSGBOX ITEM_VAR_FILE
+			
+			
 			'WScript.Sleep 1000
 
 			IF QUITE_MODE_ENDING=FALSE THEN
@@ -1253,6 +1813,84 @@ SUB GET_LINK_SET_STRING(fFolder)
 	Next
 LINK_SET_STRING=UCASE(LINK_SET_STRING)
 End SUB
+
+
+' ----------------------------------------------
+FUNCTION LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(fFolder)
+' ----------------------------------------------
+	TT_EDITOR=""
+	LINK_ALREADY_EXIST_DOUBLE_VERIFY_2=""
+	Set objFolder = objFSO.GetFolder(fFolder.Path)
+    Set colFiles = objFolder.Files
+	Dim oFile
+	For Each objFile in colFiles
+		
+
+		' ----------------------------------------
+		' VBScript Scripting Techniques: Shortcuts
+		' ----------------------------------------
+		' https://www.robvanderwoude.com/vbstech_shortcuts.php
+		' ----------------------------------------
+		' Author: Denis St-Pierre
+		' *Retrieves* Shortcut info without using WMI
+		' The *Undocumented* Trick: use the ".CreateShortcut" method without the
+		' ".Save" method; works like a GetShortcut when the shortcut already exists!
+
+		Set oFile = oFSO.GetFile(objFile.PATH)
+		strTargetPath=oFile
+
+
+		Set wshShell    = CreateObject("WScript.Shell")
+		' CreateShortcut works like a GetShortcut when the shortcut already exists!
+		Set objShortcut = wshShell.CreateShortcut(strTargetPath)
+
+		' For URL shortcuts, only ".FullName" and ".TargetPath" are valid
+		' WScript.Echo "Full Name         : " & objShortcut.FullName
+		' WScript.Echo "Arguments         : " & objShortcut.Arguments
+		' WScript.Echo "Working Directory : " & objShortcut.WorkingDirectory
+		' WScript.Echo "Target Path       : " & objShortcut.TargetPath
+		' WScript.Echo "Icon Location     : " & objShortcut.IconLocation
+		' WScript.Echo "Hotkey            : " & objShortcut.Hotkey
+		' WScript.Echo "Window Style      : " & objShortcut.WindowStyle
+		' WScript.Echo "Description       : " & objShortcut.Description
+
+		IF LEN(objShortcut.TargetPath)>0 THEN 
+
+			TT_EDITOR = TT_EDITOR & VBCRLF & objShortcut.TargetPath
+
+			' Wscript.QUIT				' WScript.Quit(0)
+		END IF
+		
+		
+
+		Set objShortcut = Nothing
+		Set wshShell    = Nothing		
+
+	Next
+
+	LINK_ALREADY_EXIST_DOUBLE_VERIFY_2=TT_EDITOR
+	
+	
+	SET WSHShell = WScript.CreateObject("WScript.Shell")
+	Set objShell = WScript.CreateObject("WScript.Shell")
+	strDesktop = objShell.SpecialFolders("Desktop")
+	Set FOLDER = FSO.GETFOLDER(strDesktop)
+
+	IF AATRUE="" THEN 
+		AATRUE=TT_EDITOR
+	END IF
+
+
+	
+	
+	' MSGBOX AATRUE
+	' Wscript.QUIT				' WScript.Quit(0)
+End FUNCTION
+
+
+
+
+
 
 ' ----------------------------------------------
 FUNCTION LINK_ALREADY_EXIST_DOUBLE_VERIFY(fFolder,FILE_SCAN_FIND_1)
@@ -1364,6 +2002,7 @@ Sub ShowSubfolders_FIND_NORTON_UISTUB_EXE
 		Next
 	Next
 End Sub
+
 ' ------------------------------------
 ' 02 OF 02
 ' ------------------------------------

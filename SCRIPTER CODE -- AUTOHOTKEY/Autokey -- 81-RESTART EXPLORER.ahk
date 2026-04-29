@@ -57,7 +57,6 @@ GO_ROUTINE:
 	; THAT EASIER A COUNTDOWN MSGBOX
 	; ---------------------------------------------------------------
 	
-	SoundBeep , 1500 , 400
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Process, Exist, explorer.exe
 	If ErrorLevel > 0

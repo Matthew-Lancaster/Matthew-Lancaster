@@ -1,0 +1,772 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+06 '96 146 bpm
+06 -- Westlife -
+06 - 'Cow Cow'
+06 - (Nice Dream)
+06 - (WeWant)TheSameThing.mp3
+06 - A Deeper
+06 - A Fifth
+06 - a huge
+06 - A Well
+06 - Adagio -
+06 - Alabama Feat
+06 - Albert Collins
+06 - Alright For
+06 - An Excel
+06 - Andante From
+06 - Ann
+06 - Apples, peaches,
+06 - Australia.mp3
+06 - Baby, Let's
+06 - Back In
+06 - Back To
+06 - BeautifulOnes.mp3
+06 - Beauty School
+06 - Big Maceo
+06 - Bill Evans
+06 - Billie Holiday
+06 - Blue Room.mp3
+06 - brother in
+06 - Buster Benton
+06 - Byther Smith
+06 - Calm Before
+06 - Can't find
+06 - Carl Perkins
+06 - Catch the
+06 - Changing Faces.MP3
+06 - China Roses.mp3
+06 - Cinderella
+06 - Club Fool.MP3
+06 - Clumsy Lobster
+06 - Coleman Hawkins
+06 - Complicated Life.mp3
+06 - Cry
+06 - Dangerous
+06 - Dave Edmunds
+06 - David A.
+06 - Demons -
+06 - Do you
+06 - Don't Come
+06 - Don't Do
+06 - Don't lose
+06 - Don't Tread
+06 - Eddie 'Lockjaw'
+06 - Eric B
+06 - Escape.mp3
+06 - ET
+06 - eve boswell
+06 - Exit Mr
+06 - Fat man
+06 - Fergal Sharkey
+06 - Flood II
+06 - Foxy Brown
+06 - Frankie Says
+06 - Free The
+06 - george shearing
+06 - Georgia Bo
+06 - Gimme Gimme
+06 - Gloria
+06 - Gorillaz -
+06 - Gotcha
+06 - Hand in
+06 - Harvester Of
+06 - Have Yourself
+06 - Heart Of
+06 - Heat wave.mp3
+06 - Heavens what
+06 - Here with
+06 - Hold Me
+06 - I'm Tired
+06 - I Am
+06 - I Gotcha.mp3
+06 - I Know
+06 - i live
+06 - I Owe
+06 - I remember
+06 - I wanna
+06 - I wish
+06 - I Won't
+06 - If the
+06 - Imagination -
+06 - Immune.mp3
+06 - In Blue
+06 - Is It
+06 - Isolation
+06 - It don't
+06 - It Might
+06 - Janie's Got
+06 - Jimmy Johnson
+06 - John Lee
+06 - Johnny Cash
+06 - Johnny Hodges
+06 - Joyful Girl
+06 - Just the
+06 - Kenny's Dead
+06 - Kenny Loggins
+06 - Kinda I
+06 - Leadbelly -
+06 - Let's Call
+06 - Letter 2
+06 - Lightnin' Hopkins
+06 - Listen To
+06 - Little Walter
+06 - Loretta Lynn
+06 - Love is
+06 - Love Must
+06 - Lucretia.mp3
+06 - Make someone
+06 - Mannequin Republic
+06 - Martin Best
+06 - Maura O'Connel
+06 - McCoy Tyner
+06 - Medication
+06 - Mel Powell
+06 - mel torme
+06 - Merry Clayton
+06 - Mississippi Fred
+06 - Mississippi John
+06 - Muddy Waters
+06 - Nobody Knows
+06 - Oblivious -
+06 - Otis Redding
+06 - Otis Spann
+06 - Our Last
+06 - Pass the
+06 - Patsy O'Hagan
+06 - Pee Wee
+06 - Perpetual Dawn-
+06 - Police and
+06 - Pride and
+06 - Red Garland
+06 - Refugee
+06 - Rock steady
+06 - Romeo &
+06 - Ruiner.mp3
+06 - Run To
+06 - Running Knees
+06 - Santa Rosa
+06 - SAY GOODBYE
+06 - Searchers -
+06 - Seesaw .mp3
+06 - Set Me
+06 - She's In
+06 - She bangs.mp3
+06 - She Said
+06 - Since You
+06 - Sliver.mp3
+06 - Small Blue
+06 - Smash Hits
+06 - Smoke Gets
+06 - Smoke.mp3
+06 - Smoking gun.mp3
+06 - Snappin' &
+06 - Solitude Standing
+06 - Sonny Boy
+06 - Stan Getz
+06 - Step By
+06 - Steve Morse
+06 - Stevie Nicks
+06 - Sugar And
+06 - Sugarcubes -
+06 - Summertime
+06 - Super Trouper
+06 - Super Trouper.MP3
+06 - Swashbucklin' in
+06 - Take A
+06 - Tampa Red
+06 - Tell Her
+06 - The best
+06 - The Greatest
+06 - The Old
+06 - The Teardrop
+06 - Thin Man
+06 - Think Twice
+06 - This Ani't
+06 - This Is
+06 - Those Whole
+06 - Tidal wave.mp3
+06 - To the
+06 - Todd Rundgren
+06 - Twilight Zone
+06 - twisting by
+06 - Ub40 -
+06 - Undertow
+06 - Unknown.mp3
+06 - Unsquare Dance
+06 - Vulnerable
+06 - Was!- (just
+06 - Wasting Time
+06 - Waterloo
+06 - Waxies Dargle
+06 - Wear my
+06 - What U
+06 - What Would
+06 - Whiplash.mp3
+06 - Winter Rose.MP3
+06 - You can't
+06 - Youmans &
+06 -bangles eternal flame.mp3
+06 "The
+06 (3) ALL THAT
+06 (LI 97:17.06), 3:
+06 (Wed 10 Apr
+06 *Info*
+06 [Live In Amsterdam]
+06 | .!..."..
+06 | .!...(..
+06 | .!......
+06 | ........
+06 ~ 98 Degrees
+06 ~ Destiny's Child
+06 ~ Jewel -
+06 00 00 |
+06 00 00 00
+06 00 02 |
+06 00 03 |
+06 00 0a 00
+06 00 0f |
+06 00 10 |
+06 00 11 |
+06 00 13 11
+06 00 15 |
+06 00 17 |
+06 00 1b |
+06 00 2c 01
+06 00 3c |
+06 00 41 |
+06 00 c8 |
+06 00 ca |
+06 00 d0 |
+06 00 d8 |
+06 00 e2 |
+06 00 e5 |
+06 01 00 00
+06 01 00 10
+06 04 00 04
+06 08 00 04
+06 10 in 01.mp3
+06 13 | ...#....
+06 14 | ...#....
+06 1992, Henry Jaremko
+06 1992, Ralph Davey
+06 1993
+06 1993 03:22, Erick
+06 1993 08:48, Jani
+06 1993 11:55, Ryan
+06 1993 13:08, Christopher
+06 1993 14:21, David
+06 1993 15:30, John
+06 1993 15:57, Glen
+06 1993 16:18, Lee
+06 1993 21:42, Goeran
+06 1993 22:31, Richard
+06 1993 at 01:54
+06 1993 Peter Smink
+06 1993 stamp'd.18:48, so
+06 1993 you wrote:
+06 1993, Des Doran
+06 1993, Jan Ohberg
+06 1993, John Judge
+06 1993, Mike Phillips
+06 1993, Neil Bulley
+06 1994 10:20, Richard
+06 1994 10:58, Leslie
+06 1994 14:41, Andrew
+06 1994 16:01, Graham
+06 1b 00 04
+06 1b 6b df
+06 1e 98 |
+06 2 people.mp3 3,462,269
+06 23:59, Mike Mccord
+06 4c 00 04
+06 64
+06 71 00 04
+06 7d 00 04
+06 91 00 04
+06 93 | ...#....
+06 9d 00 04
+06 a higher place.mp3
+06 A little respect.mp3
+06 A song for
+06 Above the clouds.mp3
+06 Addio, Dolce Svegliare
+06 Ain't never learned.mp3
+06 Albert Griffiths &
+06 All around .mp3
+06 All the things
+06 Alton and the
+06 Amber.mp3 8,194,048 09/07/2001
+06 An American Trilogy
+06 Andy Williams_Can't Get
+06 Another Nail In
+06 Apparantly nothin'.mp3 5,338,906
+06 Apr 2002
+06 Apr 2002 00:09:08
+06 Apr 2002 01:58:11
+06 Apr 2002 02:01:52
+06 Apr 2002 02:04:32
+06 Apr 2002 02:05:13
+06 Apr 2002 11:58:11
+06 Apr 2002 12:01:52
+06 Apr 2002 12:04:32
+06 Apr 2002 12:05:13
+06 Apr 2002 13:12:24
+06 Apr 2002 21:16:51
+06 Apr 2002 21:25:59
+06 Are you feein
+06 Aretha Franklin -You
+06 Armand Van Helden_U
+06 Arnold Blair -
+06 As Long As
+06 at night.mp3
+06 Aug 88 -
+06 Aug 93 00:46,
+06 Aug 93 06:30:00,
+06 Aug 93 11:24:01
+06 Aug 93 12:44:29,
+06 Aug 93 18:36:01
+06 Aug 93 Gavin
+06 Aug 97
+06 August 1993 08:06,
+06 August 1993 at
+06 Autumm forever .mp3
+06 Ayla - Ayla
+06 b2 00 04
+06 b8 00 04
+06 b9 | ...#....
+06 Baby I.m a
+06 Bad attitude.mp3 5,654,987
+06 Ball Of Confusion
+06 Bass solo .mp3
+06 bc | ...#....
+06 bc 00 04
+06 BEAUTY SCHOOL DROPOUT..FRANKIE
+06 Bellini: I Puntani
+06 Billy Super Duper
+06 Billy The Kid
+06 Birds.mp3 4,640,914 01/10/2001
+06 Bitter sweet syphony.mp3
+06 Black Comedy.mp3
+06 Blockster_Grooveline.mp3
+06 Blood on the
+06 Bob And Marcia
+06 Boney M -
+06 Bonny Tyler -
+06 Boogie Down Productions_Jack
+06 bora.mp3 5,105,893 01/10/2001
+06 Brian Boru's March
+06 bridge over troubled
+06 Bring the noise.mp3
+06 bucks fizz -
+06 Bye bye bye.mp3
+06 C'est Si Bon.mp3
+06 c3 2c |
+06 c3 2c c7
+06 Car nous l'avons
+06 CD 1.TXT
+06 CD 1.TXTUtils 4
+06 CD 2.TXT
+06 CD 2.TXTUtils 4
+06 CHARLOTTE.mp3
+06 Charly.mp3 4,343,118 01/10/2001
+06 Chic-Dance dance dance
+06 Chris Spedding-Motor Biking
+06 Chuck Berry -
+06 Clash-Should I Stay
+06 Clear View -
+06 Climax Blues Band
+06 Come On Eileen
+06 Computer.mp3 2,252,800 02/10/2001
+06 Concrete Jungle -
+06 Concrete Jungle
+06 Core.mp3 5,892,096 09/07/2001
+06 CRAZY FOR YOU
+06 d8 00 04
+06 Dance Baby Dance.mp3
+06 Darkwind.mp3 4,159,738 01/10/2001
+06 Dead Man's Rock
+06 Dec 86 -
+06 Derrick Harriott -
+06 Dir:
+06 Distant lover.mp3 5,120,000
+06 Distant lover.mp3 5,458,024
+06 DJ LUCK &
+06 Do you know
+06 Do you like
+06 Do you really
+06 Domino
+06 Don't Look Down
+06 Don Drummond -
+06 Dream Baby.mp3 2,687,059
+06 dream to me
+06 Dreaming while you
+06 DRIVE
+06 drowning
+06 drowning.mp3
+06 Drum duet
+06 DURAN DURAN -
+06 earthshaker.mp3
+06 Easy Life THE
+06 Ennio Morricone -
+06 Eric B &
+06 Escada.mp3 8,597,420 01/10/2001
+06 Everybody's Gonna Be
+06 everybody be somebody.mp3
+06 Everyday.mp3 2,078,093 17/04/1999
+06 Evita_Don't Cry For
+06 Eyesight to the
+06 Eyesore.mp3 4,520,751 02/10/2001
+06 f2 | ...#....
+06 f5 | ...#....
+06 f6 00 04
+06 Fallin'n In Love
+06 Fantaisie.mp3 12,081,110 02/10/2001
+06 Farfisa Beat.mp3
+06 Feb 82 -
+06 Feb 94 02:41
+06 Feb 94 20:47,
+06 Feb 94 20:47:00,
+06 Feb 94 21:22,
+06 Feb 94 Philip
+06 Feb 94 to
+06 Feb 94 you
+06 Feb 94, Sam
+06 FEBRUARY
+06 ferry aid -
+06 fever.mp3 4,875,493 08/10/2001
+06 FIGHT FROM THE
+06 FINAL Win9xNT
+06 flowtation.mp3
+06 Flying in a
+06 for a small
+06 fragile.mp3 4,536,946 01/10/2001
+06 fresh.mp3
+06 GARAGE ANTHEMS -
+06 Gas panic.mp3 9,625,600
+06 Gene Handler -
+06 george michael -
+06 Geri Halliwell -
+06 Give you .mp3
+06 Golden Brown.mp3
+06 Gonna make you
+06 goodnight saigon.mp3
+06 goombay dance band
+06 Got to Give
+06 Grace.mp3 7,361,828 01/10/2001
+06 Groovejet.mp3 4,553,142 01/10/2001
+06 Guns Of Navarone
+06 Half The Lies
+06 Harlequin
+06 Harry Anderson-The fishing
+06 Harry Anderson
+06 Harry campbell &
+06 Havester Of Sorrow.mp3
+06 Hearts get broken
+06 HEAT OF THE
+06 Heathaze
+06 Heaven sent.mp3 5,098,579
+06 Heaven.mp3
+06 Hello i love
+06 Help Me Rhonda.mp3
+06 Herne (1984)
+06 Hey dj.mp3 7,557,746
+06 hey thats no
+06 Hi Di Hi
+06 Hi Di Hi.mp3
+06 Holiday Romance.mp3
+06 HOORAY! HOORAY !
+06 Hot Chocolate-I believe
+06 House of the
+06 Humble Pie-Natural born
+06 I'll Tell Her
+06 I'm not in
+06 i ask of
+06 I can feel
+06 I Could Have
+06 I Fall To
+06 I NEVER LOVED
+06 I WANT TO
+06 Ice cream shop
+06 Ice cream shop.mp3
+06 If you had
+06 If you tolerate
+06 IM IN LOVE
+06 Imitation of love.mp3
+06 IN THE DEATH
+06 inner city blues.mp3
+06 Innuendo.mp3
+06 Inside out.mp3 8,065,024
+06 Invisible touch
+06 Invisible touch Genesis
+06 Is there life
+06 it's gonna be
+06 It Will Take
+06 Jim Davidson Something
+06 Jimmy Nail -
+06 Joey Negro ft
+06 John Holt -
+06 Jordan Knight -
+06 JUL 95) -
+06 July 2001 19:02
+06 Jun 87 -
+06 Just friends.mp3 5,005,583
+06 Justin Hinds -
+06 justin robertson,have mercy.mp3
+06 Kalifornia
+06 KENNYS DEAD.mp3
+06 Killer.mp3 5,021,696 16/07/2001
+06 Kiss my aspiration.mp3
+06 La Calunnia é
+06 La fleur que
+06 la tino heat.mp3
+06 Lady.mp3 4,415,488 09/07/2001
+06 Laura.mp3 5,978,383 02/10/2001
+06 Lee Perry and
+06 Les nuits.mp3 6,565,888
+06 LET ME ENTERTAIN
+06 Letter 2 my
+06 Lieutenant Pigeon -
+06 Life In The
+06 Like Strangers.mp3 1,940,584
+06 Liszt.mp3 4,453,877 02/10/2001
+06 Little Suzie.mp3 3,742,302
+06 loud & proud.mp3
+06 Love Hurts.mp3
+06 Luvstruck .mp3 4,509,696
+06 Madonna - Vogue.mp3
+06 MAID OF ORLEANS.mp3
+06 Mama
+06 Man from solaris.mp3
+06 Manic Street Preachers_Everything
+06 Mannish boy.mp3 6,498,304
+06 Mar 82 -
+06 Martine McCutcheon_Love Me.mp3
+06 Mascagni - -Intermezzo-
+06 Matt Darey_Liberation.mp3
+06 MEN IN BLACK
+06 menis & nukleus,havoc.mp3
+06 Midnight fantasy.mp3 3,918,367
+06 Mind in pocket.mp3
+06 Miss Otis Regrets
+06 Mockba - Shell
+06 Moloko_Sing It Back.mp3
+06 Montevideo.mp3 5,403,167 01/10/2001
+06 Move Closer -
+06 Move it with
+06 MOVE OVER.mp3
+06 Mr big stuff.mp3
+06 MS FLIGHT SIM
+06 My wild frontier
+06 Never Be The
+06 Never can say
+06 New mexican rose.mp3
+06 nightbreed.mp3
+06 No Place Like
+06 Northern lights.mp3 5,090,220
+06 Not such an
+06 Not today .mp3
+06 NOTHING REALLY MATTERS.mp3
+06 Nov 85 -
+06 Nov 93 0:01:01
+06 Nov 93 0:03:16
+06 Nov 93 0:10:46
+06 Nov 93 Nicholas
+06 NOW IM HERE.mp3
+06 Oct 93 0:00:05
+06 Oct 93 0:01:06
+06 Oct 93 0:11:04
+06 Oct 93 00:55:00
+06 Oct 93 17:36:32
+06 Oct 93 21:10,
+06 Oct 93 23:59:02
+06 Oct 93 Steve
+06 Oct 93, 09:29,
+06 Oct 93, Chuck
+06 Oct 93, Nick
+06 Oct 93, Peter
+06 OGRE BATTLE.mp3
+06 On Da Flo
+06 ONE VISION
+06 ONLY SIXTEEN
+06 Only the names.mp3
+06 Optimistic.
+06 Overture to Act
+06 Passengers.mp3 3,268,986 24/05/2001
+06 Pasture of muppets.mp3
+06 paul johnson,burnin' for
+06 Pavorotti - Libiamo
+06 Peace Is Just
+06 Perfect love.mp3
+06 Phats & Small_Turn
+06 Pioneers - Long
+06 Please Mr Please
+06 Pleymo.mp3 4,960,653 08/10/2001
+06 Pop ya collar.mp3
+06 Princes Familiar.mp3
+06 Prodigy - Firestarter.mp3
+06 Push the love.mp3
+06 PUT OUT THE
+06 Ran kan kan.mp3
+06 Ranking Full Stop
+06 Rarities Volume 4
+06 RAVE ON
+06 Ready For The
+06 Rem - Reveal
+06 Ring on her
+06 Ring ring ring.mp3
+06 Ripples
+06 ROCK IT(PRIME JIVE).mp3
+06 Roland Alphonso -
+06 RUMORS
+06 Run DMC_It's Like
+06 s express -
+06 Sash_Adelante.mp3
+06 Seas dexter -
+06 See You Later
+06 Senses_Angel On My
+06 Sensual.mp3
+06 Sep 80 -
+06 Sep 93
+06 Sep 93 01:46,
+06 Sep 93 19:46:00
+06 Sep 93 19:51:30,Lew
+06 Sep 93 Andy
+06 Sep 93 in
+06 Sep 93 you
+06 Sep 93, Andy
+06 Sep 93, Clint
+06 Sep 93, Jonathan
+06 SET SPEED.mp3
+06 She.mp3 4,448,130 08/10/2001
+06 SHEER HEART ATTACK.mp3
+06 Should I Stay.mp3
+06 Side A.mp3
+06 Side B.mp3
+06 Sil Fox
+06 Sil Fox.mp3
+06 Silence is golden.mp3
+06 Silent sorrow in
+06 Silver lining.mp3
+06 Singin' In The
+06 Slade-look wot you
+06 So fresh so
+06 Sock It To
+06 Solomon Burke -Everybody
+06 SOMEBODY TO LOVE.mp3
+06 Someday We'll Know.mp3
+06 Somewhere in the
+06 Soul vibration.mp3 5,879,808
+06 speedway.mp3
+06 Steal my sunshine.mp3
+06 Still
+06 Still be lovin'
+06 Straydog - Mirror
+06 Street Feeling -
+06 Street Feeling
+06 STUDIO KID A
+06 Substitute.mp3 2,549,028 01/10/2001
+06 SUNSHINE AFTER THE
+06 Supergrass - Moving
+06 Supper's ready:
+06 SWEET LADY.mp3
+06 Sweet like chocolate.mp3
+06 Sweet little mystery.mp3
+06 Sweet Sensation -
+06 Sweetness.mp3 4,990,976 09/07/2001
+06 SYNKRONIZED - Jamiroquai
+06 Take Me, I'm
+06 Take That -
+06 Taking it all
+06 tales of tragedy.mp3
+06 Tears Of A
+06 techno cat.mp3
+06 TEQUILA SUNRISE
+06 The Best Of
+06 The Celts
+06 The End of
+06 The ghetto.mp3
+06 The Gold Diggers_Lullaby
+06 The grand parade
+06 the handsome life
+06 THE HUSH -
+06 The Jones Girls
+06 The Kids
+06 The kill.mp3 6,547,330
+06 The King Is
+06 The Knack.mp3
+06 The knife
+06 The Life Of
+06 The meaning of
+06 the mission.mp3
+06 The New Seekers
+06 THE NIGHT COMES
+06 The Night They
+06 The only one
+06 The persuaders.mp3 2,637,824
+06 THE PRINCE
+06 The Silver Chair
+06 the sunshine underground.mp3
+06 the year of
+06 They asked about
+06 This Ani't Livin.mp3
+06 Thousands Are Sailing
+06 Three little maids
+06 throw it all
+06 Time is a
+06 Timewarp.mp3 6,960,587 01/10/2001
+06 to July 11,
+06 Tom Jones -
+06 Too Much Pressure
+06 Touch me.mp3 4,159,216
+06 treat me good.mp3
+06 trim.mp3
+06 TROUBLE.mp3
+06 Turn off the
+06 Twinkle Brothers -
+06 UNDER THE MOON
+06 Unusual Way -Nine
+06 Up And Flying.mp3
+06 Up ards
+06 Up ards.mp3
+06 Vampires
+06 Vengaboys_Boom Boom Boom
+06 Verdi Il Trovatore
+06 Victim Of Love.mp3
+06 volare.mp3
+06 Wabash Cannonball -
+06 walk of life.mp3
+06 Walking In The
+06 Wannadies - You
+06 We want to
+06 We will rock
+06 Weapon of choice.mp3
+06 WHAM - WAKE
+06 What can I
+06 what could you
+06 When The Hangover
+06 When you told
+06 Who let the
+06 WHO WANTS TO
+06 Wild dogs.mp3 7,120,979
+06 WinNT
+06 Wring that neck.mp3
+06 Ya ready.mp3 6,256,640
+06 Ylang Ylang THE
+06 you're my home.mp3
+06 You Make Loving
+06 You Win Again.mp3
+06 YOURE MY BEST

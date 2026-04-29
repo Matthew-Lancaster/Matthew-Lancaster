@@ -1,0 +1,456 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+50 ' ---------------- "VIEW"
+50 ' --------------- ACCESSORIES
+50 ' --------------- EXPLORER
+50 ' ----------- 'THE
+50 ' "Error: "
+50 ' ACCESSORIES MENU
+50 ' desktop changes
+50 ' Letter Extra
+50 ' Set Security
+50 - 100 POUNDS
+50 - 51
+50 - 60's Mp3's
+50 - BBS Doors
+50 - I want
+50 - Unplugged
+50 ( 8.68%) Private
+50 (0;145) --
+50 (1 second) </p>
+50 (16L50) as
+50 (16L50) as well
+50 (2cd's)
+50 (comes with a
+50 (comes with lifetime
+50 (SEMAJ) (PDN) General
+50 *Info*
+50 .- and 70.-
+50 ... DV 2.6,
+50 </p>
+50 <DIR> 01/05/02 5:39
+50 <DIR> 13/03/03 2:06
+50 0 0
+50 0.0%
+50 0.2%
+50 0.9%
+50 00
+50 00 00 00
+50 04/07/96 1:00 SHH.WAV
+50 05/02/01 16:13 AutoRoute
+50 082 - 1
+50 10 100
+50 10 200
+50 10 300
+50 10/03/03 23:26 LP2.BAT
+50 100 150 0.0%
+50 100 150 200
+50 1073741824
+50 11/3 270/101 267/200
+50 14/07/01 17:51 system
+50 14/07/01 17:51 SYSTEM~1.TXT
+50 14/10/00 8:55 vampire
+50 14/11/99 3:30 INTERACTIVE
+50 14/11/99 3:30 Photosuite
+50 145 0.5%
+50 16/07/00 19:46 D-I-Y.txt
+50 163 0.0%
+50 164 0.0%
+50 17/10/01 19:12 USMLE
+50 19/06/01 16:01 Hutchinson
+50 23/04/99 22:22 check0.gif
+50 23/11/01 18:36 VOICPLAY.INI
+50 2410/116 270/101 267/200
+50 25/07/91 16:45 SBTALK.BAT
+50 26/03/03 21:13 comm
+50 261/1023 396/1 209/209
+50 28/06/00 17:13 Windows
+50 286 hard disk.
+50 30 209/209
+50 30 209/209 270/101
+50 30 209/209 396/1
+50 347 1.4%
+50 357913941
+50 40 30, well
+50 42 52 55
+50 50 50 0
+50 55 124/1 396/1
+50 6 0 1
+50 64 0 0;121
+50 64 0.2%
+50 7f e4 f5
+50 88 0.0%
+50 8B C8 B0
+50 a day, yes,
+50 additional commands for
+50 aka and expects
+50 aka,
+50 Albums 2K1-04 April
+50 ALBUMS DECEMBER
+50 Albums December 2000.txt
+50 albums on 6cds,
+50 and 95; the
+50 AND logo% =
+50 and married and
+50 and the alls.
+50 and the Keyword
+50 and then updates
+50 and was about
+50 ANSI CHRISTMAS *Info*
+50 AROUND(WE KNOW V6
+50 as the Alpha
+50 autodial
+50 Barron Knights The
+50 bitmapped tool buttons
+50 blends the two
+50 brand-name stores and
+50 Brilliancies From Modern
+50 bucks back! (I
+50 built-in materials or
+50 bureaus, including
+50 bytes of data
+50 callers via type
+50 categories of stats</strong>
+50 causes cool colors
+50 cd
+50 celebrity impersonations
+50 cents
+50 Challenging Levels of
+50 Char
+50 characters wide and
+50 chord files;
+50 clipart maps in
+50 clocks
+50 clocks for each
+50 colors, sound
+50 computer systems related
+50 copies). I have
+50 CorelDRAW: Chapter 2
+50 cosponsors, or more
+50 country dependent
+50 CVs on your
+50 data sheet *Info*
+50 days.
+50 different AUTOEXEC/CONFIG sets
+50 different databases (e.g.,
+50 Different Exercises &
+50 different filters all
+50 Dir
+50 disks
+50 disks, because of
+50 DOS cmds. Very
+50 e4 e8 f9
+50 eb 97 8a
+50 effects).
+50 elements.
+50 Entry Limit for
+50 etc.). Does anyone
+50 extra file areas
+50 fancy 256-colour greyscale
+50 feet, with thousands
+50 file
+50 file areas from
+50 file(s) 2,403,195 bytes
+50 file(s) 423,582 bytes
+50 file(s) 6,687,231 bytes
+50 file(s) 68,853,030 bytes
+50 files
+50 Fix. From *Info*
+50 fonts for only
+50 fonts Match Software
+50 FONTS PACK DEMO
+50 for a fax
+50 formats!)! It
+50 formats!).
+50 frame animation, and
+50 frames of animation
+50 free songs courtesy
+50 friends
+50 from the Setting
+50 ft or so.
+50 FULL NETWORK VERSION
+50 game roms.
+50 gets rid of
+50 graphic file formats;
+50 Greatest Hits (2
+50 Greatest Hits (2cds)
+50 H002649.ZIP v3.0 DESERT
+50 H004468.ZIP v2.1 CHRONOS:WINDOWS
+50 H004528.ZIP v1.0 AMBROSE'S
+50 H004793.ZIP CENTENNIA educational
+50 H007984.ZIP v2.1 THE
+50 H008056.ZIP THE PRESIDENTS
+50 H009268.ZIP HISTORICA historical
+50 H009538.ZIP BLACK FACTS
+50 H009559.ZIP v1.0 THE
+50 help topics in
+50 HTZ - Get
+50 icons from the
+50 image formats are
+50 impressive
+50 including TIFF, GIF,
+50 Issues young!....
+50 Jasper Carrot America
+50 Jim Davidson The
+50 k's.
+50 kanjis
+50 Kb and 500
+50 Kilos on board.
+50 km away from
+50 kW transmitter, with
+50 LAUNCH KAOS SKINS
+50 lin mode I
+50 line
+50 line mode
+50 line mode in
+50 line mode thats
+50 LINE MODE.
+50 lines long. And
+50 lines X 132
+50 lines. MonoTrap determines
+50 logons
+50 m anyway.
+50 Mag coverdisks (PC
+50 Mails ... and
+50 master system games
+50 Master System Roms
+50 MB free disk
+50 MB hard disk
+50 MB of free
+50 MB, with an
+50 meg )
+50 meg here of
+50 megahertz motherboard çor
+50 megaton nuclear warhead
+50 megs. I've taken
+50 men have died
+50 Menu Screens.
+50 messages in area
+50 messages in there.
+50 meters east of
+50 metres to the
+50 MHz
+50 mHz 80486 cpu
+50 mikes, that would
+50 miles (83 Km)
+50 miles from town,
+50 miles northwest of
+50 million mile
+50 Million square metre
+50 mins to do
+50 mins worth of
+50 minutes 27 seconds
+50 modules for Modplay
+50 mono PCX graphics
+50 more
+50 more clipart sysbols
+50 more files
+50 more fonts,
+50 more fonts, including
+50 more of these
+50 msgs from the
+50 N001607.ZIP HISTORICAL DOCUMENTS
+50 N003367.ZIP v2.18 CHRONOS
+50 N003512.ZIP FREEDMAN'S ROMAN
+50 N003920.ZIP v5.01 MONARCH
+50 Netware functions
+50 new
+50 new commands,
+50 new commands, 4DOS-
+50 new commands, 4DOS
+50 new commands, many
+50 new functions have
+50 new towns -
+50 New Towns ˇˇ
+50 New Towns ˇˇˇˇˇˇ1/2ˇ
+50 new towns for
+50 NIFTY 60 STATISTICS
+50 nodes (maximun 30).
+50 Nodes from net
+50 now so it
+50 of my friends
+50 of these!
+50 off each item,
+50 on the drive
+50 once.
+50 or
+50 or 100) in
+50 or below) worldwide
+50 or sixty quid
+50 or so a
+50 or so atomic
+50 out of
+50 pages
+50 pages documentation (HLP).
+50 pages of
+50 pages of editorial
+50 panes. Each open
+50 pcnt on air
+50 pence each
+50 pence per customer,
+50 people related clipart
+50 people writing the
+50 people;
+50 per cent.
+50 per cent. When
+50 per day?
+50 percent
+50 percent of fonts.
+50 percent, only the
+50 percent, the whole
+50 percent.
+50 performances, 34 patches
+50 pin and the
+50 pin must remain
+50 pins for SCSI.
+50 pj songs straight
+50 place related clipart
+50 PLEIADES (HARDY)
+50 points.
+50 pol. muﬂ freibleiben</P>
+50 pol. und der
+50 poses with one
+50 positions the mid-point
+50 POUNDS
+50 pounds (DIY kit);
+50 pounds + postage
+50 pounds an hour
+50 pounds for ALL
+50 pounds for starters?
+50 pounds for them
+50 pounds in
+50 pounds of Red
+50 pounds plus postage
+50 pounds), which will
+50 pounds. You can
+50 quid and you
+50 quid more than
+50 quid ono.
+50 quid or soç
+50 quid)
+50 quid.
+50 quid. Give us
+50 Quid. If you
+50 quid.... + p+p
+50 quid???
+50 Ray Dream Studio
+50 Redshift
+50 regular posters when
+50 REM allow up
+50 restauant recipes formatted
+50 RIP ICNS with
+50 Rock Solid Drum
+50 Roms
+50 rounds?)and other stuff.
+50 royalty-free NASA photos
+50 seconds
+50 seconds from the
+50 Seconds Playing time!!!!!
+50 Sega Master System
+50 seperate attributes for
+50 sessions of your
+50 SIMMS, 256K, mixed
+50 so does that
+50 so you pass.
+50 something image files
+50 Spanish- speaking correspondents
+50 spans Version of
+50 special effects, including
+50 squids worth of
+50 State Tax Tables
+50 states and USA
+50 states), by
+50 states. Prodigy Internet
+50 STEP -1
+50 STEP -50
+50 SUP 1.4
+50 tapes - hmmm,
+50 tapes some of
+50 targets (Zeke's face)
+50 terminal
+50 Textures created by
+50 textures from Just
+50 The HP DeskJet
+50 THEN
+50 THEN PRINT
+50 times faster.
+50 Tips For Teachers
+50 titles, with a
+50 titles. The service
+50 to
+50 to 100 cars.
+50 to 100 percent
+50 to 1500 stars,
+50 to 60 hours
+50 to 99 computers:
+50 top sites.
+50 total
+50 trivia questions
+50 UK_DWARZ -28669 -24571
+50 UK_DWARZ 12298 2.6%
+50 UK_DWARZ 7 0.0%
+50 UKP
+50 ukp for both
+50 UKP the lot.
+50 UKPDS ONO
+50 UL/DL/CALLER *Info*
+50 United States and
+50 United States, mail
+50 units It is
+50 update
+50 update [1/1]
+50 Update 1/1
+50 user definable options,
+50 User License
+50 USER MODEM DRIVER
+50 users are
+50 users are o
+50 users are on
+50 users version?
+50 users? Try 4
+50 uses. Copyright 1992
+50 UTILS
+50 V.7
+50 V5.0
+50 v6.0.11 by Sagesoft
+50 V6.02.0011
+50 v7
+50 v7.txt
+50 VGA graphic math
+50 Waiting for a
+50 Watt 4 Impedance
+50 way ribbon cables
+50 way twist 'n'
+50 way, but the
+50 Ways to leave
+50 which is her
+50 wild chimpanzee's shave
+50 will look like...
+50 will produce very
+50 Windows
+50 Wings
+50 yds further on
+50 year old
+50 year rule applies
+50 years
+50 years ago -
+50 years ago and
+50 years ago, even
+50 years in my
+50 years old.
+50 years, Woody Herman
+50 years. Our
+50 yes FIFTY pounds

@@ -138,7 +138,7 @@ Loop, % r // 4  ; Parse array for identifiers as DWORDs (32 bits):
 {
     id := NumGet(a, A_Index * 4, "UInt")
     ; Open process with: PROCESS_VM_READ (0x0010) | PROCESS_QUERY_INFORMATION (0x0400)
-    h := DllCall("OpenProcess", "UInt", 0x0010 | 0x0400, "Int", false, "UInt", id, "Ptr")
+    c := DllCall("OpenProcess", "UInt", 0x0010 | 0x0400, "Int", false, "UInt", id, "Ptr")
 	if !h
         continue
     VarSetCapacity(n, s, 0)  ; a buffer that receives the base name of the module:
@@ -152,10 +152,10 @@ Loop, % r // 4  ; Parse array for identifiers as DWORDs (32 bits):
 }
 DllCall("FreeLibrary", "Ptr", hModule)  ; Unload the library to free memory.
 Sort, l, C  ; Uncomment this line to sort the list alphabetically.
+
 ; -------------------------------------------------------------------
 ; %c% Processes __ COUNT OF PROCESS
-; MSGBOX, %c% Processes , %l%
-; MSGBOX, %l%
+;MSGBOX, %c% Processes , %l%
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
@@ -188,7 +188,7 @@ LOOP, parse, l, `n
 	PIDNAME:=substr(A_LoopField,1, INSTR(A_LoopField,"----")-2)
 	IF INSTR(FILTER,"--" . PIDNAME . "`n")=0
 	IF PIDV
-	IF GetPriority(PIDV)<3 
+	IF GetPriority(PIDV)<3
 	{
 		IF GetPriority(PIDV)=1
 			PRIORITY_SET=LOW_______
@@ -201,14 +201,59 @@ LOOP, parse, l, `n
 		Pack := "000000"
 		PIDV_PAD = % (SubStr(Pack, 1, StrLen(Pack) - StrLen(Num)) . Num)
 		VAR_INFO = % VAR_INFO "PRIOR FIND PRIORITY __ " GetPriority(PIDV) " " PRIORITY_SET "  PID  " PIDV_PAD  "  EXE  " PIDNAME "`n"
-		Process, Priority, %PIDV%, Normal
+		Process, Priority, %PIDV%, N
 		COUNTER_V+=1
 	}
 }
+; THIS ONE SET ALL CHROME.EXE TO HIGH
+
+FILTER=--`n
+FILTER=%FILTER%--chrome.exe`n
+FILTER=%FILTER%--`n
+FILTER=%FILTER%--`n
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+LOOP, parse, l, `n
+{
+	PIDV:=substr(A_LoopField, INSTR(A_LoopField,"----")+5)
+	PIDNAME:=substr(A_LoopField,1, INSTR(A_LoopField,"----")-2)
+	IF INSTR(FILTER,"--" . PIDNAME . "`n")>0
+	IF PIDV
+	IF GetPriority(PIDV)<8
+	{
+		Num := PIDV
+		Pack := "000000"
+		PIDV_PAD = % (SubStr(Pack, 1, StrLen(Pack) - StrLen(Num)) . Num)
+		Process, Priority, %PIDV%, R
+	}
+}
+
+FILTER=
+FILTER=%FILTER%-- . YouTube™ Uploader for Dropbox, Drive - Google Chrome`n
+FILTER=%FILTER%--`n
+FILTER=%FILTER%--`n
+FILTER=%FILTER%--`n
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+LOOP, parse, l, `n
+{
+	PIDV:=substr(A_LoopField, INSTR(A_LoopField,"----")+5)
+	PIDNAME:=substr(A_LoopField,1, INSTR(A_LoopField,"----")-2)
+	IF INSTR(FILTER,"--" . PIDNAME . "`n")>0
+	IF PIDV
+	IF GetPriority(PIDV)<8
+	{
+		Num := PIDV
+		Pack := "000000"
+		PIDV_PAD = % (SubStr(Pack, 1, StrLen(Pack) - StrLen(Num)) . Num)
+		Process, Priority, %PIDV%, L
+	}
+}
+
 
 ; -------------------------------------------------------------------
 DASH_STRING=------------------------------------------------------------------------------------------
-VAR_INFO= % COUNTER_V "  ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE" "`n" DASH_STRING "`n" VAR_INFO DASH_STRING
+VAR_INFO= % COUNTER_V "  ALL LOWER THAN NORMAL PROCCES PRIORITY RESTORE HIGH" "`n" DASH_STRING "`n" VAR_INFO DASH_STRING
 ; -------------------------------------------------------------------
 ; GUI ROUTINE HAS INFO ABOUT TIME OUT COUNTER
 ; -------------------------------------------------------------------
@@ -318,7 +363,7 @@ Return ""
 ; Normal
 ; AboveNormal
 ; High
-; RealtimeNote: If no parameter is passed, the script's own priority level is retrieved.
+; Realtime Note: If no parameter is passed, the script's own priority level is retrieved.
 ; -------------------------------------------------------------------
 ; MSDN Reference : GetPriorityClass() , OpenProcess() , CloseHandle() , Process Security and Access Rights
 ; -------------------------------------------------------------------

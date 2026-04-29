@@ -140,6 +140,7 @@ REM IF "%COMPUTERNAME%" == "8-MSI-GP62M-7RD" SET VARLATCH2=WIN10
 @IF %COMPUTERNAME%==5-ASUS-P2520LA   SET MATTHEW_S_COMPUTER__=YES
 @IF %COMPUTERNAME%==7-ASUS-GL522VW   SET MATTHEW_S_COMPUTER__=YES
 @IF %COMPUTERNAME%==8-MSI-GP62M-7RD  SET MATTHEW_S_COMPUTER__=YES
+@IF %COMPUTERNAME%==9-ASUS-G815LM    GOTO ENDER_DONT_RUN_NOTHING_COMPUTERNAME__9_ASUS_G815LM 
 @REM ----------------------------------------------------------------
 
 @REM ----------------------------------------------------------------
@@ -157,6 +158,7 @@ REM PAUSE
 @IF %COMPUTERNAME%==5-ASUS-P2520LA   SET COMPUTER_64BIT__=YES
 @IF %COMPUTERNAME%==7-ASUS-GL522VW   SET COMPUTER_64BIT__=YES
 @IF %COMPUTERNAME%==8-MSI-GP62M-7RD  SET COMPUTER_64BIT__=YES
+REM @IF %COMPUTERNAME%==9-ASUS-G815LM    SET COMPUTER_64BIT__=YES
 
 
 @REM ----------------------------------------------------------------
@@ -184,7 +186,7 @@ REM PAUSE
 
 @REM ----------------------------------------------------------------
 @REM NERO WANTS THIS @REMOVED FROM STARTUP
-Reg.exe DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "FlickrUploadr" /f
+REM Reg.exe DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "FlickrUploadr" /f
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 @REM -- PAUL BETTS AUTHOR
@@ -192,19 +194,7 @@ Reg.exe DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "FlickrUp
 @REM ----------------------------------------------------------------
 
 
-@REM ----------------------------------------------------------------
-@REM 64 BIT
-@REM ----------------------------------------------------------------
-@IF NOT "%COMPUTER_64BIT__%"=="YES" GOTO NOT_64BIT
 
-Reg.exe add "HKCR\Directory\shell\HashMyFiles" /v "LegacyDisable" /t REG_SZ /d "" /f
-Reg.exe add "HKCR\Directory\shell\HashMyFiles\command" /ve /t REG_SZ /d "\"C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\HashMyFiles.exe\" /file \"%%1\"" /f
-
-Reg.exe add "HKCU\Software\Classes\*\shell\HashMyFiles\command" /ve /t REG_SZ /d "\"C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\HashMyFiles.exe\" /file \"%%1\"" /f
-
-@REM ----------------------------------------------------------------
-@REM ----------------------------------------------------------------
-:NOT_64BIT
 
 @REM -- SETUP FOR ALL USER
 @REM ----------------------------------------------------------------
@@ -224,6 +214,22 @@ REM :NOT_WINDOWS_10
 @ECHO WINDOWS 10
 @REM __ SET THE RIBBON AT TOP OF EXPLORER SHOW HER
 Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon" /v "MinimizedStateTabletModeOff" /t REG_DWORD /d "0" /f
+
+
+
+REM 02-DEC-2025 18:28:02 TUE
+REM ---------------------------------------------------------------------
+REM How to become full time Administrator without any restrictions : r/Windows10
+REM https://www.reddit.com/r/Windows10/comments/1102fcy/how_to_become_full_time_administrator_without_any/
+REM ---------------------------------------------------------------------
+REM Registry: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+REM https://renenyffenegger.ch/notes/Windows/registry/tree/HKEY_LOCAL_MACHINE/Software/Microsoft/Windows/CurrentVersion/Policies/System/index
+REM ConsentPromptBehaviorAdmin Setting this value to 0 allows administrators to perform operations that require elevation without the respective annoying popup prompt. EnableLUA Setting EnableLUA to 0 (zero) disables User Account Control (UAC), that is, users are not prompted for a confirmation when a program is about to perform an operation that requires administrator privileges. This key is called EnableLUA because User Access Control was previously called Limited User Account (LUA). The following cmd.exe batch file sets the value to zero and thus diables UAC:
+---------------------------------------------------------------------
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /t REG_DWORD /v EnableLUA /d 0 /f
+---------------------------------------------------------------------
+REM reboot requireing
+
 
 @REM ---------------------------------------------------------------
 @REM __ IN WINDOWS 10 ULTIMATE TWEAKER HAS SETTING
@@ -263,7 +269,8 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ribbon" /v 
 
 
 
-
+REM REMOVE HERE ABOURT PUT BACK ONLY WORRY ABOUT WINDOWS 11
+REM -------------------------------------------------------
 @REM IS A UNICODE JOB __ USE TYPE COMMAND SAVE OUTPUT TO A FILE
 @SET "VALUE_RETURN="
 schtasks /QUERY /TN "SYSTEM LOGON.BAT" >NUL 2>%TEMP%\_TEST_2.TXT
@@ -310,14 +317,15 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	@REM __ DELETE AND RECREATE
 	@REM _________________________________________________________________
 	
-	reg.exe DELETE "HKLM\Software\Classes\Drive\shell\Multi -------- Drive XXXXXXXXXXXXXXXXXXXXX" /f
-	reg.exe DELETE "HKLM\Software\Classes\Directory\shell\Multi -------- Directory XXXXXXXXXXXXX" /f
-	Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi -------- XXXXXXXXXXXX" /f
+	REM reg.exe DELETE "HKLM\Software\Classes\Drive\shell\Multi -------- Drive XXXXXXXXXXXXXXXXXXXXX" /f
+	REM reg.exe DELETE "HKLM\Software\Classes\Directory\shell\Multi -------- Directory XXXXXXXXXXXXX" /f
+	REM Reg.exe DELETE "HKLM\Software\Classes\Directory\Background\shell\Multi -------- XXXXXXXXXXXX" /f
 
-	SET NAME_V1=DATE MODIFY ____
+	SET NAME_V1=MULTI MENU ____
 	SET NAME_V2=%NAME_V1% FOLDER
 	SET NAME_V3=%NAME_V1% DRIVE
 	SET NAME_V4=D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe
+	
 	reg.exe DELETE "HKLM\SOFTWARE\Classes\*\shell\%NAME_V1%" /f
 	reg.exe DELETE "HKLM\Software\Classes\Folder\shell\%NAME_V2%" /f
 	REM --------------------------------------------------------------
@@ -398,9 +406,9 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	
 	REM ANOTHER FEW BUT SOME BLOCKED LIKE CMD.EXE
 	REM -------------------------------------------------------------
-	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Browse with &IrfanView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\IrfanView\i_view32.exe" /f
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Browse with &IrfanView" /v "icon" /t REG_SZ /d "C:\Program Files\IrfanView\i_view32.exe" /f
 	
-	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Browse with XnView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\XnView\xnview.exe" /f
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Browse with XnView" /v "icon" /t REG_SZ /d "C:\Program Files\XnView\xnview.exe" /f
 	
 	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\Powershell" /v "icon" /t REG_SZ /d "C:\Windows\SysWow64\WindowsPowerShell\v1.0\powershell.exe" /f
 	
@@ -408,13 +416,33 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	REM -------------------------------------------------------------
 	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\filealyzer2" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\Safer Networking\FileAlyzer 2\FileAlyzer2.exe" /f
 	
+	
+	REM -- HERE DON'T WORK TO SET ICON WINDOWS 10 AND 11
 	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\shell\HashMyFiles" /v "icon" /t REG_SZ /d "C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\HashMyFiles.exe" /f
+	
+	
+	@REM ----------------------------------------------------------------
+	@REM 64 BIT
+	@REM ----------------------------------------------------------------
+	@IF NOT "%COMPUTER_64BIT__%"=="YES" GOTO NOT_64BIT
+
+	Reg.exe add "HKCR\Directory\shell\HashMyFiles" /v "LegacyDisable" /t REG_SZ /d "" /f
+	Reg.exe add "HKCR\Directory\shell\HashMyFiles\command" /ve /t REG_SZ /d "\"C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\HashMyFiles.exe\" /file \"%%1\"" /f
+
+	Reg.exe add "HKCU\Software\Classes\*\shell\HashMyFiles\command" /ve /t REG_SZ /d "\"C:\PStart\Progs\0_Nirsoft_Package\NirSoft\x64\HashMyFiles.exe\" /file \"%%1\"" /f
+
+	@REM ----------------------------------------------------------------
+	@REM ----------------------------------------------------------------
+	:NOT_64BIT
+	
+	
+	
 	
 	rem can't write to powershell in drive
 	
-	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\Browse with &IrfanView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\IrfanView\i_view32.exe" /f
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\Browse with &IrfanView" /v "icon" /t REG_SZ /d "C:\Program Files\IrfanView\i_view32.exe" /f
 	
-	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\Browse with XnView" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\XnView\xnview.exe" /f
+	Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Drive\shell\Browse with XnView" /v "icon" /t REG_SZ /d "C:\Program Files\XnView\xnview.exe" /f
 	
 	REM ADD ICON TO THIS ONE DIDN'T DO ANYTHING _ SEEN YET _ TAKEN OUT
 	REM HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\explore
@@ -427,9 +455,15 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 	
 	
 	
+	REM CHECK HERE
+	REM ----------
 	@REM -- MY PERSONAL PREF SOME APP LIKE GOOD SYNC TAKE A WHILE TO WIND IT IN
 	@REM -- TURN OFF AUTOMATIC APPLICATIONS TERMINATION AT SHUTDOWN
 	@REM -- ULTIMATE TWEAKER
+	
+	REM REMOVER 2026 04 25 ABORT PUT BACK ONLY WORRY ABOUT WIN 11
+	REM ------------------
+	
 	Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v "AllowBlockingAppsAtShutdown" /t REG_DWORD /d "1" /f
 	
 	@REM -- THATS ALL OF ULTIMATE TWEAKER WINDOWS 10 __ DONE
@@ -526,6 +560,7 @@ schtasks /CREATE /RU ADMINISTRATORS /TN "\SYSTEM LOGON.BAT" /TR "C:\22_LOGON.BAT
 @REM ONLY THAT MIDDLE LINE WILL DO 
 @REM THE 1ST IS THE QUERY HKCU\SOFTWARE\ SECOND IS THE INFO WANTING IF ONE OCCURRENCE 3RD IS END OF SEARCH
 
+GOTO NOT_HERE
 
 @SET "VALUE_RETURN="
 @FOR /F "tokens=1,2 delims= " %%A IN ('REG.EXE QUERY HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /S /F GoogleChromeAutoLaunch_ /T REG_SZ') DO @IF "%%B"=="REG_SZ" SET VALUE_RETURN=%%A
@@ -544,6 +579,7 @@ Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /f
 @REM rem nero tuneitup recommend NOT to run FREEMAKE UPDATE at start
 @REM rem ------------------------------------------------------------------
 
+GOTO NOT_HERE
 @SET "VALUE_RETURN="
 @FOR /F "tokens=1,2 delims= " %%A IN ('REG.EXE QUERY HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run /S /F ProductUpdater /T REG_SZ') DO @IF "%%B"=="REG_SZ" SET VALUE_RETURN=%%A
 @if "%VALUE_RETURN%"=="" GOTO NOT_HERE
@@ -556,6 +592,7 @@ Reg.exe add "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run" /f
 @REM rem nero tuneitup recommend NOT to run VideoDownloaderUltimate at start
 @REM rem ------------------------------------------------------------------
 
+GOTO NOT_HERE
 @SET "VALUE_RETURN="
 @FOR /F "tokens=1,2 delims= " %%A IN ('REG.EXE QUERY HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /S /F VideoDownloaderUltimate /T REG_SZ') DO @IF "%%B"=="REG_SZ" SET VALUE_RETURN=%%A
 @if "%VALUE_RETURN%"=="" GOTO NOT_HERE
@@ -651,6 +688,8 @@ Reg.exe add "HKCR\*\shell\OpenWithNotepad" /ve /t REG_SZ /d "Edit with &Notepad+
 Reg.exe add "HKCR\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files (x86)\Notepad++\Notepad++.exe" /f
 Reg.exe add "HKCR\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files (x86)\Notepad++\Notepad++.exe\" \"%%1\"" /f
 
+:END_OF_NOTEPAD_ROUTINE
+
 @ECHO OFF
 @REM Reg.exe DELETE "HKCR\*\shell\OpenWithNotepad" /f
 
@@ -681,6 +720,7 @@ GOTO DONT_WANT_NOTEPAD_CHANGER
 	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /ve /t REG_SZ /d "Edit with &Notepad++" /f
 	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad" /v "icon" /t REG_SZ /d "C:\Program Files\Notepad++\Notepad++.exe" /f
 	Reg.exe add "HKLM\SOFTWARE\Classes\CLSID\*\shell\OpenWithNotepad\Command" /ve /t REG_SZ /d "\"C:\Program Files\Notepad++\Notepad++.exe\" \"%%1\"" /f
+	
 GOTO END_OF_NOTEPAD_ROUTINE
 
 :PROGRAM_FILES_32_BIT
@@ -696,12 +736,61 @@ GOTO END_OF_NOTEPAD_ROUTINE
 
 @for /f "delims=" %%a in ('reg query "HKCR\CLSID" /s /f "ANotepad++64" /t REG_SZ') do @echo %%a|findstr /v "REG_SZ" | findstr /v /c:"End of search:" >nul && reg.exe delete "%%a" /f
 
-:DONT_WANT_NOTEPAD_CHANGER
 
 @ECHO.
 @ECHO ---------------------------------------------------------------
 @ECHO ---------------------------------------------------------------
 @ECHO.
+
+
+
+@REM ---------------- WORKS INSTANTLY NOT REQUIRE TO REBOOT OR LOG OFF
+@REM ---------------- YES THAT WORKING FOR WINDOWS 11
+@REM @ECHO ---------- SET NOTEPAD++ FOR EDIT AUTOHOTKEYS AHK FILES
+IF "%WIN10__%"=="YES" (
+	reg.exe ADD "HKEY_CLASSES_ROOT\AutoHotkeyScript\shell\edit\command" /f /ve /t REG_EXPAND_SZ /d "C:\Program Files (x86)\Notepad++\notepad++.exe %%1"
+)
+
+REM Windows Registry Editor Version 5.00 
+REM [HKEY_CLASSES_ROOT\AutoHotkeyScript\Shell\Edit\Command]
+REM @="\"C:\\Program Files\\Notepad++\\notepad++.exe\" \"%1\""
+REM ----------------------------------------
+REM Configure Autohotkey to edit scripts with Notepad++ - Stack Overflow
+REM ----------------------------------------
+REM https://stackoverflow.com/questions/45552141/configure-autohotkey-to-edit-scripts-with-notepad
+REM ----------------------------------------
+
+
+
+@REM ----------------------------------------------------------------
+@REM @ECHO ---------- RESTORE ORIGINAL NOTEPAD FOR TXT ------------------------------------
+@REM reg.exe ADD "HKEY_CLASSES_ROOT\AutoHotkeyScript\shell\edit\command" /f /ve /t REG_EXPAND_SZ /d "%%SystemRoot%%\System32\NOTEPAD.EXE %%1"
+@REM ----------------------------------------------------------------
+@REM -------- ################################# ------------------------------------------------
+@REM ----------------------------------------------------------------
+
+
+@REM -------- ################################# ---------------------------------------------------------------
+@REM -------- NOT SET NOTEPAD++ AT MOMENT 64 BIT RELOCATE SORT TO DO
+@REM -------- SET NOTEPAD++ --------------------------------------------------------------------
+@REM ----------------------------------------------------------------
+@REM @ECHO ---------- SET NOTEPAD++ FOR EDIT BATCH FILES
+@REM ----------------------------------------------------------------
+@ECHO WINDOWS 10 -- HERE WORKS FOR WINDOWS 11 OPEN BATCH FILE TO NOTEPAD++ WHEN EDIT
+
+IF "%WIN10__%"=="YES" (
+	reg.exe ADD "HKEY_CLASSES_ROOT\batfile\shell\edit\command" /f /ve /t REG_EXPAND_SZ /d "C:\Program Files (x86)\Notepad++\notepad++.exe %%1"
+)
+
+@REM ----------------------------------------------------------------
+@REM @ECHO ---------- RESTORE ORIGINAL NOTEPAD FOR BAT ------------------------------------
+REM reg.exe ADD "HKEY_CLASSES_ROOT\batfile\shell\edit\command" /f /ve /t REG_EXPAND_SZ /d "%%SystemRoot%%\System32\NOTEPAD.EXE %%1"
+@REM ----------------------------------------------------------------
+@REM -------- ################################# ------------------------------------------------
+@REM ----------------------------------------------------------------
+
+
+:DONT_WANT_NOTEPAD_CHANGER
 
 
 @REM PAUSE
@@ -718,6 +807,8 @@ GOTO END_OF_NOTEPAD_ROUTINE
 @REM ----------------------------------------------------------------
 @REM ;File association fix for [.BAT] - Windows 7
 @REM ;http://www.winhelponline.com/blog
+
+GOTO JUMP_HERE_UNLESS_EMERGENCY
 @IF NOT "%WIN07__%"=="YES" GOTO NOT_WINDOWS_07
 	@ECHO WINDOWS 07
 	Reg.exe add "HKCR\.BAT" /ve /t REG_SZ /d "batfile" /f
@@ -748,6 +839,8 @@ GOTO END_OF_NOTEPAD_ROUTINE
 	@REM ----------------------------------------------------------------
 :NOT_WINDOWS_07
 
+
+
 @IF NOT "%WIN10__%"=="YES" GOTO NOT_WINDOWS_10
 	@ECHO WINDOWS 10
 	rem ------------------------------------------
@@ -774,7 +867,7 @@ GOTO END_OF_NOTEPAD_ROUTINE
 	@REM ----------------------------------------------------------------
 :NOT_WINDOWS_10
 
-
+:JUMP_HERE_UNLESS_EMERGENCY
 
 
 @REM ----------------------------------------------------------------
@@ -816,26 +909,39 @@ GOTO END_OF_NOTEPAD_ROUTINE
 @REM AND ALSO HAS TWO REGISTRY SETTING ARE MADE FOR THIS ONE
 @REM ----------------------------------------------------------------
 
-@IF %COMPUTERNAME%==7-ASUS-GL522VW  GOTO JUMP_NOT_HERE
+
+REM REMOVER HERE 2026-04-25 ABORT PUT BACK ONLY WORRY ABOUT WIN 11
+REM GOTO JUMP_OVER
+REM @IF %COMPUTERNAME%==7-ASUS-GL522VW  GOTO JUMP_NOT_HERE
 @REM 2018 MAY ---------------------------------------------------------------------
-@REM THIS COMPUTER HAS DEVELOPED A FUNNY PROBLEM WHERE IT DOESN'T LIKE THIS SETTING
-@REM AND MICROSFOT SHOP WON'T OPEN IF SET IT
+@REM THIS COMPUTER 7-ASUS-GL522VW HAS DEVELOPED A FUNNY PROBLEM WHERE IT DOESN'T LIKE THIS SETTING
+@REM AND MICROSOFT SHOP WON'T OPEN IF SET IT
 @REM ------------------------------------------------------------------------------
 
-Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "NoDispCPL" /t REG_DWORD /d "0" /f
+REM Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "NoDispCPL" /t REG_DWORD /d "0" /f
 
+
+REM -- GOT A PROBLEM WINDOWS 10
+REM -- WINDOWS DEFENDER SMARTCREEN PREVENTED AN UNRECOGNNIZED APP
+REM -- THIS LINE DIDN'T FIX IT -- PRESSS THE MORE BUTTON AND RUN HER
+
+@REM __ RESTART COMPUTER REQUIRED FOR THIS ONE
 @REM __ DISABLE UAC USER ACCOUNT CONTROL
 reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "EnableLUA" /t REG_DWORD /d 0
 
+
+REM PAUSE
 @REM __ ENABLE UAC USER ACCOUNT CONTROL
 REM reg.exe ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /f /v "EnableLUA" /t REG_DWORD /d 1
 
 :JUMP_NOT_HERE
+:JUMP_OVER
 
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 
-
+REM CHECKER HERE FOR WINDOWS 11
+REM ------------
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 @REM TAKE THE SHORTCUT APPENDED AWAY FROM COPY TO A SHORTCUT
@@ -853,7 +959,9 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 @REM ----------------------------------------------------------------
 @REM ----------------------------------------------------------------
 
-
+REM REMOVER 2026-04-25 ABORT PUT BACK ONLY WORRY ABOUT WINDOWS 11
+REM -------------------------------------------------------------
+REM GOTO JUMP_HERE
 @IF NOT "%WIN10__%"=="YES" GOTO NOT_WINDOWS_10
 	@ECHO WINDOWS 10
 
@@ -952,6 +1060,12 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 	Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}" /v "Value" /t REG_SZ /d "Allow" /f
 	@REM ----------------------------------------------------------------
 
+REM JUMP PUT 2026-04-25
+:JUMP_HERE
+
+REM CHECK HERE 2026-04-25
+REM ---------------------
+GOT JUMP_HERE_02
 	@REM ----------------------------------------------------------------
 	@REM -- DISABLE STEPS RECORDER
 	Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v "DisableUAR" /t REG_DWORD /d "0" /f
@@ -988,6 +1102,8 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 	@REM -- DISABLE ANY TYPE OF SYSTEM BIOMETRICS FOR THIS DEVICE
 	Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Biometrics" /v "Enabled" /t REG_DWORD /d "0" /f
 
+:JUMP_HERE_02
+
 	@REM ----------------------------------------------------------------
 	@REM -- COLLECTION
 	@REM -- PUT ALL THESE PROGRAMS ON THE CONTEXT MENU DESKTOP AT THE BOTTOM AND OF RIGHT CLICK
@@ -1022,6 +1138,11 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 	@REM ----------------------------------------------------------------
 
 
+
+	REM 2026-04-25 REMOVER ABOURT PUT BACK ONLY WORRY ABOUT WINDOWS 11
+	REM --------------------------------------------------------------
+	REM GOTO JUMP_HERE_03
+	
 	@REM ----------------------------------------------------------------
 	@REM ADD C DRIVE AND D DRIVE
 	@REM THOUGHT THE OTHER CONTEXT MENU TAB SETTING WHICH IS STILL SAME DESKTOP RIGHT CLICK
@@ -1041,7 +1162,7 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 	@REM ----------------------------------------------------------------
 
 	@REM ----------------------------------------------------------------
-	@REM -- ULTIMATE OPEN COMMAND WINDOW IS DONE BUT DON'T SHOW YOU HOW TO DOER IT 
+	@REM -- ULTIMATE OPEN COMMAND WINDOW IS DONE -- BUT DON'T SHOW YOU HOW TO DOER IT 
 	@REM -- HERE FROM MY FILE COLLECTION
 	@REM -- Right_Click_Only_with_Open_Command_Window_Here.reg
 	@REM -- http://www.sevenforums.com
@@ -1065,7 +1186,8 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 	@REM ----------------------------------------------------------------
 	@REM -- NOT ALL THIS ONE WORKS CAN'T GET ACCESS TO CLASSES ROOT
 	@REM -- TIME TO @REMOVE IT 
-	
+
+:JUMP_HERE_03
 	
 	@REM ----------------------------------------------------------------
 	@REM ENABLED FULL ROW SELECT WINDOWS 10 OR MAYBE ALSO 7
@@ -1113,6 +1235,9 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 	Reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize" /v "StartupDelayInMSec" /t REG_DWORD /d "0" /f
 	
 	
+REM 2026-04-25
+REM ----------
+GOTO JUMP_HERE_05
 	@REM ----------------------------------------------------------------
 	@REM DONT LET WINDOWS UPDATE DO SHUTDOWN BUTTON POWER SWITCH UPDATES
 	@REM SHUT DOWN WITHOUT UPDATE WITH THE POWER BUTTON
@@ -1123,6 +1248,14 @@ Reg.exe add "HKCU\Control Panel\Desktop" /v "PaintDesktopVersion" /t REG_DWORD /
 	@REM ----
 	@REM ----------------------------------------------------------------
 	Reg.exe add "HKCU\Software\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAUAsDefaultShutdownOption" /t REG_DWORD /d "0" /f
+
+:JUMP_HERE_05
+
+
+REM 2026-04-25
+REM ----------
+REM CHECKER_HERE FOR WINDOWS 11
+REM ----------
 
 	@REM ----------------------------------------------------------------
 	@REM -- DISABLE ALL LIVE TILES -- DEFAULT 1
@@ -1262,22 +1395,7 @@ reg.exe ADD "HKCU\Control Panel\Mouse" /f /v "MouseHoverTime" /t REG_SZ /d "20"
 
 
 
-@REM -------- ################################# ---------------------------------------------------------------
-@REM -------- NOT SET NOTEPAD++ AT MOMENT 64 BIT RELOCATE SORT TO DO
-@REM -------- SET NOTEPAD++ --------------------------------------------------------------------
-@REM ----------------------------------------------------------------
-@REM @ECHO ---------- SET NOTEPAD++ FOR EDIT FILES
-@REM ----------------------------------------------------------------
-@ECHO WINDOWS 10
-@IF "%WIN10__%"=="YES" (
-	@REM -- reg.exe ADD "HKEY_CLASSES_ROOT\batfile\shell\edit\command" /f /ve /t REG_EXPAND_SZ /d "C:\Program Files\Notepad++\notepad++.exe %%1"
-)
-@REM ----------------------------------------------------------------
-@REM @ECHO ---------- RESTORE ORIGINAL NOTEPAD ------------------------------------
-@REM reg.exe ADD "HKEY_CLASSES_ROOT\batfile\shell\edit\command" /f /ve /t REG_EXPAND_SZ /d "%%SystemRoot%%\System32\NOTEPAD.EXE %%1"
-@REM ----------------------------------------------------------------
-@REM -------- ################################# ------------------------------------------------
-@REM ----------------------------------------------------------------
+
 
 @REM ------------------------------------------------------------------
 @REM -- @ECHO http://www.optimizingpc.com/optimize/registrytweaks.html
@@ -1894,6 +2012,9 @@ TIMEOUT /T 40
 
 :VERY_ENDER_BLOCK
 :ENDE
+
+
+:ENDER_DONT_RUN_NOTHING_COMPUTERNAME__9_ASUS_G815LM 
 
 EXIT /B
 

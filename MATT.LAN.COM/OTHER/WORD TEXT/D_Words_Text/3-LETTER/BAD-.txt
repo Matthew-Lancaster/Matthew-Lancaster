@@ -1,0 +1,51 @@
+#@***-----------------------------------------------------***
+#@***-------**-----------BAD----------------**------------***
+#@***-----------------------------------------------------***
+#**************----------------------------------************
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat manual files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#@**************---------------------------------************
+b. Applications, Databases
+back AS DOUBLE
+Back, A Dinosaur's
+background. After Dark
+BAD ABOUT DOS
+BASE AND DJ
+Basic Authentication, Digest
+BASIC, Atari DOS,
+BATTLETOADS AND DOUBLE
+BBS. Acey Deucy
+Be A Derby
+be Accomplished During
+Been Around, Don't
+bitte Active Desktop
+Blaster Audigy\Creative Diagnostics
+BLASTER AWE32 DEV.
+Blaster AWE32 Developer's
+Body Adventure, Demo
+BOSS AND DATA
+BROOKS AND DUNN
+Browse A Dbase
+Bryan Adams- Dont
+Build A Dream
+Builder Advanced Developer
+Bumps A Daisy
+But Actual Driver
+But, AFAIK, Directory
+by A.B. Data
+by A.K. Dewdney
+by After Dark
+by Ariel Dynamics
+by AT*In. Depend
+bytecomp AS DOUBLE
+byteexpa AS DOUBLE
+BYTES ADS DEVLOPERS
+bzw. AUTOEXEC.BAT Datei

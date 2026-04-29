@@ -2,7 +2,7 @@
 d:
 cd \
 
-echo here
+
 
 for /f "tokens=2 delims=\" %%x in ('schtasks /query /fo list ^| findstr /C:"OneDrive Standalone Update Task"') do schtasks /delete /tn "%%x" /f
 

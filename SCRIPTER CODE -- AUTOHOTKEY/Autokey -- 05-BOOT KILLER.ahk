@@ -76,7 +76,7 @@ Loop {
 
 		if (x > 10)
 		{
-			SoundBeep
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			break
 		}
    }
@@ -121,7 +121,7 @@ While EverLoop=EverLoop
 	
 		if WinActive("Save As" ahk_class #32770)
         {
-			SoundBeep
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			{
 			;--------------------------------------
 			; For Some Reason It Maybe I Think Best to Find This Window
@@ -215,7 +215,7 @@ While EverLoop=EverLoop
 ;--------------------
 ^F4::
 		x = 0
-		SoundBeep
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	   
 		;WinGetTitle, active_title, A
 		
@@ -235,7 +235,7 @@ While EverLoop=EverLoop
 		WinGetTitle, active_title, A
 		IF active_title <> O_active_title
 		{
-			SoundBeep
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			break
 		}
 		O_active_title = %active_title%
@@ -248,7 +248,7 @@ While EverLoop=EverLoop
 		;------------------------------------------
 		IfWinNotActive ahk_class Chrome_WidgetWin_1
 		{
-			;SoundBeep
+			;SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			break
 		}
 		;--------------------------------------------------------------------
@@ -263,12 +263,12 @@ While EverLoop=EverLoop
 
 				if GetKeyState("RButton")
 				{
-					SoundBeep
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					break
 				}
 				if (x > 4000000)
 				{
-					SoundBeep
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 					break
 				}
 	   }
@@ -283,7 +283,7 @@ While EverLoop=EverLoop
 ;-------------------------------------------------------------------------------------------   
 ;		if WinNOTActive(ahk_exe chrome.exe)
 ;		{
-;			SoundBeep
+;			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 ;			break
 ;		}
 ;-------------------------------------------------------------------------------------------   

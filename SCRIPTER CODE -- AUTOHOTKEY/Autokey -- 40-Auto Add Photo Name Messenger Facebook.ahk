@@ -145,7 +145,7 @@ DetectHiddenWindows, oFF
 SetTitleMatchMode 3  ; Specify Full path
 SetTitleMatchMode 2  ; ANY PARTIAL
 
-Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 
 ; -------------------------------------------------------------------
@@ -164,7 +164,7 @@ Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURS
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2020 CyberShot HX60V\JPG\2020 09 13\1111
+FILE_PATH_WILDPATH_JPG=D:\DSC\2015+SONY\2026 CyberShot HX60V\JPG\2026 02 26\DOC
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -191,7 +191,7 @@ VAR_COUNTER_START_AT_VALUE=1
 ; -------------------------------------------------------------------
 ; 0=NEW ALBUM
 ; 1=EDITOR
-NEW_ALBUM_OR_EDITOR_PAGE=0
+NEW_ALBUM_OR_EDITOR_PAGE=1
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
@@ -210,8 +210,8 @@ NEW_ALBUM_OR_EDITOR_PAGE=0
 ; FACEBOOK_TIMER_DELAY_NORMAL=3000 -- FEW IMAGE-ER LIKE A COUPLE HUNDRED 3 SECOND
 ; FACEBOOK_TIMER_DELAY_IN_EDITOR=14000 -- NORMAL FOR MOST - EDITOR REDUCE SPEED REQUIRE
 ; -------------------------------------------------------------------
-FACEBOOK_TIMER_DELAY_NORMAL=500
-FACEBOOK_TIMER_DELAY_IN_EDITOR=14000
+FACEBOOK_TIMER_DELAY_NORMAL=4000
+FACEBOOK_TIMER_DELAY_IN_EDITOR=4000
 
 
 ; -------------------------------------------------------------------
@@ -223,7 +223,7 @@ FACEBOOK_TIMER_DELAY_IN_EDITOR=14000
 ; -------------------------------------------------------------------
 RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=TRUE
 RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=
-RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=TRUE
+; RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER=TRUE
 
 IF RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 	FACEBOOK_TIMER_DELAY_NORMAL=1
@@ -326,7 +326,7 @@ FACEBOOK_URL_TITLE_1=Matthew Lancaster - Google Chrome
 FACEBOOK_URL_TITLE_2=Facebook - Google Chrome
 ; 0=NEW ALBUM
 ; 1=EDITOR
-IF NEW_ALBUM_OR_EDITOR_PAGE=1
+IF NEW_ALBUM_OR_EDITOR_PAGE=0
 	FACEBOOK_URL_TITLE_1=%FACEBOOK_URL_TITLE_2%
 
 IF HAS_FIRST_BATCH_BEEN_DONE_AND_NEXT_SUBSEQUENT_BATCH_DOARH=TRUE
@@ -574,7 +574,7 @@ IF !RESULT_CLIPBOARD_NOT_ENTER_AT_BROWSER
 IF FACEBOOK_URL_TITLE_2_VAR_SET=TRUE
 {
 	Sendinput ^{home}
-	Sendinput {tab}
+	Sendinput {tab}{tab}{tab}{tab}
 	; ---------------------------------------------------------------
 	; IMPORTANT TO HAVE BIGGER SLEEP AFTER TAB NEXT ITEM OR IT LAND 
 	; ON WRONG LOCATION _ BY TIME NEXT INPUT SENDINPUT HAPPEN
@@ -598,7 +598,7 @@ IF FACEBOOK_URL_TITLE_1_VAR_SET=TRUE
 
 
 IF !(A_ComputerName = "4-ASUS-GL522VW") 
-	Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 ; -----------------------------------------------------------------------
 ; RESET TIMER DUE TO ANY DELAY

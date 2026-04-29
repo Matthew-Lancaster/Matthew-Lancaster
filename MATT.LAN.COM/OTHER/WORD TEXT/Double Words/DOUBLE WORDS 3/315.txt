@@ -1,0 +1,1505 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+15 ' Color of
+15 ' Default character
+15 ' DPo
+15 ' Maximum computer
+15 ' Oblique/Square
+15 ' Quarto 215
+15 ' Rounded
+15 ' Set picture
+15 ' Set up
+15 ' Specifies color
+15 '96
+15 'til Registered.
+15 ------"------
+15 -- GAMES
+15 -- Texas -
+15 -- UTILS
+15 - 1 taskbar
+15 - 25 questions
+15 - A love
+15 - Atmosphere
+15 - Blarney Lads
+15 - Bo diddley.mp3
+15 - Born To
+15 - Buddy Guy
+15 - By your
+15 - Captain Scarlet
+15 - Cassandra
+15 - Cecil Taylor
+15 - Claude Thornhill
+15 - Coconut
+15 - Crash! Boom!
+15 - Danger Heartbreak
+15 - Dark Star
+15 - De La
+15 - Death Of
+15 - Dir%
+15 - Does Your
+15 - Don't Do
+15 - Earl Hooker
+15 - Eimear Quinn
+15 - Elvis Presley
+15 - eve boswell
+15 - Fernando
+15 - For petes
+15 - For Your
+15 - Frankie Ford
+15 - Free fallin'
+15 - God Bless
+15 - Greatest Love
+15 - Heaven must
+15 - Howlin' Wolf
+15 - Humble Mumble.mp3
+15 - I Believe
+15 - I Have
+15 - I just
+15 - I wanna
+15 - In the
+15 - In Trutina
+15 - It's Kosher
+15 - Jimmy Mccracklin
+15 - Jimmy Smith
+15 - Julian Cope
+15 - Kings Highway
+15 - La Mancha
+15 - Leroy Carr
+15 - LEX source
+15 - Lightnin' Hopkins
+15 - Listen To
+15 - Livin' On
+15 - Looking for
+15 - Lou Donaldson
+15 - Louis Armstrong
+15 - Love Gravy
+15 - Love Is
+15 - LoveInTheKeyOfC.mp3
+15 - Luther Allison
+15 - Mama -
+15 - Martin Best
+15 - Marvelettes -
+15 - mel torme
+15 - Micky Doherty
+15 - Milt Jackson
+15 - Moby -
+15 - Moonlight Serenade.mp3
+15 - Night Train
+15 - No tears
+15 - Oh Bess
+15 - our love.mp3
+15 - Pat Garrett
+15 - Perfect day
+15 - Platters -
+15 - Prelude To
+15 - Prosa
+15 - Raw Power
+15 - Riches to
+15 - Rick Astley
+15 - Rock 'N'
+15 - Salsation -
+15 - Saw Doctors
+15 - Session man.mp3
+15 - Sherrie Austin
+15 - Sonny Terry
+15 - Sorters and
+15 - Spice Girls
+15 - Such A
+15 - Take me
+15 - Teddy Wilson
+15 - The Damage
+15 - The man
+15 - The Queen
+15 - The Race
+15 - They Can't
+15 - Think About
+15 - This *Info*
+15 - Tony Iommi
+15 - Troyce Key
+15 - Unchained Melody
+15 - Unknown.mp3
+15 - vikki carr
+15 - Walk Like
+15 - Walter Horton
+15 - Washboard Sam
+15 - We'll Be
+15 - Wesley Wallace
+15 - Where Or
+15 - Whistle Down
+15 - White Train
+15 - Will Orbit
+15 - World Wide
+15 - your latest
+15 -> del D:\hpHPF\HPINFO.DAT
+15 -20 seconds before
+15 -deathmatch -altdeath -com2
+15 "Industrial
+15 "Loading the dialing
+15 & 22.
+15 & more info
+15 & WildCat 3.9.
+15 ( )
+15 ( 2.60%)
+15 (11/94).
+15 (6 CD)
+15 (74) RENAISSANCE LIONEL
+15 (iirc).
+15 (me too!), and
+15 (relocatable, no CD
+15 *Info*
+15 / 8 /
+15 : *Info*
+15 ~ Semisonic -
+15 ~ Smashing Pumpkins
+15 ~A~gree to the
+15 + 12
+15 0 0 0
+15 0 0 32
+15 0 19 50
+15 0 47 23
+15 0 694 212
+15 0.0%
+15 0.1%
+15 0.2%
+15 0.3%
+15 0.4%
+15 0.5%
+15 0.6%
+15 0;24
+15 000 nodes connected
+15 02/09/01 20:25 38000
+15 02:00 garbo.uwasa.fi:/pc/diskcopy/xdcpy200.zip
+15 07 02 08
+15 08:42 garbo.uwasa.fi:/unix/arcers/unz50p1.tar.Z"
+15 08:47, Yvonne Marie
+15 1 209/209 170/400
+15 1 270/101 13/13
+15 1 270/101 141/209
+15 1 270/101 24/900
+15 1 79 15
+15 1.1%
+15 1/2 AMI003 #3220
+15 11 73 0.3%
+15 11/12/94 13:13 REALTEK.DRV
+15 11/2 396/1 270/101
+15 110426
+15 12 18 74
+15 12 9 0
+15 130 0.5%
+15 14 1 32
+15 14 15 31
+15 14:50 93
+15 149 0.6%
+15 15 15 0.0%
+15 153 0.6%
+15 16 0.1%
+15 16 17 18
+15 16 18 20
+15 16:44 garbo.uwasa.fi:/pc/doc-net/faqc9310.zip
+15 17 13 15
+15 17/03/01 19:52 Sage
+15 18
+15 18 30 125
+15 18 9 45
+15 186 0.7%
+15 19 26 70
+15 19:00 OAK.Oakland.Edu:/pub/misc/unix/unz50p1.tar.Z"
+15 1993 00:02, Adam
+15 1993 00:23, Peter
+15 1993 00:59, Chris
+15 1993 07:50, Tero
+15 1993 09:51, Paul
+15 1993 11:42, Mark
+15 1993 12:12, Martin
+15 1993 12:55, David
+15 1993 12:59, David
+15 1993 14:17, Marc
+15 1993 15:06, Jani
+15 1993 17:12, Trevor
+15 1993 21:00, Chris
+15 1993 21:03, Chris
+15 1993 22:18, Brandon
+15 1993 22:18, Dominic
+15 1993 22:38, Aaron
+15 1993 23:00, Dominic
+15 1993 23:32, Aaron
+15 1993 23:37, Jerry
+15 1993 at 23:00
+15 1993 Collin Richard
+15 1993 stamp'd.06:15, so
+15 1993 was written:
+15 1993) David Lutjen
+15 1993) James Connelly
+15 1993)/sq+
+15 1993, After narrowly
+15 1993, Andrew Mohan
+15 1993, CNN viewers
+15 1993, David Rowlands
+15 1993, Jim Reynolds
+15 1993, John Rawson
+15 1993, Ken Haight
+15 1993, Lee Lefler
+15 1993, Robert Soar
+15 1993, Ron Dwight
+15 1993, Stephen Bromwich
+15 1993, TOM ZUNDER
+15 1993, Werner Dworak
+15 1993.
+15 1994 00:26, Chris
+15 1994 03:20, Mike
+15 1994 08:45, Marc
+15 2 0 0
+15 2 39 0.2%
+15 2 4 14
+15 2 M -
+15 2/2 AMI003 #3221
+15 20 25 10
+15 20:26>, Kerry Whittle
+15 22 36 3
+15 23:42:56 2001
+15 23:48:19 2001
+15 24 07 02
+15 24 3 4
+15 25/03/96 15:00 AIRWAR.INI
+15 26/09/02 2:13 backwin2.dat
+15 29 0.0%
+15 3 0 1
+15 30 39 54
+15 31 75 0.0%
+15 35
+15 3603/20 396/1 11/2
+15 3603/20 396/1 270/101
+15 4 21 1
+15 4 99 0.4%
+15 41 11 17
+15 449 116 270/101
+15 449 437 141/209
+15 5 5 14
+15 50 145 0.5%
+15 55 0.2%
+15 60 22 42
+15 640 x 148
+15 67 13 0
+15 7 3 4
+15 76 0.0%
+15 7D C5 83
+15 8 11 18
+15 8 24 0.0%
+15 8 8 62
+15 8e a2 07
+15 93
+15 93 231 27
+15 94 *Info*
+15 94 0.4%
+15 9730
+15 a 18 ans.
+15 A clean sweep
+15 A clean sweep.mp3
+15 abort reads/writes on
+15 Activ 8.mp3 4,161,306
+15 ae be 10
+15 Air - 10
+15 Albert and the
+15 albums and a
+15 alive.mp3
+15 and
+15 and 17 years
+15 and 60. Most
+15 and a functioning
+15 and above.
+15 and I go
+15 and live in
+15 and look up
+15 and my dad
+15 and see what
+15 AND WANT TO
+15 Apply the face
+15 apps
+15 Apr 2002 00:00:47
+15 Apr 2002 00:05:17
+15 Apr 2002 00:05:27
+15 Apr 2002 00:05:45
+15 Apr 2002 00:10:42
+15 Apr 2002 00:14:02
+15 Apr 2002 00:16:25
+15 Apr 2002 00:24:59
+15 Apr 2002 00:30:03
+15 Apr 2002 00:31:22
+15 Apr 2002 00:32:48
+15 Apr 2002 00:33:26
+15 Apr 2002 00:35:07
+15 Apr 2002 00:38:26
+15 Apr 2002 00:38:44
+15 Apr 2002 00:44:44
+15 Apr 2002 00:45:05
+15 Apr 2002 00:46:20
+15 Apr 2002 00:48:17
+15 Apr 2002 00:56:19
+15 Apr 2002 00:57:23
+15 Apr 2002 01:00:07
+15 Apr 2002 01:01:03
+15 Apr 2002 01:05:59
+15 Apr 2002 01:07:52
+15 Apr 2002 01:08:36
+15 Apr 2002 01:12:59
+15 Apr 2002 01:13:52
+15 Apr 2002 01:18:58
+15 Apr 2002 01:22:29
+15 Apr 2002 01:23:47
+15 Apr 2002 01:31:22
+15 Apr 2002 01:32:23
+15 Apr 2002 01:33:29
+15 Apr 2002 01:34:44
+15 Apr 2002 01:43:14
+15 Apr 2002 02:02:59
+15 Apr 2002 02:04:06
+15 Apr 2002 02:05:53
+15 Apr 2002 02:09:01
+15 Apr 2002 02:09:37
+15 Apr 2002 02:10:51
+15 Apr 2002 02:15:17
+15 Apr 2002 02:15:41
+15 Apr 2002 02:30:13
+15 Apr 2002 02:30:23
+15 Apr 2002 02:42:04
+15 Apr 2002 02:51:18
+15 Apr 2002 03:00:42
+15 Apr 2002 03:00:57
+15 Apr 2002 03:01:53
+15 Apr 2002 03:05:59
+15 Apr 2002 03:07:52
+15 Apr 2002 03:09:44
+15 Apr 2002 03:11:17
+15 Apr 2002 03:12:59
+15 Apr 2002 03:13:07
+15 Apr 2002 03:13:52
+15 Apr 2002 03:14:59
+15 Apr 2002 03:16:13
+15 Apr 2002 03:25:10
+15 Apr 2002 03:28:38
+15 Apr 2002 03:31:18
+15 Apr 2002 03:37:27
+15 Apr 2002 03:40:06
+15 Apr 2002 03:51:52
+15 Apr 2002 03:55:38
+15 Apr 2002 03:58:03
+15 Apr 2002 03:58:32
+15 Apr 2002 04:10:42
+15 Apr 2002 04:14:02
+15 Apr 2002 04:18:15
+15 Apr 2002 04:25:49
+15 Apr 2002 04:34:00
+15 Apr 2002 04:39:31
+15 Apr 2002 04:39:59
+15 Apr 2002 04:43:49
+15 Apr 2002 04:48:14
+15 Apr 2002 04:57:57
+15 Apr 2002 05:04:55
+15 Apr 2002 05:05:45
+15 Apr 2002 05:22:02
+15 Apr 2002 05:24:55
+15 Apr 2002 05:26:57
+15 Apr 2002 05:28:30
+15 Apr 2002 05:36:09
+15 Apr 2002 05:45:05
+15 Apr 2002 05:48:17
+15 Apr 2002 05:53:46
+15 Apr 2002 05:54:23
+15 Apr 2002 06:20:57
+15 Apr 2002 06:23:47
+15 Apr 2002 06:36:57
+15 Apr 2002 06:45:00
+15 Apr 2002 06:45:01
+15 Apr 2002 06:51:18
+15 Apr 2002 06:51:20
+15 Apr 2002 07:01:35
+15 Apr 2002 07:04:00
+15 Apr 2002 07:15:35
+15 Apr 2002 07:17:36
+15 Apr 2002 07:20:48
+15 Apr 2002 07:21:31
+15 Apr 2002 07:23:27
+15 Apr 2002 07:27:04
+15 Apr 2002 07:30:44
+15 Apr 2002 07:30:45
+15 Apr 2002 07:33:45
+15 Apr 2002 07:54:07
+15 Apr 2002 07:54:52
+15 Apr 2002 08:00:31
+15 Apr 2002 08:02:07
+15 Apr 2002 08:02:18
+15 Apr 2002 08:03:18
+15 Apr 2002 08:20:48
+15 Apr 2002 08:22:44
+15 Apr 2002 08:26:22
+15 Apr 2002 08:51:58
+15 Apr 2002 08:57:33
+15 Apr 2002 09:17:46
+15 Apr 2002 09:21:23
+15 Apr 2002 09:25:49
+15 Apr 2002 09:35:42
+15 Apr 2002 09:43:59
+15 Apr 2002 09:44:02
+15 Apr 2002 09:44:49
+15 Apr 2002 09:44:52
+15 Apr 2002 09:46:25
+15 Apr 2002 09:46:29
+15 Apr 2002 09:51:49
+15 Apr 2002 09:52:13
+15 Apr 2002 09:55:08
+15 Apr 2002 10:01:10
+15 Apr 2002 10:01:51
+15 Apr 2002 10:02:35
+15 Apr 2002 10:07:41
+15 Apr 2002 10:15:30
+15 Apr 2002 10:19:28
+15 Apr 2002 10:19:32
+15 Apr 2002 10:28:27
+15 Apr 2002 10:34:25
+15 Apr 2002 10:35:39
+15 Apr 2002 10:35:52
+15 Apr 2002 10:38:34
+15 Apr 2002 10:40:25
+15 Apr 2002 10:48:41
+15 Apr 2002 10:50:10
+15 Apr 2002 10:51:41
+15 Apr 2002 11:02:09
+15 Apr 2002 11:02:39
+15 Apr 2002 11:06:00
+15 Apr 2002 11:26:51
+15 Apr 2002 11:34:07
+15 Apr 2002 11:42:23
+15 Apr 2002 11:48:14
+15 Apr 2002 11:51:58
+15 Apr 2002 11:55:20
+15 Apr 2002 11:58:55
+15 Apr 2002 11:59:06
+15 Apr 2002 12:00:43
+15 Apr 2002 12:04:15
+15 Apr 2002 12:05:11
+15 Apr 2002 12:05:16
+15 Apr 2002 12:06:34
+15 Apr 2002 12:06:39
+15 Apr 2002 12:10:38
+15 Apr 2002 12:22:02
+15 Apr 2002 12:24:55
+15 Apr 2002 12:28:30
+15 Apr 2002 12:30:56
+15 Apr 2002 12:36:09
+15 Apr 2002 12:39:35
+15 Apr 2002 12:40:12
+15 Apr 2002 12:49:16
+15 Apr 2002 12:50:19
+15 Apr 2002 12:53:35
+15 Apr 2002 12:53:40
+15 Apr 2002 12:55:08
+15 Apr 2002 12:55:12
+15 Apr 2002 12:56:04
+15 Apr 2002 12:56:17
+15 Apr 2002 12:57:10
+15 Apr 2002 12:59:56
+15 Apr 2002 13:12:25
+15 Apr 2002 13:12:32
+15 Apr 2002 13:17:05
+15 Apr 2002 13:19:28
+15 Apr 2002 13:26:14
+15 Apr 2002 13:27:14
+15 Apr 2002 13:29:12
+15 Apr 2002 13:32:34
+15 Apr 2002 13:35:26
+15 Apr 2002 13:37:09
+15 Apr 2002 13:39:30
+15 Apr 2002 13:41:05
+15 Apr 2002 13:41:38
+15 Apr 2002 13:41:46
+15 Apr 2002 13:43:35
+15 Apr 2002 13:44:21
+15 Apr 2002 13:45:44
+15 Apr 2002 13:51:04
+15 Apr 2002 13:57:24
+15 Apr 2002 13:58:32
+15 Apr 2002 14:01:32
+15 Apr 2002 14:06:30
+15 Apr 2002 14:06:31
+15 Apr 2002 14:12:46
+15 Apr 2002 14:14:06
+15 Apr 2002 14:16:54
+15 Apr 2002 14:17:00
+15 Apr 2002 14:20:07
+15 Apr 2002 14:24:32
+15 Apr 2002 14:25:22
+15 Apr 2002 14:34:25
+15 Apr 2002 14:35:28
+15 Apr 2002 14:35:39
+15 Apr 2002 14:38:34
+15 Apr 2002 14:50:19
+15 Apr 2002 14:52:19
+15 Apr 2002 14:53:40
+15 Apr 2002 14:54:07
+15 Apr 2002 14:55:08
+15 Apr 2002 14:56:04
+15 Apr 2002 14:56:16
+15 Apr 2002 14:56:17
+15 Apr 2002 14:57:25
+15 Apr 2002 14:59:56
+15 Apr 2002 15:03:18
+15 Apr 2002 15:03:56
+15 Apr 2002 15:04:35
+15 Apr 2002 15:05:26
+15 Apr 2002 15:07:38
+15 Apr 2002 15:20:36
+15 Apr 2002 15:30:14
+15 Apr 2002 15:37:07
+15 Apr 2002 15:40:14
+15 Apr 2002 15:48:17
+15 Apr 2002 15:50:33
+15 Apr 2002 15:51:59
+15 Apr 2002 15:52:25
+15 Apr 2002 15:56:59
+15 Apr 2002 15:57:34
+15 Apr 2002 16:00:43
+15 Apr 2002 16:01:10
+15 Apr 2002 16:02:16
+15 Apr 2002 16:04:54
+15 Apr 2002 16:06:44
+15 Apr 2002 16:06:58
+15 Apr 2002 16:08:45
+15 Apr 2002 16:10:09
+15 Apr 2002 16:25:01
+15 Apr 2002 16:25:49
+15 Apr 2002 16:26:54
+15 Apr 2002 16:28:51
+15 Apr 2002 16:29:51
+15 Apr 2002 16:36:31
+15 Apr 2002 16:38:26
+15 Apr 2002 16:39:08
+15 Apr 2002 16:41:35
+15 Apr 2002 16:45:50
+15 Apr 2002 16:49:16
+15 Apr 2002 16:51:20
+15 Apr 2002 16:52:05
+15 Apr 2002 16:52:58
+15 Apr 2002 16:56:55
+15 Apr 2002 17:07:41
+15 Apr 2002 17:11:07
+15 Apr 2002 17:14:31
+15 Apr 2002 17:15:30
+15 Apr 2002 17:19:28
+15 Apr 2002 17:20:20
+15 Apr 2002 17:20:42
+15 Apr 2002 17:22:41
+15 Apr 2002 17:23:58
+15 Apr 2002 17:29:47
+15 Apr 2002 17:30:00
+15 Apr 2002 17:30:01
+15 Apr 2002 17:30:14
+15 Apr 2002 17:36:33
+15 Apr 2002 17:37:08
+15 Apr 2002 17:38:15
+15 Apr 2002 17:38:35
+15 Apr 2002 17:39:08
+15 Apr 2002 17:39:13
+15 Apr 2002 17:40:25
+15 Apr 2002 17:51:46
+15 Apr 2002 17:53:51
+15 Apr 2002 17:54:09
+15 Apr 2002 17:54:11
+15 Apr 2002 17:56:32
+15 Apr 2002 18:02:39
+15 Apr 2002 18:06:58
+15 Apr 2002 18:10:09
+15 Apr 2002 18:17:28
+15 Apr 2002 18:18:29
+15 Apr 2002 18:20:32
+15 Apr 2002 18:21:02
+15 Apr 2002 18:30:08
+15 Apr 2002 18:33:08
+15 Apr 2002 18:43:06
+15 Apr 2002 18:43:42
+15 Apr 2002 18:44:31
+15 Apr 2002 18:44:32
+15 Apr 2002 18:45:48
+15 Apr 2002 18:45:57
+15 Apr 2002 18:50:23
+15 Apr 2002 18:51:47
+15 Apr 2002 18:52:19
+15 Apr 2002 18:52:34
+15 Apr 2002 18:52:48
+15 Apr 2002 18:54:45
+15 Apr 2002 18:57:25
+15 Apr 2002 18:58:18
+15 Apr 2002 18:59:06
+15 Apr 2002 18:59:28
+15 Apr 2002 19:00:55
+15 Apr 2002 19:03:37
+15 Apr 2002 19:05:11
+15 Apr 2002 19:05:35
+15 Apr 2002 19:07:36
+15 Apr 2002 19:07:38
+15 Apr 2002 19:07:45
+15 Apr 2002 19:11:05
+15 Apr 2002 19:36:02
+15 Apr 2002 19:44:21
+15 Apr 2002 19:50:33
+15 Apr 2002 19:51:17
+15 Apr 2002 19:57:48
+15 Apr 2002 20:06:29
+15 Apr 2002 20:06:30
+15 Apr 2002 20:06:31
+15 Apr 2002 20:09:47
+15 Apr 2002 20:20:07
+15 Apr 2002 20:27:06
+15 Apr 2002 20:29:51
+15 Apr 2002 20:29:56
+15 Apr 2002 20:35:28
+15 Apr 2002 20:37:07
+15 Apr 2002 20:38:05
+15 Apr 2002 20:39:19
+15 Apr 2002 20:40:10
+15 Apr 2002 20:45:48
+15 Apr 2002 20:46:20
+15 Apr 2002 20:47:57
+15 Apr 2002 21:01:32
+15 Apr 2002 21:01:35
+15 Apr 2002 21:03:41
+15 Apr 2002 21:04:29
+15 Apr 2002 21:07:04
+15 Apr 2002 21:12:31
+15 Apr 2002 21:12:56
+15 Apr 2002 21:13:48
+15 Apr 2002 21:13:51
+15 Apr 2002 21:29:47
+15 Apr 2002 21:32:13
+15 Apr 2002 21:33:01
+15 Apr 2002 21:36:29
+15 Apr 2002 21:36:33
+15 Apr 2002 21:39:08
+15 Apr 2002 21:42:35
+15 Apr 2002 21:44:08
+15 Apr 2002 21:52:17
+15 Apr 2002 21:52:25
+15 Apr 2002 21:55:33
+15 Apr 2002 22:03:30
+15 Apr 2002 22:06:08
+15 Apr 2002 22:09:47
+15 Apr 2002 22:17:07
+15 Apr 2002 22:26:21
+15 Apr 2002 22:28:01
+15 Apr 2002 22:33:42
+15 Apr 2002 22:35:28
+15 Apr 2002 22:36:59
+15 Apr 2002 22:41:42
+15 Apr 2002 22:42:29
+15 Apr 2002 22:43:06
+15 Apr 2002 22:43:39
+15 Apr 2002 22:44:31
+15 Apr 2002 22:48:57
+15 Apr 2002 22:49:48
+15 Apr 2002 22:50:16
+15 Apr 2002 22:52:05
+15 Apr 2002 22:52:14
+15 Apr 2002 22:52:58
+15 Apr 2002 22:53:14
+15 Apr 2002 22:54:45
+15 Apr 2002 22:56:39
+15 Apr 2002 22:57:25
+15 Apr 2002 23:09:21
+15 Apr 2002 23:11:07
+15 Apr 2002 23:14:31
+15 Apr 2002 23:18:40
+15 Apr 2002 23:19:39
+15 Apr 2002 23:25:09
+15 Apr 2002 23:25:58
+15 Apr 2002 23:26:00
+15 Apr 2002 23:27:07
+15 Apr 2002 23:28:52
+15 Apr 2002 23:30:08
+15 Apr 2002 23:33:08
+15 Apr 2002 23:35:25
+15 Apr 2002 23:36:48
+15 Apr 2002 23:40:42
+15 Apr 2002 23:40:43
+15 Apr 2002 23:41:11
+15 Apr 2002 23:41:15
+15 Apr 2002 23:43:40
+15 Apr 2002 23:43:54
+15 Apr 2002 23:44:21
+15 Apr 2002 23:45:13
+15 Apr 2002 23:48:27
+15 Apr 2002 23:53:46
+15 Apr 2002 23:54:49
+15 Apr 2002 23:55:07
+15 Apr 89 -
+15 Apr 96.
+15 Apr 96. This
+15 archive types
+15 archive types and
+15 are selected. Be
+15 at 07:29, Hans
+15 at 07:32, Eric
+15 At A Time
+15 ATB - Don't
+15 Aug
+15 Aug 5:41
+15 Aug 87 -
+15 Aug 93 (FileMgr
+15 Aug 93 20:42:06
+15 Aug 93 8:58
+15 Aug 93 the
+15 Aug 93, David
+15 Aug 93, FileMgr
+15 Aug 93, Martin
+15 AUG 97) -
+15 August 1994. Last
+15 Australian.
+15 awesome deathmatch wads
+15 Baby D-Let Me
+15 baby elian.mp3
+15 Bad things will
+15 Bang Bang.mp3
+15 Barron Knights Lazy
+15 bass reflex cab
+15 Beat the retreat
+15 Beat the retreat.mp3
+15 Beats
+15 because he's set
+15 bei Wide <A
+15 Belinda Carlisle\A Place
+15 Beta, and the
+15 Bibles avail. Demo
+15 Big Distraction
+15 billie jean.mp3
+15 Bob And Marcia
+15 Bohemian rhapsody -
+15 Bonus track.mp3 5,537,959
+15 BORN TO HAND
+15 Brazil.mp3 5,327,412 08/10/2001
+15 Bring Him Home
+15 bucks
+15 Bulletins For Remote
+15 but the down
+15 by FATAL
+15 C) during the
+15 Cabaret_Cabaret
+15 Cafe del mar
+15 CALLERS & MORE
+15 callers *Info*
+15 Callers for TriBBS
+15 calls a day
+15 CANTEEN 16 CLIPS
+15 Carolina RICO -
+15 Carolina RICO
+15 Cassidy_Implode.mp3
+15 catagories of conversions
+15 categories and
+15 categories and over
+15 categories. Requires
+15 CCS-Walkin'
+15 CDROMS PLEASE
+15 CFR
+15 CFR 730-744) of
+15 Chime.mp3 7,127,040 16/07/2001
+15 Choose View menu>
+15 Chuck and Dobby
+15 classes of vehicles</strong>
+15 cm apart respectively.
+15 connections to support
+15 CRIME CITY (IF)
+15 Culture - Behold.mp3
+15 culture club -
+15 Curtis Mayfield -
+15 Cut for life
+15 Dalla sua pace
+15 Dave Stewart &
+15 day evaluation period
+15 days
+15 days holiday, and
+15 days you have
+15 days.
+15 DB From Modem
+15 dBm (Corresponding to
+15 dBm for the
+15 De La Soul_Eye
+15 Dec 79 -
+15 Dec 84 -
+15 Dec 94 The
+15 December 1993
+15 degree
+15 degree Celcius which
+15 degrees.
+15 Department of Death
+15 dependent clients.&quot;
+15 Dependent Clients</h2>
+15 Derrick Harriott -
+15 Developer 2000 Report
+15 Devil's nightmare.mp3 7,282,688
+15 Devine mc.mp3 5,442,351
+15 DEXY'S MIDNIGHT RUNNERS
+15 different discs, then
+15 different missions
+15 digit accuracy with
+15 digits Prime Number:
+15 Dirty Diana,New monday.mp3
+15 DL Time 00:00:29
+15 DL Time 00:01:39
+15 Don't think I'm
+15 double whiskies. I
+15 drawing tools, 19
+15 DREAMING.mp3
+15 droids in a
+15 e2 51 ff
+15 electribe 101 -
+15 Embrace - Holligan
+15 Even more bounce.mp3
+15 Everything has a
+15 Everytime you need
+15 Falling.mp3 4,288,512 09/07/2001
+15 feet!! I had
+15 Fidonet-compatible nodelists
+15 Fidonet
+15 fields of gold.mp3
+15 Fiesta.mp3 3,913,665 01/10/2001
+15 File(s)
+15 file(s) 1,220,558 bytes
+15 file(s) 1,951,982 bytes
+15 file(s) 159,397 bytes
+15 file(s) 18,663,210 bytes
+15 file(s) 274,241 bytes
+15 file(s) 3,629,043 bytes
+15 file(s) 31,202 bytes
+15 file(s) 4,700,760 bytes
+15 file(s) 41,751 bytes
+15 file(s) 43,744 bytes
+15 file(s) 47,004 bytes
+15 file(s) 5,865,916 bytes
+15 file(s) 532,632 bytes
+15 file(s) 56,635 bytes
+15 file(s) 569,822 bytes
+15 file(s) 640,344 bytes
+15 file(s) 7,073 bytes
+15 file(s) 741,454 bytes
+15 file(s) 799,425 bytes
+15 file(s) 86,316 bytes
+15 file(s) found
+15 files can be
+15 files session/call (FIDO
+15 fixed and 17
+15 for wide-<A HREF="137.htm#o416">SCSI</A>).
+15 fps. Animations for
+15 Frames = Enabled
+15 frames per second.
+15 Friends Will Be
+15 Fugees- Ready or
+15 ful cd released
+15 funko.mp3 3,693,714 01/10/2001
+15 Garbage-G\03 - Only
+15 GASOLINE ALLEY
+15 General Midi Files
+15 GET WEAVIN.mp3
+15 Ghosts in the
+15 Gigabytes
+15 God help them
+15 God will be
+15 Goteborg MBS +46
+15 Gouryella - Gouryella
+15 Gregory Isaacs -
+15 Gus Elen-Never introduce
+15 Gus Elen
+15 H000052.ZIP v2.05 STRUCTURED
+15 H000130.ZIP v1.1 ESTIBID
+15 H000367.ZIP v6.0e PRODEV*QUOTE
+15 H004310.ZIP v96.7 AESTI
+15 H006637.ZIP v1.0 NETSHEET
+15 H006747.ZIP v1.0 WINBID
+15 H007322.ZIP v1.1 ESTIMATER
+15 H008944.ZIP v1.0 ES
+15 Hammock Brothers -
+15 Happy.mp3 4,104,359 08/10/2001
+15 has at least
+15 hatiras,spaced invader.mp3
+15 Hds, 1224 Cyls,
+15 Hole in the
+15 Hollies-Sorry Suzanne
+15 honesty.mp3
+15 Honey Boy Martin
+15 Horace Andy -
+15 Hours Ago
+15 hours connection time</td>
+15 hq .pcx
+15 I'm Hurtin'.mp3 2,707,957
+15 I'm so into
+15 I AM THE
+15 I did'nt even
+15 I DON'T WANT
+15 IBM 7552 Industrial
+15 Icons for Windows
+15 Icons of *Info*
+15 If I Were
+15 II 1/2 [TRAINER
+15 in
+15 IN 1 PUZZLE
+15 in ASCII format.
+15 IN ONE PUZZLE
+15 in the case
+15 included ±≤
+15 Indra.mp3 5,210,112 09/07/2001
+15 inner life.mp3
+15 internal parameters
+15 IT'S SO EASY
+15 James Bond -
+15 Jan 83 -
+15 Jan 95 with
+15 Jeff Foxworthy Copenhagen
+15 JenniferRush_PowerOfLove... 4,096,896 12/02/1997
+15 Johnnie Clark -
+15 Johnny Cash-A thing
+15 Jul 93 Amiga
+15 Jul 93 Jason
+15 July 1995
+15 Jun 85 -
+15 Jun 93 18:29:07:
+15 Jun 93 Steve
+15 kb
+15 Kevin Bloody Wilson
+15 keyframes moved to
+15 keyframes selected.
+15 kHz stereo 112..128
+15 kHz stereo 96
+15 Kim Wilde-The Singles
+15 Kincade - Dreams
+15 la dreaming.mp3
+15 Learning The Game.mp3
+15 leningrad.mp3
+15 Less Than Perfect.mp3
+15 Let me call
+15 Level deathmatch for
+15 level gdi scenario
+15 levels. Requires 386+
+15 LIFE IN THE
+15 LisaStansfield_AllAroundT.. 4,194,552 12/02/1997
+15 Little green bag.mp3
+15 LOVE GRAVY.mp3
+15 Love you anyway.mp3
+15 Lutricia McNeal_Ain't That
+15 MADNESS
+15 madonna - true
+15 MAINTAIN.mp3
+15 Manhattans-Hurt
+15 Mantavani THE SWINGING
+15 Mar 2002 03:57:36
+15 Mar 80 -
+15 Mario Piu_Communication.mp3
+15 MARRIAGE OF DALE
+15 Marvellous
+15 mathematical and physical
+15 May 1997, Free).
+15 May 1997. Daniel
+15 May 82 -
+15 MB
+15 MB ≥ ≥
+15 MB of available
+15 MB of free
+15 MB of hard-disk
+15 mb on hd)
+15 MB recommended for
+15 MB" border="0" hspace="10"
+15 MC Hammer -
+15 Me and spoonice.mp3
+15 meg
+15 meg )
+15 MEG EU213
+15 meg eu217
+15 megs of disk
+15 menu. Incidently, I'm
+15 Michael Jackson -
+15 miles
+15 miles from me.
+15 miljoen mensen
+15 Milkshake Mademoiselle.mp3 2,023,340
+15 min on an
+15 mins total the
+15 Mins!
+15 mins.
+15 minute . All
+15 minute drive
+15 MINUTE GRACE PERIOD
+15 minute increments, *.WAV
+15 minute. You may
+15 Minuten auftritt. Bitte
+15 Minuten). Wahrscheinlich gibt
+15 minutes & drain.
+15 minutes and worked
+15 minutes depending on
+15 minutes into the
+15 minutes left for
+15 minutes of a
+15 minutes of glory...
+15 minutes or more
+15 minutes outside of
+15 minutes per week.
+15 minutes to FTP
+15 minutes to modify
+15 minutes would have
+15 minutes,
+15 minutes, gently
+15 minutes, long enough
+15 minutes, or in
+15 minutes, or until
+15 minutes, then invert
+15 minutes, turning occasionally
+15 minutes.
+15 minutes. Cool, peel,
+15 minutes. It is
+15 minutes. It should
+15 minutes. Preheat oven
+15 minutes. Put
+15 minutes. Reduce heat
+15 minutes. Remove the
+15 minutes. Season w/
+15 minutes.)
+15 missions. Rewards
+15 ml Honey, dark
+15 Moby - Honey
+15 months away... So
+15 months). I
+15 months... :(
+15 months: a debut
+15 Move Hole Puzzles
+15 Mox epoque feat.
+15 Mr loverman.mp3 4,366,106
+15 Mr Oizo_Flat Beat.mp3
+15 MrBlobby_BlobbyBlobbyBlob.. 3,441,185 12/01/2001
+15 ms hard disk
+15 ms seek model
+15 msgs/day, I poll
+15 Multiplayer Maps for
+15 Music is moving.mp3
+15 My Lovely Man
+15 My mother's eye
+15 N001683.ZIP v6.0 PRODEV*EPRICE
+15 N001761.ZIP BUILDING &
+15 N002105.ZIP v5.06 PC-ESTIMATOR
+15 N004011.ZIP v1.08s TRENCH
+15 N004732.ZIP v1.0 STEEL
+15 N004940.ZIP v1.9w CONSTRUCTION
+15 N007870.ZIP v1.1 TEP
+15 Natalie Cole-This will
+15 Natalie Imbruglia -
+15 Natural blues.mp3 3,634,155
+15 neat fun software
+15 neat fun Tommy's
+15 never can say
+15 Never Tear Us
+15 new *Info*
+15 New User *Info*
+15 Night & Day_Let
+15 Nightingale. *Info*
+15 Nite Klub THE
+15 No 01. (Last
+15 no 1 *Info*
+15 No 2 *Info*
+15 No 4 *Info*
+15 No dream impossible.mp3
+15 No me dejas
+15 No. 6. *Info*
+15 Not Enough Indians.mp3
+15 Nothing on but
+15 Nov 1972, Boeblingen
+15 Nov 1997
+15 Nov 80 -
+15 Nov 93, Erik
+15 November 1993.
+15 numbers per
+15 O 14 N
+15 Oct 1993 04:32:04
+15 Oct 1993 07:11:35
+15 Oct 1993 07:17:46
+15 Oct 1993 08:03:17
+15 Oct 1993 08:06:32
+15 Oct 1993 08:28:23
+15 Oct 1993 08:46:23
+15 Oct 1993 10:43:44
+15 Oct 1993 11:14:31
+15 Oct 1993 11:28:24
+15 Oct 1993 11:48:18
+15 Oct 1993 11:51:04
+15 Oct 1993 11:54:00
+15 Oct 1993 11:55:35
+15 Oct 1993 12:21:26
+15 Oct 1993 12:25:48
+15 Oct 1993 12:46:27
+15 Oct 1993 13:01:57
+15 Oct 1993 13:16:53
+15 Oct 1993 13:17:44
+15 Oct 1993 13:26:45
+15 Oct 1993 13:30:28
+15 Oct 1993 13:41:29
+15 Oct 1993 14:37:38
+15 Oct 1993 14:43:21
+15 Oct 1993 14:51:37
+15 Oct 1993 15:19:00
+15 Oct 1993 15:48:23
+15 Oct 1993 16:16:06
+15 Oct 1993 16:59:23
+15 Oct 1993 17:05:22
+15 Oct 1993 17:41:29
+15 Oct 1993 20:22:27
+15 Oct 1993 22:02
+15 Oct 1993 23:25:06
+15 Oct 1993 23:37:56
+15 Oct 1993 23:38:14
+15 Oct 88 -
+15 Oct 93
+15 Oct 93 0:00:05
+15 Oct 93 0:01:01
+15 Oct 93 0:09:53
+15 Oct 93 02:48:48
+15 Oct 93 07:28:26
+15 Oct 93 08:37:27
+15 Oct 93 08:56:57
+15 Oct 93 09:29:59
+15 Oct 93 09:46:04
+15 Oct 93 12:46:32
+15 Oct 93 13:14:06
+15 Oct 93 13:14:11
+15 Oct 93 13:15:07
+15 Oct 93 15:44:00
+15 Oct 93 16:50:24
+15 Oct 93 17:24:32
+15 Oct 93 17:32:09
+15 Oct 93 23:25:14
+15 Oct 93 23:59:02
+15 Oct 93 Claire
+15 Oct 93 Nick
+15 Oct 93 Paul
+15 Oct 93, Paul
+15 Oct 96. (Last
+15 of
+15 of 16.
+15 of 17.
+15 of the FCC
+15 of the manual
+15 of the things
+15 Oh pritty moman
+15 on
+15 On a bus
+15 On her Majesty's
+15 on March 25.
+15 on the first
+15 One for you.mp3
+15 One Step Beyond
+15 OPEN a$ +
+15 Operation blade.mp3 3,696,640
+15 or
+15 or ç16 named
+15 or more for
+15 or so Sierra
+15 original
+15 original songs ≥
+15 oz cans</FONT></TD>
+15 P o s
+15 pages L5.70
+15 pages, full
+15 people and produce
+15 percent from 1993
+15 percent more efficient
+15 percent sales tax.
+15 Perry Como_Magic Moments
+15 pin video card
+15 Pipkins - Gimme
+15 Planet Perfecto_Bullet In
+15 Plugin)
+15 pound
+15 pound + postage.
+15 pounds for Star
+15 pounds for the
+15 pounds.
+15 pounds. It
+15 PPEˇRandomizer -
+15 Ppe.
+15 Programming 3.5" HD
+15 Programs That Have
+15 Publishing to PDF
+15 PUZZLE FROM NIKITA
+15 Qattara - The
+15 questions answered from
+15 questions under
+15 quid
+15 quid each including
+15 quid each, 4
+15 quid for 4
+15 quid for the
+15 quid I ever
+15 quid including P+P
+15 quid please...
+15 quid. It broke
+15 quid....
+15 quid?
+15 Quilter.mp3 2,564,179 02/10/2001
+15 Radio edit
+15 randomly chosen letters.
+15 Ray Charles -The
+15 Ray Charles -What'd
+15 Real McCoy -
+15 refresh
+15 refresh 1/2
+15 regions to click
+15 registration
+15 REM by M.C.Schroeder
+15 Respectable Mel and
+15 Rhythm is rhythm.mp3
+15 RICK ASTLEY -
+15 ride wid us.mp3
+15 Right on.mp3 3,840,000
+15 Righteous_Brothers_-_Unch.. 4,377,685 26/01/2001
+15 Rob D -
+15 SAMBASSIM.mp3
+15 Scattered.mp3
+15 seconds
+15 seconds after any
+15 seconds and reboots
+15 seconds for the
+15 seconds long in
+15 seconds of the
+15 seconds, you can
+15 seconds.
+15 secs,
+15 Select the Right
+15 Select the Walk
+15 Sep
+15 Sep 1993:
+15 Sep 93
+15 Sep 93 00:02,
+15 Sep 93 00:36,
+15 Sep 93 07:19:00,Doug
+15 Sep 93 08:25:00
+15 Sep 93 08:38,
+15 Sep 93 10:48,
+15 Sep 93 11:27:10,Phil
+15 Sep 93 13:58:11
+15 Sep 93 15:22:19,Bruce
+15 Sep 93 17:45,
+15 Sep 93 18:07,
+15 Sep 93 18:23:54,James
+15 Sep 93 18:41:00:
+15 Sep 93 18:43:00,Mark
+15 Sep 93 19:50:55
+15 Sep 93 19:52:25,
+15 Sep 93 19:53:53
+15 Sep 93 21:59:30
+15 Sep 93 22:05:00,Dave
+15 Sep 93 22:21:00,Sean
+15 Sep 93 23:36:00
+15 Sep 93 Lee
+15 Sep 93 Maggie
+15 Sep 93 Neil
+15 Sep 93 Peter
+15 Sep 93 the
+15 Sep 93 you
+15 Sep 93,
+15 Sep 93, Ben
+15 Sep 93, David
+15 Sep 93, from
+15 Sep 93, I
+15 Sep 93, Jeff
+15 Sep 93, John
+15 Sep 93, Lee
+15 Sep 93, Martin
+15 Sep 93, Nick
+15 Sep 93, Paul
+15 Sep 93, Peter
+15 Sep 93, Philip
+15 Sep 93, Roger
+15 Sep 93, Stephen
+15 Sep 93, Steve
+15 Sep 93, Tim
+15 Sep 93, Tom
+15 Sep 93:
+15 Sep 93>, Nick
+15 Sept 95. Download
+15 September 1993
+15 September 93 I'm
+15 Setup Docs for
+15 SEVEN SEAS OF
+15 SEVEN WONDERS
+15 Seven Wonders.mp3
+15 SHADOW WARRIOR
+15 Short videos of
+15 significant digits. Mouse
+15 Simply Red -
+15 Skatalites and Margaret
+15 Sleeper-The It Girl\01
+15 slide shows for
+15 Slide v1.0 :
+15 Slide v1.0 WinAll
+15 Smash the mirror.mp3
+15 Smokin Beats_Dr Love.mp3
+15 So little time
+15 So little time.mp3
+15 Solenne in Quest'Ora
+15 Solitaire
+15 SOMEDAY
+15 Someday.mp3 2,370,246 21/04/1999
+15 Song in last
+15 songs by The
+15 Sonic blue.mp3 5,898,240
+15 Soul Sisters -
+15 sound *Info*
+15 Space-Tin Planet\TinPlanet1.BMP
+15 Special forces-1981
+15 Spooky.mp3 3,233,959 01/10/2001
+15 SQUARE jigsaw type
+15 squid?
+15 stack the galli.mp3
+15 STAR.mp3
+15 Steps_After The Love
+15 stone!
+15 STRIKE EAGLE II
+15 Stuck in a
+15 students in year
+15 summer in the
+15 SVGA functions for
+15 sway.mp3
+15 Sweet - Fox
+15 sysop definable
+15 Take A Chance
+15 Tears.mp3 5,730,304 09/07/2001
+15 Techniques - My
+15 TELIX 1 0
+15 TELIX 1 0.0%
+15 TELIX 184 191
+15 TELIX 2 0.1%
+15 TELIX 57 46
+15 TELIX 739 0.3%
+15 TELIX 910 0.2%
+15 Tell Me On
+15 that specifies
+15 that specifies the
+15 The Alphabet Army
+15 The Axe Has
+15 The Bagiou track.mp3
+15 The Boiler RHODA
+15 the crystal lake.mp3
+15 The heart wont
+15 THE HUSH -
+15 The Judds_Love Can
+15 The King Is
+15 The last kiss.mp3
+15 The Memory of
+15 The Osmonds -
+15 The Right Night.mp3
+15 The rightwing.mp3 4,487,168
+15 The Sally Gardens
+15 The Singles Collection
+15 The size of
+15 The Temptations -
+15 THE VERY BEST
+15 thematic palettes get
+15 THEN
+15 THEN DialogBackcolor =
+15 THEN DialogForecolor =
+15 THEN ex =
+15 THEN frmHelpMain.pctBackground.Backcolor =
+15 THEN frmHelpMain.pctBackground.Forecolor =
+15 THEN G$ =
+15 THEN scitchy_scam =
+15 THEN SelectedTopicColor =
+15 THEN SLEEP
+15 There she goes.mp3
+15 TheWinnerTakesItAll.mp3 4,139,154 16/12/1999
+15 Three Lions (Karaoke
+15 thunder - love
+15 Ti voglio tanto
+15 tile sets
+15 tile sets +
+15 times that's of
+15 times that you
+15 tina turner -
+15 Titanic Days -
+15 TiÎsto Feat. Sidewinder
+15 TO 15 +
+15 to 17.5% was
+15 TO 2 STEP
+15 to 20 minutes,
+15 to 20 minutes.
+15 to 20 years
+15 to 20,000 Hertz).
+15 to 6 months,
+15 to the IDE
+15 Tommy McCook and
+15 Touch me.mp3 4,141,056
+15 tracks in playlist,
+15 Trial Executions
+15 triangles.
+15 True Type fonts
+15 Tu, Tu amore?
+15 types of
+15 U turn.mp3 3,827,712
+15 U2 - Desire.MP3
+15 UK POUNDS FOR
+15 ukp
+15 UKP (US$ 25).
+15 ukp ***
+15 ukp AMIGA Rom
+15 ULTIMATE ARCADE EMULATOR
+15 user *Info*
+15 User bulletin
+15 User Logoff Option.
+15 v1.1 Supports Many
+15 v1.2 On-Line Door
+15 v1.6 On-Line Door
+15 v1.7 On-Line Door
+15 Van Dury -
+15 Vinilla Ice -
+15 VOGUE
+15 Wake Up Little
+15 Waterloo Sunset.mp3
+15 way serial port
+15 We Want You.mp3
+15 weeks
+15 When I fall
+15 WHY DO LOVERS
+15 Window Shopping (Instrumental)
+15 Wings of Glory
+15 Wonderful Tonight.mp3
+15 Working my way
+15 World Wide Mob
+15 Worms
+15 x 11 in
+15 X 15 Puzzle
+15 X rar files
+15 year
+15 year old guy
+15 years
+15 years !!!
+15 years ago, so
+15 years and Marc's
+15 years holiday care
+15 years of simultaneous
+15 years old and
+15 years older than
+15 years they are
+15 years, the
+15 years.
+15 Yester me yester
+15 You're So Good
+15 You are that
+15 You make no
+15 You re the
+15 you ve got
+15 yr old.
+15 yrs or
+15 yrs or more

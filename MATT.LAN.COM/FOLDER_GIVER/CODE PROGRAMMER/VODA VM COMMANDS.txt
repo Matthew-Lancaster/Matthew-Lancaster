@@ -1,0 +1,17 @@
+IN message ---
+Press # Skip forward.
+Press 1 Rewind.
+Press 2 Pause/start.
+Press 3 Fast forward
+Press 4 Replay.
+Press 5 Ttime and date.
+Press 7 Delete a message.
+Press 9 Save a message.
+Press star (*) to return to main menu 
+
+Out message ---
+Press 2 REPEAT
+Press 3 DEL
+Press 5 CALLBACK
+Press 7 SAVE
+

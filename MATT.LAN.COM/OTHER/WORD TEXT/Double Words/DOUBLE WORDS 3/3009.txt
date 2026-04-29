@@ -1,0 +1,34 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+009 20,786 24/04/98 2:11
+009 30,020 26/06/93 14:34
+009 38,532 24/04/98 2:11
+009 Aneka - Japanese
+009 Beenie Man No
+009 Born A Girl
+009 CYBORG09.SMC 08Mb PLAT
+009 Free Xone
+009 Freestate
+009 Impressed
+009 Life Goes On
+009 One Kiss At
+009 Only When I
+009 PCX 227,828 16/09/94
+009 Policy Of Truth
+009 Polo Mint City
+009 Shooting Up In
+009 Ur
+009 Window Shopping For

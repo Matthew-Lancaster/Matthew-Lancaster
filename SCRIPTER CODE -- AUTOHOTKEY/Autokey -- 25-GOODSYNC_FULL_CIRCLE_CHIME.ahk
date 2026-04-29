@@ -58,16 +58,15 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ;---------------------------------------------------------
 ; CODE INITIALIZE SOUND EFFECT LEARN
 ;---------------------------------------------------------
-SoundBeep , 1500 , 400
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 ;SoundBeep , 2500 , 400
 
-SoundBeep , 3500 , 400
+; SoundBeep , 3500 , 400
 ;SoundBeep , 4500 , 400
 
-Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\Autokey -- 25-GOODSYNC_FULL_CIRCLE_CHIME\BBC Micro.wav
-SLEEP, 1000
-Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\Autokey -- 25-GOODSYNC_FULL_CIRCLE_CHIME\BBC Micro.wav
-SLEEP, 1000
+; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\Autokey -- 25-GOODSYNC_FULL_CIRCLE_CHIME\BBC Micro.wav
+; SLEEP, 1000
+
 
 Exitapp
 

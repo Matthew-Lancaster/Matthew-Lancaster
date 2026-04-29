@@ -1,0 +1,687 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+18 ' ---- CLICK
+18 ' Note 8
+18 ' Number of
+18 '93 you wrote
+18 'User interrupt occurred
+18 -- Apollo 440
+18 - A Tribe
+18 - Aladdin's Dream
+18 - Albert Ammons
+18 - B.B. King
+18 - Before The
+18 - Billie Holiday
+18 - bobby darin
+18 - bobby vee
+18 - Charlie Parker
+18 - Ciaran O'Keane
+18 - Could I
+18 - Daniel O'Donnell
+18 - Danny &
+18 - David Watts.mp3
+18 - Fleetwoods -
+18 - frankie vaughan
+18 - Freddy My
+18 - Frederick Knight
+18 - Galliard Brass
+18 - Get over
+18 - Gone Fishin'.mp3
+18 - Happy birthday
+18 - Hit That
+18 - I Don't
+18 - I lost
+18 - I Swear
+18 - I Will
+18 - It Doesn't
+18 - Jackie Wilson
+18 - Jimmy Witherspoon
+18 - Julian Cope
+18 - Kenney Chesney
+18 - KOREA (C)
+18 - Korea /
+18 - Korea 054MB
+18 - Leadbelly -
+18 - Lost In
+18 - Louis Armstrong
+18 - Mariachi Suite
+18 - marts 2001
+18 - Mary Jane's
+18 - My Only
+18 - Nanci Griffiths
+18 - Networking and
+18 - Now You
+18 - PC implementation
+18 - Pennsylvania 6-5000.mp3
+18 - Peter Green
+18 - Pinhead
+18 - Red Velvet.mp3
+18 - Salt Tank
+18 - Sarah Vaughan
+18 - Sinead Lohan
+18 - Sittin'on my
+18 - Something Big
+18 - Stormy monday
+18 - Thank You
+18 - The Black
+18 - The Sidewinder
+18 - This *Info*
+18 - this will
+18 - Tonight Is
+18 - Top Hat
+18 - Two Sisters.mp3
+18 - Unknown.mp3
+18 - Watching the
+18 - When Doves
+18 - When I
+18 - Whisky In
+18 - Why Did
+18 - You just
+18 -> copy D:\WINDOWS\hpinit.bat
+18 ( )
+18 ( 3.13%) PEP
+18 ( 3.24%) Hold
+18 ( 3.40%)
+18 ( 3.40%) Hold
+18 (05/12/95). *Info*
+18 (11) WWF THE
+18 (C) Electronic Arts
+18 (I'm 21 now).
+18 (This is is
+18 *7,000,000 Jaguar
+18 *Info*
+18 , 1 ,
+18 ~ Blockster -
+18 + accross the
+18 <g>.
+18 = osc 1
+18 0 0 1
+18 0 8 7
+18 0 9 21
+18 0.0%
+18 0.1%
+18 0.3%
+18 0.4%
+18 0.5%
+18 0.6%
+18 0;19
+18 00 04 00
+18 00 1d 10
+18 00 34 10
+18 01 70 93
+18 02/09/02 22:39 _IsBBrds.ini
+18 03/02/02 17:15 MONOPOLY.BAT
+18 04/02/01 23:56 Lotus
+18 08
+18 09:39 OAK.Oakland.Edu:/pub/msdos/zip/pkz204g.zip"
+18 1.4%
+18 1/2 AMI004 #3575
+18 10 31 65
+18 105/30 209/209 270/101
+18 105/30 209/209 396/1
+18 10cc - Rubber
+18 11 0 74
+18 11 11 6
+18 11 5 46
+18 11:06 garbo.uwasa.fi:/pc/arcers/unz50p1.exe"
+18 11845
+18 14 13 8
+18 15 17 13
+18 16 17 15
+18 17/05/89 4:20 CONFIG.BAT
+18 19 88 0.0%
+18 19.txt
+18 19:00:27 2001
+18 1993 01:55, Geoff
+18 1993 02:00, Geoff
+18 1993 06:57, Sam
+18 1993 08:47, Alan
+18 1993 08:48, Louis
+18 1993 12:09, Richard
+18 1993 14:00, Nick
+18 1993 15:02, Nik
+18 1993 19:50, gerard
+18 1993 21:51, Peter
+18 1993 22:04, Thomas
+18 1993 22:06, Mikael
+18 1993 to Jonathan
+18 1993, Chris Tye
+18 1993, Graham Marsden
+18 1993, Paul Boakes
+18 1993, Peter Thompson
+18 1993, Raj Rijhwani
+18 1993, Richard Gallagher
+18 1993, Ron Dwight
+18 1993, Souki Alcot
+18 1993, Steven Hirschorn
+18 2 0 0
+18 2 48 0.2%
+18 2 P -
+18 2/2 AMI004 #3576
+18 20 22
+18 20/12/00 20:45 Star
+18 21 seconds.mp3 3,275,232
+18 21/10/01 17:58 V_The
+18 22 09
+18 22 3 140
+18 22/10/01 0:20 HINTDATA.OPT
+18 23 7 17
+18 23/04/99 22:22 mstsc1.id
+18 24 0 32
+18 27 0.0%
+18 27 16 29
+18 30 125 0.5%
+18 30 24 16
+18 34 0.0%
+18 36 28 57
+18 38 22 16
+18 39 7 0
+18 40 0.0%
+18 5 0 32
+18 5 396/1 270/101
+18 51 45 50
+18 52 70 0.0%
+18 525KB
+18 53 44 |
+18 55 55 75
+18 59 45 |
+18 6 0 4
+18 6 3 8
+18 640 x 148
+18 65 0.2%
+18 74 0.3%
+18 76 240/100 12/12
+18 76 Trombones The
+18 79 0.3%
+18 9 11 40
+18 9 12 0
+18 9 45 0.0%
+18 A Tribe Called
+18 Adventure in Fairyland,
+18 aircraft mechanics and
+18 Albums 22/7/00 (2cd)
+18 all about soul.mp3
+18 AM I RIGHT
+18 Americans have used
+18 and 19). It
+18 and all things
+18 and has a
+18 and have an
+18 and i'm sorta
+18 And Live
+18 and that the
+18 ans. Je dois
+18 Apr 2002 00:04:17
+18 Apr 2002 09:37:32
+18 Apr 2002 09:39:55
+18 Apr 81 -
+18 are minors. And
+18 at the time
+18 ATOMIC BOMBERMAN FULL
+18 Aug 84 -
+18 Aug 93 00:44:26,
+18 Aug 93 00:49:26,
+18 Aug 93 17:15:51,
+18 Aug 93 19:27,
+18 Aug 93 19:30]
+18 Aug 93 19:59:13,
+18 Aug 93 20:22:44,
+18 Aug 93 21:27:46
+18 Aug 93 Jeykishon
+18 Aug 93 Stephen
+18 Aug 93 you
+18 Aug 93, GEcho/386
+18 Aug 93, you
+18 Aug 93,you blethered
+18 Aug 95 with
+18 Aug95 with PEARL
+18 August 93 Andrew
+18 band aid ii
+18 beautifully detailed map
+18 beautifully sequenced *Info*
+18 before December hehehe.
+18 before then, but
+18 Belinda Carlisle\A Place
+18 Ben E King
+18 Beta. B.J.
+18 Blur - Black
+18 Boyzone-Words.mp3 3,908,036 12/01/2001
+18 Bran Van 3000
+18 BROWN EYED HANDSOME
+18 bulldozer.mp3
+18 but I'd still
+18 By your side.mp3
+18 cannot buy cigarettes,
+18 CD's 704/567-9513 (1:379/1)
+18 Charlie's angel.mp3 3,606,528
+18 chicken wings, cut
+18 Chicory Tip -
+18 Chittara romana .mp3
+18 Click the Element
+18 Clive and Naomi
+18 COMMS 11 0.2%
+18 COMMS 12 0.3%
+18 COMMS 13 0.5%
+18 COMMS 13 23
+18 COMMS 14 0.2%
+18 COMMS 15 0.5%
+18 COMMS 2 9
+18 COMMS 359 0.1%
+18 COMMS 377 0.1%
+18 COMMS 4 0.1%
+18 COMMS 7 0.2%
+18 COMMS 73 89
+18 COMMS 9 0.2%
+18 CorelDRAW: Chapter 1
+18 COURSE DISK 1/3
+18 COURSE DISK 2/3
+18 COURSE DISK 3/3
+18 Cry.mp3 3,994,644 01/10/2001
+18 culture club -
+18 David Watts.mp3
+18 Days go by.mp3
+18 DC600A tapes, some
+18 Dec 82 -
+18 Dec. 1840, to
+18 DEFENDER (WILLIAMSONS)
+18 defense
+18 Delroy Washington -
+18 Desire to fire.mp3
+18 Devoted To You.mp3
+18 did i dream(song
+18 different
+18 DJ Sakin &
+18 Does he love
+18 Don't Cry For
+18 Don't mess with
+18 Don't want you
+18 Doolally_Straight From The
+18 drawing tools and
+18 Earth Wind &
+18 Easter Island RICO
+18 echo been set
+18 Edison Lighthouse -
+18 europe - the
+18 event "open" sounds
+18 Everytime you need
+18 f8 db |
+18 Faith Hill_This Kiss.mp3
+18 Farewell my summer
+18 February 1997
+18 file(s)
+18 file(s) 1,165,824 bytes
+18 file(s) 1,306,168 bytes
+18 file(s) 1,455,316 bytes
+18 file(s) 1,514,814 bytes
+18 file(s) 1,775,763 bytes
+18 file(s) 17,092 bytes
+18 file(s) 17,147 bytes
+18 file(s) 2,754,077 bytes
+18 file(s) 2,987 bytes
+18 file(s) 228,937 bytes
+18 file(s) 3,624,960 bytes
+18 file(s) 345,780 bytes
+18 file(s) 368,707 bytes
+18 file(s) 564,709 bytes
+18 file(s) 6,675 bytes
+18 file(s) 61,362 bytes
+18 file(s) 63,639,810 bytes
+18 file(s) found
+18 files - New:
+18 Fools gold.mp3 7,320,032
+18 formats
+18 Fortunes-Storm in a
+18 freak out.mp3 2,289,371
+18 Freddie McKay -
+18 FREDDY MY LOVE..CINDY
+18 Friday Night Saturday
+18 FTP
+18 galaxica,red eyes.mp3
+18 GAMES
+18 George McCrae-It's been
+18 get out of
+18 Go.mp3 4,435,968 09/07/2001
+18 GOLF 1-2
+18 Good Vibrations Beach
+18 got my msg
+18 graphic file
+18 Gravel pit
+18 Groove Armada ft
+18 H003961.ZIP v2.00 WINGRAB
+18 H004595.ZIP v2.1g FINANCIAL
+18 H004738.ZIP v3.2 SMART
+18 H005024.ZIP v1.55C LABEL
+18 H006669.ZIP v5.1 WINVELOPE
+18 H006901.ZIP v1.11 ANYLABEL
+18 H007627.ZIP v2.4 LABEL
+18 H007781.ZIP v2.50 LABELS,
+18 H007904A.ZIP v2.0 WINLABEL
+18 H007904B.ZIP v2.0 WINLABEL
+18 H008313.ZIP v2.8r WHAT
+18 H008578.ZIP v3.5 SMART
+18 H008923.ZIP v2.1h VISUAL
+18 H008924.ZIP v2.1g VISUAL
+18 H008934.ZIP v4.3 ADDRESS
+18 H008985.ZIP v2.1 EASY
+18 H009574.ZIP v2.2m SUPERMAIL
+18 H009575.ZIP v2.2h SUPERMAIL
+18 H009764.ZIP v3.40 PSA
+18 H009765.ZIP v3.40 PSA
+18 Happy Xmas (War
+18 Heptones - Book
+18 Hermans Hermits-My sentimental
+18 holes of golf
+18 Hooded Circle
+18 hours a day
+18 hours a day.
+18 How heavy a
+18 I'm free.mp3 3,175,444
+18 I'm like a
+18 I am the
+18 I belive in
+18 I Got You
+18 I Take A
+18 I wanna stay
+18 I would guess.
+18 in
+18 IN ALL
+18 in order to
+18 IN OVER MY
+18 In The Mood.mp3
+18 Is DOOM
+18 Is DOOM still
+18 is often used
+18 James Bond -
+18 Jan 1994 23:23,
+18 Jan 93, Ivan
+18 Jeff Foxworthy Dont
+18 Jul 93 20:05:28,
+18 julio iglesias -
+18 Jun 88 -
+18 Jun 93 01:46:46,
+18 Jun 93 17:37,
+18 Jun 93 18:08,
+18 Jun 93 you
+18 June 1993:
+18 Kelly Marie_Feels Like
+18 Kevin Bloody Wilson
+18 Kim Wilde-The Singles
+18 Kinky Roland_Born Funky
+18 kiss.mp3
+18 La Cage Aux
+18 LA FEMME ACCIDENT(12INCH
+18 languages via
+18 layouts
+18 Leftfield - Release
+18 levels of *Info*
+18 LOVING ARMS
+18 Made for lovin
+18 Make me smile
+18 Mandota.mp3 4,128,914 01/10/2001
+18 Mary Black_Wonder Child.mp3
+18 matches per level.
+18 MB
+18 MB including lab
+18 mb on hd)
+18 meg
+18 meg )
+18 MEG DEMO [1/8]
+18 MEG DEMO [2/8]
+18 MEG DEMO [3/8]
+18 MEG DEMO [4/8]
+18 MEG DEMO [5/8]
+18 MEG DEMO [6/8]
+18 MEG DEMO [7/8]
+18 MEG DEMO [8/8]
+18 MEG EU213
+18 megs last time
+18 Mei 1993 22:06,
+18 Melanie-What have they
+18 miami 2017.mp3
+18 Micheal Jackson -
+18 Mille cherubini .mp3
+18 mins of footage
+18 minutes.. really good
+18 month
+18 months ago and
+18 months ago, and
+18 months ago. IMO,
+18 months I returned
+18 months old is------
+18 months, although this
+18 months, I didnt
+18 months. This had
+18 months. This trend,
+18 More Than I
+18 morning has broken.mp3
+18 MS Windows ≥∞∞
+18 mths old and
+18 Muddy Waters -
+18 Muse - Muscle
+18 N000533.ZIP v3.02 PRINTENVELOPE
+18 N002115.ZIP v4.1 NAMES
+18 N002192.ZIP v3.02 LABEL
+18 N002243.ZIP v6.06 DOCTOR
+18 N002564A.ZIP v6.5 GRAB
+18 N002564B.ZIP v6.5 GRAB
+18 N002727.ZIP v4.11 POSTCARDMASTER
+18 N002780.ZIP v2.30 COURIER
+18 N002895.ZIP v3.0 MAIL
+18 N002899.ZIP v3.0s LABEL
+18 N003117.ZIP v5.1C LABEL
+18 N003138.ZIP v2.00 MAIL-PRO
+18 N003213.ZIP v1.0 LABEL
+18 N003298A.ZIP v4.19 CATALIST
+18 N003298B.ZIP v4.19 CATALIST
+18 N003325.ZIP v5.0 MR.
+18 N003562.ZIP v4.0 MAIL
+18 N003818.ZIP v1.14 FX-LABEL
+18 N004224.ZIP v2.62 M-PLUS
+18 N006591.ZIP v2.80 CARDS+MORE
+18 N006626.ZIP v1.02 LABELGO
+18 N007036.ZIP v4.0 MULTILABEL
+18 N007626.ZIP v2.4a LABEL
+18 N008286.ZIP v1.2 SMART
+18 Never goodbye
+18 new
+18 New Pure Moods
+18 No matter what
+18 nobody likes me(freak
+18 Nodes + 5
+18 Nov 1967. Sound
+18 Oct - Who
+18 Oct
+18 Oct 1993 09:03:47
+18 Oct 1993 10:48:31
+18 Oct 86 -
+18 Oct 93 13:32:24
+18 Oct 93 22:04:03
+18 Oct 93, Adam
+18 Oct 93, Guy
+18 Oct 93, Ian
+18 Oct 93, Keith
+18 of the most
+18 Oldest: 10/21/92 Newest:
+18 on
+18 Once around the
+18 or something?
+18 or younger, must
+18 Oracle7 - Advanced
+18 other autoexecs and
+18 other configs and
+18 OUT VERY SOON.....
+18 oz boxes</FONT></TD>
+18 pages and AC
+18 Paragons - Island
+18 paul johnson,everybody must
+18 Peggy Lee_Fever
+18 people.
+18 percent of kids
+18 Perfect Day -
+18 pieces.
+18 pixels by 18
+18 Plus' "Adventure Plus"
+18 Plus - 18-29s
+18 Plus - Open
+18 Plus - Promotional
+18 Plus (Bedford/Bucks/Hertford) Richard
+18 Plus (Devon/Somerset) -
+18 Plus (Gloucester/Avon) -
+18 Plus (Leicester/Northampton/Cambridge) -
+18 Plus (South Essex)
+18 Plus (West Midlands)
+18 Plus (Yorkshire/Humberside) -
+18 Plus 18-29s News
+18 Plus are on
+18 Plus does not
+18 Plus echo Please
+18 Plus echoes and
+18 Plus Group in
+18 Plus Groups is
+18 Plus has to
+18 Plus Literature -
+18 Plus National Executive
+18 Plus National Volleyball
+18 Plus Open to
+18 Plus, Bromley
+18 Plus, Eltham
+18 Plus, Gillingham
+18 PLUS. The Only
+18 points and I
+18 points at 300
+18 points, bold, italic
+18 Pop.mp3 3,526,008 08/10/2001
+18 pounds
+18 pounds cheaper..!
+18 Pretty Paper.mp3 2,257,815
+18 Prince Far I
+18 Programs per Category
+18 PUD files for
+18 QUID
+18 R 17 Q
+18 Ray Dream Studio
+18 RAY OF LIGHT
+18 Reflective Recordings
+18 Rendezvous.mp3 4,602,775 01/10/2001
+18 Robin Beck_First Time.mp3
+18 ROUTINE 17 EVERGREEN
+18 Rude Boys Outa
+18 Runnin'.mp3 5,130,240 09/07/2001
+18 Russell Watson -
+18 Sandstorm .mp3 6,365,184
+18 Scanty Sandwich_Because Of
+18 Seahorses_You Can Talk
+18 second delay between
+18 seconds
+18 seconds on such
+18 Sep 1993, 8:25
+18 Sep 93
+18 Sep 93 09:59,
+18 Sep 93 12:40:40
+18 Sep 93 23:46:00
+18 Sep 93,
+18 Sep 93, George
+18 Sep 93, Henry
+18 Sep 93, Salim
+18 Sep 93, Stewart
+18 Sep 94 with
+18 Sep 96) -
+18 sept *Info*
+18 Sexy boy.mp3 4,560,979
+18 Shared Access support
+18 Shine Aswad
+18 significant digits. +/-3.4E-4932
+18 significant digits. Mouse
+18 Sinful.mp3 4,667,392 16/07/2001
+18 Sister sister.mp3 3,399,680
+18 Sly And Robbie
+18 soft
+18 soft fonts
+18 soft fonts for
+18 something new.mp3
+18 Song in last
+18 Souls Of Mischief_'93
+18 spiritual love.mp3 4,694,204
+18 standard MIDI sequences
+18 Stranger Cole -
+18 SURRENDER - The
+18 Sweet harmony.mp3 4,278,857
+18 T'Pau_Chine In Your
+18 Techniques - Oh
+18 Tell it to
+18 tests whether the
+18 text clips
+18 text clips sent
+18 Text Files. Includes
+18 The bouncer.mp3 3,186,416
+18 The boys are
+18 The Detroit Spinners
+18 THE HERO.mp3
+18 The Move -
+18 The Nolans -
+18 The Sweeney.mp3 3,133,440
+18 The trumpet volunteer
+18 The trumpet volunteer.mp3
+18 The vision.mp3 4,009,984
+18 The Wizard Of
+18 Thinking up looking
+18 Thousand.mp3 2,639,872 09/07/2001
+18 to 24 hours.
+18 to 92
+18 to be lurking
+18 Tom Jones -
+18 TONIGHT IS RIGHT
+18 too!
+18 Town called malice.mp3
+18 TRACKS
+18 £35
+18 UKpounds (plus 6
+18 UKpounds a year
+18 Use the selection
+18 utilities
+18 V1.0F Patch Cracked
+18 Various Rock Tracks
+18 Various Tracks
+18 Vesta Tilley-What a
+18 Vesta Tilley
+18 Wamdue Project -
+18 wav files for
+18 We Dream -
+18 We will survive.mp3
+18 week NFL
+18 wheeler cross country
+18 Wheeler Pro Trucker
+18 wheelers to speed
+18 whitney -saving all
+18 WICKED18.SMC 08Mb GOLF
+18 will be admitted.
+18 with a Bullet
+18 with parental permission
+18 Wouldn't It Be
+18 x D4164 -
+18 XCARS: EXPERIMENTAL CARS
+18 years of age
+18 years of my
+18 years old and
+18 years old german
+18 years old or
+18 years old was
+18 years, computer softwareç
+18 years.
+18 years. I enjoy
+18 years. We currently
+18 years.... :-) Having
+18 Yes sir I

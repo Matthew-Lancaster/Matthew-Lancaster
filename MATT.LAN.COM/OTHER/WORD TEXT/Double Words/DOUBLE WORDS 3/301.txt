@@ -1,0 +1,801 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+01 '96 125 bpm
+01 -- Lou Bega
+01 - ...And Justice
+01 - 1492 Conquest
+01 - 1969
+01 - 20th Century
+01 - 32 Minutes
+01 - A String
+01 - Adagio From
+01 - Air -
+01 - Albert Ammons
+01 - Albert King
+01 - American Boy
+01 - American girl
+01 - and now
+01 - Another Brick
+01 - Another day
+01 - Arc Arsenal
+01 - Aretha Franklin
+01 - B.B. King
+01 - Ballad of
+01 - Bawitdaba
+01 - Beautiful Stranger
+01 - BELIEVE.
+01 - Big Syke
+01 - Bill Haley
+01 - Bill Medley
+01 - Birth-day (Love
+01 - Bob Brookmeyer
+01 - Bob Crosby
+01 - Bob Dylan
+01 - bobby darin
+01 - Both sides
+01 - Breakdown
+01 - Bud Powell
+01 - Byther Smith
+01 - calling elvis.mp3
+01 - Cancion Del
+01 - Carousel
+01 - Casa Dega
+01 - Christy Keaney
+01 - Chuck Berry
+01 - Clannad -
+01 - Cracking
+01 - Crouching tiger,
+01 - Dance into
+01 - Dancing Queen
+01 - Dancing Queen.MP3
+01 - Dave Cavanaugh
+01 - Debut
+01 - Delta Mk
+01 - dinah shore
+01 - Dizzy Gillespie
+01 - Do it
+01 - Doly Parton
+01 - Dominion -
+01 - Duke Ellington
+01 - DYNASTY OF
+01 - Earl Hines
+01 - Earth Orbit
+01 - Electricity
+01 - Enter Sandman.mp3
+01 - Eternal(Sunrise reMix).mp3
+01 - Ev'ry Time
+01 - Ever fallen
+01 - Far far
+01 - Fight Fire
+01 - Flame turns
+01 - Flashdance...What A
+01 - Forgiven Not
+01 - Free Fallin'
+01 - From Rush
+01 - Fuel.mp3
+01 - Going Out
+01 - Golden ratio.mp3
+01 - Gonna MAke
+01 - Got My
+01 - Gwen Guthrie
+01 - Hang in
+01 - Harleys &
+01 - Head Like
+01 - HeavenIsAPlaceOnEarth.mp3
+01 - Hello Dolly.mp3
+01 - Hello Young
+01 - Heroes -
+01 - Hit The
+01 - Holy Wars...The
+01 - Hot shot.mp3
+01 - Howlin' Wolf
+01 - hundred Mile
+01 - I've Got
+01 - I don't
+01 - I Need
+01 - If I
+01 - In the
+01 - Introitus
+01 - Isaac Scott
+01 - Jerry Lee
+01 - John Lee
+01 - Johnny Griffin
+01 - Joyride
+01 - June Afternoon
+01 - june christy
+01 - Kate Bush
+01 - Kenny Loggins
+01 - King Biscuit
+01 - Knowing Me,
+01 - La Bamba.mp3
+01 - Let's Talk
+01 - Lightnin' Slim
+01 - Lionel Hampton
+01 - Little Fluffy
+01 - Love Will
+01 - Luka
+01 - Madly In
+01 - Main Title,
+01 - MARIAH CAREY
+01 - Mary Lou
+01 - Micky Doherty
+01 - Miles
+01 - Moon Baby.mp3
+01 - Mountain Town
+01 - Mountain Town.mp3
+01 - Mr Self
+01 - Nat King
+01 - Natural blues.mp3
+01 - Now 44
+01 - Now Dance
+01 - On The
+01 - Once more.mp3
+01 - Oops I
+01 - Over the
+01 - Pavane -
+01 - People Need
+01 - Perpetual Dawn.mp3
+01 - Pete Townshend
+01 - Pink Floyd
+01 - Planet Telex
+01 - Power Of
+01 - Public Image
+01 - Put On
+01 - Refugee
+01 - Resonace.mp3
+01 - Ritchie Valens
+01 - Robin Williams
+01 - Rock in
+01 - Rockaway Beach
+01 - Ronny Jordan
+01 - Save Tonight.mp3
+01 - Saving All
+01 - Scream
+01 - See My
+01 - Shania Twain
+01 - She Caught
+01 - Show Biz
+01 - Silent Night
+01 - Slave To
+01 - Sleigh Ride
+01 - Some Enchanted
+01 - Something happended
+01 - Sonny Terry
+01 - South Park
+01 - Southside
+01 - Star Wars
+01 - Starry Eyed
+01 - Stayin' Alive
+01 - Steve Morse
+01 - Stevie Ray
+01 - sultans of
+01 - Sweet soul
+01 - Synth &
+01 - T-Bone Walker
+01 - Teddy Wilson
+01 - Tema dei
+01 - The Itch.mp3
+01 - The Key.MP3
+01 - The Look
+01 - The Memory
+01 - The monkees
+01 - The Teardrop
+01 - The Winner
+01 - The X
+01 - Thin Lizzy
+01 - Tired Of
+01 - Tom's Diner
+01 - Tom Johnston
+01 - Torn.mp3
+01 - Town called
+01 - Trash.mp3
+01 - Turn it
+01 - Turn the
+01 - U.P. Wilson
+01 - Unknown.mp3
+01 - Victoria.mp3
+01 - Video Killer
+01 - Vulnerable
+01 - Walk On
+01 - Walking away.mp3
+01 - Welcome To
+01 - WHATS YOUR
+01 - When love
+01 - When The
+01 - When Will
+01 - Where the
+01 - William Bell
+01 - Willie Dixon
+01 - Wilson, Aorta
+01 - You Got
+01 - You Really
+01 - Young Guns
+01 (1) NO ANGEL
+01 (Top)
+01 *Info*
+01 / 04 ]
+01 [First Flight]
+01 [Kylie Minogue &
+01 ]==>
+01 ~ Another Level
+01 ~ Ricky Martin
+01 ~ Smashing Pumpkins
+01 <DIR> 13/03/03 2:02
+01 <DIR> 26/11/01 22:38
+01 00
+01 00 00 00
+01 00 00 04
+01 00 00 09
+01 00 00 0c
+01 00 00 0f
+01 00 00 14
+01 00 00 19
+01 00 00 1f
+01 00 00 22
+01 00 00 27
+01 00 00 2c
+01 00 00 2f
+01 00 00 34
+01 00 00 38
+01 00 00 3c
+01 00 00 40
+01 00 00 44
+01 00 00 48
+01 00 07 0d
+01 00 0a 03
+01 00 0a 12
+01 00 10 00
+01 00 16 02
+01 00 17 02
+01 00 28 02
+01 00 4d 3b
+01 00:04:16 1998' >=
+01 00:04:16 1998'.
+01 00:09:20 1998' >=
+01 00:09:20 1998'.
+01 007.mp3 3,489,792 16/07/2001
+01 01 01 00
+01 02 00 0a
+01 02 00 14
+01 02 00 17
+01 02 00 22
+01 03 00 14
+01 03 00 16
+01 03 06 00
+01 04 | .!.
+01 04 | .!...,..
+01 04 | .!.{.,..
+01 04 | .!.G.,..
+01 04 | .!.J.,..
+01 04 | .!.o.,..
+01 04 | .!.T.,..
+01 04 00 16
+01 04 00 1d
+01 05 00 1d
+01 06 00 2c
+01 07 00 1d
+01 07 00 2c
+01 07 02 08
+01 08 00 1d
+01 09:10>, William Mitchell
+01 100 SLOT MACHINES
+01 11
+01 18 00 1d
+01 18 59 45
+01 18 TRACKS
+01 19 00 2c
+01 19 2000.mp3 4,179,968
+01 1993
+01 1993 04:22, Richard
+01 1993 09:56, Louis
+01 1993 10:32, Cy
+01 1993 11:37, Lou
+01 1993 20:03, Guenther
+01 1993 22:57, Dan
+01 1993 you wrote:
+01 1993, 15:36, Ian
+01 1993, Bill Wynne
+01 1993, Robin Wyles
+01 1993, Souki Alcot
+01 1994. *Info*
+01 1996.
+01 1a 00 1d
+01 1b 00 1d
+01 21:50:20 2001
+01 21:51:11 2001
+01 21:52:47 2001
+01 22:00:13 2001
+01 22:29:07 2001
+01 22:31:33 2001
+01 23 TRACKS
+01 26 00 1d
+01 27 00 1d
+01 28 00 1d
+01 2d 00 1d
+01 30 TRACKS
+01 311-72-27
+01 42 57 CD
+01 44
+01 44 (Document 303030
+01 44 4b |
+01 44 4b 33
+01 45 | 7....z.E
+01 47 00 2c
+01 48 00 1d
+01 4a 00 1d
+01 4a 00 2c
+01 4b 00 1d
+01 54 00 2c
+01 55 00 1d
+01 64-46-06-60
+01 65 00 1d
+01 69 00 1d
+01 6f 00 2c
+01 70 00 1d
+01 70 93 f4
+01 7b 00 2c
+01 7c 00 1d
+01 82 06 00
+01 89 00 2c
+01 8a 00 1d
+01 8A EF AD
+01 8f 00 2c
+01 90
+01 90 00 1d
+01 99 f4 88
+01 9b 00 2c
+01 9c 00 1d
+01 a DOOM exam!!
+01 A Kind Of
+01 A Message To
+01 A Trick of
+01 AD 86 C4
+01 aeternum,sunstorm.mp3
+01 af 00 1d
+01 Afrika Bambaataa &
+01 Ai giochi addio.mp3
+01 Alice.MP3 3,344,637 07/06/1999
+01 Alive 1997.mp3 54,672,195
+01 All I need.mp3
+01 all my life.mp3
+01 All Saints -
+01 Alone.mp3 6,262,784 09/07/2001
+01 Alton Ellis -
+01 Alton Ellis and
+01 An Evening In
+01 And ever I'll
+01 Ann Lee_2 Times.mp3
+01 Another chance.mp3 4,157,648
+01 Any old iron
+01 Any old iron.mp3
+01 Anything You Want
+01 APR 96) -
+01 April 02 Abbie
+01 Aretha Franklin -Respect
+01 Arron Neville -
+01 ASHES 97
+01 Aug 81 -
+01 Aug 87 -
+01 Aug 93 19:03,
+01 Aug 93 19:48:00
+01 Aug 93 in
+01 Aug 93, Alastair
+01 Aug 93, Damien
+01 Aug 93, Nick
+01 Aug 93, Peter
+01 Aug 95) -
+01 Ayers rock.mp3 7,190,465
+01 b0 00 2c
+01 b1 00 1d
+01 B2 04 AC
+01 b6 00 2c
+01 b7 00 1d
+01 B9 40 00
+01 ba 00 2c
+01 Ballad of a
+01 Bar wars.mp3 3,789,844
+01 Barry White -
+01 bb 00 1d
+01 BE 85 01
+01 Be My Lover
+01 Beach Boys-I can
+01 Behind the lines
+01 Believe.mp3
+01 belinda carlisle -
+01 Better off dead.mp3
+01 Big Beng.mp3
+01 Big Syke Interlude.mp3
+01 Bird Dog.mp3 2,189,270
+01 black shaolin.mp3
+01 Black Uhuru -
+01 Blackened.mp3
+01 Blackwire.mp3 2,208,914 08/10/2001
+01 Blue Eyes Blue.mp3
+01 Bob Marley -
+01 Bob Marley vs
+01 BOHEMIAN RHAPSODY.mp3
+01 Bootylicious.mp3 4,166,530 01/10/2001
+01 Boston-More than a
+01 Boyzone_I Love The
+01 Bra.mp3 6,100,114 01/10/2001
+01 Brand new start.mp3
+01 BRIGHTON ROCK.mp3
+01 Bring Your Daughter...
+01 Britney Spears -
+01 bucks fizz -
+01 Burn.mp3 7,995,559 03/10/2001
+01 BY REQUEST -
+01 Byron Lee And
+01 Can't fight the
+01 Can't get you
+01 Can we fix
+01 Chicane ft Bryan
+01 CLUBBER'S GUIDE TO
+01 COME ON OVER
+01 Concrete Jungle THE
+01 Crush On You.mp3
+01 Crying In Yor
+01 Cuckoo song
+01 Cuckoo song.mp3
+01 Curtis Mayfield -
+01 d6 00 2c
+01 d7 00 1d
+01 daftendirekt.mp3
+01 Dance on a
+01 Dandy Livingstone -
+01 Darkstar - Feel
+01 Daydream in blue.mp3
+01 DEATH ON TWO
+01 Deathmatch *Info*
+01 Debussy.mp3 6,874,906 02/10/2001
+01 Dec 84 -
+01 Declaration.mp3 1,424,718 01/10/2001
+01 Deep Purple-Strange kind
+01 Delegate vs. Emo-Trance
+01 Desmond Dekker -
+01 Destiny calls.mp3 7,006,208
+01 discussion of human
+01 Distant Drums.mp3 2,779,010
+01 DIVORCE - Tammy
+01 Dj Tiësto -
+01 do nothin till
+01 Do wah diddy.mp3
+01 Do you really
+01 Does he love
+01 Don't Stop Till
+01 Don't think i'm
+01 Don McLean-American pie
+01 Donna non vidi
+01 Dont panic.mp3
+01 DONT STOP ME
+01 DROWNED WORLD-SUBSTITUTE FOR
+01 Duke Reid's Group
+01 East 17 -
+01 ELECTRICITY.mp3
+01 Elevation.mp3 4,329,472 09/07/2001
+01 Eleventh earl of
+01 EMBARRASSMENT
+01 Enjoy Yourself -
+01 Enjoy Yourself
+01 Essential sound of
+01 Eternal flame.mp3 3,921,502
+01 Eternal_What'cha Gonna Do.mp3
+01 Eternity.mp3 5,276,212 08/10/2001
+01 Every breath you
+01 Every face.mp3 8,176,326
+01 Exp year: 2000
+01 F. E. A.
+01 f4 00 2c
+01 f5 00 1d
+01 FAITHLESS.mp3
+01 fe 00 1d
+01 Fear .mp3 6,240,256
+01 Feb 94 12:57,
+01 Feb 94 18:00:40
+01 Field Commander Cohen.mp3
+01 Fields of gold.mp3
+01 Fill me in
+01 FLASH'S THEME.mp3
+01 for 1942 Pacific
+01 For Amiga
+01 for Amiga (2:253/500)
+01 for amiga!!!)
+01 For Your Own
+01 foreigner - i
+01 found that soul.mp3
+01 Fresh fish
+01 Fresh fish.mp3
+01 Funk you up.mp3
+01 Gangsters THE SPECIAL
+01 Gary Glitter -
+01 gentle on my
+01 Get Over It.mp3
+01 Getting away with
+01 Glasgow accents mp3
+01 Gloria.mp3 4,500,375 08/10/2001
+01 Go let it
+01 Go.mp3
+01 grace.mp3
+01 Great Balls Of
+01 HAPPY BOYS &
+01 Happy people.mp3 3,012,608
+01 HEARTBEAT
+01 Heartbeat.mp3 2,116,127 17/04/1999
+01 Heaven and hell.mp3
+01 heaven.mp3
+01 Heroes.mp3 4,273,632 08/10/2001
+01 HEY ROCK AND
+01 High Tide Murders
+01 HOLIDAY
+01 House full of
+01 How do I
+01 Hush.mp3 5,243,820 02/10/2001
+01 Hybrid_Finished Symphony.mp3
+01 i'll be there.mp3
+01 I Can't Stand
+01 I did what
+01 I Get Around.mp3
+01 I want to
+01 I want you
+01 I Will Always
+01 I wrote this
+01 If I Don't
+01 If i saw
+01 If I Should
+01 If You See
+01 If you want
+01 Imagine.mp3
+01 In Quintessence.mp3
+01 Intro.mp3
+01 Intro.mp3 1,059,526 08/10/2001
+01 Intro.mp3 1,103,872 09/07/2001
+01 Intro.mp3 884,736 09/07/2001
+01 Invisible touch
+01 Irresistable.mp3 3,883,008 16/07/2001
+01 isolee,beau mot plage.mp3
+01 It's raining men.mp3
+01 Jackson 5 -
+01 Jan 80, Guy
+01 Jan 81:
+01 Jan 96. Last
+01 Jan.txt
+01 Jan.txtBest Of Business
+01 John Lennon imagine.mp3
+01 Joy.mp3 3,817,472 16/07/2001
+01 jumpin.mp3
+01 Jun 93, Alexander
+01 Just Another Story
+01 just the way
+01 Just Wanna Be
+01 JUST WHAT I
+01 Karma police.mp3 5,256,359
+01 KC & Sunshine
+01 KEEP YOURSELF ALIVE.mp3
+01 Lady luck.mp3 3,507,200
+01 Land of confusion
+01 Lets get it
+01 Life's Too Short
+01 Lily white lilith
+01 Little L.mp3 4,735,477
+01 Long Tall Sally.mp3
+01 Looking for someone
+01 Lord Tanamo -
+01 Love Changes Everything
+01 LOVE IS LIFE
+01 Lover .mp3 9,353,926
+01 Madness MADNESS -
+01 Madness MADNESS
+01 Mai 1993 schrieb
+01 Make me do
+01 Mama
+01 Mar 80 -
+01 Max Romeo -
+01 Metisse - Boom
+01 Micheal Jackson -
+01 Mighty Diamonds -
+01 mo move.mp3
+01 more more more.mp3
+01 Mother We Just
+01 Mozart Die Zauberflote
+01 mp3
+01 mp3.txt
+01 mp3.txt90's Rock 01
+01 MrBlobby_BlobbyBlobbyBlob.. 3,441,185 12/01/2001
+01 Mungo Jerry -
+01 music- response.mp3
+01 MUSTAPHA.mp3
+01 My People Were
+01 Nat King Cole_Lets
+01 never had a
+01 NEW HITS 2000
+01 New Kids on
+01 No son of
+01 Non sono in
+01 Norman Greenbaum -
+01 Not such an
+01 not that kind.mp3
+01 Nov 93 Maggie
+01 Nov 93, Dave
+01 Nov 93, Jez
+01 Nov 93, Pete
+01 Nov 93, Stephen
+01 November 2000
+01 Oct 93 0:00:07
+01 Oct 93 0:01:01
+01 Oct 93 0:13:40
+01 Oct 93 23:59:03
+01 Oct 93 Nicholas
+01 Oct 93, Doug
+01 of
+01 OF 01 ]==>
+01 Oktober 1993, om
+01 Old medley: Dance
+01 Once around the
+01 One for me.mp3
+01 One more time.mp3
+01 ONE VISION.mp3
+01 One way street.mp3
+01 Only The Lonely.mp3
+01 Opening titles.mp3 3,993,077
+01 Orinoco Flow
+01 Otis Redding -
+01 Out Of Touch.mp3
+01 Overture
+01 Overture.mp3 8,251,559 01/10/2001
+01 Patsy Cline Medley
+01 paul mccartney -
+01 Pavorotti - La
+01 Peaches.mp3
+01 PEARLS OF A
+01 Penny on the
+01 pet shop boys
+01 Pheobe Cates .mp3
+01 Phil Collins_You Can't
+01 Planet Perfecto_Not Over
+01 PLAY THE GAME.mp3
+01 Please forgive me.mp3
+01 Poison.mp3 6,578,176 16/07/2001
+01 Precious heart.mp3 6,369,280
+01 PRETENDERS - BRASS
+01 PROCESSION.mp3
+01 Promised land .mp3
+01 Pulling Mussels (From
+01 Push - The
+01 R Kelly -
+01 radio edit.mp3
+01 RADIO GA GA.mp3
+01 Radiohead - Amnesiac
+01 Rank 1_Airwave.mp3
+01 replaceemtn for DOOM
+01 RHIANNON
+01 Rhiannon..mp3
+01 Right Here, Right
+01 Right on.mp3 6,084,608
+01 Riverdance
+01 Robbie Williams -Rock
+01 Rock Around The
+01 Rock da funky
+01 Roll Up And
+01 Rossini: The Barber
+01 runaway.mp3
+01 salute to thames.mp3
+01 Sam & Dave
+01 Sam pick oop
+01 Satie.mp3 4,633,077 02/10/2001
+01 Scorchio.mp3 3,256,320 09/07/2001
+01 Sea Cruise RICO
+01 SEE WHAT A
+01 Sep 93
+01 Sep 93 23:22:36
+01 Sep 93 23:44,
+01 Sep 93, John
+01 SEP 96) -
+01 Set you free.mp3
+01 Sex Master.mp3
+01 Shades .mp3 5,935,104
+01 Shaft.mp3 3,977,216 16/07/2001
+01 Shake the rollercoaster.mp3
+01 Shaun Connors
+01 Shaun Connors.mp3
+01 Sherry.mp3 3,067,297 01/10/2001
+01 Shinobi vs dragon
+01 Shostakovich - Waltz
+01 Shout Lulu
+01 Show Biz &
+01 Shut your mouth.mp3
+01 Silver screen.mp3 4,931,918
+01 Singin' In The
+01 Single & Multi
+01 Siuil A Run
+01 Slap & Tickle.mp3
+01 so easy.mp3
+01 someday.mp3
+01 sound effects 2.mp3
+01 SOUTH PARK THEME..PRIMUS.mp3
+01 Speed King.mp3 12,451,004
+01 Spice Girls_Mama.mp3
+01 SPICE UP YOUR
+01 spiderweb
+01 Stan
+01 Star of the
+01 Starry Eyed Suprise.mp3
+01 STAYING POWER.mp3
+01 Stealers Wheel -
+01 steve silk hurley
+01 STUDIO KID A
+01 Sunday Club -
+01 Sunday song .mp3
+01 SUNNY
+01 SWEATY BETTY.mp3
+01 SYLVIAS MOTHER
+01 T-Rex - Get
+01 TAKE IT EASY
+01 Take Me I'm
+01 Take you out.mp3
+01 Talking in your
+01 THE BEST IBIZA
+01 The birthday party.mp3
+01 The emporers new
+01 The journey.mp3 2,322,432
+01 The lamb lies
+01 the living dream.mp3
+01 The Magicians Nephew
+01 The Marc Shows
+01 The musical box
+01 the only way
+01 The Phantom Of
+01 The Power Of
+01 The Shirt.mp3
+01 the way i
+01 The way to
+01 The Words And
+01 Theme From The
+01 Theme to S
+01 There's No Business
+01 They Don't Know
+01 think about.mp3
+01 Think i love
+01 This kiss
+01 Three Minute Hero
+01 through 09. Contains
+01 tie up my
+01 TIE YOUR MOTHER
+01 Time .mp3 9,805,824
+01 TIME STRECH.mp3
+01 Time to care.mp3
+01 Timeless.mp3
+01 Turn Around
+01 U2 - Beautiful
+01 Unbelievable.mp3 4,192,256 16/07/2001
+01 unusual ceremony.mp3
+01 Up middle finger.mp3
+01 uptown girl.mp3
+01 video.mp3 4,567,248 01/10/2001
+01 Villians.mp3 6,110,563 01/10/2001
+01 Watcher of the
+01 We Close Our
+01 WE WILL ROCK
+01 Welcome To My
+01 Wet Wet Wet
+01 WHAT CAN I
+01 WHO NEEDS LOVE
+01 Whoevers in New
+01 Wimoweh
+01 YMCA_Original Version.mp3
+01 You're My First
+01 You give love
+01 You Learn.mp3
+01 You swore.mp3 5,299,200

@@ -1,0 +1,217 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+44 ' ---------- ALL
+44 ' 9 x
+44 ' Length of
+44 ' United Kingdom
+44 - (LEN(RTRIM$(T.MainTitle)) /
+44 - (LEN(RTRIM$(T.XTitle)) /
+44 - BORLAND SVGA
+44 - CD1
+44 - CD2
+44 - The Broadcast
+44 ( 7.93%)
+44 ( 8.32%)
+44 (0) 233 610040
+44 (0) 233 610106
+44 (2cd's)
+44 (C) INTERACTIVE MAGIC
+44 (Document 303030 in
+44 (DOUBLE)
+44 / Profitania Deluxe
+44 | ..: ..=D
+44 | ..:%...D
+44 | ..:.*!yD
+44 | ..:...*D
+44 | ..:..n.D
+44 | ..:.9&}D
+44 | ..:.e.eD
+44 | ..:C"..D
+44 | ..:p.4\D
+44 | ..:pBV.D
+44 | ..:Q=*.D
+44 | ..:S.}ED
+44 | ..:T%.sD
+44 | ..:vM..D
+44 | ..:Z.g.D
+44 +532 605876 (2:250/312)
+44 0.0%
+44 0.7%
+44 01895 625376 *
+44 02/05/03 23:39 VB.BAT
+44 03/02/01 5:25 Golive
+44 06/06/99 18:43 TYPE.SPK
+44 08/12/98 14:01 1PTRANS.GIF
+44 1.0%
+44 1.2%
+44 11.127 V
+44 11/07/97 0:37 AUSCITYA.ID
+44 11/07/97 0:37 GRTLAKES.ID
+44 11/08/02 2:16 VB.BAT
+44 11/11/00 16:47 startrekelite.txt
+44 13/01/01 23:06 20th
+44 14/06/90 9:35 VOXKIT.BAT
+44 14/11/99 3:30 FUNK
+44 14/11/99 3:30 Night
+44 16/09/96 6:28 FILE_ID.DIZ
+44 16/09/96 6:28 VERSION.C
+44 16/11/00 14:12 History
+44 17/11/98 13:57 AUTORUN.INF
+44 181 607 0012
+44 1e 3c
+44 20 3c
+44 20/04/97 13:21 SETUP.INI
+44 22/04/01 16:05 Project
+44 22/11/01 21:52 minitel.ini
+44 24/02/01 9:54 Hitman
+44 25/03/96 15:00 LAST.WAV
+44 25/08/02 2:21 test
+44 27/09/00 16:46 Windows
+44 29/05/96 12:40 R0WEB.URL
+44 30/04/02 1:25 CRACK.BAT
+44 30/11/00 18:29 Crimson
+44 301 19 396/1
+44 35 27 56
+44 396 1.5%
+44 43 211 0.8%
+44 4b | ......DK
+44 4b 33 |
+44 51 64 443/59
+44 56 56 203
+44 6 66 0.3%
+44 60 -- 0;51
+44 638 743655 (2:254/26.4)
+44 66 90 46
+44 666 504597.
+44 68 55 10
+44 81-459 3440 (2:254/26.0)
+44 89 01 00
+44 89 01 11
+44 89 01 44
+44 89 01 90
+44 92 71 71
+44 92 93 93
+44 93 D1 8B
+44 94 101 259/26
+44 and
+44 and big hits
+44 and married. I'm
+44 and married. I've
+44 ANIMATIONS
+44 Barron Knights Get
+44 Blue
+44 citi
+44 CorelDRAW: Chapter 2
+44 d/Unzipped/Darren/bigwares 2.txtbigwares 2
+44 Double CD -
+44 file(s) 1,478,905 bytes
+44 file(s) 2,574,773 bytes
+44 file(s) 2,888,192 bytes
+44 file(s) found
+44 Games
+44 Games *Info*
+44 H000020.ZIP TRUETYPE FONTS
+44 H000021.ZIP TRUETYPE FONTS
+44 H000022.ZIP TRUETYPE FONTS
+44 H000023.ZIP TRUETYPE FONTS
+44 H000058.ZIP ADOBE TYPE
+44 H000059.ZIP ADOBE TYPE
+44 H000060.ZIP ADOBE TYPE
+44 H000061.ZIP ADOBE TYPE
+44 H000152.ZIP v5.1A FONTSHOW
+44 H000278.ZIP v6.1 PRINTER'S
+44 H000349.ZIP v3.5 FONT
+44 H000535.ZIP v7.2 FONTSPEC
+44 H000596.ZIP v1.3 RISS
+44 H000689.ZIP v2.0 ROADRUNNER
+44 H003145.ZIP v3.0 BACH
+44 H004019.ZIP v2.2 ESF'S
+44 H004137.ZIP v2.0 INDIC
+44 H004573.ZIP v3.00 FONTME!
+44 H004876A.ZIP v3.03 FONTBOOK
+44 H004876B.ZIP v3.03 FONTBOOK
+44 H004941.ZIP v1.0 FONTREVIEW
+44 H006681.ZIP v2.2 ESF'S
+44 H006739.ZIP v1.3 WMS
+44 H008225.ZIP v1.23 FONT
+44 H008485.ZIP v2.01 FONTREVIEW
+44 H008809.ZIP v1.0 ABC
+44 H009033.ZIP v3.2.1 FONTLISTER
+44 H009093.ZIP v1.4 ESF'S
+44 H009612.ZIP v3.0.1 FONTFINDER
+44 H009767.ZIP v2.0 FONTPEEPER32
+44 H009814.ZIP v1.00 ESF's
+44 H010177.ZIP v2.0.3 FONTPAGE
+44 have already been
+44 horse icons [Exec:72:00010].
+44 Includes Color Graphics
+44 kHz is the
+44 kHz. Flash can
+44 Meg Hard Drive
+44 Mhz; 8
+44 Min).
+44 minutes 20 seconds
+44 more computre systems
+44 N000597.ZIP v1.3 RISS
+44 N000598.ZIP v1.3 RISS
+44 N003648.ZIP v1.3 ESF
+44 N004569.ZIP ASTROLOGICAL WINDOWS
+44 N004830.ZIP RUNE TrueType
+44 N006612.ZIP v2.30 FONTMANAGER
+44 N006976.ZIP v2.1 FONTLOOK
+44 N006977.ZIP v2.6 FONT
+44 N006981.ZIP v2.1 FONT
+44 N007305.ZIP v7.0 FONTER
+44 N009526.ZIP v1.07 SOFTY
+44 N009611.ZIP v1.3 FONTAB
+44 N009763.ZIP OLD TYPEWRITER
+44 N009835.ZIP v1.5 SYMBOL
+44 N009916.ZIP v1.01 FONTEZY
+44 N009933.ZIP PARATYPE SCRIPTS
+44 N010106.ZIP CROSSFONT convert
+44 NEMESIS (CLONE)
+44 Nodes Only
+44 patch *Info*
+44 percent of college
+44 percent. And the
+44 pictures and other
+44 pp.
+44 RA_UK 0 3
+44 RA_UK 1 0.1%
+44 RA_UK 13 0.3%
+44 RA_UK 2 0.0%
+44 RA_UK 2 0.1%
+44 RA_UK 217 0.1%
+44 RA_UK 231 0.0%
+44 RA_UK 3 0.1%
+44 RA_UK 4 0.2%
+44 RA_UK 47 58
+44 RA_UK 6 0.1%
+44 RA_UK 7 0.2%
+44 RA_UK 8 0.2%
+44 RA_UK 8 11
+44 RA_UK 9 0.2%
+44 Ray Dream Studio
+44 Road to hell
+44 Song in last
+44 STANTON MIRANDA Wheels
+44 TO 47
+44 TO 48
+44 to 4DOS
+44 to work properly
+44 year old leeds
+44 year old married
+44 year old yorkshireman

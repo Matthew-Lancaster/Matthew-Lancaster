@@ -358,8 +358,7 @@ CapsLock_SUB_TIMER_1_SECOND:
 				Progress, B1 %W_P_B% %H_P_B% ZH0 %F_S_P_B% WS900 x%width% y%height% CTFF0000, CAPS ON
 				Title_Script := " - AutoHotkey v" A_AhkVersion
 				WinSet, Top,, % A_ScriptFullPath . Title_Script
-				SOUNDBEEP 3500,100
-				SOUNDBEEP 2500,100
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 	OLD_isFullScreen:=isFullScreen_VAR
 
@@ -383,11 +382,11 @@ CapsLock_SUB_TIMER:
 			FLAG_KEYBOARD_WANT_ANOTHER_SOUNDBEEPER_GOING=FALSE
 			IF GetKeyState("CapsLock", "T")
 			{
-				SOUNDBEEP 3000,200
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 			ELSE
 			{
-				SOUNDBEEP 1000,200
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 		}
 	}
@@ -434,11 +433,11 @@ CapsLock_SUB_TIMER:
 						Title_Script := " - AutoHotkey v" A_AhkVersion
 						WinSet, Top,, % A_ScriptFullPath . Title_Script
 					}
-				SOUNDBEEP 3000,200
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 			ELSE
 			{
-				SOUNDBEEP 1000,200
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 		}
 		CapsLock_VAR_IDLE_1=FALSE
@@ -469,7 +468,7 @@ Shift::
 		IF SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
 		{
 			SHIFT_CAPS_DOWN_TELL_TRIGGER=FALSE
-			SOUNDBEEP 3000,200
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
 	ELSE
@@ -477,7 +476,7 @@ Shift::
 		IF SHIFT_CAPS_DOWN_TELL_TRIGGER=TRUE
 		{
 			SHIFT_CAPS_DOWN_TELL_TRIGGER=FALSE
-		 	SOUNDBEEP 1000,200
+		 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
 
@@ -514,12 +513,12 @@ RETURN
 		{
 			Progress, B1 %W_P_B% %H_P_B% ZH0 %F_S_P_B% WS900 x%width% y%height% CTFF0000, CAPS ON
 		}
-		SOUNDBEEP 3000,200
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 	}
 	else
 	{
-		SOUNDBEEP 1000,200
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Progress, off
 	}
 	

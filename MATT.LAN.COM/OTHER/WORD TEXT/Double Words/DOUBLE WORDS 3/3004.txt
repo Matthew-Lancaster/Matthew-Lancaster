@@ -1,0 +1,45 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+004 <DIR> 13/03/03 2:08
+004 <DIR> 14/09/02 1:11
+004 10,476 21/06/93 11:52
+004 133,470 05/10/93 17:20
+004 3,456 10/09/02 16:47
+004 333,549 02/06/93 9:52
+004 369,664 18/08/02 21:19
+004 4,290 12/01/98 2:11
+004 474,112 18/08/02 21:19
+004 671,744 18/08/02 21:19
+004 7,953 12/01/98 2:11
+004 850, 863 EGA.CPI
+004 Adam And The
+004 Apache Indian Boom
+004 Are You Still
+004 Breathless
+004 by *Info*
+004 by Glen McCluskey
+004 Colour The World
+004 Dumb
+004 Got 'Til It's
+004 if the value
+004 In Your Room
+004 It's No Good
+004 Leave Me Alone
+004 Must Have Been
+004 PCX 386,337 16/09/94
+004 Ready For Drowning
+004 Strangelove
+004 Worried Eyes

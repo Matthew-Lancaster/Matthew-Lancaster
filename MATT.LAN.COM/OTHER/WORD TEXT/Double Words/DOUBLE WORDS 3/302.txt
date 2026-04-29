@@ -1,0 +1,805 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+02 'Alt oo goes
+02 -- Shaft -
+02 - 'Pine Top'
+02 - 00
+02 - 9pm (Till
+02 - A Life
+02 - Acute Schizophrenia
+02 - Adagio From
+02 - Against all
+02 - Aisy Waisy
+02 - All Day
+02 - Alone
+02 - American Girl
+02 - Andante From
+02 - Another Town,
+02 - Anywhere Is.mp3
+02 - As Time
+02 - Backside of
+02 - Beautiful Stranger
+02 - Beauty dies
+02 - Best Friend
+02 - Better Off
+02 - Billie Holiday
+02 - Billy Ray
+02 - Blackened.mp3
+02 - Blondie -
+02 - Blood makes
+02 - Breakdown
+02 - Buddy Rich
+02 - Bugs [dave
+02 - But I
+02 - Can't turn
+02 - Candle In
+02 - Case of
+02 - Change Of
+02 - Come Fly
+02 - Come On,
+02 - Come WIth
+02 - Cowboy
+02 - Crash! Boom!
+02 - D'angelo -
+02 - Death Disco
+02 - Deniece Williams
+02 - Depot Street
+02 - Dinah Washington
+02 - Dizzy Gillespie
+02 - Do You
+02 - Don't You
+02 - Dream World
+02 - Dressed For
+02 - Drinking In
+02 - Drop The
+02 - Earth Orbit
+02 - Elaine
+02 - Everlasting love
+02 - F___ Friendz.mp3
+02 - Feel Good
+02 - Filmstar.mp3
+02 - Fingertips
+02 - Flood I
+02 - Freeze Tag
+02 - From This
+02 - Gasoline Dreams.mp3
+02 - Gettin' Jiggy
+02 - GPS Launch
+02 - Graduale
+02 - Greatest Love
+02 - Groove Armada
+02 - Guilty Conscience
+02 - Hangar 18.mp3
+02 - Happy Hawaii
+02 - He's A
+02 - Headshots
+02 - Heartbreaker's Beach
+02 - Heaven Is
+02 - Here Comes
+02 - Here We
+02 - Hits 2000
+02 - Hotblooded
+02 - How Deep
+02 - I cannot
+02 - I love
+02 - I took
+02 - I Wanna
+02 - I Won't
+02 - If You
+02 - IGetWeak.mp3
+02 - Ike Turner
+02 - In Dulce
+02 - Independence Day
+02 - Into The
+02 - It's a
+02 - J.J. Cale
+02 - Jakatta -
+02 - Jealous Guy.mp3
+02 - Jeff Beck
+02 - Jimmy Reed
+02 - Jimmy Rushing
+02 - John Anderson
+02 - John Lee
+02 - judy garland
+02 - Knowing Me,
+02 - La Copa
+02 - lady writer.mp3
+02 - Last train
+02 - Lay All
+02 - Lee Morgan
+02 - Lichfield Cathedral
+02 - Link Wray
+02 - Lionel Hampton
+02 - Little Brown
+02 - Little Green
+02 - Lonely lover.mp3
+02 - Lonnie Johnson
+02 - louis prima
+02 - Love In
+02 - Loves Got
+02 - Luka
+02 - Mack The
+02 - Mannish boy.mp3
+02 - Mantronix -
+02 - Martha Reeves
+02 - Mary Lou
+02 - Memory Remains.mp3
+02 - Men in
+02 - Micky Doherty
+02 - Miracles Keep
+02 - miss you
+02 - Morcheeba -
+02 - Mothers Heaven
+02 - Mucho Mambo
+02 - Muddy Waters
+02 - My Chico
+02 - My Closest
+02 - My Funny
+02 - My Generation
+02 - My Love
+02 - nat king
+02 - Neil Sedaka
+02 - Never Love
+02 - No more
+02 - No Scrubs
+02 - Nobody's Fool
+02 - Nowhere To
+02 - OneMoreAddiction.mp3
+02 - Only you
+02 - Out Here
+02 - Pat Benatar
+02 - Pattern Against
+02 - Paul Delay
+02 - Peace Of
+02 - Peggy Lee
+02 - Pepsi Chart
+02 - Peter Green
+02 - Pick A
+02 - Piggy.mp3
+02 - Pogues &
+02 - Poison
+02 - Post
+02 - Ride The
+02 - Robert Cray
+02 - Ronan Keating
+02 - Sad But
+02 - Sam Cooke
+02 - Save A
+02 - Savoir Faire
+02 - Sex Has
+02 - Shavers -
+02 - Sing It
+02 - Six Blade
+02 - So goes
+02 - Sometimes [soul
+02 - Sonny Boy
+02 - Stakeout
+02 - Star Trek
+02 - Stephane Grappelli
+02 - Steve Luthaker
+02 - Stronger
+02 - Summer Nights.mp3
+02 - Summertime [allstar
+02 - Surburban Life
+02 - Synth &
+02 - Talk On
+02 - Teenage Lobotomy
+02 - Terrible Lie.mp3
+02 - That's entertainment.mp3
+02 - That's what
+02 - Thats just
+02 - The Bends
+02 - The eternal
+02 - The Four
+02 - The kids
+02 - The Mavericks
+02 - The Ronettes
+02 - The Teardrop
+02 - Thelonius Monk
+02 - This must
+02 - This Nearly
+02 - Tom's Diner
+02 - Tonettes -
+02 - Too Much.MP3
+02 - Transmission
+02 - True color.mp3
+02 - Try Again
+02 - TV
+02 - U.P. Wilson
+02 - Unable to
+02 - Uncle Fucka
+02 - Uncle Fucka.mp3
+02 - Unknown.mp3
+02 - Village Man
+02 - Voltage.mp3
+02 - walk of
+02 - Waxies Dargle
+02 - Ways To
+02 - Welcome To
+02 - What A
+02 - Whatever.mp3
+02 - When I
+02 - When In
+02 - Wilson, Aorta
+02 - Woke up
+02 - Woody Herman
+02 - World Ends
+02 - Yes Sir,
+02 - You're gonna
+02 - You Don't
+02 - You Win
+02 -1999 [gouryella remix]
+02 -Ayla [dj tandu
+02 $6.000 .000 .000
+02 (10) SONGBIRD EVA
+02 (Moby) - Find
+02 (renamed from Valet
+02 * (2:251/21)
+02 *Info*
+02 ...And Justice For
+02 / 04 ]
+02 [Story Of The
+02 | .#.
+02 | ........
+02 ~ Bone Thugs
+02 ~ Peter Gunn
+02 ~ Steps -
+02 +46 8/580 100
+02 <DIR> 13/03/03 2:02
+02 <DIR> 26/11/01 22:38
+02 00
+02 00 | -.......
+02 00 | .,......
+02 00 | ..(.....
+02 00 | ..w.....
+02 00 | .A......
+02 00 | .e_.....
+02 00 | .h:.....
+02 00 | .YF.....
+02 00 | 03......
+02 00 | 9.>.....
+02 00 | t.......
+02 00 | y.......
+02 00 00 |
+02 00 00 00
+02 00 07 0d
+02 00 0a 03
+02 00 10 82
+02 00 14 02
+02 00 17 02
+02 00 22 03
+02 01 00 00
+02 01 00 0a
+02 02 02 00
+02 03 00 14
+02 04 00 16
+02 04 00 34
+02 05 00 34
+02 06 | .!...(..
+02 06 | .!......
+02 06 00 0a
+02 07 00 1d
+02 08 00 1d
+02 08 02 00
+02 08 02 0d
+02 08 02 11
+02 0d 03 |
+02 11 | -.......
+02 11 | .,......
+02 11 | ..(.....
+02 11 | ..w.....
+02 11 | .A......
+02 11 | .e_.....
+02 11 | .h:.....
+02 11 | .YF.....
+02 11 | 03......
+02 11 | 9.>.....
+02 11 | t.......
+02 11 | y.......
+02 15:06, Christian Roig
+02 18 00 34
+02 1992, Ben Scarboro
+02 1993 03:04, Sam
+02 1993 08:58, Geoff
+02 1993 11:09, Joe
+02 1993 14:26, Jeramy
+02 1993 14:45, Tippi
+02 1993 15:30, Ron
+02 1993 20:47, Paul
+02 1993 23:13, George
+02 1993 23:33, rafal
+02 1993 at 09:40,
+02 1993 at 22:10
+02 1993 you wrote:
+02 1993, Alastair Moore
+02 1993, Edward Hobson
+02 1993, Jan Ohberg
+02 1993, Terry Youll
+02 1993:
+02 1994, Peter Scargill
+02 1994. Last *Info*
+02 1a 00 1d
+02 1a 00 34
+02 1b 00 34
+02 2 2 unlimited
+02 21 seconds.mp3 5,506,612
+02 23 TRACKS
+02 23:49, Gautam Srikanth
+02 25 00
+02 25 45
+02 25 46
+02 25 50
+02 25 70
+02 25 70 (Document
+02 25 80
+02 26 00 34
+02 27 00 34
+02 28 00 34
+02 2d 00 34
+02 30 TRACKS
+02 48 00 1d
+02 4a 00 34
+02 4b 00 1d
+02 52 B4 3F
+02 55 00 1d
+02 55 00 34
+02 55 55 A6
+02 58 33 D2
+02 65 00 34
+02 69 00 34
+02 70 00 1d
+02 70 00 34
+02 7c 00 1d
+02 8a 00 1d
+02 90 00 1d
+02 9c 00 1d
+02 A hard days
+02 A HUMAN BODY
+02 A KIND OF
+02 A little bit.mp3
+02 A mind of
+02 A New England
+02 A wandering minstrel,
+02 A winter shade
+02 Abbie Thomas, Sydney
+02 ABC.mp3 3,587,657 08/10/2001
+02 ACHTUNG! SPITFIRE
+02 Across The Airwaves
+02 Adam Clayton &
+02 af 00 34
+02 Agnelli & Nelson_Everyday.mp3
+02 Agrimony zer.mp3 8,103,183
+02 Aha The Sun
+02 All Saints_Lady Marmalade.mp3
+02 Androgyny.mp3 3,794,024 01/10/2001
+02 ANGELS IN HEAVEN.mp3
+02 Another Nail In
+02 ANOTHER ONE BITES
+02 Anyone alive .mp3
+02 Apr 1988
+02 Apr 2002
+02 Apr 2002 22:58:42
+02 April 1993 om
+02 April 2002 10:41
+02 Aqua_Cartoon Heroes.mp3
+02 aria da capo.mp3
+02 Arthur Conley -Sweet
+02 At the ball
+02 At the ball.mp3
+02 Aug 86 -
+02 Aug 93 00:08:15,
+02 Aug 93 06:43:00
+02 Aug 93 10:11:07
+02 Aug 93 19:46]
+02 Aug 93 23:59,
+02 Aug 93 the
+02 Aug 93 you
+02 Aug 93, Jo
+02 Aug 93, Papa
+02 b1 00 1d
+02 b7 00 1d
+02 Baby can't you
+02 Babylon.mp3
+02 Bang Bang.mp3
+02 Basement Jaxx_Red Alert.mp3
+02 bb 00 1d
+02 Be My Baby
+02 because the night.mp3
+02 Because.mp3 6,197,289 02/10/2001
+02 Bells of N.Y.mp3
+02 BEN NEVIS.mp3
+02 Beth Orton -
+02 Big girls dont
+02 Big Youth -
+02 Black Sabbath -
+02 Bloodhound Gang -
+02 Bobby Womack -
+02 Bonnie Tyler -
+02 Booby Womack -
+02 break & enter.mp3
+02 Bulldozer.mp3 5,503,477 01/10/2001
+02 By Your Side.mp3
+02 Can we fix
+02 Candy.mp3 4,764,734 08/10/2001
+02 Caribbean Blue
+02 Caruso .mp3 6,420,480
+02 case of the
+02 Cashout.mp3 5,298,155 08/10/2001
+02 CC 2B 2D
+02 Chaka Demus &
+02 Change The World.mp3
+02 Che gelida manina
+02 Child in time.mp3
+02 Chuaigh Me 'Na
+02 Closer To Heaven
+02 Cold Shoulder.mp3
+02 COME ON OVER
+02 Concrete schoolyard.mp3 3,656,097
+02 constnt craving.mp3
+02 Could it be
+02 COVER OF THE
+02 Curved Air-Back street
+02 D2 E0 D3
+02 d7 00 1d
+02 DADDY COOL
+02 DANCER.mp3
+02 Dark diamond.mp3 5,335,771
+02 DARK REIGN FINAL
+02 Das glockenspiel.mp3 4,958,208
+02 David Gray -
+02 De La Soul_The
+02 Dean Martin_That's Amore
+02 Deep.mp3 4,958,208 09/07/2001
+02 Deeper.mp3 5,489,371 08/10/2001
+02 Demons.mp3 3,848,881 01/10/2001
+02 Desmond Dekker -
+02 Devil's slide .mp3
+02 Diary of a
+02 distortion orchestra,triffid nebula.mp3
+02 DJ Jean_The Launch.mp3
+02 Do Nothing THE
+02 Do The Dog
+02 doctor in the
+02 DOING ALL RIGHT.mp3
+02 Dominion - Fortunes
+02 Don't Look Down.mp3
+02 Don't stop movin'.mp3
+02 don`t speak
+02 DRAGON ATTACK.mp3
+02 Dream brother.mp3 9,608,359
+02 dream.mp3 1,743,934 02/10/2001
+02 Dressed to kill.mp3
+02 Drink to get
+02 Drive safely darlin'
+02 Driving the last
+02 Duchess
+02 Duke
+02 Duke Genesis \Duke
+02 Dusty Springfield-Son of
+02 Ecco Ridente in
+02 Electric avenue.mp3 3,820,669
+02 Enigma - Sadeness.mp3
+02 Entangled
+02 eple.mp3
+02 Ethiopians - Train
+02 F___ Friendz.mp3
+02 f5 00 1d
+02 fa 7a 89
+02 Fallin'n In Love
+02 FAT BOTTOMED GIRLS.mp3
+02 FATHER TO SON.mp3
+02 fe 00 34
+02 Feb 80 -
+02 Feb 94, Carolyn
+02 Feb.txt
+02 Feb.txtBEST OF BUSINESS
+02 Feels so good.mp3
+02 Fire & Ice
+02 First Choice -
+02 Fly on the
+02 For absent friends
+02 For Amiga
+02 Fragma_Toca Me.mp3
+02 Frankie Goes to
+02 Frankie Howerd Radio
+02 FRESH.mp3
+02 Gabrielle_Sunshine.mp3
+02 GALAXY WARS
+02 Gangsters THE SPECIAL
+02 George Michael -
+02 Geri Halliwell -
+02 Get into the
+02 Get ur freak
+02 Getting some fun
+02 Ghetto romance.mp3 4,925,440
+02 Givin up.mp3 3,061,551
+02 GO YOUR OWN
+02 Good life.mp3 4,722,688
+02 Good Witch_Bad Witch
+02 Goodbye Girl.mp3
+02 gothic prayer.mp3
+02 GREASE..FRANKIE VALLY.mp3
+02 Grieg.mp3 5,162,840 02/10/2001
+02 Grown things.mp3 5,450,710
+02 haters.mp3
+02 Hey baby.mp3 4,339,983
+02 Hey baby.mp3 4,346,253
+02 I'll be your
+02 I'm a believer.mp3
+02 I can't explain.mp3
+02 I Can't Hold
+02 I Get A
+02 I get high.mp3
+02 I Knew You
+02 I Know Him
+02 I Like Beer
+02 I Only Want
+02 I Saved The
+02 If You Have
+02 im outta love.mp3
+02 In Dreams.mp3 2,615,170
+02 In the name
+02 IN THE SPACE
+02 In The Way.mp3
+02 Innocente.mp3 7,212,408 01/10/2001
+02 Irish Heartbeat
+02 Ironside.mp3 4,704,256 16/07/2001
+02 It's a boy.mp3
+02 It's raining men.mp3
+02 IT DOESN'T MATTER
+02 Jacksons-Show you the
+02 Jakatta - My
+02 James Brown -
+02 Jasper Carrot Unrecorded
+02 Jesse Hold On.mp3
+02 Jesus he knows
+02 Jigsaw - Sky
+02 Jimmy Cliff -
+02 joe fandango's mitsubishi
+02 Johnny Nash -
+02 Joining You.mp3
+02 JS Bach -
+02 Jul 83 -
+02 Jump 'n' shout.mp3
+02 Jun 84 -
+02 Justin Hinds and
+02 K C White
+02 Kamaya painters -
+02 Katie W .mp3
+02 Ken Boothe -
+02 Kevin Bloody Wilson
+02 KILLER QUEEN.mp3
+02 Kingstonians - Singer
+02 Kylie_Minogue-11-Tears_On.. 2,405,773 11/01/2001
+02 L'amour est un
+02 Latino diablo.mp3 5,568,512
+02 LAZING ON A
+02 LET ME ENTERTAIN
+02 let your body
+02 Lets get it
+02 Libiamo, Ne' Lieti
+02 Life is a
+02 Listen To Me.mp3
+02 Liszt.mp3 6,661,746 02/10/2001
+02 Little Rock.mp3
+02 Lock - Into
+02 london x-press.mp3
+02 Losing My Mind
+02 Louisiana Saturday Night
+02 love at first
+02 Love child.mp3 6,045,257
+02 Love Will Keep
+02 LUCKY STAR
+02 Madness MADNESS -
+02 Madness MADNESS
+02 Mambo No 5.mp3
+02 Man At C
+02 Man In My
+02 Man overboard .mp3
+02 Mantronix_King Of The
+02 Mar 93 you
+02 Maracca - Invocation
+02 Marc Almond &
+02 markus nikolai,bushes-the second
+02 Maxine Nightingale-Right back
+02 memories are made
+02 MEN AT WORK
+02 MESSAGES.mp3
+02 Mexicali Rose
+02 Mike Reid aLIVE
+02 Mirror In The
+02 Mission impossible.mp3 3,082,240
+02 Mistreated.mp3 13,906,546 03/10/2001
+02 Moody Blues-Isn't life
+02 Moondance.mp3 5,447,575 01/10/2001
+02 Mozart Die Zuberflote
+02 Music For Pushchairs
+02 My Closest Roaddogz.mp3
+02 My Fair Lady_On
+02 my life.mp3
+02 MY OH MY.mp3
+02 Mystery Giant Brain
+02 nessaja.mp3
+02 Never be the
+02 Never enough.mp3 5,625,856
+02 Never Let Them
+02 New Kid In
+02 Nine and a
+02 No easy action.mp3
+02 No love to
+02 no more rain.mp3
+02 NO MORE THE
+02 No son of
+02 Nothing compares 2
+02 Nov 93, Adam
+02 Nov 93, John
+02 November rain -
+02 NOW 43 (
+02 NOW THAT'S WHAT
+02 NOWHERE TO RUN.mp3
+02 ocean spray.mp3
+02 Oct 82 -
+02 Oct 93 0:00:07
+02 Oct 93 0:01:12
+02 Oct 93 0:21:23
+02 Oct 93 23:59:03
+02 Oct 93 Nicholas
+02 Oct 93,
+02 Oh no.mp3 3,608,576
+02 On the radio.mp3
+02 One big rush
+02 One for the
+02 One Honest Heart.mp3
+02 Owen and Leon
+02 Oye como va.mp3
+02 Paul Johnson_Get Get
+02 Paul Malone
+02 Paul Malone.mp3
+02 Pick up tha'
+02 Placido Domingo -
+02 Please come to
+02 Please stay.mp3 4,200,489
+02 poor misguided fool.mp3
+02 Pour que tu
+02 Prophets, Seers And
+02 Pump up nation.mp3
+02 Pump up the
+02 PURE GARAGE -
+02 RAPE GAMES
+02 Rapping and rocking
+02 Rasta Call You
+02 Rednex Cotton Eyed
+02 Resister.mp3 4,596,506 08/10/2001
+02 Revue.mp3
+02 Ride on time.mp3
+02 Rock and Roll
+02 ROCK N ROLL
+02 Roland Alphonso -
+02 Rossini: The Barber
+02 Saint Angel.mp3
+02 sam `the man'
+02 Sasha_Xpander.mp3
+02 Search For The
+02 Sep 93 (FileMgr
+02 Sep 93 12:36,
+02 Sep 93 22:38:00,
+02 Sep 93 Kaz
+02 Sep 93 Kev
+02 Sep 93 you
+02 Sep 93, Drew
+02 September 1993>,schreef Paul
+02 Shaggy - Hotshot
+02 Shakespears Sister -
+02 shakin stevens -
+02 Shania Twain -
+02 Shiver.mp3
+02 SHUT UP
+02 SINCE YOU'RE GONE
+02 sister europe.mp3
+02 Skinny Minnie.mp3 2,706,285
+02 SNAKE BLASTERS
+02 SO YOUNG
+02 Someone Else's Heart.mp3
+02 SPREAD YOUR WINGS.mp3
+02 Stardust.mp3 5,415,183 01/10/2001
+02 Stay.mp3
+02 Step on.mp3 6,252,544
+02 Stevie Wonder -
+02 Stillness In Time
+02 STOP.mp3
+02 Storm.mp3 3,309,568 09/07/2001
+02 Strange kind of
+02 STUDIO KID A
+02 Suedehead.mp3 4,569,088 16/07/2001
+02 Sugar Foot Rag
+02 SUMMER NIGHTS..JOHN TRAVOLTA
+02 Surfin' USA.mp3 2,708,159
+02 Survivor.mp3 4,832,130 01/10/2001
+02 SWIM.mp3
+02 Take A Message
+02 Talk to me.mp3
+02 TEAR IT UP.mp3
+02 tell her about
+02 Temptation.mp3 6,354,944 16/07/2001
+02 Termites - Push
+02 That's all
+02 the age of
+02 The Bartender And
+02 The Boys of
+02 The Corrs_So Young.mp3
+02 The downbeat.mp3 5,466,112
+02 the fake sound
+02 The guitar track.mp3
+02 The King Of
+02 The Kinks -
+02 The Lark in
+02 the latin theme.mp3
+02 The Lion Witch
+02 The loved.mp3 5,279,346
+02 The msan who
+02 The new recruits
+02 The new recruits.mp3
+02 The Phantom Of
+02 The Rockerfeller Skank
+02 The Selecter THE
+02 The Shoop Shoop
+02 The song remembers
+02 the sweeney.mp3 3,417,861
+02 The waiting room
+02 the white rose
+02 This is is
+02 Tiffany_I Think We're
+02 Time Hard -
+02 Time Hard
+02 Time table
+02 Time to care.mp3
+02 tishing in windows(kicking
+02 Tonight, tonight, tonight
+02 Too Much Pressure
+02 Toughest Street in
+02 Trouble.mp3 5,435,036 08/10/2001
+02 True love at
+02 Turkish Song Of
+02 Two Faces Have
+02 two months off.mp3
+02 U remind me.mp3
+02 Under Pressure.mp3
+02 under the influence.mp3
+02 Wack ass.mp3 9,904,065
+02 Wade in the
+02 WARHEAD.mp3
+02 wdp 83,7tm.mp3
+02 WE ARE THE
+02 Welcome To My
+02 When The Going
+02 When.mp3 5,519,151 02/10/2001
+02 Where the streets
+02 White mountain
+02 Who feels love.mp3
+02 Whole Lot Of
+02 Wilson Pickett -Mustang
+02 Wish I Could
+02 WITCHY WOMAN
+02 Woman.mp3 3,340,288 24/01/2000
+02 You Better Hang
+02 YOU COULD'VE BEEN
+02 You Get What
+02 You give me
+02 You lie.mp3
+02 You See The
+02 You Still Want
+02 YOU TAKE MY
+02 YOU, ME &

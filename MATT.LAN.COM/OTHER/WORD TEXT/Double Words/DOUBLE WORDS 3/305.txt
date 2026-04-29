@@ -1,0 +1,740 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+05 -- Alice Deejay
+05 - (Anasthesia) Pulling
+05 - 15th Anniversary,
+05 - 99.9F
+05 - A Huge
+05 - a smile
+05 - Abbamania
+05 - Adrian Cronauer.mp3
+05 - Air -
+05 - Albert Ammons
+05 - Alberta Hunter
+05 - Alcohol.mp3
+05 - Alisha's Attic
+05 - Are You
+05 - B.B. King
+05 - Back here
+05 - Bad Religion.mp3
+05 - Ballroom .mp3
+05 - Battlestar Galatica
+05 - Beautiful day.mp3
+05 - Better Than
+05 - Billy Arnold
+05 - Billy Eckstine
+05 - Blarney Lads
+05 - Blood sings
+05 - Bob Marley.mp3
+05 - Bobby Day
+05 - Bohemiath
+05 - Bones
+05 - Brain Washed.mp3
+05 - Brownie McGhee
+05 - Buddy Guy
+05 - Buddy Reed
+05 - Buster &
+05 - Can't Fight
+05 - Can't You
+05 - Can You
+05 - Caravan
+05 - Carmen Mcrea
+05 - Cassandra Wilson
+05 - Casual Match
+05 - Century City
+05 - Champion Jack
+05 - Closer.mp3
+05 - Come on
+05 - Come Sail
+05 - Count Basie
+05 - Curtis Lee
+05 - Dance Away
+05 - Day Of
+05 - dean martin
+05 - Deck The
+05 - Dexter Gordon
+05 - Don't lose
+05 - Dont Let
+05 - Down
+05 - Drink to
+05 - Dru Hill
+05 - Dude (Looks
+05 - Eagle
+05 - Everybody's Gonna
+05 - Everybody Needs
+05 - Falling In
+05 - Falta Tanto
+05 - Fever
+05 - Finders Keepers
+05 - Flowers Of
+05 - Forever Night
+05 - Foster &
+05 - Fragile
+05 - From Where
+05 - Gatemouth Moore
+05 - Glad To
+05 - Good Life.mp3
+05 - Grandmaster Flash
+05 - Gymnopedie No
+05 - Half a
+05 - Hank Marvin
+05 - Heartbreak Hotel.mp3
+05 - Help Myself
+05 - Hold on
+05 - Hoochie choochie
+05 - Hortif_Kinculturist
+05 - Human -
+05 - I'm a
+05 - I've Got
+05 - I Can't
+05 - I need
+05 - I Will
+05 - If Ever
+05 - If I
+05 - if your
+05 - In Blue
+05 - INF format.
+05 - Institution Green
+05 - Invalid Litter
+05 - Jeff Beck
+05 - John Lee
+05 - Johnny Griffin
+05 - julie london
+05 - Kyle's Mom's
+05 - Kyrie
+05 - Lady, Lady,
+05 - LaLuna.mp3
+05 - Lay All
+05 - Leann Rimes
+05 - Lennietristano -
+05 - Lightnin' Hopkins
+05 - Listen To
+05 - Love My
+05 - Love police.mp3
+05 - Love To
+05 - Lowell Fulson
+05 - Lunar Orbit
+05 - Madness -
+05 - Marillion -
+05 - matt monro
+05 - Maurice Williams
+05 - Mel Powell
+05 - Memphis Slim
+05 - Merry-Go-Round
+05 - Micky Doherty
+05 - Molten Love.mp3
+05 - Moonlight Serenade.mp3
+05 - Moulin Rouge
+05 - Mr blue
+05 - Ms. Jackson.mp3
+05 - My Love
+05 - Night Vision
+05 - Old Black
+05 - On And
+05 - One more
+05 - Orbital -
+05 - Pat Travers
+05 - Patsy Cline
+05 - Posion Was
+05 - private investigations.mp3
+05 - Psychotic Reaction
+05 - Pure shores.mp3
+05 - Rainbow Wings.mp3
+05 - Real Cool
+05 - Rebels
+05 - Red Light.mp3
+05 - Ring Ring
+05 - Ritchie Valens
+05 - Robi-Rob's Boriqua
+05 - Robin Williams
+05 - Romance From
+05 - Roving Gangster
+05 - Roy Brown
+05 - Rufus Thomas
+05 - Sade -
+05 - School's Out
+05 - SelmaSongs
+05 - Shalamar -
+05 - She acts
+05 - She Talks
+05 - She.mp3
+05 - Silk road.mp3
+05 - Sleeping In
+05 - Something I
+05 - Sonny Rollins
+05 - spanish castles
+05 - Spending my
+05 - St John's
+05 - Stars Fell
+05 - Straight Lines
+05 - sultans of
+05 - Superman
+05 - Swallowed
+05 - Teenage kicks.mp3
+05 - The Hotel
+05 - The Hush
+05 - The Look
+05 - The Shortest
+05 - The Teardrop
+05 - This Corrosion
+05 - Time
+05 - Total Perspective
+05 - Touch Me
+05 - Towers Of
+05 - Trapped Under
+05 - Travelin'
+05 - Two hearts.mp3
+05 - U Don't
+05 - Unknown.mp3
+05 - Van Morrison
+05 - Wasted Sunsets
+05 - We're sons
+05 - We Have
+05 - WE STAND
+05 - Wherever I
+05 - Who loves
+05 - WishingIWasThere.mp3
+05 - Word Up
+05 - Yer So
+05 - You'll be
+05 - You can't
+05 (4) NOT THAT
+05 *Info*
+05 [Untold Story]
+05 ~ REM -
+05 ~ Texas -
+05 ~ Vengaboys -
+05 <DIR> 13/03/03 2:02
+05 <DIR> 26/11/01 23:05
+05 00 00 00
+05 00 04 00
+05 00 1d 10
+05 00 34 10
+05 01 00 00
+05 01 a DOOM
+05 04 00 04
+05 05 05
+05 05 05 06
+05 06 00 02
+05 06 00 03
+05 06 00 0f
+05 06 00 10
+05 06 00 11
+05 06 00 15
+05 06 00 17
+05 06 00 1b
+05 06 00 3c
+05 06 00 41
+05 06 00 c8
+05 06 00 ca
+05 06 00 d0
+05 06 00 d8
+05 06 00 e2
+05 06 00 e5
+05 06 13 |
+05 06 14 |
+05 06 93 |
+05 06 b9 |
+05 06 bc |
+05 06 f2 |
+05 06 f5 |
+05 07 Robin Williams
+05 08 00 04
+05 12:09>, Andrea Fleishman
+05 19:35 93, Paul
+05 1993
+05 1993 00:33, gerard
+05 1993 00:41, Dave
+05 1993 02:29, Egons
+05 1993 06:20, Sean
+05 1993 06:21)
+05 1993 07:39, Trix
+05 1993 10:27, Ryan
+05 1993 16:00, Warren
+05 1993 16:44, Tim
+05 1993 19:19, Richard
+05 1993 20:35, Lawrie
+05 1993 20:45, Nigel
+05 1993 21:12, Mark
+05 1993 22:01, Fraser
+05 1993 22:10, Mark
+05 1993 you wrote:
+05 1993, Andy Williams
+05 1993, Anthony Hayes
+05 1993, Bill Jillians
+05 1993, Christian Tiberg
+05 1993, Jon Lewis
+05 1993, Martin Bahn
+05 1993:
+05 1993>, from Gary
+05 1995. Last *Info*
+05 1b 00 04
+05 20:14>, Vivian Worthington
+05 20th Century Boy.mp3
+05 24 0a |
+05 39.mp3
+05 4c 00 04
+05 5 5 O'clock.mp3
+05 55 2e 82
+05 71 00 04
+05 7d 00 04
+05 91 00 04
+05 9d 00 04
+05 A House Is
+05 A Message To
+05 Aaron Neville -
+05 Abyssinians - Y
+05 Acquince.mp3 4,933,485 01/10/2001
+05 ACTION THIS DAY.mp3
+05 Action.mp3 3,004,416 09/07/2001
+05 Addio, che! Vai?
+05 Alex Whitcombe &
+05 Alison Limerick_Sista Mother
+05 All aboard
+05 All aboard.mp3
+05 All I want.mp3
+05 All in a
+05 American dream.mp3 4,041,142
+05 Amor ti vieta
+05 An American In
+05 Andrea True Connection
+05 Andy Kim-Rock me
+05 Angel.mp3
+05 Ann Sexton -
+05 Another chance.mp3 4,156,604
+05 ANTHROX XMAS DEMO
+05 Anyone.mp3
+05 Anything But Strong.mp3
+05 Anything she does
+05 Apr 2002 04:12:35
+05 Apr 2002 13:44:16
+05 Apr 2002 14:49:44
+05 Apr 2002 15:06:52
+05 Apr 2002 19:30:15
+05 Aretha Franklin-Spanish harlem
+05 Aretha Franklin -Think
+05 Armand Van Helden_You
+05 Arrakis - Aira
+05 ATB_9pm Till I
+05 Aug 89 -
+05 Aug 93 07:50:22
+05 Aug 93 11:59:01,
+05 Aug 93 12:37:00,
+05 Aug 93 12:57,
+05 Aug 93 15:54:00
+05 Aug 93 17:41,
+05 Aug 93 19:39:00
+05 Aug 93 20:08:48,
+05 Aug 93 23:22,
+05 Aug 93 Richard
+05 Aug 93 the
+05 August 1993 you
+05 b2 00 04
+05 b8 00 04
+05 Baby I Don't
+05 Backstreet Boys -
+05 bc 00 04
+05 Be My Lover
+05 Bellini: La sonnambula
+05 Ben E King
+05 Best years of
+05 Better days
+05 Better than.mp3 5,728,256
+05 BICYCLE RACE.mp3
+05 bittersweet.mp3 5,198,367 01/10/2001
+05 blue air,blue peter.mp3
+05 Blush.mp3 5,644,538 02/10/2001
+05 Bobby Darin_Mack The
+05 BonnieTyler_TotalEclipseO.. 4,330,094 12/02/1997
+05 Borg sex .mp3
+05 Bound to the
+05 BROTHE LOUIE
+05 Brotherhood Of Man
+05 Bruha Bembe.mp3 6,499,787
+05 Build It Up
+05 Build upon it.mp3
+05 Buses and girls.mp3
+05 BY REQUEST -
+05 C'est La Vie
+05 c2 23 05
+05 Can't fight the
+05 Can't Help Falling
+05 careless whisper.mp3
+05 Cats_Memory
+05 CHAPTER 20.mp3
+05 Charlotte and will
+05 Chopin part2.mp3 5,240,685
+05 Chubb Rock_Treat 'Em
+05 Claudette.mp3 2,167,954 30/05/1999
+05 cliff richard &
+05 CLUB 2K -
+05 Coinleach Glas An
+05 Coins of Death
+05 Colin Blunstone-I don't
+05 Come get to
+05 COME SAIL AWAY.mp3
+05 cosmic dawn.mp3
+05 CRAZY LITTLE THING
+05 Crystal Gayle -
+05 Cup of coffee.mp3
+05 Cuture - International
+05 d8 00 04
+05 Danger - [2:40]
+05 Danger
+05 Danger Of A
+05 DARK COLONY
+05 Dawn.mp3 5,842,944 09/07/2001
+05 Daydreamer.mp3 3,361,436 01/10/2001
+05 Dec 81 -
+05 depth of emotion.mp3
+05 Desmond Dekker -
+05 DESPERADO
+05 DOCTOR JONES.mp3
+05 Doesn't Make It
+05 Don't forget me.mp3
+05 Don't look back
+05 Don't you just
+05 Doop - Doop.mp3
+05 duran duran The
+05 Dusk
+05 e0 45 |
+05 ea 02 06
+05 ect,snowblind.mp3
+05 Emotions-Best of my
+05 end on this
+05 English Rose.mp3 3,298,220
+05 envy(theydontknowvocalremix).mp3
+05 Eple.mp3 3,903,216 01/10/2001
+05 Everything I do
+05 EVERYWHERE
+05 Everywhere.mp3
+05 Eye To Eye
+05 f4 13 0b
+05 f5 e4 b5
+05 f6 00 04
+05 Fairytale Of New
+05 Fantasy man.mp3 4,916,244
+05 Feb 94 12:52,
+05 Feb 94, gARetH
+05 Feb 94...
+05 Februar 1994 schrieb
+05 Feel Good
+05 FernKinney_TogetherWeAreB.. 2,898,108 12/02/1997
+05 fields of love.mp3
+05 Flash to the
+05 Fleetwood Mac-Man of
+05 Flickman_The Sound Of
+05 Flying without wings.mp3
+05 FOOTBALL FIGHT.mp3
+05 for RBBS.
+05 FORGIVEN NOT FORGOTTEN
+05 FRIENDS WILL BE
+05 FUNKTION.mp3
+05 GATECRASHERS GET WET
+05 gene farris,ricky ricardo.mp3
+05 Gene Fitzpatrick
+05 Gene Fitzpatrick.mp3
+05 Genesis live
+05 Genesis live Genesis
+05 Get me .mp3
+05 Girlfriend.mp3 4,483,134 01/10/2001
+05 Girls Talk ELVIS
+05 give it to
+05 GODS GIFT TO
+05 GOLD - GREATEST
+05 Good Life.mp3
+05 Good life.mp3 4,749,583
+05 Good shot .mp3
+05 Gotta tell you.mp3
+05 Grandmaster Flash &
+05 Grazie Prego Scusi.mp3
+05 Happy birthday baby
+05 Harold the barrel
+05 Harry J All
+05 Have a nice
+05 Head Over Feet.mp3
+05 Hear no see
+05 HEARTBEAT.mp3
+05 HH - Planetary
+05 Highway star.mp3 5,782,465
+05 hogans thing.mp3 3,512,424
+05 Home by the
+05 Honey bunny.mp3 5,240,685
+05 Hopeton Lewis -
+05 Horizons
+05 House of god.mp3
+05 How Deep is
+05 hump' em n
+05 I'll be waiting.mp3
+05 I'm a sexmachine.mp3
+05 I'm like a
+05 i'm over you.mp3
+05 I've got a
+05 I can't dance
+05 I Got Rhythm
+05 I JUST CAN'T
+05 I Think I'm
+05 I Want To
+05 I won't Forget
+05 If I had
+05 If That Were
+05 IF YOU CANT
+05 Illegal alien
+05 In the cage
+05 Invisible.mp3
+05 It's all in
+05 It's Four In
+05 It's So Dirty.mp3
+05 IT DOESN`T HAVE
+05 IT MUST BE
+05 Jake & Jesse
+05 James Brown -
+05 Jeff Foxworthy Who
+05 Jehovah Made This
+05 JOAN OF ARC.mp3
+05 Jul 93 22:23:44,
+05 Jul 93 with
+05 Jun 93 Clive
+05 Jun 93 you
+05 Jungle Music RICO
+05 Just The Way
+05 Kick you when
+05 Killer.mp3 4,998,269 01/10/2001
+05 KISS SMOOTH GROOVES
+05 kobrakai.mp3 6,669,583 08/10/2001
+05 Lady and John
+05 Last Time Forever.mp3
+05 lazy.mp3
+05 Let's get busy.mp3
+05 let forever be.mp3
+05 Let me clear
+05 let robeson sing.mp3
+05 LIAR.mp3
+05 life's too short.mp3
+05 Life and limb.mp3
+05 Lilac wine.mp3 6,780,342
+05 LILY OF THE
+05 Linsy De Paul
+05 little speaker.mp3
+05 Live forever.mp3 5,533,257
+05 Long distance
+05 Long distance.mp3
+05 LOSE YOUR MARBLES
+05 Love And Understanding.mp3
+05 love is alive.mp3
+05 Love things .mp3
+05 Love will find
+05 lover lover lover.mp3
+05 Lunge da Lei
+05 MACHINES(or BACK TO
+05 Madonna - Just
+05 Making Your Mind
+05 Mamas pearl.mp3 3,838,955
+05 Manifest Destiny
+05 Mar
+05 Mar 83 -
+05 Marlena.mp3 3,112,228 01/10/2001
+05 MATERIAL GIRL
+05 May 84 -
+05 May.txt
+05 May.txtAbsolute FTP V1.6
+05 Mean Woman Blues.mp3
+05 Mel & Kim
+05 Melodians - You
+05 Metropolis
+05 Miracle maker.mp3 8,088,555
+05 Mirror.mp3
+05 Misunderstanding
+05 Mousse T VS
+05 Move any mountain.mp3
+05 Mudslide.mp3 5,817,991 01/10/2001
+05 Multilanguage
+05 Neon lights.mp3 5,138,808
+05 Never a time
+05 NEVER GIVE UP
+05 New Year dub.mp3
+05 Night nurse.mp3 6,445,056
+05 Nightblindness.mp3
+05 Nov 83 -
+05 Nov 93 0:10:29
+05 Now that we've
+05 Oct 85 -
+05 Oct 93 0:00:03
+05 Oct 93 0:01:01
+05 Oct 93 0:11:55
+05 Oct 93 14:06:17
+05 Oct 93 23:59:03
+05 Oct 93 Nicholas
+05 Oct 93 You
+05 Once A Day
+05 One more time.mp3
+05 One Night In
+05 Only If
+05 Origanal sin.mp3 5,787,167
+05 Out Of Control.mp3
+05 Out of reach.mp3
+05 out of the
+05 Out of your
+05 Outhere Brothers -
+05 Overload.mp3 5,529,600 01/10/2001
+05 Owen Gray -
+05 paradise interlude.mp3
+05 Passione .mp3 4,513,792
+05 Pavarotti - Ah
+05 Pearls Cafe -
+05 Pearls Cafe
+05 PEGGY SUE
+05 perfect motion.mp3
+05 Perfect strangers.mp3 7,980,408
+05 PET SHOP BOYS
+05 phoenix.mp3
+05 Piano loco.mp3 4,358,144
+05 piano man.mp3
+05 Playas gon play.mp3
+05 pocket,smoke signals.mp3
+05 poor leno.mp3
+05 Presence.mp3 4,029,648 08/10/2001
+05 Puccini Tosca -
+05 Rarities Volume 3
+05 Reach Out And
+05 reach.mp3
+05 Ring On Her
+05 Robbery assault and
+05 Rock-A-Beatin' Boogie.mp3 2,398,667
+05 Roland Alphonso -
+05 Room 321.mp3 4,885,942
+05 Rudi A Message
+05 S Club 7_Bring
+05 Sam Small at
+05 SANDY..JOHN TRAVOLTA .mp3
+05 Sarah
+05 Say it now.mp3
+05 Second to last.mp3
+05 Sep 81 -
+05 Sep 93
+05 Sep 93 00:10:46
+05 Sep 93 07:45,
+05 Sep 93 19:48:00
+05 Sep 93 22:28,
+05 Sep 93 22:28:03,
+05 Sep 93 at
+05 Sep 93 you
+05 Sep 93, Tom
+05 Seven miles up.mp3
+05 shakin stevens -
+05 She loves you
+05 She loves you.mp3
+05 She Moved Through
+05 should i stay.mp3
+05 Show me a
+05 Sing a simple
+05 SIREN MANGA SLIDESHOW
+05 SKIN.mp3
+05 Skull Snaps -
+05 Slap & Tickle.mp3
+05 SLEEPING LATE
+05 Smokey Robinson -
+05 Snap - I've
+05 Sonate.mp3 8,744,228 02/10/2001
+05 Soulsearcher_Can't Get Enough.mp3
+05 Sparks.mp3 5,254,269 01/10/2001
+05 Speedballin'.mp3 5,914,624 09/07/2001
+05 SPREAD YOUR WINGS.mp3
+05 Steps - Tragedy
+05 STUDIO KID A
+05 Successful .mp3 4,804,608
+05 Such a good
+05 Suck My Kiss
+05 Summertime.mp3 5,976,064 16/07/2001
+05 Sun.mp3 8,518,530 01/10/2001
+05 Supergrass - Moving
+05 Supernaturals - Smile
+05 Surfin' Safari.mp3 1,116,261
+05 Susan Cadogan -
+05 Sweetest Soul Sensation
+05 System F_Out Of
+05 Systematic Parts -
+05 T Rex
+05 TAKE THE HEAT
+05 Talking To The
+05 Tearjerker.mp3 4,497,763 08/10/2001
+05 Teenage kicks.mp3 2,906,906
+05 Tennors - Khaki.mp3
+05 THANK GOD ITS
+05 The 3 Jays_Feeling
+05 The BBC Recordings
+05 The Bongo Medley
+05 The Chi-Lites -
+05 the door is
+05 The Eagles -
+05 THe lamia
+05 THE LOSER IN
+05 The Notations -
+05 The Sad Cafe.mp3
+05 The saint.mp3 2,127,872
+05 The short haired
+05 The Shortest Straw.mp3
+05 The slippery track.mp3
+05 The sound of.mp3
+05 The Stranger on
+05 the theme.mp3
+05 The women before
+05 Theme - TV
+05 There's No tomorrow.mp3
+05 TheVoyage of the
+05 Think about me.mp3
+05 This is is
+05 This time around.mp3
+05 Three ha'pence a
+05 Three Minute Hero
+05 tick tock.mp3
+05 TIE YOUR MOTHER
+05 tight fit -
+05 Tired of Waiting
+05 Tommy McCook and
+05 TOUCH AND GO
+05 Touch me in
+05 Travis - Why
+05 Truth isn't anymore
+05 U Don't Have
+05 U got it
+05 U know wat's
+05 Una voce poco
+05 usa for africa
+05 Vengaboys_Kiss.mp3
+05 Versatiles - Teardrops
+05 Village People.mp3
+05 Voices in the
+05 voodoo people.mp3
+05 Votre toast, je
+05 Walk on the
+05 Waste the day.mp3
+05 Wasted Time -
+05 way to fall.mp3
+05 we didn't start
+05 What's it gonna
+05 where has all
+05 Whole again.mp3 3,721,216
+05 With One Look
+05 Working For The
+05 Yellow.mp3
+05 Yes it's you.mp3
+05 YOU AND I.mp3
+05 You fool no
+05 You lie.mp3
+05 You Only Tell
+05 Young man blues.mp3
+05 Youre no good.mp3

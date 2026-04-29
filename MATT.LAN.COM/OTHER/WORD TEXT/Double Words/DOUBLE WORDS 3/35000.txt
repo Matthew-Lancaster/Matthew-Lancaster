@@ -1,0 +1,51 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+5000 - Get On,
+5000 (SLIP)
+5000 , the system
+5000 120000000 58327 4000
+5000 15500 9500 7500
+5000 16000 12000 9000
+5000 257/100 263/150 442/21
+5000 AMI002 #1122
+5000 cards each capable
+5000 for a typical
+5000 free professional images
+5000 high quality professional
+5000 lines max, up
+5000 lines per file,
+5000 lines using a
+5000 lines. Even
+5000 miles from home
+5000 nodes.
+5000 nodes. DXF file
+5000 of many *Info*
+5000 OS!
+5000 pages, set it
+5000 people called Kindersley.
+5000 people die on
+5000 Pictures.TXT
+5000 pixels and
+5000 quotes at your
+5000 records each.
+5000 sites (as of
+5000 user acounts *Info*
+5000 VOLTS - DR
+5000 Volts - I'm
+5000 words/language.
+5000 x 5000 pixels
+5000 years ago.
+5000 years.

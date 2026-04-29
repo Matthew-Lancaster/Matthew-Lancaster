@@ -1,0 +1,112 @@
+01 --- Wed-06-06-1906->>-Last '6 or 66' 666 On a Full Moon at: 21:11:35
+02 --- Mon-01-02-1999---- Last Black Moon ---- @ Mon-01-Feb-1999 12:00:00a --- No Full Moon in Feb
+03 --- Fri-13-10-2000---- Last Friday The 13th On a Full Moon ---- @ Fri-13-Oct-2000
+04 --- Wed-06-06-2001->>-Last 666 On a Full Moon at: 01:40:32
+05 --- Sun-05-11-2006---- Last The Maine Farmer's Almanac Blue Moon ---- @ 05-11-2006 - 12:59:21 --- - 4 Full Moons in Season
+06 --- Sat-30-06-2007---- Last Calendar Blue Moon ---- @ Sat-30-Jun-2007 01:49:43p --- 2nd Full Moon in Month
+07 --- Mon-24-12-2007---- Last Real Blue Moon ---- @ Mon-24-Dec-2007 01:16:36a --- 13 Full Moons in Year
+08 --- Tue-05-02-2008---- Last *Shrove Tuesday* is the day before Lent begins, when confession leads one to be shriven of sins for which the penitent is given absolution. ---- @ Tue-05-Feb-2008
+09 --- Tue-05-02-2008---- Last Shrove Tue - 1st Biblical Day Year -47 Days From Easter Sunday +60 for Corpus Christi -- Tott 107 Days - Tott 17+ Biblical Days ---- @ Tue-05-Feb-2008
+10 --- Wed-06-02-2008---- Last Ash Wednesday - First day of the penitential season of Lent "Remember that you are dust, and unto dust you shall return." ---- @ Wed-06-Feb-2008
+11 --- Sun-10-02-2008---- Last First sunday in lent ---- @ Sun-10-Feb-2008
+12 --- Sun-02-03-2008---- Last Mothering Sunday 4th Sunday in Lent ---- @ Sun-02-Mar-2008
+13 --- Sun-16-03-2008---- Last Holy Week - The week immediately preceding Easter, beginning with Palm Sunday. ---- @ Sun-16-Mar-2008
+14 --- Sun-16-03-2008---- Last Palm Sunday -- Custom of blessing palms -- In commemoration of the triumphal entry of Jesus into Jerusalem ---- @ Sun-16-Mar-2008
+15 --- Thu-20-03-2008---- Last Maundy Thursday or Holy Thursday, the Thursday before Easter Sunday, observed by Christians in commemoration of Christ's Last Supper ---- @ Thu-20-Mar-2008
+16 --- Thu-20-03-2008---- Last Vernal Equinox ---- @ Thu-20-Mar-2008
+17 --- Fri-21-03-2008---- Last Good Friday, Friday immediately preceding Easter, celebrated by Christians as the anniversary of Christ's crucifixion. ---- @ Fri-21-Mar-2008
+18 --- Sat-22-03-2008---- Last Full Moon Before Easter -- Easter Sunday is Next Sunday After Easter Full Moon ---- @ Sat-22-Mar-2008
+19 --- Sat-22-03-2008---- Last Holy Saturday commemorates the burial of Christ ---- @ Sat-22-Mar-2008
+20 --- Sun-23-03-2008---- Last Easter Sunday -- Easter Full Moon is the next Full Moon after Mar 22 ---- @ Sun-23-Mar-2008
+21 --- Mon-24-03-2008---- Last Easter Monday Holiday ---- @ Mon-24-Mar-2008
+22 --- Sun-30-03-2008---- Last British Summer Time Begins - BST ---- @ Sun-30-Mar-2008
+23 --- Thu-01-05-2008---- Last Ascension Day ---- @ Thu-01-May-2008
+24 --- Sun-04-05-2008---- Last Sunday after Ascension Day ---- @ Sun-04-May-2008
+25 --- Mon-05-05-2008---- Last Summer -- Cross-Quarter Season Begin ---- @ Mon-05-May-2008
+26 --- Sun-11-05-2008---- Last Pentecost ---- @ Sun-11-May-2008
+27 --- Sun-11-05-2008---- Last Whitsuntide, week beginning with Whitsunday or Pentecost -- Whitsuntide (Anglo-Saxon hweta sunnandaeg, white Sunday) ---- @ Sun-11-May-2008
+28 --- Mon-12-05-2008---- Last Whitmonday -- white Sunday, derives from the white garments worn by those baptized on Whitsunday. ---- @ Mon-12-May-2008
+29 --- Tue-13-05-2008---- Last Whit-Tuesday ---- @ Tue-13-May-2008
+30 --- Sun-18-05-2008---- Last Trinity Day ---- @ Sun-18-May-2008
+31 --- Thu-22-05-2008---- Last Corpus Christi -- The Last Biblical Day of Year Besides Christmas - Makes 17 Christian Days In Year as My Count ---- @ Thu-22-May-2008
+32 --- Mon-16-06-2008---- Last Earliest Sunrise Summer  03:45:08a
+33 --- Sat-21-06-2008---- Last Longest Day ---- @ Sat-21-Jun-2008
+34 --- Tue-24-06-2008---- Last Latest Sunset Summer  08:16:54p
+35 --- Thu-03-07-2008---- Last Father's Day ---- @ Thu-03-Jul-2008
+36 --- Wed-06-08-2008---- Last Autumn -- Cross-Quarter Season Begin ---- @ Wed-06-Aug-2008
+37 --- Mon-25-08-2008---- Last Late Summer Holiday ---- @ Mon-25-Aug-2008
+38 --- Mon-22-09-2008---- Last Autumnal Equinox ---- @ Mon-22-Sep-2008
+39 --- Sat-27-09-2008---- Last Grand Parents Day ---- @ Sat-27-Sep-2008
+40 --- Mon-27-10-2008---- Last Armistice Day Forerunner for Veterans Day ---- @ Mon-27-Oct-2008
+41 --- Thu-06-11-2008---- Last Winter -- Cross-Quarter Season Begin ---- @ Thu-06-Nov-2008
+42 --- Sun-09-11-2008---- Last Rememberance Sunday Veterans Day ---- @ Sun-09-Nov-2008
+43 --- Tue-11-11-2008---- Last Rememberance Veterans Day 11th Day 11th Hour ---- @ Tue-11-Nov-2008
+44 --- Fri-12-12-2008---- Last Earliest Sunset Winter  03:53:29p
+45 --- Sun-21-12-2008---- Last Shortest Day ---- @ Sun-21-Dec-2008
+46 --- Sun-21-12-2008---- Last Winter Solstice ---- @ Sun-21-Dec-2008
+47 --- Tue-30-12-2008---- Last Latest Sunrise Winter  08:01:42a
+48 --- Mon-26-01-2009---- Last # Solar Eclipse -Annular 26-01-2009 07:55:00a GMT
+49 --- Mon-26-01-2009---- Last New Moon * ---- @ Mon-26-Jan-2009 07:56:22a
+50 --- Fri-30-01-2009---- Last Pay Day *Before End Of Month*
+51 --- Tue-03-02-2009---- Last Spring -- Cross-Quarter Season Begin ---- @ Tue-03-Feb-2009
+52 --- Mon-09-02-2009---- Last # Lunar Eclipse -Penumbral 09-02-2009 02:48:00p GMT
+53 --- Mon-09-02-2009---- Last Full Moon * ---- @ Mon-09-Feb-2009 02:50:11p
+54 --- Sat-14-02-2009---- Last St Valentine's Day ---- @ Sat-14-Feb-2009
+
+#---- Last to Next ----
+
+01 --- Tue-24-02-2009---- Next *Shrove Tuesday* is the day before Lent begins, when confession leads one to be shriven of sins for which the penitent is given absolution. ---- @ Tue-24-Feb-2009
+02 --- Tue-24-02-2009---- Next Shrove Tue - 1st Biblical Day Year -47 Days From Easter Sunday +60 for Corpus Christi -- Tott 107 Days - Tott 17+ Biblical Days ---- @ Tue-24-Feb-2009
+03 --- Wed-25-02-2009---- Next Ash Wednesday - First day of the penitential season of Lent "Remember that you are dust, and unto dust you shall return." ---- @ Wed-25-Feb-2009
+04 --- Wed-25-02-2009---- Next New Moon * ---- @ Wed-25-Feb-2009 01:36:10a
+05 --- Fri-27-02-2009---- Next Pay Day *Before End Of Month*
+06 --- Sun-01-03-2009---- Next First sunday in lent ---- @ Sun-01-Mar-2009
+07 --- Wed-11-03-2009---- Next Full Moon * ---- @ Wed-11-Mar-2009 02:38:51a
+08 --- Fri-20-03-2009---- Next Vernal Equinox ---- @ Fri-20-Mar-2009
+09 --- Sun-22-03-2009---- Next Mothering Sunday 4th Sunday in Lent ---- @ Sun-22-Mar-2009
+10 --- Sun-29-03-2009---- Next British Summer Time Begins - BST ---- @ Sun-29-Mar-2009
+11 --- Sun-05-04-2009---- Next Holy Week - The week immediately preceding Easter, beginning with Palm Sunday. ---- @ Sun-05-Apr-2009
+12 --- Sun-05-04-2009---- Next Palm Sunday -- Custom of blessing palms -- In commemoration of the triumphal entry of Jesus into Jerusalem ---- @ Sun-05-Apr-2009
+13 --- Thu-09-04-2009---- Next Maundy Thursday or Holy Thursday, the Thursday before Easter Sunday, observed by Christians in commemoration of Christ's Last Supper ---- @ Thu-09-Apr-2009
+14 --- Fri-10-04-2009---- Next Full Moon Before Easter -- Easter Sunday is Next Sunday After Easter Full Moon ---- @ Fri-10-Apr-2009
+15 --- Fri-10-04-2009---- Next Good Friday, Friday immediately preceding Easter, celebrated by Christians as the anniversary of Christ's crucifixion. ---- @ Fri-10-Apr-2009
+16 --- Sat-11-04-2009---- Next Holy Saturday commemorates the burial of Christ ---- @ Sat-11-Apr-2009
+17 --- Sun-12-04-2009---- Next Easter Sunday -- Easter Full Moon is the next Full Moon after Mar 22 ---- @ Sun-12-Apr-2009
+18 --- Mon-13-04-2009---- Next Easter Monday Holiday ---- @ Mon-13-Apr-2009
+19 --- Tue-05-05-2009---- Next Summer -- Cross-Quarter Season Begin ---- @ Tue-05-May-2009
+20 --- Thu-21-05-2009---- Next Ascension Day ---- @ Thu-21-May-2009
+21 --- Sun-24-05-2009---- Next Sunday after Ascension Day ---- @ Sun-24-May-2009
+22 --- Sun-31-05-2009---- Next Pentecost ---- @ Sun-31-May-2009
+23 --- Sun-31-05-2009---- Next Whitsuntide, week beginning with Whitsunday or Pentecost -- Whitsuntide (Anglo-Saxon hweta sunnandaeg, white Sunday) ---- @ Sun-31-May-2009
+24 --- Mon-01-06-2009---- Next Whitmonday -- white Sunday, derives from the white garments worn by those baptized on Whitsunday. ---- @ Mon-01-Jun-2009
+25 --- Tue-02-06-2009---- Next Whit-Tuesday ---- @ Tue-02-Jun-2009
+26 --- Sun-07-06-2009---- Next Trinity Day ---- @ Sun-07-Jun-2009
+27 --- Thu-11-06-2009---- Next Corpus Christi -- The Last Biblical Day of Year Besides Christmas - Makes 17 Christian Days In Year as My Count ---- @ Thu-11-Jun-2009
+28 --- Tue-16-06-2009---- Next Earliest Sunrise Summer  03:45:08a
+29 --- Sun-21-06-2009---- Next Longest Day ---- @ Sun-21-Jun-2009
+30 --- Wed-24-06-2009---- Next Latest Sunset Summer  08:16:54p
+31 --- Fri-03-07-2009---- Next Father's Day ---- @ Fri-03-Jul-2009
+32 --- Tue-07-07-2009---- Next # Lunar Eclipse -Penumbral 07-07-2009 09:21:00a GMT
+33 --- Wed-22-07-2009---- Next # Solar Eclipse -Total 22-07-2009 02:34:00a GMT
+34 --- Thu-06-08-2009---- Next Autumn -- Cross-Quarter Season Begin ---- @ Thu-06-Aug-2009
+35 --- Mon-31-08-2009---- Next Late Summer Holiday ---- @ Mon-31-Aug-2009
+36 --- Tue-22-09-2009---- Next Autumnal Equinox ---- @ Tue-22-Sep-2009
+37 --- Sat-26-09-2009---- Next Grand Parents Day ---- @ Sat-26-Sep-2009
+38 --- Mon-26-10-2009---- Next Armistice Day Forerunner for Veterans Day ---- @ Mon-26-Oct-2009
+39 --- Mon-02-11-2009---- Next The Maine Farmer's Almanac Blue Moon ---- @ 02-11-2009 - 19:14:57 --- - 4 Full Moons in Season
+40 --- Fri-06-11-2009---- Next Winter -- Cross-Quarter Season Begin ---- @ Fri-06-Nov-2009
+41 --- Wed-11-11-2009---- Next Rememberance Veterans Day 11th Day 11th Hour ---- @ Wed-11-Nov-2009
+42 --- Sun-15-11-2009---- Next Rememberance Sunday Veterans Day ---- @ Sun-15-Nov-2009
+43 --- Sat-12-12-2009---- Next Earliest Sunset Winter  03:53:29p
+44 --- Mon-21-12-2009---- Next Shortest Day ---- @ Mon-21-Dec-2009
+45 --- Mon-21-12-2009---- Next Winter Solstice ---- @ Mon-21-Dec-2009
+46 --- Wed-30-12-2009---- Next Latest Sunrise Winter  08:01:41a
+47 --- Thu-31-12-2009---- Next Calendar Blue Moon ---- @ Thu-31-Dec-2009 07:13:53p --- 2nd Full Moon in Month
+48 --- Thu-31-12-2009---- Next Real Blue Moon ---- @ Thu-31-Dec-2009 07:13:53p --- 13 Full Moons in Year
+49 --- Wed-03-02-2010---- Next Spring -- Cross-Quarter Season Begin ---- @ Wed-03-Feb-2010
+50 --- Sun-14-02-2010---- Next St Valentine's Day ---- @ Sun-14-Feb-2010
+51 --- Fri-13-06-2014---- Next Friday The 13th On a Full Moon ---- @ Fri-13-Jun-2014
+52 --- Thu-01-02-2018---- Next Black Moon ---- @ Thu-01-Feb-2018 12:00:00a --- No Full Moon in Feb
+53 --- Mon-06-06-2039->>-Next 666 On a Full Moon at: 18:48:58
+54 --- Mon-06-06-3166->>-Next '6 or 66' 666 On a Full Moon at: 02:58:34
+55 --- Wed-06-06-6666->>--Next 6666 On a Full Moon at: 11:02:51

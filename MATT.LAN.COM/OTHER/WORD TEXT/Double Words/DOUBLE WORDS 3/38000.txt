@@ -1,0 +1,28 @@
+#@***-----------------------------------------------------***
+#@***-------**-----Number-------------------**------------***
+#@***-----------------------------------------------------***
+#---CHECKED acrobdoc.txt    2.9  MEGS OF acrobat document files
+#---CHECKED bashtml.zip     9.9  MEGS OF all MY HTML & BASIC files
+#---CHECKED list.inx        PUBLIC DOMAIN SW LIB BBS LIST
+#---CHECKED monster1.log    LARGE BBS LIST
+#---CHECKED netscap2.txt    7.5  MEGS OF internet EMAILS
+#---CHECKED onefile.txt     DASH'S CDROM LIST
+#---CHECKED pcbfiles.lst    US ROBOTICS BBS LIST
+#---CHECKED text.lst        OLD DOS BASED CDROM LIST
+#---CHECKED textfile.txt    24.6 MEGS OF all MY COMPUTER DOCUMENTS
+#---CHECKED tube.txt        14.5 MEGS OF EMAILS
+#**************----------------------------------************
+#@**************---------------------------------************
+8000 (2cd's)
+8000 05-31-90 Win 3.0
+8000 12-14-92 Dune ii
+8000 383/13 387/1102 388/5
+8000 5000 15500 9500
+8000 5000 16000 12000
+8000 entries (plus more
+8000 Files (913)897-0059 (1:280/317)
+8000 Games.
+8000 Saudi keys which
+8000 Series Video
+8000 v1.01 Patch
+8000 WAD

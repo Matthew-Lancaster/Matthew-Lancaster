@@ -224,8 +224,8 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 ; DetectHiddenWindows, on
 SetStoreCapslockMode, off
 
-SoundBeep , 2000 , 100
-SoundBeep , 2500 , 100
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT=
 
@@ -312,7 +312,7 @@ IF OSVER_N_VAR=WIN_XP
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
 
-setTimer TIMER_SUB_1,800
+setTimer TIMER_SUB_1, 800
 
 setTimer TIMER_SUB_EliteSpy, OFF
 
@@ -328,7 +328,7 @@ setTimer TIMER_SUB_WINDOWS_DESKTOP_ICON,10000
 setTimer TIMER_SUB_VICE_VERSA,OFF
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-setTimer TIMER_SUB_SCRIPT_SHELL_FOLDERING,1000
+setTimer TIMER_SUB_SCRIPT_SHELL_FOLDERING, 1000
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
 setTimer TIMER_SUB_OWNER, 1000 ; After1Hours
@@ -344,23 +344,23 @@ setTimer TIMER_SUB_OWNER, 1000 ; After1Hours
 ; UPDATE DATE CHANGE
 ; -------------------------------------------------------------------
 OLD_BluetoothView_Desc_FILE_DATE=0
-setTimer TIMER_SUB_BLUETOOTH_LOGGER, 1000
+setTimer TIMER_SUB_BLUETOOTH_LOGGER, OFF ;1000
 
 
-setTimer TIMER_SUB_LOGGER, 1000
+setTimer TIMER_SUB_LOGGER, OFF ;1000
 ; LOGGING BLUETOOTH AND DUPLICATE CLEANER LOGGER TRUNCATE
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-setTimer TIMER_SUB__SendSMTP__0__LOG_BAT,1000
+setTimer TIMER_SUB__SendSMTP__0__LOG_BAT,OFF ; 1000
 ; STARTS AS 1 SECOND AND THEN GOES TO EVERY HOUR
 
-setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,10000
+; setTimer TIMER_SUB_I_VIEW32_CONVERT_CCSE,10000
 ; STARTS AS 10 SECOND AND THEN GOES TO EVERY HALF HOUR
 
-setTimer TIMER_SUB__MY_IP, 10000
+; setTimer TIMER_SUB__MY_IP, 10000
 ; STARTS AS 10 SECOND AND THEN GOES TO EVERY 10 MINUTE
 
-setTimer TIMER_PREVIOUS_INSTANCE, 10
+; setTimer TIMER_PREVIOUS_INSTANCE, 10
 ; STARTS AS 10 MILLI-SECOND AND THEN GOES TO EVERY 1 MINUTE
 ; -------------------------------------------------------------------
 ; I used PREVIOUS_INSTANCE Detection For My Scripts Now 
@@ -370,9 +370,9 @@ setTimer TIMER_PREVIOUS_INSTANCE, 10
 ; -------------------------------------------------------------------
 
 
-SETTIMER TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX,4000
+; SETTIMER TIMER_DRIVE_CAMERA_UPLOAD_DROPBOX,4000
 
-SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
+; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
 ; SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR,3600000 ; ---- 1 HOUR
 
 
@@ -385,17 +385,17 @@ GOODSYNC_HOUR_NOW=
 GOODSYNC_SET_GO=
 
 GOSUB GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
-SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, 1000
+SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER,OFF ;  1000
 
 DAY_AND_HOUR_NOW=
 SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
 
-SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
-SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
+; SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
+; SETTIMER TIMER_SUB_HUBIC_2, 3600000 ; ---- 01 HOUR
 
-SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
+; SETTIMER TIMER_ROBOFORM_MYSMS_LOGIN , 200
 
-SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
+; SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER ,10000
 
 SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 100000 ; 10 SECOND AND THEN 10 MINUTE
 
@@ -409,33 +409,34 @@ OLD_VAR_WORKER_MSGBOX_DELAY_COUNT=-2
 SETTIMER MSGBOX_COUNTDOWN_VB_KEEP_RUNNER_OS_RESTART,OFF
 
 TIMER_SUB_VB_KEEP_RUNNER__01_VAR_NOT_FIRST_TIME=TRUE
-SETTIMER TIMER_SUB_VB_KEEP_RUNNER_02, 60000 ; 1 MINUTE
+; SETTIMER TIMER_SUB_VB_KEEP_RUNNER_02, 60000 ; 1 MINUTE
 
  
-GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
+; GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
 
 CLEAN_UP_HDD_SPACE_ONE_A_DAY_VAR=
 DATE_CALC_DAY=
-SETTIMER CLEAN_UP_HDD_SPACE_ONE_A_DAY,1000
+; SETTIMER CLEAN_UP_HDD_SPACE_ONE_A_DAY,1000
 
 HWNDID=
 
 SETTIMER ONE_SECOND,1000
 
-SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01,5000
+; SETTIMER TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01,5000
 
 ; SETTIMER CHECK_TEAMVIEWER_NOT_RUN_ALL_MACHINER,60000
-SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
+; SETTIMER KILL_TEAMVIEWER_ON_LOW_END_COMPUTER,1000
 
 
-SETTIMER KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION,500
+; SETTIMER KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION,500
 
 PROCESS_NAME_COUNTER_01=
 PROCESS_NAME_COUNTER_02=
 PROCESS_NAME_COUNTER_03=
-SETTIMER APP_TO_KILL,10000
+SETTIMER APP_TO_KILL,OFF ; 10000
 
-SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
+SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, OFF ; 2000
+
 
 
 RETURN
@@ -443,7 +444,6 @@ RETURN
 ; END OF INIT PROCEDURE
 ; NEXT IS THE CODE SUBROUTINE SET
 ; -------------------------------------------------------------------
-RETURN
 
 SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME:
 	
@@ -539,7 +539,7 @@ ONE_MOMENT_CLOSE_CMD:
 	WINCLOSE ahk_id %HWNDID%
 	HWNDID=
 	SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
-	SOUNDBEEP 1000,200
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 RETURN
 
@@ -553,7 +553,7 @@ ONE_SECOND:
 		IF HWNDID
 		{
 			SETTIMER ONE_MOMENT_CLOSE_CMD,120000
-			SOUNDBEEP 1000,200
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 	}
 
@@ -590,8 +590,8 @@ KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION:
 						WinGet, KILL_PID, PID, % "ahk_id " List%A_Index% 
 						IF KILL_PID>0 
 						{
-							Process, Close, %KILL_PID%
-							SOUNDBEEP 1200,40
+								Process, Close, %KILL_PID%
+								SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						}
 					}
 				}
@@ -959,24 +959,24 @@ MIDNIGHT_AND_HOUR_TIMER:
 		GOSUB DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP
 		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
 		{	
-			GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
+			; GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
 			GOSUB VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS
 			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
-			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+			; GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
 			GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
 			GOSUB SET_OWNER_RUN_BATCH_FILER
 			GOSUB RAM_EMPTY_MAIN
-			GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER
-			GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT
+			; GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER
+			; GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT
 			GOSUB PULL_RECYCLE_BIN_ON  ; CHECK IF EMPTY BEFORE BEGIN
-			GOSUB KILL_RS232_LOGGER_DO_RESTARTER
-			FN_VAR_04=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD_DAY EVENT.ahk
-			IfExist, %FN_VAR_04%
-				Run, %FN_VAR_04%
-			GOSUB RUN_GOODSYNC
-			GOSUB KILL_COMPUTER_TEAMVIEWER
+			; GOSUB KILL_RS232_LOGGER_DO_RESTARTER
+			; FN_VAR_04=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD_DAY EVENT.ahk
+			; IfExist, %FN_VAR_04%
+				; Run, %FN_VAR_04%
+			; GOSUB RUN_GOODSYNC
+			; GOSUB KILL_COMPUTER_TEAMVIEWER
 			
-			GOSUB RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND
+			; GOSUB RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND
 		}
 		
 
@@ -1088,7 +1088,7 @@ RUN_GOODSYNC:
 		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\gs-server.exe"
 		IfExist, %FN_VAR%
 		{
-			SoundBeep , 2500 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Run, "%FN_VAR%"  /service
 		}
 	}
@@ -1101,7 +1101,8 @@ RUN_GOODSYNC:
 		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
 		IfExist, %FN_VAR%
 		{
-			SoundBeep , 2500 , 100
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
 			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
 			Run, "%FN_VAR%" 
@@ -1377,14 +1378,14 @@ IF SET_GO=TRUE
 		RunWait,sc config "TeamViewer" start= disabled, , hide, pid2
 		RunWait,sc delete "TeamViewer", , hide, pid2
 		
-		SoundBeep , 2000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 	Process, Exist, TeamViewer.exe
 	If ErrorLevel > 0
 	{
 		; TOOLTIP "__ TEAM VIEWER WAS KILLER __ Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
 		Process, Close, TeamViewer.exe
-		SoundBeep , 2000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 }
 RETURN
@@ -1405,14 +1406,16 @@ KILL_COMPUTER_TEAMVIEWER:
 		RunWait,sc config "TeamViewer" start= disabled, , hide, pid2
 		RunWait,sc delete "TeamViewer", , hide, pid2
 		
-		SoundBeep , 2000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 	}
 	Process, Exist, TeamViewer.exe
 	If ErrorLevel > 0
 	{
 		; TOOLTIP "__ TEAM VIEWER WAS KILLER __ Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
 		Process, Close, TeamViewer.exe
-		SoundBeep , 2000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 	}
 RETURN
 
@@ -1453,7 +1456,7 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
 	If NewPID > 0
 	{
-		SoundBeep , 3000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Process, priority, %NewPID%, Realtime
 		ID_ConsoleWindowClass_TIMER=%A_Now%
 		ID_ConsoleWindowClass_TIMER+=40, Seconds ; 40 SECOND
@@ -1463,7 +1466,8 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 	NewPID = %ErrorLevel%  ; Save the value immediately ErrorLevel is often changed
 	If NewPID > 0
 	{
-		SoundBeep , 2000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 		Process, priority, %NewPID%, Realtime
 		ID_ConsoleWindowClass_TIMER=%A_Now%
 		ID_ConsoleWindowClass_TIMER+=40, Seconds ; 40 SECOND
@@ -1547,164 +1551,154 @@ if (WinExist("Warning ahk_class #32770"))
 	and WinHeight=WinHeightOS)
 	{
 		Control, Check,, Button1
-		SoundBeep , 4000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 }
 
 DetectHiddenWindows, OFF
 
 ;Would you like to switch to the following audio playback device?
-IfWinExist FxSound Message
-{
-	;WinGet, OutputVar, ControlList, FxSound Message
-	;Tooltip, % OutputVar ; List All Controls of Active Window
-	;---------------------------------------------------------
-	ControlGettext, OutputVar_2, Static1,  FxSound Message
+; IfWinExist FxSound Message
+; {
+	; ;WinGet, OutputVar, ControlList, FxSound Message
+	; ;Tooltip, % OutputVar ; List All Controls of Active Window
+	; ;---------------------------------------------------------
+	; ControlGettext, OutputVar_2, Static1,  FxSound Message
 	
-	IfInString, OutputVar_2, Would you like to
-	{
-		SoundBeep , 3000 , 100
-		SoundBeep , 2000 , 100
-	    Control, Check,, Button4, FxSound Message ahk_class #32770
-	    ControlClick, Button2, FxSound Message ahk_class #32770
-	}
-}
+	; IfInString, OutputVar_2, Would you like to
+	; {
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
-IfWinExist File Access Denied ahk_class #32770
-{
+	    ; Control, Check,, Button4, FxSound Message ahk_class #32770
+	    ; ControlClick, Button2, FxSound Message ahk_class #32770
+	; }
+; }
+
+; IfWinExist File Access Denied ahk_class #32770
+; {
 	;WinGet, OutputVar, ControlList, FxSound Message
 	;Tooltip, % OutputVar ; List All Controls of Active Window
 	;---------------------------------------------------------
-	ControlGettext, OutputVar_2, SysLink1, File Access Denied ahk_class #32770
+	; ControlGettext, OutputVar_2, SysLink1, File Access Denied ahk_class #32770
 	
 	; MSGBOX % OutputVar_2
 	
-	IfInString, OutputVar_2, You'll need to provide administrator
-	{
-	    ControlClick, Button1, File Access Denied ahk_class #32770
-		SoundBeep , 3000 , 100
-		SoundBeep , 2000 , 100
-	}
-}
+	; IfInString, OutputVar_2, You'll need to provide administrator
+	; {
+	    ; ControlClick, Button1, File Access Denied ahk_class #32770
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; }
+; }
 
-IfWinExist File Access Denied ahk_class OperationStatusWindow
-{
+; IfWinExist File Access Denied ahk_class OperationStatusWindow
+; {
 
-	WINACTIVATE, File Access Denied ahk_class OperationStatusWindow
-	SENDINPUT {ENTER}
+	; WINACTIVATE, File Access Denied ahk_class OperationStatusWindow
+	; SENDINPUT {ENTER}
 	
-	; ControlClick, Continue, File Access Denied ahk_class OperationStatusWindow
-	SoundBeep , 3000 , 100
-	SoundBeep , 2000 , 100
-}
+	; ; ControlClick, Continue, File Access Denied ahk_class OperationStatusWindow
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
 DetectHiddenWindows, ON
 DetectHiddenWindows, OFF
 
-IF TRUE=FALSE
-ifWinNotExist, ahk_class wndclass_desked_gsk
-{
-	if (WinExist("(Not Responding)") and Set_Var_Responding_1="FALSE")
-	{
-		Set_Var_Responding_1=TRUE
-		SoundBeep , 1000 , 100
-		; SoundBeep , 2000 , 100
-	}
+; IF TRUE=FALSE
+; ifWinNotExist, ahk_class wndclass_desked_gsk
+; {
+	; if (WinExist("(Not Responding)") and Set_Var_Responding_1="FALSE")
+	; {
+		; Set_Var_Responding_1=TRUE
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; }
 
-	if (!WinExist("(Not Responding)") and Set_Var_Responding_1="TRUE")
-	{
-		Set_Var_Responding_1=FALSE
-		SoundBeep , 3000 , 100
-		; SoundBeep , 2000 , 100
-		; SoundBeep , 2500 , 100
-		; SoundBeep , 2000 , 100
-	}
-}
+	; if (!WinExist("(Not Responding)") and Set_Var_Responding_1="TRUE")
+	; {
+		; Set_Var_Responding_1=FALSE
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; }
+; }
 
-if (WinExist("Page Unresponsive") and Set_Var_Responding_2="FALSE")
-{
-	Set_Var_Responding_2=TRUE
-	SoundBeep , 1000 , 100
-	; SoundBeep , 2000 , 100
-}
+; if (WinExist("Page Unresponsive") and Set_Var_Responding_2="FALSE")
+; {
+	; Set_Var_Responding_2=TRUE
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
-if (!WinExist("Page Unresponsive") and Set_Var_Responding_2="TRUE")
-{
-	Set_Var_Responding_2=FALSE
-	SoundBeep , 3000 , 100
-	; SoundBeep , 2000 , 100
-	; SoundBeep , 2500 , 100
-	; SoundBeep , 2000 , 100
-}
+; if (!WinExist("Page Unresponsive") and Set_Var_Responding_2="TRUE")
+; {
+	; Set_Var_Responding_2=FALSE
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
 DetectHiddenWindows, OFF
 
-IfWinExist RoboForm Upgrade
-{
-	WINCLOSE
-	;WinActivate
-	;sendinput, !{F4}		I
-	;SoundBeep , 2500 , 100
-}
+; IfWinExist RoboForm Upgrade
+; {
+	; WINCLOSE
+	; ;WinActivate
+	; ;sendinput, !{F4}		I
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
-IfWinExist ahk_class #32770
-{
+; IfWinExist ahk_class #32770
+; {
 
-	HWND_ID_1 := WinExist("ahk_class #32770")
-	HWND_ID_2 := WinExist("AutoSave Login - RoboForm ahk_class #32770")
-	HWND_ID_3 := WinExist("Save - RoboForm ahk_class #32770")
-	HWND_ID_4 := WinExist("Install RoboForm ahk_class #32770")
-	HWND_ID_5 := WinExist("Sync RoboForm Data Folder")
-	HWND_ID_6 := WinExist("AutoFill - RoboForm")
-	HWND_ID_7 := WinExist("AutoSave New Account - RoboForm")
+	; HWND_ID_1 := WinExist("ahk_class #32770")
+	; HWND_ID_2 := WinExist("AutoSave Login - RoboForm ahk_class #32770")
+	; HWND_ID_3 := WinExist("Save - RoboForm ahk_class #32770")
+	; HWND_ID_4 := WinExist("Install RoboForm ahk_class #32770")
+	; HWND_ID_5 := WinExist("Sync RoboForm Data Folder")
+	; HWND_ID_6 := WinExist("AutoFill - RoboForm")
+	; HWND_ID_7 := WinExist("AutoSave New Account - RoboForm")
 	
-	ControlGetText, OutputVar_1, _RoboForm_Dialog_1100973_, ahk_class #32770
+	; ControlGetText, OutputVar_1, _RoboForm_Dialog_1100973_, ahk_class #32770
 	
-	; -------------------------------------------------------
-	; THIS IS THE THIN TASK BAR UNDERNEATH THE APP'S
-	; NOT MUCH TO GO ON TAKEN MAX THOUGH _ FILTER THIS ONE TO 
-	; IGNORE TO ACT ON
-	; MORE EFFORT ONLY ABLE USE DON'T SAVE WORD
-	; -------------------------------------------------------
-	; Save
-	; Don't Save
-	; _RoboForm_Dialog_1100973_
-	; -------------------------------------------------------
-	ControlGetText, OutputVar_2, Don't Save, ahk_class #32770
-	; ControlGetText, OutputVar_2, Save`r`nDon't Save`r`n_RoboForm_Dialog_1100973_, ahk_class #32770
+	; ; -------------------------------------------------------
+	; ; THIS IS THE THIN TASK BAR UNDERNEATH THE APP'S
+	; ; NOT MUCH TO GO ON TAKEN MAX THOUGH _ FILTER THIS ONE TO 
+	; ; IGNORE TO ACT ON
+	; ; MORE EFFORT ONLY ABLE USE DON'T SAVE WORD
+	; ; -------------------------------------------------------
+	; ; Save
+	; ; Don't Save
+	; ; _RoboForm_Dialog_1100973_
+	; ; -------------------------------------------------------
+	; ControlGetText, OutputVar_2, Don't Save, ahk_class #32770
+	; ; ControlGetText, OutputVar_2, Save`r`nDon't Save`r`n_RoboForm_Dialog_1100973_, ahk_class #32770
 	
-	; Fill Empty Fields &Only
-	; _RoboForm_Dialog_1100973_
-	; -------------------------------------------------------
-	ControlGetText, OutputVar_3, Fill Empty Fields, ahk_class #32770
+	; ; Fill Empty Fields &Only
+	; ; _RoboForm_Dialog_1100973_
+	; ; -------------------------------------------------------
+	; ControlGetText, OutputVar_3, Fill Empty Fields, ahk_class #32770
 	
-	SET_GO=FALSE
-	IF OutputVar_1
-		SET_GO=TRUE
-	IF OutputVar_2
-		SET_GO=FALSE
-	IF OutputVar_3
-		SET_GO=FALSE
-	IF HWND_ID_1=%HWND_ID_2%
-		SET_GO=FALSE
-	IF HWND_ID_1=%HWND_ID_3%
-		SET_GO=FALSE
-	IF HWND_ID_1=%HWND_ID_4%
-		SET_GO=FALSE
-	IF HWND_ID_1=%HWND_ID_5%
-		SET_GO=FALSE
-	IF HWND_ID_1=%HWND_ID_6%
-		SET_GO=FALSE
-	IF HWND_ID_1=%HWND_ID_7%
-		SET_GO=FALSE
+	; SET_GO=FALSE
+	; IF OutputVar_1
+		; SET_GO=TRUE
+	; IF OutputVar_2
+		; SET_GO=FALSE
+	; IF OutputVar_3
+		; SET_GO=FALSE
+	; IF HWND_ID_1=%HWND_ID_2%
+		; SET_GO=FALSE
+	; IF HWND_ID_1=%HWND_ID_3%
+		; SET_GO=FALSE
+	; IF HWND_ID_1=%HWND_ID_4%
+		; SET_GO=FALSE
+	; IF HWND_ID_1=%HWND_ID_5%
+		; SET_GO=FALSE
+	; IF HWND_ID_1=%HWND_ID_6%
+		; SET_GO=FALSE
+	; IF HWND_ID_1=%HWND_ID_7%
+		; SET_GO=FALSE
 		
-	IF SET_GO=TRUE
-	{	
-		SoundBeep , 2500 , 100
-		;MSGBOX REQUIRE HELP HERE ROBOFORM SEARCHING _RoboForm_Dialog_1100973_
-		;ControlClick, No, ahk_class #32770
-	}
-}
+	; IF SET_GO=TRUE
+	; {	
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; ;MSGBOX REQUIRE HELP HERE ROBOFORM SEARCHING _RoboForm_Dialog_1100973_
+		; ;ControlClick, No, ahk_class #32770
+	; }
+; }
 
 
 DetectHiddenWindows, OFF
@@ -1712,59 +1706,59 @@ DetectHiddenWindows, OFF
 ; -------------------------------------------------------------------
 ; Question at End of Sync is Able to Be Made Close Auto
 ; -------------------------------------------------------------------
-Sting_Var=Sync RoboForm Data Folder
+; Sting_Var=Sync RoboForm Data Folder
 
-IfWinExist %Sting_Var%
-{
-	HWND_ID_5 := WinExist("%Sting_Var%")
-	SET_GO=FALSE
-	DetectHiddenWindows, ON
-	; ---------------------------------------------------------------
-	; ON SYSTEM START UP OF 1ST RUN _ Button60
-	; ---------------------------------------------------------------
-	ControlGetText, OutputVar, Button60, %Sting_Var%
-	IfInString, OutputVar, &Close
-		SET_GO=TRUE
-	; ---------------------------------------------------------------
-	; ON REQUEST MANUAL SYNC        _ Button40
-	; ---------------------------------------------------------------
-	ControlGetText, OutputVar, Button40, %Sting_Var%
-	IfInString, OutputVar, &Close
-		SET_GO=TRUE
+; IfWinExist %Sting_Var%
+; {
+	; HWND_ID_5 := WinExist("%Sting_Var%")
+	; SET_GO=FALSE
+	; DetectHiddenWindows, ON
+	; ; ---------------------------------------------------------------
+	; ; ON SYSTEM START UP OF 1ST RUN _ Button60
+	; ; ---------------------------------------------------------------
+	; ControlGetText, OutputVar, Button60, %Sting_Var%
+	; IfInString, OutputVar, &Close
+		; SET_GO=TRUE
+	; ; ---------------------------------------------------------------
+	; ; ON REQUEST MANUAL SYNC        _ Button40
+	; ; ---------------------------------------------------------------
+	; ControlGetText, OutputVar, Button40, %Sting_Var%
+	; IfInString, OutputVar, &Close
+		; SET_GO=TRUE
 
-	IF SET_GO=TRUE 
-	{
-		DetectHiddenText, Off
-		WinGetText, OutputVar_1, %Sting_Var%
-		if OutputVar_1=&Close`r`n
-			ControlClick, &Close, %Sting_Var%
-	}
-}
+	; IF SET_GO=TRUE 
+	; {
+		; DetectHiddenText, Off
+		; WinGetText, OutputVar_1, %Sting_Var%
+		; if OutputVar_1=&Close`r`n
+			; ControlClick, &Close, %Sting_Var%
+	; }
+; }
 
 ; -----------------------
 ; Default Setting By Here
 ; -----------------------
-DetectHiddenText, On
+; DetectHiddenText, On
 
-IfWinExist RoboForm Update ahk_class #32770
-{
-	SoundBeep , 2500 , 100
-	ControlClick, No, RoboForm Update ahk_class #32770
-}
+; IfWinExist RoboForm Update ahk_class #32770
+; {
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; ControlClick, No, RoboForm Update ahk_class #32770
+; }
 
-IfWinExist ahk_class #32770
-{
-	ControlGetText, OutputVar, Button1, ahk_class #32770
-	IfInString, OutputVar, Install
-	{	
-	WINCLOSE ahk_class #32770 ahk_exe robotaskbaricon.exe
-	;ControlClick, Button1, ahk_class #32770
-	}
-}
+; IfWinExist ahk_class #32770
+; {
+	; ControlGetText, OutputVar, Button1, ahk_class #32770
+	; IfInString, OutputVar, Install
+	; {	
+	; WINCLOSE ahk_class #32770 ahk_exe robotaskbaricon.exe
+	; ;ControlClick, Button1, ahk_class #32770
+	; }
+; }
 
 IfWinExist An update for Process Lasso is available! ahk_class #32770
 {
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	WinActivate 
 	SENDINPUT {ENTER}
 	; THIS LINE NOT WORK MOST LIKELY THE UPDATE PROGRAM IS NOT RUNNING PRIVILEGED ADMINISTRATOR
@@ -1792,38 +1786,38 @@ IfWinExist DuplicateCleaner ahk_class #32770
 
 DetectHiddenWindows, off
 
-IfWinExist left in trial
-{
-	WinActivate
-	sendinput, !{F4}		I
-	SoundBeep , 1000 , 50
-}
+; IfWinExist left in trial
+; {
+	; WinActivate
+	; sendinput, !{F4}		I
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
 SetTitleMatchMode 3  ; Exactly
 
 ; DFXSTATIC
 ; ..\..\UTIL\doubleBuff\doubleBuffInit.cpp
-IfWinExist 38 ahk_class #32770
-{
-	; ControlGetText, OutputVar, doubleBuffInit , 38 ahk_class #32770
-	; ControlGetText,Static1,doubleBuffInit
-	; ControlGettext, OutputVar, Static1, 38 ahk_class #32770
-	; MSGBOX % OutputVar 
-	; IF OutputVar 
+; IfWinExist 38 ahk_class #32770
+; {
+	; ; ControlGetText, OutputVar, doubleBuffInit , 38 ahk_class #32770
+	; ; ControlGetText,Static1,doubleBuffInit
+	; ; ControlGettext, OutputVar, Static1, 38 ahk_class #32770
+	; ; MSGBOX % OutputVar 
+	; ; IF OutputVar 
 
-	ControlClick, OK, 38 ahk_class #32770
-	SoundBeep , 1000 , 50
-}
-IfWinExist 58 ahk_class #32770
-{
-	ControlClick, OK, 58 ahk_class #32770
-	SoundBeep , 1000 , 50
-}
-IfWinExist 158 ahk_class #32770
-{
-	ControlClick, OK, 158 ahk_class #32770
-	SoundBeep , 1000 , 50
-}
+	; ControlClick, OK, 38 ahk_class #32770
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
+; IfWinExist 58 ahk_class #32770
+; {
+	; ControlClick, OK, 58 ahk_class #32770
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
+; IfWinExist 158 ahk_class #32770
+; {
+	; ControlClick, OK, 158 ahk_class #32770
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
 SetTitleMatchMode 2
 
@@ -1833,42 +1827,42 @@ SetTitleMatchMode 2
 
 DetectHiddenWindows, on
 
-IfWinExist Sponsored session
-{
-	;WinActivate
-	;sendinput, !{F4}		I
-	SoundBeep , 2500 , 100
+; IfWinExist Sponsored session
+; {
+	; ;WinActivate
+	; ;sendinput, !{F4}		I
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	
-	;0x10 CLOSE
-	;PostMessage, 0x10, 0, 0,, Sponsored session
+	; ;0x10 CLOSE
+	; ;PostMessage, 0x10, 0, 0,, Sponsored session
 	
-	;PostMessage, 0x112, 0xF060,,, WinTitle, WinText  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
-	;PostMessage, 0x112, 0xF060,,, ,Sponsored session,   ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+	; ;PostMessage, 0x112, 0xF060,,, WinTitle, WinText  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
+	; ;PostMessage, 0x112, 0xF060,,, ,Sponsored session,   ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 
-	ControlClick, OK, Sponsored session
-}
+	; ControlClick, OK, Sponsored session
+; }
 ;--------------------------------------------------------------------
 ; TEAM VIEWER CLOSE AFTER CONNECTION ADVERT
 ;--------------------------------------------------------------------
 
 DetectHiddenWindows, OFF
 
-IfWinExist ahk_class ATL:03A50E50
-{
-	ControlClick, OK, ahk_class ATL:03A50E50
-}
+; IfWinExist ahk_class ATL:03A50E50
+; {
+	; ControlClick, OK, ahk_class ATL:03A50E50
+; }
 
-IfWinExist Commercial use ahk_class #32770
-{
-	;ControlClick, Button4, Commercial use ahk_class #32770
-	ControlClick, OK, Commercial use ahk_class #32770
-}
+; IfWinExist Commercial use ahk_class #32770
+; {
+	; ;ControlClick, Button4, Commercial use ahk_class #32770
+	; ControlClick, OK, Commercial use ahk_class #32770
+; }
 
 
-IfWinExist Session timeout! ahk_class #32770
-{
-	ControlClick, OK, Session timeout! ahk_class #32770
-}
+; IfWinExist Session timeout! ahk_class #32770
+; {
+	; ControlClick, OK, Session timeout! ahk_class #32770
+; }
 
 
 
@@ -1880,7 +1874,7 @@ IfWinExist Visual Component Manager
 	IF OutputVar_4 
 	{
 		ControlClick, OK, Visual Component Manager
-		SoundBeep , 2500 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 }
 
@@ -1892,32 +1886,32 @@ IfWinExist Data View ahk_class VBFloatingPalette
 	IF OutputVar_4
 	{
 		ControlClick, OK, Data View ahk_class VBFloatingPalette
-		SoundBeep , 2500 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 }
 
 DetectHiddenWindows, ON
 
-IfWinExist hubiC
-{
-	ControlGetText, OutputVar, hubiC is already running. , hubiC
-	IF OutputVar 
-	{	
-		SoundBeep , 2500 , 100
-		ControlClick, OK, hubiC
-	}
-}
+; IfWinExist hubiC
+; {
+	; ControlGetText, OutputVar, hubiC is already running. , hubiC
+	; IF OutputVar 
+	; {	
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; ControlClick, OK, hubiC
+	; }
+; }
 
-SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-IfWinExist hubiC
-{
-	ControlGetText, OutputVar, If you exit hubiC now , hubiC
-	IF OutputVar 
-	{	
-		SoundBeep , 2500 , 100
-		ControlClick, &Yes, hubiC
-	}
-}
+; SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
+; IfWinExist hubiC
+; {
+	; ControlGetText, OutputVar, If you exit hubiC now , hubiC
+	; IF OutputVar 
+	; {	
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; ControlClick, &Yes, hubiC
+	; }
+; }
 
 
 ; MAYBE WANT IT
@@ -1928,7 +1922,7 @@ IfWinExist RoboForm Question
 	ControlGetText, OutputVar, Do you want to delete
 	IF OutputVar 
 	{	
-		SoundBeep , 2500 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		ControlClick, OK, RoboForm Question
 	}
 }
@@ -1941,7 +1935,7 @@ IfWinExist Microsoft OneDrive
 	ControlGetText, OutputVar, Close OneDrive , Microsoft OneDrive
 	IF OutputVar 
 	{	
-		SoundBeep , 2500 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		ControlClick, Close OneDrive, Microsoft OneDrive
 	}
 }
@@ -1969,7 +1963,7 @@ IfWinExist, Replace ahk_exe VB6.EXE
 		if UniqueID_Old<>%UniqueID%
 		{
 			;WinMove, Replace,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
-			SoundBeep , 2500 , 50
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			WinGetPos,,YPos, Width, Height, Replace ahk_exe VB6.EXE
 			WinMove, Replace ahk_exe VB6.EXE,, (A_ScreenWidth)-(Width), 0
 
@@ -1983,20 +1977,20 @@ IfWinExist, Replace ahk_exe VB6.EXE
 }
 
 
-WINGET, HWND_1, ID, Driver Booster ahk_class TFormDrvBst
-IF HWND_1
-{
-	WinGet, Style, MinMax, ahk_id %HWND_1%
-	IF Style=-1
-		ID_DRIVER_BOOSTER_OLD=
-	ID_DRIVER_BOOSTER =%HWND_1%
-	if ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
-		RETURN
+; WINGET, HWND_1, ID, Driver Booster ahk_class TFormDrvBst
+; IF HWND_1
+; {
+	; WinGet, Style, MinMax, ahk_id %HWND_1%
+	; IF Style=-1
+		; ID_DRIVER_BOOSTER_OLD=
+	; ID_DRIVER_BOOSTER =%HWND_1%
+	; if ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
+		; RETURN
 
-	SOUNDBEEP , 2500 , 50
-	WINMOVE, ahk_id %HWND_1%,,,-19   ; ---- CHANGE TOP TO 0
-	ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
-}
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; WINMOVE, ahk_id %HWND_1%,,,-19   ; ---- CHANGE TOP TO 0
+	; ID_DRIVER_BOOSTER_OLD=%ID_DRIVER_BOOSTER%
+; }
 
 
 ; MAYBE WANT IT
@@ -2005,7 +1999,7 @@ IF HWND_1
 ;DuplicateCleaner
 IfWinExist Finished deleting files.
 {
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	ControlClick, OK, Finished deleting files.
 }
 
@@ -2018,7 +2012,7 @@ IfWinExist DuplicateCleaner
 	ControlGetText, OutputVar, Are you sure you want to cancel , DuplicateCleaner
 	IF OutputVar 
 	{	
-		SoundBeep , 2500 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		ControlClick, &Yes, DuplicateCleaner
 	}
 }
@@ -2073,7 +2067,7 @@ IfWinExist Open File - Security Warning
 	; MSGBOX % OutputVar
 	IfInString, OutputVar, Open File - Security Warning
 	{	
-		SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		ControlClick, &Run, Open File - Security Warning
 	}
 
@@ -2081,7 +2075,7 @@ IfWinExist Open File - Security Warning
 
 	IfInString, OutputVar, Are you sure that you want to run this software?
 	{	
-		SoundBeep , 2500 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		ControlClick, &Run, Open File - Security Warning
 	}
 }
@@ -2092,7 +2086,8 @@ IfWinExist Open File - Security Warning
 ;DuplicateCleaner
 IfWinExist Scan cancelled
 {
-	SoundBeep , 2500 , 100
+	WINACTIVATE Scan cancelled
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	ControlClick, Close, Scan cancelled
 }
 
@@ -2110,7 +2105,7 @@ IfWinExist MSDN Library Visual
 	{	
 		;Esc::
 		;{
-		;	SoundBeep , 3500 , 100
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		;	PostMessage, 0x112, 0xF060,,, MSDN Library Visual  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 		;}
 		;return
@@ -2153,19 +2148,19 @@ IfWinExist Configure Permanent Access
 	{
 		HWND_ID_1_OLD=%HWND_ID_1%
 		
-		SoundBeep , 2500 , 100
 		; ControlClick, &Run, Open File - Security Warning
 		
 		FN_VAR:="C:\RF\7-ASUS-GL522VW\LOGIN APPS 01\TeamViewer - EXE APP.rfp"
 		IfExist, %FN_VAR%
 		{
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Run, %FN_VAR%
 		}
 	}
 }
 IfWinExist Permanent Access Activated
 {
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	ControlClick, OK, Permanent Access Activated
 }
 
@@ -2203,7 +2198,7 @@ IF UniqueID>0
 		IF SET_GO=TRUE
 		{	
 			WinMaximize, ahk_id %UniqueID%
-			SoundBeep , 2500 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 		OLD_UniqueID_CHROME=%UniqueID%
 	}
@@ -2220,7 +2215,7 @@ IF OLD_UniqueID_RfEditor<>%UniqueID%
 {
 	OLD_UniqueID_RfEditor=%UniqueID%
     WinMaximize  ; Maximizes the Notepad window found by IfWinActive above.
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 }
 	
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
@@ -2231,7 +2226,7 @@ IF OLD_UniqueID_NOTEPAD_PLUS_PLUS<>%UniqueID%
 {
 	OLD_UniqueID_NOTEPAD_PLUS_PLUS=%UniqueID%
     WinMaximize  ; Maximizes the Notepad window found by IfWinActive above.
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 }
 	
 
@@ -2244,25 +2239,23 @@ IF OLD_UniqueID_NOTEPAD_PLUS_PLUS<>%UniqueID%
 ; ADD MORE SAFETY CHECKER SEE HOW GOES
 ; -------------------------------------------------------------------
 
-SetTitleMatchMode 3  ; Exactly
-
-UniqueID := WinActive("Log in with PayPal - Google Chrome")
-
-WinGetTitle, Title, ahk_id %UniqueID%
-IF Instr(Title,"Log in with PayPal - Google Chrome")
-{
-	Loop, 30
-	{
-		WinGetTitle, Title, ahk_id %UniqueID%
-		IF Instr(Title,"Log in with PayPal - Google Chrome")
-		{
-			#WinActivateForce, ahk_id %UniqueID%
-			SLEEP 500
-			SENDINPUT {ENTER}
-			SoundBeep , 2500 , 100
-		}
-	}
-}
+; SetTitleMatchMode 3  ; Exactly
+; UniqueID := WinActive("Log in with PayPal - Google Chrome")
+; WinGetTitle, Title, ahk_id %UniqueID%
+; IF Instr(Title,"Log in with PayPal - Google Chrome")
+; {
+	; Loop, 30
+	; {
+		; WinGetTitle, Title, ahk_id %UniqueID%
+		; IF Instr(Title,"Log in with PayPal - Google Chrome")
+		; {
+			; #WinActivateForce, ahk_id %UniqueID%
+			; SLEEP 500
+			; SENDINPUT {ENTER}
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; }
+	; }
+; }
 
 	
 DetectHiddenWindows, OFF
@@ -2291,7 +2284,7 @@ IF OLD_UniqueID_WINRAR_CONVERT<>%UniqueID_WINRAR%
 	IF (INSTR(EDITBOX_VAR,".")=0 or INSTR(EDITBOX_VAR,".")<>1)
 	{
 		ControlSetText,Edit2,., ahk_id %UniqueID_WINRAR%
-		SoundBeep , 5000 , 100
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 	ELSE
 	{
@@ -2310,86 +2303,86 @@ OLD_UniqueID_WINRAR_CONVERT=%UniqueID_WINRAR%
 	
 
 	
-SetTitleMatchMode 3  ; Exactly
-DetectHiddenText, Off
-IfWinExist TeamViewer ahk_class #32770
-{
-	WinGetText, OutputVar, TeamViewer ahk_class #32770
-	IfInString, OutputVar, Show running TeamViewer
-	{	
-		ControlClick, Button3, TeamViewer ahk_class #32770
-		SoundBeep , 2500 , 100
+; SetTitleMatchMode 3  ; Exactly
+; DetectHiddenText, Off
+; IfWinExist TeamViewer ahk_class #32770
+; {
+	; WinGetText, OutputVar, TeamViewer ahk_class #32770
+	; IfInString, OutputVar, Show running TeamViewer
+	; {	
+		; ControlClick, Button3, TeamViewer ahk_class #32770
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
-	}
-}
+	; }
+; }
 
 ; TEAMVIEWER ADVERT AT END OF SESSION
 ; -----------------------------------
 ; ahk_class ATL:03259F10
 ; ahk_exe TeamViewer.exe
-IfWinExist ahk_class ATL:03259F10
-{
-	#WinActivateForce, ahk_class ATL:03259F10
-	WINCLOSE ahk_class ATL:03259F10
-}
+; IfWinExist ahk_class ATL:03259F10
+; {
+	; #WinActivateForce, ahk_class ATL:03259F10
+	; WINCLOSE ahk_class ATL:03259F10
+; }
 
-SetTitleMatchMode 3  ; Exactly
-DetectHiddenText, ON
-; UniqueID := WinActive("TeamViewer ahk_class #32770")
-; UniqueID := WinGET("TeamViewer ahk_class #32770")
-WinGet, UniqueID, ID, TeamViewer ahk_class #32770
+; SetTitleMatchMode 3  ; Exactly
+; DetectHiddenText, ON
+; ; UniqueID := WinActive("TeamViewer ahk_class #32770")
+; ; UniqueID := WinGET("TeamViewer ahk_class #32770")
+; WinGet, UniqueID, ID, TeamViewer ahk_class #32770
 
-IF UniqueID>0 
-{
-	; MSGBOX % UniqueID
-	WinGetText, OutputVar, ahk_id %UniqueID%
-	; MSGBOX %  OutputVar
-	SET_GO=FALSE
-	IfInString, OutputVar, Loading...
-		SET_GO=TRUE
-	IfInString, OutputVar, Please wait
-		SET_GO=TRUE
-	IF SET_GO=TRUE
-	{	
-		#WinActivateForce, ahk_id %UniqueID%
-		Loop, 30
-		{
-			IfWinExist ahk_id %UniqueID%
-			{
-				SLEEP 500
-				WINCLOSE ahk_id %UniqueID%
-				SoundBeep , 2500 , 100
-			}
-		}
+; IF UniqueID>0 
+; {
+	; ; MSGBOX % UniqueID
+	; WinGetText, OutputVar, ahk_id %UniqueID%
+	; ; MSGBOX %  OutputVar
+	; SET_GO=FALSE
+	; IfInString, OutputVar, Loading...
+		; SET_GO=TRUE
+	; IfInString, OutputVar, Please wait
+		; SET_GO=TRUE
+	; IF SET_GO=TRUE
+	; {	
+		; #WinActivateForce, ahk_id %UniqueID%
+		; Loop, 30
+		; {
+			; IfWinExist ahk_id %UniqueID%
+			; {
+				; SLEEP 500
+				; WINCLOSE ahk_id %UniqueID%
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			; }
+		; }
 		
-	}
-; Loading...
-; Please wait
-; 2
-; 3
-; 4
-; 5
-}
+	; }
+; ; Loading...
+; ; Please wait
+; ; 2
+; ; 3
+; ; 4
+; ; 5
+; }
 
 
-SetTitleMatchMode 3  ; Exactly
-DetectHiddenText, Off
-HWND_ID_1 := WinExist(".NET-BroadcastEventWindow.4.0.0.0.1a8c1fa.0: chrome.exe - Application Error")
-IF HWND_ID_1>0
-{
-	ControlClick, OK, ahk_id %HWND_ID_1%
-	SoundBeep , 2500 , 100
-}
+; SetTitleMatchMode 3  ; Exactly
+; DetectHiddenText, Off
+; HWND_ID_1 := WinExist(".NET-BroadcastEventWindow.4.0.0.0.1a8c1fa.0: chrome.exe - Application Error")
+; IF HWND_ID_1>0
+; {
+	; ControlClick, OK, ahk_id %HWND_ID_1%
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
 
-SetTitleMatchMode 3  ; Exactly
-DetectHiddenText, Off
-HWND_ID_1 := WinExist("FUJIFILM PC AutoSave")
-IF HWND_ID_1>0
-{
-	ControlClick, OK, ahk_id %HWND_ID_1%
-	SoundBeep , 2500 , 100
-}
+; SetTitleMatchMode 3  ; Exactly
+; DetectHiddenText, Off
+; HWND_ID_1 := WinExist("FUJIFILM PC AutoSave")
+; IF HWND_ID_1>0
+; {
+	; ControlClick, OK, ahk_id %HWND_ID_1%
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; }
 
 
 ; -------------------------------------------------------------------
@@ -2450,7 +2443,7 @@ IF TRUE=FALSE
 						COLOR_COMPARE_2=%COLOR_1%%COLOR_2%%COLOR_3%
 						IF COLOR_COMPARE_1=%COLOR_COMPARE_2%
 						{
-							SOUNDBEEP 1000,50
+							SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 							; TOOLTIP % COLOR_COMPARE_1 " -- " COLOR_COMPARE_2
 							; WinCLOSE  ahk_id %HWND_4%
 							SENDINPUT {ESCAPE}
@@ -2472,7 +2465,7 @@ HWND_ID_1 := WinExist("InfoRapid Search & Replace ahk_class #32770")
 IF HWND_ID_1>0
 {
 	ControlClick, &No, ahk_id %HWND_ID_1%
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 }
 
 
@@ -2495,40 +2488,40 @@ Return
 
 
 
-TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01:
+; TIMER_LOGIN_QNAP_AND_EMAIL_AND_ARRAY_01:
 
-SetTitleMatchMode 3  ; Exactly
+; SetTitleMatchMode 3  ; Exactly
 
-WINDOW_Array := []
-WINDOW_Ar_OPT := []
-ArrayCount := 0
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
+; WINDOW_Array := []
+; WINDOW_Ar_OPT := []
+; ArrayCount := 0
 ; ArrayCount += 1
-; WINDOW_Array[ArrayCount] := "Email Login Page - Mozilla Firefox"	
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
-ArrayCount += 1
-WINDOW_Array[ArrayCount] := "Flickr Login - Google Chrome"
+; WINDOW_Array[ArrayCount] := "Email Login Page - Google Chrome"	
+; ; ArrayCount += 1
+; ; WINDOW_Array[ArrayCount] := "Email Login Page - Mozilla Firefox"	
+; ArrayCount += 1
+; WINDOW_Array[ArrayCount] := "NAS-QNAP-ML - Google Chrome"
+; ArrayCount += 1
+; WINDOW_Array[ArrayCount] := "Flickr Login - Google Chrome"
 
-Loop % ArrayCount
-{
-	Element := WINDOW_Array[A_Index]
-	IfWinActive %Element%
-	{
-		IF INSTR(Element,"QNAP")>0 
-			SENDINPUT {ENTER} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
+; Loop % ArrayCount
+; {
+	; Element := WINDOW_Array[A_Index]
+	; IfWinActive %Element%
+	; {
+		; IF INSTR(Element,"QNAP")>0 
+			; SENDINPUT {ENTER} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
 		
-		IF INSTR(Element,"Email Login Page")>0 
-			SENDINPUT {F5} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
+		; IF INSTR(Element,"Email Login Page")>0 
+			; SENDINPUT {F5} ; ---- AUTO PASS SOMETIME FAIL AUTO FILL AND LOGON SO F5 FEW TIME
 		
-		IF INSTR(Element,"Flickr Login - Google Chrome")>0 
-			TOOLTIP "Flickr Login - Google Chrome ---- WHAT TO DO -- NOTHING AT THE MOMENT"
+		; IF INSTR(Element,"Flickr Login - Google Chrome")>0 
+			; TOOLTIP "Flickr Login - Google Chrome ---- WHAT TO DO -- NOTHING AT THE MOMENT"
 		
-		Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
-	}
-}
-RETURN
+		; Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET\AKKORD.WAV
+	; }
+; }
+; RETURN
 
 
 	
@@ -2554,10 +2547,12 @@ SetTitleMatchMode 2  ; Avoids Specify Full path.
 
 IfWinNotExist VB_KEEP_RUNNER
 {
-	SoundBeep , 3000 , 100
 	FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+	Process, Exist, VB_KEEP_RUNNER.exe
+	If NOT ErrorLevel
 	IfExist, %FN_VAR%
 		{
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Run, %FN_VAR%
 		}
 }
@@ -2691,8 +2686,8 @@ IF Secs_MSGBOX_01=-1
 			IF SET_GO=TRUE
 			{
 				ControlClick, OK  0, %VAR_WORKER_MSGBOX_DELAY_COUNT%
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
-			SOUNDBEEP 500,50
 		}
 }
 Return
@@ -2711,8 +2706,14 @@ Return
 
 TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 
-	SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 600000 ; 10 MINUTE
+SETTIMER TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER, 600000 ; 10 MINUTE
 
+SET_GO=TRUE
+IF (A_ComputerName="9-ASUS-G815LM")
+	SET_GO=FALSE
+
+IF SET_GO=TRUE
+{
 	Process, Exist, WSCRIPT.EXE
 	If NOT ErrorLevel
 	{
@@ -2722,7 +2723,7 @@ TIMER_COPY_SYNC_VBSCRIPT_CODE_SYNC_ER:
 			Run, %FN_VAR% NOTHING_DISPLAY
 		}
 	}
-	
+}	
 RETURN
 
 
@@ -2741,7 +2742,7 @@ SETTIMER TIMER_KILL_GOOGLE_CHROME_UPDATE_GOING_TO_USE_AD_BLOCK_KILLER, OFF
 ; {
 	; ; Process, Close, GoogleUpdate.exe
 	; Run, "TASKKILL.exe" /F /IM GoogleUpdate.exe /T , , HIDE
-	; ; SoundBeep , 2000 , 100
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 ; }
 	
 RETURN
@@ -2871,14 +2872,14 @@ IF UniqueID>0
 					; SEND {Alt}{z}
 					; SEND {lalt}z
 					; SENDinput ^+z
-					; SoundBeep , 2500 , 100
+					; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 
 					FN_VAR:="C:\Program Files (x86)\Siber Systems\AI RoboForm\identities.exe"
 					IfExist, %FN_VAR%
 					{
 						Run, "%FN_VAR%" -l C:\RF\%A_ComputerName%\LOGINS\Mysms.rfp
-						SOUNDBEEP 2000,100
+						SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 						Sleep 4000
 
 					}
@@ -2927,7 +2928,7 @@ IfWinExist Camera Upload
 {
 	WinActivate
 	sendinput, !{F4}		; CLOSE
-	SoundBeep , 1000 , 50
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 }
 RETURN
 
@@ -2955,7 +2956,7 @@ IF SET_GO=TRUE
 	FN_VAR_1=%FN_VAR%
 	IfExist, %FN_VAR%
 		{
-			SoundBeep , 2000 , 200
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			FileDelete, %FN_VAR%
 		}
 }	
@@ -2969,7 +2970,7 @@ FN_VAR_1:=StrReplace(FN_VAR_1, """" , "")
 FN_VAR_2=%FN_VAR_1%
 IfExist, %FN_VAR_1%
 	{
-		SoundBeep , 2000 , 200
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		FileDelete, %FN_VAR_1%
 	}
 
@@ -3090,7 +3091,8 @@ DetectHiddenWindows, ON
 IfWinExist Windows Script Host
 {
 	ControlClick, OK, Windows Script Host
-	SoundBeep , 2500 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 }
 
 DetectHiddenWindows, % dhw
@@ -3229,8 +3231,7 @@ TIMER_SUB_ESIF_ASSIST_64_SUSPEND:
 		If NewPID >0 
 		{
 			SET_GO_ESIF_ASSIST_64_SUSPEND=0
-			; SoundBeep , 3000 , 100
-			; SoundBeep , 3200 , 100
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			
 			; Process_Suspend_PID(NewPID)
 			
@@ -3250,8 +3251,7 @@ Return
 ;--------------------------------------------------------------------
 TIMER_SUB_ESIF_ASSIST_64_SUSPEND_WAIT_AN_HOUR:
 	; RETURN
-	;SoundBeep , 4000 , 100
-	;SoundBeep , 4200 , 100
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	Process_Resume("esif_assist_64.exe")
 	SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND, 20000 ; ---- 20 SECONDS
 	SETTIMER TIMER_SUB_ESIF_ASSIST_64_SUSPEND,ON
@@ -3425,8 +3425,7 @@ TIMER_SUB_BLUETOOTH_LOGGER:
 		If FileExist(FILE_PATH_BLUETOOTHVIEW_DESC)
 		{
 
-
-			Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- Audio\10 Guitars\009.WAV, WAIT
+					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav, WAIT
 	
 	}
 	}
@@ -3528,7 +3527,7 @@ If HID>0
 
 	IF Instr(OutputVar_2,"Free license (non-commercial use only)")
 	{
-		; soundbeep 1500,200
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
 }
 
@@ -3553,13 +3552,15 @@ If SET_GO=TRUE
 	; If ErrorLevel > 0
 	; {
 		; Process, Close, ICACLS.EXE
-		; SoundBeep , 2000 , 100
+		; 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 	; }
 	; Process, Exist, TAKEOWN
 	; If ErrorLevel > 0
 	; {
 		; Process, Close, TAKEOWN
-		; SoundBeep , 2000 , 100
+		; 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
 	; }
 
 	; WinGet, HID, ID, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
@@ -3644,7 +3645,7 @@ ELSE
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 SET_GO=TRUE
-IFWINEXIST, BAT 47-OWNER-HARD-CODER ANYWHERE.BAT ahk_class ConsoleWindowClass
+IFWINEXIST, BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT ahk_class ConsoleWindowClass
 	SET_GO=FALSE
 IF SET_GO=TRUE Process, Exist, ICACLS.EXE
 If ErrorLevel>0
@@ -3660,7 +3661,7 @@ IF SET_GO=TRUE
 	; ---------------------------------------------------------------
 	; BAT 49-OWNER-ALL-DRIVES.BAT
 	; ---------------------------------------------------------------
-	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 47-OWNER-HARD-CODER ANYWHERE.BAT" /QUITE , , MIN ; HIDE
+	Run, "C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 48-OWNER-C-DRIVE-ONLY & NOT-SUB-FOLDER.BAT" , , MIN ; HIDE
 	SLEEP 4000
 }
 DetectHiddenWindows, % dhw
