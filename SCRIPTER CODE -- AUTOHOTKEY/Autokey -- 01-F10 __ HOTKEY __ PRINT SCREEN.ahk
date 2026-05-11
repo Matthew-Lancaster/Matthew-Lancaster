@@ -5,12 +5,12 @@
 
  ;  =============================================================
 ;# __ C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
-;# __ 
+;# __
 ;# __ Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
-;# __ 
-;# __ BY Matthew Lancaster 
+;# __
+;# __ BY Matthew Lancaster
 ;# __ Matt.Lan@Btinternet.com
-;# __ 
+;# __
 ;  =============================================================
 
 #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
@@ -29,14 +29,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; -------------------------------------------------------------------
 ; SESSION 001
 ; ---------------------------------------------------------------
-; CREATION 
+; CREATION
 ; ---------------------------------------------------------------
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; SESSION 002
 ; ---------------------------------------------------------------
-; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART
 ; 01. INTRO SETUP MENU
 ; 02. THE MENU ROUTINE
 ; 03. ANY ROUTINE THE MENU USE
@@ -69,7 +69,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; HARD THINK ANOTHER WAY TO DO THAT THING
 ; SURE REPEATER KEY NOT WORK IF LOOK LAST KEY
 ; -------------------------------------------------------------------
-; A TREAT CODER TO DO AFTER EVERY THING ELSE TODAY WAS ADD ROUTINE TO 
+; A TREAT CODER TO DO AFTER EVERY THING ELSE TODAY WAS ADD ROUTINE TO
 ; ADD AN OPTION TO TOGGLE THE "SEARCH RESULTS WINDOW NOTEPAD-PLUS-PLUS
 ; TOOK A SEARCH TO FINDER -- CREDIT LINK BELOW
 ; -------------------------------------------------------------------
@@ -86,7 +86,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;# ------------------------------------------------------------------
 ; Location Internet
 ;--------------------------------------------------------------------
-; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk 
+; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
 ; HTTP://TINYURL.COM/R9OEH4F
 ;# ------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; ESC KEY AND MOUSE LEFT TO CORNER COUPLE TIME TO TRIG
 ; NOW DO KILL ALL MPC PROCESS
 ; -------------------------------------------------------------------
-; 
+;
 ; Thu 30-Jan-2020 23:03:29
 ; Thu 30-Jan-2020 23:38:00 -- 35 MINUTE
 ; -------------------------------------------------------------------
@@ -123,7 +123,7 @@ OnExit(ObjBindMethod(MyObject, "Exiting"))
 
 
 ; ---------------------------------------------------------------
-; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART 
+; I MADE MENU ITEM INTO INCLUDE FILE IN 3 PART
 ; 01. INTRO SETUP MENU
 ; 02. THE MENU ROUTINE
 ; 03. ANY ROUTINE THE MENU USE
@@ -241,7 +241,7 @@ IF TRUE=FALSE
 	}
 
 	ScanCode( wParam, lParam ) {
-	 Clipboard_TMP := "SC" SubStr((((lParam>>16) & 0xFF)+0xF000),-2) 
+	 Clipboard_TMP := "SC" SubStr((((lParam>>16) & 0xFF)+0xF000),-2)
 	 GuiControl,, SC, %Clipboard_TMP%
 	}
 	RETURN
@@ -251,7 +251,7 @@ IF TRUE=FALSE
 
 
 ; ----
-; Crazy Scripting : Scriptlet to find Scancode of a Key - Scripts and Functions - AutoHotkey Community 
+; Crazy Scripting : Scriptlet to find Scancode of a Key - Scripts and Functions - AutoHotkey Community
 ; https://autohotkey.com/board/topic/21105-crazy-scripting-scriptlet-to-find-scancode-of-a-key/
 ; ----
 
@@ -290,7 +290,7 @@ SETTIMER WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON,100
 ; -------------------------------------------------------------------
 WSCRIPT_FOCUS_SET_FLAG_01=
 WSCRIPT_FOCUS_SET_FLAG_02=
-ROBOFOM_FOCUS_SET_FLAG_01=FALSE 
+ROBOFOM_FOCUS_SET_FLAG_01=FALSE
 ; -------------------------------------------------------------------
 SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
 SETTIMER TIMER_FAST_ERROR_APPLYING_SECURITY,10
@@ -305,10 +305,10 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; THE CODE START TO ENTER ROUTINE FUNCTION THAT USE RETURN ON FROM 
+; THE CODE START TO ENTER ROUTINE FUNCTION THAT USE RETURN ON FROM
 ; HERE
-; NOT FOR SURE TRUE THAT INITIAL CODE END AS 
-; FUNCTION SET WITH RETURN AFTER 
+; NOT FOR SURE TRUE THAT INITIAL CODE END AS
+; FUNCTION SET WITH RETURN AFTER
 ; THE MAIN RETURN COULD COME HERE
 ; MAYBE A TIDIER -- CHECK OUT LATER
 ; Tue 17-Sep-2019 18:15:00
@@ -336,9 +336,9 @@ GroupAdd, FIND_WINDOW_1, My Mob 19_NOKIA_E72 VF
 GroupAdd, FIND_WINDOW_1, 07446 760389 - Google Chrome ; ANDY
 GroupAdd, FIND_WINDOW_1, 07917 558401 - Google Chrome ; DAVID
 GroupAdd, FIND_WINDOW_1, 07342 994049 - Google Chrome ; JEFF
-GroupAdd, FIND_WINDOW_1, 07887 722056 - Google Chrome ; RICK  
+GroupAdd, FIND_WINDOW_1, 07887 722056 - Google Chrome ; RICK
 GroupAdd, FIND_WINDOW_1, Compose
-RETURN 
+RETURN
 
 ; SetTitleMatchMode 2  ; PARTIAL PATH
 ; #IfWinActive ahk_group FIND_WINDOW_1
@@ -375,15 +375,15 @@ return
 ; -------------------------------------------------------------------
 ; Tue 17-Sep-2019 16:02:42
 ; -------------------------------------------------------------------
-; IGNORE ABOVE THIS LINE IS NOT LOCATABLE ANYWHERE IN CODE 
+; IGNORE ABOVE THIS LINE IS NOT LOCATABLE ANYWHERE IN CODE
 ; MUST BE RUN OVER LIKE DECLARE
 ; -------------------------------------------------------------------
 ; Wed 18-Sep-2019 23:01:31
 ; -------------------------------------------------------------------
-	
+
 *~ESC::
 	GOSUB CHECK_ESC_KEY
-RETURN	
+RETURN
 #ifwinactive
 
 
@@ -408,7 +408,7 @@ RETURN
 ; Source: 	Microsoft VBScript compilation error
 
 ; ---------------------------
-; OK   
+; OK
 ; ---------------------------
 
 
@@ -443,17 +443,17 @@ RETURN
 		{
 			RUN,C:\PROGRAM FILES (X86)\NOTEPAD++\NOTEPAD++.EXE -n%SCRIPT_LINE% "%SCRIPT_FILE%"
 		}
-	
+
 		; ControlClick, OK, Windows Script Host ahk_class #32770,,,, NA x10 y10
 	}
-RETURN	
+RETURN
 #IFWINACTIVE
 
 
 
 ; -------------------------------------------------------
 ; -------------------------------------------------------
-; CODE NOT REQUIRE HOTKEY AND NOW USER TIMER ROUNTINE OF 
+; CODE NOT REQUIRE HOTKEY AND NOW USER TIMER ROUNTINE OF
 ; Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk
 ; -------------------------------------------------------
 ; -------------------------------------------------------
@@ -480,19 +480,19 @@ RETURN
 
 
 ; ----
-; How do I make a mute button - Ask for Help - AutoHotkey Community 
+; How do I make a mute button - Ask for Help - AutoHotkey Community
 ; https://autohotkey.com/board/topic/85600-how-do-i-make-a-mute-button/
 ; ----
 
 ; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
-; $F1::Send {VOLUME_MUTE}	
+; $F1::Send {VOLUME_MUTE}
 ; RETURN
 ; #ifwinactive
 
 ; TIMER_GET_HWND:
 	; WinGet, OLD_HWND, ID, ahk_class Winamp Gen
 
-	
+
 #IfWinActive ahk_class Chrome_WidgetWin_1
 ~LButton::
 ; IF (A_ComputerName<>"1-ASUS-X5DIJ")
@@ -502,7 +502,7 @@ RETURN
 	; RUN D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe
 RETURN
 #ifwinactive
-	
+
 ; -------------------------------------------------------------------
 ; ANYCODE WANT HOTKEY AND THE LINE IS AFTER ONE ABOVE
 ; WONT WORK
@@ -510,12 +510,12 @@ RETURN
 ; -------------------------------------------------------------------
 
 
-	
-	
-; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN 
+
+
+; HOT STRING -- EASY ENOUGH -- BUT WHEN TYPE HIMA MUST FOLLOW BUT SPACE OR RETURN
 ; must type an ending character after typing btw, such as Space, ., or Enter).
 
-; MESSENGER_KEY=Hi Marianne and Eddie 
+; MESSENGER_KEY=Hi Marianne and Eddie
 ; THIS ONE ENDED -- Mon 26-Aug-2019 11:01:30
 
 ; MESSENGER_KEY=HI MARIANNE;  & EDDIE
@@ -567,10 +567,10 @@ RETURN
 
 
 ; ADDITIONAL NOTE ABOUT BUG
-; THIS CODE GOOD FOR THE N ; ' T -- WOUDLN'T BUT BUG 
+; THIS CODE GOOD FOR THE N ; ' T -- WOUDLN'T BUT BUG
 ; THE METHOD HAS TYPE WHILE YOU TYPE SO NEXT THING
-; IT NOT SMOOTH 
-; THERE IS A CODE I SAW THAT PREVENT TYPE HAPPEN WHILE 
+; IT NOT SMOOTH
+; THERE IS A CODE I SAW THAT PREVENT TYPE HAPPEN WHILE
 ; THE SENDINPUT FOR HOTSTRING HAPPEN
 ; AND I WILL GET ONTO THAT SHORTER
 ; [ Thursday 04:38:00 Pm_13 June 2019 ]
@@ -594,7 +594,7 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; THIS METHOD DO THE CASE INSENSITIVE PROPER
-; ADD THEN ASTERISK AND NONE REQUIRE SPACE BEFORE OR AFTER 
+; ADD THEN ASTERISK AND NONE REQUIRE SPACE BEFORE OR AFTER
 ; ASTERISK STILL REQUIRE SPACE BEFORE
 ; TRY ?
 ; USE BOTH LIKE HERE
@@ -607,7 +607,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; MPC HAVE HOTKEY T TO SEND RECYCLE BIN
 ; -------------------------------------------------------------------
-; THE CODE FOR THAT IS SOMEWHERE 
+; THE CODE FOR THAT IS SOMEWHERE
 ; ANOTHER SCRIPT PERHAPS
 ; HAVE TO PRESS THE T IN THE PLAYLIST
 ; -------------------------------------------------------------------
@@ -619,7 +619,7 @@ RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; NOT TOTAL OF TRUE THAT INITIAL CODE END AS 
+; NOT TOTAL OF TRUE THAT INITIAL CODE END AS
 ; FUNCTION SET WITH RETURN BEFORE
 ; MAYBE A TIDIER
 ; -------------------------------------------------------------------
@@ -661,7 +661,7 @@ $*CtrlBreak::RETURN
 ; #IFWINNOTACTIVE ahk_class wndclass_desked_gsk
 ; ^C::RETURN
 ; #ifwinactive
-	
+
 ; CtrlBreak::
 ; IFWINNOTACTIVE ahk_class wndclass_desked_gsk
     ; return  ; i.e. do nothing, which causes Control-P to do nothing in Notepad.
@@ -685,7 +685,7 @@ RETURN
 ; -------------------------------------------------------------------
 
 ; -------------------------------------------------------------------
-; WORK TIME 
+; WORK TIME
 ; -------------------------------------------------------------------
 ; Tue 14-Jan-2020 08:32:29 -- FIRST FIND IDEA
 ; Tue 14-Jan-2020 09:13:43 -- 45 MINUTE
@@ -695,17 +695,17 @@ RETURN
 
 ; LAST SESSION
 ; Tue 14-Jan-2020 14:34:19 -- 55 MINUTE -- TOTAL 3 SESSION 2 HOUR
-; Tue 14-Jan-2020 15:30:00 -- STUCK ON A LITTLE BIT 
-;                          -- AND FIRST INSTANCE 
+; Tue 14-Jan-2020 15:30:00 -- STUCK ON A LITTLE BIT
+;                          -- AND FIRST INSTANCE
 ;                          -- IMPROVE WANT NOT INCLUDE SIG LINE
-;                          -- DON'T FORGET THE OBVIOUS 
+;                          -- DON'T FORGET THE OBVIOUS
 ;                          -- SIG LINE REQUIRE REVERSE SEARCH WAY
 ; -------------------------------------------------------------------
 
 
 #IfWinActive .PS1 - Notepad++ ahk_class Notepad++
 {
-F5:: 
+F5::
 	SENDINPUT ^S
 	; SOUNDBEEP 1000,100
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
@@ -730,7 +730,7 @@ F5::
 
 #IfWinNOTActive ahk_group FIND_WINDOW_1
 {
-F7:: 
+F7::
 	DllCall( "CascadeWindows", uInt,0, Int,4, Int,0, Int,0, Int,0 )
 	Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	RETURN
@@ -828,7 +828,7 @@ GetClipboardText() {
 
 TIMER_CONVERT_CIPBOARD:
 
-RETURN 
+RETURN
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -845,7 +845,7 @@ IF ErrorLevel
 WWWW:=GetClipboardText
 
 ; 000005 LINE 0639 -- CODE GOT ERROR WORK CANT OPEN CLIPBOARD FOR READING --- REQUIRE ERROR TRAP -- FOUND ANSWER 2026-MAY
-; WWWW:=Clipboard 
+; WWWW:=Clipboard
 
 IF !WWWW
 	RETURN
@@ -855,21 +855,21 @@ IF INSTR(WWWW,"D:\Users_BAK\")>0
 	StringReplace, WWWW, WWWW,D:\Users_BAK\,D:\Users_BAK\, All
 	Clipboard=%WWWW%
 
-}	
+}
 IF INSTR(WWWW,"C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\")>0
 {
 	StringReplace, WWWW, WWWW,C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\,C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\, All
 	Clipboard=%WWWW%
-}	
+}
 IF INSTR(WWWW,"CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB6__KILL TO ALLOW REMOTE COPY OVER.VBS")>0
 {
 	StringReplace, WWWW, WWWW,CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB6__KILL TO ALLOW REMOTE COPY OVER.VBS,CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB6__KILL TO ALLOW REMOTE COPY OVER.VBS, All
 	Clipboard=%WWWW%
-}	
+}
 
 RETURN
 ; ----
-; Can't open clipboard for reading. - Ask for Help - AutoHotkey Community 
+; Can't open clipboard for reading. - Ask for Help - AutoHotkey Community
 ; https://autohotkey.com/board/topic/33798-cant-open-clipboard-for-reading/
 ; ----
 
@@ -1026,8 +1026,8 @@ Return
 
 
 ; #IfWinActive ahk_class Chrome_WidgetWin_1
-; ^F5:: ; CTRL+F5 
-	
+; ^F5:: ; CTRL+F5
+
 	; IF !VAR_REPEAT_F5_TOOGLE
 	; {
 		; VAR_REPEAT_F5_TOOGLE=1
@@ -1035,7 +1035,7 @@ Return
 		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; RETURN
 	; }
-	
+
 	; IF VAR_REPEAT_F5_TOOGLE
 	; {
 		; VAR_REPEAT_F5_TOOGLE=
@@ -1046,39 +1046,39 @@ Return
 ; #ifwinactive
 
 ; -------------------------------------------------------------------
-; THIS IS FOR GOODSYNC WHEN GOT TO DELETE A LOAD OF EXCLUDES 
+; THIS IS FOR GOODSYNC WHEN GOT TO DELETE A LOAD OF EXCLUDES
 ; CONTROL F5 TOGGLE WHILE HOOVER OVER EXCLUDE DELETE BUTTON
 ;  ] Options
 ; ahk_class #32770
 ; ahk_exe GoodSync.exe
 
 #IfWinActive ahk_exe GoodSync.exe ahk_class ahk_class #32770
-^F5:: ; CTRL+F5 
-	
+^F5:: ; CTRL+F5
+
 	SetTitleMatchMode 2  ; PARTIAL PATH
-	ifwinNOTactive  Options ahk_class ahk_class #32770
+	ifwinNOTactive Options ahk_class ahk_class #32770
 	{
 		VAR_REPEAT_LCLICK_TOOGLE=
 		SETTIMER REPEAT_LCLICK_BASHING,OFF
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		RETURN 
+		SOUNDBEEP 2000,400
+		RETURN
 	}
-		
+
 	IF !VAR_REPEAT_LCLICK_TOOGLE
 	{
 		VAR_REPEAT_LCLICK_TOOGLE=1
-		SETTIMER REPEAT_LCLICK_BASHING,10
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		SETTIMER REPEAT_LCLICK_BASHING,2
+		SOUNDBEEP 2000,400
 		RETURN
 	}
-	
+
 	IF VAR_REPEAT_LCLICK_TOOGLE
 	{
 		VAR_REPEAT_LCLICK_TOOGLE=
 		SETTIMER REPEAT_LCLICK_BASHING,OFF
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		SOUNDBEEP 2000,400
 	}
-	
+
 Return
 #ifwinactive
 
@@ -1088,6 +1088,14 @@ REPEAT_LCLICK_BASHING:
 MouseClick, left,,, D
 sleep 200
 MouseClick, left,,, U
+
+ifwinNOTactive Options ahk_class ahk_class #32770
+{
+	VAR_REPEAT_LCLICK_TOOGLE=
+	SETTIMER REPEAT_LCLICK_BASHING,OFF
+	SOUNDBEEP 2000,400
+}
+
 RETURN
 
 TOOLTIP_RID_OF:
@@ -1097,7 +1105,7 @@ RETURN
 
 #IfWinActive ahk_class Notepad++
 f8::
-IF !TOGGLE 
+IF !TOGGLE
 {
 	TOOLTIP LSHIFT DOWN
 	SETTIMER TOOLTIP_RID_OF,2000
@@ -1105,7 +1113,7 @@ IF !TOGGLE
 	Send, {LShift DOWN}
 	RETURN
 }
-IF TOGGLE 
+IF TOGGLE
 {
 	TOOLTIP LSHIFT UP
 	SETTIMER TOOLTIP_RID_OF,2000
@@ -1117,7 +1125,7 @@ RETURN
 
 #IfWinActive ahk_class CabinetWClass
 f8::
-IF !TOGGLE 
+IF !TOGGLE
 {
 	TOOLTIP LSHIFT DOWN
 	SETTIMER TOOLTIP_RID_OF,2000
@@ -1125,7 +1133,7 @@ IF !TOGGLE
 	Send, {LShift DOWN}
 	RETURN
 }
-IF TOGGLE 
+IF TOGGLE
 {
 	TOOLTIP LSHIFT UP
 	SETTIMER TOOLTIP_RID_OF,2000
@@ -1154,20 +1162,20 @@ RETURN
 #IfWinNOTActive ahk_class Notepad++
 +^k:: ; SHIFT+CTRL+K ---- Converts Text To Capitalized
 	VAR_INDEX=1
-	GOSUB HOT_KEY_CONVERT_TExT 
+	GOSUB HOT_KEY_CONVERT_TExT
 RETURN
 #ifwinactive
 ; -------------------------------------------------------------------
 ;#IfWinNOTActive ahk_class HwndWrapper[FreemakeVC.exe;;361378b1-207c-4a9b-9511-a53a32655ad9]
 ^l:: ; CTRL+L ---- Converts Text To Lower
 	VAR_INDEX=2
-	GOSUB HOT_KEY_CONVERT_TEXT 
+	GOSUB HOT_KEY_CONVERT_TEXT
 RETURN
 ; #ifwinactive
 ; -------------------------------------------------------------------
 #IfWinActive ahk_class Chrome_WidgetWin_1
-+u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
-                                               ; HAS OPEN SOURCE OF PAGE 
++u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER
+                                               ; HAS OPEN SOURCE OF PAGE
 											   ; IN A NEW TAB OF BROWSER
 	VAR_INDEX=3
 	GOSUB HOT_KEY_CONVERT_TEXT
@@ -1175,8 +1183,8 @@ RETURN
 #ifwinactive
 ; -------------------------------------------------------------------
 #IfWinActive ahk_class Chrome_WidgetWin_1
-^u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER 
-                                               ; HAS OPEN SOURCE OF PAGE 
+^u:: ; SHIFT+U ---- CONVERTS TEXT TO UPPER  -- ; SHIFT NOT CONTROL AS LATER
+                                               ; HAS OPEN SOURCE OF PAGE
 											   ; IN A NEW TAB OF BROWSER
 	VAR_INDEX=3
 	GOSUB HOT_KEY_CONVERT_TEXT
@@ -1185,7 +1193,7 @@ RETURN
 ; -------------------------------------------------------------------
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
 ^u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
-                                               ; CONTROL 
+                                               ; CONTROL
 											   ; IF NOT BROWSER PAGE CHROME
 											   ; USER SHIFT AND OR CONTROL
 	VAR_INDEX=3
@@ -1195,7 +1203,7 @@ RETURN
 ; -------------------------------------------------------------------
 #IfWinNOTActive ahk_class Chrome_WidgetWin_1
 +u:: ; CTRL+U ---- CONVERTS TEXT TO UPPER  --- ; NOW CONTROL AND SHIFT
-                                               ; CONTROL 
+                                               ; CONTROL
 											   ; IF NOT BROWSER PAGE CHROME
 											   ; USER SHIFT AND OR CONTROL
 	VAR_INDEX=3
@@ -1208,16 +1216,16 @@ RETURN
 ; F4::
 	; SEND ^{V}
 	; SEND {ENTER}
-	
-	
+
+
 	; ; ---------------------------------------------------------------
-	; ; # Win (Windows logo key) 
-	; ; ! Alt 
-	; ; ^ Control 
-	; ; + Shift 
-	; ; & An ampersand 
+	; ; # Win (Windows logo key)
+	; ; ! Alt
+	; ; ^ Control
+	; ; + Shift
+	; ; & An ampersand
 	; ; ---------------------------------------------------------------
-	
+
 ; RETURN
 
 
@@ -1246,8 +1254,8 @@ RETURN
 ; #ifwinactive
 
 ; -------------------------------------------------------------------
-; GOOGLE PHOTO WHEELDOWN 
-; NOT REALLY 
+; GOOGLE PHOTO WHEELDOWN
+; NOT REALLY
 ; MOUSEWHEEL PAGE DOWN THING FROM GOOGLE TRASH
 ; -------------------------------------------------------------------
 
@@ -1263,7 +1271,7 @@ F4::
 RETURN
 #ifwinactive
 
-; #ifwinactive matt.lan@btinternet.com - BT Yahoo Mail 
+; #ifwinactive matt.lan@btinternet.com - BT Yahoo Mail
 ; F4::
 	; GOSUB MOUSE_WHEEL_DOWN_QUICKER
 ; RETURN
@@ -1300,7 +1308,7 @@ F5::
 			if (A_LoopField = "ApplicationFrameTitleBarWindow1")
 			{
 				MICROSOFT_CONTROL_10=1
-			}    
+			}
 		}
 		if MICROSOFT_CONTROL_10=1
 		{
@@ -1311,7 +1319,7 @@ F5::
 			GOSUB STRING_INVERT_MESSENGER
 			SENDINPUT %MESSENGER_KEY%
 		}
-		IF MICROSOFT_CONTROL_10=0 
+		IF MICROSOFT_CONTROL_10=0
 			SENDINPUT {F5}
 	}
 }
@@ -1321,7 +1329,7 @@ RETURN
 
 
 ; ~ LET HOT KEY PASS THROUGH
-#ifwinactive Channel content - YouTube Studio - Google Chrome ahk_class Chrome_WidgetWin_1  
+#ifwinactive Channel content - YouTube Studio - Google Chrome ahk_class Chrome_WidgetWin_1
 F5::
 {
 	SetTitleMatchMode 3
@@ -1331,7 +1339,7 @@ F5::
 	IfWinActive ahk_exe chrome.exe
 	{
 		MESSENGER_KEY_1=eddielancaster21@gmail.com,
-		MESSENGER_KEY_2=marianne.vousden@gmail.com, 
+		MESSENGER_KEY_2=marianne.vousden@gmail.com,
 		MESSENGER_KEY_3=jo_lancaster@yahoo.co.uk,
 		SetKeyDelay, 75
 		SLEEP 100
@@ -1361,7 +1369,7 @@ RETURN
 ; -------------------------------------------------------------------
 
 ; ~ LET HOT KEY PASS THROUGH
-#ifwinactive ahk_class Chrome_WidgetWin_1  
+#ifwinactive ahk_class Chrome_WidgetWin_1
 F5::
 {
 	Loop
@@ -1391,11 +1399,11 @@ F5::
 			MESSENGER_KEY_FIREFOXSYNC=%MESSENGER_KEY%
 		}
 	}
-	
+
 	MESSENGER_KEY_PRESS_F5=0
 
 	; LASTPASS
-	SetTitleMatchMode 2 
+	SetTitleMatchMode 2
 	ifwinactive ahk_class Chrome_WidgetWin_1
 	ifwinactive login.html
 	IfWinActive ahk_exe msedge.exe
@@ -1404,21 +1412,21 @@ F5::
 		MESSENGER_KEY_PRESS_F5=1
 	}
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 
 	; chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/login.html - Google Chrome
 	SetTitleMatchMode 2  ; PARTIAL PATH
 	ifwinactive ahk_class Chrome_WidgetWin_1
-	ifwinactive hdokiejnpimakedhajhdlcegeplioahd 
+	ifwinactive hdokiejnpimakedhajhdlcegeplioahd
 	IfWinActive ahk_exe msedge.exe
 	{
 		SENDINPUT %MESSENGER_KEY_LASTPASS%
 		MESSENGER_KEY_PRESS_F5=1
 	}
-}	
+}
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	SetTitleMatchMode 3  ; PARTIAL PATH
 	ifwinactive ahk_class Chrome_WidgetWin_1
@@ -1429,7 +1437,7 @@ F5::
 	}
 }
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	; extension://bbcinlkgjjkejfdpemiealijmmooekmp/login.html and 10 more pages - Personal - Microsoft Edge
 	SetTitleMatchMode 2  ; PARTIAL PATH
@@ -1440,9 +1448,9 @@ F5::
 		SENDINPUT %MESSENGER_KEY_LASTPASS%
 		MESSENGER_KEY_PRESS_F5=1
 	}
-}	
-	
-	IF MESSENGER_KEY_PRESS_F5=0 
+}
+
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 
 	SetTitleMatchMode 3  ; EXACT PATH
@@ -1457,7 +1465,7 @@ F5::
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	SetTitleMatchMode 2
 	ifwinactive ahk_class Chrome_WidgetWin_1
@@ -1465,7 +1473,7 @@ F5::
 	IfWinActive ahk_exe chrome.exe
 	{
 		MESSENGER_KEY_1=Eddie-Lancaster<eddielancaster21@gmail.com>,`r
-		MESSENGER_KEY_2=Marianne-Vousden<marianne.vousden@gmail.com>,`r 
+		MESSENGER_KEY_2=Marianne-Vousden<marianne.vousden@gmail.com>,`r
 		MESSENGER_KEY_3=Matthew-Lancaster<matt.lan@btinternet.com>,`r
 		MESSENGER_KEY_4=RoidRim<rub.rim@gmail.com>,`r
 		SetKeyDelay, 75
@@ -1493,7 +1501,7 @@ IF MESSENGER_KEY_PRESS_F5=0
 	SENDINPUT {F5}
 
 SetTitleMatchMode 2  ; PARTIAL PATH
-	
+
 }
 RETURN
 #ifwinactive
@@ -1502,7 +1510,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-#ifwinactive ahk_class MozillaWindowClass  
+#ifwinactive ahk_class MozillaWindowClass
 F5::
 {
 
@@ -1537,21 +1545,21 @@ F5::
 
 	MESSENGER_KEY_PRESS_F5=0
 
-	
+
 	DetectHiddenWindows, oN
 
-	
-	; ⁨Set up Firefox synchronisation⁩ | ⁨Mozilla accounts⁩ — Mozilla Firefox ahk_class MozillaWindowClass
+
+	; ?Set up Firefox synchronisation? | ?Mozilla accounts? — Mozilla Firefox ahk_class MozillaWindowClass
 	SetTitleMatchMode 2
-	
+
 	FIREFOX_CONTROL_10=0
-	WinGet, FIREFOXControlList, ControlList,  Set up Firefox synchronisation⁩  ahk_class MozillaWindowClass
+	WinGet, FIREFOXControlList, ControlList,  Set up Firefox synchronisation?  ahk_class MozillaWindowClass
 	Loop, Parse,FIREFOXControlList, `n
 	{
 		if (A_LoopField = "MozillaCompositorWindowClass1")
 		{
 			FIREFOX_CONTROL_10=1
-		}    
+		}
 	}
 	if FIREFOX_CONTROL_10=1
 	{
@@ -1559,8 +1567,8 @@ F5::
 		SENDINPUT %MESSENGER_KEY_FIREFOXSYNC%
 		MESSENGER_KEY_PRESS_F5=1
 	}
-	
-	IF MESSENGER_KEY_PRESS_F5=0 
+
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	SetTitleMatchMode 3  ; EXACT
 	; ----------------------------------------
@@ -1576,7 +1584,7 @@ F5::
 		if (A_LoopField = "MozillaCompositorWindowClass1")
 		{
 			FIREFOX_CONTROL_10=1
-		}    
+		}
 	}
 	if FIREFOX_CONTROL_10=1
 	{
@@ -1587,7 +1595,7 @@ F5::
 
 	DetectHiddenWindows, OFF
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	; LASTPASS
 	SetTitleMatchMode 3  ; EXACT PATH
@@ -1601,13 +1609,13 @@ F5::
 }
 
 
-	
-	IF MESSENGER_KEY_PRESS_F5=0 
+
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	;ROBOFORM
 	SetTitleMatchMode 3  ; EXACT PATH
 	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive Log In — Mozilla Firefox 
+	ifwinactive Log In — Mozilla Firefox
 	IfWinActive ahk_exe firefox.exe
 	{
 		SENDINPUT %MESSENGER_KEY_ROBOFORM%
@@ -1615,7 +1623,7 @@ F5::
 	}
 }
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	;ROBOFORM NOT SUCCESSFULL ON THIS ONE
 	SetTitleMatchMode 3
@@ -1627,12 +1635,12 @@ F5::
 		MESSENGER_KEY_PRESS_F5=1
 	}
 }
-	
-	IF MESSENGER_KEY_PRESS_F5=0 
+
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	;ROBOFORM
-	SetTitleMatchMode 2 
-	IF !MESSENGER_KEY	
+	SetTitleMatchMode 2
+	IF !MESSENGER_KEY
 	ifwinactive ahk_class MozillaWindowClass
 	ifwinactive - matt.lan@btinternet.com — Mozilla Firefox
 	IfWinActive ahk_exe firefox.exe
@@ -1642,7 +1650,7 @@ F5::
 	}
 }
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	; MICROSOFT LOGIN
 	SetTitleMatchMode 3  ; EXACT PATH
@@ -1659,7 +1667,7 @@ F5::
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-	IF MESSENGER_KEY_PRESS_F5=0 
+	IF MESSENGER_KEY_PRESS_F5=0
 	{
 	SetTitleMatchMode 2
 	ifwinactive ahk_class MozillaWindowClass
@@ -1669,7 +1677,7 @@ F5::
 	{
 		MESSENGER_KEY=TT
 		MESSENGER_KEY_1=Eddie-Lancaster<eddielancaster21@gmail.com>,`r
-		MESSENGER_KEY_2=Marianne-Vousden<marianne.vousden@gmail.com>,`r 
+		MESSENGER_KEY_2=Marianne-Vousden<marianne.vousden@gmail.com>,`r
 		MESSENGER_KEY_3=Matthew-Lancaster<matt.lan@btinternet.com>,`r
 		MESSENGER_KEY_4=RoidRim<rub.rim@gmail.com>,`r
 		SetKeyDelay, 75
@@ -1704,18 +1712,18 @@ F5::
 		; SENDINPUT %MESSENGER_KEY%
 	; }
 
-	
+
 IF MESSENGER_KEY_PRESS_F5=0
 	SENDINPUT {F5}
-	
+
 SetTitleMatchMode 2  ; PARTIAL PATH
-	
+
 }
 RETURN
 #ifwinactive
-	
 
-#ifwinactive ahk_class RfEditor 
+
+#ifwinactive ahk_class RfEditor
 F5::
 {
 
@@ -1735,20 +1743,20 @@ F5::
 		}
 	}
 
-	MESSENGER_KEY=	
+	MESSENGER_KEY=
 	SetTitleMatchMode 3  ; EXACT PATH
 	ifwinactive ahk_class RfEditor
-	ifwinactive RoboForm Editor 
+	ifwinactive RoboForm Editor
 	IfWinActive ahk_exe identities.exe
 	{
 		SENDINPUT %MESSENGER_KEY_ROBOFORM%
 	}
-	
+
 IF !MESSENGER_KEY
 	SENDINPUT {F5}
 
 SetTitleMatchMode 2  ; PARTIAL PATH
-	
+
 }
 RETURN
 #ifwinactive
@@ -1761,7 +1769,7 @@ RETURN
 	; {
 		; IF GetKeyState("LButton")   ; MOUSEDOWN
 		; {
-			; TOOLTIP 
+			; TOOLTIP
 			; RETURN
 		; }
 		; WinGet, HWND_24, ID ,A
@@ -1770,7 +1778,7 @@ RETURN
 		; SENDINPUT {WheelDown}
 		; SLEEP 100
 	; }
-	; TOOLTIP 
+	; TOOLTIP
 ; RETURN
 
 MOUSE_WHEEL_DOWN_QUICKER:
@@ -1780,13 +1788,13 @@ MOUSE_WHEEL_DOWN_QUICKER:
 	INIT_TOOLTIP+= 5, Seconds
 	LOOP 1000000
 	{
-	
+
 		IF INIT_TOOLTIP<%A_NOW%
 			TOOLTIP
 
 		IF GetKeyState("LButton")   ; MOUSEDOWN
 		{
-			TOOLTIP 
+			TOOLTIP
 			RETURN
 		}
 		WinGet, HWND_24, ID ,A
@@ -1795,7 +1803,7 @@ MOUSE_WHEEL_DOWN_QUICKER:
 		SENDINPUT {WheelDown}
 		SLEEP 300
 	}
-TOOLTIP 
+TOOLTIP
 RETURN
 
 
@@ -1825,12 +1833,12 @@ TIMER_HOTKEY:
 	IFWINEXIST Confirm Save As ahk_exe VB6.EXE
 	{
 		ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
-		
+
 		STRING_V:=&&Yes  0
 		IF INSTR(CONTROL_TEXT,%STRING_V%)>1
-		{	
+		{
 			; NA [v1.0.45+]: May improve reliability. See reliability below.
-			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
+			ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			VAR_DONE_ESCAPE_KEY=TRUE
 		}
@@ -1840,9 +1848,9 @@ TIMER_HOTKEY:
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
 
-		IF Secs_MSGBOX_04>0 	
+		IF Secs_MSGBOX_04>0
 			Secs_MSGBOX_04-=1
-			
+
 		ControlSetText,Button1,&Yes  %Secs_MSGBOX_04%, %VAR_IN_NAME%
 	}
 	SetTitleMatchMode 2  ; PARTIAL PATH
@@ -1868,7 +1876,7 @@ HOT_KEY_CONVERT_TExT:
 	}
 	Clipper_1_GET=%Clipper_GET%
 	Clipper_2_GET=
-	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R 
+	StringGetPos, StrGetPos_Clipper, Clipper_GET, ~, R
 	; ---------------------------------------------------------------
 	; TALK -1 IF NONE ---- StrGetPos_Clipper>0
 	; Wed 22-Jan-2020 01:48:54
@@ -1903,7 +1911,7 @@ HOT_KEY_CONVERT_TExT:
 		SELECT_NOT=0
 
 		; MSGBOX % Clipper_1_GET "`n" A_INDEX "`n"  "`n" SUBSTR(Clipper_1_GET,A_INDEX,1)
-		
+
 		IF SUBSTR(Clipper_1_GET,A_INDEX,1)="."
 			SELECT_NOT=1
 		IF SUBSTR(Clipper_1_GET,A_INDEX,1)="’"
@@ -1920,11 +1928,11 @@ HOT_KEY_CONVERT_TExT:
 			SELECT_NOT=1
 		IF SUBSTR(Clipper_1_GET,A_INDEX,1)="`_"
 			SELECT_NOT=1
-		; TO DO TEXT SURROUND IN BY DASH -- AND THEN DASH CHANGE TO UNDERLINE 
-		
-		
+		; TO DO TEXT SURROUND IN BY DASH -- AND THEN DASH CHANGE TO UNDERLINE
+
+
 		COPY_STRING=% SUBSTR(Clipper_1_GET,A_INDEX,1)
-		
+
 		IF SELECT_NOT=1
 			Clipper_2_GET=%Clipper_2_GET%%COPY_STRING%
 		IF SELECT_NOT=0
@@ -1933,29 +1941,29 @@ HOT_KEY_CONVERT_TExT:
 		Clipper_1_GET=%Clipper_2_GET%
 		Clipper_2_GET=
 	}
-	
+
 	Clipper_GET=%Clipper_1_GET%%Clipper_2_GET%
 	; MSGBOX %Clipper_GET%
 	Clipboard=%Clipper_GET%
 	ClipWait
 RETURN
 ; -------------------------------------------------------------------
-; NOTE INFO 
+; NOTE INFO
 ; ----
-; AHK GET CLIPBOARD STRIP LEAD SPACE - Google Search 
+; AHK GET CLIPBOARD STRIP LEAD SPACE - Google Search
 ; https://www.google.com/search?q=AHK+GET+CLIPBOARD+STRIP+LEAD+SPACE
 ; ----
-; AHK is Removing Leading Spaces before sending text to Clipboard - AutoHotkey Community 
+; AHK is Removing Leading Spaces before sending text to Clipboard - AutoHotkey Community
 ; https://www.autohotkey.com/boards/viewtopic.php?t=37625
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; AutoHotkey Tip of the Week: Instant Upper Case, Lower Case, and Initial Cap Text—September 2, 2019 | Jack's AutoHotkey Blog 
+; AutoHotkey Tip of the Week: Instant Upper Case, Lower Case, and Initial Cap Text—September 2, 2019 | Jack's AutoHotkey Blog
 ; https://jacksautohotkeyblog.wordpress.com/2019/09/02/autohotkey-tip-of-the-week-instant-upper-case-lower-case-and-initial-cap-text-september-2-2019/
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; Location On-Line
 ;--------------------------------------------------------------------
-; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk 
+; Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN.ahk
 ; HTTP://TINYURL.COM/R9OEH4F
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -1970,13 +1978,13 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 	id := WinExist("A")
 	WinGetTitle, Title_VAR, ahk_id %id%
 	; WinGetCLASS, CLASS_VAR, ahk_id %id%
-	
+
 	SET_GO_CAP_PUTTER=FALSE
-	IF OLD_id<>%id% 
+	IF OLD_id<>%id%
 		SET_GO_CAP_PUTTER=TRUE
 	IF Title_VAR<>%OLD_Title_VAR%
 		SET_GO_CAP_PUTTER=TRUE
-	
+
 	IF SET_GO_CAP_PUTTER=TRUE
 	{
 		SetTitleMatchMode 3  ; Specify Full path
@@ -2018,7 +2026,7 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		{
 			SetCapsLockState ,ON
 		}
-		
+
 		IfWinActive ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009} ; GOODSYNC2GO
 		{
 			SetCapsLockState ,ON
@@ -2027,14 +2035,14 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		{
 			SetCapsLockState ,ON
 		}
-		
-		
+
+
 		IfWinActive ahk_class CabinetWClass ; GOODSYNC
 		{
 			SetCapsLockState ,ON
 		}
-		
-				
+
+
 		STATE_CAP := GetKeyState("CapsLock", "T") ; True if CapsLock is ON, false otherwise.
 		IF OLD_STATE_CAP<>%STATE_CAP%
 		{
@@ -2043,9 +2051,9 @@ WINDOW_CHECK_IF_WANT_PUT_CAPS_LOCK_OFF_OR_ON:
 		IF STATE_CAP=0
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
-		
+
 		OLD_STATE_CAP=%STATE_CAP%
-		
+
 	}
 	OLD_id=%id%
 	OLD_Title_VAR=%Title_VAR%
@@ -2073,7 +2081,7 @@ RETURN
 ; HOTKEY ABLE TO DO ONE LINER BUT HOTSTRING NOT
 ; NOT WORKER
 ; -------------------------------------------------------------------
-; ::nt::SENDINPUT n't  
+; ::nt::SENDINPUT n't
 ; -------------------------------------------------------------------
 
 
@@ -2146,12 +2154,12 @@ TIMER_FAST_ERROR_APPLYING_SECURITY:
 			SetTitleMatchMode 3  ; Specify Full path
 			VAR_IN_NAME=Error Applying Security ahk_class #32770
 			ControlGetText CONTROL_TEXT,Button1,%VAR_IN_NAME%
-			
+
 			STRING_V:=&Continue
 			IF INSTR(CONTROL_TEXT,%STRING_V%)>0
-			{	
+			{
 				; NA [v1.0.45+]: May improve reliability. See reliability below.
-				ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10 
+				ControlClick, Button1,%VAR_IN_NAME%,,,, NA x10 y10
 			}
 	}
 
@@ -2161,13 +2169,13 @@ RETURN
 
 
 TIMER_WSCRIPT_FOCUS_LEFT_KILL:
-	
-	
-	
-	
-	
-	
-	; IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE 
+
+
+
+
+
+
+	; IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE
 	; IfWinActive RoboForm Start Page - Google Chrome ahk_class Chrome_WidgetWin_1
 	; {
 		; MESSENGER_KEY=HHHHTTTTXh55
@@ -2177,11 +2185,11 @@ TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 		; ROBOFOM_FOCUS_SET_FLAG_01=TRUE
 	; }
 	; winID := WinExist( RoboForm Start Page - Google Chrome ahk_class Chrome_WidgetWin_1 )
-	; IF winID = 0 THEN 
+	; IF winID = 0 THEN
 		; ROBOFOM_FOCUS_SET_FLAG_01=FALSE
 
 
-	IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE 
+	IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE
 	IfWinActive RoboForm Editor ahk_class RfEditor
 	{
 		MESSENGER_KEY=HHHHTTTTXh55
@@ -2191,11 +2199,11 @@ TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 		ROBOFOM_FOCUS_SET_FLAG_01=TRUE
 	}
 	winID := WinExist( RoboForm Editor ahk_class RfEditor )
-	IF winID = 0 THEN 
+	IF winID = 0 THEN
 		ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-	
-	
-	IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE 
+
+
+	IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE
 	IfWinActive RoboForm Unlock ahk_class #32770
 	{
 		MESSENGER_KEY=HHHHTTTTXh55
@@ -2205,29 +2213,29 @@ TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 		ROBOFOM_FOCUS_SET_FLAG_01=TRUE
 	}
 	winID := WinExist( RoboForm Unlock ahk_class #32770 )
-	IF winID = 0 THEN 
+	IF winID = 0 THEN
 		ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-	
-	
-	
-	
+
+
+
+
 	RETURN
-	
+
 	WSCRIPT_FOCUS_SET_FLAG_01=FALSE
 	IfWinActive ahk_class #32770
 	IfWinActive ahk_exe WScript.exe
-	{	
+	{
 		WSCRIPT_FOCUS_SET_FLAG_01=TRUE
 		WSCRIPT_FOCUS_SET_FLAG_02=TRUE
 	}
-	
+
 	IF WSCRIPT_FOCUS_SET_FLAG_01=FALSE
 	IF WSCRIPT_FOCUS_SET_FLAG_02=TRUE
 	{
 
 		WinGet, List, List, ahk_exe WScript.exe
-		Loop %List%  
-		{ 
+		Loop %List%
+		{
 			Process, Close, WScript.exe
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
@@ -2252,7 +2260,7 @@ RETURN
 ; HARD THINK ANOTHER WAY TO DO THAT THING
 ; SURE REPEATER KEY NOT WORK IF LOOK LAST KEY
 ; -------------------------------------------------------------------
-; A TREAT CODER TO DO AFTER EVERY THING ELSE TODAY WAS ADD ROUTINE TO 
+; A TREAT CODER TO DO AFTER EVERY THING ELSE TODAY WAS ADD ROUTINE TO
 ; ADD AN OPTION TO TOGGLE THE "SEARCH RESULTS WINDOW NOTEPAD-PLUS-PLUS
 ; TOOK A SEARCH TO FINDER -- CREDIT LINK BELOW
 ; -------------------------------------------------------------------
@@ -2265,10 +2273,10 @@ RETURN
 CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path
 
-	GetKeyState, state, ESC  
+	GetKeyState, state, ESC
 	if (state = "U")
 		RETURN
-	
+
 	VAR_DONE_ESCAPE_KEY=FALSE
 
 	IfWinActive ahk_class ConsoleWindowClass
@@ -2277,14 +2285,14 @@ CHECK_ESC_KEY:
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
+
 	IfWinActive ahk_class IrfanView
 	{
 		WinClose, IrfanView
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
+
 	SET_GO_12=
 	IfWinActive ahk_class MediaPlayerClassicW
 		SET_GO_12=11
@@ -2294,35 +2302,35 @@ CHECK_ESC_KEY:
 		SET_GO_12=11
 	IfWinActive ahk_class FullScreenClass
 		SET_GO_12=11
-	
+
 	IF SET_GO_12
 	{
 		GOSUB KILL_ALL_MPC_EXE_NAME
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
+
 	IfWinActive Find ahk_class #32770
 	IfWinActive Find ahk_exe notepad++.exe
 	{	WinClose
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
+
 	IfWinActive Replace ahk_class #32770
 	IfWinActive Replace ahk_exe notepad++.exe
 	{	WinClose
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
+
 	IfWinActive Microsoft Visual Basic ahk_class #32770
 	IfWinActive Microsoft Visual Basic ahk_exe vb6.exe
 	{	WinClose
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
+
 	IfWinActive Find ahk_class #32770
 	IfWinActive Find ahk_exe vb6.exe
 	{	WinClose
@@ -2353,7 +2361,7 @@ CHECK_ESC_KEY:
 	; Expected: Then or GoTo
 	IfWinActive Microsoft Visual Basic ahk_class #32770
 	IfWinActive Microsoft Visual Basic ahk_exe VB6.EXE
-	{	
+	{
 		ControlGetText, Output_Var, Static2
 		if instr(Output_Var,"Compile error:")
 		{
@@ -2371,7 +2379,7 @@ CHECK_ESC_KEY:
 	IfWinActive [design] - [Object Browser] ahk_class wndclass_desked_gsk
 	IfWinActive Microsoft Visual Basic [design] ahk_exe VB6.EXE
 	IfWinActive [design] - [Object Browser] ahk_exe VB6.EXE
-	{	
+	{
 		Control, Hide ,, Object Browser
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
@@ -2381,31 +2389,31 @@ CHECK_ESC_KEY:
 	SetTitleMatchMode 3  ; Specify Full path
 	IfWinActive Confirm Save As ahk_class #32770
 	IfWinActive Confirm Save As ahk_exe VB6.EXE
-	{	
+	{
 		ControlClick, &Yes,Confirm Save As ahk_class #32770
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 
 	; ---------------------------------------------------------------
-	; IF NOT WANT A DUAL CALLER OF VB6 TO SAME CODER 
+	; IF NOT WANT A DUAL CALLER OF VB6 TO SAME CODER
 	; SOLUTION HERE -- 01 OF 02 -- AND -- 02 OF 02 -- NEXT
 	; ---------------------------------------------------------------
 	IfWinActive New Project ahk_class #32770
 	IfWinActive New Project ahk_exe VB6.EXE
-	{	
+	{
 		WinClose
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
-	
+
 	; 02 OF 02
 	; ---------------------------------------------------------------
 	IfWinActive Microsoft Visual Basic ahk_class wndclass_desked_gsk
 	IfWinActive Microsoft Visual Basic ahk_exe VB6.EXE
 	; DO BOTH TOGETHER OR ONE AT A GO
 	; IF VAR_DONE_ESCAPE_KEY=FALSE
-	{	
+	{
 		SEND !{F4}
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
@@ -2414,7 +2422,7 @@ CHECK_ESC_KEY:
 	SetTitleMatchMode 2
 	IfWinActive ] Options ahk_class #32770
 	IfWinActive ] Options ahk_exe GoodSync-v10.exe
-	{	
+	{
 		ControlGetPos, x, y, , , Button63, Options ahk_class #32770 ; SAVE BUTTON
 		MouseMove, X+10, Y+10
 		ControlClick, Button63, Options ahk_class #32770,,,, NA x20 y20
@@ -2424,7 +2432,7 @@ CHECK_ESC_KEY:
 
 	IfWinActive Rename Job ahk_class #32770
 	IfWinActive Rename Job ahk_exe GoodSync-v10.exe
-	{	
+	{
 		WinClose
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
@@ -2432,20 +2440,20 @@ CHECK_ESC_KEY:
 
 	IfWinActive Left Folder ahk_class #32770
 	IfWinActive Left Folder ahk_exe GoodSync2Go.exe
-	{	
+	{
 		WinClose
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 
-	
+
 	IfWinActive ahk_class #32770
 	IfWinActive ahk_exe WScript.exe
-	{	
-		; WinGet, List, List, ahk_class AutoHotkey 
+	{
+		; WinGet, List, List, ahk_class AutoHotkey
 		WinGet, List, List, ahk_exe WScript.exe
-		Loop %List%  
-		{ 
+		Loop %List%
+		{
 			Process, Close, WScript.exe
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		}
@@ -2455,8 +2463,8 @@ CHECK_ESC_KEY:
 		VAR_DONE_ESCAPE_KEY=TRUE
 	}
 
-	
-	
+
+
 	; ---------------------------------------------------------------
 	; WINAMP VISUALIZATION CONTROL KEY WINDOW
 	; ---------------------------------------------------------------
@@ -2467,7 +2475,7 @@ CHECK_ESC_KEY:
 	{
 		SET_GO=FALSE
 		IfWinActive ahk_class Winamp Gen
-		{	
+		{
 			WinActivate ahk_class Winamp v1.x
 			SET_GO=TRUE
 		}
@@ -2477,7 +2485,7 @@ CHECK_ESC_KEY:
 			SET_GO=TRUE
 		IF SET_GO=TRUE
 		IfWinActive ahk_exe winamp.exe
-		{	
+		{
 			; SEND {Ctrl down}{Shift down}K{Shift up}{Ctrl up}
 			SEND ^+K
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
@@ -2493,13 +2501,13 @@ CHECK_ESC_KEY:
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		WinGet, HWND_10, ID, ahk_class Winamp Gen
 		VAR_DONE_01=FALSE
-		if isWindowFullScreen(%HWND_10%)=0 
+		if isWindowFullScreen(%HWND_10%)=0
 		{
 			SEND !{ENTER}
 			VAR_DONE_01=TRUE
 			VAR_DONE_ESCAPE_KEY=TRUE
 		}
-		if isWindowFullScreen(%HWND_10%)<>0 
+		if isWindowFullScreen(%HWND_10%)<>0
 		IF VAR_DONE_01=FALSE
 		{
 			SEND !{D}
@@ -2512,17 +2520,17 @@ CHECK_ESC_KEY:
 	; ---------------------------------------------------------------
 
 	ESCAPE_KEY_COUNT+=1
- 
+
 	VAR_DONE_ESCAPE_NOTEPAD=
 	; ---------------------------------------------------------------
 	DetectHiddenWindows, OFF
 	SetTitleMatchMode 2
 	IfWinActive ahk_class Notepad++
 	IfWinActive ahk_exe notepad++.exe
-	{	
+	{
 		; -------------------------------------------------------
 		; IF THE RESULTS PANE IS OPEN, CLOSE IT
-		; BUTTON1 IS THE CLASS NAME FOR THE TITLE BAR AND 
+		; BUTTON1 IS THE CLASS NAME FOR THE TITLE BAR AND
 		; CLOSE BUTTON OF THE RESULTS PANE WHEN DOCKED
 		; -------------------------------------------------------
 		ControlGet, OutputVar, Visible,, Button1, Notepad++
@@ -2579,7 +2587,7 @@ CHECK_ESC_KEY:
 			; ESCAPE KEY FOR RUN AWAY
 			; ---------------------------------------------------
 	}
-	
+
 
 	; ---------------------------------------------------------------
 	; 003
@@ -2600,15 +2608,15 @@ CHECK_ESC_KEY:
 	; https://www.google.com/search?q=AHK+CLOSE+NOTEPAD%2B%2B+SEARC+BOX&oq=AHK+CLOSE+NOTEPAD%2B%2B+SEARC+BOX&aqs=chrome..69i57.10623j1j7&sourceid=chrome&ie=UTF-8
 	; ----
 
-	
-	; ; 
+
+	; ;
 	; ; ---------------------------------------------------------------
 	; ; ---------------------------------------------------------------
-	; ; 
-	; ; THIS IS MY CODER TO BRING UP WINDOW 
-	; ; VB_KEEP_RUNNER 
+	; ;
+	; ; THIS IS MY CODER TO BRING UP WINDOW
+	; ; VB_KEEP_RUNNER
 	; ; AND
-	; ; ELITE SPY 
+	; ; ELITE SPY
 	; ; BUT FOR NOW THESE TWO PROGRAM WHEN COMPUTER UNDER PRESSURE FOR LONG WHEN GET BACK TO
 	; ; THEY BOTH NEVER SEEM RUNNER
 	; ; SO SOMEHOW GOT TO FIND THAT WINDOW POP UP NOT HAPPEN AS NORMAL
@@ -2683,12 +2691,12 @@ CHECK_ESC_KEY:
 			; ; SLEEP 400
 		; }
 	; }
-	
+
 	; VB_KEEP_RUNNER_VAR=FALSE
 	; VB_KEEP_RUNNER_VAR_2=FALSE
 	; IF VB_KEEP_RUNNER_VAR=TRUE
 	; {
-		; LOOP 
+		; LOOP
 		; {
 			; X_COUNTER+=1
 			; WinGet, HWND_10, ID, %VB_KEEP_RUNNER_TITLE%
@@ -2723,8 +2731,8 @@ CHECK_ESC_KEY:
 			; {
 				; Run, %FN_VAR% MAXIMUM
 			; }
-	; }	
-	
+	; }
+
 	; IF VB_KEEP_RUNNER_VAR_2=TRUE
 	; {
 		; VAR_DONE_ESCAPE_KEY=TRUE
@@ -2733,7 +2741,7 @@ CHECK_ESC_KEY:
 		; IF UniquePID>0
 		; {
 			; SOUNDBEEP 1000,100
-			; Process, Close, %UniquePID% 
+			; Process, Close, %UniquePID%
 		; }
 
 		; IfWinNotExist %VB_KEEP_RUNNER_TITLE%
@@ -2744,14 +2752,14 @@ CHECK_ESC_KEY:
 				; {
 					; Run, %FN_VAR% MAXIMUM
 				; }
-		; }	
+		; }
 	; }
-	
+
 	; VB_ELITE_SPY_VAR=FALSE
 	; VB_ELITE_SPY_VAR_2=FALSE
 	; IF VB_ELITE_SPY_VAR=TRUE
 	; {
-		; LOOP 
+		; LOOP
 		; {
 			; X_COUNTER+=1
 			; WinGet, HWND_10, ID, %ELITE_SPY_TITLE%
@@ -2778,8 +2786,8 @@ CHECK_ESC_KEY:
 			; {
 				; Run, %FN_VAR% MAXIMUM
 			; }
-	; }	
-	
+	; }
+
 	; IF VB_ELITE_SPY_VAR_2=TRUE
 	; {
 		; VAR_DONE_ESCAPE_KEY=TRUE
@@ -2788,7 +2796,7 @@ CHECK_ESC_KEY:
 		; IF UniquePID>0
 		; {
 			; SOUNDBEEP 1000,100
-			; Process, Close, %UniquePID% 
+			; Process, Close, %UniquePID%
 		; }
 
 		; IfWinNotExist %ELITE_SPY_TITLE%
@@ -2799,22 +2807,22 @@ CHECK_ESC_KEY:
 				; {
 					; Run, %FN_VAR% MAXIMUM
 				; }
-		; }	
+		; }
 	; }
-	
+
 	; ; ---------------------------------------------------------------
-	; ; # Win (Windows logo key) 
-	; ; ! Alt 
-	; ; ^ Control 
-	; ; + Shift 
-	; ; & An ampersand 
+	; ; # Win (Windows logo key)
+	; ; ! Alt
+	; ; ^ Control
+	; ; + Shift
+	; ; & An ampersand
 	; ; ---------------------------------------------------------------
-	
+
 	IF VAR_DONE_ESCAPE_KEY=FALSE
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
-	
+
 	SetTitleMatchMode 2  ; PARTIAL PATH
 
 RETURN
@@ -2830,16 +2838,16 @@ winID := WinExist( winTitle )
 
 If ( !winID )
 	Return false
-	
-; ONLY CHECK VALID TITLE WITH TEXT OR ELSE AFRAID CAPTURE DESKTOP 
+
+; ONLY CHECK VALID TITLE WITH TEXT OR ELSE AFRAID CAPTURE DESKTOP
 WinGetTitle, Title_VAR, ahk_id %winID%
 If ( !Title_VAR )
 	Return false
-	
+
 ; MSGBOX % Title_VAR
 ; WINDOWS XP REPORT Program Manager FOR DESKTOP
 ; ---------------------------------------------
-IF Title_VAR=Program Manager	
+IF Title_VAR=Program Manager
 	Return false
 
 WinGet style, Style, ahk_id %WinID%
@@ -2849,8 +2857,8 @@ WinGetPos ,,,winW,winH, ahk_id %WinID%
 ; 0x20000000 is WS_MINIMIZE.
 ; no border and not minimized
 
-Return ((style & 0x20800000) 
-or winH < A_ScreenHeight 
+Return ((style & 0x20800000)
+or winH < A_ScreenHeight
 or winW < A_ScreenWidth) ? false : true
 
 ; ----
@@ -2862,13 +2870,13 @@ or winW < A_ScreenWidth) ? false : true
 
 ; -------------------------------------------------------------------
 ; REPLACE F10 TO DO CONTROL PRINT SCREEN
-; FOR CLIPBOARD SCREEN SHOT -- 
+; FOR CLIPBOARD SCREEN SHOT --
 ; CODE PICPICK WON'T HOT KEY F10 ON WIN 7 AND UP
 ; PIKPICK SETTER -- CAPTURE FULL SCREEN IS NONE AND CARRY ON LIKE NORMAL CTRL PRNT SCRN
-; PIKPICK SETTER -- CAPTURE WINDOW FORM-ER AREA IS SHIFT F10 WITH THIS CODE 
+; PIKPICK SETTER -- CAPTURE WINDOW FORM-ER AREA IS SHIFT F10 WITH THIS CODE
 ; LINE ABOVE THE NORM IS PRESS F10 THIS CODE TRANSLATE TO SHIFTER F10
 ; SHIFT IS +
-; +F10 IS ACTIVE WINDOW 
+; +F10 IS ACTIVE WINDOW
 ; CTRL PRINTSCR IS WHOLE SCREEN OF PIKPICKER
 ; ALL REST SET TO NONE HOT KEY
 ; ^ CTRL IS BETTER THAN SHIFT DRAW A DIALOG BOX UP SOME INSTACE PDF ACROBAT
@@ -2953,7 +2961,7 @@ RETURN
 ; WINGET Autokey -- 41-Minimize Chrome Close & Close RButton.ahk
 
 ; -------------------------------------------------------------------
-; ADD THE TERMINATOR VERSION NUMBER AND THEN WE ARE ABLE TO USE EXACT 
+; ADD THE TERMINATOR VERSION NUMBER AND THEN WE ARE ABLE TO USE EXACT
 ; STRING MATCHING IN CASE NOTEPAD HAD IT
 ; YOU HEARD IT HEAR FIRST
 ; -------------------------------------------------------------------
@@ -2969,21 +2977,21 @@ RETURN
 	; AHK_TERMINATOR_VERSION:=StrReplace(AHK_TERMINATOR_VERSION, """" , "")
 	; FILE:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
 	; WinGet, UniquePID, PID, %FILE%%AHK_TERMINATOR_VERSION%
-	
+
 	; IF UniquePID>0
 	; {
 		; SOUNDBEEP 1000,100
-		; ; WinKill, Ahk_PID %UniquePID% 
-		; Process, Close, %UniquePID% 
+		; ; WinKill, Ahk_PID %UniquePID%
+		; Process, Close, %UniquePID%
 	; }
 	; FILE:="Autokey -- 41-Minimize Chrome Close & Close RButton.ahk"
 	; WinGet, UniquePID, PID, %FILE%
-	
+
 	; IF UniquePID>0
 	; {
 		; SOUNDBEEP 1000,100
-		; ; WinKill, Ahk_PID %UniquePID% 
-		; Process, Close, %UniquePID% 
+		; ; WinKill, Ahk_PID %UniquePID%
+		; Process, Close, %UniquePID%
 	; }
 ; }
 ; RETURN
@@ -2998,18 +3006,18 @@ RETURN
 ; FACE LIKE A BOOK
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; HERE FOR FACEBOOK 
+; HERE FOR FACEBOOK
 ; GOT SOME PHOTO IN FOLDER
 ; THIS WILL GET FILENAME WITH ANY DESCRIPTION
-; AND PUT IT IN FACEBOOK 
-; SO YOU DON'T HAVE TO TYPE ANY IN ADD YOUR DESCRIPTION ON COMPUTER 
+; AND PUT IT IN FACEBOOK
+; SO YOU DON'T HAVE TO TYPE ANY IN ADD YOUR DESCRIPTION ON COMPUTER
 ; FIRST AND DON'T HAVE TO MAKE EXTRA COPY
 ; WISH SPACE BOOK GRIN BOOK _ AI _ WOULD DO SOMETHING LIKE THAT
 ; THOUGH GUESS THEY ARE SECRETLY KEEPING ALL YOUR FILENAME INFO WITH EACH PHOTO SO IT DON'T GET LOST OR SOMETHING
 ; -------------------------------------------------------------------
-; REM IN AND OUT WHEN WANT TO USE IT 
+; REM IN AND OUT WHEN WANT TO USE IT
 ; SUPPLY PATH NAME _ UP A BIT
-; MIGHT MAKE IT OWN AHK FILE THIS ONE AS USED A LOT AND ONLY WANT 
+; MIGHT MAKE IT OWN AHK FILE THIS ONE AS USED A LOT AND ONLY WANT
 ; CALL UP WHEN USER
 ; MY FAV HOTKEY IS F4 F5 AND OTHER BUT HARDLY USE MANY OR I GET IT TOO COMPLICATED
 ; GUESSING WHERE MY FAVOURITE HOTKEY ARE
@@ -3031,7 +3039,7 @@ RETURN
 	; ; Activate a chrome tab by its name - Ask for Help - AutoHotkey Community
 	; ; https://autohotkey.com/board/topic/110607-activate-a-chrome-tab-by-its-name/
 	; ; ----
-	
+
 	; WinActivate, ahk_class Chrome_WidgetWin_1
 	; WinWaitActive, ahk_class Chrome_WidgetWin_1
 	; WinGetTitle, CurrentWindowTitle, ahk_class Chrome_WidgetWin_1
@@ -3041,10 +3049,10 @@ RETURN
 		; SET_GO=TRUE
 	; If CurrentWindowTitle contains Raspberry Pi - Google Chrome
 		; SET_GO=TRUE
-		
+
 	; IF SET_GO=FALSE
 		; RETURN
-				
+
 	; Loop
 	; {
 		; ; TAB BEFORE
@@ -3062,11 +3070,11 @@ RETURN
 			; SET_GO=TRUE
 		; If CurrentWindowTitle contains New Tab - Google Chrome
 			; SET_GO=TRUE
-			
+
 		; ; CPC UK | Electronic Parts & Components, Raspberry Pi - Google Chrome
 		; If CurrentWindowTitle contains Raspberry Pi - Google Chrome
 			; SET_GO=TRUE
-			
+
 		; IF SET_GO=TRUE
 		; {
 			; Sleep, 200
@@ -3075,7 +3083,7 @@ RETURN
 			; SendInput ^w
 			; SEXY=0
 		; }
-		
+
 		; If TITLE_ADD not contains %CurrentWindowTitle%
 			; SEXY=0
 
@@ -3087,7 +3095,7 @@ RETURN
 			; SOUNDBEEP 2000,100
 			; BREAK
 		; }
-			
+
 		; TITLE_ADD=%TITLE_ADD%%CurrentWindowTitle%
 	; }
 ; }
@@ -3124,10 +3132,10 @@ F5_ROUTINE:
 	; ; -------------------------------------------------------------------
 	; ; SET THE PATH OF PHOTO FOLDER _ WITHOUT RECURSING SUB-FOLDER IS GOOD IDEA
 	; ; TO BE ABLE QUICKLY COUNT THEM VERIFY AND SEE AS ORDER TO GO ONTO FACEBOOK
-	; ; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER 
+	; ; AND NOT STRETCH MY CODE TOO MUCH ABOUT WANT RECURSING SUB-FOLDER
 	; ; SINGLE FOLDER ONLY AT THE MOMENT
 	; ; -------------------------------------------------------------------
-	
+
 	; ; Example #3: Retrieve file names sorted by name (see next example to sort by date):
 	; FileList =  ; Initialize to be blank.
 	; Loop, Files, M:\*.*, D
@@ -3138,12 +3146,12 @@ F5_ROUTINE:
 	; {
 		; if A_LoopField =  ; Ignore the blank item at the end of the list.
 			; continue
-		
+
 		; FILE_SCRIPT[A_Index] := A_LoopField
 		; FILE_SCRIPT_COUNT := A_Index
 		; ; MSGBOX % FILE_SCRIPT[A_Index]
-		
-	; }	
+
+	; }
 
 	; Loop % FILE_SCRIPT.MaxIndex()
 	; {
@@ -3152,7 +3160,7 @@ F5_ROUTINE:
 		; FILE_SCRIPT[A_Index]:=FILE_NAME
 	; }
 
-	
+
 	; ACUM=0
 	; ACUM+=1
 	; FOLDER_EXCLUDE[ACUM] := "$RECYCLE.BIN"
@@ -3176,8 +3184,8 @@ F5_ROUTINE:
 	; ; FOLDER_EXCLUDE[ACUM] := "SADPLOG"
 	; ; ACUM+=1
 	; ; FOLDER_EXCLUDE[ACUM] := "windows"
-	
-	
+
+
 	; ; ACUM+=1
 	; ; FOLDER_EXCLUDE[ACUM] := "# MY DOCS"
 	; ; ACUM+=1
@@ -3216,16 +3224,16 @@ F5_ROUTINE:
 	; ; ; FOLDER_EXCLUDE[ACUM] := "VB6 _ IN SYNC"
 	; ; ACUM+=1
 	; ; FOLDER_EXCLUDE[ACUM] := "VB6-EXE"
-	
-	
+
+
 	; Loop % FOLDER_EXCLUDE.MaxIndex()
 	; {
 		; FILE_NAME:=FOLDER_EXCLUDE[A_Index]
 		; StringUpper, FILE_NAME,FILE_NAME
 		; FOLDER_EXCLUDE[A_Index]:=FILE_NAME
 	; }
-	
-	
+
+
 	; X_Index:=FILE_SCRIPT.MaxIndex()
 	; Loop % FILE_SCRIPT.MaxIndex()
 	; {
@@ -3237,34 +3245,34 @@ F5_ROUTINE:
 				; ; msgbox % FILE_SCRIPT[X_Index]
 				; FILE_SCRIPT.RemoveAt(X_Index)
 			; }
-		; }	
-	; }	
+		; }
+	; }
 
 	; --------------------------------------------------
 	; REQUIRE OPTION TO IGNORE IF FOLDER OLDER THAN DATE
 	; LIKE ABOVE 1 ROUTINE
 	; --------------------------------------------------
 
-	
-	
+
+
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
-	
+
 	; 1ST
 	; SETTIMER AUTO_CLONE_JOB, 1000
 
 	; 2ND _ GOT TO SET THE PATH FOR EACH JOB
 	; SETTIMER SET_OK_BOX,100
-	
+
 	; 3RD
 	; GOSUB DISPLAY_TOOLTIP
 	; SETTIMER RENAME_JOBS_FROM_DIRECTORY_SCANNER,1000
-	
+
 	; 4TH
 	; SETTIMER RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT,100
-	
+
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
@@ -3291,17 +3299,17 @@ RETURN
 TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 {
 	CoordMode, Mouse, Screen
-	MouseGetPos, xpos, ypos 
-	
+	MouseGetPos, xpos, ypos
+
 	STATE_XYPOS:=xpos+ypos
-	
+
 	IF (STATE_XYPOS=0 and OLD_STATE_XYPOS<>%STATE_XYPOS%)
 		STATE_XYPOS_COUNTER+=1
-	
+
 	OLD_STATE_XYPOS=%STATE_XYPOS%
-	
+
 	SET_GO=FALSE
-	
+
 	WinGetCLASS, CLASS, A
 	WinGetTITLE, TITLE_NAME, A
 
@@ -3316,12 +3324,12 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 		XR=4
 	IF INSTR(CLASS,"IrfanView")
 		XR=5
-	
+
 	IF XR>0
 	IF STATE_XYPOS=0
 	IF STATE_XYPOS_COUNTER<>%OLD_STATE_XYPOS_COUNTER%
 		SOUNDBEEP 2000,100
-		
+
 	IF STATE_XYPOS_COUNTER>0
 	IF STATE_XYPOS_COUNTER<>%OLD_STATE_XYPOS_COUNTER%
 	{
@@ -3329,10 +3337,10 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 		SetTimer, STATE_XYPOS_Limit, 2000 ;<-- set a oneshot 1 second timer to stop the loop
 	}
 	OLD_STATE_XYPOS_COUNTER=%STATE_XYPOS_COUNTER%
-	
+
 	IF (STATE_XYPOS_COUNTER>1 or A_PriorKey=27)
 	{
-		IF XR>0 
+		IF XR>0
 		{
 			; TOOLTIP % HWND_X "," HWND_ACTIVE "," SET_GO
 			IF XR<4
@@ -3346,16 +3354,16 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 			{
 				; Process, Close, i_view32.exe
 				; ---------------------------------------------------
-				; ABOVE METHOD FAIL DESTROYS WINDOWS EXPLORER TASKBAR 
+				; ABOVE METHOD FAIL DESTROYS WINDOWS EXPLORER TASKBAR
 				; HAVE TO RESET EXPLORER AGAIN
 				; ---------------------------------------------------
 
 				; PostMessage, 0x112, 0xF060,,, TITLE_NAME, WinText  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 				; PostMessage, 0x112, 0xF060,,, TITLE_NAME , CLASS  ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
 				; PostMessage, 0x112, 0xF060,,, TITLE_NAME ; 0x112 = WM_SYSCOMMAND, 0xF060 = SC_CLOSE
-				
+
 				; ---------------------------------------------------
-				; BOTH METHOD WORK BUT HARD TO USE WITH PASS VARIABLE 
+				; BOTH METHOD WORK BUT HARD TO USE WITH PASS VARIABLE
 				; UNLESS DEBUG A BIT
 				; ---------------------------------------------------
 				SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_LEFT_MOUSE_CLOSE_MPC_SOUNDPLAY,50
@@ -3363,8 +3371,8 @@ TIMER_TOP_LEFT_MOUSE_CLOSE_MPC:
 				WinClose, IrfanView
 				STATE_XYPOS_COUNTER=0
 			}
-		}	
-	}	
+		}
+	}
 }
 RETURN
 ; -------------------------------------------------------------------
@@ -3392,7 +3400,7 @@ RETURN
 		; SET_GO_AR=TRUE
 	; IF A_ComputerName=8-MSI-GP62M-7RD
 		; SET_GO_AR=TRUE
-	
+
 	; IF SET_GO_AR
 	; {
 		; ;SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
@@ -3414,18 +3422,18 @@ RETURN
 ; TIMER_TOP_LEFT_MOUSE_REFRESH_BROWSER:
 ; {
 	; CoordMode, Mouse, Screen
-	; MouseGetPos, xpos, ypos 
-	
+	; MouseGetPos, xpos, ypos
+
 	; STATE_XYPOS_TOP_MOUSE_REFRESH:=ypos
-	
+
 	; IF (STATE_XYPOS_TOP_MOUSE_REFRESH=0 and OLD_STATE_XYPOS_TOP_MOUSE_REFRESH<>%STATE_XYPOS_TOP_MOUSE_REFRESH%)
 	; {
 		; STATE_XYPOS_COUNTER_TOP_MOUSE_REFRESH+=1
 		; SETTIMER STATE_XYPOS_LIMIT_TIMER_TOP_LEFT_MOUSE_REFRESH_BROWSER,1000  ; PUT MOUSE UP TOP AGAIN IN 500 MILLISECOND
 	; }
-	
+
 	; OLD_STATE_XYPOS_TOP_MOUSE_REFRESH=%STATE_XYPOS_TOP_MOUSE_REFRESH%
-	
+
 	; WinGetCLASS, CLASS, A
 	; WinGetTITLE, TITLE_NAME, A
 
@@ -3433,18 +3441,18 @@ RETURN
 	; IF INSTR(CLASS,"Chrome_WidgetWin_1")
 	; IF INSTR(TITLE_NAME,"Your notifications - Google Chrome")
 		; XR=1
-	
+
 	; IF (STATE_XYPOS_COUNTER_TOP_MOUSE_REFRESH>1 or A_PriorKey=27)
 	; {
-		; IF XR>0 
+		; IF XR>0
 		; {
 			; SETTIMER CHECK_NEW_WINDOW_TIMER_TOP_MOUSE_REFRESH_BROWSER_SOUNDPLAY,1
 			; SETTIMER CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__4G,10000
 			; SETTIMER CHECK_NEW_WINDOW_TIMER_BROWSER_PAGE_LOAD_THEN_ESCAPE_MSGBOX_ABOUT_SPAM_DOS__1X,10000
 			; SENDINPUT {F5}
 			; STATE_XYPOS_COUNTER_TOP_MOUSE_REFRESH=0
-		; }	
-	; }	
+		; }
+	; }
 ; }
 ; RETURN
 ; ; -------------------------------------------------------------------
@@ -3463,7 +3471,7 @@ KILL_ALL_MPC_EXE_NAME:
 	; ESC KEY AND MOUSE LEFT TO CORNER COUPLE TIME TO TRIG
 	; NOW DO KILL ALL MPC PROCESS
 	; ---------------------------------------------------------------
-	; 
+	;
 	; Thu 30-Jan-2020 23:03:29
 	; Thu 30-Jan-2020 23:33:30 -- 30 MINUTE
 	; ---------------------------------------------------------------
@@ -3472,17 +3480,17 @@ KILL_ALL_MPC_EXE_NAME:
 	; SOUNDBEEP 1000,100
 	WINGET, LIST, LIST, AHK_EXE mpc-hc64.exe
 	LOOP %LIST%
-	{ 
+	{
 		WINGET, PID_8, PID, % "AHK_ID " LIST%A_INDEX%
 		IF PID_8
 			PROCESS, CLOSE, %PID_8%
 
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
-	
+
 	WINGET, LIST, LIST, AHK_EXE mpc-hc.exe
 	LOOP %LIST%
-	{ 
+	{
 		WINGET, PID_8, PID, % "AHK_ID " LIST%A_INDEX%
 		IF PID_8
 			PROCESS, CLOSE, %PID_8%
@@ -3492,7 +3500,7 @@ KILL_ALL_MPC_EXE_NAME:
 
 RETURN
 ; -------------------------------------------------------------------
-	
+
 
 ; -------------------------------------------------------------------
 ; SET OKAY BOX AFTER MADE SELECTION
@@ -3509,7 +3517,7 @@ SET_OK_BOX:
 		{
 			#WinActivateForce, ahk_id %HWND_1%
 		}
-		
+
 		IfInString, OutputVar_3, Removable drive with volume name
 		{
 			LOOP
@@ -3517,7 +3525,7 @@ SET_OK_BOX:
 				SLEEP 50
 				ControlGetPos, x, y, w, h, Yes, ahk_id %HWND_1%
 				MouseMove, X+10, Y+10
-				
+
 				ControlClick, Yes,ahk_id %HWND_1%
 				IfWinNotExist, ahk_id %HWND_1%
 					BREAK
@@ -3527,12 +3535,12 @@ SET_OK_BOX:
 	}
 
 	WinGet, HWND_1, ID, Left Folder ahk_class #32770
-	IF !HWND_1 
+	IF !HWND_1
 		WinGet, HWND_1, ID, Right Folder ahk_class #32770
-	IF !HWND_1 
+	IF !HWND_1
 		O_OutputVar_store=
-	
-	IF HWND_1 
+
+	IF HWND_1
 	{
 	WinGetPos, X, Y, Width, Height, ahk_id %HWND_1%
 	; tooltip % x " -- " y
@@ -3540,9 +3548,9 @@ SET_OK_BOX:
 		WinMove, ahk_id %HWND_1%,,990,180
 
 	ControlGetText, OutputVar_store, Edit1, ahk_id %HWND_1%
-	
+
 	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
-	
+
 	if O_OutputVar_store
 		if OutputVar_store<>%O_OutputVar_store%
 		{
@@ -3552,7 +3560,7 @@ SET_OK_BOX:
 				SLEEP 50
 				ControlGetPos, x, y, w, h, OK, ahk_id %HWND_1%
 				MouseMove, X+10, Y+10
-				
+
 				ControlClick, OK, ahk_id %HWND_1%
 				IfWinNotExist, ahk_id %HWND_1%
 					BREAK
@@ -3560,11 +3568,11 @@ SET_OK_BOX:
 			}
 		}
 	; TOOLTIP % "1 " OutputVar_store "`n2 " O_OutputVar_store
-	
+
 	O_OutputVar_store=%OutputVar_store%
 
 	}
-	
+
 }
 RETURN
 
@@ -3579,7 +3587,7 @@ RETURN
 
 ; ;; *F2::
 	; IF !xpos
-	; MouseGetPos, xpos, ypos 
+	; MouseGetPos, xpos, ypos
 	; SEND {F2}
 ; RETURN
 
@@ -3593,20 +3601,20 @@ RENAME_JOBS_FROM_DIRECTORY_SCANNER:
 		O_ID=0
 		RETURN
 	}
-	
+
 	IF HWND_1=%O_ID%
 		RETURN
-	
+
 	O_ID:=HWND_1
-	
+
 	VAR_COUNTER+=1
 	FILE_NAME := % FILE_SCRIPT[VAR_COUNTER]
 	F_2:=""
 	FILE_NAME:=% PART_RENAME_VAR FILE_NAME F_2
-	
-	
+
+
 	StringUpper, FILE_NAME, FILE_NAME
-	
+
 	ControlSetText, Edit1,, ahk_id %HWND_1%
 	Control, EditPaste, %FILE_NAME%, Edit1, ahk_id %HWND_1%
 
@@ -3615,7 +3623,7 @@ RENAME_JOBS_FROM_DIRECTORY_SCANNER:
 	{
 		#WinActivateForce, ahk_id %HWND_1%
 	}
-	
+
 	LOOP
 	{
 		SLEEP 100
@@ -3626,7 +3634,7 @@ RENAME_JOBS_FROM_DIRECTORY_SCANNER:
 		IfWinNotExist, ahk_id %HWND_1%
 			BREAK
 	}
-	
+
 
 	MouseMove, XPOS, YPOS
 	GOSUB DISPLAY_TOOLTIP
@@ -3641,18 +3649,18 @@ RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT:
 {
 
 	WinGet, HWND_1, ID, Left Folder ahk_class #32770
-	IF !HWND_1 
+	IF !HWND_1
 		WinGet, HWND_1, ID, Right Folder ahk_class #32770
 
-	
+
 	IF !HWND_1
 	{
 		O_ID=0
 		RETURN
 	}
-	
+
 	; TOOLTIP % HWND_1
-	
+
 	; IF HWND_1=%O_ID%
 		; RETURN
 	; O_ID:=HWND_1
@@ -3668,13 +3676,13 @@ RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT:
 	IF INSTR(OutputVar_2,"=4_CLOUD_2TB")=0
 		RETURN
 
-		
+
 	SET_HO=FALSE
 	IF INSTR(OutputVar_2,"=4_CLOUD_2TB:")
 	SET_HO=TRUE
 	IF INSTR(OutputVar_2,"=4_CLOUD_2TB_1:")
 	SET_HO=TRUE
-	
+
 	SET_NEXT_EVENT=FALSE
 	IF SET_HO=TRUE
 	{
@@ -3682,24 +3690,24 @@ RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT:
 		StringReplace, OutputVar_2, OutputVar_2,CLOUD_2TB_1,CLOUD_2TB_01, All
 		ControlSetText, Edit1,, ahk_id %HWND_1%
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		
+
 		LOOP
 		{
 			SLEEP 400
 			Control, EditPaste, %OutputVar_2%, Edit1, ahk_id %HWND_1%
-			;TOOLTIP %OutputVar_3%		
+			;TOOLTIP %OutputVar_3%
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
 			ControlGettext, OutputVar_3, Edit1, ahk_id %HWND_1%
-			
+
 			; TOOLTIP % "01" OutputVar_2 "`n" "02" OutputVar_3
 			IF !OutputVar_2
 				BREAK
-		
+
 			IF OutputVar_3=%OutputVar_2%
 				{
 				; MSGBOX % "01" OutputVar_3 "`n" "02" OutputVar_2
-				
+
 				BREAK
 				}
 		SET_NEXT_EVENT=TRUE
@@ -3708,31 +3716,31 @@ RENAME_PATH_OF_JOBS_LEFT_OR_RIGHT:
 		}
 	}
 
-	
+
 	IF SET_NEXT_EVENT=FALSE
-		RETURN 
-		
+		RETURN
+
 	MSGBOX "HH"
 
-		
+
 	WinGet, HWND_2, ID, A
 	IF HWND_2<>%HWND_1%
 	{
 		#WinActivateForce, ahk_id %HWND_1%
 	}
-	
+
 	LOOP
 	{
 		MSGBOX "HH"
 		ControlGetPos, X_3, Y_3, , , Button3, ahk_id %HWND_1%
 		MouseMove, X_3+10, Y_3+10
-		
+
 		ControlClick, Button3, ahk_id %HWND_1%
 		IfWinNotExist, ahk_id %HWND_1%
 			BREAK
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	}
-	
+
 
 }
 RETURN
@@ -3743,9 +3751,9 @@ AUTO_CLONE_JOB:
 {
 
 	WinGetTitle, Title, A
-	
+
 	POS_VAR:=INSTR(Title,"HDD CLOUD GD1TB")
-	IF POS_VAR>0 
+	IF POS_VAR>0
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		SLEEP 500
@@ -3759,14 +3767,14 @@ AUTO_CLONE_JOB:
 		O_ID=0
 		RETURN
 	}
-	
+
 	IF HWND_1=%O_ID%
 		RETURN
-	
+
 	O_ID:=HWND_1
 
 	SOUNDBEEP 3000,100
-		
+
 	LOOP
 	{
 		SLEEP 100
@@ -3790,7 +3798,7 @@ TIMER_CLIPBOARD_LOGGGER_KEEP_RUNNER:
 	SetTitleMatchMode 2
 
 	IfWinExist - Microsoft Visual Basic [ ahk_class ThunderRT6FormDC
-		RETURN 
+		RETURN
 
 	IfWinNOTExist ClipBoard Logger ahk_class ThunderRT6FormDC
 		Run, "D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD LOGGER\CLIPBOARD LOGGER.EXE" , , MIN
@@ -3839,34 +3847,34 @@ RETURN
 		; O_ID=0
 		; RETURN
 	; }
-	
-	
+
+
 	; IF HWND_1=%O_ID%
 	; {
 		; RETURN
 	; }
-	
+
 	; O_ID:=HWND_1
 
-	
+
 	; ControlGettext, OutputVar_1, Button5, ahk_id %HWND_1%
-	
+
 	; ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_1%
-	
+
 	; POS_VAR:=INSTR(OutputVar_2," _ 7G")
 
 	; OutputVar_4:=SubStr(OutputVar_2,1, POS_VAR)
 
 	; SOUNDBEEP 3000,100
-	
+
 	; IF OutputVar_4
 	; {
-	
+
 		; ControlSetText, Edit1,, ahk_id %HWND_1%
 		; Control, EditPaste, %OutputVar_4%, Edit1, ahk_id %HWND_1%
 		; OutputVar_4=
 		; SOUNDBEEP 4000,100
-		
+
 		; SLEEP 100
 		; LOOP
 		; {
@@ -3889,33 +3897,33 @@ RETURN
 	; WinGet, HWND_1, ID, Right Folder ahk_class #32770
 
 	; ControlGettext, OutputVar_1, Button5, ahk_id %HWND_1%
-	
+
 	; ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_1%
 
 	; POS_VAR:=INSTR(OutputVar_2,"4TB_HUBIC\")
-	
+
 	; OutputVar_4:=SubStr(OutputVar_2, POS_VAR+10)
 
-	
+
 	; OutputVar_4="=4_SAMSUNG_4TB_HUBIC:\"%OutputVar_4%
 	; StringReplace, OutputVar_4, OutputVar_4,/,\, All
 	; NV := chr(34)
 	; StringReplace, OutputVar_4, OutputVar_4,%NV%,, All
-	
+
 	; ; TOOLTIP % OutputVar_4
 	; ; MSGBOX % OutputVar_4
 	; ; RETURN
 	; SOUNDBEEP 3000,100
-	
-	
+
+
 	; IF OutputVar_4
 	; {
-	
+
 		; ControlSetText, Edit1,,  ahk_id %HWND_1%
 		; Control, EditPaste, %OutputVar_4%, Edit1, ahk_id %HWND_1%
 		; OutputVar_4=
 		; SOUNDBEEP 4000,100
-		
+
 		; #WinActivateForce, ahk_id %HWND_1%
 		; SLEEP 100
 		; WinWAIT, ahk_id %HWND_1%
@@ -3942,35 +3950,35 @@ RETURN
 	; WinGet, HWND_1, ID, Right Folder ahk_class #32770
 
 	; ControlGettext, OutputVar_1, Button5, ahk_id %HWND_1%
-	
+
 	; IF INSTR(OutputVar_1,"Secure Mode (Encrypted by TLS)")
 	; {
 		; ControlGettext, OutputVar_2, Edit1, ahk_id %HWND_1%
 
 		; POS_VAR:=INSTR(OutputVar_2,"goodsync/")
-		
+
 		; OutputVar_4:=SubStr(OutputVar_2, POS_VAR+10)
 
 		; ; O:\C\0 00 LINK SET QUICKER MOVER
-		
+
 		; OutputVar_4="=4_SAMSUNG_4TB_HUBIC"%OutputVar_4%
 		; StringReplace, OutputVar_4, OutputVar_4,/,\, All
 		; NV := chr(34)
 		; StringReplace, OutputVar_4, OutputVar_4,%NV%,, All
-		
+
 		; ;TOOLTIP % OutputVar_4
 		; SOUNDBEEP 3000,100
 	; }
-	
-	
+
+
 	; IF OutputVar_4
 	; {
-	
+
 		; ControlSetText, Edit1,,  ahk_id %HWND_1%
 		; Control, EditPaste, %OutputVar_4%, Edit1, ahk_id %HWND_1%
 		; OutputVar_4=
 		; SOUNDBEEP 4000,100
-		
+
 		; #WinActivateForce, ahk_id %HWND_1%
 		; SLEEP 100
 		; WinWAIT, ahk_id %HWND_1%
@@ -4007,9 +4015,9 @@ RETURN
 	; VAR_CLIP=%clipboard%
 
 	; ; StringUpper, VAR_CLIP, VAR_CLIP
-	
+
 	; StringReplace, VAR_CLIP, VAR_CLIP,/file://,, All
-	
+
 	; Sleep 800
 	; clipboard=%VAR_CLIP%
 
@@ -4075,7 +4083,7 @@ RETURN
 
 	; ;gstps://nas-qnap-ml.matt-lan-2.goodsync/file:///share/CACHEDEV1_DATA/Multimedia/SW/SW SOFTWARE
 	; ;\\NAS-QNAP-ML\PUBLIC_CONTACT
-	
+
 	; ;StringReplace, VAR_CLIP, VAR_CLIP,`:`\,%A_Space%, All
 	; ;StringReplace, VAR_CLIP, VAR_CLIP,`\`\NAS-QNAP-ML,gstps`://nas-qnap-ml`.matt-lan-2`.goodsync/file`:///share/CACHEDEV1_DATA, All
 	; StringReplace, VAR_CLIP, VAR_CLIP,`\`\NAS-QNAP-ML,, All
@@ -4275,10 +4283,10 @@ RETURN
 
 ; F4::
 ; {
-	; IF GetKeyState("Capslock", "T") 
+	; IF GetKeyState("Capslock", "T")
 		; Send {shift down}
 	; SENDINPUT C{:}
-	; IF GetKeyState("Capslock", "T") 
+	; IF GetKeyState("Capslock", "T")
 		; Send {shift up}
 	; SENDINPUT {ENTER}
 	; SLEEP 500
@@ -4422,7 +4430,7 @@ RETURN
 ;NORTON
 ;F4::
 ;   SEND :\
-;Return 
+;Return
 
 ;-------------------------------------------------------------------------
 ;NOT AT MOMENT
@@ -4432,7 +4440,7 @@ RETURN
 ;-------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------
-; F4 __ CLIPBOARD CTRL 'A'-ALL DELETE AND WAIT AND THEN PASTE CTRL V 
+; F4 __ CLIPBOARD CTRL 'A'-ALL DELETE AND WAIT AND THEN PASTE CTRL V
 ;-------------------------------------------------------------------------
 ;F4::
 ;   SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
@@ -4536,7 +4544,7 @@ Return
 
 ;# ------------------------------------------------------------------
 EOF:                           ; on exit
-ExitApp     
+ExitApp
 ;# ------------------------------------------------------------------
 
 ;# ------------------------------------------------------------------
