@@ -698,6 +698,20 @@ if FileExist(Element_1)
 	Run, %Element_1%
 }
 
+SET_GO_1=
+; IF (A_ComputerName="8-MSI-GP62M-7RD") 
+	; SET_GO_1=1
+IF (A_ComputerName="9-ASUS-G815LM") 
+	SET_GO_1=1
+IF SET_GO_1=1
+{
+	Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 35-COPY CAMERA PHOTO IMAGES.AHK"
+	if FileExist(Element_1)
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, %Element_1%
+	}
+}
 
 
 
@@ -1707,16 +1721,18 @@ If (OSVER_N_VAR>5
 
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Pushbullet
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, NokiaSuite.exe
+
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, BoxSync
-RegDelete, HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, boxsync
-
-
+RegDelete, HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, BoxSync
+; PROBLEM DELETER THESE ONE
+; MSGBOX "HERE"
 
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, WebStorage
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, WebStorage
 
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, GoogleDriveSync
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, OneDrive
+
 RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run, Dropbox
 
 

@@ -5,6 +5,9 @@
 
 @ECHO OFF
 
+
+GOTO ENDER_MAIN
+
 REM "C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_SYSTEM_START_BATCH.BAT"
 REM "C:\PStart\Progs\SendSMTP_v2.19.0.1\SendSMTP_REBOOT_LOGON_BATCH.BAT"
 REM
@@ -65,5 +68,8 @@ GOTO :eof
 @FOR /L %%# IN (40,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
 	PING -n 2 127.0.0.1 >NUL:)
 @ECHO.
-	
+
+
+:ENDER_MAIN
+
 EXIT

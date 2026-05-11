@@ -377,7 +377,7 @@ if SET_GO=1
 		;SoundBeep , 2000 , TIMER_DURATION_VAR
 		
 		; HERE WHEN CHANGER INTO HOUR GLASS
-		SoundBeep , 2000 , 400
+		; SoundBeep , 2000 , 400
 
 		;###
 		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID_EMPTY_FILE_STOP_SOUND_PLAY.wav
@@ -481,7 +481,9 @@ if SET_GO=1
 		
 		
 		; HERE IS WHEN MOUSE CHANGER FROM HOUR GLASS BACK TO NORMAL MOUSY
-		SoundBeep , 2000 , 400
+		; AND WHEN ANY MOUSE ICON CHANGE BACK TO NORMAL MOUSE
+		; SoundBeep , 2000 , 400
+		
 		;### Soundplay, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 10-READ MOUSE CURSOR ICON\start_VOID.wav
 
 		;-----------------------------------
