@@ -157,7 +157,7 @@ Const SWP_SHOWWINDOW = &H40
 Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Dim XVB_DATE_SYNC_VB_PROJECT
 Dim XVB_DATE
@@ -167,8 +167,8 @@ Public EXIT_TRUE
 Public CHECK_PROJECT_DATE_IN_PROCESS
 
 
-Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -201,7 +201,7 @@ Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (B
 Private Const conSwNormal = 1
 
 '-----------------------------------------------------------------
-Private Declare Function GetVersionExA Lib "kernel32" _
+Private Declare Function GetVersionExA Lib "Kernel32" _
 (lpVersionInformation As OSVERSIONINFO) As Integer
 
 Private Type OSVERSIONINFO
@@ -240,8 +240,8 @@ End Type
 Private Type PROCESS_INFORMATION
   hProcess    As Long
   hThread     As Long
-  dwProcessID As Long
-  dwThreadID  As Long
+  dwProcessId As Long
+  dwThreadId  As Long
 End Type
 
 Private Type STARTUPINFO
@@ -272,13 +272,13 @@ Private Enum Priorities
   p_Idle = &H40
 End Enum
 
-Private Declare Function Process32First Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function Process32Next Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
-Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadID As Long) As Long
+Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadId As Long) As Long
 Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
-Private Declare Function TerminateProcess Lib "kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
@@ -288,9 +288,9 @@ Private Declare Function GetExitCodeThread Lib "kernel32.dll" (ByVal hThread As 
 Private Declare Function TerminateThread Lib "kernel32.dll" (ByVal hThread As Long, ByVal dwExitCode As Long) As Long
 Private Declare Function SetPriorityClass Lib "kernel32.dll" (ByVal hProcess As Long, ByVal dwPriorityClass As Long) As Boolean
 
-Private Declare Function CloseHandle Lib "kernel32" _
+Private Declare Function CloseHandle Lib "Kernel32" _
         (ByVal hObject As Long) As Long
-Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
 Private Const TH32CS_SNAPPROCESS = &H2&
 
 
@@ -316,7 +316,7 @@ Private Const FILE_SHARE_READ = &H1
 Private Const FILE_SHARE_WRITE = &H2
 Private Const GENERIC_WRITE = &H40000000
   
-Private Declare Function CreateFile Lib "kernel32" Alias _
+Private Declare Function CreateFile Lib "Kernel32" Alias _
    "CreateFileA" (ByVal lpFileName As String, _
    ByVal dwDesiredAccess As Long, _
    ByVal dwShareMode As Long, _
@@ -327,16 +327,16 @@ Private Declare Function CreateFile Lib "kernel32" Alias _
    As Long
 
 Private Declare Function LocalFileTimeToFileTime Lib _
-    "kernel32" (lpLocalFileTime As FILETIME, _
+    "Kernel32" (lpLocalFileTime As FILETIME, _
     lpFileTime As FILETIME) As Long
 
-Private Declare Function SetFileTime Lib "kernel32" _
+Private Declare Function SetFileTime Lib "Kernel32" _
     (ByVal hFile As Long, ByVal MullP As Long, _
     ByVal NullP2 As Long, lpLastWriteTime _
     As FILETIME) As Long
 
 Private Declare Function SystemTimeToFileTime Lib _
-    "kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
+    "Kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
     As FILETIME) As Long
  
 ' Private Declare Function CloseHandle Lib "kernel32" _
@@ -365,14 +365,14 @@ End Function
 
 Private Sub Form_Load()
     
-    
-    
     Unload Me
     Exit Sub
     
     Set FSO = CreateObject("Scripting.FileSystemObject")
     Set WSHShell = CreateObject("WScript.Shell")
     Project_Check_Date.Caption = App.EXEName + ".EXE"
+    
+'    Timer_VB_PROJECT_CHECKDATE.Enabled = True
     
     If Me.EXIT_TRUE = True Then
         Unload Me
@@ -439,7 +439,7 @@ End Sub
 
 Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 
-    Exit Sub
+'    Exit Sub
 
     If Me.EXIT_TRUE = True Then
         Unload Me
@@ -447,13 +447,13 @@ Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
     End If
     
     If ONCE_STARTER_MODE = True Then
-    Exit Sub
+'        Exit Sub
     End If
     ONCE_STARTER_MODE = True
     
     ' --------------------------------------------------
-    Call VB_PROJECT_CHECKDATE
-    Call DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB
+'    Call VB_PROJECT_CHECKDATE
+'    Call DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB
     Call DATE_OF_APP_EXE_AT_LOAD_SUB
     ' --------------------------------------------------
 
@@ -615,7 +615,7 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
     ' FIRST PASS AND 2ND
     ' RZZD = RZZD + 1
                 
-    If 1 = 2 Then
+    If 1 = 1 Then
         Exit Sub
     End If
     

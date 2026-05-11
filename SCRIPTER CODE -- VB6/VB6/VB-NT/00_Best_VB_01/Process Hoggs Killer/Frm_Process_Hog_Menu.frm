@@ -3,8 +3,8 @@ Begin VB.Form Frm1_Menu
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Process Hoggs Menu"
    ClientHeight    =   4860
-   ClientLeft      =   45
-   ClientTop       =   735
+   ClientLeft      =   48
+   ClientTop       =   732
    ClientWidth     =   9960
    Icon            =   "Frm_Process_Hog_Menu.frx":0000
    LinkTopic       =   "Form1"
@@ -12,7 +12,7 @@ Begin VB.Form Frm1_Menu
    ScaleWidth      =   9960
    Visible         =   0   'False
    Begin VB.ListBox List4 
-      Height          =   1620
+      Height          =   1584
       Left            =   4845
       TabIndex        =   4
       Top             =   585
@@ -20,7 +20,7 @@ Begin VB.Form Frm1_Menu
       Width           =   1905
    End
    Begin VB.ListBox List3 
-      Height          =   1815
+      Height          =   1776
       ItemData        =   "Frm_Process_Hog_Menu.frx":0442
       Left            =   3045
       List            =   "Frm_Process_Hog_Menu.frx":0444
@@ -46,7 +46,7 @@ Begin VB.Form Frm1_Menu
       Top             =   3045
    End
    Begin VB.ListBox List2 
-      Height          =   1620
+      Height          =   1584
       ItemData        =   "Frm_Process_Hog_Menu.frx":0446
       Left            =   1635
       List            =   "Frm_Process_Hog_Menu.frx":0448
@@ -57,7 +57,7 @@ Begin VB.Form Frm1_Menu
       Width           =   1155
    End
    Begin VB.ListBox List1 
-      Height          =   1815
+      Height          =   1776
       ItemData        =   "Frm_Process_Hog_Menu.frx":044A
       Left            =   240
       List            =   "Frm_Process_Hog_Menu.frx":044C

@@ -1,14 +1,14 @@
 VERSION 5.00
 Begin VB.Form Form1 
    Caption         =   "WinRar_Notes_VB6"
-   ClientHeight    =   5670
+   ClientHeight    =   5664
    ClientLeft      =   60
-   ClientTop       =   450
-   ClientWidth     =   9630
+   ClientTop       =   456
+   ClientWidth     =   9636
    Icon            =   "DSS.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5670
-   ScaleWidth      =   9630
+   ScaleHeight     =   5664
+   ScaleWidth      =   9636
    StartUpPosition =   3  'Windows Default
    WindowState     =   1  'Minimized
    Begin VB.Timer Timer1 
@@ -17,7 +17,7 @@ Begin VB.Form Form1
       Top             =   4110
    End
    Begin VB.FileListBox File1 
-      Height          =   1455
+      Height          =   1416
       Hidden          =   -1  'True
       Left            =   240
       Pattern         =   "*.dss"
@@ -27,7 +27,7 @@ Begin VB.Form Form1
       Width           =   2145
    End
    Begin VB.ListBox List1 
-      Height          =   2985
+      Height          =   2928
       Left            =   0
       TabIndex        =   1
       Top             =   0
