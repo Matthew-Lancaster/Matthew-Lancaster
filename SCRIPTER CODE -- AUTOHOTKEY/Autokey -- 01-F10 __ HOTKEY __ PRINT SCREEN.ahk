@@ -166,10 +166,14 @@ GroupAdd, FIND_WINDOW_1, GoodSync -
 VAR_REPEAT_F5_TOOGLE=
 ; SETTIMER REPEAT_F5_BASHING,20000
 
+VAR_REPEAT_LCLICK_TOOGLE=
+SETTIMER REPEAT_LCLICK_BASHING,OFF
+
+
 SETTIMER TIMER_PREVIOUS_INSTANCE,1
 
 SETTIMER TIMER_CLIPBOARD_LOGGGER_ERROR,10000
-
+SETTIMER TIMER_CLIPBOARD_LOGGGER_KEEP_RUNNER,1000
 
 GLOBAL VAR_COUNTER
 
@@ -197,6 +201,8 @@ GOSUB GROUP_ADD_FIND_WINDOW_1
 
 SETTIMER TIMER_ENTER,OFF
 SETTIMER TIMER_CONVERT_CIPBOARD,400
+
+TOOGLE_SHIFT=
 
 Send, {LShift UP}
 
@@ -796,9 +802,36 @@ TIMER_USB_SAFELY_REMOVE:
 RETURN
 
 
+; ----------------------------------------
+; Try/Catch fails upon failure to access clipboard - AutoHotkey Community
+; ----------------------------------------
+; https://www.autohotkey.com/boards/viewtopic.php?t=92611
+; ----------------------------------------
+
+GetClipboardText() {
+    static cf := A_IsUnicode ? 13 : 1
+    if !DllCall("IsClipboardFormatAvailable", "int", cf)
+        return
+    if !DllCall("OpenClipboard", "ptr", A_ScriptHwnd)
+        return
+    text := ""
+    if hmem := DllCall("GetClipboardData", "int", cf, "ptr") {
+        if pmem := DllCall("GlobalLock", "ptr", hmem, "ptr") {
+            text := StrGet(pmem, DllCall("GlobalSize", "ptr", hmem, "ptr") // (A_IsUnicode ? 2 : 1))
+            DllCall("GlobalUnlock", "ptr", hmem)
+        }
+    }
+    DllCall("CloseClipboard")
+    return text
+}
+
 
 TIMER_CONVERT_CIPBOARD:
 
+RETURN 
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 IF DLLCall("GetClipboardOwner")
    if (A_Index > 100)
 	RETURN
@@ -806,13 +839,17 @@ IF DLLCall("GetClipboardOwner")
 ClipWait, 0.1
 IF ErrorLevel
     RETURN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
-; 000005 LINE 0639 -- CODE GOT ERROR WORK CANT OPEN CLIPBOARD --- REQUIRE ERROR TRAP
-WWWW:=Clipboard 
+WWWW:=GetClipboardText
+
+; 000005 LINE 0639 -- CODE GOT ERROR WORK CANT OPEN CLIPBOARD FOR READING --- REQUIRE ERROR TRAP -- FOUND ANSWER 2026-MAY
+; WWWW:=Clipboard 
+
 IF !WWWW
 	RETURN
 
-	
 IF INSTR(WWWW,"D:\Users_BAK\")>0
 {
 	StringReplace, WWWW, WWWW,D:\Users_BAK\,D:\Users_BAK\, All
@@ -829,7 +866,6 @@ IF INSTR(WWWW,"CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB6__KILL TO ALLOW REMOTE
 	StringReplace, WWWW, WWWW,CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB6__KILL TO ALLOW REMOTE COPY OVER.VBS,CODE -- VBSCRIPT\VBS 79-GOODSYNC SCRIPT VB6__KILL TO ALLOW REMOTE COPY OVER.VBS, All
 	Clipboard=%WWWW%
 }	
-
 
 RETURN
 ; ----
@@ -1009,7 +1045,50 @@ Return
 ; Return
 ; #ifwinactive
 
+; -------------------------------------------------------------------
+; THIS IS FOR GOODSYNC WHEN GOT TO DELETE A LOAD OF EXCLUDES 
+; CONTROL F5 TOGGLE WHILE HOOVER OVER EXCLUDE DELETE BUTTON
+;  ] Options
+; ahk_class #32770
+; ahk_exe GoodSync.exe
 
+#IfWinActive ahk_exe GoodSync.exe ahk_class ahk_class #32770
+^F5:: ; CTRL+F5 
+	
+	SetTitleMatchMode 2  ; PARTIAL PATH
+	ifwinNOTactive  Options ahk_class ahk_class #32770
+	{
+		VAR_REPEAT_LCLICK_TOOGLE=
+		SETTIMER REPEAT_LCLICK_BASHING,OFF
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		RETURN 
+	}
+		
+	IF !VAR_REPEAT_LCLICK_TOOGLE
+	{
+		VAR_REPEAT_LCLICK_TOOGLE=1
+		SETTIMER REPEAT_LCLICK_BASHING,10
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		RETURN
+	}
+	
+	IF VAR_REPEAT_LCLICK_TOOGLE
+	{
+		VAR_REPEAT_LCLICK_TOOGLE=
+		SETTIMER REPEAT_LCLICK_BASHING,OFF
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	}
+	
+Return
+#ifwinactive
+
+
+REPEAT_LCLICK_BASHING:
+
+MouseClick, left,,, D
+sleep 200
+MouseClick, left,,, U
+RETURN
 
 TOOLTIP_RID_OF:
 	TOOLTIP
@@ -1199,12 +1278,54 @@ RETURN
 ; TIMER_WSCRIPT_FOCUS_LEFT_KILL
 
 
+; ahk_class ApplicationFrameWindow
+; ahk_exe Explorer.EXE
+; ahk_pid 14608
+; ClassNN:	ApplicationFrameInputSinkWindow1
+; ClassNN:	ApplicationFrameTitleBarWindow1
+
+; ~ LET HOT KEY PASS THROUGH -- ENTER EMAIL MICROSOFT VERIFY - ONEDRIVE
+#ifwinactive ahk_class ApplicationFrameWindow
+F5::
+{
+	SetTitleMatchMode 3
+	DetectHiddenWindows, oN
+	ifwinactive ahk_class ApplicationFrameWindow
+	; IfWinActive ahk_exe Explorer.EXE
+	{
+		MICROSOFT_CONTROL_10=0
+		WinGet, MICROSOFTControlList, ControlList,  ahk_class ApplicationFrameWindow
+		Loop, Parse,MICROSOFTControlList, `n
+		{
+			if (A_LoopField = "ApplicationFrameTitleBarWindow1")
+			{
+				MICROSOFT_CONTROL_10=1
+			}    
+		}
+		if MICROSOFT_CONTROL_10=1
+		{
+			MESSENGER_KEY_1=MATT.LAN@BTINTERNET.COM
+			SetKeyDelay, 75
+			SLEEP 100
+			MESSENGER_KEY=%MESSENGER_KEY_1%
+			GOSUB STRING_INVERT_MESSENGER
+			SENDINPUT %MESSENGER_KEY%
+		}
+		IF MICROSOFT_CONTROL_10=0 
+			SENDINPUT {F5}
+	}
+}
+RETURN
+#ifwinactive
+
+
 
 ; ~ LET HOT KEY PASS THROUGH
 #ifwinactive Channel content - YouTube Studio - Google Chrome ahk_class Chrome_WidgetWin_1  
 F5::
 {
 	SetTitleMatchMode 3
+	MESSENGER_KEY_1=0
 	ifwinactive ahk_class Chrome_WidgetWin_1
 	ifwinactive Channel content - YouTube Studio - Google Chrome
 	IfWinActive ahk_exe chrome.exe
@@ -1226,6 +1347,8 @@ F5::
 		GOSUB STRING_INVERT_MESSENGER
 		SENDINPUT %MESSENGER_KEY%
 	}
+	IF MESSENGER_KEY_1=0
+		SENDINPUT {F5}
 
 	SetTitleMatchMode 2  ; PARTIAL PATH
 }
@@ -1243,7 +1366,7 @@ F5::
 {
 	Loop
 	{
-		FileReadLine, line, C:\SCRIPTER\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
+		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
 		if ErrorLevel
 			break
 		IF A_INDEX=2
@@ -1260,6 +1383,13 @@ F5::
 			GOSUB STRING_INVERT_MESSENGER
 			MESSENGER_KEY_ROBOFORM=%MESSENGER_KEY%
 		}
+		IF A_INDEX=6
+		{
+			MESSENGER_KEY_FIREFOXSYNC=%line%
+			MESSENGER_KEY=%MESSENGER_KEY_FIREFOXSYNC%
+			GOSUB STRING_INVERT_MESSENGER
+			MESSENGER_KEY_FIREFOXSYNC=%MESSENGER_KEY%
+		}
 	}
 	
 	MESSENGER_KEY_PRESS_F5=0
@@ -1274,6 +1404,9 @@ F5::
 		MESSENGER_KEY_PRESS_F5=1
 	}
 
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
+
 	; chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/login.html - Google Chrome
 	SetTitleMatchMode 2  ; PARTIAL PATH
 	ifwinactive ahk_class Chrome_WidgetWin_1
@@ -1283,7 +1416,10 @@ F5::
 		SENDINPUT %MESSENGER_KEY_LASTPASS%
 		MESSENGER_KEY_PRESS_F5=1
 	}
-	
+}	
+
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	SetTitleMatchMode 3  ; PARTIAL PATH
 	ifwinactive ahk_class Chrome_WidgetWin_1
 	IfWinActive ahk_exe msedge.exe
@@ -1291,7 +1427,10 @@ F5::
 		SENDINPUT %MESSENGER_KEY_LASTPASS%
 		MESSENGER_KEY_PRESS_F5=1
 	}
+}
 
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	; extension://bbcinlkgjjkejfdpemiealijmmooekmp/login.html and 10 more pages - Personal - Microsoft Edge
 	SetTitleMatchMode 2  ; PARTIAL PATH
 	ifwinactive ahk_class Chrome_WidgetWin_1
@@ -1301,8 +1440,11 @@ F5::
 		SENDINPUT %MESSENGER_KEY_LASTPASS%
 		MESSENGER_KEY_PRESS_F5=1
 	}
+}	
 	
-	
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
+
 	SetTitleMatchMode 3  ; EXACT PATH
 	ifwinactive ahk_class Chrome_WidgetWin_1
 	ifwinactive RoboForm Start Page - Google Chrome
@@ -1311,10 +1453,12 @@ F5::
 		SENDINPUT %MESSENGER_KEY_ROBOFORM%
 		MESSENGER_KEY_PRESS_F5=1
 	}
-
+}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	SetTitleMatchMode 2
 	ifwinactive ahk_class Chrome_WidgetWin_1
 	ifwinactive matt.lan@btinternet.com - Google Chrome
@@ -1343,6 +1487,7 @@ F5::
 		SENDINPUT %MESSENGER_KEY%
 		MESSENGER_KEY_PRESS_F5=1
 	}
+}
 
 IF MESSENGER_KEY_PRESS_F5=0
 	SENDINPUT {F5}
@@ -1363,7 +1508,7 @@ F5::
 
 	Loop
 	{
-		FileReadLine, line, C:\SCRIPTER\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
+		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
 		if ErrorLevel
 			break
 		IF A_INDEX=2
@@ -1380,10 +1525,70 @@ F5::
 			GOSUB STRING_INVERT_MESSENGER
 			MESSENGER_KEY_ROBOFORM=%MESSENGER_KEY%
 		}
+		IF A_INDEX=6
+		{
+			MESSENGER_KEY_FIREFOXSYNC=%line%
+			MESSENGER_KEY=%MESSENGER_KEY_FIREFOXSYNC%
+			; MSGBOX %MESSENGER_KEY_FIREFOXSYNC%
+			GOSUB STRING_INVERT_MESSENGER
+			MESSENGER_KEY_FIREFOXSYNC=%MESSENGER_KEY%
+		}
 	}
 
 	MESSENGER_KEY_PRESS_F5=0
 
+	
+	DetectHiddenWindows, oN
+
+	
+	; ⁨Set up Firefox synchronisation⁩ | ⁨Mozilla accounts⁩ — Mozilla Firefox ahk_class MozillaWindowClass
+	SetTitleMatchMode 2
+	
+	FIREFOX_CONTROL_10=0
+	WinGet, FIREFOXControlList, ControlList,  Set up Firefox synchronisation⁩  ahk_class MozillaWindowClass
+	Loop, Parse,FIREFOXControlList, `n
+	{
+		if (A_LoopField = "MozillaCompositorWindowClass1")
+		{
+			FIREFOX_CONTROL_10=1
+		}    
+	}
+	if FIREFOX_CONTROL_10=1
+	{
+		; MSGBOX %MESSENGER_KEY_FIREFOXSYNC%
+		SENDINPUT %MESSENGER_KEY_FIREFOXSYNC%
+		MESSENGER_KEY_PRESS_F5=1
+	}
+	
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
+	SetTitleMatchMode 3  ; EXACT
+	; ----------------------------------------
+	; Detect when a ClassNN window exists - Ask for Help - AutoHotkey Community
+	; ----------------------------------------
+	; https://www.autohotkey.com/board/topic/96491-detect-when-a-classnn-window-exists/
+	; ----------------------------------------
+	FIREFOX_CONTROL_10=0
+	WinGet, FIREFOXControlList, ControlList, ahk_class MozillaWindowClass
+	Loop, Parse,FIREFOXControlList, `n
+	{
+		; MsgBox, 4,, Control #%a_index% is "%A_LoopField%"
+		if (A_LoopField = "MozillaCompositorWindowClass1")
+		{
+			FIREFOX_CONTROL_10=1
+		}    
+	}
+	if FIREFOX_CONTROL_10=1
+	{
+		SENDINPUT %MESSENGER_KEY_LASTPASS%
+		MESSENGER_KEY_PRESS_F5=1
+	}
+	}
+
+	DetectHiddenWindows, OFF
+
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	; LASTPASS
 	SetTitleMatchMode 3  ; EXACT PATH
 	ifwinactive ahk_class MozillaWindowClass
@@ -1393,7 +1598,12 @@ F5::
 		SENDINPUT %MESSENGER_KEY_LASTPASS%
 		MESSENGER_KEY_PRESS_F5=1
 	}
+}
+
+
 	
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	;ROBOFORM
 	SetTitleMatchMode 3  ; EXACT PATH
 	ifwinactive ahk_class MozillaWindowClass
@@ -1403,7 +1613,10 @@ F5::
 		SENDINPUT %MESSENGER_KEY_ROBOFORM%
 		MESSENGER_KEY_PRESS_F5=1
 	}
+}
 
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	;ROBOFORM NOT SUCCESSFULL ON THIS ONE
 	SetTitleMatchMode 3
 	ifwinactive ahk_class MozillaWindowClass
@@ -1413,7 +1626,10 @@ F5::
 		SENDINPUT %MESSENGER_KEY_ROBOFORM%
 		MESSENGER_KEY_PRESS_F5=1
 	}
+}
 	
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	;ROBOFORM
 	SetTitleMatchMode 2 
 	IF !MESSENGER_KEY	
@@ -1424,7 +1640,10 @@ F5::
 		SENDINPUT %MESSENGER_KEY_ROBOFORM%
 		MESSENGER_KEY_PRESS_F5=1
 	}
+}
 
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	; MICROSOFT LOGIN
 	SetTitleMatchMode 3  ; EXACT PATH
 	ifwinactive ahk_class MozillaWindowClass
@@ -1436,10 +1655,12 @@ F5::
 		SENDINPUT %MESSENGER_KEY%
 		MESSENGER_KEY_PRESS_F5=1
 	}
-
+}
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
+	IF MESSENGER_KEY_PRESS_F5=0 
+	{
 	SetTitleMatchMode 2
 	ifwinactive ahk_class MozillaWindowClass
 	ifwinactive Inbox
@@ -1470,7 +1691,7 @@ F5::
 		SENDINPUT %MESSENGER_KEY%
 		MESSENGER_KEY_PRESS_F5=1
 	}
-
+}
 
 	; CONFLICT WITH ABOVE 01
 	; SetTitleMatchMode 2
@@ -1497,6 +1718,22 @@ RETURN
 #ifwinactive ahk_class RfEditor 
 F5::
 {
+
+
+	Loop
+	{
+		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
+		if ErrorLevel
+			break
+
+		IF A_INDEX=4
+		{
+			MESSENGER_KEY_ROBOFORM=%line%
+			MESSENGER_KEY=%MESSENGER_KEY_ROBOFORM%
+			GOSUB STRING_INVERT_MESSENGER
+			MESSENGER_KEY_ROBOFORM=%MESSENGER_KEY%
+		}
+	}
 
 	MESSENGER_KEY=	
 	SetTitleMatchMode 3  ; EXACT PATH
@@ -2663,6 +2900,42 @@ Return
 ; -------------------------------------------------------------------
 
 
+; lock SHIT key up or down ALT and ctrl
+; WHEN SELECT IS DIFFICULT AS SHIFT BOUNCE UP WHEN HOLD KEY DOWN
+-------------------------------------------------------------------------
++F4::
+	Send {SHIFT UP}
+	SoundBeep , 2000 , 400
+	TOOLTIP
+	TOOGLE_SHIFT=
+Return
+-------------------------------------------------------------------------
+^F4::
+
+	IF TOOGLE_SHIFT=
+	{
+		Send {SHIFT DOWN}
+		SoundBeep , 2000 , 400
+		TOOLTIP "SHIFT DOWN"
+		TOOGLE_SHIFT=1
+		RETURN
+	}
+	IF TOOGLE_SHIFT=1
+	{
+		Send {SHIFT up}
+		SoundBeep , 2000 , 400
+		TOOLTIP
+		TOOGLE_SHIFT=
+		RETURN
+	}
+
+Return
+
+
+
+
+
+
 TIMER_ENTER:
 	DetectHiddenWindows, oFF
 	SetTitleMatchMode 3  ; Specify Full path.
@@ -3509,6 +3782,53 @@ AUTO_CLONE_JOB:
 RETURN
 
 
+
+TIMER_CLIPBOARD_LOGGGER_KEEP_RUNNER:
+
+	SETTIMER TIMER_CLIPBOARD_LOGGGER_KEEP_RUNNER,60000
+	DetectHiddenWindows, oFF
+	SetTitleMatchMode 2
+
+	IfWinExist - Microsoft Visual Basic [ ahk_class ThunderRT6FormDC
+		RETURN 
+
+	IfWinNOTExist ClipBoard Logger ahk_class ThunderRT6FormDC
+		Run, "D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD LOGGER\CLIPBOARD LOGGER.EXE" , , MIN
+
+	IfWinNOTExist Clipboard Viewer ahk_class ThunderRT6FormDC
+		Run, "D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe" , , MIN
+
+	IfWinNOTExist URL Logger ahk_class ThunderRT6FormDC
+		Run, "D:\VB6\VB-NT\00_BEST_VB_01\URL Logger\URL Logger.exe" , , MIN
+
+	IfWinNOTExist VB_KEEP_RUNNER ahk_class ThunderRT6FormDC
+		Run, "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe" , , MIN
+
+	SetTitleMatchMode 3
+
+
+RETURN
+
+TIMER_CLIPBOARD_LOGGGER_ERROR:
+
+		IfWinExist, ClipBoard Logger ahk_class #32770
+		{
+			; ClassNN:	Static2
+			; Text:	Run-time error '365': (...)
+
+			ControlGetText, Output_Var, Static2, ClipBoard Logger ahk_class #32770
+			IF INSTR(Output_Var,"Run-time error")
+				{
+				ControlClick, OK, ClipBoard Logger ahk_class #32770
+				SLEEP 2000
+				IfWinNOTExist ClipBoard Logger ahk_class ThunderRT6FormDC
+					Run, "D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD LOGGER\CLIPBOARD LOGGER.EXE" , , MIN
+				}
+		}
+RETURN
+
+
+
 ; STRIP SOMETHING FROM RENAME JOB
 ;; F6::
 ; {
@@ -4084,7 +4404,7 @@ RETURN
 ;-------------------------------------------------------------------------
 
 ;lock control key up or down shift and ctrl
-;WHEN SELECT IS DIFFERCULT AS CTRL BOUCE UP WHEN HOLD KEY DOWN
+;WHEN SELECT IS DIFFICULT AS CTRL BOUNCE UP WHEN HOLD KEY DOWN
 ;-------------------------------------------------------------------------
 ;+F4::
 ;   Send {ctrl down}
@@ -4095,6 +4415,9 @@ RETURN
 ;   Send {ctrl up}
 ;   SoundBeep , 2000 , 400
 ;Return
+
+
+
 
 ;NORTON
 ;F4::
@@ -4190,32 +4513,6 @@ RETURN
 
 
 #Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
-
-
-
-
-TIMER_CLIPBOARD_LOGGGER_ERROR:
-
-		; ControlClick, OK, Rename Job ahk_class #32770
-		
-		IfWinExist, ClipBoard Logger ahk_class #32770
-		{
-		
-			; ClassNN:	Static2
-			; Text:	Run-time error '365': (...)
-
-			ControlGetText, Output_Var, Static2, ClipBoard Logger ahk_class #32770
-			IF INSTR(Output_Var,"Run-time error")
-				{
-				ControlClick, OK, ClipBoard Logger ahk_class #32770
-				SLEEP 2000
-				IfWinNOTExist ClipBoard Viewer ahk_class #32770
-					Run, "D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD LOGGER\CLIPBOARD LOGGER.EXE" , , MIN
-				
-				}
-				
-		}
-RETURN
 
 ;# ------------------------------------------------------------------
 TIMER_PREVIOUS_INSTANCE:

@@ -683,6 +683,8 @@ SET_ARRAY_FB_F5() {
 	; AHK HOW GET THIS CHARACTER —
 	; Encoding: Ensure your .ahk script is saved as UTF-8 with BOM
 	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="Facebook - Google Chrome"
+	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook — Mozilla Firefox"
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
@@ -728,6 +730,9 @@ RETURN SET_ARRAY_RAINER_F5
 SET_ARRAY_AUTO_KEY() {
 	SET_ARRAY_AUTO_KEY := []
 	ArrayCount := 0
+	
+	; ArrayCount += 1
+	; SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook - Google Chrome"
 	ArrayCount += 1
 	; SET_ARRAY_AUTO_KEY[ArrayCount]:="Your notifications - Google Chrome"
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Notifications | Facebook - Google Chrome"
@@ -2279,7 +2284,7 @@ AUTO_RELOAD_FACEBOOK:
 	SET_ARRAY_FB_HITT_CN_6[ArrayCount]:=240
 	ArrayCount += 1
 	SET_ARRAY_FB_HITT_CN_1[ArrayCount]:="8-MSI-GP62M-7RD"
-	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:="NOT ACTIVATE MODE"
+	SET_ARRAY_FB_HITT_CN_2[ArrayCount]:= ; "NOT ACTIVATE MODE"
 	SET_ARRAY_FB_HITT_CN_3[ArrayCount]:=40
 	SET_ARRAY_FB_HITT_CN_4[ArrayCount]:=4
 	SET_ARRAY_FB_HITT_CN_5[ArrayCount]:=
@@ -2532,6 +2537,11 @@ AUTO_RELOAD_FACEBOOK:
 					; REM OUT TEST TWO LINE DONT WANT 2ND RING
 					SOUND_PLAYER_FB_DO=%A_NOW%
 					SOUND_PLAYER_FB_DO+= 30, seconds  ; -- SET TIME OR RING REPEAT LOOP UNTIL PAGE REFRESH
+					
+					; MAKE IT DO HERE NOW REFRESH F5 PAGE SOON AS DETECT NEW MESSENGER
+					SLEEP 100
+					SENDINPUT {Up}
+					SENDINPUT {F5}
 				}									 ; WHEN NEW NOTIFY ARRIVE FACEBOOK 
 													 ; DETECT BY "(" WINTITLE
 													 ; IF REFRESH PAGE QUICKER OTHER COMPUTER WILL 
@@ -2792,7 +2802,7 @@ TIMER_TOP_LINE_MOUSE_REFRESH_BROWSER:
 
 	XR=0
 	IF INSTR(CLASS,"Chrome_WidgetWin_1")
-	IF INSTR(TITLE_NAME,"Notifications | Facebook - Google Chrome")
+	IF INSTR(TITLE_NAME,"Facebook - Google Chrome")
 		XR=1
 
 	; TOOLTIP %STATE_XYPOS_TOP_LINE_MOUSE_REFRESH% `n %ypos% `n %xpos% `n %XR%
