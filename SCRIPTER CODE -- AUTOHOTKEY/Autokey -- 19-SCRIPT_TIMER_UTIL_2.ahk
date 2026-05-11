@@ -917,7 +917,7 @@ DDE_SERVER_WINDOW_MSDEV_EXE_APPLICATION_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EE
 		; TOOLTIP % VAR_GET_10
 		
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "DDE Server Window: msdev.exe - Application Error"
+		; MSGBOX "DDE Server Window: msdev.exe - Application Error"
 		
 		; MSGBOX %VAR_GET_10_EXENAME%`n%VAR_GET_10_PID%
 		
@@ -965,7 +965,7 @@ INSYNCUPDATER_EXE_ERROR_MSGBOX_ARRIVE:
 	{
 		; WINCLOSE, ahk_id %VAR_GET_5%
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "Autokey -- 10-READ MOUSE CURSOR ICON"
+		; MSGBOX "Autokey -- 10-READ MOUSE CURSOR ICON"
 		LOOP, 8
 		{
 			R_USERNAME=%A_INDEX%
@@ -1016,7 +1016,7 @@ CODE_C___DEBUG_IDE_ERROR_MSGBOX_ARRIVE_WINDOWS_XP_2_ASUS_EEE:
 		
 		
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "WinGet,VAR_GET_8, ID, Microsoft Visual C"
+		; MSGBOX "WinGet,VAR_GET_8, ID, Microsoft Visual C"
 		
 		; MSGBOX %VAR_GET_8_EXENAME%`n%VAR_GET_8_PID%
 		
@@ -1047,7 +1047,7 @@ NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP:
 	{
 		WINCLOSE, ahk_id %VAR_GET_4%
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP"
+		; MSGBOX "NORTON_ERROR_MSGBOX_ARRIVE_WINDOWS_XP"
 	}
 	VAR_GET_4_OLD=%VAR_GET_4%
 	
@@ -1106,7 +1106,7 @@ COPY_CAMERA_MEDIA_CARD_BRING_FRONT:
 		WinActivate,  ahk_id %VAR_GET_2%
 
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "COPY_CAMERA_MEDIA_CARD_BRING_FRONT"
+		; MSGBOX "COPY_CAMERA_MEDIA_CARD_BRING_FRONT"
 
 RETURN
 
@@ -1201,7 +1201,7 @@ IfWinNOTEXIST ahk_class MediaPlayerClassicW
 	{
 		FileDelete, F:\DSC--2018+CCSE_HIKVISION\2020_CCSE_HIKVISION_DVR-108G-F1\A\*.*
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "DELETE_FILE_WHEN_TESTER_MPG"
+		; MSGBOX "DELETE_FILE_WHEN_TESTER_MPG"
 	}
 }
 RETURN
@@ -1243,7 +1243,7 @@ IfWinEXIST ahk_class ConsoleWindowClass
 {
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	SET_GO_AR_RUN_VIDEO_MPG=1
-	MSGBOX "RUN_VIDEO_WHEN_TESTER_MPG"
+	; MSGBOX "RUN_VIDEO_WHEN_TESTER_MPG"
 	RETURN
 }	
 IfWinNOTEXIST ahk_class ConsoleWindowClass
@@ -1264,7 +1264,7 @@ IfWinNOTEXIST ahk_class ConsoleWindowClass
 			RFILE="F:\DSC--2018+CCSE_HIKVISION\2020_CCSE_HIKVISION_DVR-108G-F1\A\%A_LoopFileName%"
 			RFILE="F:\DSC--2018+CCSE_HIKVISION\2020_CCSE_HIKVISION_DVR-108G-F1\A\*.*"
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			MSGBOX ""
+			; MSGBOX ""
 		}
 		
 		; RUN, "C:\Program Files\MPC-HC\mpc-hc64.exe" %RFILE%
@@ -1659,7 +1659,7 @@ FOCUS_TABBER_TAB_NEXT_ONE__MACH_VERSION_01:
 			IF SOUNDPLAYFLAG
 			{
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				MSGBOX "SOUNDPLAYFLAG"
+				; MSGBOX "SOUNDPLAYFLAG"
 			}
 			}
 			; SetKeyDelay, -1
@@ -1726,7 +1726,7 @@ BT_COM_LOG_IN:
 		TIMER_BT_COM_LOG_IN=%A_NOW%
 		TIMER_BT_COM_LOG_IN+= 4, Seconds
 		GOSUB SOUND_START_WAV
-		MSGBOX "BT.com Log in ahk_class Chrome_WidgetWin_1"
+		; MSGBOX "BT.com Log in ahk_class Chrome_WidgetWin_1"
 	}
 	ELSE
 		TIMER_BT_COM_LOG_IN=
@@ -1744,7 +1744,7 @@ NOT_ALLOWED_PRCOCESS:
 	{
 		PROCESS, CLOSE, %VAR_2_WIN_01%.exe
 		GOSUB SOUND_START_WAV
-		MSGBOX "NOT_ALLOWED_PRCOCESS"
+		; MSGBOX "NOT_ALLOWED_PRCOCESS"
 		RETURN
 	}
 
@@ -1754,7 +1754,7 @@ NOT_ALLOWED_PRCOCESS:
 	{
 		PROCESS, CLOSE, %VAR_2_WIN_02%.exe
 		GOSUB SOUND_START_WAV
-		MSGBOX "LOGITECHCAMPAIGNNOTIFIER"
+		; MSGBOX "LOGITECHCAMPAIGNNOTIFIER"
 		RETURN
 	}
 RETURN
@@ -1841,21 +1841,21 @@ NOT_RESPOND_CLIPBOARD_LOGGER_01:
 		{
 			WINCLOSE, %VAR_1_WIN_01% (Not Responding)
 			GOSUB SOUND_START_WAV
-			MSGBOX "%VAR_1_WIN_01% (Not Responding) 1111"
+			; MSGBOX "%VAR_1_WIN_01% (Not Responding) 1111"
 			SLEEP 2000
 		}
 		IfWinExist %VAR_1_WIN_01% (Not Responding)
 		{
 			WINCLOSE, %VAR_1_WIN_01%
 			GOSUB SOUND_START_WAV
-			MSGBOX "WINCLOSE, %VAR_1_WIN_01%"
+			; MSGBOX "WINCLOSE, %VAR_1_WIN_01%"
 			SLEEP 2000
 		}
 		IfWinExist %VAR_1_WIN_01%
 		{
 			WINCLOSE, %VAR_1_WIN_01%
 			GOSUB SOUND_START_WAV
-			MSGBOX "IfWinExist %VAR_1_WIN_01% 1111"
+			; MSGBOX "IfWinExist %VAR_1_WIN_01% 1111"
 			SLEEP 2000
 		}
 		IfWinExist %VAR_1_WIN_01% (Not Responding)
@@ -1864,7 +1864,7 @@ NOT_RESPOND_CLIPBOARD_LOGGER_01:
 		{
 			PROCESS, CLOSE, %VAR_1_WIN_01%.exe
 			GOSUB SOUND_START_WAV
-			MSGBOX "%VAR_1_WIN_01% (Not Responding) 2222"
+			; MSGBOX "%VAR_1_WIN_01% (Not Responding) 2222"
 			SLEEP 2000
 		}
 		IfWinExist %VAR_1_WIN_01%
@@ -1873,7 +1873,7 @@ NOT_RESPOND_CLIPBOARD_LOGGER_01:
 		{
 			PROCESS, CLOSE, %VAR_1_WIN_01%.exe
 			GOSUB SOUND_START_WAV
-			MSGBOX "IfWinExist %VAR_1_WIN_01% 4444"
+			; MSGBOX "IfWinExist %VAR_1_WIN_01% 4444"
 			SLEEP 2000
 		}
 		PROCESS, EXIST, %VAR_1_WIN_01%.exe
@@ -1881,7 +1881,7 @@ NOT_RESPOND_CLIPBOARD_LOGGER_01:
 		{
 			PROCESS, CLOSE, %VAR_1_WIN_01%.exe
 			GOSUB SOUND_START_WAV
-			MSGBOX "PROCESS, EXIST, %VAR_1_WIN_01%.exe 7777"
+			; MSGBOX "PROCESS, EXIST, %VAR_1_WIN_01%.exe 7777"
 			SLEEP 2000
 		}
 		IfWinNotExist ahk_class wndclass_desked_gsk
@@ -1894,7 +1894,7 @@ NOT_RESPOND_CLIPBOARD_LOGGER_01:
 				{
 					RUN %RUN_EXE_GO_01%
 					GOSUB SOUND_START_WAV
-					MSGBOX "IfWinNotExist ahk_class wndclass_desked_gsk 8888"
+					; MSGBOX "IfWinNotExist ahk_class wndclass_desked_gsk 8888"
 				}
 			}
 		}
@@ -1924,7 +1924,7 @@ NOT_RESPOND_CLIPBOARD_LOGGER_01:
 			GOSUB SOUND_START_WAV
 			WINWAIT, %VAR_1_WIN_01%,,4000
 			GOSUB SOUND_START_WAV
-			MSGBOX "IfWinExist MAster BATch VB6 Compiler"
+			; MSGBOX "IfWinExist MAster BATch VB6 Compiler"
 		}
 	}
 RETURN
@@ -2014,7 +2014,7 @@ NOT_RESPOND_CLIPBOARD_VIEWER_02:
 				{
 					RUN %RUN_EXE_GO_02% /MINIMAL____START_22
 					GOSUB SOUND_START_WAV
-					MSGBOX "RUN %RUN_EXE_GO_02% /MINIMAL____START_22"
+					; MSGBOX "RUN %RUN_EXE_GO_02% /MINIMAL____START_22"
 				}
 			}
 		}
@@ -2046,7 +2046,7 @@ NOT_RESPOND_CLIPBOARD_VIEWER_02:
 				GOSUB SOUND_START_WAV
 				WINWAIT, %VAR_1_WIN_02%,,4000
 				GOSUB SOUND_START_WAV
-				MSGBOX "MAster BATch VB6 Compiler 4444"
+				; MSGBOX "MAster BATch VB6 Compiler 4444"
 			}
 		}
 	}
@@ -2160,7 +2160,7 @@ NOT_RESPOND_URL_LOGGER_03:
 				GOSUB SOUND_START_WAV
 				WINWAIT, %VAR_1_WIN_03%,,4000
 				GOSUB SOUND_START_WAV
-				MSGBOX "MAster BATch VB6 Compiler 8888"
+				; MSGBOX "MAster BATch VB6 Compiler 8888"
 			}
 		}
 	}
@@ -2330,7 +2330,7 @@ USB_OPTION_SETTER_HUMAN_INTERFACE_DEVICE_USB_POWER_MANAGE_OFF_QUICK_SETTER:
 			{
 				Control, UNCheck,, Button1, ahk_id %USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1%
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				MSGBOX "USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1"
+				; MSGBOX "USB_SETTER_HUMAN_INTERFACE_DEVICE_HWND_1"
 				SET_ATTEMPT=TRUE
 			}
 			; ASK FOR IT SET
@@ -2352,7 +2352,7 @@ USB_OPTION_SETTER_HUMAN_INTERFACE_DEVICE_USB_POWER_MANAGE_OFF_QUICK_SETTER:
 		ControlClick, Button4, ahk_id %VAR_GET%
 		ControlClick, OK, ahk_id %VAR_GET%
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "WinGet,VAR_GET, ID, Properties ahk_class #32770"
+		; MSGBOX "WinGet,VAR_GET, ID, Properties ahk_class #32770"
 	}
 RETURN
 
@@ -2399,7 +2399,7 @@ TIMER_SET_GO_GOOGLEDRIVESYNC:
 			{
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				Run, "%FN_VAR%"
-				MSGBOX "TIMER_SET_GO_GOOGLEDRIVESYNC"
+				; MSGBOX "TIMER_SET_GO_GOOGLEDRIVESYNC"
 			}
 		}
 	}
@@ -2529,7 +2529,7 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 			{
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				ControlClick, Button2, ahk_id %hwnd%,,,, NA x10 y10
-				MSGBOX "TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE 1111"
+				; MSGBOX "TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE 1111"
 			}
 			; -------------------------------------------------------
 			; GET THE CONTROL AGAIN BECAUSE IF SUCCESSFULLY 
@@ -2543,7 +2543,7 @@ TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE:
 			{
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				ControlClick, Button2, ahk_id %hwnd%
-				MSGBOX "TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE 2222"
+				; MSGBOX "TIMER_COULD_NOT_WAIT_MSGBOX_CLOSE 2222"
 			}
 		}
 	}
@@ -2953,7 +2953,7 @@ MAXIMIZE_ALL_MEDIA:
 		{
 			WinMaximize, ahk_id %hwnd%
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			MSGBOX "MAXIMIZE_ALL_MEDIA"
+			; MSGBOX "MAXIMIZE_ALL_MEDIA"
 		}
 	}
 RETURN
@@ -3078,7 +3078,7 @@ ONE_MOMENT_CLOSE_CMD:
 	HWNDID=
 	; SETTIMER ONE_MOMENT_CLOSE_CMD,OFF
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	MSGBOX "ONE_MOMENT_CLOSE_CMD"
+	; MSGBOX "ONE_MOMENT_CLOSE_CMD"
 RETURN
 
 ONE_SECOND:
@@ -3101,7 +3101,7 @@ ONE_SECOND:
 	{
 		WINCLOSE
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770"
+		; MSGBOX "IfWinExist CSR Harmony Wireless Software Stack ahk_class #32770"
 	}
 	
 	DetectHiddenWindows, ON
@@ -3171,7 +3171,7 @@ ONE_SECOND:
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		WINACTIVATE, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
 		ControlClick, &End Now, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77
-		MSGBOX "WINACTIVATE, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77"
+		; MSGBOX "WINACTIVATE, End Program - CSR_SYNCML_CLASS_1EF5ED00AB77"
 	}	
 
 
@@ -3222,7 +3222,7 @@ ONE_SECOND:
 	{
 		FileDelete, %FN_VAR_OUTLOOK%
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "FN_VAR_OUTLOOK D:\GM OUTLOOK\File_Control_TEMP.txt"
+		; MSGBOX "FN_VAR_OUTLOOK D:\GM OUTLOOK\File_Control_TEMP.txt"
 	}
 	
 	
@@ -3230,7 +3230,7 @@ ONE_SECOND:
 	{
 		ControlClick, &No,  Notepad++ update ahk_class #32770,,,, NA x10 y10
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "IfWinExist Notepad++ update ahk_class #32770"
+		; MSGBOX "IfWinExist Notepad++ update ahk_class #32770"
 	}
 	
 
@@ -3342,12 +3342,12 @@ VBS_29_COPY_CAMERA_PHOTO_IMAGES_VBS:
 		IF VBS_29_COPY_CAMERA_PHOTO_IMAGE_SOUND_PING_COUNTER>10
 		{
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			MSGBOX "IF VBS_29_COPY_CAMERA_PHOTO_IMAGE_SOUND_PING_COUNTER>10"
+			; MSGBOX "IF VBS_29_COPY_CAMERA_PHOTO_IMAGE_SOUND_PING_COUNTER>10"
 		}
 		; IF VBS_29_COPY_CAMERA_PHOTO_IMAGE_SOUND_PING_COUNTER<4 
 		{
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			MSGBOX "IF VBS_29_COPY_CAMERA_PHOTO_IMAGE_SOUND_PING_COUNTER<4"
+			; MSGBOX "IF VBS_29_COPY_CAMERA_PHOTO_IMAGE_SOUND_PING_COUNTER<4"
 		}
 	}	
 	
@@ -3791,7 +3791,7 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 					{
 						Process, Close, %PID_NUMBER_VAR%
 						SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						MSGBOX "CLOSE_MANY_APP__NOT_RESPONDER"
+						; MSGBOX "CLOSE_MANY_APP__NOT_RESPONDER"
 						SOUND_TONE+=20
 					}
 				}
@@ -3865,7 +3865,7 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 									{
 										Process, Close, %PID_NUMBER_VAR%
 										SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-										MSGBOX "CLOSE 02 OF 03 - PART A"
+										; MSGBOX "CLOSE 02 OF 03 - PART A"
 									}
 								}
 								; -----------------------------------
@@ -3950,7 +3950,7 @@ CLOSE_MANY_APP__NOT_RESPONDER:
 					WINCLOSE ahk_id %HWND_RESULT%
 					
 					SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-					MSGBOX "CLOSE NICELY 02 OF 02"
+					; MSGBOX "CLOSE NICELY 02 OF 02"
 					SOUND_TONE+=20
 				}
 			}
@@ -4175,7 +4175,7 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 	If NewPID > 0
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "Process, Exist, TASKLIST.EXE"
+		; MSGBOX "Process, Exist, TASKLIST.EXE"
 		Process, priority, %NewPID%, Realtime
 		ID_ConsoleWindowClass_TIMER=%A_Now%
 		ID_ConsoleWindowClass_TIMER+=40, Seconds ; 40 SECOND
@@ -4186,7 +4186,7 @@ If (A_Now<ID_ConsoleWindowClass_TIMER)
 	If NewPID > 0
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "Process, Exist, TASKKILL.EXE"
+		; MSGBOX "Process, Exist, TASKKILL.EXE"
 		Process, priority, %NewPID%, Realtime
 		ID_ConsoleWindowClass_TIMER=%A_Now%
 		ID_ConsoleWindowClass_TIMER+=40, Seconds ; 40 SECOND
@@ -4271,7 +4271,7 @@ if (WinExist("Warning ahk_class #32770"))
 	{
 		Control, Check,, Button1
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "and PATH=explorer.exe and OutputVar=&Yes`r`n&No`r`n" 
+		; MSGBOX "and PATH=explorer.exe and OutputVar=&Yes`r`n&No`r`n" 
 	}
 }
 
@@ -4290,7 +4290,7 @@ IfWinExist FxSound Message
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	    Control, Check,, Button4, FxSound Message ahk_class #32770
 	    ControlClick, Button2, FxSound Message ahk_class #32770
-		MSGBOX "Control, Check,, Button4, FxSound Message ahk_class #32770"
+		; MSGBOX "Control, Check,, Button4, FxSound Message ahk_class #32770"
 	}
 }
 
@@ -4307,7 +4307,7 @@ IfWinExist File Access Denied ahk_class #32770
 	{
 	    ControlClick, Button1, File Access Denied ahk_class #32770
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "ControlClick, Button1, File Access Denied ahk_class #32770"
+		; MSGBOX "ControlClick, Button1, File Access Denied ahk_class #32770"
 	}
 }
 
@@ -4319,7 +4319,7 @@ IfWinExist File Access Denied ahk_class OperationStatusWindow
 	
 	; ControlClick, Continue, File Access Denied ahk_class OperationStatusWindow
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	MSGBOX "WINACTIVATE, File Access Denied ahk_class OperationStatusWindow"
+	; MSGBOX "WINACTIVATE, File Access Denied ahk_class OperationStatusWindow"
 }
 
 DetectHiddenWindows, ON
@@ -4332,14 +4332,14 @@ ifWinNotExist, ahk_class wndclass_desked_gsk
 	{
 		Set_Var_Responding_1=TRUE
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "if (WinExist((Not Responding))"
+		; MSGBOX "if (WinExist((Not Responding))"
 	}
 
 	if (!WinExist("(Not Responding)") and Set_Var_Responding_1="TRUE")
 	{
 		Set_Var_Responding_1=FALSE
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		MSGBOX "if (!WinExist((Not Responding)) and Set_Var_Responding_1=TRUE)"
+		; MSGBOX "if (!WinExist((Not Responding)) and Set_Var_Responding_1=TRUE)"
 	}
 }
 
@@ -4347,14 +4347,14 @@ if (WinExist("Page Unresponsive") and Set_Var_Responding_2="FALSE")
 {
 	Set_Var_Responding_2=TRUE
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	MSGBOX "if (WinExist(Page Unresponsive) and Set_Var_Responding_2=FALSE)"
+	; MSGBOX "if (WinExist(Page Unresponsive) and Set_Var_Responding_2=FALSE)"
 }
 
 if (!WinExist("Page Unresponsive") and Set_Var_Responding_2="TRUE")
 {
 	Set_Var_Responding_2=FALSE
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	MSGBOX "if (!WinExist(Page Unresponsive) and Set_Var_Responding_2=TRUE)"
+	; MSGBOX "if (!WinExist(Page Unresponsive) and Set_Var_Responding_2=TRUE)"
 }
 
 DETECTHIDDENWINDOWS, OFF
@@ -4423,8 +4423,8 @@ IfWinExist ahk_class #32770
 	IF SET_GO=TRUE
 	{	
 		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		;MSGBOX REQUIRE HELP HERE ROBOFORM SEARCHING _RoboForm_Dialog_1100973_
-		;ControlClick, No, ahk_class #32770
+		; MSGBOX REQUIRE HELP HERE ROBOFORM SEARCHING _RoboForm_Dialog_1100973_
+		; ControlClick, No, ahk_class #32770
 	}
 }
 
@@ -4927,7 +4927,7 @@ IF UniqueID>0
 		{	
 			WinMaximize, ahk_id %UniqueID%
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			MSGBOX "IfNotInString, OutputVar, Chrome Legacy Window`r`n"
+			; MSGBOX "IfNotInString, OutputVar, Chrome Legacy Window`r`n"
 		}
 		OLD_UniqueID_CHROME=%UniqueID%
 	}
@@ -5153,7 +5153,7 @@ IF TRUE=FALSE
 			IF ArrayCount_VAR_1<>ArrayCount_VAR_2    ; NOT THE SELF
 			{
 				IF FN_Array_1[ArrayCount_VAR_1]=FN_Array_1[ArrayCount_VAR_2]
-					;MSGBOX "HOO"
+					; MSGBOX "HOO"
 					; MSGBOX % FN_Array_2[ArrayCount_VAR_2]
 					HWND_4 = % FN_Array_2[ArrayCount_VAR_2]
 					WinGet, HWND_2, ID, ahk_id %HWND_4%
@@ -5754,7 +5754,7 @@ Loop, Read, %A_TEMP%\IPTEST.TXT
 			{
 			SET_GO=TRUE
 			IP_LINE_4=%IP_LINE_1%\%IP_LINE_2%%IP_LINE_3%
-			;MSGBOX % IP_LINE_4
+			; MSGBOX % IP_LINE_4
 			}
 		}
 			
@@ -6477,7 +6477,7 @@ IfWinExist Windows Script Host
 {
 	ControlClick, OK, Windows Script Host
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	MSGBOX "TIMER_SUB_WSCRIPT"
+	; MSGBOX "TIMER_SUB_WSCRIPT"
 }
 
 DetectHiddenWindows, % dhw
@@ -6851,8 +6851,8 @@ ExitFunc(ExitReason, ExitCode)
 {
     if ExitReason not in Logoff,Shutdown
     {
-        ;MsgBox, 4, , Are you sure you want to exit?
-        ;IfMsgBox, No
+        ; MsgBox, 4, , Are you sure you want to exit?
+        ; IfMsgBox, No
         ;    return 1  ; OnExit functions must return non-zero to prevent exit.
     }
     ; Do not call ExitApp -- that would prevent other OnExit functions from being called.
@@ -6863,7 +6863,7 @@ class MyObject
     Exiting()
     {
         ;
-        ;MsgBox, MyObject is cleaning up prior to exiting...
+        ; MsgBox, MyObject is cleaning up prior to exiting...
         /*
         this.SayGoodbye()
         this.CloseNetworkConnections()
