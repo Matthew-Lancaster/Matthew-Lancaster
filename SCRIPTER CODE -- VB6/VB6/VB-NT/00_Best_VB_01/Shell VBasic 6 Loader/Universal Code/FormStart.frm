@@ -15,6 +15,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+
+
 Public TXmsg
 Dim ExeName
 Dim ExeFullPath
@@ -37,6 +39,8 @@ ScanPath.cboMask.Text = "*.*"
 ScanPath.chkSubFolders = vbChecked
 ScanPath.txtPath.Text = "E:\01 VB Shell Folders\00 Shell " + OIP2$ + " Loader"
 Call ScanPath.cmdScan_Click
+
+
 AStart = ScanPath.ListView1.ListItems.Count
 
 'ScanPath.ListView1.SortOrder = lvwAscending
@@ -46,6 +50,26 @@ AStart = ScanPath.ListView1.ListItems.Count
 'ScanPath.ListView1.SortKey = 0
 'ScanPath.ListView1.Sorted = True
 'ScanPath.ListView1.Sorted = False
+
+' ------------------------------
+' WHEN WANT REMOVE ANY USER HERE
+' Sub OpenProfileScan()
+' Sun 09-Feb-2020 19:37:57
+' LEACH IDEA AND WAS FOR ANOTHER SCRIPT FOLDER
+' AND THEN BRING HERE
+' ------------------------------
+For we = ScanPath.ListView1.ListItems.Count To 1 Step -1
+    A1$ = UCase(ScanPath.ListView1.ListItems.Item(we).SubItems(1))
+    B1$ = UCase(ScanPath.ListView1.ListItems.Item(we))
+    XZAG = 0
+    If InStr(A1$, "_GSDATA_") > 0 Then XZAG = 2
+    If InStr(A1$, "\#_NOT_INCLUDE") > 0 Then
+        XZAG = 2
+    End If
+    If XZAG = 2 Then
+        ScanPath.ListView1.ListItems.Remove (we)
+    End If
+Next
 
 For we = 1 To ScanPath.ListView2.ListItems.Count
     A1$ = ScanPath.ListView2.ListItems.Item(we).SubItems(1)
@@ -81,7 +105,7 @@ Dim LV As ListItem
 
 ScanPath.chkCopyMemory.Value = vbChecked
 
-TXmsg = OIP$ + " Auto Loader"
+TXmsg = "VISUAL BASIC 6 __ AUTO LOADER"
 Form1.Caption = TXmsg
 
 ScanPath.cboMask = "*.vbp"
@@ -92,6 +116,47 @@ ScanPath.DTPicker1(0) = Now - (DaysToScan)  'All in Last Ten Days
 
 ScanPath.txtPath.Text = "D:\VB6\VB-NT"
 Call ScanPath.cmdScan_Click
+
+' OBVIOUS IS THIS SHIT
+' ScanPath.chkSubFolders = vbChecked
+' ----------------------------------
+
+
+ScanPath.cboMask.Text = "*.BAS;*.VBS;*.AHK;*.BAT;*.PS1;*.TXT;*.LST"
+ScanPath.cboDate.ListIndex = 0
+DaysToScanYears = 18
+DaysToScan = 365 * DaysToScanYears
+DaysToScan = 500
+ScanPath.DTPicker1(0) = Now - (DaysToScan)  'All in Last Ten Days
+
+X_TAGG_LINKER_ = ScanPath.ListView1.ListItems.Count
+ScanPath.txtPath.Text = "C:\SCRIPTER"
+Call ScanPath.cmdScan_Click
+
+For we = ScanPath.ListView1.ListItems.Count To 1 Step -1
+    A1$ = UCase(ScanPath.ListView1.ListItems.Item(we).SubItems(1))
+    B1$ = UCase(ScanPath.ListView1.ListItems.Item(we))
+    XZAG = 0
+    If InStr(A1$, "_GSDATA_") > 0 Then XZAG = 2
+    If InStr(A1$, "\SCRIPTER CODE -- VB6") > 0 Then XZAG = 2
+    If InStr(A1$, "\SCRIPTER\SYNC_FOLDER") > 0 Then XZAG = 2
+    If InStr(A1$, "\SCRIPTER\SYNC_FOLDER") > 0 Then XZAG = 2
+    If InStr(A1$, "\#_NOT_INCLUDE") > 0 Then
+        XZAG = 2
+    End If
+
+    If InStr(B1$, ".TXT") > 0 Then
+        If InStr(B1$, "JAVA") = 0 Then XZAG = 2
+        If InStr(B1$, "STYLUS") = 0 Then XZAG = 2
+        If InStr(B1$, ".LNK") > 0 Then XZAG = 2
+    End If
+    If XZAG = 2 Then
+        ScanPath.ListView1.ListItems.Remove (we)
+    End If
+Next
+
+
+
 
 'ScanPath.txtPath.Text = "X:\00 Lists-Common-Words\Acronyms Code"
 'Call ScanPath.cmdScan_Click
@@ -135,7 +200,6 @@ ScanPath.ListView3.Sorted = True
 ScanPath.ListView3.Sorted = False
 DoEvents
 
-
 'Exit Sub
 
 SCRIPT_TOTAL_PROJECTS = 50
@@ -146,7 +210,6 @@ SCRIPT_TOTAL_PROJECTS = 50
 '        ScanPath.ListView1.ListItems.Remove (ScanPath.ListView1.ListItems.Count)
 '    Loop Until ScanPath.ListView1.ListItems.Count <= SCRIPT_TOTAL_PROJECTS
 'End If
-
 'Exit Sub
 
 DoEvents
@@ -196,7 +259,6 @@ End If
 'Next
 
 ProProjects2 = 0
-
 For we = 1 To ScanPath.ListView1.ListItems.Count
     A1$ = ScanPath.ListView1.ListItems.Item(we).SubItems(1)
     B1$ = ScanPath.ListView1.ListItems.Item(we)
@@ -210,14 +272,9 @@ For we = 1 To ScanPath.ListView1.ListItems.Count
         LV.SubItems(1) = A1$
         'LV.SubItems(2) = DDirectory
     End With
-
 Next
 
-
-
 ScanPath.ListView1.ListItems.Clear
-
-
 
 End Sub
 
@@ -275,7 +332,7 @@ End Sub
 Function GetRelativePath(findPath As String, startPath As String) As String
   
   Dim l As Integer
-  Dim I As Integer
+  Dim i As Integer
   Dim Backs As Integer
   Dim vstartPath As String
   
@@ -290,8 +347,8 @@ Function GetRelativePath(findPath As String, startPath As String) As String
   Backs = (l - Len(findPath)) / 3
   
   'Back up BACKS BackDirs
-  For I = 1 To Backs
-    If I = 1 Then
+  For i = 1 To Backs
+    If i = 1 Then
       l = InStrRev(vstartPath, "\")
     Else
       l = InStrRev(vstartPath, "\", l - 1)
@@ -334,7 +391,25 @@ B1$ = ScanPath.ListView1.ListItems.Item(Index)
 ChDrive Mid$(A1$, 1, 2)
 ChDir A1$
 
-If LoadFolder = True Then Shell "Explorer.exe /select, " + A1$ + B1$, vbNormalFocus: Unload Form1: Exit Sub ': End
+If InStr("*.BAS;*.VBS;*.AHK;*.BAT;*.PS1;*.TXT;*.LST", UCase(Mid(B1$, Len(B1$) - 3))) > 0 Then
+
+    Shell "C:\Program Files (x86)\Notepad++\notepad++.exe """ + A1$ + B1$ + """", vbMaximizedFocus
+    Unload Form1
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+    Exit Sub ': End
+
+End If
+
+If LoadFolder = True Then
+    Shell "Explorer.exe /select, " + A1$ + B1$, vbNormalFocus: Unload Form1
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+
+    Exit Sub ': End
+
+End If
+
 
 'Load File From Link
 LINK_DATA = A1$ + B1$
@@ -350,12 +425,16 @@ If InStr(LCase(B1$), ".lnk") > 0 Then
     'End If
     If InStr(rr$, ":\") = 0 Then
     
-        I = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
+        i = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
         
-        I = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
-        If I = vbYes Then
+        i = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
+        If i = vbYes Then
             Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
+                
+            If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+            
             Unload Form1
+
             Exit Sub
         End If
         Exit Sub
@@ -384,6 +463,9 @@ End If
 
 If LoadFolderFile = True Then
     Shell "explorer /e, /select, " + LINK_DATA, vbNormalFocus
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+    
     Unload Form1
     Exit Sub
 End If
@@ -406,7 +488,13 @@ If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then
         End
     End If
     
+    
+    Call CHECK_INTEGRITY_OF_VISUAL_BASIC_PROJECT_VBP(A1$ + B1$)
+    
     Shell VBPATH + " """ + A1$ + B1$ + """", vbNormalFocus
+    
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+    
     End
 End If
 
@@ -414,7 +502,11 @@ End If
 
 
 vLaunch A1$ + B1$, vbNullString
+
+If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
+
 Unload Form1
+
 
 Exit Sub
 End
@@ -470,4 +562,69 @@ End
 
 
 End Sub
+
+
+
+Sub CHECK_INTEGRITY_OF_VISUAL_BASIC_PROJECT_VBP(CODER_VBP_FILE_NAME_2)
+    ' --------------------------------------------------------------------
+    ' FIND IF THE IS NOT CORRECT VERSION AND SIMPLE PUT CORRECT
+    ' ONE MY COMPUTER SEEM PROBLEM WITH BASIC
+    ' TALK HAS WRONG VERISON ONCE EVERY FEW DAY
+    ' AND EDIT IT TO WHAT NORM VERISON SUPPOSED TO BE AND FINE
+    ' DISCOVERY -- IT SEEM TO HAPPEN JUST AFTER A COMPILE SOMETIME_
+    ' [ Monday 15:37:30 Pm_17 June 2019 ]
+    ' --------------------------------------------------------------------
+    ' --------------------------------------------------------------------
+    Dim R, FR
+    Dim VAR_STRING As String
+
+    FR = FreeFile
+    Open CODER_VBP_FILE_NAME_2 For Binary As FR
+        VAR_STRING = Space(LOF(FR))
+        Get #FR, , VAR_STRING
+    Close FR
+
+    ' --------------------------------------------------------------
+    ' # .VBP # .VBP" -- # MSCOMC -- # OCX -- # MSCOMCTL # CTL # .CTL
+    ' --------------------------------------------------------------
+    ' FOUND TO BE ERROR
+    ' --------------------------------------------------------------
+    ' Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0; MSCOMCTL.OCX
+    ' --------------------------------------------------------------
+    ' CORRECT VALUE
+    ' --------------------------------------------------------------
+    ' Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; MSCOMCTL.OCX
+    ' --------------------------------------------------------------
+
+    COMPARE_1 = "Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0; MSCOMCTL.OCX"
+    COMPARE_2 = "Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; MSCOMCTL.OCX"
+
+    If InStr(UCase(VAR_STRING), UCase(COMPARE_1)) > 0 Then
+        VAR_STRING = Replace(VAR_STRING, COMPARE_1, COMPARE_2)
+        GO_NEXT_IN = True
+    End If
+
+    'XR1 = InStr(UCase(VAR_STRING), UCase("A1}#2.1; MSCOMCTL.OCX"))
+    'XR2 = InStr(UCase(VAR_STRING), UCase("A1}#2.#")) ' ---- "A1}#2.#0; mscomctl.OCX"
+    'XR3 = InStr(UCase(VAR_STRING), UCase("#0; MSCOMCTL.OCX"))
+    
+    'If XR1 = 0 And XR2 > 0 And XR3 > 0 Then
+        'GET_01 = InStr(UCase(VAR_STRING), UCase("MSCOMCTL.OCX")) - XR2
+        'Mid(VAR_STRING, XR2, GET_01 + Len("MSCOMCTL.OCX")) = "A1}#2.1#0; MSCOMCTL.OCX"
+        ' MsgBox "MSCOMCTL.OCX" + vbCrLf + "WRONG VERSION -- CHANGE TO" + vbCrLf + "#2.1# -- MSCOMCTL.OCX"), vbMsgBoxSetForeground
+        'GO_NEXT_IN = True
+    'End If
+    
+    If GO_NEXT_IN = True Then
+        If Dir(CODER_VBP_FILE_NAME_2) <> "" Then
+            Kill CODER_VBP_FILE_NAME_2
+        End If
+        FR = FreeFile
+        Open CODER_VBP_FILE_NAME_2 For Binary As FR
+            Put #FR, , VAR_STRING
+        Close FR
+    End If
+
+End Sub
+
 

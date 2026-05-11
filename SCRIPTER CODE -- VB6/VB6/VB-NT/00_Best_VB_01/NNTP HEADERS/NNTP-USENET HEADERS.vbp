@@ -1,0 +1,45 @@
+Type=Exe
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOZE\system32\stdole2.tlb#OLE Automation
+Object={248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0; Mswinsck.ocx
+Form=NNTP-Test.frm
+UserControl=Nntp.ctl
+Class=TStrList; TStrList.cls
+Module=Module1; Module1.bas
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCTL.OCX
+Startup="Main"
+HelpFile=""
+Title="NntpTest"
+ExeName32="NNTP-USENET HEADERS.exe"
+Command32=""
+Name="NNTPTEST"
+HelpContextID="0"
+Description="Uwe Keller's NNTP-Control Testprogramm"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=26
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Wed 13-Jan-2010 02-34-28p"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+DebugStartupOption=0
+
+[MS Transaction Server]
+AutoRefresh=1

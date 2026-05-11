@@ -1,0 +1,247 @@
+# -------------------------------------------------------------------
+# --- PROJECT PROCESS HOGG KILLER -----------------------------------
+# --- WHEN YOUR SYSTEM STOPS RESPONDING IN PAGEFILE AND VIRUAL MEMORY 
+# --- RUNNING HARD DRIVE CONSTANTLY ACCESSING AND MOUSE STUCK AND 
+# ---- TIME STUCK AND CAPS LOCK STUCK
+# --- MATT.LAN@BTINTERNET.COM ---------------------------------------
+# --- 11-12 JAN 2016 MIDNIGHT ---------------------------------------
+# -------------------------------------------------------------------
+# --- REM LINES ARE TRIMMED
+# # = HASH REM LINE ARE ALLOWED
+# --- LINE THAT BEGIN SPACES AND OR EMPTY CRLF ARE ALLOWED 
+# --- LINE THAT BEGIN WITH * ALLOWED FOR CODING PUROSE OVER-RIDE EXECPTIONS
+# ### LINE BEGINE TRIPPLE HASH'S ARE ALLOWED NOT TO MODIFY FOR CODE PURPOSE
+# -------------------------------------------------------------------------
+# PASTE THE *EXECUTED-PROGRAMS-LIST* FROM NIRSOFT
+# FOR YOUR MOST RECENT PROGRAMS THT BEEN RUN
+# 1. PASTE THEM IN NOTEPAD - USE MENU OPTION TO FIND
+# 2. PROCESS THEM FOR 
+#    1. 1. STRIP THE EXE OUT FROM FIRST TAB CHR(9)
+#       2. KEEP THE # HASHES REMARKS AND SPACES AND *'S
+#    2. REVERSE SORT OLDEST AT END AFTER TEXT FIRST - FOR DUPLICATES
+#       NEWEST AT BEGINING REMAINS INTACT
+#
+# - NOTE -- KEEP YOUR MENU CATAGORYS FOR MOST IMPORTANT TO BATCH KILL
+# - NOTE -- NIRSOFT EXECUTED-PROGRAMS-LIST - DONT KEEP DUPLICATES
+# - ------- BUT BE INFORMED THE PRIORITY OF KEPTED DUPES IS OLDEST 
+# -         LAST IN TEXT SCRIPT REMOVED FIRST
+# - ------- THAT IS WHAT YOU WANT WHEN ADD SOME MORE IN BATCH PASTE
+# - ------- OBVIOUSLY WHEN ADD A BATCH MORE YOU MIGHT WANT SOME LEFT OUT
+# - ------- SO I PUT EXECPTIONS IN
+# - NOTE -- ONLY CHECKS FOR DUPES IN EXECUTABLES NOT COMMENTS
+# - ------- A 3 HASH AT BEGINING OF LINE USED FOR HARD CODED CATAGORYS
+# - NOTE -- WHEN EDIT THIS FILE A BACKUP GETS MADE INFINATLY TO DATE 
+# -         AND SECOND
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+
+
+# -------------------------------------
+### EXCEPTIONS
+# -------------------------------------
+
+C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE
+C:\WINDOWS\Explorer.EXE
+D:\VB6\VB-NT\00_Best_VB_01\Fast Clipboard\Fast ClipBoard.exe
+C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\EXCEL.EXE
+C:\WINDOWS\regedit.exe
+C:\WINDOWS\system32\defrag.exe
+C:\WINDOWS\system32\cmd.exe
+C:\WINDOWS\system32\dllhost.exe
+C:\WINDOWS\system32\schtasks.exe
+C:\WINDOWS\system32\dumprep.exe
+C:\WINDOWS\system32\svchost.exe
+C:\WINDOWS\system32\spool\drivers\w32x86\3\CNMSEA9.EXE
+C:\WINDOWS\system32\ntvdm.exe
+C:\WINDOWS\system32\inetsrv\davcdata.exe
+C:\WINDOWS\SYSTEM32\IJRMF.EXE
+C:\PROGRAM FILES\NORTON 360\Engine\22.5.5.15\symerr.exe
+C:\PROGRAM FILES\NORTON 360\Engine\22.5.5.15\ncolow.exe
+C:\PROGRAM FILES\NORTON 360\Engine\22.5.5.15\cltrt.exe
+C:\Program Files\WinRAR\WinRAR.exe
+C:\Program Files\VS Revo Group\Revo Uninstaller\revouninstaller.exe
+
+# NIRSOFT
+C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothlogview.exe
+C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothview.exe
+
+# Microsoft Management Console
+C:\WINDOWS\system32\mmc.exe
+C:\WINDOWS\system32\mspaint.exe
+# Microsoft Run a DLL as an App
+C:\WINDOWS\system32\rundll32.exe
+
+
+# -------------------------------------
+### DOUBLE CHECK AND ASK EXCEPTIONS
+# -------------------------------------
+# NOTE - PUT A * AT BEGINING OF LINE TO STOP DUPE CHECKER
+# ------ OBVIOUSLY DIY FOR DUPE IN THIS PART
+# -------------------------------------
+
+*C:\WINDOWS\Explorer.EXE
+*D:\VB6\VB-NT\00_Best_VB_01\Fast Clipboard\Fast ClipBoard.exe
+*C:\WINDOWS\system32\mspaint.exe
+*C:\Program Files\VS Revo Group\Revo Uninstaller\revouninstaller.exe
+*C:\Program Files\WinRAR\WinRAR.exe
+*C:\WINDOWS\system32\cmd.exe
+*C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE11\EXCEL.EXE
+*C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE
+
+# NIRSOFT
+*C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothlogview.exe
+*C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothview.exe
+
+
+# -------------------------------------
+
+### BEGIN
+
+# NOTE - TOP PRIORTY BIG MEMORY HOGGS INTO PAGEFILE GRIND TO A HALT
+
+C:\Program Files\Siber Systems\GoodSync\GoodSync.exe
+C:\PROGRAM FILES\SIBER SYSTEMS\AI ROBOFORM\Chrome\RF-CHROME-NM-HOST.EXE
+C:\PROGRAM FILES\SIBER SYSTEMS\AI ROBOFORM\IDENTITIES.EXE
+# -------------------------------------
+
+### LESS_PRIORITY
+
+C:\PROGRAM FILES\FREEFILESYNC\Bin\FREEFILESYNC_XP.EXE
+C:\Program Files\IrfanView\i_view32.exe
+C:\PROGRAM FILES\seRapid\seRapid.exe
+C:\PROGRAM FILES\MYTHICSOFT\AGENT RANSACK\CRASHSENDER1402.EXE
+C:\Program Files\Notepad++\notepad++.exe
+C:\Program Files\SuperCopier2\SuperCopier2.exe
+
+# NOTE - MICROSOFT CTF LOADER
+C:\WINDOWS\system32\ctfmon.exe
+
+# NOTE -- MY VB
+D:\VB6\VB-NT\00_Best_VB_04\Webcam_Motion\WebCamMatts.exe
+D:\VB6\VB-NT\00_Best_VB_01\DELAYED_LOADER\DELAYED_LOADER.exe
+D:\VB6\VB-NT\00_Best_VB_01\GOODSYNC SOUND\VB_GOOD_SYNC_SCRIPT.exe
+D:\VB6\VB-NT\00_Best_VB_01\Run_AS\Matt_RunAS.exe
+D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe
+D:\VB6\VB-NT\00_Best_VB_01\Time_Sync\Time Sync.exe
+
+# NOTE - WINDOWS
+# NOTE - WINDOWS CLASSIC SOLITIRE
+C:\WINDOWS\system32\sol.exe
+C:\WINDOWS\system32\drwtsn32.exe
+C:\WINDOWS\system32\dwwin.exe
+C:\WINDOWS\system32\TweakUI.exe
+C:\WINDOWS\system32\taskmgr.exe
+C:\WINDOWS\system32\calc.exe
+C:\PROGRAM FILES\# NO INSTALL REQUIRED\01 WWW.SYSTEM INTERNALS.COM\PROCESSEXPLORER\procexp.exe
+C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\Autoruns Microsoft\autoruns.exe
+C:\Program Files\# NO INSTALL REQUIRED\01 www.System Internals.com\SysInternals\SysinternalsSuite\Bginfo.bat
+
+C:\PROGRAM FILES\# NO INSTALL REQUIRED\HASH MY FILES\HASHMYFILES.EXE
+
+# NIRSOFT
+C:\PStart\Progs\#_Nirsoft_Package\NirSoft\mweather.exe
+
+C:\Program Files\KatMouse\KatMouse.exe
+
+# NOTE -- CANNON
+C:\Program Files\Canon\MyPrinter\BJMyPrt.exe
+C:\Program Files\Canon\Solution Menu EX\CNSEMAIN.EXE
+C:\PROGRAM FILES\Canon\IJ MANUAL\EASY GUIDE VIEWER\cmview.exe
+C:\PROGRAM FILES\Canon\IJPLM\ijplmsvc.exe
+C:\PROGRAM FILES\Canon\IJPLM\setup.exe
+C:\PROGRAM FILES\Canon\IJEREG\MP495 SERIES\UNINST.EXE
+C:\PROGRAM FILES\Canon\MP NAVIGATOR EX 4.0\Maint.exe
+C:\PROGRAM FILES\Canon\MYPRINTER\uninst.exe
+
+C:\TEMP\-ASUS-BIGGER\MAINT002.EXE
+C:\TEMP\-ASUS-BIGGER\UNINST.EXE
+C:\TEMP\-ASUS-BIGGER\MSETUP4.EXE
+
+C:\PROGRAM FILES\MOZILLA FIREFOX\firefox.exe
+C:\PROGRAM FILES\MOZILLA FIREFOX\PLUGIN-CONTAINER.EXE
+
+C:\PROGRAM FILES\Greatis\WinDowse\WinDowse.exe
+
+C:\Program Files\Google\Chrome\Application\chrome.exe
+C:\Program Files\Ahead\Nero PhotoSnap\PhotoSnapViewer.exe
+C:\Program Files\Axialis\IconWorkshop\IconWorkshop.exe
+C:\Program Files\BootRacer\Bootrace.exe
+C:\Program Files\Common Files\LogiShrd\CDDRV3\LDConfig.exe
+C:\Program Files\Common Files\LogiShrd\sp6\LU1\LogitechUpdate.exe
+C:\Program Files\Common Files\LogiShrd\sp6\LU1\LULnchr.exe
+C:\Program Files\Elantech\ETDCtrl.exe
+C:\Program Files\Logitech\SetPointP\SetPoint.exe
+
+C:\Program Files\PicPick\picpick.exe
+
+C:\Program Files\ProcessTamer\ProcessTamerConfigurator.exe
+C:\Program Files\ProcessTamer\ProcessTamerTray.exe
+C:\Program Files\Windows Live\Photo Gallery\WLXPhotoGallery.exe
+C:\Program Files\WordWeb\wweb32.exe
+
+# ----
+
+### KILL FOR THE FUN OF IT LIKE AT BOOT
+### KILLFUN
+C:\Program Files\PicosmosTools\PicosmosShows.exe
+C:\DOCUMENTS AND SETTINGS\MATT 04\LOCAL SETTINGS\APPLICATION DATA\WINISO COMPUTING\WinISO\UPDATE_41395\bin\updater.exe
+
+# NOTE - UP FOR UNINSTALL Microsoft IntelliType Pro -- REMOTE KEYBOARD
+# ------ ALREAD AUTORUNS STOPPED IT AT BOOT UP -- 2011 PROGRAM
+C:\Program Files\Microsoft IntelliType Pro\dpupdchk.exe
+C:\Program Files\Microsoft IntelliType Pro\itype.exe
+
+C:\Program Files\Western Digital\WD Drive Manager\WDBtnMgrUI.exe
+C:\PROGRAM FILES\Google\Common\GOOGLE UPDATER\GOOGLEUPDATERSERVICE.EXE
+
+# NOTE -- ADOBE
+Adobe Collaboration Synchronizer 11.0
+C:\Program Files\Adobe\Reader 11.0\Reader\AdobeCollabSync.exe
+# -- Adobe Acrobat SpeedLauncher
+C:\Program Files\Adobe\Reader 11.0\Reader\Reader_sl.exe
+# -- NOT ALWAYS RUNNING
+C:\Program Files\Common Files\Adobe\ARM\1.0\AdobeARM.exe
+
+# NIRSOFT
+C:\PStart\Progs\#_Nirsoft_Package\NirSoft\turnedontimesview.exe
+C:\PStart\Progs\#_Nirsoft_Package\NirSoft\whatishang.exe
+C:\PStart\Progs\#_Nirsoft_Package\NirSoft\wincrashreport.exe
+C:\PStart\Progs\#_Nirsoft_Package\NirSoft\executedprogramslist.exe
+
+C:\Program Files\ASUS\Splendid\ACMON.exe
+C:\Program Files\ASUS\Splendid\ACOVS.exe
+
+C:\PROGRAM FILES\MOZILLA FIREFOX\updater.exe
+
+C:\PROGRAM FILES\Google\Update\1.3.29.1\GOOGLECRASHHANDLER.EXE
+C:\PROGRAM FILES\Opera\34.0.2036.25\OPERA_AUTOUPDATE.EXE
+C:\TEMP\-ASUS-BIGGER\OPERA AUTOUPDATE\INSTALLER.EXE
+
+# NOTE -- NOKIA
+C:\PROGRAM FILES\PC CONNECTIVITY SOLUTION\TRANSPORTS\NCLUSBSRV.EXE
+C:\PROGRAM FILES\PC CONNECTIVITY SOLUTION\TRANSPORTS\NCLMSBTSRV.EXE
+C:\PROGRAM FILES\PC CONNECTIVITY SOLUTION\NCLINSTALLER.EXE
+C:\PROGRAM FILES\PC CONNECTIVITY SOLUTION\SERVICELAYER.EXE
+
+# ----
+
+### LOAD THESE BACK AFTER KILL
+### KILL_LOAD_BACK
+*C:\WINDOWS\Explorer.EXE
+*D:\VB6\VB-NT\00_Best_VB_01\Fast Clipboard\Fast ClipBoard.exe
+# NIRSOFT
+*C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothlogview.exe
+*C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothview.exe
+
+# ----
+
+### HIGH_LOW_PRIORITY
++D:\VB6\VB-NT\00_Best_VB_01\Fast Clipboard\Fast ClipBoard.exe
++C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothlogview.exe
++C:\PStart\Progs\#_Nirsoft_Package\NirSoft\bluetoothview.exe
++C:\Program Files\KatMouse\KatMouse.exe
++C:\Program Files\PicPick\picpick.exe
++C:\Program Files\IrfanView\i_view32.exe
+-C:\WINDOWS\system32\cmd.exe
+-C:\Program Files\Siber Systems\GoodSync\GoodSync.exe
+-C:\WINDOWS\Explorer.EXE

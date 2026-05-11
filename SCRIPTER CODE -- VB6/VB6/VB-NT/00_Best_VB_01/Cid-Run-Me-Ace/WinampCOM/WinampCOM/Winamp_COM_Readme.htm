@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Developer Studio">
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<TITLE>Winamp COM Plug-in</TITLE>
+</HEAD>
+<BODY>
+<H1>COM for Winamp - version 2.1.1</H1>
+<H2><A HREF='http://www.adcock8.freeserve.co.uk'/>Home Page</A></H2>
+<P>by <A HREF='mailto:john@adcock8.freeserve.co.uk'>John Adcock</A></P>
+<P>What's new: Now can find status of random and repeat play</P>
+
+<H2>License:</H2>
+
+<P>This file is subject to the terms of the <A HREF='http://www.gnu.org/copyleft/gpl.html'>GNU General Public License</A> as
+published by the Free Software Foundation.  A copy of this license is
+included with this software distribution in the file COPYING.html.  If you
+do not have a copy, you may obtain a copy by writing to the Free
+Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.</P>
+
+<P>This software is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details</P>
+
+<H2>Requirements:</H2>
+
+<P>I think it will run on Win 95/98 and NT.  I have tested it on 98, NT 4 sp 4 and NT 5 beta 3</P>
+
+<H2>Instalation:</H2>
+
+<P>Put the gen_com.dll in the winamp\Plugins directory, then run Winamp, this will register 
+all the COM stuff.</P>
+
+<H2>What does it do</H2>
+
+<P>Basically it allows programmers to access all the function in the winamp SDK from an outside 
+program. Even on a different machine using DCOM.</P>
+
+<P>To use either<BR>
+	1) add a reference to "WinampCOM 1.0 Type Library" then <BR>
+	2) Code away</P>
+<PRE>
+		Dim WithEvents oWinCom as new WinampCOMlib.Application
+		oWinCom.Play
+</PRE>
+<P>or Use CreateObject</P>
+<PRE>
+	Dim oWinCom as object
+	set oWinCom = CreateObject("WinampCOM.Application")
+	oWinCom.Play
+</PRE>
+
+<P>Look at the type library in VB or Excel to find the functions supported.  The Sample Code copies 
+the files in the current playlist to a listbox.  The would be hard without using this plug-in.</P>
+
+<H2>History</H2>
+
+<P>2.1.1	Added RepeatStatus and Random Status.</P>
+
+<P>2.1.1	Changed registration to avoid anoying pop-up when WinAmp not running.</P>
+
+<P>2.0.1	Added SongChange Event, and a few extra bits and bobs. Removed ID3 stuff</P>
+
+<P>1.1.3	Added CurrentSongLength property (Oops, missed that one first time round)</P>
+
+<P>1.1.2	Fixed probem running on certain machines without up to date atl dll. It's getting bigger but everybody can now use it.</P>
+
+<P>1.1.1	Added read only ID3 Tag support, write tags will come when Winamp supports
+	ID3v2 as the code i use doesn't keep backwardly compatable tags</P>
+
+<P>1.0.1	The original version tried to expose the Winamp SDK to
+	people like me who like to use VB for user interface stuff
+	and don't want to have the restriction of writing an add-in 
+	to do stuff with strings.</P>
+
+<H2>FAQS:</H2>
+
+<P>Q: How do I uninstall the plug-in?<BR>
+A: run winamp with a command line -UnregComPlugin 
+	e.g c:\program files\winamp\winamp -UnregComPlugin 
+   When you exit from the program all the registry entries will be 
+   deleted and you can then delete the gen_com.dll.</P>
+
+<P>Q: How do I make it do .... ?<BR>
+A: Look in the frontend.h header posted in the developement section in the plug-ins section
+   at the winamp site.  The COM plug-in basically wraps all the windows message functions
+   in header, What they do should be fairly obvious from the name and the header.</P>
+
+<P>Q: Will you answer questions about the code/fix bugs?<BR>
+A: Probably, don't expect lightning speed.  I will if you send good comments to my Hi-Fi Pc page.</P>
+
+<P>Q: How did you retrofit COM into a Exe using a Dll?<BR>
+A: Using a frigged ATL app wizard exe, and messing about with the code 
+   to make a COM apartment from a Dll. You can get the source from my website.</P>
+
+<P>Q: What has happened to the ID3 Stuff?<BR>
+A: I'm in the process of creating a proper ID3 VB COM object, keep checking the site</P>
+
+<H2>Associated projects</H2>
+
+<P>Silent HiFi PC<BR>
+IRMan OCX<BR>
+DVD control OCX</P>
+
+<H2>Enjoy!</H2>
+
+</BODY>
+</HTML>

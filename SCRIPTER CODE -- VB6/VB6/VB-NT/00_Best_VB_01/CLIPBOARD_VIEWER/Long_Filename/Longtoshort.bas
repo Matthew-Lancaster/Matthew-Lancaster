@@ -1,15 +1,16 @@
 Attribute VB_Name = "LongToShort"
+Option Explicit
+
 'Public FS, FS2       ' Set = CreateObject("Scripting.FileSystemObject")
+
 Public ADATE1, ADATE2
 
-Option Explicit
- Declare Function GetShortPathName Lib "kernel32" _
+Declare Function GetShortPathName Lib "kernel32" _
       Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
       ByVal lpszShortPath As String, ByVal cchBuffer As Long) As Long
 
 Public Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
 Public Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
-
 
 Private Type FILETIME
    LowDateTime          As Long

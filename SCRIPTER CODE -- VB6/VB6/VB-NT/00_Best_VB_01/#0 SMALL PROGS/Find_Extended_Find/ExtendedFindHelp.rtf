@@ -1,0 +1,462 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\fnil\fcharset0 Arial;}}
+{\colortbl ;\red0\green0\blue255;}
+{\stylesheet{ Normal;}{\s1 heading 1;}{\s2 heading 2;}{\s3 heading 3;}{\s4 heading 4;}{\s5 heading 5;}}
+\viewkind4\uc1\pard\nowidctlpar\lang3081\f0\fs20 This is a VB6 Add-In replacement for VB's Find And Replace Tool. 
+\par It supports the 4 ranges in which VB F&R operates , Whole word only and Case Sensitivity. 
+\par It docks with the IDE so the code is never hidden behind the Tool and presents any finds in a list. 
+\par Replace operates slightly differently, it is equivalent to VB's Replace All. This is because the list method of presenting the found code allows you to simply goto the line you want if doing only a single replace. Let me know if you would prefer both Replace methods included.
+\par When you select an item in the Found list focus is shifted to the code page. If you want to scroll down the list use the Scrollbar or stretch the Tool window. You can also use the Up and Down Keys to scroll through the list by frist clicking in the Scrollbar, and then goto the selected item in code by pressing Enter.
+\par \pard\keepn\nowidctlpar\s2\b Instructions
+\par \pard\nowidctlpar\b0 Select text then launching Tool from menu automatically launches search. See also Properties: Launch On Startup.
+\par Pressing enter in the search box automatically starts searching. In Replace box replace starts.
+\par Selecting an Item in the Found list takes you to code and highlights the search text in code. Focus shifts from Find Tool to code page.
+\par NOTE there is also a right-click menu which gives access to all button actions.
+\par \pard\brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s2\b ToolBar
+\par \pard\nowidctlpar\b0\f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbb00000bbbbb00000b05ee0bbbbb05ee0b05ee0bbbbb05ee0b0eee000b000e
+ee0b0e5e0000050eee0b0e5e0050050ee00b005e0050050e000bb0000000000e00bbbb05000b05
+000bbbbb00000b00000bbbbbb000bbb000bbbbbbb050bbb050bbbbbbb000bbb000bbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  Find highlighted word; Instead of cut and paste you select text in code then press this button to search. 
+\par \tab (Does not use clipboard so you can use in conjunction with Cut and Paste)
+\par 
+\par \ul\b Filters\ulnone\b0\tab\tab\tab\ul\b Description  \ulnone\b0 (Default Off for all)
+\par OFF ON
+\par \f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bb0b0b0b000b0bb0b0b0b00b0b0b0bb0b0b0b000000b0bb0b0bbb0bbbb0b0bb0b0bbb0bb
+bb0b0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bb5b5b5b555b0bb0b5b5b55b5b5b0bb0b5b5b555555b0bb0b5bbb5bbbb5b0bb0b5bbb5bb
+bb5b0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20 Whole Word Only \b0 Ignores embedded words 'cut' will not find CutOpt, Optcut cuteVariable etc but Wally.Cut, Cut.Wally or (Cut) will be recognised.
+\par \f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb00bbb00b00b0bbbb00bbb00b0b
+00bbbb00bbb00b0bb0bbbb00bbb00b0bb0bbbb0000000bb000bbbb0000000bbbb0bbbb00bbb00b
+bbbbbbbbb0bbb0bbbbbbbbbbb00b00bbbbbbbbbbbb000bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbbbbbbbbb0bb0b5bbb5b555bb0bb0b5bbb5b5b5bb0bb0b5bbb5b5b5
+bb0bb0b5bbb5bb55bb0bb0b55555bbb5bb0bb0b5bbb5bbbbbb0bb0b5bbb5bbbbbb0bb0bb5bb5bb
+bbbb0bb0bb5b5bbbbbbb0bb0bbb55bbbbbbb0bb0bbbbbbbbbbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20 Case Sensitive\b0\tab 'cut" <> CUT,CuT or Cut
+\par \f1\fs20{\pict\wmetafile8\picw557\pich557\picwgoal312\pichgoal312 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000390b0000390b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bbbbbbbbbbbb0bb0bbbbbb0bbbbb0bb0bbbb0b0b0bbb0bb0bbbbb000bbbb0bb0bbb00000
+00bb0bb0bbbbb000bbbb0bb0bbbb0b0b0bbb0bb0bbbbbb0bbbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw557\pich557\picwgoal312\pichgoal312 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000390b0000390b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bbbbbbbbbbbb0bb0bbbbbb5bbbbb0bb0bbbb5b5b5bbb0bb0bbbbb555bbbb0bb0bbb55555
+55bb0bb0bbbbb555bbbb0bb0bbbb5b5b5bbb0bb0bbbbbb5bbbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \b Pattern Search\b0\tab Allows search using pattern search characters (see below for details)
+\par 
+\par 
+\par \f1\fs20{\pict\wmetafile8\picw556\pich556\picwgoal315\pichgoal315 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+1000000000002800000010000000100000000100040000000000800000003e0b00003e0b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbaaaabbbb0bb0bbaaaaaaaabb0bb0baabbbbbaaab0bb0baabbbbaaa
+ab0bb0baabbbaabaab0bb0baabbbaabaab0bb0baabb0a0baab0bb0baabaa00baab0bb0baaaaa00
+baab0bb0baaa0000baab0bb0baab0000baab0bb0bbaa0000aabb0bb00bbbaaaabbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20  \b0\f1\fs20{\pict\wmetafile8\picw557\pich557\picwgoal312\pichgoal312 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000390b0000390b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbb5555bbbb0bb0bb55555555bb0bb0b55bbbbb555b0bb0b55bbbb555
+5b0bb0b55bbb55b55b0bb0b55bbb55b55b0bb0b55bb050b55b0bb0b55b5500b55b0bb0b5555500
+b55b0bb0b5550000b55b0bb0b55b0000b55b0bb0bb55000055bb0bb00bbb5555bbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20  No Comments\b0\tab Ignores all code after a comment mark '
+\par \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbaaaaaab000bb0bbaaaaaaaabb0bb0baabbbbbbaab0bb0aabbbbbbaaaa0bbaabbbbbbaab
+baabbaabbbbbaabbbaabbaabbbbaabbbbaabbaabbbaabbbbbaabbaa00aa0b00b00abbaa0ba0bbb
+0bb0abb0a00a00b00b0a0bb0ba0b00b00aa00bb0bbaaaaaaaabb0bb00bbaaaaaabb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20  \b0\f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bb555555b000bb0bb55555555bb0bb0b55bbbbbb55b0bb055bbbbbb55550bb55bbbbbb55b
+b55bb55bbbbb55bbb55bb55bbbb55bbbb55bb55bbb55bbbbb55bb5500550b00b005bb550b50bbb
+0bb05bb0500500b00b050bb0b50b00b005500bb0bb55555555bb0bb00bb555555bb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20  No Strings\b0\tab Ignore anything between double quote marks
+\par \f1\fs20{\pict\wmetafile8\picw552\pich552\picwgoal313\pichgoal313 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000530b0000530b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbb000bbbb0bb0bbbbbb00bbbb0bb0bbbbbb00
+bbbb0bb0bbbb0000bbbb0bb0bbbb0000bbbb0bb0bbbb0000bbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw552\pich552\picwgoal313\pichgoal313 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000530b0000530b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbbb00bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbb555bbbb0bb0bbbbbb55bbbb0bb0bbbbbb55
+bbbb0bb0bbbb5555bbbb0bb0bbbb5555bbbb0bb0bbbb5555bbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \b Comments Only\tab\b0 Only find if it is in a comment
+\par \f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbb000bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0b00b00b00b000bb0b0bb0bbb
+0bb00bb0b00b00b00b000bb0b00b00b00b000bb0bbbbbbbbbbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00bbbbbbbbb000bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbb
+bb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0bbbbbbbbbbbb0bb0b55b55b55b550bb0b5bb5bbb
+5bb50bb0b55b55b55b550bb0b55b55b55b550bb0bbbbbbbbbbbb0bb00bbbbbbbbbb00bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \b Strings Only\b0\tab Only find if it is in a string (useful for correcting strings while ignoring variables
+\par \pard\nowidctlpar\fi720\tab\tab  No and Only sub-types of these filters automatically turn each other off.
+\par \pard\nowidctlpar  
+\par \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbb00000bbbbbbbbbb0000000bbbbbbbb00bbbbb00bbbbbb00bbbbb0000bbbb00bbbbb000
+b00bbb00bbbb00bbb00bbb00bbbb00bbb00bbb00bbb00bbbb00bbb00bb00bbbbb00bbb00b000bb
+bbb00bbb0000bbbbbb00bbbbb00bbbbbb00bbbbbbb00000000bbbbbbbbb000000bbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \b Clear Filters\b0\tab Turn off all filters. NOTE If Pattern Search is On you may need to click this button twice; first to turn Pattern off then again to turn off any filters Pattern stored while it was operating.
+\par 
+\par \pard\keepn\nowidctlpar\s2\b Search/Find style and location
+\par \pard\nowidctlpar\b0 (toggle states)
+\par \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb00000000000000bb00000000000000bb00000000000
+000bbbbbbbbbbbbbbbbbb00005555000000bb00005555000000bb00005555000000bbbbbbbbbbb
+bbbbbbb00000000000000bb00000000000000bb00000000000000bbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw557\pich557\picwgoal312\pichgoal312 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000390b0000390b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb00000000000000bb00000000000000bb00000000000
+000bbbbbbbbbbbbbbbbbb55555555555555bb55555555555555bb55555555555555bbbbbbbbbbb
+bbbbbbb00000000000000bb00000000000000bb00000000000000bbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \b Select Search text or Found text (\b0 Toggle) Selects only the search word or the whole line in code.
+\par \pard\nowidctlpar\fi720\li2880 Default Select but can be set to Whole on Properties form
+\par \pard\nowidctlpar 
+\par \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbb111111111bbbbbbb1fbbbbbf1bbbbbbb1fffffff1b0000001fbbbb
+bf1b0fffff1fffffff1b0fbbbf1fbbbbff1b0fffff1ffff1111b0fbbbf1fbbf1f1bb0fffff1fff
+f11bbb0ffff0111111bbbb0fbbf0f0bbbbbbbb0ffff00bbbbbbbbb000000bbbbbbbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw561\pich561\picwgoal321\pichgoal321 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000240b0000240b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbb00000000000bbbbb0fbbbbbbbf0bbbbb0fffffffff0bbbbb0fbbbbbbbf
+0bbbbb0fffffffff0bbbbb0fbbbbbbbf0bbbbb0fffffffff0bbbbb0fbbbbbbff0bbbbb0fffffff
+ff0bbbbb0fbbbbf0000bbbbb0ffffff0f0bbbbbb0ffffff00bbbbbbb00000000bbbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbb00000000000000bb0ffffffffffff0bb0ffffffffffff0bb0fb00ffffffff0bb0fff00000bf
+ff0bb0ffffffffffff0bb0ffb0000bffff0bb0ffffffffffff0bb0ffb000000bff0bb0ffffffff
+ffff0bb0fb00f0bf00bf0bb0ffffffffffff0bb0ffffffffffff0bb00000000000000bbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbaaaaaaaaaaaaaabbaffffffffffffabbaffffffffffffabbaffbbbbbbbbbfabbaffffffffff
+ffabbafaaaaaaaaaffabbafaa0000baaffabbafaaaaaaaaaffabbafaa000000affabbafaaaaaaa
+aaffabbaffffffffffffabbaffbbbbbbbbbfabbaffffffffffffabbaaaaaaaaaaaaaabbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20 Search range\b0\tab All/Current Code page/Current Routine/Selected Text  (Default All)
+\par \tab\tab    \tab\tab\b Note:\b0  With Selected Text the selected area loses its highlight when you switch focus to Extended Find but is still recognised by the tool. See also Properties for Auto Selected Text option)
+\par \pard\keepn\nowidctlpar\s2\b Replace tool (\b0 Default Hidden)\b  
+\par \pard\nowidctlpar\b0\f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb00000b000bbbbbbbb000bb00b
+bbbbbbbb000b00bbbbbbbbbb00000bbbbbbbbbbb0000000bbbbbbbbb000bb000bbbbbbbb000bb0
+00bbbbbbbb000bb000bbbbbbb00000000bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20  \f1\fs20{\pict\wmetafile8\picw564\pich564\picwgoal320\pichgoal320 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000150b0000150b000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb55555b555bbbbbbbb555bb55b
+bbbbbbbb555b55bbbbbbbbbb55555bbbbbbbbbbb5555555bbbbbbbbb555bb555bbbbbbbb555bb5
+55bbbbbbbb555bb555bbbbbbb55555555bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\f0\fs20\tab\tab Show/hide replace input and button. Pressing Enter in Replace input has same effect as clicking button. Replace action is always at Replace All level for the Search range. Replace disables pattern searching. 
+\par                                  Replace is aware of the Whole Word, Case Sensitivity,  No Comment, No String, Comment Only and String Only filters and the Search Range control.
+\par \pard\nowidctlpar\fi-1440\li1440 
+\par \pard\brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s1\f1\fs20{\pict\wmetafile8\picw423\pich423\picwgoal242\pichgoal242 
+010009000003a600000000008200000000000400000003010800050000000b0200000000050000
+000c02100010000500000007010400000082000000430f2000cc00000010001000000000001000
+100000000000280000001000000010000000010004000000000080000000c70e0000c70e000010
+000000100000000000000080000000ff00000000008000800080000000ff00ff00ff0000800000
+808000000080800080808000c0c0c00000ff0000ffff000000ffff00ffffff00bbbbbbbbbbbbbb
+bb000000000000bbbb0ffffffffff0bbbb0f00f00000f0bbbb0ffffffffff0bbbb0f00f00000f0
+bbbb0ffffffffff0bbbb0fffffff0ff0bbbb0f00fff0b0f0bbbb0f0b0f0b0b000b110ff0b0b0b0
+bbb01100000b0b0bbbbb11bbbbb0b0bbbbbb11bbbbbb0bbbbbb011bbbbbbb000000b11bbbbbbbb
+bbbbbbbb05000000070101000000030000000000
+}\b\f0\fs20  Properties
+\par \pard\nowidctlpar\b0 
+\par \b Launch On Startup\b0\tab\b False\b0  Add to Add-Ins Menu; \b True \b0 Appear in IDE when VB starts. (Default Off)
+\par 
+\par \b 
+\par \pard\brdrb\brdrs\brdrw20\brsp20 \nowidctlpar Search History 
+\par \pard\nowidctlpar Save\b0\tab\tab\tab Save contents of Search Combo between runs (Default Off) NOTE the Replace list is not saved but items in it can be added automatically to the Search List (See Replace Properties below)
+\par \pard\nowidctlpar\fi-2160\li2160\b Search Depth\b0\tab Limit items in Search Combo (20 - 400) (Oldest deleted when limit is passed)
+\par \pard\nowidctlpar\fi720\li4320          (Default 20)
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s3\b Clear\b0  \tab\tab\tab Clear Search history (Registry and Search Combo) 
+\par NOTE: You can also delete individual items from the Search List by Selecting the whole Search phrase then pressing BackSpace key. If the selection is partial or absent then BackSpace just acts as an editing key. If whole text is selected and you type in a new Search phrase the old one will remain in Search History (as long as you have searched for it at least once.).  If the Search phrase is a new one then select all and BackSpace just deletes it. To clear the Search Input box without removing from History use select all and Delete key.\b 
+\par \pard\keepn\nowidctlpar\s2\b0 
+\par \pard\nowidctlpar 
+\par \b Remember Filters\b0\tab Save Filter settings between runs. (Default Off)
+\par 
+\par 
+\par \pard\brdrb\brdrs\brdrw20\brsp20 \nowidctlpar\b Found Grid Appearance\b0 
+\par \b Projects (If more than one)\b0\tab If more than 1 project show Project name in column 1 (Default On)
+\par \b Components (If more than one)\b0\tab If more than 1 component (or project) Component name in column 2 (Default On)
+\par \b Show Component Lines\b0\tab\tab Show Line in Component (Default On) not much use unless you need to pass information to others.
+\par \b Procedure Name\b0\tab\tab\tab Show Procedure name in Column 4 (Default On)
+\par \b Show Procedure Lines\b0\tab\tab Show Line in Procedure (Default On) not much use unless you need to pass information to others.
+\par \pard\nowidctlpar If not checked the information and column(s) are hidden from user's view. Information is still collected and used internally, so no speed advantage)
+\par  \b NOTE\b0 : Projects and Components are also hidden if there is only one member of the group, as the information is not useful to users or if there is not enough room to show code.
+\par \b 
+\par \pard\brdrb\brdrs\brdrw20\brsp20 \nowidctlpar Grid Lines \tab\tab\tab\b0 Show grid lines in Found grid (default OFF)\b 
+\par \pard\nowidctlpar Remember Filters\tab False \b0 all filters off on startup\b  True \b0 Filter states remembered  (Default Off)
+\par \b Find Select Whole line\b0  \tab Force startup state of the ' Select Search text or Found text' button. (Default Off)
+\par \b Auto Selected Text\b0  \tab If you select multiple lines of code then use Extended Find this option allows Extended Find to switch to Selected Text Range automatically. (Default Off because selected code loses its highlight when Extended Find gets focus and this behaviour would surprise/worry users if default on. I recommend you turn it On once you have read this). Once the Search is finished the Range reverts to previous setting.
+\par 
+\par \b Replace\b0  
+\par \b Filter Warning\b0\tab\tab Display Filter Status before applying Replace. (default ON)
+\par \b Blank Warning \b0\tab\tab Warn if you are going to replace code with a blank. (default ON)
+\par \pard\keepn\nowidctlpar\s2\b Add Replace To Search\tab\b0 Add Replace phrase (if not blank) to Search Combo (now also Adds Find phrase to Replace for easy Undo)\b 
+\par \pard\nowidctlpar\b0 
+\par \b Colours
+\par \b0 Click labels to change colours. 
+\par \b General\b0\tab\tab Text and Back colours of ComboBoxes and Found list.
+\par \b Selection\b0\tab Text and Back of the Selection band in the Found List
+\par \b Heading\b0\tab\tab Text and Back of Heading row in Found List (Back indicates results/state of Search)
+\par \b Restore User\b0   \tab Restores to colours when Properties window opened.
+\par \b Default\b0\tab\tab Restores my original settings.
+\par \b 
+\par NEW 
+\par \pard\keepn\nowidctlpar\s5 Replace
+\par \pard\nowidctlpar\b0 Works like VB's native Replace. Don't forget to be careful about Range and Whole Word when you use it.
+\par \b Pattern Search 
+\par \b0 Pattern searching allows you to search using special characters instead of literal strings.
+\par For Pattern Search to work the Whole Word only, Case Sensitive and  are turned off (Manually turning them on again would stop Pattern searching from working so they are disabled while Pattern Search is On)
+\par Haven't fully explored this so these notes are incomplete.
+\par Most common pattern is '*' and it certainly works.  
+\par Look in VB help for other patterns (Check the 'Like' operator and in the C++ documentation, some don't work in VB just experiment for now.
+\par \pard\keepn\nowidctlpar\s2\b Pattern character  Use\tab\tab\tab\tab\tab Example
+\par \pard\nowidctlpar\b0\tab * \tab  Accept any characters at this position \tab 'For * To' finds start of any For structure
+\par \tab\tab\tab\tab\tab\tab\tab 'For X = 1 To', 'For Y = 45 To', etc
+\par \tab ?\tab accept any single character as this position     'b?d' gets bad, bbd, bcd, bdd, bed etc
+\par \pard\keepn\nowidctlpar\s2\li720\b [ ]\tab\b0 Accept any characters between the brackets   fr[aeiou]d will find frad, fred, frid, frod or 
+\par \pard\keepn\nowidctlpar\s2\fi720\li1440\tab\tab\tab\tab\tab\tab     frud\b 
+\par \pard\nowidctlpar\b0\tab [A-E]\tab Accept any characters from A to E (case sensitive)
+\par \tab\tab A-Z, Capitals
+\par \pard\nowidctlpar\fi720\li720 a-z     lower case\tab 
+\par A-Za-z all letters
+\par \pard\nowidctlpar\fi-495\li1935\tx1935\lang1033 0-9\tab\lang3081 numbers
+\par \pard\nowidctlpar\fi720\li720 A-Za-z0-9 will ignore lines of punctuation used as code dividers
+\par \pard\nowidctlpar\tab !\tab is the NOT operator
+\par \tab\tab [!0-9] ignores anything made of numerals
+\par \tab\tab '[!\\Private] Sub ' returns all subs that are not private
+\par \tab |\tab is the OR operator
+\par \tab\tab Public [Sub|Function] returns all Public Sub and Function headers
+\par 
+\par \tab\tab Examples
+\par \tab [Public|Private][!End|Exit] Sub Returns Private and Public sub headers but not End Sub /Exit Sub\tab\tab 
+\par \tab [!Public] Sub * [!_Click]           Returns all Private Sub headers except those that are click events.
+\par \tab '*[-][!a-z!A-Z!0-9]  \tab All comments of form '----------------------------- ' with no word/numbers
+\par \pard\nowidctlpar\fi720 '*[!a-z!A-Z!0-9][-]              Same as above
+\par \pard\nowidctlpar Pattern search can use either whole line or search text style. In Search text style of course it cannot find the actual search text but highlights the part of the line which fulfils the pattern requirements.
+\par \b NOTE\b0  Pattern search remembers the previous filter set up and restores it when you turn Pattern Search off or close the Add-in (including by shutting down VB).
+\par \b ASCII Search Macro \\ASC(###)
+\par \b0 This is a new Pattern search macro. If you want to search for high ASCII characters in code ie Chr(169) \'a9 then you can enter the Search string macro '\\ASC(169)' (without quote marks) Extended Find will convert this to \'a9 and then search. 
+\par If you enter the ASCII Search Macro with Pattern search OFF, then Extended Find will simply search for the string as entered. 
+\par The macro can cope with 1, 2 or 3 digit numbers. 
+\par If the macro is incomplete no conversion will occur. 
+\par You can have multiple macros in a string.
+\par 
+\par \b Replace Macros\b0 
+\par \b Insert Newline      ^N^ 
+\par Insert Tab              ^T^
+\par \b0 NOTE: These macros are meaningless to the Search Combo. Extended Find is a line based Tool so you cannot search for newline characters, and VB automatically converts Tabs into strings of blanks so searching for Tab is pointless.
+\par This macro allows you to insert a newline character into a Replace phrase. 
+\par So Find phrase = '\b If X = 1 Then Y = 2 Else Y = 3\b0 ' can be expanded to
+\par \b If X = 1 Then
+\par     Y = 2
+\par Else
+\par     Y = 3
+\par End If\b0 
+\par by using the Replace phrase :   '\b If X = 1 Then^N^^T^Y = 2^N^Else^N^^T^Y = 3^N^End If\b0 '
+\par NOTE for those waiting for an update on my Code Fixer program this represents one of the changes coming up.
+\par 
+\par \b Additional notes:
+\par \b0 1. Because Extended Find is a line based searcher you cannot search for newline characters. 
+\par 2. For reasons of sanity you cannot search for single spaces. 
+\par \tab You can however use the Replace tool to replace double spaces with singles.
+\par 3. Becuase VB converts Tabs to Space characters you cannot search for the Tab character.
+\par 4. If you use any of the Pattern Search characters in the Search string with Pattern Search turned off and gets no hits then Pattern Search is turned on and the search repeated. If it gets any hits it is left on so that the Found grid will work otherwise it is turned off again.
+\par 
+\par \pard\nowidctlpar\fi720\li720 
+\par \pard\keepn\nowidctlpar\s2\b Revision History
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s3 Version 2.2.1
+\par \b0 Pattern Search button disables Whole Word and Case Sensitivity buttons (If you could turn them on Pattern search would fail)
+\par To remove a single item from the Search History make sure the whole text is selected then press BackSpace. (see NOTE in Search History section of Properties for more details)
+\par Cancel button now displays properly.\b 
+\par \b0 Fixed bug that caused eternal loop if search phrase occurred in last line of code.\b 
+\par \b0 Removed Punctuation Aware; it is no longer needed for the program to opeate.\b 
+\par \b0 Added  macros to allow you to insert a NewLine or Tab character to the Replace combo.\b 
+\par \b0 Added Auto Pattern search Off if Search phrase does not contain any Pattern search characters.\b 
+\par \b0 Fixed Selected Range test can now cope with selection starting/ending properly. (was ignoring start/end of all lines in selection if Start/End were not at minimium/maximum values for whole range.)\b 
+\par \b0 Changed Filter Warning message to make it easier to read at a glance.\b 
+\par Version 2.2
+\par \b0 Rearranged Properties window\b 
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s4\b0 Added Component and Procedure Line columns to Found Grid.
+\par Added Auto Selected Text; Again VB's Find & Replace has this so here it is.
+\par Added Selected Text Range; don't know that anyone ever uses this but it is part of VB's Find and Replace so here it is.
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s3\b Version 2.1
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s4\b0 See Additional Notes: Not fixes but stuff that's in the code but not previously explained.
+\par Added User selection of colours for Combos and Grid.
+\par History is now saved in correct order.
+\par Whole Word Filter automatically sets Punctuation Filter. This was causing Ver2 to fail to select Search word (Although whole line selection would work). Surprisingly I spotted it before anyone else.
+\par Improved the way Found Grid copes with code editing changing the hidden line number that Extended Find uses to speed finding. The purpose of the hidden line number is to allow Extended Find to cope with identical lines within the same routine. If the fast Find approach fails Extended Find will return the first line in routine that matches. If all else fails just Search again and the line numbers will be updated.
+\par \b Version 2
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \nowidctlpar\b0 (Major changes so skip to next version number)
+\par Added ASCII Search Macro.
+\par Right-click menu gives access to all buttons.
+\par Added Comment Only Filter
+\par Tab sequence is Search -Replace (if visible) - Found Grid 
+\par Added Replace
+\par Added Current Routine level for Search and Replace
+\par Redesigned Properties window.
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s3\b Version 1.1.03
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \nowidctlpar\b0 Added grid lines option
+\par Found explanation for pattern search (VB help 'Like' command)
+\par Fixed few minor bugs
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s3\b Version 1.1.02
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \nowidctlpar\b0 I suspect that the new way of searching makes Punctuation Awareness irrelevant but haven't tested it full so left it in for now. See Ver 2.2.1 notes.
+\par Updated Button graphics
+\par Added pattern searching
+\par Oops change to Found grid heading changed the way finds were added to the grid and wrote 1s line over the headings. Fixed. 
+\par Improved DoResize to cope with small window by making room for multiple layered toolbar. Location columns are hidden too if Code column would be less than \'bd visible area.
+\par \pard\brdrt\brdrs\brdrw20\brsp20 \brdrb\brdrs\brdrw20\brsp20 \keepn\nowidctlpar\s3\b Version 1.1.01 
+\par \b0 See 'Sub Show' on DocFind if you don't like the grid heading or selection colours. You can hard code what you want there.
+\par The Status label has been removed; report on activity now appears in the Code column heading.
+\par Added a 'Clear History' button to Properties page. (also changed layout of form)
+\par Rearranged the toolbar buttons for more clarity
+\par Changed All/Current Code page button to toggle mode.
+\par Improved the shut down process to properly remove all forms/objects.
+\par Changed the way settings are stored to overcome problem with Registry storing boolean data on non-Engish Systems.
+\par Moved all Property load/save code into just 2 routines. (NOTE Property and Help form positions are saved separately by each form)
+\par Adjusted the Column width calculation to keep location data as small as possible.
+\par \b Version 1.1.00 
+\par \pard\nowidctlpar\b0 Replaced ListBox with MSFlexGrid for Found listings; gives a much nicer view of code.
+\par Added Select Search text or Found text 
+\par Help and Properties windows remember their positions (Help also remembers it size).
+\par \pard\brdrb\brdrs\brdrw20\brsp20 \nowidctlpar 
+\par \pard\nowidctlpar Thanks to Jason A. Fisher fisher@scapromo.com whose Code Browser code provided the Docking functionality for this program
+\par Thanks to early users Dream, Sub-Zero who helped me debug the code.
+\par 
+\par Copyright \'a9 2003 Roger Gilchrist \cf1\ul rojagilkrist@hotmail.com\cf0\ulnone 
+\par 
+\par }
+ 

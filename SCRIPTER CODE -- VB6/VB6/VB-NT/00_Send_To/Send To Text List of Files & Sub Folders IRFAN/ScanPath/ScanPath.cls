@@ -11,6 +11,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
+Dim TIME_SLICER
+
 'Option Explicit
 Dim lCount
 Dim FoundPath As String
@@ -194,6 +196,7 @@ Private Function SortedScan_3(Path As String, SubFolders As Boolean)
     
     COUNTPROCES2 = 0
     
+    
     Set FileSystem = CreateObject("Scripting.FileSystemObject")
     '----------------------------------------------------------
     'DoFolder FileSystem.GetFolder(HostFolder)
@@ -243,11 +246,14 @@ Function Recurse(folderPath As String, Filename As String)
             Else
             
                 'InStr(1, foundItem, fileName, vbTextCompare) > 0 Then 'for performance
-                'FoundPath = folderPath & "\" & FoundItem
                 FoundPath = folderPath & "\" & FoundItem
-
+                'FoundPath = folderPath & "\" & FoundItem
+                'FoundPath = folderPath & FoundItem
+                FoundPath = Mid(FoundPath, 1, 2) + Replace(Mid(FoundPath, 3), "\\", "\")
+                
                 Call Routine_On_File(FoundPath, FoundItem)
                 
+                ' ------------------------
                 Call TIME_SLICER_DISPLAY
             
             End If
@@ -266,6 +272,9 @@ End Function
 
 Sub Routine_On_File(FoundPath, FoundItem)
 
+            
+    Dim DATE_VAR_1 As Double
+    Dim DATE_VAR_2 As Double
             Err.Clear
             
             FoundPath = Mid(FoundPath, 1, 1) + Replace(Mid(FoundPath, 2), "\\", "\")
@@ -275,16 +284,22 @@ Sub Routine_On_File(FoundPath, FoundItem)
             
             MDIR2 = FoundItem
             mFileCount = mFileCount + 1
+            ' If mFileCount = 2 Then Stop
             'mFILECount2 = mFILECount2 + 1
             
-            bOK = FileMatches_FSO_(FoundItem)
+'            Debug.Print mFileCount
+            
+'            bOK = FileMatches_FSO_(FoundItem)
+            bOK = FileMatches_FSO_(FoundPath)
+            
+'            MsgBox FoundPath
             
             Call TIME_SLICER_DISPLAY
                         
             If bOK Then
                 'COUNTPROCES2 = COUNTPROCES2 + 1
 
-                If COUNTPROCES2 = 0 Then TIME_SLICER = True
+                ' If COUNTPROCES2 = 0 Then TIME_SLICER = True
                 'RaiseEvent FileMatch(sFile.Name, "", SubFolder.Path + "\" + SubFolder.Name)
                 
                 'Call Form_SEND_TO.XSCRIPT(File.Path + "\" + File.Name)
@@ -357,6 +372,24 @@ Sub Routine_On_File(FoundPath, FoundItem)
                     End If
                 End If
                 
+                If ESCAPE_CODE_1 = True And InStr(UCase(FoundPath), "INSTALLATION") Then
+                    If InStr(UCase(FoundPath), ".ISO") > 0 Then
+                        ESCAPE_CODE_2 = False
+                    End If
+                End If
+                ' ALL OVER 2020
+                If DSC_2020_ABOVE = True Then
+                    ESCAPE_CODE_2 = False
+                    Set F = FS.GetFile(FoundPath)
+                    DATE_VAR_1 = Int(F.DateLastModified)
+                    DATE_VAR_2 = DateSerial(2020, 1, 1)
+                    If DATE_VAR_1 > DATE_VAR_2 Then
+                        ESCAPE_CODE_2 = True
+                    End If
+                    Set F = Nothing
+                End If
+
+                
                 
                 'ERR.DESCRIPTION
                 'GETTING ERROR SUBSCRIPT OUT OF RANGE
@@ -372,7 +405,7 @@ Sub Routine_On_File(FoundPath, FoundItem)
                             Call ScanPath.ROUTINE_ADD_TO_LISTVEW(FoundPath)
 
                             COUNTPROCES2 = COUNTPROCES2 + 1
-                        
+                            COUNTPROCES4 = COUNTPROCES4 + 1
                             If Err.Number > 0 Then
                                 '-----------------------------------------------------------------
                                 'MAYBE THE FILE WAS UNLOCKED SET UP AGAIN ONCE MORE AS NEED ARRIVE
@@ -412,8 +445,8 @@ End Sub
 Sub TIME_SLICER_DISPLAY()
             
             lCount = lCount + 1
-            If (lCount Mod 2000) = 0 Then
-                DoEvents
+            If (lCount Mod 2000) = 0 Or lCount = 1 Then
+                ' DoEvents
                 
                 '-------------------
                 TIME_SLICER = True
@@ -424,13 +457,24 @@ Sub TIME_SLICER_DISPLAY()
             '-----------------------------------------------------------------------
             '-----------------------------------------------------------------------
             If TIME_SLICER = True Then
-            
                 TIME_SLICER = False
                 mFILECount2 = mFILECount2 + 1
                 'ScanPath.lblCount1 = Trim(Str(mFILECount2) + "   FILE")
                 ScanPath.lblCount1 = Format(mFileCount, "###,###,###,###,###,###,0") + "  FILE"
                 ScanPath.lblCount2 = Format(mDIRCount2, "###,###,###,###,###,###,0") + "  DIR"
                 ScanPath.lblCount5 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + "  FOUNDING PROCESSOR"
+                ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + "  FOUNDING PROCESSOR"
+                i4 = DateDiff("s", PROCESSBEGIN, Now) / 60
+                ScanPath.lblCount4 = Format(i4, "0.000") + " MIN"
+                
+                TAP = TAP + 1
+                If TAP = 1 Then YCH = "-"
+                If TAP = 2 Then YCH = "/"
+                If TAP = 3 Then YCH = "|"
+                If TAP = 4 Then YCH = "\": TAP = 0
+                
+                ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + " " + YCH
+                ' ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + " " + YCH
                 DoEvents
             End If
             
@@ -441,8 +485,6 @@ Sub TIME_SLICER_DISPLAY()
             
 
             
-            i4 = DateDiff("s", PROCESSBEGIN, Now) / 60
-            ScanPath.lblCount4 = Format(i4, "0.000") + " MIN"
             
 '            ScanPath.lblCount7 = Replace(MDIR2, "\", "\ ")
 '            ScanPath.lblCount8 = Replace(MDIR3, "\", "\ ")
@@ -457,13 +499,6 @@ Sub TIME_SLICER_DISPLAY()
             '-----------------------------------------------------------------------
             'DoEvents
             
-            TAP = TAP + 1
-            If TAP = 1 Then YCH = "-"
-            If TAP = 2 Then YCH = "/"
-            If TAP = 3 Then YCH = "|"
-            If TAP = 4 Then YCH = "\": TAP = 0
-            
-            ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + " " + YCH
 
 End Sub
 
@@ -539,6 +574,7 @@ Private Function FileMatches_FSO_(FILENAME_PASSER) As Boolean
             'Complex searches such as *test??.text
             For nFilter = LBound(mFilters) To UBound(mFilters)
                 If sExt Like mFilters(nFilter) Then
+                    ' MsgBox FILENAME_PASSER
                     bOK = True
                     Exit For
                 End If
@@ -805,6 +841,7 @@ Private Function DirectScan_USE_NO_LIST(Path As String, SubFolders As Boolean) A
                     If bOK = True Then Stop
                 End If
                 COUNTPROCES2 = COUNTPROCES2 + 1
+                COUNTPROCES4 = COUNTPROCES4 + 1
                 MDIR3 = sDir + sFile ' IRFAN
                 
                 If MDIR3 = "D:\DSC" Then Stop
@@ -860,6 +897,7 @@ Private Function DirectScan_USE_NO_LIST(Path As String, SubFolders As Boolean) A
     
     If COUNTPROCES2 > 0 Then
         ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + "  PROCESS"
+        ' ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + "  PROCESS"
     End If
     
 '    ScanPath.lblCount4 = "WORK COMPLETE OF ONE DRIVE"
@@ -926,6 +964,7 @@ Private Function SortedScan_2(Path As String, SubFolders As Boolean)
                     nFile = nFile + 1
                     
                     COUNTPROCES2 = COUNTPROCES2 + 1
+                    COUNTPROCES4 = COUNTPROCES4 + 1
                     MDIR3 = sDir + sFile ' IRFAN
                     
                     If MDIR3 = "D:\DSC" Then Stop
@@ -986,6 +1025,7 @@ Private Function SortedScan_2(Path As String, SubFolders As Boolean)
 '
     If COUNTPROCES2 > 0 Then
         ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + "  PROCESS"
+        ' ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + "  PROCESS"
     End If
     
     If nFile > 0 Then
@@ -1019,6 +1059,7 @@ Private Function SortedScan_2(Path As String, SubFolders As Boolean)
     
     If COUNTPROCES2 > 0 Then
         ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + "  PROCESS"
+        ' ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + "  PROCESS"
     End If
     
 '    ScanPath.lblCount4 = "WORK COMPLETE OF ONE DRIVE"
@@ -1263,6 +1304,7 @@ Public Sub StartScan(Path As String, Optional SubFolders As Boolean, Optional So
     If Sorted Then
         SortedScan_3 Path, SubFolders
     Else
+        ' SortedScan_3 Path, SubFolders
         'DirectScan Path, SubFolders
         DirectScan_USE_NO_LIST Path, SubFolders
     End If
@@ -1382,6 +1424,7 @@ Private Function SortedScan(Path As String, SubFolders As Boolean)
                     nFile = nFile + 1
                     
                     COUNTPROCES2 = COUNTPROCES2 + 1
+                    COUNTPROCES4 = COUNTPROCES4 + 1
                     MDIR3 = sDir + sFile ' IRFAN
                     
                     If MDIR3 = "D:\DSC" Then Stop
@@ -1442,6 +1485,7 @@ Private Function SortedScan(Path As String, SubFolders As Boolean)
 '
     If COUNTPROCES2 > 0 Then
         ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + "  PROCESS"
+        ' ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + "  PROCESS"
     End If
     
     If nFile > 0 Then
@@ -1475,6 +1519,7 @@ Private Function SortedScan(Path As String, SubFolders As Boolean)
     
     If COUNTPROCES2 > 0 Then
         ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + "  PROCESS"
+        ' ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + "  PROCESS"
     End If
     
 '    ScanPath.lblCount4 = "WORK COMPLETE OF ONE DRIVE"
@@ -1744,6 +1789,7 @@ Sub DoFolder(strDirectory)
             If TAP = 4 Then YCH = "\": TAP = 0
             
             ScanPath.lblCount3 = Format(COUNTPROCES2, "###,###,###,###,###,###,0") + " " + YCH
+            ' ScanPath.lblCount6 = Format(COUNTPROCES4, "###,###,###,###,###,###,0") + " " + YCH
 
                         
             If bOK Then
@@ -1831,6 +1877,7 @@ Sub DoFolder(strDirectory)
                             Err.Clear
                             Print #FF02, File.Path
                             COUNTPROCES2 = COUNTPROCES2 + 1
+                            COUNTPROCES4 = COUNTPROCES4 + 1
                             Old_FilePath = File.Path
                             Debug.Print Old_FilePath
                         

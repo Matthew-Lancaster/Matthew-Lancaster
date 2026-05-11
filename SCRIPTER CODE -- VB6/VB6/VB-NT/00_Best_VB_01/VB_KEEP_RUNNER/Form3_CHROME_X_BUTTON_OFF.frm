@@ -1,13 +1,13 @@
 VERSION 5.00
 Begin VB.Form Form3_CHROME_X_BUTTON_OFF 
    Caption         =   "Form4"
-   ClientHeight    =   2316
+   ClientHeight    =   3288
    ClientLeft      =   108
    ClientTop       =   456
-   ClientWidth     =   3624
+   ClientWidth     =   7716
    LinkTopic       =   "Form2"
-   ScaleHeight     =   2316
-   ScaleWidth      =   3624
+   ScaleHeight     =   3288
+   ScaleWidth      =   7716
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
 End
@@ -48,10 +48,11 @@ End Sub
 
 Public Sub SET_CHROME_WINDOW_X_BUTTON_CLOSE_TO_OFF()
 
-XHWND_OFF = FindWindow("Chrome_WidgetWin_1", vbNullString)
+XhWnd_OFF = FindWindow("Chrome_WidgetWin_1", vbNullString)
 
-XHWND_OFF = Me.hWnd
+XhWnd_OFF = Me.hWnd
 
-Call SetXState(XHWND_OFF, False)
+Call SetXState(XhWnd_OFF, False)
 
 End Sub
+

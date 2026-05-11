@@ -193,7 +193,7 @@ Private ClassResize As New CResize
 
 'API to open the browser
 Private Declare Function ShellExecute Lib "shell32.dll" Alias _
-    "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As _
+    "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As _
     String, ByVal lpFile As String, ByVal lpParameters As String, _
     ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
 
@@ -277,7 +277,7 @@ Private Sub Form_Load()
     
     hWndForm = FindWindow("CabinetWClass", vbNullString)
     
-    ' GotoChildHWND (hWndForm)
+    ' GotoChildhWnd (hWndForm)
     
 End Sub
 
@@ -303,7 +303,7 @@ End Sub
 
 Private Sub Label2_Click()
     Dim ret As Long
-    ret = ShellExecute(Me.hwnd, "Open", "http://go.to/abubakar", "", App.Path, 1)
+    ret = ShellExecute(Me.hWnd, "Open", "http://go.to/abubakar", "", App.Path, 1)
 
 End Sub
 
@@ -325,7 +325,7 @@ Private Sub Show_BWTT_Click()
     
     On Error GoTo bugging
     LHWND = Val(View1.SelectedItem)
-    'ShowWindow lhwnd, SW_SHOW
+    'ShowWindow LHWND, SW_SHOW
     BringWindowToTop LHWND
     
     Exit Sub
@@ -347,17 +347,17 @@ Private Sub SpyMenu_Click()
     Dim st As RECT
     
     Spy_Form.Show
-    SpyHwnd = Val(View1.SelectedItem)
+    SpyhWnd = Val(View1.SelectedItem)
     Spy_Form.Tree.Nodes.Clear
     'If its a MDI type window and its child windows are maximized
     'then 'GetMenuItemInfo' crashes the 'EnumerationX'.
     'I tried to cascade the windows of other app but that doesnt
     'happen, do you know how I can do this?
-    'MsgBox CascadeWindows(SpyHwnd, MDITILE_SKIPDISABLED, st, 0, 0)
-    'SendMessage SpyHwnd, WM_MDICASCADE, MDITILE_SKIPDISABLED, 0
-    'SendMessage SpyHwnd, WM_MDITILE, MDITILE_HORIZONTAL, 0
+    'MsgBox CascadeWindows(SpyhWnd, MDITILE_SKIPDISABLED, st, 0, 0)
+    'SendMessage SpyhWnd, WM_MDICASCADE, MDITILE_SKIPDISABLED, 0
+    'SendMessage SpyhWnd, WM_MDITILE, MDITILE_HORIZONTAL, 0
     
-    SMenu GetMenu(SpyHwnd), Spy_Form.Tree
+    SMenu GetMenu(SpyhWnd), Spy_Form.Tree
         
 End Sub
 
@@ -373,17 +373,17 @@ Private Sub View1_KeyUp(KeyCode As Integer, Shift As Integer)
     
 End Sub
 
-Private Sub GotoChildHWND(HWND_VAR)
+Private Sub GotoChildhWnd(hWnd_VAR)
     On Error GoTo HandleErrorPlz
     
-    Dim Num As Long
+    Dim num As Long
     Dim myLong As Long
     'Num = Val(View1.SelectedItem)
-    Num = HWND_VAR
+    num = hWnd_VAR
     View2.ListItems.Clear
     View2.GridLines = True
     ICount = 1
-    myLong = EnumChildWindows(Num, AddressOf WndEnumChildProc, View2)
+    myLong = EnumChildWindows(num, AddressOf WndEnumChildProc, View2)
 
 HandleErrorPlz:
     'Exit Sub ' As simple as that :)
@@ -392,13 +392,13 @@ End Sub
 Private Sub GotoChild()
     On Error GoTo HandleErrorPlz
     
-    Dim Num As Long
+    Dim num As Long
     Dim myLong As Long
-    Num = Val(View1.SelectedItem)
+    num = Val(View1.SelectedItem)
     View2.ListItems.Clear
     View2.GridLines = True
     ICount = 1
-    myLong = EnumChildWindows(Num, AddressOf WndEnumChildProc, View2)
+    myLong = EnumChildWindows(num, AddressOf WndEnumChildProc, View2)
 
 HandleErrorPlz:
     'Exit Sub ' As simple as that :)

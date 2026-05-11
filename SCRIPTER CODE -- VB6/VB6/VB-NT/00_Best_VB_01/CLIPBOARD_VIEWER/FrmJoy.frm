@@ -133,6 +133,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Public EXIT_TRUE
+
 Dim SMX, SMY, OX1, OY1, GF, JJ, OJJ, OKJ, KeyBounce, OJKY, OB1, OBT1, OBT2, JoyQuickTrig, XYN
 Dim j As JOYINFO, HALO2, TimeWait, OldSluty3, PreviNextFF, PreviNextRW, OTT, JoyPress, PY, x1, y1
 Dim jold As JOYINFO
@@ -445,11 +447,11 @@ Dim Handle
 'Timer1.Enabled = False
 'Exit Sub
 
-I = FindWindow("Winamp v1.x", vbNullString)
-If I <> OLDI Then
-    OLDI = I
+i = FindWindow("Winamp v1.x", vbNullString)
+If i <> OLDI Then
+    OLDI = i
     'ADD NEW ITEM
-    List1.AddItem (Str(I))
+    List1.AddItem (Str(i))
     
     'MAKE LIST
     For r = List1.ListCount - 1 To 1 Step -1

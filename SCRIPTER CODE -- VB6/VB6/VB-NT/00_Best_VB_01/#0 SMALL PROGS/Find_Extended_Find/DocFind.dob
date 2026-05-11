@@ -1,0 +1,1206 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
+Begin VB.UserDocument docfind 
+   ClientHeight    =   3720
+   ClientLeft      =   2175
+   ClientTop       =   1935
+   ClientWidth     =   9150
+   HScrollSmallChange=   225
+   ScaleHeight     =   3720
+   ScaleWidth      =   9150
+   ScrollBars      =   0  'None
+   VScrollSmallChange=   225
+   Begin MSComctlLib.ImageList ImageList1 
+      Left            =   7560
+      Top             =   1320
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   28
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0000
+            Key             =   "find"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0112
+            Key             =   "wordoff"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0224
+            Key             =   "wordon"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0336
+            Key             =   "caseoff"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0448
+            Key             =   "caseon"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":055A
+            Key             =   "punctoff"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":066C
+            Key             =   "puncton"
+         EndProperty
+         BeginProperty ListImage8 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":077E
+            Key             =   "patternoff"
+         EndProperty
+         BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0890
+            Key             =   "patternon"
+         EndProperty
+         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":09A2
+            Key             =   "commentoff"
+         EndProperty
+         BeginProperty ListImage11 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0AB4
+            Key             =   "commenton"
+         EndProperty
+         BeginProperty ListImage12 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0BC6
+            Key             =   "nostringoff"
+         EndProperty
+         BeginProperty ListImage13 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0CD8
+            Key             =   "nostringon"
+         EndProperty
+         BeginProperty ListImage14 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0DEA
+            Key             =   "stringonlyoff"
+         EndProperty
+         BeginProperty ListImage15 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":0EFC
+            Key             =   "stringonlyon"
+         EndProperty
+         BeginProperty ListImage16 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":100E
+            Key             =   "filtersoff"
+         EndProperty
+         BeginProperty ListImage17 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1120
+            Key             =   "findsearch"
+         EndProperty
+         BeginProperty ListImage18 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1232
+            Key             =   "findline"
+         EndProperty
+         BeginProperty ListImage19 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1344
+            Key             =   "codeall"
+         EndProperty
+         BeginProperty ListImage20 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1456
+            Key             =   "codecurrent"
+         EndProperty
+         BeginProperty ListImage21 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1568
+            Key             =   "prop"
+         EndProperty
+         BeginProperty ListImage22 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":167A
+            Key             =   "help"
+         EndProperty
+         BeginProperty ListImage23 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":178C
+            Key             =   "replaceoff"
+         EndProperty
+         BeginProperty ListImage24 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":189E
+            Key             =   "replaceon"
+         EndProperty
+         BeginProperty ListImage25 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":19B0
+            Key             =   "codeprocedure"
+         EndProperty
+         BeginProperty ListImage26 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1AC2
+            Key             =   "comonlyoff"
+         EndProperty
+         BeginProperty ListImage27 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1BD4
+            Key             =   "comonlyon"
+         EndProperty
+         BeginProperty ListImage28 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "docFind.dox":1CE6
+            Key             =   "selectedonly"
+         EndProperty
+      EndProperty
+   End
+   Begin VB.Frame FrmPage 
+      Height          =   3735
+      Left            =   0
+      TabIndex        =   4
+      Top             =   0
+      Width           =   9015
+      Begin MSFlexGridLib.MSFlexGrid GrdFound 
+         Height          =   1215
+         Left            =   120
+         TabIndex        =   3
+         Top             =   1440
+         Width           =   6015
+         _ExtentX        =   10610
+         _ExtentY        =   2143
+         _Version        =   393216
+         Cols            =   6
+         FixedCols       =   0
+         BackColor       =   -2147483628
+         BackColorFixed  =   -2147483631
+         BackColorBkg    =   16777215
+         GridColorFixed  =   16777215
+         AllowBigSelection=   0   'False
+         FocusRect       =   2
+         GridLines       =   3
+         GridLinesFixed  =   0
+         ScrollBars      =   2
+         SelectionMode   =   1
+         AllowUserResizing=   1
+         BorderStyle     =   0
+         FormatString    =   "<Project|<Component|Line|<Procedure|Line|<Code"
+      End
+      Begin VB.PictureBox Picture2 
+         BorderStyle     =   0  'None
+         Height          =   3375
+         Left            =   120
+         ScaleHeight     =   3375
+         ScaleWidth      =   8775
+         TabIndex        =   5
+         Top             =   120
+         Width           =   8775
+         Begin VB.CommandButton cmdFinder 
+            Caption         =   "Replace"
+            Height          =   255
+            Index           =   2
+            Left            =   6120
+            TabIndex        =   8
+            Top             =   840
+            Width           =   855
+         End
+         Begin VB.ComboBox cmbReplace 
+            Height          =   315
+            Left            =   0
+            TabIndex        =   2
+            Top             =   840
+            Width           =   6135
+         End
+         Begin MSComctlLib.Toolbar Toolbar2 
+            Height          =   330
+            Left            =   0
+            TabIndex        =   0
+            Top             =   0
+            Width           =   8775
+            _ExtentX        =   15478
+            _ExtentY        =   582
+            ButtonWidth     =   609
+            ButtonHeight    =   582
+            Appearance      =   1
+            Style           =   1
+            ImageList       =   "ImageList1"
+            _Version        =   393216
+            BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
+               NumButtons      =   20
+               BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "FFind"
+                  Object.ToolTipText     =   "Find Selected Text"
+                  ImageKey        =   "find"
+               EndProperty
+               BeginProperty Button2 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Object.ToolTipText     =   "Find Whole Words Only"
+                  Style           =   3
+               EndProperty
+               BeginProperty Button3 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "CFWord"
+                  ImageKey        =   "wordoff"
+               EndProperty
+               BeginProperty Button4 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "CFCase"
+                  Object.ToolTipText     =   "Case aware"
+                  ImageKey        =   "caseoff"
+               EndProperty
+               BeginProperty Button5 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "pattern"
+                  Object.ToolTipText     =   "Pattern Search"
+                  ImageKey        =   "patternoff"
+               EndProperty
+               BeginProperty Button6 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Style           =   3
+               EndProperty
+               BeginProperty Button7 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "CFNoCom"
+                  Object.ToolTipText     =   "Ignore Comments"
+                  ImageKey        =   "commentoff"
+               EndProperty
+               BeginProperty Button8 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "CFNoStr"
+                  Object.ToolTipText     =   "Ignore Strings"
+                  ImageKey        =   "nostringoff"
+               EndProperty
+               BeginProperty Button9 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "commentonly"
+                  ImageKey        =   "comonlyoff"
+               EndProperty
+               BeginProperty Button10 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "CFStr"
+                  Object.ToolTipText     =   "Literal Strings only"
+                  ImageKey        =   "stringonlyoff"
+               EndProperty
+               BeginProperty Button11 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "clear"
+                  Object.ToolTipText     =   "Clear filters"
+                  ImageKey        =   "filtersoff"
+               EndProperty
+               BeginProperty Button12 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Style           =   3
+               EndProperty
+               BeginProperty Button13 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "select"
+                  Object.ToolTipText     =   "Select Search text or Found text"
+                  ImageKey        =   "findsearch"
+               EndProperty
+               BeginProperty Button14 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "cfOnePage"
+                  Object.ToolTipText     =   "Search all code/current code page"
+                  ImageKey        =   "codeall"
+               EndProperty
+               BeginProperty Button15 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Style           =   3
+               EndProperty
+               BeginProperty Button16 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "replace"
+                  ImageKey        =   "replaceoff"
+               EndProperty
+               BeginProperty Button17 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Style           =   3
+               EndProperty
+               BeginProperty Button18 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "setting"
+                  Object.ToolTipText     =   "Properties"
+                  ImageKey        =   "prop"
+               EndProperty
+               BeginProperty Button19 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Style           =   3
+               EndProperty
+               BeginProperty Button20 {66833FEA-8583-11D1-B16A-00C0F0283628} 
+                  Key             =   "help"
+                  Object.ToolTipText     =   "Help"
+                  ImageKey        =   "help"
+               EndProperty
+            EndProperty
+            BorderStyle     =   1
+         End
+         Begin VB.ComboBox cmbSearch 
+            Height          =   315
+            Left            =   0
+            TabIndex        =   1
+            Top             =   480
+            Width           =   6135
+         End
+         Begin VB.CommandButton cmdFinder 
+            Appearance      =   0  'Flat
+            Caption         =   "&Search"
+            Height          =   255
+            Index           =   0
+            Left            =   6120
+            TabIndex        =   7
+            Top             =   480
+            Width           =   855
+         End
+         Begin VB.CommandButton cmdFinder 
+            Caption         =   "&Cancel"
+            Height          =   255
+            Index           =   1
+            Left            =   6120
+            TabIndex        =   6
+            Top             =   480
+            Visible         =   0   'False
+            Width           =   855
+         End
+      End
+   End
+   Begin VB.Menu popupmnu 
+      Caption         =   "PopupMenu"
+      Begin VB.Menu mnuopt 
+         Caption         =   "Search"
+         Index           =   0
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   1
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Filters"
+         Index           =   2
+         Begin VB.Menu mnufilteropt 
+            Caption         =   "Whole Word"
+            Index           =   0
+         End
+         Begin VB.Menu mnufilteropt 
+            Caption         =   "Case Sensitive"
+            Index           =   1
+         End
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   3
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Pattern Search"
+         Index           =   4
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   5
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Comment/String"
+         Index           =   6
+         Begin VB.Menu mnuComStropt 
+            Caption         =   "No Comments"
+            Index           =   0
+         End
+         Begin VB.Menu mnuComStropt 
+            Caption         =   "No Strings"
+            Index           =   1
+         End
+         Begin VB.Menu mnuComStropt 
+            Caption         =   "Comments Only"
+            Index           =   2
+         End
+         Begin VB.Menu mnuComStropt 
+            Caption         =   "Strings Only"
+            Index           =   3
+         End
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   7
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Filters Off"
+         Index           =   8
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   9
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Select "
+         Index           =   10
+         Begin VB.Menu mnuSelectRange 
+            Caption         =   "Search Text"
+            Index           =   0
+         End
+         Begin VB.Menu mnuSelectRange 
+            Caption         =   "Whole Line"
+            Index           =   1
+         End
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Range"
+         Index           =   11
+         Begin VB.Menu mnuRange 
+            Caption         =   "All Code"
+            Index           =   0
+         End
+         Begin VB.Menu mnuRange 
+            Caption         =   "Current Code"
+            Index           =   1
+         End
+         Begin VB.Menu mnuRange 
+            Caption         =   "Current Routine"
+            Index           =   2
+         End
+         Begin VB.Menu mnuRange 
+            Caption         =   "Selected Text"
+            Index           =   3
+         End
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   12
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Replace"
+         Index           =   13
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   14
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Properties..."
+         Index           =   15
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "-"
+         Index           =   16
+      End
+      Begin VB.Menu mnuopt 
+         Caption         =   "Help"
+         Index           =   17
+      End
+   End
+End
+Attribute VB_Name = "docfind"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+'© Copyright 2003 Roger Gilchrist
+'rojagilkrist@hotmail.com
+Option Explicit
+
+Public Function AnyFilterOn() As Boolean
+
+  AnyFilterOn = bCaseSensitive Or bNoComments Or bNoStrings Or bStringsOnly Or bWholeWordonly Or bCommentsOnly
+
+End Function
+
+Public Sub ApplyChanges()
+
+  DoResize
+  ToggleButtonFaces
+
+End Sub
+
+Public Sub CancelButton(ByVal Mode As Boolean)
+'ver 2.2.1 fix Cancel button displays properly
+  cmdFinder(0).Default = Not Mode
+  cmdFinder(0).Visible = Not Mode
+  cmdFinder(1).Default = Mode
+  cmdFinder(1).Visible = Mode
+
+End Sub
+
+Public Sub ClearForPattern()
+
+  'For pattern code search some filters must be set to Off
+
+  If BPatternSearch Then
+    'store prev value
+    bPTmpWholeWordonly = bWholeWordonly
+    bPTmpCaseSensitive = bCaseSensitive
+    bPTmpNoComments = bNoComments
+    bPTmpCommentsOnly = bCommentsOnly
+    bPTmpNoStrings = bNoStrings
+    bPTmpStringsOnly = bStringsOnly
+    bPTmpFindSelectWholeLine = bFindSelectWholeLine
+    'turn off what is necessary
+    bWholeWordonly = False
+    bCaseSensitive = False
+    cmdFinder(2).Enabled = False
+   Else
+    'restore prev values
+    bWholeWordonly = bPTmpWholeWordonly
+    bCaseSensitive = bPTmpCaseSensitive
+    bNoComments = bPTmpNoComments
+    bNoStrings = bPTmpNoStrings
+    bCommentsOnly = bPTmpCommentsOnly
+    bStringsOnly = bPTmpStringsOnly
+    bFindSelectWholeLine = bPTmpFindSelectWholeLine
+    cmdFinder(2).Enabled = True
+  End If
+  SetFilterButtons
+
+End Sub
+
+Public Sub ClearHistory()
+
+  Dim I As Long
+
+  For I = 400 To 0 Step -1
+    On Error Resume Next
+    DeleteSetting AppDetails, "Settings", "Hist" & I
+    On Error GoTo 0
+  Next I
+  cmbSearch.Clear
+
+End Sub
+
+Public Sub ClearSearchFilters()
+
+  'For code search all limiters must be set to Off
+
+  If AnyFilterOn Then
+    'cuts down on flickering by only hitting if necessary
+    bCaseSensitive = False
+    bNoComments = False
+    bCommentsOnly = False
+    bNoStrings = False
+    bStringsOnly = False
+    bWholeWordonly = False
+    If BPatternSearch Then
+      BPatternSearch = False
+      ClearForPattern
+    End If
+  End If
+
+End Sub
+
+Private Sub cmbReplace_KeyDown(KeyCode As Integer, _
+                               Shift As Integer)
+
+  If KeyCode = vbKeyReturn Then
+    cmdFinder_Click 2
+  End If
+
+End Sub
+
+Private Sub cmbSearch_KeyDown(KeyCode As Integer, _
+                              Shift As Integer)
+
+  If KeyCode = vbKeyReturn Then
+    cmdFinder_Click 0
+   ElseIf KeyCode = vbKeyBack Then ' Or KeyCode = vbKeyDelete
+    'allows you to delete single items from Search Combo History
+    If cmbSearch.SelLength = Len(cmbSearch.Text) Then
+    'if it isn't in list(a new entry you then decide not to use and Select all to delete)
+    If PosInCombo(cmbSearch.Text, cmbSearch, True) > -1 Then
+      cmbSearch.RemoveItem PosInCombo(cmbSearch.Text, cmbSearch, True)
+    End If
+    End If
+  End If
+
+End Sub
+
+Private Sub cmdFinder_Click(Index As Integer)
+
+  Select Case Index
+   Case 0
+    DoSearch GrdFound, cmbSearch
+    
+   Case 1
+    bCancel = True
+   Case 2
+    DoReplace GrdFound, cmbSearch, cmbReplace
+  End Select
+
+End Sub
+
+Public Sub ColoursApply()
+
+  Dim I As Long
+
+  cmbSearch.ForeColor = ColourTextFore
+  cmbSearch.BackColor = ColourTextBack
+  cmbReplace.ForeColor = ColourTextFore
+  cmbReplace.BackColor = ColourTextBack
+  With GrdFound
+    .ForeColorFixed = ColourHeadFore
+    .BackColorFixed = ColourHeadDefault
+    .BackColor = ColourTextBack
+    .BackColorBkg = ColourTextBack
+    .ForeColor = ColourTextFore
+    .BackColorSel = ColourFindSelectBack
+    If .Row <= 1 Then
+      'this just stops the grid looking wrong if you change the colours
+      'while there is nothing selected in grid
+      .BackColorSel = ColourHeadDefault
+      .ForeColorSel = ColourHeadFore
+    End If
+  End With
+  'this sets the labels on frmSettings
+  With frmSettings
+    For I = 0 To 1
+      .LblColour(I).ForeColor = ColourTextFore
+      .LblColour(I).BackColor = ColourTextBack
+    Next I
+    For I = 2 To 3
+      .LblColour(I).ForeColor = ColourFindSelectFore
+      .LblColour(I).BackColor = ColourFindSelectBack
+    Next I
+    For I = 4 To 8
+      .LblColour(I).ForeColor = ColourHeadFore
+    Next I
+    'Standard
+    .LblColour(4).BackColor = ColourHeadDefault
+    .LblColour(5).BackColor = ColourHeadDefault
+    'Working'
+    .LblColour(6).BackColor = ColourHeadWork
+    'Using Pattern
+    .LblColour(7).BackColor = ColourHeadPattern
+    'No find
+    .LblColour(8).BackColor = ColourHeadNoFind
+  End With 'frmSettings
+
+End Sub
+
+Public Sub ColoursStandard()
+
+  ColourTextFore = 0
+  ColourTextBack = 14680063
+  ColourFindSelectBack = 12632256
+  ColourFindSelectFore = 0
+  ColourHeadFore = -2147483643
+  ColourHeadDefault = -2147483631
+  ColourHeadWork = 32768
+  ColourHeadPattern = 9017020
+  ColourHeadNoFind = 5463026
+  ColoursApply
+
+End Sub
+
+Public Sub DoResize()
+
+  Dim offset As Long
+
+  offset = 120
+  On Error Resume Next
+  With FrmPage
+    .Left = 0
+    .Top = 0
+    .Width = UserDocument.ViewportWidth ' - Offset
+    .Height = UserDocument.ViewportHeight
+    Toolbar2.Width = .Width
+    Toolbar2.Left = .Left
+    Picture2.Width = .Width - offset * 2
+    Picture2.Height = .Height - offset - Picture2.Top
+    cmdFinder(0).Left = .Width - offset * 2 - cmdFinder(0).Width
+    cmdFinder(1).Left = .Width - offset * 2 - cmdFinder(1).Width
+    cmdFinder(0).Top = Toolbar2.Height
+    cmdFinder(1).Top = Toolbar2.Height
+    cmdFinder(0).Height = cmbSearch.Height
+    cmdFinder(1).Height = cmbSearch.Height
+    cmbSearch.Width = cmdFinder(0).Left - offset
+    cmbSearch.Top = Toolbar2.Height
+    GrdFound.Left = offset
+    With cmbReplace
+      If bShowReplace Then
+        .Top = cmbSearch.Top + cmbSearch.Height + offset
+        .Width = cmdFinder(0).Left - offset
+        cmdFinder(2).Height = .Height
+        cmdFinder(2).Top = .Top
+        cmdFinder(2).Left = FrmPage.Width - offset * 2 - cmdFinder(0).Width
+        cmdFinder(2).Visible = True
+        .Visible = True
+        SetFocus_Safe cmbReplace
+        GrdFound.Top = .Top + .Height + offset * 2
+       Else
+        GrdFound.Top = cmbSearch.Top + cmbSearch.Height + offset * 2
+        .Visible = False
+        cmdFinder(2).Visible = False
+      End If
+    End With 'cmbReplace
+    GrdFound.Width = .Width - offset * 2
+    GrdFound.Height = Picture2.Height - GrdFound.Top + offset * 0.9
+  End With
+  On Error GoTo 0
+  GridReSize
+
+End Sub
+
+Private Sub GrdFound_Click()
+
+  'just a bit safer
+
+  If GrdFound.Row > 0 Then
+    DOFind GrdFound, cmbSearch
+    
+  End If
+
+End Sub
+
+Private Sub GrdFound_KeyPress(KeyAscii As Integer)
+
+  If KeyAscii = vbKeyReturn Then
+    If GrdFound.Row > 0 Then
+      DOFind GrdFound, cmbSearch
+      
+    End If
+  End If
+
+End Sub
+
+Private Sub GrdFound_MouseDown(Button As Integer, _
+                               Shift As Integer, _
+                               X As Single, _
+                               Y As Single)
+
+  If Button = 2 Then
+    PopupMenu popupmnu
+  End If
+
+End Sub
+
+Public Sub GridReSize(Optional ByVal StrPrj As String, _
+                      Optional ByVal strCmp As String, _
+                      Optional ByVal strCLineNo As String, _
+                      Optional ByVal strProc As String, _
+                      Optional ByVal strPLineNo As String)
+
+  'this makes sure that full heading is displayed (and also why calling with no parameters works)
+  
+  Dim I As Long
+
+  If Len(StrPrj) < Len("Project") Then
+    StrPrj = "Project"
+  End If
+  If Len(strCmp) < Len("Component") Then
+    strCmp = "Component"
+  End If
+  If Len(strCLineNo) < Len("Line") Then
+    strCLineNo = "Line"
+  End If
+  If Len(strProc) < Len("Procedure") Then
+    strProc = "Procedure"
+  End If
+  If Len(strPLineNo) < Len("Line") Then
+    strPLineNo = "Line"
+  End If
+  GetCounts
+  With GrdFound
+    .GridLines = IIf(bGridlines, flexGridFlat, flexGridNone)
+    .ColWidth(0) = TextColWidth(GrdFound, IIf(bShowProject, IIf(ProjCount > 1, StrPrj, vbNullString), vbNullString))
+    .ColWidth(1) = TextColWidth(GrdFound, IIf(bShowComponent, IIf(CompCount > 1, strCmp, vbNullString), vbNullString))
+    If .ColWidth(1) > 0 Then
+      'only turns on if the Component is visible
+      .ColWidth(2) = TextColWidth(GrdFound, IIf(bShowCompLineNo, strCLineNo, vbNullString))
+     Else
+      .ColWidth(2) = 0
+    End If
+    .ColWidth(3) = TextColWidth(GrdFound, IIf(bShowRoutine, strProc, vbNullString))
+    If .ColWidth(3) = 0 Then
+      .ColWidth(4) = 0
+     Else
+      .ColWidth(4) = TextColWidth(GrdFound, IIf(bShowProcLineNo, strPLineNo, vbNullString))
+    End If
+    If .Width - (.ColWidth(0) + .ColWidth(1) + .ColWidth(2) + .ColWidth(3) + .ColWidth(4)) > .Width / 2 Then
+      .ColWidth(5) = GrdFound.Width - (GrdFound.ColWidth(0) + GrdFound.ColWidth(1) + GrdFound.ColWidth(2) + .ColWidth(3) + .ColWidth(4))
+     Else
+      'close columns until it fits
+      For I = 0 To 4
+        .ColWidth(I) = 0
+        'next lines turn off line column if the name col is off
+        If .ColWidth(1) = 0 Then
+          .ColWidth(2) = 0
+        End If
+        If .ColWidth(3) = 0 Then
+          .ColWidth(4) = 0
+        End If
+        If .Width - (.ColWidth(0) + .ColWidth(1) + .ColWidth(2) + .ColWidth(3) + .ColWidth(4)) > .Width / 2 Then
+          .ColWidth(5) = .Width - (.ColWidth(0) + .ColWidth(1) + .ColWidth(2) + .ColWidth(3) + .ColWidth(4))
+          Exit For
+         ElseIf I = 4 Then
+          'just in case
+          .ColWidth(5) = .Width
+          
+        End If
+      Next I
+    End If
+    .Refresh
+  End With
+  On Error GoTo 0
+
+End Sub
+
+Private Sub mnuComStropt_Click(Index As Integer)
+
+  Select Case Index
+   Case 0 'no comment
+    bCommentsOnly = False
+    bNoComments = Not bNoComments
+   Case 1 'no string
+    bStringsOnly = False
+    bNoStrings = Not bNoStrings
+   Case 2 'comment only
+    bNoComments = False
+    bCommentsOnly = Not bCommentsOnly
+   Case 3 'string only
+    bNoStrings = False
+    bStringsOnly = Not bStringsOnly
+  End Select
+  ToggleButtonFaces
+
+End Sub
+
+Private Sub mnufilteropt_Click(Index As Integer)
+
+  Select Case Index
+   Case 0 'Whole word
+    bWholeWordonly = Not bWholeWordonly
+   Case 1 'Case aware
+    bCaseSensitive = Not bCaseSensitive
+  End Select
+  ToggleButtonFaces
+
+End Sub
+
+Private Sub mnuopt_Click(Index As Integer)
+
+  Select Case Index
+   Case 0 '
+    SelectedText cmbSearch, cmdFinder(0)
+    'case 1'-
+    'Case 2 'Format filters see mnufilteropt
+    'Case 3 '-
+   Case 4
+    BPatternSearch = Not BPatternSearch
+    ClearSearchFilters
+    'Case 5 '-
+    'Case 6 '- com/str filters see mnuComStropt
+    'Case 7 '-
+   Case 8 'No filters
+    ClearSearchFilters
+    'Case 9 '-
+    'Case 10 'whole line  'see mnuSelectRange
+    'Case 11 ' range  'see mnuRange
+    'Case 12 '-
+   Case 13 'replace
+    bShowReplace = Not bShowReplace
+    If BPatternSearch Then
+      ClearForPattern
+    End If
+    DoResize
+    'Case 14 '-
+   Case 15 'Properties
+    frmSettings.Show
+    'Case 16 '-
+   Case 17 'help
+    frmHelp.Show
+  End Select
+  ToggleButtonFaces
+
+End Sub
+
+Private Sub mnuRange_Click(Index As Integer)
+
+  iCurCodePane = Index
+  ToggleButtonFaces
+
+End Sub
+
+Private Sub mnuSelectRange_Click(Index As Integer)
+
+  bFindSelectWholeLine = (Index = 1)
+  ToggleButtonFaces
+
+End Sub
+
+Private Sub popupmnu_Click()
+
+  mnuopt(0).Enabled = Len(GetSelectedText(VBInstance)) > 0 Or Len(cmbSearch.Text)
+
+End Sub
+
+Public Sub SetFilterButtons()
+
+  With Toolbar2
+    .Buttons("CFWord").Value = Bool2Int(bWholeWordonly)
+    .Buttons("CFCase").Value = Bool2Int(bCaseSensitive)
+    .Buttons("CFNoCom").Value = Bool2Int(bNoComments)
+    .Buttons("CFNoStr").Value = Bool2Int(bNoStrings)
+    .Buttons("CFStr").Value = Bool2Int(bStringsOnly)
+    ToggleButtonFaces
+  End With
+
+End Sub
+
+Public Sub SettingsLoad()
+
+  Dim I         As Long
+  Dim strFilter As String
+
+  ' because of a bug in VB which means that it cannot cope the way Registry stores Boolean values
+  'in non-English Windows this string storage system avoids trying to read/write True/False
+  'Initial defaults are
+  'Show Project,Show Component, Show Routine, ReplaceFiterWarning, ReplaceBlankWarning and Save History ON
+  'all others turned Off
+  'Search level is all code
+  strFilter = GetSetting(AppDetails, "Settings", "Filters", "00000011101100111011")
+  HistDeep = GetSetting(AppDetails, "Settings", "HistorySize", 20)
+  'this is just to initialise the standard colours on new installations
+  ColoursStandard
+  ColourTextFore = GetSetting(AppDetails, "Settings", "CFore", ColourTextFore)
+  ColourTextBack = GetSetting(AppDetails, "Settings", "CBack", ColourTextBack)
+  ColourFindSelectBack = GetSetting(AppDetails, "Settings", "CSel", ColourFindSelectBack)
+  ColourFindSelectFore = GetSetting(AppDetails, "Settings", "CSelF", ColourFindSelectFore)
+  ColourHeadFore = GetSetting(AppDetails, "Settings", "CHFore", ColourHeadFore)
+  ColourHeadDefault = GetSetting(AppDetails, "Settings", "CHDef", ColourHeadDefault)
+  ColourHeadWork = GetSetting(AppDetails, "Settings", "CHWork", ColourHeadWork)
+  ColourHeadPattern = GetSetting(AppDetails, "Settings", "CHPatt", ColourHeadPattern)
+  ColourHeadNoFind = GetSetting(AppDetails, "Settings", "CHNoFd", ColourHeadNoFind)
+  ColoursApply
+  bWholeWordonly = Mid$(strFilter, 1, 1) = "1"
+  bCaseSensitive = Mid$(strFilter, 2, 1) = "1"
+  bNoComments = Mid$(strFilter, 3, 1) = "1"
+  bNoStrings = Mid$(strFilter, 4, 1) = "1"
+  bCommentsOnly = Mid$(strFilter, 5, 1) = "1"
+  bStringsOnly = Mid$(strFilter, 6, 1) = "1"
+  bShowProject = Mid$(strFilter, 7, 1) = "1"
+  bShowComponent = Mid$(strFilter, 8, 1) = "1"
+  bShowRoutine = Mid$(strFilter, 9, 1) = "1"
+  bLaunchOnStart = Mid$(strFilter, 10, 1) = "1"
+  bSaveHistory = Mid$(strFilter, 11, 1) = "1"
+  bRemFilters = Mid$(strFilter, 12, 1) = "1"
+  bFindSelectWholeLine = Mid$(strFilter, 13, 1) = "1"
+  bGridlines = Mid$(strFilter, 14, 1) = "1"
+  bFilterWarning = Mid$(strFilter, 15, 1) = "1"
+  bBlankWarning = Mid$(strFilter, 16, 1) = "1"
+  bReplace2Search = Mid$(strFilter, 17, 1) = "1"
+  bAutoSelectText = Mid$(strFilter, 18, 1) = "1"
+  bShowCompLineNo = Mid$(strFilter, 19, 1) = "1"
+  bShowProcLineNo = Mid$(strFilter, 20, 1) = "1"
+  iCurCodePane = 0
+  'this stops click events firing and reversing order
+  bLoadingSettings = True
+  If bRemFilters Then
+    SetFilterButtons
+  End If
+  With frmSettings
+    .ChkReplace(0).Value = Bool2Int(bFilterWarning)
+    .ChkReplace(1).Value = Bool2Int(bBlankWarning)
+    .ChkReplace(2).Value = Bool2Int(bReplace2Search)
+    .ChkShow(0).Value = Bool2Int(bShowProject)
+    .ChkShow(1).Value = Bool2Int(bShowComponent)
+    .ChkShow(2).Value = Bool2Int(bShowCompLineNo)
+    .ChkShow(3).Value = Bool2Int(bShowRoutine)
+    .ChkShow(4).Value = Bool2Int(bShowProcLineNo)
+    .ChkShow(5).Value = Bool2Int(bGridlines)
+    .ChkSelectWhole.Value = Bool2Int(bFindSelectWholeLine)
+    .ChkLaunchStartup.Value = Bool2Int(bLaunchOnStart)
+    .ChkRemFilters.Value = Bool2Int(bRemFilters)
+    .ChkSaveHistory.Value = Bool2Int(bSaveHistory)
+    .SliderHistory.Value = HistDeep
+    .LblHistory = "History Depth " & HistDeep
+  End With
+  If bSaveHistory Then
+    For I = HistDeep To 0 Step -1
+      If Len(GetSetting(AppDetails, "Settings", "Hist" & Format$(I, "000"), vbNullString)) Then
+        ComboBoxSavePreviousSearch cmbSearch, GetSetting(AppDetails, "Settings", "Hist" & Format$(I, "000"), vbNullString), HistDeep
+      End If
+    Next I
+  End If
+  bLoadingSettings = False
+
+End Sub
+
+Public Sub SettingsSave()
+
+  Dim I         As Long
+  Dim strFilter As String
+
+  ' if pattern search is on at shut down then some of the filters
+  'may not be in prefered state so turn them back on first
+  If BPatternSearch Then
+    BPatternSearch = False
+    ClearForPattern
+  End If
+  ' because of a bug in VB which means that it cannot cope the way Registry stores Boolean values
+  'in non-English Windows this string storage system avoids trying to read/write True/False
+  strFilter = vbNullString ' this is just so that following layout is easier to read
+  strFilter = strFilter & Bool2Str(bWholeWordonly)
+  strFilter = strFilter & Bool2Str(bCaseSensitive)
+  strFilter = strFilter & Bool2Str(bNoComments)
+  strFilter = strFilter & Bool2Str(bNoStrings)
+  strFilter = strFilter & Bool2Str(bCommentsOnly)
+  strFilter = strFilter & Bool2Str(bStringsOnly)
+  strFilter = strFilter & Bool2Str(bShowProject)
+  strFilter = strFilter & Bool2Str(bShowComponent)
+  strFilter = strFilter & Bool2Str(bShowRoutine)
+  strFilter = strFilter & Bool2Str(bLaunchOnStart)
+  strFilter = strFilter & Bool2Str(bSaveHistory)
+  strFilter = strFilter & Bool2Str(bRemFilters)
+  strFilter = strFilter & Bool2Str(bFindSelectWholeLine)
+  strFilter = strFilter & Bool2Str(bGridlines)
+  strFilter = strFilter & Bool2Str(bFilterWarning)
+  strFilter = strFilter & Bool2Str(bBlankWarning)
+  strFilter = strFilter & Bool2Str(bReplace2Search)
+  strFilter = strFilter & Bool2Str(bAutoSelectText)
+  strFilter = strFilter & Bool2Str(bShowCompLineNo)
+  strFilter = strFilter & Bool2Str(bShowProcLineNo)
+  SaveSetting AppDetails, "Settings", "Filters", strFilter
+  SaveSetting AppDetails, "Settings", "CFore", ColourTextFore
+  SaveSetting AppDetails, "Settings", "CBack", ColourTextBack
+  SaveSetting AppDetails, "Settings", "CSel", ColourFindSelectBack
+  SaveSetting AppDetails, "Settings", "CSelF", ColourFindSelectFore
+  SaveSetting AppDetails, "Settings", "CHFore", ColourHeadFore
+  SaveSetting AppDetails, "Settings", "CHDef", ColourHeadDefault
+  SaveSetting AppDetails, "Settings", "CHWork", ColourHeadWork
+  SaveSetting AppDetails, "Settings", "CHPatt", ColourHeadPattern
+  SaveSetting AppDetails, "Settings", "CHNoFd", ColourHeadNoFind
+  SaveSetting AppDetails, "Settings", "HistorySize", HistDeep
+  For I = 0 To cmbSearch.ListCount - 1
+    SaveSetting AppDetails, "Settings", "Hist" & Format$(I, "000"), cmbSearch.List(I)
+  Next I
+
+End Sub
+
+Public Sub Show()
+
+  'the next 2 code lines just remove the empty row(2) that
+  'IDE requires for setting up a grid with headings
+  'and temporarily resets the select colour so that
+  'heading row show in its own back colour
+  'there is code in the DoSearch Routine to change the selection color to standard selection colour
+
+  GrdFound.BackColorSel = GrdFound.BackColorFixed
+  GrdFound.Rows = GrdFound.Rows - 1
+  DoResize
+
+End Sub
+
+Public Sub Startup()
+
+  UserDocument_Resize
+  'this loads Find Tool automatically if there is selected text
+  SelectedText cmbSearch, cmdFinder(0)
+
+End Sub
+
+Private Function TextColWidth(Fgrd As MSFlexGrid, _
+                              strTxt As String) As Long
+
+  'this is just a Quick and Dirty routine to change width of location columns to show full text
+  'change the final number (original setting = 1.7) for different sizes
+  'higher values = narrower columns; lower = wider
+  '
+
+  TextColWidth = (Len(strTxt) / Fgrd.Font.Size * 1440) / 1.7
+
+End Function
+
+Public Sub ToggleButtonFaces()
+
+  mnufilteropt(0).Checked = bWholeWordonly
+  mnufilteropt(1).Checked = bCaseSensitive
+  '-
+  mnuopt(4).Checked = BPatternSearch
+  mnuopt(4).Enabled = Not bShowReplace
+  '-
+  mnuComStropt(0).Checked = bNoComments
+  mnuComStropt(1).Checked = bNoStrings
+  mnuComStropt(2).Checked = bCommentsOnly
+  mnuComStropt(3).Checked = bStringsOnly
+  '-
+  'No Filters
+  '-
+  mnuopt(10).Caption = "Select " & IIf(bFindSelectWholeLine, "(Whole Line)", "(Search Text)")
+  mnuSelectRange(0).Checked = bFindSelectWholeLine = False
+  mnuSelectRange(1).Checked = bFindSelectWholeLine = True
+  Select Case iCurCodePane
+   Case 0
+    mnuopt(11).Caption = "Range (All Code)"
+   Case 1
+    mnuopt(11).Caption = "Range (Current Code)"
+   Case 2
+    mnuopt(11).Caption = "Range (Current Routine)"
+   Case 3
+    mnuopt(11).Caption = "Range (Selected Text only)"
+  End Select
+  mnuRange(0).Checked = iCurCodePane = 0
+  mnuRange(1).Checked = iCurCodePane = 1
+  mnuRange(2).Checked = iCurCodePane = 2
+  mnuRange(3).Checked = iCurCodePane = 3
+  '-
+  mnuopt(13).Caption = "Replace " & IIf(bShowReplace, "Hide", "Show")
+  '
+  With Toolbar2
+    .Buttons("CFWord").Image = IIf(bWholeWordonly, "wordon", "wordoff")
+    .Buttons("CFCase").Image = IIf(bCaseSensitive, "caseon", "caseoff")
+    .Buttons("CFWord").Enabled = Not BPatternSearch
+    .Buttons("CFCase").Enabled = Not BPatternSearch
+    .Buttons("pattern").Enabled = Not bShowReplace
+    .Buttons("pattern").Image = IIf(BPatternSearch, "patternon", "patternoff")
+    .Buttons("pattern").ToolTipText = IIf(BPatternSearch, "Pattern Searching ON", "Pattern Searching OFF")
+    .Buttons("CFNoCom").Image = IIf(bNoComments, "commenton", "commentoff")
+    .Buttons("CFNoStr").Image = IIf(bNoStrings, "nostringon", "nostringoff")
+    .Buttons("commentonly").Image = IIf(bCommentsOnly, "comonlyon", "comonlyoff")
+    .Buttons("CFStr").Image = IIf(bStringsOnly, "stringonlyon", "stringonlyoff")
+    .Buttons("replace").Image = IIf(bShowReplace, "replaceon", "replaceoff")
+    .Buttons("select").Image = IIf(bFindSelectWholeLine, "findline", "findsearch")
+    .Buttons("select").ToolTipText = IIf(bFindSelectWholeLine, "Selects Whole line in code", "Selects Search text  only")
+    Select Case iCurCodePane
+     Case 0
+      .Buttons("cfOnePage").Image = "codeall"
+      .Buttons("cfOnePage").ToolTipText = "Search All Code"
+     Case 1
+      .Buttons("cfOnePage").Image = "codecurrent"
+      .Buttons("cfOnePage").ToolTipText = "Search Current Code Page Only"
+     Case 2
+      .Buttons("cfOnePage").Image = "codeprocedure"
+      .Buttons("cfOnePage").ToolTipText = "Search Current Procdure only"
+     Case 3
+      .Buttons("cfOnePage").Image = "selectedonly"
+      .Buttons("cfOnePage").ToolTipText = "Search Selected Text only"
+    End Select
+    .Refresh
+  End With 'Toolbar2
+
+End Sub
+
+Private Sub Toolbar2_ButtonClick(ByVal Button As MSComctlLib.Button)
+
+  On Error Resume Next
+  Select Case Button.Key
+   Case "FFind"
+    SelectedText cmbSearch, cmdFinder(0)
+   Case "CFWord"
+    bWholeWordonly = Not bWholeWordonly
+   Case "CFCase"
+    bCaseSensitive = Not bCaseSensitive
+   Case "CFNoCom"
+    bCommentsOnly = False
+    bNoComments = Not bNoComments
+   Case "CFNoStr"
+    bStringsOnly = False
+    bNoStrings = Not bNoStrings
+   Case "commentonly"
+    bNoComments = False
+    bCommentsOnly = Not bCommentsOnly
+   Case "CFStr"
+    bNoStrings = False
+    bStringsOnly = Not bStringsOnly
+   Case "cfOnePage"
+    iCurCodePane = iCurCodePane + 1
+    If iCurCodePane = 4 Then
+      iCurCodePane = 0
+    End If
+    ToggleButtonFaces
+   Case "pattern"
+    BPatternSearch = Not BPatternSearch
+    ClearForPattern
+   Case "replace"
+    bShowReplace = Not bShowReplace
+    If BPatternSearch Then
+      ClearForPattern
+    End If
+    cmdFinder(2).Enabled = True
+    DoResize
+   Case "clear"
+    ClearSearchFilters
+   Case "select"
+    bFindSelectWholeLine = Not bFindSelectWholeLine
+   Case "setting"
+    frmSettings.Show
+   Case "help"
+    frmHelp.Show
+  End Select
+  ToggleButtonFaces
+  On Error GoTo 0
+
+End Sub
+
+Private Sub UserDocument_Initialize()
+
+  ClearFGrid GrdFound
+
+End Sub
+
+Private Sub UserDocument_Resize()
+
+  DoResize
+
+End Sub
+
+':) Roja's VB Code Fixer V1.1.2 (7/07/2003 2:02:53 AM) 3 + 730 = 733 Lines Thanks Ulli for inspiration and lots of code.
+

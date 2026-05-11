@@ -1,0 +1,108 @@
+BODY {
+	MARGIN-TOP: 0px; FONT-SIZE: 13px; BACKGROUND: #ffffff; WORD-SPACING: 1px; MARGIN-LEFT: 0px; COLOR: #333333; LINE-HEIGHT: 17px; MARGIN-RIGHT: 0px; FONT-FAMILY: verdana, arial, sans-serif; LETTER-SPACING: 0px
+}
+P {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+TABLE {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+TR {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+TD {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+TH {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+DIV {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+CENTER {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+DT {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+DD {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+UL {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+LI {
+	FONT-SIZE: 13px; COLOR: #333333; FONT-FAMILY: verdana, arial, sans-serif
+}
+H1 {
+	FONT: bold 22px sans-serif
+}
+H1 {
+	WORD-SPACING: 1px; COLOR: blue; LINE-HEIGHT: 26px; FONT-FAMILY: arial, helvetica, sans-serif; LETTER-SPACING: 0px
+}
+H2 {
+	WORD-SPACING: 1px; COLOR: blue; LINE-HEIGHT: 26px; FONT-FAMILY: arial, helvetica, sans-serif; LETTER-SPACING: 0px
+}
+H3 {
+	WORD-SPACING: 0px; COLOR: blue; FONT-FAMILY: verdana, arial, helvetica, sans-serif; LETTER-SPACING: 0px
+}
+H4 {
+	WORD-SPACING: 0px; FONT-FAMILY: verdana, arial, helvetica, sans-serif; LETTER-SPACING: 0px
+}
+H5 {
+	WORD-SPACING: 0px; FONT-FAMILY: verdana, arial, helvetica, sans-serif; LETTER-SPACING: 0px
+}
+H5 {
+	FONT-SIZE: 13px
+}
+PRE {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FONT-FAMILY: courier, monospace
+}
+SUP {
+	FONT-SIZE: 8px; VERTICAL-ALIGN: super
+}
+SUB {
+	FONT-SIZE: 8px; VERTICAL-ALIGN: sub
+}
+.text_bold {
+	FONT: bold 12px sans-serif
+}
+.adbox {
+	CLEAR: right; FLOAT: right
+}
+A:hover {
+	COLOR: red; TEXT-DECORATION: underline
+}
+.sectionHead {
+	DISPLAY: inline
+}
+.author {
+	FONT-SIZE: 11px; WORD-SPACING: 0px; LINE-HEIGHT: 14px; LETTER-SPACING: 0px
+}
+.retrotab {
+	FONT-SIZE: 10px; WORD-SPACING: 0px; LINE-HEIGHT: 13px; LETTER-SPACING: 0px
+}
+.asctab {
+	FONT-SIZE: 10px; WORD-SPACING: 0px; LINE-HEIGHT: 14px; LETTER-SPACING: 0px
+}
+.rightside {
+	FONT-SIZE: 11px; WORD-SPACING: 0px; LINE-HEIGHT: 13px; LETTER-SPACING: 0px
+}
+.compatbox {
+	FONT-SIZE: 11px; WORD-SPACING: 0px; LINE-HEIGHT: 15px; LETTER-SPACING: 0px
+}
+.sidebar {
+	FONT-SIZE: 11px; WORD-SPACING: 0px; LINE-HEIGHT: 15px; LETTER-SPACING: 0px
+}
+.base {
+	LINE-HEIGHT: 14px
+}
+.planet {
+	FONT-SIZE: 11px; WORD-SPACING: 0px; LINE-HEIGHT: 15px; LETTER-SPACING: 0px
+}
+.dropcap {
+	FONT-SIZE: 22px; VERTICAL-ALIGN: baseline; LINE-HEIGHT: 25px; FONT-FAMILY: georgia, times, serif; LETTER-SPACING: 0px
+}
+.smalldrop {
+	FONT-SIZE: 18px; VERTICAL-ALIGN: baseline; LINE-HEIGHT: 20px; FONT-FAMILY: georgia, times, serif; LETTER-SPACING: 0px
+}

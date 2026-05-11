@@ -1,0 +1,10 @@
+La dll deve essere
+- nella stessa cartella degli eseguibili che la usano
+oppure
+- nella cartella system32 contenuta a sua volta nella cartella di Windows (C:\WINNT o C:\WINDOWS)
+
+
+The dll must reside
+- in the same folder of the executables that use it
+or
+- in the system32 directory in the windows folder  (C:\WINNT or C:\WINDOWS)

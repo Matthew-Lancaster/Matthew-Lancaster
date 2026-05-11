@@ -15,8 +15,8 @@ Public FS, F, RamDrive
 'Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
 
 Private Type POINTAPI
-        X As Long
-        Y As Long
+        x As Long
+        y As Long
 End Type
 
 
@@ -58,7 +58,7 @@ Declare Function ShowOwnedPopups Lib "user32" (ByVal hWnd As Long, ByVal fShow A
 
 Declare Function OpenIcon Lib "user32" (ByVal hWnd As Long) As Long
 'Declare Function closewindow Lib "user32" Alias "CloseWindow" (ByVal hWnd As Long) As Long
-Declare Function MoveWindow Lib "user32" (ByVal hWnd As Long, ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal bRepaint As Long) As Long
+Declare Function MoveWindow Lib "user32" (ByVal hWnd As Long, ByVal x As Long, ByVal y As Long, ByVal nWidth As Long, ByVal nHeight As Long, ByVal bRepaint As Long) As Long
 
 Public Declare Function FindWindow2 _
         Lib "user32" _
@@ -288,7 +288,7 @@ Public Function GetWindowState(ByVal lngHwnd As Long) As Integer
     End If
 End Function
 
-Public Function GetFileFromHwnd(lngHwnd) As String
+Public Function GetFileFromHWND(lngHwnd) As String
 
 '-----------------------------------------------------------
 'REPAIR DONE NOW GET FULL PATH OF EXE BY USE THE OPENPROCESS
@@ -301,25 +301,25 @@ Public Function GetFileFromHwnd(lngHwnd) As String
 '------------------------------------------------------------------
 'TEMPORARY AS FULL EXE WAS NOT WORKING FOR A BIT
 '------------------------------------------------------------------
-'MsgBox getfilefromhWnd(Me.hWnd)
+'MsgBox GetFileFromHWND(Me.hWnd)
 'Var = cProcesses.Convert(lnghWnd, vfile, cnFromhWnd Or cnToEXE)
 'Var = cProcesses.Convert(lnghWnd, PID, cnFromhWnd Or cnToProcessID)
 'Var = cProcesses.Convert(PID, vfile, cnFromProcessID Or cnToEXE)
-'GetFileFromhWnd = vfile
+'GetFileFromHWND = vfile
 'Exit Function
 '------------------------------------------------------------------
 '------------------------------------------------------------------
 
 Dim lngProcess&, hProcess&, bla&, C&
 Dim strFile As String
-Dim X
+Dim x
 
 strFile = String$(256, 0)
-X = GetWindowThreadProcessId(lngHwnd, lngProcess)
+x = GetWindowThreadProcessId(lngHwnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-X = EnumProcessModules(hProcess, bla, 4&, C)
+x = EnumProcessModules(hProcess, bla, 4&, C)
 C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
-GetFileFromHwnd = Left(strFile, C)
+GetFileFromHWND = Left(strFile, C)
 '------------------------------------------------------------------
 
 End Function
@@ -328,12 +328,12 @@ Public Function GetFileFromProc(lngProcess) As String
 
 Dim hProcess&, bla&, C&
 Dim strFile As String
-Dim X
+Dim x
 
 strFile = String$(256, 0)
 'X = GetWindowThreadProcessId(lngHwnd, lngProcess)
 hProcess = OpenProcess(PROCESS_QUERY_INFORMATION Or PROCESS_VM_READ, 0&, lngProcess)
-X = EnumProcessModules(hProcess, bla, 4&, C)
+x = EnumProcessModules(hProcess, bla, 4&, C)
 C = GetModuleFileNameEx(hProcess, bla, strFile, Len(strFile))
 GetFileFromProc = Left(strFile, C)
 
@@ -947,7 +947,7 @@ Function FindWinPart_SEARCHER_hWnd_TO_EXE(SEARCH_STRING) As Long
     Huge = 0
     Do While test_hwnd <> 0
         
-        Text_TEMP_ER = GetFileFromHwnd(test_hwnd)
+        Text_TEMP_ER = GetFileFromHWND(test_hwnd)
         'If InStr(GetWindowTitle(test_hWnd), SEARCH_STRING) > 0 Then
         If InStr(UCase(Text_TEMP_ER), UCase(SEARCH_STRING)) > 0 Then
             Huge = Huge + 1

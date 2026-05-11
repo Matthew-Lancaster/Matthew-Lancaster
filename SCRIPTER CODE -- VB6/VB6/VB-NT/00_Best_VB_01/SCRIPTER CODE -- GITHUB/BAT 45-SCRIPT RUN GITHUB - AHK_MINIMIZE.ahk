@@ -20,7 +20,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #Persistent
 ; IT USER ExitFunc TO EXIT FROM #Persistent
 ; OR      Exitapp  TO EXIT FROM #Persistent
-; Exitapp CALLS ONTO ExitFunc
+; Exitapp HAVE AR CALL ONTO ExitFunc
 ; --------------------
 #SingleInstance force
 
@@ -143,7 +143,7 @@ Loop, %id%
 			; -----------------------------------------------------------
 			IF SOUND_EVENT_DONE=FALSE 
 			{
-				Gui, Show, AutoSize
+				; Gui, Show, AutoSize
 				SETTIMER TIMER_EXIT, 2000
 				SoundBeep , 1000 , 200
 				EXIT_NOW=FALSE
@@ -185,7 +185,7 @@ RETURN
 
  
 ;# ------------------------------------------------------------------
-; USUAL END BLOCK OF CODE TO HELP EXIT ROUTINE
+; END BLOCK OF CODE -- EXIT ROUTINE
 ;# ------------------------------------------------------------------
 
 

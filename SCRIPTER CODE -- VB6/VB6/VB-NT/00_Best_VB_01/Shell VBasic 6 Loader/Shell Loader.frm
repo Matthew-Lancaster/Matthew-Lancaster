@@ -5,7 +5,7 @@ Begin VB.Form Form1
    Caption         =   "NotePad Loader"
    ClientHeight    =   5928
    ClientLeft      =   192
-   ClientTop       =   840
+   ClientTop       =   1140
    ClientWidth     =   12324
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
@@ -13,6 +13,12 @@ Begin VB.Form Form1
    ScaleWidth      =   12324
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
+   Begin VB.Timer Timer3 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   5472
+      Top             =   2640
+   End
    Begin VB.Timer Timer_TITLE_COLOR_END_DONE 
       Enabled         =   0   'False
       Interval        =   1000
@@ -16910,21 +16916,30 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_VB_FOLDER 
       Caption         =   "VB FOLDER"
    End
+   Begin VB.Menu MNU_VERSION 
+      Caption         =   "VERSION"
+   End
+   Begin VB.Menu MNU_STAY_OPEN_WHEN_EXECUTE 
+      Caption         =   "STAY OPEN WHEN EXECUTE"
+   End
    Begin VB.Menu Mnu_LoadFolder 
-      Caption         =   "Load Folder"
+      Caption         =   "LOAD FOLDER"
    End
    Begin VB.Menu Mnu_Load_FolderFile 
-      Caption         =   "Load Folder Target"
+      Caption         =   "LOAD FOLDER TARGET"
    End
    Begin VB.Menu Mnu_Sync 
-      Caption         =   "Sync"
+      Caption         =   "SYNC"
       Visible         =   0   'False
    End
    Begin VB.Menu Mnu_Clipexe 
-      Caption         =   "Clip EXE Path"
+      Caption         =   "CLIP EXE PATH"
    End
    Begin VB.Menu MNU_SHOW_SCANPATH 
       Caption         =   "SHOW PATH SCAN"
+   End
+   Begin VB.Menu MNU_INFO 
+      Caption         =   "1ST COLUMN FIX AR URL -- PROJECT __.VBP && __.EXE_ _.AHK AUTOHOTKEY __.VBS __.BAT __  __ DATE ORDER"
    End
 End
 Attribute VB_Name = "Form1"
@@ -16933,6 +16948,53 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 'USE OPTION CLIP EXE NAME AND MOVE TO FOLDER
+' -----------------------------
+' SESSION 002
+' -----------------------------
+' WHILE MULTI PROJECT
+' THIS THE LAST ONE FOR TONIGHT
+' -----------------------------
+' .VBS _ INCORP ON VBS VBSCRIPT
+' .VBS
+' .BAT
+' .AHK AUTOHOTKEY
+' -----------------------------
+' Sun 26-Jan-2020 00:46:10
+' Sun 26-Jan-2020 04:58:00 -- 4 HOUR 12 MINUTE
+' -----------------------------
+' ANOTHER ADDTION SAME TIME
+' Sun 26-Jan-2020 04:58:00
+' Sun 26-Jan-2020 05:28:00 -- 1 HOUR 30 MINUTE
+' TOTAL
+' Sun 26-Jan-2020 00:46:10
+' Sun 26-Jan-2020 05:28:00 -- 5 HOUR 42 MINUTE
+' -----------------------------
+
+' -----------------------------
+' SESSION 003 OF PLENTY
+' -----------------------------
+' ROUTINE OF WORK
+' Sub SubCode()
+' Private Sub Timer2_Timer()
+' Private Sub Timer3_Timer()   ---- NEW -- CHECK LINK AND HERE TRAILER AFTER CHECK
+' --------------------------------- AND RESTORE COLOUR FROM WHITE
+' ADJUST COLOUR PROPER
+' TOOK A WHILE
+' REM LINE HELP A BIT NEXT SESSION
+' ---------------------------------
+' Mon 09-Mar-2020 14:05:35
+' Mon 09-Mar-2020 12:07:24 -- 1 HOUR 58 MINUTE
+' ---------------------------------
+
+
+Dim FIRST_GO_GATHER_COLOUR
+Dim X_COLOR(4000)
+
+Dim COLOUR_1_VB
+Dim COLOUR_2_VB
+
+Dim FIND_IF_LEFT_HAS_FIRST_CHANGE
+Dim O_FIRST_LEFT
 
 Public LINK_DATA
 
@@ -16942,11 +17004,12 @@ Dim Form1_Width, Form1_Height
 Dim X_Y_DONE_ONCE
 
 Dim XXT2
+Dim XXT3
 
 Dim ClipEXE
 
 Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
-Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
+Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As Rect) As Long
 
 Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
@@ -16976,8 +17039,7 @@ Private Const LVM_FIRST = &H1000
 'End Sub
 '-----------------------------------------------
 
-
-Private Type RECT
+Private Type Rect
     Left As Long
     Top As Long
     Right As Long
@@ -16986,6 +17048,205 @@ End Type
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+' SET OF DECLARE WORTH HAVE ALL CODE PROJECT BEGGINER
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+' BAS MODULE DECLARE
+' Private Declare Function EnumChildWindows Lib "user32" (ByVal hwndParent As Long, ByVal lpEnumFunc As Long, ByVal lParam As Long) As Long
+' --------------------------------------------------------------------
+'Private Type Rect
+'    Left As Long
+'    Top As Long
+'    Right As Long
+'    Bottom As Long
+'End Type
+Private Type POINTAPI
+        x As Long
+        y As Long
+End Type
+Private Type MENUBARINFO
+  cbSize As Long
+  rcBar As Rect
+  hMenu As Long
+  hWndMenu As Long
+  fBarFocused As Boolean
+  fFocused As Boolean
+End Type
+Private MenuInfo As MENUBARINFO
+Private Const OBJID_MENU As Long = &HFFFFFFFD
+Private Const OBJID_SYSMENU As Long = &HFFFFFFFF
+Private Declare Function GetMenuBarInfo Lib "user32" (ByVal hWnd As Long, _
+ByVal idObject As Long, ByVal idItem As Long, ByRef pmbi As MENUBARINFO) As Boolean
+Private Declare Function GetMenu Lib "user32" (ByVal hWnd As Long) As Long
+'----------------------------------------------------------------------------------
+'----------------------------------------------------------------------------------
+Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
+'----------------------------------------------------------------------------------
+Private Type FILETIME
+   LowDateTime          As Long
+   HighDateTime         As Long
+End Type
+Private Type WIN32_FIND_DATA
+   dwFileAttributes     As Long
+   ftCreationTime       As FILETIME
+   ftLastAccessTime     As FILETIME
+   ftLastWriteTime      As FILETIME
+   nFileSizeHigh        As Long
+   nFileSizeLow         As Long
+   dwReserved0          As Long
+   dwReserved1          As Long
+   cFileName            As String * 260  'MUST be set to 260
+   cAlternate           As String * 14
+End Type
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
+Const HWND_TOPMOST = -1
+Const HWND_NOTOPMOST = -2
+Const MF_BYPOSITION = &H400&
+Const SWP_NOSIZE = &H1
+Const SWP_NOMOVE = &H2
+Const SPI_SCREENSAVERRUNNING = 97
+Const SWP_NOACTIVATE = &H10
+Const SWP_SHOWWINDOW = &H40
+' --------------------------------------------------------------------
+Const GWL_WNDPROC = -4
+Const GWL_HINSTANCE = -6
+Const GWL_HWNDPARENT = -8
+Const GWL_STYLE = -16
+Const GWL_EXSTYLE = -20
+Const GWL_USERDATA = -21
+Const GWL_ID = -12
+' --------------------------------------------------------------------
+Private Type SHITEMID
+    cb As Long
+    abID As Byte
+End Type
+Private Type ITEMIDLIST
+    mkid As SHITEMID
+End Type
+Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwndLock As Long) As Long
+Private Declare Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long
+Private Declare Function WindowFromPoint Lib "user32" (ByVal xPoint As Long, ByVal yPoint As Long) As Long
+Private Declare Function GetParent Lib "user32" (ByVal hWnd As Long) As Long
+Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function ShowWindow Lib "user32" (ByVal hWnd As Long, ByVal nCmdShow As Long) As Long
+Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
+Private Declare Function GetDesktopWindow Lib "user32" () As Long
+Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+'Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As Rect) As Long
+'Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Private Declare Function FindWindowDLL Lib "user32" Alias "FindWindowA" (ByVal lpClassName As Long, ByVal lpWindowName As Long) As Long
+Private Declare Function FindWindow2 Lib "user32" Alias "FindWindowA" (ByVal lpClassName As Long, ByVal lpWindowName As Long) As Long
+Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
+Private Declare Function SHSimpleIDListFromPath Lib "shell32" Alias "#162" (ByVal szPath As String) As Long
+Private Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
+Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cchar As Long) As Long
+Private Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hWnd As Long) As Long
+Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" (ByVal hWnd As Long, ByVal nIndex As Long) As Long
+' --------------------------------------------------------------------
+Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+'Private Declare Function GetForegroundWindow Lib "user32" () As Long
+Private Declare Function IsIconic Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
+' --------------------------------------------------------------------
+' FUNCTION SET HERE
+' --------------------------------------------------------------------
+Function GetUserName() As String
+   Dim UserName As String * 255
+   Call GetUserNameA(UserName, 255)
+   GetUserName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
+End Function
+' --------------------------------------------------------------------
+Function GetComputerName() As String
+   Dim UserName As String * 255
+   Call GetComputerNameA(UserName, 255)
+   GetComputerName = Left$(UserName, InStr(UserName, Chr$(0)) - 1)
+End Function
+' --------------------------------------------------------------------
+Public Function GetSpecialFolder_Show_Script_Debug(CSIDL As Long) As String
+Dim R2 As Long
+On Error Resume Next
+For R2 = 0 To 120
+    If Trim(GetSpecialfolder(R2)) <> "" Then
+        'Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
+        'AAX = GetSpecialfolder(R)
+    End If
+Next
+End
+End Function
+Function GetSpecialfolder(ByVal CSIDL As Long) As String
+    Dim R2 As Long
+    Dim IDL As ITEMIDLIST
+    R2 = SHGetSpecialFolderLocation(100, CSIDL, IDL)
+    If R2 = NOERROR Then
+        Path$ = Space$(512)
+        R2 = SHGetPathFromIDList(ByVal IDL.mkid.cb, ByVal Path$)
+        GetSpecialfolder = Left$(Path, InStr(Path, Chr$(0)) - 1)
+        Exit Function
+    End If
+    GetSpecialfolder = ""
+End Function
+Private Function GetTitle(ByVal hWnd As Long) As String
+    Dim sTitle                As String
+    sTitle = String(MAX_LENGTH, Chr$(0))
+    GetWindowText hWnd, sTitle, MAX_LENGTH
+    I = InStr(1, sTitle, Chr$(0))
+    GetTitle = Mid$(sTitle, 1, I - 1)
+End Function
+Private Function GetClass(ByVal hWnd As Long)
+    Dim sClass                As String
+    sClass = String(MAX_LENGTH, Chr$(0))
+    GetClassName hWnd, sClass, MAX_LENGTH
+    I = InStr(1, sClass, Chr$(0))
+    GetClass = Mid$(sClass, 1, I - 1)
+End Function
+Private Function WindowClass(ByVal hWnd As Long) As String
+    Const MAX_LEN As Byte = 255
+    Dim strBuff As String, intLen As Integer
+    strBuff = String(MAX_LEN, vbNullChar)
+    intLen = GetClassName(hWnd, strBuff, MAX_LEN)
+    WindowClass = Left(strBuff, intLen)
+End Function
+Public Function StripNulls(OriginalStr As String) As String
+        ' This removes the extra Nulls so String comparisons will work
+        If (InStr(OriginalStr, Chr(0)) > 0) Then
+        OriginalStr = Left(OriginalStr, InStr(OriginalStr, Chr(0)) - 1)
+        End If
+        StripNulls = OriginalStr
+End Function
+Public Function StripNulls_2(OriginalStr) As String
+        ' This removes the extra Nulls so String comparisons will work
+        If (InStr(OriginalStr, Chr(0)) > 0) Then
+        OriginalStr = Left(OriginalStr, InStr(OriginalStr, Chr(0)) - 1)
+        End If
+        StripNulls_2 = OriginalStr
+End Function
+Function GetWindowTitle(ByVal hWnd As Long) As String
+   Dim l As Long
+   Dim s As String
+   l = GetWindowTextLength(hWnd)
+   s = Space(l + 1)
+   GetWindowText hWnd, s, l + 1
+   GetWindowTitle = Left$(s, l)
+End Function
+Private Function GetWindowState(ByVal lngHwnd As Long) As Integer
+    If IsWindow(lngHwnd) = 1 Then
+        GetWindowState = -1
+    If IsIconic(lngHwnd) <> 0 Then
+        GetWindowState = vbMinimized
+    ElseIf IsZoomed(lngHwnd) <> 0 Then
+        GetWindowState = vbMaximized
+    End If
+    End If
+End Function
+' --------------------------------------------------------------------
+' --------------------------------------------------------------------
 
 Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column _
  As ColumnHeader = Nothing)
@@ -17000,8 +17261,6 @@ Public Sub LV_AutoSizeColumn(LV As ListView, Optional Column _
  End If
  LV.Refresh
 End Sub
-
-
 
 Private Sub Combo1_Click()
 Counter = Combo1.ListIndex + 1
@@ -17027,6 +17286,8 @@ End Function
 
 Private Sub Form_Load()
 
+MNU_INFO.Caption = "1ST COLUMN FIX AR URL -- PROJECT __.VBP && __.EXE_ _.AHK AUTOHOTKEY __.VBS __.BAT __  __ SORT IS DATE ORDER"
+
 If App.PrevInstance = True Then End
 
 GetOsBitness_2 = GetOsBitness
@@ -17049,7 +17310,18 @@ tt1 = InStr(OIP$, "Shell")
 tt2 = InStr(tt1, OIP$, "Loader")
 OIP2$ = Mid$(OIP$, tt1 + 6, tt2 - tt1 - 7)
 OIP$ = OIP2$
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads Logg.txt" For Binary As #1
+
+TEXT_PATH_1 = App.Path + "\Text Loggs\" + GetComputerName + "-" + GetUserName
+TEXT_PATH_2 = App.Path + "\Text Loggs\" + GetComputerName
+
+If Dir(TEXT_PATH_1, vbDirectory) = "" Then
+    CreateFolderTree TEXT_PATH_1
+End If
+If Dir(TEXT_PATH_2, vbDirectory) = "" Then
+    CreateFolderTree TEXT_PATH_2
+End If
+
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 02.txt" For Binary As #1
 
 On Error Resume Next
     Seek 1, LOF(1) - 3000
@@ -17060,7 +17332,6 @@ Close #1
 
 easy = InStr(wt5$, ":\")
 If easy = 1 Then easy = InStr(easy + 1, wt5$, ":\")
-
 
 If easy > 0 Then wt5$ = Mid$(wt5$, easy - 1)
 'wt5$ = wt5$ + "  "
@@ -17108,8 +17379,8 @@ Loop Until easy = 0
 
 Combo1 = "List of Last Viewed Files"
 
-If Dir$(App.Path + "\Text Loggs\" + OIP$ + " Loads.txt") <> "" Then
-    Open App.Path + "\Text Loggs\" + OIP$ + " Loads.txt" For Input As #1
+If Dir$(TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt") <> "" Then
+    Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt" For Input As #1
     Line Input #1, A1$
     Line Input #1, B1$
     Line Input #1, C1$
@@ -17126,6 +17397,8 @@ On Error GoTo 0
 Call FormStart.FormStartLoader
 
 Timer_SUB_CODE_LOAD.Enabled = True
+
+MNU_VERSION.Caption = "VERSION__2020_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision))
 
 End Sub
 
@@ -17145,6 +17418,18 @@ If Form1.Width = Form1_Width And Form1.Height = Form1_Height Then X_Y_DONE_ONCE 
 
 End Sub
 
+Private Sub MNU_STAY_OPEN_WHEN_EXECUTE_Click()
+
+MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True
+
+End Sub
+
+Private Sub MNU_VERSION_Click()
+
+' MNU_VERSION.Caption = "Ver_2020_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision)) ' + " _ Matt.Lan@btinternet.com"
+
+End Sub
+
 Private Sub Timer_KEY_CODE_Timer()
 A = GetAsyncKeyState(27)
 If A < 0 Then End
@@ -17159,9 +17444,8 @@ End Sub
 
 Sub SubCode()
 
-
 rg = 0
-FontSizez = 10
+FontSizez = 7
 LABEL_GAP = 12
 
 For Each Control In Controls
@@ -17180,13 +17464,10 @@ Me.Refresh
 Me.Show
 DoEvents
 
-
 Lbl2.Top = 0
 Lbl2.Left = 0
 
-
 x = Lbl2.Height + LABEL_GAP
-
 
 Check1.Top = x
 Check1.Left = (Form1.Width / 2) + 10
@@ -17203,8 +17484,8 @@ RD = 0
 
 DoEvents
 
-Dim RECT1 As RECT
-Dim RECT2 As RECT
+Dim RECT1 As Rect
+Dim RECT2 As Rect
 
 rr = FindWindow("Shell_TrayWnd", vbNullString)
 rr2 = GetWindowRect(rr, RECT1)
@@ -17212,52 +17493,110 @@ rr2 = GetWindowRect(rr, RECT1)
 rr = FindWindow("MOM Class", vbNullString)
 rr2 = GetWindowRect(rr, RECT2)
 
-
 XX1 = (RECT1.Bottom - RECT1.Top) * Screen.TwipsPerPixelY
 XX1 = XX1 + (RECT2.Bottom - RECT2.Top) * Screen.TwipsPerPixelY
 
 SH = Screen.Height - (XX1 + 1300) 'higer = smaller
 
-
-For r = ScanPath.ListView1.ListItems.Count To 1 Step -1
-    If InStr(ScanPath.ListView1.ListItems.Item(r).SubItems(1), "\_gsdata_") > 0 Then
-        ScanPath.ListView1.ListItems.Remove (r)
+For R = ScanPath.ListView1.ListItems.Count To 1 Step -1
+    If InStr(ScanPath.ListView1.ListItems.Item(R).SubItems(1), "\_gsdata_") > 0 Then
+        ScanPath.ListView1.ListItems.Remove (R)
     End If
 Next
 
 x = TX
-For r = 1 To ScanPath.ListView1.ListItems.Count
-    If Label1(r - 1).Top > SH Then
+For R = 1 To ScanPath.ListView1.ListItems.Count
+    If Label1(R - 1).Top > SH Then
         x = TX
     End If
     
-    Label1(r).Top = x
+    Label1(R).Top = x
     
-    Label1(r).Visible = True
+    Label1(R).Visible = True
     'For r = 1 To ScanPath.ListView1.ListItems.Count
-    A1$ = ScanPath.ListView1.ListItems.Item(r).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(r)
+    A1$ = ScanPath.ListView1.ListItems.Item(R).SubItems(1)
+    B1$ = ScanPath.ListView1.ListItems.Item(R)
     If InStrRev(A1$, "\") > 0 Then
         seedy$ = Mid$(A1$, InStrRev(A1$, "\", Len(A1$) - 1))
     End If
+    
+    If R = 52 Then
+        Label1(R).BackColor = Label1(836).BackColor
+'         Stop
+    End If
+    If R = 102 Then
+        Label1(R).BackColor = Label1(837).BackColor  ' Label1(837).BackColor
+'         Stop
+    End If
+    
     If oseedy$ <> seedy$ Then txr = Not txr
     oseedy$ = seedy$
-    If txr = -1 Then Label1(r).BackColor = Label1(836).BackColor
-    If txr = 0 Then Label1(r).BackColor = Label1(837).BackColor
-    If r > AStart Then
-        'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects + 1
-            
-        If txr = -1 Then Label1(r).BackColor = Label1(175).BackColor
-        If txr = 0 Then Label1(r).BackColor = Label1(208).BackColor
+    ' FLIP FLOPPER VBP
+    If R__AStart = False And COLOUR_1_VB = 0 Then
+        R__AStart = True
+        COLOUR_1_VB = Label1(836).BackColor ' Label1(175).BackColor
+        COLOUR_2_VB = Label1(837).BackColor ' Label1(208).BackColor
     End If
-    ttg$ = ScanPath.ListView1.ListItems.Item(r)
-    If InStr(ttg$, "_gsdata_") = 0 Then
-        Mid$(ttg$, 1, 1) = UCase$(Mid$(ttg$, 1, 1))
-        If InStr(ttg$, ".lnk") > 0 Then ttg$ = Mid$(ttg$, 1, InStrRev(ttg$, ".") - 1)
+
+    If txr = 0 Then
+        ' __ .VBP COLOR -- ALTERNATE
+        Label1(R).BackColor = COLOUR_1_VB
+        X_COLOR(R) = Label1(R).BackColor
+    End If
+    If txr = -1 Then
+        Label1(R).BackColor = COLOUR_2_VB
+        X_COLOR(R) = Label1(R).BackColor
+    End If
+    
+    If InStr(A1$, "E:\01 VB Shell Folders\") > 0 Then
+        ' 1ST COLUMN LIGHT GREEN LIME
+        Label1(R).BackColor = RGB(196, 240, 149)
+        X_COLOR(R) = Label1(R).BackColor
+    End If
+    
+    If R > AStart Then
+        'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects + 1
         
-        Label1(r).Caption = Format$(r, "00") + ". " + ttg$
-        x = x + Label1(r).Height + LABEL_GAP
-        fheight = Label1(r).Top + Label1(r).Height + 420
+        If R__AStart = False And COLOUR_1_VB = 0 Then
+            R__AStart = True
+            COLOUR_1_VB = Label1(175).BackColor
+            COLOUR_2_VB = Label1(208).BackColor
+        End If
+        ' __.VBP WHEN GO ANOTHER PART 2 OF 2
+        If txr = -1 Then Label1(R).BackColor = COLOUR_1_VB
+        If txr = 0 Then Label1(R).BackColor = COLOUR_2_VB
+        X_COLOR(R) = Label1(R).BackColor  ' NOT FIND
+    End If
+    
+    ' GREEN OF __.VBS
+    If InStr(UCase(B1$), ".VBS") > 0 Then
+        Label1(R).BackColor = RGB(149, 212, 149) ' RGB(100, 180, 100)
+    End If
+    ' BLUE OF __ .AHK
+    If InStr(UCase(B1$), ".AHK") > 0 Then
+        Label1(R).BackColor = RGB(155, 189, 209)
+    End If
+    ' LIGHT GREEN OF __ .BAT
+    If InStr(UCase(B1$), ".BAT") > 0 Then
+        Label1(R).BackColor = RGB(205, 233, 118)
+    End If
+    X_COLOR(R) = Label1(R).BackColor
+
+    LABEL_FILENAME = ScanPath.ListView1.ListItems.Item(R)
+    If InStr(LABEL_FILENAME, "_gsdata_") = 0 Then
+        Mid$(LABEL_FILENAME, 1, 1) = UCase$(Mid$(LABEL_FILENAME, 1, 1))
+        If InStr(LABEL_FILENAME, ".lnk") > 0 Then LABEL_FILENAME = Mid$(LABEL_FILENAME, 1, InStrRev(LABEL_FILENAME, ".") - 1)
+        
+        If InStrRev(LABEL_FILENAME, ".") > 0 Then
+            TTG_1 = Mid$(LABEL_FILENAME, 1, InStrRev(LABEL_FILENAME, ".") - 1)
+            TTG_2 = UCase(Mid$(LABEL_FILENAME, InStrRev(LABEL_FILENAME, "."))) ' EXTENSION OF CAP HIGH
+        Else
+            TTG_1 = LABEL_FILENAME: TTG_2 = ""
+        End If
+        LABEL_FILENAME = TTG_1 + TTG_2
+        Label1(R).Caption = Format$(R, "00") + ". " + LABEL_FILENAME
+        x = x + Label1(R).Height + LABEL_GAP
+        fheight = Label1(R).Top + Label1(R).Height + 420
         If fheight > fheightx Then fheightx = fheight
         RD = RD + 1
     End If
@@ -17265,29 +17604,29 @@ Next
 DoEvents
 
 x = TX
-td = 29
+TD = 29
 xgag = 0
 Dim xy(20 * 2)
 
-For r = 1 To ScanPath.ListView1.ListItems.Count
-    If Label1(r - 1).Top > SH Then
-        If tig = 0 Then tig = r
+For R = 1 To ScanPath.ListView1.ListItems.Count
+    If Label1(R - 1).Top > SH Then
+        If tig = 0 Then tig = R
         x = TX
         xgag = xgag + 1
         wdt = 0
-        For rt = r - 1 To r - tig Step -1
+        For rt = R - 1 To R - tig Step -1
         If Label1(rt).Width > wdt Then wdt = Label1(rt).Width
         Next
         xy(xgag) = wdt + 150
-        tig2 = r
+        tig2 = R
     End If
-    Label1(r).Top = x
-    x = x + Label1(r).Height + LABEL_GAP
+    Label1(R).Top = x
+    x = x + Label1(R).Height + LABEL_GAP
 Next
 
 xgag = xgag + 1
 wdt = 0
-For rt = tig2 To r - 1
+For rt = tig2 To R - 1
     If Label1(rt).Width > wdt Then wdt = Label1(rt).Width
 Next
 xy(xgag) = wdt + 150
@@ -17296,50 +17635,80 @@ xy(xgag) = wdt + 150
 
 
 
-For r = 1 To ScanPath.ListView1.ListItems.Count
-    fw = Label1(r).Width
+For R = 1 To ScanPath.ListView1.ListItems.Count
+    fw = Label1(R).Width
     If fw > fw2 Then fw2 = fw + 200
 Next
 fw2 = fw2
 
 xgag = 1: xgax2 = 0
-For r = 1 To ScanPath.ListView1.ListItems.Count
-Label1(r).AutoSize = False
-
-DoEvents
-xxb = Label1(r - 1).Top
-xxb = Form1.Height
-
-If Label1(r - 1).Top > SH Then
-    xgax2 = xgax2 + 1
-    xgag = 0
-    For rs2 = 1 To xgax2
-        xgag = xgag + xy(rs2)
-    Next
-End If
-
-Label1(r).Width = xy(xgax2 + 1) - 20
-Label1(r).Left = xgag
-'Tolerance
-If Label1(r).Left + Label1(r).Width > Screen.Width + 1500 Then
-    Label1(r).Visible = False
-    A1$ = ScanPath.ListView1.ListItems.Item(r).SubItems(1)
-    B1$ = ScanPath.ListView1.ListItems.Item(r)
+For R = 1 To ScanPath.ListView1.ListItems.Count
+    Label1(R).AutoSize = False
     
-    'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
-    'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
+    DoEvents
+    xxb = Label1(R - 1).Top
+    xxb = Form1.Height
     
-    If halo = 0 Then
-    halo = r
-    On Error Resume Next
-        Set F = FS.getfile(A1$ + B1$)
-        ttdate = DateDiff("d", F.datelastmodified, Now)
-    On Error GoTo 0
-    
+    If Label1(R - 1).Top > SH Then
+        xgax2 = xgax2 + 1
+        xgag = 0
+        For rs2 = 1 To xgax2
+            xgag = xgag + xy(rs2)
+        Next
     End If
-End If
-
+    
+    Label1(R).Width = xy(xgax2 + 1) - 20
+    ' -----------------------------------
+    ' HERE THE 1ST LEFT
+    ' -----------------------------------
+    ' WORK HERE TODAY
+    ' FILL FIRST COLUMN WITH BLANK AT END
+    ' SO VB PROJECT STUFF START NEW ONE
+    ' Sun 09-Feb-2020 18:53:30
+    ' NOT REQUIRE WANT
+    ' IF TAKE AWAY MORE
+    ' MAKE COLUMN LOOK IN-LINE BETTER
+    ' WAS ONLY COUPLE AT BOTTOM FOR
+    ' BEGIN VB CODE PROJECT LOADER
+    ' -----------------------------------
+    AA = Label1(R).Caption
+    
+    ' ------------------------------------------------------------
+    ' PROBLEM AT MOMENT ISIDE=TRUE NOT DO EACH COLUMN ONLY FIRST 2
+    ' NOT IDE OKAY ALL COLUMN DISPLAY
+    ' 13-OCT-2020 00:18:21 TUE
+    ' ------------------------------------------------------------
+    Label1(R).Left = xgag
+    FIRST_LEFT = Label1(R).Left
+    ' FIND IF LEFT HAS FIRST CHANGE
+    ' -----------------------------------
+    If O_FIRST_LEFT = 0 Then
+        O_FIRST_LEFT = FIRST_LEFT   ' FIRST_LEFT WILL ONLY BE 1
+    End If
+    If O_FIRST_LEFT <> FIRST_LEFT Then
+        FIND_IF_LEFT_HAS_FIRST_CHANGE = True
+    End If
+    
+    O_FIRST_LEFT = FIRST_LEFT
+    ' Tolerance
+    If Label1(R).Left + Label1(R).Width > Screen.Width + 1500 Then
+        Label1(R).Visible = False
+        A1$ = ScanPath.ListView1.ListItems.Item(R).SubItems(1)
+        B1$ = ScanPath.ListView1.ListItems.Item(R)
+        
+        'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
+        'If InStr(LCase(Right(B1$, 4)), ".vbp") > 0 Then proprojects = proprojects - 1
+        
+        If halo = 0 Then
+        halo = R
+        On Error Resume Next
+            Set F = FS.getfile(A1$ + B1$)
+            TTDATE = DateDiff("d", F.datelastmodified, Now)
+        On Error GoTo 0
+        End If
+    End If
 Next
+
 fheightx = 0
 For rt = 1 To ScanPath.ListView1.ListItems.Count
     fheight = Label1(rt).Top + Label1(rt).Height
@@ -17352,13 +17721,14 @@ Next
 
 iu = halo
 If iu = 0 Then
-iu = ScanPath.ListView1.ListItems.Count
-Set F = FS.getfile(A1$ + B1$)
-ttdate = DateDiff("d", F.datelastmodified, Now)
+    iu = ScanPath.ListView1.ListItems.Count
+    Set F = FS.getfile(A1$ + B1$)
+    TTDATE = DateDiff("d", F.datelastmodified, Now)
 End If
 
 Form1_Width = Label1(iu - 1).Left + Label1(iu - 1).Width + 280
 If Form1_Width > Screen.Width Then Form1_Width = Screen.Width - 120
+
 Form1_Height = fheightx + 900
 
 'Form1.Width = Form1_Width
@@ -17366,7 +17736,6 @@ Form1_Height = fheightx + 900
 'Center screen
 'Form1.Top = 0 'Screen.Height / 2 - Form1.Height / 2
 'Form1.Left = Screen.Width / 2 - Form1.Width / 2
-
 
 Lbl2.Width = Form1.Width
 TitleLbl.Top = tg
@@ -17379,15 +17748,14 @@ If Combo1.Visible = False Then
 Else
     TitleLbl.Width = Form1.Width / 2
 End If
+
 Combo1.Width = (Form1.Width / 2) - 150
 Lbl3.Top = fheight - 410
 Lbl3.Width = Form1.Width
 Lbl3.Left = 0
 
-
 Form1.Refresh
-
-Form1.Lbl2.Caption = TXmsg + " -- Projects From " + Str(DaysToScan) + " Days -" + Str(DaysToScanYears) + " Years " + Str(Year(Now - DaysToScan)) + " -- Last Project" + Str(ttdate) + " Days Ago -- " + Format$(F.datelastmodified, "DDD DD-MMM-YY") + " -- Projects Found" + Str(ProProjects) + " Inn" + Str(DaysToScanYears) + " Years -- Projects in Script =" + Str(ProProjects2)
+Form1.Lbl2.Caption = TXmsg + " -- PROJECT FROM " + Str(DaysToScan) + " DAYS -" + Str(DaysToScanYears) + " YEARS " + Str(Year(Now - DaysToScan)) + " -- LAST PROJECT " + Str(TTDATE) + " DAYS AGO -- OF SHOWER" + Str(ProProjects2) + " -- " + Format$(F.datelastmodified, "DDD DD-MMM-YY") + " -- PROJECT FOUND" + Str(ProProjects) + " INN" + Str(DaysToScanYears) + " YEARS -- PROJECT IN SCRIPT =" + Str(ProProjects2)
 
 End Sub
 
@@ -17419,7 +17787,9 @@ End Sub
 
 Private Sub Label1_Click(Index As Integer)
 
+If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = False Then
 Form1.Visible = False
+End If
 
 If SetTrueToLoadLast = False Then
     A1$ = ScanPath.ListView1.ListItems.Item(Index).SubItems(1)
@@ -17446,13 +17816,14 @@ If LoadFolder = True Then
     If Err.Number > 0 Then
         MsgBox "Error Run Check With Administrator" + vbCrLf + vbCrLf + "explorer /e, /select, " + A1$ + B1$, vbMsgBoxSetForeground
     End If
-
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
     End
 End If
 
 If ClipEXE = True Then
     Clipboard.Clear
     Clipboard.SetText A1$ + B1$
+    If MNU_STAY_OPEN_WHEN_EXECUTE_VAR = True Then Exit Sub
     End
 End If
 
@@ -17541,34 +17912,277 @@ Call SubCode
 
 End Sub
 
-Private Sub MNU_VB_FOLDER_Click()
-    
+Private Sub VB_RUN_NOT_WHEN_IDE_AND_THEN_SHOW()
+' -----------------------------------------------------------------
+' IS SHORT CUT NOT SET ADMINISTATOR FOR THIS PARTICALUR CODE IN EXE
+' MODE IT WILL NOT RUN LOAD ITSELF ON THE VB COMPILER
+' BUT AND WILL RUN OTHER PROGRAM
+' AS TALK OTHER PROGRAM ARE OKAY BUT THEN MAYBE SET AS ADMIN
+' AMSWER GIVEN
+' AUG 28 SUN
+' -----------------------------------------------------------------
+If 1 = 1 And IsIDE = True Then
+    MNU_VB.Enabled = False
     Beep
-    CODER_EXE_FILE_NAME_1 = App.Path + "\" + Dir(App.Path + "\*.VBP")
-    On Error Resume Next
-    Shell "EXPLORER /SELECT, """ + CODER_EXE_FILE_NAME_1 + """", vbNormalFocus
-    If Err.Number > 0 Then
-        MsgBox "Error Run Check With Administrator" + vbCrLf + vbCrLf + "EXPLORER /SELECT, """ + CODER_EXE_FILE_NAME_1 + """", vbMsgBoxSetForeground
+    MsgBox "NOT WHEN ISIDE = TRUE"
+    Exit Sub
+End If
+
+Dim ReturnHwnd As Long
+Dim I
+'VB ONLY WANTS THE 1ST OF THE 2 HWND
+'ReturnHwnd = FindWindowPartVB("ClipBoard Logger - Microsoft Visual Basic[")
+'------------------------------------------------
+'DONT NEED ABOVE USE THIS
+X1 = FindWindow("wndclass_desked_gsk", vbNullString)
+'------------------------------------------------
+'FIND THE WINDOW PRIZE TREASURE CHEST BUST BLOSSOM
+'TRAIN SPOTTER
+'------------------------------------------------
+'-----------------------------------------------------------
+'CHECK CLASS NAME IS VB IDE WINDOW WE WANT OR IF ANOTHER NOT
+'-----------------------------------------------------------
+X2 = GetWindowTitle(X1)
+If InStr(X2, " - Microsoft Visual Basic [") > 0 Then
+    'RUN A WINDOW SPY
+    WIN_SPY_NAME = "ClipBoard Logger"
+    If InStr(X2, WIN_SPY_NAME) > 0 Then
+    
+        MsgBox "DON'T RUN VB IDE - LOADED"
+        I = GetWindowState(X1)
+        If I = vbMinimized Then
+            SHOWVAR = SW_SHOWDEFAULT
+            ShowWindow ReturnHwnd, SHOWVAR
+        End If
+        
+        EXIT_TRUE = True
+        Unload Me
+        Exit Sub
     End If
+End If
+'------------------------------------------------
+'BETTER LINE NEXT DON'T USE VB MENU IF ISIDE
+'------------------------------------------------
+'TEMP WORK AROUND
+'OVER DRIVE
+'OVER RIDE
+'------------------------------------------------
+'FINDWINDOW PART PROBLEM IN EXE AND WHEN IN WIN 7
+'------------------------------------------------
+'WIN 7 PROBLEM MUST USE EXTRA LAST LEFT SQUARE BRACKET OF SERACH END ABOVE
+'------------------------------------------------
+If ReturnHwnd > 0 Then
+    If MsgBox("ReturnHwnd" + Str(ReturnHwnd) + " -- " + "MeHwnd" + Str(Me.hWnd) + vbCrLf + "VB Code " + vbCrLf + WIN_SPY_NAME + vbCrLf + " already Running - Sure Want to Run VB IDE", vbYesNo) = vbYes Then
+        WANT_TO_RUN_ANYWAY = True
+    End If
+End If
+
+If ReturnHwnd > 0 Then
+    I = GetWindowState(ReturnHwnd1)
+    If I = vbMinimized Then
+'        SHOWVAR = SW_RESTORE
+'        SHOWVAR = SW_SHOW
+'        SHOWVAR = SW_SHOWNA
+'        SHOWVAR = SW_SHOWDEFAULT
+'        SHOWVAR = SW_SHOWNORMAL
+'        SHOWVAR = SW_SHOWMAXIMIZED
+        SHOWVAR = SW_SHOWDEFAULT
+        ShowWindow ReturnHwnd, SHOWVAR
+        'GUESS MAYBE
+        'SetForegroundWindow (ReturnHwnd)
+        DoEvents
+    End If
+   
+    'MADE REDUNDANT CODE BY CONDICTION HERE AND ABOVE
+    If WANT_TO_RUN_ANYWAY = False Then
+        MsgBox "EXIT AS FOUND WINODW OF VB AND PUT TO SHOW FOCUS"
+        EXIT_TRUE = True
+        Unload Me
+        Exit Sub
+    End If
+End If
+
+Dim CODER_VBP_FILE_NAME_2
+Dim VB_1, VB_2, VB_3
+VB_1 = "C:\PROGRAM FILES\Microsoft Visual Studio\VB98\VB6.EXE"
+VB_2 = "C:\PROGRAM FILES (X86)\Microsoft Visual Studio\VB98\VB6.EXE"
+If Dir(VB_1) <> "" Then VB_3 = VB_1
+If Dir(VB_2) <> "" Then VB_3 = VB_2
+'------------------------------------------------------
+'ADD MICROSFOT SCRIPTING RUNTIME FOR HERE IN REFERENCES
+'------------------------------------------------------
+Dim OBJSHELL
+Set OBJSHELL = CreateObject("Wscript.Shell")
+CODER_VBP_FILE_NAME_2 = App.Path + "\" + App.ExeName + ".VBP"
+OBJSHELL.Run """" + VB_3 + """ """ + CODER_VBP_FILE_NAME_2 + """", 1, False
+Set OBJSHELL = Nothing
+EXIT_TRUE = True
+Unload Me
+End Sub
+Private Sub Mnu_VB_ME_Click()
+    
+    Call VB_RUN_NOT_WHEN_IDE_AND_THEN_SHOW
+    
+    Dim CODER_VBP_FILE_NAME_2
+    Dim VB_1, VB_2, VB_3
+    VB_1 = "C:\PROGRAM FILES\Microsoft Visual Studio\VB98\VB6.EXE"
+    VB_2 = "C:\PROGRAM FILES (X86)\Microsoft Visual Studio\VB98\VB6.EXE"
+    If Dir(VB_1) <> "" Then VB_3 = VB_1
+    If Dir(VB_2) <> "" Then VB_3 = VB_2
+    '------------------------------------------------------
+    'ADD MICROSFOT SCRIPTING RUNTIME FOR HERE IN REFERENCES
+    '------------------------------------------------------
+    CODER_VBP_FILE_NAME_2 = App.Path + "\" + App.ExeName + ".VBP"
+    Call CHECK_INTEGRITY_OF_VISUAL_BASIC_PROJECT_VBP(CODER_VBP_FILE_NAME_2)
+    
+    Dim OBJSHELL
+    Set OBJSHELL = CreateObject("WSCRIPT.SHELL")
+    OBJSHELL.Run """" + VB_3 + """ """ + CODER_VBP_FILE_NAME_2 + """", 1, False
+    Set OBJSHELL = Nothing
+    
     EXIT_TRUE = True
     Unload Me
-
+    Exit Sub
 End Sub
-
-Private Sub Mnu_VB_ME_Click()
-
-VBPATH = "C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"
-If Dir(VBPATH) = "" Then
-    VBPATH = "C:\Program Files (X86)\Microsoft Visual Studio\VB98\VB6.EXE"
-End If
-
-On Error Resume Next
-Shell VBPATH + " """ + App.Path + "\" + App.ExeName + ".VBP""", vbNormalFocus
-If Err.Number > 0 Then
-    MsgBox "Error Run Check With Administrator" + vbCrLf + vbCrLf + VBPATH + " """ + App.Path + "\" + App.ExeName + ".VBP""", vbMsgBoxSetForeground
-End If
-End
+Private Sub MNU_VB_FOLDER_Click()
+    Shell "EXPLORER /SELECT, """ + App.Path + "\" + App.ExeName + ".VBP""", vbNormalFocus
+    EXIT_TRUE = True
+    Unload Me
+    'End
 End Sub
+Sub CHECK_INTEGRITY_OF_VISUAL_BASIC_PROJECT_VBP(CODER_VBP_FILE_NAME_2)
+    ' --------------------------------------------------------------------
+    ' FIND IF THE IS NOT CORRECT VERSION AND SIMPLE PUT CORRECT
+    ' ONE MY COMPUTER SEEM PROBLEM WITH BASIC
+    ' TALK HAS WRONG VERISON ONCE EVERY FEW DAY
+    ' AND EDIT IT TO WHAT NORM VERISON SUPPOSED TO BE AND FINE
+    ' DISCOVERY -- IT SEEM TO HAPPEN JUST AFTER A COMPILE SOMETIME_
+    ' [ Monday 15:37:30 Pm_17 June 2019 ]
+    ' --------------------------------------------------------------------
+    ' --------------------------------------------------------------------
+    Dim R, FR
+    Dim VAR_STRING As String
+
+    FR = FreeFile
+    Open CODER_VBP_FILE_NAME_2 For Binary As FR
+        VAR_STRING = Space(LOF(FR))
+        Get #FR, , VAR_STRING
+    Close FR
+    ' --------------------------------------------------------------
+    ' # .VBP # .VBP" -- # MSCOMC -- # OCX -- # MSCOMCTL # CTL # .CTL
+    ' --------------------------------------------------------------
+    ' FOUND TO BE ERROR
+    ' --------------------------------------------------------------
+    ' Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0; MSCOMCTL.OCX
+    ' --------------------------------------------------------------
+    ' CORRECT VALUE
+    ' --------------------------------------------------------------
+    ' Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; MSCOMCTL.OCX
+    ' --------------------------------------------------------------
+    XR1 = InStr(UCase(VAR_STRING), UCase("A1}#2.1; MSCOMCTL.OCX"))
+    XR2 = InStr(UCase(VAR_STRING), UCase("A1}#2.#")) ' ---- "A1}#2.#0; mscomctl.OCX"
+    XR3 = InStr(UCase(VAR_STRING), UCase("#0; MSCOMCTL.OCX"))
+    If XR1 = 0 And XR2 > 0 And XR3 > 0 Then
+        GET_01 = InStr(UCase(VAR_STRING), UCase("MSCOMCTL.OCX")) - XR2
+        Mid(VAR_STRING, XR2, GET_01 + Len("MSCOMCTL.OCX")) = "A1}#2.1#0; MSCOMCTL.OCX"
+        ' MsgBox "MSCOMCTL.OCX" + vbCrLf + "WRONG VERSION -- CHANGE TO" + vbCrLf + "#2.1# -- MSCOMCTL.OCX"), vbMsgBoxSetForeground
+        GO_NEXT_IN = True
+    End If
+    If GO_NEXT_IN = True Then
+        If Dir(CODER_VBP_FILE_NAME_2) <> "" Then
+            Kill CODER_VBP_FILE_NAME_2
+        End If
+        FR = FreeFile
+        Open CODER_VBP_FILE_NAME_2 For Binary As FR
+            Put #FR, , VAR_STRING
+        Close FR
+    End If
+End Sub
+Private Sub MNU_FOLDER_DIGITAL_STILL_CAMERA_Click()
+    ' Beep
+    Me.WindowState = vbMinimized
+    Dim FOLDER_Path
+    FOLDER_Path = "D:\DSC\2015+SONY\2020 CyberShot HX60V\JPG"
+    Dir1.Path = FOLDER_Path
+    Dim TD
+    For R = 0 To Dir1.ListCount - 1
+        FIND_PATH_1 = Dir1.List(R)
+        FIND_PATH_2 = Mid(FIND_PATH_1, InStrRev(FIND_PATH_1, "\"))
+        If Mid(FIND_PATH_2, 1, 3) = "\20" Then
+            TD = Dir1.List(R)
+        End If
+    Next
+    FOLDER_Path = TD
+    
+    Shell "EXPLORER /SELECT, """ + FOLDER_Path + """", vbNormalFocus
+    EXIT_TRUE = True
+    ' Unload Me
+    'End
+End Sub
+Private Sub MNU_CAMERA_VIDEO_FOLDER_4G_Click()
+    Me.WindowState = vbMinimized
+    Shell "EXPLORER \\4-asus-gl522vw\4_asus_gl522vw_10_1_samsung_1tb\DSC\2015+SONY_MP4\2020 CyberShot HX60V __ MP4", vbMaximizedFocus
+End Sub
+Private Sub MNU_ADMINISTRATOR_Click()
+    'Call MNU_ADMINISTRATOR_Click
+    ' Beep
+    MNU_ADMINISTRATOR.Caption = "ADMINISTRATOR MODE ON"
+    If GetSpecialfolder(38) = "" Then
+        MNU_ADMINISTRATOR.Caption = Replace(MNU_ADMINISTRATOR.Caption, "MODE ON", "MODE OFF")
+    End If
+End Sub
+'-------------------------------------------
+'-------------------------------------------
+'---------------------------------------------------
+'Public Type SHITEMID
+'    cb As Long
+'    abID As Byte
+'End Type
+'Private Type ITEMIDLIST
+'    mkid As SHITEMID
+'End Type
+'Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
+'Function GetSpecialfolder(ByVal CSIDL As Long) As String
+'    Dim R As Long
+'    Dim IDL As ITEMIDLIST
+'    R = SHGetSpecialFolderLocation(100, CSIDL, IDL)
+'    If R = NOERROR Then
+'        Path$ = Space$(512)
+'        R = SHGetPathFromIDList(ByVal IDL.mkid.cb, ByVal Path$)
+'        GetSpecialfolder = Left$(Path, InStr(Path, Chr$(0)) - 1)
+'        Exit Function
+'    End If
+'    GetSpecialfolder = ""
+'End Function
+'---------------------------------------------------
+'-------------------------------------------
+''-------------------------------------------
+'Public Function GetSpecialFolder_Show_Script_Debug(CSIDL As Long) As String
+'Dim r As Long
+'On Error Resume Next
+'For r = 0 To 120
+'    If Trim(GetSpecialfolder(r)) <> "" Then
+'        'Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
+'        'AAX = GetSpecialfolder(R)
+'    End If
+'Next
+'End
+'End Function
+'Public Function GetSpecialfolder(CSIDL As Long) As String
+'    '##############################################################################################
+'    'Returns the Path to a "Special" Folder (i.e. Internet History)
+'    '##############################################################################################
+'    Dim IDL As ITEMIDLIST
+'    Dim lResult As Long
+'    Dim sPath As String
+'    lResult = SHGetSpecialFolderLocation(100, CSIDL, IDL)
+'    If lResult = 0 Then
+'        sPath = Space$(512)
+'        lResult = SHGetPathFromIDList(ByVal IDL.mkid.cb, ByVal sPath)
+'        GetSpecialfolder = Left$(sPath, InStr(sPath, Chr$(0)) - 1)
+'    End If
+'End Function
+
 
 Private Sub Timer_TITLE_COLOR_END_DONE_Timer()
 
@@ -17578,17 +18192,23 @@ TitleLbl.BackColor = Label1(838).BackColor
 End Sub
 
 Private Sub Timer2_Timer()
-
 XXT2 = XXT2 + 1
 If XXT2 > ScanPath.ListView1.ListItems.Count Then
     EXIT_TIMER_2_NOW = True
 End If
-If Form1.Label1(XXT2).BackColor = Label1(175).BackColor Then
-    ' FIRST COLOUR OF 2 _ HERE
-    EXIT_TIMER_2_NOW = True
-End If
-If Form1.Label1(XXT2).BackColor = Label1(208).BackColor Then
-    EXIT_TIMER_2_NOW = True
+'If Form1.Label1(XXT2).BackColor = COLOUR_1_VB Then  ' Label1(175).BackColor Then
+'    ' FIRST COLOUR OF 2 _ HERE
+'    EXIT_TIMER_2_NOW = True
+'End If
+'If Form1.Label1(XXT2).BackColor = COLOUR_2_VB Then  ' Label1(208).BackColor Then
+'    EXIT_TIMER_2_NOW = True
+'End If
+
+If FIRST_GO_GATHER_COLOUR = False Then
+    FIRST_GO_GATHER_COLOUR = True
+    For XXT4 = 1 To ScanPath.ListView1.ListItems.Count
+        X_COLOR(XXT4) = Label1(XXT4).BackColor
+    Next
 End If
 
 If EXIT_TIMER_2_NOW = True Then
@@ -17605,57 +18225,103 @@ A1$ = ScanPath.ListView1.ListItems.Item(XXT2).SubItems(1)
 B1$ = ScanPath.ListView1.ListItems.Item(XXT2)
 C1$ = Form1.Label1(XXT2).Caption
 
-X_COLOR = Form1.Label1(XXT2).BackColor
-Form1.Label1(XXT2).BackColor = &HFFFFFF
-Form1.Label1(XXT2).Refresh
-DoEvents
-Sleep 10
+STOP_COLOUR_CHANGE_HERE = 0
 
-On Local Error GoTo 0
-On Error GoTo 0
+'If InStr(UCase(B1$), ".VBS") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+'If InStr(UCase(B1$), ".AHK") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+'If InStr(UCase(B1$), ".BAT") > 0 Then STOP_COLOUR_CHANGE_HERE = 1
+If InStr(A1$, "E:\01 VB Shell Folders") = 0 Then
+    STOP_COLOUR_CHANGE_HERE = 1
+End If
 
-'GoTo skip:
-LINK_DATA = A1$ + B1$
-If InStr(LCase(B1$), ".lnk") > 0 Then
-    Open A1$ + B1$ For Binary As #1
-    rr$ = Space$(LOF(1))
-    Get #1, 1, rr$
-    Close #1
-    If InStr(rr$, ":\") = 0 Then
-        
-        I = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
-        
-        I = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
-        If I = vbYes Then
-            Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
+If STOP_COLOUR_CHANGE_HERE = 0 Then
+    X_COLOR(XXT2) = Form1.Label1(XXT2).BackColor
+    Form1.Label1(XXT2).BackColor = &HFFFFFF
+    Form1.Label1(XXT2).Refresh
+    ' -------------------------------------------------
+    ' GOT FIRST ONE SET TIMER3 GO WHITE TO PUT COLOR ON
+    ' -------------------------------------------------
+    ' NOT REQUIRE CHECK ALL LINK ONLY FIRST FEW
+    ' AS TAKEN FROM LINK
+    ' OTHER NOT LINK PATH SO NOT CHECKER
+    ' Mon 09-Mar-2020 13:32:00
+    ' -------------------------------------------------
+    If Timer3.Enabled = False Then
+        Timer3.Enabled = True
+        Timer3.Interval = Timer2.Interval + 20
+    End If
     
+    On Local Error GoTo 0
+    On Error GoTo 0
     
+    'GoTo skip:
+    LINK_DATA = A1$ + B1$
+    If InStr(LCase(B1$), ".lnk") > 0 Then
+        Open A1$ + B1$ For Binary As #1
+            rr$ = Space$(LOF(1))
+            Get #1, 1, rr$
+        Close #1
+        If InStr(rr$, ":\") = 0 Then
+            
+            I = MsgBox("INVAILD LINK NAUGHT SIZE" + vbCrLf + LINK_DATA, vbMsgBoxSetForeground)
+            
+            I = MsgBox("INVAILD LINK" + vbCrLf + LINK_DATA + vbCrLf + "DO YOU WANT ME TO TAKE YOU THERE", vbYesNo + vbMsgBoxSetForeground)
+            If I = vbYes Then
+                Shell "Explorer.exe /select, " + LINK_DATA, vbNormalFocus
+            End If
+            ' SET COLOR BACK WITH TIMER 3
+            ' ---------------------------
+            ' Form1.Label1(XXT2).BackColor = X_COLOR
+            ' X_COLOR(XXT2) = Label1(XXT2).BackColor
+
+            Exit Sub
         End If
-        Form1.Label1(XXT2).BackColor = X_COLOR
+        tt$ = Mid$(rr$, InStr(105, rr$, ":\") - 1)
+        LINK_DATA = Mid$(tt$, 1, InStr(tt$, Chr$(0)) - 1)
+    End If
+    
+    ALLOW_OKAY_PASS_VALID_LINK = False
+    If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
+        'GetOsBitness_2
+        Call TEST_LINK_MODIFY
+    End If
+    ' SET COLOR BACK WITH TIMER 3
+    ' ---------------------------
+    ' Form1.Label1(XXT2).BackColor = X_COLOR
+
+    If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
+        ' SET RED
+        Label1(XXT2).BackColor = RGB(250, 127, 127) + QBColor(12)
+        X_COLOR(XXT2) = Label1(XXT2).BackColor
+    End If
+End If
+End Sub
+
+Private Sub Timer3_Timer()
+    If XXT2 < XXT3 Then
         Exit Sub
     End If
-    tt$ = Mid$(rr$, InStr(105, rr$, ":\") - 1)
-    LINK_DATA = Mid$(tt$, 1, InStr(tt$, Chr$(0)) - 1)
-End If
-
-ALLOW_OKAY_PASS_VALID_LINK = False
-If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
+    ' -------------------------------------------------
+    ' NOT REQUIRE CHECK ALL LINK ONLY FIRST FEW
+    ' AS TAKEN FROM LINK
+    ' OTHER NOT LINK PATH SO NOT CHECKER
+    ' Mon 09-Mar-2020 13:32:00
+    ' -------------------------------------------------
     
-    'GetOsBitness_2
-    Call TEST_LINK_MODIFY
+    XXT3 = XXT3 + 1
+    If XXT3 > ScanPath.ListView1.ListItems.Count Then
+        Timer3.Enabled = False
+        TitleLbl.BackColor = Label1(836).BackColor
+        Timer_TITLE_COLOR_END_DONE.Enabled = True
+        Exit Sub
+    End If
     
-End If
-
-Form1.Label1(XXT2).BackColor = X_COLOR
-
-If FS.FileExists(LINK_DATA) = False And FS.FolderExists(LINK_DATA) = False Then
-    Label1(XXT2).BackColor = RGB(250, 127, 127) + QBColor(12)
-End If
-
-
-
+    Form1.Label1(XXT3).BackColor = X_COLOR(XXT3)
+    Form1.Label1(XXT3).Refresh
 
 End Sub
+
+
 
 Sub TEST_LINK_MODIFY()
 
@@ -17708,7 +18374,7 @@ Sub TEST_LINK_MODIFY()
 End Sub
 
 Private Sub TitleLbl_Click()
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads.txt" For Input As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt" For Input As #1
 Line Input #1, A1$
 Line Input #1, B1$
 Line Input #1, C1$
@@ -17720,19 +18386,19 @@ Call Label1_Click(0)
 End Sub
 
 Sub SaveLoggs()
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads.txt" For Output As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 01.txt" For Output As #1
 Print #1, A1$
 Print #1, B1$
 Print #1, C1$
 Close #1
 
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads Logg.txt" For Append As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 02.txt" For Append As #1
 Print #1, A1$
 Print #1, B1$
 Print #1, C1$
 Close #1
 
-Open App.Path + "\Text Loggs\" + OIP$ + " Loads Logg 02.txt" For Append As #1
+Open TEXT_PATH_2 + "\" + OIP$ + " Loads Logg 03.txt" For Append As #1
 Print #1, Format$(Now, "dd-mm-yyyy hh:mm:ss ") + A1$ + B1$
 Close #1
 

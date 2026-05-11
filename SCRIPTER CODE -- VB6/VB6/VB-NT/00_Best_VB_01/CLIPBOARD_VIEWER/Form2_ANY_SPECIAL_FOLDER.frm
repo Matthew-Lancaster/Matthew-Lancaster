@@ -5,6 +5,7 @@ Begin VB.Form FRM_SPECIAL_FOLDER
    ClientLeft      =   228
    ClientTop       =   576
    ClientWidth     =   10128
+   Icon            =   "Form2_ANY_SPECIAL_FOLDER.frx":0000
    LinkTopic       =   "Form2"
    ScaleHeight     =   5640
    ScaleWidth      =   10128
@@ -54,6 +55,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Public EXIT_TRUE
+
 
 Dim SP_FOLDER_COUNT
 
@@ -68,7 +71,7 @@ Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" _
     (ByVal lpClassName As String, _
      ByVal lpWindowName As String) _
     As Long
-Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
 Private Declare Function SHSimpleIDListFromPath Lib "shell32" Alias "#162" (ByVal szPath As String) As Long
 Private Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
