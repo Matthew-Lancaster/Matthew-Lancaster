@@ -8,9 +8,9 @@ Public Declare Function GetWindowText Lib "user32.dll" Alias "GetWindowTextA" (B
 
 Public Function GetFileFromHwnd(lngHwnd) As String
 
-'Timer12_Timer
+' Timer12_Timer
 
-'MsgBox getfilefromhwnd(Me.hwnd)
+' MsgBox getfilefromhwnd(Me.hwnd)
 
 Dim lngProcess&, hProcess&, bla&, C&
 Dim strFile As String

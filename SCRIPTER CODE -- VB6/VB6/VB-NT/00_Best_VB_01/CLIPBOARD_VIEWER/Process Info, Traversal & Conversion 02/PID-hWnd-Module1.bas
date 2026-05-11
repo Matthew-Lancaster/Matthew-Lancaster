@@ -168,90 +168,90 @@ Public Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal
 
 
 Function InstanceToWnd(ByVal target_pid As Long) As Long
-    Dim Test_HWND As Long, _
+    Dim test_hwnd As Long, _
         test_pid As Long, _
         test_thread_id As Long
     'Find the first window
-    Test_HWND = FindWindow(ByVal 0&, ByVal 0&)
-    Do While Test_HWND <> 0
+    test_hwnd = FindWindow(ByVal 0&, ByVal 0&)
+    Do While test_hwnd <> 0
        'Check if the window isn't a child
-       If GetParent(Test_HWND) = 0 Then
+       If GetParent(test_hwnd) = 0 Then
          'Get the window's thread
-         test_thread_id = GetWindowThreadProcessId(Test_HWND, _
+         test_thread_id = GetWindowThreadProcessId(test_hwnd, _
                              test_pid)
          If test_pid = target_pid Then
-            InstanceToWnd = Test_HWND
+            InstanceToWnd = test_hwnd
             Exit Do
          End If
        End If
        'retrieve the next window
-       Test_HWND = GetWindow(Test_HWND, GW_HWNDNEXT)
+       test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
     Loop
 End Function
 
 
 
 Function InstanceToWnd2(ByVal target_pid As Long) As Long
-    Dim Ash$
-    Dim Test_HWND As Long, _
+    Dim ASH$
+    Dim test_hwnd As Long, _
         test_pid As Long, _
         test_thread_id As Long
     
     
     'Find the first window
-    Test_HWND = FindWindow(ByVal 0&, ByVal 0&)
+    test_hwnd = FindWindow(ByVal 0&, ByVal 0&)
     subattackrealplay = 0
-    Do While Test_HWND <> 0
-       Ash$ = GetWindowTitle(Test_HWND)
-       If Mid$(Ash$, 1, 11) = "RealPlayer:" Then
+    Do While test_hwnd <> 0
+       ASH$ = GetWindowTitle(test_hwnd)
+       If Mid$(ASH$, 1, 11) = "RealPlayer:" Then
        subattackrealplay = 1
        End If
        'Check if the window isn't a child
-       If GetParent(Test_HWND) = 0 Then
+       If GetParent(test_hwnd) = 0 Then
          'Get the window's thread
         ' test_thread_id = GetWindowThreadProcessId(test_hwnd, _
                              test_pid)
          If test_pid = target_pid Then
-            InstanceToWnd2 = Test_HWND
+            InstanceToWnd2 = test_hwnd
             'Exit Do
          End If
        End If
        'retrieve the next window
-       Test_HWND = GetWindow(Test_HWND, GW_HWNDNEXT)
+       test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
     Loop
 End Function
 
 Private Function GetWindowTitle(ByVal hWnd As Long) As String
-   Dim l As Long
+   Dim L As Long
    Dim S As String
-   l = GetWindowTextLength(hWnd)
-   S = Space(l + 1)
-   GetWindowText hWnd, S, l + 1
-   GetWindowTitle = Left$(S, l)
+   L = GetWindowTextLength(hWnd)
+   S = Space(L + 1)
+   GetWindowText hWnd, S, L + 1
+   GetWindowTitle = Left$(S, L)
 End Function
 
 
 Function frontpage(ByVal target_pid As Long) As Long
-    Dim Ash$
-    Dim Test_HWND As Long, _
+    Dim ASH$
+    Dim test_hwnd As Long, _
         test_pid As Long, _
         test_thread_id As Long
     'Find the first window
-    Test_HWND = FindWindow(ByVal 0&, ByVal 0&)
+    test_hwnd = FindWindow(ByVal 0&, ByVal 0&)
     'subattackrealplay = 0
     frontpage = 0
-    Do While Test_HWND <> 0
-       Ash$ = GetWindowTitle(Test_HWND)
-       If InStr(Ash$, "MatthewLan.Com Web") Then
+    Do While test_hwnd <> 0
+       ASH$ = GetWindowTitle(test_hwnd)
+       If InStr(ASH$, "MatthewLan.Com Web") Then
        frontpage = 1
        Exit Do
        End If
-       If InStr(Ash$, "Matt.Lan BT Web") And InStr(Ash$, "MatthewLan.Com Web") = 0 Then
+       If InStr(ASH$, "Matt.Lan BT Web") And InStr(ASH$, "MatthewLan.Com Web") = 0 Then
        frontpage = 2
        Exit Do
        End If
        'Check if the window isn't a child
-       If GetParent(Test_HWND) = 0 Then
+       If GetParent(test_hwnd) = 0 Then
          'Get the window's thread
         ' test_thread_id = GetWindowThreadProcessId(test_hwnd, _
                              test_pid)
@@ -261,7 +261,7 @@ Function frontpage(ByVal target_pid As Long) As Long
          End If
        End If
        'retrieve the next window
-       Test_HWND = GetWindow(Test_HWND, GW_HWNDNEXT)
+       test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
     Loop
 End Function
 
@@ -351,13 +351,13 @@ End Function
 
 
  
- Public Function shellAndWait(ByVal fileName As String) As Long
+ Public Function shellAndWait(ByVal Filename As String) As Long
      Dim executionStatus As Long
      Dim ProcessHandle As Long
      Dim ReturnValue As Long
      'Execute the application/file
      'executionStatus = Shell(fileName, vbNormalFocus)
-     executionStatus = Shell(fileName, vbHide)
+     executionStatus = Shell(Filename, vbHide)
 
      'Get the Process Handle
      ProcessHandle = OpenProcess(&H100000, True, executionStatus)

@@ -1,0 +1,46 @@
+<body bgcolor="#000066" link="#00FF00" vlink="#FFFFFF" alink="#FFFF00" text="#3399FF" style="font-family: Arial" onLoad="ChangeImage(blah)">
+
+
+<script language="JavaScript">
+
+function ChangeImage(ImageName) {
+
+// declare the variables.
+
+
+var height = ImageName.height  // get the height of the user's screen.
+var width = ImageName.width  // get the width of the person's screen.
+var tagt = 0
+var tagtt = 1
+
+
+
+
+do {
+
+tagt = 0
+
+if (height > 100) {
+height -= 10
+width -= 10
+tagt = 1 
+}
+
+if (width > 100) {
+height -= 10
+width -= 10
+tagt = 1 
+}
+
+} while (tagt == tagtt);
+
+
+
+
+ImageName.height = height;
+ImageName.width = width;
+
+}
+</script>
+
+

@@ -1,5 +1,25 @@
 Attribute VB_Name = "A1_VarsMod"
 Option Explicit
+Public AlwaysOnTop_MODE
+Public RESIZE_DONE_ONCE
+Public FORM_SET_WIDTH_ONE
+Public LINE_PICKER_FORM_LIST_CLICK_VALUE
+
+Public DOUT
+
+Public DONT_UPDATE_CLIPBOARD_THIS_ONE
+Public DONT_UPDATE_CLIPBOARD_THIS_ONE_LUKER
+
+Public cProcesses As New clsCnProc
+
+Public WORKER_WITH_PICKER
+Public WORKER_WITH_DIR_PICKER
+
+Public RESIZE_WINDOWSTATE_CHANGE_WORKAROUND
+Public RESIZE_WINDOWSTATE_CHANGE
+
+Public TIME_CLIPBOARD_CHANGE
+Public SET_CLIPBOARD_NOT_UPDATE
 
 Public O_VAL_MINUTE_API
 
@@ -9,6 +29,7 @@ Public ERROR_LOGG_UPDATE_TIME, ERROR_LOGG_READ_STATUS
 Public RETRY2
 Public RETRY3
 Public EXIT_TRUE
+Public CHECK_PROJECT_DATE_IN_PROCESS
 
 
 Public CLIPBOARD_ACTIVITY_MOMENT
@@ -26,6 +47,8 @@ Public FILENAME_IN_USE_CHECK As String
 Public TIME_LAST_CLIPBOARD_ERROR_MSG
 Public TIME_LAST_CLIPBOARD
 Public TIME_LAST_CLIPBOARD_Timer1
+
+
 
 Public ClipFormatDesc2
 
@@ -48,7 +71,7 @@ Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" _
 Public Declare Function GetForegroundWindow Lib "user32" () As Long
 
 Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
-  (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+  (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
 Public Declare Function joyGetPos Lib "Winmm.dll" (ByVal uJoyID As Long, pji As JOYINFO) As Long
 
 Private Const EM_GETTHUMB = &HBE
@@ -79,7 +102,7 @@ Public Type JOYCAPS
 Public Declare Function joyGetDevCapsA Lib "Winmm.dll" (ByVal id As Long, lpCaps As JOYCAPS, ByVal uSize As Long) As Long
 Public Declare Function joyGetDevCapsW Lib "Winmm.dll" (ByVal id As Long, lpCaps As JOYCAPS, ByVal uSize As Long) As Long
 
-Private Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
+Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
 Private Type OSVERSIONINFO
     dwOSVersionInfoSize As Long
     dwMajorVersion As Long
@@ -94,8 +117,40 @@ B(10) As Boolean
 End Type
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
+
+Private Declare Sub ExitProcess Lib "Kernel32" (ByVal uExitCode As Long)
+Private Declare Function TerminateProcess _
+        Lib "Kernel32" _
+        (ByVal hProcess As Long, _
+        ByVal uExitCode As Long) As Long
+Private Declare Function GetCurrentProcess _
+        Lib "Kernel32" () As Long
+
+
+
+Public Sub Main() 'ByVal Args() As String)
+'    Dim oForm As New FRM_ClipTest ', dlgResult As DialogResult
+'    dlgResult = oForm.ShowDialog()
+    
+'    oForm.Show
+    
+'    ExitProcess 3  'IIf(dlgResult = DialogResult.OK, 0, dlgResult)
+    
+End Sub
+
+
+'Sub Main()
+'
+'Load FRM_ClipTest
+'
+'End Sub
+
+
+
+'Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
+'Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 Function GetUserName() As String
    Dim UserName As String * 255
    Call GetUserNameA(UserName, 255)
@@ -109,7 +164,11 @@ Function GetComputerName() As String
 End Function
 
 
-
+Public Function Terminate_Process()
+    On Error Resume Next
+'    ExitProcess GetExitCodeProcess(GetCurrentProcess, 1)
+    ExitProcess 1
+End Function
 
 Public Function API_CLIPBOARD_HOOK() As Integer
 
@@ -121,13 +180,13 @@ End Function
 
 
 Public Function GetVerticalScrollPos(rtb As RichTextBox) As Long
-  GetVerticalScrollPos = SendMessage(rtb.hwnd, EM_GETTHUMB, 0&, 0&)
+  GetVerticalScrollPos = SendMessage(rtb.hWnd, EM_GETTHUMB, 0&, 0&)
 End Function
 
 Public Sub SetVerticalScrollPos(rtb As RichTextBox, Position As Long)
     On Error Resume Next
     'Position = 100
-    SendMessage rtb.hwnd, WM_VSCROLL, SB_THUMBPOSITION + &H10000 * Position, Nothing
+    SendMessage rtb.hWnd, WM_VSCROLL, SB_THUMBPOSITION + &H10000 * Position, Nothing
 End Sub
 
 

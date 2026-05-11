@@ -1,0 +1,12 @@
+        'https://bt.edit.client.yahoo.com/bt/create_sub?.partner=bt-1&.master_login=matthew.lancaster%40btopenworld.com&.done=%2Faccounts&.scrumb=sXi6wDhX1Gq&.intl=uk
+        If xsop = 0 Then
+            xxz = 0
+            If InStr(URL$, "https://bt.edit.client.yahoo.com") > 0 Then xxz = 1
+            If xxz = 1 Then
+                xsop = 1
+                SendKeys "mosheraboveall2"
+                ExeGo = True
+                
+            End If
+        End If
+            

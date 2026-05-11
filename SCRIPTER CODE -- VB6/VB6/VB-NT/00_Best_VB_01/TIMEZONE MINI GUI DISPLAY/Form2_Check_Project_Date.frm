@@ -145,8 +145,8 @@ Dim DATE_OF_APP_EXE_AT_LOAD
 
 Dim FORM_LOAD_CHECK_PROJECT_DATE_DO_AH_ONCE
 
-Const HWND_TOPMOST = -1
-Const HWND_NOTOPMOST = -2
+Const hWnd_TOPMOST = -1
+Const hWnd_NOTOPMOST = -2
 Const MF_BYPOSITION = &H400&
 Const SWP_NOSIZE = &H1
 Const SWP_NOMOVE = &H2
@@ -157,7 +157,7 @@ Const SWP_SHOWWINDOW = &H40
 Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Dim XVB_DATE_SYNC_VB_PROJECT
 Dim XVB_DATE
@@ -167,8 +167,8 @@ Public EXIT_TRUE
 Public CHECK_PROJECT_DATE_IN_PROCESS
 
 
-Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -201,7 +201,7 @@ Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (B
 Private Const conSwNormal = 1
 
 '-----------------------------------------------------------------
-Private Declare Function GetVersionExA Lib "Kernel32" _
+Private Declare Function GetVersionExA Lib "kernel32" _
 (lpVersionInformation As OSVERSIONINFO) As Integer
 
 Private Type OSVERSIONINFO
@@ -240,8 +240,8 @@ End Type
 Private Type PROCESS_INFORMATION
   hProcess    As Long
   hThread     As Long
-  dwProcessId As Long
-  dwThreadId  As Long
+  dwProcessID As Long
+  dwThreadID  As Long
 End Type
 
 Private Type STARTUPINFO
@@ -272,13 +272,13 @@ Private Enum Priorities
   p_Idle = &H40
 End Enum
 
-Private Declare Function Process32First Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function Process32Next Lib "Kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
-Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
-Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadId As Long) As Long
+Private Declare Function Process32First Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function Process32Next Lib "kernel32" (ByVal hSnapShot As Long, lppe As PROCESSENTRY32) As Long
+Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal blnheritHandle As Long, ByVal dwAppProcessId As Long) As Long
+Private Declare Function OpenThread Lib "kernel32.dll" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Boolean, ByVal dwThreadID As Long) As Long
 Private Declare Function ResumeThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
 Private Declare Function SuspendThread Lib "kernel32.dll" (ByVal hThread As Long) As Long
-Private Declare Function TerminateProcess Lib "Kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
+Private Declare Function TerminateProcess Lib "kernel32" (ByVal ApphProcess As Long, ByVal uExitCode As Long) As Long
 Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
 Private Declare Function GetModuleFileNameEx Lib "psapi.dll" Alias "GetModuleFileNameExA" (ByVal hProcess As Long, ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, hModule As Long, ByVal cb As Long, cbNeeded As Long) As Long
@@ -288,9 +288,9 @@ Private Declare Function GetExitCodeThread Lib "kernel32.dll" (ByVal hThread As 
 Private Declare Function TerminateThread Lib "kernel32.dll" (ByVal hThread As Long, ByVal dwExitCode As Long) As Long
 Private Declare Function SetPriorityClass Lib "kernel32.dll" (ByVal hProcess As Long, ByVal dwPriorityClass As Long) As Boolean
 
-Private Declare Function CloseHandle Lib "Kernel32" _
+Private Declare Function CloseHandle Lib "kernel32" _
         (ByVal hObject As Long) As Long
-Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal dwFlags As Long, ByVal th32ProcessID As Long) As Long
 Private Const TH32CS_SNAPPROCESS = &H2&
 
 
@@ -316,7 +316,7 @@ Private Const FILE_SHARE_READ = &H1
 Private Const FILE_SHARE_WRITE = &H2
 Private Const GENERIC_WRITE = &H40000000
   
-Private Declare Function CreateFile Lib "Kernel32" Alias _
+Private Declare Function CreateFile Lib "kernel32" Alias _
    "CreateFileA" (ByVal lpFileName As String, _
    ByVal dwDesiredAccess As Long, _
    ByVal dwShareMode As Long, _
@@ -327,16 +327,16 @@ Private Declare Function CreateFile Lib "Kernel32" Alias _
    As Long
 
 Private Declare Function LocalFileTimeToFileTime Lib _
-    "Kernel32" (lpLocalFileTime As FILETIME, _
+    "kernel32" (lpLocalFileTime As FILETIME, _
     lpFileTime As FILETIME) As Long
 
-Private Declare Function SetFileTime Lib "Kernel32" _
+Private Declare Function SetFileTime Lib "kernel32" _
     (ByVal hFile As Long, ByVal MullP As Long, _
     ByVal NullP2 As Long, lpLastWriteTime _
     As FILETIME) As Long
 
 Private Declare Function SystemTimeToFileTime Lib _
-    "Kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
+    "kernel32" (lpSystemTime As SYSTEMTIME, lpFileTime _
     As FILETIME) As Long
  
 ' Private Declare Function CloseHandle Lib "kernel32" _
@@ -365,6 +365,11 @@ End Function
 
 Private Sub Form_Load()
     
+    
+    
+    Unload Me
+    Exit Sub
+    
     Set FSO = CreateObject("Scripting.FileSystemObject")
     Set WSHShell = CreateObject("WScript.Shell")
     Project_Check_Date.Caption = App.EXEName + ".EXE"
@@ -381,7 +386,7 @@ Private Sub Timer_FORM_LOAD_RUN_WAIT_Timer()
 
     Timer_FORM_LOAD_RUN_WAIT.Enabled = False
     Timer_VB_PROJECT_CHECKDATE.Enabled = False
-    TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = True
+'    TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = True
 
 End Sub
 
@@ -413,12 +418,12 @@ Private Sub Label1_Change()
     Next
     
     SET_FORM_PROJECT_CHECK_DATE_SOME_INFO_TRIGGER_SHOW = True
-    PR_WIDTH = Project_Check_Date.Label2.Width + 100
+    PR_WIDTH = Project_Check_Date.Label2.width + 100
     Project_Check_Date.Label2.FontSize = 15
     On Error Resume Next
-    Project_Check_Date.Width = PR_WIDTH
-    Project_Check_Date.Height = Project_Check_Date.Label2.Height + 800
-    Project_Check_Date.Left = Screen.Width / 2 - (PR_WIDTH / 2)
+    Project_Check_Date.width = PR_WIDTH
+    Project_Check_Date.height = Project_Check_Date.Label2.height + 800
+    Project_Check_Date.Left = Screen.width / 2 - (PR_WIDTH / 2)
     
     Project_Check_Date.Label2.Left = 0
     Project_Check_Date.Label2.Top = 100
@@ -433,6 +438,8 @@ End Sub
 
 
 Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
+
+    Exit Sub
 
     If Me.EXIT_TRUE = True Then
         Unload Me
@@ -517,8 +524,8 @@ Public Sub DATE_OF_APP_EXE_AT_LOAD_SUB()
                             ' -------------------------------------------
                             APP_PATH_AND_EXE = App.Path + "\" + App.EXEName + ".EXE"
                             APP_PATH_AND_EXE = Replace(APP_PATH_AND_EXE, " ", "*")
-                            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
-                            WSHShell.Run """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
+                            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
+                            WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
                             End
                         End If
                     End If
@@ -567,8 +574,8 @@ Public Sub DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB()
                         ' -------------------------------------------
                         APP_PATH_AND_EXE = App.Path + "\" + App.EXEName + ".EXE"
                         APP_PATH_AND_EXE = Replace(APP_PATH_AND_EXE, " ", "*")
-                        VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
-                        WSHShell.Run """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
+                        VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
+                        WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
                         End
                     End If
                 End If
@@ -904,7 +911,7 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
         
     End If
     
-    If READY_TO_GO = True Then
+    If READY_TO_GO = True And IsIDE = False Then
         
         '-------------------------
         'GETTING 6.2 IN WINDOWS 10
@@ -923,8 +930,8 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
             ' FIND_SCRIPTNAME_VAR = "\VBS - RELOAD AND COPY_"
             ' -----------------------------------------------
             Call WSCRIPT_SCRIPTNAME_RELOAD_KILLER
-            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
-            WSHShell.Run """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
+            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
+            WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
             End
             
         End If
@@ -1040,7 +1047,7 @@ Function ControlCall(ControlName As String, FormCheck As Form) As Boolean
     'Obj.Property = Value
 End Function
 
-Private Function CreateFolderTree(ByVal sPath As String) As Boolean
+Public Function CreateFolderTree(ByVal sPath As String) As Boolean
     Dim nPos As Integer
 
     If Mid(sPath, Len(sPath), 1) = "\" Then sPath = Mid(sPath, 1, Len(sPath) - 1)
@@ -1098,23 +1105,21 @@ End Function
 '***********************************************
 '# Check, whether we are in the IDE
 Function IsIDE() As Boolean
-  Debug.Assert Not TestIDE(IsIDE)
-  
-  'TESTING
+   Debug.Assert Not TestIDE(IsIDE)
+'  TESTING
 '  IsIDE = False
 End Function
 Private Function TestIDE(Test As Boolean) As Boolean
-  Test = True
+   Test = True
 End Function
 '***********************************************
 
-
 Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
-    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 End Function
 Private Function NotAlwaysOnTop(ByVal hWnd As Long)
     Dim flags
-    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, flags
+    SetWindowPos hWnd, hWnd_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
 End Function
 
 Sub WSCRIPT_SCRIPTNAME_RELOAD_KILLER()

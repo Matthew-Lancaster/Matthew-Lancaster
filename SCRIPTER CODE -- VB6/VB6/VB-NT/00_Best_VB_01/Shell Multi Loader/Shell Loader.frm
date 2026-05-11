@@ -3,15 +3,21 @@ Begin VB.Form Form1
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000007&
    Caption         =   "NotePad Loader"
-   ClientHeight    =   5925
-   ClientLeft      =   165
-   ClientTop       =   780
-   ClientWidth     =   14295
+   ClientHeight    =   5928
+   ClientLeft      =   192
+   ClientTop       =   840
+   ClientWidth     =   14292
    Icon            =   "Shell Loader.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5925
-   ScaleWidth      =   14295
+   ScaleHeight     =   5928
+   ScaleWidth      =   14292
    StartUpPosition =   3  'Windows Default
+   Begin VB.Timer SubCode_TIMER 
+      Enabled         =   0   'False
+      Interval        =   1
+      Left            =   9456
+      Top             =   60
+   End
    Begin VB.Timer Timer1 
       Interval        =   20
       Left            =   9090
@@ -28,7 +34,7 @@ Begin VB.Form Form1
       Width           =   2655
    End
    Begin VB.ListBox List1 
-      Height          =   645
+      Height          =   624
       Left            =   195
       TabIndex        =   19
       Top             =   4890
@@ -40,7 +46,7 @@ Begin VB.Form Form1
       Caption         =   "Load Log"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -53,6 +59,3366 @@ Begin VB.Form Form1
       Top             =   5265
       Visible         =   0   'False
       Width           =   2055
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   424
+      Left            =   2436
+      TabIndex        =   434
+      Top             =   1164
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   423
+      Left            =   2436
+      TabIndex        =   433
+      Top             =   1380
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   422
+      Left            =   2436
+      TabIndex        =   432
+      Top             =   1584
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   421
+      Left            =   2436
+      TabIndex        =   431
+      Top             =   1800
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   420
+      Left            =   2436
+      TabIndex        =   430
+      Top             =   2004
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   419
+      Left            =   2436
+      TabIndex        =   429
+      Top             =   2220
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   418
+      Left            =   2436
+      TabIndex        =   428
+      Top             =   2424
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   417
+      Left            =   2424
+      TabIndex        =   427
+      Top             =   4104
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   416
+      Left            =   2424
+      TabIndex        =   426
+      Top             =   3900
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   415
+      Left            =   2424
+      TabIndex        =   425
+      Top             =   3684
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   414
+      Left            =   2424
+      TabIndex        =   424
+      Top             =   3480
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   413
+      Left            =   2424
+      TabIndex        =   423
+      Top             =   3264
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   412
+      Left            =   2424
+      TabIndex        =   422
+      Top             =   3060
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   411
+      Left            =   2424
+      TabIndex        =   421
+      Top             =   2844
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   410
+      Left            =   2424
+      TabIndex        =   420
+      Top             =   2640
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   409
+      Left            =   1764
+      TabIndex        =   419
+      Top             =   2520
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   408
+      Left            =   1764
+      TabIndex        =   418
+      Top             =   2724
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   407
+      Left            =   1764
+      TabIndex        =   417
+      Top             =   2940
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   406
+      Left            =   1764
+      TabIndex        =   416
+      Top             =   3144
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   405
+      Left            =   1764
+      TabIndex        =   415
+      Top             =   3360
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   404
+      Left            =   1764
+      TabIndex        =   414
+      Top             =   3564
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   403
+      Left            =   1764
+      TabIndex        =   413
+      Top             =   3780
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   402
+      Left            =   1764
+      TabIndex        =   412
+      Top             =   3984
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   401
+      Left            =   1776
+      TabIndex        =   411
+      Top             =   2304
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   400
+      Left            =   1776
+      TabIndex        =   410
+      Top             =   2100
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   399
+      Left            =   1776
+      TabIndex        =   409
+      Top             =   1884
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   398
+      Left            =   1776
+      TabIndex        =   408
+      Top             =   1680
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   397
+      Left            =   1776
+      TabIndex        =   407
+      Top             =   1464
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   396
+      Left            =   1776
+      TabIndex        =   406
+      Top             =   1260
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   395
+      Left            =   1776
+      TabIndex        =   405
+      Top             =   1044
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   394
+      Left            =   4224
+      TabIndex        =   404
+      Top             =   1140
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   393
+      Left            =   4224
+      TabIndex        =   403
+      Top             =   1344
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   392
+      Left            =   4224
+      TabIndex        =   402
+      Top             =   1560
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   391
+      Left            =   4224
+      TabIndex        =   401
+      Top             =   1764
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   390
+      Left            =   4224
+      TabIndex        =   400
+      Top             =   1980
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   389
+      Left            =   4224
+      TabIndex        =   399
+      Top             =   2184
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   388
+      Left            =   4224
+      TabIndex        =   398
+      Top             =   2400
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   387
+      Left            =   4212
+      TabIndex        =   397
+      Top             =   4080
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   386
+      Left            =   4212
+      TabIndex        =   396
+      Top             =   3864
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   385
+      Left            =   4212
+      TabIndex        =   395
+      Top             =   3660
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   384
+      Left            =   4212
+      TabIndex        =   394
+      Top             =   3444
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   383
+      Left            =   4212
+      TabIndex        =   393
+      Top             =   3240
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   382
+      Left            =   4212
+      TabIndex        =   392
+      Top             =   3024
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   381
+      Left            =   4212
+      TabIndex        =   391
+      Top             =   2820
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   380
+      Left            =   4212
+      TabIndex        =   390
+      Top             =   2604
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   379
+      Left            =   4872
+      TabIndex        =   389
+      Top             =   2724
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   378
+      Left            =   4872
+      TabIndex        =   388
+      Top             =   2940
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   377
+      Left            =   4872
+      TabIndex        =   387
+      Top             =   3144
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   376
+      Left            =   4872
+      TabIndex        =   386
+      Top             =   3360
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   375
+      Left            =   4872
+      TabIndex        =   385
+      Top             =   3564
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   374
+      Left            =   4872
+      TabIndex        =   384
+      Top             =   3780
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   373
+      Left            =   4872
+      TabIndex        =   383
+      Top             =   3984
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   372
+      Left            =   4872
+      TabIndex        =   382
+      Top             =   4200
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   371
+      Left            =   4884
+      TabIndex        =   381
+      Top             =   2520
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   370
+      Left            =   4884
+      TabIndex        =   380
+      Top             =   2304
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   369
+      Left            =   4884
+      TabIndex        =   379
+      Top             =   2100
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   368
+      Left            =   4884
+      TabIndex        =   378
+      Top             =   1884
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   367
+      Left            =   4884
+      TabIndex        =   377
+      Top             =   1680
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   366
+      Left            =   4884
+      TabIndex        =   376
+      Top             =   1464
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   365
+      Left            =   4884
+      TabIndex        =   375
+      Top             =   1260
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   364
+      Left            =   4884
+      TabIndex        =   374
+      Top             =   1032
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   363
+      Left            =   3180
+      TabIndex        =   373
+      Top             =   1032
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   362
+      Left            =   3180
+      TabIndex        =   372
+      Top             =   1260
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   361
+      Left            =   3180
+      TabIndex        =   371
+      Top             =   1464
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   360
+      Left            =   3180
+      TabIndex        =   370
+      Top             =   1680
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   359
+      Left            =   3180
+      TabIndex        =   369
+      Top             =   1884
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   358
+      Left            =   3180
+      TabIndex        =   368
+      Top             =   2100
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   357
+      Left            =   3180
+      TabIndex        =   367
+      Top             =   2304
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   356
+      Left            =   3180
+      TabIndex        =   366
+      Top             =   2520
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   355
+      Left            =   3156
+      TabIndex        =   365
+      Top             =   4200
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   354
+      Left            =   3156
+      TabIndex        =   364
+      Top             =   3984
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   353
+      Left            =   3156
+      TabIndex        =   363
+      Top             =   3780
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   352
+      Left            =   3156
+      TabIndex        =   362
+      Top             =   3564
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   351
+      Left            =   3156
+      TabIndex        =   361
+      Top             =   3360
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   350
+      Left            =   3156
+      TabIndex        =   360
+      Top             =   3144
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   349
+      Left            =   3156
+      TabIndex        =   359
+      Top             =   2940
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   348
+      Left            =   3156
+      TabIndex        =   358
+      Top             =   2724
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   347
+      Left            =   5076
+      TabIndex        =   357
+      Top             =   3132
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   346
+      Left            =   5076
+      TabIndex        =   356
+      Top             =   3348
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   345
+      Left            =   5076
+      TabIndex        =   355
+      Top             =   3552
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   344
+      Left            =   5076
+      TabIndex        =   354
+      Top             =   3768
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   343
+      Left            =   5076
+      TabIndex        =   353
+      Top             =   3972
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   342
+      Left            =   5076
+      TabIndex        =   352
+      Top             =   4188
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   341
+      Left            =   5076
+      TabIndex        =   351
+      Top             =   4392
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   340
+      Left            =   5100
+      TabIndex        =   350
+      Top             =   2928
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   339
+      Left            =   5100
+      TabIndex        =   349
+      Top             =   2712
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   338
+      Left            =   5100
+      TabIndex        =   348
+      Top             =   2508
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   337
+      Left            =   5100
+      TabIndex        =   347
+      Top             =   2292
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   336
+      Left            =   5100
+      TabIndex        =   346
+      Top             =   2088
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   335
+      Left            =   5100
+      TabIndex        =   345
+      Top             =   1872
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   334
+      Left            =   5100
+      TabIndex        =   344
+      Top             =   1668
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   333
+      Left            =   5100
+      TabIndex        =   343
+      Top             =   1440
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   332
+      Left            =   6804
+      TabIndex        =   342
+      Top             =   1440
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   331
+      Left            =   6804
+      TabIndex        =   341
+      Top             =   1668
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   330
+      Left            =   6804
+      TabIndex        =   340
+      Top             =   1872
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   329
+      Left            =   6804
+      TabIndex        =   339
+      Top             =   2088
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   328
+      Left            =   6804
+      TabIndex        =   338
+      Top             =   2292
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   327
+      Left            =   6804
+      TabIndex        =   337
+      Top             =   2508
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   326
+      Left            =   6804
+      TabIndex        =   336
+      Top             =   2712
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   325
+      Left            =   6804
+      TabIndex        =   335
+      Top             =   2928
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   324
+      Left            =   6792
+      TabIndex        =   334
+      Top             =   4392
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   323
+      Left            =   6792
+      TabIndex        =   333
+      Top             =   4188
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   322
+      Left            =   6792
+      TabIndex        =   332
+      Top             =   3972
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   321
+      Left            =   6792
+      TabIndex        =   331
+      Top             =   3768
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   320
+      Left            =   6792
+      TabIndex        =   330
+      Top             =   3552
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   319
+      Left            =   6792
+      TabIndex        =   329
+      Top             =   3348
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   318
+      Left            =   6792
+      TabIndex        =   328
+      Top             =   3132
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   317
+      Left            =   6132
+      TabIndex        =   327
+      Top             =   3012
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   316
+      Left            =   6132
+      TabIndex        =   326
+      Top             =   3228
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   315
+      Left            =   6132
+      TabIndex        =   325
+      Top             =   3432
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   314
+      Left            =   6132
+      TabIndex        =   324
+      Top             =   3648
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   313
+      Left            =   6132
+      TabIndex        =   323
+      Top             =   3852
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   312
+      Left            =   6132
+      TabIndex        =   322
+      Top             =   4068
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   311
+      Left            =   6132
+      TabIndex        =   321
+      Top             =   4272
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   310
+      Left            =   6144
+      TabIndex        =   320
+      Top             =   2808
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   309
+      Left            =   6144
+      TabIndex        =   319
+      Top             =   2592
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   308
+      Left            =   6144
+      TabIndex        =   318
+      Top             =   2388
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   307
+      Left            =   6144
+      TabIndex        =   317
+      Top             =   2172
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   306
+      Left            =   6144
+      TabIndex        =   316
+      Top             =   1968
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   305
+      Left            =   6144
+      TabIndex        =   315
+      Top             =   1752
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   304
+      Left            =   6144
+      TabIndex        =   314
+      Top             =   1548
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   303
+      Left            =   6144
+      TabIndex        =   313
+      Top             =   1320
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   302
+      Left            =   3696
+      TabIndex        =   312
+      Top             =   1224
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   301
+      Left            =   3696
+      TabIndex        =   311
+      Top             =   1452
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   300
+      Left            =   3696
+      TabIndex        =   310
+      Top             =   1668
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   299
+      Left            =   3696
+      TabIndex        =   309
+      Top             =   1872
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   298
+      Left            =   3696
+      TabIndex        =   308
+      Top             =   2088
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   297
+      Left            =   3696
+      TabIndex        =   307
+      Top             =   2292
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   296
+      Left            =   3696
+      TabIndex        =   306
+      Top             =   2508
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   295
+      Left            =   3696
+      TabIndex        =   305
+      Top             =   2712
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   294
+      Left            =   3684
+      TabIndex        =   304
+      Top             =   4392
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   293
+      Left            =   3684
+      TabIndex        =   303
+      Top             =   4188
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   292
+      Left            =   3684
+      TabIndex        =   302
+      Top             =   3972
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   291
+      Left            =   3684
+      TabIndex        =   301
+      Top             =   3768
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   290
+      Left            =   3684
+      TabIndex        =   300
+      Top             =   3552
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   289
+      Left            =   3684
+      TabIndex        =   299
+      Top             =   3348
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   288
+      Left            =   3684
+      TabIndex        =   298
+      Top             =   3132
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   287
+      Left            =   3684
+      TabIndex        =   297
+      Top             =   2928
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   286
+      Left            =   4344
+      TabIndex        =   296
+      Top             =   3048
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   285
+      Left            =   4344
+      TabIndex        =   295
+      Top             =   3252
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   284
+      Left            =   4344
+      TabIndex        =   294
+      Top             =   3468
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   283
+      Left            =   4344
+      TabIndex        =   293
+      Top             =   3672
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   282
+      Left            =   4344
+      TabIndex        =   292
+      Top             =   3888
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   281
+      Left            =   4344
+      TabIndex        =   291
+      Top             =   4092
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   280
+      Left            =   4344
+      TabIndex        =   290
+      Top             =   4308
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   279
+      Left            =   4356
+      TabIndex        =   289
+      Top             =   2832
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   278
+      Left            =   4356
+      TabIndex        =   288
+      Top             =   2628
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   277
+      Left            =   4356
+      TabIndex        =   287
+      Top             =   2412
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   276
+      Left            =   4356
+      TabIndex        =   286
+      Top             =   2208
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   275
+      Left            =   4356
+      TabIndex        =   285
+      Top             =   1992
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   274
+      Left            =   4356
+      TabIndex        =   284
+      Top             =   1788
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   273
+      Left            =   4356
+      TabIndex        =   283
+      Top             =   1572
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   272
+      Left            =   4356
+      TabIndex        =   282
+      Top             =   1344
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   271
+      Left            =   2652
+      TabIndex        =   281
+      Top             =   1344
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   270
+      Left            =   2652
+      TabIndex        =   280
+      Top             =   1572
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   269
+      Left            =   2652
+      TabIndex        =   279
+      Top             =   1788
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   268
+      Left            =   2652
+      TabIndex        =   278
+      Top             =   1992
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   267
+      Left            =   2652
+      TabIndex        =   277
+      Top             =   2208
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   266
+      Left            =   2652
+      TabIndex        =   276
+      Top             =   2412
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   265
+      Left            =   2652
+      TabIndex        =   275
+      Top             =   2628
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   264
+      Left            =   2652
+      TabIndex        =   274
+      Top             =   2832
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   263
+      Left            =   2640
+      TabIndex        =   273
+      Top             =   4308
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   262
+      Left            =   2640
+      TabIndex        =   272
+      Top             =   4092
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   261
+      Left            =   2640
+      TabIndex        =   271
+      Top             =   3888
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   260
+      Left            =   2640
+      TabIndex        =   270
+      Top             =   3672
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   259
+      Left            =   2640
+      TabIndex        =   269
+      Top             =   3468
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   258
+      Left            =   2640
+      TabIndex        =   268
+      Top             =   3252
+      Width           =   1440
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackColor       =   &H0000FF00&
+      Caption         =   "WinAmp Caller"
+      BeginProperty Font 
+         Name            =   "Arial Rounded MT Bold"
+         Size            =   9.6
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   228
+      Index           =   257
+      Left            =   2640
+      TabIndex        =   267
+      Top             =   3048
+      Width           =   1440
    End
    Begin VB.Label Label5 
       BackColor       =   &H0056E25E&
@@ -69,7 +3435,7 @@ Begin VB.Form Form1
       Caption         =   "Label4"
       BeginProperty Font 
          Name            =   "Microsoft Sans Serif"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -88,7 +3454,7 @@ Begin VB.Form Form1
       Caption         =   "Label3"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -118,7 +3484,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -138,7 +3504,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -158,7 +3524,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -178,7 +3544,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -198,7 +3564,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -218,7 +3584,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -238,7 +3604,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -258,7 +3624,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -278,7 +3644,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -298,7 +3664,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -318,7 +3684,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -338,7 +3704,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -358,7 +3724,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -378,7 +3744,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -398,7 +3764,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -418,7 +3784,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -438,7 +3804,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -458,7 +3824,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -478,7 +3844,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -498,7 +3864,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -518,7 +3884,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -538,7 +3904,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -558,7 +3924,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -578,7 +3944,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -598,7 +3964,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -618,7 +3984,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -638,7 +4004,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -658,7 +4024,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -678,7 +4044,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -698,7 +4064,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -718,7 +4084,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -738,7 +4104,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -758,7 +4124,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -778,7 +4144,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -798,7 +4164,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -818,7 +4184,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -838,7 +4204,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -858,7 +4224,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -878,7 +4244,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -898,7 +4264,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -918,7 +4284,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -938,7 +4304,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -958,7 +4324,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -978,7 +4344,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -998,7 +4364,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1018,7 +4384,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1038,7 +4404,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1058,7 +4424,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1078,7 +4444,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1098,7 +4464,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1118,7 +4484,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1138,7 +4504,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1158,7 +4524,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1178,7 +4544,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1198,7 +4564,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1218,7 +4584,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1238,7 +4604,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1258,7 +4624,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1278,7 +4644,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1298,7 +4664,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1318,7 +4684,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1338,7 +4704,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1358,7 +4724,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1378,7 +4744,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1398,7 +4764,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1418,7 +4784,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1438,7 +4804,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1458,7 +4824,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1478,7 +4844,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1498,7 +4864,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1518,7 +4884,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1538,7 +4904,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1558,7 +4924,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1578,7 +4944,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1598,7 +4964,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1618,7 +4984,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1638,7 +5004,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1658,7 +5024,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1678,7 +5044,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1698,7 +5064,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1718,7 +5084,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1738,7 +5104,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1758,7 +5124,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1778,7 +5144,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1798,7 +5164,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1818,7 +5184,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1838,7 +5204,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1858,7 +5224,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1878,7 +5244,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1898,7 +5264,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1918,7 +5284,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1938,7 +5304,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1958,7 +5324,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1978,7 +5344,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1998,7 +5364,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2018,7 +5384,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2038,7 +5404,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -2058,7 +5424,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2078,7 +5444,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2098,7 +5464,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2118,7 +5484,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2138,7 +5504,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2158,7 +5524,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2178,7 +5544,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2198,7 +5564,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2218,7 +5584,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2238,7 +5604,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2258,7 +5624,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2278,7 +5644,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2298,7 +5664,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2318,7 +5684,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2338,7 +5704,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2358,7 +5724,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2378,7 +5744,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2398,7 +5764,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2418,7 +5784,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2438,7 +5804,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2458,7 +5824,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2478,7 +5844,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2498,7 +5864,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2518,7 +5884,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2538,7 +5904,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2558,7 +5924,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2578,7 +5944,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2598,7 +5964,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2618,7 +5984,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2638,7 +6004,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2658,7 +6024,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2678,7 +6044,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2698,7 +6064,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2718,7 +6084,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2738,7 +6104,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2758,7 +6124,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2778,7 +6144,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2798,7 +6164,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2818,7 +6184,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2838,7 +6204,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2858,7 +6224,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2878,7 +6244,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2898,7 +6264,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2918,7 +6284,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2938,7 +6304,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2958,7 +6324,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2978,7 +6344,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -2998,7 +6364,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3018,7 +6384,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3038,7 +6404,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3058,7 +6424,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3078,7 +6444,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3098,7 +6464,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3118,7 +6484,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3138,7 +6504,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3158,7 +6524,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3178,7 +6544,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3198,7 +6564,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3218,7 +6584,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3238,7 +6604,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3258,7 +6624,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3278,7 +6644,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3298,7 +6664,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3318,7 +6684,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3338,7 +6704,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3358,7 +6724,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3378,7 +6744,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3398,7 +6764,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3418,7 +6784,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3438,7 +6804,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3458,7 +6824,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3478,7 +6844,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3498,7 +6864,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3518,7 +6884,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3538,7 +6904,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3558,7 +6924,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3578,7 +6944,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3598,7 +6964,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3618,7 +6984,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3638,7 +7004,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3658,7 +7024,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3678,7 +7044,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3698,7 +7064,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3718,7 +7084,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3738,7 +7104,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3758,7 +7124,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3778,7 +7144,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3798,7 +7164,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3818,7 +7184,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3838,7 +7204,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3858,7 +7224,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3878,7 +7244,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3898,7 +7264,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3918,7 +7284,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3938,7 +7304,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3958,7 +7324,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3978,7 +7344,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -3998,7 +7364,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4018,7 +7384,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4038,7 +7404,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4058,7 +7424,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4078,7 +7444,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4098,7 +7464,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4118,7 +7484,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4138,7 +7504,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4158,7 +7524,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4178,7 +7544,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4198,7 +7564,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4218,7 +7584,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4238,7 +7604,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4258,7 +7624,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4278,7 +7644,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4298,7 +7664,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4318,7 +7684,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4338,7 +7704,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4358,7 +7724,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4378,7 +7744,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4398,7 +7764,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4418,7 +7784,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4438,7 +7804,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4458,7 +7824,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4478,7 +7844,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4498,7 +7864,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4518,7 +7884,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4538,7 +7904,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4558,7 +7924,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4578,7 +7944,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4598,7 +7964,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4618,7 +7984,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4638,7 +8004,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4658,7 +8024,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4678,7 +8044,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4698,7 +8064,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4718,7 +8084,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4738,7 +8104,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4758,7 +8124,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4778,7 +8144,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4798,7 +8164,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4818,7 +8184,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4838,7 +8204,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4858,7 +8224,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4878,7 +8244,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4898,7 +8264,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4918,7 +8284,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -4948,7 +8314,7 @@ Begin VB.Form Form1
       Caption         =   "Shell NotePad Loader"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   11.25
+         Size            =   11.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4968,7 +8334,7 @@ Begin VB.Form Form1
       Caption         =   "---- Load Last File Click Here ---- "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -4988,7 +8354,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5008,7 +8374,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5028,7 +8394,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5048,7 +8414,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5068,7 +8434,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5088,7 +8454,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5108,7 +8474,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5128,7 +8494,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5148,7 +8514,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5168,7 +8534,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5188,7 +8554,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5208,7 +8574,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5228,7 +8594,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5248,7 +8614,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5268,7 +8634,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5288,7 +8654,7 @@ Begin VB.Form Form1
       Caption         =   "WinAmp Caller"
       BeginProperty Font 
          Name            =   "Arial Rounded MT Bold"
-         Size            =   9.75
+         Size            =   9.6
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -5301,6 +8667,9 @@ Begin VB.Form Form1
       TabIndex        =   0
       Top             =   810
       Width           =   1440
+   End
+   Begin VB.Menu MNU_EXIT 
+      Caption         =   "Exit"
    End
    Begin VB.Menu Mnu_Menu 
       Caption         =   "Menu"
@@ -5399,9 +8768,12 @@ Private Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey&) As Integer
 Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (hpvDest As Any, hpvSource As Any, ByVal cbCopy As Long)
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
 
+Public FontSizez
+
 Public LBINX As Integer, LBINXold, FirstRun, ASD, KeyBounce
 
-Dim BKCol(200)
+' MUCH SURE ENOUGH TO HOLD LABEL ARRAY
+Dim BKCol(9000)
 
 Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, _
     ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, _
@@ -5467,7 +8839,7 @@ For r = 1 To ScanPath.ListView1.ListItems.Count
         'MsgBox A1$ + B1$
         'Shell "C:\WINDOZE\system32\NOTEPAD.EXE """ + A1$ + B1$ + """", vbNormalFocus
         vLaunch A1$ + B1$, vbNullString
-
+        ' MsgBox "1111"
         End
     End If
     
@@ -5479,6 +8851,7 @@ End Sub
 
 Private Sub Encryptexe_Click()
 Shell "D:\VB6\VB-NT\00_Best_VB_01\Encrypt Email Send\Send Encrypt.exe", vbNormalFocus
+MsgBox "2222"
 End
 End Sub
 
@@ -5487,16 +8860,17 @@ FixIS = True
 End Sub
 
 Private Sub Form_Activate()
-Form1.SetFocus
+On Error Resume Next
+Me.SetFocus
 Call AlwaysOnTop(Me.hWnd)
-Form1.SetFocus
+Me.SetFocus
 End Sub
 
 Private Sub Form_Load()
 Form1.WindowState = 1
 SetTrueToLoadLast = False
 
-If App.PrevInstance = True Then End
+If App.PrevInstance = True Then End ' MsgBox "3333": End
 
 ReDim A4$(500), B4$(500), C4$(500)
 
@@ -5574,18 +8948,21 @@ End If
     
 TitleLbl = "Last File -- " + C1$
 
-'FontSizez = 9
+FontSizez = 8
 
 Lbl2.Caption = OIP$ + " Auto Loader"
 Form1.Caption = Lbl2.Caption
 
+On Error Resume Next
 Form1.Top = 480
 Form1.Left = 0
+On Error GoTo 0
 
 Call FormStart.FormStartLoader
 
-Call SubCode
+'Call SubCode
 
+SubCode_TIMER.Enabled = True
 
 
 Exit Sub
@@ -5599,8 +8976,9 @@ End If
 
 End Sub
 
-Sub SubCode()
+Sub SubCode_TIMER_Timer()
 
+SubCode_TIMER.Enabled = False
 
 Lbl2.Top = 0
 Lbl2.Left = 0
@@ -5660,7 +9038,10 @@ For r = 1 To ScanPath.ListView1.ListItems.Count
     oseedy$ = seedy$
     If txr = -1 Then Label1(r).BackColor = Label5.BackColor
     If txr = 0 Then Label1(r).BackColor = Label4.BackColor
-    BKCol(r) = Label1(r).BackColor
+        Err.Clear
+        On Error Resume Next
+        BKCol(r) = Label1(r).BackColor
+        If Err.Number > 0 Then Exit For
     
     ttg$ = ScanPath.ListView1.ListItems.Item(r)
     Mid$(ttg$, 1, 1) = UCase$(Mid$(ttg$, 1, 1))
@@ -5718,6 +9099,10 @@ For r = 1 To ScanPath.ListView1.ListItems.Count
 Label1(r).AutoSize = False
 
 DoEvents
+
+
+
+
 xxb = Label1(r - 1).Top
 xxb = Form1.Height
 
@@ -5731,10 +9116,10 @@ End If
 
 Label1(r).Width = xy(xgax2 + 1) - 20
 Label1(r).Left = xgag
-
-
-
 Next
+
+
+
 fheightx = 0
 For RT = 1 To ScanPath.ListView1.ListItems.Count
     fheight = Label1(RT).Top + Label1(RT).Height
@@ -5745,20 +9130,34 @@ For RT = 1 To ScanPath.ListView1.ListItems.Count
     End If
 Next
 
-Form1.Width = Label1(r - 1).Left + Label1(r - 1).Width + 120
-Form1.Height = fheightx + 700
-Lbl2.Width = Form1.Width
-TitleLbl.Top = tg
-TitleLbl.Left = 0
-Combo1.Top = tg
-Combo1.Left = (Form1.Width / 2) + 15
+On Error Resume Next
+    
+    Form1.Width = Label1(r - 1).Left + Label1(r - 1).Width + 120
+    Form1.Height = fheightx + 700
+    
+    
+    Lbl2.Width = Form1.Width
+    
+    TitleLbl.Top = tg
+    TitleLbl.Left = 0
+    
+    Combo1.Top = tg
+    Combo1.Left = (Form1.Width / 2) + 15
 
+    ' ---------------------------------------------------------
+    ' HERE INTERMITANTLY MAK THE APP NOT START WITHOUT A MSGBOX
+    ' ---------------------------------------------------------
+    TitleLbl.Width = Form1.Width
+    Combo1.Width = (Form1.Width / 2) - 150
 
-TitleLbl.Width = Form1.Width
-Combo1.Width = (Form1.Width / 2) - 150
-Lbl3.Top = fheight - 410
-Lbl3.Width = Form1.Width
-Lbl3.Left = 0
+    Lbl3.Top = fheight - 410
+    Lbl3.Width = Form1.Width
+    Lbl3.Left = 0
+
+On Error GoTo 0
+
+' MsgBox "END"
+
 Form1.Refresh
 
 'Form1.Height = TitleLbl.Top + TitleLbl.Height + 4000
@@ -5776,7 +9175,7 @@ A = GetAsyncKeyState(38)
 A = GetAsyncKeyState(40)
 A = GetAsyncKeyState(37)
 A = GetAsyncKeyState(39)
-
+' MsgBox "4444 UNLOAD"
 End
 End Sub
 
@@ -5795,6 +9194,7 @@ End If
 
 If LoadFolder = True Then
     Shell "explorer /e, " + A1$, vbNormalFocus
+    ' MsgBox "5555 SHELL"
     End
 End If
 
@@ -5835,6 +9235,8 @@ End Sub
 Private Sub Load_Click()
 
 Shell "explorer /e, E:\01 VB Shell Folders\00 " + App.EXEName, vbNormalFocus
+' MsgBox "7777 EXPLORER"
+
 End
 
 End Sub
@@ -5842,6 +9244,7 @@ End Sub
 Private Sub Mhu_VB6_Click()
 
 Shell """C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE"" """ + App.Path + "\" + App.EXEName + ".vbp""", vbNormalFocus
+' MsgBox "8888 SHELL VB"
 End
 
 End Sub
@@ -5930,6 +9333,8 @@ tt = Mid(tt, 2)
 Clipboard.Clear
 Clipboard.SetText (tt)
 
+' MsgBox "9999 CLIPBOARD"
+
 End
 
 
@@ -5972,8 +9377,16 @@ Loop Until tt2 = 0
 Clipboard.Clear
 Clipboard.SetText (Ee)
 
+' MsgBox "1010 CLIPBOARD"
+
+
 End
 
+End Sub
+
+Private Sub MNU_EXIT_Click()
+' MsgBox "11-11 MENU EXIT"
+End
 End Sub
 
 Private Sub Mnu_Info_Rapid_Email_Click()
@@ -5983,6 +9396,7 @@ ii = " /nologo /DirmD:\EMAIL_OE*RAPID*QUICK\"
 'ii = " /nologo /DirW:"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe"
 End
 End Sub
 
@@ -5992,6 +9406,7 @@ ii = " /nologo /DirD:\# MY DOCS\01*My*Documents\"
 'ii = " /nologo /DirW:"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 2222"
 End
 
 End Sub
@@ -6002,6 +9417,7 @@ ii = " /nologo /DirD:\# MY DOCS\# 01 My Documents\CALLerID"
 'ii = " /nologo /DirW:"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 3333"
 End
 
 End Sub
@@ -6010,12 +9426,14 @@ Private Sub Mnu_INFORAPID_Click()
 
 ii = " /nologo /DirD:\# MY DOCS\01*My*Documents\03*NotePad*Files\"
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 4444"
 End
 End Sub
 
 Private Sub Mnu_INFORapID_VB_Click()
 ii = " /nologo /DirD:\VB6\VB-NT\"
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 5555"
 End
 
 End Sub
@@ -6038,6 +9456,7 @@ Private Sub Mnu_Rapid_NNTP_Click()
 ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\NNTP\#OLD*ARCHIVE*TXT"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 5555 7777"
 End
 End Sub
 
@@ -6046,6 +9465,7 @@ Private Sub Mnu_Rapid_Web_Click()
 ii = " /nologo /DirC:\01*My*Documents*02\My*Webs\MatthewLan.Com*Web"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 8888"
 End
 
 'WithSubdirectories
@@ -6058,6 +9478,7 @@ Private Sub Mnu_Rapid_DATE1991_Click()
 ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\Date1991\00*Data"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 9999"
 End
 
 'WithSubdirectories
@@ -6069,6 +9490,7 @@ Private Sub Mnu_Rapid_URL_Click()
 ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\URL*Logger\URL Logg*.txt"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 1010"
 End
 
 'WithSubdirectories
@@ -6086,6 +9508,7 @@ Private Sub Mnu_Rapid_Drives_Click()
 ii = " /nologo /DirD:\00*Loggers*Text\01_Drive_Lists\01*Drive*List --Drive--*.TXT"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
+' MsgBox "seRapid.exe 1212"
 End
 
 'WithSubdirectories
@@ -6100,7 +9523,7 @@ Private Sub Mnu_Rapid_BASCLSFRM_Click()
 ii = " /nologo /DirD:\VB6\VB-NT\01*Classes&Mods-CLS-BAS\00_Scan_Merge_01*Classes&Mods-CLS-BAS.txt"
 
 Shell "C:\Program Files\seRapid\seRapid.exe " + ii, vbNormalFocus
-
+' MsgBox "seRapid.exe 1414"
 End
 
 'WithSubdirectories
@@ -6121,8 +9544,16 @@ ScanPath.ListView1.ListItems.Clear
 
 Call FormStart.FormStartLoader
 
-Call SubCode
-
+'Call SubCode
+If SubCode_TIMER.Enabled = False Then
+    WW = 0
+    Do
+        WW = WW + 1
+        DoEvents
+    Loop Until SubCode_TIMER.Enabled = False Or WW > 90000
+    
+    SubCode_TIMER.Enabled = True
+End If
 End Sub
 
 Private Sub Timer1_Timer()
@@ -6164,19 +9595,21 @@ End If
 If GetAsyncKeyState(223) Then 'Keypad up
 '   Call TitleLbl_Click
 End If
-If GetAsyncKeyState(27) Then 'Keypad up
-   Call TitleLbl_Click
+If GetAsyncKeyState(27) Then 'Keypad up -- NOT CORRECT ESCAPE
+   'Call TitleLbl_Click
+   End
 End If
 If GetAsyncKeyState(32) Then 'Keypad up
+    ' MsgBox "KEYPAD UP"
    End
 End If
 If GetAsyncKeyState(38) Then 'Keypad up
    LBINX = LBINX - 1
-    Call Timer1Set
+   Call Timer1Set
 End If
 If GetAsyncKeyState(40) Then 'Keypad down
    LBINX = LBINX + 1
-    Call Timer1Set
+   Call Timer1Set
 End If
 
 If GetAsyncKeyState(37) Then 'Keypad left

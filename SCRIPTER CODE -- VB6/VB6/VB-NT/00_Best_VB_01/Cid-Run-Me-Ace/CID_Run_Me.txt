@@ -1,0 +1,622 @@
+Private Const WINAMP_OPTIONS_EQ = 40036              ' // toggles the EQ window
+Private Const WINAMP_OPTIONS_PLEDIT = 40040          ' // toggles the playlist window
+Private Const WINAMP_VOLUMEUP = 40058                ' // turns the volume up a little
+Private Const WINAMP_VOLUMEDOWN = 40059              ' // turns the volume down a little
+Private Const WINAMP_FFWD5S = 40060                  ' // fast forwards 5 seconds
+Private Const WINAMP_REW5S = 40061                   ' // rewinds 5 seconds
+'// the following are the five main control buttons, with optionally shift
+'// or control pressed
+'// (for the exact functions of each, just try it out)
+Private Const WINAMP_BUTTON1 = 40044                 '
+Private Const WINAMP_BUTTON2 = 40045                 '
+Private Const WINAMP_BUTTON3 = 40046                 '
+Private Const WINAMP_BUTTON4 = 40047                 '
+Private Const WINAMP_BUTTON5 = 40048                 '
+Private Const WINAMP_BUTTON1_SHIFT = 40144           '
+Private Const WINAMP_BUTTON2_SHIFT = 40145           '
+Private Const WINAMP_BUTTON3_SHIFT = 40146           '
+Private Const WINAMP_BUTTON4_SHIFT = 40147           '
+Private Const WINAMP_BUTTON5_SHIFT = 40148           '
+Private Const WINAMP_BUTTON1_CTRL = 40154            '
+Private Const WINAMP_BUTTON2_CTRL = 40155            '
+Private Const WINAMP_BUTTON3_CTRL = 40156            '
+Private Const WINAMP_BUTTON4_CTRL = 40157
+Private Const WINAMP_BUTTON5_CTRL = 40158            '
+
+Private Const WINAMP_FILE_PLAY = 40029               ' // pops up the load file(s) box
+Private Const WINAMP_OPTIONS_PREFS = 40012           ' // pops up the preferences
+Private Const WINAMP_OPTIONS_AOT = 40019             ' // toggles always on top
+Private Const WINAMP_HELP_ABOUT = 40041              ' // pops up the about box :)
+Private Const WINAMP_ID_PE_PRINT = 40292             ' // save HTML Playlist
+
+
+
+
+
+
+Public Sub proc24()
+
+Call proc22
+
+If processid24 <> oldprocessid24 And processid24 > 0 Then
+    
+    lhRet = hWndFromProcID(processid24)
+    winamp24handle2 = lhRet
+    oldprocessid24 = processid24
+
+End If
+
+
+'hwnd_winamp = FindWindow("Winamp v1.x", vbNullString)
+'handle2.WindowState = 0
+'IPC_STARTPLAY = 102
+MsgResult = SendMessage(winamp24handle2, WM_USER, 0, ByVal ipc_isplaying)
+
+'//
+'// IPC_ISPLAYING returns the status of playback.
+'// If it returns 1, it is playing. if it returns 3, it is paused,
+'// if it returns 0, it is not playing.
+
+If MsgResult = 1 Then
+    nomonoff = 1
+    nomusic = 1
+End If
+
+'If MsgResult = 0 Or MsgResult = 3 Then
+'    nomonoff = nomonoffex
+'    nomusic = nomusicex
+'End If
+
+'produce HTML List ??????????
+'MsgResult = SendMessage(winamp24handle2, WM_COMMAND, ByVal WINAMP_ID_PE_PRINT, ByVal xcnul)
+
+
+End Sub
+
+
+
+
+
+
+
+
+Public Function ProcFromProcID(idProc As Long)
+ProcFromProcID = OpenProcess(PROCESS_QUERY_INFORMATION Or _
+                                 PROCESS_VM_READ, 0, idProc)
+End Function
+
+Public Function StrZToStr(S As String) As String
+    StrZToStr = Left$(S, lstrlen(S))
+End Function
+
+
+
+
+
+
+Public handle2 As Long
+
+Public Sub CloseProgram2(ByVal Caption As String)
+
+If handle2 = 0 Then Exit Sub
+SendMessage handle2, WM_CLOSE, 0&, 0&
+
+
+End Sub
+
+
+
+
+
+'Handle2 = FindWindow(vbNullString, Caption)
+'mdlProcess.Process_Kill (processid2)
+
+
+
+
+
+
+'hwnd_winamp = FindWindow("Winamp v1.x", vbNullString)
+
+
+
+
+
+
+
+Public Sub FindCursor(ByRef x!, ByRef y!)
+
+'I did this quickly so I may have missed something
+
+
+'Re: System Idle detection
+'From: Warple
+'Date Posted: 9/18/2003 11:18:00 AM
+
+'Try something like this:-
+
+Dim P As POINTAPI
+
+GetCursorPos P
+'   return x and y co-ordinate
+x = P.x ' / GetSystemMetrics(0) * Screen.Width
+'   for current cursor position
+y = P.y '/ GetSystemMetrics(1) * Screen.Height
+
+x1 = P.x '/ 2 '/ GetSystemMetrics(0)
+y1 = P.y '/ 2 'GetSystemMetrics(1)
+
+If mpx1 <> x Or mpy1 <> y Then
+    mattstimer2 = Now + minorontime
+    mouseneedsfirst = 1
+    Call mystery
+End If
+
+
+mpx1 = P.x '/ 120 '(Screen.Width * 100)
+
+mpy1 = P.y '/ 120 '(Screen.Height * 100)
+
+
+
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub CID_run_monitor_on()
+
+'If nomonoff <> 2 Then
+'    If monitor_timer < Now Then
+'        SendMessage Me.hWnd, WM_SYSCOMMAND, SC_MONITORPOWER, MONITOR_ON
+'    End If
+'    monitor_timer = Now + TimeSerial(0, 2, 30)
+'End If
+
+End Sub
+
+
+
+
+
+
+Public Function lastpress() As Boolean
+Dim i&, nx!, ny!
+Static x!, y!
+'Call Timer4_sub
+
+If thisdate - 90 > Timer Then thisdate = Timer + 0.05
+If thisdate2 - 90 > Timer Then thisdate2 = Timer + 0.8
+
+If thisdate2 < Timer And togw2 = 0 Then
+    thisdate2 = Timer + 0.8
+End If
+
+If easyride < Now Then
+'easyzap = False
+
+
+    If Label23.BackColor = &HFFC0C0 Then
+
+
+        Label23.BackColor = &HFF0000
+
+        'If easyride < Now Then kbbdf5 = False
+
+
+        If drive2$ <> "" And hidecursor2 = False Then
+            'If kbbdf5 = False And quake = 1 Then
+            If quake = 1 Then
+            
+                If compname$ <> "MEACHELLE12345" Then
+                    'SetCursorPos nx3, ny3
+                    quake = 0
+                    zx1 = nx3: mpx1 = nx3: zy1 = ny3: mpy1 = ny3
+
+                End If
+            End If
+            bdf3 = 0
+        End If
+
+    End If
+End If
+
+togw2 = togw
+If thisdate < Timer And thisdate2 < Timer Then
+togw = 0: thisdate = Timer + 0.05
+End If
+
+'rty = False
+'For i = 0 To 255
+'For i = 0 To 4
+  
+ ' bdf = GetAsyncKeyState(i)
+ 
+ 
+ 
+ 
+If kbbdf = True Then
+    bdf = True: kbbdf = False
+    'If kbbdf5 = False Then easyzap = 0
+    kbi = kbpress2
+ 
+    dks = 1
+    
+    If kbbdf5 = True Then dks = 0
+
+ 
+ 
+ 
+    'vcodex = kbbdf5
+ 
+End If
+  
+If bdf Then
+   
+    rty = True
+   
+   'If (i = 1 Or i = 2 Or i = 4) Then
+   'bdf3 = i
+   'End If
+'   If (i = 1 Or i = 2 Or i = 4) And rty3 = False Then
+   
+'   rty = False
+'   End If
+'   If togw = 0 Then
+    keyy = keyy + 1
+ '  If i = 123 Then sluty = 1
+ '  If i = 122 Then sluty2 = 1
+ '  If (i = 1 Or i = 2 Or i = 4) And togw = 0 Then
+ '   keyy = keyy - 1
+ '   mousey = mousey + 1
+ '   Label21.Caption = Str$(mousey)
+ '   End If
+ '   End If
+   
+    
+    frmSender_CallID.txtMsg.Text = "KeyCounter " + str$(qwerty2 + keyy)
+    
+    Call frmSender_CallID.cmdSend_Click
+    
+    
+    
+ '   If kbi = 123 Then sluty = 1
+ '   If kbi = 122 Then sluty2 = 1
+  
+    togw = 1
+    
+    If keyy > 0 Then Label23.Caption = str$(keyy)
+
+    'If rty = True And rty2 = False Then rty3 = True
+
+
+    easyride = Now + TimeSerial(0, 0, 2)
+    'blip = &HFF0000
+    'Label23.BackColor = &HFF0000
+    'If Label23.BackColor = &HFF0000 Then
+
+    If drive2$ <> "" And hidecursor2 = False Then
+
+        'If bdf3 = 17 Or bdf3 = 0 Then
+        'bdf3 = bdf3
+        'Else
+        'bdf3 = bdf3
+        'End If
+
+        'If bdf3 = 0 Then
+        If kbbdf5 = False And quake = 0 Then
+            FindCursor nx3, ny3
+            If compname$ <> "MEACHELLE12345" Then
+
+                'SetCursorPos 1, 1
+                quake = 1: rumb = 1
+                zx1 = 1: mpx1 = 1: zy1 = 1: mpy1 = 1
+
+            End If
+        End If
+        'End If
+
+        'End If
+        Label23.BackColor = &HFFC0C0
+    End If
+  
+  
+  
+
+'  pakw = 1
+    lastdate = Now ': Exit For
+End If
+
+'Next
+ bdf = False
+' rty2 = rty
+
+'   cursor has moved
+'SystemParametersInfo 14, 0, i, 0
+
+
+'   i=screensaver time in seconds
+
+'If DateDiff("s", lastdate, Now) > i Then
+'If pakw = 1 Then Exit Function
+
+
+'If sluty = 1 Or sluty2 = 1 Then Call keywindowcheck
+
+
+lastpress = True
+
+togw = 0
+'End If
+'   should be active
+'kbbdf5 = False
+End Function
+
+
+
+Private Sub Timer4_Timer()
+
+xdf = GetAsyncKeyState(123)
+kbbdf5 = False
+
+If xdf < 0 And xdf2 = 1 Then kbbdf5 = True
+
+xdf2 = 0
+If xdf < 0 Then
+xdf2 = 1
+dks = 1
+'sluty = 1
+'Call keywindowcheck
+
+kbbdf = True
+
+Call lastpress
+
+End If
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Sub lastpressmouse()
+
+Dim i&, nx!, ny!
+Static x!, y!
+'titch = False
+
+FindCursor nx, ny
+'   return cursor position
+If (nx <> x Or ny <> y) And (nx <> 1 And ny <> 1) Then
+    'If easyride < Now Then
+    If startmouse = 1 Then
+        mousey = mousey + Sqr(Abs(x1 - zx1) ^ 2 + Abs(y1 - zy1) ^ 2)
+        
+        If mousey3 <> Int(mousey / 1000) Then
+        frmSender.txtMsg.Text = "MouseCounter " + str$(mouse55 + mousey)
+        Call frmSender.cmdSend_Click
+        End If
+        
+        mousey3 = Int(mousey / 1000)
+        Label3.Caption = str$(mousey) 'Str$(mousey)
+    End If
+    
+    startmouse = 1
+    x = nx: y = ny
+    zx1 = x1: zy1 = y1
+    'End If
+    easyride = Now - 1
+
+
+
+
+    'titch = lastpressmouse
+
+    'If titch = True Then
+    'End If
+
+    'If titch = False Then
+    If Now + TimeSerial(0, 2, 0) > mattstimer Then
+    mattstimer = Now + TimeSerial(0, 2, 0)
+    mattstimer2 = mattstimer
+    doo = 1
+    tap = 0
+ 
+    W = 0
+    
+    If mattstimer2 > 0 Then W = DateDiff("s", Now, mattstimer2)
+        Label10.Caption = Trim$(str$(W))
+        'Label2.Caption = str$(Now)
+        'Label2.Caption = Format$(Now, "D-M-YY H:MM:SSa/p")
+    End If
+    
+    'End If
+
+
+
+
+
+
+
+
+
+    'Exit Function
+
+End If
+'   cursor has moved
+'SystemParametersInfo 14, 0, i, 0
+'   i=screensaver time in seconds
+
+'If DateDiff("s", lastdate, Now) > i Then
+'If pakw = 1 Then Exit Function
+
+dks = 1
+
+
+
+
+'lastpressmouse = True
+tog = 0
+
+End Sub
+
+Public Function lastpress() As Boolean
+Dim i&, nx!, ny!
+Static x!, y!
+'titch = False
+
+If thisdate - 90 > Timer Then thisdate = Timer + 0.05
+If thisdate2 - 90 > Timer Then thisdate2 = Timer + 0.8
+
+If thisdate2 < Timer And tog2 = 0 Then
+    thisdate2 = Timer + 0.8
+End If
+
+If easyride < Now Then
+
+
+    If Label4.BackColor = &HFFC0C0 Then
+
+        Label4.BackColor = &HFF0000
+        'MouseShow 'ShowMouse
+
+        'Call ClipCursor(ByVal 0&)
+        'ShowCursor (1)
+        'Mouse.Animate Me, ""
+        'Mouse.Animate Me, App.Path & "\arrow_m.cur", avbGlobal
+        'showmouse
+        'If mousehide = False And rty3 = True Then
+        'SetCursorPos nx3, ny3
+        'rty3 = False
+        'End If
+
+    End If
+End If
+
+tog2 = tog
+
+If thisdate < Timer And thisdate2 < Timer Then tog = 0: thisdate = Timer + 0.05
+
+rty = False
+'For i = 0 To 255
+'   test if key pressed
+'  bdf = GetAsyncKeyState(i)
+If kbbdf = True Then bdf = True: kbi = kbpress2
+
+
+If bdf Then
+    
+    
+    Call frmSender.cmdSend_Click
+    
+    rty = True
+    ' If (i = 1 Or i = 2 Or i = 4) Then rty = False
+    ' If tog = 0 Then
+    ' 'Label8.Caption = str$(Val(i))
+    keyy = keyy + 1
+    'lastpress = True
+    frmSender.txtMsg.Text = "KeyCounter " + str$(qwerty2 + keyy)
+   
+    'Label7.Caption = str$(kbi)
+    If kbi = 123 Then sluty = 1
+    If kbi = 122 Then sluty2 = 1
+    ' If (i = 1 Or i = 2 Or i = 4) And tog = 0 Then
+    '  keyy = keyy - 1
+    '  mousey = mousey + 1
+    '  If keyy > 0 Then
+    '  Label3.Caption = str$(mousey)
+    '  End If
+    '  End If
+    '  End If
+   
+    tog = 1
+    'Label7.Caption = str$(bdf) + str$(i)
+    
+    If keyy > 0 Then Label4.Caption = str$(keyy)
+    'rty = 0
+    'If i = 1 Or i = 2 Or i = 4 Then rty = 1
+
+    If rty = True And rty2 = False Then rty3 = True
+
+
+    If bdf Then easyride = Now + TimeSerial(0, 0, 2)
+
+    If bdf And Label4.BackColor = &HFF0000 And rty = True Then
+
+        Label4.BackColor = &HFFC0C0
+        'easyride = Now + TimeSerial(0, 0, 2)
+    End If
+  
+  
+    'MouseHide 'HideMouse
+  
+    '  pakw = 1
+    lastdate = Now
+End If
+
+bdf = False
+rty2 = rty
+
+
+
+
+
+'If sluty = 1 Or sluty2 = 1 Then Call keywindowcheck
+
+If kbbdf = True Then
+    kbbdf = False
+ 
+    If Now + TimeSerial(0, 2, 0) > mattstimer Then
+        mattstimer = Now + TimeSerial(0, 2, 0)
+        mattstimer2 = mattstimer
+        doo = 1
+        tap = 0
+ 
+        W = 0
+        
+        If mattstimer2 > 0 Then W = DateDiff("s", Now, mattstimer2)
+        Label10.Caption = Trim$(str$(W))
+    End If
+End If
+
+tog = 0
+
+
+End Function
+
+

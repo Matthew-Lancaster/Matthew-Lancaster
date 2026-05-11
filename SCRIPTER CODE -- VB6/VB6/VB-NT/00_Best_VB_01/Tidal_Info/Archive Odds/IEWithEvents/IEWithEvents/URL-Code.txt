@@ -1,0 +1,1677 @@
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "cIEWindows"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+Attribute VB_Ext_KEY = "SavedWithClassBuilder" ,"Yes"
+Attribute VB_Ext_KEY = "Collection" ,"IE_Class"
+Attribute VB_Ext_KEY = "Member0" ,"IE_Class"
+Attribute VB_Ext_KEY = "Top_Level" ,"Yes"
+Private WithEvents winShell As SHDocVw.ShellWindows
+Attribute winShell.VB_VarHelpID = -1
+Private mCol As Collection
+Dim bRefreshing As Boolean
+
+Public Event IEWindowRegistered()
+Public Event IEWindowRevoked()
+Public Event IENavigationBegin(hwnd As Long, ByVal pDisp As Object, URL As Variant, Flags As Variant, TargetFrameName As Variant, PostData As Variant, Headers As Variant, Cancel As Boolean)
+Public Event IENavigationComplete(hwnd As Long, ByVal pDisp As Object, URL As Variant)
+Public Event IEDocumentComplete(hwnd As Long, ByVal pDisp As Object, URL As Variant)
+Public Event IEDownloadBegin(hwnd As Long)
+Public Event IEDownloadComplete(hwnd As Long)
+Public Event IEOnContextMenu(hwnd As Long)
+Public Event IEMouseDown(hwnd As Long, Button As Integer, Shift As Integer, X As Single, Y As Single)
+Public Event IEMouseUp(hwnd As Long, Button As Integer, Shift As Integer, X As Single, Y As Single)
+Public Event IECommandStateChange(hwnd As Long, Button As CommandStateChangeConstants, Enable As Boolean)
+
+Private Function Add(IEctl As SHDocVw.InternetExplorer) As IE_Class
+    Dim objNewMember As IE_Class
+    Set objNewMember = New IE_Class
+    Set objNewMember.IEctl = IEctl
+    mCol.Add objNewMember, CStr(objNewMember.IEHandle)
+    Set Add = objNewMember
+    Set objNewMember = Nothing
+End Function
+
+Public Property Get IE(vntIndexKey As Variant) As IE_Class
+Attribute IE.VB_UserMemId = 0
+  Do While bRefreshing
+     DoEvents
+  Loop
+  Set IE = mCol(vntIndexKey)
+End Property
+
+Public Property Get Count() As Long
+   Count = mCol.Count
+End Property
+
+Private Sub Remove(vntIndexKey As Variant)
+   mCol.Remove vntIndexKey
+End Sub
+
+Public Property Get NewEnum() As IUnknown
+Attribute NewEnum.VB_UserMemId = -4
+Attribute NewEnum.VB_MemberFlags = "40"
+   Set NewEnum = mCol.[_NewEnum]
+End Property
+
+Private Sub Class_Initialize()
+  cIEWPtr = ObjPtr(Me)
+  Refresh_Col
+End Sub
+
+Private Sub Class_Terminate()
+   Set mCol = Nothing
+   Set winShell = Nothing
+End Sub
+
+Private Sub winShell_WindowRegistered(ByVal lCookie As Long)
+  Refresh_Col
+  Do While bRefreshing
+     DoEvents
+  Loop
+  RaiseEvent IEWindowRegistered
+End Sub
+
+Private Sub winShell_WindowRevoked(ByVal lCookie As Long)
+  Refresh_Col
+  Do While bRefreshing
+     DoEvents
+  Loop
+  RaiseEvent IEWindowRevoked
+End Sub
+
+Private Sub Refresh_Col()
+   bRefreshing = True
+   Dim SWs As New SHDocVw.ShellWindows
+   Dim var As SHDocVw.InternetExplorer
+   Set mCol = Nothing
+   Set mCol = New Collection
+   For Each var In SWs
+       Add var
+   Next
+   Set winShell = SWs
+   Set SWs = Nothing
+   Set var = Nothing
+   bRefreshing = False
+End Sub
+
+Friend Function FireEvent(nEvent As IDEVENTS, hwnd As Long, ParamArray EventInfo())
+   Select Case nEvent
+          Case ID_BeforeNavigate
+               RaiseEvent IENavigationBegin(hwnd, EventInfo(0), EventInfo(1), EventInfo(2), EventInfo(3), EventInfo(4), EventInfo(5), CBool(EventInfo(6)))
+          Case ID_NavigationComplete
+               RaiseEvent IENavigationComplete(hwnd, EventInfo(0), EventInfo(1))
+          Case ID_DocumentComplete
+               RaiseEvent IEDocumentComplete(hwnd, EventInfo(0), EventInfo(1))
+          Case ID_DownloadBegin
+               RaiseEvent IEDownloadBegin(hwnd)
+          Case ID_DownloadComplete
+               RaiseEvent IEDownloadComplete(hwnd)
+          Case ID_ContextMenu
+               RaiseEvent IEOnContextMenu(hwnd)
+          Case ID_MouseDown
+               RaiseEvent IEMouseDown(hwnd, CInt(EventInfo(0)), CInt(EventInfo(1)), CSng(EventInfo(2)), CSng(EventInfo(3)))
+          Case ID_MouseUp
+               RaiseEvent IEMouseUp(hwnd, CInt(EventInfo(0)), CInt(EventInfo(1)), CSng(EventInfo(2)), CSng(EventInfo(3)))
+          Case ID_CommandStateChange
+               RaiseEvent IECommandStateChange(hwnd, CLng(EventInfo(0)), CBool(EventInfo(1)))
+   End Select
+End Function
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "IE_Class"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+Attribute VB_Ext_KEY = "SavedWithClassBuilder" ,"Yes"
+Attribute VB_Ext_KEY = "Top_Level" ,"Yes"
+Attribute VB_Ext_KEY = "Member0" ,"Collection1"
+Private Type POINTAPI
+   X As Long
+   Y As Long
+End Type
+
+Private Declare Function GetAsyncKeyState% Lib "user32" (ByVal vKey As Long)
+Private Declare Function GetCursorPos& Lib "user32" (lpPoint As POINTAPI)
+Private Declare Function ScreenToClient& Lib "user32" (ByVal hwnd As Long, lpPoint As POINTAPI)
+Private Declare Function GetKeyState% Lib "user32" (ByVal nVirtKey As Long)
+
+Private WithEvents IE As SHDocVw.InternetExplorer
+Attribute IE.VB_VarHelpID = -1
+Private WithEvents IEDoc As MSHTML.HTMLDocument
+Attribute IEDoc.VB_VarHelpID = -1
+Private mvarIEHandle As Long 'local copy
+Private mvarEnableBack As Boolean 'local copy
+Private mvarEnableForward As Boolean 'local copy
+
+Private bLDown As Boolean, bRDown As Boolean
+
+Public Property Get EnableForward() As Boolean
+   EnableForward = mvarEnableForward
+End Property
+
+Public Property Get EnableBack() As Boolean
+   EnableBack = mvarEnableBack
+End Property
+
+Public Property Set IEctl(IncomeIE As SHDocVw.InternetExplorer)
+   Set IE = IncomeIE
+   mvarIEHandle = IncomeIE.hwnd
+   On Error Resume Next
+   Set IEDoc = IncomeIE.Document
+   bCancel = True
+   Err.Clear
+   IE.GoForward
+   If Err Then
+      mvarEnableForward = False
+      bCancel = False
+   Else
+      IE.ExecWB OLECMDID_STOPDOWNLOAD, OLECMDEXECOPT_DONTPROMPTUSER
+   End If
+   On Error GoTo 0
+End Property
+
+Public Property Get IEctl() As SHDocVw.InternetExplorer
+   Set IEctl = IE
+End Property
+
+Public Property Get IEHandle() As Long
+    IEHandle = mvarIEHandle
+End Property
+
+Private Sub IE_BeforeNavigate2(ByVal pDisp As Object, URL As Variant, Flags As Variant, TargetFrameName As Variant, PostData As Variant, Headers As Variant, Cancel As Boolean)
+    CallEvent ID_BeforeNavigate, mvarIEHandle, pDisp, URL, Flags, TargetFrameName, PostData, Headers, Cancel
+    If bCancel Then
+       Cancel = True
+       bCancel = False
+    End If
+End Sub
+
+Private Sub IE_CommandStateChange(ByVal Command As Long, ByVal Enable As Boolean)
+   Select Case Command
+     Case CSC_NAVIGATEBACK
+          mvarEnableBack = Enable
+     Case CSC_NAVIGATEFORWARD
+          mvarEnableForward = Enable
+   End Select
+   CallEvent ID_CommandStateChange, mvarIEHandle, Command, Enable
+End Sub
+
+Private Sub IE_DocumentComplete(ByVal pDisp As Object, URL As Variant)
+  If pDisp Is IE Then
+     CallEvent ID_DocumentComplete, mvarIEHandle, pDisp, URL
+  End If
+End Sub
+
+Private Sub IE_DownloadBegin()
+  CallEvent ID_DownloadBegin, mvarIEHandle
+End Sub
+
+Private Sub IE_DownloadComplete()
+  CallEvent ID_DownloadComplete, mvarIEHandle
+End Sub
+
+Private Sub IE_NavigateComplete2(ByVal pDisp As Object, URL As Variant)
+  CallEvent ID_NavigationComplete, mvarIEHandle, pDisp, URL
+End Sub
+
+Private Sub Class_Terminate()
+  On Error Resume Next
+  Set IE = Nothing
+End Sub
+
+Private Function IEDoc_oncontextmenu() As Boolean
+   CallEvent ID_ContextMenu, mvarIEHandle
+   IEDoc_oncontextmenu = Not bCancel
+   If bCancel = True Then bCancel = False
+End Function
+
+Private Sub IEDoc_onmousedown()
+   Dim pt As POINTAPI
+   Dim btn As Integer, i As Integer
+   GetCursorPos pt
+   ScreenToClient mvarIEHandle, pt
+   If GetAsyncKeyState(vbKeyLButton) < 0 Then
+      btn = 1: bLDown = True
+   Else
+      btn = 2: bRDown = True
+   End If
+   If GetAsyncKeyState(vbKeyShift) Then i = 1
+   If GetAsyncKeyState(vbKeyControl) Then i = 2
+   If GetAsyncKeyState(vbKeyMenu) Then i = 4
+   CallEvent ID_MouseDown, mvarIEHandle, btn, i, CSng(pt.X), CSng(pt.Y)
+End Sub
+
+Private Sub IEDoc_onmouseup()
+   Dim pt As POINTAPI
+   Dim btn As Integer, i As Integer
+   GetCursorPos pt
+   ScreenToClient mvarIEHandle, pt
+   If bLDown Then
+      btn = 1: bLDown = False
+   Else
+      btn = 2: bRDown = False
+   End If
+   If GetAsyncKeyState(vbKeyShift) Then i = 1
+   If GetAsyncKeyState(vbKeyControl) Then i = 2
+   If GetAsyncKeyState(vbKeyMenu) Then i = 4
+   CallEvent ID_MouseUp, mvarIEHandle, btn, i, CSng(pt.X), CSng(pt.Y)
+End Sub
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+URL-modEvent.bas.txt
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+Attribute VB_Name = "Module1"
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (lpDest As Any, lpSource As Any, ByVal cBytes&)
+Public cIEWPtr As Long, bCancel As Boolean
+Public Enum IDEVENTS
+   ID_BeforeNavigate = 1
+   ID_NavigationComplete = 2
+   ID_DownloadBegin = 3
+   ID_DownloadComplete = 4
+   ID_DocumentComplete = 5
+   ID_MouseDown = 6
+   ID_MouseUp = 7
+   ID_ContextMenu = 8
+   ID_CommandStateChange = 9
+End Enum
+
+Public Function CallEvent(nEvent As IDEVENTS, hwnd As Long, ParamArray EventInfo())
+   Select Case nEvent
+          Case ID_BeforeNavigate
+               ResolvePointer(cIEWPtr).FireEvent nEvent, hwnd, EventInfo(0), EventInfo(1), EventInfo(2), EventInfo(3), EventInfo(4), EventInfo(5), CBool(EventInfo(6))
+          Case ID_NavigationComplete, ID_DocumentComplete, ID_CommandStateChange
+               ResolvePointer(cIEWPtr).FireEvent nEvent, hwnd, EventInfo(0), EventInfo(1)
+          Case ID_MouseDown, ID_MouseUp
+               ResolvePointer(cIEWPtr).FireEvent nEvent, hwnd, EventInfo(0), EventInfo(1), EventInfo(2), EventInfo(3)
+          Case Else
+               ResolvePointer(cIEWPtr).FireEvent nEvent, hwnd
+   End Select
+End Function
+
+Private Function ResolvePointer(ByVal lpObj&) As cIEWindows
+  Dim oIEW As cIEWindows
+  CopyMemory oIEW, lpObj, 4&
+  Set ResolvePointer = oIEW
+  CopyMemory oIEW, 0&, 4&
+End Function
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Begin VB.Form frmIECtrl 
+   Caption         =   "IE Control"
+   ClientHeight    =   6390
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   7050
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   6390
+   ScaleWidth      =   7050
+   StartUpPosition =   3  'Windows Default
+   Begin VB.Timer Timer1 
+      Interval        =   1000
+      Left            =   0
+      Top             =   600
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   375
+      Index           =   6
+      Left            =   5520
+      TabIndex        =   12
+      Top             =   2400
+      Width           =   1335
+   End
+   Begin VB.CommandButton Command4 
+      Caption         =   "Command4"
+      Height          =   375
+      Left            =   4320
+      TabIndex        =   11
+      Top             =   6000
+      Width           =   1935
+   End
+   Begin VB.CommandButton Command3 
+      Caption         =   "Command3"
+      Height          =   375
+      Left            =   960
+      TabIndex        =   10
+      Top             =   6000
+      Width           =   1935
+   End
+   Begin VB.ListBox List1 
+      Height          =   2010
+      Left            =   240
+      TabIndex        =   9
+      Top             =   3600
+      Width           =   6615
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "Command2"
+      Height          =   495
+      Left            =   5520
+      TabIndex        =   8
+      Top             =   2880
+      Width           =   1335
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   375
+      Index           =   5
+      Left            =   5520
+      TabIndex        =   7
+      Top             =   2040
+      Width           =   1335
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   375
+      Index           =   4
+      Left            =   5520
+      TabIndex        =   6
+      Top             =   1680
+      Width           =   1335
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   375
+      Index           =   3
+      Left            =   5520
+      TabIndex        =   5
+      Top             =   1320
+      Width           =   1335
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   375
+      Index           =   2
+      Left            =   5520
+      TabIndex        =   4
+      Top             =   960
+      Width           =   1335
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   375
+      Index           =   1
+      Left            =   5520
+      TabIndex        =   3
+      Top             =   600
+      Width           =   1335
+   End
+   Begin MSComctlLib.ImageList ImageList1 
+      Left            =   5280
+      Top             =   2640
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   2
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Form1.frx":0000
+            Key             =   ""
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "Form1.frx":015C
+            Key             =   ""
+         EndProperty
+      EndProperty
+   End
+   Begin MSComctlLib.ListView LV1 
+      Height          =   2775
+      Left            =   240
+      TabIndex        =   2
+      Top             =   600
+      Width           =   5055
+      _ExtentX        =   8916
+      _ExtentY        =   4895
+      LabelWrap       =   -1  'True
+      HideSelection   =   -1  'True
+      _Version        =   393217
+      ForeColor       =   -2147483640
+      BackColor       =   -2147483643
+      BorderStyle     =   1
+      Appearance      =   1
+      NumItems        =   0
+   End
+   Begin VB.TextBox Text1 
+      Height          =   375
+      Left            =   240
+      TabIndex        =   1
+      Text            =   "Text1"
+      Top             =   120
+      Width           =   5055
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   375
+      Index           =   0
+      Left            =   5520
+      TabIndex        =   0
+      Top             =   120
+      Width           =   1335
+   End
+End
+Attribute VB_Name = "frmIECtrl"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Private Declare Function SetForegroundWindow& Lib "user32" (ByVal hwnd As Long)
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function PostMessage& Lib "user32" Alias "PostMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any)
+
+Private Const SWP_NOSIZE = &H1
+Private Const SWP_NOMOVE = &H2
+Private Const SWP_NOREDRAW = &H8
+
+Const WM_CLOSE = &H10
+Const LB_FINDSTRING = &H18F
+
+Dim WithEvents IEWin As cIEWindows
+Attribute IEWin.VB_VarHelpID = -1
+Dim xClick As Single, yClick As Single
+Dim SurfingTime As Date
+
+Private Sub Command1_Click(Index As Integer)
+  Select Case Index
+      Case 0
+         If Text1 <> "" Then IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.Navigate Text1
+      Case 1
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoHome
+      Case 2
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoBack
+      Case 3
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoForward
+      Case 4
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoSearch
+      Case 5
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.Refresh
+      Case 6
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.Quit
+  End Select
+End Sub
+
+Private Sub Command2_Click()
+  If Command2.Caption = "Show forbidden URLs" Then
+     Command2.Caption = "Hide forbidden URLs"
+     Height = Height - ScaleHeight + Command3.Top + Command3.Height + 60
+  Else
+     Command2.Caption = "Show forbidden URLs"
+     Height = Height - ScaleHeight + Command2.Top + Command2.Height + 60
+  End If
+End Sub
+
+Private Sub Command3_Click()
+   Dim sTemp As String
+   sTemp = InputBox("Enter restricted URL", "Adding to forbidden list", "http://")
+   If sTemp <> "" Then List1.AddItem sTemp
+End Sub
+
+Private Sub Command4_Click()
+  If List1.ListIndex > -1 Then List1.RemoveItem (List1.ListIndex)
+End Sub
+
+Private Sub Form_Load()
+  Timer1.Enabled = False
+  Caption = "Total surfing time = " & TimeSerial(0, 0, SurfingTime)
+  Text1 = "http://www.freevbcode.com"
+  Command2_Click
+  Command1(0).Caption = "Navigate"
+  Command1(1).Caption = "Go Home"
+  Command1(2).Caption = "Go Back"
+  Command1(3).Caption = "Go Forward"
+  Command1(4).Caption = "Go Search"
+  Command1(5).Caption = "Update"
+  Command1(6).Caption = "Close"
+  Command3.Caption = "Add to list"
+  Command4.Caption = "Remove from list"
+  Set IEWin = New cIEWindows
+  Set LV1.SmallIcons = ImageList1
+  With LV1
+    .View = lvwReport
+    .HideSelection = False
+    .FullRowSelect = True
+    .LabelEdit = lvwManual
+    .ColumnHeaders.Add , , "Current IE windows"
+    .ColumnHeaders.Add , , "Current URL"
+    .ColumnHeaders.Add , , "Status"
+    .ColumnHeaders(1).Width = 2500
+    .ColumnHeaders(3).Width = 1000
+  End With
+  List1.AddItem "http://www.freevbcode.com/"
+  List1.AddItem "http://www.altavista.com/"
+  UpdateIEList LV1
+  Window_SetAlwaysOnTop True
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+  Set IEWin = Nothing
+  Window_SetAlwaysOnTop False
+End Sub
+
+Private Function Window_SetAlwaysOnTop(bAlwaysOnTop As Boolean) As Boolean
+   Window_SetAlwaysOnTop = SetWindowPos(hwnd, -2 - bAlwaysOnTop, 0, 0, 0, 0, SWP_NOREDRAW Or SWP_NOSIZE Or SWP_NOMOVE)
+End Function
+
+Private Sub UpdateIEList(lv As ListView)
+  lv.ListItems.Clear
+  If IEWin.Count = 0 Then
+     For i = 0 To 6
+         Command1(i).Enabled = False
+     Next i
+     Exit Sub
+  End If
+  Dim tmpIE As IE_Class
+  Dim itmx As ListItem
+  For Each tmpIE In IEWin
+      Set itmx = lv.ListItems.Add(, "K" & CStr(tmpIE.IEHandle), tmpIE.IEctl.LocationName)
+      itmx.SubItems(1) = tmpIE.IEctl.LocationURL
+      itmx.SubItems(2) = IIf(tmpIE.IEctl.Busy, "Busy", "Idle")
+      itmx.SmallIcon = IIf(tmpIE.IEctl.Busy, 1, 2)
+  Next tmpIE
+  For i = 0 To 6
+      Command1(i).Enabled = True
+  Next i
+  Command1(2).Enabled = IEWin.IE(Mid$(lv.SelectedItem.Key, 2)).EnableBack
+  Command1(3).Enabled = IEWin.IE(Mid$(lv.SelectedItem.Key, 2)).EnableForward
+  Set itmx = Nothing
+End Sub
+
+Private Sub IEWin_IECommandStateChange(hwnd As Long, Button As SHDocVw.CommandStateChangeConstants, Enable As Boolean)
+   If Mid$(LV1.SelectedItem.Key, 2) = CStr(hwnd) And Button > 0 Then
+      Command1(4 - Button).Enabled = Enable
+   End If
+End Sub
+
+Private Sub IEWin_IEDocumentComplete(hwnd As Long, ByVal pDisp As Object, URL As Variant)
+  Timer1.Enabled = False
+  Dim itmx As ListItem
+  Set itmx = LV1.ListItems("K" & CStr(hwnd))
+  itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+  itmx.SmallIcon = 2
+  itmx.SubItems(1) = URL
+  itmx.SubItems(2) = "Idle"
+  LV1.ListItems(itmx.Key).Selected = True
+  Set itmx = Nothing
+End Sub
+
+Private Sub IEWin_IEDownloadBegin(hwnd As Long)
+   If Timer1.Enabled = False Then
+      Timer1.Enabled = True
+      Dim itmx As ListItem
+      Set itmx = LV1.ListItems("K" & CStr(hwnd))
+      itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+      itmx.SmallIcon = 1
+      itmx.SubItems(1) = IEWin.IE(CStr(hwnd)).IEctl.LocationURL
+      itmx.SubItems(2) = "Downloading..."
+      Set itmx = Nothing
+   End If
+End Sub
+
+Private Sub IEWin_IEDownloadComplete(hwnd As Long)
+  If Timer1.Enabled Then
+     Timer1.Enabled = False
+     Dim itmx As ListItem
+     Set itmx = LV1.ListItems("K" & CStr(hwnd))
+     itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+     itmx.SmallIcon = 2
+     itmx.SubItems(1) = IEWin.IE(CStr(hwnd)).IEctl.LocationURL
+     itmx.SubItems(2) = "Idle"
+     Set itmx = Nothing
+  End If
+End Sub
+
+Private Sub IEWin_IEMouseDown(hwnd As Long, Button As Integer, Shift As Integer, X As Single, Y As Single)
+   Dim s As String
+   If Button = 1 Then s = "Left "
+   If Button = 2 Then s = "Right "
+   s = s & "Mouse Down in " & IEWin.IE(CStr(hwnd)).IEctl.LocationName & vbCrLf
+   s = s & "in position:" & vbCrLf
+   s = s & "X = " & CStr(X) & vbCrLf
+   s = s & "Y = " & CStr(Y)
+   Debug.Print s
+'   MsgBox s
+End Sub
+
+Private Sub IEWin_IEMouseUp(hwnd As Long, Button As Integer, Shift As Integer, X As Single, Y As Single)
+   Dim s As String
+   If Button = 1 Then s = "Left "
+   If Button = 2 Then s = "Right "
+   s = s & "Mouse Up in " & IEWin.IE(CStr(hwnd)).IEctl.LocationName & vbCrLf
+   s = s & "in position:" & vbCrLf
+   s = s & "X = " & CStr(X) & vbCrLf
+   s = s & "Y = " & CStr(Y)
+   Debug.Print s
+'   MsgBox s
+End Sub
+
+Private Sub IEWin_IENavigationBegin(hwnd As Long, ByVal pDisp As Object, URL As Variant, Flags As Variant, TargetFrameName As Variant, PostData As Variant, Headers As Variant, Cancel As Boolean)
+  Timer1.Enabled = True
+  If IsForbidden(CStr(URL), List1) Then
+     bCancel = True
+     MsgBox "This URL is forbidden!!!", vbCritical, "Restricted URL"
+     Exit Sub
+  End If
+  Dim itmx As ListItem
+  Set itmx = LV1.ListItems("K" & CStr(hwnd))
+  itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+  itmx.SmallIcon = 1
+  itmx.SubItems(1) = URL
+  itmx.SubItems(2) = "Navigating..."
+  Set itmx = Nothing
+End Sub
+
+Private Sub IEWin_IENavigationComplete(hwnd As Long, ByVal pDisp As Object, URL As Variant)
+  Dim itmx As ListItem
+  Set itmx = LV1.ListItems("K" & CStr(hwnd))
+  itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+  itmx.SmallIcon = 1
+  itmx.SubItems(1) = IEWin.IE(CStr(hwnd)).IEctl.LocationURL
+  itmx.SubItems(2) = "Downloading..."
+  Set itmx = Nothing
+End Sub
+
+Private Sub IEWin_IEOnContextMenu(hwnd As Long)
+   ret = MsgBox("Context Menu in " & IEWin.IE(CStr(hwnd)).IEctl.LocationName & " is about to appear." & vbCrLf & "Show context menu?", vbYesNo, "Context menu")
+   If ret = vbNo Then bCancel = True
+End Sub
+
+Private Sub IEWin_IEWindowRegistered()
+  Timer1.Enabled = True
+  UpdateIEList LV1
+End Sub
+
+Private Sub IEWin_IEWindowRevoked()
+  Timer1.Enabled = False
+  UpdateIEList LV1
+End Sub
+
+Private Sub LV1_ItemClick(ByVal item As ListItem)
+  Command1(2).Enabled = IEWin.IE(Mid$(item.Key, 2)).EnableBack
+  Command1(3).Enabled = IEWin.IE(Mid$(item.Key, 2)).EnableForward
+End Sub
+
+Private Sub LV1_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+   If Button = 1 Then
+      xClick = X: yClick = Y
+   End If
+End Sub
+
+Private Sub LV1_DblClick()
+  Dim itmx As ListItem
+  Set itmx = LV1.HitTest(xClick, yClick)
+  If Not itmx Is Nothing Then
+     SetForegroundWindow CLng(Mid$(itmx.Key, 2))
+  End If
+End Sub
+
+Private Function IsForbidden(sUrl As String, lb As ListBox) As Boolean
+  Dim i As Long
+  i = SendMessage(lb.hwnd, LB_FINDSTRING, -1, ByVal sUrl)
+  If i > -1 Then IsForbidden = True
+End Function
+
+Private Sub Timer1_Timer()
+  If IsSurfing Then
+     SurfingTime = SurfingTime + 1
+     Caption = "Total surfing time = " & TimeSerial(0, 0, SurfingTime)
+  End If
+End Sub
+
+Private Function IsSurfing() As Boolean
+  Dim tmpIE As IE_Class
+  For Each tmpIE In IEWin
+      If Not tmpIE.IEctl Is Nothing Then
+         If tmpIE.IEctl.Busy Then
+            IsSurfing = True
+            Exit For
+         End If
+      End If
+  Next tmpIE
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+------------- OLD --------------------
+
+
+
+
+
+
+
+
+
+
+Private Declare Function SetForegroundWindow& Lib "user32" (ByVal hwnd As Long)
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long
+Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Declare Function PostMessage& Lib "user32" Alias "PostMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any)
+
+Private Const SWP_NOSIZE = &H1
+Private Const SWP_NOMOVE = &H2
+Private Const SWP_NOREDRAW = &H8
+
+Const WM_CLOSE = &H10
+Const LB_FINDSTRING = &H18F
+
+Dim WithEvents IEWin As cIEWindows
+Dim xClick As Single, yClick As Single
+Dim SurfingTime As Date
+
+Public TRem$
+
+
+Private Sub Command1_Click(Index As Integer)
+  Select Case Index
+      Case 0
+         If Text1 <> "" Then IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.Navigate Text1
+      Case 1
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoHome
+      Case 2
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoBack
+      Case 3
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoForward
+      Case 4
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.GoSearch
+      Case 5
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.Refresh
+      Case 6
+         IEWin.IE(Mid$(LV1.SelectedItem.Key, 2)).IEctl.Quit
+  End Select
+End Sub
+
+Private Sub Command2_Click()
+  If Command2.Caption = "Show forbidden URLs" Then
+     Command2.Caption = "Hide forbidden URLs"
+     Height = Height - ScaleHeight + Command3.Top + Command3.Height + 60
+  Else
+     Command2.Caption = "Show forbidden URLs"
+     Height = Height - ScaleHeight + Command2.Top + Command2.Height + 60
+  End If
+End Sub
+
+Private Sub Command3_Click()
+   Dim sTemp As String
+   sTemp = InputBox("Enter restricted URL", "Adding to forbidden list", "http://")
+   If sTemp <> "" Then List1.AddItem sTemp
+End Sub
+
+Private Sub Command4_Click()
+  If List1.ListIndex > -1 Then List1.RemoveItem (List1.ListIndex)
+End Sub
+
+Private Sub Form_Load()
+  Timer1.Enabled = False
+  Caption = "Total surfing time = " & TimeSerial(0, 0, SurfingTime)
+'  Text1 = "http://www.freevbcode.com"
+  Command2_Click
+  Command1(0).Caption = "Navigate"
+  Command1(1).Caption = "Go Home"
+  Command1(2).Caption = "Go Back"
+  Command1(3).Caption = "Go Forward"
+  Command1(4).Caption = "Go Search"
+  Command1(5).Caption = "Update"
+  Command1(6).Caption = "Close"
+  Command3.Caption = "Add to list"
+  Command4.Caption = "Remove from list"
+  Set IEWin = New cIEWindows
+  Set LV1.SmallIcons = ImageList1
+  With LV1
+    .View = lvwReport
+    .HideSelection = False
+    .FullRowSelect = True
+    .LabelEdit = lvwManual
+    .ColumnHeaders.Add , , "Current IE windows"
+    .ColumnHeaders.Add , , "Current URL"
+    .ColumnHeaders.Add , , "Status"
+    .ColumnHeaders(1).Width = 2500
+    .ColumnHeaders(3).Width = 1000
+  End With
+  List1.AddItem "http://www.freevbcode.com/"
+  List1.AddItem "http://www.altavista.com/"
+  'Window_SetAlwaysOnTop True
+   UpdateIEList LV1
+
+
+
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+  Set IEWin = Nothing
+  Window_SetAlwaysOnTop False
+End Sub
+
+Private Function Window_SetAlwaysOnTop(bAlwaysOnTop As Boolean) As Boolean
+   Window_SetAlwaysOnTop = SetWindowPos(hwnd, -2 - bAlwaysOnTop, 0, 0, 0, 0, SWP_NOREDRAW Or SWP_NOSIZE Or SWP_NOMOVE)
+End Function
+
+
+
+
+Private Sub UpdateIEListzzz(lv As ListView)
+  
+Call Log(0)
+
+  Command1(2).Enabled = IEWin.IE(Mid$(lv.SelectedItem.Key, 2)).EnableBack
+  Command1(3).Enabled = IEWin.IE(Mid$(lv.SelectedItem.Key, 2)).EnableForward
+
+
+''A = A
+  
+  
+Exit Sub
+  
+  lv.ListItems.Clear
+  If IEWin.Count = 0 Then
+     For i = 0 To 6
+         Command1(i).Enabled = False
+     Next i
+     Exit Sub
+  End If
+  
+  
+Exit Sub
+ 
+  
+qq = 1
+  For Each tmpIE In IEWin
+      On Local Error Resume Next
+      Set itmx = lv.ListItems.Add(, "K" & CStr(tmpIE.IEHandle), tmpIE.IEctl.LocationName)
+      
+      
+'lv.ListItems.item(dw).Text
+'LV1.ListItems.item..SubItems.item(dw).Text
+'URL$ = frmIECtrl.LV1.ListItems.item(dw)
+'URLLoc$ = frmIECtrl.LV1.ListItems.item(dw).SubItems(1)
+      
+      itmx.SubItems(1) = tmpIE.IEctl.LocationURL
+      
+      
+      itmx.SubItems(2) = IIf(tmpIE.IEctl.Busy, "Busy", "Idle")
+      itmx.SmallIcon = IIf(tmpIE.IEctl.Busy, 1, 2)
+  
+If qq = IEWin.Count Then
+   Call Log(tmpIE.IEHandle)
+End If
+qq = qq + 1
+  Next tmpIE
+  For i = 0 To 6
+      Command1(i).Enabled = True
+  Next i
+  Command1(2).Enabled = IEWin.IE(Mid$(lv.SelectedItem.Key, 2)).EnableBack
+  Command1(3).Enabled = IEWin.IE(Mid$(lv.SelectedItem.Key, 2)).EnableForward
+  
+
+
+  Set itmx = Nothing
+End Sub
+
+Public Sub IEWin_IECommandStateChange(hwnd As Long, Button As SHDocVw.CommandStateChangeConstants, Enable As Boolean)
+
+
+  Call Log(CStr(hwnd))
+
+Exit Sub
+
+Err.Clear
+On Local Error Resume Next
+    If Mid$(LV1.SelectedItem.Key, 2) = CStr(hwnd) And Button > 0 Then
+   'If Err.Number > 0 Then Stop
+   'If Err.Number = 0 Then Stop
+   If Err.Number = 0 Then Command1(4 - Button).Enabled = Enable
+   End If
+  Call Log(CStr(hwnd))
+
+End Sub
+
+Private Sub IEWin_IEDocumentComplete(hwnd As Long, ByVal pDisp As Object, URL As Variant)
+  Timer1.Enabled = False
+  Err.Clear
+  On Local Error Resume Next
+  Call ErrorTrap(Err.Number, Err.Description, Err.Source)
+  
+  Dim itmx As ListItem
+  Set itmx = LV1.ListItems("K" & CStr(hwnd))
+  Call ErrorTrap(Err.Number, Err.Description, Err.Source)
+  Err.Clear
+
+  itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+  itmx.SmallIcon = 2
+  itmx.SubItems(1) = URL
+  itmx.SubItems(2) = "Idle"
+  LV1.ListItems(itmx.Key).Selected = True
+  Call ErrorTrap(Err.Number, Err.Description, Err.Source)
+  
+  Call Log(CStr(hwnd))
+  Set itmx = Nothing
+End Sub
+
+Private Sub IEWin_IEDownloadBegin(hwnd As Long)
+   If Timer1.Enabled = False Then
+      Timer1.Enabled = True
+      Call Log(CStr(hwnd))
+   
+   End If
+Exit Sub
+      Dim itmx As ListItem
+      Set itmx = LV1.ListItems("K" & CStr(hwnd))
+      itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+      itmx.SmallIcon = 1
+      itmx.SubItems(1) = IEWin.IE(CStr(hwnd)).IEctl.LocationURL
+      itmx.SubItems(2) = "Downloading..."
+      Set itmx = Nothing
+      
+      Call Log(CStr(hwnd))
+
+   'End If
+End Sub
+
+Private Sub IEWin_IEDownloadComplete(hwnd As Long)
+  
+  
+  
+   If Timer1.Enabled = False Then
+      Timer1.Enabled = True
+      Call Log(CStr(hwnd))
+   
+   End If
+Exit Sub
+  If Timer1.Enabled Then
+     Timer1.Enabled = False
+     Dim itmx As ListItem
+     Set itmx = LV1.ListItems("K" & CStr(hwnd))
+     itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+     itmx.SmallIcon = 2
+     itmx.SubItems(1) = IEWin.IE(CStr(hwnd)).IEctl.LocationURL
+     itmx.SubItems(2) = "Idle"
+     Set itmx = Nothing
+     
+     Call Log(CStr(hwnd))
+
+  End If
+End Sub
+
+Private Sub IEWin_IEMouseDown(hwnd As Long, Button As Integer, Shift As Integer, X As Single, Y As Single)
+   Dim S As String
+   If Button = 1 Then S = "Left "
+   If Button = 2 Then S = "Right "
+   S = S & "Mouse Down in " & IEWin.IE(CStr(hwnd)).IEctl.LocationName & vbCrLf
+   S = S & "in position:" & vbCrLf
+   S = S & "X = " & CStr(X) & vbCrLf
+   S = S & "Y = " & CStr(Y)
+   Debug.Print S
+'   MsgBox s
+End Sub
+
+Private Sub IEWin_IEMouseUp(hwnd As Long, Button As Integer, Shift As Integer, X As Single, Y As Single)
+   Dim S As String
+   If Button = 1 Then S = "Left "
+   If Button = 2 Then S = "Right "
+   S = S & "Mouse Up in " & IEWin.IE(CStr(hwnd)).IEctl.LocationName & vbCrLf
+   S = S & "in position:" & vbCrLf
+   S = S & "X = " & CStr(X) & vbCrLf
+   S = S & "Y = " & CStr(Y)
+   Debug.Print S
+'   MsgBox s
+End Sub
+
+Private Sub IEWin_IENavigationBegin(hwnd As Long, ByVal pDisp As Object, URL As Variant, Flags As Variant, TargetFrameName As Variant, PostData As Variant, Headers As Variant, Cancel As Boolean)
+  
+Call Log(CStr(hwnd))
+   
+Exit Sub
+  
+  
+  Timer1.Enabled = True
+  If IsForbidden(CStr(URL), List1) Then
+     bCancel = True
+     MsgBox "This URL is forbidden!!!", vbCritical, "Restricted URL"
+     Exit Sub
+  End If
+  Dim itmx As ListItem
+  Set itmx = LV1.ListItems("K" & CStr(hwnd))
+Err.Clear
+  On Local Error GoTo ende2
+  itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+  
+  itmx.SmallIcon = 1
+  itmx.SubItems(1) = URL
+  itmx.SubItems(2) = "Navigating..."
+   
+  Call Log(CStr(hwnd))
+
+ende2:
+  Set itmx = Nothing
+End Sub
+
+Private Sub IEWin_IENavigationComplete(hwnd As Long, ByVal pDisp As Object, URL As Variant)
+  Dim itmx As ListItem
+  Err.Clear
+  On Local Error Resume Next
+  Call ErrorTrap(Err.Number, Err.Description, Err.Source)
+  
+  If Err.Number = 0 Then
+      Set itmx = LV1.ListItems("K" & CStr(hwnd))
+      itmx.Text = IEWin.IE(CStr(hwnd)).IEctl.LocationName
+      itmx.SmallIcon = 1
+      itmx.SubItems(1) = IEWin.IE(CStr(hwnd)).IEctl.LocationURL
+      itmx.SubItems(2) = "Downloading..."
+      'If itmx.Text = itmx.SubItems(1) Then Stop
+      Call Log(CStr(hwnd))
+   End If
+  Set itmx = Nothing
+End Sub
+
+Private Sub IEWin_IEOnContextMenu(hwnd As Long)
+   'ret = MsgBox("Context Menu in " & IEWin.IE(CStr(hwnd)).IEctl.LocationName & " is about to appear." & vbCrLf & "Show context menu?", vbYesNo, "Context menu")
+   'If ret = vbNo Then bCancel = True
+End Sub
+
+Private Sub IEWin_IEWindowRegistered()
+  Timer1.Enabled = True
+  UpdateIEList LV1
+End Sub
+
+Private Sub IEWin_IEWindowRevoked()
+  Timer1.Enabled = False
+  UpdateIEList LV1
+End Sub
+
+Private Sub LV1_ItemClick(ByVal item As ListItem)
+  Command1(2).Enabled = IEWin.IE(Mid$(item.Key, 2)).EnableBack
+  Command1(3).Enabled = IEWin.IE(Mid$(item.Key, 2)).EnableForward
+End Sub
+
+Private Sub LV1_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+   If Button = 1 Then
+      xClick = X: yClick = Y
+   End If
+End Sub
+
+Private Sub LV1_DblClick()
+  Dim itmx As ListItem
+  Set itmx = LV1.HitTest(xClick, yClick)
+  If Not itmx Is Nothing Then
+     SetForegroundWindow CLng(Mid$(itmx.Key, 2))
+  End If
+End Sub
+
+Private Function IsForbidden(sUrl As String, lb As ListBox) As Boolean
+  Dim i As Long
+  i = SendMessage(lb.hwnd, LB_FINDSTRING, -1, ByVal sUrl)
+  If i > -1 Then IsForbidden = True
+End Function
+
+Private Sub Timer1_Timer()
+Exit Sub
+  If IsSurfing Then
+     SurfingTime = SurfingTime + 1
+     Caption = "Total surfing time = " & TimeSerial(0, 0, SurfingTime)
+  End If
+End Sub
+
+Private Function IsSurfing() As Boolean
+Err.Clear
+On Local Error Resume Next
+  Dim tmpIE As IE_Class
+  For Each tmpIE In IEWin
+      If Not tmpIE.IEctl Is Nothing Then
+      Call ErrorTrap(Err.Number, Err.Description, Err.Source)
+Err.Clear
+On Local Error Resume Next
+         If tmpIE.IEctl.Busy Then
+            If Err.Number = 0 Then IsSurfing = True
+            Call ErrorTrap(Err.Number, Err.Description, Err.Source)
+            
+            Exit For
+         End If
+      End If
+  Next tmpIE
+End Function
+
+Private Sub Timer2_Timer()
+
+If GetForegroundWindow <> GetForegroundWindowOld Then
+
+End If
+GetForegroundWindowOld = GetForegroundWindow
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+
+
+
+
+
+
+
+
+
+
+Sub Log(hwnd)
+    
+'   dw = frmIECtrl.LV1.ListItems.Count
+   
+'   If dw = 0 Then Exit Sub
+   
+'ae1 = xLocationName2$
+'ae2 = xLocationURL2$
+   
+'If ae1 = "" And ae2 = "" Then Exit Sub
+   
+   
+   
+   
+   
+Dim tmpIE As IE_Class
+'Dim itmx As ListItem
+'---------
+xLocationName$ = ""
+xLocationURL$ = ""
+xLocationx1$ = ""
+xLocationx2$ = ""
+xLocationx3$ = ""
+xLocationx4$ = ""
+xLocationx5$ = ""
+'---------
+On Local Error Resume Next
+'---------
+If IEWin Is Nothing Then Exit Sub
+
+'If IEWin.Count > 1 Then Stop
+'---------
+
+ww5 = 0
+For rrt3 = 1 To IEWin.Count
+
+Set tmpIE = IEWin.IE(rrt3)
+
+If GetForegroundWindow = tmpIE.IEctl.hwnd Then ww5 = 1: Exit For
+
+Next
+If ww5 = 0 Then rrt3 = rrt3 - 1
+
+If ww5 = 0 And InStr(ATidalX.Text1.Text, "URL Logger") <> 1 Then
+    
+    Set tmpIE = IEWin.IE(rrt3)
+    
+    Call Log2(rrt3)
+
+    Exit Sub
+End If
+
+
+If InStr(ATidalX.Text1.Text, "URL Logger") = 1 Then
+
+    For rrt3 = 1 To IEWin.Count
+
+        Set tmpIE = IEWin.IE(rrt3)
+
+        Call Log2(rrt3)
+
+    Next
+
+End If
+
+End Sub
+
+Sub Log2(rrt3)
+
+Set tmpIE = IEWin.IE(rrt3)
+
+'IEWin.IE.IEctl.ClientToWindow
+
+
+
+
+'Weeee = tmpIE.IEctl.ClientToWindow
+
+
+
+xLocationName = tmpIE.IEctl.LocationName
+'xLocationURL = tmpIE.IEctl.Document
+xLocationURL = tmpIE.IEctl.LocationURL
+xLocationHWND = tmpIE.IEctl.hwnd
+xLocationxBusy = tmpIE.IEctl.Busy
+If xLocationxBusy = True Then xLocationxBusy = "True" Else xLocationxBusy = "False"
+xLocationxFullProgPath = tmpIE.IEctl.FullName
+
+ash$ = GetWindowTitle(CStr(xLocationHWND))
+
+If (InStr(xLocationxFullProgPath, "\iexplore.exe") = 0 And _
+    InStr(ash$, xLocationName) = 1) Or _
+    (xLocationName <> ash$ And _
+    UCase(Mid$(xLocationName, 1, 4)) = "HTTP") Then
+    
+    ash5 = InStr(ash$, " - Windows Internet Explorer") + 27
+    ash51 = Len(ash$)
+    If ash5 = ash51 And InStr(ash$, " - Windows Internet Explorer") > 0 Then
+        ash2$ = Trim$(Mid$(ash$, 1, ash5 - 28))
+    End If
+
+    ash$ = ash2$
+
+End If
+
+'--------------
+On Local Error GoTo 0
+   
+   
+If ash$ + vbCrLf + xLocationURL = ATidalX.Text1.Text Then Exit Sub
+
+
+
+
+        
+      'egh$ = GetUserName
+  
+      fr8 = FreeFile
+      Open "C:\Documents and Settings\Matt Lan\My Documents\01 Palm HotSync\UrlLogg-long-" + GetUserName + ".txt" For Append As #fr8
+      Print #fr8, "----" + Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") + "---------------------"
+      
+      Print #fr8, ash$
+      Print #fr8, xLocationName
+      Print #fr8, xLocationURL
+      Print #fr8, xLocationxFullProgPath
+      Print #fr8, "Busy = "; xLocationxBusy
+      Close #fr8
+      
+      fr8 = FreeFile
+      Open "C:\Documents and Settings\Matt Lan\My Documents\01 Palm HotSync\UrlLogg1-" + GetUserName + ".txt" For Append As #fr8
+      tui = 0
+      ty5$ = "BT Yahoo! Home Page"
+      If ty5$ = xLocationName Then tui = 1
+      ty6$ = "Google Reader"
+      If ty6$ = xLocationName Then tui = 1
+      If ty5$ = ash$ Then tui = 1
+      If ty6$ = ash$ Then tui = 1
+
+tc = 0
+TRem$ = Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ")
+If TRem$ = Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") Then tc = 1
+      If tui = 0 Then
+         If tc = 0 Then Print #fr8, "----" + Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") + "---------------------"
+         Print #fr8, ash$
+         Print #fr8, xLocationName
+         Print #fr8, xLocationURL
+         Print #fr8,
+         Close #fr8
+      End If
+Close #fr8
+
+ATidalX.Text1.Text = ash$ + vbCrLf + xLocationURL
+ATidalX.Text1.Refresh
+
+
+
+
+End Sub
+
+
+Private Sub UpdateIEListzzz(lv As ListView)
+  
+Call Log(0)
+
+  
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+-------------Temp ------------------
+
+
+
+
+
+
+
+
+
+
+
+
+Sub Log()
+    
+'   dw = frmIECtrl.LV1.ListItems.Count
+   
+'   If dw = 0 Then Exit Sub
+   
+'ae1 = xLocationName2$
+'ae2 = xLocationURL2$
+   
+'If ae1 = "" And ae2 = "" Then Exit Sub
+   
+   
+   
+   
+   
+Dim tmpIE As IE_Class
+'Dim itmx As ListItem
+'---------
+xLocationName$ = ""
+xLocationURL$ = ""
+xLocationx1$ = ""
+xLocationx2$ = ""
+xLocationx3$ = ""
+xLocationx4$ = ""
+xLocationx5$ = ""
+'---------
+On Local Error Resume Next
+'---------
+If IEWin Is Nothing Then Exit Sub
+
+'If IEWin.Count > 1 Then Stop
+'---------
+
+ww5 = 0
+For rrt3 = 1 To IEWin.Count
+
+Set tmpIE = IEWin.IE(rrt3)
+
+If GetForegroundWindow = tmpIE.IEctl.hwnd Then ww5 = 1: Exit For
+
+Next
+If ww5 = 0 Then rrt3 = rrt3 - 1
+
+If ww5 = 1 And InStr(ATidalX.Text1.Text, "URL Logger") <> 1 Then
+    
+    Set tmpIE = IEWin.IE(rrt3)
+    
+    Call Log2(rrt3)
+
+    Exit Sub
+End If
+
+
+If InStr(ATidalX.Text1.Text, "URL Logger") = 1 Then
+
+    For rrt3 = 1 To IEWin.Count
+
+        Set tmpIE = IEWin.IE(rrt3)
+
+        Call Log2(rrt3)
+
+    Next
+
+End If
+
+End Sub
+
+Sub Log2(rrt3)
+
+Set tmpIE = IEWin.IE(rrt3)
+
+
+'IEWin.IE.IEctl.ClientToWindow
+'Weeee = tmpIE.IEctl.ClientToWindow
+
+
+
+xLocationName = tmpIE.IEctl.LocationName
+xLocationURL = tmpIE.IEctl.LocationURL
+xLocationHWND = tmpIE.IEctl.hwnd
+xLocationxBusy = tmpIE.IEctl.Busy
+If xLocationxBusy = True Then xLocationxBusy = "True" Else xLocationxBusy = "False"
+xLocationxFullProgPath = tmpIE.IEctl.FullName
+
+ash$ = GetWindowTitle(CStr(xLocationHWND))
+
+tto = 0
+If InStr(xLocationxFullProgPath, "\iexplore.exe") > 0 Then tto = 1
+If InStr(ash$, " - Windows Internet Explorer") > 0 Then tto = 1
+ash5 = InStr(ash$, " - Windows Internet Explorer") + 27
+ash51 = Len(ash$)
+If ash5 = ash51 Then tto = 1
+If tto = 1 Then ash$ = Trim$(Mid$(ash$, 1, ash5 - 28))
+
+
+   
+If ash$ + vbCrLf + xLocationURL = ATidalX.Text1.Text Then Exit Sub
+
+
+'egh$ = GetUserName
+  
+fr8 = FreeFile
+Open "C:\Documents and Settings\Matt Lan\My Documents\01 Palm HotSync\UrlLogg-long-" + GetUserName + ".txt" For Append As #fr8
+Print #fr8, "----" + Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") + "---------------------"
+      
+Print #fr8, ash$
+Print #fr8, xLocationName
+Print #fr8, xLocationURL
+Print #fr8, xLocationxFullProgPath
+Print #fr8, "Busy = "; xLocationxBusy
+Close #fr8
+
+fr8 = FreeFile
+Open "C:\Documents and Settings\Matt Lan\My Documents\01 Palm HotSync\UrlLogg1-" + GetUserName + ".txt" For Append As #fr8
+tui = 0
+ty5$ = "BT Yahoo! Home Page"
+If ty5$ = xLocationName Then tui = 1
+ty6$ = "Google Reader"
+If ty6$ = xLocationName Then tui = 1
+If ty5$ = ash$ Then tui = 1
+If ty6$ = ash$ Then tui = 1
+
+tc = 0
+TRem$ = Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ")
+If TRem$ = Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") Then tc = 1
+      If tui = 0 Then
+         If tc = 0 Then Print #fr8, "----" + Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") + "---------------------"
+         Print #fr8, ash$
+         Print #fr8, xLocationName
+         Print #fr8, xLocationURL
+         Print #fr8,
+         Close #fr8
+      End If
+Close #fr8
+
+ATidalX.Text1.Text = ash$ + vbCrLf + xLocationURL
+ATidalX.Text1.Refresh
+
+
+
+
+End Sub
+
+
+Private Sub UpdateIEListzzz(lv As ListView)
+  
+Call Log(0)
+
+  
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      fr8 = FreeFile
+      Open "C:\Documents and Settings\Matt Lan\My Documents\01 Palm HotSync\UrlLogg-long-" + GetUserName + ".txt" For Append As #fr8
+      
+      Print #fr8, "-----------------------------------------"
+      Print #fr8, "----" + Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") + "---------------------"
+      Print #fr8, "---- - Program URL Logger Start - ----"
+      Print #fr8, "---------------------------------"
+      
+      Print #fr8,
+      Close #fr8
+
+      fr8 = FreeFile
+      Open "C:\Documents and Settings\Matt Lan\My Documents\01 Palm HotSync\UrlLogg1-" + GetUserName + ".txt" For Append As #fr8
+      Print #fr8, "-----------------------------------------"
+      Print #fr8, "----" + Format$(Now, "DDD DD-MMM-YYYY HH:MM:SSa ") + "---------------------"
+      Print #fr8, "---- - Program URL Logger Start - ----"
+      Print #fr8, "---------------------------------"
+      
+      Print #fr8,
+      Close #fr8
+ 

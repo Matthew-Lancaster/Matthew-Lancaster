@@ -1,16 +1,16 @@
 VERSION 5.00
 Begin VB.Form FRM_MSGBOX 
    Caption         =   "Clipboard Logger Error and Info Messages Script List"
-   ClientHeight    =   4935
-   ClientLeft      =   3330
-   ClientTop       =   2790
+   ClientHeight    =   4932
+   ClientLeft      =   3336
+   ClientTop       =   2796
    ClientWidth     =   10740
    LinkTopic       =   "Form3"
-   ScaleHeight     =   4935
+   ScaleHeight     =   4932
    ScaleWidth      =   10740
    StartUpPosition =   1  'CenterOwner
    Begin VB.ListBox List1 
-      Height          =   4545
+      Height          =   4464
       Left            =   20
       TabIndex        =   0
       Top             =   -10
@@ -28,6 +28,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Public EXIT_TRUE
+
 
 Private Sub List1_Click()
 
@@ -90,8 +92,11 @@ Private Sub Timer1_Timer()
     FRM_MSGBOX2.Label1.Height = FRM_MSGBOX2.Height
     FRM_MSGBOX2.Label1.Width = FRM_MSGBOX2.Width
     'FRM_MSGBOX2.Label1.AutoSize = True
+    
     FRM_MSGBOX2.Label1.FontSize = 8
+    
     '-------------------------------------
+    
     
     FRM_MSGBOX.Timer1.Enabled = False
 

@@ -1,0 +1,44 @@
+Type=Exe
+Form=frmMain.frm
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+Form=frmSettings.frm
+Module=modDeclarations; modDeclarations.bas
+IconForm="frmMain"
+Startup="frmMain"
+HelpFile=""
+Title="Dancing Line Screen Saver"
+ExeName32="Dancing Line.exe"
+Command32=""
+Name="DancingLine"
+HelpContextID="0"
+Description="Screen Saver"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=2
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Mon 22-Nov-2010 02-11-32a"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionFileDescription="Dancing Line Screen Saver"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+VersionProductName="Dancing Line Screen Saver"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

@@ -1,0 +1,37 @@
+Type=Exe
+Form=FrmMain.FRM
+Module=modMain; ModMain.BAS
+Reference=*\G{00020813-0000-0000-C000-000000000046}#1.0#9#..\..\..\..\Program Files\Microsoft Office\OFFICE11\XL5EN32.OLB#Microsoft Excel 5.0 Object Library
+IconForm="frmMain"
+Startup="frmMain"
+HelpFile=""
+Title="Calender Ace"
+ExeName32="Calender Ace.exe"
+Command32=""
+Name="Calender"
+HelpContextID="0"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=1
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionCompanyName=" "
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

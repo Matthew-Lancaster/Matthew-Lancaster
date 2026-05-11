@@ -1,0 +1,44 @@
+Planet Source Code
+
+Presents
+
+SCROLLING & FADING CREDITS
+
+Written by
+
+Dirk Rijmenants
+
+You can change
+the text color
+the text box color
+the area of fading in percent
+put any image as background
+
+You can align the text
+Left, Center or Right
+
+With only two little subs:
+Form_Load
+Timer1_Timer
+
+Smooth scrolling without flicker
+No API's used !
+Only basic drawing code
+
+The credits are loaded
+from the Credits.txt file
+placed in the applications folder
+
+Change it in your credits
+
+If you want a break
+just add some empty lines
+in the Credits.txt file
+
+If you like the code...
+just vote on PSC
+
+Well, thats all folks !
+
+
+THE END

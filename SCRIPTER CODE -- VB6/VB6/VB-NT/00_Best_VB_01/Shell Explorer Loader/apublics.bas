@@ -1,5 +1,24 @@
 Attribute VB_Name = "APublics"
-Public TEXT_PATH
+Public COMPUTER_NAME_SET
+Public COMPUTER_NAME_SET_VB6
+Public NET_C_PATH
+Public NET_D_PATH
+Public NET_E_PATH
+Public NET_PATH_ALL
+Public NET_PATH_ALL_2
+Public NET_PATH_ALL_ARRAY
+
+Public CLIPBOARDOR_PATH_NAME
+Public CLIPBOARDOR_PATH_LINK
+Public CLIPBOARDOR_PATH_SHORT
+
+Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_01
+Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_02
+Public COMPUTER_NAME_PUT_STORE_NETWORK_2_STEP_JUMPER_03
+Public NETWORK_2_STEP_JUMPER
+
+Public TEXT_PATH_1
+Public TEXT_PATH_2
 
 Private Const FILE_ATTRIBUTE_DIRECTORY = &H10
 
@@ -10,6 +29,7 @@ Public A1$, B1$, C1$, OIP$, OIP2$
 Public A4$(), B4$(), C4$()
 
 Public FS
+Public FSO
 
 Private Type Rect
     Left As Long
@@ -46,6 +66,13 @@ Private Type WIN32_FIND_DATA
    cAlternate           As String * 14
 End Type
 
+
+Public Sub SET_UP_PULIC_FSO()
+
+Set FS = CreateObject("Scripting.FileSystemObject")
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+End Sub
 
 
 'Public Function CreateFolderTree(ByVal sPath As String) As Boolean

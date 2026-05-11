@@ -1,0 +1,1324 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<title>NNTP Control</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><a name="NNTP Control"><font size="5"><strong>NNTP
+Control</strong></font></a></p>
+
+<p align="center"><font size="1">(c)2001 by U.Keller, Email: </font><font size="1">
+<a href="mailto:visualbasic@uwekeller.de">visualbasic@uwekeller.de</a></font></p>
+
+<p align="left"><font size="2">This NNTP ActiveX control was
+designed to handle the whole transfer between a single client and
+a newsserver. It has been developed with visual basic 6 so its
+runtime library is required. The embedded commands are based on
+the standards RFC0850, RFC0977, RFC1036 and RFC2980. Although the
+NNTP control is written in visual basic, it has a very high
+performance. Most commands are working asyncronic. Please click
+on a topic below to read the description.</font></p>
+<div align="left">
+
+<table border="1" cellpadding="3" cellspacing="0" width="100%"
+bordercolordark="#FFFFFF" bordercolorlight="#808080">
+    <tr>
+        <td><font size="2"><strong>Methods</strong></font></td>
+        <td><font size="2"><strong>Properties</strong></font></td>
+        <td><font size="2"><strong>Events</strong></font></td>
+    </tr>
+    <tr>
+        <td valign="top"><ul>
+            <li><a href="#Connect-Methods"><font size="1">Connect</font></a></li>
+            <li><a href="#Disconnect-Method"><font size="1">Disconnect</font></a></li>
+            <li><a href="#GetArticle-Method"><font size="1">GetArticle</font></a></li>
+            <li><a href="#GetBody-Method"><font size="1">GetBody</font></a></li>
+            <li><a href="#GetHeader-Method"><font size="1">GetHeader</font></a></li>
+            <li><a href="#GetHeaderField-Method"><font size="1">GetHeaderField</font></a></li>
+            <li><a href="#GetList-Method"><font size="1">GetList</font></a></li>
+            <li><a href="#GetStat-Method"><font size="1">GetStat</font></a></li>
+            <li><a href="#GetXover-Method"><font size="1">GetXover</font></a></li>
+            <li><a href="#GotoLast-Method"><font size="1">GotoLast</font></a></li>
+            <li><a href="#Message-Property"><font size="1">GotoNext</font></a></li>
+            <li><a href="#PostArticle-Method"><font size="1">PostArticle</font></a></li>
+            <li><a href="#RcString-Method"><font size="1">RcString</font></a></li>
+            <li><a href="#SaveData-Method"><font size="1">SaveData</font></a></li>
+            <li><a href="#SelectGroup-Method"><font size="1">SelectGroup</font></a></li>
+        </ul>
+        </td>
+        <td valign="top"><ul>
+            <li><a href="#ArticleCount-Property"><font size="1">ArticleCount</font></a></li>
+            <li><a href="#Author-Property"><font size="1">Author</font></a></li>
+            <li><a href="#Bytes-Property"><font size="1">BPS</font></a></li>
+            <li><font size="1"><a href="#Bytes-Property">Bytes</a></font></li>
+            <li><font size="1"><a href="#DataSize-Property">DataCount</a></font></li>
+            <li><font size="1"><a href="#DataSize-Property">DataIndex</a></font></li>
+            <li><font size="1"><a href="#DataSize-Property">DataSize</a></font></li>
+            <li><font size="1"><a href="#DateTime-Property">DataText</a></font></li>
+            <li><font size="1"><a href="#DateTime-Property">DateTime</a></font></li>
+            <li><a href="#Debugger-Property"><font size="1">Debugger</font></a></li>
+            <li><a href="#FirstArticle-Property"><font size="1">FirstArticle</font></a></li>
+            <li><a href="#Host-Property"><font size="1">Host</font></a></li>
+            <li><a href="#Hostinfo-Property"><font size="1">Hostinfo</font></a></li>
+            <li><a href="#LastArticle-Property"><font size="1">LastArticle</font></a></li>
+            <li><font size="1"><a href="#Message-Property">Lines</a></font></li>
+            <li><font size="1"><a href="#Message-Property">Message</a></font></li>
+            <li><a href="#MsgId-Property"><font size="1">MsgId</font></a></li>
+            <li><a href="#MsgNo-Property"><font size="1">MsgNo</font></a></li>
+            <li><a href="#Newsreader-Property"><font size="1">Newsgroup</font></a></li>
+            <li><font size="1"><a href="#Newsreader-Property">Newsreader</a></font></li>
+            <li><a href="#Password-Property"><font size="1">Password</font></a></li>
+            <li><a href="#Posting-Property"><font size="1">Posting</font></a></li>
+            <li><a href="#Received-Property"><font size="1">Received</font></a></li>
+            <li><a href="#References-Property"><font size="1">References</font></a></li>
+            <li><a href="#References-Property"><font size="1">Refresh</font></a></li>
+            <li><a href="#Size-Property"><font size="1">Size</font></a></li>
+            <li><a href="#State-Property"><font size="1">State</font></a></li>
+            <li><a href="#Subject-Property"><font size="1">Subject</font></a></li>
+            <li><a href="#Text-Property"><font size="1">Text</font></a></li>
+            <li><a href="#Refresh-Property"><font size="1">Timeout</font></a></li>
+            <li><a href="#Username-Property"><font size="1">Username</font></a></li>
+            <li><font size="1"><a href="#Xref-Property">Xref</a></font></li>
+        </ul>
+        </td>
+        <td valign="top"><ul>
+            <li><a href="#Debugger-Event"><font size="1">Debugger</font></a></li>
+            <li><a href="#DoneConnect-Event"><font size="1">DoneConnect</font></a></li>
+            <li><a href="#DoneDisconnect-Event"><font size="1">DoneDisconnect</font></a></li>
+            <li><a href="#DoneGetArticle-Event"><font size="1">DoneGetArticle</font></a></li>
+            <li><a href="#DoneGetBody-Event"><font size="1">DoneGetBody</font></a></li>
+            <li><a href="#DoneGetHeader-Event"><font size="1">DoneGetHeader</font></a></li>
+            <li><a href="#DoneGetList-Event"><font size="1">DoneGetList</font></a></li>
+            <li><a href="#DoneGetStat-Event"><font size="1">DoneGetStat</font></a></li>
+            <li><a href="#DoneGetXover-Event"><font size="1">DoneGetXover</font></a></li>
+            <li><a href="#DoneGotoLast-Event"><font size="1">DoneGotoLast</font></a></li>
+            <li><a href="#DoneGotoNext-Event"><font size="1">DoneGotoNext</font></a></li>
+            <li><a href="#DonePost-Event"><font size="1">DonePost</font></a></li>
+            <li><a href="#DoneSelectGroup-Event"><font size="1">DoneSelectGroup</font></a></li>
+            <li><a href="#Receive-Event"><font size="1">Receive</font></a></li>
+        </ul>
+        </td>
+    </tr>
+</table>
+</div>
+
+<hr>
+
+<p><a name="Connect-Methods"><font size="2"><strong>Connect-Method</strong></font></a></p>
+
+<p><font size="2">The connect command starts the connection to
+the newsserver. The </font><a href="#Host-Property"><font
+size="2">host</font></a><font size="2"> must be set to a valid
+hostname or IP-address. If required, a </font><a
+href="#Username-Property"><font size="2">username</font></a><font
+size="2"> and </font><a href="#Password-Property"><font size="2">password</font></a><font
+size="2"> must be set, too. After a connection is successfully created, the </font><a
+href="#DoneConnect-Event"><font size="2">DoneConnect-Event</font></a><font
+size="2"> is raised. If the connection fails, a <a href="#DoneDisconnect-Event">
+DoneDisconnect-Event</a> is fired with a return code.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Connect</strong></font></p>
+
+<hr>
+
+<p><a name="Disconnect-Method"><font size="2"><strong>Disconnect-Method</strong></font></a></p>
+
+<p><font size="2">The disconnect command disconnects from a
+current newsserver session. If the control </font><a
+href="#State-Property"><font size="2">state</font></a><font
+size="2"> is in idle mode, the disconnect will be performed with
+a correct logout, otherwise the connection will be aborted. In
+any case the control will be completely disconnected and freed.
+To avoid abortion, check the control </font><a
+href="#State-Property"><font size="2">state</font></a><font
+size="2"> previously.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Disconnect</strong></font></p>
+
+<hr>
+
+<p><a name="GetArticle-Method"><font size="2"><strong>GetArticle-Method</strong></font></a></p>
+
+<p><font size="2">This method retrieves the complete article from
+a newsserver. You have to set either the </font><a
+href="#MsgId-Property"><font size="2">MsgId-Property</font></a><font
+size="2"> or the </font><a href="#MsgNo-Property"><font size="2">MsgNo-Property</font></a><font
+size="2"> before using the GetArticle-command. After the complete
+article has been retrieved, a </font><a
+href="#DoneGetArticle-Event"><font size="2">DoneGetArticle-Event</font></a><font
+size="2"> will be fired.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GetArticle</strong></font></p>
+
+<hr>
+
+<p><a name="GetBody-Method"><font size="2"><strong>GetBody-Method</strong></font></a></p>
+
+<p><font size="2">This method retrieves the body of an article
+from a newsserver. You have to set either the </font><a
+href="#MsgId-Property"><font size="2">MsgId-Property</font></a><font
+size="2"> or the </font><a href="#MsgNo-Property"><font size="2">MsgNo-Property</font></a><font
+size="2"> before using the GetArticle-command. After the complete
+article has been retrieved, a </font><a href="#DoneGetBody-Event"><font
+size="2">DoneGetBody-Event</font></a><font size="2"> will be
+fired.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GetBody</strong></font></p>
+
+<hr>
+
+<p><a name="GetHeader-Method"><font size="2"><strong>GetHeader-Method</strong></font></a></p>
+
+<p><font size="2">This method retrieves the header of an article
+from a newsserver. You may set the </font><a
+href="#MsgId-Property"><font size="2">MsgId-Property</font></a><font
+size="2"> or the </font><a href="#MsgNo-Property"><font size="2">MsgNo-Property</font></a><font
+size="2"> before using the this command. After the complete
+article has been retrieved, a </font><a
+href="#DoneGetHeader-Event"><font size="2">DoneGetHeader-Event</font></a><font
+size="2"> is fired.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GetBody</strong></font></p>
+
+<hr>
+
+<p><a name="GetList-Method"><font size="2"><strong>GetList-Method</strong></font></a></p>
+
+<p><font size="2">This command retrieves a complete list of
+newsgroups from the newsserver. If you set the <a href="#DateTime-Property">
+DateTime-Property</a>, only newsgroups add after the given date will be
+received. After completion of this command, a </font><a
+href="#DoneGetList-Event"><font size="2">DoneGetList-Event</font></a><font
+size="2"> will be fired.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GetList</strong></font></p>
+
+<hr>
+
+<p><a name="GetStat-Method"><font size="2"><strong>GetStat-Method</strong></font></a></p>
+
+<p><font size="2">This command selects a new article at the
+newsserver. You may set the </font><a
+href="#MsgId-Property"><font size="2">MsgId-Property</font></a><font
+size="2"> or the </font><a href="#MsgNo-Property"><font size="2">MsgNo-Property</font></a><font
+size="2"> before using the this command. After completion of
+this command, a </font><a href="#DoneGetStat-Event"><font
+size="2">DoneGetStat-Event</font></a><font size="2"> will be
+fired. The properties MsgId and MsgNo will be updated.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GetStat</strong></font></p>
+
+<hr>
+
+<p><a name="GetXover-Method"><font size="2"><strong>GetXover-Method</strong></font></a></p>
+
+<p><font size="2">The GetXover-command retrieves a range of articles
+from the newsserver. You may set the range of articles by the </font><a
+href="#FirstArticle-Property"><font size="2">FirstArticle-Property</font></a><font
+size="2"> and </font><a href="#LastArticle-Property"><font
+size="2">LastArticle-Property</font></a><font size="2"> before
+using the GetXover-command. After completion of this command, a </font><a
+href="#DoneGetXover-Event"><font size="2">DoneGetXover-Event</font></a><font
+size="2"> will be fired.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GetXover</strong></font></p>
+
+<hr>
+
+<p><a name="GotoLast-Method"><font size="2"><strong>GotoLast-Method</strong></font></a></p>
+
+<p><font size="2">This command selects the previous article at
+the newsserver. After completion of this command, a </font><a
+href="#DoneGotoLast-Event"><font size="2">DoneGotoLast-Event</font></a><font
+size="2"> will be fired. The </font><a href="#MsgId-Property"><font
+size="2">MsgId-Property</font></a><font size="2"> and </font><a
+href="#MsgNo-Property"><font size="2">MsgNo-Property</font></a><font
+size="2"> will be updated.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GotoLast</strong></font></p>
+
+<hr>
+
+<p><a name="GotoNext-Method"><font size="2"><strong>GotoNext-Method</strong></font></a></p>
+
+<p><font size="2">This command selects the next article at the
+newsserver. After completion of this command, a </font><a
+href="#DoneGotoNext-Event"><font size="2">DoneGotoNext-Event</font></a><font
+size="2"> will be fired. The </font><a href="#MsgId-Property"><font
+size="2">MsgId-Property</font></a><font size="2"> and </font><a
+href="#MsgNo-Property"><font size="2">MsgNo-Property</font></a><font
+size="2"> will be updated.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>GotoNext</strong></font></p>
+
+<hr>
+
+<p><a name="PostArticle-Method"><font size="2"><strong>PostArticle-Method</strong></font></a></p>
+
+<p><font size="2">This command sends a new article to a
+newsserver. The following properties must be set before using this
+command: </font><a href="#Newsreader-Property"><font size="2">Newsgroup</font></a><font
+size="2">, </font><a href="#Author-Property"><font size="2">Author</font></a><font
+size="2">, </font><a href="#Subject-Property"><font size="2">Subject</font></a><font
+size="2">, </font><a href="#Text-Property"><font size="2">Text</font></a><font
+size="2">. The always required message-id will be set
+automatically by the NNTP-control.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>PostArticle</strong></font></p>
+
+<hr>
+
+<p><a name="RcString-Method"><font size="2"><strong>RcString-Method</strong></font></a></p>
+
+<p><font size="2">This functions returns the description of a
+given </font><a href="#Return Codes"><font size="2">return code</font></a><font
+size="2">. </font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>RcString</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<hr>
+
+<p><a name="SaveData-Method"><font size="2"><strong>SaveData-Method</strong></font></a></p>
+
+<p><font size="2">This method saves the current data to a file. </font></p>
+
+<p><font size="2">Normally you do not need this function because
+all data is available by their appropriate variables, but to
+increase the performance of your program you can directly save
+the data to a file without using the variables. For instance you
+can save a retrieved article body directly and much faster by
+this command instead of using a <em>Print #1, Object.Text.</em></font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>SaveData</strong>(Filename
+</font><font color="#0000A0" size="2">As String</font><font
+size="2">) </font><font color="#0000A0" size="2">As Boolean</font></p>
+
+<p><font size="2">If the data has been saved successfully, the
+function return <em>true</em>, otherwise <em>false</em>.</font></p>
+
+<hr>
+
+<p><a name="SelectGroup-Method"><font size="2"><strong>SelectGroup-Method</strong></font></a></p>
+
+<p><font size="2">With this command you can enter a newsgroup.
+The newsgroup must be determined by the </font><a
+href="#Newsreader-Property"><font size="2">Newsgroup-Property</font></a><font
+size="2">. Of course you have to be connected to a newsserver.
+After the newsgroup is selected, a </font><a
+href="#DoneSelectGroup-Event"><font size="2">DoneSelectGroup-Event</font></a><font
+size="2"> will be fired. The following properties will be updated:
+</font><a href="#FirstArticle-Property"><font size="2">FirstArticle</font></a><font
+size="2">, </font><a href="#LastArticle-Property"><font size="2">LastArticle</font></a><font
+size="2">, </font><a href="#ArticleCount-Property"><font size="2">ArticleCount</font></a><font
+size="2"> and </font><a href="#MsgNo-Property"><font size="2">MsgNo</font></a><font
+size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>SelectGroup</strong></font></p>
+
+<hr>
+
+<p><a name="ArticleCount-Property"><font size="2"><strong>ArticleCount-Property</strong></font></a></p>
+
+<p><font size="2">This property returns the estimated number of articles in
+the selected newsgroup and will be set right after the newsgroup has been 
+selected. </font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>ArticleCount</strong>()
+</font><font color="#0000A0" size="2">As Long</font></p>
+
+<hr>
+
+<p><a name="Author-Property"><font size="2"><strong>Author-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the name and
+email address of the author of the current article. An example in
+standard format is: &quot;john@provider.com (John Miller)&quot;</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Author</strong>()
+</font><font color="#0000A0" size="2">As String</font><font
+size="2"> </font></p>
+
+<hr>
+
+<p><a name="BPS-Property"><font size="2"><strong>BPS-Property</strong></font></a></p>
+
+<p><font size="2">This property returns the transmission speed of
+the last command. The unit is bytes per second.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>BPS</strong>() </font><font
+color="#0000A0" size="2">As Single</font></p>
+
+<hr>
+
+<p><font size="2"><strong><a name="Bytes-Property">Bytes-Property</a></strong></font></p>
+
+<p><font size="2">The bytes property returns the size of the current article 
+which has been set by the <a href="#DataIndex-Property">DataIndex-Property</a>.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Bytes</strong>() </font><font
+color="#0000A0" size="2">As Single</font></p>
+
+<hr>
+
+<p><a name="DataCount-Property"><strong><font size="2">Data</font></strong><strong><font size="2">Count-Property</font></strong></a></p>
+
+<p><font size="2">After retrieving a list of data e.g. by the
+<a href="#GetList-Method">GetList-Method</a> or <a href="#GetXover-Method">
+GetXover-Method</a>, this property returns the number of received
+lines.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>DataCount</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As Long</font></p>
+
+<hr>
+
+<p><strong><font size="2"><a name="DataIndex-Property">DataIndex-Property</a></font></strong></p>
+
+<p><font size="2">After receiving data with the <a href="#GetList-Method">
+GetList-Method</a> or <a href="#GetXover-Method">GetXover-Method</a>, the 
+received data is stored in the internal memory of the control. It can be 
+accessed by setting this property to a value between 1 and
+<a href="#DataCount-Property">DataCount-Property</a>. </font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>DataIndex</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As Long</font></p>
+
+<p><font size="2">Depending on the content the following properties will be 
+changed:</font></p>
+
+<p><font size="2">After <a href="#GetList-Method">GetList-Method</a>:</font></p>
+<p><font size="2"><a href="#Newsgroup-Property">Newsgroup</a>,
+<a href="#FirstArticle-Property">FirstArticle</a>,
+<a href="#LastArticle-Property">LastArticle</a>, <a href="#Posting-Property">
+Posting</a></font></p>
+
+<p><font size="2">After <a href="#GetXover-Method">GetXover-Method</a>:</font></p>
+
+<p><font size="2"><a href="#MsgId-Property">MsgId</a>, <a href="#MsgNo-Property">
+MsgNo</a>, <a href="#Subject-Property">Subject</a>, <a href="#DateTime-Property">
+Date</a>, <a href="#Author-Property">Author</a>, <a href="#References-Property">
+References</a>, <a href="#Xref-Property">XRef</a>, <a href="#Bytes-Property">
+Bytes</a>, <a href="#Lines-Property">Lines</a></font></p>
+
+<hr>
+
+<p><strong><font size="2"><a name="DataSize-Property">DataSize-Property</a></font></strong></p>
+
+<p><font size="2">This property returns the size of the current data, e.g. the 
+size of the received list of newsgroups or the size of the retrieved article.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>DataSize</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As Long</font></p>
+
+<hr>
+
+<p><font size="2"><strong><a name="DataText-Property">DataText-Property</a></strong></font></p>
+
+<p><font size="2">After retrieving a list of data, e.g. newsgroups
+by the </font><a href="#GetList-Method"><font size="2">GetList-method</font></a><font
+size="2">, the Data property contains an array of all received
+lines. The <em>Index</em> must be a value between 1 and </font>
+<a href="#DataSize-Property"><font size="2">DataCount</font></a><font
+size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>DataText</strong>(</font><font
+size="2">)<strong> </strong></font><font color="#0000A0" size="2">As
+String</font></p>
+
+<hr>
+
+<p><font size="2"><strong><a name="DateTime-Property">DateTime-Property</a></strong></font></p>
+
+<p><font size="2">After receiving article headers with the
+<a href="#GetXover-Method">GetXover-Method</a> and setting the
+<a href="#DataIndex-Property">DataIndex-Property</a> the DateTime-Property 
+returns the issue of the article. </font></p>
+
+<p><font size="2">Before receiving a list of newsgroups with the
+<a href="#GetList-Method">GetList-Method</a>, you can set this property to 
+receive only groups add since the specific date.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>DateTime</strong>(</font><font
+size="2">)<strong> </strong></font><font color="#0000A0" size="2">As Date</font></p>
+
+<hr>
+
+<p><a name="Debugger-Property"><font size="2"><strong>Debugger-Property</strong></font></a></p>
+
+<p><font size="2">Returns or sets the debugger mode. If it is set
+to true, a </font><a href="#Debugger-Event"><font size="2">Debugger-Event</font></a><font
+size="2"> is fired each time a data line has been completely received.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Debugger</strong>()
+</font><font color="#0000A0" size="2">As Boolean</font></p>
+
+<hr>
+
+<p><a name="FirstArticle-Property"><font size="2"><strong>FirstArticle-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the number of the
+first article in a newsgroup. It will be set automatically by the
+</font><a href="#SelectGroup-Method"><font size="2">SelectGroup-method</font></a><font
+size="2">, but may be overwritten afterwards, e.g. to retrieve a
+range of article headers by the </font><a href="#GetXover-Method"><font
+size="2">GetXover-method</font></a><font size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>FirstArticle</strong>()
+</font><font color="#0000A0" size="2">As Long</font></p>
+
+<hr>
+
+<p><a name="Host-Property"><font size="2"><strong>Host-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the name or IP-address
+of the newsserver. This must be set before using the </font><a
+href="#Connect-Methods"><font size="2">Connect-method</font></a><font
+size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Host</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As String</font></p>
+
+<hr>
+
+<p><a name="Hostinfo-Property"><font size="2"><strong>Hostinfo-Property</strong></font></a></p>
+
+<p><font size="2">After a connection has been performed
+successfully, the Hostinfo-property returns the welcome message
+of the newsserver.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Hostinfo</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As String</font></p>
+
+<hr>
+
+<p><a name="LastArticle-Property"><font size="2"><strong>LastArticle-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the number of the
+last article in a newsgroup. It will be set automatically by the </font><a
+href="#SelectGroup-Method"><font size="2">SelectGroup-method</font></a><font
+size="2">, but may be overwritten afterwards, e.g. to retrieve a
+range of article headers by the </font><a href="#GetXover-Method"><font
+size="2">GetXover-method</font></a><font size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>LastArticle</strong>()
+</font><font color="#0000A0" size="2">As Long</font></p>
+
+<hr>
+
+<p><font size="2"><strong><a name="Lines-Property">Lines-Property</a></strong></font></p>
+
+<p><font size="2">The lines property returns the size of the current article 
+which has been set by the <a href="#DataIndex-Property">DataIndex-Property</a>.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Lines() as Long</strong></font></p>
+
+<hr>
+
+<p><a name="Message-Property"><strong><font size="2">Message</font></strong><strong><font size="2">-Property</font></strong></a></p>
+
+<p><font size="2">After receiving an article body, the message property returns 
+the message text only neither with headers nor binaries.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Message() as String</strong></font></p>
+
+<hr>
+
+<p><a name="MsgId-Property"><font size="2"><strong>MsgId-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the message-ID of
+the current article. This property have to be set before using
+the </font><a href="#PostArticle-Method"><font size="2">PostArticle-method</font></a><font
+size="2">. If you want to retrieve an articles header or body,
+you have to set either the </font><a href="#MsgNo-Property"><font
+size="2">MsgNo-property</font></a><font size="2"> or the </font><a
+href="#MsgId-Property"><font size="2">MsgId-property</font></a><font
+size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>MsgId</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As String</font></p>
+
+<hr>
+
+<p><a name="MsgNo-Property"><font size="2"><strong>MsgNo-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the message-number
+of the current article. If you want to retrieve an articles
+header or body, you have to set either the MsgNo-property or the </font><a
+href="#MsgId-Property"><font size="2">MsgId-property</font></a><font
+size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>MsgNo</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As Long</font></p>
+
+<hr>
+
+<p><a name="Newsgroup-Property"><font size="2"><strong>Newsgroup-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the newsgroup
+name. This property have to be set before using the </font><a
+href="#SelectGroup-Method"><font size="2">SelectGroup-method</font></a><font
+size="2">. </font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Newsgroup</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As String</font></p>
+
+<p><font size="2">Important: The Newsgroup-property will be
+cleared after a login and logout. If you want to enter a
+newsgroup, you have to set the newsgroup-property <u>after</u> a
+successful login to a newsserver.</font></p>
+
+<hr>
+
+<p><font size="2"><strong><a name="Newsreader-Property">Newsreader-Property</a></strong></font></p>
+
+<p><font size="2">The newsreader property returns or sets the name of the 
+newsreader program. If you program your own application, you can enter the name 
+here. It will be attached to each posted article in the <i>X-Newsreader</i> 
+header field.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Newsreader</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As String</font></p>
+
+<hr>
+
+<p><a name="Password-Property"><font size="2"><strong>Password-Property</strong></font></a></p>
+
+<p><font size="2">Sometimes a newsserver requires a authorized
+login by a username and password. This property returns or sets
+the password. This property must be set before using the </font><a
+href="#Connect-Methods"><font size="2">Connect-method</font></a><font
+size="2">. </font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Newsgroup</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As String</font></p>
+
+<hr>
+
+<p><font size="2"><strong><a name="Posting-Property">Posting-Property</a></strong></font></p>
+
+<p><font size="2">The posting property will be set after a login to a newserver 
+and tells whether posting on that server is allowed or not. This property will 
+also be set by changing the <a href="#DataIndex-Property">DataIndex-Property</a> in case that the current received 
+data are newsgroups. It indicates whether it is possible to post to the selected 
+newsgroup.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Posting</strong><font color="#0000A0">(</font>)<strong> </strong>
+</font><font color="#0000A0" size="2">As
+Boolean</font></p>
+
+<hr>
+
+<p><a name="Received-Property"><font size="2"><strong>Received-Property</strong></font></a></p>
+
+<p><font size="2">This property returns the number of
+received bytes since the last server login. You can also asign a new
+value, but it makes only sense to reset the value by setting the
+property to zero.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Received</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As Long</font></p>
+
+<hr>
+
+<p><a name="References-Property"><font size="2"><strong>References-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the references to
+other articles. You may set this property if you want to reply to
+an article. The reference is the message-id of the other article.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>References</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As String</font></p>
+
+<hr>
+
+<p><font size="2"><strong><a name="Refresh-Property">Refresh-Property</a></strong></font></p>
+
+<p><font size="2">This property returns or sets the delay time
+in seconds until the control sends a help command to the newsserver. When
+the control is connected to a newsserver and in idle mode, the
+help command will be send after the refresh-time has expired. The
+only sense to do this is to keep a connection alive, because some
+newsservers disconnect you if after a specific idle time. If you
+set the refresh-property to 0, this function is off.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Refresh</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As Integer</font></p>
+
+<hr>
+
+<p><a name="Size-Property"><font size="2"><strong>Size-Property</strong></font></a></p>
+
+<p><font size="2">This property returns the size of the current
+data, which can be a list of newsgroups, an article header or
+body, or anything else. </font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Size</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As Long</font></p>
+
+<p><font size="2">Note: The <a href="#Bytes-Property">Bytes-Property</a> returns 
+the number of bytes extracted from an article header received by th
+<a href="#GetXover-Method">GetXover-Method</a>.</font></p>
+
+<hr>
+
+<p><a name="State-Property"><font size="2"><strong>State-Property</strong></font></a></p>
+
+<p><font size="2">This is a very important property. It returns
+the current control state. You can use this to avoid errors
+during runtime of your program.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>State</strong>()<strong>
+</strong></font><font color="#0000A0" size="2">As TNntpState</font></p>
+
+<table border="1" cellpadding="3" cellspacing="0" width="100%"
+bordercolordark="#FFFFFF" bordercolorlight="#808080">
+    <tr>
+        <td valign="top"><font size="2"><strong>Const</strong></font></td>
+        <td align="center" valign="top"><font size="2"><strong>Value</strong></font></td>
+        <td valign="top"><font size="2"><strong>Description</strong></font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_DISCONNECTED</font></td>
+        <td align="center" valign="top"><font size="2">0</font></td>
+        <td valign="top"><font size="2">The control is not
+        connected to a newsserver.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_DISCONNECTING</font></td>
+        <td align="center" valign="top"><font size="2">1</font></td>
+        <td valign="top"><font size="2">The control is executing
+        a disconnect.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_CONNECTED</font></td>
+        <td align="center" valign="top"><font size="2">2</font></td>
+        <td valign="top"><font size="2">The control is connected
+        to a newsserver, but in idle mode (nothing to do).</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_CONNECTING</font></td>
+        <td align="center" valign="top"><font size="2">3</font></td>
+        <td valign="top"><font size="2">The control is executing
+        a connect.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_SELECTING</font></td>
+        <td align="center" valign="top"><font size="2">4</font></td>
+        <td valign="top"><font size="2">The control selects a
+        newsgroup, but has not completed yet.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GETLIST</font></td>
+        <td align="center" valign="top"><font size="2">5</font></td>
+        <td valign="top"><font size="2">The control gets a list
+        of newsgroups, but has not finished.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GETXOVER</font></td>
+        <td align="center" valign="top"><font size="2">6</font></td>
+        <td valign="top"><font size="2">The control gets a range
+        of article headers, but is still busy.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GETSTAT</font></td>
+        <td align="center" valign="top"><font size="2">7</font></td>
+        <td valign="top"><font size="2">The control gets the
+        state of an article.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GETARTICLE</font></td>
+        <td align="center" valign="top"><font size="2">8</font></td>
+        <td valign="top"><font size="2">The control receives an
+        article.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GETHEADER</font></td>
+        <td align="center" valign="top"><font size="2">9</font></td>
+        <td valign="top"><font size="2">The control receives a
+        header of an article.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GETBODY</font></td>
+        <td align="center" valign="top"><font size="2">10</font></td>
+        <td valign="top"><font size="2">The control receives a
+        body of an article.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GOTOLAST</font></td>
+        <td align="center" valign="top"><font size="2">11</font></td>
+        <td valign="top"><font size="2">The control goes to the
+        previous article.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_GOTONEXT</font></td>
+        <td align="center" valign="top"><font size="2">12</font></td>
+        <td valign="top"><font size="2">The control goes to the
+        next article.</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_STAT_POSTING</font></td>
+        <td align="center" valign="top"><font size="2">13</font></td>
+        <td valign="top"><font size="2">The control is posting an
+        article, but has not finished yet.</font></td>
+    </tr>
+</table>
+
+<hr>
+
+<p><a name="Subject-Property"><font size="2"><strong>Subject-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the subject of
+the article. You must either set this property before using the </font><a
+href="#PostArticle-Method"><font size="2">PostArticle-method</font></a><font
+size="2">. After the <a href="#GetXover-Method">GetXover-Method</a> you have to 
+set the current index by the <a href="#DataIndex-Property">DataIndex-Property</a>.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Subject</strong>()<strong>
+</strong>As String</font></p>
+
+<hr>
+
+<p><a name="Text-Property"><font size="2"><strong>Text-Property</strong></font></a></p>
+
+<p><font size="2">The text property returns or sets the complete article data 
+which has been received or got to be send. </font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Text</strong>()<strong>
+</strong>As String</font></p>
+
+<hr>
+
+<p><a name="Timeout-Property"><font size="2"><strong>Timeout-Property</strong></font></a></p>
+
+<p><font size="2">This property returns or sets the delay time
+in seconds until the control reports a timeout. Every time the control is
+busy but the last receive of data is longer ago then the specified
+time, the appropriate Done-Event is fired with a timeout </font><a
+href="#Return Codes"><font size="2">return code</font></a><font
+size="2">. If you set the timeout-property to 0, the function is
+off.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Timeout</strong>()<strong>
+</strong>As Integer</font></p>
+
+<hr>
+
+<p><a name="Username-Property"><font size="2"><strong>Username-Property</strong></font></a></p>
+
+<p><font size="2">Returns or sets the username. Some newsservers
+require an authorized login. In that case, the username and </font><a
+href="#Password-Property"><font size="2">password</font></a><font
+size="2"> have to be set before doing the </font><a
+href="#Connect-Methods"><font size="2">Connect-method</font></a><font
+size="2">.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Username</strong>()<strong>
+</strong>As String</font></p>
+
+<hr>
+
+<p><b><font size="2"><a name="Xref-Property">Xref-Property</a></font></b></p>
+
+<p><font size="2">This property returns or sets the <i>XRef</i> data from an 
+article header received by the <a href="#GetXover-Method">GetXover-Method</a>. 
+Before you have to set the current index by the <a href="#DataIndex-Property">
+DataIndex-Property</a>.</font></p>
+
+<p><font size="2">Syntax: <em>Object</em>.<strong>Xref</strong>()<strong>
+</strong>As String</font></p>
+
+<hr>
+
+<p><a name="Debugger-Event"><font size="2"><strong>Debugger-Event</strong></font></a></p>
+
+<p><font size="2">If the </font><a href="#Debugger-Property"><font
+size="2">Debugger-property</font></a><font size="2"> is set to
+true, each time a line is completely received it will be handed over to this 
+event.</font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>Debugger</strong>(Text
+</font><font color="#0000A0" size="2">As String</font><font
+size="2">)</font></p>
+
+<hr>
+
+<p><a name="DoneConnect-Event"><font size="2"><strong>DoneConnect-Event</strong></font></a></p>
+
+<p><font size="2">After a connection to a newsserver has been
+done, the DoneConnect-event will be fired, even if the connection
+failed. The </font><a href="#Return Codes"><font size="2">return
+code</font></a><font size="2"> gives you further information
+about the connection state. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneConnect</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the connection is successful, the following
+properties will be changed: </font></p>
+
+<ul>
+    <li><a href="#Hostinfo-Property"><font size="2">Hostinfo</font></a><font
+        size="2"> is set by the newsserver</font></li>
+    <li><a href="#Newsreader-Property"><font size="2">Newsgroup</font></a><font
+        size="2"> is set to an empty string</font></li>
+    <li><a href="#Received-Property"><font size="2">Received</font></a><font
+        size="2"> is set to zero</font></li>
+</ul>
+
+<hr>
+
+<p><a name="DoneDisconnect-Event"><font size="2"><strong>DoneDisconnect-Event</strong></font></a></p>
+
+<p><font size="2">After a disconnect from a newsserver has been
+done, the DoneDisconnect-event will be fired. The </font><a
+href="#Return Codes"><font size="2">return code</font></a><font
+size="2"> gives you further information about the connection
+state. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneDisconnect</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If a disconnect is not possible, e.g. because
+another command is still executing, the execution will be stopped
+immediately and the connection will be aborted. In that case you
+will not be logged out from the newsserver.</font></p>
+
+<p><font size="2">The return code of a normal logout is
+NNTP_RC_CLOSING.</font></p>
+
+<hr>
+
+<p><a name="DoneGetArticle-Event"><font size="2"><strong>DoneGetArticle-Event</strong></font></a></p>
+
+<p><font size="2">When an article has been received, the
+DoneGetArticle-event will be fired, even if the transmission
+failed. The </font><a href="#Return Codes"><font size="2">return
+code</font></a><font size="2"> gives you further information
+about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGetArticle</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the article has been received successfully,
+the returncode is NNTP_RC_ARTICLE.</font></p>
+
+<hr>
+
+<p><a name="DoneGetBody-Event"><font size="2"><strong>DoneGetBody-Event</strong></font></a></p>
+
+<p><font size="2">When an articles body has been received, the
+DoneGetBody-event will be fired, even if the transmission failed.
+The </font><a href="#Return Codes"><font size="2">return code</font></a><font
+size="2"> gives you further information about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGetBody</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the body has been received successfully, the
+returncode is NNTP_RC_BODY.</font></p>
+
+<hr>
+
+<p><a name="DoneGetHeader-Event"><font size="2"><strong>DoneGetHeader-Event</strong></font></a></p>
+
+<p><font size="2">When an articles header has been received, the
+DoneGetHeader-event will be fired, even if the transmission
+failed. The </font><a href="#Return Codes"><font size="2">return
+code</font></a><font size="2"> gives you further information
+about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGetHeader</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the header has been received successfully,
+the returncode is NNTP_RC_HEADER.</font></p>
+
+<hr>
+
+<p><a name="DoneGetList-Event"><font size="2"><strong>DoneGetList-Event</strong></font></a></p>
+
+<p><font size="2">When a list of newsgroups has been received,
+the DoneGetList-event will be fired, even if the transmission
+failed. The </font><a href="#Return Codes"><font size="2">return
+code</font></a><font size="2"> gives you further information
+about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGetList</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the newsgroups have been received
+successfully, the returncode is NNTP_RC_LIST. You can gain access to the list of 
+data with the <a href="#DataIndex-Property">DataIndex-Property</a>.</font></p>
+
+<hr>
+
+<p><a name="DoneGetStat-Event"><font size="2"><strong>DoneGetStat-Event</strong></font></a></p>
+
+<p><font size="2">After a GetStat-method has been performed, the
+DoneGetStat-event will be fired, even if the transmission failed.
+The </font><a href="#Return Codes"><font size="2">return code</font></a><font
+size="2"> gives you further information about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGetStat</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the GetStat-method has been performed
+successfully, the return code is NNTP_RC_STAT.</font></p>
+
+<hr>
+
+<p><a name="DoneGetXover-Event"><font size="2"><strong>DoneGetXover-Event</strong></font></a></p>
+
+<p><font size="2">When a range of article headers have been
+received, the DoneGetXover-event will be fired, even if the
+transmission failed. The </font><a href="#Return Codes"><font
+size="2">return code</font></a><font size="2"> gives you further
+information about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGetXover</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the headers have been received successfully, the return 
+code is NNTP_RC_DATAFOLLOWS. You can gain access to the list of data with the
+<a href="#DataIndex-Property">DataIndex-Property</a>.</font></p>
+
+<hr>
+
+<p><a name="DoneGotoLast-Event"><font size="2"><strong>DoneGotoLast-Event</strong></font></a></p>
+
+<p><font size="2">After the GotoLast-method has been performed,
+the DoneGotpLast-event will be fired, even if the access failed.
+The </font><a href="#Return Codes"><font size="2">return code</font></a><font
+size="2"> gives you further information about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGotoLast</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the previous article has been accessed
+succesfully, the return code is NNTP_RC_STAT.</font></p>
+
+<hr>
+
+<p><a name="DoneGotoNext-Event"><font size="2"><strong>DoneGotoNext-Event</strong></font></a></p>
+
+<p><font size="2">After the GotoNext-method has been performed,
+the DoneGotoLast-event will be fired, even if the access failed.
+The </font><a href="#Return Codes"><font size="2">return code</font></a><font
+size="2"> gives you further information about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneGotoNext</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the next article has been accessed
+succesfully, the return code is NNTP_RC_STAT.</font></p>
+
+<hr>
+
+<p><a name="DonePost-Event"><font size="2"><strong>DonePost-Event</strong></font></a></p>
+
+<p><font size="2">After completion of an article post, the
+DonePost-event will be fired, even if the transmission failed.
+The </font><a href="#Return Codes"><font size="2">return code</font></a><font
+size="2"> gives you further information about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DonePost</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the next article has been posted
+succesfully, the return code is NNTP_RC_POSTEDOK.</font></p>
+
+<hr>
+
+<p><a name="DoneSelectGroup-Event"><font size="2"><strong>DoneSelectGroup-Event</strong></font></a></p>
+
+<p><font size="2">After a new newsgroup has been selected, the
+DoneSelectGroup-event will be fired, even if the selection failed.
+The </font><a href="#Return Codes"><font size="2">return code</font></a><font
+size="2"> gives you further information about the transmission. </font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>DoneSelectGroup</strong>(Rc
+</font><font color="#0000A0" size="2">As TNntpRc</font><font
+size="2">)</font></p>
+
+<p><font size="2">If the newsgroup has been succesfully selected,
+the return code is NNTP_RC_GROUPSELECTED. The following
+properties will be changed:</font></p>
+
+<ul>
+    <li><a href="#FirstArticle-Property"><font size="2">FirstArticle</font></a><font
+        size="2"> is the number of the first available article in
+        the newsgroup</font></li>
+    <li><a href="#LastArticle-Property"><font size="2">LastArticle</font></a><font
+        size="2"> is the number of the last available article in
+        the newsgroup</font></li>
+    <li><a href="#ArticleCount-Property"><font size="2">ArticleCount</font></a><font
+        size="2"> is the amount of available articles in that
+        newsgroup</font></li>
+    <li><a href="#MsgNo-Property"><font size="2">MsgNo</font></a><font
+        size="2"> will be set to the first article</font></li>
+</ul>
+
+<hr>
+
+<p><a name="Receive-Event"><font size="2"><strong>Receive-Event</strong></font></a></p>
+
+<p><font size="2">Each time when data arrives, the Receive-event
+is fired. The number of received lines will be given by the <em>Count</em>-variable.</font></p>
+
+<p><font size="2">Syntax: <em>Object_</em><strong>Receive</strong>(Count
+</font><font color="#0000A0" size="2">As Long</font><font
+size="2">)</font></p>
+
+<hr>
+
+<p><a name="Return Codes"><font size="2"><strong>Return Codes</strong></font></a></p>
+
+<table border="1" cellpadding="3" cellspacing="0" width="100%"
+bordercolordark="#FFFFFF" bordercolorlight="#808080">
+    <tr>
+        <td valign="top"><font size="2"><strong>Constant</strong></font></td>
+        <td align="center" valign="top"><font size="2"><strong>Value</strong></font></td>
+        <td valign="top"><font size="2"><strong>Message</strong></font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NONE</font></td>
+        <td align="center" valign="top"><font size="2">0</font></td>
+        <td valign="top"><font size="2">&quot;&quot;</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NOTCONNECTED</font></td>
+        <td align="center" valign="top"><font size="2">1</font></td>
+        <td valign="top"><font size="2">Not connected</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_HOSTNOTFOUND</font></td>
+        <td align="center" valign="top"><font size="2">2</font></td>
+        <td valign="top"><font size="2">Host not found</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_BUSY</font></td>
+        <td align="center" valign="top"><font size="2">3</font></td>
+        <td valign="top"><font size="2">Busy</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_SOCKERR</font></td>
+        <td align="center" valign="top"><font size="2">4</font></td>
+        <td valign="top"><font size="2">Socket error</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_CANCELED</font></td>
+        <td align="center" valign="top"><font size="2">5</font></td>
+        <td valign="top"><font size="2">Canceled</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_TIMEOUT</font></td>
+        <td align="center" valign="top"><font size="2">6</font></td>
+        <td valign="top"><font size="2">Timeout</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_POSTING</font></td>
+        <td align="center" valign="top"><font size="2">200</font></td>
+        <td valign="top"><font size="2">Posting allowed</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NOPOSTING</font></td>
+        <td align="center" valign="top"><font size="2">201</font></td>
+        <td valign="top"><font size="2">No posting allowed</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_CLOSING</font></td>
+        <td align="center" valign="top"><font size="2">205</font></td>
+        <td valign="top"><font size="2">Connection closed</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_GROUPSELECTED</font></td>
+        <td align="center" valign="top"><font size="2">211</font></td>
+        <td valign="top"><font size="2">Newsgroup selected</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_LIST</font></td>
+        <td align="center" valign="top"><font size="2">215</font></td>
+        <td valign="top"><font size="2">List follows</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_ARTICLE</font></td>
+        <td align="center" valign="top"><font size="2">220</font></td>
+        <td valign="top"><font size="2">Article follows</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_HEAD</font></td>
+        <td align="center" valign="top"><font size="2">221</font></td>
+        <td valign="top"><font size="2">Header follows</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_BODY</font></td>
+        <td align="center" valign="top"><font size="2">222</font></td>
+        <td valign="top"><font size="2">Body follows</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_STAT</font></td>
+        <td align="center" valign="top"><font size="2">223</font></td>
+        <td valign="top"><font size="2">Statistic follows</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_DATAFOLLOWS</font></td>
+        <td align="center" valign="top"><font size="2">224</font></td>
+        <td valign="top"><font size="2">Data follows</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NEWARTICLES</font></td>
+        <td align="center" valign="top"><font size="2">230</font></td>
+        <td valign="top"><font size="2">New articles follow</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NEWGROUPS</font></td>
+        <td align="center" valign="top"><font size="2">231</font></td>
+        <td valign="top"><font size="2">New newsgroup follow</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_TRANSFERRED</font></td>
+        <td align="center" valign="top"><font size="2">235</font></td>
+        <td valign="top"><font size="2">Transferred</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_POSTEDOK</font></td>
+        <td align="center" valign="top"><font size="2">240</font></td>
+        <td valign="top"><font size="2">Posted</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_AUTHENTICATIONACCEPTED</font></td>
+        <td align="center" valign="top"><font size="2">281</font></td>
+        <td valign="top"><font size="2">Authentication accepted</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_SENDARTICLETRANSFERRED</font></td>
+        <td align="center" valign="top"><font size="2">335</font></td>
+        <td valign="top"><font size="2">Send article to be
+        transferred</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_SENDARTICLE</font></td>
+        <td align="center" valign="top"><font size="2">340</font></td>
+        <td valign="top"><font size="2">Send article to be posted</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_MOREAUTHENTICATIONREQUIRED</font></td>
+        <td align="center" valign="top"><font size="2">381</font></td>
+        <td valign="top"><font size="2">More authentication
+        required</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_SERVICEDISCONTINUED</font></td>
+        <td align="center" valign="top"><font size="2">400</font></td>
+        <td valign="top"><font size="2">Service discontinued</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NOSUCHNEWSGROUP</font></td>
+        <td align="center" valign="top"><font size="2">411</font></td>
+        <td valign="top"><font size="2">No such newsgroup</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NOTINANEWSGROUP</font></td>
+        <td align="center" valign="top"><font size="2">412</font></td>
+        <td valign="top"><font size="2">Not in a newsgroup</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NOARTICLESELECTED</font></td>
+        <td align="center" valign="top"><font size="2">420</font></td>
+        <td valign="top"><font size="2">No article selected</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NONEXTARTICLE</font></td>
+        <td align="center" valign="top"><font size="2">421</font></td>
+        <td valign="top"><font size="2">No next article</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NOLASTARTICLE</font></td>
+        <td align="center" valign="top"><font size="2">422</font></td>
+        <td valign="top"><font size="2">No last article</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_BADARTICLENUMBER</font></td>
+        <td align="center" valign="top"><font size="2">423</font></td>
+        <td valign="top"><font size="2">Bad article number</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_ARTICLENOTFOUND</font></td>
+        <td align="center" valign="top"><font size="2">430</font></td>
+        <td valign="top"><font size="2">Article not found</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_DONTSEND</font></td>
+        <td align="center" valign="top"><font size="2">435</font></td>
+        <td valign="top"><font size="2">Do not send</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_TRANSFERFAILED</font></td>
+        <td align="center" valign="top"><font size="2">436</font></td>
+        <td valign="top"><font size="2">Transfer failed</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_ARTICLEREJECTED</font></td>
+        <td align="center" valign="top"><font size="2">437</font></td>
+        <td valign="top"><font size="2">Article rejected</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_POSTINGNOTALLOWD</font></td>
+        <td align="center" valign="top"><font size="2">440</font></td>
+        <td valign="top"><font size="2">Posting permitted</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_POSTINGFAILED</font></td>
+        <td align="center" valign="top"><font size="2">441</font></td>
+        <td valign="top"><font size="2">Posting failed</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_AUTHENTICATIONREQUIRED</font></td>
+        <td align="center" valign="top"><font size="2">480</font></td>
+        <td valign="top"><font size="2">Authentication required</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_NOSUCHCOMMAND</font></td>
+        <td align="center" valign="top"><font size="2">500</font></td>
+        <td valign="top"><font size="2">No such command</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_SYNTAXERROR</font></td>
+        <td align="center" valign="top"><font size="2">501</font></td>
+        <td valign="top"><font size="2">Syntax error</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_ACCESSRESTRICTED</font></td>
+        <td align="center" valign="top"><font size="2">502</font></td>
+        <td valign="top"><font size="2">Access restricted</font></td>
+    </tr>
+    <tr>
+        <td valign="top"><font size="2">NNTP_RC_PROGRAMNOTFAULT</font></td>
+        <td align="center" valign="top"><font size="2">503</font></td>
+        <td valign="top"><font size="2">Program not fault</font></td>
+    </tr>
+</table>
+
+<hr>
+
+<p><a href="#NNTP Control"><font size="2">Move to top</font></a></p>
+</body>
+</html>

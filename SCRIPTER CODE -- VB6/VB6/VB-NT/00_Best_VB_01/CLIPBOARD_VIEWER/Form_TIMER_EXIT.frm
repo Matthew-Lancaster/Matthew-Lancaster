@@ -1,13 +1,13 @@
 VERSION 5.00
 Begin VB.Form UNLOAD_FORM_SAFE 
    Caption         =   "Form2"
-   ClientHeight    =   3450
+   ClientHeight    =   3456
    ClientLeft      =   120
    ClientTop       =   480
-   ClientWidth     =   7590
+   ClientWidth     =   7596
    LinkTopic       =   "Form2"
-   ScaleHeight     =   3450
-   ScaleWidth      =   7590
+   ScaleHeight     =   3456
+   ScaleWidth      =   7596
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
    Begin VB.Timer Timer2 
@@ -25,7 +25,7 @@ Begin VB.Form UNLOAD_FORM_SAFE
       Caption         =   "Clipboard Logger Still Loaded Not Propering Exit -- Force Terminate 1 Min"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   20.25
+         Size            =   20.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -44,6 +44,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Public EXIT_TRUE
+
 Dim RETRY1
 
 Private Sub Form_Activate()

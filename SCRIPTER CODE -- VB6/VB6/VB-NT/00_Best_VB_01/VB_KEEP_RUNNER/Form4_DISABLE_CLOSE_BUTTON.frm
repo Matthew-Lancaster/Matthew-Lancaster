@@ -75,18 +75,18 @@ Public Sub SET_BUTTON_CHROME()
 
     Dim dwStyle As Long
 
-    'Dim XHWND_OFF As Long
+    'Dim XhWnd_OFF As Long
 
-    XHWND_OFF = FindWindow("Chrome_WidgetWin_1", vbNullString)
-    ' XHWND_OFF = FindWindow("Chrome_RenderWidgetHostHWND", vbNullString)
-    ' XHWND_OFF = FindWindow("Notepad++", vbNullString)
+    XhWnd_OFF = FindWindow("Chrome_WidgetWin_1", vbNullString)
+    ' XhWnd_OFF = FindWindow("Chrome_RenderWidgetHosthWnd", vbNullString)
+    ' XhWnd_OFF = FindWindow("Notepad++", vbNullString)
     
 
-    'XHWND_OFF = Form1.hWnd
+    'XhWnd_OFF = Form1.hWnd
     
-    ' MsgBox XHWND_OFF
+    ' MsgBox XhWnd_OFF
 
-    dwStyle = GetWindowLong(XHWND_OFF, GWL_STYLE)
+    dwStyle = GetWindowLong(XhWnd_OFF, GWL_STYLE)
     dwStyle = dwStyle And Not WS_MINIMIZEBOX
     dwStyle = dwStyle And Not WS_MAXIMIZEBOX
     
@@ -95,12 +95,12 @@ Public Sub SET_BUTTON_CHROME()
     
     'dwStyle = dwStyle And WS_SYSMENU
 '
-    Call SetWindowLong(XHWND_OFF, GWL_STYLE, dwStyle)
+    Call SetWindowLong(XhWnd_OFF, GWL_STYLE, dwStyle)
 
     dwStyle = dwStyle Or WS_MINIMIZEBOX
     dwStyle = dwStyle Or WS_MAXIMIZEBOX
     
-    Call SetWindowLong(XHWND_OFF, GWL_STYLE, dwStyle)
+    Call SetWindowLong(XhWnd_OFF, GWL_STYLE, dwStyle)
 
 
     ' ------------------------------
@@ -108,8 +108,8 @@ Public Sub SET_BUTTON_CHROME()
     ' TRUE ENABLED
     ' ------------------------------
     
-    Call SetXState(XHWND_OFF, False)
-    ' Call SetXState(XHWND_OFF, True)
+    Call SetXState(XhWnd_OFF, False)
+    ' Call SetXState(XhWnd_OFF, True)
 
 
 End Sub

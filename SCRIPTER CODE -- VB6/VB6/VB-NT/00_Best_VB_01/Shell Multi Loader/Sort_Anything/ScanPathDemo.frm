@@ -1,28 +1,28 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    Caption         =   "ScanPath 2.0 - Anything -- Demo of Class Object"
-   ClientHeight    =   8685
+   ClientHeight    =   8688
    ClientLeft      =   60
-   ClientTop       =   345
-   ClientWidth     =   13950
+   ClientTop       =   348
+   ClientWidth     =   13956
    Icon            =   "ScanPathDemo.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   8685
-   ScaleWidth      =   13950
+   ScaleHeight     =   8688
+   ScaleWidth      =   13956
    StartUpPosition =   2  'CenterScreen
    Begin VB.ListBox List1 
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   8.25
+         Size            =   8.4
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   2370
+      Height          =   2352
       Left            =   75
       TabIndex        =   43
       Top             =   6225
@@ -211,8 +211,8 @@ Begin VB.Form ScanPath
       BackColor       =   &H00FFFFFF&
       Height          =   630
       Left            =   0
-      ScaleHeight     =   570
-      ScaleWidth      =   13890
+      ScaleHeight     =   588
+      ScaleWidth      =   13908
       TabIndex        =   22
       Top             =   0
       Width           =   13950
@@ -222,7 +222,7 @@ Begin VB.Form ScanPath
          Caption         =   "Single File solution to quickly add file processing to any Utility Project."
          BeginProperty Font 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   7.8
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -242,7 +242,7 @@ Begin VB.Form ScanPath
          Caption         =   "A High Performance API file/folder scanner Class."
          BeginProperty Font 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   7.8
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -262,7 +262,7 @@ Begin VB.Form ScanPath
          Caption         =   "Description:"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
-            Size            =   8.25
+            Size            =   7.8
             Charset         =   0
             Weight          =   700
             Underline       =   0   'False
@@ -290,8 +290,8 @@ Begin VB.Form ScanPath
       TabIndex        =   21
       Top             =   3210
       Width           =   13845
-      _ExtentX        =   24421
-      _ExtentY        =   5239
+      _ExtentX        =   24426
+      _ExtentY        =   5249
       LabelEdit       =   1
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
@@ -329,11 +329,11 @@ Begin VB.Form ScanPath
       TabIndex        =   13
       Top             =   2400
       Width           =   1545
-      _ExtentX        =   2725
-      _ExtentY        =   556
+      _ExtentX        =   2731
+      _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   20709377
+      Format          =   126091265
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -343,11 +343,11 @@ Begin VB.Form ScanPath
       TabIndex        =   14
       Top             =   2760
       Width           =   1545
-      _ExtentX        =   2725
-      _ExtentY        =   556
+      _ExtentX        =   2731
+      _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   20709377
+      Format          =   126091265
       CurrentDate     =   37296
    End
    Begin VB.Label Label14 
@@ -381,7 +381,7 @@ Begin VB.Form ScanPath
       Caption         =   "Date/Size Filter:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -399,7 +399,7 @@ Begin VB.Form ScanPath
       Caption         =   "Options:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -435,7 +435,7 @@ Begin VB.Form ScanPath
       Caption         =   "Attributes:"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Size            =   7.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -593,33 +593,33 @@ List1.AddItem "Copy On Smallest Size From Zen Folder an To Zen folder"
 List1.AddItem "Then it will compare for duplicates an click them bottom list to put removed folder"
 
 For we = 1 To ListView1.ListItems.Count
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
-c1$ = Mid$(a1$, Len(tpath1$))
-rr = FileExists(tpath2$ + c1$ + b1$)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
+C1$ = Mid$(A1$, Len(tpath1$))
+rr = FileExists(tpath2$ + C1$ + B1$)
 If rr = True Then
 'call date_File()
-tt1 = FindFileSize(a1$ + b1$)
-tt2 = FindFileSize(tpath2$ + c1$ + b1$)
+tt1 = FindFileSize(A1$ + B1$)
+tt2 = FindFileSize(tpath2$ + C1$ + B1$)
 If tt1 <> tt2 Then
-If tt1 = 0 And Mid$(b1$, 1, 8) <> "--------" Then MsgBox a1$ + b1$ + " = Zero"
-If tt2 = 0 And Mid$(b1$, 1, 8) <> "--------" Then MsgBox a1$ + b1$ + " = Zero"
+If tt1 = 0 And Mid$(B1$, 1, 8) <> "--------" Then MsgBox A1$ + B1$ + " = Zero"
+If tt2 = 0 And Mid$(B1$, 1, 8) <> "--------" Then MsgBox A1$ + B1$ + " = Zero"
 End If
 If tt1 < tt2 And tt1 > 0 Then
 snot = snot + 1
-List1.AddItem "Copy From Zen Folder " + Str(we) + Str(snot) + " -- " + a1$ + b1$
+List1.AddItem "Copy From Zen Folder " + Str(we) + Str(snot) + " -- " + A1$ + B1$
 DoEvents
 List1.Refresh
 DoEvents
-fs22.copyFile a1$ + b1$, tpath2$ + c1$ + b1$
+fs22.copyFile A1$ + B1$, tpath2$ + C1$ + B1$
 End If
 If tt2 < tt1 And tt2 > 0 Then
 snot = snot + 1
-List1.AddItem "Copy To Zen Folder " + Str(we) + Str(snot) + " -- " + a1$ + b1$
+List1.AddItem "Copy To Zen Folder " + Str(we) + Str(snot) + " -- " + A1$ + B1$
 DoEvents
 List1.Refresh
 DoEvents
-fs22.copyFile tpath2$ + c1$ + b1$, a1$ + b1$
+fs22.copyFile tpath2$ + C1$ + B1$, A1$ + B1$
 End If
 
 
@@ -640,11 +640,11 @@ Call cmdScan_Click
 Set fs22 = CreateObject("Scripting.FileSystemObject")
 
 For we = ListView1.ListItems.Count To 1 Step -1
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
-    tt1 = FindFileSize(a1$ + b1$)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
+    tt1 = FindFileSize(A1$ + B1$)
 
-    ListView1.ListItems.Item(we).SubItems(1) = Format$(tt1, "0000000000") + " - " + a1$ + b1$
+    ListView1.ListItems.Item(we).SubItems(1) = Format$(tt1, "0000000000") + " - " + A1$ + B1$
     ListView1.SelectedItem = ListView1.ListItems(we)
     ListView1.SelectedItem.EnsureVisible
     If tt1 = 0 Then ListView1.ListItems.Remove (we)
@@ -656,10 +656,10 @@ ListView1.SortKey = 1
 
 For we = ListView1.ListItems.Count To 2 Step -1
     DoEvents
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
     a2$ = ListView1.ListItems.Item(we - 1).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we - 1)
+    B1$ = ListView1.ListItems.Item(we - 1)
     'tt1 = FindFileSize(a1$ + b1$)
 kk1 = Val(Mid$(ListView1.ListItems.Item(we).SubItems(1), 1, 10))
 kk2 = Val(Mid$(ListView1.ListItems.Item(we - 1).SubItems(1), 1, 10))
@@ -668,7 +668,7 @@ ii1$ = "0": ii2$ = "1"
 If kk1 = kk2 Then
     Reset
     fr1 = FreeFile
-    Open Mid$(a1$, 14) For Binary As #fr1
+    Open Mid$(A1$, 14) For Binary As #fr1
     fr2 = FreeFile
     Open Mid$(a2$, 14) For Binary As #fr2
     ii1$ = Input$(4000, fr1)
@@ -678,7 +678,7 @@ End If
 
 
 If ii1$ = ii2$ Then
-List1.AddItem a1$
+List1.AddItem A1$
 List1.AddItem a2$
 ListView1.ListItems.Remove (we)
 End If
@@ -718,8 +718,8 @@ cboMask.Text = "*.mp3"
 Call cmdScan_Click
 
 For we = 1 To ListView1.ListItems.Count
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
 '    WxHex$ = Space$(10)
 '    LSet WxHex$ = Hex(m_CRC.CalculateFile(a1$ + b1$))
 '    Print #f1, WxHex$
@@ -775,8 +775,8 @@ For we = 1 To ListView1.ListItems.Count
     
     
     
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
 
 
     ii = ii + 1
@@ -785,9 +785,9 @@ For we = 1 To ListView1.ListItems.Count
     
     WxHex$ = Space$(8)
 
-    LSet WxHex$ = Hex(m_CRC.CalculateFile(a1$ + b1$))
+    LSet WxHex$ = Hex(m_CRC.CalculateFile(A1$ + B1$))
     
-    ListView1.ListItems.Item(we).SubItems(1) = WxHex$ + " - - " + Format$(we, "0000000") + " - - " + a1$
+    ListView1.ListItems.Item(we).SubItems(1) = WxHex$ + " - - " + Format$(we, "0000000") + " - - " + A1$
     ListView1.SelectedItem = ListView1.ListItems(we)
     ListView1.SelectedItem.EnsureVisible
     Label13.Caption = Str(we)
@@ -808,8 +808,8 @@ Next
 
 For we = 2 To ListView1.ListItems.Count
     
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
     
     a12$ = ListView1.ListItems.Item(we - 1).SubItems(1)
     b12$ = ListView1.ListItems.Item(we - 1)
@@ -817,22 +817,22 @@ For we = 2 To ListView1.ListItems.Count
 
 
 
-If Mid$(a1$, 1, 3) <> "G:\" Then
+If Mid$(A1$, 1, 3) <> "G:\" Then
     
-    g1$ = Mid$(a1$, 1, 8)
-    g2 = Val(Mid$(a1$, 14, 7))
-    g3$ = Mid$(a1$, 26)
+    g1$ = Mid$(A1$, 1, 8)
+    g2 = Val(Mid$(A1$, 14, 7))
+    g3$ = Mid$(A1$, 26)
     
     h1$ = Mid$(a12$, 1, 8)
     h2 = Val(Mid$(a12$, 14, 7))
     h3$ = Mid$(a12$, 26)
 
-rt = 0
+RT = 0
 If InStr(rr$, g1$) Then
-    If rt = 0 Then MsgBox "1st Del CRC Dont Want"
-    rt = 1
+    If RT = 0 Then MsgBox "1st Del CRC Dont Want"
+    RT = 1
     
-    Kill g3$ + b1$
+    Kill g3$ + B1$
     aga = aga + 1
     Label14.Caption = Str(aga)
 End If
@@ -846,7 +846,7 @@ End If
         Label14.Caption = Str(aga)
         If g2 > h2 Then xxcrc = 1
         If g2 < h2 Then xxcrc = 2
-        If xxcrc = 1 Then Kill g3$ + b1$
+        If xxcrc = 1 Then Kill g3$ + B1$
         If xxcrc = 2 Then Kill h3$ + b12$
     End If
     
@@ -865,7 +865,7 @@ Next
 
 
 
-MsgBox "End"
+' MsgBox "End"
 
 Exit Sub
 
@@ -1170,18 +1170,18 @@ Set fs22 = CreateObject("Scripting.FileSystemObject")
 
 tpath3$ = "E:\04 Music ---\Del\"
 
-b1$ = Mid$(List1.List(List1.ListIndex), 14)
-c1$ = b1$ + "--Todel"
+B1$ = Mid$(List1.List(List1.ListIndex), 14)
+C1$ = B1$ + "--Todel"
 
 'tpath1$ = "E:\04 Music ---\"
 
-c1$ = Mid$(b1$, InStrRev(b1$, "\") + 1)
+C1$ = Mid$(B1$, InStrRev(B1$, "\") + 1)
 List1.RemoveItem (List1.ListIndex)
 'Name b1$ As c1$
 
 'fs22.copyFile b1$, tpath3$ + c1$
-If Dir$(tpath3$ + c1$) <> "" Then Kill tpath3$ + c1$
-fs22.moveFile b1$, tpath3$ + c1$
+If Dir$(tpath3$ + C1$) <> "" Then Kill tpath3$ + C1$
+fs22.moveFile B1$, tpath3$ + C1$
 
 
 
@@ -1228,13 +1228,13 @@ Private Sub SP_FileMatch(Filename As String, Path As String)
         End If
         
         'Refresh Count & Scroll the list every 10th file
-        If (LV.Index Mod 10) = 0 Then
+        If (LV.index Mod 10) = 0 Then
             If chkRefreshListView.Value Then
                 .SelectedItem = LV
                 .SelectedItem.EnsureVisible
             End If
             
-            lblCount.Caption = LV.Index
+            lblCount.Caption = LV.index
         End If
     End With
     Exit Sub
@@ -1296,22 +1296,22 @@ List1.ListIndex = List1.ListCount - 1
 List1.Refresh
 
 For we = 1 To ListView1.ListItems.Count
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
 
     'ets1 = Len("D:\# MY DOCS\# 01 My Documents\Favorites")
     ets1 = Len(txtPath.Text)
-    c1$ = Drived2$ + "Temp\Anything" + v1$ + "\" + Mid$(a1$, ets1 + 2)
+    C1$ = Drived2$ + "Temp\Anything" + v1$ + "\" + Mid$(A1$, ets1 + 2)
 
     etd1 = 13
     ets2 = 1
     Do
         'jc1$ = Mid$(c1$, etd1 + ets2-1)
-        ets2 = InStr(etd1 + ets2, c1$, "\")
+        ets2 = InStr(etd1 + ets2, C1$, "\")
         etd1 = 1
         If ets2 = 0 Then Exit Do
 
-        d2$ = Mid$(c1$, 1, ets2)
+        d2$ = Mid$(C1$, 1, ets2)
 
         If InStr(f1$, d2$) = 0 Then
             On Local Error GoTo jeep
@@ -1330,7 +1330,7 @@ For we = 1 To ListView1.ListItems.Count
     'Set Fs22 = CreateObject("Scripting.FileSystemObject")
     errs2 = 0
     On Local Error GoTo jeep
-    fs22.moveFile a1$ + b1$, c1$ + b1$
+    fs22.moveFile A1$ + B1$, C1$ + B1$
     On Local Error GoTo 0
 
     If errs2 <> 0 Then
@@ -1338,7 +1338,7 @@ For we = 1 To ListView1.ListItems.Count
         End
     End If
 
-    List1.AddItem Format$(we, "000 ") + "Move > " + a1$ + b1$
+    List1.AddItem Format$(we, "000 ") + "Move > " + A1$ + B1$
     List1.ListIndex = List1.ListCount - 1
     List1.Refresh
 
@@ -1401,22 +1401,22 @@ List1.ListIndex = List1.ListCount - 1
 List1.Refresh
 
 For we = 1 To ListView1.ListItems.Count
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
 
     'ets1 = Len("D:\# MY DOCS\# 01 My Documents\Favorites")
     ets1 = Len(txtPath.Text)
-    c1$ = Drived2$ + "My Music" + v1$ + "\" + Mid$(a1$, ets1 + 2)
+    C1$ = Drived2$ + "My Music" + v1$ + "\" + Mid$(A1$, ets1 + 2)
 
     etd1 = 13
     ets2 = 1
     Do
         'jc1$ = Mid$(c1$, etd1 + ets2-1)
-        ets2 = InStr(etd1 + ets2, c1$, "\")
+        ets2 = InStr(etd1 + ets2, C1$, "\")
         etd1 = 1
         If ets2 = 0 Then Exit Do
 
-        d2$ = Mid$(c1$, 1, ets2 - 1)
+        d2$ = Mid$(C1$, 1, ets2 - 1)
 
         If InStr(f1$, d2$) = 0 Then
             Err.Clear
@@ -1443,7 +1443,7 @@ For we = 1 To ListView1.ListItems.Count
     '    End
     'End If
 
-    List1.AddItem Format$(we, "000 ") + "Move > " + a1$ + b1$
+    List1.AddItem Format$(we, "000 ") + "Move > " + A1$ + B1$
     List1.ListIndex = List1.ListCount - 1
     List1.Refresh
 
@@ -1471,23 +1471,23 @@ List1.ListIndex = List1.ListCount - 1
 List1.Refresh
 
 For we = 1 To ListView1.ListItems.Count
-    a1$ = ListView1.ListItems.Item(we).SubItems(1)
-    b1$ = ListView1.ListItems.Item(we)
+    A1$ = ListView1.ListItems.Item(we).SubItems(1)
+    B1$ = ListView1.ListItems.Item(we)
 
     'ets1 = Len("D:\# MY DOCS\# 01 My Documents\Favorites")
     ets1 = Len(txtPath.Text)
-    c1$ = Drived2$ + "My Music" + v1$ + "\" + Mid$(a1$, ets1 + 2)
-    c2$ = Drived2$ + "Temp\Anything" + v1$ + "\" + Mid$(a1$, ets1 + 2)
+    C1$ = Drived2$ + "My Music" + v1$ + "\" + Mid$(A1$, ets1 + 2)
+    c2$ = Drived2$ + "Temp\Anything" + v1$ + "\" + Mid$(A1$, ets1 + 2)
 
     etd1 = 13
     ets2 = 1
     Do
         'jc1$ = Mid$(c1$, etd1 + ets2-1)
-        ets2 = InStr(etd1 + ets2, c1$, "\")
+        ets2 = InStr(etd1 + ets2, C1$, "\")
         etd1 = 1
         If ets2 = 0 Then Exit Do
 
-        d2$ = Mid$(c1$, 1, ets2 - 1)
+        d2$ = Mid$(C1$, 1, ets2 - 1)
 
         If InStr(f1$, d2$) = 0 Then
             Err.Clear
@@ -1507,7 +1507,7 @@ For we = 1 To ListView1.ListItems.Count
     errs2 = 0
     On Local Error Resume Next
     Set fs22 = CreateObject("Scripting.FileSystemObject")
-    fs22.moveFile c2$ + b1$, a1$ + b1$
+    fs22.moveFile c2$ + B1$, A1$ + B1$
     'err.number
     'err.description
     On Local Error GoTo 0
@@ -1517,7 +1517,7 @@ For we = 1 To ListView1.ListItems.Count
     '    End
     'End If
 
-    List1.AddItem Format$(we, "000 ") + "Move > " + a1$ + b1$
+    List1.AddItem Format$(we, "000 ") + "Move > " + A1$ + B1$
     List1.ListIndex = List1.ListCount - 1
     List1.Refresh
 

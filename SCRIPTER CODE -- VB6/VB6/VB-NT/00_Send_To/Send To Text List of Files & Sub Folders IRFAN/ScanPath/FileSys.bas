@@ -1,6 +1,6 @@
 Attribute VB_Name = "mdlFileSys"
 Option Explicit
-Public MNU_IRFAN_MODE_SET, COUNTPROCES2
+Public MNU_IRFAN_MODE_SET, COUNTPROCES2, COUNTPROCES4
 Public FILECOMPLEX
 Public mDIRCount2 As Long
 Public mFILECount2 As Long
