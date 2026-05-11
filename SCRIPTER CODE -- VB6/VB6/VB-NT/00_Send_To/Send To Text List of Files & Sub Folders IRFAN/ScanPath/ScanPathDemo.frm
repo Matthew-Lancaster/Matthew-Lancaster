@@ -1,6 +1,6 @@
 VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
 Begin VB.Form ScanPath 
    BackColor       =   &H00808080&
    Caption         =   "ScanPath 2.0 - Sort  Anything -"
@@ -543,7 +543,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   103809025
+      Format          =   143523841
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -557,7 +557,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   103809025
+      Format          =   143523841
       CurrentDate     =   37296
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -570,7 +570,7 @@ Begin VB.Form ScanPath
       _ExtentX        =   1969
       _ExtentY        =   550
       _Version        =   393216
-      Format          =   103809026
+      Format          =   143523842
       CurrentDate     =   37299
    End
    Begin VB.Label Label_BACK_COLOR1 
@@ -1714,6 +1714,12 @@ Private Const INVALID_HANDLE_VALUE As Long = -1
 
 
 
+Private Sub lblCount1_Click()
+' lblCount1 =
+' lblCount1.CAP
+Stop
+End Sub
+
 Private Sub MNU_EXIT_Click()
 End
 End Sub
@@ -1731,7 +1737,8 @@ Private Sub SP_FileMatch(Filename As String, DFilename As String, Path As String
     
     If 1 = 1 Or MNU_IRFAN_MODE_SET = True Then
 '        Print #FF01, Path + Filename
-                
+                        
+                        
         Call Form_SEND_TO.XSCRIPT(Path + Filename)
         Exit Sub
     End If

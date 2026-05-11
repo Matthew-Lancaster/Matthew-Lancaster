@@ -1,0 +1,18 @@
+Fri 02-Nov-07 11:07:26
+C:- Type - Fixed- Serial - 839718926- V.Name -ACER
+D:- Type - Fixed- Serial --16024576- V.Name -Acer_D
+E:- Type - Fixed- Serial - 814199110- V.Name -Icy Box
+F:- Type - Fixed- Serial --400809543- V.Name -WD-200-A E Backup
+I:- Type - Fixed- Serial - 1166974653- V.Name -WD PASSPORT
+R:- Type - Fixed- Serial - 1169816447- V.Name -MEDIA 01
+S:- Type - Fixed- Serial --1955334214- V.Name -MEDIA 02
+S:- Type - Fixed- Serial --1955334214- V.Name -MEDIA 02
+Fri 02-Nov-07 11:07:58
+C:- Type - Fixed- Serial - 839718926- V.Name -ACER
+D:- Type - Fixed- Serial --16024576- V.Name -Acer_D
+E:- Type - Fixed- Serial - 814199110- V.Name -Icy Box
+F:- Type - Fixed- Serial --400809543- V.Name -WD-200-A E Backup
+I:- Type - Fixed- Serial - 1166974653- V.Name -WD PASSPORT
+R:- Type - Fixed- Serial - 1169816447- V.Name -MEDIA 01
+S:- Type - Fixed- Serial --1955334214- V.Name -MEDIA 02
+S:- Type - Fixed- Serial --1955334214- V.Name -MEDIA 02

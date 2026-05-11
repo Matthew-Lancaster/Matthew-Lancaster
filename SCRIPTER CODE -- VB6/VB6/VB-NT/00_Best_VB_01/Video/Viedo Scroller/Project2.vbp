@@ -1,0 +1,43 @@
+Type=Control
+UserControl=UserControl1.ctl
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+Startup="(None)"
+HelpFile=""
+Title="Text Scroller"
+ExeName32="Scroller.ocx"
+Command32=""
+Name="TextScroller"
+HelpContextID="0"
+Description="Text Scroller Control"
+CompatibleMode="0"
+CompatibleEXE32="..\..\..\WINDOWS\Desktop\Scroller.ocx"
+MajorVer=1
+MinorVer=0
+RevisionVer=1
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Matt.lan@btinternet.com -- Last Compile = Sun 29-May-2011 02-58-05a"
+VersionCompanyName="Magik -- The One -- Hammer HardCore Coder"
+VersionLegalCopyright="Yes -- Loving It -- Loving It -- Loving It"
+VersionLegalTrademarks="<º)))><¸..·´XNo5X`·..¸><(((º>"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=-1
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=-1
+OverflowCheck=0
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=0
+StartMode=1
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+ThreadingModel=1
+DebugStartupOption=1
+DebugStartupComponent=Scroller
+
+[MS Transaction Server]
+AutoRefresh=1

@@ -1,0 +1,181 @@
+[Root]
+Most Recent Package=PauliesPet1
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+
+[Package|Standard Setup Package 1|Files Added]
+
+[Package|Standard Setup Package 1|Files Removed]
+
+[Package|Standard Setup Package 1|Files In Project]
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Desk.exe=Yes
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=Yes
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=Yes
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Desk.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Desk.exe=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=multi
+Size=1.44 MB
+Title=PauliesPet
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=PauliesPet
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|PauliesPet]
+Icon1=Desk.exe
+Title1=PauliesPet
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup
+ProjectFolder=C:\Program Files\Microsoft Visual Studio\VB98\Pet
+ServerSideCab=
+File1=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\setup.exe
+File2=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\Setup.Lst
+File3=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\Desk1.CAB
+File4=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\Desk2.CAB
+Handler1=PDWizard.FloppyDplySubWiz
+Handler2=PDWizard.FolderDplySubWiz
+Handler3=PDWizard.WebPostDplySubWiz
+
+[Package|PauliesPet1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup
+
+[Package|PauliesPet1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|PauliesPet1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|PauliesPet1|Files Found]
+
+[Package|PauliesPet1|Files Released]
+
+[Package|PauliesPet1|Missing Dependency Information]
+
+[Package|PauliesPet1|Out-of-Date Dependency Information]
+
+[Package|PauliesPet1|Files Added]
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Read_Me.txt=
+
+[Package|PauliesPet1|Files Removed]
+
+[Package|PauliesPet1|Files In Project]
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Desk.exe=Yes
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=Yes
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=Yes
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Read_Me.txt=Yes
+
+[Package|PauliesPet1|Configure Registry Files]
+Applicable=No
+
+[Package|PauliesPet1|Configure Remote Servers]
+Applicable=No
+
+[Package|PauliesPet1|Install Locations]
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Desk.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Read_Me.txt=$(AppPath)
+
+[Package|PauliesPet1|Configure Shared Files]
+Applicable=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Desk.exe=No
+C:\Program Files\Microsoft Visual Studio\VB98\Pet\Read_Me.txt=No
+
+[Package|PauliesPet1|Distribution]
+Type=multi
+Size=1.44 MB
+Title=PauliesPet
+
+[Package|PauliesPet1|Package]
+PackageFolder=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup
+ProjectFolder=C:\Program Files\Microsoft Visual Studio\VB98\Pet
+ServerSideCab=
+File1=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\setup.exe
+File2=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\Setup.Lst
+File3=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\Desk1.CAB
+File4=C:\Program Files\Microsoft Visual Studio\VB98\Pet\PauliesSetup\Desk2.CAB
+Handler1=PDWizard.FloppyDplySubWiz
+Handler2=PDWizard.FolderDplySubWiz
+Handler3=PDWizard.WebPostDplySubWiz
+
+[Package|PauliesPet1|IconGroups]
+Group0=PauliesPet
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|PauliesPet1|PauliesPet]
+Icon1=Desk.exe
+Title1=PauliesPet
+StartIn1=$(AppPath)
+Key1=Icon1

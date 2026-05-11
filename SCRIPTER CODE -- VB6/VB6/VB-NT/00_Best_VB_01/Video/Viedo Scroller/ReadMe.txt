@@ -1,0 +1,1 @@
+Put Scroller.ocx in your c:\windows\system directory

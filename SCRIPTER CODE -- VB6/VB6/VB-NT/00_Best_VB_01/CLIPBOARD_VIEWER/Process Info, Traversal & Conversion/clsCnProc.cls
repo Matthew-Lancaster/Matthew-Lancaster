@@ -80,12 +80,12 @@ Option Explicit
 '# General definitions
 '#########################################################
 Private Declare Function TerminateProcess _
-        Lib "kernel32" _
+        Lib "Kernel32" _
         (ByVal hProcess As Long, _
         ByVal uExitCode As Long) As Long
 
 
-Private Declare Sub CloseHandle Lib "kernel32" (ByVal hPass As Long)
+Private Declare Sub CloseHandle Lib "Kernel32" (ByVal hPass As Long)
 Private Const MAX_PATH = 260
 
 Private sEXEName As String
@@ -104,7 +104,7 @@ Private Declare Function FindWindowDLL _
 '#########################################################
 '# Functions/Consts/Types used for GetVersionEx()
 '#########################################################
-Private Declare Function GetVersionEx Lib "kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
+Private Declare Function GetVersionEx Lib "Kernel32" Alias "GetVersionExA" (lpVersionInformation As OSVERSIONINFO) As Long
 'Private Const VER_PLATFORM_WIN32s = 0
 'Private Const VER_PLATFORM_WIN32_WINDOWS = 1
 Private Const VER_PLATFORM_WIN32_NT = 2
@@ -121,9 +121,9 @@ End Type
 '#########################################################
 '# Win32 (non-NT4) specific definitions
 '#########################################################
-Private Declare Function CreateToolhelp32Snapshot Lib "kernel32" (ByVal lflags As Long, lProcessID As Long) As Long
-Private Declare Function ProcessFirst Lib "kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
-Private Declare Function ProcessNext Lib "kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function CreateToolhelp32Snapshot Lib "Kernel32" (ByVal lFlags As Long, lProcessID As Long) As Long
+Private Declare Function ProcessFirst Lib "Kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function ProcessNext Lib "Kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
 Private Const TH32CS_SNAPPROCESS As Long = 2&
 Private Type PROCESSENTRY32
     dwSize As Long
@@ -147,7 +147,7 @@ Private hSnapShot As Long
 '# Windows NT4 specific definitions
 '#    NOTE: Remember to distribute the PSAPI.DLL file.
 '#########################################################
-Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
+Private Declare Function OpenProcess Lib "Kernel32" (ByVal dwDesiredAccessas As Long, ByVal bInheritHandle As Long, ByVal dwProcId As Long) As Long
 Private Declare Function EnumProcessModules Lib "psapi.dll" (ByVal hProcess As Long, ByRef lphModule As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
 Private Declare Function GetModuleFileNameExA Lib "psapi.dll" (ByVal hProcess As Long, ByVal hModule As Long, ByVal ModuleName As String, ByVal nSize As Long) As Long
 Private Declare Function EnumProcesses Lib "psapi.dll" (ByRef lpidProcess As Long, ByVal cb As Long, ByRef cbNeeded As Long) As Long
@@ -531,6 +531,67 @@ Public Function Convert(ByRef InputData, ByRef OutputData, ByVal eConversionType
 Convert_Error:
     Convert = False
 End Function
+
+
+'#####################################################################################
+'# Private subs/functions
+'#####################################################################################
+'#########################################################
+'#########################################################
+Public Function GetEXEID_KILL_ALL_INSTANCE(ByRef sRunningEXE As String) As String
+        '#### Default the return value
+        '#### If we're able to successfully open the processes
+    Dim VAR
+    If (OpenProcesses()) Then
+            '#### Get the name of the EXE
+        sRunningEXE = UCase(GetFileName(sRunningEXE))
+            '#### Do while we still have processes
+        Do
+            If (InStr(1, UCase(sEXEName), UCase(sRunningEXE), vbBinaryCompare) > 0) Then
+                VAR = cProcesses.Process_Kill(lProcessID)
+                GetEXEID_KILL_ALL_INSTANCE = "FOUND SOMETHING"
+            End If
+        Loop While (NextProcess())
+    End If
+
+    '#### Close the class
+    Call CloseProcesses
+
+End Function
+
+
+'#####################################################################################
+'# Private subs/functions
+'#####################################################################################
+'#########################################################
+'# Returns a windows EXE and Process_COUNT from the passed EXE
+'#########################################################
+Public Function GetEXEID_COUNT(ByRef sRunningEXE As String) As Long
+        '#### Default the return value
+    GetEXEID_COUNT = -1
+        '#### If we're able to successfully open the processes
+    If (OpenProcesses()) Then
+            '#### Get the name of the EXE
+        sRunningEXE = UCase(GetFileName(sRunningEXE))
+
+            '#### Do while we still have processes
+        Do
+            If (InStr(1, UCase(sEXEName), UCase(sRunningEXE), vbBinaryCompare) > 0) Then
+                ' lProcessID
+                If GetEXEID_COUNT = -1 Then GetEXEID_COUNT = 0
+                GetEXEID_COUNT = GetEXEID_COUNT + 1
+                sRunningEXE = TrimNull(sEXEName)
+            End If
+        Loop While (NextProcess())
+    End If
+
+    '#### Close the class
+    Call CloseProcesses
+
+End Function
+
+
+
 
 
 

@@ -1,0 +1,407 @@
+<HTML>
+<META http-equiv="PICS-Label" content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "RodStephens@vb-helper.com" for "http://www.vb-helper.com" on "1998.03.17T18:18-0800" r (n 0 s 0 v 0 l 0))'>
+<HEAD>
+<TITLE>VB Helper: HowTo: Enumerate registry keys, subkeys, and values</TITLE>
+<META NAME="Author" CONTENT="Rod Stephens">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Keywords" CONTENT="Regsitry, System Registry, key, subkey">
+<META NAME="Keywords" CONTENT="Regsitry, System Registry, key, subkey">
+<META NAME="Description" CONTENT="VB Helper: HowTo: Enumerate registry keys, subkeys, and values">
+<META NAME="Copyright" CONTENT="Copyright 1997-2003, Rocky Mountain Computer Consulting, Inc.">
+<META NAME="Rating" CONTENT="General">
+<META NAME="Robots" CONTENT="All">
+</HEAD>
+
+<BODY BGCOLOR="#E1F3FF" BACKGROUND="bg_blue.jpg">
+
+  <!-- This table contains the banner, menu column, and content. -->
+  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+    <!-- ****** -->
+    <!-- Banner -->
+    <!-- ****** -->
+    <TR><TD>
+      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Left">
+        <TR>
+          <TD BACKGROUND="banner_mid.jpg"><IMG SRC="banner_l.jpg" WIDTH="410" HEIGHT="64"></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="banner_r.jpg" WIDTH="32" HEIGHT="64"></TD>
+        </TR>
+      </TABLE>
+    </TD></TR>
+    <TR><TD>&nbsp;</TD></TR>
+
+    <!-- Menu column and content -->
+    <TR><TD>
+      <TABLE WIDTH="100%" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+        <!-- *********** -->
+        <!-- Menu column -->
+        <!-- *********** -->
+        <TR>
+          <TD ALIGN="Left" VALIGN="Top">
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <!-- Menu top -->
+              <TR>
+                <TD><IMG SRC="blue_ul.jpg" WIDTH="16" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_um.jpg" WIDTH="93" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_ur.jpg" WIDTH="16" HEIGHT="16"></TD>
+              </TR>
+
+              <!-- Menu entries -->
+              <TR BGCOLOR="#7FCFFF">
+                <TD BACKGROUND="blue_l.jpg" WIDTH="16">&nbsp;</TD>
+                <TD><CENTER>
+                  <A HREF="index.html"><B><FONT SIZE="+1">Home</FONT></B></A><BR>
+                  <A HREF="search.html"><B>Search</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="whats_new.html"><B>What's New</B></A><BR>
+                  <A HREF="index_categories.html"><B>Index</B></A><BR>
+                  <A HREF="books.html"><B>Books</B></A><BR>
+                  <A HREF="links.html"><B>Links</B></A><BR>
+                  <A HREF="http://www.topica.com/lists/VBHelperQA/read"><B>Q &amp; A</B></A><BR>
+                  <A HREF="newsletter.html"><B>Newsletter</B></A><BR>
+                  <A HREF="banners.html"><B>Banners</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="mailto:feedback@vb-helper.com"><B>Feedback</B></A><BR>
+                  <A HREF="tip_jar.html"><B>Tip Jar</B></A><BR>
+                  &nbsp;<BR>
+                  <A HREF="feed.xml"><IMG SRC="xml_rss.jpg" BORDER="0" ALT="XML RSS Feed"></A><BR>
+                </CENTER></TD>
+                <TD BACKGROUND="blue_r.jpg" WIDTH="16">&nbsp;</TD>
+              </TR>
+
+              <!-- Menu bottom -->
+              <TR>
+                <TD><IMG SRC="blue_ll.jpg" WIDTH="16" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_lm.jpg" WIDTH="93" HEIGHT="16"></TD>
+                <TD><IMG SRC="blue_lr.jpg" WIDTH="16" HEIGHT="16"></TD>
+              </TR>
+
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- ***************** -->
+              <!-- Amazon Recommends -->
+              <!-- ***************** -->
+              <TR><TD COLSPAN="3" ALIGN="Center">
+<!-- -->
+                <SCRIPT SRC="http://rcm.amazon.com/e/cm?t=vbhelper&l=rc1&p=2&o=1" TYPE="text/JavaScript"></SCRIPT>
+<!-- -->
+                <NOSCRIPT>
+                  <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="125">
+                    <TR><TD>
+                      <MAP NAME="boxmap">
+                        <AREA SHAPE="RECT" COORDS="18, 263, 105, 274" HREF="http://rcm.amazon.com/e/cm/privacy-policy.html?o=1">
+                        <AREA COORDS="0,0,10000,10000" HREF="http://www.amazon.com/exec/obidos/redirect-home/vbhelper">
+                      </MAP>
+                      <img src="http://rcm-images.amazon.com/images/G/01/associates/amzn_recommends/gnbox125x275.gif" width="125" height="275" border="0" usemap="#boxmap">
+                    </TD></TR>
+                  </TABLE>
+                </NOSCRIPT>
+              </TD></TR>
+              <TR><TD HEIGHT="50" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- ******** -->
+              <!-- Partners -->
+              <!-- ******** -->
+              <!-- NetFlix -->
+              <TR><TD COLSPAN="3" ALIGN="Center">
+<img src="http://service.bfast.com/bfast/serve?bfmid=27276611&siteid=40161029&bfpage=hldy125x125" border="0" width="1" height="1" NOSAVE >
+<a href="http://service.bfast.com/bfast/click?bfmid=27276611&siteid=40161029&bfpage=hldy125x125" target="_top"><img src="http://a408.g.akamai.net/f/408/1284/24h/image.netflix.com/NetFlix_Assets/affiliates/banners/stockhouse1103_125125A.gif" border="0" width="125" height="125" alt=""></a>
+              </TR></TD>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Wiley -->
+              <TR><TD COLSPAN="3" ALIGN="Center" BACKGROUND="sandpaper.gif"><A HREF="http://service.bfast.com/bfast/click?bfmid=37920629&siteid=40078832&bfpage=computer_science" TARGET="_top"><IMG SRC="wiley_logo.gif" BORDER="0" ALIGN="Center" WIDTH="77" HEIGHT="105"></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Que -->
+              <TR><TD COLSPAN="3" ALIGN="Center"><A HREF="http://www.quepublishing.com"><IMG SRC="que.gif" BORDER="0" ALIGN="Center" WIDTH="121" HEIGHT="36"></A></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- Amazon -->
+              <TR><TD COLSPAN="3" ALIGN="Center"><A HREF="amazon.html"><IMG SRC="amazon_logo.gif" BORDER="0" ALIGN="Center" WIDTH="68" HEIGHT="65"></A></TD></TR>
+              <TR><TD HEIGHT="10" COLSPAN="3">&nbsp;</TR></TD>
+
+              <!-- ********** -->
+              <!-- More stuff -->
+              <!-- ********** -->
+
+            </TABLE>
+          </TD>
+
+          <!-- A little space between the menus and content -->
+          <TD WIDTH="5">&nbsp;</TD>
+
+          <!-- ******* -->
+          <!-- Content -->
+          <!-- ******* -->
+          <TD WIDTH="100%" ALIGN="Left" VALIGN="Top">
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <!-- How To Summary -->
+              <TR><TD>
+                <TABLE WIDTH="100%" BORDER="2" CELLSPACING="0" CELLPADDING="2">
+                  <TR><TH ALIGN="Left">Title</TH><TD WIDTH="100%">Enumerate registry keys, subkeys, and values</TD></TR>
+                  <TR><TH ALIGN="Left">Description</TH><TD WIDTH="100%">This example shows how to enumerate registry keys, subkeys, and values in Visual Basic 6.</TD></TR>
+                  <TR><TH ALIGN="Left">Keywords</TH><TD>Regsitry, System Registry, key, subkey</TD></TR>
+                  <TR><TH ALIGN="Left">Categories</TH><TD>Tips and Tricks, Windows</TD></TR>
+                </TABLE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+When the user selects a Registry section, enters a key, and clicks a button, the program calls subroutine GetKeyInfo, passing it the section, key name, and an indentation level.
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2">Private Sub Command1_Click()
+    txtKeys.Text = Text1.Text &amp; vbCrLf &amp; _
+        GetKeyInfo(m_SelectedSection, Text1.Text, 4)
+End Sub</FONT></PRE>
+              </TD></TR>
+
+              <!-- Text content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR><TD>
+Function GetKeyInfo uses RegOpenKeyEx to open a key. It then calls RegEnumValue repeatedly to get the value within the key.
+<P>
+After enumerating all of the key's values, the program uses RegEnumKey to find the key's subkeys and add them to a collection.
+<P>
+The function closes the Registry key and recursively calls itself to examine the subkeys.
+              </TD></TR>
+
+              <!-- Code content -->
+              <TR><TD>&nbsp;<BR></TD></TR>
+              <TR>
+                <TD BACKGROUND="computer_paper.jpg">
+                  <PRE><FONT NAME="Courier New" POINT-SIZE="10" SIZE="2"><FONT COLOR="#008000">' Get the key information for this key and</FONT>
+<FONT COLOR="#008000">' its subkeys.</FONT>
+Private Function GetKeyInfo(ByVal section As Long, ByVal _
+    key_name As String, ByVal indent As Integer) As String
+Dim subkeys As Collection
+Dim subkey_values As Collection
+Dim subkey_num As Integer
+Dim subkey_name As String
+Dim subkey_value As String
+Dim length As Long
+Dim hKey As Long
+Dim txt As String
+Dim subkey_txt As String
+Dim value_num As Long
+Dim value_name_len As Long
+Dim value_name As String
+Dim reserved As Long
+Dim value_type As Long
+Dim value_string As String
+Dim value_data(1 To 1024) As Byte
+Dim value_data_len As Long
+Dim i As Integer
+
+    Set subkeys = New Collection
+    Set subkey_values = New Collection
+    
+    <FONT COLOR="#008000">' Open the key.</FONT>
+    If RegOpenKeyEx(section, _
+        key_name, _
+        0&amp;, KEY_ALL_ACCESS, hKey) &lt;&gt; ERROR_SUCCESS _
+    Then
+        MsgBox "Error opening key."
+        Exit Function
+    End If
+
+    <FONT COLOR="#008000">' Enumerate the key's values.</FONT>
+    value_num = 0
+    Do
+        value_name_len = 1024
+        value_name = Space$(value_name_len)
+        value_data_len = 1024
+
+        If RegEnumValue(hKey, value_num, _
+            value_name, value_name_len, 0, _
+            value_type, value_data(1), value_data_len) _
+                &lt;&gt; ERROR_SUCCESS Then Exit Do
+
+        value_name = Left$(value_name, value_name_len)
+
+        Select Case value_type
+            Case REG_BINARY
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [binary]" &amp; vbCrLf
+            Case REG_DWORD
+                value_string = "&amp;H" &amp; _
+                    Format$(Hex$(value_data(4)), "00") &amp; _
+                    Format$(Hex$(value_data(3)), "00") &amp; _
+                    Format$(Hex$(value_data(2)), "00") &amp; _
+                    Format$(Hex$(value_data(1)), "00")
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = " &amp; value_string &amp; _
+                    vbCrLf
+            Case REG_DWORD_BIG_ENDIAN
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [dword big endian]" &amp; _
+                    vbCrLf
+            Case REG_DWORD_LITTLE_ENDIAN
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [dword little endian]" _
+                    &amp; vbCrLf
+            Case REG_EXPAND_SZ
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [expand sz]" &amp; vbCrLf
+            Case REG_FULL_RESOURCE_DESCRIPTOR
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [full resource " &amp; _
+                    "descriptor]" &amp; vbCrLf
+            Case REG_LINK
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [link]" &amp; vbCrLf
+            Case REG_MULTI_SZ
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [multi sz]" &amp; vbCrLf
+            Case REG_NONE
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [none]" &amp; vbCrLf
+            Case REG_RESOURCE_LIST
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [resource list]" &amp; _
+                    vbCrLf
+            Case REG_RESOURCE_REQUIREMENTS_LIST
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = [resource requirements " &amp; _
+                    "list]" &amp; vbCrLf
+            Case REG_SZ
+                value_string = ""
+                For i = 1 To value_data_len - 1
+                    value_string = value_string &amp; _
+                        Chr$(value_data(i))
+                Next i
+                txt = txt &amp; Space$(indent) &amp; "&gt; " &amp; _
+                    value_name &amp; " = """ &amp; value_string &amp; _
+                    """" &amp; vbCrLf
+        End Select
+
+        value_num = value_num + 1
+    Loop
+
+    <FONT COLOR="#008000">' Enumerate the subkeys.</FONT>
+    subkey_num = 0
+    Do
+        <FONT COLOR="#008000">' Enumerate subkeys until we get an error.</FONT>
+        length = 256
+        subkey_name = Space$(length)
+        If RegEnumKey(hKey, subkey_num, _
+            subkey_name, length) _
+                &lt;&gt; ERROR_SUCCESS Then Exit Do
+        subkey_num = subkey_num + 1
+        
+        subkey_name = Left$(subkey_name, InStr(subkey_name, _
+            Chr$(0)) - 1)
+        subkeys.Add subkey_name
+    
+        <FONT COLOR="#008000">' Get the subkey's value.</FONT>
+        length = 256
+        subkey_value = Space$(length)
+        If RegQueryValue(hKey, subkey_name, _
+            subkey_value, length) _
+            &lt;&gt; ERROR_SUCCESS _
+        Then
+            subkey_values.Add "Error"
+        Else
+            <FONT COLOR="#008000">' Remove the trailing null character.</FONT>
+            subkey_value = Left$(subkey_value, length - 1)
+            subkey_values.Add subkey_value
+        End If
+    Loop
+    
+    <FONT COLOR="#008000">' Close the key.</FONT>
+    If RegCloseKey(hKey) &lt;&gt; ERROR_SUCCESS Then
+        MsgBox "Error closing key."
+    End If
+
+    <FONT COLOR="#008000">' Recursively get information on the keys.</FONT>
+    For subkey_num = 1 To subkeys.Count
+        subkey_txt = GetKeyInfo(section, key_name &amp; "\" &amp; _
+            subkeys(subkey_num), indent + 4)
+        txt = txt &amp; Space(indent) &amp; _
+            subkeys(subkey_num) &amp; _
+            ": " &amp; subkey_values(subkey_num) &amp; vbCrLf &amp; _
+            subkey_txt
+    Next subkey_num
+
+    GetKeyInfo = txt
+End Function</FONT></PRE>
+              </TD></TR>
+
+              <!-- *************** -->
+              <!-- Download button -->
+              <!-- *************** -->
+
+              <TR><TD><FONT SIZE="-2">&nbsp;</FONT></TD></TR>
+              <TR><TD ALIGN="Center"><A HREF="HowTo/howto_list_registry_keys_and_values.zip"><IMG SRC="download.jpg" BORDER="0"></A></TD></TR>
+              <TR><TD><FONT SIZE="-2">&nbsp;</FONT></TD></TR>
+
+            </TABLE> <!-- End content table -->
+          </TD> <!-- End content column -->
+
+          <!-- ************** -->
+          <!-- Google AdSense -->
+          <!-- ************** -->
+          <TD WIDTH="120" ALIGN="Right" VALIGN="Top">
+            <TABLE WIDTH="140" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+              <TR><TD ALIGN="Right">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-6627515316741006";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_channel ="3885326441";
+google_color_border = ["5CAAFD","7ECFFE","00CC66","DDAADD"];
+google_color_bg = ["7ECFFE","E1F3FF","99FF99","FFCCFF"];
+google_color_link = ["0000FF","0000FF","0000FF","0000CC"];
+google_color_url = ["008000","008000","0033FF","008000"];
+google_color_text = ["000000","000000","000000","996699"];
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+              </TD></TR>
+            </TABLE> <!-- End Google AdSense table -->
+          </TD> <!-- End Google AdSense column -->
+
+
+        </TR> <!-- End row containing menu column and content -->
+      </TABLE> <!-- End table containing menu column and content -->
+    </TD></TR>
+
+    <!-- ****** -->
+    <!-- Footer -->
+    <!-- ****** -->
+    <TR><TD WIDTH="100%">
+      <TABLE WIDTH="100%" BORDER="0" BGCOLOR="#87CEFA" CELLSPACING="0" CELLPADDING="0">
+        <!-- Top row -->
+        <TR>
+          <TD BGCOLOR="#E1F3FF" ALIGN="Right" WIDTH="16"><IMG SRC="blue_ul.jpg" WIDTH="16" HEIGHT="16"></TD>
+          <TD BACKGROUND="blue_um.jpg" COLSPAN="2" ALIGN="Center"><FONT SIZE="-2">
+            Copyright &copy; 1997-2003 Rocky Mountain Computer Consulting, Inc. &nbsp; All rights reserved.
+          </FONT></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="blue_ur.jpg" WIDTH="16" HEIGHT="16"></TD>
+        </TR>
+
+        <!-- Bottom row -->
+        <TR>
+          <TD BGCOLOR="#E1F3FF" ALIGN="Right" WIDTH="16"><IMG SRC="blue_ll.jpg" WIDTH="16" HEIGHT="16"></TD>
+          <TD BACKGROUND="blue_lm.jpg"><FONT SIZE="-2">
+            &nbsp;<SCRIPT LANGUAGE=JavaScript>document.write(document.URL)</SCRIPT></FONT></TD>
+          <TD BACKGROUND="blue_lm.jpg" ALIGN="Right"><FONT SIZE="-2">
+            Updated <SCRIPT LANGUAGE=JavaScript>document.write(document.lastModified)</SCRIPT> &nbsp;
+          </FONT></TD>
+          <TD BGCOLOR="#E1F3FF"><IMG SRC="blue_lr.jpg" WIDTH="16" HEIGHT="16"></TD>
+        </TR>
+      </TABLE>
+    </TD></TR>
+  </TABLE> <!-- End table containing banner, menu column + content, and footer -->
+
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+tier lieder's Image Gallery Changelog
+
+1.0.5
+
+* Added configurable ability to have the gallery.php file in any directory, so anal-retentive purists can keep scripts outside of their image repositories.
+
+1.0.4
+
+* Added a missing </select> tag which prevented the Go 
+  button from showing up in the jump menu.
+
+* Changed the folder icon, since the last one was corrupted
+  somehow. The new one is about a fifth of a KB smaller 
+  anyway.
+
+* Added a link to comeplaydying.com in the footer. I work 
+  hard. I deserve it. So, I'd, um, appreciate people not 
+  taking it out.
+
+
+1.0.3 
+* revised caption-php code support to use <phpcode> </phpcode>
+  tags instead of eval()ing the whole thing. Now one has easy
+  captions and the flexibility of php. When you want to output 
+  phpcode from the tags, don't echo it, save your output as a 
+  string and return $string;
+
+1.0.2
+* Decremented version number
+
+1.0.3
+* Incremented version number
+
+1.0.2
+* Corrected bug in next/prev links
+
+* Added config support for executing image captions as php 
+  code, one hell of a funky ass feature nobody is ever 
+  going to use
+
+* Added error checking in case there are no galleries created
+
+1.0.1
+* Corrected bug where links on multipaged galleries linked to
+  images on the first page of a gallery
+
+* Added support for sub galleries
+

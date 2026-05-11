@@ -117,7 +117,7 @@ Private Sub Form_Load()
     
     ' Dim txt As String
     
-    ' GetMenuInfo GetMenu(hwnd), 0, "", txt
+    ' GetMenuInfo GetMenu(hWnd), 0, "", txt
     ' frmListMenu.GetMenuInfo_Not_Indented GetMenu(hWnd), 0, "", txt
     ' Text1.Text = txt
 

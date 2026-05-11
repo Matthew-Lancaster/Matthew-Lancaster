@@ -1,17 +1,25 @@
 VERSION 5.00
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.Ocx"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
 Begin VB.Form Form1 
    BackColor       =   &H00800000&
    Caption         =   "Form1"
-   ClientHeight    =   5136
-   ClientLeft      =   192
-   ClientTop       =   2976
-   ClientWidth     =   12864
+   ClientHeight    =   5145
+   ClientLeft      =   195
+   ClientTop       =   3270
+   ClientWidth     =   12855
    Icon            =   "#0 Send To Multi Menu.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5136
-   ScaleWidth      =   12864
+   ScaleHeight     =   5145
+   ScaleWidth      =   12855
    StartUpPosition =   2  'CenterScreen
+   Begin VB.FileListBox File2 
+      Height          =   285
+      Left            =   6564
+      TabIndex        =   14
+      Top             =   360
+      Visible         =   0   'False
+      Width           =   1560
+   End
    Begin RichTextLib.RichTextBox RTB5 
       Height          =   435
       Left            =   13560
@@ -20,7 +28,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0ECA
@@ -33,7 +41,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0F55
@@ -46,7 +54,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":0FE0
@@ -59,7 +67,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   762
+      _ExtentY        =   767
       _Version        =   393217
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":106B
@@ -72,7 +80,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   1500
       _ExtentX        =   2646
-      _ExtentY        =   720
+      _ExtentY        =   714
       _Version        =   393217
       MultiLine       =   0   'False
       TextRTF         =   $"#0 Send To Multi Menu.frx":10F6
@@ -93,7 +101,7 @@ Begin VB.Form Form1
       Top             =   480
    End
    Begin VB.FileListBox File1 
-      Height          =   456
+      Height          =   285
       Left            =   5220
       TabIndex        =   5
       Top             =   1476
@@ -117,7 +125,7 @@ Begin VB.Form Form1
       Caption         =   "PATH_FILE __ SOURCE __ "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -135,7 +143,7 @@ Begin VB.Form Form1
       Caption         =   "AVAILABLE CLIPBOARD __ PATH_FILE __ EXIST  __ REQUEST IF YOU WANT"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -153,7 +161,7 @@ Begin VB.Form Form1
       Caption         =   "AVAILABLE CLIPBOARD"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.8
+         Size            =   10.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -171,7 +179,7 @@ Begin VB.Form Form1
       Caption         =   "Text List of JPG Files With Number Bullet Point -- Camera"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -189,7 +197,7 @@ Begin VB.Form Form1
       Caption         =   "Label_2_FOLDER"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -207,7 +215,7 @@ Begin VB.Form Form1
       Caption         =   "Create a DOC Folder Here -- LABEL SET IN CODE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -225,7 +233,7 @@ Begin VB.Form Form1
       Caption         =   "Label_1_FOLDER_FILE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -303,6 +311,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_MEDIA_PLAYER_CLASSIC_LINE_CLIPBOARD_CLIPPATH 
       Caption         =   "MPC MEDIAPLAYER -- FROM CLIPBOARD EXPLORER CLIPPATH"
    End
+   Begin VB.Menu MNU_TEXTCRAWLER_FOLDER 
+      Caption         =   "TEXTCRAWLER _ FOLDER"
+   End
    Begin VB.Menu MNU_INFORAPID 
       Caption         =   "INFORAPID SEARCH AND REPLACE"
    End
@@ -329,6 +340,9 @@ Begin VB.Form Form1
    End
    Begin VB.Menu MNU_FFMPEG_VERIFY 
       Caption         =   "FFMPEG VERIFY"
+   End
+   Begin VB.Menu FFMPEG_VERIFY_BATCH 
+      Caption         =   "FFMPEG VERIFY BATCH"
    End
    Begin VB.Menu MNU_TAKE_OWNERSHIP 
       Caption         =   "TAKE OWNERSHIP"
@@ -375,6 +389,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_FILE_NAME_TO_TEXT_FILE 
       Caption         =   "FILE_NAME_TO_TEXT_FILE"
    End
+   Begin VB.Menu MNU_FILL_FREE_SPACE 
+      Caption         =   "FILL_FREE_SPACE"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -385,6 +402,84 @@ Attribute VB_Exposed = False
 'MNU_FILEDATE_CLIPBOARD_Click
 
 
+' -----------------------------------------------------------------------
+' -----------------------------------------------------------------------
+Private Declare Function MessageBoxTimeout Lib "user32.dll" Alias "MessageBoxTimeoutA" ( _
+ByVal hwnd As Long, _
+ByVal lpText As String, _
+ByVal lpCaption As String, _
+ByVal uType As Long, _
+ByVal wLanguageID As Long, _
+ByVal dwMilliseconds As Long _
+) As Long
+' -----------------------------------------------------------------------
+Private Const IDOKONLY& = 0&
+Private Const IDOK& = 1&
+Private Const IDCANCEL = 2
+Private Const IDABORT = 3
+Private Const IDRETRY = 4
+Private Const IDIGNORE = 5
+Private Const IDYES& = 6&
+Private Const IDNO& = 7&
+Private Const MB_SETFOREGROUND& = &H10000
+Private Const MB_YESNO& = &H4&
+Private Const MB_ICONASTERISK& = &H40&
+Private Const MB_TIMEDOUT& = &H7D00&
+' ---------------------------------------------------------------------
+' ---------------------------------------------------------------------
+' ANOTHER SOURCE CONSTANT VARIABLE
+' ---------------------------------------------------------------------
+' MsgBox Arguments
+' Constant Value Description
+' vbOKOnly 0 OK button only (default)
+' vbOKCancel 1 OK and Cancel buttons
+' vbAbortRetryIgnore 2 Abort, Retry, and Ignore buttons
+' vbYesNoCancel 3 Yes, No, and Cancel buttons
+' vbYesNo 4 Yes and No buttons
+' vbRetryCancel 5 Retry and Cancel buttons
+' vbCritical 16 Critical message
+' vbQuestion 32 Warning query
+' vbExclamation 48 Warning message
+' vbInformation 64 Information message
+' vbDefaultButton1 0 First button is default (default)
+' vbDefaultButton2 256 Second button is default
+' vbDefaultButton3 512 Third button is default
+' vbDefaultButton4 768 Fourth button is default
+' vbApplicationModal 0 Application modal message box (default)
+' vbSystemModal 4096 System modal message box
+' vbMsgBoxHelpButton 16384 Adds Help button to the message box
+' vbMsgBoxSetForeground 65536 Specifies the message box window as the foreground window
+' vbMsgBoxRight 524288 Text is right aligned
+' vbMsgBoxRtlReading 1048576 Specifies text should appear as right-to-left reading on Hebrew and Arabic systems
+' -------------------------------------------------------------------
+' MsgBox Return Values
+' Constant Value Description
+' vbOK 1 OK button pressed
+' vbCancel 2 Cancel button pressed
+' vbAbort 3 Abort button pressed
+' vbRetry 4 Retry button pressed
+' vbIgnore 5 Ignore button pressed
+' vbYes 6 Yes button pressed
+' vbNo 7 No button pressed
+' ---------------------------------------------------------------------
+' -----------------------------------------------------------------------
+'Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" ( _
+'ByVal lpClassName As String, _
+'ByVal lpWindowName As String) As Long
+'
+'Public Sub MsgBoxDelay()
+'    Const cmsg As String = "Yes or No? leaving this window for 1 min is the same as clicking Yes."
+'    Const cTitle As String = "popup window"
+'    Dim retval As Long
+'    retval = MessageBoxTimeout(FindWindow(vbNullString, title), cmsg, cTitle, 4, 0, 60000)
+'
+'    If retval <> 7 Then
+'        Call MethodFoo
+'    End If
+'End Sub
+' -----------------------------------------------------------------------
+
+
 
 ' Sub MNU_MEDIA_PLAYER_CLASSIC_LINE_CLIPBOARD_CLIPPATH_Click()
 ' WORK
@@ -392,6 +487,7 @@ Attribute VB_Exposed = False
 ' Thu 30-Jan-2020 22:58:00 -- 1 HOUR 7 MINUTE
 
 
+Dim FORM_REQUEST_TO_QUITER
 
 
 Private Declare Function GetShortPathName Lib "kernel32" _
@@ -482,6 +578,17 @@ Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As L
 
 
 
+Private Sub FFMPEG_VERIFY_BATCH_Click()
+
+XF0 = Label_1_FOLDER_FILE.Caption
+'XF5 = Mid(XF0, 1, InStrRev(XF0, "\") - 1)
+    
+FileName = "D:\VB6\VB-NT\00_BEST_VB_01\FFmpeg Test Video\Sort Anything FFmpeg Test Video.exe"
+Parameter = XF0
+Res = Shell(FileName & " " & Parameter, vbNormalFocus)
+    
+End Sub
+
 Private Sub Form_Activate()
 
 'fr1 = FreeFile
@@ -489,6 +596,8 @@ Private Sub Form_Activate()
 
 
 MNU_VERSION.Caption = "Ver_2019_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision)) ' + " _ Matt.Lan@btinternet.com"
+
+
 
 
 '-----------------------------------------------
@@ -556,8 +665,22 @@ If Label_1_FOLDER_FILE.Caption <> "" Then
     End If
 End If
 
+If Label_1_FOLDER_FILE.Caption <> "" Then
+    If InStr(GetLongName(Label_1_FOLDER_FILE.Caption), "DSCF") > 0 Then
+        If InStr(GetLongName(Label_1_FOLDER_FILE.Caption), ".AVI") > 0 Then
+            Call MNU_FILEDATE_CLIPBOARD_Click
+        End If
+    End If
+End If
 
 
+
+
+
+
+'File2.Path
+'For R1 = 0 To File2.ListCount
+'Next
 
 
 'Sleep 4000
@@ -567,7 +690,7 @@ End Sub
 
 Private Sub MNU_DEL_EMPTY_Click()
 
-Shell "C:\Program Files (x86)\Notepad++\notepad++.exe ""C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 00-DELETE_EMPTY_FOLDER_2.VBS""", vbMaximizedFocus
+Shell "C:\Program Files (x86)\Notepad++\notepad++.exe ""C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 00-DELETE_EMPTY_FOLDER_2.VBS""", vbMaximizedFocus
 
 Me.WindowState = vbMinimized
 
@@ -862,7 +985,7 @@ If KeyAscii = 27 Then
             RUNNER = True
         End If
     End If
-    If RUNNER = False Then End
+    If RUNNER = False Then Unload Me ' : End
 End If
 
 
@@ -975,6 +1098,21 @@ If InStr(Label_1_FOLDER_FILE.Caption, "D:\DSC\2011 SONY\") > 0 Then
     Call Label2_Click ' SEND TO DOC FOLDER
     End
 End If
+
+
+' MsgBox Label_1_FOLDER_FILE.Caption
+If InStr(UCase(Label_1_FOLDER_FILE.Caption), ".URL") > 0 Then
+
+    Dim WSHShell
+    Set WSHShell = CreateObject("WScript.Shell")
+        WSHShell.Run """" + Label_1_FOLDER_FILE.Caption + """", ShowWindow_2, DontWaitUntilFinished
+    Set WSHShell = Nothing
+    End
+
+End If
+
+
+
 
 
 End Sub
@@ -1244,6 +1382,7 @@ Call SETUP_DIMENSIONS_INNER_FORM
 End Sub
 
 Private Sub Form_Unload(Cancel As Integer)
+FORM_REQUEST_TO_QUITER = True
 Unload Frm_TIMER_PROJECT
 Unload Me
 Exit Sub
@@ -1364,14 +1503,32 @@ Beep
 
 End Sub
 
+
+
 Private Sub MNU_FFMPEG_VERIFY_Click()
     
+    
     XF0 = Label_1_FOLDER_FILE.Caption
+    If XF0 = "" Then
+        MsgBox "XF0 = """" --- EXIT SUB"
+        Exit Sub
+    End If
+    ' XF0 = "F:\RETEKESS--SDCARD-01-M&TB\M\04 MY MUSIC\01 BANGING TUNES\01 BANG FAVS\03 PRETTY MIXS\0114 - 2005 - Betwixt & Between\Betwixt & Between - Live At Nr COPY.mp3"
+    ' F:\MC - HX60V1_MEDIA_CARD_CAMERA\MP_ROOT
+    
     XF1 = XF0 + ".txt"
     XF2 = Replace(XF1, ".txt", ".FFmpeg-Verify.txt")
-    XF3 = Mid(XF0, 1, InStrRev(XF0, ".") - 1)
+    If InStrRev(XF0, ".") > 0 Then
+        XF3 = Mid(XF0, 1, InStrRev(XF0, ".") - 1)
+    Else
+        XF3 = Len(XF0)
+    End If
+    XF5 = Mid(XF0, 1, InStrRev(XF0, "\") - 1)
     XF3 = Mid(XF3, InStrRev(XF3, "\") + 1)
     XF4 = Mid(XF0, 1, InStrRev(XF0, "\")) + XF3 + "__FFMPEG_RUN_BATCH_" + Format(Now, "HH-MM-SS") + ".BAT"
+    
+    ' XF2 = Replace(XF2, "&", "~&")
+    ' SOMEHOW GOT TO DO HERE
     
     ' ---------------------------------------------------------------
     ' POINT TO PATH WHERE YOU GONNA USE __ FFMPEG.EXE
@@ -1383,20 +1540,24 @@ Private Sub MNU_FFMPEG_VERIFY_Click()
     ' https://ffmpeg.zeranoe.com/builds/
     ' ----
     ' ---------------------------------------------------------------
-'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
-'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
 '    DH = """C:\PStart\# NOT INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
     
     ' ---------------------------------------------------------------
     ' UP-TO-DATE VERSION
     ' ---------------------------------------------------------------
-    PATH_FFMPEG = "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
+    PATH_FFMPEG = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
+    
+    ' XF0 = Replace(XF0, "&", "&")
+    ' XF2 = Replace(XF2, "&", "~&")
+    
     DH = """" + PATH_FFMPEG + """ -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
     
     ' ---------------------------------------------------------------
     ' ---------------------------------------------------------------
     'TRY TO RUN SCRIPTING FROM COMMAND LINE -- WRONG DEBUG IT WORK TO DO
-    'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
+    'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
     '-----------------------------
     'Dim WSHShell
     'Set WSHShell = CreateObject("WScript.Shell")
@@ -1406,6 +1567,8 @@ Private Sub MNU_FFMPEG_VERIFY_Click()
     ' ---------------------------------------------------------------
         
     TEMP = XF4
+    
+    ' MsgBox TEMP
     
     FR1 = FreeFile
     Open TEMP For Output As #FR1
@@ -1488,13 +1651,39 @@ Private Sub MNU_FFMPEG_VERIFY_Click()
     ' WHILE IN MIDDLE OF PROCESS IT LINE BY LINE AT THE END TO CLEAN UP AND
     ' ERROR MESSENGER GETS IN THE WAY __ USE HERE + """ 2>NUL"
     ' -----------------------------------------------------------------------------
+    ' TEMP = Replace(TEMP, "&", "^&")
+    ' MsgBox TEMP + vbCr + XF5
+    
+    ' ---------------------------------------------------------------------
+    ' GOT TO CHANGE DIRECTORY WHERE BATCH IS TO RUN
+    ' SO DUAL COMMAND ONE LINE
+    ' ONLY WHEN & SYMBOL IN PATH OF EXCUTE BATCH
+    ' SYMBOL %, &, =
+    ' ---------------------------------------------------------------------
+    
+    
+'    XF0 = Label_1_FOLDER_FILE.Caption
+'    XF5 = Mid(XF0, 1, InStrRev(XF0, "\") - 1)
+
     Dim WSHShell
     Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run "CMD /K """ + TEMP + """ 2>NUL"
+    WSHShell.Run "CMD /K CD /D """ + XF5 + """" + " & " + """" + TEMP + """ 2>NUL"
     Set WSHShell = Nothing
+    
+    ' ---------------------------------------------------------------------
+    ' GOT TO CHANGE DIRECTORY WHERE BATCH IS TO RUN
+    ' SO DUAL COMMAND ONE LINE
+    ' ----
+    ' windows - How to use the symbol %, &, = in batch files? - Stack Overflow
+    ' https://stackoverflow.com/questions/32643692/how-to-use-the-symbol-in-batch-files
+    ' --------
+    ' batch file - How do I run two commands in one line in Windows CMD? - Stack Overflow
+    ' https://stackoverflow.com/questions/8055371/how-do-i-run-two-commands-in-one-line-in-windows-cmd
+    ' ---------------------------------------------------------------------
+
+
 
 End Sub
-
 
 
 
@@ -1506,7 +1695,7 @@ Private Sub MNU_GET_ALL_EXTENSION_TYPE_Click()
     XF0 = Replace(XF0, " ", "*")
     Dim WSHShell
     Set WSHShell = CreateObject("WScript.Shell")
-        RUN_SCRIPT = "C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 25-COUNT FILES AND SUB - RETURN EXTENSION TYPE.VBS"
+        RUN_SCRIPT = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 25-COUNT FILES AND SUB - RETURN EXTENSION TYPE.VBS"
         WSHShell.Run """" + RUN_SCRIPT + """ """ + XF0 + """"
     Set WSHShell = Nothing
     End
@@ -1706,6 +1895,72 @@ End
 
 
 End Sub
+
+
+Private Sub MNU_TEXTCRAWLER_FOLDER_Click()
+    
+    Me.WindowState = vbMinimized
+    i = Label_2_FOLDER.Caption
+    iTX = "/I """ + i + "\"
+    If Dir("C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe") <> "" Then
+        Shell "C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe " + iTX, vbMaximizedFocus
+        End
+    End If
+    If Dir("C:\Program Files\TextCrawler Pro\TextCrawler.exe") <> "" Then
+        Shell "C:\Program Files\TextCrawler Pro\TextCrawler.exe " + iTX, vbMaximizedFocus
+        End
+    End If
+    
+    i = ""
+    i = i + "C:\Program Files (x86)\TextCrawler Pro\TextCrawler.exe ____ NOT EXIST"
+    i = i + "C:\Program Files\TextCrawler Pro\TextCrawler.exe ____ NOT EXIST"
+    Me.WindowState = vbNormal
+    MsgBox i, vbOKOnly + vbMsgBoxSetForeground
+    Exit Sub
+Exit Sub
+
+i = Label_2_FOLDER.Caption
+i = Replace(i, " ", "*")
+
+II = " /nologo /WithSubdirectoriesYES /Dir" + i
+'ii = " /nologo /WithSubdirectoriesYES /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\ /FileClipBoard-**.TXT"
+'ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\ /FileClipBoard-*.TXT"
+
+'ii = " /nologo /DirD:\VB6\VB-NT\00_Best_VB_01\Fast*Clipboard\"
+
+On Error Resume Next
+
+PID = Shell(INFO_RAPID + " " + II, vbMaximizedFocus)
+If PID > 0 Then Unload Me: Exit Sub
+
+PID = Shell("C:\Program Files (X86)\seRapid\seRapid.exe " + II, vbMaximizedFocus)
+If PID > 0 Then Unload Me: Exit Sub
+
+'---------------------------------------------------
+INFO_RAPID1 = "C:\Program Files\seRapid\seRapid.exe"
+If Dir(INFO_RAPID2) = "" Then
+    XX = 1
+End If
+
+INFO_RAPID2 = "C:\Program Files\seRapid\seRapid.exe"
+If Dir(INFO_RAPID2) = "" Then
+    
+    If XX = 1 Then
+        MSG_BOX_STRING = "FAILED LOAD __" + vbCrLf + vbCrLf + "HERE NOT EXISTOR" + vbCrLf + vbCrLf + INFO_RAPID1 + vbCrLf + vbCrLf + "AND ALSO" + vbCrLf + vbCrLf + "HERE NOT EXISTOR" + vbCrLf + vbCrLf + INFO_RAPID2
+    Else
+        MSG_BOX_STRING = "FAILED LOAD __" + vbCrLf + vbCrLf + "HERE MAYBE ERROR" + vbCrLf + vbCrLf + INFO_RAPID1 + vbCrLf + vbCrLf + "AND ALSO" + vbCrLf + vbCrLf + "HERE NOT EXISTOR" + vbCrLf + vbCrLf + INFO_RAPID2
+    End If
+    
+    Beep
+    MsgBox MSG_BOX_STRING, vbMsgBoxSetForeground
+    
+End If
+
+Me.WindowState = 1
+
+    
+End Sub
+
 
 Private Sub MNU_MEDIA_PLAYER_CLASSIC_Click()
 
@@ -2157,6 +2412,108 @@ If PID > 0 Then Beep: Unload Me
 
 End Sub
 
+Private Sub MNU_FILL_FREE_SPACE_Click()
+
+FOLDER_ON = Mid(Label_2_FOLDER.Caption, 1, 2) + "\TEMP_FILLER"
+'FOLDER_ON = "K:" + "\TEMP_FILLER"
+DRIVE_LETTER = Mid(Label_2_FOLDER.Caption, 1, 2) + ":"
+'DRIVE_LETTER = "K:"
+On Error Resume Next
+If Dir(FOLDER_ON, vbDirectory) = "" Then
+    MkDir FOLDER_ON
+End If
+If Dir(FOLDER_ON, vbDirectory) = "" Then MsgBox "NOT THERE _ NOT CREATER " + vbCrLf + vbCrLf + FOLDER_ON + vbCrLf + vbCrLf + Err.Description: End
+
+Dim R2
+
+' CREATE FILE LARGE UNTIL FILL AND THEN DELETER
+i = MsgBox("CREATE FILE LARGE UNTIL FILL AND THEN DELETER" + vbCrLf + "HERE" + vbCrLf + vbCrLf + FOLDER_ON + "\FILE_FILLER.TXT", vbOKCancel)
+If i <> vbOK Then End
+
+On Error Resume Next
+
+Dim COUNTER_FILL(3)
+Dim LARGE_INFO(3)
+COUNTER_FILL(1) = 0
+COUNTER_FILL(2) = 0
+COUNTER_FILL(3) = 0
+For R2 = 1 To 2
+    If R2 = 1 Then
+        LARGE_BLOCK = (1024 ^ 3)
+        LARGE_INFO(R2) = "__1 GIGA IS MAXIMUM.TXT"
+    End If
+    If R2 = 2 Then
+        Set G = FSO.GetDrive(DRIVE_LETTER)
+        If G.IsReady = False Then
+            MsgBox "DRIVE NOT READY __ EXIT" + vbCrLf + vbCrLf + DRIVE_LETTER
+            End
+            Exit Sub
+        End If
+        NUKE1 = G.FreeSpace
+        LARGE_BLOCK = NUKE1 - 1
+        LARGE_INFO(R2) = "__FILL ALL FREE SPACE FILE GIGA _ THE SPEED IS SAME ANY FILE SIZE WRITER PUT # COMMAND SET FILE POSITION ONE 8 CHARACTOR TEXT GO AR __ " + Trim(Str(LARGE_BLOCK)) + "__.TXT"
+    End If
+    
+    Do
+        DoEvents
+        FR1 = FreeFile
+        Open FOLDER_ON + "\FILE_FILLER__" + Trim(Str(R2)) + "__" + Format(COUNTER_FILL(R2), "00000000") + LARGE_INFO(R2) For Binary As #FR1
+        ' Open FOLDER_ON + "\FILE_FILLER__" + LARGE_INFO(R2) For Binary As #FR1
+            Put #FR1, LARGE_BLOCK, LARGE_INFO(R2)
+        Close #FR1
+        COUNTER_FILL(R2) = COUNTER_FILL(R2) + 1
+        DoEvents
+        If Err.Number > 0 Then
+        If Err.Description <> "Path not found" And Err.Number <> 76 Then ' Err.Number 76 IS FOR "Path not found" SOMETIME NOT SHOW
+            Exit Do
+        End If
+        End If
+        If Err.Description = "Disk full" Then
+            Exit Do
+        End If
+        
+        If FORM_REQUEST_TO_QUITER = True Then Exit Do
+        
+        MSGBOX_STRING_1 = "BLOCK " + Format(COUNTER_FILL(R2), "0000") + " DONE " + LARGE_INFO(R2) + " __ 2 SECOND"
+        I2 = MessageBoxTimeout(Me.hwnd, MSGBOX_STRING_1, Me.Caption, IDOKONLY Or MB_SETFOREGROUND, 0, 2000)
+    Loop
+    ' XX=
+    If Err.Number > 0 Then
+        MSGBOX_STRING_2 = "ERROR WHEN WRITE LARGE BLOCKER " + LARGE_INFO(R2) + " __ 4 SECOND " + vbCrLf + "ERROR DESCRIPTION -- " + vbCrLf + Err.Description + vbCrLf + "ERROR NUMBER -- " + vbCrLf + Trim(Str(Err.Number))
+        I2 = MessageBoxTimeout(Me.hwnd, MSGBOX_STRING_2, Me.Caption, IDOKONLY Or MB_SETFOREGROUND, 0, 4000)
+    End If
+Next
+
+If FORM_REQUEST_TO_QUITER = True Then
+    MSGBOX_STRING = "REQUEST TO CLOSE FORM __ CLEAN UP DO WANT EMPTY _ 4 SECOND DISPLAY MSGBOX"
+    I2 = MessageBoxTimeout(Me.hwnd, MSGBOX_STRING, Me.Caption, IDOKONLY Or MB_SETFOREGROUND, 0, 4000)
+Else
+    MSGBOX_STRING = "CLEAN UP DO WANT EMPTY _ 4 SECOND DISPLAY MSGBOX"
+    I2 = MessageBoxTimeout(Me.hwnd, MSGBOX_STRING, Me.Caption, IDOKONLY Or MB_SETFOREGROUND, 0, 4000)
+End If
+
+Kill FOLDER_ON + "\FILE_FILLER*.TXT"
+RmDir FOLDER_ON
+
+IM = ""
+IM = IM + "FILL AND THEN DELETER WAS DONE __ " + vbCrLf + vbCrLf
+IM = IM + Trim(Str(COUNTER_FILL(R1))) + LARGE_INFO(1) + vbCrLf
+IM = IM + Trim(Str(COUNTER_FILL(R2))) + LARGE_INFO(2) + vbCrLf
+IM = IM + Trim(Str(COUNTER_FILL(R3))) + LARGE_INFO(3) + vbCrLf + vbCrLf
+IM = IM + "THIS MANY COUNT OF TEXT STRING LARGE BLOCK SPACE" + vbCrLf + vbCrLf
+IM = IM + "AT" + vbCrLf + FOLDER_ON + "\FILE_FILLER.TXT"
+
+If FORM_REQUEST_TO_QUITER = True Then
+    IM = IM + vbCrLf + vbCrLf
+    IM = IM + "FORM WAS REQUEST TO QUITER __ SO HERE RESULT DO __ AND CLEAR"
+End If
+MsgBox IM
+
+End
+
+End Sub
+
+
 Private Sub MNU_TREESIZE_Click()
 
 
@@ -2173,11 +2530,9 @@ If Dir(I_EXE1) <> "" Or Dir(I_EXE2) <> "" Then
     'C:\Program Files (x86)\JAM Software\TreeSize Free\TreeSizeFree.exe
 End If
 
-
 I_INFO_2 = ""
 I_INFO_2 = I_INFO_2 + vbCrLf + vbCrLf + I_EXE1 + vbCrLf + vbCrLf
 I_INFO_2 = I_INFO_2 + vbCrLf + vbCrLf + I_EXE2 + vbCrLf + vbCrLf
-
 
 If Dir(I_EXE1) = "" And Dir(I_EXE2) = "" Then
     I_INFO_1 = "FOLDER FILE EXE NOT FOUND HERE -- " + vbCrLf + vbCrLf
@@ -2874,7 +3229,7 @@ If GetComputerName = "1-ASUS-X5DIJ" Then WIDTH_ADJUST = 70
 If GetComputerName = "3-LINDA-PC" Then WIDTH_ADJUST = 170
 If GetComputerName = "4-ASUS-GL522VW" Then WIDTH_ADJUST = 250
 If GetComputerName = "5-ASUS-P2520LA" Then WIDTH_ADJUST = 220 '100
-If GetComputerName = "7-ASUS-GL522VW" Then WIDTH_ADJUST = 220 '100
+If GetComputerName = "9-ASUS-G815LM" Then WIDTH_ADJUST = 220 '100
 
 HEIGHT_ADJUST = 70 ' FOR WIN XP
 'If GETWinNT_Ver = "WIN XP" Then HEIGHT_ADJUST = 70
@@ -2888,6 +3243,7 @@ If GetComputerName = "3-LINDA-PC" Then HEIGHT_ADJUST = 70
 If GetComputerName = "4-ASUS-GL522VW" Then HEIGHT_ADJUST = 700
 If GetComputerName = "5-ASUS-P2520LA" Then HEIGHT_ADJUST = 700 - 50
 If GetComputerName = "7-ASUS-GL522VW" Then HEIGHT_ADJUST = 700
+If GetComputerName = "9-ASUS-G815LM" Then HEIGHT_ADJUST = 1000
 
 'HIGHER NUMBER SMALLER INNER BOX
 

@@ -1,0 +1,41 @@
+------------------------------------------------
+Mon 27-May-2019 01:58:45 A
+D:\VB6\VB-NT\#__ 1ST TIME INSTALL INFO\1__ MS VB_3xINSTALL_3_SP 6 & +\3- Visual Studio 6 SP 6 - UPDATE 1 TO 7\# 3 _ VB_CODE_TO_TEST_MSCOMCT-.OCX.exe.lnk
+D:\VB6\VB-NT\#__ 1ST TIME INSTALL INFO\1__ MS VB_3xINSTALL_3_SP 6 & +\3- Visual Studio 6 SP 6 - UPDATE 1 TO 7\# 3 _ VB_CODE_TO_TEST_MSCOMCT-.OCX.exe.txt
+------------------------------------------------
+
+
+---------------------------------------------------------------------
+3__ VB_CODE_TO_TEST_MSCOMCT-.OCX\VB_CODE_TO_TEST_MSCOMCT-.OCX.exe
+---------------------------------------------------------------------
+YOU HAVE TO BE IN SAFEMODE IF CANT ACCESS THE FILE 
+---------------------------------------------------------------------
+D:\VB6\VB-NT\#__ 1ST TIME INSTALL INFO\Visual Studio 6 & VB TOOLS\3__ VB_CODE_TO_TEST_MSCOMCT-.OCX\VB_CODE_TO_TEST_MSCOMCT-.OCX.exe
+---------------------------------------------------------------------
+
+COULD BE BETTER 
+THIS CODE WILL TEST IF THE MSCOMCT-.OCX UPDATE HAS BEEN DONE
+
+PRESS THEN MENU BUTTON TO TEST 
+NOTHING ELSE REQUIRE 
+GET THE IDEA RESULT SHOW NOT CORRECT VERIFY IF ERROR 
+NOT MATCH TO UPDATER 
+
+IF SUSPECT NOT UPDATED AS ERROR HAPPEN WITH EXAMPLE FOLLOW
+
+WHEN LOAD THE .VBP VB PROJECT FILE THEN REFERENCE WILL HAVE VERSION 2.2 
+YOU ARE ABLE TO ADJUST IT TO VERSION 2.1 WHICH WOULD BE CORRECT
+
+DON'T LOAD THE FILE WHEN COME IN A TALKER THE MSCOMCT-.OCX CAN'T LOAD IN
+ABORT AS MUCH AS ABLE AND DON'T SAVE OR ALL THE LISTVIEW WILL BE CHANGED TO PICTURE BOX AND HARD WORK THEN WITHOUT GOO BACKUP STUFFING
+
+COME BACK AND RUN THE UPDATE AND SIMPLE THEN
+---------------------------------------------------------------------
+# 3 _ VisualBasic6-KB896559-v1-ENU.exe
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+D:\VB6\VB-NT\#__ 1ST TIME INSTALL INFO\1__ MS VB_3xINSTALL_3_SP 6 & +\3- Visual Studio 6 SP 6 - UPDATE 1 TO 7\# 3 _ VisualBasic6-KB896559-v1-ENU.exe
+---------------------------------------------------------------------
+
+

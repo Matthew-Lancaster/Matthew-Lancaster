@@ -1,0 +1,27 @@
+[Version]
+Version=1.0.0.215
+
+[Tidal.exe <0009>]
+Dest=$(AppPath)
+Date=10/04/2005
+Time=20:51
+Version=1.0.0.215
+CABFilename=Tidal.CAB
+CABINFFile=Tidal.INF
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=Xvoice.dll
+Uses8=DAO360.DLL
+Uses9=MCI32.OCX
+Uses10=MSCOMCTL.OCX
+Uses11=MSCOMCT2.OCX
+
+[Xvoice.dll <0009>]
+Dest=$(WinSysPath)
+Date=07/12/1999
+Time=12:00
+Version=4.0.4.3303

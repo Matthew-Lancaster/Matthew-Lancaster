@@ -1,0 +1,105 @@
+    
+    'If TTi = cc(
+    'Is Multi
+    'Case 44 To 57
+    Case 1000001 'cc(17, 1) To cc(17, 2) And 1000001
+    
+    '-----------------------------------------------------------
+    '-----------------------------------------------------------
+    'Photo's.htm
+    '-----------------------------------------------------------
+    '-----------------------------------------------------------
+        
+    
+    var1$ = "Photos_Fractals.htm"
+    var3$ = Mdu$ + "My Webs\MatthewLan.Com Web\Photos\A1_Menu\"
+    var2$ = var3$ + var1$
+    var4$ = Mdu$ + "My Webs\MatthewLan.Com Web\Temp\" + var1$
+    If Dir$(var2$) <> "" Then
+        freef1 = FreeFile
+        Open var2$ For Input As freef1
+        freef2 = FreeFile
+        On Local Error Resume Next
+        If Dir$(var4$) <> "" Then
+            Open var4$ For Input As freef2
+            If LOF(freef1) = LOF(freef2) Then Detail(TTi) = 1
+        End If
+        Close #freef1, #freef2
+        Fs.Copyfile var2$, var4$
+    End If
+    
+    If Detail(TTi) = 0 Or Webphot = 1 Or Check1.Value = vbChecked Then
+    
+        If TTi = cc(17, 1) Then
+        List3.AddItem "CD --- /httpdocs/Photos/A1_Menu"
+        Call Execute_FTP_Command("CD /httpdocs/Photos/A1_Menu", ErrStat)
+        End If
+        
+        
+        If TTi = cc(17, 1) + 1 Then
+        List3.AddItem "PUT --- photos.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "photos.htm"" ""photos.htm""", ErrStat)
+        End If
+    
+        If TTi = cc(17, 1) + 2 Then
+        List3.AddItem "PUT --- Photos_BangingTunes.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Fractals.htm"" ""Photos_Fractals.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 3 Then
+        List3.AddItem "PUT --- Photos_Fractals.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Fractals.htm"" ""Photos_Fractals.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 4 Then
+        List3.AddItem "PUT --- Photos_Funny.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Funny.htm"" ""Photos_Funny.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 5 Then
+        List3.AddItem "PUT --- Photos_Matts_Photos.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Matts_Photos.htm"" ""Photos_Matts_Photos.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 6 Then
+        List3.AddItem "PUT --- Photos_My_Archive.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_My_Archive.htm"" ""Photos_My_Archive.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 7 Then
+        List3.AddItem "PUT --- Photos_My_Mathmatical_V-Basic_Drawings.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_My_Mathmatical_V-Basic_Drawings.htm"" ""Photos_My_Mathmatical_V-Basic_Drawings.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 8 Then
+        List3.AddItem "PUT --- Photos_Scanned_Photo's.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Scanned_Photo's.htm"" ""Photos_Scanned_Photo's.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 9 Then
+        List3.AddItem "PUT --- Photos_Science_&_Industry.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Scanned_Photo's.htm"" ""Photos_Scanned_Photo's.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 10 Then
+        List3.AddItem "PUT --- Photos_Sea-Water_Shots.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Sea-Water_Shots.htm"" ""Photos_Sea-Water_Shots.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 11 Then
+        List3.AddItem "PUT --- Photos_Switzerland.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Sea-Water_Shots.htm"" ""Photos_Sea-Water_Shots.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 12 Then
+        List3.AddItem "PUT --- Photos_The_Young_Me.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_The_Young_Me.htm"" ""Photos_The_Young_Me.htm""", ErrStat)
+        End If
+        
+        If TTi = cc(17, 1) + 13 Then
+        List3.AddItem "PUT --- Photos_Tropical_Paradise.htm"
+        Call Execute_FTP_Command("PUT """ + var3$ + "Photos_Where_I_Live.htm"" ""Photos_Where_I_Live.htm""", ErrStat)
+        End If
+    
+    
+    End If

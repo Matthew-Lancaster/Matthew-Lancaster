@@ -16,10 +16,10 @@ Public Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal
 Public Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hwnd As Long) As Long
 Public Declare Function EnumWindows Lib "user32" (ByVal lpEnumFunc As Long, ByVal lParam As Any) As Long
 Public Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
-Public Declare Function EnumChildWindows Lib "user32" (ByVal hwndParent As Long, ByVal lpEnumFunc As Long, ByVal lParam As Any) As Long
+Public Declare Function EnumChildWindows Lib "user32" (ByVal hWndParent As Long, ByVal lpEnumFunc As Long, ByVal lParam As Any) As Long
 Public Declare Function ShowWindow Lib "user32" (ByVal hwnd As Long, ByVal nCmdShow As Long) As Long
 Public Declare Function BringWindowToTop Lib "user32" (ByVal hwnd As Long) As Long
-Public Declare Function CascadeWindows Lib "user32" (ByVal hwndParent As Long, ByVal wHow As Long, lpRect As RECT, ByVal cKids As Long, lpkids As Long) As Integer
+Public Declare Function CascadeWindows Lib "user32" (ByVal hWndParent As Long, ByVal wHow As Long, lpRect As RECT, ByVal cKids As Long, lpkids As Long) As Integer
 
 'APIs for Spying Menus:
 Public Declare Function GetMenu Lib "user32" (ByVal hwnd As Long) As Long
@@ -72,7 +72,7 @@ Public Const MDITILE_SKIPDISABLED = &H2
 Public Const WM_MDITILE = &H226
 
 Public VCount As Integer, ICount As Integer
-Public SpyHwnd As Long
+Public SpyhWnd As Long
 'the following functions "WndEnumProc" & "WndEnumChildProc"
 'are application defined, which means that they are defined by the
 'programmer him/her self. They are actually required by the 'callback'
@@ -101,8 +101,8 @@ Public Function WndEnumProc(ByVal hwnd As Long, ByVal lParam As ListView) As Lon
     
     WndEnumProc = 1
 End Function
-Private Sub Insert(iHwnd As Long, lParam As ListView, iText As String, iClass As String)
-    lParam.ListItems.Add.Text = Str(iHwnd)
+Private Sub Insert(ihWnd As Long, lParam As ListView, iText As String, iClass As String)
+    lParam.ListItems.Add.Text = Str(ihWnd)
     lParam.ListItems.Item(VCount).SubItems(1) = iClass
     lParam.ListItems.Item(VCount).SubItems(2) = iText
     VCount = VCount + 1
@@ -135,18 +135,18 @@ Public Function WndEnumChildProc(ByVal hwnd As Long, ByVal lParam As ListView) A
 
 End Function
 
-Function GetText(iHwnd As Long) As String
+Function GetText(ihWnd As Long) As String
     Dim Textlen As Long
     Dim Text As String
 
-    Textlen = SendMessage(iHwnd, WM_GETTEXTLENGTH, 0, 0)
+    Textlen = SendMessage(ihWnd, WM_GETTEXTLENGTH, 0, 0)
     If Textlen = 0 Then
         GetText = ">No text for this class<"
         Exit Function
     End If
     Textlen = Textlen + 1
     Text = Space(Textlen)
-    Textlen = SendMessage(iHwnd, WM_GETTEXT, Textlen, ByVal Text)
+    Textlen = SendMessage(ihWnd, WM_GETTEXT, Textlen, ByVal Text)
     'The 'ByVal' keyword is necessary or you'll get an invalid page fault
     'and the app crashes, and takes VB with it.
     GetText = Left(Text, Textlen)
@@ -157,9 +157,9 @@ End Function
 'and the sub menus can have more sub menus in them, so all of them can be captured
 'with recursion
 
-Public Sub SMenu(Mhwnd As Long, Tree As TreeView, Optional tmpKey As String, Optional iSubFlag As Boolean)
+Public Sub SMenu(MhWnd As Long, Tree As TreeView, Optional tmpKey As String, Optional iSubFlag As Boolean)
     Static iKey As Integer
-    Dim n As Long, c As Long, i As Long
+    Dim n As Long, c As Long, I As Long
     Dim iNode As Node
     Dim menusX As MENUITEMINFO
     Dim temp As String
@@ -167,9 +167,9 @@ Public Sub SMenu(Mhwnd As Long, Tree As TreeView, Optional tmpKey As String, Opt
 
     On Error Resume Next
     
-    n = GetMenuItemCount(Mhwnd)
-    For i = 0 To n - 1
-        c = GetMenuItemID(Mhwnd, i)
+    n = GetMenuItemCount(MhWnd)
+    For I = 0 To n - 1
+        c = GetMenuItemID(MhWnd, I)
         
         '----Here we get the text of the menu if any-----
         menusX.cbSize = Len(menusX)
@@ -177,7 +177,7 @@ Public Sub SMenu(Mhwnd As Long, Tree As TreeView, Optional tmpKey As String, Opt
         menusX.fType = MFT_STRING
         menusX.dwTypeData = Space(255)
         menusX.cch = 255
-        GetMenuItemInfo Mhwnd, i, True, menusX
+        GetMenuItemInfo MhWnd, I, True, menusX
         menusX.dwTypeData = Trim(menusX.dwTypeData)
         '------------------------------------------------
         
@@ -195,21 +195,21 @@ Public Sub SMenu(Mhwnd As Long, Tree As TreeView, Optional tmpKey As String, Opt
             Else
                 Set iNode = Tree.Nodes.Add(, tvwLast, , menusX.dwTypeData)
             End If
-            If GetSubMenu(Mhwnd, i) > 1 Then
+            If GetSubMenu(MhWnd, I) > 1 Then
                 iSubFlag = True
                 iNode.Key = "k" & CStr(c)
                 tmpKey = iNode.Key
-                SMenu GetSubMenu(Mhwnd, i), Tree, tmpKey, True
+                SMenu GetSubMenu(MhWnd, I), Tree, tmpKey, True
                 iSubFlag = False
             End If
         Else
             Set iNode = Tree.Nodes.Add(tmpKey, tvwChild, "k" & CStr(c), menusX.dwTypeData)
-            If GetSubMenu(Mhwnd, i) > 1 Then
+            If GetSubMenu(MhWnd, I) > 1 Then
                 iSubFlag = True
                 iNode.Key = "k" & CStr(c)
                 temp = tmpKey
                 tmpKey = iNode.Key
-                SMenu GetSubMenu(Mhwnd, i), Tree, tmpKey, True
+                SMenu GetSubMenu(MhWnd, I), Tree, tmpKey, True
                 tmpKey = temp
             End If
         End If

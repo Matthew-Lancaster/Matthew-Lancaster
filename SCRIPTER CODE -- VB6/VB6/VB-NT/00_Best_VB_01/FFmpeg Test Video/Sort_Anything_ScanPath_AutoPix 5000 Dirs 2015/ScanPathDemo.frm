@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomct2.ocx"
 Begin VB.Form ScanPath 
    Caption         =   "ScanPath 2.0 - Anything -- "
@@ -205,7 +205,7 @@ Begin VB.Form ScanPath
       ScaleWidth      =   12588
       TabIndex        =   22
       Top             =   0
-      Width           =   12630
+      Width           =   12636
       Begin VB.Label Label7 
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
@@ -323,7 +323,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   146735105
+      Format          =   124059649
       CurrentDate     =   37299
    End
    Begin MSComCtl2.DTPicker DTPicker1 
@@ -337,7 +337,7 @@ Begin VB.Form ScanPath
       _ExtentY        =   550
       _Version        =   393216
       CheckBox        =   -1  'True
-      Format          =   146735105
+      Format          =   124059649
       CurrentDate     =   37296
    End
    Begin VB.Label Label15 
@@ -579,8 +579,6 @@ Attribute SP.VB_VarHelpID = -1
 
 Sub FFmpeg_Test_Video()
 
-
-
 ScanPath.Show
 
 ScanPath.ListView1.ListItems.Clear
@@ -589,7 +587,10 @@ ScanPath.chkSubFolders = vbChecked
 
 
 'ScanPath.txtPath = "F:\MC - HX60V1_MEDIA_CARD_CAMERA\MP_ROOT"
-ScanPath.txtPath = "K:\MP_ROOT"
+'ScanPath.txtPath = "K:\MP_ROOT"
+
+'MsgBox Command$
+ScanPath.txtPath = Command$
 Call cmdScan_Click
 
 

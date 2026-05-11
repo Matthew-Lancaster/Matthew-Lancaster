@@ -907,6 +907,10 @@ Begin VB.Form Form_SEND_TO
          Caption         =   "SNAPSHOT HIKVISION GARDEN NETWORK SOURCE"
          Index           =   13
       End
+      Begin VB.Menu MNU_FOLDERING_ARRAY 
+         Caption         =   "DSC 2020"
+         Index           =   14
+      End
       Begin VB.Menu MNU_SHOW_ALL_MENU_OFF 
          Caption         =   "SHOW ALL MENU OFF"
       End
@@ -1010,6 +1014,14 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+' INDEX = 14 THEN
+
+Dim NOT_USE_XSCRIPT
+
+Dim RUN_ONCE
+
+' Debug.Print "ERROR WITH GIVEN PATH" + vbCrLf + vbCrLf + AT$
+
 ' ----------------------------------------------------------------------------
 ' WORK DONE ON
 ' ----------------------------------------------------------------------------
@@ -1301,6 +1313,8 @@ If IsArray(reg_valuename) <> 0 Then
     RequireAdmin = 1
 End If
 
+RUN_ONCE = True
+
 DISPLAY_MENU = False
 If Dir(App.Path + "\" + GetComputerName + "-- SETTING PLUG.TXT") <> "" Then
     FR = FreeFile
@@ -1332,7 +1346,12 @@ For r = 1 To MNU_FOLDERING_ARRAY.Count
     If InStr(MNU_FOLDERING_ARRAY.Item(r).Caption, "SNAPSHOT") > 0 Then
         MNU_FOLDERING_ARRAY.Item(r).Visible = True
     End If
+    If InStr(MNU_FOLDERING_ARRAY.Item(r).Caption, "DSC 2020") > 0 Then
+        MNU_FOLDERING_ARRAY.Item(r).Visible = True
+    End If
 Next
+
+Call MNU_SHOW_ALL_MENU_OFF_CLICK
 
 If MNU_FOLDERING_ARRAY.Item(VAR_MNU_FOLDERING_ARRAY_COUNT_IN).Visible = True Then
     MNU_SHOW_ALL_MENU.Checked = True
@@ -1346,6 +1365,7 @@ Else
     MNU_SHOW_ALL_MENU_OFF.Caption = "SHOW ALL MENU OFF"
 End If
 
+Call MNU_SHOW_ALL_MENU_Click
 
 
 If IsIDE = False Then
@@ -1381,20 +1401,6 @@ Set FS = CreateObject("Scripting.FileSystemObject")
 ScanPath.Visible = False
 
 Me.WindowState = vbMaximized
-
-If GetComputerName = "4-ASUS-GL522VW" Then
-    Call MNU_SHOW_ALL_MENU_OFF_CLICK
-End If
-If GetComputerName = "7-ASUS-GL522VW" Then
-    MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC.Checked = True
-    MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC_2.Checked = True
-End If
-If GetComputerName = "8-MSI-GP62M-7RD" Then
-    Call MNU_SHOW_ALL_MENU_OFF_CLICK
-End If
-'If GetComputerName = "7-ASUS-GL522VW" Then
-'    Call MNU_SHOW_ALL_MENU_OFF_CLICK
-'End If
 
 
 'THE SCAN TO BUTTON IRFANVIEW
@@ -1954,6 +1960,9 @@ For r = 1 To MNU_FOLDERING_ARRAY.Count
     If InStr(MNU_FOLDERING_ARRAY.Item(r).Caption, "SNAPSHOT") > 0 Then
         MNU_FOLDERING_ARRAY.Item(r).Visible = True
     End If
+    If InStr(MNU_FOLDERING_ARRAY.Item(r).Caption, "DSC 2020") > 0 Then
+        MNU_FOLDERING_ARRAY.Item(r).Visible = True
+    End If
 Next
 
 If MNU_FOLDERING_ARRAY.Item(VAR_MNU_FOLDERING_ARRAY_COUNT_IN).Visible = True Then
@@ -1999,6 +2008,7 @@ For r = 1 To MNU_FOLDERING_ARRAY.Count
         MNU_FOLDERING_ARRAY.Item(r).Visible = True
     End If
 Next
+
 
 If MNU_FOLDERING_ARRAY.Item(VAR_MNU_FOLDERING_ARRAY_COUNT_IN).Visible = True Then
     MNU_SHOW_ALL_MENU.Checked = True
@@ -2215,7 +2225,9 @@ If Dir(FILE13_SCRIPT_TEMP_FOLDER) <> "" Then
 
 End If
 
+If Label3.Caption = "000 SCAN TO GIVE " Then
 Label3.Caption = "SCAN TO GIVE -- " + AT$
+End If
 
 Call SORT_ON_DATE_CHECKER
 
@@ -2420,8 +2432,9 @@ FILEPATH_APP_TMP = FILEPATH_APP_TMP1
 
 'THE SENDTO COMMAND$ WILL BE NOTHING IF ADMINISTRATOR IS NOT SET
 'MsgBox Command$
-
-AT$ = Command$
+If Command$ <> "" Then
+    AT$ = Command$
+End If
 'AT$ = "D:\Videos\NOT\BUNKER"
 
 'AT$ = "D:\DSC\2015-2018\2016 CyberShot HX60V\DCIM"
@@ -2512,11 +2525,13 @@ If FS.FolderExists(AT_LOADER) = False Then
             '------------------------------------------------------------
             Call Label0_Click
     
+            If Date <> "06/08/2020" Then
             I = MsgBox("USE ISIDE HARDCODER PATH" + vbCrLf + ATISIDE$, vbMsgBoxSetForeground + vbYesNo)
             If I = vbYes Then
                 Form_SEND_TO.Label10.Caption = "IRFAN SCAN SENDTO - FROM HARDCODE ISIDE"
                 AT$ = ATISIDE$
                 USE_ISIDE = True
+            End If
             End If
             USE_ISIDE_HARDCODER_PATH_BEEN_SET_DONE = True
         End If
@@ -3153,6 +3168,7 @@ Private Sub Label10_Click()
     'SEARCH
     'FROM SEND TO
     '---------------
+    
     'Label10.Caption
     '----------------------------
     'REQUIRE RESTE AT EVERY BEGIN
@@ -3173,6 +3189,10 @@ Private Sub Label11_Click()
 End Sub
 
 Private Sub Label12_Click()
+
+    If COUNTPROCES4 = 0 Then
+        COUNTPROCES4 = 0
+    End If
 
     If Label12.Caption = "MPC MEDIA PLAYER CLASSIC VIDEO ____ FILE SCANNED IS EMPTY NOT FOUND ANY VIDEO FILE __ PRESS AGAIN HERE TO END" Then
         End
@@ -3207,30 +3227,33 @@ Private Sub Label12_Click()
     ScanPath.Left = 0
     On Error GoTo 0
     DoEvents
-
         
     PATH_PARSE = AT$
     Me.WindowState = vbMinimized
-    
     Do
-    
         PATH_PARSE_2 = ""
         If InStr(PATH_PARSE, ";") > 0 Then
             PATH_PARSE_2 = Mid(PATH_PARSE, 1, InStr(PATH_PARSE, ";") - 1)
+            ' If Mid(PATH_PARSE_2, Len(PATH_PARSE_2)) <> "\" Then PATH_PARSE_2 = PATH_PARSE_2 + "\"
             PATH_PARSE = Replace(PATH_PARSE, PATH_PARSE_2 + ";", "")
         Else
             PATH_PARSE_2 = Mid(PATH_PARSE, 1, Len(PATH_PARSE))
+            ' If Mid(PATH_PARSE_2, Len(PATH_PARSE_2)) <> "\" Then PATH_PARSE_2 = PATH_PARSE_2 + "\"
             PATH_PARSE = Replace(PATH_PARSE, PATH_PARSE_2, "")
         End If
-        
-        
         ' Debug.Print PATH_PARSE_2
+        If Dir(PATH_PARSE_2, vbDirectory) = "" Then
+            Debug.Print "ERROR GIVEN PATH" + vbCrLf; PATH_PARSE_2
+            ' MsgBox "ERROR WITH GIVEN PATH" + vbCrLf + vbCrLf + AT$
+            ' End
+        End If
         
+        If Dir(PATH_PARSE_2, vbDirectory) <> "" Then
         If PATH_PARSE_2 <> "" Then
 
             AT$ = PATH_PARSE_2
+            Debug.Print PATH_PARSE_2
             
-            If Dir(AT$, vbDirectory) = "" Then MsgBox "ERROR WITH GIVEN PATH" + vbCrLf + vbCrLf + AT$: End
             
             'AT$ = "D:\Videos\NOT\ME"
             
@@ -3249,15 +3272,16 @@ Private Sub Label12_Click()
             
             Call ScanPath.TIMER_SET_FORM_LAYOUT_2_TIMER
             
-            Debug.Print Time$
-            Debug.Print Time$
-            Debug.Print Time$ + " START TIME ____"
-            Debug.Print Time$
-            Debug.Print Time$
+'            Debug.Print Time$
+'            Debug.Print Time$
+'            Debug.Print Time$ + " START TIME ____"
+'            Debug.Print Time$
+'            Debug.Print Time$
             
             '------------------------------------------
             Call MPC_MEDIA_PLAYER_SCAN
             '------------------------------------------
+        End If
         End If
     
     Loop Until PATH_PARSE = ""
@@ -3413,9 +3437,14 @@ If EXELOADER <> "" Then
         If Err.Number > 0 Then
             MsgBox "ERROR LOADING THE SHELL " + vbCrLf + VBCLRF + EXELOADER, vbMsgBoxSetForeground
     
+    
+    
         End If
     End If
 End If
+
+If IsIDE = True Then Stop 'WAS WORKER ABOVE
+' Sat 08-Aug-2020 09:40:37
 
 If NOTEPADEXELOADER <> "" Then
     If Dir(NOTEPADEXELOADER) <> "" Then
@@ -3501,8 +3530,10 @@ Sub MPC_MEDIA_PLAYER_SCAN()
     'LOAD THE XSCRIPT CHUNK FOR THE FILE SCAN PROCESS
     'FILTER FOR WHILE SCAN
     '------------------------------------------------
-    'NOT_USE_XSCRIPT = True
-    NOT_USE_XSCRIPT = False
+    ' NOT_USE_XSCRIPT = False
+    
+    ' NOT_USE_XSCRIPT = True
+    
     
     '----------------------------------------
     'C:\TEMP\IRFAN_SLIDESHOW_X_SCRIPT.TXT
@@ -4078,12 +4109,26 @@ If index = 10 Then PATH_FINDER = "D:\VIDEO\NOT\X 00 NOT ME"
 If index = 11 Then PATH_FINDER = "\\7-asus-gl522vw\7_asus_gl522vw_02_d_drive\VIDEO\NOT\X 00 NOT ME"
 If index = 12 Then PATH_FINDER = "D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
 If index = 13 Then PATH_FINDER = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\0 00 VIDEO SNAPSHOT CCSE HIKVISION\snapshot"
+' index = (14)
+If index = 14 Then
+    PATH_FINDER = "\\7-ASUS-GL522VW\7_ASUS_GL522VW_80_3_SAMSUNG_4TB_D\DSC_4G_1TB\DSC"
+    ';D:\DSC;D:\DSC\2015+SONY_MP4;C:\DOWNLOADS;D:\DOWNLOADS;D:\DL;C:\DOWNLOADS\# 00 VIDEO\;D:\0 00 VIDEO 03 DOWNLOAD\;D:\0 00 VIDEO 01\;D:\# MY DOCS\;D:\0 00 VIDEO CCSS\;D:\0 00 ART LOGGERS - WEBCAM\;D:\DL\;\\4-ASUS-GL522VW\4_ASUS_GL522VW_10_1_SAMSUNG_1TB\DSC"
+    PATH_FINDER = Replace(PATH_FINDER, "\;", ";")
+    AT$ = PATH_FINDER
+    ' PATH_FINDER = LCase(PATH_FINDER)
+    DSC_2020_ABOVE = True
+End If
 
+'For Each Control In Controls
+'    If UCase(Mid(Control.Name, 1, 5)) = "MNU_FOLDERING_ARRAY_Click" Then
+'        Control.FontSize = 11
+'    End If
+'Next
+'
 For r = 1 To 1
     MNU_FOLDERING_ARRAY(r).Checked = False
 Next
 MNU_FOLDERING_ARRAY(index).Checked = True
-
 ' TO DO LATER
 ' D:\0 00 VIDEO SNAPSHOT CCSE HIKVISION\;
 
@@ -5684,6 +5729,41 @@ End Function
 Private Sub Timer1_Timer()
     Dim MhWndVAR As Long
 
+    If RUN_ONCE = True Then
+        NOT_USE_XSCRIPT = False
+        RUN_ONCE = False
+        If GetComputerName = "4-ASUS-GL522VW" Then
+            ' Call MNU_SHOW_ALL_MENU_OFF_CLICK
+        End If
+        If GetComputerName = "7-ASUS-GL522VW" Then
+            ' Call MNU_SHOW_ALL_MENU_OFF_CLICK
+            MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC.Checked = True
+            MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC_2.Checked = True
+        End If
+        If Date <> "06/08/2020" Then
+            MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC.Checked = True
+            MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC_2.Checked = True
+        End If
+        If Date = "06/08/2020" Then
+            NOT_USE_XSCRIPT = True
+            MNU_IRFAN_07_NOT_USE_XSCRIPT.Checked = True
+            MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC.Checked = True
+            MNU_IRFAN_08_NOT_USE_XSCRIPT_MPC_2.Checked = True
+            MNU_IRFAN_04.Checked = False
+            Call MNU_FOLDERING_ARRAY_Click(14)
+            ' MNU_FOLDERING_ARRAY(14).Checked = False
+            MNU_FOLDERING_ARRAY(14).Checked = True
+        End If
+        If GetComputerName = "8-MSI-GP62M-7RD" Then
+'            Call MNU_SHOW_ALL_MENU_OFF_CLICK
+        End If
+        'If GetComputerName = "7-ASUS-GL522VW" Then
+        '    Call MNU_SHOW_ALL_MENU_OFF_CLICK
+        'End If
+    End If
+    
+    
+    
     MhWndVAR = FindWindow("IrfanView", "IrfanView")
     If O_MhWndVAR <> MhWndVAR And MhWndVAR = 0 Then
         Call MNU_INI_READ

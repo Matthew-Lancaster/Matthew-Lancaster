@@ -9,7 +9,7 @@ Attribute VB_Name = "FindWindowDLL"
 'http://www.freevbcode.com/ShowCode.asp?ID=8408
 '----
 Private Declare Function GetDesktopWindow Lib "user32" () As Long
-Private Declare Function GetWindow Lib "user32" (ByVal hwnd As Long, ByVal wCmd As Long) As Long
+Private Declare Function GetWindow Lib "user32" (ByVal hWnd As Long, ByVal wCmd As Long) As Long
 'Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
 'Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
@@ -28,10 +28,10 @@ Private Declare Function EnumWindows Lib _
 
 Private Declare Function _
    GetWindowThreadProcessId Lib "user32" (ByVal _
-   hwnd As Long, lpdwProcessId As Long) As Long
+   hWnd As Long, lpdwProcessId As Long) As Long
 
 Private Declare Function GetWindowLong Lib _
-   "user32" Alias "GetWindowLongA" (ByVal hwnd _
+   "user32" Alias "GetWindowLongA" (ByVal hWnd _
    As Long, ByVal nIndex As Long) As Long
 
 'Private Declare Function PostMessage Lib _
@@ -55,7 +55,7 @@ Private Const GWL_HWNDPARENT = (-8)
 
 
 
-Private Declare Function PostMessage Lib "user32.dll" Alias "PostMessageA" (ByVal hwnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long  'MODULE 1135
+Private Declare Function PostMessage Lib "user32.dll" Alias "PostMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As Long) As Long  'MODULE 1135
 
 
 
@@ -91,8 +91,8 @@ Private Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" _
     As Long
 
 Private Declare Function FindWindowDLL Lib "user32" Alias "FindWindowA" (ByVal lpClassName As Long, ByVal lpWindowName As Long) As Long
-Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
-Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
+Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
   
   'MODULE 1135
 
@@ -103,32 +103,31 @@ Private Type RECT
    Bottom As Long
 End Type
 
-Private Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hwnd As Long) As Long
-Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
+Private Declare Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hWnd As Long) As Long
+Private Declare Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As Long, ByVal lpString As String, ByVal cch As Long) As Long
 
 
-Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 'Private Declare Function GetForegroundWindow Lib "user32" () As Long
 'Private Declare Function ShowWindow Lib "user32.dll" (ByVal hWnd As Long, ByVal nCmdShow As Long) As Long
 
 
-Private Declare Function IsIconic Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsZoomed Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function IsIconic Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 
-Private Declare Function IsWindowVisible Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
 
 
-Function GetWindowTitle(ByVal hwnd As Long) As String
+Function GetWindowTitle(ByVal hWnd As Long) As String
    Dim L As Long
    Dim S As String
-   L = GetWindowTextLength(hwnd)
+   L = GetWindowTextLength(hWnd)
    S = Space(L + 1)
-   GetWindowText hwnd, S, L + 1
+   GetWindowText hWnd, S, L + 1
    GetWindowTitle = Left$(S, L)
 End Function
-
 
 
 Function FindWindowPart(Test) As Long
@@ -202,6 +201,114 @@ Loop
 'If Q = False Then MsgBox Str(Huge) + " Windows Brought To Front"
 
 'FindWinPartFront = Huge
+
+End Function
+
+
+Sub FindWindowPart_VB_CLIPVIEWER_CLOSE()
+    
+    Dim test_hwnd As Long
+    
+    'ahk_class ThunderRT6FormDC
+    'ahk_exe ClipBoard Viewer.exe
+    
+    Dim Form As Form
+    
+    test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+    Do While test_hwnd <> 0
+            If GetWindowTitle(test_hwnd) <> "" Then
+                If InStr(GetWindowTitle(test_hwnd), "Clipboard Viewer") > 0 Then
+                    SET_GO = True
+                    For Each Form In Forms
+                    If test_hwnd = Form.hWnd Then SET_GO = False
+                    Next
+                    If SET_GO = True Then
+                         Call PostMessage(test_hwnd, WM_CLOSE, 0&, ByVal 0&)
+                    End If
+                End If
+            End If
+        'Retrieve the next window
+        test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    Loop
+
+End Sub
+Sub FindWindowPart_VB_CLIPVIEWER_CLOSE_ALL()
+    
+    Dim test_hwnd As Long
+    
+    'ahk_class ThunderRT6FormDC
+    'ahk_exe ClipBoard Viewer.exe
+    
+    Dim Form As Form
+    
+    test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+    Do While test_hwnd <> 0
+            If GetWindowTitle(test_hwnd) <> "" Then
+                If InStr(GetWindowTitle(test_hwnd), "Clipboard Viewer") > 0 Then
+                    SET_GO = True
+                    For Each Form In Forms
+                    If test_hwnd = Form.hWnd Then SET_GO = False
+                    Next
+                    If SET_GO = True Then
+                         Call PostMessage(test_hwnd, WM_CLOSE, 0&, ByVal 0&)
+                    End If
+                End If
+            End If
+        'Retrieve the next window
+        test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    Loop
+
+End
+
+End Sub
+
+Function FindWindowPart_VB_CLIPVIEWER_AUTO_BUTTON_COMPARE()
+    
+    Dim test_hwnd As Long
+    
+    'ahk_class ThunderRT6FormDC
+    'ahk_exe ClipBoard Viewer.exe
+    
+    Dim Form As Form
+    Dim i
+    Dim cText As String
+
+    
+    test_hwnd = FindWindowDLL(ByVal 0&, ByVal 0&)
+    Do While test_hwnd <> 0
+
+            If GetWindowTitle(test_hwnd) <> "" Then
+                If InStr(GetWindowTitle(test_hwnd), "Clipboard Viewer") > 0 Then
+                    cText = Space$(255)
+                    G = GetClassName(test_hwnd, cText, 255)
+                    cText = StripNulls(cText)
+                    If cText = "ThunderRT6FormDC" Then
+                        If GetParent_2(test_hwnd) = test_hwnd Then
+                            i = i + 1
+                        End If
+                    End If
+                End If
+            End If
+        'Retrieve the next window
+        test_hwnd = GetWindow(test_hwnd, GW_HWNDNEXT)
+    Loop
+
+    FindWindowPart_VB_CLIPVIEWER_AUTO_BUTTON_COMPARE = i
+
+End Function
+
+Function GetParent_2(ByVal Handle As Long) As String
+   Dim i As Long
+   Dim j As Long, TTx1 As String
+   i = Handle
+      Do While i <> 0
+         j = i
+         i = GetParent(i)
+      Loop
+      i = j
+   '
+   ' TTx1 = GetWindowTitle(i)
+   GetParent_2 = i
 
 End Function
 
@@ -484,13 +591,13 @@ End Sub
 
 '
 
-Private Function PostCloseMessage(ByVal hwnd As Long, ByVal lParam As Long) As Long
+Private Function PostCloseMessage(ByVal hWnd As Long, ByVal lParam As Long) As Long
 
    Static PID As Long
 
    ' Check if hWnd belongs to PID: lParam
 
-   Call GetWindowThreadProcessId(hwnd, PID)
+   Call GetWindowThreadProcessId(hWnd, PID)
 
    If PID = lParam Then
 
@@ -504,9 +611,9 @@ Private Function PostCloseMessage(ByVal hwnd As Long, ByVal lParam As Long) As L
 
       ' if we don't do this test!
 
-      If GetWindowLong(hwnd, GWL_HWNDPARENT) = 0 Then
+      If GetWindowLong(hWnd, GWL_HWNDPARENT) = 0 Then
 
-         Call PostMessage(hwnd, WM_CLOSE, 0&, ByVal 0&)
+         Call PostMessage(hWnd, WM_CLOSE, 0&, ByVal 0&)
 
       End If
 
@@ -647,7 +754,7 @@ Do While test_hwnd <> 0
                     'TargetHwnd = PostMessage(lngHWnd, WM_CLOSE, 0&, 0&)
                 
                 End If
-                lngHwnd = FindWindowEx(Form1.hwnd, lngHwnd, vbNullString, vbNullString)
+                lngHwnd = FindWindowEx(Form1.hWnd, lngHwnd, vbNullString, vbNullString)
            
            Loop
             
@@ -762,7 +869,7 @@ Do While test_hwnd <> 0
                     'TargetHwnd = PostMessage(lngHWnd, WM_CLOSE, 0&, 0&)
                 
                 End If
-                lngHwnd = FindWindowEx(Form1.hwnd, lngHwnd, vbNullString, vbNullString)
+                lngHwnd = FindWindowEx(Form1.hWnd, lngHwnd, vbNullString, vbNullString)
            
            Loop
             

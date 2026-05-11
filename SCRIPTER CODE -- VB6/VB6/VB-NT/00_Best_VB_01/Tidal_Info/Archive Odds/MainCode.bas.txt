@@ -1,0 +1,982 @@
+Attribute VB_Name = "MainCode"
+Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+
+Public CompName$
+Public Rabbit As Date
+Public Cheese
+
+Public dks As Integer
+Public sluty As Integer
+Public sluty2 As Integer
+Public ebuyer22 As Integer
+Public rnowt2 As Date
+
+Public OldRect2 As RECT
+Public OldRect3 As RECT
+Public OldRect4 As RECT
+Public OldRect5 As RECT
+Public OldRect6 As RECT
+
+Public Abcd255 As Integer
+Public Abcd355 As Integer
+Public Abcd455 As Integer
+Public Abcd655 As Integer
+
+Public OldAbcd As Integer
+
+Public SoggyPie As Integer
+
+Public QuitForms As Integer
+Public Soff As Integer
+Public Toff As Integer
+
+Public Gooze1
+Public Gooze2
+Public Gooze3
+Public Gooze4
+Public Gooze5
+
+Public Qkey
+Public Qkey2 As Date
+
+Public Count2Check
+
+
+Public Sub UpDate5(tl)
+
+
+tr$ = "Program Mostly Written By Matthew.Lancaster@btinternet.com 2005 " + vbCr + "Version "
+tr$ = tr$ + Trim$(Str$(App.Major)) + "." + Trim$(Str$(App.Minor)) + "." + Trim$(Str$(App.Revision))
+tr$ = tr$ + " --- Located in " + App.Path + "\" + App.EXEName + ".EXE"
+
+UpDateText.Label1.Caption = tr$
+
+
+UpDateText.List1.Clear
+
+tr$ = "Click / Toggle on the Time to Speed it Up, Stop it or Double Click to reset to current time."
+UpDateText.List1.AddItem tr$
+tr$ = "The Tide is only speeded up by 50% compared to the Moon."
+UpDateText.List1.AddItem tr$
+tr$ = "Click / Toggle on Next Moon Description to see Now an Next Description."
+UpDateText.List1.AddItem tr$
+tr$ = "Click / Toggle on the Date Of the Next Moon to see The Percent luminosity for Now & Next."
+UpDateText.List1.AddItem tr$
+tr$ = "Click on '100 % = Hide Tide / Full Moon' To get this Info Back"
+UpDateText.List1.AddItem tr$
+tr$ = "Click on Today an Tommorow for more Sunrise Info"
+UpDateText.List1.AddItem tr$
+tr$ = "DoD = Differance of Differance with the 100% Max Differance can be around Equinox"
+UpDateText.List1.AddItem tr$
+tr$ = "Click / Toggle on DoD to see when this and next Year's Equinox's are"
+UpDateText.List1.AddItem tr$
+tr$ = "Programs Longitude / Latitude = " + Str$(welong) + ", " + Str$(welat)
+UpDateText.List1.AddItem tr$
+
+If CompName$ = "MAGICRAM2EODUR" Then tr$ = "Personalized For Matt's Street BN41 1DQ"
+If CompName$ = "EDDIESCIENTIST" Then tr$ = "Personalized For Eddie's Street BN41 2RY"
+If CompName$ = "NASA1234567890" Then tr$ = "Personalized For Marianne's Street BN2 6QE"
+If CompName$ = "MEACHELLE12345" Then tr$ = "Personalized For Meachelle's Street BN2 6QD"
+
+UpDateText.List1.AddItem tr$
+tr$ = "Mouse Keyboard Counter That Keeps a Log of the Count"
+UpDateText.List1.AddItem tr$
+tr$ = "Mouse cursor Hiding Default 'On' can Switch Off When Playing games"
+UpDateText.List1.AddItem tr$
+
+tr$ = ""
+
+tr$ = tr$ + "------------------------------"
+tr$ = tr$ + vbCr + "------------------------------------------------------"
+
+tr$ = tr$ + vbCr + "*** This Version Has Just Been Updated ***"
+
+tr$ = tr$ + vbCr + "------------------------------------------------------"
+tr$ = tr$ + vbCr + "------------------------------"
+
+If tl = 1 Then
+    
+    UpDateText.Label3.Caption = tr$
+    
+    If tl = 1 Then
+        If CompName$ = "MAGICRAM2EODUR" Then
+            Rabbit = Now + TimeSerial(0, 0, 2)
+        Else
+            Rabbit = Now + TimeSerial(0, 0, 10)
+        End If
+    End If
+End If
+tr$ = ""
+tr$ = tr$ + "------------------------------------------------------"
+tr$ = tr$ + vbCr + "---------------------------------------------"
+tr$ = tr$ + vbCr + "-----------------------------------"
+tr$ = tr$ + vbCr + "------------------------"
+tr$ = tr$ + vbCr + "-------------"
+tr$ = tr$ + vbCr + "---"
+
+If tl = 0 Then UpDateText.Label3.Caption = tr$
+
+'If tl = 1 Then UpDateText.Show
+
+tr$ = ""
+
+End Sub
+
+Sub UpDate66()
+
+qtu$ = "Tidal Info Ver 1.0."
+
+ATidalX.Caption = "Tidal Info..."
+ATidalX.Refresh
+
+Dim weh As Long
+Dim art As Long
+
+Do
+    puk = 0
+    wef = App.Revision
+    Do
+        weh = FindWindow(vbNullString, qtu$ + Trim(Str(wef)))
+        
+        If weh = 0 Then weh = FindWindow(vbNullString, "Tidal Information...")
+        
+        wef = wef - 1
+        If weh > 0 Then
+            art = SendMessage(weh, WM_CLOSE, 0&, 0&)
+            puk = 1
+            If art > 0 Then MsgBox ("Probelms Removing Previous Instance's of this program that are running in memory now")
+            End If
+        
+    Loop Until wef < 80
+Loop Until puk = 0
+
+ATidalX.Caption = "Tidal Info Ver " + Trim$(Str$(App.Major)) + "." + Trim$(Str$(App.Minor)) + "." + Trim$(Str$(App.Revision))
+
+
+Dim Adate1 As Date, Adate2 As Date
+
+Dim F, FileSpec, Fs223
+    
+Set Fs223 = CreateObject("Scripting.FileSystemObject")
+    
+    
+Wet$ = App.EXEName
+If Wet$ = "YTidal_Info2" Then Wet$ = "Tidal"
+Wet$ = Wet$ + ".exe"
+    
+FileSpec = "C:\utils\" + Wet$
+    
+On Local Error Resume Next
+Set F = Fs223.GetFile((FileSpec))
+Adate1 = F.DateLastModified
+
+If Err.Number > 0 Then Exit Sub
+    
+
+
+FileSpec = App.Path + "\" + Wet$
+Set F = Fs223.GetFile((FileSpec))
+Adate2 = F.DateLastModified
+
+If Err.Number > 0 Then Exit Sub
+
+
+If Adate1 <> Adate2 Then
+    
+    wtime = Now + TimeSerial(0, 0, 2)
+    Do
+        fre5 = FreeFile
+        Open "C:\utils\" + Wet$ For Output As #fre5
+        Print #fre5, "S"
+        Close #fre5
+    Loop Until Err.Number = 0 Or wtime < Now
+    
+    If Err.Number > 0 Then MsgBox "Please Exit the Other Tidal Info Program... Then Continue...": Cheese = 1
+
+    If Err.Number = 0 Then
+
+        Fs223.CopyFile App.Path + "\" + Wet$, "C:\utils\" + Wet$
+
+        Shell "C:\utils\" + Wet$ + " update", vbNormalFocus
+        
+        End
+    
+    End If
+
+End If
+
+
+
+End Sub
+
+
+
+
+
+Public Sub KeyWindowCheck()
+ 
+ 
+If sluty2 = 1 Then
+    sluty2 = 0
+        
+    '------------------------------------
+    'Count Nero
+    If Menu.Countcheck.Value = vbChecked Then
+        Gooze1 = Now + TimeSerial(0, 3, 0)
+        SendKeys "{f2}{home}", 0
+        SendKeys Format$(Count2Check, "00 "), 0
+        SendKeys "{enter}{down}", 0
+        Count2Check = Count2Check + 1
+        Exit Sub
+    End If
+    
+    
+    If dks = 1 Then
+        SendKeys "%(f)", True
+        SendKeys "v", True
+        SendKeys "%(a)", True
+        SendKeys "%(s)", True
+        SendKeys "{UP}", True
+        dks = 0
+    End If
+End If
+ 
+If sluty = 1 Then
+    sluty = 0
+    If dks = 1 Then
+  
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Message Rules", 0
+        On Local Error GoTo 0
+  
+        If dse = 0 Then
+            SendKeys "%l", True
+            SendKeys "^a", True
+            SendKeys "^c", True
+            On Local Error GoTo ers3
+            AppActivate "Notepad", 0
+            On Local Error GoTo 0
+            If dse = 1 Then MsgBox "Must open Notepad"
+            
+            If dse = 0 Then
+                SendKeys "+{insert}", True
+                SendKeys "--------------------------{enter}", True
+                SendKeys "--------------------------{enter}", True
+                SendKeys "--------------------------{enter}", True
+                On Local Error GoTo ers3
+                AppActivate "Message Rules", 0
+                On Local Error GoTo 0
+                SendKeys "{tab}", True
+                SendKeys "{tab}", True
+                SendKeys "{tab}", True
+                SendKeys "{tab}", True
+                SendKeys "{down}", True
+            End If
+            dse2 = 1
+        End If
+
+  
+
+        '------------------------------------
+        'Indent
+        If Menu.CheckIndent.Value = vbChecked Then
+            Gooze1 = Now + TimeSerial(0, 1, 0)
+            SendKeys "+{tab}{down}", 0
+            Exit Sub
+        End If
+        
+        '------------------------------------
+        'IndentOut
+        If Menu.CheckIndentOut.Value = vbChecked Then
+            Gooze2 = Now + TimeSerial(0, 1, 0)
+            SendKeys "{tab}{down}{home}", 0
+            Exit Sub
+        End If
+        
+        '------------------------------------
+        'Publisher
+        If Menu.CheckPublisher.Value = vbChecked Then
+            Gooze5 = Now + TimeSerial(0, 2, 0)
+            SendKeys "%eg{enter}", 0
+            Exit Sub
+        End If
+        
+  
+        '------------------------------------
+        'Google Remove URL
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Remove URL", 0
+        On Local Error GoTo 0
+  
+        If dse = 0 Then
+            SendKeys "matt.lan@btinternet.com{tab}", 0
+            SendKeys "ratseuysoup{enter}", 0
+            dse2 = 1
+        End If
+        
+        '------------------------------------
+        'Google Alerts
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "https://www.google.com/alerts/signin?hl=en", 0
+        On Local Error GoTo 0
+  
+        If dse = 0 Then
+            SendKeys "rub.rim@googlemail.com{tab}", 0
+            SendKeys "biggasket22{enter}", 0
+            dse2 = 1
+        End If
+  
+        '------------------------------------
+        'Vodafone
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "My Vodafone", 0
+        On Local Error GoTo 0
+  
+        If dse = 0 Then
+            SendKeys "erict68matt{tab}", 0
+            SendKeys "234567{tab}", 0
+            dse2 = 1
+        End If
+      
+        '------------------------------------
+        'ebay
+        'there is two of these one doesnt put the user name
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Please Sign In:", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            'SendKeys "Voidman2004{tab}", 0
+            SendKeys "kingkingmagic48{enter}", 0
+            dse2 = 1
+        End If
+          
+        '------------------------------------
+        'ebay ' dont think used anymore replaced one below
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Sign In: My Fav", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "kingkingmagic48{enter}", 0
+            dse2 = 1
+        End If
+          
+        '------------------------------------
+        'ebay
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Sign In: Favourite Searches", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "kingkingmagic48{enter}", 0
+            dse2 = 1
+        End If
+          
+        '------------------------------------
+        'monday lottery
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Monday - The Charities Lottery", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "lynlan{tab}", 0
+            SendKeys "lynlan852{enter}", 0
+            dse2 = 1
+        End If
+          
+        
+          
+        '------------------------------------
+        'Paypal
+        
+        dse = 0 'active
+        On Local Error GoTo ers3
+        AppActivate "Welcome - Paypal", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "donkingking12", 0
+            dse2 = 1
+        End If
+        
+        dse = 0 'active
+        On Local Error GoTo ers3
+        AppActivate "Complete Your eBay Payment - PayPal", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "donkingking12", 0
+            dse2 = 1
+        End If
+        
+        dse = 0 'active
+        On Local Error GoTo ers3
+        AppActivate "Login - PayPal", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "donkingking12", 0
+            dse2 = 1
+        End If
+        
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "PayPal - Send Money", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "donkingking12", 0
+            dse2 = 1
+        End If
+          
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "PayPal - Welcome", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "donkingking12", 0
+            dse2 = 1
+        End If
+         
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "PayPal - Login", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "donkingking12", 0
+            dse2 = 1
+        End If
+          
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "PayPal - Password", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "donkingking12", 0
+            dse2 = 1
+        End If
+          
+        
+          
+        
+          
+        
+        '------------------------------------
+        'Andy's Password for .RAR
+          
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Password", 0
+        On Local Error GoTo 0
+        
+        If dse = 0 Then
+            SendKeys "properpriorpreparationpreventspisspoorperformance", 0
+            dse2 = 1
+        End If
+          
+        
+        '------------------------------------
+        'maplin
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Maplin Electronics - Login", 0
+        On Local Error GoTo 0
+          
+        If dse = 0 Then
+            SendKeys "kingking{enter}", 0
+            dse2 = 1
+        End If
+          
+        
+        xsop = 0
+        '------------------------------------
+        If Menu.CheckMumBT.Value = vbChecked Then
+          
+            xsop = 1
+            dse = 0
+            On Local Error GoTo ers3
+            AppActivate "Login - BT Yahoo!", 0
+            On Local Error GoTo 0
+      
+            If dse = 0 Then
+                SendKeys "linda.lancaster@btinternet.com{tab}", 0
+                SendKeys "grabmethesnatch2{enter}", 0
+                dse2 = 1
+            End If
+      
+        End If
+      
+        '------------------------------------
+        If Menu.CheckEddieBT.Value = vbChecked Then
+      
+            xsop = 1
+            dse = 0
+            On Local Error GoTo ers3
+            AppActivate "Login - BT Yahoo!", 0
+            On Local Error GoTo 0
+      
+            If dse = 0 Then
+                SendKeys "edward.lancaster@btinternet.com{tab}", 0
+                SendKeys "sunshine1{enter}", 0
+                dse2 = 1
+            End If
+      
+        End If
+      
+        '------------------------------------
+        If xsop = 0 Then
+      
+            dse = 0
+            On Local Error GoTo ers3
+            AppActivate "Login - BT Yahoo!", 0
+            On Local Error GoTo 0
+      
+            If dse = 0 Then
+                SendKeys "grabmethesnatch2{enter}", 0
+                dse2 = 1
+            End If
+        End If
+      
+      
+        'A&L Debit Card Number For Payments-----------
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "https://www.bankcardservices.co.uk/NASApp/", 0
+        On Local Error GoTo 0
+          
+        If dse = 0 And Menu.CheckMumAL.Value = vbUnchecked Then
+            SendKeys "4567350003229677{tab}", 0
+            SendKeys "698{tab}", 0
+            SendKeys "{tab}", 0
+            SendKeys "06{tab}04{tab}07{tab}08{tab}", 0
+            dse2 = 1
+        End If
+        
+        If dse = 0 And Menu.CheckMumAL.Value = vbChecked Then
+            SendKeys "4567350003229677{tab}", 0
+            SendKeys "698{tab}", 0
+            SendKeys "{tab}", 0
+            SendKeys "06{tab}04{tab}07{tab}08{tab}", 0
+            dse2 = 1
+        End If
+        
+          
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Alliance&Leicester - Online Banking", 0
+'        AppActivate "Alliance & Leicester Internet Banking -", 0
+        On Local Error GoTo 0
+        
+        If Qkey2 < Now Then Qkey = 0
+        
+        If dse = 0 And Menu.CheckMumAL.Value = vbUnchecked And Qkey = 0 Then
+            SendKeys "180945031283{enter}", 0
+            Qkey = 1
+            dse2 = 1
+            Qkey2 = Now + TimeSerial(0, 0, 15)
+        End If
+        If dse = 0 And Menu.CheckMumAL.Value = vbUnchecked And Qkey = 2 Then
+            Qkey = 0
+            SendKeys "52341{enter}", 0
+            Qkey = 0
+            dse2 = 1
+        End If
+        If Qkey = 1 Then Qkey = 2
+        
+        If dse = 0 And Menu.CheckMumAL.Value = vbChecked And Qkey = 0 Then
+            Gooze3 = Now + TimeSerial(0, 15, 0)
+            SendKeys "137322427185{enter}", 0
+            dse2 = 1
+            Qkey2 = Now + TimeSerial(0, 0, 15)
+            Qkey = 1
+        End If
+        If dse = 0 And Menu.CheckMumAL.Value = vbChecked And Qkey = 2 Then
+            Gooze3 = Now + TimeSerial(0, 15, 0)
+            SendKeys "80808{enter}", 0
+            dse2 = 1
+            Qkey = 0
+        End If
+        If Qkey = 1 Then Qkey = 2
+          
+        
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Alliance & Leicester Card Servicing Europe: Online Banking for UK Customers -", 0
+        On Local Error GoTo 0
+          
+        If dse = 0 And Menu.CheckMumAL.Value = vbUnchecked Then
+            'SendKeys "{tab}{tab}{tab}{tab}{tab}{tab}{tab}", 0
+            SendKeys "mattlan2004{tab}", 0
+            SendKeys "kingking1432{tab}{enter}", 0
+            dse2 = 1
+        End If
+        If dse = 0 And Menu.CheckMumAL.Value = vbChecked Then
+            'SendKeys "{tab}{tab}{tab}{tab}{tab}{tab}{tab}", 0
+            SendKeys "mattlan2004{tab}", 0
+            SendKeys "kingking1432{tab}{enter}", 0
+            dse2 = 1
+        End If
+        
+          
+        '------------------------------------
+        
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "The Co-operative Bank p.l.c", 0
+        On Local Error GoTo 0
+          
+        If dse = 0 Then
+            SendKeys "089300{tab}", 0
+            SendKeys "06233910{tab}{tab}2468", 0
+            SendKeys "{enter}", 0
+            dse2 = 1
+        End If
+        
+          
+        '------------------------------------
+        'Rs Components
+        
+        'dse = 0
+        'On Local Error GoTo ers3
+        'AppActivate "http://rswww.com homepage", 0
+        'On Local Error GoTo 0
+        
+        'If dse = 0 Then
+        '    SendKeys "matthew2005{tab}", True
+        '    SendKeys "ditchit{enter}", True
+        '    dse2 = 1
+        'End If
+          
+        
+        'dse = 0
+        'On Local Error GoTo ers3
+        'AppActivate "Please log-in - Mic", 0
+        'On Local Error GoTo 0
+          
+        'If dse = 0 Then
+        '    SendKeys "matthew2005{tab}", True
+        '    SendKeys "ditchit{enter}", True
+        '    dse2 = 1
+        'End If
+        
+        
+        If frontpagepid > 0 Then
+            dse = 0
+            fronttid = frontpage(0)
+            On Local Error GoTo ers3
+            AppActivate "Name and Password Req", 0
+            On Local Error GoTo 0
+              
+            If fronttid = 1 Then
+                If dse = 0 Then
+                    SendKeys "+{tab}", True
+                    SendKeys "matthewlan{tab}", True
+                    SendKeys "interned243{enter}", True
+                    dse2 = 1
+                End If
+            End If
+            
+            If fronttid = 2 Then
+                If dse = 0 Then
+                    SendKeys "+{tab}", True
+                    SendKeys "matt.lan@btinternet.com{tab}", True
+                    SendKeys "grabmethesnatch2{enter}", True
+                    
+                    dse2 = 1
+                End If
+            End If
+        End If
+          
+        
+        dse5 = 0
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Yahoo! Login", 0
+        On Local Error GoTo 0
+        If dse = 0 Then dse5 = 1
+          
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Welcome, My!", 0
+        On Local Error GoTo 0
+        If dse = 0 Then dse5 = 1
+        
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Sign in to Yahoo!", 0
+        On Local Error GoTo 0
+        If dse = 0 Then dse5 = 1
+          
+        'Current 08-02-2006
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "My Yahoo!", 0
+        On Local Error GoTo 0
+        If dse = 0 Then dse5 = 1
+        
+        'Current 08-02-2006
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Sign In - My Yahoo!", 0
+        On Local Error GoTo 0
+        If dse = 0 Then dse5 = 1
+         
+        'Current 13-02-2006
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Sign In - Yahoo!", 0
+        On Local Error GoTo 0
+        If dse = 0 Then dse5 = 1
+        
+        
+        If dse5 = 1 Then
+            dse = 0
+            
+            'Style = vbDefaultButton1 + vbDefaultButton2 + vbDefaultButton3
+            'Aew$ = "Which User (A)MattLancaster2000" + vbCr + "Or" + vbCr + "(B)MatthewLan2000" + vbCr + "Or" + vbCr + "(C)MattLan2008"
+            'aw = MsgBox(Aew$, Style, "CID Yahoo Login")
+            yahoo = 0
+            
+            Load Yahoo_Login
+            Yahoo_Login.Show
+            Yahoo_Login.SetFocus
+              
+            
+            Do
+                DoEvents
+            Loop Until yahoo <> 0
+            
+            
+            If yahoo = 1 Then
+                If dse = 0 Then
+                    SendKeys "mattlancaster2000{tab}", 0
+                    SendKeys "kingking21{enter}", 0
+                    dse2 = 1
+                End If
+            End If
+            If yahoo = 2 Then
+                If dse = 0 Then
+                    SendKeys "brainbashing{tab}", 0
+                    SendKeys "kingking21{enter}", 0
+                    dse2 = 1
+                End If
+            End If
+            If yahoo = 3 Then
+                If dse = 0 Then
+                    SendKeys "MattLan2008{tab}", 0
+                    SendKeys "kingking21{enter}", 0
+                    dse2 = 1
+                End If
+            End If
+            If yahoo = 4 Then
+                If dse = 0 Then
+                    SendKeys "voidman2004xx{tab}", 0
+                    SendKeys "kingking21{enter}", 0
+                    dse2 = 1
+                End If
+            End If
+            If yahoo = 5 Then
+                If dse = 0 Then
+                    SendKeys "kingking21{enter}", 0
+                    dse2 = 1
+                End If
+            End If
+            
+            If yahoo = 0 Then dse = 0
+              
+        End If
+        
+          
+        
+        dse = 0
+        On Local Error GoTo ers3
+        AppActivate "Verify Password", 0
+        On Local Error GoTo 0
+        If dse = 0 Then
+            SendKeys "kingking21{enter}", 0
+            dse2 = 1
+        End If
+          
+          
+        
+          
+        dse = 1
+        ash$ = GetActiveWindowTitle(False)
+        If InStr(ash$, "Plesk 7.") = 1 Then dse = 0
+            
+        If dse = 0 Then
+            SendKeys "matthewlan.com{tab}", 0
+            SendKeys "interned243{tab}{enter}", 0
+            dse2 = 1
+        End If
+          
+        dse = 1
+        ash$ = GetActiveWindowTitle(False)
+        If InStr(ash$, "MyHostNed") = 1 Then dse = 0
+            
+        If dse = 0 Then
+            SendKeys "matthewlan{tab}", 0
+            SendKeys "interned243{tab}{enter}", 0
+            dse2 = 1
+        End If
+            
+        
+        dse = 1
+        ash$ = GetActiveWindowTitle(False)
+        Test_Hwnd = GetActiveWindow(False)
+'        If InStr(ash$, "EBUYER - CPUs,") = 1 Then dse = 0
+        If InStr(ash$, "ebuyer.com - the") = 1 Then dse = 0
+            
+        If dse = 0 Then
+            et = 0
+            For i = 1 To 20
+                If ebuyer3(i) = Test_Hwnd Then et = i
+            Next
+        
+            If et = 0 Then
+                For i = 1 To 20
+                If ebuyer3(i) = 0 Then ebuyer3(i) = Test_Hwnd: et = i
+                Next
+            End If
+              
+            For i = 1 To 20
+                If ebuyer3(i) > 0 Then
+                    ash$ = GetWindowTitle(ebuyer3(i))
+                    If InStr(ash$, "ebuyer.com - the") = False Then ebuyer3(i) = 0: ebuyer4(i) = 0
+                End If
+            Next
+        End If
+        
+          
+        
+        If dse = 0 And ebuyer4(et) = 1 Then
+          
+        
+            ebuyer22 = 0
+            
+            Load Ebuyer_Login
+            Ebuyer_Login.Show
+            Ebuyer_Login.SetFocus
+            
+            
+            Do
+                DoEvents
+            '  ash$ = GetActiveWindowTitle(False)
+            '  If InStr(ash$, "CID Yahoo L") = False And yahoo = 0 Then Yahoo_Login.SetFocus: Yahoo_Login.Show
+            Loop Until ebuyer22 <> 0
+          
+        
+        End If
+          
+        
+          
+        
+        If ebuyer22 = 1 Then
+            ebuyer22 = 0
+            SendKeys "somethinglikethatoverthere{enter}", 0
+            dse2 = 1
+        End If
+          
+        If dse = 0 And ebuyer4(et) = 0 Then
+          ebuyer4(et) = 1
+            SendKeys "matthewxxx{tab}", 0
+            SendKeys "matthew.lancaster2@btinternet.com{tab}", 0
+            SendKeys "somethinglikethatoverthere{enter}", 0
+            dse2 = 1
+        End If
+      
+      
+      
+        If dse2 = 0 Then
+      
+            If processid25ssam > 0 Then
+                SendKeys "please god{enter}", 0
+                SendKeys "please giveall{enter}", 0
+                SendKeys "please killall{enter}", 0
+                SendKeys "please open{enter}", 0
+                SendKeys "please fly{enter}", 0
+                SendKeys "please ghost{enter}", 0
+                SendKeys "please invisible{enter}", 0
+                SendKeys "please tellall{enter}", 0
+                SendKeys "please refresh{enter}", 0
+                dse2 = 1
+            End If
+        End If
+      
+      
+      
+      
+        If dse2 = 0 And nof12 = 0 Then
+          
+            ChDrive ("C"): ChDir ("\callerid"): ap5 = Shell("cmd.exe", vbNormalFocus)
+            rnowt2 = Now + TimeSerial(0, 0, 4)
+            rnow = Now + TimeSerial(0, 0, 2)
+            Do
+                DoEvents
+                esx = 0
+                On Local Error GoTo errorz1
+                AppActivate ap5, 0
+                On Local Error GoTo 0
+            Loop Until esx = 0 Or rnow < Now
+        End If
+        
+        dks = 0
+    End If
+End If
+    
+     
+Exit Sub
+    
+errorz1:
+esx = 1
+Resume Next
+
+ers3:
+dse = 1
+Resume Next
+
+
+End Sub
+
+
+
+
+
+
+Function FindWindowPart(Title$) As Long
+Dim ash$
+Dim Test_Hwnd As Long, _
+    test_pid As Long, _
+    test_thread_id As Long
+'Find the first window
+Test_Hwnd = FindWindow2(ByVal 0&, ByVal 0&)
+    
+FindWindowPart = False
+    
+Do While Test_Hwnd <> 0
+    ash$ = GetWindowTitle(Test_Hwnd)
+    
+    If InStr(ash$, Title$) Then
+        FindWindowPart = Test_Hwnd
+        Exit Do
+    End If
+    
+    'retrieve the next window
+    Test_Hwnd = GetWindow(Test_Hwnd, GW_HWNDNEXT)
+Loop
+
+End Function
+
+

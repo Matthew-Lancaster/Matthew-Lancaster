@@ -214,7 +214,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Function GetUserName() As String
    Dim UserName As String * 255
@@ -261,20 +261,20 @@ Public Sub GetMemoryStatus()
     txtAPageFile.Text = Format$(tMS.dwAvailPageFile / 1024, "###,###,###") & " Kb"
     txtMemoryUsage.Text = tMS.dwMemoryLoad & " %"
     
-    Form1.txtPhysicalMemory.Text = Format$(tMS.dwTotalPhys / 1024, "###,###,###") & " Kb"
-    Form1.txtAPhysicalMemory.Text = Format$(tMS.dwAvailPhys / 1024, "###,###,###") & " Kb"
-    Form1.txtVirtualMemory.Text = Format$(tMS.dwTotalVirtual / 1024, "###,###,###") & " Kb"
-    Form1.txtAVirtualMemory.Text = Format$(tMS.dwAvailVirtual / 1024, "###,###,###") & " Kb"
-    Form1.txtPageFile.Text = Format$(tMS.dwTotalPageFile / 1024, "###,###,###") & " Kb"
-    Form1.txtAPageFile.Text = Format$(tMS.dwAvailPageFile / 1024, "###,###,###") & " Kb"
+    Form2_WORK_SWAPPER.txtPhysicalMemory.Text = Format$(tMS.dwTotalPhys / 1024, "###,###,###") & " Kb"
+    Form2_WORK_SWAPPER.txtAPhysicalMemory.Text = Format$(tMS.dwAvailPhys / 1024, "###,###,###") & " Kb"
+    Form2_WORK_SWAPPER.txtVirtualMemory.Text = Format$(tMS.dwTotalVirtual / 1024, "###,###,###") & " Kb"
+    Form2_WORK_SWAPPER.txtAVirtualMemory.Text = Format$(tMS.dwAvailVirtual / 1024, "###,###,###") & " Kb"
+    Form2_WORK_SWAPPER.txtPageFile.Text = Format$(tMS.dwTotalPageFile / 1024, "###,###,###") & " Kb"
+    Form2_WORK_SWAPPER.txtAPageFile.Text = Format$(tMS.dwAvailPageFile / 1024, "###,###,###") & " Kb"
     If GetComputerName = "7-ASUS-GL522VW" Then
-        Form1.Label4.Caption = "Total Physical Memory My Computer MAXIMUM 32G"
-        Form1.txtMemoryUsage.Caption = "32Gb of " & tMS.dwMemoryLoad & "%"
-        Form1.txtMemoryUsage.FontSize = 10
+        Form2_WORK_SWAPPER.Label4.Caption = "Total Physical Memory My Computer MAXIMUM 32G"
+        Form2_WORK_SWAPPER.txtMemoryUsage.Caption = "32Gb of " & tMS.dwMemoryLoad & "%"
+        Form2_WORK_SWAPPER.txtMemoryUsage.FontSize = 10
         'txtMemoryUsage_HERE
     Else
-        Form1.Label4.Caption = "Total Physical Memory My Computer " + GetComputerName
-        Form1.txtMemoryUsage.Caption = " " & tMS.dwMemoryLoad & " %"
+        Form2_WORK_SWAPPER.Label4.Caption = "Total Physical Memory My Computer " + GetComputerName
+        Form2_WORK_SWAPPER.txtMemoryUsage.Caption = " " & tMS.dwMemoryLoad & " %"
     End If
     
 

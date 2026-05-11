@@ -1,0 +1,1 @@
+SAFT48kHz16BitStereo

@@ -3,14 +3,14 @@ Attribute VB_Name = "ShellExecute"
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
-Private Declare Function IsIconic Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsWindow Lib "user32.dll" (ByVal hwnd As Long) As Long
-Private Declare Function IsZoomed Lib "user32.dll" (ByVal hwnd As Long) As Long
+Private Declare Function IsIconic Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
+Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 
-Private Declare Function IsWindowVisible Lib "user32" (ByVal hwnd As Long) As Long
+Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
-Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hwnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
+Private Declare Function GetClassName Lib "user32" Alias "GetClassNameA" (ByVal hWnd As Long, ByVal lpClassName As String, ByVal nMaxCount As Long) As Long
 
 'Private Declare Function FindWindowDLL Lib "user32" Alias "FindWindowA" (ByVal lpClassName As Long, ByVal lpWindowName As Long) As Long
 
@@ -67,7 +67,7 @@ Const SW_SHOWNORMAL = 1
 '' ------------------------------------------------------------------------
 '
 Private Declare Function GetParent _
-        Lib "user32" (ByVal hwnd As Long) As Long
+        Lib "user32" (ByVal hWnd As Long) As Long
         
 'Public Declare Function SetParent _
         Lib "user32" _
@@ -76,12 +76,12 @@ Private Declare Function GetParent _
 
 Private Declare Function GetWindowThreadProcessId _
         Lib "user32" _
-        (ByVal hwnd As Long, _
+        (ByVal hWnd As Long, _
         lpdwProcessId As Long) As Long
         
 Private Declare Function GetWindow _
         Lib "user32" _
-        (ByVal hwnd As Long, _
+        (ByVal hWnd As Long, _
         ByVal wCmd As Long) As Long
 'Public Declare Function LockWindowUpdate _
 '        Lib "user32" _
@@ -179,7 +179,7 @@ Private Type RECT
     Bottom As Long
 End Type
 
-Private Declare Function GetWindowRect Lib "user32" (ByVal hwnd As Long, lpRect As RECT) As Long
+Private Declare Function GetWindowRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT) As Long
 
 
 
@@ -291,7 +291,7 @@ Public Function ExecCmdWAIT(cmdLine$) As Long
     Dim Ret&
 
 
-    MsgBox "TEST2"
+    ' MsgBox "TEST2"
 
      ' Initialize the STARTUPINFO structure:
     start.cb = Len(start)
@@ -430,10 +430,10 @@ End Function
 
 
 
-Function GetWindowClass(ByVal hwnd As Long) As String
+Function GetWindowClass(ByVal hWnd As Long) As String
     Dim Ret As Long, sText As String
     sText = Space(255)
-    Ret = GetClassName(hwnd, sText, 255)
+    Ret = GetClassName(hWnd, sText, 255)
     sText = Left$(sText, Ret)
     GetWindowClass = sText
 End Function
