@@ -365,14 +365,14 @@ End Function
 
 Private Sub Form_Load()
     
+    
+    
     Unload Me
     Exit Sub
     
     Set FSO = CreateObject("Scripting.FileSystemObject")
     Set WSHShell = CreateObject("WScript.Shell")
     Project_Check_Date.Caption = App.EXEName + ".EXE"
-    
-'    Timer_VB_PROJECT_CHECKDATE.Enabled = True
     
     If Me.EXIT_TRUE = True Then
         Unload Me
@@ -439,7 +439,7 @@ End Sub
 
 Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 
-'    Exit Sub
+    Exit Sub
 
     If Me.EXIT_TRUE = True Then
         Unload Me
@@ -447,13 +447,13 @@ Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
     End If
     
     If ONCE_STARTER_MODE = True Then
-'        Exit Sub
+    Exit Sub
     End If
     ONCE_STARTER_MODE = True
     
     ' --------------------------------------------------
-'    Call VB_PROJECT_CHECKDATE
-'    Call DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB
+    Call VB_PROJECT_CHECKDATE
+    Call DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB
     Call DATE_OF_APP_EXE_AT_LOAD_SUB
     ' --------------------------------------------------
 
@@ -615,7 +615,7 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
     ' FIRST PASS AND 2ND
     ' RZZD = RZZD + 1
                 
-    If 1 = 1 Then
+    If 1 = 2 Then
         Exit Sub
     End If
     

@@ -646,6 +646,10 @@ SET_ARRAY_1() {
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="Facebook - Google Chrome"
 	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="(1) Facebook — Mozilla Firefox"
+	ArrayCount += 1
+	FN_Array_1[ArrayCount]:="(1) Facebook - Google Chrome"
+	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="Deborah Hall -"
 	ArrayCount += 1
 	FN_Array_1[ArrayCount]:="Dibs Dabs -"
@@ -676,9 +680,7 @@ SET_ARRAY_FB_F5() {
 	ArrayCount += 1
 	; SET_ARRAY_FB_F5[ArrayCount]:="Your Notifications - Google Chrome"
 	SET_ARRAY_FB_F5[ArrayCount]:="Notifications | Facebook - Google Chrome" 
-	ArrayCount += 1
-	SET_ARRAY_FB_F5[ArrayCount]:="Facebook - Google Chrome"
-	                                                                   ; Mon 10-Feb-2020 18:59:00
+	; Mon 10-Feb-2020 18:59:00
 	; AI ANSWER
 	; AHK HOW GET THIS CHARACTER —
 	; Encoding: Ensure your .ahk script is saved as UTF-8 with BOM
@@ -686,6 +688,10 @@ SET_ARRAY_FB_F5() {
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook — Mozilla Firefox"
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="(1) Facebook - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_FB_F5[ArrayCount]:="(1) Facebook — Mozilla Firefox"
 	ArrayCount += 1
 	SET_ARRAY_FB_F5[ArrayCount]:="Facebook | Error - Google Chrome"
 	ArrayCount += 1
@@ -743,7 +749,11 @@ SET_ARRAY_AUTO_KEY() {
 	ArrayCount += 1
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook - Mozilla Firefox"
 	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="(1) Facebook - Mozilla Firefox"
+	ArrayCount += 1
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Facebook - Google Chrome"
+	ArrayCount += 1
+	SET_ARRAY_AUTO_KEY[ArrayCount]:="(1) Facebook - Google Chrome"
 	ArrayCount += 1
 	SET_ARRAY_AUTO_KEY[ArrayCount]:="Deborah Hall -"
 	ArrayCount += 1
