@@ -736,7 +736,7 @@ Private Sub MNU_HELP_ABOUT_Click()
     
     Dim I_NAME, INPUT_DATE
     
-    I_NAME = App.Path + "\" + App.EXEName + "__APP_LAST_VERSIN_REVISION_CHANGER"
+    I_NAME = App.Path + "\" + App.EXEName + "__APP_LAST_VERSIN_REVISION_CHANGER.TXT"
     If Dir(I_NAME) <> "" Then
         FR1 = FreeFile
         Open I_NAME For Input As #FR1

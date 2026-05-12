@@ -186,7 +186,7 @@ GLOBAL GOODSYNC_CHECK_CHANGE_OLD_2GO_HANDLE
 GLOBAL GOODSYNC_CHECK_CHANGE_OLD_2GO_PID
 GLOBAL GOODSYNC_CHECK_CHANGE_OLD_ONE_PID
 GLOBAL O_Status_GSDATA
-GLOBAL O_HWND_1
+GLOBAL O_HWND_2
 
 TEMPORARY_FILE_HWND=
 PERIODICALLY_SET_VALUE_HWND=
@@ -237,32 +237,37 @@ GSDATA_FOLDER_CLOUD_HWND_57_4=
 MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_HWND_OLD=
 
 ; -------------------------------------------------------------------
-SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,500
-SETTIMER TIMER_WINDOWS_PROPERTIES_PERMISSION_SET_BHUTTON_4_TO_16,400
+
+
+; SETTIMER TIMER_WINDOWS_PROPERTIES_PERMISSION_SET_BHUTTON_4_TO_16,400
 OLD_HWND_10=
-SETTIMER TIMER_WINDOWS_PROPERTIES_OPEN_BUTTON_3__EDIT_FOR_PERMISSION,800
-SETTIMER TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP,1000
-SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
-SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
-SETTIMER CHECK_GOODSYNC_NOT_RESPOND,2000
+; SETTIMER TIMER_WINDOWS_PROPERTIES_OPEN_BUTTON_3__EDIT_FOR_PERMISSION,800
+; SETTIMER TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP,1000
+; SETTIMER MINIMIZE_AND_RUN_GOODSYNC_V10,10000
+; SETTIMER MINIMIZE_AND_RUN_GOODSYNC_2GO,10000
+; SETTIMER CHECK_GOODSYNC_NOT_RESPOND,2000
 FILE_NAME_DATE_MOD_GOODSYNC_KEY_SCRIPT=0
-GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
-SETTIMER TIMER_SET_ACTIVATION_BOX,1000
+; GOSUB SET_ACTIVATION_BOX_GOODSYNC_TEXT_FILE
+; SETTIMER TIMER_SET_ACTIVATION_BOX,1000
 SET_GOODSYNC_CONNECT_BOX_HWND=0
-SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
-SETTIMER TOOLTIP_REMOVER,1000
+; SETTIMER TIMER_SET_GOODSYNC_CONNECT_BOX,1000
+
+SETTIMER TIMER_SUB_GOODSYNC_OPTIONS,1000
+SETTIMER TOOLTIP_REMOVER_TIMER,1000
 
 ; SETTIMER MEDIA_PLAYER_NOT_RESIZE_AFTER_EACH_VIDEO_SUB,1000
 
 HDD_HUBIC_HWND=
 ; SETTIMER HUBIC_SETTER,1000
 
-SETTIMER TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT,400
-SETTIMER TIMER_SUB_GOODSYNC_TEXT_MANIPULATE,500
+; SETTIMER TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT,400
 
-SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
 
-SETTIMER GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME, 2000
+; SETTIMER TIMER_SUB_GOODSYNC_TEXT_MANIPULATE,500
+
+; SETTIMER SET_OWN_SCRIPT_LESS_PRIORITY_DEPEND_COMPUTER_NAME, 2000
+
+; SETTIMER GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME, 2000
 
 
 RETURN
@@ -789,7 +794,7 @@ SET_OK_BOX:
 RETURN
 
 
-TOOLTIP_REMOVER:
+TOOLTIP_REMOVER_TIMER:
 	
 	IF !TOOLTIP_SET_REMOVE_TIMER_1
 		RETURN
@@ -853,7 +858,7 @@ TIMER_SUB_GOODSYNC_SERVER_ACCOUNT_CHANGE_AT_MAIN_ACCOUNT:
 		; ; -----------------------------------------------------------
 		; IF HWND_2=%HWND_1%
 		; {
-			; WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+			; WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			; IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
 				; NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
 		; }
@@ -975,7 +980,7 @@ RETURN
 
 TIMER_SUB_GOODSYNC_TEXT_MANIPULATE:
 	; ---------------------------------------------------------------
-	; ahk_exe GoodSync-v10.exe
+	; ahk_exe GoodSync.exe
 	; ---------------------------------------------------------------
 	; HERE WILL FIND WHEN GOT LEFT RIGHT FOLDER
 	; IT WILL NORMAL SET THE FILED LINE TO NOTHING
@@ -1025,78 +1030,34 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 	dhw := A_DetectHiddenWindows
 	DetectHiddenWindows, ON
 	SetTitleMatchMode 2  ; Avoids Specify Full path.
-
-	TT_1:=% TT_1 "_PERIOD_TIMER_`n"
-	TT_1=
-	; PROCESS PARSE
 	
-	; ---------------------------------------------------------------
-	NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=
-	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-	IF HWND_1>0
+	HWND_1_EXENAME=
+	HWND_1=
+	HWND_2=
+	
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
+	IF HWND_1
 	{
-		; -----------------------------------------------------------
+		; WinGet, HWND_1_EXENAME, ProcessName, ahk_id %HWND_1%
 		WinGet, HWND_2, ID, A
-		HWND_GS_A_PARENT=%HWND_2%
-		IF HWND_2<>%HWND_1%
-		{
-			aParent:=DllCall( "GetParent", UInt, HWND_2) + 0
-			HWND_2=%aParent%
-			HWND_GS_A_PARENT=%HWND_2%
-		}
-		; -----------------------------------------------------------
-		IF HWND_2=%HWND_1%
-		{
-			WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
-			IF INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
-				NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
-		}
-		; -----------------------------------------------------------
+		WinGetTitle OutputVar_3, ahk_id %HWND_2%
 	}
-	; ---------------------------------------------------------------
-
-	; GOODSYNC DESKTOP C-HDD
-	; ---------------------------------------------------------------
-	IF !HWND_4
-	{
-		WinGet HWND_4, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-		WinGet, HWND_44, ID, A
-		IF HWND_4<>%HWND_44%
-			HWND_4=
-		
-		; IF HWND_4>0
-		; {
-			; ; -----------------------------------------------------------
-			; WinGet, HWND_2, ID, A
-			; HWND_GS_A_PARENT=%HWND_2%
-			; IF HWND_2<>%HWND_4%
-			; {
-				; aParent:=DllCall( "GetParent", UInt, HWND_2) + 0
-				; HWND_2=%aParent%
-				; HWND_GS_A_PARENT=%HWND_2%
-			; }
-			; ; -----------------------------------------------------------
-			; IF HWND_2=%HWND_4%
-			; {
-				; ; EXE NAME IF AS ABOVE
-				; ; --------------------
-				; WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
-			; }
-			; ; -----------------------------------------------------------
-		; }
-		; ---------------------------------------------------------------
-	}
-	; ---------------------------------------------------------------
-	IF HWND_4
-	IF !HWND_1
-		HWND_1=%HWND_4%
 	
-	IF HWND_1
+	IF INSTR(OutputVar_3,"] Options")=0
+	IF TOOLTIP_SET_REMOVE_TIMER_1
 	{
-	WinGet, HWND_1_EXENAME, ProcessName, ahk_id %HWND_1%
-	WinGet, HWND_2, ID, A
+		TOOLTIP
+		TOOLTIP_SET_REMOVE_TIMER_1=
+		TOOLTIP_SET_REMOVE_TIMER_2=
+		O_HWND_2=%HWND_2%
+		DetectHiddenWindows, % dhw
+		RETURN
+	}
+
+		
 	IF HWND_1
-	IF HWND_2=%HWND_1%
+	IF HWND_2
+	IF O_HWND_2<>%HWND_2%	
 	{
 		;---------------------------------------------------------
 		; WinGet, OutputVar, ControlList, ahk_id %HWND_1%
@@ -1104,782 +1065,734 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		; Tooltip, % OutputVar ; List All Controls of Active Window
 		;---------------------------------------------------------
 		; -----------------------------------------------------------
-		ControlGet, OutputVar_1, Line, 1, Edit9, ahk_id %HWND_1%
-		ControlGettext, OutputVar_2, Button17, ahk_id %HWND_1%
-		WinGetTitle OutputVar_3,ahk_id %HWND_1%
-		; -----------------------------------------------------------
-		SET_GO=FALSE
-		; IF A_ComputerName=8-MSI-GP62M-7RD
-		IF HWND_1_EXENAME=GoodSync-v10.exe
-		{
-			IF OutputVar_1=2
-				SET_GO=TRUE
-			IF OutputVar_1=5
-				SET_GO=TRUE
-		}
-		; -----------------------------------------------------------
-		; APPLY TO  -- GoodSync-v10.exe
-		; -----------------------------------------------------------
-		IF PERIODICALLY_SET_VALUE_HWND<>%HWND_1%
-		IF SET_GO=TRUE
-		IF HWND_1_EXENAME=GoodSync-v10.exe
-		IF OutputVar_1=2
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			SET_GO=FALSE
-			VALUE_PASTE_IN=5
-			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
-			IF OutputVar_3<>%VALUE_PASTE_IN%
-			{
-				ControlSetText, Edit9,, ahk_id %HWND_1%
-				TOOLTIP AUTO - SET PERIODIC VALUE
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_PERIOD_TIMER_`n"
-
-			Control, EditPaste, %VALUE_PASTE_IN%, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-			}
-			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
-			IF OutputVar_3=%VALUE_PASTE_IN%
-			{
-				PERIODICALLY_SET_VALUE_HWND=%HWND_1%
-				; IF TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-					; TOOLTIP
-			}	
-		}
-		; -----------------------------------------------------------
-		; SET THE Periodically IS NOT SET VALUE WANT
-		; -----------------------------------------------------------
-		; APPLY TO  -- GoodSync2Go.exe
-		; -----------------------------------------------------------
-		IF !NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D
-		IF PERIODICALLY_SET_VALUE_HWND<>%HWND_1%
-		IF SET_GO=TRUE
-		IF HWND_1_EXENAME=GoodSync2Go.exe
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			SET_GO=FALSE
-			VALUE_PASTE_IN=4
-			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
-			IF OutputVar_3<>%VALUE_PASTE_IN%
-			{
-				ControlSetText, Edit9,, ahk_id %HWND_1%
-				TOOLTIP AUTO - SET PERIODIC VALUE
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_PERIOD_TIMER_`n"
-
-			Control, EditPaste, %VALUE_PASTE_IN%, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-			}
-			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
-			IF OutputVar_3=%VALUE_PASTE_IN%
-			{
-				PERIODICALLY_SET_VALUE_HWND=%HWND_1%
-				; IF TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-					; TOOLTIP
-			}	
-		}
-		; -----------------------------------------------------------
-		; APPLY TO  -- D DRIVE GoodSync2Go.exe
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
-		IF PERIODICALLY_SET_VALUE_HWND<>%HWND_1%
-		IF SET_GO=TRUE
-		IF HWND_1_EXENAME=GoodSync2Go.exe
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			SET_GO=FALSE
-			VALUE_PASTE_IN=4
-			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
-			IF OutputVar_3<>%VALUE_PASTE_IN%
-			{
-				ControlSetText, Edit9,, ahk_id %HWND_1%
-				TOOLTIP AUTO - SET PERIODIC VALUE
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_PERIOD_TIMER_`n"
-
-			Control, EditPaste, %VALUE_PASTE_IN%, Edit9, ahk_id %HWND_1%
-			SoundBeep , 4000 , 100
-			}
-			ControlGet, OutputVar_3, Line, 1, Edit9, ahk_id %HWND_1%
-			IF OutputVar_3=%VALUE_PASTE_IN%
-			{
-				PERIODICALLY_SET_VALUE_HWND=%HWND_1%
-				; IF TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-					; TOOLTIP
-			}	
-		}
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-
-		; -----------------------------------------------------------
-		; SET THE PERIODICALLY WHEN COME STRAIGHT IN ON AUTO FORM 
-		; WITH A ONE HITTER
-		; -----------------------------------------------------------
-		IF !NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D
-		IF UNCHECK_PERIODIC_TIMER_HWND<>%HWND_1%
-		IF (OutputVar_2="Periodically (On Timer), every")
-		{
-			ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
-			If Status=0
-			{
-				TOOLTIP AUTO - CHECK PERIODIC TIMER
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_PERIOD_CHECKBOX_`n"
-				Control, Check,, Button17, ahk_id %HWND_1%
-			}
-
-			ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
-			If Status=1
-			{
-				UNCHECK_PERIODIC_TIMER_HWND=%HWND_1%
-				; TOOLTIP
-			}
-			IF OutputVar_4=1
-			{
-				SoundBeep , 4000 , 100
-				; TOOLTIP
-			}
-		}
-		
-		; IF NOT_UPDATE_AWFUL_LOT_GOODSYNC2GO_D=TRUE
-		; IF UNCHECK_PERIODIC_TIMER_HWND<>%HWND_1%
-		; IF (OutputVar_2="Periodically (On Timer), every")
-		; {
-			; ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
-			; If Status=1
-			; {
-				; TOOLTIP AUTO - UNCHECK PERIODIC TIMER
-				; TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				; TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				; TT_1:=% TT_1 "_PERIOD_CHECKBOX_`n"
-				; Control, UNCheck,, Button17, ahk_id %HWND_1%
-				; SoundBeep , 4000 , 100
-			; }
-			; ControlGet, Status, Checked,, Button17, ahk_id %HWND_1%
-			; If Status=0
-			; {
-				; UNCHECK_PERIODIC_TIMER_HWND=%HWND_1%
-				; ; TOOLTIP
-			; }
-		; }
 
 		
-		; -----------------------------------------------------------
-		; FILTERS - TEMPORARY_FILE
-		; Text:	Exclude Temporary files and folders
-		; -----------------------------------------------------------
-		IF TEMPORARY_FILE_HWND<>%HWND_1%
+		VALUE_PASTE_IN=99999999999999999999
+		IF INSTR(OutputVar_3,"[QNAP 0")>0 
+			VALUE_PASTE_IN=24
+
+		VALUE_CHECKBOX_PERIODIC=
+		
+		IF INSTR(OutputVar_3,"[VB VB")>0 
 		{
-			; UNCHECKER -- IS Status=0
-			; ------------------------
-			ControlGet, Status, Checked,, Button13, ahk_id %HWND_1%
-			If Status=1
+			VALUE_PASTE_IN=24
+			VALUE_CHECKBOX_PERIODIC=FALSE
+		}
+		
+		IF INSTR(OutputVar_3,"02_ EXE")>0 
+			VALUE_PASTE_IN=24
+
+		IF INSTR(OutputVar_3,"GD D ")>0 
+			VALUE_PASTE_IN=48
+			
+		IF INSTR(OutputVar_3,"ASUS_GL522VW_01")>0
+			VALUE_PASTE_IN=48
+		IF INSTR(OutputVar_3,"1_SAMSUNG_4TB")>0
+			VALUE_PASTE_IN=48
+		IF INSTR(OutputVar_3,"4_SAMSUNG_5TB")>0
+			VALUE_PASTE_IN=48			
+		; -----------------------------------------------------------------------
+		; ClassNN:	Button16
+		; Text:	Periodically (On Timer), every
+		; ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
+		; -----------------------------------------------------------------------
+		ControlGettext, OutputVar_2, Button16, ahk_id %HWND_2%
+		
+		; -----------------------------------------------------------------------
+		; -----------------------------------------------------------------------
+
+		IF INSTR(OutputVar_2,"Periodically (On Timer)")>0 
+		{
+			IF VALUE_CHECKBOX_PERIODIC
 			{
-				Control, UNCheck,, Button13, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-				TOOLTIP FILTERS - TEMPORARY_FILE
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_TEMPORARY_FILE_`n"
+				Control, UNCheck,, Button16, ahk_id %HWND_2%
+				SoundBeep , 2000 , 100	
 			}
-			ControlGet, Status, Checked,, Button13, ahk_id %HWND_1%
-			If Status=0
+			IF !VALUE_CHECKBOX_PERIODIC
 			{
-				TEMPORARY_FILE_HWND=%HWND_1%
-				; TOOLTIP
+				Control, Check,, Button16, ahk_id %HWND_2%
+				SoundBeep , 2000 , 100
+			}
+			
+			ControlGet, Status, Checked,, Button16, ahk_id %HWND_2%
+			ControlGet, OutputVar_3, Line, 1, Edit3, ahk_id %HWND_2%
+			If Status=1 ; ---- CHECKED
+			IF OutputVar_3<>%VALUE_PASTE_IN%
+			{
+				ControlSetText, Edit3,, ahk_id %HWND_2%
+				Control, EditPaste, %VALUE_PASTE_IN%, Edit3, ahk_id %HWND_2%
+				
+				SoundBeep , 3000 , 100
 			}
 		}
 
-		IF CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND<>%HWND_1%
+			
+		; -----------------------------------------------------------------------			
+		; ClassNN:	Button2
+		; Text:	Create left/right Sync folders if they a (...)
+		; ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
+		; -----------------------------------------------------------------------
+		ControlGettext, OutputVar_2, Button2, ahk_id %HWND_2%
+		ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
+		
+		LOOP, 100
 		{
-			ControlGettext, OutputVar_2, Button35, ahk_id %HWND_1%
-			IF (OutputVar_2="Estimate disk space required for Sync")
+		If Status=1 ; ---- CHECKED
+		IF INSTR(OutputVar_2,"right Sync folders if they")>0 
+		{
+			Control, UNCheck,, Button2, ahk_id %HWND_2%
+			SoundBeep , 4000 , 100
+			ControlGet, Status, Checked,, Button2, ahk_id %HWND_2%
+			IF Status=0 ; ---- UNCHECK
+				BREAK
+			SLEEP 50
+		}
+		}
+		
+		; -----------------------------------------------------------------------
+		; ClassNN:	Button41
+		; Text:	Run Parallel Threads in Sync, this many:
+		; -----------------------------------------------------------------------
+		ControlGettext, OutputVar_2, Button41, ahk_id %HWND_2%
+		ControlGet, Status, Checked,, Button41, ahk_id %HWND_2%
+		ControlGet, OutputVar_3, Line, 1, Edit10, ahk_id %HWND_2%
+		
+		If Status=1 ; ---- CHECKED
+		IF INSTR(OutputVar_2,"Run Parallel Threads in Sync")>0 
+		{
 			{
-				ControlGet, Status, Checked,, Button35, ahk_id %HWND_1%
-				If Status=0
-				{
-					TOOLTIP ADVANCED - CHECK_ESTIMATE_DISK_SPACE_REQUIRED
-					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-					TT_1:=% TT_1 "_CHECK_ESTIMATE_DISK_`n"
-					Control, Check,, Button35, ahk_id %HWND_1%
-					SoundBeep , 4000 , 100
-				}
-				ControlGet, Status, Checked,, Button35, ahk_id %HWND_1%
+				Control, Check,, Button41, ahk_id %HWND_2%
+				SoundBeep , 5000 , 100	
+			}
+			VALUE_PASTE_IN=2
+			IF OutputVar_3<>%VALUE_PASTE_IN%
+			{
+				ControlSetText, Edit10,, ahk_id %HWND_2%
+				Control, EditPaste, %VALUE_PASTE_IN%, Edit10, ahk_id %HWND_2%
+				SoundBeep , 6000 , 100
+		}
+	}
+	}
+						
+	O_HWND_2=%HWND_2%
+
+	DetectHiddenWindows, % dhw
+
+RETURN
+			
+		
+	
+TEMP:
+			
+			
+			
+			; -----------------------------------------------------------
+			; FILTERS - TEMPORARY_FILE
+			; Text:	Exclude Temporary files and folders
+			; -----------------------------------------------------------
+			IF TEMPORARY_FILE_HWND<>%HWND_1%
+			{
+				; UNCHECKER -- IS Status=0
+				; ------------------------
+				ControlGet, Status, Checked,, Button13, ahk_id %HWND_1%
 				If Status=1
 				{
-					CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=%HWND_1%
-					; TOOLTIP
-				}
-			}
-		}
-		
-		
-	 	
-		IF WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND<>%HWND_1%
-		{
-			ControlGettext, OutputVar_2, Button23, ahk_id %HWND_1%
-			ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
-			
-			If OutputVar_1<>20
-			IF OutputVar_2="Wait for Locks to clear, minutes"
-			{
-				TOOLTIP AUTO - WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_WAIT_FOR_LOCKS_TO_`n"
-				ControlSetText, Edit12,, ahk_id %HWND_1%
-				Control, EditPaste, 20, Edit12, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
-			If Status=0
-			{
-				Control, Check,, Button23, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
-			If Status=1
-			{
-				WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND=%HWND_1%
-				; TOOLTIP
-			}
-		}
-		
-		IF DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND<>%HWND_1%
-		{
-			ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
-			ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
-			
-			If OutputVar_1 = 100 ; DEFAULT
-			IF OutputVar_2="Do not Sync if changed files more than"
-			{
-				TOOLTIP AUTO - Do not Sync if changed files more than
-				TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-				TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-				TT_1:=% TT_1 "_DO_NOT_SYNC_IF_`n"
-
-				ControlSetText, Edit11,, ahk_id %HWND_1%
-				VALUE_PASTE_IN=80
-				Control, EditPaste, %VALUE_PASTE_IN%, Edit11, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			
-			ControlGet, OutputVar_3, Line, 1, Edit11, ahk_id %HWND_1%
-			IF OutputVar_3=%VALUE_PASTE_IN%
-			{
-				DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=%HWND_1%
-				; TOOLTIP
-			}	
-		}
-
-		; -----------------------------------------------------------
-		; Fri 21-Feb-2020 11:03:20
-		; -----------------------------------------------------------
-		; SETTER A CHECKBOX _ VBCHECK
-		; -----------------------------------------------------------
-		WinGetTitle OutputVar_3,ahk_id %HWND_1%
-		GSDATA_FOLDER_SET_GO_1_L=
-		GSDATA_FOLDER_SET_GO_1_R=
-		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE 20")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		
-		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #1")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #5")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #7")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		
-		IF INSTR(OutputVar_3,"DSC EVER GOOGLE")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"GOOGLE DRI")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"GD _")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"D DSC __ WORK -- GD")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"D DSC VI_3 __  G P DSC SYNC DSC ARC 10 - VIDEO MINE 01 OD-MATT4")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE MATT.LITT")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE METAL.LITT")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE MORP")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"MS #MEDIA")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"MS D")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"MS VB6")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"QNAP")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		
-		IF GSDATA_FOLDER_SET_GO_1_R
-			GSDATA_FOLDER_SET_GO_1_L=TRUE
-			
-		
-		IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE M_")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"VV")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"VV")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"VV")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"VV")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		IF INSTR(OutputVar_3,"VV")>0 
-			GSDATA_FOLDER_SET_GO_1_R=TRUE
-		
-		; HWND_4 __ GOODSYNC DESKTOP
-		WinGetTitle OutputVar_4,ahk_id %HWND_4%
-		GSDATA_FOLDER_SET_GO_4_L=
-		GSDATA_FOLDER_SET_GO_4_R=
-		IF INSTR(OutputVar_4,"E DESKTOP")>0 
-			GSDATA_FOLDER_SET_GO_4_R=TRUE
-		IF INSTR(OutputVar_4,"E STARTMENU")>0 
-			GSDATA_FOLDER_SET_GO_4_R=TRUE
-		
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-
-		; IF HWND_1 AND THEN NOT HWND4
-		; IF HWND_1
-		; IF !SET_GO_1
-			; SET_GO_4=JUNK
-		
-		; HWND CHANGE FORM BEFORE
-		; -----------------------------------------------------------
-		SET_GO_12=0
-		; -----------------------------------------------------------
-
-		
-		
-		IF GSDATA_FOLDER_SET_GO_4_L=
-		IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
-			SET_GO_12=1
-
-		IF GSDATA_FOLDER_SET_GO_4_R
-		IF GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_4%
-			SET_GO_12=1
-
-		IF GSDATA_FOLDER_SET_GO_1_L
-		IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
-			SET_GO_12=1
-
-		IF GSDATA_FOLDER_SET_GO_1_R
-		IF GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_1%
-			SET_GO_12=1
-		; -----------------------------------------------------------
-		; TOO HARD AT THE MOMENT
-		; SEND INTO NOP
-		; Tue 10-Mar-2020 16:14:00
-		; -----------------------------------------------------------
-		GSDATA_FOLDER_SET_GO_4_L=
-		GSDATA_FOLDER_SET_GO_4_R=
-		GSDATA_FOLDER_SET_GO_1_L=
-		GSDATA_FOLDER_SET_GO_1_R=
-		SET_GO_12=
-		
-		; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
-		IF SET_GO_12=1
-		{               
-			; 01 OF 04
-			IF GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_4%
-			{
-				ControlGettext, OutputVar_1, Button57, ahk_id %HWND_4%
-				ControlGet, Status, Checked,, Button57, ahk_id %HWND_4%
-				IF OutputVar_1=No _gsdata_ folder here
-				{
-					If Status=0
-					{
-						Control, Check,, Button57, ahk_id %HWND_4%
-						SoundBeep , 4000 , 100
-						TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
-						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
-						TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
-
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						SoundBeep , 4000 , 100
-					}
-					
-					ControlGet, Status, Checked,, Button57, ahk_id %HWND_4%
-					If Status=1
-					{
-						GSDATA_FOLDER_CLOUD_HWND_57_4=%HWND_4%
-					}
-				}
-			}
-			
-			; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
-			; 02 OF 04
-			IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
-			{
-				ControlGettext, OutputVar_1, Button57, ahk_id %HWND_1%
-				ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
-				IF OutputVar_1=No _gsdata_ folder here
-				{
-					If Status=0
-					{
-						Control, Check,, Button57, ahk_id %HWND_1%
-						SoundBeep , 4000 , 100
-						TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
-						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-						TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
-
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						SoundBeep , 4000 , 100
-					}
-					
-					ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
-					If Status=1
-					{
-						GSDATA_FOLDER_CLOUD_HWND_57_1=%HWND_1%
-					}
-				}
-			}
-
-			; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
-			; 03 OF 06
-			IF GSDATA_FOLDER_SET_GO_4_L=TRUE
-			IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_4<>%HWND_4%
-			{
-				ControlGettext, OutputVar_1, Button55, ahk_id %HWND_4%
-				ControlGet, Status, Checked,, Button55, ahk_id %HWND_4%
-				IF OutputVar_1=No _gsdata_ folder here
-				{
-					If Status=0
-					{
-						Control, Check,, Button55, ahk_id %HWND_4%
-						SoundBeep , 4000 , 100
-						TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
-						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
-						TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
-
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						SoundBeep , 4000 , 100
-					}
-					
-					ControlGet, Status, Checked,, Button55, ahk_id %HWND_4%
-					If Status=1
-					{
-						NOT_GSDATA_FOLDER_CLOUD_HWND_55_4=%HWND_4%
-					}
-				}
-			}
-			
-			; 04 OF 06
-			; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
-			IF GSDATA_FOLDER_SET_GO_1_L=TRUE
-			IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_1<>%HWND_1%
-			{
-				ControlGettext, OutputVar_1, Button55, ahk_id %HWND_1%
-				ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
-				IF OutputVar_1=No _gsdata_ folder here
-				{
-					If Status=0
-					{
-						Control, Check,, Button55, ahk_id %HWND_1%
-						SoundBeep , 4000 , 100
-						TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
-						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-						TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
-
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						SoundBeep , 4000 , 100
-					}
-					
-					ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
-					If Status=1
-					{
-						NOT_GSDATA_FOLDER_CLOUD_HWND_55_1=%HWND_1%
-					}
-				}
-			}
-
-			; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
-			; 05 OF 06
-			IF GSDATA_FOLDER_SET_GO_4_L=TRUE
-			IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_4<>%HWND_4%
-			{
-				ControlGettext, OutputVar_1, Button44, ahk_id %HWND_4%
-				ControlGet, Status, Checked,, Button44, ahk_id %HWND_4%
-				IF OutputVar_1=No _gsdata_ folder here
-				{
-					If Status=0
-					{
-						Control, Check,, Button44, ahk_id %HWND_4%
-						SoundBeep , 4000 , 100
-						TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
-						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
-						TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
-
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						SoundBeep , 4000 , 100
-					}
-					
-					ControlGet, Status, Checked,, Button44, ahk_id %HWND_4%
-					If Status=1
-					{
-						NOT_GSDATA_FOLDER_CLOUD_HWND_44_4=%HWND_4%
-					}
-				}
-			}
-
-			; 06 OF 06
-			; ---- %HWND_1% ---- GOODSYNC 2 GO
-			IF GSDATA_FOLDER_SET_GO_4_L=TRUE
-			IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_1<>%HWND_1%
-			{
-				ControlGettext, OutputVar_1, Button44, ahk_id %HWND_1%
-				ControlGet, Status, Checked,, Button44, ahk_id %HWND_1%
-				IF OutputVar_1=No _gsdata_ folder here
-				{
-					If Status=0
-					{
-						Control, Check,, Button44, ahk_id %HWND_1%
-						SoundBeep , 4000 , 100
-						TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
-						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
-						TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
-
-						Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-						SoundBeep , 4000 , 100
-					}
-					
-					ControlGet, Status, Checked,, Button44, ahk_id %HWND_1%
-					If Status=1
-					{
-						NOT_GSDATA_FOLDER_CLOUD_HWND_44_1=%HWND_1%
-					}
-				}
-			}
-			
-			
-			; THE HUBIC JOB NAME TO DO ON GOODSYNC
-			; -----------------------------------------------------------
-			; WinGet, HWND_HUBIC_1, ID, A   ; --- AS ABOVE
-			; -----------------------------------------------------------
-			; -----------------------------------------------------------
-			IF HDD_HUBIC_HWND<>%HWND_HUBIC_1%
-			{
-				WinGetTitle OutputVar_3, ahk_id %HWND_HUBIC_1%
-				If INSTR(OutputVar_3,"HDD HUBIC")>0 
-				{
-					TOOLTIP ---- - HUBIC UNCHECK BUTTON58
+					Control, UNCheck,, Button13, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+					TOOLTIP FILTERS - TEMPORARY_FILE
 					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
-					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_HUBIC_1%
-					TT_1:=% TT_1 "_HDD_HUBIC_HWND_`n"
-
-					ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
-					If Status=1
-					{
-						Control, UNCheck,, Button58, ahk_id %HWND_HUBIC_1%
-						SoundBeep , 4000 , 100
-					}
+					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+					TT_1:=% TT_1 "_TEMPORARY_FILE_`n"
 				}
-				ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
+				ControlGet, Status, Checked,, Button13, ahk_id %HWND_1%
 				If Status=0
 				{
-					HDD_HUBIC_HWND=%HWND_HUBIC_1%
+					TEMPORARY_FILE_HWND=%HWND_1%
 					; TOOLTIP
 				}
 			}
 
-			
-			
-		}
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-
-		
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		; MORE WORK TO DO FROM HERE BEYOND
-		; ALL HWND MUST BE STORE EACH FOR CHANGE
-		; TO MAKE SMOOTHER NOT PINGER BOX FOR INFO
-		; HIGH REPEATER
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		; -----------------------------------------------------------
-		
-		;------------------------------------------------------------
-		; Button5 ---- Save deleted/replaced files to History f (...)
-		; Button6 ---- Cleanup _history_ folder after this many (...)
-		; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
-		;------------------------------------------------------------
-		ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
-		If Status = 1
-		{
-			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-			If Status = 0
+			IF CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND<>%HWND_1%
 			{
-				Control, Check,, Button6, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-		}
-		
-		;------------------------------------------------------------
-		; ---- HISTORY SET DAYS TO 30
-		;------------------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-			ControlGet, Status, Checked,, *4, ahk_id %HWND_1%
-
-			If Status = 1
-			{
-				ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
-				ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
-				
-				If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+				ControlGettext, OutputVar_2, Button35, ahk_id %HWND_1%
+				IF (OutputVar_2="Estimate disk space required for Sync")
 				{
-						ControlSetText, Edit2,, ahk_id %HWND_1%
-						Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
+					ControlGet, Status, Checked,, Button35, ahk_id %HWND_1%
+					If Status=0
+					{
+						TOOLTIP ADVANCED - CHECK_ESTIMATE_DISK_SPACE_REQUIRED
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+						TT_1:=% TT_1 "_CHECK_ESTIMATE_DISK_`n"
+						Control, Check,, Button35, ahk_id %HWND_1%
 						SoundBeep , 4000 , 100
+					}
+					ControlGet, Status, Checked,, Button35, ahk_id %HWND_1%
+					If Status=1
+					{
+						CHECK_ESTIMATE_DISK_SPACE_REQUIRED_HWND=%HWND_1%
+						; TOOLTIP
+					}
 				}
 			}
-		}
+			
+			
+			
+			IF WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND<>%HWND_1%
+			{
+				ControlGettext, OutputVar_2, Button23, ahk_id %HWND_1%
+				ControlGet, OutputVar_1, Line, 1, Edit12, ahk_id %HWND_1%
+				
+				If OutputVar_1<>20
+				IF OutputVar_2="Wait for Locks to clear, minutes"
+				{
+					TOOLTIP AUTO - WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND
+					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+					TT_1:=% TT_1 "_WAIT_FOR_LOCKS_TO_`n"
+					ControlSetText, Edit12,, ahk_id %HWND_1%
+					Control, EditPaste, 20, Edit12, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
+				If Status=0
+				{
+					Control, Check,, Button23, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				ControlGet, Status, Checked,, Button23, ahk_id %HWND_1%
+				If Status=1
+				{
+					WAIT_FOR_LOCKS_TO_CLEAR_MINUTE_HWND=%HWND_1%
+					; TOOLTIP
+				}
+			}
 		
-		;-----------------------------------------------------
-		; Button3
-		; Text:	Save deleted/replaced files to Recycle B (...)
-		; Button4
-		; Text:	Cleanup _saved_ folder after this many d (...)
-		;-----------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+			IF DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND<>%HWND_1%
+			{
+				ControlGettext, OutputVar_2, Button21, ahk_id %HWND_1%
+				ControlGet, OutputVar_1, Line, 1, Edit11, ahk_id %HWND_1%
+				
+				If OutputVar_1 = 100 ; DEFAULT
+				IF OutputVar_2="Do not Sync if changed files more than"
+				{
+					TOOLTIP AUTO - Do not Sync if changed files more than
+					TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+					TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+					TT_1:=% TT_1 "_DO_NOT_SYNC_IF_`n"
+
+					ControlSetText, Edit11,, ahk_id %HWND_1%
+					VALUE_PASTE_IN=80
+					Control, EditPaste, %VALUE_PASTE_IN%, Edit11, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				
+				ControlGet, OutputVar_3, Line, 1, Edit11, ahk_id %HWND_1%
+				IF OutputVar_3=%VALUE_PASTE_IN%
+				{
+					DO_NOT_SYNC_IF_CHANGED_FILES_MORE_THAN_HWND=%HWND_1%
+					; TOOLTIP
+				}	
+			}
+
+			; -----------------------------------------------------------
+			; Fri 21-Feb-2020 11:03:20
+			; -----------------------------------------------------------
+			; SETTER A CHECKBOX _ VBCHECK
+			; -----------------------------------------------------------
+			WinGetTitle OutputVar_3,ahk_id %HWND_1%
+			GSDATA_FOLDER_SET_GO_1_L=
+			GSDATA_FOLDER_SET_GO_1_R=
+			IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE 20")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			
+			IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #1")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #5")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"D DSC EVER ONE DRIVE #7")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			
+			IF INSTR(OutputVar_3,"DSC EVER GOOGLE")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"GOOGLE DRI")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"GD _")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"D DSC __ WORK -- GD")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"D DSC VI_3 __  G P DSC SYNC DSC ARC 10 - VIDEO MINE 01 OD-MATT4")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE MATT.LITT")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE METAL.LITT")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE MORP")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"MS #MEDIA")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"MS D")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"MS VB6")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"QNAP")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			
+			IF GSDATA_FOLDER_SET_GO_1_R
+				GSDATA_FOLDER_SET_GO_1_L=TRUE
+				
+			
+			IF INSTR(OutputVar_3,"D DSC VI_DSC_ME GOOGLE M_")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"VV")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"VV")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"VV")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"VV")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			IF INSTR(OutputVar_3,"VV")>0 
+				GSDATA_FOLDER_SET_GO_1_R=TRUE
+			
+			; HWND_4 __ GOODSYNC DESKTOP
+			WinGetTitle OutputVar_4,ahk_id %HWND_4%
+			GSDATA_FOLDER_SET_GO_4_L=
+			GSDATA_FOLDER_SET_GO_4_R=
+			IF INSTR(OutputVar_4,"E DESKTOP")>0 
+				GSDATA_FOLDER_SET_GO_4_R=TRUE
+			IF INSTR(OutputVar_4,"E STARTMENU")>0 
+				GSDATA_FOLDER_SET_GO_4_R=TRUE
+			
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+
+			; IF HWND_1 AND THEN NOT HWND4
+			; IF HWND_1
+			; IF !SET_GO_1
+				; SET_GO_4=JUNK
+			
+			; HWND CHANGE FORM BEFORE
+			; -----------------------------------------------------------
+			SET_GO_12=0
+			; -----------------------------------------------------------
+
+			
+			
+			IF GSDATA_FOLDER_SET_GO_4_L=
+			IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
+				SET_GO_12=1
+
+			IF GSDATA_FOLDER_SET_GO_4_R
+			IF GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_4%
+				SET_GO_12=1
+
+			IF GSDATA_FOLDER_SET_GO_1_L
+			IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
+				SET_GO_12=1
+
+			IF GSDATA_FOLDER_SET_GO_1_R
+			IF GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_1%
+				SET_GO_12=1
+			; -----------------------------------------------------------
+			; TOO HARD AT THE MOMENT
+			; SEND INTO NOP
+			; Tue 10-Mar-2020 16:14:00
+			; -----------------------------------------------------------
+			GSDATA_FOLDER_SET_GO_4_L=
+			GSDATA_FOLDER_SET_GO_4_R=
+			GSDATA_FOLDER_SET_GO_1_L=
+			GSDATA_FOLDER_SET_GO_1_R=
+			SET_GO_12=
+			
+			; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
+			IF SET_GO_12=1
+			{               
+				; 01 OF 04
+				IF GSDATA_FOLDER_CLOUD_HWND_57_4<>%HWND_4%
+				{
+					ControlGettext, OutputVar_1, Button57, ahk_id %HWND_4%
+					ControlGet, Status, Checked,, Button57, ahk_id %HWND_4%
+					IF OutputVar_1=No _gsdata_ folder here
+					{
+						If Status=0
+						{
+							Control, Check,, Button57, ahk_id %HWND_4%
+							SoundBeep , 4000 , 100
+							TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
+							TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							SoundBeep , 4000 , 100
+						}
+						
+						ControlGet, Status, Checked,, Button57, ahk_id %HWND_4%
+						If Status=1
+						{
+							GSDATA_FOLDER_CLOUD_HWND_57_4=%HWND_4%
+						}
+					}
+				}
+				
+				; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
+				; 02 OF 04
+				IF GSDATA_FOLDER_CLOUD_HWND_57_1<>%HWND_1%
+				{
+					ControlGettext, OutputVar_1, Button57, ahk_id %HWND_1%
+					ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+					IF OutputVar_1=No _gsdata_ folder here
+					{
+						If Status=0
+						{
+							Control, Check,, Button57, ahk_id %HWND_1%
+							SoundBeep , 4000 , 100
+							TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+							TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							SoundBeep , 4000 , 100
+						}
+						
+						ControlGet, Status, Checked,, Button57, ahk_id %HWND_1%
+						If Status=1
+						{
+							GSDATA_FOLDER_CLOUD_HWND_57_1=%HWND_1%
+						}
+					}
+				}
+
+				; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
+				; 03 OF 06
+				IF GSDATA_FOLDER_SET_GO_4_L=TRUE
+				IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_4<>%HWND_4%
+				{
+					ControlGettext, OutputVar_1, Button55, ahk_id %HWND_4%
+					ControlGet, Status, Checked,, Button55, ahk_id %HWND_4%
+					IF OutputVar_1=No _gsdata_ folder here
+					{
+						If Status=0
+						{
+							Control, Check,, Button55, ahk_id %HWND_4%
+							SoundBeep , 4000 , 100
+							TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
+							TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							SoundBeep , 4000 , 100
+						}
+						
+						ControlGet, Status, Checked,, Button55, ahk_id %HWND_4%
+						If Status=1
+						{
+							NOT_GSDATA_FOLDER_CLOUD_HWND_55_4=%HWND_4%
+						}
+					}
+				}
+				
+				; 04 OF 06
+				; ---- %HWND_1% ---- APPLY TO GOODSYNC 2 GO
+				IF GSDATA_FOLDER_SET_GO_1_L=TRUE
+				IF NOT_GSDATA_FOLDER_CLOUD_HWND_55_1<>%HWND_1%
+				{
+					ControlGettext, OutputVar_1, Button55, ahk_id %HWND_1%
+					ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
+					IF OutputVar_1=No _gsdata_ folder here
+					{
+						If Status=0
+						{
+							Control, Check,, Button55, ahk_id %HWND_1%
+							SoundBeep , 4000 , 100
+							TOOLTIP RIGHT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+							TT_1:=% TT_1 "RIGHT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							SoundBeep , 4000 , 100
+						}
+						
+						ControlGet, Status, Checked,, Button55, ahk_id %HWND_1%
+						If Status=1
+						{
+							NOT_GSDATA_FOLDER_CLOUD_HWND_55_1=%HWND_1%
+						}
+					}
+				}
+
+				; ---- %HWND_4% ---- APPLY TO GOODSYNC DESKTOP C-HDD
+				; 05 OF 06
+				IF GSDATA_FOLDER_SET_GO_4_L=TRUE
+				IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_4<>%HWND_4%
+				{
+					ControlGettext, OutputVar_1, Button44, ahk_id %HWND_4%
+					ControlGet, Status, Checked,, Button44, ahk_id %HWND_4%
+					IF OutputVar_1=No _gsdata_ folder here
+					{
+						If Status=0
+						{
+							Control, Check,, Button44, ahk_id %HWND_4%
+							SoundBeep , 4000 , 100
+							TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_4%
+							TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							SoundBeep , 4000 , 100
+						}
+						
+						ControlGet, Status, Checked,, Button44, ahk_id %HWND_4%
+						If Status=1
+						{
+							NOT_GSDATA_FOLDER_CLOUD_HWND_44_4=%HWND_4%
+						}
+					}
+				}
+
+				; 06 OF 06
+				; ---- %HWND_1% ---- GOODSYNC 2 GO
+				IF GSDATA_FOLDER_SET_GO_4_L=TRUE
+				IF NOT_GSDATA_FOLDER_CLOUD_HWND_44_1<>%HWND_1%
+				{
+					ControlGettext, OutputVar_1, Button44, ahk_id %HWND_1%
+					ControlGet, Status, Checked,, Button44, ahk_id %HWND_1%
+					IF OutputVar_1=No _gsdata_ folder here
+					{
+						If Status=0
+						{
+							Control, Check,, Button44, ahk_id %HWND_1%
+							SoundBeep , 4000 , 100
+							TOOLTIP LEFT_SIDE _ NOT _GSDATA_ FOLDER HERE
+							TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+							TOOLTIP_SET_REMOVE_TIMER_2=%HWND_1%
+							TT_1:=% TT_1 "LEFT_SIDE_NOT_GSDATA_FOLDER_HERE`n"
+
+							Soundplay, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+							SoundBeep , 4000 , 100
+						}
+						
+						ControlGet, Status, Checked,, Button44, ahk_id %HWND_1%
+						If Status=1
+						{
+							NOT_GSDATA_FOLDER_CLOUD_HWND_44_1=%HWND_1%
+						}
+					}
+				}
+				
+				
+				; THE HUBIC JOB NAME TO DO ON GOODSYNC
+				; -----------------------------------------------------------
+				; WinGet, HWND_HUBIC_1, ID, A   ; --- AS ABOVE
+				; -----------------------------------------------------------
+				; -----------------------------------------------------------
+				IF HDD_HUBIC_HWND<>%HWND_HUBIC_1%
+				{
+					WinGetTitle OutputVar_3, ahk_id %HWND_HUBIC_1%
+					If INSTR(OutputVar_3,"HDD HUBIC")>0 
+					{
+						TOOLTIP ---- - HUBIC UNCHECK BUTTON58
+						TOOLTIP_SET_REMOVE_TIMER_1=TRUE
+						TOOLTIP_SET_REMOVE_TIMER_2=%HWND_HUBIC_1%
+						TT_1:=% TT_1 "_HDD_HUBIC_HWND_`n"
+
+						ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
+						If Status=1
+						{
+							Control, UNCheck,, Button58, ahk_id %HWND_HUBIC_1%
+							SoundBeep , 4000 , 100
+						}
+					}
+					ControlGet, Status, Checked,, Button58, ahk_id %HWND_HUBIC_1%
+					If Status=0
+					{
+						HDD_HUBIC_HWND=%HWND_HUBIC_1%
+						; TOOLTIP
+					}
+				}
+
+				
+				
+			}
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+
+			
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+			; MORE WORK TO DO FROM HERE BEYOND
+			; ALL HWND MUST BE STORE EACH FOR CHANGE
+			; TO MAKE SMOOTHER NOT PINGER BOX FOR INFO
+			; HIGH REPEATER
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+			; -----------------------------------------------------------
+			
+			;------------------------------------------------------------
+			; Button5 ---- Save deleted/replaced files to History f (...)
+			; Button6 ---- Cleanup _history_ folder after this many (...)
+			; IF BUTTON 5 SET THEN ALSO SET BUTTON 6 _ DON'T LEAVE INFINITE
+			;------------------------------------------------------------
+			ControlGet, Status, Checked,, Button5, ahk_id %HWND_1%
 			If Status = 1
 			{
-				sleep, 500
-				ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
-				ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
-				If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+				ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+				If Status = 0
 				{
-					ControlSetText, Edit1,, ahk_id %HWND_1%
-					Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
+					Control, Check,, Button6, ahk_id %HWND_1%
 					SoundBeep , 4000 , 100
 				}
 			}
-		}
+			
+			;------------------------------------------------------------
+			; ---- HISTORY SET DAYS TO 30
+			;------------------------------------------------------------
+			Var_check=[VB
+			if (SubStr(OutputVar_3, 1, 3)=Var_check)
+			{
+				ControlGet, Status, Checked,, *4, ahk_id %HWND_1%
 
-		;-----------------------------------------------------
-		; CAN'T DO THIS ONE 
-		; IT'S EITHER HISTORY OR SAVED NOT BOTH
-		; WELL YOU CAN DO BUTTON4 SAVE DO-ER INFINITE
-		; Button3
-		; Text:	Save deleted/replaced files to Recycle B (...)
-		; Button4
-		; Text:	Cleanup _saved_ folder after this many d (...)
-		; Button6
-		; Cleanup _history_ folder after this many (...)
-		; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
-		;-----------------------------------------------------
-		; ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
-		; If Status = 0
-		; {
-		; 	Control, Check,, Button3, ahk_id %HWND_1%
-		; 	SoundBeep , 4000 , 100
-		; }
-		
-		; -----------------------------------------------------------
-		; NOT WORK YET -- REM AWAY -- REQUIRE DETAIL
-		; Save deleted/replaced files to Recycle
-		; -----------------------------------------------------------
-		; Button4 -- Text:	Cleanup _saved_ folder after this many
-		; Button6 -- Text:	Cleanup _history_ folder after this many
-		; -----------------------------------------------------------
-		Var_check=[VB
-		if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button4, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
+				If Status = 1
+				{
+					ControlGet, OutputVar_1, Line, 1, Edit2, ahk_id %HWND_1%
+					ControlGet, OutputVar_4, Enabled, , Edit2, ahk_id %HWND_1%
+					
+					If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+					{
+							ControlSetText, Edit2,, ahk_id %HWND_1%
+							Control, EditPaste, 30, Edit2, ahk_id %HWND_1%
+							SoundBeep , 4000 , 100
+					}
+				}
 			}
-			ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
-			If Status = 0
+			
+			;-----------------------------------------------------
+			; Button3
+			; Text:	Save deleted/replaced files to Recycle B (...)
+			; Button4
+			; Text:	Cleanup _saved_ folder after this many d (...)
+			;-----------------------------------------------------
+			Var_check=[VB
+			if (SubStr(OutputVar_3, 1, 3)=Var_check)
 			{
-				Control, Check,, Button6, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
+				ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+				If Status = 1
+				{
+					sleep, 500
+					ControlGet, OutputVar_1, Line, 1, Edit1, ahk_id %HWND_1%
+					ControlGet, OutputVar_4, Visible, , Edit1, ahk_id %HWND_1%
+					If (Trim(OutputVar_1)<>30 and OutputVar_4=1)
+					{
+						ControlSetText, Edit1,, ahk_id %HWND_1%
+						Control, EditPaste, 30, Edit1, ahk_id %HWND_1%
+						SoundBeep , 4000 , 100
+					}
+				}
 			}
-		}
-		
-		; IF O_HWND_1<>%HWND_1%
-		; {
-			; O_Status_GSDATA=0
-		; }
-		; ;------------------------------------------------------------
-		; ; ---- No _gsdata_ folder here
-		; ;------------------------------------------------------------
-		; Var_check=[VB
-		; if (SubStr(OutputVar_3, 1, 3)=Var_check)
-		; {
-			; ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-			; If Status = 1
-			; IF O_Status_GSDATA<>%Status%
+
+			;-----------------------------------------------------
+			; CAN'T DO THIS ONE 
+			; IT'S EITHER HISTORY OR SAVED NOT BOTH
+			; WELL YOU CAN DO BUTTON4 SAVE DO-ER INFINITE
+			; Button3
+			; Text:	Save deleted/replaced files to Recycle B (...)
+			; Button4
+			; Text:	Cleanup _saved_ folder after this many d (...)
+			; Button6
+			; Cleanup _history_ folder after this many (...)
+			; BUTTON4 AND BUTTON6 CAN ALWAYS BE ON
+			;-----------------------------------------------------
+			; ControlGet, Status, Checked,, Button3, ahk_id %HWND_1%
+			; If Status = 0
 			; {
-				; Control, unCheck,, Button41, ahk_id %HWND_1%
-				; SoundBeep , 4000 , 100
-				; ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
-				; If Status=0
-					; O_Status_GSDATA=1
+			; 	Control, Check,, Button3, ahk_id %HWND_1%
+			; 	SoundBeep , 4000 , 100
 			; }
-		; }
+			
+			; -----------------------------------------------------------
+			; NOT WORK YET -- REM AWAY -- REQUIRE DETAIL
+			; Save deleted/replaced files to Recycle
+			; -----------------------------------------------------------
+			; Button4 -- Text:	Cleanup _saved_ folder after this many
+			; Button6 -- Text:	Cleanup _history_ folder after this many
+			; -----------------------------------------------------------
+			Var_check=[VB
+			if (SubStr(OutputVar_3, 1, 3)=Var_check)
+			{
+				ControlGet, Status, Checked,, Button4, ahk_id %HWND_1%
+				If Status = 0
+				{
+					Control, Check,, Button4, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				ControlGet, Status, Checked,, Button6, ahk_id %HWND_1%
+				If Status = 0
+				{
+					Control, Check,, Button6, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+			}
+			
+			; IF O_HWND_2<>%HWND_1%
+			; {
+				; O_Status_GSDATA=0
+			; }
+			; ;------------------------------------------------------------
+			; ; ---- No _gsdata_ folder here
+			; ;------------------------------------------------------------
+			; Var_check=[VB
+			; if (SubStr(OutputVar_3, 1, 3)=Var_check)
+			; {
+				; ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+				; If Status = 1
+				; IF O_Status_GSDATA<>%Status%
+				; {
+					; Control, unCheck,, Button41, ahk_id %HWND_1%
+					; SoundBeep , 4000 , 100
+					; ControlGet, Status, Checked,, Button41, ahk_id %HWND_1%
+					; If Status=0
+						; O_Status_GSDATA=1
+				; }
+			; }
+			
+			;------------------------------------------------------------
+			;Button10 ---	Text:	Exclude empty folders
+			;Button11 --- Text:	Exclude Hidden files and folders
+			;Button12 -- Text:	Exclude System files and folders
+			;------------------------------------------------------------
+
+			Var_check=[VB EXE SYNC
+			if (SubStr(OutputVar_3, 1, 12)=Var_check)
+			{
+				ControlGet, Status, Checked,, Button10, ahk_id %HWND_1%
+				If Status = 0
+				{
+					Control, Check,, Button10, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
+				If Status = 0
+				{
+					Control, Check,, Button11, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+				ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
+				If Status = 0
+				{
+					Control, Check,, Button12, ahk_id %HWND_1%
+					SoundBeep , 4000 , 100
+				}
+			}
 		
-		;------------------------------------------------------------
-		;Button10 ---	Text:	Exclude empty folders
-		;Button11 --- Text:	Exclude Hidden files and folders
-		;Button12 -- Text:	Exclude System files and folders
-		;------------------------------------------------------------
-
-		Var_check=[VB EXE SYNC
-		if (SubStr(OutputVar_3, 1, 12)=Var_check)
-		{
-			ControlGet, Status, Checked,, Button10, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button10, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button11, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button11, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-			ControlGet, Status, Checked,, Button12, ahk_id %HWND_1%
-			If Status = 0
-			{
-				Control, Check,, Button12, ahk_id %HWND_1%
-				SoundBeep , 4000 , 100
-			}
-		}
-	}                       ; 	IF HWND_2=%HWND_1%
 	
-	} ; ---- IF HWND_1
-
-
 
 
 	; ---------------------------------------------------------------
@@ -1892,7 +1805,7 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 	;WinGet, HWND_1, ID, GoodSync Warning ahk_class #32770
 	; ---------------------------------------------------------------
 	WinGet, HWND_5, ID, GoodSync ahk_class #32770
-	IF HWND_5>0 
+	IF HWND_5=5555555555555555
 	{
 		WinGet, HWND_7, ID, A
 		IF HWND_7=%HWND_5%
@@ -1937,13 +1850,8 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 				ControlClick, Button3,ahk_id %HWND_14%
 				SoundBeep , 4000 , 100
 			}
-
-
-
 		}
-		
-		
-	}   ;   IF HWND_5>0 
+	} 
 
 	; IF HWND_1
 	; IF HWND_2=%HWND_1%
@@ -1971,8 +1879,9 @@ TIMER_SUB_GOODSYNC_OPTIONS:
 		; }
 	; }
 	
-	O_HWND_1=%HWND_1%
 	
+	O_HWND_2=%HWND_1%
+
 	DetectHiddenWindows, % dhw
 
 Return
@@ -1987,7 +1896,7 @@ GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME:
 	
 	; GOODSYNC2GO __ C OR D HDD
 	; ---------------------------------------------------------------
-	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 	IF HWND_1>0
 	{
 		; -----------------------------------------------------------
@@ -2002,7 +1911,7 @@ GOODYSNC_REMOVABLE_DRIVE_WITH_VOLUME_NAME:
 		; -----------------------------------------------------------
 		IF HWND_2=%HWND_1%
 		{
-			WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+			WinGet Path, ProcessPath, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			; INSTR(Path,"D:\GoodSync\x64\GoodSync2Go.exe")
 		}
 		; -----------------------------------------------------------
@@ -2141,7 +2050,7 @@ CHECK_GOODSYNC_NOT_RESPOND:
 				{
 					SoundBeep , 1000 , 100
 					SoundBeep , 1500 , 100
-					Process, Close, GoodSync-v10.exe
+					Process, Close, GoodSync.exe
 				}	
 	}
 	IF TIMER_NOT_RESPONDING>0
@@ -2184,7 +2093,7 @@ MINIMIZE_AND_RUN_GOODSYNC_V10:
 		
 	IF HWND_1>0 
 	{
-		WinGet, PID_1, PID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+		WinGet, PID_1, PID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 		If GOODSYNC_CHECK_CHANGE_OLD_ONE_PID=%PID_1%
 			RETURN
 	}
@@ -2248,7 +2157,7 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 		RETURN
 
 		
-	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	WinGet, HWND_1, ID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 
 	IF HWND_1>0 
 		If GOODSYNC_CHECK_CHANGE_OLD_2GO_HANDLE = %HWND_1%
@@ -2269,7 +2178,7 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 
 	IF HWND_1>0 
 	{
-			WinGet, PID_1, PID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+			WinGet, PID_1, PID, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			If GOODSYNC_CHECK_CHANGE_OLD_2GO_PID=%PID_1%
 				RETURN
 	}
@@ -2279,7 +2188,7 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 	IF HWND_1>0 
 	{
 		
-		WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+		WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 		; IF A_ComputerName=2-ASUS-EEE
 			; If MMX<>-1
 				; MSGBOX % MMX 
@@ -2296,14 +2205,14 @@ MINIMIZE_AND_RUN_GOODSYNC_2GO:
 			; UNTIL REPEAT UNTIL FEW TIME AND THEN STOP
 			; [ Thursday 14:05:20 Pm_14 March 2019 ]
 			; -------------------------------------------------------------
-			WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+			WinMinimize  ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 			SOUNDBEEP 2000,100
 			SLEEP 200
 
 			HAS_MIMIMIZE_DO=0
 			LOOP, 100
 			{
-				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+				WinGet MMX, MinMax, ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 				If MMX=-1
 				{
 					HAS_MIMIMIZE_DO=1
@@ -2322,16 +2231,16 @@ ROUTINE_SPARE_CODIN:
 	; ---------------------------------------------------------------
 	; PROBLEM ONE COMPUTER MY MSI INTEL 7 WIN 10 
 	; HAS THAT PROCESS IS CALLED GoodSync.exe
-	; WHILE OTHER COMPUTER USE   GoodSync-v10.exe
+	; WHILE OTHER COMPUTER USE   GoodSync.exe
 	; SO WE __ 19 JAN 2019 13:50
 	; ---------------------------------------------------------------
 	SET_GO=TRUE
-	IFWINNOTEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	IFWINNOTEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 	Process, Exist, GoodSync2Go.exe
 	If ErrorLevel
 		SET_GO=FALSE
 
-	IFWINEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F00A}
+	IFWINEXIST ahk_class {B26B00DA-2E5D-4CF2-83C5-911198C0F009}
 		SET_GO=FALSE
 
 	IF SET_GO = TRUE
@@ -2355,11 +2264,11 @@ ROUTINE_SPARE_CODIN:
 		; ---------------------------------------------------------------
 		; PROBLEM ONE COMPUTER MY MSI INTEL 7 WIN 10 
 		; HAS THAT PROCESS IS CALLED GoodSync.exe
-		; WHILE OTHER COMPUTER USE   GoodSync-v10.exe
+		; WHILE OTHER COMPUTER USE   GoodSync.exe
 		; SO WE __ 19 JAN 2019 13:50
 		; ---------------------------------------------------------------
 		SET_GO=TRUE
-		Process, Exist, GoodSync-v10.exe
+		Process, Exist, GoodSync.exe
 		If ErrorLevel
 			SET_GO=FALSE
 		Process, Exist, GoodSync.exe
@@ -2371,7 +2280,7 @@ ROUTINE_SPARE_CODIN:
 		
 		IF SET_GO = TRUE
 		{
-			FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync-v10.exe"
+			FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync.exe"
 			IfExist, %FN_VAR%
 			{
 				SoundBeep , 4000 , 100
@@ -2467,7 +2376,7 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 		SoundBeep , 3000 , 100
 		SoundBeep , 4000 , 100
 		SoundBeep , 3000 , 100
-		Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
+		Run, "TASKKILL.exe" /F /IM GoodSync.exe /T , , HIDE
 	}
 
 	IfWinExist Reporting a Crash
@@ -2476,7 +2385,7 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 		SoundBeep , 3000 , 100
 		SoundBeep , 4000 , 100
 		SoundBeep , 3000 , 100
-		Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
+		Run, "TASKKILL.exe" /F /IM GoodSync.exe /T , , HIDE
 	}
 
 	;OK
@@ -2500,7 +2409,7 @@ TIMER_SUB_GOODSYNC_SCRIPT_COMMAND_TO_STOP:
 				ControlClick, OK, GoodSync
 				;WINHIDE
 				
-				;Run, "TASKKILL.exe" /F /IM GoodSync-v10.exe /T , , HIDE
+				;Run, "TASKKILL.exe" /F /IM GoodSync.exe /T , , HIDE
 			}
 		}
 	}

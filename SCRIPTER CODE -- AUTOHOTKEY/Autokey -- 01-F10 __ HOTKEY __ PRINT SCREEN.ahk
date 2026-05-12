@@ -1548,6 +1548,13 @@ F5::
 
 	DetectHiddenWindows, oN
 
+	SetTitleMatchMode 2  ; EXACT PATH
+	ifwinactive ahk_class MozillaWindowClass
+	ifwinactive Facebook
+	{
+		SENDINPUT {F5}
+		return
+	}
 
 	; ?Set up Firefox synchronisation? | ?Mozilla accounts? — Mozilla Firefox ahk_class MozillaWindowClass
 	SetTitleMatchMode 2

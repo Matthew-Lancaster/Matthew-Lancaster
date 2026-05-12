@@ -782,6 +782,20 @@ IF SET_GO_1
 	}
 }
 
+SET_GO_1=TRUE
+
+IF SET_GO_1
+{	
+	Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 75-GOODSYNC OPTIONS SET.ahk"
+	if FileExist(Element_1)
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, %Element_1%
+	}
+}
+
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; Exitapp
@@ -2079,12 +2093,11 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 	SET_GO=TRUE
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=TRUE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO=FALSE
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 	SET_GO=TRUE
 IF (A_ComputerName = "9-ASUS-G815LM") 
 	SET_GO=TRUE
+	-+*
 	
 DetectHiddenWindows, off
 IF SET_GO=TRUE

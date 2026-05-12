@@ -83,7 +83,7 @@ IfExist, %FN_VAR_2%
 	IFWinNotExist, %WIN_VAR%
 	{
 		SoundBeep , 2000 , 100
-		Run, %FN_VAR%, , MAX
+		; Run, %FN_VAR%, , MAX
 	}
 	ELSE
 	{
