@@ -1,0 +1,48 @@
+------------------------------------------------
+Tue 12-May-2026 11:51:07 P
+D:\VB6\VB-NT\00_BEST_VB_01\Clipboard Logger\FM20.DLL
+D:\VB6\VB-NT\00_BEST_VB_01\Clipboard Logger\FM20.txt
+------------------------------------------------
+
+
+THIS FM20.DLL FOR WINDOWS 11 HOME -- 01-01-2026 
+MICROSOFT DELETED IT FROM WINDOWS 11
+
+INSTALL OFFICE 2007 MAYBE
+
+IT WORKS OR THE CLIPBOARD
+
+MODIFIED & CREATED 
+17 June 2015, 01:01:52
+
+IS BACK IN THE WINDOWS 11 FOLDER
+
+C:\Windows\SysWOW64\FM20.DLL
+
+2007 MICROSOFT OFFICE SYSTEM
+
+VERSION 12.0.6723.5000
+
+
+---------------------------------------------------------------------
+
+Download the DLL: Download the latest 32-bit or 64-bit version of the DLL directly from our repository using the download button above. Most users will need the 64-bit version, but if you are unsure, or if a 64-bit version is not available, you can install both the 32-bit and 64-bit DLLs. DLLme verifies DLLs that come from our admins, partners, and trusted affiliates. User-uploaded files may be verified later if a trusted source is confirmed.
+Register the DLL: Most DLL files do not need registration, but some DLLs are COM components and must be registered to work correctly. If registration is required, open Windows Terminal or PowerShell as an administrator.
+Register the DLL (you can also drag the DLL file into the window to automatically fill in its full path):
+
+regsvr32 "C:\path\to\FM20.DLL"
+
+If you are registering a 32-bit DLL on 64-bit Windows, use the 32-bit RegSvr32:
+
+C:\Windows\SysWOW64\regsvr32 "C:\path\to\FM20.DLL"
+
+----------------------------------------
+FM20.DLL : Free .DLL Download
+----------------------------------------
+https://www.dllme.com/dll/files/fm20#:~:text=FM20.DLL is a DLL file,improving performance and reducing redundancy.
+----------------------------------------
+
+
+
+
+
