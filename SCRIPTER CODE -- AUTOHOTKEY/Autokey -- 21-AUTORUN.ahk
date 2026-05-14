@@ -769,7 +769,11 @@ IF SET_GO_1
 
 
 SET_GO_1=
+IF (A_ComputerName = "4-ASUS-GL522VW") 
+	SET_GO_1=TRUE
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+	SET_GO_1=TRUE
+IF (A_ComputerName = "9-ASUS-G815LM") 
 	SET_GO_1=TRUE
 	
 IF SET_GO_1
