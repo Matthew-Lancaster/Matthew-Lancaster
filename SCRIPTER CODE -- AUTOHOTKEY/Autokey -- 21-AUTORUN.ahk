@@ -1489,7 +1489,7 @@ IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	
 	SET_GO_1=1
 	
-	SET_GO_1=0
+	SET_GO_1=1
 ; -------------------------------------------------------------------
 ; GOODSYNC DESKTOP ALL COMPUTER AND EXCEPTOR
 IF SET_GO_1=1
@@ -1500,23 +1500,24 @@ IF SET_GO_1=1
 		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync.exe"
 		if FileExist(FN_VAR)
 		{
-			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-			; Run, "%FN_VAR%" 
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Run, "%FN_VAR%" , , MAX ; -- __ -- __ /min
+			; ONLY WAY IS TO START IT UP MAX -- START IT MAX AND IT RUN MINIMIZED
+			; CLICK TASKBAR AND IT MAXIMUM
 		}
 	}
 }
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; GOODSYNC DESKTOP 7G
-IF (A_ComputerName="7-ASUS-GL522VW")
-	SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M,1000
+; IF (A_ComputerName="7-ASUS-GL522VW")
+	
+SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_4G_8M_9G,1000
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; GOODSYNC DESKTOP 8M
 ; IF (A_ComputerName="8-MSI-GP62M-7RD")
-	; SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M,1000
+	; SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_4G_8M_9G,1000
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; GOODSYNC PORTABLE __D__7G_________
@@ -2850,22 +2851,21 @@ RETURN
 
 
 
-TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M:
+TIMER_TO_START_GOODSYNC_COMPUTER_NAME_4G_8M_9G:
 {
 	Process, Exist, GoodSync.exe
 	If ErrorLevel
-		SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_7G_8M,OFF
+		SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_4G_8M_9G,OFF
 		
 	If Not ErrorLevel
 	{
 		FN_VAR:="C:\Program Files\Siber Systems\GoodSync\GoodSync.exe"
 		if FileExist(FN_VAR)
 		{
-			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			; Run, "%FN_VAR%" , , MIN ; -- __ -- __ /min
-			; STARTING UP MIN HAS WIN 10 PROBLEM LIKE BLUETOOTH LOGGER ONE WAS NOT SHOW FROM TAB UP
-			; MSGBOX "COMPUTER NAME " %A_ComputerName% "-- READY TO START DESKTOP GOODSYNC"
-			; Run, "%FN_VAR%" 
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Run, "%FN_VAR%" , , MAX ; -- __ -- __ /min
+			; ONLY WAY IS TO START IT UP MAX -- START IT MAX AND IT RUN MINIMIZED
+			; CLICK TASKBAR AND IT MAXIMUM
 		}
 	}
 }

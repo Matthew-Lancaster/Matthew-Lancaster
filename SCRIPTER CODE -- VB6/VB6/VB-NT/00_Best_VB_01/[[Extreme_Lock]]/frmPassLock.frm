@@ -154,8 +154,8 @@ Private Sub txtPassword_KeyUp(KeyCode As Integer, Shift As Integer)
 If KeyCode = vbKeyReturn Then
    If IsPasswordCorrect(txtPassword.Text, txtUser.Text) <> yesitdoes Then
     'DisplayMessage "Username/Password is incorrect: (" & ReturnPassCLue() & ")"
-'    Text1.Text = "Try the LSD or Fuck Off an Die Like Extremely Slowly: (" & ReturnPassCLue() & ")"
-    Text1.Text = "Try the LSD or Fuck Off an Die Like Extremely Slowly: (" & Format$(Now, "DDD DD-MMM-YYYY HH:MM:SS") & ")"
+'    Text1.Text = "1234PASS: (" & ReturnPassCLue() & ")"
+    Text1.Text = "1234PASS: (" & Format$(Now, "DDD DD-MMM-YYYY HH:MM:SS") & ")"
     Text1.Visible = True
       Else
       End

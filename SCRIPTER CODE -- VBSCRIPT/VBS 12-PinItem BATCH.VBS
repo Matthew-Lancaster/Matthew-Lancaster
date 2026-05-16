@@ -1173,7 +1173,7 @@ I=I+1:ARRAY_1(I)="C:\Program Files\MiniToolPowerDataRecovery\PowerDataRecovery.e
 
 I=I+1:ARRAY_1(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe" ' V 2.4
 
-I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\EasyBCD 2.4.exe"
+' I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\EasyBCD 2.4.exe" THIS IS INSTALLER
 
 I=I+1:ARRAY_1(I)="C:\PStart\# NOT INSTALL REQUIRED\EASY USB CREATOR 2.3.2\Easy USB Creator v2.3.2.exe" ' PAID FOR
 
@@ -1225,6 +1225,9 @@ IF GETCOMPUTERNAME<>"3-LINDA-PC" THEN
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero Apps\Nero WaveEditor\waveedit.exe"
 	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero Common\Nero Launcher\NeroLauncher.exe"
 	I=I+1:ARRAY_1(I)="C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe"
+	
+	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
+	
 	
 	I=I+1:ARRAY_1(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
 END IF
@@ -1420,7 +1423,8 @@ I=I+1:ARRAY_5(I)="C:\Program Files (x86)\DOSBox-0.72\dosbox.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
 I=I+1:ARRAY_5(I)="C:\PStart\# NOT INSTALL REQUIRED\EASY USB CREATOR 2.3.2\Easy USB Creator v2.3.2.exe"
 'I=I+1:ARRAY_5(I)="C:\WINDOWS\Installer\{03EC818F-96E5-497F-AF28-EC6BC4CF32D3}\EasyVideoMaker.exe_96942AE20DCC466DBFC84D044"
-I=I+1:ARRAY_5(I)="C:\PStart\# NOT INSTALL REQUIRED\EASYBCD\EasyBCD 2.4.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\NeoSmart Technologies\EasyBCD\EasyBCD.exe" ' V 2.4
+
 ' I=I+1:ARRAY_5(I)="D:\Program Files (x86)\Microsoft Encarta\Encarta Encyclopedia 2001\ENC2001.EXE"
 I=I+1:ARRAY_5(I)="C:\Program Files\Mythicsoft\FileLocator Pro\FileLocatorPro.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files\Mozilla Firefox\firefox.exe"
@@ -1429,6 +1433,10 @@ I=I+1:ARRAY_5(I)="C:\Program Files (x86)\foobar2000\foobar2000.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Audio Converter\FreemakeAudioConverter.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Music Box\FreemakeMusicBox.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Video Downloader\FreemakeVideoDownloader.exe"
+IF FSO.FILEEXISTS("C:\Program Files (x86)\Freemake\Freemake Downloader\FreemakeVC.exe")=TRUE THEN 
+	ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Downloader\FreemakeVC.exe"
+END IF
+
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake YouTube To MP3 Boom\FreemakeYB.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Freemake\Freemake Video Converter\FreemakeVC.exe"
 'I=I+1:ARRAY_5(I)="C:\Program Files\Git\git-bash.exe"
@@ -1442,6 +1450,7 @@ I=I+1:ARRAY_5(I)="C:\Program Files\WinHTTrack\WinHTTrack.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\IMGBURN\ImgBurn.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\IObit\IObit Unlocker\IObitUnlocker.exe"
+
 ' SORT HERE
 ' I=I+1:ARRAY_5(I)="C:\Program Files (x86)\IrfanView\i_view64.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files\IrfanView\i_view64.exe"
@@ -1469,6 +1478,11 @@ I=I+1:ARRAY_5(I)="C:\PStart\PStart.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\PWGen\PWGen.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\QNAP\Qfinder\QfinderPro.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\RemoteNetBackup\RemoteBackup.exe"
+' ONLY FOR THE MACHINES COMPUTER THAT HAVE IT
+IF FSO.FILEEXISTS("C:\Program Files (x86)\RemoteNetBackup\RemoteBackup.exe") = FALSE THEN 
+	ARRAY_5(I)=""
+END IF
+
 I=I+1:ARRAY_5(I)="C:\Program Files\VS Revo Group\Revo Uninstaller Pro\RevoUninPro.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\seRapid\seRapid.exe"
 'I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Samsung\SideSync4\SideSync.exe"
@@ -1489,6 +1503,7 @@ I=I+1:ARRAY_5(I)="C:\Program Files\Oracle\VirtualBox\VirtualBox.exe"
 ' I=I+1:ARRAY_5(I)="C:\Program Files\VSPlayer\VSPlayer.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files\VSPlayer\VSPlayer\VSPlayer.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Nero\Nero Apps\Nero WaveEditor\waveedit.exe"
+I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Nero\Nero 2018\Nero WaveEditor\waveedit.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Winamp\winamp.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files\WinRAR\WinRAR.exe"
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Wise\Wise Video Converter\WiseVideoConverter.exe"
@@ -1799,34 +1814,36 @@ FUNCTION LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(fFolder)
 
 		Set oFile = oFSO.GetFile(objFile.PATH)
 		strTargetPath=oFile
+		GOGOLINK=FALSE
+		IF INSTR(UCASE(strTargetPath),".URL")>0 THEN GOGOLINK=TRUE
+		IF INSTR(UCASE(strTargetPath),".LNK")>0 THEN GOGOLINK=TRUE
+		IF GOGOLINK=TRUE THEN 
+			Set wshShell    = CreateObject("WScript.Shell")
+			' CreateShortcut works like a GetShortcut when the shortcut already exists!
+			Set objShortcut = wshShell.CreateShortcut(strTargetPath)
 
+			' For URL shortcuts, only ".FullName" and ".TargetPath" are valid
+			' WScript.Echo "Full Name         : " & objShortcut.FullName
+			' WScript.Echo "Arguments         : " & objShortcut.Arguments
+			' WScript.Echo "Working Directory : " & objShortcut.WorkingDirectory
+			' WScript.Echo "Target Path       : " & objShortcut.TargetPath
+			' WScript.Echo "Icon Location     : " & objShortcut.IconLocation
+			' WScript.Echo "Hotkey            : " & objShortcut.Hotkey
+			' WScript.Echo "Window Style      : " & objShortcut.WindowStyle
+			' WScript.Echo "Description       : " & objShortcut.Description
 
-		Set wshShell    = CreateObject("WScript.Shell")
-		' CreateShortcut works like a GetShortcut when the shortcut already exists!
-		Set objShortcut = wshShell.CreateShortcut(strTargetPath)
+			IF LEN(objShortcut.TargetPath)>0 THEN 
 
-		' For URL shortcuts, only ".FullName" and ".TargetPath" are valid
-		' WScript.Echo "Full Name         : " & objShortcut.FullName
-		' WScript.Echo "Arguments         : " & objShortcut.Arguments
-		' WScript.Echo "Working Directory : " & objShortcut.WorkingDirectory
-		' WScript.Echo "Target Path       : " & objShortcut.TargetPath
-		' WScript.Echo "Icon Location     : " & objShortcut.IconLocation
-		' WScript.Echo "Hotkey            : " & objShortcut.Hotkey
-		' WScript.Echo "Window Style      : " & objShortcut.WindowStyle
-		' WScript.Echo "Description       : " & objShortcut.Description
+				TT_EDITOR = TT_EDITOR & VBCRLF & objShortcut.TargetPath
 
-		IF LEN(objShortcut.TargetPath)>0 THEN 
+				' Wscript.QUIT				' WScript.Quit(0)
+			END IF
+			
+			
 
-			TT_EDITOR = TT_EDITOR & VBCRLF & objShortcut.TargetPath
-
-			' Wscript.QUIT				' WScript.Quit(0)
+			Set objShortcut = Nothing
+			Set wshShell    = Nothing		
 		END IF
-		
-		
-
-		Set objShortcut = Nothing
-		Set wshShell    = Nothing		
-
 	Next
 
 	LINK_ALREADY_EXIST_DOUBLE_VERIFY_2=TT_EDITOR

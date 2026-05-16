@@ -1132,7 +1132,7 @@ TEMP:
 			WinGet, HWND_14, ID, GoodSync2Go ahk_class #32770
 			WinGetText OutputVar_14,ahk_id %HWND_14%
 			
-			
+
 
 			; -----------------------------------------------------------
 			; We recommend not to sync to disk root folder, because:

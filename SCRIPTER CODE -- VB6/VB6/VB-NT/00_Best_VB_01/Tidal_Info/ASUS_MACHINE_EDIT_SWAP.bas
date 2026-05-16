@@ -17,7 +17,7 @@ Sub NPN()
             If xxz = 1 Then
                 xsop = 1
                 SendKeys "linda.lancaster@btinternet.com{tab}", 0
-                SendKeys "grabmethesnatch2{enter}", 0
+                SendKeys "{enter}", 0
                 ExeGo = True
                 
             End If
@@ -30,7 +30,7 @@ Sub NPN()
             If xxz = 1 Then
                 xsop = 1
                 SendKeys "edward.lancaster@btinternet.com{tab}", 0
-                SendKeys "sunshine1{enter}", 0
+                SendKeys "{enter}", 0
                 ExeGo = True
             
             End If
@@ -43,7 +43,7 @@ Sub NPN()
             If InStr(Gcw$, "Login - BT Yahoo!") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "mosheraboveall2"
+                SendKeys ""
                 ExeGo = True
                 
             End If
@@ -55,7 +55,7 @@ Sub NPN()
             If InStr(URL$, "https://bt.edit.client.yahoo.com") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "mosheraboveall2"
+                SendKeys ""
                 ExeGo = True
                 
             End If
@@ -64,7 +64,7 @@ Sub NPN()
         xxz = 0
         If InStr(Gcw$, "Verify Password") > 0 Then xxz = 1
         If xxz = 1 Then
-            SendKeys "mosheraboveall2"
+            SendKeys ""
             ExeGo = True
         
             dse = 1
@@ -88,7 +88,7 @@ Sub ASUS_MACHINE_EDIT_SWAP()
             If InStr(URL$, "https://bt.edit.client.yahoo.com") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "mosheraboveall2"
+                SendKeys ""
                 ExeGo = True
                 
             End If

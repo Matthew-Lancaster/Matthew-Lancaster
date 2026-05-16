@@ -98,7 +98,7 @@ Public Declare Function PolyBezier Lib "gdi32" (ByVal HDC As Long, lppt As POINT
 Public ptBez1() As POINTAPI
 
 Private Type POINTAPI
-        x As Long
+        X As Long
         Y As Long
 End Type
 
@@ -318,7 +318,7 @@ Public URLLoc$
          lpRect As RECT) As Long
 
       Declare Function MoveWindow Lib "user32" (ByVal hWnd As Long, _
-         ByVal x As Long, ByVal Y As Long, ByVal nWidth As Long, _
+         ByVal X As Long, ByVal Y As Long, ByVal nWidth As Long, _
          ByVal nHeight As Long, ByVal bRepaint As Long) As Long
 
       Declare Function GetDesktopWindow Lib "user32" () As Long
@@ -1059,14 +1059,14 @@ If dks = 1 And 1 = 2 Then
         dh$ = "https://signin.ebay.co.uk"
         If InStr(URL$, dh$) > 0 And ExeGo = False Then
             'SendKeys "matt.lan@btinternet.com{tab}"
-            SendKeys "somethinglikethatoverthere"
+            SendKeys ""
             ExeGo = True
         End If
         
         dh$ = "https://orders.ebuyer.com"
         If InStr(URL$, dh$) > 0 And ExeGo = False Then
             'SendKeys "matt.lan@btinternet.com{tab}"
-            SendKeys "somethinglikethatoverthere"
+            SendKeys ""
             ExeGo = True
         End If
         
@@ -1076,7 +1076,7 @@ If dks = 1 And 1 = 2 Then
         dh$ = "https://static.ebuyer.com/customer/account/index.html?action="
         If InStr(URL$, dh$) > 0 And ExeGo = False Then
             'SendKeys "matt.lan@btinternet.com{tab}"
-            SendKeys "somethinglikethatoverthere"
+            SendKeys ""
             ExeGo = True
         End If
         
@@ -1094,7 +1094,7 @@ If dks = 1 And 1 = 2 Then
             If xxz = 1 Then
                 xsop = 1
                 SendKeys "linda.lancaster@btinternet.com{tab}", 0
-                SendKeys "grabmethesnatch2{enter}", 0
+                SendKeys "{enter}", 0
                 ExeGo = True
                 
             End If
@@ -1107,7 +1107,7 @@ If dks = 1 And 1 = 2 Then
             If xxz = 1 Then
                 xsop = 1
                 SendKeys "edward.lancaster@btinternet.com{tab}", 0
-                SendKeys "sunshine1{enter}", 0
+                SendKeys "{enter}", 0
                 ExeGo = True
             
             End If
@@ -1120,7 +1120,7 @@ If dks = 1 And 1 = 2 Then
             If InStr(Gcw$, "Login - BT Yahoo!") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "mosheraboveall2"
+                SendKeys ""
                 ExeGo = True
                 
             End If
@@ -1132,7 +1132,7 @@ If dks = 1 And 1 = 2 Then
             If InStr(URL$, "https://bt.edit.client.yahoo.com") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "mosheraboveall2"
+                SendKeys ""
                 ExeGo = True
                 
             End If
@@ -1141,7 +1141,7 @@ If dks = 1 And 1 = 2 Then
         xxz = 0
         If InStr(Gcw$, "Verify Password") > 0 Then xxz = 1
         If xxz = 1 Then
-            SendKeys "mosheraboveall2"
+            SendKeys ""
             ExeGo = True
         
             dse = 1
@@ -1160,7 +1160,7 @@ If dks = 1 And 1 = 2 Then
   
         If InStr(ash$, DF$) > 0 Then
             SendKeys "matt.lan@btinternet.com{tab}", 0
-            SendKeys "ratseuysoup{enter}", 0
+            SendKeys "{enter}", 0
             ExeGo = True
         End If
         
@@ -1170,7 +1170,7 @@ If dks = 1 And 1 = 2 Then
   
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
             SendKeys "rub.rim@googlemail.com{tab}", 0
-            SendKeys "betterpasswordlock{enter}", 0
+            SendKeys "{enter}", 0
             ExeGo = True
             
         End If
@@ -1181,7 +1181,7 @@ If dks = 1 And 1 = 2 Then
   
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
             'SendKeys "rub.rim@googlemail.com{tab}", 0
-            SendKeys "betterpasswordlock{enter}", 0
+            SendKeys "{enter}", 0
             ExeGo = True
             
         End If
@@ -1192,7 +1192,7 @@ If dks = 1 And 1 = 2 Then
         'https://login.facebook.com/login.php?login_attempt=1
   
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "helpdesk24{enter}", 0
+            SendKeys "{enter}", 0
             ExeGo = True
         End If
        
@@ -1200,7 +1200,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "www.sainsburys.co.uk"
   
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "intersains22", 0
+            SendKeys "", 0
             ExeGo = True
         End If
        
@@ -1216,9 +1216,9 @@ If dks = 1 And 1 = 2 Then
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
             SendKeys "Matthew Lancaster{tab}", 0
             SendKeys "matt.lan@btinternet.com{tab}", 0
-            SendKeys "07919180203{tab}", 0
-            SendKeys "19 Albion Street, Portslade, Brighton, East Sussex.{tab}", 0
-            SendKeys "BN41 1DQ{tab}", 0
+            SendKeys "{tab}", 0
+            SendKeys "East Sussex.{tab}", 0
+            SendKeys "{tab}", 0
             ExeGo = True
         End If
        
@@ -1230,7 +1230,7 @@ If dks = 1 And 1 = 2 Then
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
             SendKeys "Matthew Lancaster{tab}", 0
             SendKeys "matt.lan@btinternet.com{tab}", 0
-            SendKeys "07919180203{tab}", 0
+            SendKeys "{tab}", 0
             ExeGo = True
         End If
        
@@ -1243,7 +1243,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "http://www.homemove.org.uk"
         
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "{TAB}90416{TAB}20{TAB}{DOWN 10}{TAB}1968{TAB}{ENTER}", True
+            SendKeys "{TAB}{TAB}{TAB}{DOWN 10}{TAB}{TAB}{ENTER}", True
             A = A
             ExeGo = True
         End If
@@ -1254,14 +1254,14 @@ If dks = 1 And 1 = 2 Then
   
         If InStr(ash$, DF$) > 0 Then
             SendKeys "matthew.lancaster@btopenworld.com{tab}", 0
-            SendKeys "mosheraboveall2", 0
+            SendKeys "", 0
             ExeGo = True
             
         End If
        
        
        
-'mosheraboveall2
+
        
        
        
@@ -1410,7 +1410,7 @@ If dks = 1 And 1 = 2 Then
             Sleep 100
             SendKeys "{tab}", True
             Sleep 100
-            SendKeys "234567", True
+            SendKeys "", True
             ExeGo = True
         End If
       
@@ -1438,7 +1438,7 @@ If dks = 1 And 1 = 2 Then
         
         If InStr(ash$, DF$) > 0 Then
             SendKeys "lynlan{tab}", 0
-            SendKeys "lynlan852{enter}", 0
+            SendKeys "{enter}", 0
             ExeGo = True
             
         End If
@@ -1452,7 +1452,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Welcome - Paypal"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
         End If
         
@@ -1460,7 +1460,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Complete Your eBay Payment - PayPal"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
         End If
         
@@ -1468,7 +1468,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Login - PayPal"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -1476,7 +1476,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "PayPal - Send Money"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -1484,7 +1484,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "PayPal - Welcome"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -1492,7 +1492,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "PayPal - Login"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -1500,7 +1500,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "PayPal - Password"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -1508,27 +1508,27 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Choose a payment method - PayPal"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
             
         End If
           
         DF$ = "https://www.paypal.com"
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "donkingking12"
+            SendKeys ""
             ExeGo = True
         End If
         
         DF$ = "https://www.securesuite.co.uk/"
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "bigefnbrotherdeal2"
+            SendKeys ""
             ExeGo = True
         End If
         
         'https://www.sainsburys.co.uk/groceries/index.jsp?bmUID=1263145117007
         DF$ = "https://www.sainsburys.co.uk/groceries/index.jsp"
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "bigefnbrotherdeal2"
+            SendKeys ""
             ExeGo = True
         End If
           
@@ -1536,7 +1536,7 @@ If dks = 1 And 1 = 2 Then
   
         DF$ = "https://www.royalmail.com/portal/rm/ppmpaymentfull"
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "bigefnbrotherdeal2"
+            SendKeys ""
             ExeGo = True
         End If
           
@@ -1546,7 +1546,7 @@ If dks = 1 And 1 = 2 Then
   
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
             'SendKeys "rub.rim@googlemail.com{tab}", 0
-            SendKeys "checkup35", 0
+            SendKeys "", 0
             ExeGo = True
             
         End If
@@ -1556,7 +1556,7 @@ If dks = 1 And 1 = 2 Then
         '------------------------------------
         DF$ = "http://bthomehub.home"
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "admin2", 0
+            SendKeys "", 0
             ExeGo = True
         End If
        
@@ -1569,7 +1569,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Password"
         
         If InStr(ash$, DF$) > 0 Then
-            SendKeys "properpriorpreparationpreventspisspoorperformance", 0
+            SendKeys "", 0
             ExeGo = True
             
         End If
@@ -1583,7 +1583,7 @@ If dks = 1 And 1 = 2 Then
             SendKeys "matt.lan@btinternet.com", True
             SendKeys "{TAB}", True
             Sleep 200
-            SendKeys "kingking", True
+            SendKeys "", True
             ExeGo = True
             
         End If
@@ -1601,7 +1601,7 @@ If dks = 1 And 1 = 2 Then
         If dse = 0 And Menu.CheckMumAL.Value = vbUnchecked Then
             'SendKeys "{tab}{tab}{tab}{tab}{tab}{tab}{tab}", 0
             SendKeys "mattlan2004{tab}", True
-            SendKeys "kingking1432", True
+            SendKeys "", True
             ExeGo = True
             
         End If
@@ -1609,7 +1609,7 @@ If dks = 1 And 1 = 2 Then
         If dse = 0 And Menu.CheckMumAL.Value = vbChecked Then
             'SendKeys "{tab}{tab}{tab}{tab}{tab}{tab}{tab}", 0
             SendKeys "mattlan2004{tab}", True
-            SendKeys "kingking1432", True
+            SendKeys "", True
             ExeGo = True
             
         End If
@@ -1627,10 +1627,10 @@ If dks = 1 And 1 = 2 Then
         If Menu.CheckMumAL.Value = vbUnchecked Then
                 'SendKeys "4567350003229677{tab}", 0
                 
-                SendKeys "4567356648164492{tab}", 0
-                SendKeys "493{tab}", 0
                 SendKeys "{tab}", 0
-                SendKeys "09{tab}06{tab}09{tab}09{tab}", 0
+                SendKeys "{tab}", 0
+                SendKeys "{tab}", 0
+                SendKeys "{tab}", 0
                 ExeGo = True
                 
             End If
@@ -1638,10 +1638,10 @@ If dks = 1 And 1 = 2 Then
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then
             If Menu.CheckMumAL.Value = vbChecked Then
-                SendKeys "4567350003229677{tab}", 0
-                SendKeys "698{tab}", 0
                 SendKeys "{tab}", 0
-                SendKeys "06{tab}04{tab}07{tab}08{tab}", 0
+                SendKeys "{tab}", 0
+                SendKeys "{tab}", 0
+                SendKeys "{tab}", 0
                 ExeGo = True
             
             End If
@@ -1655,8 +1655,8 @@ If dks = 1 And 1 = 2 Then
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then
         If Menu.CheckMumAL.Value = vbUnchecked Then
-                'SendKeys "4567350003229677{tab}", 0
-                SendKeys "bigefnbrodeal4{tab}{tab}", 0
+                'SendKeys "{tab}", 0
+                SendKeys "{tab}{tab}", 0
                 ExeGo = True
                 
             End If
@@ -1667,8 +1667,8 @@ If dks = 1 And 1 = 2 Then
         dh$ = "type=payOnline"
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then
-                'SendKeys "4567350003229677{tab}", 0
-                SendKeys "bigefnbrodeal4", 0
+                'SendKeys "{tab}", 0
+                SendKeys "", 0
                 ExeGo = True
         End If
           
@@ -1679,8 +1679,8 @@ If dks = 1 And 1 = 2 Then
         dh$ = "https://live.sagepay.com/gateway/service/authentication"
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then
-                'SendKeys "4567350003229677{tab}", 0
-                SendKeys "bigefnbrodeal4{tab}{tab}", 0
+                'SendKeys "{tab}", 0
+                SendKeys "{tab}{tab}", 0
                 ExeGo = True
         End If
           
@@ -1694,8 +1694,8 @@ If dks = 1 And 1 = 2 Then
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then
         If Menu.CheckMumAL.Value = vbUnchecked Then
-                'SendKeys "4567350003229677{tab}", 0
-                SendKeys "bigefnbrodeal4{tab}{tab}", 0
+                'SendKeys "{tab}", 0
+                SendKeys "{tab}{tab}", 0
                 ExeGo = True
                 
             End If
@@ -1706,7 +1706,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Sign In"
         dh1$ = "www%2Eplanet%2Dsource%2Dcode"
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh1$) > 0 Then
-                SendKeys "matt.lan@btinternet.com{tab}interplanet22", True
+                SendKeys "matt.lan@btinternet.com{tab}", True
                 ExeGo = True
     End If
           
@@ -1714,7 +1714,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Latest Homes"
         dh1$ = "emailalertsignup"
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh1$) > 0 Then
-                SendKeys "matt.lan@btinternet.com{tab}theylikethedark2", True
+                SendKeys "matt.lan@btinternet.com{tab}", True
                 ExeGo = True
         End If
           
@@ -1728,30 +1728,30 @@ If dks = 1 And 1 = 2 Then
         dh2$ = "alliance-leicester.co.uk/index.asp"
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh2$) > 0 Then
             If Menu.CheckMumAL.Value = vbUnchecked Then
-                'SendKeys "180945031283", True
+                'SendKeys "", True
                 'New Type Code
-                SendKeys "33165185", True
+                SendKeys "", True
                 ExeGo = True
         End If
         End If
             
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh1$) > 0 Then
             If Menu.CheckMumAL.Value = vbUnchecked Then
-                SendKeys "79999", True
+                SendKeys "", True
                 ExeGo = True
             End If
         End If
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh2$) > 0 Then
             If Menu.CheckMumAL.Value = vbChecked Then
-                SendKeys "137322427185", True
+                SendKeys "", True
                 ExeGo = True
             End If
         End If
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh2$) > 0 Then
             If Menu.CheckMumAL.Value = vbChecked Then
-                SendKeys "80808", True
+                SendKeys "", True
                 ExeGo = True
             End If
         End If
@@ -1763,8 +1763,8 @@ If dks = 1 And 1 = 2 Then
         DF$ = "The Co-operative Bank p.l.c"
           
         If InStr(ash$, DF$) > 0 Then
-            SendKeys "089300{tab}", 0
-            SendKeys "06233910{tab}{tab}2468", 0
+            SendKeys "{tab}", 0
+            SendKeys "{tab}{tab}", 0
             SendKeys "", 0
             ExeGo = True
         End If
@@ -1777,9 +1777,9 @@ If dks = 1 And 1 = 2 Then
         
         If InStr(ash$, DF$) > 0 Then
             SendKeys "matthew2005{tab}", True
-            SendKeys "ditchit", True
+            SendKeys "", True
             
-            MsgBox "matthew2005 - ditchit"
+            MsgBox "matthew2005"
             ExeGo = True
         End If
         
@@ -1800,7 +1800,7 @@ If dks = 1 And 1 = 2 Then
           
         If InStr(ash$, DF$) > 0 Then
             SendKeys "matthew2005{tab}", True
-            SendKeys "ditchit", True
+            SendKeys "", True
             ExeGo = True
             
             'MsgBox "matthew2005 - ditchit"
@@ -1810,7 +1810,7 @@ If dks = 1 And 1 = 2 Then
           
         If InStr(ash$, DF$) > 0 Then
             SendKeys "matthew2005{tab}", True
-            SendKeys "ditchit", True
+            SendKeys "", True
             ExeGo = True
             
             '[MsgBox "matthew2005 - ditchit"
@@ -1827,7 +1827,7 @@ If dks = 1 And 1 = 2 Then
                 If dse = 0 Then
                     SendKeys "+{tab}", True
                     SendKeys "matthewlan{tab}", True
-                    SendKeys "interned243", True
+                    SendKeys "", True
                     ExeGo = True
                     
                 End If
@@ -1837,7 +1837,7 @@ If dks = 1 And 1 = 2 Then
                 If dse = 0 Then
                     SendKeys "+{tab}", True
                     SendKeys "matt.lan@btinternet.com{tab}", True
-                    SendKeys "mosheraboveall2", True
+                    SendKeys "", True
                     ExeGo = True
             
                     
@@ -1887,7 +1887,7 @@ If dks = 1 And 1 = 2 Then
             If yahoo = 1 Then
                 If dse = 0 Then
                     SendKeys "mattlancaster2000{tab}", 0
-                    SendKeys "kingking21", 0
+                    SendKeys "", 0
                     ExeGo = True
                     
                 End If
@@ -1895,7 +1895,7 @@ If dks = 1 And 1 = 2 Then
             If yahoo = 2 Then
                 If dse = 0 Then
                     SendKeys "brainbashing{tab}", 0
-                    SendKeys "kingking21", 0
+                    SendKeys "", 0
                     ExeGo = True
             
                 End If
@@ -1903,21 +1903,21 @@ If dks = 1 And 1 = 2 Then
             If yahoo = 3 Then
                 If dse = 0 Then
                     SendKeys "MattLan2008{tab}", 0
-                    SendKeys "kingking21", 0
+                    SendKeys "", 0
                     ExeGo = True
                 End If
             End If
             If yahoo = 4 Then
                 If dse = 0 Then
                     SendKeys "voidman2004xx{tab}", 0
-                    SendKeys "kingking21", 0
+                    SendKeys "", 0
                     ExeGo = True
             
                 End If
             End If
             If yahoo = 5 Then
                 If dse = 0 Then
-                    SendKeys "kingking21", 0
+                    SendKeys "", 0
                     ExeGo = True
                     
                 End If
@@ -1931,14 +1931,14 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Verify Password"
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
             'SendKeys "kingking21{enter}", 0
-            SendKeys "mosheraboveall2", True
+            SendKeys "", True
             ExeGo = True
         End If
         
         
         DF$ = "login.yahoo.com"
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "mosheraboveall2"
+            SendKeys ""
             ExeGo = True
         End If
 
@@ -1947,7 +1947,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Sign In - Bt Yahoo"
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
             'SendKeys "kingking21{enter}", 0
-            SendKeys "mosheraboveall2"
+            SendKeys ""
             ExeGo = True
         
         End If
@@ -1959,7 +1959,7 @@ If dks = 1 And 1 = 2 Then
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
             'SendKeys "Voidman2004{tab}", 0
-            SendKeys "kingkingmagic48"
+            SendKeys ""
             ExeGo = True
             
             'MSComm1.Output = "kingkingmagic48"
@@ -1971,7 +1971,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Sign In: My Fav"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "kingkingmagic48"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -1981,7 +1981,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "My Ebay"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "kingkingmagic48"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -1991,7 +1991,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "Sign in or register to continue"
         
         If InStr(ash$, DF$) > 0 And ExeGo = False Then
-            SendKeys "kingkingmagic48"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -2001,7 +2001,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "https://signin.ebay.co.uk"
         
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "kingkingmagic48"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -2009,7 +2009,7 @@ If dks = 1 And 1 = 2 Then
         '------------------------------------
         'ebay
         If InStr(ash$, "Sign In: Favourite Searches") > 0 And ExeGo = False Then
-            SendKeys "kingkingmagic48"
+            SendKeys ""
             ExeGo = True
         End If
         '------------------------------------
@@ -2023,7 +2023,7 @@ If dks = 1 And 1 = 2 Then
         'End If
         
         If InStr(ash$, "Welcome to eBay") > 0 And ExeGo = False Then
-            SendKeys "kingkingmagic48"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -2032,7 +2032,7 @@ If dks = 1 And 1 = 2 Then
               
         If InStr(ash$, "MyPlesk.com") = 1 Then
             SendKeys "matthewlan.com{tab}"
-            SendKeys "psychonautmattmachine3"
+            SendKeys ""
             ExeGo = True
             
         End If
@@ -2044,10 +2044,10 @@ If dks = 1 And 1 = 2 Then
             
         If dse = 0 Then
             SendKeys "matthewlan.com{tab}"
-            SendKeys "interned243"
+            SendKeys ""
             ExeGo = True
-            'SendKeys "psychonautmattmachine3"
-'            SendKeys "slipmatt4"
+            'SendKeys ""
+'            SendKeys ""
             
         End If
           
@@ -2056,11 +2056,11 @@ If dks = 1 And 1 = 2 Then
         If InStr(ash$, "MyHostNed") = 1 Then dse = 0
             
         If dse = 0 Then
-            SendKeys "matthewlan{tab}slipmatt4"
+            SendKeys "matthewlan{tab}"
             ExeGo = True
             'SendKeys "{tab}"
-           ' SendKeys "slipmatt4"
-            'MsgBox "slipmatt4"
+           ' SendKeys ""
+            'MsgBox ""
             'htucgo
             
         End If
@@ -2069,7 +2069,7 @@ If dks = 1 And 1 = 2 Then
         '#TESCO
         dh$ = "https://secure.tesco.com/"
         If InStr(URL$, dh$) > 0 And ExeGo = False Then
-            SendKeys "bigball2"
+            SendKeys ""
            ' SENDKEYS0
             
             ExeGo = True
@@ -2079,7 +2079,7 @@ If dks = 1 And 1 = 2 Then
         '#Credit CARD MBNA
         dh$ = "https://orders.ebuyer.com/customer/shopping/index.html?action="
         If InStr(URL$, dh$) > 0 And ExeGo = False Then
-            SendKeys "bigefnbrotherdeal2"
+            SendKeys ""
             ExeGo = True
         End If
         
@@ -2087,7 +2087,7 @@ If dks = 1 And 1 = 2 Then
         dh$ = "http://accounts.ebuyer.com/customer/orders"
         If InStr(URL$, dh$) > 0 And ExeGo = False Then
             'SendKeys "matt.lan@btinternet.com{tab}"
-            SendKeys "somethinglikethatoverthere"
+            SendKeys ""
             ExeGo = True
         End If
         
