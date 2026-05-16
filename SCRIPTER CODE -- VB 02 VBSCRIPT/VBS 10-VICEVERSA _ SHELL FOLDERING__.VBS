@@ -137,8 +137,9 @@ SCRIPT_BASE_NAME = FSO.GetBaseName(File)
 VV_PATH_1=SCRIPT_PARENT_PATH+"\"+SCRIPT_BASE_NAME+"\# VV COMPUTERNAME SCRIPTOR\"
 VV_PATH_2=SCRIPT_PARENT_PATH+"\"+SCRIPT_BASE_NAME+"\# TRACKING DATABASE\"
 
-' MSGBOX VV_PATH_2
-' WSCRIPT.QUIT
+
+ ' MSGBOX VV_PATH_2
+ ' WSCRIPT.QUIT
 
 
 DIM RN_VAR(7)
@@ -278,6 +279,7 @@ FOR VV_2=1 TO UBOUND(VV_VAR)
 		
 		N3 = Mid(TT_EDITOR, T1, (T2 - T1))
 		
+		
 		REPLACE_VAR=Sync_Tracking_Database_VAR_1&VV_PATH_2&VV_VAR_TRACKING(VV_2)&RN_VAR(RN)
 		INDEX_VAR_2=""
 		FOR RT_2=1 TO LEN(REPLACE_VAR)
@@ -300,7 +302,11 @@ FOR VV_2=1 TO UBOUND(VV_VAR)
 			TS.close
 		END IF 
 		
-		'MsgBox "Done Total " & Counter_VAR & " Proecesses"
+		USER_INTERACTIVE_MODE=FALSE
+		
+		IF USER_INTERACTIVE_MODE=TRUE THEN 
+			MsgBox "Done Total " & Counter_VAR & " Proecesses" &VBCRLF& VV_2 & " OF " & RN
+		END IF
 
 		END IF
 	NEXT
@@ -357,8 +363,14 @@ FOR VV_2=3 TO UBOUND(VV_VAR)
 		'IF Version_OS=5 THEN
 
 
-
+		' THIS RUN C DRIVE ROOT 1ST AND ONLY
+		' 
+		' ---------------------
 		USER_INTERACTIVE_MODE=FALSE
+		IF USER_INTERACTIVE_MODE=TRUE THEN 
+			MSGBOX "JOBS TO RUN -- " & UBOUND(VV_VAR)
+			MSGBOX "JOBS RUN # AND NAME -- " & VBCRLF & CSTR(VV_2) & VBCRLF & FILEN_2
+		END IF
 		IF USER_INTERACTIVE_MODE=FALSE THEN 
 		
 		
@@ -386,7 +398,8 @@ FOR VV_2=3 TO UBOUND(VV_VAR)
 			' Next
 
 			
-			' MSGBOX "HERE"
+			' MSGBOX FILEN_2
+			
 			iReturn=objShell.Run (CHR(34)& "C:\Program Files\ViceVersa Pro\ViceVersa.exe" & CHR(34)& " " & CHR(34)& FILEN_2 & CHR(34) & " /hiddenautoexec /wait",0,TRUE)
 			
 			' SIMULATE CONFLICT HERE
