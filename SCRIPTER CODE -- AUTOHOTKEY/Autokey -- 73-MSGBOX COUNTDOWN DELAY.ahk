@@ -311,7 +311,7 @@ TIMER_MSGBOX_WINDOWS_SCRIPT_HOST_IP_CHANGER:
 	; ---------------------------
 	; Windows Script Host
 	; ---------------------------
-	; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 23-MY IP.VBS
+	; C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 23-MY IP.VBS
 
 	; IP Address Has Changed
 
@@ -579,7 +579,7 @@ TIMER_MSGBOX_GOODSYNC_EXIT_PROGRAM_ASK_QUESTION_ANOTHR_JOB_RUNNER:
 	; ---------------------------
 	; Windows Script Host
 	; ---------------------------
-	; C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 23-MY IP.VBS
+	; C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 23-MY IP.VBS
 
 	; IP Address Has Changed
 
