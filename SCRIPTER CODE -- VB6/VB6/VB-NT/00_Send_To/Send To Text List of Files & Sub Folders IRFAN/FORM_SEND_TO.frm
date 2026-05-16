@@ -3,13 +3,13 @@ Begin VB.Form Form_SEND_TO
    AutoRedraw      =   -1  'True
    BackColor       =   &H00008080&
    Caption         =   "SEND TO SCRIPT SUB FOLDER FILES SET"
-   ClientHeight    =   8364
-   ClientLeft      =   228
-   ClientTop       =   888
+   ClientHeight    =   8370
+   ClientLeft      =   225
+   ClientTop       =   885
    ClientWidth     =   12480
    Icon            =   "FORM_SEND_TO.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   8364
+   ScaleHeight     =   8370
    ScaleWidth      =   12480
    StartUpPosition =   2  'CenterScreen
    Begin VB.Timer Timer1 
@@ -28,7 +28,7 @@ Begin VB.Form Form_SEND_TO
       Top             =   1548
    End
    Begin VB.ListBox List1 
-      Height          =   240
+      Height          =   255
       Left            =   9000
       Sorted          =   -1  'True
       TabIndex        =   0
@@ -42,7 +42,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "MPC MEDIA PLAYER CLASSIC VIDEO"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -62,7 +62,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "EXPLORER CURRENT INI FILE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -82,7 +82,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "IRFAN SCAN SENDTO"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -102,7 +102,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "IRFAN GO FROM INI NUMERIC ONE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -122,7 +122,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "IRFAN EDIT"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -142,7 +142,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "IRFAN GO"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -162,7 +162,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "IRFAN XSCRIPT PROCESS"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -182,7 +182,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "IRFAN SCAN"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -214,7 +214,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -236,7 +236,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -258,7 +258,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -280,7 +280,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -302,7 +302,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -324,7 +324,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -346,7 +346,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -368,7 +368,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -390,7 +390,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -412,7 +412,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -434,7 +434,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -456,7 +456,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -478,7 +478,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -500,7 +500,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -522,7 +522,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -544,7 +544,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -566,7 +566,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -588,7 +588,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -610,7 +610,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -632,7 +632,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -654,7 +654,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -676,7 +676,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -698,7 +698,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -720,7 +720,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -742,7 +742,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -764,7 +764,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "-A-"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.4
+         Size            =   14.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -785,7 +785,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "000 SCAN TO GIVE "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -805,7 +805,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "OBJECTIVE FILE ONLY DIR ONLY CRC OPTION "
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   19.8
+         Size            =   19.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -823,7 +823,7 @@ Begin VB.Form Form_SEND_TO
       Caption         =   "BEGIN"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   27.6
+         Size            =   27.75
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -910,6 +910,10 @@ Begin VB.Form Form_SEND_TO
       Begin VB.Menu MNU_FOLDERING_ARRAY 
          Caption         =   "DSC 2020"
          Index           =   14
+      End
+      Begin VB.Menu MNU_FOLDERING_ARRAY 
+         Caption         =   "SCAN TO GIVE"
+         Index           =   15
       End
       Begin VB.Menu MNU_SHOW_ALL_MENU_OFF 
          Caption         =   "SHOW ALL MENU OFF"
@@ -1451,10 +1455,13 @@ DoEvents
 
 Call GIVE_DRIVE_COMMAND_STRING
 
+
+
 '------------------------------------------------------------
 'GET THE INI FILE AT POINTER -- AND UPDATE ALL LABELS ON FORM
 '------------------------------------------------------------
 Call Label0_Click
+
 
 
 '------------------------------------------------------------
@@ -1944,6 +1951,10 @@ End Sub
 
 Private Sub MNU_SHOW_ALL_MENU_OFF_CLICK()
 
+
+
+
+
 ' FIRST MENU ITEM OF NAME THAT AFTER IS NOT DISPLAY WHEN SHOW ALL MENU OFF
 ' 01 MM
 For r = 1 To MNU_FOLDERING_ARRAY.Count
@@ -2227,6 +2238,7 @@ End If
 
 If Label3.Caption = "000 SCAN TO GIVE " Then
 Label3.Caption = "SCAN TO GIVE -- " + AT$
+MNU_FOLDERING_ARRAY.Item(15).Caption = Label3.Caption
 End If
 
 Call SORT_ON_DATE_CHECKER
@@ -2847,6 +2859,7 @@ If LabDR(index).BackColor = Label4.BackColor Then Exit Sub
 AT$ = Chr(index + 65) + ":\"
 
 Label3.Caption = "SCAN TO GIVE -- " + AT$
+MNU_FOLDERING_ARRAY.Item(15).Caption = Label3.Caption
 
 Set FS = CreateObject("Scripting.FileSystemObject")
 
@@ -3158,6 +3171,7 @@ Next
 
 
 If OBJECTIVE_BRIEF <> "ALL DRIVE" And IRFAN_TO_DO_FROM_SEND_TO = False Then
+On Error Resume Next
     Shell "C:\Program Files\# NO INSTALL REQUIRED\Text View\TextView\Textview.exe """ + FFILEAR(4) + """", vbNormalFocus
     'End
 End If
@@ -3193,6 +3207,15 @@ Private Sub Label12_Click()
     If COUNTPROCES4 = 0 Then
         COUNTPROCES4 = 0
     End If
+    
+    If Command$ = "" Then
+    If FS.FolderExists(Replace(Label3.Caption, "SCAN TO GIVE -- ", "")) = False Or Label3.Caption = "SCAN TO GIVE -- D:\DSC\My Pictures" Then
+    ' NOT ME
+    Call MNU_FOLDERING_ARRAY_Click(10)
+
+    End If
+    End If
+    
 
     If Label12.Caption = "MPC MEDIA PLAYER CLASSIC VIDEO ____ FILE SCANNED IS EMPTY NOT FOUND ANY VIDEO FILE __ PRESS AGAIN HERE TO END" Then
         End
@@ -4118,7 +4141,8 @@ If index = 14 Then
     ' PATH_FINDER = LCase(PATH_FINDER)
     DSC_2020_ABOVE = True
 End If
-
+If index = 15 Then PATH_FINDER = Replace(Label3.Caption, "SCAN TO GIVE -- ", "")
+' index = (14)
 'For Each Control In Controls
 '    If UCase(Mid(Control.Name, 1, 5)) = "MNU_FOLDERING_ARRAY_Click" Then
 '        Control.FontSize = 11

@@ -349,7 +349,7 @@ If tt = False And xx$ <> "" And gocrazy = 1 Then
     'For example, use switch -to15d to process files older than 15 days and -to2h30m to process files older than 2 hours 15 minutes.
     '-to2d
 '    DoEvents
-'    pass$ = LCase("mattkingofkingskingratmatt")
+'    pass$ = LCase("matt")
 '    Shell "C:\Program Files\WinRAR\winrar.exe A -CFG- -av -m5 -ibck -ep -s -y -df -ep1 -r -hp" + pass$ + " """ + t3$ + """ """ + t5$ + """", vbNormalFocus
 '    DoEvents
 End If
@@ -625,7 +625,7 @@ Sub Timer1_Timer()
     '-Hp encrypt filenames also
     
     
-    pass$ = LCase("mattkingofkingskingratmatt")
+    pass$ = LCase("matt")
     
     exe4$ = "C:\Program Files\WinRAR\winrar.exe A -CFG- -av -m1 -ibck -ri1:100 -to12h -ep -s -y -df -ep1 -r -hp" + pass$ + " """ + t3$ + """ """ + t5$ + """"
 
