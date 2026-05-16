@@ -818,7 +818,14 @@ RIGHT_CLICK_TO_LOAD_REAL_WINDOWS_10_CALCULATOR_NOT_WINAERO_COM_CONVERTOR_WINDOWS
 		TOOLTIP
 	}
 	IfWinNOTActive Calculator ahk_class CalcFrame
+	{
+		TRIG_FIND_STATEL_WINDOWS_7=
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_1=
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_2=%A_NOW%
+		TRIG_FIND_STATEL_WINDOWS_7_TIMER_2 += 2, SECONDS
+		TOOLTIP	
 		RETURN
+	}
 	; ---------------------------------------------------------------
 	; ---------------------------------------------------------------
 

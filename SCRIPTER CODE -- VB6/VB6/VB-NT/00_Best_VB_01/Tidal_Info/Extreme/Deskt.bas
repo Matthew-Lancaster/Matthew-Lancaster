@@ -7,7 +7,7 @@ Dim FILENAME_IN_USE_CHECK As String
 Private Declare Function GetForegroundWindow Lib "user32" () As Long
 Public Declare Function SetFocuses Lib "user32" Alias "SetFocus" (ByVal hWnd As Long) As Long
 Private Declare Function SetWindowPos Lib "user32" (ByVal hWnd As Long, _
-    ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal Y As Long, ByVal cx As Long, _
+    ByVal hWndInsertAfter As Long, ByVal X As Long, ByVal Y As Long, ByVal cx As Long, _
     ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Public PopBack
@@ -216,7 +216,14 @@ FILENAME_IN_USE_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + Ge
 FILENAME_IN_USE_CHECK_4 = FILENAME_IN_USE_CHECK
 DumVar = IsFileOpenDelay(FILENAME_IN_USE_CHECK)
 FILENAME_IN_USE_CHECK = FILENAME_IN_USE_CHECK_4
- 
+FOLDER_CHECK = App.Path + "\00_Text_Data\" + GetComputerName + "-" + GetUserName + "--"
+Set FSO = CreateObject("Scripting.FileSystemObject")
+If FSO.FolderExists(FOLDER_CHECK) = False Then
+    i = CreateFolderTree(FOLDER_CHECK)
+End If
+
+
+
 FR1 = FreeFile
 Open FILENAME_IN_USE_CHECK For Append As #FR1
 R2$ = Format$(Now, "DDD DD-MMM-YY HH:MM:SSa/p") + " Chk"

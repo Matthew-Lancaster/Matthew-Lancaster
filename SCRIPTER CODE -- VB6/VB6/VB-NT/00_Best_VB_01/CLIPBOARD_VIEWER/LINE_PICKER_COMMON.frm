@@ -3,27 +3,27 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form LINE_PICKER_COMMON 
    BackColor       =   &H00808080&
    Caption         =   "Form1"
-   ClientHeight    =   5892
-   ClientLeft      =   192
-   ClientTop       =   1440
-   ClientWidth     =   13752
+   ClientHeight    =   5895
+   ClientLeft      =   225
+   ClientTop       =   1695
+   ClientWidth     =   13755
    Icon            =   "LINE_PICKER_COMMON.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5892
-   ScaleWidth      =   13752
+   ScaleHeight     =   5895
+   ScaleWidth      =   13755
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
    Begin VB.ListBox LIST2 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   396
+      Height          =   420
       ItemData        =   "LINE_PICKER_COMMON.frx":1272
       Left            =   2340
       List            =   "LINE_PICKER_COMMON.frx":1279
@@ -51,7 +51,7 @@ Begin VB.Form LINE_PICKER_COMMON
       Top             =   888
       Width           =   1800
       _ExtentX        =   3175
-      _ExtentY        =   1228
+      _ExtentY        =   1217
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
       _Version        =   393217
@@ -79,14 +79,14 @@ Begin VB.Form LINE_PICKER_COMMON
    Begin VB.ListBox LIST1 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
-         Size            =   13.8
+         Size            =   13.5
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   396
+      Height          =   420
       Left            =   2340
       Sorted          =   -1  'True
       TabIndex        =   0
@@ -184,8 +184,8 @@ Dim RESULT_API
 Dim AlwaysOnTop_MODE
 
 
-Const HWND_TOPMOST = -1
-Const HWND_NOTOPMOST = -2
+Const hWnd_TOPMOST = -1
+Const hWnd_NOTOPMOST = -2
 Const MF_BYPOSITION = &H400&
 Const SWP_NOSIZE = &H1
 Const SWP_NOMOVE = &H2
@@ -743,8 +743,10 @@ If Me.WindowState = vbNormal Then
         If FORM_SET_WIDTH_ONE = False Then
             FORM_SET_WIDTH_ONE = True
             Me.Width = FRM_ClipTest.Width
+            ' SET HIEGHT ONCE ALSO
+            Me.Height = FRM_ClipTest.Height
         End If
-        Me.Height = FRM_ClipTest.Height
+
     End If
     RESIZE_WINDOWSTATE_CHANGE_WORKAROUND = False
 End If
@@ -1453,7 +1455,7 @@ Public Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
     'If Me.Height < 2000 Then
     '    Call ME_POSITION
     'End If
-    SetWindowPos hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
 End Function
 Public Function NotAlwaysOnTop(ByVal hWnd As Long)
     ' VAR WILL FLIPPER FALSE WHEN -- SETWINDOWPOS HWND_NOTOPMOST -- GO THROUGH IT ROUTINE
@@ -1467,7 +1469,7 @@ Public Function NotAlwaysOnTop(ByVal hWnd As Long)
     End If
     
     NOT_RESIZE_ROUTINE = True
-    SetWindowPos hWnd, HWND_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
+    SetWindowPos hWnd, hWnd_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
 End Function
 
 

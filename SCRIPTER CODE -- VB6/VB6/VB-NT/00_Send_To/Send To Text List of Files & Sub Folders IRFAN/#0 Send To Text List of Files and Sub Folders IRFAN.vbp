@@ -3,7 +3,7 @@ Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\st
 Reference=*\G{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}#1.0#0#C:\Windows\SysWOW64\wshom.ocx#Windows Script Host Object Model
 Reference=*\G{420B2830-E718-11CF-893D-00A0C9054228}#1.0#0#C:\Windows\SysWOW64\scrrun.dll#Microsoft Scripting Runtime
 Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0; MSCOMCTL.OCX
-Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; mscomct2.ocx
+Object={86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0; MSCOMCT2.OCX
 Module=mdlFileSys; ScanPath\FileSys.bas
 Class=cScanPath; ScanPath\ScanPath.cls
 Module=BASE_MoD1; ..\Send Cmd\BASE_MoD1.bas
@@ -20,7 +20,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=1
 MinorVer=0
-RevisionVer=242
+RevisionVer=245
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionComments="Matt.lan@btinternet.com -- Last Compile = Thu 11-Jan-2018 12-20-30p"

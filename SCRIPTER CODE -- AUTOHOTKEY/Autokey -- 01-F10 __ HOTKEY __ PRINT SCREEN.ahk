@@ -187,6 +187,8 @@ O_ID=0
 
 MICROSOFT_CONTROL_22=1
 SETTIMER MICROSOFT_CONTROL_44_TIMER,60000
+NORTON_CONTROL_22=1
+SETTIMER NORTON_CONTROL_44_TIMER,60000
 
 GLOBAL OLD_id
 GLOBAL OLD_Title_VAR
@@ -1328,6 +1330,74 @@ F5::
 }
 RETURN
 #ifwinactive
+
+
+
+
+
+
+
+; BELOW BLOCK OF 2 ROUTINE FOR NORTON PASSWORD ENTRY
+#ifwinactive Norton Driver Updater ahk_class CefHeaderWindow
+F5::
+{
+	SetTitleMatchMode 3
+	DetectHiddenWindows, oN
+
+	IF NORTON_CONTROL_22=1
+	{
+	MESSENGER_KEY_1=MATT.LAN@BTINTERNET.COM
+	SetKeyDelay, 75
+	SLEEP 100
+	MESSENGER_KEY=%MESSENGER_KEY_1%
+	GOSUB STRING_INVERT_MESSENGER
+	SENDINPUT %MESSENGER_KEY%
+
+	NORTON_CONTROL_22=2
+	SETTIMER NORTON_CONTROL_44_TIMER,60000
+	RETURN
+	}
+	
+	SetTitleMatchMode 3
+	DetectHiddenWindows, oN
+		Loop
+	{
+		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
+		if ErrorLevel
+			break
+		IF A_INDEX=10
+		{
+			MESSENGER_KEY_NORTON=%line%
+			MESSENGER_KEY=%MESSENGER_KEY_NORTON%
+			GOSUB STRING_INVERT_MESSENGER
+			MESSENGER_KEY_NORTON=%MESSENGER_KEY%
+		}
+	}
+	
+	SetKeyDelay, 75
+	SLEEP 100
+	SENDINPUT, {Raw}%MESSENGER_KEY_NORTON%
+
+	NORTON_CONTROL_22=1
+	SETTIMER NORTON_CONTROL_44_TIMER,OFF
+	
+}
+RETURN
+#ifwinactive
+
+NORTON_CONTROL_44_TIMER:
+	NORTON_CONTROL_22=1
+	SETTIMER NORTON_CONTROL_44_TIMER,OFF
+RETURN
+; ABOVE BLOCK OF 2 ROUTINE FOR NORTON PASSWORD ENTRY
+
+
+
+
+
+
+
+
 
 #ifwinactive Sign in to your account - Google Chrome ahk_class Chrome_WidgetWin_1
 F5::
@@ -3863,12 +3933,14 @@ RETURN
 TIMER_CLIPBOARD_LOGGGER_KEEP_RUNNER:
 
 	SETTIMER TIMER_CLIPBOARD_LOGGGER_KEEP_RUNNER,60000
-	DetectHiddenWindows, oFF
+	DetectHiddenWindows, ON
 	SetTitleMatchMode 2
 
-	IfWinExist - Microsoft Visual Basic [ ahk_class ThunderRT6FormDC
+	IfWinExist Microsoft Visual Basic [ 
+	IFWinExist ahk_class ThunderRT6FormDC
+	{
 		RETURN
-
+	}
 	IfWinNOTExist ClipBoard Logger ahk_class ThunderRT6FormDC
 		Run, "D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD LOGGER\CLIPBOARD LOGGER.EXE" , , MIN
 
@@ -4520,6 +4592,32 @@ RETURN
 ;   Sendinput v
 ;   Sendinput {ctrl up}
 ;-------------------------------------------------------------------------
+
+
+;-------------------------------------------------------------------------
+; F4 __ CLIPBOARD PASTE CTRL V
+;-------------------------------------------------------------------------
+#ifwinactive ahk_class Chrome_WidgetWin_1
+F9::
+{
+	SetTitleMatchMode 2  ; Specify Full path.
+	IFWINACTIVE Google Photos - Google Chrome ahk_class Chrome_WidgetWin_1
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+
+		Sendinput {ctrl down}
+		sleep 200
+		Sendinput v
+		Sendinput {ctrl up}
+	}
+	ELSE
+	{
+		Sendinput {F5}
+	}
+}
+RETURN
+#ifwinactive
+
 
 
 ;F4::

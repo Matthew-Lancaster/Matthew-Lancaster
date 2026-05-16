@@ -572,6 +572,7 @@ Private Function FileMatches_FSO_(FILENAME_PASSER) As Boolean
         
         If mPatternMatching Then
             'Complex searches such as *test??.text
+            On Error Resume Next
             For nFilter = LBound(mFilters) To UBound(mFilters)
                 If sExt Like mFilters(nFilter) Then
                     ' MsgBox FILENAME_PASSER
