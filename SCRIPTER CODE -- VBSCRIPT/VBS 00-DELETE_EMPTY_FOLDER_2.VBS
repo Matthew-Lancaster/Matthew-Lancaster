@@ -92,6 +92,16 @@ STRPATH="U:\DSC_4G_1TB"
 STRPATH="C:\SCRIPTOR GITHUB"
 ' STRPATH=""
 ' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
+' STRPATH=""
 
 Dim objFolder
 DIM objFolderERR
