@@ -59,7 +59,7 @@ FOR /f "tokens=1 delims={, skip=1" %%a in ('%wmicmd%') do call :SETVAR %%a
 SET IP=%IP:"=% & REM __ TRIM THE QUOTE MARK _ DOG EAR MARK RIPER
 FOR /f "tokens=1 delims= " %%a in ('ECHO %IP%') DO SET IP=%%a
 
-"C:\SCRIPTER\SCRIPTER CODE -- VBS\VBS 23-MY IP.VBS"
+"C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 23-MY IP.VBS"
 for /f "delims=" %%x in (%TEMP%\MY_IP.txt) do set IP=%%x
 
 
