@@ -14,7 +14,7 @@ Begin VB.Form Project_Check_Date
    Begin VB.Timer Timer_FORM_LOAD_RUN_WAIT 
       Enabled         =   0   'False
       Interval        =   5000
-      Left            =   1536
+      Left            =   1560
       Top             =   1536
    End
    Begin VB.Timer TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD 
@@ -42,7 +42,6 @@ Begin VB.Form Project_Check_Date
       Top             =   960
    End
    Begin VB.Timer Timer_VB_PROJECT_CHECKDATE 
-      Enabled         =   0   'False
       Interval        =   2000
       Left            =   1296
       Top             =   792
@@ -119,9 +118,6 @@ Attribute VB_Exposed = False
 'BEEP AT END
 '-----------------------------------------------------------
 
-Dim ONCE_STARTER_MODE
-
-
 Dim VB_APP_PATH_NAME_2 As String
 Dim PATH_FILE_NAME1 As String
 Dim PATH_FILE_NAME2 As String
@@ -134,9 +130,6 @@ Dim APP_PATH_APP_EXENAME_EXE_PATH As String
 Dim DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_PATH As String
 Dim CRC_OF_APP_WITHER_VB_EXE_AT_LOAD As String
 Dim WSHShell
-
-Dim RZZD
-Dim DISPLAY_RESULT_VAR_AFTER_FIRST_PASS
 
 Dim SET_FORM_PROJECT_CHECK_DATE_SOME_INFO_TRIGGER_SHOW
 
@@ -159,8 +152,7 @@ Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVa
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
 Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
-Dim XVB_DATE_SYNC_VB_PROJECT
-Dim XVB_DATE
+
 Dim APP_EXENAME_DATE
 Dim FSO
 Public EXIT_TRUE
@@ -366,10 +358,6 @@ End Function
 Private Sub Form_Load()
     
     
-    
-'    Unload Me
-'    Exit Sub
-'
     Set FSO = CreateObject("Scripting.FileSystemObject")
     Set WSHShell = CreateObject("WScript.Shell")
     Project_Check_Date.Caption = App.EXEName + ".EXE"
@@ -384,9 +372,9 @@ End Sub
 
 Private Sub Timer_FORM_LOAD_RUN_WAIT_Timer()
 
-    Timer_FORM_LOAD_RUN_WAIT.Enabled = False
-    Timer_VB_PROJECT_CHECKDATE.Enabled = False
-    TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = True
+'    Timer_FORM_LOAD_RUN_WAIT.Enabled = False
+'    Timer_VB_PROJECT_CHECKDATE.Enabled = True
+'    TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = True
 
 End Sub
 
@@ -401,10 +389,6 @@ Private Sub Label1_Change()
     
     If Me.EXIT_TRUE = True Then
         Unload Me
-        Exit Sub
-    End If
-    
-    If RZZD = 0 Then
         Exit Sub
     End If
     
@@ -437,108 +421,179 @@ Private Sub Label1_Change()
 End Sub
 
 
-Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
+Private Sub Timer_HIDE_Timer()
 
-    ' Exit Sub
+Project_Check_Date.Label1 = ""
+Timer_HIDE.Enabled = False
+Me.Hide
+
+End Sub
+
+Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 
     If Me.EXIT_TRUE = True Then
         Unload Me
         Exit Sub
     End If
+ 
+    Dim VBS_LAUNCHER_NAME
     
-    If ONCE_STARTER_MODE = True Then
-    Exit Sub
+    READY_TO_GO = False
+    
+    Set m_CRC = New clsCRC
+    m_CRC.Algorithm = CRC32
+    
+    If APP_EXENAME_DATE = 0 Then
+        PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
+        Set FSO = CreateObject("Scripting.FileSystemObject")
+        Set F = FSO.GetFile(PATH_FILE_NAME1)
+        APP_EXENAME_DATE = F.DateLastModified
     End If
-    ONCE_STARTER_MODE = True
     
-    ' --------------------------------------------------
-    Call VB_PROJECT_CHECKDATE
-    Call DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB
-    Call DATE_OF_APP_EXE_AT_LOAD_SUB
-    ' --------------------------------------------------
+    PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
+    PATH_FILE_NAME2 = Replace(PATH_FILE_NAME1, "D:\VB6\", "D:\VB6-EXE\")
+    '---------------------------------------------------
+    On Error Resume Next
+    If Dir(PATH_FILE_NAME2) = "" Then
+        If Dir(Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\")), vbDirectory) = "" Then
+            ' CREATE THE VB-EXE FOLDER IF NOT THERE
+            ' -------------------------------------
+            CreateFolderTree Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\"))
+        End If
+    End If
+    
+    Err.Clear
+    Set F1 = FSO.GetFile(PATH_FILE_NAME1)
+    Set F2 = FSO.GetFile(PATH_FILE_NAME2)
+    VB_EXE_DATE = F1.DateLastModified
+    APP_EXENAME_DATE = F2.DateLastModified
+    VB_EXE_SIZE = F1.Size
+    APP_EXENAME_SIZE = F2.Size
+    
+    ' IS SAME DATE AND SAME SIZE -- EXIT
+    ' IF MINE CHANGES THEN CHECK THE OTHER NETWORK SHARE
+    ' ---------------------------------
+    If APP_EXENAME_DATE = VB_EXE_DATE And APP_EXENAME_SIZE = VB_EXE_SIZE Then
+        Exit Sub
+    End If
+    
+    ABLE_TO_EXIT = False
+    ' CAN READ IT SELF NOT WRITE TO SELF SO COPY OUT TO VBEXE FOLDER IF DIFFERNT
+    If APP_EXENAME_DATE < VB_EXE_DATE Then
+        FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
+        ABLE_TO_EXIT = True
+    End If
+        
+    PATH_FILE_NAME4 = "\\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\" + Right(App.Path, Len(App.Path) - 3) + "\" + App.EXEName + ".EXE"
+    PATH_FILE_NAME5 = Replace(PATH_FILE_NAME4, "\VB6\", "\VB6-EXE\")
+    PATH_FILE_NAME4 = PATH_FILE_NAME1
+    On Error Resume Next
+    If Dir(PATH_FILE_NAME4) = "" And Dir(Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\")), vbDirectory) = "" Then
+         CreateFolderTree Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\"))
+    End If
+    Set F1 = FSO.GetFile(PATH_FILE_NAME4)
+    Set F2 = FSO.GetFile(PATH_FILE_NAME5)
+    VB_EXE_DATE = F1.DateLastModified
+    APP_EXENAME_DATE = F2.DateLastModified
+    If APP_EXENAME_DATE < VB_EXE_DATE Then FSO.CopyFile PATH_FILE_NAME4, PATH_FILE_NAME5
+    
+    PATH_FILE_NAME4 = "\\9-asus-g815lm\9_asus_g815lm_02_d_drive\" + Right(App.Path, Len(App.Path) - 3) + "\" + App.EXEName + ".EXE"
+    PATH_FILE_NAME5 = Replace(PATH_FILE_NAME4, "\VB6\", "\VB6-EXE\")
+    PATH_FILE_NAME4 = PATH_FILE_NAME1
+    On Error Resume Next
+    If Dir(PATH_FILE_NAME4) = "" And Dir(Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\")), vbDirectory) = "" Then
+         CreateFolderTree Mid(PATH_FILE_NAME4, 1, InStrRev(PATH_FILE_NAME4, "\"))
+    End If
+    Set F1 = FSO.GetFile(PATH_FILE_NAME4)
+    Set F2 = FSO.GetFile(PATH_FILE_NAME5)
+    VB_EXE_DATE = F1.DateLastModified
+    APP_EXENAME_DATE = F2.DateLastModified
+    If APP_EXENAME_DATE < VB_EXE_DATE Then FSO.CopyFile PATH_FILE_NAME4, PATH_FILE_NAME5
+    
+    ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\ ' VB6\VB-NT\00_BEST_VB_01
+    ' \\9-asus-g815lm\9_asus_g815lm_02_d_drive\VB6\ ' VB-NT\00_BEST_VB_01
+   
+    'COPIER DONE
+    If ABLE_TO_EXIT = True Then Exit Sub
+        
+        
 
+    
+    
+    
+    WxHex_FILE_2 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME2))
+    WxHex_FILE_1 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME1))
+    
+    If WxHex_FILE_1 = WxHex_FILE_2 Then
+        Exit Sub
+    End If
+
+    VBS_LAUNCHER_NAME = """" + "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS" + """" + " "
+    ' THIS IS THE PARAM ARGUMENT -- THIS IS THE FILE TO BE LAUNCH
+    VBS_LAUNCHER_NAME = VBS_LAUNCHER_NAME + """" + Replace(PATH_FILE_NAME1, " ", "*") + """" + " "
+    ' THIS IS THE 1ST FILE TO COMPARE DATE AND CRC
+    VBS_LAUNCHER_NAME = VBS_LAUNCHER_NAME + """" + Replace(PATH_FILE_NAME1, " ", "*") + """" + " "
+    ' THIS IS THE 2ND FILE TO COMPARE DATE AND CRC
+    VBS_LAUNCHER_NAME = VBS_LAUNCHER_NAME + """" + Replace(PATH_FILE_NAME2, " ", "*") + """"
+
+    WSHShell.RUN VBS_LAUNCHER_NAME, ShowWindow_2, DontWaitUntilFinished
+    
+    Me.EXIT_TRUE = True
+    Dim Form As Form
+    On Error Resume Next
+    For Each Form In Forms
+        Form.EXIT_TRUE = Me.EXIT_TRUE
+    Next Form
+    For Each Form In Forms
+        Err.Clear
+        If Form.EXIT_TRUE = True Then
+            If Err.Number = 0 Then
+                EXIT_TRUE = True
+                Exit For
+            End If
+        End If
+    Next Form
+    
+    Dim i, Control
+    'SET ALL TIMERS IN ALL FORMS ENABLED TO =FALSE
+    On Error Resume Next
+        For i = 0 To Forms.Count - 1
+            For Each Control In Forms(i).Controls
+                If InStr(UCase(Control.Name), "TIMER") > 0 Then
+                    'Debug.Print Control.Name
+                    Control.Enabled = False
+                    DoEvents
+                End If
+            Next
+        Next i
+    On Error GoTo 0
+    
+    For r = 1 To 100
+        DoEvents
+    Next
+    
+    For Each Form In Forms
+        Unload Form
+    Next Form
+
+    For r = 1 To 100
+        DoEvents
+    Next
+    
+    ' End
 
 End Sub
 
 
 Public Sub DATE_OF_APP_EXE_AT_LOAD_SUB()
 
-    ' WHY DATE WRONG AT LOAD
-    ' ONLY GET DATE NOT LAUNCHER
-    ' Exit Sub -- LATER IN MODULE
-    
-
-    Set m_CRC = New clsCRC
-    m_CRC.Algorithm = CRC32
-
-    If APP_PATH_APP_EXENAME_EXE_PATH = "" Then
-        PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
-        APP_PATH_APP_EXENAME_EXE_PATH = PATH_FILE_NAME1
-    End If
-    If DATE_OF_APP_EXE_AT_LOAD = 0 Then
-        Set F = FSO.GetFile(APP_PATH_APP_EXENAME_EXE_PATH)
-        DATE_OF_APP_EXE_AT_LOAD = F.DateLastModified
-    End If
-    
-    If CRC_OF_APP_EXE_AT_LOAD = "" Then
-        'APP_PATH_APP_EXENAME_EXE_PATH
-        'VB_APP_PATH_NAME_2
-        If FSO.FolderExists(VB_APP_PATH_NAME_2) = True Then
-        'If Dir(VB_APP_PATH_NAME_2) <> "" Then
-            If FSO.FileExists(VB_APP_PATH_NAME_2) Then
-            WxHex_FILE_2 = Hex(m_CRC.CalculateFile(VB_APP_PATH_NAME_2))
-            End If
-        End If
-        WxHex_FILE_1 = Hex(m_CRC.CalculateFile(APP_PATH_APP_EXENAME_EXE_PATH))
-        
-        CRC_OF_APP_EXE_AT_LOAD = WxHex_FILE_1
-    End If
-    
-'    Exit Sub
-    
-    If DATE_OF_APP_EXE_AT_LOAD <> 0 Then
-        On Error Resume Next
-        Set F = FSO.GetFile(APP_PATH_APP_EXENAME_EXE_PATH)
-        
-        If DATE_OF_APP_EXE_AT_LOAD < F.DateLastModified Then
-            ' --------------------------------------------------
-            ' THE CRC WAS IMPORTANT FOR WINDOWS-XP COMPUTER PAIR
-            ' NOT SEE WHY IS DATE WRONG
-            ' HERE LOOK AT OWN EXE FOR CONTENT SAME AS WHEN BOOT AR
-            ' LIKE FOR INSTANCE BUT NOT ALWAYS POSIABLE
-            ' THE EXE IS OVERWRITE WITH NEW VERSION
-            ' UNDENETH ONE ALRREADY IN PLAY
-            ' ONLY IF ACCESS GIVEN -- LOT TIME NOT ALLOW AR
-            ' --------------------------------------------------
-            If DATE_OF_APP_EXE_AT_LOAD > 0 Then
-                If F.DateLastModified > 0 Then
-                    WxHex_FILE_1 = Hex(m_CRC.CalculateFile(APP_PATH_APP_EXENAME_EXE_PATH))
-                    If WxHex_FILE_1 <> CRC_OF_APP_EXE_AT_LOAD Then
-                        If Err.Number = 0 Then
-                            
-                            ' KILL THE WSCRIPT NAME
-                            ' FUNCTION & INCLUDE SUB
-                            ' FIND_SCRIPTNAME_VAR = "\VBS - RELOAD AND COPY_"
-                            ' -----------------------------------------------
-                            Call WSCRIPT_SCRIPTNAME_RELOAD_KILLER
-                            ' -------------------------------------------
-                            APP_PATH_AND_EXE = App.Path + "\" + App.EXEName + ".EXE"
-                            APP_PATH_AND_EXE = Replace(APP_PATH_AND_EXE, " ", "*")
-                            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
-                            WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
-                            End
-                        End If
-                    End If
-                End If
-            End If
-        End If
-    End If
-
 End Sub
 
 
 
 Public Sub DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB()
+    
+    Exit Sub
     
     ' WHY DATE WRONG AT LOAD
     ' ONLY GET DATE NOT LAUNCHER
@@ -591,384 +646,27 @@ If Me.EXIT_TRUE = True Then
     Exit Sub
 End If
     
-If RZZD = 0 Then
-    RZZD = 1
-    Call VB_PROJECT_CHECKDATE
-    Exit Sub
-End If
+Call VB_PROJECT_CHECKDATE
 
-If DISPLAY_RESULT_VAR_AFTER_FIRST_PASS = True Then
-    RZZD = 2
-    Call VB_PROJECT_CHECKDATE
-    RZZD = 1
-End If
-RZZD = -10
+Exit Sub
 
-TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = False
-Timer_VB_PROJECT_CHECKDATE.Enabled = True
+'TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = False
+'Timer_VB_PROJECT_CHECKDATE.Enabled = True
 
 End Sub
 
 
 Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
                 
-    ' FIRST PASS AND 2ND
-    ' RZZD = RZZD + 1
-                
-    If 1 = 2 Then
-        Exit Sub
-    End If
-    
-    If ONCE_STARTER_MODE = True Then
-        Exit Sub
-    End If
-    ONCE_STARTER_MODE = True
-    
-    
-    RETRY_CRC_ERROR = 4
-    
-    Dim VB_DATE
-    Dim I_TEXT
-    Dim VBS_LAUNCHER_NAME
-    
-    Set m_CRC = New clsCRC
-    m_CRC.Algorithm = CRC32
-    
-    If APP_EXENAME_DATE = 0 Then
-        PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
-        Set FSO = CreateObject("Scripting.FileSystemObject")
-        Set F = FSO.GetFile(PATH_FILE_NAME1)
-        APP_EXENAME_DATE = F.DateLastModified
-    End If
-    
-    PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
-    PATH_FILE_NAME2 = Replace(PATH_FILE_NAME1, "D:\VB6\", "D:\VB6-EXE\")
-    '---------------------------------------------------
-    'IF A NEW PROJECT NOT BEEN SYNC YET TO VB_EXE FOLDER
-    '---------------------------------------------------
-    On Error Resume Next
-    If Dir(PATH_FILE_NAME2) = "" Then
-        If Dir(Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\")), vbDirectory) = "" Then
-            CreateFolderTree Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\"))
-        End If
-    End If
-    Err.Clear
-    Set F = FSO.GetFile(PATH_FILE_NAME1)
-    APP_EXENAME_DATE = F.DateLastModified
-    Set F = FSO.GetFile(PATH_FILE_NAME2)
-    VB_EXE_DATE = F.DateLastModified
-    
-    ' NOT ANY FURTHER CHECK AFTER ONE
-    ' IF VB_EXE NOT MATCH VB THEN CONTUNE AHEAD
-    ' UNABLE STORE VARIABLE FOR ONE PASS
-    ' AS FORM UNLOADER
-    ' UNTIL BETTER AR
-    ' -----------------------------------------
-    If APP_EXENAME_DATE = VB_EXE_DATE Then
-        Exit Sub
-    End If
-    
-    
-    If APP_EXENAME_DATE > VB_EXE_DATE Then
-        WxHex_FILE_2 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME2))
-        For RSB = 1 To RETRY_CRC_ERROR
-            If Me.EXIT_TRUE = True Then
-                Unload Me
-                Exit Sub
-            End If
-            WxHex_FILE_1 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME1))
-            If WxHex_FILE_1 <> WxHex_FILE_2 Then
-                i = App.EXEName + ".EXE" + vbCrLf + "CHECK PROJECT DATE __ 01 OF 03 ----------"
-                i = i + vbCrLf + PATH_FILE_NAME1 + vbCrLf + PATH_FILE_NAME2 + " "
-                
-                Project_Check_Date.Label1 = i
-                
-                If RZZD = 1 Then
-                    DISPLAY_RESULT_VAR_AFTER_FIRST_PASS = True
-                    Exit Sub
-                End If
 
-                FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
-            End If
-            WxHex_FILE_2 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME2))
-            If WxHex_FILE_1 = WxHex_FILE_2 Then
-                Set F = FSO.GetFile(PATH_FILE_NAME1)
-                SetFileDateTime PATH_FILE_NAME2, F.DateLastModified
-                Exit For
-            End If
-        Next
-    End If
-    
-    
-    ' CALL IT A DAY HERE
-    ' DON'T WANT ALL NETOWRK INVOLVED
-       
-    If 1 = 2 Then
-    FILE_NAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
-    'If Dir(FILE_NAME) = "" Then MsgBox "FILE NOT FOUND" + vbCrLf + vbCrLf + FILE_NAME
-    If Dir(FILE_NAME) <> "" Then
-        FR1 = FreeFile
-        Open FILE_NAME For Input As #FR1
-        Do
-            Line Input #FR1, LINE_COMPUTER_NAME_1
-            If Me.EXIT_TRUE = True Then
-                Unload Me
-                Exit Sub
-            End If
-            If LINE_COMPUTER_NAME_1 <> "" Then
-                LINE_COMPUTER_NAME_2 = Replace(LINE_COMPUTER_NAME_1, "-", "_")
-                VB_APP_PATH_NAME_1 = App.Path
-                VB_APP_PATH_NAME_1 = Replace(VB_APP_PATH_NAME_1, "D:\VB6\", "D:\VB6-EXE\")
-                VB_APP_PATH_NAME_1 = Mid(VB_APP_PATH_NAME_1, 4)
-                LINE_EXE_PATH = "\\" + LINE_COMPUTER_NAME_1 + "\" + LINE_COMPUTER_NAME_2 + "_02_d_drive\" + VB_APP_PATH_NAME_1
-                VB_APP_PATH_NAME_2 = LINE_EXE_PATH + "\" + App.EXEName + ".EXE"
-                If Dir(Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\")), vbDirectory) = "" Then
-                    CreateFolderTree Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\"))
-                End If
-                
-                Set FSO = CreateObject("Scripting.FileSystemObject")
-                Set F = FSO.GetFile(PATH_FILE_NAME1)
-                APP_EXENAME_DATE = F.DateLastModified
-                VB_EXE_DATE = 0
-                Set F = FSO.GetFile(VB_APP_PATH_NAME_2)
-                VB_EXE_DATE = F.DateLastModified
-                
-                If APP_EXENAME_DATE > VB_EXE_DATE Then
-
-                    WxHex_FILE_1 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME1))
-                    WxHex_FILE_2 = Hex(m_CRC.CalculateFile(VB_APP_PATH_NAME_2))
-                    If WxHex_FILE_1 <> WxHex_FILE_2 Then
-                        For RSB = 1 To RETRY_CRC_ERROR
-                            If Me.EXIT_TRUE = True Then
-                                Unload Me
-                                Exit Sub
-                            End If
-                            WxHex_FILE_1 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME1))
-                            If WxHex_FILE_1 <> WxHex_FILE_2 Then
-                                i = App.EXEName + ".EXE" + vbCrLf + "CHECK PROJECT DATE __ 02 OF 03  ----------"
-                                i = i + vbCrLf + PATH_FILE_NAME1 + vbCrLf + VB_APP_PATH_NAME_2 + " "
-                                Project_Check_Date.Label1 = i
-                                If RZZD = 1 Then
-                                    DISPLAY_RESULT_VAR_AFTER_FIRST_PASS = True
-                                    Exit Sub
-                                End If
-
-                                FSO.CopyFile PATH_FILE_NAME1, VB_APP_PATH_NAME_2
-                                
-                            End If
-                            WxHex_FILE_2 = Hex(m_CRC.CalculateFile(VB_APP_PATH_NAME_2))
-                            If WxHex_FILE_1 = WxHex_FILE_2 Then
-                                Set F = FSO.GetFile(PATH_FILE_NAME1)
-                                SetFileDateTime VB_APP_PATH_NAME_2, F.DateLastModified
-                                Exit For
-                            End If
-                        Next
-                    End If
-                End If
-                'MsgBox "COPY "
-'                MsgBox "COPY " + vbCrLf + vbCrLf + PATH_FILE_NAME1 + vbCrLf + vbCrLf + VB_APP_PATH_NAME_2, vbMsgBoxSetForeground
-                'Exit Sub
-            End If
-        Loop Until EOF(FR1)
-        Close FR1
-    End If
-    End If
-    
-    
-    
-    
-    Set FSO = CreateObject("Scripting.FileSystemObject")
-    Set F = FSO.GetFile(PATH_FILE_NAME1)
-    XVB_DATE = F.DateLastModified
-    Set F = FSO.GetFile(PATH_FILE_NAME2)
-    VB_DATE = F.DateLastModified
-    
-    VBS_LAUNCHER_NAME = ""
-    
-    If XVB_DATE > VB_DATE And XVB_DATE > 0 And VB_DATE > 0 Then
-        Me.Refresh
-        FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
-        
-        WxHex_FILE_1 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME1))
-        WxHex_FILE_2 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME2))
-        If WxHex_FILE_1 <> WxHex_FILE_2 Then
-            For RSB = 1 To RETRY_CRC_ERROR
-                If Me.EXIT_TRUE = True Then
-                    Unload Me
-                    Exit Sub
-                End If
-                WxHex_FILE_1 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME1))
-                If WxHex_FILE_1 <> WxHex_FILE_2 Then
-                    i = App.EXEName + ".EXE" + vbCrLf + "CHECK PROJECT DATE __ 03 OF 03 ----------"
-                    i = i + vbCrLf + PATH_FILE_NAME1 + vbCrLf + PATH_FILE_NAME2 + " "
-                    Project_Check_Date.Label1 = i
-                    If RZZD = 1 Then
-                        DISPLAY_RESULT_VAR_AFTER_FIRST_PASS = True
-                        Exit Sub
-                    End If
-                    FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
-                End If
-                WxHex_FILE_2 = Hex(m_CRC.CalculateFile(PATH_FILE_NAME2))
-                If WxHex_FILE_1 = WxHex_FILE_2 Then
-                    Set F = FSO.GetFile(PATH_FILE_NAME1)
-                    SetFileDateTime PATH_FILE_NAME2, F.DateLastModified
-                    Exit For
-                End If
-            Next
-        End If
-    End If
-    
-    VBS_LAUNCHER_NAME = App.Path + "\VBS - RELOAD AND COPY_" + GetComputerName + ".VBS"
-    READY_TO_GO = False
-    
-    '----------------------------------
-    'WRITE INFO ABOUT DATE CHANGE NEWER
-    '----------------------------------
-    If XVB_DATE < VB_DATE And XVB_DATE > 0 Then
-    
-        '----------------------------------
-        'Mon 10 April 2017 16:30:50--------
-        '----------------------------------
-        'PROJECT REFERANCE ----------------
-        'wshom.ocx
-        'IF HARD FIND DO BROWSER
-        'IN SYSTEM32 AND SYSWOW64
-        'DIR wshom.ocx /S
-        '----------------------------------
-        'WINDOWS SCRIPT HOST OBJECT MODEL
-        'AFTER FIND ALSO HAVE TO SELECT HER
-        '----------------------------------
-        '----------------------------------
-        'Mon 10 April 2017 15:45:11--------
-        '----
-        'VISUAL BASIC wshom.ocx NOT WORKING - Google Search
-        'https://www.google.co.uk/search?num=50&rlz=1C1CHBD_en-GBGB721GB721&q=VISUAL+BASIC+wshom.ocx+NOT+WORKING&oq=VIUAL+BASIC+wshom.ocx+NOT+WORKING&gs_l=serp.3..30i10k1.1533.3987.0.4658.12.12.0.0.0.0.127.888.11j1.12.0....0...1c.1.64.serp..0.12.886...33i160k1j33i21k1.fYCPCpVPeVk
-        '--------
-        'WScript reference in VB
-        'http://forums.codeguru.com/showthread.php?30458-WScript-reference-in-VB
-        '----
-        'Set objShell = WScript.CreateObject("WScript.Shell")
-        '----------------------------------
-    
-        ' ----------------------------------------------------------
-        ' MAJOR IMPROVEMENT AND GOT WORKING 1ST TIME RUNNING UPDATER
-        ' THE UPDATED WHEN NEW COMPILED COMES ALONG EXIT AND RELAUNCH
-        ' IN VBSCRIPT FROM A MIRROR FOLDER VB-EXE
-        ' ----------------------------------------------------------
-        ' Thu 03-May-2018 09:25:29
-        ' Thu 03-May-2018 11:25:00 -- 3 HOUR
-        ' ----------------------------------------------------------
-        
-        PATH_FILE_NAME1 = App.Path + "\" + App.EXEName + ".EXE"
-        PATH_FILE_NAME2 = Replace(PATH_FILE_NAME1, "D:\VB6\", "D:\VB6-EXE\")
-        
-        I_TEXT = ""
-        I_TEXT = I_TEXT + "Dim FSO" + vbCrLf
-        I_TEXT = I_TEXT + "Set FSO = CreateObject(""SCRIPTING.FILESYSTEMOBJECT"")" + vbCrLf
-        I_TEXT = I_TEXT + "On Error Resume Next" + vbCrLf
-        I_TEXT = I_TEXT + "Do" + vbCrLf
-        I_TEXT = I_TEXT + "    Err.Clear" + vbCrLf
-        I_TEXT = I_TEXT + "    FC_2 = """ + PATH_FILE_NAME2 + """" + vbCrLf
-        I_TEXT = I_TEXT + "    FC_1 = """ + PATH_FILE_NAME1 + """" + vbCrLf
-        I_TEXT = I_TEXT + "    FN_1 = Mid(FC_2, InStrRev(FC_1, ""\"") + 1)" + vbCrLf
-        I_TEXT = I_TEXT + "    FSO.CopyFile FC_2, FC_1" + vbCrLf
-        I_TEXT = I_TEXT + "    Set F = FSO.GetFile(FC_1)" + vbCrLf
-        I_TEXT = I_TEXT + "    XVB_DATE_1 = F.DateLastModified" + vbCrLf
-        I_TEXT = I_TEXT + "    Set F = FSO.GetFile(FC_2)" + vbCrLf
-        I_TEXT = I_TEXT + "    APP_EXENAME_DATE = F.DateLastModified" + vbCrLf
-        I_TEXT = I_TEXT + "    IF XVB_DATE_1 <> APP_EXENAME_DATE THEN X_COUNT = X_COUNT + 1" + vbCrLf
-        'I_TEXT = I_TEXT + "    MSGBOX X_COUNT" + vbCrLf
-        I_TEXT = I_TEXT + "    WScript.Sleep 1000" + vbCrLf
-        I_TEXT = I_TEXT + "    ' TEN MINUTES SLEEPER" + vbCrLf
-        I_TEXT = I_TEXT + "Loop Until XVB_DATE_1=APP_EXENAME_DATE Or X_COUNT > 600" + vbCrLf
-        I_TEXT = I_TEXT + "If X_COUNT > 600 Then" + vbCrLf
-        I_TEXT = I_TEXT + "    MsgBox ""ERROR COPY FILE RETRY COUNT ""+X_COUNT+"" RETRY 10 MINUTE LEARN FOR VB UPDATE"" + vbCrLf + FC_1" + vbCrLf
-        I_TEXT = I_TEXT + "End If" + vbCrLf
-        I_TEXT = I_TEXT + "Err.Clear" + vbCrLf
-        I_TEXT = I_TEXT + "Set UAC = CreateObject(""SHELL.APPLICATION"")" + vbCrLf
-        '----------------------------------------------------
-        'WINDOWS XP PROBLEM _ CHANGE THE SCRIPT HERE
-        'NOT TO RUN AS ADMIN OR BRING THE RUNAS DIALOG BOX UP
-        'WIN XP = 5.1 _ WINDOWS 10 = 6.2
-        '----------------------------------------------------
-        If GetWindowsVersion > 5.1 Then
-            I_TEXT = I_TEXT + "UAC.ShellExecute FC_1, """", """", ""RUNAS"", 1" + vbCrLf
-        Else
-            I_TEXT = I_TEXT + "UAC.ShellExecute FC_1" + vbCrLf
-        End If
-        I_TEXT = I_TEXT + "If Err.Number > 0 Then" + vbCrLf
-        I_TEXT = I_TEXT + "    MsgBox ""ERROR LAUNCH VB PROGRAM FROM UPDATE"" + vbCrLf + FC_1 + vbCrLf + Err.Description" + vbCrLf
-        I_TEXT = I_TEXT + "End If" + vbCrLf
-        I_TEXT = I_TEXT + "WScript.Quit 0" + vbCrLf
-        
-'        Syntax
-'        .ShellExecute "application", "parameters", "dir", "verb", window
-'        .ShellExecute 'some program.exe', '"some parameters with spaces"', , "runas", 1
-'        Run a batch script with elevated permissions, flag=runas:
-'        Set objShell = CreateObject("Shell.Application")
-'        objShell.ShellExecute "E:\demo\batchScript.cmd", "", "", "runas", 1
-'        Run a VBScript with elevated permissions, flag=runas:
-'        Set objShell = CreateObject("Shell.Application")
-'        objShell.ShellExecute "cscript", "E:\demo\vbscript.vbs", "", "runas", 1
-                
-        If Dir(VBS_LAUNCHER_NAME) <> "" Then Kill VBS_LAUNCHER_NAME
-        FR1 = FreeFile
-        Open VBS_LAUNCHER_NAME For Output As #FR1
-            Print #FR1, I_TEXT
-        Close #FR1
-        
-        READY_TO_GO = True
-        
-    End If
-    
-    If READY_TO_GO = True And IsIDE = False Then
-        
-        '-------------------------
-        'GETTING 6.2 IN WINDOWS 10
-        'LOOKING FOR XP = 5.1
-        '-------------------------
-        If GetWindowsVersion > 5.1 Or 1 = 1 Then
-            'MsgBox "10"
-            
-            APP_PATH_AND_EXE = App.Path + "\" + App.EXEName + ".EXE"
-            APP_PATH_AND_EXE = Replace(APP_PATH_AND_EXE, " ", "*")
-            ' ADD STAR TO CONCOTION AND THEY REMOVE OTHER PARAMETER IN
-            ' Mon 17-Feb-2020 02:20:37
-            
-            ' KILL THE WSCRIPT NAME
-            ' FUNCTION & INCLUDE SUB
-            ' FIND_SCRIPTNAME_VAR = "\VBS - RELOAD AND COPY_"
-            ' -----------------------------------------------
-            Call WSCRIPT_SCRIPTNAME_RELOAD_KILLER
-            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
-            WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
-            End
-            
-        End If
-    End If
-    
-    If SET_FORM_PROJECT_CHECK_DATE_SOME_INFO_TRIGGER_SHOW = True Then
-        SET_FORM_PROJECT_CHECK_DATE_SOME_INFO_TRIGGER_SHOW = False
-        
-        TIMER_RUN_AND_THEN_HIDE_PRE_EVENT.Interval = 1000
-        TIMER_RUN_AND_THEN_HIDE_PRE_EVENT.Enabled = True
-        Timer_RUN_AND_THEN_HIDE_DELAY.Interval = 10000
-        Timer_RUN_AND_THEN_HIDE_DELAY.Enabled = True
-    End If
-End Sub
-
-Private Sub TIMER_RUN_AND_THEN_HIDE_PRE_EVENT_Timer()
-    TIMER_RUN_AND_THEN_HIDE_PRE_EVENT.Enabled = False
-    RZZD = -10
-    Project_Check_Date.Label1 = App.EXEName + ".EXE" + vbCrLf + "CHECK PROJECT DATE __ DONE "
 
 End Sub
 
 Private Sub Timer_RUN_AND_THEN_HIDE_DELAY_Timer()
-    Timer_RUN_AND_THEN_HIDE_DELAY.Enabled = False
-    
-    NotAlwaysOnTop Me.hWnd
-    Me.Visible = False
+'    Timer_RUN_AND_THEN_HIDE_DELAY.Enabled = False
+'
+'    NotAlwaysOnTop Me.hWnd
+'    Me.Visible = False
 End Sub
 
 
