@@ -433,7 +433,7 @@ Me.TOP = (Screen.Height - Me.Height) / 2
         DoEvents
         txtServer = "mail.btinternet.com"
         txtUsername = "matt.lan@btinternet.com"
-        txtPassword = "mosher"
+        txtPassword = ""
         DoEvents
         
         'Call KWab.cmdGo2_Click
@@ -1158,7 +1158,7 @@ End Sub
 
 Private Sub txtResult_Change()
 Dim TT, TTH, TX
-TX = "mosher"
+TX = ""
 TT = InStr(txtResult, TX)
 If TT > 0 Then
 TTH = txtResult.Text
