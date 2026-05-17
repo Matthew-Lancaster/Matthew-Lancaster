@@ -2185,11 +2185,11 @@ MessageBox = MessageBox + tr$
 
 '555 ROIDSGOLDRIM
 tr$ = "Personalized For UnKnown Street POST CODE"
-If CompName$ = "555ROIDSGOLDRIM" Then tr$ = "Personalized For Matt's Street BN41 1DQ"
-If CompName$ = "MAGICRAM2EODUR" Then tr$ = "Personalized For Matt's Street BN41 1DQ"
-If CompName$ = "EDDIESCIENTIST" Then tr$ = "Personalized For Eddie's Street BN41 2RY"
-If CompName$ = "NASA1234567890" Then tr$ = "Personalized For Marianne's Street BN2 6QE"
-If CompName$ = "MEACHELLE12345" Then tr$ = "Personalized For Meachelle's Street BN2 6QD"
+If CompName$ = "555ROIDSGOLDRIM" Then tr$ = "Personalized For Matt's Street "
+If CompName$ = "MAGICRAM2EODUR" Then tr$ = "Personalized For Matt's Street "
+If CompName$ = "EDDIESCIENTIST" Then tr$ = "Personalized For Eddie's Street "
+If CompName$ = "NASA1234567890" Then tr$ = "Personalized For Marianne's Street "
+If CompName$ = "MEACHELLE12345" Then tr$ = "Personalized For Meachelle's Street "
 
 tr$ = tr$ + vbCrLf
 
