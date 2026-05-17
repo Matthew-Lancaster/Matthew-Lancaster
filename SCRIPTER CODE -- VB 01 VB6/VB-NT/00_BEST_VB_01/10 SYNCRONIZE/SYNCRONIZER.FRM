@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form Form1 
    Caption         =   "Form1"
    ClientHeight    =   5352
@@ -106,12 +106,12 @@ Private Type PROCESSENTRY32
     dwFlags As Long
     szExeFile As String * MAX_PATH
 End Type
-Private Declare Function CreateToolhelpSnapshot Lib "Kernel32" Alias "CreateToolhelp32Snapshot" (ByVal lFlags As Long, ByVal lProcessID As Long) As Long
+Private Declare Function CreateToolhelpSnapshot Lib "kernel32" Alias "CreateToolhelp32Snapshot" (ByVal lFlags As Long, ByVal lProcessID As Long) As Long
     Private Const TH32CS_SNAPPROCESS As Long = 2&
     Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hWnd As Long, lpdwProcessId As Long) As Long
-Private Declare Function ProcessFirst Lib "Kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
-Private Declare Function ProcessNext Lib "Kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
-Private Declare Function CloseHandle Lib "Kernel32" (ByVal hObject As Long) As Long
+Private Declare Function ProcessFirst Lib "kernel32" Alias "Process32First" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function ProcessNext Lib "kernel32" Alias "Process32Next" (ByVal hSnapShot As Long, uProcess As PROCESSENTRY32) As Long
+Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
 
 Private Const LVM_FIRST = &H1000
 Private Const LVM_SETEXTENDEDLISTVIEWSTYLE = LVM_FIRST + 54
@@ -147,8 +147,8 @@ Private Declare Function GetMenu Lib "user32" (ByVal hWnd As Long) As Long
 '----------------------------------------------------------------------------------
 
 
-Private Declare Function FindFirstFile Lib "Kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
-Private Declare Function FindClose Lib "Kernel32" (ByVal hFindFile As Long) As Long
+Private Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Private Declare Function FindClose Lib "kernel32" (ByVal hFindFile As Long) As Long
 
 Private Type FILETIME
    LowDateTime          As Long
@@ -171,7 +171,7 @@ End Type
 Private Declare Function LockWindowUpdate Lib "user32" (ByVal hwndLock As Long) As Long
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
-Private Declare Function GetComputerNameA Lib "Kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
 
 Private Const INVALID_HANDLE_VALUE = -1
 Private Const FILE_ATTRIBUTE_ARCHIVE = &H20
@@ -230,9 +230,9 @@ Private Sub Form_Load()
     Set FSO = CreateObject("Scripting.FileSystemObject")
     
     Label1.Top = 0
-    Label1.Height = 800
+    Label1.height = 800
     
-    ListView1.Top = Label1.Top + Label1.Height
+    ListView1.Top = Label1.Top + Label1.height
     'ListView_INDEX.Top = Label1.Top + Label1.Height
     'ListView_INDEX.Left = 0
     
@@ -249,14 +249,14 @@ Private Sub Form_Load()
 '    List2.Height = List1.Height
 '    List4.Height = List1.Height
 '    List1.Width = 7800
-    ListView1.Width = 14000
-    ListView1.Height = 5900
+    ListView1.width = 14000
+    ListView1.height = 5900
     'ListView_INDEX.Width = 500
     'ListView_INDEX.Height = ListView1.Height
     ListView1.Left = 0 'ListView_INDEX.Width
-    Me.Width = ListView1.Left + ListView1.Width + 250
-    Me.Height = ListView1.Top + ListView1.Height + Menu_Height * Screen.TwipsPerPixelY + 580
-    Label1.Width = ListView1.Left + ListView1.Width
+    Me.width = ListView1.Left + ListView1.width + 250
+    Me.height = ListView1.Top + ListView1.height + Menu_Height * Screen.TwipsPerPixelY + 580
+    Label1.width = ListView1.Left + ListView1.width
     
     ListView1.Font.Name = "ARIAL"
     ListView1.Font.Size = 11

@@ -5415,7 +5415,7 @@ Sub FORM_LOAD_STEP_02()
     VAR_DATE_2 = Format(VAR_DATE_1, "DDD DD-MMM-YYYY  HH:MM AM/PM")
     VAR_DATE_ORIGINAL_APP_EXE_WHEN_PROGRAM_START = VAR_DATE_1
     
-    ' C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE.VBS
+    ' C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE.VBS
     
     MNU_VERSION.Caption = "Ver_2020_" + Trim(Str(App.Major)) + "." + Trim(Str(App.Minor)) + "." + Trim(Str(App.Revision)) + "  " + VAR_DATE_2 ' + " _ Matt.Lan@btinternet.com"
     MNU_COMPUTER.Caption = "COMPUTER__" + GetComputerName '+ "__USER__" + GetUserName
@@ -6132,7 +6132,7 @@ If VAR_DATE_ORIGINAL_APP_EXE_WHEN_PROGRAM_START < VAR_DATE_1 Then
     Reset
     If FileInUse(FILE_NAME) = True Then Exit Sub
     FILE_NAME = Replace(FILE_NAME, " ", "*")
-    SCRIPT_VBS_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE.VBS"
+    SCRIPT_VBS_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE.VBS"
     Dim WSHShell
     Set WSHShell = CreateObject("WScript.Shell")
     WSHShell.RUN """" + SCRIPT_VBS_NAME + """" + FILE_NAME, DontShowWindow, DontWaitUntilFinished
@@ -9121,10 +9121,15 @@ For INDX = 1 To UBound(FRMXNAME)
     Set FRMX = Forms.Add(FRMXNAME(INDX))
     If Err.Number = 0 Then
         FRMXNAME_T = FRMXNAME(INDX)
+        ' FRMX.Visible = True
         Exit For
     End If
 Next
 ' -------------------------------------------------
+
+Project_Check_Date.Timer_VB_PROJECT_CHECKDATE.Enabled = True
+
+'Load Project_Check_Date
 
 End Sub
 
@@ -11645,7 +11650,7 @@ End Sub
 Private Sub MNU_PIN_ITEM_BATCH_VBS_Click()
         Dim WSHShell
         Set WSHShell = CreateObject("WScript.Shell")
-            WSHShell.RUN """" + "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 12-PinItem BATCH.VBS" + """"
+            WSHShell.RUN """" + "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 12-PinItem BATCH.VBS" + """"
         Set WSHShell = Nothing
         Beep
         If MNU_NOT_MINIMIZE_VALUE = False Then
@@ -14209,7 +14214,7 @@ If O_C_DRIVEROOT_V_VAR <> V_VAR Then
 
     Dim WSHShell
     Set WSHShell = CreateObject("WScript.Shell")
-        WSHShell.RUN """" + "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" + """ /RUN", 0, True
+        WSHShell.RUN """" + "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__.AHK" + """ /RUN", 0, True
     Set WSHShell = Nothing
 
 End If
