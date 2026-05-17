@@ -145,16 +145,6 @@ Dim DATE_OF_APP_EXE_AT_LOAD
 
 Dim FORM_LOAD_CHECK_PROJECT_DATE_DO_AH_ONCE
 
-Const hWnd_TOPMOST = -1
-Const hWnd_NOTOPMOST = -2
-Const MF_BYPOSITION = &H400&
-Const SWP_NOSIZE = &H1
-Const SWP_NOMOVE = &H2
-Const SPI_SCREENSAVERRUNNING = 97
-Const SWP_NOACTIVATE = &H10
-Const SWP_SHOWWINDOW = &H40
-
-Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
 
 Private Declare Function GetUserNameA Lib "advapi32.dll" (ByVal lpBuffer As String, nSize As Long) As Long
 Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
@@ -341,6 +331,26 @@ Private Declare Function SystemTimeToFileTime Lib _
  
 ' Private Declare Function CloseHandle Lib "kernel32" _
     (ByVal hObject As Long) As Long
+
+Const hWnd_TOPMOST = -1
+Const hWnd_NOTOPMOST = -2
+Const MF_BYPOSITION = &H400&
+Const SWP_NOSIZE = &H1
+Const SWP_NOMOVE = &H2
+Const SPI_SCREENSAVERRUNNING = 97
+Const SWP_NOACTIVATE = &H10
+Const SWP_SHOWWINDOW = &H40
+
+Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+
+Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
+    SetWindowPos hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+End Function
+Private Function NotAlwaysOnTop(ByVal hWnd As Long)
+    Dim flags
+    SetWindowPos hWnd, hWnd_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
+End Function
+
 
 
 Function GetWindowsVersion()
@@ -1114,13 +1124,6 @@ Private Function TestIDE(Test As Boolean) As Boolean
 End Function
 '***********************************************
 
-Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
-    SetWindowPos hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
-End Function
-Private Function NotAlwaysOnTop(ByVal hWnd As Long)
-    Dim flags
-    SetWindowPos hWnd, hWnd_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
-End Function
 
 Sub WSCRIPT_SCRIPTNAME_RELOAD_KILLER()
     
