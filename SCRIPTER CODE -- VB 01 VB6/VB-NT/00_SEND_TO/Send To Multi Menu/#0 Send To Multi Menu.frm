@@ -690,7 +690,7 @@ End Sub
 
 Private Sub MNU_DEL_EMPTY_Click()
 
-Shell "C:\Program Files (x86)\Notepad++\notepad++.exe ""C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 00-DELETE_EMPTY_FOLDER_2.VBS""", vbMaximizedFocus
+Shell "C:\Program Files (x86)\Notepad++\notepad++.exe ""C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 00-DELETE_EMPTY_FOLDER_2.VBS""", vbMaximizedFocus
 
 Me.WindowState = vbMinimized
 
@@ -1540,14 +1540,14 @@ Private Sub MNU_FFMPEG_VERIFY_Click()
     ' https://ffmpeg.zeranoe.com/builds/
     ' ----
     ' ---------------------------------------------------------------
-'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
-'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
+'    DH = """C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
 '    DH = """C:\PStart\# NOT INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + XF0 + """ -f null - 1>""" + XF2 + """ 2>&1"
     
     ' ---------------------------------------------------------------
     ' UP-TO-DATE VERSION
     ' ---------------------------------------------------------------
-    PATH_FFMPEG = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
+    PATH_FFMPEG = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"
     
     ' XF0 = Replace(XF0, "&", "&")
     ' XF2 = Replace(XF2, "&", "~&")
@@ -1557,7 +1557,7 @@ Private Sub MNU_FFMPEG_VERIFY_Click()
     ' ---------------------------------------------------------------
     ' ---------------------------------------------------------------
     'TRY TO RUN SCRIPTING FROM COMMAND LINE -- WRONG DEBUG IT WORK TO DO
-    'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
+    'DH = "CMD /K """"C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"""" -v error -i """"" + XF0 + """""" + " -f null " + """""" + XF2 + """"""
     '-----------------------------
     'Dim WSHShell
     'Set WSHShell = CreateObject("WScript.Shell")
@@ -1695,7 +1695,7 @@ Private Sub MNU_GET_ALL_EXTENSION_TYPE_Click()
     XF0 = Replace(XF0, " ", "*")
     Dim WSHShell
     Set WSHShell = CreateObject("WScript.Shell")
-        RUN_SCRIPT = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 25-COUNT FILES AND SUB - RETURN EXTENSION TYPE.VBS"
+        RUN_SCRIPT = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 25-COUNT FILES AND SUB - RETURN EXTENSION TYPE.VBS"
         WSHShell.Run """" + RUN_SCRIPT + """ """ + XF0 + """"
     Set WSHShell = Nothing
     End

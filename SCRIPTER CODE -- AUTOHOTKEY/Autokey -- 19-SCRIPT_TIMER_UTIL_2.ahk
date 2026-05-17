@@ -300,8 +300,8 @@ GOODSYNC_SET_GO=
 GOSUB GITHUB_MIDNIGHT_AND_MIDDAY_TIMER
 ; SETTIMER GITHUB_MIDNIGHT_AND_MIDDAY_TIMER, 1000
 
-DAY_AND_HOUR_NOW=
-; SETTIMER MIDNIGHT_AND_HOUR_TIMER, 1000
+DAY_AND_HOUR_NOW_1=
+; SETTIMER MIDNIGHT_AND_HOUR_TIMER_1, 1000
 
 
 ; SETTIMER TIMER_SUB_HUBIC_1, 10000   ; ---- 10 SECOND
@@ -485,6 +485,13 @@ VBS_29_COPY_CAMERA_PHOTO_IMAGE_SOUND_PING_COUNTER=
 SETTIMER VBS_29_COPY_CAMERA_PHOTO_IMAGES_VBS,4000
 
 KEY_STATE=
+
+
+OL_Hour_Get_01=
+OL_Day_Get__01=
+
+DAY_AND_HOUR_NOW_2=
+SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, 1000
 
 
 RETURN
@@ -3473,7 +3480,7 @@ GITHUB_MIDNIGHT_AND_MIDDAY_TIMER:
 RETURN
 
 
-MIDNIGHT_AND_HOUR_TIMER:
+MIDNIGHT_AND_HOUR_TIMER_1:
 
 	; ---------------------------------------------------------------
 	; 1 = DAY TIMER 
@@ -3508,7 +3515,7 @@ MIDNIGHT_AND_HOUR_TIMER:
 
 	SET_GO=FALSE
 
-	IF A_Hour<>%DAY_AND_HOUR_NOW%
+	IF A_Hour<>%DAY_AND_HOUR_NOW_1%
 	{
 		; IF A_Hour=12
 		; 	SET_GO=TRUE
@@ -3521,13 +3528,13 @@ MIDNIGHT_AND_HOUR_TIMER:
 		}
 	}	
 
-	IF !DAY_AND_HOUR_NOW
+	IF !DAY_AND_HOUR_NOW_1
 	{
-		DAY_AND_HOUR_NOW=%A_Hour%
+		DAY_AND_HOUR_NOW_1=%A_Hour%
 		RETURN
 	}
 	
-	DAY_AND_HOUR_NOW=%A_Hour%
+	DAY_AND_HOUR_NOW_1=%A_Hour%
 
 	IF SET_GO=FALSE 
 		RETURN
@@ -3543,9 +3550,9 @@ MIDNIGHT_AND_HOUR_TIMER:
 	; LATE BY TIME GET THERE
 	; BETTER FOR SHORT TIMING
 	; ---------------------------------------------------------------
-	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER, OFF
-	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER, %Midnight%
-	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER, ON
+	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER_1, OFF
+	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER_1, %Midnight%
+	; ; SETTIMER MIDNIGHT_AND_HOUR_TIMER_1, ON
 	; ----
 	; Test Timer Status - Ask for Help - AutoHotkey Community
 	; https://autohotkey.com/board/topic/55321-test-timer-status/
@@ -6571,6 +6578,224 @@ IF SET_GO=TRUE
 }
 Return
 
+
+	
+MIDNIGHT_AND_HOUR_TIMER_2:
+
+
+	; ---------------------------------------------------------------
+	; DAY TIMER 
+	; ---------------------------------------------------------------
+	Midnight_Get_01 := SubStr( A_Now, 1, 8 ) . "000000"
+	Midnight_Get_01 += 1, days
+	IF OL_Day_Get__01<>%Midnight_Get_01%
+	{
+		; GOSUB DELETE_CERTAIN_SET_FOLDER_AND_FILE_ON_DESKTOP
+		IF OL_Day_Get__01    ; ---- NOT TO RUN AT BOOT OF CODER APP
+		{	
+			; GOSUB NOTEPAD_PP_SESSION_BACKUP_DAILY
+			; GOSUB VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS
+			; GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+			; GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
+			GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
+			; GOSUB SET_OWNER_RUN_BATCH_FILER
+			GOSUB RAM_EMPTY_MAIN
+			; GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER
+			; GOSUB CLOSE_ALL_VB__AHK_CLASS_WNDCLASS_DESKED_GSK_MIDNIGHT
+			; GOSUB PULL_RECYCLE_BIN_ON  ; CHECK IF EMPTY BEFORE BEGIN
+			; GOSUB KILL_RS232_LOGGER_DO_RESTARTER
+			; FN_VAR_04=C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 85-CHECK DISK CHKDSK AR MEDIA CARD_DAY EVENT.ahk
+			; IfExist, %FN_VAR_04%
+				; Run, %FN_VAR_04%
+			; GOSUB RUN_GOODSYNC
+			; GOSUB KILL_COMPUTER_TEAMVIEWER
+			
+			; GOSUB RUN_HUBIC_MIDNIGHT_IF_GONE_PROCESS_LASSO_PLUS_5_PERCENT_FOR_60_SECOND
+		}
+		
+
+		GOSUB HANDBRAKE_COPY_THE_DLL_FILE
+		
+		OL_Day_Get__01=%Midnight_Get_01%
+	}
+	
+	; ---------------------------------------------------------------
+	; HOUR TIMER
+	; ---------------------------------------------------------------
+	Hour_Get_01 := SubStr( A_Now, 1, 10 ) . "000000"
+	Hour_Get_01 += 1, hours
+	IF OL_Hour_Get_01<>%Hour_Get_01%
+	{
+		OL_Hour_Get_01=%Hour_Get_01%
+	}
+
+	; ---------------------------------------------------------------
+	; 1 = DAY TIMER 
+	; 2 = HOUR TIMER
+	; 3 = MINUTE TIMER
+	; ---------------------------------------------------------------
+	VALUE_TIMER_DY_HR_MI=2
+	
+	IF VALUE_TIMER_DY_HR_MI=1
+	{
+		Midnight := SubStr( A_Now, 1, 8 ) . "000000"
+		Midnight += 1, days
+	}
+	IF VALUE_TIMER_DY_HR_MI=2
+	{
+		Midnight := SubStr( A_Now, 1, 10 ) . "000000"
+		Midnight += 1, hours
+	}
+	IF VALUE_TIMER_DY_HR_MI=3
+	{
+		Midnight := SubStr( A_Now, 1, 12 ) . "000000"
+		Midnight += 1, MINUTES
+	}
+
+	Midnight -= A_Now, seconds
+
+	EnvMult, Midnight, 1000
+
+	SET_GO=FALSE
+
+	IF A_Hour<>%DAY_AND_HOUR_NOW_2%
+	{
+		; IF A_Hour=12
+		; 	SET_GO=TRUE
+		;IF A_Hour=0
+		;	SET_GO=TRUE
+
+		IF Mod(A_Hour, 4)=0
+		{
+			SET_GO=TRUE
+		}
+	}	
+
+	IF !DAY_AND_HOUR_NOW_2
+	{
+		DAY_AND_HOUR_NOW_2=%A_Hour%
+		RETURN
+	}
+	
+	DAY_AND_HOUR_NOW_2=%A_Hour%
+
+	IF SET_GO=FALSE 
+		RETURN
+	
+
+	; GOSUB TIMER_Check_Any_PID_Suspended_Warning
+	
+	; GOSUB KILL_TEAMVIEWER_ON_LOW_END_COMPUTER
+
+	
+	; ---------------------------------------------------------------
+	; THIS IS A GOOD IDEA BUT FOR 12 HOUR TIME IT IS ABOUT 16 MINUTE 
+	; LATE BY TIME GET THERE
+	; BETTER FOR SHORT TIMING
+	; ---------------------------------------------------------------
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, OFF
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, %Midnight%
+	; SETTIMER MIDNIGHT_AND_HOUR_TIMER_2, ON
+	; ----
+	; Test Timer Status - Ask for Help - AutoHotkey Community
+	; https://autohotkey.com/board/topic/55321-test-timer-status/
+	; ----
+	
+RETURN
+
+
+
+; ----
+; display PID list - Ask for Help - AutoHotkey Community
+; https://autohotkey.com/board/topic/36888-display-pid-list/
+; ----
+
+RAM_EMPTY_MAIN:
+
+	VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
+	success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
+	stats1 := ReadInteger(&memorystatus,4,4, false)                          
+	stats2 := Round(ReadInteger(&memorystatus,12,4, false)/1024) 
+
+	GOSUB, RAM_EMPTY
+
+	VarSetCapacity(memorystatus, 4+4+4+4+4+4+4+4)
+	success := DllCall("kernel32.dll\GlobalMemoryStatus", "uint", &memorystatus)
+	stats1A := ReadInteger(&memorystatus,4,4, false) 
+	stats2A := Round(ReadInteger(&memorystatus,12,4, false)/1024)  
+
+	dif1 := stats1 - stats1A
+	dif2 := stats2 - stats2A
+
+	MSGBOX,,,% "EMPTY " dif1 "% OF RAM " dif2 "K", 50
+
+RETURN
+RAM_EMPTY:
+DetectHiddenWindows, On
+WinGet,processes_,List
+Loop %processes_%
+{
+	WinGet, PID, PID,% "ahk_id " processes_%A_Index%
+	Process, Exist, %PID%
+	procid :=ErrorLevel
+	IfNotEqual, procid
+	{
+		hash:=DllCall("OpenProcess","UInt",0x001F0FFF,"Int",0,"Int",procid)
+		DllCall("SetProcessWorkingSetSize", "UInt", hash, "Int", -1, "Int", -1)
+		DllCall("CloseHandle", "Int", hash)
+	}
+}
+RETURN	
+ReadInteger( p_address, p_offset, p_size, p_hex=true )
+{
+  value = 0
+  old_FormatInteger := a_FormatInteger
+  if ( p_hex )
+    SetFormat, integer, hex
+  else
+    SetFormat, integer, dec
+  loop, %p_size%
+    value := value+( *( ( p_address+p_offset )+( a_Index-1 ) ) << ( 8* ( a_Index-1 ) ) )
+  SetFormat, integer, %old_FormatInteger%
+  return, value
+}
+
+
+
+
+
+
+
+VB_NT_00_Best_VB_01_SYNCRONIZER:
+	; ---------------------------------------------------------------
+	; RISKER TO GET -- SYNCRONIZER
+	; HARDLY EVER BEEN A PRODUCT
+	; ---------------------------------------------------------------
+	Element_1:="D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.EXE"
+	IfExist, %Element_1%
+		Run, "%Element_1%" QUIETLY , , MIN ; HIDE
+	; ---------------------------------------------------------------
+RETURN
+
+
+HANDBRAKE_COPY_THE_DLL_FILE:
+
+	Element_1:="D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\HANDBRAKE DVD COPIER\libdvdcss-2.dll"
+	IfExist, %Element_1%
+	{
+		IfNOTExist, C:\Program Files\HandBrake\libdvdcss-2.dll
+		IfExist, C:\Program Files\HandBrake
+		{
+			MSGBOX "FileCopy C:\Program Files\HandBrake\libdvdcss-2.dll"
+			FileCopy, %Element_1%, C:\Program Files\HandBrake\libdvdcss-2.dll,1 
+		}
+	}
+	; ---------------------------------------------------------------
+	; Fri 06-Sep-2019 17:33:40
+	; ---------------------------------------------------------------
+
+RETURN
+
 ;----------------------------------------
 TIMER_SUB_CMD_KILL:
 
@@ -6685,53 +6910,53 @@ Return
 ;--------------------------------------------------------------------
 
 ;============================== Working on WinXP+
-Process_Suspend_esif_assist_64(PID){
-	PID=
+Process_Suspend_esif_assist_64(PID_VAR){
+	PID_VAR=
 	Process, Exist, esif_assist_64.exe
-	PID = %ErrorLevel%
-	IF PID
+	PID_VAR = %ErrorLevel%
+	IF PID_VAR
 	{
-		h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+		h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_VAR)
 		If !h_1
 			Return -1
 		DllCall("ntdll.dll\NtSuspendProcess", "Int", h_1)
 		DllCall("CloseHandle", "Int", h_1)
 	}
 }
-Process_Suspend(PID_or_Name){
-    PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+Process_Suspend(PID_VAR_or_Name){
+    PID_VAR := (InStr(PID_VAR_or_Name,".")) ? ProcExist(PID_VAR_or_Name) : PID_VAR_or_Name
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_VAR)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtSuspendProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)
 }
-Process_Resume(PID_or_Name){
-    PID := (InStr(PID_or_Name,".")) ? ProcExist(PID_or_Name) : PID_or_Name
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+Process_Resume(PID_VAR_or_Name){
+    PID_VAR := (InStr(PID_VAR_or_Name,".")) ? ProcExist(PID_VAR_or_Name) : PID_VAR_or_Name
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_VAR)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtResumeProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)
 }
 
-Process_Suspend_PID(PID){
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+Process_Suspend_PID(PID_VAR){
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_VAR)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtSuspendProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)
 }
-Process_Resume_PID(PID){
-    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", pid)
+Process_Resume_PID(PID_VAR){
+    h_1:=DllCall("OpenProcess", "uInt", 0x1F0FFF, "Int", 0, "Int", PID_VAR)
     If !h_1
         Return -1
     DllCall("ntdll.dll\NtResumeProcess", "Int", h_1)
     DllCall("CloseHandle", "Int", h_1)
 }
 
-ProcExist(PID_or_Name=""){
-    Process, Exist, % (PID_or_Name="") ? DllCall("GetCurrentProcessID") : PID_or_Name
+ProcExist(PID_VAR_or_Name=""){
+    Process, Exist, % (PID_VAR_or_Name="") ? DllCall("GetCurrentProcessID") : PID_VAR_or_Name
     Return Errorlevel
 }
 

@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "ComDlg32.OCX"
-Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.Ocx"
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.Ocx"
+Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.ocx"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.ocx"
 Begin VB.Form frmMain 
    Caption         =   "MAster BATch VB6 Compiler"
    ClientHeight    =   8412
@@ -1090,11 +1090,11 @@ Dim ExeName32 As String
     
   Dim EXEName As String
   If InStr(ExeName32, ":\") = 0 Then
-      EXEName = Path32 & "\" & ExeName32
-      EXEName = Replace(EXEName, "\\", "\")
+        EXEName = Path32 & "\" & ExeName32
+        EXEName = Replace(EXEName, "\\", "\")
     Else
-    EXEName = ExeName32
-    EXEName = Replace(EXEName, "\\", "\")
+        EXEName = ExeName32
+        EXEName = Replace(EXEName, "\\", "\")
   End If
   
   
@@ -1108,17 +1108,22 @@ On Error GoTo 0
   '    End If
   '  Next
   'End If
-  
+Dim GOTRUE
+Dim GetFolderFILE
+GOTRUE = 0
+If InStr(UCase(pFile), UCase("BatchCompiler.vbp")) > 1 Then GOTRUE = 1
 
-mProjects(UBound(mProjects)).ProjectFullPath = pFile
-mProjects(UBound(mProjects)).ProjectName = GetFileName(mProjects(UBound(mProjects)).ProjectFullPath)
-  
-mProjects(UBound(mProjects)).ExeFullPath = EXEName
-mProjects(UBound(mProjects)).EXEName = GetFileName(mProjects(UBound(mProjects)).ExeFullPath)
+GetFolderFILE = Mid(pFile, 1, InStrRev(pFile, "\")) + "#DontReRunCompiler.txt"
 
+If Dir$(GetFolderFILE) <> "" Then GOTRUE = 1
 
-ReDim Preserve mProjects(UBound(mProjects) + 1)
-   
+If GOTRUE = 0 Then
+    mProjects(UBound(mProjects)).ProjectFullPath = pFile
+    mProjects(UBound(mProjects)).ProjectName = GetFileName(mProjects(UBound(mProjects)).ProjectFullPath)
+    mProjects(UBound(mProjects)).ExeFullPath = EXEName
+    mProjects(UBound(mProjects)).EXEName = GetFileName(mProjects(UBound(mProjects)).ExeFullPath)
+    ReDim Preserve mProjects(UBound(mProjects) + 1)
+End If
    
   
 End Sub
@@ -1466,9 +1471,9 @@ For x = 0 To Cnt - 1
 '    DD$ = Mid$(mProjects(Val(Indexes(X))).ExeFullPath, InStrRev(mProjects(Val(Indexes(X))).ExeFullPath, "\") + 1)
 '    TF$ = App.Path + "\Error Logs\Make-Error-Log-" + DD$ + ".Txt"
 
-    If DD$ <> "BatchCompiler.exe" Then
-        CCD = CCD + 1
-    End If
+'    If DD$ <> "BatchCompiler.exe" Then
+'        CCD = CCD + 1
+'    End If
     CCD = 1
     DD$ = Mid$(mProjects(Val(Indexes(x))).ExeFullPath, InStrRev(mProjects(Val(Indexes(x))).ExeFullPath, "\") + 1)
     TF$ = App.Path + "\Error Logs\Make-Error-Log-" + DD$ + "-" + Format$(CCD, "0000") + ".Txt"
@@ -1542,13 +1547,13 @@ For x = 0 To Cnt - 1
             A1 = InStrRev(DD$, "\")
             A1 = InStrRev(DD$, "\", A1 - 1)
             
-            BackAPath = Mid$(DD$, 1, A1) + "#DontReRunCompiler.txt"
-            If Dir$(DD$) <> "" Then
-                Tagg = 1
-            End If
-            If Dir$(BackAPath) <> "" Then
-                Tagg = 1
-            End If
+'            BackAPath = Mid$(DD$, 1, A1) + "#DontReRunCompiler.txt"
+'            If Dir$(DD$) <> "" Then
+'                Tagg = 1
+'            End If
+'            If Dir$(BackAPath) <> "" Then
+'                Tagg = 1
+'            End If
                 
             Tagg = 1 'LOOKHERE
             
@@ -1920,11 +1925,11 @@ Private Sub mnuAutoCompile_Click()
   
   For x = 0 To UBound(mProjects())
     Do
-    Jh7 = 0
-    If Dir$(mProjects(x).ProjectFullPath) = "" Then
-    x = x + 1: Jh7 = 1
-    'MsgBox "Cant Find Project" + mProjects(X).ProjectFullPath ': End
-    End If
+        Jh7 = 0
+        If Dir$(mProjects(x).ProjectFullPath) = "" Then
+            x = x + 1: Jh7 = 1
+            'MsgBox "Cant Find Project" + mProjects(X).ProjectFullPath ': End
+        End If
     Loop Until Jh7 = 0 Or x = UBound(mProjects())
     
     With mProjects(x)
