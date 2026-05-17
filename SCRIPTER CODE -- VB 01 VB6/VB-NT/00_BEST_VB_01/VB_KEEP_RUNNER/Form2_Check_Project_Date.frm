@@ -367,9 +367,9 @@ Private Sub Form_Load()
     
     
     
-    Unload Me
-    Exit Sub
-    
+'    Unload Me
+'    Exit Sub
+'
     Set FSO = CreateObject("Scripting.FileSystemObject")
     Set WSHShell = CreateObject("WScript.Shell")
     Project_Check_Date.Caption = App.EXEName + ".EXE"
@@ -384,9 +384,9 @@ End Sub
 
 Private Sub Timer_FORM_LOAD_RUN_WAIT_Timer()
 
-    Timer_FORM_LOAD_RUN_WAIT.Enabled = False
-    Timer_VB_PROJECT_CHECKDATE.Enabled = False
-'    TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = True
+    ' Timer_FORM_LOAD_RUN_WAIT.Enabled = FALSE
+'    Timer_VB_PROJECT_CHECKDATE.Enabled = False
+    TIMER_VB_PROJECT_CHECKDATE_FORM_LOAD.Enabled = True
 
 End Sub
 
@@ -439,7 +439,7 @@ End Sub
 
 Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 
-    Exit Sub
+    ' Exit Sub
 
     If Me.EXIT_TRUE = True Then
         Unload Me
@@ -447,7 +447,8 @@ Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
     End If
     
     If ONCE_STARTER_MODE = True Then
-    Exit Sub
+        Timer_VB_PROJECT_CHECKDATE.Interval = 60000
+        'Exit Sub
     End If
     ONCE_STARTER_MODE = True
     
@@ -524,7 +525,7 @@ Public Sub DATE_OF_APP_EXE_AT_LOAD_SUB()
                             ' -------------------------------------------
                             APP_PATH_AND_EXE = App.Path + "\" + App.EXEName + ".EXE"
                             APP_PATH_AND_EXE = Replace(APP_PATH_AND_EXE, " ", "*")
-                            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
+                            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
                             WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
                             End
                         End If
@@ -574,7 +575,7 @@ Public Sub DATE_OF_APP_WITHER_VB_EXE_AT_LOAD_SUB()
                         ' -------------------------------------------
                         APP_PATH_AND_EXE = App.Path + "\" + App.EXEName + ".EXE"
                         APP_PATH_AND_EXE = Replace(APP_PATH_AND_EXE, " ", "*")
-                        VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
+                        VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
                         WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
                         End
                     End If
@@ -620,7 +621,7 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
     End If
     
     If ONCE_STARTER_MODE = True Then
-    Exit Sub
+        Exit Sub
     End If
     ONCE_STARTER_MODE = True
     
@@ -680,6 +681,7 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
             If WxHex_FILE_1 <> WxHex_FILE_2 Then
                 i = App.EXEName + ".EXE" + vbCrLf + "CHECK PROJECT DATE __ 01 OF 03 ----------"
                 i = i + vbCrLf + PATH_FILE_NAME1 + vbCrLf + PATH_FILE_NAME2 + " "
+                
                 Project_Check_Date.Label1 = i
                 
                 If RZZD = 1 Then
@@ -698,6 +700,11 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
         Next
     End If
     
+    
+    ' CALL IT A DAY HERE
+    ' DON'T WANT ALL NETOWRK INVOLVED
+       
+    If 1 = 2 Then
     FILE_NAME = "C:\SCRIPTER\SCRIPTER CODE -- BAT\NET_SHARE\Multiple_Thread Port Scanner 02 CON\NETWORK_COMPUTER_NAME.txt"
     'If Dir(FILE_NAME) = "" Then MsgBox "FILE NOT FOUND" + vbCrLf + vbCrLf + FILE_NAME
     If Dir(FILE_NAME) <> "" Then
@@ -766,6 +773,10 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
         Loop Until EOF(FR1)
         Close FR1
     End If
+    End If
+    
+    
+    
     
     Set FSO = CreateObject("Scripting.FileSystemObject")
     Set F = FSO.GetFile(PATH_FILE_NAME1)
@@ -930,7 +941,7 @@ Public Sub VB_PROJECT_CHECKDATE(Optional FORM_LOAD_VAR)
             ' FIND_SCRIPTNAME_VAR = "\VBS - RELOAD AND COPY_"
             ' -----------------------------------------------
             Call WSCRIPT_SCRIPTNAME_RELOAD_KILLER
-            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
+            VBS_LAUNCHER_NAME = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS"
             WSHShell.RUN """" + VBS_LAUNCHER_NAME + """" + " " + APP_PATH_AND_EXE, ShowWindow_2, DontWaitUntilFinished
             End
             

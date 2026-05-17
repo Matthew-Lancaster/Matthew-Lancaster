@@ -1,17 +1,17 @@
 VERSION 5.00
-Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "MCI32.OCX"
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
+Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.ocx"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.ocx"
 Begin VB.Form Form1 
    AutoRedraw      =   -1  'True
    BackColor       =   &H00E0E0E0&
    Caption         =   "ClipBoard Logger"
-   ClientHeight    =   5205
-   ClientLeft      =   3690
-   ClientTop       =   6990
-   ClientWidth     =   12750
+   ClientHeight    =   5196
+   ClientLeft      =   3696
+   ClientTop       =   6996
+   ClientWidth     =   12744
    BeginProperty Font 
       Name            =   "Arial"
-      Size            =   10.5
+      Size            =   10.8
       Charset         =   0
       Weight          =   700
       Underline       =   0   'False
@@ -20,8 +20,8 @@ Begin VB.Form Form1
    EndProperty
    Icon            =   "ClipBoard Logger.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   5205
-   ScaleWidth      =   12750
+   ScaleHeight     =   5196
+   ScaleWidth      =   12744
    WindowState     =   1  'Minimized
    Begin VB.Timer TIMER1_SPOT_CHECK_CLIPBOPARD_CORRECT_LENGHT 
       Interval        =   1000
@@ -123,9 +123,10 @@ Begin VB.Form Form1
       TabIndex        =   12
       Top             =   876
       Width           =   2592
-      _ExtentX        =   4577
+      _ExtentX        =   4572
       _ExtentY        =   1588
       _Version        =   393217
+      Enabled         =   -1  'True
       ReadOnly        =   -1  'True
       ScrollBars      =   2
       Appearance      =   0
@@ -139,9 +140,10 @@ Begin VB.Form Form1
       Top             =   1812
       Visible         =   0   'False
       Width           =   4272
-      _ExtentX        =   7541
-      _ExtentY        =   1402
+      _ExtentX        =   7535
+      _ExtentY        =   1397
       _Version        =   393217
+      Enabled         =   -1  'True
       TextRTF         =   $"ClipBoard Logger.frx":094C
    End
    Begin VB.Timer Timer_1_MINUTE 
@@ -339,8 +341,8 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       Height          =   400
       Left            =   10980
-      ScaleHeight     =   345
-      ScaleWidth      =   480
+      ScaleHeight     =   348
+      ScaleWidth      =   492
       TabIndex        =   5
       Top             =   600
       Visible         =   0   'False
@@ -351,8 +353,8 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       Height          =   400
       Left            =   10392
-      ScaleHeight     =   345
-      ScaleWidth      =   480
+      ScaleHeight     =   348
+      ScaleWidth      =   492
       TabIndex        =   4
       Top             =   588
       Visible         =   0   'False
@@ -361,8 +363,8 @@ Begin VB.Form Form1
    Begin VB.PictureBox Picture2 
       Height          =   400
       Left            =   10980
-      ScaleHeight     =   345
-      ScaleWidth      =   480
+      ScaleHeight     =   348
+      ScaleWidth      =   492
       TabIndex        =   3
       Top             =   140
       Visible         =   0   'False
@@ -371,8 +373,8 @@ Begin VB.Form Form1
    Begin VB.PictureBox Picture1 
       Height          =   400
       Left            =   10392
-      ScaleHeight     =   345
-      ScaleWidth      =   480
+      ScaleHeight     =   348
+      ScaleWidth      =   492
       TabIndex        =   2
       Top             =   140
       Visible         =   0   'False
@@ -386,7 +388,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   2364
       _ExtentX        =   6244
-      _ExtentY        =   582
+      _ExtentY        =   572
       _Version        =   393216
       DeviceType      =   ""
       FileName        =   ""
@@ -405,7 +407,7 @@ Begin VB.Form Form1
       Visible         =   0   'False
       Width           =   2364
       _ExtentX        =   6244
-      _ExtentY        =   582
+      _ExtentY        =   572
       _Version        =   393216
       DeviceType      =   ""
       FileName        =   ""
@@ -2292,31 +2294,31 @@ Sub HEIGHT_BAR_TOP_ROUTINE()
     If Txt_Search.Left < 100 Then Txt_Search.Left = 100
 
     HEIGHT_BAR_TOP = 550
-    Txt_Search.Width = 4000
+    Txt_Search.width = 4000
     ' FOR XP THING LOW END COMPUTER SCREEN SIZE
     ' -----------------------------------------
     ' HIGHEND   -- 23040
     ' LOWER END -- 15360
-    If Screen.Width < 18000 Then
+    If Screen.width < 18000 Then
         Label3.FontSize = 8.2
         HEIGHT_BAR_TOP = 450
-        Txt_Search.Width = 2400
+        Txt_Search.width = 2400
     Else
         HEIGHT_BAR_TOP = 550
-        Txt_Search.Width = 4000
+        Txt_Search.width = 4000
     End If
     
-    Txt_Search.Top = Label1.Top + Label1.Height
-    Txt_Search.Left = Me.Width - Txt_Search.Width
-    Txt_Search.Height = HEIGHT_BAR_TOP '340 ' 336 IS MINIMUM HEIGHT 1 LINE ADD A FEW FOR NICER NUMBER
+    Txt_Search.Top = Label1.Top + Label1.height
+    Txt_Search.Left = Me.width - Txt_Search.width
+    Txt_Search.height = HEIGHT_BAR_TOP '340 ' 336 IS MINIMUM HEIGHT 1 LINE ADD A FEW FOR NICER NUMBER
     Txt_Search.BackColor = RGB(255, 255, 255)
     
     
     Label3.Left = 0
-    Label3.Top = Label1.Top + Label1.Height
-    Label3.Height = HEIGHT_BAR_TOP
+    Label3.Top = Label1.Top + Label1.height
+    Label3.height = HEIGHT_BAR_TOP
     If Txt_Search.Left > 0 Then
-        Label3.Width = Txt_Search.Left - 40
+        Label3.width = Txt_Search.Left - 40
     End If
     Label3.BackColor = RGB(255, 255, 255)
     Label3.FontSize = Label3.FontSize
@@ -2362,7 +2364,7 @@ If IsIDE = False Then
         
         Dim WSHShell
         Set WSHShell = CreateObject("WScript.Shell")
-        WSHShell.Run """" + VBSCRIPT_PATH + """"
+        WSHShell.RUN """" + VBSCRIPT_PATH + """"
         Set WSHShell = Nothing
         'Unload Me
         End
@@ -2429,7 +2431,7 @@ If UCase(GetComputerName) = "5-ASUS-P2520LA" Then DO_GO = 1
 If DO_GO = 1 Then
     If IsIDE = False Then
         PID = -1
-        Var = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
+        VAR = cProcesses.GetEXEID(PID, App.Path + "\" + App.EXEName + ".exe")
         If PID <> -1 Then
             Call Process_HIGH_PRIORITY_CLASS(PID)
         End If
@@ -2710,9 +2712,9 @@ Text1.SelStart = Len(Text1.Text)
 Label1.Top = 0
 Label1.Left = 0
 Label1.Caption = ""
-Label1.Height = 60
+Label1.height = 60
 Label1.Left = 0
-Label1.Width = Me.Width
+Label1.width = Me.width
 
 Call HEIGHT_BAR_TOP_ROUTINE
 
@@ -4194,7 +4196,7 @@ If Dir(EXECUTE_FILE_NAME) = "" Then
     Exit Sub
 End If
 
-WSHShell.Run """" + EXECUTE_FILE_NAME + """"
+WSHShell.RUN """" + EXECUTE_FILE_NAME + """"
 
 Set WSHShell = Nothing
 
@@ -6066,7 +6068,7 @@ On Error Resume Next
 EXECUTE_FILE_NAME = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-Autohotkeys Set AutoRun.ahk"
 If FSO.FileExists(EXECUTE_FILE_NAME) Then
     Set WSHShell = CreateObject("WScript.Shell")
-    WSHShell.Run """" + EXECUTE_FILE_NAME + """", WSCRIPT_DontShowWindow, DontWaitUntilFinished
+    WSHShell.RUN """" + EXECUTE_FILE_NAME + """", WSCRIPT_DontShowWindow, DontWaitUntilFinished
     Set WSHShell = Nothing
 End If
 On Error GoTo 0
@@ -8844,8 +8846,8 @@ Timer_MENU_HEIGHT_CHANGED.Enabled = True
 HHH = Now + TimeSerial(0, 2, 0) ' vbMinimized WINDOW
 
 GMCL_I = GET_MENU_CONTROL_LENGTH(I)
-If GMCL_I + Menu_Height + Me.Top + Me.Left + Me.Width + Me.Height = OLTLWH_3 Then Exit Sub
-OLTLWH_3 = Menu_Height + Me.Top + Me.Left + Me.Width + Me.Height + GMCL_I
+If GMCL_I + Menu_Height + Me.Top + Me.Left + Me.width + Me.height = OLTLWH_3 Then Exit Sub
+OLTLWH_3 = Menu_Height + Me.Top + Me.Left + Me.width + Me.height + GMCL_I
 O_GMCL_I = GMCL_I
 
 Call SETUP_DIMENSIONS_INNER_FORM
@@ -9068,8 +9070,8 @@ End If
 If FLAG_WW_VAR <> O_FLAG_WW_VAR Then OLTLWH_1 = 0
 O_FLAG_WW_VAR = FLAG_WW_VAR
 
-If Menu_Height + Me.Top + Me.Left + Me.Width + Me.Height = OLTLWH_1 Then Exit Sub
-OLTLWH_1 = Menu_Height + Me.Top + Me.Left + Me.Width + Me.Height
+If Menu_Height + Me.Top + Me.Left + Me.width + Me.height = OLTLWH_1 Then Exit Sub
+OLTLWH_1 = Menu_Height + Me.Top + Me.Left + Me.width + Me.height
 
 If STOP_RESIZE_WHILE_MOUSE_OR_KEY_DOWN = True Then Exit Sub
 
@@ -9081,13 +9083,13 @@ If STOP_RESIZE_WHILE_MOUSE_OR_KEY_DOWN = True Then Exit Sub
 'Border Line On the Edge
 
 Label1.Top = 0
-Label1.Width = Form1.Width - 70
+Label1.width = Form1.width - 70
 Call HEIGHT_BAR_TOP_ROUTINE
 
 
 Text1.Left = 0 - 18
 
-Text1.Top = Label3.Top + Label3.Height
+Text1.Top = Label3.Top + Label3.height
 
 'On Error Resume Next
 'Mnu_Height.Caption = Menu_Height
@@ -9122,23 +9124,23 @@ If GetComputerName = "5-ASUS-P2520LA" Then HEIGHT_ADJUST = 0
 
 'HIGHER NUMBER SMALLER INNER BOX
 
-Text1.Width = Form1.Width - WIDTH_ADJUST + 20
+Text1.width = Form1.width - WIDTH_ADJUST + 20
 ' Call HEIGHT_BAR_TOP_ROUTINE
 
 
 'MAKE FORM TALLER OR TEXT BOX
 'FORM IS PRIOITY OVER TEXT BOX
 
-XXDD = Form1.Height - (Menu_Height * Screen.TwipsPerPixelY) - 500 - (Label3.Top + Label3.Height)
+XXDD = Form1.height - (Menu_Height * Screen.TwipsPerPixelY) - 500 - (Label3.Top + Label3.height)
 If XXDD > 0 Then
     If XXDD - HEIGHT_ADJUST > 0 Then
-        Text1.Height = XXDD - HEIGHT_ADJUST
+        Text1.height = XXDD - HEIGHT_ADJUST
     End If
 End If
 
 
-If Menu_Height + Me.Top + Me.Left + Me.Width + Me.Height = OLTLWH_2 Then Exit Sub
-OLTLWH_2 = Menu_Height + Me.Top + Me.Left + Me.Width + Me.Height
+If Menu_Height + Me.Top + Me.Left + Me.width + Me.height = OLTLWH_2 Then Exit Sub
+OLTLWH_2 = Menu_Height + Me.Top + Me.Left + Me.width + Me.height
 
 'SCROLL TO BOTTOM PROCEDURE
 '--------------------------
@@ -9190,22 +9192,22 @@ Sub SETUP_DIMENSIONS_NORM()
             End If
         End If
         
-        SCREEN_WIDTH_SPACE = Screen.Width - X4
-        SCREEN_HEIGHT_SPACE = Screen.Height - y1 - Y2
+        SCREEN_WIDTH_SPACE = Screen.width - X4
+        SCREEN_HEIGHT_SPACE = Screen.height - y1 - Y2
         
-        Form1.Width = SCREEN_WIDTH_SPACE - 1200
-        Form1.Width = SCREEN_WIDTH_SPACE '- 200
-        Me.Width = Form1.Width
-        Form1.Height = SCREEN_HEIGHT_SPACE - 900
-        Form1.Height = SCREEN_HEIGHT_SPACE '- 200
-        Me.Height = Form1.Height
+        Form1.width = SCREEN_WIDTH_SPACE - 1200
+        Form1.width = SCREEN_WIDTH_SPACE '- 200
+        Me.width = Form1.width
+        Form1.height = SCREEN_HEIGHT_SPACE - 900
+        Form1.height = SCREEN_HEIGHT_SPACE '- 200
+        Me.height = Form1.height
         'THIS THE FORM HEIGHT
         'THE BOX INSIDE IS ADJUST AFTER
         
         'Form1.Left = (Screen.Width - Me.Width) / 2
-        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.Width) / 2
+        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.width) / 2
         Me.Left = Form1.Left
-        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.Height) / 2
+        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.height) / 2
         Me.Top = Form1.Top
     
 '        DoEvents
@@ -9249,12 +9251,12 @@ Sub SETUP_DIMENSIONS_CENTER()
             End If
         End If
         
-        SCREEN_WIDTH_SPACE = Screen.Width - X4
-        SCREEN_HEIGHT_SPACE = Screen.Height - y1 - Y2
+        SCREEN_WIDTH_SPACE = Screen.width - X4
+        SCREEN_HEIGHT_SPACE = Screen.height - y1 - Y2
         
         'Form1.Left = (Screen.Width - Me.Width) / 2
-        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.Width) / 2
-        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.Height) / 2
+        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.width) / 2
+        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.height) / 2
         
         DoEvents
         
@@ -9308,11 +9310,11 @@ Sub SETUP_DIMENSIONS_MAX()
             End If
         End If
         
-        SCREEN_WIDTH_SPACE = Screen.Width - X4
-        SCREEN_HEIGHT_SPACE = Screen.Height - y1 - Y2
+        SCREEN_WIDTH_SPACE = Screen.width - X4
+        SCREEN_HEIGHT_SPACE = Screen.height - y1 - Y2
         
-        Form1.Width = SCREEN_WIDTH_SPACE - 1200
-        Form1.Height = SCREEN_HEIGHT_SPACE - 900
+        Form1.width = SCREEN_WIDTH_SPACE - 1200
+        Form1.height = SCREEN_HEIGHT_SPACE - 900
         'THIS THE FORM HEIGHT
         'THE BOX INSIDE IS ADJUST AFTER
         
@@ -9320,8 +9322,8 @@ Sub SETUP_DIMENSIONS_MAX()
         
         
         'Form1.Left = (Screen.Width - Me.Width) / 2
-        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.Width) / 2
-        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.Height) / 2
+        Form1.Left = X4 + (SCREEN_WIDTH_SPACE - Me.width) / 2
+        Form1.Top = Y2 + (SCREEN_HEIGHT_SPACE - Me.height) / 2
     
 '        DoEvents
         
@@ -11829,7 +11831,7 @@ Private Sub Mnu_VB_ME_Click()
     Call CHECK_INTEGRITY_OF_VISUAL_BASIC_PROJECT_VBP(CODER_VBP_FILE_NAME_2)
     Dim OBJSHELL
     Set OBJSHELL = CreateObject("WSCRIPT.SHELL")
-    OBJSHELL.Run """" + VB_3 + """ """ + CODER_VBP_FILE_NAME_2 + """", 1, False
+    OBJSHELL.RUN """" + VB_3 + """ """ + CODER_VBP_FILE_NAME_2 + """", 1, False
     Set OBJSHELL = Nothing
     EXIT_TRUE = True
     Unload Me
@@ -12673,7 +12675,7 @@ Sub VBSCRIPT_CLOSE_AND_RELOAD()
     On Error GoTo 0
     VBS_LAUNCHER_NAME = "D:\VB6\VB-NT\00_BEST_VB_01\Clipboard Logger\VBS - RELOAD RESTART.VBS"
     Set WSHShell = CreateObject("WScript.Shell")
-        WSHShell.Run """" + VBS_LAUNCHER_NAME + """", ShowWindow_2, DontWaitUntilFinished
+        WSHShell.RUN """" + VBS_LAUNCHER_NAME + """", ShowWindow_2, DontWaitUntilFinished
     Set WSHShell = Nothing
     
     Unload Me
@@ -13085,8 +13087,8 @@ If OO_2 = True Then
     Loop Until Err.Number = 0
     On Error GoTo 0
     
-    Xx1 = Picture1.Picture.Width
-    yy1 = Picture1.Picture.Height
+    Xx1 = Picture1.Picture.width
+    yy1 = Picture1.Picture.height
     'hh1 = Picture1.Picture.hPal
     hh2 = Picture1.Picture.Type
     
@@ -13981,9 +13983,9 @@ hwnd9 = GetWindowRect(CurProcHwnd, Rect1)
 
 '--------------------------------------------------------------------
 Picture3.Picture = Clipboard.GetData(vbCFBitmap)
-U1 = Picture3.Width
-U2 = Picture3.Height
-If U1 > Screen.Width And U2 > Screen.Height Then QQ3$ = "Screen" Else QQ3$ = "App"
+U1 = Picture3.width
+U2 = Picture3.height
+If U1 > Screen.width And U2 > Screen.height Then QQ3$ = "Screen" Else QQ3$ = "App"
 '--------------------------------------------------------------------
 
 '--------------------------------------------------------------------

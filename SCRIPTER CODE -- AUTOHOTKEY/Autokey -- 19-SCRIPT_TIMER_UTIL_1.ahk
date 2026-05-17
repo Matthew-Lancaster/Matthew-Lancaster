@@ -798,16 +798,16 @@ HANDBRAKE_COPY_THE_DLL_FILE:
 RETURN
 
 
-VB_NT_00_Best_VB_01_SYNCRONIZER:
-	; ---------------------------------------------------------------
-	; RISKER TO GET -- SYNCRONIZER
-	; HARDLY EVER BEEN A PRODUCT
-	; ---------------------------------------------------------------
-	Element_1:="D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.EXE"
-	IfExist, %Element_1%
-		Run, "%Element_1%" QUIETLY , , MIN ; HIDE
-	; ---------------------------------------------------------------
-RETURN
+; VB_NT_00_Best_VB_01_SYNCRONIZER:
+	; ; ---------------------------------------------------------------
+	; ; RISKER TO GET -- SYNCRONIZER
+	; ; HARDLY EVER BEEN A PRODUCT
+	; ; ---------------------------------------------------------------
+	; Element_1:="D:\VB6\VB-NT\00_Best_VB_01\10 SYNCRONIZE\SYNCRONIZER.EXE"
+	; IfExist, %Element_1%
+		; Run, "%Element_1%" QUIETLY , , MIN ; HIDE
+	; ; ---------------------------------------------------------------
+; RETURN
 
 SET_OWNER_RUN_BATCH_FILER:
 
@@ -963,7 +963,7 @@ MIDNIGHT_AND_HOUR_TIMER:
 			GOSUB VBS_58_VB6_CORRECT_MSCOMCTL_OCX_2_2_VBS
 			GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
 			; GOSUB VBS_35_RENAMER_VB6_VBP_LCASE_VBS
-			GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
+			; GOSUB VB_NT_00_Best_VB_01_SYNCRONIZER
 			GOSUB SET_OWNER_RUN_BATCH_FILER
 			GOSUB RAM_EMPTY_MAIN
 			; GOSUB KILL_ALL_PROCESS_BY_REMOTE_INSTRUCTION ; - NOT SUPPOSED TO BE HERE GOT OWN TIMER

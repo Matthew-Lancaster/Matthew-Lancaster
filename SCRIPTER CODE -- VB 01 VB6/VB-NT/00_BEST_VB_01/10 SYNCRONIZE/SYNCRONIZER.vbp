@@ -1,10 +1,10 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\SysWow64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Reference=*\G{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}#1.0#0#C:\Windows\SysWOW64\wshom.ocx#Windows Script Host Object Model
 Form=SYNCRONIZER.FRM
-Form=Form2_Check_Project_Date.frm
 Class=clsCRC; CRC\ClsCRC.cls
-Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0; mscomctl.OCX
+Object={831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0; MSCOMCTL.OCX
+Form=Form2_Check_Project_Date.frm
 IconForm="Form1"
 Startup="Form1"
 ExeName32="SYNCRONIZER.exe"

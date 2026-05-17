@@ -695,7 +695,7 @@ For we = 1 To ListView1.ListItems.Count
         d1$ = d1$ + "TIME /T" + vbCrLf
         d1$ = d1$ + "REM --------------" + vbCrLf
         ' d1$ = d1$ + """C:\Program Files\# NO INSTALL REQUIRED\ffmpeg-20150701-git-9c010ba-win32-static\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
-        d1$ = d1$ + """C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
+        d1$ = d1$ + """C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-ffmpeg-20181007-0a41a8b-win64-static\bin\ffmpeg.exe"" -v error -i """ + a1$ + b1$ + """ -f null - >""" + xf2 + """ 2>&1" + vbCrLf
         
         
         weCount = weCount + 1

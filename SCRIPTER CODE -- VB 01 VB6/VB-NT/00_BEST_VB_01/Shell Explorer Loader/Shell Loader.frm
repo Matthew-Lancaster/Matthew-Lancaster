@@ -10774,7 +10774,7 @@ Private Sub MNU_GC_PROFILE_Click(Index As Integer)
     Me.WindowState = vbMinimized
     If Index > 2 Then
         XX = MNU_GC_PROFILE(Index).Caption
-        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
+        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
         SHELL_LINE_2 = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
         SHELL_LINE_3 = "--profile-directory=""Profile " + Trim(Str(Index - 1)) + """"
         ' "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 4"
@@ -10791,7 +10791,7 @@ Private Sub MNU_GC_PROFILE_Click(Index As Integer)
     ' LOAD ALL
     If Index = 0 Then
         XX = MNU_GC_PROFILE(Index).Caption
-        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
+        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
         SHELL_LINE_2 = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
         For R_1 = 0 To MNU_GC_PROFILE.Count - 1
             R_2 = MNU_GC_PROFILE.Item(R_1).Index
@@ -10818,7 +10818,7 @@ Private Sub MNU_GC_PROFILE_Click(Index As Integer)
     ' INDEX 1 -- LOAD ALL NOT 00
     If Index = 1 Then
         XX = MNU_GC_PROFILE(Index).Caption
-        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
+        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
         SHELL_LINE_2 = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
         For R_1 = 2 To MNU_GC_PROFILE.Count - 1
             R_2 = MNU_GC_PROFILE.Item(R_1).Index
@@ -10845,7 +10845,7 @@ Private Sub MNU_GC_PROFILE_Click(Index As Integer)
     ' INDEX 2 -- LOAD ALL OVER 30 MEGABYTE
     If Index = 2 Then
         XX = MNU_GC_PROFILE(Index).Caption
-        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
+        SHELL_LINE_1 = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPTCRIPT\VBS 40-RUN EXE EXPLORER LANCHER.VBS"
         SHELL_LINE_2 = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
         For R_1 = 3 To MNU_GC_PROFILE.Count - 1
             R_2 = MNU_GC_PROFILE.Item(R_1).Index - 2
