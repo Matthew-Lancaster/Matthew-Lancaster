@@ -4942,7 +4942,7 @@ Private Sub ConnectToFTP()
     
     Inet1.AccessType = icUseDefault
     Inet1.Document = ""
-    Inet1.Password = "interned243"
+    Inet1.Password = " "
     Inet1.Protocol = icFTP
     Inet1.RemoteHost = "matthewlan.com"
     Inet1.RequestTimeout = 300
