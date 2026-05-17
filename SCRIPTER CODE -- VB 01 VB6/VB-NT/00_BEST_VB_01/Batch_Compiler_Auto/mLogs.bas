@@ -48,7 +48,7 @@ Public Sub CompileToLog(vTextBox As RichTextBox, vProject As String, vExe As Str
   Dim S As String
    
   If FromAuto Then
-    S = "[CHANGE DETECTED - PROJECT COMPILED: " & vItemNumber & " of " & vTotalItems & "  (" & Now & ")]" & vbCrLf
+    S = vbCrLf & "[CHANGE DETECTED - PROJECT COMPILED: " & vItemNumber & " of " & vTotalItems & "  (" & Now & ")]" & vbCrLf
   Else
     S = "[PROJECT COMPILED: " & vItemNumber & " of " & vTotalItems & "  (" & Now & ")]" & vbCrLf
   End If

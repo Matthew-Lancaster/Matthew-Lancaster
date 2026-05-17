@@ -1,0 +1,5 @@
+Line 26: Class RichTextLib.RichTextBox of control TxtLog was not a loaded control class.
+Line 51: Class MCI.MMControl of control MMControl1 was not a loaded control class.
+Line 278: Class MSComctlLib.ProgressBar of control ProgressBar1 was not a loaded control class.
+Line 373: Class MSComDlg.CommonDialog of control CD was not a loaded control class.
+Line 380: Class MSComctlLib.ListView of control lstProj was not a loaded control class.
