@@ -206,7 +206,7 @@ Begin VB.Form frmMain
          Height          =   2715
          Left            =   60
          TabIndex        =   2
-         Top             =   120
+         Top             =   108
          Width           =   7815
          Begin VB.PictureBox Picture1 
             BackColor       =   &H00FFFFFF&
@@ -554,7 +554,7 @@ Public EXIT_TRUE
 
 Dim EXIT_ON_END, END_STATE
 Private Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
-Dim x As Integer, ProFullPath, ProEXEPath, ENDCODE
+Dim X As Integer, ProFullPath, ProEXEPath, ENDCODE
 Dim PROGCCOMPILED, RETURNvAL
 
 Dim Bads
@@ -769,9 +769,9 @@ End If
 If Bads = 0 Then
     TxtLog.Text = TxtLog.Text + "***** Finished ******" + vbCrLf
 Else
-    TxtLog.Text = Replace(TxtLog.Text, vbCrLf + vbCrLf + vbCrLf, vbCrLf)
-    TxtLog.Text = Replace(TxtLog.Text, vbCrLf + vbCrLf, vbCrLf)
-    TxtLog.Text = Replace(TxtLog.Text, vbCr + vbLf, vbCrLf)
+    ' TxtLog.Text = Replace(TxtLog.Text, vbCrLf + vbCrLf + vbCrLf, vbCrLf)
+'    TxtLog.Text = Replace(TxtLog.Text, vbCrLf + vbCrLf, vbCrLf)
+'    TxtLog.Text = Replace(TxtLog.Text, vbCr + vbLf, vbCrLf)
     TxtLog.Text = TxtLog.Text + "***** Finished ******   **** " + Str(Bads) + " Errors" + vbCrLf
     ' MsgBox TxtLog.Text
 End If
@@ -923,7 +923,7 @@ Me.Refresh
 
 If ENDCODE = True Then Exit Sub
 
-Dim x
+Dim X
   'If IsIDE = False Then Exit Sub
   'Resizeing Controls and column headers
     On Error Resume Next
@@ -945,8 +945,8 @@ Dim x
   
   'If framCover.Visible Then splitter1_AfterScroll
   
-  For x = 1 To lstProj.ColumnHeaders.Count
-    lstProj.ColumnHeaders(x).Width = (lstProj.Width - 120) / lstProj.ColumnHeaders.Count
+  For X = 1 To lstProj.ColumnHeaders.Count
+    lstProj.ColumnHeaders(X).Width = (lstProj.Width - 120) / lstProj.ColumnHeaders.Count
   Next
   
   
@@ -966,29 +966,29 @@ End Sub
 
 Sub CodeREsize()
 Exit Sub
-Dim x, y, Control, MNU, PlusO
+Dim X, Y, Control, MNU, PlusO
   'Code to Auto Size Form based on controls used Including Menu Bar Sketchy Style
 'Make sure form set to scale Twips
-x = 1
-y = 1
+X = 1
+Y = 1
 On Error Resume Next
 For Each Control In Controls
     If Control.Enabled = True And Control.Visible = True Then
-        If Control.Width + Control.Left > x Then x = Control.Width + Control.Left
-        If Control.Height + Control.Top > y Then y = Control.Height + Control.Top
+        If Control.Width + Control.Left > X Then X = Control.Width + Control.Left
+        If Control.Height + Control.Top > Y Then Y = Control.Height + Control.Top
         If InStr(Control.Name, "Mnu_") > 0 Then MNU = 1
     End If
 Next
 On Error GoTo 0
 
-Me.Width = (x + 80)
+Me.Width = (X + 80)
 If MNU = 1 Then
     PlusO = 720: PlusO = 1100 'Sometimes Different
 Else
     PlusO = 450
 End If
 
-Me.Height = (y + PlusO)
+Me.Height = (Y + PlusO)
 Me.Refresh
 DoEvents
 
@@ -1115,7 +1115,14 @@ If InStr(UCase(pFile), UCase("BatchCompiler.vbp")) > 1 Then GOTRUE = 1
 
 GetFolderFILE = Mid(pFile, 1, InStrRev(pFile, "\")) + "#DontReRunCompiler.txt"
 
-If Dir$(GetFolderFILE) <> "" Then GOTRUE = 1
+If Dir$(GetFolderFILE) <> "" Then
+    GOTRUE = 1
+End If
+If InStr(UCase(pFile), ".VBP") = 0 Then
+    ' HERE NEVER RUN
+    GOTRUE = 1
+End If
+
 
 If GOTRUE = 0 Then
     mProjects(UBound(mProjects)).ProjectFullPath = pFile
@@ -1280,7 +1287,7 @@ Dim CCD
   
   mCompiling = True
   
-  Dim x As Integer
+  Dim X As Integer
   Dim I As Integer
   Dim CMD As String
   Dim Cnt As Integer
@@ -1307,8 +1314,8 @@ Dim CCD
   MousePointer = 11
 
 Dim Vfile
-For x = 0 To Cnt - 1
-    Vfile = mProjects(Val(Indexes(x))).ProjectFullPath
+For X = 0 To Cnt - 1
+    Vfile = mProjects(Val(Indexes(X))).ProjectFullPath
     Call UpdateProjectInfo(Vfile)
 Next
    
@@ -1321,7 +1328,7 @@ ReDim ErrorPro(Cnt)
 
 
   'Go Through List
-  For x = 0 To Cnt - 1
+  For X = 0 To Cnt - 1
     
     'Check for Cancel Being Pressed
     If CancelLoop Then
@@ -1352,10 +1359,10 @@ ReDim ErrorPro(Cnt)
     
     GoTo jump9
     
-    If InStr(mProjects(Val(Indexes(x))).ExeFullPath, "BatchCompiler.exe") > 0 Then
-        RR = mProjects(Val(Indexes(x))).ExeFullPath
+    If InStr(mProjects(Val(Indexes(X))).ExeFullPath, "BatchCompiler.exe") > 0 Then
+        RR = mProjects(Val(Indexes(X))).ExeFullPath
         II2 = InStrRev(RR, ".")
-        mProjects(Val(Indexes(x))).ExeFullPath = Mid$(mProjects(Val(Indexes(x))).ExeFullPath, 1, II2 - 1) + "-2.exe"
+        mProjects(Val(Indexes(X))).ExeFullPath = Mid$(mProjects(Val(Indexes(X))).ExeFullPath, 1, II2 - 1) + "-2.exe"
         ExitRun = True
         'MsgBox "01 " + Str(Now)
     End If
@@ -1364,14 +1371,14 @@ jump9:
     
     NoNo = 0
     
-    If InStr(mProjects(Val(Indexes(x))).ExeFullPath, "BatchCompiler.exe") > 0 Then NoNo = 1
+    If InStr(mProjects(Val(Indexes(X))).ExeFullPath, "BatchCompiler.exe") > 0 Then NoNo = 1
     
     
-    If FileInUse(mProjects(Val(Indexes(x))).ExeFullPath) = True And NoNo = 0 Then
+    If FileInUse(mProjects(Val(Indexes(X))).ExeFullPath) = True And NoNo = 0 Then
         NoNo = 1
-        InfoI = "Errors -----------------------------" + vbCrLf + "Cannot Compile EXE Already Running" + vbCrLf + mProjects(Val(Indexes(x))).ExeFullPath + vbCrLf + "-----------------------------<<" + vbCrLf
+        InfoI = "Errors -----------------------------" + vbCrLf + "Cannot Compile EXE Already Running" + vbCrLf + mProjects(Val(Indexes(X))).ExeFullPath + vbCrLf + "-----------------------------<<" + vbCrLf
         'InfoR(x) = InfoI
-        ErrorPro(x) = mProjects(Val(Indexes(x))).ProjectName
+        ErrorPro(X) = mProjects(Val(Indexes(X))).ProjectName
         TxtLog.Text = Trim(TxtLog.Text) + InfoI
         ' MsgBox InfoI
         BadRun = True
@@ -1396,7 +1403,7 @@ jump9:
     If NoNo = 0 Then
     'Build the command to shell
     CCD = CCD + 1
-    DD$ = Mid$(mProjects(Val(Indexes(x))).ExeFullPath, InStrRev(mProjects(Val(Indexes(x))).ExeFullPath, "\") + 1)
+    DD$ = Mid$(mProjects(Val(Indexes(X))).ExeFullPath, InStrRev(mProjects(Val(Indexes(X))).ExeFullPath, "\") + 1)
     TF$ = App.Path + "\Error Logs\Make-Error-Log-" + DD$ + "-" + Format$(CCD, "0000") + ".Txt"
     If FileExists(TF$) = True Then
         On Error Resume Next
@@ -1408,9 +1415,9 @@ jump9:
     FR1 = FreeFile
     Open TF$ For Output Lock Read As #FR1
     Print #FR1, Now
-    Print #FR1, Left(mProjects(Val(Indexes(x))).ProjectFullPath, InStrRev(mProjects(Val(Indexes(x))).ProjectFullPath, "\"))
-    Print #FR1, mProjects(Val(Indexes(x))).ProjectFullPath
-    Print #FR1, mProjects(Val(Indexes(x))).ExeFullPath
+    Print #FR1, Left(mProjects(Val(Indexes(X))).ProjectFullPath, InStrRev(mProjects(Val(Indexes(X))).ProjectFullPath, "\"))
+    Print #FR1, mProjects(Val(Indexes(X))).ProjectFullPath
+    Print #FR1, mProjects(Val(Indexes(X))).ExeFullPath
     Print #FR1, DD$
     Print #FR1, TF$
     Print #FR1, "-----------------------------------"
@@ -1422,11 +1429,11 @@ jump9:
     'Info(X) = Info(X) + DD$ + vbCrLf
     'Info(X) = Info(X) + TF$ + vbCrLf
     
-    CMD = VBPath & " /out """ + TF$ & """ " & " /make " + Chr(34) & mProjects(Val(Indexes(x))).ProjectFullPath & Chr(34) & " " & Chr(34) & mProjects(Val(Indexes(x))).ExeFullPath & Chr(34)
+    CMD = VBPath & " /out """ + TF$ & """ " & " /make " + Chr(34) & mProjects(Val(Indexes(X))).ProjectFullPath & Chr(34) & " " & Chr(34) & mProjects(Val(Indexes(X))).ExeFullPath & Chr(34)
     PROGCCOMPILED = True
     
     'Update Status Frame
-    Call Dostatus(mProjects(Val(Indexes(x))).ProjectFullPath, mProjects(Val(Indexes(x))).ExeFullPath, (Cnt2 / Total) * 100)
+    Call Dostatus(mProjects(Val(Indexes(X))).ProjectFullPath, mProjects(Val(Indexes(X))).ExeFullPath, (Cnt2 / Total) * 100)
     On Error GoTo 0
     
     'Shell the command to Complie
@@ -1437,7 +1444,7 @@ jump9:
           
           
     'Add Compile to Log
-    Call CompileToLog(TxtLog, mProjects(Val(Indexes(x))).ProjectFullPath, mProjects(Val(Indexes(x))).ExeFullPath, Cnt2, Cnt, True)
+    Call CompileToLog(TxtLog, mProjects(Val(Indexes(X))).ProjectFullPath, mProjects(Val(Indexes(X))).ExeFullPath, Cnt2, Cnt, True)
     
     End If
     
@@ -1466,7 +1473,7 @@ Next
 Pause 0.2
 CCD = 0
 
-For x = 0 To Cnt - 1
+For X = 0 To Cnt - 1
 
 '    DD$ = Mid$(mProjects(Val(Indexes(X))).ExeFullPath, InStrRev(mProjects(Val(Indexes(X))).ExeFullPath, "\") + 1)
 '    TF$ = App.Path + "\Error Logs\Make-Error-Log-" + DD$ + ".Txt"
@@ -1475,7 +1482,7 @@ For x = 0 To Cnt - 1
 '        CCD = CCD + 1
 '    End If
     CCD = 1
-    DD$ = Mid$(mProjects(Val(Indexes(x))).ExeFullPath, InStrRev(mProjects(Val(Indexes(x))).ExeFullPath, "\") + 1)
+    DD$ = Mid$(mProjects(Val(Indexes(X))).ExeFullPath, InStrRev(mProjects(Val(Indexes(X))).ExeFullPath, "\") + 1)
     TF$ = App.Path + "\Error Logs\Make-Error-Log-" + DD$ + "-" + Format$(CCD, "0000") + ".Txt"
     If FileExists(TF$) = True Then
         DumVar = IsFileOpenDelay(TF$)
@@ -1493,8 +1500,8 @@ For x = 0 To Cnt - 1
         ' II$ = II$ + "---<<"
         ' MsgBox II$
         
-        ProFullPath = mProjects(Val(Indexes(x))).ProjectFullPath
-        ProEXEPath = mProjects(Val(Indexes(x))).ExeFullPath
+        ProFullPath = mProjects(Val(Indexes(X))).ProjectFullPath
+        ProEXEPath = mProjects(Val(Indexes(X))).ExeFullPath
 
         
         Call UpdateFileLoggs
@@ -1510,10 +1517,10 @@ For x = 0 To Cnt - 1
                 '        lstProj.ListItems.Item(R).Selected = True
                 '    End If
                 'Next
-                ErrorPro(x) = mProjects(Val(Indexes(x))).ProjectName
+                ErrorPro(X) = mProjects(Val(Indexes(X))).ProjectName
                 Dim YY1, YY2
                 YY1 = Len(TxtLog.Text)
-                TxtLog.Text = TxtLog.Text + vbCrLf + "Error -----------------------------** Errors In Log" + vbCrLf + mProjects(Val(Indexes(x))).ExeFullPath + vbCrLf + II$ ' Info(X) + vbCrLf + II$
+                TxtLog.Text = TxtLog.Text + vbCrLf + "Error -----------------------------** Errors In Log" + vbCrLf + mProjects(Val(Indexes(X))).ExeFullPath + vbCrLf + II$ ' Info(X) + vbCrLf + II$
                 ' MsgBox II$
                 
                 'If InfoR(x) = "" Then
@@ -1541,7 +1548,7 @@ For x = 0 To Cnt - 1
             If DD$ = "ExitRun.exe" Then Tagg = 1
             'But Not If
             '#DontReRunCompiler.txt
-            DD$ = Mid$(mProjects(Val(Indexes(x))).ExeFullPath, 1, InStrRev(mProjects(Val(Indexes(x))).ExeFullPath, "\"))
+            DD$ = Mid$(mProjects(Val(Indexes(X))).ExeFullPath, 1, InStrRev(mProjects(Val(Indexes(X))).ExeFullPath, "\"))
             DD$ = DD$ + "#DontReRunCompiler.txt"
             Dim BackAPath, A1
             A1 = InStrRev(DD$, "\")
@@ -1559,9 +1566,9 @@ For x = 0 To Cnt - 1
             
             Dim TXD
             TXD = LCase(" WMICPU2 MINI.exeVolumeBar.exeVolumeBar WinAmp.exeWinAmp MP3%.exeFast Clipboard.exeDrive_Detach.exeURL Logger.exeActive Idle.exeDrives_Gig.exeCid -RunMe.exeBBCWeather.exeTidal.exeRun Fav Programs.exe")
-            If InStr(TXD, LCase(mProjects(Val(Indexes(x))).EXEName)) > 0 Then Tagg = 1
+            If InStr(TXD, LCase(mProjects(Val(Indexes(X))).EXEName)) > 0 Then Tagg = 1
             
-            If mProjects(Val(Indexes(x))).ExeFullPath = "D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe" Then
+            If mProjects(Val(Indexes(X))).ExeFullPath = "D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe" Then
                 'FS.CopyFile "D:\VB6\VB-NT\00_Best_VB_01\Auto Start Menu\Auto Start Menu.exe", "D:\TEMP\Auto Start Menu.exe"
             End If
             
@@ -1616,8 +1623,8 @@ End If
 
 Do
 AccessToFile = True
-For x = 0 To Cnt - 1
-    DD$ = mProjects(Val(Indexes(x))).ExeFullPath
+For X = 0 To Cnt - 1
+    DD$ = mProjects(Val(Indexes(X))).ExeFullPath
     'If IsFileAlreadyOpen(DD$) Then AccessToFile = False: MsgBox "Delay"
     'If FileInUse(DD$) = True Then AccessToFile = False: MsgBox "Delay2"
 Next
@@ -1628,9 +1635,9 @@ Call AddAlertToLog(TxtLog, "Finished Compiling " & Cnt2 & " Projects", (Seconds 
 
 'use this to fill report at end
 On Error Resume Next
-For x = 0 To Cnt - 1
+For X = 0 To Cnt - 1
     For R = 1 To lstProj.ListItems.Count - 1
-        If ErrorPro(x) = lstProj.ListItems.Item(R) Then
+        If ErrorPro(X) = lstProj.ListItems.Item(R) Then
             lstProj.ListItems.Item(R).Selected = True: Exit For
         End If
     Next
@@ -1657,7 +1664,7 @@ Sub CompileFunc(vSelectedOnly As Boolean)
   
   mCompiling = True
   
-  Dim x As Integer
+  Dim X As Integer
   Dim I As Integer
   Dim CMD As String
   Dim Cnt As Integer
@@ -1674,8 +1681,8 @@ Sub CompileFunc(vSelectedOnly As Boolean)
 
   'Count Selected Items, if needed.
   If vSelectedOnly Then
-    For x = 1 To lstProj.ListItems.Count
-      If lstProj.ListItems(x).Selected Then Cnt = Cnt + 1
+    For X = 1 To lstProj.ListItems.Count
+      If lstProj.ListItems(X).Selected Then Cnt = Cnt + 1
     Next
   End If
 
@@ -1685,7 +1692,7 @@ Sub CompileFunc(vSelectedOnly As Boolean)
   MousePointer = 11
 
   'Go Through List
-  For x = 1 To lstProj.ListItems.Count
+  For X = 1 To lstProj.ListItems.Count
     
     'Check for Cancel Being Pressed
     If CancelLoop Then
@@ -1701,7 +1708,7 @@ Sub CompileFunc(vSelectedOnly As Boolean)
       
     End If
     
-    If (vSelectedOnly And lstProj.ListItems(x).Selected) Or Not (vSelectedOnly) Then
+    If (vSelectedOnly And lstProj.ListItems(X).Selected) Or Not (vSelectedOnly) Then
       
       sTime = GetTickCount()
       
@@ -1715,7 +1722,7 @@ Sub CompileFunc(vSelectedOnly As Boolean)
       DoEvents
       
       'Find Array's Index Value
-      I = Val(Replace(LCase$(lstProj.ListItems(x).Key), "key:", ""))
+      I = Val(Replace(LCase$(lstProj.ListItems(X).Key), "key:", ""))
       
       'Build the command to shell
       CMD = VBPath & " /make " & Chr(34) & mProjects(I).ProjectFullPath & Chr(34) & " " & Chr(34) & mProjects(I).ExeFullPath & Chr(34)
@@ -1789,7 +1796,7 @@ Next
 End Sub
 
 
-Private Sub lstProj_MouseDown(Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub lstProj_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
 
 If Button <> 2 Then Exit Sub
 Dim MM
@@ -1800,7 +1807,7 @@ For We = 1 To ScanPath.ListView1.ListItems.Count
     B1$ = ScanPath.ListView1.ListItems.Item(We)
         If InStr(A1$ + B1$, MM) > 0 Then
             Shell "explorer.exe /e, /select, """ + A1$ + B1$ + """", vbNormalFocus
-            End
+'            End
         End If
 Next
 
@@ -1916,23 +1923,23 @@ Private Sub mnuAutoCompile_Click()
   Dim Readln As String
   Dim File As String
   Dim Data As String
-  Dim x As Integer
+  Dim X As Integer
   Dim VBPDir As String
   Dim Indexes As String
   Dim Module_Date  As Date
   
   LockWindow lstProj.hWnd, True
   
-  For x = 0 To UBound(mProjects())
+  For X = 0 To UBound(mProjects())
     Do
         Jh7 = 0
-        If Dir$(mProjects(x).ProjectFullPath) = "" Then
-            x = x + 1: Jh7 = 1
+        If Dir$(mProjects(X).ProjectFullPath) = "" Then
+            X = X + 1: Jh7 = 1
             'MsgBox "Cant Find Project" + mProjects(X).ProjectFullPath ': End
         End If
-    Loop Until Jh7 = 0 Or x = UBound(mProjects())
+    Loop Until Jh7 = 0 Or X = UBound(mProjects())
     
-    With mProjects(x)
+    With mProjects(X)
       VBPDir = GetDirectoryName(.ProjectFullPath)
       If Right(VBPDir, 1) = "\" Then VBPDir = Left(VBPDir, Len(VBPDir) - 1)
       
@@ -1967,7 +1974,7 @@ Private Sub mnuAutoCompile_Click()
               If DateDiff("s", EXE_Date, Module_Date) > 0 Then
                 Updates = Updates + 1
                 lstUpdates.AddItem " " & .ProjectFullPath
-                mIndexes = mIndexes & x & ","
+                mIndexes = mIndexes & X & ","
                 Close #FR1
                 Exit Do
               End If
@@ -2167,14 +2174,36 @@ For We = 1 To ScanPath.ListView1.ListItems.Count
     FileSpec1 = A1$ + B1$
     Set F = FS.GetFile((FileSpec1))
     ADate1 = F.DateLastModified
-    If ADate1 > Now - (DaysToScan) Then
+    
+    
+    ' THIS IS DON IN TWO PLACES
+    ' -------------------------
+    Dim GOTRUE
+    Dim GetFolderFILE
+    Dim pFile
+    pFile = A1$ + B1$
+    GOTRUE = 0
+    
+    If InStr(UCase(pFile), UCase("BatchCompiler.vbp")) > 1 Then GOTRUE = 1
+    GetFolderFILE = Mid(pFile, 1, InStrRev(pFile, "\")) + "#DontReRunCompiler.txt"
+    If Dir$(GetFolderFILE) <> "" Then
+        GOTRUE = 1
+    End If
+    If InStr(UCase(B1$), ".VBP") = 0 Then
+        ' HERE NEVER RUN
+        GOTRUE = 1
+    End If
+    If InStr(UCase(B1$), ".BAS") > 0 Then Stop
+    
+    
+    
+    If ADate1 > Now - (DaysToScan) And GOTRUE = 0 Then
         AddProject (A1$ + B1$)
-    'Else
-    'A = A
     End If
 Next
 
 ReDim Preserve mProjects(UBound(mProjects) - 1)
+
 
 End Sub
 
@@ -2237,18 +2266,18 @@ Sub SaveProfile(Optional vSaveAs As Boolean)
   End If
    
   'Simple File Write to save settings
-  Dim x As Integer
+  Dim X As Integer
 
   FR1 = FreeFile
   'Open Output file
   Open SaveLocation For Output As #FR1
     
     'Loop through projects
-    For x = 0 To UBound(mProjects)
+    For X = 0 To UBound(mProjects)
     
       'Print Data to file
-      Print #FR1, mProjects(x).ProjectFullPath
-      Print #FR1, mProjects(x).ExeFullPath
+      Print #FR1, mProjects(X).ProjectFullPath
+      Print #FR1, mProjects(X).ExeFullPath
       
     Next
     
@@ -2277,7 +2306,7 @@ Sub DoChanged(vChanged As Boolean)
 End Sub
 
 Sub PopulateProjects()
-  Dim x As Integer
+  Dim X As Integer
   Dim LI As ListItem
   
   LockWindow lstProj.hWnd, True
@@ -2286,13 +2315,13 @@ Sub PopulateProjects()
   lstProj.ListItems.Clear
   
   'populate listview with array data
-  For x = 0 To UBound(mProjects())
+  For X = 0 To UBound(mProjects())
     
     'Set List Item Text (Cell 1)
-    Set LI = lstProj.ListItems.Add(x + 1, "Key:" & x, mProjects(x).ProjectName)
+    Set LI = lstProj.ListItems.Add(X + 1, "Key:" & X, mProjects(X).ProjectName)
     
     'Set List Item's SubItem Text (Cell 2)
-    LI.SubItems(1) = mProjects(x).EXEName
+    LI.SubItems(1) = mProjects(X).EXEName
     
   Next
   
