@@ -785,7 +785,7 @@ Private Sub Form_Load()
         DoEvents
         txtServer = "mail.btinternet.com"
         txtUsername = "matt.lan@btinternet.com"
-        txtPassword = "mosheraboveall2"
+        txtPassword = ""
       
         
         Call KWab.cmdGo2_Click
@@ -844,7 +844,7 @@ End Sub
 
 Private Sub txtResult_Change()
 Dim TT, TTH, TX
-TX = "mosheraboveall2"
+TX = ""
 TT = InStr(txtResult, TX)
 If TT > 0 Then
 TTH = txtResult.Text
