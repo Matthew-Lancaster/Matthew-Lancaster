@@ -10952,6 +10952,19 @@ End Function
 ' SCRIPTOR ------------------------------
 Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
 
+    ' ----------------------------------------------------------
+    ' ----------------------------------------------------------
+    ' IF GOT PROBLM SOME WON'T LOAD IN
+    ' AND THEN SHUT DOWN NOTEPAD++ AND RLOAD IT
+    ' AS PROFILE INFO OF WHAT FILES LOADD ARE NOT SAVED UNTIL IT CLOSING
+    ' ----------------------------------------------------------
+    ' ----------------------------------------------------------
+    
+    
+    
+    ' ----------------------------------------------------------
+    ' ----------------------------------------------------------
+
     Me.WindowState = vbMinimized
     NP = ""
     If NP = "" Then
@@ -11016,7 +11029,7 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
     i = i + 1: PATH_FILE(i) = "C:\NETWORK_COMPUTER_NAME.txt"
     i = i + 1: PATH_FILE(i) = "C:\BAT 01-BCDEDIT_.BAT"
     i = i + 1: PATH_FILE(i) = "C:\BAT 01-BCDEDIT SET {BOOTMGR} DISPLAYBOOTMENU YES.BAT"
-    i = i + 1: PATH_FILE(i) = "C:\28 SendSMTP_REBOOT_BATCH.BAT.lnk"
+'    i = i + 1: PATH_FILE(i) = "C:\28 SendSMTP_REBOOT_BATCH.BAT.lnk"
     'i = i + 1: PATH_FILE(i) = ""
     'i = i + 1: PATH_FILE(i) = ""
     
@@ -11095,7 +11108,7 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
 
     ' FILTER -- THING NOT HAVE
     Dim FILTER_01()
-    ReDim FILTER_01(40)
+    ReDim FILTER_01(80)
     i = 0
     i = i + 1: FILTER_01(i) = "1-ASUS-X5DIJ"
     i = i + 1: FILTER_01(i) = "2-ASUS-EEE"
@@ -11107,7 +11120,12 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
     i = i + 1: FILTER_01(i) = "9-ASUS-G815LM"
     i = i + 1: FILTER_01(i) = "#NFS"
     i = i + 1: FILTER_01(i) = "\_GSDATA_"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 01 VB6"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 03 VB2008"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 04 VB2017"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 05 VB2026"
     i = i + 1: FILTER_01(i) = "VBSCRIPT 68"
+    i = i + 1: FILTER_01(i) = "COPY_CAMERA_PHOTO_IMAGE_POINTER"
     i = i + 1: FILTER_01(i) = "MATT.LAN.COM"
     i = i + 1: FILTER_01(i) = "LAPTOP BATTERY HEALTH INFO"
     i = i + 1: FILTER_01(i) = "MP3 AUDIO"
@@ -11130,14 +11148,29 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
     i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- VB6"
     i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- VBNET 2008"
     i = i + 1: FILTER_01(i) = "SCRIPTER CODE -- GRUB4DOS"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-FFMPEG"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 12-PINTO10"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBSEDIT"
+    i = i + 1: FILTER_01(i) = "\REG"
+    i = i + 1: FILTER_01(i) = "\CONFIG"
+    i = i + 1: FILTER_01(i) = "\MP3 AUDIO"
+    i = i + 1: FILTER_01(i) = "\UTILS"
+    
+    i = i + 1: FILTER_01(i) = "TEXT.TEXT.TXT"
+    
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- AUTOHOTKEY\AUDIO SET"
+    
+    ' i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 10-VICEVERSA _ SHELL FOLDERING__\"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 12-PINTO10"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 18-FFMPEG"
+    i = i + 1: FILTER_01(i) = "\SCRIPTER CODE -- VB 02 VBSCRIPT\VBSEDIT"
+    i = i + 1: FILTER_01(i) = "RETEKESS_V115"
+    i = i + 1: FILTER_01(i) = "RETEKESSMTB"
+    i = i + 1: FILTER_01(i) = ".BAK"
+    
     'i = i + 1: FILTER_01(i) = ""
     'i = i + 1: FILTER_01(i) = ""
-    'i = i + 1: FILTER_01(i) = ""
-    'i = i + 1: FILTER_01(i) = ""
-    'i = i + 1: FILTER_01(i) = ""
-    'i = i + 1: FILTER_01(i) = ""
-    'i = i + 1: FILTER_01(i) = ""
-    'i = i + 1: FILTER_01(i) = ""
+    
     i = i + 1: FILTER_01(i) = "TEXT_ADBLOCK_ARC_"
     i = i + 1: FILTER_01(i) = "FBP-SETT" ' FBP-Settings-14-Jan-2020.txt
     ReDim Preserve FILTER_01(i)
@@ -11147,7 +11180,9 @@ Private Sub MNU_LOAD_ALL_SCRIPTOR_Click()
     i = 0
     i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- BAT\"
     i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\"
-    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- VBSCRIPT\"
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\"
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\"
+    i = i + 1: FILTER_PATH_01(i) = "C:\SCRIPTER\SCRIPTER CODE -- GITHUB\"
     
     ReDim Preserve FILTER_PATH_01(i)
 

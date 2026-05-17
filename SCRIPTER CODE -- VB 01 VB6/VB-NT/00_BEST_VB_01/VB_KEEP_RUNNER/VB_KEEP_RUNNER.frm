@@ -3310,6 +3310,9 @@ Begin VB.Form Form1
    Begin VB.Menu MNU_VB_FOLDER 
       Caption         =   "VB FOLDER"
    End
+   Begin VB.Menu MNU_ME_ON_TOP 
+      Caption         =   "ME ON TOP"
+   End
    Begin VB.Menu MNU_VERSION 
       Caption         =   "MNU_VERSION"
    End
@@ -3318,9 +3321,6 @@ Begin VB.Form Form1
    End
    Begin VB.Menu MNU_OS_RESTARTER_ABORT 
       Caption         =   "OS RESTART ABORT"
-   End
-   Begin VB.Menu MNU_ME_ON_TOP 
-      Caption         =   "ME ON TOP"
    End
    Begin VB.Menu MNU_NOT_MINIMIZE 
       Caption         =   "NOT MINIMIZE OPERATION __ FALSE"
