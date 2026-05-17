@@ -1153,7 +1153,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 ' Option Explicit
-
+' 17-MAY-2026 05:01:38 SUN
 
 Dim HWND_2_LATCH
 
@@ -2364,6 +2364,16 @@ Private Sub Form_Load()
     If InStr(COMMAND_STRING, "MINIMAL____START_22") > 0 Then
         START_MINIMIZED = True
         COMMAND_STRING = Replace(COMMAND_STRING, "MINIMAL____START_22", "")
+    End If
+    
+    ' --------------------------------------------
+    ' HERE IS WHEN CALL FROM SCIRPT TO RLOAD IT UP
+    ' IT CAN ONLY LOAD HER AS SHOW-ER
+    ' C:\SCRIPTER\SCRIPTER CODE -- VB 02 VBSCRIPT\VBS 40-RUN EXE 2 ARG_QUIET.VBS
+    ' --------------------------------------------
+    If InStr(COMMAND_STRING, "MINI") > 0 Then
+        START_MINIMIZED = True
+        COMMAND_STRING = Replace(COMMAND_STRING, "MINI", "")
     End If
     
     ' DO COME IN WITH PATH FILE STRING COMMONER
