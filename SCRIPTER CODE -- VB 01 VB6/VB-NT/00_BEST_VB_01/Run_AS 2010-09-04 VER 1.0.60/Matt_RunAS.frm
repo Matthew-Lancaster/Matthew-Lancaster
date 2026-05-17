@@ -717,7 +717,7 @@ Begin VB.Form Form1
       Caption         =   "VB"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -737,7 +737,7 @@ Begin VB.Form Form1
       Caption         =   "VB"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -877,7 +877,7 @@ Begin VB.Form Form1
       Caption         =   "VB"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   14.25
+         Size            =   14.4
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1851,7 +1851,49 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
+
+
+
+
+Private Type SHITEMID
+    cb As Long
+    abID As Byte
+End Type
+Private Type ITEMIDLIST
+    mkid As SHITEMID
+End Type
+
+Private Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
+Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
+
+
+
+
+
+Private Function GetSpecialfolder(CSIDL As Long) As String
+    '##############################################################################################
+    'Returns the Path to a "Special" Folder (i.e. Internet History)
+    '##############################################################################################
+    
+    Dim IDL As ITEMIDLIST
+    Dim lResult As Long
+    Dim sPath As String
+    
+    lResult = SHGetSpecialFolderLocation(100, CSIDL, IDL)
+    If lResult = 0 Then
+        sPath = Space$(512)
+        lResult = SHGetPathFromIDList(ByVal IDL.mkid.cb, ByVal sPath)
+        
+        GetSpecialfolder = Left$(sPath, InStr(sPath, Chr$(0)) - 1)
+    End If
+End Function
+
+
 '"C:\Program Files\Runtime Software\DriveImage XML\dixml.exe"
+
+
+
+
 
 'WANT BLUE TOOTH ON HERE
 
@@ -1899,11 +1941,11 @@ sMyDocsFolder = GetSpecialfolder(5)
 
 
 
-Dim R As Long
+Dim r As Long
 On Error Resume Next
-If ISIDE = True Then
-    For R = 0 To 120
-        Debug.Print Str(R) + " -- " + GetSpecialfolder(R)
+If IsIDE = True Then
+    For r = 0 To 120
+        Debug.Print Str(r) + " -- " + GetSpecialfolder(r)
     Next
     'End
 End If
@@ -1912,7 +1954,7 @@ x = 1
 y = 1
 On Error Resume Next
 For Each Control In Controls
-    If Control.Enabled = True And Control.Visible = True Then
+    If Control.enabled = True And Control.Visible = True Then
         If Control.Width + Control.Left > x Then x = Control.Width + Control.Left
         If Control.Height + Control.Top > y Then y = Control.Height + Control.Top
         If InStr(Control.Name, "Mnu_") > 0 Then mnu = 1
@@ -2628,20 +2670,7 @@ End
 End Sub
 
 
-Private Sub Mnu_VB_Click()
-'If IsIDE = False Then
-    Shell "C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE """ + App.Path + "\" + App.EXEName + ".vbp""", vbNormalFocus
-'    End
-'End If
-'***********************************************
-'# Check, whether we are in the IDE
-Function IsIDE() As Boolean
-  Debug.Assert Not TestIDE(IsIDE)
-End Function
-Private Function TestIDE(Test As Boolean) As Boolean
-  Test = True
-End Function
-'***********************************************
+
 
 
 
@@ -2650,26 +2679,26 @@ End Function
 
 ' return the Enabled state of the screen saver
 
-Function GetScreenSaverState() As Boolean
-    Dim Result As Long
-    SystemParametersInfo SPI_GETSCREENSAVEACTIVE, 0, Result, 0
-    GetScreenSaverState = (Result <> 0)
-End Function
+'Function GetScreenSaverState() As Boolean
+'    Dim Result As Long
+'    SystemParametersInfo SPI_GETSCREENSAVEACTIVE, 0, Result, 0
+'    GetScreenSaverState = (Result <> 0)
+'End Function
 
 ' enable or disable the screen saver
 '
 ' if second argument is true, it writes changes in user's profile
 ' returns True if the operation was successful, False otherwise
 
-Function SetScreenSaverState(ByVal enabled As Boolean, _
-    Optional ByVal PermanentChange As Boolean) As Boolean
-    Dim fuWinIni As Long
-    If PermanentChange Then
-        fuWinIni = SPIF_SENDWININICHANGE Or SPIF_UPDATEINIFILE
-    End If
-    SetScreenSaverState = SystemParametersInfo(SPI_SETSCREENSAVEACTIVE, enabled, _
-        ByVal 0&, fuWinIni) <> 0
-End Function
+'Function SetScreenSaverState(ByVal enabled As Boolean, _
+'    Optional ByVal PermanentChange As Boolean) As Boolean
+'    Dim fuWinIni As Long
+'    If PermanentChange Then
+'        fuWinIni = SPIF_SENDWININICHANGE Or SPIF_UPDATEINIFILE
+'    End If
+'    SetScreenSaverState = SystemParametersInfo(SPI_SETSCREENSAVEACTIVE, enabled, _
+'        ByVal 0&, fuWinIni) <> 0
+'End Function
 
 
 
@@ -2683,4 +2712,28 @@ Shell "C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE", vbNormalFocus
 
 End
 End Sub
+
+
+Private Sub Mnu_VB_Click()
+'If IsIDE = False Then
+    Shell "C:\Program Files\Microsoft Visual Studio\VB98\VB6.EXE """ + App.Path + "\" + App.EXEName + ".vbp""", vbNormalFocus
+'    End
+'End If
+
+End Sub
+
+
+
+
+'***********************************************
+'# Check, whether we are in the IDE
+Function IsIDE() As Boolean
+  Debug.Assert Not TestIDE(IsIDE)
+End Function
+Private Function TestIDE(Test As Boolean) As Boolean
+  Test = True
+End Function
+'***********************************************
+
+
 

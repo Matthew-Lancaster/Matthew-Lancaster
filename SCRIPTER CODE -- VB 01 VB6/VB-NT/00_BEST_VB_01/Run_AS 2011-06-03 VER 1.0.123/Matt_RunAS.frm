@@ -3,15 +3,15 @@ Begin VB.Form Form1
    AutoRedraw      =   -1  'True
    BackColor       =   &H80000008&
    Caption         =   "Matt Run AS"
-   ClientHeight    =   10590
+   ClientHeight    =   10584
    ClientLeft      =   60
-   ClientTop       =   630
-   ClientWidth     =   11970
+   ClientTop       =   636
+   ClientWidth     =   11976
    FillStyle       =   0  'Solid
    Icon            =   "Matt_RunAS.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10590
-   ScaleWidth      =   11970
+   ScaleHeight     =   10584
+   ScaleWidth      =   11976
    Begin VB.Timer Timer_ART_TRIP_WIRE 
       Enabled         =   0   'False
       Interval        =   50
@@ -19,7 +19,7 @@ Begin VB.Form Form1
       Top             =   3375
    End
    Begin VB.ListBox List1 
-      Height          =   645
+      Height          =   624
       Left            =   4860
       Sorted          =   -1  'True
       TabIndex        =   104
@@ -2377,7 +2377,36 @@ Private Declare Function SystemParametersInfo Lib "user32" Alias _
     "SystemParametersInfoA" (ByVal uAction As Long, ByVal uParam As Long, _
     ByRef lpvParam As Any, ByVal fuWinIni As Long) As Long
 
+Private Type SHITEMID
+    cb As Long
+    abID As Byte
+End Type
 
+Private Type ITEMIDLIST
+    mkid As SHITEMID
+End Type
+
+Private Declare Function SHGetPathFromIDList Lib "shell32" Alias "SHGetPathFromIDListA" (ByVal pidl As Long, ByVal pszPath As String) As Long
+Private Declare Function SHGetSpecialFolderLocation Lib "shell32.dll" (ByVal hwndOwner As Long, ByVal nFolder As Long, pidl As ITEMIDLIST) As Long
+
+
+Private Function GetSpecialfolder(CSIDL As Long) As String
+    '##############################################################################################
+    'Returns the Path to a "Special" Folder (i.e. Internet History)
+    '##############################################################################################
+    
+    Dim IDL As ITEMIDLIST
+    Dim lResult As Long
+    Dim sPath As String
+    
+    lResult = SHGetSpecialFolderLocation(100, CSIDL, IDL)
+    If lResult = 0 Then
+        sPath = Space$(512)
+        lResult = SHGetPathFromIDList(ByVal IDL.mkid.cb, ByVal sPath)
+        
+        GetSpecialfolder = Left$(sPath, InStr(sPath, Chr$(0)) - 1)
+    End If
+End Function
 
 
 
@@ -2495,7 +2524,7 @@ For Each Control In Controls
     End If
 Next
 
-Dim R As Long
+Dim r As Long
 On Error Resume Next
 If IsIDE = True Then
 '    For R = 0 To 120
@@ -2578,12 +2607,12 @@ Next
 
 
 
-For R = 0 To List1.ListCount - 1
+For r = 0 To List1.ListCount - 1
     For Each Control In Controls
     
     
     If InStr(UCase((Control.Name)), "LAB") > 0 Then
-    If Trim(Control.Caption) <> "" And Control.Caption = List1.List(R) Then
+    If Trim(Control.Caption) <> "" And Control.Caption = List1.List(r) Then
     Debug.Print Control.Caption
     If InStr((Control.Caption), "..") = 0 Then
     If Control.Width > w1 Then w1 = Control.Width
@@ -2776,10 +2805,10 @@ End Sub
 
 Private Sub Label12_Click()
 Exit Sub
-fr1 = FreeFile
-Open "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\0TextData\WinAmpEXEFileActive.txt" For Input As #fr1
-Line Input #fr1, TT$
-Close #fr1
+FR1 = FreeFile
+Open "D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\0TextData\WinAmpEXEFileActive.txt" For Input As #FR1
+Line Input #FR1, TT$
+Close #FR1
 
 'TY = cProcesses.Convert(Pid, hwnd3, TT$)
 'If FindWindow("Winamp v1.x", vbNullString) = 0 Then
@@ -3496,8 +3525,8 @@ If HH = 0 Then Exit Sub
 
 If FS.FileExists("K:\TEMP\ART_PROG_TRIP_WIRE.txt") = False And XHH = True Then End
 
-Set F = FS.getfile("K:\TEMP\ART_PROG_TRIP_WIRE.txt")
-i = F.datelastmodified
+Set F = FS.GetFile("K:\TEMP\ART_PROG_TRIP_WIRE.txt")
+i = F.DateLastModified
 If OLDi <> i Then iTRIP = Now + TimeSerial(0, 0, 15)
 OLDi = i
 'Debug.Print i, OLDi

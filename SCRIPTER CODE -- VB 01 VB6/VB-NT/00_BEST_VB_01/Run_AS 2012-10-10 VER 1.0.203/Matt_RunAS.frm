@@ -4570,12 +4570,12 @@ PATH_FILE_NAME2 = Replace(PATH_FILE_NAME1, "D:\VB6\", "D:\VB6-EXE'S\")
 If Dir(PATH_FILE_NAME2) = "" Then
     On Error Resume Next
         MkDir Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\"))
-        FS.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
+        FS.CopyFILE PATH_FILE_NAME1, PATH_FILE_NAME2
     If Err.Number > 0 Then Exit Sub
 End If
 If Dir(PATH_FILE_NAME2) <> "" Then
-    Set F = FS.GetFile(PATH_FILE_NAME2)
-    VB_DATE = F.DateLastModified
+    Set F = FS.getfile(PATH_FILE_NAME2)
+    VB_DATE = F.datelastmodified
 End If
 
 '--------

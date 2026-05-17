@@ -10,8 +10,8 @@ Begin VB.Form Form1
    FillStyle       =   0  'Solid
    Icon            =   "Matt_RunAS.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10656
-   ScaleWidth      =   15240
+   ScaleHeight     =   12096
+   ScaleWidth      =   22824
    Begin VB.ListBox List1 
       Height          =   432
       Left            =   696
@@ -4570,12 +4570,12 @@ PATH_FILE_NAME2 = Replace(PATH_FILE_NAME1, "D:\VB6\", "D:\VB6-EXE'S\")
 If Dir(PATH_FILE_NAME2) = "" Then
     On Error Resume Next
         MkDir Mid(PATH_FILE_NAME2, 1, InStrRev(PATH_FILE_NAME2, "\"))
-        FS.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
+        FS.CopyFILE PATH_FILE_NAME1, PATH_FILE_NAME2
     If Err.Number > 0 Then Exit Sub
 End If
 If Dir(PATH_FILE_NAME2) <> "" Then
-    Set F = FS.GetFile(PATH_FILE_NAME2)
-    VB_DATE = F.DateLastModified
+    Set F = FS.getfile(PATH_FILE_NAME2)
+    VB_DATE = F.datelastmodified
 End If
 
 '--------
