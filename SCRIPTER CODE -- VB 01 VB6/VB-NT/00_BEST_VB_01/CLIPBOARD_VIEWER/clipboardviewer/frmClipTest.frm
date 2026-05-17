@@ -1,18 +1,18 @@
 VERSION 5.00
-Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "MCI32.OCX"
-Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "RICHTX32.OCX"
+Object = "{C1A8AF28-1257-101B-8FB0-0020AF039CA3}#1.1#0"; "mci32.ocx"
+Object = "{3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0"; "richtx32.ocx"
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form FRM_ClipTest 
    BackColor       =   &H00404040&
    Caption         =   "Clipboard Viewer"
    ClientHeight    =   8100
    ClientLeft      =   60
-   ClientTop       =   2145
-   ClientWidth     =   15675
+   ClientTop       =   2148
+   ClientWidth     =   15672
    Icon            =   "frmClipTest.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   8100
-   ScaleWidth      =   15675
+   ScaleWidth      =   15672
    Visible         =   0   'False
    Begin VB.Timer TIMER_CLIPBOARD_PROCESS_ADBLOCK_FILE 
       Enabled         =   0   'False
@@ -21,7 +21,7 @@ Begin VB.Form FRM_ClipTest
       Top             =   2748
    End
    Begin VB.ListBox List1 
-      Height          =   255
+      Height          =   240
       Left            =   5004
       Sorted          =   -1  'True
       TabIndex        =   53
@@ -42,7 +42,7 @@ Begin VB.Form FRM_ClipTest
       Visible         =   0   'False
       Width           =   2832
       _ExtentX        =   6244
-      _ExtentY        =   582
+      _ExtentY        =   572
       _Version        =   393216
       DeviceType      =   ""
       FileName        =   ""
@@ -62,7 +62,7 @@ Begin VB.Form FRM_ClipTest
       Width           =   1032
    End
    Begin VB.FileListBox File2 
-      Height          =   285
+      Height          =   264
       Left            =   6468
       TabIndex        =   37
       Top             =   2724
@@ -76,8 +76,8 @@ Begin VB.Form FRM_ClipTest
       Top             =   2904
       Visible         =   0   'False
       Width           =   1044
-      _ExtentX        =   1852
-      _ExtentY        =   582
+      _ExtentX        =   1842
+      _ExtentY        =   572
       LabelWrap       =   -1  'True
       HideSelection   =   -1  'True
       _Version        =   393217
@@ -99,7 +99,7 @@ Begin VB.Form FRM_ClipTest
       Top             =   3060
    End
    Begin VB.FileListBox File1 
-      Height          =   285
+      Height          =   264
       Left            =   14808
       TabIndex        =   35
       Top             =   8484
@@ -153,7 +153,7 @@ Begin VB.Form FRM_ClipTest
       Visible         =   0   'False
       Width           =   2880
       _ExtentX        =   6244
-      _ExtentY        =   609
+      _ExtentY        =   614
       _Version        =   393216
       DeviceType      =   ""
       FileName        =   ""
@@ -165,9 +165,10 @@ Begin VB.Form FRM_ClipTest
       Top             =   4620
       Width           =   8640
       _ExtentX        =   15240
-      _ExtentY        =   5768
+      _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
+      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":1272
@@ -178,10 +179,11 @@ Begin VB.Form FRM_ClipTest
       TabIndex        =   12
       Top             =   4620
       Width           =   9408
-      _ExtentX        =   16589
-      _ExtentY        =   5768
+      _ExtentX        =   16595
+      _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
+      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":12F4
@@ -193,9 +195,10 @@ Begin VB.Form FRM_ClipTest
       Top             =   7908
       Visible         =   0   'False
       Width           =   1236
-      _ExtentX        =   2170
-      _ExtentY        =   450
+      _ExtentX        =   2180
+      _ExtentY        =   445
       _Version        =   393217
+      Enabled         =   -1  'True
       TextRTF         =   $"frmClipTest.frx":1376
    End
    Begin VB.Timer Timer_Test_Logic 
@@ -240,7 +243,7 @@ Begin VB.Form FRM_ClipTest
       Visible         =   0   'False
       Width           =   2832
       _ExtentX        =   6244
-      _ExtentY        =   582
+      _ExtentY        =   572
       _Version        =   393216
       DeviceType      =   ""
       FileName        =   ""
@@ -249,7 +252,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "COMPARE VIEWER"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -286,7 +289,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -305,7 +308,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -324,7 +327,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -343,7 +346,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -362,7 +365,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -381,7 +384,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -400,7 +403,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -419,7 +422,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -438,7 +441,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -457,7 +460,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE TIME 03 BUTTON"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -494,7 +497,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE ME TIME 04"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -513,7 +516,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "Picker for Clipboard"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -531,7 +534,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "CheckForm Project Date in Process"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -548,7 +551,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "COMPARE SAME TRUE"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -577,7 +580,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE ME TIME 03"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -596,7 +599,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "DON'T MINIMIZE CLIPPER -- -- TIME && COMBINE --"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -613,7 +616,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   " UPPER CASE ALL URL CLIPPER"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -630,7 +633,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "CRC4"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -647,7 +650,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   " LOWER CASE ALL URL CLIPPER FOR YOUTUBE DESCRIPTION"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -665,7 +668,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "Last Clipboard Time API Ticker"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -683,7 +686,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE ME TIME 02"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -702,7 +705,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "GIVE ME TIME 01"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -720,7 +723,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "MESSENGER CRC32"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -737,7 +740,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "CRC3"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -755,7 +758,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "FILE2"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -773,7 +776,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "FILE1"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   10.5
+         Size            =   10.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -790,7 +793,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "CRC1"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -807,7 +810,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "CRC2"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -825,7 +828,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "Compare"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -845,7 +848,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "Compare"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -864,7 +867,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "Compare when not the Same"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -916,7 +919,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "Text in Clipboard -- PREVIOUS"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -934,7 +937,7 @@ Begin VB.Form FRM_ClipTest
       Caption         =   "Text in Clipboard -- CURRENT"
       BeginProperty Font 
          Name            =   "Arial"
-         Size            =   13.5
+         Size            =   13.8
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -975,6 +978,9 @@ Begin VB.Form FRM_ClipTest
    End
    Begin VB.Menu MNU_VB_FOLDER 
       Caption         =   "VB FOLDER"
+   End
+   Begin VB.Menu MNU_ALWAYS_ON_TOP 
+      Caption         =   "ON TOP"
    End
    Begin VB.Menu MNU_FOLDER_DIGITAL_STILL_CAMERA 
       Caption         =   "FOLDER DIGITAL STILL CAMERA"
@@ -1688,6 +1694,26 @@ Private Declare Function IsWindow Lib "user32.dll" (ByVal hWnd As Long) As Long
 Private Declare Function IsZoomed Lib "user32.dll" (ByVal hWnd As Long) As Long
 Private Declare Function IsWindowVisible Lib "user32" (ByVal hWnd As Long) As Long
 Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+
+'Const hWnd_TOPMOST = -1
+'Const hWnd_NOTOPMOST = -2
+'Const MF_BYPOSITION = &H400&
+'Const SWP_NOSIZE = &H1
+'Const SWP_NOMOVE = &H2
+'Const SPI_SCREENSAVERRUNNING = 97
+'Const SWP_NOACTIVATE = &H10
+'Const SWP_SHOWWINDOW = &H40
+' Private Declare Function SetWindowPos Lib "user32.dll" (ByVal hWnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+Private Function AlwaysOnTop(ByVal hWnd As Long)  'Makes a form always on top
+    SetWindowPos hWnd, hWnd_TOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE Or SWP_SHOWWINDOW Or SWP_NOMOVE Or SWP_NOSIZE
+End Function
+Private Function NotAlwaysOnTop(ByVal hWnd As Long)
+    Dim flags
+    SetWindowPos hWnd, hWnd_NOTOPMOST, 0&, 0&, 0&, 0&, SWP_NOMOVE Or SWP_NOSIZE
+End Function
+
+
+
 ' --------------------------------------------------------------------
 ' FUNCTION SET HERE
 ' --------------------------------------------------------------------
@@ -1870,7 +1896,7 @@ Sub GO_VIRTUAL_GIRL()
         .ColumnHeaders.Add , "PID", "PID", 700 - 50, lvwColumnLeft
         .ColumnHeaders.Add , "EXE", "EXE", 9000, lvwColumnLeft
         .View = lvwReport
-        .Height = 7000
+        .height = 7000
         .FullRowSelect = True
     End With
 
@@ -3271,6 +3297,49 @@ Private Sub MNU_ADBLOCK_FOLDER_Click()
     Shell "EXPLORER """ + FOLDER_NAME_____ + """", vbMaximizedFocus
     Me.WindowState = vbMinimized
 End Sub
+
+Private Sub MNU_ALWAYS_ON_TOP_Click()
+    
+    ' MENU FLIPPER
+    If InStr(MNU_ALWAYS_ON_TOP.Caption, "ON TOP __ CORRECT") > 0 Then
+        MNU_ALWAYS_ON_TOP.Caption = "[__ ON TOP __]"
+        AlwaysOnTop_MODE = False
+        RESULT_API = NotAlwaysOnTop(Me.hWnd)
+    Else
+        MNU_ALWAYS_ON_TOP.Caption = "[__ ON TOP __ CORRECT __]"
+        AlwaysOnTop_MODE = True
+        RESULT_API = AlwaysOnTop(Me.hWnd)
+    End If
+    Me.SetFocus
+
+End Sub
+
+Private Sub MNU_ALWAYS_ON_TOP_SET()
+    
+    ' SET CORRECT AND RESULT REQUIRE THAT
+    '
+    ' DO WHAT MENU GOT
+    '
+    If InStr(MNU_ALWAYS_ON_TOP.Caption, "ON TOP __ CORRECT") > 0 Then
+        AlwaysOnTop_MODE = True
+        RESULT_API = AlwaysOnTop(Me.hWnd)
+    Else
+        AlwaysOnTop_MODE = False
+        RESULT_API = NotAlwaysOnTop(Me.hWnd)
+    End If
+
+End Sub
+
+Private Sub MNU_ALWAYS_ON_TOP_SET_TRUE()
+    
+    ' FORCE ON
+    MNU_ALWAYS_ON_TOP.Caption = "[__ ON TOP __ CORRECT __]"
+    AlwaysOnTop_MODE = True
+    RESULT_API = AlwaysOnTop(Me.hWnd)
+
+End Sub
+
+
 
 Private Sub MNU_CLIPBOARD_ADBLOCK_Click()
 
@@ -7445,8 +7514,8 @@ Sub SET_FORM_CENTER()
             XC = Control.Visible
             On Error GoTo 0
             If XC = True Or LET_TEXT_BOX_GO = True Then
-                If Control.Width + Control.Left > WX Then WX = Control.Width + Control.Left
-                If Control.Height + Control.Top > HY Then HY = Control.Height + Control.Top
+                If Control.width + Control.Left > WX Then WX = Control.width + Control.Left
+                If Control.height + Control.Top > HY Then HY = Control.height + Control.Top
             End If
         End If
     Next
@@ -7560,7 +7629,7 @@ Sub ME_TOP_LEFT_CENTER()
         End If
     Next
     
-    Text3.Width = Text2.Width
+    Text3.width = Text2.width
     
     X3 = 100
     X7 = 2000
@@ -7582,13 +7651,13 @@ Sub ME_TOP_LEFT_CENTER()
     ' SET WIDTH COLUMN 1
     ' -----------------------------------------------------------
     EXTRA_SIZE_ER_COLUMN1_2_AND_3 = 40
-    X3 = Label1(3).Left + Label1(3).Width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
+    X3 = Label1(3).Left + Label1(3).width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
     X8 = 1000 ' + OR -
-    X7 = Label1(3).Left + Label1(3).Width
+    X7 = Label1(3).Left + Label1(3).width
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.Width
+        X4 = Control.Left + Control.width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7598,7 +7667,7 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            Control.Width = X3
+            Control.width = X3
         End If
         End If
         End If
@@ -7607,14 +7676,14 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' SET WIDTH COLUMN 2 SAME AS COLUMN 1
     ' -----------------------------------------------------------
-    X3 = Label1(3).Left + Label1(3).Width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
+    X3 = Label1(3).Left + Label1(3).width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
     X8 = 1000 ' + OR -
-    X7 = Label1(6).Left + Label1(6).Width
-    X9 = Label1(6).Width
+    X7 = Label1(6).Left + Label1(6).width
+    X9 = Label1(6).width
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.Width
-        X5 = Control.Width
+        X4 = Control.Left + Control.width
+        X5 = Control.width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7627,7 +7696,7 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            Control.Width = X3
+            Control.width = X3
         End If
         End If
         End If
@@ -7638,14 +7707,14 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' SET WIDTH COLUMN 3 SAME AS COLUMN 1 AND COLUMN 2
     ' -----------------------------------------------------------
-    X3 = Label1(3).Left + Label1(3).Width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
+    X3 = Label1(3).Left + Label1(3).width + EXTRA_SIZE_ER_COLUMN1_2_AND_3
     X8 = 200 ' + OR -
     X7 = LabelCRC3.Left
-    X9 = LabelCRC3.Width
+    X9 = LabelCRC3.width
     For Each Control In Controls
         Err.Clear
         X4 = Control.Left
-        X5 = Control.Width
+        X5 = Control.width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7658,7 +7727,7 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            Control.Width = X3
+            Control.width = X3
             'Control.Width = X3 - 200
             'Control.Left = X4 + 200
         End If
@@ -7668,7 +7737,7 @@ Sub ME_TOP_LEFT_CENTER()
         End If
         End If
     Next
-    LabelCRC5.Left = LabelCRC3.Left + LabelCRC3.Width + 40
+    LabelCRC5.Left = LabelCRC3.Left + LabelCRC3.width + 40
     
     ' INSERT NEW COLUMN 3 IN FRONT
     ' CHANGE CURRENT 3 WIDTH - NEXT ROUTINE
@@ -7676,9 +7745,9 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' SET LEFT COLUMN 2
     ' -----------------------------------------------------------
-    X3 = Label1(3).Left + Label1(3).Width + 100
+    X3 = Label1(3).Left + Label1(3).width + 100
     X8 = 500 ' + OR -
-    X7 = Label1(3).Left + Label1(3).Width
+    X7 = Label1(3).Left + Label1(3).width
     
     For Each Control In Controls
         Err.Clear
@@ -7703,13 +7772,13 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' HERE SET THE GAP BETWEEN COLUMN ONE AND TWO HORIZONTAL
     ' - 30
-    X3 = Label1(3).Left + Label1(3).Width - 30
+    X3 = Label1(3).Left + Label1(3).width - 30
     X8 = 1000 ' + OR -
-    X7 = Label1(3).Left + Label1(3).Width
+    X7 = Label1(3).Left + Label1(3).width
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.Width
+        X4 = Control.Left + Control.width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7721,14 +7790,14 @@ Sub ME_TOP_LEFT_CENTER()
         If X4 < X7 + X8 Then
             If X4 < X3 Then
                 Do
-                    Control.Width = Control.Width + 1
-                    X5 = Control.Left + Control.Width
+                    Control.width = Control.width + 1
+                    X5 = Control.Left + Control.width
                 Loop Until X5 = X3
             End If
             If X4 > X3 Then
                 Do
-                    Control.Width = Control.Width - 1
-                    X5 = Control.Left + Control.Width
+                    Control.width = Control.width - 1
+                    X5 = Control.Left + Control.width
                 Loop Until X5 = X3
             End If
         End If
@@ -7742,9 +7811,9 @@ Sub ME_TOP_LEFT_CENTER()
     ' -----------------------------------------------------------
     GAP_VALUE = 100 ' ---------------
     X8 = 1500 ' + OR -
-    X7 = Label1(6).Left + Label1(6).Width
+    X7 = Label1(6).Left + Label1(6).width
     LabelFILE2_TOP = LabelFILE2.Top ' DIFF WHEN AFTER HERE LOWER DOWN SCREEN NOT RTB OR TOP TEXT AH
-    X3 = Label1(6).Left + Label1(6).Width + GAP_VALUE ' + 100
+    X3 = Label1(6).Left + Label1(6).width + GAP_VALUE ' + 100
     For Each Control In Controls
         Err.Clear
         X4 = Control.Left
@@ -7772,13 +7841,13 @@ Sub ME_TOP_LEFT_CENTER()
     ' END OF COLUMN 2
     ' SET WITDH COLUMN 2
     ' -----------------------------------
-    X3 = Label1(6).Left + Label1(6).Width
+    X3 = Label1(6).Left + Label1(6).width
     X8 = 4500 ' + OR -
-    X7 = Label1(6).Left + Label1(6).Width
+    X7 = Label1(6).Left + Label1(6).width
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.Width
+        X4 = Control.Left + Control.width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7790,14 +7859,14 @@ Sub ME_TOP_LEFT_CENTER()
         If X4 < X7 + X8 Then
             If X4 < X3 Then
                 Do
-                    Control.Width = Control.Width + 1
-                    X5 = Control.Left + Control.Width
+                    Control.width = Control.width + 1
+                    X5 = Control.Left + Control.width
                 Loop Until X5 = X3
             End If
             If X4 > X3 Then
                 Do
-                    Control.Width = Control.Width - 1
-                    X5 = Control.Left + Control.Width
+                    Control.width = Control.width - 1
+                    X5 = Control.Left + Control.width
                 Loop Until X5 = X3
             End If
         End If
@@ -7806,13 +7875,13 @@ Sub ME_TOP_LEFT_CENTER()
         End If
     Next
     
-    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).Width
+    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).width
     X8 = 100 ' + OR -
     X7 = LabelCRC5.Left + 100
     
     For Each Control In Controls
         Err.Clear
-        X4 = Control.Left + Control.Width
+        X4 = Control.Left + Control.width
         If Err.Number = 0 Then
         LET_TEXT_BOX_GO = False
         If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
@@ -7822,16 +7891,16 @@ Sub ME_TOP_LEFT_CENTER()
         ' Debug.Print Control.Name
         ' If X4 < X7 + X8 Then
             ' Debug.Print Control.Name
-            If Control.Left + Control.Width < X3 Then
+            If Control.Left + Control.width < X3 Then
                 Do
-                    Control.Width = Control.Width + 1
-                    X5 = Control.Left + Control.Width
+                    Control.width = Control.width + 1
+                    X5 = Control.Left + Control.width
                 Loop Until X5 = X3 ' Or 1 = 1
             End If
-            If Control.Left + Control.Width > X3 Then
+            If Control.Left + Control.width > X3 Then
                 Do
-                    Control.Width = Control.Width - 1
-                    X5 = Control.Left + Control.Width
+                    Control.width = Control.width - 1
+                    X5 = Control.Left + Control.width
                 Loop Until X5 = X3 ' Or 1 = 1
             End If
         ' End If
@@ -7842,7 +7911,7 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' END COLUMN 4
     ' ---------------------------------------------------------
-    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).Width
+    X3 = MNU_SHOW_THE_TIME_03(0).Left + MNU_SHOW_THE_TIME_03(0).width
     X4 = MNU_SHOW_THE_TIME_03(0).FontSize
     X5 = MNU_SHOW_THE_TIME_03(0).Top
     
@@ -7850,15 +7919,15 @@ Sub ME_TOP_LEFT_CENTER()
         LET_TEXT_BOX_GO = False
         If InStr(UCase(MMM_SHOW_THE_TIME_ARR(R1).Name), "MMM_SHOW_THE_TIME_ARR") > 0 Then
             MMM_SHOW_THE_TIME_ARR(R1).Left = X3 + 80
-            MMM_SHOW_THE_TIME_ARR(R1).Width = 780 + 400 ' WIDTH NOT MUCH OVER OR NEW CODE
+            MMM_SHOW_THE_TIME_ARR(R1).width = 780 + 400 ' WIDTH NOT MUCH OVER OR NEW CODE
             HEIGHT_GAP = 28
             If MNU_SHOW_THE_TIME_03.UBound >= R1 Then
-                X7 = MNU_SHOW_THE_TIME_03(R1).Height
-                MMM_SHOW_THE_TIME_ARR(R1).Height = X7
+                X7 = MNU_SHOW_THE_TIME_03(R1).height
+                MMM_SHOW_THE_TIME_ARR(R1).height = X7
                 MMM_SHOW_THE_TIME_ARR(R1).Top = MNU_SHOW_THE_TIME_03(R1).Top
                 X5 = MNU_SHOW_THE_TIME_03(R1).Top + X7 + HEIGHT_GAP
             Else
-                MMM_SHOW_THE_TIME_ARR(R1).Height = MMM_SHOW_THE_TIME_ARR(R1).Height
+                MMM_SHOW_THE_TIME_ARR(R1).height = MMM_SHOW_THE_TIME_ARR(R1).height
                 MMM_SHOW_THE_TIME_ARR(R1).Top = X5
                 X5 = X5 + X7 + HEIGHT_GAP
             End If
@@ -7874,18 +7943,18 @@ Sub ME_TOP_LEFT_CENTER()
     
     ' ---------------------------------------
     
-    Text3.Width = Text3.Width + 1
-    LabelFILE1.Width = LabelFILE1.Width + 10
-    LabelFILE2.Width = LabelFILE2.Width + 10
-    Label3.Width = Label3.Width
-    Label5.Width = Label5.Width
-    Label2.Width = Label2.Width
-    LabelCRC5.Width = LabelCRC5.Width + 10
+    Text3.width = Text3.width + 1
+    LabelFILE1.width = LabelFILE1.width + 10
+    LabelFILE2.width = LabelFILE2.width + 10
+    Label3.width = Label3.width
+    Label5.width = Label5.width
+    Label2.width = Label2.width
+    LabelCRC5.width = LabelCRC5.width + 10
     
-    Label1(1).Width = Text2.Width / 2
-    Label1(2).Width = Text3.Width
-    Label1(7).Width = Text2.Width / 2 - 40
-    Label1(7).Left = Label1(1).Width + Label1(1).Left + 40
+    Label1(1).width = Text2.width / 2
+    Label1(2).width = Text3.width
+    Label1(7).width = Text2.width / 2 - 40
+    Label1(7).Left = Label1(1).width + Label1(1).Left + 40
     Label1(7).BackColor = RGB(255, 255, 255)
     Label1(7).Caption = "COMPARE VEIWER"
     ' ---------------------------------------
@@ -7897,9 +7966,9 @@ Sub ME_TOP_LEFT_CENTER()
             LET_TEXT_BOX_GO = False
             If InStr(UCase(Control.Name), "TEXT") > 0 Then LET_TEXT_BOX_GO = True
             If Control.Visible = True Then
-                If Control.Width + Control.Left > WX Then WX = Control.Width + Control.Left
-                If Control.Height + Control.Top > HY Then
-                    HY = Control.Height + Control.Top
+                If Control.width + Control.Left > WX Then WX = Control.width + Control.Left
+                If Control.height + Control.Top > HY Then
+                    HY = Control.height + Control.Top
                 End If
             End If
         End If
@@ -7954,9 +8023,9 @@ Sub ME_POSITION()
     On Error Resume Next
     ' WHEN CALL BY HALIFAX ROUTINE
     ' A FORM NOT POSITION MOVE WHEN MINIMIZE MAXIMIZE
-    Me.Width = WX ' Text3.Left + Text3.Width + 200
+    Me.width = WX ' Text3.Left + Text3.Width + 200
     On Error GoTo 0
-    WX = ((Screen.Width) / 2 - ((Me.Width / 2)))
+    WX = ((Screen.width) / 2 - ((Me.width / 2)))
     Me.Left = WX
     Me.Top = 200
     Me.Visible = True
