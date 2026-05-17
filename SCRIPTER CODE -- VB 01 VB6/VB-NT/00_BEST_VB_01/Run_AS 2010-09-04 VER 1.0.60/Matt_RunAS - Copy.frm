@@ -2578,7 +2578,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Olympus\DSSPlayer2002\DictWnd.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2611,7 +2611,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Greatis\WinDowse\WinDowse.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2645,7 +2645,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt2"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = tt$
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2710,7 +2710,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Google\Google Earth\client\googleearth.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2737,7 +2737,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Adobe Photo UpLoader FaceBook\Adobe Photo Uploader for Facebook\Adobe Photo Uploader for Facebook.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2761,7 +2761,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = sWindowsFolder + "\system32\magnify.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2785,7 +2785,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Greatis\WinDowse\WinDowse.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2815,7 +2815,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Palm\Palm.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2834,7 +2834,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Palm\Hotsync.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -2929,7 +2929,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Microsoft Encarta\Encarta Encyclopedia 2001\ENC2001.EXE"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -3021,7 +3021,7 @@ With oRunas
     .sDomain = "WORKGROUP"
 '    .sUserName = "Username you want to Run the Program  "
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Olympus\Digital Wave Player\DWP.exe"
 '    .sCommand = "Program you want to run i.e. c:\winnt\notepad.exe remember"
 '             you must explictly use the relevant program for example if you wanted
@@ -3094,7 +3094,7 @@ Set oRunas = CreateObject("runas.clsrunas", "matt-555roids")
 With oRunas
     .sDomain = "WORKGROUP"
     .sUserName = "Matt"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Cool2000\cool2000.exe"
     .RunAs 'Call the Run As method
 End With
@@ -3152,7 +3152,7 @@ Set oRunas = CreateObject("runas.clsrunas", "matt-555roids")
 With oRunas
     .sDomain = "WORKGROUP"
     .sUserName = "Admin"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Cool2000\cool2000.exe"
     .RunAs 'Call the Run As method
 End With
@@ -3183,7 +3183,7 @@ Set oRunas = CreateObject("runas.clsrunas", "matt-555roids")
 With oRunas
     .sDomain = "WORKGROUP"
     .sUserName = "Administrator"
-    .sPassword = "matto28"
+    .sPassword = " "
     .sCommand = "C:\Program Files\Cool2000\cool2000.exe"
     .RunAs 'Call the Run As method
 End With
