@@ -1,5 +1,5 @@
 ' -------------------------------------------------------------------
-' USE OF ROUTINE BELWO TO MAKE
+' USE OF ROUTINE BELOW TO MAKE
 ' DELETE MY VISUAL BASIC 6 
 ' SCREEN SHOT LOGGER
 ' RATHER THAN WITHIN THE CODE APP
@@ -314,6 +314,9 @@ SUB ROUTINE_DELETE_WSCRIPT_FINDER_RUN
 ' -------------------------------------------------------------------
 On Error Resume Next
 Dim iMyPID
+' -------------------
+' OLD WAY AND NEW WAY
+' -------------------
 ' iMyPID = GetObject("winmgmts:root\cimv2").Get("Win32_Process.Handle='" & CreateObject("WScript.Shell").Exec("mshta.exe").ProcessID & "'").ParentProcessId
 iMyPID=ThisProcessId
 On Error Goto 0
@@ -354,7 +357,6 @@ FOR EACH objProcess IN colProcesses
 NEXT
 ' -------------------------------------------------------------------
 END SUB
-
 ' -------------------------------------------------------------------
 ' THING ARE EXPLAIN HERE
 ' MSHTA.EXE DELETE ITSELF TOO QUICK FOR RESULT FIND
