@@ -3330,7 +3330,9 @@ Begin VB.Form Form1
    End
    Begin VB.Menu MNU_MAXIMIZE_GOODSYNC 
       Caption         =   "MAXIMIZE GOODSYNC"
-      Visible         =   0   'False
+   End
+   Begin VB.Menu MNU_MAXIMIZE_ALL_WINDOW 
+      Caption         =   "MAXIMIZE ALL WINDOW"
    End
    Begin VB.Menu MNU_CLOSE_GOODSYNC 
       Caption         =   "CLOSE GOODSYNC"
@@ -3485,7 +3487,7 @@ Dim TOP_AND_LEFT_ONCE_ONLY
 Dim ME_TOP__ME_LEFT__ME_HEIGHT__ME_WIDTH_COUNT
 Dim ME_TOP__ME_LEFT__ME_HEIGHT__ME_WIDTH
 Dim ARRAY_TIMER_CONTROL()
-Dim CONTROL As CONTROL
+Dim Control As Control
 Dim i
 
 Dim OLD_LEN_CONTROL_CAPTION
@@ -5100,11 +5102,11 @@ REBOOT_DAY = 0
 '    Dim CONTROL As CONTROL
 '    Dim I
     i = 0
-    For Each CONTROL In Controls
-        If InStr(UCase(CONTROL.Name), "TIMER") > 0 Then
+    For Each Control In Controls
+        If InStr(UCase(Control.Name), "TIMER") > 0 Then
             i = i + 1
-            ARRAY_TIMER_CONTROL(i) = CONTROL.Enabled
-            CONTROL.Enabled = False
+            ARRAY_TIMER_CONTROL(i) = Control.Enabled
+            Control.Enabled = False
         End If
     Next
     
@@ -5180,6 +5182,54 @@ Private Sub MNU_DOWNLOAD_FOLDER_Click()
     Me.WindowState = vbMinimized
     Shell "EXPLORER C:\DOWNLOADS", vbMaximizedFocus
 End Sub
+
+Private Sub MNU_MAXIMIZE_ALL_WINDOW_Click()
+
+    FindWindow_Get_All_Explorer_VAR_STRING = ""
+    FindWindow_Get_All_Explorer_HWND_COUNT = 0
+    
+    Dim HUGE, VAR_STRING
+    Dim WINDOW_TITLE
+    Dim test_hWnd As Long, _
+        test_pid As Long, _
+        test_thread_id As Long
+    
+    Dim cText As String
+    HUGE = 0
+    
+    test_hWnd = FindWindow2(ByVal 0&, ByVal 0&)
+    VAR_STRING = ""
+    Do While test_hWnd <> 0
+        WINDOW_TITLE = GetWindowTitle(test_hWnd)
+        '--------------------------------------------------
+        'C:\Windows\explorer.exe
+        '--------------------------------------------------
+        If GetWindowClass(test_hWnd) = "CabinetWClass" Then
+            If WINDOW_TITLE <> "" Then
+                HUGE = HUGE + 1
+                
+                ShowWindow test_hWnd, SW_MAXIMIZE
+                
+                
+            End If
+'            VAR_STRING = VAR_STRING + WINDOW_TITLE + vbCrLf + vbCrLf
+        End If
+        'retrieve the next window
+        test_hWnd = GetWindow(test_hWnd, GW_hWndNEXT)
+    Loop
+    
+'    Call EXPLORER_DISPLAY_MESSENGER
+
+
+
+
+
+
+If MNU_NOT_MINIMIZE_VALUE = False Then
+    Me.WindowState = vbMinimized
+End If
+End Sub
+
 Private Sub MNU_SCRIPTOR_FOLDER_Click()
     Me.WindowState = vbMinimized
     Shell "EXPLORER C:\SCRIPTER", vbMaximizedFocus
@@ -5298,8 +5348,8 @@ Sub FORM_LOAD_STEP_02()
     Dim XX
     XX = Label_Goto_File_Name.Left
     On Error Resume Next
-    For Each CONTROL In Me.Controls
-    CONTROL.Left = CONTROL.Left - XX + 20
+    For Each Control In Me.Controls
+    Control.Left = Control.Left - XX + 20
     Next
     On Error GoTo 0
 
@@ -5533,11 +5583,11 @@ Sub FORM_LOAD_STEP_02()
     Label_RUN_AUTOHOTKEY_SET_NETWORK.Visible = False
     
     i = 0
-    For Each CONTROL In Controls
-        If InStr(UCase(CONTROL.Name), "TIMER") > 0 Then
+    For Each Control In Controls
+        If InStr(UCase(Control.Name), "TIMER") > 0 Then
             i = i + 1
             If ARRAY_TIMER_CONTROL(i) = True Then
-                CONTROL.Enabled = True
+                Control.Enabled = True
             End If
         End If
     Next
@@ -5753,15 +5803,15 @@ Sub SET_WIDTH()
     Dim ME_WIDTH
     Dim X1, X2, X3
     On Error Resume Next
-    For Each CONTROL In Form1
+    For Each Control In Form1
         Err.Clear
-        X1 = CONTROL.Left + CONTROL.width
-        X2 = CONTROL.Left + CONTROL.width
+        X1 = Control.Left + Control.width
+        X2 = Control.Left + Control.width
         X3 = Err.Number
         If X1 > 0 Then
         If X2 > ME_WIDTH Then
         If X3 = 0 Then
-            ME_WIDTH = CONTROL.Left + CONTROL.width
+            ME_WIDTH = Control.Left + Control.width
             ' Debug.Print CONTROL.Name
         End If
         End If
@@ -5776,17 +5826,17 @@ Sub SET_HEIGHT()
     Dim X1, X2, X3, X4
     Dim ME_HEIGHT
     On Error Resume Next
-    For Each CONTROL In Form1
+    For Each Control In Form1
         Err.Clear
         X4 = False
-        X1 = CONTROL.Top + CONTROL.height
-        X2 = CONTROL.Top + CONTROL.height
-        X4 = CONTROL.Visible
+        X1 = Control.Top + Control.height
+        X2 = Control.Top + Control.height
+        X4 = Control.Visible
         If X1 > 0 Then
         If X2 > ME_HEIGHT Then
         If X3 = 0 Then
         If X4 = True Then
-            ME_HEIGHT = CONTROL.Top + CONTROL.height
+            ME_HEIGHT = Control.Top + Control.height
             ' Debug.Print CONTROL.Name
         End If
         End If
@@ -5828,13 +5878,13 @@ On Error Resume Next
 
 RESIZE_LOOP_STOP = True
 
-Dim CONTROL As CONTROL
+Dim Control As Control
 Dim II40
 
 If Me.Top < 0 Then OLD_LEN_CONTROL_CAPTION = "GO AH"
 
-For Each CONTROL In Me.Controls
-    II40 = II40 + Len(CONTROL.Caption)
+For Each Control In Me.Controls
+    II40 = II40 + Len(Control.Caption)
 Next
 If OLD_LEN_CONTROL_CAPTION = II40 Then
     Exit Sub
@@ -6028,17 +6078,17 @@ For R_COUNTER = 1 To LDAC
 Next
 ReDim Preserve ARRAY_CB(R_COUNTER - 1)
 
-Dim CONTROL As CONTROL
+Dim Control As Control
 
 ' ONE RUN PASS GET ALL THE COLOR BEFORE ANY CHANGE
 ' example get color for purpose put back
 ' ------------------------------------------------
 If GET_COLOR_SET_DONE_BEFORE = False Then
     GET_COLOR_SET_DONE_BEFORE = True
-    For Each CONTROL In Me.Controls
+    For Each Control In Me.Controls
         For R_COUNTER = 1 To UBound(ARRAY_CB)
-            If CONTROL.Name = ARRAY_CB(R_COUNTER) Then
-                ARRAY_CB_2(R_COUNTER) = CONTROL.BackColor
+            If Control.Name = ARRAY_CB(R_COUNTER) Then
+                ARRAY_CB_2(R_COUNTER) = Control.BackColor
             End If
         Next
     Next
@@ -6047,13 +6097,13 @@ End If
 ' ALL COLOR GET SET TO STANDARD
 ' IN THE ROUTINE THAT CALLER THE INDENTIY ONE WILL GET ANOTHER COLOR WHITE
 ' ------------------------------------------------
-For Each CONTROL In Me.Controls
+For Each Control In Me.Controls
     For R_COUNTER = 1 To UBound(ARRAY_CB)
-        If CONTROL.Name = ARRAY_CB(R_COUNTER) Then
+        If Control.Name = ARRAY_CB(R_COUNTER) Then
             COLOUR_VAR = Label59.BackColor
             COLOUR_VAR = ARRAY_CB_2(R_COUNTER)
-            CONTROL.BackColor = COLOUR_VAR
-            CONTROL.ForeColor = RGB(0, 0, 0)
+            Control.BackColor = COLOUR_VAR
+            Control.ForeColor = RGB(0, 0, 0)
         End If
     Next
 Next
@@ -7345,7 +7395,7 @@ Sub SET_MENU_PADD_WORK()
 Dim i_Menu_Count, i_Form_Counter
 Dim i_Menu_Not_Visa_Count
 
-Dim CONTROL As CONTROL, Label_44, LABEL_48
+Dim Control As Control, Label_44, LABEL_48
 
 Dim R_NEXT
 
@@ -7356,9 +7406,9 @@ Dim i
 
 For i = 0 To Forms.Count - 1
     
-    For Each CONTROL In Forms(i).Controls
-        If InStr(UCase(CONTROL.Name), "MNU_") > 0 Then
-            If CONTROL.Visible = True Then
+    For Each Control In Forms(i).Controls
+        If InStr(UCase(Control.Name), "MNU_") > 0 Then
+            If Control.Visible = True Then
                 i_Menu_Count = i_Menu_Count + 1
             End If
             i_Menu_Not_Visa_Count = i_Menu_Not_Visa_Count + 1
@@ -7381,16 +7431,16 @@ For i = 0 To Forms.Count - 1
     Text_Checker_Form_Menu = ""
     frmListMenu.GetMenuInfo_Not_Indented GetMenu(Forms(i).hWnd), 0, "", Text_Checker_Form_Menu
     Text_Checker_Form_Menu = UCase(Text_Checker_Form_Menu)
-    For Each CONTROL In Forms(i).Controls
-        If InStr(UCase(CONTROL.Name), "MNU_") > 0 Then
-            MENU_ITEM_VAR = Replace(CONTROL.Caption, "[__ ", "")
+    For Each Control In Forms(i).Controls
+        If InStr(UCase(Control.Name), "MNU_") > 0 Then
+            MENU_ITEM_VAR = Replace(Control.Caption, "[__ ", "")
             MENU_ITEM_VAR = Replace(MENU_ITEM_VAR, " __]", "")
             MENU_ITEM_VAR = UCase(Trim(MENU_ITEM_VAR))
             If InStr(Text_Checker_Form_Menu, "SUB MENU ----" + MENU_ITEM_VAR) = 0 Then
                 
                 'i_Menu_Count = i_Menu_Count + 1
-                If InStr(Trim(CONTROL.Caption), "[__ ") = 0 Then
-                    Label_44 = Trim(CONTROL.Caption)
+                If InStr(Trim(Control.Caption), "[__ ") = 0 Then
+                    Label_44 = Trim(Control.Caption)
                     'LABEL_48 = Replace(LABEL_44, " ", "_")
                     LABEL_48 = Label_44
                     LABEL_48 = Replace(LABEL_48, "___", "__")
@@ -7398,7 +7448,7 @@ For i = 0 To Forms.Count - 1
                     LABEL_48 = Replace(LABEL_48, "[__ [__ ", "[__ ")
                     LABEL_48 = Replace(LABEL_48, " __] __]", " __]")
                     If LABEL_48 <> Label_44 Then
-                        CONTROL.Caption = LABEL_48
+                        Control.Caption = LABEL_48
                     End If
                 End If
             End If
@@ -7443,7 +7493,7 @@ End Sub
 
 Sub SET_CONTROLS_COUNT()
 
-Dim CONTROL As CONTROL, Label_44, LABEL_48
+Dim Control As Control, Label_44, LABEL_48
 
 Dim R_NEXT
 
@@ -7470,9 +7520,9 @@ Dim XXER
 On Error Resume Next
 
 For Each Form In Forms
-    For Each CONTROL In Form.Controls
+    For Each Control In Form.Controls
         Err.Clear
-        XXER = CONTROL.Visible
+        XXER = Control.Visible
         If Err.Number > 0 Then XXER = False
         If XXER = True Then
             If Form.hWnd = Me.hWnd Then
@@ -7500,15 +7550,15 @@ End Sub
 
 Sub SET_LABEL_PADD_WORK()
 
-Dim CONTROL As CONTROL
+Dim Control As Control
 Dim i
 
 On Error Resume Next
 
 For i = 0 To Forms.Count - 1
-    For Each CONTROL In Forms(i).Controls
-        If InStr(Trim(CONTROL.Caption), "/n") > 0 Then
-            CONTROL.Caption = Replace(CONTROL.Caption, "/n", vbCrLf)
+    For Each Control In Forms(i).Controls
+        If InStr(Trim(Control.Caption), "/n") > 0 Then
+            Control.Caption = Replace(Control.Caption, "/n", vbCrLf)
         End If
     Next
 Next
@@ -7547,7 +7597,7 @@ If Label_ALPHA_A_Z_BEEN_SET_BEFORE = False Then
         Label_ALPHA_A_Z_BEEN_SET_BEFORE = True
 '    If TOP_INDEXER = 0 Then
     
-        Dim CONTROL As CONTROL
+        Dim Control As Control
         Dim CHAR_A_Z_STR
         
         For i = 0 To Screen.FontCount - 1
@@ -7564,29 +7614,29 @@ If Label_ALPHA_A_Z_BEEN_SET_BEFORE = False Then
             FONT_SIZE_VALUE_02 = 15
         End If
         
-        For Each CONTROL In Label_ALPHA_A_Z
+        For Each Control In Label_ALPHA_A_Z
             On Error Resume Next
-            CHAR_A_Z_STR = Chr(CONTROL.Index + 64)
-            CONTROL.Caption = CHAR_A_Z_STR
-            CONTROL.FontSize = FONT_SIZE_VALUE_02
-            CONTROL.FontBold = True
-            CONTROL.FontName = "Arial Rounded MT Bold" '"Source Code Pro Black"
+            CHAR_A_Z_STR = Chr(Control.Index + 64)
+            Control.Caption = CHAR_A_Z_STR
+            Control.FontSize = FONT_SIZE_VALUE_02
+            Control.FontBold = True
+            Control.FontName = "Arial Rounded MT Bold" '"Source Code Pro Black"
             ' Debug.Print CONTROL.Caption
-            CONTROL.Refresh
+            Control.Refresh
             On Error GoTo 0
         Next
         
         Dim GET_WIDTH
         
         ' GET WIDTH
-        For Each CONTROL In Label_ALPHA_A_Z
-            If GET_WIDTH < CONTROL.width Then GET_WIDTH = CONTROL.width
-            CONTROL.AutoSize = False
-            CONTROL.Alignment = 2
+        For Each Control In Label_ALPHA_A_Z
+            If GET_WIDTH < Control.width Then GET_WIDTH = Control.width
+            Control.AutoSize = False
+            Control.Alignment = 2
         Next
         ' SET WIDTH
-        For Each CONTROL In Label_ALPHA_A_Z
-            CONTROL.width = GET_WIDTH
+        For Each Control In Label_ALPHA_A_Z
+            Control.width = GET_WIDTH
         Next
         
         Dim ITEM_HEIGHT
@@ -7634,15 +7684,15 @@ If Label_ALPHA_A_Z_BEEN_SET_BEFORE = False Then
         
         LEFT_STEP = Label_ALPHA_A_Z(1).width + 30
         A_COUNT = 0
-        For Each CONTROL In Label_ALPHA_A_Z
-            If CONTROL.Index <> 0 Then
+        For Each Control In Label_ALPHA_A_Z
+            If Control.Index <> 0 Then
                 A_COUNT = A_COUNT + 1
                 If A_COUNT = 14 Then
                     LEFT_SIDE = LEFT_SIDE + LEFT_STEP
                     ITEM_HEIGHT_STEP = ITEM_HEIGHT_STEP_STORE
                 End If
-                CONTROL.Left = LEFT_SIDE
-                CONTROL.Top = ITEM_HEIGHT_STEP
+                Control.Left = LEFT_SIDE
+                Control.Top = ITEM_HEIGHT_STEP
                 ' LEFT SIDE STEP TO RIGHT WITH HALF WAY ---------
                 ITEM_HEIGHT_STEP = ITEM_HEIGHT_STEP + ITEM_HEIGHT + ITEM_HEIGHT_GAP
                 ' THE STEP GET HIGHER ---------------------------
@@ -7656,12 +7706,12 @@ End If
 Call SET_WIDTH
 Call SET_HEIGHT
 
-For Each CONTROL In Label_ALPHA_A_Z
-    CONTROL.BackColor = RGB(255, 255, 255)
+For Each Control In Label_ALPHA_A_Z
+    Control.BackColor = RGB(255, 255, 255)
 Next
-For Each CONTROL In Label_ALPHA_A_Z
-    If CONTROL.Index = TOP_INDEXER Then
-        CONTROL.BackColor = RGB(181, 230, 29)
+For Each Control In Label_ALPHA_A_Z
+    If Control.Index = TOP_INDEXER Then
+        Control.BackColor = RGB(181, 230, 29)
     End If
 Next
     
@@ -7671,9 +7721,9 @@ Dim R_I
 For R_I = 1 To LSTPROCESS_3_SORTER_LISTVIEW.ListItems.Count
     A_TO_Z_PROCESS_NAME = A_TO_Z_PROCESS_NAME + UCase(Mid(LSTPROCESS_3_SORTER_LISTVIEW.ListItems(R_I).SubItems(2), 1, 1))
 Next
-For Each CONTROL In Label_ALPHA_A_Z
-    If InStr(A_TO_Z_PROCESS_NAME, CONTROL.Caption) = 0 Then
-        CONTROL.BackColor = RGB(112, 146, 190)
+For Each Control In Label_ALPHA_A_Z
+    If InStr(A_TO_Z_PROCESS_NAME, Control.Caption) = 0 Then
+        Control.BackColor = RGB(112, 146, 190)
     End If
 Next
 
@@ -10415,11 +10465,11 @@ Dim II22, II23
 Dim XYZ
 On Local Error Resume Next
 
-Dim CONTROL As CONTROL
-For Each CONTROL In Me.Controls
+Dim Control As Control
+For Each Control In Me.Controls
     Err.Clear
     II22 = False
-    II23 = CONTROL.width
+    II23 = Control.width
     'If Control.Name = "chkOnTop" Then Stop
     
     'Debug.Print Err.Description
@@ -10430,28 +10480,28 @@ For Each CONTROL In Me.Controls
     '----------------------------
     'II22 = CONTROL.Enabled
     If Err.Number = 0 Then
-        II22 = CONTROL.Visible
+        II22 = Control.Visible
     End If
     
     If Err.Number = 0 And II22 = False Then
-        If CONTROL.Name = "chkOnTop" Then II22 = CONTROL.Enabled
+        If Control.Name = "chkOnTop" Then II22 = Control.Enabled
     End If
     'Control.Name
     
     If (II22 = True) And Err.Number = 0 Then
 '        Debug.Print Control.Caption
     
-        If CONTROL.Left + CONTROL.width > WX Then
-            WX = CONTROL.Left + CONTROL.width
+        If Control.Left + Control.width > WX Then
+            WX = Control.Left + Control.width
         End If
     
-        If CONTROL.Top + CONTROL.height > HY Then
-            HY = CONTROL.Top + CONTROL.height
+        If Control.Top + Control.height > HY Then
+            HY = Control.Top + Control.height
 '            Debug.Print Control.Name + " -- " + Str(HY)
-            TT = CONTROL.Name
-            TTHY1 = Str(Val(CONTROL.Top + CONTROL.height))
-            TTHY2 = Str(Val(CONTROL.Top))
-            TTHY3 = Str(Val(CONTROL.height))
+            TT = Control.Name
+            TTHY1 = Str(Val(Control.Top + Control.height))
+            TTHY2 = Str(Val(Control.Top))
+            TTHY3 = Str(Val(Control.height))
         End If
     End If
 Next
@@ -10496,8 +10546,8 @@ If FORM_LOAD_TRUE = False Then
 End If
 If Me.Top < 0 Then OLD_LEN_CONTROL_CAPTION = "GO AH"
 
-For Each CONTROL In Me.Controls
-    II40 = II40 + Len(CONTROL.Caption)
+For Each Control In Me.Controls
+    II40 = II40 + Len(Control.Caption)
 Next
 If OLD_LEN_CONTROL_CAPTION = II40 Then
     Exit Sub
@@ -10544,15 +10594,15 @@ If IsIDE = False Then
     End If
 End If
 
-Dim i, CONTROL
+Dim i, Control
 
 'SET ALL TIMERS IN ALL FORMS ENABLED TO =FALSE
 On Error Resume Next
     For i = 0 To Forms.Count - 1
-        For Each CONTROL In Forms(i).Controls
-            If InStr(UCase(CONTROL.Name), "TIMER") > 0 Then
+        For Each Control In Forms(i).Controls
+            If InStr(UCase(Control.Name), "TIMER") > 0 Then
                 'Debug.Print Control.Name
-                CONTROL.Enabled = False
+                Control.Enabled = False
             End If
         Next
     Next i
@@ -18531,7 +18581,7 @@ If LSTPROCESS_3_SORTER_LISTVIEW_MOUSEDOWN_BUTTON = 2 Then
     LSTPROCESS_3_SORTER_LISTVIEW.ListItems.Item(R_I).Selected = True
     LSTPROCESS_3_SORTER_LISTVIEW.ListItems.Item(R_I).EnsureVisible
     
-    Dim CONTROL As CONTROL
+    Dim Control As Control
     Dim CHAR_A_Z_STR
     Dim A_TO_Z_PROCESS_NAME
     

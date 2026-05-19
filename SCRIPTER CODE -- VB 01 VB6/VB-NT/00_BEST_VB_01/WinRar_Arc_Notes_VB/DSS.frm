@@ -260,7 +260,7 @@ If LoveFolder <> "" Then
     Loop
     FileSpec = Path
     
-    Pass = LCase("mattkingofkingskingratmatt") + " "
+    Pass = LCase(" ") + " "
     
     TestRun = False
     'If TimerCount = 4 Or TimerCount = 1 Then TestRun = True
@@ -524,7 +524,7 @@ If tt = False Then
     'For example, use switch -to15d to process files older than 15 days and -to2h30m to process files older than 2 hours 15 minutes.
     '-to2d
 '    DoEvents
-'    pass$ = LCase("mattkingofkingskingratmatt")
+'    pass$ = LCase(" ")
 '    Shell "C:\Program Files\WinRAR\winrar.exe A -CFG- -av -m5 -ibck -ep -s -y -df -ep1 -r -hp" + pass$ + " """ + t3$ + """ """ + t5$ + """", vbNormalFocus
 '    DoEvents
 End If

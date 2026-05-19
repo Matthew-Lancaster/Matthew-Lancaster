@@ -201,7 +201,7 @@ LockDown = False
 'If INPNQuestion <> yesitdoes Then PasswordInMemory = GetUserNameFromFile()
     
 lpStrUser = GetUserName
-lpStrPassword = "mattr"
+lpStrPassword = " "
      
 'strName = String$(255, 0)
 'lngBuffer = GetUserName
