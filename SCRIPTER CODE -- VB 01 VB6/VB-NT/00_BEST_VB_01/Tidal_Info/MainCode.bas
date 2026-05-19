@@ -1648,7 +1648,7 @@ If dks = 1 And 1 = 2 Then
         End If
         
         'visa password extra check
-        'bigefnbrodeal4
+        ' 
 
         DF$ = "https://www.bankcardservices.co.uk/NASApp/NetAccessXX/EFormSubmitProcess"
         dh$ = "type=payOnline"
@@ -1686,10 +1686,10 @@ If dks = 1 And 1 = 2 Then
           
 
         'visa password extra check
-        'bigefnbrodeal4
+        ' 
 
         DF$ = "        'visa password extra check"
-        'bigefnbrodeal4
+        ' 
         dh$ = "type=payOnline"
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then

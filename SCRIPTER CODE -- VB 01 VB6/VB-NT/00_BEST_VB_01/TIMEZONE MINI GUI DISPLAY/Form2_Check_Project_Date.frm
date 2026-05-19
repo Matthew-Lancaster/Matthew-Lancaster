@@ -42,9 +42,9 @@ Begin VB.Form Project_Check_Date
       Top             =   960
    End
    Begin VB.Timer Timer_VB_PROJECT_CHECKDATE 
-      Interval        =   2000
+      Interval        =   10000
       Left            =   1296
-      Top             =   792
+      Top             =   768
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
@@ -117,6 +117,7 @@ Attribute VB_Exposed = False
 'NETWORK SYNCRONIZATION WORK __ CURED A NIGGELY BUG BY REMOVING ONE
 'BEEP AT END
 '-----------------------------------------------------------
+Dim COUNT_TIMER_OVER_RIDE
 
 Dim VB_APP_PATH_NAME_2 As String
 Dim PATH_FILE_NAME1 As String
@@ -431,6 +432,9 @@ End Sub
 
 Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
 
+
+    COUNT_TIMER_OVER_RIDE = COUNT_TIMER_OVER_RIDE + 1
+
     If Me.EXIT_TRUE = True Then
         Unload Me
         Exit Sub
@@ -473,12 +477,23 @@ Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
     ' IS SAME DATE AND SAME SIZE -- EXIT
     ' IF MINE CHANGES THEN CHECK THE OTHER NETWORK SHARE
     ' ---------------------------------
+    If COUNT_TIMER_OVER_RIDE < 10 Then
     If APP_EXENAME_DATE = VB_EXE_DATE And APP_EXENAME_SIZE = VB_EXE_SIZE Then
         Exit Sub
     End If
+    End If
     
     ABLE_TO_EXIT = False
-    ' CAN READ IT SELF NOT WRITE TO SELF SO COPY OUT TO VBEXE FOLDER IF DIFFERNT
+    
+    
+    ' ---------------------------------------------------------------------
+    COUNT_TIMER_OVER_RIDE = 0
+    ' ---------------------------------------------------------------------
+    ' DOUBLE CHECK PERIODICLY TRY TO COPY FILE TO DESTINATION VB_EXE FOLDER
+    ' ---------------------------------------------------------------------
+   
+    
+    ' CAN READ IT SELF NOT WRITE TO SELF SO COPY OUT TO VB_EXE FOLDER IF DIFFERNT
     If APP_EXENAME_DATE < VB_EXE_DATE Then
         FSO.CopyFile PATH_FILE_NAME1, PATH_FILE_NAME2
         ABLE_TO_EXIT = True
@@ -513,7 +528,9 @@ Public Sub Timer_VB_PROJECT_CHECKDATE_Timer()
     ' \\8-msi-gp62m-7rd\8_msi_gp62m_7rd_02_d_drive\ ' VB6\VB-NT\00_BEST_VB_01
     ' \\9-asus-g815lm\9_asus_g815lm_02_d_drive\VB6\ ' VB-NT\00_BEST_VB_01
    
-    'COPIER DONE
+    ' COPIER DONE
+    ' DON'T RELAUNCH PROGRAM UNLESS COPY WAS FROM VB_EXE FOLDER
+    ' ---------------------------------------------------------
     If ABLE_TO_EXIT = True Then Exit Sub
         
         

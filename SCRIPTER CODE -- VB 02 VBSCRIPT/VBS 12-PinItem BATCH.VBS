@@ -286,14 +286,12 @@ CALL CREATE_PIN_ITEM_ARRAY
 DIM R_SET_1
 DIM R_SET_2
 
+I_VAR=""
 FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 	FOR R_SET_2=1 TO UBOUND(ARRAY_1)
 		IF ARRAY_1(R_SET_1)<>"" AND ARRAY_1(R_SET_2)<>"" THEN 
 			IF UCASE(ARRAY_1(R_SET_1))=UCASE(ARRAY_1(R_SET_2)) AND R_SET_1<>R_SET_2 THEN 
-				I_VAR=""
-				I_VAR=I_VAR + "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS = " & VBCRLF 
-				I_VAR=I_VAR + VBCRLF 
-				I_VAR=I_VAR + ARRAY_1(R_SET_1)
+				I_VAR=I_VAR & VBCRLF & ARRAY_1(R_SET_1) & VBCRLF
 				
 				' ------------------------------
 				' DELETE THE OFFENDING DUPLICATE
@@ -301,27 +299,24 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_1)
 				ARRAY_1(R_SET_2)=""
 				' ------------------------------
 				
-				IF QUITE_MODE_ENDING=TRUE THEN 
-					MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
-				END IF
+
 			END IF
 		END IF
 	NEXT
 NEXT
-
+IF QUITE_MODE_ENDING=FALSE AND I_VAR<>"" THEN 
+	MSGBOX "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS" & VBCRLF & I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+END IF
 
 ' ------------------------------------
 ' CHECK FOR DUPLICATES IN ARRAY 5
 ' ------------------------------------
-
+I_VAR=""
 FOR R_SET_1=1 TO UBOUND(ARRAY_5)
 	FOR R_SET_2=1 TO UBOUND(ARRAY_5)
 		IF ARRAY_5(R_SET_1)<>"" AND ARRAY_5(R_SET_2)<>"" THEN 
 			IF UCASE(ARRAY_5(R_SET_1))=UCASE(ARRAY_5(R_SET_2)) AND R_SET_1<>R_SET_2 THEN 
-				I_VAR=""
-				I_VAR=I_VAR + "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS = " & VBCRLF 
-				I_VAR=I_VAR + VBCRLF 
-				I_VAR=I_VAR + ARRAY_5(R_SET_1)
+				I_VAR=I_VAR & VBCRLF & ARRAY_5(R_SET_1) & VBCRLF
 
 				' ------------------------------
 				' DELETE THE OFFENDING DUPLICATE
@@ -329,14 +324,14 @@ FOR R_SET_1=1 TO UBOUND(ARRAY_5)
 				ARRAY_5(R_SET_2)=""
 				' ------------------------------
 				
-				IF QUITE_MODE_ENDING=TRUE THEN 
-					MSGBOX I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
-				END IF
+
 			END IF
 		END IF
 	NEXT
 NEXT
-
+IF QUITE_MODE_ENDING=FALSE AND I_VAR<>"" THEN 
+	MSGBOX "DUPLICATE ENTRY IN VBS 12-PINITEM BATCH.VBS" & VBCRLF & I_VAR,vbMsgBoxSetForeground,Wscript.ScriptName
+END IF
 
 ' ------------------------------------
 ' CHECK FOR DUPLICATES MASSIVE SPEEDER
@@ -590,6 +585,10 @@ IF LOAD_TO_TASKBAR_EXPLORER=VBYES THEN
 							COUNT_ICON_PLACE_TASKBAR=COUNT_ICON_PLACE_TASKBAR+1
 
 							IF XCOUNTER_EXPLORER<10 THEN 
+							
+								' REPEAT HERE AND HAS TO BE SET NEAR COMMAND
+								SET WSHShell = WScript.CreateObject("WScript.Shell")
+								
 								WSHShell.Run "C:\Windows\explorer.exe /select, """+ARRAY_5(R_SET)+"""" , ShowWindow, DontWaitUntilFinished
 								
 								' ONLY LOAD 10
@@ -947,47 +946,52 @@ IF GETCOMPUTERNAME="7-ASUS-GL522VW" then
 END IF 
 
 
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS\Matt_RunAS_v2017.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS_v1.0.164.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS_V1.0.192.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\shell keyboard loader.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD LOGGER\CLIPBOARD LOGGER.EXE"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\URL Logger\URL Logger.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
-	I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Speech SDK 5.1\Bin\TTSApp.exe"
-	I=I+1:ARRAY_1(I)=""
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"          ' VISUAL BASIC 2008
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"                                     ' ----------------------
-	I=I+1:ARRAY_1(I)="C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\devenv.exe" ' VISUAL BASIC 2026
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS\Matt_RunAS_v2017.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2011-06-11 VER 1.0.164\Matt_RunAS_v1.0.164.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\Run_AS 2012-09-25 VER 1.0.192 EXE ONLY\Matt_RunAS_V1.0.192.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clip_Type\Clip_Type.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Execute Loader\Shell Execute Loader.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Explorer Loader\Shell Explorer Loader.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell KeyBoard Loader\shell keyboard loader.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Multi Menu\#0 Send To Multi Menu.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Send_To\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\CLIPBOARD LOGGER\CLIPBOARD LOGGER.EXE"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_BEST_VB_01\URL Logger\URL Logger.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell NotePad Loader\Shell NotePad Loader.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell Loader Loader\Shell Loader Loader.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Batch_Compiler_Auto\BatchCompiler.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Shell VBasic 6 Loader\Shell VBasic 6 Loader.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\VB_KEEP_RUNNER.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CPU % OF A PROGRAM\CPU % INDIVIDUAL PROCESS.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\CLIPBOARD_VIEWER\ClipBoard Viewer.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\URL Logger\URL Logger.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\EliteSpy\EliteSpy.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Tidal_Info\Tidal.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_Best_VB_01\Cid-Run-Me-Ace\Cid-RunMe.exe"
+I=I+1:ARRAY_1(I)="D:\VB6\VB-NT\00_SEND_TO\Send To Text List of Files & Sub Folders IRFAN\#0 Send To Text List of Files and Sub Folders IRFAN.EXE"
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Speech SDK 5.1\Bin\TTSApp.exe"
+I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\devenv.exe"          ' VISUAL BASIC 2008
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"                                     ' ----------------------
+I=I+1:ARRAY_1(I)="C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\devenv.exe" ' VISUAL BASIC 2026
 
-	I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
-	I=I+1:ARRAY_1(I)=""
-	I=I+1:ARRAY_1(I)=""
-	I=I+1:ARRAY_1(I)=""
-	I=I+1:ARRAY_1(I)=""
-	I=I+1:ARRAY_1(I)=""
- 
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio\VB98\VB6.EXE"
+
+I=I+1:ARRAY_1(I)="C:\Program Files\Unity\Editor\Unity.exe" ' Visual Studio 2018 Unity 2018.3.7f1 (64-bit)
+' THERE IS A 2017 VERSION BUT SAME LINK AS THIS ONE JUST ONLY DIFF 2017 VS 2018
+' AS I SPEAK 2017 LINK REDIRECTING TO 2018 BOTH LINKS GO THERE
+'--------------------------------------------------------------------------------------------------------
+
+I=I+1:ARRAY_1(I)="C:\Program Files\Logitech\SetPointP\SetPoint.exe"
+
+I=I+1:ARRAY_1(I)="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Visual Studio 2017 Tools.unitypackage"
+I=I+1:ARRAY_1(I)=""
+
 
 ' -------------------------------------------------------------------
 ' -------------------------------------------------------------------
@@ -1292,7 +1296,7 @@ IF GETCOMPUTERNAME="4-ASUS-GL522VW" THEN
 END IF
 
 
-IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
+' IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
 	FOR R_USERNAME=1 TO 8
 		U1=TRIM(CSTR(R_USERNAME))
 		U2="C:\Users\MATT 0"+U1+"\AppData\Roaming\Insync\App\Insync.exe"
@@ -1300,7 +1304,7 @@ IF GETCOMPUTERNAME="8-MSI-GP62M-7RD" THEN
 			I=I+1:ARRAY_1(I)=U2
 		END IF
 	NEXT
-END IF
+' END IF
 
 
 IF Version_OS=10 THEN
@@ -1348,8 +1352,9 @@ END IF
 
 
 I=I+1:ARRAY_1(I)="C:\Program Files\MiniTool Screen Recorder\MiniTool Screen Recorder.exe"
-I=I+1:ARRAY_1(I)=""
-I=I+1:ARRAY_1(I)=""
+I=I+1:ARRAY_1(I)="C:\PStart\Progs\0_Nirsoft_Package\NirSoft\mweather.exe"
+I=I+1:ARRAY_1(I)="C:\Windows\regedit.exe"
+
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
 I=I+1:ARRAY_1(I)=""
@@ -1393,10 +1398,11 @@ I=I+1:ARRAY_5(I)="C:\Program Files (x86)\BootRacer\Bootrace.exe"
 
 IF Version_OS=10 THEN
 	I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Canon\Quick Menu\CNQMMAIN.EXE"
-	I=I+1:ARRAY_5(I)="C:\Program Files\Defraggler\Defraggler64.exe"
 	' --- TRY WINDOWS 11 LATER NEVER USE THE THING
 	I=I+1:ARRAY_5(I)="C:\Program Files (x86)\DOSBox-0.72\dosbox.exe"
 END IF
+
+I=I+1:ARRAY_5(I)="C:\Program Files\Defraggler\Defraggler.exe"
 
 I=I+1:ARRAY_5(I)="C:\Program Files (x86)\Duplicate Cleaner Pro\DuplicateCleaner.exe"
 I=I+1:ARRAY_5(I)="C:\PStart\# NOT INSTALL REQUIRED\EASY USB CREATOR 2.3.2\Easy USB Creator v2.3.2.exe"
@@ -1617,17 +1623,17 @@ I=I+1:ARRAY_5(I)=""
 	' SOME DON'T FIND WITH .EXE EXTENSION
 	' ADD CODE TO FILTER IT OFF
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="EliteSpy.exe"
-	I_22=I_22+1:ARRAY_FILTER_5(I_22)="EliteSpy"
+	' I_22=I_22+1:ARRAY_FILTER_5(I_22)="EliteSpy"
 	
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="#0 Send To Multi Menu.exe"
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="Clip_Type.exe"
-	I_22=I_22+1:ARRAY_FILTER_5(I_22)="Clip_Type"
+	' I_22=I_22+1:ARRAY_FILTER_5(I_22)="Clip_Type"
 	
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="bluetoothlogview.exe"
-	I_22=I_22+1:ARRAY_FILTER_5(I_22)="BLUETOOTHLOGVIEW"
+	' I_22=I_22+1:ARRAY_FILTER_5(I_22)="BLUETOOTHLOGVIEW"
 
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="bluetoothview.exe"
-	I_22=I_22+1:ARRAY_FILTER_5(I_22)="BLUETOOTHVIEW"
+	' I_22=I_22+1:ARRAY_FILTER_5(I_22)="BLUETOOTHVIEW"
 
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="Ultimate Windows Tweaker 4.1.1.exe"
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="RemoteBackup.exe" ' UNINSTALL HERE HIKVISION
@@ -1645,9 +1651,18 @@ I=I+1:ARRAY_5(I)=""
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="AutorunsPortable.exe"
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="vlc.exe" ' NOT IN ARRAY_5
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)="ENC2001"
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="balenaEtcher.exe"
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="VirtualBox.exe"
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="MP4Splitter.exe"
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="Client.exe"    ' Mega Video Converter
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="VSPlayer.exe"  ' HIKVISION
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="mweather.exe"	
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)="SetPoint.exe"
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""	
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
-	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
+	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""	
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
 	I_22=I_22+1:ARRAY_FILTER_5(I_22)=""
@@ -1918,7 +1933,7 @@ FUNCTION LINK_ALREADY_EXIST_DOUBLE_VERIFY_2(fFolder)
 
 
 			' MSGBOX "8888" & VBCRLF & objShortcut.FullName & VBCRLF & objShortcut.TargetPath & VBCRLF 
-			TT_EDITOR_2 = TT_EDITOR_2 & strTargetPath & VBCRLF & objShortcut.FullName & VBCRLF & objShortcut.TargetPath & VBCRLF & "------------" & VBCRLF
+			TT_EDITOR_2 = TT_EDITOR_2 & strTargetPath & VBCRLF & objShortcut.TargetPath & VBCRLF & "------------" & VBCRLF
 
 			Set objShortcut = Nothing
 			Set wshShell    = Nothing		
