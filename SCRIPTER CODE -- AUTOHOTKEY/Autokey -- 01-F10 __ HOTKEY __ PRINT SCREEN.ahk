@@ -186,9 +186,9 @@ GLOBAL YPOS
 O_ID=0
 
 MICROSOFT_CONTROL_22=1
-SETTIMER MICROSOFT_CONTROL_44_TIMER,60000
+; SETTIMER MICROSOFT_CONTROL_44_TIMER,60000
 NORTON_CONTROL_22=1
-SETTIMER NORTON_CONTROL_44_TIMER,60000
+; SETTIMER NORTON_CONTROL_44_TIMER,60000
 
 GLOBAL OLD_id
 GLOBAL OLD_Title_VAR
@@ -202,7 +202,7 @@ GLOBAL PART_RENAME_VAR
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 GLOBAL FIND_WINDOW_1
-GOSUB GROUP_ADD_FIND_WINDOW_1
+; GOSUB GROUP_ADD_FIND_WINDOW_1
 
 SETTIMER TIMER_ENTER,OFF
 SETTIMER TIMER_CONVERT_CIPBOARD,400
@@ -297,7 +297,7 @@ WSCRIPT_FOCUS_SET_FLAG_01=
 WSCRIPT_FOCUS_SET_FLAG_02=
 ROBOFOM_FOCUS_SET_FLAG_01=FALSE
 ; -------------------------------------------------------------------
-SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
+; SETTIMER TIMER_WSCRIPT_FOCUS_LEFT_KILL,1000
 SETTIMER TIMER_FAST_ERROR_APPLYING_SECURITY,10
 
 ESCAPE_KEY_COUNT=0
@@ -332,18 +332,7 @@ RETURN
 ; #0000 MY BT - Google Chrome
 ; #IfWinActive Pulse SMS
 
-GROUP_ADD_FIND_WINDOW_1:
-SetTitleMatchMode 2  ; PARTIAL PATH
-GroupAdd, FIND_WINDOW_1, #0000 MY BT
-GroupAdd, FIND_WINDOW_1, MM a2 Marianne 539 O2
-GroupAdd, FIND_WINDOW_1, MM a1 Eddie Mob VF
-GroupAdd, FIND_WINDOW_1, My Mob 19_NOKIA_E72 VF
-GroupAdd, FIND_WINDOW_1, 07446 760389 - Google Chrome ; ANDY
-GroupAdd, FIND_WINDOW_1, 07917 558401 - Google Chrome ; DAVID
-GroupAdd, FIND_WINDOW_1, 07342 994049 - Google Chrome ; JEFF
-GroupAdd, FIND_WINDOW_1, 07887 722056 - Google Chrome ; RICK
-GroupAdd, FIND_WINDOW_1, Compose
-RETURN
+
 
 ; SetTitleMatchMode 2  ; PARTIAL PATH
 ; #IfWinActive ahk_group FIND_WINDOW_1
@@ -354,14 +343,7 @@ RETURN
 ; return
 ; #ifwinactive
 
-SetTitleMatchMode 2  ; PARTIAL PATH
-#IfWinActive ahk_group FIND_WINDOW_1
-{
-F1::^enter
-SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-}
-return
-#ifwinactive
+
 
 
 
@@ -498,15 +480,15 @@ RETURN
 	; WinGet, OLD_HWND, ID, ahk_class Winamp Gen
 
 
-#IfWinActive ahk_class Chrome_WidgetWin_1
-~LButton::
-; IF (A_ComputerName<>"1-ASUS-X5DIJ")
-; IF (A_ComputerName<>"2-ASUS-EEE")
-; IfWinNotExist ClipBoard Logger
-	; if FileExist("D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe")
-	; RUN D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe
-RETURN
-#ifwinactive
+; #IfWinActive ahk_class Chrome_WidgetWin_1
+; ~LButton::
+; ; IF (A_ComputerName<>"1-ASUS-X5DIJ")
+; ; IF (A_ComputerName<>"2-ASUS-EEE")
+; ; IfWinNotExist ClipBoard Logger
+	; ; if FileExist("D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe")
+	; ; RUN D:\VB6\VB-NT\00_Best_VB_01\Clipboard Logger\ClipBoard Logger.exe
+; RETURN
+; #ifwinactive
 
 ; -------------------------------------------------------------------
 ; ANYCODE WANT HOTKEY AND THE LINE IS AFTER ONE ABOVE
@@ -1291,105 +1273,6 @@ RETURN
 ; TIMER_WSCRIPT_FOCUS_LEFT_KILL
 
 
-; ahk_class ApplicationFrameWindow
-; ahk_exe Explorer.EXE
-; ahk_pid 14608
-; ClassNN:	ApplicationFrameInputSinkWindow1
-; ClassNN:	ApplicationFrameTitleBarWindow1
-
-; ~ LET HOT KEY PASS THROUGH -- ENTER EMAIL MICROSOFT VERIFY - ONEDRIVE
-#ifwinactive ahk_class ApplicationFrameWindow
-F5::
-{
-	SetTitleMatchMode 3
-	DetectHiddenWindows, oN
-	ifwinactive ahk_class ApplicationFrameWindow
-	; IfWinActive ahk_exe Explorer.EXE
-	{
-		MICROSOFT_CONTROL_10=0
-		WinGet, MICROSOFTControlList, ControlList,  ahk_class ApplicationFrameWindow
-		Loop, Parse,MICROSOFTControlList, `n
-		{
-			if (A_LoopField = "ApplicationFrameTitleBarWindow1")
-			{
-				MICROSOFT_CONTROL_10=1
-			}
-		}
-		if MICROSOFT_CONTROL_10=1
-		{
-			MESSENGER_KEY_1=MATT.LAN@BTINTERNET.COM
-			SetKeyDelay, 75
-			SLEEP 100
-			MESSENGER_KEY=%MESSENGER_KEY_1%
-			GOSUB STRING_INVERT_MESSENGER
-			SENDINPUT %MESSENGER_KEY%
-		}
-		IF MICROSOFT_CONTROL_10=
-			SENDINPUT {F5}
-	}
-}
-RETURN
-#ifwinactive
-
-
-
-
-
-
-
-; BELOW BLOCK OF 2 ROUTINE FOR NORTON PASSWORD ENTRY
-#ifwinactive Norton Driver Updater ahk_class CefHeaderWindow
-F5::
-{
-	SetTitleMatchMode 3
-	DetectHiddenWindows, oN
-
-	IF NORTON_CONTROL_22=1
-	{
-	MESSENGER_KEY_1=MATT.LAN@BTINTERNET.COM
-	SetKeyDelay, 75
-	SLEEP 100
-	MESSENGER_KEY=%MESSENGER_KEY_1%
-	GOSUB STRING_INVERT_MESSENGER
-	SENDINPUT %MESSENGER_KEY%
-
-	NORTON_CONTROL_22=2
-	SETTIMER NORTON_CONTROL_44_TIMER,60000
-	RETURN
-	}
-	
-	SetTitleMatchMode 3
-	DetectHiddenWindows, oN
-		Loop
-	{
-		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
-		if ErrorLevel
-			break
-		IF A_INDEX=10
-		{
-			MESSENGER_KEY_NORTON=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_NORTON%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_NORTON=%MESSENGER_KEY%
-		}
-	}
-	
-	SetKeyDelay, 75
-	SLEEP 100
-	SENDINPUT, {Raw}%MESSENGER_KEY_NORTON%
-
-	NORTON_CONTROL_22=1
-	SETTIMER NORTON_CONTROL_44_TIMER,OFF
-	
-}
-RETURN
-#ifwinactive
-
-NORTON_CONTROL_44_TIMER:
-	NORTON_CONTROL_22=1
-	SETTIMER NORTON_CONTROL_44_TIMER,OFF
-RETURN
-; ABOVE BLOCK OF 2 ROUTINE FOR NORTON PASSWORD ENTRY
 
 
 
@@ -1399,506 +1282,24 @@ RETURN
 
 
 
-#ifwinactive Sign in to your account - Google Chrome ahk_class Chrome_WidgetWin_1
-F5::
-{
-	SetTitleMatchMode 3
-	DetectHiddenWindows, oN
-
-	MESSENGER_KEY_1=MATT.LAN2@OUTLOOK.COM
-	SetKeyDelay, 75
-	SLEEP 100
-	MESSENGER_KEY=%MESSENGER_KEY_1%
-	GOSUB STRING_INVERT_MESSENGER
-	SENDINPUT %MESSENGER_KEY%
-
-	MICROSOFT_CONTROL_22=1
-	SETTIMER MICROSOFT_CONTROL_44_TIMER,60000
-}
-RETURN
-#ifwinactive
-
-MICROSOFT_CONTROL_44_TIMER:
-	MICROSOFT_CONTROL_22=
-	SETTIMER MICROSOFT_CONTROL_44_TIMER,OFF
-RETURN
-
-#ifwinactive Enter your password - Google Chrome ahk_class Chrome_WidgetWin_1
-F5::
-{
-
-	IF !MICROSOFT_CONTROL_22
-		SENDINPUT {F5}
-	IF !MICROSOFT_CONTROL_22
-		RETURN
-
-	SetTitleMatchMode 3
-	DetectHiddenWindows, oN
-		Loop
-	{
-		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
-		if ErrorLevel
-			break
-		IF A_INDEX=8
-		{
-			MESSENGER_KEY_MICROSOFT=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_MICROSOFT%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_MICROSOFT=%MESSENGER_KEY%
-		}
-	}
-	
-	SetKeyDelay, 75
-	SLEEP 100
-	SENDINPUT %MESSENGER_KEY_MICROSOFT%
-
-	MICROSOFT_CONTROL_22=
-	SETTIMER MICROSOFT_CONTROL_44_TIMER,OFF
-}
-RETURN
-#ifwinactive
 
 
 
-; ~ LET HOT KEY PASS THROUGH
-#ifwinactive Channel content - YouTube Studio - Google Chrome ahk_class Chrome_WidgetWin_1
-F5::
-{
-	SetTitleMatchMode 3
-	MESSENGER_KEY_1=0
-	ifwinactive ahk_class Chrome_WidgetWin_1
-	ifwinactive Channel content - YouTube Studio - Google Chrome
-	IfWinActive ahk_exe chrome.exe
-	{
-		MESSENGER_KEY_1=eddielancaster21@gmail.com,
-		MESSENGER_KEY_2=marianne.vousden@gmail.com,
-		MESSENGER_KEY_3=jo_lancaster@yahoo.co.uk,
-		SetKeyDelay, 75
-		SLEEP 100
-		MESSENGER_KEY=%MESSENGER_KEY_1%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 100
-		MESSENGER_KEY=%MESSENGER_KEY_2%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 100
-		MESSENGER_KEY=%MESSENGER_KEY_3%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-	}
-	IF MESSENGER_KEY_1=0
-		SENDINPUT {F5}
 
-	SetTitleMatchMode 2  ; PARTIAL PATH
-}
-RETURN
-#ifwinactive
+
 
 
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-; ~ LET HOT KEY PASS THROUGH
-#ifwinactive ahk_class Chrome_WidgetWin_1
-F5::
-{
-	Loop
-	{
-		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
-		if ErrorLevel
-			break
-		IF A_INDEX=2
-		{
-			MESSENGER_KEY_LASTPASS=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_LASTPASS%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_LASTPASS=%MESSENGER_KEY%
-		}
-		IF A_INDEX=4
-		{
-			MESSENGER_KEY_ROBOFORM=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_ROBOFORM%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_ROBOFORM=%MESSENGER_KEY%
-		}
-		IF A_INDEX=6
-		{
-			MESSENGER_KEY_FIREFOXSYNC=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_FIREFOXSYNC%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_FIREFOXSYNC=%MESSENGER_KEY%
-		}
-	}
-
-	MESSENGER_KEY_PRESS_F5=0
-
-	; LASTPASS
-	SetTitleMatchMode 2
-	ifwinactive ahk_class Chrome_WidgetWin_1
-	ifwinactive login.html
-	IfWinActive ahk_exe msedge.exe
-	{
-		SENDINPUT %MESSENGER_KEY_LASTPASS%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-
-	; chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/login.html - Google Chrome
-	SetTitleMatchMode 2  ; PARTIAL PATH
-	ifwinactive ahk_class Chrome_WidgetWin_1
-	ifwinactive hdokiejnpimakedhajhdlcegeplioahd
-	IfWinActive ahk_exe msedge.exe
-	{
-		SENDINPUT %MESSENGER_KEY_LASTPASS%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	SetTitleMatchMode 3  ; PARTIAL PATH
-	ifwinactive ahk_class Chrome_WidgetWin_1
-	IfWinActive ahk_exe msedge.exe
-	{
-		SENDINPUT %MESSENGER_KEY_LASTPASS%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	; extension://bbcinlkgjjkejfdpemiealijmmooekmp/login.html and 10 more pages - Personal - Microsoft Edge
-	SetTitleMatchMode 2  ; PARTIAL PATH
-	ifwinactive ahk_class Chrome_WidgetWin_1
-	ifwinactive bbcinlkgjjkejfdpemiealijmmooekmp
-	IfWinActive ahk_exe chrome.exe
-	{
-		SENDINPUT %MESSENGER_KEY_LASTPASS%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-
-	SetTitleMatchMode 3  ; EXACT PATH
-	ifwinactive ahk_class Chrome_WidgetWin_1
-	ifwinactive RoboForm Start Page - Google Chrome
-	IfWinActive ahk_exe chrome.exe
-	{
-		SENDINPUT %MESSENGER_KEY_ROBOFORM%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-	; ---------------------------------------------------------------
-	; ---------------------------------------------------------------
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	SetTitleMatchMode 2
-	ifwinactive ahk_class Chrome_WidgetWin_1
-	ifwinactive matt.lan@btinternet.com - Google Chrome
-	IfWinActive ahk_exe chrome.exe
-	{
-		MESSENGER_KEY_1=Eddie-Lancaster<eddielancaster21@gmail.com>,`r
-		MESSENGER_KEY_2=Marianne-Vousden<marianne.vousden@gmail.com>,`r
-		MESSENGER_KEY_3=Matthew-Lancaster<matt.lan@btinternet.com>,`r
-		MESSENGER_KEY_4=RoidRim<rub.rim@gmail.com>,`r
-		SetKeyDelay, 75
-		SLEEP 100
-		MESSENGER_KEY=%MESSENGER_KEY_1%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 100
-		MESSENGER_KEY=%MESSENGER_KEY_2%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 100
-		MESSENGER_KEY=%MESSENGER_KEY_3%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 100
-		MESSENGER_KEY=%MESSENGER_KEY_4%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-IF MESSENGER_KEY_PRESS_F5=0
-	SENDINPUT {F5}
-
-SetTitleMatchMode 2  ; PARTIAL PATH
-
-}
-RETURN
-#ifwinactive
 
 
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-#ifwinactive ahk_class MozillaWindowClass
-F5::
-{
-
-	Loop
-	{
-		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
-		if ErrorLevel
-			break
-		IF A_INDEX=2
-		{
-			MESSENGER_KEY_LASTPASS=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_LASTPASS%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_LASTPASS=%MESSENGER_KEY%
-		}
-		IF A_INDEX=4
-		{
-			MESSENGER_KEY_ROBOFORM=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_ROBOFORM%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_ROBOFORM=%MESSENGER_KEY%
-		}
-		IF A_INDEX=6
-		{
-			MESSENGER_KEY_FIREFOXSYNC=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_FIREFOXSYNC%
-			; MSGBOX %MESSENGER_KEY_FIREFOXSYNC%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_FIREFOXSYNC=%MESSENGER_KEY%
-		}
-	}
-
-	MESSENGER_KEY_PRESS_F5=0
 
 
-	DetectHiddenWindows, oN
-
-	SetTitleMatchMode 2  ; EXACT PATH
-	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive Facebook
-	{
-		SENDINPUT {F5}
-		return
-	}
-
-	; ?Set up Firefox synchronisation? | ?Mozilla accounts? — Mozilla Firefox ahk_class MozillaWindowClass
-	SetTitleMatchMode 2
-
-	FIREFOX_CONTROL_10=0
-	WinGet, FIREFOXControlList, ControlList,  Set up Firefox synchronisation?  ahk_class MozillaWindowClass
-	Loop, Parse,FIREFOXControlList, `n
-	{
-		if (A_LoopField = "MozillaCompositorWindowClass1")
-		{
-			FIREFOX_CONTROL_10=1
-		}
-	}
-	if FIREFOX_CONTROL_10=1
-	{
-		; MSGBOX %MESSENGER_KEY_FIREFOXSYNC%
-		SENDINPUT %MESSENGER_KEY_FIREFOXSYNC%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	SetTitleMatchMode 3  ; EXACT
-	; ----------------------------------------
-	; Detect when a ClassNN window exists - Ask for Help - AutoHotkey Community
-	; ----------------------------------------
-	; https://www.autohotkey.com/board/topic/96491-detect-when-a-classnn-window-exists/
-	; ----------------------------------------
-	FIREFOX_CONTROL_10=0
-	WinGet, FIREFOXControlList, ControlList, ahk_class MozillaWindowClass
-	Loop, Parse,FIREFOXControlList, `n
-	{
-		; MsgBox, 4,, Control #%a_index% is "%A_LoopField%"
-		if (A_LoopField = "MozillaCompositorWindowClass1")
-		{
-			FIREFOX_CONTROL_10=1
-		}
-	}
-	if FIREFOX_CONTROL_10=1
-	{
-		SENDINPUT %MESSENGER_KEY_LASTPASS%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-	}
-
-	DetectHiddenWindows, OFF
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	; LASTPASS
-	SetTitleMatchMode 3  ; EXACT PATH
-	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive Passwords — Mozilla Firefox
-	IfWinActive ahk_exe firefox.exe
-	{
-		SENDINPUT %MESSENGER_KEY_LASTPASS%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	;ROBOFORM
-	SetTitleMatchMode 3  ; EXACT PATH
-	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive Log In — Mozilla Firefox
-	IfWinActive ahk_exe firefox.exe
-	{
-		SENDINPUT %MESSENGER_KEY_ROBOFORM%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	;ROBOFORM NOT SUCCESSFULL ON THIS ONE
-	SetTitleMatchMode 3
-	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive RoboForm Extension Options — Mozilla Firefox
-	IfWinActive ahk_exe firefox.exe
-	{
-		SENDINPUT %MESSENGER_KEY_ROBOFORM%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	;ROBOFORM
-	SetTitleMatchMode 2
-	IF !MESSENGER_KEY
-	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive - matt.lan@btinternet.com — Mozilla Firefox
-	IfWinActive ahk_exe firefox.exe
-	{
-		SENDINPUT %MESSENGER_KEY_ROBOFORM%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	; MICROSOFT LOGIN
-	SetTitleMatchMode 3  ; EXACT PATH
-	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive Verify your email — Mozilla Firefox
-	IfWinActive ahk_exe firefox.exe
-	{
-		MESSENGER_KEY:="MATT.LAN@BTINTERNET.COM"
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-
-	IF MESSENGER_KEY_PRESS_F5=0
-	{
-	SetTitleMatchMode 2
-	ifwinactive ahk_class MozillaWindowClass
-	ifwinactive Inbox
-	IFWINACTIVE Mozilla Firefox
-	IfWinActive ahk_exe firefox.exe
-	{
-		MESSENGER_KEY=TT
-		MESSENGER_KEY_1=Eddie-Lancaster<eddielancaster21@gmail.com>,`r
-		MESSENGER_KEY_2=Marianne-Vousden<marianne.vousden@gmail.com>,`r
-		MESSENGER_KEY_3=Matthew-Lancaster<matt.lan@btinternet.com>,`r
-		MESSENGER_KEY_4=RoidRim<rub.rim@gmail.com>,`r
-		SetKeyDelay, 75
-		SLEEP 1000
-		MESSENGER_KEY=%MESSENGER_KEY_1%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 1000
-		MESSENGER_KEY=%MESSENGER_KEY_2%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 1000
-		MESSENGER_KEY=%MESSENGER_KEY_3%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		SLEEP 1000
-		MESSENGER_KEY=%MESSENGER_KEY_4%
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-		MESSENGER_KEY_PRESS_F5=1
-	}
-}
-
-	; CONFLICT WITH ABOVE 01
-	; SetTitleMatchMode 2
-	; ifwinactive ahk_class MozillaWindowClass
-	; ifwinactive matt.lan@btinternet.com — Mozilla Firefox
-	; IfWinActive ahk_exe firefox.exe
-	; {
-		; MESSENGER_KEY:="Eddie Lancaster <eddielancaster21@gmail.com>,Marianne Vousden <marianne.vousden@gmail.com>,Matthew Lancaster <matt.lan@btinternet.com>,RoidRim <rub.rim@gmail.com>"
-		; GOSUB STRING_INVERT_MESSENGER
-		; SENDINPUT %MESSENGER_KEY%
-	; }
-
-
-IF MESSENGER_KEY_PRESS_F5=0
-	SENDINPUT {F5}
-
-SetTitleMatchMode 2  ; PARTIAL PATH
-
-}
-RETURN
-#ifwinactive
-
-
-#ifwinactive ahk_class RfEditor
-F5::
-{
-
-
-	Loop
-	{
-		FileReadLine, line, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\SCRIPT 00_PASSWORD_NUMBER\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN_PASSWORD.txt, %A_Index%
-		if ErrorLevel
-			break
-
-		IF A_INDEX=4
-		{
-			MESSENGER_KEY_ROBOFORM=%line%
-			MESSENGER_KEY=%MESSENGER_KEY_ROBOFORM%
-			GOSUB STRING_INVERT_MESSENGER
-			MESSENGER_KEY_ROBOFORM=%MESSENGER_KEY%
-		}
-	}
-
-	MESSENGER_KEY=
-	SetTitleMatchMode 3  ; EXACT PATH
-	ifwinactive ahk_class RfEditor
-	ifwinactive RoboForm Editor
-	IfWinActive ahk_exe identities.exe
-	{
-		SENDINPUT %MESSENGER_KEY_ROBOFORM%
-	}
-
-IF !MESSENGER_KEY
-	SENDINPUT {F5}
-
-SetTitleMatchMode 2  ; PARTIAL PATH
-
-}
-RETURN
-#ifwinactive
 
 
 ; MOUSE_WHEEL_DOWN:
@@ -2307,79 +1708,8 @@ SetTitleMatchMode 2  ; PARTIAL PATH
 RETURN
 
 
-TIMER_WSCRIPT_FOCUS_LEFT_KILL:
 
 
-
-
-
-
-	; IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-	; IfWinActive RoboForm Start Page - Google Chrome ahk_class Chrome_WidgetWin_1
-	; {
-		; MESSENGER_KEY=HHHHTTTTXh55
-		; GOSUB STRING_INVERT_MESSENGER
-		; SENDINPUT %MESSENGER_KEY%
-
-		; ROBOFOM_FOCUS_SET_FLAG_01=TRUE
-	; }
-	; winID := WinExist( RoboForm Start Page - Google Chrome ahk_class Chrome_WidgetWin_1 )
-	; IF winID = 0 THEN
-		; ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-
-
-	IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-	IfWinActive RoboForm Editor ahk_class RfEditor
-	{
-		MESSENGER_KEY=HHHHTTTTXh55
-		GOSUB STRING_INVERT_MESSENGER
-;		SENDINPUT %MESSENGER_KEY%
-;
-		ROBOFOM_FOCUS_SET_FLAG_01=TRUE
-	}
-	winID := WinExist( RoboForm Editor ahk_class RfEditor )
-	IF winID = 0 THEN
-		ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-
-
-	IF ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-	IfWinActive RoboForm Unlock ahk_class #32770
-	{
-		MESSENGER_KEY=HHHHTTTTXh55
-		GOSUB STRING_INVERT_MESSENGER
-		SENDINPUT %MESSENGER_KEY%
-
-		ROBOFOM_FOCUS_SET_FLAG_01=TRUE
-	}
-	winID := WinExist( RoboForm Unlock ahk_class #32770 )
-	IF winID = 0 THEN
-		ROBOFOM_FOCUS_SET_FLAG_01=FALSE
-
-
-
-
-	RETURN
-
-	WSCRIPT_FOCUS_SET_FLAG_01=FALSE
-	IfWinActive ahk_class #32770
-	IfWinActive ahk_exe WScript.exe
-	{
-		WSCRIPT_FOCUS_SET_FLAG_01=TRUE
-		WSCRIPT_FOCUS_SET_FLAG_02=TRUE
-	}
-
-	IF WSCRIPT_FOCUS_SET_FLAG_01=FALSE
-	IF WSCRIPT_FOCUS_SET_FLAG_02=TRUE
-	{
-
-		WinGet, List, List, ahk_exe WScript.exe
-		Loop %List%
-		{
-			Process, Close, WScript.exe
-			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		}
-	}
-RETURN
 
 
 
