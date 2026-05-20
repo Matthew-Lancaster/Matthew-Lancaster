@@ -11,8 +11,8 @@ Begin VB.Form FRM_ClipTest
    ClientWidth     =   15672
    Icon            =   "frmClipTest.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   10896
-   ScaleWidth      =   22824
+   ScaleHeight     =   8100
+   ScaleWidth      =   15672
    Visible         =   0   'False
    Begin VB.Timer TIMER_CLIPBOARD_PROCESS_ADBLOCK_FILE 
       Enabled         =   0   'False
@@ -168,6 +168,7 @@ Begin VB.Form FRM_ClipTest
       _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
+      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":1272
@@ -182,6 +183,7 @@ Begin VB.Form FRM_ClipTest
       _ExtentY        =   5779
       _Version        =   393217
       BorderStyle     =   0
+      Enabled         =   -1  'True
       ScrollBars      =   3
       Appearance      =   0
       TextRTF         =   $"frmClipTest.frx":12F4
@@ -196,6 +198,7 @@ Begin VB.Form FRM_ClipTest
       _ExtentX        =   2180
       _ExtentY        =   445
       _Version        =   393217
+      Enabled         =   -1  'True
       TextRTF         =   $"frmClipTest.frx":1376
    End
    Begin VB.Timer Timer_Test_Logic 
@@ -3401,6 +3404,8 @@ VAR_ST_7 = Replace(VAR_ST_7, "/", "\")
 
 Clipboard.Clear
 Clipboard.SetText VAR_ST_7
+
+Shell "EXPLORER " + VAR_ST_7, vbMaximizedFocus
 
 If Err.Number > 0 Then MsgBox "ERROR SOURCE PATH = " & vbCrLf & VAT_ST_8 & vbCrLf & vbCrLf & "RESULT PATH = " & vbCrLf & VAT_ST_7
 

@@ -273,6 +273,8 @@ SETTIMER KILL_MICROSOFT_EDGE,1000
 
 CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=FALSE
 
+TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT=
+
 TIMER_MINIMIZE_GOODSYNC_AT_BOOT=
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
@@ -284,8 +286,9 @@ IF OSVER_N_VAR=WIN_XP
 	OSVER_N_VAR=5
 IF OSVER_N_VAR=WIN_7
 	OSVER_N_VAR=6
-
-
+; MSGBOX %a_osversion%   ; -- 10.0.26200 -- WIN 11
+IF (A_ComputerName="9-ASUS-G815LM") 
+	OSVER_N_VAR=11
 
 	
 
@@ -307,16 +310,16 @@ Loop, %0% {               ;for each command line parameter
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-GOSUB MAIN_ROUTINE_2
+GOSUB MAIN_ROUTINE_1
 
 ; MSGBOX %Param_in%
-
 ; If Param_in
 ; {
 	; EXITAPP
 ; }
 
-GOSUB MAIN_ROUTINE
+
+GOSUB MAIN_ROUTINE_2
 
 
 ; -------------------------------------------------------------------
@@ -332,7 +335,8 @@ GOSUB MAIN_ROUTINE
 ;GuiEscape:
 ;GuiClose:
 
-SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav -------------------------------------------------------------------
+SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+; -------------------------------------------------------------------
 
 
 
@@ -571,7 +575,7 @@ RETURN
 
 
 
-ESCAPE_KEY_THE_RESTORE_PAGES_CHROME:
+ESCAPE_KEY_PRESS_ON_THE_RESTORE_PAGES_CHROME:
 SetTitleMatchMode 3
 DetectHiddenWindows, ON
 
@@ -642,7 +646,7 @@ Process_Suspend_esif_assist_64(PID){
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-MAIN_ROUTINE_2:
+MAIN_ROUTINE_1:
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -690,6 +694,14 @@ if FileExist(Element_1)
 }
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 01-F10 __ HOTKEY __ PRINT SCREEN SECURE.ahk"
+if FileExist(Element_1)
+{
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	Run, %Element_1%
+}
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
 
 Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 79-BROWSER LOAD URL BOOT CHROME.ahk"
 if FileExist(Element_1)
@@ -729,21 +741,21 @@ IF (A_ComputerName="9-ASUS-G815LM")
 IF SET_GO_1=1
 {
 
-	; Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
-	; if FileExist(Element_1)
-	; {
-		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		; Run, %Element_1%
-	; }
-	; -------------------------------------------------------------------
-	; -------------------------------------------------------------------
-
-	Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk"
+	Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_1.ahk"
 	if FileExist(Element_1)
 	{
 		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		Run, %Element_1%
 	}
+	; -------------------------------------------------------------------
+	; -------------------------------------------------------------------
+
+	; Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 19-SCRIPT_TIMER_UTIL_2.ahk"
+	; if FileExist(Element_1)
+	; {
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; Run, %Element_1%
+	; }
 }
 
 
@@ -800,77 +812,68 @@ IF SET_GO_1
 
 
 
+;--------------------------------------------------------------------
+;AUTOHOTKEYS
+;--------------------------------------------------------------------
+
+FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
+AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
+TEMP_VAR_1=%FN_VAR_1%
+TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
+TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
+TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
+FN_VAR_1=%TEMP_VAR_3%
+
+DetectHiddenWindows, ON
+SetTitleMatchMode 3  ; EXACTLY
+IFWINNOTEXIST %FN_VAR_1%
+{
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+}
+
+
+FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 04-SET CAP NUM & SCROLL TO LIKING - ONCE.ahk"	
+if FileExist(FN_VAR)
+	IF !WinExist(FN_VAR) 
+	{
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, "%FN_VAR%"
+	}
+
+; -------------------------------------------------------------------
+; ALL THE AUTOHOTKEYS DONE
+; -------------------------------------------------------------------
+
+
+
+
+
+
+
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; Exitapp
 
-; RETURN ;; MAIN_ROUTINE_2: 
+; RETURN ;; MAIN_ROUTINE_1: 
 
 
 ; Element_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 54-Google Chrome Update Process Killer Stop the Tunisia of Advert.ahk"
 ; if FileExist(Element_1)
 ; {
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	; Run, %Element_1%
 ; }
 
-; GOSUB MINIMIZE_ALL__EXPLORER_AT_BOOT
-GOSUB MINIMIZE_ALL_CMD_AT_BOOT
-; GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 
-;--------------------------------------------------------------------
-; SLEEP FOR 60 SECOND IF LESS QUICK COMPUTER & BOOT TICKER SHOWS LOWER
-;--------------------------------------------------------------------
-
-SET_GO_1=TRUE
-SET_GO_2=100
-IF (A_ComputerName = "1-ASUS-X5DIJ") 
-	SET_GO_2=100
-IF (A_ComputerName = "2-ASUS-EEE") 
-	SET_GO_2=100
-IF (A_ComputerName = "3-LINDA-PC") 
-	SET_GO_2=200
-IF (A_ComputerName = "4-ASUS-GL522VW") 
-	SET_GO_2=100
-IF (A_ComputerName = "5-ASUS-P2520LA") 
-	SET_GO_2=100
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO_2=100
-IF (A_ComputerName = "8-MSI-GP62M-7RD") 
-	SET_GO_2=100
-IF (A_ComputerName = "9-ASUS-G815LM") 
-	SET_GO_2=100
-	
-COUNT_TICK_TIME=% 1000*60*12
-; IF OUR SET TIME IS LESS THEN TICK TIME LET IT GO
-; ONLY IF BOOT IN EARLY
-;-------------------------------------------------
-IF COUNT_TICK_TIME<%A_TICKCOUNT%
-	SET_GO_1=FALSE
-	
-IF SET_GO_1=TRUE
-{
-	I_COUNT=0
-	LOOP 
-	{
-		; IF (A_ComputerName = "7-ASUS-GL522VW") 
-			; Process_Suspend_esif_assist_64(1)
-		; IF (A_ComputerName = "4-ASUS-GL522VW") 
-			; Process_Suspend_esif_assist_64(1)
-		
-		I_COUNT+=1
-		SLEEP 1000
-		IF I_COUNT>%SET_GO_2%
-			BREAK
-			
-		IF VAR_RUN_ME_NOW_AUTOBOOT=TRUE
-			BREAK
-		
-	}
-}
 
 ; PAUSE
 ; MSGBOX "11"
+
+
+; -------------------------------------------------------------------
+; ALL HE VISUAL BASIC TO DO
+; -------------------------------------------------------------------
 
 SET_GO_8=TRUE
 IF (A_ComputerName = "1-ASUS-X5DIJ") 
@@ -896,7 +899,7 @@ IF SET_GO_8=TRUE
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10
 ; --------------------------
-If (OSVER_N_VAR=10)
+If (OSVER_N_VAR>10)
 {
 	; MSGBOX HERE1
 	If ProcessExist("ClipBoard Viewer.exe", A_UserName)=0
@@ -967,7 +970,7 @@ IF SET_GO=TRUE
 		SET_GO=FALSE
 	IF (A_ComputerName = "5-ASUS-P2520LA") 
 		SET_GO=FALSE
-	IF (A_ComputerName = "7-ASUS-GL522VW") 
+	IF (A_ComputerName = "4-ASUS-GL522VW") 
 		SET_GO=FALSE
 
 	SET_GO=FALSE
@@ -996,7 +999,7 @@ IF (A_ComputerName = "3-LINDA-PC")
 	SET_GO=FALSE
 IF (A_ComputerName = "5-ASUS-P2520LA") 
 	SET_GO=FALSE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
+IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=FALSE
 If (OSVER_N_VAR<10)
 	SET_GO=FALSE
@@ -1037,35 +1040,68 @@ If ProcessExist("VB_KEEP_RUNNER.exe", A_UserName)=0
 	}
 }
 
+; -------------------------------------------------------------------
+; ALL THE VISUAL BASIC DONE
+; -------------------------------------------------------------------
+
+GOSUB MINIMIZE_ALL__EXPLORER_AT_BOOT
+
+GOSUB MINIMIZE_ALL_CMD_AT_BOOT
+
+; GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
 
 ;--------------------------------------------------------------------
-;AUTOHOTKEYS
+; SLEEP FOR 60 SECOND IF LESS QUICK COMPUTER & BOOT TICKER SHOWS LOWER
 ;--------------------------------------------------------------------
 
-FN_VAR_1 := "C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELOADER.ahk"
-AHK_TERMINATOR_VERSION:=" - AutoHotkey v"A_AhkVersion
-TEMP_VAR_1=%FN_VAR_1%
-TEMP_VAR_2="%AHK_TERMINATOR_VERSION%"
-TEMP_VAR_3=%TEMP_VAR_1%%TEMP_VAR_2%
-TEMP_VAR_3:=StrReplace(TEMP_VAR_3, """" , "")
-FN_VAR_1=%TEMP_VAR_3%
+SET_GO_1=TRUE
+SET_GO_2=100
+IF (A_ComputerName = "1-ASUS-X5DIJ") 
+	SET_GO_2=100
+IF (A_ComputerName = "2-ASUS-EEE") 
+	SET_GO_2=100
+IF (A_ComputerName = "3-LINDA-PC") 
+	SET_GO_2=200
+IF (A_ComputerName = "4-ASUS-GL522VW") 
+	SET_GO_2=100
+IF (A_ComputerName = "5-ASUS-P2520LA") 
+	SET_GO_2=100
+IF (A_ComputerName = "8-MSI-GP62M-7RD") 
+	SET_GO_2=100
+IF (A_ComputerName = "9-ASUS-G815LM") 
+	SET_GO_2=100
+	
+COUNT_TICK_TIME=% 1000*60*12
+;-------------------------------------------------
+; IF OUR SET TIME IS 12 MINUTE  LESS THEN TICK TIME LET IT GO
+; ONLY IF BOOT IN EARLY
+;-------------------------------------------------
 
-DetectHiddenWindows, ON
-SetTitleMatchMode 3  ; EXACTLY
-IFWINNOTEXIST %FN_VAR_1%
+SET_GO_1=TRUE
+IF COUNT_TICK_TIME<%A_TICKCOUNT%
+	SET_GO_1=FALSE
+	
+IF SET_GO_1=TRUE
 {
-	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	; Run, C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 28-AUTOHOTKEYS SET RELAUNCH CODE.ahk
+	I_COUNT=0
+	LOOP 
+	{
+		I_COUNT+=1
+		SLEEP 1000
+		IF I_COUNT>%SET_GO_2%
+			BREAK
+		
+		; -----------------------------------------------------------------------------------------------------------------------
+		; ONE OF THE MENU OPTION IS TO OVERRIDE THIS WAIT AND AUTORUN NOW IN THE INCLUDE PROGRAM
+		; Autokey -- 00-01_INCLUDE MENU 01 of 03.ahk
+		; -----------------------------------------------------------------------------------------------------------------------
+		IF VAR_RUN_ME_NOW_AUTOBOOT=TRUE
+			BREAK
+		
+	}
 }
 
 
-FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 04-SET CAP NUM & SCROLL TO LIKING - ONCE.ahk"	
-if FileExist(FN_VAR)
-	IF !WinExist(FN_VAR) 
-	{
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		Run, "%FN_VAR%"
-	}
 
 
 
@@ -1081,7 +1117,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 
-MAIN_ROUTINE:
+MAIN_ROUTINE_2:
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
 
@@ -1189,7 +1225,7 @@ RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Ru
 RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Skype for Desktop
 
 SET_GO_1=0
-IF (A_ComputerName="7-ASUS-GL522VW")
+IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_GO_1=1
 	
 	SET_GO_1=1
@@ -1257,12 +1293,10 @@ IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
 	SET_GO_1=0
 IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	SET_GO_1=0
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=1
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
 	SET_GO_1=0
 
-IF (A_ComputerName="7-ASUS-GL522VW")
+IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_GO_1=0
 	
 	SET_GO_1=0
@@ -1278,7 +1312,7 @@ If (OSVER_N_VAR>5
 			FN_VAR:="C:\Program Files\BT Cloud\BT Cloud\BTCloud.exe"
 			if FileExist(FN_VAR)
 			{
-				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				; Run, "%FN_VAR%"
 			}
 		}
@@ -1306,7 +1340,7 @@ RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Vide
 
 
 SET_GO_1=1
-IF (A_ComputerName="7-ASUS-GL522VW")
+IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_GO_1=0
 	
 	SET_GO_1=0
@@ -1321,7 +1355,7 @@ If Not ErrorLevel
 		FN_VAR:="C:\Program Files (x86)\LastPass\lastapp_x64.exe"
 		if FileExist(FN_VAR)
 		{
-			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			; Run, "%FN_VAR%"
 		}	
 	}	
@@ -1342,8 +1376,8 @@ If ProcessExist("LogiOptions.exe", A_UserName)=0
 		{
 			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			Run, "%FN_VAR%" /noui
-			SLEEP 1000
-			CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=TRUE
+			; SLEEP 1000
+			; CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=TRUE
 			; GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
 		}
 	}
@@ -1510,7 +1544,7 @@ IF SET_GO_1=1
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; GOODSYNC DESKTOP 7G
-; IF (A_ComputerName="7-ASUS-GL522VW")
+; IF (A_ComputerName="4-ASUS-GL522VW")
 	
 SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_4G_8M_9G,1000
 ; -------------------------------------------------------------------
@@ -1521,7 +1555,7 @@ SETTIMER TIMER_TO_START_GOODSYNC_COMPUTER_NAME_4G_8M_9G,1000
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; GOODSYNC PORTABLE __D__7G_________
-IF (A_ComputerName="7-ASUS-GL522VW")
+IF (A_ComputerName="4-ASUS-GL522VW")
 {
 	Process, Exist, GoodSync2Go.exe
 	If Not ErrorLevel
@@ -1610,7 +1644,7 @@ IF (A_ComputerName="8-MSI-GP62M-7RD")
 	SET_GO_1=0
 ; ---------------------------------------------------------------
 	
-SET_GO_1=0
+SET_GO_1=1
 
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
@@ -1623,10 +1657,10 @@ If (OSVER_N_VAR>5
 			FN_VAR:="C:\Program Files\Box\Box Sync\BoxSync.exe"
 			if FileExist(FN_VAR)
 			{
-				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 				; Run, "%FN_VAR%" -m
-				SLEEP 1000
-				CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=TRUE
+				; SLEEP 1000
+				; CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=TRUE
 				; GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
 				RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, BoxSync
 			}
@@ -1785,12 +1819,6 @@ RegDelete, HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, CCleaner Smart Cl
 ; HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 
 
-FN_VAR:="C:\Program Files (x86)\USB Safely Remove\USBSafelyRemove.exe"
-if FileExist(FN_VAR)
-	{
-		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		; Run, "C:\Program Files (x86)\USB Safely Remove\USBSafelyRemove.exe" /startup
-	}
 
 FN_VAR:="C:\Program Files\CCleaner\CCleaner64.exe"
 if FileExist(FN_VAR)
@@ -1851,7 +1879,7 @@ if FileExist(FN_VAR)
 	}
 	
 SET_GO_1=0
-IF (A_ComputerName="7-ASUS-GL522VW")
+IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_GO_1=1
 	
 SET_GO_1=0
@@ -1862,7 +1890,7 @@ If ProcessExist("PStart.exe", A_UserName)=0
 	FN_VAR:="C:\PStart\PStart.exe"
 	if FileExist(FN_VAR)
 	{
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; Run, "%FN_VAR%" , , HIDE
 		; WinWait, ahk_class TMainForm.UnicodeClass, , 80
 		WinGet, HWND, ID, ahk_class TMainForm.UnicodeClass
@@ -1870,6 +1898,28 @@ If ProcessExist("PStart.exe", A_UserName)=0
 	}
 }
 
+
+
+
+
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; HERE IS THE COMMAND SET OF RUN WHICH DON'T RUN 
+; IF %A_TICKCOUNT%< LESS THAN A CERTAIN AMOUNT
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+COUNT_TICK_TIME=% 1000*60*14
+;-------------------------------------------------
+ ; PUT A FEW EXTRA MINUTE ON THEN LAST CHECKER
+ ; IF OUR SET TIME IS LESS THEN
+; DON'T UN THIS COMMAND SET IF TICK COUNT
+;-------------------------------------------------
+
+SET_GO_RUN_CMD=TRUE
+IF COUNT_TICK_TIME<%A_TICKCOUNT%
+	SET_GO_RUN_CMD=FALSE
+	
 	; TRUE WONT WIN
 	SET_GO_GO=TRUE
 	IF (A_ComputerName = "5-ASUS-P2520LA") 
@@ -1880,10 +1930,31 @@ If ProcessExist("PStart.exe", A_UserName)=0
 		SET_GO_GO=TRUE
 	IF (A_ComputerName = "9-ASUS-G815LM") 
 		SET_GO_GO=
-	
+
+IF SET_GO_RUN_CMD=FALSE
+		SET_GO_GO=
 
 SetTitleMatchMode 2  ; Avoids the need to specify the full path of the file below.
-IF SET_GO_GO
+
+
+IF SET_GO_RUN_CMD=TRUE
+IF (A_ComputerName = "9-ASUS-G815LM") 
+IfWinNotExist BAT 01 REGISTRY AT BOOTER_WIN_11
+	{
+		MSGBOX "HERE ---- BAT 01 REGISTRY AT BOOTER_WIN_11.BAT ---- Autokey -- 21-AUTORUN.ahk"
+		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 REGISTRY AT BOOTER_WIN_11.BAT"
+		if FileExist(FN_VAR)
+		{
+			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			Run, "%FN_VAR%" , , MIN
+			GOSUB MINIMIZE_ALL_CMD_AT_BOOT
+		}
+	}
+
+
+
+
+IF SET_GO_GO=TRUE
 IfWinNotExist BAT 01 BOOT KILLER
 {
 	; MSGBOX "HERE"
@@ -1896,7 +1967,7 @@ IfWinNotExist BAT 01 BOOT KILLER
 	}
 }
 
-IF SET_GO_GO
+IF SET_GO_GO=TRUE
 IfWinNotExist BAT 01 REGISTRY AT BOOTER
 	{
 		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 REGISTRY AT BOOTER.BAT"
@@ -1909,22 +1980,9 @@ IfWinNotExist BAT 01 REGISTRY AT BOOTER
 	}
 	
 	
-	
-IF (A_ComputerName = "9-ASUS-G815LM") 
-IfWinNotExist BAT 01 REGISTRY AT BOOTER_WIN_11
-	{
-		FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 01 REGISTRY AT BOOTER_WIN_11.BAT"
-		if FileExist(FN_VAR)
-		{
-			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			Run, "%FN_VAR%" , , MIN
-			GOSUB MINIMIZE_ALL_CMD_AT_BOOT
-		}
-	}
-	
 ; WIN_XP 5 WIN_7 6 WIN_10 10  
 ; --------------------------
-IF SET_GO_GO
+IF SET_GO_GO=TRUE
 If (OSVER_N_VAR=10)
 {
 	FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- BAT\BAT 23-ASSOCIATION EXTENSIONS WIN_10 _ ORGINAL.BAT"
@@ -1973,6 +2031,15 @@ IfWinNotExist SendSMTP_REBOOT_BATCH
 ;WinWait, VB_KEEP_RUNNER ahk_class ThunderRT6FormDC, , 30
 ;--------------------------------------------------------------------
 
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+; ENDER OF THE COMMAND SET OF RUN
+; -------------------------------------------------------------------
+; -------------------------------------------------------------------
+
+
+
+
 ; TRY ANOTHER METHOD DIDN'T WORK EITHER
 ;--------------------------------------------------------------------
 ;LCOUNT=20
@@ -1997,8 +2064,6 @@ IF (A_ComputerName = "2-ASUS-EEE")
 	SET_GO=
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=TRUE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO=TRUE
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 	SET_GO=TRUE
 IF (A_ComputerName = "9-ASUS-G815LM") 
@@ -2017,7 +2082,7 @@ IF SET_GO=TRUE
 			; Run, "%FN_VAR%"
 		}
 	}
-	SLEEP 2000
+	; SLEEP 2000
 }
 	
 	
@@ -2028,8 +2093,6 @@ IF (A_ComputerName = "1-ASUS-X5DIJ")
 IF (A_ComputerName = "2-ASUS-EEE") 
 	SET_GO=TRUE
 IF (A_ComputerName = "4-ASUS-GL522VW") 
-	SET_GO=TRUE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
 	SET_GO=TRUE
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 	SET_GO=TRUE
@@ -2049,9 +2112,12 @@ IF SET_GO=TRUE
 	}
 }
 
-SLEEP 2000
+; SLEEP 2000
 	
-;GOSUB MINIMIZE_ALL_BLUETOOTH
+;GOSUB MINIMIZE_ALL_BLUETOOTH_02
+
+GOSUB MINIMIZE_ALL_BLUETOOTH_TIMER
+
 
 ; TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
 ; TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 10, SECONDS
@@ -2102,7 +2168,8 @@ IF (A_ComputerName = "8-MSI-GP62M-7RD")
 	SET_GO=TRUE
 IF (A_ComputerName = "9-ASUS-G815LM") 
 	SET_GO=TRUE
-	-+*
+	
+	; -+*
 	
 DetectHiddenWindows, off
 IF SET_GO=TRUE
@@ -2144,8 +2211,6 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVers
 SET_GO=FALSE
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=TRUE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO=TRUE
 IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 	SET_GO=TRUE
 IF (A_ComputerName = "9-ASUS-G815LM") 
@@ -2171,8 +2236,7 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVers
 SET_GO=FALSE
 IF (A_ComputerName = "4-ASUS-GL522VW") 
 	SET_GO=FALSE
-IF (A_ComputerName = "7-ASUS-GL522VW") 
-	SET_GO=TRUE
+
 	
 SET_GO=FALSE
 
@@ -2328,8 +2392,8 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVers
 Process, Exist, FileZilla Server.exe
 If Not ErrorLevel
 {
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	RunWait,sc start "FileZilla Server" ; CHECK THE SERVICE IS RUNNING AND RUN IT
+	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	; RunWait,sc start "FileZilla Server" ; CHECK THE SERVICE IS RUNNING AND RUN IT
 
 	; CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
 	; GOSUB BRUTE_BOOT_DOWN_AHK_SUB
@@ -2341,8 +2405,8 @@ If Not ErrorLevel
 	FN_VAR:="C:\Program Files (x86)\FileZilla Server\FileZilla Server Interface.exe"
 	if FileExist(FN_VAR)
 	{
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		Run, "%FN_VAR%" , , HIDE
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; Run, "%FN_VAR%" , , HIDE
 
 		; CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
 		; GOSUB BRUTE_BOOT_DOWN_AHK_SUB
@@ -2399,8 +2463,9 @@ IF SET_GO=TRUE
 			
 			
 			; DONT RUN ANYMORE 2026
-			CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
-			GOSUB BRUTE_BOOT_DOWN_AHK_SUB
+			; HE DO NOTHING NOW 2026 MAY
+			; CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
+			; GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 		}
 	}
 }
@@ -2479,7 +2544,7 @@ RegDelete, HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\Autor
 ; }
 
 ; ; WINDOWS 10
-; FILE_PATH:="E:\01 Start Menu\#_7-ASUS-GL522VW\Programs\Startup\NeroDesktopSwitcher.scf"
+; FILE_PATH:="E:\01 Start Menu\#_4-ASUS-GL522VW\Programs\Startup\NeroDesktopSwitcher.scf"
 ; if FileExist(FILE_PATH)
 ; {
 	; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
@@ -2491,15 +2556,13 @@ DetectHiddenWindows, ON
 
 
 ; ----------------------------------------
-; ONLY IN THE FIRST FIVE MINUTES OF TICKER
+; ONLY IN THE FIRST 14 MINUTES OF TICKER
 ; ----------------------------------------
-COUNT_TICK_TIME=% 1000*60*5
+COUNT_TICK_TIME=% 1000*60*14
 ;IF A_TICKCOUNT< %COUNT_TICK_TIME%
 {
 	SET_GO=TRUE
 	IF (A_ComputerName = "3-LINDA-PC") 
-		SET_GO=FALSE
-	IF (A_ComputerName = "9-ASUS-G815LM") 
 		SET_GO=FALSE
 		
 	If OSVER_N_VAR<6
@@ -2533,13 +2596,18 @@ IF SET_GO=TRUE
 	}
 }	
 
-GOSUB POWERSHELL
+; NOT SURE -- 2026 MAY
+; GOSUB POWERSHELL
+
+
 
 ; GOSUB MINIMIZE_ALL__EXPLORER_AT_BOOT
 GOSUB MINIMIZE_ALL_CMD_AT_BOOT	
-GOSUB ESCAPE_KEY_THE_RESTORE_PAGES_CHROME
+; GOSUB ESCAPE_KEY_PRESS_ON_THE_RESTORE_PAGES_CHROME
 ; GOSUB MINIMIZE_ALL_CHROME_AT_BOOT
-; GOSUB MINIMIZE_ALL_BLUETOOTH
+; GOSUB MINIMIZE_ALL_BLUETOOTH_02
+
+GOSUB MINIMIZE_ALL_BLUETOOTH_TIMER
 
 
 ; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 98-ALL_CHROME_LOW_PRIORITY_NOT_1ST_FOUR.ahk"
@@ -2576,7 +2644,7 @@ IF (A_ComputerName = "5-ASUS-P2520LA")
 		; RunWait, chrome.exe "https://www.rain-alarm.com/?from=chrome2" , , MAX
 		; #WinActivateForce, Rain Alarm - Google Chrome
 		; WinMaximize  Rain Alarm - Google Chrome
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		
 		; IF NOT EXTENSION INSTALLED
 		; Run, chrome.exe "https://www.rain-alarm.com"
@@ -2628,7 +2696,10 @@ IF (A_ComputerName = "4-ASUS-GL522VW")
 
 ; JUST IN CASE OPEN WITH HAS BEEN SET WRONG PREVENTING WINMERGE FROM RUNNING PROPERLY WITH NOT AT ALL
 ; SOMETIME EDIT WITH NOTEPAD GET PUT IN
-RegDelete, HKEY_CLASSES_ROOT\WinMerge.Project.File\shell\edit
+
+; GOT TO SORT THIS OUT -- ALEADY BEEN RUN NOW TOTO LATE
+IF  (A_ComputerName <> "9-ASUS-G815LM") 
+	RegDelete, HKEY_CLASSES_ROOT\WinMerge.Project.File\shell\edit
 
 ; 3-LINDA-PC
 ; C:\Program Files\Winamp\winamp.exe
@@ -2647,16 +2718,17 @@ RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, Vid
 ; C:\ProgramData\VideoDownloaderUltimateWinApp\VideoDownloaderUltimate.exe /repair
 ; HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
-GOSUB BRUTE_BOOT_DOWN_AHK_SUB
+; GOSUB BRUTE_BOOT_DOWN_AHK_SUB
 
-GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
+; GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
 
-GOSUB GRAMMARLY_CREATE_SHORTCUT
+; GOSUB GRAMMARLY_CREATE_SHORTCUT
 
+; SORT HERE OUT -- ALREADY BEEN RUN NOW -- 2026 MAY
+IF  (A_ComputerName <> "9-ASUS-G815LM") 
+	RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
 
-RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer, SmartScreenEnabled, Off
-
-GOSUB RUN_HUBIC
+;GOSUB RUN_HUBIC
 
 ; -------------------------------------------------------------------
 ; HERE FOR THE SOURCE CODE OF 
@@ -2665,13 +2737,15 @@ GOSUB RUN_HUBIC
 ; [ Monday 05:28:00 Am_25 March 2019 ]
 ; -------------------------------------------------------------------
 
-; SUSSPECT WHATS THIS DO
-; ----------------------
+; -------------------------------------------------------------------
+; SUSPECT WHAT'S THIS DO
+; -------------------------------------------------------------------
+; IT DO HERE
+; COPY "D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\wbemads.tlb" "C:\WINDOWS\SYSTEM32"	
+; -------------------------------------------------------------------
 SET_GO=TRUE
 IF (A_ComputerName = "9-ASUS-G815LM") 
 	SET_GO=FALSE
-	
-	
 
 FN_VAR:="D:\VB6\VB-NT\00_Best_VB_01\VB_KEEP_RUNNER\WBEMADS.TLB.BAT"
 IF SET_GO=TRUE 
@@ -2690,6 +2764,8 @@ SET_DONE=FALSE
 	; SET_GO=TRUE
 	
 IF (A_ComputerName = "4-ASUS-GL522VW") 
+	SET_GO=TRUE
+IF (A_ComputerName = "8-MSI-GP62M-7RD") 
 	SET_GO=TRUE
 IF (A_ComputerName = "9-ASUS-G815LM") 
 	SET_GO=TRUE
@@ -2722,12 +2798,18 @@ IF SET_GO=TRUE
 
 IF SET_DONE=TRUE 
 {
+	COUNT_MIN_NOTEPAD_PLUS=100
 	style_NOTEPAD=-2
 	WinWait, ahk_class Notepad++
 	LOOP
 	{
 		WinMinimize ahk_class Notepad++
 		WinGet style_NOTEPAD, MinMax, ahk_class Notepad++
+		
+		COUNT_MIN_NOTEPAD_PLUS-=1
+		IF COUNT_MIN_NOTEPAD_PLUS<0
+			BREAK
+		
 		;1 maximized 0 normal -1 minimized
 		If style_NOTEPAD=-1
 			BREAK
@@ -2738,8 +2820,8 @@ IF SET_DONE=TRUE
 ; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
 ; WinMinimize  ahk_id %table%
 
-GOSUB OUTLOOK_RUN_AND_MIN
-GOSUB CHROME_RUN_AND_MIN
+; GOSUB OUTLOOK_RUN_AND_MIN
+; GOSUB CHROME_RUN_AND_MIN
 
 
 
@@ -2768,8 +2850,8 @@ If ProcessExist("USBSafelyRemove.exe", A_UserName)=0
 {
 	if FileExist(FN_VAR)
 	{
-		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-		; Run, "%FN_VAR%" /startup , , HIDE
+		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		Run, "%FN_VAR%" /startup , , HIDE
 	}
 }
 if FileExist(FN_VAR)
@@ -2778,12 +2860,13 @@ if FileExist(FN_VAR)
 
 
 
+
+
 ; -------------------------------------------------------------------
 SET_GO_5=0
 IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_GO_5=1
-IF (A_ComputerName="7-ASUS-GL522VW")
-	SET_GO_5=1
+
 	
 IF SET_GO_5=1
 If ProcessExist("FileLocatorPro.exe", A_UserName)=0
@@ -2803,8 +2886,7 @@ If ProcessExist("FileLocatorPro.exe", A_UserName)=0
 SET_GO_5=0
 IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_GO_5=1
-IF (A_ComputerName="7-ASUS-GL522VW")
-	SET_GO_5=1
+
 IF SET_GO_5=1
 If ProcessExist("DuplicateCleaner.exe", A_UserName)=0
 {
@@ -2819,15 +2901,48 @@ If ProcessExist("DuplicateCleaner.exe", A_UserName)=0
 	; RegDelete, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, USB Safely Remove
 ; -------------------------------------------------------------------
 
+
+HWND_1=
+FN_VAR_2=
+FN_VAR:="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
+
+if FileExist(FN_VAR)
+	FN_VAR_2:=FN_VAR
+FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
+if FileExist(FN_VAR)
+	FN_VAR_2:=FN_VAR
+	
+SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
+
+If ProcessExist(OutFILENAME, A_UserName)=0
+{
+	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+	Run, %FN_VAR_2% , , HIDE
+
+	; TAKE A LITTLE WHILE TO START THIS ONE
+	
+	; DetectHiddenWindows, On
+	; WinGet, HWND_1, ID, Software Update ahk_class #32770
+	; IF HWND_1>0
+		; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,1000,1)   ; 0 ---- ONCE TRY
+}
+
+
+
+
 ; TIMER_MINIMIZE_GOODSYNC_AT_BOOT = % A_Now
 ; TIMER_MINIMIZE_GOODSYNC_AT_BOOT += 5, SECONDS
 ; SETTIMER MINIMIZE_GOODSYNC_AT_BOOT_TIMER,1000
 
 
-; TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT = % A_Now
-; TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT+= 5, SECONDS
+TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT = % A_Now
+TIMER_MINIMIZE_BLUETOOTH_NIRSOFT_AT_BOOT+= 5, SECONDS
 ; SETTIMER MINIMIZE_ALL_BLUETOOTH_TIMER,1000
 	
+	
+CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=TRUE
+GOSUB CLOSE_SOME_LEFT_OVER_WINDOWS
+
 	
 RETURN
 
@@ -2839,7 +2954,7 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
-; END OF MAIN LOAD ROUTINE
+; END OF MAIN_LOAD_2 ROUTINE
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
@@ -2848,6 +2963,8 @@ RETURN
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
 ; -------------------------------------------------------------------
+
+
 
 
 
@@ -2932,6 +3049,40 @@ MINIMIZE_ALL_BLUETOOTH_TIMER:
 RETURN
 
 
+; -------------------------------------------------------------------
+; NOT USER 
+; SUPERSEDE BY ---- MINIMIZE_ALL_BLUETOOTH_TIMER:
+; -------------------------------------------------------------------
+MINIMIZE_ALL_BLUETOOTH_02:
+
+	SetTitleMatchMode 3
+	DetectHiddenWindows, OFF
+
+	SET_GO=FALSE
+	If OSVER_N_VAR>5
+		SET_GO=TRUE
+	
+	SET_GO=TRUE
+
+	IF SET_GO=FALSE
+		RETURN
+	
+	IF WinExist("BluetoothView") 
+	{
+		SLEEP 1000
+		WinGet, HWND, ID, BluetoothView
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
+	}
+	
+	IF WinExist("ahk_class BluetoothLogView")
+	{
+		SLEEP 1000
+		WinGet, HWND, ID, ahk_class BluetoothLogView
+		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
+	}
+	
+RETURN
+
 
 
 MINIMIZE_GOODSYNC_AT_BOOT_TIMER:
@@ -2986,40 +3137,6 @@ MINIMIZE_GOODSYNC_AT_BOOT_TIMER:
 RETURN
 
 
-; -------------------------------------------------------------------
-; NOT USER 
-; SUPERSEDE BY ---- MINIMIZE_ALL_BLUETOOTH_TIMER:
-; -------------------------------------------------------------------
-MINIMIZE_ALL_BLUETOOTH:
-
-	SetTitleMatchMode 3
-	DetectHiddenWindows, OFF
-
-	SET_GO=FALSE
-	If OSVER_N_VAR>5
-		SET_GO=TRUE
-	
-	SET_GO=TRUE
-
-	IF SET_GO=FALSE
-		RETURN
-	
-	IF WinExist("BluetoothView") 
-	{
-		SLEEP 1000
-		WinGet, HWND, ID, BluetoothView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
-	}
-	
-	IF WinExist("ahk_class BluetoothLogView")
-	{
-		SLEEP 1000
-		WinGet, HWND, ID, ahk_class BluetoothLogView
-		IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND,800,1)
-	}
-	
-RETURN
-
 
 
 ; -------------------------------------------------------------------
@@ -3032,8 +3149,7 @@ RETURN   ; ----------------------------------------------------------
 SET_GO_4=0
 IF (A_ComputerName="4-ASUS-GL522VW")
 	SET_GO_4=1
-IF (A_ComputerName="7-ASUS-GL522VW")
-	SET_GO_4=1
+
 IF (A_ComputerName="8-MSI-GP62M-7RD")
 	SET_GO_4=1
 
@@ -3047,7 +3163,7 @@ If Not ErrorLevel
 	FN_VAR:="C:\Program Files (x86)\TeamViewer\TeamViewer.exe"
 	if FileExist(FN_VAR)
 	{
-		SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+		; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 		; Run, "%FN_VAR%"
 	}
 	
@@ -3109,7 +3225,7 @@ OUTLOOK_RUN_AND_MIN:
 	RETURN
 	
 	SET_DONE=FALSE
-	IF (A_ComputerName = "7-ASUS-GL522VW") 
+	IF (A_ComputerName = "4-ASUS-GL522VW") 
 	{	
 		Process, Exist, OUTLOOK.EXE		
 		If ErrorLevel=0  ; errorlevel will = 0 if process doesn't exist
@@ -3117,7 +3233,7 @@ OUTLOOK_RUN_AND_MIN:
 			; ahk_class rctrl_renwnd32
 			FN_VAR:="C:\Program Files (x86)\Microsoft Office\Office12\OUTLOOK.EXE"
 			; Run, "%FN_VAR%" ; ,,MIN --- SET MIN AT LOAD RUN DOES NOT WORKK
-			SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			SET_DONE=TRUE
 		}
 	}
@@ -3152,6 +3268,8 @@ RETURN
 
 ;--------------------------------------------------------------------
 RUN_HUBIC:
+; NOT RUN ANYWAY
+RETURN
 ;-------------------------------------------
 ; REQUIRE LITTLE DELAY ON RUN HUBIC
 ; GETS SOME CLASH RUN FROM REGISTRY ALSO RUN
@@ -3176,15 +3294,14 @@ If ErrorLevel ; errorlevel will = 0 if process doesn't exist
 SET_GO_1=FALSE
 IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
 	SET_GO_1=TRUE
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
-	SET_GO_1=TRUE
+
 IF SET_GO_1=TRUE
 {
 	SET_GO_2=80
 	I_COUNT=0
 	LOOP 
 	{
-		; IF (A_ComputerName = "7-ASUS-GL522VW") 
+		; IF (A_ComputerName = "4-ASUS-GL522VW") 
 			; Process_Suspend_esif_assist_64(1)
 		; IF (A_ComputerName = "4-ASUS-GL522VW") 
 			; Process_Suspend_esif_assist_64(1)
@@ -3200,8 +3317,6 @@ SET_GO_1=0
 IF (A_ComputerName="5-ASUS-P2520LA" and A_UserName="MATT 01")
 	SET_GO_1=1
 IF (A_ComputerName="4-ASUS-GL522VW" and A_UserName="MATT 01")
-	SET_GO_1=1
-IF (A_ComputerName="7-ASUS-GL522VW" and A_UserName="MATT 04")
 	SET_GO_1=1
 IF (A_ComputerName="8-MSI-GP62M-7RD" and A_UserName="MATT 01")
 	SET_GO_1=1
@@ -3280,57 +3395,10 @@ RegDelete, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run, hubi
 ; Sun 24-May-2020 13:15:00 -- 5 HOUR 8 MINUTE
 ; -------------------------------------------------------------------
 
-HWND_1=
-FN_VAR_2=
-FN_VAR:="C:\Program Files (x86)\Glarysoft\Software Update 5\Software Update.exe"
-
-if FileExist(FN_VAR)
-	FN_VAR_2:=FN_VAR
-FN_VAR:=StrReplace(FN_VAR, " (x86)\" , "")
-if FileExist(FN_VAR)
-	FN_VAR_2:=FN_VAR
-SplitPath, FN_VAR, OutFILENAME, OutDir, OutExtension, OutNameNoExt, OutDrive
-If ProcessExist(OutFILENAME, A_UserName)=0
-{
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-	Run, %FN_VAR_2% , , HIDE
-	; TAKE A LITTLE WHILE TO START THIS ONE
-	
-	; DetectHiddenWindows, On
-	; WinGet, HWND_1, ID, Software Update ahk_class #32770
-	; IF HWND_1>0
-		; IS_WINDOW_MINIMIZED_THEN_MINIMIZE(HWND_1,1000,1)   ; 0 ---- ONCE TRY
-}
-; -------------------------------------------------------------------
-; -------------------------------------------------------------------
-; Sun 24-May-2020 08:06:45
-; Sun 24-May-2020 13:15:00 -- 5 HOUR 8 MINUTE
-; -------------------------------------------------------------------
-
-
-
-
 
 
 RETURN
 
-
-
-;--------------------------------------------------------------------
-TEST_STARTER_RUN_IN:
-
-; ExitApp
-
-
-
-
-RETURN
-
-
-
-
-
-#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
 
 
 GRAMMARLY_CREATE_SHORTCUT:
@@ -3395,20 +3463,6 @@ IF SET_GO=TRUE
 RETURN
 
 
-
-BRUTE_BOOT_DOWN_AHK_SUB:
-	; IF CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
-	; {
-		; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
-		; if FileExist(FN_VAR)
-			; IF !WinExist(FN_VAR) 
-			; {
-				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-				; Run, "%FN_VAR%"
-			; }
-	; }
-RETURN
-
 KILL_MICROSOFT_EDGE:
 SetTitleMatchMode 2
 IFWinEXIST, Microsoft​ Edge
@@ -3426,8 +3480,8 @@ CLOSE_SOME_LEFT_OVER_WINDOWS:
 	SetTitleMatchMode 3
 	DetectHiddenWindows, OFF
 	
-	COUNT_TICK_TIME=% 1000*60*8
-	; IF OUR SET TIME IS LESS THEN TICK TIME LET IT GO
+	COUNT_TICK_TIME=% 1000*60*17
+	; IF OUR SET TIME IS FIRST 17 MINUTE LESS THEN TICK TIME LET IT GO
 	; ONLY IF BOOT IN EARLY
 	;-------------------------------------------------
 	LOOP
@@ -3437,11 +3491,13 @@ CLOSE_SOME_LEFT_OVER_WINDOWS:
 			SET_GO=TRUE
 		IF COUNT_TICK_TIME>%A_TICKCOUNT%
 			SET_GO=TRUE
+		
 		IF CLOSE_SOME_LEFT_OVER_WINDOWS_VAR=TRUE
 			SET_GO=TRUE
 
 		BOXSYNC:="C:\Program Files\Box\Box Sync\BoxSyncMonitor.exe ahk_class"
 		LOGIOPTIONS:="C:\ProgramData\Logishrd\LogiOptions\Software\Current\laclient\laclient.exe ahk_class ConsoleWindowClass"
+		LOGIOPTIONS:="laclient.exe ahk_class ConsoleWindowClass"
 		
 		IF SET_GO=TRUE
 		{
@@ -3453,25 +3509,31 @@ CLOSE_SOME_LEFT_OVER_WINDOWS:
 			
 			IFWinEXIST, %LOGIOPTIONS%
 			{
+				MSGBOX "HERE01"
 				WINCLOSE
 				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 			}
 			
-			;IFWinEXIST, C:\ProgramData\Logishrd\LogiOptions\Software\Current\laclient\laclient.exe ahk_class ConsoleWindowClass
-			;{
-			;	WinGet, HWND, ID, C:\ProgramData\Logishrd\LogiOptions\Software\Current\laclient\laclient.exe ahk_class ConsoleWindowClass
-			;	WinGet, PID_VAR, PID, ahk_id %HWND%
-			;	Process, Close, %PID_VAR%
+			
+			SetTitleMatchMode 2
+			
+			IFWinEXIST, FFFFlaclient.exe ahk_class ConsoleWindowClass
+			{
+				MSGBOX "HERE02"
+				WinGet, HWND, ID, laclient.exe ahk_class ConsoleWindowClass
+				WinGet, PID_VAR, PID, ahk_id %HWND%
+				Process, Close, %PID_VAR%
 
-			;	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
-			;}
+				SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+			}
 			
 		}
 		SET_GO=FALSE
 		IFWinEXIST, %BOXSYNC%
-		SET_GO=TRUE
+			SET_GO=TRUE
 		IFWinEXIST, %LOGIOPTIONS%
-		SET_GO=TRUE
+			SET_GO=TRUE
+		
 		IF SET_GO=FALSE 
 			BREAK
 		IF COUNT_TICK_TIME>%A_TICKCOUNT%
@@ -3481,6 +3543,10 @@ RETURN
 
 
 POWERSHELL:
+
+
+	; NOT SURE
+	RETURN
 
 	IF (A_ComputerName = "1-ASUS-X5DIJ") 
 		RETURN
@@ -3509,6 +3575,46 @@ POWERSHELL:
 	;powershell -noexit -executionpolicy bypass -File "C:\SCRIPTER\SCRIPTER CODE -- POWERSHELL\PS 01 - WINRM QUICKCONFIG.PS1"
 
 RETURN
+
+
+
+
+;--------------------------------------------------------------------
+TEST_STARTER_RUN_IN:
+
+; ExitApp
+
+
+
+
+RETURN
+
+
+
+
+
+
+
+
+#Include C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+
+
+
+
+
+BRUTE_BOOT_DOWN_AHK_SUB:
+	; IF CODE_RUN_FOR_BRUTE_BOOT_DOWN_AHK=TRUE
+	; {
+		; FN_VAR:="C:\SCRIPTER\SCRIPTER CODE -- AUTOHOTKEY\Autokey -- 32-BRUTE BOOT DOWN.ahk"
+		; if FileExist(FN_VAR)
+			; IF !WinExist(FN_VAR) 
+			; {
+				; SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
+				; Run, "%FN_VAR%"
+			; }
+	; }
+RETURN
+
 
 ;--------------------------------------------------------------------
 ; FUNCTION SET 
@@ -3640,6 +3746,8 @@ if ScriptInstanceExist()
 	Exitapp
 }
 return
+
+
 
 ScriptInstanceExist() {
 	static title := " - AutoHotkey v" A_AhkVersion

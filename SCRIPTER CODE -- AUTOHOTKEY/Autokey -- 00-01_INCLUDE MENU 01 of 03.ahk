@@ -255,6 +255,10 @@ if A_ThisMenuItem=RELOAD    ALL NET - VB CODE.exe
 ; ---------------------------------------------------------------
 if A_ThisMenuItem=TERMINATE ALL NET - VB CODE.exe
 {
+	; ------------------------------------------------------
+	; IT'S IN THIS LITTLE BUGGER
+	; Autokey -- 00-03_INCLUDE MENU 03 of 03.ahk
+	; ------------------------------------------------------
 	GOSUB RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_02_OF_04
 }
 
