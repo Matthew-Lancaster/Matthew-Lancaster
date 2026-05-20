@@ -128,9 +128,6 @@ GOTO JUMPER_10
 
 
 
-GOTO JUMPER_OVER_WORK_BEING_MASTER
-
-GOTO JUMPER_REFEREANCES_SOURCER__TEXT_@REMMER_
 	
 @REM EXAMPLE OF AN ESCAPE CHARATOR NOT WORKING WHEN PASS VARIABLE
 @REM THE ONLY ESCAPE CHARATOR I GOT THAT HAS A PROBLEM __'__
@@ -143,6 +140,16 @@ GOTO JUMPER_REFEREANCES_SOURCER__TEXT_@REMMER_
 @SET WORD_REPLACE=/'
 CALL @SET TSK_SCRIPTOR_NAME_=%%TSK_SCRIPTOR_NAME_:%WORD_REPLACE%=%WORD_REPLACE%%%
 @ECHO %TSK_SCRIPTOR_NAME_%
+
+
+
+GOTO JUMPER_OVER_WORK_BEING_MASTER
+
+GOTO JUMPER_REFEREANCES_SOURCER__TEXT_@REMMER_
+
+
+
+
 
 @REM ----------------------------------------------------------------------------
 @REM EXAMPLE OF STACKOVERFLOW GIVEN COULD OF BEEN MORE SIMPLE 
@@ -371,6 +378,11 @@ GOTO JUMP_OVER_UPDATE_STOPPER
 @IF NOT "%WIN10__%"=="YES" GOTO JUMP_NOT_WINDOWS_10
 @IF %COMPUTERNAME%==7-ASUS-GL522VW      GOTO JUMP_NOT_MATTHEW_S_COMPUTER
 @IF NOT "%MATTHEW_S_COMPUTER__%"=="YES" GOTO JUMP_NOT_MATTHEW_S_COMPUTER
+
+@IF %COMPUTERNAME%==9-ASUS-G815LM    GOTO ENDER_DONT_RUN_NOTHING_COMPUTERNAME__9_ASUS_G815LM 
+
+
+
 @REM -----------------------------------------------------------------
 @REM -----------------------------------------------------------------
 @REM -----------------------------------------------------------------
@@ -386,8 +398,12 @@ GOTO JUMP_OVER_UPDATE_STOPPER
 @REM __ PROPER WAY __ SERVICING
 @REM __ WINDOWS UPDATE SERVICE__
 
-NET STOP WUAUSERV
-SC CONFIG WUAUSERV START= DISABLED
+
+@REM -----------------------------------------------------------------
+@REM -- REMOVE 2026 MAY
+@REM NET STOP WUAUSERV
+@REM SC CONFIG WUAUSERV START= DISABLED
+@REM -----------------------------------------------------------------
 
 @REM __ SC CONFIG WUAUSERV START= DEMAND
 
@@ -399,7 +415,10 @@ SC CONFIG WUAUSERV START= DISABLED
 @REM PART 2 OF 3
 @REM -----------------------------------------------------------------
 @REM LOCATE THE BATCH FILE IN THE SAME DIRECTORY
-CALL "%~dp0BAT 11-RESET WINDOWS UPDATE VER 10.BAT" /QUIET
+@REM ----------------------------------------------------------------
+@REM -- REMOVER 2026 MAY
+@REM CALL "%~dp0BAT 11-RESET WINDOWS UPDATE VER 10.BAT" /QUIET
+@REM ----------------------------------------------------------------
 
 @REM -----------------------------------------------------------------
 @REM -----------------------------------------------------------------
@@ -535,7 +554,8 @@ schtasks /CREATE /RU "MATT 01" /RP " " /TN "\SYSTEM STARTER.BAT" /TR "C:\24_SYST
 @schtasks /QUERY /TN "\SYSTEM_DELAYED_LOADER.EXE" | find "ERROR: The system cannot find the file spec@IFied." > nul
 @IF NOT %errorlevel% EQU 0 GOTO NOT
 @REM --------------------------
-schtasks /CREATE /RU "MATT 01" /RP " " /TN "\SYSTEM_DELAYED_LOADER.EXE" /TR "D:\VB6\VB-NT\00_Best_VB_01\DELAYED_LOADER\SYSTEM_DELAYED_LOADER.exe" /SC ONLOGON /RL HIGHEST /F
+REM REMOVE 2026 MAY
+REM schtasks /CREATE /RU "MATT 01" /RP " " /TN "\SYSTEM_DELAYED_LOADER.EXE" /TR "D:\VB6\VB-NT\00_Best_VB_01\DELAYED_LOADER\SYSTEM_DELAYED_LOADER.exe" /SC ONLOGON /RL HIGHEST /F
 @REM --------------------------
 :NOT
 
@@ -2471,7 +2491,7 @@ GOTO JUMPER_TEXT_ABOUT_WINDOW_UPDATE
 @REM ----------------------------------------------------------------
 @REM NOT SURE 2 PROCESS SUPPOSED TO KILL THEM -- ONLY CLOSE DOS CMD.COM APP
 @REM ----------------------------------------------------------------
-TASKKILL /F /IM laclient.exe /T
+REM TASKKILL /F /IM laclient.exe /T
 
 
 
@@ -2839,9 +2859,9 @@ TASKKILL /F /FI "SERVICES eq SkypeUpdate"
 @ECHO -------------------------------------------------------------------
 @ECHO -------------------------------------------------------------------
 @ECHO.
-NET STOP LBTServ
-SC CONFIG LBTServ START= DISABLED
-TASKKILL /F /FI "SERVICES eq LBTServ"
+REM NET STOP LBTServ
+REM SC CONFIG LBTServ START= DISABLED
+REM TASKKILL /F /FI "SERVICES eq LBTServ"
 @ECHO.
 @ECHO -------------------------------------------------------------------
 @ECHO -------------------------------------------------------------------
@@ -2933,12 +2953,14 @@ TASKKILL /F /FI "SERVICES eq BDESVC"
 @ECHO -------------------------------------------------------------------
 @ECHO.
 
-
-
 @REM   ------------------------------------
 @REM   ------------------------------------WINDOWS 7 ASUS-P2520LA
 @REM   ------------------------------------ ABOVE BLOCK 
 @REM   ------------------------------------
+
+
+
+
 @REM   ------------------------------------------------------------------------
 @REM   -- 
 @REM   ------------------------------------------------------------------------
@@ -4143,6 +4165,8 @@ FOR /L %%# IN (40,-1,1) DO (SET/P "=Script will end in %%# seconds. !CR!"<NUL:
 )
 
 :VERY_ENDER_BLOCK
+
+:ENDER_DONT_RUN_NOTHING_COMPUTERNAME__9_ASUS_G815LM
 
 :JUMPER_END_E
 :ENDE

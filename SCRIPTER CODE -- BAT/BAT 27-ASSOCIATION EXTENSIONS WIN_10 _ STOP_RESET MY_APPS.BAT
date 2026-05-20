@@ -5,6 +5,9 @@
 @REM ----------------------------------------------------------------
 
 TITLE %~f0
+
+@IF %COMPUTERNAME%==9-ASUS-G815LM    GOTO ENDER_DONT_RUN_NOTHING_COMPUTERNAME__9_ASUS_G815LM 
+
 @CD\
 @REM ----------------------------------------------------------------
 @REM __ MATTHEW LANCASTER 
@@ -136,3 +139,4 @@ Reg.exe add "HKCU\Software\Classes\Applications\notepad.exe" /f
 
 IF "%1"=="" PAUSE
 
+:ENDER_DONT_RUN_NOTHING_COMPUTERNAME__9_ASUS_G815LM 

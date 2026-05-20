@@ -16,7 +16,7 @@ Sub NPN()
             If InStr(Gcw$, "Login - BT Yahoo!") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "linda.lancaster@btinternet.com{tab}", 0
+                SendKeys "linda.lancaster@****tab}", 0
                 SendKeys "{enter}", 0
                 ExeGo = True
                 
@@ -29,7 +29,7 @@ Sub NPN()
             If InStr(Gcw$, "Login - BT Yahoo!") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "edward.lancaster@btinternet.com{tab}", 0
+                SendKeys "edward.lancaster@****{tab}", 0
                 SendKeys "{enter}", 0
                 ExeGo = True
             

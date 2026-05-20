@@ -1093,7 +1093,7 @@ If dks = 1 And 1 = 2 Then
             If InStr(Gcw$, "Login - BT Yahoo!") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "linda.lancaster@btinternet.com{tab}", 0
+                SendKeys "linda.lancaster@****{tab}", 0
                 SendKeys "{enter}", 0
                 ExeGo = True
                 
@@ -1106,7 +1106,7 @@ If dks = 1 And 1 = 2 Then
             If InStr(Gcw$, "Login - BT Yahoo!") > 0 Then xxz = 1
             If xxz = 1 Then
                 xsop = 1
-                SendKeys "edward.lancaster@btinternet.com{tab}", 0
+                SendKeys "edward.lancaster@****{tab}", 0
                 SendKeys "{enter}", 0
                 ExeGo = True
             
@@ -1169,7 +1169,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "https://www.google.com/alerts/signin?hl=en"
   
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            SendKeys "rub.rim@googlemail.com{tab}", 0
+            SendKeys "rub.rim@****{tab}", 0
             SendKeys "{enter}", 0
             ExeGo = True
             
@@ -1322,7 +1322,7 @@ If dks = 1 And 1 = 2 Then
             If dse = 0 Then
                 SendKeys "^f", True
                 SendKeys "matt.lan@btinternet.com", True
-                SendKeys "%fl", True
+                SendKeys "****", True
                 SendKeys "{up}", True
                 ExeGo = True
             
@@ -1352,7 +1352,7 @@ If dks = 1 And 1 = 2 Then
             On Local Error GoTo 0
   
             If dse = 0 Then
-                SendKeys "%ey", True
+                SendKeys "****", True
                 SendKeys "y", True
                 ExeGo = True
                 
@@ -1369,9 +1369,6 @@ If dks = 1 And 1 = 2 Then
             On Local Error Resume Next
             AppActivate "Alt.Philo - Outlook Express", 0
             qq1 = Err.Number
-            Err.Clear
-            AppActivate "Rub Rim - Outlook Express", 0
-            qq2 = Err.Number
             Err.Clear
             AppActivate "00 Alt.SZ - Outlook Express", 0
             qq3 = Err.Number
@@ -1405,7 +1402,7 @@ If dks = 1 And 1 = 2 Then
         If InStr(ash$, DF$) > 0 Then easy5 = True
         
         If easy5 = True Then
-            SendKeys "EricK700iMatt", True
+            SendKeys "****", True
             SendKeys "{tab}", True
             Sleep 100
             SendKeys "{tab}", True
@@ -1423,7 +1420,7 @@ If dks = 1 And 1 = 2 Then
             SendKeys "MatthewL2005", True
             SendKeys "{tab}", 0
             
-            SendKeys "mattyl2006"
+            SendKeys "****"
             ExeGo = True
             
             Exit Sub
@@ -1545,7 +1542,7 @@ If dks = 1 And 1 = 2 Then
         DF$ = "https://www.amazon"
   
         If InStr(URL$, DF$) > 0 And ExeGo = False Then
-            'SendKeys "rub.rim@googlemail.com{tab}", 0
+            'SendKeys "rub.rim@****{tab}", 0
             SendKeys "", 0
             ExeGo = True
             
@@ -1600,7 +1597,7 @@ If dks = 1 And 1 = 2 Then
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then dse = 0
         If dse = 0 And Menu.CheckMumAL.Value = vbUnchecked Then
             'SendKeys "{tab}{tab}{tab}{tab}{tab}{tab}{tab}", 0
-            SendKeys "mattlan2004{tab}", True
+            SendKeys "****{tab}", True
             SendKeys "", True
             ExeGo = True
             
@@ -1608,7 +1605,7 @@ If dks = 1 And 1 = 2 Then
         'Mum hasnt got credit Card Setup
         If dse = 0 And Menu.CheckMumAL.Value = vbChecked Then
             'SendKeys "{tab}{tab}{tab}{tab}{tab}{tab}{tab}", 0
-            SendKeys "mattlan2004{tab}", True
+            SendKeys "****{tab}", True
             SendKeys "", True
             ExeGo = True
             
@@ -1625,7 +1622,7 @@ If dks = 1 And 1 = 2 Then
         
         If InStr(ash$, DF$) > 0 And InStr(URL$, dh$) > 0 Then
         If Menu.CheckMumAL.Value = vbUnchecked Then
-                'SendKeys "4567350003229677{tab}", 0
+                'SendKeys "****{tab}", 0
                 
                 SendKeys "{tab}", 0
                 SendKeys "{tab}", 0
@@ -2056,7 +2053,7 @@ If dks = 1 And 1 = 2 Then
         If InStr(ash$, "MyHostNed") = 1 Then dse = 0
             
         If dse = 0 Then
-            SendKeys "matthewlan{tab}"
+            SendKeys "****{tab}"
             ExeGo = True
             'SendKeys "{tab}"
            ' SendKeys ""

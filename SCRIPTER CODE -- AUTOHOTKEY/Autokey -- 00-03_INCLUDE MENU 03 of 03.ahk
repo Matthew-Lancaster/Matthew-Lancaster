@@ -1430,7 +1430,6 @@ RELOAD_OR_KILL_PATH_ARRAY_SET_NETWORK_ALL_CODE_04_OF_04:
 	; KILL OUR OWN SCRIPTOR - LASTLY
 	; -----------------------------------------------------------
 	Process, Close,% DllCall("GetCurrentProcessId")
-	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 	WINCLOSE % A_ScriptName
 	SOUNDPLAY, %a_scriptDir%\Autokey -- 10-READ MOUSE CURSOR ICON\start.wav
 
