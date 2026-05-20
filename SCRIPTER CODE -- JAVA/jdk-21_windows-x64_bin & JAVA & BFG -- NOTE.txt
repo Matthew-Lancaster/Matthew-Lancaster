@@ -1,0 +1,54 @@
+------------------------------------------------
+Wed 20-May-2026 09:19:34 A
+D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\GITHUB\GITHUB BASH\jdk-21_windows-x64_bin.exe
+D:\#0 1 INSTALLATIONS\00 INSTALLER_SET\# 00 Install Progs\# Installed Now\#00 Paid For\GITHUB\GITHUB BASH\jdk-21_windows-x64_bin.txt
+------------------------------------------------
+
+
+USE THE URL LINKER
+DON'T ATTEMPT TO DOWNLOAD THE LATEST VERSION OF JAVA
+
+STICK WITH 21
+
+OR ELSE CAN'T RUN BFG.JAR
+
+IT SIMPLE TO RUN BFG WITH JAVA
+LOOK
+
+DELETE FILES
+
+"/C/Program Files/Java/latest/jdk-21/bin/java.exe" -jar "/C/SCRIPTER/bfg.jar" --no-blob-protection --delete-files ShortenURL*.*
+
+DELETE FOLDERS
+
+"/C/Program Files/Java/latest/jdk-21/bin/java.exe" -jar "/C/SCRIPTER/bfg.jar" --no-blob-protection --delete-folders *USERSTYLES*
+
+AND THEN RUN THIS LINE IT TELLS YOU AFTER YOU DONE HER
+
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+
+
+----------------------------------------
+HERE THE LINK URL FOR JAVA MUST BE THIS VERSION
+21
+----------------------------------------
+Java Downloads | Oracle
+----------------------------------------
+https://www.oracle.com/java/technologies/downloads/#java21
+----------------------------------------
+
+----------------------------------------
+HERE THE LINK FOR BFG
+----------------------------------------
+BFG Repo-Cleaner by rtyley
+----------------------------------------
+https://rtyley.github.io/bfg-repo-cleaner/
+----------------------------------------
+
+
+
+
+
+
+
+
